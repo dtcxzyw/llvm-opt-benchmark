@@ -8378,4265 +8378,4266 @@ define dso_local void @_ZN3tev11ImageViewerC2ERKNSt3__110shared_ptrINS_22Backgro
   %298 = load i8, ptr %95, align 1
   %299 = trunc i8 %298 to i1
   invoke void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEbbbbbbjj(ptr noundef nonnull align 16 dereferenceable(384) %295, ptr noundef nonnull align 4 dereferenceable(8) %97, ptr noundef nonnull align 8 dereferenceable(24) %98, i1 noundef zeroext true, i1 noundef zeroext %297, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext %299, i32 noundef 3, i32 noundef 2)
-          to label %300 unwind label %335
+          to label %300 unwind label %336
 
 300:                                              ; preds = %5
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #11
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3tev11ImageViewerE, i32 0, i32 0, i32 2), ptr %295, align 16
-  %301 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 1
-  call void @_ZN3tev11SharedQueueINSt3__18functionIFvvEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %301) #11
-  %302 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 2
-  store i8 1, ptr %302, align 8
-  %303 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 3
-  store i8 1, ptr %303, align 1
-  %304 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 10
-  store i8 0, ptr %304, align 8
-  %305 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 20
-  %306 = load ptr, ptr %93, align 8
-  call void @_ZNSt3__110shared_ptrIN3tev22BackgroundImagesLoaderEEC2B8ne190000ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %305, ptr noundef nonnull align 8 dereferenceable(16) %306) #11
-  %307 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 21
-  call void @_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %307) #11
-  %308 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 22
+  %301 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN3tev11ImageViewerE, i32 0, i32 0, i32 2
+  store ptr %301, ptr %295, align 16
+  %302 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 1
+  call void @_ZN3tev11SharedQueueINSt3__18functionIFvvEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %302) #11
+  %303 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 2
+  store i8 1, ptr %303, align 8
+  %304 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 3
+  store i8 1, ptr %304, align 1
+  %305 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 10
+  store i8 0, ptr %305, align 8
+  %306 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 20
+  %307 = load ptr, ptr %93, align 8
+  call void @_ZNSt3__110shared_ptrIN3tev22BackgroundImagesLoaderEEC2B8ne190000ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %306, ptr noundef nonnull align 8 dereferenceable(16) %307) #11
+  %308 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 21
   call void @_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %308) #11
-  %309 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 23
-  call void @_ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %309) #11
-  %310 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 25
-  call void @_ZNSt3__13setINS_10shared_ptrIN3tev5ImageEEENS_4lessIS4_EENS_9allocatorIS4_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %310) #11
-  %311 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 29
-  invoke void @_ZNSt3__16chrono10time_pointINS0_12steady_clockENS0_8durationIxNS_5ratioILl1ELl1000000000EEEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %311)
-          to label %312 unwind label %339
+  %309 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 22
+  call void @_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %309) #11
+  %310 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 23
+  call void @_ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %310) #11
+  %311 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 25
+  call void @_ZNSt3__13setINS_10shared_ptrIN3tev5ImageEEENS_4lessIS4_EENS_9allocatorIS4_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %311) #11
+  %312 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 29
+  invoke void @_ZNSt3__16chrono10time_pointINS0_12steady_clockENS0_8durationIxNS_5ratioILl1ELl1000000000EEEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %312)
+          to label %313 unwind label %340
 
-312:                                              ; preds = %300
-  %313 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
-  call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %313) #11
-  %314 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 31
+313:                                              ; preds = %300
+  %314 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
   call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %314) #11
-  %315 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 34
-  invoke void @_ZNSt3__16chrono10time_pointINS0_12steady_clockENS0_8durationIxNS_5ratioILl1ELl1000000000EEEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %315)
-          to label %316 unwind label %343
+  %315 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 31
+  call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %315) #11
+  %316 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 34
+  invoke void @_ZNSt3__16chrono10time_pointINS0_12steady_clockENS0_8durationIxNS_5ratioILl1ELl1000000000EEEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %316)
+          to label %317 unwind label %344
 
-316:                                              ; preds = %312
-  %317 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 40
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %317) #11
-  %318 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 41
-  store ptr null, ptr %318, align 16
-  %319 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 42
-  invoke void @_ZN7nanogui5ArrayIiLm2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %319)
-          to label %320 unwind label %347
+317:                                              ; preds = %313
+  %318 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 40
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %318) #11
+  %319 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 41
+  store ptr null, ptr %319, align 16
+  %320 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 42
+  invoke void @_ZN7nanogui5ArrayIiLm2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %320)
+          to label %321 unwind label %348
 
-320:                                              ; preds = %316
-  %321 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 43
-  store i32 0, ptr %321, align 16
-  %322 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 46
-  store i64 0, ptr %322, align 16
-  %323 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 47
-  store i8 0, ptr %323, align 8
-  %324 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 50
-  store i32 0, ptr %324, align 8
-  %325 = load i8, ptr %95, align 1
-  %326 = trunc i8 %325 to i1
-  br i1 %326, label %327, label %355
+321:                                              ; preds = %317
+  %322 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 43
+  store i32 0, ptr %322, align 16
+  %323 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 46
+  store i64 0, ptr %323, align 16
+  %324 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 47
+  store i8 0, ptr %324, align 8
+  %325 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 50
+  store i32 0, ptr %325, align 8
+  %326 = load i8, ptr %95, align 1
+  %327 = trunc i8 %326 to i1
+  br i1 %327, label %328, label %356
 
-327:                                              ; preds = %320
-  %328 = getelementptr inbounds %"class.nanogui::Screen", ptr %295, i32 0, i32 21
-  %329 = load i8, ptr %328, align 4
-  %330 = trunc i8 %329 to i1
-  br i1 %330, label %355, label %331
+328:                                              ; preds = %321
+  %329 = getelementptr inbounds %"class.nanogui::Screen", ptr %295, i32 0, i32 21
+  %330 = load i8, ptr %329, align 4
+  %331 = trunc i8 %330 to i1
+  br i1 %331, label %356, label %332
 
-331:                                              ; preds = %327
+332:                                              ; preds = %328
   invoke void @_ZN4tlog7warningEv(ptr dead_on_unwind writable sret(%"class.tlog::Stream") align 8 %101)
-          to label %332 unwind label %347
+          to label %333 unwind label %348
 
-332:                                              ; preds = %331
-  %333 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4tlog6StreamlsIA46_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 1 dereferenceable(46) @.str.3)
-          to label %334 unwind label %351
+333:                                              ; preds = %332
+  %334 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4tlog6StreamlsIA46_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 1 dereferenceable(46) @.str.3)
+          to label %335 unwind label %352
 
-334:                                              ; preds = %332
+335:                                              ; preds = %333
   call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #11
-  br label %355
+  br label %356
 
-335:                                              ; preds = %5
-  %336 = landingpad { ptr, i32 }
+336:                                              ; preds = %5
+  %337 = landingpad { ptr, i32 }
           cleanup
-  %337 = extractvalue { ptr, i32 } %336, 0
-  store ptr %337, ptr %99, align 8
-  %338 = extractvalue { ptr, i32 } %336, 1
-  store i32 %338, ptr %100, align 4
+  %338 = extractvalue { ptr, i32 } %337, 0
+  store ptr %338, ptr %99, align 8
+  %339 = extractvalue { ptr, i32 } %337, 1
+  store i32 %339, ptr %100, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #11
+  br label %2043
+
+340:                                              ; preds = %300
+  %341 = landingpad { ptr, i32 }
+          cleanup
+  %342 = extractvalue { ptr, i32 } %341, 0
+  store ptr %342, ptr %99, align 8
+  %343 = extractvalue { ptr, i32 } %341, 1
+  store i32 %343, ptr %100, align 4
   br label %2042
 
-339:                                              ; preds = %300
-  %340 = landingpad { ptr, i32 }
+344:                                              ; preds = %313
+  %345 = landingpad { ptr, i32 }
           cleanup
-  %341 = extractvalue { ptr, i32 } %340, 0
-  store ptr %341, ptr %99, align 8
-  %342 = extractvalue { ptr, i32 } %340, 1
-  store i32 %342, ptr %100, align 4
+  %346 = extractvalue { ptr, i32 } %345, 0
+  store ptr %346, ptr %99, align 8
+  %347 = extractvalue { ptr, i32 } %345, 1
+  store i32 %347, ptr %100, align 4
   br label %2041
 
-343:                                              ; preds = %312
-  %344 = landingpad { ptr, i32 }
+348:                                              ; preds = %2038, %1550, %1549, %1539, %1536, %1533, %1530, %1529, %1523, %1517, %1512, %1511, %1505, %1500, %1499, %1493, %1488, %1487, %1480, %1475, %1473, %1468, %1429, %1422, %1418, %1414, %1375, %1333, %1291, %1250, %1249, %1245, %1240, %1237, %1234, %1231, %1228, %1224, %1219, %1215, %1205, %1195, %1188, %1184, %1178, %1177, %1173, %1168, %1161, %1158, %1155, %1152, %1147, %1142, %1133, %1106, %1102, %1095, %1092, %1088, %1083, %1082, %1078, %1072, %1067, %1066, %1062, %1057, %1054, %1048, %1047, %1043, %1038, %1036, %1031, %1027, %1026, %1019, %1012, %1005, %998, %990, %989, %983, %978, %974, %973, %966, %959, %952, %944, %943, %937, %932, %922, %920, %914, %911, %907, %901, %900, %896, %882, %876, %875, %871, %868, %865, %863, %861, %856, %612, %608, %601, %597, %592, %580, %569, %568, %560, %555, %552, %551, %544, %539, %534, %528, %527, %520, %515, %510, %504, %503, %499, %494, %491, %490, %483, %478, %473, %467, %466, %462, %457, %454, %448, %447, %443, %437, %431, %430, %424, %420, %417, %413, %410, %402, %397, %392, %388, %384, %383, %379, %374, %373, %367, %363, %362, %356, %332, %317
+  %349 = landingpad { ptr, i32 }
           cleanup
-  %345 = extractvalue { ptr, i32 } %344, 0
-  store ptr %345, ptr %99, align 8
-  %346 = extractvalue { ptr, i32 } %344, 1
-  store i32 %346, ptr %100, align 4
+  %350 = extractvalue { ptr, i32 } %349, 0
+  store ptr %350, ptr %99, align 8
+  %351 = extractvalue { ptr, i32 } %349, 1
+  store i32 %351, ptr %100, align 4
   br label %2040
 
-347:                                              ; preds = %2037, %1549, %1548, %1538, %1535, %1532, %1529, %1528, %1522, %1516, %1511, %1510, %1504, %1499, %1498, %1492, %1487, %1486, %1479, %1474, %1472, %1467, %1428, %1421, %1417, %1413, %1374, %1332, %1290, %1249, %1248, %1244, %1239, %1236, %1233, %1230, %1227, %1223, %1218, %1214, %1204, %1194, %1187, %1183, %1177, %1176, %1172, %1167, %1160, %1157, %1154, %1151, %1146, %1141, %1132, %1105, %1101, %1094, %1091, %1087, %1082, %1081, %1077, %1071, %1066, %1065, %1061, %1056, %1053, %1047, %1046, %1042, %1037, %1035, %1030, %1026, %1025, %1018, %1011, %1004, %997, %989, %988, %982, %977, %973, %972, %965, %958, %951, %943, %942, %936, %931, %921, %919, %913, %910, %906, %900, %899, %895, %881, %875, %874, %870, %867, %864, %862, %860, %855, %611, %607, %600, %596, %591, %579, %568, %567, %559, %554, %551, %550, %543, %538, %533, %527, %526, %519, %514, %509, %503, %502, %498, %493, %490, %489, %482, %477, %472, %466, %465, %461, %456, %453, %447, %446, %442, %436, %430, %429, %423, %419, %416, %412, %409, %401, %396, %391, %387, %383, %382, %378, %373, %372, %366, %362, %361, %355, %331, %316
-  %348 = landingpad { ptr, i32 }
+352:                                              ; preds = %333
+  %353 = landingpad { ptr, i32 }
           cleanup
-  %349 = extractvalue { ptr, i32 } %348, 0
-  store ptr %349, ptr %99, align 8
-  %350 = extractvalue { ptr, i32 } %348, 1
-  store i32 %350, ptr %100, align 4
-  br label %2039
-
-351:                                              ; preds = %332
-  %352 = landingpad { ptr, i32 }
-          cleanup
-  %353 = extractvalue { ptr, i32 } %352, 0
-  store ptr %353, ptr %99, align 8
-  %354 = extractvalue { ptr, i32 } %352, 1
-  store i32 %354, ptr %100, align 4
+  %354 = extractvalue { ptr, i32 } %353, 0
+  store ptr %354, ptr %99, align 8
+  %355 = extractvalue { ptr, i32 } %353, 1
+  store i32 %355, ptr %100, align 4
   call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #11
-  br label %2039
+  br label %2040
 
-355:                                              ; preds = %334, %327, %320
-  %356 = getelementptr inbounds %"class.nanogui::Screen", ptr %295, i32 0, i32 21
-  %357 = load i8, ptr %356, align 4
-  %358 = trunc i8 %357 to i1
-  %359 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 47
-  %360 = zext i1 %358 to i8
-  store i8 %360, ptr %359, align 8
+356:                                              ; preds = %335, %328, %321
+  %357 = getelementptr inbounds %"class.nanogui::Screen", ptr %295, i32 0, i32 21
+  %358 = load i8, ptr %357, align 4
+  %359 = trunc i8 %358 to i1
+  %360 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 47
+  %361 = zext i1 %359 to i8
+  store i8 %361, ptr %360, align 8
   invoke void @_ZN3tev13toggleConsoleEv()
-          to label %361 unwind label %347
+          to label %362 unwind label %348
 
-361:                                              ; preds = %355
+362:                                              ; preds = %356
   invoke void @_ZN7nanogui5ColorC2Eff(ptr noundef nonnull align 4 dereferenceable(16) %102, float noundef 0x3FCD70A3E0000000, float noundef 1.000000e+00)
-          to label %362 unwind label %347
+          to label %363 unwind label %348
 
-362:                                              ; preds = %361
-  %363 = getelementptr inbounds %"class.nanogui::Screen", ptr %295, i32 0, i32 15
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %363, ptr align 4 %102, i64 16, i1 false)
-  %364 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %365 unwind label %347
+363:                                              ; preds = %362
+  %364 = getelementptr inbounds %"class.nanogui::Screen", ptr %295, i32 0, i32 15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %364, ptr align 4 %102, i64 16, i1 false)
+  %365 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %366 unwind label %348
 
-365:                                              ; preds = %362
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %364, ptr noundef %295)
-          to label %366 unwind label %615
+366:                                              ; preds = %363
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %365, ptr noundef %295)
+          to label %367 unwind label %616
 
-366:                                              ; preds = %365
-  %367 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 5
-  store ptr %364, ptr %367, align 16
+367:                                              ; preds = %366
   %368 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 5
-  %369 = load ptr, ptr %368, align 16
-  %370 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %371 unwind label %347
+  store ptr %365, ptr %368, align 16
+  %369 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 5
+  %370 = load ptr, ptr %369, align 16
+  %371 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %372 unwind label %348
 
-371:                                              ; preds = %366
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %370, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
-          to label %372 unwind label %619
-
-372:                                              ; preds = %371
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %369, ptr noundef %370)
-          to label %373 unwind label %347
+372:                                              ; preds = %367
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %371, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
+          to label %373 unwind label %620
 
 373:                                              ; preds = %372
-  %374 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %375 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %370, ptr noundef %371)
+          to label %374 unwind label %348
 
-375:                                              ; preds = %373
-  %376 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 5
-  %377 = load ptr, ptr %376, align 16
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %374, ptr noundef %377)
-          to label %378 unwind label %623
+374:                                              ; preds = %373
+  %375 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %376 unwind label %348
 
-378:                                              ; preds = %375
-  store ptr %374, ptr %103, align 8
-  %379 = load ptr, ptr %103, align 8
-  %380 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %381 unwind label %347
+376:                                              ; preds = %374
+  %377 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 5
+  %378 = load ptr, ptr %377, align 16
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %375, ptr noundef %378)
+          to label %379 unwind label %624
 
-381:                                              ; preds = %378
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %380, i32 noundef 0, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
-          to label %382 unwind label %627
+379:                                              ; preds = %376
+  store ptr %375, ptr %103, align 8
+  %380 = load ptr, ptr %103, align 8
+  %381 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %382 unwind label %348
 
-382:                                              ; preds = %381
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %379, ptr noundef %380)
-          to label %383 unwind label %347
+382:                                              ; preds = %379
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %381, i32 noundef 0, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
+          to label %383 unwind label %628
 
 383:                                              ; preds = %382
-  %384 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #24
-          to label %385 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %380, ptr noundef %381)
+          to label %384 unwind label %348
 
-385:                                              ; preds = %383
-  %386 = load ptr, ptr %103, align 8
-  invoke void @_ZN7nanogui12VScrollPanelC1EPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(141) %384, ptr noundef %386)
-          to label %387 unwind label %631
+384:                                              ; preds = %383
+  %385 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #24
+          to label %386 unwind label %348
 
-387:                                              ; preds = %385
-  %388 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 6
-  store ptr %384, ptr %388, align 8
+386:                                              ; preds = %384
+  %387 = load ptr, ptr %103, align 8
+  invoke void @_ZN7nanogui12VScrollPanelC1EPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(141) %385, ptr noundef %387)
+          to label %388 unwind label %632
+
+388:                                              ; preds = %386
   %389 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 6
-  %390 = load ptr, ptr %389, align 8
-  invoke void @_ZN7nanogui6Widget15set_fixed_widthEi(ptr noundef nonnull align 8 dereferenceable(132) %390, i32 noundef 230)
-          to label %391 unwind label %347
+  store ptr %385, ptr %389, align 8
+  %390 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 6
+  %391 = load ptr, ptr %390, align 8
+  invoke void @_ZN7nanogui6Widget15set_fixed_widthEi(ptr noundef nonnull align 8 dereferenceable(132) %391, i32 noundef 230)
+          to label %392 unwind label %348
 
-391:                                              ; preds = %387
-  %392 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %393 unwind label %347
+392:                                              ; preds = %388
+  %393 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %394 unwind label %348
 
-393:                                              ; preds = %391
-  %394 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 6
-  %395 = load ptr, ptr %394, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %392, ptr noundef %395)
-          to label %396 unwind label %635
+394:                                              ; preds = %392
+  %395 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 6
+  %396 = load ptr, ptr %395, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %393, ptr noundef %396)
+          to label %397 unwind label %636
 
-396:                                              ; preds = %393
-  store ptr %392, ptr %104, align 8
-  %397 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #24
-          to label %398 unwind label %347
+397:                                              ; preds = %394
+  store ptr %393, ptr %104, align 8
+  %398 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #24
+          to label %399 unwind label %348
 
-398:                                              ; preds = %396
+399:                                              ; preds = %397
   store i1 true, ptr %106, align 1
-  %399 = load ptr, ptr %104, align 8
+  %400 = load ptr, ptr %104, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef @.str.4)
-          to label %400 unwind label %639
+          to label %401 unwind label %640
 
-400:                                              ; preds = %398
-  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEi(ptr noundef nonnull align 16 dereferenceable(328) %397, ptr noundef %399, ptr noundef nonnull align 8 dereferenceable(24) %105, i32 noundef 61736)
-          to label %401 unwind label %643
+401:                                              ; preds = %399
+  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEi(ptr noundef nonnull align 16 dereferenceable(328) %398, ptr noundef %400, ptr noundef nonnull align 8 dereferenceable(24) %105, i32 noundef 61736)
+          to label %402 unwind label %644
 
-401:                                              ; preds = %400
+402:                                              ; preds = %401
   store i1 false, ptr %106, align 1
-  %402 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
-  store ptr %397, ptr %402, align 16
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #11
   %403 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
-  %404 = load ptr, ptr %403, align 16
-  %405 = getelementptr inbounds %class.anon, ptr %108, i32 0, i32 0
-  store ptr %295, ptr %405, align 8
+  store ptr %398, ptr %403, align 16
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #11
+  %404 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
+  %405 = load ptr, ptr %404, align 16
   %406 = getelementptr inbounds %class.anon, ptr %108, i32 0, i32 0
-  %407 = load ptr, ptr %406, align 8
-  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_0vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %107, ptr %407)
-          to label %408 unwind label %347
+  store ptr %295, ptr %406, align 8
+  %407 = getelementptr inbounds %class.anon, ptr %108, i32 0, i32 0
+  %408 = load ptr, ptr %407, align 8
+  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_0vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %107, ptr %408)
+          to label %409 unwind label %348
 
-408:                                              ; preds = %401
-  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %404, ptr noundef nonnull align 16 dereferenceable(48) %107)
-          to label %409 unwind label %651
+409:                                              ; preds = %402
+  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %405, ptr noundef nonnull align 16 dereferenceable(48) %107)
+          to label %410 unwind label %652
 
-409:                                              ; preds = %408
+410:                                              ; preds = %409
   call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %107) #11
-  %410 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
-  %411 = load ptr, ptr %410, align 16
-  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(132) %411, i32 noundef 15)
-          to label %412 unwind label %347
+  %411 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
+  %412 = load ptr, ptr %411, align 16
+  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(132) %412, i32 noundef 15)
+          to label %413 unwind label %348
 
-412:                                              ; preds = %409
-  %413 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
-  %414 = load ptr, ptr %413, align 16
+413:                                              ; preds = %410
+  %414 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
+  %415 = load ptr, ptr %414, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef @.str.5)
-          to label %415 unwind label %347
+          to label %416 unwind label %348
 
-415:                                              ; preds = %412
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %414, ptr noundef nonnull align 8 dereferenceable(24) %109)
-          to label %416 unwind label %655
+416:                                              ; preds = %413
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %415, ptr noundef nonnull align 8 dereferenceable(24) %109)
+          to label %417 unwind label %656
 
-416:                                              ; preds = %415
+417:                                              ; preds = %416
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #11
-  %417 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
-  %418 = load ptr, ptr %417, align 16
-  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %418, i32 noundef 4)
-          to label %419 unwind label %347
+  %418 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 7
+  %419 = load ptr, ptr %418, align 16
+  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %419, i32 noundef 4)
+          to label %420 unwind label %348
 
-419:                                              ; preds = %416
-  %420 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %421 unwind label %347
+420:                                              ; preds = %417
+  %421 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %422 unwind label %348
 
-421:                                              ; preds = %419
-  %422 = load ptr, ptr %104, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %420, ptr noundef %422)
-          to label %423 unwind label %659
+422:                                              ; preds = %420
+  %423 = load ptr, ptr %104, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %421, ptr noundef %423)
+          to label %424 unwind label %660
 
-423:                                              ; preds = %421
-  %424 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  store ptr %420, ptr %424, align 8
+424:                                              ; preds = %422
   %425 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %426 = load ptr, ptr %425, align 8
-  %427 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %428 unwind label %347
+  store ptr %421, ptr %425, align 8
+  %426 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %427 = load ptr, ptr %426, align 8
+  %428 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %429 unwind label %348
 
-428:                                              ; preds = %423
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %427, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
-          to label %429 unwind label %663
-
-429:                                              ; preds = %428
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %426, ptr noundef %427)
-          to label %430 unwind label %347
+429:                                              ; preds = %424
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %428, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
+          to label %430 unwind label %664
 
 430:                                              ; preds = %429
-  %431 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #24
-          to label %432 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %427, ptr noundef %428)
+          to label %431 unwind label %348
 
-432:                                              ; preds = %430
-  %433 = load ptr, ptr %103, align 8
-  %434 = invoke noundef float @_ZNK7nanogui6Screen11pixel_ratioEv(ptr noundef nonnull align 16 dereferenceable(384) %295)
-          to label %435 unwind label %667
+431:                                              ; preds = %430
+  %432 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #24
+          to label %433 unwind label %348
 
-435:                                              ; preds = %432
-  invoke void @_ZN3tev11ImageCanvasC1EPN7nanogui6WidgetEf(ptr noundef nonnull align 8 dereferenceable(376) %431, ptr noundef %433, float noundef %434)
-          to label %436 unwind label %667
+433:                                              ; preds = %431
+  %434 = load ptr, ptr %103, align 8
+  %435 = invoke noundef float @_ZNK7nanogui6Screen11pixel_ratioEv(ptr noundef nonnull align 16 dereferenceable(384) %295)
+          to label %436 unwind label %668
 
-436:                                              ; preds = %435
-  %437 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 38
-  store ptr %431, ptr %437, align 8
-  %438 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %439 unwind label %347
+436:                                              ; preds = %433
+  invoke void @_ZN3tev11ImageCanvasC1EPN7nanogui6WidgetEf(ptr noundef nonnull align 8 dereferenceable(376) %432, ptr noundef %434, float noundef %435)
+          to label %437 unwind label %668
 
-439:                                              ; preds = %436
-  %440 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %441 = load ptr, ptr %440, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %438, ptr noundef %441)
-          to label %442 unwind label %671
+437:                                              ; preds = %436
+  %438 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 38
+  store ptr %432, ptr %438, align 8
+  %439 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %440 unwind label %348
 
-442:                                              ; preds = %439
-  store ptr %438, ptr %110, align 8
-  %443 = load ptr, ptr %110, align 8
-  %444 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %445 unwind label %347
+440:                                              ; preds = %437
+  %441 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %442 = load ptr, ptr %441, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %439, ptr noundef %442)
+          to label %443 unwind label %672
 
-445:                                              ; preds = %442
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %444, i32 noundef 0, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
-          to label %446 unwind label %675
+443:                                              ; preds = %440
+  store ptr %439, ptr %110, align 8
+  %444 = load ptr, ptr %110, align 8
+  %445 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %446 unwind label %348
 
-446:                                              ; preds = %445
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %443, ptr noundef %444)
-          to label %447 unwind label %347
+446:                                              ; preds = %443
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %445, i32 noundef 0, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
+          to label %447 unwind label %676
 
 447:                                              ; preds = %446
-  %448 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
-          to label %449 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %444, ptr noundef %445)
+          to label %448 unwind label %348
 
-449:                                              ; preds = %447
+448:                                              ; preds = %447
+  %449 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
+          to label %450 unwind label %348
+
+450:                                              ; preds = %448
   store i1 true, ptr %113, align 1
-  %450 = load ptr, ptr %110, align 8
+  %451 = load ptr, ptr %110, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef @.str.6)
-          to label %451 unwind label %679
+          to label %452 unwind label %680
 
-451:                                              ; preds = %449
+452:                                              ; preds = %450
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef @.str.7)
-          to label %452 unwind label %683
-
-452:                                              ; preds = %451
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %448, ptr noundef %450, ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(24) %112, i32 noundef 25)
-          to label %453 unwind label %687
+          to label %453 unwind label %684
 
 453:                                              ; preds = %452
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %449, ptr noundef %451, ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(24) %112, i32 noundef 25)
+          to label %454 unwind label %688
+
+454:                                              ; preds = %453
   store i1 false, ptr %113, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #11
-  %454 = load ptr, ptr %110, align 8
+  %455 = load ptr, ptr %110, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef @.str.8)
-          to label %455 unwind label %347
+          to label %456 unwind label %348
 
-455:                                              ; preds = %453
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %454, ptr noundef nonnull align 8 dereferenceable(24) %114)
-          to label %456 unwind label %696
+456:                                              ; preds = %454
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %455, ptr noundef nonnull align 8 dereferenceable(24) %114)
+          to label %457 unwind label %697
 
-456:                                              ; preds = %455
+457:                                              ; preds = %456
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #11
-  %457 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %458 unwind label %347
+  %458 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %459 unwind label %348
 
-458:                                              ; preds = %456
-  %459 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %460 = load ptr, ptr %459, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %457, ptr noundef %460)
-          to label %461 unwind label %700
+459:                                              ; preds = %457
+  %460 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %461 = load ptr, ptr %460, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %458, ptr noundef %461)
+          to label %462 unwind label %701
 
-461:                                              ; preds = %458
-  store ptr %457, ptr %110, align 8
-  %462 = load ptr, ptr %110, align 8
-  %463 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %464 unwind label %347
+462:                                              ; preds = %459
+  store ptr %458, ptr %110, align 8
+  %463 = load ptr, ptr %110, align 8
+  %464 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %465 unwind label %348
 
-464:                                              ; preds = %461
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %463, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
-          to label %465 unwind label %704
-
-465:                                              ; preds = %464
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %462, ptr noundef %463)
-          to label %466 unwind label %347
+465:                                              ; preds = %462
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %464, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
+          to label %466 unwind label %705
 
 466:                                              ; preds = %465
-  %467 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
-          to label %468 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %463, ptr noundef %464)
+          to label %467 unwind label %348
 
-468:                                              ; preds = %466
+467:                                              ; preds = %466
+  %468 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
+          to label %469 unwind label %348
+
+469:                                              ; preds = %467
   store i1 true, ptr %117, align 1
-  %469 = load ptr, ptr %110, align 8
+  %470 = load ptr, ptr %110, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef @.str.4)
-          to label %470 unwind label %708
+          to label %471 unwind label %709
 
-470:                                              ; preds = %468
+471:                                              ; preds = %469
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef @.str.7)
-          to label %471 unwind label %712
-
-471:                                              ; preds = %470
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %467, ptr noundef %469, ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %116, i32 noundef 15)
-          to label %472 unwind label %716
+          to label %472 unwind label %713
 
 472:                                              ; preds = %471
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %468, ptr noundef %470, ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %116, i32 noundef 15)
+          to label %473 unwind label %717
+
+473:                                              ; preds = %472
   store i1 false, ptr %117, align 1
-  %473 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 12
-  store ptr %467, ptr %473, align 16
+  %474 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 12
+  store ptr %468, ptr %474, align 16
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %116) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %115) #11
-  %474 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #24
-          to label %475 unwind label %347
+  %475 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #24
+          to label %476 unwind label %348
 
-475:                                              ; preds = %472
-  %476 = load ptr, ptr %110, align 8
-  invoke void @_ZN7nanogui6SliderC1EPNS_6WidgetE(ptr noundef nonnull align 16 dereferenceable(272) %474, ptr noundef %476)
-          to label %477 unwind label %725
+476:                                              ; preds = %473
+  %477 = load ptr, ptr %110, align 8
+  invoke void @_ZN7nanogui6SliderC1EPNS_6WidgetE(ptr noundef nonnull align 16 dereferenceable(272) %475, ptr noundef %477)
+          to label %478 unwind label %726
 
-477:                                              ; preds = %475
-  %478 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 13
-  store ptr %474, ptr %478, align 8
+478:                                              ; preds = %476
   %479 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 13
-  %480 = load ptr, ptr %479, align 8
+  store ptr %475, ptr %479, align 8
+  %480 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 13
+  %481 = load ptr, ptr %480, align 8
   store float -5.000000e+00, ptr %119, align 4
   store float 5.000000e+00, ptr %120, align 4
   call void @_ZNSt3__14pairIffEC2B8ne190000IffTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS4_OS5_(ptr noundef nonnull align 4 dereferenceable(8) %118, ptr noundef nonnull align 4 dereferenceable(4) %119, ptr noundef nonnull align 4 dereferenceable(4) %120) #11
-  %481 = load <2 x float>, ptr %118, align 4
-  invoke void @_ZN7nanogui6Slider9set_rangeENSt3__14pairIffEE(ptr noundef nonnull align 16 dereferenceable(272) %480, <2 x float> %481)
-          to label %482 unwind label %347
+  %482 = load <2 x float>, ptr %118, align 4
+  invoke void @_ZN7nanogui6Slider9set_rangeENSt3__14pairIffEE(ptr noundef nonnull align 16 dereferenceable(272) %481, <2 x float> %482)
+          to label %483 unwind label %348
 
-482:                                              ; preds = %477
-  %483 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 13
-  %484 = load ptr, ptr %483, align 8
-  %485 = getelementptr inbounds %class.anon.97, ptr %122, i32 0, i32 0
-  store ptr %295, ptr %485, align 8
+483:                                              ; preds = %478
+  %484 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 13
+  %485 = load ptr, ptr %484, align 8
   %486 = getelementptr inbounds %class.anon.97, ptr %122, i32 0, i32 0
-  %487 = load ptr, ptr %486, align 8
-  invoke void @"_ZNSt3__18functionIFvfEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_1vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %121, ptr %487)
-          to label %488 unwind label %347
+  store ptr %295, ptr %486, align 8
+  %487 = getelementptr inbounds %class.anon.97, ptr %122, i32 0, i32 0
+  %488 = load ptr, ptr %487, align 8
+  invoke void @"_ZNSt3__18functionIFvfEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_1vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %121, ptr %488)
+          to label %489 unwind label %348
 
-488:                                              ; preds = %482
-  invoke void @_ZN7nanogui6Slider12set_callbackERKNSt3__18functionIFvfEEE(ptr noundef nonnull align 16 dereferenceable(272) %484, ptr noundef nonnull align 16 dereferenceable(48) %121)
-          to label %489 unwind label %729
-
-489:                                              ; preds = %488
-  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %121) #11
-  invoke void @_ZN3tev11ImageViewer11setExposureEf(ptr noundef nonnull align 16 dereferenceable(972) %295, float noundef 0.000000e+00)
-          to label %490 unwind label %347
+489:                                              ; preds = %483
+  invoke void @_ZN7nanogui6Slider12set_callbackERKNSt3__18functionIFvfEEE(ptr noundef nonnull align 16 dereferenceable(272) %485, ptr noundef nonnull align 16 dereferenceable(48) %121)
+          to label %490 unwind label %730
 
 490:                                              ; preds = %489
-  %491 = load ptr, ptr %110, align 8
+  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %121) #11
+  invoke void @_ZN3tev11ImageViewer11setExposureEf(ptr noundef nonnull align 16 dereferenceable(972) %295, float noundef 0.000000e+00)
+          to label %491 unwind label %348
+
+491:                                              ; preds = %490
+  %492 = load ptr, ptr %110, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef @.str.9)
-          to label %492 unwind label %347
+          to label %493 unwind label %348
 
-492:                                              ; preds = %490
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %491, ptr noundef nonnull align 8 dereferenceable(24) %123)
-          to label %493 unwind label %733
+493:                                              ; preds = %491
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %492, ptr noundef nonnull align 8 dereferenceable(24) %123)
+          to label %494 unwind label %734
 
-493:                                              ; preds = %492
+494:                                              ; preds = %493
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %123) #11
-  %494 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %495 unwind label %347
+  %495 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %496 unwind label %348
 
-495:                                              ; preds = %493
-  %496 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %497 = load ptr, ptr %496, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %494, ptr noundef %497)
-          to label %498 unwind label %737
+496:                                              ; preds = %494
+  %497 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %498 = load ptr, ptr %497, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %495, ptr noundef %498)
+          to label %499 unwind label %738
 
-498:                                              ; preds = %495
-  store ptr %494, ptr %110, align 8
-  %499 = load ptr, ptr %110, align 8
-  %500 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
-          to label %501 unwind label %347
+499:                                              ; preds = %496
+  store ptr %495, ptr %110, align 8
+  %500 = load ptr, ptr %110, align 8
+  %501 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
+          to label %502 unwind label %348
 
-501:                                              ; preds = %498
-  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %500, i32 noundef 1, i32 noundef 2, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
-          to label %502 unwind label %741
-
-502:                                              ; preds = %501
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %499, ptr noundef %500)
-          to label %503 unwind label %347
+502:                                              ; preds = %499
+  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %501, i32 noundef 1, i32 noundef 2, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
+          to label %503 unwind label %742
 
 503:                                              ; preds = %502
-  %504 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
-          to label %505 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %500, ptr noundef %501)
+          to label %504 unwind label %348
 
-505:                                              ; preds = %503
+504:                                              ; preds = %503
+  %505 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
+          to label %506 unwind label %348
+
+506:                                              ; preds = %504
   store i1 true, ptr %126, align 1
-  %506 = load ptr, ptr %110, align 8
+  %507 = load ptr, ptr %110, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef @.str.4)
-          to label %507 unwind label %745
+          to label %508 unwind label %746
 
-507:                                              ; preds = %505
+508:                                              ; preds = %506
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef @.str.7)
-          to label %508 unwind label %749
-
-508:                                              ; preds = %507
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %504, ptr noundef %506, ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %125, i32 noundef 15)
-          to label %509 unwind label %753
+          to label %509 unwind label %750
 
 509:                                              ; preds = %508
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %505, ptr noundef %507, ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %125, i32 noundef 15)
+          to label %510 unwind label %754
+
+510:                                              ; preds = %509
   store i1 false, ptr %126, align 1
-  %510 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 14
-  store ptr %504, ptr %510, align 16
+  %511 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 14
+  store ptr %505, ptr %511, align 16
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %125) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %124) #11
-  %511 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #24
-          to label %512 unwind label %347
+  %512 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #24
+          to label %513 unwind label %348
 
-512:                                              ; preds = %509
-  %513 = load ptr, ptr %110, align 8
-  invoke void @_ZN7nanogui6SliderC1EPNS_6WidgetE(ptr noundef nonnull align 16 dereferenceable(272) %511, ptr noundef %513)
-          to label %514 unwind label %762
+513:                                              ; preds = %510
+  %514 = load ptr, ptr %110, align 8
+  invoke void @_ZN7nanogui6SliderC1EPNS_6WidgetE(ptr noundef nonnull align 16 dereferenceable(272) %512, ptr noundef %514)
+          to label %515 unwind label %763
 
-514:                                              ; preds = %512
-  %515 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 15
-  store ptr %511, ptr %515, align 8
+515:                                              ; preds = %513
   %516 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 15
-  %517 = load ptr, ptr %516, align 8
+  store ptr %512, ptr %516, align 8
+  %517 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 15
+  %518 = load ptr, ptr %517, align 8
   store float -1.000000e+00, ptr %128, align 4
   store float 1.000000e+00, ptr %129, align 4
   call void @_ZNSt3__14pairIffEC2B8ne190000IffTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS4_OS5_(ptr noundef nonnull align 4 dereferenceable(8) %127, ptr noundef nonnull align 4 dereferenceable(4) %128, ptr noundef nonnull align 4 dereferenceable(4) %129) #11
-  %518 = load <2 x float>, ptr %127, align 4
-  invoke void @_ZN7nanogui6Slider9set_rangeENSt3__14pairIffEE(ptr noundef nonnull align 16 dereferenceable(272) %517, <2 x float> %518)
-          to label %519 unwind label %347
+  %519 = load <2 x float>, ptr %127, align 4
+  invoke void @_ZN7nanogui6Slider9set_rangeENSt3__14pairIffEE(ptr noundef nonnull align 16 dereferenceable(272) %518, <2 x float> %519)
+          to label %520 unwind label %348
 
-519:                                              ; preds = %514
-  %520 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 15
-  %521 = load ptr, ptr %520, align 8
-  %522 = getelementptr inbounds %class.anon.105, ptr %131, i32 0, i32 0
-  store ptr %295, ptr %522, align 8
+520:                                              ; preds = %515
+  %521 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 15
+  %522 = load ptr, ptr %521, align 8
   %523 = getelementptr inbounds %class.anon.105, ptr %131, i32 0, i32 0
-  %524 = load ptr, ptr %523, align 8
-  invoke void @"_ZNSt3__18functionIFvfEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_2vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %130, ptr %524)
-          to label %525 unwind label %347
+  store ptr %295, ptr %523, align 8
+  %524 = getelementptr inbounds %class.anon.105, ptr %131, i32 0, i32 0
+  %525 = load ptr, ptr %524, align 8
+  invoke void @"_ZNSt3__18functionIFvfEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_2vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %130, ptr %525)
+          to label %526 unwind label %348
 
-525:                                              ; preds = %519
-  invoke void @_ZN7nanogui6Slider12set_callbackERKNSt3__18functionIFvfEEE(ptr noundef nonnull align 16 dereferenceable(272) %521, ptr noundef nonnull align 16 dereferenceable(48) %130)
-          to label %526 unwind label %766
-
-526:                                              ; preds = %525
-  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %130) #11
-  invoke void @_ZN3tev11ImageViewer9setOffsetEf(ptr noundef nonnull align 16 dereferenceable(972) %295, float noundef 0.000000e+00)
-          to label %527 unwind label %347
+526:                                              ; preds = %520
+  invoke void @_ZN7nanogui6Slider12set_callbackERKNSt3__18functionIFvfEEE(ptr noundef nonnull align 16 dereferenceable(272) %522, ptr noundef nonnull align 16 dereferenceable(48) %130)
+          to label %527 unwind label %767
 
 527:                                              ; preds = %526
-  %528 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
-          to label %529 unwind label %347
+  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %130) #11
+  invoke void @_ZN3tev11ImageViewer9setOffsetEf(ptr noundef nonnull align 16 dereferenceable(972) %295, float noundef 0.000000e+00)
+          to label %528 unwind label %348
 
-529:                                              ; preds = %527
+528:                                              ; preds = %527
+  %529 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
+          to label %530 unwind label %348
+
+530:                                              ; preds = %528
   store i1 true, ptr %134, align 1
-  %530 = load ptr, ptr %110, align 8
+  %531 = load ptr, ptr %110, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef @.str.4)
-          to label %531 unwind label %770
+          to label %532 unwind label %771
 
-531:                                              ; preds = %529
+532:                                              ; preds = %530
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %133, ptr noundef @.str.7)
-          to label %532 unwind label %774
-
-532:                                              ; preds = %531
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %528, ptr noundef %530, ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %133, i32 noundef 15)
-          to label %533 unwind label %778
+          to label %533 unwind label %775
 
 533:                                              ; preds = %532
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %529, ptr noundef %531, ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %133, i32 noundef 15)
+          to label %534 unwind label %779
+
+534:                                              ; preds = %533
   store i1 false, ptr %134, align 1
-  %534 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 16
-  store ptr %528, ptr %534, align 16
+  %535 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 16
+  store ptr %529, ptr %535, align 16
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %133) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #11
-  %535 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #24
-          to label %536 unwind label %347
+  %536 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #24
+          to label %537 unwind label %348
 
-536:                                              ; preds = %533
-  %537 = load ptr, ptr %110, align 8
-  invoke void @_ZN7nanogui6SliderC1EPNS_6WidgetE(ptr noundef nonnull align 16 dereferenceable(272) %535, ptr noundef %537)
-          to label %538 unwind label %787
+537:                                              ; preds = %534
+  %538 = load ptr, ptr %110, align 8
+  invoke void @_ZN7nanogui6SliderC1EPNS_6WidgetE(ptr noundef nonnull align 16 dereferenceable(272) %536, ptr noundef %538)
+          to label %539 unwind label %788
 
-538:                                              ; preds = %536
-  %539 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 17
-  store ptr %535, ptr %539, align 8
+539:                                              ; preds = %537
   %540 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 17
-  %541 = load ptr, ptr %540, align 8
+  store ptr %536, ptr %540, align 8
+  %541 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 17
+  %542 = load ptr, ptr %541, align 8
   store float 0x3F847AE140000000, ptr %136, align 4
   store float 5.000000e+00, ptr %137, align 4
   call void @_ZNSt3__14pairIffEC2B8ne190000IffTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS4_OS5_(ptr noundef nonnull align 4 dereferenceable(8) %135, ptr noundef nonnull align 4 dereferenceable(4) %136, ptr noundef nonnull align 4 dereferenceable(4) %137) #11
-  %542 = load <2 x float>, ptr %135, align 4
-  invoke void @_ZN7nanogui6Slider9set_rangeENSt3__14pairIffEE(ptr noundef nonnull align 16 dereferenceable(272) %541, <2 x float> %542)
-          to label %543 unwind label %347
+  %543 = load <2 x float>, ptr %135, align 4
+  invoke void @_ZN7nanogui6Slider9set_rangeENSt3__14pairIffEE(ptr noundef nonnull align 16 dereferenceable(272) %542, <2 x float> %543)
+          to label %544 unwind label %348
 
-543:                                              ; preds = %538
-  %544 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 17
-  %545 = load ptr, ptr %544, align 8
-  %546 = getelementptr inbounds %class.anon.106, ptr %139, i32 0, i32 0
-  store ptr %295, ptr %546, align 8
+544:                                              ; preds = %539
+  %545 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 17
+  %546 = load ptr, ptr %545, align 8
   %547 = getelementptr inbounds %class.anon.106, ptr %139, i32 0, i32 0
-  %548 = load ptr, ptr %547, align 8
-  invoke void @"_ZNSt3__18functionIFvfEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_3vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %138, ptr %548)
-          to label %549 unwind label %347
+  store ptr %295, ptr %547, align 8
+  %548 = getelementptr inbounds %class.anon.106, ptr %139, i32 0, i32 0
+  %549 = load ptr, ptr %548, align 8
+  invoke void @"_ZNSt3__18functionIFvfEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_3vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %138, ptr %549)
+          to label %550 unwind label %348
 
-549:                                              ; preds = %543
-  invoke void @_ZN7nanogui6Slider12set_callbackERKNSt3__18functionIFvfEEE(ptr noundef nonnull align 16 dereferenceable(272) %545, ptr noundef nonnull align 16 dereferenceable(48) %138)
-          to label %550 unwind label %791
-
-550:                                              ; preds = %549
-  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %138) #11
-  invoke void @_ZN3tev11ImageViewer8setGammaEf(ptr noundef nonnull align 16 dereferenceable(972) %295, float noundef 0x40019999A0000000)
-          to label %551 unwind label %347
+550:                                              ; preds = %544
+  invoke void @_ZN7nanogui6Slider12set_callbackERKNSt3__18functionIFvfEEE(ptr noundef nonnull align 16 dereferenceable(272) %546, ptr noundef nonnull align 16 dereferenceable(48) %138)
+          to label %551 unwind label %792
 
 551:                                              ; preds = %550
-  %552 = load ptr, ptr %110, align 8
+  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %138) #11
+  invoke void @_ZN3tev11ImageViewer8setGammaEf(ptr noundef nonnull align 16 dereferenceable(972) %295, float noundef 0x40019999A0000000)
+          to label %552 unwind label %348
+
+552:                                              ; preds = %551
+  %553 = load ptr, ptr %110, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef @.str.10)
-          to label %553 unwind label %347
+          to label %554 unwind label %348
 
-553:                                              ; preds = %551
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %552, ptr noundef nonnull align 8 dereferenceable(24) %140)
-          to label %554 unwind label %795
+554:                                              ; preds = %552
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %553, ptr noundef nonnull align 8 dereferenceable(24) %140)
+          to label %555 unwind label %796
 
-554:                                              ; preds = %553
+555:                                              ; preds = %554
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %140) #11
-  %555 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %556 unwind label %347
+  %556 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %557 unwind label %348
 
-556:                                              ; preds = %554
-  %557 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %558 = load ptr, ptr %557, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %555, ptr noundef %558)
-          to label %559 unwind label %799
+557:                                              ; preds = %555
+  %558 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %559 = load ptr, ptr %558, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %556, ptr noundef %559)
+          to label %560 unwind label %800
 
-559:                                              ; preds = %556
-  store ptr %555, ptr %141, align 8
-  %560 = load ptr, ptr %141, align 8
-  %561 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
-          to label %562 unwind label %347
+560:                                              ; preds = %557
+  store ptr %556, ptr %141, align 8
+  %561 = load ptr, ptr %141, align 8
+  %562 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
+          to label %563 unwind label %348
 
-562:                                              ; preds = %559
-  %563 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 47
-  %564 = load i8, ptr %563, align 8
-  %565 = trunc i8 %564 to i1
-  %566 = select i1 %565, i32 4, i32 3
-  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %561, i32 noundef 0, i32 noundef %566, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
-          to label %567 unwind label %803
+563:                                              ; preds = %560
+  %564 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 47
+  %565 = load i8, ptr %564, align 8
+  %566 = trunc i8 %565 to i1
+  %567 = select i1 %566, i32 4, i32 3
+  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %562, i32 noundef 0, i32 noundef %567, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
+          to label %568 unwind label %804
 
-567:                                              ; preds = %562
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %560, ptr noundef %561)
-          to label %568 unwind label %347
+568:                                              ; preds = %563
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %561, ptr noundef %562)
+          to label %569 unwind label %348
 
-568:                                              ; preds = %567
-  %569 = getelementptr inbounds %class.anon.107, ptr %142, i32 0, i32 0
-  store ptr %141, ptr %569, align 8
-  %570 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
+569:                                              ; preds = %568
+  %570 = getelementptr inbounds %class.anon.107, ptr %142, i32 0, i32 0
+  store ptr %141, ptr %570, align 8
+  %571 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef @.str.11)
-          to label %571 unwind label %347
+          to label %572 unwind label %348
 
-571:                                              ; preds = %568
-  %572 = getelementptr inbounds %class.anon.108, ptr %146, i32 0, i32 0
-  store ptr %295, ptr %572, align 8
+572:                                              ; preds = %569
   %573 = getelementptr inbounds %class.anon.108, ptr %146, i32 0, i32 0
-  %574 = load ptr, ptr %573, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_5vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %145, ptr %574)
-          to label %575 unwind label %807
+  store ptr %295, ptr %573, align 8
+  %574 = getelementptr inbounds %class.anon.108, ptr %146, i32 0, i32 0
+  %575 = load ptr, ptr %574, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_5vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %145, ptr %575)
+          to label %576 unwind label %808
 
-575:                                              ; preds = %571
+576:                                              ; preds = %572
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr noundef @.str.12)
-          to label %576 unwind label %811
+          to label %577 unwind label %812
 
-576:                                              ; preds = %575
-  %577 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK3$_4clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef %145, i32 noundef 0, ptr noundef %147)
-          to label %578 unwind label %815
+577:                                              ; preds = %576
+  %578 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK3$_4clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef %145, i32 noundef 0, ptr noundef %147)
+          to label %579 unwind label %816
 
-578:                                              ; preds = %576
-  store ptr %577, ptr %143, align 8
-  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %570, ptr noundef nonnull align 8 dereferenceable(8) %143)
-          to label %579 unwind label %815
+579:                                              ; preds = %577
+  store ptr %578, ptr %143, align 8
+  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %571, ptr noundef nonnull align 8 dereferenceable(8) %143)
+          to label %580 unwind label %816
 
-579:                                              ; preds = %578
+580:                                              ; preds = %579
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %145) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %144) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef @.str.13)
-          to label %580 unwind label %347
+          to label %581 unwind label %348
 
-580:                                              ; preds = %579
-  %581 = getelementptr inbounds %class.anon.109, ptr %150, i32 0, i32 0
-  store ptr %295, ptr %581, align 8
+581:                                              ; preds = %580
   %582 = getelementptr inbounds %class.anon.109, ptr %150, i32 0, i32 0
-  %583 = load ptr, ptr %582, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_6vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %149, ptr %583)
-          to label %584 unwind label %821
+  store ptr %295, ptr %582, align 8
+  %583 = getelementptr inbounds %class.anon.109, ptr %150, i32 0, i32 0
+  %584 = load ptr, ptr %583, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_6vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %149, ptr %584)
+          to label %585 unwind label %822
 
-584:                                              ; preds = %580
+585:                                              ; preds = %581
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %151, ptr noundef @.str.14)
-          to label %585 unwind label %825
+          to label %586 unwind label %826
 
-585:                                              ; preds = %584
-  %586 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK3$_4clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef %149, i32 noundef 0, ptr noundef %151)
-          to label %587 unwind label %829
+586:                                              ; preds = %585
+  %587 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK3$_4clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef %149, i32 noundef 0, ptr noundef %151)
+          to label %588 unwind label %830
 
-587:                                              ; preds = %585
+588:                                              ; preds = %586
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %151) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %149) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %148) #11
-  %588 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 47
-  %589 = load i8, ptr %588, align 8
-  %590 = trunc i8 %589 to i1
-  br i1 %590, label %591, label %855
+  %589 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 47
+  %590 = load i8, ptr %589, align 8
+  %591 = trunc i8 %590 to i1
+  br i1 %591, label %592, label %856
 
-591:                                              ; preds = %587
-  %592 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #24
-          to label %593 unwind label %347
+592:                                              ; preds = %588
+  %593 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #24
+          to label %594 unwind label %348
 
-593:                                              ; preds = %591
+594:                                              ; preds = %592
   store i1 true, ptr %153, align 1
-  %594 = load ptr, ptr %141, align 8
+  %595 = load ptr, ptr %141, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr noundef @.str.15)
-          to label %595 unwind label %835
+          to label %596 unwind label %836
 
-595:                                              ; preds = %593
-  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEi(ptr noundef nonnull align 16 dereferenceable(328) %592, ptr noundef %594, ptr noundef nonnull align 8 dereferenceable(24) %152, i32 noundef 0)
-          to label %596 unwind label %839
+596:                                              ; preds = %594
+  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEi(ptr noundef nonnull align 16 dereferenceable(328) %593, ptr noundef %595, ptr noundef nonnull align 8 dereferenceable(24) %152, i32 noundef 0)
+          to label %597 unwind label %840
 
-596:                                              ; preds = %595
+597:                                              ; preds = %596
   store i1 false, ptr %153, align 1
-  %597 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
-  store ptr %592, ptr %597, align 16
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %152) #11
   %598 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
-  %599 = load ptr, ptr %598, align 16
-  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(132) %599, i32 noundef 15)
-          to label %600 unwind label %347
-
-600:                                              ; preds = %596
-  %601 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
-  %602 = load ptr, ptr %601, align 16
-  %603 = getelementptr inbounds %class.anon.110, ptr %155, i32 0, i32 0
-  store ptr %295, ptr %603, align 8
-  %604 = getelementptr inbounds %class.anon.110, ptr %155, i32 0, i32 0
-  %605 = load ptr, ptr %604, align 8
-  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_7vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %154, ptr %605)
-          to label %606 unwind label %347
-
-606:                                              ; preds = %600
-  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %602, ptr noundef nonnull align 16 dereferenceable(48) %154)
-          to label %607 unwind label %847
-
-607:                                              ; preds = %606
-  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %154) #11
-  %608 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
-  %609 = load ptr, ptr %608, align 16
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %156, ptr noundef @.str.16)
-          to label %610 unwind label %347
-
-610:                                              ; preds = %607
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %609, ptr noundef nonnull align 8 dereferenceable(24) %156)
-          to label %611 unwind label %851
-
-611:                                              ; preds = %610
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %156) #11
-  %612 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
-  %613 = load ptr, ptr %612, align 16
-  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %613, i32 noundef 4)
-          to label %614 unwind label %347
-
-614:                                              ; preds = %611
-  br label %855
-
-615:                                              ; preds = %365
-  %616 = landingpad { ptr, i32 }
-          cleanup
-  %617 = extractvalue { ptr, i32 } %616, 0
-  store ptr %617, ptr %99, align 8
-  %618 = extractvalue { ptr, i32 } %616, 1
-  store i32 %618, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %364) #23
-  br label %2039
-
-619:                                              ; preds = %371
-  %620 = landingpad { ptr, i32 }
-          cleanup
-  %621 = extractvalue { ptr, i32 } %620, 0
-  store ptr %621, ptr %99, align 8
-  %622 = extractvalue { ptr, i32 } %620, 1
-  store i32 %622, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %370) #23
-  br label %2039
-
-623:                                              ; preds = %375
-  %624 = landingpad { ptr, i32 }
-          cleanup
-  %625 = extractvalue { ptr, i32 } %624, 0
-  store ptr %625, ptr %99, align 8
-  %626 = extractvalue { ptr, i32 } %624, 1
-  store i32 %626, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %374) #23
-  br label %2039
-
-627:                                              ; preds = %381
-  %628 = landingpad { ptr, i32 }
-          cleanup
-  %629 = extractvalue { ptr, i32 } %628, 0
-  store ptr %629, ptr %99, align 8
-  %630 = extractvalue { ptr, i32 } %628, 1
-  store i32 %630, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %380) #23
-  br label %2039
-
-631:                                              ; preds = %385
-  %632 = landingpad { ptr, i32 }
-          cleanup
-  %633 = extractvalue { ptr, i32 } %632, 0
-  store ptr %633, ptr %99, align 8
-  %634 = extractvalue { ptr, i32 } %632, 1
-  store i32 %634, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %384) #23
-  br label %2039
-
-635:                                              ; preds = %393
-  %636 = landingpad { ptr, i32 }
-          cleanup
-  %637 = extractvalue { ptr, i32 } %636, 0
-  store ptr %637, ptr %99, align 8
-  %638 = extractvalue { ptr, i32 } %636, 1
-  store i32 %638, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %392) #23
-  br label %2039
-
-639:                                              ; preds = %398
-  %640 = landingpad { ptr, i32 }
-          cleanup
-  %641 = extractvalue { ptr, i32 } %640, 0
-  store ptr %641, ptr %99, align 8
-  %642 = extractvalue { ptr, i32 } %640, 1
-  store i32 %642, ptr %100, align 4
-  br label %647
-
-643:                                              ; preds = %400
-  %644 = landingpad { ptr, i32 }
-          cleanup
-  %645 = extractvalue { ptr, i32 } %644, 0
-  store ptr %645, ptr %99, align 8
-  %646 = extractvalue { ptr, i32 } %644, 1
-  store i32 %646, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #11
-  br label %647
-
-647:                                              ; preds = %643, %639
-  %648 = load i1, ptr %106, align 1
-  br i1 %648, label %649, label %650
-
-649:                                              ; preds = %647
-  call void @_ZdlPv(ptr noundef %397) #23
-  br label %650
-
-650:                                              ; preds = %649, %647
-  br label %2039
-
-651:                                              ; preds = %408
-  %652 = landingpad { ptr, i32 }
-          cleanup
-  %653 = extractvalue { ptr, i32 } %652, 0
-  store ptr %653, ptr %99, align 8
-  %654 = extractvalue { ptr, i32 } %652, 1
-  store i32 %654, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %107) #11
-  br label %2039
-
-655:                                              ; preds = %415
-  %656 = landingpad { ptr, i32 }
-          cleanup
-  %657 = extractvalue { ptr, i32 } %656, 0
-  store ptr %657, ptr %99, align 8
-  %658 = extractvalue { ptr, i32 } %656, 1
-  store i32 %658, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #11
-  br label %2039
-
-659:                                              ; preds = %421
-  %660 = landingpad { ptr, i32 }
-          cleanup
-  %661 = extractvalue { ptr, i32 } %660, 0
-  store ptr %661, ptr %99, align 8
-  %662 = extractvalue { ptr, i32 } %660, 1
-  store i32 %662, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %420) #23
-  br label %2039
-
-663:                                              ; preds = %428
-  %664 = landingpad { ptr, i32 }
-          cleanup
-  %665 = extractvalue { ptr, i32 } %664, 0
-  store ptr %665, ptr %99, align 8
-  %666 = extractvalue { ptr, i32 } %664, 1
-  store i32 %666, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %427) #23
-  br label %2039
-
-667:                                              ; preds = %435, %432
-  %668 = landingpad { ptr, i32 }
-          cleanup
-  %669 = extractvalue { ptr, i32 } %668, 0
-  store ptr %669, ptr %99, align 8
-  %670 = extractvalue { ptr, i32 } %668, 1
-  store i32 %670, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %431) #23
-  br label %2039
-
-671:                                              ; preds = %439
-  %672 = landingpad { ptr, i32 }
-          cleanup
-  %673 = extractvalue { ptr, i32 } %672, 0
-  store ptr %673, ptr %99, align 8
-  %674 = extractvalue { ptr, i32 } %672, 1
-  store i32 %674, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %438) #23
-  br label %2039
-
-675:                                              ; preds = %445
-  %676 = landingpad { ptr, i32 }
-          cleanup
-  %677 = extractvalue { ptr, i32 } %676, 0
-  store ptr %677, ptr %99, align 8
-  %678 = extractvalue { ptr, i32 } %676, 1
-  store i32 %678, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %444) #23
-  br label %2039
-
-679:                                              ; preds = %449
-  %680 = landingpad { ptr, i32 }
-          cleanup
-  %681 = extractvalue { ptr, i32 } %680, 0
-  store ptr %681, ptr %99, align 8
-  %682 = extractvalue { ptr, i32 } %680, 1
-  store i32 %682, ptr %100, align 4
-  br label %692
-
-683:                                              ; preds = %451
-  %684 = landingpad { ptr, i32 }
-          cleanup
-  %685 = extractvalue { ptr, i32 } %684, 0
-  store ptr %685, ptr %99, align 8
-  %686 = extractvalue { ptr, i32 } %684, 1
-  store i32 %686, ptr %100, align 4
-  br label %691
-
-687:                                              ; preds = %452
-  %688 = landingpad { ptr, i32 }
-          cleanup
-  %689 = extractvalue { ptr, i32 } %688, 0
-  store ptr %689, ptr %99, align 8
-  %690 = extractvalue { ptr, i32 } %688, 1
-  store i32 %690, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #11
-  br label %691
-
-691:                                              ; preds = %687, %683
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #11
-  br label %692
-
-692:                                              ; preds = %691, %679
-  %693 = load i1, ptr %113, align 1
-  br i1 %693, label %694, label %695
-
-694:                                              ; preds = %692
-  call void @_ZdlPv(ptr noundef %448) #23
-  br label %695
-
-695:                                              ; preds = %694, %692
-  br label %2039
-
-696:                                              ; preds = %455
-  %697 = landingpad { ptr, i32 }
-          cleanup
-  %698 = extractvalue { ptr, i32 } %697, 0
-  store ptr %698, ptr %99, align 8
-  %699 = extractvalue { ptr, i32 } %697, 1
-  store i32 %699, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #11
-  br label %2039
-
-700:                                              ; preds = %458
-  %701 = landingpad { ptr, i32 }
-          cleanup
-  %702 = extractvalue { ptr, i32 } %701, 0
-  store ptr %702, ptr %99, align 8
-  %703 = extractvalue { ptr, i32 } %701, 1
-  store i32 %703, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %457) #23
-  br label %2039
-
-704:                                              ; preds = %464
-  %705 = landingpad { ptr, i32 }
-          cleanup
-  %706 = extractvalue { ptr, i32 } %705, 0
-  store ptr %706, ptr %99, align 8
-  %707 = extractvalue { ptr, i32 } %705, 1
-  store i32 %707, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %463) #23
-  br label %2039
-
-708:                                              ; preds = %468
-  %709 = landingpad { ptr, i32 }
-          cleanup
-  %710 = extractvalue { ptr, i32 } %709, 0
-  store ptr %710, ptr %99, align 8
-  %711 = extractvalue { ptr, i32 } %709, 1
-  store i32 %711, ptr %100, align 4
-  br label %721
-
-712:                                              ; preds = %470
-  %713 = landingpad { ptr, i32 }
-          cleanup
-  %714 = extractvalue { ptr, i32 } %713, 0
-  store ptr %714, ptr %99, align 8
-  %715 = extractvalue { ptr, i32 } %713, 1
-  store i32 %715, ptr %100, align 4
-  br label %720
-
-716:                                              ; preds = %471
-  %717 = landingpad { ptr, i32 }
-          cleanup
-  %718 = extractvalue { ptr, i32 } %717, 0
-  store ptr %718, ptr %99, align 8
-  %719 = extractvalue { ptr, i32 } %717, 1
-  store i32 %719, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %116) #11
-  br label %720
-
-720:                                              ; preds = %716, %712
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %115) #11
-  br label %721
-
-721:                                              ; preds = %720, %708
-  %722 = load i1, ptr %117, align 1
-  br i1 %722, label %723, label %724
-
-723:                                              ; preds = %721
-  call void @_ZdlPv(ptr noundef %467) #23
-  br label %724
-
-724:                                              ; preds = %723, %721
-  br label %2039
-
-725:                                              ; preds = %475
-  %726 = landingpad { ptr, i32 }
-          cleanup
-  %727 = extractvalue { ptr, i32 } %726, 0
-  store ptr %727, ptr %99, align 8
-  %728 = extractvalue { ptr, i32 } %726, 1
-  store i32 %728, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %474) #23
-  br label %2039
-
-729:                                              ; preds = %488
-  %730 = landingpad { ptr, i32 }
-          cleanup
-  %731 = extractvalue { ptr, i32 } %730, 0
-  store ptr %731, ptr %99, align 8
-  %732 = extractvalue { ptr, i32 } %730, 1
-  store i32 %732, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %121) #11
-  br label %2039
-
-733:                                              ; preds = %492
-  %734 = landingpad { ptr, i32 }
-          cleanup
-  %735 = extractvalue { ptr, i32 } %734, 0
-  store ptr %735, ptr %99, align 8
-  %736 = extractvalue { ptr, i32 } %734, 1
-  store i32 %736, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %123) #11
-  br label %2039
-
-737:                                              ; preds = %495
-  %738 = landingpad { ptr, i32 }
-          cleanup
-  %739 = extractvalue { ptr, i32 } %738, 0
-  store ptr %739, ptr %99, align 8
-  %740 = extractvalue { ptr, i32 } %738, 1
-  store i32 %740, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %494) #23
-  br label %2039
-
-741:                                              ; preds = %501
-  %742 = landingpad { ptr, i32 }
-          cleanup
-  %743 = extractvalue { ptr, i32 } %742, 0
-  store ptr %743, ptr %99, align 8
-  %744 = extractvalue { ptr, i32 } %742, 1
-  store i32 %744, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %500) #23
-  br label %2039
-
-745:                                              ; preds = %505
-  %746 = landingpad { ptr, i32 }
-          cleanup
-  %747 = extractvalue { ptr, i32 } %746, 0
-  store ptr %747, ptr %99, align 8
-  %748 = extractvalue { ptr, i32 } %746, 1
-  store i32 %748, ptr %100, align 4
-  br label %758
-
-749:                                              ; preds = %507
-  %750 = landingpad { ptr, i32 }
-          cleanup
-  %751 = extractvalue { ptr, i32 } %750, 0
-  store ptr %751, ptr %99, align 8
-  %752 = extractvalue { ptr, i32 } %750, 1
-  store i32 %752, ptr %100, align 4
-  br label %757
-
-753:                                              ; preds = %508
-  %754 = landingpad { ptr, i32 }
-          cleanup
-  %755 = extractvalue { ptr, i32 } %754, 0
-  store ptr %755, ptr %99, align 8
-  %756 = extractvalue { ptr, i32 } %754, 1
-  store i32 %756, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %125) #11
-  br label %757
-
-757:                                              ; preds = %753, %749
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %124) #11
-  br label %758
-
-758:                                              ; preds = %757, %745
-  %759 = load i1, ptr %126, align 1
-  br i1 %759, label %760, label %761
-
-760:                                              ; preds = %758
-  call void @_ZdlPv(ptr noundef %504) #23
-  br label %761
-
-761:                                              ; preds = %760, %758
-  br label %2039
-
-762:                                              ; preds = %512
-  %763 = landingpad { ptr, i32 }
-          cleanup
-  %764 = extractvalue { ptr, i32 } %763, 0
-  store ptr %764, ptr %99, align 8
-  %765 = extractvalue { ptr, i32 } %763, 1
-  store i32 %765, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %511) #23
-  br label %2039
-
-766:                                              ; preds = %525
-  %767 = landingpad { ptr, i32 }
-          cleanup
-  %768 = extractvalue { ptr, i32 } %767, 0
-  store ptr %768, ptr %99, align 8
-  %769 = extractvalue { ptr, i32 } %767, 1
-  store i32 %769, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %130) #11
-  br label %2039
-
-770:                                              ; preds = %529
-  %771 = landingpad { ptr, i32 }
-          cleanup
-  %772 = extractvalue { ptr, i32 } %771, 0
-  store ptr %772, ptr %99, align 8
-  %773 = extractvalue { ptr, i32 } %771, 1
-  store i32 %773, ptr %100, align 4
-  br label %783
-
-774:                                              ; preds = %531
-  %775 = landingpad { ptr, i32 }
-          cleanup
-  %776 = extractvalue { ptr, i32 } %775, 0
-  store ptr %776, ptr %99, align 8
-  %777 = extractvalue { ptr, i32 } %775, 1
-  store i32 %777, ptr %100, align 4
-  br label %782
-
-778:                                              ; preds = %532
-  %779 = landingpad { ptr, i32 }
-          cleanup
-  %780 = extractvalue { ptr, i32 } %779, 0
-  store ptr %780, ptr %99, align 8
-  %781 = extractvalue { ptr, i32 } %779, 1
-  store i32 %781, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %133) #11
-  br label %782
-
-782:                                              ; preds = %778, %774
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #11
-  br label %783
-
-783:                                              ; preds = %782, %770
-  %784 = load i1, ptr %134, align 1
-  br i1 %784, label %785, label %786
-
-785:                                              ; preds = %783
-  call void @_ZdlPv(ptr noundef %528) #23
-  br label %786
-
-786:                                              ; preds = %785, %783
-  br label %2039
-
-787:                                              ; preds = %536
-  %788 = landingpad { ptr, i32 }
-          cleanup
-  %789 = extractvalue { ptr, i32 } %788, 0
-  store ptr %789, ptr %99, align 8
-  %790 = extractvalue { ptr, i32 } %788, 1
-  store i32 %790, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %535) #23
-  br label %2039
-
-791:                                              ; preds = %549
-  %792 = landingpad { ptr, i32 }
-          cleanup
-  %793 = extractvalue { ptr, i32 } %792, 0
-  store ptr %793, ptr %99, align 8
-  %794 = extractvalue { ptr, i32 } %792, 1
-  store i32 %794, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %138) #11
-  br label %2039
-
-795:                                              ; preds = %553
-  %796 = landingpad { ptr, i32 }
-          cleanup
-  %797 = extractvalue { ptr, i32 } %796, 0
-  store ptr %797, ptr %99, align 8
-  %798 = extractvalue { ptr, i32 } %796, 1
-  store i32 %798, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %140) #11
-  br label %2039
-
-799:                                              ; preds = %556
-  %800 = landingpad { ptr, i32 }
-          cleanup
-  %801 = extractvalue { ptr, i32 } %800, 0
-  store ptr %801, ptr %99, align 8
-  %802 = extractvalue { ptr, i32 } %800, 1
-  store i32 %802, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %555) #23
-  br label %2039
-
-803:                                              ; preds = %562
-  %804 = landingpad { ptr, i32 }
-          cleanup
-  %805 = extractvalue { ptr, i32 } %804, 0
-  store ptr %805, ptr %99, align 8
-  %806 = extractvalue { ptr, i32 } %804, 1
-  store i32 %806, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %561) #23
-  br label %2039
-
-807:                                              ; preds = %571
-  %808 = landingpad { ptr, i32 }
-          cleanup
-  %809 = extractvalue { ptr, i32 } %808, 0
-  store ptr %809, ptr %99, align 8
-  %810 = extractvalue { ptr, i32 } %808, 1
-  store i32 %810, ptr %100, align 4
-  br label %820
-
-811:                                              ; preds = %575
-  %812 = landingpad { ptr, i32 }
-          cleanup
-  %813 = extractvalue { ptr, i32 } %812, 0
-  store ptr %813, ptr %99, align 8
-  %814 = extractvalue { ptr, i32 } %812, 1
-  store i32 %814, ptr %100, align 4
-  br label %819
-
-815:                                              ; preds = %578, %576
-  %816 = landingpad { ptr, i32 }
-          cleanup
-  %817 = extractvalue { ptr, i32 } %816, 0
-  store ptr %817, ptr %99, align 8
-  %818 = extractvalue { ptr, i32 } %816, 1
-  store i32 %818, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #11
-  br label %819
-
-819:                                              ; preds = %815, %811
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %145) #11
-  br label %820
-
-820:                                              ; preds = %819, %807
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %144) #11
-  br label %2039
-
-821:                                              ; preds = %580
-  %822 = landingpad { ptr, i32 }
-          cleanup
-  %823 = extractvalue { ptr, i32 } %822, 0
-  store ptr %823, ptr %99, align 8
-  %824 = extractvalue { ptr, i32 } %822, 1
-  store i32 %824, ptr %100, align 4
-  br label %834
-
-825:                                              ; preds = %584
-  %826 = landingpad { ptr, i32 }
-          cleanup
-  %827 = extractvalue { ptr, i32 } %826, 0
-  store ptr %827, ptr %99, align 8
-  %828 = extractvalue { ptr, i32 } %826, 1
-  store i32 %828, ptr %100, align 4
-  br label %833
-
-829:                                              ; preds = %585
-  %830 = landingpad { ptr, i32 }
-          cleanup
-  %831 = extractvalue { ptr, i32 } %830, 0
-  store ptr %831, ptr %99, align 8
-  %832 = extractvalue { ptr, i32 } %830, 1
-  store i32 %832, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %151) #11
-  br label %833
-
-833:                                              ; preds = %829, %825
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %149) #11
-  br label %834
-
-834:                                              ; preds = %833, %821
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %148) #11
-  br label %2039
-
-835:                                              ; preds = %593
-  %836 = landingpad { ptr, i32 }
-          cleanup
-  %837 = extractvalue { ptr, i32 } %836, 0
-  store ptr %837, ptr %99, align 8
-  %838 = extractvalue { ptr, i32 } %836, 1
-  store i32 %838, ptr %100, align 4
-  br label %843
-
-839:                                              ; preds = %595
-  %840 = landingpad { ptr, i32 }
-          cleanup
-  %841 = extractvalue { ptr, i32 } %840, 0
-  store ptr %841, ptr %99, align 8
-  %842 = extractvalue { ptr, i32 } %840, 1
-  store i32 %842, ptr %100, align 4
+  store ptr %593, ptr %598, align 16
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %152) #11
-  br label %843
+  %599 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
+  %600 = load ptr, ptr %599, align 16
+  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(132) %600, i32 noundef 15)
+          to label %601 unwind label %348
 
-843:                                              ; preds = %839, %835
-  %844 = load i1, ptr %153, align 1
-  br i1 %844, label %845, label %846
+601:                                              ; preds = %597
+  %602 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
+  %603 = load ptr, ptr %602, align 16
+  %604 = getelementptr inbounds %class.anon.110, ptr %155, i32 0, i32 0
+  store ptr %295, ptr %604, align 8
+  %605 = getelementptr inbounds %class.anon.110, ptr %155, i32 0, i32 0
+  %606 = load ptr, ptr %605, align 8
+  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_7vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %154, ptr %606)
+          to label %607 unwind label %348
 
-845:                                              ; preds = %843
-  call void @_ZdlPv(ptr noundef %592) #23
-  br label %846
+607:                                              ; preds = %601
+  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %603, ptr noundef nonnull align 16 dereferenceable(48) %154)
+          to label %608 unwind label %848
 
-846:                                              ; preds = %845, %843
-  br label %2039
-
-847:                                              ; preds = %606
-  %848 = landingpad { ptr, i32 }
-          cleanup
-  %849 = extractvalue { ptr, i32 } %848, 0
-  store ptr %849, ptr %99, align 8
-  %850 = extractvalue { ptr, i32 } %848, 1
-  store i32 %850, ptr %100, align 4
+608:                                              ; preds = %607
   call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %154) #11
-  br label %2039
+  %609 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
+  %610 = load ptr, ptr %609, align 16
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %156, ptr noundef @.str.16)
+          to label %611 unwind label %348
 
-851:                                              ; preds = %610
-  %852 = landingpad { ptr, i32 }
-          cleanup
-  %853 = extractvalue { ptr, i32 } %852, 0
-  store ptr %853, ptr %99, align 8
-  %854 = extractvalue { ptr, i32 } %852, 1
-  store i32 %854, ptr %100, align 4
+611:                                              ; preds = %608
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %610, ptr noundef nonnull align 8 dereferenceable(24) %156)
+          to label %612 unwind label %852
+
+612:                                              ; preds = %611
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %156) #11
-  br label %2039
+  %613 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 49
+  %614 = load ptr, ptr %613, align 16
+  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %614, i32 noundef 4)
+          to label %615 unwind label %348
 
-855:                                              ; preds = %614, %587
-  %856 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 352) #24
-          to label %857 unwind label %347
+615:                                              ; preds = %612
+  br label %856
 
-857:                                              ; preds = %855
+616:                                              ; preds = %366
+  %617 = landingpad { ptr, i32 }
+          cleanup
+  %618 = extractvalue { ptr, i32 } %617, 0
+  store ptr %618, ptr %99, align 8
+  %619 = extractvalue { ptr, i32 } %617, 1
+  store i32 %619, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %365) #23
+  br label %2040
+
+620:                                              ; preds = %372
+  %621 = landingpad { ptr, i32 }
+          cleanup
+  %622 = extractvalue { ptr, i32 } %621, 0
+  store ptr %622, ptr %99, align 8
+  %623 = extractvalue { ptr, i32 } %621, 1
+  store i32 %623, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %371) #23
+  br label %2040
+
+624:                                              ; preds = %376
+  %625 = landingpad { ptr, i32 }
+          cleanup
+  %626 = extractvalue { ptr, i32 } %625, 0
+  store ptr %626, ptr %99, align 8
+  %627 = extractvalue { ptr, i32 } %625, 1
+  store i32 %627, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %375) #23
+  br label %2040
+
+628:                                              ; preds = %382
+  %629 = landingpad { ptr, i32 }
+          cleanup
+  %630 = extractvalue { ptr, i32 } %629, 0
+  store ptr %630, ptr %99, align 8
+  %631 = extractvalue { ptr, i32 } %629, 1
+  store i32 %631, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %381) #23
+  br label %2040
+
+632:                                              ; preds = %386
+  %633 = landingpad { ptr, i32 }
+          cleanup
+  %634 = extractvalue { ptr, i32 } %633, 0
+  store ptr %634, ptr %99, align 8
+  %635 = extractvalue { ptr, i32 } %633, 1
+  store i32 %635, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %385) #23
+  br label %2040
+
+636:                                              ; preds = %394
+  %637 = landingpad { ptr, i32 }
+          cleanup
+  %638 = extractvalue { ptr, i32 } %637, 0
+  store ptr %638, ptr %99, align 8
+  %639 = extractvalue { ptr, i32 } %637, 1
+  store i32 %639, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %393) #23
+  br label %2040
+
+640:                                              ; preds = %399
+  %641 = landingpad { ptr, i32 }
+          cleanup
+  %642 = extractvalue { ptr, i32 } %641, 0
+  store ptr %642, ptr %99, align 8
+  %643 = extractvalue { ptr, i32 } %641, 1
+  store i32 %643, ptr %100, align 4
+  br label %648
+
+644:                                              ; preds = %401
+  %645 = landingpad { ptr, i32 }
+          cleanup
+  %646 = extractvalue { ptr, i32 } %645, 0
+  store ptr %646, ptr %99, align 8
+  %647 = extractvalue { ptr, i32 } %645, 1
+  store i32 %647, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #11
+  br label %648
+
+648:                                              ; preds = %644, %640
+  %649 = load i1, ptr %106, align 1
+  br i1 %649, label %650, label %651
+
+650:                                              ; preds = %648
+  call void @_ZdlPv(ptr noundef %398) #23
+  br label %651
+
+651:                                              ; preds = %650, %648
+  br label %2040
+
+652:                                              ; preds = %409
+  %653 = landingpad { ptr, i32 }
+          cleanup
+  %654 = extractvalue { ptr, i32 } %653, 0
+  store ptr %654, ptr %99, align 8
+  %655 = extractvalue { ptr, i32 } %653, 1
+  store i32 %655, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %107) #11
+  br label %2040
+
+656:                                              ; preds = %416
+  %657 = landingpad { ptr, i32 }
+          cleanup
+  %658 = extractvalue { ptr, i32 } %657, 0
+  store ptr %658, ptr %99, align 8
+  %659 = extractvalue { ptr, i32 } %657, 1
+  store i32 %659, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #11
+  br label %2040
+
+660:                                              ; preds = %422
+  %661 = landingpad { ptr, i32 }
+          cleanup
+  %662 = extractvalue { ptr, i32 } %661, 0
+  store ptr %662, ptr %99, align 8
+  %663 = extractvalue { ptr, i32 } %661, 1
+  store i32 %663, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %421) #23
+  br label %2040
+
+664:                                              ; preds = %429
+  %665 = landingpad { ptr, i32 }
+          cleanup
+  %666 = extractvalue { ptr, i32 } %665, 0
+  store ptr %666, ptr %99, align 8
+  %667 = extractvalue { ptr, i32 } %665, 1
+  store i32 %667, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %428) #23
+  br label %2040
+
+668:                                              ; preds = %436, %433
+  %669 = landingpad { ptr, i32 }
+          cleanup
+  %670 = extractvalue { ptr, i32 } %669, 0
+  store ptr %670, ptr %99, align 8
+  %671 = extractvalue { ptr, i32 } %669, 1
+  store i32 %671, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %432) #23
+  br label %2040
+
+672:                                              ; preds = %440
+  %673 = landingpad { ptr, i32 }
+          cleanup
+  %674 = extractvalue { ptr, i32 } %673, 0
+  store ptr %674, ptr %99, align 8
+  %675 = extractvalue { ptr, i32 } %673, 1
+  store i32 %675, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %439) #23
+  br label %2040
+
+676:                                              ; preds = %446
+  %677 = landingpad { ptr, i32 }
+          cleanup
+  %678 = extractvalue { ptr, i32 } %677, 0
+  store ptr %678, ptr %99, align 8
+  %679 = extractvalue { ptr, i32 } %677, 1
+  store i32 %679, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %445) #23
+  br label %2040
+
+680:                                              ; preds = %450
+  %681 = landingpad { ptr, i32 }
+          cleanup
+  %682 = extractvalue { ptr, i32 } %681, 0
+  store ptr %682, ptr %99, align 8
+  %683 = extractvalue { ptr, i32 } %681, 1
+  store i32 %683, ptr %100, align 4
+  br label %693
+
+684:                                              ; preds = %452
+  %685 = landingpad { ptr, i32 }
+          cleanup
+  %686 = extractvalue { ptr, i32 } %685, 0
+  store ptr %686, ptr %99, align 8
+  %687 = extractvalue { ptr, i32 } %685, 1
+  store i32 %687, ptr %100, align 4
+  br label %692
+
+688:                                              ; preds = %453
+  %689 = landingpad { ptr, i32 }
+          cleanup
+  %690 = extractvalue { ptr, i32 } %689, 0
+  store ptr %690, ptr %99, align 8
+  %691 = extractvalue { ptr, i32 } %689, 1
+  store i32 %691, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #11
+  br label %692
+
+692:                                              ; preds = %688, %684
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #11
+  br label %693
+
+693:                                              ; preds = %692, %680
+  %694 = load i1, ptr %113, align 1
+  br i1 %694, label %695, label %696
+
+695:                                              ; preds = %693
+  call void @_ZdlPv(ptr noundef %449) #23
+  br label %696
+
+696:                                              ; preds = %695, %693
+  br label %2040
+
+697:                                              ; preds = %456
+  %698 = landingpad { ptr, i32 }
+          cleanup
+  %699 = extractvalue { ptr, i32 } %698, 0
+  store ptr %699, ptr %99, align 8
+  %700 = extractvalue { ptr, i32 } %698, 1
+  store i32 %700, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #11
+  br label %2040
+
+701:                                              ; preds = %459
+  %702 = landingpad { ptr, i32 }
+          cleanup
+  %703 = extractvalue { ptr, i32 } %702, 0
+  store ptr %703, ptr %99, align 8
+  %704 = extractvalue { ptr, i32 } %702, 1
+  store i32 %704, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %458) #23
+  br label %2040
+
+705:                                              ; preds = %465
+  %706 = landingpad { ptr, i32 }
+          cleanup
+  %707 = extractvalue { ptr, i32 } %706, 0
+  store ptr %707, ptr %99, align 8
+  %708 = extractvalue { ptr, i32 } %706, 1
+  store i32 %708, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %464) #23
+  br label %2040
+
+709:                                              ; preds = %469
+  %710 = landingpad { ptr, i32 }
+          cleanup
+  %711 = extractvalue { ptr, i32 } %710, 0
+  store ptr %711, ptr %99, align 8
+  %712 = extractvalue { ptr, i32 } %710, 1
+  store i32 %712, ptr %100, align 4
+  br label %722
+
+713:                                              ; preds = %471
+  %714 = landingpad { ptr, i32 }
+          cleanup
+  %715 = extractvalue { ptr, i32 } %714, 0
+  store ptr %715, ptr %99, align 8
+  %716 = extractvalue { ptr, i32 } %714, 1
+  store i32 %716, ptr %100, align 4
+  br label %721
+
+717:                                              ; preds = %472
+  %718 = landingpad { ptr, i32 }
+          cleanup
+  %719 = extractvalue { ptr, i32 } %718, 0
+  store ptr %719, ptr %99, align 8
+  %720 = extractvalue { ptr, i32 } %718, 1
+  store i32 %720, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %116) #11
+  br label %721
+
+721:                                              ; preds = %717, %713
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %115) #11
+  br label %722
+
+722:                                              ; preds = %721, %709
+  %723 = load i1, ptr %117, align 1
+  br i1 %723, label %724, label %725
+
+724:                                              ; preds = %722
+  call void @_ZdlPv(ptr noundef %468) #23
+  br label %725
+
+725:                                              ; preds = %724, %722
+  br label %2040
+
+726:                                              ; preds = %476
+  %727 = landingpad { ptr, i32 }
+          cleanup
+  %728 = extractvalue { ptr, i32 } %727, 0
+  store ptr %728, ptr %99, align 8
+  %729 = extractvalue { ptr, i32 } %727, 1
+  store i32 %729, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %475) #23
+  br label %2040
+
+730:                                              ; preds = %489
+  %731 = landingpad { ptr, i32 }
+          cleanup
+  %732 = extractvalue { ptr, i32 } %731, 0
+  store ptr %732, ptr %99, align 8
+  %733 = extractvalue { ptr, i32 } %731, 1
+  store i32 %733, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %121) #11
+  br label %2040
+
+734:                                              ; preds = %493
+  %735 = landingpad { ptr, i32 }
+          cleanup
+  %736 = extractvalue { ptr, i32 } %735, 0
+  store ptr %736, ptr %99, align 8
+  %737 = extractvalue { ptr, i32 } %735, 1
+  store i32 %737, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %123) #11
+  br label %2040
+
+738:                                              ; preds = %496
+  %739 = landingpad { ptr, i32 }
+          cleanup
+  %740 = extractvalue { ptr, i32 } %739, 0
+  store ptr %740, ptr %99, align 8
+  %741 = extractvalue { ptr, i32 } %739, 1
+  store i32 %741, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %495) #23
+  br label %2040
+
+742:                                              ; preds = %502
+  %743 = landingpad { ptr, i32 }
+          cleanup
+  %744 = extractvalue { ptr, i32 } %743, 0
+  store ptr %744, ptr %99, align 8
+  %745 = extractvalue { ptr, i32 } %743, 1
+  store i32 %745, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %501) #23
+  br label %2040
+
+746:                                              ; preds = %506
+  %747 = landingpad { ptr, i32 }
+          cleanup
+  %748 = extractvalue { ptr, i32 } %747, 0
+  store ptr %748, ptr %99, align 8
+  %749 = extractvalue { ptr, i32 } %747, 1
+  store i32 %749, ptr %100, align 4
+  br label %759
+
+750:                                              ; preds = %508
+  %751 = landingpad { ptr, i32 }
+          cleanup
+  %752 = extractvalue { ptr, i32 } %751, 0
+  store ptr %752, ptr %99, align 8
+  %753 = extractvalue { ptr, i32 } %751, 1
+  store i32 %753, ptr %100, align 4
+  br label %758
+
+754:                                              ; preds = %509
+  %755 = landingpad { ptr, i32 }
+          cleanup
+  %756 = extractvalue { ptr, i32 } %755, 0
+  store ptr %756, ptr %99, align 8
+  %757 = extractvalue { ptr, i32 } %755, 1
+  store i32 %757, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %125) #11
+  br label %758
+
+758:                                              ; preds = %754, %750
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %124) #11
+  br label %759
+
+759:                                              ; preds = %758, %746
+  %760 = load i1, ptr %126, align 1
+  br i1 %760, label %761, label %762
+
+761:                                              ; preds = %759
+  call void @_ZdlPv(ptr noundef %505) #23
+  br label %762
+
+762:                                              ; preds = %761, %759
+  br label %2040
+
+763:                                              ; preds = %513
+  %764 = landingpad { ptr, i32 }
+          cleanup
+  %765 = extractvalue { ptr, i32 } %764, 0
+  store ptr %765, ptr %99, align 8
+  %766 = extractvalue { ptr, i32 } %764, 1
+  store i32 %766, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %512) #23
+  br label %2040
+
+767:                                              ; preds = %526
+  %768 = landingpad { ptr, i32 }
+          cleanup
+  %769 = extractvalue { ptr, i32 } %768, 0
+  store ptr %769, ptr %99, align 8
+  %770 = extractvalue { ptr, i32 } %768, 1
+  store i32 %770, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %130) #11
+  br label %2040
+
+771:                                              ; preds = %530
+  %772 = landingpad { ptr, i32 }
+          cleanup
+  %773 = extractvalue { ptr, i32 } %772, 0
+  store ptr %773, ptr %99, align 8
+  %774 = extractvalue { ptr, i32 } %772, 1
+  store i32 %774, ptr %100, align 4
+  br label %784
+
+775:                                              ; preds = %532
+  %776 = landingpad { ptr, i32 }
+          cleanup
+  %777 = extractvalue { ptr, i32 } %776, 0
+  store ptr %777, ptr %99, align 8
+  %778 = extractvalue { ptr, i32 } %776, 1
+  store i32 %778, ptr %100, align 4
+  br label %783
+
+779:                                              ; preds = %533
+  %780 = landingpad { ptr, i32 }
+          cleanup
+  %781 = extractvalue { ptr, i32 } %780, 0
+  store ptr %781, ptr %99, align 8
+  %782 = extractvalue { ptr, i32 } %780, 1
+  store i32 %782, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %133) #11
+  br label %783
+
+783:                                              ; preds = %779, %775
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #11
+  br label %784
+
+784:                                              ; preds = %783, %771
+  %785 = load i1, ptr %134, align 1
+  br i1 %785, label %786, label %787
+
+786:                                              ; preds = %784
+  call void @_ZdlPv(ptr noundef %529) #23
+  br label %787
+
+787:                                              ; preds = %786, %784
+  br label %2040
+
+788:                                              ; preds = %537
+  %789 = landingpad { ptr, i32 }
+          cleanup
+  %790 = extractvalue { ptr, i32 } %789, 0
+  store ptr %790, ptr %99, align 8
+  %791 = extractvalue { ptr, i32 } %789, 1
+  store i32 %791, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %536) #23
+  br label %2040
+
+792:                                              ; preds = %550
+  %793 = landingpad { ptr, i32 }
+          cleanup
+  %794 = extractvalue { ptr, i32 } %793, 0
+  store ptr %794, ptr %99, align 8
+  %795 = extractvalue { ptr, i32 } %793, 1
+  store i32 %795, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %138) #11
+  br label %2040
+
+796:                                              ; preds = %554
+  %797 = landingpad { ptr, i32 }
+          cleanup
+  %798 = extractvalue { ptr, i32 } %797, 0
+  store ptr %798, ptr %99, align 8
+  %799 = extractvalue { ptr, i32 } %797, 1
+  store i32 %799, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %140) #11
+  br label %2040
+
+800:                                              ; preds = %557
+  %801 = landingpad { ptr, i32 }
+          cleanup
+  %802 = extractvalue { ptr, i32 } %801, 0
+  store ptr %802, ptr %99, align 8
+  %803 = extractvalue { ptr, i32 } %801, 1
+  store i32 %803, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %556) #23
+  br label %2040
+
+804:                                              ; preds = %563
+  %805 = landingpad { ptr, i32 }
+          cleanup
+  %806 = extractvalue { ptr, i32 } %805, 0
+  store ptr %806, ptr %99, align 8
+  %807 = extractvalue { ptr, i32 } %805, 1
+  store i32 %807, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %562) #23
+  br label %2040
+
+808:                                              ; preds = %572
+  %809 = landingpad { ptr, i32 }
+          cleanup
+  %810 = extractvalue { ptr, i32 } %809, 0
+  store ptr %810, ptr %99, align 8
+  %811 = extractvalue { ptr, i32 } %809, 1
+  store i32 %811, ptr %100, align 4
+  br label %821
+
+812:                                              ; preds = %576
+  %813 = landingpad { ptr, i32 }
+          cleanup
+  %814 = extractvalue { ptr, i32 } %813, 0
+  store ptr %814, ptr %99, align 8
+  %815 = extractvalue { ptr, i32 } %813, 1
+  store i32 %815, ptr %100, align 4
+  br label %820
+
+816:                                              ; preds = %579, %577
+  %817 = landingpad { ptr, i32 }
+          cleanup
+  %818 = extractvalue { ptr, i32 } %817, 0
+  store ptr %818, ptr %99, align 8
+  %819 = extractvalue { ptr, i32 } %817, 1
+  store i32 %819, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #11
+  br label %820
+
+820:                                              ; preds = %816, %812
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %145) #11
+  br label %821
+
+821:                                              ; preds = %820, %808
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %144) #11
+  br label %2040
+
+822:                                              ; preds = %581
+  %823 = landingpad { ptr, i32 }
+          cleanup
+  %824 = extractvalue { ptr, i32 } %823, 0
+  store ptr %824, ptr %99, align 8
+  %825 = extractvalue { ptr, i32 } %823, 1
+  store i32 %825, ptr %100, align 4
+  br label %835
+
+826:                                              ; preds = %585
+  %827 = landingpad { ptr, i32 }
+          cleanup
+  %828 = extractvalue { ptr, i32 } %827, 0
+  store ptr %828, ptr %99, align 8
+  %829 = extractvalue { ptr, i32 } %827, 1
+  store i32 %829, ptr %100, align 4
+  br label %834
+
+830:                                              ; preds = %586
+  %831 = landingpad { ptr, i32 }
+          cleanup
+  %832 = extractvalue { ptr, i32 } %831, 0
+  store ptr %832, ptr %99, align 8
+  %833 = extractvalue { ptr, i32 } %831, 1
+  store i32 %833, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %151) #11
+  br label %834
+
+834:                                              ; preds = %830, %826
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %149) #11
+  br label %835
+
+835:                                              ; preds = %834, %822
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %148) #11
+  br label %2040
+
+836:                                              ; preds = %594
+  %837 = landingpad { ptr, i32 }
+          cleanup
+  %838 = extractvalue { ptr, i32 } %837, 0
+  store ptr %838, ptr %99, align 8
+  %839 = extractvalue { ptr, i32 } %837, 1
+  store i32 %839, ptr %100, align 4
+  br label %844
+
+840:                                              ; preds = %596
+  %841 = landingpad { ptr, i32 }
+          cleanup
+  %842 = extractvalue { ptr, i32 } %841, 0
+  store ptr %842, ptr %99, align 8
+  %843 = extractvalue { ptr, i32 } %841, 1
+  store i32 %843, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %152) #11
+  br label %844
+
+844:                                              ; preds = %840, %836
+  %845 = load i1, ptr %153, align 1
+  br i1 %845, label %846, label %847
+
+846:                                              ; preds = %844
+  call void @_ZdlPv(ptr noundef %593) #23
+  br label %847
+
+847:                                              ; preds = %846, %844
+  br label %2040
+
+848:                                              ; preds = %607
+  %849 = landingpad { ptr, i32 }
+          cleanup
+  %850 = extractvalue { ptr, i32 } %849, 0
+  store ptr %850, ptr %99, align 8
+  %851 = extractvalue { ptr, i32 } %849, 1
+  store i32 %851, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %154) #11
+  br label %2040
+
+852:                                              ; preds = %611
+  %853 = landingpad { ptr, i32 }
+          cleanup
+  %854 = extractvalue { ptr, i32 } %853, 0
+  store ptr %854, ptr %99, align 8
+  %855 = extractvalue { ptr, i32 } %853, 1
+  store i32 %855, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %156) #11
+  br label %2040
+
+856:                                              ; preds = %615, %588
+  %857 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 352) #24
+          to label %858 unwind label %348
+
+858:                                              ; preds = %856
   store i1 true, ptr %159, align 1
-  %858 = load ptr, ptr %141, align 8
+  %859 = load ptr, ptr %141, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %158, ptr noundef @.str.4)
-          to label %859 unwind label %1552
+          to label %860 unwind label %1553
 
-859:                                              ; preds = %857
-  invoke void @_ZN7nanogui11PopupButtonC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEi(ptr noundef nonnull align 16 dereferenceable(340) %856, ptr noundef %858, ptr noundef nonnull align 8 dereferenceable(24) %158, i32 noundef 61948)
-          to label %860 unwind label %1556
+860:                                              ; preds = %858
+  invoke void @_ZN7nanogui11PopupButtonC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEi(ptr noundef nonnull align 16 dereferenceable(340) %857, ptr noundef %859, ptr noundef nonnull align 8 dereferenceable(24) %158, i32 noundef 61948)
+          to label %861 unwind label %1557
 
-860:                                              ; preds = %859
+861:                                              ; preds = %860
   store i1 false, ptr %159, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %158) #11
-  store ptr %856, ptr %157, align 8
-  %861 = load ptr, ptr %157, align 8
-  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(132) %861, i32 noundef 15)
-          to label %862 unwind label %347
+  store ptr %857, ptr %157, align 8
+  %862 = load ptr, ptr %157, align 8
+  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(132) %862, i32 noundef 15)
+          to label %863 unwind label %348
 
-862:                                              ; preds = %860
-  %863 = load ptr, ptr %157, align 8
-  invoke void @_ZN7nanogui11PopupButton16set_chevron_iconEi(ptr noundef nonnull align 16 dereferenceable(340) %863, i32 noundef 0)
-          to label %864 unwind label %347
+863:                                              ; preds = %861
+  %864 = load ptr, ptr %157, align 8
+  invoke void @_ZN7nanogui11PopupButton16set_chevron_iconEi(ptr noundef nonnull align 16 dereferenceable(340) %864, i32 noundef 0)
+          to label %865 unwind label %348
 
-864:                                              ; preds = %862
-  %865 = load ptr, ptr %157, align 8
+865:                                              ; preds = %863
+  %866 = load ptr, ptr %157, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %160, ptr noundef @.str.17)
-          to label %866 unwind label %347
+          to label %867 unwind label %348
 
-866:                                              ; preds = %864
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %865, ptr noundef nonnull align 8 dereferenceable(24) %160)
-          to label %867 unwind label %1564
+867:                                              ; preds = %865
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %866, ptr noundef nonnull align 8 dereferenceable(24) %160)
+          to label %868 unwind label %1565
 
-867:                                              ; preds = %866
+868:                                              ; preds = %867
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #11
-  %868 = load ptr, ptr %157, align 8
-  %869 = invoke noundef ptr @_ZN7nanogui11PopupButton5popupEv(ptr noundef nonnull align 16 dereferenceable(340) %868)
-          to label %870 unwind label %347
+  %869 = load ptr, ptr %157, align 8
+  %870 = invoke noundef ptr @_ZN7nanogui11PopupButton5popupEv(ptr noundef nonnull align 16 dereferenceable(340) %869)
+          to label %871 unwind label %348
 
-870:                                              ; preds = %867
-  store ptr %869, ptr %161, align 8
-  %871 = load ptr, ptr %161, align 8
-  %872 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %873 unwind label %347
+871:                                              ; preds = %868
+  store ptr %870, ptr %161, align 8
+  %872 = load ptr, ptr %161, align 8
+  %873 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %874 unwind label %348
 
-873:                                              ; preds = %870
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %872, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 10, i32 noundef 0)
-          to label %874 unwind label %1568
-
-874:                                              ; preds = %873
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %871, ptr noundef %872)
-          to label %875 unwind label %347
+874:                                              ; preds = %871
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %873, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 10, i32 noundef 0)
+          to label %875 unwind label %1569
 
 875:                                              ; preds = %874
-  %876 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
-          to label %877 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %872, ptr noundef %873)
+          to label %876 unwind label %348
 
-877:                                              ; preds = %875
+876:                                              ; preds = %875
+  %877 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
+          to label %878 unwind label %348
+
+878:                                              ; preds = %876
   store i1 true, ptr %164, align 1
-  %878 = load ptr, ptr %161, align 8
+  %879 = load ptr, ptr %161, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %162, ptr noundef @.str.17)
-          to label %879 unwind label %1572
+          to label %880 unwind label %1573
 
-879:                                              ; preds = %877
+880:                                              ; preds = %878
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %163, ptr noundef @.str.18)
-          to label %880 unwind label %1576
-
-880:                                              ; preds = %879
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %876, ptr noundef %878, ptr noundef nonnull align 8 dereferenceable(24) %162, ptr noundef nonnull align 8 dereferenceable(24) %163, i32 noundef -1)
-          to label %881 unwind label %1580
+          to label %881 unwind label %1577
 
 881:                                              ; preds = %880
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %877, ptr noundef %879, ptr noundef nonnull align 8 dereferenceable(24) %162, ptr noundef nonnull align 8 dereferenceable(24) %163, i32 noundef -1)
+          to label %882 unwind label %1581
+
+882:                                              ; preds = %881
   store i1 false, ptr %164, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %163) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %162) #11
-  %882 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #24
-          to label %883 unwind label %347
+  %883 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #24
+          to label %884 unwind label %348
 
-883:                                              ; preds = %881
-  %884 = load ptr, ptr %161, align 8
-  %885 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 38
-  %886 = load ptr, ptr %885, align 8
-  %887 = invoke { <2 x float>, <2 x float> } @_ZN3tev11ImageCanvas15backgroundColorEv(ptr noundef nonnull align 8 dereferenceable(376) %886)
-          to label %888 unwind label %1589
+884:                                              ; preds = %882
+  %885 = load ptr, ptr %161, align 8
+  %886 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 38
+  %887 = load ptr, ptr %886, align 8
+  %888 = invoke { <2 x float>, <2 x float> } @_ZN3tev11ImageCanvas15backgroundColorEv(ptr noundef nonnull align 8 dereferenceable(376) %887)
+          to label %889 unwind label %1590
 
-888:                                              ; preds = %883
-  %889 = getelementptr inbounds %"class.nanogui::Color", ptr %166, i32 0, i32 0
-  %890 = getelementptr inbounds %"struct.nanogui::Array", ptr %889, i32 0, i32 0
-  %891 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %890, i32 0, i32 0
-  %892 = extractvalue { <2 x float>, <2 x float> } %887, 0
-  store <2 x float> %892, ptr %891, align 4
-  %893 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %890, i32 0, i32 1
-  %894 = extractvalue { <2 x float>, <2 x float> } %887, 1
-  store <2 x float> %894, ptr %893, align 4
-  invoke void @_ZN7nanogui10ColorWheelC1EPNS_6WidgetERKNS_5ColorE(ptr noundef nonnull align 16 dereferenceable(208) %882, ptr noundef %884, ptr noundef nonnull align 4 dereferenceable(16) %166)
-          to label %895 unwind label %1589
+889:                                              ; preds = %884
+  %890 = getelementptr inbounds %"class.nanogui::Color", ptr %166, i32 0, i32 0
+  %891 = getelementptr inbounds %"struct.nanogui::Array", ptr %890, i32 0, i32 0
+  %892 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %891, i32 0, i32 0
+  %893 = extractvalue { <2 x float>, <2 x float> } %888, 0
+  store <2 x float> %893, ptr %892, align 4
+  %894 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %891, i32 0, i32 1
+  %895 = extractvalue { <2 x float>, <2 x float> } %888, 1
+  store <2 x float> %895, ptr %894, align 4
+  invoke void @_ZN7nanogui10ColorWheelC1EPNS_6WidgetERKNS_5ColorE(ptr noundef nonnull align 16 dereferenceable(208) %883, ptr noundef %885, ptr noundef nonnull align 4 dereferenceable(16) %166)
+          to label %896 unwind label %1590
 
-895:                                              ; preds = %888
-  store ptr %882, ptr %165, align 8
-  %896 = load ptr, ptr %165, align 8
-  %897 = load ptr, ptr %157, align 8
-  %898 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7nanogui6Button16background_colorEv(ptr noundef nonnull align 16 dereferenceable(328) %897)
-          to label %899 unwind label %347
+896:                                              ; preds = %889
+  store ptr %883, ptr %165, align 8
+  %897 = load ptr, ptr %165, align 8
+  %898 = load ptr, ptr %157, align 8
+  %899 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7nanogui6Button16background_colorEv(ptr noundef nonnull align 16 dereferenceable(328) %898)
+          to label %900 unwind label %348
 
-899:                                              ; preds = %895
-  invoke void @_ZN7nanogui10ColorWheel9set_colorERKNS_5ColorE(ptr noundef nonnull align 16 dereferenceable(208) %896, ptr noundef nonnull align 4 dereferenceable(16) %898)
-          to label %900 unwind label %347
+900:                                              ; preds = %896
+  invoke void @_ZN7nanogui10ColorWheel9set_colorERKNS_5ColorE(ptr noundef nonnull align 16 dereferenceable(208) %897, ptr noundef nonnull align 4 dereferenceable(16) %899)
+          to label %901 unwind label %348
 
-900:                                              ; preds = %899
-  %901 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
-          to label %902 unwind label %347
+901:                                              ; preds = %900
+  %902 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
+          to label %903 unwind label %348
 
-902:                                              ; preds = %900
+903:                                              ; preds = %901
   store i1 true, ptr %169, align 1
-  %903 = load ptr, ptr %161, align 8
+  %904 = load ptr, ptr %161, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef @.str.19)
-          to label %904 unwind label %1593
+          to label %905 unwind label %1594
 
-904:                                              ; preds = %902
+905:                                              ; preds = %903
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr noundef @.str.18)
-          to label %905 unwind label %1597
-
-905:                                              ; preds = %904
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %901, ptr noundef %903, ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %168, i32 noundef -1)
-          to label %906 unwind label %1601
+          to label %906 unwind label %1598
 
 906:                                              ; preds = %905
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %902, ptr noundef %904, ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %168, i32 noundef -1)
+          to label %907 unwind label %1602
+
+907:                                              ; preds = %906
   store i1 false, ptr %169, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %167) #11
-  %907 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #24
-          to label %908 unwind label %347
+  %908 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #24
+          to label %909 unwind label %348
 
-908:                                              ; preds = %906
-  %909 = load ptr, ptr %161, align 8
-  invoke void @_ZN7nanogui6SliderC1EPNS_6WidgetE(ptr noundef nonnull align 16 dereferenceable(272) %907, ptr noundef %909)
-          to label %910 unwind label %1610
+909:                                              ; preds = %907
+  %910 = load ptr, ptr %161, align 8
+  invoke void @_ZN7nanogui6SliderC1EPNS_6WidgetE(ptr noundef nonnull align 16 dereferenceable(272) %908, ptr noundef %910)
+          to label %911 unwind label %1611
 
-910:                                              ; preds = %908
-  store ptr %907, ptr %170, align 8
-  %911 = load ptr, ptr %170, align 8
+911:                                              ; preds = %909
+  store ptr %908, ptr %170, align 8
+  %912 = load ptr, ptr %170, align 8
   store float 0.000000e+00, ptr %172, align 4
   store float 1.000000e+00, ptr %173, align 4
   call void @_ZNSt3__14pairIffEC2B8ne190000IffTnNS_9enable_ifIXclsr10_CheckArgsE17__enable_implicitIT_T0_EEEiE4typeELi0EEEOS4_OS5_(ptr noundef nonnull align 4 dereferenceable(8) %171, ptr noundef nonnull align 4 dereferenceable(4) %172, ptr noundef nonnull align 4 dereferenceable(4) %173) #11
-  %912 = load <2 x float>, ptr %171, align 4
-  invoke void @_ZN7nanogui6Slider9set_rangeENSt3__14pairIffEE(ptr noundef nonnull align 16 dereferenceable(272) %911, <2 x float> %912)
-          to label %913 unwind label %347
+  %913 = load <2 x float>, ptr %171, align 4
+  invoke void @_ZN7nanogui6Slider9set_rangeENSt3__14pairIffEE(ptr noundef nonnull align 16 dereferenceable(272) %912, <2 x float> %913)
+          to label %914 unwind label %348
 
-913:                                              ; preds = %910
-  %914 = load ptr, ptr %170, align 8
-  %915 = getelementptr inbounds %class.anon.117, ptr %175, i32 0, i32 0
-  store ptr %295, ptr %915, align 8
+914:                                              ; preds = %911
+  %915 = load ptr, ptr %170, align 8
   %916 = getelementptr inbounds %class.anon.117, ptr %175, i32 0, i32 0
-  %917 = load ptr, ptr %916, align 8
-  invoke void @"_ZNSt3__18functionIFvfEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_8vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %174, ptr %917)
-          to label %918 unwind label %347
+  store ptr %295, ptr %916, align 8
+  %917 = getelementptr inbounds %class.anon.117, ptr %175, i32 0, i32 0
+  %918 = load ptr, ptr %917, align 8
+  invoke void @"_ZNSt3__18functionIFvfEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE3$_8vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %174, ptr %918)
+          to label %919 unwind label %348
 
-918:                                              ; preds = %913
-  invoke void @_ZN7nanogui6Slider12set_callbackERKNSt3__18functionIFvfEEE(ptr noundef nonnull align 16 dereferenceable(272) %914, ptr noundef nonnull align 16 dereferenceable(48) %174)
-          to label %919 unwind label %1614
+919:                                              ; preds = %914
+  invoke void @_ZN7nanogui6Slider12set_callbackERKNSt3__18functionIFvfEEE(ptr noundef nonnull align 16 dereferenceable(272) %915, ptr noundef nonnull align 16 dereferenceable(48) %174)
+          to label %920 unwind label %1615
 
-919:                                              ; preds = %918
+920:                                              ; preds = %919
   call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %174) #11
-  %920 = load ptr, ptr %170, align 8
-  invoke void @_ZN7nanogui6Slider9set_valueEf(ptr noundef nonnull align 16 dereferenceable(272) %920, float noundef 0.000000e+00)
-          to label %921 unwind label %347
+  %921 = load ptr, ptr %170, align 8
+  invoke void @_ZN7nanogui6Slider9set_valueEf(ptr noundef nonnull align 16 dereferenceable(272) %921, float noundef 0.000000e+00)
+          to label %922 unwind label %348
 
-921:                                              ; preds = %919
-  %922 = load ptr, ptr %165, align 8
-  %923 = getelementptr inbounds %class.anon.118, ptr %177, i32 0, i32 0
-  %924 = load ptr, ptr %170, align 8
-  store ptr %924, ptr %923, align 8
-  %925 = getelementptr inbounds %class.anon.118, ptr %177, i32 0, i32 1
-  store ptr %295, ptr %925, align 8
-  %926 = getelementptr inbounds { ptr, ptr }, ptr %177, i32 0, i32 0
-  %927 = load ptr, ptr %926, align 8
-  %928 = getelementptr inbounds { ptr, ptr }, ptr %177, i32 0, i32 1
-  %929 = load ptr, ptr %928, align 8
-  invoke void @"_ZNSt3__18functionIFvRKN7nanogui5ColorEEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS8_22BackgroundImagesLoaderEEEbbbE3$_9vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %176, ptr %927, ptr %929)
-          to label %930 unwind label %347
+922:                                              ; preds = %920
+  %923 = load ptr, ptr %165, align 8
+  %924 = getelementptr inbounds %class.anon.118, ptr %177, i32 0, i32 0
+  %925 = load ptr, ptr %170, align 8
+  store ptr %925, ptr %924, align 8
+  %926 = getelementptr inbounds %class.anon.118, ptr %177, i32 0, i32 1
+  store ptr %295, ptr %926, align 8
+  %927 = getelementptr inbounds { ptr, ptr }, ptr %177, i32 0, i32 0
+  %928 = load ptr, ptr %927, align 8
+  %929 = getelementptr inbounds { ptr, ptr }, ptr %177, i32 0, i32 1
+  %930 = load ptr, ptr %929, align 8
+  invoke void @"_ZNSt3__18functionIFvRKN7nanogui5ColorEEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS8_22BackgroundImagesLoaderEEEbbbE3$_9vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %176, ptr %928, ptr %930)
+          to label %931 unwind label %348
 
-930:                                              ; preds = %921
-  invoke void @_ZN7nanogui10ColorWheel12set_callbackERKNSt3__18functionIFvRKNS_5ColorEEEE(ptr noundef nonnull align 16 dereferenceable(208) %922, ptr noundef nonnull align 16 dereferenceable(48) %176)
-          to label %931 unwind label %1618
+931:                                              ; preds = %922
+  invoke void @_ZN7nanogui10ColorWheel12set_callbackERKNSt3__18functionIFvRKNS_5ColorEEEE(ptr noundef nonnull align 16 dereferenceable(208) %923, ptr noundef nonnull align 16 dereferenceable(48) %176)
+          to label %932 unwind label %1619
 
-931:                                              ; preds = %930
+932:                                              ; preds = %931
   call void @_ZNSt3__18functionIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %176) #11
-  %932 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %933 unwind label %347
+  %933 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %934 unwind label %348
 
-933:                                              ; preds = %931
-  %934 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %935 = load ptr, ptr %934, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %932, ptr noundef %935)
-          to label %936 unwind label %1622
+934:                                              ; preds = %932
+  %935 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %936 = load ptr, ptr %935, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %933, ptr noundef %936)
+          to label %937 unwind label %1623
 
-936:                                              ; preds = %933
-  %937 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 18
-  store ptr %932, ptr %937, align 16
+937:                                              ; preds = %934
   %938 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 18
-  %939 = load ptr, ptr %938, align 16
-  %940 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
-          to label %941 unwind label %347
+  store ptr %933, ptr %938, align 16
+  %939 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 18
+  %940 = load ptr, ptr %939, align 16
+  %941 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
+          to label %942 unwind label %348
 
-941:                                              ; preds = %936
-  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %940, i32 noundef 0, i32 noundef 4, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
-          to label %942 unwind label %1626
-
-942:                                              ; preds = %941
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %939, ptr noundef %940)
-          to label %943 unwind label %347
+942:                                              ; preds = %937
+  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %941, i32 noundef 0, i32 noundef 4, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
+          to label %943 unwind label %1627
 
 943:                                              ; preds = %942
-  %944 = getelementptr inbounds %class.anon.119, ptr %178, i32 0, i32 0
-  store ptr %295, ptr %944, align 8
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %940, ptr noundef %941)
+          to label %944 unwind label %348
+
+944:                                              ; preds = %943
+  %945 = getelementptr inbounds %class.anon.119, ptr %178, i32 0, i32 0
+  store ptr %295, ptr %945, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef @.str.20)
-          to label %945 unwind label %347
+          to label %946 unwind label %348
 
-945:                                              ; preds = %943
-  %946 = getelementptr inbounds %class.anon.120, ptr %181, i32 0, i32 0
-  store ptr %295, ptr %946, align 8
+946:                                              ; preds = %944
   %947 = getelementptr inbounds %class.anon.120, ptr %181, i32 0, i32 0
-  %948 = load ptr, ptr %947, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_11vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %180, ptr %948)
-          to label %949 unwind label %1630
+  store ptr %295, ptr %947, align 8
+  %948 = getelementptr inbounds %class.anon.120, ptr %181, i32 0, i32 0
+  %949 = load ptr, ptr %948, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_11vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %180, ptr %949)
+          to label %950 unwind label %1631
 
-949:                                              ; preds = %945
-  %950 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef %180)
-          to label %951 unwind label %1634
+950:                                              ; preds = %946
+  %951 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef %180)
+          to label %952 unwind label %1635
 
-951:                                              ; preds = %949
+952:                                              ; preds = %950
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %180) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %182, ptr noundef @.str.21)
-          to label %952 unwind label %347
+          to label %953 unwind label %348
 
-952:                                              ; preds = %951
-  %953 = getelementptr inbounds %class.anon.121, ptr %184, i32 0, i32 0
-  store ptr %295, ptr %953, align 8
+953:                                              ; preds = %952
   %954 = getelementptr inbounds %class.anon.121, ptr %184, i32 0, i32 0
-  %955 = load ptr, ptr %954, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_12vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %183, ptr %955)
-          to label %956 unwind label %1639
+  store ptr %295, ptr %954, align 8
+  %955 = getelementptr inbounds %class.anon.121, ptr %184, i32 0, i32 0
+  %956 = load ptr, ptr %955, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_12vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %183, ptr %956)
+          to label %957 unwind label %1640
 
-956:                                              ; preds = %952
-  %957 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(24) %182, ptr noundef %183)
-          to label %958 unwind label %1643
+957:                                              ; preds = %953
+  %958 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(24) %182, ptr noundef %183)
+          to label %959 unwind label %1644
 
-958:                                              ; preds = %956
+959:                                              ; preds = %957
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %183) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %182) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef @.str.22)
-          to label %959 unwind label %347
+          to label %960 unwind label %348
 
-959:                                              ; preds = %958
-  %960 = getelementptr inbounds %class.anon.122, ptr %187, i32 0, i32 0
-  store ptr %295, ptr %960, align 8
+960:                                              ; preds = %959
   %961 = getelementptr inbounds %class.anon.122, ptr %187, i32 0, i32 0
-  %962 = load ptr, ptr %961, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_13vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %186, ptr %962)
-          to label %963 unwind label %1648
+  store ptr %295, ptr %961, align 8
+  %962 = getelementptr inbounds %class.anon.122, ptr %187, i32 0, i32 0
+  %963 = load ptr, ptr %962, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_13vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %186, ptr %963)
+          to label %964 unwind label %1649
 
-963:                                              ; preds = %959
-  %964 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef %186)
-          to label %965 unwind label %1652
+964:                                              ; preds = %960
+  %965 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef %186)
+          to label %966 unwind label %1653
 
-965:                                              ; preds = %963
+966:                                              ; preds = %964
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %186) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %188, ptr noundef @.str.23)
-          to label %966 unwind label %347
+          to label %967 unwind label %348
 
-966:                                              ; preds = %965
-  %967 = getelementptr inbounds %class.anon.123, ptr %190, i32 0, i32 0
-  store ptr %295, ptr %967, align 8
+967:                                              ; preds = %966
   %968 = getelementptr inbounds %class.anon.123, ptr %190, i32 0, i32 0
-  %969 = load ptr, ptr %968, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_14vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %189, ptr %969)
-          to label %970 unwind label %1657
+  store ptr %295, ptr %968, align 8
+  %969 = getelementptr inbounds %class.anon.123, ptr %190, i32 0, i32 0
+  %970 = load ptr, ptr %969, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_14vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %189, ptr %970)
+          to label %971 unwind label %1658
 
-970:                                              ; preds = %966
-  %971 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(24) %188, ptr noundef %189)
-          to label %972 unwind label %1661
+971:                                              ; preds = %967
+  %972 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_10clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(24) %188, ptr noundef %189)
+          to label %973 unwind label %1662
 
-972:                                              ; preds = %970
+973:                                              ; preds = %971
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %189) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %188) #11
   invoke void @_ZN3tev11ImageViewer10setTonemapENS_8ETonemapE(ptr noundef nonnull align 16 dereferenceable(972) %295, i32 noundef 0)
-          to label %973 unwind label %347
+          to label %974 unwind label %348
 
-973:                                              ; preds = %972
-  %974 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 18
-  %975 = load ptr, ptr %974, align 16
+974:                                              ; preds = %973
+  %975 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 18
+  %976 = load ptr, ptr %975, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %191, ptr noundef @.str.24)
-          to label %976 unwind label %347
+          to label %977 unwind label %348
 
-976:                                              ; preds = %973
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %975, ptr noundef nonnull align 8 dereferenceable(24) %191)
-          to label %977 unwind label %1666
+977:                                              ; preds = %974
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %976, ptr noundef nonnull align 8 dereferenceable(24) %191)
+          to label %978 unwind label %1667
 
-977:                                              ; preds = %976
+978:                                              ; preds = %977
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %191) #11
-  %978 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %979 unwind label %347
+  %979 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %980 unwind label %348
 
-979:                                              ; preds = %977
-  %980 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %981 = load ptr, ptr %980, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %978, ptr noundef %981)
-          to label %982 unwind label %1670
+980:                                              ; preds = %978
+  %981 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %982 = load ptr, ptr %981, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %979, ptr noundef %982)
+          to label %983 unwind label %1671
 
-982:                                              ; preds = %979
-  %983 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 19
-  store ptr %978, ptr %983, align 8
+983:                                              ; preds = %980
   %984 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 19
-  %985 = load ptr, ptr %984, align 8
-  %986 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
-          to label %987 unwind label %347
+  store ptr %979, ptr %984, align 8
+  %985 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 19
+  %986 = load ptr, ptr %985, align 8
+  %987 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
+          to label %988 unwind label %348
 
-987:                                              ; preds = %982
-  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %986, i32 noundef 0, i32 noundef 5, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
-          to label %988 unwind label %1674
-
-988:                                              ; preds = %987
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %985, ptr noundef %986)
-          to label %989 unwind label %347
+988:                                              ; preds = %983
+  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %987, i32 noundef 0, i32 noundef 5, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
+          to label %989 unwind label %1675
 
 989:                                              ; preds = %988
-  %990 = getelementptr inbounds %class.anon.124, ptr %192, i32 0, i32 0
-  store ptr %295, ptr %990, align 8
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %986, ptr noundef %987)
+          to label %990 unwind label %348
+
+990:                                              ; preds = %989
+  %991 = getelementptr inbounds %class.anon.124, ptr %192, i32 0, i32 0
+  store ptr %295, ptr %991, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %193, ptr noundef @.str.25)
-          to label %991 unwind label %347
+          to label %992 unwind label %348
 
-991:                                              ; preds = %989
-  %992 = getelementptr inbounds %class.anon.125, ptr %195, i32 0, i32 0
-  store ptr %295, ptr %992, align 8
+992:                                              ; preds = %990
   %993 = getelementptr inbounds %class.anon.125, ptr %195, i32 0, i32 0
-  %994 = load ptr, ptr %993, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_16vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %194, ptr %994)
-          to label %995 unwind label %1678
+  store ptr %295, ptr %993, align 8
+  %994 = getelementptr inbounds %class.anon.125, ptr %195, i32 0, i32 0
+  %995 = load ptr, ptr %994, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_16vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %194, ptr %995)
+          to label %996 unwind label %1679
 
-995:                                              ; preds = %991
-  %996 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %193, ptr noundef %194)
-          to label %997 unwind label %1682
+996:                                              ; preds = %992
+  %997 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %193, ptr noundef %194)
+          to label %998 unwind label %1683
 
-997:                                              ; preds = %995
+998:                                              ; preds = %996
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %194) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %193) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %196, ptr noundef @.str.26)
-          to label %998 unwind label %347
+          to label %999 unwind label %348
 
-998:                                              ; preds = %997
-  %999 = getelementptr inbounds %class.anon.126, ptr %198, i32 0, i32 0
-  store ptr %295, ptr %999, align 8
+999:                                              ; preds = %998
   %1000 = getelementptr inbounds %class.anon.126, ptr %198, i32 0, i32 0
-  %1001 = load ptr, ptr %1000, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_17vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %197, ptr %1001)
-          to label %1002 unwind label %1687
+  store ptr %295, ptr %1000, align 8
+  %1001 = getelementptr inbounds %class.anon.126, ptr %198, i32 0, i32 0
+  %1002 = load ptr, ptr %1001, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_17vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %197, ptr %1002)
+          to label %1003 unwind label %1688
 
-1002:                                             ; preds = %998
-  %1003 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %196, ptr noundef %197)
-          to label %1004 unwind label %1691
+1003:                                             ; preds = %999
+  %1004 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %196, ptr noundef %197)
+          to label %1005 unwind label %1692
 
-1004:                                             ; preds = %1002
+1005:                                             ; preds = %1003
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %197) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %196) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef @.str.27)
-          to label %1005 unwind label %347
+          to label %1006 unwind label %348
 
-1005:                                             ; preds = %1004
-  %1006 = getelementptr inbounds %class.anon.127, ptr %201, i32 0, i32 0
-  store ptr %295, ptr %1006, align 8
+1006:                                             ; preds = %1005
   %1007 = getelementptr inbounds %class.anon.127, ptr %201, i32 0, i32 0
-  %1008 = load ptr, ptr %1007, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_18vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %200, ptr %1008)
-          to label %1009 unwind label %1696
+  store ptr %295, ptr %1007, align 8
+  %1008 = getelementptr inbounds %class.anon.127, ptr %201, i32 0, i32 0
+  %1009 = load ptr, ptr %1008, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_18vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %200, ptr %1009)
+          to label %1010 unwind label %1697
 
-1009:                                             ; preds = %1005
-  %1010 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef %200)
-          to label %1011 unwind label %1700
+1010:                                             ; preds = %1006
+  %1011 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef %200)
+          to label %1012 unwind label %1701
 
-1011:                                             ; preds = %1009
+1012:                                             ; preds = %1010
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %200) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %199) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %202, ptr noundef @.str.28)
-          to label %1012 unwind label %347
+          to label %1013 unwind label %348
 
-1012:                                             ; preds = %1011
-  %1013 = getelementptr inbounds %class.anon.128, ptr %204, i32 0, i32 0
-  store ptr %295, ptr %1013, align 8
+1013:                                             ; preds = %1012
   %1014 = getelementptr inbounds %class.anon.128, ptr %204, i32 0, i32 0
-  %1015 = load ptr, ptr %1014, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_19vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %203, ptr %1015)
-          to label %1016 unwind label %1705
+  store ptr %295, ptr %1014, align 8
+  %1015 = getelementptr inbounds %class.anon.128, ptr %204, i32 0, i32 0
+  %1016 = load ptr, ptr %1015, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_19vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %203, ptr %1016)
+          to label %1017 unwind label %1706
 
-1016:                                             ; preds = %1012
-  %1017 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %202, ptr noundef %203)
-          to label %1018 unwind label %1709
+1017:                                             ; preds = %1013
+  %1018 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %202, ptr noundef %203)
+          to label %1019 unwind label %1710
 
-1018:                                             ; preds = %1016
+1019:                                             ; preds = %1017
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %203) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %202) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %205, ptr noundef @.str.29)
-          to label %1019 unwind label %347
+          to label %1020 unwind label %348
 
-1019:                                             ; preds = %1018
-  %1020 = getelementptr inbounds %class.anon.129, ptr %207, i32 0, i32 0
-  store ptr %295, ptr %1020, align 8
+1020:                                             ; preds = %1019
   %1021 = getelementptr inbounds %class.anon.129, ptr %207, i32 0, i32 0
-  %1022 = load ptr, ptr %1021, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_20vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %206, ptr %1022)
-          to label %1023 unwind label %1714
+  store ptr %295, ptr %1021, align 8
+  %1022 = getelementptr inbounds %class.anon.129, ptr %207, i32 0, i32 0
+  %1023 = load ptr, ptr %1022, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_20vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %206, ptr %1023)
+          to label %1024 unwind label %1715
 
-1023:                                             ; preds = %1019
-  %1024 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %205, ptr noundef %206)
-          to label %1025 unwind label %1718
+1024:                                             ; preds = %1020
+  %1025 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_15clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS1_8functionIFvvEEE"(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(24) %205, ptr noundef %206)
+          to label %1026 unwind label %1719
 
-1025:                                             ; preds = %1023
+1026:                                             ; preds = %1024
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %206) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #11
   invoke void @_ZN3tev11ImageViewer9setMetricENS_7EMetricE(ptr noundef nonnull align 16 dereferenceable(972) %295, i32 noundef 1)
-          to label %1026 unwind label %347
+          to label %1027 unwind label %348
 
-1026:                                             ; preds = %1025
-  %1027 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 19
-  %1028 = load ptr, ptr %1027, align 8
+1027:                                             ; preds = %1026
+  %1028 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 19
+  %1029 = load ptr, ptr %1028, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %208, ptr noundef @.str.30)
-          to label %1029 unwind label %347
+          to label %1030 unwind label %348
 
-1029:                                             ; preds = %1026
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %1028, ptr noundef nonnull align 8 dereferenceable(24) %208)
-          to label %1030 unwind label %1723
+1030:                                             ; preds = %1027
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %1029, ptr noundef nonnull align 8 dereferenceable(24) %208)
+          to label %1031 unwind label %1724
 
-1030:                                             ; preds = %1029
+1031:                                             ; preds = %1030
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %208) #11
-  %1031 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1032 unwind label %347
+  %1032 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1033 unwind label %348
 
-1032:                                             ; preds = %1030
-  %1033 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1034 = load ptr, ptr %1033, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1031, ptr noundef %1034)
-          to label %1035 unwind label %1727
+1033:                                             ; preds = %1031
+  %1034 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1035 = load ptr, ptr %1034, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1032, ptr noundef %1035)
+          to label %1036 unwind label %1728
 
-1035:                                             ; preds = %1032
-  store ptr %1031, ptr %209, align 8
-  %1036 = load ptr, ptr %209, align 8
-  invoke void @_ZN7nanogui6Widget10set_heightEi(ptr noundef nonnull align 8 dereferenceable(132) %1036, i32 noundef 10)
-          to label %1037 unwind label %347
+1036:                                             ; preds = %1033
+  store ptr %1032, ptr %209, align 8
+  %1037 = load ptr, ptr %209, align 8
+  invoke void @_ZN7nanogui6Widget10set_heightEi(ptr noundef nonnull align 8 dereferenceable(132) %1037, i32 noundef 10)
+          to label %1038 unwind label %348
 
-1037:                                             ; preds = %1035
-  %1038 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1039 unwind label %347
+1038:                                             ; preds = %1036
+  %1039 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1040 unwind label %348
 
-1039:                                             ; preds = %1037
-  %1040 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1041 = load ptr, ptr %1040, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1038, ptr noundef %1041)
-          to label %1042 unwind label %1731
+1040:                                             ; preds = %1038
+  %1041 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1042 = load ptr, ptr %1041, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1039, ptr noundef %1042)
+          to label %1043 unwind label %1732
 
-1042:                                             ; preds = %1039
-  store ptr %1038, ptr %210, align 8
-  %1043 = load ptr, ptr %210, align 8
-  %1044 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %1045 unwind label %347
+1043:                                             ; preds = %1040
+  store ptr %1039, ptr %210, align 8
+  %1044 = load ptr, ptr %210, align 8
+  %1045 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %1046 unwind label %348
 
-1045:                                             ; preds = %1042
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1044, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
-          to label %1046 unwind label %1735
-
-1046:                                             ; preds = %1045
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1043, ptr noundef %1044)
-          to label %1047 unwind label %347
+1046:                                             ; preds = %1043
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1045, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
+          to label %1047 unwind label %1736
 
 1047:                                             ; preds = %1046
-  %1048 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
-          to label %1049 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1044, ptr noundef %1045)
+          to label %1048 unwind label %348
 
-1049:                                             ; preds = %1047
+1048:                                             ; preds = %1047
+  %1049 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #24
+          to label %1050 unwind label %348
+
+1050:                                             ; preds = %1048
   store i1 true, ptr %214, align 1
-  %1050 = load ptr, ptr %210, align 8
+  %1051 = load ptr, ptr %210, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %212, ptr noundef @.str.31)
-          to label %1051 unwind label %1739
+          to label %1052 unwind label %1740
 
-1051:                                             ; preds = %1049
+1052:                                             ; preds = %1050
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef @.str.7)
-          to label %1052 unwind label %1743
-
-1052:                                             ; preds = %1051
-  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %1048, ptr noundef %1050, ptr noundef nonnull align 8 dereferenceable(24) %212, ptr noundef nonnull align 8 dereferenceable(24) %213, i32 noundef 25)
-          to label %1053 unwind label %1747
+          to label %1053 unwind label %1744
 
 1053:                                             ; preds = %1052
+  invoke void @_ZN7nanogui5LabelC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEESB_i(ptr noundef nonnull align 8 dereferenceable(200) %1049, ptr noundef %1051, ptr noundef nonnull align 8 dereferenceable(24) %212, ptr noundef nonnull align 8 dereferenceable(24) %213, i32 noundef 25)
+          to label %1054 unwind label %1748
+
+1054:                                             ; preds = %1053
   store i1 false, ptr %214, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %213) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %212) #11
-  store ptr %1048, ptr %211, align 8
-  %1054 = load ptr, ptr %211, align 8
+  store ptr %1049, ptr %211, align 8
+  %1055 = load ptr, ptr %211, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr noundef @.str.32)
-          to label %1055 unwind label %347
+          to label %1056 unwind label %348
 
-1055:                                             ; preds = %1053
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %1054, ptr noundef nonnull align 8 dereferenceable(24) %215)
-          to label %1056 unwind label %1756
+1056:                                             ; preds = %1054
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %1055, ptr noundef nonnull align 8 dereferenceable(24) %215)
+          to label %1057 unwind label %1757
 
-1056:                                             ; preds = %1055
+1057:                                             ; preds = %1056
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #11
-  %1057 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1058 unwind label %347
+  %1058 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1059 unwind label %348
 
-1058:                                             ; preds = %1056
-  %1059 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1060 = load ptr, ptr %1059, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1057, ptr noundef %1060)
-          to label %1061 unwind label %1760
+1059:                                             ; preds = %1057
+  %1060 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1061 = load ptr, ptr %1060, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1058, ptr noundef %1061)
+          to label %1062 unwind label %1761
 
-1061:                                             ; preds = %1058
-  store ptr %1057, ptr %216, align 8
-  %1062 = load ptr, ptr %216, align 8
-  %1063 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %1064 unwind label %347
+1062:                                             ; preds = %1059
+  store ptr %1058, ptr %216, align 8
+  %1063 = load ptr, ptr %216, align 8
+  %1064 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %1065 unwind label %348
 
-1064:                                             ; preds = %1061
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1063, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
-          to label %1065 unwind label %1764
-
-1065:                                             ; preds = %1064
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1062, ptr noundef %1063)
-          to label %1066 unwind label %347
+1065:                                             ; preds = %1062
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1064, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 0)
+          to label %1066 unwind label %1765
 
 1066:                                             ; preds = %1065
-  %1067 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 304) #24
-          to label %1068 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1063, ptr noundef %1064)
+          to label %1067 unwind label %348
 
-1068:                                             ; preds = %1066
+1067:                                             ; preds = %1066
+  %1068 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 304) #24
+          to label %1069 unwind label %348
+
+1069:                                             ; preds = %1067
   store i1 true, ptr %218, align 1
-  %1069 = load ptr, ptr %216, align 8
+  %1070 = load ptr, ptr %216, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %217, ptr noundef @.str.4)
-          to label %1070 unwind label %1768
+          to label %1071 unwind label %1769
 
-1070:                                             ; preds = %1068
-  invoke void @_ZN3tev10MultiGraphC1EPN7nanogui6WidgetERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(300) %1067, ptr noundef %1069, ptr noundef nonnull align 8 dereferenceable(24) %217)
-          to label %1071 unwind label %1772
+1071:                                             ; preds = %1069
+  invoke void @_ZN3tev10MultiGraphC1EPN7nanogui6WidgetERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(300) %1068, ptr noundef %1070, ptr noundef nonnull align 8 dereferenceable(24) %217)
+          to label %1072 unwind label %1773
 
-1071:                                             ; preds = %1070
+1072:                                             ; preds = %1071
   store i1 false, ptr %218, align 1
-  %1072 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 24
-  store ptr %1067, ptr %1072, align 8
+  %1073 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 24
+  store ptr %1068, ptr %1073, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %217) #11
-  %1073 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1074 unwind label %347
+  %1074 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1075 unwind label %348
 
-1074:                                             ; preds = %1071
-  %1075 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1076 = load ptr, ptr %1075, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1073, ptr noundef %1076)
-          to label %1077 unwind label %1780
+1075:                                             ; preds = %1072
+  %1076 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1077 = load ptr, ptr %1076, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1074, ptr noundef %1077)
+          to label %1078 unwind label %1781
 
-1077:                                             ; preds = %1074
-  store ptr %1073, ptr %219, align 8
-  %1078 = load ptr, ptr %219, align 8
-  %1079 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
-          to label %1080 unwind label %347
+1078:                                             ; preds = %1075
+  store ptr %1074, ptr %219, align 8
+  %1079 = load ptr, ptr %219, align 8
+  %1080 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
+          to label %1081 unwind label %348
 
-1080:                                             ; preds = %1077
-  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %1079, i32 noundef 0, i32 noundef 2, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
-          to label %1081 unwind label %1784
-
-1081:                                             ; preds = %1080
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1078, ptr noundef %1079)
-          to label %1082 unwind label %347
+1081:                                             ; preds = %1078
+  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %1080, i32 noundef 0, i32 noundef 2, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
+          to label %1082 unwind label %1785
 
 1082:                                             ; preds = %1081
-  %1083 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 432) #24
-          to label %1084 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1079, ptr noundef %1080)
+          to label %1083 unwind label %348
 
-1084:                                             ; preds = %1082
+1083:                                             ; preds = %1082
+  %1084 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 432) #24
+          to label %1085 unwind label %348
+
+1085:                                             ; preds = %1083
   store i1 true, ptr %221, align 1
-  %1085 = load ptr, ptr %219, align 8
+  %1086 = load ptr, ptr %219, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %220, ptr noundef @.str.4)
-          to label %1086 unwind label %1788
+          to label %1087 unwind label %1789
 
-1086:                                             ; preds = %1084
-  invoke void @_ZN7nanogui7TextBoxC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1083, ptr noundef %1085, ptr noundef nonnull align 8 dereferenceable(24) %220)
-          to label %1087 unwind label %1792
+1087:                                             ; preds = %1085
+  invoke void @_ZN7nanogui7TextBoxC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1084, ptr noundef %1086, ptr noundef nonnull align 8 dereferenceable(24) %220)
+          to label %1088 unwind label %1793
 
-1087:                                             ; preds = %1086
+1088:                                             ; preds = %1087
   store i1 false, ptr %221, align 1
-  %1088 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
-  store ptr %1083, ptr %1088, align 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %220) #11
   %1089 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
-  %1090 = load ptr, ptr %1089, align 8
-  invoke void @_ZN7nanogui7TextBox12set_editableEb(ptr noundef nonnull align 16 dereferenceable(432) %1090, i1 noundef zeroext true)
-          to label %1091 unwind label %347
+  store ptr %1084, ptr %1089, align 8
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %220) #11
+  %1090 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
+  %1091 = load ptr, ptr %1090, align 8
+  invoke void @_ZN7nanogui7TextBox12set_editableEb(ptr noundef nonnull align 16 dereferenceable(432) %1091, i1 noundef zeroext true)
+          to label %1092 unwind label %348
 
-1091:                                             ; preds = %1087
-  %1092 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
-  %1093 = load ptr, ptr %1092, align 8
-  invoke void @_ZN7nanogui7TextBox13set_alignmentENS0_9AlignmentE(ptr noundef nonnull align 16 dereferenceable(432) %1093, i32 noundef 0)
-          to label %1094 unwind label %347
+1092:                                             ; preds = %1088
+  %1093 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
+  %1094 = load ptr, ptr %1093, align 8
+  invoke void @_ZN7nanogui7TextBox13set_alignmentENS0_9AlignmentE(ptr noundef nonnull align 16 dereferenceable(432) %1094, i32 noundef 0)
+          to label %1095 unwind label %348
 
-1094:                                             ; preds = %1091
-  %1095 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
-  %1096 = load ptr, ptr %1095, align 8
-  %1097 = getelementptr inbounds %class.anon.143, ptr %223, i32 0, i32 0
-  store ptr %295, ptr %1097, align 8
+1095:                                             ; preds = %1092
+  %1096 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
+  %1097 = load ptr, ptr %1096, align 8
   %1098 = getelementptr inbounds %class.anon.143, ptr %223, i32 0, i32 0
-  %1099 = load ptr, ptr %1098, align 8
-  invoke void @"_ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINSC_22BackgroundImagesLoaderEEEbbbE4$_21vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %222, ptr %1099)
-          to label %1100 unwind label %347
+  store ptr %295, ptr %1098, align 8
+  %1099 = getelementptr inbounds %class.anon.143, ptr %223, i32 0, i32 0
+  %1100 = load ptr, ptr %1099, align 8
+  invoke void @"_ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINSC_22BackgroundImagesLoaderEEEbbbE4$_21vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %222, ptr %1100)
+          to label %1101 unwind label %348
 
-1100:                                             ; preds = %1094
-  invoke void @_ZN7nanogui7TextBox12set_callbackERKNSt3__18functionIFbRKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1096, ptr noundef nonnull align 16 dereferenceable(48) %222)
-          to label %1101 unwind label %1800
+1101:                                             ; preds = %1095
+  invoke void @_ZN7nanogui7TextBox12set_callbackERKNSt3__18functionIFbRKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1097, ptr noundef nonnull align 16 dereferenceable(48) %222)
+          to label %1102 unwind label %1801
 
-1101:                                             ; preds = %1100
+1102:                                             ; preds = %1101
   call void @_ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %222) #11
-  %1102 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
-  %1103 = load ptr, ptr %1102, align 8
+  %1103 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
+  %1104 = load ptr, ptr %1103, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %224, ptr noundef @.str.33)
-          to label %1104 unwind label %347
+          to label %1105 unwind label %348
 
-1104:                                             ; preds = %1101
-  invoke void @_ZN7nanogui7TextBox15set_placeholderERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1103, ptr noundef nonnull align 8 dereferenceable(24) %224)
-          to label %1105 unwind label %1804
+1105:                                             ; preds = %1102
+  invoke void @_ZN7nanogui7TextBox15set_placeholderERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1104, ptr noundef nonnull align 8 dereferenceable(24) %224)
+          to label %1106 unwind label %1805
 
-1105:                                             ; preds = %1104
+1106:                                             ; preds = %1105
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %224) #11
-  %1106 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
-  %1107 = load ptr, ptr %1106, align 8
-  %1108 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %226, i32 0, i32 0
-  store %"class.fmt::v9::basic_string_view" { ptr @.str.34, i64 241 }, ptr %1108, align 8
-  %1109 = getelementptr inbounds { ptr, i64 }, ptr %226, i32 0, i32 0
-  %1110 = load ptr, ptr %1109, align 8
-  %1111 = getelementptr inbounds { ptr, i64 }, ptr %226, i32 0, i32 1
-  %1112 = load i64, ptr %1111, align 8
+  %1107 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 26
+  %1108 = load ptr, ptr %1107, align 8
+  %1109 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %226, i32 0, i32 0
+  store %"class.fmt::v9::basic_string_view" { ptr @.str.34, i64 241 }, ptr %1109, align 8
+  %1110 = getelementptr inbounds { ptr, i64 }, ptr %226, i32 0, i32 0
+  %1111 = load ptr, ptr %1110, align 8
+  %1112 = getelementptr inbounds { ptr, i64 }, ptr %226, i32 0, i32 1
+  %1113 = load i64, ptr %1112, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   store ptr %225, ptr %68, align 8, !noalias !5
-  store ptr %1110, ptr %69, align 8, !noalias !5
-  %1113 = getelementptr inbounds { ptr, i64 }, ptr %69, i32 0, i32 1
-  store i64 %1112, ptr %1113, align 8, !noalias !5
+  store ptr %1111, ptr %69, align 8, !noalias !5
+  %1114 = getelementptr inbounds { ptr, i64 }, ptr %69, i32 0, i32 1
+  store i64 %1113, ptr %1114, align 8, !noalias !5
   store ptr @_ZN3tev10HelpWindow7COMMANDE, ptr %70, align 8, !noalias !5
   store ptr %69, ptr %53, align 8
-  %1114 = load ptr, ptr %53, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %1114, i64 16, i1 false)
-  %1115 = load { ptr, i64 }, ptr %52, align 8
-  %1116 = extractvalue { ptr, i64 } %1115, 0
-  store ptr %1116, ptr %71, align 8, !noalias !5
-  %1117 = getelementptr inbounds { ptr, i64 }, ptr %71, i32 0, i32 1
-  %1118 = extractvalue { ptr, i64 } %1115, 1
-  store i64 %1118, ptr %1117, align 8, !noalias !5
-  %1119 = load ptr, ptr %70, align 8, !noalias !5
-  %1120 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEEEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr noundef nonnull align 8 dereferenceable(24) %1119)
-          to label %1121 unwind label %347
+  %1115 = load ptr, ptr %53, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %1115, i64 16, i1 false)
+  %1116 = load { ptr, i64 }, ptr %52, align 8
+  %1117 = extractvalue { ptr, i64 } %1116, 0
+  store ptr %1117, ptr %71, align 8, !noalias !5
+  %1118 = getelementptr inbounds { ptr, i64 }, ptr %71, i32 0, i32 1
+  %1119 = extractvalue { ptr, i64 } %1116, 1
+  store i64 %1119, ptr %1118, align 8, !noalias !5
+  %1120 = load ptr, ptr %70, align 8, !noalias !5
+  %1121 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEEEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr noundef nonnull align 8 dereferenceable(24) %1120)
+          to label %1122 unwind label %348
 
-1121:                                             ; preds = %1105
-  %1122 = extractvalue { i64, i64 } %1120, 0
-  store i64 %1122, ptr %73, align 16, !noalias !5
-  %1123 = getelementptr inbounds { i64, i64 }, ptr %73, i32 0, i32 1
-  %1124 = extractvalue { i64, i64 } %1120, 1
-  store i64 %1124, ptr %1123, align 8, !noalias !5
+1122:                                             ; preds = %1106
+  %1123 = extractvalue { i64, i64 } %1121, 0
+  store i64 %1123, ptr %73, align 16, !noalias !5
+  %1124 = getelementptr inbounds { i64, i64 }, ptr %73, i32 0, i32 1
+  %1125 = extractvalue { i64, i64 } %1121, 1
+  store i64 %1125, ptr %1124, align 8, !noalias !5
   store ptr %72, ptr %44, align 8
   store ptr %73, ptr %45, align 8
-  %1125 = load ptr, ptr %44, align 8
-  %1126 = load ptr, ptr %45, align 8
-  store ptr %1126, ptr %34, align 8
-  %1127 = load ptr, ptr %34, align 8
-  store ptr %1125, ptr %22, align 8
+  %1126 = load ptr, ptr %44, align 8
+  %1127 = load ptr, ptr %45, align 8
+  store ptr %1127, ptr %34, align 8
+  %1128 = load ptr, ptr %34, align 8
+  store ptr %1126, ptr %22, align 8
   store i64 13, ptr %23, align 8
-  store ptr %1127, ptr %24, align 8
-  %1128 = load ptr, ptr %22, align 8
-  %1129 = load i64, ptr %23, align 8
-  store i64 %1129, ptr %1128, align 8
-  %1130 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1128, i32 0, i32 1
-  %1131 = load ptr, ptr %24, align 8
-  store ptr %1131, ptr %1130, align 8
-  br label %1132
+  store ptr %1128, ptr %24, align 8
+  %1129 = load ptr, ptr %22, align 8
+  %1130 = load i64, ptr %23, align 8
+  store i64 %1130, ptr %1129, align 8
+  %1131 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1129, i32 0, i32 1
+  %1132 = load ptr, ptr %24, align 8
+  store ptr %1132, ptr %1131, align 8
+  br label %1133
 
-1132:                                             ; preds = %1121
-  %1133 = load ptr, ptr %71, align 8, !noalias !5
-  %1134 = getelementptr inbounds { ptr, i64 }, ptr %71, i32 0, i32 1
-  %1135 = load i64, ptr %1134, align 8, !noalias !5
-  %1136 = load i64, ptr %72, align 8, !noalias !5
-  %1137 = getelementptr inbounds { i64, ptr }, ptr %72, i32 0, i32 1
-  %1138 = load ptr, ptr %1137, align 8, !noalias !5
-  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %225, ptr %1133, i64 %1135, i64 %1136, ptr %1138)
-          to label %1139 unwind label %347
+1133:                                             ; preds = %1122
+  %1134 = load ptr, ptr %71, align 8, !noalias !5
+  %1135 = getelementptr inbounds { ptr, i64 }, ptr %71, i32 0, i32 1
+  %1136 = load i64, ptr %1135, align 8, !noalias !5
+  %1137 = load i64, ptr %72, align 8, !noalias !5
+  %1138 = getelementptr inbounds { i64, ptr }, ptr %72, i32 0, i32 1
+  %1139 = load ptr, ptr %1138, align 8, !noalias !5
+  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %225, ptr %1134, i64 %1136, i64 %1137, ptr %1139)
+          to label %1140 unwind label %348
 
-1139:                                             ; preds = %1132
-  br label %1140
-
-1140:                                             ; preds = %1139
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %1107, ptr noundef nonnull align 8 dereferenceable(24) %225)
-          to label %1141 unwind label %1808
+1140:                                             ; preds = %1133
+  br label %1141
 
 1141:                                             ; preds = %1140
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %1108, ptr noundef nonnull align 8 dereferenceable(24) %225)
+          to label %1142 unwind label %1809
+
+1142:                                             ; preds = %1141
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #11
-  %1142 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #24
-          to label %1143 unwind label %347
+  %1143 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #24
+          to label %1144 unwind label %348
 
-1143:                                             ; preds = %1141
+1144:                                             ; preds = %1142
   store i1 true, ptr %228, align 1
-  %1144 = load ptr, ptr %219, align 8
+  %1145 = load ptr, ptr %219, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %227, ptr noundef @.str.4)
-          to label %1145 unwind label %1812
+          to label %1146 unwind label %1813
 
-1145:                                             ; preds = %1143
-  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEi(ptr noundef nonnull align 16 dereferenceable(328) %1142, ptr noundef %1144, ptr noundef nonnull align 8 dereferenceable(24) %227, i32 noundef 61442)
-          to label %1146 unwind label %1816
+1146:                                             ; preds = %1144
+  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEi(ptr noundef nonnull align 16 dereferenceable(328) %1143, ptr noundef %1145, ptr noundef nonnull align 8 dereferenceable(24) %227, i32 noundef 61442)
+          to label %1147 unwind label %1817
 
-1146:                                             ; preds = %1145
+1147:                                             ; preds = %1146
   store i1 false, ptr %228, align 1
-  %1147 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
-  store ptr %1142, ptr %1147, align 16
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #11
   %1148 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
-  %1149 = load ptr, ptr %1148, align 16
+  store ptr %1143, ptr %1148, align 16
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #11
+  %1149 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
+  %1150 = load ptr, ptr %1149, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef @.str.35)
-          to label %1150 unwind label %347
+          to label %1151 unwind label %348
 
-1150:                                             ; preds = %1146
-  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %1149, ptr noundef nonnull align 8 dereferenceable(24) %229)
-          to label %1151 unwind label %1824
+1151:                                             ; preds = %1147
+  invoke void @_ZN7nanogui6Widget11set_tooltipERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(132) %1150, ptr noundef nonnull align 8 dereferenceable(24) %229)
+          to label %1152 unwind label %1825
 
-1151:                                             ; preds = %1150
+1152:                                             ; preds = %1151
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %229) #11
-  %1152 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
-  %1153 = load ptr, ptr %1152, align 16
-  invoke void @_ZN7nanogui6Button10set_pushedEb(ptr noundef nonnull align 16 dereferenceable(328) %1153, i1 noundef zeroext false)
-          to label %1154 unwind label %347
+  %1153 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
+  %1154 = load ptr, ptr %1153, align 16
+  invoke void @_ZN7nanogui6Button10set_pushedEb(ptr noundef nonnull align 16 dereferenceable(328) %1154, i1 noundef zeroext false)
+          to label %1155 unwind label %348
 
-1154:                                             ; preds = %1151
-  %1155 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
-  %1156 = load ptr, ptr %1155, align 16
-  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %1156, i32 noundef 4)
-          to label %1157 unwind label %347
+1155:                                             ; preds = %1152
+  %1156 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
+  %1157 = load ptr, ptr %1156, align 16
+  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %1157, i32 noundef 4)
+          to label %1158 unwind label %348
 
-1157:                                             ; preds = %1154
-  %1158 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
-  %1159 = load ptr, ptr %1158, align 16
-  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(132) %1159, i32 noundef 15)
-          to label %1160 unwind label %347
+1158:                                             ; preds = %1155
+  %1159 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
+  %1160 = load ptr, ptr %1159, align 16
+  invoke void @_ZN7nanogui6Widget13set_font_sizeEi(ptr noundef nonnull align 8 dereferenceable(132) %1160, i32 noundef 15)
+          to label %1161 unwind label %348
 
-1160:                                             ; preds = %1157
-  %1161 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
-  %1162 = load ptr, ptr %1161, align 16
-  %1163 = getelementptr inbounds %class.anon.144, ptr %231, i32 0, i32 0
-  store ptr %295, ptr %1163, align 8
+1161:                                             ; preds = %1158
+  %1162 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 27
+  %1163 = load ptr, ptr %1162, align 16
   %1164 = getelementptr inbounds %class.anon.144, ptr %231, i32 0, i32 0
-  %1165 = load ptr, ptr %1164, align 8
-  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_22vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %230, ptr %1165)
-          to label %1166 unwind label %347
+  store ptr %295, ptr %1164, align 8
+  %1165 = getelementptr inbounds %class.anon.144, ptr %231, i32 0, i32 0
+  %1166 = load ptr, ptr %1165, align 8
+  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_22vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %230, ptr %1166)
+          to label %1167 unwind label %348
 
-1166:                                             ; preds = %1160
-  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %1162, ptr noundef nonnull align 16 dereferenceable(48) %230)
-          to label %1167 unwind label %1828
+1167:                                             ; preds = %1161
+  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %1163, ptr noundef nonnull align 16 dereferenceable(48) %230)
+          to label %1168 unwind label %1829
 
-1167:                                             ; preds = %1166
+1168:                                             ; preds = %1167
   call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %230) #11
-  %1168 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1169 unwind label %347
+  %1169 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1170 unwind label %348
 
-1169:                                             ; preds = %1167
-  %1170 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1171 = load ptr, ptr %1170, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1168, ptr noundef %1171)
-          to label %1172 unwind label %1832
+1170:                                             ; preds = %1168
+  %1171 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1172 = load ptr, ptr %1171, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1169, ptr noundef %1172)
+          to label %1173 unwind label %1833
 
-1172:                                             ; preds = %1169
-  store ptr %1168, ptr %232, align 8
-  %1173 = load ptr, ptr %232, align 8
-  %1174 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
-          to label %1175 unwind label %347
+1173:                                             ; preds = %1170
+  store ptr %1169, ptr %232, align 8
+  %1174 = load ptr, ptr %232, align 8
+  %1175 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
+          to label %1176 unwind label %348
 
-1175:                                             ; preds = %1172
-  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %1174, i32 noundef 0, i32 noundef 4, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
-          to label %1176 unwind label %1836
-
-1176:                                             ; preds = %1175
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1173, ptr noundef %1174)
-          to label %1177 unwind label %347
+1176:                                             ; preds = %1173
+  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %1175, i32 noundef 0, i32 noundef 4, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 2)
+          to label %1177 unwind label %1837
 
 1177:                                             ; preds = %1176
-  %1178 = getelementptr inbounds %class.anon.145, ptr %233, i32 0, i32 0
-  store ptr %232, ptr %1178, align 8
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1174, ptr noundef %1175)
+          to label %1178 unwind label %348
+
+1178:                                             ; preds = %1177
+  %1179 = getelementptr inbounds %class.anon.145, ptr %233, i32 0, i32 0
+  store ptr %232, ptr %1179, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %234, ptr noundef @.str.4)
-          to label %1179 unwind label %347
+          to label %1180 unwind label %348
 
-1179:                                             ; preds = %1177
+1180:                                             ; preds = %1178
   invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_24vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %235)
-          to label %1180 unwind label %1840
-
-1180:                                             ; preds = %1179
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr noundef @.str.36)
-          to label %1181 unwind label %1844
+          to label %1181 unwind label %1841
 
 1181:                                             ; preds = %1180
-  %1182 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_23clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(24) %234, i1 noundef zeroext true, ptr noundef %235, i32 noundef 61515, ptr noundef %236)
-          to label %1183 unwind label %1848
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr noundef @.str.36)
+          to label %1182 unwind label %1845
 
-1183:                                             ; preds = %1181
-  %1184 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 32
-  store ptr %1182, ptr %1184, align 8
+1182:                                             ; preds = %1181
+  %1183 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_23clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(24) %234, i1 noundef zeroext true, ptr noundef %235, i32 noundef 61515, ptr noundef %236)
+          to label %1184 unwind label %1849
+
+1184:                                             ; preds = %1182
+  %1185 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 32
+  store ptr %1183, ptr %1185, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %236) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %235) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %234) #11
-  %1185 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 32
-  %1186 = load ptr, ptr %1185, align 8
-  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %1186, i32 noundef 4)
-          to label %1187 unwind label %347
+  %1186 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 32
+  %1187 = load ptr, ptr %1186, align 8
+  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %1187, i32 noundef 4)
+          to label %1188 unwind label %348
 
-1187:                                             ; preds = %1183
-  %1188 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 32
-  %1189 = load ptr, ptr %1188, align 8
-  %1190 = getelementptr inbounds %class.anon.147, ptr %238, i32 0, i32 0
-  store ptr %295, ptr %1190, align 8
+1188:                                             ; preds = %1184
+  %1189 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 32
+  %1190 = load ptr, ptr %1189, align 8
   %1191 = getelementptr inbounds %class.anon.147, ptr %238, i32 0, i32 0
-  %1192 = load ptr, ptr %1191, align 8
-  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_25vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %237, ptr %1192)
-          to label %1193 unwind label %347
+  store ptr %295, ptr %1191, align 8
+  %1192 = getelementptr inbounds %class.anon.147, ptr %238, i32 0, i32 0
+  %1193 = load ptr, ptr %1192, align 8
+  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_25vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %237, ptr %1193)
+          to label %1194 unwind label %348
 
-1193:                                             ; preds = %1187
-  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %1189, ptr noundef nonnull align 16 dereferenceable(48) %237)
-          to label %1194 unwind label %1854
+1194:                                             ; preds = %1188
+  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %1190, ptr noundef nonnull align 16 dereferenceable(48) %237)
+          to label %1195 unwind label %1855
 
-1194:                                             ; preds = %1193
+1195:                                             ; preds = %1194
   call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %237) #11
-  %1195 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 31
+  %1196 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 31
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %240, ptr noundef @.str.4)
-          to label %1196 unwind label %347
+          to label %1197 unwind label %348
 
-1196:                                             ; preds = %1194
-  %1197 = getelementptr inbounds %class.anon.148, ptr %242, i32 0, i32 0
-  store ptr %295, ptr %1197, align 8
+1197:                                             ; preds = %1195
   %1198 = getelementptr inbounds %class.anon.148, ptr %242, i32 0, i32 0
-  %1199 = load ptr, ptr %1198, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_26vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %241, ptr %1199)
-          to label %1200 unwind label %1858
+  store ptr %295, ptr %1198, align 8
+  %1199 = getelementptr inbounds %class.anon.148, ptr %242, i32 0, i32 0
+  %1200 = load ptr, ptr %1199, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_26vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %241, ptr %1200)
+          to label %1201 unwind label %1859
 
-1200:                                             ; preds = %1196
+1201:                                             ; preds = %1197
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %243, ptr noundef @.str.37)
-          to label %1201 unwind label %1862
+          to label %1202 unwind label %1863
 
-1201:                                             ; preds = %1200
-  %1202 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_23clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(24) %240, i1 noundef zeroext false, ptr noundef %241, i32 noundef 61513, ptr noundef %243)
-          to label %1203 unwind label %1866
+1202:                                             ; preds = %1201
+  %1203 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_23clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(24) %240, i1 noundef zeroext false, ptr noundef %241, i32 noundef 61513, ptr noundef %243)
+          to label %1204 unwind label %1867
 
-1203:                                             ; preds = %1201
-  store ptr %1202, ptr %239, align 8
-  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1195, ptr noundef nonnull align 8 dereferenceable(8) %239)
-          to label %1204 unwind label %1866
+1204:                                             ; preds = %1202
+  store ptr %1203, ptr %239, align 8
+  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(8) %239)
+          to label %1205 unwind label %1867
 
-1204:                                             ; preds = %1203
+1205:                                             ; preds = %1204
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %243) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %241) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %240) #11
-  %1205 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 31
+  %1206 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 31
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %245, ptr noundef @.str.4)
-          to label %1206 unwind label %347
+          to label %1207 unwind label %348
 
-1206:                                             ; preds = %1204
-  %1207 = getelementptr inbounds %class.anon.149, ptr %247, i32 0, i32 0
-  store ptr %295, ptr %1207, align 8
+1207:                                             ; preds = %1205
   %1208 = getelementptr inbounds %class.anon.149, ptr %247, i32 0, i32 0
-  %1209 = load ptr, ptr %1208, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_27vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %246, ptr %1209)
-          to label %1210 unwind label %1872
+  store ptr %295, ptr %1208, align 8
+  %1209 = getelementptr inbounds %class.anon.149, ptr %247, i32 0, i32 0
+  %1210 = load ptr, ptr %1209, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_27vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %246, ptr %1210)
+          to label %1211 unwind label %1873
 
-1210:                                             ; preds = %1206
+1211:                                             ; preds = %1207
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %248, ptr noundef @.str.38)
-          to label %1211 unwind label %1876
+          to label %1212 unwind label %1877
 
-1211:                                             ; preds = %1210
-  %1212 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_23clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(24) %245, i1 noundef zeroext false, ptr noundef %246, i32 noundef 61520, ptr noundef %248)
-          to label %1213 unwind label %1880
+1212:                                             ; preds = %1211
+  %1213 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_23clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(24) %245, i1 noundef zeroext false, ptr noundef %246, i32 noundef 61520, ptr noundef %248)
+          to label %1214 unwind label %1881
 
-1213:                                             ; preds = %1211
-  store ptr %1212, ptr %244, align 8
-  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1205, ptr noundef nonnull align 8 dereferenceable(8) %244)
-          to label %1214 unwind label %1880
+1214:                                             ; preds = %1212
+  store ptr %1213, ptr %244, align 8
+  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1206, ptr noundef nonnull align 8 dereferenceable(8) %244)
+          to label %1215 unwind label %1881
 
-1214:                                             ; preds = %1213
+1215:                                             ; preds = %1214
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %248) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %246) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %245) #11
-  %1215 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 448) #24
-          to label %1216 unwind label %347
+  %1216 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 448) #24
+          to label %1217 unwind label %348
 
-1216:                                             ; preds = %1214
-  %1217 = load ptr, ptr %232, align 8
-  invoke void @_ZN7nanogui6IntBoxIiEC2EPNS_6WidgetEi(ptr noundef nonnull align 16 dereferenceable(448) %1215, ptr noundef %1217, i32 noundef 24)
-          to label %1218 unwind label %1886
+1217:                                             ; preds = %1215
+  %1218 = load ptr, ptr %232, align 8
+  invoke void @_ZN7nanogui6IntBoxIiEC2EPNS_6WidgetEi(ptr noundef nonnull align 16 dereferenceable(448) %1216, ptr noundef %1218, i32 noundef 24)
+          to label %1219 unwind label %1887
 
-1218:                                             ; preds = %1216
-  %1219 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
-  store ptr %1215, ptr %1219, align 16
+1219:                                             ; preds = %1217
   %1220 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
-  %1221 = load ptr, ptr %1220, align 16
+  store ptr %1216, ptr %1220, align 16
+  %1221 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
+  %1222 = load ptr, ptr %1221, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %249, ptr noundef @.str.39)
-          to label %1222 unwind label %347
+          to label %1223 unwind label %348
 
-1222:                                             ; preds = %1218
-  invoke void @_ZN7nanogui7TextBox17set_default_valueERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1221, ptr noundef nonnull align 8 dereferenceable(24) %249)
-          to label %1223 unwind label %1890
+1223:                                             ; preds = %1219
+  invoke void @_ZN7nanogui7TextBox17set_default_valueERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1222, ptr noundef nonnull align 8 dereferenceable(24) %249)
+          to label %1224 unwind label %1891
 
-1223:                                             ; preds = %1222
+1224:                                             ; preds = %1223
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %249) #11
-  %1224 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
-  %1225 = load ptr, ptr %1224, align 16
+  %1225 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
+  %1226 = load ptr, ptr %1225, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %250, ptr noundef @.str.40)
-          to label %1226 unwind label %347
+          to label %1227 unwind label %348
 
-1226:                                             ; preds = %1223
-  invoke void @_ZN7nanogui7TextBox9set_unitsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1225, ptr noundef nonnull align 8 dereferenceable(24) %250)
-          to label %1227 unwind label %1894
+1227:                                             ; preds = %1224
+  invoke void @_ZN7nanogui7TextBox9set_unitsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %1226, ptr noundef nonnull align 8 dereferenceable(24) %250)
+          to label %1228 unwind label %1895
 
-1227:                                             ; preds = %1226
+1228:                                             ; preds = %1227
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %250) #11
-  %1228 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
-  %1229 = load ptr, ptr %1228, align 16
-  invoke void @_ZN7nanogui7TextBox12set_editableEb(ptr noundef nonnull align 16 dereferenceable(432) %1229, i1 noundef zeroext true)
-          to label %1230 unwind label %347
+  %1229 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
+  %1230 = load ptr, ptr %1229, align 16
+  invoke void @_ZN7nanogui7TextBox12set_editableEb(ptr noundef nonnull align 16 dereferenceable(432) %1230, i1 noundef zeroext true)
+          to label %1231 unwind label %348
 
-1230:                                             ; preds = %1227
-  %1231 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
-  %1232 = load ptr, ptr %1231, align 16
-  invoke void @_ZN7nanogui7TextBox13set_alignmentENS0_9AlignmentE(ptr noundef nonnull align 16 dereferenceable(432) %1232, i32 noundef 2)
-          to label %1233 unwind label %347
+1231:                                             ; preds = %1228
+  %1232 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
+  %1233 = load ptr, ptr %1232, align 16
+  invoke void @_ZN7nanogui7TextBox13set_alignmentENS0_9AlignmentE(ptr noundef nonnull align 16 dereferenceable(432) %1233, i32 noundef 2)
+          to label %1234 unwind label %348
 
-1233:                                             ; preds = %1230
-  %1234 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
-  %1235 = load ptr, ptr %1234, align 16
-  invoke void @_ZN7nanogui6IntBoxIiE18set_min_max_valuesEii(ptr noundef nonnull align 16 dereferenceable(448) %1235, i32 noundef 1, i32 noundef 1000)
-          to label %1236 unwind label %347
+1234:                                             ; preds = %1231
+  %1235 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
+  %1236 = load ptr, ptr %1235, align 16
+  invoke void @_ZN7nanogui6IntBoxIiE18set_min_max_valuesEii(ptr noundef nonnull align 16 dereferenceable(448) %1236, i32 noundef 1, i32 noundef 1000)
+          to label %1237 unwind label %348
 
-1236:                                             ; preds = %1233
-  %1237 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
-  %1238 = load ptr, ptr %1237, align 16
-  invoke void @_ZN7nanogui7TextBox13set_spinnableEb(ptr noundef nonnull align 16 dereferenceable(432) %1238, i1 noundef zeroext true)
-          to label %1239 unwind label %347
+1237:                                             ; preds = %1234
+  %1238 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 33
+  %1239 = load ptr, ptr %1238, align 16
+  invoke void @_ZN7nanogui7TextBox13set_spinnableEb(ptr noundef nonnull align 16 dereferenceable(432) %1239, i1 noundef zeroext true)
+          to label %1240 unwind label %348
 
-1239:                                             ; preds = %1236
-  %1240 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1241 unwind label %347
+1240:                                             ; preds = %1237
+  %1241 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1242 unwind label %348
 
-1241:                                             ; preds = %1239
-  %1242 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1243 = load ptr, ptr %1242, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1240, ptr noundef %1243)
-          to label %1244 unwind label %1898
+1242:                                             ; preds = %1240
+  %1243 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1244 = load ptr, ptr %1243, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1241, ptr noundef %1244)
+          to label %1245 unwind label %1899
 
-1244:                                             ; preds = %1241
-  store ptr %1240, ptr %251, align 8
-  %1245 = load ptr, ptr %251, align 8
-  %1246 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
-          to label %1247 unwind label %347
+1245:                                             ; preds = %1242
+  store ptr %1241, ptr %251, align 8
+  %1246 = load ptr, ptr %251, align 8
+  %1247 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #24
+          to label %1248 unwind label %348
 
-1247:                                             ; preds = %1244
-  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %1246, i32 noundef 0, i32 noundef 6, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 1)
-          to label %1248 unwind label %1902
-
-1248:                                             ; preds = %1247
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1245, ptr noundef %1246)
-          to label %1249 unwind label %347
+1248:                                             ; preds = %1245
+  invoke void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEiNS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(88) %1247, i32 noundef 0, i32 noundef 6, i8 noundef zeroext 3, i32 noundef 5, i32 noundef 1)
+          to label %1249 unwind label %1903
 
 1249:                                             ; preds = %1248
-  %1250 = getelementptr inbounds %class.anon.150, ptr %252, i32 0, i32 0
-  store ptr %251, ptr %1250, align 8
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1246, ptr noundef %1247)
+          to label %1250 unwind label %348
+
+1250:                                             ; preds = %1249
+  %1251 = getelementptr inbounds %class.anon.150, ptr %252, i32 0, i32 0
+  store ptr %251, ptr %1251, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef @.str.4)
-          to label %1251 unwind label %347
+          to label %1252 unwind label %348
 
-1251:                                             ; preds = %1249
-  %1252 = getelementptr inbounds %class.anon.151, ptr %255, i32 0, i32 0
-  store ptr %295, ptr %1252, align 8
+1252:                                             ; preds = %1250
   %1253 = getelementptr inbounds %class.anon.151, ptr %255, i32 0, i32 0
-  %1254 = load ptr, ptr %1253, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_29vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %254, ptr %1254)
-          to label %1255 unwind label %1906
+  store ptr %295, ptr %1253, align 8
+  %1254 = getelementptr inbounds %class.anon.151, ptr %255, i32 0, i32 0
+  %1255 = load ptr, ptr %1254, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_29vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %254, ptr %1255)
+          to label %1256 unwind label %1907
 
-1255:                                             ; preds = %1251
-  %1256 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %257, i32 0, i32 0
-  store %"class.fmt::v9::basic_string_view" { ptr @.str.41, i64 11 }, ptr %1256, align 8
-  %1257 = getelementptr inbounds { ptr, i64 }, ptr %257, i32 0, i32 0
-  %1258 = load ptr, ptr %1257, align 8
-  %1259 = getelementptr inbounds { ptr, i64 }, ptr %257, i32 0, i32 1
-  %1260 = load i64, ptr %1259, align 8
+1256:                                             ; preds = %1252
+  %1257 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %257, i32 0, i32 0
+  store %"class.fmt::v9::basic_string_view" { ptr @.str.41, i64 11 }, ptr %1257, align 8
+  %1258 = getelementptr inbounds { ptr, i64 }, ptr %257, i32 0, i32 0
+  %1259 = load ptr, ptr %1258, align 8
+  %1260 = getelementptr inbounds { ptr, i64 }, ptr %257, i32 0, i32 1
+  %1261 = load i64, ptr %1260, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   store ptr %256, ptr %74, align 8, !noalias !8
-  store ptr %1258, ptr %75, align 8, !noalias !8
-  %1261 = getelementptr inbounds { ptr, i64 }, ptr %75, i32 0, i32 1
-  store i64 %1260, ptr %1261, align 8, !noalias !8
+  store ptr %1259, ptr %75, align 8, !noalias !8
+  %1262 = getelementptr inbounds { ptr, i64 }, ptr %75, i32 0, i32 1
+  store i64 %1261, ptr %1262, align 8, !noalias !8
   store ptr @_ZN3tev10HelpWindow7COMMANDE, ptr %76, align 8, !noalias !8
   store ptr %75, ptr %51, align 8
-  %1262 = load ptr, ptr %51, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %1262, i64 16, i1 false)
-  %1263 = load { ptr, i64 }, ptr %50, align 8
-  %1264 = extractvalue { ptr, i64 } %1263, 0
-  store ptr %1264, ptr %77, align 8, !noalias !8
-  %1265 = getelementptr inbounds { ptr, i64 }, ptr %77, i32 0, i32 1
-  %1266 = extractvalue { ptr, i64 } %1263, 1
-  store i64 %1266, ptr %1265, align 8, !noalias !8
-  %1267 = load ptr, ptr %76, align 8, !noalias !8
-  %1268 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEEEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr noundef nonnull align 8 dereferenceable(24) %1267)
-          to label %1269 unwind label %1910
+  %1263 = load ptr, ptr %51, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %1263, i64 16, i1 false)
+  %1264 = load { ptr, i64 }, ptr %50, align 8
+  %1265 = extractvalue { ptr, i64 } %1264, 0
+  store ptr %1265, ptr %77, align 8, !noalias !8
+  %1266 = getelementptr inbounds { ptr, i64 }, ptr %77, i32 0, i32 1
+  %1267 = extractvalue { ptr, i64 } %1264, 1
+  store i64 %1267, ptr %1266, align 8, !noalias !8
+  %1268 = load ptr, ptr %76, align 8, !noalias !8
+  %1269 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEEEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr noundef nonnull align 8 dereferenceable(24) %1268)
+          to label %1270 unwind label %1911
 
-1269:                                             ; preds = %1255
-  %1270 = extractvalue { i64, i64 } %1268, 0
-  store i64 %1270, ptr %79, align 16, !noalias !8
-  %1271 = getelementptr inbounds { i64, i64 }, ptr %79, i32 0, i32 1
-  %1272 = extractvalue { i64, i64 } %1268, 1
-  store i64 %1272, ptr %1271, align 8, !noalias !8
+1270:                                             ; preds = %1256
+  %1271 = extractvalue { i64, i64 } %1269, 0
+  store i64 %1271, ptr %79, align 16, !noalias !8
+  %1272 = getelementptr inbounds { i64, i64 }, ptr %79, i32 0, i32 1
+  %1273 = extractvalue { i64, i64 } %1269, 1
+  store i64 %1273, ptr %1272, align 8, !noalias !8
   store ptr %78, ptr %42, align 8
   store ptr %79, ptr %43, align 8
-  %1273 = load ptr, ptr %42, align 8
-  %1274 = load ptr, ptr %43, align 8
-  store ptr %1274, ptr %35, align 8
-  %1275 = load ptr, ptr %35, align 8
-  store ptr %1273, ptr %25, align 8
+  %1274 = load ptr, ptr %42, align 8
+  %1275 = load ptr, ptr %43, align 8
+  store ptr %1275, ptr %35, align 8
+  %1276 = load ptr, ptr %35, align 8
+  store ptr %1274, ptr %25, align 8
   store i64 13, ptr %26, align 8
-  store ptr %1275, ptr %27, align 8
-  %1276 = load ptr, ptr %25, align 8
-  %1277 = load i64, ptr %26, align 8
-  store i64 %1277, ptr %1276, align 8
-  %1278 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1276, i32 0, i32 1
-  %1279 = load ptr, ptr %27, align 8
-  store ptr %1279, ptr %1278, align 8
-  br label %1280
+  store ptr %1276, ptr %27, align 8
+  %1277 = load ptr, ptr %25, align 8
+  %1278 = load i64, ptr %26, align 8
+  store i64 %1278, ptr %1277, align 8
+  %1279 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1277, i32 0, i32 1
+  %1280 = load ptr, ptr %27, align 8
+  store ptr %1280, ptr %1279, align 8
+  br label %1281
 
-1280:                                             ; preds = %1269
-  %1281 = load ptr, ptr %77, align 8, !noalias !8
-  %1282 = getelementptr inbounds { ptr, i64 }, ptr %77, i32 0, i32 1
-  %1283 = load i64, ptr %1282, align 8, !noalias !8
-  %1284 = load i64, ptr %78, align 8, !noalias !8
-  %1285 = getelementptr inbounds { i64, ptr }, ptr %78, i32 0, i32 1
-  %1286 = load ptr, ptr %1285, align 8, !noalias !8
-  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %256, ptr %1281, i64 %1283, i64 %1284, ptr %1286)
-          to label %1287 unwind label %1910
+1281:                                             ; preds = %1270
+  %1282 = load ptr, ptr %77, align 8, !noalias !8
+  %1283 = getelementptr inbounds { ptr, i64 }, ptr %77, i32 0, i32 1
+  %1284 = load i64, ptr %1283, align 8, !noalias !8
+  %1285 = load i64, ptr %78, align 8, !noalias !8
+  %1286 = getelementptr inbounds { i64, ptr }, ptr %78, i32 0, i32 1
+  %1287 = load ptr, ptr %1286, align 8, !noalias !8
+  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %256, ptr %1282, i64 %1284, i64 %1285, ptr %1287)
+          to label %1288 unwind label %1911
 
-1287:                                             ; preds = %1280
-  br label %1288
+1288:                                             ; preds = %1281
+  br label %1289
 
-1288:                                             ; preds = %1287
-  %1289 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %253, i1 noundef zeroext true, ptr noundef %254, i32 noundef 61563, ptr noundef %256)
-          to label %1290 unwind label %1914
+1289:                                             ; preds = %1288
+  %1290 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %253, i1 noundef zeroext true, ptr noundef %254, i32 noundef 61563, ptr noundef %256)
+          to label %1291 unwind label %1915
 
-1290:                                             ; preds = %1288
+1291:                                             ; preds = %1289
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %256) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %254) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #11
-  %1291 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
+  %1292 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %259, ptr noundef @.str.4)
-          to label %1292 unwind label %347
+          to label %1293 unwind label %348
 
-1292:                                             ; preds = %1290
-  %1293 = getelementptr inbounds %class.anon.152, ptr %261, i32 0, i32 0
-  store ptr %295, ptr %1293, align 8
+1293:                                             ; preds = %1291
   %1294 = getelementptr inbounds %class.anon.152, ptr %261, i32 0, i32 0
-  %1295 = load ptr, ptr %1294, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_30vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %260, ptr %1295)
-          to label %1296 unwind label %1920
+  store ptr %295, ptr %1294, align 8
+  %1295 = getelementptr inbounds %class.anon.152, ptr %261, i32 0, i32 0
+  %1296 = load ptr, ptr %1295, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_30vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %260, ptr %1296)
+          to label %1297 unwind label %1921
 
-1296:                                             ; preds = %1292
-  %1297 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %263, i32 0, i32 0
-  store %"class.fmt::v9::basic_string_view" { ptr @.str.42, i64 11 }, ptr %1297, align 8
-  %1298 = getelementptr inbounds { ptr, i64 }, ptr %263, i32 0, i32 0
-  %1299 = load ptr, ptr %1298, align 8
-  %1300 = getelementptr inbounds { ptr, i64 }, ptr %263, i32 0, i32 1
-  %1301 = load i64, ptr %1300, align 8
+1297:                                             ; preds = %1293
+  %1298 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %263, i32 0, i32 0
+  store %"class.fmt::v9::basic_string_view" { ptr @.str.42, i64 11 }, ptr %1298, align 8
+  %1299 = getelementptr inbounds { ptr, i64 }, ptr %263, i32 0, i32 0
+  %1300 = load ptr, ptr %1299, align 8
+  %1301 = getelementptr inbounds { ptr, i64 }, ptr %263, i32 0, i32 1
+  %1302 = load i64, ptr %1301, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   store ptr %262, ptr %80, align 8, !noalias !11
-  store ptr %1299, ptr %81, align 8, !noalias !11
-  %1302 = getelementptr inbounds { ptr, i64 }, ptr %81, i32 0, i32 1
-  store i64 %1301, ptr %1302, align 8, !noalias !11
+  store ptr %1300, ptr %81, align 8, !noalias !11
+  %1303 = getelementptr inbounds { ptr, i64 }, ptr %81, i32 0, i32 1
+  store i64 %1302, ptr %1303, align 8, !noalias !11
   store ptr @_ZN3tev10HelpWindow7COMMANDE, ptr %82, align 8, !noalias !11
   store ptr %81, ptr %49, align 8
-  %1303 = load ptr, ptr %49, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %1303, i64 16, i1 false)
-  %1304 = load { ptr, i64 }, ptr %48, align 8
-  %1305 = extractvalue { ptr, i64 } %1304, 0
-  store ptr %1305, ptr %83, align 8, !noalias !11
-  %1306 = getelementptr inbounds { ptr, i64 }, ptr %83, i32 0, i32 1
-  %1307 = extractvalue { ptr, i64 } %1304, 1
-  store i64 %1307, ptr %1306, align 8, !noalias !11
-  %1308 = load ptr, ptr %82, align 8, !noalias !11
-  %1309 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEEEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr noundef nonnull align 8 dereferenceable(24) %1308)
-          to label %1310 unwind label %1924
+  %1304 = load ptr, ptr %49, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %1304, i64 16, i1 false)
+  %1305 = load { ptr, i64 }, ptr %48, align 8
+  %1306 = extractvalue { ptr, i64 } %1305, 0
+  store ptr %1306, ptr %83, align 8, !noalias !11
+  %1307 = getelementptr inbounds { ptr, i64 }, ptr %83, i32 0, i32 1
+  %1308 = extractvalue { ptr, i64 } %1305, 1
+  store i64 %1308, ptr %1307, align 8, !noalias !11
+  %1309 = load ptr, ptr %82, align 8, !noalias !11
+  %1310 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEEEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr noundef nonnull align 8 dereferenceable(24) %1309)
+          to label %1311 unwind label %1925
 
-1310:                                             ; preds = %1296
-  %1311 = extractvalue { i64, i64 } %1309, 0
-  store i64 %1311, ptr %85, align 16, !noalias !11
-  %1312 = getelementptr inbounds { i64, i64 }, ptr %85, i32 0, i32 1
-  %1313 = extractvalue { i64, i64 } %1309, 1
-  store i64 %1313, ptr %1312, align 8, !noalias !11
+1311:                                             ; preds = %1297
+  %1312 = extractvalue { i64, i64 } %1310, 0
+  store i64 %1312, ptr %85, align 16, !noalias !11
+  %1313 = getelementptr inbounds { i64, i64 }, ptr %85, i32 0, i32 1
+  %1314 = extractvalue { i64, i64 } %1310, 1
+  store i64 %1314, ptr %1313, align 8, !noalias !11
   store ptr %84, ptr %40, align 8
   store ptr %85, ptr %41, align 8
-  %1314 = load ptr, ptr %40, align 8
-  %1315 = load ptr, ptr %41, align 8
-  store ptr %1315, ptr %36, align 8
-  %1316 = load ptr, ptr %36, align 8
-  store ptr %1314, ptr %28, align 8
+  %1315 = load ptr, ptr %40, align 8
+  %1316 = load ptr, ptr %41, align 8
+  store ptr %1316, ptr %36, align 8
+  %1317 = load ptr, ptr %36, align 8
+  store ptr %1315, ptr %28, align 8
   store i64 13, ptr %29, align 8
-  store ptr %1316, ptr %30, align 8
-  %1317 = load ptr, ptr %28, align 8
-  %1318 = load i64, ptr %29, align 8
-  store i64 %1318, ptr %1317, align 8
-  %1319 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1317, i32 0, i32 1
-  %1320 = load ptr, ptr %30, align 8
-  store ptr %1320, ptr %1319, align 8
-  br label %1321
+  store ptr %1317, ptr %30, align 8
+  %1318 = load ptr, ptr %28, align 8
+  %1319 = load i64, ptr %29, align 8
+  store i64 %1319, ptr %1318, align 8
+  %1320 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1318, i32 0, i32 1
+  %1321 = load ptr, ptr %30, align 8
+  store ptr %1321, ptr %1320, align 8
+  br label %1322
 
-1321:                                             ; preds = %1310
-  %1322 = load ptr, ptr %83, align 8, !noalias !11
-  %1323 = getelementptr inbounds { ptr, i64 }, ptr %83, i32 0, i32 1
-  %1324 = load i64, ptr %1323, align 8, !noalias !11
-  %1325 = load i64, ptr %84, align 8, !noalias !11
-  %1326 = getelementptr inbounds { i64, ptr }, ptr %84, i32 0, i32 1
-  %1327 = load ptr, ptr %1326, align 8, !noalias !11
-  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %262, ptr %1322, i64 %1324, i64 %1325, ptr %1327)
-          to label %1328 unwind label %1924
+1322:                                             ; preds = %1311
+  %1323 = load ptr, ptr %83, align 8, !noalias !11
+  %1324 = getelementptr inbounds { ptr, i64 }, ptr %83, i32 0, i32 1
+  %1325 = load i64, ptr %1324, align 8, !noalias !11
+  %1326 = load i64, ptr %84, align 8, !noalias !11
+  %1327 = getelementptr inbounds { i64, ptr }, ptr %84, i32 0, i32 1
+  %1328 = load ptr, ptr %1327, align 8, !noalias !11
+  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %262, ptr %1323, i64 %1325, i64 %1326, ptr %1328)
+          to label %1329 unwind label %1925
 
-1328:                                             ; preds = %1321
-  br label %1329
+1329:                                             ; preds = %1322
+  br label %1330
 
-1329:                                             ; preds = %1328
-  %1330 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %259, i1 noundef zeroext false, ptr noundef %260, i32 noundef 61639, ptr noundef %262)
-          to label %1331 unwind label %1928
+1330:                                             ; preds = %1329
+  %1331 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %259, i1 noundef zeroext false, ptr noundef %260, i32 noundef 61639, ptr noundef %262)
+          to label %1332 unwind label %1929
 
-1331:                                             ; preds = %1329
-  store ptr %1330, ptr %258, align 8
-  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1291, ptr noundef nonnull align 8 dereferenceable(8) %258)
-          to label %1332 unwind label %1928
+1332:                                             ; preds = %1330
+  store ptr %1331, ptr %258, align 8
+  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1292, ptr noundef nonnull align 8 dereferenceable(8) %258)
+          to label %1333 unwind label %1929
 
-1332:                                             ; preds = %1331
+1333:                                             ; preds = %1332
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %262) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %260) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %259) #11
-  %1333 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
+  %1334 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %265, ptr noundef @.str.4)
-          to label %1334 unwind label %347
+          to label %1335 unwind label %348
 
-1334:                                             ; preds = %1332
-  %1335 = getelementptr inbounds %class.anon.153, ptr %267, i32 0, i32 0
-  store ptr %295, ptr %1335, align 8
+1335:                                             ; preds = %1333
   %1336 = getelementptr inbounds %class.anon.153, ptr %267, i32 0, i32 0
-  %1337 = load ptr, ptr %1336, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_31vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %266, ptr %1337)
-          to label %1338 unwind label %1934
+  store ptr %295, ptr %1336, align 8
+  %1337 = getelementptr inbounds %class.anon.153, ptr %267, i32 0, i32 0
+  %1338 = load ptr, ptr %1337, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_31vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %266, ptr %1338)
+          to label %1339 unwind label %1935
 
-1338:                                             ; preds = %1334
-  %1339 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %269, i32 0, i32 0
-  store %"class.fmt::v9::basic_string_view" { ptr @.str.43, i64 19 }, ptr %1339, align 8
-  %1340 = getelementptr inbounds { ptr, i64 }, ptr %269, i32 0, i32 0
-  %1341 = load ptr, ptr %1340, align 8
-  %1342 = getelementptr inbounds { ptr, i64 }, ptr %269, i32 0, i32 1
-  %1343 = load i64, ptr %1342, align 8
+1339:                                             ; preds = %1335
+  %1340 = getelementptr inbounds %"class.fmt::v9::basic_format_string", ptr %269, i32 0, i32 0
+  store %"class.fmt::v9::basic_string_view" { ptr @.str.43, i64 19 }, ptr %1340, align 8
+  %1341 = getelementptr inbounds { ptr, i64 }, ptr %269, i32 0, i32 0
+  %1342 = load ptr, ptr %1341, align 8
+  %1343 = getelementptr inbounds { ptr, i64 }, ptr %269, i32 0, i32 1
+  %1344 = load i64, ptr %1343, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   store ptr %268, ptr %86, align 8, !noalias !14
-  store ptr %1341, ptr %87, align 8, !noalias !14
-  %1344 = getelementptr inbounds { ptr, i64 }, ptr %87, i32 0, i32 1
-  store i64 %1343, ptr %1344, align 8, !noalias !14
+  store ptr %1342, ptr %87, align 8, !noalias !14
+  %1345 = getelementptr inbounds { ptr, i64 }, ptr %87, i32 0, i32 1
+  store i64 %1344, ptr %1345, align 8, !noalias !14
   store ptr @_ZN3tev10HelpWindow7COMMANDE, ptr %88, align 8, !noalias !14
   store ptr %87, ptr %47, align 8
-  %1345 = load ptr, ptr %47, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %1345, i64 16, i1 false)
-  %1346 = load { ptr, i64 }, ptr %46, align 8
-  %1347 = extractvalue { ptr, i64 } %1346, 0
-  store ptr %1347, ptr %89, align 8, !noalias !14
-  %1348 = getelementptr inbounds { ptr, i64 }, ptr %89, i32 0, i32 1
-  %1349 = extractvalue { ptr, i64 } %1346, 1
-  store i64 %1349, ptr %1348, align 8, !noalias !14
-  %1350 = load ptr, ptr %88, align 8, !noalias !14
-  %1351 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEEEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr noundef nonnull align 8 dereferenceable(24) %1350)
-          to label %1352 unwind label %1938
+  %1346 = load ptr, ptr %47, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %1346, i64 16, i1 false)
+  %1347 = load { ptr, i64 }, ptr %46, align 8
+  %1348 = extractvalue { ptr, i64 } %1347, 0
+  store ptr %1348, ptr %89, align 8, !noalias !14
+  %1349 = getelementptr inbounds { ptr, i64 }, ptr %89, i32 0, i32 1
+  %1350 = extractvalue { ptr, i64 } %1347, 1
+  store i64 %1350, ptr %1349, align 8, !noalias !14
+  %1351 = load ptr, ptr %88, align 8, !noalias !14
+  %1352 = invoke { i64, i64 } @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEEEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr noundef nonnull align 8 dereferenceable(24) %1351)
+          to label %1353 unwind label %1939
 
-1352:                                             ; preds = %1338
-  %1353 = extractvalue { i64, i64 } %1351, 0
-  store i64 %1353, ptr %91, align 16, !noalias !14
-  %1354 = getelementptr inbounds { i64, i64 }, ptr %91, i32 0, i32 1
-  %1355 = extractvalue { i64, i64 } %1351, 1
-  store i64 %1355, ptr %1354, align 8, !noalias !14
+1353:                                             ; preds = %1339
+  %1354 = extractvalue { i64, i64 } %1352, 0
+  store i64 %1354, ptr %91, align 16, !noalias !14
+  %1355 = getelementptr inbounds { i64, i64 }, ptr %91, i32 0, i32 1
+  %1356 = extractvalue { i64, i64 } %1352, 1
+  store i64 %1356, ptr %1355, align 8, !noalias !14
   store ptr %90, ptr %38, align 8
   store ptr %91, ptr %39, align 8
-  %1356 = load ptr, ptr %38, align 8
-  %1357 = load ptr, ptr %39, align 8
-  store ptr %1357, ptr %37, align 8
-  %1358 = load ptr, ptr %37, align 8
-  store ptr %1356, ptr %31, align 8
+  %1357 = load ptr, ptr %38, align 8
+  %1358 = load ptr, ptr %39, align 8
+  store ptr %1358, ptr %37, align 8
+  %1359 = load ptr, ptr %37, align 8
+  store ptr %1357, ptr %31, align 8
   store i64 13, ptr %32, align 8
-  store ptr %1358, ptr %33, align 8
-  %1359 = load ptr, ptr %31, align 8
-  %1360 = load i64, ptr %32, align 8
-  store i64 %1360, ptr %1359, align 8
-  %1361 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1359, i32 0, i32 1
-  %1362 = load ptr, ptr %33, align 8
-  store ptr %1362, ptr %1361, align 8
-  br label %1363
+  store ptr %1359, ptr %33, align 8
+  %1360 = load ptr, ptr %31, align 8
+  %1361 = load i64, ptr %32, align 8
+  store i64 %1361, ptr %1360, align 8
+  %1362 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1360, i32 0, i32 1
+  %1363 = load ptr, ptr %33, align 8
+  store ptr %1363, ptr %1362, align 8
+  br label %1364
 
-1363:                                             ; preds = %1352
-  %1364 = load ptr, ptr %89, align 8, !noalias !14
-  %1365 = getelementptr inbounds { ptr, i64 }, ptr %89, i32 0, i32 1
-  %1366 = load i64, ptr %1365, align 8, !noalias !14
-  %1367 = load i64, ptr %90, align 8, !noalias !14
-  %1368 = getelementptr inbounds { i64, ptr }, ptr %90, i32 0, i32 1
-  %1369 = load ptr, ptr %1368, align 8, !noalias !14
-  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %268, ptr %1364, i64 %1366, i64 %1367, ptr %1369)
-          to label %1370 unwind label %1938
+1364:                                             ; preds = %1353
+  %1365 = load ptr, ptr %89, align 8, !noalias !14
+  %1366 = getelementptr inbounds { ptr, i64 }, ptr %89, i32 0, i32 1
+  %1367 = load i64, ptr %1366, align 8, !noalias !14
+  %1368 = load i64, ptr %90, align 8, !noalias !14
+  %1369 = getelementptr inbounds { i64, ptr }, ptr %90, i32 0, i32 1
+  %1370 = load ptr, ptr %1369, align 8, !noalias !14
+  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %268, ptr %1365, i64 %1367, i64 %1368, ptr %1370)
+          to label %1371 unwind label %1939
 
-1370:                                             ; preds = %1363
-  br label %1371
+1371:                                             ; preds = %1364
+  br label %1372
 
-1371:                                             ; preds = %1370
-  %1372 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %265, i1 noundef zeroext false, ptr noundef %266, i32 noundef 61880, ptr noundef %268)
-          to label %1373 unwind label %1942
+1372:                                             ; preds = %1371
+  %1373 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %265, i1 noundef zeroext false, ptr noundef %266, i32 noundef 61880, ptr noundef %268)
+          to label %1374 unwind label %1943
 
-1373:                                             ; preds = %1371
-  store ptr %1372, ptr %264, align 8
-  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1333, ptr noundef nonnull align 8 dereferenceable(8) %264)
-          to label %1374 unwind label %1942
+1374:                                             ; preds = %1372
+  store ptr %1373, ptr %264, align 8
+  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1334, ptr noundef nonnull align 8 dereferenceable(8) %264)
+          to label %1375 unwind label %1943
 
-1374:                                             ; preds = %1373
+1375:                                             ; preds = %1374
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %268) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %266) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %265) #11
-  %1375 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 31
+  %1376 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 31
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %271, ptr noundef @.str.44)
-          to label %1376 unwind label %347
+          to label %1377 unwind label %348
 
-1376:                                             ; preds = %1374
-  %1377 = getelementptr inbounds %class.anon.154, ptr %273, i32 0, i32 0
-  store ptr %295, ptr %1377, align 8
+1377:                                             ; preds = %1375
   %1378 = getelementptr inbounds %class.anon.154, ptr %273, i32 0, i32 0
-  %1379 = load ptr, ptr %1378, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_32vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %272, ptr %1379)
-          to label %1380 unwind label %1948
+  store ptr %295, ptr %1378, align 8
+  %1379 = getelementptr inbounds %class.anon.154, ptr %273, i32 0, i32 0
+  %1380 = load ptr, ptr %1379, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_32vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %272, ptr %1380)
+          to label %1381 unwind label %1949
 
-1380:                                             ; preds = %1376
-  %1381 = getelementptr inbounds %"class.fmt::v9::basic_format_string.155", ptr %275, i32 0, i32 0
-  store %"class.fmt::v9::basic_string_view" { ptr @.str.45, i64 32 }, ptr %1381, align 8
-  %1382 = getelementptr inbounds { ptr, i64 }, ptr %275, i32 0, i32 0
-  %1383 = load ptr, ptr %1382, align 8
-  %1384 = getelementptr inbounds { ptr, i64 }, ptr %275, i32 0, i32 1
-  %1385 = load i64, ptr %1384, align 8
+1381:                                             ; preds = %1377
+  %1382 = getelementptr inbounds %"class.fmt::v9::basic_format_string.155", ptr %275, i32 0, i32 0
+  store %"class.fmt::v9::basic_string_view" { ptr @.str.45, i64 32 }, ptr %1382, align 8
+  %1383 = getelementptr inbounds { ptr, i64 }, ptr %275, i32 0, i32 0
+  %1384 = load ptr, ptr %1383, align 8
+  %1385 = getelementptr inbounds { ptr, i64 }, ptr %275, i32 0, i32 1
+  %1386 = load i64, ptr %1385, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store ptr %274, ptr %54, align 8, !noalias !17
-  store ptr %1383, ptr %55, align 8, !noalias !17
-  %1386 = getelementptr inbounds { ptr, i64 }, ptr %55, i32 0, i32 1
-  store i64 %1385, ptr %1386, align 8, !noalias !17
+  store ptr %1384, ptr %55, align 8, !noalias !17
+  %1387 = getelementptr inbounds { ptr, i64 }, ptr %55, i32 0, i32 1
+  store i64 %1386, ptr %1387, align 8, !noalias !17
   store ptr @_ZN3tev10HelpWindow7COMMANDE, ptr %56, align 8, !noalias !17
   store ptr @_ZN3tev10HelpWindow7COMMANDE, ptr %57, align 8, !noalias !17
   store ptr %55, ptr %21, align 8
-  %1387 = load ptr, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %1387, i64 16, i1 false)
-  %1388 = load { ptr, i64 }, ptr %20, align 8
-  %1389 = extractvalue { ptr, i64 } %1388, 0
-  store ptr %1389, ptr %58, align 8, !noalias !17
-  %1390 = getelementptr inbounds { ptr, i64 }, ptr %58, i32 0, i32 1
-  %1391 = extractvalue { ptr, i64 } %1388, 1
-  store i64 %1391, ptr %1390, align 8, !noalias !17
-  %1392 = load ptr, ptr %56, align 8, !noalias !17
-  %1393 = load ptr, ptr %57, align 8, !noalias !17
-  invoke void @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEESC_EEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr dead_on_unwind writable sret(%"class.fmt::v9::format_arg_store.1471") align 16 %60, ptr noundef nonnull align 8 dereferenceable(24) %1392, ptr noundef nonnull align 8 dereferenceable(24) %1393)
-          to label %1394 unwind label %1952
+  %1388 = load ptr, ptr %21, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %1388, i64 16, i1 false)
+  %1389 = load { ptr, i64 }, ptr %20, align 8
+  %1390 = extractvalue { ptr, i64 } %1389, 0
+  store ptr %1390, ptr %58, align 8, !noalias !17
+  %1391 = getelementptr inbounds { ptr, i64 }, ptr %58, i32 0, i32 1
+  %1392 = extractvalue { ptr, i64 } %1389, 1
+  store i64 %1392, ptr %1391, align 8, !noalias !17
+  %1393 = load ptr, ptr %56, align 8, !noalias !17
+  %1394 = load ptr, ptr %57, align 8, !noalias !17
+  invoke void @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEESC_EEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr dead_on_unwind writable sret(%"class.fmt::v9::format_arg_store.1471") align 16 %60, ptr noundef nonnull align 8 dereferenceable(24) %1393, ptr noundef nonnull align 8 dereferenceable(24) %1394)
+          to label %1395 unwind label %1953
 
-1394:                                             ; preds = %1380
+1395:                                             ; preds = %1381
   store ptr %59, ptr %16, align 8
   store ptr %60, ptr %17, align 8
-  %1395 = load ptr, ptr %16, align 8
-  %1396 = load ptr, ptr %17, align 8
-  store ptr %1396, ptr %6, align 8
-  %1397 = load ptr, ptr %6, align 8
-  store ptr %1395, ptr %13, align 8
+  %1396 = load ptr, ptr %16, align 8
+  %1397 = load ptr, ptr %17, align 8
+  store ptr %1397, ptr %6, align 8
+  %1398 = load ptr, ptr %6, align 8
+  store ptr %1396, ptr %13, align 8
   store i64 221, ptr %14, align 8
-  store ptr %1397, ptr %15, align 8
-  %1398 = load ptr, ptr %13, align 8
-  %1399 = load i64, ptr %14, align 8
-  store i64 %1399, ptr %1398, align 8
-  %1400 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1398, i32 0, i32 1
-  %1401 = load ptr, ptr %15, align 8
-  store ptr %1401, ptr %1400, align 8
-  br label %1402
+  store ptr %1398, ptr %15, align 8
+  %1399 = load ptr, ptr %13, align 8
+  %1400 = load i64, ptr %14, align 8
+  store i64 %1400, ptr %1399, align 8
+  %1401 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1399, i32 0, i32 1
+  %1402 = load ptr, ptr %15, align 8
+  store ptr %1402, ptr %1401, align 8
+  br label %1403
 
-1402:                                             ; preds = %1394
-  %1403 = load ptr, ptr %58, align 8, !noalias !17
-  %1404 = getelementptr inbounds { ptr, i64 }, ptr %58, i32 0, i32 1
-  %1405 = load i64, ptr %1404, align 8, !noalias !17
-  %1406 = load i64, ptr %59, align 8, !noalias !17
-  %1407 = getelementptr inbounds { i64, ptr }, ptr %59, i32 0, i32 1
-  %1408 = load ptr, ptr %1407, align 8, !noalias !17
-  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %274, ptr %1403, i64 %1405, i64 %1406, ptr %1408)
-          to label %1409 unwind label %1952
+1403:                                             ; preds = %1395
+  %1404 = load ptr, ptr %58, align 8, !noalias !17
+  %1405 = getelementptr inbounds { ptr, i64 }, ptr %58, i32 0, i32 1
+  %1406 = load i64, ptr %1405, align 8, !noalias !17
+  %1407 = load i64, ptr %59, align 8, !noalias !17
+  %1408 = getelementptr inbounds { i64, ptr }, ptr %59, i32 0, i32 1
+  %1409 = load ptr, ptr %1408, align 8, !noalias !17
+  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %274, ptr %1404, i64 %1406, i64 %1407, ptr %1409)
+          to label %1410 unwind label %1953
 
-1409:                                             ; preds = %1402
-  br label %1410
+1410:                                             ; preds = %1403
+  br label %1411
 
-1410:                                             ; preds = %1409
-  %1411 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %271, i1 noundef zeroext false, ptr noundef %272, i32 noundef 0, ptr noundef %274)
-          to label %1412 unwind label %1956
+1411:                                             ; preds = %1410
+  %1412 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %271, i1 noundef zeroext false, ptr noundef %272, i32 noundef 0, ptr noundef %274)
+          to label %1413 unwind label %1957
 
-1412:                                             ; preds = %1410
-  store ptr %1411, ptr %270, align 8
-  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1375, ptr noundef nonnull align 8 dereferenceable(8) %270)
-          to label %1413 unwind label %1956
+1413:                                             ; preds = %1411
+  store ptr %1412, ptr %270, align 8
+  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1376, ptr noundef nonnull align 8 dereferenceable(8) %270)
+          to label %1414 unwind label %1957
 
-1413:                                             ; preds = %1412
+1414:                                             ; preds = %1413
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %274) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %272) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %271) #11
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %276, ptr noundef @.str.46)
-          to label %1414 unwind label %347
-
-1414:                                             ; preds = %1413
-  call void @_ZNSt3__18functionIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(48) %277) #11
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %278, ptr noundef @.str.47)
-          to label %1415 unwind label %1962
+          to label %1415 unwind label %348
 
 1415:                                             ; preds = %1414
-  %1416 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %276, i1 noundef zeroext true, ptr noundef %277, i32 noundef 0, ptr noundef %278)
-          to label %1417 unwind label %1966
+  call void @_ZNSt3__18functionIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 16 dereferenceable(48) %277) #11
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %278, ptr noundef @.str.47)
+          to label %1416 unwind label %1963
 
-1417:                                             ; preds = %1415
-  %1418 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 28
-  store ptr %1416, ptr %1418, align 8
+1416:                                             ; preds = %1415
+  %1417 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %276, i1 noundef zeroext true, ptr noundef %277, i32 noundef 0, ptr noundef %278)
+          to label %1418 unwind label %1967
+
+1418:                                             ; preds = %1416
+  %1419 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 28
+  store ptr %1417, ptr %1419, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %278) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %277) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %276) #11
-  %1419 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 28
-  %1420 = load ptr, ptr %1419, align 8
-  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %1420, i32 noundef 4)
-          to label %1421 unwind label %347
+  %1420 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 28
+  %1421 = load ptr, ptr %1420, align 8
+  invoke void @_ZN7nanogui6Button9set_flagsEi(ptr noundef nonnull align 16 dereferenceable(328) %1421, i32 noundef 4)
+          to label %1422 unwind label %348
 
-1421:                                             ; preds = %1417
-  %1422 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 28
-  %1423 = load ptr, ptr %1422, align 8
-  %1424 = getelementptr inbounds %class.anon.156, ptr %280, i32 0, i32 0
-  store ptr %295, ptr %1424, align 8
+1422:                                             ; preds = %1418
+  %1423 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 28
+  %1424 = load ptr, ptr %1423, align 8
   %1425 = getelementptr inbounds %class.anon.156, ptr %280, i32 0, i32 0
-  %1426 = load ptr, ptr %1425, align 8
-  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_33vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %279, ptr %1426)
-          to label %1427 unwind label %347
+  store ptr %295, ptr %1425, align 8
+  %1426 = getelementptr inbounds %class.anon.156, ptr %280, i32 0, i32 0
+  %1427 = load ptr, ptr %1426, align 8
+  invoke void @"_ZNSt3__18functionIFvbEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_33vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %279, ptr %1427)
+          to label %1428 unwind label %348
 
-1427:                                             ; preds = %1421
-  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %1423, ptr noundef nonnull align 16 dereferenceable(48) %279)
-          to label %1428 unwind label %1971
+1428:                                             ; preds = %1422
+  invoke void @_ZN7nanogui6Button19set_change_callbackERKNSt3__18functionIFvbEEE(ptr noundef nonnull align 16 dereferenceable(328) %1424, ptr noundef nonnull align 16 dereferenceable(48) %279)
+          to label %1429 unwind label %1972
 
-1428:                                             ; preds = %1427
+1429:                                             ; preds = %1428
   call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %279) #11
-  %1429 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
+  %1430 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 30
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %282, ptr noundef @.str.4)
-          to label %1430 unwind label %347
+          to label %1431 unwind label %348
 
-1430:                                             ; preds = %1428
-  %1431 = getelementptr inbounds %class.anon.157, ptr %284, i32 0, i32 0
-  store ptr %295, ptr %1431, align 8
+1431:                                             ; preds = %1429
   %1432 = getelementptr inbounds %class.anon.157, ptr %284, i32 0, i32 0
-  %1433 = load ptr, ptr %1432, align 8
-  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_34vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %283, ptr %1433)
-          to label %1434 unwind label %1975
+  store ptr %295, ptr %1432, align 8
+  %1433 = getelementptr inbounds %class.anon.157, ptr %284, i32 0, i32 0
+  %1434 = load ptr, ptr %1433, align 8
+  invoke void @"_ZNSt3__18functionIFvvEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS4_22BackgroundImagesLoaderEEEbbbE4$_34vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %283, ptr %1434)
+          to label %1435 unwind label %1976
 
-1434:                                             ; preds = %1430
-  %1435 = getelementptr inbounds %"class.fmt::v9::basic_format_string.155", ptr %286, i32 0, i32 0
-  store %"class.fmt::v9::basic_string_view" { ptr @.str.48, i64 36 }, ptr %1435, align 8
-  %1436 = getelementptr inbounds { ptr, i64 }, ptr %286, i32 0, i32 0
-  %1437 = load ptr, ptr %1436, align 8
-  %1438 = getelementptr inbounds { ptr, i64 }, ptr %286, i32 0, i32 1
-  %1439 = load i64, ptr %1438, align 8
+1435:                                             ; preds = %1431
+  %1436 = getelementptr inbounds %"class.fmt::v9::basic_format_string.155", ptr %286, i32 0, i32 0
+  store %"class.fmt::v9::basic_string_view" { ptr @.str.48, i64 36 }, ptr %1436, align 8
+  %1437 = getelementptr inbounds { ptr, i64 }, ptr %286, i32 0, i32 0
+  %1438 = load ptr, ptr %1437, align 8
+  %1439 = getelementptr inbounds { ptr, i64 }, ptr %286, i32 0, i32 1
+  %1440 = load i64, ptr %1439, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   store ptr %285, ptr %61, align 8, !noalias !20
-  store ptr %1437, ptr %62, align 8, !noalias !20
-  %1440 = getelementptr inbounds { ptr, i64 }, ptr %62, i32 0, i32 1
-  store i64 %1439, ptr %1440, align 8, !noalias !20
+  store ptr %1438, ptr %62, align 8, !noalias !20
+  %1441 = getelementptr inbounds { ptr, i64 }, ptr %62, i32 0, i32 1
+  store i64 %1440, ptr %1441, align 8, !noalias !20
   store ptr @_ZN3tev10HelpWindow7COMMANDE, ptr %63, align 8, !noalias !20
   store ptr @_ZN3tev10HelpWindow7COMMANDE, ptr %64, align 8, !noalias !20
   store ptr %62, ptr %19, align 8
-  %1441 = load ptr, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %1441, i64 16, i1 false)
-  %1442 = load { ptr, i64 }, ptr %18, align 8
-  %1443 = extractvalue { ptr, i64 } %1442, 0
-  store ptr %1443, ptr %65, align 8, !noalias !20
-  %1444 = getelementptr inbounds { ptr, i64 }, ptr %65, i32 0, i32 1
-  %1445 = extractvalue { ptr, i64 } %1442, 1
-  store i64 %1445, ptr %1444, align 8, !noalias !20
-  %1446 = load ptr, ptr %63, align 8, !noalias !20
-  %1447 = load ptr, ptr %64, align 8, !noalias !20
-  invoke void @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEESC_EEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr dead_on_unwind writable sret(%"class.fmt::v9::format_arg_store.1471") align 16 %67, ptr noundef nonnull align 8 dereferenceable(24) %1446, ptr noundef nonnull align 8 dereferenceable(24) %1447)
-          to label %1448 unwind label %1979
+  %1442 = load ptr, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %1442, i64 16, i1 false)
+  %1443 = load { ptr, i64 }, ptr %18, align 8
+  %1444 = extractvalue { ptr, i64 } %1443, 0
+  store ptr %1444, ptr %65, align 8, !noalias !20
+  %1445 = getelementptr inbounds { ptr, i64 }, ptr %65, i32 0, i32 1
+  %1446 = extractvalue { ptr, i64 } %1443, 1
+  store i64 %1446, ptr %1445, align 8, !noalias !20
+  %1447 = load ptr, ptr %63, align 8, !noalias !20
+  %1448 = load ptr, ptr %64, align 8, !noalias !20
+  invoke void @_ZN3fmt2v916make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEESC_EEENS0_16format_arg_storeIT_JDpNS5_9remove_cvINS5_16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_(ptr dead_on_unwind writable sret(%"class.fmt::v9::format_arg_store.1471") align 16 %67, ptr noundef nonnull align 8 dereferenceable(24) %1447, ptr noundef nonnull align 8 dereferenceable(24) %1448)
+          to label %1449 unwind label %1980
 
-1448:                                             ; preds = %1434
+1449:                                             ; preds = %1435
   store ptr %66, ptr %11, align 8
   store ptr %67, ptr %12, align 8
-  %1449 = load ptr, ptr %11, align 8
-  %1450 = load ptr, ptr %12, align 8
-  store ptr %1450, ptr %7, align 8
-  %1451 = load ptr, ptr %7, align 8
-  store ptr %1449, ptr %8, align 8
+  %1450 = load ptr, ptr %11, align 8
+  %1451 = load ptr, ptr %12, align 8
+  store ptr %1451, ptr %7, align 8
+  %1452 = load ptr, ptr %7, align 8
+  store ptr %1450, ptr %8, align 8
   store i64 221, ptr %9, align 8
-  store ptr %1451, ptr %10, align 8
-  %1452 = load ptr, ptr %8, align 8
-  %1453 = load i64, ptr %9, align 8
-  store i64 %1453, ptr %1452, align 8
-  %1454 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1452, i32 0, i32 1
-  %1455 = load ptr, ptr %10, align 8
-  store ptr %1455, ptr %1454, align 8
-  br label %1456
+  store ptr %1452, ptr %10, align 8
+  %1453 = load ptr, ptr %8, align 8
+  %1454 = load i64, ptr %9, align 8
+  store i64 %1454, ptr %1453, align 8
+  %1455 = getelementptr inbounds %"class.fmt::v9::basic_format_args", ptr %1453, i32 0, i32 1
+  %1456 = load ptr, ptr %10, align 8
+  store ptr %1456, ptr %1455, align 8
+  br label %1457
 
-1456:                                             ; preds = %1448
-  %1457 = load ptr, ptr %65, align 8, !noalias !20
-  %1458 = getelementptr inbounds { ptr, i64 }, ptr %65, i32 0, i32 1
-  %1459 = load i64, ptr %1458, align 8, !noalias !20
-  %1460 = load i64, ptr %66, align 8, !noalias !20
-  %1461 = getelementptr inbounds { i64, ptr }, ptr %66, i32 0, i32 1
-  %1462 = load ptr, ptr %1461, align 8, !noalias !20
-  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %285, ptr %1457, i64 %1459, i64 %1460, ptr %1462)
-          to label %1463 unwind label %1979
+1457:                                             ; preds = %1449
+  %1458 = load ptr, ptr %65, align 8, !noalias !20
+  %1459 = getelementptr inbounds { ptr, i64 }, ptr %65, i32 0, i32 1
+  %1460 = load i64, ptr %1459, align 8, !noalias !20
+  %1461 = load i64, ptr %66, align 8, !noalias !20
+  %1462 = getelementptr inbounds { i64, ptr }, ptr %66, i32 0, i32 1
+  %1463 = load ptr, ptr %1462, align 8, !noalias !20
+  invoke void @_ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %285, ptr %1458, i64 %1460, i64 %1461, ptr %1463)
+          to label %1464 unwind label %1980
 
-1463:                                             ; preds = %1456
-  br label %1464
+1464:                                             ; preds = %1457
+  br label %1465
 
-1464:                                             ; preds = %1463
-  %1465 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %282, i1 noundef zeroext false, ptr noundef %283, i32 noundef 61453, ptr noundef %285)
-          to label %1466 unwind label %1983
+1465:                                             ; preds = %1464
+  %1466 = invoke noundef ptr @"_ZZN3tev11ImageViewerC1ERKNSt3__110shared_ptrINS_22BackgroundImagesLoaderEEEbbbENK4$_28clERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbNS1_8functionIFvvEEEiSD_"(ptr noundef nonnull align 8 dereferenceable(8) %252, ptr noundef nonnull align 8 dereferenceable(24) %282, i1 noundef zeroext false, ptr noundef %283, i32 noundef 61453, ptr noundef %285)
+          to label %1467 unwind label %1984
 
-1466:                                             ; preds = %1464
-  store ptr %1465, ptr %281, align 8
-  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1429, ptr noundef nonnull align 8 dereferenceable(8) %281)
-          to label %1467 unwind label %1983
+1467:                                             ; preds = %1465
+  store ptr %1466, ptr %281, align 8
+  invoke void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE9push_backB8ne190000EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %1430, ptr noundef nonnull align 8 dereferenceable(8) %281)
+          to label %1468 unwind label %1984
 
-1467:                                             ; preds = %1466
+1468:                                             ; preds = %1467
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #11
   call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %283) #11
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %282) #11
-  %1468 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1469 unwind label %347
+  %1469 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1470 unwind label %348
 
-1469:                                             ; preds = %1467
-  %1470 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1471 = load ptr, ptr %1470, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1468, ptr noundef %1471)
-          to label %1472 unwind label %1989
+1470:                                             ; preds = %1468
+  %1471 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1472 = load ptr, ptr %1471, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1469, ptr noundef %1472)
+          to label %1473 unwind label %1990
 
-1472:                                             ; preds = %1469
-  store ptr %1468, ptr %209, align 8
-  %1473 = load ptr, ptr %209, align 8
-  invoke void @_ZN7nanogui6Widget10set_heightEi(ptr noundef nonnull align 8 dereferenceable(132) %1473, i32 noundef 3)
-          to label %1474 unwind label %347
+1473:                                             ; preds = %1470
+  store ptr %1469, ptr %209, align 8
+  %1474 = load ptr, ptr %209, align 8
+  invoke void @_ZN7nanogui6Widget10set_heightEi(ptr noundef nonnull align 8 dereferenceable(132) %1474, i32 noundef 3)
+          to label %1475 unwind label %348
 
-1474:                                             ; preds = %1472
-  %1475 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #24
-          to label %1476 unwind label %347
+1475:                                             ; preds = %1473
+  %1476 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #24
+          to label %1477 unwind label %348
 
-1476:                                             ; preds = %1474
-  %1477 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1478 = load ptr, ptr %1477, align 8
-  invoke void @_ZN7nanogui12VScrollPanelC1EPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(141) %1475, ptr noundef %1478)
-          to label %1479 unwind label %1993
+1477:                                             ; preds = %1475
+  %1478 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1479 = load ptr, ptr %1478, align 8
+  invoke void @_ZN7nanogui12VScrollPanelC1EPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(141) %1476, ptr noundef %1479)
+          to label %1480 unwind label %1994
 
-1479:                                             ; preds = %1476
-  %1480 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 37
-  store ptr %1475, ptr %1480, align 16
+1480:                                             ; preds = %1477
   %1481 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 37
-  %1482 = load ptr, ptr %1481, align 16
-  %1483 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
-  %1484 = load ptr, ptr %1483, align 8
-  %1485 = invoke noundef i32 @_ZNK7nanogui6Widget11fixed_widthEv(ptr noundef nonnull align 8 dereferenceable(132) %1484)
-          to label %1486 unwind label %347
+  store ptr %1476, ptr %1481, align 16
+  %1482 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 37
+  %1483 = load ptr, ptr %1482, align 16
+  %1484 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 8
+  %1485 = load ptr, ptr %1484, align 8
+  %1486 = invoke noundef i32 @_ZNK7nanogui6Widget11fixed_widthEv(ptr noundef nonnull align 8 dereferenceable(132) %1485)
+          to label %1487 unwind label %348
 
-1486:                                             ; preds = %1479
-  invoke void @_ZN7nanogui6Widget15set_fixed_widthEi(ptr noundef nonnull align 8 dereferenceable(132) %1482, i32 noundef %1485)
-          to label %1487 unwind label %347
+1487:                                             ; preds = %1480
+  invoke void @_ZN7nanogui6Widget15set_fixed_widthEi(ptr noundef nonnull align 8 dereferenceable(132) %1483, i32 noundef %1486)
+          to label %1488 unwind label %348
 
-1487:                                             ; preds = %1486
-  %1488 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1489 unwind label %347
+1488:                                             ; preds = %1487
+  %1489 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1490 unwind label %348
 
-1489:                                             ; preds = %1487
-  %1490 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 37
-  %1491 = load ptr, ptr %1490, align 16
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1488, ptr noundef %1491)
-          to label %1492 unwind label %1997
+1490:                                             ; preds = %1488
+  %1491 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 37
+  %1492 = load ptr, ptr %1491, align 16
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1489, ptr noundef %1492)
+          to label %1493 unwind label %1998
 
-1492:                                             ; preds = %1489
-  %1493 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 36
-  store ptr %1488, ptr %1493, align 8
+1493:                                             ; preds = %1490
   %1494 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 36
-  %1495 = load ptr, ptr %1494, align 8
-  %1496 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %1497 unwind label %347
+  store ptr %1489, ptr %1494, align 8
+  %1495 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 36
+  %1496 = load ptr, ptr %1495, align 8
+  %1497 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %1498 unwind label %348
 
-1497:                                             ; preds = %1492
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1496, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
-          to label %1498 unwind label %2001
-
-1498:                                             ; preds = %1497
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1495, ptr noundef %1496)
-          to label %1499 unwind label %347
+1498:                                             ; preds = %1493
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1497, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
+          to label %1499 unwind label %2002
 
 1499:                                             ; preds = %1498
-  %1500 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1501 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1496, ptr noundef %1497)
+          to label %1500 unwind label %348
 
-1501:                                             ; preds = %1499
-  %1502 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 36
-  %1503 = load ptr, ptr %1502, align 8
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1500, ptr noundef %1503)
-          to label %1504 unwind label %2005
+1500:                                             ; preds = %1499
+  %1501 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1502 unwind label %348
 
-1504:                                             ; preds = %1501
-  %1505 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 35
-  store ptr %1500, ptr %1505, align 16
+1502:                                             ; preds = %1500
+  %1503 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 36
+  %1504 = load ptr, ptr %1503, align 8
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1501, ptr noundef %1504)
+          to label %1505 unwind label %2006
+
+1505:                                             ; preds = %1502
   %1506 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 35
-  %1507 = load ptr, ptr %1506, align 16
-  %1508 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %1509 unwind label %347
+  store ptr %1501, ptr %1506, align 16
+  %1507 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 35
+  %1508 = load ptr, ptr %1507, align 16
+  %1509 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %1510 unwind label %348
 
-1509:                                             ; preds = %1504
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1508, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
-          to label %1510 unwind label %2009
-
-1510:                                             ; preds = %1509
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1507, ptr noundef %1508)
-          to label %1511 unwind label %347
+1510:                                             ; preds = %1505
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1509, i32 noundef 1, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
+          to label %1511 unwind label %2010
 
 1511:                                             ; preds = %1510
-  %1512 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1513 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1508, ptr noundef %1509)
+          to label %1512 unwind label %348
 
-1513:                                             ; preds = %1511
-  %1514 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 5
-  %1515 = load ptr, ptr %1514, align 16
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1512, ptr noundef %1515)
-          to label %1516 unwind label %2013
+1512:                                             ; preds = %1511
+  %1513 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1514 unwind label %348
 
-1516:                                             ; preds = %1513
-  %1517 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 9
-  store ptr %1512, ptr %1517, align 16
-  %1518 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
-          to label %1519 unwind label %347
+1514:                                             ; preds = %1512
+  %1515 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 5
+  %1516 = load ptr, ptr %1515, align 16
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1513, ptr noundef %1516)
+          to label %1517 unwind label %2014
 
-1519:                                             ; preds = %1516
-  %1520 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 9
-  %1521 = load ptr, ptr %1520, align 16
-  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1518, ptr noundef %1521)
-          to label %1522 unwind label %2017
+1517:                                             ; preds = %1514
+  %1518 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 9
+  store ptr %1513, ptr %1518, align 16
+  %1519 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #24
+          to label %1520 unwind label %348
 
-1522:                                             ; preds = %1519
-  %1523 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 39
-  store ptr %1518, ptr %1523, align 16
+1520:                                             ; preds = %1517
+  %1521 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 9
+  %1522 = load ptr, ptr %1521, align 16
+  invoke void @_ZN7nanogui6WidgetC1EPS0_(ptr noundef nonnull align 8 dereferenceable(132) %1519, ptr noundef %1522)
+          to label %1523 unwind label %2018
+
+1523:                                             ; preds = %1520
   %1524 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 39
-  %1525 = load ptr, ptr %1524, align 16
-  %1526 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
-          to label %1527 unwind label %347
+  store ptr %1519, ptr %1524, align 16
+  %1525 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 39
+  %1526 = load ptr, ptr %1525, align 16
+  %1527 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
+          to label %1528 unwind label %348
 
-1527:                                             ; preds = %1522
-  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1526, i32 noundef 0, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
-          to label %1528 unwind label %2021
-
-1528:                                             ; preds = %1527
-  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1525, ptr noundef %1526)
-          to label %1529 unwind label %347
+1528:                                             ; preds = %1523
+  invoke void @_ZN7nanogui9BoxLayoutC1ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull align 8 dereferenceable(28) %1527, i32 noundef 0, i8 noundef zeroext 3, i32 noundef 0, i32 noundef 0)
+          to label %1529 unwind label %2022
 
 1529:                                             ; preds = %1528
-  %1530 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 39
-  %1531 = load ptr, ptr %1530, align 16
-  invoke void @_ZN7nanogui6Widget16set_fixed_heightEi(ptr noundef nonnull align 8 dereferenceable(132) %1531, i32 noundef 25)
-          to label %1532 unwind label %347
+  invoke void @_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE(ptr noundef nonnull align 8 dereferenceable(132) %1526, ptr noundef %1527)
+          to label %1530 unwind label %348
 
-1532:                                             ; preds = %1529
-  %1533 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 9
-  %1534 = load ptr, ptr %1533, align 16
-  invoke void @_ZN7nanogui6Widget16set_fixed_heightEi(ptr noundef nonnull align 8 dereferenceable(132) %1534, i32 noundef 25)
-          to label %1535 unwind label %347
+1530:                                             ; preds = %1529
+  %1531 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 39
+  %1532 = load ptr, ptr %1531, align 16
+  invoke void @_ZN7nanogui6Widget16set_fixed_heightEi(ptr noundef nonnull align 8 dereferenceable(132) %1532, i32 noundef 25)
+          to label %1533 unwind label %348
 
-1535:                                             ; preds = %1532
-  %1536 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 9
-  %1537 = load ptr, ptr %1536, align 16
-  invoke void @_ZN7nanogui6Widget11set_visibleEb(ptr noundef nonnull align 8 dereferenceable(132) %1537, i1 noundef zeroext false)
-          to label %1538 unwind label %347
+1533:                                             ; preds = %1530
+  %1534 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 9
+  %1535 = load ptr, ptr %1534, align 16
+  invoke void @_ZN7nanogui6Widget16set_fixed_heightEi(ptr noundef nonnull align 8 dereferenceable(132) %1535, i32 noundef 25)
+          to label %1536 unwind label %348
 
-1538:                                             ; preds = %1535
-  %1539 = getelementptr inbounds %class.anon.158, ptr %288, i32 0, i32 0
-  store ptr %295, ptr %1539, align 8
+1536:                                             ; preds = %1533
+  %1537 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 9
+  %1538 = load ptr, ptr %1537, align 16
+  invoke void @_ZN7nanogui6Widget11set_visibleEb(ptr noundef nonnull align 8 dereferenceable(132) %1538, i1 noundef zeroext false)
+          to label %1539 unwind label %348
+
+1539:                                             ; preds = %1536
   %1540 = getelementptr inbounds %class.anon.158, ptr %288, i32 0, i32 0
-  %1541 = load ptr, ptr %1540, align 8
-  invoke void @"_ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS7_22BackgroundImagesLoaderEEEbbbE4$_35vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %287, ptr %1541)
-          to label %1542 unwind label %347
+  store ptr %295, ptr %1540, align 8
+  %1541 = getelementptr inbounds %class.anon.158, ptr %288, i32 0, i32 0
+  %1542 = load ptr, ptr %1541, align 8
+  invoke void @"_ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEEC2IZN3tev11ImageViewerC1ERKNS_10shared_ptrINS7_22BackgroundImagesLoaderEEEbbbE4$_35vEET_"(ptr noundef nonnull align 16 dereferenceable(48) %287, ptr %1542)
+          to label %1543 unwind label %348
 
-1542:                                             ; preds = %1538
+1543:                                             ; preds = %1539
   invoke void @_ZN7nanogui6Screen19set_resize_callbackERKNSt3__18functionIFvNS_5ArrayIiLm2EEEEEE(ptr noundef nonnull align 16 dereferenceable(384) %295, ptr noundef nonnull align 16 dereferenceable(48) %287)
-          to label %1543 unwind label %2025
+          to label %1544 unwind label %2026
 
-1543:                                             ; preds = %1542
+1544:                                             ; preds = %1543
   call void @_ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %287) #11
   call void @_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000EDn(ptr noundef nonnull align 8 dereferenceable(16) %289, ptr null) #11
   invoke void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrINS_5ImageEEEb(ptr noundef nonnull align 16 dereferenceable(972) %295, ptr noundef nonnull align 8 dereferenceable(16) %289, i1 noundef zeroext true)
-          to label %1544 unwind label %2029
+          to label %1545 unwind label %2030
 
-1544:                                             ; preds = %1543
+1545:                                             ; preds = %1544
   call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %289) #11
   call void @_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000EDn(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr null) #11
   invoke void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_ptrINS_5ImageEEE(ptr noundef nonnull align 16 dereferenceable(972) %295, ptr noundef nonnull align 8 dereferenceable(16) %290)
-          to label %1545 unwind label %2033
+          to label %1546 unwind label %2034
 
-1545:                                             ; preds = %1544
+1546:                                             ; preds = %1545
   call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %290) #11
-  %1546 = load i8, ptr %94, align 1
-  %1547 = trunc i8 %1546 to i1
-  br i1 %1547, label %2037, label %1548
+  %1547 = load i8, ptr %94, align 1
+  %1548 = trunc i8 %1547 to i1
+  br i1 %1548, label %2038, label %1549
 
-1548:                                             ; preds = %1545
+1549:                                             ; preds = %1546
   invoke void @_ZN7nanogui5ArrayIiLm2EEC2ILm2ETnNSt3__19enable_ifIXeqT_Li2EEiE4typeELi0EEEii(ptr noundef nonnull align 4 dereferenceable(8) %291, i32 noundef 1024, i32 noundef 800)
-          to label %1549 unwind label %347
-
-1549:                                             ; preds = %1548
-  invoke void @_ZN7nanogui6Screen8set_sizeERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 16 dereferenceable(384) %295, ptr noundef nonnull align 4 dereferenceable(8) %291)
-          to label %1550 unwind label %347
+          to label %1550 unwind label %348
 
 1550:                                             ; preds = %1549
-  %1551 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 50
-  store i32 3, ptr %1551, align 8
-  br label %2037
+  invoke void @_ZN7nanogui6Screen8set_sizeERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 16 dereferenceable(384) %295, ptr noundef nonnull align 4 dereferenceable(8) %291)
+          to label %1551 unwind label %348
 
-1552:                                             ; preds = %857
-  %1553 = landingpad { ptr, i32 }
-          cleanup
-  %1554 = extractvalue { ptr, i32 } %1553, 0
-  store ptr %1554, ptr %99, align 8
-  %1555 = extractvalue { ptr, i32 } %1553, 1
-  store i32 %1555, ptr %100, align 4
-  br label %1560
+1551:                                             ; preds = %1550
+  %1552 = getelementptr inbounds %"class.tev::ImageViewer", ptr %295, i32 0, i32 50
+  store i32 3, ptr %1552, align 8
+  br label %2038
 
-1556:                                             ; preds = %859
-  %1557 = landingpad { ptr, i32 }
+1553:                                             ; preds = %858
+  %1554 = landingpad { ptr, i32 }
           cleanup
-  %1558 = extractvalue { ptr, i32 } %1557, 0
-  store ptr %1558, ptr %99, align 8
-  %1559 = extractvalue { ptr, i32 } %1557, 1
-  store i32 %1559, ptr %100, align 4
+  %1555 = extractvalue { ptr, i32 } %1554, 0
+  store ptr %1555, ptr %99, align 8
+  %1556 = extractvalue { ptr, i32 } %1554, 1
+  store i32 %1556, ptr %100, align 4
+  br label %1561
+
+1557:                                             ; preds = %860
+  %1558 = landingpad { ptr, i32 }
+          cleanup
+  %1559 = extractvalue { ptr, i32 } %1558, 0
+  store ptr %1559, ptr %99, align 8
+  %1560 = extractvalue { ptr, i32 } %1558, 1
+  store i32 %1560, ptr %100, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %158) #11
-  br label %1560
+  br label %1561
 
-1560:                                             ; preds = %1556, %1552
-  %1561 = load i1, ptr %159, align 1
-  br i1 %1561, label %1562, label %1563
+1561:                                             ; preds = %1557, %1553
+  %1562 = load i1, ptr %159, align 1
+  br i1 %1562, label %1563, label %1564
 
-1562:                                             ; preds = %1560
-  call void @_ZdlPv(ptr noundef %856) #23
-  br label %1563
+1563:                                             ; preds = %1561
+  call void @_ZdlPv(ptr noundef %857) #23
+  br label %1564
 
-1563:                                             ; preds = %1562, %1560
-  br label %2039
-
-1564:                                             ; preds = %866
-  %1565 = landingpad { ptr, i32 }
-          cleanup
-  %1566 = extractvalue { ptr, i32 } %1565, 0
-  store ptr %1566, ptr %99, align 8
-  %1567 = extractvalue { ptr, i32 } %1565, 1
-  store i32 %1567, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #11
-  br label %2039
-
-1568:                                             ; preds = %873
-  %1569 = landingpad { ptr, i32 }
-          cleanup
-  %1570 = extractvalue { ptr, i32 } %1569, 0
-  store ptr %1570, ptr %99, align 8
-  %1571 = extractvalue { ptr, i32 } %1569, 1
-  store i32 %1571, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %872) #23
-  br label %2039
-
-1572:                                             ; preds = %877
-  %1573 = landingpad { ptr, i32 }
-          cleanup
-  %1574 = extractvalue { ptr, i32 } %1573, 0
-  store ptr %1574, ptr %99, align 8
-  %1575 = extractvalue { ptr, i32 } %1573, 1
-  store i32 %1575, ptr %100, align 4
-  br label %1585
-
-1576:                                             ; preds = %879
-  %1577 = landingpad { ptr, i32 }
-          cleanup
-  %1578 = extractvalue { ptr, i32 } %1577, 0
-  store ptr %1578, ptr %99, align 8
-  %1579 = extractvalue { ptr, i32 } %1577, 1
-  store i32 %1579, ptr %100, align 4
-  br label %1584
-
-1580:                                             ; preds = %880
-  %1581 = landingpad { ptr, i32 }
-          cleanup
-  %1582 = extractvalue { ptr, i32 } %1581, 0
-  store ptr %1582, ptr %99, align 8
-  %1583 = extractvalue { ptr, i32 } %1581, 1
-  store i32 %1583, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %163) #11
-  br label %1584
-
-1584:                                             ; preds = %1580, %1576
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %162) #11
-  br label %1585
-
-1585:                                             ; preds = %1584, %1572
-  %1586 = load i1, ptr %164, align 1
-  br i1 %1586, label %1587, label %1588
-
-1587:                                             ; preds = %1585
-  call void @_ZdlPv(ptr noundef %876) #23
-  br label %1588
-
-1588:                                             ; preds = %1587, %1585
-  br label %2039
-
-1589:                                             ; preds = %888, %883
-  %1590 = landingpad { ptr, i32 }
-          cleanup
-  %1591 = extractvalue { ptr, i32 } %1590, 0
-  store ptr %1591, ptr %99, align 8
-  %1592 = extractvalue { ptr, i32 } %1590, 1
-  store i32 %1592, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %882) #23
-  br label %2039
-
-1593:                                             ; preds = %902
-  %1594 = landingpad { ptr, i32 }
-          cleanup
-  %1595 = extractvalue { ptr, i32 } %1594, 0
-  store ptr %1595, ptr %99, align 8
-  %1596 = extractvalue { ptr, i32 } %1594, 1
-  store i32 %1596, ptr %100, align 4
-  br label %1606
-
-1597:                                             ; preds = %904
-  %1598 = landingpad { ptr, i32 }
-          cleanup
-  %1599 = extractvalue { ptr, i32 } %1598, 0
-  store ptr %1599, ptr %99, align 8
-  %1600 = extractvalue { ptr, i32 } %1598, 1
-  store i32 %1600, ptr %100, align 4
-  br label %1605
-
-1601:                                             ; preds = %905
-  %1602 = landingpad { ptr, i32 }
-          cleanup
-  %1603 = extractvalue { ptr, i32 } %1602, 0
-  store ptr %1603, ptr %99, align 8
-  %1604 = extractvalue { ptr, i32 } %1602, 1
-  store i32 %1604, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #11
-  br label %1605
-
-1605:                                             ; preds = %1601, %1597
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %167) #11
-  br label %1606
-
-1606:                                             ; preds = %1605, %1593
-  %1607 = load i1, ptr %169, align 1
-  br i1 %1607, label %1608, label %1609
-
-1608:                                             ; preds = %1606
-  call void @_ZdlPv(ptr noundef %901) #23
-  br label %1609
-
-1609:                                             ; preds = %1608, %1606
-  br label %2039
-
-1610:                                             ; preds = %908
-  %1611 = landingpad { ptr, i32 }
-          cleanup
-  %1612 = extractvalue { ptr, i32 } %1611, 0
-  store ptr %1612, ptr %99, align 8
-  %1613 = extractvalue { ptr, i32 } %1611, 1
-  store i32 %1613, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %907) #23
-  br label %2039
-
-1614:                                             ; preds = %918
-  %1615 = landingpad { ptr, i32 }
-          cleanup
-  %1616 = extractvalue { ptr, i32 } %1615, 0
-  store ptr %1616, ptr %99, align 8
-  %1617 = extractvalue { ptr, i32 } %1615, 1
-  store i32 %1617, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %174) #11
-  br label %2039
-
-1618:                                             ; preds = %930
-  %1619 = landingpad { ptr, i32 }
-          cleanup
-  %1620 = extractvalue { ptr, i32 } %1619, 0
-  store ptr %1620, ptr %99, align 8
-  %1621 = extractvalue { ptr, i32 } %1619, 1
-  store i32 %1621, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %176) #11
-  br label %2039
-
-1622:                                             ; preds = %933
-  %1623 = landingpad { ptr, i32 }
-          cleanup
-  %1624 = extractvalue { ptr, i32 } %1623, 0
-  store ptr %1624, ptr %99, align 8
-  %1625 = extractvalue { ptr, i32 } %1623, 1
-  store i32 %1625, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %932) #23
-  br label %2039
-
-1626:                                             ; preds = %941
-  %1627 = landingpad { ptr, i32 }
-          cleanup
-  %1628 = extractvalue { ptr, i32 } %1627, 0
-  store ptr %1628, ptr %99, align 8
-  %1629 = extractvalue { ptr, i32 } %1627, 1
-  store i32 %1629, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %940) #23
-  br label %2039
-
-1630:                                             ; preds = %945
-  %1631 = landingpad { ptr, i32 }
-          cleanup
-  %1632 = extractvalue { ptr, i32 } %1631, 0
-  store ptr %1632, ptr %99, align 8
-  %1633 = extractvalue { ptr, i32 } %1631, 1
-  store i32 %1633, ptr %100, align 4
-  br label %1638
-
-1634:                                             ; preds = %949
-  %1635 = landingpad { ptr, i32 }
-          cleanup
-  %1636 = extractvalue { ptr, i32 } %1635, 0
-  store ptr %1636, ptr %99, align 8
-  %1637 = extractvalue { ptr, i32 } %1635, 1
-  store i32 %1637, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %180) #11
-  br label %1638
-
-1638:                                             ; preds = %1634, %1630
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #11
-  br label %2039
-
-1639:                                             ; preds = %952
-  %1640 = landingpad { ptr, i32 }
-          cleanup
-  %1641 = extractvalue { ptr, i32 } %1640, 0
-  store ptr %1641, ptr %99, align 8
-  %1642 = extractvalue { ptr, i32 } %1640, 1
-  store i32 %1642, ptr %100, align 4
-  br label %1647
-
-1643:                                             ; preds = %956
-  %1644 = landingpad { ptr, i32 }
-          cleanup
-  %1645 = extractvalue { ptr, i32 } %1644, 0
-  store ptr %1645, ptr %99, align 8
-  %1646 = extractvalue { ptr, i32 } %1644, 1
-  store i32 %1646, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %183) #11
-  br label %1647
-
-1647:                                             ; preds = %1643, %1639
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %182) #11
-  br label %2039
-
-1648:                                             ; preds = %959
-  %1649 = landingpad { ptr, i32 }
-          cleanup
-  %1650 = extractvalue { ptr, i32 } %1649, 0
-  store ptr %1650, ptr %99, align 8
-  %1651 = extractvalue { ptr, i32 } %1649, 1
-  store i32 %1651, ptr %100, align 4
-  br label %1656
-
-1652:                                             ; preds = %963
-  %1653 = landingpad { ptr, i32 }
-          cleanup
-  %1654 = extractvalue { ptr, i32 } %1653, 0
-  store ptr %1654, ptr %99, align 8
-  %1655 = extractvalue { ptr, i32 } %1653, 1
-  store i32 %1655, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %186) #11
-  br label %1656
-
-1656:                                             ; preds = %1652, %1648
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #11
-  br label %2039
-
-1657:                                             ; preds = %966
-  %1658 = landingpad { ptr, i32 }
-          cleanup
-  %1659 = extractvalue { ptr, i32 } %1658, 0
-  store ptr %1659, ptr %99, align 8
-  %1660 = extractvalue { ptr, i32 } %1658, 1
-  store i32 %1660, ptr %100, align 4
-  br label %1665
-
-1661:                                             ; preds = %970
-  %1662 = landingpad { ptr, i32 }
-          cleanup
-  %1663 = extractvalue { ptr, i32 } %1662, 0
-  store ptr %1663, ptr %99, align 8
-  %1664 = extractvalue { ptr, i32 } %1662, 1
-  store i32 %1664, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %189) #11
-  br label %1665
-
-1665:                                             ; preds = %1661, %1657
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %188) #11
-  br label %2039
-
-1666:                                             ; preds = %976
-  %1667 = landingpad { ptr, i32 }
-          cleanup
-  %1668 = extractvalue { ptr, i32 } %1667, 0
-  store ptr %1668, ptr %99, align 8
-  %1669 = extractvalue { ptr, i32 } %1667, 1
-  store i32 %1669, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %191) #11
-  br label %2039
-
-1670:                                             ; preds = %979
-  %1671 = landingpad { ptr, i32 }
-          cleanup
-  %1672 = extractvalue { ptr, i32 } %1671, 0
-  store ptr %1672, ptr %99, align 8
-  %1673 = extractvalue { ptr, i32 } %1671, 1
-  store i32 %1673, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %978) #23
-  br label %2039
-
-1674:                                             ; preds = %987
-  %1675 = landingpad { ptr, i32 }
-          cleanup
-  %1676 = extractvalue { ptr, i32 } %1675, 0
-  store ptr %1676, ptr %99, align 8
-  %1677 = extractvalue { ptr, i32 } %1675, 1
-  store i32 %1677, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %986) #23
-  br label %2039
-
-1678:                                             ; preds = %991
-  %1679 = landingpad { ptr, i32 }
-          cleanup
-  %1680 = extractvalue { ptr, i32 } %1679, 0
-  store ptr %1680, ptr %99, align 8
-  %1681 = extractvalue { ptr, i32 } %1679, 1
-  store i32 %1681, ptr %100, align 4
-  br label %1686
-
-1682:                                             ; preds = %995
-  %1683 = landingpad { ptr, i32 }
-          cleanup
-  %1684 = extractvalue { ptr, i32 } %1683, 0
-  store ptr %1684, ptr %99, align 8
-  %1685 = extractvalue { ptr, i32 } %1683, 1
-  store i32 %1685, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %194) #11
-  br label %1686
-
-1686:                                             ; preds = %1682, %1678
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %193) #11
-  br label %2039
-
-1687:                                             ; preds = %998
-  %1688 = landingpad { ptr, i32 }
-          cleanup
-  %1689 = extractvalue { ptr, i32 } %1688, 0
-  store ptr %1689, ptr %99, align 8
-  %1690 = extractvalue { ptr, i32 } %1688, 1
-  store i32 %1690, ptr %100, align 4
-  br label %1695
-
-1691:                                             ; preds = %1002
-  %1692 = landingpad { ptr, i32 }
-          cleanup
-  %1693 = extractvalue { ptr, i32 } %1692, 0
-  store ptr %1693, ptr %99, align 8
-  %1694 = extractvalue { ptr, i32 } %1692, 1
-  store i32 %1694, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %197) #11
-  br label %1695
-
-1695:                                             ; preds = %1691, %1687
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %196) #11
-  br label %2039
-
-1696:                                             ; preds = %1005
-  %1697 = landingpad { ptr, i32 }
-          cleanup
-  %1698 = extractvalue { ptr, i32 } %1697, 0
-  store ptr %1698, ptr %99, align 8
-  %1699 = extractvalue { ptr, i32 } %1697, 1
-  store i32 %1699, ptr %100, align 4
-  br label %1704
-
-1700:                                             ; preds = %1009
-  %1701 = landingpad { ptr, i32 }
-          cleanup
-  %1702 = extractvalue { ptr, i32 } %1701, 0
-  store ptr %1702, ptr %99, align 8
-  %1703 = extractvalue { ptr, i32 } %1701, 1
-  store i32 %1703, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %200) #11
-  br label %1704
-
-1704:                                             ; preds = %1700, %1696
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %199) #11
-  br label %2039
-
-1705:                                             ; preds = %1012
-  %1706 = landingpad { ptr, i32 }
-          cleanup
-  %1707 = extractvalue { ptr, i32 } %1706, 0
-  store ptr %1707, ptr %99, align 8
-  %1708 = extractvalue { ptr, i32 } %1706, 1
-  store i32 %1708, ptr %100, align 4
-  br label %1713
-
-1709:                                             ; preds = %1016
-  %1710 = landingpad { ptr, i32 }
-          cleanup
-  %1711 = extractvalue { ptr, i32 } %1710, 0
-  store ptr %1711, ptr %99, align 8
-  %1712 = extractvalue { ptr, i32 } %1710, 1
-  store i32 %1712, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %203) #11
-  br label %1713
-
-1713:                                             ; preds = %1709, %1705
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %202) #11
-  br label %2039
-
-1714:                                             ; preds = %1019
-  %1715 = landingpad { ptr, i32 }
-          cleanup
-  %1716 = extractvalue { ptr, i32 } %1715, 0
-  store ptr %1716, ptr %99, align 8
-  %1717 = extractvalue { ptr, i32 } %1715, 1
-  store i32 %1717, ptr %100, align 4
-  br label %1722
-
-1718:                                             ; preds = %1023
-  %1719 = landingpad { ptr, i32 }
-          cleanup
-  %1720 = extractvalue { ptr, i32 } %1719, 0
-  store ptr %1720, ptr %99, align 8
-  %1721 = extractvalue { ptr, i32 } %1719, 1
-  store i32 %1721, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %206) #11
-  br label %1722
-
-1722:                                             ; preds = %1718, %1714
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #11
-  br label %2039
-
-1723:                                             ; preds = %1029
-  %1724 = landingpad { ptr, i32 }
-          cleanup
-  %1725 = extractvalue { ptr, i32 } %1724, 0
-  store ptr %1725, ptr %99, align 8
-  %1726 = extractvalue { ptr, i32 } %1724, 1
-  store i32 %1726, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %208) #11
-  br label %2039
-
-1727:                                             ; preds = %1032
-  %1728 = landingpad { ptr, i32 }
-          cleanup
-  %1729 = extractvalue { ptr, i32 } %1728, 0
-  store ptr %1729, ptr %99, align 8
-  %1730 = extractvalue { ptr, i32 } %1728, 1
-  store i32 %1730, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1031) #23
-  br label %2039
-
-1731:                                             ; preds = %1039
-  %1732 = landingpad { ptr, i32 }
-          cleanup
-  %1733 = extractvalue { ptr, i32 } %1732, 0
-  store ptr %1733, ptr %99, align 8
-  %1734 = extractvalue { ptr, i32 } %1732, 1
-  store i32 %1734, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1038) #23
-  br label %2039
-
-1735:                                             ; preds = %1045
-  %1736 = landingpad { ptr, i32 }
-          cleanup
-  %1737 = extractvalue { ptr, i32 } %1736, 0
-  store ptr %1737, ptr %99, align 8
-  %1738 = extractvalue { ptr, i32 } %1736, 1
-  store i32 %1738, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1044) #23
-  br label %2039
-
-1739:                                             ; preds = %1049
-  %1740 = landingpad { ptr, i32 }
-          cleanup
-  %1741 = extractvalue { ptr, i32 } %1740, 0
-  store ptr %1741, ptr %99, align 8
-  %1742 = extractvalue { ptr, i32 } %1740, 1
-  store i32 %1742, ptr %100, align 4
-  br label %1752
-
-1743:                                             ; preds = %1051
-  %1744 = landingpad { ptr, i32 }
-          cleanup
-  %1745 = extractvalue { ptr, i32 } %1744, 0
-  store ptr %1745, ptr %99, align 8
-  %1746 = extractvalue { ptr, i32 } %1744, 1
-  store i32 %1746, ptr %100, align 4
-  br label %1751
-
-1747:                                             ; preds = %1052
-  %1748 = landingpad { ptr, i32 }
-          cleanup
-  %1749 = extractvalue { ptr, i32 } %1748, 0
-  store ptr %1749, ptr %99, align 8
-  %1750 = extractvalue { ptr, i32 } %1748, 1
-  store i32 %1750, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %213) #11
-  br label %1751
-
-1751:                                             ; preds = %1747, %1743
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %212) #11
-  br label %1752
-
-1752:                                             ; preds = %1751, %1739
-  %1753 = load i1, ptr %214, align 1
-  br i1 %1753, label %1754, label %1755
-
-1754:                                             ; preds = %1752
-  call void @_ZdlPv(ptr noundef %1048) #23
-  br label %1755
-
-1755:                                             ; preds = %1754, %1752
-  br label %2039
-
-1756:                                             ; preds = %1055
-  %1757 = landingpad { ptr, i32 }
-          cleanup
-  %1758 = extractvalue { ptr, i32 } %1757, 0
-  store ptr %1758, ptr %99, align 8
-  %1759 = extractvalue { ptr, i32 } %1757, 1
-  store i32 %1759, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #11
-  br label %2039
-
-1760:                                             ; preds = %1058
-  %1761 = landingpad { ptr, i32 }
-          cleanup
-  %1762 = extractvalue { ptr, i32 } %1761, 0
-  store ptr %1762, ptr %99, align 8
-  %1763 = extractvalue { ptr, i32 } %1761, 1
-  store i32 %1763, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1057) #23
-  br label %2039
-
-1764:                                             ; preds = %1064
-  %1765 = landingpad { ptr, i32 }
-          cleanup
-  %1766 = extractvalue { ptr, i32 } %1765, 0
-  store ptr %1766, ptr %99, align 8
-  %1767 = extractvalue { ptr, i32 } %1765, 1
-  store i32 %1767, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1063) #23
-  br label %2039
-
-1768:                                             ; preds = %1068
-  %1769 = landingpad { ptr, i32 }
-          cleanup
-  %1770 = extractvalue { ptr, i32 } %1769, 0
-  store ptr %1770, ptr %99, align 8
-  %1771 = extractvalue { ptr, i32 } %1769, 1
-  store i32 %1771, ptr %100, align 4
-  br label %1776
-
-1772:                                             ; preds = %1070
-  %1773 = landingpad { ptr, i32 }
-          cleanup
-  %1774 = extractvalue { ptr, i32 } %1773, 0
-  store ptr %1774, ptr %99, align 8
-  %1775 = extractvalue { ptr, i32 } %1773, 1
-  store i32 %1775, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %217) #11
-  br label %1776
-
-1776:                                             ; preds = %1772, %1768
-  %1777 = load i1, ptr %218, align 1
-  br i1 %1777, label %1778, label %1779
-
-1778:                                             ; preds = %1776
-  call void @_ZdlPv(ptr noundef %1067) #23
-  br label %1779
-
-1779:                                             ; preds = %1778, %1776
-  br label %2039
-
-1780:                                             ; preds = %1074
-  %1781 = landingpad { ptr, i32 }
-          cleanup
-  %1782 = extractvalue { ptr, i32 } %1781, 0
-  store ptr %1782, ptr %99, align 8
-  %1783 = extractvalue { ptr, i32 } %1781, 1
-  store i32 %1783, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1073) #23
-  br label %2039
-
-1784:                                             ; preds = %1080
-  %1785 = landingpad { ptr, i32 }
-          cleanup
-  %1786 = extractvalue { ptr, i32 } %1785, 0
-  store ptr %1786, ptr %99, align 8
-  %1787 = extractvalue { ptr, i32 } %1785, 1
-  store i32 %1787, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1079) #23
-  br label %2039
-
-1788:                                             ; preds = %1084
-  %1789 = landingpad { ptr, i32 }
-          cleanup
-  %1790 = extractvalue { ptr, i32 } %1789, 0
-  store ptr %1790, ptr %99, align 8
-  %1791 = extractvalue { ptr, i32 } %1789, 1
-  store i32 %1791, ptr %100, align 4
-  br label %1796
-
-1792:                                             ; preds = %1086
-  %1793 = landingpad { ptr, i32 }
-          cleanup
-  %1794 = extractvalue { ptr, i32 } %1793, 0
-  store ptr %1794, ptr %99, align 8
-  %1795 = extractvalue { ptr, i32 } %1793, 1
-  store i32 %1795, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %220) #11
-  br label %1796
-
-1796:                                             ; preds = %1792, %1788
-  %1797 = load i1, ptr %221, align 1
-  br i1 %1797, label %1798, label %1799
-
-1798:                                             ; preds = %1796
-  call void @_ZdlPv(ptr noundef %1083) #23
-  br label %1799
-
-1799:                                             ; preds = %1798, %1796
-  br label %2039
-
-1800:                                             ; preds = %1100
-  %1801 = landingpad { ptr, i32 }
-          cleanup
-  %1802 = extractvalue { ptr, i32 } %1801, 0
-  store ptr %1802, ptr %99, align 8
-  %1803 = extractvalue { ptr, i32 } %1801, 1
-  store i32 %1803, ptr %100, align 4
-  call void @_ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %222) #11
-  br label %2039
-
-1804:                                             ; preds = %1104
-  %1805 = landingpad { ptr, i32 }
-          cleanup
-  %1806 = extractvalue { ptr, i32 } %1805, 0
-  store ptr %1806, ptr %99, align 8
-  %1807 = extractvalue { ptr, i32 } %1805, 1
-  store i32 %1807, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %224) #11
-  br label %2039
-
-1808:                                             ; preds = %1140
-  %1809 = landingpad { ptr, i32 }
-          cleanup
-  %1810 = extractvalue { ptr, i32 } %1809, 0
-  store ptr %1810, ptr %99, align 8
-  %1811 = extractvalue { ptr, i32 } %1809, 1
-  store i32 %1811, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #11
-  br label %2039
-
-1812:                                             ; preds = %1143
-  %1813 = landingpad { ptr, i32 }
-          cleanup
-  %1814 = extractvalue { ptr, i32 } %1813, 0
-  store ptr %1814, ptr %99, align 8
-  %1815 = extractvalue { ptr, i32 } %1813, 1
-  store i32 %1815, ptr %100, align 4
-  br label %1820
-
-1816:                                             ; preds = %1145
-  %1817 = landingpad { ptr, i32 }
-          cleanup
-  %1818 = extractvalue { ptr, i32 } %1817, 0
-  store ptr %1818, ptr %99, align 8
-  %1819 = extractvalue { ptr, i32 } %1817, 1
-  store i32 %1819, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #11
-  br label %1820
-
-1820:                                             ; preds = %1816, %1812
-  %1821 = load i1, ptr %228, align 1
-  br i1 %1821, label %1822, label %1823
-
-1822:                                             ; preds = %1820
-  call void @_ZdlPv(ptr noundef %1142) #23
-  br label %1823
-
-1823:                                             ; preds = %1822, %1820
-  br label %2039
-
-1824:                                             ; preds = %1150
-  %1825 = landingpad { ptr, i32 }
-          cleanup
-  %1826 = extractvalue { ptr, i32 } %1825, 0
-  store ptr %1826, ptr %99, align 8
-  %1827 = extractvalue { ptr, i32 } %1825, 1
-  store i32 %1827, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %229) #11
-  br label %2039
-
-1828:                                             ; preds = %1166
-  %1829 = landingpad { ptr, i32 }
-          cleanup
-  %1830 = extractvalue { ptr, i32 } %1829, 0
-  store ptr %1830, ptr %99, align 8
-  %1831 = extractvalue { ptr, i32 } %1829, 1
-  store i32 %1831, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %230) #11
-  br label %2039
-
-1832:                                             ; preds = %1169
-  %1833 = landingpad { ptr, i32 }
-          cleanup
-  %1834 = extractvalue { ptr, i32 } %1833, 0
-  store ptr %1834, ptr %99, align 8
-  %1835 = extractvalue { ptr, i32 } %1833, 1
-  store i32 %1835, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1168) #23
-  br label %2039
-
-1836:                                             ; preds = %1175
-  %1837 = landingpad { ptr, i32 }
-          cleanup
-  %1838 = extractvalue { ptr, i32 } %1837, 0
-  store ptr %1838, ptr %99, align 8
-  %1839 = extractvalue { ptr, i32 } %1837, 1
-  store i32 %1839, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1174) #23
-  br label %2039
-
-1840:                                             ; preds = %1179
-  %1841 = landingpad { ptr, i32 }
-          cleanup
-  %1842 = extractvalue { ptr, i32 } %1841, 0
-  store ptr %1842, ptr %99, align 8
-  %1843 = extractvalue { ptr, i32 } %1841, 1
-  store i32 %1843, ptr %100, align 4
-  br label %1853
-
-1844:                                             ; preds = %1180
-  %1845 = landingpad { ptr, i32 }
-          cleanup
-  %1846 = extractvalue { ptr, i32 } %1845, 0
-  store ptr %1846, ptr %99, align 8
-  %1847 = extractvalue { ptr, i32 } %1845, 1
-  store i32 %1847, ptr %100, align 4
-  br label %1852
-
-1848:                                             ; preds = %1181
-  %1849 = landingpad { ptr, i32 }
-          cleanup
-  %1850 = extractvalue { ptr, i32 } %1849, 0
-  store ptr %1850, ptr %99, align 8
-  %1851 = extractvalue { ptr, i32 } %1849, 1
-  store i32 %1851, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %236) #11
-  br label %1852
-
-1852:                                             ; preds = %1848, %1844
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %235) #11
-  br label %1853
-
-1853:                                             ; preds = %1852, %1840
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %234) #11
-  br label %2039
-
-1854:                                             ; preds = %1193
-  %1855 = landingpad { ptr, i32 }
-          cleanup
-  %1856 = extractvalue { ptr, i32 } %1855, 0
-  store ptr %1856, ptr %99, align 8
-  %1857 = extractvalue { ptr, i32 } %1855, 1
-  store i32 %1857, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %237) #11
-  br label %2039
-
-1858:                                             ; preds = %1196
-  %1859 = landingpad { ptr, i32 }
-          cleanup
-  %1860 = extractvalue { ptr, i32 } %1859, 0
-  store ptr %1860, ptr %99, align 8
-  %1861 = extractvalue { ptr, i32 } %1859, 1
-  store i32 %1861, ptr %100, align 4
-  br label %1871
-
-1862:                                             ; preds = %1200
-  %1863 = landingpad { ptr, i32 }
-          cleanup
-  %1864 = extractvalue { ptr, i32 } %1863, 0
-  store ptr %1864, ptr %99, align 8
-  %1865 = extractvalue { ptr, i32 } %1863, 1
-  store i32 %1865, ptr %100, align 4
-  br label %1870
-
-1866:                                             ; preds = %1203, %1201
-  %1867 = landingpad { ptr, i32 }
-          cleanup
-  %1868 = extractvalue { ptr, i32 } %1867, 0
-  store ptr %1868, ptr %99, align 8
-  %1869 = extractvalue { ptr, i32 } %1867, 1
-  store i32 %1869, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %243) #11
-  br label %1870
-
-1870:                                             ; preds = %1866, %1862
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %241) #11
-  br label %1871
-
-1871:                                             ; preds = %1870, %1858
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %240) #11
-  br label %2039
-
-1872:                                             ; preds = %1206
-  %1873 = landingpad { ptr, i32 }
-          cleanup
-  %1874 = extractvalue { ptr, i32 } %1873, 0
-  store ptr %1874, ptr %99, align 8
-  %1875 = extractvalue { ptr, i32 } %1873, 1
-  store i32 %1875, ptr %100, align 4
-  br label %1885
-
-1876:                                             ; preds = %1210
-  %1877 = landingpad { ptr, i32 }
-          cleanup
-  %1878 = extractvalue { ptr, i32 } %1877, 0
-  store ptr %1878, ptr %99, align 8
-  %1879 = extractvalue { ptr, i32 } %1877, 1
-  store i32 %1879, ptr %100, align 4
-  br label %1884
-
-1880:                                             ; preds = %1213, %1211
-  %1881 = landingpad { ptr, i32 }
-          cleanup
-  %1882 = extractvalue { ptr, i32 } %1881, 0
-  store ptr %1882, ptr %99, align 8
-  %1883 = extractvalue { ptr, i32 } %1881, 1
-  store i32 %1883, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %248) #11
-  br label %1884
-
-1884:                                             ; preds = %1880, %1876
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %246) #11
-  br label %1885
-
-1885:                                             ; preds = %1884, %1872
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %245) #11
-  br label %2039
-
-1886:                                             ; preds = %1216
-  %1887 = landingpad { ptr, i32 }
-          cleanup
-  %1888 = extractvalue { ptr, i32 } %1887, 0
-  store ptr %1888, ptr %99, align 8
-  %1889 = extractvalue { ptr, i32 } %1887, 1
-  store i32 %1889, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1215) #23
-  br label %2039
-
-1890:                                             ; preds = %1222
-  %1891 = landingpad { ptr, i32 }
-          cleanup
-  %1892 = extractvalue { ptr, i32 } %1891, 0
-  store ptr %1892, ptr %99, align 8
-  %1893 = extractvalue { ptr, i32 } %1891, 1
-  store i32 %1893, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %249) #11
-  br label %2039
-
-1894:                                             ; preds = %1226
-  %1895 = landingpad { ptr, i32 }
-          cleanup
-  %1896 = extractvalue { ptr, i32 } %1895, 0
-  store ptr %1896, ptr %99, align 8
-  %1897 = extractvalue { ptr, i32 } %1895, 1
-  store i32 %1897, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %250) #11
-  br label %2039
-
-1898:                                             ; preds = %1241
-  %1899 = landingpad { ptr, i32 }
-          cleanup
-  %1900 = extractvalue { ptr, i32 } %1899, 0
-  store ptr %1900, ptr %99, align 8
-  %1901 = extractvalue { ptr, i32 } %1899, 1
-  store i32 %1901, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1240) #23
-  br label %2039
-
-1902:                                             ; preds = %1247
-  %1903 = landingpad { ptr, i32 }
-          cleanup
-  %1904 = extractvalue { ptr, i32 } %1903, 0
-  store ptr %1904, ptr %99, align 8
-  %1905 = extractvalue { ptr, i32 } %1903, 1
-  store i32 %1905, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1246) #23
-  br label %2039
-
-1906:                                             ; preds = %1251
-  %1907 = landingpad { ptr, i32 }
-          cleanup
-  %1908 = extractvalue { ptr, i32 } %1907, 0
-  store ptr %1908, ptr %99, align 8
-  %1909 = extractvalue { ptr, i32 } %1907, 1
-  store i32 %1909, ptr %100, align 4
-  br label %1919
-
-1910:                                             ; preds = %1280, %1255
-  %1911 = landingpad { ptr, i32 }
-          cleanup
-  %1912 = extractvalue { ptr, i32 } %1911, 0
-  store ptr %1912, ptr %99, align 8
-  %1913 = extractvalue { ptr, i32 } %1911, 1
-  store i32 %1913, ptr %100, align 4
-  br label %1918
-
-1914:                                             ; preds = %1288
-  %1915 = landingpad { ptr, i32 }
-          cleanup
-  %1916 = extractvalue { ptr, i32 } %1915, 0
-  store ptr %1916, ptr %99, align 8
-  %1917 = extractvalue { ptr, i32 } %1915, 1
-  store i32 %1917, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %256) #11
-  br label %1918
-
-1918:                                             ; preds = %1914, %1910
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %254) #11
-  br label %1919
-
-1919:                                             ; preds = %1918, %1906
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #11
-  br label %2039
-
-1920:                                             ; preds = %1292
-  %1921 = landingpad { ptr, i32 }
-          cleanup
-  %1922 = extractvalue { ptr, i32 } %1921, 0
-  store ptr %1922, ptr %99, align 8
-  %1923 = extractvalue { ptr, i32 } %1921, 1
-  store i32 %1923, ptr %100, align 4
-  br label %1933
-
-1924:                                             ; preds = %1321, %1296
-  %1925 = landingpad { ptr, i32 }
-          cleanup
-  %1926 = extractvalue { ptr, i32 } %1925, 0
-  store ptr %1926, ptr %99, align 8
-  %1927 = extractvalue { ptr, i32 } %1925, 1
-  store i32 %1927, ptr %100, align 4
-  br label %1932
-
-1928:                                             ; preds = %1331, %1329
-  %1929 = landingpad { ptr, i32 }
-          cleanup
-  %1930 = extractvalue { ptr, i32 } %1929, 0
-  store ptr %1930, ptr %99, align 8
-  %1931 = extractvalue { ptr, i32 } %1929, 1
-  store i32 %1931, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %262) #11
-  br label %1932
-
-1932:                                             ; preds = %1928, %1924
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %260) #11
-  br label %1933
-
-1933:                                             ; preds = %1932, %1920
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %259) #11
-  br label %2039
-
-1934:                                             ; preds = %1334
-  %1935 = landingpad { ptr, i32 }
-          cleanup
-  %1936 = extractvalue { ptr, i32 } %1935, 0
-  store ptr %1936, ptr %99, align 8
-  %1937 = extractvalue { ptr, i32 } %1935, 1
-  store i32 %1937, ptr %100, align 4
-  br label %1947
-
-1938:                                             ; preds = %1363, %1338
-  %1939 = landingpad { ptr, i32 }
-          cleanup
-  %1940 = extractvalue { ptr, i32 } %1939, 0
-  store ptr %1940, ptr %99, align 8
-  %1941 = extractvalue { ptr, i32 } %1939, 1
-  store i32 %1941, ptr %100, align 4
-  br label %1946
-
-1942:                                             ; preds = %1373, %1371
-  %1943 = landingpad { ptr, i32 }
-          cleanup
-  %1944 = extractvalue { ptr, i32 } %1943, 0
-  store ptr %1944, ptr %99, align 8
-  %1945 = extractvalue { ptr, i32 } %1943, 1
-  store i32 %1945, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %268) #11
-  br label %1946
-
-1946:                                             ; preds = %1942, %1938
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %266) #11
-  br label %1947
-
-1947:                                             ; preds = %1946, %1934
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %265) #11
-  br label %2039
-
-1948:                                             ; preds = %1376
-  %1949 = landingpad { ptr, i32 }
-          cleanup
-  %1950 = extractvalue { ptr, i32 } %1949, 0
-  store ptr %1950, ptr %99, align 8
-  %1951 = extractvalue { ptr, i32 } %1949, 1
-  store i32 %1951, ptr %100, align 4
-  br label %1961
-
-1952:                                             ; preds = %1402, %1380
-  %1953 = landingpad { ptr, i32 }
-          cleanup
-  %1954 = extractvalue { ptr, i32 } %1953, 0
-  store ptr %1954, ptr %99, align 8
-  %1955 = extractvalue { ptr, i32 } %1953, 1
-  store i32 %1955, ptr %100, align 4
-  br label %1960
-
-1956:                                             ; preds = %1412, %1410
-  %1957 = landingpad { ptr, i32 }
-          cleanup
-  %1958 = extractvalue { ptr, i32 } %1957, 0
-  store ptr %1958, ptr %99, align 8
-  %1959 = extractvalue { ptr, i32 } %1957, 1
-  store i32 %1959, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %274) #11
-  br label %1960
-
-1960:                                             ; preds = %1956, %1952
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %272) #11
-  br label %1961
-
-1961:                                             ; preds = %1960, %1948
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %271) #11
-  br label %2039
-
-1962:                                             ; preds = %1414
-  %1963 = landingpad { ptr, i32 }
-          cleanup
-  %1964 = extractvalue { ptr, i32 } %1963, 0
-  store ptr %1964, ptr %99, align 8
-  %1965 = extractvalue { ptr, i32 } %1963, 1
-  store i32 %1965, ptr %100, align 4
-  br label %1970
-
-1966:                                             ; preds = %1415
-  %1967 = landingpad { ptr, i32 }
-          cleanup
-  %1968 = extractvalue { ptr, i32 } %1967, 0
-  store ptr %1968, ptr %99, align 8
-  %1969 = extractvalue { ptr, i32 } %1967, 1
-  store i32 %1969, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %278) #11
-  br label %1970
-
-1970:                                             ; preds = %1966, %1962
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %277) #11
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %276) #11
-  br label %2039
-
-1971:                                             ; preds = %1427
-  %1972 = landingpad { ptr, i32 }
-          cleanup
-  %1973 = extractvalue { ptr, i32 } %1972, 0
-  store ptr %1973, ptr %99, align 8
-  %1974 = extractvalue { ptr, i32 } %1972, 1
-  store i32 %1974, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %279) #11
-  br label %2039
-
-1975:                                             ; preds = %1430
-  %1976 = landingpad { ptr, i32 }
-          cleanup
-  %1977 = extractvalue { ptr, i32 } %1976, 0
-  store ptr %1977, ptr %99, align 8
-  %1978 = extractvalue { ptr, i32 } %1976, 1
-  store i32 %1978, ptr %100, align 4
-  br label %1988
-
-1979:                                             ; preds = %1456, %1434
-  %1980 = landingpad { ptr, i32 }
-          cleanup
-  %1981 = extractvalue { ptr, i32 } %1980, 0
-  store ptr %1981, ptr %99, align 8
-  %1982 = extractvalue { ptr, i32 } %1980, 1
-  store i32 %1982, ptr %100, align 4
-  br label %1987
-
-1983:                                             ; preds = %1466, %1464
-  %1984 = landingpad { ptr, i32 }
-          cleanup
-  %1985 = extractvalue { ptr, i32 } %1984, 0
-  store ptr %1985, ptr %99, align 8
-  %1986 = extractvalue { ptr, i32 } %1984, 1
-  store i32 %1986, ptr %100, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #11
-  br label %1987
-
-1987:                                             ; preds = %1983, %1979
-  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %283) #11
-  br label %1988
-
-1988:                                             ; preds = %1987, %1975
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %282) #11
-  br label %2039
-
-1989:                                             ; preds = %1469
-  %1990 = landingpad { ptr, i32 }
-          cleanup
-  %1991 = extractvalue { ptr, i32 } %1990, 0
-  store ptr %1991, ptr %99, align 8
-  %1992 = extractvalue { ptr, i32 } %1990, 1
-  store i32 %1992, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1468) #23
-  br label %2039
-
-1993:                                             ; preds = %1476
-  %1994 = landingpad { ptr, i32 }
-          cleanup
-  %1995 = extractvalue { ptr, i32 } %1994, 0
-  store ptr %1995, ptr %99, align 8
-  %1996 = extractvalue { ptr, i32 } %1994, 1
-  store i32 %1996, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1475) #23
-  br label %2039
-
-1997:                                             ; preds = %1489
-  %1998 = landingpad { ptr, i32 }
-          cleanup
-  %1999 = extractvalue { ptr, i32 } %1998, 0
-  store ptr %1999, ptr %99, align 8
-  %2000 = extractvalue { ptr, i32 } %1998, 1
-  store i32 %2000, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1488) #23
-  br label %2039
-
-2001:                                             ; preds = %1497
-  %2002 = landingpad { ptr, i32 }
-          cleanup
-  %2003 = extractvalue { ptr, i32 } %2002, 0
-  store ptr %2003, ptr %99, align 8
-  %2004 = extractvalue { ptr, i32 } %2002, 1
-  store i32 %2004, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1496) #23
-  br label %2039
-
-2005:                                             ; preds = %1501
-  %2006 = landingpad { ptr, i32 }
-          cleanup
-  %2007 = extractvalue { ptr, i32 } %2006, 0
-  store ptr %2007, ptr %99, align 8
-  %2008 = extractvalue { ptr, i32 } %2006, 1
-  store i32 %2008, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1500) #23
-  br label %2039
-
-2009:                                             ; preds = %1509
-  %2010 = landingpad { ptr, i32 }
-          cleanup
-  %2011 = extractvalue { ptr, i32 } %2010, 0
-  store ptr %2011, ptr %99, align 8
-  %2012 = extractvalue { ptr, i32 } %2010, 1
-  store i32 %2012, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1508) #23
-  br label %2039
-
-2013:                                             ; preds = %1513
-  %2014 = landingpad { ptr, i32 }
-          cleanup
-  %2015 = extractvalue { ptr, i32 } %2014, 0
-  store ptr %2015, ptr %99, align 8
-  %2016 = extractvalue { ptr, i32 } %2014, 1
-  store i32 %2016, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1512) #23
-  br label %2039
-
-2017:                                             ; preds = %1519
-  %2018 = landingpad { ptr, i32 }
-          cleanup
-  %2019 = extractvalue { ptr, i32 } %2018, 0
-  store ptr %2019, ptr %99, align 8
-  %2020 = extractvalue { ptr, i32 } %2018, 1
-  store i32 %2020, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1518) #23
-  br label %2039
-
-2021:                                             ; preds = %1527
-  %2022 = landingpad { ptr, i32 }
-          cleanup
-  %2023 = extractvalue { ptr, i32 } %2022, 0
-  store ptr %2023, ptr %99, align 8
-  %2024 = extractvalue { ptr, i32 } %2022, 1
-  store i32 %2024, ptr %100, align 4
-  call void @_ZdlPv(ptr noundef %1526) #23
-  br label %2039
-
-2025:                                             ; preds = %1542
-  %2026 = landingpad { ptr, i32 }
-          cleanup
-  %2027 = extractvalue { ptr, i32 } %2026, 0
-  store ptr %2027, ptr %99, align 8
-  %2028 = extractvalue { ptr, i32 } %2026, 1
-  store i32 %2028, ptr %100, align 4
-  call void @_ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %287) #11
-  br label %2039
-
-2029:                                             ; preds = %1543
-  %2030 = landingpad { ptr, i32 }
-          cleanup
-  %2031 = extractvalue { ptr, i32 } %2030, 0
-  store ptr %2031, ptr %99, align 8
-  %2032 = extractvalue { ptr, i32 } %2030, 1
-  store i32 %2032, ptr %100, align 4
-  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %289) #11
-  br label %2039
-
-2033:                                             ; preds = %1544
-  %2034 = landingpad { ptr, i32 }
-          cleanup
-  %2035 = extractvalue { ptr, i32 } %2034, 0
-  store ptr %2035, ptr %99, align 8
-  %2036 = extractvalue { ptr, i32 } %2034, 1
-  store i32 %2036, ptr %100, align 4
-  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %290) #11
-  br label %2039
-
-2037:                                             ; preds = %1550, %1545
-  invoke void @_ZN3tev11ImageViewer12updateLayoutEv(ptr noundef nonnull align 16 dereferenceable(972) %295)
-          to label %2038 unwind label %347
-
-2038:                                             ; preds = %2037
-  ret void
-
-2039:                                             ; preds = %2033, %2029, %2025, %2021, %2017, %2013, %2009, %2005, %2001, %1997, %1993, %1989, %1988, %1971, %1970, %1961, %1947, %1933, %1919, %1902, %1898, %1894, %1890, %1886, %1885, %1871, %1854, %1853, %1836, %1832, %1828, %1824, %1823, %1808, %1804, %1800, %1799, %1784, %1780, %1779, %1764, %1760, %1756, %1755, %1735, %1731, %1727, %1723, %1722, %1713, %1704, %1695, %1686, %1674, %1670, %1666, %1665, %1656, %1647, %1638, %1626, %1622, %1618, %1614, %1610, %1609, %1589, %1588, %1568, %1564, %1563, %851, %847, %846, %834, %820, %803, %799, %795, %791, %787, %786, %766, %762, %761, %741, %737, %733, %729, %725, %724, %704, %700, %696, %695, %675, %671, %667, %663, %659, %655, %651, %650, %635, %631, %627, %623, %619, %615, %351, %347
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %317) #11
+1564:                                             ; preds = %1563, %1561
   br label %2040
 
-2040:                                             ; preds = %2039, %343
-  call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %314) #11
-  call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %313) #11
+1565:                                             ; preds = %867
+  %1566 = landingpad { ptr, i32 }
+          cleanup
+  %1567 = extractvalue { ptr, i32 } %1566, 0
+  store ptr %1567, ptr %99, align 8
+  %1568 = extractvalue { ptr, i32 } %1566, 1
+  store i32 %1568, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #11
+  br label %2040
+
+1569:                                             ; preds = %874
+  %1570 = landingpad { ptr, i32 }
+          cleanup
+  %1571 = extractvalue { ptr, i32 } %1570, 0
+  store ptr %1571, ptr %99, align 8
+  %1572 = extractvalue { ptr, i32 } %1570, 1
+  store i32 %1572, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %873) #23
+  br label %2040
+
+1573:                                             ; preds = %878
+  %1574 = landingpad { ptr, i32 }
+          cleanup
+  %1575 = extractvalue { ptr, i32 } %1574, 0
+  store ptr %1575, ptr %99, align 8
+  %1576 = extractvalue { ptr, i32 } %1574, 1
+  store i32 %1576, ptr %100, align 4
+  br label %1586
+
+1577:                                             ; preds = %880
+  %1578 = landingpad { ptr, i32 }
+          cleanup
+  %1579 = extractvalue { ptr, i32 } %1578, 0
+  store ptr %1579, ptr %99, align 8
+  %1580 = extractvalue { ptr, i32 } %1578, 1
+  store i32 %1580, ptr %100, align 4
+  br label %1585
+
+1581:                                             ; preds = %881
+  %1582 = landingpad { ptr, i32 }
+          cleanup
+  %1583 = extractvalue { ptr, i32 } %1582, 0
+  store ptr %1583, ptr %99, align 8
+  %1584 = extractvalue { ptr, i32 } %1582, 1
+  store i32 %1584, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %163) #11
+  br label %1585
+
+1585:                                             ; preds = %1581, %1577
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %162) #11
+  br label %1586
+
+1586:                                             ; preds = %1585, %1573
+  %1587 = load i1, ptr %164, align 1
+  br i1 %1587, label %1588, label %1589
+
+1588:                                             ; preds = %1586
+  call void @_ZdlPv(ptr noundef %877) #23
+  br label %1589
+
+1589:                                             ; preds = %1588, %1586
+  br label %2040
+
+1590:                                             ; preds = %889, %884
+  %1591 = landingpad { ptr, i32 }
+          cleanup
+  %1592 = extractvalue { ptr, i32 } %1591, 0
+  store ptr %1592, ptr %99, align 8
+  %1593 = extractvalue { ptr, i32 } %1591, 1
+  store i32 %1593, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %883) #23
+  br label %2040
+
+1594:                                             ; preds = %903
+  %1595 = landingpad { ptr, i32 }
+          cleanup
+  %1596 = extractvalue { ptr, i32 } %1595, 0
+  store ptr %1596, ptr %99, align 8
+  %1597 = extractvalue { ptr, i32 } %1595, 1
+  store i32 %1597, ptr %100, align 4
+  br label %1607
+
+1598:                                             ; preds = %905
+  %1599 = landingpad { ptr, i32 }
+          cleanup
+  %1600 = extractvalue { ptr, i32 } %1599, 0
+  store ptr %1600, ptr %99, align 8
+  %1601 = extractvalue { ptr, i32 } %1599, 1
+  store i32 %1601, ptr %100, align 4
+  br label %1606
+
+1602:                                             ; preds = %906
+  %1603 = landingpad { ptr, i32 }
+          cleanup
+  %1604 = extractvalue { ptr, i32 } %1603, 0
+  store ptr %1604, ptr %99, align 8
+  %1605 = extractvalue { ptr, i32 } %1603, 1
+  store i32 %1605, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #11
+  br label %1606
+
+1606:                                             ; preds = %1602, %1598
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %167) #11
+  br label %1607
+
+1607:                                             ; preds = %1606, %1594
+  %1608 = load i1, ptr %169, align 1
+  br i1 %1608, label %1609, label %1610
+
+1609:                                             ; preds = %1607
+  call void @_ZdlPv(ptr noundef %902) #23
+  br label %1610
+
+1610:                                             ; preds = %1609, %1607
+  br label %2040
+
+1611:                                             ; preds = %909
+  %1612 = landingpad { ptr, i32 }
+          cleanup
+  %1613 = extractvalue { ptr, i32 } %1612, 0
+  store ptr %1613, ptr %99, align 8
+  %1614 = extractvalue { ptr, i32 } %1612, 1
+  store i32 %1614, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %908) #23
+  br label %2040
+
+1615:                                             ; preds = %919
+  %1616 = landingpad { ptr, i32 }
+          cleanup
+  %1617 = extractvalue { ptr, i32 } %1616, 0
+  store ptr %1617, ptr %99, align 8
+  %1618 = extractvalue { ptr, i32 } %1616, 1
+  store i32 %1618, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvfEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %174) #11
+  br label %2040
+
+1619:                                             ; preds = %931
+  %1620 = landingpad { ptr, i32 }
+          cleanup
+  %1621 = extractvalue { ptr, i32 } %1620, 0
+  store ptr %1621, ptr %99, align 8
+  %1622 = extractvalue { ptr, i32 } %1620, 1
+  store i32 %1622, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %176) #11
+  br label %2040
+
+1623:                                             ; preds = %934
+  %1624 = landingpad { ptr, i32 }
+          cleanup
+  %1625 = extractvalue { ptr, i32 } %1624, 0
+  store ptr %1625, ptr %99, align 8
+  %1626 = extractvalue { ptr, i32 } %1624, 1
+  store i32 %1626, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %933) #23
+  br label %2040
+
+1627:                                             ; preds = %942
+  %1628 = landingpad { ptr, i32 }
+          cleanup
+  %1629 = extractvalue { ptr, i32 } %1628, 0
+  store ptr %1629, ptr %99, align 8
+  %1630 = extractvalue { ptr, i32 } %1628, 1
+  store i32 %1630, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %941) #23
+  br label %2040
+
+1631:                                             ; preds = %946
+  %1632 = landingpad { ptr, i32 }
+          cleanup
+  %1633 = extractvalue { ptr, i32 } %1632, 0
+  store ptr %1633, ptr %99, align 8
+  %1634 = extractvalue { ptr, i32 } %1632, 1
+  store i32 %1634, ptr %100, align 4
+  br label %1639
+
+1635:                                             ; preds = %950
+  %1636 = landingpad { ptr, i32 }
+          cleanup
+  %1637 = extractvalue { ptr, i32 } %1636, 0
+  store ptr %1637, ptr %99, align 8
+  %1638 = extractvalue { ptr, i32 } %1636, 1
+  store i32 %1638, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %180) #11
+  br label %1639
+
+1639:                                             ; preds = %1635, %1631
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #11
+  br label %2040
+
+1640:                                             ; preds = %953
+  %1641 = landingpad { ptr, i32 }
+          cleanup
+  %1642 = extractvalue { ptr, i32 } %1641, 0
+  store ptr %1642, ptr %99, align 8
+  %1643 = extractvalue { ptr, i32 } %1641, 1
+  store i32 %1643, ptr %100, align 4
+  br label %1648
+
+1644:                                             ; preds = %957
+  %1645 = landingpad { ptr, i32 }
+          cleanup
+  %1646 = extractvalue { ptr, i32 } %1645, 0
+  store ptr %1646, ptr %99, align 8
+  %1647 = extractvalue { ptr, i32 } %1645, 1
+  store i32 %1647, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %183) #11
+  br label %1648
+
+1648:                                             ; preds = %1644, %1640
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %182) #11
+  br label %2040
+
+1649:                                             ; preds = %960
+  %1650 = landingpad { ptr, i32 }
+          cleanup
+  %1651 = extractvalue { ptr, i32 } %1650, 0
+  store ptr %1651, ptr %99, align 8
+  %1652 = extractvalue { ptr, i32 } %1650, 1
+  store i32 %1652, ptr %100, align 4
+  br label %1657
+
+1653:                                             ; preds = %964
+  %1654 = landingpad { ptr, i32 }
+          cleanup
+  %1655 = extractvalue { ptr, i32 } %1654, 0
+  store ptr %1655, ptr %99, align 8
+  %1656 = extractvalue { ptr, i32 } %1654, 1
+  store i32 %1656, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %186) #11
+  br label %1657
+
+1657:                                             ; preds = %1653, %1649
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #11
+  br label %2040
+
+1658:                                             ; preds = %967
+  %1659 = landingpad { ptr, i32 }
+          cleanup
+  %1660 = extractvalue { ptr, i32 } %1659, 0
+  store ptr %1660, ptr %99, align 8
+  %1661 = extractvalue { ptr, i32 } %1659, 1
+  store i32 %1661, ptr %100, align 4
+  br label %1666
+
+1662:                                             ; preds = %971
+  %1663 = landingpad { ptr, i32 }
+          cleanup
+  %1664 = extractvalue { ptr, i32 } %1663, 0
+  store ptr %1664, ptr %99, align 8
+  %1665 = extractvalue { ptr, i32 } %1663, 1
+  store i32 %1665, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %189) #11
+  br label %1666
+
+1666:                                             ; preds = %1662, %1658
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %188) #11
+  br label %2040
+
+1667:                                             ; preds = %977
+  %1668 = landingpad { ptr, i32 }
+          cleanup
+  %1669 = extractvalue { ptr, i32 } %1668, 0
+  store ptr %1669, ptr %99, align 8
+  %1670 = extractvalue { ptr, i32 } %1668, 1
+  store i32 %1670, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %191) #11
+  br label %2040
+
+1671:                                             ; preds = %980
+  %1672 = landingpad { ptr, i32 }
+          cleanup
+  %1673 = extractvalue { ptr, i32 } %1672, 0
+  store ptr %1673, ptr %99, align 8
+  %1674 = extractvalue { ptr, i32 } %1672, 1
+  store i32 %1674, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %979) #23
+  br label %2040
+
+1675:                                             ; preds = %988
+  %1676 = landingpad { ptr, i32 }
+          cleanup
+  %1677 = extractvalue { ptr, i32 } %1676, 0
+  store ptr %1677, ptr %99, align 8
+  %1678 = extractvalue { ptr, i32 } %1676, 1
+  store i32 %1678, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %987) #23
+  br label %2040
+
+1679:                                             ; preds = %992
+  %1680 = landingpad { ptr, i32 }
+          cleanup
+  %1681 = extractvalue { ptr, i32 } %1680, 0
+  store ptr %1681, ptr %99, align 8
+  %1682 = extractvalue { ptr, i32 } %1680, 1
+  store i32 %1682, ptr %100, align 4
+  br label %1687
+
+1683:                                             ; preds = %996
+  %1684 = landingpad { ptr, i32 }
+          cleanup
+  %1685 = extractvalue { ptr, i32 } %1684, 0
+  store ptr %1685, ptr %99, align 8
+  %1686 = extractvalue { ptr, i32 } %1684, 1
+  store i32 %1686, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %194) #11
+  br label %1687
+
+1687:                                             ; preds = %1683, %1679
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %193) #11
+  br label %2040
+
+1688:                                             ; preds = %999
+  %1689 = landingpad { ptr, i32 }
+          cleanup
+  %1690 = extractvalue { ptr, i32 } %1689, 0
+  store ptr %1690, ptr %99, align 8
+  %1691 = extractvalue { ptr, i32 } %1689, 1
+  store i32 %1691, ptr %100, align 4
+  br label %1696
+
+1692:                                             ; preds = %1003
+  %1693 = landingpad { ptr, i32 }
+          cleanup
+  %1694 = extractvalue { ptr, i32 } %1693, 0
+  store ptr %1694, ptr %99, align 8
+  %1695 = extractvalue { ptr, i32 } %1693, 1
+  store i32 %1695, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %197) #11
+  br label %1696
+
+1696:                                             ; preds = %1692, %1688
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %196) #11
+  br label %2040
+
+1697:                                             ; preds = %1006
+  %1698 = landingpad { ptr, i32 }
+          cleanup
+  %1699 = extractvalue { ptr, i32 } %1698, 0
+  store ptr %1699, ptr %99, align 8
+  %1700 = extractvalue { ptr, i32 } %1698, 1
+  store i32 %1700, ptr %100, align 4
+  br label %1705
+
+1701:                                             ; preds = %1010
+  %1702 = landingpad { ptr, i32 }
+          cleanup
+  %1703 = extractvalue { ptr, i32 } %1702, 0
+  store ptr %1703, ptr %99, align 8
+  %1704 = extractvalue { ptr, i32 } %1702, 1
+  store i32 %1704, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %200) #11
+  br label %1705
+
+1705:                                             ; preds = %1701, %1697
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %199) #11
+  br label %2040
+
+1706:                                             ; preds = %1013
+  %1707 = landingpad { ptr, i32 }
+          cleanup
+  %1708 = extractvalue { ptr, i32 } %1707, 0
+  store ptr %1708, ptr %99, align 8
+  %1709 = extractvalue { ptr, i32 } %1707, 1
+  store i32 %1709, ptr %100, align 4
+  br label %1714
+
+1710:                                             ; preds = %1017
+  %1711 = landingpad { ptr, i32 }
+          cleanup
+  %1712 = extractvalue { ptr, i32 } %1711, 0
+  store ptr %1712, ptr %99, align 8
+  %1713 = extractvalue { ptr, i32 } %1711, 1
+  store i32 %1713, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %203) #11
+  br label %1714
+
+1714:                                             ; preds = %1710, %1706
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %202) #11
+  br label %2040
+
+1715:                                             ; preds = %1020
+  %1716 = landingpad { ptr, i32 }
+          cleanup
+  %1717 = extractvalue { ptr, i32 } %1716, 0
+  store ptr %1717, ptr %99, align 8
+  %1718 = extractvalue { ptr, i32 } %1716, 1
+  store i32 %1718, ptr %100, align 4
+  br label %1723
+
+1719:                                             ; preds = %1024
+  %1720 = landingpad { ptr, i32 }
+          cleanup
+  %1721 = extractvalue { ptr, i32 } %1720, 0
+  store ptr %1721, ptr %99, align 8
+  %1722 = extractvalue { ptr, i32 } %1720, 1
+  store i32 %1722, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %206) #11
+  br label %1723
+
+1723:                                             ; preds = %1719, %1715
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #11
+  br label %2040
+
+1724:                                             ; preds = %1030
+  %1725 = landingpad { ptr, i32 }
+          cleanup
+  %1726 = extractvalue { ptr, i32 } %1725, 0
+  store ptr %1726, ptr %99, align 8
+  %1727 = extractvalue { ptr, i32 } %1725, 1
+  store i32 %1727, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %208) #11
+  br label %2040
+
+1728:                                             ; preds = %1033
+  %1729 = landingpad { ptr, i32 }
+          cleanup
+  %1730 = extractvalue { ptr, i32 } %1729, 0
+  store ptr %1730, ptr %99, align 8
+  %1731 = extractvalue { ptr, i32 } %1729, 1
+  store i32 %1731, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1032) #23
+  br label %2040
+
+1732:                                             ; preds = %1040
+  %1733 = landingpad { ptr, i32 }
+          cleanup
+  %1734 = extractvalue { ptr, i32 } %1733, 0
+  store ptr %1734, ptr %99, align 8
+  %1735 = extractvalue { ptr, i32 } %1733, 1
+  store i32 %1735, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1039) #23
+  br label %2040
+
+1736:                                             ; preds = %1046
+  %1737 = landingpad { ptr, i32 }
+          cleanup
+  %1738 = extractvalue { ptr, i32 } %1737, 0
+  store ptr %1738, ptr %99, align 8
+  %1739 = extractvalue { ptr, i32 } %1737, 1
+  store i32 %1739, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1045) #23
+  br label %2040
+
+1740:                                             ; preds = %1050
+  %1741 = landingpad { ptr, i32 }
+          cleanup
+  %1742 = extractvalue { ptr, i32 } %1741, 0
+  store ptr %1742, ptr %99, align 8
+  %1743 = extractvalue { ptr, i32 } %1741, 1
+  store i32 %1743, ptr %100, align 4
+  br label %1753
+
+1744:                                             ; preds = %1052
+  %1745 = landingpad { ptr, i32 }
+          cleanup
+  %1746 = extractvalue { ptr, i32 } %1745, 0
+  store ptr %1746, ptr %99, align 8
+  %1747 = extractvalue { ptr, i32 } %1745, 1
+  store i32 %1747, ptr %100, align 4
+  br label %1752
+
+1748:                                             ; preds = %1053
+  %1749 = landingpad { ptr, i32 }
+          cleanup
+  %1750 = extractvalue { ptr, i32 } %1749, 0
+  store ptr %1750, ptr %99, align 8
+  %1751 = extractvalue { ptr, i32 } %1749, 1
+  store i32 %1751, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %213) #11
+  br label %1752
+
+1752:                                             ; preds = %1748, %1744
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %212) #11
+  br label %1753
+
+1753:                                             ; preds = %1752, %1740
+  %1754 = load i1, ptr %214, align 1
+  br i1 %1754, label %1755, label %1756
+
+1755:                                             ; preds = %1753
+  call void @_ZdlPv(ptr noundef %1049) #23
+  br label %1756
+
+1756:                                             ; preds = %1755, %1753
+  br label %2040
+
+1757:                                             ; preds = %1056
+  %1758 = landingpad { ptr, i32 }
+          cleanup
+  %1759 = extractvalue { ptr, i32 } %1758, 0
+  store ptr %1759, ptr %99, align 8
+  %1760 = extractvalue { ptr, i32 } %1758, 1
+  store i32 %1760, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #11
+  br label %2040
+
+1761:                                             ; preds = %1059
+  %1762 = landingpad { ptr, i32 }
+          cleanup
+  %1763 = extractvalue { ptr, i32 } %1762, 0
+  store ptr %1763, ptr %99, align 8
+  %1764 = extractvalue { ptr, i32 } %1762, 1
+  store i32 %1764, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1058) #23
+  br label %2040
+
+1765:                                             ; preds = %1065
+  %1766 = landingpad { ptr, i32 }
+          cleanup
+  %1767 = extractvalue { ptr, i32 } %1766, 0
+  store ptr %1767, ptr %99, align 8
+  %1768 = extractvalue { ptr, i32 } %1766, 1
+  store i32 %1768, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1064) #23
+  br label %2040
+
+1769:                                             ; preds = %1069
+  %1770 = landingpad { ptr, i32 }
+          cleanup
+  %1771 = extractvalue { ptr, i32 } %1770, 0
+  store ptr %1771, ptr %99, align 8
+  %1772 = extractvalue { ptr, i32 } %1770, 1
+  store i32 %1772, ptr %100, align 4
+  br label %1777
+
+1773:                                             ; preds = %1071
+  %1774 = landingpad { ptr, i32 }
+          cleanup
+  %1775 = extractvalue { ptr, i32 } %1774, 0
+  store ptr %1775, ptr %99, align 8
+  %1776 = extractvalue { ptr, i32 } %1774, 1
+  store i32 %1776, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %217) #11
+  br label %1777
+
+1777:                                             ; preds = %1773, %1769
+  %1778 = load i1, ptr %218, align 1
+  br i1 %1778, label %1779, label %1780
+
+1779:                                             ; preds = %1777
+  call void @_ZdlPv(ptr noundef %1068) #23
+  br label %1780
+
+1780:                                             ; preds = %1779, %1777
+  br label %2040
+
+1781:                                             ; preds = %1075
+  %1782 = landingpad { ptr, i32 }
+          cleanup
+  %1783 = extractvalue { ptr, i32 } %1782, 0
+  store ptr %1783, ptr %99, align 8
+  %1784 = extractvalue { ptr, i32 } %1782, 1
+  store i32 %1784, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1074) #23
+  br label %2040
+
+1785:                                             ; preds = %1081
+  %1786 = landingpad { ptr, i32 }
+          cleanup
+  %1787 = extractvalue { ptr, i32 } %1786, 0
+  store ptr %1787, ptr %99, align 8
+  %1788 = extractvalue { ptr, i32 } %1786, 1
+  store i32 %1788, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1080) #23
+  br label %2040
+
+1789:                                             ; preds = %1085
+  %1790 = landingpad { ptr, i32 }
+          cleanup
+  %1791 = extractvalue { ptr, i32 } %1790, 0
+  store ptr %1791, ptr %99, align 8
+  %1792 = extractvalue { ptr, i32 } %1790, 1
+  store i32 %1792, ptr %100, align 4
+  br label %1797
+
+1793:                                             ; preds = %1087
+  %1794 = landingpad { ptr, i32 }
+          cleanup
+  %1795 = extractvalue { ptr, i32 } %1794, 0
+  store ptr %1795, ptr %99, align 8
+  %1796 = extractvalue { ptr, i32 } %1794, 1
+  store i32 %1796, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %220) #11
+  br label %1797
+
+1797:                                             ; preds = %1793, %1789
+  %1798 = load i1, ptr %221, align 1
+  br i1 %1798, label %1799, label %1800
+
+1799:                                             ; preds = %1797
+  call void @_ZdlPv(ptr noundef %1084) #23
+  br label %1800
+
+1800:                                             ; preds = %1799, %1797
+  br label %2040
+
+1801:                                             ; preds = %1101
+  %1802 = landingpad { ptr, i32 }
+          cleanup
+  %1803 = extractvalue { ptr, i32 } %1802, 0
+  store ptr %1803, ptr %99, align 8
+  %1804 = extractvalue { ptr, i32 } %1802, 1
+  store i32 %1804, ptr %100, align 4
+  call void @_ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %222) #11
+  br label %2040
+
+1805:                                             ; preds = %1105
+  %1806 = landingpad { ptr, i32 }
+          cleanup
+  %1807 = extractvalue { ptr, i32 } %1806, 0
+  store ptr %1807, ptr %99, align 8
+  %1808 = extractvalue { ptr, i32 } %1806, 1
+  store i32 %1808, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %224) #11
+  br label %2040
+
+1809:                                             ; preds = %1141
+  %1810 = landingpad { ptr, i32 }
+          cleanup
+  %1811 = extractvalue { ptr, i32 } %1810, 0
+  store ptr %1811, ptr %99, align 8
+  %1812 = extractvalue { ptr, i32 } %1810, 1
+  store i32 %1812, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #11
+  br label %2040
+
+1813:                                             ; preds = %1144
+  %1814 = landingpad { ptr, i32 }
+          cleanup
+  %1815 = extractvalue { ptr, i32 } %1814, 0
+  store ptr %1815, ptr %99, align 8
+  %1816 = extractvalue { ptr, i32 } %1814, 1
+  store i32 %1816, ptr %100, align 4
+  br label %1821
+
+1817:                                             ; preds = %1146
+  %1818 = landingpad { ptr, i32 }
+          cleanup
+  %1819 = extractvalue { ptr, i32 } %1818, 0
+  store ptr %1819, ptr %99, align 8
+  %1820 = extractvalue { ptr, i32 } %1818, 1
+  store i32 %1820, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #11
+  br label %1821
+
+1821:                                             ; preds = %1817, %1813
+  %1822 = load i1, ptr %228, align 1
+  br i1 %1822, label %1823, label %1824
+
+1823:                                             ; preds = %1821
+  call void @_ZdlPv(ptr noundef %1143) #23
+  br label %1824
+
+1824:                                             ; preds = %1823, %1821
+  br label %2040
+
+1825:                                             ; preds = %1151
+  %1826 = landingpad { ptr, i32 }
+          cleanup
+  %1827 = extractvalue { ptr, i32 } %1826, 0
+  store ptr %1827, ptr %99, align 8
+  %1828 = extractvalue { ptr, i32 } %1826, 1
+  store i32 %1828, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %229) #11
+  br label %2040
+
+1829:                                             ; preds = %1167
+  %1830 = landingpad { ptr, i32 }
+          cleanup
+  %1831 = extractvalue { ptr, i32 } %1830, 0
+  store ptr %1831, ptr %99, align 8
+  %1832 = extractvalue { ptr, i32 } %1830, 1
+  store i32 %1832, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %230) #11
+  br label %2040
+
+1833:                                             ; preds = %1170
+  %1834 = landingpad { ptr, i32 }
+          cleanup
+  %1835 = extractvalue { ptr, i32 } %1834, 0
+  store ptr %1835, ptr %99, align 8
+  %1836 = extractvalue { ptr, i32 } %1834, 1
+  store i32 %1836, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1169) #23
+  br label %2040
+
+1837:                                             ; preds = %1176
+  %1838 = landingpad { ptr, i32 }
+          cleanup
+  %1839 = extractvalue { ptr, i32 } %1838, 0
+  store ptr %1839, ptr %99, align 8
+  %1840 = extractvalue { ptr, i32 } %1838, 1
+  store i32 %1840, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1175) #23
+  br label %2040
+
+1841:                                             ; preds = %1180
+  %1842 = landingpad { ptr, i32 }
+          cleanup
+  %1843 = extractvalue { ptr, i32 } %1842, 0
+  store ptr %1843, ptr %99, align 8
+  %1844 = extractvalue { ptr, i32 } %1842, 1
+  store i32 %1844, ptr %100, align 4
+  br label %1854
+
+1845:                                             ; preds = %1181
+  %1846 = landingpad { ptr, i32 }
+          cleanup
+  %1847 = extractvalue { ptr, i32 } %1846, 0
+  store ptr %1847, ptr %99, align 8
+  %1848 = extractvalue { ptr, i32 } %1846, 1
+  store i32 %1848, ptr %100, align 4
+  br label %1853
+
+1849:                                             ; preds = %1182
+  %1850 = landingpad { ptr, i32 }
+          cleanup
+  %1851 = extractvalue { ptr, i32 } %1850, 0
+  store ptr %1851, ptr %99, align 8
+  %1852 = extractvalue { ptr, i32 } %1850, 1
+  store i32 %1852, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %236) #11
+  br label %1853
+
+1853:                                             ; preds = %1849, %1845
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %235) #11
+  br label %1854
+
+1854:                                             ; preds = %1853, %1841
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %234) #11
+  br label %2040
+
+1855:                                             ; preds = %1194
+  %1856 = landingpad { ptr, i32 }
+          cleanup
+  %1857 = extractvalue { ptr, i32 } %1856, 0
+  store ptr %1857, ptr %99, align 8
+  %1858 = extractvalue { ptr, i32 } %1856, 1
+  store i32 %1858, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %237) #11
+  br label %2040
+
+1859:                                             ; preds = %1197
+  %1860 = landingpad { ptr, i32 }
+          cleanup
+  %1861 = extractvalue { ptr, i32 } %1860, 0
+  store ptr %1861, ptr %99, align 8
+  %1862 = extractvalue { ptr, i32 } %1860, 1
+  store i32 %1862, ptr %100, align 4
+  br label %1872
+
+1863:                                             ; preds = %1201
+  %1864 = landingpad { ptr, i32 }
+          cleanup
+  %1865 = extractvalue { ptr, i32 } %1864, 0
+  store ptr %1865, ptr %99, align 8
+  %1866 = extractvalue { ptr, i32 } %1864, 1
+  store i32 %1866, ptr %100, align 4
+  br label %1871
+
+1867:                                             ; preds = %1204, %1202
+  %1868 = landingpad { ptr, i32 }
+          cleanup
+  %1869 = extractvalue { ptr, i32 } %1868, 0
+  store ptr %1869, ptr %99, align 8
+  %1870 = extractvalue { ptr, i32 } %1868, 1
+  store i32 %1870, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %243) #11
+  br label %1871
+
+1871:                                             ; preds = %1867, %1863
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %241) #11
+  br label %1872
+
+1872:                                             ; preds = %1871, %1859
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %240) #11
+  br label %2040
+
+1873:                                             ; preds = %1207
+  %1874 = landingpad { ptr, i32 }
+          cleanup
+  %1875 = extractvalue { ptr, i32 } %1874, 0
+  store ptr %1875, ptr %99, align 8
+  %1876 = extractvalue { ptr, i32 } %1874, 1
+  store i32 %1876, ptr %100, align 4
+  br label %1886
+
+1877:                                             ; preds = %1211
+  %1878 = landingpad { ptr, i32 }
+          cleanup
+  %1879 = extractvalue { ptr, i32 } %1878, 0
+  store ptr %1879, ptr %99, align 8
+  %1880 = extractvalue { ptr, i32 } %1878, 1
+  store i32 %1880, ptr %100, align 4
+  br label %1885
+
+1881:                                             ; preds = %1214, %1212
+  %1882 = landingpad { ptr, i32 }
+          cleanup
+  %1883 = extractvalue { ptr, i32 } %1882, 0
+  store ptr %1883, ptr %99, align 8
+  %1884 = extractvalue { ptr, i32 } %1882, 1
+  store i32 %1884, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %248) #11
+  br label %1885
+
+1885:                                             ; preds = %1881, %1877
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %246) #11
+  br label %1886
+
+1886:                                             ; preds = %1885, %1873
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %245) #11
+  br label %2040
+
+1887:                                             ; preds = %1217
+  %1888 = landingpad { ptr, i32 }
+          cleanup
+  %1889 = extractvalue { ptr, i32 } %1888, 0
+  store ptr %1889, ptr %99, align 8
+  %1890 = extractvalue { ptr, i32 } %1888, 1
+  store i32 %1890, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1216) #23
+  br label %2040
+
+1891:                                             ; preds = %1223
+  %1892 = landingpad { ptr, i32 }
+          cleanup
+  %1893 = extractvalue { ptr, i32 } %1892, 0
+  store ptr %1893, ptr %99, align 8
+  %1894 = extractvalue { ptr, i32 } %1892, 1
+  store i32 %1894, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %249) #11
+  br label %2040
+
+1895:                                             ; preds = %1227
+  %1896 = landingpad { ptr, i32 }
+          cleanup
+  %1897 = extractvalue { ptr, i32 } %1896, 0
+  store ptr %1897, ptr %99, align 8
+  %1898 = extractvalue { ptr, i32 } %1896, 1
+  store i32 %1898, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %250) #11
+  br label %2040
+
+1899:                                             ; preds = %1242
+  %1900 = landingpad { ptr, i32 }
+          cleanup
+  %1901 = extractvalue { ptr, i32 } %1900, 0
+  store ptr %1901, ptr %99, align 8
+  %1902 = extractvalue { ptr, i32 } %1900, 1
+  store i32 %1902, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1241) #23
+  br label %2040
+
+1903:                                             ; preds = %1248
+  %1904 = landingpad { ptr, i32 }
+          cleanup
+  %1905 = extractvalue { ptr, i32 } %1904, 0
+  store ptr %1905, ptr %99, align 8
+  %1906 = extractvalue { ptr, i32 } %1904, 1
+  store i32 %1906, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1247) #23
+  br label %2040
+
+1907:                                             ; preds = %1252
+  %1908 = landingpad { ptr, i32 }
+          cleanup
+  %1909 = extractvalue { ptr, i32 } %1908, 0
+  store ptr %1909, ptr %99, align 8
+  %1910 = extractvalue { ptr, i32 } %1908, 1
+  store i32 %1910, ptr %100, align 4
+  br label %1920
+
+1911:                                             ; preds = %1281, %1256
+  %1912 = landingpad { ptr, i32 }
+          cleanup
+  %1913 = extractvalue { ptr, i32 } %1912, 0
+  store ptr %1913, ptr %99, align 8
+  %1914 = extractvalue { ptr, i32 } %1912, 1
+  store i32 %1914, ptr %100, align 4
+  br label %1919
+
+1915:                                             ; preds = %1289
+  %1916 = landingpad { ptr, i32 }
+          cleanup
+  %1917 = extractvalue { ptr, i32 } %1916, 0
+  store ptr %1917, ptr %99, align 8
+  %1918 = extractvalue { ptr, i32 } %1916, 1
+  store i32 %1918, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %256) #11
+  br label %1919
+
+1919:                                             ; preds = %1915, %1911
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %254) #11
+  br label %1920
+
+1920:                                             ; preds = %1919, %1907
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #11
+  br label %2040
+
+1921:                                             ; preds = %1293
+  %1922 = landingpad { ptr, i32 }
+          cleanup
+  %1923 = extractvalue { ptr, i32 } %1922, 0
+  store ptr %1923, ptr %99, align 8
+  %1924 = extractvalue { ptr, i32 } %1922, 1
+  store i32 %1924, ptr %100, align 4
+  br label %1934
+
+1925:                                             ; preds = %1322, %1297
+  %1926 = landingpad { ptr, i32 }
+          cleanup
+  %1927 = extractvalue { ptr, i32 } %1926, 0
+  store ptr %1927, ptr %99, align 8
+  %1928 = extractvalue { ptr, i32 } %1926, 1
+  store i32 %1928, ptr %100, align 4
+  br label %1933
+
+1929:                                             ; preds = %1332, %1330
+  %1930 = landingpad { ptr, i32 }
+          cleanup
+  %1931 = extractvalue { ptr, i32 } %1930, 0
+  store ptr %1931, ptr %99, align 8
+  %1932 = extractvalue { ptr, i32 } %1930, 1
+  store i32 %1932, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %262) #11
+  br label %1933
+
+1933:                                             ; preds = %1929, %1925
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %260) #11
+  br label %1934
+
+1934:                                             ; preds = %1933, %1921
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %259) #11
+  br label %2040
+
+1935:                                             ; preds = %1335
+  %1936 = landingpad { ptr, i32 }
+          cleanup
+  %1937 = extractvalue { ptr, i32 } %1936, 0
+  store ptr %1937, ptr %99, align 8
+  %1938 = extractvalue { ptr, i32 } %1936, 1
+  store i32 %1938, ptr %100, align 4
+  br label %1948
+
+1939:                                             ; preds = %1364, %1339
+  %1940 = landingpad { ptr, i32 }
+          cleanup
+  %1941 = extractvalue { ptr, i32 } %1940, 0
+  store ptr %1941, ptr %99, align 8
+  %1942 = extractvalue { ptr, i32 } %1940, 1
+  store i32 %1942, ptr %100, align 4
+  br label %1947
+
+1943:                                             ; preds = %1374, %1372
+  %1944 = landingpad { ptr, i32 }
+          cleanup
+  %1945 = extractvalue { ptr, i32 } %1944, 0
+  store ptr %1945, ptr %99, align 8
+  %1946 = extractvalue { ptr, i32 } %1944, 1
+  store i32 %1946, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %268) #11
+  br label %1947
+
+1947:                                             ; preds = %1943, %1939
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %266) #11
+  br label %1948
+
+1948:                                             ; preds = %1947, %1935
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %265) #11
+  br label %2040
+
+1949:                                             ; preds = %1377
+  %1950 = landingpad { ptr, i32 }
+          cleanup
+  %1951 = extractvalue { ptr, i32 } %1950, 0
+  store ptr %1951, ptr %99, align 8
+  %1952 = extractvalue { ptr, i32 } %1950, 1
+  store i32 %1952, ptr %100, align 4
+  br label %1962
+
+1953:                                             ; preds = %1403, %1381
+  %1954 = landingpad { ptr, i32 }
+          cleanup
+  %1955 = extractvalue { ptr, i32 } %1954, 0
+  store ptr %1955, ptr %99, align 8
+  %1956 = extractvalue { ptr, i32 } %1954, 1
+  store i32 %1956, ptr %100, align 4
+  br label %1961
+
+1957:                                             ; preds = %1413, %1411
+  %1958 = landingpad { ptr, i32 }
+          cleanup
+  %1959 = extractvalue { ptr, i32 } %1958, 0
+  store ptr %1959, ptr %99, align 8
+  %1960 = extractvalue { ptr, i32 } %1958, 1
+  store i32 %1960, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %274) #11
+  br label %1961
+
+1961:                                             ; preds = %1957, %1953
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %272) #11
+  br label %1962
+
+1962:                                             ; preds = %1961, %1949
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %271) #11
+  br label %2040
+
+1963:                                             ; preds = %1415
+  %1964 = landingpad { ptr, i32 }
+          cleanup
+  %1965 = extractvalue { ptr, i32 } %1964, 0
+  store ptr %1965, ptr %99, align 8
+  %1966 = extractvalue { ptr, i32 } %1964, 1
+  store i32 %1966, ptr %100, align 4
+  br label %1971
+
+1967:                                             ; preds = %1416
+  %1968 = landingpad { ptr, i32 }
+          cleanup
+  %1969 = extractvalue { ptr, i32 } %1968, 0
+  store ptr %1969, ptr %99, align 8
+  %1970 = extractvalue { ptr, i32 } %1968, 1
+  store i32 %1970, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %278) #11
+  br label %1971
+
+1971:                                             ; preds = %1967, %1963
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %277) #11
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %276) #11
+  br label %2040
+
+1972:                                             ; preds = %1428
+  %1973 = landingpad { ptr, i32 }
+          cleanup
+  %1974 = extractvalue { ptr, i32 } %1973, 0
+  store ptr %1974, ptr %99, align 8
+  %1975 = extractvalue { ptr, i32 } %1973, 1
+  store i32 %1975, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvbEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %279) #11
+  br label %2040
+
+1976:                                             ; preds = %1431
+  %1977 = landingpad { ptr, i32 }
+          cleanup
+  %1978 = extractvalue { ptr, i32 } %1977, 0
+  store ptr %1978, ptr %99, align 8
+  %1979 = extractvalue { ptr, i32 } %1977, 1
+  store i32 %1979, ptr %100, align 4
+  br label %1989
+
+1980:                                             ; preds = %1457, %1435
+  %1981 = landingpad { ptr, i32 }
+          cleanup
+  %1982 = extractvalue { ptr, i32 } %1981, 0
+  store ptr %1982, ptr %99, align 8
+  %1983 = extractvalue { ptr, i32 } %1981, 1
+  store i32 %1983, ptr %100, align 4
+  br label %1988
+
+1984:                                             ; preds = %1467, %1465
+  %1985 = landingpad { ptr, i32 }
+          cleanup
+  %1986 = extractvalue { ptr, i32 } %1985, 0
+  store ptr %1986, ptr %99, align 8
+  %1987 = extractvalue { ptr, i32 } %1985, 1
+  store i32 %1987, ptr %100, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #11
+  br label %1988
+
+1988:                                             ; preds = %1984, %1980
+  call void @_ZNSt3__18functionIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %283) #11
+  br label %1989
+
+1989:                                             ; preds = %1988, %1976
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %282) #11
+  br label %2040
+
+1990:                                             ; preds = %1470
+  %1991 = landingpad { ptr, i32 }
+          cleanup
+  %1992 = extractvalue { ptr, i32 } %1991, 0
+  store ptr %1992, ptr %99, align 8
+  %1993 = extractvalue { ptr, i32 } %1991, 1
+  store i32 %1993, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1469) #23
+  br label %2040
+
+1994:                                             ; preds = %1477
+  %1995 = landingpad { ptr, i32 }
+          cleanup
+  %1996 = extractvalue { ptr, i32 } %1995, 0
+  store ptr %1996, ptr %99, align 8
+  %1997 = extractvalue { ptr, i32 } %1995, 1
+  store i32 %1997, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1476) #23
+  br label %2040
+
+1998:                                             ; preds = %1490
+  %1999 = landingpad { ptr, i32 }
+          cleanup
+  %2000 = extractvalue { ptr, i32 } %1999, 0
+  store ptr %2000, ptr %99, align 8
+  %2001 = extractvalue { ptr, i32 } %1999, 1
+  store i32 %2001, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1489) #23
+  br label %2040
+
+2002:                                             ; preds = %1498
+  %2003 = landingpad { ptr, i32 }
+          cleanup
+  %2004 = extractvalue { ptr, i32 } %2003, 0
+  store ptr %2004, ptr %99, align 8
+  %2005 = extractvalue { ptr, i32 } %2003, 1
+  store i32 %2005, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1497) #23
+  br label %2040
+
+2006:                                             ; preds = %1502
+  %2007 = landingpad { ptr, i32 }
+          cleanup
+  %2008 = extractvalue { ptr, i32 } %2007, 0
+  store ptr %2008, ptr %99, align 8
+  %2009 = extractvalue { ptr, i32 } %2007, 1
+  store i32 %2009, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1501) #23
+  br label %2040
+
+2010:                                             ; preds = %1510
+  %2011 = landingpad { ptr, i32 }
+          cleanup
+  %2012 = extractvalue { ptr, i32 } %2011, 0
+  store ptr %2012, ptr %99, align 8
+  %2013 = extractvalue { ptr, i32 } %2011, 1
+  store i32 %2013, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1509) #23
+  br label %2040
+
+2014:                                             ; preds = %1514
+  %2015 = landingpad { ptr, i32 }
+          cleanup
+  %2016 = extractvalue { ptr, i32 } %2015, 0
+  store ptr %2016, ptr %99, align 8
+  %2017 = extractvalue { ptr, i32 } %2015, 1
+  store i32 %2017, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1513) #23
+  br label %2040
+
+2018:                                             ; preds = %1520
+  %2019 = landingpad { ptr, i32 }
+          cleanup
+  %2020 = extractvalue { ptr, i32 } %2019, 0
+  store ptr %2020, ptr %99, align 8
+  %2021 = extractvalue { ptr, i32 } %2019, 1
+  store i32 %2021, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1519) #23
+  br label %2040
+
+2022:                                             ; preds = %1528
+  %2023 = landingpad { ptr, i32 }
+          cleanup
+  %2024 = extractvalue { ptr, i32 } %2023, 0
+  store ptr %2024, ptr %99, align 8
+  %2025 = extractvalue { ptr, i32 } %2023, 1
+  store i32 %2025, ptr %100, align 4
+  call void @_ZdlPv(ptr noundef %1527) #23
+  br label %2040
+
+2026:                                             ; preds = %1543
+  %2027 = landingpad { ptr, i32 }
+          cleanup
+  %2028 = extractvalue { ptr, i32 } %2027, 0
+  store ptr %2028, ptr %99, align 8
+  %2029 = extractvalue { ptr, i32 } %2027, 1
+  store i32 %2029, ptr %100, align 4
+  call void @_ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %287) #11
+  br label %2040
+
+2030:                                             ; preds = %1544
+  %2031 = landingpad { ptr, i32 }
+          cleanup
+  %2032 = extractvalue { ptr, i32 } %2031, 0
+  store ptr %2032, ptr %99, align 8
+  %2033 = extractvalue { ptr, i32 } %2031, 1
+  store i32 %2033, ptr %100, align 4
+  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %289) #11
+  br label %2040
+
+2034:                                             ; preds = %1545
+  %2035 = landingpad { ptr, i32 }
+          cleanup
+  %2036 = extractvalue { ptr, i32 } %2035, 0
+  store ptr %2036, ptr %99, align 8
+  %2037 = extractvalue { ptr, i32 } %2035, 1
+  store i32 %2037, ptr %100, align 4
+  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %290) #11
+  br label %2040
+
+2038:                                             ; preds = %1551, %1546
+  invoke void @_ZN3tev11ImageViewer12updateLayoutEv(ptr noundef nonnull align 16 dereferenceable(972) %295)
+          to label %2039 unwind label %348
+
+2039:                                             ; preds = %2038
+  ret void
+
+2040:                                             ; preds = %2034, %2030, %2026, %2022, %2018, %2014, %2010, %2006, %2002, %1998, %1994, %1990, %1989, %1972, %1971, %1962, %1948, %1934, %1920, %1903, %1899, %1895, %1891, %1887, %1886, %1872, %1855, %1854, %1837, %1833, %1829, %1825, %1824, %1809, %1805, %1801, %1800, %1785, %1781, %1780, %1765, %1761, %1757, %1756, %1736, %1732, %1728, %1724, %1723, %1714, %1705, %1696, %1687, %1675, %1671, %1667, %1666, %1657, %1648, %1639, %1627, %1623, %1619, %1615, %1611, %1610, %1590, %1589, %1569, %1565, %1564, %852, %848, %847, %835, %821, %804, %800, %796, %792, %788, %787, %767, %763, %762, %742, %738, %734, %730, %726, %725, %705, %701, %697, %696, %676, %672, %668, %664, %660, %656, %652, %651, %636, %632, %628, %624, %620, %616, %352, %348
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %318) #11
   br label %2041
 
-2041:                                             ; preds = %2040, %339
-  call void @_ZNSt3__13setINS_10shared_ptrIN3tev5ImageEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %310) #11
-  call void @_ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %309) #11
-  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %308) #11
-  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %307) #11
-  call void @_ZNSt3__110shared_ptrIN3tev22BackgroundImagesLoaderEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %305) #11
-  call void @_ZN3tev11SharedQueueINSt3__18functionIFvvEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %301) #11
-  call void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 16 dereferenceable(384) %295) #11
+2041:                                             ; preds = %2040, %344
+  call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %315) #11
+  call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %314) #11
   br label %2042
 
-2042:                                             ; preds = %2041, %335
-  %2043 = load ptr, ptr %99, align 8
-  %2044 = load i32, ptr %100, align 4
-  %2045 = insertvalue { ptr, i32 } poison, ptr %2043, 0
-  %2046 = insertvalue { ptr, i32 } %2045, i32 %2044, 1
-  resume { ptr, i32 } %2046
+2042:                                             ; preds = %2041, %340
+  call void @_ZNSt3__13setINS_10shared_ptrIN3tev5ImageEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %311) #11
+  call void @_ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %310) #11
+  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %309) #11
+  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %308) #11
+  call void @_ZNSt3__110shared_ptrIN3tev22BackgroundImagesLoaderEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %306) #11
+  call void @_ZN3tev11SharedQueueINSt3__18functionIFvvEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %302) #11
+  call void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 16 dereferenceable(384) %295) #11
+  br label %2043
+
+2043:                                             ; preds = %2042, %336
+  %2044 = load ptr, ptr %99, align 8
+  %2045 = load i32, ptr %100, align 4
+  %2046 = insertvalue { ptr, i32 } poison, ptr %2044, 0
+  %2047 = insertvalue { ptr, i32 } %2046, i32 %2045, 1
+  resume { ptr, i32 } %2047
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13266,78 +13267,79 @@ define linkonce_odr dso_local void @_ZN7nanogui10GridLayoutC2ENS_11OrientationEi
   store i32 %5, ptr %12, align 4
   %16 = load ptr, ptr %7, align 8
   call void @_ZN7nanogui6LayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %16)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui10GridLayoutE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 4
-  %19 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 3
-  %20 = getelementptr inbounds [2 x %"class.std::__1::vector.98"], ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %"class.std::__1::vector.98", ptr %20, i64 2
-  br label %22
+  %17 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7nanogui10GridLayoutE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 1
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 4
+  %20 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 3
+  %21 = getelementptr inbounds [2 x %"class.std::__1::vector.98"], ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds %"class.std::__1::vector.98", ptr %21, i64 2
+  br label %23
 
-22:                                               ; preds = %22, %6
-  %23 = phi ptr [ %20, %6 ], [ %24, %22 ]
-  call void @_ZNSt3__16vectorIN7nanogui9AlignmentENS_9allocatorIS2_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #11
-  %24 = getelementptr inbounds %"class.std::__1::vector.98", ptr %23, i64 1
-  %25 = icmp eq ptr %24, %21
-  br i1 %25, label %26, label %22
+23:                                               ; preds = %23, %6
+  %24 = phi ptr [ %21, %6 ], [ %25, %23 ]
+  call void @_ZNSt3__16vectorIN7nanogui9AlignmentENS_9allocatorIS2_EEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
+  %25 = getelementptr inbounds %"class.std::__1::vector.98", ptr %24, i64 1
+  %26 = icmp eq ptr %25, %22
+  br i1 %26, label %27, label %23
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 4
-  %28 = load i32, ptr %9, align 4
-  store i32 %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 5
-  invoke void @_ZN7nanogui5ArrayIiLm2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %29)
-          to label %30 unwind label %41
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 4
+  %29 = load i32, ptr %9, align 4
+  store i32 %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 5
+  invoke void @_ZN7nanogui5ArrayIiLm2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %30)
+          to label %31 unwind label %42
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 6
-  %32 = load i32, ptr %11, align 4
-  store i32 %32, ptr %31, align 4
-  %33 = load i8, ptr %10, align 1
-  %34 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 2
-  %35 = getelementptr inbounds [2 x i8], ptr %34, i64 0, i64 1
-  store i8 %33, ptr %35, align 1
-  %36 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 2
-  %37 = getelementptr inbounds [2 x i8], ptr %36, i64 0, i64 0
-  store i8 %33, ptr %37, align 8
-  %38 = load i32, ptr %12, align 4
-  invoke void @_ZN7nanogui5ArrayIiLm2EEC2Ei(ptr noundef nonnull align 4 dereferenceable(8) %15, i32 noundef %38)
-          to label %39 unwind label %41
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 6
+  %33 = load i32, ptr %11, align 4
+  store i32 %33, ptr %32, align 4
+  %34 = load i8, ptr %10, align 1
+  %35 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 2
+  %36 = getelementptr inbounds [2 x i8], ptr %35, i64 0, i64 1
+  store i8 %34, ptr %36, align 1
+  %37 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 2
+  %38 = getelementptr inbounds [2 x i8], ptr %37, i64 0, i64 0
+  store i8 %34, ptr %38, align 8
+  %39 = load i32, ptr %12, align 4
+  invoke void @_ZN7nanogui5ArrayIiLm2EEC2Ei(ptr noundef nonnull align 4 dereferenceable(8) %15, i32 noundef %39)
+          to label %40 unwind label %42
 
-39:                                               ; preds = %30
-  %40 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %15, i64 8, i1 false)
+40:                                               ; preds = %31
+  %41 = getelementptr inbounds %"class.nanogui::GridLayout", ptr %16, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 4 %15, i64 8, i1 false)
   ret void
 
-41:                                               ; preds = %30, %26
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %31, %27
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %13, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %14, align 4
-  %45 = getelementptr inbounds [2 x %"class.std::__1::vector.98"], ptr %19, i32 0, i32 0
-  %46 = getelementptr inbounds %"class.std::__1::vector.98", ptr %45, i64 2
-  br label %47
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %13, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %14, align 4
+  %46 = getelementptr inbounds [2 x %"class.std::__1::vector.98"], ptr %20, i32 0, i32 0
+  %47 = getelementptr inbounds %"class.std::__1::vector.98", ptr %46, i64 2
+  br label %48
 
-47:                                               ; preds = %47, %41
-  %48 = phi ptr [ %46, %41 ], [ %49, %47 ]
-  %49 = getelementptr inbounds %"class.std::__1::vector.98", ptr %48, i64 -1
-  call void @_ZNSt3__16vectorIN7nanogui9AlignmentENS_9allocatorIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #11
-  %50 = icmp eq ptr %49, %45
-  br i1 %50, label %51, label %47
+48:                                               ; preds = %48, %42
+  %49 = phi ptr [ %47, %42 ], [ %50, %48 ]
+  %50 = getelementptr inbounds %"class.std::__1::vector.98", ptr %49, i64 -1
+  call void @_ZNSt3__16vectorIN7nanogui9AlignmentENS_9allocatorIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #11
+  %51 = icmp eq ptr %50, %46
+  br i1 %51, label %52, label %48
 
-51:                                               ; preds = %47
+52:                                               ; preds = %48
   call void @_ZN7nanogui6LayoutD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %16) #11
-  br label %52
+  br label %53
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr %13, align 8
-  %54 = load i32, ptr %14, align 4
-  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
-  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
-  resume { ptr, i32 } %56
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %13, align 8
+  %55 = load i32, ptr %14, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14461,96 +14463,97 @@ define linkonce_odr dso_local void @_ZN7nanogui6IntBoxIiEC2EPNS_6WidgetEi(ptr no
   %13 = load ptr, ptr %5, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef @.str.186)
   invoke void @_ZN7nanogui7TextBoxC2EPNS_6WidgetERKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %14 unwind label %25
+          to label %14 unwind label %26
 
 14:                                               ; preds = %3
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6IntBoxIiEE, i32 0, i32 0, i32 2), ptr %12, align 16
+  %15 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui6IntBoxIiEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef @.str.187)
-          to label %15 unwind label %29
+          to label %16 unwind label %30
 
-15:                                               ; preds = %14
+16:                                               ; preds = %14
   invoke void @_ZN7nanogui7TextBox17set_default_valueERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %12, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %16 unwind label %33
-
-16:                                               ; preds = %15
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.188)
-          to label %17 unwind label %29
+          to label %17 unwind label %34
 
 17:                                               ; preds = %16
-  invoke void @_ZN7nanogui7TextBox10set_formatERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %12, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %18 unwind label %37
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.188)
+          to label %18 unwind label %30
 
 18:                                               ; preds = %17
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
-  invoke void @_ZN7nanogui6IntBoxIiE19set_value_incrementEi(ptr noundef nonnull align 16 dereferenceable(448) %12, i32 noundef 1)
-          to label %19 unwind label %29
+  invoke void @_ZN7nanogui7TextBox10set_formatERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(432) %12, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %19 unwind label %38
 
 19:                                               ; preds = %18
-  %20 = call noundef i32 @_ZNSt3__114numeric_limitsIiE6lowestB8ne190000Ev() #11
-  %21 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #11
-  invoke void @_ZN7nanogui6IntBoxIiE18set_min_max_valuesEii(ptr noundef nonnull align 16 dereferenceable(448) %12, i32 noundef %20, i32 noundef %21)
-          to label %22 unwind label %29
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
+  invoke void @_ZN7nanogui6IntBoxIiE19set_value_incrementEi(ptr noundef nonnull align 16 dereferenceable(448) %12, i32 noundef 1)
+          to label %20 unwind label %30
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %6, align 4
-  invoke void @_ZN7nanogui6IntBoxIiE9set_valueEi(ptr noundef nonnull align 16 dereferenceable(448) %12, i32 noundef %23)
-          to label %24 unwind label %29
+20:                                               ; preds = %19
+  %21 = call noundef i32 @_ZNSt3__114numeric_limitsIiE6lowestB8ne190000Ev() #11
+  %22 = call noundef i32 @_ZNSt3__114numeric_limitsIiE3maxB8ne190000Ev() #11
+  invoke void @_ZN7nanogui6IntBoxIiE18set_min_max_valuesEii(ptr noundef nonnull align 16 dereferenceable(448) %12, i32 noundef %21, i32 noundef %22)
+          to label %23 unwind label %30
 
-24:                                               ; preds = %22
+23:                                               ; preds = %20
+  %24 = load i32, ptr %6, align 4
+  invoke void @_ZN7nanogui6IntBoxIiE9set_valueEi(ptr noundef nonnull align 16 dereferenceable(448) %12, i32 noundef %24)
+          to label %25 unwind label %30
+
+25:                                               ; preds = %23
   call void @_ZN7nanogui7TextBox13set_spinnableEb(ptr noundef nonnull align 16 dereferenceable(432) %12, i1 noundef zeroext false)
   ret void
 
-25:                                               ; preds = %3
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %3
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %8, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %9, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %8, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %9, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  br label %43
+
+30:                                               ; preds = %23, %20, %19, %17, %14
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %8, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %9, align 4
   br label %42
 
-29:                                               ; preds = %22, %19, %18, %16, %14
-  %30 = landingpad { ptr, i32 }
+34:                                               ; preds = %16
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %8, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %9, align 4
-  br label %41
-
-33:                                               ; preds = %15
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %8, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %9, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %8, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %9, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %41
-
-37:                                               ; preds = %17
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %8, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %9, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
-  br label %41
-
-41:                                               ; preds = %37, %33, %29
-  call void @_ZN7nanogui7TextBoxD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %12) #11
   br label %42
 
-42:                                               ; preds = %41, %25
-  %43 = load ptr, ptr %8, align 8
-  %44 = load i32, ptr %9, align 4
-  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
-  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
-  resume { ptr, i32 } %46
+38:                                               ; preds = %18
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %8, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %9, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
+  br label %42
+
+42:                                               ; preds = %38, %34, %30
+  call void @_ZN7nanogui7TextBoxD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %12) #11
+  br label %43
+
+43:                                               ; preds = %42, %26
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22042,7 +22045,7 @@ define dso_local void @_ZN3tev11ImageViewer15saveImageDialogEv(ptr noundef nonnu
 
 114:                                              ; preds = %110
   %115 = load i32, ptr %24, align 4
-  %116 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #11
+  %116 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #11
   %117 = icmp eq i32 %115, %116
   br i1 %117, label %118, label %207
 
@@ -22736,58 +22739,66 @@ define linkonce_odr hidden void @_ZNSt3__118basic_stringstreamIcNS_11char_traits
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 128
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 2, i32 3), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::__1::basic_stringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1), ptr noundef %9)
-          to label %10 unwind label %15
+  %7 = getelementptr inbounds { [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 128
+  %9 = getelementptr inbounds { [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 2, i32 3
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds { [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::__1::basic_stringstream", ptr %5, i32 0, i32 1
+  %13 = getelementptr inbounds [10 x ptr], ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  invoke void @_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %13, ptr noundef %12)
+          to label %14 unwind label %22
 
-10:                                               ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 2, i32 3), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::__1::basic_stringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %13, i32 noundef 24)
-          to label %14 unwind label %19
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds { [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %15, ptr %5, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 128
+  %17 = getelementptr inbounds { [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 2, i32 3
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds { [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.std::__1::basic_stringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %20, i32 noundef 24)
+          to label %21 unwind label %26
 
-14:                                               ; preds = %10
+21:                                               ; preds = %14
   ret void
 
-15:                                               ; preds = %1
-  %16 = landingpad { ptr, i32 }
+22:                                               ; preds = %1
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  br label %23
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  br label %31
 
-19:                                               ; preds = %10
-  %20 = landingpad { ptr, i32 }
+26:                                               ; preds = %14
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
-  call void @_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1)) #11
-  br label %23
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %3, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %4, align 4
+  %30 = getelementptr inbounds [10 x ptr], ptr @_ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  call void @_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %30) #11
+  br label %31
 
-23:                                               ; preds = %19, %15
-  %24 = getelementptr inbounds i8, ptr %5, i64 128
-  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %24) #11
-  br label %25
+31:                                               ; preds = %26, %22
+  %32 = getelementptr inbounds i8, ptr %5, i64 128
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %32) #11
+  br label %33
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr %3, align 8
-  %27 = load i32, ptr %4, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %3, align 8
+  %35 = load i32, ptr %4, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28547,7 +28558,8 @@ define linkonce_odr hidden void @_ZNSt16invalid_argumentC2B8ne190000EPKc(ptr nou
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -31176,13 +31188,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__14__fs10filesystem4path5
 
 declare void @_ZNK3tev11ImageCanvas9saveImageERKNSt3__14__fs10filesystem4pathE(ptr noundef nonnull align 8 dereferenceable(376), ptr noundef nonnull align 8 dereferenceable(24)) #6
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
-
 declare void @_ZN7nanogui13MessageDialogC1EPNS_6WidgetENS0_4TypeERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEESC_SC_SC_b(ptr noundef nonnull align 16 dereferenceable(232), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #12 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #11
   call void @_ZSt9terminatev() #25
   unreachable
@@ -32275,7 +32284,7 @@ define linkonce_odr dso_local noundef float @_ZN3tev6toSRGBEff(float noundef %0,
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #14
+declare float @llvm.fmuladd.f32(float, float, float) #13
 
 declare void @_ZN7nanogui6Screen11set_captionERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(384), ptr noundef nonnull align 8 dereferenceable(24)) #6
 
@@ -32600,25 +32609,26 @@ define linkonce_odr dso_local void @_ZN3tev11ImageViewerD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3tev11ImageViewerE, i32 0, i32 0, i32 2), ptr %3, align 16
-  %4 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 40
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %5 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 31
-  call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %6 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 30
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN3tev11ImageViewerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 16
+  %5 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 40
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 31
   call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  %7 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 25
-  call void @_ZNSt3__13setINS_10shared_ptrIN3tev5ImageEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %8 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 23
-  call void @_ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
-  %9 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 22
-  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
-  %10 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 21
+  %7 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 30
+  call void @_ZNSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  %8 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 25
+  call void @_ZNSt3__13setINS_10shared_ptrIN3tev5ImageEEENS_4lessIS4_EENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  %9 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 23
+  call void @_ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %10 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 22
   call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #11
-  %11 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 20
-  call void @_ZNSt3__110shared_ptrIN3tev22BackgroundImagesLoaderEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #11
-  %12 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 1
-  call void @_ZN3tev11SharedQueueINSt3__18functionIFvvEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #11
+  %11 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 21
+  call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #11
+  %12 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 20
+  call void @_ZNSt3__110shared_ptrIN3tev22BackgroundImagesLoaderEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #11
+  %13 = getelementptr inbounds %"class.tev::ImageViewer", ptr %3, i32 0, i32 1
+  call void @_ZN3tev11SharedQueueINSt3__18functionIFvvEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #11
   call void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 16 dereferenceable(384) %3) #11
   ret void
 }
@@ -32975,7 +32985,7 @@ define linkonce_odr hidden void @_ZNSt3__116__non_trivial_ifILb1ENS_9allocatorIN
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt3__117__compressed_pairIPNS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEEC2B8ne190000IDnNS_18__default_init_tagEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 {
@@ -33597,21 +33607,22 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutputC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4tlog7IOutputC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4tlog13ConsoleOutputE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = call noundef zeroext i1 @_ZN4tlog13ConsoleOutput26enableAnsiControlSequencesEv()
-  %5 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
-  %6 = zext i1 %4 to i8
-  store i8 %6, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
-  %8 = load i8, ptr %7, align 8
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4tlog13ConsoleOutputE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = call noundef zeroext i1 @_ZN4tlog13ConsoleOutput26enableAnsiControlSequencesEv()
+  %6 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
+  %7 = zext i1 %5 to i8
+  store i8 %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
+  %9 = load i8, ptr %8, align 8
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %1
-  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZNSt3__14coutE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4tlog4ansiL5RESETE)
-  br label %12
+11:                                               ; preds = %1
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZNSt3__14coutE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4tlog4ansiL5RESETE)
+  br label %13
 
-12:                                               ; preds = %10, %1
+13:                                               ; preds = %11, %1
   ret void
 }
 
@@ -33706,7 +33717,8 @@ define linkonce_odr dso_local void @_ZN4tlog7IOutputC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4tlog7IOutputE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4tlog7IOutputE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -34228,27 +34240,28 @@ define linkonce_odr dso_local void @_ZN4tlog13ConsoleOutputD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4tlog13ConsoleOutputE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %10
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4tlog13ConsoleOutputE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.tlog::ConsoleOutput", ptr %3, i32 0, i32 1
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %1
-  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZNSt3__14coutE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4tlog4ansiL5RESETE)
-          to label %9 unwind label %11
+8:                                                ; preds = %1
+  %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZNSt3__14coutE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4tlog4ansiL5RESETE)
+          to label %10 unwind label %12
 
-9:                                                ; preds = %7
-  br label %10
+10:                                               ; preds = %8
+  br label %11
 
-10:                                               ; preds = %9, %1
+11:                                               ; preds = %10, %1
   ret void
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %8
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #25
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #25
   unreachable
 }
 
@@ -35018,7 +35031,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.130) #26
@@ -35281,7 +35294,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt3__123__libcpp_numeric_limitsImLb1E
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef %0) #16 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef %0) #15 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -35322,7 +35335,8 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -35363,7 +35377,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorIcE8allocateB8ne19000
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #16 comdat {
+define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #15 comdat {
   %1 = call ptr @__cxa_allocate_exception(i64 8) #11
   call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   call void @__cxa_throw(ptr %1, ptr @_ZTISt20bad_array_new_length, ptr @_ZNSt20bad_array_new_lengthD1Ev) #26
@@ -35443,7 +35457,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__121__libcpp_operator_newB8ne1900
 declare noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef, i64 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E6secondB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
@@ -36846,7 +36860,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.round.f64(double) #14
+declare double @llvm.round.f64(double) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4tlog11padFromLeftENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEmc(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef %1, i64 noundef %2, i8 noundef signext %3) #4 comdat {
@@ -39111,34 +39125,35 @@ define linkonce_odr hidden void @_ZNSt3__120__shared_ptr_pointerIPN4tlog13Consol
   store ptr %1, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt3__119__shared_weak_countC2B8ne190000El(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 0) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVNSt3__120__shared_ptr_pointerIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %10, i32 0, i32 1
   invoke void @_ZNSt3__117__compressed_pairIPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEC2B8ne190000IRS3_S7_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %12 unwind label %14
+          to label %13 unwind label %15
 
-12:                                               ; preds = %2
-  invoke void @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEEC2B8ne190000IS8_SA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %13 unwind label %14
+13:                                               ; preds = %2
+  invoke void @_ZNSt3__117__compressed_pairINS0_IPN4tlog13ConsoleOutputENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEENS_9allocatorIS2_EEEC2B8ne190000IS8_SA_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %14 unwind label %15
 
-13:                                               ; preds = %12
+14:                                               ; preds = %13
   ret void
 
-14:                                               ; preds = %12, %2
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %13, %2
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %8, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %9, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %8, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %9, align 4
   call void @_ZNSt3__119__shared_weak_countD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %18
+  br label %19
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr %9, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39226,10 +39241,11 @@ define linkonce_odr hidden void @_ZNSt3__119__shared_weak_countC2B8ne190000El(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZNSt3__114__shared_countC2B8ne190000El(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__119__shared_weak_countE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.std::__1::__shared_weak_count", ptr %5, i32 0, i32 1
-  %8 = load i64, ptr %4, align 8
-  store i64 %8, ptr %7, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVNSt3__119__shared_weak_countE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.std::__1::__shared_weak_count", ptr %5, i32 0, i32 1
+  %9 = load i64, ptr %4, align 8
+  store i64 %9, ptr %8, align 8
   ret void
 }
 
@@ -39354,10 +39370,11 @@ define linkonce_odr hidden void @_ZNSt3__114__shared_countC2B8ne190000El(ptr nou
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt3__114__shared_countE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::__1::__shared_count", ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt3__114__shared_countE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::__1::__shared_count", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
   ret void
 }
 
@@ -43947,54 +43964,60 @@ define linkonce_odr hidden void @_ZNSt3__119basic_ostringstreamIcNS_11char_trait
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1), ptr noundef %8)
-          to label %9 unwind label %13
+  %7 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 112
+  %9 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef %10)
+          to label %12 unwind label %18
 
-9:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %11, i32 noundef 16)
-          to label %12 unwind label %17
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 112
+  %15 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %16, i32 noundef 16)
+          to label %17 unwind label %22
 
-12:                                               ; preds = %9
+17:                                               ; preds = %12
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  br label %21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %27
 
-17:                                               ; preds = %9
-  %18 = landingpad { ptr, i32 }
+22:                                               ; preds = %12
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1)) #11
-  br label %21
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  %26 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %26) #11
+  br label %27
 
-21:                                               ; preds = %17, %13
-  %22 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %22) #11
-  br label %23
+27:                                               ; preds = %22, %18
+  %28 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %28) #11
+  br label %29
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %3, align 8
-  %25 = load i32, ptr %4, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44026,7 +44049,8 @@ define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -44066,14 +44090,15 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
   ret void
 }
 
@@ -44088,7 +44113,8 @@ define linkonce_odr hidden void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45596,7 +45622,8 @@ define linkonce_odr dso_local void @_ZN7nanogui6LayoutC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui6LayoutE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7nanogui6LayoutE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45656,9 +45683,10 @@ define linkonce_odr dso_local void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__16atomicIiEC2B8ne190000Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #11
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__16atomicIiEC2B8ne190000Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #11
   ret void
 }
 
@@ -45742,7 +45770,7 @@ define linkonce_odr dso_local void @_ZNSt3__122__cxx_atomic_base_implIiEC2Ei(ptr
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #18
+declare void @llvm.trap() #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt3__117__compressed_pairIPN7nanogui9AlignmentENS_9allocatorIS2_EEEC2B8ne190000IDnNS_18__default_init_tagEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 {
@@ -46551,7 +46579,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__16vectorIPN7nanogui6ButtonENS_9
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__16vectorIPN7nanogui6ButtonENS_9allocatorIS3_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.141) #26
@@ -50128,7 +50156,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__16vectorIN7nanogui5ArrayIiLm2EE
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorIN7nanogui5ArrayIiLm2EEENS_9allocatorIS3_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__16vectorIN7nanogui5ArrayIiLm2EEENS_9allocatorIS3_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.141) #26
@@ -51542,9 +51570,10 @@ define linkonce_odr dso_local void @_ZNSt3__115basic_stringbufIcNS_11char_traits
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #11
   ret void
 }
@@ -53166,7 +53195,7 @@ define linkonce_odr hidden void @_ZNKSt3__110__function12__value_funcIFviEEclB8n
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNSt3__125__throw_bad_function_callB8ne190000Ev() #16 comdat {
+define linkonce_odr hidden void @_ZNSt3__125__throw_bad_function_callB8ne190000Ev() #15 comdat {
   %1 = call ptr @__cxa_allocate_exception(i64 8) #11
   call void @llvm.memset.p0.i64(ptr align 16 %1, i8 0, i64 8, i1 false)
   call void @_ZNSt3__117bad_function_callC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
@@ -53180,7 +53209,8 @@ define linkonce_odr hidden void @_ZNSt3__117bad_function_callC2B8ne190000Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt3__117bad_function_callE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt3__117bad_function_callE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -53198,7 +53228,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2B8ne190000Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -54457,7 +54488,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__16vectorIfNS_9allocatorIfEEE8ma
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorIfNS_9allocatorIfEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__16vectorIfNS_9allocatorIfEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.141) #26
@@ -56431,7 +56462,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__16vectorINS_10shared_ptrIN3tev5
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.141) #26
@@ -59257,7 +59288,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__16vectorINS_4pairINS_12basic_st
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EENS5_IS8_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EENS5_IS8_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.141) #26
@@ -60906,7 +60937,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__16vectorINS_12basic_stringIcNS_
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.141) #26
@@ -61234,7 +61265,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #19
+declare i1 @llvm.is.constant.i64(i64) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZZN3tev11ImageViewer12updateFilterEvENK3$_1clERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 align 2 {
@@ -63091,7 +63122,7 @@ define linkonce_odr hidden noundef float @_ZNSt3__16__math3powB8ne190000Eff(floa
 declare float @powf(float noundef, float noundef) #0
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorIN3tev12ChannelGroupENS_9allocatorIS2_EEE20__throw_out_of_rangeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__16vectorIN3tev12ChannelGroupENS_9allocatorIS2_EEE20__throw_out_of_rangeB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_out_of_rangeB8ne190000EPKc(ptr noundef @.str.141) #26
@@ -63099,7 +63130,7 @@ define linkonce_odr hidden void @_ZNKSt3__16vectorIN3tev12ChannelGroupENS_9alloc
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNSt3__120__throw_out_of_rangeB8ne190000EPKc(ptr noundef %0) #16 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3__120__throw_out_of_rangeB8ne190000EPKc(ptr noundef %0) #15 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -63140,7 +63171,8 @@ define linkonce_odr hidden void @_ZNSt12out_of_rangeC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -64611,32 +64643,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -64651,7 +64684,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvbEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvbEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -65177,32 +65211,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -65629,32 +65664,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -66034,32 +66070,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.536", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.536", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -66074,7 +66111,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvfEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvfEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -66600,32 +66638,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.536", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.536", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -67052,32 +67091,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.536", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.536", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -67456,32 +67496,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.568", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.568", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -67998,32 +68039,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.568", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.568", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -68450,32 +68492,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.568", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.568", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68812,32 +68855,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.600", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.600", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -69354,32 +69398,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.600", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.600", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -69806,32 +69851,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.600", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.600", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -70168,32 +70214,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.632", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.632", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -70208,7 +70255,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvvEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvvEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -70731,32 +70779,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.632", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.632", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -71183,32 +71232,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.632", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.632", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -71532,32 +71582,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.664", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.664", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -72071,32 +72122,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.664", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.664", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -72523,32 +72575,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.664", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.664", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -72872,32 +72925,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.696", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.696", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -73414,32 +73468,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.696", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.696", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -73866,32 +73921,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.696", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.696", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -74233,32 +74289,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.728", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.728", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -74775,32 +74832,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.728", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.728", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -75227,32 +75285,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvfEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.728", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.728", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75695,32 +75754,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.760", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.760", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -75735,7 +75795,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFvRKN7nanogui5Colo
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvRKN7nanogui5ColorEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvRKN7nanogui5ColorEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76261,32 +76322,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.760", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.760", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -76713,32 +76775,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.760", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.760", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -77188,32 +77251,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.792", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.792", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -77727,32 +77791,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.792", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.792", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78179,32 +78244,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.792", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.792", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -78528,32 +78594,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.824", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.824", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -79067,32 +79134,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.824", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.824", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -79519,32 +79587,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.824", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.824", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -79868,32 +79937,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.856", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.856", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -80407,32 +80477,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.856", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.856", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -80859,32 +80930,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.856", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.856", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -81208,32 +81280,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.888", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.888", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -81747,32 +81820,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.888", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.888", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -82199,32 +82273,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.888", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.888", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -82548,32 +82623,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.920", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.920", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -83087,32 +83163,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.920", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.920", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -83539,32 +83616,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.920", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.920", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -83888,32 +83966,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.952", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.952", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -84427,32 +84506,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.952", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.952", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -84879,32 +84959,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.952", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.952", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -85228,32 +85309,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.984", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.984", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -85767,32 +85849,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.984", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.984", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -86219,32 +86302,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.984", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.984", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -86568,32 +86652,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1016", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1016", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -87107,32 +87192,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1016", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1016", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -87559,32 +87645,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1016", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1016", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -87908,32 +87995,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1048", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1048", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -88447,32 +88535,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1048", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1048", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -88899,32 +88988,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1048", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1048", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -89248,32 +89338,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1080", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1080", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -89288,7 +89379,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFbRKNS_12basic_str
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -89814,32 +89906,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1080", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1080", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -90266,32 +90359,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1080", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1080", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -90747,10 +90841,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #11
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [500 x i8], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 500) #11
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [500 x i8], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 500) #11
   ret void
 }
 
@@ -91306,16 +91401,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -91811,7 +91907,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3fmt2v916basic_format_argI
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr dso_local void @_ZN3fmt2v96detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #16 comdat align 2 {
+define linkonce_odr dso_local void @_ZN3fmt2v96detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #15 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -91971,7 +92067,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v99monostateC2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef %0) #16 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef %0) #15 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -92012,7 +92108,8 @@ define linkonce_odr dso_local void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -93004,7 +93101,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail13base_iteratorINS0_8appende
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #14
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3fmt2v96detail13get_containerINS1_6bufferIcEEEERT_NSt3__120back_insert_iteratorIS5_EE(ptr %0) #4 comdat {
@@ -93851,7 +93948,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail15do_count_digitsEm(
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEyTnNSt3__19enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS6_bEE5valuentsr3std7is_sameIS6_T_EE5valueEiE4typeELi0EEET0_SA_S6_(ptr %0, i64 noundef %1) #4 comdat {
@@ -97062,10 +97159,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #11
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.1117", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [500 x i32], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 500) #11
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.1117", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [500 x i32], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 500) #11
   ret void
 }
 
@@ -97180,16 +97278,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1118", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1118", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1118", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1118", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1118", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1118", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -101947,7 +102046,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZN3fmt2v96detail4signIcNS0_4s
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #14
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail13exponent_biasIfEEiv() #1 comdat {
@@ -106051,7 +106150,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail20num_significand_bi
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #14
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail13exponent_biasIdEEiv() #1 comdat {
@@ -106591,7 +106690,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail16uint128_fallbackC2Emm(ptr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #14
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN3fmt2v96detail9dragonbox16umul192_upper128EmNS1_16uint128_fallbackE(i64 noundef %0, i64 %1, i64 %2) #1 comdat {
@@ -110162,7 +110261,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__16__math8isfiniteB8ne1900
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f80(x86_fp80, i32 immarg) #14
+declare i1 @llvm.is.fpclass.f80(x86_fp80, i32 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3fmt2v96detail13ignore_unusedIJbA13_cEEEvDpRKT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(13) %1) #1 comdat {
@@ -110449,10 +110548,10 @@ define linkonce_odr dso_local noundef i32 @_ZN3fmt2v96detail12count_digitsILi1Eo
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #14
+declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #14
+declare double @llvm.ceil.f64(double) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3fmt2v96detail8basic_fpIoEC2Ev(ptr noundef nonnull align 16 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
@@ -112270,10 +112369,11 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #11
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.1148", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 32) #11
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.1148", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, i64 noundef 32) #11
   ret void
 }
 
@@ -112295,16 +112395,17 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1149", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1149", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1149", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1149", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1149", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.1149", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -113154,21 +113255,22 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #11
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.1148", ptr %5, i32 0, i32 2
-  call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  %7 = load ptr, ptr %4, align 8
-  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE4moveERS5_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %7)
-          to label %8 unwind label %9
-
-8:                                                ; preds = %2
-  ret void
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.1148", ptr %5, i32 0, i32 2
+  call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEE4moveERS5_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %8)
+          to label %9 unwind label %10
 
 9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #25
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #25
   unreachable
 }
 
@@ -134178,7 +134280,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail20write_escaped_stringIcNS0_
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #20
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK3fmt2v96detail6bufferIcE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 comdat align 2 {
@@ -134347,32 +134449,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1221", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1221", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -134889,32 +134992,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1221", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1221", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -135341,32 +135445,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1221", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1221", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -135706,32 +135811,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1253", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1253", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -136242,32 +136348,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1253", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1253", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -136690,32 +136797,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1253", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1253", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -137034,32 +137142,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1285", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1285", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -137576,32 +137685,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1285", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1285", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -138028,32 +138138,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1285", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1285", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -138393,32 +138504,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1317", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1317", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -138932,32 +139044,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1317", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1317", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -139384,32 +139497,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1317", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1317", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -139758,32 +139872,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1349", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1349", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -140297,32 +140412,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1349", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1349", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -140749,32 +140865,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1349", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1349", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -141105,21 +141222,22 @@ define linkonce_odr dso_local void @_ZN7nanogui7TextBoxD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui7TextBoxE, i32 0, i32 0, i32 2), ptr %3, align 16
-  %4 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 14
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %5 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 13
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui7TextBoxE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 16
+  %5 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 14
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %6 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 11
-  call void @_ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %6) #11
-  %7 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 8
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %8 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 7
+  %6 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 13
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  %7 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 11
+  call void @_ZNSt3__18functionIFbRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %7) #11
+  %8 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
-  %9 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 5
+  %9 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 7
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %10 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 4
+  %10 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 5
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
+  %11 = getelementptr inbounds %"class.nanogui::TextBox", ptr %3, i32 0, i32 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %3) #11
   ret void
 }
@@ -141705,32 +141823,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1381", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1381", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -142244,32 +142363,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1381", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1381", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -142696,32 +142816,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1381", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1381", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -143045,32 +143166,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1413", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1413", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -143584,32 +143706,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1413", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1413", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -144036,32 +144159,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1413", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1413", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -144385,32 +144509,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1445", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1445", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -144924,32 +145049,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1445", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1445", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -145376,32 +145502,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1445", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1445", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -145935,32 +146062,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1479", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1479", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -146474,32 +146602,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1479", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1479", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -146926,32 +147055,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1479", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1479", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -147285,32 +147415,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1511", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1511", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -147827,32 +147958,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1511", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1511", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -148279,32 +148411,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1511", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1511", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -148644,32 +148777,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1543", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1543", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -149183,32 +149317,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1543", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1543", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -149635,32 +149770,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1543", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1543", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -150033,32 +150169,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1575", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1575", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -150073,7 +150210,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -150599,32 +150737,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1575", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1575", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -151051,32 +151190,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1575", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1575", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvN7nanogui5ArrayIiLm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -152182,7 +152322,7 @@ define linkonce_odr hidden void @_ZNSt13exception_ptrC2B8ne190000EDn(ptr noundef
 declare void @_ZNSt13exception_ptrD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt17rethrow_exceptionSt13exception_ptr(ptr noundef) #21
+declare void @_ZSt17rethrow_exceptionSt13exception_ptr(ptr noundef) #20
 
 ; Function Attrs: nounwind
 declare void @_ZNSt13exception_ptrC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
@@ -152360,57 +152500,63 @@ define linkonce_odr hidden void @_ZNSt3__119basic_istringstreamIcNS_11char_trait
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 120
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %10)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 120
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.std::__1::basic_istringstream", ptr %9, i32 0, i32 1
-  invoke void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1), ptr noundef %12)
-          to label %13 unwind label %20
+  %11 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 120
+  %13 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.std::__1::basic_istringstream", ptr %9, i32 0, i32 1
+  %15 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  invoke void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %15, ptr noundef %14)
+          to label %16 unwind label %25
 
-13:                                               ; preds = %3
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 120
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.std::__1::basic_istringstream", ptr %9, i32 0, i32 1
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = or i32 %17, 8
-  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ERKNS_12basic_stringIcS2_S4_EEj(ptr noundef nonnull align 8 dereferenceable(100) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %18)
-          to label %19 unwind label %24
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %17, ptr %9, align 8
+  %18 = getelementptr inbounds i8, ptr %9, i64 120
+  %19 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.std::__1::basic_istringstream", ptr %9, i32 0, i32 1
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = or i32 %22, 8
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ERKNS_12basic_stringIcS2_S4_EEj(ptr noundef nonnull align 8 dereferenceable(100) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef %23)
+          to label %24 unwind label %29
 
-19:                                               ; preds = %13
+24:                                               ; preds = %16
   ret void
 
-20:                                               ; preds = %3
-  %21 = landingpad { ptr, i32 }
+25:                                               ; preds = %3
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  br label %28
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %7, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %8, align 4
+  br label %34
 
-24:                                               ; preds = %13
-  %25 = landingpad { ptr, i32 }
+29:                                               ; preds = %16
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %7, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %8, align 4
-  call void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1)) #11
-  br label %28
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %7, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %8, align 4
+  %33 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  call void @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %33) #11
+  br label %34
 
-28:                                               ; preds = %24, %20
-  %29 = getelementptr inbounds i8, ptr %9, i64 120
-  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %29) #11
-  br label %30
+34:                                               ; preds = %29, %25
+  %35 = getelementptr inbounds i8, ptr %9, i64 120
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %35) #11
+  br label %36
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEErsERi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) #6
@@ -152439,40 +152585,41 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   store i32 %2, ptr %6, align 4
   %10 = load ptr, ptr %4, align 8
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13get_allocatorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  %13 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %10, i32 0, i32 2
-  store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %10, i32 0, i32 3
-  %15 = load i32, ptr %6, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strERKNS_12basic_stringIcS2_S4_EE(ptr noundef nonnull align 8 dereferenceable(100) %10, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %17 unwind label %18
-
-17:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13get_allocatorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %14 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %10, i32 0, i32 2
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %10, i32 0, i32 3
+  %16 = load i32, ptr %6, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strERKNS_12basic_stringIcS2_S4_EE(ptr noundef nonnull align 8 dereferenceable(100) %10, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %18 unwind label %19
 
 18:                                               ; preds = %3
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %8, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %9, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
-  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #11
-  br label %22
+  ret void
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i32, ptr %9, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+19:                                               ; preds = %3
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %8, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %9, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
+  call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #11
+  br label %23
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %8, align 8
+  %25 = load i32, ptr %9, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -154416,7 +154563,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__111unique_lockINS_5mutex
 }
 
 ; Function Attrs: noreturn
-declare void @_ZNSt3__120__throw_system_errorEiPKc(i32 noundef, ptr noundef) #21
+declare void @_ZNSt3__120__throw_system_errorEiPKc(i32 noundef, ptr noundef) #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNSt3__16chrono13duration_castB8ne190000INS0_8durationIxNS_5ratioILl1ELl1EEEEExNS3_ILl1ELl1000000000EEETnNS_9enable_ifIXsr13__is_durationIT_EE5valueEiE4typeELi0EEES8_RKNS2_IT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
@@ -155522,32 +155669,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1620", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEC2B8ne190000EOS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1620", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEC2B8ne190000EOS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -155598,9 +155746,10 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::__function::__func.1620", ptr %3, i32 0, i32 1
-  call void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::__function::__func.1620", ptr %3, i32 0, i32 1
+  call void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -156134,32 +156283,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1620", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEC2B8ne190000ERKS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1620", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEC2B8ne190000ERKS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -156605,32 +156755,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1620", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEC2B8ne190000ERKS7_RKS9_"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1620", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEC2B8ne190000ERKS7_RKS9_"(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -156980,32 +157131,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1652", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEC2B8ne190000EOS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1652", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEC2B8ne190000EOS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -157056,9 +157208,10 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::__function::__func.1652", ptr %3, i32 0, i32 1
-  call void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::__function::__func.1652", ptr %3, i32 0, i32 1
+  call void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -157595,32 +157748,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1652", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEC2B8ne190000ERKS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1652", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEC2B8ne190000ERKS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -158066,32 +158220,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvbEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1652", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEC2B8ne190000ERKS7_RKS9_"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1652", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEC2B8ne190000ERKS7_RKS9_"(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvbEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -158492,32 +158647,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1684", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEC2B8ne190000EOS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1684", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEC2B8ne190000EOS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -159031,32 +159187,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1684", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEC2B8ne190000ERKS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1684", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEC2B8ne190000ERKS7_OS9_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -159483,32 +159640,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1684", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEC2B8ne190000ERKS7_RKS9_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1684", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEC2B8ne190000ERKS7_RKS9_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -160732,32 +160890,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1729", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1729", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEC2B8ne190000EOS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -160905,9 +161064,10 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::__function::__func.1729", ptr %3, i32 0, i32 1
-  call void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::__function::__func.1729", ptr %3, i32 0, i32 1
+  call void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -161411,32 +161571,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1729", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1729", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_OSB_"(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -161811,32 +161972,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectI
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1729", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1729", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEC2B8ne190000ERKS9_RKSB_"(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -162327,32 +162489,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer16toggleH
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1758", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000EOS4_OS6_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1758", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000EOS4_OS6_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -162866,32 +163029,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer16toggleH
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1758", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_OS6_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1758", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_OS6_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -163318,32 +163482,33 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer16toggleH
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFvvEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func.1758", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_RKS6_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func.1758", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @"_ZNSt3__110__function12__alloc_funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEC2B8ne190000ERKS4_RKS6_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFvvEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -164344,7 +164509,10 @@ define internal void @_GLOBAL__sub_I_ImageViewer.cpp() #3 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #22
 
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -164358,17 +164526,17 @@ attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind }
-attributes #12 = { nounwind memory(none) }
-attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #19 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #20 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #18 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #19 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #22 = { nounwind memory(none) }
 attributes #23 = { builtin nounwind }
 attributes #24 = { builtin allocsize(0) }
 attributes #25 = { noreturn nounwind }

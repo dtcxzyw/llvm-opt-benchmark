@@ -16,10 +16,11 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h2bd693a22d106f14E(ptr n
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error6source17h4fae703011fa2289E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @anon.cdc42df9a652820abc2c2644702d9f7c.0, align 8, !align !4, !noundef !5
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.cdc42df9a652820abc2c2644702d9f7c.0, i64 8), align 8
-  %4 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr %3, 1
-  ret { ptr, ptr } %5
+  %3 = getelementptr inbounds i8, ptr @anon.cdc42df9a652820abc2c2644702d9f7c.0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr %4, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

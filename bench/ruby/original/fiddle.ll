@@ -429,33 +429,34 @@ define void @Init_fiddle() #0 {
   %176 = call i64 @rb_int2num_inline(i32 noundef 1)
   call void @rb_define_const(i64 noundef %175, ptr noundef @.str.81, i64 noundef %176)
   %177 = load i64, ptr @mFiddle, align 8
-  %178 = call i64 @rb_long2num_inline(i64 noundef ptrtoint (ptr @ruby_xfree to i64))
-  call void @rb_define_const(i64 noundef %177, ptr noundef @.str.82, i64 noundef %178)
-  %179 = load i64, ptr @mFiddle, align 8
-  %180 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.84)
-  call void @rb_define_const(i64 noundef %179, ptr noundef @.str.83, i64 noundef %180)
-  %181 = load i64, ptr @mFiddle, align 8
-  call void @rb_define_module_function(i64 noundef %181, ptr noundef @.str.85, ptr noundef @rb_fiddle_value2ptr, i32 noundef 1)
+  %178 = ptrtoint ptr @ruby_xfree to i64
+  %179 = call i64 @rb_long2num_inline(i64 noundef %178)
+  call void @rb_define_const(i64 noundef %177, ptr noundef @.str.82, i64 noundef %179)
+  %180 = load i64, ptr @mFiddle, align 8
+  %181 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.84)
+  call void @rb_define_const(i64 noundef %180, ptr noundef @.str.83, i64 noundef %181)
   %182 = load i64, ptr @mFiddle, align 8
-  call void @rb_define_module_function(i64 noundef %182, ptr noundef @.str.86, ptr noundef @rb_fiddle_ptr2value, i32 noundef 1)
+  call void @rb_define_module_function(i64 noundef %182, ptr noundef @.str.85, ptr noundef @rb_fiddle_value2ptr, i32 noundef 1)
   %183 = load i64, ptr @mFiddle, align 8
-  call void @rb_define_module_function(i64 noundef %183, ptr noundef @.str.87, ptr noundef @rb_fiddle_malloc, i32 noundef 1)
+  call void @rb_define_module_function(i64 noundef %183, ptr noundef @.str.86, ptr noundef @rb_fiddle_ptr2value, i32 noundef 1)
   %184 = load i64, ptr @mFiddle, align 8
-  call void @rb_define_module_function(i64 noundef %184, ptr noundef @.str.88, ptr noundef @rb_fiddle_realloc, i32 noundef 2)
+  call void @rb_define_module_function(i64 noundef %184, ptr noundef @.str.87, ptr noundef @rb_fiddle_malloc, i32 noundef 1)
   %185 = load i64, ptr @mFiddle, align 8
-  call void @rb_define_module_function(i64 noundef %185, ptr noundef @.str.89, ptr noundef @rb_fiddle_free, i32 noundef 1)
+  call void @rb_define_module_function(i64 noundef %185, ptr noundef @.str.88, ptr noundef @rb_fiddle_realloc, i32 noundef 2)
   %186 = load i64, ptr @mFiddle, align 8
-  %187 = call i64 @rb_int2num_inline(i32 noundef 20)
-  call void @rb_define_const(i64 noundef %186, ptr noundef @.str.90, i64 noundef %187)
-  %188 = load i64, ptr @mFiddle, align 8
-  %189 = call i64 @rb_int2num_inline(i32 noundef 0)
-  call void @rb_define_const(i64 noundef %188, ptr noundef @.str.91, i64 noundef %189)
-  %190 = load i64, ptr @mFiddle, align 8
-  %191 = call i64 @rb_int2num_inline(i32 noundef 4)
-  call void @rb_define_const(i64 noundef %190, ptr noundef @.str.92, i64 noundef %191)
-  %192 = load i64, ptr @mFiddle, align 8
-  %193 = call i64 @rb_int2num_inline(i32 noundef 36)
-  call void @rb_define_const(i64 noundef %192, ptr noundef @.str.93, i64 noundef %193)
+  call void @rb_define_module_function(i64 noundef %186, ptr noundef @.str.89, ptr noundef @rb_fiddle_free, i32 noundef 1)
+  %187 = load i64, ptr @mFiddle, align 8
+  %188 = call i64 @rb_int2num_inline(i32 noundef 20)
+  call void @rb_define_const(i64 noundef %187, ptr noundef @.str.90, i64 noundef %188)
+  %189 = load i64, ptr @mFiddle, align 8
+  %190 = call i64 @rb_int2num_inline(i32 noundef 0)
+  call void @rb_define_const(i64 noundef %189, ptr noundef @.str.91, i64 noundef %190)
+  %191 = load i64, ptr @mFiddle, align 8
+  %192 = call i64 @rb_int2num_inline(i32 noundef 4)
+  call void @rb_define_const(i64 noundef %191, ptr noundef @.str.92, i64 noundef %192)
+  %193 = load i64, ptr @mFiddle, align 8
+  %194 = call i64 @rb_int2num_inline(i32 noundef 36)
+  call void @rb_define_const(i64 noundef %193, ptr noundef @.str.93, i64 noundef %194)
   call void @Init_fiddle_function()
   call void @Init_fiddle_closure()
   call void @Init_fiddle_handle()

@@ -218,7 +218,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force
   %11 = select i1 %10, i64 0, i64 1
   switch i64 %11, label %12 [
     i64 0, label %13
-    i64 1, label %21
+    i64 1, label %22
   ]
 
 12:                                               ; preds = %1
@@ -230,23 +230,24 @@ define internal noundef zeroext i1 @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1, ptr %14, align 8
   %15 = load ptr, ptr @anon.b5a910b2ee449410d9967603fdb4c0b9.4, align 8, !align !6, !noundef !4
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @anon.b5a910b2ee449410d9967603fdb4c0b9.4, i64 8), align 8
-  %17 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %3, i32 0, i32 2
-  store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %16, ptr %18, align 8
-  %19 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %3, i32 0, i32 1
-  store ptr @anon.b5a910b2ee449410d9967603fdb4c0b9.3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 0, ptr %20, align 8
+  %16 = getelementptr inbounds i8, ptr @anon.b5a910b2ee449410d9967603fdb4c0b9.4, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %3, i32 0, i32 2
+  store ptr %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %17, ptr %19, align 8
+  %20 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %3, i32 0, i32 1
+  store ptr @anon.b5a910b2ee449410d9967603fdb4c0b9.3, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 0, ptr %21, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef align 8 dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5a910b2ee449410d9967603fdb4c0b9.6) #6
   unreachable
 
-21:                                               ; preds = %1
-  %22 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %23 = call noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hdc50545e87406425E(ptr noundef nonnull %22)
+22:                                               ; preds = %1
+  %23 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
+  %24 = call noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hdc50545e87406425E(ptr noundef nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr %4)
-  ret i1 %23
+  ret i1 %24
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -293,30 +293,31 @@ declare dso_local void @vfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @kernel_read_file_from_path(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %18, label %8
+  br i1 %7, label %19, label %8
 
 8:                                                ; preds = %6
   %9 = load i8, ptr %0, align 1
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %18, label %11
+  br i1 %10, label %19, label %11
 
 11:                                               ; preds = %8
   %12 = tail call ptr @filp_open(ptr noundef nonnull %0, i32 noundef 0, i16 noundef zeroext 0) #8
-  %13 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
-  br i1 %13, label %14, label %16
+  %13 = inttoptr i64 -4096 to ptr
+  %14 = icmp ugt ptr %12, %13
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %11
-  %15 = ptrtoint ptr %12 to i64
-  br label %18
+15:                                               ; preds = %11
+  %16 = ptrtoint ptr %12 to i64
+  br label %19
 
-16:                                               ; preds = %11
-  %17 = tail call i64 @kernel_read_file(ptr noundef %12, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5)
+17:                                               ; preds = %11
+  %18 = tail call i64 @kernel_read_file(ptr noundef %12, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5)
   tail call void @fput(ptr noundef %12) #8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %16, %14, %8, %6
-  %19 = phi i64 [ %15, %14 ], [ %17, %16 ], [ -22, %8 ], [ -22, %6 ]
-  ret i64 %19
+19:                                               ; preds = %17, %15, %8, %6
+  %20 = phi i64 [ %16, %15 ], [ %18, %17 ], [ -22, %8 ], [ -22, %6 ]
+  ret i64 %20
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -331,41 +332,45 @@ define dso_local i64 @kernel_read_file_from_path_initns(ptr noundef %0, i64 noun
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !5
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %22, label %9
+  br i1 %8, label %26, label %9
 
 9:                                                ; preds = %6
   %10 = load i8, ptr %0, align 1
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %22, label %12
+  br i1 %11, label %26, label %12
 
 12:                                               ; preds = %9
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 119)) #8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 98), align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
-  tail call void @_raw_spin_lock(ptr noundef %14) #8
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %15, i64 16, i1 false)
+  %13 = getelementptr inbounds %struct.task_struct, ptr @init_task, i64 0, i32 119
+  tail call void @_raw_spin_lock(ptr noundef nonnull %13) #8
+  %14 = getelementptr inbounds %struct.task_struct, ptr @init_task, i64 0, i32 98
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  tail call void @_raw_spin_lock(ptr noundef %16) #8
+  %17 = getelementptr inbounds i8, ptr %15, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %17, i64 16, i1 false)
   call void @path_get(ptr noundef nonnull %7) #8
-  call void @_raw_spin_unlock(ptr noundef %14) #8
-  call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 119)) #8
-  %16 = call ptr @file_open_root(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef 0, i16 noundef zeroext 0) #8
+  call void @_raw_spin_unlock(ptr noundef %16) #8
+  %18 = getelementptr inbounds %struct.task_struct, ptr @init_task, i64 0, i32 119
+  call void @_raw_spin_unlock(ptr noundef nonnull %18) #8
+  %19 = call ptr @file_open_root(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef 0, i16 noundef zeroext 0) #8
   call void @path_put(ptr noundef nonnull %7) #8
-  %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
-  br i1 %17, label %18, label %20
+  %20 = inttoptr i64 -4096 to ptr
+  %21 = icmp ugt ptr %19, %20
+  br i1 %21, label %22, label %24
 
-18:                                               ; preds = %12
-  %19 = ptrtoint ptr %16 to i64
-  br label %22
+22:                                               ; preds = %12
+  %23 = ptrtoint ptr %19 to i64
+  br label %26
 
-20:                                               ; preds = %12
-  %21 = call i64 @kernel_read_file(ptr noundef %16, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5)
-  call void @fput(ptr noundef %16) #8
-  br label %22
+24:                                               ; preds = %12
+  %25 = call i64 @kernel_read_file(ptr noundef %19, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5)
+  call void @fput(ptr noundef %19) #8
+  br label %26
 
-22:                                               ; preds = %20, %18, %9, %6
-  %23 = phi i64 [ %19, %18 ], [ %21, %20 ], [ -22, %9 ], [ -22, %6 ]
+26:                                               ; preds = %24, %22, %9, %6
+  %27 = phi i64 [ %23, %22 ], [ %25, %24 ], [ -22, %9 ], [ -22, %6 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
-  ret i64 %23
+  ret i64 %27
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

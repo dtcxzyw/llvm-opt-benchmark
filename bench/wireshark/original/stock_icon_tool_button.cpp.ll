@@ -363,71 +363,73 @@ define void @_ZN19StockIconToolButtonC2EP7QWidget7QString(ptr noundef nonnull al
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %5, align 8
   call void @_ZN11QToolButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV19StockIconToolButton, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV19StockIconToolButton, i32 0, i32 1, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.StockIconToolButton, ptr %11, i32 0, i32 1
-  call void @_ZN5QIconC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #11
-  %15 = getelementptr inbounds %class.StockIconToolButton, ptr %11, i32 0, i32 2
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
+  %13 = getelementptr inbounds { [58 x ptr], [10 x ptr] }, ptr @_ZTV19StockIconToolButton, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds { [58 x ptr], [10 x ptr] }, ptr @_ZTV19StockIconToolButton, i32 0, i32 1, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.StockIconToolButton, ptr %11, i32 0, i32 1
+  call void @_ZN5QIconC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #11
+  %17 = getelementptr inbounds %class.StockIconToolButton, ptr %11, i32 0, i32 2
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
   invoke void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0)
-          to label %16 unwind label %19
+          to label %18 unwind label %21
 
-16:                                               ; preds = %3
+18:                                               ; preds = %3
   invoke void @_ZN7QWidget9setCursorERK7QCursor(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %17 unwind label %23
+          to label %19 unwind label %25
 
-17:                                               ; preds = %16
+19:                                               ; preds = %18
   call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2) #11
   invoke void @_ZN19StockIconToolButton12setStockIconE7QString(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef %10)
-          to label %18 unwind label %27
+          to label %20 unwind label %29
 
-18:                                               ; preds = %17
+20:                                               ; preds = %19
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %3
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %8, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %9, align 4
-  br label %31
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
+  br label %33
 
-23:                                               ; preds = %16
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %18
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %8, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %9, align 4
   call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  br label %31
+  br label %33
 
-27:                                               ; preds = %17
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %19
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %8, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %9, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %8, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %9, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %31
+  br label %33
 
-31:                                               ; preds = %27, %23, %19
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #11
+33:                                               ; preds = %29, %25, %21
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
+  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #11
   call void @_ZN11QToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #11
-  br label %32
+  br label %34
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %8, align 8
-  %34 = load i32, ptr %9, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %8, align 8
+  %36 = load i32, ptr %9, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 declare void @_ZN11QToolButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -1134,13 +1136,15 @@ define linkonce_odr void @_ZN19StockIconToolButtonD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV19StockIconToolButton, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV19StockIconToolButton, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.StockIconToolButton, ptr %3, i32 0, i32 2
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %6 = getelementptr inbounds %class.StockIconToolButton, ptr %3, i32 0, i32 1
-  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %4 = getelementptr inbounds { [58 x ptr], [10 x ptr] }, ptr @_ZTV19StockIconToolButton, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [58 x ptr], [10 x ptr] }, ptr @_ZTV19StockIconToolButton, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.StockIconToolButton, ptr %3, i32 0, i32 2
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  %8 = getelementptr inbounds %class.StockIconToolButton, ptr %3, i32 0, i32 1
+  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
   call void @_ZN11QToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #11
   ret void
 }

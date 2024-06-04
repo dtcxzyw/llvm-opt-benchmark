@@ -21,61 +21,65 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @drop_caches_sysctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call i32 @proc_dointvec_minmax(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %36
+  br i1 %7, label %8, label %40
 
 8:                                                ; preds = %5
   %9 = icmp eq i32 %1, 0
-  br i1 %9, label %36, label %10
+  br i1 %9, label %40, label %10
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @sysctl_drop_caches, align 4
   %12 = and i32 %11, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %15, label %14
+  br i1 %13, label %17, label %14
 
 14:                                               ; preds = %10
   tail call void @lru_add_drain_all() #3
   tail call void @iterate_supers(ptr noundef nonnull @drop_pagecache_sb, ptr noundef null) #3
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 44), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 44)) #3, !srcloc !5
-  br label %15
+  %15 = getelementptr inbounds %struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 44
+  %16 = getelementptr inbounds %struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 44
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %15, ptr nonnull elementtype(i64) %16) #3, !srcloc !5
+  br label %17
 
-15:                                               ; preds = %14, %10
-  %16 = load i32, ptr @sysctl_drop_caches, align 4
-  %17 = and i32 %16, 2
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %20, label %19
+17:                                               ; preds = %14, %10
+  %18 = load i32, ptr @sysctl_drop_caches, align 4
+  %19 = and i32 %18, 2
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %24, label %21
 
-19:                                               ; preds = %15
+21:                                               ; preds = %17
   tail call void @drop_slab() #3
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 45), ptr nonnull elementtype(i64) getelementptr inbounds (%struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 45)) #3, !srcloc !5
-  br label %20
+  %22 = getelementptr inbounds %struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 45
+  %23 = getelementptr inbounds %struct.vm_event_state, ptr @vm_event_states, i64 0, i32 0, i64 45
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, ptr nonnull elementtype(i64) %23) #3, !srcloc !5
+  br label %24
 
-20:                                               ; preds = %19, %15
-  %21 = load i32, ptr @drop_caches_sysctl_handler.stfu, align 4
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %31
+24:                                               ; preds = %21, %17
+  %25 = load i32, ptr @drop_caches_sysctl_handler.stfu, align 4
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %35
 
-23:                                               ; preds = %20
-  %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !6
-  %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 1800
-  %27 = getelementptr inbounds i8, ptr %25, i64 1320
-  %28 = load i32, ptr %27, align 8
-  %29 = load i32, ptr @sysctl_drop_caches, align 4
-  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %26, i32 noundef %28, i32 noundef %29) #5
-  br label %31
+27:                                               ; preds = %24
+  %28 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !6
+  %29 = inttoptr i64 %28 to ptr
+  %30 = getelementptr inbounds i8, ptr %29, i64 1800
+  %31 = getelementptr inbounds i8, ptr %29, i64 1320
+  %32 = load i32, ptr %31, align 8
+  %33 = load i32, ptr @sysctl_drop_caches, align 4
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %30, i32 noundef %32, i32 noundef %33) #5
+  br label %35
 
-31:                                               ; preds = %23, %20
-  %32 = load i32, ptr @sysctl_drop_caches, align 4
-  %33 = and i32 %32, 4
-  %34 = load i32, ptr @drop_caches_sysctl_handler.stfu, align 4
-  %35 = or i32 %34, %33
-  store i32 %35, ptr @drop_caches_sysctl_handler.stfu, align 4
-  br label %36
+35:                                               ; preds = %27, %24
+  %36 = load i32, ptr @sysctl_drop_caches, align 4
+  %37 = and i32 %36, 4
+  %38 = load i32, ptr @drop_caches_sysctl_handler.stfu, align 4
+  %39 = or i32 %38, %37
+  store i32 %39, ptr @drop_caches_sysctl_handler.stfu, align 4
+  br label %40
 
-36:                                               ; preds = %31, %8, %5
-  %37 = phi i32 [ %6, %5 ], [ 0, %31 ], [ 0, %8 ]
-  ret i32 %37
+40:                                               ; preds = %35, %8, %5
+  %41 = phi i32 [ %6, %5 ], [ 0, %35 ], [ 0, %8 ]
+  ret i32 %41
 }
 
 ; Function Attrs: null_pointer_is_valid

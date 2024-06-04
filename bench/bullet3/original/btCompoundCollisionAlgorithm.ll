@@ -388,7 +388,8 @@ entry:
   %1 = load ptr, ptr %body0Wrap.addr, align 8
   %2 = load ptr, ptr %body1Wrap.addr, align 8
   call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV28btCompoundCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV28btCompoundCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %stack2 = getelementptr inbounds %class.btCompoundCollisionAlgorithm, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayIPK10btDbvtNodeEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stack2)
           to label %invoke.cont unwind label %lpad
@@ -405,88 +406,88 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %m_isSwapped = getelementptr inbounds %class.btCompoundCollisionAlgorithm, ptr %this1, i32 0, i32 4
-  %3 = load i8, ptr %isSwapped.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %isSwapped.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool6 = zext i1 %tobool to i8
   store i8 %frombool6, ptr %m_isSwapped, align 8
   %m_sharedManifold = getelementptr inbounds %class.btCompoundCollisionAlgorithm, ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %ci.addr, align 8
-  %m_manifold = getelementptr inbounds %struct.btCollisionAlgorithmConstructionInfo, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %m_manifold, align 8
-  store ptr %5, ptr %m_sharedManifold, align 8
+  %5 = load ptr, ptr %ci.addr, align 8
+  %m_manifold = getelementptr inbounds %struct.btCollisionAlgorithmConstructionInfo, ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %m_manifold, align 8
+  store ptr %6, ptr %m_sharedManifold, align 8
   %m_ownsManifold = getelementptr inbounds %class.btCompoundCollisionAlgorithm, ptr %this1, i32 0, i32 6
   store i8 0, ptr %m_ownsManifold, align 8
   %m_isSwapped7 = getelementptr inbounds %class.btCompoundCollisionAlgorithm, ptr %this1, i32 0, i32 4
-  %6 = load i8, ptr %m_isSwapped7, align 8
-  %tobool8 = trunc i8 %6 to i1
+  %7 = load i8, ptr %m_isSwapped7, align 8
+  %tobool8 = trunc i8 %7 to i1
   br i1 %tobool8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont5
-  %7 = load ptr, ptr %body1Wrap.addr, align 8
+  %8 = load ptr, ptr %body1Wrap.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont5
-  %8 = load ptr, ptr %body0Wrap.addr, align 8
+  %9 = load ptr, ptr %body0Wrap.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %7, %cond.true ], [ %8, %cond.false ]
+  %cond = phi ptr [ %8, %cond.true ], [ %9, %cond.false ]
   store ptr %cond, ptr %colObjWrap, align 8
-  %9 = load ptr, ptr %colObjWrap, align 8
-  %call = invoke noundef ptr @_ZNK24btCollisionObjectWrapper17getCollisionShapeEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %10 = load ptr, ptr %colObjWrap, align 8
+  %call = invoke noundef ptr @_ZNK24btCollisionObjectWrapper17getCollisionShapeEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %cond.end
   store ptr %call, ptr %compoundShape, align 8
-  %10 = load ptr, ptr %compoundShape, align 8
-  %call12 = invoke noundef i32 @_ZNK15btCompoundShape17getUpdateRevisionEv(ptr noundef nonnull align 8 dereferenceable(128) %10)
+  %11 = load ptr, ptr %compoundShape, align 8
+  %call12 = invoke noundef i32 @_ZNK15btCompoundShape17getUpdateRevisionEv(ptr noundef nonnull align 8 dereferenceable(128) %11)
           to label %invoke.cont11 unwind label %lpad9
 
 invoke.cont11:                                    ; preds = %invoke.cont10
   %m_compoundShapeRevision = getelementptr inbounds %class.btCompoundCollisionAlgorithm, ptr %this1, i32 0, i32 7
   store i32 %call12, ptr %m_compoundShapeRevision, align 4
-  %11 = load ptr, ptr %body0Wrap.addr, align 8
-  %12 = load ptr, ptr %body1Wrap.addr, align 8
-  invoke void @_ZN28btCompoundCollisionAlgorithm26preallocateChildAlgorithmsEPK24btCollisionObjectWrapperS2_(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %11, ptr noundef %12)
+  %12 = load ptr, ptr %body0Wrap.addr, align 8
+  %13 = load ptr, ptr %body1Wrap.addr, align 8
+  invoke void @_ZN28btCompoundCollisionAlgorithm26preallocateChildAlgorithmsEPK24btCollisionObjectWrapperS2_(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %12, ptr noundef %13)
           to label %invoke.cont13 unwind label %lpad9
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   ret void
 
 lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad2:                                            ; preds = %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad4:                                            ; preds = %invoke.cont3
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont11, %invoke.cont10, %cond.end
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIP20btCollisionAlgorithmED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_childCollisionAlgorithms) #10
   br label %ehcleanup
 
@@ -1074,7 +1075,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV28btCompoundCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV28btCompoundCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN28btCompoundCollisionAlgorithm21removeChildAlgorithmsEv(ptr noundef nonnull align 8 dereferenceable(136) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1089,10 +1091,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #11
   unreachable
 }
 
@@ -1711,28 +1713,29 @@ entry:
   store ptr %sharedManifold, ptr %sharedManifold.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22btCompoundLeafCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV22btCompoundLeafCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_compoundColObjWrap = getelementptr inbounds %struct.btCompoundLeafCallback, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %compoundObjWrap.addr, align 8
-  store ptr %0, ptr %m_compoundColObjWrap, align 8
+  %1 = load ptr, ptr %compoundObjWrap.addr, align 8
+  store ptr %1, ptr %m_compoundColObjWrap, align 8
   %m_otherObjWrap = getelementptr inbounds %struct.btCompoundLeafCallback, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %otherObjWrap.addr, align 8
-  store ptr %1, ptr %m_otherObjWrap, align 8
+  %2 = load ptr, ptr %otherObjWrap.addr, align 8
+  store ptr %2, ptr %m_otherObjWrap, align 8
   %m_dispatcher = getelementptr inbounds %struct.btCompoundLeafCallback, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %dispatcher.addr, align 8
-  store ptr %2, ptr %m_dispatcher, align 8
+  %3 = load ptr, ptr %dispatcher.addr, align 8
+  store ptr %3, ptr %m_dispatcher, align 8
   %m_dispatchInfo = getelementptr inbounds %struct.btCompoundLeafCallback, ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %dispatchInfo.addr, align 8
-  store ptr %3, ptr %m_dispatchInfo, align 8
+  %4 = load ptr, ptr %dispatchInfo.addr, align 8
+  store ptr %4, ptr %m_dispatchInfo, align 8
   %m_resultOut = getelementptr inbounds %struct.btCompoundLeafCallback, ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %resultOut.addr, align 8
-  store ptr %4, ptr %m_resultOut, align 8
+  %5 = load ptr, ptr %resultOut.addr, align 8
+  store ptr %5, ptr %m_resultOut, align 8
   %m_childCollisionAlgorithms = getelementptr inbounds %struct.btCompoundLeafCallback, ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %childCollisionAlgorithms.addr, align 8
-  store ptr %5, ptr %m_childCollisionAlgorithms, align 8
+  %6 = load ptr, ptr %childCollisionAlgorithms.addr, align 8
+  store ptr %6, ptr %m_childCollisionAlgorithms, align 8
   %m_sharedManifold = getelementptr inbounds %struct.btCompoundLeafCallback, ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %sharedManifold.addr, align 8
-  store ptr %6, ptr %m_sharedManifold, align 8
+  %7 = load ptr, ptr %sharedManifold.addr, align 8
+  store ptr %7, ptr %m_sharedManifold, align 8
   ret void
 }
 
@@ -2953,7 +2956,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6btDbvt8ICollideE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6btDbvt8ICollideE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -1108,7 +1108,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %4 = load i32, ptr %edgeColor.addr, align 4
   call void @_ZN7msdfgen11EdgeSegmentC2ENS_9EdgeColorE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %4)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [2 x %"struct.msdfgen::Vector2"], ptr %p, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %array.begin, i64 2
@@ -1134,12 +1135,12 @@ arrayctor.cont:                                   ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7msdfgen11EdgeSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #11
   br label %eh.resume
 
@@ -1159,10 +1160,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %edgeColor, ptr %edgeColor.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen11EdgeSegmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7msdfgen11EdgeSegmentE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %edgeColor.addr, align 4
-  store i32 %0, ptr %color, align 8
+  %1 = load i32, ptr %edgeColor.addr, align 4
+  store i32 %1, ptr %color, align 8
   ret void
 }
 
@@ -1210,7 +1212,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %6 = load i32, ptr %edgeColor.addr, align 4
   call void @_ZN7msdfgen11EdgeSegmentC2ENS_9EdgeColorE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %7 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %this1, align 8
   %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x %"struct.msdfgen::Vector2"], ptr %p, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %array.begin, i64 3
@@ -1239,12 +1242,12 @@ arrayctor.cont:                                   ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN7msdfgen11EdgeSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #11
   br label %eh.resume
 
@@ -1288,7 +1291,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %8 = load i32, ptr %edgeColor.addr, align 4
   call void @_ZN7msdfgen11EdgeSegmentC2ENS_9EdgeColorE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %9 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %this1, align 8
   %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [4 x %"struct.msdfgen::Vector2"], ptr %p, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %array.begin, i64 4
@@ -1320,12 +1324,12 @@ arrayctor.cont:                                   ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN7msdfgen11EdgeSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #11
   br label %eh.resume
 

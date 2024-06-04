@@ -1453,14 +1453,14 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %5 = load ptr, ptr %opt.addr, align 8
   %obuf2 = getelementptr inbounds %struct.merge_options, ptr %5, i32 0, i32 13
   %6 = load ptr, ptr %err.addr, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %obuf2, ptr noundef %6, ptr noundef %arraydecay3)
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay4)
+  call void @llvm.va_end.p0(ptr %arraydecay4)
   %7 = load ptr, ptr %opt.addr, align 8
   %buffer_output5 = getelementptr inbounds %struct.merge_options, ptr %7, i32 0, i32 12
   %8 = load i32, ptr %buffer_output5, align 8
@@ -2303,14 +2303,14 @@ if.end:                                           ; preds = %entry
   %conv = sext i32 %mul to i64
   call void @strbuf_addchars(ptr noundef %obuf, i32 noundef 32, i64 noundef %conv)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %6 = load ptr, ptr %opt.addr, align 8
   %obuf1 = getelementptr inbounds %struct.merge_options, ptr %6, i32 0, i32 13
   %7 = load ptr, ptr %fmt.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %obuf1, ptr noundef %7, ptr noundef %arraydecay2)
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %8 = load ptr, ptr %opt.addr, align 8
   %obuf4 = getelementptr inbounds %struct.merge_options, ptr %8, i32 0, i32 13
   call void @strbuf_addch(ptr noundef %obuf4, i32 noundef 10)
@@ -3857,13 +3857,7 @@ declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
 
 declare void @strbuf_addchars(ptr noundef, i32 noundef, i64 noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @strbuf_addch(ptr noundef %sb, i32 noundef %c) #0 {
@@ -4389,11 +4383,12 @@ if.end17:                                         ; preds = %if.then13, %cond.en
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 @diff_queued_diff, i64 16, i1 false)
   %output_format19 = getelementptr inbounds %struct.diff_options, ptr %opts, i32 0, i32 25
   store i32 2048, ptr %output_format19, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
+  %22 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  store i32 0, ptr %22, align 4
   store ptr null, ptr @diff_queued_diff, align 8
   call void @diff_flush(ptr noundef %opts)
-  %22 = load ptr, ptr %ret, align 8
-  ret ptr %22
+  %23 = load ptr, ptr %ret, align 8
+  ret ptr %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8327,7 +8322,7 @@ declare i32 @open64(ptr noundef, i32 noundef, ...) #1
 declare ptr @strerror(i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #8
+declare ptr @__errno_location() #7
 
 declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) #1
 
@@ -13796,6 +13791,12 @@ declare void @git_config(ptr noundef, ptr noundef) #1
 
 declare i32 @git_xmerge_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -13803,8 +13804,8 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { noreturn }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

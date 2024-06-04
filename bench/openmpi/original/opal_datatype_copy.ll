@@ -1360,7 +1360,7 @@ define internal ptr @opal_datatype_accelerator_memcpy(ptr noundef %0, ptr nounde
   %29 = load i64, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %28, i64 %29, i1 false)
   store ptr %27, ptr %4, align 8
-  br label %60
+  br label %61
 
 30:                                               ; preds = %23, %3
   %31 = load i32, ptr %9, align 4
@@ -1397,32 +1397,33 @@ define internal ptr @opal_datatype_accelerator_memcpy(ptr noundef %0, ptr nounde
   br label %46
 
 46:                                               ; preds = %45
-  %47 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 7), align 8
-  %48 = load i32, ptr %10, align 4
-  %49 = load i32, ptr %12, align 4
-  %50 = load ptr, ptr %5, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i64, ptr %7, align 8
-  %53 = load i32, ptr %13, align 4
-  %54 = call i32 %47(i32 noundef %48, i32 noundef %49, ptr noundef %50, ptr noundef %51, i64 noundef %52, i32 noundef %53)
-  store i32 %54, ptr %8, align 4
-  %55 = load i32, ptr %8, align 4
-  %56 = icmp ne i32 0, %55
-  br i1 %56, label %57, label %58
+  %47 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 7
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %10, align 4
+  %50 = load i32, ptr %12, align 4
+  %51 = load ptr, ptr %5, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = load i64, ptr %7, align 8
+  %54 = load i32, ptr %13, align 4
+  %55 = call i32 %48(i32 noundef %49, i32 noundef %50, ptr noundef %51, ptr noundef %52, i64 noundef %53, i32 noundef %54)
+  store i32 %55, ptr %8, align 4
+  %56 = load i32, ptr %8, align 4
+  %57 = icmp ne i32 0, %56
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %46
+58:                                               ; preds = %46
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str)
   call void @abort() #4
   unreachable
 
-58:                                               ; preds = %46
-  %59 = load ptr, ptr %5, align 8
-  store ptr %59, ptr %4, align 8
-  br label %60
+59:                                               ; preds = %46
+  %60 = load ptr, ptr %5, align 8
+  store ptr %60, ptr %4, align 8
+  br label %61
 
-60:                                               ; preds = %58, %26
-  %61 = load ptr, ptr %4, align 8
-  ret ptr %61
+61:                                               ; preds = %59, %26
+  %62 = load ptr, ptr %4, align 8
+  ret ptr %62
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1699,7 +1700,7 @@ define internal ptr @opal_datatype_accelerator_memmove(ptr noundef %0, ptr nound
   %29 = load i64, ptr %7, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %27, ptr align 1 %28, i64 %29, i1 false)
   store ptr %27, ptr %4, align 8
-  br label %60
+  br label %61
 
 30:                                               ; preds = %23, %3
   %31 = load i32, ptr %9, align 4
@@ -1736,32 +1737,33 @@ define internal ptr @opal_datatype_accelerator_memmove(ptr noundef %0, ptr nound
   br label %46
 
 46:                                               ; preds = %45
-  %47 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 8), align 8
-  %48 = load i32, ptr %10, align 4
-  %49 = load i32, ptr %12, align 4
-  %50 = load ptr, ptr %5, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i64, ptr %7, align 8
-  %53 = load i32, ptr %13, align 4
-  %54 = call i32 %47(i32 noundef %48, i32 noundef %49, ptr noundef %50, ptr noundef %51, i64 noundef %52, i32 noundef %53)
-  store i32 %54, ptr %8, align 4
-  %55 = load i32, ptr %8, align 4
-  %56 = icmp ne i32 0, %55
-  br i1 %56, label %57, label %58
+  %47 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %10, align 4
+  %50 = load i32, ptr %12, align 4
+  %51 = load ptr, ptr %5, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = load i64, ptr %7, align 8
+  %54 = load i32, ptr %13, align 4
+  %55 = call i32 %48(i32 noundef %49, i32 noundef %50, ptr noundef %51, ptr noundef %52, i64 noundef %53, i32 noundef %54)
+  store i32 %55, ptr %8, align 4
+  %56 = load i32, ptr %8, align 4
+  %57 = icmp ne i32 0, %56
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %46
+58:                                               ; preds = %46
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1)
   call void @abort() #4
   unreachable
 
-58:                                               ; preds = %46
-  %59 = load ptr, ptr %5, align 8
-  store ptr %59, ptr %4, align 8
-  br label %60
+59:                                               ; preds = %46
+  %60 = load ptr, ptr %5, align 8
+  store ptr %60, ptr %4, align 8
+  br label %61
 
-60:                                               ; preds = %58, %26
-  %61 = load ptr, ptr %4, align 8
-  ret ptr %61
+61:                                               ; preds = %59, %26
+  %62 = load ptr, ptr %4, align 8
+  ret ptr %62
 }
 
 ; Function Attrs: nounwind uwtable

@@ -2185,10 +2185,11 @@ entry:
   %3 = load i8, ptr %strictMode.addr, align 1
   %tobool = trunc i8 %3 to i1
   call void @_ZN4cvc56parser11ParserStateC2EPNS0_19ParserStateCallbackEPNS_6SolverEPNS0_10SymManagerEb(ptr noundef nonnull align 8 dereferenceable(168) %this2, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2StateE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2StateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this2, align 8
   %d_isSygus = getelementptr inbounds %"class.cvc5::parser::Smt2State", ptr %this2, i32 0, i32 1
-  %4 = load i8, ptr %isSygus.addr, align 1
-  %tobool3 = trunc i8 %4 to i1
+  %5 = load i8, ptr %isSygus.addr, align 1
+  %tobool3 = trunc i8 %5 to i1
   %frombool4 = zext i1 %tobool3 to i8
   store i8 %frombool4, ptr %d_isSygus, align 8
   %d_logicSet = getelementptr inbounds %"class.cvc5::parser::Smt2State", ptr %this2, i32 0, i32 2
@@ -2216,21 +2217,21 @@ invoke.cont6:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc54KindESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_closureKindMap) #3
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc54KindESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_indexedOpKindMap) #3
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc54KindESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_operatorKindMap) #3
@@ -2322,7 +2323,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_allocGrammars = getelementptr inbounds %"class.cvc5::parser::Smt2State", ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorISt10unique_ptrIN4cvc57GrammarESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_allocGrammars) #3
   %d_lastNamedTerm = getelementptr inbounds %"class.cvc5::parser::Smt2State", ptr %this1, i32 0, i32 8

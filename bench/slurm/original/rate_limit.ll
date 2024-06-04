@@ -43,136 +43,142 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @rate_limit_init() #0 {
   %1 = alloca ptr, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183), align 8
-  %3 = call ptr @xstrcasestr(ptr noundef %2, ptr noundef @.str)
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %6, label %5
-
-5:                                                ; preds = %0
-  br label %69
+  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @xstrcasestr(ptr noundef %3, ptr noundef @.str)
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183), align 8
-  %8 = call ptr @xstrcasestr(ptr noundef %7, ptr noundef @.str.1)
-  store ptr %8, ptr %1, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %14
+  br label %75
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 14
-  %13 = call i32 @atoi(ptr noundef %12) #6
-  store i32 %13, ptr @table_size, align 4
-  br label %14
+7:                                                ; preds = %0
+  %8 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183
+  %9 = load ptr, ptr %8, align 8
+  %10 = call ptr @xstrcasestr(ptr noundef %9, ptr noundef @.str.1)
+  store ptr %10, ptr %1, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %16
 
-14:                                               ; preds = %10, %6
-  %15 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183), align 8
-  %16 = call ptr @xstrcasestr(ptr noundef %15, ptr noundef @.str.2)
-  store ptr %16, ptr %1, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %22
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %1, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 14
+  %15 = call i32 @atoi(ptr noundef %14) #6
+  store i32 %15, ptr @table_size, align 4
+  br label %16
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 15
-  %21 = call i32 @atoi(ptr noundef %20) #6
-  store i32 %21, ptr @bucket_size, align 4
-  br label %22
+16:                                               ; preds = %12, %7
+  %17 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183
+  %18 = load ptr, ptr %17, align 8
+  %19 = call ptr @xstrcasestr(ptr noundef %18, ptr noundef @.str.2)
+  store ptr %19, ptr %1, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %25
 
-22:                                               ; preds = %18, %14
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183), align 8
-  %24 = call ptr @xstrcasestr(ptr noundef %23, ptr noundef @.str.3)
-  store ptr %24, ptr %1, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %30
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 15
+  %24 = call i32 @atoi(ptr noundef %23) #6
+  store i32 %24, ptr @bucket_size, align 4
+  br label %25
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
-  %29 = call i32 @atoi(ptr noundef %28) #6
-  store i32 %29, ptr @log_freq, align 4
-  br label %30
+25:                                               ; preds = %21, %16
+  %26 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183
+  %27 = load ptr, ptr %26, align 8
+  %28 = call ptr @xstrcasestr(ptr noundef %27, ptr noundef @.str.3)
+  store ptr %28, ptr %1, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %34
 
-30:                                               ; preds = %26, %22
-  %31 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183), align 8
-  %32 = call ptr @xstrcasestr(ptr noundef %31, ptr noundef @.str.4)
-  store ptr %32, ptr %1, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %38
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 12
+  %33 = call i32 @atoi(ptr noundef %32) #6
+  store i32 %33, ptr @log_freq, align 4
+  br label %34
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 15
-  %37 = call i32 @atoi(ptr noundef %36) #6
-  store i32 %37, ptr @refill_rate, align 4
-  br label %38
+34:                                               ; preds = %30, %25
+  %35 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr @xstrcasestr(ptr noundef %36, ptr noundef @.str.4)
+  store ptr %37, ptr %1, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %43
 
-38:                                               ; preds = %34, %30
-  %39 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183), align 8
-  %40 = call ptr @xstrcasestr(ptr noundef %39, ptr noundef @.str.5)
-  store ptr %40, ptr %1, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %46
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %1, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 15
+  %42 = call i32 @atoi(ptr noundef %41) #6
+  store i32 %42, ptr @refill_rate, align 4
+  br label %43
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 17
-  %45 = call i32 @atoi(ptr noundef %44) #6
-  store i32 %45, ptr @refill_period, align 4
-  br label %46
+43:                                               ; preds = %39, %34
+  %44 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 183
+  %45 = load ptr, ptr %44, align 8
+  %46 = call ptr @xstrcasestr(ptr noundef %45, ptr noundef @.str.5)
+  store ptr %46, ptr %1, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %52
 
-46:                                               ; preds = %42, %38
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %1, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 17
+  %51 = call i32 @atoi(ptr noundef %50) #6
+  store i32 %51, ptr @refill_period, align 4
+  br label %52
+
+52:                                               ; preds = %48, %43
   store i8 1, ptr @rate_limit_enabled, align 1
-  %47 = load i32, ptr @table_size, align 4
-  %48 = sext i32 %47 to i64
-  %49 = call ptr @slurm_xcalloc(i64 noundef %48, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.6, i32 noundef 91, ptr noundef @__func__.rate_limit_init)
-  store ptr %49, ptr @user_buckets, align 8
-  br label %50
-
-50:                                               ; preds = %46
-  br label %51
-
-51:                                               ; preds = %50
-  %52 = call i32 @get_log_level()
-  %53 = icmp sge i32 %52, 3
-  br i1 %53, label %54, label %55
-
-54:                                               ; preds = %51
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.7)
-  br label %55
-
-55:                                               ; preds = %54, %51
+  %53 = load i32, ptr @table_size, align 4
+  %54 = sext i32 %53 to i64
+  %55 = call ptr @slurm_xcalloc(i64 noundef %54, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.6, i32 noundef 91, ptr noundef @__func__.rate_limit_init)
+  store ptr %55, ptr @user_buckets, align 8
   br label %56
 
-56:                                               ; preds = %55
+56:                                               ; preds = %52
   br label %57
 
 57:                                               ; preds = %56
-  br label %58
+  %58 = call i32 @get_log_level()
+  %59 = icmp sge i32 %58, 3
+  br i1 %59, label %60, label %61
 
-58:                                               ; preds = %57
-  br label %59
+60:                                               ; preds = %57
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.7)
+  br label %61
 
-59:                                               ; preds = %58
-  %60 = call i32 @get_log_level()
-  %61 = icmp sge i32 %60, 3
-  br i1 %61, label %62, label %67
+61:                                               ; preds = %60, %57
+  br label %62
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr @table_size, align 4
-  %64 = load i32, ptr @bucket_size, align 4
-  %65 = load i32, ptr @refill_rate, align 4
-  %66 = load i32, ptr @refill_period, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.8, ptr noundef @__func__.rate_limit_init, i32 noundef %63, i32 noundef %64, i32 noundef %65, i32 noundef %66)
-  br label %67
+62:                                               ; preds = %61
+  br label %63
 
-67:                                               ; preds = %62, %59
-  br label %68
+63:                                               ; preds = %62
+  br label %64
 
-68:                                               ; preds = %67
-  br label %69
+64:                                               ; preds = %63
+  br label %65
 
-69:                                               ; preds = %68, %5
+65:                                               ; preds = %64
+  %66 = call i32 @get_log_level()
+  %67 = icmp sge i32 %66, 3
+  br i1 %67, label %68, label %73
+
+68:                                               ; preds = %65
+  %69 = load i32, ptr @table_size, align 4
+  %70 = load i32, ptr @bucket_size, align 4
+  %71 = load i32, ptr @refill_rate, align 4
+  %72 = load i32, ptr @refill_period, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.8, ptr noundef @__func__.rate_limit_init, i32 noundef %69, i32 noundef %70, i32 noundef %71, i32 noundef %72)
+  br label %73
+
+73:                                               ; preds = %68, %65
+  br label %74
+
+74:                                               ; preds = %73
+  br label %75
+
+75:                                               ; preds = %74, %6
   ret void
 }
 

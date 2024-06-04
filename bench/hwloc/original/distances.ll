@@ -928,51 +928,54 @@ define internal ptr @hwloc__internal_distances_from_public(ptr noundef %0, ptr n
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 sub (i64 0, i64 ptrtoint (ptr getelementptr inbounds (%struct.hwloc_distances_container_s, ptr null, i32 0, i32 1) to i64))
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.hwloc_topology, ptr %10, i32 0, i32 24
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %7, align 8
-  br label %13
+  %9 = getelementptr inbounds %struct.hwloc_distances_container_s, ptr null, i32 0, i32 1
+  %10 = ptrtoint ptr %9 to i64
+  %11 = sub i64 0, %10
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  store ptr %12, ptr %6, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %struct.hwloc_topology, ptr %13, i32 0, i32 24
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %7, align 8
+  br label %16
 
-13:                                               ; preds = %27, %2
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %31
-
-16:                                               ; preds = %13
+16:                                               ; preds = %30, %2
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct.hwloc_internal_distances_s, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.hwloc_distances_container_s, ptr %20, i32 0, i32 0
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %34
+
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %7, align 8
+  %21 = getelementptr inbounds %struct.hwloc_internal_distances_s, ptr %20, i32 0, i32 1
   %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %19, %22
-  br i1 %23, label %24, label %26
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %struct.hwloc_distances_container_s, ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp eq i32 %22, %25
+  br i1 %26, label %27, label %29
 
-24:                                               ; preds = %16
-  %25 = load ptr, ptr %7, align 8
-  store ptr %25, ptr %3, align 8
-  br label %32
-
-26:                                               ; preds = %16
-  br label %27
-
-27:                                               ; preds = %26
+27:                                               ; preds = %19
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.hwloc_internal_distances_s, ptr %28, i32 0, i32 11
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %7, align 8
-  br label %13, !llvm.loop !8
+  store ptr %28, ptr %3, align 8
+  br label %35
 
-31:                                               ; preds = %13
+29:                                               ; preds = %19
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %7, align 8
+  %32 = getelementptr inbounds %struct.hwloc_internal_distances_s, ptr %31, i32 0, i32 11
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr %7, align 8
+  br label %16, !llvm.loop !8
+
+34:                                               ; preds = %16
   store ptr null, ptr %3, align 8
-  br label %32
+  br label %35
 
-32:                                               ; preds = %31, %24
-  %33 = load ptr, ptr %3, align 8
-  ret ptr %33
+35:                                               ; preds = %34, %27
+  %36 = load ptr, ptr %3, align 8
+  ret ptr %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -983,18 +986,21 @@ define void @hwloc_distances_release(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 sub (i64 0, i64 ptrtoint (ptr getelementptr inbounds (%struct.hwloc_distances_container_s, ptr null, i32 0, i32 1) to i64))
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.hwloc_distances_s, ptr %8, i32 0, i32 3
-  %10 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %10) #13
+  %7 = getelementptr inbounds %struct.hwloc_distances_container_s, ptr null, i32 0, i32 1
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 0, %8
+  %10 = getelementptr inbounds i8, ptr %6, i64 %9
+  store ptr %10, ptr %5, align 8
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.hwloc_distances_s, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds %struct.hwloc_distances_s, ptr %11, i32 0, i32 3
   %13 = load ptr, ptr %12, align 8
   call void @free(ptr noundef %13) #13
-  %14 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %14) #13
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %struct.hwloc_distances_s, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %16) #13
+  %17 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %17) #13
   ret void
 }
 

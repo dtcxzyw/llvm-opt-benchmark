@@ -264,15 +264,15 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
   store ptr @.str.9, ptr %17, align 8, !tbaa !25
   %18 = load ptr, ptr %5, align 8, !tbaa !25
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %22, label %32
+  br i1 %19, label %22, label %33
 
-20:                                               ; preds = %50
+20:                                               ; preds = %53
   %21 = load ptr, ptr %5, align 8, !tbaa !22
   br label %22
 
 22:                                               ; preds = %20, %2
   %23 = phi ptr [ null, %2 ], [ %21, %20 ]
-  %24 = phi ptr [ null, %2 ], [ %51, %20 ]
+  %24 = phi ptr [ null, %2 ], [ %54, %20 ]
   call void @g_list_free_full(ptr noundef %23, ptr noundef nonnull @g_free) #12
   store ptr null, ptr %5, align 8, !tbaa !22
   %25 = getelementptr inbounds i8, ptr %13, i64 32
@@ -281,95 +281,98 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
   %27 = getelementptr inbounds ptr, ptr %13, i64 %26
   store ptr null, ptr %27, align 8, !tbaa !25
   %28 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.11, ptr noundef nonnull %13) #12
-  %29 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !26
-  %30 = and i32 %29, 262144
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %61, label %60
+  %29 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %30 = load i32, ptr %29, align 8, !tbaa !26
+  %31 = and i32 %30, 262144
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %64, label %63
 
-32:                                               ; preds = %50, %2
-  %33 = phi i64 [ %56, %50 ], [ 5, %2 ]
-  %34 = phi ptr [ %58, %50 ], [ %18, %2 ]
-  %35 = phi ptr [ %51, %50 ], [ null, %2 ]
+33:                                               ; preds = %53, %2
+  %34 = phi i64 [ %59, %53 ], [ 5, %2 ]
+  %35 = phi ptr [ %61, %53 ], [ %18, %2 ]
+  %36 = phi ptr [ %54, %53 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
-  %36 = load ptr, ptr %34, align 8, !tbaa !35
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !21
-  %39 = call noalias ptr @g_path_get_basename(ptr noundef %38) #12
-  %40 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !37
-  %41 = load i32, ptr %36, align 8, !tbaa !16
-  %42 = call ptr @dt_image_cache_get(ptr noundef %40, i32 noundef %41, i8 noundef signext 114) #12
-  call void @dt_image_print_exif(ptr noundef %42, ptr noundef nonnull %3, i64 noundef 256) #12
-  %43 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 16), align 8, !tbaa !37
-  call void @dt_image_cache_read_release(ptr noundef %43, ptr noundef %42) #12
-  %44 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, ptr noundef %39, ptr noundef nonnull %3) #12
-  %45 = icmp eq ptr %35, null
-  br i1 %45, label %48, label %46
+  %37 = load ptr, ptr %35, align 8, !tbaa !35
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
+  %40 = call noalias ptr @g_path_get_basename(ptr noundef %39) #12
+  %41 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !37
+  %43 = load i32, ptr %37, align 8, !tbaa !16
+  %44 = call ptr @dt_image_cache_get(ptr noundef %42, i32 noundef %43, i8 noundef signext 114) #12
+  call void @dt_image_print_exif(ptr noundef %44, ptr noundef nonnull %3, i64 noundef 256) #12
+  %45 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !37
+  call void @dt_image_cache_read_release(ptr noundef %46, ptr noundef %44) #12
+  %47 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, ptr noundef %40, ptr noundef nonnull %3) #12
+  %48 = icmp eq ptr %36, null
+  br i1 %48, label %51, label %49
 
-46:                                               ; preds = %32
-  %47 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %35, ptr noundef %44, ptr noundef null) #12
-  call void @g_free(ptr noundef nonnull %35) #12
-  br label %50
+49:                                               ; preds = %33
+  %50 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %36, ptr noundef %47, ptr noundef null) #12
+  call void @g_free(ptr noundef nonnull %36) #12
+  br label %53
 
-48:                                               ; preds = %32
-  %49 = call noalias ptr @g_strdup(ptr noundef %44) #12
-  br label %50
+51:                                               ; preds = %33
+  %52 = call noalias ptr @g_strdup(ptr noundef %47) #12
+  br label %53
 
-50:                                               ; preds = %48, %46
-  %51 = phi ptr [ %47, %46 ], [ %49, %48 ]
-  call void @g_free(ptr noundef %44) #12
-  call void @g_free(ptr noundef %39) #12
-  %52 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.10) #12
-  %53 = getelementptr inbounds ptr, ptr %13, i64 %33
-  store ptr %52, ptr %53, align 8, !tbaa !25
-  %54 = load ptr, ptr %37, align 8, !tbaa !21
-  %55 = getelementptr i8, ptr %53, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !25
-  %56 = add nuw nsw i64 %33, 2
+53:                                               ; preds = %51, %49
+  %54 = phi ptr [ %50, %49 ], [ %52, %51 ]
+  call void @g_free(ptr noundef %47) #12
+  call void @g_free(ptr noundef %40) #12
+  %55 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.10) #12
+  %56 = getelementptr inbounds ptr, ptr %13, i64 %34
+  store ptr %55, ptr %56, align 8, !tbaa !25
+  %57 = load ptr, ptr %38, align 8, !tbaa !21
+  %58 = getelementptr i8, ptr %56, i64 8
+  store ptr %57, ptr %58, align 8, !tbaa !25
+  %59 = add nuw nsw i64 %34, 2
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #12
-  %57 = getelementptr inbounds i8, ptr %34, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !25
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %20, label %32
+  %60 = getelementptr inbounds i8, ptr %35, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !25
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %20, label %33
 
-60:                                               ; preds = %22
+63:                                               ; preds = %22
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %28) #12
-  br label %61
+  br label %64
 
-61:                                               ; preds = %60, %22
+64:                                               ; preds = %63, %22
   call void @g_free(ptr noundef %28) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 0, ptr %4, align 4, !tbaa !6
-  %62 = call i32 @g_spawn_sync(ptr noundef null, ptr noundef nonnull %13, ptr noundef null, i32 noundef 28, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef null) #12
-  %63 = icmp sgt i32 %7, -1
-  br i1 %63, label %64, label %67
+  %65 = call i32 @g_spawn_sync(ptr noundef null, ptr noundef nonnull %13, ptr noundef null, i32 noundef 28, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef null) #12
+  %66 = icmp sgt i32 %7, -1
+  br i1 %66, label %67, label %70
 
-64:                                               ; preds = %61
-  %65 = call i32 @llvm.smax.i32(i32 %9, i32 5)
-  %66 = zext nneg i32 %65 to i64
-  br label %70
+67:                                               ; preds = %64
+  %68 = call i32 @llvm.smax.i32(i32 %9, i32 5)
+  %69 = zext nneg i32 %68 to i64
+  br label %73
 
-67:                                               ; preds = %70, %61
+70:                                               ; preds = %73, %64
   call void @g_free(ptr noundef nonnull %13) #12
-  %68 = load i32, ptr %4, align 4, !tbaa !6
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %78, label %76
+  %71 = load i32, ptr %4, align 4, !tbaa !6
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %81, label %79
 
-70:                                               ; preds = %70, %64
-  %71 = phi i64 [ 4, %64 ], [ %74, %70 ]
-  %72 = getelementptr inbounds ptr, ptr %13, i64 %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !25
-  call void @g_free(ptr noundef %73) #12
-  %74 = add nuw nsw i64 %71, 1
-  %75 = icmp eq i64 %74, %66
-  br i1 %75, label %67, label %70
+73:                                               ; preds = %73, %67
+  %74 = phi i64 [ 4, %67 ], [ %77, %73 ]
+  %75 = getelementptr inbounds ptr, ptr %13, i64 %74
+  %76 = load ptr, ptr %75, align 8, !tbaa !25
+  call void @g_free(ptr noundef %76) #12
+  %77 = add nuw nsw i64 %74, 1
+  %78 = icmp eq i64 %77, %69
+  br i1 %78, label %70, label %73
 
-76:                                               ; preds = %67
-  %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #12
-  call void (ptr, ...) @dt_control_log(ptr noundef %77) #12
-  br label %78
+79:                                               ; preds = %70
+  %80 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #12
+  call void (ptr, ...) @dt_control_log(ptr noundef %80) #12
+  br label %81
 
-78:                                               ; preds = %76, %67
+81:                                               ; preds = %79, %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   ret void
 }

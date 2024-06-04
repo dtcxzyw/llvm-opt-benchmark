@@ -2471,13 +2471,14 @@ define void @_ZN4LIEF5MachO17DyldChainedFixupsD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 13
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO22ChainedBindingInfoListESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
-  %6 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 11
-  call void @_ZNSt6vectorIN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #16
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 13
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
+  %6 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO22ChainedBindingInfoListESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #16
+  %7 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 11
+  call void @_ZNSt6vectorIN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   ret void
 }
@@ -2582,33 +2583,34 @@ define void @_ZN4LIEF5MachO17DyldChainedFixupsC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 3
-  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  %7 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 4
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 5
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 6
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 7
-  store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 8
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 9
-  store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 10
-  store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 11
-  call void @_ZNSt6vectorIN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #16
-  %15 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO22ChainedBindingInfoListESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #16
-  %16 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 13
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #16
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 3
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
+  %8 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 4
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 5
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 6
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 7
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 8
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 9
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 10
+  store i32 1, ptr %14, align 8
+  %15 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 11
+  call void @_ZNSt6vectorIN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #16
+  %16 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO22ChainedBindingInfoListESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #16
+  %17 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %3, i32 0, i32 13
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
   ret void
 }
 
@@ -2689,39 +2691,40 @@ define void @_ZN4LIEF5MachO17DyldChainedFixupsC2ERKS1_(ptr noundef nonnull align
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %11, align 4
-  %15 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 3
-  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #16
-  %16 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 4
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 5
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 6
-  store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 7
-  store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 8
-  store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 9
-  store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 10
-  store i32 1, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 11
-  call void @_ZNSt6vectorIN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #16
-  %24 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 12
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO22ChainedBindingInfoListESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
-  %25 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 13
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
+  %7 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %13, i32 0, i32 2
+  %15 = load i32, ptr %14, align 4
+  store i32 %15, ptr %12, align 4
+  %16 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 3
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #16
+  %17 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 4
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 5
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 6
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 7
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 8
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 9
+  store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 10
+  store i32 1, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 11
+  call void @_ZNSt6vectorIN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
+  %25 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 12
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO22ChainedBindingInfoListESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
+  %26 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 13
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #16
   ret void
 }
 
@@ -2742,39 +2745,40 @@ define void @_ZN4LIEF5MachO17DyldChainedFixupsC2ERKNS0_7details21linkedit_data_c
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %18, i32 0, i32 3
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %17, align 4
-  %21 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 3
-  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #16
-  %22 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 4
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 5
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 6
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 7
-  store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 8
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 9
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 10
-  store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 11
-  call void @_ZNSt6vectorIN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #16
-  %30 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 12
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO22ChainedBindingInfoListESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #16
-  %31 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 13
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #16
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 2
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"struct.LIEF::MachO::details::linkedit_data_command", ptr %19, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4
+  store i32 %21, ptr %18, align 4
+  %22 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 3
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #16
+  %23 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 4
+  store i32 0, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 5
+  store i32 0, ptr %24, align 4
+  %25 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 6
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 7
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 8
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 9
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 10
+  store i32 1, ptr %29, align 8
+  %30 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 11
+  call void @_ZNSt6vectorIN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #16
+  %31 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 12
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO22ChainedBindingInfoListESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #16
+  %32 = getelementptr inbounds %"class.LIEF::MachO::DyldChainedFixups", ptr %5, i32 0, i32 13
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #16
   ret void
 }
 
@@ -7368,13 +7372,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIcLm500ESaIcEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #16
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 500) #16
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #16
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [500 x i8], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 500) #16
   ret void
 }
 
@@ -7951,16 +7956,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -8721,7 +8727,8 @@ define linkonce_odr hidden void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -13784,13 +13791,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIiLm500ESaIiEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.78", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #16
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.78", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [500 x i32], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 500) #16
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.78", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #16
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.78", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [500 x i32], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 500) #16
   ret void
 }
 
@@ -13916,16 +13924,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.79", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.79", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.79", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.79", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.79", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.79", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -29026,13 +29035,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.107", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #16
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.107", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [32 x i32], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 32) #16
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.107", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #16
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.107", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 32) #16
   ret void
 }
 
@@ -29063,16 +29073,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.108", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.108", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.108", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.108", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.108", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.108", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -29922,21 +29933,22 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.107", ptr %5, i32 0, i32 2
-  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
-  %7 = load ptr, ptr %4, align 8
-  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %7)
-          to label %8 unwind label %9
-
-8:                                                ; preds = %2
-  ret void
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.107", ptr %5, i32 0, i32 2
+  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %8)
+          to label %9 unwind label %10
 
 9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #18
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #18
   unreachable
 }
 

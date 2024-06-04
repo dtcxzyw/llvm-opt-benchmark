@@ -86,7 +86,9 @@ entry:
   %arraydecay3 = getelementptr inbounds [8 x i8], ptr %iv, i64 0, i64 0
   call void @IDEA_cbc_encrypt(ptr noundef @out, ptr noundef @out, i64 noundef 8, ptr noundef %dkey, ptr noundef %arraydecay3, i32 noundef 0)
   %arraydecay4 = getelementptr inbounds [8 x i8], ptr %iv, i64 0, i64 0
-  call void @IDEA_cbc_encrypt(ptr noundef getelementptr inbounds ([80 x i8], ptr @out, i64 0, i64 8), ptr noundef getelementptr inbounds ([80 x i8], ptr @out, i64 0, i64 8), i64 noundef 22, ptr noundef %dkey, ptr noundef %arraydecay4, i32 noundef 0)
+  %0 = getelementptr inbounds [80 x i8], ptr @out, i64 0, i64 8
+  %1 = getelementptr inbounds [80 x i8], ptr @out, i64 0, i64 8
+  call void @IDEA_cbc_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef 22, ptr noundef %dkey, ptr noundef %arraydecay4, i32 noundef 0)
   %call = call i32 @test_mem_eq(ptr noundef @.str.3, i32 noundef 88, ptr noundef @.str.7, ptr noundef @.str.4, ptr noundef @text, i64 noundef 30, ptr noundef @out, i64 noundef 30)
   ret i32 %call
 }
@@ -103,7 +105,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 @cfb_tmp, ptr align 16 @cfb_iv, i64 8, i1 false)
   store i32 0, ptr %n, align 4
   call void @IDEA_cfb64_encrypt(ptr noundef @plain, ptr noundef @cfb_buf1, i64 noundef 12, ptr noundef %eks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
-  call void @IDEA_cfb64_encrypt(ptr noundef getelementptr inbounds ([24 x i8], ptr @plain, i64 0, i64 12), ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf1, i64 0, i64 12), i64 noundef 12, ptr noundef %eks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
+  %0 = getelementptr inbounds [24 x i8], ptr @plain, i64 0, i64 12
+  %1 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 12
+  call void @IDEA_cfb64_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef 12, ptr noundef %eks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 1)
   %call = call i32 @test_mem_eq(ptr noundef @.str.3, i32 noundef 105, ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef @cfb_cipher64, i64 noundef 24, ptr noundef @cfb_buf1, i64 noundef 24)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.end, label %if.then
@@ -116,14 +120,16 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 @cfb_tmp, ptr align 16 @cfb_iv, i64 8, i1 false)
   store i32 0, ptr %n, align 4
   call void @IDEA_cfb64_encrypt(ptr noundef @cfb_buf1, ptr noundef @cfb_buf2, i64 noundef 13, ptr noundef %eks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
-  call void @IDEA_cfb64_encrypt(ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf1, i64 0, i64 13), ptr noundef getelementptr inbounds ([40 x i8], ptr @cfb_buf2, i64 0, i64 13), i64 noundef 11, ptr noundef %eks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
+  %2 = getelementptr inbounds [40 x i8], ptr @cfb_buf1, i64 0, i64 13
+  %3 = getelementptr inbounds [40 x i8], ptr @cfb_buf2, i64 0, i64 13
+  call void @IDEA_cfb64_encrypt(ptr noundef %2, ptr noundef %3, i64 noundef 11, ptr noundef %eks, ptr noundef @cfb_tmp, ptr noundef %n, i32 noundef 0)
   %call1 = call i32 @test_mem_eq(ptr noundef @.str.3, i32 noundef 114, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @plain, i64 noundef 24, ptr noundef @cfb_buf2, i64 noundef 24)
   store i32 %call1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+  %4 = load i32, ptr %retval, align 4
+  ret i32 %4
 }
 
 declare void @IDEA_set_encrypt_key(ptr noundef, ptr noundef) #1

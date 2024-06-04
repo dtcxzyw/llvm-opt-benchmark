@@ -119,11 +119,12 @@ declare dso_local i32 @class_register(ptr noundef) local_unnamed_addr #1
 define internal i32 @cpuid_device_create(i32 noundef %0) #4 align 16 {
   %2 = or i32 %0, 212860928
   %3 = tail call ptr (ptr, ptr, i32, ptr, ptr, ...) @device_create(ptr noundef nonnull @cpuid_class, ptr noundef null, i32 noundef %2, ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %0) #7
-  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  %5 = ptrtoint ptr %3 to i64
-  %6 = trunc i64 %5 to i32
-  %7 = select i1 %4, i32 %6, i32 0
-  ret i32 %7
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %3, %4
+  %6 = ptrtoint ptr %3 to i64
+  %7 = trunc i64 %6 to i32
+  %8 = select i1 %5, i32 %7, i32 0
+  ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -239,7 +240,7 @@ define internal i32 @cpuid_open(ptr nocapture readnone %0, ptr nocapture noundef
   %7 = and i32 %6, 1048575
   %8 = load i32, ptr @nr_cpu_ids, align 4
   %9 = icmp ult i32 %7, %8
-  br i1 %9, label %10, label %24
+  br i1 %9, label %10, label %25
 
 10:                                               ; preds = %2
   %11 = zext nneg i32 %7 to i64
@@ -247,22 +248,23 @@ define internal i32 @cpuid_open(ptr nocapture readnone %0, ptr nocapture noundef
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
-  br i1 %14, label %24, label %15
+  br i1 %14, label %25, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
   %17 = load i64, ptr %16, align 8
-  %18 = add i64 %17, ptrtoint (ptr @cpu_info to i64)
-  %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 36
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp slt i32 %21, 0
-  %23 = select i1 %22, i32 -5, i32 0
-  br label %24
+  %18 = ptrtoint ptr @cpu_info to i64
+  %19 = add i64 %17, %18
+  %20 = inttoptr i64 %19 to ptr
+  %21 = getelementptr inbounds i8, ptr %20, i64 36
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp slt i32 %22, 0
+  %24 = select i1 %23, i32 -5, i32 0
+  br label %25
 
-24:                                               ; preds = %15, %10, %2
-  %25 = phi i32 [ -6, %10 ], [ -6, %2 ], [ %23, %15 ]
-  ret i32 %25
+25:                                               ; preds = %15, %10, %2
+  %26 = phi i32 [ -6, %10 ], [ -6, %2 ], [ %24, %15 ]
+  ret i32 %26
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

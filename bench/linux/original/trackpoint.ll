@@ -98,177 +98,192 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #8
   %20 = icmp eq i32 %19, 0
   %21 = and i1 %20, %1
-  br i1 %21, label %22, label %117
+  br i1 %21, label %22, label %132
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %24 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 16) #9
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %117, label %26
+  %23 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %24 = load ptr, ptr %23, align 16
+  %25 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 16) #9
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %132, label %27
 
-26:                                               ; preds = %22
-  %27 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_sensitivity, i64 0, i32 4), align 1
-  %28 = getelementptr inbounds i8, ptr %24, i64 2
-  store i8 %27, ptr %28, align 2
-  %29 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_speed, i64 0, i32 4), align 1
-  %30 = getelementptr inbounds i8, ptr %24, i64 3
-  store i8 %29, ptr %30, align 1
-  %31 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_reach, i64 0, i32 4), align 1
-  %32 = getelementptr inbounds i8, ptr %24, i64 5
-  store i8 %31, ptr %32, align 1
-  %33 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_draghys, i64 0, i32 4), align 1
-  %34 = getelementptr inbounds i8, ptr %24, i64 6
-  store i8 %33, ptr %34, align 2
-  %35 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_mindrag, i64 0, i32 4), align 1
-  %36 = getelementptr inbounds i8, ptr %24, i64 7
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_sensitivity, i64 0, i32 4
+  %29 = load i8, ptr %28, align 1
+  %30 = getelementptr inbounds i8, ptr %25, i64 2
+  store i8 %29, ptr %30, align 2
+  %31 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_speed, i64 0, i32 4
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds i8, ptr %25, i64 3
+  store i8 %32, ptr %33, align 1
+  %34 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_reach, i64 0, i32 4
+  %35 = load i8, ptr %34, align 1
+  %36 = getelementptr inbounds i8, ptr %25, i64 5
   store i8 %35, ptr %36, align 1
-  %37 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_thresh, i64 0, i32 4), align 1
-  %38 = getelementptr inbounds i8, ptr %24, i64 8
-  store i8 %37, ptr %38, align 8
-  %39 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_upthresh, i64 0, i32 4), align 1
-  %40 = getelementptr inbounds i8, ptr %24, i64 9
-  store i8 %39, ptr %40, align 1
-  %41 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_ztime, i64 0, i32 4), align 1
-  %42 = getelementptr inbounds i8, ptr %24, i64 10
-  store i8 %41, ptr %42, align 2
-  %43 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_jenks, i64 0, i32 4), align 1
-  %44 = getelementptr inbounds i8, ptr %24, i64 11
-  store i8 %43, ptr %44, align 1
-  %45 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_drift_time, i64 0, i32 4), align 1
-  %46 = getelementptr inbounds i8, ptr %24, i64 12
-  store i8 %45, ptr %46, align 4
-  %47 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_inertia, i64 0, i32 4), align 1
-  %48 = getelementptr inbounds i8, ptr %24, i64 4
-  store i8 %47, ptr %48, align 4
-  %49 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_press_to_select, i64 0, i32 4), align 1
-  %50 = icmp ne i8 %49, 0
-  %51 = getelementptr inbounds i8, ptr %24, i64 13
-  %52 = zext i1 %50 to i8
-  store i8 %52, ptr %51, align 1
-  %53 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_skipback, i64 0, i32 4), align 1
-  %54 = icmp ne i8 %53, 0
-  %55 = getelementptr inbounds i8, ptr %24, i64 14
-  %56 = zext i1 %54 to i8
-  store i8 %56, ptr %55, align 2
-  %57 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_ext_dev, i64 0, i32 4), align 1
-  %58 = icmp ne i8 %57, 0
-  %59 = getelementptr inbounds i8, ptr %24, i64 15
-  %60 = zext i1 %58 to i8
-  store i8 %60, ptr %59, align 1
-  store i8 %17, ptr %24, align 8
-  %61 = getelementptr inbounds i8, ptr %24, i64 1
-  store i8 %18, ptr %61, align 1
-  store ptr %24, ptr %0, align 8
-  %62 = zext nneg i8 %17 to i64
-  %63 = getelementptr [7 x ptr], ptr @trackpoint_variants, i64 0, i64 %62
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr @.str, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 432
-  store ptr @trackpoint_reconnect, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 448
-  store ptr @trackpoint_disconnect, ptr %68, align 8
-  %69 = icmp eq i8 %17, 1
-  br i1 %69, label %71, label %70
+  %37 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_draghys, i64 0, i32 4
+  %38 = load i8, ptr %37, align 1
+  %39 = getelementptr inbounds i8, ptr %25, i64 6
+  store i8 %38, ptr %39, align 2
+  %40 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_mindrag, i64 0, i32 4
+  %41 = load i8, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %25, i64 7
+  store i8 %41, ptr %42, align 1
+  %43 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_thresh, i64 0, i32 4
+  %44 = load i8, ptr %43, align 1
+  %45 = getelementptr inbounds i8, ptr %25, i64 8
+  store i8 %44, ptr %45, align 8
+  %46 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_upthresh, i64 0, i32 4
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds i8, ptr %25, i64 9
+  store i8 %47, ptr %48, align 1
+  %49 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_ztime, i64 0, i32 4
+  %50 = load i8, ptr %49, align 1
+  %51 = getelementptr inbounds i8, ptr %25, i64 10
+  store i8 %50, ptr %51, align 2
+  %52 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_jenks, i64 0, i32 4
+  %53 = load i8, ptr %52, align 1
+  %54 = getelementptr inbounds i8, ptr %25, i64 11
+  store i8 %53, ptr %54, align 1
+  %55 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_drift_time, i64 0, i32 4
+  %56 = load i8, ptr %55, align 1
+  %57 = getelementptr inbounds i8, ptr %25, i64 12
+  store i8 %56, ptr %57, align 4
+  %58 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_inertia, i64 0, i32 4
+  %59 = load i8, ptr %58, align 1
+  %60 = getelementptr inbounds i8, ptr %25, i64 4
+  store i8 %59, ptr %60, align 4
+  %61 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_press_to_select, i64 0, i32 4
+  %62 = load i8, ptr %61, align 1
+  %63 = icmp ne i8 %62, 0
+  %64 = getelementptr inbounds i8, ptr %25, i64 13
+  %65 = zext i1 %63 to i8
+  store i8 %65, ptr %64, align 1
+  %66 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_skipback, i64 0, i32 4
+  %67 = load i8, ptr %66, align 1
+  %68 = icmp ne i8 %67, 0
+  %69 = getelementptr inbounds i8, ptr %25, i64 14
+  %70 = zext i1 %68 to i8
+  store i8 %70, ptr %69, align 2
+  %71 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_ext_dev, i64 0, i32 4
+  %72 = load i8, ptr %71, align 1
+  %73 = icmp ne i8 %72, 0
+  %74 = getelementptr inbounds i8, ptr %25, i64 15
+  %75 = zext i1 %73 to i8
+  store i8 %75, ptr %74, align 1
+  store i8 %17, ptr %25, align 8
+  %76 = getelementptr inbounds i8, ptr %25, i64 1
+  store i8 %18, ptr %76, align 1
+  store ptr %25, ptr %0, align 8
+  %77 = zext nneg i8 %17 to i64
+  %78 = getelementptr [7 x ptr], ptr @trackpoint_variants, i64 0, i64 %77
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr @.str, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %0, i64 432
+  store ptr @trackpoint_reconnect, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 448
+  store ptr @trackpoint_disconnect, ptr %83, align 8
+  %84 = icmp eq i8 %17, 1
+  br i1 %84, label %86, label %85
 
-70:                                               ; preds = %26
+85:                                               ; preds = %27
   store i8 51, ptr %5, align 1
-  br label %83
+  br label %98
 
-71:                                               ; preds = %26
+86:                                               ; preds = %27
   store i8 75, ptr %5, align 1
-  %72 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %5, i32 noundef 4578) #8
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %77, label %74
+  %87 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %5, i32 noundef 4578) #8
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %92, label %89
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %76, ptr noundef nonnull @.str.1) #10
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %6, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 344
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %91, ptr noundef nonnull @.str.1) #10
   store i8 51, ptr %5, align 1
-  br label %83
+  br label %98
 
-77:                                               ; preds = %71
-  %78 = load i8, ptr %5, align 1
-  %79 = icmp eq i8 %78, 0
-  br i1 %79, label %80, label %83
+92:                                               ; preds = %86
+  %93 = load i8, ptr %5, align 1
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %95, label %98
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %82, ptr noundef nonnull @.str.2) #10
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 344
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %97, ptr noundef nonnull @.str.2) #10
   store i8 51, ptr %5, align 1
-  br label %83
+  br label %98
 
-83:                                               ; preds = %80, %77, %74, %70
-  %84 = load i8, ptr %5, align 1
-  %85 = and i8 %84, 15
-  %86 = icmp ugt i8 %85, 2
-  br i1 %86, label %87, label %90
+98:                                               ; preds = %95, %92, %89, %85
+  %99 = load i8, ptr %5, align 1
+  %100 = and i8 %99, 15
+  %101 = icmp ugt i8 %100, 2
+  br i1 %101, label %102, label %105
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
-  %89 = load ptr, ptr %88, align 8
-  call void @input_set_capability(ptr noundef %89, i32 noundef 1, i32 noundef 274) #8
-  br label %90
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds i8, ptr %0, i64 8
+  %104 = load ptr, ptr %103, align 8
+  call void @input_set_capability(ptr noundef %104, i32 noundef 1, i32 noundef 274) #8
+  br label %105
 
-90:                                               ; preds = %87, %83
-  %91 = getelementptr inbounds i8, ptr %0, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %93, i64 0) #8, !srcloc !6
-  %94 = load ptr, ptr %91, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %95, i64 5) #8, !srcloc !6
-  br i1 %69, label %96, label %99
+105:                                              ; preds = %102, %98
+  %106 = getelementptr inbounds i8, ptr %0, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %108, i64 0) #8, !srcloc !6
+  %109 = load ptr, ptr %106, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %110, i64 5) #8, !srcloc !6
+  br i1 %84, label %111, label %114
 
-96:                                               ; preds = %90
-  %97 = call fastcc i32 @trackpoint_power_on_reset(ptr noundef %6)
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %100, label %99
+111:                                              ; preds = %105
+  %112 = call fastcc i32 @trackpoint_power_on_reset(ptr noundef %6)
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %115, label %114
 
-99:                                               ; preds = %96, %90
+114:                                              ; preds = %111, %105
   call fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext false)
-  br label %100
+  br label %115
 
-100:                                              ; preds = %99, %96
-  %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 344
+115:                                              ; preds = %114, %111
+  %116 = load ptr, ptr %6, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 344
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
   store ptr @trackpoint_attr_group, ptr %3, align 16
-  %103 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %103, align 8
-  %104 = call i32 @device_add_groups(ptr noundef %102, ptr noundef nonnull %3) #8
+  %118 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %118, align 8
+  %119 = call i32 @device_add_groups(ptr noundef %117, ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
-  %105 = icmp eq i32 %104, 0
-  %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 344
-  br i1 %105, label %110, label %108
+  %120 = icmp eq i32 %119, 0
+  %121 = load ptr, ptr %6, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 344
+  br i1 %120, label %125, label %123
 
-108:                                              ; preds = %100
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %107, ptr noundef nonnull @.str.3, i32 noundef %104) #10
-  %109 = load ptr, ptr %0, align 8
-  call void @kfree(ptr noundef %109) #8
+123:                                              ; preds = %115
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %122, ptr noundef nonnull @.str.3, i32 noundef %119) #10
+  %124 = load ptr, ptr %0, align 8
+  call void @kfree(ptr noundef %124) #8
   store ptr null, ptr %0, align 8
-  br label %117
+  br label %132
 
-110:                                              ; preds = %100
-  %111 = load ptr, ptr %65, align 8
-  %112 = zext i8 %18 to i32
-  %113 = load i8, ptr %5, align 1
-  %114 = zext i8 %113 to i32
-  %115 = lshr i32 %114, 4
-  %116 = and i32 %114, 15
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %107, ptr noundef nonnull @.str.4, ptr noundef %111, i32 noundef %112, i32 noundef %115, i32 noundef %116) #10
-  br label %117
+125:                                              ; preds = %115
+  %126 = load ptr, ptr %80, align 8
+  %127 = zext i8 %18 to i32
+  %128 = load i8, ptr %5, align 1
+  %129 = zext i8 %128 to i32
+  %130 = lshr i32 %129, 4
+  %131 = and i32 %129, 15
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %122, ptr noundef nonnull @.str.4, ptr noundef %126, i32 noundef %127, i32 noundef %130, i32 noundef %131) #10
+  br label %132
 
-117:                                              ; preds = %110, %108, %22, %16
-  %118 = phi i32 [ -1, %108 ], [ 0, %110 ], [ %19, %16 ], [ -12, %22 ]
+132:                                              ; preds = %125, %123, %22, %16
+  %133 = phi i32 [ -1, %123 ], [ 0, %125 ], [ %19, %16 ], [ -12, %22 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
-  ret i32 %118
+  ret i32 %133
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -519,1058 +534,1100 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %89
 
 89:                                               ; preds = %88, %52
-  br i1 %1, label %90, label %95
+  br i1 %1, label %90, label %96
 
 90:                                               ; preds = %89, %2
   %91 = getelementptr inbounds i8, ptr %51, i64 2
   %92 = load i8, ptr %91, align 1
-  %93 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_sensitivity, i64 0, i32 4), align 1
-  %94 = icmp eq i8 %92, %93
-  br i1 %94, label %124, label %95
+  %93 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_sensitivity, i64 0, i32 4
+  %94 = load i8, ptr %93, align 1
+  %95 = icmp eq i8 %92, %94
+  br i1 %95, label %127, label %96
 
-95:                                               ; preds = %90, %89
-  %96 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_sensitivity, i64 0, i32 2), align 1
-  %97 = icmp eq i8 %96, 0
-  %98 = getelementptr inbounds i8, ptr %0, i64 16
-  %99 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_sensitivity, i64 0, i32 1), align 8
-  %100 = getelementptr inbounds i8, ptr %51, i64 2
-  %101 = load i8, ptr %100, align 1
-  br i1 %97, label %102, label %106
+96:                                               ; preds = %90, %89
+  %97 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_sensitivity, i64 0, i32 2
+  %98 = load i8, ptr %97, align 1
+  %99 = icmp eq i8 %98, 0
+  %100 = getelementptr inbounds i8, ptr %0, i64 16
+  %101 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_sensitivity, i64 0, i32 1
+  %102 = load i8, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %51, i64 2
+  %104 = load i8, ptr %103, align 1
+  br i1 %99, label %105, label %109
 
-102:                                              ; preds = %95
+105:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %44) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %44, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %44, align 1
-  %103 = getelementptr inbounds i8, ptr %44, i64 1
-  store i8 %99, ptr %103, align 1
-  %104 = getelementptr inbounds i8, ptr %44, i64 2
-  store i8 %101, ptr %104, align 1
-  %105 = call i32 @ps2_command(ptr noundef %98, ptr noundef nonnull %44, i32 noundef 12514) #8
+  %106 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 %102, ptr %106, align 1
+  %107 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %104, ptr %107, align 1
+  %108 = call i32 @ps2_command(ptr noundef %100, ptr noundef nonnull %44, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %44) #8
-  br label %124
+  br label %127
 
-106:                                              ; preds = %95
+109:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43) #8
-  store i8 %99, ptr %43, align 1
-  %107 = call i32 @ps2_command(ptr noundef %98, ptr noundef nonnull %43, i32 noundef 4578) #8
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %123
+  store i8 %102, ptr %43, align 1
+  %110 = call i32 @ps2_command(ptr noundef %100, ptr noundef nonnull %43, i32 noundef 4578) #8
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %126
 
-109:                                              ; preds = %106
-  %110 = load i8, ptr %43, align 1
-  %111 = and i8 %110, %96
-  %112 = icmp eq i8 %111, %96
-  %113 = icmp eq i8 %101, 0
-  %114 = xor i1 %113, %112
-  br i1 %114, label %123, label %115
+112:                                              ; preds = %109
+  %113 = load i8, ptr %43, align 1
+  %114 = and i8 %113, %98
+  %115 = icmp eq i8 %114, %98
+  %116 = icmp eq i8 %104, 0
+  %117 = xor i1 %116, %115
+  br i1 %117, label %126, label %118
 
-115:                                              ; preds = %109
+118:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %42) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %42, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %42, align 1
-  %116 = getelementptr inbounds i8, ptr %42, i64 1
-  store i8 %99, ptr %116, align 1
-  %117 = getelementptr inbounds i8, ptr %42, i64 2
-  store i8 %96, ptr %117, align 1
-  %118 = add i8 %99, -47
-  %119 = icmp ult i8 %118, -15
-  br i1 %119, label %122, label %120
+  %119 = getelementptr inbounds i8, ptr %42, i64 1
+  store i8 %102, ptr %119, align 1
+  %120 = getelementptr inbounds i8, ptr %42, i64 2
+  store i8 %98, ptr %120, align 1
+  %121 = add i8 %102, -47
+  %122 = icmp ult i8 %121, -15
+  br i1 %122, label %125, label %123
 
-120:                                              ; preds = %115
-  %121 = call i32 @ps2_command(ptr noundef %98, ptr noundef nonnull %42, i32 noundef 12514) #8
-  br label %122
+123:                                              ; preds = %118
+  %124 = call i32 @ps2_command(ptr noundef %100, ptr noundef nonnull %42, i32 noundef 12514) #8
+  br label %125
 
-122:                                              ; preds = %120, %115
+125:                                              ; preds = %123, %118
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %42) #8
-  br label %123
+  br label %126
 
-123:                                              ; preds = %122, %109, %106
+126:                                              ; preds = %125, %112, %109
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43) #8
-  br label %124
+  br label %127
 
-124:                                              ; preds = %123, %102, %90
-  br i1 %1, label %125, label %130
+127:                                              ; preds = %126, %105, %90
+  br i1 %1, label %128, label %134
 
-125:                                              ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %51, i64 4
-  %127 = load i8, ptr %126, align 1
-  %128 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_inertia, i64 0, i32 4), align 1
-  %129 = icmp eq i8 %127, %128
-  br i1 %129, label %163, label %130
-
-130:                                              ; preds = %125, %124
-  %131 = load ptr, ptr %0, align 8
+128:                                              ; preds = %127
+  %129 = getelementptr inbounds i8, ptr %51, i64 4
+  %130 = load i8, ptr %129, align 1
+  %131 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_inertia, i64 0, i32 4
   %132 = load i8, ptr %131, align 1
-  %133 = icmp eq i8 %132, 1
-  br i1 %133, label %134, label %163
+  %133 = icmp eq i8 %130, %132
+  br i1 %133, label %169, label %134
 
-134:                                              ; preds = %130
-  %135 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_inertia, i64 0, i32 2), align 1
-  %136 = icmp eq i8 %135, 0
-  %137 = getelementptr inbounds i8, ptr %0, i64 16
-  %138 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_inertia, i64 0, i32 1), align 8
-  %139 = getelementptr inbounds i8, ptr %51, i64 4
+134:                                              ; preds = %128, %127
+  %135 = load ptr, ptr %0, align 8
+  %136 = load i8, ptr %135, align 1
+  %137 = icmp eq i8 %136, 1
+  br i1 %137, label %138, label %169
+
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_inertia, i64 0, i32 2
   %140 = load i8, ptr %139, align 1
-  br i1 %136, label %141, label %145
+  %141 = icmp eq i8 %140, 0
+  %142 = getelementptr inbounds i8, ptr %0, i64 16
+  %143 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_inertia, i64 0, i32 1
+  %144 = load i8, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %51, i64 4
+  %146 = load i8, ptr %145, align 1
+  br i1 %141, label %147, label %151
 
-141:                                              ; preds = %134
+147:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %41) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %41, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %41, align 1
-  %142 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 %138, ptr %142, align 1
-  %143 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %140, ptr %143, align 1
-  %144 = call i32 @ps2_command(ptr noundef %137, ptr noundef nonnull %41, i32 noundef 12514) #8
+  %148 = getelementptr inbounds i8, ptr %41, i64 1
+  store i8 %144, ptr %148, align 1
+  %149 = getelementptr inbounds i8, ptr %41, i64 2
+  store i8 %146, ptr %149, align 1
+  %150 = call i32 @ps2_command(ptr noundef %142, ptr noundef nonnull %41, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %41) #8
-  br label %163
+  br label %169
 
-145:                                              ; preds = %134
+151:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #8
-  store i8 %138, ptr %40, align 1
-  %146 = call i32 @ps2_command(ptr noundef %137, ptr noundef nonnull %40, i32 noundef 4578) #8
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %162
+  store i8 %144, ptr %40, align 1
+  %152 = call i32 @ps2_command(ptr noundef %142, ptr noundef nonnull %40, i32 noundef 4578) #8
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %154, label %168
 
-148:                                              ; preds = %145
-  %149 = load i8, ptr %40, align 1
-  %150 = and i8 %149, %135
-  %151 = icmp eq i8 %150, %135
-  %152 = icmp eq i8 %140, 0
-  %153 = xor i1 %152, %151
-  br i1 %153, label %162, label %154
+154:                                              ; preds = %151
+  %155 = load i8, ptr %40, align 1
+  %156 = and i8 %155, %140
+  %157 = icmp eq i8 %156, %140
+  %158 = icmp eq i8 %146, 0
+  %159 = xor i1 %158, %157
+  br i1 %159, label %168, label %160
 
-154:                                              ; preds = %148
+160:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %39) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %39, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %39, align 1
-  %155 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 %138, ptr %155, align 1
-  %156 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %135, ptr %156, align 1
-  %157 = add i8 %138, -47
-  %158 = icmp ult i8 %157, -15
-  br i1 %158, label %161, label %159
+  %161 = getelementptr inbounds i8, ptr %39, i64 1
+  store i8 %144, ptr %161, align 1
+  %162 = getelementptr inbounds i8, ptr %39, i64 2
+  store i8 %140, ptr %162, align 1
+  %163 = add i8 %144, -47
+  %164 = icmp ult i8 %163, -15
+  br i1 %164, label %167, label %165
 
-159:                                              ; preds = %154
-  %160 = call i32 @ps2_command(ptr noundef %137, ptr noundef nonnull %39, i32 noundef 12514) #8
-  br label %161
+165:                                              ; preds = %160
+  %166 = call i32 @ps2_command(ptr noundef %142, ptr noundef nonnull %39, i32 noundef 12514) #8
+  br label %167
 
-161:                                              ; preds = %159, %154
+167:                                              ; preds = %165, %160
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %39) #8
-  br label %162
+  br label %168
 
-162:                                              ; preds = %161, %148, %145
+168:                                              ; preds = %167, %154, %151
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40) #8
-  br label %163
+  br label %169
 
-163:                                              ; preds = %162, %141, %130, %125
-  br i1 %1, label %164, label %169
+169:                                              ; preds = %168, %147, %134, %128
+  br i1 %1, label %170, label %176
 
-164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %51, i64 3
-  %166 = load i8, ptr %165, align 1
-  %167 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_speed, i64 0, i32 4), align 1
-  %168 = icmp eq i8 %166, %167
-  br i1 %168, label %202, label %169
+170:                                              ; preds = %169
+  %171 = getelementptr inbounds i8, ptr %51, i64 3
+  %172 = load i8, ptr %171, align 1
+  %173 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_speed, i64 0, i32 4
+  %174 = load i8, ptr %173, align 1
+  %175 = icmp eq i8 %172, %174
+  br i1 %175, label %211, label %176
 
-169:                                              ; preds = %164, %163
-  %170 = load ptr, ptr %0, align 8
-  %171 = load i8, ptr %170, align 1
-  %172 = icmp eq i8 %171, 1
-  br i1 %172, label %173, label %202
+176:                                              ; preds = %170, %169
+  %177 = load ptr, ptr %0, align 8
+  %178 = load i8, ptr %177, align 1
+  %179 = icmp eq i8 %178, 1
+  br i1 %179, label %180, label %211
 
-173:                                              ; preds = %169
-  %174 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_speed, i64 0, i32 2), align 1
-  %175 = icmp eq i8 %174, 0
-  %176 = getelementptr inbounds i8, ptr %0, i64 16
-  %177 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_speed, i64 0, i32 1), align 8
-  %178 = getelementptr inbounds i8, ptr %51, i64 3
-  %179 = load i8, ptr %178, align 1
-  br i1 %175, label %180, label %184
+180:                                              ; preds = %176
+  %181 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_speed, i64 0, i32 2
+  %182 = load i8, ptr %181, align 1
+  %183 = icmp eq i8 %182, 0
+  %184 = getelementptr inbounds i8, ptr %0, i64 16
+  %185 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_speed, i64 0, i32 1
+  %186 = load i8, ptr %185, align 8
+  %187 = getelementptr inbounds i8, ptr %51, i64 3
+  %188 = load i8, ptr %187, align 1
+  br i1 %183, label %189, label %193
 
-180:                                              ; preds = %173
+189:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %38) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %38, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %38, align 1
-  %181 = getelementptr inbounds i8, ptr %38, i64 1
-  store i8 %177, ptr %181, align 1
-  %182 = getelementptr inbounds i8, ptr %38, i64 2
-  store i8 %179, ptr %182, align 1
-  %183 = call i32 @ps2_command(ptr noundef %176, ptr noundef nonnull %38, i32 noundef 12514) #8
+  %190 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 %186, ptr %190, align 1
+  %191 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %188, ptr %191, align 1
+  %192 = call i32 @ps2_command(ptr noundef %184, ptr noundef nonnull %38, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %38) #8
-  br label %202
+  br label %211
 
-184:                                              ; preds = %173
+193:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #8
-  store i8 %177, ptr %37, align 1
-  %185 = call i32 @ps2_command(ptr noundef %176, ptr noundef nonnull %37, i32 noundef 4578) #8
-  %186 = icmp eq i32 %185, 0
-  br i1 %186, label %187, label %201
+  store i8 %186, ptr %37, align 1
+  %194 = call i32 @ps2_command(ptr noundef %184, ptr noundef nonnull %37, i32 noundef 4578) #8
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %210
 
-187:                                              ; preds = %184
-  %188 = load i8, ptr %37, align 1
-  %189 = and i8 %188, %174
-  %190 = icmp eq i8 %189, %174
-  %191 = icmp eq i8 %179, 0
-  %192 = xor i1 %191, %190
-  br i1 %192, label %201, label %193
+196:                                              ; preds = %193
+  %197 = load i8, ptr %37, align 1
+  %198 = and i8 %197, %182
+  %199 = icmp eq i8 %198, %182
+  %200 = icmp eq i8 %188, 0
+  %201 = xor i1 %200, %199
+  br i1 %201, label %210, label %202
 
-193:                                              ; preds = %187
+202:                                              ; preds = %196
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %36) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %36, align 1
-  %194 = getelementptr inbounds i8, ptr %36, i64 1
-  store i8 %177, ptr %194, align 1
-  %195 = getelementptr inbounds i8, ptr %36, i64 2
-  store i8 %174, ptr %195, align 1
-  %196 = add i8 %177, -47
-  %197 = icmp ult i8 %196, -15
-  br i1 %197, label %200, label %198
+  %203 = getelementptr inbounds i8, ptr %36, i64 1
+  store i8 %186, ptr %203, align 1
+  %204 = getelementptr inbounds i8, ptr %36, i64 2
+  store i8 %182, ptr %204, align 1
+  %205 = add i8 %186, -47
+  %206 = icmp ult i8 %205, -15
+  br i1 %206, label %209, label %207
 
-198:                                              ; preds = %193
-  %199 = call i32 @ps2_command(ptr noundef %176, ptr noundef nonnull %36, i32 noundef 12514) #8
-  br label %200
+207:                                              ; preds = %202
+  %208 = call i32 @ps2_command(ptr noundef %184, ptr noundef nonnull %36, i32 noundef 12514) #8
+  br label %209
 
-200:                                              ; preds = %198, %193
+209:                                              ; preds = %207, %202
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %36) #8
-  br label %201
+  br label %210
 
-201:                                              ; preds = %200, %187, %184
+210:                                              ; preds = %209, %196, %193
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #8
-  br label %202
+  br label %211
 
-202:                                              ; preds = %201, %180, %169, %164
-  br i1 %1, label %203, label %208
+211:                                              ; preds = %210, %189, %176, %170
+  br i1 %1, label %212, label %218
 
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds i8, ptr %51, i64 5
-  %205 = load i8, ptr %204, align 1
-  %206 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_reach, i64 0, i32 4), align 1
-  %207 = icmp eq i8 %205, %206
-  br i1 %207, label %241, label %208
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %51, i64 5
+  %214 = load i8, ptr %213, align 1
+  %215 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_reach, i64 0, i32 4
+  %216 = load i8, ptr %215, align 1
+  %217 = icmp eq i8 %214, %216
+  br i1 %217, label %253, label %218
 
-208:                                              ; preds = %203, %202
-  %209 = load ptr, ptr %0, align 8
-  %210 = load i8, ptr %209, align 1
-  %211 = icmp eq i8 %210, 1
-  br i1 %211, label %212, label %241
+218:                                              ; preds = %212, %211
+  %219 = load ptr, ptr %0, align 8
+  %220 = load i8, ptr %219, align 1
+  %221 = icmp eq i8 %220, 1
+  br i1 %221, label %222, label %253
 
-212:                                              ; preds = %208
-  %213 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_reach, i64 0, i32 2), align 1
-  %214 = icmp eq i8 %213, 0
-  %215 = getelementptr inbounds i8, ptr %0, i64 16
-  %216 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_reach, i64 0, i32 1), align 8
-  %217 = getelementptr inbounds i8, ptr %51, i64 5
-  %218 = load i8, ptr %217, align 1
-  br i1 %214, label %219, label %223
+222:                                              ; preds = %218
+  %223 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_reach, i64 0, i32 2
+  %224 = load i8, ptr %223, align 1
+  %225 = icmp eq i8 %224, 0
+  %226 = getelementptr inbounds i8, ptr %0, i64 16
+  %227 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_reach, i64 0, i32 1
+  %228 = load i8, ptr %227, align 8
+  %229 = getelementptr inbounds i8, ptr %51, i64 5
+  %230 = load i8, ptr %229, align 1
+  br i1 %225, label %231, label %235
 
-219:                                              ; preds = %212
+231:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %35) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %35, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %35, align 1
-  %220 = getelementptr inbounds i8, ptr %35, i64 1
-  store i8 %216, ptr %220, align 1
-  %221 = getelementptr inbounds i8, ptr %35, i64 2
-  store i8 %218, ptr %221, align 1
-  %222 = call i32 @ps2_command(ptr noundef %215, ptr noundef nonnull %35, i32 noundef 12514) #8
+  %232 = getelementptr inbounds i8, ptr %35, i64 1
+  store i8 %228, ptr %232, align 1
+  %233 = getelementptr inbounds i8, ptr %35, i64 2
+  store i8 %230, ptr %233, align 1
+  %234 = call i32 @ps2_command(ptr noundef %226, ptr noundef nonnull %35, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %35) #8
-  br label %241
+  br label %253
 
-223:                                              ; preds = %212
+235:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #8
-  store i8 %216, ptr %34, align 1
-  %224 = call i32 @ps2_command(ptr noundef %215, ptr noundef nonnull %34, i32 noundef 4578) #8
-  %225 = icmp eq i32 %224, 0
-  br i1 %225, label %226, label %240
+  store i8 %228, ptr %34, align 1
+  %236 = call i32 @ps2_command(ptr noundef %226, ptr noundef nonnull %34, i32 noundef 4578) #8
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %238, label %252
 
-226:                                              ; preds = %223
-  %227 = load i8, ptr %34, align 1
-  %228 = and i8 %227, %213
-  %229 = icmp eq i8 %228, %213
-  %230 = icmp eq i8 %218, 0
-  %231 = xor i1 %230, %229
-  br i1 %231, label %240, label %232
+238:                                              ; preds = %235
+  %239 = load i8, ptr %34, align 1
+  %240 = and i8 %239, %224
+  %241 = icmp eq i8 %240, %224
+  %242 = icmp eq i8 %230, 0
+  %243 = xor i1 %242, %241
+  br i1 %243, label %252, label %244
 
-232:                                              ; preds = %226
+244:                                              ; preds = %238
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %33) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %33, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %33, align 1
-  %233 = getelementptr inbounds i8, ptr %33, i64 1
-  store i8 %216, ptr %233, align 1
-  %234 = getelementptr inbounds i8, ptr %33, i64 2
-  store i8 %213, ptr %234, align 1
-  %235 = add i8 %216, -47
-  %236 = icmp ult i8 %235, -15
-  br i1 %236, label %239, label %237
+  %245 = getelementptr inbounds i8, ptr %33, i64 1
+  store i8 %228, ptr %245, align 1
+  %246 = getelementptr inbounds i8, ptr %33, i64 2
+  store i8 %224, ptr %246, align 1
+  %247 = add i8 %228, -47
+  %248 = icmp ult i8 %247, -15
+  br i1 %248, label %251, label %249
 
-237:                                              ; preds = %232
-  %238 = call i32 @ps2_command(ptr noundef %215, ptr noundef nonnull %33, i32 noundef 12514) #8
-  br label %239
+249:                                              ; preds = %244
+  %250 = call i32 @ps2_command(ptr noundef %226, ptr noundef nonnull %33, i32 noundef 12514) #8
+  br label %251
 
-239:                                              ; preds = %237, %232
+251:                                              ; preds = %249, %244
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %33) #8
-  br label %240
+  br label %252
 
-240:                                              ; preds = %239, %226, %223
+252:                                              ; preds = %251, %238, %235
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #8
-  br label %241
+  br label %253
 
-241:                                              ; preds = %240, %219, %208, %203
-  br i1 %1, label %242, label %247
+253:                                              ; preds = %252, %231, %218, %212
+  br i1 %1, label %254, label %260
 
-242:                                              ; preds = %241
-  %243 = getelementptr inbounds i8, ptr %51, i64 6
-  %244 = load i8, ptr %243, align 1
-  %245 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_draghys, i64 0, i32 4), align 1
-  %246 = icmp eq i8 %244, %245
-  br i1 %246, label %280, label %247
+254:                                              ; preds = %253
+  %255 = getelementptr inbounds i8, ptr %51, i64 6
+  %256 = load i8, ptr %255, align 1
+  %257 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_draghys, i64 0, i32 4
+  %258 = load i8, ptr %257, align 1
+  %259 = icmp eq i8 %256, %258
+  br i1 %259, label %295, label %260
 
-247:                                              ; preds = %242, %241
-  %248 = load ptr, ptr %0, align 8
-  %249 = load i8, ptr %248, align 1
-  %250 = icmp eq i8 %249, 1
-  br i1 %250, label %251, label %280
+260:                                              ; preds = %254, %253
+  %261 = load ptr, ptr %0, align 8
+  %262 = load i8, ptr %261, align 1
+  %263 = icmp eq i8 %262, 1
+  br i1 %263, label %264, label %295
 
-251:                                              ; preds = %247
-  %252 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_draghys, i64 0, i32 2), align 1
-  %253 = icmp eq i8 %252, 0
-  %254 = getelementptr inbounds i8, ptr %0, i64 16
-  %255 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_draghys, i64 0, i32 1), align 8
-  %256 = getelementptr inbounds i8, ptr %51, i64 6
-  %257 = load i8, ptr %256, align 1
-  br i1 %253, label %258, label %262
+264:                                              ; preds = %260
+  %265 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_draghys, i64 0, i32 2
+  %266 = load i8, ptr %265, align 1
+  %267 = icmp eq i8 %266, 0
+  %268 = getelementptr inbounds i8, ptr %0, i64 16
+  %269 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_draghys, i64 0, i32 1
+  %270 = load i8, ptr %269, align 8
+  %271 = getelementptr inbounds i8, ptr %51, i64 6
+  %272 = load i8, ptr %271, align 1
+  br i1 %267, label %273, label %277
 
-258:                                              ; preds = %251
+273:                                              ; preds = %264
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %32) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %32, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %32, align 1
-  %259 = getelementptr inbounds i8, ptr %32, i64 1
-  store i8 %255, ptr %259, align 1
-  %260 = getelementptr inbounds i8, ptr %32, i64 2
-  store i8 %257, ptr %260, align 1
-  %261 = call i32 @ps2_command(ptr noundef %254, ptr noundef nonnull %32, i32 noundef 12514) #8
+  %274 = getelementptr inbounds i8, ptr %32, i64 1
+  store i8 %270, ptr %274, align 1
+  %275 = getelementptr inbounds i8, ptr %32, i64 2
+  store i8 %272, ptr %275, align 1
+  %276 = call i32 @ps2_command(ptr noundef %268, ptr noundef nonnull %32, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %32) #8
-  br label %280
+  br label %295
 
-262:                                              ; preds = %251
+277:                                              ; preds = %264
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31) #8
-  store i8 %255, ptr %31, align 1
-  %263 = call i32 @ps2_command(ptr noundef %254, ptr noundef nonnull %31, i32 noundef 4578) #8
-  %264 = icmp eq i32 %263, 0
-  br i1 %264, label %265, label %279
+  store i8 %270, ptr %31, align 1
+  %278 = call i32 @ps2_command(ptr noundef %268, ptr noundef nonnull %31, i32 noundef 4578) #8
+  %279 = icmp eq i32 %278, 0
+  br i1 %279, label %280, label %294
 
-265:                                              ; preds = %262
-  %266 = load i8, ptr %31, align 1
-  %267 = and i8 %266, %252
-  %268 = icmp eq i8 %267, %252
-  %269 = icmp eq i8 %257, 0
-  %270 = xor i1 %269, %268
-  br i1 %270, label %279, label %271
+280:                                              ; preds = %277
+  %281 = load i8, ptr %31, align 1
+  %282 = and i8 %281, %266
+  %283 = icmp eq i8 %282, %266
+  %284 = icmp eq i8 %272, 0
+  %285 = xor i1 %284, %283
+  br i1 %285, label %294, label %286
 
-271:                                              ; preds = %265
+286:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %30) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %30, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %30, align 1
-  %272 = getelementptr inbounds i8, ptr %30, i64 1
-  store i8 %255, ptr %272, align 1
-  %273 = getelementptr inbounds i8, ptr %30, i64 2
-  store i8 %252, ptr %273, align 1
-  %274 = add i8 %255, -47
-  %275 = icmp ult i8 %274, -15
-  br i1 %275, label %278, label %276
+  %287 = getelementptr inbounds i8, ptr %30, i64 1
+  store i8 %270, ptr %287, align 1
+  %288 = getelementptr inbounds i8, ptr %30, i64 2
+  store i8 %266, ptr %288, align 1
+  %289 = add i8 %270, -47
+  %290 = icmp ult i8 %289, -15
+  br i1 %290, label %293, label %291
 
-276:                                              ; preds = %271
-  %277 = call i32 @ps2_command(ptr noundef %254, ptr noundef nonnull %30, i32 noundef 12514) #8
-  br label %278
+291:                                              ; preds = %286
+  %292 = call i32 @ps2_command(ptr noundef %268, ptr noundef nonnull %30, i32 noundef 12514) #8
+  br label %293
 
-278:                                              ; preds = %276, %271
+293:                                              ; preds = %291, %286
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %30) #8
-  br label %279
+  br label %294
 
-279:                                              ; preds = %278, %265, %262
+294:                                              ; preds = %293, %280, %277
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #8
-  br label %280
+  br label %295
 
-280:                                              ; preds = %279, %258, %247, %242
-  br i1 %1, label %281, label %286
+295:                                              ; preds = %294, %273, %260, %254
+  br i1 %1, label %296, label %302
 
-281:                                              ; preds = %280
-  %282 = getelementptr inbounds i8, ptr %51, i64 7
-  %283 = load i8, ptr %282, align 1
-  %284 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_mindrag, i64 0, i32 4), align 1
-  %285 = icmp eq i8 %283, %284
-  br i1 %285, label %319, label %286
+296:                                              ; preds = %295
+  %297 = getelementptr inbounds i8, ptr %51, i64 7
+  %298 = load i8, ptr %297, align 1
+  %299 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_mindrag, i64 0, i32 4
+  %300 = load i8, ptr %299, align 1
+  %301 = icmp eq i8 %298, %300
+  br i1 %301, label %337, label %302
 
-286:                                              ; preds = %281, %280
-  %287 = load ptr, ptr %0, align 8
-  %288 = load i8, ptr %287, align 1
-  %289 = icmp eq i8 %288, 1
-  br i1 %289, label %290, label %319
+302:                                              ; preds = %296, %295
+  %303 = load ptr, ptr %0, align 8
+  %304 = load i8, ptr %303, align 1
+  %305 = icmp eq i8 %304, 1
+  br i1 %305, label %306, label %337
 
-290:                                              ; preds = %286
-  %291 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_mindrag, i64 0, i32 2), align 1
-  %292 = icmp eq i8 %291, 0
-  %293 = getelementptr inbounds i8, ptr %0, i64 16
-  %294 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_mindrag, i64 0, i32 1), align 8
-  %295 = getelementptr inbounds i8, ptr %51, i64 7
-  %296 = load i8, ptr %295, align 1
-  br i1 %292, label %297, label %301
+306:                                              ; preds = %302
+  %307 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_mindrag, i64 0, i32 2
+  %308 = load i8, ptr %307, align 1
+  %309 = icmp eq i8 %308, 0
+  %310 = getelementptr inbounds i8, ptr %0, i64 16
+  %311 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_mindrag, i64 0, i32 1
+  %312 = load i8, ptr %311, align 8
+  %313 = getelementptr inbounds i8, ptr %51, i64 7
+  %314 = load i8, ptr %313, align 1
+  br i1 %309, label %315, label %319
 
-297:                                              ; preds = %290
+315:                                              ; preds = %306
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %29) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %29, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %29, align 1
-  %298 = getelementptr inbounds i8, ptr %29, i64 1
-  store i8 %294, ptr %298, align 1
-  %299 = getelementptr inbounds i8, ptr %29, i64 2
-  store i8 %296, ptr %299, align 1
-  %300 = call i32 @ps2_command(ptr noundef %293, ptr noundef nonnull %29, i32 noundef 12514) #8
+  %316 = getelementptr inbounds i8, ptr %29, i64 1
+  store i8 %312, ptr %316, align 1
+  %317 = getelementptr inbounds i8, ptr %29, i64 2
+  store i8 %314, ptr %317, align 1
+  %318 = call i32 @ps2_command(ptr noundef %310, ptr noundef nonnull %29, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %29) #8
-  br label %319
+  br label %337
 
-301:                                              ; preds = %290
+319:                                              ; preds = %306
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #8
-  store i8 %294, ptr %28, align 1
-  %302 = call i32 @ps2_command(ptr noundef %293, ptr noundef nonnull %28, i32 noundef 4578) #8
-  %303 = icmp eq i32 %302, 0
-  br i1 %303, label %304, label %318
+  store i8 %312, ptr %28, align 1
+  %320 = call i32 @ps2_command(ptr noundef %310, ptr noundef nonnull %28, i32 noundef 4578) #8
+  %321 = icmp eq i32 %320, 0
+  br i1 %321, label %322, label %336
 
-304:                                              ; preds = %301
-  %305 = load i8, ptr %28, align 1
-  %306 = and i8 %305, %291
-  %307 = icmp eq i8 %306, %291
-  %308 = icmp eq i8 %296, 0
-  %309 = xor i1 %308, %307
-  br i1 %309, label %318, label %310
+322:                                              ; preds = %319
+  %323 = load i8, ptr %28, align 1
+  %324 = and i8 %323, %308
+  %325 = icmp eq i8 %324, %308
+  %326 = icmp eq i8 %314, 0
+  %327 = xor i1 %326, %325
+  br i1 %327, label %336, label %328
 
-310:                                              ; preds = %304
+328:                                              ; preds = %322
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %27) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %27, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %27, align 1
-  %311 = getelementptr inbounds i8, ptr %27, i64 1
-  store i8 %294, ptr %311, align 1
-  %312 = getelementptr inbounds i8, ptr %27, i64 2
-  store i8 %291, ptr %312, align 1
-  %313 = add i8 %294, -47
-  %314 = icmp ult i8 %313, -15
-  br i1 %314, label %317, label %315
+  %329 = getelementptr inbounds i8, ptr %27, i64 1
+  store i8 %312, ptr %329, align 1
+  %330 = getelementptr inbounds i8, ptr %27, i64 2
+  store i8 %308, ptr %330, align 1
+  %331 = add i8 %312, -47
+  %332 = icmp ult i8 %331, -15
+  br i1 %332, label %335, label %333
 
-315:                                              ; preds = %310
-  %316 = call i32 @ps2_command(ptr noundef %293, ptr noundef nonnull %27, i32 noundef 12514) #8
-  br label %317
+333:                                              ; preds = %328
+  %334 = call i32 @ps2_command(ptr noundef %310, ptr noundef nonnull %27, i32 noundef 12514) #8
+  br label %335
 
-317:                                              ; preds = %315, %310
+335:                                              ; preds = %333, %328
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %27) #8
-  br label %318
+  br label %336
 
-318:                                              ; preds = %317, %304, %301
+336:                                              ; preds = %335, %322, %319
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #8
-  br label %319
+  br label %337
 
-319:                                              ; preds = %318, %297, %286, %281
-  br i1 %1, label %320, label %325
+337:                                              ; preds = %336, %315, %302, %296
+  br i1 %1, label %338, label %344
 
-320:                                              ; preds = %319
-  %321 = getelementptr inbounds i8, ptr %51, i64 8
-  %322 = load i8, ptr %321, align 1
-  %323 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_thresh, i64 0, i32 4), align 1
-  %324 = icmp eq i8 %322, %323
-  br i1 %324, label %358, label %325
+338:                                              ; preds = %337
+  %339 = getelementptr inbounds i8, ptr %51, i64 8
+  %340 = load i8, ptr %339, align 1
+  %341 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_thresh, i64 0, i32 4
+  %342 = load i8, ptr %341, align 1
+  %343 = icmp eq i8 %340, %342
+  br i1 %343, label %379, label %344
 
-325:                                              ; preds = %320, %319
-  %326 = load ptr, ptr %0, align 8
-  %327 = load i8, ptr %326, align 1
-  %328 = icmp eq i8 %327, 1
-  br i1 %328, label %329, label %358
+344:                                              ; preds = %338, %337
+  %345 = load ptr, ptr %0, align 8
+  %346 = load i8, ptr %345, align 1
+  %347 = icmp eq i8 %346, 1
+  br i1 %347, label %348, label %379
 
-329:                                              ; preds = %325
-  %330 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_thresh, i64 0, i32 2), align 1
-  %331 = icmp eq i8 %330, 0
-  %332 = getelementptr inbounds i8, ptr %0, i64 16
-  %333 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_thresh, i64 0, i32 1), align 8
-  %334 = getelementptr inbounds i8, ptr %51, i64 8
-  %335 = load i8, ptr %334, align 1
-  br i1 %331, label %336, label %340
+348:                                              ; preds = %344
+  %349 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_thresh, i64 0, i32 2
+  %350 = load i8, ptr %349, align 1
+  %351 = icmp eq i8 %350, 0
+  %352 = getelementptr inbounds i8, ptr %0, i64 16
+  %353 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_thresh, i64 0, i32 1
+  %354 = load i8, ptr %353, align 8
+  %355 = getelementptr inbounds i8, ptr %51, i64 8
+  %356 = load i8, ptr %355, align 1
+  br i1 %351, label %357, label %361
 
-336:                                              ; preds = %329
+357:                                              ; preds = %348
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %26) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %26, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %26, align 1
-  %337 = getelementptr inbounds i8, ptr %26, i64 1
-  store i8 %333, ptr %337, align 1
-  %338 = getelementptr inbounds i8, ptr %26, i64 2
-  store i8 %335, ptr %338, align 1
-  %339 = call i32 @ps2_command(ptr noundef %332, ptr noundef nonnull %26, i32 noundef 12514) #8
+  %358 = getelementptr inbounds i8, ptr %26, i64 1
+  store i8 %354, ptr %358, align 1
+  %359 = getelementptr inbounds i8, ptr %26, i64 2
+  store i8 %356, ptr %359, align 1
+  %360 = call i32 @ps2_command(ptr noundef %352, ptr noundef nonnull %26, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %26) #8
-  br label %358
+  br label %379
 
-340:                                              ; preds = %329
+361:                                              ; preds = %348
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #8
-  store i8 %333, ptr %25, align 1
-  %341 = call i32 @ps2_command(ptr noundef %332, ptr noundef nonnull %25, i32 noundef 4578) #8
-  %342 = icmp eq i32 %341, 0
-  br i1 %342, label %343, label %357
+  store i8 %354, ptr %25, align 1
+  %362 = call i32 @ps2_command(ptr noundef %352, ptr noundef nonnull %25, i32 noundef 4578) #8
+  %363 = icmp eq i32 %362, 0
+  br i1 %363, label %364, label %378
 
-343:                                              ; preds = %340
-  %344 = load i8, ptr %25, align 1
-  %345 = and i8 %344, %330
-  %346 = icmp eq i8 %345, %330
-  %347 = icmp eq i8 %335, 0
-  %348 = xor i1 %347, %346
-  br i1 %348, label %357, label %349
+364:                                              ; preds = %361
+  %365 = load i8, ptr %25, align 1
+  %366 = and i8 %365, %350
+  %367 = icmp eq i8 %366, %350
+  %368 = icmp eq i8 %356, 0
+  %369 = xor i1 %368, %367
+  br i1 %369, label %378, label %370
 
-349:                                              ; preds = %343
+370:                                              ; preds = %364
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %24) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %24, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %24, align 1
-  %350 = getelementptr inbounds i8, ptr %24, i64 1
-  store i8 %333, ptr %350, align 1
-  %351 = getelementptr inbounds i8, ptr %24, i64 2
-  store i8 %330, ptr %351, align 1
-  %352 = add i8 %333, -47
-  %353 = icmp ult i8 %352, -15
-  br i1 %353, label %356, label %354
+  %371 = getelementptr inbounds i8, ptr %24, i64 1
+  store i8 %354, ptr %371, align 1
+  %372 = getelementptr inbounds i8, ptr %24, i64 2
+  store i8 %350, ptr %372, align 1
+  %373 = add i8 %354, -47
+  %374 = icmp ult i8 %373, -15
+  br i1 %374, label %377, label %375
 
-354:                                              ; preds = %349
-  %355 = call i32 @ps2_command(ptr noundef %332, ptr noundef nonnull %24, i32 noundef 12514) #8
-  br label %356
+375:                                              ; preds = %370
+  %376 = call i32 @ps2_command(ptr noundef %352, ptr noundef nonnull %24, i32 noundef 12514) #8
+  br label %377
 
-356:                                              ; preds = %354, %349
+377:                                              ; preds = %375, %370
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %24) #8
-  br label %357
+  br label %378
 
-357:                                              ; preds = %356, %343, %340
+378:                                              ; preds = %377, %364, %361
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #8
-  br label %358
+  br label %379
 
-358:                                              ; preds = %357, %336, %325, %320
-  br i1 %1, label %359, label %364
+379:                                              ; preds = %378, %357, %344, %338
+  br i1 %1, label %380, label %386
 
-359:                                              ; preds = %358
-  %360 = getelementptr inbounds i8, ptr %51, i64 9
-  %361 = load i8, ptr %360, align 1
-  %362 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_upthresh, i64 0, i32 4), align 1
-  %363 = icmp eq i8 %361, %362
-  br i1 %363, label %397, label %364
+380:                                              ; preds = %379
+  %381 = getelementptr inbounds i8, ptr %51, i64 9
+  %382 = load i8, ptr %381, align 1
+  %383 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_upthresh, i64 0, i32 4
+  %384 = load i8, ptr %383, align 1
+  %385 = icmp eq i8 %382, %384
+  br i1 %385, label %421, label %386
 
-364:                                              ; preds = %359, %358
-  %365 = load ptr, ptr %0, align 8
-  %366 = load i8, ptr %365, align 1
-  %367 = icmp eq i8 %366, 1
-  br i1 %367, label %368, label %397
+386:                                              ; preds = %380, %379
+  %387 = load ptr, ptr %0, align 8
+  %388 = load i8, ptr %387, align 1
+  %389 = icmp eq i8 %388, 1
+  br i1 %389, label %390, label %421
 
-368:                                              ; preds = %364
-  %369 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_upthresh, i64 0, i32 2), align 1
-  %370 = icmp eq i8 %369, 0
-  %371 = getelementptr inbounds i8, ptr %0, i64 16
-  %372 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_upthresh, i64 0, i32 1), align 8
-  %373 = getelementptr inbounds i8, ptr %51, i64 9
-  %374 = load i8, ptr %373, align 1
-  br i1 %370, label %375, label %379
+390:                                              ; preds = %386
+  %391 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_upthresh, i64 0, i32 2
+  %392 = load i8, ptr %391, align 1
+  %393 = icmp eq i8 %392, 0
+  %394 = getelementptr inbounds i8, ptr %0, i64 16
+  %395 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_upthresh, i64 0, i32 1
+  %396 = load i8, ptr %395, align 8
+  %397 = getelementptr inbounds i8, ptr %51, i64 9
+  %398 = load i8, ptr %397, align 1
+  br i1 %393, label %399, label %403
 
-375:                                              ; preds = %368
+399:                                              ; preds = %390
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %23) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %23, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %23, align 1
-  %376 = getelementptr inbounds i8, ptr %23, i64 1
-  store i8 %372, ptr %376, align 1
-  %377 = getelementptr inbounds i8, ptr %23, i64 2
-  store i8 %374, ptr %377, align 1
-  %378 = call i32 @ps2_command(ptr noundef %371, ptr noundef nonnull %23, i32 noundef 12514) #8
+  %400 = getelementptr inbounds i8, ptr %23, i64 1
+  store i8 %396, ptr %400, align 1
+  %401 = getelementptr inbounds i8, ptr %23, i64 2
+  store i8 %398, ptr %401, align 1
+  %402 = call i32 @ps2_command(ptr noundef %394, ptr noundef nonnull %23, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %23) #8
-  br label %397
+  br label %421
 
-379:                                              ; preds = %368
+403:                                              ; preds = %390
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #8
-  store i8 %372, ptr %22, align 1
-  %380 = call i32 @ps2_command(ptr noundef %371, ptr noundef nonnull %22, i32 noundef 4578) #8
-  %381 = icmp eq i32 %380, 0
-  br i1 %381, label %382, label %396
+  store i8 %396, ptr %22, align 1
+  %404 = call i32 @ps2_command(ptr noundef %394, ptr noundef nonnull %22, i32 noundef 4578) #8
+  %405 = icmp eq i32 %404, 0
+  br i1 %405, label %406, label %420
 
-382:                                              ; preds = %379
-  %383 = load i8, ptr %22, align 1
-  %384 = and i8 %383, %369
-  %385 = icmp eq i8 %384, %369
-  %386 = icmp eq i8 %374, 0
-  %387 = xor i1 %386, %385
-  br i1 %387, label %396, label %388
+406:                                              ; preds = %403
+  %407 = load i8, ptr %22, align 1
+  %408 = and i8 %407, %392
+  %409 = icmp eq i8 %408, %392
+  %410 = icmp eq i8 %398, 0
+  %411 = xor i1 %410, %409
+  br i1 %411, label %420, label %412
 
-388:                                              ; preds = %382
+412:                                              ; preds = %406
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %21) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %21, align 1
-  %389 = getelementptr inbounds i8, ptr %21, i64 1
-  store i8 %372, ptr %389, align 1
-  %390 = getelementptr inbounds i8, ptr %21, i64 2
-  store i8 %369, ptr %390, align 1
-  %391 = add i8 %372, -47
-  %392 = icmp ult i8 %391, -15
-  br i1 %392, label %395, label %393
+  %413 = getelementptr inbounds i8, ptr %21, i64 1
+  store i8 %396, ptr %413, align 1
+  %414 = getelementptr inbounds i8, ptr %21, i64 2
+  store i8 %392, ptr %414, align 1
+  %415 = add i8 %396, -47
+  %416 = icmp ult i8 %415, -15
+  br i1 %416, label %419, label %417
 
-393:                                              ; preds = %388
-  %394 = call i32 @ps2_command(ptr noundef %371, ptr noundef nonnull %21, i32 noundef 12514) #8
-  br label %395
+417:                                              ; preds = %412
+  %418 = call i32 @ps2_command(ptr noundef %394, ptr noundef nonnull %21, i32 noundef 12514) #8
+  br label %419
 
-395:                                              ; preds = %393, %388
+419:                                              ; preds = %417, %412
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %21) #8
-  br label %396
+  br label %420
 
-396:                                              ; preds = %395, %382, %379
+420:                                              ; preds = %419, %406, %403
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #8
-  br label %397
+  br label %421
 
-397:                                              ; preds = %396, %375, %364, %359
-  br i1 %1, label %398, label %403
+421:                                              ; preds = %420, %399, %386, %380
+  br i1 %1, label %422, label %428
 
-398:                                              ; preds = %397
-  %399 = getelementptr inbounds i8, ptr %51, i64 10
-  %400 = load i8, ptr %399, align 1
-  %401 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_ztime, i64 0, i32 4), align 1
-  %402 = icmp eq i8 %400, %401
-  br i1 %402, label %436, label %403
+422:                                              ; preds = %421
+  %423 = getelementptr inbounds i8, ptr %51, i64 10
+  %424 = load i8, ptr %423, align 1
+  %425 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_ztime, i64 0, i32 4
+  %426 = load i8, ptr %425, align 1
+  %427 = icmp eq i8 %424, %426
+  br i1 %427, label %463, label %428
 
-403:                                              ; preds = %398, %397
-  %404 = load ptr, ptr %0, align 8
-  %405 = load i8, ptr %404, align 1
-  %406 = icmp eq i8 %405, 1
-  br i1 %406, label %407, label %436
+428:                                              ; preds = %422, %421
+  %429 = load ptr, ptr %0, align 8
+  %430 = load i8, ptr %429, align 1
+  %431 = icmp eq i8 %430, 1
+  br i1 %431, label %432, label %463
 
-407:                                              ; preds = %403
-  %408 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_ztime, i64 0, i32 2), align 1
-  %409 = icmp eq i8 %408, 0
-  %410 = getelementptr inbounds i8, ptr %0, i64 16
-  %411 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_ztime, i64 0, i32 1), align 8
-  %412 = getelementptr inbounds i8, ptr %51, i64 10
-  %413 = load i8, ptr %412, align 1
-  br i1 %409, label %414, label %418
+432:                                              ; preds = %428
+  %433 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_ztime, i64 0, i32 2
+  %434 = load i8, ptr %433, align 1
+  %435 = icmp eq i8 %434, 0
+  %436 = getelementptr inbounds i8, ptr %0, i64 16
+  %437 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_ztime, i64 0, i32 1
+  %438 = load i8, ptr %437, align 8
+  %439 = getelementptr inbounds i8, ptr %51, i64 10
+  %440 = load i8, ptr %439, align 1
+  br i1 %435, label %441, label %445
 
-414:                                              ; preds = %407
+441:                                              ; preds = %432
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %20) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %20, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %20, align 1
-  %415 = getelementptr inbounds i8, ptr %20, i64 1
-  store i8 %411, ptr %415, align 1
-  %416 = getelementptr inbounds i8, ptr %20, i64 2
-  store i8 %413, ptr %416, align 1
-  %417 = call i32 @ps2_command(ptr noundef %410, ptr noundef nonnull %20, i32 noundef 12514) #8
+  %442 = getelementptr inbounds i8, ptr %20, i64 1
+  store i8 %438, ptr %442, align 1
+  %443 = getelementptr inbounds i8, ptr %20, i64 2
+  store i8 %440, ptr %443, align 1
+  %444 = call i32 @ps2_command(ptr noundef %436, ptr noundef nonnull %20, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %20) #8
-  br label %436
+  br label %463
 
-418:                                              ; preds = %407
+445:                                              ; preds = %432
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #8
-  store i8 %411, ptr %19, align 1
-  %419 = call i32 @ps2_command(ptr noundef %410, ptr noundef nonnull %19, i32 noundef 4578) #8
-  %420 = icmp eq i32 %419, 0
-  br i1 %420, label %421, label %435
+  store i8 %438, ptr %19, align 1
+  %446 = call i32 @ps2_command(ptr noundef %436, ptr noundef nonnull %19, i32 noundef 4578) #8
+  %447 = icmp eq i32 %446, 0
+  br i1 %447, label %448, label %462
 
-421:                                              ; preds = %418
-  %422 = load i8, ptr %19, align 1
-  %423 = and i8 %422, %408
-  %424 = icmp eq i8 %423, %408
-  %425 = icmp eq i8 %413, 0
-  %426 = xor i1 %425, %424
-  br i1 %426, label %435, label %427
+448:                                              ; preds = %445
+  %449 = load i8, ptr %19, align 1
+  %450 = and i8 %449, %434
+  %451 = icmp eq i8 %450, %434
+  %452 = icmp eq i8 %440, 0
+  %453 = xor i1 %452, %451
+  br i1 %453, label %462, label %454
 
-427:                                              ; preds = %421
+454:                                              ; preds = %448
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %18) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %18, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %18, align 1
-  %428 = getelementptr inbounds i8, ptr %18, i64 1
-  store i8 %411, ptr %428, align 1
-  %429 = getelementptr inbounds i8, ptr %18, i64 2
-  store i8 %408, ptr %429, align 1
-  %430 = add i8 %411, -47
-  %431 = icmp ult i8 %430, -15
-  br i1 %431, label %434, label %432
+  %455 = getelementptr inbounds i8, ptr %18, i64 1
+  store i8 %438, ptr %455, align 1
+  %456 = getelementptr inbounds i8, ptr %18, i64 2
+  store i8 %434, ptr %456, align 1
+  %457 = add i8 %438, -47
+  %458 = icmp ult i8 %457, -15
+  br i1 %458, label %461, label %459
 
-432:                                              ; preds = %427
-  %433 = call i32 @ps2_command(ptr noundef %410, ptr noundef nonnull %18, i32 noundef 12514) #8
-  br label %434
+459:                                              ; preds = %454
+  %460 = call i32 @ps2_command(ptr noundef %436, ptr noundef nonnull %18, i32 noundef 12514) #8
+  br label %461
 
-434:                                              ; preds = %432, %427
+461:                                              ; preds = %459, %454
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %18) #8
-  br label %435
+  br label %462
 
-435:                                              ; preds = %434, %421, %418
+462:                                              ; preds = %461, %448, %445
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #8
-  br label %436
+  br label %463
 
-436:                                              ; preds = %435, %414, %403, %398
-  br i1 %1, label %437, label %442
+463:                                              ; preds = %462, %441, %428, %422
+  br i1 %1, label %464, label %470
 
-437:                                              ; preds = %436
-  %438 = getelementptr inbounds i8, ptr %51, i64 11
-  %439 = load i8, ptr %438, align 1
-  %440 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_jenks, i64 0, i32 4), align 1
-  %441 = icmp eq i8 %439, %440
-  br i1 %441, label %475, label %442
+464:                                              ; preds = %463
+  %465 = getelementptr inbounds i8, ptr %51, i64 11
+  %466 = load i8, ptr %465, align 1
+  %467 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_jenks, i64 0, i32 4
+  %468 = load i8, ptr %467, align 1
+  %469 = icmp eq i8 %466, %468
+  br i1 %469, label %505, label %470
 
-442:                                              ; preds = %437, %436
-  %443 = load ptr, ptr %0, align 8
-  %444 = load i8, ptr %443, align 1
-  %445 = icmp eq i8 %444, 1
-  br i1 %445, label %446, label %475
+470:                                              ; preds = %464, %463
+  %471 = load ptr, ptr %0, align 8
+  %472 = load i8, ptr %471, align 1
+  %473 = icmp eq i8 %472, 1
+  br i1 %473, label %474, label %505
 
-446:                                              ; preds = %442
-  %447 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_jenks, i64 0, i32 2), align 1
-  %448 = icmp eq i8 %447, 0
-  %449 = getelementptr inbounds i8, ptr %0, i64 16
-  %450 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_jenks, i64 0, i32 1), align 8
-  %451 = getelementptr inbounds i8, ptr %51, i64 11
-  %452 = load i8, ptr %451, align 1
-  br i1 %448, label %453, label %457
+474:                                              ; preds = %470
+  %475 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_jenks, i64 0, i32 2
+  %476 = load i8, ptr %475, align 1
+  %477 = icmp eq i8 %476, 0
+  %478 = getelementptr inbounds i8, ptr %0, i64 16
+  %479 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_jenks, i64 0, i32 1
+  %480 = load i8, ptr %479, align 8
+  %481 = getelementptr inbounds i8, ptr %51, i64 11
+  %482 = load i8, ptr %481, align 1
+  br i1 %477, label %483, label %487
 
-453:                                              ; preds = %446
+483:                                              ; preds = %474
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %17) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %17, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %17, align 1
-  %454 = getelementptr inbounds i8, ptr %17, i64 1
-  store i8 %450, ptr %454, align 1
-  %455 = getelementptr inbounds i8, ptr %17, i64 2
-  store i8 %452, ptr %455, align 1
-  %456 = call i32 @ps2_command(ptr noundef %449, ptr noundef nonnull %17, i32 noundef 12514) #8
+  %484 = getelementptr inbounds i8, ptr %17, i64 1
+  store i8 %480, ptr %484, align 1
+  %485 = getelementptr inbounds i8, ptr %17, i64 2
+  store i8 %482, ptr %485, align 1
+  %486 = call i32 @ps2_command(ptr noundef %478, ptr noundef nonnull %17, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %17) #8
-  br label %475
+  br label %505
 
-457:                                              ; preds = %446
+487:                                              ; preds = %474
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #8
-  store i8 %450, ptr %16, align 1
-  %458 = call i32 @ps2_command(ptr noundef %449, ptr noundef nonnull %16, i32 noundef 4578) #8
-  %459 = icmp eq i32 %458, 0
-  br i1 %459, label %460, label %474
+  store i8 %480, ptr %16, align 1
+  %488 = call i32 @ps2_command(ptr noundef %478, ptr noundef nonnull %16, i32 noundef 4578) #8
+  %489 = icmp eq i32 %488, 0
+  br i1 %489, label %490, label %504
 
-460:                                              ; preds = %457
-  %461 = load i8, ptr %16, align 1
-  %462 = and i8 %461, %447
-  %463 = icmp eq i8 %462, %447
-  %464 = icmp eq i8 %452, 0
-  %465 = xor i1 %464, %463
-  br i1 %465, label %474, label %466
+490:                                              ; preds = %487
+  %491 = load i8, ptr %16, align 1
+  %492 = and i8 %491, %476
+  %493 = icmp eq i8 %492, %476
+  %494 = icmp eq i8 %482, 0
+  %495 = xor i1 %494, %493
+  br i1 %495, label %504, label %496
 
-466:                                              ; preds = %460
+496:                                              ; preds = %490
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %15, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %15, align 1
-  %467 = getelementptr inbounds i8, ptr %15, i64 1
-  store i8 %450, ptr %467, align 1
-  %468 = getelementptr inbounds i8, ptr %15, i64 2
-  store i8 %447, ptr %468, align 1
-  %469 = add i8 %450, -47
-  %470 = icmp ult i8 %469, -15
-  br i1 %470, label %473, label %471
+  %497 = getelementptr inbounds i8, ptr %15, i64 1
+  store i8 %480, ptr %497, align 1
+  %498 = getelementptr inbounds i8, ptr %15, i64 2
+  store i8 %476, ptr %498, align 1
+  %499 = add i8 %480, -47
+  %500 = icmp ult i8 %499, -15
+  br i1 %500, label %503, label %501
 
-471:                                              ; preds = %466
-  %472 = call i32 @ps2_command(ptr noundef %449, ptr noundef nonnull %15, i32 noundef 12514) #8
-  br label %473
+501:                                              ; preds = %496
+  %502 = call i32 @ps2_command(ptr noundef %478, ptr noundef nonnull %15, i32 noundef 12514) #8
+  br label %503
 
-473:                                              ; preds = %471, %466
+503:                                              ; preds = %501, %496
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %15) #8
-  br label %474
+  br label %504
 
-474:                                              ; preds = %473, %460, %457
+504:                                              ; preds = %503, %490, %487
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #8
-  br label %475
+  br label %505
 
-475:                                              ; preds = %474, %453, %442, %437
-  br i1 %1, label %476, label %481
+505:                                              ; preds = %504, %483, %470, %464
+  br i1 %1, label %506, label %512
 
-476:                                              ; preds = %475
-  %477 = getelementptr inbounds i8, ptr %51, i64 12
-  %478 = load i8, ptr %477, align 1
-  %479 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_drift_time, i64 0, i32 4), align 1
-  %480 = icmp eq i8 %478, %479
-  br i1 %480, label %514, label %481
+506:                                              ; preds = %505
+  %507 = getelementptr inbounds i8, ptr %51, i64 12
+  %508 = load i8, ptr %507, align 1
+  %509 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_drift_time, i64 0, i32 4
+  %510 = load i8, ptr %509, align 1
+  %511 = icmp eq i8 %508, %510
+  br i1 %511, label %547, label %512
 
-481:                                              ; preds = %476, %475
-  %482 = load ptr, ptr %0, align 8
-  %483 = load i8, ptr %482, align 1
-  %484 = icmp eq i8 %483, 1
-  br i1 %484, label %485, label %514
+512:                                              ; preds = %506, %505
+  %513 = load ptr, ptr %0, align 8
+  %514 = load i8, ptr %513, align 1
+  %515 = icmp eq i8 %514, 1
+  br i1 %515, label %516, label %547
 
-485:                                              ; preds = %481
-  %486 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_drift_time, i64 0, i32 2), align 1
-  %487 = icmp eq i8 %486, 0
-  %488 = getelementptr inbounds i8, ptr %0, i64 16
-  %489 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_drift_time, i64 0, i32 1), align 8
-  %490 = getelementptr inbounds i8, ptr %51, i64 12
-  %491 = load i8, ptr %490, align 1
-  br i1 %487, label %492, label %496
+516:                                              ; preds = %512
+  %517 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_drift_time, i64 0, i32 2
+  %518 = load i8, ptr %517, align 1
+  %519 = icmp eq i8 %518, 0
+  %520 = getelementptr inbounds i8, ptr %0, i64 16
+  %521 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_drift_time, i64 0, i32 1
+  %522 = load i8, ptr %521, align 8
+  %523 = getelementptr inbounds i8, ptr %51, i64 12
+  %524 = load i8, ptr %523, align 1
+  br i1 %519, label %525, label %529
 
-492:                                              ; preds = %485
+525:                                              ; preds = %516
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %14, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %14, align 1
-  %493 = getelementptr inbounds i8, ptr %14, i64 1
-  store i8 %489, ptr %493, align 1
-  %494 = getelementptr inbounds i8, ptr %14, i64 2
-  store i8 %491, ptr %494, align 1
-  %495 = call i32 @ps2_command(ptr noundef %488, ptr noundef nonnull %14, i32 noundef 12514) #8
+  %526 = getelementptr inbounds i8, ptr %14, i64 1
+  store i8 %522, ptr %526, align 1
+  %527 = getelementptr inbounds i8, ptr %14, i64 2
+  store i8 %524, ptr %527, align 1
+  %528 = call i32 @ps2_command(ptr noundef %520, ptr noundef nonnull %14, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #8
-  br label %514
+  br label %547
 
-496:                                              ; preds = %485
+529:                                              ; preds = %516
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #8
-  store i8 %489, ptr %13, align 1
-  %497 = call i32 @ps2_command(ptr noundef %488, ptr noundef nonnull %13, i32 noundef 4578) #8
-  %498 = icmp eq i32 %497, 0
-  br i1 %498, label %499, label %513
+  store i8 %522, ptr %13, align 1
+  %530 = call i32 @ps2_command(ptr noundef %520, ptr noundef nonnull %13, i32 noundef 4578) #8
+  %531 = icmp eq i32 %530, 0
+  br i1 %531, label %532, label %546
 
-499:                                              ; preds = %496
-  %500 = load i8, ptr %13, align 1
-  %501 = and i8 %500, %486
-  %502 = icmp eq i8 %501, %486
-  %503 = icmp eq i8 %491, 0
-  %504 = xor i1 %503, %502
-  br i1 %504, label %513, label %505
+532:                                              ; preds = %529
+  %533 = load i8, ptr %13, align 1
+  %534 = and i8 %533, %518
+  %535 = icmp eq i8 %534, %518
+  %536 = icmp eq i8 %524, 0
+  %537 = xor i1 %536, %535
+  br i1 %537, label %546, label %538
 
-505:                                              ; preds = %499
+538:                                              ; preds = %532
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %12, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %12, align 1
-  %506 = getelementptr inbounds i8, ptr %12, i64 1
-  store i8 %489, ptr %506, align 1
-  %507 = getelementptr inbounds i8, ptr %12, i64 2
-  store i8 %486, ptr %507, align 1
-  %508 = add i8 %489, -47
-  %509 = icmp ult i8 %508, -15
-  br i1 %509, label %512, label %510
+  %539 = getelementptr inbounds i8, ptr %12, i64 1
+  store i8 %522, ptr %539, align 1
+  %540 = getelementptr inbounds i8, ptr %12, i64 2
+  store i8 %518, ptr %540, align 1
+  %541 = add i8 %522, -47
+  %542 = icmp ult i8 %541, -15
+  br i1 %542, label %545, label %543
 
-510:                                              ; preds = %505
-  %511 = call i32 @ps2_command(ptr noundef %488, ptr noundef nonnull %12, i32 noundef 12514) #8
-  br label %512
+543:                                              ; preds = %538
+  %544 = call i32 @ps2_command(ptr noundef %520, ptr noundef nonnull %12, i32 noundef 12514) #8
+  br label %545
 
-512:                                              ; preds = %510, %505
+545:                                              ; preds = %543, %538
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12) #8
-  br label %513
+  br label %546
 
-513:                                              ; preds = %512, %499, %496
+546:                                              ; preds = %545, %532, %529
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #8
-  br label %514
+  br label %547
 
-514:                                              ; preds = %513, %492, %481, %476
-  br i1 %1, label %515, label %520
+547:                                              ; preds = %546, %525, %512, %506
+  br i1 %1, label %548, label %554
 
-515:                                              ; preds = %514
-  %516 = getelementptr inbounds i8, ptr %51, i64 13
-  %517 = load i8, ptr %516, align 1, !range !7, !noundef !8
-  %518 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_press_to_select, i64 0, i32 4), align 1
-  %519 = icmp eq i8 %517, %518
-  br i1 %519, label %549, label %520
+548:                                              ; preds = %547
+  %549 = getelementptr inbounds i8, ptr %51, i64 13
+  %550 = load i8, ptr %549, align 1, !range !7, !noundef !8
+  %551 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_press_to_select, i64 0, i32 4
+  %552 = load i8, ptr %551, align 1
+  %553 = icmp eq i8 %550, %552
+  br i1 %553, label %585, label %554
 
-520:                                              ; preds = %515, %514
-  %521 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_press_to_select, i64 0, i32 2), align 1
-  %522 = icmp eq i8 %521, 0
-  %523 = getelementptr inbounds i8, ptr %0, i64 16
-  %524 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_press_to_select, i64 0, i32 1), align 8
-  %525 = getelementptr inbounds i8, ptr %51, i64 13
-  %526 = load i8, ptr %525, align 1, !range !7, !noundef !8
-  br i1 %522, label %527, label %531
+554:                                              ; preds = %548, %547
+  %555 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_press_to_select, i64 0, i32 2
+  %556 = load i8, ptr %555, align 1
+  %557 = icmp eq i8 %556, 0
+  %558 = getelementptr inbounds i8, ptr %0, i64 16
+  %559 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_press_to_select, i64 0, i32 1
+  %560 = load i8, ptr %559, align 8
+  %561 = getelementptr inbounds i8, ptr %51, i64 13
+  %562 = load i8, ptr %561, align 1, !range !7, !noundef !8
+  br i1 %557, label %563, label %567
 
-527:                                              ; preds = %520
+563:                                              ; preds = %554
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %11, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %11, align 1
-  %528 = getelementptr inbounds i8, ptr %11, i64 1
-  store i8 %524, ptr %528, align 1
-  %529 = getelementptr inbounds i8, ptr %11, i64 2
-  store i8 %526, ptr %529, align 1
-  %530 = call i32 @ps2_command(ptr noundef %523, ptr noundef nonnull %11, i32 noundef 12514) #8
+  %564 = getelementptr inbounds i8, ptr %11, i64 1
+  store i8 %560, ptr %564, align 1
+  %565 = getelementptr inbounds i8, ptr %11, i64 2
+  store i8 %562, ptr %565, align 1
+  %566 = call i32 @ps2_command(ptr noundef %558, ptr noundef nonnull %11, i32 noundef 12514) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11) #8
-  br label %549
+  br label %585
 
-531:                                              ; preds = %520
+567:                                              ; preds = %554
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #8
-  store i8 %524, ptr %10, align 1
-  %532 = call i32 @ps2_command(ptr noundef %523, ptr noundef nonnull %10, i32 noundef 4578) #8
-  %533 = icmp eq i32 %532, 0
-  br i1 %533, label %534, label %548
+  store i8 %560, ptr %10, align 1
+  %568 = call i32 @ps2_command(ptr noundef %558, ptr noundef nonnull %10, i32 noundef 4578) #8
+  %569 = icmp eq i32 %568, 0
+  br i1 %569, label %570, label %584
 
-534:                                              ; preds = %531
-  %535 = load i8, ptr %10, align 1
-  %536 = and i8 %535, %521
-  %537 = icmp eq i8 %536, %521
-  %538 = icmp eq i8 %526, 0
-  %539 = xor i1 %538, %537
-  br i1 %539, label %548, label %540
+570:                                              ; preds = %567
+  %571 = load i8, ptr %10, align 1
+  %572 = and i8 %571, %556
+  %573 = icmp eq i8 %572, %556
+  %574 = icmp eq i8 %562, 0
+  %575 = xor i1 %574, %573
+  br i1 %575, label %584, label %576
 
-540:                                              ; preds = %534
+576:                                              ; preds = %570
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %9) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %9, i8 0, i64 3, i1 false), !annotation !5
   store i8 71, ptr %9, align 1
-  %541 = getelementptr inbounds i8, ptr %9, i64 1
-  store i8 %524, ptr %541, align 1
-  %542 = getelementptr inbounds i8, ptr %9, i64 2
-  store i8 %521, ptr %542, align 1
-  %543 = add i8 %524, -47
-  %544 = icmp ult i8 %543, -15
-  br i1 %544, label %547, label %545
+  %577 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 %560, ptr %577, align 1
+  %578 = getelementptr inbounds i8, ptr %9, i64 2
+  store i8 %556, ptr %578, align 1
+  %579 = add i8 %560, -47
+  %580 = icmp ult i8 %579, -15
+  br i1 %580, label %583, label %581
 
-545:                                              ; preds = %540
-  %546 = call i32 @ps2_command(ptr noundef %523, ptr noundef nonnull %9, i32 noundef 12514) #8
-  br label %547
+581:                                              ; preds = %576
+  %582 = call i32 @ps2_command(ptr noundef %558, ptr noundef nonnull %9, i32 noundef 12514) #8
+  br label %583
 
-547:                                              ; preds = %545, %540
+583:                                              ; preds = %581, %576
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %9) #8
-  br label %548
+  br label %584
 
-548:                                              ; preds = %547, %534, %531
+584:                                              ; preds = %583, %570, %567
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
-  br label %549
+  br label %585
 
-549:                                              ; preds = %548, %527, %515
-  br i1 %1, label %550, label %555
+585:                                              ; preds = %584, %563, %548
+  br i1 %1, label %586, label %592
 
-550:                                              ; preds = %549
-  %551 = getelementptr inbounds i8, ptr %51, i64 14
-  %552 = load i8, ptr %551, align 1, !range !7, !noundef !8
-  %553 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_skipback, i64 0, i32 4), align 1
-  %554 = icmp eq i8 %552, %553
-  br i1 %554, label %588, label %555
+586:                                              ; preds = %585
+  %587 = getelementptr inbounds i8, ptr %51, i64 14
+  %588 = load i8, ptr %587, align 1, !range !7, !noundef !8
+  %589 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_skipback, i64 0, i32 4
+  %590 = load i8, ptr %589, align 1
+  %591 = icmp eq i8 %588, %590
+  br i1 %591, label %627, label %592
 
-555:                                              ; preds = %550, %549
-  %556 = load ptr, ptr %0, align 8
-  %557 = load i8, ptr %556, align 1
-  %558 = icmp eq i8 %557, 1
-  br i1 %558, label %559, label %588
+592:                                              ; preds = %586, %585
+  %593 = load ptr, ptr %0, align 8
+  %594 = load i8, ptr %593, align 1
+  %595 = icmp eq i8 %594, 1
+  br i1 %595, label %596, label %627
 
-559:                                              ; preds = %555
-  %560 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_skipback, i64 0, i32 2), align 1
-  %561 = icmp eq i8 %560, 0
-  %562 = getelementptr inbounds i8, ptr %0, i64 16
-  %563 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_skipback, i64 0, i32 1), align 8
-  %564 = getelementptr inbounds i8, ptr %51, i64 14
-  %565 = load i8, ptr %564, align 1, !range !7, !noundef !8
-  br i1 %561, label %566, label %570
+596:                                              ; preds = %592
+  %597 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_skipback, i64 0, i32 2
+  %598 = load i8, ptr %597, align 1
+  %599 = icmp eq i8 %598, 0
+  %600 = getelementptr inbounds i8, ptr %0, i64 16
+  %601 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_skipback, i64 0, i32 1
+  %602 = load i8, ptr %601, align 8
+  %603 = getelementptr inbounds i8, ptr %51, i64 14
+  %604 = load i8, ptr %603, align 1, !range !7, !noundef !8
+  br i1 %599, label %605, label %609
 
-566:                                              ; preds = %559
+605:                                              ; preds = %596
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, i8 0, i64 3, i1 false), !annotation !5
   store i8 -127, ptr %8, align 1
-  %567 = getelementptr inbounds i8, ptr %8, i64 1
-  store i8 %563, ptr %567, align 1
-  %568 = getelementptr inbounds i8, ptr %8, i64 2
-  store i8 %565, ptr %568, align 1
-  %569 = call i32 @ps2_command(ptr noundef %562, ptr noundef nonnull %8, i32 noundef 12514) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #8
-  br label %588
-
-570:                                              ; preds = %559
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
-  store i8 %563, ptr %7, align 1
-  %571 = call i32 @ps2_command(ptr noundef %562, ptr noundef nonnull %7, i32 noundef 4578) #8
-  %572 = icmp eq i32 %571, 0
-  br i1 %572, label %573, label %587
-
-573:                                              ; preds = %570
-  %574 = load i8, ptr %7, align 1
-  %575 = and i8 %574, %560
-  %576 = icmp eq i8 %575, %560
-  %577 = icmp eq i8 %565, 0
-  %578 = xor i1 %577, %576
-  br i1 %578, label %587, label %579
-
-579:                                              ; preds = %573
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, i8 0, i64 3, i1 false), !annotation !5
-  store i8 71, ptr %6, align 1
-  %580 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 %563, ptr %580, align 1
-  %581 = getelementptr inbounds i8, ptr %6, i64 2
-  store i8 %560, ptr %581, align 1
-  %582 = add i8 %563, -47
-  %583 = icmp ult i8 %582, -15
-  br i1 %583, label %586, label %584
-
-584:                                              ; preds = %579
-  %585 = call i32 @ps2_command(ptr noundef %562, ptr noundef nonnull %6, i32 noundef 12514) #8
-  br label %586
-
-586:                                              ; preds = %584, %579
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #8
-  br label %587
-
-587:                                              ; preds = %586, %573, %570
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
-  br label %588
-
-588:                                              ; preds = %587, %566, %555, %550
-  br i1 %1, label %589, label %594
-
-589:                                              ; preds = %588
-  %590 = getelementptr inbounds i8, ptr %51, i64 15
-  %591 = load i8, ptr %590, align 1, !range !7, !noundef !8
-  %592 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_ext_dev, i64 0, i32 4), align 1
-  %593 = icmp eq i8 %591, %592
-  br i1 %593, label %627, label %594
-
-594:                                              ; preds = %589, %588
-  %595 = load ptr, ptr %0, align 8
-  %596 = load i8, ptr %595, align 1
-  %597 = icmp eq i8 %596, 1
-  br i1 %597, label %598, label %627
-
-598:                                              ; preds = %594
-  %599 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_ext_dev, i64 0, i32 2), align 1
-  %600 = icmp eq i8 %599, 0
-  %601 = getelementptr inbounds i8, ptr %0, i64 16
-  %602 = load i8, ptr getelementptr inbounds (%struct.trackpoint_attr_data, ptr @trackpoint_attr_ext_dev, i64 0, i32 1), align 8
-  %603 = getelementptr inbounds i8, ptr %51, i64 15
-  %604 = load i8, ptr %603, align 1, !range !7, !noundef !8
-  br i1 %600, label %605, label %609
-
-605:                                              ; preds = %598
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false), !annotation !5
-  store i8 -127, ptr %5, align 1
-  %606 = getelementptr inbounds i8, ptr %5, i64 1
+  %606 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %602, ptr %606, align 1
-  %607 = getelementptr inbounds i8, ptr %5, i64 2
+  %607 = getelementptr inbounds i8, ptr %8, i64 2
   store i8 %604, ptr %607, align 1
-  %608 = call i32 @ps2_command(ptr noundef %601, ptr noundef nonnull %5, i32 noundef 12514) #8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #8
+  %608 = call i32 @ps2_command(ptr noundef %600, ptr noundef nonnull %8, i32 noundef 12514) #8
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #8
   br label %627
 
-609:                                              ; preds = %598
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
-  store i8 %602, ptr %4, align 1
-  %610 = call i32 @ps2_command(ptr noundef %601, ptr noundef nonnull %4, i32 noundef 4578) #8
+609:                                              ; preds = %596
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
+  store i8 %602, ptr %7, align 1
+  %610 = call i32 @ps2_command(ptr noundef %600, ptr noundef nonnull %7, i32 noundef 4578) #8
   %611 = icmp eq i32 %610, 0
   br i1 %611, label %612, label %626
 
 612:                                              ; preds = %609
-  %613 = load i8, ptr %4, align 1
-  %614 = and i8 %613, %599
-  %615 = icmp eq i8 %614, %599
+  %613 = load i8, ptr %7, align 1
+  %614 = and i8 %613, %598
+  %615 = icmp eq i8 %614, %598
   %616 = icmp eq i8 %604, 0
   %617 = xor i1 %616, %615
   br i1 %617, label %626, label %618
 
 618:                                              ; preds = %612
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !5
-  store i8 71, ptr %3, align 1
-  %619 = getelementptr inbounds i8, ptr %3, i64 1
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, i8 0, i64 3, i1 false), !annotation !5
+  store i8 71, ptr %6, align 1
+  %619 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %602, ptr %619, align 1
-  %620 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 %599, ptr %620, align 1
+  %620 = getelementptr inbounds i8, ptr %6, i64 2
+  store i8 %598, ptr %620, align 1
   %621 = add i8 %602, -47
   %622 = icmp ult i8 %621, -15
   br i1 %622, label %625, label %623
 
 623:                                              ; preds = %618
-  %624 = call i32 @ps2_command(ptr noundef %601, ptr noundef nonnull %3, i32 noundef 12514) #8
+  %624 = call i32 @ps2_command(ptr noundef %600, ptr noundef nonnull %6, i32 noundef 12514) #8
   br label %625
 
 625:                                              ; preds = %623, %618
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #8
   br label %626
 
 626:                                              ; preds = %625, %612, %609
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
   br label %627
 
-627:                                              ; preds = %626, %605, %594, %589
+627:                                              ; preds = %626, %605, %592, %586
+  br i1 %1, label %628, label %634
+
+628:                                              ; preds = %627
+  %629 = getelementptr inbounds i8, ptr %51, i64 15
+  %630 = load i8, ptr %629, align 1, !range !7, !noundef !8
+  %631 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_ext_dev, i64 0, i32 4
+  %632 = load i8, ptr %631, align 1
+  %633 = icmp eq i8 %630, %632
+  br i1 %633, label %669, label %634
+
+634:                                              ; preds = %628, %627
+  %635 = load ptr, ptr %0, align 8
+  %636 = load i8, ptr %635, align 1
+  %637 = icmp eq i8 %636, 1
+  br i1 %637, label %638, label %669
+
+638:                                              ; preds = %634
+  %639 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_ext_dev, i64 0, i32 2
+  %640 = load i8, ptr %639, align 1
+  %641 = icmp eq i8 %640, 0
+  %642 = getelementptr inbounds i8, ptr %0, i64 16
+  %643 = getelementptr inbounds %struct.trackpoint_attr_data, ptr @trackpoint_attr_ext_dev, i64 0, i32 1
+  %644 = load i8, ptr %643, align 8
+  %645 = getelementptr inbounds i8, ptr %51, i64 15
+  %646 = load i8, ptr %645, align 1, !range !7, !noundef !8
+  br i1 %641, label %647, label %651
+
+647:                                              ; preds = %638
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false), !annotation !5
+  store i8 -127, ptr %5, align 1
+  %648 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 %644, ptr %648, align 1
+  %649 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 %646, ptr %649, align 1
+  %650 = call i32 @ps2_command(ptr noundef %642, ptr noundef nonnull %5, i32 noundef 12514) #8
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #8
+  br label %669
+
+651:                                              ; preds = %638
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
+  store i8 %644, ptr %4, align 1
+  %652 = call i32 @ps2_command(ptr noundef %642, ptr noundef nonnull %4, i32 noundef 4578) #8
+  %653 = icmp eq i32 %652, 0
+  br i1 %653, label %654, label %668
+
+654:                                              ; preds = %651
+  %655 = load i8, ptr %4, align 1
+  %656 = and i8 %655, %640
+  %657 = icmp eq i8 %656, %640
+  %658 = icmp eq i8 %646, 0
+  %659 = xor i1 %658, %657
+  br i1 %659, label %668, label %660
+
+660:                                              ; preds = %654
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !5
+  store i8 71, ptr %3, align 1
+  %661 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %644, ptr %661, align 1
+  %662 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 %640, ptr %662, align 1
+  %663 = add i8 %644, -47
+  %664 = icmp ult i8 %663, -15
+  br i1 %664, label %667, label %665
+
+665:                                              ; preds = %660
+  %666 = call i32 @ps2_command(ptr noundef %642, ptr noundef nonnull %3, i32 noundef 12514) #8
+  br label %667
+
+667:                                              ; preds = %665, %660
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #8
+  br label %668
+
+668:                                              ; preds = %667, %654, %651
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  br label %669
+
+669:                                              ; preds = %668, %647, %634, %628
   ret void
 }
 

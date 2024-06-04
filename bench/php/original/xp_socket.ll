@@ -1204,23 +1204,23 @@ define internal i32 @php_sockop_set_option(ptr noundef %0, i32 noundef %1, i32 n
 
 34:                                               ; preds = %4
   store i32 -2, ptr %14, align 4
-  br label %427
+  br label %428
 
 35:                                               ; preds = %4
   %36 = load i32, ptr %16, align 4
-  switch i32 %36, label %426 [
+  switch i32 %36, label %427 [
     i32 12, label %37
-    i32 1, label %108
-    i32 4, label %126
-    i32 11, label %132
-    i32 7, label %171
+    i32 1, label %109
+    i32 4, label %127
+    i32 11, label %133
+    i32 7, label %172
   ]
 
 37:                                               ; preds = %35
   store i32 1, ptr %25, align 4
   %38 = load i32, ptr %17, align 4
   %39 = icmp eq i32 %38, -1
-  br i1 %39, label %40, label %54
+  br i1 %39, label %40, label %55
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %21, align 8
@@ -1228,587 +1228,588 @@ define internal i32 @php_sockop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   %43 = getelementptr inbounds %struct.timeval, ptr %42, i32 0, i32 0
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, -1
-  br i1 %45, label %46, label %50
+  br i1 %45, label %46, label %51
 
 46:                                               ; preds = %40
-  %47 = load i64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 3), align 8
-  %48 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 0
-  store i64 %47, ptr %48, align 8
-  %49 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 1
-  store i64 0, ptr %49, align 8
-  br label %53
+  %47 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 3
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 0
+  store i64 %48, ptr %49, align 8
+  %50 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 1
+  store i64 0, ptr %50, align 8
+  br label %54
 
-50:                                               ; preds = %40
-  %51 = load ptr, ptr %21, align 8
-  %52 = getelementptr inbounds %struct._php_netstream_data_t, ptr %51, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %52, i64 16, i1 false)
-  br label %53
+51:                                               ; preds = %40
+  %52 = load ptr, ptr %21, align 8
+  %53 = getelementptr inbounds %struct._php_netstream_data_t, ptr %52, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %53, i64 16, i1 false)
+  br label %54
 
-53:                                               ; preds = %50, %46
-  br label %59
+54:                                               ; preds = %51, %46
+  br label %60
 
-54:                                               ; preds = %37
-  %55 = load i32, ptr %17, align 4
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 0
-  store i64 %56, ptr %57, align 8
-  %58 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 1
-  store i64 0, ptr %58, align 8
-  br label %59
+55:                                               ; preds = %37
+  %56 = load i32, ptr %17, align 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 0
+  store i64 %57, ptr %58, align 8
+  %59 = getelementptr inbounds %struct.timeval, ptr %23, i32 0, i32 1
+  store i64 0, ptr %59, align 8
+  br label %60
 
-59:                                               ; preds = %54, %53
-  %60 = load ptr, ptr %21, align 8
-  %61 = getelementptr inbounds %struct._php_netstream_data_t, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, -1
-  br i1 %63, label %64, label %65
+60:                                               ; preds = %55, %54
+  %61 = load ptr, ptr %21, align 8
+  %62 = getelementptr inbounds %struct._php_netstream_data_t, ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, -1
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %59
+65:                                               ; preds = %60
   store i32 0, ptr %25, align 4
-  br label %104
+  br label %105
 
-65:                                               ; preds = %59
-  %66 = load i32, ptr %17, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %74
+66:                                               ; preds = %60
+  %67 = load i32, ptr %17, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %75
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %15, align 8
-  %70 = getelementptr inbounds %struct._php_stream, ptr %69, i32 0, i32 9
-  %71 = load i32, ptr %70, align 4
-  %72 = and i32 %71, 1024
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %80
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %15, align 8
+  %71 = getelementptr inbounds %struct._php_stream, ptr %70, i32 0, i32 9
+  %72 = load i32, ptr %71, align 4
+  %73 = and i32 %72, 1024
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %81
 
-74:                                               ; preds = %68, %65
-  %75 = load ptr, ptr %21, align 8
-  %76 = getelementptr inbounds %struct._php_netstream_data_t, ptr %75, i32 0, i32 0
-  %77 = load i32, ptr %76, align 8
-  %78 = call i32 @php_pollfd_for(i32 noundef %77, i32 noundef 27, ptr noundef %23)
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %80, label %103
+75:                                               ; preds = %69, %66
+  %76 = load ptr, ptr %21, align 8
+  %77 = getelementptr inbounds %struct._php_netstream_data_t, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 8
+  %79 = call i32 @php_pollfd_for(i32 noundef %78, i32 noundef 27, ptr noundef %23)
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %81, label %104
 
-80:                                               ; preds = %74, %68
-  %81 = load ptr, ptr %21, align 8
-  %82 = getelementptr inbounds %struct._php_netstream_data_t, ptr %81, i32 0, i32 0
-  %83 = load i32, ptr %82, align 8
-  %84 = call i64 @recv(i32 noundef %83, ptr noundef %24, i64 noundef 1, i32 noundef 66)
-  store i64 %84, ptr %26, align 8
-  %85 = call ptr @__errno_location() #8
-  %86 = load i32, ptr %85, align 4
-  store i32 %86, ptr %27, align 4
-  %87 = load i64, ptr %26, align 8
-  %88 = icmp eq i64 0, %87
-  br i1 %88, label %101, label %89
+81:                                               ; preds = %75, %69
+  %82 = load ptr, ptr %21, align 8
+  %83 = getelementptr inbounds %struct._php_netstream_data_t, ptr %82, i32 0, i32 0
+  %84 = load i32, ptr %83, align 8
+  %85 = call i64 @recv(i32 noundef %84, ptr noundef %24, i64 noundef 1, i32 noundef 66)
+  store i64 %85, ptr %26, align 8
+  %86 = call ptr @__errno_location() #8
+  %87 = load i32, ptr %86, align 4
+  store i32 %87, ptr %27, align 4
+  %88 = load i64, ptr %26, align 8
+  %89 = icmp eq i64 0, %88
+  br i1 %89, label %102, label %90
 
-89:                                               ; preds = %80
-  %90 = load i64, ptr %26, align 8
-  %91 = icmp sgt i64 0, %90
-  br i1 %91, label %92, label %102
+90:                                               ; preds = %81
+  %91 = load i64, ptr %26, align 8
+  %92 = icmp sgt i64 0, %91
+  br i1 %92, label %93, label %103
 
-92:                                               ; preds = %89
-  %93 = load i32, ptr %27, align 4
-  %94 = icmp ne i32 %93, 11
-  br i1 %94, label %95, label %102
+93:                                               ; preds = %90
+  %94 = load i32, ptr %27, align 4
+  %95 = icmp ne i32 %94, 11
+  br i1 %95, label %96, label %103
 
-95:                                               ; preds = %92
-  %96 = load i32, ptr %27, align 4
-  %97 = icmp ne i32 %96, 11
-  br i1 %97, label %98, label %102
+96:                                               ; preds = %93
+  %97 = load i32, ptr %27, align 4
+  %98 = icmp ne i32 %97, 11
+  br i1 %98, label %99, label %103
 
-98:                                               ; preds = %95
-  %99 = load i32, ptr %27, align 4
-  %100 = icmp ne i32 %99, 90
-  br i1 %100, label %101, label %102
+99:                                               ; preds = %96
+  %100 = load i32, ptr %27, align 4
+  %101 = icmp ne i32 %100, 90
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %98, %80
+102:                                              ; preds = %99, %81
   store i32 0, ptr %25, align 4
-  br label %102
-
-102:                                              ; preds = %101, %98, %95, %92, %89
   br label %103
 
-103:                                              ; preds = %102, %74
+103:                                              ; preds = %102, %99, %96, %93, %90
   br label %104
 
-104:                                              ; preds = %103, %64
-  %105 = load i32, ptr %25, align 4
-  %106 = icmp ne i32 %105, 0
-  %107 = select i1 %106, i32 0, i32 -1
-  store i32 %107, ptr %14, align 4
-  br label %427
+104:                                              ; preds = %103, %75
+  br label %105
 
-108:                                              ; preds = %35
-  %109 = load ptr, ptr %21, align 8
-  %110 = getelementptr inbounds %struct._php_netstream_data_t, ptr %109, i32 0, i32 1
-  %111 = load i8, ptr %110, align 4
-  %112 = sext i8 %111 to i32
-  store i32 %112, ptr %19, align 4
-  %113 = load ptr, ptr %21, align 8
-  %114 = getelementptr inbounds %struct._php_netstream_data_t, ptr %113, i32 0, i32 0
-  %115 = load i32, ptr %114, align 8
-  %116 = load i32, ptr %17, align 4
-  %117 = call i32 @php_set_sock_blocking(i32 noundef %115, i32 noundef %116)
-  %118 = icmp eq i32 0, %117
-  br i1 %118, label %119, label %125
+105:                                              ; preds = %104, %65
+  %106 = load i32, ptr %25, align 4
+  %107 = icmp ne i32 %106, 0
+  %108 = select i1 %107, i32 0, i32 -1
+  store i32 %108, ptr %14, align 4
+  br label %428
 
-119:                                              ; preds = %108
-  %120 = load i32, ptr %17, align 4
-  %121 = trunc i32 %120 to i8
-  %122 = load ptr, ptr %21, align 8
-  %123 = getelementptr inbounds %struct._php_netstream_data_t, ptr %122, i32 0, i32 1
-  store i8 %121, ptr %123, align 4
-  %124 = load i32, ptr %19, align 4
-  store i32 %124, ptr %14, align 4
-  br label %427
+109:                                              ; preds = %35
+  %110 = load ptr, ptr %21, align 8
+  %111 = getelementptr inbounds %struct._php_netstream_data_t, ptr %110, i32 0, i32 1
+  %112 = load i8, ptr %111, align 4
+  %113 = sext i8 %112 to i32
+  store i32 %113, ptr %19, align 4
+  %114 = load ptr, ptr %21, align 8
+  %115 = getelementptr inbounds %struct._php_netstream_data_t, ptr %114, i32 0, i32 0
+  %116 = load i32, ptr %115, align 8
+  %117 = load i32, ptr %17, align 4
+  %118 = call i32 @php_set_sock_blocking(i32 noundef %116, i32 noundef %117)
+  %119 = icmp eq i32 0, %118
+  br i1 %119, label %120, label %126
 
-125:                                              ; preds = %108
+120:                                              ; preds = %109
+  %121 = load i32, ptr %17, align 4
+  %122 = trunc i32 %121 to i8
+  %123 = load ptr, ptr %21, align 8
+  %124 = getelementptr inbounds %struct._php_netstream_data_t, ptr %123, i32 0, i32 1
+  store i8 %122, ptr %124, align 4
+  %125 = load i32, ptr %19, align 4
+  store i32 %125, ptr %14, align 4
+  br label %428
+
+126:                                              ; preds = %109
   store i32 -1, ptr %14, align 4
-  br label %427
+  br label %428
 
-126:                                              ; preds = %35
-  %127 = load ptr, ptr %21, align 8
-  %128 = getelementptr inbounds %struct._php_netstream_data_t, ptr %127, i32 0, i32 2
-  %129 = load ptr, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %128, ptr align 8 %129, i64 16, i1 false)
-  %130 = load ptr, ptr %21, align 8
-  %131 = getelementptr inbounds %struct._php_netstream_data_t, ptr %130, i32 0, i32 3
-  store i8 0, ptr %131, align 8
+127:                                              ; preds = %35
+  %128 = load ptr, ptr %21, align 8
+  %129 = getelementptr inbounds %struct._php_netstream_data_t, ptr %128, i32 0, i32 2
+  %130 = load ptr, ptr %18, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %129, ptr align 8 %130, i64 16, i1 false)
+  %131 = load ptr, ptr %21, align 8
+  %132 = getelementptr inbounds %struct._php_netstream_data_t, ptr %131, i32 0, i32 3
+  store i8 0, ptr %132, align 8
   store i32 0, ptr %14, align 4
-  br label %427
+  br label %428
 
-132:                                              ; preds = %35
-  %133 = load ptr, ptr %18, align 8
-  %134 = load ptr, ptr %21, align 8
-  %135 = getelementptr inbounds %struct._php_netstream_data_t, ptr %134, i32 0, i32 3
-  %136 = load i8, ptr %135, align 8
-  %137 = icmp ne i8 %136, 0
-  store ptr %133, ptr %5, align 8
+133:                                              ; preds = %35
+  %134 = load ptr, ptr %18, align 8
+  %135 = load ptr, ptr %21, align 8
+  %136 = getelementptr inbounds %struct._php_netstream_data_t, ptr %135, i32 0, i32 3
+  %137 = load i8, ptr %136, align 8
+  %138 = icmp ne i8 %137, 0
+  store ptr %134, ptr %5, align 8
   store ptr @.str.11, ptr %6, align 8
-  %138 = zext i1 %137 to i8
-  store i8 %138, ptr %7, align 1
-  %139 = load ptr, ptr %5, align 8
-  %140 = load ptr, ptr %6, align 8
+  %139 = zext i1 %138 to i8
+  store i8 %139, ptr %7, align 1
+  %140 = load ptr, ptr %5, align 8
   %141 = load ptr, ptr %6, align 8
-  %142 = call i64 @strlen(ptr noundef %141) #10
-  %143 = load i8, ptr %7, align 1
-  %144 = trunc i8 %143 to i1
-  call void @add_assoc_bool_ex(ptr noundef %139, ptr noundef %140, i64 noundef %142, i1 noundef zeroext %144) #9
-  %145 = load ptr, ptr %18, align 8
-  %146 = load ptr, ptr %21, align 8
-  %147 = getelementptr inbounds %struct._php_netstream_data_t, ptr %146, i32 0, i32 1
-  %148 = load i8, ptr %147, align 4
-  %149 = icmp ne i8 %148, 0
-  store ptr %145, ptr %8, align 8
+  %142 = load ptr, ptr %6, align 8
+  %143 = call i64 @strlen(ptr noundef %142) #10
+  %144 = load i8, ptr %7, align 1
+  %145 = trunc i8 %144 to i1
+  call void @add_assoc_bool_ex(ptr noundef %140, ptr noundef %141, i64 noundef %143, i1 noundef zeroext %145) #9
+  %146 = load ptr, ptr %18, align 8
+  %147 = load ptr, ptr %21, align 8
+  %148 = getelementptr inbounds %struct._php_netstream_data_t, ptr %147, i32 0, i32 1
+  %149 = load i8, ptr %148, align 4
+  %150 = icmp ne i8 %149, 0
+  store ptr %146, ptr %8, align 8
   store ptr @.str.12, ptr %9, align 8
-  %150 = zext i1 %149 to i8
-  store i8 %150, ptr %10, align 1
-  %151 = load ptr, ptr %8, align 8
-  %152 = load ptr, ptr %9, align 8
+  %151 = zext i1 %150 to i8
+  store i8 %151, ptr %10, align 1
+  %152 = load ptr, ptr %8, align 8
   %153 = load ptr, ptr %9, align 8
-  %154 = call i64 @strlen(ptr noundef %153) #10
-  %155 = load i8, ptr %10, align 1
-  %156 = trunc i8 %155 to i1
-  call void @add_assoc_bool_ex(ptr noundef %151, ptr noundef %152, i64 noundef %154, i1 noundef zeroext %156) #9
-  %157 = load ptr, ptr %18, align 8
-  %158 = load ptr, ptr %15, align 8
-  %159 = getelementptr inbounds %struct._php_stream, ptr %158, i32 0, i32 7
-  %160 = load i16, ptr %159, align 8
-  %161 = lshr i16 %160, 3
-  %162 = and i16 %161, 1
-  %163 = icmp ne i16 %162, 0
-  store ptr %157, ptr %11, align 8
+  %154 = load ptr, ptr %9, align 8
+  %155 = call i64 @strlen(ptr noundef %154) #10
+  %156 = load i8, ptr %10, align 1
+  %157 = trunc i8 %156 to i1
+  call void @add_assoc_bool_ex(ptr noundef %152, ptr noundef %153, i64 noundef %155, i1 noundef zeroext %157) #9
+  %158 = load ptr, ptr %18, align 8
+  %159 = load ptr, ptr %15, align 8
+  %160 = getelementptr inbounds %struct._php_stream, ptr %159, i32 0, i32 7
+  %161 = load i16, ptr %160, align 8
+  %162 = lshr i16 %161, 3
+  %163 = and i16 %162, 1
+  %164 = icmp ne i16 %163, 0
+  store ptr %158, ptr %11, align 8
   store ptr @.str.13, ptr %12, align 8
-  %164 = zext i1 %163 to i8
-  store i8 %164, ptr %13, align 1
-  %165 = load ptr, ptr %11, align 8
-  %166 = load ptr, ptr %12, align 8
+  %165 = zext i1 %164 to i8
+  store i8 %165, ptr %13, align 1
+  %166 = load ptr, ptr %11, align 8
   %167 = load ptr, ptr %12, align 8
-  %168 = call i64 @strlen(ptr noundef %167) #10
-  %169 = load i8, ptr %13, align 1
-  %170 = trunc i8 %169 to i1
-  call void @add_assoc_bool_ex(ptr noundef %165, ptr noundef %166, i64 noundef %168, i1 noundef zeroext %170) #9
+  %168 = load ptr, ptr %12, align 8
+  %169 = call i64 @strlen(ptr noundef %168) #10
+  %170 = load i8, ptr %13, align 1
+  %171 = trunc i8 %170 to i1
+  call void @add_assoc_bool_ex(ptr noundef %166, ptr noundef %167, i64 noundef %169, i1 noundef zeroext %171) #9
   store i32 0, ptr %14, align 4
-  br label %427
+  br label %428
 
-171:                                              ; preds = %35
-  %172 = load ptr, ptr %18, align 8
-  store ptr %172, ptr %22, align 8
-  %173 = load ptr, ptr %22, align 8
-  %174 = getelementptr inbounds %struct._php_stream_xport_param, ptr %173, i32 0, i32 0
-  %175 = load i32, ptr %174, align 8
-  switch i32 %175, label %424 [
-    i32 2, label %176
-    i32 5, label %190
-    i32 6, label %238
-    i32 8, label %286
-    i32 7, label %332
-    i32 9, label %407
+172:                                              ; preds = %35
+  %173 = load ptr, ptr %18, align 8
+  store ptr %173, ptr %22, align 8
+  %174 = load ptr, ptr %22, align 8
+  %175 = getelementptr inbounds %struct._php_stream_xport_param, ptr %174, i32 0, i32 0
+  %176 = load i32, ptr %175, align 8
+  switch i32 %176, label %425 [
+    i32 2, label %177
+    i32 5, label %191
+    i32 6, label %239
+    i32 8, label %287
+    i32 7, label %333
+    i32 9, label %408
   ]
 
-176:                                              ; preds = %171
-  %177 = load ptr, ptr %21, align 8
-  %178 = getelementptr inbounds %struct._php_netstream_data_t, ptr %177, i32 0, i32 0
-  %179 = load i32, ptr %178, align 8
-  %180 = load ptr, ptr %22, align 8
-  %181 = getelementptr inbounds %struct._php_stream_xport_param, ptr %180, i32 0, i32 2
-  %182 = getelementptr inbounds %struct.anon.4, ptr %181, i32 0, i32 7
-  %183 = load i32, ptr %182, align 4
-  %184 = call i32 @listen(i32 noundef %179, i32 noundef %183) #9
-  %185 = icmp eq i32 %184, 0
-  %186 = select i1 %185, i32 0, i32 -1
-  %187 = load ptr, ptr %22, align 8
-  %188 = getelementptr inbounds %struct._php_stream_xport_param, ptr %187, i32 0, i32 3
-  %189 = getelementptr inbounds %struct.anon.5, ptr %188, i32 0, i32 5
-  store i32 %186, ptr %189, align 8
+177:                                              ; preds = %172
+  %178 = load ptr, ptr %21, align 8
+  %179 = getelementptr inbounds %struct._php_netstream_data_t, ptr %178, i32 0, i32 0
+  %180 = load i32, ptr %179, align 8
+  %181 = load ptr, ptr %22, align 8
+  %182 = getelementptr inbounds %struct._php_stream_xport_param, ptr %181, i32 0, i32 2
+  %183 = getelementptr inbounds %struct.anon.4, ptr %182, i32 0, i32 7
+  %184 = load i32, ptr %183, align 4
+  %185 = call i32 @listen(i32 noundef %180, i32 noundef %184) #9
+  %186 = icmp eq i32 %185, 0
+  %187 = select i1 %186, i32 0, i32 -1
+  %188 = load ptr, ptr %22, align 8
+  %189 = getelementptr inbounds %struct._php_stream_xport_param, ptr %188, i32 0, i32 3
+  %190 = getelementptr inbounds %struct.anon.5, ptr %189, i32 0, i32 5
+  store i32 %187, ptr %190, align 8
   store i32 0, ptr %14, align 4
-  br label %427
+  br label %428
 
-190:                                              ; preds = %171
-  %191 = load ptr, ptr %21, align 8
-  %192 = getelementptr inbounds %struct._php_netstream_data_t, ptr %191, i32 0, i32 0
-  %193 = load i32, ptr %192, align 8
-  %194 = load ptr, ptr %22, align 8
-  %195 = getelementptr inbounds %struct._php_stream_xport_param, ptr %194, i32 0, i32 1
-  %196 = load i8, ptr %195, align 4
-  %197 = lshr i8 %196, 1
-  %198 = and i8 %197, 1
-  %199 = zext i8 %198 to i32
-  %200 = icmp ne i32 %199, 0
-  br i1 %200, label %201, label %205
+191:                                              ; preds = %172
+  %192 = load ptr, ptr %21, align 8
+  %193 = getelementptr inbounds %struct._php_netstream_data_t, ptr %192, i32 0, i32 0
+  %194 = load i32, ptr %193, align 8
+  %195 = load ptr, ptr %22, align 8
+  %196 = getelementptr inbounds %struct._php_stream_xport_param, ptr %195, i32 0, i32 1
+  %197 = load i8, ptr %196, align 4
+  %198 = lshr i8 %197, 1
+  %199 = and i8 %198, 1
+  %200 = zext i8 %199 to i32
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %206
 
-201:                                              ; preds = %190
-  %202 = load ptr, ptr %22, align 8
-  %203 = getelementptr inbounds %struct._php_stream_xport_param, ptr %202, i32 0, i32 3
-  %204 = getelementptr inbounds %struct.anon.5, ptr %203, i32 0, i32 3
-  br label %206
+202:                                              ; preds = %191
+  %203 = load ptr, ptr %22, align 8
+  %204 = getelementptr inbounds %struct._php_stream_xport_param, ptr %203, i32 0, i32 3
+  %205 = getelementptr inbounds %struct.anon.5, ptr %204, i32 0, i32 3
+  br label %207
 
-205:                                              ; preds = %190
-  br label %206
+206:                                              ; preds = %191
+  br label %207
 
-206:                                              ; preds = %205, %201
-  %207 = phi ptr [ %204, %201 ], [ null, %205 ]
-  %208 = load ptr, ptr %22, align 8
-  %209 = getelementptr inbounds %struct._php_stream_xport_param, ptr %208, i32 0, i32 1
-  %210 = load i8, ptr %209, align 4
-  %211 = and i8 %210, 1
-  %212 = zext i8 %211 to i32
-  %213 = icmp ne i32 %212, 0
-  br i1 %213, label %214, label %218
+207:                                              ; preds = %206, %202
+  %208 = phi ptr [ %205, %202 ], [ null, %206 ]
+  %209 = load ptr, ptr %22, align 8
+  %210 = getelementptr inbounds %struct._php_stream_xport_param, ptr %209, i32 0, i32 1
+  %211 = load i8, ptr %210, align 4
+  %212 = and i8 %211, 1
+  %213 = zext i8 %212 to i32
+  %214 = icmp ne i32 %213, 0
+  br i1 %214, label %215, label %219
 
-214:                                              ; preds = %206
-  %215 = load ptr, ptr %22, align 8
-  %216 = getelementptr inbounds %struct._php_stream_xport_param, ptr %215, i32 0, i32 3
-  %217 = getelementptr inbounds %struct.anon.5, ptr %216, i32 0, i32 1
-  br label %219
+215:                                              ; preds = %207
+  %216 = load ptr, ptr %22, align 8
+  %217 = getelementptr inbounds %struct._php_stream_xport_param, ptr %216, i32 0, i32 3
+  %218 = getelementptr inbounds %struct.anon.5, ptr %217, i32 0, i32 1
+  br label %220
 
-218:                                              ; preds = %206
-  br label %219
+219:                                              ; preds = %207
+  br label %220
 
-219:                                              ; preds = %218, %214
-  %220 = phi ptr [ %217, %214 ], [ null, %218 ]
-  %221 = load ptr, ptr %22, align 8
-  %222 = getelementptr inbounds %struct._php_stream_xport_param, ptr %221, i32 0, i32 1
-  %223 = load i8, ptr %222, align 4
-  %224 = and i8 %223, 1
-  %225 = zext i8 %224 to i32
-  %226 = icmp ne i32 %225, 0
-  br i1 %226, label %227, label %231
+220:                                              ; preds = %219, %215
+  %221 = phi ptr [ %218, %215 ], [ null, %219 ]
+  %222 = load ptr, ptr %22, align 8
+  %223 = getelementptr inbounds %struct._php_stream_xport_param, ptr %222, i32 0, i32 1
+  %224 = load i8, ptr %223, align 4
+  %225 = and i8 %224, 1
+  %226 = zext i8 %225 to i32
+  %227 = icmp ne i32 %226, 0
+  br i1 %227, label %228, label %232
 
-227:                                              ; preds = %219
-  %228 = load ptr, ptr %22, align 8
-  %229 = getelementptr inbounds %struct._php_stream_xport_param, ptr %228, i32 0, i32 3
-  %230 = getelementptr inbounds %struct.anon.5, ptr %229, i32 0, i32 2
-  br label %232
+228:                                              ; preds = %220
+  %229 = load ptr, ptr %22, align 8
+  %230 = getelementptr inbounds %struct._php_stream_xport_param, ptr %229, i32 0, i32 3
+  %231 = getelementptr inbounds %struct.anon.5, ptr %230, i32 0, i32 2
+  br label %233
 
-231:                                              ; preds = %219
-  br label %232
+232:                                              ; preds = %220
+  br label %233
 
-232:                                              ; preds = %231, %227
-  %233 = phi ptr [ %230, %227 ], [ null, %231 ]
-  %234 = call i32 @php_network_get_sock_name(i32 noundef %193, ptr noundef %207, ptr noundef %220, ptr noundef %233)
-  %235 = load ptr, ptr %22, align 8
-  %236 = getelementptr inbounds %struct._php_stream_xport_param, ptr %235, i32 0, i32 3
-  %237 = getelementptr inbounds %struct.anon.5, ptr %236, i32 0, i32 5
-  store i32 %234, ptr %237, align 8
+233:                                              ; preds = %232, %228
+  %234 = phi ptr [ %231, %228 ], [ null, %232 ]
+  %235 = call i32 @php_network_get_sock_name(i32 noundef %194, ptr noundef %208, ptr noundef %221, ptr noundef %234)
+  %236 = load ptr, ptr %22, align 8
+  %237 = getelementptr inbounds %struct._php_stream_xport_param, ptr %236, i32 0, i32 3
+  %238 = getelementptr inbounds %struct.anon.5, ptr %237, i32 0, i32 5
+  store i32 %235, ptr %238, align 8
   store i32 0, ptr %14, align 4
-  br label %427
+  br label %428
 
-238:                                              ; preds = %171
-  %239 = load ptr, ptr %21, align 8
-  %240 = getelementptr inbounds %struct._php_netstream_data_t, ptr %239, i32 0, i32 0
-  %241 = load i32, ptr %240, align 8
-  %242 = load ptr, ptr %22, align 8
-  %243 = getelementptr inbounds %struct._php_stream_xport_param, ptr %242, i32 0, i32 1
-  %244 = load i8, ptr %243, align 4
-  %245 = lshr i8 %244, 1
-  %246 = and i8 %245, 1
-  %247 = zext i8 %246 to i32
-  %248 = icmp ne i32 %247, 0
-  br i1 %248, label %249, label %253
+239:                                              ; preds = %172
+  %240 = load ptr, ptr %21, align 8
+  %241 = getelementptr inbounds %struct._php_netstream_data_t, ptr %240, i32 0, i32 0
+  %242 = load i32, ptr %241, align 8
+  %243 = load ptr, ptr %22, align 8
+  %244 = getelementptr inbounds %struct._php_stream_xport_param, ptr %243, i32 0, i32 1
+  %245 = load i8, ptr %244, align 4
+  %246 = lshr i8 %245, 1
+  %247 = and i8 %246, 1
+  %248 = zext i8 %247 to i32
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %250, label %254
 
-249:                                              ; preds = %238
-  %250 = load ptr, ptr %22, align 8
-  %251 = getelementptr inbounds %struct._php_stream_xport_param, ptr %250, i32 0, i32 3
-  %252 = getelementptr inbounds %struct.anon.5, ptr %251, i32 0, i32 3
-  br label %254
+250:                                              ; preds = %239
+  %251 = load ptr, ptr %22, align 8
+  %252 = getelementptr inbounds %struct._php_stream_xport_param, ptr %251, i32 0, i32 3
+  %253 = getelementptr inbounds %struct.anon.5, ptr %252, i32 0, i32 3
+  br label %255
 
-253:                                              ; preds = %238
-  br label %254
+254:                                              ; preds = %239
+  br label %255
 
-254:                                              ; preds = %253, %249
-  %255 = phi ptr [ %252, %249 ], [ null, %253 ]
-  %256 = load ptr, ptr %22, align 8
-  %257 = getelementptr inbounds %struct._php_stream_xport_param, ptr %256, i32 0, i32 1
-  %258 = load i8, ptr %257, align 4
-  %259 = and i8 %258, 1
-  %260 = zext i8 %259 to i32
-  %261 = icmp ne i32 %260, 0
-  br i1 %261, label %262, label %266
+255:                                              ; preds = %254, %250
+  %256 = phi ptr [ %253, %250 ], [ null, %254 ]
+  %257 = load ptr, ptr %22, align 8
+  %258 = getelementptr inbounds %struct._php_stream_xport_param, ptr %257, i32 0, i32 1
+  %259 = load i8, ptr %258, align 4
+  %260 = and i8 %259, 1
+  %261 = zext i8 %260 to i32
+  %262 = icmp ne i32 %261, 0
+  br i1 %262, label %263, label %267
 
-262:                                              ; preds = %254
-  %263 = load ptr, ptr %22, align 8
-  %264 = getelementptr inbounds %struct._php_stream_xport_param, ptr %263, i32 0, i32 3
-  %265 = getelementptr inbounds %struct.anon.5, ptr %264, i32 0, i32 1
-  br label %267
+263:                                              ; preds = %255
+  %264 = load ptr, ptr %22, align 8
+  %265 = getelementptr inbounds %struct._php_stream_xport_param, ptr %264, i32 0, i32 3
+  %266 = getelementptr inbounds %struct.anon.5, ptr %265, i32 0, i32 1
+  br label %268
 
-266:                                              ; preds = %254
-  br label %267
+267:                                              ; preds = %255
+  br label %268
 
-267:                                              ; preds = %266, %262
-  %268 = phi ptr [ %265, %262 ], [ null, %266 ]
-  %269 = load ptr, ptr %22, align 8
-  %270 = getelementptr inbounds %struct._php_stream_xport_param, ptr %269, i32 0, i32 1
-  %271 = load i8, ptr %270, align 4
-  %272 = and i8 %271, 1
-  %273 = zext i8 %272 to i32
-  %274 = icmp ne i32 %273, 0
-  br i1 %274, label %275, label %279
+268:                                              ; preds = %267, %263
+  %269 = phi ptr [ %266, %263 ], [ null, %267 ]
+  %270 = load ptr, ptr %22, align 8
+  %271 = getelementptr inbounds %struct._php_stream_xport_param, ptr %270, i32 0, i32 1
+  %272 = load i8, ptr %271, align 4
+  %273 = and i8 %272, 1
+  %274 = zext i8 %273 to i32
+  %275 = icmp ne i32 %274, 0
+  br i1 %275, label %276, label %280
 
-275:                                              ; preds = %267
-  %276 = load ptr, ptr %22, align 8
-  %277 = getelementptr inbounds %struct._php_stream_xport_param, ptr %276, i32 0, i32 3
-  %278 = getelementptr inbounds %struct.anon.5, ptr %277, i32 0, i32 2
-  br label %280
+276:                                              ; preds = %268
+  %277 = load ptr, ptr %22, align 8
+  %278 = getelementptr inbounds %struct._php_stream_xport_param, ptr %277, i32 0, i32 3
+  %279 = getelementptr inbounds %struct.anon.5, ptr %278, i32 0, i32 2
+  br label %281
 
-279:                                              ; preds = %267
-  br label %280
+280:                                              ; preds = %268
+  br label %281
 
-280:                                              ; preds = %279, %275
-  %281 = phi ptr [ %278, %275 ], [ null, %279 ]
-  %282 = call i32 @php_network_get_peer_name(i32 noundef %241, ptr noundef %255, ptr noundef %268, ptr noundef %281)
-  %283 = load ptr, ptr %22, align 8
-  %284 = getelementptr inbounds %struct._php_stream_xport_param, ptr %283, i32 0, i32 3
-  %285 = getelementptr inbounds %struct.anon.5, ptr %284, i32 0, i32 5
-  store i32 %282, ptr %285, align 8
+281:                                              ; preds = %280, %276
+  %282 = phi ptr [ %279, %276 ], [ null, %280 ]
+  %283 = call i32 @php_network_get_peer_name(i32 noundef %242, ptr noundef %256, ptr noundef %269, ptr noundef %282)
+  %284 = load ptr, ptr %22, align 8
+  %285 = getelementptr inbounds %struct._php_stream_xport_param, ptr %284, i32 0, i32 3
+  %286 = getelementptr inbounds %struct.anon.5, ptr %285, i32 0, i32 5
+  store i32 %283, ptr %286, align 8
   store i32 0, ptr %14, align 4
-  br label %427
+  br label %428
 
-286:                                              ; preds = %171
+287:                                              ; preds = %172
   store i32 0, ptr %20, align 4
-  %287 = load ptr, ptr %22, align 8
-  %288 = getelementptr inbounds %struct._php_stream_xport_param, ptr %287, i32 0, i32 2
-  %289 = getelementptr inbounds %struct.anon.4, ptr %288, i32 0, i32 8
-  %290 = load i32, ptr %289, align 8
-  %291 = and i32 %290, 1
-  %292 = icmp eq i32 %291, 1
-  br i1 %292, label %293, label %296
+  %288 = load ptr, ptr %22, align 8
+  %289 = getelementptr inbounds %struct._php_stream_xport_param, ptr %288, i32 0, i32 2
+  %290 = getelementptr inbounds %struct.anon.4, ptr %289, i32 0, i32 8
+  %291 = load i32, ptr %290, align 8
+  %292 = and i32 %291, 1
+  %293 = icmp eq i32 %292, 1
+  br i1 %293, label %294, label %297
 
-293:                                              ; preds = %286
-  %294 = load i32, ptr %20, align 4
-  %295 = or i32 %294, 1
-  store i32 %295, ptr %20, align 4
-  br label %296
+294:                                              ; preds = %287
+  %295 = load i32, ptr %20, align 4
+  %296 = or i32 %295, 1
+  store i32 %296, ptr %20, align 4
+  br label %297
 
-296:                                              ; preds = %293, %286
-  %297 = load ptr, ptr %21, align 8
-  %298 = load ptr, ptr %22, align 8
-  %299 = getelementptr inbounds %struct._php_stream_xport_param, ptr %298, i32 0, i32 2
-  %300 = getelementptr inbounds %struct.anon.4, ptr %299, i32 0, i32 4
-  %301 = load ptr, ptr %300, align 8
-  %302 = load ptr, ptr %22, align 8
-  %303 = getelementptr inbounds %struct._php_stream_xport_param, ptr %302, i32 0, i32 2
-  %304 = getelementptr inbounds %struct.anon.4, ptr %303, i32 0, i32 5
-  %305 = load i64, ptr %304, align 8
-  %306 = load i32, ptr %20, align 4
-  %307 = load ptr, ptr %22, align 8
-  %308 = getelementptr inbounds %struct._php_stream_xport_param, ptr %307, i32 0, i32 2
-  %309 = getelementptr inbounds %struct.anon.4, ptr %308, i32 0, i32 3
-  %310 = load ptr, ptr %309, align 8
-  %311 = load ptr, ptr %22, align 8
-  %312 = getelementptr inbounds %struct._php_stream_xport_param, ptr %311, i32 0, i32 2
-  %313 = getelementptr inbounds %struct.anon.4, ptr %312, i32 0, i32 6
-  %314 = load i32, ptr %313, align 8
-  %315 = call i32 @sock_sendto(ptr noundef %297, ptr noundef %301, i64 noundef %305, i32 noundef %306, ptr noundef %310, i32 noundef %314)
-  %316 = load ptr, ptr %22, align 8
-  %317 = getelementptr inbounds %struct._php_stream_xport_param, ptr %316, i32 0, i32 3
-  %318 = getelementptr inbounds %struct.anon.5, ptr %317, i32 0, i32 5
-  store i32 %315, ptr %318, align 8
-  %319 = load ptr, ptr %22, align 8
-  %320 = getelementptr inbounds %struct._php_stream_xport_param, ptr %319, i32 0, i32 3
-  %321 = getelementptr inbounds %struct.anon.5, ptr %320, i32 0, i32 5
-  %322 = load i32, ptr %321, align 8
-  %323 = icmp eq i32 %322, -1
-  br i1 %323, label %324, label %331
+297:                                              ; preds = %294, %287
+  %298 = load ptr, ptr %21, align 8
+  %299 = load ptr, ptr %22, align 8
+  %300 = getelementptr inbounds %struct._php_stream_xport_param, ptr %299, i32 0, i32 2
+  %301 = getelementptr inbounds %struct.anon.4, ptr %300, i32 0, i32 4
+  %302 = load ptr, ptr %301, align 8
+  %303 = load ptr, ptr %22, align 8
+  %304 = getelementptr inbounds %struct._php_stream_xport_param, ptr %303, i32 0, i32 2
+  %305 = getelementptr inbounds %struct.anon.4, ptr %304, i32 0, i32 5
+  %306 = load i64, ptr %305, align 8
+  %307 = load i32, ptr %20, align 4
+  %308 = load ptr, ptr %22, align 8
+  %309 = getelementptr inbounds %struct._php_stream_xport_param, ptr %308, i32 0, i32 2
+  %310 = getelementptr inbounds %struct.anon.4, ptr %309, i32 0, i32 3
+  %311 = load ptr, ptr %310, align 8
+  %312 = load ptr, ptr %22, align 8
+  %313 = getelementptr inbounds %struct._php_stream_xport_param, ptr %312, i32 0, i32 2
+  %314 = getelementptr inbounds %struct.anon.4, ptr %313, i32 0, i32 6
+  %315 = load i32, ptr %314, align 8
+  %316 = call i32 @sock_sendto(ptr noundef %298, ptr noundef %302, i64 noundef %306, i32 noundef %307, ptr noundef %311, i32 noundef %315)
+  %317 = load ptr, ptr %22, align 8
+  %318 = getelementptr inbounds %struct._php_stream_xport_param, ptr %317, i32 0, i32 3
+  %319 = getelementptr inbounds %struct.anon.5, ptr %318, i32 0, i32 5
+  store i32 %316, ptr %319, align 8
+  %320 = load ptr, ptr %22, align 8
+  %321 = getelementptr inbounds %struct._php_stream_xport_param, ptr %320, i32 0, i32 3
+  %322 = getelementptr inbounds %struct.anon.5, ptr %321, i32 0, i32 5
+  %323 = load i32, ptr %322, align 8
+  %324 = icmp eq i32 %323, -1
+  br i1 %324, label %325, label %332
 
-324:                                              ; preds = %296
-  %325 = call ptr @__errno_location() #8
-  %326 = load i32, ptr %325, align 4
-  %327 = sext i32 %326 to i64
-  %328 = call ptr @php_socket_strerror(i64 noundef %327, ptr noundef null, i64 noundef 0)
-  store ptr %328, ptr %28, align 8
-  %329 = load ptr, ptr %28, align 8
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef @.str.14, ptr noundef %329)
+325:                                              ; preds = %297
+  %326 = call ptr @__errno_location() #8
+  %327 = load i32, ptr %326, align 4
+  %328 = sext i32 %327 to i64
+  %329 = call ptr @php_socket_strerror(i64 noundef %328, ptr noundef null, i64 noundef 0)
+  store ptr %329, ptr %28, align 8
   %330 = load ptr, ptr %28, align 8
-  call void @_efree(ptr noundef %330)
-  br label %331
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef @.str.14, ptr noundef %330)
+  %331 = load ptr, ptr %28, align 8
+  call void @_efree(ptr noundef %331)
+  br label %332
 
-331:                                              ; preds = %324, %296
+332:                                              ; preds = %325, %297
   store i32 0, ptr %14, align 4
-  br label %427
+  br label %428
 
-332:                                              ; preds = %171
+333:                                              ; preds = %172
   store i32 0, ptr %20, align 4
-  %333 = load ptr, ptr %22, align 8
-  %334 = getelementptr inbounds %struct._php_stream_xport_param, ptr %333, i32 0, i32 2
-  %335 = getelementptr inbounds %struct.anon.4, ptr %334, i32 0, i32 8
-  %336 = load i32, ptr %335, align 8
-  %337 = and i32 %336, 1
-  %338 = icmp eq i32 %337, 1
-  br i1 %338, label %339, label %342
+  %334 = load ptr, ptr %22, align 8
+  %335 = getelementptr inbounds %struct._php_stream_xport_param, ptr %334, i32 0, i32 2
+  %336 = getelementptr inbounds %struct.anon.4, ptr %335, i32 0, i32 8
+  %337 = load i32, ptr %336, align 8
+  %338 = and i32 %337, 1
+  %339 = icmp eq i32 %338, 1
+  br i1 %339, label %340, label %343
 
-339:                                              ; preds = %332
-  %340 = load i32, ptr %20, align 4
-  %341 = or i32 %340, 1
-  store i32 %341, ptr %20, align 4
-  br label %342
+340:                                              ; preds = %333
+  %341 = load i32, ptr %20, align 4
+  %342 = or i32 %341, 1
+  store i32 %342, ptr %20, align 4
+  br label %343
 
-342:                                              ; preds = %339, %332
-  %343 = load ptr, ptr %22, align 8
-  %344 = getelementptr inbounds %struct._php_stream_xport_param, ptr %343, i32 0, i32 2
-  %345 = getelementptr inbounds %struct.anon.4, ptr %344, i32 0, i32 8
-  %346 = load i32, ptr %345, align 8
-  %347 = and i32 %346, 2
-  %348 = icmp eq i32 %347, 2
-  br i1 %348, label %349, label %352
+343:                                              ; preds = %340, %333
+  %344 = load ptr, ptr %22, align 8
+  %345 = getelementptr inbounds %struct._php_stream_xport_param, ptr %344, i32 0, i32 2
+  %346 = getelementptr inbounds %struct.anon.4, ptr %345, i32 0, i32 8
+  %347 = load i32, ptr %346, align 8
+  %348 = and i32 %347, 2
+  %349 = icmp eq i32 %348, 2
+  br i1 %349, label %350, label %353
 
-349:                                              ; preds = %342
-  %350 = load i32, ptr %20, align 4
-  %351 = or i32 %350, 2
-  store i32 %351, ptr %20, align 4
-  br label %352
+350:                                              ; preds = %343
+  %351 = load i32, ptr %20, align 4
+  %352 = or i32 %351, 2
+  store i32 %352, ptr %20, align 4
+  br label %353
 
-352:                                              ; preds = %349, %342
-  %353 = load ptr, ptr %21, align 8
-  %354 = load ptr, ptr %22, align 8
-  %355 = getelementptr inbounds %struct._php_stream_xport_param, ptr %354, i32 0, i32 2
-  %356 = getelementptr inbounds %struct.anon.4, ptr %355, i32 0, i32 4
-  %357 = load ptr, ptr %356, align 8
-  %358 = load ptr, ptr %22, align 8
-  %359 = getelementptr inbounds %struct._php_stream_xport_param, ptr %358, i32 0, i32 2
-  %360 = getelementptr inbounds %struct.anon.4, ptr %359, i32 0, i32 5
-  %361 = load i64, ptr %360, align 8
-  %362 = load i32, ptr %20, align 4
-  %363 = load ptr, ptr %22, align 8
-  %364 = getelementptr inbounds %struct._php_stream_xport_param, ptr %363, i32 0, i32 1
-  %365 = load i8, ptr %364, align 4
-  %366 = lshr i8 %365, 1
-  %367 = and i8 %366, 1
-  %368 = zext i8 %367 to i32
-  %369 = icmp ne i32 %368, 0
-  br i1 %369, label %370, label %374
+353:                                              ; preds = %350, %343
+  %354 = load ptr, ptr %21, align 8
+  %355 = load ptr, ptr %22, align 8
+  %356 = getelementptr inbounds %struct._php_stream_xport_param, ptr %355, i32 0, i32 2
+  %357 = getelementptr inbounds %struct.anon.4, ptr %356, i32 0, i32 4
+  %358 = load ptr, ptr %357, align 8
+  %359 = load ptr, ptr %22, align 8
+  %360 = getelementptr inbounds %struct._php_stream_xport_param, ptr %359, i32 0, i32 2
+  %361 = getelementptr inbounds %struct.anon.4, ptr %360, i32 0, i32 5
+  %362 = load i64, ptr %361, align 8
+  %363 = load i32, ptr %20, align 4
+  %364 = load ptr, ptr %22, align 8
+  %365 = getelementptr inbounds %struct._php_stream_xport_param, ptr %364, i32 0, i32 1
+  %366 = load i8, ptr %365, align 4
+  %367 = lshr i8 %366, 1
+  %368 = and i8 %367, 1
+  %369 = zext i8 %368 to i32
+  %370 = icmp ne i32 %369, 0
+  br i1 %370, label %371, label %375
 
-370:                                              ; preds = %352
-  %371 = load ptr, ptr %22, align 8
-  %372 = getelementptr inbounds %struct._php_stream_xport_param, ptr %371, i32 0, i32 3
-  %373 = getelementptr inbounds %struct.anon.5, ptr %372, i32 0, i32 3
-  br label %375
+371:                                              ; preds = %353
+  %372 = load ptr, ptr %22, align 8
+  %373 = getelementptr inbounds %struct._php_stream_xport_param, ptr %372, i32 0, i32 3
+  %374 = getelementptr inbounds %struct.anon.5, ptr %373, i32 0, i32 3
+  br label %376
 
-374:                                              ; preds = %352
-  br label %375
+375:                                              ; preds = %353
+  br label %376
 
-375:                                              ; preds = %374, %370
-  %376 = phi ptr [ %373, %370 ], [ null, %374 ]
-  %377 = load ptr, ptr %22, align 8
-  %378 = getelementptr inbounds %struct._php_stream_xport_param, ptr %377, i32 0, i32 1
-  %379 = load i8, ptr %378, align 4
-  %380 = and i8 %379, 1
-  %381 = zext i8 %380 to i32
-  %382 = icmp ne i32 %381, 0
-  br i1 %382, label %383, label %387
+376:                                              ; preds = %375, %371
+  %377 = phi ptr [ %374, %371 ], [ null, %375 ]
+  %378 = load ptr, ptr %22, align 8
+  %379 = getelementptr inbounds %struct._php_stream_xport_param, ptr %378, i32 0, i32 1
+  %380 = load i8, ptr %379, align 4
+  %381 = and i8 %380, 1
+  %382 = zext i8 %381 to i32
+  %383 = icmp ne i32 %382, 0
+  br i1 %383, label %384, label %388
 
-383:                                              ; preds = %375
-  %384 = load ptr, ptr %22, align 8
-  %385 = getelementptr inbounds %struct._php_stream_xport_param, ptr %384, i32 0, i32 3
-  %386 = getelementptr inbounds %struct.anon.5, ptr %385, i32 0, i32 1
-  br label %388
+384:                                              ; preds = %376
+  %385 = load ptr, ptr %22, align 8
+  %386 = getelementptr inbounds %struct._php_stream_xport_param, ptr %385, i32 0, i32 3
+  %387 = getelementptr inbounds %struct.anon.5, ptr %386, i32 0, i32 1
+  br label %389
 
-387:                                              ; preds = %375
-  br label %388
+388:                                              ; preds = %376
+  br label %389
 
-388:                                              ; preds = %387, %383
-  %389 = phi ptr [ %386, %383 ], [ null, %387 ]
-  %390 = load ptr, ptr %22, align 8
-  %391 = getelementptr inbounds %struct._php_stream_xport_param, ptr %390, i32 0, i32 1
-  %392 = load i8, ptr %391, align 4
-  %393 = and i8 %392, 1
-  %394 = zext i8 %393 to i32
-  %395 = icmp ne i32 %394, 0
-  br i1 %395, label %396, label %400
+389:                                              ; preds = %388, %384
+  %390 = phi ptr [ %387, %384 ], [ null, %388 ]
+  %391 = load ptr, ptr %22, align 8
+  %392 = getelementptr inbounds %struct._php_stream_xport_param, ptr %391, i32 0, i32 1
+  %393 = load i8, ptr %392, align 4
+  %394 = and i8 %393, 1
+  %395 = zext i8 %394 to i32
+  %396 = icmp ne i32 %395, 0
+  br i1 %396, label %397, label %401
 
-396:                                              ; preds = %388
-  %397 = load ptr, ptr %22, align 8
-  %398 = getelementptr inbounds %struct._php_stream_xport_param, ptr %397, i32 0, i32 3
-  %399 = getelementptr inbounds %struct.anon.5, ptr %398, i32 0, i32 2
-  br label %401
+397:                                              ; preds = %389
+  %398 = load ptr, ptr %22, align 8
+  %399 = getelementptr inbounds %struct._php_stream_xport_param, ptr %398, i32 0, i32 3
+  %400 = getelementptr inbounds %struct.anon.5, ptr %399, i32 0, i32 2
+  br label %402
 
-400:                                              ; preds = %388
-  br label %401
+401:                                              ; preds = %389
+  br label %402
 
-401:                                              ; preds = %400, %396
-  %402 = phi ptr [ %399, %396 ], [ null, %400 ]
-  %403 = call i32 @sock_recvfrom(ptr noundef %353, ptr noundef %357, i64 noundef %361, i32 noundef %362, ptr noundef %376, ptr noundef %389, ptr noundef %402)
-  %404 = load ptr, ptr %22, align 8
-  %405 = getelementptr inbounds %struct._php_stream_xport_param, ptr %404, i32 0, i32 3
-  %406 = getelementptr inbounds %struct.anon.5, ptr %405, i32 0, i32 5
-  store i32 %403, ptr %406, align 8
+402:                                              ; preds = %401, %397
+  %403 = phi ptr [ %400, %397 ], [ null, %401 ]
+  %404 = call i32 @sock_recvfrom(ptr noundef %354, ptr noundef %358, i64 noundef %362, i32 noundef %363, ptr noundef %377, ptr noundef %390, ptr noundef %403)
+  %405 = load ptr, ptr %22, align 8
+  %406 = getelementptr inbounds %struct._php_stream_xport_param, ptr %405, i32 0, i32 3
+  %407 = getelementptr inbounds %struct.anon.5, ptr %406, i32 0, i32 5
+  store i32 %404, ptr %407, align 8
   store i32 0, ptr %14, align 4
-  br label %427
+  br label %428
 
-407:                                              ; preds = %171
-  %408 = load ptr, ptr %21, align 8
-  %409 = getelementptr inbounds %struct._php_netstream_data_t, ptr %408, i32 0, i32 0
-  %410 = load i32, ptr %409, align 8
-  %411 = load ptr, ptr %22, align 8
-  %412 = getelementptr inbounds %struct._php_stream_xport_param, ptr %411, i32 0, i32 1
-  %413 = load i8, ptr %412, align 4
-  %414 = lshr i8 %413, 3
-  %415 = and i8 %414, 3
-  %416 = zext i8 %415 to i32
-  %417 = zext i32 %416 to i64
-  %418 = getelementptr inbounds [3 x i32], ptr @php_sockop_set_option.shutdown_how, i64 0, i64 %417
-  %419 = load i32, ptr %418, align 4
-  %420 = call i32 @shutdown(i32 noundef %410, i32 noundef %419) #9
-  %421 = load ptr, ptr %22, align 8
-  %422 = getelementptr inbounds %struct._php_stream_xport_param, ptr %421, i32 0, i32 3
-  %423 = getelementptr inbounds %struct.anon.5, ptr %422, i32 0, i32 5
-  store i32 %420, ptr %423, align 8
+408:                                              ; preds = %172
+  %409 = load ptr, ptr %21, align 8
+  %410 = getelementptr inbounds %struct._php_netstream_data_t, ptr %409, i32 0, i32 0
+  %411 = load i32, ptr %410, align 8
+  %412 = load ptr, ptr %22, align 8
+  %413 = getelementptr inbounds %struct._php_stream_xport_param, ptr %412, i32 0, i32 1
+  %414 = load i8, ptr %413, align 4
+  %415 = lshr i8 %414, 3
+  %416 = and i8 %415, 3
+  %417 = zext i8 %416 to i32
+  %418 = zext i32 %417 to i64
+  %419 = getelementptr inbounds [3 x i32], ptr @php_sockop_set_option.shutdown_how, i64 0, i64 %418
+  %420 = load i32, ptr %419, align 4
+  %421 = call i32 @shutdown(i32 noundef %411, i32 noundef %420) #9
+  %422 = load ptr, ptr %22, align 8
+  %423 = getelementptr inbounds %struct._php_stream_xport_param, ptr %422, i32 0, i32 3
+  %424 = getelementptr inbounds %struct.anon.5, ptr %423, i32 0, i32 5
+  store i32 %421, ptr %424, align 8
   store i32 0, ptr %14, align 4
-  br label %427
+  br label %428
 
-424:                                              ; preds = %171
-  br label %425
-
-425:                                              ; preds = %424
+425:                                              ; preds = %172
   br label %426
 
-426:                                              ; preds = %425, %35
-  store i32 -2, ptr %14, align 4
+426:                                              ; preds = %425
   br label %427
 
-427:                                              ; preds = %426, %407, %401, %331, %280, %232, %176, %132, %126, %125, %119, %104, %34
-  %428 = load i32, ptr %14, align 4
-  ret i32 %428
+427:                                              ; preds = %426, %35
+  store i32 -2, ptr %14, align 4
+  br label %428
+
+428:                                              ; preds = %427, %408, %402, %332, %281, %233, %177, %133, %127, %126, %120, %105, %34
+  %429 = load i32, ptr %14, align 4
+  ret i32 %429
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1972,7 +1973,7 @@ define dso_local ptr @php_stream_generic_socket_factory(ptr noundef %0, i64 noun
 
 46:                                               ; preds = %40
   store ptr null, ptr %10, align 8
-  br label %91
+  br label %92
 
 47:                                               ; preds = %45
   br label %48
@@ -2010,60 +2011,61 @@ define dso_local ptr @php_stream_generic_socket_factory(ptr noundef %0, i64 noun
   %62 = load ptr, ptr %21, align 8
   %63 = getelementptr inbounds %struct._php_netstream_data_t, ptr %62, i32 0, i32 1
   store i8 1, ptr %63, align 4
-  %64 = load i64, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 3), align 8
-  %65 = load ptr, ptr %21, align 8
-  %66 = getelementptr inbounds %struct._php_netstream_data_t, ptr %65, i32 0, i32 2
-  %67 = getelementptr inbounds %struct.timeval, ptr %66, i32 0, i32 0
-  store i64 %64, ptr %67, align 8
-  %68 = load ptr, ptr %21, align 8
-  %69 = getelementptr inbounds %struct._php_netstream_data_t, ptr %68, i32 0, i32 2
-  %70 = getelementptr inbounds %struct.timeval, ptr %69, i32 0, i32 1
-  store i64 0, ptr %70, align 8
-  %71 = load ptr, ptr %21, align 8
-  %72 = getelementptr inbounds %struct._php_netstream_data_t, ptr %71, i32 0, i32 0
-  store i32 -1, ptr %72, align 8
-  %73 = load ptr, ptr %22, align 8
-  %74 = load ptr, ptr %21, align 8
-  %75 = load ptr, ptr %15, align 8
-  %76 = call ptr @_php_stream_alloc(ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef @.str.9)
-  store ptr %76, ptr %20, align 8
-  %77 = load ptr, ptr %20, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %89
+  %64 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 3
+  %65 = load i64, ptr %64, align 8
+  %66 = load ptr, ptr %21, align 8
+  %67 = getelementptr inbounds %struct._php_netstream_data_t, ptr %66, i32 0, i32 2
+  %68 = getelementptr inbounds %struct.timeval, ptr %67, i32 0, i32 0
+  store i64 %65, ptr %68, align 8
+  %69 = load ptr, ptr %21, align 8
+  %70 = getelementptr inbounds %struct._php_netstream_data_t, ptr %69, i32 0, i32 2
+  %71 = getelementptr inbounds %struct.timeval, ptr %70, i32 0, i32 1
+  store i64 0, ptr %71, align 8
+  %72 = load ptr, ptr %21, align 8
+  %73 = getelementptr inbounds %struct._php_netstream_data_t, ptr %72, i32 0, i32 0
+  store i32 -1, ptr %73, align 8
+  %74 = load ptr, ptr %22, align 8
+  %75 = load ptr, ptr %21, align 8
+  %76 = load ptr, ptr %15, align 8
+  %77 = call ptr @_php_stream_alloc(ptr noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef @.str.9)
+  store ptr %77, ptr %20, align 8
+  %78 = load ptr, ptr %20, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %90
 
-79:                                               ; preds = %59
-  %80 = load ptr, ptr %15, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %83
+80:                                               ; preds = %59
+  %81 = load ptr, ptr %15, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %84
 
-82:                                               ; preds = %79
-  br i1 true, label %84, label %86
+83:                                               ; preds = %80
+  br i1 true, label %85, label %87
 
-83:                                               ; preds = %79
-  br i1 false, label %84, label %86
+84:                                               ; preds = %80
+  br i1 false, label %85, label %87
 
-84:                                               ; preds = %83, %82
-  %85 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %85) #9
-  br label %88
+85:                                               ; preds = %84, %83
+  %86 = load ptr, ptr %21, align 8
+  call void @free(ptr noundef %86) #9
+  br label %89
 
-86:                                               ; preds = %83, %82
-  %87 = load ptr, ptr %21, align 8
-  call void @_efree(ptr noundef %87)
-  br label %88
+87:                                               ; preds = %84, %83
+  %88 = load ptr, ptr %21, align 8
+  call void @_efree(ptr noundef %88)
+  br label %89
 
-88:                                               ; preds = %86, %84
+89:                                               ; preds = %87, %85
   store ptr null, ptr %10, align 8
-  br label %91
+  br label %92
 
-89:                                               ; preds = %59
-  %90 = load ptr, ptr %20, align 8
-  store ptr %90, ptr %10, align 8
-  br label %91
+90:                                               ; preds = %59
+  %91 = load ptr, ptr %20, align 8
+  store ptr %91, ptr %10, align 8
+  br label %92
 
-91:                                               ; preds = %89, %88, %46
-  %92 = load ptr, ptr %10, align 8
-  ret ptr %92
+92:                                               ; preds = %90, %89, %46
+  %93 = load ptr, ptr %10, align 8
+  ret ptr %93
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

@@ -34,34 +34,36 @@ define ptr @agfindnode_by_id(ptr noundef %0, i64 noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %6 = load i64, ptr %4, align 8
-  store i64 %6, ptr getelementptr inbounds (%struct.Agtag_s, ptr @agfindnode_by_id.dummy, i32 0, i32 1), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (%struct.Agsubnode_s, ptr @agfindnode_by_id.template, i32 0, i32 2), align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.Agraph_s, ptr %7, i32 0, i32 5
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct._dt_s, ptr %9, i32 0, i32 0
+  %7 = getelementptr inbounds %struct.Agtag_s, ptr @agfindnode_by_id.dummy, i32 0, i32 1
+  store i64 %6, ptr %7, align 8
+  %8 = getelementptr inbounds %struct.Agsubnode_s, ptr @agfindnode_by_id.template, i32 0, i32 2
+  store ptr @agfindnode_by_id.dummy, ptr %8, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds %struct.Agraph_s, ptr %9, i32 0, i32 5
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Agraph_s, ptr %12, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = call ptr %11(ptr noundef %14, ptr noundef @agfindnode_by_id.template, i32 noundef 4)
-  store ptr %15, ptr %5, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %22
+  %12 = getelementptr inbounds %struct._dt_s, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds %struct.Agraph_s, ptr %14, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = call ptr %13(ptr noundef %16, ptr noundef @agfindnode_by_id.template, i32 noundef 4)
+  store ptr %17, ptr %5, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %24
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.Agsubnode_s, ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  br label %23
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds %struct.Agsubnode_s, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  br label %25
 
-22:                                               ; preds = %2
-  br label %23
+24:                                               ; preds = %2
+  br label %25
 
-23:                                               ; preds = %22, %18
-  %24 = phi ptr [ %21, %18 ], [ null, %22 ]
-  ret ptr %24
+25:                                               ; preds = %24, %20
+  %26 = phi ptr [ %23, %20 ], [ null, %24 ]
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -622,53 +624,54 @@ define void @agdelnodeimage(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.Agsubnode_s, ptr @agdelnodeimage.template, i32 0, i32 2), align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = call ptr @agfstedge(ptr noundef %10, ptr noundef %11)
-  store ptr %12, ptr %7, align 8
-  br label %13
+  %10 = getelementptr inbounds %struct.Agsubnode_s, ptr @agdelnodeimage.template, i32 0, i32 2
+  store ptr %9, ptr %10, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call ptr @agfstedge(ptr noundef %11, ptr noundef %12)
+  store ptr %13, ptr %7, align 8
+  br label %14
 
-13:                                               ; preds = %23, %3
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %25
+14:                                               ; preds = %24, %3
+  %15 = load ptr, ptr %7, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %26
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = call ptr @agnxtedge(ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  store ptr %20, ptr %8, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = load ptr, ptr %7, align 8
-  call void @agdeledgeimage(ptr noundef %21, ptr noundef %22, ptr noundef null)
-  br label %23
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call ptr @agnxtedge(ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  store ptr %21, ptr %8, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %7, align 8
+  call void @agdeledgeimage(ptr noundef %22, ptr noundef %23, ptr noundef null)
+  br label %24
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %8, align 8
-  store ptr %24, ptr %7, align 8
-  br label %13
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %8, align 8
+  store ptr %25, ptr %7, align 8
+  br label %14
 
-25:                                               ; preds = %13
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.Agraph_s, ptr %26, i32 0, i32 5
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._dt_s, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.Agraph_s, ptr %31, i32 0, i32 5
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr %30(ptr noundef %33, ptr noundef @agdelnodeimage.template, i32 noundef 2)
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.Agraph_s, ptr %35, i32 0, i32 4
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct._dt_s, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.Agraph_s, ptr %40, i32 0, i32 4
-  %42 = load ptr, ptr %41, align 8
-  %43 = call ptr %39(ptr noundef %42, ptr noundef @agdelnodeimage.template, i32 noundef 2)
+26:                                               ; preds = %14
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %struct.Agraph_s, ptr %27, i32 0, i32 5
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct._dt_s, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds %struct.Agraph_s, ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8
+  %35 = call ptr %31(ptr noundef %34, ptr noundef @agdelnodeimage.template, i32 noundef 2)
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds %struct.Agraph_s, ptr %36, i32 0, i32 4
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct._dt_s, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %struct.Agraph_s, ptr %41, i32 0, i32 4
+  %43 = load ptr, ptr %42, align 8
+  %44 = call ptr %40(ptr noundef %43, ptr noundef @agdelnodeimage.template, i32 noundef 2)
   ret void
 }
 
@@ -1378,16 +1381,17 @@ define internal void @agnodesetfinger(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %5, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.Agsubnode_s, ptr @agnodesetfinger.template, i32 0, i32 2), align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.Agraph_s, ptr %8, i32 0, i32 4
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct._dt_s, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.Agraph_s, ptr %13, i32 0, i32 4
-  %15 = load ptr, ptr %14, align 8
-  %16 = call ptr %12(ptr noundef %15, ptr noundef @agnodesetfinger.template, i32 noundef 4)
+  %8 = getelementptr inbounds %struct.Agsubnode_s, ptr @agnodesetfinger.template, i32 0, i32 2
+  store ptr %7, ptr %8, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %struct.Agraph_s, ptr %9, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds %struct._dt_s, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %struct.Agraph_s, ptr %14, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8
+  %17 = call ptr %13(ptr noundef %16, ptr noundef @agnodesetfinger.template, i32 noundef 4)
   ret void
 }
 

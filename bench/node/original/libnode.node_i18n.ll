@@ -5061,13 +5061,14 @@ entry:
   %3 = load ptr, ptr %converter.addr, align 8
   %4 = load ptr, ptr %sub.addr, align 8
   call void @_ZN4node4i18n9ConverterC2EP10UConverterPKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node4i18n15ConverterObjectE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %5 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node4i18n15ConverterObjectE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 8
   %flags_ = getelementptr inbounds %"class.node::i18n::ConverterObject", ptr %this3, i32 0, i32 2
-  %5 = load i32, ptr %flags.addr, align 4
-  store i32 %5, ptr %flags_, align 8
+  %6 = load i32, ptr %flags.addr, align 4
+  store i32 %6, ptr %flags_, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
-  %6 = load ptr, ptr %converter.addr, align 8
-  %call = call i32 @ucnv_getType_74(ptr noundef %6)
+  %7 = load ptr, ptr %converter.addr, align 8
+  %call = call i32 @ucnv_getType_74(ptr noundef %7)
   switch i32 %call, label %sw.default [
     i32 4, label %sw.bb
     i32 5, label %sw.bb
@@ -5076,8 +5077,8 @@ entry:
 
 sw.bb:                                            ; preds = %entry, %entry, %entry
   %flags_7 = getelementptr inbounds %"class.node::i18n::ConverterObject", ptr %this3, i32 0, i32 2
-  %7 = load i32, ptr %flags_7, align 8
-  %or = or i32 %7, 8
+  %8 = load i32, ptr %flags_7, align 8
+  %or = or i32 %8, 8
   store i32 %or, ptr %flags_7, align 8
   br label %sw.epilog
 

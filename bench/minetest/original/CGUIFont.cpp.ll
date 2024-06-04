@@ -216,20 +216,22 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !44
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 176
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 104) ({ [16 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUIFontE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [16 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUIFontE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [16 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUIFontE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [16 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUIFontE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %Areas = getelementptr inbounds i8, ptr %this, i64 8
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Areas, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i, align 8, !tbaa !6
-  %1 = getelementptr inbounds i8, ptr %this, i64 48
-  store i32 0, ptr %1, align 8, !tbaa !15
+  %3 = getelementptr inbounds i8, ptr %this, i64 48
+  store i32 0, ptr %3, align 8, !tbaa !15
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !20
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %1, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !21
+  store ptr %3, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !21
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %1, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !22
+  store ptr %3, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !22
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %Driver = getelementptr inbounds i8, ptr %this, i64 88
   %SpriteBank = getelementptr inbounds i8, ptr %this, i64 96
@@ -238,73 +240,73 @@ entry:
   store ptr %env, ptr %Environment, align 8, !tbaa !23
   %WrongCharacter = getelementptr inbounds i8, ptr %this, i64 112
   %Invisible = getelementptr inbounds i8, ptr %this, i64 128
-  %2 = getelementptr inbounds i8, ptr %this, i64 144
+  %4 = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %WrongCharacter, i8 0, i64 16, i1 false)
-  store ptr %2, ptr %Invisible, align 8, !tbaa !36
+  store ptr %4, ptr %Invisible, align 8, !tbaa !36
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !37
-  store i32 0, ptr %2, align 8, !tbaa !38
+  store i32 0, ptr %4, align 8, !tbaa !38
   %tobool.not = icmp eq ptr %env, null
   br i1 %tobool.not, label %if.end25, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %env, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
-  %3 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %env) #21
+  %5 = load ptr, ptr %vfn, align 8
+  %call = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %env) #21
   store ptr %call, ptr %Driver, align 8, !tbaa !40
-  %4 = load ptr, ptr %Environment, align 8, !tbaa !23
-  %vtable6 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %Environment, align 8, !tbaa !23
+  %vtable6 = load ptr, ptr %6, align 8, !tbaa !3
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 160
-  %5 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %filename) #21
+  %7 = load ptr, ptr %vfn7, align 8
+  %call8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %filename) #21
   store ptr %call8, ptr %SpriteBank, align 8, !tbaa !41
   %tobool11.not = icmp eq ptr %call8, null
   br i1 %tobool11.not, label %if.end, label %if.then20
 
 if.end:                                           ; preds = %if.then
-  %6 = load ptr, ptr %Environment, align 8, !tbaa !23
-  %vtable14 = load ptr, ptr %6, align 8, !tbaa !3
+  %8 = load ptr, ptr %Environment, align 8, !tbaa !23
+  %vtable14 = load ptr, ptr %8, align 8, !tbaa !3
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 168
-  %7 = load ptr, ptr %vfn15, align 8
-  %call16 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %filename) #21
+  %9 = load ptr, ptr %vfn15, align 8
+  %call16 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %filename) #21
   store ptr %call16, ptr %SpriteBank, align 8, !tbaa !41
   %tobool19.not = icmp eq ptr %call16, null
   br i1 %tobool19.not, label %if.end25, label %if.then20
 
 if.then20:                                        ; preds = %if.end, %if.then
-  %8 = phi ptr [ %call16, %if.end ], [ %call8, %if.then ]
-  %vtable22 = load ptr, ptr %8, align 8, !tbaa !3
+  %10 = phi ptr [ %call16, %if.end ], [ %call8, %if.then ]
+  %vtable22 = load ptr, ptr %10, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable22, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr23 = getelementptr inbounds i8, ptr %8, i64 %vbase.offset
+  %add.ptr23 = getelementptr inbounds i8, ptr %10, i64 %vbase.offset
   %ReferenceCounter.i40 = getelementptr inbounds i8, ptr %add.ptr23, i64 16
-  %9 = load i32, ptr %ReferenceCounter.i40, align 8, !tbaa !42
-  %inc.i = add nsw i32 %9, 1
+  %11 = load i32, ptr %ReferenceCounter.i40, align 8, !tbaa !42
+  %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %ReferenceCounter.i40, align 8, !tbaa !42
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then20, %if.end, %entry
-  %10 = load ptr, ptr %Driver, align 8, !tbaa !40
-  %tobool27.not = icmp eq ptr %10, null
+  %12 = load ptr, ptr %Driver, align 8, !tbaa !40
+  %tobool27.not = icmp eq ptr %12, null
   br i1 %tobool27.not, label %if.end34, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
-  %vtable30 = load ptr, ptr %10, align 8, !tbaa !3
+  %vtable30 = load ptr, ptr %12, align 8, !tbaa !3
   %vbase.offset.ptr31 = getelementptr i8, ptr %vtable30, i64 -24
   %vbase.offset32 = load i64, ptr %vbase.offset.ptr31, align 8
-  %add.ptr33 = getelementptr inbounds i8, ptr %10, i64 %vbase.offset32
+  %add.ptr33 = getelementptr inbounds i8, ptr %12, i64 %vbase.offset32
   %ReferenceCounter.i41 = getelementptr inbounds i8, ptr %add.ptr33, i64 16
-  %11 = load i32, ptr %ReferenceCounter.i41, align 8, !tbaa !42
-  %inc.i42 = add nsw i32 %11, 1
+  %13 = load i32, ptr %ReferenceCounter.i41, align 8, !tbaa !42
+  %inc.i42 = add nsw i32 %13, 1
   store i32 %inc.i42, ptr %ReferenceCounter.i41, align 8, !tbaa !42
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then28, %if.end25
   %vtable35 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 64
-  %12 = load ptr, ptr %vfn36, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str) #21
+  %14 = load ptr, ptr %vfn36, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str) #21
   ret void
 }
 

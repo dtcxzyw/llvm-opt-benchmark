@@ -4840,7 +4840,7 @@ define internal i32 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr noundef 
   %37 = load ptr, ptr %10, align 8
   store i32 -24, ptr %37, align 4
   store i32 0, ptr %6, align 4
-  br label %337
+  br label %338
 
 38:                                               ; preds = %5
   %39 = load ptr, ptr %7, align 8
@@ -4857,7 +4857,7 @@ define internal i32 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr noundef 
   %48 = load ptr, ptr %10, align 8
   store i32 -9, ptr %48, align 4
   store i32 0, ptr %6, align 4
-  br label %337
+  br label %338
 
 49:                                               ; preds = %38
   %50 = load ptr, ptr %8, align 8
@@ -4871,7 +4871,7 @@ define internal i32 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr noundef 
   %56 = load ptr, ptr %10, align 8
   store i32 -22, ptr %56, align 4
   store i32 0, ptr %6, align 4
-  br label %337
+  br label %338
 
 57:                                               ; preds = %49
   %58 = load ptr, ptr %13, align 8
@@ -5005,7 +5005,7 @@ define internal i32 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 153:                                              ; preds = %124
   store i32 0, ptr %6, align 4
-  br label %337
+  br label %338
 
 154:                                              ; preds = %124
   br label %155
@@ -5048,7 +5048,7 @@ define internal i32 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 183:                                              ; preds = %155
   store i32 0, ptr %6, align 4
-  br label %337
+  br label %338
 
 184:                                              ; preds = %155
   %185 = load ptr, ptr %8, align 8
@@ -5083,198 +5083,199 @@ define internal i32 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr noundef 
   %211 = mul i64 %210, 1000
   %212 = add i64 %205, %211
   store i64 %212, ptr %17, align 8
-  %213 = load i32, ptr getelementptr inbounds ([7 x i32], ptr @Psec, i64 0, i64 1), align 4
-  %214 = zext i32 %213 to i64
-  %215 = load i64, ptr %17, align 8
-  %216 = udiv i64 %215, %214
-  store i64 %216, ptr %17, align 8
-  %217 = load i64, ptr %17, align 8
-  %218 = lshr i64 %217, 0
-  %219 = and i64 %218, 65535
-  %220 = trunc i64 %219 to i16
-  store i16 %220, ptr %18, align 2
-  %221 = load i64, ptr %17, align 8
-  %222 = lshr i64 %221, 16
-  %223 = and i64 %222, 65535
-  %224 = trunc i64 %223 to i16
-  store i16 %224, ptr %19, align 2
-  %225 = load i64, ptr %17, align 8
-  %226 = lshr i64 %225, 32
-  %227 = and i64 %226, 255
-  %228 = trunc i64 %227 to i8
-  store i8 %228, ptr %20, align 1
-  %229 = load i16, ptr %18, align 2
-  %230 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 0
-  store i16 %229, ptr %230, align 2
-  %231 = load i16, ptr %19, align 2
-  %232 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 1
-  store i16 %231, ptr %232, align 2
-  %233 = load i8, ptr %20, align 1
-  %234 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 2
-  store i8 %233, ptr %234, align 2
-  %235 = load ptr, ptr %8, align 8
-  %236 = getelementptr inbounds %struct.wtap_rec, ptr %235, i32 0, i32 7
-  %237 = getelementptr inbounds %struct.wtap_packet_header, ptr %236, i32 0, i32 0
-  %238 = load i32, ptr %237, align 8
-  %239 = trunc i32 %238 to i16
-  %240 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 4
-  store i16 %239, ptr %240, align 2
-  %241 = load ptr, ptr %7, align 8
-  %242 = getelementptr inbounds %struct.wtap_dumper, ptr %241, i32 0, i32 3
-  %243 = load i32, ptr %242, align 8
-  switch i32 %243, label %293 [
-    i32 12, label %244
-    i32 27, label %244
-    i32 19, label %254
-    i32 36, label %254
-    i32 17, label %262
+  %213 = getelementptr inbounds [7 x i32], ptr @Psec, i64 0, i64 1
+  %214 = load i32, ptr %213, align 4
+  %215 = zext i32 %214 to i64
+  %216 = load i64, ptr %17, align 8
+  %217 = udiv i64 %216, %215
+  store i64 %217, ptr %17, align 8
+  %218 = load i64, ptr %17, align 8
+  %219 = lshr i64 %218, 0
+  %220 = and i64 %219, 65535
+  %221 = trunc i64 %220 to i16
+  store i16 %221, ptr %18, align 2
+  %222 = load i64, ptr %17, align 8
+  %223 = lshr i64 %222, 16
+  %224 = and i64 %223, 65535
+  %225 = trunc i64 %224 to i16
+  store i16 %225, ptr %19, align 2
+  %226 = load i64, ptr %17, align 8
+  %227 = lshr i64 %226, 32
+  %228 = and i64 %227, 255
+  %229 = trunc i64 %228 to i8
+  store i8 %229, ptr %20, align 1
+  %230 = load i16, ptr %18, align 2
+  %231 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 0
+  store i16 %230, ptr %231, align 2
+  %232 = load i16, ptr %19, align 2
+  %233 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 1
+  store i16 %232, ptr %233, align 2
+  %234 = load i8, ptr %20, align 1
+  %235 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 2
+  store i8 %234, ptr %235, align 2
+  %236 = load ptr, ptr %8, align 8
+  %237 = getelementptr inbounds %struct.wtap_rec, ptr %236, i32 0, i32 7
+  %238 = getelementptr inbounds %struct.wtap_packet_header, ptr %237, i32 0, i32 0
+  %239 = load i32, ptr %238, align 8
+  %240 = trunc i32 %239 to i16
+  %241 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 4
+  store i16 %240, ptr %241, align 2
+  %242 = load ptr, ptr %7, align 8
+  %243 = getelementptr inbounds %struct.wtap_dumper, ptr %242, i32 0, i32 3
+  %244 = load i32, ptr %243, align 8
+  switch i32 %244, label %294 [
+    i32 12, label %245
+    i32 27, label %245
+    i32 19, label %255
+    i32 36, label %255
+    i32 17, label %263
   ]
 
-244:                                              ; preds = %184, %184
-  %245 = load ptr, ptr %12, align 8
-  %246 = getelementptr inbounds %struct.dte_dce_phdr, ptr %245, i32 0, i32 0
-  %247 = load i8, ptr %246, align 8
-  %248 = zext i8 %247 to i32
-  %249 = and i32 %248, 128
-  %250 = icmp ne i32 %249, 0
-  %251 = select i1 %250, i32 0, i32 128
-  %252 = trunc i32 %251 to i8
-  %253 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
-  store i8 %252, ptr %253, align 2
-  br label %295
+245:                                              ; preds = %184, %184
+  %246 = load ptr, ptr %12, align 8
+  %247 = getelementptr inbounds %struct.dte_dce_phdr, ptr %246, i32 0, i32 0
+  %248 = load i8, ptr %247, align 8
+  %249 = zext i8 %248 to i32
+  %250 = and i32 %249, 128
+  %251 = icmp ne i32 %250, 0
+  %252 = select i1 %251, i32 0, i32 128
+  %253 = trunc i32 %252 to i8
+  %254 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
+  store i8 %253, ptr %254, align 2
+  br label %296
 
-254:                                              ; preds = %184, %184
-  %255 = load ptr, ptr %12, align 8
-  %256 = getelementptr inbounds %struct.p2p_phdr, ptr %255, i32 0, i32 0
-  %257 = load i32, ptr %256, align 8
-  %258 = icmp ne i32 %257, 0
-  %259 = select i1 %258, i32 0, i32 128
-  %260 = trunc i32 %259 to i8
-  %261 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
-  store i8 %260, ptr %261, align 2
-  br label %295
+255:                                              ; preds = %184, %184
+  %256 = load ptr, ptr %12, align 8
+  %257 = getelementptr inbounds %struct.p2p_phdr, ptr %256, i32 0, i32 0
+  %258 = load i32, ptr %257, align 8
+  %259 = icmp ne i32 %258, 0
+  %260 = select i1 %259, i32 0, i32 128
+  %261 = trunc i32 %260 to i8
+  %262 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
+  store i8 %261, ptr %262, align 2
+  br label %296
 
-262:                                              ; preds = %184
-  %263 = load ptr, ptr %12, align 8
-  %264 = getelementptr inbounds %struct.isdn_phdr, ptr %263, i32 0, i32 0
-  %265 = load i32, ptr %264, align 8
-  %266 = icmp ne i32 %265, 0
-  %267 = select i1 %266, i32 128, i32 0
-  %268 = trunc i32 %267 to i8
-  %269 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
-  store i8 %268, ptr %269, align 2
-  %270 = load ptr, ptr %12, align 8
-  %271 = getelementptr inbounds %struct.isdn_phdr, ptr %270, i32 0, i32 1
-  %272 = load i8, ptr %271, align 4
-  %273 = zext i8 %272 to i32
-  switch i32 %273, label %292 [
-    i32 0, label %274
-    i32 1, label %280
-    i32 2, label %286
+263:                                              ; preds = %184
+  %264 = load ptr, ptr %12, align 8
+  %265 = getelementptr inbounds %struct.isdn_phdr, ptr %264, i32 0, i32 0
+  %266 = load i32, ptr %265, align 8
+  %267 = icmp ne i32 %266, 0
+  %268 = select i1 %267, i32 128, i32 0
+  %269 = trunc i32 %268 to i8
+  %270 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
+  store i8 %269, ptr %270, align 2
+  %271 = load ptr, ptr %12, align 8
+  %272 = getelementptr inbounds %struct.isdn_phdr, ptr %271, i32 0, i32 1
+  %273 = load i8, ptr %272, align 4
+  %274 = zext i8 %273 to i32
+  switch i32 %274, label %293 [
+    i32 0, label %275
+    i32 1, label %281
+    i32 2, label %287
   ]
 
-274:                                              ; preds = %262
-  %275 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
-  %276 = load i8, ptr %275, align 2
-  %277 = zext i8 %276 to i32
-  %278 = or i32 %277, 24
-  %279 = trunc i32 %278 to i8
-  store i8 %279, ptr %275, align 2
-  br label %292
+275:                                              ; preds = %263
+  %276 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
+  %277 = load i8, ptr %276, align 2
+  %278 = zext i8 %277 to i32
+  %279 = or i32 %278, 24
+  %280 = trunc i32 %279 to i8
+  store i8 %280, ptr %276, align 2
+  br label %293
 
-280:                                              ; preds = %262
-  %281 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
-  %282 = load i8, ptr %281, align 2
-  %283 = zext i8 %282 to i32
-  %284 = or i32 %283, 8
-  %285 = trunc i32 %284 to i8
-  store i8 %285, ptr %281, align 2
-  br label %292
+281:                                              ; preds = %263
+  %282 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
+  %283 = load i8, ptr %282, align 2
+  %284 = zext i8 %283 to i32
+  %285 = or i32 %284, 8
+  %286 = trunc i32 %285 to i8
+  store i8 %286, ptr %282, align 2
+  br label %293
 
-286:                                              ; preds = %262
-  %287 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
-  %288 = load i8, ptr %287, align 2
-  %289 = zext i8 %288 to i32
-  %290 = or i32 %289, 16
-  %291 = trunc i32 %290 to i8
-  store i8 %291, ptr %287, align 2
-  br label %292
+287:                                              ; preds = %263
+  %288 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
+  %289 = load i8, ptr %288, align 2
+  %290 = zext i8 %289 to i32
+  %291 = or i32 %290, 16
+  %292 = trunc i32 %291 to i8
+  store i8 %292, ptr %288, align 2
+  br label %293
 
-292:                                              ; preds = %286, %280, %274, %262
-  br label %295
+293:                                              ; preds = %287, %281, %275, %263
+  br label %296
 
-293:                                              ; preds = %184
-  %294 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
-  store i8 0, ptr %294, align 2
-  br label %295
+294:                                              ; preds = %184
+  %295 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 5
+  store i8 0, ptr %295, align 2
+  br label %296
 
-295:                                              ; preds = %293, %292, %254, %244
-  %296 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 6
-  store i8 0, ptr %296, align 1
-  %297 = load ptr, ptr %8, align 8
-  %298 = getelementptr inbounds %struct.wtap_rec, ptr %297, i32 0, i32 7
-  %299 = getelementptr inbounds %struct.wtap_packet_header, ptr %298, i32 0, i32 1
-  %300 = load i32, ptr %299, align 4
-  %301 = load ptr, ptr %8, align 8
-  %302 = getelementptr inbounds %struct.wtap_rec, ptr %301, i32 0, i32 7
-  %303 = getelementptr inbounds %struct.wtap_packet_header, ptr %302, i32 0, i32 0
-  %304 = load i32, ptr %303, align 8
-  %305 = icmp ne i32 %300, %304
-  br i1 %305, label %306, label %313
+296:                                              ; preds = %294, %293, %255, %245
+  %297 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 6
+  store i8 0, ptr %297, align 1
+  %298 = load ptr, ptr %8, align 8
+  %299 = getelementptr inbounds %struct.wtap_rec, ptr %298, i32 0, i32 7
+  %300 = getelementptr inbounds %struct.wtap_packet_header, ptr %299, i32 0, i32 1
+  %301 = load i32, ptr %300, align 4
+  %302 = load ptr, ptr %8, align 8
+  %303 = getelementptr inbounds %struct.wtap_rec, ptr %302, i32 0, i32 7
+  %304 = getelementptr inbounds %struct.wtap_packet_header, ptr %303, i32 0, i32 0
+  %305 = load i32, ptr %304, align 8
+  %306 = icmp ne i32 %301, %305
+  br i1 %306, label %307, label %314
 
-306:                                              ; preds = %295
-  %307 = load ptr, ptr %8, align 8
-  %308 = getelementptr inbounds %struct.wtap_rec, ptr %307, i32 0, i32 7
-  %309 = getelementptr inbounds %struct.wtap_packet_header, ptr %308, i32 0, i32 1
-  %310 = load i32, ptr %309, align 4
-  %311 = trunc i32 %310 to i16
-  %312 = zext i16 %311 to i32
-  br label %314
+307:                                              ; preds = %296
+  %308 = load ptr, ptr %8, align 8
+  %309 = getelementptr inbounds %struct.wtap_rec, ptr %308, i32 0, i32 7
+  %310 = getelementptr inbounds %struct.wtap_packet_header, ptr %309, i32 0, i32 1
+  %311 = load i32, ptr %310, align 4
+  %312 = trunc i32 %311 to i16
+  %313 = zext i16 %312 to i32
+  br label %315
 
-313:                                              ; preds = %295
-  br label %314
+314:                                              ; preds = %296
+  br label %315
 
-314:                                              ; preds = %313, %306
-  %315 = phi i32 [ %312, %306 ], [ 0, %313 ]
-  %316 = trunc i32 %315 to i16
-  %317 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 7
-  store i16 %316, ptr %317, align 2
-  %318 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 8
-  store i16 0, ptr %318, align 2
-  %319 = load ptr, ptr %7, align 8
-  %320 = load ptr, ptr %10, align 8
-  %321 = call i32 @wtap_dump_file_write(ptr noundef %319, ptr noundef %14, i64 noundef 14, ptr noundef %320)
-  %322 = icmp ne i32 %321, 0
-  br i1 %322, label %324, label %323
+315:                                              ; preds = %314, %307
+  %316 = phi i32 [ %313, %307 ], [ 0, %314 ]
+  %317 = trunc i32 %316 to i16
+  %318 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 7
+  store i16 %317, ptr %318, align 2
+  %319 = getelementptr inbounds %struct.frame2_rec, ptr %14, i32 0, i32 8
+  store i16 0, ptr %319, align 2
+  %320 = load ptr, ptr %7, align 8
+  %321 = load ptr, ptr %10, align 8
+  %322 = call i32 @wtap_dump_file_write(ptr noundef %320, ptr noundef %14, i64 noundef 14, ptr noundef %321)
+  %323 = icmp ne i32 %322, 0
+  br i1 %323, label %325, label %324
 
-323:                                              ; preds = %314
+324:                                              ; preds = %315
   store i32 0, ptr %6, align 4
-  br label %337
+  br label %338
 
-324:                                              ; preds = %314
-  %325 = load ptr, ptr %7, align 8
-  %326 = load ptr, ptr %9, align 8
-  %327 = load ptr, ptr %8, align 8
-  %328 = getelementptr inbounds %struct.wtap_rec, ptr %327, i32 0, i32 7
-  %329 = getelementptr inbounds %struct.wtap_packet_header, ptr %328, i32 0, i32 0
-  %330 = load i32, ptr %329, align 8
-  %331 = zext i32 %330 to i64
-  %332 = load ptr, ptr %10, align 8
-  %333 = call i32 @wtap_dump_file_write(ptr noundef %325, ptr noundef %326, i64 noundef %331, ptr noundef %332)
-  %334 = icmp ne i32 %333, 0
-  br i1 %334, label %336, label %335
+325:                                              ; preds = %315
+  %326 = load ptr, ptr %7, align 8
+  %327 = load ptr, ptr %9, align 8
+  %328 = load ptr, ptr %8, align 8
+  %329 = getelementptr inbounds %struct.wtap_rec, ptr %328, i32 0, i32 7
+  %330 = getelementptr inbounds %struct.wtap_packet_header, ptr %329, i32 0, i32 0
+  %331 = load i32, ptr %330, align 8
+  %332 = zext i32 %331 to i64
+  %333 = load ptr, ptr %10, align 8
+  %334 = call i32 @wtap_dump_file_write(ptr noundef %326, ptr noundef %327, i64 noundef %332, ptr noundef %333)
+  %335 = icmp ne i32 %334, 0
+  br i1 %335, label %337, label %336
 
-335:                                              ; preds = %324
+336:                                              ; preds = %325
   store i32 0, ptr %6, align 4
-  br label %337
+  br label %338
 
-336:                                              ; preds = %324
+337:                                              ; preds = %325
   store i32 1, ptr %6, align 4
-  br label %337
+  br label %338
 
-337:                                              ; preds = %336, %335, %323, %183, %153, %55, %47, %36
-  %338 = load i32, ptr %6, align 4
-  ret i32 %338
+338:                                              ; preds = %337, %336, %324, %183, %153, %55, %47, %36
+  %339 = load i32, ptr %6, align 4
+  ret i32 %339
 }
 
 ; Function Attrs: nounwind uwtable

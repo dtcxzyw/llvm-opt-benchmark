@@ -3499,7 +3499,7 @@ define internal i32 @dissect_coap_message(ptr noundef %0, ptr noundef %1, ptr no
   %94 = load ptr, ptr %7, align 8
   %95 = call i32 @tvb_reported_length(ptr noundef %94)
   store i32 %95, ptr %6, align 4
-  br label %1081
+  br label %1082
 
 96:                                               ; preds = %77
   %97 = load i32, ptr %18, align 4
@@ -3532,7 +3532,7 @@ define internal i32 @dissect_coap_message(ptr noundef %0, ptr noundef %1, ptr no
   %119 = load ptr, ptr %7, align 8
   %120 = call i32 @tvb_reported_length(ptr noundef %119)
   store i32 %120, ptr %6, align 4
-  br label %1081
+  br label %1082
 
 121:                                              ; preds = %96
   br label %122
@@ -3760,7 +3760,7 @@ define internal i32 @dissect_coap_message(ptr noundef %0, ptr noundef %1, ptr no
   %295 = load ptr, ptr %7, align 8
   %296 = call i32 @tvb_captured_length(ptr noundef %295)
   store i32 %296, ptr %6, align 4
-  br label %1081
+  br label %1082
 
 297:                                              ; preds = %283
   %298 = load ptr, ptr %8, align 8
@@ -4458,7 +4458,7 @@ define internal i32 @dissect_coap_message(ptr noundef %0, ptr noundef %1, ptr no
   %815 = load ptr, ptr %814, align 8
   %816 = call i64 @wmem_strbuf_get_len(ptr noundef %815)
   %817 = icmp ugt i64 %816, 0
-  br i1 %817, label %818, label %843
+  br i1 %817, label %818, label %844
 
 818:                                              ; preds = %812
   %819 = load ptr, ptr %8, align 8
@@ -4478,349 +4478,350 @@ define internal i32 @dissect_coap_message(ptr noundef %0, ptr noundef %1, ptr no
   %833 = call ptr @format_text(ptr noundef %824, ptr noundef %828, i64 noundef %832)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %821, i32 noundef 25, ptr noundef @.str.334, ptr noundef %833)
   %834 = load ptr, ptr %15, align 8
-  %835 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @dissect_coap_hf, i32 0, i32 22), align 4
-  %836 = load ptr, ptr %7, align 8
-  %837 = load ptr, ptr %24, align 8
-  %838 = getelementptr inbounds %struct.coap_info, ptr %837, i32 0, i32 5
-  %839 = load ptr, ptr %838, align 8
-  %840 = call ptr @wmem_strbuf_get_str(ptr noundef %839)
-  %841 = call ptr @proto_tree_add_string(ptr noundef %834, i32 noundef %835, ptr noundef %836, i32 noundef 0, i32 noundef 0, ptr noundef %840)
-  store ptr %841, ptr %14, align 8
-  %842 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %842)
-  br label %843
+  %835 = getelementptr inbounds %struct.anon, ptr @dissect_coap_hf, i32 0, i32 22
+  %836 = load i32, ptr %835, align 4
+  %837 = load ptr, ptr %7, align 8
+  %838 = load ptr, ptr %24, align 8
+  %839 = getelementptr inbounds %struct.coap_info, ptr %838, i32 0, i32 5
+  %840 = load ptr, ptr %839, align 8
+  %841 = call ptr @wmem_strbuf_get_str(ptr noundef %840)
+  %842 = call ptr @proto_tree_add_string(ptr noundef %834, i32 noundef %836, ptr noundef %837, i32 noundef 0, i32 noundef 0, ptr noundef %841)
+  store ptr %842, ptr %14, align 8
+  %843 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %843)
+  br label %844
 
-843:                                              ; preds = %818, %812
-  %844 = load ptr, ptr %24, align 8
-  %845 = getelementptr inbounds %struct.coap_info, ptr %844, i32 0, i32 6
-  %846 = load ptr, ptr %845, align 8
-  %847 = call i64 @wmem_strbuf_get_len(ptr noundef %846)
-  %848 = icmp ugt i64 %847, 0
-  br i1 %848, label %849, label %865
+844:                                              ; preds = %818, %812
+  %845 = load ptr, ptr %24, align 8
+  %846 = getelementptr inbounds %struct.coap_info, ptr %845, i32 0, i32 6
+  %847 = load ptr, ptr %846, align 8
+  %848 = call i64 @wmem_strbuf_get_len(ptr noundef %847)
+  %849 = icmp ugt i64 %848, 0
+  br i1 %849, label %850, label %866
 
-849:                                              ; preds = %843
-  %850 = load ptr, ptr %8, align 8
-  %851 = getelementptr inbounds %struct._packet_info, ptr %850, i32 0, i32 1
-  %852 = load ptr, ptr %851, align 8
-  %853 = load ptr, ptr %8, align 8
-  %854 = getelementptr inbounds %struct._packet_info, ptr %853, i32 0, i32 50
-  %855 = load ptr, ptr %854, align 8
-  %856 = load ptr, ptr %24, align 8
-  %857 = getelementptr inbounds %struct.coap_info, ptr %856, i32 0, i32 6
-  %858 = load ptr, ptr %857, align 8
-  %859 = call ptr @wmem_strbuf_get_str(ptr noundef %858)
-  %860 = load ptr, ptr %24, align 8
-  %861 = getelementptr inbounds %struct.coap_info, ptr %860, i32 0, i32 6
-  %862 = load ptr, ptr %861, align 8
-  %863 = call i64 @wmem_strbuf_get_len(ptr noundef %862)
-  %864 = call ptr @format_text(ptr noundef %855, ptr noundef %859, i64 noundef %863)
-  call void @col_append_str(ptr noundef %852, i32 noundef 25, ptr noundef %864)
-  br label %865
+850:                                              ; preds = %844
+  %851 = load ptr, ptr %8, align 8
+  %852 = getelementptr inbounds %struct._packet_info, ptr %851, i32 0, i32 1
+  %853 = load ptr, ptr %852, align 8
+  %854 = load ptr, ptr %8, align 8
+  %855 = getelementptr inbounds %struct._packet_info, ptr %854, i32 0, i32 50
+  %856 = load ptr, ptr %855, align 8
+  %857 = load ptr, ptr %24, align 8
+  %858 = getelementptr inbounds %struct.coap_info, ptr %857, i32 0, i32 6
+  %859 = load ptr, ptr %858, align 8
+  %860 = call ptr @wmem_strbuf_get_str(ptr noundef %859)
+  %861 = load ptr, ptr %24, align 8
+  %862 = getelementptr inbounds %struct.coap_info, ptr %861, i32 0, i32 6
+  %863 = load ptr, ptr %862, align 8
+  %864 = call i64 @wmem_strbuf_get_len(ptr noundef %863)
+  %865 = call ptr @format_text(ptr noundef %856, ptr noundef %860, i64 noundef %864)
+  call void @col_append_str(ptr noundef %853, i32 noundef 25, ptr noundef %865)
+  br label %866
 
-865:                                              ; preds = %849, %843
-  %866 = load ptr, ptr %28, align 8
-  %867 = icmp ne ptr %866, null
-  br i1 %867, label %868, label %983
+866:                                              ; preds = %850, %844
+  %867 = load ptr, ptr %28, align 8
+  %868 = icmp ne ptr %867, null
+  br i1 %868, label %869, label %984
 
-868:                                              ; preds = %865
-  %869 = load i8, ptr %20, align 1
-  %870 = zext i8 %869 to i32
-  %871 = icmp eq i32 %870, 0
-  br i1 %871, label %872, label %918
+869:                                              ; preds = %866
+  %870 = load i8, ptr %20, align 1
+  %871 = zext i8 %870 to i32
+  %872 = icmp eq i32 %871, 0
+  br i1 %872, label %873, label %919
 
-872:                                              ; preds = %868
-  %873 = load ptr, ptr %28, align 8
-  %874 = getelementptr inbounds %struct.coap_request_response, ptr %873, i32 0, i32 1
-  %875 = load i32, ptr %874, align 4
-  %876 = icmp ne i32 %875, 0
-  br i1 %876, label %877, label %886
+873:                                              ; preds = %869
+  %874 = load ptr, ptr %28, align 8
+  %875 = getelementptr inbounds %struct.coap_request_response, ptr %874, i32 0, i32 1
+  %876 = load i32, ptr %875, align 4
+  %877 = icmp ne i32 %876, 0
+  br i1 %877, label %878, label %887
 
-877:                                              ; preds = %872
-  %878 = load ptr, ptr %15, align 8
-  %879 = load i32, ptr @hf_coap_response_in, align 4
-  %880 = load ptr, ptr %7, align 8
-  %881 = load ptr, ptr %28, align 8
-  %882 = getelementptr inbounds %struct.coap_request_response, ptr %881, i32 0, i32 1
-  %883 = load i32, ptr %882, align 4
-  %884 = call ptr @proto_tree_add_uint(ptr noundef %878, i32 noundef %879, ptr noundef %880, i32 noundef 0, i32 noundef 0, i32 noundef %883)
-  store ptr %884, ptr %14, align 8
-  %885 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %885)
-  br label %886
+878:                                              ; preds = %873
+  %879 = load ptr, ptr %15, align 8
+  %880 = load i32, ptr @hf_coap_response_in, align 4
+  %881 = load ptr, ptr %7, align 8
+  %882 = load ptr, ptr %28, align 8
+  %883 = getelementptr inbounds %struct.coap_request_response, ptr %882, i32 0, i32 1
+  %884 = load i32, ptr %883, align 4
+  %885 = call ptr @proto_tree_add_uint(ptr noundef %879, i32 noundef %880, ptr noundef %881, i32 noundef 0, i32 noundef 0, i32 noundef %884)
+  store ptr %885, ptr %14, align 8
+  %886 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %886)
+  br label %887
 
-886:                                              ; preds = %877, %872
-  %887 = load i8, ptr %17, align 1
-  %888 = zext i8 %887 to i32
-  %889 = icmp eq i32 %888, 0
-  br i1 %889, label %894, label %890
+887:                                              ; preds = %878, %873
+  %888 = load i8, ptr %17, align 1
+  %889 = zext i8 %888 to i32
+  %890 = icmp eq i32 %889, 0
+  br i1 %890, label %895, label %891
 
-890:                                              ; preds = %886
-  %891 = load i8, ptr %17, align 1
-  %892 = zext i8 %891 to i32
-  %893 = icmp eq i32 %892, 1
-  br i1 %893, label %894, label %917
+891:                                              ; preds = %887
+  %892 = load i8, ptr %17, align 1
+  %893 = zext i8 %892 to i32
+  %894 = icmp eq i32 %893, 1
+  br i1 %894, label %895, label %918
 
-894:                                              ; preds = %890, %886
-  %895 = load ptr, ptr %28, align 8
-  %896 = getelementptr inbounds %struct.coap_request_response, ptr %895, i32 0, i32 0
-  %897 = load i32, ptr %896, align 8
-  %898 = load ptr, ptr %8, align 8
-  %899 = getelementptr inbounds %struct._packet_info, ptr %898, i32 0, i32 3
-  %900 = load i32, ptr %899, align 4
-  %901 = icmp ne i32 %897, %900
-  br i1 %901, label %902, label %917
+895:                                              ; preds = %891, %887
+  %896 = load ptr, ptr %28, align 8
+  %897 = getelementptr inbounds %struct.coap_request_response, ptr %896, i32 0, i32 0
+  %898 = load i32, ptr %897, align 8
+  %899 = load ptr, ptr %8, align 8
+  %900 = getelementptr inbounds %struct._packet_info, ptr %899, i32 0, i32 3
+  %901 = load i32, ptr %900, align 4
+  %902 = icmp ne i32 %898, %901
+  br i1 %902, label %903, label %918
 
-902:                                              ; preds = %894
-  %903 = load ptr, ptr %8, align 8
-  %904 = getelementptr inbounds %struct._packet_info, ptr %903, i32 0, i32 1
-  %905 = load ptr, ptr %904, align 8
-  call void @col_append_str(ptr noundef %905, i32 noundef 25, ptr noundef @.str.339)
-  %906 = load ptr, ptr %15, align 8
-  %907 = load i32, ptr @hf_coap_request_resend_in, align 4
-  %908 = load ptr, ptr %7, align 8
-  %909 = load ptr, ptr %28, align 8
-  %910 = getelementptr inbounds %struct.coap_request_response, ptr %909, i32 0, i32 0
-  %911 = load i32, ptr %910, align 8
-  %912 = call ptr @proto_tree_add_uint(ptr noundef %906, i32 noundef %907, ptr noundef %908, i32 noundef 0, i32 noundef 0, i32 noundef %911)
-  store ptr %912, ptr %14, align 8
-  %913 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %913)
-  %914 = load ptr, ptr %8, align 8
-  %915 = load ptr, ptr %14, align 8
-  %916 = call ptr @expert_add_info(ptr noundef %914, ptr noundef %915, ptr noundef @ei_retransmitted)
-  br label %917
+903:                                              ; preds = %895
+  %904 = load ptr, ptr %8, align 8
+  %905 = getelementptr inbounds %struct._packet_info, ptr %904, i32 0, i32 1
+  %906 = load ptr, ptr %905, align 8
+  call void @col_append_str(ptr noundef %906, i32 noundef 25, ptr noundef @.str.339)
+  %907 = load ptr, ptr %15, align 8
+  %908 = load i32, ptr @hf_coap_request_resend_in, align 4
+  %909 = load ptr, ptr %7, align 8
+  %910 = load ptr, ptr %28, align 8
+  %911 = getelementptr inbounds %struct.coap_request_response, ptr %910, i32 0, i32 0
+  %912 = load i32, ptr %911, align 8
+  %913 = call ptr @proto_tree_add_uint(ptr noundef %907, i32 noundef %908, ptr noundef %909, i32 noundef 0, i32 noundef 0, i32 noundef %912)
+  store ptr %913, ptr %14, align 8
+  %914 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %914)
+  %915 = load ptr, ptr %8, align 8
+  %916 = load ptr, ptr %14, align 8
+  %917 = call ptr @expert_add_info(ptr noundef %915, ptr noundef %916, ptr noundef @ei_retransmitted)
+  br label %918
 
-917:                                              ; preds = %902, %894, %890
-  br label %982
-
-918:                                              ; preds = %868
-  %919 = load i8, ptr %20, align 1
-  %920 = zext i8 %919 to i32
-  %921 = icmp sge i32 %920, 2
-  br i1 %921, label %922, label %981
-
-922:                                              ; preds = %918
-  %923 = load i8, ptr %20, align 1
-  %924 = zext i8 %923 to i32
-  %925 = icmp sle i32 %924, 5
-  br i1 %925, label %926, label %981
-
-926:                                              ; preds = %922
-  %927 = load ptr, ptr %28, align 8
-  %928 = getelementptr inbounds %struct.coap_request_response, ptr %927, i32 0, i32 0
-  %929 = load i32, ptr %928, align 8
-  %930 = icmp ne i32 %929, 0
-  br i1 %930, label %931, label %949
-
-931:                                              ; preds = %926
-  %932 = load ptr, ptr %15, align 8
-  %933 = load i32, ptr @hf_coap_response_to, align 4
-  %934 = load ptr, ptr %7, align 8
-  %935 = load ptr, ptr %28, align 8
-  %936 = getelementptr inbounds %struct.coap_request_response, ptr %935, i32 0, i32 0
-  %937 = load i32, ptr %936, align 8
-  %938 = call ptr @proto_tree_add_uint(ptr noundef %932, i32 noundef %933, ptr noundef %934, i32 noundef 0, i32 noundef 0, i32 noundef %937)
-  store ptr %938, ptr %14, align 8
-  %939 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %939)
-  %940 = load ptr, ptr %8, align 8
-  %941 = getelementptr inbounds %struct._packet_info, ptr %940, i32 0, i32 4
-  %942 = load ptr, ptr %28, align 8
-  %943 = getelementptr inbounds %struct.coap_request_response, ptr %942, i32 0, i32 2
-  call void @nstime_delta(ptr noundef %35, ptr noundef %941, ptr noundef %943)
-  %944 = load ptr, ptr %15, align 8
-  %945 = load i32, ptr @hf_coap_response_time, align 4
-  %946 = load ptr, ptr %7, align 8
-  %947 = call ptr @proto_tree_add_time(ptr noundef %944, i32 noundef %945, ptr noundef %946, i32 noundef 0, i32 noundef 0, ptr noundef %35)
-  store ptr %947, ptr %14, align 8
-  %948 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %948)
-  br label %949
-
-949:                                              ; preds = %931, %926
-  %950 = load i8, ptr %17, align 1
-  %951 = zext i8 %950 to i32
-  %952 = icmp eq i32 %951, 0
-  br i1 %952, label %957, label %953
-
-953:                                              ; preds = %949
-  %954 = load i8, ptr %17, align 1
-  %955 = zext i8 %954 to i32
-  %956 = icmp eq i32 %955, 1
-  br i1 %956, label %957, label %980
-
-957:                                              ; preds = %953, %949
-  %958 = load ptr, ptr %28, align 8
-  %959 = getelementptr inbounds %struct.coap_request_response, ptr %958, i32 0, i32 1
-  %960 = load i32, ptr %959, align 4
-  %961 = load ptr, ptr %8, align 8
-  %962 = getelementptr inbounds %struct._packet_info, ptr %961, i32 0, i32 3
-  %963 = load i32, ptr %962, align 4
-  %964 = icmp ne i32 %960, %963
-  br i1 %964, label %965, label %980
-
-965:                                              ; preds = %957
-  %966 = load ptr, ptr %8, align 8
-  %967 = getelementptr inbounds %struct._packet_info, ptr %966, i32 0, i32 1
-  %968 = load ptr, ptr %967, align 8
-  call void @col_append_str(ptr noundef %968, i32 noundef 25, ptr noundef @.str.339)
-  %969 = load ptr, ptr %15, align 8
-  %970 = load i32, ptr @hf_coap_response_resend_in, align 4
-  %971 = load ptr, ptr %7, align 8
-  %972 = load ptr, ptr %28, align 8
-  %973 = getelementptr inbounds %struct.coap_request_response, ptr %972, i32 0, i32 1
-  %974 = load i32, ptr %973, align 4
-  %975 = call ptr @proto_tree_add_uint(ptr noundef %969, i32 noundef %970, ptr noundef %971, i32 noundef 0, i32 noundef 0, i32 noundef %974)
-  store ptr %975, ptr %14, align 8
-  %976 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %976)
-  %977 = load ptr, ptr %8, align 8
-  %978 = load ptr, ptr %14, align 8
-  %979 = call ptr @expert_add_info(ptr noundef %977, ptr noundef %978, ptr noundef @ei_retransmitted)
-  br label %980
-
-980:                                              ; preds = %965, %957, %953
-  br label %981
-
-981:                                              ; preds = %980, %922, %918
-  br label %982
-
-982:                                              ; preds = %981, %917
+918:                                              ; preds = %903, %895, %891
   br label %983
 
-983:                                              ; preds = %982, %865
-  %984 = load ptr, ptr %27, align 8
-  %985 = icmp ne ptr %984, null
-  br i1 %985, label %986, label %1079
+919:                                              ; preds = %869
+  %920 = load i8, ptr %20, align 1
+  %921 = zext i8 %920 to i32
+  %922 = icmp sge i32 %921, 2
+  br i1 %922, label %923, label %982
 
-986:                                              ; preds = %983
-  %987 = load i8, ptr %20, align 1
-  %988 = zext i8 %987 to i32
-  %989 = icmp sge i32 %988, 2
-  br i1 %989, label %990, label %1078
+923:                                              ; preds = %919
+  %924 = load i8, ptr %20, align 1
+  %925 = zext i8 %924 to i32
+  %926 = icmp sle i32 %925, 5
+  br i1 %926, label %927, label %982
 
-990:                                              ; preds = %986
-  %991 = load i8, ptr %20, align 1
-  %992 = zext i8 %991 to i32
-  %993 = icmp sle i32 %992, 5
-  br i1 %993, label %994, label %1078
+927:                                              ; preds = %923
+  %928 = load ptr, ptr %28, align 8
+  %929 = getelementptr inbounds %struct.coap_request_response, ptr %928, i32 0, i32 0
+  %930 = load i32, ptr %929, align 8
+  %931 = icmp ne i32 %930, 0
+  br i1 %931, label %932, label %950
 
-994:                                              ; preds = %990
-  %995 = load ptr, ptr %24, align 8
-  %996 = getelementptr inbounds %struct.coap_info, ptr %995, i32 0, i32 8
-  %997 = load i32, ptr %996, align 4
-  %998 = icmp ne i32 %997, 0
-  br i1 %998, label %999, label %1077
+932:                                              ; preds = %927
+  %933 = load ptr, ptr %15, align 8
+  %934 = load i32, ptr @hf_coap_response_to, align 4
+  %935 = load ptr, ptr %7, align 8
+  %936 = load ptr, ptr %28, align 8
+  %937 = getelementptr inbounds %struct.coap_request_response, ptr %936, i32 0, i32 0
+  %938 = load i32, ptr %937, align 8
+  %939 = call ptr @proto_tree_add_uint(ptr noundef %933, i32 noundef %934, ptr noundef %935, i32 noundef 0, i32 noundef 0, i32 noundef %938)
+  store ptr %939, ptr %14, align 8
+  %940 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %940)
+  %941 = load ptr, ptr %8, align 8
+  %942 = getelementptr inbounds %struct._packet_info, ptr %941, i32 0, i32 4
+  %943 = load ptr, ptr %28, align 8
+  %944 = getelementptr inbounds %struct.coap_request_response, ptr %943, i32 0, i32 2
+  call void @nstime_delta(ptr noundef %35, ptr noundef %942, ptr noundef %944)
+  %945 = load ptr, ptr %15, align 8
+  %946 = load i32, ptr @hf_coap_response_time, align 4
+  %947 = load ptr, ptr %7, align 8
+  %948 = call ptr @proto_tree_add_time(ptr noundef %945, i32 noundef %946, ptr noundef %947, i32 noundef 0, i32 noundef 0, ptr noundef %35)
+  store ptr %948, ptr %14, align 8
+  %949 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %949)
+  br label %950
 
-999:                                              ; preds = %994
-  %1000 = load ptr, ptr %27, align 8
-  %1001 = getelementptr inbounds %struct.coap_transaction, ptr %1000, i32 0, i32 2
-  %1002 = load ptr, ptr %1001, align 8
-  %1003 = icmp ne ptr %1002, null
-  br i1 %1003, label %1004, label %1077
+950:                                              ; preds = %932, %927
+  %951 = load i8, ptr %17, align 1
+  %952 = zext i8 %951 to i32
+  %953 = icmp eq i32 %952, 0
+  br i1 %953, label %958, label %954
 
-1004:                                             ; preds = %999
-  %1005 = load ptr, ptr %15, align 8
-  %1006 = load i32, ptr @hf_coap_oscore_kid, align 4
-  %1007 = load ptr, ptr %7, align 8
-  %1008 = load ptr, ptr %27, align 8
-  %1009 = getelementptr inbounds %struct.coap_transaction, ptr %1008, i32 0, i32 2
-  %1010 = load ptr, ptr %1009, align 8
-  %1011 = getelementptr inbounds %struct.oscore_info, ptr %1010, i32 0, i32 1
-  %1012 = load i8, ptr %1011, align 8
-  %1013 = zext i8 %1012 to i32
-  %1014 = load ptr, ptr %27, align 8
-  %1015 = getelementptr inbounds %struct.coap_transaction, ptr %1014, i32 0, i32 2
-  %1016 = load ptr, ptr %1015, align 8
-  %1017 = getelementptr inbounds %struct.oscore_info, ptr %1016, i32 0, i32 0
-  %1018 = load ptr, ptr %1017, align 8
-  %1019 = call ptr @proto_tree_add_bytes(ptr noundef %1005, i32 noundef %1006, ptr noundef %1007, i32 noundef 0, i32 noundef %1013, ptr noundef %1018)
-  store ptr %1019, ptr %14, align 8
-  %1020 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %1020)
-  %1021 = load ptr, ptr %15, align 8
-  %1022 = load i32, ptr @hf_coap_oscore_kid_context, align 4
-  %1023 = load ptr, ptr %7, align 8
-  %1024 = load ptr, ptr %27, align 8
-  %1025 = getelementptr inbounds %struct.coap_transaction, ptr %1024, i32 0, i32 2
-  %1026 = load ptr, ptr %1025, align 8
-  %1027 = getelementptr inbounds %struct.oscore_info, ptr %1026, i32 0, i32 3
-  %1028 = load i8, ptr %1027, align 8
-  %1029 = zext i8 %1028 to i32
-  %1030 = load ptr, ptr %27, align 8
-  %1031 = getelementptr inbounds %struct.coap_transaction, ptr %1030, i32 0, i32 2
-  %1032 = load ptr, ptr %1031, align 8
-  %1033 = getelementptr inbounds %struct.oscore_info, ptr %1032, i32 0, i32 2
-  %1034 = load ptr, ptr %1033, align 8
-  %1035 = call ptr @proto_tree_add_bytes(ptr noundef %1021, i32 noundef %1022, ptr noundef %1023, i32 noundef 0, i32 noundef %1029, ptr noundef %1034)
-  store ptr %1035, ptr %14, align 8
-  %1036 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %1036)
-  %1037 = load ptr, ptr %24, align 8
-  %1038 = getelementptr inbounds %struct.coap_info, ptr %1037, i32 0, i32 9
-  %1039 = load ptr, ptr %1038, align 8
-  %1040 = getelementptr inbounds %struct.oscore_info, ptr %1039, i32 0, i32 5
-  %1041 = load i8, ptr %1040, align 8
-  %1042 = icmp ne i8 %1041, 0
-  br i1 %1042, label %1043, label %1059
+954:                                              ; preds = %950
+  %955 = load i8, ptr %17, align 1
+  %956 = zext i8 %955 to i32
+  %957 = icmp eq i32 %956, 1
+  br i1 %957, label %958, label %981
 
-1043:                                             ; preds = %1004
-  %1044 = load ptr, ptr %15, align 8
-  %1045 = load i32, ptr @hf_coap_oscore_piv, align 4
-  %1046 = load ptr, ptr %7, align 8
-  %1047 = load ptr, ptr %24, align 8
-  %1048 = getelementptr inbounds %struct.coap_info, ptr %1047, i32 0, i32 9
-  %1049 = load ptr, ptr %1048, align 8
-  %1050 = getelementptr inbounds %struct.oscore_info, ptr %1049, i32 0, i32 5
-  %1051 = load i8, ptr %1050, align 8
-  %1052 = zext i8 %1051 to i32
-  %1053 = load ptr, ptr %24, align 8
-  %1054 = getelementptr inbounds %struct.coap_info, ptr %1053, i32 0, i32 9
-  %1055 = load ptr, ptr %1054, align 8
-  %1056 = getelementptr inbounds %struct.oscore_info, ptr %1055, i32 0, i32 4
-  %1057 = load ptr, ptr %1056, align 8
-  %1058 = call ptr @proto_tree_add_bytes(ptr noundef %1044, i32 noundef %1045, ptr noundef %1046, i32 noundef 0, i32 noundef %1052, ptr noundef %1057)
-  store ptr %1058, ptr %14, align 8
-  br label %1075
+958:                                              ; preds = %954, %950
+  %959 = load ptr, ptr %28, align 8
+  %960 = getelementptr inbounds %struct.coap_request_response, ptr %959, i32 0, i32 1
+  %961 = load i32, ptr %960, align 4
+  %962 = load ptr, ptr %8, align 8
+  %963 = getelementptr inbounds %struct._packet_info, ptr %962, i32 0, i32 3
+  %964 = load i32, ptr %963, align 4
+  %965 = icmp ne i32 %961, %964
+  br i1 %965, label %966, label %981
 
-1059:                                             ; preds = %1004
-  %1060 = load ptr, ptr %15, align 8
-  %1061 = load i32, ptr @hf_coap_oscore_piv, align 4
-  %1062 = load ptr, ptr %7, align 8
-  %1063 = load ptr, ptr %24, align 8
-  %1064 = getelementptr inbounds %struct.coap_info, ptr %1063, i32 0, i32 9
-  %1065 = load ptr, ptr %1064, align 8
-  %1066 = getelementptr inbounds %struct.oscore_info, ptr %1065, i32 0, i32 7
-  %1067 = load i8, ptr %1066, align 8
-  %1068 = zext i8 %1067 to i32
-  %1069 = load ptr, ptr %24, align 8
-  %1070 = getelementptr inbounds %struct.coap_info, ptr %1069, i32 0, i32 9
-  %1071 = load ptr, ptr %1070, align 8
-  %1072 = getelementptr inbounds %struct.oscore_info, ptr %1071, i32 0, i32 6
-  %1073 = load ptr, ptr %1072, align 8
-  %1074 = call ptr @proto_tree_add_bytes(ptr noundef %1060, i32 noundef %1061, ptr noundef %1062, i32 noundef 0, i32 noundef %1068, ptr noundef %1073)
-  store ptr %1074, ptr %14, align 8
-  br label %1075
+966:                                              ; preds = %958
+  %967 = load ptr, ptr %8, align 8
+  %968 = getelementptr inbounds %struct._packet_info, ptr %967, i32 0, i32 1
+  %969 = load ptr, ptr %968, align 8
+  call void @col_append_str(ptr noundef %969, i32 noundef 25, ptr noundef @.str.339)
+  %970 = load ptr, ptr %15, align 8
+  %971 = load i32, ptr @hf_coap_response_resend_in, align 4
+  %972 = load ptr, ptr %7, align 8
+  %973 = load ptr, ptr %28, align 8
+  %974 = getelementptr inbounds %struct.coap_request_response, ptr %973, i32 0, i32 1
+  %975 = load i32, ptr %974, align 4
+  %976 = call ptr @proto_tree_add_uint(ptr noundef %970, i32 noundef %971, ptr noundef %972, i32 noundef 0, i32 noundef 0, i32 noundef %975)
+  store ptr %976, ptr %14, align 8
+  %977 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %977)
+  %978 = load ptr, ptr %8, align 8
+  %979 = load ptr, ptr %14, align 8
+  %980 = call ptr @expert_add_info(ptr noundef %978, ptr noundef %979, ptr noundef @ei_retransmitted)
+  br label %981
 
-1075:                                             ; preds = %1059, %1043
-  %1076 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %1076)
-  br label %1077
+981:                                              ; preds = %966, %958, %954
+  br label %982
 
-1077:                                             ; preds = %1075, %999, %994
+982:                                              ; preds = %981, %923, %919
+  br label %983
+
+983:                                              ; preds = %982, %918
+  br label %984
+
+984:                                              ; preds = %983, %866
+  %985 = load ptr, ptr %27, align 8
+  %986 = icmp ne ptr %985, null
+  br i1 %986, label %987, label %1080
+
+987:                                              ; preds = %984
+  %988 = load i8, ptr %20, align 1
+  %989 = zext i8 %988 to i32
+  %990 = icmp sge i32 %989, 2
+  br i1 %990, label %991, label %1079
+
+991:                                              ; preds = %987
+  %992 = load i8, ptr %20, align 1
+  %993 = zext i8 %992 to i32
+  %994 = icmp sle i32 %993, 5
+  br i1 %994, label %995, label %1079
+
+995:                                              ; preds = %991
+  %996 = load ptr, ptr %24, align 8
+  %997 = getelementptr inbounds %struct.coap_info, ptr %996, i32 0, i32 8
+  %998 = load i32, ptr %997, align 4
+  %999 = icmp ne i32 %998, 0
+  br i1 %999, label %1000, label %1078
+
+1000:                                             ; preds = %995
+  %1001 = load ptr, ptr %27, align 8
+  %1002 = getelementptr inbounds %struct.coap_transaction, ptr %1001, i32 0, i32 2
+  %1003 = load ptr, ptr %1002, align 8
+  %1004 = icmp ne ptr %1003, null
+  br i1 %1004, label %1005, label %1078
+
+1005:                                             ; preds = %1000
+  %1006 = load ptr, ptr %15, align 8
+  %1007 = load i32, ptr @hf_coap_oscore_kid, align 4
+  %1008 = load ptr, ptr %7, align 8
+  %1009 = load ptr, ptr %27, align 8
+  %1010 = getelementptr inbounds %struct.coap_transaction, ptr %1009, i32 0, i32 2
+  %1011 = load ptr, ptr %1010, align 8
+  %1012 = getelementptr inbounds %struct.oscore_info, ptr %1011, i32 0, i32 1
+  %1013 = load i8, ptr %1012, align 8
+  %1014 = zext i8 %1013 to i32
+  %1015 = load ptr, ptr %27, align 8
+  %1016 = getelementptr inbounds %struct.coap_transaction, ptr %1015, i32 0, i32 2
+  %1017 = load ptr, ptr %1016, align 8
+  %1018 = getelementptr inbounds %struct.oscore_info, ptr %1017, i32 0, i32 0
+  %1019 = load ptr, ptr %1018, align 8
+  %1020 = call ptr @proto_tree_add_bytes(ptr noundef %1006, i32 noundef %1007, ptr noundef %1008, i32 noundef 0, i32 noundef %1014, ptr noundef %1019)
+  store ptr %1020, ptr %14, align 8
+  %1021 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %1021)
+  %1022 = load ptr, ptr %15, align 8
+  %1023 = load i32, ptr @hf_coap_oscore_kid_context, align 4
+  %1024 = load ptr, ptr %7, align 8
+  %1025 = load ptr, ptr %27, align 8
+  %1026 = getelementptr inbounds %struct.coap_transaction, ptr %1025, i32 0, i32 2
+  %1027 = load ptr, ptr %1026, align 8
+  %1028 = getelementptr inbounds %struct.oscore_info, ptr %1027, i32 0, i32 3
+  %1029 = load i8, ptr %1028, align 8
+  %1030 = zext i8 %1029 to i32
+  %1031 = load ptr, ptr %27, align 8
+  %1032 = getelementptr inbounds %struct.coap_transaction, ptr %1031, i32 0, i32 2
+  %1033 = load ptr, ptr %1032, align 8
+  %1034 = getelementptr inbounds %struct.oscore_info, ptr %1033, i32 0, i32 2
+  %1035 = load ptr, ptr %1034, align 8
+  %1036 = call ptr @proto_tree_add_bytes(ptr noundef %1022, i32 noundef %1023, ptr noundef %1024, i32 noundef 0, i32 noundef %1030, ptr noundef %1035)
+  store ptr %1036, ptr %14, align 8
+  %1037 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %1037)
+  %1038 = load ptr, ptr %24, align 8
+  %1039 = getelementptr inbounds %struct.coap_info, ptr %1038, i32 0, i32 9
+  %1040 = load ptr, ptr %1039, align 8
+  %1041 = getelementptr inbounds %struct.oscore_info, ptr %1040, i32 0, i32 5
+  %1042 = load i8, ptr %1041, align 8
+  %1043 = icmp ne i8 %1042, 0
+  br i1 %1043, label %1044, label %1060
+
+1044:                                             ; preds = %1005
+  %1045 = load ptr, ptr %15, align 8
+  %1046 = load i32, ptr @hf_coap_oscore_piv, align 4
+  %1047 = load ptr, ptr %7, align 8
+  %1048 = load ptr, ptr %24, align 8
+  %1049 = getelementptr inbounds %struct.coap_info, ptr %1048, i32 0, i32 9
+  %1050 = load ptr, ptr %1049, align 8
+  %1051 = getelementptr inbounds %struct.oscore_info, ptr %1050, i32 0, i32 5
+  %1052 = load i8, ptr %1051, align 8
+  %1053 = zext i8 %1052 to i32
+  %1054 = load ptr, ptr %24, align 8
+  %1055 = getelementptr inbounds %struct.coap_info, ptr %1054, i32 0, i32 9
+  %1056 = load ptr, ptr %1055, align 8
+  %1057 = getelementptr inbounds %struct.oscore_info, ptr %1056, i32 0, i32 4
+  %1058 = load ptr, ptr %1057, align 8
+  %1059 = call ptr @proto_tree_add_bytes(ptr noundef %1045, i32 noundef %1046, ptr noundef %1047, i32 noundef 0, i32 noundef %1053, ptr noundef %1058)
+  store ptr %1059, ptr %14, align 8
+  br label %1076
+
+1060:                                             ; preds = %1005
+  %1061 = load ptr, ptr %15, align 8
+  %1062 = load i32, ptr @hf_coap_oscore_piv, align 4
+  %1063 = load ptr, ptr %7, align 8
+  %1064 = load ptr, ptr %24, align 8
+  %1065 = getelementptr inbounds %struct.coap_info, ptr %1064, i32 0, i32 9
+  %1066 = load ptr, ptr %1065, align 8
+  %1067 = getelementptr inbounds %struct.oscore_info, ptr %1066, i32 0, i32 7
+  %1068 = load i8, ptr %1067, align 8
+  %1069 = zext i8 %1068 to i32
+  %1070 = load ptr, ptr %24, align 8
+  %1071 = getelementptr inbounds %struct.coap_info, ptr %1070, i32 0, i32 9
+  %1072 = load ptr, ptr %1071, align 8
+  %1073 = getelementptr inbounds %struct.oscore_info, ptr %1072, i32 0, i32 6
+  %1074 = load ptr, ptr %1073, align 8
+  %1075 = call ptr @proto_tree_add_bytes(ptr noundef %1061, i32 noundef %1062, ptr noundef %1063, i32 noundef 0, i32 noundef %1069, ptr noundef %1074)
+  store ptr %1075, ptr %14, align 8
+  br label %1076
+
+1076:                                             ; preds = %1060, %1044
+  %1077 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %1077)
   br label %1078
 
-1078:                                             ; preds = %1077, %990, %986
+1078:                                             ; preds = %1076, %1000, %995
   br label %1079
 
-1079:                                             ; preds = %1078, %983
-  %1080 = load i32, ptr %22, align 4
-  store i32 %1080, ptr %6, align 4
-  br label %1081
+1079:                                             ; preds = %1078, %991, %987
+  br label %1080
 
-1081:                                             ; preds = %1079, %294, %108, %88
-  %1082 = load i32, ptr %6, align 4
-  ret i32 %1082
+1080:                                             ; preds = %1079, %984
+  %1081 = load i32, ptr %22, align 4
+  store i32 %1081, ptr %6, align 4
+  br label %1082
+
+1082:                                             ; preds = %1080, %294, %108, %88
+  %1083 = load i32, ptr %6, align 4
+  ret i32 %1083
 }
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0

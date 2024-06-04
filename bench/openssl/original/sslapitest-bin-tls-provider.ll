@@ -1081,8 +1081,9 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 land.lhs.true4:                                   ; preds = %if.end
   %4 = load ptr, ptr %p, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.tls_group_st, ptr @xor_group, i32 0, i32 1), align 4
-  %call5 = call i32 @OSSL_PARAM_set_int(ptr noundef %4, i32 noundef %5)
+  %5 = getelementptr inbounds %struct.tls_group_st, ptr @xor_group, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4
+  %call5 = call i32 @OSSL_PARAM_set_int(ptr noundef %4, i32 noundef %6)
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.end8, label %if.then7
 
@@ -1091,17 +1092,17 @@ if.then7:                                         ; preds = %land.lhs.true4
   br label %return
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %6 = load ptr, ptr %params.addr, align 8
-  %call9 = call ptr @OSSL_PARAM_locate(ptr noundef %6, ptr noundef @.str.14)
+  %7 = load ptr, ptr %params.addr, align 8
+  %call9 = call ptr @OSSL_PARAM_locate(ptr noundef %7, ptr noundef @.str.14)
   store ptr %call9, ptr %p, align 8
   %cmp10 = icmp ne ptr %call9, null
   br i1 %cmp10, label %if.then11, label %if.end21
 
 if.then11:                                        ; preds = %if.end8
-  %7 = load ptr, ptr %p, align 8
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %data_type, align 8
-  %cmp12 = icmp ne i32 %8, 5
+  %8 = load ptr, ptr %p, align 8
+  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %8, i32 0, i32 1
+  %9 = load i32, ptr %data_type, align 8
+  %cmp12 = icmp ne i32 %9, 5
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.then11
@@ -1109,30 +1110,30 @@ if.then13:                                        ; preds = %if.then11
   br label %return
 
 if.end14:                                         ; preds = %if.then11
-  %9 = load ptr, ptr %p, align 8
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %9, i32 0, i32 4
-  store i64 32, ptr %return_size, align 8
   %10 = load ptr, ptr %p, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %data, align 8
-  %cmp15 = icmp ne ptr %11, null
+  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %10, i32 0, i32 4
+  store i64 32, ptr %return_size, align 8
+  %11 = load ptr, ptr %p, align 8
+  %data = getelementptr inbounds %struct.ossl_param_st, ptr %11, i32 0, i32 2
+  %12 = load ptr, ptr %data, align 8
+  %cmp15 = icmp ne ptr %12, null
   br i1 %cmp15, label %land.lhs.true16, label %if.end20
 
 land.lhs.true16:                                  ; preds = %if.end14
-  %12 = load ptr, ptr %p, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %12, i32 0, i32 3
-  %13 = load i64, ptr %data_size, align 8
-  %cmp17 = icmp uge i64 %13, 32
+  %13 = load ptr, ptr %p, align 8
+  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %13, i32 0, i32 3
+  %14 = load i64, ptr %data_size, align 8
+  %cmp17 = icmp uge i64 %14, 32
   br i1 %cmp17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %land.lhs.true16
-  %14 = load ptr, ptr %p, align 8
-  %data19 = getelementptr inbounds %struct.ossl_param_st, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %data19, align 8
-  %16 = load ptr, ptr %key, align 8
-  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %16, i32 0, i32 1
+  %15 = load ptr, ptr %p, align 8
+  %data19 = getelementptr inbounds %struct.ossl_param_st, ptr %15, i32 0, i32 2
+  %16 = load ptr, ptr %data19, align 8
+  %17 = load ptr, ptr %key, align 8
+  %pubkey = getelementptr inbounds %struct.xorkey_st, ptr %17, i32 0, i32 1
   %arraydecay = getelementptr inbounds [32 x i8], ptr %pubkey, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 8 %arraydecay, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 8 %arraydecay, i64 32, i1 false)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %land.lhs.true16, %if.end14
@@ -1143,8 +1144,8 @@ if.end21:                                         ; preds = %if.end20, %if.end8
   br label %return
 
 return:                                           ; preds = %if.end21, %if.then13, %if.then7, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+  %18 = load i32, ptr %retval, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

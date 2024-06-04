@@ -313,7 +313,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   %44 = call zeroext i1 @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$16use_early_reject17h0fbded341b89a98aE"()
   br i1 %44, label %55, label %46
 
-45:                                               ; preds = %150, %60, %39
+45:                                               ; preds = %151, %60, %39
   ret void
 
 46:                                               ; preds = %59, %41
@@ -361,7 +361,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
 71:                                               ; preds = %69, %63
   br label %72
 
-72:                                               ; preds = %180, %71
+72:                                               ; preds = %181, %71
   br label %21
 
 73:                                               ; preds = %68
@@ -398,7 +398,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   store i64 %91, ptr %92, align 8
   br label %93
 
-93:                                               ; preds = %196, %82
+93:                                               ; preds = %197, %82
   %94 = call { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17hd3d22170327f1699E"(ptr align 8 %14)
   %95 = extractvalue { i64, i64 } %94, 0
   %96 = extractvalue { i64, i64 } %94, 1
@@ -417,7 +417,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   %103 = load i64, ptr %102, align 8, !noundef !3
   %104 = icmp ult i64 %103, %5
   %105 = call i1 @llvm.expect.i1(i1 %104, i1 true)
-  br i1 %105, label %181, label %190
+  br i1 %105, label %182, label %191
 
 106:                                              ; preds = %100
   %107 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
@@ -444,162 +444,163 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   store i64 %117, ptr %118, align 8
   br label %119
 
-119:                                              ; preds = %167, %110
+119:                                              ; preds = %168, %110
   %120 = load i64, ptr %10, align 8, !noundef !3
   %121 = getelementptr inbounds i8, ptr %10, i64 8
   %122 = load i64, ptr %121, align 8, !noundef !3
   %123 = icmp ult i64 %120, %122
-  br i1 %123, label %128, label %124
+  br i1 %123, label %129, label %124
 
 124:                                              ; preds = %119
   %125 = load i64, ptr @anon.078f656ecbe906049e0b3866393bab06.3, align 8, !range !8, !noundef !3
-  %126 = load i64, ptr getelementptr inbounds (i8, ptr @anon.078f656ecbe906049e0b3866393bab06.3, i64 8), align 8
+  %126 = getelementptr inbounds i8, ptr @anon.078f656ecbe906049e0b3866393bab06.3, i64 8
+  %127 = load i64, ptr %126, align 8
   store i64 %125, ptr %9, align 8
-  %127 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %126, ptr %127, align 8
-  br label %132
+  %128 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %127, ptr %128, align 8
+  br label %133
 
-128:                                              ; preds = %119
-  %129 = load i64, ptr %10, align 8, !noundef !3
-  %130 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %129, i64 1)
-  store i64 %130, ptr %10, align 8
-  %131 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %129, ptr %131, align 8
+129:                                              ; preds = %119
+  %130 = load i64, ptr %10, align 8, !noundef !3
+  %131 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %130, i64 1)
+  store i64 %131, ptr %10, align 8
+  %132 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %130, ptr %132, align 8
   store i64 1, ptr %9, align 8
-  br label %132
+  br label %133
 
-132:                                              ; preds = %128, %124
-  %133 = load i64, ptr %9, align 8, !range !8, !noundef !3
-  %134 = icmp eq i64 %133, 0
-  br i1 %134, label %135, label %143
+133:                                              ; preds = %129, %124
+  %134 = load i64, ptr %9, align 8, !range !8, !noundef !3
+  %135 = icmp eq i64 %134, 0
+  br i1 %135, label %136, label %144
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %137 = load i64, ptr %136, align 8, !noundef !3
-  %138 = sub i64 %137, %5
-  %139 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %138 = load i64, ptr %137, align 8, !noundef !3
+  %139 = sub i64 %138, %5
   %140 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %141 = load i64, ptr %140, align 8, !noundef !3
-  %142 = sub i64 %141, %5
-  store i64 %142, ptr %139, align 8
-  br i1 %6, label %150, label %148
+  %141 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %142 = load i64, ptr %141, align 8, !noundef !3
+  %143 = sub i64 %142, %5
+  store i64 %143, ptr %140, align 8
+  br i1 %6, label %151, label %149
 
-143:                                              ; preds = %132
-  %144 = getelementptr inbounds i8, ptr %9, i64 8
-  %145 = load i64, ptr %144, align 8, !noundef !3
-  %146 = icmp ult i64 %145, %5
-  %147 = call i1 @llvm.expect.i1(i1 %146, i1 true)
-  br i1 %147, label %152, label %161
+144:                                              ; preds = %133
+  %145 = getelementptr inbounds i8, ptr %9, i64 8
+  %146 = load i64, ptr %145, align 8, !noundef !3
+  %147 = icmp ult i64 %146, %5
+  %148 = call i1 @llvm.expect.i1(i1 %147, i1 true)
+  br i1 %148, label %153, label %162
 
-148:                                              ; preds = %135
-  %149 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
-  store i64 %5, ptr %149, align 8
-  br label %150
+149:                                              ; preds = %136
+  %150 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
+  store i64 %5, ptr %150, align 8
+  br label %151
 
-150:                                              ; preds = %148, %135
-  %151 = add i64 %138, %5
-  call void @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h653b82e53d9c6a97E"(ptr sret({ i64, [2 x i64] }) align 8 %0, i64 %138, i64 %151)
+151:                                              ; preds = %149, %136
+  %152 = add i64 %139, %5
+  call void @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h653b82e53d9c6a97E"(ptr sret({ i64, [2 x i64] }) align 8 %0, i64 %139, i64 %152)
   br label %45
 
-152:                                              ; preds = %143
-  %153 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %145
-  %154 = load i8, ptr %153, align 1, !noundef !3
-  %155 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %156 = load i64, ptr %155, align 8, !noundef !3
-  %157 = sub i64 %156, %5
-  %158 = add i64 %157, %145
-  %159 = icmp ult i64 %158, %3
-  %160 = call i1 @llvm.expect.i1(i1 %159, i1 true)
-  br i1 %160, label %162, label %166
+153:                                              ; preds = %144
+  %154 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %146
+  %155 = load i8, ptr %154, align 1, !noundef !3
+  %156 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %157 = load i64, ptr %156, align 8, !noundef !3
+  %158 = sub i64 %157, %5
+  %159 = add i64 %158, %146
+  %160 = icmp ult i64 %159, %3
+  %161 = call i1 @llvm.expect.i1(i1 %160, i1 true)
+  br i1 %161, label %163, label %167
 
-161:                                              ; preds = %143
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %145, i64 %5, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.5) #5
+162:                                              ; preds = %144
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %146, i64 %5, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.5) #5
   unreachable
 
-162:                                              ; preds = %152
-  %163 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %158
-  %164 = load i8, ptr %163, align 1, !noundef !3
-  %165 = icmp ne i8 %154, %164
-  br i1 %165, label %168, label %167
+163:                                              ; preds = %153
+  %164 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %159
+  %165 = load i8, ptr %164, align 1, !noundef !3
+  %166 = icmp ne i8 %155, %165
+  br i1 %166, label %169, label %168
 
-166:                                              ; preds = %152
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %158, i64 %3, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.6) #5
+167:                                              ; preds = %153
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %159, i64 %3, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.6) #5
   unreachable
 
-167:                                              ; preds = %162
+168:                                              ; preds = %163
   br label %119
 
-168:                                              ; preds = %162
-  %169 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 2
-  %170 = load i64, ptr %169, align 8, !noundef !3
-  %171 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+169:                                              ; preds = %163
+  %170 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 2
+  %171 = load i64, ptr %170, align 8, !noundef !3
   %172 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %173 = load i64, ptr %172, align 8, !noundef !3
-  %174 = sub i64 %173, %170
-  store i64 %174, ptr %171, align 8
-  br i1 %6, label %179, label %175
+  %173 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %174 = load i64, ptr %173, align 8, !noundef !3
+  %175 = sub i64 %174, %171
+  store i64 %175, ptr %172, align 8
+  br i1 %6, label %180, label %176
 
-175:                                              ; preds = %168
-  %176 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 2
-  %177 = load i64, ptr %176, align 8, !noundef !3
-  %178 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
-  store i64 %177, ptr %178, align 8
-  br label %179
-
-179:                                              ; preds = %175, %168
+176:                                              ; preds = %169
+  %177 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 2
+  %178 = load i64, ptr %177, align 8, !noundef !3
+  %179 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
+  store i64 %178, ptr %179, align 8
   br label %180
 
-180:                                              ; preds = %207, %179
+180:                                              ; preds = %176, %169
+  br label %181
+
+181:                                              ; preds = %208, %180
   br label %72
 
-181:                                              ; preds = %101
-  %182 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %103
-  %183 = load i8, ptr %182, align 1, !noundef !3
-  %184 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %185 = load i64, ptr %184, align 8, !noundef !3
-  %186 = sub i64 %185, %5
-  %187 = add i64 %186, %103
-  %188 = icmp ult i64 %187, %3
-  %189 = call i1 @llvm.expect.i1(i1 %188, i1 true)
-  br i1 %189, label %191, label %195
+182:                                              ; preds = %101
+  %183 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %103
+  %184 = load i8, ptr %183, align 1, !noundef !3
+  %185 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %186 = load i64, ptr %185, align 8, !noundef !3
+  %187 = sub i64 %186, %5
+  %188 = add i64 %187, %103
+  %189 = icmp ult i64 %188, %3
+  %190 = call i1 @llvm.expect.i1(i1 %189, i1 true)
+  br i1 %190, label %192, label %196
 
-190:                                              ; preds = %101
+191:                                              ; preds = %101
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %103, i64 %5, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.7) #5
   unreachable
 
-191:                                              ; preds = %181
-  %192 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %187
-  %193 = load i8, ptr %192, align 1, !noundef !3
-  %194 = icmp ne i8 %183, %193
-  br i1 %194, label %197, label %196
+192:                                              ; preds = %182
+  %193 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %188
+  %194 = load i8, ptr %193, align 1, !noundef !3
+  %195 = icmp ne i8 %184, %194
+  br i1 %195, label %198, label %197
 
-195:                                              ; preds = %181
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %187, i64 %3, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.8) #5
+196:                                              ; preds = %182
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %188, i64 %3, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.8) #5
   unreachable
 
-196:                                              ; preds = %191
+197:                                              ; preds = %192
   br label %93
 
-197:                                              ; preds = %191
-  %198 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 1
-  %199 = load i64, ptr %198, align 8, !noundef !3
-  %200 = sub i64 %199, %103
-  %201 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+198:                                              ; preds = %192
+  %199 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 1
+  %200 = load i64, ptr %199, align 8, !noundef !3
+  %201 = sub i64 %200, %103
   %202 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %203 = load i64, ptr %202, align 8, !noundef !3
-  %204 = sub i64 %203, %200
-  store i64 %204, ptr %201, align 8
-  br i1 %6, label %207, label %205
+  %203 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %204 = load i64, ptr %203, align 8, !noundef !3
+  %205 = sub i64 %204, %201
+  store i64 %205, ptr %202, align 8
+  br i1 %6, label %208, label %206
 
-205:                                              ; preds = %197
-  %206 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
-  store i64 %5, ptr %206, align 8
-  br label %207
+206:                                              ; preds = %198
+  %207 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
+  store i64 %5, ptr %207, align 8
+  br label %208
 
-207:                                              ; preds = %205, %197
-  br label %180
+208:                                              ; preds = %206, %198
+  br label %181
 
-208:                                              ; No predecessors!
+209:                                              ; No predecessors!
   unreachable
 }
 
@@ -663,7 +664,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   %44 = call zeroext i1 @"_ZN89_$LT$core..str..pattern..RejectAndMatch$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$16use_early_reject17h19e6fcd583f415f8E"()
   br i1 %44, label %55, label %46
 
-45:                                               ; preds = %150, %60, %39
+45:                                               ; preds = %151, %60, %39
   ret void
 
 46:                                               ; preds = %59, %41
@@ -711,7 +712,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
 71:                                               ; preds = %69, %63
   br label %72
 
-72:                                               ; preds = %180, %71
+72:                                               ; preds = %181, %71
   br label %21
 
 73:                                               ; preds = %68
@@ -748,7 +749,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   store i64 %91, ptr %92, align 8
   br label %93
 
-93:                                               ; preds = %196, %82
+93:                                               ; preds = %197, %82
   %94 = call { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17hd3d22170327f1699E"(ptr align 8 %14)
   %95 = extractvalue { i64, i64 } %94, 0
   %96 = extractvalue { i64, i64 } %94, 1
@@ -767,7 +768,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   %103 = load i64, ptr %102, align 8, !noundef !3
   %104 = icmp ult i64 %103, %5
   %105 = call i1 @llvm.expect.i1(i1 %104, i1 true)
-  br i1 %105, label %181, label %190
+  br i1 %105, label %182, label %191
 
 106:                                              ; preds = %100
   %107 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
@@ -794,162 +795,163 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   store i64 %117, ptr %118, align 8
   br label %119
 
-119:                                              ; preds = %167, %110
+119:                                              ; preds = %168, %110
   %120 = load i64, ptr %10, align 8, !noundef !3
   %121 = getelementptr inbounds i8, ptr %10, i64 8
   %122 = load i64, ptr %121, align 8, !noundef !3
   %123 = icmp ult i64 %120, %122
-  br i1 %123, label %128, label %124
+  br i1 %123, label %129, label %124
 
 124:                                              ; preds = %119
   %125 = load i64, ptr @anon.078f656ecbe906049e0b3866393bab06.3, align 8, !range !8, !noundef !3
-  %126 = load i64, ptr getelementptr inbounds (i8, ptr @anon.078f656ecbe906049e0b3866393bab06.3, i64 8), align 8
+  %126 = getelementptr inbounds i8, ptr @anon.078f656ecbe906049e0b3866393bab06.3, i64 8
+  %127 = load i64, ptr %126, align 8
   store i64 %125, ptr %9, align 8
-  %127 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %126, ptr %127, align 8
-  br label %132
+  %128 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %127, ptr %128, align 8
+  br label %133
 
-128:                                              ; preds = %119
-  %129 = load i64, ptr %10, align 8, !noundef !3
-  %130 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %129, i64 1)
-  store i64 %130, ptr %10, align 8
-  %131 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %129, ptr %131, align 8
+129:                                              ; preds = %119
+  %130 = load i64, ptr %10, align 8, !noundef !3
+  %131 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %130, i64 1)
+  store i64 %131, ptr %10, align 8
+  %132 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %130, ptr %132, align 8
   store i64 1, ptr %9, align 8
-  br label %132
+  br label %133
 
-132:                                              ; preds = %128, %124
-  %133 = load i64, ptr %9, align 8, !range !8, !noundef !3
-  %134 = icmp eq i64 %133, 0
-  br i1 %134, label %135, label %143
+133:                                              ; preds = %129, %124
+  %134 = load i64, ptr %9, align 8, !range !8, !noundef !3
+  %135 = icmp eq i64 %134, 0
+  br i1 %135, label %136, label %144
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %137 = load i64, ptr %136, align 8, !noundef !3
-  %138 = sub i64 %137, %5
-  %139 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %138 = load i64, ptr %137, align 8, !noundef !3
+  %139 = sub i64 %138, %5
   %140 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %141 = load i64, ptr %140, align 8, !noundef !3
-  %142 = sub i64 %141, %5
-  store i64 %142, ptr %139, align 8
-  br i1 %6, label %150, label %148
+  %141 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %142 = load i64, ptr %141, align 8, !noundef !3
+  %143 = sub i64 %142, %5
+  store i64 %143, ptr %140, align 8
+  br i1 %6, label %151, label %149
 
-143:                                              ; preds = %132
-  %144 = getelementptr inbounds i8, ptr %9, i64 8
-  %145 = load i64, ptr %144, align 8, !noundef !3
-  %146 = icmp ult i64 %145, %5
-  %147 = call i1 @llvm.expect.i1(i1 %146, i1 true)
-  br i1 %147, label %152, label %161
+144:                                              ; preds = %133
+  %145 = getelementptr inbounds i8, ptr %9, i64 8
+  %146 = load i64, ptr %145, align 8, !noundef !3
+  %147 = icmp ult i64 %146, %5
+  %148 = call i1 @llvm.expect.i1(i1 %147, i1 true)
+  br i1 %148, label %153, label %162
 
-148:                                              ; preds = %135
-  %149 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
-  store i64 %5, ptr %149, align 8
-  br label %150
+149:                                              ; preds = %136
+  %150 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
+  store i64 %5, ptr %150, align 8
+  br label %151
 
-150:                                              ; preds = %148, %135
-  %151 = add i64 %138, %5
-  call void @"_ZN89_$LT$core..str..pattern..RejectAndMatch$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h8bcce51b6f47d283E"(ptr sret({ i64, [2 x i64] }) align 8 %0, i64 %138, i64 %151)
+151:                                              ; preds = %149, %136
+  %152 = add i64 %139, %5
+  call void @"_ZN89_$LT$core..str..pattern..RejectAndMatch$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h8bcce51b6f47d283E"(ptr sret({ i64, [2 x i64] }) align 8 %0, i64 %139, i64 %152)
   br label %45
 
-152:                                              ; preds = %143
-  %153 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %145
-  %154 = load i8, ptr %153, align 1, !noundef !3
-  %155 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %156 = load i64, ptr %155, align 8, !noundef !3
-  %157 = sub i64 %156, %5
-  %158 = add i64 %157, %145
-  %159 = icmp ult i64 %158, %3
-  %160 = call i1 @llvm.expect.i1(i1 %159, i1 true)
-  br i1 %160, label %162, label %166
+153:                                              ; preds = %144
+  %154 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %146
+  %155 = load i8, ptr %154, align 1, !noundef !3
+  %156 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %157 = load i64, ptr %156, align 8, !noundef !3
+  %158 = sub i64 %157, %5
+  %159 = add i64 %158, %146
+  %160 = icmp ult i64 %159, %3
+  %161 = call i1 @llvm.expect.i1(i1 %160, i1 true)
+  br i1 %161, label %163, label %167
 
-161:                                              ; preds = %143
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %145, i64 %5, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.5) #5
+162:                                              ; preds = %144
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %146, i64 %5, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.5) #5
   unreachable
 
-162:                                              ; preds = %152
-  %163 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %158
-  %164 = load i8, ptr %163, align 1, !noundef !3
-  %165 = icmp ne i8 %154, %164
-  br i1 %165, label %168, label %167
+163:                                              ; preds = %153
+  %164 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %159
+  %165 = load i8, ptr %164, align 1, !noundef !3
+  %166 = icmp ne i8 %155, %165
+  br i1 %166, label %169, label %168
 
-166:                                              ; preds = %152
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %158, i64 %3, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.6) #5
+167:                                              ; preds = %153
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %159, i64 %3, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.6) #5
   unreachable
 
-167:                                              ; preds = %162
+168:                                              ; preds = %163
   br label %119
 
-168:                                              ; preds = %162
-  %169 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 2
-  %170 = load i64, ptr %169, align 8, !noundef !3
-  %171 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+169:                                              ; preds = %163
+  %170 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 2
+  %171 = load i64, ptr %170, align 8, !noundef !3
   %172 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %173 = load i64, ptr %172, align 8, !noundef !3
-  %174 = sub i64 %173, %170
-  store i64 %174, ptr %171, align 8
-  br i1 %6, label %179, label %175
+  %173 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %174 = load i64, ptr %173, align 8, !noundef !3
+  %175 = sub i64 %174, %171
+  store i64 %175, ptr %172, align 8
+  br i1 %6, label %180, label %176
 
-175:                                              ; preds = %168
-  %176 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 2
-  %177 = load i64, ptr %176, align 8, !noundef !3
-  %178 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
-  store i64 %177, ptr %178, align 8
-  br label %179
-
-179:                                              ; preds = %175, %168
+176:                                              ; preds = %169
+  %177 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 2
+  %178 = load i64, ptr %177, align 8, !noundef !3
+  %179 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
+  store i64 %178, ptr %179, align 8
   br label %180
 
-180:                                              ; preds = %207, %179
+180:                                              ; preds = %176, %169
+  br label %181
+
+181:                                              ; preds = %208, %180
   br label %72
 
-181:                                              ; preds = %101
-  %182 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %103
-  %183 = load i8, ptr %182, align 1, !noundef !3
-  %184 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %185 = load i64, ptr %184, align 8, !noundef !3
-  %186 = sub i64 %185, %5
-  %187 = add i64 %186, %103
-  %188 = icmp ult i64 %187, %3
-  %189 = call i1 @llvm.expect.i1(i1 %188, i1 true)
-  br i1 %189, label %191, label %195
+182:                                              ; preds = %101
+  %183 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %103
+  %184 = load i8, ptr %183, align 1, !noundef !3
+  %185 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %186 = load i64, ptr %185, align 8, !noundef !3
+  %187 = sub i64 %186, %5
+  %188 = add i64 %187, %103
+  %189 = icmp ult i64 %188, %3
+  %190 = call i1 @llvm.expect.i1(i1 %189, i1 true)
+  br i1 %190, label %192, label %196
 
-190:                                              ; preds = %101
+191:                                              ; preds = %101
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %103, i64 %5, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.7) #5
   unreachable
 
-191:                                              ; preds = %181
-  %192 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %187
-  %193 = load i8, ptr %192, align 1, !noundef !3
-  %194 = icmp ne i8 %183, %193
-  br i1 %194, label %197, label %196
+192:                                              ; preds = %182
+  %193 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %188
+  %194 = load i8, ptr %193, align 1, !noundef !3
+  %195 = icmp ne i8 %184, %194
+  br i1 %195, label %198, label %197
 
-195:                                              ; preds = %181
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %187, i64 %3, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.8) #5
+196:                                              ; preds = %182
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %188, i64 %3, ptr align 8 @anon.078f656ecbe906049e0b3866393bab06.8) #5
   unreachable
 
-196:                                              ; preds = %191
+197:                                              ; preds = %192
   br label %93
 
-197:                                              ; preds = %191
-  %198 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 1
-  %199 = load i64, ptr %198, align 8, !noundef !3
-  %200 = sub i64 %199, %103
-  %201 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+198:                                              ; preds = %192
+  %199 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 1
+  %200 = load i64, ptr %199, align 8, !noundef !3
+  %201 = sub i64 %200, %103
   %202 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
-  %203 = load i64, ptr %202, align 8, !noundef !3
-  %204 = sub i64 %203, %200
-  store i64 %204, ptr %201, align 8
-  br i1 %6, label %207, label %205
+  %203 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 5
+  %204 = load i64, ptr %203, align 8, !noundef !3
+  %205 = sub i64 %204, %201
+  store i64 %205, ptr %202, align 8
+  br i1 %6, label %208, label %206
 
-205:                                              ; preds = %197
-  %206 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
-  store i64 %5, ptr %206, align 8
-  br label %207
+206:                                              ; preds = %198
+  %207 = getelementptr inbounds { i64, i64, i64, i64, i64, i64, i64, i64 }, ptr %1, i32 0, i32 7
+  store i64 %5, ptr %207, align 8
+  br label %208
 
-207:                                              ; preds = %205, %197
-  br label %180
+208:                                              ; preds = %206, %198
+  br label %181
 
-208:                                              ; No predecessors!
+209:                                              ; No predecessors!
   unreachable
 }
 

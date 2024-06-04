@@ -2874,7 +2874,8 @@ entry:
   store i32 %status, ptr %status.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   %valueOrStatus_ = getelementptr inbounds %"class.hermes::vm::CallResult", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 -1 to ptr), ptr %valueOrStatus_, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %valueOrStatus_, align 8
   ret void
 }
 

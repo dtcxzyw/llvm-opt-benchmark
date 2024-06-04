@@ -483,8 +483,9 @@ entry:
   %msg2 = getelementptr inbounds %struct.q_obj_MEM_UNPLUG_ERROR_arg, ptr %param, i32 0, i32 1
   %1 = load ptr, ptr %msg.addr, align 8
   store ptr %1, ptr %msg2, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.CompatPolicy, ptr @compat_policy, i32 0, i32 3), align 4
-  %cmp = icmp eq i32 %2, 1
+  %2 = getelementptr inbounds %struct.CompatPolicy, ptr @compat_policy, i32 0, i32 3
+  %3 = load i32, ptr %2, align 4
+  %cmp = icmp eq i32 %3, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -495,84 +496,84 @@ if.end:                                           ; preds = %entry
   store ptr %call, ptr %qmp, align 8
   %call3 = call ptr @qobject_output_visitor_new_qmp(ptr noundef %obj)
   store ptr %call3, ptr %v, align 8
-  %3 = load ptr, ptr %v, align 8
-  %call4 = call zeroext i1 @visit_start_struct(ptr noundef %3, ptr noundef @.str.4, ptr noundef null, i64 noundef 0, ptr noundef @error_abort)
   %4 = load ptr, ptr %v, align 8
-  %call5 = call zeroext i1 @visit_type_q_obj_MEM_UNPLUG_ERROR_arg_members(ptr noundef %4, ptr noundef %param, ptr noundef @error_abort)
+  %call4 = call zeroext i1 @visit_start_struct(ptr noundef %4, ptr noundef @.str.4, ptr noundef null, i64 noundef 0, ptr noundef @error_abort)
   %5 = load ptr, ptr %v, align 8
-  %call6 = call zeroext i1 @visit_check_struct(ptr noundef %5, ptr noundef @error_abort)
+  %call5 = call zeroext i1 @visit_type_q_obj_MEM_UNPLUG_ERROR_arg_members(ptr noundef %5, ptr noundef %param, ptr noundef @error_abort)
   %6 = load ptr, ptr %v, align 8
-  call void @visit_end_struct(ptr noundef %6, ptr noundef null)
+  %call6 = call zeroext i1 @visit_check_struct(ptr noundef %6, ptr noundef @error_abort)
   %7 = load ptr, ptr %v, align 8
-  call void @visit_complete(ptr noundef %7, ptr noundef %obj)
-  %8 = load ptr, ptr %obj, align 8
-  %call7 = call ptr @qobject_check_type(ptr noundef %8, i32 noundef 4)
+  call void @visit_end_struct(ptr noundef %7, ptr noundef null)
+  %8 = load ptr, ptr %v, align 8
+  call void @visit_complete(ptr noundef %8, ptr noundef %obj)
+  %9 = load ptr, ptr %obj, align 8
+  %call7 = call ptr @qobject_check_type(ptr noundef %9, i32 noundef 4)
   %call8 = call i64 @qdict_size(ptr noundef %call7)
   %tobool = icmp ne i64 %call8, 0
   br i1 %tobool, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
-  %9 = load ptr, ptr %qmp, align 8
-  %10 = load ptr, ptr %obj, align 8
-  call void @qdict_put_obj(ptr noundef %9, ptr noundef @.str.1, ptr noundef %10)
+  %10 = load ptr, ptr %qmp, align 8
+  %11 = load ptr, ptr %obj, align 8
+  call void @qdict_put_obj(ptr noundef %10, ptr noundef @.str.1, ptr noundef %11)
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %11 = load ptr, ptr %obj, align 8
-  store ptr %11, ptr %_obj6, align 8
-  %12 = load ptr, ptr %_obj6, align 8
-  %tobool10 = icmp ne ptr %12, null
+  %12 = load ptr, ptr %obj, align 8
+  store ptr %12, ptr %_obj6, align 8
+  %13 = load ptr, ptr %_obj6, align 8
+  %tobool10 = icmp ne ptr %13, null
   br i1 %tobool10, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.else
-  %13 = load ptr, ptr %_obj6, align 8
-  %base = getelementptr inbounds %struct.QObject, ptr %13, i32 0, i32 0
+  %14 = load ptr, ptr %_obj6, align 8
+  %base = getelementptr inbounds %struct.QObject, ptr %14, i32 0, i32 0
   store ptr %base, ptr %__mptr, align 8
-  %14 = load ptr, ptr %__mptr, align 8
-  %add.ptr = getelementptr i8, ptr %14, i64 0
+  %15 = load ptr, ptr %__mptr, align 8
+  %add.ptr = getelementptr i8, ptr %15, i64 0
   store ptr %add.ptr, ptr %tmp11, align 8
-  %15 = load ptr, ptr %tmp11, align 8
+  %16 = load ptr, ptr %tmp11, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.else
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %15, %cond.true ], [ null, %cond.false ]
+  %cond = phi ptr [ %16, %cond.true ], [ null, %cond.false ]
   store ptr %cond, ptr %tmp, align 8
-  %16 = load ptr, ptr %tmp, align 8
-  call void @qobject_unref_impl(ptr noundef %16)
+  %17 = load ptr, ptr %tmp, align 8
+  call void @qobject_unref_impl(ptr noundef %17)
   br label %if.end12
 
 if.end12:                                         ; preds = %cond.end, %if.then9
-  %17 = load ptr, ptr %qmp, align 8
-  call void @qapi_event_emit(i32 noundef 49, ptr noundef %17)
-  %18 = load ptr, ptr %v, align 8
-  call void @visit_free(ptr noundef %18)
-  %19 = load ptr, ptr %qmp, align 8
-  store ptr %19, ptr %_obj7, align 8
-  %20 = load ptr, ptr %_obj7, align 8
-  %tobool14 = icmp ne ptr %20, null
+  %18 = load ptr, ptr %qmp, align 8
+  call void @qapi_event_emit(i32 noundef 49, ptr noundef %18)
+  %19 = load ptr, ptr %v, align 8
+  call void @visit_free(ptr noundef %19)
+  %20 = load ptr, ptr %qmp, align 8
+  store ptr %20, ptr %_obj7, align 8
+  %21 = load ptr, ptr %_obj7, align 8
+  %tobool14 = icmp ne ptr %21, null
   br i1 %tobool14, label %cond.true15, label %cond.false20
 
 cond.true15:                                      ; preds = %if.end12
-  %21 = load ptr, ptr %_obj7, align 8
-  %base17 = getelementptr inbounds %struct.QDict, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %_obj7, align 8
+  %base17 = getelementptr inbounds %struct.QDict, ptr %22, i32 0, i32 0
   store ptr %base17, ptr %__mptr16, align 8
-  %22 = load ptr, ptr %__mptr16, align 8
-  %add.ptr19 = getelementptr i8, ptr %22, i64 0
+  %23 = load ptr, ptr %__mptr16, align 8
+  %add.ptr19 = getelementptr i8, ptr %23, i64 0
   store ptr %add.ptr19, ptr %tmp18, align 8
-  %23 = load ptr, ptr %tmp18, align 8
+  %24 = load ptr, ptr %tmp18, align 8
   br label %cond.end21
 
 cond.false20:                                     ; preds = %if.end12
   br label %cond.end21
 
 cond.end21:                                       ; preds = %cond.false20, %cond.true15
-  %cond22 = phi ptr [ %23, %cond.true15 ], [ null, %cond.false20 ]
+  %cond22 = phi ptr [ %24, %cond.true15 ], [ null, %cond.false20 ]
   store ptr %cond22, ptr %tmp13, align 8
-  %24 = load ptr, ptr %tmp13, align 8
-  call void @qobject_unref_impl(ptr noundef %24)
+  %25 = load ptr, ptr %tmp13, align 8
+  call void @qobject_unref_impl(ptr noundef %25)
   br label %return
 
 return:                                           ; preds = %cond.end21, %if.then

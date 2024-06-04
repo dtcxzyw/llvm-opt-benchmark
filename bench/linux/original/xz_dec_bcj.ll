@@ -584,19 +584,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @xz_dec_bcj_create(i1 noundef zeroext %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %3 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 80) #10
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 80) #10
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %9, label %6
 
-5:                                                ; preds = %1
-  %6 = zext i1 %0 to i8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  store i8 %6, ptr %7, align 8
-  br label %8
+6:                                                ; preds = %1
+  %7 = zext i1 %0 to i8
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store i8 %7, ptr %8, align 8
+  br label %9
 
-8:                                                ; preds = %5, %1
-  ret ptr %3
+9:                                                ; preds = %6, %1
+  ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)

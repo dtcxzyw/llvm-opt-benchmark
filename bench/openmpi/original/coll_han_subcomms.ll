@@ -111,7 +111,7 @@ define i32 @mca_coll_han_comm_create_new(ptr noundef %0, ptr noundef %1) #0 {
 
 46:                                               ; preds = %41
   store i32 0, ptr %3, align 4
-  br label %628
+  br label %630
 
 47:                                               ; preds = %41, %35, %29, %2
   br label %48
@@ -424,491 +424,493 @@ define i32 @mca_coll_han_comm_create_new(ptr noundef %0, ptr noundef %1) #0 {
   %298 = load ptr, ptr %297, align 8
   %299 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %298, i32 0, i32 5
   %300 = load ptr, ptr %299, align 8
-  %301 = call i32 %294(ptr noundef inttoptr (i64 1 to ptr), ptr noundef %18, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef @ompi_mpi_op_max, ptr noundef %295, ptr noundef %300)
-  store i32 %301, ptr %14, align 4
-  %302 = load i32, ptr %14, align 4
-  %303 = icmp ne i32 0, %302
-  br i1 %303, label %304, label %305
-
-304:                                              ; preds = %285
-  br label %610
+  %301 = inttoptr i64 1 to ptr
+  %302 = call i32 %294(ptr noundef %301, ptr noundef %18, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef @ompi_mpi_op_max, ptr noundef %295, ptr noundef %300)
+  store i32 %302, ptr %14, align 4
+  %303 = load i32, ptr %14, align 4
+  %304 = icmp ne i32 0, %303
+  br i1 %304, label %305, label %306
 
 305:                                              ; preds = %285
-  %306 = load i32, ptr %18, align 4
-  %307 = icmp eq i32 %306, 1
-  br i1 %307, label %308, label %423
+  br label %612
 
-308:                                              ; preds = %305
-  br label %309
+306:                                              ; preds = %285
+  %307 = load i32, ptr %18, align 4
+  %308 = icmp eq i32 %307, 1
+  br i1 %308, label %309, label %424
 
-309:                                              ; preds = %308
-  %310 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 1
-  %311 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %310, i32 0, i32 0
-  %312 = load ptr, ptr %311, align 8
-  %313 = load ptr, ptr %4, align 8
-  %314 = getelementptr inbounds %struct.ompi_communicator_t, ptr %313, i32 0, i32 23
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %315, i32 0, i32 2
-  store ptr %312, ptr %316, align 8
-  %317 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 1
-  %318 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %317, i32 0, i32 1
-  %319 = load ptr, ptr %318, align 8
-  %320 = load ptr, ptr %4, align 8
-  %321 = getelementptr inbounds %struct.ompi_communicator_t, ptr %320, i32 0, i32 23
-  %322 = load ptr, ptr %321, align 8
-  %323 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %322, i32 0, i32 3
-  store ptr %319, ptr %323, align 8
-  br label %324
+309:                                              ; preds = %306
+  br label %310
 
-324:                                              ; preds = %309
+310:                                              ; preds = %309
+  %311 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 1
+  %312 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %311, i32 0, i32 0
+  %313 = load ptr, ptr %312, align 8
+  %314 = load ptr, ptr %4, align 8
+  %315 = getelementptr inbounds %struct.ompi_communicator_t, ptr %314, i32 0, i32 23
+  %316 = load ptr, ptr %315, align 8
+  %317 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %316, i32 0, i32 2
+  store ptr %313, ptr %317, align 8
+  %318 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 1
+  %319 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %318, i32 0, i32 1
+  %320 = load ptr, ptr %319, align 8
+  %321 = load ptr, ptr %4, align 8
+  %322 = getelementptr inbounds %struct.ompi_communicator_t, ptr %321, i32 0, i32 23
+  %323 = load ptr, ptr %322, align 8
+  %324 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %323, i32 0, i32 3
+  store ptr %320, ptr %324, align 8
   br label %325
 
-325:                                              ; preds = %324
-  %326 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 0
-  %327 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %326, i32 0, i32 0
-  %328 = load ptr, ptr %327, align 8
-  %329 = load ptr, ptr %4, align 8
-  %330 = getelementptr inbounds %struct.ompi_communicator_t, ptr %329, i32 0, i32 23
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %331, i32 0, i32 0
-  store ptr %328, ptr %332, align 8
-  %333 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 0
-  %334 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %333, i32 0, i32 1
-  %335 = load ptr, ptr %334, align 8
-  %336 = load ptr, ptr %4, align 8
-  %337 = getelementptr inbounds %struct.ompi_communicator_t, ptr %336, i32 0, i32 23
-  %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %338, i32 0, i32 1
-  store ptr %335, ptr %339, align 8
-  br label %340
+325:                                              ; preds = %310
+  br label %326
 
-340:                                              ; preds = %325
+326:                                              ; preds = %325
+  %327 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 0
+  %328 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %327, i32 0, i32 0
+  %329 = load ptr, ptr %328, align 8
+  %330 = load ptr, ptr %4, align 8
+  %331 = getelementptr inbounds %struct.ompi_communicator_t, ptr %330, i32 0, i32 23
+  %332 = load ptr, ptr %331, align 8
+  %333 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %332, i32 0, i32 0
+  store ptr %329, ptr %333, align 8
+  %334 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 0
+  %335 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %334, i32 0, i32 1
+  %336 = load ptr, ptr %335, align 8
+  %337 = load ptr, ptr %4, align 8
+  %338 = getelementptr inbounds %struct.ompi_communicator_t, ptr %337, i32 0, i32 23
+  %339 = load ptr, ptr %338, align 8
+  %340 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %339, i32 0, i32 1
+  store ptr %336, ptr %340, align 8
   br label %341
 
-341:                                              ; preds = %340
-  %342 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 2
-  %343 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %342, i32 0, i32 0
-  %344 = load ptr, ptr %343, align 8
-  %345 = load ptr, ptr %4, align 8
-  %346 = getelementptr inbounds %struct.ompi_communicator_t, ptr %345, i32 0, i32 23
-  %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %347, i32 0, i32 4
-  store ptr %344, ptr %348, align 8
-  %349 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 2
-  %350 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %349, i32 0, i32 1
-  %351 = load ptr, ptr %350, align 8
-  %352 = load ptr, ptr %4, align 8
-  %353 = getelementptr inbounds %struct.ompi_communicator_t, ptr %352, i32 0, i32 23
-  %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %354, i32 0, i32 5
-  store ptr %351, ptr %355, align 8
-  br label %356
+341:                                              ; preds = %326
+  br label %342
 
-356:                                              ; preds = %341
+342:                                              ; preds = %341
+  %343 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 2
+  %344 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %343, i32 0, i32 0
+  %345 = load ptr, ptr %344, align 8
+  %346 = load ptr, ptr %4, align 8
+  %347 = getelementptr inbounds %struct.ompi_communicator_t, ptr %346, i32 0, i32 23
+  %348 = load ptr, ptr %347, align 8
+  %349 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %348, i32 0, i32 4
+  store ptr %345, ptr %349, align 8
+  %350 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 2
+  %351 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %350, i32 0, i32 1
+  %352 = load ptr, ptr %351, align 8
+  %353 = load ptr, ptr %4, align 8
+  %354 = getelementptr inbounds %struct.ompi_communicator_t, ptr %353, i32 0, i32 23
+  %355 = load ptr, ptr %354, align 8
+  %356 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %355, i32 0, i32 5
+  store ptr %352, ptr %356, align 8
   br label %357
 
-357:                                              ; preds = %356
-  %358 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 4
-  %359 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %358, i32 0, i32 0
-  %360 = load ptr, ptr %359, align 8
-  %361 = load ptr, ptr %4, align 8
-  %362 = getelementptr inbounds %struct.ompi_communicator_t, ptr %361, i32 0, i32 23
-  %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %363, i32 0, i32 14
-  store ptr %360, ptr %364, align 8
-  %365 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 4
-  %366 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %365, i32 0, i32 1
-  %367 = load ptr, ptr %366, align 8
-  %368 = load ptr, ptr %4, align 8
-  %369 = getelementptr inbounds %struct.ompi_communicator_t, ptr %368, i32 0, i32 23
-  %370 = load ptr, ptr %369, align 8
-  %371 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %370, i32 0, i32 15
-  store ptr %367, ptr %371, align 8
-  br label %372
+357:                                              ; preds = %342
+  br label %358
 
-372:                                              ; preds = %357
+358:                                              ; preds = %357
+  %359 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 4
+  %360 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %359, i32 0, i32 0
+  %361 = load ptr, ptr %360, align 8
+  %362 = load ptr, ptr %4, align 8
+  %363 = getelementptr inbounds %struct.ompi_communicator_t, ptr %362, i32 0, i32 23
+  %364 = load ptr, ptr %363, align 8
+  %365 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %364, i32 0, i32 14
+  store ptr %361, ptr %365, align 8
+  %366 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 4
+  %367 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %366, i32 0, i32 1
+  %368 = load ptr, ptr %367, align 8
+  %369 = load ptr, ptr %4, align 8
+  %370 = getelementptr inbounds %struct.ompi_communicator_t, ptr %369, i32 0, i32 23
+  %371 = load ptr, ptr %370, align 8
+  %372 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %371, i32 0, i32 15
+  store ptr %368, ptr %372, align 8
   br label %373
 
-373:                                              ; preds = %372
-  %374 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 5
-  %375 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %374, i32 0, i32 0
-  %376 = load ptr, ptr %375, align 8
-  %377 = load ptr, ptr %4, align 8
-  %378 = getelementptr inbounds %struct.ompi_communicator_t, ptr %377, i32 0, i32 23
-  %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %379, i32 0, i32 22
-  store ptr %376, ptr %380, align 8
-  %381 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 5
-  %382 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %381, i32 0, i32 1
-  %383 = load ptr, ptr %382, align 8
-  %384 = load ptr, ptr %4, align 8
-  %385 = getelementptr inbounds %struct.ompi_communicator_t, ptr %384, i32 0, i32 23
-  %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %386, i32 0, i32 23
-  store ptr %383, ptr %387, align 8
-  br label %388
+373:                                              ; preds = %358
+  br label %374
 
-388:                                              ; preds = %373
+374:                                              ; preds = %373
+  %375 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 5
+  %376 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %375, i32 0, i32 0
+  %377 = load ptr, ptr %376, align 8
+  %378 = load ptr, ptr %4, align 8
+  %379 = getelementptr inbounds %struct.ompi_communicator_t, ptr %378, i32 0, i32 23
+  %380 = load ptr, ptr %379, align 8
+  %381 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %380, i32 0, i32 22
+  store ptr %377, ptr %381, align 8
+  %382 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 5
+  %383 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %382, i32 0, i32 1
+  %384 = load ptr, ptr %383, align 8
+  %385 = load ptr, ptr %4, align 8
+  %386 = getelementptr inbounds %struct.ompi_communicator_t, ptr %385, i32 0, i32 23
+  %387 = load ptr, ptr %386, align 8
+  %388 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %387, i32 0, i32 23
+  store ptr %384, ptr %388, align 8
   br label %389
 
-389:                                              ; preds = %388
-  %390 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 6
-  %391 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %390, i32 0, i32 0
-  %392 = load ptr, ptr %391, align 8
-  %393 = load ptr, ptr %4, align 8
-  %394 = getelementptr inbounds %struct.ompi_communicator_t, ptr %393, i32 0, i32 23
-  %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %395, i32 0, i32 18
-  store ptr %392, ptr %396, align 8
-  %397 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 6
-  %398 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %397, i32 0, i32 1
-  %399 = load ptr, ptr %398, align 8
-  %400 = load ptr, ptr %4, align 8
-  %401 = getelementptr inbounds %struct.ompi_communicator_t, ptr %400, i32 0, i32 23
-  %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %402, i32 0, i32 19
-  store ptr %399, ptr %403, align 8
-  br label %404
+389:                                              ; preds = %374
+  br label %390
 
-404:                                              ; preds = %389
+390:                                              ; preds = %389
+  %391 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 6
+  %392 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %391, i32 0, i32 0
+  %393 = load ptr, ptr %392, align 8
+  %394 = load ptr, ptr %4, align 8
+  %395 = getelementptr inbounds %struct.ompi_communicator_t, ptr %394, i32 0, i32 23
+  %396 = load ptr, ptr %395, align 8
+  %397 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %396, i32 0, i32 18
+  store ptr %393, ptr %397, align 8
+  %398 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 6
+  %399 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %398, i32 0, i32 1
+  %400 = load ptr, ptr %399, align 8
+  %401 = load ptr, ptr %4, align 8
+  %402 = getelementptr inbounds %struct.ompi_communicator_t, ptr %401, i32 0, i32 23
+  %403 = load ptr, ptr %402, align 8
+  %404 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %403, i32 0, i32 19
+  store ptr %400, ptr %404, align 8
   br label %405
 
-405:                                              ; preds = %404
-  %406 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 7
-  %407 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %406, i32 0, i32 0
-  %408 = load ptr, ptr %407, align 8
-  %409 = load ptr, ptr %4, align 8
-  %410 = getelementptr inbounds %struct.ompi_communicator_t, ptr %409, i32 0, i32 23
-  %411 = load ptr, ptr %410, align 8
-  %412 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %411, i32 0, i32 30
-  store ptr %408, ptr %412, align 8
-  %413 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 7
-  %414 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %413, i32 0, i32 1
-  %415 = load ptr, ptr %414, align 8
-  %416 = load ptr, ptr %4, align 8
-  %417 = getelementptr inbounds %struct.ompi_communicator_t, ptr %416, i32 0, i32 23
-  %418 = load ptr, ptr %417, align 8
-  %419 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %418, i32 0, i32 31
-  store ptr %415, ptr %419, align 8
-  br label %420
+405:                                              ; preds = %390
+  br label %406
 
-420:                                              ; preds = %405
-  %421 = load ptr, ptr %5, align 8
-  %422 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %421, i32 0, i32 1
-  store i8 0, ptr %422, align 8
+406:                                              ; preds = %405
+  %407 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 7
+  %408 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %407, i32 0, i32 0
+  %409 = load ptr, ptr %408, align 8
+  %410 = load ptr, ptr %4, align 8
+  %411 = getelementptr inbounds %struct.ompi_communicator_t, ptr %410, i32 0, i32 23
+  %412 = load ptr, ptr %411, align 8
+  %413 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %412, i32 0, i32 30
+  store ptr %409, ptr %413, align 8
+  %414 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 7
+  %415 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %414, i32 0, i32 1
+  %416 = load ptr, ptr %415, align 8
+  %417 = load ptr, ptr %4, align 8
+  %418 = getelementptr inbounds %struct.ompi_communicator_t, ptr %417, i32 0, i32 23
+  %419 = load ptr, ptr %418, align 8
+  %420 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %419, i32 0, i32 31
+  store ptr %416, ptr %420, align 8
+  br label %421
+
+421:                                              ; preds = %406
+  %422 = load ptr, ptr %5, align 8
+  %423 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %422, i32 0, i32 1
+  store i8 0, ptr %423, align 8
   store i32 -8, ptr %3, align 4
-  br label %628
+  br label %630
 
-423:                                              ; preds = %305
-  br label %424
-
-424:                                              ; preds = %423
+424:                                              ; preds = %306
   br label %425
 
 425:                                              ; preds = %424
-  %426 = load i32, ptr @opal_class_init_epoch, align 4
-  %427 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i32 0, i32 4), align 8
-  %428 = icmp ne i32 %426, %427
-  br i1 %428, label %429, label %430
+  br label %426
 
-429:                                              ; preds = %425
+426:                                              ; preds = %425
+  %427 = load i32, ptr @opal_class_init_epoch, align 4
+  %428 = getelementptr inbounds %struct.opal_class_t, ptr @opal_info_t_class, i32 0, i32 4
+  %429 = load i32, ptr %428, align 8
+  %430 = icmp ne i32 %427, %429
+  br i1 %430, label %431, label %432
+
+431:                                              ; preds = %426
   call void @opal_class_initialize(ptr noundef @opal_info_t_class)
-  br label %430
+  br label %432
 
-430:                                              ; preds = %429, %425
-  %431 = getelementptr inbounds %struct.opal_object_t, ptr %17, i32 0, i32 0
-  store ptr @opal_info_t_class, ptr %431, align 8
-  %432 = getelementptr inbounds %struct.opal_object_t, ptr %17, i32 0, i32 1
-  store volatile i32 1, ptr %432, align 8
+432:                                              ; preds = %431, %426
+  %433 = getelementptr inbounds %struct.opal_object_t, ptr %17, i32 0, i32 0
+  store ptr @opal_info_t_class, ptr %433, align 8
+  %434 = getelementptr inbounds %struct.opal_object_t, ptr %17, i32 0, i32 1
+  store volatile i32 1, ptr %434, align 8
   call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %433
+  br label %435
 
-433:                                              ; preds = %430
-  br label %434
+435:                                              ; preds = %432
+  br label %436
 
-434:                                              ; preds = %433
-  %435 = load ptr, ptr %4, align 8
-  %436 = call i32 @ompi_comm_rank(ptr noundef %435)
-  store i32 %436, ptr %9, align 4
+436:                                              ; preds = %435
   %437 = load ptr, ptr %4, align 8
-  %438 = call i32 @ompi_comm_size(ptr noundef %437)
-  store i32 %438, ptr %10, align 4
-  %439 = call i32 @opal_info_set(ptr noundef %17, ptr noundef @.str, ptr noundef @.str.1)
-  %440 = call i32 @opal_info_set(ptr noundef %17, ptr noundef @.str.2, ptr noundef @.str.3)
-  %441 = load ptr, ptr %4, align 8
-  %442 = load ptr, ptr %11, align 8
-  %443 = call i32 @ompi_comm_split_type(ptr noundef %441, i32 noundef 0, i32 noundef 0, ptr noundef %17, ptr noundef %442)
-  store i32 %443, ptr %14, align 4
-  %444 = load i32, ptr %14, align 4
-  %445 = icmp ne i32 0, %444
-  br i1 %445, label %446, label %447
+  %438 = call i32 @ompi_comm_rank(ptr noundef %437)
+  store i32 %438, ptr %9, align 4
+  %439 = load ptr, ptr %4, align 8
+  %440 = call i32 @ompi_comm_size(ptr noundef %439)
+  store i32 %440, ptr %10, align 4
+  %441 = call i32 @opal_info_set(ptr noundef %17, ptr noundef @.str, ptr noundef @.str.1)
+  %442 = call i32 @opal_info_set(ptr noundef %17, ptr noundef @.str.2, ptr noundef @.str.3)
+  %443 = load ptr, ptr %4, align 8
+  %444 = load ptr, ptr %11, align 8
+  %445 = call i32 @ompi_comm_split_type(ptr noundef %443, i32 noundef 0, i32 noundef 0, ptr noundef %17, ptr noundef %444)
+  store i32 %445, ptr %14, align 4
+  %446 = load i32, ptr %14, align 4
+  %447 = icmp ne i32 0, %446
+  br i1 %447, label %448, label %449
 
-446:                                              ; preds = %434
-  br label %610
+448:                                              ; preds = %436
+  br label %612
 
-447:                                              ; preds = %434
-  %448 = load ptr, ptr %11, align 8
-  %449 = load ptr, ptr %448, align 8
-  %450 = call i32 @ompi_comm_size(ptr noundef %449)
-  store i32 %450, ptr %7, align 4
-  %451 = load ptr, ptr %11, align 8
-  %452 = load ptr, ptr %451, align 8
-  %453 = call i32 @ompi_comm_rank(ptr noundef %452)
-  store i32 %453, ptr %6, align 4
-  %454 = call i32 @opal_info_set(ptr noundef %17, ptr noundef @.str.2, ptr noundef @.str.4)
-  %455 = load ptr, ptr %4, align 8
-  %456 = load i32, ptr %6, align 4
-  %457 = load i32, ptr %9, align 4
-  %458 = load ptr, ptr %12, align 8
-  %459 = call i32 @ompi_comm_split_with_info(ptr noundef %455, i32 noundef %456, i32 noundef %457, ptr noundef %17, ptr noundef %458, i1 noundef zeroext false)
-  store i32 %459, ptr %14, align 4
-  %460 = load i32, ptr %14, align 4
-  %461 = icmp ne i32 0, %460
-  br i1 %461, label %462, label %463
+449:                                              ; preds = %436
+  %450 = load ptr, ptr %11, align 8
+  %451 = load ptr, ptr %450, align 8
+  %452 = call i32 @ompi_comm_size(ptr noundef %451)
+  store i32 %452, ptr %7, align 4
+  %453 = load ptr, ptr %11, align 8
+  %454 = load ptr, ptr %453, align 8
+  %455 = call i32 @ompi_comm_rank(ptr noundef %454)
+  store i32 %455, ptr %6, align 4
+  %456 = call i32 @opal_info_set(ptr noundef %17, ptr noundef @.str.2, ptr noundef @.str.4)
+  %457 = load ptr, ptr %4, align 8
+  %458 = load i32, ptr %6, align 4
+  %459 = load i32, ptr %9, align 4
+  %460 = load ptr, ptr %12, align 8
+  %461 = call i32 @ompi_comm_split_with_info(ptr noundef %457, i32 noundef %458, i32 noundef %459, ptr noundef %17, ptr noundef %460, i1 noundef zeroext false)
+  store i32 %461, ptr %14, align 4
+  %462 = load i32, ptr %14, align 4
+  %463 = icmp ne i32 0, %462
+  br i1 %463, label %464, label %465
 
-462:                                              ; preds = %447
-  br label %610
+464:                                              ; preds = %449
+  br label %612
 
-463:                                              ; preds = %447
-  %464 = load ptr, ptr %12, align 8
-  %465 = load ptr, ptr %464, align 8
-  %466 = call i32 @ompi_comm_rank(ptr noundef %465)
-  store i32 %466, ptr %8, align 4
-  %467 = load i32, ptr %7, align 4
-  %468 = load i32, ptr %8, align 4
-  %469 = mul nsw i32 %467, %468
-  %470 = load i32, ptr %6, align 4
-  %471 = add nsw i32 %469, %470
-  store i32 %471, ptr %15, align 4
-  %472 = load i32, ptr %10, align 4
-  %473 = sext i32 %472 to i64
-  %474 = mul i64 4, %473
-  %475 = call noalias ptr @malloc(i64 noundef %474) #3
-  store ptr %475, ptr %16, align 8
-  %476 = load ptr, ptr %4, align 8
-  %477 = getelementptr inbounds %struct.ompi_communicator_t, ptr %476, i32 0, i32 23
-  %478 = load ptr, ptr %477, align 8
-  %479 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %478, i32 0, i32 0
+465:                                              ; preds = %449
+  %466 = load ptr, ptr %12, align 8
+  %467 = load ptr, ptr %466, align 8
+  %468 = call i32 @ompi_comm_rank(ptr noundef %467)
+  store i32 %468, ptr %8, align 4
+  %469 = load i32, ptr %7, align 4
+  %470 = load i32, ptr %8, align 4
+  %471 = mul nsw i32 %469, %470
+  %472 = load i32, ptr %6, align 4
+  %473 = add nsw i32 %471, %472
+  store i32 %473, ptr %15, align 4
+  %474 = load i32, ptr %10, align 4
+  %475 = sext i32 %474 to i64
+  %476 = mul i64 4, %475
+  %477 = call noalias ptr @malloc(i64 noundef %476) #3
+  store ptr %477, ptr %16, align 8
+  %478 = load ptr, ptr %4, align 8
+  %479 = getelementptr inbounds %struct.ompi_communicator_t, ptr %478, i32 0, i32 23
   %480 = load ptr, ptr %479, align 8
-  %481 = load ptr, ptr %16, align 8
-  %482 = load ptr, ptr %4, align 8
-  %483 = load ptr, ptr %4, align 8
-  %484 = getelementptr inbounds %struct.ompi_communicator_t, ptr %483, i32 0, i32 23
-  %485 = load ptr, ptr %484, align 8
-  %486 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %485, i32 0, i32 1
+  %481 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %480, i32 0, i32 0
+  %482 = load ptr, ptr %481, align 8
+  %483 = load ptr, ptr %16, align 8
+  %484 = load ptr, ptr %4, align 8
+  %485 = load ptr, ptr %4, align 8
+  %486 = getelementptr inbounds %struct.ompi_communicator_t, ptr %485, i32 0, i32 23
   %487 = load ptr, ptr %486, align 8
-  %488 = call i32 %480(ptr noundef %15, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef %481, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef %482, ptr noundef %487)
-  store i32 %488, ptr %14, align 4
-  %489 = load i32, ptr %14, align 4
-  %490 = icmp ne i32 0, %489
-  br i1 %490, label %491, label %492
+  %488 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %487, i32 0, i32 1
+  %489 = load ptr, ptr %488, align 8
+  %490 = call i32 %482(ptr noundef %15, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef %483, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef %484, ptr noundef %489)
+  store i32 %490, ptr %14, align 4
+  %491 = load i32, ptr %14, align 4
+  %492 = icmp ne i32 0, %491
+  br i1 %492, label %493, label %494
 
-491:                                              ; preds = %463
-  br label %610
+493:                                              ; preds = %465
+  br label %612
 
-492:                                              ; preds = %463
-  %493 = load ptr, ptr %16, align 8
-  %494 = load ptr, ptr %5, align 8
-  %495 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %494, i32 0, i32 6
-  store ptr %493, ptr %495, align 8
-  br label %496
+494:                                              ; preds = %465
+  %495 = load ptr, ptr %16, align 8
+  %496 = load ptr, ptr %5, align 8
+  %497 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %496, i32 0, i32 6
+  store ptr %495, ptr %497, align 8
+  br label %498
 
-496:                                              ; preds = %492
-  %497 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 1
-  %498 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %497, i32 0, i32 0
-  %499 = load ptr, ptr %498, align 8
-  %500 = load ptr, ptr %4, align 8
-  %501 = getelementptr inbounds %struct.ompi_communicator_t, ptr %500, i32 0, i32 23
-  %502 = load ptr, ptr %501, align 8
-  %503 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %502, i32 0, i32 2
-  store ptr %499, ptr %503, align 8
-  %504 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 1
-  %505 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %504, i32 0, i32 1
-  %506 = load ptr, ptr %505, align 8
-  %507 = load ptr, ptr %4, align 8
-  %508 = getelementptr inbounds %struct.ompi_communicator_t, ptr %507, i32 0, i32 23
-  %509 = load ptr, ptr %508, align 8
-  %510 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %509, i32 0, i32 3
-  store ptr %506, ptr %510, align 8
-  br label %511
+498:                                              ; preds = %494
+  %499 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 1
+  %500 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %499, i32 0, i32 0
+  %501 = load ptr, ptr %500, align 8
+  %502 = load ptr, ptr %4, align 8
+  %503 = getelementptr inbounds %struct.ompi_communicator_t, ptr %502, i32 0, i32 23
+  %504 = load ptr, ptr %503, align 8
+  %505 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %504, i32 0, i32 2
+  store ptr %501, ptr %505, align 8
+  %506 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 1
+  %507 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %506, i32 0, i32 1
+  %508 = load ptr, ptr %507, align 8
+  %509 = load ptr, ptr %4, align 8
+  %510 = getelementptr inbounds %struct.ompi_communicator_t, ptr %509, i32 0, i32 23
+  %511 = load ptr, ptr %510, align 8
+  %512 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %511, i32 0, i32 3
+  store ptr %508, ptr %512, align 8
+  br label %513
 
-511:                                              ; preds = %496
-  br label %512
+513:                                              ; preds = %498
+  br label %514
 
-512:                                              ; preds = %511
-  %513 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 0
-  %514 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %513, i32 0, i32 0
-  %515 = load ptr, ptr %514, align 8
-  %516 = load ptr, ptr %4, align 8
-  %517 = getelementptr inbounds %struct.ompi_communicator_t, ptr %516, i32 0, i32 23
-  %518 = load ptr, ptr %517, align 8
-  %519 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %518, i32 0, i32 0
-  store ptr %515, ptr %519, align 8
-  %520 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 0
-  %521 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %520, i32 0, i32 1
-  %522 = load ptr, ptr %521, align 8
-  %523 = load ptr, ptr %4, align 8
-  %524 = getelementptr inbounds %struct.ompi_communicator_t, ptr %523, i32 0, i32 23
-  %525 = load ptr, ptr %524, align 8
-  %526 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %525, i32 0, i32 1
-  store ptr %522, ptr %526, align 8
-  br label %527
+514:                                              ; preds = %513
+  %515 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 0
+  %516 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %515, i32 0, i32 0
+  %517 = load ptr, ptr %516, align 8
+  %518 = load ptr, ptr %4, align 8
+  %519 = getelementptr inbounds %struct.ompi_communicator_t, ptr %518, i32 0, i32 23
+  %520 = load ptr, ptr %519, align 8
+  %521 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %520, i32 0, i32 0
+  store ptr %517, ptr %521, align 8
+  %522 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 0
+  %523 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %522, i32 0, i32 1
+  %524 = load ptr, ptr %523, align 8
+  %525 = load ptr, ptr %4, align 8
+  %526 = getelementptr inbounds %struct.ompi_communicator_t, ptr %525, i32 0, i32 23
+  %527 = load ptr, ptr %526, align 8
+  %528 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %527, i32 0, i32 1
+  store ptr %524, ptr %528, align 8
+  br label %529
 
-527:                                              ; preds = %512
-  br label %528
+529:                                              ; preds = %514
+  br label %530
 
-528:                                              ; preds = %527
-  %529 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 2
-  %530 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %529, i32 0, i32 0
-  %531 = load ptr, ptr %530, align 8
-  %532 = load ptr, ptr %4, align 8
-  %533 = getelementptr inbounds %struct.ompi_communicator_t, ptr %532, i32 0, i32 23
-  %534 = load ptr, ptr %533, align 8
-  %535 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %534, i32 0, i32 4
-  store ptr %531, ptr %535, align 8
-  %536 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 2
-  %537 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %536, i32 0, i32 1
-  %538 = load ptr, ptr %537, align 8
-  %539 = load ptr, ptr %4, align 8
-  %540 = getelementptr inbounds %struct.ompi_communicator_t, ptr %539, i32 0, i32 23
-  %541 = load ptr, ptr %540, align 8
-  %542 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %541, i32 0, i32 5
-  store ptr %538, ptr %542, align 8
-  br label %543
+530:                                              ; preds = %529
+  %531 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 2
+  %532 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %531, i32 0, i32 0
+  %533 = load ptr, ptr %532, align 8
+  %534 = load ptr, ptr %4, align 8
+  %535 = getelementptr inbounds %struct.ompi_communicator_t, ptr %534, i32 0, i32 23
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %536, i32 0, i32 4
+  store ptr %533, ptr %537, align 8
+  %538 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 2
+  %539 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %538, i32 0, i32 1
+  %540 = load ptr, ptr %539, align 8
+  %541 = load ptr, ptr %4, align 8
+  %542 = getelementptr inbounds %struct.ompi_communicator_t, ptr %541, i32 0, i32 23
+  %543 = load ptr, ptr %542, align 8
+  %544 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %543, i32 0, i32 5
+  store ptr %540, ptr %544, align 8
+  br label %545
 
-543:                                              ; preds = %528
-  br label %544
+545:                                              ; preds = %530
+  br label %546
 
-544:                                              ; preds = %543
-  %545 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 4
-  %546 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %545, i32 0, i32 0
-  %547 = load ptr, ptr %546, align 8
-  %548 = load ptr, ptr %4, align 8
-  %549 = getelementptr inbounds %struct.ompi_communicator_t, ptr %548, i32 0, i32 23
-  %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %550, i32 0, i32 14
-  store ptr %547, ptr %551, align 8
-  %552 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 4
-  %553 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %552, i32 0, i32 1
-  %554 = load ptr, ptr %553, align 8
-  %555 = load ptr, ptr %4, align 8
-  %556 = getelementptr inbounds %struct.ompi_communicator_t, ptr %555, i32 0, i32 23
-  %557 = load ptr, ptr %556, align 8
-  %558 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %557, i32 0, i32 15
-  store ptr %554, ptr %558, align 8
-  br label %559
+546:                                              ; preds = %545
+  %547 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 4
+  %548 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %547, i32 0, i32 0
+  %549 = load ptr, ptr %548, align 8
+  %550 = load ptr, ptr %4, align 8
+  %551 = getelementptr inbounds %struct.ompi_communicator_t, ptr %550, i32 0, i32 23
+  %552 = load ptr, ptr %551, align 8
+  %553 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %552, i32 0, i32 14
+  store ptr %549, ptr %553, align 8
+  %554 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 4
+  %555 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %554, i32 0, i32 1
+  %556 = load ptr, ptr %555, align 8
+  %557 = load ptr, ptr %4, align 8
+  %558 = getelementptr inbounds %struct.ompi_communicator_t, ptr %557, i32 0, i32 23
+  %559 = load ptr, ptr %558, align 8
+  %560 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %559, i32 0, i32 15
+  store ptr %556, ptr %560, align 8
+  br label %561
 
-559:                                              ; preds = %544
-  br label %560
+561:                                              ; preds = %546
+  br label %562
 
-560:                                              ; preds = %559
-  %561 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 5
-  %562 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %561, i32 0, i32 0
-  %563 = load ptr, ptr %562, align 8
-  %564 = load ptr, ptr %4, align 8
-  %565 = getelementptr inbounds %struct.ompi_communicator_t, ptr %564, i32 0, i32 23
-  %566 = load ptr, ptr %565, align 8
-  %567 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %566, i32 0, i32 22
-  store ptr %563, ptr %567, align 8
-  %568 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 5
-  %569 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %568, i32 0, i32 1
-  %570 = load ptr, ptr %569, align 8
-  %571 = load ptr, ptr %4, align 8
-  %572 = getelementptr inbounds %struct.ompi_communicator_t, ptr %571, i32 0, i32 23
-  %573 = load ptr, ptr %572, align 8
-  %574 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %573, i32 0, i32 23
-  store ptr %570, ptr %574, align 8
-  br label %575
+562:                                              ; preds = %561
+  %563 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 5
+  %564 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %563, i32 0, i32 0
+  %565 = load ptr, ptr %564, align 8
+  %566 = load ptr, ptr %4, align 8
+  %567 = getelementptr inbounds %struct.ompi_communicator_t, ptr %566, i32 0, i32 23
+  %568 = load ptr, ptr %567, align 8
+  %569 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %568, i32 0, i32 22
+  store ptr %565, ptr %569, align 8
+  %570 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 5
+  %571 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %570, i32 0, i32 1
+  %572 = load ptr, ptr %571, align 8
+  %573 = load ptr, ptr %4, align 8
+  %574 = getelementptr inbounds %struct.ompi_communicator_t, ptr %573, i32 0, i32 23
+  %575 = load ptr, ptr %574, align 8
+  %576 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %575, i32 0, i32 23
+  store ptr %572, ptr %576, align 8
+  br label %577
 
-575:                                              ; preds = %560
-  br label %576
+577:                                              ; preds = %562
+  br label %578
 
-576:                                              ; preds = %575
-  %577 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 6
-  %578 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %577, i32 0, i32 0
-  %579 = load ptr, ptr %578, align 8
-  %580 = load ptr, ptr %4, align 8
-  %581 = getelementptr inbounds %struct.ompi_communicator_t, ptr %580, i32 0, i32 23
-  %582 = load ptr, ptr %581, align 8
-  %583 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %582, i32 0, i32 18
-  store ptr %579, ptr %583, align 8
-  %584 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 6
-  %585 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %584, i32 0, i32 1
-  %586 = load ptr, ptr %585, align 8
-  %587 = load ptr, ptr %4, align 8
-  %588 = getelementptr inbounds %struct.ompi_communicator_t, ptr %587, i32 0, i32 23
-  %589 = load ptr, ptr %588, align 8
-  %590 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %589, i32 0, i32 19
-  store ptr %586, ptr %590, align 8
-  br label %591
+578:                                              ; preds = %577
+  %579 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 6
+  %580 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %579, i32 0, i32 0
+  %581 = load ptr, ptr %580, align 8
+  %582 = load ptr, ptr %4, align 8
+  %583 = getelementptr inbounds %struct.ompi_communicator_t, ptr %582, i32 0, i32 23
+  %584 = load ptr, ptr %583, align 8
+  %585 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %584, i32 0, i32 18
+  store ptr %581, ptr %585, align 8
+  %586 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 6
+  %587 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %586, i32 0, i32 1
+  %588 = load ptr, ptr %587, align 8
+  %589 = load ptr, ptr %4, align 8
+  %590 = getelementptr inbounds %struct.ompi_communicator_t, ptr %589, i32 0, i32 23
+  %591 = load ptr, ptr %590, align 8
+  %592 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %591, i32 0, i32 19
+  store ptr %588, ptr %592, align 8
+  br label %593
 
-591:                                              ; preds = %576
-  br label %592
+593:                                              ; preds = %578
+  br label %594
 
-592:                                              ; preds = %591
-  %593 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 7
-  %594 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %593, i32 0, i32 0
-  %595 = load ptr, ptr %594, align 8
-  %596 = load ptr, ptr %4, align 8
-  %597 = getelementptr inbounds %struct.ompi_communicator_t, ptr %596, i32 0, i32 23
-  %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %598, i32 0, i32 30
-  store ptr %595, ptr %599, align 8
-  %600 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 7
-  %601 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %600, i32 0, i32 1
-  %602 = load ptr, ptr %601, align 8
-  %603 = load ptr, ptr %4, align 8
-  %604 = getelementptr inbounds %struct.ompi_communicator_t, ptr %603, i32 0, i32 23
-  %605 = load ptr, ptr %604, align 8
-  %606 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %605, i32 0, i32 31
-  store ptr %602, ptr %606, align 8
-  br label %607
-
-607:                                              ; preds = %592
-  br label %608
-
-608:                                              ; preds = %607
-  call void @opal_obj_run_destructors(ptr noundef %17)
+594:                                              ; preds = %593
+  %595 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 7
+  %596 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %595, i32 0, i32 0
+  %597 = load ptr, ptr %596, align 8
+  %598 = load ptr, ptr %4, align 8
+  %599 = getelementptr inbounds %struct.ompi_communicator_t, ptr %598, i32 0, i32 23
+  %600 = load ptr, ptr %599, align 8
+  %601 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %600, i32 0, i32 30
+  store ptr %597, ptr %601, align 8
+  %602 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %13, i32 0, i32 7
+  %603 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %602, i32 0, i32 1
+  %604 = load ptr, ptr %603, align 8
+  %605 = load ptr, ptr %4, align 8
+  %606 = getelementptr inbounds %struct.ompi_communicator_t, ptr %605, i32 0, i32 23
+  %607 = load ptr, ptr %606, align 8
+  %608 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %607, i32 0, i32 31
+  store ptr %604, ptr %608, align 8
   br label %609
 
-609:                                              ; preds = %608
+609:                                              ; preds = %594
+  br label %610
+
+610:                                              ; preds = %609
+  call void @opal_obj_run_destructors(ptr noundef %17)
+  br label %611
+
+611:                                              ; preds = %610
   store i32 0, ptr %3, align 4
-  br label %628
+  br label %630
 
-610:                                              ; preds = %491, %462, %446, %304
-  %611 = load ptr, ptr %11, align 8
-  %612 = load ptr, ptr %611, align 8
-  %613 = icmp ne ptr null, %612
-  br i1 %613, label %614, label %618
+612:                                              ; preds = %493, %464, %448, %305
+  %613 = load ptr, ptr %11, align 8
+  %614 = load ptr, ptr %613, align 8
+  %615 = icmp ne ptr null, %614
+  br i1 %615, label %616, label %620
 
-614:                                              ; preds = %610
-  %615 = load ptr, ptr %11, align 8
-  %616 = call i32 @ompi_comm_free(ptr noundef %615)
+616:                                              ; preds = %612
   %617 = load ptr, ptr %11, align 8
-  store ptr null, ptr %617, align 8
-  br label %618
+  %618 = call i32 @ompi_comm_free(ptr noundef %617)
+  %619 = load ptr, ptr %11, align 8
+  store ptr null, ptr %619, align 8
+  br label %620
 
-618:                                              ; preds = %614, %610
-  %619 = load ptr, ptr %12, align 8
-  %620 = load ptr, ptr %619, align 8
-  %621 = icmp ne ptr null, %620
-  br i1 %621, label %622, label %626
+620:                                              ; preds = %616, %612
+  %621 = load ptr, ptr %12, align 8
+  %622 = load ptr, ptr %621, align 8
+  %623 = icmp ne ptr null, %622
+  br i1 %623, label %624, label %628
 
-622:                                              ; preds = %618
-  %623 = load ptr, ptr %12, align 8
-  %624 = call i32 @ompi_comm_free(ptr noundef %623)
+624:                                              ; preds = %620
   %625 = load ptr, ptr %12, align 8
-  store ptr null, ptr %625, align 8
-  br label %626
-
-626:                                              ; preds = %622, %618
-  %627 = load i32, ptr %14, align 4
-  store i32 %627, ptr %3, align 4
+  %626 = call i32 @ompi_comm_free(ptr noundef %625)
+  %627 = load ptr, ptr %12, align 8
+  store ptr null, ptr %627, align 8
   br label %628
 
-628:                                              ; preds = %626, %609, %420, %46
-  %629 = load i32, ptr %3, align 4
-  ret i32 %629
+628:                                              ; preds = %624, %620
+  %629 = load i32, ptr %14, align 4
+  store i32 %629, ptr %3, align 4
+  br label %630
+
+630:                                              ; preds = %628, %611, %421, %46
+  %631 = load i32, ptr %3, align 4
+  ret i32 %631
 }
 
 declare i32 @ompi_group_count_local_peers(ptr noundef) #1
@@ -1062,7 +1064,7 @@ define i32 @mca_coll_han_comm_create(ptr noundef %0, ptr noundef %1) #0 {
 
 37:                                               ; preds = %32
   store i32 0, ptr %3, align 4
-  br label %609
+  br label %611
 
 38:                                               ; preds = %32, %27, %22, %2
   br label %39
@@ -1375,452 +1377,454 @@ define i32 @mca_coll_han_comm_create(ptr noundef %0, ptr noundef %1) #0 {
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %289, i32 0, i32 5
   %291 = load ptr, ptr %290, align 8
-  %292 = call i32 %285(ptr noundef inttoptr (i64 1 to ptr), ptr noundef %17, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef @ompi_mpi_op_max, ptr noundef %286, ptr noundef %291)
-  %293 = load i32, ptr %17, align 4
-  %294 = icmp eq i32 %293, 1
-  br i1 %294, label %295, label %410
+  %292 = inttoptr i64 1 to ptr
+  %293 = call i32 %285(ptr noundef %292, ptr noundef %17, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef @ompi_mpi_op_max, ptr noundef %286, ptr noundef %291)
+  %294 = load i32, ptr %17, align 4
+  %295 = icmp eq i32 %294, 1
+  br i1 %295, label %296, label %411
 
-295:                                              ; preds = %276
-  br label %296
+296:                                              ; preds = %276
+  br label %297
 
-296:                                              ; preds = %295
-  %297 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 1
-  %298 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %297, i32 0, i32 0
-  %299 = load ptr, ptr %298, align 8
-  %300 = load ptr, ptr %4, align 8
-  %301 = getelementptr inbounds %struct.ompi_communicator_t, ptr %300, i32 0, i32 23
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %302, i32 0, i32 2
-  store ptr %299, ptr %303, align 8
-  %304 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 1
-  %305 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %304, i32 0, i32 1
-  %306 = load ptr, ptr %305, align 8
-  %307 = load ptr, ptr %4, align 8
-  %308 = getelementptr inbounds %struct.ompi_communicator_t, ptr %307, i32 0, i32 23
-  %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %309, i32 0, i32 3
-  store ptr %306, ptr %310, align 8
-  br label %311
-
-311:                                              ; preds = %296
+297:                                              ; preds = %296
+  %298 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 1
+  %299 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %298, i32 0, i32 0
+  %300 = load ptr, ptr %299, align 8
+  %301 = load ptr, ptr %4, align 8
+  %302 = getelementptr inbounds %struct.ompi_communicator_t, ptr %301, i32 0, i32 23
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %303, i32 0, i32 2
+  store ptr %300, ptr %304, align 8
+  %305 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 1
+  %306 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %305, i32 0, i32 1
+  %307 = load ptr, ptr %306, align 8
+  %308 = load ptr, ptr %4, align 8
+  %309 = getelementptr inbounds %struct.ompi_communicator_t, ptr %308, i32 0, i32 23
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %310, i32 0, i32 3
+  store ptr %307, ptr %311, align 8
   br label %312
 
-312:                                              ; preds = %311
-  %313 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 0
-  %314 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %313, i32 0, i32 0
-  %315 = load ptr, ptr %314, align 8
-  %316 = load ptr, ptr %4, align 8
-  %317 = getelementptr inbounds %struct.ompi_communicator_t, ptr %316, i32 0, i32 23
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %318, i32 0, i32 0
-  store ptr %315, ptr %319, align 8
-  %320 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 0
-  %321 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %320, i32 0, i32 1
-  %322 = load ptr, ptr %321, align 8
-  %323 = load ptr, ptr %4, align 8
-  %324 = getelementptr inbounds %struct.ompi_communicator_t, ptr %323, i32 0, i32 23
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %325, i32 0, i32 1
-  store ptr %322, ptr %326, align 8
-  br label %327
+312:                                              ; preds = %297
+  br label %313
 
-327:                                              ; preds = %312
+313:                                              ; preds = %312
+  %314 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 0
+  %315 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %314, i32 0, i32 0
+  %316 = load ptr, ptr %315, align 8
+  %317 = load ptr, ptr %4, align 8
+  %318 = getelementptr inbounds %struct.ompi_communicator_t, ptr %317, i32 0, i32 23
+  %319 = load ptr, ptr %318, align 8
+  %320 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %319, i32 0, i32 0
+  store ptr %316, ptr %320, align 8
+  %321 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 0
+  %322 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %321, i32 0, i32 1
+  %323 = load ptr, ptr %322, align 8
+  %324 = load ptr, ptr %4, align 8
+  %325 = getelementptr inbounds %struct.ompi_communicator_t, ptr %324, i32 0, i32 23
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %326, i32 0, i32 1
+  store ptr %323, ptr %327, align 8
   br label %328
 
-328:                                              ; preds = %327
-  %329 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 2
-  %330 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %329, i32 0, i32 0
-  %331 = load ptr, ptr %330, align 8
-  %332 = load ptr, ptr %4, align 8
-  %333 = getelementptr inbounds %struct.ompi_communicator_t, ptr %332, i32 0, i32 23
-  %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %334, i32 0, i32 4
-  store ptr %331, ptr %335, align 8
-  %336 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 2
-  %337 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %336, i32 0, i32 1
-  %338 = load ptr, ptr %337, align 8
-  %339 = load ptr, ptr %4, align 8
-  %340 = getelementptr inbounds %struct.ompi_communicator_t, ptr %339, i32 0, i32 23
-  %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %341, i32 0, i32 5
-  store ptr %338, ptr %342, align 8
-  br label %343
+328:                                              ; preds = %313
+  br label %329
 
-343:                                              ; preds = %328
+329:                                              ; preds = %328
+  %330 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 2
+  %331 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %330, i32 0, i32 0
+  %332 = load ptr, ptr %331, align 8
+  %333 = load ptr, ptr %4, align 8
+  %334 = getelementptr inbounds %struct.ompi_communicator_t, ptr %333, i32 0, i32 23
+  %335 = load ptr, ptr %334, align 8
+  %336 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %335, i32 0, i32 4
+  store ptr %332, ptr %336, align 8
+  %337 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 2
+  %338 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %337, i32 0, i32 1
+  %339 = load ptr, ptr %338, align 8
+  %340 = load ptr, ptr %4, align 8
+  %341 = getelementptr inbounds %struct.ompi_communicator_t, ptr %340, i32 0, i32 23
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %342, i32 0, i32 5
+  store ptr %339, ptr %343, align 8
   br label %344
 
-344:                                              ; preds = %343
-  %345 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 4
-  %346 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %345, i32 0, i32 0
-  %347 = load ptr, ptr %346, align 8
-  %348 = load ptr, ptr %4, align 8
-  %349 = getelementptr inbounds %struct.ompi_communicator_t, ptr %348, i32 0, i32 23
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %350, i32 0, i32 14
-  store ptr %347, ptr %351, align 8
-  %352 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 4
-  %353 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %352, i32 0, i32 1
-  %354 = load ptr, ptr %353, align 8
-  %355 = load ptr, ptr %4, align 8
-  %356 = getelementptr inbounds %struct.ompi_communicator_t, ptr %355, i32 0, i32 23
-  %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %357, i32 0, i32 15
-  store ptr %354, ptr %358, align 8
-  br label %359
+344:                                              ; preds = %329
+  br label %345
 
-359:                                              ; preds = %344
+345:                                              ; preds = %344
+  %346 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 4
+  %347 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %346, i32 0, i32 0
+  %348 = load ptr, ptr %347, align 8
+  %349 = load ptr, ptr %4, align 8
+  %350 = getelementptr inbounds %struct.ompi_communicator_t, ptr %349, i32 0, i32 23
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %351, i32 0, i32 14
+  store ptr %348, ptr %352, align 8
+  %353 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 4
+  %354 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %353, i32 0, i32 1
+  %355 = load ptr, ptr %354, align 8
+  %356 = load ptr, ptr %4, align 8
+  %357 = getelementptr inbounds %struct.ompi_communicator_t, ptr %356, i32 0, i32 23
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %358, i32 0, i32 15
+  store ptr %355, ptr %359, align 8
   br label %360
 
-360:                                              ; preds = %359
-  %361 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 5
-  %362 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %361, i32 0, i32 0
-  %363 = load ptr, ptr %362, align 8
-  %364 = load ptr, ptr %4, align 8
-  %365 = getelementptr inbounds %struct.ompi_communicator_t, ptr %364, i32 0, i32 23
-  %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %366, i32 0, i32 22
-  store ptr %363, ptr %367, align 8
-  %368 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 5
-  %369 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %368, i32 0, i32 1
-  %370 = load ptr, ptr %369, align 8
-  %371 = load ptr, ptr %4, align 8
-  %372 = getelementptr inbounds %struct.ompi_communicator_t, ptr %371, i32 0, i32 23
-  %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %373, i32 0, i32 23
-  store ptr %370, ptr %374, align 8
-  br label %375
+360:                                              ; preds = %345
+  br label %361
 
-375:                                              ; preds = %360
+361:                                              ; preds = %360
+  %362 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 5
+  %363 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %362, i32 0, i32 0
+  %364 = load ptr, ptr %363, align 8
+  %365 = load ptr, ptr %4, align 8
+  %366 = getelementptr inbounds %struct.ompi_communicator_t, ptr %365, i32 0, i32 23
+  %367 = load ptr, ptr %366, align 8
+  %368 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %367, i32 0, i32 22
+  store ptr %364, ptr %368, align 8
+  %369 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 5
+  %370 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %369, i32 0, i32 1
+  %371 = load ptr, ptr %370, align 8
+  %372 = load ptr, ptr %4, align 8
+  %373 = getelementptr inbounds %struct.ompi_communicator_t, ptr %372, i32 0, i32 23
+  %374 = load ptr, ptr %373, align 8
+  %375 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %374, i32 0, i32 23
+  store ptr %371, ptr %375, align 8
   br label %376
 
-376:                                              ; preds = %375
-  %377 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 6
-  %378 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %377, i32 0, i32 0
-  %379 = load ptr, ptr %378, align 8
-  %380 = load ptr, ptr %4, align 8
-  %381 = getelementptr inbounds %struct.ompi_communicator_t, ptr %380, i32 0, i32 23
-  %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %382, i32 0, i32 18
-  store ptr %379, ptr %383, align 8
-  %384 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 6
-  %385 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %384, i32 0, i32 1
-  %386 = load ptr, ptr %385, align 8
-  %387 = load ptr, ptr %4, align 8
-  %388 = getelementptr inbounds %struct.ompi_communicator_t, ptr %387, i32 0, i32 23
-  %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %389, i32 0, i32 19
-  store ptr %386, ptr %390, align 8
-  br label %391
+376:                                              ; preds = %361
+  br label %377
 
-391:                                              ; preds = %376
+377:                                              ; preds = %376
+  %378 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 6
+  %379 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %378, i32 0, i32 0
+  %380 = load ptr, ptr %379, align 8
+  %381 = load ptr, ptr %4, align 8
+  %382 = getelementptr inbounds %struct.ompi_communicator_t, ptr %381, i32 0, i32 23
+  %383 = load ptr, ptr %382, align 8
+  %384 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %383, i32 0, i32 18
+  store ptr %380, ptr %384, align 8
+  %385 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 6
+  %386 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %385, i32 0, i32 1
+  %387 = load ptr, ptr %386, align 8
+  %388 = load ptr, ptr %4, align 8
+  %389 = getelementptr inbounds %struct.ompi_communicator_t, ptr %388, i32 0, i32 23
+  %390 = load ptr, ptr %389, align 8
+  %391 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %390, i32 0, i32 19
+  store ptr %387, ptr %391, align 8
   br label %392
 
-392:                                              ; preds = %391
-  %393 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 7
-  %394 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %393, i32 0, i32 0
-  %395 = load ptr, ptr %394, align 8
-  %396 = load ptr, ptr %4, align 8
-  %397 = getelementptr inbounds %struct.ompi_communicator_t, ptr %396, i32 0, i32 23
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %398, i32 0, i32 30
-  store ptr %395, ptr %399, align 8
-  %400 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 7
-  %401 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %400, i32 0, i32 1
-  %402 = load ptr, ptr %401, align 8
-  %403 = load ptr, ptr %4, align 8
-  %404 = getelementptr inbounds %struct.ompi_communicator_t, ptr %403, i32 0, i32 23
-  %405 = load ptr, ptr %404, align 8
-  %406 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %405, i32 0, i32 31
-  store ptr %402, ptr %406, align 8
-  br label %407
+392:                                              ; preds = %377
+  br label %393
 
-407:                                              ; preds = %392
-  %408 = load ptr, ptr %5, align 8
-  %409 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %408, i32 0, i32 1
-  store i8 0, ptr %409, align 8
+393:                                              ; preds = %392
+  %394 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 7
+  %395 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %394, i32 0, i32 0
+  %396 = load ptr, ptr %395, align 8
+  %397 = load ptr, ptr %4, align 8
+  %398 = getelementptr inbounds %struct.ompi_communicator_t, ptr %397, i32 0, i32 23
+  %399 = load ptr, ptr %398, align 8
+  %400 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %399, i32 0, i32 30
+  store ptr %396, ptr %400, align 8
+  %401 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 7
+  %402 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %401, i32 0, i32 1
+  %403 = load ptr, ptr %402, align 8
+  %404 = load ptr, ptr %4, align 8
+  %405 = getelementptr inbounds %struct.ompi_communicator_t, ptr %404, i32 0, i32 23
+  %406 = load ptr, ptr %405, align 8
+  %407 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %406, i32 0, i32 31
+  store ptr %403, ptr %407, align 8
+  br label %408
+
+408:                                              ; preds = %393
+  %409 = load ptr, ptr %5, align 8
+  %410 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %409, i32 0, i32 1
+  store i8 0, ptr %410, align 8
   store i32 -8, ptr %3, align 4
-  br label %609
+  br label %611
 
-410:                                              ; preds = %276
-  %411 = load ptr, ptr %4, align 8
-  %412 = call i32 @ompi_comm_rank(ptr noundef %411)
-  store i32 %412, ptr %9, align 4
-  %413 = load ptr, ptr %4, align 8
-  %414 = call i32 @ompi_comm_size(ptr noundef %413)
-  store i32 %414, ptr %10, align 4
-  %415 = call noalias ptr @malloc(i64 noundef 16) #3
-  store ptr %415, ptr %12, align 8
+411:                                              ; preds = %276
+  %412 = load ptr, ptr %4, align 8
+  %413 = call i32 @ompi_comm_rank(ptr noundef %412)
+  store i32 %413, ptr %9, align 4
+  %414 = load ptr, ptr %4, align 8
+  %415 = call i32 @ompi_comm_size(ptr noundef %414)
+  store i32 %415, ptr %10, align 4
   %416 = call noalias ptr @malloc(i64 noundef 16) #3
-  store ptr %416, ptr %13, align 8
-  br label %417
-
-417:                                              ; preds = %410
+  store ptr %416, ptr %12, align 8
+  %417 = call noalias ptr @malloc(i64 noundef 16) #3
+  store ptr %417, ptr %13, align 8
   br label %418
 
-418:                                              ; preds = %417
-  %419 = load i32, ptr @opal_class_init_epoch, align 4
-  %420 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i32 0, i32 4), align 8
-  %421 = icmp ne i32 %419, %420
-  br i1 %421, label %422, label %423
+418:                                              ; preds = %411
+  br label %419
 
-422:                                              ; preds = %418
+419:                                              ; preds = %418
+  %420 = load i32, ptr @opal_class_init_epoch, align 4
+  %421 = getelementptr inbounds %struct.opal_class_t, ptr @opal_info_t_class, i32 0, i32 4
+  %422 = load i32, ptr %421, align 8
+  %423 = icmp ne i32 %420, %422
+  br i1 %423, label %424, label %425
+
+424:                                              ; preds = %419
   call void @opal_class_initialize(ptr noundef @opal_info_t_class)
-  br label %423
+  br label %425
 
-423:                                              ; preds = %422, %418
-  %424 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 0
-  store ptr @opal_info_t_class, ptr %424, align 8
-  %425 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 1
-  store volatile i32 1, ptr %425, align 8
+425:                                              ; preds = %424, %419
+  %426 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 0
+  store ptr @opal_info_t_class, ptr %426, align 8
+  %427 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 1
+  store volatile i32 1, ptr %427, align 8
   call void @opal_obj_run_constructors(ptr noundef %16)
-  br label %426
+  br label %428
 
-426:                                              ; preds = %423
-  br label %427
+428:                                              ; preds = %425
+  br label %429
 
-427:                                              ; preds = %426
-  %428 = call i32 @opal_info_set(ptr noundef %16, ptr noundef @.str, ptr noundef @.str.5)
-  %429 = load ptr, ptr %4, align 8
-  %430 = load ptr, ptr %12, align 8
-  %431 = getelementptr inbounds ptr, ptr %430, i64 0
-  %432 = call i32 @ompi_comm_split_type(ptr noundef %429, i32 noundef 0, i32 noundef 0, ptr noundef %16, ptr noundef %431)
-  %433 = load ptr, ptr %12, align 8
-  %434 = getelementptr inbounds ptr, ptr %433, i64 0
-  %435 = load ptr, ptr %434, align 8
-  %436 = call i32 @ompi_comm_size(ptr noundef %435)
-  store i32 %436, ptr %7, align 4
-  %437 = load ptr, ptr %12, align 8
-  %438 = getelementptr inbounds ptr, ptr %437, i64 0
-  %439 = load ptr, ptr %438, align 8
-  %440 = call i32 @ompi_comm_rank(ptr noundef %439)
-  store i32 %440, ptr %6, align 4
-  %441 = call i32 @opal_info_set(ptr noundef %16, ptr noundef @.str, ptr noundef @.str.6)
-  %442 = load ptr, ptr %4, align 8
-  %443 = load ptr, ptr %12, align 8
-  %444 = getelementptr inbounds ptr, ptr %443, i64 1
-  %445 = call i32 @ompi_comm_split_type(ptr noundef %442, i32 noundef 0, i32 noundef 0, ptr noundef %16, ptr noundef %444)
-  %446 = call i32 @opal_info_set(ptr noundef %16, ptr noundef @.str, ptr noundef @.str.7)
-  %447 = load ptr, ptr %4, align 8
-  %448 = load i32, ptr %6, align 4
-  %449 = load i32, ptr %9, align 4
-  %450 = load ptr, ptr %13, align 8
-  %451 = getelementptr inbounds ptr, ptr %450, i64 0
-  %452 = call i32 @ompi_comm_split_with_info(ptr noundef %447, i32 noundef %448, i32 noundef %449, ptr noundef %16, ptr noundef %451, i1 noundef zeroext false)
-  %453 = load ptr, ptr %13, align 8
-  %454 = getelementptr inbounds ptr, ptr %453, i64 0
-  %455 = load ptr, ptr %454, align 8
-  %456 = call i32 @ompi_comm_rank(ptr noundef %455)
-  store i32 %456, ptr %8, align 4
-  %457 = call i32 @opal_info_set(ptr noundef %16, ptr noundef @.str, ptr noundef @.str.8)
-  %458 = load ptr, ptr %4, align 8
-  %459 = load i32, ptr %6, align 4
-  %460 = load i32, ptr %9, align 4
-  %461 = load ptr, ptr %13, align 8
-  %462 = getelementptr inbounds ptr, ptr %461, i64 1
-  %463 = call i32 @ompi_comm_split_with_info(ptr noundef %458, i32 noundef %459, i32 noundef %460, ptr noundef %16, ptr noundef %462, i1 noundef zeroext false)
-  %464 = load i32, ptr %7, align 4
-  %465 = load i32, ptr %8, align 4
-  %466 = mul nsw i32 %464, %465
-  %467 = load i32, ptr %6, align 4
-  %468 = add nsw i32 %466, %467
-  store i32 %468, ptr %14, align 4
-  %469 = load i32, ptr %10, align 4
-  %470 = sext i32 %469 to i64
-  %471 = mul i64 4, %470
-  %472 = call noalias ptr @malloc(i64 noundef %471) #3
-  store ptr %472, ptr %15, align 8
-  %473 = load ptr, ptr %4, align 8
-  %474 = getelementptr inbounds %struct.ompi_communicator_t, ptr %473, i32 0, i32 23
-  %475 = load ptr, ptr %474, align 8
-  %476 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %475, i32 0, i32 0
+429:                                              ; preds = %428
+  %430 = call i32 @opal_info_set(ptr noundef %16, ptr noundef @.str, ptr noundef @.str.5)
+  %431 = load ptr, ptr %4, align 8
+  %432 = load ptr, ptr %12, align 8
+  %433 = getelementptr inbounds ptr, ptr %432, i64 0
+  %434 = call i32 @ompi_comm_split_type(ptr noundef %431, i32 noundef 0, i32 noundef 0, ptr noundef %16, ptr noundef %433)
+  %435 = load ptr, ptr %12, align 8
+  %436 = getelementptr inbounds ptr, ptr %435, i64 0
+  %437 = load ptr, ptr %436, align 8
+  %438 = call i32 @ompi_comm_size(ptr noundef %437)
+  store i32 %438, ptr %7, align 4
+  %439 = load ptr, ptr %12, align 8
+  %440 = getelementptr inbounds ptr, ptr %439, i64 0
+  %441 = load ptr, ptr %440, align 8
+  %442 = call i32 @ompi_comm_rank(ptr noundef %441)
+  store i32 %442, ptr %6, align 4
+  %443 = call i32 @opal_info_set(ptr noundef %16, ptr noundef @.str, ptr noundef @.str.6)
+  %444 = load ptr, ptr %4, align 8
+  %445 = load ptr, ptr %12, align 8
+  %446 = getelementptr inbounds ptr, ptr %445, i64 1
+  %447 = call i32 @ompi_comm_split_type(ptr noundef %444, i32 noundef 0, i32 noundef 0, ptr noundef %16, ptr noundef %446)
+  %448 = call i32 @opal_info_set(ptr noundef %16, ptr noundef @.str, ptr noundef @.str.7)
+  %449 = load ptr, ptr %4, align 8
+  %450 = load i32, ptr %6, align 4
+  %451 = load i32, ptr %9, align 4
+  %452 = load ptr, ptr %13, align 8
+  %453 = getelementptr inbounds ptr, ptr %452, i64 0
+  %454 = call i32 @ompi_comm_split_with_info(ptr noundef %449, i32 noundef %450, i32 noundef %451, ptr noundef %16, ptr noundef %453, i1 noundef zeroext false)
+  %455 = load ptr, ptr %13, align 8
+  %456 = getelementptr inbounds ptr, ptr %455, i64 0
+  %457 = load ptr, ptr %456, align 8
+  %458 = call i32 @ompi_comm_rank(ptr noundef %457)
+  store i32 %458, ptr %8, align 4
+  %459 = call i32 @opal_info_set(ptr noundef %16, ptr noundef @.str, ptr noundef @.str.8)
+  %460 = load ptr, ptr %4, align 8
+  %461 = load i32, ptr %6, align 4
+  %462 = load i32, ptr %9, align 4
+  %463 = load ptr, ptr %13, align 8
+  %464 = getelementptr inbounds ptr, ptr %463, i64 1
+  %465 = call i32 @ompi_comm_split_with_info(ptr noundef %460, i32 noundef %461, i32 noundef %462, ptr noundef %16, ptr noundef %464, i1 noundef zeroext false)
+  %466 = load i32, ptr %7, align 4
+  %467 = load i32, ptr %8, align 4
+  %468 = mul nsw i32 %466, %467
+  %469 = load i32, ptr %6, align 4
+  %470 = add nsw i32 %468, %469
+  store i32 %470, ptr %14, align 4
+  %471 = load i32, ptr %10, align 4
+  %472 = sext i32 %471 to i64
+  %473 = mul i64 4, %472
+  %474 = call noalias ptr @malloc(i64 noundef %473) #3
+  store ptr %474, ptr %15, align 8
+  %475 = load ptr, ptr %4, align 8
+  %476 = getelementptr inbounds %struct.ompi_communicator_t, ptr %475, i32 0, i32 23
   %477 = load ptr, ptr %476, align 8
-  %478 = load ptr, ptr %15, align 8
-  %479 = load ptr, ptr %4, align 8
-  %480 = load ptr, ptr %4, align 8
-  %481 = getelementptr inbounds %struct.ompi_communicator_t, ptr %480, i32 0, i32 23
-  %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %482, i32 0, i32 1
+  %478 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %477, i32 0, i32 0
+  %479 = load ptr, ptr %478, align 8
+  %480 = load ptr, ptr %15, align 8
+  %481 = load ptr, ptr %4, align 8
+  %482 = load ptr, ptr %4, align 8
+  %483 = getelementptr inbounds %struct.ompi_communicator_t, ptr %482, i32 0, i32 23
   %484 = load ptr, ptr %483, align 8
-  %485 = call i32 %477(ptr noundef %14, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef %478, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef %479, ptr noundef %484)
-  %486 = load ptr, ptr %12, align 8
-  %487 = load ptr, ptr %5, align 8
-  %488 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %487, i32 0, i32 4
-  store ptr %486, ptr %488, align 8
-  %489 = load ptr, ptr %13, align 8
-  %490 = load ptr, ptr %5, align 8
-  %491 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %490, i32 0, i32 5
-  store ptr %489, ptr %491, align 8
-  %492 = load ptr, ptr %15, align 8
-  %493 = load ptr, ptr %5, align 8
-  %494 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %493, i32 0, i32 6
-  store ptr %492, ptr %494, align 8
-  br label %495
+  %485 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %484, i32 0, i32 1
+  %486 = load ptr, ptr %485, align 8
+  %487 = call i32 %479(ptr noundef %14, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef %480, i32 noundef 1, ptr noundef @ompi_mpi_int, ptr noundef %481, ptr noundef %486)
+  %488 = load ptr, ptr %12, align 8
+  %489 = load ptr, ptr %5, align 8
+  %490 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %489, i32 0, i32 4
+  store ptr %488, ptr %490, align 8
+  %491 = load ptr, ptr %13, align 8
+  %492 = load ptr, ptr %5, align 8
+  %493 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %492, i32 0, i32 5
+  store ptr %491, ptr %493, align 8
+  %494 = load ptr, ptr %15, align 8
+  %495 = load ptr, ptr %5, align 8
+  %496 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %495, i32 0, i32 6
+  store ptr %494, ptr %496, align 8
+  br label %497
 
-495:                                              ; preds = %427
-  %496 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 1
-  %497 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %496, i32 0, i32 0
-  %498 = load ptr, ptr %497, align 8
-  %499 = load ptr, ptr %4, align 8
-  %500 = getelementptr inbounds %struct.ompi_communicator_t, ptr %499, i32 0, i32 23
-  %501 = load ptr, ptr %500, align 8
-  %502 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %501, i32 0, i32 2
-  store ptr %498, ptr %502, align 8
-  %503 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 1
-  %504 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %503, i32 0, i32 1
-  %505 = load ptr, ptr %504, align 8
-  %506 = load ptr, ptr %4, align 8
-  %507 = getelementptr inbounds %struct.ompi_communicator_t, ptr %506, i32 0, i32 23
-  %508 = load ptr, ptr %507, align 8
-  %509 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %508, i32 0, i32 3
-  store ptr %505, ptr %509, align 8
-  br label %510
+497:                                              ; preds = %429
+  %498 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 1
+  %499 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %498, i32 0, i32 0
+  %500 = load ptr, ptr %499, align 8
+  %501 = load ptr, ptr %4, align 8
+  %502 = getelementptr inbounds %struct.ompi_communicator_t, ptr %501, i32 0, i32 23
+  %503 = load ptr, ptr %502, align 8
+  %504 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %503, i32 0, i32 2
+  store ptr %500, ptr %504, align 8
+  %505 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 1
+  %506 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %505, i32 0, i32 1
+  %507 = load ptr, ptr %506, align 8
+  %508 = load ptr, ptr %4, align 8
+  %509 = getelementptr inbounds %struct.ompi_communicator_t, ptr %508, i32 0, i32 23
+  %510 = load ptr, ptr %509, align 8
+  %511 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %510, i32 0, i32 3
+  store ptr %507, ptr %511, align 8
+  br label %512
 
-510:                                              ; preds = %495
-  br label %511
+512:                                              ; preds = %497
+  br label %513
 
-511:                                              ; preds = %510
-  %512 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 0
-  %513 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %512, i32 0, i32 0
-  %514 = load ptr, ptr %513, align 8
-  %515 = load ptr, ptr %4, align 8
-  %516 = getelementptr inbounds %struct.ompi_communicator_t, ptr %515, i32 0, i32 23
-  %517 = load ptr, ptr %516, align 8
-  %518 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %517, i32 0, i32 0
-  store ptr %514, ptr %518, align 8
-  %519 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 0
-  %520 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %519, i32 0, i32 1
-  %521 = load ptr, ptr %520, align 8
-  %522 = load ptr, ptr %4, align 8
-  %523 = getelementptr inbounds %struct.ompi_communicator_t, ptr %522, i32 0, i32 23
-  %524 = load ptr, ptr %523, align 8
-  %525 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %524, i32 0, i32 1
-  store ptr %521, ptr %525, align 8
-  br label %526
+513:                                              ; preds = %512
+  %514 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 0
+  %515 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %514, i32 0, i32 0
+  %516 = load ptr, ptr %515, align 8
+  %517 = load ptr, ptr %4, align 8
+  %518 = getelementptr inbounds %struct.ompi_communicator_t, ptr %517, i32 0, i32 23
+  %519 = load ptr, ptr %518, align 8
+  %520 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %519, i32 0, i32 0
+  store ptr %516, ptr %520, align 8
+  %521 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 0
+  %522 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %521, i32 0, i32 1
+  %523 = load ptr, ptr %522, align 8
+  %524 = load ptr, ptr %4, align 8
+  %525 = getelementptr inbounds %struct.ompi_communicator_t, ptr %524, i32 0, i32 23
+  %526 = load ptr, ptr %525, align 8
+  %527 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %526, i32 0, i32 1
+  store ptr %523, ptr %527, align 8
+  br label %528
 
-526:                                              ; preds = %511
-  br label %527
+528:                                              ; preds = %513
+  br label %529
 
-527:                                              ; preds = %526
-  %528 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 2
-  %529 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %528, i32 0, i32 0
-  %530 = load ptr, ptr %529, align 8
-  %531 = load ptr, ptr %4, align 8
-  %532 = getelementptr inbounds %struct.ompi_communicator_t, ptr %531, i32 0, i32 23
-  %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %533, i32 0, i32 4
-  store ptr %530, ptr %534, align 8
-  %535 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 2
-  %536 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %535, i32 0, i32 1
-  %537 = load ptr, ptr %536, align 8
-  %538 = load ptr, ptr %4, align 8
-  %539 = getelementptr inbounds %struct.ompi_communicator_t, ptr %538, i32 0, i32 23
-  %540 = load ptr, ptr %539, align 8
-  %541 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %540, i32 0, i32 5
-  store ptr %537, ptr %541, align 8
-  br label %542
+529:                                              ; preds = %528
+  %530 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 2
+  %531 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %530, i32 0, i32 0
+  %532 = load ptr, ptr %531, align 8
+  %533 = load ptr, ptr %4, align 8
+  %534 = getelementptr inbounds %struct.ompi_communicator_t, ptr %533, i32 0, i32 23
+  %535 = load ptr, ptr %534, align 8
+  %536 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %535, i32 0, i32 4
+  store ptr %532, ptr %536, align 8
+  %537 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 2
+  %538 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %537, i32 0, i32 1
+  %539 = load ptr, ptr %538, align 8
+  %540 = load ptr, ptr %4, align 8
+  %541 = getelementptr inbounds %struct.ompi_communicator_t, ptr %540, i32 0, i32 23
+  %542 = load ptr, ptr %541, align 8
+  %543 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %542, i32 0, i32 5
+  store ptr %539, ptr %543, align 8
+  br label %544
 
-542:                                              ; preds = %527
-  br label %543
+544:                                              ; preds = %529
+  br label %545
 
-543:                                              ; preds = %542
-  %544 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 4
-  %545 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %544, i32 0, i32 0
-  %546 = load ptr, ptr %545, align 8
-  %547 = load ptr, ptr %4, align 8
-  %548 = getelementptr inbounds %struct.ompi_communicator_t, ptr %547, i32 0, i32 23
-  %549 = load ptr, ptr %548, align 8
-  %550 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %549, i32 0, i32 14
-  store ptr %546, ptr %550, align 8
-  %551 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 4
-  %552 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %551, i32 0, i32 1
-  %553 = load ptr, ptr %552, align 8
-  %554 = load ptr, ptr %4, align 8
-  %555 = getelementptr inbounds %struct.ompi_communicator_t, ptr %554, i32 0, i32 23
-  %556 = load ptr, ptr %555, align 8
-  %557 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %556, i32 0, i32 15
-  store ptr %553, ptr %557, align 8
-  br label %558
+545:                                              ; preds = %544
+  %546 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 4
+  %547 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %546, i32 0, i32 0
+  %548 = load ptr, ptr %547, align 8
+  %549 = load ptr, ptr %4, align 8
+  %550 = getelementptr inbounds %struct.ompi_communicator_t, ptr %549, i32 0, i32 23
+  %551 = load ptr, ptr %550, align 8
+  %552 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %551, i32 0, i32 14
+  store ptr %548, ptr %552, align 8
+  %553 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 4
+  %554 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %553, i32 0, i32 1
+  %555 = load ptr, ptr %554, align 8
+  %556 = load ptr, ptr %4, align 8
+  %557 = getelementptr inbounds %struct.ompi_communicator_t, ptr %556, i32 0, i32 23
+  %558 = load ptr, ptr %557, align 8
+  %559 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %558, i32 0, i32 15
+  store ptr %555, ptr %559, align 8
+  br label %560
 
-558:                                              ; preds = %543
-  br label %559
+560:                                              ; preds = %545
+  br label %561
 
-559:                                              ; preds = %558
-  %560 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 5
-  %561 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %560, i32 0, i32 0
-  %562 = load ptr, ptr %561, align 8
-  %563 = load ptr, ptr %4, align 8
-  %564 = getelementptr inbounds %struct.ompi_communicator_t, ptr %563, i32 0, i32 23
-  %565 = load ptr, ptr %564, align 8
-  %566 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %565, i32 0, i32 22
-  store ptr %562, ptr %566, align 8
-  %567 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 5
-  %568 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %567, i32 0, i32 1
-  %569 = load ptr, ptr %568, align 8
-  %570 = load ptr, ptr %4, align 8
-  %571 = getelementptr inbounds %struct.ompi_communicator_t, ptr %570, i32 0, i32 23
-  %572 = load ptr, ptr %571, align 8
-  %573 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %572, i32 0, i32 23
-  store ptr %569, ptr %573, align 8
-  br label %574
+561:                                              ; preds = %560
+  %562 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 5
+  %563 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %562, i32 0, i32 0
+  %564 = load ptr, ptr %563, align 8
+  %565 = load ptr, ptr %4, align 8
+  %566 = getelementptr inbounds %struct.ompi_communicator_t, ptr %565, i32 0, i32 23
+  %567 = load ptr, ptr %566, align 8
+  %568 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %567, i32 0, i32 22
+  store ptr %564, ptr %568, align 8
+  %569 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 5
+  %570 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %569, i32 0, i32 1
+  %571 = load ptr, ptr %570, align 8
+  %572 = load ptr, ptr %4, align 8
+  %573 = getelementptr inbounds %struct.ompi_communicator_t, ptr %572, i32 0, i32 23
+  %574 = load ptr, ptr %573, align 8
+  %575 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %574, i32 0, i32 23
+  store ptr %571, ptr %575, align 8
+  br label %576
 
-574:                                              ; preds = %559
-  br label %575
+576:                                              ; preds = %561
+  br label %577
 
-575:                                              ; preds = %574
-  %576 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 6
-  %577 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %576, i32 0, i32 0
-  %578 = load ptr, ptr %577, align 8
-  %579 = load ptr, ptr %4, align 8
-  %580 = getelementptr inbounds %struct.ompi_communicator_t, ptr %579, i32 0, i32 23
-  %581 = load ptr, ptr %580, align 8
-  %582 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %581, i32 0, i32 18
-  store ptr %578, ptr %582, align 8
-  %583 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 6
-  %584 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %583, i32 0, i32 1
-  %585 = load ptr, ptr %584, align 8
-  %586 = load ptr, ptr %4, align 8
-  %587 = getelementptr inbounds %struct.ompi_communicator_t, ptr %586, i32 0, i32 23
-  %588 = load ptr, ptr %587, align 8
-  %589 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %588, i32 0, i32 19
-  store ptr %585, ptr %589, align 8
-  br label %590
+577:                                              ; preds = %576
+  %578 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 6
+  %579 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %578, i32 0, i32 0
+  %580 = load ptr, ptr %579, align 8
+  %581 = load ptr, ptr %4, align 8
+  %582 = getelementptr inbounds %struct.ompi_communicator_t, ptr %581, i32 0, i32 23
+  %583 = load ptr, ptr %582, align 8
+  %584 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %583, i32 0, i32 18
+  store ptr %580, ptr %584, align 8
+  %585 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 6
+  %586 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %585, i32 0, i32 1
+  %587 = load ptr, ptr %586, align 8
+  %588 = load ptr, ptr %4, align 8
+  %589 = getelementptr inbounds %struct.ompi_communicator_t, ptr %588, i32 0, i32 23
+  %590 = load ptr, ptr %589, align 8
+  %591 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %590, i32 0, i32 19
+  store ptr %587, ptr %591, align 8
+  br label %592
 
-590:                                              ; preds = %575
-  br label %591
+592:                                              ; preds = %577
+  br label %593
 
-591:                                              ; preds = %590
-  %592 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 7
-  %593 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %592, i32 0, i32 0
-  %594 = load ptr, ptr %593, align 8
-  %595 = load ptr, ptr %4, align 8
-  %596 = getelementptr inbounds %struct.ompi_communicator_t, ptr %595, i32 0, i32 23
-  %597 = load ptr, ptr %596, align 8
-  %598 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %597, i32 0, i32 30
-  store ptr %594, ptr %598, align 8
-  %599 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 7
-  %600 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %599, i32 0, i32 1
-  %601 = load ptr, ptr %600, align 8
-  %602 = load ptr, ptr %4, align 8
-  %603 = getelementptr inbounds %struct.ompi_communicator_t, ptr %602, i32 0, i32 23
-  %604 = load ptr, ptr %603, align 8
-  %605 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %604, i32 0, i32 31
-  store ptr %601, ptr %605, align 8
-  br label %606
-
-606:                                              ; preds = %591
-  br label %607
-
-607:                                              ; preds = %606
-  call void @opal_obj_run_destructors(ptr noundef %16)
+593:                                              ; preds = %592
+  %594 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 7
+  %595 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %594, i32 0, i32 0
+  %596 = load ptr, ptr %595, align 8
+  %597 = load ptr, ptr %4, align 8
+  %598 = getelementptr inbounds %struct.ompi_communicator_t, ptr %597, i32 0, i32 23
+  %599 = load ptr, ptr %598, align 8
+  %600 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %599, i32 0, i32 30
+  store ptr %596, ptr %600, align 8
+  %601 = getelementptr inbounds %struct.mca_coll_han_collectives_fallback_s, ptr %11, i32 0, i32 7
+  %602 = getelementptr inbounds %struct.mca_coll_han_single_collective_fallback_s, ptr %601, i32 0, i32 1
+  %603 = load ptr, ptr %602, align 8
+  %604 = load ptr, ptr %4, align 8
+  %605 = getelementptr inbounds %struct.ompi_communicator_t, ptr %604, i32 0, i32 23
+  %606 = load ptr, ptr %605, align 8
+  %607 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %606, i32 0, i32 31
+  store ptr %603, ptr %607, align 8
   br label %608
 
-608:                                              ; preds = %607
-  store i32 0, ptr %3, align 4
+608:                                              ; preds = %593
   br label %609
 
-609:                                              ; preds = %608, %407, %37
-  %610 = load i32, ptr %3, align 4
-  ret i32 %610
+609:                                              ; preds = %608
+  call void @opal_obj_run_destructors(ptr noundef %16)
+  br label %610
+
+610:                                              ; preds = %609
+  store i32 0, ptr %3, align 4
+  br label %611
+
+611:                                              ; preds = %610, %408, %37
+  %612 = load i32, ptr %3, align 4
+  ret i32 %612
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

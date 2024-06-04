@@ -60,7 +60,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7524ForwardCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7524ForwardCharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -73,7 +74,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -87,7 +89,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #5
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7524ForwardCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7524ForwardCharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -99,7 +102,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -110,7 +114,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7524ForwardCharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
   store i32 0, ptr %textLength, align 8
   %pos = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
@@ -131,20 +136,21 @@ entry:
   store i32 %length, ptr %length.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7524ForwardCharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %length.addr, align 4
-  store i32 %0, ptr %textLength, align 8
+  %1 = load i32, ptr %length.addr, align 4
+  store i32 %1, ptr %textLength, align 8
   %pos = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
   store i32 0, ptr %pos, align 4
   %begin = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
   store i32 0, ptr %begin, align 8
   %end = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %length.addr, align 4
-  store i32 %1, ptr %end, align 4
+  %2 = load i32, ptr %length.addr, align 4
+  store i32 %2, ptr %end, align 4
   %textLength2 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %textLength2, align 8
-  %cmp = icmp slt i32 %2, 0
+  %3 = load i32, ptr %textLength2, align 8
+  %cmp = icmp slt i32 %3, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -169,21 +175,22 @@ entry:
   store i32 %position, ptr %position.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7524ForwardCharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %length.addr, align 4
-  store i32 %0, ptr %textLength, align 8
+  %1 = load i32, ptr %length.addr, align 4
+  store i32 %1, ptr %textLength, align 8
   %pos = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %position.addr, align 4
-  store i32 %1, ptr %pos, align 4
+  %2 = load i32, ptr %position.addr, align 4
+  store i32 %2, ptr %pos, align 4
   %begin = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
   store i32 0, ptr %begin, align 8
   %end = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %length.addr, align 4
-  store i32 %2, ptr %end, align 4
+  %3 = load i32, ptr %length.addr, align 4
+  store i32 %3, ptr %end, align 4
   %textLength2 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %textLength2, align 8
-  %cmp = icmp slt i32 %3, 0
+  %4 = load i32, ptr %textLength2, align 8
+  %cmp = icmp slt i32 %4, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -195,8 +202,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %pos5 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  %4 = load i32, ptr %pos5, align 4
-  %cmp6 = icmp slt i32 %4, 0
+  %5 = load i32, ptr %pos5, align 4
+  %cmp6 = icmp slt i32 %5, 0
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
@@ -206,17 +213,17 @@ if.then7:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %pos9 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %pos9, align 4
+  %6 = load i32, ptr %pos9, align 4
   %end10 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %6 = load i32, ptr %end10, align 4
-  %cmp11 = icmp sgt i32 %5, %6
+  %7 = load i32, ptr %end10, align 4
+  %cmp11 = icmp sgt i32 %6, %7
   br i1 %cmp11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
   %end13 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %7 = load i32, ptr %end13, align 4
+  %8 = load i32, ptr %end13, align 4
   %pos14 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  store i32 %7, ptr %pos14, align 4
+  store i32 %8, ptr %pos14, align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %if.else
@@ -241,22 +248,23 @@ entry:
   store i32 %position, ptr %position.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7524ForwardCharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %length.addr, align 4
-  store i32 %0, ptr %textLength, align 8
+  %1 = load i32, ptr %length.addr, align 4
+  store i32 %1, ptr %textLength, align 8
   %pos = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %position.addr, align 4
-  store i32 %1, ptr %pos, align 4
+  %2 = load i32, ptr %position.addr, align 4
+  store i32 %2, ptr %pos, align 4
   %begin = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %textBegin.addr, align 4
-  store i32 %2, ptr %begin, align 8
+  %3 = load i32, ptr %textBegin.addr, align 4
+  store i32 %3, ptr %begin, align 8
   %end = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %3 = load i32, ptr %textEnd.addr, align 4
-  store i32 %3, ptr %end, align 4
+  %4 = load i32, ptr %textEnd.addr, align 4
+  store i32 %4, ptr %end, align 4
   %textLength2 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %textLength2, align 8
-  %cmp = icmp slt i32 %4, 0
+  %5 = load i32, ptr %textLength2, align 8
+  %cmp = icmp slt i32 %5, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -266,8 +274,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %begin4 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %5 = load i32, ptr %begin4, align 8
-  %cmp5 = icmp slt i32 %5, 0
+  %6 = load i32, ptr %begin4, align 8
+  %cmp5 = icmp slt i32 %6, 0
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
@@ -277,17 +285,17 @@ if.then6:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %begin8 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %6 = load i32, ptr %begin8, align 8
+  %7 = load i32, ptr %begin8, align 8
   %textLength9 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %7 = load i32, ptr %textLength9, align 8
-  %cmp10 = icmp sgt i32 %6, %7
+  %8 = load i32, ptr %textLength9, align 8
+  %cmp10 = icmp sgt i32 %7, %8
   br i1 %cmp10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.else
   %textLength12 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %8 = load i32, ptr %textLength12, align 8
+  %9 = load i32, ptr %textLength12, align 8
   %begin13 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  store i32 %8, ptr %begin13, align 8
+  store i32 %9, ptr %begin13, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.else
@@ -295,32 +303,32 @@ if.end14:                                         ; preds = %if.then11, %if.else
 
 if.end15:                                         ; preds = %if.end14, %if.then6
   %end16 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %9 = load i32, ptr %end16, align 4
+  %10 = load i32, ptr %end16, align 4
   %begin17 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %10 = load i32, ptr %begin17, align 8
-  %cmp18 = icmp slt i32 %9, %10
+  %11 = load i32, ptr %begin17, align 8
+  %cmp18 = icmp slt i32 %10, %11
   br i1 %cmp18, label %if.then19, label %if.else22
 
 if.then19:                                        ; preds = %if.end15
   %begin20 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %11 = load i32, ptr %begin20, align 8
+  %12 = load i32, ptr %begin20, align 8
   %end21 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  store i32 %11, ptr %end21, align 4
+  store i32 %12, ptr %end21, align 4
   br label %if.end30
 
 if.else22:                                        ; preds = %if.end15
   %end23 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %12 = load i32, ptr %end23, align 4
+  %13 = load i32, ptr %end23, align 4
   %textLength24 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %13 = load i32, ptr %textLength24, align 8
-  %cmp25 = icmp sgt i32 %12, %13
+  %14 = load i32, ptr %textLength24, align 8
+  %cmp25 = icmp sgt i32 %13, %14
   br i1 %cmp25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.else22
   %textLength27 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %14 = load i32, ptr %textLength27, align 8
+  %15 = load i32, ptr %textLength27, align 8
   %end28 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  store i32 %14, ptr %end28, align 4
+  store i32 %15, ptr %end28, align 4
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then26, %if.else22
@@ -328,32 +336,32 @@ if.end29:                                         ; preds = %if.then26, %if.else
 
 if.end30:                                         ; preds = %if.end29, %if.then19
   %pos31 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  %15 = load i32, ptr %pos31, align 4
+  %16 = load i32, ptr %pos31, align 4
   %begin32 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %16 = load i32, ptr %begin32, align 8
-  %cmp33 = icmp slt i32 %15, %16
+  %17 = load i32, ptr %begin32, align 8
+  %cmp33 = icmp slt i32 %16, %17
   br i1 %cmp33, label %if.then34, label %if.else37
 
 if.then34:                                        ; preds = %if.end30
   %begin35 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %17 = load i32, ptr %begin35, align 8
+  %18 = load i32, ptr %begin35, align 8
   %pos36 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  store i32 %17, ptr %pos36, align 4
+  store i32 %18, ptr %pos36, align 4
   br label %if.end45
 
 if.else37:                                        ; preds = %if.end30
   %pos38 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  %18 = load i32, ptr %pos38, align 4
+  %19 = load i32, ptr %pos38, align 4
   %end39 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %19 = load i32, ptr %end39, align 4
-  %cmp40 = icmp sgt i32 %18, %19
+  %20 = load i32, ptr %end39, align 4
+  %cmp40 = icmp sgt i32 %19, %20
   br i1 %cmp40, label %if.then41, label %if.end44
 
 if.then41:                                        ; preds = %if.else37
   %end42 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %20 = load i32, ptr %end42, align 4
+  %21 = load i32, ptr %end42, align 4
   %pos43 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  store i32 %20, ptr %pos43, align 4
+  store i32 %21, ptr %pos43, align 4
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then41, %if.else37
@@ -392,27 +400,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %that.addr, align 8
   call void @_ZN6icu_7524ForwardCharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %that.addr, align 8
-  %textLength2 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %textLength2, align 8
-  store i32 %2, ptr %textLength, align 8
+  %2 = load ptr, ptr %that.addr, align 8
+  %textLength2 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %textLength2, align 8
+  store i32 %3, ptr %textLength, align 8
   %pos = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %that.addr, align 8
-  %pos3 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %pos3, align 4
-  store i32 %4, ptr %pos, align 4
+  %4 = load ptr, ptr %that.addr, align 8
+  %pos3 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %pos3, align 4
+  store i32 %5, ptr %pos, align 4
   %begin = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %that.addr, align 8
-  %begin4 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %begin4, align 8
-  store i32 %6, ptr %begin, align 8
+  %6 = load ptr, ptr %that.addr, align 8
+  %begin4 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %6, i32 0, i32 3
+  %7 = load i32, ptr %begin4, align 8
+  store i32 %7, ptr %begin, align 8
   %end = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %that.addr, align 8
-  %end5 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %7, i32 0, i32 4
-  %8 = load i32, ptr %end5, align 4
-  store i32 %8, ptr %end, align 4
+  %8 = load ptr, ptr %that.addr, align 8
+  %end5 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %8, i32 0, i32 4
+  %9 = load i32, ptr %end5, align 4
+  store i32 %9, ptr %end, align 4
   ret void
 }
 

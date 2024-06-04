@@ -2484,7 +2484,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node18SnapshotableObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEENS_18EmbedderObjectTypeE(ptr noundef nonnull align 8 dereferenceable(33) %this3, ptr noundef %0, ptr %1, i8 noundef zeroext 6)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4node6timers11BindingDataE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN4node6timers11BindingDataE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 }
 
@@ -2830,7 +2831,8 @@ entry:
   %0 = extractvalue { ptr, ptr } %call, 0
   store ptr %0, ptr @_ZN4node6timers11BindingData19fast_get_libuv_now_E, align 8
   %1 = extractvalue { ptr, ptr } %call, 1
-  store ptr %1, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN4node6timers11BindingData19fast_get_libuv_now_E, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds { ptr, ptr }, ptr @_ZN4node6timers11BindingData19fast_get_libuv_now_E, i32 0, i32 1
+  store ptr %1, ptr %2, align 8
   ret void
 }
 
@@ -2859,7 +2861,8 @@ entry:
   %0 = extractvalue { ptr, ptr } %call, 0
   store ptr %0, ptr @_ZN4node6timers11BindingData21fast_schedule_timers_E, align 8
   %1 = extractvalue { ptr, ptr } %call, 1
-  store ptr %1, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN4node6timers11BindingData21fast_schedule_timers_E, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds { ptr, ptr }, ptr @_ZN4node6timers11BindingData21fast_schedule_timers_E, i32 0, i32 1
+  store ptr %1, ptr %2, align 8
   ret void
 }
 
@@ -2888,7 +2891,8 @@ entry:
   %0 = extractvalue { ptr, ptr } %call, 0
   store ptr %0, ptr @_ZN4node6timers11BindingData22fast_toggle_timer_ref_E, align 8
   %1 = extractvalue { ptr, ptr } %call, 1
-  store ptr %1, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN4node6timers11BindingData22fast_toggle_timer_ref_E, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds { ptr, ptr }, ptr @_ZN4node6timers11BindingData22fast_toggle_timer_ref_E, i32 0, i32 1
+  store ptr %1, ptr %2, align 8
   ret void
 }
 
@@ -2917,7 +2921,8 @@ entry:
   %0 = extractvalue { ptr, ptr } %call, 0
   store ptr %0, ptr @_ZN4node6timers11BindingData26fast_toggle_immediate_ref_E, align 8
   %1 = extractvalue { ptr, ptr } %call, 1
-  store ptr %1, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN4node6timers11BindingData26fast_toggle_immediate_ref_E, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds { ptr, ptr }, ptr @_ZN4node6timers11BindingData26fast_toggle_immediate_ref_E, i32 0, i32 1
+  store ptr %1, ptr %2, align 8
   ret void
 }
 

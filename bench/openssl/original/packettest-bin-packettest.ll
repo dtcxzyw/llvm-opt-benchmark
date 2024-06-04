@@ -379,7 +379,8 @@ lor.lhs.false:                                    ; preds = %entry
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = call ptr @PACKET_end(ptr noundef %pkt)
-  %call7 = call i32 @test_ptr_eq(ptr noundef @.str.25, i32 noundef 38, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef %call6, ptr noundef getelementptr inbounds (i8, ptr @smbuf, i64 255))
+  %0 = getelementptr inbounds i8, ptr @smbuf, i64 255
+  %call7 = call i32 @test_ptr_eq(ptr noundef @.str.25, i32 noundef 38, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef %call6, ptr noundef %0)
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %lor.lhs.false9, label %if.then
 
@@ -393,7 +394,8 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false5
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false9
   %call16 = call ptr @PACKET_end(ptr noundef %pkt)
-  %call17 = call i32 @test_ptr_eq(ptr noundef @.str.25, i32 noundef 40, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef %call16, ptr noundef getelementptr inbounds (i8, ptr @smbuf, i64 255))
+  %1 = getelementptr inbounds i8, ptr @smbuf, i64 255
+  %call17 = call i32 @test_ptr_eq(ptr noundef @.str.25, i32 noundef 40, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef %call16, ptr noundef %1)
   %tobool18 = icmp ne i32 %call17, 0
   br i1 %tobool18, label %lor.lhs.false19, label %if.then
 
@@ -407,7 +409,8 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false15
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false19
   %call26 = call ptr @PACKET_end(ptr noundef %pkt)
-  %call27 = call i32 @test_ptr_eq(ptr noundef @.str.25, i32 noundef 42, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef %call26, ptr noundef getelementptr inbounds (i8, ptr @smbuf, i64 255))
+  %2 = getelementptr inbounds i8, ptr @smbuf, i64 255
+  %call27 = call i32 @test_ptr_eq(ptr noundef @.str.25, i32 noundef 42, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef %call26, ptr noundef %2)
   %tobool28 = icmp ne i32 %call27, 0
   br i1 %tobool28, label %if.end, label %if.then
 
@@ -420,8 +423,8 @@ if.end:                                           ; preds = %lor.lhs.false25
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+  %3 = load i32, ptr %retval, align 4
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -445,7 +448,8 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool6, label %lor.lhs.false7, label %if.then
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %call8 = call i32 @PACKET_equal(ptr noundef %pkt, ptr noundef getelementptr inbounds (i8, ptr @smbuf, i64 1), i64 noundef 4)
+  %0 = getelementptr inbounds i8, ptr @smbuf, i64 1
+  %call8 = call i32 @PACKET_equal(ptr noundef %pkt, ptr noundef %0, i64 noundef 4)
   %cmp9 = icmp ne i32 %call8, 0
   %conv10 = zext i1 %cmp9 to i32
   %call11 = call i32 @test_false(ptr noundef @.str.25, i32 noundef 337, ptr noundef @.str.41, i32 noundef %conv10)
@@ -501,8 +505,8 @@ if.end:                                           ; preds = %lor.lhs.false37
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+  %1 = load i32, ptr %retval, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable

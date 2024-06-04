@@ -103,43 +103,45 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @pci_subsys_init() #0 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 1), align 8
-  %2 = tail call i32 %1() #6
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %9, label %4
+  %1 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = tail call i32 %2() #6
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %10, label %5
 
-4:                                                ; preds = %0
-  %5 = tail call i32 @pci_legacy_init() #7, !range !9
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %9, label %7
+5:                                                ; preds = %0
+  %6 = tail call i32 @pci_legacy_init() #7, !range !9
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %10, label %8
 
-7:                                                ; preds = %4
-  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #5
-  br label %21
+8:                                                ; preds = %5
+  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #5
+  br label %23
 
-9:                                                ; preds = %4, %0
-  %10 = load i32, ptr @pcibios_last_bus, align 4
-  %11 = add i32 %10, -256
-  %12 = icmp ult i32 %11, -255
-  br i1 %12, label %18, label %13
+10:                                               ; preds = %5, %0
+  %11 = load i32, ptr @pcibios_last_bus, align 4
+  %12 = add i32 %11, -256
+  %13 = icmp ult i32 %12, -255
+  br i1 %13, label %19, label %14
 
-13:                                               ; preds = %13, %9
-  %14 = phi i32 [ %15, %13 ], [ 0, %9 ]
-  tail call void @pcibios_scan_specific_bus(i32 noundef %14)
-  %15 = add i32 %14, 1
-  %16 = load i32, ptr @pcibios_last_bus, align 4
-  %17 = icmp sgt i32 %15, %16
-  br i1 %17, label %18, label %13, !llvm.loop !10
+14:                                               ; preds = %14, %10
+  %15 = phi i32 [ %16, %14 ], [ 0, %10 ]
+  tail call void @pcibios_scan_specific_bus(i32 noundef %15)
+  %16 = add i32 %15, 1
+  %17 = load i32, ptr @pcibios_last_bus, align 4
+  %18 = icmp sgt i32 %16, %17
+  br i1 %18, label %19, label %14, !llvm.loop !10
 
-18:                                               ; preds = %13, %9
-  %19 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 2), align 8
-  tail call void %19() #6
-  %20 = tail call i32 @pcibios_init() #5
-  br label %21
+19:                                               ; preds = %14, %10
+  %20 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 7, i32 2
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21() #6
+  %22 = tail call i32 @pcibios_init() #5
+  br label %23
 
-21:                                               ; preds = %18, %7
-  %22 = phi i32 [ -19, %7 ], [ 0, %18 ]
-  ret i32 %22
+23:                                               ; preds = %19, %8
+  %24 = phi i32 [ -19, %8 ], [ 0, %19 ]
+  ret i32 %24
 }
 
 ; Function Attrs: cold null_pointer_is_valid

@@ -44,29 +44,30 @@ define dso_local void @pm_vt_switch_required(ptr noundef %0, i1 noundef zeroext 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   store i8 %3, ptr %13, align 8
-  br label %24
+  br label %25
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %16 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 32) #4
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %24, label %18
+  %15 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3264, i64 noundef 32) #4
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %25, label %19
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
-  store i8 %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr %0, ptr %20, align 8
-  %21 = load ptr, ptr @pm_vt_switch_list, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %16, ptr %22, align 8
-  store ptr %21, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr @pm_vt_switch_list, ptr %23, align 8
-  store volatile ptr %16, ptr @pm_vt_switch_list, align 8
-  br label %24
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  store i8 %3, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr %0, ptr %21, align 8
+  %22 = load ptr, ptr @pm_vt_switch_list, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr %17, ptr %23, align 8
+  store ptr %22, ptr %17, align 8
+  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr @pm_vt_switch_list, ptr %24, align 8
+  store volatile ptr %17, ptr @pm_vt_switch_list, align 8
+  br label %25
 
-24:                                               ; preds = %18, %14, %12
+25:                                               ; preds = %19, %14, %12
   tail call void @mutex_unlock(ptr noundef nonnull @vt_switch_mutex) #3
   ret void
 }
@@ -86,7 +87,7 @@ define dso_local void @pm_vt_switch_unregister(ptr noundef readnone %0) #0 align
   %3 = phi ptr [ @pm_vt_switch_list, %1 ], [ %4, %6 ]
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @pm_vt_switch_list
-  br i1 %5, label %15, label %6
+  br i1 %5, label %17, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -101,12 +102,14 @@ define dso_local void @pm_vt_switch_unregister(ptr noundef readnone %0) #0 align
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   store volatile ptr %13, ptr %12, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %11, align 8
+  %15 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %15, ptr %4, align 8
+  %16 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %16, ptr %11, align 8
   tail call void @kfree(ptr noundef %4) #3
-  br label %15
+  br label %17
 
-15:                                               ; preds = %10, %2
+17:                                               ; preds = %10, %2
   tail call void @mutex_unlock(ptr noundef nonnull @vt_switch_mutex) #3
   ret void
 }

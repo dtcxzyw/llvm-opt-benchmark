@@ -1699,57 +1699,58 @@ define void @_ZN2mu6ParserC2Ev(ptr noundef nonnull align 8 dereferenceable(596) 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN2mu10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(596) %5)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu6ParserE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN2mu6ParserE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   invoke void @_ZN2mu10ParserBase11AddValIdentEPFiPKcPiPdE(ptr noundef nonnull align 8 dereferenceable(596) %5, ptr noundef @_ZN2mu6Parser5IsValEPKcPiPd)
-          to label %6 unwind label %23
+          to label %7 unwind label %24
 
-6:                                                ; preds = %1
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 2
-  %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable(596) %5)
-          to label %10 unwind label %23
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 2
+  %10 = load ptr, ptr %9, align 8
+  invoke void %10(ptr noundef nonnull align 8 dereferenceable(596) %5)
+          to label %11 unwind label %24
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 3
-  %13 = load ptr, ptr %12, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(596) %5)
-          to label %14 unwind label %23
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds ptr, ptr %12, i64 3
+  %14 = load ptr, ptr %13, align 8
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(596) %5)
+          to label %15 unwind label %24
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 4
-  %17 = load ptr, ptr %16, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(596) %5)
-          to label %18 unwind label %23
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 4
+  %18 = load ptr, ptr %17, align 8
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(596) %5)
+          to label %19 unwind label %24
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 5
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(596) %5)
-          to label %22 unwind label %23
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 5
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(596) %5)
+          to label %23 unwind label %24
 
-22:                                               ; preds = %18
+23:                                               ; preds = %19
   ret void
 
-23:                                               ; preds = %18, %14, %10, %6, %1
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %19, %15, %11, %7, %1
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
   call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %5) #5
-  br label %27
+  br label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i32, ptr %4, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = load i32, ptr %4, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 declare void @_ZN2mu10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(596)) unnamed_addr #3

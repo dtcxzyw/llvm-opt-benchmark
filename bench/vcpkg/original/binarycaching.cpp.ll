@@ -23804,34 +23804,35 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorage
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %10, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(40) %11) #8
-  %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_114GcsStorageToolEJRKN5vcpkg9ToolCacheERNS5_11MessageSinkEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %10, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(40) %12) #8
+  %13 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #8
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_114GcsStorageToolEJRKN5vcpkg9ToolCacheERNS5_11MessageSinkEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23989,11 +23990,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -24193,44 +24195,45 @@ define internal void @_ZN12_GLOBAL__N_114GcsStorageToolC2ERKN5vcpkg9ToolCacheERN
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::GcsStorageTool", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"struct.(anonymous namespace)::GcsStorageTool", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 @_ZN5vcpkg5ToolsL6GSUTILE, i64 16, i1 false)
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8
-  %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr %15, i64 %17, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %22 unwind label %24
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = load ptr, ptr %13, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr %16, i64 %18, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %23 unwind label %25
 
-22:                                               ; preds = %3
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %23 unwind label %24
+23:                                               ; preds = %3
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %24 unwind label %25
 
-23:                                               ; preds = %22
+24:                                               ; preds = %23
   ret void
 
-24:                                               ; preds = %22, %3
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %23, %3
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %8, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %9, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %8, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %9, align 4
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24238,7 +24241,8 @@ define internal void @_ZN12_GLOBAL__N_118IObjectStorageToolC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118IObjectStorageToolE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118IObjectStorageToolE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -24247,9 +24251,10 @@ define internal void @_ZN12_GLOBAL__N_114GcsStorageToolD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::GcsStorageTool", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::GcsStorageTool", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -33288,35 +33293,36 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorage
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.458", ptr %12, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(48) %13) #8
-  %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(64) %12) #8
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_114AwsStorageToolEJRKN5vcpkg9ToolCacheERNS5_11MessageSinkERbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %4
-  ret void
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.458", ptr %12, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(48) %14) #8
+  %15 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(64) %12) #8
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_114AwsStorageToolEJRKN5vcpkg9ToolCacheERNS5_11MessageSinkERbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %10, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %11, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #8
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %10, align 8
-  %25 = load i32, ptr %11, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %10, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %11, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #8
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33618,49 +33624,50 @@ define internal void @_ZN12_GLOBAL__N_114AwsStorageToolC2ERKN5vcpkg9ToolCacheERN
   store i8 %12, ptr %8, align 1
   %13 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::AwsStorageTool", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::AwsStorageTool", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 @_ZN5vcpkg5ToolsL6AWSCLIE, i64 16, i1 false)
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
-  %20 = load i64, ptr %19, align 8
-  %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 2
-  %23 = load ptr, ptr %22, align 8
-  %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr %18, i64 %20, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %25 unwind label %31
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
+  %22 = load ptr, ptr %16, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr %19, i64 %21, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %26 unwind label %32
 
-25:                                               ; preds = %4
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %26 unwind label %31
+26:                                               ; preds = %4
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %25)
+          to label %27 unwind label %32
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds %"struct.(anonymous namespace)::AwsStorageTool", ptr %13, i32 0, i32 2
-  %28 = load i8, ptr %8, align 1
-  %29 = trunc i8 %28 to i1
-  %30 = zext i1 %29 to i8
-  store i8 %30, ptr %27, align 8
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds %"struct.(anonymous namespace)::AwsStorageTool", ptr %13, i32 0, i32 2
+  %29 = load i8, ptr %8, align 1
+  %30 = trunc i8 %29 to i1
+  %31 = zext i1 %30 to i8
+  store i8 %31, ptr %28, align 8
   ret void
 
-31:                                               ; preds = %25, %4
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %26, %4
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %10, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %11, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %10, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %11, align 4
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #8
-  br label %35
+  br label %36
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %10, align 8
-  %37 = load i32, ptr %11, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %10, align 8
+  %38 = load i32, ptr %11, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33668,9 +33675,10 @@ define internal void @_ZN12_GLOBAL__N_114AwsStorageToolD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::AwsStorageTool", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::AwsStorageTool", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -34671,34 +34679,35 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorage
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.466", ptr %10, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(40) %11) #8
-  %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_114CosStorageToolEJRKN5vcpkg9ToolCacheERNS5_11MessageSinkEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.466", ptr %10, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(40) %12) #8
+  %13 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #8
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_114CosStorageToolEJRKN5vcpkg9ToolCacheERNS5_11MessageSinkEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -34989,44 +34998,45 @@ define internal void @_ZN12_GLOBAL__N_114CosStorageToolC2ERKN5vcpkg9ToolCacheERN
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::CosStorageTool", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"struct.(anonymous namespace)::CosStorageTool", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 @_ZN5vcpkg5ToolsL6COSCLIE, i64 16, i1 false)
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8
-  %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr %15, i64 %17, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %22 unwind label %24
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = load ptr, ptr %13, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr %16, i64 %18, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %23 unwind label %25
 
-22:                                               ; preds = %3
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %23 unwind label %24
+23:                                               ; preds = %3
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %24 unwind label %25
 
-23:                                               ; preds = %22
+24:                                               ; preds = %23
   ret void
 
-24:                                               ; preds = %22, %3
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %23, %3
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %8, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %9, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %8, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %9, align 4
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -35034,9 +35044,10 @@ define internal void @_ZN12_GLOBAL__N_114CosStorageToolD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::CosStorageTool", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::CosStorageTool", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -37086,10 +37097,11 @@ define internal void @_ZN12_GLOBAL__N_123FilesReadBinaryProviderC2EN5vcpkg7ZipTo
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipToolERKNS1_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.(anonymous namespace)::FilesReadBinaryProvider", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %6, align 8
-  call void @_ZN5vcpkg4PathC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #8
+  %9 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"struct.(anonymous namespace)::FilesReadBinaryProvider", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN5vcpkg4PathC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   ret void
 }
 
@@ -37124,10 +37136,11 @@ define internal void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipTool
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg19IReadBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ZipReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::ZipReadBinaryProvider", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ZipReadBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::ZipReadBinaryProvider", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -37150,9 +37163,10 @@ define internal void @_ZN12_GLOBAL__N_123FilesReadBinaryProviderD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::FilesReadBinaryProvider", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::FilesReadBinaryProvider", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
   ret void
 }
@@ -37784,7 +37798,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg19IReadBinaryProviderC2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg19IReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5vcpkg19IReadBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -41756,54 +41771,55 @@ define internal void @_ZN12_GLOBAL__N_121HttpGetBinaryProviderC2EN5vcpkg7ZipTool
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipToolERKNS1_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %13, i32 0, i32 1
-  %16 = load ptr, ptr %8, align 8
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %23
+  %15 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %13, i32 0, i32 1
+  %17 = load ptr, ptr %8, align 8
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %24
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %13, i32 0, i32 2
-  %19 = load ptr, ptr %9, align 8
-  call void @_ZN5vcpkg11UrlTemplateC2EOS0_(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #8
-  %20 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %13, i32 0, i32 3
-  %21 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
-          to label %22 unwind label %27
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %13, i32 0, i32 2
+  %20 = load ptr, ptr %9, align 8
+  call void @_ZN5vcpkg11UrlTemplateC2EOS0_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %20) #8
+  %21 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %13, i32 0, i32 3
+  %22 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
+          to label %23 unwind label %28
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   ret void
 
-23:                                               ; preds = %5
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %5
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %11, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %12, align 4
-  br label %31
-
-27:                                               ; preds = %17
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %11, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %12, align 4
-  call void @_ZN5vcpkg11UrlTemplateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #8
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %11, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %12, align 4
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %11, align 8
-  %34 = load i32, ptr %12, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+28:                                               ; preds = %18
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %11, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %12, align 4
+  call void @_ZN5vcpkg11UrlTemplateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #8
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %11, align 8
+  %35 = load i32, ptr %12, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -41939,13 +41955,14 @@ define internal void @_ZN12_GLOBAL__N_121HttpGetBinaryProviderD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %3, i32 0, i32 2
-  call void @_ZN5vcpkg11UrlTemplateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #8
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %3, i32 0, i32 2
+  call void @_ZN5vcpkg11UrlTemplateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
   ret void
 }
@@ -45303,37 +45320,38 @@ define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderC2EN5vcpkg7ZipTool
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipToolERKNS1_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %13, i32 0, i32 1
-  %16 = load ptr, ptr %8, align 8
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %22
+  %15 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %13, i32 0, i32 1
+  %17 = load ptr, ptr %8, align 8
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %23
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %13, i32 0, i32 2
-  %19 = load ptr, ptr %9, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19) #8
-  %20 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %13, i32 0, i32 3
-  %21 = load ptr, ptr %10, align 8
-  call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21) #8
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %13, i32 0, i32 2
+  %20 = load ptr, ptr %9, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #8
+  %21 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %13, i32 0, i32 3
+  %22 = load ptr, ptr %10, align 8
+  call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22) #8
   ret void
 
-22:                                               ; preds = %5
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %11, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %12, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %11, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %12, align 4
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %11, align 8
-  %28 = load i32, ptr %12, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %11, align 8
+  %29 = load i32, ptr %12, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -45490,13 +45508,14 @@ define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %3, i32 0, i32 3
+  call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
   ret void
 }
@@ -46368,69 +46387,70 @@ define internal void @_ZN12_GLOBAL__N_117GHABinaryProviderC2EN5vcpkg7ZipToolERKN
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipToolERKNS1_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %13, i32 0, i32 1
-  %16 = load ptr, ptr %8, align 8
-  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %24
+  %15 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %13, i32 0, i32 1
+  %17 = load ptr, ptr %8, align 8
+  invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %25
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %13, i32 0, i32 2
-  %19 = load ptr, ptr %9, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef @.str.117)
-          to label %20 unwind label %28
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %13, i32 0, i32 2
+  %20 = load ptr, ptr %9, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef @.str.117)
+          to label %21 unwind label %29
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %13, i32 0, i32 3
-  %22 = load ptr, ptr %10, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef @.str.118, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %23 unwind label %32
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %13, i32 0, i32 3
+  %23 = load ptr, ptr %10, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef @.str.118, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %24 unwind label %33
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   ret void
 
-24:                                               ; preds = %5
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %5
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %11, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %12, align 4
-  br label %37
-
-28:                                               ; preds = %17
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %11, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %12, align 4
-  br label %36
-
-32:                                               ; preds = %20
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %11, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
-  br label %36
-
-36:                                               ; preds = %32, %28
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
-  br label %37
-
-37:                                               ; preds = %36, %24
-  call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %11, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %12, align 4
   br label %38
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr %12, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+29:                                               ; preds = %18
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %11, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %12, align 4
+  br label %37
+
+33:                                               ; preds = %21
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %11, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #8
+  br label %37
+
+37:                                               ; preds = %33, %29
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
+  br label %38
+
+38:                                               ; preds = %37, %25
+  call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %11, align 8
+  %41 = load i32, ptr %12, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -46546,13 +46566,14 @@ define internal void @_ZN12_GLOBAL__N_117GHABinaryProviderD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
   ret void
 }
@@ -48875,13 +48896,14 @@ define internal void @_ZN12_GLOBAL__N_124FilesWriteBinaryProviderC2ERKN5vcpkg10F
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::FilesWriteBinaryProvider", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.(anonymous namespace)::FilesWriteBinaryProvider", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11) #8
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::FilesWriteBinaryProvider", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.(anonymous namespace)::FilesWriteBinaryProvider", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12) #8
   ret void
 }
 
@@ -48913,7 +48935,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg20IWriteBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5vcpkg20IWriteBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -48934,9 +48957,10 @@ define internal void @_ZN12_GLOBAL__N_124FilesWriteBinaryProviderD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::FilesWriteBinaryProvider", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::FilesWriteBinaryProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
   call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -50014,38 +50038,39 @@ define internal void @_ZN12_GLOBAL__N_121HTTPPutBinaryProviderC2ERKN5vcpkg10File
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %7, align 8
-  call void @_ZNSt6vectorIN5vcpkg11UrlTemplateESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15) #8
-  %16 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %4
-  ret void
+  %12 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %7, align 8
+  call void @_ZNSt6vectorIN5vcpkg11UrlTemplateESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16) #8
+  %17 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %11, i32 0, i32 3
+  %18 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %9, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %10, align 4
-  call void @_ZNSt6vectorIN5vcpkg11UrlTemplateESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #8
-  call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %9, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %9, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %10, align 4
+  call void @_ZNSt6vectorIN5vcpkg11UrlTemplateESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #8
+  call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %9, align 8
+  %26 = load i32, ptr %10, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -50115,11 +50140,12 @@ define internal void @_ZN12_GLOBAL__N_121HTTPPutBinaryProviderD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN5vcpkg11UrlTemplateESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN5vcpkg11UrlTemplateESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
   call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -51025,12 +51051,13 @@ define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderC2EOSt6vectorI
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %10 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %7, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #8
+  %11 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %7, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %2) #8
   ret void
 }
 
@@ -51074,11 +51101,12 @@ define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
   call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -51630,53 +51658,54 @@ define internal void @_ZN12_GLOBAL__N_121GHABinaryPushProviderC2ERKN5vcpkg10File
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %7, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.129)
-          to label %16 unwind label %20
+  %12 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %7, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef @.str.129)
+          to label %17 unwind label %21
 
-16:                                               ; preds = %4
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %11, i32 0, i32 3
-  %18 = load ptr, ptr %8, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef @.str.118, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %19 unwind label %24
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %11, i32 0, i32 3
+  %19 = load ptr, ptr %8, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef @.str.118, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %20 unwind label %25
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   ret void
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
-  br label %28
-
-24:                                               ; preds = %16
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %9, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %10, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
-  br label %28
-
-28:                                               ; preds = %24, %20
-  call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %9, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+25:                                               ; preds = %17
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %9, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %9, align 8
+  %32 = load i32, ptr %10, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -51707,11 +51736,12 @@ define internal void @_ZN12_GLOBAL__N_121GHABinaryPushProviderD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
   call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -53817,30 +53847,31 @@ define internal void @_ZN12_GLOBAL__N_123NugetReadBinaryProviderC2ERKNS_23NugetB
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %5, align 8
   invoke void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) %10, ptr noundef nonnull align 8 dereferenceable(176) %11)
-          to label %12 unwind label %14
+          to label %12 unwind label %15
 
 12:                                               ; preds = %3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %13 = getelementptr inbounds %"struct.(anonymous namespace)::NugetReadBinaryProvider", ptr %9, i32 0, i32 2
-  call void @_ZN12_GLOBAL__N_111NuGetSourceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %2) #8
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
+  %14 = getelementptr inbounds %"struct.(anonymous namespace)::NugetReadBinaryProvider", ptr %9, i32 0, i32 2
+  call void @_ZN12_GLOBAL__N_111NuGetSourceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %2) #8
   ret void
 
-14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
   call void @_ZN5vcpkg19IReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -53956,11 +53987,12 @@ define internal void @_ZN12_GLOBAL__N_123NugetReadBinaryProviderD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::NugetReadBinaryProvider", ptr %3, i32 0, i32 2
-  call void @_ZN12_GLOBAL__N_111NuGetSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %5) #8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::NugetReadBinaryProvider", ptr %3, i32 0, i32 2
+  call void @_ZN12_GLOBAL__N_111NuGetSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #8
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %6) #8
   call void @_ZN5vcpkg19IReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -57985,34 +58017,35 @@ define internal void @_ZN12_GLOBAL__N_123NugetBinaryPushProviderC2ERKNS_23NugetB
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %6, align 8
   invoke void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) %12, ptr noundef nonnull align 8 dereferenceable(176) %13)
-          to label %14 unwind label %19
+          to label %14 unwind label %20
 
 14:                                               ; preds = %4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %11, i32 0, i32 2
-  %16 = load ptr, ptr %7, align 8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16) #8
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %11, i32 0, i32 3
-  %18 = load ptr, ptr %8, align 8
-  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18) #8
+  %15 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %11, i32 0, i32 2
+  %17 = load ptr, ptr %7, align 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17) #8
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %11, i32 0, i32 3
+  %19 = load ptr, ptr %8, align 8
+  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19) #8
   ret void
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %9, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %10, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %9, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %10, align 4
   call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %9, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %9, align 8
+  %26 = load i32, ptr %10, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -58043,13 +58076,14 @@ define internal void @_ZN12_GLOBAL__N_123NugetBinaryPushProviderD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %6) #8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %7) #8
   call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }

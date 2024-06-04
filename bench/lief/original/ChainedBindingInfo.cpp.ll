@@ -40,11 +40,12 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2EOS1_(ptr noundef nonnull align
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11BindingInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -64,141 +65,142 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ERKS1_(ptr noundef nonnull alig
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11BindingInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %13, align 4
-  %17 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 3
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %18, i32 0, i32 3
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %17, align 8
-  %21 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 4
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %22, i32 0, i32 4
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %21, align 4
-  %25 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 4
-  %27 = load i32, ptr %26, align 4
-  switch i32 %27, label %75 [
-    i32 2, label %28
-    i32 1, label %39
-    i32 3, label %46
-    i32 4, label %53
-    i32 6, label %60
-    i32 5, label %67
-    i32 0, label %74
+  %9 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  store i32 %13, ptr %10, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %14, align 4
+  %18 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 3
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %19, i32 0, i32 3
+  %21 = load i32, ptr %20, align 8
+  store i32 %21, ptr %18, align 8
+  %22 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 4
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %23, i32 0, i32 4
+  %25 = load i32, ptr %24, align 4
+  store i32 %25, ptr %22, align 4
+  %26 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 4
+  %28 = load i32, ptr %27, align 4
+  switch i32 %28, label %76 [
+    i32 2, label %29
+    i32 1, label %40
+    i32 3, label %47
+    i32 4, label %54
+    i32 6, label %61
+    i32 5, label %68
+    i32 0, label %75
   ]
 
-28:                                               ; preds = %2
-  %29 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
-          to label %30 unwind label %35
+29:                                               ; preds = %2
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
+          to label %31 unwind label %36
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %31, i32 0, i32 5
-  %33 = load ptr, ptr %32, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %33, i64 8, i1 false)
-  %34 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
-  store ptr %29, ptr %34, align 8
-  br label %75
-
-35:                                               ; preds = %67, %60, %53, %46, %39, %28
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %5, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %6, align 4
-  call void @_ZN4LIEF5MachO11BindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #9
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %34, i64 8, i1 false)
+  %35 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
+  store ptr %30, ptr %35, align 8
   br label %76
 
-39:                                               ; preds = %2
-  %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
-          to label %41 unwind label %35
+36:                                               ; preds = %68, %61, %54, %47, %40, %29
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  call void @_ZN4LIEF5MachO11BindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #9
+  br label %77
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %42, i32 0, i32 5
-  %44 = load ptr, ptr %43, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %44, i64 8, i1 false)
-  %45 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
-  store ptr %40, ptr %45, align 8
-  br label %75
+40:                                               ; preds = %2
+  %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
+          to label %42 unwind label %36
 
-46:                                               ; preds = %2
-  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
-          to label %48 unwind label %35
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %45, i64 8, i1 false)
+  %46 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
+  store ptr %41, ptr %46, align 8
+  br label %76
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %49, i32 0, i32 5
-  %51 = load ptr, ptr %50, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %51, i64 8, i1 false)
-  %52 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
-  store ptr %47, ptr %52, align 8
-  br label %75
+47:                                               ; preds = %2
+  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
+          to label %49 unwind label %36
 
-53:                                               ; preds = %2
-  %54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
-          to label %55 unwind label %35
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %50, i32 0, i32 5
+  %52 = load ptr, ptr %51, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %52, i64 8, i1 false)
+  %53 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
+  store ptr %48, ptr %53, align 8
+  br label %76
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %56, i32 0, i32 5
-  %58 = load ptr, ptr %57, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %58, i64 8, i1 false)
-  %59 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
-  store ptr %54, ptr %59, align 8
-  br label %75
+54:                                               ; preds = %2
+  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
+          to label %56 unwind label %36
 
-60:                                               ; preds = %2
-  %61 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 4) #8
-          to label %62 unwind label %35
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %57, i32 0, i32 5
+  %59 = load ptr, ptr %58, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %59, i64 8, i1 false)
+  %60 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
+  store ptr %55, ptr %60, align 8
+  br label %76
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %63, i32 0, i32 5
-  %65 = load ptr, ptr %64, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %61, ptr align 4 %65, i64 4, i1 false)
-  %66 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
-  store ptr %61, ptr %66, align 8
-  br label %75
+61:                                               ; preds = %2
+  %62 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 4) #8
+          to label %63 unwind label %36
 
-67:                                               ; preds = %2
-  %68 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
-          to label %69 unwind label %35
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %64, i32 0, i32 5
+  %66 = load ptr, ptr %65, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %62, ptr align 4 %66, i64 4, i1 false)
+  %67 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
+  store ptr %62, ptr %67, align 8
+  br label %76
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %70, i32 0, i32 5
-  %72 = load ptr, ptr %71, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 8 %72, i64 8, i1 false)
-  %73 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
-  store ptr %68, ptr %73, align 8
-  br label %75
+68:                                               ; preds = %2
+  %69 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #8
+          to label %70 unwind label %36
 
-74:                                               ; preds = %2
-  br label %75
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %73, i64 8, i1 false)
+  %74 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %7, i32 0, i32 5
+  store ptr %69, ptr %74, align 8
+  br label %76
 
-75:                                               ; preds = %74, %69, %62, %55, %48, %41, %30, %2
+75:                                               ; preds = %2
+  br label %76
+
+76:                                               ; preds = %75, %70, %63, %56, %49, %42, %31, %2
   ret void
 
-76:                                               ; preds = %35
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i32, ptr %6, align 4
-  %79 = insertvalue { ptr, i32 } poison, ptr %77, 0
-  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
-  resume { ptr, i32 } %80
+77:                                               ; preds = %36
+  %78 = load ptr, ptr %5, align 8
+  %79 = load i32, ptr %6, align 4
+  %80 = insertvalue { ptr, i32 } poison, ptr %78, 0
+  %81 = insertvalue { ptr, i32 } %80, i32 %79, 1
+  resume { ptr, i32 } %81
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -214,19 +216,20 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN4LIEF5MachO18ChainedBindingInfo5clearEv(ptr noundef nonnull align 8 dereferenceable(88) %3)
-          to label %4 unwind label %5
+          to label %5 unwind label %6
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @_ZN4LIEF5MachO11BindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #9
   ret void
 
-5:                                                ; preds = %1
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #10
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
   unreachable
 }
 
@@ -369,21 +372,22 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ENS0_19DYLD_CHAINED_FORMATEb(pt
   store i8 %7, ptr %6, align 1
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11BindingInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %5, align 4
-  store i32 %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 3
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 4
-  store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 5
-  store ptr null, ptr %13, align 8
-  %14 = load i8, ptr %6, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %8, i32 0, i32 5
-  %17 = zext i1 %15 to i8
-  store i8 %17, ptr %16, align 8
+  %9 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 1
+  %11 = load i32, ptr %5, align 4
+  store i32 %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 3
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 4
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds %"class.LIEF::MachO::ChainedBindingInfo", ptr %8, i32 0, i32 5
+  store ptr null, ptr %14, align 8
+  %15 = load i8, ptr %6, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %8, i32 0, i32 5
+  %18 = zext i1 %16 to i8
+  store i8 %18, ptr %17, align 8
   ret void
 }
 

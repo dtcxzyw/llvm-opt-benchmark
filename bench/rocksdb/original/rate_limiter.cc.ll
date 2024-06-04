@@ -783,33 +783,34 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %mode.addr, align 4
   call void @_ZN7rocksdb11RateLimiterC2ENS0_4ModeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
+  %tobool = trunc i8 %2 to i1
   invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_, i1 noundef zeroext %tobool)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %refill_period_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %refill_period_us.addr, align 8
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %refill_period_us_, i64 noundef %2) #12
+  %3 = load i64, ptr %refill_period_us.addr, align 8
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %refill_period_us_, i64 noundef %3) #12
   %rate_bytes_per_sec_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 3
-  %3 = load i8, ptr %auto_tuned.addr, align 1
-  %tobool2 = trunc i8 %3 to i1
+  %4 = load i8, ptr %auto_tuned.addr, align 1
+  %tobool2 = trunc i8 %4 to i1
   br i1 %tobool2, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont
-  %4 = load i64, ptr %rate_bytes_per_sec.addr, align 8
-  %div = sdiv i64 %4, 2
+  %5 = load i64, ptr %rate_bytes_per_sec.addr, align 8
+  %div = sdiv i64 %5, 2
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont
-  %5 = load i64, ptr %rate_bytes_per_sec.addr, align 8
+  %6 = load i64, ptr %rate_bytes_per_sec.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %div, %cond.true ], [ %5, %cond.false ]
+  %cond = phi i64 [ %div, %cond.true ], [ %6, %cond.false ]
   call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %rate_bytes_per_sec_, i64 noundef %cond) #12
   %refill_bytes_per_period_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 4
   %rate_bytes_per_sec_3 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 3
@@ -820,8 +821,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 invoke.cont5:                                     ; preds = %cond.end
   call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %refill_bytes_per_period_, i64 noundef %call6) #12
   %clock_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %clock.addr, align 8
-  call void @_ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %clock_, ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  %7 = load ptr, ptr %clock.addr, align 8
+  call void @_ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %clock_, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %stop_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 6
   store i8 0, ptr %stop_, align 8
   %exit_cv_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 7
@@ -841,19 +842,19 @@ invoke.cont9:                                     ; preds = %invoke.cont5
 invoke.cont11:                                    ; preds = %invoke.cont9
   store i64 %call12, ptr %next_refill_us_, align 8
   %fairness_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 13
-  %7 = load i32, ptr %fairness.addr, align 4
-  %cmp = icmp sgt i32 %7, 100
+  %8 = load i32, ptr %fairness.addr, align 4
+  %cmp = icmp sgt i32 %8, 100
   br i1 %cmp, label %cond.true13, label %cond.false14
 
 cond.true13:                                      ; preds = %invoke.cont11
   br label %cond.end15
 
 cond.false14:                                     ; preds = %invoke.cont11
-  %8 = load i32, ptr %fairness.addr, align 4
+  %9 = load i32, ptr %fairness.addr, align 4
   br label %cond.end15
 
 cond.end15:                                       ; preds = %cond.false14, %cond.true13
-  %cond16 = phi i32 [ 100, %cond.true13 ], [ %8, %cond.false14 ]
+  %cond16 = phi i32 [ 100, %cond.true13 ], [ %9, %cond.false14 ]
   store i32 %cond16, ptr %fairness_, align 8
   %rnd_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 14
   %call17 = call i64 @time(ptr noundef null) #12
@@ -881,15 +882,15 @@ arrayctor.cont:                                   ; preds = %invoke.cont20
   %wait_until_refill_pending_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 16
   store i8 0, ptr %wait_until_refill_pending_, align 8
   %auto_tuned_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 17
-  %9 = load i8, ptr %auto_tuned.addr, align 1
-  %tobool22 = trunc i8 %9 to i1
+  %10 = load i8, ptr %auto_tuned.addr, align 1
+  %tobool22 = trunc i8 %10 to i1
   %frombool23 = zext i1 %tobool22 to i8
   store i8 %frombool23, ptr %auto_tuned_, align 1
   %num_drains_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 18
   store i64 0, ptr %num_drains_, align 8
   %max_bytes_per_sec_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 19
-  %10 = load i64, ptr %rate_bytes_per_sec.addr, align 8
-  store i64 %10, ptr %max_bytes_per_sec_, align 8
+  %11 = load i64, ptr %rate_bytes_per_sec.addr, align 8
+  store i64 %11, ptr %max_bytes_per_sec_, align 8
   %tuned_time_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 20
   %call26 = invoke noundef i64 @_ZN7rocksdb18GenericRateLimiter24NowMicrosMonotonicLockedEv(ptr noundef nonnull align 8 dereferenceable(608) %this1)
           to label %invoke.cont25 unwind label %lpad24
@@ -904,72 +905,72 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont27
-  %11 = load i32, ptr %i, align 4
-  %cmp28 = icmp slt i32 %11, 4
+  %12 = load i32, ptr %i, align 4
+  %cmp28 = icmp slt i32 %12, 4
   br i1 %cmp28, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %total_requests_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 9
-  %12 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %12 to i64
+  %13 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %13 to i64
   %arrayidx = getelementptr inbounds [4 x i64], ptr %total_requests_, i64 0, i64 %idxprom
   store i64 0, ptr %arrayidx, align 8
   %total_bytes_through_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 10
-  %13 = load i32, ptr %i, align 4
-  %idxprom29 = sext i32 %13 to i64
+  %14 = load i32, ptr %i, align 4
+  %idxprom29 = sext i32 %14 to i64
   %arrayidx30 = getelementptr inbounds [4 x i64], ptr %total_bytes_through_, i64 0, i64 %idxprom29
   store i64 0, ptr %arrayidx30, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %14 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %14, 1
+  %15 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup39
 
 lpad4:                                            ; preds = %cond.end
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad8:                                            ; preds = %invoke.cont5
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup37
 
 lpad10:                                           ; preds = %cond.end15, %invoke.cont9
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad19:                                           ; preds = %arrayctor.loop
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done21, label %arraydestroy.body
 
@@ -984,21 +985,21 @@ arraydestroy.done21:                              ; preds = %arraydestroy.body, 
   br label %ehcleanup
 
 lpad24:                                           ; preds = %invoke.cont25, %arrayctor.cont
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot, align 4
   %array.begin31 = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i32 0, i32 0
-  %33 = getelementptr inbounds %"class.std::deque", ptr %array.begin31, i64 4
+  %34 = getelementptr inbounds %"class.std::deque", ptr %array.begin31, i64 4
   br label %arraydestroy.body32
 
 for.end:                                          ; preds = %for.cond
   ret void
 
 arraydestroy.body32:                              ; preds = %arraydestroy.body32, %lpad24
-  %arraydestroy.elementPast33 = phi ptr [ %33, %lpad24 ], [ %arraydestroy.element34, %arraydestroy.body32 ]
+  %arraydestroy.elementPast33 = phi ptr [ %34, %lpad24 ], [ %arraydestroy.element34, %arraydestroy.body32 ]
   %arraydestroy.element34 = getelementptr inbounds %"class.std::deque", ptr %arraydestroy.elementPast33, i64 -1
   call void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arraydestroy.element34) #12
   %arraydestroy.done35 = icmp eq ptr %arraydestroy.element34, %array.begin31
@@ -1039,10 +1040,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %mode, ptr %mode.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb11RateLimiterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb11RateLimiterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mode_ = getelementptr inbounds %"class.rocksdb::RateLimiter", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %mode.addr, align 4
-  store i32 %0, ptr %mode_, align 8
+  %1 = load i32, ptr %mode.addr, align 4
+  store i32 %1, ptr %mode_, align 8
   ret void
 }
 
@@ -1329,7 +1331,8 @@ entry:
   %r = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 1
   invoke void @_ZN7rocksdb9MutexLockC2EPNS_4port5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %g, ptr noundef %request_mutex_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1342,54 +1345,54 @@ invoke.cont:                                      ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 4
+  %1 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %1, 4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %queue_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 15
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i64 0, i64 %idxprom
   %call = call noundef i64 @_ZNKSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %arrayidx) #12
-  %2 = load i64, ptr %queues_size_sum, align 8
-  %add = add i64 %2, %call
+  %3 = load i64, ptr %queues_size_sum, align 8
+  %add = add i64 %3, %call
   store i64 %add, ptr %queues_size_sum, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
+  %4 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
-  %4 = load i64, ptr %queues_size_sum, align 8
-  %conv = trunc i64 %4 to i32
+  %5 = load i64, ptr %queues_size_sum, align 8
+  %conv = trunc i64 %5 to i32
   %requests_to_wait_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 8
   store i32 %conv, ptr %requests_to_wait_, align 8
   store i32 3, ptr %i2, align 4
   br label %for.cond3
 
 for.cond3:                                        ; preds = %for.inc18, %for.end
-  %5 = load i32, ptr %i2, align 4
-  %cmp4 = icmp sge i32 %5, 0
+  %6 = load i32, ptr %i2, align 4
+  %cmp4 = icmp sge i32 %6, 0
   br i1 %cmp4, label %for.body5, label %for.end19
 
 for.body5:                                        ; preds = %for.cond3
   %queue_6 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 15
-  %6 = load i32, ptr %i2, align 4
-  %idxprom7 = sext i32 %6 to i64
+  %7 = load i32, ptr %i2, align 4
+  %idxprom7 = sext i32 %7 to i64
   %arrayidx8 = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_6, i64 0, i64 %idxprom7
   invoke void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(80) %queue, ptr noundef nonnull align 8 dereferenceable(80) %arrayidx8)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %for.body5
   store ptr %queue, ptr %__range2, align 8
-  %7 = load ptr, ptr %__range2, align 8
-  call void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE5beginEv(ptr sret(%"struct.std::_Deque_iterator") align 8 %__begin2, ptr noundef nonnull align 8 dereferenceable(80) %7) #12
   %8 = load ptr, ptr %__range2, align 8
-  call void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE3endEv(ptr sret(%"struct.std::_Deque_iterator") align 8 %__end2, ptr noundef nonnull align 8 dereferenceable(80) %8) #12
+  call void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE5beginEv(ptr sret(%"struct.std::_Deque_iterator") align 8 %__begin2, ptr noundef nonnull align 8 dereferenceable(80) %8) #12
+  %9 = load ptr, ptr %__range2, align 8
+  call void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE3endEv(ptr sret(%"struct.std::_Deque_iterator") align 8 %__end2, ptr noundef nonnull align 8 dereferenceable(80) %9) #12
   br label %for.cond10
 
 for.cond10:                                       ; preds = %for.inc15, %invoke.cont9
@@ -1399,9 +1402,9 @@ for.cond10:                                       ; preds = %for.inc15, %invoke.
 for.body12:                                       ; preds = %for.cond10
   %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2) #12
   store ptr %call13, ptr %r, align 8
-  %9 = load ptr, ptr %r, align 8
-  %10 = load ptr, ptr %9, align 8
-  %cv = getelementptr inbounds %"struct.rocksdb::GenericRateLimiter::Req", ptr %10, i32 0, i32 2
+  %10 = load ptr, ptr %r, align 8
+  %11 = load ptr, ptr %10, align 8
+  %cv = getelementptr inbounds %"struct.rocksdb::GenericRateLimiter::Req", ptr %11, i32 0, i32 2
   invoke void @_ZN7rocksdb4port7CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(56) %cv)
           to label %invoke.cont14 unwind label %terminate.lpad
 
@@ -1417,8 +1420,8 @@ for.end17:                                        ; preds = %for.cond10
   br label %for.inc18
 
 for.inc18:                                        ; preds = %for.end17
-  %11 = load i32, ptr %i2, align 4
-  %dec = add nsw i32 %11, -1
+  %12 = load i32, ptr %i2, align 4
+  %dec = add nsw i32 %12, -1
   store i32 %dec, ptr %i2, align 4
   br label %for.cond3, !llvm.loop !7
 
@@ -1427,8 +1430,8 @@ for.end19:                                        ; preds = %for.cond3
 
 while.cond:                                       ; preds = %invoke.cont22, %for.end19
   %requests_to_wait_20 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 8
-  %12 = load i32, ptr %requests_to_wait_20, align 8
-  %cmp21 = icmp sgt i32 %12, 0
+  %13 = load i32, ptr %requests_to_wait_20, align 8
+  %cmp21 = icmp sgt i32 %13, 0
   br i1 %cmp21, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
@@ -1443,11 +1446,11 @@ while.end:                                        ; preds = %while.cond
   call void @_ZN7rocksdb9MutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #12
   %queue_23 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 15
   %array.begin = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_23, i32 0, i32 0
-  %13 = getelementptr inbounds %"class.std::deque", ptr %array.begin, i64 4
+  %14 = getelementptr inbounds %"class.std::deque", ptr %array.begin, i64 4
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %while.end
-  %arraydestroy.elementPast = phi ptr [ %13, %while.end ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %14, %while.end ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::deque", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arraydestroy.element) #12
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -1464,10 +1467,10 @@ arraydestroy.done24:                              ; preds = %arraydestroy.body
   ret void
 
 terminate.lpad:                                   ; preds = %while.body, %for.body12, %for.body5, %entry
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #13
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #13
   unreachable
 }
 

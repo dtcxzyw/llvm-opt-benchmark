@@ -61,49 +61,51 @@ define void @ompi_file_delete_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %18 = call i32 @ompi_fortran_string_f2c(ptr noundef %16, i32 noundef %17, ptr noundef %10)
   store i32 %18, ptr %12, align 4
   %19 = icmp ne i32 0, %18
-  br i1 %19, label %20, label %32
+  br i1 %19, label %20, label %34
 
 20:                                               ; preds = %4
-  %21 = load ptr, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6), align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7), align 8
-  %23 = load i32, ptr %12, align 4
-  %24 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %23)
-  %25 = call i32 @ompi_errhandler_invoke(ptr noundef %21, ptr noundef @ompi_mpi_file_null, i32 noundef %22, i32 noundef %24, ptr noundef @.str)
-  store i32 %25, ptr %11, align 4
-  %26 = load ptr, ptr %7, align 8
-  %27 = icmp ne ptr null, %26
-  br i1 %27, label %28, label %31
+  %21 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7
+  %24 = load i32, ptr %23, align 8
+  %25 = load i32, ptr %12, align 4
+  %26 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %25)
+  %27 = call i32 @ompi_errhandler_invoke(ptr noundef %22, ptr noundef @ompi_mpi_file_null, i32 noundef %24, i32 noundef %26, ptr noundef @.str)
+  store i32 %27, ptr %11, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = icmp ne ptr null, %28
+  br i1 %29, label %30, label %33
 
-28:                                               ; preds = %20
-  %29 = load i32, ptr %11, align 4
-  %30 = load ptr, ptr %7, align 8
-  store i32 %29, ptr %30, align 4
-  br label %31
+30:                                               ; preds = %20
+  %31 = load i32, ptr %11, align 4
+  %32 = load ptr, ptr %7, align 8
+  store i32 %31, ptr %32, align 4
+  br label %33
 
-31:                                               ; preds = %28, %20
+33:                                               ; preds = %30, %20
+  br label %45
+
+34:                                               ; preds = %4
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = call i32 @PMPI_File_delete(ptr noundef %35, ptr noundef %36)
+  store i32 %37, ptr %11, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = icmp ne ptr null, %38
+  br i1 %39, label %40, label %43
+
+40:                                               ; preds = %34
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %7, align 8
+  store i32 %41, ptr %42, align 4
   br label %43
 
-32:                                               ; preds = %4
-  %33 = load ptr, ptr %10, align 8
-  %34 = load ptr, ptr %9, align 8
-  %35 = call i32 @PMPI_File_delete(ptr noundef %33, ptr noundef %34)
-  store i32 %35, ptr %11, align 4
-  %36 = load ptr, ptr %7, align 8
-  %37 = icmp ne ptr null, %36
-  br i1 %37, label %38, label %41
+43:                                               ; preds = %40, %34
+  %44 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %44) #3
+  br label %45
 
-38:                                               ; preds = %32
-  %39 = load i32, ptr %11, align 4
-  %40 = load ptr, ptr %7, align 8
-  store i32 %39, ptr %40, align 4
-  br label %41
-
-41:                                               ; preds = %38, %32
-  %42 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %42) #3
-  br label %43
-
-43:                                               ; preds = %41, %31
+45:                                               ; preds = %43, %33
   ret void
 }
 

@@ -4528,10 +4528,11 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt13clause_del_ehC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt21dyn_ack_clause_del_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt21dyn_ack_clause_del_ehE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m2 = getelementptr inbounds %"class.smt::dyn_ack_clause_del_eh", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m.addr, align 8
-  store ptr %0, ptr %m2, align 8
+  %1 = load ptr, ptr %m.addr, align 8
+  store ptr %1, ptr %m2, align 8
   ret void
 }
 
@@ -4558,13 +4559,14 @@ entry:
   store ptr %n2, ptr %n2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt13justificationC2Eb(ptr noundef nonnull align 8 dereferenceable(9) %this1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt24dyn_ack_cc_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt24dyn_ack_cc_justificationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_app1 = getelementptr inbounds %"class.smt::dyn_ack_cc_justification", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %n1.addr, align 8
-  store ptr %0, ptr %m_app1, align 8
+  %1 = load ptr, ptr %n1.addr, align 8
+  store ptr %1, ptr %m_app1, align 8
   %m_app2 = getelementptr inbounds %"class.smt::dyn_ack_cc_justification", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %n2.addr, align 8
-  store ptr %1, ptr %m_app2, align 8
+  %2 = load ptr, ptr %n2.addr, align 8
+  store ptr %2, ptr %m_app2, align 8
   ret void
 }
 
@@ -5021,25 +5023,26 @@ entry:
   store ptr %eq3, ptr %eq3.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt13justificationC2Eb(ptr noundef nonnull align 8 dereferenceable(9) %this1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt24dyn_ack_eq_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt24dyn_ack_eq_justificationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_app1 = getelementptr inbounds %"class.smt::dyn_ack_eq_justification", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %n1.addr, align 8
-  store ptr %0, ptr %m_app1, align 8
+  %1 = load ptr, ptr %n1.addr, align 8
+  store ptr %1, ptr %m_app1, align 8
   %m_app2 = getelementptr inbounds %"class.smt::dyn_ack_eq_justification", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %n2.addr, align 8
-  store ptr %1, ptr %m_app2, align 8
+  %2 = load ptr, ptr %n2.addr, align 8
+  store ptr %2, ptr %m_app2, align 8
   %m_r = getelementptr inbounds %"class.smt::dyn_ack_eq_justification", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %r.addr, align 8
-  store ptr %2, ptr %m_r, align 8
+  %3 = load ptr, ptr %r.addr, align 8
+  store ptr %3, ptr %m_r, align 8
   %m_eq1 = getelementptr inbounds %"class.smt::dyn_ack_eq_justification", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %eq1.addr, align 8
-  store ptr %3, ptr %m_eq1, align 8
+  %4 = load ptr, ptr %eq1.addr, align 8
+  store ptr %4, ptr %m_eq1, align 8
   %m_eq2 = getelementptr inbounds %"class.smt::dyn_ack_eq_justification", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %eq2.addr, align 8
-  store ptr %4, ptr %m_eq2, align 8
+  %5 = load ptr, ptr %eq2.addr, align 8
+  store ptr %5, ptr %m_eq2, align 8
   %m_eq3 = getelementptr inbounds %"class.smt::dyn_ack_eq_justification", ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %eq3.addr, align 8
-  store ptr %5, ptr %m_eq3, align 8
+  %6 = load ptr, ptr %eq3.addr, align 8
+  store ptr %6, ptr %m_eq3, align 8
   ret void
 }
 
@@ -6575,7 +6578,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt13clause_del_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt13clause_del_ehE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6678,19 +6682,20 @@ entry:
   %frombool = zext i1 %in_region to i8
   store i8 %frombool, ptr %in_region.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt13justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt13justificationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_mark = getelementptr inbounds %"class.smt::justification", ptr %this1, i32 0, i32 1
   %bf.load = load i8, ptr %m_mark, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or i8 %bf.clear, 0
   store i8 %bf.set, ptr %m_mark, align 8
   %m_in_region = getelementptr inbounds %"class.smt::justification", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %in_region.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %in_region.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %conv = zext i1 %tobool to i32
-  %1 = trunc i32 %conv to i8
+  %2 = trunc i32 %conv to i8
   %bf.load2 = load i8, ptr %m_in_region, align 8
-  %bf.value = and i8 %1, 1
+  %bf.value = and i8 %2, 1
   %bf.shl = shl i8 %bf.value, 1
   %bf.clear3 = and i8 %bf.load2, -3
   %bf.set4 = or i8 %bf.clear3, %bf.shl
@@ -8241,10 +8246,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -8254,7 +8260,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -8492,7 +8499,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10573,12 +10581,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %class.obj_pair_hash_entry, ptr %this1, i32 0, i32 1
   %first3 = getelementptr inbounds %"struct.std::pair", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %first3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11013,12 +11022,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_pair_map<app, app, unsigned int>::entry", ptr %this1, i32 0, i32 0
   %m_key13 = getelementptr inbounds %"class.obj_pair_map<app, app, unsigned int>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key13, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12576,12 +12586,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %class.obj_triple_hash_entry, ptr %this1, i32 0, i32 1
   %first3 = getelementptr inbounds %struct.triple, ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %first3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12992,12 +13003,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_triple_map<app, app, app, unsigned int>::entry", ptr %this1, i32 0, i32 0
   %m_key13 = getelementptr inbounds %"class.obj_triple_map<app, app, app, unsigned int>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key13, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13989,7 +14001,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_pair_map<app, app, unsigned int>::entry", ptr %this1, i32 0, i32 0
   %m_key1 = getelementptr inbounds %"class.obj_pair_map<app, app, unsigned int>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key1, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key1, align 8
   ret void
 }
 
@@ -17143,12 +17156,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<smt::clause, std::pair<app *, app *>>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<smt::clause, std::pair<app *, app *>>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17506,7 +17520,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %class.obj_pair_hash_entry, ptr %this1, i32 0, i32 1
   %first = getelementptr inbounds %"struct.std::pair", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %first, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %first, align 8
   ret void
 }
 
@@ -17964,7 +17979,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_map<smt::clause, std::pair<app *, app *>>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key = getelementptr inbounds %"struct.obj_map<smt::clause, std::pair<app *, app *>>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key, align 8
   ret void
 }
 
@@ -18426,12 +18442,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<smt::clause, triple<app *, app *, app *>>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<smt::clause, triple<app *, app *, app *>>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18768,7 +18785,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %class.obj_triple_hash_entry, ptr %this1, i32 0, i32 1
   %first = getelementptr inbounds %struct.triple, ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %first, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %first, align 8
   ret void
 }
 
@@ -19206,7 +19224,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_map<smt::clause, triple<app *, app *, app *>>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key = getelementptr inbounds %"struct.obj_map<smt::clause, triple<app *, app *, app *>>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key, align 8
   ret void
 }
 
@@ -20580,7 +20599,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_triple_map<app, app, app, unsigned int>::entry", ptr %this1, i32 0, i32 0
   %m_key1 = getelementptr inbounds %"class.obj_triple_map<app, app, app, unsigned int>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key1, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key1, align 8
   ret void
 }
 

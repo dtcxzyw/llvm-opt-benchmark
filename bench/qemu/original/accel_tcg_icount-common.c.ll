@@ -86,51 +86,57 @@ entry:
   %.compoundliteral1 = alloca %struct.QemuLockable, align 8
   store ptr %cpu, ptr %cpu.addr, align 8
   %object = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object, align 8
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %0, ptr %object, align 8
   %lock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock, align 8
   %unlock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i6, align 8
+  %1 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %1, ptr %x.addr.i6, align 8
   store ptr %.compoundliteral, ptr %lockable.addr.i7, align 8
-  %0 = load ptr, ptr %x.addr.i6, align 8
-  %tobool.i8 = icmp ne ptr %0, null
+  %2 = load ptr, ptr %x.addr.i6, align 8
+  %tobool.i8 = icmp ne ptr %2, null
   br i1 %tobool.i8, label %cond.true.i11, label %cond.false.i9
 
 cond.true.i11:                                    ; preds = %entry
-  %1 = load ptr, ptr %lockable.addr.i7, align 8
+  %3 = load ptr, ptr %lockable.addr.i7, align 8
   br label %qemu_make_lockable.exit12
 
 cond.false.i9:                                    ; preds = %entry
   br label %qemu_make_lockable.exit12
 
 qemu_make_lockable.exit12:                        ; preds = %cond.false.i9, %cond.true.i11
-  %cond.i10 = phi ptr [ %1, %cond.true.i11 ], [ null, %cond.false.i9 ]
-  call void @seqlock_write_lock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i10)
-  %2 = load ptr, ptr %cpu.addr, align 8
-  call void @icount_update_locked(ptr noundef %2)
+  %cond.i10 = phi ptr [ %3, %cond.true.i11 ], [ null, %cond.false.i9 ]
+  %4 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_lock_impl(ptr noundef %4, ptr noundef %cond.i10)
+  %5 = load ptr, ptr %cpu.addr, align 8
+  call void @icount_update_locked(ptr noundef %5)
   %object2 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral1, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object2, align 8
+  %6 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %6, ptr %object2, align 8
   %lock3 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral1, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock3, align 8
   %unlock4 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral1, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock4, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i, align 8
+  %7 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %7, ptr %x.addr.i, align 8
   store ptr %.compoundliteral1, ptr %lockable.addr.i, align 8
-  %3 = load ptr, ptr %x.addr.i, align 8
-  %tobool.i = icmp ne ptr %3, null
+  %8 = load ptr, ptr %x.addr.i, align 8
+  %tobool.i = icmp ne ptr %8, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %qemu_make_lockable.exit12
-  %4 = load ptr, ptr %lockable.addr.i, align 8
+  %9 = load ptr, ptr %lockable.addr.i, align 8
   br label %qemu_make_lockable.exit
 
 cond.false.i:                                     ; preds = %qemu_make_lockable.exit12
   br label %qemu_make_lockable.exit
 
 qemu_make_lockable.exit:                          ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi ptr [ %4, %cond.true.i ], [ null, %cond.false.i ]
-  call void @seqlock_write_unlock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i)
+  %cond.i = phi ptr [ %9, %cond.true.i ], [ null, %cond.false.i ]
+  %10 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_unlock_impl(ptr noundef %10, ptr noundef %cond.i)
   ret void
 }
 
@@ -290,12 +296,14 @@ entry:
   %3 = load i64, ptr %icount_budget, align 16
   %sub = sub i64 %3, %1
   store i64 %sub, ptr %icount_budget, align 16
-  %4 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 10), align 8
-  %5 = load i64, ptr %executed, align 8
-  %add = add i64 %4, %5
+  %4 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 10
+  %5 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %executed, align 8
+  %add = add i64 %5, %6
   store i64 %add, ptr %.atomictmp, align 8
-  %6 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %6, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 10) monotonic, align 8
+  %7 = load i64, ptr %.atomictmp, align 8
+  %8 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 10
+  store atomic i64 %7, ptr %8 monotonic, align 8
   ret void
 }
 
@@ -321,21 +329,23 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
-  %call = call i32 @seqlock_read_begin(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2))
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  %call = call i32 @seqlock_read_begin(ptr noundef %0)
   store i32 %call, ptr %start, align 4
   %call1 = call i64 @icount_get_raw_locked()
   store i64 %call1, ptr %icount, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %0 = load i32, ptr %start, align 4
-  %call2 = call i32 @seqlock_read_retry(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), i32 noundef %0)
+  %1 = load i32, ptr %start, align 4
+  %2 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  %call2 = call i32 @seqlock_read_retry(ptr noundef %2, i32 noundef %1)
   %tobool = icmp ne i32 %call2, 0
   br i1 %tobool, label %do.body, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %do.cond
-  %1 = load i64, ptr %icount, align 8
-  ret i64 %1
+  %3 = load i64, ptr %icount, align 8
+  ret i64 %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -415,10 +425,11 @@ if.end:                                           ; preds = %if.then
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end, %land.lhs.true, %entry
-  %8 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 10) monotonic, align 8
-  store i64 %8, ptr %atomic-temp, align 8
-  %9 = load i64, ptr %atomic-temp, align 8
-  ret i64 %9
+  %8 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 10
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  store i64 %9, ptr %atomic-temp, align 8
+  %10 = load i64, ptr %atomic-temp, align 8
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -473,21 +484,23 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
-  %call = call i32 @seqlock_read_begin(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2))
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  %call = call i32 @seqlock_read_begin(ptr noundef %0)
   store i32 %call, ptr %start, align 4
   %call1 = call i64 @icount_get_locked()
   store i64 %call1, ptr %icount, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %0 = load i32, ptr %start, align 4
-  %call2 = call i32 @seqlock_read_retry(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), i32 noundef %0)
+  %1 = load i32, ptr %start, align 4
+  %2 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  %call2 = call i32 @seqlock_read_retry(ptr noundef %2, i32 noundef %1)
   %tobool = icmp ne i32 %call2, 0
   br i1 %tobool, label %do.body, label %do.end, !llvm.loop !12
 
 do.end:                                           ; preds = %do.cond
-  %1 = load i64, ptr %icount, align 8
-  ret i64 %1
+  %3 = load i64, ptr %icount, align 8
+  ret i64 %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -497,12 +510,13 @@ entry:
   %atomic-temp = alloca i64, align 8
   %call = call i64 @icount_get_raw_locked()
   store i64 %call, ptr %icount, align 8
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 7) monotonic, align 8
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load i64, ptr %atomic-temp, align 8
-  %2 = load i64, ptr %icount, align 8
-  %call1 = call i64 @icount_to_ns(i64 noundef %2)
-  %add = add i64 %1, %call1
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 7
+  %1 = load atomic i64, ptr %0 monotonic, align 8
+  store i64 %1, ptr %atomic-temp, align 8
+  %2 = load i64, ptr %atomic-temp, align 8
+  %3 = load i64, ptr %icount, align 8
+  %call1 = call i64 @icount_to_ns(i64 noundef %3)
+  %add = add i64 %2, %call1
   ret i64 %add
 }
 
@@ -530,12 +544,13 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %1 = load atomic i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5) monotonic, align 2
-  store i16 %1, ptr %atomic-temp, align 2
-  %2 = load i16, ptr %atomic-temp, align 2
-  store i16 %2, ptr %tmp, align 2
-  %3 = load i16, ptr %tmp, align 2
-  %conv = sext i16 %3 to i32
+  %1 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  %2 = load atomic i16, ptr %1 monotonic, align 2
+  store i16 %2, ptr %atomic-temp, align 2
+  %3 = load i16, ptr %atomic-temp, align 2
+  store i16 %3, ptr %tmp, align 2
+  %4 = load i16, ptr %tmp, align 2
+  %conv = sext i16 %4 to i32
   %sh_prom = zext i32 %conv to i64
   %shl = shl i64 %0, %sh_prom
   ret i64 %shl
@@ -568,21 +583,22 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %0 = load atomic i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5) monotonic, align 2
-  store i16 %0, ptr %atomic-temp, align 2
-  %1 = load i16, ptr %atomic-temp, align 2
-  store i16 %1, ptr %tmp, align 2
-  %2 = load i16, ptr %tmp, align 2
-  %conv = sext i16 %2 to i32
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  %1 = load atomic i16, ptr %0 monotonic, align 2
+  store i16 %1, ptr %atomic-temp, align 2
+  %2 = load i16, ptr %atomic-temp, align 2
+  store i16 %2, ptr %tmp, align 2
+  %3 = load i16, ptr %tmp, align 2
+  %conv = sext i16 %3 to i32
   store i32 %conv, ptr %shift, align 4
-  %3 = load i64, ptr %count.addr, align 8
-  %4 = load i32, ptr %shift, align 4
-  %shl = shl i32 1, %4
-  %conv1 = sext i32 %shl to i64
-  %add = add i64 %3, %conv1
-  %sub = sub i64 %add, 1
+  %4 = load i64, ptr %count.addr, align 8
   %5 = load i32, ptr %shift, align 4
-  %sh_prom = zext i32 %5 to i64
+  %shl = shl i32 1, %5
+  %conv1 = sext i32 %shl to i64
+  %add = add i64 %4, %conv1
+  %sub = sub i64 %add, 1
+  %6 = load i32, ptr %shift, align 4
+  %sh_prom = zext i32 %6 to i64
   %shr = ashr i64 %sub, %sh_prom
   ret i64 %shr
 }
@@ -703,132 +719,150 @@ if.then29:                                        ; preds = %if.end27
 
 if.then31:                                        ; preds = %if.then29
   %object = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object, align 8
+  %7 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %7, ptr %object, align 8
   %lock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock, align 8
   %unlock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i74, align 8
+  %8 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %8, ptr %x.addr.i74, align 8
   store ptr %.compoundliteral, ptr %lockable.addr.i75, align 8
-  %7 = load ptr, ptr %x.addr.i74, align 8
-  %tobool.i76 = icmp ne ptr %7, null
+  %9 = load ptr, ptr %x.addr.i74, align 8
+  %tobool.i76 = icmp ne ptr %9, null
   br i1 %tobool.i76, label %cond.true.i79, label %cond.false.i77
 
 cond.true.i79:                                    ; preds = %if.then31
-  %8 = load ptr, ptr %lockable.addr.i75, align 8
+  %10 = load ptr, ptr %lockable.addr.i75, align 8
   br label %qemu_make_lockable.exit80
 
 cond.false.i77:                                   ; preds = %if.then31
   br label %qemu_make_lockable.exit80
 
 qemu_make_lockable.exit80:                        ; preds = %cond.false.i77, %cond.true.i79
-  %cond.i78 = phi ptr [ %8, %cond.true.i79 ], [ null, %cond.false.i77 ]
-  call void @seqlock_write_lock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i78)
-  %9 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 7), align 8
-  %10 = load i64, ptr %deadline, align 8
-  %add = add i64 %9, %10
+  %cond.i78 = phi ptr [ %10, %cond.true.i79 ], [ null, %cond.false.i77 ]
+  %11 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_lock_impl(ptr noundef %11, ptr noundef %cond.i78)
+  %12 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 7
+  %13 = load i64, ptr %12, align 8
+  %14 = load i64, ptr %deadline, align 8
+  %add = add i64 %13, %14
   store i64 %add, ptr %.atomictmp, align 8
-  %11 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %11, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 7) monotonic, align 8
+  %15 = load i64, ptr %.atomictmp, align 8
+  %16 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 7
+  store atomic i64 %15, ptr %16 monotonic, align 8
   %object34 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral33, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object34, align 8
+  %17 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %17, ptr %object34, align 8
   %lock35 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral33, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock35, align 8
   %unlock36 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral33, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock36, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i67, align 8
+  %18 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %18, ptr %x.addr.i67, align 8
   store ptr %.compoundliteral33, ptr %lockable.addr.i68, align 8
-  %12 = load ptr, ptr %x.addr.i67, align 8
-  %tobool.i69 = icmp ne ptr %12, null
+  %19 = load ptr, ptr %x.addr.i67, align 8
+  %tobool.i69 = icmp ne ptr %19, null
   br i1 %tobool.i69, label %cond.true.i72, label %cond.false.i70
 
 cond.true.i72:                                    ; preds = %qemu_make_lockable.exit80
-  %13 = load ptr, ptr %lockable.addr.i68, align 8
+  %20 = load ptr, ptr %lockable.addr.i68, align 8
   br label %qemu_make_lockable.exit73
 
 cond.false.i70:                                   ; preds = %qemu_make_lockable.exit80
   br label %qemu_make_lockable.exit73
 
 qemu_make_lockable.exit73:                        ; preds = %cond.false.i70, %cond.true.i72
-  %cond.i71 = phi ptr [ %13, %cond.true.i72 ], [ null, %cond.false.i70 ]
-  call void @seqlock_write_unlock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i71)
+  %cond.i71 = phi ptr [ %20, %cond.true.i72 ], [ null, %cond.false.i70 ]
+  %21 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_unlock_impl(ptr noundef %21, ptr noundef %cond.i71)
   call void @qemu_clock_notify(i32 noundef 1)
   br label %if.end54
 
 if.else38:                                        ; preds = %if.then29
   %object40 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral39, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object40, align 8
+  %22 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %22, ptr %object40, align 8
   %lock41 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral39, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock41, align 8
   %unlock42 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral39, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock42, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i60, align 8
+  %23 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %23, ptr %x.addr.i60, align 8
   store ptr %.compoundliteral39, ptr %lockable.addr.i61, align 8
-  %14 = load ptr, ptr %x.addr.i60, align 8
-  %tobool.i62 = icmp ne ptr %14, null
+  %24 = load ptr, ptr %x.addr.i60, align 8
+  %tobool.i62 = icmp ne ptr %24, null
   br i1 %tobool.i62, label %cond.true.i65, label %cond.false.i63
 
 cond.true.i65:                                    ; preds = %if.else38
-  %15 = load ptr, ptr %lockable.addr.i61, align 8
+  %25 = load ptr, ptr %lockable.addr.i61, align 8
   br label %qemu_make_lockable.exit66
 
 cond.false.i63:                                   ; preds = %if.else38
   br label %qemu_make_lockable.exit66
 
 qemu_make_lockable.exit66:                        ; preds = %cond.false.i63, %cond.true.i65
-  %cond.i64 = phi ptr [ %15, %cond.true.i65 ], [ null, %cond.false.i63 ]
-  call void @seqlock_write_lock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i64)
-  %16 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 8), align 8
-  %cmp44 = icmp eq i64 %16, -1
+  %cond.i64 = phi ptr [ %25, %cond.true.i65 ], [ null, %cond.false.i63 ]
+  %26 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_lock_impl(ptr noundef %26, ptr noundef %cond.i64)
+  %27 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 8
+  %28 = load i64, ptr %27, align 8
+  %cmp44 = icmp eq i64 %28, -1
   br i1 %cmp44, label %if.then46, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %qemu_make_lockable.exit66
-  %17 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 8), align 8
-  %18 = load i64, ptr %clock, align 8
-  %cmp45 = icmp sgt i64 %17, %18
+  %29 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 8
+  %30 = load i64, ptr %29, align 8
+  %31 = load i64, ptr %clock, align 8
+  %cmp45 = icmp sgt i64 %30, %31
   br i1 %cmp45, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %lor.lhs.false, %qemu_make_lockable.exit66
-  %19 = load i64, ptr %clock, align 8
-  store i64 %19, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 8), align 8
+  %32 = load i64, ptr %clock, align 8
+  %33 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 8
+  store i64 %32, ptr %33, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then46, %lor.lhs.false
   %object49 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral48, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object49, align 8
+  %34 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %34, ptr %object49, align 8
   %lock50 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral48, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock50, align 8
   %unlock51 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral48, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock51, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i, align 8
+  %35 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %35, ptr %x.addr.i, align 8
   store ptr %.compoundliteral48, ptr %lockable.addr.i, align 8
-  %20 = load ptr, ptr %x.addr.i, align 8
-  %tobool.i = icmp ne ptr %20, null
+  %36 = load ptr, ptr %x.addr.i, align 8
+  %tobool.i = icmp ne ptr %36, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end47
-  %21 = load ptr, ptr %lockable.addr.i, align 8
+  %37 = load ptr, ptr %lockable.addr.i, align 8
   br label %qemu_make_lockable.exit
 
 cond.false.i:                                     ; preds = %if.end47
   br label %qemu_make_lockable.exit
 
 qemu_make_lockable.exit:                          ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi ptr [ %21, %cond.true.i ], [ null, %cond.false.i ]
-  call void @seqlock_write_unlock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i)
-  %22 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 13), align 8
-  %23 = load i64, ptr %clock, align 8
-  %24 = load i64, ptr %deadline, align 8
-  %add53 = add i64 %23, %24
-  call void @timer_mod_anticipate(ptr noundef %22, i64 noundef %add53)
+  %cond.i = phi ptr [ %37, %cond.true.i ], [ null, %cond.false.i ]
+  %38 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_unlock_impl(ptr noundef %38, ptr noundef %cond.i)
+  %39 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 13
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i64, ptr %clock, align 8
+  %42 = load i64, ptr %deadline, align 8
+  %add53 = add i64 %41, %42
+  call void @timer_mod_anticipate(ptr noundef %40, i64 noundef %add53)
   br label %if.end54
 
 if.end54:                                         ; preds = %qemu_make_lockable.exit, %qemu_make_lockable.exit73
   br label %if.end59
 
 if.else55:                                        ; preds = %if.end27
-  %25 = load i64, ptr %deadline, align 8
-  %cmp56 = icmp eq i64 %25, 0
+  %43 = load i64, ptr %deadline, align 8
+  %cmp56 = icmp eq i64 %43, 0
   br i1 %cmp56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %if.else55
@@ -897,8 +931,9 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end5:                                          ; preds = %if.end2
-  %1 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 13), align 8
-  call void @timer_del(ptr noundef %1)
+  %1 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 13
+  %2 = load ptr, ptr %1, align 8
+  call void @timer_del(ptr noundef %2)
   call void @icount_warp_rt()
   br label %return
 
@@ -932,21 +967,24 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
-  %call = call i32 @seqlock_read_begin(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2))
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  %call = call i32 @seqlock_read_begin(ptr noundef %0)
   store i32 %call, ptr %seq, align 4
-  %0 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 8), align 8
-  store i64 %0, ptr %warp_start, align 8
+  %1 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 8
+  %2 = load i64, ptr %1, align 8
+  store i64 %2, ptr %warp_start, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %1 = load i32, ptr %seq, align 4
-  %call1 = call i32 @seqlock_read_retry(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), i32 noundef %1)
+  %3 = load i32, ptr %seq, align 4
+  %4 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  %call1 = call i32 @seqlock_read_retry(ptr noundef %4, i32 noundef %3)
   %tobool = icmp ne i32 %call1, 0
   br i1 %tobool, label %do.body, label %do.end, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond
-  %2 = load i64, ptr %warp_start, align 8
-  %cmp = icmp eq i64 %2, -1
+  %5 = load i64, ptr %warp_start, align 8
+  %cmp = icmp eq i64 %5, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.end
@@ -954,33 +992,36 @@ if.then:                                          ; preds = %do.end
 
 if.end:                                           ; preds = %do.end
   %object = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object, align 8
+  %6 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %6, ptr %object, align 8
   %lock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock, align 8
   %unlock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i39, align 8
+  %7 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %7, ptr %x.addr.i39, align 8
   store ptr %.compoundliteral, ptr %lockable.addr.i40, align 8
-  %3 = load ptr, ptr %x.addr.i39, align 8
-  %tobool.i41 = icmp ne ptr %3, null
+  %8 = load ptr, ptr %x.addr.i39, align 8
+  %tobool.i41 = icmp ne ptr %8, null
   br i1 %tobool.i41, label %cond.true.i44, label %cond.false.i42
 
 cond.true.i44:                                    ; preds = %if.end
-  %4 = load ptr, ptr %lockable.addr.i40, align 8
+  %9 = load ptr, ptr %lockable.addr.i40, align 8
   br label %qemu_make_lockable.exit45
 
 cond.false.i42:                                   ; preds = %if.end
   br label %qemu_make_lockable.exit45
 
 qemu_make_lockable.exit45:                        ; preds = %cond.false.i42, %cond.true.i44
-  %cond.i43 = phi ptr [ %4, %cond.true.i44 ], [ null, %cond.false.i42 ]
-  call void @seqlock_write_lock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i43)
+  %cond.i43 = phi ptr [ %9, %cond.true.i44 ], [ null, %cond.false.i42 ]
+  %10 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_lock_impl(ptr noundef %10, ptr noundef %cond.i43)
   %call3 = call zeroext i1 @runstate_is_running()
   br i1 %call3, label %if.then4, label %if.end30
 
 if.then4:                                         ; preds = %qemu_make_lockable.exit45
-  %5 = load i32, ptr @replay_mode, align 4
-  %cmp5 = icmp eq i32 %5, 2
+  %11 = load i32, ptr @replay_mode, align 4
+  %cmp5 = icmp eq i32 %11, 2
   br i1 %cmp5, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then4
@@ -989,8 +1030,8 @@ cond.true:                                        ; preds = %if.then4
   br label %cond.end15
 
 cond.false:                                       ; preds = %if.then4
-  %6 = load i32, ptr @replay_mode, align 4
-  %cmp8 = icmp eq i32 %6, 1
+  %12 = load i32, ptr @replay_mode, align 4
+  %cmp8 = icmp eq i32 %12, 1
   br i1 %cmp8, label %cond.true9, label %cond.false13
 
 cond.true9:                                       ; preds = %cond.false
@@ -1010,23 +1051,24 @@ cond.end:                                         ; preds = %cond.false13, %cond
 cond.end15:                                       ; preds = %cond.end, %cond.true
   %cond16 = phi i64 [ %call7, %cond.true ], [ %cond, %cond.end ]
   store i64 %cond16, ptr %clock, align 8
-  %7 = load i64, ptr %clock, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 8), align 8
-  %sub = sub i64 %7, %8
+  %13 = load i64, ptr %clock, align 8
+  %14 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 8
+  %15 = load i64, ptr %14, align 8
+  %sub = sub i64 %13, %15
   store i64 %sub, ptr %warp_delta, align 8
-  %9 = load i32, ptr @use_icount, align 4
-  %cmp17 = icmp eq i32 %9, 2
+  %16 = load i32, ptr @use_icount, align 4
+  %cmp17 = icmp eq i32 %16, 2
   br i1 %cmp17, label %if.then18, label %if.end29
 
 if.then18:                                        ; preds = %cond.end15
   %call19 = call i64 @icount_get_locked()
   store i64 %call19, ptr %cur_icount, align 8
-  %10 = load i64, ptr %clock, align 8
-  %11 = load i64, ptr %cur_icount, align 8
-  %sub20 = sub i64 %10, %11
+  %17 = load i64, ptr %clock, align 8
+  %18 = load i64, ptr %cur_icount, align 8
+  %sub20 = sub i64 %17, %18
   store i64 %sub20, ptr %delta, align 8
-  %12 = load i64, ptr %delta, align 8
-  %cmp21 = icmp slt i64 %12, 0
+  %19 = load i64, ptr %delta, align 8
+  %cmp21 = icmp slt i64 %19, 0
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.then18
@@ -1034,63 +1076,69 @@ if.then22:                                        ; preds = %if.then18
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.then18
-  %13 = load i64, ptr %warp_delta, align 8
-  store i64 %13, ptr %_a0, align 8
-  %14 = load i64, ptr %delta, align 8
-  store i64 %14, ptr %_b1, align 8
-  %15 = load i64, ptr %_a0, align 8
-  %16 = load i64, ptr %_b1, align 8
-  %cmp24 = icmp slt i64 %15, %16
+  %20 = load i64, ptr %warp_delta, align 8
+  store i64 %20, ptr %_a0, align 8
+  %21 = load i64, ptr %delta, align 8
+  store i64 %21, ptr %_b1, align 8
+  %22 = load i64, ptr %_a0, align 8
+  %23 = load i64, ptr %_b1, align 8
+  %cmp24 = icmp slt i64 %22, %23
   br i1 %cmp24, label %cond.true25, label %cond.false26
 
 cond.true25:                                      ; preds = %if.end23
-  %17 = load i64, ptr %_a0, align 8
+  %24 = load i64, ptr %_a0, align 8
   br label %cond.end27
 
 cond.false26:                                     ; preds = %if.end23
-  %18 = load i64, ptr %_b1, align 8
+  %25 = load i64, ptr %_b1, align 8
   br label %cond.end27
 
 cond.end27:                                       ; preds = %cond.false26, %cond.true25
-  %cond28 = phi i64 [ %17, %cond.true25 ], [ %18, %cond.false26 ]
+  %cond28 = phi i64 [ %24, %cond.true25 ], [ %25, %cond.false26 ]
   store i64 %cond28, ptr %tmp, align 8
-  %19 = load i64, ptr %tmp, align 8
-  store i64 %19, ptr %warp_delta, align 8
+  %26 = load i64, ptr %tmp, align 8
+  store i64 %26, ptr %warp_delta, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %cond.end27, %cond.end15
-  %20 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 7), align 8
-  %21 = load i64, ptr %warp_delta, align 8
-  %add = add i64 %20, %21
+  %27 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 7
+  %28 = load i64, ptr %27, align 8
+  %29 = load i64, ptr %warp_delta, align 8
+  %add = add i64 %28, %29
   store i64 %add, ptr %.atomictmp, align 8
-  %22 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %22, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 7) monotonic, align 8
+  %30 = load i64, ptr %.atomictmp, align 8
+  %31 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 7
+  store atomic i64 %30, ptr %31 monotonic, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end29, %qemu_make_lockable.exit45
-  store i64 -1, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 8), align 8
+  %32 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 8
+  store i64 -1, ptr %32, align 8
   %object32 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral31, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object32, align 8
+  %33 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %33, ptr %object32, align 8
   %lock33 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral31, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock33, align 8
   %unlock34 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral31, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock34, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i, align 8
+  %34 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %34, ptr %x.addr.i, align 8
   store ptr %.compoundliteral31, ptr %lockable.addr.i, align 8
-  %23 = load ptr, ptr %x.addr.i, align 8
-  %tobool.i = icmp ne ptr %23, null
+  %35 = load ptr, ptr %x.addr.i, align 8
+  %tobool.i = icmp ne ptr %35, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end30
-  %24 = load ptr, ptr %lockable.addr.i, align 8
+  %36 = load ptr, ptr %lockable.addr.i, align 8
   br label %qemu_make_lockable.exit
 
 cond.false.i:                                     ; preds = %if.end30
   br label %qemu_make_lockable.exit
 
 qemu_make_lockable.exit:                          ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi ptr [ %24, %cond.true.i ], [ null, %cond.false.i ]
-  call void @seqlock_write_unlock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i)
+  %cond.i = phi ptr [ %36, %cond.true.i ], [ null, %cond.false.i ]
+  %37 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_unlock_impl(ptr noundef %37, ptr noundef %cond.i)
   %call36 = call zeroext i1 @qemu_clock_expired(i32 noundef 1)
   br i1 %call36, label %if.then37, label %if.end38
 
@@ -1225,41 +1273,49 @@ if.end28:                                         ; preds = %if.end27, %if.end20
 
 if.then32:                                        ; preds = %if.end28
   %call33 = call ptr @timer_new_ns(i32 noundef 3, ptr noundef @icount_timer_cb, ptr noundef null)
-  store ptr %call33, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 13), align 8
+  %20 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 13
+  store ptr %call33, ptr %20, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end28
-  %20 = load i8, ptr %align, align 1
-  %tobool35 = trunc i8 %20 to i1
+  %21 = load i8, ptr %align, align 1
+  %tobool35 = trunc i8 %21 to i1
   %conv = zext i1 %tobool35 to i32
   store i32 %conv, ptr @icount_align_option, align 4
-  %21 = load i64, ptr %time_shift, align 8
-  %cmp36 = icmp sge i64 %21, 0
+  %22 = load i64, ptr %time_shift, align 8
+  %cmp36 = icmp sge i64 %22, 0
   br i1 %cmp36, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.end34
-  %22 = load i64, ptr %time_shift, align 8
-  %conv39 = trunc i64 %22 to i16
-  store i16 %conv39, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5), align 2
+  %23 = load i64, ptr %time_shift, align 8
+  %conv39 = trunc i64 %23 to i16
+  %24 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  store i16 %conv39, ptr %24, align 2
   call void @icount_enable_precise()
   br label %return
 
 if.end40:                                         ; preds = %if.end34
   call void @icount_enable_adaptive()
-  store i16 3, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5), align 2
-  store i64 -1, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 8), align 8
+  %25 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  store i16 3, ptr %25, align 2
+  %26 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 8
+  store i64 -1, ptr %26, align 8
   %call41 = call ptr @timer_new_ms(i32 noundef 3, ptr noundef @icount_adjust_rt, ptr noundef null)
-  store ptr %call41, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 11), align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 11), align 8
+  %27 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 11
+  store ptr %call41, ptr %27, align 8
+  %28 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 11
+  %29 = load ptr, ptr %28, align 8
   %call42 = call i64 @qemu_clock_get_ms(i32 noundef 3)
   %add = add i64 %call42, 1000
-  call void @timer_mod(ptr noundef %23, i64 noundef %add)
+  call void @timer_mod(ptr noundef %29, i64 noundef %add)
   %call43 = call ptr @timer_new_ns(i32 noundef 1, ptr noundef @icount_adjust_vm, ptr noundef null)
-  store ptr %call43, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 12), align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 12), align 8
+  %30 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 12
+  store ptr %call43, ptr %30, align 8
+  %31 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 12
+  %32 = load ptr, ptr %31, align 8
   %call44 = call i64 @qemu_clock_get_ns(i32 noundef 1)
   %add45 = add i64 %call44, 100000000
-  call void @timer_mod(ptr noundef %24, i64 noundef %add45)
+  call void @timer_mod(ptr noundef %32, i64 noundef %add45)
   br label %return
 
 return:                                           ; preds = %if.end40, %if.then38, %if.then25, %if.then22, %if.then19, %if.then9, %if.end
@@ -1337,10 +1393,11 @@ define internal void @icount_adjust_rt(ptr noundef %opaque) #0 {
 entry:
   %opaque.addr = alloca ptr, align 8
   store ptr %opaque, ptr %opaque.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 11), align 8
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 11
+  %1 = load ptr, ptr %0, align 8
   %call = call i64 @qemu_clock_get_ms(i32 noundef 3)
   %add = add i64 %call, 1000
-  call void @timer_mod(ptr noundef %0, i64 noundef %add)
+  call void @timer_mod(ptr noundef %1, i64 noundef %add)
   call void @icount_adjust()
   ret void
 }
@@ -1363,10 +1420,11 @@ define internal void @icount_adjust_vm(ptr noundef %opaque) #0 {
 entry:
   %opaque.addr = alloca ptr, align 8
   store ptr %opaque, ptr %opaque.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 12), align 8
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 12
+  %1 = load ptr, ptr %0, align 8
   %call = call i64 @qemu_clock_get_ns(i32 noundef 1)
   %add = add i64 %call, 100000000
-  call void @timer_mod(ptr noundef %0, i64 noundef %add)
+  call void @timer_mod(ptr noundef %1, i64 noundef %add)
   call void @icount_adjust()
   ret void
 }
@@ -1626,29 +1684,32 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %object = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object, align 8
+  %0 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %0, ptr %object, align 8
   %lock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock, align 8
   %unlock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i58, align 8
+  %1 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %1, ptr %x.addr.i58, align 8
   store ptr %.compoundliteral, ptr %lockable.addr.i59, align 8
-  %0 = load ptr, ptr %x.addr.i58, align 8
-  %tobool.i60 = icmp ne ptr %0, null
+  %2 = load ptr, ptr %x.addr.i58, align 8
+  %tobool.i60 = icmp ne ptr %2, null
   br i1 %tobool.i60, label %cond.true.i63, label %cond.false.i61
 
 cond.true.i63:                                    ; preds = %if.end
-  %1 = load ptr, ptr %lockable.addr.i59, align 8
+  %3 = load ptr, ptr %lockable.addr.i59, align 8
   br label %qemu_make_lockable.exit64
 
 cond.false.i61:                                   ; preds = %if.end
   br label %qemu_make_lockable.exit64
 
 qemu_make_lockable.exit64:                        ; preds = %cond.false.i61, %cond.true.i63
-  %cond.i62 = phi ptr [ %1, %cond.true.i63 ], [ null, %cond.false.i61 ]
-  call void @seqlock_write_lock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i62)
-  %2 = load i32, ptr @replay_mode, align 4
-  %cmp = icmp eq i32 %2, 2
+  %cond.i62 = phi ptr [ %3, %cond.true.i63 ], [ null, %cond.false.i61 ]
+  %4 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_lock_impl(ptr noundef %4, ptr noundef %cond.i62)
+  %5 = load i32, ptr @replay_mode, align 4
+  %cmp = icmp eq i32 %5, 2
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %qemu_make_lockable.exit64
@@ -1657,8 +1718,8 @@ cond.true:                                        ; preds = %qemu_make_lockable.
   br label %cond.end11
 
 cond.false:                                       ; preds = %qemu_make_lockable.exit64
-  %3 = load i32, ptr @replay_mode, align 4
-  %cmp4 = icmp eq i32 %3, 1
+  %6 = load i32, ptr @replay_mode, align 4
+  %cmp4 = icmp eq i32 %6, 1
   br i1 %cmp4, label %cond.true5, label %cond.false9
 
 cond.true5:                                       ; preds = %cond.false
@@ -1680,25 +1741,27 @@ cond.end11:                                       ; preds = %cond.end, %cond.tru
   store i64 %cond12, ptr %cur_time, align 8
   %call13 = call i64 @icount_get_locked()
   store i64 %call13, ptr %cur_icount, align 8
-  %4 = load i64, ptr %cur_icount, align 8
-  %5 = load i64, ptr %cur_time, align 8
-  %sub = sub i64 %4, %5
+  %7 = load i64, ptr %cur_icount, align 8
+  %8 = load i64, ptr %cur_time, align 8
+  %sub = sub i64 %7, %8
   store i64 %sub, ptr %delta, align 8
-  %6 = load i64, ptr %delta, align 8
-  %cmp14 = icmp sgt i64 %6, 0
+  %9 = load i64, ptr %delta, align 8
+  %cmp14 = icmp sgt i64 %9, 0
   br i1 %cmp14, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %cond.end11
-  %7 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 6), align 8
-  %add = add i64 %7, 100000000
-  %8 = load i64, ptr %delta, align 8
-  %mul = mul i64 %8, 2
+  %10 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 6
+  %11 = load i64, ptr %10, align 8
+  %add = add i64 %11, 100000000
+  %12 = load i64, ptr %delta, align 8
+  %mul = mul i64 %12, 2
   %cmp15 = icmp slt i64 %add, %mul
   br i1 %cmp15, label %land.lhs.true16, label %if.end25
 
 land.lhs.true16:                                  ; preds = %land.lhs.true
-  %9 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5), align 2
-  %conv = sext i16 %9 to i32
+  %13 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  %14 = load i16, ptr %13, align 2
+  %conv = sext i16 %14 to i32
   %cmp17 = icmp sgt i32 %conv, 0
   br i1 %cmp17, label %if.then19, label %if.end25
 
@@ -1722,34 +1785,38 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %10 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5), align 2
-  %conv21 = sext i16 %10 to i32
+  %15 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  %16 = load i16, ptr %15, align 2
+  %conv21 = sext i16 %16 to i32
   %sub22 = sub i32 %conv21, 1
   %conv23 = trunc i32 %sub22 to i16
   store i16 %conv23, ptr %.atomictmp, align 2
-  %11 = load i16, ptr %.atomictmp, align 2
-  store atomic i16 %11, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5) monotonic, align 2
+  %17 = load i16, ptr %.atomictmp, align 2
+  %18 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  store atomic i16 %17, ptr %18 monotonic, align 2
   br label %do.end24
 
 do.end24:                                         ; preds = %while.end
   br label %if.end25
 
 if.end25:                                         ; preds = %do.end24, %land.lhs.true16, %land.lhs.true, %cond.end11
-  %12 = load i64, ptr %delta, align 8
-  %cmp26 = icmp slt i64 %12, 0
+  %19 = load i64, ptr %delta, align 8
+  %cmp26 = icmp slt i64 %19, 0
   br i1 %cmp26, label %land.lhs.true28, label %if.end49
 
 land.lhs.true28:                                  ; preds = %if.end25
-  %13 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 6), align 8
-  %sub29 = sub i64 %13, 100000000
-  %14 = load i64, ptr %delta, align 8
-  %mul30 = mul i64 %14, 2
+  %20 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 6
+  %21 = load i64, ptr %20, align 8
+  %sub29 = sub i64 %21, 100000000
+  %22 = load i64, ptr %delta, align 8
+  %mul30 = mul i64 %22, 2
   %cmp31 = icmp sgt i64 %sub29, %mul30
   br i1 %cmp31, label %land.lhs.true33, label %if.end49
 
 land.lhs.true33:                                  ; preds = %land.lhs.true28
-  %15 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5), align 2
-  %conv34 = sext i16 %15 to i32
+  %23 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  %24 = load i16, ptr %23, align 2
+  %conv34 = sext i16 %24 to i32
   %cmp35 = icmp slt i32 %conv34, 10
   br i1 %cmp35, label %if.then37, label %if.end49
 
@@ -1773,53 +1840,62 @@ do.end42:                                         ; No predecessors!
   br label %while.cond39
 
 while.end43:                                      ; preds = %while.cond39
-  %16 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5), align 2
-  %conv45 = sext i16 %16 to i32
+  %25 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  %26 = load i16, ptr %25, align 2
+  %conv45 = sext i16 %26 to i32
   %add46 = add i32 %conv45, 1
   %conv47 = trunc i32 %add46 to i16
   store i16 %conv47, ptr %.atomictmp44, align 2
-  %17 = load i16, ptr %.atomictmp44, align 2
-  store atomic i16 %17, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5) monotonic, align 2
+  %27 = load i16, ptr %.atomictmp44, align 2
+  %28 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  store atomic i16 %27, ptr %28 monotonic, align 2
   br label %do.end48
 
 do.end48:                                         ; preds = %while.end43
   br label %if.end49
 
 if.end49:                                         ; preds = %do.end48, %land.lhs.true33, %land.lhs.true28, %if.end25
-  %18 = load i64, ptr %delta, align 8
-  store i64 %18, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 6), align 8
-  %19 = load i64, ptr %cur_icount, align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 10), align 8
-  %21 = load i16, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 5), align 2
-  %conv51 = sext i16 %21 to i32
+  %29 = load i64, ptr %delta, align 8
+  %30 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 6
+  store i64 %29, ptr %30, align 8
+  %31 = load i64, ptr %cur_icount, align 8
+  %32 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 10
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 5
+  %35 = load i16, ptr %34, align 2
+  %conv51 = sext i16 %35 to i32
   %sh_prom = zext i32 %conv51 to i64
-  %shl = shl i64 %20, %sh_prom
-  %sub52 = sub i64 %19, %shl
+  %shl = shl i64 %33, %sh_prom
+  %sub52 = sub i64 %31, %shl
   store i64 %sub52, ptr %.atomictmp50, align 8
-  %22 = load i64, ptr %.atomictmp50, align 8
-  store atomic i64 %22, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 7) monotonic, align 8
+  %36 = load i64, ptr %.atomictmp50, align 8
+  %37 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 7
+  store atomic i64 %36, ptr %37 monotonic, align 8
   %object54 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral53, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %object54, align 8
+  %38 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %38, ptr %object54, align 8
   %lock55 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral53, i32 0, i32 1
   store ptr @qemu_spin_lock, ptr %lock55, align 8
   %unlock56 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral53, i32 0, i32 2
   store ptr @qemu_spin_unlock, ptr %unlock56, align 8
-  store ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 3), ptr %x.addr.i, align 8
+  %39 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 3
+  store ptr %39, ptr %x.addr.i, align 8
   store ptr %.compoundliteral53, ptr %lockable.addr.i, align 8
-  %23 = load ptr, ptr %x.addr.i, align 8
-  %tobool.i = icmp ne ptr %23, null
+  %40 = load ptr, ptr %x.addr.i, align 8
+  %tobool.i = icmp ne ptr %40, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end49
-  %24 = load ptr, ptr %lockable.addr.i, align 8
+  %41 = load ptr, ptr %lockable.addr.i, align 8
   br label %qemu_make_lockable.exit
 
 cond.false.i:                                     ; preds = %if.end49
   br label %qemu_make_lockable.exit
 
 qemu_make_lockable.exit:                          ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi ptr [ %24, %cond.true.i ], [ null, %cond.false.i ]
-  call void @seqlock_write_unlock_impl(ptr noundef getelementptr inbounds (%struct.TimersState, ptr @timers_state, i32 0, i32 2), ptr noundef %cond.i)
+  %cond.i = phi ptr [ %41, %cond.true.i ], [ null, %cond.false.i ]
+  %42 = getelementptr inbounds %struct.TimersState, ptr @timers_state, i32 0, i32 2
+  call void @seqlock_write_unlock_impl(ptr noundef %42, ptr noundef %cond.i)
   br label %return
 
 return:                                           ; preds = %qemu_make_lockable.exit, %if.then

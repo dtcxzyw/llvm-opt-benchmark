@@ -962,7 +962,7 @@ define i32 @zendparse() #0 {
   store i32 -2, ptr %473, align 4
   br label %522
 
-519:                                              ; preds = %5860, %5711, %691
+519:                                              ; preds = %5896, %5747, %691
   %520 = load ptr, ptr %481, align 8
   %521 = getelementptr inbounds i16, ptr %520, i32 1
   store ptr %521, ptr %481, align 8
@@ -995,7 +995,7 @@ define i32 @zendparse() #0 {
   br i1 %541, label %542, label %543
 
 542:                                              ; preds = %532
-  br label %5866
+  br label %5902
 
 543:                                              ; preds = %532
   %544 = load i64, ptr %478, align 8
@@ -1022,7 +1022,7 @@ define i32 @zendparse() #0 {
   br i1 %556, label %558, label %557
 
 557:                                              ; preds = %549
-  br label %5866
+  br label %5902
 
 558:                                              ; preds = %549
   br label %559
@@ -1099,7 +1099,7 @@ define i32 @zendparse() #0 {
   br i1 %606, label %607, label %608
 
 607:                                              ; preds = %592
-  br label %5865
+  br label %5901
 
 608:                                              ; preds = %592
   br label %609
@@ -1110,7 +1110,7 @@ define i32 @zendparse() #0 {
   br i1 %611, label %612, label %613
 
 612:                                              ; preds = %609
-  br label %5864
+  br label %5900
 
 613:                                              ; preds = %609
   br label %614
@@ -1157,7 +1157,7 @@ define i32 @zendparse() #0 {
 635:                                              ; preds = %632
   store i32 257, ptr %473, align 4
   store i32 1, ptr %487, align 4
-  br label %5806
+  br label %5842
 
 636:                                              ; preds = %632
   %637 = load i32, ptr %473, align 4
@@ -1232,7 +1232,7 @@ define i32 @zendparse() #0 {
   br i1 %680, label %681, label %682
 
 681:                                              ; preds = %678
-  br label %5713
+  br label %5749
 
 682:                                              ; preds = %678
   %683 = load i32, ptr %485, align 4
@@ -1273,7 +1273,7 @@ define i32 @zendparse() #0 {
   br i1 %702, label %703, label %704
 
 703:                                              ; preds = %695
-  br label %5713
+  br label %5749
 
 704:                                              ; preds = %695
   br label %705
@@ -1292,2295 +1292,2286 @@ define i32 @zendparse() #0 {
   %715 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %711, i64 %714
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %488, ptr align 8 %715, i64 8, i1 false)
   %716 = load i32, ptr %485, align 4
-  switch i32 %716, label %5655 [
+  switch i32 %716, label %5691 [
     i32 2, label %717
-    i32 83, label %721
-    i32 84, label %725
-    i32 85, label %734
-    i32 86, label %742
-    i32 87, label %744
-    i32 88, label %748
-    i32 89, label %752
-    i32 90, label %756
-    i32 91, label %760
-    i32 92, label %764
-    i32 93, label %768
-    i32 94, label %774
-    i32 95, label %780
-    i32 96, label %786
-    i32 97, label %792
-    i32 98, label %797
-    i32 99, label %805
-    i32 100, label %810
-    i32 101, label %818
-    i32 102, label %822
-    i32 103, label %827
-    i32 104, label %835
-    i32 105, label %839
-    i32 106, label %843
-    i32 107, label %847
-    i32 108, label %851
-    i32 109, label %855
-    i32 110, label %859
-    i32 111, label %863
-    i32 112, label %871
-    i32 113, label %875
-    i32 114, label %913
-    i32 115, label %947
-    i32 116, label %955
-    i32 117, label %989
-    i32 118, label %994
-    i32 119, label %998
-    i32 120, label %1008
-    i32 121, label %1014
-    i32 122, label %1024
-    i32 123, label %1028
-    i32 124, label %1029
-    i32 125, label %1030
-    i32 126, label %1038
-    i32 129, label %1046
-    i32 130, label %1054
-    i32 131, label %1059
-    i32 132, label %1067
-    i32 133, label %1072
-    i32 134, label %1080
-    i32 135, label %1085
-    i32 136, label %1091
-    i32 137, label %1101
-    i32 138, label %1106
-    i32 139, label %1114
-    i32 140, label %1119
-    i32 141, label %1127
-    i32 142, label %1135
-    i32 143, label %1140
-    i32 144, label %1148
-    i32 145, label %1150
-    i32 146, label %1154
-    i32 147, label %1158
-    i32 148, label %1166
-    i32 149, label %1169
-    i32 150, label %1173
-    i32 151, label %1177
-    i32 152, label %1181
-    i32 153, label %1189
-    i32 154, label %1197
-    i32 155, label %1211
-    i32 156, label %1219
-    i32 157, label %1224
-    i32 158, label %1229
-    i32 159, label %1234
-    i32 160, label %1238
-    i32 161, label %1242
-    i32 162, label %1246
-    i32 163, label %1251
-    i32 164, label %1255
-    i32 165, label %1259
-    i32 166, label %1270
-    i32 167, label %1284
-    i32 168, label %1291
-    i32 169, label %1299
-    i32 170, label %1300
-    i32 171, label %1311
-    i32 172, label %1316
-    i32 173, label %1321
-    i32 174, label %1323
-    i32 175, label %1338
-    i32 176, label %1343
-    i32 177, label %1351
-    i32 178, label %1352
-    i32 179, label %1356
-    i32 180, label %1357
-    i32 181, label %1361
-    i32 182, label %1366
-    i32 183, label %1374
-    i32 184, label %1379
-    i32 185, label %1383
-    i32 186, label %1392
-    i32 187, label %1434
-    i32 188, label %1435
-    i32 189, label %1436
-    i32 190, label %1437
-    i32 191, label %1438
-    i32 192, label %1441
-    i32 193, label %1475
-    i32 194, label %1478
-    i32 195, label %1508
-    i32 196, label %1512
-    i32 197, label %1527
-    i32 198, label %1538
-    i32 199, label %1553
-    i32 200, label %1554
-    i32 201, label %1558
-    i32 202, label %1559
-    i32 203, label %1560
-    i32 204, label %1561
-    i32 205, label %1564
-    i32 206, label %1588
-    i32 207, label %1591
-    i32 208, label %1618
-    i32 209, label %1621
-    i32 210, label %1651
-    i32 211, label %1652
-    i32 212, label %1656
-    i32 213, label %1676
-    i32 214, label %1677
-    i32 215, label %1681
-    i32 216, label %1682
-    i32 217, label %1686
-    i32 218, label %1687
-    i32 219, label %1691
-    i32 220, label %1692
-    i32 221, label %1696
-    i32 222, label %1700
-    i32 223, label %1705
-    i32 224, label %1711
-    i32 225, label %1717
-    i32 226, label %1721
-    i32 227, label %1725
-    i32 228, label %1729
-    i32 229, label %1733
-    i32 230, label %1737
-    i32 231, label %1741
-    i32 232, label %1745
-    i32 233, label %1749
-    i32 234, label %1753
-    i32 235, label %1757
-    i32 236, label %1759
-    i32 237, label %1771
-    i32 240, label %1780
-    i32 241, label %1788
-    i32 242, label %1790
-    i32 243, label %1794
-    i32 244, label %1799
-    i32 245, label %1807
-    i32 246, label %1815
-    i32 247, label %1820
-    i32 248, label %1825
-    i32 249, label %1833
-    i32 250, label %1837
-    i32 251, label %1841
-    i32 252, label %1850
-    i32 253, label %1862
-    i32 254, label %1866
-    i32 255, label %1875
-    i32 256, label %1884
-    i32 257, label %1896
-    i32 258, label %1900
-    i32 259, label %1909
-    i32 260, label %1913
-    i32 261, label %1915
-    i32 262, label %1920
-    i32 263, label %1928
-    i32 264, label %1936
-    i32 265, label %1940
-    i32 266, label %1941
-    i32 267, label %1951
-    i32 268, label %1993
-    i32 269, label %2038
-    i32 270, label %2039
-    i32 271, label %2043
-    i32 272, label %2047
-    i32 273, label %2057
-    i32 274, label %2061
-    i32 275, label %2065
-    i32 276, label %2069
-    i32 277, label %2076
-    i32 278, label %2080
-    i32 279, label %2084
-    i32 280, label %2092
-    i32 281, label %2100
-    i32 282, label %2108
-    i32 283, label %2116
-    i32 284, label %2120
-    i32 285, label %2130
-    i32 286, label %2134
-    i32 287, label %2138
-    i32 288, label %2145
-    i32 289, label %2152
-    i32 290, label %2156
-    i32 291, label %2160
-    i32 292, label %2164
-    i32 293, label %2172
-    i32 294, label %2180
-    i32 295, label %2188
-    i32 296, label %2196
-    i32 297, label %2197
-    i32 298, label %2201
-    i32 299, label %2203
-    i32 300, label %2207
-    i32 301, label %2209
-    i32 302, label %2214
-    i32 303, label %2222
-    i32 304, label %2226
-    i32 305, label %2234
-    i32 306, label %2239
-    i32 307, label %2247
-    i32 308, label %2252
-    i32 309, label %2258
-    i32 310, label %2266
-    i32 311, label %2271
-    i32 312, label %2276
-    i32 313, label %2284
-    i32 314, label %2292
-    i32 315, label %2294
-    i32 316, label %2308
-    i32 317, label %2319
-    i32 318, label %2333
-    i32 319, label %2379
-    i32 320, label %2383
-    i32 321, label %2387
-    i32 322, label %2395
-    i32 323, label %2403
-    i32 324, label %2408
-    i32 325, label %2416
-    i32 326, label %2417
-    i32 327, label %2418
-    i32 328, label %2422
-    i32 329, label %2427
-    i32 330, label %2435
-    i32 331, label %2439
-    i32 332, label %2443
-    i32 333, label %2451
-    i32 334, label %2459
-    i32 335, label %2472
-    i32 336, label %2499
-    i32 337, label %2523
-    i32 338, label %2528
-    i32 339, label %2532
-    i32 340, label %2540
-    i32 341, label %2541
-    i32 342, label %2545
-    i32 343, label %2555
-    i32 344, label %2556
-    i32 345, label %2557
-    i32 346, label %2574
-    i32 347, label %2575
-    i32 348, label %2592
-    i32 349, label %2598
-    i32 350, label %2607
-    i32 351, label %2608
-    i32 352, label %2609
-    i32 353, label %2610
-    i32 354, label %2611
-    i32 355, label %2612
-    i32 356, label %2613
-    i32 357, label %2614
-    i32 358, label %2622
-    i32 359, label %2627
-    i32 360, label %2644
-    i32 361, label %2664
-    i32 362, label %2672
-    i32 363, label %2677
-    i32 364, label %2697
-    i32 365, label %2722
-    i32 366, label %2742
-    i32 367, label %2750
-    i32 368, label %2755
-    i32 369, label %2760
-    i32 370, label %2761
-    i32 371, label %2765
-    i32 372, label %2773
-    i32 373, label %2778
-    i32 374, label %2781
-    i32 375, label %2809
-    i32 376, label %2817
-    i32 377, label %2821
-    i32 378, label %2835
-    i32 379, label %2839
-    i32 380, label %2851
-    i32 381, label %2863
-    i32 382, label %2871
-    i32 383, label %2879
-    i32 384, label %2884
-    i32 385, label %2903
-    i32 386, label %2922
-    i32 387, label %2941
-    i32 388, label %2960
-    i32 389, label %2979
-    i32 390, label %2998
-    i32 391, label %3017
-    i32 392, label %3036
-    i32 393, label %3055
-    i32 394, label %3074
-    i32 395, label %3093
-    i32 396, label %3112
-    i32 397, label %3120
-    i32 398, label %3125
-    i32 399, label %3130
-    i32 400, label %3135
-    i32 401, label %3140
-    i32 402, label %3148
-    i32 403, label %3156
-    i32 404, label %3164
-    i32 405, label %3172
-    i32 406, label %3191
-    i32 407, label %3210
-    i32 408, label %3229
-    i32 409, label %3248
-    i32 410, label %3267
-    i32 411, label %3275
-    i32 412, label %3294
-    i32 413, label %3313
-    i32 414, label %3332
-    i32 415, label %3351
-    i32 416, label %3370
-    i32 417, label %3389
-    i32 418, label %3408
-    i32 419, label %3427
-    i32 420, label %3432
-    i32 421, label %3437
-    i32 422, label %3448
-    i32 423, label %3459
-    i32 424, label %3478
-    i32 425, label %3497
-    i32 426, label %3516
-    i32 427, label %3535
-    i32 428, label %3554
-    i32 429, label %3573
-    i32 430, label %3581
-    i32 431, label %3589
-    i32 432, label %3608
-    i32 433, label %3616
-    i32 434, label %3629
-    i32 435, label %3633
-    i32 436, label %3644
-    i32 437, label %3652
-    i32 438, label %3660
-    i32 439, label %3664
-    i32 440, label %3678
-    i32 441, label %3692
-    i32 442, label %3706
-    i32 443, label %3720
-    i32 444, label %3734
-    i32 445, label %3748
-    i32 446, label %3762
-    i32 447, label %3767
-    i32 448, label %3772
-    i32 449, label %3776
-    i32 450, label %3781
-    i32 451, label %3786
-    i32 452, label %3790
-    i32 453, label %3797
-    i32 454, label %3807
-    i32 455, label %3814
-    i32 456, label %3819
-    i32 457, label %3823
-    i32 458, label %3831
-    i32 459, label %3839
-    i32 460, label %3851
-    i32 461, label %3855
-    i32 462, label %4332
-    i32 463, label %4806
-    i32 464, label %4809
-    i32 465, label %4812
-    i32 466, label %4814
-    i32 467, label %4817
-    i32 468, label %4819
-    i32 469, label %4820
-    i32 470, label %4821
-    i32 471, label %4822
-    i32 472, label %4826
-    i32 473, label %4834
-    i32 474, label %4839
-    i32 475, label %4843
-    i32 476, label %4849
-    i32 477, label %4857
-    i32 478, label %4870
-    i32 479, label %4881
-    i32 480, label %4892
-    i32 481, label %4895
-    i32 482, label %4909
-    i32 483, label %4921
-    i32 484, label %4925
-    i32 485, label %4929
-    i32 486, label %4933
-    i32 487, label %4937
-    i32 488, label %4938
-    i32 489, label %4942
-    i32 490, label %4945
-    i32 491, label %4949
-    i32 492, label %4953
-    i32 493, label %4955
-    i32 494, label %4959
-    i32 495, label %4965
-    i32 496, label %4971
-    i32 497, label %4975
-    i32 498, label %4979
-    i32 499, label %4983
-    i32 500, label %4987
-    i32 501, label %4991
-    i32 502, label %4994
-    i32 503, label %4998
-    i32 504, label %5002
-    i32 505, label %5006
-    i32 506, label %5010
-    i32 507, label %5015
-    i32 508, label %5022
-    i32 509, label %5029
-    i32 510, label %5036
-    i32 511, label %5043
-    i32 512, label %5050
-    i32 513, label %5057
-    i32 514, label %5064
-    i32 515, label %5071
-    i32 516, label %5079
-    i32 517, label %5087
-    i32 518, label %5095
-    i32 519, label %5103
-    i32 520, label %5104
-    i32 521, label %5108
-    i32 522, label %5112
-    i32 523, label %5116
-    i32 524, label %5120
-    i32 525, label %5124
-    i32 526, label %5128
-    i32 527, label %5132
-    i32 528, label %5136
-    i32 529, label %5140
-    i32 530, label %5144
-    i32 531, label %5148
-    i32 532, label %5153
-    i32 533, label %5161
-    i32 534, label %5176
-    i32 535, label %5187
-    i32 536, label %5198
-    i32 537, label %5202
-    i32 538, label %5206
-    i32 539, label %5210
-    i32 540, label %5218
-    i32 541, label %5226
-    i32 542, label %5230
-    i32 543, label %5234
-    i32 544, label %5239
-    i32 545, label %5247
-    i32 546, label %5255
-    i32 547, label %5260
-    i32 548, label %5268
-    i32 549, label %5283
-    i32 550, label %5291
-    i32 551, label %5299
-    i32 552, label %5307
-    i32 553, label %5315
-    i32 554, label %5319
-    i32 555, label %5323
-    i32 556, label %5328
-    i32 557, label %5332
-    i32 558, label %5336
-    i32 559, label %5341
-    i32 560, label %5369
-    i32 561, label %5370
-    i32 562, label %5374
-    i32 563, label %5382
-    i32 564, label %5387
-    i32 565, label %5395
-    i32 566, label %5400
-    i32 567, label %5415
-    i32 568, label %5427
-    i32 569, label %5432
-    i32 570, label %5444
-    i32 571, label %5453
-    i32 572, label %5461
-    i32 573, label %5469
-    i32 574, label %5474
-    i32 575, label %5482
-    i32 576, label %5487
-    i32 577, label %5496
-    i32 578, label %5505
-    i32 579, label %5514
-    i32 580, label %5525
-    i32 581, label %5536
-    i32 582, label %5552
-    i32 583, label %5556
-    i32 584, label %5560
-    i32 585, label %5564
-    i32 586, label %5569
-    i32 587, label %5574
-    i32 588, label %5578
-    i32 589, label %5583
-    i32 590, label %5594
-    i32 591, label %5605
-    i32 592, label %5616
-    i32 593, label %5627
-    i32 594, label %5638
-    i32 595, label %5642
-    i32 596, label %5650
+    i32 83, label %722
+    i32 84, label %726
+    i32 85, label %735
+    i32 86, label %743
+    i32 87, label %745
+    i32 88, label %749
+    i32 89, label %753
+    i32 90, label %757
+    i32 91, label %761
+    i32 92, label %765
+    i32 93, label %769
+    i32 94, label %775
+    i32 95, label %781
+    i32 96, label %787
+    i32 97, label %793
+    i32 98, label %798
+    i32 99, label %806
+    i32 100, label %811
+    i32 101, label %819
+    i32 102, label %823
+    i32 103, label %828
+    i32 104, label %836
+    i32 105, label %840
+    i32 106, label %844
+    i32 107, label %848
+    i32 108, label %852
+    i32 109, label %856
+    i32 110, label %860
+    i32 111, label %864
+    i32 112, label %872
+    i32 113, label %876
+    i32 114, label %917
+    i32 115, label %954
+    i32 116, label %962
+    i32 117, label %999
+    i32 118, label %1004
+    i32 119, label %1008
+    i32 120, label %1018
+    i32 121, label %1024
+    i32 122, label %1034
+    i32 123, label %1038
+    i32 124, label %1039
+    i32 125, label %1040
+    i32 126, label %1048
+    i32 129, label %1056
+    i32 130, label %1064
+    i32 131, label %1069
+    i32 132, label %1077
+    i32 133, label %1082
+    i32 134, label %1090
+    i32 135, label %1095
+    i32 136, label %1101
+    i32 137, label %1111
+    i32 138, label %1116
+    i32 139, label %1124
+    i32 140, label %1129
+    i32 141, label %1137
+    i32 142, label %1145
+    i32 143, label %1150
+    i32 144, label %1158
+    i32 145, label %1160
+    i32 146, label %1164
+    i32 147, label %1168
+    i32 148, label %1176
+    i32 149, label %1179
+    i32 150, label %1183
+    i32 151, label %1187
+    i32 152, label %1191
+    i32 153, label %1199
+    i32 154, label %1207
+    i32 155, label %1221
+    i32 156, label %1229
+    i32 157, label %1234
+    i32 158, label %1239
+    i32 159, label %1244
+    i32 160, label %1248
+    i32 161, label %1252
+    i32 162, label %1256
+    i32 163, label %1261
+    i32 164, label %1265
+    i32 165, label %1269
+    i32 166, label %1280
+    i32 167, label %1294
+    i32 168, label %1301
+    i32 169, label %1309
+    i32 170, label %1310
+    i32 171, label %1321
+    i32 172, label %1326
+    i32 173, label %1331
+    i32 174, label %1333
+    i32 175, label %1348
+    i32 176, label %1353
+    i32 177, label %1361
+    i32 178, label %1362
+    i32 179, label %1366
+    i32 180, label %1367
+    i32 181, label %1371
+    i32 182, label %1376
+    i32 183, label %1384
+    i32 184, label %1389
+    i32 185, label %1393
+    i32 186, label %1402
+    i32 187, label %1445
+    i32 188, label %1446
+    i32 189, label %1447
+    i32 190, label %1448
+    i32 191, label %1449
+    i32 192, label %1453
+    i32 193, label %1487
+    i32 194, label %1491
+    i32 195, label %1521
+    i32 196, label %1525
+    i32 197, label %1540
+    i32 198, label %1551
+    i32 199, label %1566
+    i32 200, label %1567
+    i32 201, label %1571
+    i32 202, label %1572
+    i32 203, label %1573
+    i32 204, label %1574
+    i32 205, label %1578
+    i32 206, label %1602
+    i32 207, label %1606
+    i32 208, label %1633
+    i32 209, label %1637
+    i32 210, label %1667
+    i32 211, label %1668
+    i32 212, label %1672
+    i32 213, label %1692
+    i32 214, label %1693
+    i32 215, label %1697
+    i32 216, label %1698
+    i32 217, label %1702
+    i32 218, label %1703
+    i32 219, label %1707
+    i32 220, label %1708
+    i32 221, label %1712
+    i32 222, label %1716
+    i32 223, label %1721
+    i32 224, label %1727
+    i32 225, label %1733
+    i32 226, label %1737
+    i32 227, label %1741
+    i32 228, label %1745
+    i32 229, label %1749
+    i32 230, label %1753
+    i32 231, label %1757
+    i32 232, label %1761
+    i32 233, label %1765
+    i32 234, label %1769
+    i32 235, label %1773
+    i32 236, label %1775
+    i32 237, label %1787
+    i32 240, label %1796
+    i32 241, label %1804
+    i32 242, label %1806
+    i32 243, label %1810
+    i32 244, label %1815
+    i32 245, label %1823
+    i32 246, label %1831
+    i32 247, label %1836
+    i32 248, label %1841
+    i32 249, label %1849
+    i32 250, label %1853
+    i32 251, label %1857
+    i32 252, label %1866
+    i32 253, label %1878
+    i32 254, label %1882
+    i32 255, label %1891
+    i32 256, label %1900
+    i32 257, label %1912
+    i32 258, label %1916
+    i32 259, label %1925
+    i32 260, label %1929
+    i32 261, label %1931
+    i32 262, label %1936
+    i32 263, label %1944
+    i32 264, label %1952
+    i32 265, label %1956
+    i32 266, label %1957
+    i32 267, label %1967
+    i32 268, label %2009
+    i32 269, label %2054
+    i32 270, label %2055
+    i32 271, label %2059
+    i32 272, label %2063
+    i32 273, label %2073
+    i32 274, label %2077
+    i32 275, label %2081
+    i32 276, label %2085
+    i32 277, label %2092
+    i32 278, label %2096
+    i32 279, label %2100
+    i32 280, label %2108
+    i32 281, label %2116
+    i32 282, label %2124
+    i32 283, label %2132
+    i32 284, label %2136
+    i32 285, label %2146
+    i32 286, label %2150
+    i32 287, label %2154
+    i32 288, label %2161
+    i32 289, label %2168
+    i32 290, label %2172
+    i32 291, label %2176
+    i32 292, label %2180
+    i32 293, label %2188
+    i32 294, label %2196
+    i32 295, label %2204
+    i32 296, label %2212
+    i32 297, label %2213
+    i32 298, label %2217
+    i32 299, label %2219
+    i32 300, label %2223
+    i32 301, label %2225
+    i32 302, label %2230
+    i32 303, label %2238
+    i32 304, label %2242
+    i32 305, label %2250
+    i32 306, label %2255
+    i32 307, label %2263
+    i32 308, label %2268
+    i32 309, label %2274
+    i32 310, label %2282
+    i32 311, label %2287
+    i32 312, label %2292
+    i32 313, label %2300
+    i32 314, label %2308
+    i32 315, label %2310
+    i32 316, label %2324
+    i32 317, label %2335
+    i32 318, label %2349
+    i32 319, label %2396
+    i32 320, label %2400
+    i32 321, label %2404
+    i32 322, label %2412
+    i32 323, label %2420
+    i32 324, label %2425
+    i32 325, label %2433
+    i32 326, label %2434
+    i32 327, label %2435
+    i32 328, label %2439
+    i32 329, label %2444
+    i32 330, label %2452
+    i32 331, label %2456
+    i32 332, label %2460
+    i32 333, label %2468
+    i32 334, label %2476
+    i32 335, label %2489
+    i32 336, label %2516
+    i32 337, label %2540
+    i32 338, label %2545
+    i32 339, label %2549
+    i32 340, label %2557
+    i32 341, label %2558
+    i32 342, label %2562
+    i32 343, label %2572
+    i32 344, label %2573
+    i32 345, label %2574
+    i32 346, label %2591
+    i32 347, label %2592
+    i32 348, label %2609
+    i32 349, label %2615
+    i32 350, label %2624
+    i32 351, label %2625
+    i32 352, label %2626
+    i32 353, label %2627
+    i32 354, label %2628
+    i32 355, label %2629
+    i32 356, label %2630
+    i32 357, label %2631
+    i32 358, label %2639
+    i32 359, label %2644
+    i32 360, label %2661
+    i32 361, label %2681
+    i32 362, label %2689
+    i32 363, label %2694
+    i32 364, label %2714
+    i32 365, label %2739
+    i32 366, label %2759
+    i32 367, label %2767
+    i32 368, label %2772
+    i32 369, label %2777
+    i32 370, label %2778
+    i32 371, label %2782
+    i32 372, label %2790
+    i32 373, label %2795
+    i32 374, label %2799
+    i32 375, label %2827
+    i32 376, label %2835
+    i32 377, label %2839
+    i32 378, label %2853
+    i32 379, label %2857
+    i32 380, label %2869
+    i32 381, label %2881
+    i32 382, label %2889
+    i32 383, label %2897
+    i32 384, label %2902
+    i32 385, label %2921
+    i32 386, label %2940
+    i32 387, label %2959
+    i32 388, label %2978
+    i32 389, label %2997
+    i32 390, label %3016
+    i32 391, label %3035
+    i32 392, label %3054
+    i32 393, label %3073
+    i32 394, label %3092
+    i32 395, label %3111
+    i32 396, label %3130
+    i32 397, label %3138
+    i32 398, label %3143
+    i32 399, label %3148
+    i32 400, label %3153
+    i32 401, label %3158
+    i32 402, label %3166
+    i32 403, label %3174
+    i32 404, label %3182
+    i32 405, label %3190
+    i32 406, label %3209
+    i32 407, label %3228
+    i32 408, label %3247
+    i32 409, label %3266
+    i32 410, label %3285
+    i32 411, label %3293
+    i32 412, label %3312
+    i32 413, label %3331
+    i32 414, label %3350
+    i32 415, label %3369
+    i32 416, label %3388
+    i32 417, label %3407
+    i32 418, label %3426
+    i32 419, label %3445
+    i32 420, label %3450
+    i32 421, label %3455
+    i32 422, label %3466
+    i32 423, label %3477
+    i32 424, label %3496
+    i32 425, label %3515
+    i32 426, label %3534
+    i32 427, label %3553
+    i32 428, label %3572
+    i32 429, label %3591
+    i32 430, label %3599
+    i32 431, label %3607
+    i32 432, label %3626
+    i32 433, label %3634
+    i32 434, label %3647
+    i32 435, label %3651
+    i32 436, label %3662
+    i32 437, label %3670
+    i32 438, label %3678
+    i32 439, label %3682
+    i32 440, label %3696
+    i32 441, label %3710
+    i32 442, label %3724
+    i32 443, label %3738
+    i32 444, label %3752
+    i32 445, label %3766
+    i32 446, label %3780
+    i32 447, label %3785
+    i32 448, label %3790
+    i32 449, label %3794
+    i32 450, label %3799
+    i32 451, label %3804
+    i32 452, label %3810
+    i32 453, label %3819
+    i32 454, label %3831
+    i32 455, label %3840
+    i32 456, label %3845
+    i32 457, label %3849
+    i32 458, label %3857
+    i32 459, label %3865
+    i32 460, label %3877
+    i32 461, label %3881
+    i32 462, label %4359
+    i32 463, label %4834
+    i32 464, label %4838
+    i32 465, label %4842
+    i32 466, label %4846
+    i32 467, label %4851
+    i32 468, label %4854
+    i32 469, label %4855
+    i32 470, label %4856
+    i32 471, label %4857
+    i32 472, label %4861
+    i32 473, label %4869
+    i32 474, label %4874
+    i32 475, label %4878
+    i32 476, label %4884
+    i32 477, label %4892
+    i32 478, label %4905
+    i32 479, label %4916
+    i32 480, label %4927
+    i32 481, label %4931
+    i32 482, label %4945
+    i32 483, label %4957
+    i32 484, label %4961
+    i32 485, label %4965
+    i32 486, label %4969
+    i32 487, label %4973
+    i32 488, label %4974
+    i32 489, label %4978
+    i32 490, label %4981
+    i32 491, label %4985
+    i32 492, label %4989
+    i32 493, label %4991
+    i32 494, label %4995
+    i32 495, label %5001
+    i32 496, label %5007
+    i32 497, label %5011
+    i32 498, label %5015
+    i32 499, label %5019
+    i32 500, label %5023
+    i32 501, label %5027
+    i32 502, label %5030
+    i32 503, label %5034
+    i32 504, label %5038
+    i32 505, label %5042
+    i32 506, label %5046
+    i32 507, label %5051
+    i32 508, label %5058
+    i32 509, label %5065
+    i32 510, label %5072
+    i32 511, label %5079
+    i32 512, label %5086
+    i32 513, label %5093
+    i32 514, label %5100
+    i32 515, label %5107
+    i32 516, label %5115
+    i32 517, label %5123
+    i32 518, label %5131
+    i32 519, label %5139
+    i32 520, label %5140
+    i32 521, label %5144
+    i32 522, label %5148
+    i32 523, label %5152
+    i32 524, label %5156
+    i32 525, label %5160
+    i32 526, label %5164
+    i32 527, label %5168
+    i32 528, label %5172
+    i32 529, label %5176
+    i32 530, label %5180
+    i32 531, label %5184
+    i32 532, label %5189
+    i32 533, label %5197
+    i32 534, label %5212
+    i32 535, label %5223
+    i32 536, label %5234
+    i32 537, label %5238
+    i32 538, label %5242
+    i32 539, label %5246
+    i32 540, label %5254
+    i32 541, label %5262
+    i32 542, label %5266
+    i32 543, label %5270
+    i32 544, label %5275
+    i32 545, label %5283
+    i32 546, label %5291
+    i32 547, label %5296
+    i32 548, label %5304
+    i32 549, label %5319
+    i32 550, label %5327
+    i32 551, label %5335
+    i32 552, label %5343
+    i32 553, label %5351
+    i32 554, label %5355
+    i32 555, label %5359
+    i32 556, label %5364
+    i32 557, label %5368
+    i32 558, label %5372
+    i32 559, label %5377
+    i32 560, label %5405
+    i32 561, label %5406
+    i32 562, label %5410
+    i32 563, label %5418
+    i32 564, label %5423
+    i32 565, label %5431
+    i32 566, label %5436
+    i32 567, label %5451
+    i32 568, label %5463
+    i32 569, label %5468
+    i32 570, label %5480
+    i32 571, label %5489
+    i32 572, label %5497
+    i32 573, label %5505
+    i32 574, label %5510
+    i32 575, label %5518
+    i32 576, label %5523
+    i32 577, label %5532
+    i32 578, label %5541
+    i32 579, label %5550
+    i32 580, label %5561
+    i32 581, label %5572
+    i32 582, label %5588
+    i32 583, label %5592
+    i32 584, label %5596
+    i32 585, label %5600
+    i32 586, label %5605
+    i32 587, label %5610
+    i32 588, label %5614
+    i32 589, label %5619
+    i32 590, label %5630
+    i32 591, label %5641
+    i32 592, label %5652
+    i32 593, label %5663
+    i32 594, label %5674
+    i32 595, label %5678
+    i32 596, label %5686
   ]
 
 717:                                              ; preds = %705
   %718 = load ptr, ptr %484, align 8
   %719 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %718, i64 0
   %720 = load ptr, ptr %719, align 8
-  store ptr %720, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 31), align 8
-  br label %5656
+  %721 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 31
+  store ptr %720, ptr %721, align 8
+  br label %5692
 
-721:                                              ; preds = %705
-  %722 = load ptr, ptr %484, align 8
-  %723 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %722, i64 0
-  %724 = load ptr, ptr %723, align 8
-  store ptr %724, ptr %488, align 8
-  br label %5656
+722:                                              ; preds = %705
+  %723 = load ptr, ptr %484, align 8
+  %724 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %723, i64 0
+  %725 = load ptr, ptr %724, align 8
+  store ptr %725, ptr %488, align 8
+  br label %5692
 
-725:                                              ; preds = %705
-  %726 = load ptr, ptr %484, align 8
-  %727 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %726, i64 0
-  %728 = load ptr, ptr %727, align 8
-  %729 = call i32 @zend_lex_tstring(ptr noundef %498, ptr noundef %728)
-  %730 = icmp eq i32 %729, -1
-  br i1 %730, label %731, label %732
+726:                                              ; preds = %705
+  %727 = load ptr, ptr %484, align 8
+  %728 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %727, i64 0
+  %729 = load ptr, ptr %728, align 8
+  %730 = call i32 @zend_lex_tstring(ptr noundef %498, ptr noundef %729)
+  %731 = icmp eq i32 %730, -1
+  br i1 %731, label %732, label %733
 
-731:                                              ; preds = %725
-  br label %5865
+732:                                              ; preds = %726
+  br label %5901
 
-732:                                              ; preds = %725
-  %733 = call ptr @zend_ast_create_zval(ptr noundef %498)
-  store ptr %733, ptr %488, align 8
-  br label %5656
+733:                                              ; preds = %726
+  %734 = call ptr @zend_ast_create_zval(ptr noundef %498)
+  store ptr %734, ptr %488, align 8
+  br label %5692
 
-734:                                              ; preds = %705
-  %735 = load ptr, ptr %484, align 8
-  %736 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %735, i64 -1
-  %737 = load ptr, ptr %736, align 8
-  %738 = load ptr, ptr %484, align 8
-  %739 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %738, i64 0
-  %740 = load ptr, ptr %739, align 8
-  %741 = call ptr @zend_ast_list_add(ptr noundef %737, ptr noundef %740)
-  store ptr %741, ptr %488, align 8
-  br label %5656
+735:                                              ; preds = %705
+  %736 = load ptr, ptr %484, align 8
+  %737 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %736, i64 -1
+  %738 = load ptr, ptr %737, align 8
+  %739 = load ptr, ptr %484, align 8
+  %740 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %739, i64 0
+  %741 = load ptr, ptr %740, align 8
+  %742 = call ptr @zend_ast_list_add(ptr noundef %738, ptr noundef %741)
+  store ptr %742, ptr %488, align 8
+  br label %5692
 
-742:                                              ; preds = %705
-  %743 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132)
-  store ptr %743, ptr %488, align 8
-  br label %5656
+743:                                              ; preds = %705
+  %744 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132)
+  store ptr %744, ptr %488, align 8
+  br label %5692
 
-744:                                              ; preds = %705
-  %745 = load ptr, ptr %484, align 8
-  %746 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %745, i64 0
-  %747 = load ptr, ptr %746, align 8
-  store ptr %747, ptr %488, align 8
-  br label %5656
+745:                                              ; preds = %705
+  %746 = load ptr, ptr %484, align 8
+  %747 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %746, i64 0
+  %748 = load ptr, ptr %747, align 8
+  store ptr %748, ptr %488, align 8
+  br label %5692
 
-748:                                              ; preds = %705
-  %749 = load ptr, ptr %484, align 8
-  %750 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %749, i64 0
-  %751 = load ptr, ptr %750, align 8
-  store ptr %751, ptr %488, align 8
-  br label %5656
+749:                                              ; preds = %705
+  %750 = load ptr, ptr %484, align 8
+  %751 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %750, i64 0
+  %752 = load ptr, ptr %751, align 8
+  store ptr %752, ptr %488, align 8
+  br label %5692
 
-752:                                              ; preds = %705
-  %753 = load ptr, ptr %484, align 8
-  %754 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %753, i64 0
-  %755 = load ptr, ptr %754, align 8
-  store ptr %755, ptr %488, align 8
-  br label %5656
+753:                                              ; preds = %705
+  %754 = load ptr, ptr %484, align 8
+  %755 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %754, i64 0
+  %756 = load ptr, ptr %755, align 8
+  store ptr %756, ptr %488, align 8
+  br label %5692
 
-756:                                              ; preds = %705
-  %757 = load ptr, ptr %484, align 8
-  %758 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %757, i64 0
-  %759 = load ptr, ptr %758, align 8
-  store ptr %759, ptr %488, align 8
-  br label %5656
+757:                                              ; preds = %705
+  %758 = load ptr, ptr %484, align 8
+  %759 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %758, i64 0
+  %760 = load ptr, ptr %759, align 8
+  store ptr %760, ptr %488, align 8
+  br label %5692
 
-760:                                              ; preds = %705
-  %761 = load ptr, ptr %484, align 8
-  %762 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %761, i64 0
-  %763 = load ptr, ptr %762, align 8
-  store ptr %763, ptr %488, align 8
-  br label %5656
+761:                                              ; preds = %705
+  %762 = load ptr, ptr %484, align 8
+  %763 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %762, i64 0
+  %764 = load ptr, ptr %763, align 8
+  store ptr %764, ptr %488, align 8
+  br label %5692
 
-764:                                              ; preds = %705
-  %765 = load ptr, ptr %484, align 8
-  %766 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %765, i64 0
-  %767 = load ptr, ptr %766, align 8
-  store ptr %767, ptr %488, align 8
-  br label %5656
+765:                                              ; preds = %705
+  %766 = load ptr, ptr %484, align 8
+  %767 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %766, i64 0
+  %768 = load ptr, ptr %767, align 8
+  store ptr %768, ptr %488, align 8
+  br label %5692
 
-768:                                              ; preds = %705
-  %769 = load ptr, ptr %484, align 8
-  %770 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %769, i64 0
-  %771 = load ptr, ptr %770, align 8
-  store ptr %771, ptr %488, align 8
-  %772 = load ptr, ptr %488, align 8
-  %773 = getelementptr inbounds %struct._zend_ast, ptr %772, i32 0, i32 1
-  store i16 1, ptr %773, align 2
-  br label %5656
+769:                                              ; preds = %705
+  %770 = load ptr, ptr %484, align 8
+  %771 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %770, i64 0
+  %772 = load ptr, ptr %771, align 8
+  store ptr %772, ptr %488, align 8
+  %773 = load ptr, ptr %488, align 8
+  %774 = getelementptr inbounds %struct._zend_ast, ptr %773, i32 0, i32 1
+  store i16 1, ptr %774, align 2
+  br label %5692
 
-774:                                              ; preds = %705
-  %775 = load ptr, ptr %484, align 8
-  %776 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %775, i64 0
-  %777 = load ptr, ptr %776, align 8
-  store ptr %777, ptr %488, align 8
-  %778 = load ptr, ptr %488, align 8
-  %779 = getelementptr inbounds %struct._zend_ast, ptr %778, i32 0, i32 1
-  store i16 1, ptr %779, align 2
-  br label %5656
+775:                                              ; preds = %705
+  %776 = load ptr, ptr %484, align 8
+  %777 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %776, i64 0
+  %778 = load ptr, ptr %777, align 8
+  store ptr %778, ptr %488, align 8
+  %779 = load ptr, ptr %488, align 8
+  %780 = getelementptr inbounds %struct._zend_ast, ptr %779, i32 0, i32 1
+  store i16 1, ptr %780, align 2
+  br label %5692
 
-780:                                              ; preds = %705
-  %781 = load ptr, ptr %484, align 8
-  %782 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %781, i64 0
-  %783 = load ptr, ptr %782, align 8
-  store ptr %783, ptr %488, align 8
-  %784 = load ptr, ptr %488, align 8
-  %785 = getelementptr inbounds %struct._zend_ast, ptr %784, i32 0, i32 1
-  store i16 0, ptr %785, align 2
-  br label %5656
+781:                                              ; preds = %705
+  %782 = load ptr, ptr %484, align 8
+  %783 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %782, i64 0
+  %784 = load ptr, ptr %783, align 8
+  store ptr %784, ptr %488, align 8
+  %785 = load ptr, ptr %488, align 8
+  %786 = getelementptr inbounds %struct._zend_ast, ptr %785, i32 0, i32 1
+  store i16 0, ptr %786, align 2
+  br label %5692
 
-786:                                              ; preds = %705
-  %787 = load ptr, ptr %484, align 8
-  %788 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %787, i64 0
-  %789 = load ptr, ptr %788, align 8
-  store ptr %789, ptr %488, align 8
-  %790 = load ptr, ptr %488, align 8
-  %791 = getelementptr inbounds %struct._zend_ast, ptr %790, i32 0, i32 1
-  store i16 2, ptr %791, align 2
-  br label %5656
+787:                                              ; preds = %705
+  %788 = load ptr, ptr %484, align 8
+  %789 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %788, i64 0
+  %790 = load ptr, ptr %789, align 8
+  store ptr %790, ptr %488, align 8
+  %791 = load ptr, ptr %488, align 8
+  %792 = getelementptr inbounds %struct._zend_ast, ptr %791, i32 0, i32 1
+  store i16 2, ptr %792, align 2
+  br label %5692
 
-792:                                              ; preds = %705
-  %793 = load ptr, ptr %484, align 8
-  %794 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %793, i64 0
-  %795 = load ptr, ptr %794, align 8
-  %796 = call ptr @zend_ast_create_2(i16 noundef zeroext 546, ptr noundef %795, ptr noundef null)
-  store ptr %796, ptr %488, align 8
-  br label %5656
+793:                                              ; preds = %705
+  %794 = load ptr, ptr %484, align 8
+  %795 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %794, i64 0
+  %796 = load ptr, ptr %795, align 8
+  %797 = call ptr @zend_ast_create_2(i16 noundef zeroext 546, ptr noundef %796, ptr noundef null)
+  store ptr %797, ptr %488, align 8
+  br label %5692
 
-797:                                              ; preds = %705
-  %798 = load ptr, ptr %484, align 8
-  %799 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %798, i64 -1
-  %800 = load ptr, ptr %799, align 8
-  %801 = load ptr, ptr %484, align 8
-  %802 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %801, i64 0
-  %803 = load ptr, ptr %802, align 8
-  %804 = call ptr @zend_ast_create_2(i16 noundef zeroext 546, ptr noundef %800, ptr noundef %803)
-  store ptr %804, ptr %488, align 8
-  br label %5656
+798:                                              ; preds = %705
+  %799 = load ptr, ptr %484, align 8
+  %800 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %799, i64 -1
+  %801 = load ptr, ptr %800, align 8
+  %802 = load ptr, ptr %484, align 8
+  %803 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %802, i64 0
+  %804 = load ptr, ptr %803, align 8
+  %805 = call ptr @zend_ast_create_2(i16 noundef zeroext 546, ptr noundef %801, ptr noundef %804)
+  store ptr %805, ptr %488, align 8
+  br label %5692
 
-805:                                              ; preds = %705
-  %806 = load ptr, ptr %484, align 8
-  %807 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %806, i64 0
-  %808 = load ptr, ptr %807, align 8
-  %809 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 147, ptr noundef %808)
-  store ptr %809, ptr %488, align 8
-  br label %5656
+806:                                              ; preds = %705
+  %807 = load ptr, ptr %484, align 8
+  %808 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %807, i64 0
+  %809 = load ptr, ptr %808, align 8
+  %810 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 147, ptr noundef %809)
+  store ptr %810, ptr %488, align 8
+  br label %5692
 
-810:                                              ; preds = %705
-  %811 = load ptr, ptr %484, align 8
-  %812 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %811, i64 -2
-  %813 = load ptr, ptr %812, align 8
-  %814 = load ptr, ptr %484, align 8
-  %815 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %814, i64 0
-  %816 = load ptr, ptr %815, align 8
-  %817 = call ptr @zend_ast_list_add(ptr noundef %813, ptr noundef %816)
-  store ptr %817, ptr %488, align 8
-  br label %5656
+811:                                              ; preds = %705
+  %812 = load ptr, ptr %484, align 8
+  %813 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %812, i64 -2
+  %814 = load ptr, ptr %813, align 8
+  %815 = load ptr, ptr %484, align 8
+  %816 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %815, i64 0
+  %817 = load ptr, ptr %816, align 8
+  %818 = call ptr @zend_ast_list_add(ptr noundef %814, ptr noundef %817)
+  store ptr %818, ptr %488, align 8
+  br label %5692
 
-818:                                              ; preds = %705
-  %819 = load ptr, ptr %484, align 8
-  %820 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %819, i64 -2
-  %821 = load ptr, ptr %820, align 8
-  store ptr %821, ptr %488, align 8
-  br label %5656
+819:                                              ; preds = %705
+  %820 = load ptr, ptr %484, align 8
+  %821 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %820, i64 -2
+  %822 = load ptr, ptr %821, align 8
+  store ptr %822, ptr %488, align 8
+  br label %5692
 
-822:                                              ; preds = %705
-  %823 = load ptr, ptr %484, align 8
-  %824 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %823, i64 0
-  %825 = load ptr, ptr %824, align 8
-  %826 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 146, ptr noundef %825)
-  store ptr %826, ptr %488, align 8
-  br label %5656
+823:                                              ; preds = %705
+  %824 = load ptr, ptr %484, align 8
+  %825 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %824, i64 0
+  %826 = load ptr, ptr %825, align 8
+  %827 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 146, ptr noundef %826)
+  store ptr %827, ptr %488, align 8
+  br label %5692
 
-827:                                              ; preds = %705
-  %828 = load ptr, ptr %484, align 8
-  %829 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %828, i64 -1
-  %830 = load ptr, ptr %829, align 8
-  %831 = load ptr, ptr %484, align 8
-  %832 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %831, i64 0
-  %833 = load ptr, ptr %832, align 8
-  %834 = call ptr @zend_ast_list_add(ptr noundef %830, ptr noundef %833)
-  store ptr %834, ptr %488, align 8
-  br label %5656
+828:                                              ; preds = %705
+  %829 = load ptr, ptr %484, align 8
+  %830 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %829, i64 -1
+  %831 = load ptr, ptr %830, align 8
+  %832 = load ptr, ptr %484, align 8
+  %833 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %832, i64 0
+  %834 = load ptr, ptr %833, align 8
+  %835 = call ptr @zend_ast_list_add(ptr noundef %831, ptr noundef %834)
+  store ptr %835, ptr %488, align 8
+  br label %5692
 
-835:                                              ; preds = %705
-  %836 = load ptr, ptr %484, align 8
-  %837 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %836, i64 0
-  %838 = load ptr, ptr %837, align 8
-  store ptr %838, ptr %488, align 8
-  br label %5656
+836:                                              ; preds = %705
+  %837 = load ptr, ptr %484, align 8
+  %838 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %837, i64 0
+  %839 = load ptr, ptr %838, align 8
+  store ptr %839, ptr %488, align 8
+  br label %5692
 
-839:                                              ; preds = %705
-  %840 = load ptr, ptr %484, align 8
-  %841 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %840, i64 0
-  %842 = load ptr, ptr %841, align 8
-  store ptr %842, ptr %488, align 8
-  br label %5656
+840:                                              ; preds = %705
+  %841 = load ptr, ptr %484, align 8
+  %842 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %841, i64 0
+  %843 = load ptr, ptr %842, align 8
+  store ptr %843, ptr %488, align 8
+  br label %5692
 
-843:                                              ; preds = %705
-  %844 = load ptr, ptr %484, align 8
-  %845 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %844, i64 0
-  %846 = load ptr, ptr %845, align 8
-  store ptr %846, ptr %488, align 8
-  br label %5656
+844:                                              ; preds = %705
+  %845 = load ptr, ptr %484, align 8
+  %846 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %845, i64 0
+  %847 = load ptr, ptr %846, align 8
+  store ptr %847, ptr %488, align 8
+  br label %5692
 
-847:                                              ; preds = %705
-  %848 = load ptr, ptr %484, align 8
-  %849 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %848, i64 0
-  %850 = load ptr, ptr %849, align 8
-  store ptr %850, ptr %488, align 8
-  br label %5656
+848:                                              ; preds = %705
+  %849 = load ptr, ptr %484, align 8
+  %850 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %849, i64 0
+  %851 = load ptr, ptr %850, align 8
+  store ptr %851, ptr %488, align 8
+  br label %5692
 
-851:                                              ; preds = %705
-  %852 = load ptr, ptr %484, align 8
-  %853 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %852, i64 0
-  %854 = load ptr, ptr %853, align 8
-  store ptr %854, ptr %488, align 8
-  br label %5656
+852:                                              ; preds = %705
+  %853 = load ptr, ptr %484, align 8
+  %854 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %853, i64 0
+  %855 = load ptr, ptr %854, align 8
+  store ptr %855, ptr %488, align 8
+  br label %5692
 
-855:                                              ; preds = %705
-  %856 = load ptr, ptr %484, align 8
-  %857 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %856, i64 0
-  %858 = load ptr, ptr %857, align 8
-  store ptr %858, ptr %488, align 8
-  br label %5656
+856:                                              ; preds = %705
+  %857 = load ptr, ptr %484, align 8
+  %858 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %857, i64 0
+  %859 = load ptr, ptr %858, align 8
+  store ptr %859, ptr %488, align 8
+  br label %5692
 
-859:                                              ; preds = %705
-  %860 = load ptr, ptr %484, align 8
-  %861 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %860, i64 0
-  %862 = load ptr, ptr %861, align 8
-  store ptr %862, ptr %488, align 8
-  br label %5656
+860:                                              ; preds = %705
+  %861 = load ptr, ptr %484, align 8
+  %862 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %861, i64 0
+  %863 = load ptr, ptr %862, align 8
+  store ptr %863, ptr %488, align 8
+  br label %5692
 
-863:                                              ; preds = %705
-  %864 = load ptr, ptr %484, align 8
-  %865 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %864, i64 0
-  %866 = load ptr, ptr %865, align 8
-  %867 = load ptr, ptr %484, align 8
-  %868 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %867, i64 -1
-  %869 = load ptr, ptr %868, align 8
-  %870 = call ptr @zend_ast_with_attributes(ptr noundef %866, ptr noundef %869)
-  store ptr %870, ptr %488, align 8
-  br label %5656
+864:                                              ; preds = %705
+  %865 = load ptr, ptr %484, align 8
+  %866 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %865, i64 0
+  %867 = load ptr, ptr %866, align 8
+  %868 = load ptr, ptr %484, align 8
+  %869 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %868, i64 -1
+  %870 = load ptr, ptr %869, align 8
+  %871 = call ptr @zend_ast_with_attributes(ptr noundef %867, ptr noundef %870)
+  store ptr %871, ptr %488, align 8
+  br label %5692
 
-871:                                              ; preds = %705
-  %872 = call i64 @zend_get_scanned_file_offset()
-  %873 = call ptr @zend_ast_create_zval_from_long(i64 noundef %872)
-  %874 = call ptr @zend_ast_create_1(i16 noundef zeroext 282, ptr noundef %873)
-  store ptr %874, ptr %488, align 8
+872:                                              ; preds = %705
+  %873 = call i64 @zend_get_scanned_file_offset()
+  %874 = call ptr @zend_ast_create_zval_from_long(i64 noundef %873)
+  %875 = call ptr @zend_ast_create_1(i16 noundef zeroext 282, ptr noundef %874)
+  store ptr %875, ptr %488, align 8
   call void @zend_stop_lexing()
-  br label %5656
+  br label %5692
 
-875:                                              ; preds = %705
-  %876 = load ptr, ptr %484, align 8
-  %877 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %876, i64 -1
-  %878 = load ptr, ptr %877, align 8
-  %879 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %878, ptr noundef null)
-  store ptr %879, ptr %488, align 8
-  br label %880
+876:                                              ; preds = %705
+  %877 = load ptr, ptr %484, align 8
+  %878 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %877, i64 -1
+  %879 = load ptr, ptr %878, align 8
+  %880 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %879, ptr noundef null)
+  store ptr %880, ptr %488, align 8
+  br label %881
 
-880:                                              ; preds = %875
-  %881 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  %882 = icmp ne ptr %881, null
-  br i1 %882, label %883, label %911
+881:                                              ; preds = %876
+  %882 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  %883 = load ptr, ptr %882, align 8
+  %884 = icmp ne ptr %883, null
+  br i1 %884, label %885, label %915
 
-883:                                              ; preds = %880
-  %884 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  store ptr %884, ptr %467, align 8
+885:                                              ; preds = %881
+  %886 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  %887 = load ptr, ptr %886, align 8
+  store ptr %887, ptr %467, align 8
   store i8 0, ptr %468, align 1
-  %885 = load ptr, ptr %467, align 8
-  %886 = getelementptr inbounds %struct._zend_refcounted_h, ptr %885, i32 0, i32 1
-  %887 = load i32, ptr %886, align 4
-  store i32 %887, ptr %24, align 4
-  %888 = load i32, ptr %24, align 4
-  %889 = and i32 %888, 1008
-  %890 = and i32 %889, 64
-  %891 = icmp ne i32 %890, 0
-  br i1 %891, label %910, label %892
+  %888 = load ptr, ptr %467, align 8
+  %889 = getelementptr inbounds %struct._zend_refcounted_h, ptr %888, i32 0, i32 1
+  %890 = load i32, ptr %889, align 4
+  store i32 %890, ptr %24, align 4
+  %891 = load i32, ptr %24, align 4
+  %892 = and i32 %891, 1008
+  %893 = and i32 %892, 64
+  %894 = icmp ne i32 %893, 0
+  br i1 %894, label %913, label %895
 
-892:                                              ; preds = %883
-  %893 = load ptr, ptr %467, align 8
-  store ptr %893, ptr %21, align 8
-  %894 = load ptr, ptr %21, align 8
-  %895 = load i32, ptr %894, align 4
-  %896 = icmp ugt i32 %895, 0
-  call void @llvm.assume(i1 %896)
+895:                                              ; preds = %885
+  %896 = load ptr, ptr %467, align 8
+  store ptr %896, ptr %21, align 8
   %897 = load ptr, ptr %21, align 8
   %898 = load i32, ptr %897, align 4
-  %899 = add i32 %898, -1
-  store i32 %899, ptr %897, align 4
-  %900 = icmp eq i32 %899, 0
-  br i1 %900, label %901, label %909
+  %899 = icmp ugt i32 %898, 0
+  call void @llvm.assume(i1 %899)
+  %900 = load ptr, ptr %21, align 8
+  %901 = load i32, ptr %900, align 4
+  %902 = add i32 %901, -1
+  store i32 %902, ptr %900, align 4
+  %903 = icmp eq i32 %902, 0
+  br i1 %903, label %904, label %912
 
-901:                                              ; preds = %892
-  %902 = load i8, ptr %468, align 1
-  %903 = trunc i8 %902 to i1
-  br i1 %903, label %904, label %906
+904:                                              ; preds = %895
+  %905 = load i8, ptr %468, align 1
+  %906 = trunc i8 %905 to i1
+  br i1 %906, label %907, label %909
 
-904:                                              ; preds = %901
-  %905 = load ptr, ptr %467, align 8
-  call void @free(ptr noundef %905) #10
-  br label %908
-
-906:                                              ; preds = %901
-  %907 = load ptr, ptr %467, align 8
-  call void @_efree(ptr noundef %907) #10
-  br label %908
-
-908:                                              ; preds = %906, %904
-  br label %909
-
-909:                                              ; preds = %908, %892
-  br label %910
-
-910:                                              ; preds = %909, %883
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
+907:                                              ; preds = %904
+  %908 = load ptr, ptr %467, align 8
+  call void @free(ptr noundef %908) #10
   br label %911
 
-911:                                              ; preds = %910, %880
+909:                                              ; preds = %904
+  %910 = load ptr, ptr %467, align 8
+  call void @_efree(ptr noundef %910) #10
+  br label %911
+
+911:                                              ; preds = %909, %907
   br label %912
 
-912:                                              ; preds = %911
-  br label %5656
+912:                                              ; preds = %911, %895
+  br label %913
 
-913:                                              ; preds = %705
-  br label %914
+913:                                              ; preds = %912, %885
+  %914 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  store ptr null, ptr %914, align 8
+  br label %915
 
-914:                                              ; preds = %913
-  %915 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  %916 = icmp ne ptr %915, null
-  br i1 %916, label %917, label %945
+915:                                              ; preds = %913, %881
+  br label %916
 
-917:                                              ; preds = %914
-  %918 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  store ptr %918, ptr %469, align 8
+916:                                              ; preds = %915
+  br label %5692
+
+917:                                              ; preds = %705
+  br label %918
+
+918:                                              ; preds = %917
+  %919 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  %920 = load ptr, ptr %919, align 8
+  %921 = icmp ne ptr %920, null
+  br i1 %921, label %922, label %952
+
+922:                                              ; preds = %918
+  %923 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  %924 = load ptr, ptr %923, align 8
+  store ptr %924, ptr %469, align 8
   store i8 0, ptr %470, align 1
-  %919 = load ptr, ptr %469, align 8
-  %920 = getelementptr inbounds %struct._zend_refcounted_h, ptr %919, i32 0, i32 1
-  %921 = load i32, ptr %920, align 4
-  store i32 %921, ptr %23, align 4
-  %922 = load i32, ptr %23, align 4
-  %923 = and i32 %922, 1008
-  %924 = and i32 %923, 64
-  %925 = icmp ne i32 %924, 0
-  br i1 %925, label %944, label %926
+  %925 = load ptr, ptr %469, align 8
+  %926 = getelementptr inbounds %struct._zend_refcounted_h, ptr %925, i32 0, i32 1
+  %927 = load i32, ptr %926, align 4
+  store i32 %927, ptr %23, align 4
+  %928 = load i32, ptr %23, align 4
+  %929 = and i32 %928, 1008
+  %930 = and i32 %929, 64
+  %931 = icmp ne i32 %930, 0
+  br i1 %931, label %950, label %932
 
-926:                                              ; preds = %917
-  %927 = load ptr, ptr %469, align 8
-  store ptr %927, ptr %20, align 8
-  %928 = load ptr, ptr %20, align 8
-  %929 = load i32, ptr %928, align 4
-  %930 = icmp ugt i32 %929, 0
-  call void @llvm.assume(i1 %930)
-  %931 = load ptr, ptr %20, align 8
-  %932 = load i32, ptr %931, align 4
-  %933 = add i32 %932, -1
-  store i32 %933, ptr %931, align 4
-  %934 = icmp eq i32 %933, 0
-  br i1 %934, label %935, label %943
+932:                                              ; preds = %922
+  %933 = load ptr, ptr %469, align 8
+  store ptr %933, ptr %20, align 8
+  %934 = load ptr, ptr %20, align 8
+  %935 = load i32, ptr %934, align 4
+  %936 = icmp ugt i32 %935, 0
+  call void @llvm.assume(i1 %936)
+  %937 = load ptr, ptr %20, align 8
+  %938 = load i32, ptr %937, align 4
+  %939 = add i32 %938, -1
+  store i32 %939, ptr %937, align 4
+  %940 = icmp eq i32 %939, 0
+  br i1 %940, label %941, label %949
 
-935:                                              ; preds = %926
-  %936 = load i8, ptr %470, align 1
-  %937 = trunc i8 %936 to i1
-  br i1 %937, label %938, label %940
+941:                                              ; preds = %932
+  %942 = load i8, ptr %470, align 1
+  %943 = trunc i8 %942 to i1
+  br i1 %943, label %944, label %946
 
-938:                                              ; preds = %935
-  %939 = load ptr, ptr %469, align 8
-  call void @free(ptr noundef %939) #10
-  br label %942
+944:                                              ; preds = %941
+  %945 = load ptr, ptr %469, align 8
+  call void @free(ptr noundef %945) #10
+  br label %948
 
-940:                                              ; preds = %935
-  %941 = load ptr, ptr %469, align 8
-  call void @_efree(ptr noundef %941) #10
-  br label %942
+946:                                              ; preds = %941
+  %947 = load ptr, ptr %469, align 8
+  call void @_efree(ptr noundef %947) #10
+  br label %948
 
-942:                                              ; preds = %940, %938
-  br label %943
+948:                                              ; preds = %946, %944
+  br label %949
 
-943:                                              ; preds = %942, %926
-  br label %944
+949:                                              ; preds = %948, %932
+  br label %950
 
-944:                                              ; preds = %943, %917
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  br label %945
+950:                                              ; preds = %949, %922
+  %951 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  store ptr null, ptr %951, align 8
+  br label %952
 
-945:                                              ; preds = %944, %914
-  br label %946
+952:                                              ; preds = %950, %918
+  br label %953
 
-946:                                              ; preds = %945
-  br label %5656
+953:                                              ; preds = %952
+  br label %5692
 
-947:                                              ; preds = %705
-  %948 = load ptr, ptr %484, align 8
-  %949 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %948, i64 -4
-  %950 = load ptr, ptr %949, align 8
-  %951 = load ptr, ptr %484, align 8
-  %952 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %951, i64 -1
-  %953 = load ptr, ptr %952, align 8
-  %954 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %950, ptr noundef %953)
-  store ptr %954, ptr %488, align 8
-  br label %5656
+954:                                              ; preds = %705
+  %955 = load ptr, ptr %484, align 8
+  %956 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %955, i64 -4
+  %957 = load ptr, ptr %956, align 8
+  %958 = load ptr, ptr %484, align 8
+  %959 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %958, i64 -1
+  %960 = load ptr, ptr %959, align 8
+  %961 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef %957, ptr noundef %960)
+  store ptr %961, ptr %488, align 8
+  br label %5692
 
-955:                                              ; preds = %705
-  br label %956
+962:                                              ; preds = %705
+  br label %963
 
-956:                                              ; preds = %955
-  %957 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  %958 = icmp ne ptr %957, null
-  br i1 %958, label %959, label %987
+963:                                              ; preds = %962
+  %964 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  %965 = load ptr, ptr %964, align 8
+  %966 = icmp ne ptr %965, null
+  br i1 %966, label %967, label %997
 
-959:                                              ; preds = %956
-  %960 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  store ptr %960, ptr %471, align 8
+967:                                              ; preds = %963
+  %968 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  %969 = load ptr, ptr %968, align 8
+  store ptr %969, ptr %471, align 8
   store i8 0, ptr %472, align 1
-  %961 = load ptr, ptr %471, align 8
-  %962 = getelementptr inbounds %struct._zend_refcounted_h, ptr %961, i32 0, i32 1
-  %963 = load i32, ptr %962, align 4
-  store i32 %963, ptr %22, align 4
-  %964 = load i32, ptr %22, align 4
-  %965 = and i32 %964, 1008
-  %966 = and i32 %965, 64
-  %967 = icmp ne i32 %966, 0
-  br i1 %967, label %986, label %968
+  %970 = load ptr, ptr %471, align 8
+  %971 = getelementptr inbounds %struct._zend_refcounted_h, ptr %970, i32 0, i32 1
+  %972 = load i32, ptr %971, align 4
+  store i32 %972, ptr %22, align 4
+  %973 = load i32, ptr %22, align 4
+  %974 = and i32 %973, 1008
+  %975 = and i32 %974, 64
+  %976 = icmp ne i32 %975, 0
+  br i1 %976, label %995, label %977
 
-968:                                              ; preds = %959
-  %969 = load ptr, ptr %471, align 8
-  store ptr %969, ptr %19, align 8
-  %970 = load ptr, ptr %19, align 8
-  %971 = load i32, ptr %970, align 4
-  %972 = icmp ugt i32 %971, 0
-  call void @llvm.assume(i1 %972)
-  %973 = load ptr, ptr %19, align 8
-  %974 = load i32, ptr %973, align 4
-  %975 = add i32 %974, -1
-  store i32 %975, ptr %973, align 4
-  %976 = icmp eq i32 %975, 0
-  br i1 %976, label %977, label %985
+977:                                              ; preds = %967
+  %978 = load ptr, ptr %471, align 8
+  store ptr %978, ptr %19, align 8
+  %979 = load ptr, ptr %19, align 8
+  %980 = load i32, ptr %979, align 4
+  %981 = icmp ugt i32 %980, 0
+  call void @llvm.assume(i1 %981)
+  %982 = load ptr, ptr %19, align 8
+  %983 = load i32, ptr %982, align 4
+  %984 = add i32 %983, -1
+  store i32 %984, ptr %982, align 4
+  %985 = icmp eq i32 %984, 0
+  br i1 %985, label %986, label %994
 
-977:                                              ; preds = %968
-  %978 = load i8, ptr %472, align 1
-  %979 = trunc i8 %978 to i1
-  br i1 %979, label %980, label %982
+986:                                              ; preds = %977
+  %987 = load i8, ptr %472, align 1
+  %988 = trunc i8 %987 to i1
+  br i1 %988, label %989, label %991
 
-980:                                              ; preds = %977
-  %981 = load ptr, ptr %471, align 8
-  call void @free(ptr noundef %981) #10
-  br label %984
+989:                                              ; preds = %986
+  %990 = load ptr, ptr %471, align 8
+  call void @free(ptr noundef %990) #10
+  br label %993
 
-982:                                              ; preds = %977
-  %983 = load ptr, ptr %471, align 8
-  call void @_efree(ptr noundef %983) #10
-  br label %984
+991:                                              ; preds = %986
+  %992 = load ptr, ptr %471, align 8
+  call void @_efree(ptr noundef %992) #10
+  br label %993
 
-984:                                              ; preds = %982, %980
-  br label %985
+993:                                              ; preds = %991, %989
+  br label %994
 
-985:                                              ; preds = %984, %968
-  br label %986
+994:                                              ; preds = %993, %977
+  br label %995
 
-986:                                              ; preds = %985, %959
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  br label %987
+995:                                              ; preds = %994, %967
+  %996 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  store ptr null, ptr %996, align 8
+  br label %997
 
-987:                                              ; preds = %986, %956
-  br label %988
+997:                                              ; preds = %995, %963
+  br label %998
 
-988:                                              ; preds = %987
-  br label %5656
+998:                                              ; preds = %997
+  br label %5692
 
-989:                                              ; preds = %705
-  %990 = load ptr, ptr %484, align 8
-  %991 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %990, i64 -1
-  %992 = load ptr, ptr %991, align 8
-  %993 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef null, ptr noundef %992)
-  store ptr %993, ptr %488, align 8
-  br label %5656
+999:                                              ; preds = %705
+  %1000 = load ptr, ptr %484, align 8
+  %1001 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1000, i64 -1
+  %1002 = load ptr, ptr %1001, align 8
+  %1003 = call ptr @zend_ast_create_2(i16 noundef zeroext 542, ptr noundef null, ptr noundef %1002)
+  store ptr %1003, ptr %488, align 8
+  br label %5692
 
-994:                                              ; preds = %705
-  %995 = load ptr, ptr %484, align 8
-  %996 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %995, i64 -1
-  %997 = load ptr, ptr %996, align 8
-  store ptr %997, ptr %488, align 8
-  br label %5656
-
-998:                                              ; preds = %705
-  %999 = load ptr, ptr %484, align 8
-  %1000 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %999, i64 -1
-  %1001 = load ptr, ptr %1000, align 8
-  store ptr %1001, ptr %488, align 8
-  %1002 = load ptr, ptr %484, align 8
-  %1003 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1002, i64 -2
-  %1004 = load i64, ptr %1003, align 8
-  %1005 = trunc i64 %1004 to i16
-  %1006 = load ptr, ptr %488, align 8
-  %1007 = getelementptr inbounds %struct._zend_ast, ptr %1006, i32 0, i32 1
-  store i16 %1005, ptr %1007, align 2
-  br label %5656
+1004:                                             ; preds = %705
+  %1005 = load ptr, ptr %484, align 8
+  %1006 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1005, i64 -1
+  %1007 = load ptr, ptr %1006, align 8
+  store ptr %1007, ptr %488, align 8
+  br label %5692
 
 1008:                                             ; preds = %705
   %1009 = load ptr, ptr %484, align 8
   %1010 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1009, i64 -1
   %1011 = load ptr, ptr %1010, align 8
   store ptr %1011, ptr %488, align 8
-  %1012 = load ptr, ptr %488, align 8
-  %1013 = getelementptr inbounds %struct._zend_ast, ptr %1012, i32 0, i32 1
-  store i16 1, ptr %1013, align 2
-  br label %5656
+  %1012 = load ptr, ptr %484, align 8
+  %1013 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1012, i64 -2
+  %1014 = load i64, ptr %1013, align 8
+  %1015 = trunc i64 %1014 to i16
+  %1016 = load ptr, ptr %488, align 8
+  %1017 = getelementptr inbounds %struct._zend_ast, ptr %1016, i32 0, i32 1
+  store i16 %1015, ptr %1017, align 2
+  br label %5692
 
-1014:                                             ; preds = %705
-  %1015 = load ptr, ptr %484, align 8
-  %1016 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1015, i64 -1
-  %1017 = load ptr, ptr %1016, align 8
-  store ptr %1017, ptr %488, align 8
-  %1018 = load ptr, ptr %484, align 8
-  %1019 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1018, i64 -2
-  %1020 = load i64, ptr %1019, align 8
-  %1021 = trunc i64 %1020 to i16
+1018:                                             ; preds = %705
+  %1019 = load ptr, ptr %484, align 8
+  %1020 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1019, i64 -1
+  %1021 = load ptr, ptr %1020, align 8
+  store ptr %1021, ptr %488, align 8
   %1022 = load ptr, ptr %488, align 8
   %1023 = getelementptr inbounds %struct._zend_ast, ptr %1022, i32 0, i32 1
-  store i16 %1021, ptr %1023, align 2
-  br label %5656
+  store i16 1, ptr %1023, align 2
+  br label %5692
 
 1024:                                             ; preds = %705
   %1025 = load ptr, ptr %484, align 8
   %1026 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1025, i64 -1
   %1027 = load ptr, ptr %1026, align 8
   store ptr %1027, ptr %488, align 8
-  br label %5656
+  %1028 = load ptr, ptr %484, align 8
+  %1029 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1028, i64 -2
+  %1030 = load i64, ptr %1029, align 8
+  %1031 = trunc i64 %1030 to i16
+  %1032 = load ptr, ptr %488, align 8
+  %1033 = getelementptr inbounds %struct._zend_ast, ptr %1032, i32 0, i32 1
+  store i16 %1031, ptr %1033, align 2
+  br label %5692
 
-1028:                                             ; preds = %705
-  store i64 2, ptr %488, align 8
-  br label %5656
-
-1029:                                             ; preds = %705
-  store i64 4, ptr %488, align 8
-  br label %5656
-
-1030:                                             ; preds = %705
-  %1031 = load ptr, ptr %484, align 8
-  %1032 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1031, i64 -5
-  %1033 = load ptr, ptr %1032, align 8
-  %1034 = load ptr, ptr %484, align 8
-  %1035 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1034, i64 -2
-  %1036 = load ptr, ptr %1035, align 8
-  %1037 = call ptr @zend_ast_create_2(i16 noundef zeroext 545, ptr noundef %1033, ptr noundef %1036)
+1034:                                             ; preds = %705
+  %1035 = load ptr, ptr %484, align 8
+  %1036 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1035, i64 -1
+  %1037 = load ptr, ptr %1036, align 8
   store ptr %1037, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1038:                                             ; preds = %705
-  %1039 = load ptr, ptr %484, align 8
-  %1040 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1039, i64 -5
-  %1041 = load ptr, ptr %1040, align 8
-  %1042 = load ptr, ptr %484, align 8
-  %1043 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1042, i64 -2
-  %1044 = load ptr, ptr %1043, align 8
-  %1045 = call ptr @zend_ast_create_2(i16 noundef zeroext 545, ptr noundef %1041, ptr noundef %1044)
-  store ptr %1045, ptr %488, align 8
-  br label %5656
+  store i64 2, ptr %488, align 8
+  br label %5692
 
-1046:                                             ; preds = %705
-  %1047 = load ptr, ptr %484, align 8
-  %1048 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1047, i64 -2
-  %1049 = load ptr, ptr %1048, align 8
-  %1050 = load ptr, ptr %484, align 8
-  %1051 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1050, i64 0
-  %1052 = load ptr, ptr %1051, align 8
-  %1053 = call ptr @zend_ast_list_add(ptr noundef %1049, ptr noundef %1052)
-  store ptr %1053, ptr %488, align 8
-  br label %5656
+1039:                                             ; preds = %705
+  store i64 4, ptr %488, align 8
+  br label %5692
 
-1054:                                             ; preds = %705
-  %1055 = load ptr, ptr %484, align 8
-  %1056 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1055, i64 0
-  %1057 = load ptr, ptr %1056, align 8
-  %1058 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %1057)
-  store ptr %1058, ptr %488, align 8
-  br label %5656
+1040:                                             ; preds = %705
+  %1041 = load ptr, ptr %484, align 8
+  %1042 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1041, i64 -5
+  %1043 = load ptr, ptr %1042, align 8
+  %1044 = load ptr, ptr %484, align 8
+  %1045 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1044, i64 -2
+  %1046 = load ptr, ptr %1045, align 8
+  %1047 = call ptr @zend_ast_create_2(i16 noundef zeroext 545, ptr noundef %1043, ptr noundef %1046)
+  store ptr %1047, ptr %488, align 8
+  br label %5692
 
-1059:                                             ; preds = %705
+1048:                                             ; preds = %705
+  %1049 = load ptr, ptr %484, align 8
+  %1050 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1049, i64 -5
+  %1051 = load ptr, ptr %1050, align 8
+  %1052 = load ptr, ptr %484, align 8
+  %1053 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1052, i64 -2
+  %1054 = load ptr, ptr %1053, align 8
+  %1055 = call ptr @zend_ast_create_2(i16 noundef zeroext 545, ptr noundef %1051, ptr noundef %1054)
+  store ptr %1055, ptr %488, align 8
+  br label %5692
+
+1056:                                             ; preds = %705
+  %1057 = load ptr, ptr %484, align 8
+  %1058 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1057, i64 -2
+  %1059 = load ptr, ptr %1058, align 8
   %1060 = load ptr, ptr %484, align 8
-  %1061 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1060, i64 -2
+  %1061 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1060, i64 0
   %1062 = load ptr, ptr %1061, align 8
-  %1063 = load ptr, ptr %484, align 8
-  %1064 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1063, i64 0
-  %1065 = load ptr, ptr %1064, align 8
-  %1066 = call ptr @zend_ast_list_add(ptr noundef %1062, ptr noundef %1065)
-  store ptr %1066, ptr %488, align 8
-  br label %5656
+  %1063 = call ptr @zend_ast_list_add(ptr noundef %1059, ptr noundef %1062)
+  store ptr %1063, ptr %488, align 8
+  br label %5692
 
-1067:                                             ; preds = %705
-  %1068 = load ptr, ptr %484, align 8
-  %1069 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1068, i64 0
-  %1070 = load ptr, ptr %1069, align 8
-  %1071 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %1070)
-  store ptr %1071, ptr %488, align 8
-  br label %5656
+1064:                                             ; preds = %705
+  %1065 = load ptr, ptr %484, align 8
+  %1066 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1065, i64 0
+  %1067 = load ptr, ptr %1066, align 8
+  %1068 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %1067)
+  store ptr %1068, ptr %488, align 8
+  br label %5692
 
-1072:                                             ; preds = %705
+1069:                                             ; preds = %705
+  %1070 = load ptr, ptr %484, align 8
+  %1071 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1070, i64 -2
+  %1072 = load ptr, ptr %1071, align 8
   %1073 = load ptr, ptr %484, align 8
-  %1074 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1073, i64 -2
+  %1074 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1073, i64 0
   %1075 = load ptr, ptr %1074, align 8
-  %1076 = load ptr, ptr %484, align 8
-  %1077 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1076, i64 0
-  %1078 = load ptr, ptr %1077, align 8
-  %1079 = call ptr @zend_ast_list_add(ptr noundef %1075, ptr noundef %1078)
-  store ptr %1079, ptr %488, align 8
-  br label %5656
+  %1076 = call ptr @zend_ast_list_add(ptr noundef %1072, ptr noundef %1075)
+  store ptr %1076, ptr %488, align 8
+  br label %5692
 
-1080:                                             ; preds = %705
-  %1081 = load ptr, ptr %484, align 8
-  %1082 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1081, i64 0
-  %1083 = load ptr, ptr %1082, align 8
-  %1084 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %1083)
-  store ptr %1084, ptr %488, align 8
-  br label %5656
+1077:                                             ; preds = %705
+  %1078 = load ptr, ptr %484, align 8
+  %1079 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1078, i64 0
+  %1080 = load ptr, ptr %1079, align 8
+  %1081 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %1080)
+  store ptr %1081, ptr %488, align 8
+  br label %5692
 
-1085:                                             ; preds = %705
+1082:                                             ; preds = %705
+  %1083 = load ptr, ptr %484, align 8
+  %1084 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1083, i64 -2
+  %1085 = load ptr, ptr %1084, align 8
   %1086 = load ptr, ptr %484, align 8
   %1087 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1086, i64 0
   %1088 = load ptr, ptr %1087, align 8
-  store ptr %1088, ptr %488, align 8
-  %1089 = load ptr, ptr %488, align 8
-  %1090 = getelementptr inbounds %struct._zend_ast, ptr %1089, i32 0, i32 1
-  store i16 1, ptr %1090, align 2
-  br label %5656
+  %1089 = call ptr @zend_ast_list_add(ptr noundef %1085, ptr noundef %1088)
+  store ptr %1089, ptr %488, align 8
+  br label %5692
 
-1091:                                             ; preds = %705
-  %1092 = load ptr, ptr %484, align 8
-  %1093 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1092, i64 0
-  %1094 = load ptr, ptr %1093, align 8
+1090:                                             ; preds = %705
+  %1091 = load ptr, ptr %484, align 8
+  %1092 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1091, i64 0
+  %1093 = load ptr, ptr %1092, align 8
+  %1094 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef %1093)
   store ptr %1094, ptr %488, align 8
-  %1095 = load ptr, ptr %484, align 8
-  %1096 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1095, i64 -1
-  %1097 = load i64, ptr %1096, align 8
-  %1098 = trunc i64 %1097 to i16
+  br label %5692
+
+1095:                                             ; preds = %705
+  %1096 = load ptr, ptr %484, align 8
+  %1097 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1096, i64 0
+  %1098 = load ptr, ptr %1097, align 8
+  store ptr %1098, ptr %488, align 8
   %1099 = load ptr, ptr %488, align 8
   %1100 = getelementptr inbounds %struct._zend_ast, ptr %1099, i32 0, i32 1
-  store i16 %1098, ptr %1100, align 2
-  br label %5656
+  store i16 1, ptr %1100, align 2
+  br label %5692
 
 1101:                                             ; preds = %705
   %1102 = load ptr, ptr %484, align 8
   %1103 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1102, i64 0
   %1104 = load ptr, ptr %1103, align 8
-  %1105 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %1104, ptr noundef null)
-  store ptr %1105, ptr %488, align 8
-  br label %5656
+  store ptr %1104, ptr %488, align 8
+  %1105 = load ptr, ptr %484, align 8
+  %1106 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1105, i64 -1
+  %1107 = load i64, ptr %1106, align 8
+  %1108 = trunc i64 %1107 to i16
+  %1109 = load ptr, ptr %488, align 8
+  %1110 = getelementptr inbounds %struct._zend_ast, ptr %1109, i32 0, i32 1
+  store i16 %1108, ptr %1110, align 2
+  br label %5692
 
-1106:                                             ; preds = %705
-  %1107 = load ptr, ptr %484, align 8
-  %1108 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1107, i64 -2
-  %1109 = load ptr, ptr %1108, align 8
-  %1110 = load ptr, ptr %484, align 8
-  %1111 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1110, i64 0
-  %1112 = load ptr, ptr %1111, align 8
-  %1113 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %1109, ptr noundef %1112)
-  store ptr %1113, ptr %488, align 8
-  br label %5656
+1111:                                             ; preds = %705
+  %1112 = load ptr, ptr %484, align 8
+  %1113 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1112, i64 0
+  %1114 = load ptr, ptr %1113, align 8
+  %1115 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %1114, ptr noundef null)
+  store ptr %1115, ptr %488, align 8
+  br label %5692
 
-1114:                                             ; preds = %705
-  %1115 = load ptr, ptr %484, align 8
-  %1116 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1115, i64 0
-  %1117 = load ptr, ptr %1116, align 8
-  %1118 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %1117, ptr noundef null)
-  store ptr %1118, ptr %488, align 8
-  br label %5656
-
-1119:                                             ; preds = %705
+1116:                                             ; preds = %705
+  %1117 = load ptr, ptr %484, align 8
+  %1118 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1117, i64 -2
+  %1119 = load ptr, ptr %1118, align 8
   %1120 = load ptr, ptr %484, align 8
-  %1121 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1120, i64 -2
+  %1121 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1120, i64 0
   %1122 = load ptr, ptr %1121, align 8
-  %1123 = load ptr, ptr %484, align 8
-  %1124 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1123, i64 0
-  %1125 = load ptr, ptr %1124, align 8
-  %1126 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %1122, ptr noundef %1125)
-  store ptr %1126, ptr %488, align 8
-  br label %5656
+  %1123 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %1119, ptr noundef %1122)
+  store ptr %1123, ptr %488, align 8
+  br label %5692
 
-1127:                                             ; preds = %705
-  %1128 = load ptr, ptr %484, align 8
-  %1129 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1128, i64 -2
-  %1130 = load ptr, ptr %1129, align 8
-  %1131 = load ptr, ptr %484, align 8
-  %1132 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1131, i64 0
-  %1133 = load ptr, ptr %1132, align 8
-  %1134 = call ptr @zend_ast_list_add(ptr noundef %1130, ptr noundef %1133)
-  store ptr %1134, ptr %488, align 8
-  br label %5656
+1124:                                             ; preds = %705
+  %1125 = load ptr, ptr %484, align 8
+  %1126 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1125, i64 0
+  %1127 = load ptr, ptr %1126, align 8
+  %1128 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %1127, ptr noundef null)
+  store ptr %1128, ptr %488, align 8
+  br label %5692
 
-1135:                                             ; preds = %705
-  %1136 = load ptr, ptr %484, align 8
-  %1137 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1136, i64 0
-  %1138 = load ptr, ptr %1137, align 8
-  %1139 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 139, ptr noundef %1138)
-  store ptr %1139, ptr %488, align 8
-  br label %5656
+1129:                                             ; preds = %705
+  %1130 = load ptr, ptr %484, align 8
+  %1131 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1130, i64 -2
+  %1132 = load ptr, ptr %1131, align 8
+  %1133 = load ptr, ptr %484, align 8
+  %1134 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1133, i64 0
+  %1135 = load ptr, ptr %1134, align 8
+  %1136 = call ptr @zend_ast_create_2(i16 noundef zeroext 543, ptr noundef %1132, ptr noundef %1135)
+  store ptr %1136, ptr %488, align 8
+  br label %5692
 
-1140:                                             ; preds = %705
+1137:                                             ; preds = %705
+  %1138 = load ptr, ptr %484, align 8
+  %1139 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1138, i64 -2
+  %1140 = load ptr, ptr %1139, align 8
   %1141 = load ptr, ptr %484, align 8
-  %1142 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1141, i64 -1
+  %1142 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1141, i64 0
   %1143 = load ptr, ptr %1142, align 8
-  %1144 = load ptr, ptr %484, align 8
-  %1145 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1144, i64 0
-  %1146 = load ptr, ptr %1145, align 8
-  %1147 = call ptr @zend_ast_list_add(ptr noundef %1143, ptr noundef %1146)
-  store ptr %1147, ptr %488, align 8
-  br label %5656
+  %1144 = call ptr @zend_ast_list_add(ptr noundef %1140, ptr noundef %1143)
+  store ptr %1144, ptr %488, align 8
+  br label %5692
 
-1148:                                             ; preds = %705
-  %1149 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132)
+1145:                                             ; preds = %705
+  %1146 = load ptr, ptr %484, align 8
+  %1147 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1146, i64 0
+  %1148 = load ptr, ptr %1147, align 8
+  %1149 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 139, ptr noundef %1148)
   store ptr %1149, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1150:                                             ; preds = %705
   %1151 = load ptr, ptr %484, align 8
-  %1152 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1151, i64 0
+  %1152 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1151, i64 -1
   %1153 = load ptr, ptr %1152, align 8
-  store ptr %1153, ptr %488, align 8
-  br label %5656
-
-1154:                                             ; preds = %705
-  %1155 = load ptr, ptr %484, align 8
-  %1156 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1155, i64 0
-  %1157 = load ptr, ptr %1156, align 8
+  %1154 = load ptr, ptr %484, align 8
+  %1155 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1154, i64 0
+  %1156 = load ptr, ptr %1155, align 8
+  %1157 = call ptr @zend_ast_list_add(ptr noundef %1153, ptr noundef %1156)
   store ptr %1157, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1158:                                             ; preds = %705
-  %1159 = load ptr, ptr %484, align 8
-  %1160 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1159, i64 0
-  %1161 = load ptr, ptr %1160, align 8
-  %1162 = load ptr, ptr %484, align 8
-  %1163 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1162, i64 -1
-  %1164 = load ptr, ptr %1163, align 8
-  %1165 = call ptr @zend_ast_with_attributes(ptr noundef %1161, ptr noundef %1164)
-  store ptr %1165, ptr %488, align 8
-  br label %5656
+  %1159 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132)
+  store ptr %1159, ptr %488, align 8
+  br label %5692
 
-1166:                                             ; preds = %705
+1160:                                             ; preds = %705
+  %1161 = load ptr, ptr %484, align 8
+  %1162 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1161, i64 0
+  %1163 = load ptr, ptr %1162, align 8
+  store ptr %1163, ptr %488, align 8
+  br label %5692
+
+1164:                                             ; preds = %705
+  %1165 = load ptr, ptr %484, align 8
+  %1166 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1165, i64 0
+  %1167 = load ptr, ptr %1166, align 8
+  store ptr %1167, ptr %488, align 8
+  br label %5692
+
+1168:                                             ; preds = %705
+  %1169 = load ptr, ptr %484, align 8
+  %1170 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1169, i64 0
+  %1171 = load ptr, ptr %1170, align 8
+  %1172 = load ptr, ptr %484, align 8
+  %1173 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1172, i64 -1
+  %1174 = load ptr, ptr %1173, align 8
+  %1175 = call ptr @zend_ast_with_attributes(ptr noundef %1171, ptr noundef %1174)
+  store ptr %1175, ptr %488, align 8
+  br label %5692
+
+1176:                                             ; preds = %705
   store ptr null, ptr %488, align 8
-  %1167 = load ptr, ptr @zend_ce_compile_error, align 8
-  %1168 = call ptr @zend_throw_exception(ptr noundef %1167, ptr noundef @.str, i64 noundef 0)
-  br label %5790
+  %1177 = load ptr, ptr @zend_ce_compile_error, align 8
+  %1178 = call ptr @zend_throw_exception(ptr noundef %1177, ptr noundef @.str, i64 noundef 0)
+  br label %5826
 
-1169:                                             ; preds = %705
-  %1170 = load ptr, ptr %484, align 8
-  %1171 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1170, i64 -1
-  %1172 = load ptr, ptr %1171, align 8
-  store ptr %1172, ptr %488, align 8
-  br label %5656
+1179:                                             ; preds = %705
+  %1180 = load ptr, ptr %484, align 8
+  %1181 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1180, i64 -1
+  %1182 = load ptr, ptr %1181, align 8
+  store ptr %1182, ptr %488, align 8
+  br label %5692
 
-1173:                                             ; preds = %705
-  %1174 = load ptr, ptr %484, align 8
-  %1175 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1174, i64 0
-  %1176 = load ptr, ptr %1175, align 8
-  store ptr %1176, ptr %488, align 8
-  br label %5656
+1183:                                             ; preds = %705
+  %1184 = load ptr, ptr %484, align 8
+  %1185 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1184, i64 0
+  %1186 = load ptr, ptr %1185, align 8
+  store ptr %1186, ptr %488, align 8
+  br label %5692
 
-1177:                                             ; preds = %705
-  %1178 = load ptr, ptr %484, align 8
-  %1179 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1178, i64 0
-  %1180 = load ptr, ptr %1179, align 8
-  store ptr %1180, ptr %488, align 8
-  br label %5656
+1187:                                             ; preds = %705
+  %1188 = load ptr, ptr %484, align 8
+  %1189 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1188, i64 0
+  %1190 = load ptr, ptr %1189, align 8
+  store ptr %1190, ptr %488, align 8
+  br label %5692
 
-1181:                                             ; preds = %705
-  %1182 = load ptr, ptr %484, align 8
-  %1183 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1182, i64 -2
-  %1184 = load ptr, ptr %1183, align 8
-  %1185 = load ptr, ptr %484, align 8
-  %1186 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1185, i64 0
-  %1187 = load ptr, ptr %1186, align 8
-  %1188 = call ptr @zend_ast_create_2(i16 noundef zeroext 533, ptr noundef %1184, ptr noundef %1187)
-  store ptr %1188, ptr %488, align 8
-  br label %5656
+1191:                                             ; preds = %705
+  %1192 = load ptr, ptr %484, align 8
+  %1193 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1192, i64 -2
+  %1194 = load ptr, ptr %1193, align 8
+  %1195 = load ptr, ptr %484, align 8
+  %1196 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1195, i64 0
+  %1197 = load ptr, ptr %1196, align 8
+  %1198 = call ptr @zend_ast_create_2(i16 noundef zeroext 533, ptr noundef %1194, ptr noundef %1197)
+  store ptr %1198, ptr %488, align 8
+  br label %5692
 
-1189:                                             ; preds = %705
-  %1190 = load ptr, ptr %484, align 8
-  %1191 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1190, i64 -5
-  %1192 = load ptr, ptr %1191, align 8
-  %1193 = load ptr, ptr %484, align 8
-  %1194 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1193, i64 -2
-  %1195 = load ptr, ptr %1194, align 8
-  %1196 = call ptr @zend_ast_create_2(i16 noundef zeroext 534, ptr noundef %1192, ptr noundef %1195)
-  store ptr %1196, ptr %488, align 8
-  br label %5656
+1199:                                             ; preds = %705
+  %1200 = load ptr, ptr %484, align 8
+  %1201 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1200, i64 -5
+  %1202 = load ptr, ptr %1201, align 8
+  %1203 = load ptr, ptr %484, align 8
+  %1204 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1203, i64 -2
+  %1205 = load ptr, ptr %1204, align 8
+  %1206 = call ptr @zend_ast_create_2(i16 noundef zeroext 534, ptr noundef %1202, ptr noundef %1205)
+  store ptr %1206, ptr %488, align 8
+  br label %5692
 
-1197:                                             ; preds = %705
-  %1198 = load ptr, ptr %484, align 8
-  %1199 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1198, i64 -6
-  %1200 = load ptr, ptr %1199, align 8
-  %1201 = load ptr, ptr %484, align 8
-  %1202 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1201, i64 -4
-  %1203 = load ptr, ptr %1202, align 8
-  %1204 = load ptr, ptr %484, align 8
-  %1205 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1204, i64 -2
-  %1206 = load ptr, ptr %1205, align 8
-  %1207 = load ptr, ptr %484, align 8
-  %1208 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1207, i64 0
-  %1209 = load ptr, ptr %1208, align 8
-  %1210 = call ptr @zend_ast_create_4(i16 noundef zeroext 1024, ptr noundef %1200, ptr noundef %1203, ptr noundef %1206, ptr noundef %1209)
-  store ptr %1210, ptr %488, align 8
-  br label %5656
+1207:                                             ; preds = %705
+  %1208 = load ptr, ptr %484, align 8
+  %1209 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1208, i64 -6
+  %1210 = load ptr, ptr %1209, align 8
+  %1211 = load ptr, ptr %484, align 8
+  %1212 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1211, i64 -4
+  %1213 = load ptr, ptr %1212, align 8
+  %1214 = load ptr, ptr %484, align 8
+  %1215 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1214, i64 -2
+  %1216 = load ptr, ptr %1215, align 8
+  %1217 = load ptr, ptr %484, align 8
+  %1218 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1217, i64 0
+  %1219 = load ptr, ptr %1218, align 8
+  %1220 = call ptr @zend_ast_create_4(i16 noundef zeroext 1024, ptr noundef %1210, ptr noundef %1213, ptr noundef %1216, ptr noundef %1219)
+  store ptr %1220, ptr %488, align 8
+  br label %5692
 
-1211:                                             ; preds = %705
-  %1212 = load ptr, ptr %484, align 8
-  %1213 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1212, i64 -2
-  %1214 = load ptr, ptr %1213, align 8
-  %1215 = load ptr, ptr %484, align 8
-  %1216 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1215, i64 0
-  %1217 = load ptr, ptr %1216, align 8
-  %1218 = call ptr @zend_ast_create_2(i16 noundef zeroext 536, ptr noundef %1214, ptr noundef %1217)
-  store ptr %1218, ptr %488, align 8
-  br label %5656
-
-1219:                                             ; preds = %705
-  %1220 = load ptr, ptr %484, align 8
-  %1221 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1220, i64 -1
-  %1222 = load ptr, ptr %1221, align 8
-  %1223 = call ptr @zend_ast_create_1(i16 noundef zeroext 286, ptr noundef %1222)
-  store ptr %1223, ptr %488, align 8
-  br label %5656
-
-1224:                                             ; preds = %705
+1221:                                             ; preds = %705
+  %1222 = load ptr, ptr %484, align 8
+  %1223 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1222, i64 -2
+  %1224 = load ptr, ptr %1223, align 8
   %1225 = load ptr, ptr %484, align 8
-  %1226 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1225, i64 -1
+  %1226 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1225, i64 0
   %1227 = load ptr, ptr %1226, align 8
-  %1228 = call ptr @zend_ast_create_1(i16 noundef zeroext 287, ptr noundef %1227)
+  %1228 = call ptr @zend_ast_create_2(i16 noundef zeroext 536, ptr noundef %1224, ptr noundef %1227)
   store ptr %1228, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1229:                                             ; preds = %705
   %1230 = load ptr, ptr %484, align 8
   %1231 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1230, i64 -1
   %1232 = load ptr, ptr %1231, align 8
-  %1233 = call ptr @zend_ast_create_1(i16 noundef zeroext 279, ptr noundef %1232)
+  %1233 = call ptr @zend_ast_create_1(i16 noundef zeroext 286, ptr noundef %1232)
   store ptr %1233, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1234:                                             ; preds = %705
   %1235 = load ptr, ptr %484, align 8
   %1236 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1235, i64 -1
   %1237 = load ptr, ptr %1236, align 8
-  store ptr %1237, ptr %488, align 8
-  br label %5656
+  %1238 = call ptr @zend_ast_create_1(i16 noundef zeroext 287, ptr noundef %1237)
+  store ptr %1238, ptr %488, align 8
+  br label %5692
 
-1238:                                             ; preds = %705
-  %1239 = load ptr, ptr %484, align 8
-  %1240 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1239, i64 -1
-  %1241 = load ptr, ptr %1240, align 8
-  store ptr %1241, ptr %488, align 8
-  br label %5656
+1239:                                             ; preds = %705
+  %1240 = load ptr, ptr %484, align 8
+  %1241 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1240, i64 -1
+  %1242 = load ptr, ptr %1241, align 8
+  %1243 = call ptr @zend_ast_create_1(i16 noundef zeroext 279, ptr noundef %1242)
+  store ptr %1243, ptr %488, align 8
+  br label %5692
 
-1242:                                             ; preds = %705
-  %1243 = load ptr, ptr %484, align 8
-  %1244 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1243, i64 -1
-  %1245 = load ptr, ptr %1244, align 8
-  store ptr %1245, ptr %488, align 8
-  br label %5656
+1244:                                             ; preds = %705
+  %1245 = load ptr, ptr %484, align 8
+  %1246 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1245, i64 -1
+  %1247 = load ptr, ptr %1246, align 8
+  store ptr %1247, ptr %488, align 8
+  br label %5692
 
-1246:                                             ; preds = %705
-  %1247 = load ptr, ptr %484, align 8
-  %1248 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1247, i64 0
-  %1249 = load ptr, ptr %1248, align 8
-  %1250 = call ptr @zend_ast_create_1(i16 noundef zeroext 283, ptr noundef %1249)
-  store ptr %1250, ptr %488, align 8
-  br label %5656
+1248:                                             ; preds = %705
+  %1249 = load ptr, ptr %484, align 8
+  %1250 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1249, i64 -1
+  %1251 = load ptr, ptr %1250, align 8
+  store ptr %1251, ptr %488, align 8
+  br label %5692
 
-1251:                                             ; preds = %705
-  %1252 = load ptr, ptr %484, align 8
-  %1253 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1252, i64 -1
-  %1254 = load ptr, ptr %1253, align 8
-  store ptr %1254, ptr %488, align 8
-  br label %5656
+1252:                                             ; preds = %705
+  %1253 = load ptr, ptr %484, align 8
+  %1254 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1253, i64 -1
+  %1255 = load ptr, ptr %1254, align 8
+  store ptr %1255, ptr %488, align 8
+  br label %5692
 
-1255:                                             ; preds = %705
-  %1256 = load ptr, ptr %484, align 8
-  %1257 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1256, i64 -3
-  %1258 = load ptr, ptr %1257, align 8
-  store ptr %1258, ptr %488, align 8
-  br label %5656
+1256:                                             ; preds = %705
+  %1257 = load ptr, ptr %484, align 8
+  %1258 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1257, i64 0
+  %1259 = load ptr, ptr %1258, align 8
+  %1260 = call ptr @zend_ast_create_1(i16 noundef zeroext 283, ptr noundef %1259)
+  store ptr %1260, ptr %488, align 8
+  br label %5692
 
-1259:                                             ; preds = %705
-  %1260 = load ptr, ptr %484, align 8
-  %1261 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1260, i64 -4
-  %1262 = load ptr, ptr %1261, align 8
-  %1263 = load ptr, ptr %484, align 8
-  %1264 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1263, i64 -2
-  %1265 = load ptr, ptr %1264, align 8
+1261:                                             ; preds = %705
+  %1262 = load ptr, ptr %484, align 8
+  %1263 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1262, i64 -1
+  %1264 = load ptr, ptr %1263, align 8
+  store ptr %1264, ptr %488, align 8
+  br label %5692
+
+1265:                                             ; preds = %705
   %1266 = load ptr, ptr %484, align 8
-  %1267 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1266, i64 0
+  %1267 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1266, i64 -3
   %1268 = load ptr, ptr %1267, align 8
-  %1269 = call ptr @zend_ast_create_4(i16 noundef zeroext 1025, ptr noundef %1262, ptr noundef %1265, ptr noundef null, ptr noundef %1268)
-  store ptr %1269, ptr %488, align 8
-  br label %5656
+  store ptr %1268, ptr %488, align 8
+  br label %5692
 
-1270:                                             ; preds = %705
-  %1271 = load ptr, ptr %484, align 8
-  %1272 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1271, i64 -6
-  %1273 = load ptr, ptr %1272, align 8
-  %1274 = load ptr, ptr %484, align 8
-  %1275 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1274, i64 -2
-  %1276 = load ptr, ptr %1275, align 8
-  %1277 = load ptr, ptr %484, align 8
-  %1278 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1277, i64 -4
-  %1279 = load ptr, ptr %1278, align 8
-  %1280 = load ptr, ptr %484, align 8
-  %1281 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1280, i64 0
-  %1282 = load ptr, ptr %1281, align 8
-  %1283 = call ptr @zend_ast_create_4(i16 noundef zeroext 1025, ptr noundef %1273, ptr noundef %1276, ptr noundef %1279, ptr noundef %1282)
-  store ptr %1283, ptr %488, align 8
-  br label %5656
+1269:                                             ; preds = %705
+  %1270 = load ptr, ptr %484, align 8
+  %1271 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1270, i64 -4
+  %1272 = load ptr, ptr %1271, align 8
+  %1273 = load ptr, ptr %484, align 8
+  %1274 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1273, i64 -2
+  %1275 = load ptr, ptr %1274, align 8
+  %1276 = load ptr, ptr %484, align 8
+  %1277 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1276, i64 0
+  %1278 = load ptr, ptr %1277, align 8
+  %1279 = call ptr @zend_ast_create_4(i16 noundef zeroext 1025, ptr noundef %1272, ptr noundef %1275, ptr noundef null, ptr noundef %1278)
+  store ptr %1279, ptr %488, align 8
+  br label %5692
 
-1284:                                             ; preds = %705
-  %1285 = load ptr, ptr %484, align 8
-  %1286 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1285, i64 -1
-  %1287 = load ptr, ptr %1286, align 8
-  %1288 = call zeroext i1 @zend_handle_encoding_declaration(ptr noundef %1287)
-  br i1 %1288, label %1290, label %1289
+1280:                                             ; preds = %705
+  %1281 = load ptr, ptr %484, align 8
+  %1282 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1281, i64 -6
+  %1283 = load ptr, ptr %1282, align 8
+  %1284 = load ptr, ptr %484, align 8
+  %1285 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1284, i64 -2
+  %1286 = load ptr, ptr %1285, align 8
+  %1287 = load ptr, ptr %484, align 8
+  %1288 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1287, i64 -4
+  %1289 = load ptr, ptr %1288, align 8
+  %1290 = load ptr, ptr %484, align 8
+  %1291 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1290, i64 0
+  %1292 = load ptr, ptr %1291, align 8
+  %1293 = call ptr @zend_ast_create_4(i16 noundef zeroext 1025, ptr noundef %1283, ptr noundef %1286, ptr noundef %1289, ptr noundef %1292)
+  store ptr %1293, ptr %488, align 8
+  br label %5692
 
-1289:                                             ; preds = %1284
-  br label %5790
-
-1290:                                             ; preds = %1284
-  br label %5656
-
-1291:                                             ; preds = %705
-  %1292 = load ptr, ptr %484, align 8
-  %1293 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1292, i64 -3
-  %1294 = load ptr, ptr %1293, align 8
+1294:                                             ; preds = %705
   %1295 = load ptr, ptr %484, align 8
-  %1296 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1295, i64 0
+  %1296 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1295, i64 -1
   %1297 = load ptr, ptr %1296, align 8
-  %1298 = call ptr @zend_ast_create_2(i16 noundef zeroext 538, ptr noundef %1294, ptr noundef %1297)
-  store ptr %1298, ptr %488, align 8
-  br label %5656
+  %1298 = call zeroext i1 @zend_handle_encoding_declaration(ptr noundef %1297)
+  br i1 %1298, label %1300, label %1299
 
-1299:                                             ; preds = %705
+1299:                                             ; preds = %1294
+  br label %5826
+
+1300:                                             ; preds = %1294
+  br label %5692
+
+1301:                                             ; preds = %705
+  %1302 = load ptr, ptr %484, align 8
+  %1303 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1302, i64 -3
+  %1304 = load ptr, ptr %1303, align 8
+  %1305 = load ptr, ptr %484, align 8
+  %1306 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1305, i64 0
+  %1307 = load ptr, ptr %1306, align 8
+  %1308 = call ptr @zend_ast_create_2(i16 noundef zeroext 538, ptr noundef %1304, ptr noundef %1307)
+  store ptr %1308, ptr %488, align 8
+  br label %5692
+
+1309:                                             ; preds = %705
   store ptr null, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1300:                                             ; preds = %705
-  %1301 = load ptr, ptr %484, align 8
-  %1302 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1301, i64 -3
-  %1303 = load ptr, ptr %1302, align 8
-  %1304 = load ptr, ptr %484, align 8
-  %1305 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1304, i64 -1
-  %1306 = load ptr, ptr %1305, align 8
-  %1307 = load ptr, ptr %484, align 8
-  %1308 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1307, i64 0
-  %1309 = load ptr, ptr %1308, align 8
-  %1310 = call ptr @zend_ast_create_3(i16 noundef zeroext 772, ptr noundef %1303, ptr noundef %1306, ptr noundef %1309)
-  store ptr %1310, ptr %488, align 8
-  br label %5656
-
-1311:                                             ; preds = %705
-  %1312 = load ptr, ptr %484, align 8
-  %1313 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1312, i64 -1
-  %1314 = load ptr, ptr %1313, align 8
-  %1315 = call ptr @zend_ast_create_1(i16 noundef zeroext 285, ptr noundef %1314)
-  store ptr %1315, ptr %488, align 8
-  br label %5656
-
-1316:                                             ; preds = %705
+1310:                                             ; preds = %705
+  %1311 = load ptr, ptr %484, align 8
+  %1312 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1311, i64 -3
+  %1313 = load ptr, ptr %1312, align 8
+  %1314 = load ptr, ptr %484, align 8
+  %1315 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1314, i64 -1
+  %1316 = load ptr, ptr %1315, align 8
   %1317 = load ptr, ptr %484, align 8
-  %1318 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1317, i64 -1
+  %1318 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1317, i64 0
   %1319 = load ptr, ptr %1318, align 8
-  %1320 = call ptr @zend_ast_create_1(i16 noundef zeroext 280, ptr noundef %1319)
+  %1320 = call ptr @zend_ast_create_3(i16 noundef zeroext 772, ptr noundef %1313, ptr noundef %1316, ptr noundef %1319)
   store ptr %1320, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1321:                                             ; preds = %705
-  %1322 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 135)
-  store ptr %1322, ptr %488, align 8
-  br label %5656
+  %1322 = load ptr, ptr %484, align 8
+  %1323 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1322, i64 -1
+  %1324 = load ptr, ptr %1323, align 8
+  %1325 = call ptr @zend_ast_create_1(i16 noundef zeroext 285, ptr noundef %1324)
+  store ptr %1325, ptr %488, align 8
+  br label %5692
 
-1323:                                             ; preds = %705
-  %1324 = load ptr, ptr %484, align 8
-  %1325 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1324, i64 -8
-  %1326 = load ptr, ptr %1325, align 8
+1326:                                             ; preds = %705
   %1327 = load ptr, ptr %484, align 8
-  %1328 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1327, i64 -5
+  %1328 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1327, i64 -1
   %1329 = load ptr, ptr %1328, align 8
-  %1330 = load ptr, ptr %484, align 8
-  %1331 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1330, i64 -4
-  %1332 = load ptr, ptr %1331, align 8
-  %1333 = load ptr, ptr %484, align 8
-  %1334 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1333, i64 -1
-  %1335 = load ptr, ptr %1334, align 8
-  %1336 = call ptr @zend_ast_create_3(i16 noundef zeroext 773, ptr noundef %1329, ptr noundef %1332, ptr noundef %1335)
-  %1337 = call ptr @zend_ast_list_add(ptr noundef %1326, ptr noundef %1336)
-  store ptr %1337, ptr %488, align 8
-  br label %5656
+  %1330 = call ptr @zend_ast_create_1(i16 noundef zeroext 280, ptr noundef %1329)
+  store ptr %1330, ptr %488, align 8
+  br label %5692
 
-1338:                                             ; preds = %705
-  %1339 = load ptr, ptr %484, align 8
-  %1340 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1339, i64 0
-  %1341 = load ptr, ptr %1340, align 8
-  %1342 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 141, ptr noundef %1341)
-  store ptr %1342, ptr %488, align 8
-  br label %5656
+1331:                                             ; preds = %705
+  %1332 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 135)
+  store ptr %1332, ptr %488, align 8
+  br label %5692
 
-1343:                                             ; preds = %705
-  %1344 = load ptr, ptr %484, align 8
-  %1345 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1344, i64 -2
-  %1346 = load ptr, ptr %1345, align 8
-  %1347 = load ptr, ptr %484, align 8
-  %1348 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1347, i64 0
-  %1349 = load ptr, ptr %1348, align 8
-  %1350 = call ptr @zend_ast_list_add(ptr noundef %1346, ptr noundef %1349)
-  store ptr %1350, ptr %488, align 8
-  br label %5656
+1333:                                             ; preds = %705
+  %1334 = load ptr, ptr %484, align 8
+  %1335 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1334, i64 -8
+  %1336 = load ptr, ptr %1335, align 8
+  %1337 = load ptr, ptr %484, align 8
+  %1338 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1337, i64 -5
+  %1339 = load ptr, ptr %1338, align 8
+  %1340 = load ptr, ptr %484, align 8
+  %1341 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1340, i64 -4
+  %1342 = load ptr, ptr %1341, align 8
+  %1343 = load ptr, ptr %484, align 8
+  %1344 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1343, i64 -1
+  %1345 = load ptr, ptr %1344, align 8
+  %1346 = call ptr @zend_ast_create_3(i16 noundef zeroext 773, ptr noundef %1339, ptr noundef %1342, ptr noundef %1345)
+  %1347 = call ptr @zend_ast_list_add(ptr noundef %1336, ptr noundef %1346)
+  store ptr %1347, ptr %488, align 8
+  br label %5692
 
-1351:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
+1348:                                             ; preds = %705
+  %1349 = load ptr, ptr %484, align 8
+  %1350 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1349, i64 0
+  %1351 = load ptr, ptr %1350, align 8
+  %1352 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 141, ptr noundef %1351)
+  store ptr %1352, ptr %488, align 8
+  br label %5692
 
-1352:                                             ; preds = %705
-  %1353 = load ptr, ptr %484, align 8
-  %1354 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1353, i64 0
-  %1355 = load ptr, ptr %1354, align 8
-  store ptr %1355, ptr %488, align 8
-  br label %5656
-
-1356:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
-
-1357:                                             ; preds = %705
-  %1358 = load ptr, ptr %484, align 8
-  %1359 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1358, i64 -1
-  %1360 = load ptr, ptr %1359, align 8
+1353:                                             ; preds = %705
+  %1354 = load ptr, ptr %484, align 8
+  %1355 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1354, i64 -2
+  %1356 = load ptr, ptr %1355, align 8
+  %1357 = load ptr, ptr %484, align 8
+  %1358 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1357, i64 0
+  %1359 = load ptr, ptr %1358, align 8
+  %1360 = call ptr @zend_ast_list_add(ptr noundef %1356, ptr noundef %1359)
   store ptr %1360, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1361:                                             ; preds = %705
-  %1362 = load ptr, ptr %484, align 8
-  %1363 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1362, i64 0
-  %1364 = load ptr, ptr %1363, align 8
-  %1365 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %1364)
+  store ptr null, ptr %488, align 8
+  br label %5692
+
+1362:                                             ; preds = %705
+  %1363 = load ptr, ptr %484, align 8
+  %1364 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1363, i64 0
+  %1365 = load ptr, ptr %1364, align 8
   store ptr %1365, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1366:                                             ; preds = %705
-  %1367 = load ptr, ptr %484, align 8
-  %1368 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1367, i64 -2
-  %1369 = load ptr, ptr %1368, align 8
-  %1370 = load ptr, ptr %484, align 8
-  %1371 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1370, i64 0
-  %1372 = load ptr, ptr %1371, align 8
-  %1373 = call ptr @zend_ast_list_add(ptr noundef %1369, ptr noundef %1372)
-  store ptr %1373, ptr %488, align 8
-  br label %5656
+  store ptr null, ptr %488, align 8
+  br label %5692
 
-1374:                                             ; preds = %705
-  %1375 = load ptr, ptr %484, align 8
-  %1376 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1375, i64 0
-  %1377 = load ptr, ptr %1376, align 8
-  %1378 = call ptr @zend_ast_create_1(i16 noundef zeroext 278, ptr noundef %1377)
-  store ptr %1378, ptr %488, align 8
-  br label %5656
+1367:                                             ; preds = %705
+  %1368 = load ptr, ptr %484, align 8
+  %1369 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1368, i64 -1
+  %1370 = load ptr, ptr %1369, align 8
+  store ptr %1370, ptr %488, align 8
+  br label %5692
 
-1379:                                             ; preds = %705
+1371:                                             ; preds = %705
+  %1372 = load ptr, ptr %484, align 8
+  %1373 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1372, i64 0
+  %1374 = load ptr, ptr %1373, align 8
+  %1375 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %1374)
+  store ptr %1375, ptr %488, align 8
+  br label %5692
+
+1376:                                             ; preds = %705
+  %1377 = load ptr, ptr %484, align 8
+  %1378 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1377, i64 -2
+  %1379 = load ptr, ptr %1378, align 8
   %1380 = load ptr, ptr %484, align 8
   %1381 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1380, i64 0
   %1382 = load ptr, ptr %1381, align 8
-  store ptr %1382, ptr %488, align 8
-  br label %5656
+  %1383 = call ptr @zend_ast_list_add(ptr noundef %1379, ptr noundef %1382)
+  store ptr %1383, ptr %488, align 8
+  br label %5692
 
-1383:                                             ; preds = %705
-  %1384 = load ptr, ptr %484, align 8
-  %1385 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1384, i64 0
-  %1386 = load ptr, ptr %1385, align 8
-  %1387 = call i32 @zend_lex_tstring(ptr noundef %499, ptr noundef %1386)
-  %1388 = icmp eq i32 %1387, -1
-  br i1 %1388, label %1389, label %1390
+1384:                                             ; preds = %705
+  %1385 = load ptr, ptr %484, align 8
+  %1386 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1385, i64 0
+  %1387 = load ptr, ptr %1386, align 8
+  %1388 = call ptr @zend_ast_create_1(i16 noundef zeroext 278, ptr noundef %1387)
+  store ptr %1388, ptr %488, align 8
+  br label %5692
 
-1389:                                             ; preds = %1383
-  br label %5865
+1389:                                             ; preds = %705
+  %1390 = load ptr, ptr %484, align 8
+  %1391 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1390, i64 0
+  %1392 = load ptr, ptr %1391, align 8
+  store ptr %1392, ptr %488, align 8
+  br label %5692
 
-1390:                                             ; preds = %1383
-  %1391 = call ptr @zend_ast_create_zval(ptr noundef %499)
-  store ptr %1391, ptr %488, align 8
-  br label %5656
+1393:                                             ; preds = %705
+  %1394 = load ptr, ptr %484, align 8
+  %1395 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1394, i64 0
+  %1396 = load ptr, ptr %1395, align 8
+  %1397 = call i32 @zend_lex_tstring(ptr noundef %499, ptr noundef %1396)
+  %1398 = icmp eq i32 %1397, -1
+  br i1 %1398, label %1399, label %1400
 
-1392:                                             ; preds = %705
-  %1393 = load ptr, ptr %484, align 8
-  %1394 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1393, i64 -11
-  %1395 = load i64, ptr %1394, align 8
-  %1396 = load ptr, ptr %484, align 8
-  %1397 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1396, i64 0
-  %1398 = load i64, ptr %1397, align 8
-  %1399 = or i64 %1395, %1398
-  %1400 = trunc i64 %1399 to i32
-  %1401 = load ptr, ptr %484, align 8
-  %1402 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1401, i64 -12
-  %1403 = load i64, ptr %1402, align 8
-  %1404 = trunc i64 %1403 to i32
-  %1405 = load ptr, ptr %484, align 8
-  %1406 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1405, i64 -9
-  %1407 = load ptr, ptr %1406, align 8
-  %1408 = load ptr, ptr %484, align 8
-  %1409 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1408, i64 -10
-  %1410 = load ptr, ptr %1409, align 8
-  store ptr %1410, ptr %453, align 8
-  %1411 = load ptr, ptr %453, align 8
-  store ptr %1411, ptr %18, align 8
-  %1412 = load ptr, ptr %18, align 8
-  %1413 = load i16, ptr %1412, align 8
-  %1414 = zext i16 %1413 to i32
-  %1415 = icmp eq i32 %1414, 64
-  call void @llvm.assume(i1 %1415)
-  %1416 = load ptr, ptr %18, align 8
-  %1417 = getelementptr inbounds %struct._zend_ast_zval, ptr %1416, i32 0, i32 2
-  store ptr %1417, ptr %454, align 8
-  %1418 = load ptr, ptr %454, align 8
-  %1419 = load ptr, ptr %1418, align 8
-  %1420 = load ptr, ptr %484, align 8
-  %1421 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1420, i64 -7
-  %1422 = load ptr, ptr %1421, align 8
-  %1423 = load ptr, ptr %484, align 8
-  %1424 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1423, i64 -2
-  %1425 = load ptr, ptr %1424, align 8
-  %1426 = load ptr, ptr %484, align 8
-  %1427 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1426, i64 -5
-  %1428 = load ptr, ptr %1427, align 8
-  %1429 = call ptr @zend_ast_create_decl(i16 noundef zeroext 67, i32 noundef %1400, i32 noundef %1404, ptr noundef %1407, ptr noundef %1419, ptr noundef %1422, ptr noundef null, ptr noundef %1425, ptr noundef %1428, ptr noundef null)
-  store ptr %1429, ptr %488, align 8
+1399:                                             ; preds = %1393
+  br label %5901
+
+1400:                                             ; preds = %1393
+  %1401 = call ptr @zend_ast_create_zval(ptr noundef %499)
+  store ptr %1401, ptr %488, align 8
+  br label %5692
+
+1402:                                             ; preds = %705
+  %1403 = load ptr, ptr %484, align 8
+  %1404 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1403, i64 -11
+  %1405 = load i64, ptr %1404, align 8
+  %1406 = load ptr, ptr %484, align 8
+  %1407 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1406, i64 0
+  %1408 = load i64, ptr %1407, align 8
+  %1409 = or i64 %1405, %1408
+  %1410 = trunc i64 %1409 to i32
+  %1411 = load ptr, ptr %484, align 8
+  %1412 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1411, i64 -12
+  %1413 = load i64, ptr %1412, align 8
+  %1414 = trunc i64 %1413 to i32
+  %1415 = load ptr, ptr %484, align 8
+  %1416 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1415, i64 -9
+  %1417 = load ptr, ptr %1416, align 8
+  %1418 = load ptr, ptr %484, align 8
+  %1419 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1418, i64 -10
+  %1420 = load ptr, ptr %1419, align 8
+  store ptr %1420, ptr %453, align 8
+  %1421 = load ptr, ptr %453, align 8
+  store ptr %1421, ptr %18, align 8
+  %1422 = load ptr, ptr %18, align 8
+  %1423 = load i16, ptr %1422, align 8
+  %1424 = zext i16 %1423 to i32
+  %1425 = icmp eq i32 %1424, 64
+  call void @llvm.assume(i1 %1425)
+  %1426 = load ptr, ptr %18, align 8
+  %1427 = getelementptr inbounds %struct._zend_ast_zval, ptr %1426, i32 0, i32 2
+  store ptr %1427, ptr %454, align 8
+  %1428 = load ptr, ptr %454, align 8
+  %1429 = load ptr, ptr %1428, align 8
   %1430 = load ptr, ptr %484, align 8
-  %1431 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1430, i64 -4
-  %1432 = load i64, ptr %1431, align 8
-  %1433 = trunc i64 %1432 to i32
-  store i32 %1433, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
+  %1431 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1430, i64 -7
+  %1432 = load ptr, ptr %1431, align 8
+  %1433 = load ptr, ptr %484, align 8
+  %1434 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1433, i64 -2
+  %1435 = load ptr, ptr %1434, align 8
+  %1436 = load ptr, ptr %484, align 8
+  %1437 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1436, i64 -5
+  %1438 = load ptr, ptr %1437, align 8
+  %1439 = call ptr @zend_ast_create_decl(i16 noundef zeroext 67, i32 noundef %1410, i32 noundef %1414, ptr noundef %1417, ptr noundef %1429, ptr noundef %1432, ptr noundef null, ptr noundef %1435, ptr noundef %1438, ptr noundef null)
+  store ptr %1439, ptr %488, align 8
+  %1440 = load ptr, ptr %484, align 8
+  %1441 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1440, i64 -4
+  %1442 = load i64, ptr %1441, align 8
+  %1443 = trunc i64 %1442 to i32
+  %1444 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 %1443, ptr %1444, align 8
+  br label %5692
 
-1434:                                             ; preds = %705
+1445:                                             ; preds = %705
   store i64 0, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1435:                                             ; preds = %705
+1446:                                             ; preds = %705
   store i64 8, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1436:                                             ; preds = %705
+1447:                                             ; preds = %705
   store i64 0, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1437:                                             ; preds = %705
+1448:                                             ; preds = %705
   store i64 16, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1438:                                             ; preds = %705
-  %1439 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %1440 = sext i32 %1439 to i64
-  store i64 %1440, ptr %488, align 8
-  br label %5656
+1449:                                             ; preds = %705
+  %1450 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %1451 = load i32, ptr %1450, align 8
+  %1452 = sext i32 %1451 to i64
+  store i64 %1452, ptr %488, align 8
+  br label %5692
 
-1441:                                             ; preds = %705
-  %1442 = load ptr, ptr %484, align 8
-  %1443 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1442, i64 -9
-  %1444 = load i64, ptr %1443, align 8
-  %1445 = trunc i64 %1444 to i32
-  %1446 = load ptr, ptr %484, align 8
-  %1447 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1446, i64 -7
-  %1448 = load i64, ptr %1447, align 8
-  %1449 = trunc i64 %1448 to i32
-  %1450 = load ptr, ptr %484, align 8
-  %1451 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1450, i64 -3
-  %1452 = load ptr, ptr %1451, align 8
-  %1453 = load ptr, ptr %484, align 8
-  %1454 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1453, i64 -6
-  %1455 = load ptr, ptr %1454, align 8
-  store ptr %1455, ptr %455, align 8
-  %1456 = load ptr, ptr %455, align 8
-  store ptr %1456, ptr %17, align 8
-  %1457 = load ptr, ptr %17, align 8
-  %1458 = load i16, ptr %1457, align 8
-  %1459 = zext i16 %1458 to i32
-  %1460 = icmp eq i32 %1459, 64
-  call void @llvm.assume(i1 %1460)
-  %1461 = load ptr, ptr %17, align 8
-  %1462 = getelementptr inbounds %struct._zend_ast_zval, ptr %1461, i32 0, i32 2
-  store ptr %1462, ptr %456, align 8
-  %1463 = load ptr, ptr %456, align 8
+1453:                                             ; preds = %705
+  %1454 = load ptr, ptr %484, align 8
+  %1455 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1454, i64 -9
+  %1456 = load i64, ptr %1455, align 8
+  %1457 = trunc i64 %1456 to i32
+  %1458 = load ptr, ptr %484, align 8
+  %1459 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1458, i64 -7
+  %1460 = load i64, ptr %1459, align 8
+  %1461 = trunc i64 %1460 to i32
+  %1462 = load ptr, ptr %484, align 8
+  %1463 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1462, i64 -3
   %1464 = load ptr, ptr %1463, align 8
   %1465 = load ptr, ptr %484, align 8
-  %1466 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1465, i64 -5
+  %1466 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1465, i64 -6
   %1467 = load ptr, ptr %1466, align 8
-  %1468 = load ptr, ptr %484, align 8
-  %1469 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1468, i64 -4
-  %1470 = load ptr, ptr %1469, align 8
-  %1471 = load ptr, ptr %484, align 8
-  %1472 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1471, i64 -1
-  %1473 = load ptr, ptr %1472, align 8
-  %1474 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef %1445, i32 noundef %1449, ptr noundef %1452, ptr noundef %1464, ptr noundef %1467, ptr noundef %1470, ptr noundef %1473, ptr noundef null, ptr noundef null)
-  store ptr %1474, ptr %488, align 8
-  br label %5656
-
-1475:                                             ; preds = %705
-  %1476 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %1477 = sext i32 %1476 to i64
-  store i64 %1477, ptr %488, align 8
-  br label %5656
-
-1478:                                             ; preds = %705
-  %1479 = load ptr, ptr %484, align 8
-  %1480 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1479, i64 -7
-  %1481 = load i64, ptr %1480, align 8
-  %1482 = trunc i64 %1481 to i32
+  store ptr %1467, ptr %455, align 8
+  %1468 = load ptr, ptr %455, align 8
+  store ptr %1468, ptr %17, align 8
+  %1469 = load ptr, ptr %17, align 8
+  %1470 = load i16, ptr %1469, align 8
+  %1471 = zext i16 %1470 to i32
+  %1472 = icmp eq i32 %1471, 64
+  call void @llvm.assume(i1 %1472)
+  %1473 = load ptr, ptr %17, align 8
+  %1474 = getelementptr inbounds %struct._zend_ast_zval, ptr %1473, i32 0, i32 2
+  store ptr %1474, ptr %456, align 8
+  %1475 = load ptr, ptr %456, align 8
+  %1476 = load ptr, ptr %1475, align 8
+  %1477 = load ptr, ptr %484, align 8
+  %1478 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1477, i64 -5
+  %1479 = load ptr, ptr %1478, align 8
+  %1480 = load ptr, ptr %484, align 8
+  %1481 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1480, i64 -4
+  %1482 = load ptr, ptr %1481, align 8
   %1483 = load ptr, ptr %484, align 8
-  %1484 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1483, i64 -3
+  %1484 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1483, i64 -1
   %1485 = load ptr, ptr %1484, align 8
-  %1486 = load ptr, ptr %484, align 8
-  %1487 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1486, i64 -6
-  %1488 = load ptr, ptr %1487, align 8
-  store ptr %1488, ptr %457, align 8
-  %1489 = load ptr, ptr %457, align 8
-  store ptr %1489, ptr %16, align 8
-  %1490 = load ptr, ptr %16, align 8
-  %1491 = load i16, ptr %1490, align 8
-  %1492 = zext i16 %1491 to i32
-  %1493 = icmp eq i32 %1492, 64
-  call void @llvm.assume(i1 %1493)
-  %1494 = load ptr, ptr %16, align 8
-  %1495 = getelementptr inbounds %struct._zend_ast_zval, ptr %1494, i32 0, i32 2
-  store ptr %1495, ptr %458, align 8
-  %1496 = load ptr, ptr %458, align 8
-  %1497 = load ptr, ptr %1496, align 8
-  %1498 = load ptr, ptr %484, align 8
-  %1499 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1498, i64 -5
-  %1500 = load ptr, ptr %1499, align 8
-  %1501 = load ptr, ptr %484, align 8
-  %1502 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1501, i64 -4
-  %1503 = load ptr, ptr %1502, align 8
-  %1504 = load ptr, ptr %484, align 8
-  %1505 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1504, i64 -1
-  %1506 = load ptr, ptr %1505, align 8
-  %1507 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 0, i32 noundef %1482, ptr noundef %1485, ptr noundef %1497, ptr noundef %1500, ptr noundef %1503, ptr noundef %1506, ptr noundef null, ptr noundef null)
-  store ptr %1507, ptr %488, align 8
-  br label %5656
+  %1486 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef %1457, i32 noundef %1461, ptr noundef %1464, ptr noundef %1476, ptr noundef %1479, ptr noundef %1482, ptr noundef %1485, ptr noundef null, ptr noundef null)
+  store ptr %1486, ptr %488, align 8
+  br label %5692
 
-1508:                                             ; preds = %705
-  %1509 = load ptr, ptr %484, align 8
-  %1510 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1509, i64 0
-  %1511 = load i64, ptr %1510, align 8
-  store i64 %1511, ptr %488, align 8
-  br label %5656
+1487:                                             ; preds = %705
+  %1488 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %1489 = load i32, ptr %1488, align 8
+  %1490 = sext i32 %1489 to i64
+  store i64 %1490, ptr %488, align 8
+  br label %5692
 
-1512:                                             ; preds = %705
-  %1513 = load ptr, ptr %484, align 8
-  %1514 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1513, i64 -1
-  %1515 = load i64, ptr %1514, align 8
-  %1516 = trunc i64 %1515 to i32
+1491:                                             ; preds = %705
+  %1492 = load ptr, ptr %484, align 8
+  %1493 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1492, i64 -7
+  %1494 = load i64, ptr %1493, align 8
+  %1495 = trunc i64 %1494 to i32
+  %1496 = load ptr, ptr %484, align 8
+  %1497 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1496, i64 -3
+  %1498 = load ptr, ptr %1497, align 8
+  %1499 = load ptr, ptr %484, align 8
+  %1500 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1499, i64 -6
+  %1501 = load ptr, ptr %1500, align 8
+  store ptr %1501, ptr %457, align 8
+  %1502 = load ptr, ptr %457, align 8
+  store ptr %1502, ptr %16, align 8
+  %1503 = load ptr, ptr %16, align 8
+  %1504 = load i16, ptr %1503, align 8
+  %1505 = zext i16 %1504 to i32
+  %1506 = icmp eq i32 %1505, 64
+  call void @llvm.assume(i1 %1506)
+  %1507 = load ptr, ptr %16, align 8
+  %1508 = getelementptr inbounds %struct._zend_ast_zval, ptr %1507, i32 0, i32 2
+  store ptr %1508, ptr %458, align 8
+  %1509 = load ptr, ptr %458, align 8
+  %1510 = load ptr, ptr %1509, align 8
+  %1511 = load ptr, ptr %484, align 8
+  %1512 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1511, i64 -5
+  %1513 = load ptr, ptr %1512, align 8
+  %1514 = load ptr, ptr %484, align 8
+  %1515 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1514, i64 -4
+  %1516 = load ptr, ptr %1515, align 8
   %1517 = load ptr, ptr %484, align 8
-  %1518 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1517, i64 0
-  %1519 = load i64, ptr %1518, align 8
-  %1520 = trunc i64 %1519 to i32
-  %1521 = call i32 @zend_add_class_modifier(i32 noundef %1516, i32 noundef %1520)
-  %1522 = zext i32 %1521 to i64
-  store i64 %1522, ptr %488, align 8
-  %1523 = load i64, ptr %488, align 8
-  %1524 = icmp ne i64 %1523, 0
-  br i1 %1524, label %1526, label %1525
+  %1518 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1517, i64 -1
+  %1519 = load ptr, ptr %1518, align 8
+  %1520 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 0, i32 noundef %1495, ptr noundef %1498, ptr noundef %1510, ptr noundef %1513, ptr noundef %1516, ptr noundef %1519, ptr noundef null, ptr noundef null)
+  store ptr %1520, ptr %488, align 8
+  br label %5692
 
-1525:                                             ; preds = %1512
-  br label %5790
+1521:                                             ; preds = %705
+  %1522 = load ptr, ptr %484, align 8
+  %1523 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1522, i64 0
+  %1524 = load i64, ptr %1523, align 8
+  store i64 %1524, ptr %488, align 8
+  br label %5692
 
-1526:                                             ; preds = %1512
-  br label %5656
+1525:                                             ; preds = %705
+  %1526 = load ptr, ptr %484, align 8
+  %1527 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1526, i64 -1
+  %1528 = load i64, ptr %1527, align 8
+  %1529 = trunc i64 %1528 to i32
+  %1530 = load ptr, ptr %484, align 8
+  %1531 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1530, i64 0
+  %1532 = load i64, ptr %1531, align 8
+  %1533 = trunc i64 %1532 to i32
+  %1534 = call i32 @zend_add_class_modifier(i32 noundef %1529, i32 noundef %1533)
+  %1535 = zext i32 %1534 to i64
+  store i64 %1535, ptr %488, align 8
+  %1536 = load i64, ptr %488, align 8
+  %1537 = icmp ne i64 %1536, 0
+  br i1 %1537, label %1539, label %1538
 
-1527:                                             ; preds = %705
-  %1528 = load ptr, ptr %484, align 8
-  %1529 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1528, i64 0
-  %1530 = load i64, ptr %1529, align 8
-  %1531 = trunc i64 %1530 to i32
-  %1532 = call i32 @zend_add_anonymous_class_modifier(i32 noundef 0, i32 noundef %1531)
-  %1533 = zext i32 %1532 to i64
-  store i64 %1533, ptr %488, align 8
-  %1534 = load i64, ptr %488, align 8
-  %1535 = icmp ne i64 %1534, 0
-  br i1 %1535, label %1537, label %1536
+1538:                                             ; preds = %1525
+  br label %5826
 
-1536:                                             ; preds = %1527
-  br label %5790
+1539:                                             ; preds = %1525
+  br label %5692
 
-1537:                                             ; preds = %1527
-  br label %5656
+1540:                                             ; preds = %705
+  %1541 = load ptr, ptr %484, align 8
+  %1542 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1541, i64 0
+  %1543 = load i64, ptr %1542, align 8
+  %1544 = trunc i64 %1543 to i32
+  %1545 = call i32 @zend_add_anonymous_class_modifier(i32 noundef 0, i32 noundef %1544)
+  %1546 = zext i32 %1545 to i64
+  store i64 %1546, ptr %488, align 8
+  %1547 = load i64, ptr %488, align 8
+  %1548 = icmp ne i64 %1547, 0
+  br i1 %1548, label %1550, label %1549
 
-1538:                                             ; preds = %705
-  %1539 = load ptr, ptr %484, align 8
-  %1540 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1539, i64 -1
-  %1541 = load i64, ptr %1540, align 8
-  %1542 = trunc i64 %1541 to i32
-  %1543 = load ptr, ptr %484, align 8
-  %1544 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1543, i64 0
-  %1545 = load i64, ptr %1544, align 8
-  %1546 = trunc i64 %1545 to i32
-  %1547 = call i32 @zend_add_anonymous_class_modifier(i32 noundef %1542, i32 noundef %1546)
-  %1548 = zext i32 %1547 to i64
-  store i64 %1548, ptr %488, align 8
-  %1549 = load i64, ptr %488, align 8
-  %1550 = icmp ne i64 %1549, 0
-  br i1 %1550, label %1552, label %1551
+1549:                                             ; preds = %1540
+  br label %5826
 
-1551:                                             ; preds = %1538
-  br label %5790
+1550:                                             ; preds = %1540
+  br label %5692
 
-1552:                                             ; preds = %1538
-  br label %5656
+1551:                                             ; preds = %705
+  %1552 = load ptr, ptr %484, align 8
+  %1553 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1552, i64 -1
+  %1554 = load i64, ptr %1553, align 8
+  %1555 = trunc i64 %1554 to i32
+  %1556 = load ptr, ptr %484, align 8
+  %1557 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1556, i64 0
+  %1558 = load i64, ptr %1557, align 8
+  %1559 = trunc i64 %1558 to i32
+  %1560 = call i32 @zend_add_anonymous_class_modifier(i32 noundef %1555, i32 noundef %1559)
+  %1561 = zext i32 %1560 to i64
+  store i64 %1561, ptr %488, align 8
+  %1562 = load i64, ptr %488, align 8
+  %1563 = icmp ne i64 %1562, 0
+  br i1 %1563, label %1565, label %1564
 
-1553:                                             ; preds = %705
+1564:                                             ; preds = %1551
+  br label %5826
+
+1565:                                             ; preds = %1551
+  br label %5692
+
+1566:                                             ; preds = %705
   store i64 0, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1554:                                             ; preds = %705
-  %1555 = load ptr, ptr %484, align 8
-  %1556 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1555, i64 0
-  %1557 = load i64, ptr %1556, align 8
-  store i64 %1557, ptr %488, align 8
-  br label %5656
+1567:                                             ; preds = %705
+  %1568 = load ptr, ptr %484, align 8
+  %1569 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1568, i64 0
+  %1570 = load i64, ptr %1569, align 8
+  store i64 %1570, ptr %488, align 8
+  br label %5692
 
-1558:                                             ; preds = %705
+1571:                                             ; preds = %705
   store i64 64, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1559:                                             ; preds = %705
+1572:                                             ; preds = %705
   store i64 32, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1560:                                             ; preds = %705
+1573:                                             ; preds = %705
   store i64 73728, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1561:                                             ; preds = %705
-  %1562 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %1563 = sext i32 %1562 to i64
-  store i64 %1563, ptr %488, align 8
-  br label %5656
+1574:                                             ; preds = %705
+  %1575 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %1576 = load i32, ptr %1575, align 8
+  %1577 = sext i32 %1576 to i64
+  store i64 %1577, ptr %488, align 8
+  br label %5692
 
-1564:                                             ; preds = %705
-  %1565 = load ptr, ptr %484, align 8
-  %1566 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1565, i64 -5
-  %1567 = load i64, ptr %1566, align 8
-  %1568 = trunc i64 %1567 to i32
-  %1569 = load ptr, ptr %484, align 8
-  %1570 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1569, i64 -3
-  %1571 = load ptr, ptr %1570, align 8
-  %1572 = load ptr, ptr %484, align 8
-  %1573 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1572, i64 -4
-  %1574 = load ptr, ptr %1573, align 8
-  store ptr %1574, ptr %459, align 8
-  %1575 = load ptr, ptr %459, align 8
-  store ptr %1575, ptr %15, align 8
-  %1576 = load ptr, ptr %15, align 8
-  %1577 = load i16, ptr %1576, align 8
-  %1578 = zext i16 %1577 to i32
-  %1579 = icmp eq i32 %1578, 64
-  call void @llvm.assume(i1 %1579)
-  %1580 = load ptr, ptr %15, align 8
-  %1581 = getelementptr inbounds %struct._zend_ast_zval, ptr %1580, i32 0, i32 2
-  store ptr %1581, ptr %460, align 8
-  %1582 = load ptr, ptr %460, align 8
-  %1583 = load ptr, ptr %1582, align 8
-  %1584 = load ptr, ptr %484, align 8
-  %1585 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1584, i64 -1
-  %1586 = load ptr, ptr %1585, align 8
-  %1587 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 2, i32 noundef %1568, ptr noundef %1571, ptr noundef %1583, ptr noundef null, ptr noundef null, ptr noundef %1586, ptr noundef null, ptr noundef null)
-  store ptr %1587, ptr %488, align 8
-  br label %5656
+1578:                                             ; preds = %705
+  %1579 = load ptr, ptr %484, align 8
+  %1580 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1579, i64 -5
+  %1581 = load i64, ptr %1580, align 8
+  %1582 = trunc i64 %1581 to i32
+  %1583 = load ptr, ptr %484, align 8
+  %1584 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1583, i64 -3
+  %1585 = load ptr, ptr %1584, align 8
+  %1586 = load ptr, ptr %484, align 8
+  %1587 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1586, i64 -4
+  %1588 = load ptr, ptr %1587, align 8
+  store ptr %1588, ptr %459, align 8
+  %1589 = load ptr, ptr %459, align 8
+  store ptr %1589, ptr %15, align 8
+  %1590 = load ptr, ptr %15, align 8
+  %1591 = load i16, ptr %1590, align 8
+  %1592 = zext i16 %1591 to i32
+  %1593 = icmp eq i32 %1592, 64
+  call void @llvm.assume(i1 %1593)
+  %1594 = load ptr, ptr %15, align 8
+  %1595 = getelementptr inbounds %struct._zend_ast_zval, ptr %1594, i32 0, i32 2
+  store ptr %1595, ptr %460, align 8
+  %1596 = load ptr, ptr %460, align 8
+  %1597 = load ptr, ptr %1596, align 8
+  %1598 = load ptr, ptr %484, align 8
+  %1599 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1598, i64 -1
+  %1600 = load ptr, ptr %1599, align 8
+  %1601 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 2, i32 noundef %1582, ptr noundef %1585, ptr noundef %1597, ptr noundef null, ptr noundef null, ptr noundef %1600, ptr noundef null, ptr noundef null)
+  store ptr %1601, ptr %488, align 8
+  br label %5692
 
-1588:                                             ; preds = %705
-  %1589 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %1590 = sext i32 %1589 to i64
-  store i64 %1590, ptr %488, align 8
-  br label %5656
+1602:                                             ; preds = %705
+  %1603 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %1604 = load i32, ptr %1603, align 8
+  %1605 = sext i32 %1604 to i64
+  store i64 %1605, ptr %488, align 8
+  br label %5692
 
-1591:                                             ; preds = %705
-  %1592 = load ptr, ptr %484, align 8
-  %1593 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1592, i64 -6
-  %1594 = load i64, ptr %1593, align 8
-  %1595 = trunc i64 %1594 to i32
-  %1596 = load ptr, ptr %484, align 8
-  %1597 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1596, i64 -3
-  %1598 = load ptr, ptr %1597, align 8
-  %1599 = load ptr, ptr %484, align 8
-  %1600 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1599, i64 -5
-  %1601 = load ptr, ptr %1600, align 8
-  store ptr %1601, ptr %461, align 8
-  %1602 = load ptr, ptr %461, align 8
-  store ptr %1602, ptr %14, align 8
-  %1603 = load ptr, ptr %14, align 8
-  %1604 = load i16, ptr %1603, align 8
-  %1605 = zext i16 %1604 to i32
-  %1606 = icmp eq i32 %1605, 64
-  call void @llvm.assume(i1 %1606)
-  %1607 = load ptr, ptr %14, align 8
-  %1608 = getelementptr inbounds %struct._zend_ast_zval, ptr %1607, i32 0, i32 2
-  store ptr %1608, ptr %462, align 8
-  %1609 = load ptr, ptr %462, align 8
-  %1610 = load ptr, ptr %1609, align 8
+1606:                                             ; preds = %705
+  %1607 = load ptr, ptr %484, align 8
+  %1608 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1607, i64 -6
+  %1609 = load i64, ptr %1608, align 8
+  %1610 = trunc i64 %1609 to i32
   %1611 = load ptr, ptr %484, align 8
-  %1612 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1611, i64 -4
+  %1612 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1611, i64 -3
   %1613 = load ptr, ptr %1612, align 8
   %1614 = load ptr, ptr %484, align 8
-  %1615 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1614, i64 -1
+  %1615 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1614, i64 -5
   %1616 = load ptr, ptr %1615, align 8
-  %1617 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 1, i32 noundef %1595, ptr noundef %1598, ptr noundef %1610, ptr noundef null, ptr noundef %1613, ptr noundef %1616, ptr noundef null, ptr noundef null)
-  store ptr %1617, ptr %488, align 8
-  br label %5656
-
-1618:                                             ; preds = %705
-  %1619 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %1620 = sext i32 %1619 to i64
-  store i64 %1620, ptr %488, align 8
-  br label %5656
-
-1621:                                             ; preds = %705
-  %1622 = load ptr, ptr %484, align 8
-  %1623 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1622, i64 -7
-  %1624 = load i64, ptr %1623, align 8
-  %1625 = trunc i64 %1624 to i32
+  store ptr %1616, ptr %461, align 8
+  %1617 = load ptr, ptr %461, align 8
+  store ptr %1617, ptr %14, align 8
+  %1618 = load ptr, ptr %14, align 8
+  %1619 = load i16, ptr %1618, align 8
+  %1620 = zext i16 %1619 to i32
+  %1621 = icmp eq i32 %1620, 64
+  call void @llvm.assume(i1 %1621)
+  %1622 = load ptr, ptr %14, align 8
+  %1623 = getelementptr inbounds %struct._zend_ast_zval, ptr %1622, i32 0, i32 2
+  store ptr %1623, ptr %462, align 8
+  %1624 = load ptr, ptr %462, align 8
+  %1625 = load ptr, ptr %1624, align 8
   %1626 = load ptr, ptr %484, align 8
-  %1627 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1626, i64 -3
+  %1627 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1626, i64 -4
   %1628 = load ptr, ptr %1627, align 8
   %1629 = load ptr, ptr %484, align 8
-  %1630 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1629, i64 -6
+  %1630 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1629, i64 -1
   %1631 = load ptr, ptr %1630, align 8
-  store ptr %1631, ptr %463, align 8
-  %1632 = load ptr, ptr %463, align 8
-  store ptr %1632, ptr %13, align 8
-  %1633 = load ptr, ptr %13, align 8
-  %1634 = load i16, ptr %1633, align 8
-  %1635 = zext i16 %1634 to i32
-  %1636 = icmp eq i32 %1635, 64
-  call void @llvm.assume(i1 %1636)
-  %1637 = load ptr, ptr %13, align 8
-  %1638 = getelementptr inbounds %struct._zend_ast_zval, ptr %1637, i32 0, i32 2
-  store ptr %1638, ptr %464, align 8
-  %1639 = load ptr, ptr %464, align 8
-  %1640 = load ptr, ptr %1639, align 8
-  %1641 = load ptr, ptr %484, align 8
-  %1642 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1641, i64 -4
-  %1643 = load ptr, ptr %1642, align 8
-  %1644 = load ptr, ptr %484, align 8
-  %1645 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1644, i64 -1
-  %1646 = load ptr, ptr %1645, align 8
-  %1647 = load ptr, ptr %484, align 8
-  %1648 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1647, i64 -5
-  %1649 = load ptr, ptr %1648, align 8
-  %1650 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 268435488, i32 noundef %1625, ptr noundef %1628, ptr noundef %1640, ptr noundef null, ptr noundef %1643, ptr noundef %1646, ptr noundef null, ptr noundef %1649)
-  store ptr %1650, ptr %488, align 8
-  br label %5656
+  %1632 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 1, i32 noundef %1610, ptr noundef %1613, ptr noundef %1625, ptr noundef null, ptr noundef %1628, ptr noundef %1631, ptr noundef null, ptr noundef null)
+  store ptr %1632, ptr %488, align 8
+  br label %5692
 
-1651:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
+1633:                                             ; preds = %705
+  %1634 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %1635 = load i32, ptr %1634, align 8
+  %1636 = sext i32 %1635 to i64
+  store i64 %1636, ptr %488, align 8
+  br label %5692
 
-1652:                                             ; preds = %705
-  %1653 = load ptr, ptr %484, align 8
-  %1654 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1653, i64 0
-  %1655 = load ptr, ptr %1654, align 8
-  store ptr %1655, ptr %488, align 8
-  br label %5656
-
-1656:                                             ; preds = %705
+1637:                                             ; preds = %705
+  %1638 = load ptr, ptr %484, align 8
+  %1639 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1638, i64 -7
+  %1640 = load i64, ptr %1639, align 8
+  %1641 = trunc i64 %1640 to i32
+  %1642 = load ptr, ptr %484, align 8
+  %1643 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1642, i64 -3
+  %1644 = load ptr, ptr %1643, align 8
+  %1645 = load ptr, ptr %484, align 8
+  %1646 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1645, i64 -6
+  %1647 = load ptr, ptr %1646, align 8
+  store ptr %1647, ptr %463, align 8
+  %1648 = load ptr, ptr %463, align 8
+  store ptr %1648, ptr %13, align 8
+  %1649 = load ptr, ptr %13, align 8
+  %1650 = load i16, ptr %1649, align 8
+  %1651 = zext i16 %1650 to i32
+  %1652 = icmp eq i32 %1651, 64
+  call void @llvm.assume(i1 %1652)
+  %1653 = load ptr, ptr %13, align 8
+  %1654 = getelementptr inbounds %struct._zend_ast_zval, ptr %1653, i32 0, i32 2
+  store ptr %1654, ptr %464, align 8
+  %1655 = load ptr, ptr %464, align 8
+  %1656 = load ptr, ptr %1655, align 8
   %1657 = load ptr, ptr %484, align 8
-  %1658 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1657, i64 -2
+  %1658 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1657, i64 -4
   %1659 = load ptr, ptr %1658, align 8
   %1660 = load ptr, ptr %484, align 8
   %1661 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1660, i64 -1
   %1662 = load ptr, ptr %1661, align 8
   %1663 = load ptr, ptr %484, align 8
-  %1664 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1663, i64 -3
+  %1664 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1663, i64 -5
   %1665 = load ptr, ptr %1664, align 8
-  %1666 = icmp ne ptr %1665, null
-  br i1 %1666, label %1667, label %1672
+  %1666 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef 268435488, i32 noundef %1641, ptr noundef %1644, ptr noundef %1656, ptr noundef null, ptr noundef %1659, ptr noundef %1662, ptr noundef null, ptr noundef %1665)
+  store ptr %1666, ptr %488, align 8
+  br label %5692
 
-1667:                                             ; preds = %1656
-  %1668 = load ptr, ptr %484, align 8
-  %1669 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1668, i64 -3
-  %1670 = load ptr, ptr %1669, align 8
-  %1671 = call ptr @zend_ast_create_zval_from_str(ptr noundef %1670)
-  br label %1673
-
-1672:                                             ; preds = %1656
-  br label %1673
-
-1673:                                             ; preds = %1672, %1667
-  %1674 = phi ptr [ %1671, %1667 ], [ null, %1672 ]
-  %1675 = call ptr @zend_ast_create_4(i16 noundef zeroext 1026, ptr noundef %1659, ptr noundef %1662, ptr noundef %1674, ptr noundef null)
-  store ptr %1675, ptr %488, align 8
-  br label %5656
-
-1676:                                             ; preds = %705
+1667:                                             ; preds = %705
   store ptr null, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1677:                                             ; preds = %705
-  %1678 = load ptr, ptr %484, align 8
-  %1679 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1678, i64 0
-  %1680 = load ptr, ptr %1679, align 8
-  store ptr %1680, ptr %488, align 8
-  br label %5656
+1668:                                             ; preds = %705
+  %1669 = load ptr, ptr %484, align 8
+  %1670 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1669, i64 0
+  %1671 = load ptr, ptr %1670, align 8
+  store ptr %1671, ptr %488, align 8
+  br label %5692
 
-1681:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
+1672:                                             ; preds = %705
+  %1673 = load ptr, ptr %484, align 8
+  %1674 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1673, i64 -2
+  %1675 = load ptr, ptr %1674, align 8
+  %1676 = load ptr, ptr %484, align 8
+  %1677 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1676, i64 -1
+  %1678 = load ptr, ptr %1677, align 8
+  %1679 = load ptr, ptr %484, align 8
+  %1680 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1679, i64 -3
+  %1681 = load ptr, ptr %1680, align 8
+  %1682 = icmp ne ptr %1681, null
+  br i1 %1682, label %1683, label %1688
 
-1682:                                             ; preds = %705
-  %1683 = load ptr, ptr %484, align 8
-  %1684 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1683, i64 0
-  %1685 = load ptr, ptr %1684, align 8
-  store ptr %1685, ptr %488, align 8
-  br label %5656
+1683:                                             ; preds = %1672
+  %1684 = load ptr, ptr %484, align 8
+  %1685 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1684, i64 -3
+  %1686 = load ptr, ptr %1685, align 8
+  %1687 = call ptr @zend_ast_create_zval_from_str(ptr noundef %1686)
+  br label %1689
 
-1686:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
+1688:                                             ; preds = %1672
+  br label %1689
 
-1687:                                             ; preds = %705
-  %1688 = load ptr, ptr %484, align 8
-  %1689 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1688, i64 0
-  %1690 = load ptr, ptr %1689, align 8
-  store ptr %1690, ptr %488, align 8
-  br label %5656
-
-1691:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
+1689:                                             ; preds = %1688, %1683
+  %1690 = phi ptr [ %1687, %1683 ], [ null, %1688 ]
+  %1691 = call ptr @zend_ast_create_4(i16 noundef zeroext 1026, ptr noundef %1675, ptr noundef %1678, ptr noundef %1690, ptr noundef null)
+  store ptr %1691, ptr %488, align 8
+  br label %5692
 
 1692:                                             ; preds = %705
-  %1693 = load ptr, ptr %484, align 8
-  %1694 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1693, i64 0
-  %1695 = load ptr, ptr %1694, align 8
-  store ptr %1695, ptr %488, align 8
-  br label %5656
+  store ptr null, ptr %488, align 8
+  br label %5692
 
-1696:                                             ; preds = %705
-  %1697 = load ptr, ptr %484, align 8
-  %1698 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1697, i64 0
-  %1699 = load ptr, ptr %1698, align 8
-  store ptr %1699, ptr %488, align 8
-  br label %5656
+1693:                                             ; preds = %705
+  %1694 = load ptr, ptr %484, align 8
+  %1695 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1694, i64 0
+  %1696 = load ptr, ptr %1695, align 8
+  store ptr %1696, ptr %488, align 8
+  br label %5692
 
-1700:                                             ; preds = %705
-  %1701 = load ptr, ptr %484, align 8
-  %1702 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1701, i64 0
-  %1703 = load ptr, ptr %1702, align 8
-  %1704 = call ptr @zend_ast_create_1(i16 noundef zeroext 281, ptr noundef %1703)
-  store ptr %1704, ptr %488, align 8
-  br label %5656
+1697:                                             ; preds = %705
+  store ptr null, ptr %488, align 8
+  br label %5692
 
-1705:                                             ; preds = %705
-  %1706 = load ptr, ptr %484, align 8
-  %1707 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1706, i64 -1
-  %1708 = load ptr, ptr %1707, align 8
-  store ptr %1708, ptr %488, align 8
-  %1709 = load ptr, ptr %488, align 8
-  %1710 = getelementptr inbounds %struct._zend_ast, ptr %1709, i32 0, i32 1
-  store i16 1, ptr %1710, align 2
-  br label %5656
+1698:                                             ; preds = %705
+  %1699 = load ptr, ptr %484, align 8
+  %1700 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1699, i64 0
+  %1701 = load ptr, ptr %1700, align 8
+  store ptr %1701, ptr %488, align 8
+  br label %5692
 
-1711:                                             ; preds = %705
-  %1712 = load ptr, ptr %484, align 8
-  %1713 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1712, i64 -1
-  %1714 = load ptr, ptr %1713, align 8
-  store ptr %1714, ptr %488, align 8
-  %1715 = load ptr, ptr %488, align 8
-  %1716 = getelementptr inbounds %struct._zend_ast, ptr %1715, i32 0, i32 1
-  store i16 3, ptr %1716, align 2
-  br label %5656
+1702:                                             ; preds = %705
+  store ptr null, ptr %488, align 8
+  br label %5692
 
-1717:                                             ; preds = %705
-  %1718 = load ptr, ptr %484, align 8
-  %1719 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1718, i64 0
-  %1720 = load ptr, ptr %1719, align 8
+1703:                                             ; preds = %705
+  %1704 = load ptr, ptr %484, align 8
+  %1705 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1704, i64 0
+  %1706 = load ptr, ptr %1705, align 8
+  store ptr %1706, ptr %488, align 8
+  br label %5692
+
+1707:                                             ; preds = %705
+  store ptr null, ptr %488, align 8
+  br label %5692
+
+1708:                                             ; preds = %705
+  %1709 = load ptr, ptr %484, align 8
+  %1710 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1709, i64 0
+  %1711 = load ptr, ptr %1710, align 8
+  store ptr %1711, ptr %488, align 8
+  br label %5692
+
+1712:                                             ; preds = %705
+  %1713 = load ptr, ptr %484, align 8
+  %1714 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1713, i64 0
+  %1715 = load ptr, ptr %1714, align 8
+  store ptr %1715, ptr %488, align 8
+  br label %5692
+
+1716:                                             ; preds = %705
+  %1717 = load ptr, ptr %484, align 8
+  %1718 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1717, i64 0
+  %1719 = load ptr, ptr %1718, align 8
+  %1720 = call ptr @zend_ast_create_1(i16 noundef zeroext 281, ptr noundef %1719)
   store ptr %1720, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1721:                                             ; preds = %705
   %1722 = load ptr, ptr %484, align 8
-  %1723 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1722, i64 -2
+  %1723 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1722, i64 -1
   %1724 = load ptr, ptr %1723, align 8
   store ptr %1724, ptr %488, align 8
-  br label %5656
+  %1725 = load ptr, ptr %488, align 8
+  %1726 = getelementptr inbounds %struct._zend_ast, ptr %1725, i32 0, i32 1
+  store i16 1, ptr %1726, align 2
+  br label %5692
 
-1725:                                             ; preds = %705
-  %1726 = load ptr, ptr %484, align 8
-  %1727 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1726, i64 0
-  %1728 = load ptr, ptr %1727, align 8
-  store ptr %1728, ptr %488, align 8
-  br label %5656
-
-1729:                                             ; preds = %705
-  %1730 = load ptr, ptr %484, align 8
-  %1731 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1730, i64 -2
-  %1732 = load ptr, ptr %1731, align 8
-  store ptr %1732, ptr %488, align 8
-  br label %5656
+1727:                                             ; preds = %705
+  %1728 = load ptr, ptr %484, align 8
+  %1729 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1728, i64 -1
+  %1730 = load ptr, ptr %1729, align 8
+  store ptr %1730, ptr %488, align 8
+  %1731 = load ptr, ptr %488, align 8
+  %1732 = getelementptr inbounds %struct._zend_ast, ptr %1731, i32 0, i32 1
+  store i16 3, ptr %1732, align 2
+  br label %5692
 
 1733:                                             ; preds = %705
   %1734 = load ptr, ptr %484, align 8
   %1735 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1734, i64 0
   %1736 = load ptr, ptr %1735, align 8
   store ptr %1736, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1737:                                             ; preds = %705
   %1738 = load ptr, ptr %484, align 8
   %1739 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1738, i64 -2
   %1740 = load ptr, ptr %1739, align 8
   store ptr %1740, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1741:                                             ; preds = %705
   %1742 = load ptr, ptr %484, align 8
-  %1743 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1742, i64 -1
+  %1743 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1742, i64 0
   %1744 = load ptr, ptr %1743, align 8
   store ptr %1744, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1745:                                             ; preds = %705
   %1746 = load ptr, ptr %484, align 8
-  %1747 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1746, i64 -1
+  %1747 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1746, i64 -2
   %1748 = load ptr, ptr %1747, align 8
   store ptr %1748, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1749:                                             ; preds = %705
   %1750 = load ptr, ptr %484, align 8
-  %1751 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1750, i64 -2
+  %1751 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1750, i64 0
   %1752 = load ptr, ptr %1751, align 8
   store ptr %1752, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1753:                                             ; preds = %705
   %1754 = load ptr, ptr %484, align 8
   %1755 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1754, i64 -2
   %1756 = load ptr, ptr %1755, align 8
   store ptr %1756, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1757:                                             ; preds = %705
-  %1758 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 134)
-  store ptr %1758, ptr %488, align 8
-  br label %5656
+  %1758 = load ptr, ptr %484, align 8
+  %1759 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1758, i64 -1
+  %1760 = load ptr, ptr %1759, align 8
+  store ptr %1760, ptr %488, align 8
+  br label %5692
 
-1759:                                             ; preds = %705
-  %1760 = load ptr, ptr %484, align 8
-  %1761 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1760, i64 -4
-  %1762 = load ptr, ptr %1761, align 8
-  %1763 = load ptr, ptr %484, align 8
-  %1764 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1763, i64 -2
-  %1765 = load ptr, ptr %1764, align 8
+1761:                                             ; preds = %705
+  %1762 = load ptr, ptr %484, align 8
+  %1763 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1762, i64 -1
+  %1764 = load ptr, ptr %1763, align 8
+  store ptr %1764, ptr %488, align 8
+  br label %5692
+
+1765:                                             ; preds = %705
   %1766 = load ptr, ptr %484, align 8
-  %1767 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1766, i64 0
+  %1767 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1766, i64 -2
   %1768 = load ptr, ptr %1767, align 8
-  %1769 = call ptr @zend_ast_create_2(i16 noundef zeroext 537, ptr noundef %1765, ptr noundef %1768)
-  %1770 = call ptr @zend_ast_list_add(ptr noundef %1762, ptr noundef %1769)
-  store ptr %1770, ptr %488, align 8
-  br label %5656
+  store ptr %1768, ptr %488, align 8
+  br label %5692
 
-1771:                                             ; preds = %705
-  %1772 = load ptr, ptr %484, align 8
-  %1773 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1772, i64 -3
-  %1774 = load ptr, ptr %1773, align 8
-  %1775 = load ptr, ptr %484, align 8
-  %1776 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1775, i64 0
-  %1777 = load ptr, ptr %1776, align 8
-  %1778 = call ptr @zend_ast_create_2(i16 noundef zeroext 537, ptr noundef null, ptr noundef %1777)
-  %1779 = call ptr @zend_ast_list_add(ptr noundef %1774, ptr noundef %1778)
-  store ptr %1779, ptr %488, align 8
-  br label %5656
+1769:                                             ; preds = %705
+  %1770 = load ptr, ptr %484, align 8
+  %1771 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1770, i64 -2
+  %1772 = load ptr, ptr %1771, align 8
+  store ptr %1772, ptr %488, align 8
+  br label %5692
 
-1780:                                             ; preds = %705
-  %1781 = load ptr, ptr %484, align 8
-  %1782 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1781, i64 -4
-  %1783 = load ptr, ptr %1782, align 8
-  %1784 = load ptr, ptr %484, align 8
-  %1785 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1784, i64 -1
-  %1786 = load ptr, ptr %1785, align 8
-  %1787 = call ptr @zend_ast_create_2(i16 noundef zeroext 547, ptr noundef %1783, ptr noundef %1786)
-  store ptr %1787, ptr %488, align 8
-  br label %5656
+1773:                                             ; preds = %705
+  %1774 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 134)
+  store ptr %1774, ptr %488, align 8
+  br label %5692
 
-1788:                                             ; preds = %705
-  %1789 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 148)
-  store ptr %1789, ptr %488, align 8
-  br label %5656
+1775:                                             ; preds = %705
+  %1776 = load ptr, ptr %484, align 8
+  %1777 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1776, i64 -4
+  %1778 = load ptr, ptr %1777, align 8
+  %1779 = load ptr, ptr %484, align 8
+  %1780 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1779, i64 -2
+  %1781 = load ptr, ptr %1780, align 8
+  %1782 = load ptr, ptr %484, align 8
+  %1783 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1782, i64 0
+  %1784 = load ptr, ptr %1783, align 8
+  %1785 = call ptr @zend_ast_create_2(i16 noundef zeroext 537, ptr noundef %1781, ptr noundef %1784)
+  %1786 = call ptr @zend_ast_list_add(ptr noundef %1778, ptr noundef %1785)
+  store ptr %1786, ptr %488, align 8
+  br label %5692
 
-1790:                                             ; preds = %705
+1787:                                             ; preds = %705
+  %1788 = load ptr, ptr %484, align 8
+  %1789 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1788, i64 -3
+  %1790 = load ptr, ptr %1789, align 8
   %1791 = load ptr, ptr %484, align 8
-  %1792 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1791, i64 -1
+  %1792 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1791, i64 0
   %1793 = load ptr, ptr %1792, align 8
-  store ptr %1793, ptr %488, align 8
-  br label %5656
+  %1794 = call ptr @zend_ast_create_2(i16 noundef zeroext 537, ptr noundef null, ptr noundef %1793)
+  %1795 = call ptr @zend_ast_list_add(ptr noundef %1790, ptr noundef %1794)
+  store ptr %1795, ptr %488, align 8
+  br label %5692
 
-1794:                                             ; preds = %705
-  %1795 = load ptr, ptr %484, align 8
-  %1796 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1795, i64 0
-  %1797 = load ptr, ptr %1796, align 8
-  %1798 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 148, ptr noundef %1797)
-  store ptr %1798, ptr %488, align 8
-  br label %5656
-
-1799:                                             ; preds = %705
+1796:                                             ; preds = %705
+  %1797 = load ptr, ptr %484, align 8
+  %1798 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1797, i64 -4
+  %1799 = load ptr, ptr %1798, align 8
   %1800 = load ptr, ptr %484, align 8
-  %1801 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1800, i64 -2
+  %1801 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1800, i64 -1
   %1802 = load ptr, ptr %1801, align 8
-  %1803 = load ptr, ptr %484, align 8
-  %1804 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1803, i64 0
-  %1805 = load ptr, ptr %1804, align 8
-  %1806 = call ptr @zend_ast_list_add(ptr noundef %1802, ptr noundef %1805)
-  store ptr %1806, ptr %488, align 8
-  br label %5656
+  %1803 = call ptr @zend_ast_create_2(i16 noundef zeroext 547, ptr noundef %1799, ptr noundef %1802)
+  store ptr %1803, ptr %488, align 8
+  br label %5692
 
-1807:                                             ; preds = %705
-  %1808 = load ptr, ptr %484, align 8
-  %1809 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1808, i64 -3
-  %1810 = load ptr, ptr %1809, align 8
+1804:                                             ; preds = %705
+  %1805 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 148)
+  store ptr %1805, ptr %488, align 8
+  br label %5692
+
+1806:                                             ; preds = %705
+  %1807 = load ptr, ptr %484, align 8
+  %1808 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1807, i64 -1
+  %1809 = load ptr, ptr %1808, align 8
+  store ptr %1809, ptr %488, align 8
+  br label %5692
+
+1810:                                             ; preds = %705
   %1811 = load ptr, ptr %484, align 8
   %1812 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1811, i64 0
   %1813 = load ptr, ptr %1812, align 8
-  %1814 = call ptr @zend_ast_create_2(i16 noundef zeroext 548, ptr noundef %1810, ptr noundef %1813)
+  %1814 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 148, ptr noundef %1813)
   store ptr %1814, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1815:                                             ; preds = %705
   %1816 = load ptr, ptr %484, align 8
-  %1817 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1816, i64 0
+  %1817 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1816, i64 -2
   %1818 = load ptr, ptr %1817, align 8
-  %1819 = call ptr @zend_ast_create_2(i16 noundef zeroext 548, ptr noundef null, ptr noundef %1818)
-  store ptr %1819, ptr %488, align 8
-  br label %5656
+  %1819 = load ptr, ptr %484, align 8
+  %1820 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1819, i64 0
+  %1821 = load ptr, ptr %1820, align 8
+  %1822 = call ptr @zend_ast_list_add(ptr noundef %1818, ptr noundef %1821)
+  store ptr %1822, ptr %488, align 8
+  br label %5692
 
-1820:                                             ; preds = %705
-  %1821 = load ptr, ptr %484, align 8
-  %1822 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1821, i64 0
-  %1823 = load ptr, ptr %1822, align 8
-  %1824 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 131, ptr noundef %1823)
-  store ptr %1824, ptr %488, align 8
-  br label %5656
+1823:                                             ; preds = %705
+  %1824 = load ptr, ptr %484, align 8
+  %1825 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1824, i64 -3
+  %1826 = load ptr, ptr %1825, align 8
+  %1827 = load ptr, ptr %484, align 8
+  %1828 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1827, i64 0
+  %1829 = load ptr, ptr %1828, align 8
+  %1830 = call ptr @zend_ast_create_2(i16 noundef zeroext 548, ptr noundef %1826, ptr noundef %1829)
+  store ptr %1830, ptr %488, align 8
+  br label %5692
 
-1825:                                             ; preds = %705
-  %1826 = load ptr, ptr %484, align 8
-  %1827 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1826, i64 -2
-  %1828 = load ptr, ptr %1827, align 8
-  %1829 = load ptr, ptr %484, align 8
-  %1830 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1829, i64 0
-  %1831 = load ptr, ptr %1830, align 8
-  %1832 = call ptr @zend_ast_list_add(ptr noundef %1828, ptr noundef %1831)
-  store ptr %1832, ptr %488, align 8
-  br label %5656
+1831:                                             ; preds = %705
+  %1832 = load ptr, ptr %484, align 8
+  %1833 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1832, i64 0
+  %1834 = load ptr, ptr %1833, align 8
+  %1835 = call ptr @zend_ast_create_2(i16 noundef zeroext 548, ptr noundef null, ptr noundef %1834)
+  store ptr %1835, ptr %488, align 8
+  br label %5692
 
-1833:                                             ; preds = %705
-  %1834 = load ptr, ptr %484, align 8
-  %1835 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1834, i64 0
-  %1836 = load ptr, ptr %1835, align 8
-  store ptr %1836, ptr %488, align 8
-  br label %5656
-
-1837:                                             ; preds = %705
-  %1838 = load ptr, ptr %484, align 8
-  %1839 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1838, i64 -2
-  %1840 = load ptr, ptr %1839, align 8
+1836:                                             ; preds = %705
+  %1837 = load ptr, ptr %484, align 8
+  %1838 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1837, i64 0
+  %1839 = load ptr, ptr %1838, align 8
+  %1840 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 131, ptr noundef %1839)
   store ptr %1840, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1841:                                             ; preds = %705
   %1842 = load ptr, ptr %484, align 8
@@ -3589,386 +3580,389 @@ define i32 @zendparse() #0 {
   %1845 = load ptr, ptr %484, align 8
   %1846 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1845, i64 0
   %1847 = load ptr, ptr %1846, align 8
-  %1848 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %1844, ptr noundef %1847)
-  %1849 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 133, ptr noundef %1848)
-  store ptr %1849, ptr %488, align 8
-  br label %5656
+  %1848 = call ptr @zend_ast_list_add(ptr noundef %1844, ptr noundef %1847)
+  store ptr %1848, ptr %488, align 8
+  br label %5692
 
-1850:                                             ; preds = %705
-  %1851 = load ptr, ptr %484, align 8
-  %1852 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1851, i64 -5
-  %1853 = load ptr, ptr %1852, align 8
+1849:                                             ; preds = %705
+  %1850 = load ptr, ptr %484, align 8
+  %1851 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1850, i64 0
+  %1852 = load ptr, ptr %1851, align 8
+  store ptr %1852, ptr %488, align 8
+  br label %5692
+
+1853:                                             ; preds = %705
   %1854 = load ptr, ptr %484, align 8
   %1855 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1854, i64 -2
   %1856 = load ptr, ptr %1855, align 8
-  %1857 = load ptr, ptr %484, align 8
-  %1858 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1857, i64 0
-  %1859 = load ptr, ptr %1858, align 8
-  %1860 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %1856, ptr noundef %1859)
-  %1861 = call ptr @zend_ast_list_add(ptr noundef %1853, ptr noundef %1860)
-  store ptr %1861, ptr %488, align 8
-  br label %5656
+  store ptr %1856, ptr %488, align 8
+  br label %5692
 
-1862:                                             ; preds = %705
-  %1863 = load ptr, ptr %484, align 8
-  %1864 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1863, i64 0
-  %1865 = load ptr, ptr %1864, align 8
+1857:                                             ; preds = %705
+  %1858 = load ptr, ptr %484, align 8
+  %1859 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1858, i64 -2
+  %1860 = load ptr, ptr %1859, align 8
+  %1861 = load ptr, ptr %484, align 8
+  %1862 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1861, i64 0
+  %1863 = load ptr, ptr %1862, align 8
+  %1864 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %1860, ptr noundef %1863)
+  %1865 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 133, ptr noundef %1864)
   store ptr %1865, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1866:                                             ; preds = %705
   %1867 = load ptr, ptr %484, align 8
-  %1868 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1867, i64 -2
+  %1868 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1867, i64 -5
   %1869 = load ptr, ptr %1868, align 8
   %1870 = load ptr, ptr %484, align 8
-  %1871 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1870, i64 0
+  %1871 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1870, i64 -2
   %1872 = load ptr, ptr %1871, align 8
-  %1873 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef null, ptr noundef %1872)
-  %1874 = call ptr @zend_ast_list_add(ptr noundef %1869, ptr noundef %1873)
-  store ptr %1874, ptr %488, align 8
-  br label %5656
+  %1873 = load ptr, ptr %484, align 8
+  %1874 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1873, i64 0
+  %1875 = load ptr, ptr %1874, align 8
+  %1876 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %1872, ptr noundef %1875)
+  %1877 = call ptr @zend_ast_list_add(ptr noundef %1869, ptr noundef %1876)
+  store ptr %1877, ptr %488, align 8
+  br label %5692
 
-1875:                                             ; preds = %705
-  %1876 = load ptr, ptr %484, align 8
-  %1877 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1876, i64 -3
-  %1878 = load ptr, ptr %1877, align 8
+1878:                                             ; preds = %705
   %1879 = load ptr, ptr %484, align 8
   %1880 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1879, i64 0
   %1881 = load ptr, ptr %1880, align 8
-  %1882 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %1878, ptr noundef %1881)
-  %1883 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 133, ptr noundef %1882)
-  store ptr %1883, ptr %488, align 8
-  br label %5656
+  store ptr %1881, ptr %488, align 8
+  br label %5692
 
-1884:                                             ; preds = %705
-  %1885 = load ptr, ptr %484, align 8
-  %1886 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1885, i64 -6
-  %1887 = load ptr, ptr %1886, align 8
-  %1888 = load ptr, ptr %484, align 8
-  %1889 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1888, i64 -3
-  %1890 = load ptr, ptr %1889, align 8
-  %1891 = load ptr, ptr %484, align 8
-  %1892 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1891, i64 0
-  %1893 = load ptr, ptr %1892, align 8
-  %1894 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %1890, ptr noundef %1893)
-  %1895 = call ptr @zend_ast_list_add(ptr noundef %1887, ptr noundef %1894)
-  store ptr %1895, ptr %488, align 8
-  br label %5656
+1882:                                             ; preds = %705
+  %1883 = load ptr, ptr %484, align 8
+  %1884 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1883, i64 -2
+  %1885 = load ptr, ptr %1884, align 8
+  %1886 = load ptr, ptr %484, align 8
+  %1887 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1886, i64 0
+  %1888 = load ptr, ptr %1887, align 8
+  %1889 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef null, ptr noundef %1888)
+  %1890 = call ptr @zend_ast_list_add(ptr noundef %1885, ptr noundef %1889)
+  store ptr %1890, ptr %488, align 8
+  br label %5692
 
-1896:                                             ; preds = %705
-  %1897 = load ptr, ptr %484, align 8
-  %1898 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1897, i64 -2
-  %1899 = load ptr, ptr %1898, align 8
+1891:                                             ; preds = %705
+  %1892 = load ptr, ptr %484, align 8
+  %1893 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1892, i64 -3
+  %1894 = load ptr, ptr %1893, align 8
+  %1895 = load ptr, ptr %484, align 8
+  %1896 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1895, i64 0
+  %1897 = load ptr, ptr %1896, align 8
+  %1898 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %1894, ptr noundef %1897)
+  %1899 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 133, ptr noundef %1898)
   store ptr %1899, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1900:                                             ; preds = %705
   %1901 = load ptr, ptr %484, align 8
-  %1902 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1901, i64 -5
+  %1902 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1901, i64 -6
   %1903 = load ptr, ptr %1902, align 8
   %1904 = load ptr, ptr %484, align 8
-  %1905 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1904, i64 -2
+  %1905 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1904, i64 -3
   %1906 = load ptr, ptr %1905, align 8
-  %1907 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef null, ptr noundef %1906)
-  %1908 = call ptr @zend_ast_list_add(ptr noundef %1903, ptr noundef %1907)
-  store ptr %1908, ptr %488, align 8
-  br label %5656
+  %1907 = load ptr, ptr %484, align 8
+  %1908 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1907, i64 0
+  %1909 = load ptr, ptr %1908, align 8
+  %1910 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef %1906, ptr noundef %1909)
+  %1911 = call ptr @zend_ast_list_add(ptr noundef %1903, ptr noundef %1910)
+  store ptr %1911, ptr %488, align 8
+  br label %5692
 
-1909:                                             ; preds = %705
-  %1910 = load ptr, ptr %484, align 8
-  %1911 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1910, i64 -1
-  %1912 = load ptr, ptr %1911, align 8
-  store ptr %1912, ptr %488, align 8
-  br label %5656
+1912:                                             ; preds = %705
+  %1913 = load ptr, ptr %484, align 8
+  %1914 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1913, i64 -2
+  %1915 = load ptr, ptr %1914, align 8
+  store ptr %1915, ptr %488, align 8
+  br label %5692
 
-1913:                                             ; preds = %705
-  %1914 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 136)
-  store ptr %1914, ptr %488, align 8
-  br label %5656
+1916:                                             ; preds = %705
+  %1917 = load ptr, ptr %484, align 8
+  %1918 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1917, i64 -5
+  %1919 = load ptr, ptr %1918, align 8
+  %1920 = load ptr, ptr %484, align 8
+  %1921 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1920, i64 -2
+  %1922 = load ptr, ptr %1921, align 8
+  %1923 = call ptr @zend_ast_create_2(i16 noundef zeroext 535, ptr noundef null, ptr noundef %1922)
+  %1924 = call ptr @zend_ast_list_add(ptr noundef %1919, ptr noundef %1923)
+  store ptr %1924, ptr %488, align 8
+  br label %5692
 
-1915:                                             ; preds = %705
-  %1916 = load ptr, ptr %484, align 8
-  %1917 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1916, i64 0
-  %1918 = load ptr, ptr %1917, align 8
-  %1919 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 136, ptr noundef %1918)
-  store ptr %1919, ptr %488, align 8
-  br label %5656
+1925:                                             ; preds = %705
+  %1926 = load ptr, ptr %484, align 8
+  %1927 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1926, i64 -1
+  %1928 = load ptr, ptr %1927, align 8
+  store ptr %1928, ptr %488, align 8
+  br label %5692
 
-1920:                                             ; preds = %705
-  %1921 = load ptr, ptr %484, align 8
-  %1922 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1921, i64 -2
-  %1923 = load ptr, ptr %1922, align 8
-  %1924 = load ptr, ptr %484, align 8
-  %1925 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1924, i64 0
-  %1926 = load ptr, ptr %1925, align 8
-  %1927 = call ptr @zend_ast_list_add(ptr noundef %1923, ptr noundef %1926)
-  store ptr %1927, ptr %488, align 8
-  br label %5656
+1929:                                             ; preds = %705
+  %1930 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 136)
+  store ptr %1930, ptr %488, align 8
+  br label %5692
 
-1928:                                             ; preds = %705
-  %1929 = load ptr, ptr %484, align 8
-  %1930 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1929, i64 0
-  %1931 = load ptr, ptr %1930, align 8
+1931:                                             ; preds = %705
   %1932 = load ptr, ptr %484, align 8
-  %1933 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1932, i64 -1
+  %1933 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1932, i64 0
   %1934 = load ptr, ptr %1933, align 8
-  %1935 = call ptr @zend_ast_with_attributes(ptr noundef %1931, ptr noundef %1934)
+  %1935 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 136, ptr noundef %1934)
   store ptr %1935, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 1936:                                             ; preds = %705
   %1937 = load ptr, ptr %484, align 8
-  %1938 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1937, i64 0
+  %1938 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1937, i64 -2
   %1939 = load ptr, ptr %1938, align 8
-  store ptr %1939, ptr %488, align 8
-  br label %5656
+  %1940 = load ptr, ptr %484, align 8
+  %1941 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1940, i64 0
+  %1942 = load ptr, ptr %1941, align 8
+  %1943 = call ptr @zend_ast_list_add(ptr noundef %1939, ptr noundef %1942)
+  store ptr %1943, ptr %488, align 8
+  br label %5692
 
-1940:                                             ; preds = %705
+1944:                                             ; preds = %705
+  %1945 = load ptr, ptr %484, align 8
+  %1946 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1945, i64 0
+  %1947 = load ptr, ptr %1946, align 8
+  %1948 = load ptr, ptr %484, align 8
+  %1949 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1948, i64 -1
+  %1950 = load ptr, ptr %1949, align 8
+  %1951 = call ptr @zend_ast_with_attributes(ptr noundef %1947, ptr noundef %1950)
+  store ptr %1951, ptr %488, align 8
+  br label %5692
+
+1952:                                             ; preds = %705
+  %1953 = load ptr, ptr %484, align 8
+  %1954 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1953, i64 0
+  %1955 = load ptr, ptr %1954, align 8
+  store ptr %1955, ptr %488, align 8
+  br label %5692
+
+1956:                                             ; preds = %705
   store i64 0, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-1941:                                             ; preds = %705
-  %1942 = load ptr, ptr %484, align 8
-  %1943 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1942, i64 0
-  %1944 = load ptr, ptr %1943, align 8
-  %1945 = call i32 @zend_modifier_list_to_flags(i32 noundef 3, ptr noundef %1944)
-  %1946 = zext i32 %1945 to i64
-  store i64 %1946, ptr %488, align 8
-  %1947 = load i64, ptr %488, align 8
-  %1948 = icmp ne i64 %1947, 0
-  br i1 %1948, label %1950, label %1949
+1957:                                             ; preds = %705
+  %1958 = load ptr, ptr %484, align 8
+  %1959 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1958, i64 0
+  %1960 = load ptr, ptr %1959, align 8
+  %1961 = call i32 @zend_modifier_list_to_flags(i32 noundef 3, ptr noundef %1960)
+  %1962 = zext i32 %1961 to i64
+  store i64 %1962, ptr %488, align 8
+  %1963 = load i64, ptr %488, align 8
+  %1964 = icmp ne i64 %1963, 0
+  br i1 %1964, label %1966, label %1965
 
-1949:                                             ; preds = %1941
-  br label %5790
+1965:                                             ; preds = %1957
+  br label %5826
 
-1950:                                             ; preds = %1941
-  br label %5656
+1966:                                             ; preds = %1957
+  br label %5692
 
-1951:                                             ; preds = %705
-  %1952 = load ptr, ptr %484, align 8
-  %1953 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1952, i64 -5
-  %1954 = load i64, ptr %1953, align 8
-  %1955 = load ptr, ptr %484, align 8
-  %1956 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1955, i64 -3
-  %1957 = load i64, ptr %1956, align 8
-  %1958 = or i64 %1954, %1957
-  %1959 = load ptr, ptr %484, align 8
-  %1960 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1959, i64 -2
-  %1961 = load i64, ptr %1960, align 8
-  %1962 = or i64 %1958, %1961
-  %1963 = trunc i64 %1962 to i16
-  %1964 = load ptr, ptr %484, align 8
-  %1965 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1964, i64 -4
-  %1966 = load ptr, ptr %1965, align 8
-  %1967 = load ptr, ptr %484, align 8
-  %1968 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1967, i64 -1
-  %1969 = load ptr, ptr %1968, align 8
-  %1970 = load ptr, ptr %484, align 8
-  %1971 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1970, i64 0
-  %1972 = load ptr, ptr %1971, align 8
-  %1973 = icmp ne ptr %1972, null
-  br i1 %1973, label %1974, label %1979
-
-1974:                                             ; preds = %1951
+1967:                                             ; preds = %705
+  %1968 = load ptr, ptr %484, align 8
+  %1969 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1968, i64 -5
+  %1970 = load i64, ptr %1969, align 8
+  %1971 = load ptr, ptr %484, align 8
+  %1972 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1971, i64 -3
+  %1973 = load i64, ptr %1972, align 8
+  %1974 = or i64 %1970, %1973
   %1975 = load ptr, ptr %484, align 8
-  %1976 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1975, i64 0
-  %1977 = load ptr, ptr %1976, align 8
-  %1978 = call ptr @zend_ast_create_zval_from_str(ptr noundef %1977)
-  br label %1980
+  %1976 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1975, i64 -2
+  %1977 = load i64, ptr %1976, align 8
+  %1978 = or i64 %1974, %1977
+  %1979 = trunc i64 %1978 to i16
+  %1980 = load ptr, ptr %484, align 8
+  %1981 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1980, i64 -4
+  %1982 = load ptr, ptr %1981, align 8
+  %1983 = load ptr, ptr %484, align 8
+  %1984 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1983, i64 -1
+  %1985 = load ptr, ptr %1984, align 8
+  %1986 = load ptr, ptr %484, align 8
+  %1987 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1986, i64 0
+  %1988 = load ptr, ptr %1987, align 8
+  %1989 = icmp ne ptr %1988, null
+  br i1 %1989, label %1990, label %1995
 
-1979:                                             ; preds = %1951
-  br label %1980
+1990:                                             ; preds = %1967
+  %1991 = load ptr, ptr %484, align 8
+  %1992 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1991, i64 0
+  %1993 = load ptr, ptr %1992, align 8
+  %1994 = call ptr @zend_ast_create_zval_from_str(ptr noundef %1993)
+  br label %1996
 
-1980:                                             ; preds = %1979, %1974
-  %1981 = phi ptr [ %1978, %1974 ], [ null, %1979 ]
+1995:                                             ; preds = %1967
+  br label %1996
+
+1996:                                             ; preds = %1995, %1990
+  %1997 = phi ptr [ %1994, %1990 ], [ null, %1995 ]
   store i16 1280, ptr %437, align 2
-  store i16 %1963, ptr %438, align 2
-  store ptr %1966, ptr %439, align 8
-  store ptr %1969, ptr %440, align 8
+  store i16 %1979, ptr %438, align 2
+  store ptr %1982, ptr %439, align 8
+  store ptr %1985, ptr %440, align 8
   store ptr null, ptr %441, align 8
   store ptr null, ptr %442, align 8
-  store ptr %1981, ptr %443, align 8
-  %1982 = load i16, ptr %437, align 2
-  %1983 = load ptr, ptr %439, align 8
-  %1984 = load ptr, ptr %440, align 8
-  %1985 = load ptr, ptr %441, align 8
-  %1986 = load ptr, ptr %442, align 8
-  %1987 = load ptr, ptr %443, align 8
-  %1988 = call ptr @zend_ast_create_5(i16 noundef zeroext %1982, ptr noundef %1983, ptr noundef %1984, ptr noundef %1985, ptr noundef %1986, ptr noundef %1987) #10
-  store ptr %1988, ptr %444, align 8
-  %1989 = load i16, ptr %438, align 2
-  %1990 = load ptr, ptr %444, align 8
-  %1991 = getelementptr inbounds %struct._zend_ast, ptr %1990, i32 0, i32 1
-  store i16 %1989, ptr %1991, align 2
-  %1992 = load ptr, ptr %444, align 8
-  store ptr %1992, ptr %488, align 8
-  br label %5656
+  store ptr %1997, ptr %443, align 8
+  %1998 = load i16, ptr %437, align 2
+  %1999 = load ptr, ptr %439, align 8
+  %2000 = load ptr, ptr %440, align 8
+  %2001 = load ptr, ptr %441, align 8
+  %2002 = load ptr, ptr %442, align 8
+  %2003 = load ptr, ptr %443, align 8
+  %2004 = call ptr @zend_ast_create_5(i16 noundef zeroext %1998, ptr noundef %1999, ptr noundef %2000, ptr noundef %2001, ptr noundef %2002, ptr noundef %2003) #10
+  store ptr %2004, ptr %444, align 8
+  %2005 = load i16, ptr %438, align 2
+  %2006 = load ptr, ptr %444, align 8
+  %2007 = getelementptr inbounds %struct._zend_ast, ptr %2006, i32 0, i32 1
+  store i16 %2005, ptr %2007, align 2
+  %2008 = load ptr, ptr %444, align 8
+  store ptr %2008, ptr %488, align 8
+  br label %5692
 
-1993:                                             ; preds = %705
-  %1994 = load ptr, ptr %484, align 8
-  %1995 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1994, i64 -7
-  %1996 = load i64, ptr %1995, align 8
-  %1997 = load ptr, ptr %484, align 8
-  %1998 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %1997, i64 -5
-  %1999 = load i64, ptr %1998, align 8
-  %2000 = or i64 %1996, %1999
-  %2001 = load ptr, ptr %484, align 8
-  %2002 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2001, i64 -4
-  %2003 = load i64, ptr %2002, align 8
-  %2004 = or i64 %2000, %2003
-  %2005 = trunc i64 %2004 to i16
-  %2006 = load ptr, ptr %484, align 8
-  %2007 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2006, i64 -6
-  %2008 = load ptr, ptr %2007, align 8
-  %2009 = load ptr, ptr %484, align 8
-  %2010 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2009, i64 -3
-  %2011 = load ptr, ptr %2010, align 8
-  %2012 = load ptr, ptr %484, align 8
-  %2013 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2012, i64 0
-  %2014 = load ptr, ptr %2013, align 8
-  %2015 = load ptr, ptr %484, align 8
-  %2016 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2015, i64 -2
-  %2017 = load ptr, ptr %2016, align 8
-  %2018 = icmp ne ptr %2017, null
-  br i1 %2018, label %2019, label %2024
+2009:                                             ; preds = %705
+  %2010 = load ptr, ptr %484, align 8
+  %2011 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2010, i64 -7
+  %2012 = load i64, ptr %2011, align 8
+  %2013 = load ptr, ptr %484, align 8
+  %2014 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2013, i64 -5
+  %2015 = load i64, ptr %2014, align 8
+  %2016 = or i64 %2012, %2015
+  %2017 = load ptr, ptr %484, align 8
+  %2018 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2017, i64 -4
+  %2019 = load i64, ptr %2018, align 8
+  %2020 = or i64 %2016, %2019
+  %2021 = trunc i64 %2020 to i16
+  %2022 = load ptr, ptr %484, align 8
+  %2023 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2022, i64 -6
+  %2024 = load ptr, ptr %2023, align 8
+  %2025 = load ptr, ptr %484, align 8
+  %2026 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2025, i64 -3
+  %2027 = load ptr, ptr %2026, align 8
+  %2028 = load ptr, ptr %484, align 8
+  %2029 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2028, i64 0
+  %2030 = load ptr, ptr %2029, align 8
+  %2031 = load ptr, ptr %484, align 8
+  %2032 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2031, i64 -2
+  %2033 = load ptr, ptr %2032, align 8
+  %2034 = icmp ne ptr %2033, null
+  br i1 %2034, label %2035, label %2040
 
-2019:                                             ; preds = %1993
-  %2020 = load ptr, ptr %484, align 8
-  %2021 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2020, i64 -2
-  %2022 = load ptr, ptr %2021, align 8
-  %2023 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2022)
-  br label %2025
+2035:                                             ; preds = %2009
+  %2036 = load ptr, ptr %484, align 8
+  %2037 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2036, i64 -2
+  %2038 = load ptr, ptr %2037, align 8
+  %2039 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2038)
+  br label %2041
 
-2024:                                             ; preds = %1993
-  br label %2025
+2040:                                             ; preds = %2009
+  br label %2041
 
-2025:                                             ; preds = %2024, %2019
-  %2026 = phi ptr [ %2023, %2019 ], [ null, %2024 ]
+2041:                                             ; preds = %2040, %2035
+  %2042 = phi ptr [ %2039, %2035 ], [ null, %2040 ]
   store i16 1280, ptr %445, align 2
-  store i16 %2005, ptr %446, align 2
-  store ptr %2008, ptr %447, align 8
-  store ptr %2011, ptr %448, align 8
-  store ptr %2014, ptr %449, align 8
+  store i16 %2021, ptr %446, align 2
+  store ptr %2024, ptr %447, align 8
+  store ptr %2027, ptr %448, align 8
+  store ptr %2030, ptr %449, align 8
   store ptr null, ptr %450, align 8
-  store ptr %2026, ptr %451, align 8
-  %2027 = load i16, ptr %445, align 2
-  %2028 = load ptr, ptr %447, align 8
-  %2029 = load ptr, ptr %448, align 8
-  %2030 = load ptr, ptr %449, align 8
-  %2031 = load ptr, ptr %450, align 8
-  %2032 = load ptr, ptr %451, align 8
-  %2033 = call ptr @zend_ast_create_5(i16 noundef zeroext %2027, ptr noundef %2028, ptr noundef %2029, ptr noundef %2030, ptr noundef %2031, ptr noundef %2032) #10
-  store ptr %2033, ptr %452, align 8
-  %2034 = load i16, ptr %446, align 2
-  %2035 = load ptr, ptr %452, align 8
-  %2036 = getelementptr inbounds %struct._zend_ast, ptr %2035, i32 0, i32 1
-  store i16 %2034, ptr %2036, align 2
-  %2037 = load ptr, ptr %452, align 8
-  store ptr %2037, ptr %488, align 8
-  br label %5656
-
-2038:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
-
-2039:                                             ; preds = %705
-  %2040 = load ptr, ptr %484, align 8
-  %2041 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2040, i64 0
-  %2042 = load ptr, ptr %2041, align 8
-  store ptr %2042, ptr %488, align 8
-  br label %5656
-
-2043:                                             ; preds = %705
-  %2044 = load ptr, ptr %484, align 8
-  %2045 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2044, i64 0
-  %2046 = load ptr, ptr %2045, align 8
-  store ptr %2046, ptr %488, align 8
-  br label %5656
-
-2047:                                             ; preds = %705
-  %2048 = load ptr, ptr %484, align 8
-  %2049 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2048, i64 0
-  %2050 = load ptr, ptr %2049, align 8
-  store ptr %2050, ptr %488, align 8
-  %2051 = load ptr, ptr %488, align 8
+  store ptr %2042, ptr %451, align 8
+  %2043 = load i16, ptr %445, align 2
+  %2044 = load ptr, ptr %447, align 8
+  %2045 = load ptr, ptr %448, align 8
+  %2046 = load ptr, ptr %449, align 8
+  %2047 = load ptr, ptr %450, align 8
+  %2048 = load ptr, ptr %451, align 8
+  %2049 = call ptr @zend_ast_create_5(i16 noundef zeroext %2043, ptr noundef %2044, ptr noundef %2045, ptr noundef %2046, ptr noundef %2047, ptr noundef %2048) #10
+  store ptr %2049, ptr %452, align 8
+  %2050 = load i16, ptr %446, align 2
+  %2051 = load ptr, ptr %452, align 8
   %2052 = getelementptr inbounds %struct._zend_ast, ptr %2051, i32 0, i32 1
-  %2053 = load i16, ptr %2052, align 2
-  %2054 = zext i16 %2053 to i32
-  %2055 = or i32 %2054, 256
-  %2056 = trunc i32 %2055 to i16
-  store i16 %2056, ptr %2052, align 2
-  br label %5656
+  store i16 %2050, ptr %2052, align 2
+  %2053 = load ptr, ptr %452, align 8
+  store ptr %2053, ptr %488, align 8
+  br label %5692
 
-2057:                                             ; preds = %705
-  %2058 = load ptr, ptr %484, align 8
-  %2059 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2058, i64 0
-  %2060 = load ptr, ptr %2059, align 8
-  store ptr %2060, ptr %488, align 8
-  br label %5656
+2054:                                             ; preds = %705
+  store ptr null, ptr %488, align 8
+  br label %5692
 
-2061:                                             ; preds = %705
-  %2062 = load ptr, ptr %484, align 8
-  %2063 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2062, i64 0
-  %2064 = load ptr, ptr %2063, align 8
-  store ptr %2064, ptr %488, align 8
-  br label %5656
+2055:                                             ; preds = %705
+  %2056 = load ptr, ptr %484, align 8
+  %2057 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2056, i64 0
+  %2058 = load ptr, ptr %2057, align 8
+  store ptr %2058, ptr %488, align 8
+  br label %5692
 
-2065:                                             ; preds = %705
-  %2066 = load ptr, ptr %484, align 8
-  %2067 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2066, i64 0
-  %2068 = load ptr, ptr %2067, align 8
-  store ptr %2068, ptr %488, align 8
-  br label %5656
+2059:                                             ; preds = %705
+  %2060 = load ptr, ptr %484, align 8
+  %2061 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2060, i64 0
+  %2062 = load ptr, ptr %2061, align 8
+  store ptr %2062, ptr %488, align 8
+  br label %5692
 
-2069:                                             ; preds = %705
+2063:                                             ; preds = %705
+  %2064 = load ptr, ptr %484, align 8
+  %2065 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2064, i64 0
+  %2066 = load ptr, ptr %2065, align 8
+  store ptr %2066, ptr %488, align 8
+  %2067 = load ptr, ptr %488, align 8
+  %2068 = getelementptr inbounds %struct._zend_ast, ptr %2067, i32 0, i32 1
+  %2069 = load i16, ptr %2068, align 2
+  %2070 = zext i16 %2069 to i32
+  %2071 = or i32 %2070, 256
+  %2072 = trunc i32 %2071 to i16
+  store i16 %2072, ptr %2068, align 2
+  br label %5692
+
+2073:                                             ; preds = %705
+  %2074 = load ptr, ptr %484, align 8
+  %2075 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2074, i64 0
+  %2076 = load ptr, ptr %2075, align 8
+  store ptr %2076, ptr %488, align 8
+  br label %5692
+
+2077:                                             ; preds = %705
+  %2078 = load ptr, ptr %484, align 8
+  %2079 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2078, i64 0
+  %2080 = load ptr, ptr %2079, align 8
+  store ptr %2080, ptr %488, align 8
+  br label %5692
+
+2081:                                             ; preds = %705
+  %2082 = load ptr, ptr %484, align 8
+  %2083 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2082, i64 0
+  %2084 = load ptr, ptr %2083, align 8
+  store ptr %2084, ptr %488, align 8
+  br label %5692
+
+2085:                                             ; preds = %705
   store i16 1, ptr %404, align 2
   store i16 15, ptr %405, align 2
-  %2070 = load i16, ptr %404, align 2
-  %2071 = call ptr @zend_ast_create_0(i16 noundef zeroext %2070) #10
-  store ptr %2071, ptr %406, align 8
-  %2072 = load i16, ptr %405, align 2
-  %2073 = load ptr, ptr %406, align 8
-  %2074 = getelementptr inbounds %struct._zend_ast, ptr %2073, i32 0, i32 1
-  store i16 %2072, ptr %2074, align 2
-  %2075 = load ptr, ptr %406, align 8
-  store ptr %2075, ptr %488, align 8
-  br label %5656
-
-2076:                                             ; preds = %705
-  %2077 = load ptr, ptr %484, align 8
-  %2078 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2077, i64 0
-  %2079 = load ptr, ptr %2078, align 8
-  store ptr %2079, ptr %488, align 8
-  br label %5656
-
-2080:                                             ; preds = %705
-  %2081 = load ptr, ptr %484, align 8
-  %2082 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2081, i64 -1
-  %2083 = load ptr, ptr %2082, align 8
-  store ptr %2083, ptr %488, align 8
-  br label %5656
-
-2084:                                             ; preds = %705
-  %2085 = load ptr, ptr %484, align 8
-  %2086 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2085, i64 -2
-  %2087 = load ptr, ptr %2086, align 8
-  %2088 = load ptr, ptr %484, align 8
-  %2089 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2088, i64 0
-  %2090 = load ptr, ptr %2089, align 8
-  %2091 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 144, ptr noundef %2087, ptr noundef %2090)
+  %2086 = load i16, ptr %404, align 2
+  %2087 = call ptr @zend_ast_create_0(i16 noundef zeroext %2086) #10
+  store ptr %2087, ptr %406, align 8
+  %2088 = load i16, ptr %405, align 2
+  %2089 = load ptr, ptr %406, align 8
+  %2090 = getelementptr inbounds %struct._zend_ast, ptr %2089, i32 0, i32 1
+  store i16 %2088, ptr %2090, align 2
+  %2091 = load ptr, ptr %406, align 8
   store ptr %2091, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2092:                                             ; preds = %705
   %2093 = load ptr, ptr %484, align 8
-  %2094 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2093, i64 -2
+  %2094 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2093, i64 0
   %2095 = load ptr, ptr %2094, align 8
-  %2096 = load ptr, ptr %484, align 8
-  %2097 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2096, i64 0
-  %2098 = load ptr, ptr %2097, align 8
-  %2099 = call ptr @zend_ast_list_add(ptr noundef %2095, ptr noundef %2098)
+  store ptr %2095, ptr %488, align 8
+  br label %5692
+
+2096:                                             ; preds = %705
+  %2097 = load ptr, ptr %484, align 8
+  %2098 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2097, i64 -1
+  %2099 = load ptr, ptr %2098, align 8
   store ptr %2099, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2100:                                             ; preds = %705
   %2101 = load ptr, ptr %484, align 8
@@ -3977,9 +3971,9 @@ define i32 @zendparse() #0 {
   %2104 = load ptr, ptr %484, align 8
   %2105 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2104, i64 0
   %2106 = load ptr, ptr %2105, align 8
-  %2107 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 145, ptr noundef %2103, ptr noundef %2106)
+  %2107 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 144, ptr noundef %2103, ptr noundef %2106)
   store ptr %2107, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2108:                                             ; preds = %705
   %2109 = load ptr, ptr %484, align 8
@@ -3990,113 +3984,113 @@ define i32 @zendparse() #0 {
   %2114 = load ptr, ptr %2113, align 8
   %2115 = call ptr @zend_ast_list_add(ptr noundef %2111, ptr noundef %2114)
   store ptr %2115, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2116:                                             ; preds = %705
   %2117 = load ptr, ptr %484, align 8
-  %2118 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2117, i64 0
+  %2118 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2117, i64 -2
   %2119 = load ptr, ptr %2118, align 8
-  store ptr %2119, ptr %488, align 8
-  br label %5656
-
-2120:                                             ; preds = %705
-  %2121 = load ptr, ptr %484, align 8
-  %2122 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2121, i64 0
-  %2123 = load ptr, ptr %2122, align 8
+  %2120 = load ptr, ptr %484, align 8
+  %2121 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2120, i64 0
+  %2122 = load ptr, ptr %2121, align 8
+  %2123 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 145, ptr noundef %2119, ptr noundef %2122)
   store ptr %2123, ptr %488, align 8
-  %2124 = load ptr, ptr %488, align 8
-  %2125 = getelementptr inbounds %struct._zend_ast, ptr %2124, i32 0, i32 1
-  %2126 = load i16, ptr %2125, align 2
-  %2127 = zext i16 %2126 to i32
-  %2128 = or i32 %2127, 256
-  %2129 = trunc i32 %2128 to i16
-  store i16 %2129, ptr %2125, align 2
-  br label %5656
+  br label %5692
 
-2130:                                             ; preds = %705
-  %2131 = load ptr, ptr %484, align 8
-  %2132 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2131, i64 0
-  %2133 = load ptr, ptr %2132, align 8
-  store ptr %2133, ptr %488, align 8
-  br label %5656
+2124:                                             ; preds = %705
+  %2125 = load ptr, ptr %484, align 8
+  %2126 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2125, i64 -2
+  %2127 = load ptr, ptr %2126, align 8
+  %2128 = load ptr, ptr %484, align 8
+  %2129 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2128, i64 0
+  %2130 = load ptr, ptr %2129, align 8
+  %2131 = call ptr @zend_ast_list_add(ptr noundef %2127, ptr noundef %2130)
+  store ptr %2131, ptr %488, align 8
+  br label %5692
 
-2134:                                             ; preds = %705
-  %2135 = load ptr, ptr %484, align 8
-  %2136 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2135, i64 0
-  %2137 = load ptr, ptr %2136, align 8
-  store ptr %2137, ptr %488, align 8
-  br label %5656
+2132:                                             ; preds = %705
+  %2133 = load ptr, ptr %484, align 8
+  %2134 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2133, i64 0
+  %2135 = load ptr, ptr %2134, align 8
+  store ptr %2135, ptr %488, align 8
+  br label %5692
 
-2138:                                             ; preds = %705
+2136:                                             ; preds = %705
+  %2137 = load ptr, ptr %484, align 8
+  %2138 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2137, i64 0
+  %2139 = load ptr, ptr %2138, align 8
+  store ptr %2139, ptr %488, align 8
+  %2140 = load ptr, ptr %488, align 8
+  %2141 = getelementptr inbounds %struct._zend_ast, ptr %2140, i32 0, i32 1
+  %2142 = load i16, ptr %2141, align 2
+  %2143 = zext i16 %2142 to i32
+  %2144 = or i32 %2143, 256
+  %2145 = trunc i32 %2144 to i16
+  store i16 %2145, ptr %2141, align 2
+  br label %5692
+
+2146:                                             ; preds = %705
+  %2147 = load ptr, ptr %484, align 8
+  %2148 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2147, i64 0
+  %2149 = load ptr, ptr %2148, align 8
+  store ptr %2149, ptr %488, align 8
+  br label %5692
+
+2150:                                             ; preds = %705
+  %2151 = load ptr, ptr %484, align 8
+  %2152 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2151, i64 0
+  %2153 = load ptr, ptr %2152, align 8
+  store ptr %2153, ptr %488, align 8
+  br label %5692
+
+2154:                                             ; preds = %705
   store i16 1, ptr %407, align 2
   store i16 7, ptr %408, align 2
-  %2139 = load i16, ptr %407, align 2
-  %2140 = call ptr @zend_ast_create_0(i16 noundef zeroext %2139) #10
-  store ptr %2140, ptr %409, align 8
-  %2141 = load i16, ptr %408, align 2
-  %2142 = load ptr, ptr %409, align 8
-  %2143 = getelementptr inbounds %struct._zend_ast, ptr %2142, i32 0, i32 1
-  store i16 %2141, ptr %2143, align 2
-  %2144 = load ptr, ptr %409, align 8
-  store ptr %2144, ptr %488, align 8
-  br label %5656
+  %2155 = load i16, ptr %407, align 2
+  %2156 = call ptr @zend_ast_create_0(i16 noundef zeroext %2155) #10
+  store ptr %2156, ptr %409, align 8
+  %2157 = load i16, ptr %408, align 2
+  %2158 = load ptr, ptr %409, align 8
+  %2159 = getelementptr inbounds %struct._zend_ast, ptr %2158, i32 0, i32 1
+  store i16 %2157, ptr %2159, align 2
+  %2160 = load ptr, ptr %409, align 8
+  store ptr %2160, ptr %488, align 8
+  br label %5692
 
-2145:                                             ; preds = %705
+2161:                                             ; preds = %705
   store i16 1, ptr %410, align 2
   store i16 12, ptr %411, align 2
-  %2146 = load i16, ptr %410, align 2
-  %2147 = call ptr @zend_ast_create_0(i16 noundef zeroext %2146) #10
-  store ptr %2147, ptr %412, align 8
-  %2148 = load i16, ptr %411, align 2
-  %2149 = load ptr, ptr %412, align 8
-  %2150 = getelementptr inbounds %struct._zend_ast, ptr %2149, i32 0, i32 1
-  store i16 %2148, ptr %2150, align 2
-  %2151 = load ptr, ptr %412, align 8
-  store ptr %2151, ptr %488, align 8
-  br label %5656
+  %2162 = load i16, ptr %410, align 2
+  %2163 = call ptr @zend_ast_create_0(i16 noundef zeroext %2162) #10
+  store ptr %2163, ptr %412, align 8
+  %2164 = load i16, ptr %411, align 2
+  %2165 = load ptr, ptr %412, align 8
+  %2166 = getelementptr inbounds %struct._zend_ast, ptr %2165, i32 0, i32 1
+  store i16 %2164, ptr %2166, align 2
+  %2167 = load ptr, ptr %412, align 8
+  store ptr %2167, ptr %488, align 8
+  br label %5692
 
-2152:                                             ; preds = %705
-  %2153 = load ptr, ptr %484, align 8
-  %2154 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2153, i64 0
-  %2155 = load ptr, ptr %2154, align 8
-  store ptr %2155, ptr %488, align 8
-  br label %5656
-
-2156:                                             ; preds = %705
-  %2157 = load ptr, ptr %484, align 8
-  %2158 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2157, i64 0
-  %2159 = load ptr, ptr %2158, align 8
-  store ptr %2159, ptr %488, align 8
-  br label %5656
-
-2160:                                             ; preds = %705
-  %2161 = load ptr, ptr %484, align 8
-  %2162 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2161, i64 -1
-  %2163 = load ptr, ptr %2162, align 8
-  store ptr %2163, ptr %488, align 8
-  br label %5656
-
-2164:                                             ; preds = %705
-  %2165 = load ptr, ptr %484, align 8
-  %2166 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2165, i64 -2
-  %2167 = load ptr, ptr %2166, align 8
-  %2168 = load ptr, ptr %484, align 8
-  %2169 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2168, i64 0
-  %2170 = load ptr, ptr %2169, align 8
-  %2171 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 144, ptr noundef %2167, ptr noundef %2170)
+2168:                                             ; preds = %705
+  %2169 = load ptr, ptr %484, align 8
+  %2170 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2169, i64 0
+  %2171 = load ptr, ptr %2170, align 8
   store ptr %2171, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2172:                                             ; preds = %705
   %2173 = load ptr, ptr %484, align 8
-  %2174 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2173, i64 -2
+  %2174 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2173, i64 0
   %2175 = load ptr, ptr %2174, align 8
-  %2176 = load ptr, ptr %484, align 8
-  %2177 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2176, i64 0
-  %2178 = load ptr, ptr %2177, align 8
-  %2179 = call ptr @zend_ast_list_add(ptr noundef %2175, ptr noundef %2178)
+  store ptr %2175, ptr %488, align 8
+  br label %5692
+
+2176:                                             ; preds = %705
+  %2177 = load ptr, ptr %484, align 8
+  %2178 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2177, i64 -1
+  %2179 = load ptr, ptr %2178, align 8
   store ptr %2179, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2180:                                             ; preds = %705
   %2181 = load ptr, ptr %484, align 8
@@ -4105,9 +4099,9 @@ define i32 @zendparse() #0 {
   %2184 = load ptr, ptr %484, align 8
   %2185 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2184, i64 0
   %2186 = load ptr, ptr %2185, align 8
-  %2187 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 145, ptr noundef %2183, ptr noundef %2186)
+  %2187 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 144, ptr noundef %2183, ptr noundef %2186)
   store ptr %2187, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2188:                                             ; preds = %705
   %2189 = load ptr, ptr %484, align 8
@@ -4118,4796 +4112,4784 @@ define i32 @zendparse() #0 {
   %2194 = load ptr, ptr %2193, align 8
   %2195 = call ptr @zend_ast_list_add(ptr noundef %2191, ptr noundef %2194)
   store ptr %2195, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2196:                                             ; preds = %705
+  %2197 = load ptr, ptr %484, align 8
+  %2198 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2197, i64 -2
+  %2199 = load ptr, ptr %2198, align 8
+  %2200 = load ptr, ptr %484, align 8
+  %2201 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2200, i64 0
+  %2202 = load ptr, ptr %2201, align 8
+  %2203 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 145, ptr noundef %2199, ptr noundef %2202)
+  store ptr %2203, ptr %488, align 8
+  br label %5692
+
+2204:                                             ; preds = %705
+  %2205 = load ptr, ptr %484, align 8
+  %2206 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2205, i64 -2
+  %2207 = load ptr, ptr %2206, align 8
+  %2208 = load ptr, ptr %484, align 8
+  %2209 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2208, i64 0
+  %2210 = load ptr, ptr %2209, align 8
+  %2211 = call ptr @zend_ast_list_add(ptr noundef %2207, ptr noundef %2210)
+  store ptr %2211, ptr %488, align 8
+  br label %5692
+
+2212:                                             ; preds = %705
   store ptr null, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-2197:                                             ; preds = %705
-  %2198 = load ptr, ptr %484, align 8
-  %2199 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2198, i64 0
-  %2200 = load ptr, ptr %2199, align 8
-  store ptr %2200, ptr %488, align 8
-  br label %5656
+2213:                                             ; preds = %705
+  %2214 = load ptr, ptr %484, align 8
+  %2215 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2214, i64 0
+  %2216 = load ptr, ptr %2215, align 8
+  store ptr %2216, ptr %488, align 8
+  br label %5692
 
-2201:                                             ; preds = %705
-  %2202 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 128)
-  store ptr %2202, ptr %488, align 8
-  br label %5656
+2217:                                             ; preds = %705
+  %2218 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 128)
+  store ptr %2218, ptr %488, align 8
+  br label %5692
 
-2203:                                             ; preds = %705
-  %2204 = load ptr, ptr %484, align 8
-  %2205 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2204, i64 -2
-  %2206 = load ptr, ptr %2205, align 8
-  store ptr %2206, ptr %488, align 8
-  br label %5656
+2219:                                             ; preds = %705
+  %2220 = load ptr, ptr %484, align 8
+  %2221 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2220, i64 -2
+  %2222 = load ptr, ptr %2221, align 8
+  store ptr %2222, ptr %488, align 8
+  br label %5692
 
-2207:                                             ; preds = %705
-  %2208 = call ptr @zend_ast_create_0(i16 noundef zeroext 3)
-  store ptr %2208, ptr %488, align 8
-  br label %5656
+2223:                                             ; preds = %705
+  %2224 = call ptr @zend_ast_create_0(i16 noundef zeroext 3)
+  store ptr %2224, ptr %488, align 8
+  br label %5692
 
-2209:                                             ; preds = %705
-  %2210 = load ptr, ptr %484, align 8
-  %2211 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2210, i64 0
-  %2212 = load ptr, ptr %2211, align 8
-  %2213 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 128, ptr noundef %2212)
-  store ptr %2213, ptr %488, align 8
-  br label %5656
+2225:                                             ; preds = %705
+  %2226 = load ptr, ptr %484, align 8
+  %2227 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2226, i64 0
+  %2228 = load ptr, ptr %2227, align 8
+  %2229 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 128, ptr noundef %2228)
+  store ptr %2229, ptr %488, align 8
+  br label %5692
 
-2214:                                             ; preds = %705
-  %2215 = load ptr, ptr %484, align 8
-  %2216 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2215, i64 -2
-  %2217 = load ptr, ptr %2216, align 8
-  %2218 = load ptr, ptr %484, align 8
-  %2219 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2218, i64 0
-  %2220 = load ptr, ptr %2219, align 8
-  %2221 = call ptr @zend_ast_list_add(ptr noundef %2217, ptr noundef %2220)
-  store ptr %2221, ptr %488, align 8
-  br label %5656
+2230:                                             ; preds = %705
+  %2231 = load ptr, ptr %484, align 8
+  %2232 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2231, i64 -2
+  %2233 = load ptr, ptr %2232, align 8
+  %2234 = load ptr, ptr %484, align 8
+  %2235 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2234, i64 0
+  %2236 = load ptr, ptr %2235, align 8
+  %2237 = call ptr @zend_ast_list_add(ptr noundef %2233, ptr noundef %2236)
+  store ptr %2237, ptr %488, align 8
+  br label %5692
 
-2222:                                             ; preds = %705
-  %2223 = load ptr, ptr %484, align 8
-  %2224 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2223, i64 0
-  %2225 = load ptr, ptr %2224, align 8
-  store ptr %2225, ptr %488, align 8
-  br label %5656
+2238:                                             ; preds = %705
+  %2239 = load ptr, ptr %484, align 8
+  %2240 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2239, i64 0
+  %2241 = load ptr, ptr %2240, align 8
+  store ptr %2241, ptr %488, align 8
+  br label %5692
 
-2226:                                             ; preds = %705
-  %2227 = load ptr, ptr %484, align 8
-  %2228 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2227, i64 -2
-  %2229 = load ptr, ptr %2228, align 8
-  %2230 = load ptr, ptr %484, align 8
-  %2231 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2230, i64 0
-  %2232 = load ptr, ptr %2231, align 8
-  %2233 = call ptr @zend_ast_create_2(i16 noundef zeroext 549, ptr noundef %2229, ptr noundef %2232)
-  store ptr %2233, ptr %488, align 8
-  br label %5656
-
-2234:                                             ; preds = %705
-  %2235 = load ptr, ptr %484, align 8
-  %2236 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2235, i64 0
-  %2237 = load ptr, ptr %2236, align 8
-  %2238 = call ptr @zend_ast_create_1(i16 noundef zeroext 258, ptr noundef %2237)
-  store ptr %2238, ptr %488, align 8
-  br label %5656
-
-2239:                                             ; preds = %705
-  %2240 = load ptr, ptr %484, align 8
-  %2241 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2240, i64 -2
-  %2242 = load ptr, ptr %2241, align 8
+2242:                                             ; preds = %705
   %2243 = load ptr, ptr %484, align 8
-  %2244 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2243, i64 0
+  %2244 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2243, i64 -2
   %2245 = load ptr, ptr %2244, align 8
-  %2246 = call ptr @zend_ast_list_add(ptr noundef %2242, ptr noundef %2245)
-  store ptr %2246, ptr %488, align 8
-  br label %5656
+  %2246 = load ptr, ptr %484, align 8
+  %2247 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2246, i64 0
+  %2248 = load ptr, ptr %2247, align 8
+  %2249 = call ptr @zend_ast_create_2(i16 noundef zeroext 549, ptr noundef %2245, ptr noundef %2248)
+  store ptr %2249, ptr %488, align 8
+  br label %5692
 
-2247:                                             ; preds = %705
-  %2248 = load ptr, ptr %484, align 8
-  %2249 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2248, i64 0
-  %2250 = load ptr, ptr %2249, align 8
-  %2251 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %2250)
-  store ptr %2251, ptr %488, align 8
-  br label %5656
+2250:                                             ; preds = %705
+  %2251 = load ptr, ptr %484, align 8
+  %2252 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2251, i64 0
+  %2253 = load ptr, ptr %2252, align 8
+  %2254 = call ptr @zend_ast_create_1(i16 noundef zeroext 258, ptr noundef %2253)
+  store ptr %2254, ptr %488, align 8
+  br label %5692
 
-2252:                                             ; preds = %705
-  %2253 = load ptr, ptr %484, align 8
-  %2254 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2253, i64 0
-  %2255 = load ptr, ptr %2254, align 8
-  %2256 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2255)
-  %2257 = call ptr @zend_ast_create_1(i16 noundef zeroext 277, ptr noundef %2256)
-  store ptr %2257, ptr %488, align 8
-  br label %5656
-
-2258:                                             ; preds = %705
+2255:                                             ; preds = %705
+  %2256 = load ptr, ptr %484, align 8
+  %2257 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2256, i64 -2
+  %2258 = load ptr, ptr %2257, align 8
   %2259 = load ptr, ptr %484, align 8
-  %2260 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2259, i64 -2
+  %2260 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2259, i64 0
   %2261 = load ptr, ptr %2260, align 8
-  %2262 = load ptr, ptr %484, align 8
-  %2263 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2262, i64 0
-  %2264 = load ptr, ptr %2263, align 8
-  %2265 = call ptr @zend_ast_list_add(ptr noundef %2261, ptr noundef %2264)
-  store ptr %2265, ptr %488, align 8
-  br label %5656
+  %2262 = call ptr @zend_ast_list_add(ptr noundef %2258, ptr noundef %2261)
+  store ptr %2262, ptr %488, align 8
+  br label %5692
 
-2266:                                             ; preds = %705
-  %2267 = load ptr, ptr %484, align 8
-  %2268 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2267, i64 0
-  %2269 = load ptr, ptr %2268, align 8
-  %2270 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %2269)
-  store ptr %2270, ptr %488, align 8
-  br label %5656
+2263:                                             ; preds = %705
+  %2264 = load ptr, ptr %484, align 8
+  %2265 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2264, i64 0
+  %2266 = load ptr, ptr %2265, align 8
+  %2267 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %2266)
+  store ptr %2267, ptr %488, align 8
+  br label %5692
 
-2271:                                             ; preds = %705
-  %2272 = load ptr, ptr %484, align 8
-  %2273 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2272, i64 0
-  %2274 = load ptr, ptr %2273, align 8
-  %2275 = call ptr @zend_ast_create_2(i16 noundef zeroext 532, ptr noundef %2274, ptr noundef null)
-  store ptr %2275, ptr %488, align 8
-  br label %5656
+2268:                                             ; preds = %705
+  %2269 = load ptr, ptr %484, align 8
+  %2270 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2269, i64 0
+  %2271 = load ptr, ptr %2270, align 8
+  %2272 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %2271)
+  %2273 = call ptr @zend_ast_create_1(i16 noundef zeroext 277, ptr noundef %2272)
+  store ptr %2273, ptr %488, align 8
+  br label %5692
 
-2276:                                             ; preds = %705
-  %2277 = load ptr, ptr %484, align 8
-  %2278 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2277, i64 -2
-  %2279 = load ptr, ptr %2278, align 8
-  %2280 = load ptr, ptr %484, align 8
-  %2281 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2280, i64 0
-  %2282 = load ptr, ptr %2281, align 8
-  %2283 = call ptr @zend_ast_create_2(i16 noundef zeroext 532, ptr noundef %2279, ptr noundef %2282)
-  store ptr %2283, ptr %488, align 8
-  br label %5656
+2274:                                             ; preds = %705
+  %2275 = load ptr, ptr %484, align 8
+  %2276 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2275, i64 -2
+  %2277 = load ptr, ptr %2276, align 8
+  %2278 = load ptr, ptr %484, align 8
+  %2279 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2278, i64 0
+  %2280 = load ptr, ptr %2279, align 8
+  %2281 = call ptr @zend_ast_list_add(ptr noundef %2277, ptr noundef %2280)
+  store ptr %2281, ptr %488, align 8
+  br label %5692
 
-2284:                                             ; preds = %705
-  %2285 = load ptr, ptr %484, align 8
-  %2286 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2285, i64 -1
-  %2287 = load ptr, ptr %2286, align 8
+2282:                                             ; preds = %705
+  %2283 = load ptr, ptr %484, align 8
+  %2284 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2283, i64 0
+  %2285 = load ptr, ptr %2284, align 8
+  %2286 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %2285)
+  store ptr %2286, ptr %488, align 8
+  br label %5692
+
+2287:                                             ; preds = %705
   %2288 = load ptr, ptr %484, align 8
   %2289 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2288, i64 0
   %2290 = load ptr, ptr %2289, align 8
-  %2291 = call ptr @zend_ast_list_add(ptr noundef %2287, ptr noundef %2290)
+  %2291 = call ptr @zend_ast_create_2(i16 noundef zeroext 532, ptr noundef %2290, ptr noundef null)
   store ptr %2291, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2292:                                             ; preds = %705
-  %2293 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132)
-  store ptr %2293, ptr %488, align 8
-  br label %5656
+  %2293 = load ptr, ptr %484, align 8
+  %2294 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2293, i64 -2
+  %2295 = load ptr, ptr %2294, align 8
+  %2296 = load ptr, ptr %484, align 8
+  %2297 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2296, i64 0
+  %2298 = load ptr, ptr %2297, align 8
+  %2299 = call ptr @zend_ast_create_2(i16 noundef zeroext 532, ptr noundef %2295, ptr noundef %2298)
+  store ptr %2299, ptr %488, align 8
+  br label %5692
 
-2294:                                             ; preds = %705
-  %2295 = load ptr, ptr %484, align 8
-  %2296 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2295, i64 -2
-  %2297 = load ptr, ptr %2296, align 8
-  %2298 = load ptr, ptr %484, align 8
-  %2299 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2298, i64 -1
-  %2300 = load ptr, ptr %2299, align 8
-  %2301 = call ptr @zend_ast_create_3(i16 noundef zeroext 774, ptr noundef %2297, ptr noundef %2300, ptr noundef null)
-  store ptr %2301, ptr %488, align 8
-  %2302 = load ptr, ptr %484, align 8
-  %2303 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2302, i64 -3
-  %2304 = load i64, ptr %2303, align 8
-  %2305 = trunc i64 %2304 to i16
-  %2306 = load ptr, ptr %488, align 8
-  %2307 = getelementptr inbounds %struct._zend_ast, ptr %2306, i32 0, i32 1
-  store i16 %2305, ptr %2307, align 2
-  br label %5656
+2300:                                             ; preds = %705
+  %2301 = load ptr, ptr %484, align 8
+  %2302 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2301, i64 -1
+  %2303 = load ptr, ptr %2302, align 8
+  %2304 = load ptr, ptr %484, align 8
+  %2305 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2304, i64 0
+  %2306 = load ptr, ptr %2305, align 8
+  %2307 = call ptr @zend_ast_list_add(ptr noundef %2303, ptr noundef %2306)
+  store ptr %2307, ptr %488, align 8
+  br label %5692
 
 2308:                                             ; preds = %705
-  %2309 = load ptr, ptr %484, align 8
-  %2310 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2309, i64 -1
-  %2311 = load ptr, ptr %2310, align 8
-  %2312 = call ptr @zend_ast_create_3(i16 noundef zeroext 777, ptr noundef %2311, ptr noundef null, ptr noundef null)
-  store ptr %2312, ptr %488, align 8
-  %2313 = load ptr, ptr %484, align 8
-  %2314 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2313, i64 -3
-  %2315 = load i64, ptr %2314, align 8
-  %2316 = trunc i64 %2315 to i16
-  %2317 = load ptr, ptr %488, align 8
-  %2318 = getelementptr inbounds %struct._zend_ast, ptr %2317, i32 0, i32 1
-  store i16 %2316, ptr %2318, align 2
-  br label %5656
+  %2309 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 132)
+  store ptr %2309, ptr %488, align 8
+  br label %5692
 
-2319:                                             ; preds = %705
-  %2320 = load ptr, ptr %484, align 8
-  %2321 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2320, i64 -1
-  %2322 = load ptr, ptr %2321, align 8
-  %2323 = load ptr, ptr %484, align 8
-  %2324 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2323, i64 -2
-  %2325 = load ptr, ptr %2324, align 8
-  %2326 = call ptr @zend_ast_create_3(i16 noundef zeroext 777, ptr noundef %2322, ptr noundef null, ptr noundef %2325)
-  store ptr %2326, ptr %488, align 8
-  %2327 = load ptr, ptr %484, align 8
-  %2328 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2327, i64 -4
-  %2329 = load i64, ptr %2328, align 8
-  %2330 = trunc i64 %2329 to i16
-  %2331 = load ptr, ptr %488, align 8
-  %2332 = getelementptr inbounds %struct._zend_ast, ptr %2331, i32 0, i32 1
-  store i16 %2330, ptr %2332, align 2
-  br label %5656
+2310:                                             ; preds = %705
+  %2311 = load ptr, ptr %484, align 8
+  %2312 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2311, i64 -2
+  %2313 = load ptr, ptr %2312, align 8
+  %2314 = load ptr, ptr %484, align 8
+  %2315 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2314, i64 -1
+  %2316 = load ptr, ptr %2315, align 8
+  %2317 = call ptr @zend_ast_create_3(i16 noundef zeroext 774, ptr noundef %2313, ptr noundef %2316, ptr noundef null)
+  store ptr %2317, ptr %488, align 8
+  %2318 = load ptr, ptr %484, align 8
+  %2319 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2318, i64 -3
+  %2320 = load i64, ptr %2319, align 8
+  %2321 = trunc i64 %2320 to i16
+  %2322 = load ptr, ptr %488, align 8
+  %2323 = getelementptr inbounds %struct._zend_ast, ptr %2322, i32 0, i32 1
+  store i16 %2321, ptr %2323, align 2
+  br label %5692
 
-2333:                                             ; preds = %705
-  %2334 = load ptr, ptr %484, align 8
-  %2335 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2334, i64 -9
-  %2336 = load i64, ptr %2335, align 8
-  %2337 = load ptr, ptr %484, align 8
-  %2338 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2337, i64 -11
-  %2339 = load i64, ptr %2338, align 8
-  %2340 = or i64 %2336, %2339
-  %2341 = load ptr, ptr %484, align 8
-  %2342 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2341, i64 0
-  %2343 = load i64, ptr %2342, align 8
-  %2344 = or i64 %2340, %2343
-  %2345 = trunc i64 %2344 to i32
-  %2346 = load ptr, ptr %484, align 8
-  %2347 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2346, i64 -10
-  %2348 = load i64, ptr %2347, align 8
-  %2349 = trunc i64 %2348 to i32
+2324:                                             ; preds = %705
+  %2325 = load ptr, ptr %484, align 8
+  %2326 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2325, i64 -1
+  %2327 = load ptr, ptr %2326, align 8
+  %2328 = call ptr @zend_ast_create_3(i16 noundef zeroext 777, ptr noundef %2327, ptr noundef null, ptr noundef null)
+  store ptr %2328, ptr %488, align 8
+  %2329 = load ptr, ptr %484, align 8
+  %2330 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2329, i64 -3
+  %2331 = load i64, ptr %2330, align 8
+  %2332 = trunc i64 %2331 to i16
+  %2333 = load ptr, ptr %488, align 8
+  %2334 = getelementptr inbounds %struct._zend_ast, ptr %2333, i32 0, i32 1
+  store i16 %2332, ptr %2334, align 2
+  br label %5692
+
+2335:                                             ; preds = %705
+  %2336 = load ptr, ptr %484, align 8
+  %2337 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2336, i64 -1
+  %2338 = load ptr, ptr %2337, align 8
+  %2339 = load ptr, ptr %484, align 8
+  %2340 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2339, i64 -2
+  %2341 = load ptr, ptr %2340, align 8
+  %2342 = call ptr @zend_ast_create_3(i16 noundef zeroext 777, ptr noundef %2338, ptr noundef null, ptr noundef %2341)
+  store ptr %2342, ptr %488, align 8
+  %2343 = load ptr, ptr %484, align 8
+  %2344 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2343, i64 -4
+  %2345 = load i64, ptr %2344, align 8
+  %2346 = trunc i64 %2345 to i16
+  %2347 = load ptr, ptr %488, align 8
+  %2348 = getelementptr inbounds %struct._zend_ast, ptr %2347, i32 0, i32 1
+  store i16 %2346, ptr %2348, align 2
+  br label %5692
+
+2349:                                             ; preds = %705
   %2350 = load ptr, ptr %484, align 8
-  %2351 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2350, i64 -7
-  %2352 = load ptr, ptr %2351, align 8
+  %2351 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2350, i64 -9
+  %2352 = load i64, ptr %2351, align 8
   %2353 = load ptr, ptr %484, align 8
-  %2354 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2353, i64 -8
-  %2355 = load ptr, ptr %2354, align 8
-  store ptr %2355, ptr %465, align 8
-  %2356 = load ptr, ptr %465, align 8
-  store ptr %2356, ptr %12, align 8
-  %2357 = load ptr, ptr %12, align 8
-  %2358 = load i16, ptr %2357, align 8
-  %2359 = zext i16 %2358 to i32
-  %2360 = icmp eq i32 %2359, 64
-  call void @llvm.assume(i1 %2360)
-  %2361 = load ptr, ptr %12, align 8
-  %2362 = getelementptr inbounds %struct._zend_ast_zval, ptr %2361, i32 0, i32 2
-  store ptr %2362, ptr %466, align 8
-  %2363 = load ptr, ptr %466, align 8
-  %2364 = load ptr, ptr %2363, align 8
-  %2365 = load ptr, ptr %484, align 8
-  %2366 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2365, i64 -5
-  %2367 = load ptr, ptr %2366, align 8
-  %2368 = load ptr, ptr %484, align 8
-  %2369 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2368, i64 -1
-  %2370 = load ptr, ptr %2369, align 8
-  %2371 = load ptr, ptr %484, align 8
-  %2372 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2371, i64 -3
-  %2373 = load ptr, ptr %2372, align 8
-  %2374 = call ptr @zend_ast_create_decl(i16 noundef zeroext 69, i32 noundef %2345, i32 noundef %2349, ptr noundef %2352, ptr noundef %2364, ptr noundef %2367, ptr noundef null, ptr noundef %2370, ptr noundef %2373, ptr noundef null)
-  store ptr %2374, ptr %488, align 8
-  %2375 = load ptr, ptr %484, align 8
-  %2376 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2375, i64 -2
-  %2377 = load i64, ptr %2376, align 8
-  %2378 = trunc i64 %2377 to i32
-  store i32 %2378, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
-
-2379:                                             ; preds = %705
-  %2380 = load ptr, ptr %484, align 8
-  %2381 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2380, i64 0
-  %2382 = load ptr, ptr %2381, align 8
-  store ptr %2382, ptr %488, align 8
-  br label %5656
-
-2383:                                             ; preds = %705
+  %2354 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2353, i64 -11
+  %2355 = load i64, ptr %2354, align 8
+  %2356 = or i64 %2352, %2355
+  %2357 = load ptr, ptr %484, align 8
+  %2358 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2357, i64 0
+  %2359 = load i64, ptr %2358, align 8
+  %2360 = or i64 %2356, %2359
+  %2361 = trunc i64 %2360 to i32
+  %2362 = load ptr, ptr %484, align 8
+  %2363 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2362, i64 -10
+  %2364 = load i64, ptr %2363, align 8
+  %2365 = trunc i64 %2364 to i32
+  %2366 = load ptr, ptr %484, align 8
+  %2367 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2366, i64 -7
+  %2368 = load ptr, ptr %2367, align 8
+  %2369 = load ptr, ptr %484, align 8
+  %2370 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2369, i64 -8
+  %2371 = load ptr, ptr %2370, align 8
+  store ptr %2371, ptr %465, align 8
+  %2372 = load ptr, ptr %465, align 8
+  store ptr %2372, ptr %12, align 8
+  %2373 = load ptr, ptr %12, align 8
+  %2374 = load i16, ptr %2373, align 8
+  %2375 = zext i16 %2374 to i32
+  %2376 = icmp eq i32 %2375, 64
+  call void @llvm.assume(i1 %2376)
+  %2377 = load ptr, ptr %12, align 8
+  %2378 = getelementptr inbounds %struct._zend_ast_zval, ptr %2377, i32 0, i32 2
+  store ptr %2378, ptr %466, align 8
+  %2379 = load ptr, ptr %466, align 8
+  %2380 = load ptr, ptr %2379, align 8
+  %2381 = load ptr, ptr %484, align 8
+  %2382 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2381, i64 -5
+  %2383 = load ptr, ptr %2382, align 8
   %2384 = load ptr, ptr %484, align 8
-  %2385 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2384, i64 0
+  %2385 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2384, i64 -1
   %2386 = load ptr, ptr %2385, align 8
-  store ptr %2386, ptr %488, align 8
-  br label %5656
-
-2387:                                             ; preds = %705
-  %2388 = load ptr, ptr %484, align 8
-  %2389 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2388, i64 0
-  %2390 = load ptr, ptr %2389, align 8
+  %2387 = load ptr, ptr %484, align 8
+  %2388 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2387, i64 -3
+  %2389 = load ptr, ptr %2388, align 8
+  %2390 = call ptr @zend_ast_create_decl(i16 noundef zeroext 69, i32 noundef %2361, i32 noundef %2365, ptr noundef %2368, ptr noundef %2380, ptr noundef %2383, ptr noundef null, ptr noundef %2386, ptr noundef %2389, ptr noundef null)
+  store ptr %2390, ptr %488, align 8
   %2391 = load ptr, ptr %484, align 8
-  %2392 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2391, i64 -1
-  %2393 = load ptr, ptr %2392, align 8
-  %2394 = call ptr @zend_ast_with_attributes(ptr noundef %2390, ptr noundef %2393)
-  store ptr %2394, ptr %488, align 8
-  br label %5656
+  %2392 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2391, i64 -2
+  %2393 = load i64, ptr %2392, align 8
+  %2394 = trunc i64 %2393 to i32
+  %2395 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 %2394, ptr %2395, align 8
+  br label %5692
 
-2395:                                             ; preds = %705
-  %2396 = load ptr, ptr %484, align 8
-  %2397 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2396, i64 -1
-  %2398 = load ptr, ptr %2397, align 8
-  %2399 = load ptr, ptr %484, align 8
-  %2400 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2399, i64 0
-  %2401 = load ptr, ptr %2400, align 8
-  %2402 = call ptr @zend_ast_create_2(i16 noundef zeroext 539, ptr noundef %2398, ptr noundef %2401)
-  store ptr %2402, ptr %488, align 8
-  br label %5656
+2396:                                             ; preds = %705
+  %2397 = load ptr, ptr %484, align 8
+  %2398 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2397, i64 0
+  %2399 = load ptr, ptr %2398, align 8
+  store ptr %2399, ptr %488, align 8
+  br label %5692
 
-2403:                                             ; preds = %705
-  %2404 = load ptr, ptr %484, align 8
-  %2405 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2404, i64 0
-  %2406 = load ptr, ptr %2405, align 8
-  %2407 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 141, ptr noundef %2406)
-  store ptr %2407, ptr %488, align 8
-  br label %5656
+2400:                                             ; preds = %705
+  %2401 = load ptr, ptr %484, align 8
+  %2402 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2401, i64 0
+  %2403 = load ptr, ptr %2402, align 8
+  store ptr %2403, ptr %488, align 8
+  br label %5692
 
-2408:                                             ; preds = %705
-  %2409 = load ptr, ptr %484, align 8
-  %2410 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2409, i64 -2
-  %2411 = load ptr, ptr %2410, align 8
-  %2412 = load ptr, ptr %484, align 8
-  %2413 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2412, i64 0
-  %2414 = load ptr, ptr %2413, align 8
-  %2415 = call ptr @zend_ast_list_add(ptr noundef %2411, ptr noundef %2414)
-  store ptr %2415, ptr %488, align 8
-  br label %5656
+2404:                                             ; preds = %705
+  %2405 = load ptr, ptr %484, align 8
+  %2406 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2405, i64 0
+  %2407 = load ptr, ptr %2406, align 8
+  %2408 = load ptr, ptr %484, align 8
+  %2409 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2408, i64 -1
+  %2410 = load ptr, ptr %2409, align 8
+  %2411 = call ptr @zend_ast_with_attributes(ptr noundef %2407, ptr noundef %2410)
+  store ptr %2411, ptr %488, align 8
+  br label %5692
 
-2416:                                             ; preds = %705
+2412:                                             ; preds = %705
+  %2413 = load ptr, ptr %484, align 8
+  %2414 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2413, i64 -1
+  %2415 = load ptr, ptr %2414, align 8
+  %2416 = load ptr, ptr %484, align 8
+  %2417 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2416, i64 0
+  %2418 = load ptr, ptr %2417, align 8
+  %2419 = call ptr @zend_ast_create_2(i16 noundef zeroext 539, ptr noundef %2415, ptr noundef %2418)
+  store ptr %2419, ptr %488, align 8
+  br label %5692
+
+2420:                                             ; preds = %705
+  %2421 = load ptr, ptr %484, align 8
+  %2422 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2421, i64 0
+  %2423 = load ptr, ptr %2422, align 8
+  %2424 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 141, ptr noundef %2423)
+  store ptr %2424, ptr %488, align 8
+  br label %5692
+
+2425:                                             ; preds = %705
+  %2426 = load ptr, ptr %484, align 8
+  %2427 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2426, i64 -2
+  %2428 = load ptr, ptr %2427, align 8
+  %2429 = load ptr, ptr %484, align 8
+  %2430 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2429, i64 0
+  %2431 = load ptr, ptr %2430, align 8
+  %2432 = call ptr @zend_ast_list_add(ptr noundef %2428, ptr noundef %2431)
+  store ptr %2432, ptr %488, align 8
+  br label %5692
+
+2433:                                             ; preds = %705
   store ptr null, ptr %488, align 8
-  br label %5656
+  br label %5692
 
-2417:                                             ; preds = %705
+2434:                                             ; preds = %705
   store ptr null, ptr %488, align 8
-  br label %5656
-
-2418:                                             ; preds = %705
-  %2419 = load ptr, ptr %484, align 8
-  %2420 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2419, i64 -1
-  %2421 = load ptr, ptr %2420, align 8
-  store ptr %2421, ptr %488, align 8
-  br label %5656
-
-2422:                                             ; preds = %705
-  %2423 = load ptr, ptr %484, align 8
-  %2424 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2423, i64 0
-  %2425 = load ptr, ptr %2424, align 8
-  %2426 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 142, ptr noundef %2425)
-  store ptr %2426, ptr %488, align 8
-  br label %5656
-
-2427:                                             ; preds = %705
-  %2428 = load ptr, ptr %484, align 8
-  %2429 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2428, i64 -1
-  %2430 = load ptr, ptr %2429, align 8
-  %2431 = load ptr, ptr %484, align 8
-  %2432 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2431, i64 0
-  %2433 = load ptr, ptr %2432, align 8
-  %2434 = call ptr @zend_ast_list_add(ptr noundef %2430, ptr noundef %2433)
-  store ptr %2434, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2435:                                             ; preds = %705
   %2436 = load ptr, ptr %484, align 8
   %2437 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2436, i64 -1
   %2438 = load ptr, ptr %2437, align 8
   store ptr %2438, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2439:                                             ; preds = %705
   %2440 = load ptr, ptr %484, align 8
-  %2441 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2440, i64 -1
+  %2441 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2440, i64 0
   %2442 = load ptr, ptr %2441, align 8
-  store ptr %2442, ptr %488, align 8
-  br label %5656
+  %2443 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 142, ptr noundef %2442)
+  store ptr %2443, ptr %488, align 8
+  br label %5692
 
-2443:                                             ; preds = %705
-  %2444 = load ptr, ptr %484, align 8
-  %2445 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2444, i64 -2
-  %2446 = load ptr, ptr %2445, align 8
-  %2447 = load ptr, ptr %484, align 8
-  %2448 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2447, i64 0
-  %2449 = load ptr, ptr %2448, align 8
-  %2450 = call ptr @zend_ast_create_2(i16 noundef zeroext 540, ptr noundef %2446, ptr noundef %2449)
-  store ptr %2450, ptr %488, align 8
-  br label %5656
+2444:                                             ; preds = %705
+  %2445 = load ptr, ptr %484, align 8
+  %2446 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2445, i64 -1
+  %2447 = load ptr, ptr %2446, align 8
+  %2448 = load ptr, ptr %484, align 8
+  %2449 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2448, i64 0
+  %2450 = load ptr, ptr %2449, align 8
+  %2451 = call ptr @zend_ast_list_add(ptr noundef %2447, ptr noundef %2450)
+  store ptr %2451, ptr %488, align 8
+  br label %5692
 
-2451:                                             ; preds = %705
-  %2452 = load ptr, ptr %484, align 8
-  %2453 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2452, i64 -2
-  %2454 = load ptr, ptr %2453, align 8
-  %2455 = load ptr, ptr %484, align 8
-  %2456 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2455, i64 0
-  %2457 = load ptr, ptr %2456, align 8
-  %2458 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %2454, ptr noundef %2457)
-  store ptr %2458, ptr %488, align 8
-  br label %5656
+2452:                                             ; preds = %705
+  %2453 = load ptr, ptr %484, align 8
+  %2454 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2453, i64 -1
+  %2455 = load ptr, ptr %2454, align 8
+  store ptr %2455, ptr %488, align 8
+  br label %5692
 
-2459:                                             ; preds = %705
-  %2460 = load ptr, ptr %484, align 8
-  %2461 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2460, i64 0
-  %2462 = load ptr, ptr %2461, align 8
-  %2463 = call i32 @zend_lex_tstring(ptr noundef %500, ptr noundef %2462)
-  %2464 = icmp eq i32 %2463, -1
-  br i1 %2464, label %2465, label %2466
+2456:                                             ; preds = %705
+  %2457 = load ptr, ptr %484, align 8
+  %2458 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2457, i64 -1
+  %2459 = load ptr, ptr %2458, align 8
+  store ptr %2459, ptr %488, align 8
+  br label %5692
 
-2465:                                             ; preds = %2459
-  br label %5865
+2460:                                             ; preds = %705
+  %2461 = load ptr, ptr %484, align 8
+  %2462 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2461, i64 -2
+  %2463 = load ptr, ptr %2462, align 8
+  %2464 = load ptr, ptr %484, align 8
+  %2465 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2464, i64 0
+  %2466 = load ptr, ptr %2465, align 8
+  %2467 = call ptr @zend_ast_create_2(i16 noundef zeroext 540, ptr noundef %2463, ptr noundef %2466)
+  store ptr %2467, ptr %488, align 8
+  br label %5692
 
-2466:                                             ; preds = %2459
-  %2467 = load ptr, ptr %484, align 8
-  %2468 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2467, i64 -2
-  %2469 = load ptr, ptr %2468, align 8
-  %2470 = call ptr @zend_ast_create_zval(ptr noundef %500)
-  %2471 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %2469, ptr noundef %2470)
-  store ptr %2471, ptr %488, align 8
-  br label %5656
+2468:                                             ; preds = %705
+  %2469 = load ptr, ptr %484, align 8
+  %2470 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2469, i64 -2
+  %2471 = load ptr, ptr %2470, align 8
+  %2472 = load ptr, ptr %484, align 8
+  %2473 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2472, i64 0
+  %2474 = load ptr, ptr %2473, align 8
+  %2475 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %2471, ptr noundef %2474)
+  store ptr %2475, ptr %488, align 8
+  br label %5692
 
-2472:                                             ; preds = %705
-  %2473 = load ptr, ptr %484, align 8
-  %2474 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2473, i64 -1
-  %2475 = load i64, ptr %2474, align 8
-  %2476 = trunc i64 %2475 to i32
-  %2477 = call i32 @zend_modifier_token_to_flag(i32 noundef 1, i32 noundef %2476)
-  store i32 %2477, ptr %501, align 4
-  %2478 = load i32, ptr %501, align 4
-  %2479 = trunc i32 %2478 to i16
-  %2480 = load ptr, ptr %484, align 8
-  %2481 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2480, i64 -3
-  %2482 = load ptr, ptr %2481, align 8
-  %2483 = load ptr, ptr %484, align 8
-  %2484 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2483, i64 0
-  %2485 = load ptr, ptr %2484, align 8
-  store i16 544, ptr %369, align 2
-  store i16 %2479, ptr %370, align 2
-  store ptr %2482, ptr %371, align 8
-  store ptr %2485, ptr %372, align 8
-  %2486 = load i16, ptr %369, align 2
-  %2487 = load ptr, ptr %371, align 8
-  %2488 = load ptr, ptr %372, align 8
-  %2489 = call ptr @zend_ast_create_2(i16 noundef zeroext %2486, ptr noundef %2487, ptr noundef %2488) #10
-  store ptr %2489, ptr %373, align 8
-  %2490 = load i16, ptr %370, align 2
-  %2491 = load ptr, ptr %373, align 8
-  %2492 = getelementptr inbounds %struct._zend_ast, ptr %2491, i32 0, i32 1
-  store i16 %2490, ptr %2492, align 2
-  %2493 = load ptr, ptr %373, align 8
-  store ptr %2493, ptr %488, align 8
-  %2494 = load i32, ptr %501, align 4
-  %2495 = icmp ne i32 %2494, 0
-  br i1 %2495, label %2498, label %2496
+2476:                                             ; preds = %705
+  %2477 = load ptr, ptr %484, align 8
+  %2478 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2477, i64 0
+  %2479 = load ptr, ptr %2478, align 8
+  %2480 = call i32 @zend_lex_tstring(ptr noundef %500, ptr noundef %2479)
+  %2481 = icmp eq i32 %2480, -1
+  br i1 %2481, label %2482, label %2483
 
-2496:                                             ; preds = %2472
-  %2497 = load ptr, ptr %488, align 8
-  call void @zend_ast_destroy(ptr noundef %2497)
-  br label %5790
+2482:                                             ; preds = %2476
+  br label %5901
 
-2498:                                             ; preds = %2472
-  br label %5656
+2483:                                             ; preds = %2476
+  %2484 = load ptr, ptr %484, align 8
+  %2485 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2484, i64 -2
+  %2486 = load ptr, ptr %2485, align 8
+  %2487 = call ptr @zend_ast_create_zval(ptr noundef %500)
+  %2488 = call ptr @zend_ast_create_2(i16 noundef zeroext 544, ptr noundef %2486, ptr noundef %2487)
+  store ptr %2488, ptr %488, align 8
+  br label %5692
 
-2499:                                             ; preds = %705
+2489:                                             ; preds = %705
+  %2490 = load ptr, ptr %484, align 8
+  %2491 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2490, i64 -1
+  %2492 = load i64, ptr %2491, align 8
+  %2493 = trunc i64 %2492 to i32
+  %2494 = call i32 @zend_modifier_token_to_flag(i32 noundef 1, i32 noundef %2493)
+  store i32 %2494, ptr %501, align 4
+  %2495 = load i32, ptr %501, align 4
+  %2496 = trunc i32 %2495 to i16
+  %2497 = load ptr, ptr %484, align 8
+  %2498 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2497, i64 -3
+  %2499 = load ptr, ptr %2498, align 8
   %2500 = load ptr, ptr %484, align 8
   %2501 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2500, i64 0
-  %2502 = load i64, ptr %2501, align 8
-  %2503 = trunc i64 %2502 to i32
-  %2504 = call i32 @zend_modifier_token_to_flag(i32 noundef 1, i32 noundef %2503)
-  store i32 %2504, ptr %502, align 4
-  %2505 = load i32, ptr %502, align 4
-  %2506 = trunc i32 %2505 to i16
-  %2507 = load ptr, ptr %484, align 8
-  %2508 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2507, i64 -2
-  %2509 = load ptr, ptr %2508, align 8
-  store i16 544, ptr %374, align 2
-  store i16 %2506, ptr %375, align 2
-  store ptr %2509, ptr %376, align 8
-  store ptr null, ptr %377, align 8
-  %2510 = load i16, ptr %374, align 2
-  %2511 = load ptr, ptr %376, align 8
-  %2512 = load ptr, ptr %377, align 8
-  %2513 = call ptr @zend_ast_create_2(i16 noundef zeroext %2510, ptr noundef %2511, ptr noundef %2512) #10
-  store ptr %2513, ptr %378, align 8
-  %2514 = load i16, ptr %375, align 2
-  %2515 = load ptr, ptr %378, align 8
-  %2516 = getelementptr inbounds %struct._zend_ast, ptr %2515, i32 0, i32 1
-  store i16 %2514, ptr %2516, align 2
-  %2517 = load ptr, ptr %378, align 8
-  store ptr %2517, ptr %488, align 8
-  %2518 = load i32, ptr %502, align 4
-  %2519 = icmp ne i32 %2518, 0
-  br i1 %2519, label %2522, label %2520
+  %2502 = load ptr, ptr %2501, align 8
+  store i16 544, ptr %369, align 2
+  store i16 %2496, ptr %370, align 2
+  store ptr %2499, ptr %371, align 8
+  store ptr %2502, ptr %372, align 8
+  %2503 = load i16, ptr %369, align 2
+  %2504 = load ptr, ptr %371, align 8
+  %2505 = load ptr, ptr %372, align 8
+  %2506 = call ptr @zend_ast_create_2(i16 noundef zeroext %2503, ptr noundef %2504, ptr noundef %2505) #10
+  store ptr %2506, ptr %373, align 8
+  %2507 = load i16, ptr %370, align 2
+  %2508 = load ptr, ptr %373, align 8
+  %2509 = getelementptr inbounds %struct._zend_ast, ptr %2508, i32 0, i32 1
+  store i16 %2507, ptr %2509, align 2
+  %2510 = load ptr, ptr %373, align 8
+  store ptr %2510, ptr %488, align 8
+  %2511 = load i32, ptr %501, align 4
+  %2512 = icmp ne i32 %2511, 0
+  br i1 %2512, label %2515, label %2513
 
-2520:                                             ; preds = %2499
-  %2521 = load ptr, ptr %488, align 8
-  call void @zend_ast_destroy(ptr noundef %2521)
-  br label %5790
+2513:                                             ; preds = %2489
+  %2514 = load ptr, ptr %488, align 8
+  call void @zend_ast_destroy(ptr noundef %2514)
+  br label %5826
 
-2522:                                             ; preds = %2499
-  br label %5656
+2515:                                             ; preds = %2489
+  br label %5692
 
-2523:                                             ; preds = %705
+2516:                                             ; preds = %705
+  %2517 = load ptr, ptr %484, align 8
+  %2518 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2517, i64 0
+  %2519 = load i64, ptr %2518, align 8
+  %2520 = trunc i64 %2519 to i32
+  %2521 = call i32 @zend_modifier_token_to_flag(i32 noundef 1, i32 noundef %2520)
+  store i32 %2521, ptr %502, align 4
+  %2522 = load i32, ptr %502, align 4
+  %2523 = trunc i32 %2522 to i16
   %2524 = load ptr, ptr %484, align 8
-  %2525 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2524, i64 0
+  %2525 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2524, i64 -2
   %2526 = load ptr, ptr %2525, align 8
-  %2527 = call ptr @zend_ast_create_2(i16 noundef zeroext 541, ptr noundef null, ptr noundef %2526)
-  store ptr %2527, ptr %488, align 8
-  br label %5656
+  store i16 544, ptr %374, align 2
+  store i16 %2523, ptr %375, align 2
+  store ptr %2526, ptr %376, align 8
+  store ptr null, ptr %377, align 8
+  %2527 = load i16, ptr %374, align 2
+  %2528 = load ptr, ptr %376, align 8
+  %2529 = load ptr, ptr %377, align 8
+  %2530 = call ptr @zend_ast_create_2(i16 noundef zeroext %2527, ptr noundef %2528, ptr noundef %2529) #10
+  store ptr %2530, ptr %378, align 8
+  %2531 = load i16, ptr %375, align 2
+  %2532 = load ptr, ptr %378, align 8
+  %2533 = getelementptr inbounds %struct._zend_ast, ptr %2532, i32 0, i32 1
+  store i16 %2531, ptr %2533, align 2
+  %2534 = load ptr, ptr %378, align 8
+  store ptr %2534, ptr %488, align 8
+  %2535 = load i32, ptr %502, align 4
+  %2536 = icmp ne i32 %2535, 0
+  br i1 %2536, label %2539, label %2537
 
-2528:                                             ; preds = %705
-  %2529 = load ptr, ptr %484, align 8
-  %2530 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2529, i64 0
-  %2531 = load ptr, ptr %2530, align 8
-  store ptr %2531, ptr %488, align 8
-  br label %5656
+2537:                                             ; preds = %2516
+  %2538 = load ptr, ptr %488, align 8
+  call void @zend_ast_destroy(ptr noundef %2538)
+  br label %5826
 
-2532:                                             ; preds = %705
-  %2533 = load ptr, ptr %484, align 8
-  %2534 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2533, i64 -2
-  %2535 = load ptr, ptr %2534, align 8
-  %2536 = load ptr, ptr %484, align 8
-  %2537 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2536, i64 0
-  %2538 = load ptr, ptr %2537, align 8
-  %2539 = call ptr @zend_ast_create_2(i16 noundef zeroext 541, ptr noundef %2535, ptr noundef %2538)
-  store ptr %2539, ptr %488, align 8
-  br label %5656
+2539:                                             ; preds = %2516
+  br label %5692
 
 2540:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
-
-2541:                                             ; preds = %705
-  %2542 = load ptr, ptr %484, align 8
-  %2543 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2542, i64 -1
-  %2544 = load ptr, ptr %2543, align 8
+  %2541 = load ptr, ptr %484, align 8
+  %2542 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2541, i64 0
+  %2543 = load ptr, ptr %2542, align 8
+  %2544 = call ptr @zend_ast_create_2(i16 noundef zeroext 541, ptr noundef null, ptr noundef %2543)
   store ptr %2544, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2545:                                             ; preds = %705
   %2546 = load ptr, ptr %484, align 8
   %2547 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2546, i64 0
   %2548 = load ptr, ptr %2547, align 8
-  %2549 = call i32 @zend_modifier_list_to_flags(i32 noundef 0, ptr noundef %2548)
-  %2550 = zext i32 %2549 to i64
-  store i64 %2550, ptr %488, align 8
-  %2551 = load i64, ptr %488, align 8
-  %2552 = icmp ne i64 %2551, 0
-  br i1 %2552, label %2554, label %2553
+  store ptr %2548, ptr %488, align 8
+  br label %5692
 
-2553:                                             ; preds = %2545
-  br label %5790
-
-2554:                                             ; preds = %2545
-  br label %5656
-
-2555:                                             ; preds = %705
-  store i64 1, ptr %488, align 8
-  br label %5656
-
-2556:                                             ; preds = %705
-  store i64 1, ptr %488, align 8
-  br label %5656
+2549:                                             ; preds = %705
+  %2550 = load ptr, ptr %484, align 8
+  %2551 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2550, i64 -2
+  %2552 = load ptr, ptr %2551, align 8
+  %2553 = load ptr, ptr %484, align 8
+  %2554 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2553, i64 0
+  %2555 = load ptr, ptr %2554, align 8
+  %2556 = call ptr @zend_ast_create_2(i16 noundef zeroext 541, ptr noundef %2552, ptr noundef %2555)
+  store ptr %2556, ptr %488, align 8
+  br label %5692
 
 2557:                                             ; preds = %705
-  %2558 = load ptr, ptr %484, align 8
-  %2559 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2558, i64 0
-  %2560 = load ptr, ptr %2559, align 8
-  %2561 = call i32 @zend_modifier_list_to_flags(i32 noundef 1, ptr noundef %2560)
-  %2562 = zext i32 %2561 to i64
-  store i64 %2562, ptr %488, align 8
-  %2563 = load i64, ptr %488, align 8
-  %2564 = icmp ne i64 %2563, 0
-  br i1 %2564, label %2566, label %2565
+  store ptr null, ptr %488, align 8
+  br label %5692
 
-2565:                                             ; preds = %2557
-  br label %5790
+2558:                                             ; preds = %705
+  %2559 = load ptr, ptr %484, align 8
+  %2560 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2559, i64 -1
+  %2561 = load ptr, ptr %2560, align 8
+  store ptr %2561, ptr %488, align 8
+  br label %5692
 
-2566:                                             ; preds = %2557
-  %2567 = load i64, ptr %488, align 8
-  %2568 = and i64 %2567, 7
+2562:                                             ; preds = %705
+  %2563 = load ptr, ptr %484, align 8
+  %2564 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2563, i64 0
+  %2565 = load ptr, ptr %2564, align 8
+  %2566 = call i32 @zend_modifier_list_to_flags(i32 noundef 0, ptr noundef %2565)
+  %2567 = zext i32 %2566 to i64
+  store i64 %2567, ptr %488, align 8
+  %2568 = load i64, ptr %488, align 8
   %2569 = icmp ne i64 %2568, 0
-  br i1 %2569, label %2573, label %2570
+  br i1 %2569, label %2571, label %2570
 
-2570:                                             ; preds = %2566
-  %2571 = load i64, ptr %488, align 8
-  %2572 = or i64 %2571, 1
-  store i64 %2572, ptr %488, align 8
-  br label %2573
+2570:                                             ; preds = %2562
+  br label %5826
 
-2573:                                             ; preds = %2570, %2566
-  br label %5656
+2571:                                             ; preds = %2562
+  br label %5692
+
+2572:                                             ; preds = %705
+  store i64 1, ptr %488, align 8
+  br label %5692
+
+2573:                                             ; preds = %705
+  store i64 1, ptr %488, align 8
+  br label %5692
 
 2574:                                             ; preds = %705
+  %2575 = load ptr, ptr %484, align 8
+  %2576 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2575, i64 0
+  %2577 = load ptr, ptr %2576, align 8
+  %2578 = call i32 @zend_modifier_list_to_flags(i32 noundef 1, ptr noundef %2577)
+  %2579 = zext i32 %2578 to i64
+  store i64 %2579, ptr %488, align 8
+  %2580 = load i64, ptr %488, align 8
+  %2581 = icmp ne i64 %2580, 0
+  br i1 %2581, label %2583, label %2582
+
+2582:                                             ; preds = %2574
+  br label %5826
+
+2583:                                             ; preds = %2574
+  %2584 = load i64, ptr %488, align 8
+  %2585 = and i64 %2584, 7
+  %2586 = icmp ne i64 %2585, 0
+  br i1 %2586, label %2590, label %2587
+
+2587:                                             ; preds = %2583
+  %2588 = load i64, ptr %488, align 8
+  %2589 = or i64 %2588, 1
+  store i64 %2589, ptr %488, align 8
+  br label %2590
+
+2590:                                             ; preds = %2587, %2583
+  br label %5692
+
+2591:                                             ; preds = %705
   store i64 1, ptr %488, align 8
-  br label %5656
-
-2575:                                             ; preds = %705
-  %2576 = load ptr, ptr %484, align 8
-  %2577 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2576, i64 0
-  %2578 = load ptr, ptr %2577, align 8
-  %2579 = call i32 @zend_modifier_list_to_flags(i32 noundef 2, ptr noundef %2578)
-  %2580 = zext i32 %2579 to i64
-  store i64 %2580, ptr %488, align 8
-  %2581 = load i64, ptr %488, align 8
-  %2582 = icmp ne i64 %2581, 0
-  br i1 %2582, label %2584, label %2583
-
-2583:                                             ; preds = %2575
-  br label %5790
-
-2584:                                             ; preds = %2575
-  %2585 = load i64, ptr %488, align 8
-  %2586 = and i64 %2585, 7
-  %2587 = icmp ne i64 %2586, 0
-  br i1 %2587, label %2591, label %2588
-
-2588:                                             ; preds = %2584
-  %2589 = load i64, ptr %488, align 8
-  %2590 = or i64 %2589, 1
-  store i64 %2590, ptr %488, align 8
-  br label %2591
-
-2591:                                             ; preds = %2588, %2584
-  br label %5656
+  br label %5692
 
 2592:                                             ; preds = %705
   %2593 = load ptr, ptr %484, align 8
   %2594 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2593, i64 0
-  %2595 = load i64, ptr %2594, align 8
-  %2596 = call ptr @zend_ast_create_zval_from_long(i64 noundef %2595)
-  %2597 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 149, ptr noundef %2596)
-  store ptr %2597, ptr %488, align 8
-  br label %5656
+  %2595 = load ptr, ptr %2594, align 8
+  %2596 = call i32 @zend_modifier_list_to_flags(i32 noundef 2, ptr noundef %2595)
+  %2597 = zext i32 %2596 to i64
+  store i64 %2597, ptr %488, align 8
+  %2598 = load i64, ptr %488, align 8
+  %2599 = icmp ne i64 %2598, 0
+  br i1 %2599, label %2601, label %2600
 
-2598:                                             ; preds = %705
-  %2599 = load ptr, ptr %484, align 8
-  %2600 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2599, i64 -1
-  %2601 = load ptr, ptr %2600, align 8
-  %2602 = load ptr, ptr %484, align 8
-  %2603 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2602, i64 0
-  %2604 = load i64, ptr %2603, align 8
-  %2605 = call ptr @zend_ast_create_zval_from_long(i64 noundef %2604)
-  %2606 = call ptr @zend_ast_list_add(ptr noundef %2601, ptr noundef %2605)
-  store ptr %2606, ptr %488, align 8
-  br label %5656
+2600:                                             ; preds = %2592
+  br label %5826
 
-2607:                                             ; preds = %705
-  store i64 326, ptr %488, align 8
-  br label %5656
+2601:                                             ; preds = %2592
+  %2602 = load i64, ptr %488, align 8
+  %2603 = and i64 %2602, 7
+  %2604 = icmp ne i64 %2603, 0
+  br i1 %2604, label %2608, label %2605
 
-2608:                                             ; preds = %705
-  store i64 325, ptr %488, align 8
-  br label %5656
+2605:                                             ; preds = %2601
+  %2606 = load i64, ptr %488, align 8
+  %2607 = or i64 %2606, 1
+  store i64 %2607, ptr %488, align 8
+  br label %2608
+
+2608:                                             ; preds = %2605, %2601
+  br label %5692
 
 2609:                                             ; preds = %705
+  %2610 = load ptr, ptr %484, align 8
+  %2611 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2610, i64 0
+  %2612 = load i64, ptr %2611, align 8
+  %2613 = call ptr @zend_ast_create_zval_from_long(i64 noundef %2612)
+  %2614 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 149, ptr noundef %2613)
+  store ptr %2614, ptr %488, align 8
+  br label %5692
+
+2615:                                             ; preds = %705
+  %2616 = load ptr, ptr %484, align 8
+  %2617 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2616, i64 -1
+  %2618 = load ptr, ptr %2617, align 8
+  %2619 = load ptr, ptr %484, align 8
+  %2620 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2619, i64 0
+  %2621 = load i64, ptr %2620, align 8
+  %2622 = call ptr @zend_ast_create_zval_from_long(i64 noundef %2621)
+  %2623 = call ptr @zend_ast_list_add(ptr noundef %2618, ptr noundef %2622)
+  store ptr %2623, ptr %488, align 8
+  br label %5692
+
+2624:                                             ; preds = %705
+  store i64 326, ptr %488, align 8
+  br label %5692
+
+2625:                                             ; preds = %705
+  store i64 325, ptr %488, align 8
+  br label %5692
+
+2626:                                             ; preds = %705
   store i64 324, ptr %488, align 8
-  br label %5656
-
-2610:                                             ; preds = %705
-  store i64 321, ptr %488, align 8
-  br label %5656
-
-2611:                                             ; preds = %705
-  store i64 322, ptr %488, align 8
-  br label %5656
-
-2612:                                             ; preds = %705
-  store i64 323, ptr %488, align 8
-  br label %5656
-
-2613:                                             ; preds = %705
-  store i64 327, ptr %488, align 8
-  br label %5656
-
-2614:                                             ; preds = %705
-  %2615 = load ptr, ptr %484, align 8
-  %2616 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2615, i64 -2
-  %2617 = load ptr, ptr %2616, align 8
-  %2618 = load ptr, ptr %484, align 8
-  %2619 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2618, i64 0
-  %2620 = load ptr, ptr %2619, align 8
-  %2621 = call ptr @zend_ast_list_add(ptr noundef %2617, ptr noundef %2620)
-  store ptr %2621, ptr %488, align 8
-  br label %5656
-
-2622:                                             ; preds = %705
-  %2623 = load ptr, ptr %484, align 8
-  %2624 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2623, i64 0
-  %2625 = load ptr, ptr %2624, align 8
-  %2626 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 138, ptr noundef %2625)
-  store ptr %2626, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2627:                                             ; preds = %705
-  %2628 = load ptr, ptr %484, align 8
-  %2629 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2628, i64 -1
-  %2630 = load ptr, ptr %2629, align 8
-  %2631 = load ptr, ptr %484, align 8
-  %2632 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2631, i64 0
-  %2633 = load ptr, ptr %2632, align 8
-  %2634 = icmp ne ptr %2633, null
-  br i1 %2634, label %2635, label %2640
+  store i64 321, ptr %488, align 8
+  br label %5692
 
-2635:                                             ; preds = %2627
-  %2636 = load ptr, ptr %484, align 8
-  %2637 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2636, i64 0
-  %2638 = load ptr, ptr %2637, align 8
-  %2639 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2638)
-  br label %2641
+2628:                                             ; preds = %705
+  store i64 322, ptr %488, align 8
+  br label %5692
 
-2640:                                             ; preds = %2627
-  br label %2641
+2629:                                             ; preds = %705
+  store i64 323, ptr %488, align 8
+  br label %5692
 
-2641:                                             ; preds = %2640, %2635
-  %2642 = phi ptr [ %2639, %2635 ], [ null, %2640 ]
-  %2643 = call ptr @zend_ast_create_3(i16 noundef zeroext 775, ptr noundef %2630, ptr noundef null, ptr noundef %2642)
+2630:                                             ; preds = %705
+  store i64 327, ptr %488, align 8
+  br label %5692
+
+2631:                                             ; preds = %705
+  %2632 = load ptr, ptr %484, align 8
+  %2633 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2632, i64 -2
+  %2634 = load ptr, ptr %2633, align 8
+  %2635 = load ptr, ptr %484, align 8
+  %2636 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2635, i64 0
+  %2637 = load ptr, ptr %2636, align 8
+  %2638 = call ptr @zend_ast_list_add(ptr noundef %2634, ptr noundef %2637)
+  store ptr %2638, ptr %488, align 8
+  br label %5692
+
+2639:                                             ; preds = %705
+  %2640 = load ptr, ptr %484, align 8
+  %2641 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2640, i64 0
+  %2642 = load ptr, ptr %2641, align 8
+  %2643 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 138, ptr noundef %2642)
   store ptr %2643, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2644:                                             ; preds = %705
   %2645 = load ptr, ptr %484, align 8
-  %2646 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2645, i64 -3
+  %2646 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2645, i64 -1
   %2647 = load ptr, ptr %2646, align 8
   %2648 = load ptr, ptr %484, align 8
-  %2649 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2648, i64 -1
+  %2649 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2648, i64 0
   %2650 = load ptr, ptr %2649, align 8
-  %2651 = load ptr, ptr %484, align 8
-  %2652 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2651, i64 0
-  %2653 = load ptr, ptr %2652, align 8
-  %2654 = icmp ne ptr %2653, null
-  br i1 %2654, label %2655, label %2660
+  %2651 = icmp ne ptr %2650, null
+  br i1 %2651, label %2652, label %2657
 
-2655:                                             ; preds = %2644
-  %2656 = load ptr, ptr %484, align 8
-  %2657 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2656, i64 0
-  %2658 = load ptr, ptr %2657, align 8
-  %2659 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2658)
-  br label %2661
+2652:                                             ; preds = %2644
+  %2653 = load ptr, ptr %484, align 8
+  %2654 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2653, i64 0
+  %2655 = load ptr, ptr %2654, align 8
+  %2656 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2655)
+  br label %2658
 
-2660:                                             ; preds = %2644
-  br label %2661
+2657:                                             ; preds = %2644
+  br label %2658
 
-2661:                                             ; preds = %2660, %2655
-  %2662 = phi ptr [ %2659, %2655 ], [ null, %2660 ]
-  %2663 = call ptr @zend_ast_create_3(i16 noundef zeroext 775, ptr noundef %2647, ptr noundef %2650, ptr noundef %2662)
-  store ptr %2663, ptr %488, align 8
-  br label %5656
+2658:                                             ; preds = %2657, %2652
+  %2659 = phi ptr [ %2656, %2652 ], [ null, %2657 ]
+  %2660 = call ptr @zend_ast_create_3(i16 noundef zeroext 775, ptr noundef %2647, ptr noundef null, ptr noundef %2659)
+  store ptr %2660, ptr %488, align 8
+  br label %5692
 
-2664:                                             ; preds = %705
+2661:                                             ; preds = %705
+  %2662 = load ptr, ptr %484, align 8
+  %2663 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2662, i64 -3
+  %2664 = load ptr, ptr %2663, align 8
   %2665 = load ptr, ptr %484, align 8
-  %2666 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2665, i64 -2
+  %2666 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2665, i64 -1
   %2667 = load ptr, ptr %2666, align 8
   %2668 = load ptr, ptr %484, align 8
   %2669 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2668, i64 0
   %2670 = load ptr, ptr %2669, align 8
-  %2671 = call ptr @zend_ast_list_add(ptr noundef %2667, ptr noundef %2670)
-  store ptr %2671, ptr %488, align 8
-  br label %5656
+  %2671 = icmp ne ptr %2670, null
+  br i1 %2671, label %2672, label %2677
 
-2672:                                             ; preds = %705
+2672:                                             ; preds = %2661
   %2673 = load ptr, ptr %484, align 8
   %2674 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2673, i64 0
   %2675 = load ptr, ptr %2674, align 8
-  %2676 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 140, ptr noundef %2675)
-  store ptr %2676, ptr %488, align 8
-  br label %5656
+  %2676 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2675)
+  br label %2678
 
-2677:                                             ; preds = %705
-  %2678 = load ptr, ptr %484, align 8
-  %2679 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2678, i64 -3
-  %2680 = load ptr, ptr %2679, align 8
-  %2681 = load ptr, ptr %484, align 8
-  %2682 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2681, i64 -1
-  %2683 = load ptr, ptr %2682, align 8
-  %2684 = load ptr, ptr %484, align 8
-  %2685 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2684, i64 0
-  %2686 = load ptr, ptr %2685, align 8
-  %2687 = icmp ne ptr %2686, null
-  br i1 %2687, label %2688, label %2693
+2677:                                             ; preds = %2661
+  br label %2678
 
-2688:                                             ; preds = %2677
-  %2689 = load ptr, ptr %484, align 8
-  %2690 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2689, i64 0
-  %2691 = load ptr, ptr %2690, align 8
-  %2692 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2691)
-  br label %2694
+2678:                                             ; preds = %2677, %2672
+  %2679 = phi ptr [ %2676, %2672 ], [ null, %2677 ]
+  %2680 = call ptr @zend_ast_create_3(i16 noundef zeroext 775, ptr noundef %2664, ptr noundef %2667, ptr noundef %2679)
+  store ptr %2680, ptr %488, align 8
+  br label %5692
 
-2693:                                             ; preds = %2677
-  br label %2694
+2681:                                             ; preds = %705
+  %2682 = load ptr, ptr %484, align 8
+  %2683 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2682, i64 -2
+  %2684 = load ptr, ptr %2683, align 8
+  %2685 = load ptr, ptr %484, align 8
+  %2686 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2685, i64 0
+  %2687 = load ptr, ptr %2686, align 8
+  %2688 = call ptr @zend_ast_list_add(ptr noundef %2684, ptr noundef %2687)
+  store ptr %2688, ptr %488, align 8
+  br label %5692
 
-2694:                                             ; preds = %2693, %2688
-  %2695 = phi ptr [ %2692, %2688 ], [ null, %2693 ]
-  %2696 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %2680, ptr noundef %2683, ptr noundef %2695)
-  store ptr %2696, ptr %488, align 8
-  br label %5656
+2689:                                             ; preds = %705
+  %2690 = load ptr, ptr %484, align 8
+  %2691 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2690, i64 0
+  %2692 = load ptr, ptr %2691, align 8
+  %2693 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 140, ptr noundef %2692)
+  store ptr %2693, ptr %488, align 8
+  br label %5692
 
-2697:                                             ; preds = %705
+2694:                                             ; preds = %705
+  %2695 = load ptr, ptr %484, align 8
+  %2696 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2695, i64 -3
+  %2697 = load ptr, ptr %2696, align 8
   %2698 = load ptr, ptr %484, align 8
-  %2699 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2698, i64 -3
+  %2699 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2698, i64 -1
   %2700 = load ptr, ptr %2699, align 8
-  %2701 = call i32 @zend_lex_tstring(ptr noundef %503, ptr noundef %2700)
-  %2702 = icmp eq i32 %2701, -1
-  br i1 %2702, label %2703, label %2704
+  %2701 = load ptr, ptr %484, align 8
+  %2702 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2701, i64 0
+  %2703 = load ptr, ptr %2702, align 8
+  %2704 = icmp ne ptr %2703, null
+  br i1 %2704, label %2705, label %2710
 
-2703:                                             ; preds = %2697
-  br label %5865
-
-2704:                                             ; preds = %2697
-  %2705 = call ptr @zend_ast_create_zval(ptr noundef %503)
+2705:                                             ; preds = %2694
   %2706 = load ptr, ptr %484, align 8
-  %2707 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2706, i64 -1
+  %2707 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2706, i64 0
   %2708 = load ptr, ptr %2707, align 8
-  %2709 = load ptr, ptr %484, align 8
-  %2710 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2709, i64 0
-  %2711 = load ptr, ptr %2710, align 8
-  %2712 = icmp ne ptr %2711, null
-  br i1 %2712, label %2713, label %2718
+  %2709 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2708)
+  br label %2711
 
-2713:                                             ; preds = %2704
-  %2714 = load ptr, ptr %484, align 8
-  %2715 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2714, i64 0
-  %2716 = load ptr, ptr %2715, align 8
-  %2717 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2716)
-  br label %2719
+2710:                                             ; preds = %2694
+  br label %2711
 
-2718:                                             ; preds = %2704
-  br label %2719
+2711:                                             ; preds = %2710, %2705
+  %2712 = phi ptr [ %2709, %2705 ], [ null, %2710 ]
+  %2713 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %2697, ptr noundef %2700, ptr noundef %2712)
+  store ptr %2713, ptr %488, align 8
+  br label %5692
 
-2719:                                             ; preds = %2718, %2713
-  %2720 = phi ptr [ %2717, %2713 ], [ null, %2718 ]
-  %2721 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %2705, ptr noundef %2708, ptr noundef %2720)
-  store ptr %2721, ptr %488, align 8
-  br label %5656
+2714:                                             ; preds = %705
+  %2715 = load ptr, ptr %484, align 8
+  %2716 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2715, i64 -3
+  %2717 = load ptr, ptr %2716, align 8
+  %2718 = call i32 @zend_lex_tstring(ptr noundef %503, ptr noundef %2717)
+  %2719 = icmp eq i32 %2718, -1
+  br i1 %2719, label %2720, label %2721
 
-2722:                                             ; preds = %705
+2720:                                             ; preds = %2714
+  br label %5901
+
+2721:                                             ; preds = %2714
+  %2722 = call ptr @zend_ast_create_zval(ptr noundef %503)
   %2723 = load ptr, ptr %484, align 8
-  %2724 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2723, i64 -3
+  %2724 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2723, i64 -1
   %2725 = load ptr, ptr %2724, align 8
   %2726 = load ptr, ptr %484, align 8
-  %2727 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2726, i64 -1
+  %2727 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2726, i64 0
   %2728 = load ptr, ptr %2727, align 8
-  %2729 = load ptr, ptr %484, align 8
-  %2730 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2729, i64 0
-  %2731 = load ptr, ptr %2730, align 8
-  %2732 = icmp ne ptr %2731, null
-  br i1 %2732, label %2733, label %2738
+  %2729 = icmp ne ptr %2728, null
+  br i1 %2729, label %2730, label %2735
 
-2733:                                             ; preds = %2722
-  %2734 = load ptr, ptr %484, align 8
-  %2735 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2734, i64 0
-  %2736 = load ptr, ptr %2735, align 8
-  %2737 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2736)
-  br label %2739
+2730:                                             ; preds = %2721
+  %2731 = load ptr, ptr %484, align 8
+  %2732 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2731, i64 0
+  %2733 = load ptr, ptr %2732, align 8
+  %2734 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2733)
+  br label %2736
 
-2738:                                             ; preds = %2722
-  br label %2739
+2735:                                             ; preds = %2721
+  br label %2736
 
-2739:                                             ; preds = %2738, %2733
-  %2740 = phi ptr [ %2737, %2733 ], [ null, %2738 ]
-  %2741 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %2725, ptr noundef %2728, ptr noundef %2740)
-  store ptr %2741, ptr %488, align 8
-  br label %5656
+2736:                                             ; preds = %2735, %2730
+  %2737 = phi ptr [ %2734, %2730 ], [ null, %2735 ]
+  %2738 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %2722, ptr noundef %2725, ptr noundef %2737)
+  store ptr %2738, ptr %488, align 8
+  br label %5692
 
-2742:                                             ; preds = %705
+2739:                                             ; preds = %705
+  %2740 = load ptr, ptr %484, align 8
+  %2741 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2740, i64 -3
+  %2742 = load ptr, ptr %2741, align 8
   %2743 = load ptr, ptr %484, align 8
-  %2744 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2743, i64 -2
+  %2744 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2743, i64 -1
   %2745 = load ptr, ptr %2744, align 8
   %2746 = load ptr, ptr %484, align 8
   %2747 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2746, i64 0
   %2748 = load ptr, ptr %2747, align 8
-  %2749 = call ptr @zend_ast_list_add(ptr noundef %2745, ptr noundef %2748)
-  store ptr %2749, ptr %488, align 8
-  br label %5656
+  %2749 = icmp ne ptr %2748, null
+  br i1 %2749, label %2750, label %2755
 
-2750:                                             ; preds = %705
+2750:                                             ; preds = %2739
   %2751 = load ptr, ptr %484, align 8
   %2752 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2751, i64 0
   %2753 = load ptr, ptr %2752, align 8
-  %2754 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %2753)
-  store ptr %2754, ptr %488, align 8
-  br label %5656
+  %2754 = call ptr @zend_ast_create_zval_from_str(ptr noundef %2753)
+  br label %2756
 
-2755:                                             ; preds = %705
-  %2756 = load ptr, ptr %484, align 8
-  %2757 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2756, i64 0
-  %2758 = load ptr, ptr %2757, align 8
-  %2759 = call ptr @zend_ast_create_1(i16 noundef zeroext 283, ptr noundef %2758)
-  store ptr %2759, ptr %488, align 8
-  br label %5656
+2755:                                             ; preds = %2739
+  br label %2756
 
-2760:                                             ; preds = %705
+2756:                                             ; preds = %2755, %2750
+  %2757 = phi ptr [ %2754, %2750 ], [ null, %2755 ]
+  %2758 = call ptr @zend_ast_create_3(i16 noundef zeroext 776, ptr noundef %2742, ptr noundef %2745, ptr noundef %2757)
+  store ptr %2758, ptr %488, align 8
+  br label %5692
+
+2759:                                             ; preds = %705
+  %2760 = load ptr, ptr %484, align 8
+  %2761 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2760, i64 -2
+  %2762 = load ptr, ptr %2761, align 8
+  %2763 = load ptr, ptr %484, align 8
+  %2764 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2763, i64 0
+  %2765 = load ptr, ptr %2764, align 8
+  %2766 = call ptr @zend_ast_list_add(ptr noundef %2762, ptr noundef %2765)
+  store ptr %2766, ptr %488, align 8
+  br label %5692
+
+2767:                                             ; preds = %705
+  %2768 = load ptr, ptr %484, align 8
+  %2769 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2768, i64 0
+  %2770 = load ptr, ptr %2769, align 8
+  %2771 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 132, ptr noundef %2770)
+  store ptr %2771, ptr %488, align 8
+  br label %5692
+
+2772:                                             ; preds = %705
+  %2773 = load ptr, ptr %484, align 8
+  %2774 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2773, i64 0
+  %2775 = load ptr, ptr %2774, align 8
+  %2776 = call ptr @zend_ast_create_1(i16 noundef zeroext 283, ptr noundef %2775)
+  store ptr %2776, ptr %488, align 8
+  br label %5692
+
+2777:                                             ; preds = %705
   store ptr null, ptr %488, align 8
-  br label %5656
-
-2761:                                             ; preds = %705
-  %2762 = load ptr, ptr %484, align 8
-  %2763 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2762, i64 0
-  %2764 = load ptr, ptr %2763, align 8
-  store ptr %2764, ptr %488, align 8
-  br label %5656
-
-2765:                                             ; preds = %705
-  %2766 = load ptr, ptr %484, align 8
-  %2767 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2766, i64 -2
-  %2768 = load ptr, ptr %2767, align 8
-  %2769 = load ptr, ptr %484, align 8
-  %2770 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2769, i64 0
-  %2771 = load ptr, ptr %2770, align 8
-  %2772 = call ptr @zend_ast_list_add(ptr noundef %2768, ptr noundef %2771)
-  store ptr %2772, ptr %488, align 8
-  br label %5656
-
-2773:                                             ; preds = %705
-  %2774 = load ptr, ptr %484, align 8
-  %2775 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2774, i64 0
-  %2776 = load ptr, ptr %2775, align 8
-  %2777 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 131, ptr noundef %2776)
-  store ptr %2777, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2778:                                             ; preds = %705
-  %2779 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %2780 = sext i32 %2779 to i64
-  store i64 %2780, ptr %488, align 8
-  br label %5656
+  %2779 = load ptr, ptr %484, align 8
+  %2780 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2779, i64 0
+  %2781 = load ptr, ptr %2780, align 8
+  store ptr %2781, ptr %488, align 8
+  br label %5692
 
-2781:                                             ; preds = %705
-  %2782 = load ptr, ptr %484, align 8
-  %2783 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2782, i64 -9
-  %2784 = load i64, ptr %2783, align 8
-  %2785 = or i64 4, %2784
-  %2786 = trunc i64 %2785 to i32
-  %2787 = load ptr, ptr %484, align 8
-  %2788 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2787, i64 -7
-  %2789 = load i64, ptr %2788, align 8
-  %2790 = trunc i64 %2789 to i32
+2782:                                             ; preds = %705
+  %2783 = load ptr, ptr %484, align 8
+  %2784 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2783, i64 -2
+  %2785 = load ptr, ptr %2784, align 8
+  %2786 = load ptr, ptr %484, align 8
+  %2787 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2786, i64 0
+  %2788 = load ptr, ptr %2787, align 8
+  %2789 = call ptr @zend_ast_list_add(ptr noundef %2785, ptr noundef %2788)
+  store ptr %2789, ptr %488, align 8
+  br label %5692
+
+2790:                                             ; preds = %705
   %2791 = load ptr, ptr %484, align 8
-  %2792 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2791, i64 -3
+  %2792 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2791, i64 0
   %2793 = load ptr, ptr %2792, align 8
-  %2794 = load ptr, ptr %484, align 8
-  %2795 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2794, i64 -5
-  %2796 = load ptr, ptr %2795, align 8
-  %2797 = load ptr, ptr %484, align 8
-  %2798 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2797, i64 -4
-  %2799 = load ptr, ptr %2798, align 8
+  %2794 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 131, ptr noundef %2793)
+  store ptr %2794, ptr %488, align 8
+  br label %5692
+
+2795:                                             ; preds = %705
+  %2796 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %2797 = load i32, ptr %2796, align 8
+  %2798 = sext i32 %2797 to i64
+  store i64 %2798, ptr %488, align 8
+  br label %5692
+
+2799:                                             ; preds = %705
   %2800 = load ptr, ptr %484, align 8
-  %2801 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2800, i64 -1
-  %2802 = load ptr, ptr %2801, align 8
-  %2803 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef %2786, i32 noundef %2790, ptr noundef %2793, ptr noundef null, ptr noundef %2796, ptr noundef %2799, ptr noundef %2802, ptr noundef null, ptr noundef null)
-  store ptr %2803, ptr %504, align 8
-  %2804 = load ptr, ptr %504, align 8
+  %2801 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2800, i64 -9
+  %2802 = load i64, ptr %2801, align 8
+  %2803 = or i64 4, %2802
+  %2804 = trunc i64 %2803 to i32
   %2805 = load ptr, ptr %484, align 8
-  %2806 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2805, i64 -6
-  %2807 = load ptr, ptr %2806, align 8
-  %2808 = call ptr @zend_ast_create_2(i16 noundef zeroext 527, ptr noundef %2804, ptr noundef %2807)
-  store ptr %2808, ptr %488, align 8
-  br label %5656
-
-2809:                                             ; preds = %705
-  %2810 = load ptr, ptr %484, align 8
-  %2811 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2810, i64 -1
-  %2812 = load ptr, ptr %2811, align 8
-  %2813 = load ptr, ptr %484, align 8
-  %2814 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2813, i64 0
-  %2815 = load ptr, ptr %2814, align 8
-  %2816 = call ptr @zend_ast_create_2(i16 noundef zeroext 527, ptr noundef %2812, ptr noundef %2815)
-  store ptr %2816, ptr %488, align 8
-  br label %5656
-
-2817:                                             ; preds = %705
+  %2806 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2805, i64 -7
+  %2807 = load i64, ptr %2806, align 8
+  %2808 = trunc i64 %2807 to i32
+  %2809 = load ptr, ptr %484, align 8
+  %2810 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2809, i64 -3
+  %2811 = load ptr, ptr %2810, align 8
+  %2812 = load ptr, ptr %484, align 8
+  %2813 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2812, i64 -5
+  %2814 = load ptr, ptr %2813, align 8
+  %2815 = load ptr, ptr %484, align 8
+  %2816 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2815, i64 -4
+  %2817 = load ptr, ptr %2816, align 8
   %2818 = load ptr, ptr %484, align 8
-  %2819 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2818, i64 0
+  %2819 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2818, i64 -1
   %2820 = load ptr, ptr %2819, align 8
-  store ptr %2820, ptr %488, align 8
-  br label %5656
+  %2821 = call ptr @zend_ast_create_decl(i16 noundef zeroext 70, i32 noundef %2804, i32 noundef %2808, ptr noundef %2811, ptr noundef null, ptr noundef %2814, ptr noundef %2817, ptr noundef %2820, ptr noundef null, ptr noundef null)
+  store ptr %2821, ptr %504, align 8
+  %2822 = load ptr, ptr %504, align 8
+  %2823 = load ptr, ptr %484, align 8
+  %2824 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2823, i64 -6
+  %2825 = load ptr, ptr %2824, align 8
+  %2826 = call ptr @zend_ast_create_2(i16 noundef zeroext 527, ptr noundef %2822, ptr noundef %2825)
+  store ptr %2826, ptr %488, align 8
+  br label %5692
 
-2821:                                             ; preds = %705
-  %2822 = load ptr, ptr %484, align 8
-  %2823 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2822, i64 0
-  %2824 = load ptr, ptr %2823, align 8
-  %2825 = getelementptr inbounds %struct._zend_ast, ptr %2824, i32 0, i32 3
-  %2826 = getelementptr inbounds [1 x ptr], ptr %2825, i64 0, i64 0
-  %2827 = load ptr, ptr %2826, align 8
+2827:                                             ; preds = %705
   %2828 = load ptr, ptr %484, align 8
   %2829 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2828, i64 -1
   %2830 = load ptr, ptr %2829, align 8
-  %2831 = call ptr @zend_ast_with_attributes(ptr noundef %2827, ptr noundef %2830)
-  %2832 = load ptr, ptr %484, align 8
-  %2833 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2832, i64 0
-  %2834 = load ptr, ptr %2833, align 8
+  %2831 = load ptr, ptr %484, align 8
+  %2832 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2831, i64 0
+  %2833 = load ptr, ptr %2832, align 8
+  %2834 = call ptr @zend_ast_create_2(i16 noundef zeroext 527, ptr noundef %2830, ptr noundef %2833)
   store ptr %2834, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2835:                                             ; preds = %705
   %2836 = load ptr, ptr %484, align 8
   %2837 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2836, i64 0
   %2838 = load ptr, ptr %2837, align 8
   store ptr %2838, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 2839:                                             ; preds = %705
   %2840 = load ptr, ptr %484, align 8
-  %2841 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2840, i64 -3
+  %2841 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2840, i64 0
   %2842 = load ptr, ptr %2841, align 8
-  %2843 = getelementptr inbounds %struct._zend_ast, ptr %2842, i32 0, i32 1
-  store i16 1, ptr %2843, align 2
-  %2844 = load ptr, ptr %484, align 8
-  %2845 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2844, i64 -3
-  %2846 = load ptr, ptr %2845, align 8
-  %2847 = load ptr, ptr %484, align 8
-  %2848 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2847, i64 0
-  %2849 = load ptr, ptr %2848, align 8
-  %2850 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %2846, ptr noundef %2849)
-  store ptr %2850, ptr %488, align 8
-  br label %5656
+  %2843 = getelementptr inbounds %struct._zend_ast, ptr %2842, i32 0, i32 3
+  %2844 = getelementptr inbounds [1 x ptr], ptr %2843, i64 0, i64 0
+  %2845 = load ptr, ptr %2844, align 8
+  %2846 = load ptr, ptr %484, align 8
+  %2847 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2846, i64 -1
+  %2848 = load ptr, ptr %2847, align 8
+  %2849 = call ptr @zend_ast_with_attributes(ptr noundef %2845, ptr noundef %2848)
+  %2850 = load ptr, ptr %484, align 8
+  %2851 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2850, i64 0
+  %2852 = load ptr, ptr %2851, align 8
+  store ptr %2852, ptr %488, align 8
+  br label %5692
 
-2851:                                             ; preds = %705
-  %2852 = load ptr, ptr %484, align 8
-  %2853 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2852, i64 -3
-  %2854 = load ptr, ptr %2853, align 8
-  %2855 = getelementptr inbounds %struct._zend_ast, ptr %2854, i32 0, i32 1
-  store i16 3, ptr %2855, align 2
-  %2856 = load ptr, ptr %484, align 8
-  %2857 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2856, i64 -3
-  %2858 = load ptr, ptr %2857, align 8
-  %2859 = load ptr, ptr %484, align 8
-  %2860 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2859, i64 0
-  %2861 = load ptr, ptr %2860, align 8
-  %2862 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %2858, ptr noundef %2861)
-  store ptr %2862, ptr %488, align 8
-  br label %5656
+2853:                                             ; preds = %705
+  %2854 = load ptr, ptr %484, align 8
+  %2855 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2854, i64 0
+  %2856 = load ptr, ptr %2855, align 8
+  store ptr %2856, ptr %488, align 8
+  br label %5692
 
-2863:                                             ; preds = %705
-  %2864 = load ptr, ptr %484, align 8
-  %2865 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2864, i64 -2
-  %2866 = load ptr, ptr %2865, align 8
-  %2867 = load ptr, ptr %484, align 8
-  %2868 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2867, i64 0
-  %2869 = load ptr, ptr %2868, align 8
-  %2870 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %2866, ptr noundef %2869)
-  store ptr %2870, ptr %488, align 8
-  br label %5656
+2857:                                             ; preds = %705
+  %2858 = load ptr, ptr %484, align 8
+  %2859 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2858, i64 -3
+  %2860 = load ptr, ptr %2859, align 8
+  %2861 = getelementptr inbounds %struct._zend_ast, ptr %2860, i32 0, i32 1
+  store i16 1, ptr %2861, align 2
+  %2862 = load ptr, ptr %484, align 8
+  %2863 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2862, i64 -3
+  %2864 = load ptr, ptr %2863, align 8
+  %2865 = load ptr, ptr %484, align 8
+  %2866 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2865, i64 0
+  %2867 = load ptr, ptr %2866, align 8
+  %2868 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %2864, ptr noundef %2867)
+  store ptr %2868, ptr %488, align 8
+  br label %5692
 
-2871:                                             ; preds = %705
-  %2872 = load ptr, ptr %484, align 8
-  %2873 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2872, i64 -3
-  %2874 = load ptr, ptr %2873, align 8
-  %2875 = load ptr, ptr %484, align 8
-  %2876 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2875, i64 0
-  %2877 = load ptr, ptr %2876, align 8
-  %2878 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef %2874, ptr noundef %2877)
-  store ptr %2878, ptr %488, align 8
-  br label %5656
+2869:                                             ; preds = %705
+  %2870 = load ptr, ptr %484, align 8
+  %2871 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2870, i64 -3
+  %2872 = load ptr, ptr %2871, align 8
+  %2873 = getelementptr inbounds %struct._zend_ast, ptr %2872, i32 0, i32 1
+  store i16 3, ptr %2873, align 2
+  %2874 = load ptr, ptr %484, align 8
+  %2875 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2874, i64 -3
+  %2876 = load ptr, ptr %2875, align 8
+  %2877 = load ptr, ptr %484, align 8
+  %2878 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2877, i64 0
+  %2879 = load ptr, ptr %2878, align 8
+  %2880 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %2876, ptr noundef %2879)
+  store ptr %2880, ptr %488, align 8
+  br label %5692
 
-2879:                                             ; preds = %705
-  %2880 = load ptr, ptr %484, align 8
-  %2881 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2880, i64 0
-  %2882 = load ptr, ptr %2881, align 8
-  %2883 = call ptr @zend_ast_create_1(i16 noundef zeroext 266, ptr noundef %2882)
-  store ptr %2883, ptr %488, align 8
-  br label %5656
-
-2884:                                             ; preds = %705
+2881:                                             ; preds = %705
+  %2882 = load ptr, ptr %484, align 8
+  %2883 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2882, i64 -2
+  %2884 = load ptr, ptr %2883, align 8
   %2885 = load ptr, ptr %484, align 8
-  %2886 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2885, i64 -2
+  %2886 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2885, i64 0
   %2887 = load ptr, ptr %2886, align 8
-  %2888 = load ptr, ptr %484, align 8
-  %2889 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2888, i64 0
-  %2890 = load ptr, ptr %2889, align 8
+  %2888 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef %2884, ptr noundef %2887)
+  store ptr %2888, ptr %488, align 8
+  br label %5692
+
+2889:                                             ; preds = %705
+  %2890 = load ptr, ptr %484, align 8
+  %2891 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2890, i64 -3
+  %2892 = load ptr, ptr %2891, align 8
+  %2893 = load ptr, ptr %484, align 8
+  %2894 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2893, i64 0
+  %2895 = load ptr, ptr %2894, align 8
+  %2896 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef %2892, ptr noundef %2895)
+  store ptr %2896, ptr %488, align 8
+  br label %5692
+
+2897:                                             ; preds = %705
+  %2898 = load ptr, ptr %484, align 8
+  %2899 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2898, i64 0
+  %2900 = load ptr, ptr %2899, align 8
+  %2901 = call ptr @zend_ast_create_1(i16 noundef zeroext 266, ptr noundef %2900)
+  store ptr %2901, ptr %488, align 8
+  br label %5692
+
+2902:                                             ; preds = %705
+  %2903 = load ptr, ptr %484, align 8
+  %2904 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2903, i64 -2
+  %2905 = load ptr, ptr %2904, align 8
+  %2906 = load ptr, ptr %484, align 8
+  %2907 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2906, i64 0
+  %2908 = load ptr, ptr %2907, align 8
   store i32 1, ptr %278, align 4
-  store ptr %2887, ptr %279, align 8
-  store ptr %2890, ptr %280, align 8
-  %2891 = load i32, ptr %278, align 4
-  %2892 = trunc i32 %2891 to i16
-  %2893 = load ptr, ptr %279, align 8
-  %2894 = load ptr, ptr %280, align 8
+  store ptr %2905, ptr %279, align 8
+  store ptr %2908, ptr %280, align 8
+  %2909 = load i32, ptr %278, align 4
+  %2910 = trunc i32 %2909 to i16
+  %2911 = load ptr, ptr %279, align 8
+  %2912 = load ptr, ptr %280, align 8
   store i16 520, ptr %273, align 2
-  store i16 %2892, ptr %274, align 2
-  store ptr %2893, ptr %275, align 8
-  store ptr %2894, ptr %276, align 8
-  %2895 = load i16, ptr %273, align 2
-  %2896 = load ptr, ptr %275, align 8
-  %2897 = load ptr, ptr %276, align 8
-  %2898 = call ptr @zend_ast_create_2(i16 noundef zeroext %2895, ptr noundef %2896, ptr noundef %2897) #10
-  store ptr %2898, ptr %277, align 8
-  %2899 = load i16, ptr %274, align 2
-  %2900 = load ptr, ptr %277, align 8
-  %2901 = getelementptr inbounds %struct._zend_ast, ptr %2900, i32 0, i32 1
-  store i16 %2899, ptr %2901, align 2
-  %2902 = load ptr, ptr %277, align 8
-  store ptr %2902, ptr %488, align 8
-  br label %5656
+  store i16 %2910, ptr %274, align 2
+  store ptr %2911, ptr %275, align 8
+  store ptr %2912, ptr %276, align 8
+  %2913 = load i16, ptr %273, align 2
+  %2914 = load ptr, ptr %275, align 8
+  %2915 = load ptr, ptr %276, align 8
+  %2916 = call ptr @zend_ast_create_2(i16 noundef zeroext %2913, ptr noundef %2914, ptr noundef %2915) #10
+  store ptr %2916, ptr %277, align 8
+  %2917 = load i16, ptr %274, align 2
+  %2918 = load ptr, ptr %277, align 8
+  %2919 = getelementptr inbounds %struct._zend_ast, ptr %2918, i32 0, i32 1
+  store i16 %2917, ptr %2919, align 2
+  %2920 = load ptr, ptr %277, align 8
+  store ptr %2920, ptr %488, align 8
+  br label %5692
 
-2903:                                             ; preds = %705
-  %2904 = load ptr, ptr %484, align 8
-  %2905 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2904, i64 -2
-  %2906 = load ptr, ptr %2905, align 8
-  %2907 = load ptr, ptr %484, align 8
-  %2908 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2907, i64 0
-  %2909 = load ptr, ptr %2908, align 8
+2921:                                             ; preds = %705
+  %2922 = load ptr, ptr %484, align 8
+  %2923 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2922, i64 -2
+  %2924 = load ptr, ptr %2923, align 8
+  %2925 = load ptr, ptr %484, align 8
+  %2926 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2925, i64 0
+  %2927 = load ptr, ptr %2926, align 8
   store i32 2, ptr %286, align 4
-  store ptr %2906, ptr %287, align 8
-  store ptr %2909, ptr %288, align 8
-  %2910 = load i32, ptr %286, align 4
-  %2911 = trunc i32 %2910 to i16
-  %2912 = load ptr, ptr %287, align 8
-  %2913 = load ptr, ptr %288, align 8
+  store ptr %2924, ptr %287, align 8
+  store ptr %2927, ptr %288, align 8
+  %2928 = load i32, ptr %286, align 4
+  %2929 = trunc i32 %2928 to i16
+  %2930 = load ptr, ptr %287, align 8
+  %2931 = load ptr, ptr %288, align 8
   store i16 520, ptr %281, align 2
-  store i16 %2911, ptr %282, align 2
-  store ptr %2912, ptr %283, align 8
-  store ptr %2913, ptr %284, align 8
-  %2914 = load i16, ptr %281, align 2
-  %2915 = load ptr, ptr %283, align 8
-  %2916 = load ptr, ptr %284, align 8
-  %2917 = call ptr @zend_ast_create_2(i16 noundef zeroext %2914, ptr noundef %2915, ptr noundef %2916) #10
-  store ptr %2917, ptr %285, align 8
-  %2918 = load i16, ptr %282, align 2
-  %2919 = load ptr, ptr %285, align 8
-  %2920 = getelementptr inbounds %struct._zend_ast, ptr %2919, i32 0, i32 1
-  store i16 %2918, ptr %2920, align 2
-  %2921 = load ptr, ptr %285, align 8
-  store ptr %2921, ptr %488, align 8
-  br label %5656
+  store i16 %2929, ptr %282, align 2
+  store ptr %2930, ptr %283, align 8
+  store ptr %2931, ptr %284, align 8
+  %2932 = load i16, ptr %281, align 2
+  %2933 = load ptr, ptr %283, align 8
+  %2934 = load ptr, ptr %284, align 8
+  %2935 = call ptr @zend_ast_create_2(i16 noundef zeroext %2932, ptr noundef %2933, ptr noundef %2934) #10
+  store ptr %2935, ptr %285, align 8
+  %2936 = load i16, ptr %282, align 2
+  %2937 = load ptr, ptr %285, align 8
+  %2938 = getelementptr inbounds %struct._zend_ast, ptr %2937, i32 0, i32 1
+  store i16 %2936, ptr %2938, align 2
+  %2939 = load ptr, ptr %285, align 8
+  store ptr %2939, ptr %488, align 8
+  br label %5692
 
-2922:                                             ; preds = %705
-  %2923 = load ptr, ptr %484, align 8
-  %2924 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2923, i64 -2
-  %2925 = load ptr, ptr %2924, align 8
-  %2926 = load ptr, ptr %484, align 8
-  %2927 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2926, i64 0
-  %2928 = load ptr, ptr %2927, align 8
+2940:                                             ; preds = %705
+  %2941 = load ptr, ptr %484, align 8
+  %2942 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2941, i64 -2
+  %2943 = load ptr, ptr %2942, align 8
+  %2944 = load ptr, ptr %484, align 8
+  %2945 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2944, i64 0
+  %2946 = load ptr, ptr %2945, align 8
   store i32 3, ptr %294, align 4
-  store ptr %2925, ptr %295, align 8
-  store ptr %2928, ptr %296, align 8
-  %2929 = load i32, ptr %294, align 4
-  %2930 = trunc i32 %2929 to i16
-  %2931 = load ptr, ptr %295, align 8
-  %2932 = load ptr, ptr %296, align 8
+  store ptr %2943, ptr %295, align 8
+  store ptr %2946, ptr %296, align 8
+  %2947 = load i32, ptr %294, align 4
+  %2948 = trunc i32 %2947 to i16
+  %2949 = load ptr, ptr %295, align 8
+  %2950 = load ptr, ptr %296, align 8
   store i16 520, ptr %289, align 2
-  store i16 %2930, ptr %290, align 2
-  store ptr %2931, ptr %291, align 8
-  store ptr %2932, ptr %292, align 8
-  %2933 = load i16, ptr %289, align 2
-  %2934 = load ptr, ptr %291, align 8
-  %2935 = load ptr, ptr %292, align 8
-  %2936 = call ptr @zend_ast_create_2(i16 noundef zeroext %2933, ptr noundef %2934, ptr noundef %2935) #10
-  store ptr %2936, ptr %293, align 8
-  %2937 = load i16, ptr %290, align 2
-  %2938 = load ptr, ptr %293, align 8
-  %2939 = getelementptr inbounds %struct._zend_ast, ptr %2938, i32 0, i32 1
-  store i16 %2937, ptr %2939, align 2
-  %2940 = load ptr, ptr %293, align 8
-  store ptr %2940, ptr %488, align 8
-  br label %5656
+  store i16 %2948, ptr %290, align 2
+  store ptr %2949, ptr %291, align 8
+  store ptr %2950, ptr %292, align 8
+  %2951 = load i16, ptr %289, align 2
+  %2952 = load ptr, ptr %291, align 8
+  %2953 = load ptr, ptr %292, align 8
+  %2954 = call ptr @zend_ast_create_2(i16 noundef zeroext %2951, ptr noundef %2952, ptr noundef %2953) #10
+  store ptr %2954, ptr %293, align 8
+  %2955 = load i16, ptr %290, align 2
+  %2956 = load ptr, ptr %293, align 8
+  %2957 = getelementptr inbounds %struct._zend_ast, ptr %2956, i32 0, i32 1
+  store i16 %2955, ptr %2957, align 2
+  %2958 = load ptr, ptr %293, align 8
+  store ptr %2958, ptr %488, align 8
+  br label %5692
 
-2941:                                             ; preds = %705
-  %2942 = load ptr, ptr %484, align 8
-  %2943 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2942, i64 -2
-  %2944 = load ptr, ptr %2943, align 8
-  %2945 = load ptr, ptr %484, align 8
-  %2946 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2945, i64 0
-  %2947 = load ptr, ptr %2946, align 8
+2959:                                             ; preds = %705
+  %2960 = load ptr, ptr %484, align 8
+  %2961 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2960, i64 -2
+  %2962 = load ptr, ptr %2961, align 8
+  %2963 = load ptr, ptr %484, align 8
+  %2964 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2963, i64 0
+  %2965 = load ptr, ptr %2964, align 8
   store i32 12, ptr %302, align 4
-  store ptr %2944, ptr %303, align 8
-  store ptr %2947, ptr %304, align 8
-  %2948 = load i32, ptr %302, align 4
-  %2949 = trunc i32 %2948 to i16
-  %2950 = load ptr, ptr %303, align 8
-  %2951 = load ptr, ptr %304, align 8
+  store ptr %2962, ptr %303, align 8
+  store ptr %2965, ptr %304, align 8
+  %2966 = load i32, ptr %302, align 4
+  %2967 = trunc i32 %2966 to i16
+  %2968 = load ptr, ptr %303, align 8
+  %2969 = load ptr, ptr %304, align 8
   store i16 520, ptr %297, align 2
-  store i16 %2949, ptr %298, align 2
-  store ptr %2950, ptr %299, align 8
-  store ptr %2951, ptr %300, align 8
-  %2952 = load i16, ptr %297, align 2
-  %2953 = load ptr, ptr %299, align 8
-  %2954 = load ptr, ptr %300, align 8
-  %2955 = call ptr @zend_ast_create_2(i16 noundef zeroext %2952, ptr noundef %2953, ptr noundef %2954) #10
-  store ptr %2955, ptr %301, align 8
-  %2956 = load i16, ptr %298, align 2
-  %2957 = load ptr, ptr %301, align 8
-  %2958 = getelementptr inbounds %struct._zend_ast, ptr %2957, i32 0, i32 1
-  store i16 %2956, ptr %2958, align 2
-  %2959 = load ptr, ptr %301, align 8
-  store ptr %2959, ptr %488, align 8
-  br label %5656
+  store i16 %2967, ptr %298, align 2
+  store ptr %2968, ptr %299, align 8
+  store ptr %2969, ptr %300, align 8
+  %2970 = load i16, ptr %297, align 2
+  %2971 = load ptr, ptr %299, align 8
+  %2972 = load ptr, ptr %300, align 8
+  %2973 = call ptr @zend_ast_create_2(i16 noundef zeroext %2970, ptr noundef %2971, ptr noundef %2972) #10
+  store ptr %2973, ptr %301, align 8
+  %2974 = load i16, ptr %298, align 2
+  %2975 = load ptr, ptr %301, align 8
+  %2976 = getelementptr inbounds %struct._zend_ast, ptr %2975, i32 0, i32 1
+  store i16 %2974, ptr %2976, align 2
+  %2977 = load ptr, ptr %301, align 8
+  store ptr %2977, ptr %488, align 8
+  br label %5692
 
-2960:                                             ; preds = %705
-  %2961 = load ptr, ptr %484, align 8
-  %2962 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2961, i64 -2
-  %2963 = load ptr, ptr %2962, align 8
-  %2964 = load ptr, ptr %484, align 8
-  %2965 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2964, i64 0
-  %2966 = load ptr, ptr %2965, align 8
+2978:                                             ; preds = %705
+  %2979 = load ptr, ptr %484, align 8
+  %2980 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2979, i64 -2
+  %2981 = load ptr, ptr %2980, align 8
+  %2982 = load ptr, ptr %484, align 8
+  %2983 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2982, i64 0
+  %2984 = load ptr, ptr %2983, align 8
   store i32 4, ptr %310, align 4
-  store ptr %2963, ptr %311, align 8
-  store ptr %2966, ptr %312, align 8
-  %2967 = load i32, ptr %310, align 4
-  %2968 = trunc i32 %2967 to i16
-  %2969 = load ptr, ptr %311, align 8
-  %2970 = load ptr, ptr %312, align 8
+  store ptr %2981, ptr %311, align 8
+  store ptr %2984, ptr %312, align 8
+  %2985 = load i32, ptr %310, align 4
+  %2986 = trunc i32 %2985 to i16
+  %2987 = load ptr, ptr %311, align 8
+  %2988 = load ptr, ptr %312, align 8
   store i16 520, ptr %305, align 2
-  store i16 %2968, ptr %306, align 2
-  store ptr %2969, ptr %307, align 8
-  store ptr %2970, ptr %308, align 8
-  %2971 = load i16, ptr %305, align 2
-  %2972 = load ptr, ptr %307, align 8
-  %2973 = load ptr, ptr %308, align 8
-  %2974 = call ptr @zend_ast_create_2(i16 noundef zeroext %2971, ptr noundef %2972, ptr noundef %2973) #10
-  store ptr %2974, ptr %309, align 8
-  %2975 = load i16, ptr %306, align 2
-  %2976 = load ptr, ptr %309, align 8
-  %2977 = getelementptr inbounds %struct._zend_ast, ptr %2976, i32 0, i32 1
-  store i16 %2975, ptr %2977, align 2
-  %2978 = load ptr, ptr %309, align 8
-  store ptr %2978, ptr %488, align 8
-  br label %5656
+  store i16 %2986, ptr %306, align 2
+  store ptr %2987, ptr %307, align 8
+  store ptr %2988, ptr %308, align 8
+  %2989 = load i16, ptr %305, align 2
+  %2990 = load ptr, ptr %307, align 8
+  %2991 = load ptr, ptr %308, align 8
+  %2992 = call ptr @zend_ast_create_2(i16 noundef zeroext %2989, ptr noundef %2990, ptr noundef %2991) #10
+  store ptr %2992, ptr %309, align 8
+  %2993 = load i16, ptr %306, align 2
+  %2994 = load ptr, ptr %309, align 8
+  %2995 = getelementptr inbounds %struct._zend_ast, ptr %2994, i32 0, i32 1
+  store i16 %2993, ptr %2995, align 2
+  %2996 = load ptr, ptr %309, align 8
+  store ptr %2996, ptr %488, align 8
+  br label %5692
 
-2979:                                             ; preds = %705
-  %2980 = load ptr, ptr %484, align 8
-  %2981 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2980, i64 -2
-  %2982 = load ptr, ptr %2981, align 8
-  %2983 = load ptr, ptr %484, align 8
-  %2984 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2983, i64 0
-  %2985 = load ptr, ptr %2984, align 8
+2997:                                             ; preds = %705
+  %2998 = load ptr, ptr %484, align 8
+  %2999 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2998, i64 -2
+  %3000 = load ptr, ptr %2999, align 8
+  %3001 = load ptr, ptr %484, align 8
+  %3002 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3001, i64 0
+  %3003 = load ptr, ptr %3002, align 8
   store i32 8, ptr %318, align 4
-  store ptr %2982, ptr %319, align 8
-  store ptr %2985, ptr %320, align 8
-  %2986 = load i32, ptr %318, align 4
-  %2987 = trunc i32 %2986 to i16
-  %2988 = load ptr, ptr %319, align 8
-  %2989 = load ptr, ptr %320, align 8
+  store ptr %3000, ptr %319, align 8
+  store ptr %3003, ptr %320, align 8
+  %3004 = load i32, ptr %318, align 4
+  %3005 = trunc i32 %3004 to i16
+  %3006 = load ptr, ptr %319, align 8
+  %3007 = load ptr, ptr %320, align 8
   store i16 520, ptr %313, align 2
-  store i16 %2987, ptr %314, align 2
-  store ptr %2988, ptr %315, align 8
-  store ptr %2989, ptr %316, align 8
-  %2990 = load i16, ptr %313, align 2
-  %2991 = load ptr, ptr %315, align 8
-  %2992 = load ptr, ptr %316, align 8
-  %2993 = call ptr @zend_ast_create_2(i16 noundef zeroext %2990, ptr noundef %2991, ptr noundef %2992) #10
-  store ptr %2993, ptr %317, align 8
-  %2994 = load i16, ptr %314, align 2
-  %2995 = load ptr, ptr %317, align 8
-  %2996 = getelementptr inbounds %struct._zend_ast, ptr %2995, i32 0, i32 1
-  store i16 %2994, ptr %2996, align 2
-  %2997 = load ptr, ptr %317, align 8
-  store ptr %2997, ptr %488, align 8
-  br label %5656
+  store i16 %3005, ptr %314, align 2
+  store ptr %3006, ptr %315, align 8
+  store ptr %3007, ptr %316, align 8
+  %3008 = load i16, ptr %313, align 2
+  %3009 = load ptr, ptr %315, align 8
+  %3010 = load ptr, ptr %316, align 8
+  %3011 = call ptr @zend_ast_create_2(i16 noundef zeroext %3008, ptr noundef %3009, ptr noundef %3010) #10
+  store ptr %3011, ptr %317, align 8
+  %3012 = load i16, ptr %314, align 2
+  %3013 = load ptr, ptr %317, align 8
+  %3014 = getelementptr inbounds %struct._zend_ast, ptr %3013, i32 0, i32 1
+  store i16 %3012, ptr %3014, align 2
+  %3015 = load ptr, ptr %317, align 8
+  store ptr %3015, ptr %488, align 8
+  br label %5692
 
-2998:                                             ; preds = %705
-  %2999 = load ptr, ptr %484, align 8
-  %3000 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %2999, i64 -2
-  %3001 = load ptr, ptr %3000, align 8
-  %3002 = load ptr, ptr %484, align 8
-  %3003 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3002, i64 0
-  %3004 = load ptr, ptr %3003, align 8
+3016:                                             ; preds = %705
+  %3017 = load ptr, ptr %484, align 8
+  %3018 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3017, i64 -2
+  %3019 = load ptr, ptr %3018, align 8
+  %3020 = load ptr, ptr %484, align 8
+  %3021 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3020, i64 0
+  %3022 = load ptr, ptr %3021, align 8
   store i32 5, ptr %326, align 4
-  store ptr %3001, ptr %327, align 8
-  store ptr %3004, ptr %328, align 8
-  %3005 = load i32, ptr %326, align 4
-  %3006 = trunc i32 %3005 to i16
-  %3007 = load ptr, ptr %327, align 8
-  %3008 = load ptr, ptr %328, align 8
+  store ptr %3019, ptr %327, align 8
+  store ptr %3022, ptr %328, align 8
+  %3023 = load i32, ptr %326, align 4
+  %3024 = trunc i32 %3023 to i16
+  %3025 = load ptr, ptr %327, align 8
+  %3026 = load ptr, ptr %328, align 8
   store i16 520, ptr %321, align 2
-  store i16 %3006, ptr %322, align 2
-  store ptr %3007, ptr %323, align 8
-  store ptr %3008, ptr %324, align 8
-  %3009 = load i16, ptr %321, align 2
-  %3010 = load ptr, ptr %323, align 8
-  %3011 = load ptr, ptr %324, align 8
-  %3012 = call ptr @zend_ast_create_2(i16 noundef zeroext %3009, ptr noundef %3010, ptr noundef %3011) #10
-  store ptr %3012, ptr %325, align 8
-  %3013 = load i16, ptr %322, align 2
-  %3014 = load ptr, ptr %325, align 8
-  %3015 = getelementptr inbounds %struct._zend_ast, ptr %3014, i32 0, i32 1
-  store i16 %3013, ptr %3015, align 2
-  %3016 = load ptr, ptr %325, align 8
-  store ptr %3016, ptr %488, align 8
-  br label %5656
+  store i16 %3024, ptr %322, align 2
+  store ptr %3025, ptr %323, align 8
+  store ptr %3026, ptr %324, align 8
+  %3027 = load i16, ptr %321, align 2
+  %3028 = load ptr, ptr %323, align 8
+  %3029 = load ptr, ptr %324, align 8
+  %3030 = call ptr @zend_ast_create_2(i16 noundef zeroext %3027, ptr noundef %3028, ptr noundef %3029) #10
+  store ptr %3030, ptr %325, align 8
+  %3031 = load i16, ptr %322, align 2
+  %3032 = load ptr, ptr %325, align 8
+  %3033 = getelementptr inbounds %struct._zend_ast, ptr %3032, i32 0, i32 1
+  store i16 %3031, ptr %3033, align 2
+  %3034 = load ptr, ptr %325, align 8
+  store ptr %3034, ptr %488, align 8
+  br label %5692
 
-3017:                                             ; preds = %705
-  %3018 = load ptr, ptr %484, align 8
-  %3019 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3018, i64 -2
-  %3020 = load ptr, ptr %3019, align 8
-  %3021 = load ptr, ptr %484, align 8
-  %3022 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3021, i64 0
-  %3023 = load ptr, ptr %3022, align 8
+3035:                                             ; preds = %705
+  %3036 = load ptr, ptr %484, align 8
+  %3037 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3036, i64 -2
+  %3038 = load ptr, ptr %3037, align 8
+  %3039 = load ptr, ptr %484, align 8
+  %3040 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3039, i64 0
+  %3041 = load ptr, ptr %3040, align 8
   store i32 10, ptr %334, align 4
-  store ptr %3020, ptr %335, align 8
-  store ptr %3023, ptr %336, align 8
-  %3024 = load i32, ptr %334, align 4
-  %3025 = trunc i32 %3024 to i16
-  %3026 = load ptr, ptr %335, align 8
-  %3027 = load ptr, ptr %336, align 8
+  store ptr %3038, ptr %335, align 8
+  store ptr %3041, ptr %336, align 8
+  %3042 = load i32, ptr %334, align 4
+  %3043 = trunc i32 %3042 to i16
+  %3044 = load ptr, ptr %335, align 8
+  %3045 = load ptr, ptr %336, align 8
   store i16 520, ptr %329, align 2
-  store i16 %3025, ptr %330, align 2
-  store ptr %3026, ptr %331, align 8
-  store ptr %3027, ptr %332, align 8
-  %3028 = load i16, ptr %329, align 2
-  %3029 = load ptr, ptr %331, align 8
-  %3030 = load ptr, ptr %332, align 8
-  %3031 = call ptr @zend_ast_create_2(i16 noundef zeroext %3028, ptr noundef %3029, ptr noundef %3030) #10
-  store ptr %3031, ptr %333, align 8
-  %3032 = load i16, ptr %330, align 2
-  %3033 = load ptr, ptr %333, align 8
-  %3034 = getelementptr inbounds %struct._zend_ast, ptr %3033, i32 0, i32 1
-  store i16 %3032, ptr %3034, align 2
-  %3035 = load ptr, ptr %333, align 8
-  store ptr %3035, ptr %488, align 8
-  br label %5656
+  store i16 %3043, ptr %330, align 2
+  store ptr %3044, ptr %331, align 8
+  store ptr %3045, ptr %332, align 8
+  %3046 = load i16, ptr %329, align 2
+  %3047 = load ptr, ptr %331, align 8
+  %3048 = load ptr, ptr %332, align 8
+  %3049 = call ptr @zend_ast_create_2(i16 noundef zeroext %3046, ptr noundef %3047, ptr noundef %3048) #10
+  store ptr %3049, ptr %333, align 8
+  %3050 = load i16, ptr %330, align 2
+  %3051 = load ptr, ptr %333, align 8
+  %3052 = getelementptr inbounds %struct._zend_ast, ptr %3051, i32 0, i32 1
+  store i16 %3050, ptr %3052, align 2
+  %3053 = load ptr, ptr %333, align 8
+  store ptr %3053, ptr %488, align 8
+  br label %5692
 
-3036:                                             ; preds = %705
-  %3037 = load ptr, ptr %484, align 8
-  %3038 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3037, i64 -2
-  %3039 = load ptr, ptr %3038, align 8
-  %3040 = load ptr, ptr %484, align 8
-  %3041 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3040, i64 0
-  %3042 = load ptr, ptr %3041, align 8
+3054:                                             ; preds = %705
+  %3055 = load ptr, ptr %484, align 8
+  %3056 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3055, i64 -2
+  %3057 = load ptr, ptr %3056, align 8
+  %3058 = load ptr, ptr %484, align 8
+  %3059 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3058, i64 0
+  %3060 = load ptr, ptr %3059, align 8
   store i32 9, ptr %342, align 4
-  store ptr %3039, ptr %343, align 8
-  store ptr %3042, ptr %344, align 8
-  %3043 = load i32, ptr %342, align 4
-  %3044 = trunc i32 %3043 to i16
-  %3045 = load ptr, ptr %343, align 8
-  %3046 = load ptr, ptr %344, align 8
+  store ptr %3057, ptr %343, align 8
+  store ptr %3060, ptr %344, align 8
+  %3061 = load i32, ptr %342, align 4
+  %3062 = trunc i32 %3061 to i16
+  %3063 = load ptr, ptr %343, align 8
+  %3064 = load ptr, ptr %344, align 8
   store i16 520, ptr %337, align 2
-  store i16 %3044, ptr %338, align 2
-  store ptr %3045, ptr %339, align 8
-  store ptr %3046, ptr %340, align 8
-  %3047 = load i16, ptr %337, align 2
-  %3048 = load ptr, ptr %339, align 8
-  %3049 = load ptr, ptr %340, align 8
-  %3050 = call ptr @zend_ast_create_2(i16 noundef zeroext %3047, ptr noundef %3048, ptr noundef %3049) #10
-  store ptr %3050, ptr %341, align 8
-  %3051 = load i16, ptr %338, align 2
-  %3052 = load ptr, ptr %341, align 8
-  %3053 = getelementptr inbounds %struct._zend_ast, ptr %3052, i32 0, i32 1
-  store i16 %3051, ptr %3053, align 2
-  %3054 = load ptr, ptr %341, align 8
-  store ptr %3054, ptr %488, align 8
-  br label %5656
+  store i16 %3062, ptr %338, align 2
+  store ptr %3063, ptr %339, align 8
+  store ptr %3064, ptr %340, align 8
+  %3065 = load i16, ptr %337, align 2
+  %3066 = load ptr, ptr %339, align 8
+  %3067 = load ptr, ptr %340, align 8
+  %3068 = call ptr @zend_ast_create_2(i16 noundef zeroext %3065, ptr noundef %3066, ptr noundef %3067) #10
+  store ptr %3068, ptr %341, align 8
+  %3069 = load i16, ptr %338, align 2
+  %3070 = load ptr, ptr %341, align 8
+  %3071 = getelementptr inbounds %struct._zend_ast, ptr %3070, i32 0, i32 1
+  store i16 %3069, ptr %3071, align 2
+  %3072 = load ptr, ptr %341, align 8
+  store ptr %3072, ptr %488, align 8
+  br label %5692
 
-3055:                                             ; preds = %705
-  %3056 = load ptr, ptr %484, align 8
-  %3057 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3056, i64 -2
-  %3058 = load ptr, ptr %3057, align 8
-  %3059 = load ptr, ptr %484, align 8
-  %3060 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3059, i64 0
-  %3061 = load ptr, ptr %3060, align 8
+3073:                                             ; preds = %705
+  %3074 = load ptr, ptr %484, align 8
+  %3075 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3074, i64 -2
+  %3076 = load ptr, ptr %3075, align 8
+  %3077 = load ptr, ptr %484, align 8
+  %3078 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3077, i64 0
+  %3079 = load ptr, ptr %3078, align 8
   store i32 11, ptr %350, align 4
-  store ptr %3058, ptr %351, align 8
-  store ptr %3061, ptr %352, align 8
-  %3062 = load i32, ptr %350, align 4
-  %3063 = trunc i32 %3062 to i16
-  %3064 = load ptr, ptr %351, align 8
-  %3065 = load ptr, ptr %352, align 8
+  store ptr %3076, ptr %351, align 8
+  store ptr %3079, ptr %352, align 8
+  %3080 = load i32, ptr %350, align 4
+  %3081 = trunc i32 %3080 to i16
+  %3082 = load ptr, ptr %351, align 8
+  %3083 = load ptr, ptr %352, align 8
   store i16 520, ptr %345, align 2
-  store i16 %3063, ptr %346, align 2
-  store ptr %3064, ptr %347, align 8
-  store ptr %3065, ptr %348, align 8
-  %3066 = load i16, ptr %345, align 2
-  %3067 = load ptr, ptr %347, align 8
-  %3068 = load ptr, ptr %348, align 8
-  %3069 = call ptr @zend_ast_create_2(i16 noundef zeroext %3066, ptr noundef %3067, ptr noundef %3068) #10
-  store ptr %3069, ptr %349, align 8
-  %3070 = load i16, ptr %346, align 2
-  %3071 = load ptr, ptr %349, align 8
-  %3072 = getelementptr inbounds %struct._zend_ast, ptr %3071, i32 0, i32 1
-  store i16 %3070, ptr %3072, align 2
-  %3073 = load ptr, ptr %349, align 8
-  store ptr %3073, ptr %488, align 8
-  br label %5656
+  store i16 %3081, ptr %346, align 2
+  store ptr %3082, ptr %347, align 8
+  store ptr %3083, ptr %348, align 8
+  %3084 = load i16, ptr %345, align 2
+  %3085 = load ptr, ptr %347, align 8
+  %3086 = load ptr, ptr %348, align 8
+  %3087 = call ptr @zend_ast_create_2(i16 noundef zeroext %3084, ptr noundef %3085, ptr noundef %3086) #10
+  store ptr %3087, ptr %349, align 8
+  %3088 = load i16, ptr %346, align 2
+  %3089 = load ptr, ptr %349, align 8
+  %3090 = getelementptr inbounds %struct._zend_ast, ptr %3089, i32 0, i32 1
+  store i16 %3088, ptr %3090, align 2
+  %3091 = load ptr, ptr %349, align 8
+  store ptr %3091, ptr %488, align 8
+  br label %5692
 
-3074:                                             ; preds = %705
-  %3075 = load ptr, ptr %484, align 8
-  %3076 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3075, i64 -2
-  %3077 = load ptr, ptr %3076, align 8
-  %3078 = load ptr, ptr %484, align 8
-  %3079 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3078, i64 0
-  %3080 = load ptr, ptr %3079, align 8
+3092:                                             ; preds = %705
+  %3093 = load ptr, ptr %484, align 8
+  %3094 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3093, i64 -2
+  %3095 = load ptr, ptr %3094, align 8
+  %3096 = load ptr, ptr %484, align 8
+  %3097 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3096, i64 0
+  %3098 = load ptr, ptr %3097, align 8
   store i32 6, ptr %358, align 4
-  store ptr %3077, ptr %359, align 8
-  store ptr %3080, ptr %360, align 8
-  %3081 = load i32, ptr %358, align 4
-  %3082 = trunc i32 %3081 to i16
-  %3083 = load ptr, ptr %359, align 8
-  %3084 = load ptr, ptr %360, align 8
+  store ptr %3095, ptr %359, align 8
+  store ptr %3098, ptr %360, align 8
+  %3099 = load i32, ptr %358, align 4
+  %3100 = trunc i32 %3099 to i16
+  %3101 = load ptr, ptr %359, align 8
+  %3102 = load ptr, ptr %360, align 8
   store i16 520, ptr %353, align 2
-  store i16 %3082, ptr %354, align 2
-  store ptr %3083, ptr %355, align 8
-  store ptr %3084, ptr %356, align 8
-  %3085 = load i16, ptr %353, align 2
-  %3086 = load ptr, ptr %355, align 8
-  %3087 = load ptr, ptr %356, align 8
-  %3088 = call ptr @zend_ast_create_2(i16 noundef zeroext %3085, ptr noundef %3086, ptr noundef %3087) #10
-  store ptr %3088, ptr %357, align 8
-  %3089 = load i16, ptr %354, align 2
-  %3090 = load ptr, ptr %357, align 8
-  %3091 = getelementptr inbounds %struct._zend_ast, ptr %3090, i32 0, i32 1
-  store i16 %3089, ptr %3091, align 2
-  %3092 = load ptr, ptr %357, align 8
-  store ptr %3092, ptr %488, align 8
-  br label %5656
+  store i16 %3100, ptr %354, align 2
+  store ptr %3101, ptr %355, align 8
+  store ptr %3102, ptr %356, align 8
+  %3103 = load i16, ptr %353, align 2
+  %3104 = load ptr, ptr %355, align 8
+  %3105 = load ptr, ptr %356, align 8
+  %3106 = call ptr @zend_ast_create_2(i16 noundef zeroext %3103, ptr noundef %3104, ptr noundef %3105) #10
+  store ptr %3106, ptr %357, align 8
+  %3107 = load i16, ptr %354, align 2
+  %3108 = load ptr, ptr %357, align 8
+  %3109 = getelementptr inbounds %struct._zend_ast, ptr %3108, i32 0, i32 1
+  store i16 %3107, ptr %3109, align 2
+  %3110 = load ptr, ptr %357, align 8
+  store ptr %3110, ptr %488, align 8
+  br label %5692
 
-3093:                                             ; preds = %705
-  %3094 = load ptr, ptr %484, align 8
-  %3095 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3094, i64 -2
-  %3096 = load ptr, ptr %3095, align 8
-  %3097 = load ptr, ptr %484, align 8
-  %3098 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3097, i64 0
-  %3099 = load ptr, ptr %3098, align 8
+3111:                                             ; preds = %705
+  %3112 = load ptr, ptr %484, align 8
+  %3113 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3112, i64 -2
+  %3114 = load ptr, ptr %3113, align 8
+  %3115 = load ptr, ptr %484, align 8
+  %3116 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3115, i64 0
+  %3117 = load ptr, ptr %3116, align 8
   store i32 7, ptr %366, align 4
-  store ptr %3096, ptr %367, align 8
-  store ptr %3099, ptr %368, align 8
-  %3100 = load i32, ptr %366, align 4
-  %3101 = trunc i32 %3100 to i16
-  %3102 = load ptr, ptr %367, align 8
-  %3103 = load ptr, ptr %368, align 8
+  store ptr %3114, ptr %367, align 8
+  store ptr %3117, ptr %368, align 8
+  %3118 = load i32, ptr %366, align 4
+  %3119 = trunc i32 %3118 to i16
+  %3120 = load ptr, ptr %367, align 8
+  %3121 = load ptr, ptr %368, align 8
   store i16 520, ptr %361, align 2
-  store i16 %3101, ptr %362, align 2
-  store ptr %3102, ptr %363, align 8
-  store ptr %3103, ptr %364, align 8
-  %3104 = load i16, ptr %361, align 2
-  %3105 = load ptr, ptr %363, align 8
-  %3106 = load ptr, ptr %364, align 8
-  %3107 = call ptr @zend_ast_create_2(i16 noundef zeroext %3104, ptr noundef %3105, ptr noundef %3106) #10
-  store ptr %3107, ptr %365, align 8
-  %3108 = load i16, ptr %362, align 2
-  %3109 = load ptr, ptr %365, align 8
-  %3110 = getelementptr inbounds %struct._zend_ast, ptr %3109, i32 0, i32 1
-  store i16 %3108, ptr %3110, align 2
-  %3111 = load ptr, ptr %365, align 8
-  store ptr %3111, ptr %488, align 8
-  br label %5656
-
-3112:                                             ; preds = %705
-  %3113 = load ptr, ptr %484, align 8
-  %3114 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3113, i64 -2
-  %3115 = load ptr, ptr %3114, align 8
-  %3116 = load ptr, ptr %484, align 8
-  %3117 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3116, i64 0
-  %3118 = load ptr, ptr %3117, align 8
-  %3119 = call ptr @zend_ast_create_2(i16 noundef zeroext 531, ptr noundef %3115, ptr noundef %3118)
-  store ptr %3119, ptr %488, align 8
-  br label %5656
-
-3120:                                             ; preds = %705
-  %3121 = load ptr, ptr %484, align 8
-  %3122 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3121, i64 -1
-  %3123 = load ptr, ptr %3122, align 8
-  %3124 = call ptr @zend_ast_create_1(i16 noundef zeroext 273, ptr noundef %3123)
-  store ptr %3124, ptr %488, align 8
-  br label %5656
-
-3125:                                             ; preds = %705
-  %3126 = load ptr, ptr %484, align 8
-  %3127 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3126, i64 0
-  %3128 = load ptr, ptr %3127, align 8
-  %3129 = call ptr @zend_ast_create_1(i16 noundef zeroext 271, ptr noundef %3128)
+  store i16 %3119, ptr %362, align 2
+  store ptr %3120, ptr %363, align 8
+  store ptr %3121, ptr %364, align 8
+  %3122 = load i16, ptr %361, align 2
+  %3123 = load ptr, ptr %363, align 8
+  %3124 = load ptr, ptr %364, align 8
+  %3125 = call ptr @zend_ast_create_2(i16 noundef zeroext %3122, ptr noundef %3123, ptr noundef %3124) #10
+  store ptr %3125, ptr %365, align 8
+  %3126 = load i16, ptr %362, align 2
+  %3127 = load ptr, ptr %365, align 8
+  %3128 = getelementptr inbounds %struct._zend_ast, ptr %3127, i32 0, i32 1
+  store i16 %3126, ptr %3128, align 2
+  %3129 = load ptr, ptr %365, align 8
   store ptr %3129, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 3130:                                             ; preds = %705
   %3131 = load ptr, ptr %484, align 8
-  %3132 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3131, i64 -1
+  %3132 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3131, i64 -2
   %3133 = load ptr, ptr %3132, align 8
-  %3134 = call ptr @zend_ast_create_1(i16 noundef zeroext 274, ptr noundef %3133)
-  store ptr %3134, ptr %488, align 8
-  br label %5656
+  %3134 = load ptr, ptr %484, align 8
+  %3135 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3134, i64 0
+  %3136 = load ptr, ptr %3135, align 8
+  %3137 = call ptr @zend_ast_create_2(i16 noundef zeroext 531, ptr noundef %3133, ptr noundef %3136)
+  store ptr %3137, ptr %488, align 8
+  br label %5692
 
-3135:                                             ; preds = %705
-  %3136 = load ptr, ptr %484, align 8
-  %3137 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3136, i64 0
-  %3138 = load ptr, ptr %3137, align 8
-  %3139 = call ptr @zend_ast_create_1(i16 noundef zeroext 272, ptr noundef %3138)
-  store ptr %3139, ptr %488, align 8
-  br label %5656
+3138:                                             ; preds = %705
+  %3139 = load ptr, ptr %484, align 8
+  %3140 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3139, i64 -1
+  %3141 = load ptr, ptr %3140, align 8
+  %3142 = call ptr @zend_ast_create_1(i16 noundef zeroext 273, ptr noundef %3141)
+  store ptr %3142, ptr %488, align 8
+  br label %5692
 
-3140:                                             ; preds = %705
-  %3141 = load ptr, ptr %484, align 8
-  %3142 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3141, i64 -2
-  %3143 = load ptr, ptr %3142, align 8
+3143:                                             ; preds = %705
   %3144 = load ptr, ptr %484, align 8
   %3145 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3144, i64 0
   %3146 = load ptr, ptr %3145, align 8
-  %3147 = call ptr @zend_ast_create_2(i16 noundef zeroext 525, ptr noundef %3143, ptr noundef %3146)
+  %3147 = call ptr @zend_ast_create_1(i16 noundef zeroext 271, ptr noundef %3146)
   store ptr %3147, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 3148:                                             ; preds = %705
   %3149 = load ptr, ptr %484, align 8
-  %3150 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3149, i64 -2
+  %3150 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3149, i64 -1
   %3151 = load ptr, ptr %3150, align 8
-  %3152 = load ptr, ptr %484, align 8
-  %3153 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3152, i64 0
-  %3154 = load ptr, ptr %3153, align 8
-  %3155 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %3151, ptr noundef %3154)
-  store ptr %3155, ptr %488, align 8
-  br label %5656
+  %3152 = call ptr @zend_ast_create_1(i16 noundef zeroext 274, ptr noundef %3151)
+  store ptr %3152, ptr %488, align 8
+  br label %5692
 
-3156:                                             ; preds = %705
-  %3157 = load ptr, ptr %484, align 8
-  %3158 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3157, i64 -2
-  %3159 = load ptr, ptr %3158, align 8
-  %3160 = load ptr, ptr %484, align 8
-  %3161 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3160, i64 0
-  %3162 = load ptr, ptr %3161, align 8
-  %3163 = call ptr @zend_ast_create_2(i16 noundef zeroext 525, ptr noundef %3159, ptr noundef %3162)
-  store ptr %3163, ptr %488, align 8
-  br label %5656
+3153:                                             ; preds = %705
+  %3154 = load ptr, ptr %484, align 8
+  %3155 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3154, i64 0
+  %3156 = load ptr, ptr %3155, align 8
+  %3157 = call ptr @zend_ast_create_1(i16 noundef zeroext 272, ptr noundef %3156)
+  store ptr %3157, ptr %488, align 8
+  br label %5692
 
-3164:                                             ; preds = %705
-  %3165 = load ptr, ptr %484, align 8
-  %3166 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3165, i64 -2
-  %3167 = load ptr, ptr %3166, align 8
-  %3168 = load ptr, ptr %484, align 8
-  %3169 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3168, i64 0
-  %3170 = load ptr, ptr %3169, align 8
-  %3171 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %3167, ptr noundef %3170)
-  store ptr %3171, ptr %488, align 8
-  br label %5656
+3158:                                             ; preds = %705
+  %3159 = load ptr, ptr %484, align 8
+  %3160 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3159, i64 -2
+  %3161 = load ptr, ptr %3160, align 8
+  %3162 = load ptr, ptr %484, align 8
+  %3163 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3162, i64 0
+  %3164 = load ptr, ptr %3163, align 8
+  %3165 = call ptr @zend_ast_create_2(i16 noundef zeroext 525, ptr noundef %3161, ptr noundef %3164)
+  store ptr %3165, ptr %488, align 8
+  br label %5692
 
-3172:                                             ; preds = %705
-  %3173 = load ptr, ptr %484, align 8
-  %3174 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3173, i64 -2
-  %3175 = load ptr, ptr %3174, align 8
-  %3176 = load ptr, ptr %484, align 8
-  %3177 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3176, i64 0
-  %3178 = load ptr, ptr %3177, align 8
+3166:                                             ; preds = %705
+  %3167 = load ptr, ptr %484, align 8
+  %3168 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3167, i64 -2
+  %3169 = load ptr, ptr %3168, align 8
+  %3170 = load ptr, ptr %484, align 8
+  %3171 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3170, i64 0
+  %3172 = load ptr, ptr %3171, align 8
+  %3173 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %3169, ptr noundef %3172)
+  store ptr %3173, ptr %488, align 8
+  br label %5692
+
+3174:                                             ; preds = %705
+  %3175 = load ptr, ptr %484, align 8
+  %3176 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3175, i64 -2
+  %3177 = load ptr, ptr %3176, align 8
+  %3178 = load ptr, ptr %484, align 8
+  %3179 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3178, i64 0
+  %3180 = load ptr, ptr %3179, align 8
+  %3181 = call ptr @zend_ast_create_2(i16 noundef zeroext 525, ptr noundef %3177, ptr noundef %3180)
+  store ptr %3181, ptr %488, align 8
+  br label %5692
+
+3182:                                             ; preds = %705
+  %3183 = load ptr, ptr %484, align 8
+  %3184 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3183, i64 -2
+  %3185 = load ptr, ptr %3184, align 8
+  %3186 = load ptr, ptr %484, align 8
+  %3187 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3186, i64 0
+  %3188 = load ptr, ptr %3187, align 8
+  %3189 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %3185, ptr noundef %3188)
+  store ptr %3189, ptr %488, align 8
+  br label %5692
+
+3190:                                             ; preds = %705
+  %3191 = load ptr, ptr %484, align 8
+  %3192 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3191, i64 -2
+  %3193 = load ptr, ptr %3192, align 8
+  %3194 = load ptr, ptr %484, align 8
+  %3195 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3194, i64 0
+  %3196 = load ptr, ptr %3195, align 8
   store i32 15, ptr %118, align 4
-  store ptr %3175, ptr %119, align 8
-  store ptr %3178, ptr %120, align 8
-  %3179 = load i32, ptr %118, align 4
-  %3180 = trunc i32 %3179 to i16
-  %3181 = load ptr, ptr %119, align 8
-  %3182 = load ptr, ptr %120, align 8
+  store ptr %3193, ptr %119, align 8
+  store ptr %3196, ptr %120, align 8
+  %3197 = load i32, ptr %118, align 4
+  %3198 = trunc i32 %3197 to i16
+  %3199 = load ptr, ptr %119, align 8
+  %3200 = load ptr, ptr %120, align 8
   store i16 521, ptr %113, align 2
-  store i16 %3180, ptr %114, align 2
-  store ptr %3181, ptr %115, align 8
-  store ptr %3182, ptr %116, align 8
-  %3183 = load i16, ptr %113, align 2
-  %3184 = load ptr, ptr %115, align 8
-  %3185 = load ptr, ptr %116, align 8
-  %3186 = call ptr @zend_ast_create_2(i16 noundef zeroext %3183, ptr noundef %3184, ptr noundef %3185) #10
-  store ptr %3186, ptr %117, align 8
-  %3187 = load i16, ptr %114, align 2
-  %3188 = load ptr, ptr %117, align 8
-  %3189 = getelementptr inbounds %struct._zend_ast, ptr %3188, i32 0, i32 1
-  store i16 %3187, ptr %3189, align 2
-  %3190 = load ptr, ptr %117, align 8
-  store ptr %3190, ptr %488, align 8
-  br label %5656
+  store i16 %3198, ptr %114, align 2
+  store ptr %3199, ptr %115, align 8
+  store ptr %3200, ptr %116, align 8
+  %3201 = load i16, ptr %113, align 2
+  %3202 = load ptr, ptr %115, align 8
+  %3203 = load ptr, ptr %116, align 8
+  %3204 = call ptr @zend_ast_create_2(i16 noundef zeroext %3201, ptr noundef %3202, ptr noundef %3203) #10
+  store ptr %3204, ptr %117, align 8
+  %3205 = load i16, ptr %114, align 2
+  %3206 = load ptr, ptr %117, align 8
+  %3207 = getelementptr inbounds %struct._zend_ast, ptr %3206, i32 0, i32 1
+  store i16 %3205, ptr %3207, align 2
+  %3208 = load ptr, ptr %117, align 8
+  store ptr %3208, ptr %488, align 8
+  br label %5692
 
-3191:                                             ; preds = %705
-  %3192 = load ptr, ptr %484, align 8
-  %3193 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3192, i64 -2
-  %3194 = load ptr, ptr %3193, align 8
-  %3195 = load ptr, ptr %484, align 8
-  %3196 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3195, i64 0
-  %3197 = load ptr, ptr %3196, align 8
+3209:                                             ; preds = %705
+  %3210 = load ptr, ptr %484, align 8
+  %3211 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3210, i64 -2
+  %3212 = load ptr, ptr %3211, align 8
+  %3213 = load ptr, ptr %484, align 8
+  %3214 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3213, i64 0
+  %3215 = load ptr, ptr %3214, align 8
   store i32 9, ptr %126, align 4
-  store ptr %3194, ptr %127, align 8
-  store ptr %3197, ptr %128, align 8
-  %3198 = load i32, ptr %126, align 4
-  %3199 = trunc i32 %3198 to i16
-  %3200 = load ptr, ptr %127, align 8
-  %3201 = load ptr, ptr %128, align 8
+  store ptr %3212, ptr %127, align 8
+  store ptr %3215, ptr %128, align 8
+  %3216 = load i32, ptr %126, align 4
+  %3217 = trunc i32 %3216 to i16
+  %3218 = load ptr, ptr %127, align 8
+  %3219 = load ptr, ptr %128, align 8
   store i16 521, ptr %121, align 2
-  store i16 %3199, ptr %122, align 2
-  store ptr %3200, ptr %123, align 8
-  store ptr %3201, ptr %124, align 8
-  %3202 = load i16, ptr %121, align 2
-  %3203 = load ptr, ptr %123, align 8
-  %3204 = load ptr, ptr %124, align 8
-  %3205 = call ptr @zend_ast_create_2(i16 noundef zeroext %3202, ptr noundef %3203, ptr noundef %3204) #10
-  store ptr %3205, ptr %125, align 8
-  %3206 = load i16, ptr %122, align 2
-  %3207 = load ptr, ptr %125, align 8
-  %3208 = getelementptr inbounds %struct._zend_ast, ptr %3207, i32 0, i32 1
-  store i16 %3206, ptr %3208, align 2
-  %3209 = load ptr, ptr %125, align 8
-  store ptr %3209, ptr %488, align 8
-  br label %5656
+  store i16 %3217, ptr %122, align 2
+  store ptr %3218, ptr %123, align 8
+  store ptr %3219, ptr %124, align 8
+  %3220 = load i16, ptr %121, align 2
+  %3221 = load ptr, ptr %123, align 8
+  %3222 = load ptr, ptr %124, align 8
+  %3223 = call ptr @zend_ast_create_2(i16 noundef zeroext %3220, ptr noundef %3221, ptr noundef %3222) #10
+  store ptr %3223, ptr %125, align 8
+  %3224 = load i16, ptr %122, align 2
+  %3225 = load ptr, ptr %125, align 8
+  %3226 = getelementptr inbounds %struct._zend_ast, ptr %3225, i32 0, i32 1
+  store i16 %3224, ptr %3226, align 2
+  %3227 = load ptr, ptr %125, align 8
+  store ptr %3227, ptr %488, align 8
+  br label %5692
 
-3210:                                             ; preds = %705
-  %3211 = load ptr, ptr %484, align 8
-  %3212 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3211, i64 -2
-  %3213 = load ptr, ptr %3212, align 8
-  %3214 = load ptr, ptr %484, align 8
-  %3215 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3214, i64 0
-  %3216 = load ptr, ptr %3215, align 8
+3228:                                             ; preds = %705
+  %3229 = load ptr, ptr %484, align 8
+  %3230 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3229, i64 -2
+  %3231 = load ptr, ptr %3230, align 8
+  %3232 = load ptr, ptr %484, align 8
+  %3233 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3232, i64 0
+  %3234 = load ptr, ptr %3233, align 8
   store i32 10, ptr %134, align 4
-  store ptr %3213, ptr %135, align 8
-  store ptr %3216, ptr %136, align 8
-  %3217 = load i32, ptr %134, align 4
-  %3218 = trunc i32 %3217 to i16
-  %3219 = load ptr, ptr %135, align 8
-  %3220 = load ptr, ptr %136, align 8
+  store ptr %3231, ptr %135, align 8
+  store ptr %3234, ptr %136, align 8
+  %3235 = load i32, ptr %134, align 4
+  %3236 = trunc i32 %3235 to i16
+  %3237 = load ptr, ptr %135, align 8
+  %3238 = load ptr, ptr %136, align 8
   store i16 521, ptr %129, align 2
-  store i16 %3218, ptr %130, align 2
-  store ptr %3219, ptr %131, align 8
-  store ptr %3220, ptr %132, align 8
-  %3221 = load i16, ptr %129, align 2
-  %3222 = load ptr, ptr %131, align 8
-  %3223 = load ptr, ptr %132, align 8
-  %3224 = call ptr @zend_ast_create_2(i16 noundef zeroext %3221, ptr noundef %3222, ptr noundef %3223) #10
-  store ptr %3224, ptr %133, align 8
-  %3225 = load i16, ptr %130, align 2
-  %3226 = load ptr, ptr %133, align 8
-  %3227 = getelementptr inbounds %struct._zend_ast, ptr %3226, i32 0, i32 1
-  store i16 %3225, ptr %3227, align 2
-  %3228 = load ptr, ptr %133, align 8
-  store ptr %3228, ptr %488, align 8
-  br label %5656
+  store i16 %3236, ptr %130, align 2
+  store ptr %3237, ptr %131, align 8
+  store ptr %3238, ptr %132, align 8
+  %3239 = load i16, ptr %129, align 2
+  %3240 = load ptr, ptr %131, align 8
+  %3241 = load ptr, ptr %132, align 8
+  %3242 = call ptr @zend_ast_create_2(i16 noundef zeroext %3239, ptr noundef %3240, ptr noundef %3241) #10
+  store ptr %3242, ptr %133, align 8
+  %3243 = load i16, ptr %130, align 2
+  %3244 = load ptr, ptr %133, align 8
+  %3245 = getelementptr inbounds %struct._zend_ast, ptr %3244, i32 0, i32 1
+  store i16 %3243, ptr %3245, align 2
+  %3246 = load ptr, ptr %133, align 8
+  store ptr %3246, ptr %488, align 8
+  br label %5692
 
-3229:                                             ; preds = %705
-  %3230 = load ptr, ptr %484, align 8
-  %3231 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3230, i64 -2
-  %3232 = load ptr, ptr %3231, align 8
-  %3233 = load ptr, ptr %484, align 8
-  %3234 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3233, i64 0
-  %3235 = load ptr, ptr %3234, align 8
+3247:                                             ; preds = %705
+  %3248 = load ptr, ptr %484, align 8
+  %3249 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3248, i64 -2
+  %3250 = load ptr, ptr %3249, align 8
+  %3251 = load ptr, ptr %484, align 8
+  %3252 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3251, i64 0
+  %3253 = load ptr, ptr %3252, align 8
   store i32 10, ptr %142, align 4
-  store ptr %3232, ptr %143, align 8
-  store ptr %3235, ptr %144, align 8
-  %3236 = load i32, ptr %142, align 4
-  %3237 = trunc i32 %3236 to i16
-  %3238 = load ptr, ptr %143, align 8
-  %3239 = load ptr, ptr %144, align 8
+  store ptr %3250, ptr %143, align 8
+  store ptr %3253, ptr %144, align 8
+  %3254 = load i32, ptr %142, align 4
+  %3255 = trunc i32 %3254 to i16
+  %3256 = load ptr, ptr %143, align 8
+  %3257 = load ptr, ptr %144, align 8
   store i16 521, ptr %137, align 2
-  store i16 %3237, ptr %138, align 2
-  store ptr %3238, ptr %139, align 8
-  store ptr %3239, ptr %140, align 8
-  %3240 = load i16, ptr %137, align 2
-  %3241 = load ptr, ptr %139, align 8
-  %3242 = load ptr, ptr %140, align 8
-  %3243 = call ptr @zend_ast_create_2(i16 noundef zeroext %3240, ptr noundef %3241, ptr noundef %3242) #10
-  store ptr %3243, ptr %141, align 8
-  %3244 = load i16, ptr %138, align 2
-  %3245 = load ptr, ptr %141, align 8
-  %3246 = getelementptr inbounds %struct._zend_ast, ptr %3245, i32 0, i32 1
-  store i16 %3244, ptr %3246, align 2
-  %3247 = load ptr, ptr %141, align 8
-  store ptr %3247, ptr %488, align 8
-  br label %5656
+  store i16 %3255, ptr %138, align 2
+  store ptr %3256, ptr %139, align 8
+  store ptr %3257, ptr %140, align 8
+  %3258 = load i16, ptr %137, align 2
+  %3259 = load ptr, ptr %139, align 8
+  %3260 = load ptr, ptr %140, align 8
+  %3261 = call ptr @zend_ast_create_2(i16 noundef zeroext %3258, ptr noundef %3259, ptr noundef %3260) #10
+  store ptr %3261, ptr %141, align 8
+  %3262 = load i16, ptr %138, align 2
+  %3263 = load ptr, ptr %141, align 8
+  %3264 = getelementptr inbounds %struct._zend_ast, ptr %3263, i32 0, i32 1
+  store i16 %3262, ptr %3264, align 2
+  %3265 = load ptr, ptr %141, align 8
+  store ptr %3265, ptr %488, align 8
+  br label %5692
 
-3248:                                             ; preds = %705
-  %3249 = load ptr, ptr %484, align 8
-  %3250 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3249, i64 -2
-  %3251 = load ptr, ptr %3250, align 8
-  %3252 = load ptr, ptr %484, align 8
-  %3253 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3252, i64 0
-  %3254 = load ptr, ptr %3253, align 8
+3266:                                             ; preds = %705
+  %3267 = load ptr, ptr %484, align 8
+  %3268 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3267, i64 -2
+  %3269 = load ptr, ptr %3268, align 8
+  %3270 = load ptr, ptr %484, align 8
+  %3271 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3270, i64 0
+  %3272 = load ptr, ptr %3271, align 8
   store i32 11, ptr %150, align 4
-  store ptr %3251, ptr %151, align 8
-  store ptr %3254, ptr %152, align 8
-  %3255 = load i32, ptr %150, align 4
-  %3256 = trunc i32 %3255 to i16
-  %3257 = load ptr, ptr %151, align 8
-  %3258 = load ptr, ptr %152, align 8
+  store ptr %3269, ptr %151, align 8
+  store ptr %3272, ptr %152, align 8
+  %3273 = load i32, ptr %150, align 4
+  %3274 = trunc i32 %3273 to i16
+  %3275 = load ptr, ptr %151, align 8
+  %3276 = load ptr, ptr %152, align 8
   store i16 521, ptr %145, align 2
-  store i16 %3256, ptr %146, align 2
-  store ptr %3257, ptr %147, align 8
-  store ptr %3258, ptr %148, align 8
-  %3259 = load i16, ptr %145, align 2
-  %3260 = load ptr, ptr %147, align 8
-  %3261 = load ptr, ptr %148, align 8
-  %3262 = call ptr @zend_ast_create_2(i16 noundef zeroext %3259, ptr noundef %3260, ptr noundef %3261) #10
-  store ptr %3262, ptr %149, align 8
-  %3263 = load i16, ptr %146, align 2
-  %3264 = load ptr, ptr %149, align 8
-  %3265 = getelementptr inbounds %struct._zend_ast, ptr %3264, i32 0, i32 1
-  store i16 %3263, ptr %3265, align 2
-  %3266 = load ptr, ptr %149, align 8
-  store ptr %3266, ptr %488, align 8
-  br label %5656
+  store i16 %3274, ptr %146, align 2
+  store ptr %3275, ptr %147, align 8
+  store ptr %3276, ptr %148, align 8
+  %3277 = load i16, ptr %145, align 2
+  %3278 = load ptr, ptr %147, align 8
+  %3279 = load ptr, ptr %148, align 8
+  %3280 = call ptr @zend_ast_create_2(i16 noundef zeroext %3277, ptr noundef %3278, ptr noundef %3279) #10
+  store ptr %3280, ptr %149, align 8
+  %3281 = load i16, ptr %146, align 2
+  %3282 = load ptr, ptr %149, align 8
+  %3283 = getelementptr inbounds %struct._zend_ast, ptr %3282, i32 0, i32 1
+  store i16 %3281, ptr %3283, align 2
+  %3284 = load ptr, ptr %149, align 8
+  store ptr %3284, ptr %488, align 8
+  br label %5692
 
-3267:                                             ; preds = %705
-  %3268 = load ptr, ptr %484, align 8
-  %3269 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3268, i64 -2
-  %3270 = load ptr, ptr %3269, align 8
-  %3271 = load ptr, ptr %484, align 8
-  %3272 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3271, i64 0
-  %3273 = load ptr, ptr %3272, align 8
-  %3274 = call ptr @zend_ast_create_concat_op(ptr noundef %3270, ptr noundef %3273)
-  store ptr %3274, ptr %488, align 8
-  br label %5656
+3285:                                             ; preds = %705
+  %3286 = load ptr, ptr %484, align 8
+  %3287 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3286, i64 -2
+  %3288 = load ptr, ptr %3287, align 8
+  %3289 = load ptr, ptr %484, align 8
+  %3290 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3289, i64 0
+  %3291 = load ptr, ptr %3290, align 8
+  %3292 = call ptr @zend_ast_create_concat_op(ptr noundef %3288, ptr noundef %3291)
+  store ptr %3292, ptr %488, align 8
+  br label %5692
 
-3275:                                             ; preds = %705
-  %3276 = load ptr, ptr %484, align 8
-  %3277 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3276, i64 -2
-  %3278 = load ptr, ptr %3277, align 8
-  %3279 = load ptr, ptr %484, align 8
-  %3280 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3279, i64 0
-  %3281 = load ptr, ptr %3280, align 8
+3293:                                             ; preds = %705
+  %3294 = load ptr, ptr %484, align 8
+  %3295 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3294, i64 -2
+  %3296 = load ptr, ptr %3295, align 8
+  %3297 = load ptr, ptr %484, align 8
+  %3298 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3297, i64 0
+  %3299 = load ptr, ptr %3298, align 8
   store i32 1, ptr %158, align 4
-  store ptr %3278, ptr %159, align 8
-  store ptr %3281, ptr %160, align 8
-  %3282 = load i32, ptr %158, align 4
-  %3283 = trunc i32 %3282 to i16
-  %3284 = load ptr, ptr %159, align 8
-  %3285 = load ptr, ptr %160, align 8
+  store ptr %3296, ptr %159, align 8
+  store ptr %3299, ptr %160, align 8
+  %3300 = load i32, ptr %158, align 4
+  %3301 = trunc i32 %3300 to i16
+  %3302 = load ptr, ptr %159, align 8
+  %3303 = load ptr, ptr %160, align 8
   store i16 521, ptr %153, align 2
-  store i16 %3283, ptr %154, align 2
-  store ptr %3284, ptr %155, align 8
-  store ptr %3285, ptr %156, align 8
-  %3286 = load i16, ptr %153, align 2
-  %3287 = load ptr, ptr %155, align 8
-  %3288 = load ptr, ptr %156, align 8
-  %3289 = call ptr @zend_ast_create_2(i16 noundef zeroext %3286, ptr noundef %3287, ptr noundef %3288) #10
-  store ptr %3289, ptr %157, align 8
-  %3290 = load i16, ptr %154, align 2
-  %3291 = load ptr, ptr %157, align 8
-  %3292 = getelementptr inbounds %struct._zend_ast, ptr %3291, i32 0, i32 1
-  store i16 %3290, ptr %3292, align 2
-  %3293 = load ptr, ptr %157, align 8
-  store ptr %3293, ptr %488, align 8
-  br label %5656
+  store i16 %3301, ptr %154, align 2
+  store ptr %3302, ptr %155, align 8
+  store ptr %3303, ptr %156, align 8
+  %3304 = load i16, ptr %153, align 2
+  %3305 = load ptr, ptr %155, align 8
+  %3306 = load ptr, ptr %156, align 8
+  %3307 = call ptr @zend_ast_create_2(i16 noundef zeroext %3304, ptr noundef %3305, ptr noundef %3306) #10
+  store ptr %3307, ptr %157, align 8
+  %3308 = load i16, ptr %154, align 2
+  %3309 = load ptr, ptr %157, align 8
+  %3310 = getelementptr inbounds %struct._zend_ast, ptr %3309, i32 0, i32 1
+  store i16 %3308, ptr %3310, align 2
+  %3311 = load ptr, ptr %157, align 8
+  store ptr %3311, ptr %488, align 8
+  br label %5692
 
-3294:                                             ; preds = %705
-  %3295 = load ptr, ptr %484, align 8
-  %3296 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3295, i64 -2
-  %3297 = load ptr, ptr %3296, align 8
-  %3298 = load ptr, ptr %484, align 8
-  %3299 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3298, i64 0
-  %3300 = load ptr, ptr %3299, align 8
+3312:                                             ; preds = %705
+  %3313 = load ptr, ptr %484, align 8
+  %3314 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3313, i64 -2
+  %3315 = load ptr, ptr %3314, align 8
+  %3316 = load ptr, ptr %484, align 8
+  %3317 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3316, i64 0
+  %3318 = load ptr, ptr %3317, align 8
   store i32 2, ptr %166, align 4
-  store ptr %3297, ptr %167, align 8
-  store ptr %3300, ptr %168, align 8
-  %3301 = load i32, ptr %166, align 4
-  %3302 = trunc i32 %3301 to i16
-  %3303 = load ptr, ptr %167, align 8
-  %3304 = load ptr, ptr %168, align 8
+  store ptr %3315, ptr %167, align 8
+  store ptr %3318, ptr %168, align 8
+  %3319 = load i32, ptr %166, align 4
+  %3320 = trunc i32 %3319 to i16
+  %3321 = load ptr, ptr %167, align 8
+  %3322 = load ptr, ptr %168, align 8
   store i16 521, ptr %161, align 2
-  store i16 %3302, ptr %162, align 2
-  store ptr %3303, ptr %163, align 8
-  store ptr %3304, ptr %164, align 8
-  %3305 = load i16, ptr %161, align 2
-  %3306 = load ptr, ptr %163, align 8
-  %3307 = load ptr, ptr %164, align 8
-  %3308 = call ptr @zend_ast_create_2(i16 noundef zeroext %3305, ptr noundef %3306, ptr noundef %3307) #10
-  store ptr %3308, ptr %165, align 8
-  %3309 = load i16, ptr %162, align 2
-  %3310 = load ptr, ptr %165, align 8
-  %3311 = getelementptr inbounds %struct._zend_ast, ptr %3310, i32 0, i32 1
-  store i16 %3309, ptr %3311, align 2
-  %3312 = load ptr, ptr %165, align 8
-  store ptr %3312, ptr %488, align 8
-  br label %5656
+  store i16 %3320, ptr %162, align 2
+  store ptr %3321, ptr %163, align 8
+  store ptr %3322, ptr %164, align 8
+  %3323 = load i16, ptr %161, align 2
+  %3324 = load ptr, ptr %163, align 8
+  %3325 = load ptr, ptr %164, align 8
+  %3326 = call ptr @zend_ast_create_2(i16 noundef zeroext %3323, ptr noundef %3324, ptr noundef %3325) #10
+  store ptr %3326, ptr %165, align 8
+  %3327 = load i16, ptr %162, align 2
+  %3328 = load ptr, ptr %165, align 8
+  %3329 = getelementptr inbounds %struct._zend_ast, ptr %3328, i32 0, i32 1
+  store i16 %3327, ptr %3329, align 2
+  %3330 = load ptr, ptr %165, align 8
+  store ptr %3330, ptr %488, align 8
+  br label %5692
 
-3313:                                             ; preds = %705
-  %3314 = load ptr, ptr %484, align 8
-  %3315 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3314, i64 -2
-  %3316 = load ptr, ptr %3315, align 8
-  %3317 = load ptr, ptr %484, align 8
-  %3318 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3317, i64 0
-  %3319 = load ptr, ptr %3318, align 8
+3331:                                             ; preds = %705
+  %3332 = load ptr, ptr %484, align 8
+  %3333 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3332, i64 -2
+  %3334 = load ptr, ptr %3333, align 8
+  %3335 = load ptr, ptr %484, align 8
+  %3336 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3335, i64 0
+  %3337 = load ptr, ptr %3336, align 8
   store i32 3, ptr %174, align 4
-  store ptr %3316, ptr %175, align 8
-  store ptr %3319, ptr %176, align 8
-  %3320 = load i32, ptr %174, align 4
-  %3321 = trunc i32 %3320 to i16
-  %3322 = load ptr, ptr %175, align 8
-  %3323 = load ptr, ptr %176, align 8
+  store ptr %3334, ptr %175, align 8
+  store ptr %3337, ptr %176, align 8
+  %3338 = load i32, ptr %174, align 4
+  %3339 = trunc i32 %3338 to i16
+  %3340 = load ptr, ptr %175, align 8
+  %3341 = load ptr, ptr %176, align 8
   store i16 521, ptr %169, align 2
-  store i16 %3321, ptr %170, align 2
-  store ptr %3322, ptr %171, align 8
-  store ptr %3323, ptr %172, align 8
-  %3324 = load i16, ptr %169, align 2
-  %3325 = load ptr, ptr %171, align 8
-  %3326 = load ptr, ptr %172, align 8
-  %3327 = call ptr @zend_ast_create_2(i16 noundef zeroext %3324, ptr noundef %3325, ptr noundef %3326) #10
-  store ptr %3327, ptr %173, align 8
-  %3328 = load i16, ptr %170, align 2
-  %3329 = load ptr, ptr %173, align 8
-  %3330 = getelementptr inbounds %struct._zend_ast, ptr %3329, i32 0, i32 1
-  store i16 %3328, ptr %3330, align 2
-  %3331 = load ptr, ptr %173, align 8
-  store ptr %3331, ptr %488, align 8
-  br label %5656
+  store i16 %3339, ptr %170, align 2
+  store ptr %3340, ptr %171, align 8
+  store ptr %3341, ptr %172, align 8
+  %3342 = load i16, ptr %169, align 2
+  %3343 = load ptr, ptr %171, align 8
+  %3344 = load ptr, ptr %172, align 8
+  %3345 = call ptr @zend_ast_create_2(i16 noundef zeroext %3342, ptr noundef %3343, ptr noundef %3344) #10
+  store ptr %3345, ptr %173, align 8
+  %3346 = load i16, ptr %170, align 2
+  %3347 = load ptr, ptr %173, align 8
+  %3348 = getelementptr inbounds %struct._zend_ast, ptr %3347, i32 0, i32 1
+  store i16 %3346, ptr %3348, align 2
+  %3349 = load ptr, ptr %173, align 8
+  store ptr %3349, ptr %488, align 8
+  br label %5692
 
-3332:                                             ; preds = %705
-  %3333 = load ptr, ptr %484, align 8
-  %3334 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3333, i64 -2
-  %3335 = load ptr, ptr %3334, align 8
-  %3336 = load ptr, ptr %484, align 8
-  %3337 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3336, i64 0
-  %3338 = load ptr, ptr %3337, align 8
+3350:                                             ; preds = %705
+  %3351 = load ptr, ptr %484, align 8
+  %3352 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3351, i64 -2
+  %3353 = load ptr, ptr %3352, align 8
+  %3354 = load ptr, ptr %484, align 8
+  %3355 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3354, i64 0
+  %3356 = load ptr, ptr %3355, align 8
   store i32 12, ptr %182, align 4
-  store ptr %3335, ptr %183, align 8
-  store ptr %3338, ptr %184, align 8
-  %3339 = load i32, ptr %182, align 4
-  %3340 = trunc i32 %3339 to i16
-  %3341 = load ptr, ptr %183, align 8
-  %3342 = load ptr, ptr %184, align 8
+  store ptr %3353, ptr %183, align 8
+  store ptr %3356, ptr %184, align 8
+  %3357 = load i32, ptr %182, align 4
+  %3358 = trunc i32 %3357 to i16
+  %3359 = load ptr, ptr %183, align 8
+  %3360 = load ptr, ptr %184, align 8
   store i16 521, ptr %177, align 2
-  store i16 %3340, ptr %178, align 2
-  store ptr %3341, ptr %179, align 8
-  store ptr %3342, ptr %180, align 8
-  %3343 = load i16, ptr %177, align 2
-  %3344 = load ptr, ptr %179, align 8
-  %3345 = load ptr, ptr %180, align 8
-  %3346 = call ptr @zend_ast_create_2(i16 noundef zeroext %3343, ptr noundef %3344, ptr noundef %3345) #10
-  store ptr %3346, ptr %181, align 8
-  %3347 = load i16, ptr %178, align 2
-  %3348 = load ptr, ptr %181, align 8
-  %3349 = getelementptr inbounds %struct._zend_ast, ptr %3348, i32 0, i32 1
-  store i16 %3347, ptr %3349, align 2
-  %3350 = load ptr, ptr %181, align 8
-  store ptr %3350, ptr %488, align 8
-  br label %5656
+  store i16 %3358, ptr %178, align 2
+  store ptr %3359, ptr %179, align 8
+  store ptr %3360, ptr %180, align 8
+  %3361 = load i16, ptr %177, align 2
+  %3362 = load ptr, ptr %179, align 8
+  %3363 = load ptr, ptr %180, align 8
+  %3364 = call ptr @zend_ast_create_2(i16 noundef zeroext %3361, ptr noundef %3362, ptr noundef %3363) #10
+  store ptr %3364, ptr %181, align 8
+  %3365 = load i16, ptr %178, align 2
+  %3366 = load ptr, ptr %181, align 8
+  %3367 = getelementptr inbounds %struct._zend_ast, ptr %3366, i32 0, i32 1
+  store i16 %3365, ptr %3367, align 2
+  %3368 = load ptr, ptr %181, align 8
+  store ptr %3368, ptr %488, align 8
+  br label %5692
 
-3351:                                             ; preds = %705
-  %3352 = load ptr, ptr %484, align 8
-  %3353 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3352, i64 -2
-  %3354 = load ptr, ptr %3353, align 8
-  %3355 = load ptr, ptr %484, align 8
-  %3356 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3355, i64 0
-  %3357 = load ptr, ptr %3356, align 8
+3369:                                             ; preds = %705
+  %3370 = load ptr, ptr %484, align 8
+  %3371 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3370, i64 -2
+  %3372 = load ptr, ptr %3371, align 8
+  %3373 = load ptr, ptr %484, align 8
+  %3374 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3373, i64 0
+  %3375 = load ptr, ptr %3374, align 8
   store i32 4, ptr %190, align 4
-  store ptr %3354, ptr %191, align 8
-  store ptr %3357, ptr %192, align 8
-  %3358 = load i32, ptr %190, align 4
-  %3359 = trunc i32 %3358 to i16
-  %3360 = load ptr, ptr %191, align 8
-  %3361 = load ptr, ptr %192, align 8
+  store ptr %3372, ptr %191, align 8
+  store ptr %3375, ptr %192, align 8
+  %3376 = load i32, ptr %190, align 4
+  %3377 = trunc i32 %3376 to i16
+  %3378 = load ptr, ptr %191, align 8
+  %3379 = load ptr, ptr %192, align 8
   store i16 521, ptr %185, align 2
-  store i16 %3359, ptr %186, align 2
-  store ptr %3360, ptr %187, align 8
-  store ptr %3361, ptr %188, align 8
-  %3362 = load i16, ptr %185, align 2
-  %3363 = load ptr, ptr %187, align 8
-  %3364 = load ptr, ptr %188, align 8
-  %3365 = call ptr @zend_ast_create_2(i16 noundef zeroext %3362, ptr noundef %3363, ptr noundef %3364) #10
-  store ptr %3365, ptr %189, align 8
-  %3366 = load i16, ptr %186, align 2
-  %3367 = load ptr, ptr %189, align 8
-  %3368 = getelementptr inbounds %struct._zend_ast, ptr %3367, i32 0, i32 1
-  store i16 %3366, ptr %3368, align 2
-  %3369 = load ptr, ptr %189, align 8
-  store ptr %3369, ptr %488, align 8
-  br label %5656
+  store i16 %3377, ptr %186, align 2
+  store ptr %3378, ptr %187, align 8
+  store ptr %3379, ptr %188, align 8
+  %3380 = load i16, ptr %185, align 2
+  %3381 = load ptr, ptr %187, align 8
+  %3382 = load ptr, ptr %188, align 8
+  %3383 = call ptr @zend_ast_create_2(i16 noundef zeroext %3380, ptr noundef %3381, ptr noundef %3382) #10
+  store ptr %3383, ptr %189, align 8
+  %3384 = load i16, ptr %186, align 2
+  %3385 = load ptr, ptr %189, align 8
+  %3386 = getelementptr inbounds %struct._zend_ast, ptr %3385, i32 0, i32 1
+  store i16 %3384, ptr %3386, align 2
+  %3387 = load ptr, ptr %189, align 8
+  store ptr %3387, ptr %488, align 8
+  br label %5692
 
-3370:                                             ; preds = %705
-  %3371 = load ptr, ptr %484, align 8
-  %3372 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3371, i64 -2
-  %3373 = load ptr, ptr %3372, align 8
-  %3374 = load ptr, ptr %484, align 8
-  %3375 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3374, i64 0
-  %3376 = load ptr, ptr %3375, align 8
+3388:                                             ; preds = %705
+  %3389 = load ptr, ptr %484, align 8
+  %3390 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3389, i64 -2
+  %3391 = load ptr, ptr %3390, align 8
+  %3392 = load ptr, ptr %484, align 8
+  %3393 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3392, i64 0
+  %3394 = load ptr, ptr %3393, align 8
   store i32 5, ptr %198, align 4
-  store ptr %3373, ptr %199, align 8
-  store ptr %3376, ptr %200, align 8
-  %3377 = load i32, ptr %198, align 4
-  %3378 = trunc i32 %3377 to i16
-  %3379 = load ptr, ptr %199, align 8
-  %3380 = load ptr, ptr %200, align 8
+  store ptr %3391, ptr %199, align 8
+  store ptr %3394, ptr %200, align 8
+  %3395 = load i32, ptr %198, align 4
+  %3396 = trunc i32 %3395 to i16
+  %3397 = load ptr, ptr %199, align 8
+  %3398 = load ptr, ptr %200, align 8
   store i16 521, ptr %193, align 2
-  store i16 %3378, ptr %194, align 2
-  store ptr %3379, ptr %195, align 8
-  store ptr %3380, ptr %196, align 8
-  %3381 = load i16, ptr %193, align 2
-  %3382 = load ptr, ptr %195, align 8
-  %3383 = load ptr, ptr %196, align 8
-  %3384 = call ptr @zend_ast_create_2(i16 noundef zeroext %3381, ptr noundef %3382, ptr noundef %3383) #10
-  store ptr %3384, ptr %197, align 8
-  %3385 = load i16, ptr %194, align 2
-  %3386 = load ptr, ptr %197, align 8
-  %3387 = getelementptr inbounds %struct._zend_ast, ptr %3386, i32 0, i32 1
-  store i16 %3385, ptr %3387, align 2
-  %3388 = load ptr, ptr %197, align 8
-  store ptr %3388, ptr %488, align 8
-  br label %5656
+  store i16 %3396, ptr %194, align 2
+  store ptr %3397, ptr %195, align 8
+  store ptr %3398, ptr %196, align 8
+  %3399 = load i16, ptr %193, align 2
+  %3400 = load ptr, ptr %195, align 8
+  %3401 = load ptr, ptr %196, align 8
+  %3402 = call ptr @zend_ast_create_2(i16 noundef zeroext %3399, ptr noundef %3400, ptr noundef %3401) #10
+  store ptr %3402, ptr %197, align 8
+  %3403 = load i16, ptr %194, align 2
+  %3404 = load ptr, ptr %197, align 8
+  %3405 = getelementptr inbounds %struct._zend_ast, ptr %3404, i32 0, i32 1
+  store i16 %3403, ptr %3405, align 2
+  %3406 = load ptr, ptr %197, align 8
+  store ptr %3406, ptr %488, align 8
+  br label %5692
 
-3389:                                             ; preds = %705
-  %3390 = load ptr, ptr %484, align 8
-  %3391 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3390, i64 -2
-  %3392 = load ptr, ptr %3391, align 8
-  %3393 = load ptr, ptr %484, align 8
-  %3394 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3393, i64 0
-  %3395 = load ptr, ptr %3394, align 8
+3407:                                             ; preds = %705
+  %3408 = load ptr, ptr %484, align 8
+  %3409 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3408, i64 -2
+  %3410 = load ptr, ptr %3409, align 8
+  %3411 = load ptr, ptr %484, align 8
+  %3412 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3411, i64 0
+  %3413 = load ptr, ptr %3412, align 8
   store i32 6, ptr %206, align 4
-  store ptr %3392, ptr %207, align 8
-  store ptr %3395, ptr %208, align 8
-  %3396 = load i32, ptr %206, align 4
-  %3397 = trunc i32 %3396 to i16
-  %3398 = load ptr, ptr %207, align 8
-  %3399 = load ptr, ptr %208, align 8
+  store ptr %3410, ptr %207, align 8
+  store ptr %3413, ptr %208, align 8
+  %3414 = load i32, ptr %206, align 4
+  %3415 = trunc i32 %3414 to i16
+  %3416 = load ptr, ptr %207, align 8
+  %3417 = load ptr, ptr %208, align 8
   store i16 521, ptr %201, align 2
-  store i16 %3397, ptr %202, align 2
-  store ptr %3398, ptr %203, align 8
-  store ptr %3399, ptr %204, align 8
-  %3400 = load i16, ptr %201, align 2
-  %3401 = load ptr, ptr %203, align 8
-  %3402 = load ptr, ptr %204, align 8
-  %3403 = call ptr @zend_ast_create_2(i16 noundef zeroext %3400, ptr noundef %3401, ptr noundef %3402) #10
-  store ptr %3403, ptr %205, align 8
-  %3404 = load i16, ptr %202, align 2
-  %3405 = load ptr, ptr %205, align 8
-  %3406 = getelementptr inbounds %struct._zend_ast, ptr %3405, i32 0, i32 1
-  store i16 %3404, ptr %3406, align 2
-  %3407 = load ptr, ptr %205, align 8
-  store ptr %3407, ptr %488, align 8
-  br label %5656
+  store i16 %3415, ptr %202, align 2
+  store ptr %3416, ptr %203, align 8
+  store ptr %3417, ptr %204, align 8
+  %3418 = load i16, ptr %201, align 2
+  %3419 = load ptr, ptr %203, align 8
+  %3420 = load ptr, ptr %204, align 8
+  %3421 = call ptr @zend_ast_create_2(i16 noundef zeroext %3418, ptr noundef %3419, ptr noundef %3420) #10
+  store ptr %3421, ptr %205, align 8
+  %3422 = load i16, ptr %202, align 2
+  %3423 = load ptr, ptr %205, align 8
+  %3424 = getelementptr inbounds %struct._zend_ast, ptr %3423, i32 0, i32 1
+  store i16 %3422, ptr %3424, align 2
+  %3425 = load ptr, ptr %205, align 8
+  store ptr %3425, ptr %488, align 8
+  br label %5692
 
-3408:                                             ; preds = %705
-  %3409 = load ptr, ptr %484, align 8
-  %3410 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3409, i64 -2
-  %3411 = load ptr, ptr %3410, align 8
-  %3412 = load ptr, ptr %484, align 8
-  %3413 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3412, i64 0
-  %3414 = load ptr, ptr %3413, align 8
+3426:                                             ; preds = %705
+  %3427 = load ptr, ptr %484, align 8
+  %3428 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3427, i64 -2
+  %3429 = load ptr, ptr %3428, align 8
+  %3430 = load ptr, ptr %484, align 8
+  %3431 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3430, i64 0
+  %3432 = load ptr, ptr %3431, align 8
   store i32 7, ptr %214, align 4
-  store ptr %3411, ptr %215, align 8
-  store ptr %3414, ptr %216, align 8
-  %3415 = load i32, ptr %214, align 4
-  %3416 = trunc i32 %3415 to i16
-  %3417 = load ptr, ptr %215, align 8
-  %3418 = load ptr, ptr %216, align 8
+  store ptr %3429, ptr %215, align 8
+  store ptr %3432, ptr %216, align 8
+  %3433 = load i32, ptr %214, align 4
+  %3434 = trunc i32 %3433 to i16
+  %3435 = load ptr, ptr %215, align 8
+  %3436 = load ptr, ptr %216, align 8
   store i16 521, ptr %209, align 2
-  store i16 %3416, ptr %210, align 2
-  store ptr %3417, ptr %211, align 8
-  store ptr %3418, ptr %212, align 8
-  %3419 = load i16, ptr %209, align 2
-  %3420 = load ptr, ptr %211, align 8
-  %3421 = load ptr, ptr %212, align 8
-  %3422 = call ptr @zend_ast_create_2(i16 noundef zeroext %3419, ptr noundef %3420, ptr noundef %3421) #10
-  store ptr %3422, ptr %213, align 8
-  %3423 = load i16, ptr %210, align 2
-  %3424 = load ptr, ptr %213, align 8
-  %3425 = getelementptr inbounds %struct._zend_ast, ptr %3424, i32 0, i32 1
-  store i16 %3423, ptr %3425, align 2
-  %3426 = load ptr, ptr %213, align 8
-  store ptr %3426, ptr %488, align 8
-  br label %5656
+  store i16 %3434, ptr %210, align 2
+  store ptr %3435, ptr %211, align 8
+  store ptr %3436, ptr %212, align 8
+  %3437 = load i16, ptr %209, align 2
+  %3438 = load ptr, ptr %211, align 8
+  %3439 = load ptr, ptr %212, align 8
+  %3440 = call ptr @zend_ast_create_2(i16 noundef zeroext %3437, ptr noundef %3438, ptr noundef %3439) #10
+  store ptr %3440, ptr %213, align 8
+  %3441 = load i16, ptr %210, align 2
+  %3442 = load ptr, ptr %213, align 8
+  %3443 = getelementptr inbounds %struct._zend_ast, ptr %3442, i32 0, i32 1
+  store i16 %3441, ptr %3443, align 2
+  %3444 = load ptr, ptr %213, align 8
+  store ptr %3444, ptr %488, align 8
+  br label %5692
 
-3427:                                             ; preds = %705
-  %3428 = load ptr, ptr %484, align 8
-  %3429 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3428, i64 0
-  %3430 = load ptr, ptr %3429, align 8
-  %3431 = call ptr @zend_ast_create_1(i16 noundef zeroext 259, ptr noundef %3430)
-  store ptr %3431, ptr %488, align 8
-  br label %5656
+3445:                                             ; preds = %705
+  %3446 = load ptr, ptr %484, align 8
+  %3447 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3446, i64 0
+  %3448 = load ptr, ptr %3447, align 8
+  %3449 = call ptr @zend_ast_create_1(i16 noundef zeroext 259, ptr noundef %3448)
+  store ptr %3449, ptr %488, align 8
+  br label %5692
 
-3432:                                             ; preds = %705
-  %3433 = load ptr, ptr %484, align 8
-  %3434 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3433, i64 0
-  %3435 = load ptr, ptr %3434, align 8
-  %3436 = call ptr @zend_ast_create_1(i16 noundef zeroext 260, ptr noundef %3435)
-  store ptr %3436, ptr %488, align 8
-  br label %5656
+3450:                                             ; preds = %705
+  %3451 = load ptr, ptr %484, align 8
+  %3452 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3451, i64 0
+  %3453 = load ptr, ptr %3452, align 8
+  %3454 = call ptr @zend_ast_create_1(i16 noundef zeroext 260, ptr noundef %3453)
+  store ptr %3454, ptr %488, align 8
+  br label %5692
 
-3437:                                             ; preds = %705
-  %3438 = load ptr, ptr %484, align 8
-  %3439 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3438, i64 0
-  %3440 = load ptr, ptr %3439, align 8
+3455:                                             ; preds = %705
+  %3456 = load ptr, ptr %484, align 8
+  %3457 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3456, i64 0
+  %3458 = load ptr, ptr %3457, align 8
   store i16 270, ptr %77, align 2
   store i16 14, ptr %78, align 2
-  store ptr %3440, ptr %79, align 8
-  %3441 = load i16, ptr %77, align 2
-  %3442 = load ptr, ptr %79, align 8
-  %3443 = call ptr @zend_ast_create_1(i16 noundef zeroext %3441, ptr noundef %3442) #10
-  store ptr %3443, ptr %80, align 8
-  %3444 = load i16, ptr %78, align 2
-  %3445 = load ptr, ptr %80, align 8
-  %3446 = getelementptr inbounds %struct._zend_ast, ptr %3445, i32 0, i32 1
-  store i16 %3444, ptr %3446, align 2
-  %3447 = load ptr, ptr %80, align 8
-  store ptr %3447, ptr %488, align 8
-  br label %5656
+  store ptr %3458, ptr %79, align 8
+  %3459 = load i16, ptr %77, align 2
+  %3460 = load ptr, ptr %79, align 8
+  %3461 = call ptr @zend_ast_create_1(i16 noundef zeroext %3459, ptr noundef %3460) #10
+  store ptr %3461, ptr %80, align 8
+  %3462 = load i16, ptr %78, align 2
+  %3463 = load ptr, ptr %80, align 8
+  %3464 = getelementptr inbounds %struct._zend_ast, ptr %3463, i32 0, i32 1
+  store i16 %3462, ptr %3464, align 2
+  %3465 = load ptr, ptr %80, align 8
+  store ptr %3465, ptr %488, align 8
+  br label %5692
 
-3448:                                             ; preds = %705
-  %3449 = load ptr, ptr %484, align 8
-  %3450 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3449, i64 0
-  %3451 = load ptr, ptr %3450, align 8
+3466:                                             ; preds = %705
+  %3467 = load ptr, ptr %484, align 8
+  %3468 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3467, i64 0
+  %3469 = load ptr, ptr %3468, align 8
   store i16 270, ptr %81, align 2
   store i16 13, ptr %82, align 2
-  store ptr %3451, ptr %83, align 8
-  %3452 = load i16, ptr %81, align 2
-  %3453 = load ptr, ptr %83, align 8
-  %3454 = call ptr @zend_ast_create_1(i16 noundef zeroext %3452, ptr noundef %3453) #10
-  store ptr %3454, ptr %84, align 8
-  %3455 = load i16, ptr %82, align 2
-  %3456 = load ptr, ptr %84, align 8
-  %3457 = getelementptr inbounds %struct._zend_ast, ptr %3456, i32 0, i32 1
-  store i16 %3455, ptr %3457, align 2
-  %3458 = load ptr, ptr %84, align 8
-  store ptr %3458, ptr %488, align 8
-  br label %5656
+  store ptr %3469, ptr %83, align 8
+  %3470 = load i16, ptr %81, align 2
+  %3471 = load ptr, ptr %83, align 8
+  %3472 = call ptr @zend_ast_create_1(i16 noundef zeroext %3470, ptr noundef %3471) #10
+  store ptr %3472, ptr %84, align 8
+  %3473 = load i16, ptr %82, align 2
+  %3474 = load ptr, ptr %84, align 8
+  %3475 = getelementptr inbounds %struct._zend_ast, ptr %3474, i32 0, i32 1
+  store i16 %3473, ptr %3475, align 2
+  %3476 = load ptr, ptr %84, align 8
+  store ptr %3476, ptr %488, align 8
+  br label %5692
 
-3459:                                             ; preds = %705
-  %3460 = load ptr, ptr %484, align 8
-  %3461 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3460, i64 -2
-  %3462 = load ptr, ptr %3461, align 8
-  %3463 = load ptr, ptr %484, align 8
-  %3464 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3463, i64 0
-  %3465 = load ptr, ptr %3464, align 8
+3477:                                             ; preds = %705
+  %3478 = load ptr, ptr %484, align 8
+  %3479 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3478, i64 -2
+  %3480 = load ptr, ptr %3479, align 8
+  %3481 = load ptr, ptr %484, align 8
+  %3482 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3481, i64 0
+  %3483 = load ptr, ptr %3482, align 8
   store i32 16, ptr %222, align 4
-  store ptr %3462, ptr %223, align 8
-  store ptr %3465, ptr %224, align 8
-  %3466 = load i32, ptr %222, align 4
-  %3467 = trunc i32 %3466 to i16
-  %3468 = load ptr, ptr %223, align 8
-  %3469 = load ptr, ptr %224, align 8
+  store ptr %3480, ptr %223, align 8
+  store ptr %3483, ptr %224, align 8
+  %3484 = load i32, ptr %222, align 4
+  %3485 = trunc i32 %3484 to i16
+  %3486 = load ptr, ptr %223, align 8
+  %3487 = load ptr, ptr %224, align 8
   store i16 521, ptr %217, align 2
-  store i16 %3467, ptr %218, align 2
-  store ptr %3468, ptr %219, align 8
-  store ptr %3469, ptr %220, align 8
-  %3470 = load i16, ptr %217, align 2
-  %3471 = load ptr, ptr %219, align 8
-  %3472 = load ptr, ptr %220, align 8
-  %3473 = call ptr @zend_ast_create_2(i16 noundef zeroext %3470, ptr noundef %3471, ptr noundef %3472) #10
-  store ptr %3473, ptr %221, align 8
-  %3474 = load i16, ptr %218, align 2
-  %3475 = load ptr, ptr %221, align 8
-  %3476 = getelementptr inbounds %struct._zend_ast, ptr %3475, i32 0, i32 1
-  store i16 %3474, ptr %3476, align 2
-  %3477 = load ptr, ptr %221, align 8
-  store ptr %3477, ptr %488, align 8
-  br label %5656
+  store i16 %3485, ptr %218, align 2
+  store ptr %3486, ptr %219, align 8
+  store ptr %3487, ptr %220, align 8
+  %3488 = load i16, ptr %217, align 2
+  %3489 = load ptr, ptr %219, align 8
+  %3490 = load ptr, ptr %220, align 8
+  %3491 = call ptr @zend_ast_create_2(i16 noundef zeroext %3488, ptr noundef %3489, ptr noundef %3490) #10
+  store ptr %3491, ptr %221, align 8
+  %3492 = load i16, ptr %218, align 2
+  %3493 = load ptr, ptr %221, align 8
+  %3494 = getelementptr inbounds %struct._zend_ast, ptr %3493, i32 0, i32 1
+  store i16 %3492, ptr %3494, align 2
+  %3495 = load ptr, ptr %221, align 8
+  store ptr %3495, ptr %488, align 8
+  br label %5692
 
-3478:                                             ; preds = %705
-  %3479 = load ptr, ptr %484, align 8
-  %3480 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3479, i64 -2
-  %3481 = load ptr, ptr %3480, align 8
-  %3482 = load ptr, ptr %484, align 8
-  %3483 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3482, i64 0
-  %3484 = load ptr, ptr %3483, align 8
+3496:                                             ; preds = %705
+  %3497 = load ptr, ptr %484, align 8
+  %3498 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3497, i64 -2
+  %3499 = load ptr, ptr %3498, align 8
+  %3500 = load ptr, ptr %484, align 8
+  %3501 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3500, i64 0
+  %3502 = load ptr, ptr %3501, align 8
   store i32 17, ptr %230, align 4
-  store ptr %3481, ptr %231, align 8
-  store ptr %3484, ptr %232, align 8
-  %3485 = load i32, ptr %230, align 4
-  %3486 = trunc i32 %3485 to i16
-  %3487 = load ptr, ptr %231, align 8
-  %3488 = load ptr, ptr %232, align 8
+  store ptr %3499, ptr %231, align 8
+  store ptr %3502, ptr %232, align 8
+  %3503 = load i32, ptr %230, align 4
+  %3504 = trunc i32 %3503 to i16
+  %3505 = load ptr, ptr %231, align 8
+  %3506 = load ptr, ptr %232, align 8
   store i16 521, ptr %225, align 2
-  store i16 %3486, ptr %226, align 2
-  store ptr %3487, ptr %227, align 8
-  store ptr %3488, ptr %228, align 8
-  %3489 = load i16, ptr %225, align 2
-  %3490 = load ptr, ptr %227, align 8
-  %3491 = load ptr, ptr %228, align 8
-  %3492 = call ptr @zend_ast_create_2(i16 noundef zeroext %3489, ptr noundef %3490, ptr noundef %3491) #10
-  store ptr %3492, ptr %229, align 8
-  %3493 = load i16, ptr %226, align 2
-  %3494 = load ptr, ptr %229, align 8
-  %3495 = getelementptr inbounds %struct._zend_ast, ptr %3494, i32 0, i32 1
-  store i16 %3493, ptr %3495, align 2
-  %3496 = load ptr, ptr %229, align 8
-  store ptr %3496, ptr %488, align 8
-  br label %5656
+  store i16 %3504, ptr %226, align 2
+  store ptr %3505, ptr %227, align 8
+  store ptr %3506, ptr %228, align 8
+  %3507 = load i16, ptr %225, align 2
+  %3508 = load ptr, ptr %227, align 8
+  %3509 = load ptr, ptr %228, align 8
+  %3510 = call ptr @zend_ast_create_2(i16 noundef zeroext %3507, ptr noundef %3508, ptr noundef %3509) #10
+  store ptr %3510, ptr %229, align 8
+  %3511 = load i16, ptr %226, align 2
+  %3512 = load ptr, ptr %229, align 8
+  %3513 = getelementptr inbounds %struct._zend_ast, ptr %3512, i32 0, i32 1
+  store i16 %3511, ptr %3513, align 2
+  %3514 = load ptr, ptr %229, align 8
+  store ptr %3514, ptr %488, align 8
+  br label %5692
 
-3497:                                             ; preds = %705
-  %3498 = load ptr, ptr %484, align 8
-  %3499 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3498, i64 -2
-  %3500 = load ptr, ptr %3499, align 8
-  %3501 = load ptr, ptr %484, align 8
-  %3502 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3501, i64 0
-  %3503 = load ptr, ptr %3502, align 8
+3515:                                             ; preds = %705
+  %3516 = load ptr, ptr %484, align 8
+  %3517 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3516, i64 -2
+  %3518 = load ptr, ptr %3517, align 8
+  %3519 = load ptr, ptr %484, align 8
+  %3520 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3519, i64 0
+  %3521 = load ptr, ptr %3520, align 8
   store i32 18, ptr %238, align 4
-  store ptr %3500, ptr %239, align 8
-  store ptr %3503, ptr %240, align 8
-  %3504 = load i32, ptr %238, align 4
-  %3505 = trunc i32 %3504 to i16
-  %3506 = load ptr, ptr %239, align 8
-  %3507 = load ptr, ptr %240, align 8
+  store ptr %3518, ptr %239, align 8
+  store ptr %3521, ptr %240, align 8
+  %3522 = load i32, ptr %238, align 4
+  %3523 = trunc i32 %3522 to i16
+  %3524 = load ptr, ptr %239, align 8
+  %3525 = load ptr, ptr %240, align 8
   store i16 521, ptr %233, align 2
-  store i16 %3505, ptr %234, align 2
-  store ptr %3506, ptr %235, align 8
-  store ptr %3507, ptr %236, align 8
-  %3508 = load i16, ptr %233, align 2
-  %3509 = load ptr, ptr %235, align 8
-  %3510 = load ptr, ptr %236, align 8
-  %3511 = call ptr @zend_ast_create_2(i16 noundef zeroext %3508, ptr noundef %3509, ptr noundef %3510) #10
-  store ptr %3511, ptr %237, align 8
-  %3512 = load i16, ptr %234, align 2
-  %3513 = load ptr, ptr %237, align 8
-  %3514 = getelementptr inbounds %struct._zend_ast, ptr %3513, i32 0, i32 1
-  store i16 %3512, ptr %3514, align 2
-  %3515 = load ptr, ptr %237, align 8
-  store ptr %3515, ptr %488, align 8
-  br label %5656
+  store i16 %3523, ptr %234, align 2
+  store ptr %3524, ptr %235, align 8
+  store ptr %3525, ptr %236, align 8
+  %3526 = load i16, ptr %233, align 2
+  %3527 = load ptr, ptr %235, align 8
+  %3528 = load ptr, ptr %236, align 8
+  %3529 = call ptr @zend_ast_create_2(i16 noundef zeroext %3526, ptr noundef %3527, ptr noundef %3528) #10
+  store ptr %3529, ptr %237, align 8
+  %3530 = load i16, ptr %234, align 2
+  %3531 = load ptr, ptr %237, align 8
+  %3532 = getelementptr inbounds %struct._zend_ast, ptr %3531, i32 0, i32 1
+  store i16 %3530, ptr %3532, align 2
+  %3533 = load ptr, ptr %237, align 8
+  store ptr %3533, ptr %488, align 8
+  br label %5692
 
-3516:                                             ; preds = %705
-  %3517 = load ptr, ptr %484, align 8
-  %3518 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3517, i64 -2
-  %3519 = load ptr, ptr %3518, align 8
-  %3520 = load ptr, ptr %484, align 8
-  %3521 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3520, i64 0
-  %3522 = load ptr, ptr %3521, align 8
+3534:                                             ; preds = %705
+  %3535 = load ptr, ptr %484, align 8
+  %3536 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3535, i64 -2
+  %3537 = load ptr, ptr %3536, align 8
+  %3538 = load ptr, ptr %484, align 8
+  %3539 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3538, i64 0
+  %3540 = load ptr, ptr %3539, align 8
   store i32 19, ptr %246, align 4
-  store ptr %3519, ptr %247, align 8
-  store ptr %3522, ptr %248, align 8
-  %3523 = load i32, ptr %246, align 4
-  %3524 = trunc i32 %3523 to i16
-  %3525 = load ptr, ptr %247, align 8
-  %3526 = load ptr, ptr %248, align 8
+  store ptr %3537, ptr %247, align 8
+  store ptr %3540, ptr %248, align 8
+  %3541 = load i32, ptr %246, align 4
+  %3542 = trunc i32 %3541 to i16
+  %3543 = load ptr, ptr %247, align 8
+  %3544 = load ptr, ptr %248, align 8
   store i16 521, ptr %241, align 2
-  store i16 %3524, ptr %242, align 2
-  store ptr %3525, ptr %243, align 8
-  store ptr %3526, ptr %244, align 8
-  %3527 = load i16, ptr %241, align 2
-  %3528 = load ptr, ptr %243, align 8
-  %3529 = load ptr, ptr %244, align 8
-  %3530 = call ptr @zend_ast_create_2(i16 noundef zeroext %3527, ptr noundef %3528, ptr noundef %3529) #10
-  store ptr %3530, ptr %245, align 8
-  %3531 = load i16, ptr %242, align 2
-  %3532 = load ptr, ptr %245, align 8
-  %3533 = getelementptr inbounds %struct._zend_ast, ptr %3532, i32 0, i32 1
-  store i16 %3531, ptr %3533, align 2
-  %3534 = load ptr, ptr %245, align 8
-  store ptr %3534, ptr %488, align 8
-  br label %5656
+  store i16 %3542, ptr %242, align 2
+  store ptr %3543, ptr %243, align 8
+  store ptr %3544, ptr %244, align 8
+  %3545 = load i16, ptr %241, align 2
+  %3546 = load ptr, ptr %243, align 8
+  %3547 = load ptr, ptr %244, align 8
+  %3548 = call ptr @zend_ast_create_2(i16 noundef zeroext %3545, ptr noundef %3546, ptr noundef %3547) #10
+  store ptr %3548, ptr %245, align 8
+  %3549 = load i16, ptr %242, align 2
+  %3550 = load ptr, ptr %245, align 8
+  %3551 = getelementptr inbounds %struct._zend_ast, ptr %3550, i32 0, i32 1
+  store i16 %3549, ptr %3551, align 2
+  %3552 = load ptr, ptr %245, align 8
+  store ptr %3552, ptr %488, align 8
+  br label %5692
 
-3535:                                             ; preds = %705
-  %3536 = load ptr, ptr %484, align 8
-  %3537 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3536, i64 -2
-  %3538 = load ptr, ptr %3537, align 8
-  %3539 = load ptr, ptr %484, align 8
-  %3540 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3539, i64 0
-  %3541 = load ptr, ptr %3540, align 8
+3553:                                             ; preds = %705
+  %3554 = load ptr, ptr %484, align 8
+  %3555 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3554, i64 -2
+  %3556 = load ptr, ptr %3555, align 8
+  %3557 = load ptr, ptr %484, align 8
+  %3558 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3557, i64 0
+  %3559 = load ptr, ptr %3558, align 8
   store i32 20, ptr %254, align 4
-  store ptr %3538, ptr %255, align 8
-  store ptr %3541, ptr %256, align 8
-  %3542 = load i32, ptr %254, align 4
-  %3543 = trunc i32 %3542 to i16
-  %3544 = load ptr, ptr %255, align 8
-  %3545 = load ptr, ptr %256, align 8
+  store ptr %3556, ptr %255, align 8
+  store ptr %3559, ptr %256, align 8
+  %3560 = load i32, ptr %254, align 4
+  %3561 = trunc i32 %3560 to i16
+  %3562 = load ptr, ptr %255, align 8
+  %3563 = load ptr, ptr %256, align 8
   store i16 521, ptr %249, align 2
-  store i16 %3543, ptr %250, align 2
-  store ptr %3544, ptr %251, align 8
-  store ptr %3545, ptr %252, align 8
-  %3546 = load i16, ptr %249, align 2
-  %3547 = load ptr, ptr %251, align 8
-  %3548 = load ptr, ptr %252, align 8
-  %3549 = call ptr @zend_ast_create_2(i16 noundef zeroext %3546, ptr noundef %3547, ptr noundef %3548) #10
-  store ptr %3549, ptr %253, align 8
-  %3550 = load i16, ptr %250, align 2
-  %3551 = load ptr, ptr %253, align 8
-  %3552 = getelementptr inbounds %struct._zend_ast, ptr %3551, i32 0, i32 1
-  store i16 %3550, ptr %3552, align 2
-  %3553 = load ptr, ptr %253, align 8
-  store ptr %3553, ptr %488, align 8
-  br label %5656
+  store i16 %3561, ptr %250, align 2
+  store ptr %3562, ptr %251, align 8
+  store ptr %3563, ptr %252, align 8
+  %3564 = load i16, ptr %249, align 2
+  %3565 = load ptr, ptr %251, align 8
+  %3566 = load ptr, ptr %252, align 8
+  %3567 = call ptr @zend_ast_create_2(i16 noundef zeroext %3564, ptr noundef %3565, ptr noundef %3566) #10
+  store ptr %3567, ptr %253, align 8
+  %3568 = load i16, ptr %250, align 2
+  %3569 = load ptr, ptr %253, align 8
+  %3570 = getelementptr inbounds %struct._zend_ast, ptr %3569, i32 0, i32 1
+  store i16 %3568, ptr %3570, align 2
+  %3571 = load ptr, ptr %253, align 8
+  store ptr %3571, ptr %488, align 8
+  br label %5692
 
-3554:                                             ; preds = %705
-  %3555 = load ptr, ptr %484, align 8
-  %3556 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3555, i64 -2
-  %3557 = load ptr, ptr %3556, align 8
-  %3558 = load ptr, ptr %484, align 8
-  %3559 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3558, i64 0
-  %3560 = load ptr, ptr %3559, align 8
+3572:                                             ; preds = %705
+  %3573 = load ptr, ptr %484, align 8
+  %3574 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3573, i64 -2
+  %3575 = load ptr, ptr %3574, align 8
+  %3576 = load ptr, ptr %484, align 8
+  %3577 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3576, i64 0
+  %3578 = load ptr, ptr %3577, align 8
   store i32 21, ptr %262, align 4
-  store ptr %3557, ptr %263, align 8
-  store ptr %3560, ptr %264, align 8
-  %3561 = load i32, ptr %262, align 4
-  %3562 = trunc i32 %3561 to i16
-  %3563 = load ptr, ptr %263, align 8
-  %3564 = load ptr, ptr %264, align 8
+  store ptr %3575, ptr %263, align 8
+  store ptr %3578, ptr %264, align 8
+  %3579 = load i32, ptr %262, align 4
+  %3580 = trunc i32 %3579 to i16
+  %3581 = load ptr, ptr %263, align 8
+  %3582 = load ptr, ptr %264, align 8
   store i16 521, ptr %257, align 2
-  store i16 %3562, ptr %258, align 2
-  store ptr %3563, ptr %259, align 8
-  store ptr %3564, ptr %260, align 8
-  %3565 = load i16, ptr %257, align 2
-  %3566 = load ptr, ptr %259, align 8
-  %3567 = load ptr, ptr %260, align 8
-  %3568 = call ptr @zend_ast_create_2(i16 noundef zeroext %3565, ptr noundef %3566, ptr noundef %3567) #10
-  store ptr %3568, ptr %261, align 8
-  %3569 = load i16, ptr %258, align 2
-  %3570 = load ptr, ptr %261, align 8
-  %3571 = getelementptr inbounds %struct._zend_ast, ptr %3570, i32 0, i32 1
-  store i16 %3569, ptr %3571, align 2
-  %3572 = load ptr, ptr %261, align 8
-  store ptr %3572, ptr %488, align 8
-  br label %5656
+  store i16 %3580, ptr %258, align 2
+  store ptr %3581, ptr %259, align 8
+  store ptr %3582, ptr %260, align 8
+  %3583 = load i16, ptr %257, align 2
+  %3584 = load ptr, ptr %259, align 8
+  %3585 = load ptr, ptr %260, align 8
+  %3586 = call ptr @zend_ast_create_2(i16 noundef zeroext %3583, ptr noundef %3584, ptr noundef %3585) #10
+  store ptr %3586, ptr %261, align 8
+  %3587 = load i16, ptr %258, align 2
+  %3588 = load ptr, ptr %261, align 8
+  %3589 = getelementptr inbounds %struct._zend_ast, ptr %3588, i32 0, i32 1
+  store i16 %3587, ptr %3589, align 2
+  %3590 = load ptr, ptr %261, align 8
+  store ptr %3590, ptr %488, align 8
+  br label %5692
 
-3573:                                             ; preds = %705
-  %3574 = load ptr, ptr %484, align 8
-  %3575 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3574, i64 -2
-  %3576 = load ptr, ptr %3575, align 8
-  %3577 = load ptr, ptr %484, align 8
-  %3578 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3577, i64 0
-  %3579 = load ptr, ptr %3578, align 8
-  %3580 = call ptr @zend_ast_create_2(i16 noundef zeroext 522, ptr noundef %3576, ptr noundef %3579)
-  store ptr %3580, ptr %488, align 8
-  br label %5656
+3591:                                             ; preds = %705
+  %3592 = load ptr, ptr %484, align 8
+  %3593 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3592, i64 -2
+  %3594 = load ptr, ptr %3593, align 8
+  %3595 = load ptr, ptr %484, align 8
+  %3596 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3595, i64 0
+  %3597 = load ptr, ptr %3596, align 8
+  %3598 = call ptr @zend_ast_create_2(i16 noundef zeroext 522, ptr noundef %3594, ptr noundef %3597)
+  store ptr %3598, ptr %488, align 8
+  br label %5692
 
-3581:                                             ; preds = %705
-  %3582 = load ptr, ptr %484, align 8
-  %3583 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3582, i64 -2
-  %3584 = load ptr, ptr %3583, align 8
-  %3585 = load ptr, ptr %484, align 8
-  %3586 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3585, i64 0
-  %3587 = load ptr, ptr %3586, align 8
-  %3588 = call ptr @zend_ast_create_2(i16 noundef zeroext 523, ptr noundef %3584, ptr noundef %3587)
-  store ptr %3588, ptr %488, align 8
-  br label %5656
+3599:                                             ; preds = %705
+  %3600 = load ptr, ptr %484, align 8
+  %3601 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3600, i64 -2
+  %3602 = load ptr, ptr %3601, align 8
+  %3603 = load ptr, ptr %484, align 8
+  %3604 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3603, i64 0
+  %3605 = load ptr, ptr %3604, align 8
+  %3606 = call ptr @zend_ast_create_2(i16 noundef zeroext 523, ptr noundef %3602, ptr noundef %3605)
+  store ptr %3606, ptr %488, align 8
+  br label %5692
 
-3589:                                             ; preds = %705
-  %3590 = load ptr, ptr %484, align 8
-  %3591 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3590, i64 -2
-  %3592 = load ptr, ptr %3591, align 8
-  %3593 = load ptr, ptr %484, align 8
-  %3594 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3593, i64 0
-  %3595 = load ptr, ptr %3594, align 8
+3607:                                             ; preds = %705
+  %3608 = load ptr, ptr %484, align 8
+  %3609 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3608, i64 -2
+  %3610 = load ptr, ptr %3609, align 8
+  %3611 = load ptr, ptr %484, align 8
+  %3612 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3611, i64 0
+  %3613 = load ptr, ptr %3612, align 8
   store i32 170, ptr %270, align 4
-  store ptr %3592, ptr %271, align 8
-  store ptr %3595, ptr %272, align 8
-  %3596 = load i32, ptr %270, align 4
-  %3597 = trunc i32 %3596 to i16
-  %3598 = load ptr, ptr %271, align 8
-  %3599 = load ptr, ptr %272, align 8
+  store ptr %3610, ptr %271, align 8
+  store ptr %3613, ptr %272, align 8
+  %3614 = load i32, ptr %270, align 4
+  %3615 = trunc i32 %3614 to i16
+  %3616 = load ptr, ptr %271, align 8
+  %3617 = load ptr, ptr %272, align 8
   store i16 521, ptr %265, align 2
-  store i16 %3597, ptr %266, align 2
-  store ptr %3598, ptr %267, align 8
-  store ptr %3599, ptr %268, align 8
-  %3600 = load i16, ptr %265, align 2
-  %3601 = load ptr, ptr %267, align 8
-  %3602 = load ptr, ptr %268, align 8
-  %3603 = call ptr @zend_ast_create_2(i16 noundef zeroext %3600, ptr noundef %3601, ptr noundef %3602) #10
-  store ptr %3603, ptr %269, align 8
-  %3604 = load i16, ptr %266, align 2
-  %3605 = load ptr, ptr %269, align 8
-  %3606 = getelementptr inbounds %struct._zend_ast, ptr %3605, i32 0, i32 1
-  store i16 %3604, ptr %3606, align 2
-  %3607 = load ptr, ptr %269, align 8
-  store ptr %3607, ptr %488, align 8
-  br label %5656
+  store i16 %3615, ptr %266, align 2
+  store ptr %3616, ptr %267, align 8
+  store ptr %3617, ptr %268, align 8
+  %3618 = load i16, ptr %265, align 2
+  %3619 = load ptr, ptr %267, align 8
+  %3620 = load ptr, ptr %268, align 8
+  %3621 = call ptr @zend_ast_create_2(i16 noundef zeroext %3618, ptr noundef %3619, ptr noundef %3620) #10
+  store ptr %3621, ptr %269, align 8
+  %3622 = load i16, ptr %266, align 2
+  %3623 = load ptr, ptr %269, align 8
+  %3624 = getelementptr inbounds %struct._zend_ast, ptr %3623, i32 0, i32 1
+  store i16 %3622, ptr %3624, align 2
+  %3625 = load ptr, ptr %269, align 8
+  store ptr %3625, ptr %488, align 8
+  br label %5692
 
-3608:                                             ; preds = %705
-  %3609 = load ptr, ptr %484, align 8
-  %3610 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3609, i64 -2
-  %3611 = load ptr, ptr %3610, align 8
-  %3612 = load ptr, ptr %484, align 8
-  %3613 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3612, i64 0
-  %3614 = load ptr, ptr %3613, align 8
-  %3615 = call ptr @zend_ast_create_2(i16 noundef zeroext 528, ptr noundef %3611, ptr noundef %3614)
-  store ptr %3615, ptr %488, align 8
-  br label %5656
-
-3616:                                             ; preds = %705
-  %3617 = load ptr, ptr %484, align 8
-  %3618 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3617, i64 -1
-  %3619 = load ptr, ptr %3618, align 8
-  store ptr %3619, ptr %488, align 8
-  %3620 = load ptr, ptr %488, align 8
-  %3621 = getelementptr inbounds %struct._zend_ast, ptr %3620, i32 0, i32 0
-  %3622 = load i16, ptr %3621, align 8
-  %3623 = zext i16 %3622 to i32
-  %3624 = icmp eq i32 %3623, 771
-  br i1 %3624, label %3625, label %3628
-
-3625:                                             ; preds = %3616
-  %3626 = load ptr, ptr %488, align 8
-  %3627 = getelementptr inbounds %struct._zend_ast, ptr %3626, i32 0, i32 1
-  store i16 1, ptr %3627, align 2
-  br label %3628
-
-3628:                                             ; preds = %3625, %3616
-  br label %5656
-
-3629:                                             ; preds = %705
+3626:                                             ; preds = %705
+  %3627 = load ptr, ptr %484, align 8
+  %3628 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3627, i64 -2
+  %3629 = load ptr, ptr %3628, align 8
   %3630 = load ptr, ptr %484, align 8
   %3631 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3630, i64 0
   %3632 = load ptr, ptr %3631, align 8
-  store ptr %3632, ptr %488, align 8
-  br label %5656
+  %3633 = call ptr @zend_ast_create_2(i16 noundef zeroext 528, ptr noundef %3629, ptr noundef %3632)
+  store ptr %3633, ptr %488, align 8
+  br label %5692
 
-3633:                                             ; preds = %705
-  %3634 = load ptr, ptr %484, align 8
-  %3635 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3634, i64 -4
-  %3636 = load ptr, ptr %3635, align 8
-  %3637 = load ptr, ptr %484, align 8
-  %3638 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3637, i64 -2
-  %3639 = load ptr, ptr %3638, align 8
-  %3640 = load ptr, ptr %484, align 8
-  %3641 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3640, i64 0
-  %3642 = load ptr, ptr %3641, align 8
-  %3643 = call ptr @zend_ast_create_3(i16 noundef zeroext 771, ptr noundef %3636, ptr noundef %3639, ptr noundef %3642)
-  store ptr %3643, ptr %488, align 8
-  br label %5656
+3634:                                             ; preds = %705
+  %3635 = load ptr, ptr %484, align 8
+  %3636 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3635, i64 -1
+  %3637 = load ptr, ptr %3636, align 8
+  store ptr %3637, ptr %488, align 8
+  %3638 = load ptr, ptr %488, align 8
+  %3639 = getelementptr inbounds %struct._zend_ast, ptr %3638, i32 0, i32 0
+  %3640 = load i16, ptr %3639, align 8
+  %3641 = zext i16 %3640 to i32
+  %3642 = icmp eq i32 %3641, 771
+  br i1 %3642, label %3643, label %3646
 
-3644:                                             ; preds = %705
-  %3645 = load ptr, ptr %484, align 8
-  %3646 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3645, i64 -3
-  %3647 = load ptr, ptr %3646, align 8
+3643:                                             ; preds = %3634
+  %3644 = load ptr, ptr %488, align 8
+  %3645 = getelementptr inbounds %struct._zend_ast, ptr %3644, i32 0, i32 1
+  store i16 1, ptr %3645, align 2
+  br label %3646
+
+3646:                                             ; preds = %3643, %3634
+  br label %5692
+
+3647:                                             ; preds = %705
   %3648 = load ptr, ptr %484, align 8
   %3649 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3648, i64 0
   %3650 = load ptr, ptr %3649, align 8
-  %3651 = call ptr @zend_ast_create_3(i16 noundef zeroext 771, ptr noundef %3647, ptr noundef null, ptr noundef %3650)
-  store ptr %3651, ptr %488, align 8
-  br label %5656
+  store ptr %3650, ptr %488, align 8
+  br label %5692
 
-3652:                                             ; preds = %705
-  %3653 = load ptr, ptr %484, align 8
-  %3654 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3653, i64 -2
-  %3655 = load ptr, ptr %3654, align 8
-  %3656 = load ptr, ptr %484, align 8
-  %3657 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3656, i64 0
-  %3658 = load ptr, ptr %3657, align 8
-  %3659 = call ptr @zend_ast_create_2(i16 noundef zeroext 530, ptr noundef %3655, ptr noundef %3658)
-  store ptr %3659, ptr %488, align 8
-  br label %5656
+3651:                                             ; preds = %705
+  %3652 = load ptr, ptr %484, align 8
+  %3653 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3652, i64 -4
+  %3654 = load ptr, ptr %3653, align 8
+  %3655 = load ptr, ptr %484, align 8
+  %3656 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3655, i64 -2
+  %3657 = load ptr, ptr %3656, align 8
+  %3658 = load ptr, ptr %484, align 8
+  %3659 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3658, i64 0
+  %3660 = load ptr, ptr %3659, align 8
+  %3661 = call ptr @zend_ast_create_3(i16 noundef zeroext 771, ptr noundef %3654, ptr noundef %3657, ptr noundef %3660)
+  store ptr %3661, ptr %488, align 8
+  br label %5692
 
-3660:                                             ; preds = %705
-  %3661 = load ptr, ptr %484, align 8
-  %3662 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3661, i64 0
-  %3663 = load ptr, ptr %3662, align 8
-  store ptr %3663, ptr %488, align 8
-  br label %5656
+3662:                                             ; preds = %705
+  %3663 = load ptr, ptr %484, align 8
+  %3664 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3663, i64 -3
+  %3665 = load ptr, ptr %3664, align 8
+  %3666 = load ptr, ptr %484, align 8
+  %3667 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3666, i64 0
+  %3668 = load ptr, ptr %3667, align 8
+  %3669 = call ptr @zend_ast_create_3(i16 noundef zeroext 771, ptr noundef %3665, ptr noundef null, ptr noundef %3668)
+  store ptr %3669, ptr %488, align 8
+  br label %5692
 
-3664:                                             ; preds = %705
-  %3665 = load ptr, ptr %484, align 8
-  %3666 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3665, i64 0
-  %3667 = load ptr, ptr %3666, align 8
-  store i32 4, ptr %39, align 4
-  store ptr %3667, ptr %40, align 8
-  %3668 = load i32, ptr %39, align 4
-  %3669 = trunc i32 %3668 to i16
-  %3670 = load ptr, ptr %40, align 8
-  store i16 261, ptr %35, align 2
-  store i16 %3669, ptr %36, align 2
-  store ptr %3670, ptr %37, align 8
-  %3671 = load i16, ptr %35, align 2
-  %3672 = load ptr, ptr %37, align 8
-  %3673 = call ptr @zend_ast_create_1(i16 noundef zeroext %3671, ptr noundef %3672) #10
-  store ptr %3673, ptr %38, align 8
-  %3674 = load i16, ptr %36, align 2
-  %3675 = load ptr, ptr %38, align 8
-  %3676 = getelementptr inbounds %struct._zend_ast, ptr %3675, i32 0, i32 1
-  store i16 %3674, ptr %3676, align 2
-  %3677 = load ptr, ptr %38, align 8
+3670:                                             ; preds = %705
+  %3671 = load ptr, ptr %484, align 8
+  %3672 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3671, i64 -2
+  %3673 = load ptr, ptr %3672, align 8
+  %3674 = load ptr, ptr %484, align 8
+  %3675 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3674, i64 0
+  %3676 = load ptr, ptr %3675, align 8
+  %3677 = call ptr @zend_ast_create_2(i16 noundef zeroext 530, ptr noundef %3673, ptr noundef %3676)
   store ptr %3677, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 3678:                                             ; preds = %705
   %3679 = load ptr, ptr %484, align 8
   %3680 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3679, i64 0
   %3681 = load ptr, ptr %3680, align 8
+  store ptr %3681, ptr %488, align 8
+  br label %5692
+
+3682:                                             ; preds = %705
+  %3683 = load ptr, ptr %484, align 8
+  %3684 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3683, i64 0
+  %3685 = load ptr, ptr %3684, align 8
+  store i32 4, ptr %39, align 4
+  store ptr %3685, ptr %40, align 8
+  %3686 = load i32, ptr %39, align 4
+  %3687 = trunc i32 %3686 to i16
+  %3688 = load ptr, ptr %40, align 8
+  store i16 261, ptr %35, align 2
+  store i16 %3687, ptr %36, align 2
+  store ptr %3688, ptr %37, align 8
+  %3689 = load i16, ptr %35, align 2
+  %3690 = load ptr, ptr %37, align 8
+  %3691 = call ptr @zend_ast_create_1(i16 noundef zeroext %3689, ptr noundef %3690) #10
+  store ptr %3691, ptr %38, align 8
+  %3692 = load i16, ptr %36, align 2
+  %3693 = load ptr, ptr %38, align 8
+  %3694 = getelementptr inbounds %struct._zend_ast, ptr %3693, i32 0, i32 1
+  store i16 %3692, ptr %3694, align 2
+  %3695 = load ptr, ptr %38, align 8
+  store ptr %3695, ptr %488, align 8
+  br label %5692
+
+3696:                                             ; preds = %705
+  %3697 = load ptr, ptr %484, align 8
+  %3698 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3697, i64 0
+  %3699 = load ptr, ptr %3698, align 8
   store i32 5, ptr %45, align 4
-  store ptr %3681, ptr %46, align 8
-  %3682 = load i32, ptr %45, align 4
-  %3683 = trunc i32 %3682 to i16
-  %3684 = load ptr, ptr %46, align 8
+  store ptr %3699, ptr %46, align 8
+  %3700 = load i32, ptr %45, align 4
+  %3701 = trunc i32 %3700 to i16
+  %3702 = load ptr, ptr %46, align 8
   store i16 261, ptr %41, align 2
-  store i16 %3683, ptr %42, align 2
-  store ptr %3684, ptr %43, align 8
-  %3685 = load i16, ptr %41, align 2
-  %3686 = load ptr, ptr %43, align 8
-  %3687 = call ptr @zend_ast_create_1(i16 noundef zeroext %3685, ptr noundef %3686) #10
-  store ptr %3687, ptr %44, align 8
-  %3688 = load i16, ptr %42, align 2
-  %3689 = load ptr, ptr %44, align 8
-  %3690 = getelementptr inbounds %struct._zend_ast, ptr %3689, i32 0, i32 1
-  store i16 %3688, ptr %3690, align 2
-  %3691 = load ptr, ptr %44, align 8
-  store ptr %3691, ptr %488, align 8
-  br label %5656
+  store i16 %3701, ptr %42, align 2
+  store ptr %3702, ptr %43, align 8
+  %3703 = load i16, ptr %41, align 2
+  %3704 = load ptr, ptr %43, align 8
+  %3705 = call ptr @zend_ast_create_1(i16 noundef zeroext %3703, ptr noundef %3704) #10
+  store ptr %3705, ptr %44, align 8
+  %3706 = load i16, ptr %42, align 2
+  %3707 = load ptr, ptr %44, align 8
+  %3708 = getelementptr inbounds %struct._zend_ast, ptr %3707, i32 0, i32 1
+  store i16 %3706, ptr %3708, align 2
+  %3709 = load ptr, ptr %44, align 8
+  store ptr %3709, ptr %488, align 8
+  br label %5692
 
-3692:                                             ; preds = %705
-  %3693 = load ptr, ptr %484, align 8
-  %3694 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3693, i64 0
-  %3695 = load ptr, ptr %3694, align 8
+3710:                                             ; preds = %705
+  %3711 = load ptr, ptr %484, align 8
+  %3712 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3711, i64 0
+  %3713 = load ptr, ptr %3712, align 8
   store i32 6, ptr %51, align 4
-  store ptr %3695, ptr %52, align 8
-  %3696 = load i32, ptr %51, align 4
-  %3697 = trunc i32 %3696 to i16
-  %3698 = load ptr, ptr %52, align 8
+  store ptr %3713, ptr %52, align 8
+  %3714 = load i32, ptr %51, align 4
+  %3715 = trunc i32 %3714 to i16
+  %3716 = load ptr, ptr %52, align 8
   store i16 261, ptr %47, align 2
-  store i16 %3697, ptr %48, align 2
-  store ptr %3698, ptr %49, align 8
-  %3699 = load i16, ptr %47, align 2
-  %3700 = load ptr, ptr %49, align 8
-  %3701 = call ptr @zend_ast_create_1(i16 noundef zeroext %3699, ptr noundef %3700) #10
-  store ptr %3701, ptr %50, align 8
-  %3702 = load i16, ptr %48, align 2
-  %3703 = load ptr, ptr %50, align 8
-  %3704 = getelementptr inbounds %struct._zend_ast, ptr %3703, i32 0, i32 1
-  store i16 %3702, ptr %3704, align 2
-  %3705 = load ptr, ptr %50, align 8
-  store ptr %3705, ptr %488, align 8
-  br label %5656
+  store i16 %3715, ptr %48, align 2
+  store ptr %3716, ptr %49, align 8
+  %3717 = load i16, ptr %47, align 2
+  %3718 = load ptr, ptr %49, align 8
+  %3719 = call ptr @zend_ast_create_1(i16 noundef zeroext %3717, ptr noundef %3718) #10
+  store ptr %3719, ptr %50, align 8
+  %3720 = load i16, ptr %48, align 2
+  %3721 = load ptr, ptr %50, align 8
+  %3722 = getelementptr inbounds %struct._zend_ast, ptr %3721, i32 0, i32 1
+  store i16 %3720, ptr %3722, align 2
+  %3723 = load ptr, ptr %50, align 8
+  store ptr %3723, ptr %488, align 8
+  br label %5692
 
-3706:                                             ; preds = %705
-  %3707 = load ptr, ptr %484, align 8
-  %3708 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3707, i64 0
-  %3709 = load ptr, ptr %3708, align 8
+3724:                                             ; preds = %705
+  %3725 = load ptr, ptr %484, align 8
+  %3726 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3725, i64 0
+  %3727 = load ptr, ptr %3726, align 8
   store i32 7, ptr %57, align 4
-  store ptr %3709, ptr %58, align 8
-  %3710 = load i32, ptr %57, align 4
-  %3711 = trunc i32 %3710 to i16
-  %3712 = load ptr, ptr %58, align 8
+  store ptr %3727, ptr %58, align 8
+  %3728 = load i32, ptr %57, align 4
+  %3729 = trunc i32 %3728 to i16
+  %3730 = load ptr, ptr %58, align 8
   store i16 261, ptr %53, align 2
-  store i16 %3711, ptr %54, align 2
-  store ptr %3712, ptr %55, align 8
-  %3713 = load i16, ptr %53, align 2
-  %3714 = load ptr, ptr %55, align 8
-  %3715 = call ptr @zend_ast_create_1(i16 noundef zeroext %3713, ptr noundef %3714) #10
-  store ptr %3715, ptr %56, align 8
-  %3716 = load i16, ptr %54, align 2
-  %3717 = load ptr, ptr %56, align 8
-  %3718 = getelementptr inbounds %struct._zend_ast, ptr %3717, i32 0, i32 1
-  store i16 %3716, ptr %3718, align 2
-  %3719 = load ptr, ptr %56, align 8
-  store ptr %3719, ptr %488, align 8
-  br label %5656
+  store i16 %3729, ptr %54, align 2
+  store ptr %3730, ptr %55, align 8
+  %3731 = load i16, ptr %53, align 2
+  %3732 = load ptr, ptr %55, align 8
+  %3733 = call ptr @zend_ast_create_1(i16 noundef zeroext %3731, ptr noundef %3732) #10
+  store ptr %3733, ptr %56, align 8
+  %3734 = load i16, ptr %54, align 2
+  %3735 = load ptr, ptr %56, align 8
+  %3736 = getelementptr inbounds %struct._zend_ast, ptr %3735, i32 0, i32 1
+  store i16 %3734, ptr %3736, align 2
+  %3737 = load ptr, ptr %56, align 8
+  store ptr %3737, ptr %488, align 8
+  br label %5692
 
-3720:                                             ; preds = %705
-  %3721 = load ptr, ptr %484, align 8
-  %3722 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3721, i64 0
-  %3723 = load ptr, ptr %3722, align 8
+3738:                                             ; preds = %705
+  %3739 = load ptr, ptr %484, align 8
+  %3740 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3739, i64 0
+  %3741 = load ptr, ptr %3740, align 8
   store i32 8, ptr %63, align 4
-  store ptr %3723, ptr %64, align 8
-  %3724 = load i32, ptr %63, align 4
-  %3725 = trunc i32 %3724 to i16
-  %3726 = load ptr, ptr %64, align 8
+  store ptr %3741, ptr %64, align 8
+  %3742 = load i32, ptr %63, align 4
+  %3743 = trunc i32 %3742 to i16
+  %3744 = load ptr, ptr %64, align 8
   store i16 261, ptr %59, align 2
-  store i16 %3725, ptr %60, align 2
-  store ptr %3726, ptr %61, align 8
-  %3727 = load i16, ptr %59, align 2
-  %3728 = load ptr, ptr %61, align 8
-  %3729 = call ptr @zend_ast_create_1(i16 noundef zeroext %3727, ptr noundef %3728) #10
-  store ptr %3729, ptr %62, align 8
-  %3730 = load i16, ptr %60, align 2
-  %3731 = load ptr, ptr %62, align 8
-  %3732 = getelementptr inbounds %struct._zend_ast, ptr %3731, i32 0, i32 1
-  store i16 %3730, ptr %3732, align 2
-  %3733 = load ptr, ptr %62, align 8
-  store ptr %3733, ptr %488, align 8
-  br label %5656
+  store i16 %3743, ptr %60, align 2
+  store ptr %3744, ptr %61, align 8
+  %3745 = load i16, ptr %59, align 2
+  %3746 = load ptr, ptr %61, align 8
+  %3747 = call ptr @zend_ast_create_1(i16 noundef zeroext %3745, ptr noundef %3746) #10
+  store ptr %3747, ptr %62, align 8
+  %3748 = load i16, ptr %60, align 2
+  %3749 = load ptr, ptr %62, align 8
+  %3750 = getelementptr inbounds %struct._zend_ast, ptr %3749, i32 0, i32 1
+  store i16 %3748, ptr %3750, align 2
+  %3751 = load ptr, ptr %62, align 8
+  store ptr %3751, ptr %488, align 8
+  br label %5692
 
-3734:                                             ; preds = %705
-  %3735 = load ptr, ptr %484, align 8
-  %3736 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3735, i64 0
-  %3737 = load ptr, ptr %3736, align 8
+3752:                                             ; preds = %705
+  %3753 = load ptr, ptr %484, align 8
+  %3754 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3753, i64 0
+  %3755 = load ptr, ptr %3754, align 8
   store i32 18, ptr %69, align 4
-  store ptr %3737, ptr %70, align 8
-  %3738 = load i32, ptr %69, align 4
-  %3739 = trunc i32 %3738 to i16
-  %3740 = load ptr, ptr %70, align 8
+  store ptr %3755, ptr %70, align 8
+  %3756 = load i32, ptr %69, align 4
+  %3757 = trunc i32 %3756 to i16
+  %3758 = load ptr, ptr %70, align 8
   store i16 261, ptr %65, align 2
-  store i16 %3739, ptr %66, align 2
-  store ptr %3740, ptr %67, align 8
-  %3741 = load i16, ptr %65, align 2
-  %3742 = load ptr, ptr %67, align 8
-  %3743 = call ptr @zend_ast_create_1(i16 noundef zeroext %3741, ptr noundef %3742) #10
-  store ptr %3743, ptr %68, align 8
-  %3744 = load i16, ptr %66, align 2
-  %3745 = load ptr, ptr %68, align 8
-  %3746 = getelementptr inbounds %struct._zend_ast, ptr %3745, i32 0, i32 1
-  store i16 %3744, ptr %3746, align 2
-  %3747 = load ptr, ptr %68, align 8
-  store ptr %3747, ptr %488, align 8
-  br label %5656
+  store i16 %3757, ptr %66, align 2
+  store ptr %3758, ptr %67, align 8
+  %3759 = load i16, ptr %65, align 2
+  %3760 = load ptr, ptr %67, align 8
+  %3761 = call ptr @zend_ast_create_1(i16 noundef zeroext %3759, ptr noundef %3760) #10
+  store ptr %3761, ptr %68, align 8
+  %3762 = load i16, ptr %66, align 2
+  %3763 = load ptr, ptr %68, align 8
+  %3764 = getelementptr inbounds %struct._zend_ast, ptr %3763, i32 0, i32 1
+  store i16 %3762, ptr %3764, align 2
+  %3765 = load ptr, ptr %68, align 8
+  store ptr %3765, ptr %488, align 8
+  br label %5692
 
-3748:                                             ; preds = %705
-  %3749 = load ptr, ptr %484, align 8
-  %3750 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3749, i64 0
-  %3751 = load ptr, ptr %3750, align 8
+3766:                                             ; preds = %705
+  %3767 = load ptr, ptr %484, align 8
+  %3768 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3767, i64 0
+  %3769 = load ptr, ptr %3768, align 8
   store i32 1, ptr %75, align 4
-  store ptr %3751, ptr %76, align 8
-  %3752 = load i32, ptr %75, align 4
-  %3753 = trunc i32 %3752 to i16
-  %3754 = load ptr, ptr %76, align 8
+  store ptr %3769, ptr %76, align 8
+  %3770 = load i32, ptr %75, align 4
+  %3771 = trunc i32 %3770 to i16
+  %3772 = load ptr, ptr %76, align 8
   store i16 261, ptr %71, align 2
-  store i16 %3753, ptr %72, align 2
-  store ptr %3754, ptr %73, align 8
-  %3755 = load i16, ptr %71, align 2
-  %3756 = load ptr, ptr %73, align 8
-  %3757 = call ptr @zend_ast_create_1(i16 noundef zeroext %3755, ptr noundef %3756) #10
-  store ptr %3757, ptr %74, align 8
-  %3758 = load i16, ptr %72, align 2
-  %3759 = load ptr, ptr %74, align 8
-  %3760 = getelementptr inbounds %struct._zend_ast, ptr %3759, i32 0, i32 1
-  store i16 %3758, ptr %3760, align 2
-  %3761 = load ptr, ptr %74, align 8
-  store ptr %3761, ptr %488, align 8
-  br label %5656
+  store i16 %3771, ptr %72, align 2
+  store ptr %3772, ptr %73, align 8
+  %3773 = load i16, ptr %71, align 2
+  %3774 = load ptr, ptr %73, align 8
+  %3775 = call ptr @zend_ast_create_1(i16 noundef zeroext %3773, ptr noundef %3774) #10
+  store ptr %3775, ptr %74, align 8
+  %3776 = load i16, ptr %72, align 2
+  %3777 = load ptr, ptr %74, align 8
+  %3778 = getelementptr inbounds %struct._zend_ast, ptr %3777, i32 0, i32 1
+  store i16 %3776, ptr %3778, align 2
+  %3779 = load ptr, ptr %74, align 8
+  store ptr %3779, ptr %488, align 8
+  br label %5692
 
-3762:                                             ; preds = %705
-  %3763 = load ptr, ptr %484, align 8
-  %3764 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3763, i64 0
-  %3765 = load ptr, ptr %3764, align 8
-  %3766 = call ptr @zend_ast_create_1(i16 noundef zeroext 267, ptr noundef %3765)
-  store ptr %3766, ptr %488, align 8
-  br label %5656
+3780:                                             ; preds = %705
+  %3781 = load ptr, ptr %484, align 8
+  %3782 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3781, i64 0
+  %3783 = load ptr, ptr %3782, align 8
+  %3784 = call ptr @zend_ast_create_1(i16 noundef zeroext 267, ptr noundef %3783)
+  store ptr %3784, ptr %488, align 8
+  br label %5692
 
-3767:                                             ; preds = %705
-  %3768 = load ptr, ptr %484, align 8
-  %3769 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3768, i64 0
-  %3770 = load ptr, ptr %3769, align 8
-  %3771 = call ptr @zend_ast_create_1(i16 noundef zeroext 264, ptr noundef %3770)
-  store ptr %3771, ptr %488, align 8
-  br label %5656
-
-3772:                                             ; preds = %705
-  %3773 = load ptr, ptr %484, align 8
-  %3774 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3773, i64 0
-  %3775 = load ptr, ptr %3774, align 8
-  store ptr %3775, ptr %488, align 8
-  br label %5656
-
-3776:                                             ; preds = %705
-  %3777 = load ptr, ptr %484, align 8
-  %3778 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3777, i64 -1
-  %3779 = load ptr, ptr %3778, align 8
-  %3780 = call ptr @zend_ast_create_1(i16 noundef zeroext 265, ptr noundef %3779)
-  store ptr %3780, ptr %488, align 8
-  br label %5656
-
-3781:                                             ; preds = %705
-  %3782 = load ptr, ptr %484, align 8
-  %3783 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3782, i64 0
-  %3784 = load ptr, ptr %3783, align 8
-  %3785 = call ptr @zend_ast_create_1(i16 noundef zeroext 268, ptr noundef %3784)
-  store ptr %3785, ptr %488, align 8
-  br label %5656
-
-3786:                                             ; preds = %705
-  %3787 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef null, ptr noundef null)
-  store ptr %3787, ptr %488, align 8
-  %3788 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  %3789 = or i32 %3788, 16777216
-  store i32 %3789, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
+3785:                                             ; preds = %705
+  %3786 = load ptr, ptr %484, align 8
+  %3787 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3786, i64 0
+  %3788 = load ptr, ptr %3787, align 8
+  %3789 = call ptr @zend_ast_create_1(i16 noundef zeroext 264, ptr noundef %3788)
+  store ptr %3789, ptr %488, align 8
+  br label %5692
 
 3790:                                             ; preds = %705
   %3791 = load ptr, ptr %484, align 8
   %3792 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3791, i64 0
   %3793 = load ptr, ptr %3792, align 8
-  %3794 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %3793, ptr noundef null)
-  store ptr %3794, ptr %488, align 8
-  %3795 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  %3796 = or i32 %3795, 16777216
-  store i32 %3796, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
+  store ptr %3793, ptr %488, align 8
+  br label %5692
 
-3797:                                             ; preds = %705
-  %3798 = load ptr, ptr %484, align 8
-  %3799 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3798, i64 0
-  %3800 = load ptr, ptr %3799, align 8
-  %3801 = load ptr, ptr %484, align 8
-  %3802 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3801, i64 -2
-  %3803 = load ptr, ptr %3802, align 8
-  %3804 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %3800, ptr noundef %3803)
-  store ptr %3804, ptr %488, align 8
-  %3805 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  %3806 = or i32 %3805, 16777216
-  store i32 %3806, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
+3794:                                             ; preds = %705
+  %3795 = load ptr, ptr %484, align 8
+  %3796 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3795, i64 -1
+  %3797 = load ptr, ptr %3796, align 8
+  %3798 = call ptr @zend_ast_create_1(i16 noundef zeroext 265, ptr noundef %3797)
+  store ptr %3798, ptr %488, align 8
+  br label %5692
 
-3807:                                             ; preds = %705
-  %3808 = load ptr, ptr %484, align 8
-  %3809 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3808, i64 0
-  %3810 = load ptr, ptr %3809, align 8
-  %3811 = call ptr @zend_ast_create_1(i16 noundef zeroext 275, ptr noundef %3810)
-  store ptr %3811, ptr %488, align 8
-  %3812 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  %3813 = or i32 %3812, 16777216
-  store i32 %3813, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
+3799:                                             ; preds = %705
+  %3800 = load ptr, ptr %484, align 8
+  %3801 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3800, i64 0
+  %3802 = load ptr, ptr %3801, align 8
+  %3803 = call ptr @zend_ast_create_1(i16 noundef zeroext 268, ptr noundef %3802)
+  store ptr %3803, ptr %488, align 8
+  br label %5692
 
-3814:                                             ; preds = %705
-  %3815 = load ptr, ptr %484, align 8
-  %3816 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3815, i64 0
-  %3817 = load ptr, ptr %3816, align 8
-  %3818 = call ptr @zend_ast_create_1(i16 noundef zeroext 284, ptr noundef %3817)
-  store ptr %3818, ptr %488, align 8
-  br label %5656
+3804:                                             ; preds = %705
+  %3805 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef null, ptr noundef null)
+  store ptr %3805, ptr %488, align 8
+  %3806 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  %3807 = load i32, ptr %3806, align 8
+  %3808 = or i32 %3807, 16777216
+  %3809 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 %3808, ptr %3809, align 8
+  br label %5692
+
+3810:                                             ; preds = %705
+  %3811 = load ptr, ptr %484, align 8
+  %3812 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3811, i64 0
+  %3813 = load ptr, ptr %3812, align 8
+  %3814 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %3813, ptr noundef null)
+  store ptr %3814, ptr %488, align 8
+  %3815 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  %3816 = load i32, ptr %3815, align 8
+  %3817 = or i32 %3816, 16777216
+  %3818 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 %3817, ptr %3818, align 8
+  br label %5692
 
 3819:                                             ; preds = %705
   %3820 = load ptr, ptr %484, align 8
   %3821 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3820, i64 0
   %3822 = load ptr, ptr %3821, align 8
-  store ptr %3822, ptr %488, align 8
-  br label %5656
-
-3823:                                             ; preds = %705
-  %3824 = load ptr, ptr %484, align 8
-  %3825 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3824, i64 0
-  %3826 = load ptr, ptr %3825, align 8
-  %3827 = load ptr, ptr %484, align 8
-  %3828 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3827, i64 -1
-  %3829 = load ptr, ptr %3828, align 8
-  %3830 = call ptr @zend_ast_with_attributes(ptr noundef %3826, ptr noundef %3829)
-  store ptr %3830, ptr %488, align 8
-  br label %5656
+  %3823 = load ptr, ptr %484, align 8
+  %3824 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3823, i64 -2
+  %3825 = load ptr, ptr %3824, align 8
+  %3826 = call ptr @zend_ast_create_2(i16 noundef zeroext 529, ptr noundef %3822, ptr noundef %3825)
+  store ptr %3826, ptr %488, align 8
+  %3827 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  %3828 = load i32, ptr %3827, align 8
+  %3829 = or i32 %3828, 16777216
+  %3830 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 %3829, ptr %3830, align 8
+  br label %5692
 
 3831:                                             ; preds = %705
   %3832 = load ptr, ptr %484, align 8
   %3833 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3832, i64 0
   %3834 = load ptr, ptr %3833, align 8
-  store ptr %3834, ptr %488, align 8
-  %3835 = load ptr, ptr %488, align 8
-  %3836 = getelementptr inbounds %struct._zend_ast_decl, ptr %3835, i32 0, i32 4
-  %3837 = load i32, ptr %3836, align 4
-  %3838 = or i32 %3837, 16
-  store i32 %3838, ptr %3836, align 4
-  br label %5656
+  %3835 = call ptr @zend_ast_create_1(i16 noundef zeroext 275, ptr noundef %3834)
+  store ptr %3835, ptr %488, align 8
+  %3836 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  %3837 = load i32, ptr %3836, align 8
+  %3838 = or i32 %3837, 16777216
+  %3839 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 %3838, ptr %3839, align 8
+  br label %5692
 
-3839:                                             ; preds = %705
-  %3840 = load ptr, ptr %484, align 8
-  %3841 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3840, i64 0
-  %3842 = load ptr, ptr %3841, align 8
-  %3843 = load ptr, ptr %484, align 8
-  %3844 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3843, i64 -2
-  %3845 = load ptr, ptr %3844, align 8
-  %3846 = call ptr @zend_ast_with_attributes(ptr noundef %3842, ptr noundef %3845)
-  store ptr %3846, ptr %488, align 8
-  %3847 = load ptr, ptr %488, align 8
-  %3848 = getelementptr inbounds %struct._zend_ast_decl, ptr %3847, i32 0, i32 4
-  %3849 = load i32, ptr %3848, align 4
-  %3850 = or i32 %3849, 16
-  store i32 %3850, ptr %3848, align 4
-  br label %5656
+3840:                                             ; preds = %705
+  %3841 = load ptr, ptr %484, align 8
+  %3842 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3841, i64 0
+  %3843 = load ptr, ptr %3842, align 8
+  %3844 = call ptr @zend_ast_create_1(i16 noundef zeroext 284, ptr noundef %3843)
+  store ptr %3844, ptr %488, align 8
+  br label %5692
 
-3851:                                             ; preds = %705
-  %3852 = load ptr, ptr %484, align 8
-  %3853 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3852, i64 0
-  %3854 = load ptr, ptr %3853, align 8
-  store ptr %3854, ptr %488, align 8
-  br label %5656
+3845:                                             ; preds = %705
+  %3846 = load ptr, ptr %484, align 8
+  %3847 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3846, i64 0
+  %3848 = load ptr, ptr %3847, align 8
+  store ptr %3848, ptr %488, align 8
+  br label %5692
 
-3855:                                             ; preds = %705
-  %3856 = load ptr, ptr %484, align 8
-  %3857 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3856, i64 -11
-  %3858 = load i64, ptr %3857, align 8
-  %3859 = load ptr, ptr %484, align 8
-  %3860 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3859, i64 0
-  %3861 = load i64, ptr %3860, align 8
-  %3862 = or i64 %3858, %3861
-  %3863 = trunc i64 %3862 to i32
-  %3864 = load ptr, ptr %484, align 8
-  %3865 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3864, i64 -12
-  %3866 = load i64, ptr %3865, align 8
-  %3867 = trunc i64 %3866 to i32
-  %3868 = load ptr, ptr %484, align 8
-  %3869 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3868, i64 -10
-  %3870 = load ptr, ptr %3869, align 8
+3849:                                             ; preds = %705
+  %3850 = load ptr, ptr %484, align 8
+  %3851 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3850, i64 0
+  %3852 = load ptr, ptr %3851, align 8
+  %3853 = load ptr, ptr %484, align 8
+  %3854 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3853, i64 -1
+  %3855 = load ptr, ptr %3854, align 8
+  %3856 = call ptr @zend_ast_with_attributes(ptr noundef %3852, ptr noundef %3855)
+  store ptr %3856, ptr %488, align 8
+  br label %5692
+
+3857:                                             ; preds = %705
+  %3858 = load ptr, ptr %484, align 8
+  %3859 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3858, i64 0
+  %3860 = load ptr, ptr %3859, align 8
+  store ptr %3860, ptr %488, align 8
+  %3861 = load ptr, ptr %488, align 8
+  %3862 = getelementptr inbounds %struct._zend_ast_decl, ptr %3861, i32 0, i32 4
+  %3863 = load i32, ptr %3862, align 4
+  %3864 = or i32 %3863, 16
+  store i32 %3864, ptr %3862, align 4
+  br label %5692
+
+3865:                                             ; preds = %705
+  %3866 = load ptr, ptr %484, align 8
+  %3867 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3866, i64 0
+  %3868 = load ptr, ptr %3867, align 8
+  %3869 = load ptr, ptr %484, align 8
+  %3870 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3869, i64 -2
+  %3871 = load ptr, ptr %3870, align 8
+  %3872 = call ptr @zend_ast_with_attributes(ptr noundef %3868, ptr noundef %3871)
+  store ptr %3872, ptr %488, align 8
+  %3873 = load ptr, ptr %488, align 8
+  %3874 = getelementptr inbounds %struct._zend_ast_decl, ptr %3873, i32 0, i32 4
+  %3875 = load i32, ptr %3874, align 4
+  %3876 = or i32 %3875, 16
+  store i32 %3876, ptr %3874, align 4
+  br label %5692
+
+3877:                                             ; preds = %705
+  %3878 = load ptr, ptr %484, align 8
+  %3879 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3878, i64 0
+  %3880 = load ptr, ptr %3879, align 8
+  store ptr %3880, ptr %488, align 8
+  br label %5692
+
+3881:                                             ; preds = %705
+  %3882 = load ptr, ptr %484, align 8
+  %3883 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3882, i64 -11
+  %3884 = load i64, ptr %3883, align 8
+  %3885 = load ptr, ptr %484, align 8
+  %3886 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3885, i64 0
+  %3887 = load i64, ptr %3886, align 8
+  %3888 = or i64 %3884, %3887
+  %3889 = trunc i64 %3888 to i32
+  %3890 = load ptr, ptr %484, align 8
+  %3891 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3890, i64 -12
+  %3892 = load i64, ptr %3891, align 8
+  %3893 = trunc i64 %3892 to i32
+  %3894 = load ptr, ptr %484, align 8
+  %3895 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %3894, i64 -10
+  %3896 = load ptr, ptr %3895, align 8
   store ptr @.str.1, ptr %27, align 8
   store i64 9, ptr %28, align 8
   store i8 0, ptr %29, align 1
-  %3871 = load i64, ptr %28, align 8
-  %3872 = load i8, ptr %29, align 1
-  %3873 = trunc i8 %3872 to i1
-  store i64 %3871, ptr %9, align 8
-  %3874 = zext i1 %3873 to i8
-  store i8 %3874, ptr %10, align 1
-  %3875 = load i8, ptr %10, align 1
-  %3876 = trunc i8 %3875 to i1
-  br i1 %3876, label %3877, label %3885
+  %3897 = load i64, ptr %28, align 8
+  %3898 = load i8, ptr %29, align 1
+  %3899 = trunc i8 %3898 to i1
+  store i64 %3897, ptr %9, align 8
+  %3900 = zext i1 %3899 to i8
+  store i8 %3900, ptr %10, align 1
+  %3901 = load i8, ptr %10, align 1
+  %3902 = trunc i8 %3901 to i1
+  br i1 %3902, label %3903, label %3911
 
-3877:                                             ; preds = %3855
-  %3878 = load i64, ptr %9, align 8
-  %3879 = add i64 24, %3878
-  %3880 = add i64 %3879, 1
-  %3881 = add i64 %3880, 8
-  %3882 = sub i64 %3881, 1
-  %3883 = and i64 %3882, -8
-  %3884 = call noalias ptr @__zend_malloc(i64 noundef %3883) #9
-  br label %4289
-
-3885:                                             ; preds = %3855
-  %3886 = load i64, ptr %9, align 8
-  %3887 = add i64 24, %3886
-  %3888 = add i64 %3887, 1
-  %3889 = add i64 %3888, 8
-  %3890 = sub i64 %3889, 1
-  %3891 = and i64 %3890, -8
-  %3892 = call i1 @llvm.is.constant.i64(i64 %3891)
-  br i1 %3892, label %3893, label %4279
-
-3893:                                             ; preds = %3885
-  %3894 = load i64, ptr %9, align 8
-  %3895 = add i64 24, %3894
-  %3896 = add i64 %3895, 1
-  %3897 = add i64 %3896, 8
-  %3898 = sub i64 %3897, 1
-  %3899 = and i64 %3898, -8
-  %3900 = icmp ule i64 %3899, 8
-  br i1 %3900, label %3901, label %3903
-
-3901:                                             ; preds = %3893
-  %3902 = call noalias ptr @_emalloc_8() #10
-  br label %4277
-
-3903:                                             ; preds = %3893
+3903:                                             ; preds = %3881
   %3904 = load i64, ptr %9, align 8
   %3905 = add i64 24, %3904
   %3906 = add i64 %3905, 1
   %3907 = add i64 %3906, 8
   %3908 = sub i64 %3907, 1
   %3909 = and i64 %3908, -8
-  %3910 = icmp ule i64 %3909, 16
-  br i1 %3910, label %3911, label %3913
+  %3910 = call noalias ptr @__zend_malloc(i64 noundef %3909) #9
+  br label %4315
 
-3911:                                             ; preds = %3903
-  %3912 = call noalias ptr @_emalloc_16() #10
+3911:                                             ; preds = %3881
+  %3912 = load i64, ptr %9, align 8
+  %3913 = add i64 24, %3912
+  %3914 = add i64 %3913, 1
+  %3915 = add i64 %3914, 8
+  %3916 = sub i64 %3915, 1
+  %3917 = and i64 %3916, -8
+  %3918 = call i1 @llvm.is.constant.i64(i64 %3917)
+  br i1 %3918, label %3919, label %4305
+
+3919:                                             ; preds = %3911
+  %3920 = load i64, ptr %9, align 8
+  %3921 = add i64 24, %3920
+  %3922 = add i64 %3921, 1
+  %3923 = add i64 %3922, 8
+  %3924 = sub i64 %3923, 1
+  %3925 = and i64 %3924, -8
+  %3926 = icmp ule i64 %3925, 8
+  br i1 %3926, label %3927, label %3929
+
+3927:                                             ; preds = %3919
+  %3928 = call noalias ptr @_emalloc_8() #10
+  br label %4303
+
+3929:                                             ; preds = %3919
+  %3930 = load i64, ptr %9, align 8
+  %3931 = add i64 24, %3930
+  %3932 = add i64 %3931, 1
+  %3933 = add i64 %3932, 8
+  %3934 = sub i64 %3933, 1
+  %3935 = and i64 %3934, -8
+  %3936 = icmp ule i64 %3935, 16
+  br i1 %3936, label %3937, label %3939
+
+3937:                                             ; preds = %3929
+  %3938 = call noalias ptr @_emalloc_16() #10
+  br label %4301
+
+3939:                                             ; preds = %3929
+  %3940 = load i64, ptr %9, align 8
+  %3941 = add i64 24, %3940
+  %3942 = add i64 %3941, 1
+  %3943 = add i64 %3942, 8
+  %3944 = sub i64 %3943, 1
+  %3945 = and i64 %3944, -8
+  %3946 = icmp ule i64 %3945, 24
+  br i1 %3946, label %3947, label %3949
+
+3947:                                             ; preds = %3939
+  %3948 = call noalias ptr @_emalloc_24() #10
+  br label %4299
+
+3949:                                             ; preds = %3939
+  %3950 = load i64, ptr %9, align 8
+  %3951 = add i64 24, %3950
+  %3952 = add i64 %3951, 1
+  %3953 = add i64 %3952, 8
+  %3954 = sub i64 %3953, 1
+  %3955 = and i64 %3954, -8
+  %3956 = icmp ule i64 %3955, 32
+  br i1 %3956, label %3957, label %3959
+
+3957:                                             ; preds = %3949
+  %3958 = call noalias ptr @_emalloc_32() #10
+  br label %4297
+
+3959:                                             ; preds = %3949
+  %3960 = load i64, ptr %9, align 8
+  %3961 = add i64 24, %3960
+  %3962 = add i64 %3961, 1
+  %3963 = add i64 %3962, 8
+  %3964 = sub i64 %3963, 1
+  %3965 = and i64 %3964, -8
+  %3966 = icmp ule i64 %3965, 40
+  br i1 %3966, label %3967, label %3969
+
+3967:                                             ; preds = %3959
+  %3968 = call noalias ptr @_emalloc_40() #10
+  br label %4295
+
+3969:                                             ; preds = %3959
+  %3970 = load i64, ptr %9, align 8
+  %3971 = add i64 24, %3970
+  %3972 = add i64 %3971, 1
+  %3973 = add i64 %3972, 8
+  %3974 = sub i64 %3973, 1
+  %3975 = and i64 %3974, -8
+  %3976 = icmp ule i64 %3975, 48
+  br i1 %3976, label %3977, label %3979
+
+3977:                                             ; preds = %3969
+  %3978 = call noalias ptr @_emalloc_48() #10
+  br label %4293
+
+3979:                                             ; preds = %3969
+  %3980 = load i64, ptr %9, align 8
+  %3981 = add i64 24, %3980
+  %3982 = add i64 %3981, 1
+  %3983 = add i64 %3982, 8
+  %3984 = sub i64 %3983, 1
+  %3985 = and i64 %3984, -8
+  %3986 = icmp ule i64 %3985, 56
+  br i1 %3986, label %3987, label %3989
+
+3987:                                             ; preds = %3979
+  %3988 = call noalias ptr @_emalloc_56() #10
+  br label %4291
+
+3989:                                             ; preds = %3979
+  %3990 = load i64, ptr %9, align 8
+  %3991 = add i64 24, %3990
+  %3992 = add i64 %3991, 1
+  %3993 = add i64 %3992, 8
+  %3994 = sub i64 %3993, 1
+  %3995 = and i64 %3994, -8
+  %3996 = icmp ule i64 %3995, 64
+  br i1 %3996, label %3997, label %3999
+
+3997:                                             ; preds = %3989
+  %3998 = call noalias ptr @_emalloc_64() #10
+  br label %4289
+
+3999:                                             ; preds = %3989
+  %4000 = load i64, ptr %9, align 8
+  %4001 = add i64 24, %4000
+  %4002 = add i64 %4001, 1
+  %4003 = add i64 %4002, 8
+  %4004 = sub i64 %4003, 1
+  %4005 = and i64 %4004, -8
+  %4006 = icmp ule i64 %4005, 80
+  br i1 %4006, label %4007, label %4009
+
+4007:                                             ; preds = %3999
+  %4008 = call noalias ptr @_emalloc_80() #10
+  br label %4287
+
+4009:                                             ; preds = %3999
+  %4010 = load i64, ptr %9, align 8
+  %4011 = add i64 24, %4010
+  %4012 = add i64 %4011, 1
+  %4013 = add i64 %4012, 8
+  %4014 = sub i64 %4013, 1
+  %4015 = and i64 %4014, -8
+  %4016 = icmp ule i64 %4015, 96
+  br i1 %4016, label %4017, label %4019
+
+4017:                                             ; preds = %4009
+  %4018 = call noalias ptr @_emalloc_96() #10
+  br label %4285
+
+4019:                                             ; preds = %4009
+  %4020 = load i64, ptr %9, align 8
+  %4021 = add i64 24, %4020
+  %4022 = add i64 %4021, 1
+  %4023 = add i64 %4022, 8
+  %4024 = sub i64 %4023, 1
+  %4025 = and i64 %4024, -8
+  %4026 = icmp ule i64 %4025, 112
+  br i1 %4026, label %4027, label %4029
+
+4027:                                             ; preds = %4019
+  %4028 = call noalias ptr @_emalloc_112() #10
+  br label %4283
+
+4029:                                             ; preds = %4019
+  %4030 = load i64, ptr %9, align 8
+  %4031 = add i64 24, %4030
+  %4032 = add i64 %4031, 1
+  %4033 = add i64 %4032, 8
+  %4034 = sub i64 %4033, 1
+  %4035 = and i64 %4034, -8
+  %4036 = icmp ule i64 %4035, 128
+  br i1 %4036, label %4037, label %4039
+
+4037:                                             ; preds = %4029
+  %4038 = call noalias ptr @_emalloc_128() #10
+  br label %4281
+
+4039:                                             ; preds = %4029
+  %4040 = load i64, ptr %9, align 8
+  %4041 = add i64 24, %4040
+  %4042 = add i64 %4041, 1
+  %4043 = add i64 %4042, 8
+  %4044 = sub i64 %4043, 1
+  %4045 = and i64 %4044, -8
+  %4046 = icmp ule i64 %4045, 160
+  br i1 %4046, label %4047, label %4049
+
+4047:                                             ; preds = %4039
+  %4048 = call noalias ptr @_emalloc_160() #10
+  br label %4279
+
+4049:                                             ; preds = %4039
+  %4050 = load i64, ptr %9, align 8
+  %4051 = add i64 24, %4050
+  %4052 = add i64 %4051, 1
+  %4053 = add i64 %4052, 8
+  %4054 = sub i64 %4053, 1
+  %4055 = and i64 %4054, -8
+  %4056 = icmp ule i64 %4055, 192
+  br i1 %4056, label %4057, label %4059
+
+4057:                                             ; preds = %4049
+  %4058 = call noalias ptr @_emalloc_192() #10
+  br label %4277
+
+4059:                                             ; preds = %4049
+  %4060 = load i64, ptr %9, align 8
+  %4061 = add i64 24, %4060
+  %4062 = add i64 %4061, 1
+  %4063 = add i64 %4062, 8
+  %4064 = sub i64 %4063, 1
+  %4065 = and i64 %4064, -8
+  %4066 = icmp ule i64 %4065, 224
+  br i1 %4066, label %4067, label %4069
+
+4067:                                             ; preds = %4059
+  %4068 = call noalias ptr @_emalloc_224() #10
   br label %4275
 
-3913:                                             ; preds = %3903
-  %3914 = load i64, ptr %9, align 8
-  %3915 = add i64 24, %3914
-  %3916 = add i64 %3915, 1
-  %3917 = add i64 %3916, 8
-  %3918 = sub i64 %3917, 1
-  %3919 = and i64 %3918, -8
-  %3920 = icmp ule i64 %3919, 24
-  br i1 %3920, label %3921, label %3923
+4069:                                             ; preds = %4059
+  %4070 = load i64, ptr %9, align 8
+  %4071 = add i64 24, %4070
+  %4072 = add i64 %4071, 1
+  %4073 = add i64 %4072, 8
+  %4074 = sub i64 %4073, 1
+  %4075 = and i64 %4074, -8
+  %4076 = icmp ule i64 %4075, 256
+  br i1 %4076, label %4077, label %4079
 
-3921:                                             ; preds = %3913
-  %3922 = call noalias ptr @_emalloc_24() #10
+4077:                                             ; preds = %4069
+  %4078 = call noalias ptr @_emalloc_256() #10
   br label %4273
 
-3923:                                             ; preds = %3913
-  %3924 = load i64, ptr %9, align 8
-  %3925 = add i64 24, %3924
-  %3926 = add i64 %3925, 1
-  %3927 = add i64 %3926, 8
-  %3928 = sub i64 %3927, 1
-  %3929 = and i64 %3928, -8
-  %3930 = icmp ule i64 %3929, 32
-  br i1 %3930, label %3931, label %3933
+4079:                                             ; preds = %4069
+  %4080 = load i64, ptr %9, align 8
+  %4081 = add i64 24, %4080
+  %4082 = add i64 %4081, 1
+  %4083 = add i64 %4082, 8
+  %4084 = sub i64 %4083, 1
+  %4085 = and i64 %4084, -8
+  %4086 = icmp ule i64 %4085, 320
+  br i1 %4086, label %4087, label %4089
 
-3931:                                             ; preds = %3923
-  %3932 = call noalias ptr @_emalloc_32() #10
+4087:                                             ; preds = %4079
+  %4088 = call noalias ptr @_emalloc_320() #10
   br label %4271
 
-3933:                                             ; preds = %3923
-  %3934 = load i64, ptr %9, align 8
-  %3935 = add i64 24, %3934
-  %3936 = add i64 %3935, 1
-  %3937 = add i64 %3936, 8
-  %3938 = sub i64 %3937, 1
-  %3939 = and i64 %3938, -8
-  %3940 = icmp ule i64 %3939, 40
-  br i1 %3940, label %3941, label %3943
+4089:                                             ; preds = %4079
+  %4090 = load i64, ptr %9, align 8
+  %4091 = add i64 24, %4090
+  %4092 = add i64 %4091, 1
+  %4093 = add i64 %4092, 8
+  %4094 = sub i64 %4093, 1
+  %4095 = and i64 %4094, -8
+  %4096 = icmp ule i64 %4095, 384
+  br i1 %4096, label %4097, label %4099
 
-3941:                                             ; preds = %3933
-  %3942 = call noalias ptr @_emalloc_40() #10
+4097:                                             ; preds = %4089
+  %4098 = call noalias ptr @_emalloc_384() #10
   br label %4269
 
-3943:                                             ; preds = %3933
-  %3944 = load i64, ptr %9, align 8
-  %3945 = add i64 24, %3944
-  %3946 = add i64 %3945, 1
-  %3947 = add i64 %3946, 8
-  %3948 = sub i64 %3947, 1
-  %3949 = and i64 %3948, -8
-  %3950 = icmp ule i64 %3949, 48
-  br i1 %3950, label %3951, label %3953
+4099:                                             ; preds = %4089
+  %4100 = load i64, ptr %9, align 8
+  %4101 = add i64 24, %4100
+  %4102 = add i64 %4101, 1
+  %4103 = add i64 %4102, 8
+  %4104 = sub i64 %4103, 1
+  %4105 = and i64 %4104, -8
+  %4106 = icmp ule i64 %4105, 448
+  br i1 %4106, label %4107, label %4109
 
-3951:                                             ; preds = %3943
-  %3952 = call noalias ptr @_emalloc_48() #10
+4107:                                             ; preds = %4099
+  %4108 = call noalias ptr @_emalloc_448() #10
   br label %4267
 
-3953:                                             ; preds = %3943
-  %3954 = load i64, ptr %9, align 8
-  %3955 = add i64 24, %3954
-  %3956 = add i64 %3955, 1
-  %3957 = add i64 %3956, 8
-  %3958 = sub i64 %3957, 1
-  %3959 = and i64 %3958, -8
-  %3960 = icmp ule i64 %3959, 56
-  br i1 %3960, label %3961, label %3963
+4109:                                             ; preds = %4099
+  %4110 = load i64, ptr %9, align 8
+  %4111 = add i64 24, %4110
+  %4112 = add i64 %4111, 1
+  %4113 = add i64 %4112, 8
+  %4114 = sub i64 %4113, 1
+  %4115 = and i64 %4114, -8
+  %4116 = icmp ule i64 %4115, 512
+  br i1 %4116, label %4117, label %4119
 
-3961:                                             ; preds = %3953
-  %3962 = call noalias ptr @_emalloc_56() #10
+4117:                                             ; preds = %4109
+  %4118 = call noalias ptr @_emalloc_512() #10
   br label %4265
 
-3963:                                             ; preds = %3953
-  %3964 = load i64, ptr %9, align 8
-  %3965 = add i64 24, %3964
-  %3966 = add i64 %3965, 1
-  %3967 = add i64 %3966, 8
-  %3968 = sub i64 %3967, 1
-  %3969 = and i64 %3968, -8
-  %3970 = icmp ule i64 %3969, 64
-  br i1 %3970, label %3971, label %3973
+4119:                                             ; preds = %4109
+  %4120 = load i64, ptr %9, align 8
+  %4121 = add i64 24, %4120
+  %4122 = add i64 %4121, 1
+  %4123 = add i64 %4122, 8
+  %4124 = sub i64 %4123, 1
+  %4125 = and i64 %4124, -8
+  %4126 = icmp ule i64 %4125, 640
+  br i1 %4126, label %4127, label %4129
 
-3971:                                             ; preds = %3963
-  %3972 = call noalias ptr @_emalloc_64() #10
+4127:                                             ; preds = %4119
+  %4128 = call noalias ptr @_emalloc_640() #10
   br label %4263
 
-3973:                                             ; preds = %3963
-  %3974 = load i64, ptr %9, align 8
-  %3975 = add i64 24, %3974
-  %3976 = add i64 %3975, 1
-  %3977 = add i64 %3976, 8
-  %3978 = sub i64 %3977, 1
-  %3979 = and i64 %3978, -8
-  %3980 = icmp ule i64 %3979, 80
-  br i1 %3980, label %3981, label %3983
+4129:                                             ; preds = %4119
+  %4130 = load i64, ptr %9, align 8
+  %4131 = add i64 24, %4130
+  %4132 = add i64 %4131, 1
+  %4133 = add i64 %4132, 8
+  %4134 = sub i64 %4133, 1
+  %4135 = and i64 %4134, -8
+  %4136 = icmp ule i64 %4135, 768
+  br i1 %4136, label %4137, label %4139
 
-3981:                                             ; preds = %3973
-  %3982 = call noalias ptr @_emalloc_80() #10
+4137:                                             ; preds = %4129
+  %4138 = call noalias ptr @_emalloc_768() #10
   br label %4261
 
-3983:                                             ; preds = %3973
-  %3984 = load i64, ptr %9, align 8
-  %3985 = add i64 24, %3984
-  %3986 = add i64 %3985, 1
-  %3987 = add i64 %3986, 8
-  %3988 = sub i64 %3987, 1
-  %3989 = and i64 %3988, -8
-  %3990 = icmp ule i64 %3989, 96
-  br i1 %3990, label %3991, label %3993
+4139:                                             ; preds = %4129
+  %4140 = load i64, ptr %9, align 8
+  %4141 = add i64 24, %4140
+  %4142 = add i64 %4141, 1
+  %4143 = add i64 %4142, 8
+  %4144 = sub i64 %4143, 1
+  %4145 = and i64 %4144, -8
+  %4146 = icmp ule i64 %4145, 896
+  br i1 %4146, label %4147, label %4149
 
-3991:                                             ; preds = %3983
-  %3992 = call noalias ptr @_emalloc_96() #10
+4147:                                             ; preds = %4139
+  %4148 = call noalias ptr @_emalloc_896() #10
   br label %4259
 
-3993:                                             ; preds = %3983
-  %3994 = load i64, ptr %9, align 8
-  %3995 = add i64 24, %3994
-  %3996 = add i64 %3995, 1
-  %3997 = add i64 %3996, 8
-  %3998 = sub i64 %3997, 1
-  %3999 = and i64 %3998, -8
-  %4000 = icmp ule i64 %3999, 112
-  br i1 %4000, label %4001, label %4003
+4149:                                             ; preds = %4139
+  %4150 = load i64, ptr %9, align 8
+  %4151 = add i64 24, %4150
+  %4152 = add i64 %4151, 1
+  %4153 = add i64 %4152, 8
+  %4154 = sub i64 %4153, 1
+  %4155 = and i64 %4154, -8
+  %4156 = icmp ule i64 %4155, 1024
+  br i1 %4156, label %4157, label %4159
 
-4001:                                             ; preds = %3993
-  %4002 = call noalias ptr @_emalloc_112() #10
+4157:                                             ; preds = %4149
+  %4158 = call noalias ptr @_emalloc_1024() #10
   br label %4257
 
-4003:                                             ; preds = %3993
-  %4004 = load i64, ptr %9, align 8
-  %4005 = add i64 24, %4004
-  %4006 = add i64 %4005, 1
-  %4007 = add i64 %4006, 8
-  %4008 = sub i64 %4007, 1
-  %4009 = and i64 %4008, -8
-  %4010 = icmp ule i64 %4009, 128
-  br i1 %4010, label %4011, label %4013
+4159:                                             ; preds = %4149
+  %4160 = load i64, ptr %9, align 8
+  %4161 = add i64 24, %4160
+  %4162 = add i64 %4161, 1
+  %4163 = add i64 %4162, 8
+  %4164 = sub i64 %4163, 1
+  %4165 = and i64 %4164, -8
+  %4166 = icmp ule i64 %4165, 1280
+  br i1 %4166, label %4167, label %4169
 
-4011:                                             ; preds = %4003
-  %4012 = call noalias ptr @_emalloc_128() #10
+4167:                                             ; preds = %4159
+  %4168 = call noalias ptr @_emalloc_1280() #10
   br label %4255
 
-4013:                                             ; preds = %4003
-  %4014 = load i64, ptr %9, align 8
-  %4015 = add i64 24, %4014
-  %4016 = add i64 %4015, 1
-  %4017 = add i64 %4016, 8
-  %4018 = sub i64 %4017, 1
-  %4019 = and i64 %4018, -8
-  %4020 = icmp ule i64 %4019, 160
-  br i1 %4020, label %4021, label %4023
+4169:                                             ; preds = %4159
+  %4170 = load i64, ptr %9, align 8
+  %4171 = add i64 24, %4170
+  %4172 = add i64 %4171, 1
+  %4173 = add i64 %4172, 8
+  %4174 = sub i64 %4173, 1
+  %4175 = and i64 %4174, -8
+  %4176 = icmp ule i64 %4175, 1536
+  br i1 %4176, label %4177, label %4179
 
-4021:                                             ; preds = %4013
-  %4022 = call noalias ptr @_emalloc_160() #10
+4177:                                             ; preds = %4169
+  %4178 = call noalias ptr @_emalloc_1536() #10
   br label %4253
 
-4023:                                             ; preds = %4013
-  %4024 = load i64, ptr %9, align 8
-  %4025 = add i64 24, %4024
-  %4026 = add i64 %4025, 1
-  %4027 = add i64 %4026, 8
-  %4028 = sub i64 %4027, 1
-  %4029 = and i64 %4028, -8
-  %4030 = icmp ule i64 %4029, 192
-  br i1 %4030, label %4031, label %4033
+4179:                                             ; preds = %4169
+  %4180 = load i64, ptr %9, align 8
+  %4181 = add i64 24, %4180
+  %4182 = add i64 %4181, 1
+  %4183 = add i64 %4182, 8
+  %4184 = sub i64 %4183, 1
+  %4185 = and i64 %4184, -8
+  %4186 = icmp ule i64 %4185, 1792
+  br i1 %4186, label %4187, label %4189
 
-4031:                                             ; preds = %4023
-  %4032 = call noalias ptr @_emalloc_192() #10
+4187:                                             ; preds = %4179
+  %4188 = call noalias ptr @_emalloc_1792() #10
   br label %4251
 
-4033:                                             ; preds = %4023
-  %4034 = load i64, ptr %9, align 8
-  %4035 = add i64 24, %4034
-  %4036 = add i64 %4035, 1
-  %4037 = add i64 %4036, 8
-  %4038 = sub i64 %4037, 1
-  %4039 = and i64 %4038, -8
-  %4040 = icmp ule i64 %4039, 224
-  br i1 %4040, label %4041, label %4043
+4189:                                             ; preds = %4179
+  %4190 = load i64, ptr %9, align 8
+  %4191 = add i64 24, %4190
+  %4192 = add i64 %4191, 1
+  %4193 = add i64 %4192, 8
+  %4194 = sub i64 %4193, 1
+  %4195 = and i64 %4194, -8
+  %4196 = icmp ule i64 %4195, 2048
+  br i1 %4196, label %4197, label %4199
 
-4041:                                             ; preds = %4033
-  %4042 = call noalias ptr @_emalloc_224() #10
+4197:                                             ; preds = %4189
+  %4198 = call noalias ptr @_emalloc_2048() #10
   br label %4249
 
-4043:                                             ; preds = %4033
-  %4044 = load i64, ptr %9, align 8
-  %4045 = add i64 24, %4044
-  %4046 = add i64 %4045, 1
-  %4047 = add i64 %4046, 8
-  %4048 = sub i64 %4047, 1
-  %4049 = and i64 %4048, -8
-  %4050 = icmp ule i64 %4049, 256
-  br i1 %4050, label %4051, label %4053
+4199:                                             ; preds = %4189
+  %4200 = load i64, ptr %9, align 8
+  %4201 = add i64 24, %4200
+  %4202 = add i64 %4201, 1
+  %4203 = add i64 %4202, 8
+  %4204 = sub i64 %4203, 1
+  %4205 = and i64 %4204, -8
+  %4206 = icmp ule i64 %4205, 2560
+  br i1 %4206, label %4207, label %4209
 
-4051:                                             ; preds = %4043
-  %4052 = call noalias ptr @_emalloc_256() #10
+4207:                                             ; preds = %4199
+  %4208 = call noalias ptr @_emalloc_2560() #10
   br label %4247
 
-4053:                                             ; preds = %4043
-  %4054 = load i64, ptr %9, align 8
-  %4055 = add i64 24, %4054
-  %4056 = add i64 %4055, 1
-  %4057 = add i64 %4056, 8
-  %4058 = sub i64 %4057, 1
-  %4059 = and i64 %4058, -8
-  %4060 = icmp ule i64 %4059, 320
-  br i1 %4060, label %4061, label %4063
-
-4061:                                             ; preds = %4053
-  %4062 = call noalias ptr @_emalloc_320() #10
-  br label %4245
-
-4063:                                             ; preds = %4053
-  %4064 = load i64, ptr %9, align 8
-  %4065 = add i64 24, %4064
-  %4066 = add i64 %4065, 1
-  %4067 = add i64 %4066, 8
-  %4068 = sub i64 %4067, 1
-  %4069 = and i64 %4068, -8
-  %4070 = icmp ule i64 %4069, 384
-  br i1 %4070, label %4071, label %4073
-
-4071:                                             ; preds = %4063
-  %4072 = call noalias ptr @_emalloc_384() #10
-  br label %4243
-
-4073:                                             ; preds = %4063
-  %4074 = load i64, ptr %9, align 8
-  %4075 = add i64 24, %4074
-  %4076 = add i64 %4075, 1
-  %4077 = add i64 %4076, 8
-  %4078 = sub i64 %4077, 1
-  %4079 = and i64 %4078, -8
-  %4080 = icmp ule i64 %4079, 448
-  br i1 %4080, label %4081, label %4083
-
-4081:                                             ; preds = %4073
-  %4082 = call noalias ptr @_emalloc_448() #10
-  br label %4241
-
-4083:                                             ; preds = %4073
-  %4084 = load i64, ptr %9, align 8
-  %4085 = add i64 24, %4084
-  %4086 = add i64 %4085, 1
-  %4087 = add i64 %4086, 8
-  %4088 = sub i64 %4087, 1
-  %4089 = and i64 %4088, -8
-  %4090 = icmp ule i64 %4089, 512
-  br i1 %4090, label %4091, label %4093
-
-4091:                                             ; preds = %4083
-  %4092 = call noalias ptr @_emalloc_512() #10
-  br label %4239
-
-4093:                                             ; preds = %4083
-  %4094 = load i64, ptr %9, align 8
-  %4095 = add i64 24, %4094
-  %4096 = add i64 %4095, 1
-  %4097 = add i64 %4096, 8
-  %4098 = sub i64 %4097, 1
-  %4099 = and i64 %4098, -8
-  %4100 = icmp ule i64 %4099, 640
-  br i1 %4100, label %4101, label %4103
-
-4101:                                             ; preds = %4093
-  %4102 = call noalias ptr @_emalloc_640() #10
-  br label %4237
-
-4103:                                             ; preds = %4093
-  %4104 = load i64, ptr %9, align 8
-  %4105 = add i64 24, %4104
-  %4106 = add i64 %4105, 1
-  %4107 = add i64 %4106, 8
-  %4108 = sub i64 %4107, 1
-  %4109 = and i64 %4108, -8
-  %4110 = icmp ule i64 %4109, 768
-  br i1 %4110, label %4111, label %4113
-
-4111:                                             ; preds = %4103
-  %4112 = call noalias ptr @_emalloc_768() #10
-  br label %4235
-
-4113:                                             ; preds = %4103
-  %4114 = load i64, ptr %9, align 8
-  %4115 = add i64 24, %4114
-  %4116 = add i64 %4115, 1
-  %4117 = add i64 %4116, 8
-  %4118 = sub i64 %4117, 1
-  %4119 = and i64 %4118, -8
-  %4120 = icmp ule i64 %4119, 896
-  br i1 %4120, label %4121, label %4123
-
-4121:                                             ; preds = %4113
-  %4122 = call noalias ptr @_emalloc_896() #10
-  br label %4233
-
-4123:                                             ; preds = %4113
-  %4124 = load i64, ptr %9, align 8
-  %4125 = add i64 24, %4124
-  %4126 = add i64 %4125, 1
-  %4127 = add i64 %4126, 8
-  %4128 = sub i64 %4127, 1
-  %4129 = and i64 %4128, -8
-  %4130 = icmp ule i64 %4129, 1024
-  br i1 %4130, label %4131, label %4133
-
-4131:                                             ; preds = %4123
-  %4132 = call noalias ptr @_emalloc_1024() #10
-  br label %4231
-
-4133:                                             ; preds = %4123
-  %4134 = load i64, ptr %9, align 8
-  %4135 = add i64 24, %4134
-  %4136 = add i64 %4135, 1
-  %4137 = add i64 %4136, 8
-  %4138 = sub i64 %4137, 1
-  %4139 = and i64 %4138, -8
-  %4140 = icmp ule i64 %4139, 1280
-  br i1 %4140, label %4141, label %4143
-
-4141:                                             ; preds = %4133
-  %4142 = call noalias ptr @_emalloc_1280() #10
-  br label %4229
-
-4143:                                             ; preds = %4133
-  %4144 = load i64, ptr %9, align 8
-  %4145 = add i64 24, %4144
-  %4146 = add i64 %4145, 1
-  %4147 = add i64 %4146, 8
-  %4148 = sub i64 %4147, 1
-  %4149 = and i64 %4148, -8
-  %4150 = icmp ule i64 %4149, 1536
-  br i1 %4150, label %4151, label %4153
-
-4151:                                             ; preds = %4143
-  %4152 = call noalias ptr @_emalloc_1536() #10
-  br label %4227
-
-4153:                                             ; preds = %4143
-  %4154 = load i64, ptr %9, align 8
-  %4155 = add i64 24, %4154
-  %4156 = add i64 %4155, 1
-  %4157 = add i64 %4156, 8
-  %4158 = sub i64 %4157, 1
-  %4159 = and i64 %4158, -8
-  %4160 = icmp ule i64 %4159, 1792
-  br i1 %4160, label %4161, label %4163
-
-4161:                                             ; preds = %4153
-  %4162 = call noalias ptr @_emalloc_1792() #10
-  br label %4225
-
-4163:                                             ; preds = %4153
-  %4164 = load i64, ptr %9, align 8
-  %4165 = add i64 24, %4164
-  %4166 = add i64 %4165, 1
-  %4167 = add i64 %4166, 8
-  %4168 = sub i64 %4167, 1
-  %4169 = and i64 %4168, -8
-  %4170 = icmp ule i64 %4169, 2048
-  br i1 %4170, label %4171, label %4173
-
-4171:                                             ; preds = %4163
-  %4172 = call noalias ptr @_emalloc_2048() #10
-  br label %4223
-
-4173:                                             ; preds = %4163
-  %4174 = load i64, ptr %9, align 8
-  %4175 = add i64 24, %4174
-  %4176 = add i64 %4175, 1
-  %4177 = add i64 %4176, 8
-  %4178 = sub i64 %4177, 1
-  %4179 = and i64 %4178, -8
-  %4180 = icmp ule i64 %4179, 2560
-  br i1 %4180, label %4181, label %4183
-
-4181:                                             ; preds = %4173
-  %4182 = call noalias ptr @_emalloc_2560() #10
-  br label %4221
-
-4183:                                             ; preds = %4173
-  %4184 = load i64, ptr %9, align 8
-  %4185 = add i64 24, %4184
-  %4186 = add i64 %4185, 1
-  %4187 = add i64 %4186, 8
-  %4188 = sub i64 %4187, 1
-  %4189 = and i64 %4188, -8
-  %4190 = icmp ule i64 %4189, 3072
-  br i1 %4190, label %4191, label %4193
-
-4191:                                             ; preds = %4183
-  %4192 = call noalias ptr @_emalloc_3072() #10
-  br label %4219
-
-4193:                                             ; preds = %4183
-  %4194 = load i64, ptr %9, align 8
-  %4195 = add i64 24, %4194
-  %4196 = add i64 %4195, 1
-  %4197 = add i64 %4196, 8
-  %4198 = sub i64 %4197, 1
-  %4199 = and i64 %4198, -8
-  %4200 = icmp ule i64 %4199, 2093056
-  br i1 %4200, label %4201, label %4209
-
-4201:                                             ; preds = %4193
-  %4202 = load i64, ptr %9, align 8
-  %4203 = add i64 24, %4202
-  %4204 = add i64 %4203, 1
-  %4205 = add i64 %4204, 8
-  %4206 = sub i64 %4205, 1
-  %4207 = and i64 %4206, -8
-  %4208 = call noalias ptr @_emalloc_large(i64 noundef %4207) #9
-  br label %4217
-
-4209:                                             ; preds = %4193
+4209:                                             ; preds = %4199
   %4210 = load i64, ptr %9, align 8
   %4211 = add i64 24, %4210
   %4212 = add i64 %4211, 1
   %4213 = add i64 %4212, 8
   %4214 = sub i64 %4213, 1
   %4215 = and i64 %4214, -8
-  %4216 = call noalias ptr @_emalloc_huge(i64 noundef %4215) #9
-  br label %4217
+  %4216 = icmp ule i64 %4215, 3072
+  br i1 %4216, label %4217, label %4219
 
-4217:                                             ; preds = %4209, %4201
-  %4218 = phi ptr [ %4208, %4201 ], [ %4216, %4209 ]
-  br label %4219
-
-4219:                                             ; preds = %4217, %4191
-  %4220 = phi ptr [ %4192, %4191 ], [ %4218, %4217 ]
-  br label %4221
-
-4221:                                             ; preds = %4219, %4181
-  %4222 = phi ptr [ %4182, %4181 ], [ %4220, %4219 ]
-  br label %4223
-
-4223:                                             ; preds = %4221, %4171
-  %4224 = phi ptr [ %4172, %4171 ], [ %4222, %4221 ]
-  br label %4225
-
-4225:                                             ; preds = %4223, %4161
-  %4226 = phi ptr [ %4162, %4161 ], [ %4224, %4223 ]
-  br label %4227
-
-4227:                                             ; preds = %4225, %4151
-  %4228 = phi ptr [ %4152, %4151 ], [ %4226, %4225 ]
-  br label %4229
-
-4229:                                             ; preds = %4227, %4141
-  %4230 = phi ptr [ %4142, %4141 ], [ %4228, %4227 ]
-  br label %4231
-
-4231:                                             ; preds = %4229, %4131
-  %4232 = phi ptr [ %4132, %4131 ], [ %4230, %4229 ]
-  br label %4233
-
-4233:                                             ; preds = %4231, %4121
-  %4234 = phi ptr [ %4122, %4121 ], [ %4232, %4231 ]
-  br label %4235
-
-4235:                                             ; preds = %4233, %4111
-  %4236 = phi ptr [ %4112, %4111 ], [ %4234, %4233 ]
-  br label %4237
-
-4237:                                             ; preds = %4235, %4101
-  %4238 = phi ptr [ %4102, %4101 ], [ %4236, %4235 ]
-  br label %4239
-
-4239:                                             ; preds = %4237, %4091
-  %4240 = phi ptr [ %4092, %4091 ], [ %4238, %4237 ]
-  br label %4241
-
-4241:                                             ; preds = %4239, %4081
-  %4242 = phi ptr [ %4082, %4081 ], [ %4240, %4239 ]
-  br label %4243
-
-4243:                                             ; preds = %4241, %4071
-  %4244 = phi ptr [ %4072, %4071 ], [ %4242, %4241 ]
+4217:                                             ; preds = %4209
+  %4218 = call noalias ptr @_emalloc_3072() #10
   br label %4245
 
-4245:                                             ; preds = %4243, %4061
-  %4246 = phi ptr [ %4062, %4061 ], [ %4244, %4243 ]
+4219:                                             ; preds = %4209
+  %4220 = load i64, ptr %9, align 8
+  %4221 = add i64 24, %4220
+  %4222 = add i64 %4221, 1
+  %4223 = add i64 %4222, 8
+  %4224 = sub i64 %4223, 1
+  %4225 = and i64 %4224, -8
+  %4226 = icmp ule i64 %4225, 2093056
+  br i1 %4226, label %4227, label %4235
+
+4227:                                             ; preds = %4219
+  %4228 = load i64, ptr %9, align 8
+  %4229 = add i64 24, %4228
+  %4230 = add i64 %4229, 1
+  %4231 = add i64 %4230, 8
+  %4232 = sub i64 %4231, 1
+  %4233 = and i64 %4232, -8
+  %4234 = call noalias ptr @_emalloc_large(i64 noundef %4233) #9
+  br label %4243
+
+4235:                                             ; preds = %4219
+  %4236 = load i64, ptr %9, align 8
+  %4237 = add i64 24, %4236
+  %4238 = add i64 %4237, 1
+  %4239 = add i64 %4238, 8
+  %4240 = sub i64 %4239, 1
+  %4241 = and i64 %4240, -8
+  %4242 = call noalias ptr @_emalloc_huge(i64 noundef %4241) #9
+  br label %4243
+
+4243:                                             ; preds = %4235, %4227
+  %4244 = phi ptr [ %4234, %4227 ], [ %4242, %4235 ]
+  br label %4245
+
+4245:                                             ; preds = %4243, %4217
+  %4246 = phi ptr [ %4218, %4217 ], [ %4244, %4243 ]
   br label %4247
 
-4247:                                             ; preds = %4245, %4051
-  %4248 = phi ptr [ %4052, %4051 ], [ %4246, %4245 ]
+4247:                                             ; preds = %4245, %4207
+  %4248 = phi ptr [ %4208, %4207 ], [ %4246, %4245 ]
   br label %4249
 
-4249:                                             ; preds = %4247, %4041
-  %4250 = phi ptr [ %4042, %4041 ], [ %4248, %4247 ]
+4249:                                             ; preds = %4247, %4197
+  %4250 = phi ptr [ %4198, %4197 ], [ %4248, %4247 ]
   br label %4251
 
-4251:                                             ; preds = %4249, %4031
-  %4252 = phi ptr [ %4032, %4031 ], [ %4250, %4249 ]
+4251:                                             ; preds = %4249, %4187
+  %4252 = phi ptr [ %4188, %4187 ], [ %4250, %4249 ]
   br label %4253
 
-4253:                                             ; preds = %4251, %4021
-  %4254 = phi ptr [ %4022, %4021 ], [ %4252, %4251 ]
+4253:                                             ; preds = %4251, %4177
+  %4254 = phi ptr [ %4178, %4177 ], [ %4252, %4251 ]
   br label %4255
 
-4255:                                             ; preds = %4253, %4011
-  %4256 = phi ptr [ %4012, %4011 ], [ %4254, %4253 ]
+4255:                                             ; preds = %4253, %4167
+  %4256 = phi ptr [ %4168, %4167 ], [ %4254, %4253 ]
   br label %4257
 
-4257:                                             ; preds = %4255, %4001
-  %4258 = phi ptr [ %4002, %4001 ], [ %4256, %4255 ]
+4257:                                             ; preds = %4255, %4157
+  %4258 = phi ptr [ %4158, %4157 ], [ %4256, %4255 ]
   br label %4259
 
-4259:                                             ; preds = %4257, %3991
-  %4260 = phi ptr [ %3992, %3991 ], [ %4258, %4257 ]
+4259:                                             ; preds = %4257, %4147
+  %4260 = phi ptr [ %4148, %4147 ], [ %4258, %4257 ]
   br label %4261
 
-4261:                                             ; preds = %4259, %3981
-  %4262 = phi ptr [ %3982, %3981 ], [ %4260, %4259 ]
+4261:                                             ; preds = %4259, %4137
+  %4262 = phi ptr [ %4138, %4137 ], [ %4260, %4259 ]
   br label %4263
 
-4263:                                             ; preds = %4261, %3971
-  %4264 = phi ptr [ %3972, %3971 ], [ %4262, %4261 ]
+4263:                                             ; preds = %4261, %4127
+  %4264 = phi ptr [ %4128, %4127 ], [ %4262, %4261 ]
   br label %4265
 
-4265:                                             ; preds = %4263, %3961
-  %4266 = phi ptr [ %3962, %3961 ], [ %4264, %4263 ]
+4265:                                             ; preds = %4263, %4117
+  %4266 = phi ptr [ %4118, %4117 ], [ %4264, %4263 ]
   br label %4267
 
-4267:                                             ; preds = %4265, %3951
-  %4268 = phi ptr [ %3952, %3951 ], [ %4266, %4265 ]
+4267:                                             ; preds = %4265, %4107
+  %4268 = phi ptr [ %4108, %4107 ], [ %4266, %4265 ]
   br label %4269
 
-4269:                                             ; preds = %4267, %3941
-  %4270 = phi ptr [ %3942, %3941 ], [ %4268, %4267 ]
+4269:                                             ; preds = %4267, %4097
+  %4270 = phi ptr [ %4098, %4097 ], [ %4268, %4267 ]
   br label %4271
 
-4271:                                             ; preds = %4269, %3931
-  %4272 = phi ptr [ %3932, %3931 ], [ %4270, %4269 ]
+4271:                                             ; preds = %4269, %4087
+  %4272 = phi ptr [ %4088, %4087 ], [ %4270, %4269 ]
   br label %4273
 
-4273:                                             ; preds = %4271, %3921
-  %4274 = phi ptr [ %3922, %3921 ], [ %4272, %4271 ]
+4273:                                             ; preds = %4271, %4077
+  %4274 = phi ptr [ %4078, %4077 ], [ %4272, %4271 ]
   br label %4275
 
-4275:                                             ; preds = %4273, %3911
-  %4276 = phi ptr [ %3912, %3911 ], [ %4274, %4273 ]
+4275:                                             ; preds = %4273, %4067
+  %4276 = phi ptr [ %4068, %4067 ], [ %4274, %4273 ]
   br label %4277
 
-4277:                                             ; preds = %4275, %3901
-  %4278 = phi ptr [ %3902, %3901 ], [ %4276, %4275 ]
+4277:                                             ; preds = %4275, %4057
+  %4278 = phi ptr [ %4058, %4057 ], [ %4276, %4275 ]
+  br label %4279
+
+4279:                                             ; preds = %4277, %4047
+  %4280 = phi ptr [ %4048, %4047 ], [ %4278, %4277 ]
+  br label %4281
+
+4281:                                             ; preds = %4279, %4037
+  %4282 = phi ptr [ %4038, %4037 ], [ %4280, %4279 ]
+  br label %4283
+
+4283:                                             ; preds = %4281, %4027
+  %4284 = phi ptr [ %4028, %4027 ], [ %4282, %4281 ]
+  br label %4285
+
+4285:                                             ; preds = %4283, %4017
+  %4286 = phi ptr [ %4018, %4017 ], [ %4284, %4283 ]
   br label %4287
 
-4279:                                             ; preds = %3885
-  %4280 = load i64, ptr %9, align 8
-  %4281 = add i64 24, %4280
-  %4282 = add i64 %4281, 1
-  %4283 = add i64 %4282, 8
-  %4284 = sub i64 %4283, 1
-  %4285 = and i64 %4284, -8
-  %4286 = call noalias ptr @_emalloc(i64 noundef %4285) #9
-  br label %4287
-
-4287:                                             ; preds = %4279, %4277
-  %4288 = phi ptr [ %4278, %4277 ], [ %4286, %4279 ]
+4287:                                             ; preds = %4285, %4007
+  %4288 = phi ptr [ %4008, %4007 ], [ %4286, %4285 ]
   br label %4289
 
-4289:                                             ; preds = %4287, %3877
-  %4290 = phi ptr [ %3884, %3877 ], [ %4288, %4287 ]
-  store ptr %4290, ptr %11, align 8
-  %4291 = load ptr, ptr %11, align 8
-  store ptr %4291, ptr %2, align 8
-  store i32 1, ptr %3, align 4
-  %4292 = load i32, ptr %3, align 4
-  %4293 = load ptr, ptr %2, align 8
-  store i32 %4292, ptr %4293, align 4
-  %4294 = load i8, ptr %10, align 1
-  %4295 = trunc i8 %4294 to i1
-  %4296 = select i1 %4295, i32 128, i32 0
-  %4297 = or i32 22, %4296
-  %4298 = load ptr, ptr %11, align 8
-  %4299 = getelementptr inbounds %struct._zend_refcounted_h, ptr %4298, i32 0, i32 1
-  store i32 %4297, ptr %4299, align 4
-  %4300 = load ptr, ptr %11, align 8
-  %4301 = getelementptr inbounds %struct._zend_string, ptr %4300, i32 0, i32 1
-  store i64 0, ptr %4301, align 8
-  %4302 = load i64, ptr %9, align 8
-  %4303 = load ptr, ptr %11, align 8
-  %4304 = getelementptr inbounds %struct._zend_string, ptr %4303, i32 0, i32 2
-  store i64 %4302, ptr %4304, align 8
-  %4305 = load ptr, ptr %11, align 8
-  store ptr %4305, ptr %30, align 8
-  %4306 = load ptr, ptr %30, align 8
-  %4307 = getelementptr inbounds %struct._zend_string, ptr %4306, i32 0, i32 3
-  %4308 = load ptr, ptr %27, align 8
-  %4309 = load i64, ptr %28, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4307, ptr align 1 %4308, i64 %4309, i1 false)
-  %4310 = load ptr, ptr %30, align 8
-  %4311 = getelementptr inbounds %struct._zend_string, ptr %4310, i32 0, i32 3
-  %4312 = load i64, ptr %28, align 8
-  %4313 = getelementptr inbounds [1 x i8], ptr %4311, i64 0, i64 %4312
-  store i8 0, ptr %4313, align 1
-  %4314 = load ptr, ptr %30, align 8
-  %4315 = load ptr, ptr %484, align 8
-  %4316 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4315, i64 -8
-  %4317 = load ptr, ptr %4316, align 8
-  %4318 = load ptr, ptr %484, align 8
-  %4319 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4318, i64 -6
-  %4320 = load ptr, ptr %4319, align 8
-  %4321 = load ptr, ptr %484, align 8
-  %4322 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4321, i64 -2
-  %4323 = load ptr, ptr %4322, align 8
-  %4324 = load ptr, ptr %484, align 8
-  %4325 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4324, i64 -5
-  %4326 = load ptr, ptr %4325, align 8
-  %4327 = call ptr @zend_ast_create_decl(i16 noundef zeroext 68, i32 noundef %3863, i32 noundef %3867, ptr noundef %3870, ptr noundef %4314, ptr noundef %4317, ptr noundef %4320, ptr noundef %4323, ptr noundef %4326, ptr noundef null)
-  store ptr %4327, ptr %488, align 8
-  %4328 = load ptr, ptr %484, align 8
-  %4329 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4328, i64 -4
-  %4330 = load i64, ptr %4329, align 8
-  %4331 = trunc i64 %4330 to i32
-  store i32 %4331, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
+4289:                                             ; preds = %4287, %3997
+  %4290 = phi ptr [ %3998, %3997 ], [ %4288, %4287 ]
+  br label %4291
 
-4332:                                             ; preds = %705
-  %4333 = load ptr, ptr %484, align 8
-  %4334 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4333, i64 -10
-  %4335 = load i64, ptr %4334, align 8
-  %4336 = load ptr, ptr %484, align 8
-  %4337 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4336, i64 0
-  %4338 = load i64, ptr %4337, align 8
-  %4339 = or i64 %4335, %4338
-  %4340 = trunc i64 %4339 to i32
+4291:                                             ; preds = %4289, %3987
+  %4292 = phi ptr [ %3988, %3987 ], [ %4290, %4289 ]
+  br label %4293
+
+4293:                                             ; preds = %4291, %3977
+  %4294 = phi ptr [ %3978, %3977 ], [ %4292, %4291 ]
+  br label %4295
+
+4295:                                             ; preds = %4293, %3967
+  %4296 = phi ptr [ %3968, %3967 ], [ %4294, %4293 ]
+  br label %4297
+
+4297:                                             ; preds = %4295, %3957
+  %4298 = phi ptr [ %3958, %3957 ], [ %4296, %4295 ]
+  br label %4299
+
+4299:                                             ; preds = %4297, %3947
+  %4300 = phi ptr [ %3948, %3947 ], [ %4298, %4297 ]
+  br label %4301
+
+4301:                                             ; preds = %4299, %3937
+  %4302 = phi ptr [ %3938, %3937 ], [ %4300, %4299 ]
+  br label %4303
+
+4303:                                             ; preds = %4301, %3927
+  %4304 = phi ptr [ %3928, %3927 ], [ %4302, %4301 ]
+  br label %4313
+
+4305:                                             ; preds = %3911
+  %4306 = load i64, ptr %9, align 8
+  %4307 = add i64 24, %4306
+  %4308 = add i64 %4307, 1
+  %4309 = add i64 %4308, 8
+  %4310 = sub i64 %4309, 1
+  %4311 = and i64 %4310, -8
+  %4312 = call noalias ptr @_emalloc(i64 noundef %4311) #9
+  br label %4313
+
+4313:                                             ; preds = %4305, %4303
+  %4314 = phi ptr [ %4304, %4303 ], [ %4312, %4305 ]
+  br label %4315
+
+4315:                                             ; preds = %4313, %3903
+  %4316 = phi ptr [ %3910, %3903 ], [ %4314, %4313 ]
+  store ptr %4316, ptr %11, align 8
+  %4317 = load ptr, ptr %11, align 8
+  store ptr %4317, ptr %2, align 8
+  store i32 1, ptr %3, align 4
+  %4318 = load i32, ptr %3, align 4
+  %4319 = load ptr, ptr %2, align 8
+  store i32 %4318, ptr %4319, align 4
+  %4320 = load i8, ptr %10, align 1
+  %4321 = trunc i8 %4320 to i1
+  %4322 = select i1 %4321, i32 128, i32 0
+  %4323 = or i32 22, %4322
+  %4324 = load ptr, ptr %11, align 8
+  %4325 = getelementptr inbounds %struct._zend_refcounted_h, ptr %4324, i32 0, i32 1
+  store i32 %4323, ptr %4325, align 4
+  %4326 = load ptr, ptr %11, align 8
+  %4327 = getelementptr inbounds %struct._zend_string, ptr %4326, i32 0, i32 1
+  store i64 0, ptr %4327, align 8
+  %4328 = load i64, ptr %9, align 8
+  %4329 = load ptr, ptr %11, align 8
+  %4330 = getelementptr inbounds %struct._zend_string, ptr %4329, i32 0, i32 2
+  store i64 %4328, ptr %4330, align 8
+  %4331 = load ptr, ptr %11, align 8
+  store ptr %4331, ptr %30, align 8
+  %4332 = load ptr, ptr %30, align 8
+  %4333 = getelementptr inbounds %struct._zend_string, ptr %4332, i32 0, i32 3
+  %4334 = load ptr, ptr %27, align 8
+  %4335 = load i64, ptr %28, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4333, ptr align 1 %4334, i64 %4335, i1 false)
+  %4336 = load ptr, ptr %30, align 8
+  %4337 = getelementptr inbounds %struct._zend_string, ptr %4336, i32 0, i32 3
+  %4338 = load i64, ptr %28, align 8
+  %4339 = getelementptr inbounds [1 x i8], ptr %4337, i64 0, i64 %4338
+  store i8 0, ptr %4339, align 1
+  %4340 = load ptr, ptr %30, align 8
   %4341 = load ptr, ptr %484, align 8
-  %4342 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4341, i64 -11
-  %4343 = load i64, ptr %4342, align 8
-  %4344 = trunc i64 %4343 to i32
-  %4345 = load ptr, ptr %484, align 8
-  %4346 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4345, i64 -9
-  %4347 = load ptr, ptr %4346, align 8
+  %4342 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4341, i64 -8
+  %4343 = load ptr, ptr %4342, align 8
+  %4344 = load ptr, ptr %484, align 8
+  %4345 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4344, i64 -6
+  %4346 = load ptr, ptr %4345, align 8
+  %4347 = load ptr, ptr %484, align 8
+  %4348 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4347, i64 -2
+  %4349 = load ptr, ptr %4348, align 8
+  %4350 = load ptr, ptr %484, align 8
+  %4351 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4350, i64 -5
+  %4352 = load ptr, ptr %4351, align 8
+  %4353 = call ptr @zend_ast_create_decl(i16 noundef zeroext 68, i32 noundef %3889, i32 noundef %3893, ptr noundef %3896, ptr noundef %4340, ptr noundef %4343, ptr noundef %4346, ptr noundef %4349, ptr noundef %4352, ptr noundef null)
+  store ptr %4353, ptr %488, align 8
+  %4354 = load ptr, ptr %484, align 8
+  %4355 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4354, i64 -4
+  %4356 = load i64, ptr %4355, align 8
+  %4357 = trunc i64 %4356 to i32
+  %4358 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 %4357, ptr %4358, align 8
+  br label %5692
+
+4359:                                             ; preds = %705
+  %4360 = load ptr, ptr %484, align 8
+  %4361 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4360, i64 -10
+  %4362 = load i64, ptr %4361, align 8
+  %4363 = load ptr, ptr %484, align 8
+  %4364 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4363, i64 0
+  %4365 = load i64, ptr %4364, align 8
+  %4366 = or i64 %4362, %4365
+  %4367 = trunc i64 %4366 to i32
+  %4368 = load ptr, ptr %484, align 8
+  %4369 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4368, i64 -11
+  %4370 = load i64, ptr %4369, align 8
+  %4371 = trunc i64 %4370 to i32
+  %4372 = load ptr, ptr %484, align 8
+  %4373 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4372, i64 -9
+  %4374 = load ptr, ptr %4373, align 8
   store ptr @.str.1, ptr %31, align 8
   store i64 9, ptr %32, align 8
   store i8 0, ptr %33, align 1
-  %4348 = load i64, ptr %32, align 8
-  %4349 = load i8, ptr %33, align 1
-  %4350 = trunc i8 %4349 to i1
-  store i64 %4348, ptr %6, align 8
-  %4351 = zext i1 %4350 to i8
-  store i8 %4351, ptr %7, align 1
-  %4352 = load i8, ptr %7, align 1
-  %4353 = trunc i8 %4352 to i1
-  br i1 %4353, label %4354, label %4362
-
-4354:                                             ; preds = %4332
-  %4355 = load i64, ptr %6, align 8
-  %4356 = add i64 24, %4355
-  %4357 = add i64 %4356, 1
-  %4358 = add i64 %4357, 8
-  %4359 = sub i64 %4358, 1
-  %4360 = and i64 %4359, -8
-  %4361 = call noalias ptr @__zend_malloc(i64 noundef %4360) #9
-  br label %4766
-
-4362:                                             ; preds = %4332
-  %4363 = load i64, ptr %6, align 8
-  %4364 = add i64 24, %4363
-  %4365 = add i64 %4364, 1
-  %4366 = add i64 %4365, 8
-  %4367 = sub i64 %4366, 1
-  %4368 = and i64 %4367, -8
-  %4369 = call i1 @llvm.is.constant.i64(i64 %4368)
-  br i1 %4369, label %4370, label %4756
-
-4370:                                             ; preds = %4362
-  %4371 = load i64, ptr %6, align 8
-  %4372 = add i64 24, %4371
-  %4373 = add i64 %4372, 1
-  %4374 = add i64 %4373, 8
-  %4375 = sub i64 %4374, 1
-  %4376 = and i64 %4375, -8
-  %4377 = icmp ule i64 %4376, 8
-  br i1 %4377, label %4378, label %4380
-
-4378:                                             ; preds = %4370
-  %4379 = call noalias ptr @_emalloc_8() #10
-  br label %4754
-
-4380:                                             ; preds = %4370
-  %4381 = load i64, ptr %6, align 8
-  %4382 = add i64 24, %4381
-  %4383 = add i64 %4382, 1
-  %4384 = add i64 %4383, 8
-  %4385 = sub i64 %4384, 1
-  %4386 = and i64 %4385, -8
-  %4387 = icmp ule i64 %4386, 16
-  br i1 %4387, label %4388, label %4390
-
-4388:                                             ; preds = %4380
-  %4389 = call noalias ptr @_emalloc_16() #10
-  br label %4752
-
-4390:                                             ; preds = %4380
-  %4391 = load i64, ptr %6, align 8
-  %4392 = add i64 24, %4391
-  %4393 = add i64 %4392, 1
-  %4394 = add i64 %4393, 8
-  %4395 = sub i64 %4394, 1
-  %4396 = and i64 %4395, -8
-  %4397 = icmp ule i64 %4396, 24
-  br i1 %4397, label %4398, label %4400
-
-4398:                                             ; preds = %4390
-  %4399 = call noalias ptr @_emalloc_24() #10
-  br label %4750
-
-4400:                                             ; preds = %4390
-  %4401 = load i64, ptr %6, align 8
-  %4402 = add i64 24, %4401
-  %4403 = add i64 %4402, 1
-  %4404 = add i64 %4403, 8
-  %4405 = sub i64 %4404, 1
-  %4406 = and i64 %4405, -8
-  %4407 = icmp ule i64 %4406, 32
-  br i1 %4407, label %4408, label %4410
-
-4408:                                             ; preds = %4400
-  %4409 = call noalias ptr @_emalloc_32() #10
-  br label %4748
-
-4410:                                             ; preds = %4400
-  %4411 = load i64, ptr %6, align 8
-  %4412 = add i64 24, %4411
-  %4413 = add i64 %4412, 1
-  %4414 = add i64 %4413, 8
-  %4415 = sub i64 %4414, 1
-  %4416 = and i64 %4415, -8
-  %4417 = icmp ule i64 %4416, 40
-  br i1 %4417, label %4418, label %4420
-
-4418:                                             ; preds = %4410
-  %4419 = call noalias ptr @_emalloc_40() #10
-  br label %4746
-
-4420:                                             ; preds = %4410
-  %4421 = load i64, ptr %6, align 8
-  %4422 = add i64 24, %4421
-  %4423 = add i64 %4422, 1
-  %4424 = add i64 %4423, 8
-  %4425 = sub i64 %4424, 1
-  %4426 = and i64 %4425, -8
-  %4427 = icmp ule i64 %4426, 48
-  br i1 %4427, label %4428, label %4430
-
-4428:                                             ; preds = %4420
-  %4429 = call noalias ptr @_emalloc_48() #10
-  br label %4744
-
-4430:                                             ; preds = %4420
-  %4431 = load i64, ptr %6, align 8
-  %4432 = add i64 24, %4431
-  %4433 = add i64 %4432, 1
-  %4434 = add i64 %4433, 8
-  %4435 = sub i64 %4434, 1
-  %4436 = and i64 %4435, -8
-  %4437 = icmp ule i64 %4436, 56
-  br i1 %4437, label %4438, label %4440
-
-4438:                                             ; preds = %4430
-  %4439 = call noalias ptr @_emalloc_56() #10
-  br label %4742
-
-4440:                                             ; preds = %4430
-  %4441 = load i64, ptr %6, align 8
-  %4442 = add i64 24, %4441
-  %4443 = add i64 %4442, 1
-  %4444 = add i64 %4443, 8
-  %4445 = sub i64 %4444, 1
-  %4446 = and i64 %4445, -8
-  %4447 = icmp ule i64 %4446, 64
-  br i1 %4447, label %4448, label %4450
-
-4448:                                             ; preds = %4440
-  %4449 = call noalias ptr @_emalloc_64() #10
-  br label %4740
-
-4450:                                             ; preds = %4440
-  %4451 = load i64, ptr %6, align 8
-  %4452 = add i64 24, %4451
-  %4453 = add i64 %4452, 1
-  %4454 = add i64 %4453, 8
-  %4455 = sub i64 %4454, 1
-  %4456 = and i64 %4455, -8
-  %4457 = icmp ule i64 %4456, 80
-  br i1 %4457, label %4458, label %4460
-
-4458:                                             ; preds = %4450
-  %4459 = call noalias ptr @_emalloc_80() #10
-  br label %4738
-
-4460:                                             ; preds = %4450
-  %4461 = load i64, ptr %6, align 8
-  %4462 = add i64 24, %4461
-  %4463 = add i64 %4462, 1
-  %4464 = add i64 %4463, 8
-  %4465 = sub i64 %4464, 1
-  %4466 = and i64 %4465, -8
-  %4467 = icmp ule i64 %4466, 96
-  br i1 %4467, label %4468, label %4470
-
-4468:                                             ; preds = %4460
-  %4469 = call noalias ptr @_emalloc_96() #10
-  br label %4736
-
-4470:                                             ; preds = %4460
-  %4471 = load i64, ptr %6, align 8
-  %4472 = add i64 24, %4471
-  %4473 = add i64 %4472, 1
-  %4474 = add i64 %4473, 8
-  %4475 = sub i64 %4474, 1
-  %4476 = and i64 %4475, -8
-  %4477 = icmp ule i64 %4476, 112
-  br i1 %4477, label %4478, label %4480
-
-4478:                                             ; preds = %4470
-  %4479 = call noalias ptr @_emalloc_112() #10
-  br label %4734
-
-4480:                                             ; preds = %4470
-  %4481 = load i64, ptr %6, align 8
-  %4482 = add i64 24, %4481
-  %4483 = add i64 %4482, 1
-  %4484 = add i64 %4483, 8
-  %4485 = sub i64 %4484, 1
-  %4486 = and i64 %4485, -8
-  %4487 = icmp ule i64 %4486, 128
-  br i1 %4487, label %4488, label %4490
-
-4488:                                             ; preds = %4480
-  %4489 = call noalias ptr @_emalloc_128() #10
-  br label %4732
-
-4490:                                             ; preds = %4480
-  %4491 = load i64, ptr %6, align 8
-  %4492 = add i64 24, %4491
-  %4493 = add i64 %4492, 1
-  %4494 = add i64 %4493, 8
-  %4495 = sub i64 %4494, 1
-  %4496 = and i64 %4495, -8
-  %4497 = icmp ule i64 %4496, 160
-  br i1 %4497, label %4498, label %4500
-
-4498:                                             ; preds = %4490
-  %4499 = call noalias ptr @_emalloc_160() #10
-  br label %4730
-
-4500:                                             ; preds = %4490
-  %4501 = load i64, ptr %6, align 8
-  %4502 = add i64 24, %4501
-  %4503 = add i64 %4502, 1
-  %4504 = add i64 %4503, 8
-  %4505 = sub i64 %4504, 1
-  %4506 = and i64 %4505, -8
-  %4507 = icmp ule i64 %4506, 192
-  br i1 %4507, label %4508, label %4510
-
-4508:                                             ; preds = %4500
-  %4509 = call noalias ptr @_emalloc_192() #10
-  br label %4728
-
-4510:                                             ; preds = %4500
-  %4511 = load i64, ptr %6, align 8
-  %4512 = add i64 24, %4511
-  %4513 = add i64 %4512, 1
-  %4514 = add i64 %4513, 8
-  %4515 = sub i64 %4514, 1
-  %4516 = and i64 %4515, -8
-  %4517 = icmp ule i64 %4516, 224
-  br i1 %4517, label %4518, label %4520
-
-4518:                                             ; preds = %4510
-  %4519 = call noalias ptr @_emalloc_224() #10
-  br label %4726
-
-4520:                                             ; preds = %4510
-  %4521 = load i64, ptr %6, align 8
-  %4522 = add i64 24, %4521
-  %4523 = add i64 %4522, 1
-  %4524 = add i64 %4523, 8
-  %4525 = sub i64 %4524, 1
-  %4526 = and i64 %4525, -8
-  %4527 = icmp ule i64 %4526, 256
-  br i1 %4527, label %4528, label %4530
-
-4528:                                             ; preds = %4520
-  %4529 = call noalias ptr @_emalloc_256() #10
-  br label %4724
-
-4530:                                             ; preds = %4520
-  %4531 = load i64, ptr %6, align 8
-  %4532 = add i64 24, %4531
-  %4533 = add i64 %4532, 1
-  %4534 = add i64 %4533, 8
-  %4535 = sub i64 %4534, 1
-  %4536 = and i64 %4535, -8
-  %4537 = icmp ule i64 %4536, 320
-  br i1 %4537, label %4538, label %4540
-
-4538:                                             ; preds = %4530
-  %4539 = call noalias ptr @_emalloc_320() #10
-  br label %4722
-
-4540:                                             ; preds = %4530
-  %4541 = load i64, ptr %6, align 8
-  %4542 = add i64 24, %4541
-  %4543 = add i64 %4542, 1
-  %4544 = add i64 %4543, 8
-  %4545 = sub i64 %4544, 1
-  %4546 = and i64 %4545, -8
-  %4547 = icmp ule i64 %4546, 384
-  br i1 %4547, label %4548, label %4550
-
-4548:                                             ; preds = %4540
-  %4549 = call noalias ptr @_emalloc_384() #10
-  br label %4720
-
-4550:                                             ; preds = %4540
-  %4551 = load i64, ptr %6, align 8
-  %4552 = add i64 24, %4551
-  %4553 = add i64 %4552, 1
-  %4554 = add i64 %4553, 8
-  %4555 = sub i64 %4554, 1
-  %4556 = and i64 %4555, -8
-  %4557 = icmp ule i64 %4556, 448
-  br i1 %4557, label %4558, label %4560
-
-4558:                                             ; preds = %4550
-  %4559 = call noalias ptr @_emalloc_448() #10
-  br label %4718
-
-4560:                                             ; preds = %4550
-  %4561 = load i64, ptr %6, align 8
-  %4562 = add i64 24, %4561
-  %4563 = add i64 %4562, 1
-  %4564 = add i64 %4563, 8
-  %4565 = sub i64 %4564, 1
-  %4566 = and i64 %4565, -8
-  %4567 = icmp ule i64 %4566, 512
-  br i1 %4567, label %4568, label %4570
-
-4568:                                             ; preds = %4560
-  %4569 = call noalias ptr @_emalloc_512() #10
-  br label %4716
-
-4570:                                             ; preds = %4560
-  %4571 = load i64, ptr %6, align 8
-  %4572 = add i64 24, %4571
-  %4573 = add i64 %4572, 1
-  %4574 = add i64 %4573, 8
-  %4575 = sub i64 %4574, 1
-  %4576 = and i64 %4575, -8
-  %4577 = icmp ule i64 %4576, 640
-  br i1 %4577, label %4578, label %4580
-
-4578:                                             ; preds = %4570
-  %4579 = call noalias ptr @_emalloc_640() #10
-  br label %4714
-
-4580:                                             ; preds = %4570
-  %4581 = load i64, ptr %6, align 8
-  %4582 = add i64 24, %4581
-  %4583 = add i64 %4582, 1
-  %4584 = add i64 %4583, 8
-  %4585 = sub i64 %4584, 1
-  %4586 = and i64 %4585, -8
-  %4587 = icmp ule i64 %4586, 768
-  br i1 %4587, label %4588, label %4590
-
-4588:                                             ; preds = %4580
-  %4589 = call noalias ptr @_emalloc_768() #10
-  br label %4712
-
-4590:                                             ; preds = %4580
-  %4591 = load i64, ptr %6, align 8
-  %4592 = add i64 24, %4591
-  %4593 = add i64 %4592, 1
-  %4594 = add i64 %4593, 8
-  %4595 = sub i64 %4594, 1
-  %4596 = and i64 %4595, -8
-  %4597 = icmp ule i64 %4596, 896
-  br i1 %4597, label %4598, label %4600
-
-4598:                                             ; preds = %4590
-  %4599 = call noalias ptr @_emalloc_896() #10
-  br label %4710
-
-4600:                                             ; preds = %4590
-  %4601 = load i64, ptr %6, align 8
-  %4602 = add i64 24, %4601
-  %4603 = add i64 %4602, 1
-  %4604 = add i64 %4603, 8
-  %4605 = sub i64 %4604, 1
-  %4606 = and i64 %4605, -8
-  %4607 = icmp ule i64 %4606, 1024
-  br i1 %4607, label %4608, label %4610
-
-4608:                                             ; preds = %4600
-  %4609 = call noalias ptr @_emalloc_1024() #10
-  br label %4708
-
-4610:                                             ; preds = %4600
-  %4611 = load i64, ptr %6, align 8
-  %4612 = add i64 24, %4611
-  %4613 = add i64 %4612, 1
-  %4614 = add i64 %4613, 8
-  %4615 = sub i64 %4614, 1
-  %4616 = and i64 %4615, -8
-  %4617 = icmp ule i64 %4616, 1280
-  br i1 %4617, label %4618, label %4620
-
-4618:                                             ; preds = %4610
-  %4619 = call noalias ptr @_emalloc_1280() #10
-  br label %4706
-
-4620:                                             ; preds = %4610
-  %4621 = load i64, ptr %6, align 8
-  %4622 = add i64 24, %4621
-  %4623 = add i64 %4622, 1
-  %4624 = add i64 %4623, 8
-  %4625 = sub i64 %4624, 1
-  %4626 = and i64 %4625, -8
-  %4627 = icmp ule i64 %4626, 1536
-  br i1 %4627, label %4628, label %4630
-
-4628:                                             ; preds = %4620
-  %4629 = call noalias ptr @_emalloc_1536() #10
-  br label %4704
-
-4630:                                             ; preds = %4620
-  %4631 = load i64, ptr %6, align 8
-  %4632 = add i64 24, %4631
-  %4633 = add i64 %4632, 1
-  %4634 = add i64 %4633, 8
-  %4635 = sub i64 %4634, 1
-  %4636 = and i64 %4635, -8
-  %4637 = icmp ule i64 %4636, 1792
-  br i1 %4637, label %4638, label %4640
-
-4638:                                             ; preds = %4630
-  %4639 = call noalias ptr @_emalloc_1792() #10
-  br label %4702
-
-4640:                                             ; preds = %4630
-  %4641 = load i64, ptr %6, align 8
-  %4642 = add i64 24, %4641
-  %4643 = add i64 %4642, 1
-  %4644 = add i64 %4643, 8
-  %4645 = sub i64 %4644, 1
-  %4646 = and i64 %4645, -8
-  %4647 = icmp ule i64 %4646, 2048
-  br i1 %4647, label %4648, label %4650
-
-4648:                                             ; preds = %4640
-  %4649 = call noalias ptr @_emalloc_2048() #10
-  br label %4700
-
-4650:                                             ; preds = %4640
-  %4651 = load i64, ptr %6, align 8
-  %4652 = add i64 24, %4651
-  %4653 = add i64 %4652, 1
-  %4654 = add i64 %4653, 8
-  %4655 = sub i64 %4654, 1
-  %4656 = and i64 %4655, -8
-  %4657 = icmp ule i64 %4656, 2560
-  br i1 %4657, label %4658, label %4660
-
-4658:                                             ; preds = %4650
-  %4659 = call noalias ptr @_emalloc_2560() #10
-  br label %4698
-
-4660:                                             ; preds = %4650
-  %4661 = load i64, ptr %6, align 8
-  %4662 = add i64 24, %4661
-  %4663 = add i64 %4662, 1
-  %4664 = add i64 %4663, 8
-  %4665 = sub i64 %4664, 1
-  %4666 = and i64 %4665, -8
-  %4667 = icmp ule i64 %4666, 3072
-  br i1 %4667, label %4668, label %4670
-
-4668:                                             ; preds = %4660
-  %4669 = call noalias ptr @_emalloc_3072() #10
-  br label %4696
-
-4670:                                             ; preds = %4660
-  %4671 = load i64, ptr %6, align 8
-  %4672 = add i64 24, %4671
-  %4673 = add i64 %4672, 1
-  %4674 = add i64 %4673, 8
-  %4675 = sub i64 %4674, 1
-  %4676 = and i64 %4675, -8
-  %4677 = icmp ule i64 %4676, 2093056
-  br i1 %4677, label %4678, label %4686
-
-4678:                                             ; preds = %4670
-  %4679 = load i64, ptr %6, align 8
-  %4680 = add i64 24, %4679
-  %4681 = add i64 %4680, 1
-  %4682 = add i64 %4681, 8
-  %4683 = sub i64 %4682, 1
-  %4684 = and i64 %4683, -8
-  %4685 = call noalias ptr @_emalloc_large(i64 noundef %4684) #9
-  br label %4694
-
-4686:                                             ; preds = %4670
-  %4687 = load i64, ptr %6, align 8
-  %4688 = add i64 24, %4687
-  %4689 = add i64 %4688, 1
-  %4690 = add i64 %4689, 8
-  %4691 = sub i64 %4690, 1
-  %4692 = and i64 %4691, -8
-  %4693 = call noalias ptr @_emalloc_huge(i64 noundef %4692) #9
-  br label %4694
-
-4694:                                             ; preds = %4686, %4678
-  %4695 = phi ptr [ %4685, %4678 ], [ %4693, %4686 ]
-  br label %4696
-
-4696:                                             ; preds = %4694, %4668
-  %4697 = phi ptr [ %4669, %4668 ], [ %4695, %4694 ]
-  br label %4698
-
-4698:                                             ; preds = %4696, %4658
-  %4699 = phi ptr [ %4659, %4658 ], [ %4697, %4696 ]
-  br label %4700
-
-4700:                                             ; preds = %4698, %4648
-  %4701 = phi ptr [ %4649, %4648 ], [ %4699, %4698 ]
-  br label %4702
-
-4702:                                             ; preds = %4700, %4638
-  %4703 = phi ptr [ %4639, %4638 ], [ %4701, %4700 ]
-  br label %4704
-
-4704:                                             ; preds = %4702, %4628
-  %4705 = phi ptr [ %4629, %4628 ], [ %4703, %4702 ]
-  br label %4706
-
-4706:                                             ; preds = %4704, %4618
-  %4707 = phi ptr [ %4619, %4618 ], [ %4705, %4704 ]
-  br label %4708
-
-4708:                                             ; preds = %4706, %4608
-  %4709 = phi ptr [ %4609, %4608 ], [ %4707, %4706 ]
-  br label %4710
-
-4710:                                             ; preds = %4708, %4598
-  %4711 = phi ptr [ %4599, %4598 ], [ %4709, %4708 ]
-  br label %4712
-
-4712:                                             ; preds = %4710, %4588
-  %4713 = phi ptr [ %4589, %4588 ], [ %4711, %4710 ]
-  br label %4714
-
-4714:                                             ; preds = %4712, %4578
-  %4715 = phi ptr [ %4579, %4578 ], [ %4713, %4712 ]
-  br label %4716
-
-4716:                                             ; preds = %4714, %4568
-  %4717 = phi ptr [ %4569, %4568 ], [ %4715, %4714 ]
-  br label %4718
-
-4718:                                             ; preds = %4716, %4558
-  %4719 = phi ptr [ %4559, %4558 ], [ %4717, %4716 ]
-  br label %4720
-
-4720:                                             ; preds = %4718, %4548
-  %4721 = phi ptr [ %4549, %4548 ], [ %4719, %4718 ]
-  br label %4722
-
-4722:                                             ; preds = %4720, %4538
-  %4723 = phi ptr [ %4539, %4538 ], [ %4721, %4720 ]
-  br label %4724
-
-4724:                                             ; preds = %4722, %4528
-  %4725 = phi ptr [ %4529, %4528 ], [ %4723, %4722 ]
-  br label %4726
-
-4726:                                             ; preds = %4724, %4518
-  %4727 = phi ptr [ %4519, %4518 ], [ %4725, %4724 ]
-  br label %4728
-
-4728:                                             ; preds = %4726, %4508
-  %4729 = phi ptr [ %4509, %4508 ], [ %4727, %4726 ]
-  br label %4730
-
-4730:                                             ; preds = %4728, %4498
-  %4731 = phi ptr [ %4499, %4498 ], [ %4729, %4728 ]
-  br label %4732
-
-4732:                                             ; preds = %4730, %4488
-  %4733 = phi ptr [ %4489, %4488 ], [ %4731, %4730 ]
-  br label %4734
-
-4734:                                             ; preds = %4732, %4478
-  %4735 = phi ptr [ %4479, %4478 ], [ %4733, %4732 ]
-  br label %4736
-
-4736:                                             ; preds = %4734, %4468
-  %4737 = phi ptr [ %4469, %4468 ], [ %4735, %4734 ]
-  br label %4738
-
-4738:                                             ; preds = %4736, %4458
-  %4739 = phi ptr [ %4459, %4458 ], [ %4737, %4736 ]
-  br label %4740
-
-4740:                                             ; preds = %4738, %4448
-  %4741 = phi ptr [ %4449, %4448 ], [ %4739, %4738 ]
-  br label %4742
-
-4742:                                             ; preds = %4740, %4438
-  %4743 = phi ptr [ %4439, %4438 ], [ %4741, %4740 ]
-  br label %4744
-
-4744:                                             ; preds = %4742, %4428
-  %4745 = phi ptr [ %4429, %4428 ], [ %4743, %4742 ]
-  br label %4746
-
-4746:                                             ; preds = %4744, %4418
-  %4747 = phi ptr [ %4419, %4418 ], [ %4745, %4744 ]
-  br label %4748
-
-4748:                                             ; preds = %4746, %4408
-  %4749 = phi ptr [ %4409, %4408 ], [ %4747, %4746 ]
-  br label %4750
-
-4750:                                             ; preds = %4748, %4398
-  %4751 = phi ptr [ %4399, %4398 ], [ %4749, %4748 ]
-  br label %4752
-
-4752:                                             ; preds = %4750, %4388
-  %4753 = phi ptr [ %4389, %4388 ], [ %4751, %4750 ]
-  br label %4754
-
-4754:                                             ; preds = %4752, %4378
-  %4755 = phi ptr [ %4379, %4378 ], [ %4753, %4752 ]
-  br label %4764
-
-4756:                                             ; preds = %4362
-  %4757 = load i64, ptr %6, align 8
-  %4758 = add i64 24, %4757
-  %4759 = add i64 %4758, 1
-  %4760 = add i64 %4759, 8
-  %4761 = sub i64 %4760, 1
-  %4762 = and i64 %4761, -8
-  %4763 = call noalias ptr @_emalloc(i64 noundef %4762) #9
-  br label %4764
-
-4764:                                             ; preds = %4756, %4754
-  %4765 = phi ptr [ %4755, %4754 ], [ %4763, %4756 ]
-  br label %4766
-
-4766:                                             ; preds = %4764, %4354
-  %4767 = phi ptr [ %4361, %4354 ], [ %4765, %4764 ]
-  store ptr %4767, ptr %8, align 8
-  %4768 = load ptr, ptr %8, align 8
-  store ptr %4768, ptr %4, align 8
+  %4375 = load i64, ptr %32, align 8
+  %4376 = load i8, ptr %33, align 1
+  %4377 = trunc i8 %4376 to i1
+  store i64 %4375, ptr %6, align 8
+  %4378 = zext i1 %4377 to i8
+  store i8 %4378, ptr %7, align 1
+  %4379 = load i8, ptr %7, align 1
+  %4380 = trunc i8 %4379 to i1
+  br i1 %4380, label %4381, label %4389
+
+4381:                                             ; preds = %4359
+  %4382 = load i64, ptr %6, align 8
+  %4383 = add i64 24, %4382
+  %4384 = add i64 %4383, 1
+  %4385 = add i64 %4384, 8
+  %4386 = sub i64 %4385, 1
+  %4387 = and i64 %4386, -8
+  %4388 = call noalias ptr @__zend_malloc(i64 noundef %4387) #9
+  br label %4793
+
+4389:                                             ; preds = %4359
+  %4390 = load i64, ptr %6, align 8
+  %4391 = add i64 24, %4390
+  %4392 = add i64 %4391, 1
+  %4393 = add i64 %4392, 8
+  %4394 = sub i64 %4393, 1
+  %4395 = and i64 %4394, -8
+  %4396 = call i1 @llvm.is.constant.i64(i64 %4395)
+  br i1 %4396, label %4397, label %4783
+
+4397:                                             ; preds = %4389
+  %4398 = load i64, ptr %6, align 8
+  %4399 = add i64 24, %4398
+  %4400 = add i64 %4399, 1
+  %4401 = add i64 %4400, 8
+  %4402 = sub i64 %4401, 1
+  %4403 = and i64 %4402, -8
+  %4404 = icmp ule i64 %4403, 8
+  br i1 %4404, label %4405, label %4407
+
+4405:                                             ; preds = %4397
+  %4406 = call noalias ptr @_emalloc_8() #10
+  br label %4781
+
+4407:                                             ; preds = %4397
+  %4408 = load i64, ptr %6, align 8
+  %4409 = add i64 24, %4408
+  %4410 = add i64 %4409, 1
+  %4411 = add i64 %4410, 8
+  %4412 = sub i64 %4411, 1
+  %4413 = and i64 %4412, -8
+  %4414 = icmp ule i64 %4413, 16
+  br i1 %4414, label %4415, label %4417
+
+4415:                                             ; preds = %4407
+  %4416 = call noalias ptr @_emalloc_16() #10
+  br label %4779
+
+4417:                                             ; preds = %4407
+  %4418 = load i64, ptr %6, align 8
+  %4419 = add i64 24, %4418
+  %4420 = add i64 %4419, 1
+  %4421 = add i64 %4420, 8
+  %4422 = sub i64 %4421, 1
+  %4423 = and i64 %4422, -8
+  %4424 = icmp ule i64 %4423, 24
+  br i1 %4424, label %4425, label %4427
+
+4425:                                             ; preds = %4417
+  %4426 = call noalias ptr @_emalloc_24() #10
+  br label %4777
+
+4427:                                             ; preds = %4417
+  %4428 = load i64, ptr %6, align 8
+  %4429 = add i64 24, %4428
+  %4430 = add i64 %4429, 1
+  %4431 = add i64 %4430, 8
+  %4432 = sub i64 %4431, 1
+  %4433 = and i64 %4432, -8
+  %4434 = icmp ule i64 %4433, 32
+  br i1 %4434, label %4435, label %4437
+
+4435:                                             ; preds = %4427
+  %4436 = call noalias ptr @_emalloc_32() #10
+  br label %4775
+
+4437:                                             ; preds = %4427
+  %4438 = load i64, ptr %6, align 8
+  %4439 = add i64 24, %4438
+  %4440 = add i64 %4439, 1
+  %4441 = add i64 %4440, 8
+  %4442 = sub i64 %4441, 1
+  %4443 = and i64 %4442, -8
+  %4444 = icmp ule i64 %4443, 40
+  br i1 %4444, label %4445, label %4447
+
+4445:                                             ; preds = %4437
+  %4446 = call noalias ptr @_emalloc_40() #10
+  br label %4773
+
+4447:                                             ; preds = %4437
+  %4448 = load i64, ptr %6, align 8
+  %4449 = add i64 24, %4448
+  %4450 = add i64 %4449, 1
+  %4451 = add i64 %4450, 8
+  %4452 = sub i64 %4451, 1
+  %4453 = and i64 %4452, -8
+  %4454 = icmp ule i64 %4453, 48
+  br i1 %4454, label %4455, label %4457
+
+4455:                                             ; preds = %4447
+  %4456 = call noalias ptr @_emalloc_48() #10
+  br label %4771
+
+4457:                                             ; preds = %4447
+  %4458 = load i64, ptr %6, align 8
+  %4459 = add i64 24, %4458
+  %4460 = add i64 %4459, 1
+  %4461 = add i64 %4460, 8
+  %4462 = sub i64 %4461, 1
+  %4463 = and i64 %4462, -8
+  %4464 = icmp ule i64 %4463, 56
+  br i1 %4464, label %4465, label %4467
+
+4465:                                             ; preds = %4457
+  %4466 = call noalias ptr @_emalloc_56() #10
+  br label %4769
+
+4467:                                             ; preds = %4457
+  %4468 = load i64, ptr %6, align 8
+  %4469 = add i64 24, %4468
+  %4470 = add i64 %4469, 1
+  %4471 = add i64 %4470, 8
+  %4472 = sub i64 %4471, 1
+  %4473 = and i64 %4472, -8
+  %4474 = icmp ule i64 %4473, 64
+  br i1 %4474, label %4475, label %4477
+
+4475:                                             ; preds = %4467
+  %4476 = call noalias ptr @_emalloc_64() #10
+  br label %4767
+
+4477:                                             ; preds = %4467
+  %4478 = load i64, ptr %6, align 8
+  %4479 = add i64 24, %4478
+  %4480 = add i64 %4479, 1
+  %4481 = add i64 %4480, 8
+  %4482 = sub i64 %4481, 1
+  %4483 = and i64 %4482, -8
+  %4484 = icmp ule i64 %4483, 80
+  br i1 %4484, label %4485, label %4487
+
+4485:                                             ; preds = %4477
+  %4486 = call noalias ptr @_emalloc_80() #10
+  br label %4765
+
+4487:                                             ; preds = %4477
+  %4488 = load i64, ptr %6, align 8
+  %4489 = add i64 24, %4488
+  %4490 = add i64 %4489, 1
+  %4491 = add i64 %4490, 8
+  %4492 = sub i64 %4491, 1
+  %4493 = and i64 %4492, -8
+  %4494 = icmp ule i64 %4493, 96
+  br i1 %4494, label %4495, label %4497
+
+4495:                                             ; preds = %4487
+  %4496 = call noalias ptr @_emalloc_96() #10
+  br label %4763
+
+4497:                                             ; preds = %4487
+  %4498 = load i64, ptr %6, align 8
+  %4499 = add i64 24, %4498
+  %4500 = add i64 %4499, 1
+  %4501 = add i64 %4500, 8
+  %4502 = sub i64 %4501, 1
+  %4503 = and i64 %4502, -8
+  %4504 = icmp ule i64 %4503, 112
+  br i1 %4504, label %4505, label %4507
+
+4505:                                             ; preds = %4497
+  %4506 = call noalias ptr @_emalloc_112() #10
+  br label %4761
+
+4507:                                             ; preds = %4497
+  %4508 = load i64, ptr %6, align 8
+  %4509 = add i64 24, %4508
+  %4510 = add i64 %4509, 1
+  %4511 = add i64 %4510, 8
+  %4512 = sub i64 %4511, 1
+  %4513 = and i64 %4512, -8
+  %4514 = icmp ule i64 %4513, 128
+  br i1 %4514, label %4515, label %4517
+
+4515:                                             ; preds = %4507
+  %4516 = call noalias ptr @_emalloc_128() #10
+  br label %4759
+
+4517:                                             ; preds = %4507
+  %4518 = load i64, ptr %6, align 8
+  %4519 = add i64 24, %4518
+  %4520 = add i64 %4519, 1
+  %4521 = add i64 %4520, 8
+  %4522 = sub i64 %4521, 1
+  %4523 = and i64 %4522, -8
+  %4524 = icmp ule i64 %4523, 160
+  br i1 %4524, label %4525, label %4527
+
+4525:                                             ; preds = %4517
+  %4526 = call noalias ptr @_emalloc_160() #10
+  br label %4757
+
+4527:                                             ; preds = %4517
+  %4528 = load i64, ptr %6, align 8
+  %4529 = add i64 24, %4528
+  %4530 = add i64 %4529, 1
+  %4531 = add i64 %4530, 8
+  %4532 = sub i64 %4531, 1
+  %4533 = and i64 %4532, -8
+  %4534 = icmp ule i64 %4533, 192
+  br i1 %4534, label %4535, label %4537
+
+4535:                                             ; preds = %4527
+  %4536 = call noalias ptr @_emalloc_192() #10
+  br label %4755
+
+4537:                                             ; preds = %4527
+  %4538 = load i64, ptr %6, align 8
+  %4539 = add i64 24, %4538
+  %4540 = add i64 %4539, 1
+  %4541 = add i64 %4540, 8
+  %4542 = sub i64 %4541, 1
+  %4543 = and i64 %4542, -8
+  %4544 = icmp ule i64 %4543, 224
+  br i1 %4544, label %4545, label %4547
+
+4545:                                             ; preds = %4537
+  %4546 = call noalias ptr @_emalloc_224() #10
+  br label %4753
+
+4547:                                             ; preds = %4537
+  %4548 = load i64, ptr %6, align 8
+  %4549 = add i64 24, %4548
+  %4550 = add i64 %4549, 1
+  %4551 = add i64 %4550, 8
+  %4552 = sub i64 %4551, 1
+  %4553 = and i64 %4552, -8
+  %4554 = icmp ule i64 %4553, 256
+  br i1 %4554, label %4555, label %4557
+
+4555:                                             ; preds = %4547
+  %4556 = call noalias ptr @_emalloc_256() #10
+  br label %4751
+
+4557:                                             ; preds = %4547
+  %4558 = load i64, ptr %6, align 8
+  %4559 = add i64 24, %4558
+  %4560 = add i64 %4559, 1
+  %4561 = add i64 %4560, 8
+  %4562 = sub i64 %4561, 1
+  %4563 = and i64 %4562, -8
+  %4564 = icmp ule i64 %4563, 320
+  br i1 %4564, label %4565, label %4567
+
+4565:                                             ; preds = %4557
+  %4566 = call noalias ptr @_emalloc_320() #10
+  br label %4749
+
+4567:                                             ; preds = %4557
+  %4568 = load i64, ptr %6, align 8
+  %4569 = add i64 24, %4568
+  %4570 = add i64 %4569, 1
+  %4571 = add i64 %4570, 8
+  %4572 = sub i64 %4571, 1
+  %4573 = and i64 %4572, -8
+  %4574 = icmp ule i64 %4573, 384
+  br i1 %4574, label %4575, label %4577
+
+4575:                                             ; preds = %4567
+  %4576 = call noalias ptr @_emalloc_384() #10
+  br label %4747
+
+4577:                                             ; preds = %4567
+  %4578 = load i64, ptr %6, align 8
+  %4579 = add i64 24, %4578
+  %4580 = add i64 %4579, 1
+  %4581 = add i64 %4580, 8
+  %4582 = sub i64 %4581, 1
+  %4583 = and i64 %4582, -8
+  %4584 = icmp ule i64 %4583, 448
+  br i1 %4584, label %4585, label %4587
+
+4585:                                             ; preds = %4577
+  %4586 = call noalias ptr @_emalloc_448() #10
+  br label %4745
+
+4587:                                             ; preds = %4577
+  %4588 = load i64, ptr %6, align 8
+  %4589 = add i64 24, %4588
+  %4590 = add i64 %4589, 1
+  %4591 = add i64 %4590, 8
+  %4592 = sub i64 %4591, 1
+  %4593 = and i64 %4592, -8
+  %4594 = icmp ule i64 %4593, 512
+  br i1 %4594, label %4595, label %4597
+
+4595:                                             ; preds = %4587
+  %4596 = call noalias ptr @_emalloc_512() #10
+  br label %4743
+
+4597:                                             ; preds = %4587
+  %4598 = load i64, ptr %6, align 8
+  %4599 = add i64 24, %4598
+  %4600 = add i64 %4599, 1
+  %4601 = add i64 %4600, 8
+  %4602 = sub i64 %4601, 1
+  %4603 = and i64 %4602, -8
+  %4604 = icmp ule i64 %4603, 640
+  br i1 %4604, label %4605, label %4607
+
+4605:                                             ; preds = %4597
+  %4606 = call noalias ptr @_emalloc_640() #10
+  br label %4741
+
+4607:                                             ; preds = %4597
+  %4608 = load i64, ptr %6, align 8
+  %4609 = add i64 24, %4608
+  %4610 = add i64 %4609, 1
+  %4611 = add i64 %4610, 8
+  %4612 = sub i64 %4611, 1
+  %4613 = and i64 %4612, -8
+  %4614 = icmp ule i64 %4613, 768
+  br i1 %4614, label %4615, label %4617
+
+4615:                                             ; preds = %4607
+  %4616 = call noalias ptr @_emalloc_768() #10
+  br label %4739
+
+4617:                                             ; preds = %4607
+  %4618 = load i64, ptr %6, align 8
+  %4619 = add i64 24, %4618
+  %4620 = add i64 %4619, 1
+  %4621 = add i64 %4620, 8
+  %4622 = sub i64 %4621, 1
+  %4623 = and i64 %4622, -8
+  %4624 = icmp ule i64 %4623, 896
+  br i1 %4624, label %4625, label %4627
+
+4625:                                             ; preds = %4617
+  %4626 = call noalias ptr @_emalloc_896() #10
+  br label %4737
+
+4627:                                             ; preds = %4617
+  %4628 = load i64, ptr %6, align 8
+  %4629 = add i64 24, %4628
+  %4630 = add i64 %4629, 1
+  %4631 = add i64 %4630, 8
+  %4632 = sub i64 %4631, 1
+  %4633 = and i64 %4632, -8
+  %4634 = icmp ule i64 %4633, 1024
+  br i1 %4634, label %4635, label %4637
+
+4635:                                             ; preds = %4627
+  %4636 = call noalias ptr @_emalloc_1024() #10
+  br label %4735
+
+4637:                                             ; preds = %4627
+  %4638 = load i64, ptr %6, align 8
+  %4639 = add i64 24, %4638
+  %4640 = add i64 %4639, 1
+  %4641 = add i64 %4640, 8
+  %4642 = sub i64 %4641, 1
+  %4643 = and i64 %4642, -8
+  %4644 = icmp ule i64 %4643, 1280
+  br i1 %4644, label %4645, label %4647
+
+4645:                                             ; preds = %4637
+  %4646 = call noalias ptr @_emalloc_1280() #10
+  br label %4733
+
+4647:                                             ; preds = %4637
+  %4648 = load i64, ptr %6, align 8
+  %4649 = add i64 24, %4648
+  %4650 = add i64 %4649, 1
+  %4651 = add i64 %4650, 8
+  %4652 = sub i64 %4651, 1
+  %4653 = and i64 %4652, -8
+  %4654 = icmp ule i64 %4653, 1536
+  br i1 %4654, label %4655, label %4657
+
+4655:                                             ; preds = %4647
+  %4656 = call noalias ptr @_emalloc_1536() #10
+  br label %4731
+
+4657:                                             ; preds = %4647
+  %4658 = load i64, ptr %6, align 8
+  %4659 = add i64 24, %4658
+  %4660 = add i64 %4659, 1
+  %4661 = add i64 %4660, 8
+  %4662 = sub i64 %4661, 1
+  %4663 = and i64 %4662, -8
+  %4664 = icmp ule i64 %4663, 1792
+  br i1 %4664, label %4665, label %4667
+
+4665:                                             ; preds = %4657
+  %4666 = call noalias ptr @_emalloc_1792() #10
+  br label %4729
+
+4667:                                             ; preds = %4657
+  %4668 = load i64, ptr %6, align 8
+  %4669 = add i64 24, %4668
+  %4670 = add i64 %4669, 1
+  %4671 = add i64 %4670, 8
+  %4672 = sub i64 %4671, 1
+  %4673 = and i64 %4672, -8
+  %4674 = icmp ule i64 %4673, 2048
+  br i1 %4674, label %4675, label %4677
+
+4675:                                             ; preds = %4667
+  %4676 = call noalias ptr @_emalloc_2048() #10
+  br label %4727
+
+4677:                                             ; preds = %4667
+  %4678 = load i64, ptr %6, align 8
+  %4679 = add i64 24, %4678
+  %4680 = add i64 %4679, 1
+  %4681 = add i64 %4680, 8
+  %4682 = sub i64 %4681, 1
+  %4683 = and i64 %4682, -8
+  %4684 = icmp ule i64 %4683, 2560
+  br i1 %4684, label %4685, label %4687
+
+4685:                                             ; preds = %4677
+  %4686 = call noalias ptr @_emalloc_2560() #10
+  br label %4725
+
+4687:                                             ; preds = %4677
+  %4688 = load i64, ptr %6, align 8
+  %4689 = add i64 24, %4688
+  %4690 = add i64 %4689, 1
+  %4691 = add i64 %4690, 8
+  %4692 = sub i64 %4691, 1
+  %4693 = and i64 %4692, -8
+  %4694 = icmp ule i64 %4693, 3072
+  br i1 %4694, label %4695, label %4697
+
+4695:                                             ; preds = %4687
+  %4696 = call noalias ptr @_emalloc_3072() #10
+  br label %4723
+
+4697:                                             ; preds = %4687
+  %4698 = load i64, ptr %6, align 8
+  %4699 = add i64 24, %4698
+  %4700 = add i64 %4699, 1
+  %4701 = add i64 %4700, 8
+  %4702 = sub i64 %4701, 1
+  %4703 = and i64 %4702, -8
+  %4704 = icmp ule i64 %4703, 2093056
+  br i1 %4704, label %4705, label %4713
+
+4705:                                             ; preds = %4697
+  %4706 = load i64, ptr %6, align 8
+  %4707 = add i64 24, %4706
+  %4708 = add i64 %4707, 1
+  %4709 = add i64 %4708, 8
+  %4710 = sub i64 %4709, 1
+  %4711 = and i64 %4710, -8
+  %4712 = call noalias ptr @_emalloc_large(i64 noundef %4711) #9
+  br label %4721
+
+4713:                                             ; preds = %4697
+  %4714 = load i64, ptr %6, align 8
+  %4715 = add i64 24, %4714
+  %4716 = add i64 %4715, 1
+  %4717 = add i64 %4716, 8
+  %4718 = sub i64 %4717, 1
+  %4719 = and i64 %4718, -8
+  %4720 = call noalias ptr @_emalloc_huge(i64 noundef %4719) #9
+  br label %4721
+
+4721:                                             ; preds = %4713, %4705
+  %4722 = phi ptr [ %4712, %4705 ], [ %4720, %4713 ]
+  br label %4723
+
+4723:                                             ; preds = %4721, %4695
+  %4724 = phi ptr [ %4696, %4695 ], [ %4722, %4721 ]
+  br label %4725
+
+4725:                                             ; preds = %4723, %4685
+  %4726 = phi ptr [ %4686, %4685 ], [ %4724, %4723 ]
+  br label %4727
+
+4727:                                             ; preds = %4725, %4675
+  %4728 = phi ptr [ %4676, %4675 ], [ %4726, %4725 ]
+  br label %4729
+
+4729:                                             ; preds = %4727, %4665
+  %4730 = phi ptr [ %4666, %4665 ], [ %4728, %4727 ]
+  br label %4731
+
+4731:                                             ; preds = %4729, %4655
+  %4732 = phi ptr [ %4656, %4655 ], [ %4730, %4729 ]
+  br label %4733
+
+4733:                                             ; preds = %4731, %4645
+  %4734 = phi ptr [ %4646, %4645 ], [ %4732, %4731 ]
+  br label %4735
+
+4735:                                             ; preds = %4733, %4635
+  %4736 = phi ptr [ %4636, %4635 ], [ %4734, %4733 ]
+  br label %4737
+
+4737:                                             ; preds = %4735, %4625
+  %4738 = phi ptr [ %4626, %4625 ], [ %4736, %4735 ]
+  br label %4739
+
+4739:                                             ; preds = %4737, %4615
+  %4740 = phi ptr [ %4616, %4615 ], [ %4738, %4737 ]
+  br label %4741
+
+4741:                                             ; preds = %4739, %4605
+  %4742 = phi ptr [ %4606, %4605 ], [ %4740, %4739 ]
+  br label %4743
+
+4743:                                             ; preds = %4741, %4595
+  %4744 = phi ptr [ %4596, %4595 ], [ %4742, %4741 ]
+  br label %4745
+
+4745:                                             ; preds = %4743, %4585
+  %4746 = phi ptr [ %4586, %4585 ], [ %4744, %4743 ]
+  br label %4747
+
+4747:                                             ; preds = %4745, %4575
+  %4748 = phi ptr [ %4576, %4575 ], [ %4746, %4745 ]
+  br label %4749
+
+4749:                                             ; preds = %4747, %4565
+  %4750 = phi ptr [ %4566, %4565 ], [ %4748, %4747 ]
+  br label %4751
+
+4751:                                             ; preds = %4749, %4555
+  %4752 = phi ptr [ %4556, %4555 ], [ %4750, %4749 ]
+  br label %4753
+
+4753:                                             ; preds = %4751, %4545
+  %4754 = phi ptr [ %4546, %4545 ], [ %4752, %4751 ]
+  br label %4755
+
+4755:                                             ; preds = %4753, %4535
+  %4756 = phi ptr [ %4536, %4535 ], [ %4754, %4753 ]
+  br label %4757
+
+4757:                                             ; preds = %4755, %4525
+  %4758 = phi ptr [ %4526, %4525 ], [ %4756, %4755 ]
+  br label %4759
+
+4759:                                             ; preds = %4757, %4515
+  %4760 = phi ptr [ %4516, %4515 ], [ %4758, %4757 ]
+  br label %4761
+
+4761:                                             ; preds = %4759, %4505
+  %4762 = phi ptr [ %4506, %4505 ], [ %4760, %4759 ]
+  br label %4763
+
+4763:                                             ; preds = %4761, %4495
+  %4764 = phi ptr [ %4496, %4495 ], [ %4762, %4761 ]
+  br label %4765
+
+4765:                                             ; preds = %4763, %4485
+  %4766 = phi ptr [ %4486, %4485 ], [ %4764, %4763 ]
+  br label %4767
+
+4767:                                             ; preds = %4765, %4475
+  %4768 = phi ptr [ %4476, %4475 ], [ %4766, %4765 ]
+  br label %4769
+
+4769:                                             ; preds = %4767, %4465
+  %4770 = phi ptr [ %4466, %4465 ], [ %4768, %4767 ]
+  br label %4771
+
+4771:                                             ; preds = %4769, %4455
+  %4772 = phi ptr [ %4456, %4455 ], [ %4770, %4769 ]
+  br label %4773
+
+4773:                                             ; preds = %4771, %4445
+  %4774 = phi ptr [ %4446, %4445 ], [ %4772, %4771 ]
+  br label %4775
+
+4775:                                             ; preds = %4773, %4435
+  %4776 = phi ptr [ %4436, %4435 ], [ %4774, %4773 ]
+  br label %4777
+
+4777:                                             ; preds = %4775, %4425
+  %4778 = phi ptr [ %4426, %4425 ], [ %4776, %4775 ]
+  br label %4779
+
+4779:                                             ; preds = %4777, %4415
+  %4780 = phi ptr [ %4416, %4415 ], [ %4778, %4777 ]
+  br label %4781
+
+4781:                                             ; preds = %4779, %4405
+  %4782 = phi ptr [ %4406, %4405 ], [ %4780, %4779 ]
+  br label %4791
+
+4783:                                             ; preds = %4389
+  %4784 = load i64, ptr %6, align 8
+  %4785 = add i64 24, %4784
+  %4786 = add i64 %4785, 1
+  %4787 = add i64 %4786, 8
+  %4788 = sub i64 %4787, 1
+  %4789 = and i64 %4788, -8
+  %4790 = call noalias ptr @_emalloc(i64 noundef %4789) #9
+  br label %4791
+
+4791:                                             ; preds = %4783, %4781
+  %4792 = phi ptr [ %4782, %4781 ], [ %4790, %4783 ]
+  br label %4793
+
+4793:                                             ; preds = %4791, %4381
+  %4794 = phi ptr [ %4388, %4381 ], [ %4792, %4791 ]
+  store ptr %4794, ptr %8, align 8
+  %4795 = load ptr, ptr %8, align 8
+  store ptr %4795, ptr %4, align 8
   store i32 1, ptr %5, align 4
-  %4769 = load i32, ptr %5, align 4
-  %4770 = load ptr, ptr %4, align 8
-  store i32 %4769, ptr %4770, align 4
-  %4771 = load i8, ptr %7, align 1
-  %4772 = trunc i8 %4771 to i1
-  %4773 = select i1 %4772, i32 128, i32 0
-  %4774 = or i32 22, %4773
-  %4775 = load ptr, ptr %8, align 8
-  %4776 = getelementptr inbounds %struct._zend_refcounted_h, ptr %4775, i32 0, i32 1
-  store i32 %4774, ptr %4776, align 4
-  %4777 = load ptr, ptr %8, align 8
-  %4778 = getelementptr inbounds %struct._zend_string, ptr %4777, i32 0, i32 1
-  store i64 0, ptr %4778, align 8
-  %4779 = load i64, ptr %6, align 8
-  %4780 = load ptr, ptr %8, align 8
-  %4781 = getelementptr inbounds %struct._zend_string, ptr %4780, i32 0, i32 2
-  store i64 %4779, ptr %4781, align 8
-  %4782 = load ptr, ptr %8, align 8
-  store ptr %4782, ptr %34, align 8
-  %4783 = load ptr, ptr %34, align 8
-  %4784 = getelementptr inbounds %struct._zend_string, ptr %4783, i32 0, i32 3
-  %4785 = load ptr, ptr %31, align 8
-  %4786 = load i64, ptr %32, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4784, ptr align 1 %4785, i64 %4786, i1 false)
-  %4787 = load ptr, ptr %34, align 8
-  %4788 = getelementptr inbounds %struct._zend_string, ptr %4787, i32 0, i32 3
-  %4789 = load i64, ptr %32, align 8
-  %4790 = getelementptr inbounds [1 x i8], ptr %4788, i64 0, i64 %4789
-  store i8 0, ptr %4790, align 1
-  %4791 = load ptr, ptr %34, align 8
-  %4792 = load ptr, ptr %484, align 8
-  %4793 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4792, i64 -7
-  %4794 = load ptr, ptr %4793, align 8
-  %4795 = load ptr, ptr %484, align 8
-  %4796 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4795, i64 -1
-  %4797 = load ptr, ptr %4796, align 8
-  %4798 = load ptr, ptr %484, align 8
-  %4799 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4798, i64 -5
-  %4800 = load ptr, ptr %4799, align 8
-  %4801 = call ptr @zend_ast_create_decl(i16 noundef zeroext 71, i32 noundef %4340, i32 noundef %4344, ptr noundef %4347, ptr noundef %4791, ptr noundef %4794, ptr noundef null, ptr noundef %4797, ptr noundef %4800, ptr noundef null)
-  store ptr %4801, ptr %488, align 8
-  %4802 = load ptr, ptr %484, align 8
-  %4803 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4802, i64 -3
-  %4804 = load i64, ptr %4803, align 8
-  %4805 = trunc i64 %4804 to i32
-  store i32 %4805, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
-
-4806:                                             ; preds = %705
-  %4807 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %4808 = sext i32 %4807 to i64
-  store i64 %4808, ptr %488, align 8
-  br label %5656
-
-4809:                                             ; preds = %705
-  %4810 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %4811 = sext i32 %4810 to i64
-  store i64 %4811, ptr %488, align 8
-  br label %5656
-
-4812:                                             ; preds = %705
-  %4813 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  store ptr %4813, ptr %488, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19), align 8
-  br label %5656
-
-4814:                                             ; preds = %705
-  %4815 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  %4816 = zext i32 %4815 to i64
-  store i64 %4816, ptr %488, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20), align 8
-  br label %5656
-
-4817:                                             ; preds = %705
-  %4818 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 4), align 8
-  store ptr %4818, ptr %488, align 8
-  br label %5656
-
-4819:                                             ; preds = %705
-  store i64 0, ptr %488, align 8
-  br label %5656
-
-4820:                                             ; preds = %705
-  store i64 4096, ptr %488, align 8
-  br label %5656
-
-4821:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
-
-4822:                                             ; preds = %705
-  %4823 = load ptr, ptr %484, align 8
-  %4824 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4823, i64 -2
-  %4825 = load ptr, ptr %4824, align 8
-  store ptr %4825, ptr %488, align 8
-  br label %5656
-
-4826:                                             ; preds = %705
-  %4827 = load ptr, ptr %484, align 8
-  %4828 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4827, i64 -2
-  %4829 = load ptr, ptr %4828, align 8
-  %4830 = load ptr, ptr %484, align 8
-  %4831 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4830, i64 0
-  %4832 = load ptr, ptr %4831, align 8
-  %4833 = call ptr @zend_ast_list_add(ptr noundef %4829, ptr noundef %4832)
-  store ptr %4833, ptr %488, align 8
-  br label %5656
+  %4796 = load i32, ptr %5, align 4
+  %4797 = load ptr, ptr %4, align 8
+  store i32 %4796, ptr %4797, align 4
+  %4798 = load i8, ptr %7, align 1
+  %4799 = trunc i8 %4798 to i1
+  %4800 = select i1 %4799, i32 128, i32 0
+  %4801 = or i32 22, %4800
+  %4802 = load ptr, ptr %8, align 8
+  %4803 = getelementptr inbounds %struct._zend_refcounted_h, ptr %4802, i32 0, i32 1
+  store i32 %4801, ptr %4803, align 4
+  %4804 = load ptr, ptr %8, align 8
+  %4805 = getelementptr inbounds %struct._zend_string, ptr %4804, i32 0, i32 1
+  store i64 0, ptr %4805, align 8
+  %4806 = load i64, ptr %6, align 8
+  %4807 = load ptr, ptr %8, align 8
+  %4808 = getelementptr inbounds %struct._zend_string, ptr %4807, i32 0, i32 2
+  store i64 %4806, ptr %4808, align 8
+  %4809 = load ptr, ptr %8, align 8
+  store ptr %4809, ptr %34, align 8
+  %4810 = load ptr, ptr %34, align 8
+  %4811 = getelementptr inbounds %struct._zend_string, ptr %4810, i32 0, i32 3
+  %4812 = load ptr, ptr %31, align 8
+  %4813 = load i64, ptr %32, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4811, ptr align 1 %4812, i64 %4813, i1 false)
+  %4814 = load ptr, ptr %34, align 8
+  %4815 = getelementptr inbounds %struct._zend_string, ptr %4814, i32 0, i32 3
+  %4816 = load i64, ptr %32, align 8
+  %4817 = getelementptr inbounds [1 x i8], ptr %4815, i64 0, i64 %4816
+  store i8 0, ptr %4817, align 1
+  %4818 = load ptr, ptr %34, align 8
+  %4819 = load ptr, ptr %484, align 8
+  %4820 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4819, i64 -7
+  %4821 = load ptr, ptr %4820, align 8
+  %4822 = load ptr, ptr %484, align 8
+  %4823 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4822, i64 -1
+  %4824 = load ptr, ptr %4823, align 8
+  %4825 = load ptr, ptr %484, align 8
+  %4826 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4825, i64 -5
+  %4827 = load ptr, ptr %4826, align 8
+  %4828 = call ptr @zend_ast_create_decl(i16 noundef zeroext 71, i32 noundef %4367, i32 noundef %4371, ptr noundef %4374, ptr noundef %4818, ptr noundef %4821, ptr noundef null, ptr noundef %4824, ptr noundef %4827, ptr noundef null)
+  store ptr %4828, ptr %488, align 8
+  %4829 = load ptr, ptr %484, align 8
+  %4830 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4829, i64 -3
+  %4831 = load i64, ptr %4830, align 8
+  %4832 = trunc i64 %4831 to i32
+  %4833 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 %4832, ptr %4833, align 8
+  br label %5692
 
 4834:                                             ; preds = %705
-  %4835 = load ptr, ptr %484, align 8
-  %4836 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4835, i64 0
-  %4837 = load ptr, ptr %4836, align 8
-  %4838 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 137, ptr noundef %4837)
-  store ptr %4838, ptr %488, align 8
-  br label %5656
+  %4835 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %4836 = load i32, ptr %4835, align 8
+  %4837 = sext i32 %4836 to i64
+  store i64 %4837, ptr %488, align 8
+  br label %5692
 
-4839:                                             ; preds = %705
-  %4840 = load ptr, ptr %484, align 8
-  %4841 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4840, i64 0
-  %4842 = load ptr, ptr %4841, align 8
-  store ptr %4842, ptr %488, align 8
-  br label %5656
+4838:                                             ; preds = %705
+  %4839 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %4840 = load i32, ptr %4839, align 8
+  %4841 = sext i32 %4840 to i64
+  store i64 %4841, ptr %488, align 8
+  br label %5692
 
-4843:                                             ; preds = %705
-  %4844 = load ptr, ptr %484, align 8
-  %4845 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4844, i64 0
-  %4846 = load ptr, ptr %4845, align 8
-  store ptr %4846, ptr %488, align 8
-  %4847 = load ptr, ptr %488, align 8
-  %4848 = getelementptr inbounds %struct._zend_ast, ptr %4847, i32 0, i32 1
-  store i16 1, ptr %4848, align 2
-  br label %5656
+4842:                                             ; preds = %705
+  %4843 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  %4844 = load ptr, ptr %4843, align 8
+  store ptr %4844, ptr %488, align 8
+  %4845 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 19
+  store ptr null, ptr %4845, align 8
+  br label %5692
 
-4849:                                             ; preds = %705
-  %4850 = load ptr, ptr %484, align 8
-  %4851 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4850, i64 -1
-  %4852 = load ptr, ptr %4851, align 8
-  %4853 = load ptr, ptr %484, align 8
-  %4854 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4853, i64 0
-  %4855 = load ptr, ptr %4854, align 8
-  %4856 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %4852, ptr noundef %4855)
-  store ptr %4856, ptr %488, align 8
-  br label %5656
+4846:                                             ; preds = %705
+  %4847 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  %4848 = load i32, ptr %4847, align 8
+  %4849 = zext i32 %4848 to i64
+  store i64 %4849, ptr %488, align 8
+  %4850 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 20
+  store i32 0, ptr %4850, align 8
+  br label %5692
+
+4851:                                             ; preds = %705
+  %4852 = getelementptr inbounds %struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 4
+  %4853 = load ptr, ptr %4852, align 8
+  store ptr %4853, ptr %488, align 8
+  br label %5692
+
+4854:                                             ; preds = %705
+  store i64 0, ptr %488, align 8
+  br label %5692
+
+4855:                                             ; preds = %705
+  store i64 4096, ptr %488, align 8
+  br label %5692
+
+4856:                                             ; preds = %705
+  store ptr null, ptr %488, align 8
+  br label %5692
 
 4857:                                             ; preds = %705
   %4858 = load ptr, ptr %484, align 8
-  %4859 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4858, i64 -1
+  %4859 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4858, i64 -2
   %4860 = load ptr, ptr %4859, align 8
-  %4861 = call i32 @zend_lex_tstring(ptr noundef %505, ptr noundef %4860)
-  %4862 = icmp eq i32 %4861, -1
-  br i1 %4862, label %4863, label %4864
+  store ptr %4860, ptr %488, align 8
+  br label %5692
 
-4863:                                             ; preds = %4857
-  br label %5865
+4861:                                             ; preds = %705
+  %4862 = load ptr, ptr %484, align 8
+  %4863 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4862, i64 -2
+  %4864 = load ptr, ptr %4863, align 8
+  %4865 = load ptr, ptr %484, align 8
+  %4866 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4865, i64 0
+  %4867 = load ptr, ptr %4866, align 8
+  %4868 = call ptr @zend_ast_list_add(ptr noundef %4864, ptr noundef %4867)
+  store ptr %4868, ptr %488, align 8
+  br label %5692
 
-4864:                                             ; preds = %4857
-  %4865 = call ptr @zend_ast_create_zval(ptr noundef %505)
-  %4866 = load ptr, ptr %484, align 8
-  %4867 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4866, i64 0
-  %4868 = load ptr, ptr %4867, align 8
-  %4869 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %4865, ptr noundef %4868)
-  store ptr %4869, ptr %488, align 8
-  br label %5656
+4869:                                             ; preds = %705
+  %4870 = load ptr, ptr %484, align 8
+  %4871 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4870, i64 0
+  %4872 = load ptr, ptr %4871, align 8
+  %4873 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 137, ptr noundef %4872)
+  store ptr %4873, ptr %488, align 8
+  br label %5692
 
-4870:                                             ; preds = %705
-  %4871 = load ptr, ptr %484, align 8
-  %4872 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4871, i64 -3
-  %4873 = load ptr, ptr %4872, align 8
-  %4874 = load ptr, ptr %484, align 8
-  %4875 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4874, i64 -1
-  %4876 = load ptr, ptr %4875, align 8
-  %4877 = load ptr, ptr %484, align 8
-  %4878 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4877, i64 0
-  %4879 = load ptr, ptr %4878, align 8
-  %4880 = call ptr @zend_ast_create_3(i16 noundef zeroext 770, ptr noundef %4873, ptr noundef %4876, ptr noundef %4879)
-  store ptr %4880, ptr %488, align 8
-  br label %5656
+4874:                                             ; preds = %705
+  %4875 = load ptr, ptr %484, align 8
+  %4876 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4875, i64 0
+  %4877 = load ptr, ptr %4876, align 8
+  store ptr %4877, ptr %488, align 8
+  br label %5692
 
-4881:                                             ; preds = %705
-  %4882 = load ptr, ptr %484, align 8
-  %4883 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4882, i64 -3
-  %4884 = load ptr, ptr %4883, align 8
+4878:                                             ; preds = %705
+  %4879 = load ptr, ptr %484, align 8
+  %4880 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4879, i64 0
+  %4881 = load ptr, ptr %4880, align 8
+  store ptr %4881, ptr %488, align 8
+  %4882 = load ptr, ptr %488, align 8
+  %4883 = getelementptr inbounds %struct._zend_ast, ptr %4882, i32 0, i32 1
+  store i16 1, ptr %4883, align 2
+  br label %5692
+
+4884:                                             ; preds = %705
   %4885 = load ptr, ptr %484, align 8
   %4886 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4885, i64 -1
   %4887 = load ptr, ptr %4886, align 8
   %4888 = load ptr, ptr %484, align 8
   %4889 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4888, i64 0
   %4890 = load ptr, ptr %4889, align 8
-  %4891 = call ptr @zend_ast_create_3(i16 noundef zeroext 770, ptr noundef %4884, ptr noundef %4887, ptr noundef %4890)
+  %4891 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %4887, ptr noundef %4890)
   store ptr %4891, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 4892:                                             ; preds = %705
-  %4893 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3), align 8
-  %4894 = sext i32 %4893 to i64
-  store i64 %4894, ptr %488, align 8
-  br label %5656
+  %4893 = load ptr, ptr %484, align 8
+  %4894 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4893, i64 -1
+  %4895 = load ptr, ptr %4894, align 8
+  %4896 = call i32 @zend_lex_tstring(ptr noundef %505, ptr noundef %4895)
+  %4897 = icmp eq i32 %4896, -1
+  br i1 %4897, label %4898, label %4899
 
-4895:                                             ; preds = %705
-  %4896 = load ptr, ptr %484, align 8
-  %4897 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4896, i64 -2
-  %4898 = load ptr, ptr %4897, align 8
-  %4899 = load ptr, ptr %484, align 8
-  %4900 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4899, i64 0
-  %4901 = load ptr, ptr %4900, align 8
-  %4902 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %4898, ptr noundef %4901)
-  store ptr %4902, ptr %488, align 8
-  %4903 = load ptr, ptr %484, align 8
-  %4904 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4903, i64 -1
-  %4905 = load i64, ptr %4904, align 8
-  %4906 = trunc i64 %4905 to i32
-  %4907 = load ptr, ptr %488, align 8
-  %4908 = getelementptr inbounds %struct._zend_ast, ptr %4907, i32 0, i32 2
-  store i32 %4906, ptr %4908, align 4
-  br label %5656
+4898:                                             ; preds = %4892
+  br label %5901
 
-4909:                                             ; preds = %705
-  br label %4910
+4899:                                             ; preds = %4892
+  %4900 = call ptr @zend_ast_create_zval(ptr noundef %505)
+  %4901 = load ptr, ptr %484, align 8
+  %4902 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4901, i64 0
+  %4903 = load ptr, ptr %4902, align 8
+  %4904 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %4900, ptr noundef %4903)
+  store ptr %4904, ptr %488, align 8
+  br label %5692
 
-4910:                                             ; preds = %4909
-  store ptr %506, ptr %507, align 8
-  %4911 = load ptr, ptr @zend_known_strings, align 8
-  %4912 = getelementptr inbounds ptr, ptr %4911, i64 18
-  %4913 = load ptr, ptr %4912, align 8
-  store ptr %4913, ptr %508, align 8
-  %4914 = load ptr, ptr %508, align 8
-  %4915 = load ptr, ptr %507, align 8
-  %4916 = getelementptr inbounds %struct._zval_struct, ptr %4915, i32 0, i32 0
-  store ptr %4914, ptr %4916, align 8
-  %4917 = load ptr, ptr %507, align 8
-  %4918 = getelementptr inbounds %struct._zval_struct, ptr %4917, i32 0, i32 1
-  store i32 6, ptr %4918, align 8
-  br label %4919
+4905:                                             ; preds = %705
+  %4906 = load ptr, ptr %484, align 8
+  %4907 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4906, i64 -3
+  %4908 = load ptr, ptr %4907, align 8
+  %4909 = load ptr, ptr %484, align 8
+  %4910 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4909, i64 -1
+  %4911 = load ptr, ptr %4910, align 8
+  %4912 = load ptr, ptr %484, align 8
+  %4913 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4912, i64 0
+  %4914 = load ptr, ptr %4913, align 8
+  %4915 = call ptr @zend_ast_create_3(i16 noundef zeroext 770, ptr noundef %4908, ptr noundef %4911, ptr noundef %4914)
+  store ptr %4915, ptr %488, align 8
+  br label %5692
 
-4919:                                             ; preds = %4910
-  %4920 = call ptr @zend_ast_create_zval_ex(ptr noundef %506, i16 noundef zeroext 1)
-  store ptr %4920, ptr %488, align 8
-  br label %5656
+4916:                                             ; preds = %705
+  %4917 = load ptr, ptr %484, align 8
+  %4918 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4917, i64 -3
+  %4919 = load ptr, ptr %4918, align 8
+  %4920 = load ptr, ptr %484, align 8
+  %4921 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4920, i64 -1
+  %4922 = load ptr, ptr %4921, align 8
+  %4923 = load ptr, ptr %484, align 8
+  %4924 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4923, i64 0
+  %4925 = load ptr, ptr %4924, align 8
+  %4926 = call ptr @zend_ast_create_3(i16 noundef zeroext 770, ptr noundef %4919, ptr noundef %4922, ptr noundef %4925)
+  store ptr %4926, ptr %488, align 8
+  br label %5692
 
-4921:                                             ; preds = %705
-  %4922 = load ptr, ptr %484, align 8
-  %4923 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4922, i64 0
-  %4924 = load ptr, ptr %4923, align 8
-  store ptr %4924, ptr %488, align 8
-  br label %5656
+4927:                                             ; preds = %705
+  %4928 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 3
+  %4929 = load i32, ptr %4928, align 8
+  %4930 = sext i32 %4929 to i64
+  store i64 %4930, ptr %488, align 8
+  br label %5692
 
-4925:                                             ; preds = %705
-  %4926 = load ptr, ptr %484, align 8
-  %4927 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4926, i64 0
-  %4928 = load ptr, ptr %4927, align 8
-  store ptr %4928, ptr %488, align 8
-  br label %5656
-
-4929:                                             ; preds = %705
-  %4930 = load ptr, ptr %484, align 8
-  %4931 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4930, i64 0
-  %4932 = load ptr, ptr %4931, align 8
-  store ptr %4932, ptr %488, align 8
-  br label %5656
-
-4933:                                             ; preds = %705
-  %4934 = load ptr, ptr %484, align 8
-  %4935 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4934, i64 -1
-  %4936 = load ptr, ptr %4935, align 8
-  store ptr %4936, ptr %488, align 8
-  br label %5656
-
-4937:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
-
-4938:                                             ; preds = %705
+4931:                                             ; preds = %705
+  %4932 = load ptr, ptr %484, align 8
+  %4933 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4932, i64 -2
+  %4934 = load ptr, ptr %4933, align 8
+  %4935 = load ptr, ptr %484, align 8
+  %4936 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4935, i64 0
+  %4937 = load ptr, ptr %4936, align 8
+  %4938 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %4934, ptr noundef %4937)
+  store ptr %4938, ptr %488, align 8
   %4939 = load ptr, ptr %484, align 8
   %4940 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4939, i64 -1
-  %4941 = load ptr, ptr %4940, align 8
-  store ptr %4941, ptr %488, align 8
-  br label %5656
-
-4942:                                             ; preds = %705
-  %4943 = load ptr, ptr @zend_empty_string, align 8
-  %4944 = call ptr @zend_ast_create_zval_from_str(ptr noundef %4943)
-  store ptr %4944, ptr %488, align 8
-  br label %5656
+  %4941 = load i64, ptr %4940, align 8
+  %4942 = trunc i64 %4941 to i32
+  %4943 = load ptr, ptr %488, align 8
+  %4944 = getelementptr inbounds %struct._zend_ast, ptr %4943, i32 0, i32 2
+  store i32 %4942, ptr %4944, align 4
+  br label %5692
 
 4945:                                             ; preds = %705
-  %4946 = load ptr, ptr %484, align 8
-  %4947 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4946, i64 0
-  %4948 = load ptr, ptr %4947, align 8
-  store ptr %4948, ptr %488, align 8
-  br label %5656
+  br label %4946
 
-4949:                                             ; preds = %705
-  %4950 = load ptr, ptr %484, align 8
-  %4951 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4950, i64 0
-  %4952 = load ptr, ptr %4951, align 8
-  store ptr %4952, ptr %488, align 8
-  br label %5656
+4946:                                             ; preds = %4945
+  store ptr %506, ptr %507, align 8
+  %4947 = load ptr, ptr @zend_known_strings, align 8
+  %4948 = getelementptr inbounds ptr, ptr %4947, i64 18
+  %4949 = load ptr, ptr %4948, align 8
+  store ptr %4949, ptr %508, align 8
+  %4950 = load ptr, ptr %508, align 8
+  %4951 = load ptr, ptr %507, align 8
+  %4952 = getelementptr inbounds %struct._zval_struct, ptr %4951, i32 0, i32 0
+  store ptr %4950, ptr %4952, align 8
+  %4953 = load ptr, ptr %507, align 8
+  %4954 = getelementptr inbounds %struct._zval_struct, ptr %4953, i32 0, i32 1
+  store i32 6, ptr %4954, align 8
+  br label %4955
 
-4953:                                             ; preds = %705
-  %4954 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 128)
-  store ptr %4954, ptr %488, align 8
-  br label %5656
+4955:                                             ; preds = %4946
+  %4956 = call ptr @zend_ast_create_zval_ex(ptr noundef %506, i16 noundef zeroext 1)
+  store ptr %4956, ptr %488, align 8
+  br label %5692
 
-4955:                                             ; preds = %705
-  %4956 = load ptr, ptr %484, align 8
-  %4957 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4956, i64 0
-  %4958 = load ptr, ptr %4957, align 8
-  store ptr %4958, ptr %488, align 8
-  br label %5656
+4957:                                             ; preds = %705
+  %4958 = load ptr, ptr %484, align 8
+  %4959 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4958, i64 0
+  %4960 = load ptr, ptr %4959, align 8
+  store ptr %4960, ptr %488, align 8
+  br label %5692
 
-4959:                                             ; preds = %705
-  %4960 = load ptr, ptr %484, align 8
-  %4961 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4960, i64 -1
-  %4962 = load ptr, ptr %4961, align 8
-  store ptr %4962, ptr %488, align 8
-  %4963 = load ptr, ptr %488, align 8
-  %4964 = getelementptr inbounds %struct._zend_ast, ptr %4963, i32 0, i32 1
-  store i16 2, ptr %4964, align 2
-  br label %5656
+4961:                                             ; preds = %705
+  %4962 = load ptr, ptr %484, align 8
+  %4963 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4962, i64 0
+  %4964 = load ptr, ptr %4963, align 8
+  store ptr %4964, ptr %488, align 8
+  br label %5692
 
 4965:                                             ; preds = %705
   %4966 = load ptr, ptr %484, align 8
-  %4967 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4966, i64 -1
+  %4967 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4966, i64 0
   %4968 = load ptr, ptr %4967, align 8
   store ptr %4968, ptr %488, align 8
-  %4969 = load ptr, ptr %488, align 8
-  %4970 = getelementptr inbounds %struct._zend_ast, ptr %4969, i32 0, i32 1
-  store i16 3, ptr %4970, align 2
-  br label %5656
+  br label %5692
 
-4971:                                             ; preds = %705
-  %4972 = load ptr, ptr %484, align 8
-  %4973 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4972, i64 0
-  %4974 = load ptr, ptr %4973, align 8
-  store ptr %4974, ptr %488, align 8
-  br label %5656
+4969:                                             ; preds = %705
+  %4970 = load ptr, ptr %484, align 8
+  %4971 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4970, i64 -1
+  %4972 = load ptr, ptr %4971, align 8
+  store ptr %4972, ptr %488, align 8
+  br label %5692
 
-4975:                                             ; preds = %705
-  %4976 = load ptr, ptr %484, align 8
-  %4977 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4976, i64 -1
-  %4978 = load ptr, ptr %4977, align 8
-  store ptr %4978, ptr %488, align 8
-  br label %5656
+4973:                                             ; preds = %705
+  store ptr null, ptr %488, align 8
+  br label %5692
 
-4979:                                             ; preds = %705
-  %4980 = load ptr, ptr %484, align 8
-  %4981 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4980, i64 0
-  %4982 = load ptr, ptr %4981, align 8
-  store ptr %4982, ptr %488, align 8
-  br label %5656
+4974:                                             ; preds = %705
+  %4975 = load ptr, ptr %484, align 8
+  %4976 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4975, i64 -1
+  %4977 = load ptr, ptr %4976, align 8
+  store ptr %4977, ptr %488, align 8
+  br label %5692
 
-4983:                                             ; preds = %705
-  %4984 = load ptr, ptr %484, align 8
-  %4985 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4984, i64 0
-  %4986 = load ptr, ptr %4985, align 8
-  store ptr %4986, ptr %488, align 8
-  br label %5656
+4978:                                             ; preds = %705
+  %4979 = load ptr, ptr @zend_empty_string, align 8
+  %4980 = call ptr @zend_ast_create_zval_from_str(ptr noundef %4979)
+  store ptr %4980, ptr %488, align 8
+  br label %5692
 
-4987:                                             ; preds = %705
-  %4988 = load ptr, ptr %484, align 8
-  %4989 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4988, i64 -1
-  %4990 = load ptr, ptr %4989, align 8
+4981:                                             ; preds = %705
+  %4982 = load ptr, ptr %484, align 8
+  %4983 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4982, i64 0
+  %4984 = load ptr, ptr %4983, align 8
+  store ptr %4984, ptr %488, align 8
+  br label %5692
+
+4985:                                             ; preds = %705
+  %4986 = load ptr, ptr %484, align 8
+  %4987 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4986, i64 0
+  %4988 = load ptr, ptr %4987, align 8
+  store ptr %4988, ptr %488, align 8
+  br label %5692
+
+4989:                                             ; preds = %705
+  %4990 = call ptr @zend_ast_create_list_0(i16 noundef zeroext 128)
   store ptr %4990, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 4991:                                             ; preds = %705
-  %4992 = load ptr, ptr @zend_empty_string, align 8
-  %4993 = call ptr @zend_ast_create_zval_from_str(ptr noundef %4992)
-  store ptr %4993, ptr %488, align 8
-  br label %5656
+  %4992 = load ptr, ptr %484, align 8
+  %4993 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4992, i64 0
+  %4994 = load ptr, ptr %4993, align 8
+  store ptr %4994, ptr %488, align 8
+  br label %5692
 
-4994:                                             ; preds = %705
-  %4995 = load ptr, ptr %484, align 8
-  %4996 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4995, i64 -1
-  %4997 = load ptr, ptr %4996, align 8
-  store ptr %4997, ptr %488, align 8
-  br label %5656
+4995:                                             ; preds = %705
+  %4996 = load ptr, ptr %484, align 8
+  %4997 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4996, i64 -1
+  %4998 = load ptr, ptr %4997, align 8
+  store ptr %4998, ptr %488, align 8
+  %4999 = load ptr, ptr %488, align 8
+  %5000 = getelementptr inbounds %struct._zend_ast, ptr %4999, i32 0, i32 1
+  store i16 2, ptr %5000, align 2
+  br label %5692
 
-4998:                                             ; preds = %705
-  %4999 = load ptr, ptr %484, align 8
-  %5000 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %4999, i64 0
-  %5001 = load ptr, ptr %5000, align 8
-  store ptr %5001, ptr %488, align 8
-  br label %5656
+5001:                                             ; preds = %705
+  %5002 = load ptr, ptr %484, align 8
+  %5003 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5002, i64 -1
+  %5004 = load ptr, ptr %5003, align 8
+  store ptr %5004, ptr %488, align 8
+  %5005 = load ptr, ptr %488, align 8
+  %5006 = getelementptr inbounds %struct._zend_ast, ptr %5005, i32 0, i32 1
+  store i16 3, ptr %5006, align 2
+  br label %5692
 
-5002:                                             ; preds = %705
-  %5003 = load ptr, ptr %484, align 8
-  %5004 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5003, i64 0
-  %5005 = load ptr, ptr %5004, align 8
-  store ptr %5005, ptr %488, align 8
-  br label %5656
+5007:                                             ; preds = %705
+  %5008 = load ptr, ptr %484, align 8
+  %5009 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5008, i64 0
+  %5010 = load ptr, ptr %5009, align 8
+  store ptr %5010, ptr %488, align 8
+  br label %5692
 
-5006:                                             ; preds = %705
-  %5007 = load ptr, ptr %484, align 8
-  %5008 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5007, i64 0
-  %5009 = load ptr, ptr %5008, align 8
-  store ptr %5009, ptr %488, align 8
-  br label %5656
-
-5010:                                             ; preds = %705
-  %5011 = load ptr, ptr %484, align 8
-  %5012 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5011, i64 0
-  %5013 = load ptr, ptr %5012, align 8
-  %5014 = call ptr @zend_ast_create_1(i16 noundef zeroext 257, ptr noundef %5013)
+5011:                                             ; preds = %705
+  %5012 = load ptr, ptr %484, align 8
+  %5013 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5012, i64 -1
+  %5014 = load ptr, ptr %5013, align 8
   store ptr %5014, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5015:                                             ; preds = %705
+  %5016 = load ptr, ptr %484, align 8
+  %5017 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5016, i64 0
+  %5018 = load ptr, ptr %5017, align 8
+  store ptr %5018, ptr %488, align 8
+  br label %5692
+
+5019:                                             ; preds = %705
+  %5020 = load ptr, ptr %484, align 8
+  %5021 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5020, i64 0
+  %5022 = load ptr, ptr %5021, align 8
+  store ptr %5022, ptr %488, align 8
+  br label %5692
+
+5023:                                             ; preds = %705
+  %5024 = load ptr, ptr %484, align 8
+  %5025 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5024, i64 -1
+  %5026 = load ptr, ptr %5025, align 8
+  store ptr %5026, ptr %488, align 8
+  br label %5692
+
+5027:                                             ; preds = %705
+  %5028 = load ptr, ptr @zend_empty_string, align 8
+  %5029 = call ptr @zend_ast_create_zval_from_str(ptr noundef %5028)
+  store ptr %5029, ptr %488, align 8
+  br label %5692
+
+5030:                                             ; preds = %705
+  %5031 = load ptr, ptr %484, align 8
+  %5032 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5031, i64 -1
+  %5033 = load ptr, ptr %5032, align 8
+  store ptr %5033, ptr %488, align 8
+  br label %5692
+
+5034:                                             ; preds = %705
+  %5035 = load ptr, ptr %484, align 8
+  %5036 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5035, i64 0
+  %5037 = load ptr, ptr %5036, align 8
+  store ptr %5037, ptr %488, align 8
+  br label %5692
+
+5038:                                             ; preds = %705
+  %5039 = load ptr, ptr %484, align 8
+  %5040 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5039, i64 0
+  %5041 = load ptr, ptr %5040, align 8
+  store ptr %5041, ptr %488, align 8
+  br label %5692
+
+5042:                                             ; preds = %705
+  %5043 = load ptr, ptr %484, align 8
+  %5044 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5043, i64 0
+  %5045 = load ptr, ptr %5044, align 8
+  store ptr %5045, ptr %488, align 8
+  br label %5692
+
+5046:                                             ; preds = %705
+  %5047 = load ptr, ptr %484, align 8
+  %5048 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5047, i64 0
+  %5049 = load ptr, ptr %5048, align 8
+  %5050 = call ptr @zend_ast_create_1(i16 noundef zeroext 257, ptr noundef %5049)
+  store ptr %5050, ptr %488, align 8
+  br label %5692
+
+5051:                                             ; preds = %705
   store i16 0, ptr %413, align 2
   store i16 343, ptr %414, align 2
-  %5016 = load i16, ptr %413, align 2
-  %5017 = call ptr @zend_ast_create_0(i16 noundef zeroext %5016) #10
-  store ptr %5017, ptr %415, align 8
-  %5018 = load i16, ptr %414, align 2
-  %5019 = load ptr, ptr %415, align 8
-  %5020 = getelementptr inbounds %struct._zend_ast, ptr %5019, i32 0, i32 1
-  store i16 %5018, ptr %5020, align 2
-  %5021 = load ptr, ptr %415, align 8
-  store ptr %5021, ptr %488, align 8
-  br label %5656
+  %5052 = load i16, ptr %413, align 2
+  %5053 = call ptr @zend_ast_create_0(i16 noundef zeroext %5052) #10
+  store ptr %5053, ptr %415, align 8
+  %5054 = load i16, ptr %414, align 2
+  %5055 = load ptr, ptr %415, align 8
+  %5056 = getelementptr inbounds %struct._zend_ast, ptr %5055, i32 0, i32 1
+  store i16 %5054, ptr %5056, align 2
+  %5057 = load ptr, ptr %415, align 8
+  store ptr %5057, ptr %488, align 8
+  br label %5692
 
-5022:                                             ; preds = %705
+5058:                                             ; preds = %705
   store i16 0, ptr %416, align 2
   store i16 344, ptr %417, align 2
-  %5023 = load i16, ptr %416, align 2
-  %5024 = call ptr @zend_ast_create_0(i16 noundef zeroext %5023) #10
-  store ptr %5024, ptr %418, align 8
-  %5025 = load i16, ptr %417, align 2
-  %5026 = load ptr, ptr %418, align 8
-  %5027 = getelementptr inbounds %struct._zend_ast, ptr %5026, i32 0, i32 1
-  store i16 %5025, ptr %5027, align 2
-  %5028 = load ptr, ptr %418, align 8
-  store ptr %5028, ptr %488, align 8
-  br label %5656
+  %5059 = load i16, ptr %416, align 2
+  %5060 = call ptr @zend_ast_create_0(i16 noundef zeroext %5059) #10
+  store ptr %5060, ptr %418, align 8
+  %5061 = load i16, ptr %417, align 2
+  %5062 = load ptr, ptr %418, align 8
+  %5063 = getelementptr inbounds %struct._zend_ast, ptr %5062, i32 0, i32 1
+  store i16 %5061, ptr %5063, align 2
+  %5064 = load ptr, ptr %418, align 8
+  store ptr %5064, ptr %488, align 8
+  br label %5692
 
-5029:                                             ; preds = %705
+5065:                                             ; preds = %705
   store i16 0, ptr %419, align 2
   store i16 345, ptr %420, align 2
-  %5030 = load i16, ptr %419, align 2
-  %5031 = call ptr @zend_ast_create_0(i16 noundef zeroext %5030) #10
-  store ptr %5031, ptr %421, align 8
-  %5032 = load i16, ptr %420, align 2
-  %5033 = load ptr, ptr %421, align 8
-  %5034 = getelementptr inbounds %struct._zend_ast, ptr %5033, i32 0, i32 1
-  store i16 %5032, ptr %5034, align 2
-  %5035 = load ptr, ptr %421, align 8
-  store ptr %5035, ptr %488, align 8
-  br label %5656
+  %5066 = load i16, ptr %419, align 2
+  %5067 = call ptr @zend_ast_create_0(i16 noundef zeroext %5066) #10
+  store ptr %5067, ptr %421, align 8
+  %5068 = load i16, ptr %420, align 2
+  %5069 = load ptr, ptr %421, align 8
+  %5070 = getelementptr inbounds %struct._zend_ast, ptr %5069, i32 0, i32 1
+  store i16 %5068, ptr %5070, align 2
+  %5071 = load ptr, ptr %421, align 8
+  store ptr %5071, ptr %488, align 8
+  br label %5692
 
-5036:                                             ; preds = %705
+5072:                                             ; preds = %705
   store i16 0, ptr %422, align 2
   store i16 347, ptr %423, align 2
-  %5037 = load i16, ptr %422, align 2
-  %5038 = call ptr @zend_ast_create_0(i16 noundef zeroext %5037) #10
-  store ptr %5038, ptr %424, align 8
-  %5039 = load i16, ptr %423, align 2
-  %5040 = load ptr, ptr %424, align 8
-  %5041 = getelementptr inbounds %struct._zend_ast, ptr %5040, i32 0, i32 1
-  store i16 %5039, ptr %5041, align 2
-  %5042 = load ptr, ptr %424, align 8
-  store ptr %5042, ptr %488, align 8
-  br label %5656
-
-5043:                                             ; preds = %705
-  store i16 0, ptr %425, align 2
-  store i16 348, ptr %426, align 2
-  %5044 = load i16, ptr %425, align 2
-  %5045 = call ptr @zend_ast_create_0(i16 noundef zeroext %5044) #10
-  store ptr %5045, ptr %427, align 8
-  %5046 = load i16, ptr %426, align 2
-  %5047 = load ptr, ptr %427, align 8
-  %5048 = getelementptr inbounds %struct._zend_ast, ptr %5047, i32 0, i32 1
-  store i16 %5046, ptr %5048, align 2
-  %5049 = load ptr, ptr %427, align 8
-  store ptr %5049, ptr %488, align 8
-  br label %5656
-
-5050:                                             ; preds = %705
-  store i16 0, ptr %428, align 2
-  store i16 349, ptr %429, align 2
-  %5051 = load i16, ptr %428, align 2
-  %5052 = call ptr @zend_ast_create_0(i16 noundef zeroext %5051) #10
-  store ptr %5052, ptr %430, align 8
-  %5053 = load i16, ptr %429, align 2
-  %5054 = load ptr, ptr %430, align 8
-  %5055 = getelementptr inbounds %struct._zend_ast, ptr %5054, i32 0, i32 1
-  store i16 %5053, ptr %5055, align 2
-  %5056 = load ptr, ptr %430, align 8
-  store ptr %5056, ptr %488, align 8
-  br label %5656
-
-5057:                                             ; preds = %705
-  store i16 0, ptr %431, align 2
-  store i16 350, ptr %432, align 2
-  %5058 = load i16, ptr %431, align 2
-  %5059 = call ptr @zend_ast_create_0(i16 noundef zeroext %5058) #10
-  store ptr %5059, ptr %433, align 8
-  %5060 = load i16, ptr %432, align 2
-  %5061 = load ptr, ptr %433, align 8
-  %5062 = getelementptr inbounds %struct._zend_ast, ptr %5061, i32 0, i32 1
-  store i16 %5060, ptr %5062, align 2
-  %5063 = load ptr, ptr %433, align 8
-  store ptr %5063, ptr %488, align 8
-  br label %5656
-
-5064:                                             ; preds = %705
-  store i16 0, ptr %434, align 2
-  store i16 346, ptr %435, align 2
-  %5065 = load i16, ptr %434, align 2
-  %5066 = call ptr @zend_ast_create_0(i16 noundef zeroext %5065) #10
-  store ptr %5066, ptr %436, align 8
-  %5067 = load i16, ptr %435, align 2
-  %5068 = load ptr, ptr %436, align 8
-  %5069 = getelementptr inbounds %struct._zend_ast, ptr %5068, i32 0, i32 1
-  store i16 %5067, ptr %5069, align 2
-  %5070 = load ptr, ptr %436, align 8
-  store ptr %5070, ptr %488, align 8
-  br label %5656
-
-5071:                                             ; preds = %705
-  %5072 = load ptr, ptr %484, align 8
-  %5073 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5072, i64 -2
-  %5074 = load ptr, ptr %5073, align 8
-  %5075 = load ptr, ptr %484, align 8
-  %5076 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5075, i64 0
-  %5077 = load ptr, ptr %5076, align 8
-  %5078 = call ptr @zend_ast_create_class_const_or_name(ptr noundef %5074, ptr noundef %5077)
+  %5073 = load i16, ptr %422, align 2
+  %5074 = call ptr @zend_ast_create_0(i16 noundef zeroext %5073) #10
+  store ptr %5074, ptr %424, align 8
+  %5075 = load i16, ptr %423, align 2
+  %5076 = load ptr, ptr %424, align 8
+  %5077 = getelementptr inbounds %struct._zend_ast, ptr %5076, i32 0, i32 1
+  store i16 %5075, ptr %5077, align 2
+  %5078 = load ptr, ptr %424, align 8
   store ptr %5078, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5079:                                             ; preds = %705
-  %5080 = load ptr, ptr %484, align 8
-  %5081 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5080, i64 -2
-  %5082 = load ptr, ptr %5081, align 8
-  %5083 = load ptr, ptr %484, align 8
-  %5084 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5083, i64 0
-  %5085 = load ptr, ptr %5084, align 8
-  %5086 = call ptr @zend_ast_create_class_const_or_name(ptr noundef %5082, ptr noundef %5085)
-  store ptr %5086, ptr %488, align 8
-  br label %5656
+  store i16 0, ptr %425, align 2
+  store i16 348, ptr %426, align 2
+  %5080 = load i16, ptr %425, align 2
+  %5081 = call ptr @zend_ast_create_0(i16 noundef zeroext %5080) #10
+  store ptr %5081, ptr %427, align 8
+  %5082 = load i16, ptr %426, align 2
+  %5083 = load ptr, ptr %427, align 8
+  %5084 = getelementptr inbounds %struct._zend_ast, ptr %5083, i32 0, i32 1
+  store i16 %5082, ptr %5084, align 2
+  %5085 = load ptr, ptr %427, align 8
+  store ptr %5085, ptr %488, align 8
+  br label %5692
 
-5087:                                             ; preds = %705
-  %5088 = load ptr, ptr %484, align 8
-  %5089 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5088, i64 -4
-  %5090 = load ptr, ptr %5089, align 8
-  %5091 = load ptr, ptr %484, align 8
-  %5092 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5091, i64 -1
-  %5093 = load ptr, ptr %5092, align 8
-  %5094 = call ptr @zend_ast_create_2(i16 noundef zeroext 517, ptr noundef %5090, ptr noundef %5093)
-  store ptr %5094, ptr %488, align 8
-  br label %5656
+5086:                                             ; preds = %705
+  store i16 0, ptr %428, align 2
+  store i16 349, ptr %429, align 2
+  %5087 = load i16, ptr %428, align 2
+  %5088 = call ptr @zend_ast_create_0(i16 noundef zeroext %5087) #10
+  store ptr %5088, ptr %430, align 8
+  %5089 = load i16, ptr %429, align 2
+  %5090 = load ptr, ptr %430, align 8
+  %5091 = getelementptr inbounds %struct._zend_ast, ptr %5090, i32 0, i32 1
+  store i16 %5089, ptr %5091, align 2
+  %5092 = load ptr, ptr %430, align 8
+  store ptr %5092, ptr %488, align 8
+  br label %5692
 
-5095:                                             ; preds = %705
-  %5096 = load ptr, ptr %484, align 8
-  %5097 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5096, i64 -4
-  %5098 = load ptr, ptr %5097, align 8
-  %5099 = load ptr, ptr %484, align 8
-  %5100 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5099, i64 -1
-  %5101 = load ptr, ptr %5100, align 8
-  %5102 = call ptr @zend_ast_create_2(i16 noundef zeroext 517, ptr noundef %5098, ptr noundef %5101)
-  store ptr %5102, ptr %488, align 8
-  br label %5656
+5093:                                             ; preds = %705
+  store i16 0, ptr %431, align 2
+  store i16 350, ptr %432, align 2
+  %5094 = load i16, ptr %431, align 2
+  %5095 = call ptr @zend_ast_create_0(i16 noundef zeroext %5094) #10
+  store ptr %5095, ptr %433, align 8
+  %5096 = load i16, ptr %432, align 2
+  %5097 = load ptr, ptr %433, align 8
+  %5098 = getelementptr inbounds %struct._zend_ast, ptr %5097, i32 0, i32 1
+  store i16 %5096, ptr %5098, align 2
+  %5099 = load ptr, ptr %433, align 8
+  store ptr %5099, ptr %488, align 8
+  br label %5692
 
-5103:                                             ; preds = %705
+5100:                                             ; preds = %705
+  store i16 0, ptr %434, align 2
+  store i16 346, ptr %435, align 2
+  %5101 = load i16, ptr %434, align 2
+  %5102 = call ptr @zend_ast_create_0(i16 noundef zeroext %5101) #10
+  store ptr %5102, ptr %436, align 8
+  %5103 = load i16, ptr %435, align 2
+  %5104 = load ptr, ptr %436, align 8
+  %5105 = getelementptr inbounds %struct._zend_ast, ptr %5104, i32 0, i32 1
+  store i16 %5103, ptr %5105, align 2
+  %5106 = load ptr, ptr %436, align 8
+  store ptr %5106, ptr %488, align 8
+  br label %5692
+
+5107:                                             ; preds = %705
+  %5108 = load ptr, ptr %484, align 8
+  %5109 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5108, i64 -2
+  %5110 = load ptr, ptr %5109, align 8
+  %5111 = load ptr, ptr %484, align 8
+  %5112 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5111, i64 0
+  %5113 = load ptr, ptr %5112, align 8
+  %5114 = call ptr @zend_ast_create_class_const_or_name(ptr noundef %5110, ptr noundef %5113)
+  store ptr %5114, ptr %488, align 8
+  br label %5692
+
+5115:                                             ; preds = %705
+  %5116 = load ptr, ptr %484, align 8
+  %5117 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5116, i64 -2
+  %5118 = load ptr, ptr %5117, align 8
+  %5119 = load ptr, ptr %484, align 8
+  %5120 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5119, i64 0
+  %5121 = load ptr, ptr %5120, align 8
+  %5122 = call ptr @zend_ast_create_class_const_or_name(ptr noundef %5118, ptr noundef %5121)
+  store ptr %5122, ptr %488, align 8
+  br label %5692
+
+5123:                                             ; preds = %705
+  %5124 = load ptr, ptr %484, align 8
+  %5125 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5124, i64 -4
+  %5126 = load ptr, ptr %5125, align 8
+  %5127 = load ptr, ptr %484, align 8
+  %5128 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5127, i64 -1
+  %5129 = load ptr, ptr %5128, align 8
+  %5130 = call ptr @zend_ast_create_2(i16 noundef zeroext 517, ptr noundef %5126, ptr noundef %5129)
+  store ptr %5130, ptr %488, align 8
+  br label %5692
+
+5131:                                             ; preds = %705
+  %5132 = load ptr, ptr %484, align 8
+  %5133 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5132, i64 -4
+  %5134 = load ptr, ptr %5133, align 8
+  %5135 = load ptr, ptr %484, align 8
+  %5136 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5135, i64 -1
+  %5137 = load ptr, ptr %5136, align 8
+  %5138 = call ptr @zend_ast_create_2(i16 noundef zeroext 517, ptr noundef %5134, ptr noundef %5137)
+  store ptr %5138, ptr %488, align 8
+  br label %5692
+
+5139:                                             ; preds = %705
   store ptr null, ptr %488, align 8
-  br label %5656
-
-5104:                                             ; preds = %705
-  %5105 = load ptr, ptr %484, align 8
-  %5106 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5105, i64 0
-  %5107 = load ptr, ptr %5106, align 8
-  store ptr %5107, ptr %488, align 8
-  br label %5656
-
-5108:                                             ; preds = %705
-  %5109 = load ptr, ptr %484, align 8
-  %5110 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5109, i64 0
-  %5111 = load ptr, ptr %5110, align 8
-  store ptr %5111, ptr %488, align 8
-  br label %5656
-
-5112:                                             ; preds = %705
-  %5113 = load ptr, ptr %484, align 8
-  %5114 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5113, i64 0
-  %5115 = load ptr, ptr %5114, align 8
-  store ptr %5115, ptr %488, align 8
-  br label %5656
-
-5116:                                             ; preds = %705
-  %5117 = load ptr, ptr %484, align 8
-  %5118 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5117, i64 -1
-  %5119 = load ptr, ptr %5118, align 8
-  store ptr %5119, ptr %488, align 8
-  br label %5656
-
-5120:                                             ; preds = %705
-  %5121 = load ptr, ptr %484, align 8
-  %5122 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5121, i64 0
-  %5123 = load ptr, ptr %5122, align 8
-  store ptr %5123, ptr %488, align 8
-  br label %5656
-
-5124:                                             ; preds = %705
-  %5125 = load ptr, ptr %484, align 8
-  %5126 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5125, i64 0
-  %5127 = load ptr, ptr %5126, align 8
-  store ptr %5127, ptr %488, align 8
-  br label %5656
-
-5128:                                             ; preds = %705
-  %5129 = load ptr, ptr %484, align 8
-  %5130 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5129, i64 0
-  %5131 = load ptr, ptr %5130, align 8
-  store ptr %5131, ptr %488, align 8
-  br label %5656
-
-5132:                                             ; preds = %705
-  %5133 = load ptr, ptr %484, align 8
-  %5134 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5133, i64 0
-  %5135 = load ptr, ptr %5134, align 8
-  store ptr %5135, ptr %488, align 8
-  br label %5656
-
-5136:                                             ; preds = %705
-  %5137 = load ptr, ptr %484, align 8
-  %5138 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5137, i64 0
-  %5139 = load ptr, ptr %5138, align 8
-  store ptr %5139, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5140:                                             ; preds = %705
   %5141 = load ptr, ptr %484, align 8
-  %5142 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5141, i64 -1
+  %5142 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5141, i64 0
   %5143 = load ptr, ptr %5142, align 8
   store ptr %5143, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5144:                                             ; preds = %705
   %5145 = load ptr, ptr %484, align 8
   %5146 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5145, i64 0
   %5147 = load ptr, ptr %5146, align 8
   store ptr %5147, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5148:                                             ; preds = %705
   %5149 = load ptr, ptr %484, align 8
   %5150 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5149, i64 0
   %5151 = load ptr, ptr %5150, align 8
-  %5152 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5151)
-  store ptr %5152, ptr %488, align 8
-  br label %5656
+  store ptr %5151, ptr %488, align 8
+  br label %5692
 
-5153:                                             ; preds = %705
-  %5154 = load ptr, ptr %484, align 8
-  %5155 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5154, i64 -3
-  %5156 = load ptr, ptr %5155, align 8
+5152:                                             ; preds = %705
+  %5153 = load ptr, ptr %484, align 8
+  %5154 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5153, i64 -1
+  %5155 = load ptr, ptr %5154, align 8
+  store ptr %5155, ptr %488, align 8
+  br label %5692
+
+5156:                                             ; preds = %705
   %5157 = load ptr, ptr %484, align 8
-  %5158 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5157, i64 -1
+  %5158 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5157, i64 0
   %5159 = load ptr, ptr %5158, align 8
-  %5160 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %5156, ptr noundef %5159)
-  store ptr %5160, ptr %488, align 8
-  br label %5656
+  store ptr %5159, ptr %488, align 8
+  br label %5692
 
-5161:                                             ; preds = %705
-  %5162 = load ptr, ptr %484, align 8
-  %5163 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5162, i64 -3
-  %5164 = load ptr, ptr %5163, align 8
+5160:                                             ; preds = %705
+  %5161 = load ptr, ptr %484, align 8
+  %5162 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5161, i64 0
+  %5163 = load ptr, ptr %5162, align 8
+  store ptr %5163, ptr %488, align 8
+  br label %5692
+
+5164:                                             ; preds = %705
   %5165 = load ptr, ptr %484, align 8
-  %5166 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5165, i64 -1
+  %5166 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5165, i64 0
   %5167 = load ptr, ptr %5166, align 8
-  store i16 512, ptr %379, align 2
-  store i16 2, ptr %380, align 2
-  store ptr %5164, ptr %381, align 8
-  store ptr %5167, ptr %382, align 8
-  %5168 = load i16, ptr %379, align 2
-  %5169 = load ptr, ptr %381, align 8
-  %5170 = load ptr, ptr %382, align 8
-  %5171 = call ptr @zend_ast_create_2(i16 noundef zeroext %5168, ptr noundef %5169, ptr noundef %5170) #10
-  store ptr %5171, ptr %383, align 8
-  %5172 = load i16, ptr %380, align 2
-  %5173 = load ptr, ptr %383, align 8
-  %5174 = getelementptr inbounds %struct._zend_ast, ptr %5173, i32 0, i32 1
-  store i16 %5172, ptr %5174, align 2
-  %5175 = load ptr, ptr %383, align 8
+  store ptr %5167, ptr %488, align 8
+  br label %5692
+
+5168:                                             ; preds = %705
+  %5169 = load ptr, ptr %484, align 8
+  %5170 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5169, i64 0
+  %5171 = load ptr, ptr %5170, align 8
+  store ptr %5171, ptr %488, align 8
+  br label %5692
+
+5172:                                             ; preds = %705
+  %5173 = load ptr, ptr %484, align 8
+  %5174 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5173, i64 0
+  %5175 = load ptr, ptr %5174, align 8
   store ptr %5175, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5176:                                             ; preds = %705
   %5177 = load ptr, ptr %484, align 8
-  %5178 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5177, i64 -3
+  %5178 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5177, i64 -1
   %5179 = load ptr, ptr %5178, align 8
-  %5180 = load ptr, ptr %484, align 8
-  %5181 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5180, i64 -1
-  %5182 = load ptr, ptr %5181, align 8
-  %5183 = load ptr, ptr %484, align 8
-  %5184 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5183, i64 0
-  %5185 = load ptr, ptr %5184, align 8
-  %5186 = call ptr @zend_ast_create_3(i16 noundef zeroext 768, ptr noundef %5179, ptr noundef %5182, ptr noundef %5185)
-  store ptr %5186, ptr %488, align 8
-  br label %5656
+  store ptr %5179, ptr %488, align 8
+  br label %5692
 
-5187:                                             ; preds = %705
-  %5188 = load ptr, ptr %484, align 8
-  %5189 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5188, i64 -3
-  %5190 = load ptr, ptr %5189, align 8
-  %5191 = load ptr, ptr %484, align 8
-  %5192 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5191, i64 -1
-  %5193 = load ptr, ptr %5192, align 8
-  %5194 = load ptr, ptr %484, align 8
-  %5195 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5194, i64 0
-  %5196 = load ptr, ptr %5195, align 8
-  %5197 = call ptr @zend_ast_create_3(i16 noundef zeroext 769, ptr noundef %5190, ptr noundef %5193, ptr noundef %5196)
-  store ptr %5197, ptr %488, align 8
-  br label %5656
+5180:                                             ; preds = %705
+  %5181 = load ptr, ptr %484, align 8
+  %5182 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5181, i64 0
+  %5183 = load ptr, ptr %5182, align 8
+  store ptr %5183, ptr %488, align 8
+  br label %5692
 
-5198:                                             ; preds = %705
-  %5199 = load ptr, ptr %484, align 8
-  %5200 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5199, i64 0
-  %5201 = load ptr, ptr %5200, align 8
-  store ptr %5201, ptr %488, align 8
-  br label %5656
+5184:                                             ; preds = %705
+  %5185 = load ptr, ptr %484, align 8
+  %5186 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5185, i64 0
+  %5187 = load ptr, ptr %5186, align 8
+  %5188 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5187)
+  store ptr %5188, ptr %488, align 8
+  br label %5692
 
-5202:                                             ; preds = %705
-  %5203 = load ptr, ptr %484, align 8
-  %5204 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5203, i64 0
-  %5205 = load ptr, ptr %5204, align 8
-  store ptr %5205, ptr %488, align 8
-  br label %5656
+5189:                                             ; preds = %705
+  %5190 = load ptr, ptr %484, align 8
+  %5191 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5190, i64 -3
+  %5192 = load ptr, ptr %5191, align 8
+  %5193 = load ptr, ptr %484, align 8
+  %5194 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5193, i64 -1
+  %5195 = load ptr, ptr %5194, align 8
+  %5196 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %5192, ptr noundef %5195)
+  store ptr %5196, ptr %488, align 8
+  br label %5692
 
-5206:                                             ; preds = %705
-  %5207 = load ptr, ptr %484, align 8
-  %5208 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5207, i64 0
-  %5209 = load ptr, ptr %5208, align 8
-  store ptr %5209, ptr %488, align 8
-  br label %5656
+5197:                                             ; preds = %705
+  %5198 = load ptr, ptr %484, align 8
+  %5199 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5198, i64 -3
+  %5200 = load ptr, ptr %5199, align 8
+  %5201 = load ptr, ptr %484, align 8
+  %5202 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5201, i64 -1
+  %5203 = load ptr, ptr %5202, align 8
+  store i16 512, ptr %379, align 2
+  store i16 2, ptr %380, align 2
+  store ptr %5200, ptr %381, align 8
+  store ptr %5203, ptr %382, align 8
+  %5204 = load i16, ptr %379, align 2
+  %5205 = load ptr, ptr %381, align 8
+  %5206 = load ptr, ptr %382, align 8
+  %5207 = call ptr @zend_ast_create_2(i16 noundef zeroext %5204, ptr noundef %5205, ptr noundef %5206) #10
+  store ptr %5207, ptr %383, align 8
+  %5208 = load i16, ptr %380, align 2
+  %5209 = load ptr, ptr %383, align 8
+  %5210 = getelementptr inbounds %struct._zend_ast, ptr %5209, i32 0, i32 1
+  store i16 %5208, ptr %5210, align 2
+  %5211 = load ptr, ptr %383, align 8
+  store ptr %5211, ptr %488, align 8
+  br label %5692
 
-5210:                                             ; preds = %705
-  %5211 = load ptr, ptr %484, align 8
-  %5212 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5211, i64 -2
-  %5213 = load ptr, ptr %5212, align 8
-  %5214 = load ptr, ptr %484, align 8
-  %5215 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5214, i64 0
-  %5216 = load ptr, ptr %5215, align 8
-  %5217 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %5213, ptr noundef %5216)
-  store ptr %5217, ptr %488, align 8
-  br label %5656
-
-5218:                                             ; preds = %705
+5212:                                             ; preds = %705
+  %5213 = load ptr, ptr %484, align 8
+  %5214 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5213, i64 -3
+  %5215 = load ptr, ptr %5214, align 8
+  %5216 = load ptr, ptr %484, align 8
+  %5217 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5216, i64 -1
+  %5218 = load ptr, ptr %5217, align 8
   %5219 = load ptr, ptr %484, align 8
-  %5220 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5219, i64 -2
+  %5220 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5219, i64 0
   %5221 = load ptr, ptr %5220, align 8
-  %5222 = load ptr, ptr %484, align 8
-  %5223 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5222, i64 0
-  %5224 = load ptr, ptr %5223, align 8
-  %5225 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %5221, ptr noundef %5224)
-  store ptr %5225, ptr %488, align 8
-  br label %5656
+  %5222 = call ptr @zend_ast_create_3(i16 noundef zeroext 768, ptr noundef %5215, ptr noundef %5218, ptr noundef %5221)
+  store ptr %5222, ptr %488, align 8
+  br label %5692
 
-5226:                                             ; preds = %705
+5223:                                             ; preds = %705
+  %5224 = load ptr, ptr %484, align 8
+  %5225 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5224, i64 -3
+  %5226 = load ptr, ptr %5225, align 8
   %5227 = load ptr, ptr %484, align 8
-  %5228 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5227, i64 0
+  %5228 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5227, i64 -1
   %5229 = load ptr, ptr %5228, align 8
-  store ptr %5229, ptr %488, align 8
-  br label %5656
-
-5230:                                             ; preds = %705
-  %5231 = load ptr, ptr %484, align 8
-  %5232 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5231, i64 -1
-  %5233 = load ptr, ptr %5232, align 8
+  %5230 = load ptr, ptr %484, align 8
+  %5231 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5230, i64 0
+  %5232 = load ptr, ptr %5231, align 8
+  %5233 = call ptr @zend_ast_create_3(i16 noundef zeroext 769, ptr noundef %5226, ptr noundef %5229, ptr noundef %5232)
   store ptr %5233, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5234:                                             ; preds = %705
   %5235 = load ptr, ptr %484, align 8
   %5236 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5235, i64 0
   %5237 = load ptr, ptr %5236, align 8
-  %5238 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5237)
-  store ptr %5238, ptr %488, align 8
-  br label %5656
+  store ptr %5237, ptr %488, align 8
+  br label %5692
 
-5239:                                             ; preds = %705
-  %5240 = load ptr, ptr %484, align 8
-  %5241 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5240, i64 -2
-  %5242 = load ptr, ptr %5241, align 8
+5238:                                             ; preds = %705
+  %5239 = load ptr, ptr %484, align 8
+  %5240 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5239, i64 0
+  %5241 = load ptr, ptr %5240, align 8
+  store ptr %5241, ptr %488, align 8
+  br label %5692
+
+5242:                                             ; preds = %705
   %5243 = load ptr, ptr %484, align 8
   %5244 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5243, i64 0
   %5245 = load ptr, ptr %5244, align 8
-  %5246 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %5242, ptr noundef %5245)
-  store ptr %5246, ptr %488, align 8
-  br label %5656
+  store ptr %5245, ptr %488, align 8
+  br label %5692
 
-5247:                                             ; preds = %705
-  %5248 = load ptr, ptr %484, align 8
-  %5249 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5248, i64 -2
-  %5250 = load ptr, ptr %5249, align 8
-  %5251 = load ptr, ptr %484, align 8
-  %5252 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5251, i64 0
-  %5253 = load ptr, ptr %5252, align 8
-  %5254 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %5250, ptr noundef %5253)
-  store ptr %5254, ptr %488, align 8
-  br label %5656
+5246:                                             ; preds = %705
+  %5247 = load ptr, ptr %484, align 8
+  %5248 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5247, i64 -2
+  %5249 = load ptr, ptr %5248, align 8
+  %5250 = load ptr, ptr %484, align 8
+  %5251 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5250, i64 0
+  %5252 = load ptr, ptr %5251, align 8
+  %5253 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %5249, ptr noundef %5252)
+  store ptr %5253, ptr %488, align 8
+  br label %5692
 
-5255:                                             ; preds = %705
-  %5256 = load ptr, ptr %484, align 8
-  %5257 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5256, i64 0
-  %5258 = load ptr, ptr %5257, align 8
-  %5259 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5258)
-  store ptr %5259, ptr %488, align 8
-  br label %5656
+5254:                                             ; preds = %705
+  %5255 = load ptr, ptr %484, align 8
+  %5256 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5255, i64 -2
+  %5257 = load ptr, ptr %5256, align 8
+  %5258 = load ptr, ptr %484, align 8
+  %5259 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5258, i64 0
+  %5260 = load ptr, ptr %5259, align 8
+  %5261 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %5257, ptr noundef %5260)
+  store ptr %5261, ptr %488, align 8
+  br label %5692
 
-5260:                                             ; preds = %705
-  %5261 = load ptr, ptr %484, align 8
-  %5262 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5261, i64 -3
-  %5263 = load ptr, ptr %5262, align 8
-  %5264 = load ptr, ptr %484, align 8
-  %5265 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5264, i64 -1
-  %5266 = load ptr, ptr %5265, align 8
-  %5267 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %5263, ptr noundef %5266)
-  store ptr %5267, ptr %488, align 8
-  br label %5656
+5262:                                             ; preds = %705
+  %5263 = load ptr, ptr %484, align 8
+  %5264 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5263, i64 0
+  %5265 = load ptr, ptr %5264, align 8
+  store ptr %5265, ptr %488, align 8
+  br label %5692
 
-5268:                                             ; preds = %705
-  %5269 = load ptr, ptr %484, align 8
-  %5270 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5269, i64 -3
-  %5271 = load ptr, ptr %5270, align 8
-  %5272 = load ptr, ptr %484, align 8
-  %5273 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5272, i64 -1
-  %5274 = load ptr, ptr %5273, align 8
-  store i16 512, ptr %384, align 2
-  store i16 2, ptr %385, align 2
-  store ptr %5271, ptr %386, align 8
-  store ptr %5274, ptr %387, align 8
-  %5275 = load i16, ptr %384, align 2
-  %5276 = load ptr, ptr %386, align 8
-  %5277 = load ptr, ptr %387, align 8
-  %5278 = call ptr @zend_ast_create_2(i16 noundef zeroext %5275, ptr noundef %5276, ptr noundef %5277) #10
-  store ptr %5278, ptr %388, align 8
-  %5279 = load i16, ptr %385, align 2
-  %5280 = load ptr, ptr %388, align 8
-  %5281 = getelementptr inbounds %struct._zend_ast, ptr %5280, i32 0, i32 1
-  store i16 %5279, ptr %5281, align 2
-  %5282 = load ptr, ptr %388, align 8
+5266:                                             ; preds = %705
+  %5267 = load ptr, ptr %484, align 8
+  %5268 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5267, i64 -1
+  %5269 = load ptr, ptr %5268, align 8
+  store ptr %5269, ptr %488, align 8
+  br label %5692
+
+5270:                                             ; preds = %705
+  %5271 = load ptr, ptr %484, align 8
+  %5272 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5271, i64 0
+  %5273 = load ptr, ptr %5272, align 8
+  %5274 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5273)
+  store ptr %5274, ptr %488, align 8
+  br label %5692
+
+5275:                                             ; preds = %705
+  %5276 = load ptr, ptr %484, align 8
+  %5277 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5276, i64 -2
+  %5278 = load ptr, ptr %5277, align 8
+  %5279 = load ptr, ptr %484, align 8
+  %5280 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5279, i64 0
+  %5281 = load ptr, ptr %5280, align 8
+  %5282 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %5278, ptr noundef %5281)
   store ptr %5282, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5283:                                             ; preds = %705
   %5284 = load ptr, ptr %484, align 8
@@ -8916,1040 +8898,1094 @@ define i32 @zendparse() #0 {
   %5287 = load ptr, ptr %484, align 8
   %5288 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5287, i64 0
   %5289 = load ptr, ptr %5288, align 8
-  %5290 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %5286, ptr noundef %5289)
+  %5290 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %5286, ptr noundef %5289)
   store ptr %5290, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5291:                                             ; preds = %705
   %5292 = load ptr, ptr %484, align 8
-  %5293 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5292, i64 -2
+  %5293 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5292, i64 0
   %5294 = load ptr, ptr %5293, align 8
-  %5295 = load ptr, ptr %484, align 8
-  %5296 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5295, i64 0
-  %5297 = load ptr, ptr %5296, align 8
-  %5298 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %5294, ptr noundef %5297)
-  store ptr %5298, ptr %488, align 8
-  br label %5656
+  %5295 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5294)
+  store ptr %5295, ptr %488, align 8
+  br label %5692
 
-5299:                                             ; preds = %705
+5296:                                             ; preds = %705
+  %5297 = load ptr, ptr %484, align 8
+  %5298 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5297, i64 -3
+  %5299 = load ptr, ptr %5298, align 8
   %5300 = load ptr, ptr %484, align 8
-  %5301 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5300, i64 -2
+  %5301 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5300, i64 -1
   %5302 = load ptr, ptr %5301, align 8
-  %5303 = load ptr, ptr %484, align 8
-  %5304 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5303, i64 0
-  %5305 = load ptr, ptr %5304, align 8
-  %5306 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %5302, ptr noundef %5305)
-  store ptr %5306, ptr %488, align 8
-  br label %5656
+  %5303 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %5299, ptr noundef %5302)
+  store ptr %5303, ptr %488, align 8
+  br label %5692
 
-5307:                                             ; preds = %705
+5304:                                             ; preds = %705
+  %5305 = load ptr, ptr %484, align 8
+  %5306 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5305, i64 -3
+  %5307 = load ptr, ptr %5306, align 8
   %5308 = load ptr, ptr %484, align 8
-  %5309 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5308, i64 -2
+  %5309 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5308, i64 -1
   %5310 = load ptr, ptr %5309, align 8
-  %5311 = load ptr, ptr %484, align 8
-  %5312 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5311, i64 0
-  %5313 = load ptr, ptr %5312, align 8
-  %5314 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %5310, ptr noundef %5313)
-  store ptr %5314, ptr %488, align 8
-  br label %5656
-
-5315:                                             ; preds = %705
-  %5316 = load ptr, ptr %484, align 8
-  %5317 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5316, i64 0
-  %5318 = load ptr, ptr %5317, align 8
+  store i16 512, ptr %384, align 2
+  store i16 2, ptr %385, align 2
+  store ptr %5307, ptr %386, align 8
+  store ptr %5310, ptr %387, align 8
+  %5311 = load i16, ptr %384, align 2
+  %5312 = load ptr, ptr %386, align 8
+  %5313 = load ptr, ptr %387, align 8
+  %5314 = call ptr @zend_ast_create_2(i16 noundef zeroext %5311, ptr noundef %5312, ptr noundef %5313) #10
+  store ptr %5314, ptr %388, align 8
+  %5315 = load i16, ptr %385, align 2
+  %5316 = load ptr, ptr %388, align 8
+  %5317 = getelementptr inbounds %struct._zend_ast, ptr %5316, i32 0, i32 1
+  store i16 %5315, ptr %5317, align 2
+  %5318 = load ptr, ptr %388, align 8
   store ptr %5318, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5319:                                             ; preds = %705
   %5320 = load ptr, ptr %484, align 8
-  %5321 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5320, i64 -1
+  %5321 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5320, i64 -2
   %5322 = load ptr, ptr %5321, align 8
-  store ptr %5322, ptr %488, align 8
-  br label %5656
+  %5323 = load ptr, ptr %484, align 8
+  %5324 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5323, i64 0
+  %5325 = load ptr, ptr %5324, align 8
+  %5326 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %5322, ptr noundef %5325)
+  store ptr %5326, ptr %488, align 8
+  br label %5692
 
-5323:                                             ; preds = %705
-  %5324 = load ptr, ptr %484, align 8
-  %5325 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5324, i64 0
-  %5326 = load ptr, ptr %5325, align 8
-  %5327 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5326)
-  store ptr %5327, ptr %488, align 8
-  br label %5656
+5327:                                             ; preds = %705
+  %5328 = load ptr, ptr %484, align 8
+  %5329 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5328, i64 -2
+  %5330 = load ptr, ptr %5329, align 8
+  %5331 = load ptr, ptr %484, align 8
+  %5332 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5331, i64 0
+  %5333 = load ptr, ptr %5332, align 8
+  %5334 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %5330, ptr noundef %5333)
+  store ptr %5334, ptr %488, align 8
+  br label %5692
 
-5328:                                             ; preds = %705
-  %5329 = load ptr, ptr %484, align 8
-  %5330 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5329, i64 0
-  %5331 = load ptr, ptr %5330, align 8
-  store ptr %5331, ptr %488, align 8
-  br label %5656
+5335:                                             ; preds = %705
+  %5336 = load ptr, ptr %484, align 8
+  %5337 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5336, i64 -2
+  %5338 = load ptr, ptr %5337, align 8
+  %5339 = load ptr, ptr %484, align 8
+  %5340 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5339, i64 0
+  %5341 = load ptr, ptr %5340, align 8
+  %5342 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %5338, ptr noundef %5341)
+  store ptr %5342, ptr %488, align 8
+  br label %5692
 
-5332:                                             ; preds = %705
-  %5333 = load ptr, ptr %484, align 8
-  %5334 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5333, i64 -1
-  %5335 = load ptr, ptr %5334, align 8
-  store ptr %5335, ptr %488, align 8
-  br label %5656
+5343:                                             ; preds = %705
+  %5344 = load ptr, ptr %484, align 8
+  %5345 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5344, i64 -2
+  %5346 = load ptr, ptr %5345, align 8
+  %5347 = load ptr, ptr %484, align 8
+  %5348 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5347, i64 0
+  %5349 = load ptr, ptr %5348, align 8
+  %5350 = call ptr @zend_ast_create_2(i16 noundef zeroext 515, ptr noundef %5346, ptr noundef %5349)
+  store ptr %5350, ptr %488, align 8
+  br label %5692
 
-5336:                                             ; preds = %705
-  %5337 = load ptr, ptr %484, align 8
-  %5338 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5337, i64 0
-  %5339 = load ptr, ptr %5338, align 8
-  %5340 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5339)
-  store ptr %5340, ptr %488, align 8
-  br label %5656
+5351:                                             ; preds = %705
+  %5352 = load ptr, ptr %484, align 8
+  %5353 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5352, i64 0
+  %5354 = load ptr, ptr %5353, align 8
+  store ptr %5354, ptr %488, align 8
+  br label %5692
 
-5341:                                             ; preds = %705
-  %5342 = load ptr, ptr %484, align 8
-  %5343 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5342, i64 0
-  %5344 = load ptr, ptr %5343, align 8
-  store ptr %5344, ptr %25, align 8
-  %5345 = load ptr, ptr %25, align 8
-  store ptr %5345, ptr %1, align 8
-  %5346 = load ptr, ptr %1, align 8
-  store ptr %5346, ptr %26, align 8
-  %5347 = load ptr, ptr %26, align 8
-  %5348 = getelementptr inbounds %struct._zend_ast_list, ptr %5347, i32 0, i32 3
-  %5349 = load i32, ptr %5348, align 8
-  %5350 = icmp ne i32 %5349, 0
-  br i1 %5350, label %5351, label %5367
+5355:                                             ; preds = %705
+  %5356 = load ptr, ptr %484, align 8
+  %5357 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5356, i64 -1
+  %5358 = load ptr, ptr %5357, align 8
+  store ptr %5358, ptr %488, align 8
+  br label %5692
 
-5351:                                             ; preds = %5341
-  %5352 = load ptr, ptr %26, align 8
-  %5353 = getelementptr inbounds %struct._zend_ast_list, ptr %5352, i32 0, i32 4
-  %5354 = load ptr, ptr %26, align 8
-  %5355 = getelementptr inbounds %struct._zend_ast_list, ptr %5354, i32 0, i32 3
-  %5356 = load i32, ptr %5355, align 8
-  %5357 = sub i32 %5356, 1
-  %5358 = zext i32 %5357 to i64
-  %5359 = getelementptr inbounds [1 x ptr], ptr %5353, i64 0, i64 %5358
-  %5360 = load ptr, ptr %5359, align 8
-  %5361 = icmp eq ptr %5360, null
-  br i1 %5361, label %5362, label %5367
+5359:                                             ; preds = %705
+  %5360 = load ptr, ptr %484, align 8
+  %5361 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5360, i64 0
+  %5362 = load ptr, ptr %5361, align 8
+  %5363 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5362)
+  store ptr %5363, ptr %488, align 8
+  br label %5692
 
-5362:                                             ; preds = %5351
-  %5363 = load ptr, ptr %26, align 8
-  %5364 = getelementptr inbounds %struct._zend_ast_list, ptr %5363, i32 0, i32 3
-  %5365 = load i32, ptr %5364, align 8
-  %5366 = add i32 %5365, -1
-  store i32 %5366, ptr %5364, align 8
-  br label %5367
+5364:                                             ; preds = %705
+  %5365 = load ptr, ptr %484, align 8
+  %5366 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5365, i64 0
+  %5367 = load ptr, ptr %5366, align 8
+  store ptr %5367, ptr %488, align 8
+  br label %5692
 
-5367:                                             ; preds = %5362, %5351, %5341
-  %5368 = load ptr, ptr %25, align 8
-  store ptr %5368, ptr %488, align 8
-  br label %5656
+5368:                                             ; preds = %705
+  %5369 = load ptr, ptr %484, align 8
+  %5370 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5369, i64 -1
+  %5371 = load ptr, ptr %5370, align 8
+  store ptr %5371, ptr %488, align 8
+  br label %5692
 
-5369:                                             ; preds = %705
-  store ptr null, ptr %488, align 8
-  br label %5656
+5372:                                             ; preds = %705
+  %5373 = load ptr, ptr %484, align 8
+  %5374 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5373, i64 0
+  %5375 = load ptr, ptr %5374, align 8
+  %5376 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5375)
+  store ptr %5376, ptr %488, align 8
+  br label %5692
 
-5370:                                             ; preds = %705
-  %5371 = load ptr, ptr %484, align 8
-  %5372 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5371, i64 0
-  %5373 = load ptr, ptr %5372, align 8
-  store ptr %5373, ptr %488, align 8
-  br label %5656
-
-5374:                                             ; preds = %705
-  %5375 = load ptr, ptr %484, align 8
-  %5376 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5375, i64 -2
-  %5377 = load ptr, ptr %5376, align 8
+5377:                                             ; preds = %705
   %5378 = load ptr, ptr %484, align 8
   %5379 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5378, i64 0
   %5380 = load ptr, ptr %5379, align 8
-  %5381 = call ptr @zend_ast_list_add(ptr noundef %5377, ptr noundef %5380)
-  store ptr %5381, ptr %488, align 8
-  br label %5656
+  store ptr %5380, ptr %25, align 8
+  %5381 = load ptr, ptr %25, align 8
+  store ptr %5381, ptr %1, align 8
+  %5382 = load ptr, ptr %1, align 8
+  store ptr %5382, ptr %26, align 8
+  %5383 = load ptr, ptr %26, align 8
+  %5384 = getelementptr inbounds %struct._zend_ast_list, ptr %5383, i32 0, i32 3
+  %5385 = load i32, ptr %5384, align 8
+  %5386 = icmp ne i32 %5385, 0
+  br i1 %5386, label %5387, label %5403
 
-5382:                                             ; preds = %705
-  %5383 = load ptr, ptr %484, align 8
-  %5384 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5383, i64 0
-  %5385 = load ptr, ptr %5384, align 8
-  %5386 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 129, ptr noundef %5385)
-  store ptr %5386, ptr %488, align 8
-  br label %5656
+5387:                                             ; preds = %5377
+  %5388 = load ptr, ptr %26, align 8
+  %5389 = getelementptr inbounds %struct._zend_ast_list, ptr %5388, i32 0, i32 4
+  %5390 = load ptr, ptr %26, align 8
+  %5391 = getelementptr inbounds %struct._zend_ast_list, ptr %5390, i32 0, i32 3
+  %5392 = load i32, ptr %5391, align 8
+  %5393 = sub i32 %5392, 1
+  %5394 = zext i32 %5393 to i64
+  %5395 = getelementptr inbounds [1 x ptr], ptr %5389, i64 0, i64 %5394
+  %5396 = load ptr, ptr %5395, align 8
+  %5397 = icmp eq ptr %5396, null
+  br i1 %5397, label %5398, label %5403
 
-5387:                                             ; preds = %705
-  %5388 = load ptr, ptr %484, align 8
-  %5389 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5388, i64 0
-  %5390 = load ptr, ptr %5389, align 8
-  %5391 = load ptr, ptr %484, align 8
-  %5392 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5391, i64 -2
-  %5393 = load ptr, ptr %5392, align 8
-  %5394 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %5390, ptr noundef %5393)
-  store ptr %5394, ptr %488, align 8
-  br label %5656
+5398:                                             ; preds = %5387
+  %5399 = load ptr, ptr %26, align 8
+  %5400 = getelementptr inbounds %struct._zend_ast_list, ptr %5399, i32 0, i32 3
+  %5401 = load i32, ptr %5400, align 8
+  %5402 = add i32 %5401, -1
+  store i32 %5402, ptr %5400, align 8
+  br label %5403
 
-5395:                                             ; preds = %705
-  %5396 = load ptr, ptr %484, align 8
-  %5397 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5396, i64 0
-  %5398 = load ptr, ptr %5397, align 8
-  %5399 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %5398, ptr noundef null)
-  store ptr %5399, ptr %488, align 8
-  br label %5656
+5403:                                             ; preds = %5398, %5387, %5377
+  %5404 = load ptr, ptr %25, align 8
+  store ptr %5404, ptr %488, align 8
+  br label %5692
 
-5400:                                             ; preds = %705
-  %5401 = load ptr, ptr %484, align 8
-  %5402 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5401, i64 0
-  %5403 = load ptr, ptr %5402, align 8
-  %5404 = load ptr, ptr %484, align 8
-  %5405 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5404, i64 -3
-  %5406 = load ptr, ptr %5405, align 8
-  store i16 526, ptr %389, align 2
-  store i16 1, ptr %390, align 2
-  store ptr %5403, ptr %391, align 8
-  store ptr %5406, ptr %392, align 8
-  %5407 = load i16, ptr %389, align 2
-  %5408 = load ptr, ptr %391, align 8
-  %5409 = load ptr, ptr %392, align 8
-  %5410 = call ptr @zend_ast_create_2(i16 noundef zeroext %5407, ptr noundef %5408, ptr noundef %5409) #10
-  store ptr %5410, ptr %393, align 8
-  %5411 = load i16, ptr %390, align 2
-  %5412 = load ptr, ptr %393, align 8
-  %5413 = getelementptr inbounds %struct._zend_ast, ptr %5412, i32 0, i32 1
-  store i16 %5411, ptr %5413, align 2
-  %5414 = load ptr, ptr %393, align 8
-  store ptr %5414, ptr %488, align 8
-  br label %5656
+5405:                                             ; preds = %705
+  store ptr null, ptr %488, align 8
+  br label %5692
 
-5415:                                             ; preds = %705
-  %5416 = load ptr, ptr %484, align 8
-  %5417 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5416, i64 0
-  %5418 = load ptr, ptr %5417, align 8
-  store i16 526, ptr %394, align 2
-  store i16 1, ptr %395, align 2
-  store ptr %5418, ptr %396, align 8
-  store ptr null, ptr %397, align 8
-  %5419 = load i16, ptr %394, align 2
-  %5420 = load ptr, ptr %396, align 8
-  %5421 = load ptr, ptr %397, align 8
-  %5422 = call ptr @zend_ast_create_2(i16 noundef zeroext %5419, ptr noundef %5420, ptr noundef %5421) #10
-  store ptr %5422, ptr %398, align 8
-  %5423 = load i16, ptr %395, align 2
-  %5424 = load ptr, ptr %398, align 8
-  %5425 = getelementptr inbounds %struct._zend_ast, ptr %5424, i32 0, i32 1
-  store i16 %5423, ptr %5425, align 2
-  %5426 = load ptr, ptr %398, align 8
-  store ptr %5426, ptr %488, align 8
-  br label %5656
+5406:                                             ; preds = %705
+  %5407 = load ptr, ptr %484, align 8
+  %5408 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5407, i64 0
+  %5409 = load ptr, ptr %5408, align 8
+  store ptr %5409, ptr %488, align 8
+  br label %5692
 
-5427:                                             ; preds = %705
-  %5428 = load ptr, ptr %484, align 8
-  %5429 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5428, i64 0
-  %5430 = load ptr, ptr %5429, align 8
-  %5431 = call ptr @zend_ast_create_1(i16 noundef zeroext 258, ptr noundef %5430)
-  store ptr %5431, ptr %488, align 8
-  br label %5656
+5410:                                             ; preds = %705
+  %5411 = load ptr, ptr %484, align 8
+  %5412 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5411, i64 -2
+  %5413 = load ptr, ptr %5412, align 8
+  %5414 = load ptr, ptr %484, align 8
+  %5415 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5414, i64 0
+  %5416 = load ptr, ptr %5415, align 8
+  %5417 = call ptr @zend_ast_list_add(ptr noundef %5413, ptr noundef %5416)
+  store ptr %5417, ptr %488, align 8
+  br label %5692
 
-5432:                                             ; preds = %705
-  %5433 = load ptr, ptr %484, align 8
-  %5434 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5433, i64 -1
-  %5435 = load ptr, ptr %5434, align 8
-  %5436 = getelementptr inbounds %struct._zend_ast, ptr %5435, i32 0, i32 1
-  store i16 1, ptr %5436, align 2
+5418:                                             ; preds = %705
+  %5419 = load ptr, ptr %484, align 8
+  %5420 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5419, i64 0
+  %5421 = load ptr, ptr %5420, align 8
+  %5422 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 129, ptr noundef %5421)
+  store ptr %5422, ptr %488, align 8
+  br label %5692
+
+5423:                                             ; preds = %705
+  %5424 = load ptr, ptr %484, align 8
+  %5425 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5424, i64 0
+  %5426 = load ptr, ptr %5425, align 8
+  %5427 = load ptr, ptr %484, align 8
+  %5428 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5427, i64 -2
+  %5429 = load ptr, ptr %5428, align 8
+  %5430 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %5426, ptr noundef %5429)
+  store ptr %5430, ptr %488, align 8
+  br label %5692
+
+5431:                                             ; preds = %705
+  %5432 = load ptr, ptr %484, align 8
+  %5433 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5432, i64 0
+  %5434 = load ptr, ptr %5433, align 8
+  %5435 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %5434, ptr noundef null)
+  store ptr %5435, ptr %488, align 8
+  br label %5692
+
+5436:                                             ; preds = %705
   %5437 = load ptr, ptr %484, align 8
-  %5438 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5437, i64 -1
+  %5438 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5437, i64 0
   %5439 = load ptr, ptr %5438, align 8
   %5440 = load ptr, ptr %484, align 8
-  %5441 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5440, i64 -5
+  %5441 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5440, i64 -3
   %5442 = load ptr, ptr %5441, align 8
-  %5443 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %5439, ptr noundef %5442)
-  store ptr %5443, ptr %488, align 8
-  br label %5656
+  store i16 526, ptr %389, align 2
+  store i16 1, ptr %390, align 2
+  store ptr %5439, ptr %391, align 8
+  store ptr %5442, ptr %392, align 8
+  %5443 = load i16, ptr %389, align 2
+  %5444 = load ptr, ptr %391, align 8
+  %5445 = load ptr, ptr %392, align 8
+  %5446 = call ptr @zend_ast_create_2(i16 noundef zeroext %5443, ptr noundef %5444, ptr noundef %5445) #10
+  store ptr %5446, ptr %393, align 8
+  %5447 = load i16, ptr %390, align 2
+  %5448 = load ptr, ptr %393, align 8
+  %5449 = getelementptr inbounds %struct._zend_ast, ptr %5448, i32 0, i32 1
+  store i16 %5447, ptr %5449, align 2
+  %5450 = load ptr, ptr %393, align 8
+  store ptr %5450, ptr %488, align 8
+  br label %5692
 
-5444:                                             ; preds = %705
-  %5445 = load ptr, ptr %484, align 8
-  %5446 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5445, i64 -1
-  %5447 = load ptr, ptr %5446, align 8
-  %5448 = getelementptr inbounds %struct._zend_ast, ptr %5447, i32 0, i32 1
-  store i16 1, ptr %5448, align 2
-  %5449 = load ptr, ptr %484, align 8
-  %5450 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5449, i64 -1
-  %5451 = load ptr, ptr %5450, align 8
-  %5452 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %5451, ptr noundef null)
-  store ptr %5452, ptr %488, align 8
-  br label %5656
+5451:                                             ; preds = %705
+  %5452 = load ptr, ptr %484, align 8
+  %5453 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5452, i64 0
+  %5454 = load ptr, ptr %5453, align 8
+  store i16 526, ptr %394, align 2
+  store i16 1, ptr %395, align 2
+  store ptr %5454, ptr %396, align 8
+  store ptr null, ptr %397, align 8
+  %5455 = load i16, ptr %394, align 2
+  %5456 = load ptr, ptr %396, align 8
+  %5457 = load ptr, ptr %397, align 8
+  %5458 = call ptr @zend_ast_create_2(i16 noundef zeroext %5455, ptr noundef %5456, ptr noundef %5457) #10
+  store ptr %5458, ptr %398, align 8
+  %5459 = load i16, ptr %395, align 2
+  %5460 = load ptr, ptr %398, align 8
+  %5461 = getelementptr inbounds %struct._zend_ast, ptr %5460, i32 0, i32 1
+  store i16 %5459, ptr %5461, align 2
+  %5462 = load ptr, ptr %398, align 8
+  store ptr %5462, ptr %488, align 8
+  br label %5692
 
-5453:                                             ; preds = %705
-  %5454 = load ptr, ptr %484, align 8
-  %5455 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5454, i64 -1
-  %5456 = load ptr, ptr %5455, align 8
-  %5457 = load ptr, ptr %484, align 8
-  %5458 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5457, i64 0
-  %5459 = load ptr, ptr %5458, align 8
-  %5460 = call ptr @zend_ast_list_add(ptr noundef %5456, ptr noundef %5459)
-  store ptr %5460, ptr %488, align 8
-  br label %5656
+5463:                                             ; preds = %705
+  %5464 = load ptr, ptr %484, align 8
+  %5465 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5464, i64 0
+  %5466 = load ptr, ptr %5465, align 8
+  %5467 = call ptr @zend_ast_create_1(i16 noundef zeroext 258, ptr noundef %5466)
+  store ptr %5467, ptr %488, align 8
+  br label %5692
 
-5461:                                             ; preds = %705
-  %5462 = load ptr, ptr %484, align 8
-  %5463 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5462, i64 -1
-  %5464 = load ptr, ptr %5463, align 8
-  %5465 = load ptr, ptr %484, align 8
-  %5466 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5465, i64 0
-  %5467 = load ptr, ptr %5466, align 8
-  %5468 = call ptr @zend_ast_list_add(ptr noundef %5464, ptr noundef %5467)
-  store ptr %5468, ptr %488, align 8
-  br label %5656
+5468:                                             ; preds = %705
+  %5469 = load ptr, ptr %484, align 8
+  %5470 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5469, i64 -1
+  %5471 = load ptr, ptr %5470, align 8
+  %5472 = getelementptr inbounds %struct._zend_ast, ptr %5471, i32 0, i32 1
+  store i16 1, ptr %5472, align 2
+  %5473 = load ptr, ptr %484, align 8
+  %5474 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5473, i64 -1
+  %5475 = load ptr, ptr %5474, align 8
+  %5476 = load ptr, ptr %484, align 8
+  %5477 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5476, i64 -5
+  %5478 = load ptr, ptr %5477, align 8
+  %5479 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %5475, ptr noundef %5478)
+  store ptr %5479, ptr %488, align 8
+  br label %5692
 
-5469:                                             ; preds = %705
-  %5470 = load ptr, ptr %484, align 8
-  %5471 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5470, i64 0
-  %5472 = load ptr, ptr %5471, align 8
-  %5473 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 130, ptr noundef %5472)
-  store ptr %5473, ptr %488, align 8
-  br label %5656
+5480:                                             ; preds = %705
+  %5481 = load ptr, ptr %484, align 8
+  %5482 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5481, i64 -1
+  %5483 = load ptr, ptr %5482, align 8
+  %5484 = getelementptr inbounds %struct._zend_ast, ptr %5483, i32 0, i32 1
+  store i16 1, ptr %5484, align 2
+  %5485 = load ptr, ptr %484, align 8
+  %5486 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5485, i64 -1
+  %5487 = load ptr, ptr %5486, align 8
+  %5488 = call ptr @zend_ast_create_2(i16 noundef zeroext 526, ptr noundef %5487, ptr noundef null)
+  store ptr %5488, ptr %488, align 8
+  br label %5692
 
-5474:                                             ; preds = %705
-  %5475 = load ptr, ptr %484, align 8
-  %5476 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5475, i64 -1
-  %5477 = load ptr, ptr %5476, align 8
-  %5478 = load ptr, ptr %484, align 8
-  %5479 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5478, i64 0
-  %5480 = load ptr, ptr %5479, align 8
-  %5481 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 130, ptr noundef %5477, ptr noundef %5480)
-  store ptr %5481, ptr %488, align 8
-  br label %5656
+5489:                                             ; preds = %705
+  %5490 = load ptr, ptr %484, align 8
+  %5491 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5490, i64 -1
+  %5492 = load ptr, ptr %5491, align 8
+  %5493 = load ptr, ptr %484, align 8
+  %5494 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5493, i64 0
+  %5495 = load ptr, ptr %5494, align 8
+  %5496 = call ptr @zend_ast_list_add(ptr noundef %5492, ptr noundef %5495)
+  store ptr %5496, ptr %488, align 8
+  br label %5692
 
-5482:                                             ; preds = %705
-  %5483 = load ptr, ptr %484, align 8
-  %5484 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5483, i64 0
-  %5485 = load ptr, ptr %5484, align 8
-  %5486 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5485)
-  store ptr %5486, ptr %488, align 8
-  br label %5656
-
-5487:                                             ; preds = %705
-  %5488 = load ptr, ptr %484, align 8
-  %5489 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5488, i64 -3
-  %5490 = load ptr, ptr %5489, align 8
-  %5491 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5490)
-  %5492 = load ptr, ptr %484, align 8
-  %5493 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5492, i64 -1
-  %5494 = load ptr, ptr %5493, align 8
-  %5495 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %5491, ptr noundef %5494)
-  store ptr %5495, ptr %488, align 8
-  br label %5656
-
-5496:                                             ; preds = %705
-  %5497 = load ptr, ptr %484, align 8
-  %5498 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5497, i64 -2
-  %5499 = load ptr, ptr %5498, align 8
-  %5500 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5499)
+5497:                                             ; preds = %705
+  %5498 = load ptr, ptr %484, align 8
+  %5499 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5498, i64 -1
+  %5500 = load ptr, ptr %5499, align 8
   %5501 = load ptr, ptr %484, align 8
   %5502 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5501, i64 0
   %5503 = load ptr, ptr %5502, align 8
-  %5504 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %5500, ptr noundef %5503)
+  %5504 = call ptr @zend_ast_list_add(ptr noundef %5500, ptr noundef %5503)
   store ptr %5504, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5505:                                             ; preds = %705
   %5506 = load ptr, ptr %484, align 8
-  %5507 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5506, i64 -2
+  %5507 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5506, i64 0
   %5508 = load ptr, ptr %5507, align 8
-  %5509 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5508)
-  %5510 = load ptr, ptr %484, align 8
-  %5511 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5510, i64 0
-  %5512 = load ptr, ptr %5511, align 8
-  %5513 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %5509, ptr noundef %5512)
-  store ptr %5513, ptr %488, align 8
-  br label %5656
+  %5509 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 130, ptr noundef %5508)
+  store ptr %5509, ptr %488, align 8
+  br label %5692
 
-5514:                                             ; preds = %705
-  %5515 = load ptr, ptr %484, align 8
-  %5516 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5515, i64 -1
-  %5517 = load ptr, ptr %5516, align 8
+5510:                                             ; preds = %705
+  %5511 = load ptr, ptr %484, align 8
+  %5512 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5511, i64 -1
+  %5513 = load ptr, ptr %5512, align 8
+  %5514 = load ptr, ptr %484, align 8
+  %5515 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5514, i64 0
+  %5516 = load ptr, ptr %5515, align 8
+  %5517 = call ptr @zend_ast_create_list_2(i16 noundef zeroext 130, ptr noundef %5513, ptr noundef %5516)
+  store ptr %5517, ptr %488, align 8
+  br label %5692
+
+5518:                                             ; preds = %705
+  %5519 = load ptr, ptr %484, align 8
+  %5520 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5519, i64 0
+  %5521 = load ptr, ptr %5520, align 8
+  %5522 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5521)
+  store ptr %5522, ptr %488, align 8
+  br label %5692
+
+5523:                                             ; preds = %705
+  %5524 = load ptr, ptr %484, align 8
+  %5525 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5524, i64 -3
+  %5526 = load ptr, ptr %5525, align 8
+  %5527 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5526)
+  %5528 = load ptr, ptr %484, align 8
+  %5529 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5528, i64 -1
+  %5530 = load ptr, ptr %5529, align 8
+  %5531 = call ptr @zend_ast_create_2(i16 noundef zeroext 512, ptr noundef %5527, ptr noundef %5530)
+  store ptr %5531, ptr %488, align 8
+  br label %5692
+
+5532:                                             ; preds = %705
+  %5533 = load ptr, ptr %484, align 8
+  %5534 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5533, i64 -2
+  %5535 = load ptr, ptr %5534, align 8
+  %5536 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5535)
+  %5537 = load ptr, ptr %484, align 8
+  %5538 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5537, i64 0
+  %5539 = load ptr, ptr %5538, align 8
+  %5540 = call ptr @zend_ast_create_2(i16 noundef zeroext 513, ptr noundef %5536, ptr noundef %5539)
+  store ptr %5540, ptr %488, align 8
+  br label %5692
+
+5541:                                             ; preds = %705
+  %5542 = load ptr, ptr %484, align 8
+  %5543 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5542, i64 -2
+  %5544 = load ptr, ptr %5543, align 8
+  %5545 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5544)
+  %5546 = load ptr, ptr %484, align 8
+  %5547 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5546, i64 0
+  %5548 = load ptr, ptr %5547, align 8
+  %5549 = call ptr @zend_ast_create_2(i16 noundef zeroext 514, ptr noundef %5545, ptr noundef %5548)
+  store ptr %5549, ptr %488, align 8
+  br label %5692
+
+5550:                                             ; preds = %705
+  %5551 = load ptr, ptr %484, align 8
+  %5552 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5551, i64 -1
+  %5553 = load ptr, ptr %5552, align 8
   store i16 256, ptr %85, align 2
   store i16 2, ptr %86, align 2
-  store ptr %5517, ptr %87, align 8
-  %5518 = load i16, ptr %85, align 2
-  %5519 = load ptr, ptr %87, align 8
-  %5520 = call ptr @zend_ast_create_1(i16 noundef zeroext %5518, ptr noundef %5519) #10
-  store ptr %5520, ptr %88, align 8
-  %5521 = load i16, ptr %86, align 2
-  %5522 = load ptr, ptr %88, align 8
-  %5523 = getelementptr inbounds %struct._zend_ast, ptr %5522, i32 0, i32 1
-  store i16 %5521, ptr %5523, align 2
-  %5524 = load ptr, ptr %88, align 8
-  store ptr %5524, ptr %488, align 8
-  br label %5656
+  store ptr %5553, ptr %87, align 8
+  %5554 = load i16, ptr %85, align 2
+  %5555 = load ptr, ptr %87, align 8
+  %5556 = call ptr @zend_ast_create_1(i16 noundef zeroext %5554, ptr noundef %5555) #10
+  store ptr %5556, ptr %88, align 8
+  %5557 = load i16, ptr %86, align 2
+  %5558 = load ptr, ptr %88, align 8
+  %5559 = getelementptr inbounds %struct._zend_ast, ptr %5558, i32 0, i32 1
+  store i16 %5557, ptr %5559, align 2
+  %5560 = load ptr, ptr %88, align 8
+  store ptr %5560, ptr %488, align 8
+  br label %5692
 
-5525:                                             ; preds = %705
-  %5526 = load ptr, ptr %484, align 8
-  %5527 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5526, i64 -1
-  %5528 = load ptr, ptr %5527, align 8
+5561:                                             ; preds = %705
+  %5562 = load ptr, ptr %484, align 8
+  %5563 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5562, i64 -1
+  %5564 = load ptr, ptr %5563, align 8
   store i16 256, ptr %89, align 2
   store i16 1, ptr %90, align 2
-  store ptr %5528, ptr %91, align 8
-  %5529 = load i16, ptr %89, align 2
-  %5530 = load ptr, ptr %91, align 8
-  %5531 = call ptr @zend_ast_create_1(i16 noundef zeroext %5529, ptr noundef %5530) #10
-  store ptr %5531, ptr %92, align 8
-  %5532 = load i16, ptr %90, align 2
-  %5533 = load ptr, ptr %92, align 8
-  %5534 = getelementptr inbounds %struct._zend_ast, ptr %5533, i32 0, i32 1
-  store i16 %5532, ptr %5534, align 2
-  %5535 = load ptr, ptr %92, align 8
-  store ptr %5535, ptr %488, align 8
-  br label %5656
+  store ptr %5564, ptr %91, align 8
+  %5565 = load i16, ptr %89, align 2
+  %5566 = load ptr, ptr %91, align 8
+  %5567 = call ptr @zend_ast_create_1(i16 noundef zeroext %5565, ptr noundef %5566) #10
+  store ptr %5567, ptr %92, align 8
+  %5568 = load i16, ptr %90, align 2
+  %5569 = load ptr, ptr %92, align 8
+  %5570 = getelementptr inbounds %struct._zend_ast, ptr %5569, i32 0, i32 1
+  store i16 %5568, ptr %5570, align 2
+  %5571 = load ptr, ptr %92, align 8
+  store ptr %5571, ptr %488, align 8
+  br label %5692
 
-5536:                                             ; preds = %705
-  %5537 = load ptr, ptr %484, align 8
-  %5538 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5537, i64 -4
-  %5539 = load ptr, ptr %5538, align 8
-  %5540 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5539)
-  %5541 = load ptr, ptr %484, align 8
-  %5542 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5541, i64 -2
-  %5543 = load ptr, ptr %5542, align 8
+5572:                                             ; preds = %705
+  %5573 = load ptr, ptr %484, align 8
+  %5574 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5573, i64 -4
+  %5575 = load ptr, ptr %5574, align 8
+  %5576 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5575)
+  %5577 = load ptr, ptr %484, align 8
+  %5578 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5577, i64 -2
+  %5579 = load ptr, ptr %5578, align 8
   store i16 512, ptr %399, align 2
   store i16 1, ptr %400, align 2
-  store ptr %5540, ptr %401, align 8
-  store ptr %5543, ptr %402, align 8
-  %5544 = load i16, ptr %399, align 2
-  %5545 = load ptr, ptr %401, align 8
-  %5546 = load ptr, ptr %402, align 8
-  %5547 = call ptr @zend_ast_create_2(i16 noundef zeroext %5544, ptr noundef %5545, ptr noundef %5546) #10
-  store ptr %5547, ptr %403, align 8
-  %5548 = load i16, ptr %400, align 2
-  %5549 = load ptr, ptr %403, align 8
-  %5550 = getelementptr inbounds %struct._zend_ast, ptr %5549, i32 0, i32 1
-  store i16 %5548, ptr %5550, align 2
-  %5551 = load ptr, ptr %403, align 8
-  store ptr %5551, ptr %488, align 8
-  br label %5656
+  store ptr %5576, ptr %401, align 8
+  store ptr %5579, ptr %402, align 8
+  %5580 = load i16, ptr %399, align 2
+  %5581 = load ptr, ptr %401, align 8
+  %5582 = load ptr, ptr %402, align 8
+  %5583 = call ptr @zend_ast_create_2(i16 noundef zeroext %5580, ptr noundef %5581, ptr noundef %5582) #10
+  store ptr %5583, ptr %403, align 8
+  %5584 = load i16, ptr %400, align 2
+  %5585 = load ptr, ptr %403, align 8
+  %5586 = getelementptr inbounds %struct._zend_ast, ptr %5585, i32 0, i32 1
+  store i16 %5584, ptr %5586, align 2
+  %5587 = load ptr, ptr %403, align 8
+  store ptr %5587, ptr %488, align 8
+  br label %5692
 
-5552:                                             ; preds = %705
-  %5553 = load ptr, ptr %484, align 8
-  %5554 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5553, i64 -1
-  %5555 = load ptr, ptr %5554, align 8
-  store ptr %5555, ptr %488, align 8
-  br label %5656
+5588:                                             ; preds = %705
+  %5589 = load ptr, ptr %484, align 8
+  %5590 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5589, i64 -1
+  %5591 = load ptr, ptr %5590, align 8
+  store ptr %5591, ptr %488, align 8
+  br label %5692
 
-5556:                                             ; preds = %705
-  %5557 = load ptr, ptr %484, align 8
-  %5558 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5557, i64 0
-  %5559 = load ptr, ptr %5558, align 8
-  store ptr %5559, ptr %488, align 8
-  br label %5656
+5592:                                             ; preds = %705
+  %5593 = load ptr, ptr %484, align 8
+  %5594 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5593, i64 0
+  %5595 = load ptr, ptr %5594, align 8
+  store ptr %5595, ptr %488, align 8
+  br label %5692
 
-5560:                                             ; preds = %705
-  %5561 = load ptr, ptr %484, align 8
-  %5562 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5561, i64 0
-  %5563 = load ptr, ptr %5562, align 8
-  store ptr %5563, ptr %488, align 8
-  br label %5656
+5596:                                             ; preds = %705
+  %5597 = load ptr, ptr %484, align 8
+  %5598 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5597, i64 0
+  %5599 = load ptr, ptr %5598, align 8
+  store ptr %5599, ptr %488, align 8
+  br label %5692
 
-5564:                                             ; preds = %705
-  %5565 = load ptr, ptr %484, align 8
-  %5566 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5565, i64 0
-  %5567 = load ptr, ptr %5566, align 8
-  %5568 = call ptr @zend_negate_num_string(ptr noundef %5567)
-  store ptr %5568, ptr %488, align 8
-  br label %5656
-
-5569:                                             ; preds = %705
-  %5570 = load ptr, ptr %484, align 8
-  %5571 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5570, i64 0
-  %5572 = load ptr, ptr %5571, align 8
-  %5573 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5572)
-  store ptr %5573, ptr %488, align 8
-  br label %5656
-
-5574:                                             ; preds = %705
-  %5575 = load ptr, ptr %484, align 8
-  %5576 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5575, i64 -2
-  %5577 = load ptr, ptr %5576, align 8
-  store ptr %5577, ptr %488, align 8
-  br label %5656
-
-5578:                                             ; preds = %705
-  %5579 = load ptr, ptr %484, align 8
-  %5580 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5579, i64 -1
-  %5581 = load ptr, ptr %5580, align 8
-  %5582 = call ptr @zend_ast_create_1(i16 noundef zeroext 262, ptr noundef %5581)
-  store ptr %5582, ptr %488, align 8
-  br label %5656
-
-5583:                                             ; preds = %705
-  %5584 = load ptr, ptr %484, align 8
-  %5585 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5584, i64 0
-  %5586 = load ptr, ptr %5585, align 8
-  store i16 269, ptr %93, align 2
-  store i16 2, ptr %94, align 2
-  store ptr %5586, ptr %95, align 8
-  %5587 = load i16, ptr %93, align 2
-  %5588 = load ptr, ptr %95, align 8
-  %5589 = call ptr @zend_ast_create_1(i16 noundef zeroext %5587, ptr noundef %5588) #10
-  store ptr %5589, ptr %96, align 8
-  %5590 = load i16, ptr %94, align 2
-  %5591 = load ptr, ptr %96, align 8
-  %5592 = getelementptr inbounds %struct._zend_ast, ptr %5591, i32 0, i32 1
-  store i16 %5590, ptr %5592, align 2
-  %5593 = load ptr, ptr %96, align 8
-  store ptr %5593, ptr %488, align 8
-  br label %5656
-
-5594:                                             ; preds = %705
-  %5595 = load ptr, ptr %484, align 8
-  %5596 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5595, i64 0
-  %5597 = load ptr, ptr %5596, align 8
-  store i16 269, ptr %97, align 2
-  store i16 4, ptr %98, align 2
-  store ptr %5597, ptr %99, align 8
-  %5598 = load i16, ptr %97, align 2
-  %5599 = load ptr, ptr %99, align 8
-  %5600 = call ptr @zend_ast_create_1(i16 noundef zeroext %5598, ptr noundef %5599) #10
-  store ptr %5600, ptr %100, align 8
-  %5601 = load i16, ptr %98, align 2
-  %5602 = load ptr, ptr %100, align 8
-  %5603 = getelementptr inbounds %struct._zend_ast, ptr %5602, i32 0, i32 1
-  store i16 %5601, ptr %5603, align 2
-  %5604 = load ptr, ptr %100, align 8
+5600:                                             ; preds = %705
+  %5601 = load ptr, ptr %484, align 8
+  %5602 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5601, i64 0
+  %5603 = load ptr, ptr %5602, align 8
+  %5604 = call ptr @zend_negate_num_string(ptr noundef %5603)
   store ptr %5604, ptr %488, align 8
-  br label %5656
+  br label %5692
 
 5605:                                             ; preds = %705
   %5606 = load ptr, ptr %484, align 8
-  %5607 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5606, i64 -1
+  %5607 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5606, i64 0
   %5608 = load ptr, ptr %5607, align 8
+  %5609 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %5608)
+  store ptr %5609, ptr %488, align 8
+  br label %5692
+
+5610:                                             ; preds = %705
+  %5611 = load ptr, ptr %484, align 8
+  %5612 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5611, i64 -2
+  %5613 = load ptr, ptr %5612, align 8
+  store ptr %5613, ptr %488, align 8
+  br label %5692
+
+5614:                                             ; preds = %705
+  %5615 = load ptr, ptr %484, align 8
+  %5616 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5615, i64 -1
+  %5617 = load ptr, ptr %5616, align 8
+  %5618 = call ptr @zend_ast_create_1(i16 noundef zeroext 262, ptr noundef %5617)
+  store ptr %5618, ptr %488, align 8
+  br label %5692
+
+5619:                                             ; preds = %705
+  %5620 = load ptr, ptr %484, align 8
+  %5621 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5620, i64 0
+  %5622 = load ptr, ptr %5621, align 8
+  store i16 269, ptr %93, align 2
+  store i16 2, ptr %94, align 2
+  store ptr %5622, ptr %95, align 8
+  %5623 = load i16, ptr %93, align 2
+  %5624 = load ptr, ptr %95, align 8
+  %5625 = call ptr @zend_ast_create_1(i16 noundef zeroext %5623, ptr noundef %5624) #10
+  store ptr %5625, ptr %96, align 8
+  %5626 = load i16, ptr %94, align 2
+  %5627 = load ptr, ptr %96, align 8
+  %5628 = getelementptr inbounds %struct._zend_ast, ptr %5627, i32 0, i32 1
+  store i16 %5626, ptr %5628, align 2
+  %5629 = load ptr, ptr %96, align 8
+  store ptr %5629, ptr %488, align 8
+  br label %5692
+
+5630:                                             ; preds = %705
+  %5631 = load ptr, ptr %484, align 8
+  %5632 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5631, i64 0
+  %5633 = load ptr, ptr %5632, align 8
+  store i16 269, ptr %97, align 2
+  store i16 4, ptr %98, align 2
+  store ptr %5633, ptr %99, align 8
+  %5634 = load i16, ptr %97, align 2
+  %5635 = load ptr, ptr %99, align 8
+  %5636 = call ptr @zend_ast_create_1(i16 noundef zeroext %5634, ptr noundef %5635) #10
+  store ptr %5636, ptr %100, align 8
+  %5637 = load i16, ptr %98, align 2
+  %5638 = load ptr, ptr %100, align 8
+  %5639 = getelementptr inbounds %struct._zend_ast, ptr %5638, i32 0, i32 1
+  store i16 %5637, ptr %5639, align 2
+  %5640 = load ptr, ptr %100, align 8
+  store ptr %5640, ptr %488, align 8
+  br label %5692
+
+5641:                                             ; preds = %705
+  %5642 = load ptr, ptr %484, align 8
+  %5643 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5642, i64 -1
+  %5644 = load ptr, ptr %5643, align 8
   store i16 269, ptr %101, align 2
   store i16 1, ptr %102, align 2
-  store ptr %5608, ptr %103, align 8
-  %5609 = load i16, ptr %101, align 2
-  %5610 = load ptr, ptr %103, align 8
-  %5611 = call ptr @zend_ast_create_1(i16 noundef zeroext %5609, ptr noundef %5610) #10
-  store ptr %5611, ptr %104, align 8
-  %5612 = load i16, ptr %102, align 2
-  %5613 = load ptr, ptr %104, align 8
-  %5614 = getelementptr inbounds %struct._zend_ast, ptr %5613, i32 0, i32 1
-  store i16 %5612, ptr %5614, align 2
-  %5615 = load ptr, ptr %104, align 8
-  store ptr %5615, ptr %488, align 8
-  br label %5656
+  store ptr %5644, ptr %103, align 8
+  %5645 = load i16, ptr %101, align 2
+  %5646 = load ptr, ptr %103, align 8
+  %5647 = call ptr @zend_ast_create_1(i16 noundef zeroext %5645, ptr noundef %5646) #10
+  store ptr %5647, ptr %104, align 8
+  %5648 = load i16, ptr %102, align 2
+  %5649 = load ptr, ptr %104, align 8
+  %5650 = getelementptr inbounds %struct._zend_ast, ptr %5649, i32 0, i32 1
+  store i16 %5648, ptr %5650, align 2
+  %5651 = load ptr, ptr %104, align 8
+  store ptr %5651, ptr %488, align 8
+  br label %5692
 
-5616:                                             ; preds = %705
-  %5617 = load ptr, ptr %484, align 8
-  %5618 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5617, i64 0
-  %5619 = load ptr, ptr %5618, align 8
+5652:                                             ; preds = %705
+  %5653 = load ptr, ptr %484, align 8
+  %5654 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5653, i64 0
+  %5655 = load ptr, ptr %5654, align 8
   store i16 269, ptr %105, align 2
   store i16 8, ptr %106, align 2
-  store ptr %5619, ptr %107, align 8
-  %5620 = load i16, ptr %105, align 2
-  %5621 = load ptr, ptr %107, align 8
-  %5622 = call ptr @zend_ast_create_1(i16 noundef zeroext %5620, ptr noundef %5621) #10
-  store ptr %5622, ptr %108, align 8
-  %5623 = load i16, ptr %106, align 2
-  %5624 = load ptr, ptr %108, align 8
-  %5625 = getelementptr inbounds %struct._zend_ast, ptr %5624, i32 0, i32 1
-  store i16 %5623, ptr %5625, align 2
-  %5626 = load ptr, ptr %108, align 8
-  store ptr %5626, ptr %488, align 8
-  br label %5656
+  store ptr %5655, ptr %107, align 8
+  %5656 = load i16, ptr %105, align 2
+  %5657 = load ptr, ptr %107, align 8
+  %5658 = call ptr @zend_ast_create_1(i16 noundef zeroext %5656, ptr noundef %5657) #10
+  store ptr %5658, ptr %108, align 8
+  %5659 = load i16, ptr %106, align 2
+  %5660 = load ptr, ptr %108, align 8
+  %5661 = getelementptr inbounds %struct._zend_ast, ptr %5660, i32 0, i32 1
+  store i16 %5659, ptr %5661, align 2
+  %5662 = load ptr, ptr %108, align 8
+  store ptr %5662, ptr %488, align 8
+  br label %5692
 
-5627:                                             ; preds = %705
-  %5628 = load ptr, ptr %484, align 8
-  %5629 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5628, i64 0
-  %5630 = load ptr, ptr %5629, align 8
+5663:                                             ; preds = %705
+  %5664 = load ptr, ptr %484, align 8
+  %5665 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5664, i64 0
+  %5666 = load ptr, ptr %5665, align 8
   store i16 269, ptr %109, align 2
   store i16 16, ptr %110, align 2
-  store ptr %5630, ptr %111, align 8
-  %5631 = load i16, ptr %109, align 2
-  %5632 = load ptr, ptr %111, align 8
-  %5633 = call ptr @zend_ast_create_1(i16 noundef zeroext %5631, ptr noundef %5632) #10
-  store ptr %5633, ptr %112, align 8
-  %5634 = load i16, ptr %110, align 2
-  %5635 = load ptr, ptr %112, align 8
-  %5636 = getelementptr inbounds %struct._zend_ast, ptr %5635, i32 0, i32 1
-  store i16 %5634, ptr %5636, align 2
-  %5637 = load ptr, ptr %112, align 8
-  store ptr %5637, ptr %488, align 8
-  br label %5656
+  store ptr %5666, ptr %111, align 8
+  %5667 = load i16, ptr %109, align 2
+  %5668 = load ptr, ptr %111, align 8
+  %5669 = call ptr @zend_ast_create_1(i16 noundef zeroext %5667, ptr noundef %5668) #10
+  store ptr %5669, ptr %112, align 8
+  %5670 = load i16, ptr %110, align 2
+  %5671 = load ptr, ptr %112, align 8
+  %5672 = getelementptr inbounds %struct._zend_ast, ptr %5671, i32 0, i32 1
+  store i16 %5670, ptr %5672, align 2
+  %5673 = load ptr, ptr %112, align 8
+  store ptr %5673, ptr %488, align 8
+  br label %5692
 
-5638:                                             ; preds = %705
-  %5639 = load ptr, ptr %484, align 8
-  %5640 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5639, i64 0
-  %5641 = load ptr, ptr %5640, align 8
-  store ptr %5641, ptr %488, align 8
-  br label %5656
+5674:                                             ; preds = %705
+  %5675 = load ptr, ptr %484, align 8
+  %5676 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5675, i64 0
+  %5677 = load ptr, ptr %5676, align 8
+  store ptr %5677, ptr %488, align 8
+  br label %5692
 
-5642:                                             ; preds = %705
-  %5643 = load ptr, ptr %484, align 8
-  %5644 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5643, i64 -2
-  %5645 = load ptr, ptr %5644, align 8
-  %5646 = load ptr, ptr %484, align 8
-  %5647 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5646, i64 0
-  %5648 = load ptr, ptr %5647, align 8
-  %5649 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %5645, ptr noundef %5648)
-  store ptr %5649, ptr %488, align 8
-  br label %5656
+5678:                                             ; preds = %705
+  %5679 = load ptr, ptr %484, align 8
+  %5680 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5679, i64 -2
+  %5681 = load ptr, ptr %5680, align 8
+  %5682 = load ptr, ptr %484, align 8
+  %5683 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5682, i64 0
+  %5684 = load ptr, ptr %5683, align 8
+  %5685 = call ptr @zend_ast_create_2(i16 noundef zeroext 524, ptr noundef %5681, ptr noundef %5684)
+  store ptr %5685, ptr %488, align 8
+  br label %5692
 
-5650:                                             ; preds = %705
-  %5651 = load ptr, ptr %484, align 8
-  %5652 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5651, i64 0
-  %5653 = load ptr, ptr %5652, align 8
-  %5654 = call ptr @zend_ast_create_1(i16 noundef zeroext 263, ptr noundef %5653)
-  store ptr %5654, ptr %488, align 8
-  br label %5656
+5686:                                             ; preds = %705
+  %5687 = load ptr, ptr %484, align 8
+  %5688 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5687, i64 0
+  %5689 = load ptr, ptr %5688, align 8
+  %5690 = call ptr @zend_ast_create_1(i16 noundef zeroext 263, ptr noundef %5689)
+  store ptr %5690, ptr %488, align 8
+  br label %5692
 
-5655:                                             ; preds = %705
-  br label %5656
+5691:                                             ; preds = %705
+  br label %5692
 
-5656:                                             ; preds = %5655, %5650, %5642, %5638, %5627, %5616, %5605, %5594, %5583, %5578, %5574, %5569, %5564, %5560, %5556, %5552, %5536, %5525, %5514, %5505, %5496, %5487, %5482, %5474, %5469, %5461, %5453, %5444, %5432, %5427, %5415, %5400, %5395, %5387, %5382, %5374, %5370, %5369, %5367, %5336, %5332, %5328, %5323, %5319, %5315, %5307, %5299, %5291, %5283, %5268, %5260, %5255, %5247, %5239, %5234, %5230, %5226, %5218, %5210, %5206, %5202, %5198, %5187, %5176, %5161, %5153, %5148, %5144, %5140, %5136, %5132, %5128, %5124, %5120, %5116, %5112, %5108, %5104, %5103, %5095, %5087, %5079, %5071, %5064, %5057, %5050, %5043, %5036, %5029, %5022, %5015, %5010, %5006, %5002, %4998, %4994, %4991, %4987, %4983, %4979, %4975, %4971, %4965, %4959, %4955, %4953, %4949, %4945, %4942, %4938, %4937, %4933, %4929, %4925, %4921, %4919, %4895, %4892, %4881, %4870, %4864, %4849, %4843, %4839, %4834, %4826, %4822, %4821, %4820, %4819, %4817, %4814, %4812, %4809, %4806, %4766, %4289, %3851, %3839, %3831, %3823, %3819, %3814, %3807, %3797, %3790, %3786, %3781, %3776, %3772, %3767, %3762, %3748, %3734, %3720, %3706, %3692, %3678, %3664, %3660, %3652, %3644, %3633, %3629, %3628, %3608, %3589, %3581, %3573, %3554, %3535, %3516, %3497, %3478, %3459, %3448, %3437, %3432, %3427, %3408, %3389, %3370, %3351, %3332, %3313, %3294, %3275, %3267, %3248, %3229, %3210, %3191, %3172, %3164, %3156, %3148, %3140, %3135, %3130, %3125, %3120, %3112, %3093, %3074, %3055, %3036, %3017, %2998, %2979, %2960, %2941, %2922, %2903, %2884, %2879, %2871, %2863, %2851, %2839, %2835, %2821, %2817, %2809, %2781, %2778, %2773, %2765, %2761, %2760, %2755, %2750, %2742, %2739, %2719, %2694, %2672, %2664, %2661, %2641, %2622, %2614, %2613, %2612, %2611, %2610, %2609, %2608, %2607, %2598, %2592, %2591, %2574, %2573, %2556, %2555, %2554, %2541, %2540, %2532, %2528, %2523, %2522, %2498, %2466, %2451, %2443, %2439, %2435, %2427, %2422, %2418, %2417, %2416, %2408, %2403, %2395, %2387, %2383, %2379, %2333, %2319, %2308, %2294, %2292, %2284, %2276, %2271, %2266, %2258, %2252, %2247, %2239, %2234, %2226, %2222, %2214, %2209, %2207, %2203, %2201, %2197, %2196, %2188, %2180, %2172, %2164, %2160, %2156, %2152, %2145, %2138, %2134, %2130, %2120, %2116, %2108, %2100, %2092, %2084, %2080, %2076, %2069, %2065, %2061, %2057, %2047, %2043, %2039, %2038, %2025, %1980, %1950, %1940, %1936, %1928, %1920, %1915, %1913, %1909, %1900, %1896, %1884, %1875, %1866, %1862, %1850, %1841, %1837, %1833, %1825, %1820, %1815, %1807, %1799, %1794, %1790, %1788, %1780, %1771, %1759, %1757, %1753, %1749, %1745, %1741, %1737, %1733, %1729, %1725, %1721, %1717, %1711, %1705, %1700, %1696, %1692, %1691, %1687, %1686, %1682, %1681, %1677, %1676, %1673, %1652, %1651, %1621, %1618, %1591, %1588, %1564, %1561, %1560, %1559, %1558, %1554, %1553, %1552, %1537, %1526, %1508, %1478, %1475, %1441, %1438, %1437, %1436, %1435, %1434, %1392, %1390, %1379, %1374, %1366, %1361, %1357, %1356, %1352, %1351, %1343, %1338, %1323, %1321, %1316, %1311, %1300, %1299, %1291, %1290, %1270, %1259, %1255, %1251, %1246, %1242, %1238, %1234, %1229, %1224, %1219, %1211, %1197, %1189, %1181, %1177, %1173, %1169, %1158, %1154, %1150, %1148, %1140, %1135, %1127, %1119, %1114, %1106, %1101, %1091, %1085, %1080, %1072, %1067, %1059, %1054, %1046, %1038, %1030, %1029, %1028, %1024, %1014, %1008, %998, %994, %989, %988, %947, %946, %912, %871, %863, %859, %855, %851, %847, %843, %839, %835, %827, %822, %818, %810, %805, %797, %792, %786, %780, %774, %768, %764, %760, %756, %752, %748, %744, %742, %734, %732, %721, %717
-  %5657 = load i32, ptr %492, align 4
-  %5658 = load ptr, ptr %484, align 8
-  %5659 = sext i32 %5657 to i64
-  %5660 = sub i64 0, %5659
-  %5661 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5658, i64 %5660
-  store ptr %5661, ptr %484, align 8
-  %5662 = load i32, ptr %492, align 4
-  %5663 = load ptr, ptr %481, align 8
-  %5664 = sext i32 %5662 to i64
-  %5665 = sub i64 0, %5664
-  %5666 = getelementptr inbounds i16, ptr %5663, i64 %5665
-  store ptr %5666, ptr %481, align 8
+5692:                                             ; preds = %5691, %5686, %5678, %5674, %5663, %5652, %5641, %5630, %5619, %5614, %5610, %5605, %5600, %5596, %5592, %5588, %5572, %5561, %5550, %5541, %5532, %5523, %5518, %5510, %5505, %5497, %5489, %5480, %5468, %5463, %5451, %5436, %5431, %5423, %5418, %5410, %5406, %5405, %5403, %5372, %5368, %5364, %5359, %5355, %5351, %5343, %5335, %5327, %5319, %5304, %5296, %5291, %5283, %5275, %5270, %5266, %5262, %5254, %5246, %5242, %5238, %5234, %5223, %5212, %5197, %5189, %5184, %5180, %5176, %5172, %5168, %5164, %5160, %5156, %5152, %5148, %5144, %5140, %5139, %5131, %5123, %5115, %5107, %5100, %5093, %5086, %5079, %5072, %5065, %5058, %5051, %5046, %5042, %5038, %5034, %5030, %5027, %5023, %5019, %5015, %5011, %5007, %5001, %4995, %4991, %4989, %4985, %4981, %4978, %4974, %4973, %4969, %4965, %4961, %4957, %4955, %4931, %4927, %4916, %4905, %4899, %4884, %4878, %4874, %4869, %4861, %4857, %4856, %4855, %4854, %4851, %4846, %4842, %4838, %4834, %4793, %4315, %3877, %3865, %3857, %3849, %3845, %3840, %3831, %3819, %3810, %3804, %3799, %3794, %3790, %3785, %3780, %3766, %3752, %3738, %3724, %3710, %3696, %3682, %3678, %3670, %3662, %3651, %3647, %3646, %3626, %3607, %3599, %3591, %3572, %3553, %3534, %3515, %3496, %3477, %3466, %3455, %3450, %3445, %3426, %3407, %3388, %3369, %3350, %3331, %3312, %3293, %3285, %3266, %3247, %3228, %3209, %3190, %3182, %3174, %3166, %3158, %3153, %3148, %3143, %3138, %3130, %3111, %3092, %3073, %3054, %3035, %3016, %2997, %2978, %2959, %2940, %2921, %2902, %2897, %2889, %2881, %2869, %2857, %2853, %2839, %2835, %2827, %2799, %2795, %2790, %2782, %2778, %2777, %2772, %2767, %2759, %2756, %2736, %2711, %2689, %2681, %2678, %2658, %2639, %2631, %2630, %2629, %2628, %2627, %2626, %2625, %2624, %2615, %2609, %2608, %2591, %2590, %2573, %2572, %2571, %2558, %2557, %2549, %2545, %2540, %2539, %2515, %2483, %2468, %2460, %2456, %2452, %2444, %2439, %2435, %2434, %2433, %2425, %2420, %2412, %2404, %2400, %2396, %2349, %2335, %2324, %2310, %2308, %2300, %2292, %2287, %2282, %2274, %2268, %2263, %2255, %2250, %2242, %2238, %2230, %2225, %2223, %2219, %2217, %2213, %2212, %2204, %2196, %2188, %2180, %2176, %2172, %2168, %2161, %2154, %2150, %2146, %2136, %2132, %2124, %2116, %2108, %2100, %2096, %2092, %2085, %2081, %2077, %2073, %2063, %2059, %2055, %2054, %2041, %1996, %1966, %1956, %1952, %1944, %1936, %1931, %1929, %1925, %1916, %1912, %1900, %1891, %1882, %1878, %1866, %1857, %1853, %1849, %1841, %1836, %1831, %1823, %1815, %1810, %1806, %1804, %1796, %1787, %1775, %1773, %1769, %1765, %1761, %1757, %1753, %1749, %1745, %1741, %1737, %1733, %1727, %1721, %1716, %1712, %1708, %1707, %1703, %1702, %1698, %1697, %1693, %1692, %1689, %1668, %1667, %1637, %1633, %1606, %1602, %1578, %1574, %1573, %1572, %1571, %1567, %1566, %1565, %1550, %1539, %1521, %1491, %1487, %1453, %1449, %1448, %1447, %1446, %1445, %1402, %1400, %1389, %1384, %1376, %1371, %1367, %1366, %1362, %1361, %1353, %1348, %1333, %1331, %1326, %1321, %1310, %1309, %1301, %1300, %1280, %1269, %1265, %1261, %1256, %1252, %1248, %1244, %1239, %1234, %1229, %1221, %1207, %1199, %1191, %1187, %1183, %1179, %1168, %1164, %1160, %1158, %1150, %1145, %1137, %1129, %1124, %1116, %1111, %1101, %1095, %1090, %1082, %1077, %1069, %1064, %1056, %1048, %1040, %1039, %1038, %1034, %1024, %1018, %1008, %1004, %999, %998, %954, %953, %916, %872, %864, %860, %856, %852, %848, %844, %840, %836, %828, %823, %819, %811, %806, %798, %793, %787, %781, %775, %769, %765, %761, %757, %753, %749, %745, %743, %735, %733, %722, %717
+  %5693 = load i32, ptr %492, align 4
+  %5694 = load ptr, ptr %484, align 8
+  %5695 = sext i32 %5693 to i64
+  %5696 = sub i64 0, %5695
+  %5697 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5694, i64 %5696
+  store ptr %5697, ptr %484, align 8
+  %5698 = load i32, ptr %492, align 4
+  %5699 = load ptr, ptr %481, align 8
+  %5700 = sext i32 %5698 to i64
+  %5701 = sub i64 0, %5700
+  %5702 = getelementptr inbounds i16, ptr %5699, i64 %5701
+  store ptr %5702, ptr %481, align 8
   store i32 0, ptr %492, align 4
-  %5667 = load ptr, ptr %484, align 8
-  %5668 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5667, i32 1
-  store ptr %5668, ptr %484, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5668, ptr align 8 %488, i64 8, i1 false)
-  %5669 = load i32, ptr %485, align 4
-  %5670 = sext i32 %5669 to i64
-  %5671 = getelementptr inbounds [597 x i16], ptr @yyr1, i64 0, i64 %5670
-  %5672 = load i16, ptr %5671, align 2
-  %5673 = sext i16 %5672 to i32
-  %5674 = sub nsw i32 %5673, 179
-  store i32 %5674, ptr %509, align 4
-  %5675 = load i32, ptr %509, align 4
-  %5676 = sext i32 %5675 to i64
-  %5677 = getelementptr inbounds [177 x i16], ptr @yypgoto, i64 0, i64 %5676
-  %5678 = load i16, ptr %5677, align 2
-  %5679 = sext i16 %5678 to i32
-  %5680 = load ptr, ptr %481, align 8
-  %5681 = load i16, ptr %5680, align 2
-  %5682 = sext i16 %5681 to i32
-  %5683 = add nsw i32 %5679, %5682
-  store i32 %5683, ptr %510, align 4
-  %5684 = load i32, ptr %510, align 4
-  %5685 = icmp sle i32 0, %5684
-  br i1 %5685, label %5686, label %5705
+  %5703 = load ptr, ptr %484, align 8
+  %5704 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5703, i32 1
+  store ptr %5704, ptr %484, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5704, ptr align 8 %488, i64 8, i1 false)
+  %5705 = load i32, ptr %485, align 4
+  %5706 = sext i32 %5705 to i64
+  %5707 = getelementptr inbounds [597 x i16], ptr @yyr1, i64 0, i64 %5706
+  %5708 = load i16, ptr %5707, align 2
+  %5709 = sext i16 %5708 to i32
+  %5710 = sub nsw i32 %5709, 179
+  store i32 %5710, ptr %509, align 4
+  %5711 = load i32, ptr %509, align 4
+  %5712 = sext i32 %5711 to i64
+  %5713 = getelementptr inbounds [177 x i16], ptr @yypgoto, i64 0, i64 %5712
+  %5714 = load i16, ptr %5713, align 2
+  %5715 = sext i16 %5714 to i32
+  %5716 = load ptr, ptr %481, align 8
+  %5717 = load i16, ptr %5716, align 2
+  %5718 = sext i16 %5717 to i32
+  %5719 = add nsw i32 %5715, %5718
+  store i32 %5719, ptr %510, align 4
+  %5720 = load i32, ptr %510, align 4
+  %5721 = icmp sle i32 0, %5720
+  br i1 %5721, label %5722, label %5741
 
-5686:                                             ; preds = %5656
-  %5687 = load i32, ptr %510, align 4
-  %5688 = icmp sle i32 %5687, 9776
-  br i1 %5688, label %5689, label %5705
+5722:                                             ; preds = %5692
+  %5723 = load i32, ptr %510, align 4
+  %5724 = icmp sle i32 %5723, 9776
+  br i1 %5724, label %5725, label %5741
 
-5689:                                             ; preds = %5686
-  %5690 = load i32, ptr %510, align 4
-  %5691 = sext i32 %5690 to i64
-  %5692 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %5691
-  %5693 = load i16, ptr %5692, align 2
-  %5694 = sext i16 %5693 to i32
-  %5695 = load ptr, ptr %481, align 8
-  %5696 = load i16, ptr %5695, align 2
-  %5697 = sext i16 %5696 to i32
-  %5698 = icmp eq i32 %5694, %5697
-  br i1 %5698, label %5699, label %5705
+5725:                                             ; preds = %5722
+  %5726 = load i32, ptr %510, align 4
+  %5727 = sext i32 %5726 to i64
+  %5728 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %5727
+  %5729 = load i16, ptr %5728, align 2
+  %5730 = sext i16 %5729 to i32
+  %5731 = load ptr, ptr %481, align 8
+  %5732 = load i16, ptr %5731, align 2
+  %5733 = sext i16 %5732 to i32
+  %5734 = icmp eq i32 %5730, %5733
+  br i1 %5734, label %5735, label %5741
 
-5699:                                             ; preds = %5689
-  %5700 = load i32, ptr %510, align 4
-  %5701 = sext i32 %5700 to i64
-  %5702 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %5701
-  %5703 = load i16, ptr %5702, align 2
-  %5704 = sext i16 %5703 to i32
-  br label %5711
+5735:                                             ; preds = %5725
+  %5736 = load i32, ptr %510, align 4
+  %5737 = sext i32 %5736 to i64
+  %5738 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %5737
+  %5739 = load i16, ptr %5738, align 2
+  %5740 = sext i16 %5739 to i32
+  br label %5747
 
-5705:                                             ; preds = %5689, %5686, %5656
-  %5706 = load i32, ptr %509, align 4
-  %5707 = sext i32 %5706 to i64
-  %5708 = getelementptr inbounds [177 x i16], ptr @yydefgoto, i64 0, i64 %5707
-  %5709 = load i16, ptr %5708, align 2
-  %5710 = sext i16 %5709 to i32
-  br label %5711
+5741:                                             ; preds = %5725, %5722, %5692
+  %5742 = load i32, ptr %509, align 4
+  %5743 = sext i32 %5742 to i64
+  %5744 = getelementptr inbounds [177 x i16], ptr @yydefgoto, i64 0, i64 %5743
+  %5745 = load i16, ptr %5744, align 2
+  %5746 = sext i16 %5745 to i32
+  br label %5747
 
-5711:                                             ; preds = %5705, %5699
-  %5712 = phi i32 [ %5704, %5699 ], [ %5710, %5705 ]
-  store i32 %5712, ptr %476, align 4
+5747:                                             ; preds = %5741, %5735
+  %5748 = phi i32 [ %5740, %5735 ], [ %5746, %5741 ]
+  store i32 %5748, ptr %476, align 4
   br label %519
 
-5713:                                             ; preds = %703, %681
-  %5714 = load i32, ptr %473, align 4
-  %5715 = icmp eq i32 %5714, -2
-  br i1 %5715, label %5716, label %5717
+5749:                                             ; preds = %703, %681
+  %5750 = load i32, ptr %473, align 4
+  %5751 = icmp eq i32 %5750, -2
+  br i1 %5751, label %5752, label %5753
 
-5716:                                             ; preds = %5713
-  br label %5732
-
-5717:                                             ; preds = %5713
-  %5718 = load i32, ptr %473, align 4
-  %5719 = icmp sle i32 0, %5718
-  br i1 %5719, label %5720, label %5729
-
-5720:                                             ; preds = %5717
-  %5721 = load i32, ptr %473, align 4
-  %5722 = icmp sle i32 %5721, 406
-  br i1 %5722, label %5723, label %5729
-
-5723:                                             ; preds = %5720
-  %5724 = load i32, ptr %473, align 4
-  %5725 = sext i32 %5724 to i64
-  %5726 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %5725
-  %5727 = load i8, ptr %5726, align 1
-  %5728 = zext i8 %5727 to i32
-  br label %5730
-
-5729:                                             ; preds = %5720, %5717
-  br label %5730
-
-5730:                                             ; preds = %5729, %5723
-  %5731 = phi i32 [ %5728, %5723 ], [ 2, %5729 ]
-  br label %5732
-
-5732:                                             ; preds = %5730, %5716
-  %5733 = phi i32 [ -2, %5716 ], [ %5731, %5730 ]
-  store i32 %5733, ptr %487, align 4
-  %5734 = load i32, ptr %477, align 4
-  %5735 = icmp ne i32 %5734, 0
-  br i1 %5735, label %5775, label %5736
-
-5736:                                             ; preds = %5732
-  %5737 = load i32, ptr %475, align 4
-  %5738 = add nsw i32 %5737, 1
-  store i32 %5738, ptr %475, align 4
-  %5739 = getelementptr inbounds %struct.yypcontext_t, ptr %511, i32 0, i32 0
-  %5740 = load ptr, ptr %481, align 8
-  store ptr %5740, ptr %5739, align 8
-  %5741 = getelementptr inbounds %struct.yypcontext_t, ptr %511, i32 0, i32 1
-  %5742 = load i32, ptr %487, align 4
-  store i32 %5742, ptr %5741, align 8
-  store ptr @.str.2, ptr %512, align 8
-  %5743 = call i32 @yysyntax_error(ptr noundef %491, ptr noundef %490, ptr noundef %511)
-  store i32 %5743, ptr %513, align 4
-  %5744 = load i32, ptr %513, align 4
-  %5745 = icmp eq i32 %5744, 0
-  br i1 %5745, label %5746, label %5748
-
-5746:                                             ; preds = %5736
-  %5747 = load ptr, ptr %490, align 8
-  store ptr %5747, ptr %512, align 8
-  br label %5769
-
-5748:                                             ; preds = %5736
-  %5749 = load i32, ptr %513, align 4
-  %5750 = icmp eq i32 %5749, -1
-  br i1 %5750, label %5751, label %5768
-
-5751:                                             ; preds = %5748
-  %5752 = load ptr, ptr %490, align 8
-  %5753 = getelementptr inbounds [128 x i8], ptr %489, i64 0, i64 0
-  %5754 = icmp ne ptr %5752, %5753
-  br i1 %5754, label %5755, label %5757
-
-5755:                                             ; preds = %5751
-  %5756 = load ptr, ptr %490, align 8
-  call void @free(ptr noundef %5756) #10
-  br label %5757
-
-5757:                                             ; preds = %5755, %5751
-  %5758 = load i64, ptr %491, align 8
-  %5759 = call noalias ptr @malloc(i64 noundef %5758) #9
-  store ptr %5759, ptr %490, align 8
-  %5760 = load ptr, ptr %490, align 8
-  %5761 = icmp ne ptr %5760, null
-  br i1 %5761, label %5762, label %5765
-
-5762:                                             ; preds = %5757
-  %5763 = call i32 @yysyntax_error(ptr noundef %491, ptr noundef %490, ptr noundef %511)
-  store i32 %5763, ptr %513, align 4
-  %5764 = load ptr, ptr %490, align 8
-  store ptr %5764, ptr %512, align 8
-  br label %5767
-
-5765:                                             ; preds = %5757
-  %5766 = getelementptr inbounds [128 x i8], ptr %489, i64 0, i64 0
-  store ptr %5766, ptr %490, align 8
-  store i64 128, ptr %491, align 8
-  store i32 -2, ptr %513, align 4
-  br label %5767
-
-5767:                                             ; preds = %5765, %5762
+5752:                                             ; preds = %5749
   br label %5768
 
-5768:                                             ; preds = %5767, %5748
-  br label %5769
+5753:                                             ; preds = %5749
+  %5754 = load i32, ptr %473, align 4
+  %5755 = icmp sle i32 0, %5754
+  br i1 %5755, label %5756, label %5765
 
-5769:                                             ; preds = %5768, %5746
-  %5770 = load ptr, ptr %512, align 8
-  call void @zenderror(ptr noundef %5770)
-  %5771 = load i32, ptr %513, align 4
-  %5772 = icmp eq i32 %5771, -2
-  br i1 %5772, label %5773, label %5774
+5756:                                             ; preds = %5753
+  %5757 = load i32, ptr %473, align 4
+  %5758 = icmp sle i32 %5757, 406
+  br i1 %5758, label %5759, label %5765
 
-5773:                                             ; preds = %5769
-  br label %5866
+5759:                                             ; preds = %5756
+  %5760 = load i32, ptr %473, align 4
+  %5761 = sext i32 %5760 to i64
+  %5762 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %5761
+  %5763 = load i8, ptr %5762, align 1
+  %5764 = zext i8 %5763 to i32
+  br label %5766
 
-5774:                                             ; preds = %5769
-  br label %5775
+5765:                                             ; preds = %5756, %5753
+  br label %5766
 
-5775:                                             ; preds = %5774, %5732
-  %5776 = load i32, ptr %477, align 4
-  %5777 = icmp eq i32 %5776, 3
-  br i1 %5777, label %5778, label %5789
+5766:                                             ; preds = %5765, %5759
+  %5767 = phi i32 [ %5764, %5759 ], [ 2, %5765 ]
+  br label %5768
 
-5778:                                             ; preds = %5775
-  %5779 = load i32, ptr %473, align 4
-  %5780 = icmp sle i32 %5779, 0
-  br i1 %5780, label %5781, label %5786
+5768:                                             ; preds = %5766, %5752
+  %5769 = phi i32 [ -2, %5752 ], [ %5767, %5766 ]
+  store i32 %5769, ptr %487, align 4
+  %5770 = load i32, ptr %477, align 4
+  %5771 = icmp ne i32 %5770, 0
+  br i1 %5771, label %5811, label %5772
 
-5781:                                             ; preds = %5778
-  %5782 = load i32, ptr %473, align 4
-  %5783 = icmp eq i32 %5782, 0
-  br i1 %5783, label %5784, label %5785
+5772:                                             ; preds = %5768
+  %5773 = load i32, ptr %475, align 4
+  %5774 = add nsw i32 %5773, 1
+  store i32 %5774, ptr %475, align 4
+  %5775 = getelementptr inbounds %struct.yypcontext_t, ptr %511, i32 0, i32 0
+  %5776 = load ptr, ptr %481, align 8
+  store ptr %5776, ptr %5775, align 8
+  %5777 = getelementptr inbounds %struct.yypcontext_t, ptr %511, i32 0, i32 1
+  %5778 = load i32, ptr %487, align 4
+  store i32 %5778, ptr %5777, align 8
+  store ptr @.str.2, ptr %512, align 8
+  %5779 = call i32 @yysyntax_error(ptr noundef %491, ptr noundef %490, ptr noundef %511)
+  store i32 %5779, ptr %513, align 4
+  %5780 = load i32, ptr %513, align 4
+  %5781 = icmp eq i32 %5780, 0
+  br i1 %5781, label %5782, label %5784
 
-5784:                                             ; preds = %5781
-  br label %5865
+5782:                                             ; preds = %5772
+  %5783 = load ptr, ptr %490, align 8
+  store ptr %5783, ptr %512, align 8
+  br label %5805
 
-5785:                                             ; preds = %5781
-  br label %5788
+5784:                                             ; preds = %5772
+  %5785 = load i32, ptr %513, align 4
+  %5786 = icmp eq i32 %5785, -1
+  br i1 %5786, label %5787, label %5804
 
-5786:                                             ; preds = %5778
-  %5787 = load i32, ptr %487, align 4
-  call void @yydestruct(ptr noundef @.str.3, i32 noundef %5787, ptr noundef %474)
+5787:                                             ; preds = %5784
+  %5788 = load ptr, ptr %490, align 8
+  %5789 = getelementptr inbounds [128 x i8], ptr %489, i64 0, i64 0
+  %5790 = icmp ne ptr %5788, %5789
+  br i1 %5790, label %5791, label %5793
+
+5791:                                             ; preds = %5787
+  %5792 = load ptr, ptr %490, align 8
+  call void @free(ptr noundef %5792) #10
+  br label %5793
+
+5793:                                             ; preds = %5791, %5787
+  %5794 = load i64, ptr %491, align 8
+  %5795 = call noalias ptr @malloc(i64 noundef %5794) #9
+  store ptr %5795, ptr %490, align 8
+  %5796 = load ptr, ptr %490, align 8
+  %5797 = icmp ne ptr %5796, null
+  br i1 %5797, label %5798, label %5801
+
+5798:                                             ; preds = %5793
+  %5799 = call i32 @yysyntax_error(ptr noundef %491, ptr noundef %490, ptr noundef %511)
+  store i32 %5799, ptr %513, align 4
+  %5800 = load ptr, ptr %490, align 8
+  store ptr %5800, ptr %512, align 8
+  br label %5803
+
+5801:                                             ; preds = %5793
+  %5802 = getelementptr inbounds [128 x i8], ptr %489, i64 0, i64 0
+  store ptr %5802, ptr %490, align 8
+  store i64 128, ptr %491, align 8
+  store i32 -2, ptr %513, align 4
+  br label %5803
+
+5803:                                             ; preds = %5801, %5798
+  br label %5804
+
+5804:                                             ; preds = %5803, %5784
+  br label %5805
+
+5805:                                             ; preds = %5804, %5782
+  %5806 = load ptr, ptr %512, align 8
+  call void @zenderror(ptr noundef %5806)
+  %5807 = load i32, ptr %513, align 4
+  %5808 = icmp eq i32 %5807, -2
+  br i1 %5808, label %5809, label %5810
+
+5809:                                             ; preds = %5805
+  br label %5902
+
+5810:                                             ; preds = %5805
+  br label %5811
+
+5811:                                             ; preds = %5810, %5768
+  %5812 = load i32, ptr %477, align 4
+  %5813 = icmp eq i32 %5812, 3
+  br i1 %5813, label %5814, label %5825
+
+5814:                                             ; preds = %5811
+  %5815 = load i32, ptr %473, align 4
+  %5816 = icmp sle i32 %5815, 0
+  br i1 %5816, label %5817, label %5822
+
+5817:                                             ; preds = %5814
+  %5818 = load i32, ptr %473, align 4
+  %5819 = icmp eq i32 %5818, 0
+  br i1 %5819, label %5820, label %5821
+
+5820:                                             ; preds = %5817
+  br label %5901
+
+5821:                                             ; preds = %5817
+  br label %5824
+
+5822:                                             ; preds = %5814
+  %5823 = load i32, ptr %487, align 4
+  call void @yydestruct(ptr noundef @.str.3, i32 noundef %5823, ptr noundef %474)
   store i32 -2, ptr %473, align 4
-  br label %5788
+  br label %5824
 
-5788:                                             ; preds = %5786, %5785
-  br label %5789
+5824:                                             ; preds = %5822, %5821
+  br label %5825
 
-5789:                                             ; preds = %5788, %5775
-  br label %5806
+5825:                                             ; preds = %5824, %5811
+  br label %5842
 
-5790:                                             ; preds = %2583, %2565, %2553, %2520, %2496, %1949, %1551, %1536, %1525, %1289, %1166
-  %5791 = load i32, ptr %475, align 4
-  %5792 = add nsw i32 %5791, 1
-  store i32 %5792, ptr %475, align 4
-  %5793 = load i32, ptr %492, align 4
-  %5794 = load ptr, ptr %484, align 8
-  %5795 = sext i32 %5793 to i64
-  %5796 = sub i64 0, %5795
-  %5797 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5794, i64 %5796
-  store ptr %5797, ptr %484, align 8
-  %5798 = load i32, ptr %492, align 4
-  %5799 = load ptr, ptr %481, align 8
-  %5800 = sext i32 %5798 to i64
-  %5801 = sub i64 0, %5800
-  %5802 = getelementptr inbounds i16, ptr %5799, i64 %5801
-  store ptr %5802, ptr %481, align 8
+5826:                                             ; preds = %2600, %2582, %2570, %2537, %2513, %1965, %1564, %1549, %1538, %1299, %1176
+  %5827 = load i32, ptr %475, align 4
+  %5828 = add nsw i32 %5827, 1
+  store i32 %5828, ptr %475, align 4
+  %5829 = load i32, ptr %492, align 4
+  %5830 = load ptr, ptr %484, align 8
+  %5831 = sext i32 %5829 to i64
+  %5832 = sub i64 0, %5831
+  %5833 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5830, i64 %5832
+  store ptr %5833, ptr %484, align 8
+  %5834 = load i32, ptr %492, align 4
+  %5835 = load ptr, ptr %481, align 8
+  %5836 = sext i32 %5834 to i64
+  %5837 = sub i64 0, %5836
+  %5838 = getelementptr inbounds i16, ptr %5835, i64 %5837
+  store ptr %5838, ptr %481, align 8
   store i32 0, ptr %492, align 4
-  %5803 = load ptr, ptr %481, align 8
-  %5804 = load i16, ptr %5803, align 2
-  %5805 = sext i16 %5804 to i32
-  store i32 %5805, ptr %476, align 4
-  br label %5806
+  %5839 = load ptr, ptr %481, align 8
+  %5840 = load i16, ptr %5839, align 2
+  %5841 = sext i16 %5840 to i32
+  store i32 %5841, ptr %476, align 4
+  br label %5842
 
-5806:                                             ; preds = %5790, %5789, %635
+5842:                                             ; preds = %5826, %5825, %635
   store i32 3, ptr %477, align 4
-  br label %5807
+  br label %5843
 
-5807:                                             ; preds = %5846, %5806
-  %5808 = load i32, ptr %476, align 4
-  %5809 = sext i32 %5808 to i64
-  %5810 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %5809
-  %5811 = load i16, ptr %5810, align 2
-  %5812 = sext i16 %5811 to i32
-  store i32 %5812, ptr %485, align 4
-  %5813 = load i32, ptr %485, align 4
-  %5814 = icmp eq i32 %5813, -901
-  br i1 %5814, label %5841, label %5815
+5843:                                             ; preds = %5882, %5842
+  %5844 = load i32, ptr %476, align 4
+  %5845 = sext i32 %5844 to i64
+  %5846 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %5845
+  %5847 = load i16, ptr %5846, align 2
+  %5848 = sext i16 %5847 to i32
+  store i32 %5848, ptr %485, align 4
+  %5849 = load i32, ptr %485, align 4
+  %5850 = icmp eq i32 %5849, -901
+  br i1 %5850, label %5877, label %5851
 
-5815:                                             ; preds = %5807
-  %5816 = load i32, ptr %485, align 4
-  %5817 = add nsw i32 %5816, 1
-  store i32 %5817, ptr %485, align 4
-  %5818 = load i32, ptr %485, align 4
-  %5819 = icmp sle i32 0, %5818
-  br i1 %5819, label %5820, label %5840
+5851:                                             ; preds = %5843
+  %5852 = load i32, ptr %485, align 4
+  %5853 = add nsw i32 %5852, 1
+  store i32 %5853, ptr %485, align 4
+  %5854 = load i32, ptr %485, align 4
+  %5855 = icmp sle i32 0, %5854
+  br i1 %5855, label %5856, label %5876
 
-5820:                                             ; preds = %5815
-  %5821 = load i32, ptr %485, align 4
-  %5822 = icmp sle i32 %5821, 9776
-  br i1 %5822, label %5823, label %5840
+5856:                                             ; preds = %5851
+  %5857 = load i32, ptr %485, align 4
+  %5858 = icmp sle i32 %5857, 9776
+  br i1 %5858, label %5859, label %5876
 
-5823:                                             ; preds = %5820
-  %5824 = load i32, ptr %485, align 4
-  %5825 = sext i32 %5824 to i64
-  %5826 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %5825
-  %5827 = load i16, ptr %5826, align 2
-  %5828 = sext i16 %5827 to i32
-  %5829 = icmp eq i32 %5828, 1
-  br i1 %5829, label %5830, label %5840
+5859:                                             ; preds = %5856
+  %5860 = load i32, ptr %485, align 4
+  %5861 = sext i32 %5860 to i64
+  %5862 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %5861
+  %5863 = load i16, ptr %5862, align 2
+  %5864 = sext i16 %5863 to i32
+  %5865 = icmp eq i32 %5864, 1
+  br i1 %5865, label %5866, label %5876
 
-5830:                                             ; preds = %5823
-  %5831 = load i32, ptr %485, align 4
-  %5832 = sext i32 %5831 to i64
-  %5833 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %5832
-  %5834 = load i16, ptr %5833, align 2
-  %5835 = sext i16 %5834 to i32
-  store i32 %5835, ptr %485, align 4
-  %5836 = load i32, ptr %485, align 4
-  %5837 = icmp slt i32 0, %5836
-  br i1 %5837, label %5838, label %5839
+5866:                                             ; preds = %5859
+  %5867 = load i32, ptr %485, align 4
+  %5868 = sext i32 %5867 to i64
+  %5869 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %5868
+  %5870 = load i16, ptr %5869, align 2
+  %5871 = sext i16 %5870 to i32
+  store i32 %5871, ptr %485, align 4
+  %5872 = load i32, ptr %485, align 4
+  %5873 = icmp slt i32 0, %5872
+  br i1 %5873, label %5874, label %5875
 
-5838:                                             ; preds = %5830
-  br label %5860
+5874:                                             ; preds = %5866
+  br label %5896
 
-5839:                                             ; preds = %5830
-  br label %5840
+5875:                                             ; preds = %5866
+  br label %5876
 
-5840:                                             ; preds = %5839, %5823, %5820, %5815
-  br label %5841
+5876:                                             ; preds = %5875, %5859, %5856, %5851
+  br label %5877
 
-5841:                                             ; preds = %5840, %5807
-  %5842 = load ptr, ptr %481, align 8
-  %5843 = load ptr, ptr %480, align 8
-  %5844 = icmp eq ptr %5842, %5843
-  br i1 %5844, label %5845, label %5846
+5877:                                             ; preds = %5876, %5843
+  %5878 = load ptr, ptr %481, align 8
+  %5879 = load ptr, ptr %480, align 8
+  %5880 = icmp eq ptr %5878, %5879
+  br i1 %5880, label %5881, label %5882
 
-5845:                                             ; preds = %5841
-  br label %5865
+5881:                                             ; preds = %5877
+  br label %5901
 
-5846:                                             ; preds = %5841
-  %5847 = load i32, ptr %476, align 4
-  %5848 = sext i32 %5847 to i64
-  %5849 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %5848
-  %5850 = load i16, ptr %5849, align 2
-  %5851 = sext i16 %5850 to i32
-  %5852 = load ptr, ptr %484, align 8
-  call void @yydestruct(ptr noundef @.str.4, i32 noundef %5851, ptr noundef %5852)
-  %5853 = load ptr, ptr %484, align 8
-  %5854 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5853, i64 -1
-  store ptr %5854, ptr %484, align 8
-  %5855 = load ptr, ptr %481, align 8
-  %5856 = getelementptr inbounds i16, ptr %5855, i64 -1
-  store ptr %5856, ptr %481, align 8
-  %5857 = load ptr, ptr %481, align 8
-  %5858 = load i16, ptr %5857, align 2
-  %5859 = sext i16 %5858 to i32
-  store i32 %5859, ptr %476, align 4
-  br label %5807
+5882:                                             ; preds = %5877
+  %5883 = load i32, ptr %476, align 4
+  %5884 = sext i32 %5883 to i64
+  %5885 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %5884
+  %5886 = load i16, ptr %5885, align 2
+  %5887 = sext i16 %5886 to i32
+  %5888 = load ptr, ptr %484, align 8
+  call void @yydestruct(ptr noundef @.str.4, i32 noundef %5887, ptr noundef %5888)
+  %5889 = load ptr, ptr %484, align 8
+  %5890 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5889, i64 -1
+  store ptr %5890, ptr %484, align 8
+  %5891 = load ptr, ptr %481, align 8
+  %5892 = getelementptr inbounds i16, ptr %5891, i64 -1
+  store ptr %5892, ptr %481, align 8
+  %5893 = load ptr, ptr %481, align 8
+  %5894 = load i16, ptr %5893, align 2
+  %5895 = sext i16 %5894 to i32
+  store i32 %5895, ptr %476, align 4
+  br label %5843
 
-5860:                                             ; preds = %5838
-  %5861 = load ptr, ptr %484, align 8
-  %5862 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5861, i32 1
-  store ptr %5862, ptr %484, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5862, ptr align 8 %474, i64 8, i1 false)
-  %5863 = load i32, ptr %485, align 4
-  store i32 %5863, ptr %476, align 4
+5896:                                             ; preds = %5874
+  %5897 = load ptr, ptr %484, align 8
+  %5898 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5897, i32 1
+  store ptr %5898, ptr %484, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5898, ptr align 8 %474, i64 8, i1 false)
+  %5899 = load i32, ptr %485, align 4
+  store i32 %5899, ptr %476, align 4
   br label %519
 
-5864:                                             ; preds = %612
+5900:                                             ; preds = %612
   store i32 0, ptr %486, align 4
-  br label %5867
+  br label %5903
 
-5865:                                             ; preds = %5845, %5784, %4863, %2703, %2465, %1389, %731, %607
+5901:                                             ; preds = %5881, %5820, %4898, %2720, %2482, %1399, %732, %607
   store i32 1, ptr %486, align 4
-  br label %5867
+  br label %5903
 
-5866:                                             ; preds = %5773, %557, %542
+5902:                                             ; preds = %5809, %557, %542
   call void @zenderror(ptr noundef @.str.5)
   store i32 2, ptr %486, align 4
-  br label %5867
+  br label %5903
 
-5867:                                             ; preds = %5866, %5865, %5864
-  %5868 = load i32, ptr %473, align 4
-  %5869 = icmp ne i32 %5868, -2
-  br i1 %5869, label %5870, label %5886
+5903:                                             ; preds = %5902, %5901, %5900
+  %5904 = load i32, ptr %473, align 4
+  %5905 = icmp ne i32 %5904, -2
+  br i1 %5905, label %5906, label %5922
 
-5870:                                             ; preds = %5867
-  %5871 = load i32, ptr %473, align 4
-  %5872 = icmp sle i32 0, %5871
-  br i1 %5872, label %5873, label %5882
+5906:                                             ; preds = %5903
+  %5907 = load i32, ptr %473, align 4
+  %5908 = icmp sle i32 0, %5907
+  br i1 %5908, label %5909, label %5918
 
-5873:                                             ; preds = %5870
-  %5874 = load i32, ptr %473, align 4
-  %5875 = icmp sle i32 %5874, 406
-  br i1 %5875, label %5876, label %5882
+5909:                                             ; preds = %5906
+  %5910 = load i32, ptr %473, align 4
+  %5911 = icmp sle i32 %5910, 406
+  br i1 %5911, label %5912, label %5918
 
-5876:                                             ; preds = %5873
-  %5877 = load i32, ptr %473, align 4
-  %5878 = sext i32 %5877 to i64
-  %5879 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %5878
-  %5880 = load i8, ptr %5879, align 1
-  %5881 = zext i8 %5880 to i32
-  br label %5883
+5912:                                             ; preds = %5909
+  %5913 = load i32, ptr %473, align 4
+  %5914 = sext i32 %5913 to i64
+  %5915 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %5914
+  %5916 = load i8, ptr %5915, align 1
+  %5917 = zext i8 %5916 to i32
+  br label %5919
 
-5882:                                             ; preds = %5873, %5870
-  br label %5883
+5918:                                             ; preds = %5909, %5906
+  br label %5919
 
-5883:                                             ; preds = %5882, %5876
-  %5884 = phi i32 [ %5881, %5876 ], [ 2, %5882 ]
-  store i32 %5884, ptr %487, align 4
-  %5885 = load i32, ptr %487, align 4
-  call void @yydestruct(ptr noundef @.str.6, i32 noundef %5885, ptr noundef %474)
-  br label %5886
+5919:                                             ; preds = %5918, %5912
+  %5920 = phi i32 [ %5917, %5912 ], [ 2, %5918 ]
+  store i32 %5920, ptr %487, align 4
+  %5921 = load i32, ptr %487, align 4
+  call void @yydestruct(ptr noundef @.str.6, i32 noundef %5921, ptr noundef %474)
+  br label %5922
 
-5886:                                             ; preds = %5883, %5867
-  %5887 = load i32, ptr %492, align 4
-  %5888 = load ptr, ptr %484, align 8
-  %5889 = sext i32 %5887 to i64
-  %5890 = sub i64 0, %5889
-  %5891 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5888, i64 %5890
-  store ptr %5891, ptr %484, align 8
-  %5892 = load i32, ptr %492, align 4
-  %5893 = load ptr, ptr %481, align 8
-  %5894 = sext i32 %5892 to i64
-  %5895 = sub i64 0, %5894
-  %5896 = getelementptr inbounds i16, ptr %5893, i64 %5895
-  store ptr %5896, ptr %481, align 8
-  br label %5897
+5922:                                             ; preds = %5919, %5903
+  %5923 = load i32, ptr %492, align 4
+  %5924 = load ptr, ptr %484, align 8
+  %5925 = sext i32 %5923 to i64
+  %5926 = sub i64 0, %5925
+  %5927 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5924, i64 %5926
+  store ptr %5927, ptr %484, align 8
+  %5928 = load i32, ptr %492, align 4
+  %5929 = load ptr, ptr %481, align 8
+  %5930 = sext i32 %5928 to i64
+  %5931 = sub i64 0, %5930
+  %5932 = getelementptr inbounds i16, ptr %5929, i64 %5931
+  store ptr %5932, ptr %481, align 8
+  br label %5933
 
-5897:                                             ; preds = %5901, %5886
-  %5898 = load ptr, ptr %481, align 8
-  %5899 = load ptr, ptr %480, align 8
-  %5900 = icmp ne ptr %5898, %5899
-  br i1 %5900, label %5901, label %5914
+5933:                                             ; preds = %5937, %5922
+  %5934 = load ptr, ptr %481, align 8
+  %5935 = load ptr, ptr %480, align 8
+  %5936 = icmp ne ptr %5934, %5935
+  br i1 %5936, label %5937, label %5950
 
-5901:                                             ; preds = %5897
-  %5902 = load ptr, ptr %481, align 8
-  %5903 = load i16, ptr %5902, align 2
-  %5904 = sext i16 %5903 to i32
-  %5905 = sext i32 %5904 to i64
-  %5906 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %5905
-  %5907 = load i16, ptr %5906, align 2
-  %5908 = sext i16 %5907 to i32
-  %5909 = load ptr, ptr %484, align 8
-  call void @yydestruct(ptr noundef @.str.7, i32 noundef %5908, ptr noundef %5909)
-  %5910 = load ptr, ptr %484, align 8
-  %5911 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5910, i64 -1
-  store ptr %5911, ptr %484, align 8
-  %5912 = load ptr, ptr %481, align 8
-  %5913 = getelementptr inbounds i16, ptr %5912, i64 -1
-  store ptr %5913, ptr %481, align 8
-  br label %5897
+5937:                                             ; preds = %5933
+  %5938 = load ptr, ptr %481, align 8
+  %5939 = load i16, ptr %5938, align 2
+  %5940 = sext i16 %5939 to i32
+  %5941 = sext i32 %5940 to i64
+  %5942 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %5941
+  %5943 = load i16, ptr %5942, align 2
+  %5944 = sext i16 %5943 to i32
+  %5945 = load ptr, ptr %484, align 8
+  call void @yydestruct(ptr noundef @.str.7, i32 noundef %5944, ptr noundef %5945)
+  %5946 = load ptr, ptr %484, align 8
+  %5947 = getelementptr inbounds %union._zend_parser_stack_elem, ptr %5946, i64 -1
+  store ptr %5947, ptr %484, align 8
+  %5948 = load ptr, ptr %481, align 8
+  %5949 = getelementptr inbounds i16, ptr %5948, i64 -1
+  store ptr %5949, ptr %481, align 8
+  br label %5933
 
-5914:                                             ; preds = %5897
-  %5915 = load ptr, ptr %480, align 8
-  %5916 = getelementptr inbounds [200 x i16], ptr %479, i64 0, i64 0
-  %5917 = icmp ne ptr %5915, %5916
-  br i1 %5917, label %5918, label %5920
+5950:                                             ; preds = %5933
+  %5951 = load ptr, ptr %480, align 8
+  %5952 = getelementptr inbounds [200 x i16], ptr %479, i64 0, i64 0
+  %5953 = icmp ne ptr %5951, %5952
+  br i1 %5953, label %5954, label %5956
 
-5918:                                             ; preds = %5914
-  %5919 = load ptr, ptr %480, align 8
-  call void @free(ptr noundef %5919) #10
-  br label %5920
+5954:                                             ; preds = %5950
+  %5955 = load ptr, ptr %480, align 8
+  call void @free(ptr noundef %5955) #10
+  br label %5956
 
-5920:                                             ; preds = %5918, %5914
-  %5921 = load ptr, ptr %490, align 8
-  %5922 = getelementptr inbounds [128 x i8], ptr %489, i64 0, i64 0
-  %5923 = icmp ne ptr %5921, %5922
-  br i1 %5923, label %5924, label %5926
+5956:                                             ; preds = %5954, %5950
+  %5957 = load ptr, ptr %490, align 8
+  %5958 = getelementptr inbounds [128 x i8], ptr %489, i64 0, i64 0
+  %5959 = icmp ne ptr %5957, %5958
+  br i1 %5959, label %5960, label %5962
 
-5924:                                             ; preds = %5920
-  %5925 = load ptr, ptr %490, align 8
-  call void @free(ptr noundef %5925) #10
-  br label %5926
+5960:                                             ; preds = %5956
+  %5961 = load ptr, ptr %490, align 8
+  call void @free(ptr noundef %5961) #10
+  br label %5962
 
-5926:                                             ; preds = %5924, %5920
-  %5927 = load i32, ptr %486, align 4
-  ret i32 %5927
+5962:                                             ; preds = %5960, %5956
+  %5963 = load i32, ptr %486, align 4
+  ret i32 %5963
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -11624,498 +11660,507 @@ define internal i64 @zend_yytnamerr(ptr noundef %0, ptr noundef %1) #0 {
   store i64 %15, ptr %7, align 8
   %16 = load ptr, ptr %4, align 8
   %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %25
 
 18:                                               ; preds = %2
-  %19 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8), align 8
-  %20 = zext i8 %19 to i32
-  %21 = icmp slt i32 %20, 2
-  br i1 %21, label %22, label %23
+  %19 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8
+  %20 = load i8, ptr %19, align 8
+  %21 = zext i8 %20 to i32
+  %22 = icmp slt i32 %21, 2
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %18
-  store i8 2, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8), align 8
-  br label %23
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8
+  store i8 2, ptr %24, align 8
+  br label %25
 
-23:                                               ; preds = %22, %18, %2
-  %24 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8), align 8
-  %25 = zext i8 %24 to i32
-  %26 = srem i32 %25, 2
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %260
+25:                                               ; preds = %23, %18, %2
+  %26 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8
+  %27 = load i8, ptr %26, align 8
+  %28 = zext i8 %27 to i32
+  %29 = srem i32 %28, 2
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %269
 
-28:                                               ; preds = %23
-  %29 = load i8, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8), align 8
-  %30 = add i8 %29, 1
-  store i8 %30, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8), align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 4), align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 0
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %50
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8
+  %33 = load i8, ptr %32, align 8
+  %34 = add i8 %33, 1
+  %35 = getelementptr inbounds %struct._zend_compiler_globals, ptr @compiler_globals, i32 0, i32 8
+  store i8 %34, ptr %35, align 8
+  %36 = getelementptr inbounds %struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 0
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %57
 
-36:                                               ; preds = %28
-  %37 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 2), align 8
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %50
+42:                                               ; preds = %31
+  %43 = getelementptr inbounds %struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp eq i32 %44, 1
+  br i1 %45, label %46, label %57
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %6, align 8
-  %41 = call i32 @strcmp(ptr noundef %40, ptr noundef @.str.13) #11
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %50
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %6, align 8
+  %48 = call i32 @strcmp(ptr noundef %47, ptr noundef @.str.13) #11
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %57
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %4, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %49
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %4, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %56
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %4, align 8
-  %48 = call ptr @stpcpy(ptr noundef %47, ptr noundef @.str.14) #10
-  br label %49
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %4, align 8
+  %55 = call ptr @stpcpy(ptr noundef %54, ptr noundef @.str.14) #10
+  br label %56
 
-49:                                               ; preds = %46, %43
+56:                                               ; preds = %53, %50
   store i64 11, ptr %3, align 8
-  br label %321
+  br label %330
 
-50:                                               ; preds = %39, %36, %28
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @strcmp(ptr noundef %51, ptr noundef @.str.15) #11
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %61
+57:                                               ; preds = %46, %42, %31
+  %58 = load ptr, ptr %6, align 8
+  %59 = call i32 @strcmp(ptr noundef %58, ptr noundef @.str.15) #11
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %68
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %4, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %60
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %4, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %67
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %4, align 8
-  %59 = call ptr @stpcpy(ptr noundef %58, ptr noundef @.str.16) #10
-  br label %60
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %4, align 8
+  %66 = call ptr @stpcpy(ptr noundef %65, ptr noundef @.str.16) #10
+  br label %67
 
-60:                                               ; preds = %57, %54
+67:                                               ; preds = %64, %61
   store i64 9, ptr %3, align 8
-  br label %321
+  br label %330
 
-61:                                               ; preds = %50
-  %62 = load ptr, ptr %6, align 8
-  %63 = call i32 @strcmp(ptr noundef %62, ptr noundef @.str.17) #11
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %72
+68:                                               ; preds = %57
+  %69 = load ptr, ptr %6, align 8
+  %70 = call i32 @strcmp(ptr noundef %69, ptr noundef @.str.17) #11
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %79
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %4, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %71
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %4, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %78
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %4, align 8
-  %70 = call ptr @stpcpy(ptr noundef %69, ptr noundef @.str.18) #10
-  br label %71
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %4, align 8
+  %77 = call ptr @stpcpy(ptr noundef %76, ptr noundef @.str.18) #10
+  br label %78
 
-71:                                               ; preds = %68, %65
+78:                                               ; preds = %75, %72
   store i64 9, ptr %3, align 8
-  br label %321
+  br label %330
 
-72:                                               ; preds = %61
-  %73 = load ptr, ptr %6, align 8
-  %74 = call i32 @strcmp(ptr noundef %73, ptr noundef @.str.19) #11
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %83
+79:                                               ; preds = %68
+  %80 = load ptr, ptr %6, align 8
+  %81 = call i32 @strcmp(ptr noundef %80, ptr noundef @.str.19) #11
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %90
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %4, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %82
-
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %4, align 8
-  %81 = call ptr @stpcpy(ptr noundef %80, ptr noundef @.str.20) #10
-  br label %82
-
-82:                                               ; preds = %79, %76
-  store i64 17, ptr %3, align 8
-  br label %321
-
-83:                                               ; preds = %72
-  %84 = load i64, ptr %7, align 8
-  %85 = icmp uge i64 %84, 2
-  br i1 %85, label %86, label %96
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %4, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %89
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr %6, align 8
-  %88 = load i8, ptr %87, align 1
-  %89 = sext i8 %88 to i32
-  %90 = icmp eq i32 %89, 34
-  br i1 %90, label %91, label %96
+  %87 = load ptr, ptr %4, align 8
+  %88 = call ptr @stpcpy(ptr noundef %87, ptr noundef @.str.20) #10
+  br label %89
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i32 1
-  store ptr %93, ptr %6, align 8
-  %94 = load i64, ptr %7, align 8
-  %95 = sub i64 %94, 2
-  store i64 %95, ptr %7, align 8
-  br label %96
+89:                                               ; preds = %86, %83
+  store i64 17, ptr %3, align 8
+  br label %330
 
-96:                                               ; preds = %91, %86, %83
-  %97 = load i64, ptr %7, align 8
-  %98 = icmp ugt i64 %97, 0
-  br i1 %98, label %99, label %122
+90:                                               ; preds = %79
+  %91 = load i64, ptr %7, align 8
+  %92 = icmp uge i64 %91, 2
+  br i1 %92, label %93, label %103
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr %6, align 8
-  %101 = load i8, ptr %100, align 1
-  %102 = sext i8 %101 to i32
-  %103 = icmp eq i32 %102, 39
-  br i1 %103, label %104, label %122
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %6, align 8
+  %95 = load i8, ptr %94, align 1
+  %96 = sext i8 %95 to i32
+  %97 = icmp eq i32 %96, 34
+  br i1 %97, label %98, label %103
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %4, align 8
-  %106 = icmp ne ptr %105, null
-  br i1 %106, label %107, label %118
+98:                                               ; preds = %93
+  %99 = load ptr, ptr %6, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i32 1
+  store ptr %100, ptr %6, align 8
+  %101 = load i64, ptr %7, align 8
+  %102 = sub i64 %101, 2
+  store i64 %102, ptr %7, align 8
+  br label %103
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
-  %109 = load i64, ptr %7, align 8
-  %110 = trunc i64 %109 to i32
-  %111 = sub nsw i32 %110, 2
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 1
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %108, i64 noundef 120, ptr noundef @.str.21, i32 noundef %111, ptr noundef %113) #10
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
-  %117 = call ptr @stpcpy(ptr noundef %115, ptr noundef %116) #10
-  br label %118
+103:                                              ; preds = %98, %93, %90
+  %104 = load i64, ptr %7, align 8
+  %105 = icmp ugt i64 %104, 0
+  br i1 %105, label %106, label %129
 
-118:                                              ; preds = %107, %104
-  %119 = load i64, ptr %7, align 8
-  %120 = add i64 %119, 7
-  %121 = sub i64 %120, 1
-  store i64 %121, ptr %3, align 8
-  br label %321
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %6, align 8
+  %108 = load i8, ptr %107, align 1
+  %109 = sext i8 %108 to i32
+  %110 = icmp eq i32 %109, 39
+  br i1 %110, label %111, label %129
 
-122:                                              ; preds = %99, %96
-  %123 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 4), align 8
-  store ptr %123, ptr %9, align 8
-  %124 = load i32, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 2), align 8
-  %125 = zext i32 %124 to i64
-  store i64 %125, ptr %11, align 8
-  %126 = load i64, ptr %11, align 8
-  %127 = icmp eq i64 %126, 1
-  br i1 %127, label %128, label %145
+111:                                              ; preds = %106
+  %112 = load ptr, ptr %4, align 8
+  %113 = icmp ne ptr %112, null
+  br i1 %113, label %114, label %125
 
-128:                                              ; preds = %122
-  %129 = load ptr, ptr %5, align 8
-  %130 = call i32 @strcmp(ptr noundef %129, ptr noundef @.str.22) #11
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %145
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
+  %116 = load i64, ptr %7, align 8
+  %117 = trunc i64 %116 to i32
+  %118 = sub nsw i32 %117, 2
+  %119 = load ptr, ptr %6, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 1
+  %121 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %115, i64 noundef 120, ptr noundef @.str.21, i32 noundef %118, ptr noundef %120) #10
+  %122 = load ptr, ptr %4, align 8
+  %123 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
+  %124 = call ptr @stpcpy(ptr noundef %122, ptr noundef %123) #10
+  br label %125
 
-132:                                              ; preds = %128
-  %133 = load ptr, ptr %4, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %135, label %144
+125:                                              ; preds = %114, %111
+  %126 = load i64, ptr %7, align 8
+  %127 = add i64 %126, 7
+  %128 = sub i64 %127, 1
+  store i64 %128, ptr %3, align 8
+  br label %330
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
-  %137 = load ptr, ptr %9, align 8
-  %138 = load i8, ptr %137, align 1
-  %139 = zext i8 %138 to i32
-  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %136, i64 noundef 120, ptr noundef @.str.23, i32 noundef %139) #10
-  %141 = load ptr, ptr %4, align 8
-  %142 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
-  %143 = call ptr @stpcpy(ptr noundef %141, ptr noundef %142) #10
-  br label %144
+129:                                              ; preds = %106, %103
+  %130 = getelementptr inbounds %struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 4
+  %131 = load ptr, ptr %130, align 8
+  store ptr %131, ptr %9, align 8
+  %132 = getelementptr inbounds %struct._zend_php_scanner_globals, ptr @language_scanner_globals, i32 0, i32 2
+  %133 = load i32, ptr %132, align 8
+  %134 = zext i32 %133 to i64
+  store i64 %134, ptr %11, align 8
+  %135 = load i64, ptr %11, align 8
+  %136 = icmp eq i64 %135, 1
+  br i1 %136, label %137, label %154
 
-144:                                              ; preds = %135, %132
-  store i64 14, ptr %3, align 8
-  br label %321
+137:                                              ; preds = %129
+  %138 = load ptr, ptr %5, align 8
+  %139 = call i32 @strcmp(ptr noundef %138, ptr noundef @.str.22) #11
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %154
 
-145:                                              ; preds = %128, %122
+141:                                              ; preds = %137
+  %142 = load ptr, ptr %4, align 8
+  %143 = icmp ne ptr %142, null
+  br i1 %143, label %144, label %153
+
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
   %146 = load ptr, ptr %9, align 8
-  %147 = load i64, ptr %11, align 8
-  %148 = call ptr @memchr(ptr noundef %146, i32 noundef 10, i64 noundef %147) #11
-  store ptr %148, ptr %10, align 8
-  %149 = load ptr, ptr %10, align 8
-  %150 = icmp ne ptr %149, null
-  br i1 %150, label %151, label %157
+  %147 = load i8, ptr %146, align 1
+  %148 = zext i8 %147 to i32
+  %149 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %145, i64 noundef 120, ptr noundef @.str.23, i32 noundef %148) #10
+  %150 = load ptr, ptr %4, align 8
+  %151 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
+  %152 = call ptr @stpcpy(ptr noundef %150, ptr noundef %151) #10
+  br label %153
 
-151:                                              ; preds = %145
-  %152 = load ptr, ptr %10, align 8
-  %153 = load ptr, ptr %9, align 8
-  %154 = ptrtoint ptr %152 to i64
-  %155 = ptrtoint ptr %153 to i64
-  %156 = sub i64 %154, %155
-  store i64 %156, ptr %11, align 8
-  br label %157
+153:                                              ; preds = %144, %141
+  store i64 14, ptr %3, align 8
+  br label %330
 
-157:                                              ; preds = %151, %145
-  %158 = load i64, ptr %11, align 8
-  %159 = icmp ugt i64 %158, 0
-  br i1 %159, label %160, label %178
+154:                                              ; preds = %137, %129
+  %155 = load ptr, ptr %9, align 8
+  %156 = load i64, ptr %11, align 8
+  %157 = call ptr @memchr(ptr noundef %155, i32 noundef 10, i64 noundef %156) #11
+  store ptr %157, ptr %10, align 8
+  %158 = load ptr, ptr %10, align 8
+  %159 = icmp ne ptr %158, null
+  br i1 %159, label %160, label %166
 
-160:                                              ; preds = %157
-  %161 = load ptr, ptr %5, align 8
-  %162 = call i32 @strcmp(ptr noundef %161, ptr noundef @.str.24) #11
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %178
+160:                                              ; preds = %154
+  %161 = load ptr, ptr %10, align 8
+  %162 = load ptr, ptr %9, align 8
+  %163 = ptrtoint ptr %161 to i64
+  %164 = ptrtoint ptr %162 to i64
+  %165 = sub i64 %163, %164
+  store i64 %165, ptr %11, align 8
+  br label %166
 
-164:                                              ; preds = %160
-  %165 = load ptr, ptr %9, align 8
-  %166 = load i8, ptr %165, align 1
-  %167 = zext i8 %166 to i32
-  %168 = icmp eq i32 %167, 34
-  br i1 %168, label %169, label %170
+166:                                              ; preds = %160, %154
+  %167 = load i64, ptr %11, align 8
+  %168 = icmp ugt i64 %167, 0
+  br i1 %168, label %169, label %187
 
-169:                                              ; preds = %164
+169:                                              ; preds = %166
+  %170 = load ptr, ptr %5, align 8
+  %171 = call i32 @strcmp(ptr noundef %170, ptr noundef @.str.24) #11
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %187
+
+173:                                              ; preds = %169
+  %174 = load ptr, ptr %9, align 8
+  %175 = load i8, ptr %174, align 1
+  %176 = zext i8 %175 to i32
+  %177 = icmp eq i32 %176, 34
+  br i1 %177, label %178, label %179
+
+178:                                              ; preds = %173
   store ptr @.str.25, ptr %6, align 8
   store i64 20, ptr %7, align 8
-  br label %177
+  br label %186
 
-170:                                              ; preds = %164
-  %171 = load ptr, ptr %9, align 8
-  %172 = load i8, ptr %171, align 1
-  %173 = zext i8 %172 to i32
-  %174 = icmp eq i32 %173, 39
-  br i1 %174, label %175, label %176
+179:                                              ; preds = %173
+  %180 = load ptr, ptr %9, align 8
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i32
+  %183 = icmp eq i32 %182, 39
+  br i1 %183, label %184, label %185
 
-175:                                              ; preds = %170
+184:                                              ; preds = %179
   store ptr @.str.26, ptr %6, align 8
   store i64 20, ptr %7, align 8
-  br label %176
+  br label %185
 
-176:                                              ; preds = %175, %170
-  br label %177
+185:                                              ; preds = %184, %179
+  br label %186
 
-177:                                              ; preds = %176, %169
-  br label %178
+186:                                              ; preds = %185, %178
+  br label %187
 
-178:                                              ; preds = %177, %160, %157
-  %179 = load i64, ptr %11, align 8
-  %180 = icmp ugt i64 %179, 0
-  br i1 %180, label %181, label %196
+187:                                              ; preds = %186, %169, %166
+  %188 = load i64, ptr %11, align 8
+  %189 = icmp ugt i64 %188, 0
+  br i1 %189, label %190, label %205
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr %9, align 8
-  %183 = load i8, ptr %182, align 1
-  %184 = zext i8 %183 to i32
-  %185 = icmp eq i32 %184, 39
-  br i1 %185, label %191, label %186
+190:                                              ; preds = %187
+  %191 = load ptr, ptr %9, align 8
+  %192 = load i8, ptr %191, align 1
+  %193 = zext i8 %192 to i32
+  %194 = icmp eq i32 %193, 39
+  br i1 %194, label %200, label %195
 
-186:                                              ; preds = %181
-  %187 = load ptr, ptr %9, align 8
-  %188 = load i8, ptr %187, align 1
-  %189 = zext i8 %188 to i32
-  %190 = icmp eq i32 %189, 34
-  br i1 %190, label %191, label %196
+195:                                              ; preds = %190
+  %196 = load ptr, ptr %9, align 8
+  %197 = load i8, ptr %196, align 1
+  %198 = zext i8 %197 to i32
+  %199 = icmp eq i32 %198, 34
+  br i1 %199, label %200, label %205
 
-191:                                              ; preds = %186, %181
-  %192 = load ptr, ptr %9, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i32 1
-  store ptr %193, ptr %9, align 8
-  %194 = load i64, ptr %11, align 8
-  %195 = add i64 %194, -1
-  store i64 %195, ptr %11, align 8
-  br label %196
+200:                                              ; preds = %195, %190
+  %201 = load ptr, ptr %9, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i32 1
+  store ptr %202, ptr %9, align 8
+  %203 = load i64, ptr %11, align 8
+  %204 = add i64 %203, -1
+  store i64 %204, ptr %11, align 8
+  br label %205
 
-196:                                              ; preds = %191, %186, %178
-  %197 = load i64, ptr %11, align 8
-  %198 = icmp ugt i64 %197, 0
-  br i1 %198, label %199, label %218
+205:                                              ; preds = %200, %195, %187
+  %206 = load i64, ptr %11, align 8
+  %207 = icmp ugt i64 %206, 0
+  br i1 %207, label %208, label %227
 
-199:                                              ; preds = %196
-  %200 = load ptr, ptr %9, align 8
-  %201 = load i64, ptr %11, align 8
-  %202 = sub i64 %201, 1
-  %203 = getelementptr inbounds i8, ptr %200, i64 %202
-  %204 = load i8, ptr %203, align 1
-  %205 = zext i8 %204 to i32
-  %206 = icmp eq i32 %205, 39
-  br i1 %206, label %215, label %207
+208:                                              ; preds = %205
+  %209 = load ptr, ptr %9, align 8
+  %210 = load i64, ptr %11, align 8
+  %211 = sub i64 %210, 1
+  %212 = getelementptr inbounds i8, ptr %209, i64 %211
+  %213 = load i8, ptr %212, align 1
+  %214 = zext i8 %213 to i32
+  %215 = icmp eq i32 %214, 39
+  br i1 %215, label %224, label %216
 
-207:                                              ; preds = %199
-  %208 = load ptr, ptr %9, align 8
-  %209 = load i64, ptr %11, align 8
-  %210 = sub i64 %209, 1
-  %211 = getelementptr inbounds i8, ptr %208, i64 %210
-  %212 = load i8, ptr %211, align 1
-  %213 = zext i8 %212 to i32
-  %214 = icmp eq i32 %213, 34
-  br i1 %214, label %215, label %218
+216:                                              ; preds = %208
+  %217 = load ptr, ptr %9, align 8
+  %218 = load i64, ptr %11, align 8
+  %219 = sub i64 %218, 1
+  %220 = getelementptr inbounds i8, ptr %217, i64 %219
+  %221 = load i8, ptr %220, align 1
+  %222 = zext i8 %221 to i32
+  %223 = icmp eq i32 %222, 34
+  br i1 %223, label %224, label %227
 
-215:                                              ; preds = %207, %199
-  %216 = load i64, ptr %11, align 8
-  %217 = add i64 %216, -1
-  store i64 %217, ptr %11, align 8
-  br label %218
+224:                                              ; preds = %216, %208
+  %225 = load i64, ptr %11, align 8
+  %226 = add i64 %225, -1
+  store i64 %226, ptr %11, align 8
+  br label %227
 
-218:                                              ; preds = %215, %207, %196
-  %219 = load i64, ptr %11, align 8
-  %220 = icmp ugt i64 %219, 33
-  br i1 %220, label %221, label %239
+227:                                              ; preds = %224, %216, %205
+  %228 = load i64, ptr %11, align 8
+  %229 = icmp ugt i64 %228, 33
+  br i1 %229, label %230, label %248
 
-221:                                              ; preds = %218
-  %222 = load ptr, ptr %4, align 8
-  %223 = icmp ne ptr %222, null
-  br i1 %223, label %224, label %234
-
-224:                                              ; preds = %221
-  %225 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
-  %226 = load i64, ptr %7, align 8
-  %227 = trunc i64 %226 to i32
-  %228 = load ptr, ptr %6, align 8
-  %229 = load ptr, ptr %9, align 8
-  %230 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %225, i64 noundef 120, ptr noundef @.str.27, i32 noundef %227, ptr noundef %228, i32 noundef 30, ptr noundef %229) #10
+230:                                              ; preds = %227
   %231 = load ptr, ptr %4, align 8
-  %232 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
-  %233 = call ptr @stpcpy(ptr noundef %231, ptr noundef %232) #10
-  br label %234
+  %232 = icmp ne ptr %231, null
+  br i1 %232, label %233, label %243
 
-234:                                              ; preds = %224, %221
+233:                                              ; preds = %230
+  %234 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
   %235 = load i64, ptr %7, align 8
-  %236 = add i64 %235, 30
-  %237 = add i64 %236, 7
-  %238 = sub i64 %237, 1
-  store i64 %238, ptr %3, align 8
-  br label %321
-
-239:                                              ; preds = %218
+  %236 = trunc i64 %235 to i32
+  %237 = load ptr, ptr %6, align 8
+  %238 = load ptr, ptr %9, align 8
+  %239 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %234, i64 noundef 120, ptr noundef @.str.27, i32 noundef %236, ptr noundef %237, i32 noundef 30, ptr noundef %238) #10
   %240 = load ptr, ptr %4, align 8
-  %241 = icmp ne ptr %240, null
-  br i1 %241, label %242, label %254
+  %241 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
+  %242 = call ptr @stpcpy(ptr noundef %240, ptr noundef %241) #10
+  br label %243
 
-242:                                              ; preds = %239
-  %243 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
+243:                                              ; preds = %233, %230
   %244 = load i64, ptr %7, align 8
-  %245 = trunc i64 %244 to i32
-  %246 = load ptr, ptr %6, align 8
-  %247 = load i64, ptr %11, align 8
-  %248 = trunc i64 %247 to i32
-  %249 = load ptr, ptr %9, align 8
-  %250 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %243, i64 noundef 120, ptr noundef @.str.28, i32 noundef %245, ptr noundef %246, i32 noundef %248, ptr noundef %249) #10
-  %251 = load ptr, ptr %4, align 8
+  %245 = add i64 %244, 30
+  %246 = add i64 %245, 7
+  %247 = sub i64 %246, 1
+  store i64 %247, ptr %3, align 8
+  br label %330
+
+248:                                              ; preds = %227
+  %249 = load ptr, ptr %4, align 8
+  %250 = icmp ne ptr %249, null
+  br i1 %250, label %251, label %263
+
+251:                                              ; preds = %248
   %252 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
-  %253 = call ptr @stpcpy(ptr noundef %251, ptr noundef %252) #10
-  br label %254
-
-254:                                              ; preds = %242, %239
-  %255 = load i64, ptr %7, align 8
+  %253 = load i64, ptr %7, align 8
+  %254 = trunc i64 %253 to i32
+  %255 = load ptr, ptr %6, align 8
   %256 = load i64, ptr %11, align 8
-  %257 = add i64 %255, %256
-  %258 = add i64 %257, 4
-  %259 = sub i64 %258, 1
-  store i64 %259, ptr %3, align 8
-  br label %321
+  %257 = trunc i64 %256 to i32
+  %258 = load ptr, ptr %9, align 8
+  %259 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %252, i64 noundef 120, ptr noundef @.str.28, i32 noundef %254, ptr noundef %255, i32 noundef %257, ptr noundef %258) #10
+  %260 = load ptr, ptr %4, align 8
+  %261 = getelementptr inbounds [120 x i8], ptr %8, i64 0, i64 0
+  %262 = call ptr @stpcpy(ptr noundef %260, ptr noundef %261) #10
+  br label %263
 
-260:                                              ; preds = %23
-  %261 = load ptr, ptr %6, align 8
-  %262 = call i32 @strcmp(ptr noundef %261, ptr noundef @.str.15) #11
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %264, label %271
+263:                                              ; preds = %251, %248
+  %264 = load i64, ptr %7, align 8
+  %265 = load i64, ptr %11, align 8
+  %266 = add i64 %264, %265
+  %267 = add i64 %266, 4
+  %268 = sub i64 %267, 1
+  store i64 %268, ptr %3, align 8
+  br label %330
 
-264:                                              ; preds = %260
-  %265 = load ptr, ptr %4, align 8
-  %266 = icmp ne ptr %265, null
-  br i1 %266, label %267, label %270
+269:                                              ; preds = %25
+  %270 = load ptr, ptr %6, align 8
+  %271 = call i32 @strcmp(ptr noundef %270, ptr noundef @.str.15) #11
+  %272 = icmp eq i32 %271, 0
+  br i1 %272, label %273, label %280
 
-267:                                              ; preds = %264
-  %268 = load ptr, ptr %4, align 8
-  %269 = call ptr @stpcpy(ptr noundef %268, ptr noundef @.str.29) #10
-  br label %270
+273:                                              ; preds = %269
+  %274 = load ptr, ptr %4, align 8
+  %275 = icmp ne ptr %274, null
+  br i1 %275, label %276, label %279
 
-270:                                              ; preds = %267, %264
+276:                                              ; preds = %273
+  %277 = load ptr, ptr %4, align 8
+  %278 = call ptr @stpcpy(ptr noundef %277, ptr noundef @.str.29) #10
+  br label %279
+
+279:                                              ; preds = %276, %273
   store i64 3, ptr %3, align 8
-  br label %321
+  br label %330
 
-271:                                              ; preds = %260
-  %272 = load i64, ptr %7, align 8
-  %273 = icmp uge i64 %272, 2
-  br i1 %273, label %274, label %284
+280:                                              ; preds = %269
+  %281 = load i64, ptr %7, align 8
+  %282 = icmp uge i64 %281, 2
+  br i1 %282, label %283, label %293
 
-274:                                              ; preds = %271
-  %275 = load ptr, ptr %6, align 8
-  %276 = load i8, ptr %275, align 1
-  %277 = sext i8 %276 to i32
-  %278 = icmp eq i32 %277, 34
-  br i1 %278, label %279, label %284
+283:                                              ; preds = %280
+  %284 = load ptr, ptr %6, align 8
+  %285 = load i8, ptr %284, align 1
+  %286 = sext i8 %285 to i32
+  %287 = icmp eq i32 %286, 34
+  br i1 %287, label %288, label %293
 
-279:                                              ; preds = %274
-  %280 = load ptr, ptr %6, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i32 1
-  store ptr %281, ptr %6, align 8
-  %282 = load i64, ptr %7, align 8
-  %283 = sub i64 %282, 2
-  store i64 %283, ptr %7, align 8
-  br label %284
+288:                                              ; preds = %283
+  %289 = load ptr, ptr %6, align 8
+  %290 = getelementptr inbounds i8, ptr %289, i32 1
+  store ptr %290, ptr %6, align 8
+  %291 = load i64, ptr %7, align 8
+  %292 = sub i64 %291, 2
+  store i64 %292, ptr %7, align 8
+  br label %293
 
-284:                                              ; preds = %279, %274, %271
-  %285 = load ptr, ptr %4, align 8
-  %286 = icmp ne ptr %285, null
-  br i1 %286, label %287, label %319
+293:                                              ; preds = %288, %283, %280
+  %294 = load ptr, ptr %4, align 8
+  %295 = icmp ne ptr %294, null
+  br i1 %295, label %296, label %328
 
-287:                                              ; preds = %284
+296:                                              ; preds = %293
   store i64 0, ptr %12, align 8
-  br label %288
+  br label %297
 
-288:                                              ; preds = %312, %287
-  %289 = load i64, ptr %12, align 8
-  %290 = load i64, ptr %7, align 8
-  %291 = icmp ult i64 %289, %290
-  br i1 %291, label %292, label %315
+297:                                              ; preds = %321, %296
+  %298 = load i64, ptr %12, align 8
+  %299 = load i64, ptr %7, align 8
+  %300 = icmp ult i64 %298, %299
+  br i1 %300, label %301, label %324
 
-292:                                              ; preds = %288
-  %293 = load ptr, ptr %6, align 8
-  %294 = load i64, ptr %12, align 8
-  %295 = getelementptr inbounds i8, ptr %293, i64 %294
-  %296 = load i8, ptr %295, align 1
-  %297 = sext i8 %296 to i32
-  %298 = icmp eq i32 %297, 39
-  br i1 %298, label %299, label %303
+301:                                              ; preds = %297
+  %302 = load ptr, ptr %6, align 8
+  %303 = load i64, ptr %12, align 8
+  %304 = getelementptr inbounds i8, ptr %302, i64 %303
+  %305 = load i8, ptr %304, align 1
+  %306 = sext i8 %305 to i32
+  %307 = icmp eq i32 %306, 39
+  br i1 %307, label %308, label %312
 
-299:                                              ; preds = %292
-  %300 = load ptr, ptr %4, align 8
-  %301 = load i64, ptr %12, align 8
-  %302 = getelementptr inbounds i8, ptr %300, i64 %301
-  store i8 34, ptr %302, align 1
-  br label %311
+308:                                              ; preds = %301
+  %309 = load ptr, ptr %4, align 8
+  %310 = load i64, ptr %12, align 8
+  %311 = getelementptr inbounds i8, ptr %309, i64 %310
+  store i8 34, ptr %311, align 1
+  br label %320
 
-303:                                              ; preds = %292
-  %304 = load ptr, ptr %6, align 8
-  %305 = load i64, ptr %12, align 8
-  %306 = getelementptr inbounds i8, ptr %304, i64 %305
-  %307 = load i8, ptr %306, align 1
-  %308 = load ptr, ptr %4, align 8
-  %309 = load i64, ptr %12, align 8
-  %310 = getelementptr inbounds i8, ptr %308, i64 %309
-  store i8 %307, ptr %310, align 1
-  br label %311
+312:                                              ; preds = %301
+  %313 = load ptr, ptr %6, align 8
+  %314 = load i64, ptr %12, align 8
+  %315 = getelementptr inbounds i8, ptr %313, i64 %314
+  %316 = load i8, ptr %315, align 1
+  %317 = load ptr, ptr %4, align 8
+  %318 = load i64, ptr %12, align 8
+  %319 = getelementptr inbounds i8, ptr %317, i64 %318
+  store i8 %316, ptr %319, align 1
+  br label %320
 
-311:                                              ; preds = %303, %299
-  br label %312
-
-312:                                              ; preds = %311
-  %313 = load i64, ptr %12, align 8
-  %314 = add i64 %313, 1
-  store i64 %314, ptr %12, align 8
-  br label %288
-
-315:                                              ; preds = %288
-  %316 = load ptr, ptr %4, align 8
-  %317 = load i64, ptr %7, align 8
-  %318 = getelementptr inbounds i8, ptr %316, i64 %317
-  store i8 0, ptr %318, align 1
-  br label %319
-
-319:                                              ; preds = %315, %284
-  %320 = load i64, ptr %7, align 8
-  store i64 %320, ptr %3, align 8
+320:                                              ; preds = %312, %308
   br label %321
 
-321:                                              ; preds = %319, %270, %254, %234, %144, %118, %82, %71, %60, %49
-  %322 = load i64, ptr %3, align 8
-  ret i64 %322
+321:                                              ; preds = %320
+  %322 = load i64, ptr %12, align 8
+  %323 = add i64 %322, 1
+  store i64 %323, ptr %12, align 8
+  br label %297
+
+324:                                              ; preds = %297
+  %325 = load ptr, ptr %4, align 8
+  %326 = load i64, ptr %7, align 8
+  %327 = getelementptr inbounds i8, ptr %325, i64 %326
+  store i8 0, ptr %327, align 1
+  br label %328
+
+328:                                              ; preds = %324, %293
+  %329 = load i64, ptr %7, align 8
+  store i64 %329, ptr %3, align 8
+  br label %330
+
+330:                                              ; preds = %328, %279, %263, %243, %153, %125, %89, %78, %67, %56
+  %331 = load i64, ptr %3, align 8
+  ret i64 %331
 }
 
 ; Function Attrs: nounwind uwtable

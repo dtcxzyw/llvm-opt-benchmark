@@ -655,12 +655,14 @@ entry:
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
   %2 = getelementptr inbounds i8, ptr %this3, i64 32
   call void @_ZN2v815ValueSerializer8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  store ptr getelementptr inbounds ({ [22 x ptr], [13 x ptr] }, ptr @_ZTVN4node6serdes17SerializerContextE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = getelementptr inbounds { [22 x ptr], [13 x ptr] }, ptr @_ZTVN4node6serdes17SerializerContextE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 32
-  store ptr getelementptr inbounds ({ [22 x ptr], [13 x ptr] }, ptr @_ZTVN4node6serdes17SerializerContextE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [22 x ptr], [13 x ptr] }, ptr @_ZTVN4node6serdes17SerializerContextE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %serializer_ = getelementptr inbounds %"class.node::serdes::SerializerContext", ptr %this3, i32 0, i32 2
-  %3 = load ptr, ptr %env.addr, align 8
-  %call = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %3)
+  %5 = load ptr, ptr %env.addr, align 8
+  %call = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %5)
   %add.ptr7 = getelementptr inbounds i8, ptr %this3, i64 32
   call void @_ZN2v815ValueSerializerC1EPNS_7IsolateEPNS0_8DelegateE(ptr noundef nonnull align 8 dereferenceable(8) %serializer_, ptr noundef %call, ptr noundef %add.ptr7)
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
@@ -701,7 +703,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v815ValueSerializer8DelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v815ValueSerializer8DelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5692,34 +5695,36 @@ entry:
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this6, ptr noundef %0, ptr %1)
   %2 = getelementptr inbounds i8, ptr %this6, i64 32
   call void @_ZN2v817ValueDeserializer8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  store ptr getelementptr inbounds ({ [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node6serdes19DeserializerContextE, i32 0, i32 0, i32 2), ptr %this6, align 8
+  %3 = getelementptr inbounds { [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node6serdes19DeserializerContextE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this6, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this6, i64 32
-  store ptr getelementptr inbounds ({ [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node6serdes19DeserializerContextE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node6serdes19DeserializerContextE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %data_ = getelementptr inbounds %"class.node::serdes::DeserializerContext", ptr %this6, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp10, ptr align 8 %buffer, i64 8, i1 false)
   %coerce.dive11 = getelementptr inbounds %"class.v8::Local.255", ptr %agg.tmp10, i32 0, i32 0
   %coerce.dive12 = getelementptr inbounds %"class.v8::LocalBase.256", ptr %coerce.dive11, i32 0, i32 0
   %coerce.dive13 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive12, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive13, align 8
-  %call = call noundef ptr @_ZN4node6Buffer4DataEN2v85LocalINS1_5ValueEEE(ptr %3)
+  %5 = load ptr, ptr %coerce.dive13, align 8
+  %call = call noundef ptr @_ZN4node6Buffer4DataEN2v85LocalINS1_5ValueEEE(ptr %5)
   store ptr %call, ptr %data_, align 8
   %length_ = getelementptr inbounds %"class.node::serdes::DeserializerContext", ptr %this6, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp14, ptr align 8 %buffer, i64 8, i1 false)
   %coerce.dive15 = getelementptr inbounds %"class.v8::Local.255", ptr %agg.tmp14, i32 0, i32 0
   %coerce.dive16 = getelementptr inbounds %"class.v8::LocalBase.256", ptr %coerce.dive15, i32 0, i32 0
   %coerce.dive17 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive16, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive17, align 8
-  %call18 = call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_5ValueEEE(ptr %4)
+  %6 = load ptr, ptr %coerce.dive17, align 8
+  %call18 = call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_5ValueEEE(ptr %6)
   store i64 %call18, ptr %length_, align 8
   %deserializer_ = getelementptr inbounds %"class.node::serdes::DeserializerContext", ptr %this6, i32 0, i32 4
-  %5 = load ptr, ptr %env.addr, align 8
-  %call19 = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %5)
+  %7 = load ptr, ptr %env.addr, align 8
+  %call19 = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %7)
   %data_20 = getelementptr inbounds %"class.node::serdes::DeserializerContext", ptr %this6, i32 0, i32 2
-  %6 = load ptr, ptr %data_20, align 8
+  %8 = load ptr, ptr %data_20, align 8
   %length_21 = getelementptr inbounds %"class.node::serdes::DeserializerContext", ptr %this6, i32 0, i32 3
-  %7 = load i64, ptr %length_21, align 8
+  %9 = load i64, ptr %length_21, align 8
   %add.ptr22 = getelementptr inbounds i8, ptr %this6, i64 32
-  call void @_ZN2v817ValueDeserializerC1EPNS_7IsolateEPKhmPNS0_8DelegateE(ptr noundef nonnull align 8 dereferenceable(8) %deserializer_, ptr noundef %call19, ptr noundef %6, i64 noundef %7, ptr noundef %add.ptr22)
+  call void @_ZN2v817ValueDeserializerC1EPNS_7IsolateEPKhmPNS0_8DelegateE(ptr noundef nonnull align 8 dereferenceable(8) %deserializer_, ptr noundef %call19, ptr noundef %8, i64 noundef %9, ptr noundef %add.ptr22)
   %call24 = call ptr @_ZNK4node10BaseObject6objectEv(ptr noundef nonnull align 8 dereferenceable(32) %this6)
   %coerce.dive25 = getelementptr inbounds %"class.v8::Local", ptr %ref.tmp23, i32 0, i32 0
   %coerce.dive26 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive25, i32 0, i32 0
@@ -5731,17 +5736,17 @@ entry:
   %this1.i59 = load ptr, ptr %this.addr.i58, align 8
   store ptr %this1.i59, ptr %this.addr.i.i57, align 8
   %this1.i.i60 = load ptr, ptr %this.addr.i.i57, align 8
-  %8 = load ptr, ptr %this1.i.i60, align 8
-  store ptr %8, ptr %slot.addr.i, align 8
-  %9 = load ptr, ptr %slot.addr.i, align 8
-  %10 = load ptr, ptr %env.addr, align 8
-  %call30 = call ptr @_ZNK4node11Environment7contextEv(ptr noundef nonnull align 8 dereferenceable(2872) %10)
+  %10 = load ptr, ptr %this1.i.i60, align 8
+  store ptr %10, ptr %slot.addr.i, align 8
+  %11 = load ptr, ptr %slot.addr.i, align 8
+  %12 = load ptr, ptr %env.addr, align 8
+  %call30 = call ptr @_ZNK4node11Environment7contextEv(ptr noundef nonnull align 8 dereferenceable(2872) %12)
   %coerce.dive31 = getelementptr inbounds %"class.v8::Local.257", ptr %agg.tmp29, i32 0, i32 0
   %coerce.dive32 = getelementptr inbounds %"class.v8::LocalBase.258", ptr %coerce.dive31, i32 0, i32 0
   %coerce.dive33 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive32, i32 0, i32 0
   store ptr %call30, ptr %coerce.dive33, align 8
-  %11 = load ptr, ptr %env.addr, align 8
-  %call36 = call ptr @_ZNK4node11Environment13buffer_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %11)
+  %13 = load ptr, ptr %env.addr, align 8
+  %call36 = call ptr @_ZNK4node11Environment13buffer_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %13)
   %coerce.dive37 = getelementptr inbounds %"class.v8::Local.253", ptr %agg.tmp35, i32 0, i32 0
   %coerce.dive38 = getelementptr inbounds %"class.v8::LocalBase.254", ptr %coerce.dive37, i32 0, i32 0
   %coerce.dive39 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive38, i32 0, i32 0
@@ -5749,36 +5754,36 @@ entry:
   %coerce.dive40 = getelementptr inbounds %"class.v8::Local.253", ptr %agg.tmp35, i32 0, i32 0
   %coerce.dive41 = getelementptr inbounds %"class.v8::LocalBase.254", ptr %coerce.dive40, i32 0, i32 0
   %coerce.dive42 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive41, i32 0, i32 0
-  %12 = load ptr, ptr %coerce.dive42, align 8
-  store ptr %12, ptr %that.i, align 8
+  %14 = load ptr, ptr %coerce.dive42, align 8
+  store ptr %14, ptr %that.i, align 8
   store ptr %agg.tmp34, ptr %this.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this3.i, ptr %this.addr.i61, align 8
   store ptr %that.i, ptr %other.addr.i, align 8
   %this1.i62 = load ptr, ptr %this.addr.i61, align 8
-  %13 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i62, ptr align 8 %13, i64 8, i1 false)
+  %15 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i62, ptr align 8 %15, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp43, ptr align 8 %buffer, i64 8, i1 false)
   %coerce.dive44 = getelementptr inbounds %"class.v8::Local.257", ptr %agg.tmp29, i32 0, i32 0
   %coerce.dive45 = getelementptr inbounds %"class.v8::LocalBase.258", ptr %coerce.dive44, i32 0, i32 0
   %coerce.dive46 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive45, i32 0, i32 0
-  %14 = load ptr, ptr %coerce.dive46, align 8
+  %16 = load ptr, ptr %coerce.dive46, align 8
   %coerce.dive47 = getelementptr inbounds %"class.v8::Local.255", ptr %agg.tmp34, i32 0, i32 0
   %coerce.dive48 = getelementptr inbounds %"class.v8::LocalBase.256", ptr %coerce.dive47, i32 0, i32 0
   %coerce.dive49 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive48, i32 0, i32 0
-  %15 = load ptr, ptr %coerce.dive49, align 8
+  %17 = load ptr, ptr %coerce.dive49, align 8
   %coerce.dive50 = getelementptr inbounds %"class.v8::Local.255", ptr %agg.tmp43, i32 0, i32 0
   %coerce.dive51 = getelementptr inbounds %"class.v8::LocalBase.256", ptr %coerce.dive50, i32 0, i32 0
   %coerce.dive52 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive51, i32 0, i32 0
-  %16 = load ptr, ptr %coerce.dive52, align 8
-  %call53 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr %14, ptr %15, ptr %16)
+  %18 = load ptr, ptr %coerce.dive52, align 8
+  %call53 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr %16, ptr %17, ptr %18)
   store i16 %call53, ptr %ref.tmp, align 1
   store ptr %ref.tmp, ptr %this.addr.i55, align 8
   %this1.i56 = load ptr, ptr %this.addr.i55, align 8
   store ptr %this1.i56, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %17 = load i8, ptr %this1.i.i, align 1
-  %tobool.i.i = trunc i8 %17 to i1
+  %19 = load i8, ptr %this1.i.i, align 1
+  %tobool.i.i = trunc i8 %19 to i1
   %lnot3.i = xor i1 %tobool.i.i, true
   br i1 %lnot3.i, label %if.then.i, label %_ZNK2v85MaybeIbE5CheckEv.exit
 
@@ -5797,7 +5802,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v817ValueDeserializer8DelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2v817ValueDeserializer8DelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10852,13 +10858,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [13 x ptr] }, ptr @_ZTVN4node6serdes17SerializerContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr], [13 x ptr] }, ptr @_ZTVN4node6serdes17SerializerContextE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [22 x ptr], [13 x ptr] }, ptr @_ZTVN4node6serdes17SerializerContextE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [22 x ptr], [13 x ptr] }, ptr @_ZTVN4node6serdes17SerializerContextE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %serializer_ = getelementptr inbounds %"class.node::serdes::SerializerContext", ptr %this1, i32 0, i32 2
   call void @_ZN2v815ValueSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %serializer_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 32
-  call void @_ZN2v815ValueSerializer8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 32
+  call void @_ZN2v815ValueSerializer8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
   ret void
 }
@@ -10997,13 +11005,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node6serdes19DeserializerContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node6serdes19DeserializerContextE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node6serdes19DeserializerContextE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node6serdes19DeserializerContextE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %deserializer_ = getelementptr inbounds %"class.node::serdes::DeserializerContext", ptr %this1, i32 0, i32 4
   call void @_ZN2v817ValueDeserializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %deserializer_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 32
-  call void @_ZN2v817ValueDeserializer8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 32
+  call void @_ZN2v817ValueDeserializer8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
   ret void
 }

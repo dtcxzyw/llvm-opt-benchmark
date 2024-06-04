@@ -303,45 +303,47 @@ if.then25:                                        ; preds = %if.end22
   br label %return
 
 if.end28:                                         ; preds = %if.end22
-  %call29 = call i32 @sigchain_push(i32 noundef 2, ptr noundef inttoptr (i64 1 to ptr))
-  %call30 = call i32 @sigchain_push(i32 noundef 3, ptr noundef inttoptr (i64 1 to ptr))
+  %13 = inttoptr i64 1 to ptr
+  %call29 = call i32 @sigchain_push(i32 noundef 2, ptr noundef %13)
+  %14 = inttoptr i64 1 to ptr
+  %call30 = call i32 @sigchain_push(i32 noundef 3, ptr noundef %14)
   %call31 = call i32 @finish_command(ptr noundef %p)
   store i32 %call31, ptr %ret, align 4
   call void @strbuf_release(ptr noundef %realpath)
-  %13 = load i32, ptr %ret, align 4
-  %sub = sub nsw i32 %13, 128
+  %15 = load i32, ptr %ret, align 4
+  %sub = sub nsw i32 %15, 128
   store i32 %sub, ptr %sig, align 4
   %call32 = call i32 @sigchain_pop(i32 noundef 2)
   %call33 = call i32 @sigchain_pop(i32 noundef 3)
-  %14 = load i32, ptr %sig, align 4
-  %cmp34 = icmp eq i32 %14, 2
+  %16 = load i32, ptr %sig, align 4
+  %cmp34 = icmp eq i32 %16, 2
   br i1 %cmp34, label %if.then38, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end28
-  %15 = load i32, ptr %sig, align 4
-  %cmp36 = icmp eq i32 %15, 3
+  %17 = load i32, ptr %sig, align 4
+  %cmp36 = icmp eq i32 %17, 3
   br i1 %cmp36, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %lor.lhs.false, %if.end28
-  %16 = load i32, ptr %sig, align 4
-  %call39 = call i32 @raise(i32 noundef %16) #6
+  %18 = load i32, ptr %sig, align 4
+  %call39 = call i32 @raise(i32 noundef %18) #6
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %lor.lhs.false
-  %17 = load i32, ptr %ret, align 4
-  %tobool41 = icmp ne i32 %17, 0
+  %19 = load i32, ptr %ret, align 4
+  %tobool41 = icmp ne i32 %19, 0
   br i1 %tobool41, label %if.then42, label %if.end45
 
 if.then42:                                        ; preds = %if.end40
-  %18 = load ptr, ptr %editor.addr, align 8
-  %call43 = call i32 (ptr, ...) @error(ptr noundef @.str.18, ptr noundef %18)
+  %20 = load ptr, ptr %editor.addr, align 8
+  %call43 = call i32 (ptr, ...) @error(ptr noundef @.str.18, ptr noundef %20)
   %call44 = call i32 @const_error()
   store i32 %call44, ptr %retval, align 4
   br label %return
 
 if.end45:                                         ; preds = %if.end40
-  %19 = load i32, ptr %print_waiting_for_editor, align 4
-  %tobool46 = icmp ne i32 %19, 0
+  %21 = load i32, ptr %print_waiting_for_editor, align 4
+  %tobool46 = icmp ne i32 %21, 0
   br i1 %tobool46, label %land.lhs.true, label %if.end50
 
 land.lhs.true:                                    ; preds = %if.end45
@@ -357,8 +359,8 @@ if.end50:                                         ; preds = %if.then49, %land.lh
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end50, %if.end
-  %20 = load ptr, ptr %buffer.addr, align 8
-  %tobool52 = icmp ne ptr %20, null
+  %22 = load ptr, ptr %buffer.addr, align 8
+  %tobool52 = icmp ne ptr %22, null
   br i1 %tobool52, label %if.end54, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
@@ -366,15 +368,15 @@ if.then53:                                        ; preds = %if.end51
   br label %return
 
 if.end54:                                         ; preds = %if.end51
-  %21 = load ptr, ptr %buffer.addr, align 8
-  %22 = load ptr, ptr %path.addr, align 8
-  %call55 = call i64 @strbuf_read_file(ptr noundef %21, ptr noundef %22, i64 noundef 0)
+  %23 = load ptr, ptr %buffer.addr, align 8
+  %24 = load ptr, ptr %path.addr, align 8
+  %call55 = call i64 @strbuf_read_file(ptr noundef %23, ptr noundef %24, i64 noundef 0)
   %cmp56 = icmp slt i64 %call55, 0
   br i1 %cmp56, label %if.then58, label %if.end61
 
 if.then58:                                        ; preds = %if.end54
-  %23 = load ptr, ptr %path.addr, align 8
-  %call59 = call i32 (ptr, ...) @error_errno(ptr noundef @.str.19, ptr noundef %23)
+  %25 = load ptr, ptr %path.addr, align 8
+  %call59 = call i32 (ptr, ...) @error_errno(ptr noundef @.str.19, ptr noundef %25)
   %call60 = call i32 @const_error()
   store i32 %call60, ptr %retval, align 4
   br label %return
@@ -384,8 +386,8 @@ if.end61:                                         ; preds = %if.end54
   br label %return
 
 return:                                           ; preds = %if.end61, %if.then58, %if.then53, %if.then42, %if.then25, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %26 = load i32, ptr %retval, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable

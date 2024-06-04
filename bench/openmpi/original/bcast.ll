@@ -52,7 +52,7 @@ define i32 @ompi_comm_bcast_pml(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %8
-  br label %121
+  br label %124
 
 38:                                               ; preds = %8
   %39 = load i32, ptr %15, align 4
@@ -61,13 +61,13 @@ define i32 @ompi_comm_bcast_pml(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 41:                                               ; preds = %38
   store i32 0, ptr %9, align 4
-  br label %123
+  br label %126
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 3
   %44 = load i32, ptr %43, align 4
   %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %66
+  br i1 %45, label %46, label %67
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 5
@@ -79,119 +79,122 @@ define i32 @ompi_comm_bcast_pml(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %52 = load i32, ptr %15, align 4
   %53 = srem i32 %51, %52
   store i32 %53, ptr %23, align 4
-  %54 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 9), align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = load i32, ptr %12, align 4
-  %57 = sext i32 %56 to i64
-  %58 = load ptr, ptr %13, align 8
-  %59 = load i32, ptr %23, align 4
-  %60 = load ptr, ptr %17, align 8
-  %61 = call i32 %54(ptr noundef %55, i64 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef -98, ptr noundef %60, ptr noundef null)
-  store i32 %61, ptr %18, align 4
-  %62 = load i32, ptr %18, align 4
-  %63 = icmp sgt i32 0, %62
-  br i1 %63, label %64, label %65
-
-64:                                               ; preds = %46
-  br label %121
+  %54 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 9
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = load i32, ptr %12, align 4
+  %58 = sext i32 %57 to i64
+  %59 = load ptr, ptr %13, align 8
+  %60 = load i32, ptr %23, align 4
+  %61 = load ptr, ptr %17, align 8
+  %62 = call i32 %55(ptr noundef %56, i64 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef -98, ptr noundef %61, ptr noundef null)
+  store i32 %62, ptr %18, align 4
+  %63 = load i32, ptr %18, align 4
+  %64 = icmp sgt i32 0, %63
+  br i1 %64, label %65, label %66
 
 65:                                               ; preds = %46
-  br label %66
+  br label %124
 
-66:                                               ; preds = %65, %42
-  store i32 0, ptr %19, align 4
-  store i32 0, ptr %20, align 4
+66:                                               ; preds = %46
   br label %67
 
-67:                                               ; preds = %101, %66
-  %68 = load i32, ptr %20, align 4
-  %69 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 4
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp slt i32 %68, %70
-  br i1 %71, label %72, label %104
+67:                                               ; preds = %66, %42
+  store i32 0, ptr %19, align 4
+  store i32 0, ptr %20, align 4
+  br label %68
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 6
-  %74 = load ptr, ptr %73, align 8
-  %75 = load i32, ptr %20, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %74, i64 %76
-  %78 = load i32, ptr %77, align 4
-  store i32 %78, ptr %23, align 4
-  %79 = load i32, ptr %23, align 4
-  %80 = load i32, ptr %11, align 4
-  %81 = add nsw i32 %79, %80
-  %82 = load i32, ptr %15, align 4
-  %83 = srem i32 %81, %82
-  store i32 %83, ptr %23, align 4
-  %84 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 11), align 8
-  %85 = load ptr, ptr %10, align 8
-  %86 = load i32, ptr %12, align 4
-  %87 = sext i32 %86 to i64
-  %88 = load ptr, ptr %13, align 8
-  %89 = load i32, ptr %23, align 4
-  %90 = load ptr, ptr %17, align 8
-  %91 = load i32, ptr %19, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [2 x ptr], ptr %21, i64 0, i64 %92
-  %94 = call i32 %84(ptr noundef %85, i64 noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef -98, i32 noundef 4, ptr noundef %90, ptr noundef %93)
-  store i32 %94, ptr %18, align 4
-  %95 = load i32, ptr %18, align 4
-  %96 = icmp sgt i32 0, %95
-  br i1 %96, label %97, label %98
+68:                                               ; preds = %103, %67
+  %69 = load i32, ptr %20, align 4
+  %70 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 4
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp slt i32 %69, %71
+  br i1 %72, label %73, label %106
 
-97:                                               ; preds = %72
-  br label %121
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 6
+  %75 = load ptr, ptr %74, align 8
+  %76 = load i32, ptr %20, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i32, ptr %75, i64 %77
+  %79 = load i32, ptr %78, align 4
+  store i32 %79, ptr %23, align 4
+  %80 = load i32, ptr %23, align 4
+  %81 = load i32, ptr %11, align 4
+  %82 = add nsw i32 %80, %81
+  %83 = load i32, ptr %15, align 4
+  %84 = srem i32 %82, %83
+  store i32 %84, ptr %23, align 4
+  %85 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 11
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = load i32, ptr %12, align 4
+  %89 = sext i32 %88 to i64
+  %90 = load ptr, ptr %13, align 8
+  %91 = load i32, ptr %23, align 4
+  %92 = load ptr, ptr %17, align 8
+  %93 = load i32, ptr %19, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds [2 x ptr], ptr %21, i64 0, i64 %94
+  %96 = call i32 %86(ptr noundef %87, i64 noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef -98, i32 noundef 4, ptr noundef %92, ptr noundef %95)
+  store i32 %96, ptr %18, align 4
+  %97 = load i32, ptr %18, align 4
+  %98 = icmp sgt i32 0, %97
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %72
-  %99 = load i32, ptr %19, align 4
-  %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %19, align 4
-  br label %101
+99:                                               ; preds = %73
+  br label %124
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %20, align 4
-  %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %20, align 4
-  br label %67, !llvm.loop !4
+100:                                              ; preds = %73
+  %101 = load i32, ptr %19, align 4
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %19, align 4
+  br label %103
 
-104:                                              ; preds = %67
-  %105 = load i32, ptr %19, align 4
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %113
+103:                                              ; preds = %100
+  %104 = load i32, ptr %20, align 4
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %20, align 4
+  br label %68, !llvm.loop !4
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 6), align 8
-  %109 = load i32, ptr %19, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [2 x ptr], ptr %21, i64 0, i64 0
-  %112 = call i32 %108(i64 noundef %110, ptr noundef %111, ptr noundef null)
-  br label %113
+106:                                              ; preds = %68
+  %107 = load i32, ptr %19, align 4
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %116
 
-113:                                              ; preds = %107, %104
-  %114 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 6
-  %115 = load ptr, ptr %114, align 8
-  %116 = icmp ne ptr %115, null
-  br i1 %116, label %117, label %120
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds %struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 6
+  %111 = load ptr, ptr %110, align 8
+  %112 = load i32, ptr %19, align 4
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds [2 x ptr], ptr %21, i64 0, i64 0
+  %115 = call i32 %111(i64 noundef %113, ptr noundef %114, ptr noundef null)
+  br label %116
 
-117:                                              ; preds = %113
-  %118 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 6
-  %119 = load ptr, ptr %118, align 8
-  call void @free(ptr noundef %119) #3
-  br label %120
+116:                                              ; preds = %109, %106
+  %117 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 6
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp ne ptr %118, null
+  br i1 %119, label %120, label %123
 
-120:                                              ; preds = %117, %113
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %24, i32 0, i32 6
+  %122 = load ptr, ptr %121, align 8
+  call void @free(ptr noundef %122) #3
+  br label %123
+
+123:                                              ; preds = %120, %116
   store i32 0, ptr %9, align 4
-  br label %123
+  br label %126
 
-121:                                              ; preds = %97, %64, %37
-  %122 = load i32, ptr %18, align 4
-  store i32 %122, ptr %9, align 4
-  br label %123
+124:                                              ; preds = %99, %65, %37
+  %125 = load i32, ptr %18, align 4
+  store i32 %125, ptr %9, align 4
+  br label %126
 
-123:                                              ; preds = %121, %120, %41
-  %124 = load i32, ptr %9, align 4
-  ret i32 %124
+126:                                              ; preds = %124, %123, %41
+  %127 = load i32, ptr %9, align 4
+  ret i32 %127
 }
 
 declare i32 @ompi_netpatterns_setup_narray_tree(i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1

@@ -205,45 +205,47 @@ entry:
   %r = alloca i32, align 4
   store ptr %buf, ptr %buf.addr, align 8
   store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i32 0, i32 1), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.SemihostingConsole, ptr @console, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %buf.addr, align 8
-  %3 = load i32, ptr %len.addr, align 4
-  %call = call i32 @qemu_chr_write(ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true)
+  %2 = getelementptr inbounds %struct.SemihostingConsole, ptr @console, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %buf.addr, align 8
+  %5 = load i32, ptr %len.addr, align 4
+  %call = call i32 @qemu_chr_write(ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true)
   store i32 %call, ptr %r, align 4
-  %4 = load i32, ptr %r, align 4
-  %cmp = icmp slt i32 %4, 0
+  %6 = load i32, ptr %r, align 4
+  %cmp = icmp slt i32 %6, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then
-  %5 = load i32, ptr %r, align 4
+  %7 = load i32, ptr %r, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %5, %cond.false ]
+  %cond = phi i32 [ 0, %cond.true ], [ %7, %cond.false ]
   store i32 %cond, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %entry
-  %6 = load ptr, ptr %buf.addr, align 8
-  %7 = load i32, ptr %len.addr, align 4
-  %conv = sext i32 %7 to i64
-  %8 = load ptr, ptr @stderr, align 8
-  %call1 = call i64 @fwrite(ptr noundef %6, i64 noundef 1, i64 noundef %conv, ptr noundef %8)
+  %8 = load ptr, ptr %buf.addr, align 8
+  %9 = load i32, ptr %len.addr, align 4
+  %conv = sext i32 %9 to i64
+  %10 = load ptr, ptr @stderr, align 8
+  %call1 = call i64 @fwrite(ptr noundef %8, i64 noundef 1, i64 noundef %conv, ptr noundef %10)
   %conv2 = trunc i64 %call1 to i32
   store i32 %conv2, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %cond.end
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %11 = load i32, ptr %retval, align 4
+  ret i32 %11
 }
 
 declare i32 @qemu_chr_write(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #1
@@ -256,15 +258,17 @@ entry:
   %chr.addr = alloca ptr, align 8
   store ptr %chr, ptr %chr.addr, align 8
   %0 = load ptr, ptr %chr.addr, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i32 0, i32 1), align 8
-  %1 = load ptr, ptr %chr.addr, align 8
-  %tobool = icmp ne ptr %1, null
+  %1 = getelementptr inbounds %struct.SemihostingConsole, ptr @console, i32 0, i32 1
+  store ptr %0, ptr %1, align 8
+  %2 = load ptr, ptr %chr.addr, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @fifo8_create(ptr noundef getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i32 0, i32 4), i32 noundef 1024)
-  %2 = load ptr, ptr %chr.addr, align 8
-  %call = call zeroext i1 @qemu_chr_fe_init(ptr noundef @console, ptr noundef %2, ptr noundef @error_abort)
+  %3 = getelementptr inbounds %struct.SemihostingConsole, ptr @console, i32 0, i32 4
+  call void @fifo8_create(ptr noundef %3, i32 noundef 1024)
+  %4 = load ptr, ptr %chr.addr, align 8
+  %call = call zeroext i1 @qemu_chr_fe_init(ptr noundef @console, ptr noundef %4, ptr noundef @error_abort)
   call void @qemu_chr_fe_set_handlers(ptr noundef @console, ptr noundef @console_can_read, ptr noundef @console_read, ptr noundef null, ptr noundef null, ptr noundef @console, ptr noundef null, i1 noundef zeroext true)
   br label %if.end
 

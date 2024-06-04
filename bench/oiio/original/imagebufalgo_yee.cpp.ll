@@ -4571,121 +4571,123 @@ entry:
   %3 = load ptr, ptr %xyz.addr, align 8
   %y = getelementptr inbounds %"class.Imath_2_5::Vec3", ptr %3, i32 0, i32 1
   %4 = load float, ptr %y, align 4
-  %5 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114XYZToLAB_colorERKN9Imath_2_56Color3IfEEE5white, i64 0, i64 1), align 4
-  %div1 = fdiv float %4, %5
+  %5 = getelementptr inbounds [3 x float], ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114XYZToLAB_colorERKN9Imath_2_56Color3IfEEE5white, i64 0, i64 1
+  %6 = load float, ptr %5, align 4
+  %div1 = fdiv float %4, %6
   store float %div1, ptr %arrayinit.element, align 4
   %arrayinit.element2 = getelementptr inbounds float, ptr %arrayinit.element, i64 1
-  %6 = load ptr, ptr %xyz.addr, align 8
-  %z = getelementptr inbounds %"class.Imath_2_5::Vec3", ptr %6, i32 0, i32 2
-  %7 = load float, ptr %z, align 4
-  %8 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114XYZToLAB_colorERKN9Imath_2_56Color3IfEEE5white, i64 0, i64 2), align 4
-  %div3 = fdiv float %7, %8
+  %7 = load ptr, ptr %xyz.addr, align 8
+  %z = getelementptr inbounds %"class.Imath_2_5::Vec3", ptr %7, i32 0, i32 2
+  %8 = load float, ptr %z, align 4
+  %9 = getelementptr inbounds [3 x float], ptr @_ZZN18OpenImageIO_v2_6_012_GLOBAL__N_114XYZToLAB_colorERKN9Imath_2_56Color3IfEEE5white, i64 0, i64 2
+  %10 = load float, ptr %9, align 4
+  %div3 = fdiv float %8, %10
   store float %div3, ptr %arrayinit.element2, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %9 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %9, 3
+  %11 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %11, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %10 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %10 to i64
+  %12 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %12 to i64
   %arrayidx = getelementptr inbounds [3 x float], ptr %r, i64 0, i64 %idxprom
-  %11 = load float, ptr %arrayidx, align 4
-  store float %11, ptr %ri, align 4
-  %12 = load float, ptr %ri, align 4
-  %cmp4 = fcmp ogt float %12, 0x3F822354E0000000
+  %13 = load float, ptr %arrayidx, align 4
+  store float %13, ptr %ri, align 4
+  %14 = load float, ptr %ri, align 4
+  %cmp4 = fcmp ogt float %14, 0x3F822354E0000000
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %13 = load float, ptr %ri, align 4
-  store float %13, ptr %x.addr.i, align 4
-  %14 = load float, ptr %x.addr.i, align 4
-  %15 = call float @llvm.fabs.f32(float %14)
-  store float %15, ptr %x0.i, align 4
+  %15 = load float, ptr %ri, align 4
+  store float %15, ptr %x.addr.i, align 4
+  %16 = load float, ptr %x.addr.i, align 4
+  %17 = call float @llvm.fabs.f32(float %16)
+  store float %17, ptr %x0.i, align 4
   store ptr %x0.i, ptr %val.addr.i18, align 8
-  %16 = load ptr, ptr %val.addr.i18, align 8
-  %17 = load float, ptr %16, align 4
-  store float %17, ptr %__A.addr.i21, align 4
-  %18 = load i32, ptr %__A.addr.i21, align 4
+  %18 = load ptr, ptr %val.addr.i18, align 8
+  %19 = load float, ptr %18, align 4
+  store float %19, ptr %__A.addr.i21, align 4
+  %20 = load i32, ptr %__A.addr.i21, align 4
   br label %_ZN18OpenImageIO_v2_6_07bitcastIifEET_RKT0_.exit
 
 terminate.lpad.i20:                               ; No predecessors!
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #15
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #15
   unreachable
 
 _ZN18OpenImageIO_v2_6_07bitcastIifEET_RKT0_.exit: ; preds = %if.then
-  %div.i = sdiv i32 %18, 3
+  %div.i = sdiv i32 %20, 3
   %add.i = add nsw i32 709965728, %div.i
   store i32 %add.i, ptr %ref.tmp.i, align 4
   store ptr %ref.tmp.i, ptr %val.addr.i, align 8
-  %21 = load ptr, ptr %val.addr.i, align 8
-  %22 = load i32, ptr %21, align 4
-  store i32 %22, ptr %__A.addr.i, align 4
-  %23 = load float, ptr %__A.addr.i, align 4
+  %23 = load ptr, ptr %val.addr.i, align 8
+  %24 = load i32, ptr %23, align 4
+  store i32 %24, ptr %__A.addr.i, align 4
+  %25 = load float, ptr %__A.addr.i, align 4
   br label %_ZN18OpenImageIO_v2_6_07bitcastIfiEET_RKT0_.exit
 
 terminate.lpad.i:                                 ; No predecessors!
-  %24 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #15
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #15
   unreachable
 
 _ZN18OpenImageIO_v2_6_07bitcastIfiEET_RKT0_.exit: ; preds = %_ZN18OpenImageIO_v2_6_07bitcastIifEET_RKT0_.exit
-  store float %23, ptr %a.i, align 4
-  %26 = load float, ptr %a.i, align 4
-  %27 = load float, ptr %x0.i, align 4
+  store float %25, ptr %a.i, align 4
   %28 = load float, ptr %a.i, align 4
-  %29 = load float, ptr %a.i, align 4
-  %mul2.i = fmul float %28, %29
-  %div3.i = fdiv float %27, %mul2.i
-  %30 = call float @llvm.fmuladd.f32(float 2.000000e+00, float %26, float %div3.i)
-  %mul.i = fmul float 0x3FD5555560000000, %30
-  store float %mul.i, ptr %a.i, align 4
+  %29 = load float, ptr %x0.i, align 4
+  %30 = load float, ptr %a.i, align 4
   %31 = load float, ptr %a.i, align 4
-  %32 = load float, ptr %x0.i, align 4
+  %mul2.i = fmul float %30, %31
+  %div3.i = fdiv float %29, %mul2.i
+  %32 = call float @llvm.fmuladd.f32(float 2.000000e+00, float %28, float %div3.i)
+  %mul.i = fmul float 0x3FD5555560000000, %32
+  store float %mul.i, ptr %a.i, align 4
   %33 = load float, ptr %a.i, align 4
-  %34 = load float, ptr %a.i, align 4
-  %mul5.i = fmul float %33, %34
-  %div6.i = fdiv float %32, %mul5.i
-  %35 = call float @llvm.fmuladd.f32(float 2.000000e+00, float %31, float %div6.i)
-  %mul7.i = fmul float 0x3FD5555560000000, %35
+  %34 = load float, ptr %x0.i, align 4
+  %35 = load float, ptr %a.i, align 4
+  %36 = load float, ptr %a.i, align 4
+  %mul5.i = fmul float %35, %36
+  %div6.i = fdiv float %34, %mul5.i
+  %37 = call float @llvm.fmuladd.f32(float 2.000000e+00, float %33, float %div6.i)
+  %mul7.i = fmul float 0x3FD5555560000000, %37
   store float %mul7.i, ptr %a.i, align 4
-  %36 = load float, ptr %x0.i, align 4
-  %cmp.i = fcmp oeq float %36, 0.000000e+00
+  %38 = load float, ptr %x0.i, align 4
+  %cmp.i = fcmp oeq float %38, 0.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %_ZN18OpenImageIO_v2_6_07bitcastIfiEET_RKT0_.exit
   br label %_ZN18OpenImageIO_v2_6_09fast_cbrtEf.exit
 
 cond.false.i:                                     ; preds = %_ZN18OpenImageIO_v2_6_07bitcastIfiEET_RKT0_.exit
-  %37 = load float, ptr %a.i, align 4
+  %39 = load float, ptr %a.i, align 4
   br label %_ZN18OpenImageIO_v2_6_09fast_cbrtEf.exit
 
 _ZN18OpenImageIO_v2_6_09fast_cbrtEf.exit:         ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi float [ 0.000000e+00, %cond.true.i ], [ %37, %cond.false.i ]
+  %cond.i = phi float [ 0.000000e+00, %cond.true.i ], [ %39, %cond.false.i ]
   store float %cond.i, ptr %a.i, align 4
-  %38 = load float, ptr %a.i, align 4
-  %39 = load float, ptr %x.addr.i, align 4
-  %40 = call noundef float @llvm.copysign.f32(float %38, float %39)
-  %41 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %41 to i64
+  %40 = load float, ptr %a.i, align 4
+  %41 = load float, ptr %x.addr.i, align 4
+  %42 = call noundef float @llvm.copysign.f32(float %40, float %41)
+  %43 = load i32, ptr %i, align 4
+  %idxprom5 = sext i32 %43 to i64
   %arrayidx6 = getelementptr inbounds [3 x float], ptr %f, i64 0, i64 %idxprom5
-  store float %40, ptr %arrayidx6, align 4
+  store float %42, ptr %arrayidx6, align 4
   br label %if.end
 
 if.else:                                          ; preds = %for.body
-  %42 = load float, ptr %ri, align 4
-  %43 = call float @llvm.fmuladd.f32(float 0x408C3A5EE0000000, float %42, float 1.600000e+01)
-  %div7 = fdiv float %43, 1.160000e+02
-  %44 = load i32, ptr %i, align 4
-  %idxprom8 = sext i32 %44 to i64
+  %44 = load float, ptr %ri, align 4
+  %45 = call float @llvm.fmuladd.f32(float 0x408C3A5EE0000000, float %44, float 1.600000e+01)
+  %div7 = fdiv float %45, 1.160000e+02
+  %46 = load i32, ptr %i, align 4
+  %idxprom8 = sext i32 %46 to i64
   %arrayidx9 = getelementptr inbounds [3 x float], ptr %f, i64 0, i64 %idxprom8
   store float %div7, ptr %arrayidx9, align 4
   br label %if.end
@@ -4694,28 +4696,28 @@ if.end:                                           ; preds = %if.else, %_ZN18Open
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %45 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %45, 1
+  %47 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %47, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !16
 
 for.end:                                          ; preds = %for.cond
   %arrayidx10 = getelementptr inbounds [3 x float], ptr %f, i64 0, i64 1
-  %46 = load float, ptr %arrayidx10, align 4
-  %47 = call float @llvm.fmuladd.f32(float 1.160000e+02, float %46, float -1.600000e+01)
+  %48 = load float, ptr %arrayidx10, align 4
+  %49 = call float @llvm.fmuladd.f32(float 1.160000e+02, float %48, float -1.600000e+01)
   %arrayidx11 = getelementptr inbounds [3 x float], ptr %f, i64 0, i64 0
-  %48 = load float, ptr %arrayidx11, align 4
+  %50 = load float, ptr %arrayidx11, align 4
   %arrayidx12 = getelementptr inbounds [3 x float], ptr %f, i64 0, i64 1
-  %49 = load float, ptr %arrayidx12, align 4
-  %sub = fsub float %48, %49
+  %51 = load float, ptr %arrayidx12, align 4
+  %sub = fsub float %50, %51
   %mul = fmul float 5.000000e+02, %sub
   %arrayidx13 = getelementptr inbounds [3 x float], ptr %f, i64 0, i64 1
-  %50 = load float, ptr %arrayidx13, align 4
+  %52 = load float, ptr %arrayidx13, align 4
   %arrayidx14 = getelementptr inbounds [3 x float], ptr %f, i64 0, i64 2
-  %51 = load float, ptr %arrayidx14, align 4
-  %sub15 = fsub float %50, %51
+  %53 = load float, ptr %arrayidx14, align 4
+  %sub15 = fsub float %52, %53
   %mul16 = fmul float 2.000000e+02, %sub15
-  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %agg.result, float noundef %47, float noundef %mul, float noundef %mul16)
+  call void @_ZN9Imath_2_56Color3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %agg.result, float noundef %49, float noundef %mul, float noundef %mul16)
   ret void
 }
 

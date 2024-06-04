@@ -581,9 +581,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %2 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr %2, i32 noundef 20, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [13 x ptr], [20 x ptr] }, ptr @_ZTVN4node9JSUDPWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = getelementptr inbounds { [13 x ptr], [20 x ptr] }, ptr @_ZTVN4node9JSUDPWrapE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr], [20 x ptr] }, ptr @_ZTVN4node9JSUDPWrapE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [13 x ptr], [20 x ptr] }, ptr @_ZTVN4node9JSUDPWrapE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this3, i64 16
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr7)
   store ptr %obj, ptr %this.addr.i, align 8
@@ -592,10 +594,10 @@ entry:
   %this1.i9 = load ptr, ptr %this.addr.i8, align 8
   store ptr %this1.i9, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %3 = load ptr, ptr %this1.i.i, align 8
-  store ptr %3, ptr %slot.addr.i, align 8
-  %4 = load ptr, ptr %slot.addr.i, align 8
-  call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef 2, ptr noundef %this3)
+  %5 = load ptr, ptr %this1.i.i, align 8
+  store ptr %5, ptr %slot.addr.i, align 8
+  %6 = load ptr, ptr %slot.addr.i, align 8
+  call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef 2, ptr noundef %this3)
   ret void
 }
 
@@ -605,7 +607,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11UDPWrapBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node11UDPWrapBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %listener_ = getelementptr inbounds %"class.node::UDPWrapBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %listener_, align 8
   ret void
@@ -1887,7 +1890,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6848,7 +6852,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

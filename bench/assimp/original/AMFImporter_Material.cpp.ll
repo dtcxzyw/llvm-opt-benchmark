@@ -1356,7 +1356,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18AMFNodeElementBaseC2ENS_5ETypeEPS_(ptr noundef nonnull align 8 dereferenceable(80) %this1, i32 noundef 0, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8AMFColor, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV8AMFColor, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Composed = getelementptr inbounds %struct.AMFColor, ptr %this1, i32 0, i32 1
   store i8 0, ptr %Composed, align 8
   %Color_Composed = getelementptr inbounds %struct.AMFColor, ptr %this1, i32 0, i32 2
@@ -1641,16 +1642,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #5
   br label %eh.resume
 
@@ -1932,7 +1934,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18AMFNodeElementBaseC2ENS_5ETypeEPS_(ptr noundef nonnull align 8 dereferenceable(80) %this1, i32 noundef 5, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11AMFMaterial, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV11AMFMaterial, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2496,7 +2499,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18AMFNodeElementBaseC2ENS_5ETypeEPS_(ptr noundef nonnull align 8 dereferenceable(80) %this1, i32 noundef 12, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10AMFTexture, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV10AMFTexture, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Width = getelementptr inbounds %struct.AMFTexture, ptr %this1, i32 0, i32 1
   store i64 0, ptr %Width, align 8
   %Height = getelementptr inbounds %struct.AMFTexture, ptr %this1, i32 0, i32 2
@@ -3546,7 +3550,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pParent.addr, align 8
   call void @_ZN18AMFNodeElementBaseC2ENS_5ETypeEPS_(ptr noundef nonnull align 8 dereferenceable(80) %this1, i32 noundef 11, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9AMFTexMap, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV9AMFTexMap, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %TextureCoordinate = getelementptr inbounds %struct.AMFTexMap, ptr %this1, i32 0, i32 1
   %arrayinit.begin = getelementptr inbounds [3 x %class.aiVector3t], ptr %TextureCoordinate, i64 0, i64 0
   %arrayinit.end = getelementptr inbounds %class.aiVector3t, ptr %arrayinit.begin, i64 3
@@ -4038,15 +4043,16 @@ entry:
   store i32 %pType, ptr %pType.addr, align 4
   store ptr %pParent, ptr %pParent.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Type = getelementptr inbounds %class.AMFNodeElementBase, ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %pType.addr, align 4
-  store i32 %0, ptr %Type, align 8
+  %1 = load i32, ptr %pType.addr, align 4
+  store i32 %1, ptr %Type, align 8
   %ID = getelementptr inbounds %class.AMFNodeElementBase, ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ID) #5
   %Parent = getelementptr inbounds %class.AMFNodeElementBase, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %pParent.addr, align 8
-  store ptr %1, ptr %Parent, align 8
+  %2 = load ptr, ptr %pParent.addr, align 8
+  store ptr %2, ptr %Parent, align 8
   %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Child) #5
   ret void
@@ -4075,16 +4081,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8AMFColor, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV8AMFColor, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Profile = getelementptr inbounds %struct.AMFColor, ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Profile) #5
   %Color_Composed = getelementptr inbounds %struct.AMFColor, ptr %this1, i32 0, i32 2
   %array.begin = getelementptr inbounds [4 x %"class.std::__cxx11::basic_string"], ptr %Color_Composed, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 4
+  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 4
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #5
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -4122,7 +4129,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV18AMFNodeElementBase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Child = getelementptr inbounds %class.AMFNodeElementBase, ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Child) #5
   %ID = getelementptr inbounds %class.AMFNodeElementBase, ptr %this1, i32 0, i32 2
@@ -5156,7 +5164,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10AMFTexture, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV10AMFTexture, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Data = getelementptr inbounds %struct.AMFTexture, ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Data) #5
   call void @_ZN18AMFNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #5
@@ -5443,7 +5452,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9AMFTexMap, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV9AMFTexMap, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %TextureID_A = getelementptr inbounds %struct.AMFTexMap, ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %TextureID_A) #5
   %TextureID_B = getelementptr inbounds %struct.AMFTexMap, ptr %this1, i32 0, i32 4

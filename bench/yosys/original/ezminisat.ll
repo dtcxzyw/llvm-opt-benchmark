@@ -781,53 +781,54 @@ define void @_ZN9ezMiniSATC2Ev(ptr noundef nonnull align 8 dereferenceable(376) 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ezSATC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 2
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
-  %8 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 4
-  call void @_ZNSt3setIiSt4lessIiESaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #15
-  %9 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 1
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 3
-  store i8 0, ptr %10, align 8
-  %11 = load i32, ptr @_ZN5ezSAT10CONST_TRUEE, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 4
-  %14 = load ptr, ptr %13, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(376) %5, i32 noundef %11)
-          to label %15 unwind label %21
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 2
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
+  %9 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 4
+  call void @_ZNSt3setIiSt4lessIiESaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #15
+  %10 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 1
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 3
+  store i8 0, ptr %11, align 8
+  %12 = load i32, ptr @_ZN5ezSAT10CONST_TRUEE, align 4
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 4
+  %15 = load ptr, ptr %14, align 8
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(376) %5, i32 noundef %12)
+          to label %16 unwind label %22
 
-15:                                               ; preds = %1
-  %16 = load i32, ptr @_ZN5ezSAT11CONST_FALSEE, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 4
-  %19 = load ptr, ptr %18, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(376) %5, i32 noundef %16)
-          to label %20 unwind label %21
+16:                                               ; preds = %1
+  %17 = load i32, ptr @_ZN5ezSAT11CONST_FALSEE, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds ptr, ptr %18, i64 4
+  %20 = load ptr, ptr %19, align 8
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(376) %5, i32 noundef %17)
+          to label %21 unwind label %22
 
-20:                                               ; preds = %15
+21:                                               ; preds = %16
   ret void
 
-21:                                               ; preds = %15, %1
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %16, %1
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %3, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %4, align 4
-  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #15
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #15
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   call void @_ZN5ezSATD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %5) #15
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %3, align 8
-  %27 = load i32, ptr %4, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %3, align 8
+  %28 = load i32, ptr %4, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 declare void @_ZN5ezSATC2Ev(ptr noundef nonnull align 8 dereferenceable(284)) unnamed_addr #3
@@ -898,33 +899,34 @@ define void @_ZN9ezMiniSATD2Ev(ptr noundef nonnull align 8 dereferenceable(376) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %16
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %17
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 1
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(1196) %9) #15
-  br label %15
-
-15:                                               ; preds = %11, %7
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(1196) %10) #15
   br label %16
 
-16:                                               ; preds = %15, %1
-  %17 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 4
-  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #15
-  %18 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+16:                                               ; preds = %12, %8
+  br label %17
+
+17:                                               ; preds = %16, %1
+  %18 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 4
+  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #15
+  %19 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #15
   call void @_ZN5ezSATD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %3) #15
   ret void
 }

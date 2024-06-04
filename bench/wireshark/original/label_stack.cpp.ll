@@ -540,73 +540,75 @@ define void @_ZN10LabelStackC2EP7QWidget(ptr noundef nonnull align 8 dereference
   %13 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN6QLabelC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12, i32 %14)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV10LabelStack, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV10LabelStack, i32 0, i32 1, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 1
-  store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 2
-  call void @_ZN5QListIN10LabelStack10_StackItemEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
-  %18 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 3
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 4
-  invoke void @_ZN13QElapsedTimerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19)
-          to label %20 unwind label %30
+  %15 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV10LabelStack, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV10LabelStack, i32 0, i32 1, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 1
+  store i32 -1, ptr %18, align 8
+  %19 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 2
+  call void @_ZN5QListIN10LabelStack10_StackItemEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
+  %20 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 3
+  store i8 0, ptr %20, align 8
+  %21 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 4
+  invoke void @_ZN13QElapsedTimerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %22 unwind label %32
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 5
-  invoke void @_ZN6QTimerC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef null)
-          to label %22 unwind label %30
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 5
+  invoke void @_ZN6QTimerC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef null)
+          to label %24 unwind label %32
 
-22:                                               ; preds = %20
+24:                                               ; preds = %22
   invoke void @_ZN10LabelStack9fillLabelEv(ptr noundef nonnull align 8 dereferenceable(112) %11)
-          to label %23 unwind label %34
+          to label %25 unwind label %36
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 5
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds %class.LabelStack, ptr %11, i32 0, i32 5
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN6QTimer7timeoutENS_14QPrivateSignalE to i64), i64 0 }, ptr %9, align 8
-  %25 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %27 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
   %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN10LabelStack21updateTemporaryStatusEv to i64), i64 0 }, ptr %10, align 8
-  invoke void @_ZN7QObject7connectIM6QTimerFvNS1_14QPrivateSignalEEM10LabelStackFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %24, i64 %26, i64 %28, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %10, i32 noundef 0)
-          to label %29 unwind label %34
+  invoke void @_ZN7QObject7connectIM6QTimerFvNS1_14QPrivateSignalEEM10LabelStackFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %8, ptr noundef %26, i64 %28, i64 %30, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %10, i32 noundef 0)
+          to label %31 unwind label %36
 
-29:                                               ; preds = %23
+31:                                               ; preds = %25
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
   ret void
 
-30:                                               ; preds = %20, %2
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %22, %2
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %6, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %7, align 4
-  br label %38
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %6, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %7, align 4
+  br label %40
 
-34:                                               ; preds = %23, %22
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %25, %24
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %6, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %7, align 4
-  call void @_ZN6QTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #12
-  br label %38
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %6, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %7, align 4
+  call void @_ZN6QTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #12
+  br label %40
 
-38:                                               ; preds = %34, %30
-  call void @_ZN5QListIN10LabelStack10_StackItemEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
+40:                                               ; preds = %36, %32
+  call void @_ZN5QListIN10LabelStack10_StackItemEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
   call void @_ZN6QLabelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #12
-  br label %39
+  br label %41
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %6, align 8
-  %41 = load i32, ptr %7, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %6, align 8
+  %43 = load i32, ptr %7, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

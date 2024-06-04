@@ -2105,7 +2105,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %test_name_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %test_name_) #3
   %prototype_message_for_compare_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 6
@@ -23238,7 +23239,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_url_ = getelementptr inbounds %"class.google::protobuf::BinaryAndJsonConformanceSuite", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_url_) #3
   %type_resolver_ = getelementptr inbounds %"class.google::protobuf::BinaryAndJsonConformanceSuite", ptr %this1, i32 0, i32 1
@@ -24536,11 +24538,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN22protobuf_test_messages6proto318
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 20
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 declare void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef, i1 noundef zeroext) #1
@@ -24550,11 +24553,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN22protobuf_test_messages6proto218
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 24
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_google_2fprotobuf_2ftest_5fmessages_5fproto2_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28363,7 +28367,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %skipped_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite", ptr %this1, i32 0, i32 15
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %skipped_) #3
   %unexpected_succeeding_tests_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite", ptr %this1, i32 0, i32 14

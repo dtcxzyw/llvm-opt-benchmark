@@ -237,9 +237,10 @@ define linkonce_odr void @_ZN11StringValueD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.StringValue, ptr %3, i32 0, i32 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.StringValue, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
   call void @_ZN5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -602,10 +603,11 @@ define void @_ZN11StringValueC2ERK7QString(ptr noundef nonnull align 8 dereferen
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5ValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.StringValue, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #5
+  %6 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.StringValue, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #5
   ret void
 }
 
@@ -614,7 +616,8 @@ define linkonce_odr void @_ZN5ValueC2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1077,11 +1080,12 @@ define linkonce_odr void @_ZN11StringValueC2ERKS_(ptr noundef nonnull align 8 de
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ValueC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.StringValue, ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %class.StringValue, ptr %8, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9) #5
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.StringValue, ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %class.StringValue, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10) #5
   ret void
 }
 
@@ -1092,7 +1096,8 @@ define linkonce_odr void @_ZN5ValueC2ERKS_(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 

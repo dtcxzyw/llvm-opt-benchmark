@@ -105,92 +105,98 @@ define i32 @mca_mpool_base_tree_init() #0 {
 
 3:                                                ; preds = %2
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_rb_tree_t_class, i32 0, i32 4), align 8
-  %6 = icmp ne i32 %4, %5
-  br i1 %6, label %7, label %8
+  %5 = getelementptr inbounds %struct.opal_class_t, ptr @opal_rb_tree_t_class, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp ne i32 %4, %6
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   call void @opal_class_initialize(ptr noundef @opal_rb_tree_t_class)
-  br label %8
-
-8:                                                ; preds = %7, %3
-  store ptr @opal_rb_tree_t_class, ptr @mca_mpool_base_tree, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_mpool_base_tree, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_mpool_base_tree)
   br label %9
 
-9:                                                ; preds = %8
-  br label %10
-
-10:                                               ; preds = %9
+9:                                                ; preds = %8, %3
+  store ptr @opal_rb_tree_t_class, ptr @mca_mpool_base_tree, align 16
+  %10 = getelementptr inbounds %struct.opal_object_t, ptr @mca_mpool_base_tree, i32 0, i32 1
+  store volatile i32 1, ptr %10, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_mpool_base_tree)
   br label %11
 
-11:                                               ; preds = %10
+11:                                               ; preds = %9
   br label %12
 
 12:                                               ; preds = %11
-  %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %15 = icmp ne i32 %13, %14
-  br i1 %15, label %16, label %17
+  br label %13
 
-16:                                               ; preds = %12
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  %15 = load i32, ptr @opal_class_init_epoch, align 4
+  %16 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp ne i32 %15, %17
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %14
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %17
-
-17:                                               ; preds = %16, %12
-  store ptr @opal_free_list_t_class, ptr @mca_mpool_base_tree_item_free_list, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_mpool_base_tree_item_free_list, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_mpool_base_tree_item_free_list)
-  br label %18
-
-18:                                               ; preds = %17
-  br label %19
-
-19:                                               ; preds = %18
   br label %20
 
-20:                                               ; preds = %19
-  br label %21
+20:                                               ; preds = %19, %14
+  store ptr @opal_free_list_t_class, ptr @mca_mpool_base_tree_item_free_list, align 16
+  %21 = getelementptr inbounds %struct.opal_object_t, ptr @mca_mpool_base_tree_item_free_list, i32 0, i32 1
+  store volatile i32 1, ptr %21, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_mpool_base_tree_item_free_list)
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+22:                                               ; preds = %20
+  br label %23
 
-25:                                               ; preds = %21
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i32, ptr @opal_class_init_epoch, align 4
+  %27 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp ne i32 %26, %28
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %25
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %26
+  br label %31
 
-26:                                               ; preds = %25, %21
+31:                                               ; preds = %30, %25
   store ptr @opal_mutex_t_class, ptr @tree_lock, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @tree_lock, i32 0, i32 1), align 8
+  %32 = getelementptr inbounds %struct.opal_object_t, ptr @tree_lock, i32 0, i32 1
+  store volatile i32 1, ptr %32, align 8
   call void @opal_obj_run_constructors(ptr noundef @tree_lock)
-  br label %27
+  br label %33
 
-27:                                               ; preds = %26
-  br label %28
+33:                                               ; preds = %31
+  br label %34
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr @opal_cache_line_size, align 4
-  %30 = sext i32 %29 to i64
-  %31 = load i32, ptr @opal_cache_line_size, align 4
-  %32 = sext i32 %31 to i64
-  %33 = call i32 @opal_free_list_init(ptr noundef @mca_mpool_base_tree_item_free_list, i64 noundef 216, i64 noundef %30, ptr noundef @mca_mpool_base_tree_item_t_class, i64 noundef 0, i64 noundef %32, i32 noundef 0, i32 noundef -1, i32 noundef 4, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %33, ptr %1, align 4
-  %34 = load i32, ptr %1, align 4
-  %35 = icmp eq i32 0, %34
-  br i1 %35, label %36, label %38
+34:                                               ; preds = %33
+  %35 = load i32, ptr @opal_cache_line_size, align 4
+  %36 = sext i32 %35 to i64
+  %37 = load i32, ptr @opal_cache_line_size, align 4
+  %38 = sext i32 %37 to i64
+  %39 = call i32 @opal_free_list_init(ptr noundef @mca_mpool_base_tree_item_free_list, i64 noundef 216, i64 noundef %36, ptr noundef @mca_mpool_base_tree_item_t_class, i64 noundef 0, i64 noundef %38, i32 noundef 0, i32 noundef -1, i32 noundef 4, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %39, ptr %1, align 4
+  %40 = load i32, ptr %1, align 4
+  %41 = icmp eq i32 0, %40
+  br i1 %41, label %42, label %44
 
-36:                                               ; preds = %28
-  %37 = call i32 @opal_rb_tree_init(ptr noundef @mca_mpool_base_tree, ptr noundef @mca_mpool_base_tree_node_compare)
-  store i32 %37, ptr %1, align 4
-  br label %38
+42:                                               ; preds = %34
+  %43 = call i32 @opal_rb_tree_init(ptr noundef @mca_mpool_base_tree, ptr noundef @mca_mpool_base_tree_node_compare)
+  store i32 %43, ptr %1, align 4
+  br label %44
 
-38:                                               ; preds = %36, %28
-  %39 = load i32, ptr %1, align 4
-  ret i32 %39
+44:                                               ; preds = %42, %34
+  %45 = load i32, ptr %1, align 4
+  ret i32 %45
 }
 
 declare void @opal_class_initialize(ptr noundef) #1
@@ -569,7 +575,7 @@ define void @mca_mpool_base_tree_print(i32 noundef %0) #0 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  br label %54
+  br label %56
 
 7:                                                ; preds = %1
   store i32 0, ptr @num_leaks, align 4
@@ -581,7 +587,7 @@ define void @mca_mpool_base_tree_print(i32 noundef %0) #0 {
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  br label %54
+  br label %56
 
 13:                                               ; preds = %7
   %14 = load i32, ptr @num_leaks, align 4
@@ -592,7 +598,7 @@ define void @mca_mpool_base_tree_print(i32 noundef %0) #0 {
 17:                                               ; preds = %13
   %18 = load i32, ptr %2, align 4
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %31
+  br i1 %19, label %20, label %32
 
 20:                                               ; preds = %17, %13
   %21 = load ptr, ptr @opal_show_help, align 8
@@ -601,43 +607,45 @@ define void @mca_mpool_base_tree_print(i32 noundef %0) #0 {
   %24 = getelementptr inbounds %struct.opal_proc_t, ptr %23, i32 0, i32 1
   %25 = load i64, ptr %24, align 8
   %26 = call ptr %22(i64 %25)
-  %27 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %28 = call i32 @getpid() #3
-  %29 = load ptr, ptr @leak_msg, align 8
-  %30 = call i32 (ptr, ptr, i32, ...) %21(ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 1, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %29)
-  br label %52
-
-31:                                               ; preds = %17
-  %32 = load i32, ptr @num_leaks, align 4
-  %33 = load i32, ptr %2, align 4
-  %34 = sub nsw i32 %32, %33
-  store i32 %34, ptr %3, align 4
-  %35 = load ptr, ptr @opal_show_help, align 8
-  %36 = load ptr, ptr @opal_process_name_print, align 8
-  %37 = call ptr @opal_proc_local_get()
-  %38 = getelementptr inbounds %struct.opal_proc_t, ptr %37, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
-  %40 = call ptr %36(i64 %39)
-  %41 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %42 = call i32 @getpid() #3
-  %43 = load ptr, ptr @leak_msg, align 8
-  %44 = load i32, ptr %3, align 4
-  %45 = load i32, ptr %3, align 4
-  %46 = icmp sgt i32 %45, 1
-  %47 = select i1 %46, ptr @.str.4, ptr @.str.5
-  %48 = load i32, ptr %3, align 4
-  %49 = icmp sgt i32 %48, 1
-  %50 = select i1 %49, ptr @.str.6, ptr @.str.7
-  %51 = call i32 (ptr, ptr, i32, ...) %35(ptr noundef @.str.1, ptr noundef @.str.3, i32 noundef 1, ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, ptr noundef %47, ptr noundef %50)
-  br label %52
-
-52:                                               ; preds = %31, %20
-  %53 = load ptr, ptr @leak_msg, align 8
-  call void @free(ptr noundef %53) #3
-  store ptr null, ptr @leak_msg, align 8
+  %27 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = call i32 @getpid() #3
+  %30 = load ptr, ptr @leak_msg, align 8
+  %31 = call i32 (ptr, ptr, i32, ...) %21(ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 1, ptr noundef %26, ptr noundef %28, i32 noundef %29, ptr noundef %30)
   br label %54
 
-54:                                               ; preds = %52, %12, %6
+32:                                               ; preds = %17
+  %33 = load i32, ptr @num_leaks, align 4
+  %34 = load i32, ptr %2, align 4
+  %35 = sub nsw i32 %33, %34
+  store i32 %35, ptr %3, align 4
+  %36 = load ptr, ptr @opal_show_help, align 8
+  %37 = load ptr, ptr @opal_process_name_print, align 8
+  %38 = call ptr @opal_proc_local_get()
+  %39 = getelementptr inbounds %struct.opal_proc_t, ptr %38, i32 0, i32 1
+  %40 = load i64, ptr %39, align 8
+  %41 = call ptr %37(i64 %40)
+  %42 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i32 @getpid() #3
+  %45 = load ptr, ptr @leak_msg, align 8
+  %46 = load i32, ptr %3, align 4
+  %47 = load i32, ptr %3, align 4
+  %48 = icmp sgt i32 %47, 1
+  %49 = select i1 %48, ptr @.str.4, ptr @.str.5
+  %50 = load i32, ptr %3, align 4
+  %51 = icmp sgt i32 %50, 1
+  %52 = select i1 %51, ptr @.str.6, ptr @.str.7
+  %53 = call i32 (ptr, ptr, i32, ...) %36(ptr noundef @.str.1, ptr noundef @.str.3, i32 noundef 1, ptr noundef %41, ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef %49, ptr noundef %52)
+  br label %54
+
+54:                                               ; preds = %32, %20
+  %55 = load ptr, ptr @leak_msg, align 8
+  call void @free(ptr noundef %55) #3
+  store ptr null, ptr @leak_msg, align 8
+  br label %56
+
+56:                                               ; preds = %54, %12, %6
   ret void
 }
 

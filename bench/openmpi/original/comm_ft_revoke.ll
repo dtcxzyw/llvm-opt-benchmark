@@ -63,34 +63,35 @@ define internal i32 @ompi_comm_revoke_local(ptr noundef %0, ptr noundef %1) #0 {
 
 10:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %22
+  br label %23
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %struct.ompi_communicator_t, ptr %12, i32 0, i32 28
   store i8 0, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 6), align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = call i32 %14(ptr noundef %15, i1 noundef zeroext false)
-  %17 = load i8, ptr @opal_uses_threads, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %11
-  call void @opal_threads_base_wait_sync_global_wakeup_mt(i32 noundef 77)
-  br label %21
+  %14 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 6
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = call i32 %15(ptr noundef %16, i1 noundef zeroext false)
+  %18 = load i8, ptr @opal_uses_threads, align 1
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %11
-  call void @opal_threads_base_wait_sync_global_wakeup_st(i32 noundef 77)
-  br label %21
-
-21:                                               ; preds = %20, %19
-  store i32 1, ptr %3, align 4
+  call void @opal_threads_base_wait_sync_global_wakeup_mt(i32 noundef 77)
   br label %22
 
-22:                                               ; preds = %21, %10
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+21:                                               ; preds = %11
+  call void @opal_threads_base_wait_sync_global_wakeup_st(i32 noundef 77)
+  br label %22
+
+22:                                               ; preds = %21, %20
+  store i32 1, ptr %3, align 4
+  br label %23
+
+23:                                               ; preds = %22, %10
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable

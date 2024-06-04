@@ -362,31 +362,32 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %10 = load i8, ptr getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 2), align 16
-  %tobool = trunc i8 %10 to i1
+  %10 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 2
+  %11 = load i8, ptr %10, align 16
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %if.end17, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %11 = load ptr, ptr %timer.addr, align 8
-  %pending = getelementptr inbounds %struct.grpc_timer, ptr %11, i32 0, i32 2
+  %12 = load ptr, ptr %timer.addr, align 8
+  %pending = getelementptr inbounds %struct.grpc_timer, ptr %12, i32 0, i32 2
   store i8 0, ptr %pending, align 4
   call void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10, ptr noundef @.str.5, i32 noundef 350)
-  %12 = load ptr, ptr %timer.addr, align 8
-  %closure11 = getelementptr inbounds %struct.grpc_timer, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %closure11, align 8
+  %13 = load ptr, ptr %timer.addr, align 8
+  %closure11 = getelementptr inbounds %struct.grpc_timer, ptr %13, i32 0, i32 5
+  %14 = load ptr, ptr %closure11, align 8
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, ptr noundef @.str.7) #3
   call void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13, ptr noundef @.str.5, i32 noundef 351)
   call void @llvm.memset.p0.i64(ptr align 8 %agg.tmp14, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp14) #3
-  %14 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp12, i32 0, i32 0
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp12, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, i32 noundef 2, i64 %15, ptr %17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13, ptr noundef %agg.tmp14)
+  %15 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp12, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp12, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, i32 noundef 2, i64 %16, ptr %18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13, ptr noundef %agg.tmp14)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then9
-  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10, ptr noundef %13, ptr noundef %agg.tmp)
+  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10, ptr noundef %14, ptr noundef %agg.tmp)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont
@@ -395,21 +396,21 @@ invoke.cont16:                                    ; preds = %invoke.cont
   br label %if.end81
 
 lpad:                                             ; preds = %if.then9
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad15:                                           ; preds = %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %ehcleanup
 
@@ -418,92 +419,92 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
   br label %eh.resume
 
 if.end17:                                         ; preds = %if.end
-  %24 = load ptr, ptr %shard, align 8
-  %mu = getelementptr inbounds %struct.timer_shard, ptr %24, i32 0, i32 0
+  %25 = load ptr, ptr %shard, align 8
+  %mu = getelementptr inbounds %struct.timer_shard, ptr %25, i32 0, i32 0
   call void @gpr_mu_lock(ptr noundef %mu)
-  %25 = load ptr, ptr %timer.addr, align 8
-  %pending18 = getelementptr inbounds %struct.grpc_timer, ptr %25, i32 0, i32 2
+  %26 = load ptr, ptr %timer.addr, align 8
+  %pending18 = getelementptr inbounds %struct.grpc_timer, ptr %26, i32 0, i32 2
   store i8 1, ptr %pending18, align 4
   %call19 = call i64 @_ZN9grpc_core9Timestamp3NowEv()
   %coerce.dive20 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %now, i32 0, i32 0
   store i64 %call19, ptr %coerce.dive20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp21, ptr align 8 %now, i64 8, i1 false)
   %coerce.dive22 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp21, i32 0, i32 0
-  %26 = load i64, ptr %coerce.dive22, align 8
-  %call23 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampleES0_(ptr noundef nonnull align 8 dereferenceable(8) %deadline, i64 %26)
+  %27 = load i64, ptr %coerce.dive22, align 8
+  %call23 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampleES0_(ptr noundef nonnull align 8 dereferenceable(8) %deadline, i64 %27)
   br i1 %call23, label %if.then24, label %if.end33
 
 if.then24:                                        ; preds = %if.end17
-  %27 = load ptr, ptr %timer.addr, align 8
-  %pending25 = getelementptr inbounds %struct.grpc_timer, ptr %27, i32 0, i32 2
+  %28 = load ptr, ptr %timer.addr, align 8
+  %pending25 = getelementptr inbounds %struct.grpc_timer, ptr %28, i32 0, i32 2
   store i8 0, ptr %pending25, align 4
   call void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26, ptr noundef @.str.5, i32 noundef 360)
-  %28 = load ptr, ptr %timer.addr, align 8
-  %closure27 = getelementptr inbounds %struct.grpc_timer, ptr %28, i32 0, i32 5
-  %29 = load ptr, ptr %closure27, align 8
+  %29 = load ptr, ptr %timer.addr, align 8
+  %closure27 = getelementptr inbounds %struct.grpc_timer, ptr %29, i32 0, i32 5
+  %30 = load ptr, ptr %closure27, align 8
   call void @_ZN4absl12lts_202308028OkStatusEv(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp28)
-  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26, ptr noundef %29, ptr noundef %agg.tmp28)
+  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26, ptr noundef %30, ptr noundef %agg.tmp28)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %if.then24
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp28) #3
-  %30 = load ptr, ptr %shard, align 8
-  %mu32 = getelementptr inbounds %struct.timer_shard, ptr %30, i32 0, i32 0
+  %31 = load ptr, ptr %shard, align 8
+  %mu32 = getelementptr inbounds %struct.timer_shard, ptr %31, i32 0, i32 0
   call void @gpr_mu_unlock(ptr noundef %mu32)
   br label %if.end81
 
 lpad29:                                           ; preds = %if.then24
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp28) #3
   br label %eh.resume
 
 if.end33:                                         ; preds = %if.end17
-  %34 = load ptr, ptr %shard, align 8
-  %stats = getelementptr inbounds %struct.timer_shard, ptr %34, i32 0, i32 1
+  %35 = load ptr, ptr %shard, align 8
+  %stats = getelementptr inbounds %struct.timer_shard, ptr %35, i32 0, i32 1
   %call34 = call noundef ptr @_ZN9grpc_core17ManualConstructorINS_17TimeAveragedStatsEEptEv(ptr noundef nonnull align 8 dereferenceable(56) %stats)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp36, ptr align 8 %deadline, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp37, ptr align 8 %now, i64 8, i1 false)
   %coerce.dive38 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp36, i32 0, i32 0
-  %35 = load i64, ptr %coerce.dive38, align 8
+  %36 = load i64, ptr %coerce.dive38, align 8
   %coerce.dive39 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp37, i32 0, i32 0
-  %36 = load i64, ptr %coerce.dive39, align 8
-  %call40 = call i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %35, i64 %36)
+  %37 = load i64, ptr %coerce.dive39, align 8
+  %call40 = call i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %36, i64 %37)
   %coerce.dive41 = getelementptr inbounds %"class.grpc_core::Duration", ptr %ref.tmp35, i32 0, i32 0
   store i64 %call40, ptr %coerce.dive41, align 8
   %call42 = call noundef i64 @_ZNK9grpc_core8Duration6millisEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35)
   %conv = sitofp i64 %call42 to double
   %div = fdiv double %conv, 1.000000e+03
   call void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr noundef nonnull align 8 dereferenceable(56) %call34, double noundef %div)
-  %37 = load ptr, ptr %shard, align 8
-  %queue_deadline_cap = getelementptr inbounds %struct.timer_shard, ptr %37, i32 0, i32 2
+  %38 = load ptr, ptr %shard, align 8
+  %queue_deadline_cap = getelementptr inbounds %struct.timer_shard, ptr %38, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp43, ptr align 8 %queue_deadline_cap, i64 8, i1 false)
   %coerce.dive44 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp43, i32 0, i32 0
-  %38 = load i64, ptr %coerce.dive44, align 8
-  %call45 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampltES0_(ptr noundef nonnull align 8 dereferenceable(8) %deadline, i64 %38)
+  %39 = load i64, ptr %coerce.dive44, align 8
+  %call45 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampltES0_(ptr noundef nonnull align 8 dereferenceable(8) %deadline, i64 %39)
   br i1 %call45, label %if.then46, label %if.else
 
 if.then46:                                        ; preds = %if.end33
-  %39 = load ptr, ptr %shard, align 8
-  %heap = getelementptr inbounds %struct.timer_shard, ptr %39, i32 0, i32 5
-  %40 = load ptr, ptr %timer.addr, align 8
-  %call47 = call noundef zeroext i1 @_Z19grpc_timer_heap_addP15grpc_timer_heapP10grpc_timer(ptr noundef %heap, ptr noundef %40)
+  %40 = load ptr, ptr %shard, align 8
+  %heap = getelementptr inbounds %struct.timer_shard, ptr %40, i32 0, i32 5
+  %41 = load ptr, ptr %timer.addr, align 8
+  %call47 = call noundef zeroext i1 @_Z19grpc_timer_heap_addP15grpc_timer_heapP10grpc_timer(ptr noundef %heap, ptr noundef %41)
   %conv48 = zext i1 %call47 to i32
   store i32 %conv48, ptr %is_first_timer, align 4
   br label %if.end49
 
 if.else:                                          ; preds = %if.end33
-  %41 = load ptr, ptr %timer.addr, align 8
-  %heap_index = getelementptr inbounds %struct.grpc_timer, ptr %41, i32 0, i32 1
+  %42 = load ptr, ptr %timer.addr, align 8
+  %heap_index = getelementptr inbounds %struct.grpc_timer, ptr %42, i32 0, i32 1
   store i32 -1, ptr %heap_index, align 8
-  %42 = load ptr, ptr %shard, align 8
-  %list = getelementptr inbounds %struct.timer_shard, ptr %42, i32 0, i32 6
-  %43 = load ptr, ptr %timer.addr, align 8
-  call void @_ZL9list_joinP10grpc_timerS0_(ptr noundef %list, ptr noundef %43)
+  %43 = load ptr, ptr %shard, align 8
+  %list = getelementptr inbounds %struct.timer_shard, ptr %43, i32 0, i32 6
+  %44 = load ptr, ptr %timer.addr, align 8
+  call void @_ZL9list_joinP10grpc_timerS0_(ptr noundef %list, ptr noundef %44)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else, %if.then46
@@ -511,80 +512,81 @@ if.end49:                                         ; preds = %if.else, %if.then46
   br i1 %call50, label %if.then52, label %if.end57
 
 if.then52:                                        ; preds = %if.end49
-  %44 = load ptr, ptr %shard, align 8
-  %45 = load ptr, ptr @_ZL8g_shards, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %44 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %45 to i64
+  %45 = load ptr, ptr %shard, align 8
+  %46 = load ptr, ptr @_ZL8g_shards, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %45 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %46 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 160
   %conv53 = trunc i64 %sub.ptr.div to i32
-  %46 = load ptr, ptr %shard, align 8
-  %queue_deadline_cap54 = getelementptr inbounds %struct.timer_shard, ptr %46, i32 0, i32 2
+  %47 = load ptr, ptr %shard, align 8
+  %queue_deadline_cap54 = getelementptr inbounds %struct.timer_shard, ptr %47, i32 0, i32 2
   %call55 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %queue_deadline_cap54)
-  %47 = load i32, ptr %is_first_timer, align 4
-  %tobool56 = icmp ne i32 %47, 0
+  %48 = load i32, ptr %is_first_timer, align 4
+  %tobool56 = icmp ne i32 %48, 0
   %cond = select i1 %tobool56, ptr @.str.9, ptr @.str.10
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.5, i32 noundef 377, i32 noundef 0, ptr noundef @.str.8, i32 noundef %conv53, i64 noundef %call55, ptr noundef %cond)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then52, %if.end49
-  %48 = load ptr, ptr %shard, align 8
-  %mu58 = getelementptr inbounds %struct.timer_shard, ptr %48, i32 0, i32 0
+  %49 = load ptr, ptr %shard, align 8
+  %mu58 = getelementptr inbounds %struct.timer_shard, ptr %49, i32 0, i32 0
   call void @gpr_mu_unlock(ptr noundef %mu58)
-  %49 = load i32, ptr %is_first_timer, align 4
-  %tobool59 = icmp ne i32 %49, 0
+  %50 = load i32, ptr %is_first_timer, align 4
+  %tobool59 = icmp ne i32 %50, 0
   br i1 %tobool59, label %if.then60, label %if.end81
 
 if.then60:                                        ; preds = %if.end57
-  call void @gpr_mu_lock(ptr noundef getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3))
+  %51 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3
+  call void @gpr_mu_lock(ptr noundef %51)
   %call61 = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @grpc_timer_trace)
   br i1 %call61, label %if.then63, label %if.end65
 
 if.then63:                                        ; preds = %if.then60
-  %50 = load ptr, ptr %shard, align 8
-  %min_deadline = getelementptr inbounds %struct.timer_shard, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %shard, align 8
+  %min_deadline = getelementptr inbounds %struct.timer_shard, ptr %52, i32 0, i32 3
   %call64 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %min_deadline)
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.5, i32 noundef 400, i32 noundef 0, ptr noundef @.str.11, i64 noundef %call64)
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then63, %if.then60
-  %51 = load ptr, ptr %shard, align 8
-  %min_deadline67 = getelementptr inbounds %struct.timer_shard, ptr %51, i32 0, i32 3
+  %53 = load ptr, ptr %shard, align 8
+  %min_deadline67 = getelementptr inbounds %struct.timer_shard, ptr %53, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp66, ptr align 8 %min_deadline67, i64 8, i1 false)
   %coerce.dive68 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp66, i32 0, i32 0
-  %52 = load i64, ptr %coerce.dive68, align 8
-  %call69 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampltES0_(ptr noundef nonnull align 8 dereferenceable(8) %deadline, i64 %52)
+  %54 = load i64, ptr %coerce.dive68, align 8
+  %call69 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampltES0_(ptr noundef nonnull align 8 dereferenceable(8) %deadline, i64 %54)
   br i1 %call69, label %if.then70, label %if.end80
 
 if.then70:                                        ; preds = %if.end65
-  %53 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx71 = getelementptr inbounds ptr, ptr %53, i64 0
-  %54 = load ptr, ptr %arrayidx71, align 8
-  %min_deadline72 = getelementptr inbounds %struct.timer_shard, ptr %54, i32 0, i32 3
+  %55 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx71 = getelementptr inbounds ptr, ptr %55, i64 0
+  %56 = load ptr, ptr %arrayidx71, align 8
+  %min_deadline72 = getelementptr inbounds %struct.timer_shard, ptr %56, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %old_min_deadline, ptr align 8 %min_deadline72, i64 8, i1 false)
-  %55 = load ptr, ptr %shard, align 8
-  %min_deadline73 = getelementptr inbounds %struct.timer_shard, ptr %55, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %min_deadline73, ptr align 8 %deadline, i64 8, i1 false)
-  %56 = load ptr, ptr %shard, align 8
-  call void @_ZL20note_deadline_changeP11timer_shard(ptr noundef %56)
   %57 = load ptr, ptr %shard, align 8
-  %shard_queue_index = getelementptr inbounds %struct.timer_shard, ptr %57, i32 0, i32 4
-  %58 = load i32, ptr %shard_queue_index, align 8
-  %cmp = icmp eq i32 %58, 0
+  %min_deadline73 = getelementptr inbounds %struct.timer_shard, ptr %57, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %min_deadline73, ptr align 8 %deadline, i64 8, i1 false)
+  %58 = load ptr, ptr %shard, align 8
+  call void @_ZL20note_deadline_changeP11timer_shard(ptr noundef %58)
+  %59 = load ptr, ptr %shard, align 8
+  %shard_queue_index = getelementptr inbounds %struct.timer_shard, ptr %59, i32 0, i32 4
+  %60 = load i32, ptr %shard_queue_index, align 8
+  %cmp = icmp eq i32 %60, 0
   br i1 %cmp, label %land.lhs.true, label %if.end79
 
 land.lhs.true:                                    ; preds = %if.then70
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp74, ptr align 8 %old_min_deadline, i64 8, i1 false)
   %coerce.dive75 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp74, i32 0, i32 0
-  %59 = load i64, ptr %coerce.dive75, align 8
-  %call76 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampltES0_(ptr noundef nonnull align 8 dereferenceable(8) %deadline, i64 %59)
+  %61 = load i64, ptr %coerce.dive75, align 8
+  %call76 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampltES0_(ptr noundef nonnull align 8 dereferenceable(8) %deadline, i64 %61)
   br i1 %call76, label %if.then77, label %if.end79
 
 if.then77:                                        ; preds = %land.lhs.true
   %call78 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %deadline)
   store i64 %call78, ptr %.atomictmp, align 8
-  %60 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %60, ptr @_ZL17g_shared_mutables monotonic, align 64
+  %62 = load i64, ptr %.atomictmp, align 8
+  store atomic i64 %62, ptr @_ZL17g_shared_mutables monotonic, align 64
   call void @_Z16grpc_kick_pollerv()
   br label %if.end79
 
@@ -592,7 +594,8 @@ if.end79:                                         ; preds = %if.then77, %land.lh
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end79, %if.end65
-  call void @gpr_mu_unlock(ptr noundef getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3))
+  %63 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3
+  call void @gpr_mu_unlock(ptr noundef %63)
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end80, %if.end57, %invoke.cont30, %invoke.cont16
@@ -616,83 +619,84 @@ entry:
   %exn.slot = alloca ptr, align 8
   %ehselector.slot = alloca i32, align 4
   store ptr %timer, ptr %timer.addr, align 8
-  %0 = load i8, ptr getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 2), align 16
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 2
+  %1 = load i8, ptr %0, align 16
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr @_ZL8g_shards, align 8
-  %2 = load ptr, ptr %timer.addr, align 8
-  %3 = load i64, ptr @_ZL12g_num_shards, align 8
-  %call = call noundef i64 @_ZN9grpc_core11HashPointerI10grpc_timerEEmPT_m(ptr noundef %2, i64 noundef %3)
-  %arrayidx = getelementptr inbounds %struct.timer_shard, ptr %1, i64 %call
+  %2 = load ptr, ptr @_ZL8g_shards, align 8
+  %3 = load ptr, ptr %timer.addr, align 8
+  %4 = load i64, ptr @_ZL12g_num_shards, align 8
+  %call = call noundef i64 @_ZN9grpc_core11HashPointerI10grpc_timerEEmPT_m(ptr noundef %3, i64 noundef %4)
+  %arrayidx = getelementptr inbounds %struct.timer_shard, ptr %2, i64 %call
   store ptr %arrayidx, ptr %shard, align 8
-  %4 = load ptr, ptr %shard, align 8
-  %mu = getelementptr inbounds %struct.timer_shard, ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %shard, align 8
+  %mu = getelementptr inbounds %struct.timer_shard, ptr %5, i32 0, i32 0
   call void @gpr_mu_lock(ptr noundef %mu)
   %call1 = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @grpc_timer_trace)
   br i1 %call1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %5 = load ptr, ptr %timer.addr, align 8
   %6 = load ptr, ptr %timer.addr, align 8
-  %pending = getelementptr inbounds %struct.grpc_timer, ptr %6, i32 0, i32 2
-  %7 = load i8, ptr %pending, align 4
-  %tobool3 = trunc i8 %7 to i1
+  %7 = load ptr, ptr %timer.addr, align 8
+  %pending = getelementptr inbounds %struct.grpc_timer, ptr %7, i32 0, i32 2
+  %8 = load i8, ptr %pending, align 4
+  %tobool3 = trunc i8 %8 to i1
   %cond = select i1 %tobool3, ptr @.str.9, ptr @.str.10
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.5, i32 noundef 442, i32 noundef 0, ptr noundef @.str.12, ptr noundef %5, ptr noundef %cond)
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.5, i32 noundef 442, i32 noundef 0, ptr noundef @.str.12, ptr noundef %6, ptr noundef %cond)
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %8 = load ptr, ptr %timer.addr, align 8
-  %pending5 = getelementptr inbounds %struct.grpc_timer, ptr %8, i32 0, i32 2
-  %9 = load i8, ptr %pending5, align 4
-  %tobool6 = trunc i8 %9 to i1
+  %9 = load ptr, ptr %timer.addr, align 8
+  %pending5 = getelementptr inbounds %struct.grpc_timer, ptr %9, i32 0, i32 2
+  %10 = load i8, ptr %pending5, align 4
+  %tobool6 = trunc i8 %10 to i1
   br i1 %tobool6, label %if.then7, label %if.else11
 
 if.then7:                                         ; preds = %if.end4
   call void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str.5, i32 noundef 449)
-  %10 = load ptr, ptr %timer.addr, align 8
-  %closure = getelementptr inbounds %struct.grpc_timer, ptr %10, i32 0, i32 5
-  %11 = load ptr, ptr %closure, align 8
+  %11 = load ptr, ptr %timer.addr, align 8
+  %closure = getelementptr inbounds %struct.grpc_timer, ptr %11, i32 0, i32 5
+  %12 = load ptr, ptr %closure, align 8
   call void @_ZN4absl12lts_2023080214CancelledErrorEv(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp)
-  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef %11, ptr noundef %agg.tmp)
+  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef %12, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then7
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  %12 = load ptr, ptr %timer.addr, align 8
-  %pending8 = getelementptr inbounds %struct.grpc_timer, ptr %12, i32 0, i32 2
-  store i8 0, ptr %pending8, align 4
   %13 = load ptr, ptr %timer.addr, align 8
-  %heap_index = getelementptr inbounds %struct.grpc_timer, ptr %13, i32 0, i32 1
-  %14 = load i32, ptr %heap_index, align 8
-  %cmp = icmp eq i32 %14, -1
+  %pending8 = getelementptr inbounds %struct.grpc_timer, ptr %13, i32 0, i32 2
+  store i8 0, ptr %pending8, align 4
+  %14 = load ptr, ptr %timer.addr, align 8
+  %heap_index = getelementptr inbounds %struct.grpc_timer, ptr %14, i32 0, i32 1
+  %15 = load i32, ptr %heap_index, align 8
+  %cmp = icmp eq i32 %15, -1
   br i1 %cmp, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %invoke.cont
-  %15 = load ptr, ptr %timer.addr, align 8
-  call void @_ZL11list_removeP10grpc_timer(ptr noundef %15)
+  %16 = load ptr, ptr %timer.addr, align 8
+  call void @_ZL11list_removeP10grpc_timer(ptr noundef %16)
   br label %if.end10
 
 lpad:                                             ; preds = %if.then7
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
 if.else:                                          ; preds = %invoke.cont
-  %19 = load ptr, ptr %shard, align 8
-  %heap = getelementptr inbounds %struct.timer_shard, ptr %19, i32 0, i32 5
-  %20 = load ptr, ptr %timer.addr, align 8
-  call void @_Z22grpc_timer_heap_removeP15grpc_timer_heapP10grpc_timer(ptr noundef %heap, ptr noundef %20)
+  %20 = load ptr, ptr %shard, align 8
+  %heap = getelementptr inbounds %struct.timer_shard, ptr %20, i32 0, i32 5
+  %21 = load ptr, ptr %timer.addr, align 8
+  call void @_Z22grpc_timer_heap_removeP15grpc_timer_heapP10grpc_timer(ptr noundef %heap, ptr noundef %21)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then9
@@ -702,8 +706,8 @@ if.else11:                                        ; preds = %if.end4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else11, %if.end10
-  %21 = load ptr, ptr %shard, align 8
-  %mu13 = getelementptr inbounds %struct.timer_shard, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %shard, align 8
+  %mu13 = getelementptr inbounds %struct.timer_shard, ptr %22, i32 0, i32 0
   call void @gpr_mu_unlock(ptr noundef %mu13)
   br label %return
 
@@ -1035,80 +1039,83 @@ entry:
   %mul4 = mul i64 %1, 8
   %call5 = call ptr @gpr_zalloc(i64 noundef %mul4)
   store ptr %call5, ptr @_ZL13g_shard_queue, align 8
-  store i8 1, ptr getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 2), align 16
+  %2 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 2
+  store i8 1, ptr %2, align 16
   %atm = getelementptr inbounds %struct.gpr_spinlock, ptr %ref.tmp, i32 0, i32 0
   store i64 0, ptr %atm, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 1), ptr align 8 %ref.tmp, i64 8, i1 false)
-  call void @gpr_mu_init(ptr noundef getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3))
+  %3 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %ref.tmp, i64 8, i1 false)
+  %4 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3
+  call void @gpr_mu_init(ptr noundef %4)
   %call7 = call i64 @_ZN9grpc_core9Timestamp3NowEv()
   %coerce.dive = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %ref.tmp6, i32 0, i32 0
   store i64 %call7, ptr %coerce.dive, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 64 @_ZL17g_shared_mutables, ptr align 8 %ref.tmp6, i64 8, i1 false)
-  %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL21g_last_seen_min_timer)
-  store i64 0, ptr %2, align 8
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL21g_last_seen_min_timer)
+  store i64 0, ptr %5, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %conv8 = zext i32 %3 to i64
-  %4 = load i64, ptr @_ZL12g_num_shards, align 8
-  %cmp = icmp ult i64 %conv8, %4
+  %6 = load i32, ptr %i, align 4
+  %conv8 = zext i32 %6 to i64
+  %7 = load i64, ptr @_ZL12g_num_shards, align 8
+  %cmp = icmp ult i64 %conv8, %7
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr @_ZL8g_shards, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx = getelementptr inbounds %struct.timer_shard, ptr %5, i64 %idxprom
+  %8 = load ptr, ptr @_ZL8g_shards, align 8
+  %9 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %9 to i64
+  %arrayidx = getelementptr inbounds %struct.timer_shard, ptr %8, i64 %idxprom
   store ptr %arrayidx, ptr %shard, align 8
-  %7 = load ptr, ptr %shard, align 8
-  %mu = getelementptr inbounds %struct.timer_shard, ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %shard, align 8
+  %mu = getelementptr inbounds %struct.timer_shard, ptr %10, i32 0, i32 0
   call void @gpr_mu_init(ptr noundef %mu)
-  %8 = load ptr, ptr %shard, align 8
-  %stats = getelementptr inbounds %struct.timer_shard, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %shard, align 8
+  %stats = getelementptr inbounds %struct.timer_shard, ptr %11, i32 0, i32 1
   store double 0x40083E0F83E0F83E, ptr %ref.tmp9, align 8
   store double 1.000000e-01, ptr %ref.tmp10, align 8
   store double 5.000000e-01, ptr %ref.tmp11, align 8
   call void @_ZN9grpc_core17ManualConstructorINS_17TimeAveragedStatsEE4InitIJdddEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %stats, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11)
-  %9 = load ptr, ptr %shard, align 8
-  %queue_deadline_cap = getelementptr inbounds %struct.timer_shard, ptr %9, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %queue_deadline_cap, ptr align 64 @_ZL17g_shared_mutables, i64 8, i1 false)
-  %10 = load i32, ptr %i, align 4
-  %11 = load ptr, ptr %shard, align 8
-  %shard_queue_index = getelementptr inbounds %struct.timer_shard, ptr %11, i32 0, i32 4
-  store i32 %10, ptr %shard_queue_index, align 8
   %12 = load ptr, ptr %shard, align 8
-  %heap = getelementptr inbounds %struct.timer_shard, ptr %12, i32 0, i32 5
-  call void @_Z20grpc_timer_heap_initP15grpc_timer_heap(ptr noundef %heap)
-  %13 = load ptr, ptr %shard, align 8
-  %list = getelementptr inbounds %struct.timer_shard, ptr %13, i32 0, i32 6
+  %queue_deadline_cap = getelementptr inbounds %struct.timer_shard, ptr %12, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %queue_deadline_cap, ptr align 64 @_ZL17g_shared_mutables, i64 8, i1 false)
+  %13 = load i32, ptr %i, align 4
   %14 = load ptr, ptr %shard, align 8
-  %list12 = getelementptr inbounds %struct.timer_shard, ptr %14, i32 0, i32 6
+  %shard_queue_index = getelementptr inbounds %struct.timer_shard, ptr %14, i32 0, i32 4
+  store i32 %13, ptr %shard_queue_index, align 8
+  %15 = load ptr, ptr %shard, align 8
+  %heap = getelementptr inbounds %struct.timer_shard, ptr %15, i32 0, i32 5
+  call void @_Z20grpc_timer_heap_initP15grpc_timer_heap(ptr noundef %heap)
+  %16 = load ptr, ptr %shard, align 8
+  %list = getelementptr inbounds %struct.timer_shard, ptr %16, i32 0, i32 6
+  %17 = load ptr, ptr %shard, align 8
+  %list12 = getelementptr inbounds %struct.timer_shard, ptr %17, i32 0, i32 6
   %prev = getelementptr inbounds %struct.grpc_timer, ptr %list12, i32 0, i32 4
   store ptr %list, ptr %prev, align 8
-  %15 = load ptr, ptr %shard, align 8
-  %list13 = getelementptr inbounds %struct.timer_shard, ptr %15, i32 0, i32 6
+  %18 = load ptr, ptr %shard, align 8
+  %list13 = getelementptr inbounds %struct.timer_shard, ptr %18, i32 0, i32 6
   %next = getelementptr inbounds %struct.grpc_timer, ptr %list13, i32 0, i32 3
   store ptr %list, ptr %next, align 8
-  %16 = load ptr, ptr %shard, align 8
-  %call15 = call i64 @_ZL20compute_min_deadlineP11timer_shard(ptr noundef %16)
+  %19 = load ptr, ptr %shard, align 8
+  %call15 = call i64 @_ZL20compute_min_deadlineP11timer_shard(ptr noundef %19)
   %coerce.dive16 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %ref.tmp14, i32 0, i32 0
   store i64 %call15, ptr %coerce.dive16, align 8
-  %17 = load ptr, ptr %shard, align 8
-  %min_deadline = getelementptr inbounds %struct.timer_shard, ptr %17, i32 0, i32 3
+  %20 = load ptr, ptr %shard, align 8
+  %min_deadline = getelementptr inbounds %struct.timer_shard, ptr %20, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %min_deadline, ptr align 8 %ref.tmp14, i64 8, i1 false)
-  %18 = load ptr, ptr %shard, align 8
-  %19 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %20 = load i32, ptr %i, align 4
-  %idxprom17 = zext i32 %20 to i64
-  %arrayidx18 = getelementptr inbounds ptr, ptr %19, i64 %idxprom17
-  store ptr %18, ptr %arrayidx18, align 8
+  %21 = load ptr, ptr %shard, align 8
+  %22 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %23 = load i32, ptr %i, align 4
+  %idxprom17 = zext i32 %23 to i64
+  %arrayidx18 = getelementptr inbounds ptr, ptr %22, i64 %idxprom17
+  store ptr %21, ptr %arrayidx18, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %21 = load i32, ptr %i, align 4
-  %inc = add i32 %21, 1
+  %24 = load i32, ptr %i, align 4
+  %inc = add i32 %24, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
@@ -1203,12 +1210,14 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
   br label %eh.resume
 
 for.end:                                          ; preds = %for.cond
-  call void @gpr_mu_destroy(ptr noundef getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3))
-  %18 = load ptr, ptr @_ZL8g_shards, align 8
-  call void @gpr_free(ptr noundef %18)
-  %19 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %18 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3
+  call void @gpr_mu_destroy(ptr noundef %18)
+  %19 = load ptr, ptr @_ZL8g_shards, align 8
   call void @gpr_free(ptr noundef %19)
-  store i8 0, ptr getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 2), align 16
+  %20 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  call void @gpr_free(ptr noundef %20)
+  %21 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 2
+  store i8 0, ptr %21, align 16
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -1717,15 +1726,16 @@ declare void @_ZSt9terminatev()
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E() #9 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2533,30 +2543,32 @@ if.end:                                           ; preds = %if.then5, %if.then
   br label %return
 
 if.end7:                                          ; preds = %entry
-  %call8 = call noundef i32 @_ZL15gpr_atm_acq_casPlll(ptr noundef getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 1), i64 noundef 0, i64 noundef 1)
+  %7 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 1
+  %call8 = call noundef i32 @_ZL15gpr_atm_acq_casPlll(ptr noundef %7, i64 noundef 0, i64 noundef 1)
   %tobool = icmp ne i32 %call8, 0
   br i1 %tobool, label %if.then9, label %if.end66
 
 if.then9:                                         ; preds = %if.end7
-  call void @gpr_mu_lock(ptr noundef getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3))
+  %8 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3
+  call void @gpr_mu_lock(ptr noundef %8)
   store i32 1, ptr %result, align 4
   %call10 = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @grpc_timer_check_trace)
   br i1 %call10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.then9
-  %7 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 0
-  %8 = load ptr, ptr %arrayidx, align 8
-  %9 = load ptr, ptr @_ZL8g_shards, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
+  %9 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 0
+  %10 = load ptr, ptr %arrayidx, align 8
+  %11 = load ptr, ptr @_ZL8g_shards, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 160
   %conv = trunc i64 %sub.ptr.div to i32
-  %10 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx12 = getelementptr inbounds ptr, ptr %10, i64 0
-  %11 = load ptr, ptr %arrayidx12, align 8
-  %min_deadline = getelementptr inbounds %struct.timer_shard, ptr %11, i32 0, i32 3
+  %12 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx12 = getelementptr inbounds ptr, ptr %12, i64 0
+  %13 = load ptr, ptr %arrayidx12, align 8
+  %min_deadline = getelementptr inbounds %struct.timer_shard, ptr %13, i32 0, i32 3
   %call13 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %min_deadline)
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.5, i32 noundef 596, i32 noundef 0, ptr noundef @.str.18, i32 noundef %conv, i64 noundef %call13)
   br label %if.end14
@@ -2565,14 +2577,14 @@ if.end14:                                         ; preds = %if.then11, %if.then
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end52, %if.end14
-  %12 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %12, i64 0
-  %13 = load ptr, ptr %arrayidx15, align 8
-  %min_deadline16 = getelementptr inbounds %struct.timer_shard, ptr %13, i32 0, i32 3
+  %14 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx15 = getelementptr inbounds ptr, ptr %14, i64 0
+  %15 = load ptr, ptr %arrayidx15, align 8
+  %min_deadline16 = getelementptr inbounds %struct.timer_shard, ptr %15, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp17, ptr align 8 %now, i64 8, i1 false)
   %coerce.dive18 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp17, i32 0, i32 0
-  %14 = load i64, ptr %coerce.dive18, align 8
-  %call19 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampltES0_(ptr noundef nonnull align 8 dereferenceable(8) %min_deadline16, i64 %14)
+  %16 = load i64, ptr %coerce.dive18, align 8
+  %call19 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampltES0_(ptr noundef nonnull align 8 dereferenceable(8) %min_deadline16, i64 %16)
   br i1 %call19, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.cond
@@ -2580,39 +2592,39 @@ lor.rhs:                                          ; preds = %while.cond
   %coerce.dive22 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp20, i32 0, i32 0
   store i64 %call21, ptr %coerce.dive22, align 8
   %coerce.dive23 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp20, i32 0, i32 0
-  %15 = load i64, ptr %coerce.dive23, align 8
-  %call24 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampneES0_(ptr noundef nonnull align 8 dereferenceable(8) %now, i64 %15)
+  %17 = load i64, ptr %coerce.dive23, align 8
+  %call24 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampneES0_(ptr noundef nonnull align 8 dereferenceable(8) %now, i64 %17)
   br i1 %call24, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %16 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx25 = getelementptr inbounds ptr, ptr %16, i64 0
-  %17 = load ptr, ptr %arrayidx25, align 8
-  %min_deadline26 = getelementptr inbounds %struct.timer_shard, ptr %17, i32 0, i32 3
+  %18 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx25 = getelementptr inbounds ptr, ptr %18, i64 0
+  %19 = load ptr, ptr %arrayidx25, align 8
+  %min_deadline26 = getelementptr inbounds %struct.timer_shard, ptr %19, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp27, ptr align 8 %now, i64 8, i1 false)
   %coerce.dive28 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp27, i32 0, i32 0
-  %18 = load i64, ptr %coerce.dive28, align 8
-  %call29 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampeqES0_(ptr noundef nonnull align 8 dereferenceable(8) %min_deadline26, i64 %18)
+  %20 = load i64, ptr %coerce.dive28, align 8
+  %call29 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampeqES0_(ptr noundef nonnull align 8 dereferenceable(8) %min_deadline26, i64 %20)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %lor.rhs
-  %19 = phi i1 [ false, %lor.rhs ], [ %call29, %land.rhs ]
+  %21 = phi i1 [ false, %lor.rhs ], [ %call29, %land.rhs ]
   br label %lor.end
 
 lor.end:                                          ; preds = %land.end, %while.cond
-  %20 = phi i1 [ true, %while.cond ], [ %19, %land.end ]
-  br i1 %20, label %while.body, label %while.end
+  %22 = phi i1 [ true, %while.cond ], [ %21, %land.end ]
+  br i1 %22, label %while.body, label %while.end
 
 while.body:                                       ; preds = %lor.end
   call void @_ZN9grpc_core9TimestampC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %new_min_deadline) #3
-  %21 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx30 = getelementptr inbounds ptr, ptr %21, i64 0
-  %22 = load ptr, ptr %arrayidx30, align 8
+  %23 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %23, i64 0
+  %24 = load ptr, ptr %arrayidx30, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp31, ptr align 8 %now, i64 8, i1 false)
   call void @_ZN4absl12lts_202308026StatusC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp32, ptr noundef nonnull align 8 dereferenceable(8) %error)
   %coerce.dive33 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp31, i32 0, i32 0
-  %23 = load i64, ptr %coerce.dive33, align 8
-  %call34 = invoke noundef i64 @_ZL10pop_timersP11timer_shardN9grpc_core9TimestampEPS2_N4absl12lts_202308026StatusE(ptr noundef %22, i64 %23, ptr noundef %new_min_deadline, ptr noundef %agg.tmp32)
+  %25 = load i64, ptr %coerce.dive33, align 8
+  %call34 = invoke noundef i64 @_ZL10pop_timersP11timer_shardN9grpc_core9TimestampEPS2_N4absl12lts_202308026StatusE(ptr noundef %24, i64 %25, ptr noundef %new_min_deadline, ptr noundef %agg.tmp32)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
@@ -2625,12 +2637,12 @@ if.then36:                                        ; preds = %invoke.cont
   br label %if.end37
 
 lpad:                                             ; preds = %while.body
-  %24 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp32) #3
   br label %eh.resume
 
@@ -2639,77 +2651,79 @@ if.end37:                                         ; preds = %if.then36, %invoke.
   br i1 %call38, label %if.then40, label %if.end52
 
 if.then40:                                        ; preds = %if.end37
-  %27 = load i32, ptr %result, align 4
-  %28 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx41 = getelementptr inbounds ptr, ptr %28, i64 0
-  %29 = load ptr, ptr %arrayidx41, align 8
-  %30 = load ptr, ptr @_ZL8g_shards, align 8
-  %sub.ptr.lhs.cast42 = ptrtoint ptr %29 to i64
-  %sub.ptr.rhs.cast43 = ptrtoint ptr %30 to i64
+  %29 = load i32, ptr %result, align 4
+  %30 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx41 = getelementptr inbounds ptr, ptr %30, i64 0
+  %31 = load ptr, ptr %arrayidx41, align 8
+  %32 = load ptr, ptr @_ZL8g_shards, align 8
+  %sub.ptr.lhs.cast42 = ptrtoint ptr %31 to i64
+  %sub.ptr.rhs.cast43 = ptrtoint ptr %32 to i64
   %sub.ptr.sub44 = sub i64 %sub.ptr.lhs.cast42, %sub.ptr.rhs.cast43
   %sub.ptr.div45 = sdiv exact i64 %sub.ptr.sub44, 160
   %conv46 = trunc i64 %sub.ptr.div45 to i32
-  %31 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx47 = getelementptr inbounds ptr, ptr %31, i64 0
-  %32 = load ptr, ptr %arrayidx47, align 8
-  %min_deadline48 = getelementptr inbounds %struct.timer_shard, ptr %32, i32 0, i32 3
+  %33 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx47 = getelementptr inbounds ptr, ptr %33, i64 0
+  %34 = load ptr, ptr %arrayidx47, align 8
+  %min_deadline48 = getelementptr inbounds %struct.timer_shard, ptr %34, i32 0, i32 3
   %call49 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %min_deadline48)
   %call50 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %new_min_deadline)
   %call51 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %now)
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.5, i32 noundef 615, i32 noundef 0, ptr noundef @.str.19, i32 noundef %27, i32 noundef %conv46, i64 noundef %call49, i64 noundef %call50, i64 noundef %call51)
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.5, i32 noundef 615, i32 noundef 0, ptr noundef @.str.19, i32 noundef %29, i32 noundef %conv46, i64 noundef %call49, i64 noundef %call50, i64 noundef %call51)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then40, %if.end37
-  %33 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx53 = getelementptr inbounds ptr, ptr %33, i64 0
-  %34 = load ptr, ptr %arrayidx53, align 8
-  %min_deadline54 = getelementptr inbounds %struct.timer_shard, ptr %34, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %min_deadline54, ptr align 8 %new_min_deadline, i64 8, i1 false)
   %35 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx55 = getelementptr inbounds ptr, ptr %35, i64 0
-  %36 = load ptr, ptr %arrayidx55, align 8
-  call void @_ZL20note_deadline_changeP11timer_shard(ptr noundef %36)
+  %arrayidx53 = getelementptr inbounds ptr, ptr %35, i64 0
+  %36 = load ptr, ptr %arrayidx53, align 8
+  %min_deadline54 = getelementptr inbounds %struct.timer_shard, ptr %36, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %min_deadline54, ptr align 8 %new_min_deadline, i64 8, i1 false)
+  %37 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx55 = getelementptr inbounds ptr, ptr %37, i64 0
+  %38 = load ptr, ptr %arrayidx55, align 8
+  call void @_ZL20note_deadline_changeP11timer_shard(ptr noundef %38)
   br label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %lor.end
-  %37 = load ptr, ptr %next.addr, align 8
-  %tobool56 = icmp ne ptr %37, null
+  %39 = load ptr, ptr %next.addr, align 8
+  %tobool56 = icmp ne ptr %39, null
   br i1 %tobool56, label %if.then57, label %if.end61
 
 if.then57:                                        ; preds = %while.end
-  %38 = load ptr, ptr %next.addr, align 8
-  %39 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx58 = getelementptr inbounds ptr, ptr %39, i64 0
-  %40 = load ptr, ptr %arrayidx58, align 8
-  %min_deadline59 = getelementptr inbounds %struct.timer_shard, ptr %40, i32 0, i32 3
-  %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minIN9grpc_core9TimestampEERKT_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %min_deadline59)
-  %41 = load ptr, ptr %next.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %call60, i64 8, i1 false)
+  %40 = load ptr, ptr %next.addr, align 8
+  %41 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx58 = getelementptr inbounds ptr, ptr %41, i64 0
+  %42 = load ptr, ptr %arrayidx58, align 8
+  %min_deadline59 = getelementptr inbounds %struct.timer_shard, ptr %42, i32 0, i32 3
+  %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minIN9grpc_core9TimestampEERKT_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %min_deadline59)
+  %43 = load ptr, ptr %next.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 8 %call60, i64 8, i1 false)
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then57, %while.end
-  %42 = load ptr, ptr @_ZL13g_shard_queue, align 8
-  %arrayidx62 = getelementptr inbounds ptr, ptr %42, i64 0
-  %43 = load ptr, ptr %arrayidx62, align 8
-  %min_deadline63 = getelementptr inbounds %struct.timer_shard, ptr %43, i32 0, i32 3
+  %44 = load ptr, ptr @_ZL13g_shard_queue, align 8
+  %arrayidx62 = getelementptr inbounds ptr, ptr %44, i64 0
+  %45 = load ptr, ptr %arrayidx62, align 8
+  %min_deadline63 = getelementptr inbounds %struct.timer_shard, ptr %45, i32 0, i32 3
   %call64 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %min_deadline63)
   store i64 %call64, ptr %.atomictmp, align 8
-  %44 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %44, ptr @_ZL17g_shared_mutables monotonic, align 64
-  call void @gpr_mu_unlock(ptr noundef getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3))
+  %46 = load i64, ptr %.atomictmp, align 8
+  store atomic i64 %46, ptr @_ZL17g_shared_mutables monotonic, align 64
+  %47 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 3
+  call void @gpr_mu_unlock(ptr noundef %47)
   store i64 0, ptr %.atomictmp65, align 8
-  %45 = load i64, ptr %.atomictmp65, align 8
-  store atomic i64 %45, ptr getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 1) release, align 8
+  %48 = load i64, ptr %.atomictmp65, align 8
+  %49 = getelementptr inbounds %struct.shared_mutables, ptr @_ZL17g_shared_mutables, i32 0, i32 1
+  store atomic i64 %48, ptr %49 release, align 8
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end61, %if.end7
-  %46 = load i32, ptr %result, align 4
-  store i32 %46, ptr %retval, align 4
+  %50 = load i32, ptr %result, align 4
+  store i32 %50, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end66, %if.end
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+  %51 = load i32, ptr %retval, align 4
+  ret i32 %51
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

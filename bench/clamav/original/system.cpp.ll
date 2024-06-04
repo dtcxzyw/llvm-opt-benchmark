@@ -33,15 +33,16 @@ declare i64 @clock() #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z4Waitv() #2 {
-  %1 = load i8, ptr getelementptr inbounds (%class.ErrorHandler, ptr @ErrHandler, i32 0, i32 6), align 4
-  %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %4
+  %1 = getelementptr inbounds %class.ErrorHandler, ptr @ErrHandler, i32 0, i32 6
+  %2 = load i8, ptr %1, align 4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %5
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   call void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 255)
-  br label %4
+  br label %5
 
-4:                                                ; preds = %3, %0
+5:                                                ; preds = %4, %0
   ret void
 }
 

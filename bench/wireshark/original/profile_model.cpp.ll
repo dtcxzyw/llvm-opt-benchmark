@@ -1950,11 +1950,12 @@ define void @_ZN16ProfileSortModelC2EP7QObject(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ProfileSortModel, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.ProfileSortModel, ptr %5, i32 0, i32 1
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %class.ProfileSortModel, ptr %5, i32 0, i32 2
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #1
+  %7 = getelementptr inbounds { [59 x ptr] }, ptr @_ZTV16ProfileSortModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.ProfileSortModel, ptr %5, i32 0, i32 1
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %class.ProfileSortModel, ptr %5, i32 0, i32 2
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #1
   ret void
 }
 
@@ -2942,126 +2943,127 @@ define void @_ZN12ProfileModelC2EP7QObject(ptr noundef nonnull align 8 dereferen
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 3
-  call void @_ZN5QListIP11profile_defEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #1
-  %13 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 4
-  call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #1
-  %14 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 5
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #1
-  %15 = invoke ptr @get_profile_name()
-          to label %16 unwind label %50
+  %12 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 3
+  call void @_ZN5QListIP11profile_defEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #1
+  %14 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 4
+  call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #1
+  %15 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 5
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #1
+  %16 = invoke ptr @get_profile_name()
+          to label %17 unwind label %51
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 5
-  %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %15)
-          to label %19 unwind label %50
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 5
+  %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef %16)
+          to label %20 unwind label %51
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 6
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 7
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 8
-  store i32 0, ptr %22, align 4
-  %23 = invoke ptr @allowed_profile_filenames()
-          to label %24 unwind label %50
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 6
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 7
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 8
+  store i32 0, ptr %23, align 4
+  %24 = invoke ptr @allowed_profile_filenames()
+          to label %25 unwind label %51
 
-24:                                               ; preds = %19
-  %25 = invoke ptr @g_hash_table_get_keys(ptr noundef %23)
-          to label %26 unwind label %50
+25:                                               ; preds = %20
+  %26 = invoke ptr @g_hash_table_get_keys(ptr noundef %24)
+          to label %27 unwind label %51
 
-26:                                               ; preds = %24
-  store ptr %25, ptr %7, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = invoke ptr @g_list_first(ptr noundef %27)
-          to label %29 unwind label %50
+27:                                               ; preds = %25
+  store ptr %26, ptr %7, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = invoke ptr @g_list_first(ptr noundef %28)
+          to label %30 unwind label %51
 
-29:                                               ; preds = %26
-  store ptr %28, ptr %8, align 8
-  br label %30
+30:                                               ; preds = %27
+  store ptr %29, ptr %8, align 8
+  br label %31
 
-30:                                               ; preds = %48, %29
-  %31 = load ptr, ptr %8, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %58
+31:                                               ; preds = %49, %30
+  %32 = load ptr, ptr %8, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %59
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 4
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct._GList, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %37)
-          to label %38 unwind label %50
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 4
+  %36 = load ptr, ptr %8, align 8
+  %37 = getelementptr inbounds %struct._GList, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %38)
+          to label %39 unwind label %51
 
-38:                                               ; preds = %33
-  %39 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringElsEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %40 unwind label %54
+39:                                               ; preds = %34
+  %40 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringElsEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %41 unwind label %55
 
-40:                                               ; preds = %38
+41:                                               ; preds = %39
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #1
-  %41 = load ptr, ptr %8, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %47
+  %42 = load ptr, ptr %8, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct._GList, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  br label %48
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds %struct._GList, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  br label %49
 
-47:                                               ; preds = %40
-  br label %48
+48:                                               ; preds = %41
+  br label %49
 
-48:                                               ; preds = %47, %43
-  %49 = phi ptr [ %46, %43 ], [ null, %47 ]
-  store ptr %49, ptr %8, align 8
-  br label %30, !llvm.loop !5
+49:                                               ; preds = %48, %44
+  %50 = phi ptr [ %47, %44 ], [ null, %48 ]
+  store ptr %50, ptr %8, align 8
+  br label %31, !llvm.loop !5
 
-50:                                               ; preds = %60, %58, %33, %26, %24, %19, %16, %2
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %61, %59, %34, %27, %25, %20, %17, %2
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %5, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %6, align 4
-  br label %62
-
-54:                                               ; preds = %38
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %5, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %6, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #1
-  br label %62
-
-58:                                               ; preds = %30
-  %59 = load ptr, ptr %7, align 8
-  invoke void @g_list_free(ptr noundef %59)
-          to label %60 unwind label %50
-
-60:                                               ; preds = %58
-  invoke void @_ZN12ProfileModel12loadProfilesEv(ptr noundef nonnull align 8 dereferenceable(104) %10)
-          to label %61 unwind label %50
-
-61:                                               ; preds = %60
-  ret void
-
-62:                                               ; preds = %54, %50
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #1
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #1
-  call void @_ZN5QListIP11profile_defED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #1
-  call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #1
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %5, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %6, align 4
   br label %63
 
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i32, ptr %6, align 4
-  %66 = insertvalue { ptr, i32 } poison, ptr %64, 0
-  %67 = insertvalue { ptr, i32 } %66, i32 %65, 1
-  resume { ptr, i32 } %67
+55:                                               ; preds = %39
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %5, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %6, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #1
+  br label %63
+
+59:                                               ; preds = %31
+  %60 = load ptr, ptr %7, align 8
+  invoke void @g_list_free(ptr noundef %60)
+          to label %61 unwind label %51
+
+61:                                               ; preds = %59
+  invoke void @_ZN12ProfileModel12loadProfilesEv(ptr noundef nonnull align 8 dereferenceable(104) %10)
+          to label %62 unwind label %51
+
+62:                                               ; preds = %61
+  ret void
+
+63:                                               ; preds = %55, %51
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #1
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #1
+  call void @_ZN5QListIP11profile_defED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #1
+  call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #1
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %6, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
 }
 
 declare void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
@@ -5417,7 +5419,7 @@ define void @_ZNK12ProfileModel18dataBackgroundRoleERK11QModelIndex(ptr dead_on_
 
 25:                                               ; preds = %18, %3
   call void @_ZN8QVariantC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #1
-  br label %103
+  br label %106
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr %6, align 8
@@ -5430,147 +5432,150 @@ define void @_ZNK12ProfileModel18dataBackgroundRoleERK11QModelIndex(ptr dead_on_
 
 32:                                               ; preds = %26
   call void @_ZN8QVariantC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #1
-  br label %103
+  br label %106
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %7, align 8
   %35 = getelementptr inbounds %struct.profile_def, ptr %34, i32 0, i32 2
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %48
+  br i1 %37, label %38, label %49
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds %class.ProfileModel, ptr %15, i32 0, i32 6
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %48
+  br i1 %41, label %42, label %49
 
 42:                                               ; preds = %38
-  %43 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8))
-  %44 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  %45 = extractvalue { i64, i64 } %43, 0
-  store i64 %45, ptr %44, align 4
-  %46 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
-  %47 = extractvalue { i64, i64 } %43, 1
-  store i64 %47, ptr %46, align 4
+  %43 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8
+  %44 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %43)
+  %45 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
+  %46 = extractvalue { i64, i64 } %44, 0
+  store i64 %46, ptr %45, align 4
+  %47 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %48 = extractvalue { i64, i64 } %44, 1
+  store i64 %48, ptr %47, align 4
   call void @_ZNK6QColorcv8QVariantEv(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef nonnull align 4 dereferenceable(14) %8)
-  br label %103
+  br label %106
 
-48:                                               ; preds = %38, %33
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct.profile_def, ptr %49, i32 0, i32 2
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp ne i32 %51, 1
-  br i1 %52, label %53, label %102
+49:                                               ; preds = %38, %33
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct.profile_def, ptr %50, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp ne i32 %52, 1
+  br i1 %53, label %54, label %105
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct.profile_def, ptr %54, i32 0, i32 3
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %102, label %58
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds %struct.profile_def, ptr %55, i32 0, i32 3
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %105, label %59
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %6, align 8
-  %60 = call noundef zeroext i1 @_ZNK12ProfileModel12checkInvalidERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(24) %59)
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %6, align 8
+  %61 = call noundef zeroext i1 @_ZNK12ProfileModel12checkInvalidERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(24) %60)
   store i1 false, ptr %10, align 1
-  br i1 %60, label %74, label %61
+  br i1 %61, label %75, label %62
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %6, align 8
-  %63 = call noundef zeroext i1 @_ZNK12ProfileModel14checkIfDeletedERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(24) %62)
-  br i1 %63, label %74, label %64
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %6, align 8
+  %64 = call noundef zeroext i1 @_ZNK12ProfileModel14checkIfDeletedERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(24) %63)
+  br i1 %64, label %75, label %65
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %6, align 8
-  %66 = call noundef zeroext i1 @_ZNK12ProfileModel14checkDuplicateERK11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(24) %65, i1 noundef zeroext false)
-  br i1 %66, label %74, label %67
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %6, align 8
+  %67 = call noundef zeroext i1 @_ZNK12ProfileModel14checkDuplicateERK11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(24) %66, i1 noundef zeroext false)
+  br i1 %67, label %75, label %68
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.profile_def, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %70)
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds %struct.profile_def, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %71)
   store i1 true, ptr %10, align 1
-  %71 = invoke noundef zeroext i1 @_ZN12ProfileModel17checkNameValidityE7QStringPS0_(ptr noundef %9, ptr noundef null)
-          to label %72 unwind label %85
+  %72 = invoke noundef zeroext i1 @_ZN12ProfileModel17checkNameValidityE7QStringPS0_(ptr noundef %9, ptr noundef null)
+          to label %73 unwind label %87
 
-72:                                               ; preds = %67
-  %73 = xor i1 %71, true
-  br label %74
+73:                                               ; preds = %68
+  %74 = xor i1 %72, true
+  br label %75
 
-74:                                               ; preds = %72, %64, %61, %58
-  %75 = phi i1 [ true, %64 ], [ true, %61 ], [ true, %58 ], [ %73, %72 ]
-  %76 = load i1, ptr %10, align 1
-  br i1 %76, label %77, label %78
+75:                                               ; preds = %73, %65, %62, %59
+  %76 = phi i1 [ true, %65 ], [ true, %62 ], [ true, %59 ], [ %74, %73 ]
+  %77 = load i1, ptr %10, align 1
+  br i1 %77, label %78, label %79
 
-77:                                               ; preds = %74
+78:                                               ; preds = %75
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #1
-  br label %78
+  br label %79
 
-78:                                               ; preds = %77, %74
-  br i1 %75, label %79, label %92
+79:                                               ; preds = %78, %75
+  br i1 %76, label %80, label %94
 
-79:                                               ; preds = %78
-  %80 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7))
-  %81 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 0
-  %82 = extractvalue { i64, i64 } %80, 0
-  store i64 %82, ptr %81, align 4
-  %83 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 1
-  %84 = extractvalue { i64, i64 } %80, 1
+80:                                               ; preds = %79
+  %81 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7
+  %82 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %81)
+  %83 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 0
+  %84 = extractvalue { i64, i64 } %82, 0
   store i64 %84, ptr %83, align 4
+  %85 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 1
+  %86 = extractvalue { i64, i64 } %82, 1
+  store i64 %86, ptr %85, align 4
   call void @_ZNK6QColorcv8QVariantEv(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef nonnull align 4 dereferenceable(14) %13)
-  br label %103
+  br label %106
 
-85:                                               ; preds = %67
-  %86 = landingpad { ptr, i32 }
+87:                                               ; preds = %68
+  %88 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %11, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %12, align 4
-  %89 = load i1, ptr %10, align 1
-  br i1 %89, label %90, label %91
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %11, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %12, align 4
+  %91 = load i1, ptr %10, align 1
+  br i1 %91, label %92, label %93
 
-90:                                               ; preds = %85
+92:                                               ; preds = %87
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #1
-  br label %91
+  br label %93
 
-91:                                               ; preds = %90, %85
-  br label %104
+93:                                               ; preds = %92, %87
+  br label %107
 
-92:                                               ; preds = %78
-  %93 = load ptr, ptr %6, align 8
-  %94 = call noundef zeroext i1 @_ZNK12ProfileModel14checkDuplicateERK11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(24) %93, i1 noundef zeroext true)
-  br i1 %94, label %95, label %101
+94:                                               ; preds = %79
+  %95 = load ptr, ptr %6, align 8
+  %96 = call noundef zeroext i1 @_ZNK12ProfileModel14checkDuplicateERK11QModelIndexb(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(24) %95, i1 noundef zeroext true)
+  br i1 %96, label %97, label %104
 
-95:                                               ; preds = %92
-  %96 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6))
-  %97 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
-  %98 = extractvalue { i64, i64 } %96, 0
-  store i64 %98, ptr %97, align 4
-  %99 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
-  %100 = extractvalue { i64, i64 } %96, 1
-  store i64 %100, ptr %99, align 4
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6
+  %99 = call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef %98)
+  %100 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
+  %101 = extractvalue { i64, i64 } %99, 0
+  store i64 %101, ptr %100, align 4
+  %102 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
+  %103 = extractvalue { i64, i64 } %99, 1
+  store i64 %103, ptr %102, align 4
   call void @_ZNK6QColorcv8QVariantEv(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef nonnull align 4 dereferenceable(14) %14)
-  br label %103
+  br label %106
 
-101:                                              ; preds = %92
-  br label %102
+104:                                              ; preds = %94
+  br label %105
 
-102:                                              ; preds = %101, %53, %48
+105:                                              ; preds = %104, %54, %49
   call void @_ZN8QVariantC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #1
-  br label %103
+  br label %106
 
-103:                                              ; preds = %102, %95, %79, %42, %32, %25
+106:                                              ; preds = %105, %97, %80, %42, %32, %25
   ret void
 
-104:                                              ; preds = %91
-  %105 = load ptr, ptr %11, align 8
-  %106 = load i32, ptr %12, align 4
-  %107 = insertvalue { ptr, i32 } poison, ptr %105, 0
-  %108 = insertvalue { ptr, i32 } %107, i32 %106, 1
-  resume { ptr, i32 } %108
+107:                                              ; preds = %93
+  %108 = load ptr, ptr %11, align 8
+  %109 = load i32, ptr %12, align 4
+  %110 = insertvalue { ptr, i32 } poison, ptr %108, 0
+  %111 = insertvalue { ptr, i32 } %110, i32 %109, 1
+  resume { ptr, i32 } %111
 }
 
 declare { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef) #2
@@ -14187,13 +14192,14 @@ define linkonce_odr void @_ZN12ProfileModelD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 5
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #1
-  %5 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 4
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #1
-  %6 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 3
-  call void @_ZN5QListIP11profile_defED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #1
+  %4 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 5
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #1
+  %6 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 4
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #1
+  %7 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 3
+  call void @_ZN5QListIP11profile_defED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #1
   call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #1
   ret void
 }

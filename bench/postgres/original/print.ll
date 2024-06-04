@@ -339,7 +339,8 @@ declare i32 @fputc(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @disable_sigpipe_trap() #0 {
-  %1 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
+  %1 = inttoptr i64 1 to ptr
+  %2 = call ptr @pqsignal(i32 noundef 13, ptr noundef %1)
   ret void
 }
 
@@ -349,8 +350,9 @@ declare ptr @pqsignal(i32 noundef, ptr noundef) #1
 define dso_local void @restore_sigpipe_trap() #0 {
   %1 = load i8, ptr @always_ignore_sigpipe, align 1
   %2 = trunc i8 %1 to i1
-  %3 = select i1 %2, ptr inttoptr (i64 1 to ptr), ptr null
-  %4 = call ptr @pqsignal(i32 noundef 13, ptr noundef %3)
+  %3 = inttoptr i64 1 to ptr
+  %4 = select i1 %2, ptr %3, ptr null
+  %5 = call ptr @pqsignal(i32 noundef 13, ptr noundef %4)
   ret void
 }
 
@@ -10166,215 +10168,223 @@ define dso_local void @refresh_utf8format(ptr noundef %0) #0 {
   %10 = getelementptr inbounds %struct.printTableOpt, ptr %9, i32 0, i32 21
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr [2 x %struct.unicodeStyleBorderFormat], ptr getelementptr inbounds (%struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 2), i64 0, i64 %12
-  store ptr %13, ptr %4, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.printTableOpt, ptr %14, i32 0, i32 23
-  %16 = load i32, ptr %15, align 4
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr [2 x %struct.unicodeStyleRowFormat], ptr @unicode_style, i64 0, i64 %17
-  store ptr %18, ptr %5, align 8
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.printTableOpt, ptr %19, i32 0, i32 22
-  %21 = load i32, ptr %20, align 8
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr [2 x %struct.unicodeStyleColumnFormat], ptr getelementptr inbounds (%struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 1), i64 0, i64 %22
-  store ptr %23, ptr %6, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %24, i32 0, i32 3
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.printTextFormat, ptr %27, i32 0, i32 1
-  %29 = getelementptr [4 x %struct.printTextLineFormat], ptr %28, i64 0, i64 0
-  %30 = getelementptr inbounds %struct.printTextLineFormat, ptr %29, i32 0, i32 0
-  store ptr %26, ptr %30, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %31, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.printTextFormat, ptr %34, i32 0, i32 1
-  %36 = getelementptr [4 x %struct.printTextLineFormat], ptr %35, i64 0, i64 0
-  %37 = getelementptr inbounds %struct.printTextLineFormat, ptr %36, i32 0, i32 1
-  store ptr %33, ptr %37, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %38, i32 0, i32 3
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.printTableOpt, ptr %40, i32 0, i32 21
-  %42 = load i32, ptr %41, align 4
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr [2 x ptr], ptr %39, i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.printTextFormat, ptr %46, i32 0, i32 1
-  %48 = getelementptr [4 x %struct.printTextLineFormat], ptr %47, i64 0, i64 0
-  %49 = getelementptr inbounds %struct.printTextLineFormat, ptr %48, i32 0, i32 2
-  store ptr %45, ptr %49, align 8
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %50, i32 0, i32 4
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.printTextFormat, ptr %53, i32 0, i32 1
-  %55 = getelementptr [4 x %struct.printTextLineFormat], ptr %54, i64 0, i64 0
-  %56 = getelementptr inbounds %struct.printTextLineFormat, ptr %55, i32 0, i32 3
-  store ptr %52, ptr %56, align 8
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.unicodeStyleRowFormat, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.printTextFormat, ptr %60, i32 0, i32 1
-  %62 = getelementptr [4 x %struct.printTextLineFormat], ptr %61, i64 0, i64 1
-  %63 = getelementptr inbounds %struct.printTextLineFormat, ptr %62, i32 0, i32 0
-  store ptr %59, ptr %63, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.unicodeStyleRowFormat, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.printTableOpt, ptr %66, i32 0, i32 21
-  %68 = load i32, ptr %67, align 4
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr [2 x ptr], ptr %65, i64 0, i64 %69
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.printTextFormat, ptr %72, i32 0, i32 1
-  %74 = getelementptr [4 x %struct.printTextLineFormat], ptr %73, i64 0, i64 1
-  %75 = getelementptr inbounds %struct.printTextLineFormat, ptr %74, i32 0, i32 1
-  store ptr %71, ptr %75, align 8
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %76, i32 0, i32 1
-  %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds %struct.printTableOpt, ptr %78, i32 0, i32 23
-  %80 = load i32, ptr %79, align 4
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr [2 x ptr], ptr %77, i64 0, i64 %81
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.printTextFormat, ptr %84, i32 0, i32 1
-  %86 = getelementptr [4 x %struct.printTextLineFormat], ptr %85, i64 0, i64 1
-  %87 = getelementptr inbounds %struct.printTextLineFormat, ptr %86, i32 0, i32 2
-  store ptr %83, ptr %87, align 8
-  %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds %struct.unicodeStyleRowFormat, ptr %88, i32 0, i32 2
-  %90 = load ptr, ptr %2, align 8
-  %91 = getelementptr inbounds %struct.printTableOpt, ptr %90, i32 0, i32 21
-  %92 = load i32, ptr %91, align 4
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr [2 x ptr], ptr %89, i64 0, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.printTextFormat, ptr %96, i32 0, i32 1
-  %98 = getelementptr [4 x %struct.printTextLineFormat], ptr %97, i64 0, i64 1
-  %99 = getelementptr inbounds %struct.printTextLineFormat, ptr %98, i32 0, i32 3
-  store ptr %95, ptr %99, align 8
-  %100 = load ptr, ptr %4, align 8
-  %101 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %100, i32 0, i32 3
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.printTextFormat, ptr %103, i32 0, i32 1
-  %105 = getelementptr [4 x %struct.printTextLineFormat], ptr %104, i64 0, i64 2
-  %106 = getelementptr inbounds %struct.printTextLineFormat, ptr %105, i32 0, i32 0
-  store ptr %102, ptr %106, align 8
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %107, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.printTextFormat, ptr %110, i32 0, i32 1
-  %112 = getelementptr [4 x %struct.printTextLineFormat], ptr %111, i64 0, i64 2
-  %113 = getelementptr inbounds %struct.printTextLineFormat, ptr %112, i32 0, i32 1
-  store ptr %109, ptr %113, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %114, i32 0, i32 2
-  %116 = load ptr, ptr %2, align 8
-  %117 = getelementptr inbounds %struct.printTableOpt, ptr %116, i32 0, i32 21
-  %118 = load i32, ptr %117, align 4
-  %119 = zext i32 %118 to i64
-  %120 = getelementptr [2 x ptr], ptr %115, i64 0, i64 %119
-  %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds %struct.printTextFormat, ptr %122, i32 0, i32 1
-  %124 = getelementptr [4 x %struct.printTextLineFormat], ptr %123, i64 0, i64 2
-  %125 = getelementptr inbounds %struct.printTextLineFormat, ptr %124, i32 0, i32 2
-  store ptr %121, ptr %125, align 8
-  %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %126, i32 0, i32 5
-  %128 = load ptr, ptr %127, align 8
-  %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds %struct.printTextFormat, ptr %129, i32 0, i32 1
-  %131 = getelementptr [4 x %struct.printTextLineFormat], ptr %130, i64 0, i64 2
-  %132 = getelementptr inbounds %struct.printTextLineFormat, ptr %131, i32 0, i32 3
-  store ptr %128, ptr %132, align 8
-  %133 = load ptr, ptr %3, align 8
-  %134 = getelementptr inbounds %struct.printTextFormat, ptr %133, i32 0, i32 1
-  %135 = getelementptr [4 x %struct.printTextLineFormat], ptr %134, i64 0, i64 3
-  %136 = getelementptr inbounds %struct.printTextLineFormat, ptr %135, i32 0, i32 0
-  store ptr @.str.3, ptr %136, align 8
-  %137 = load ptr, ptr %4, align 8
-  %138 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %137, i32 0, i32 1
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds %struct.printTextFormat, ptr %140, i32 0, i32 1
-  %142 = getelementptr [4 x %struct.printTextLineFormat], ptr %141, i64 0, i64 3
-  %143 = getelementptr inbounds %struct.printTextLineFormat, ptr %142, i32 0, i32 1
-  store ptr %139, ptr %143, align 8
-  %144 = load ptr, ptr %6, align 8
-  %145 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %144, i32 0, i32 0
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds %struct.printTextFormat, ptr %147, i32 0, i32 1
-  %149 = getelementptr [4 x %struct.printTextLineFormat], ptr %148, i64 0, i64 3
-  %150 = getelementptr inbounds %struct.printTextLineFormat, ptr %149, i32 0, i32 2
-  store ptr %146, ptr %150, align 8
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %151, i32 0, i32 1
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %3, align 8
-  %155 = getelementptr inbounds %struct.printTextFormat, ptr %154, i32 0, i32 1
-  %156 = getelementptr [4 x %struct.printTextLineFormat], ptr %155, i64 0, i64 3
-  %157 = getelementptr inbounds %struct.printTextLineFormat, ptr %156, i32 0, i32 3
-  store ptr %153, ptr %157, align 8
-  %158 = load ptr, ptr %6, align 8
-  %159 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %158, i32 0, i32 0
-  %160 = load ptr, ptr %159, align 8
-  %161 = load ptr, ptr %3, align 8
-  %162 = getelementptr inbounds %struct.printTextFormat, ptr %161, i32 0, i32 2
-  store ptr %160, ptr %162, align 8
-  %163 = load ptr, ptr %6, align 8
-  %164 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %163, i32 0, i32 0
-  %165 = load ptr, ptr %164, align 8
-  %166 = load ptr, ptr %3, align 8
-  %167 = getelementptr inbounds %struct.printTextFormat, ptr %166, i32 0, i32 3
-  store ptr %165, ptr %167, align 8
-  %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %168, i32 0, i32 0
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %3, align 8
-  %172 = getelementptr inbounds %struct.printTextFormat, ptr %171, i32 0, i32 4
-  store ptr %170, ptr %172, align 8
-  %173 = load ptr, ptr getelementptr inbounds (%struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 3), align 8
-  %174 = load ptr, ptr %3, align 8
-  %175 = getelementptr inbounds %struct.printTextFormat, ptr %174, i32 0, i32 5
-  store ptr %173, ptr %175, align 8
-  %176 = load ptr, ptr getelementptr inbounds (%struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 4), align 8
+  %13 = getelementptr inbounds %struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 2
+  %14 = getelementptr [2 x %struct.unicodeStyleBorderFormat], ptr %13, i64 0, i64 %12
+  store ptr %14, ptr %4, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds %struct.printTableOpt, ptr %15, i32 0, i32 23
+  %17 = load i32, ptr %16, align 4
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr [2 x %struct.unicodeStyleRowFormat], ptr @unicode_style, i64 0, i64 %18
+  store ptr %19, ptr %5, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.printTableOpt, ptr %20, i32 0, i32 22
+  %22 = load i32, ptr %21, align 8
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds %struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 1
+  %25 = getelementptr [2 x %struct.unicodeStyleColumnFormat], ptr %24, i64 0, i64 %23
+  store ptr %25, ptr %6, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds %struct.printTextFormat, ptr %29, i32 0, i32 1
+  %31 = getelementptr [4 x %struct.printTextLineFormat], ptr %30, i64 0, i64 0
+  %32 = getelementptr inbounds %struct.printTextLineFormat, ptr %31, i32 0, i32 0
+  store ptr %28, ptr %32, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct.printTextFormat, ptr %36, i32 0, i32 1
+  %38 = getelementptr [4 x %struct.printTextLineFormat], ptr %37, i64 0, i64 0
+  %39 = getelementptr inbounds %struct.printTextLineFormat, ptr %38, i32 0, i32 1
+  store ptr %35, ptr %39, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %40, i32 0, i32 3
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.printTableOpt, ptr %42, i32 0, i32 21
+  %44 = load i32, ptr %43, align 4
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr [2 x ptr], ptr %41, i64 0, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.printTextFormat, ptr %48, i32 0, i32 1
+  %50 = getelementptr [4 x %struct.printTextLineFormat], ptr %49, i64 0, i64 0
+  %51 = getelementptr inbounds %struct.printTextLineFormat, ptr %50, i32 0, i32 2
+  store ptr %47, ptr %51, align 8
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %52, i32 0, i32 4
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds %struct.printTextFormat, ptr %55, i32 0, i32 1
+  %57 = getelementptr [4 x %struct.printTextLineFormat], ptr %56, i64 0, i64 0
+  %58 = getelementptr inbounds %struct.printTextLineFormat, ptr %57, i32 0, i32 3
+  store ptr %54, ptr %58, align 8
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds %struct.unicodeStyleRowFormat, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds %struct.printTextFormat, ptr %62, i32 0, i32 1
+  %64 = getelementptr [4 x %struct.printTextLineFormat], ptr %63, i64 0, i64 1
+  %65 = getelementptr inbounds %struct.printTextLineFormat, ptr %64, i32 0, i32 0
+  store ptr %61, ptr %65, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds %struct.unicodeStyleRowFormat, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds %struct.printTableOpt, ptr %68, i32 0, i32 21
+  %70 = load i32, ptr %69, align 4
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr [2 x ptr], ptr %67, i64 0, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds %struct.printTextFormat, ptr %74, i32 0, i32 1
+  %76 = getelementptr [4 x %struct.printTextLineFormat], ptr %75, i64 0, i64 1
+  %77 = getelementptr inbounds %struct.printTextLineFormat, ptr %76, i32 0, i32 1
+  store ptr %73, ptr %77, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds %struct.printTableOpt, ptr %80, i32 0, i32 23
+  %82 = load i32, ptr %81, align 4
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr [2 x ptr], ptr %79, i64 0, i64 %83
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds %struct.printTextFormat, ptr %86, i32 0, i32 1
+  %88 = getelementptr [4 x %struct.printTextLineFormat], ptr %87, i64 0, i64 1
+  %89 = getelementptr inbounds %struct.printTextLineFormat, ptr %88, i32 0, i32 2
+  store ptr %85, ptr %89, align 8
+  %90 = load ptr, ptr %5, align 8
+  %91 = getelementptr inbounds %struct.unicodeStyleRowFormat, ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %2, align 8
+  %93 = getelementptr inbounds %struct.printTableOpt, ptr %92, i32 0, i32 21
+  %94 = load i32, ptr %93, align 4
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr [2 x ptr], ptr %91, i64 0, i64 %95
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %3, align 8
+  %99 = getelementptr inbounds %struct.printTextFormat, ptr %98, i32 0, i32 1
+  %100 = getelementptr [4 x %struct.printTextLineFormat], ptr %99, i64 0, i64 1
+  %101 = getelementptr inbounds %struct.printTextLineFormat, ptr %100, i32 0, i32 3
+  store ptr %97, ptr %101, align 8
+  %102 = load ptr, ptr %4, align 8
+  %103 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %102, i32 0, i32 3
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %3, align 8
+  %106 = getelementptr inbounds %struct.printTextFormat, ptr %105, i32 0, i32 1
+  %107 = getelementptr [4 x %struct.printTextLineFormat], ptr %106, i64 0, i64 2
+  %108 = getelementptr inbounds %struct.printTextLineFormat, ptr %107, i32 0, i32 0
+  store ptr %104, ptr %108, align 8
+  %109 = load ptr, ptr %4, align 8
+  %110 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %3, align 8
+  %113 = getelementptr inbounds %struct.printTextFormat, ptr %112, i32 0, i32 1
+  %114 = getelementptr [4 x %struct.printTextLineFormat], ptr %113, i64 0, i64 2
+  %115 = getelementptr inbounds %struct.printTextLineFormat, ptr %114, i32 0, i32 1
+  store ptr %111, ptr %115, align 8
+  %116 = load ptr, ptr %6, align 8
+  %117 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %116, i32 0, i32 2
+  %118 = load ptr, ptr %2, align 8
+  %119 = getelementptr inbounds %struct.printTableOpt, ptr %118, i32 0, i32 21
+  %120 = load i32, ptr %119, align 4
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr [2 x ptr], ptr %117, i64 0, i64 %121
+  %123 = load ptr, ptr %122, align 8
+  %124 = load ptr, ptr %3, align 8
+  %125 = getelementptr inbounds %struct.printTextFormat, ptr %124, i32 0, i32 1
+  %126 = getelementptr [4 x %struct.printTextLineFormat], ptr %125, i64 0, i64 2
+  %127 = getelementptr inbounds %struct.printTextLineFormat, ptr %126, i32 0, i32 2
+  store ptr %123, ptr %127, align 8
+  %128 = load ptr, ptr %4, align 8
+  %129 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %128, i32 0, i32 5
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %3, align 8
+  %132 = getelementptr inbounds %struct.printTextFormat, ptr %131, i32 0, i32 1
+  %133 = getelementptr [4 x %struct.printTextLineFormat], ptr %132, i64 0, i64 2
+  %134 = getelementptr inbounds %struct.printTextLineFormat, ptr %133, i32 0, i32 3
+  store ptr %130, ptr %134, align 8
+  %135 = load ptr, ptr %3, align 8
+  %136 = getelementptr inbounds %struct.printTextFormat, ptr %135, i32 0, i32 1
+  %137 = getelementptr [4 x %struct.printTextLineFormat], ptr %136, i64 0, i64 3
+  %138 = getelementptr inbounds %struct.printTextLineFormat, ptr %137, i32 0, i32 0
+  store ptr @.str.3, ptr %138, align 8
+  %139 = load ptr, ptr %4, align 8
+  %140 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %139, i32 0, i32 1
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr %3, align 8
+  %143 = getelementptr inbounds %struct.printTextFormat, ptr %142, i32 0, i32 1
+  %144 = getelementptr [4 x %struct.printTextLineFormat], ptr %143, i64 0, i64 3
+  %145 = getelementptr inbounds %struct.printTextLineFormat, ptr %144, i32 0, i32 1
+  store ptr %141, ptr %145, align 8
+  %146 = load ptr, ptr %6, align 8
+  %147 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %3, align 8
+  %150 = getelementptr inbounds %struct.printTextFormat, ptr %149, i32 0, i32 1
+  %151 = getelementptr [4 x %struct.printTextLineFormat], ptr %150, i64 0, i64 3
+  %152 = getelementptr inbounds %struct.printTextLineFormat, ptr %151, i32 0, i32 2
+  store ptr %148, ptr %152, align 8
+  %153 = load ptr, ptr %4, align 8
+  %154 = getelementptr inbounds %struct.unicodeStyleBorderFormat, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8
+  %156 = load ptr, ptr %3, align 8
+  %157 = getelementptr inbounds %struct.printTextFormat, ptr %156, i32 0, i32 1
+  %158 = getelementptr [4 x %struct.printTextLineFormat], ptr %157, i64 0, i64 3
+  %159 = getelementptr inbounds %struct.printTextLineFormat, ptr %158, i32 0, i32 3
+  store ptr %155, ptr %159, align 8
+  %160 = load ptr, ptr %6, align 8
+  %161 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %160, i32 0, i32 0
+  %162 = load ptr, ptr %161, align 8
+  %163 = load ptr, ptr %3, align 8
+  %164 = getelementptr inbounds %struct.printTextFormat, ptr %163, i32 0, i32 2
+  store ptr %162, ptr %164, align 8
+  %165 = load ptr, ptr %6, align 8
+  %166 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %165, i32 0, i32 0
+  %167 = load ptr, ptr %166, align 8
+  %168 = load ptr, ptr %3, align 8
+  %169 = getelementptr inbounds %struct.printTextFormat, ptr %168, i32 0, i32 3
+  store ptr %167, ptr %169, align 8
+  %170 = load ptr, ptr %6, align 8
+  %171 = getelementptr inbounds %struct.unicodeStyleColumnFormat, ptr %170, i32 0, i32 0
+  %172 = load ptr, ptr %171, align 8
+  %173 = load ptr, ptr %3, align 8
+  %174 = getelementptr inbounds %struct.printTextFormat, ptr %173, i32 0, i32 4
+  store ptr %172, ptr %174, align 8
+  %175 = getelementptr inbounds %struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 3
+  %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %3, align 8
-  %178 = getelementptr inbounds %struct.printTextFormat, ptr %177, i32 0, i32 6
+  %178 = getelementptr inbounds %struct.printTextFormat, ptr %177, i32 0, i32 5
   store ptr %176, ptr %178, align 8
-  %179 = load ptr, ptr getelementptr inbounds (%struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 5), align 8
-  %180 = load ptr, ptr %3, align 8
-  %181 = getelementptr inbounds %struct.printTextFormat, ptr %180, i32 0, i32 7
-  store ptr %179, ptr %181, align 8
-  %182 = load ptr, ptr getelementptr inbounds (%struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 6), align 8
-  %183 = load ptr, ptr %3, align 8
-  %184 = getelementptr inbounds %struct.printTextFormat, ptr %183, i32 0, i32 8
-  store ptr %182, ptr %184, align 8
-  %185 = load ptr, ptr getelementptr inbounds (%struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 7), align 8
-  %186 = load ptr, ptr %3, align 8
-  %187 = getelementptr inbounds %struct.printTextFormat, ptr %186, i32 0, i32 9
-  store ptr %185, ptr %187, align 8
-  %188 = load ptr, ptr getelementptr inbounds (%struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 8), align 8
+  %179 = getelementptr inbounds %struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 4
+  %180 = load ptr, ptr %179, align 8
+  %181 = load ptr, ptr %3, align 8
+  %182 = getelementptr inbounds %struct.printTextFormat, ptr %181, i32 0, i32 6
+  store ptr %180, ptr %182, align 8
+  %183 = getelementptr inbounds %struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 5
+  %184 = load ptr, ptr %183, align 8
+  %185 = load ptr, ptr %3, align 8
+  %186 = getelementptr inbounds %struct.printTextFormat, ptr %185, i32 0, i32 7
+  store ptr %184, ptr %186, align 8
+  %187 = getelementptr inbounds %struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 6
+  %188 = load ptr, ptr %187, align 8
   %189 = load ptr, ptr %3, align 8
-  %190 = getelementptr inbounds %struct.printTextFormat, ptr %189, i32 0, i32 10
+  %190 = getelementptr inbounds %struct.printTextFormat, ptr %189, i32 0, i32 8
   store ptr %188, ptr %190, align 8
-  %191 = load ptr, ptr %3, align 8
-  %192 = getelementptr inbounds %struct.printTextFormat, ptr %191, i32 0, i32 11
-  store i8 1, ptr %192, align 8
+  %191 = getelementptr inbounds %struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 7
+  %192 = load ptr, ptr %191, align 8
+  %193 = load ptr, ptr %3, align 8
+  %194 = getelementptr inbounds %struct.printTextFormat, ptr %193, i32 0, i32 9
+  store ptr %192, ptr %194, align 8
+  %195 = getelementptr inbounds %struct.unicodeStyleFormat, ptr @unicode_style, i32 0, i32 8
+  %196 = load ptr, ptr %195, align 8
+  %197 = load ptr, ptr %3, align 8
+  %198 = getelementptr inbounds %struct.printTextFormat, ptr %197, i32 0, i32 10
+  store ptr %196, ptr %198, align 8
+  %199 = load ptr, ptr %3, align 8
+  %200 = getelementptr inbounds %struct.printTextFormat, ptr %199, i32 0, i32 11
+  store i8 1, ptr %200, align 8
   ret void
 }
 

@@ -90,929 +90,940 @@ define i32 @ExorLinkCubeIteratorStart(ptr noundef %0, ptr noundef %1, ptr nounde
 31:                                               ; preds = %4
   store i32 0, ptr @fWorking, align 4
   store i32 0, ptr %5, align 4
-  br label %679
+  br label %690
 
 32:                                               ; preds = %4
   store i32 0, ptr %10, align 4
   br label %33
 
-33:                                               ; preds = %48, %32
+33:                                               ; preds = %49, %32
   %34 = load i32, ptr %10, align 4
-  %35 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2), align 8
-  %36 = icmp slt i32 %34, %35
-  br i1 %36, label %37, label %51
+  %35 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp slt i32 %34, %36
+  br i1 %37, label %38, label %52
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr @pCA, align 8
-  %39 = getelementptr inbounds %struct.cube, ptr %38, i32 0, i32 5
-  %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr %10, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %40, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = load i32, ptr %10, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %46
-  store i32 %44, ptr %47, align 4
-  br label %48
+38:                                               ; preds = %33
+  %39 = load ptr, ptr @pCA, align 8
+  %40 = getelementptr inbounds %struct.cube, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %10, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i32, ptr %41, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = load i32, ptr %10, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %47
+  store i32 %45, ptr %48, align 4
+  br label %49
 
-48:                                               ; preds = %37
-  %49 = load i32, ptr %10, align 4
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %10, align 4
+49:                                               ; preds = %38
+  %50 = load i32, ptr %10, align 4
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %10, align 4
   br label %33, !llvm.loop !4
 
-51:                                               ; preds = %33
-  %52 = load i32, ptr @DiffVars, align 16
-  %53 = icmp sge i32 %52, 0
-  br i1 %53, label %54, label %56
+52:                                               ; preds = %33
+  %53 = load i32, ptr @DiffVars, align 16
+  %54 = icmp sge i32 %53, 0
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr @nCubes, align 4
-  br label %59
+55:                                               ; preds = %52
+  %56 = load i32, ptr @nCubes, align 4
+  br label %60
 
-56:                                               ; preds = %51
-  %57 = load i32, ptr @nCubes, align 4
-  %58 = sub nsw i32 %57, 1
-  br label %59
+57:                                               ; preds = %52
+  %58 = load i32, ptr @nCubes, align 4
+  %59 = sub nsw i32 %58, 1
+  br label %60
 
-59:                                               ; preds = %56, %54
-  %60 = phi i32 [ %55, %54 ], [ %58, %56 ]
-  store i32 %60, ptr @nDiffVarsIn, align 4
-  %61 = load i32, ptr @DiffVars, align 16
-  %62 = icmp sge i32 %61, 0
-  %63 = select i1 %62, ptr @DiffVars, ptr getelementptr inbounds (i32, ptr @DiffVars, i64 1)
-  store ptr %63, ptr @pDiffVars, align 8
+60:                                               ; preds = %57, %55
+  %61 = phi i32 [ %56, %55 ], [ %59, %57 ]
+  store i32 %61, ptr @nDiffVarsIn, align 4
+  %62 = load i32, ptr @DiffVars, align 16
+  %63 = icmp sge i32 %62, 0
+  %64 = getelementptr inbounds i32, ptr @DiffVars, i64 1
+  %65 = select i1 %63, ptr @DiffVars, ptr %64
+  store ptr %65, ptr @pDiffVars, align 8
   store i32 0, ptr %10, align 4
-  br label %64
+  br label %66
 
-64:                                               ; preds = %103, %59
-  %65 = load i32, ptr %10, align 4
-  %66 = load i32, ptr @nDiffVarsIn, align 4
-  %67 = icmp slt i32 %65, %66
-  br i1 %67, label %68, label %106
+66:                                               ; preds = %105, %60
+  %67 = load i32, ptr %10, align 4
+  %68 = load i32, ptr @nDiffVarsIn, align 4
+  %69 = icmp slt i32 %67, %68
+  br i1 %69, label %70, label %108
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr @pDiffVars, align 8
-  %70 = load i32, ptr %10, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %69, i64 %71
-  %73 = load i32, ptr %72, align 4
-  %74 = mul nsw i32 2, %73
-  %75 = ashr i32 %74, 5
-  %76 = load i32, ptr %10, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %77
-  store i32 %75, ptr %78, align 4
-  %79 = load ptr, ptr @pDiffVars, align 8
-  %80 = load i32, ptr %10, align 4
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %79, i64 %81
-  %83 = load i32, ptr %82, align 4
-  %84 = mul nsw i32 2, %83
-  %85 = and i32 %84, 31
-  %86 = load i32, ptr %10, align 4
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %87
-  store i32 %85, ptr %88, align 4
-  %89 = load i32, ptr %10, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %93 = shl i32 3, %92
-  %94 = xor i32 %93, -1
-  %95 = load i32, ptr %10, align 4
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %96
-  %98 = load i32, ptr %97, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %99
-  %101 = load i32, ptr %100, align 4
-  %102 = and i32 %101, %94
-  store i32 %102, ptr %100, align 4
-  br label %103
+70:                                               ; preds = %66
+  %71 = load ptr, ptr @pDiffVars, align 8
+  %72 = load i32, ptr %10, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i32, ptr %71, i64 %73
+  %75 = load i32, ptr %74, align 4
+  %76 = mul nsw i32 2, %75
+  %77 = ashr i32 %76, 5
+  %78 = load i32, ptr %10, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %79
+  store i32 %77, ptr %80, align 4
+  %81 = load ptr, ptr @pDiffVars, align 8
+  %82 = load i32, ptr %10, align 4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i32, ptr %81, i64 %83
+  %85 = load i32, ptr %84, align 4
+  %86 = mul nsw i32 2, %85
+  %87 = and i32 %86, 31
+  %88 = load i32, ptr %10, align 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %89
+  store i32 %87, ptr %90, align 4
+  %91 = load i32, ptr %10, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %92
+  %94 = load i32, ptr %93, align 4
+  %95 = shl i32 3, %94
+  %96 = xor i32 %95, -1
+  %97 = load i32, ptr %10, align 4
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %98
+  %100 = load i32, ptr %99, align 4
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %101
+  %103 = load i32, ptr %102, align 4
+  %104 = and i32 %103, %96
+  store i32 %104, ptr %102, align 4
+  br label %105
 
-103:                                              ; preds = %68
-  %104 = load i32, ptr %10, align 4
-  %105 = add nsw i32 %104, 1
-  store i32 %105, ptr %10, align 4
-  br label %64, !llvm.loop !6
+105:                                              ; preds = %70
+  %106 = load i32, ptr %10, align 4
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %10, align 4
+  br label %66, !llvm.loop !6
 
-106:                                              ; preds = %64
+108:                                              ; preds = %66
   store i32 0, ptr @MaskLiterals, align 4
-  %107 = load ptr, ptr @pCA, align 8
-  %108 = getelementptr inbounds %struct.cube, ptr %107, i32 0, i32 2
-  %109 = load i16, ptr %108, align 2
-  %110 = sext i16 %109 to i32
-  store i32 %110, ptr @StartingLiterals, align 4
+  %109 = load ptr, ptr @pCA, align 8
+  %110 = getelementptr inbounds %struct.cube, ptr %109, i32 0, i32 2
+  %111 = load i16, ptr %110, align 2
+  %112 = sext i16 %111 to i32
+  store i32 %112, ptr @StartingLiterals, align 4
   store i32 0, ptr %10, align 4
   store i32 0, ptr @BitShift, align 4
-  br label %111
+  br label %113
 
-111:                                              ; preds = %215, %106
-  %112 = load i32, ptr %10, align 4
-  %113 = load i32, ptr @nDiffVarsIn, align 4
-  %114 = icmp slt i32 %112, %113
-  br i1 %114, label %115, label %220
+113:                                              ; preds = %217, %108
+  %114 = load i32, ptr %10, align 4
+  %115 = load i32, ptr @nDiffVarsIn, align 4
+  %116 = icmp slt i32 %114, %115
+  br i1 %116, label %117, label %222
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr @pCA, align 8
-  %117 = getelementptr inbounds %struct.cube, ptr %116, i32 0, i32 5
-  %118 = load ptr, ptr %117, align 8
-  %119 = load i32, ptr %10, align 4
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %120
-  %122 = load i32, ptr %121, align 4
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %118, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %126 = load i32, ptr %10, align 4
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4
-  %130 = lshr i32 %125, %129
-  %131 = and i32 %130, 3
-  %132 = load i32, ptr %10, align 4
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %133
-  %135 = getelementptr inbounds [3 x i32], ptr %134, i64 0, i64 0
-  store i32 %131, ptr %135, align 4
-  %136 = load i32, ptr %10, align 4
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %137
-  %139 = getelementptr inbounds [3 x i32], ptr %138, i64 0, i64 0
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp ne i32 %140, 3
-  br i1 %141, label %142, label %149
+117:                                              ; preds = %113
+  %118 = load ptr, ptr @pCA, align 8
+  %119 = getelementptr inbounds %struct.cube, ptr %118, i32 0, i32 5
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i32, ptr %10, align 4
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %122
+  %124 = load i32, ptr %123, align 4
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i32, ptr %120, i64 %125
+  %127 = load i32, ptr %126, align 4
+  %128 = load i32, ptr %10, align 4
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %129
+  %131 = load i32, ptr %130, align 4
+  %132 = lshr i32 %127, %131
+  %133 = and i32 %132, 3
+  %134 = load i32, ptr %10, align 4
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %135
+  %137 = getelementptr inbounds [3 x i32], ptr %136, i64 0, i64 0
+  store i32 %133, ptr %137, align 4
+  %138 = load i32, ptr %10, align 4
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %139
+  %141 = getelementptr inbounds [3 x i32], ptr %140, i64 0, i64 0
+  %142 = load i32, ptr %141, align 4
+  %143 = icmp ne i32 %142, 3
+  br i1 %143, label %144, label %151
 
-142:                                              ; preds = %115
-  %143 = load i32, ptr @BitShift, align 4
-  %144 = shl i32 1, %143
-  %145 = load i32, ptr @MaskLiterals, align 4
-  %146 = or i32 %145, %144
-  store i32 %146, ptr @MaskLiterals, align 4
-  %147 = load i32, ptr @StartingLiterals, align 4
-  %148 = add nsw i32 %147, -1
-  store i32 %148, ptr @StartingLiterals, align 4
-  br label %149
+144:                                              ; preds = %117
+  %145 = load i32, ptr @BitShift, align 4
+  %146 = shl i32 1, %145
+  %147 = load i32, ptr @MaskLiterals, align 4
+  %148 = or i32 %147, %146
+  store i32 %148, ptr @MaskLiterals, align 4
+  %149 = load i32, ptr @StartingLiterals, align 4
+  %150 = add nsw i32 %149, -1
+  store i32 %150, ptr @StartingLiterals, align 4
+  br label %151
 
-149:                                              ; preds = %142, %115
-  %150 = load i32, ptr @BitShift, align 4
-  %151 = add nsw i32 %150, 1
-  store i32 %151, ptr @BitShift, align 4
-  %152 = load ptr, ptr @pCB, align 8
-  %153 = getelementptr inbounds %struct.cube, ptr %152, i32 0, i32 5
-  %154 = load ptr, ptr %153, align 8
-  %155 = load i32, ptr %10, align 4
-  %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %156
-  %158 = load i32, ptr %157, align 4
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i32, ptr %154, i64 %159
-  %161 = load i32, ptr %160, align 4
-  %162 = load i32, ptr %10, align 4
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4
-  %166 = lshr i32 %161, %165
-  %167 = and i32 %166, 3
-  %168 = load i32, ptr %10, align 4
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %169
-  %171 = getelementptr inbounds [3 x i32], ptr %170, i64 0, i64 1
-  store i32 %167, ptr %171, align 4
-  %172 = load i32, ptr %10, align 4
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %173
-  %175 = getelementptr inbounds [3 x i32], ptr %174, i64 0, i64 1
-  %176 = load i32, ptr %175, align 4
-  %177 = icmp ne i32 %176, 3
-  br i1 %177, label %178, label %183
+151:                                              ; preds = %144, %117
+  %152 = load i32, ptr @BitShift, align 4
+  %153 = add nsw i32 %152, 1
+  store i32 %153, ptr @BitShift, align 4
+  %154 = load ptr, ptr @pCB, align 8
+  %155 = getelementptr inbounds %struct.cube, ptr %154, i32 0, i32 5
+  %156 = load ptr, ptr %155, align 8
+  %157 = load i32, ptr %10, align 4
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %158
+  %160 = load i32, ptr %159, align 4
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %156, i64 %161
+  %163 = load i32, ptr %162, align 4
+  %164 = load i32, ptr %10, align 4
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %165
+  %167 = load i32, ptr %166, align 4
+  %168 = lshr i32 %163, %167
+  %169 = and i32 %168, 3
+  %170 = load i32, ptr %10, align 4
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %171
+  %173 = getelementptr inbounds [3 x i32], ptr %172, i64 0, i64 1
+  store i32 %169, ptr %173, align 4
+  %174 = load i32, ptr %10, align 4
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %175
+  %177 = getelementptr inbounds [3 x i32], ptr %176, i64 0, i64 1
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp ne i32 %178, 3
+  br i1 %179, label %180, label %185
 
-178:                                              ; preds = %149
-  %179 = load i32, ptr @BitShift, align 4
-  %180 = shl i32 1, %179
-  %181 = load i32, ptr @MaskLiterals, align 4
-  %182 = or i32 %181, %180
-  store i32 %182, ptr @MaskLiterals, align 4
-  br label %183
+180:                                              ; preds = %151
+  %181 = load i32, ptr @BitShift, align 4
+  %182 = shl i32 1, %181
+  %183 = load i32, ptr @MaskLiterals, align 4
+  %184 = or i32 %183, %182
+  store i32 %184, ptr @MaskLiterals, align 4
+  br label %185
 
-183:                                              ; preds = %178, %149
-  %184 = load i32, ptr @BitShift, align 4
-  %185 = add nsw i32 %184, 1
-  store i32 %185, ptr @BitShift, align 4
-  %186 = load i32, ptr %10, align 4
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %187
-  %189 = getelementptr inbounds [3 x i32], ptr %188, i64 0, i64 0
-  %190 = load i32, ptr %189, align 4
-  %191 = load i32, ptr %10, align 4
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %192
-  %194 = getelementptr inbounds [3 x i32], ptr %193, i64 0, i64 1
-  %195 = load i32, ptr %194, align 4
-  %196 = xor i32 %190, %195
-  %197 = load i32, ptr %10, align 4
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %198
-  %200 = getelementptr inbounds [3 x i32], ptr %199, i64 0, i64 2
-  store i32 %196, ptr %200, align 4
-  %201 = load i32, ptr %10, align 4
-  %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %202
-  %204 = getelementptr inbounds [3 x i32], ptr %203, i64 0, i64 2
-  %205 = load i32, ptr %204, align 4
-  %206 = icmp ne i32 %205, 3
-  br i1 %206, label %207, label %212
+185:                                              ; preds = %180, %151
+  %186 = load i32, ptr @BitShift, align 4
+  %187 = add nsw i32 %186, 1
+  store i32 %187, ptr @BitShift, align 4
+  %188 = load i32, ptr %10, align 4
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %189
+  %191 = getelementptr inbounds [3 x i32], ptr %190, i64 0, i64 0
+  %192 = load i32, ptr %191, align 4
+  %193 = load i32, ptr %10, align 4
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %194
+  %196 = getelementptr inbounds [3 x i32], ptr %195, i64 0, i64 1
+  %197 = load i32, ptr %196, align 4
+  %198 = xor i32 %192, %197
+  %199 = load i32, ptr %10, align 4
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %200
+  %202 = getelementptr inbounds [3 x i32], ptr %201, i64 0, i64 2
+  store i32 %198, ptr %202, align 4
+  %203 = load i32, ptr %10, align 4
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %204
+  %206 = getelementptr inbounds [3 x i32], ptr %205, i64 0, i64 2
+  %207 = load i32, ptr %206, align 4
+  %208 = icmp ne i32 %207, 3
+  br i1 %208, label %209, label %214
 
-207:                                              ; preds = %183
-  %208 = load i32, ptr @BitShift, align 4
-  %209 = shl i32 1, %208
-  %210 = load i32, ptr @MaskLiterals, align 4
-  %211 = or i32 %210, %209
-  store i32 %211, ptr @MaskLiterals, align 4
-  br label %212
+209:                                              ; preds = %185
+  %210 = load i32, ptr @BitShift, align 4
+  %211 = shl i32 1, %210
+  %212 = load i32, ptr @MaskLiterals, align 4
+  %213 = or i32 %212, %211
+  store i32 %213, ptr @MaskLiterals, align 4
+  br label %214
 
-212:                                              ; preds = %207, %183
-  %213 = load i32, ptr @BitShift, align 4
-  %214 = add nsw i32 %213, 1
-  store i32 %214, ptr @BitShift, align 4
-  br label %215
+214:                                              ; preds = %209, %185
+  %215 = load i32, ptr @BitShift, align 4
+  %216 = add nsw i32 %215, 1
+  store i32 %216, ptr @BitShift, align 4
+  br label %217
 
-215:                                              ; preds = %212
-  %216 = load i32, ptr %10, align 4
-  %217 = add nsw i32 %216, 1
-  store i32 %217, ptr %10, align 4
-  %218 = load i32, ptr @BitShift, align 4
+217:                                              ; preds = %214
+  %218 = load i32, ptr %10, align 4
   %219 = add nsw i32 %218, 1
-  store i32 %219, ptr @BitShift, align 4
-  br label %111, !llvm.loop !7
+  store i32 %219, ptr %10, align 4
+  %220 = load i32, ptr @BitShift, align 4
+  %221 = add nsw i32 %220, 1
+  store i32 %221, ptr @BitShift, align 4
+  br label %113, !llvm.loop !7
 
-220:                                              ; preds = %111
+222:                                              ; preds = %113
   store i32 0, ptr %10, align 4
-  br label %221
+  br label %223
 
-221:                                              ; preds = %242, %220
-  %222 = load i32, ptr %10, align 4
-  %223 = load i32, ptr @nCubesInGroup, align 4
-  %224 = icmp slt i32 %222, %223
-  br i1 %224, label %225, label %245
+223:                                              ; preds = %244, %222
+  %224 = load i32, ptr %10, align 4
+  %225 = load i32, ptr @nCubesInGroup, align 4
+  %226 = icmp slt i32 %224, %225
+  br i1 %226, label %227, label %247
 
-225:                                              ; preds = %221
-  %226 = load i32, ptr @MaskLiterals, align 4
-  %227 = load i32, ptr %9, align 4
-  %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds [3 x [32 x i32]], ptr @s_CubeLitMasks, i64 0, i64 %228
-  %230 = load i32, ptr %10, align 4
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds [32 x i32], ptr %229, i64 0, i64 %231
-  %233 = load i32, ptr %232, align 4
-  %234 = and i32 %226, %233
-  %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %235
-  %237 = load i8, ptr %236, align 1
-  %238 = zext i8 %237 to i32
-  %239 = load i32, ptr %10, align 4
-  %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %240
-  store i32 %238, ptr %241, align 4
-  br label %242
+227:                                              ; preds = %223
+  %228 = load i32, ptr @MaskLiterals, align 4
+  %229 = load i32, ptr %9, align 4
+  %230 = zext i32 %229 to i64
+  %231 = getelementptr inbounds [3 x [32 x i32]], ptr @s_CubeLitMasks, i64 0, i64 %230
+  %232 = load i32, ptr %10, align 4
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds [32 x i32], ptr %231, i64 0, i64 %233
+  %235 = load i32, ptr %234, align 4
+  %236 = and i32 %228, %235
+  %237 = zext i32 %236 to i64
+  %238 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %237
+  %239 = load i8, ptr %238, align 1
+  %240 = zext i8 %239 to i32
+  %241 = load i32, ptr %10, align 4
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %242
+  store i32 %240, ptr %243, align 4
+  br label %244
 
-242:                                              ; preds = %225
-  %243 = load i32, ptr %10, align 4
-  %244 = add nsw i32 %243, 1
-  store i32 %244, ptr %10, align 4
-  br label %221, !llvm.loop !8
+244:                                              ; preds = %227
+  %245 = load i32, ptr %10, align 4
+  %246 = add nsw i32 %245, 1
+  store i32 %246, ptr %10, align 4
+  br label %223, !llvm.loop !8
 
-245:                                              ; preds = %221
+247:                                              ; preds = %223
   store i32 0, ptr %10, align 4
-  br label %246
+  br label %248
 
-246:                                              ; preds = %281, %245
-  %247 = load i32, ptr %10, align 4
-  %248 = load i32, ptr @nGroups, align 4
-  %249 = icmp slt i32 %247, %248
-  br i1 %249, label %250, label %284
+248:                                              ; preds = %283, %247
+  %249 = load i32, ptr %10, align 4
+  %250 = load i32, ptr @nGroups, align 4
+  %251 = icmp slt i32 %249, %250
+  br i1 %251, label %252, label %286
 
-250:                                              ; preds = %246
-  %251 = load i32, ptr %10, align 4
-  %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %252
-  store i32 0, ptr %253, align 4
+252:                                              ; preds = %248
+  %253 = load i32, ptr %10, align 4
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %254
+  store i32 0, ptr %255, align 4
   store i32 0, ptr %11, align 4
-  br label %254
+  br label %256
 
-254:                                              ; preds = %277, %250
-  %255 = load i32, ptr %11, align 4
-  %256 = load i32, ptr @nCubes, align 4
-  %257 = icmp slt i32 %255, %256
-  br i1 %257, label %258, label %280
+256:                                              ; preds = %279, %252
+  %257 = load i32, ptr %11, align 4
+  %258 = load i32, ptr @nCubes, align 4
+  %259 = icmp slt i32 %257, %258
+  br i1 %259, label %260, label %282
 
-258:                                              ; preds = %254
-  %259 = load i32, ptr %9, align 4
-  %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds [3 x [24 x [4 x i32]]], ptr @s_ELGroupRules, i64 0, i64 %260
-  %262 = load i32, ptr %10, align 4
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds [24 x [4 x i32]], ptr %261, i64 0, i64 %263
-  %265 = load i32, ptr %11, align 4
-  %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds [4 x i32], ptr %264, i64 0, i64 %266
-  %268 = load i32, ptr %267, align 4
-  %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %269
-  %271 = load i32, ptr %270, align 4
-  %272 = load i32, ptr %10, align 4
-  %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %273
-  %275 = load i32, ptr %274, align 4
-  %276 = add nsw i32 %275, %271
-  store i32 %276, ptr %274, align 4
-  br label %277
+260:                                              ; preds = %256
+  %261 = load i32, ptr %9, align 4
+  %262 = zext i32 %261 to i64
+  %263 = getelementptr inbounds [3 x [24 x [4 x i32]]], ptr @s_ELGroupRules, i64 0, i64 %262
+  %264 = load i32, ptr %10, align 4
+  %265 = sext i32 %264 to i64
+  %266 = getelementptr inbounds [24 x [4 x i32]], ptr %263, i64 0, i64 %265
+  %267 = load i32, ptr %11, align 4
+  %268 = sext i32 %267 to i64
+  %269 = getelementptr inbounds [4 x i32], ptr %266, i64 0, i64 %268
+  %270 = load i32, ptr %269, align 4
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %271
+  %273 = load i32, ptr %272, align 4
+  %274 = load i32, ptr %10, align 4
+  %275 = sext i32 %274 to i64
+  %276 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %275
+  %277 = load i32, ptr %276, align 4
+  %278 = add nsw i32 %277, %273
+  store i32 %278, ptr %276, align 4
+  br label %279
 
-277:                                              ; preds = %258
-  %278 = load i32, ptr %11, align 4
-  %279 = add nsw i32 %278, 1
-  store i32 %279, ptr %11, align 4
-  br label %254, !llvm.loop !9
+279:                                              ; preds = %260
+  %280 = load i32, ptr %11, align 4
+  %281 = add nsw i32 %280, 1
+  store i32 %281, ptr %11, align 4
+  br label %256, !llvm.loop !9
 
-280:                                              ; preds = %254
-  br label %281
+282:                                              ; preds = %256
+  br label %283
 
-281:                                              ; preds = %280
-  %282 = load i32, ptr %10, align 4
-  %283 = add nsw i32 %282, 1
-  store i32 %283, ptr %10, align 4
-  br label %246, !llvm.loop !10
+283:                                              ; preds = %282
+  %284 = load i32, ptr %10, align 4
+  %285 = add nsw i32 %284, 1
+  store i32 %285, ptr %10, align 4
+  br label %248, !llvm.loop !10
 
-284:                                              ; preds = %246
-  %285 = load i32, ptr %9, align 4
-  %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds [4 x i32], ptr @fMinLitGroupsFirst, i64 0, i64 %286
-  %288 = load i32, ptr %287, align 4
-  %289 = icmp ne i32 %288, 0
-  br i1 %289, label %290, label %313
+286:                                              ; preds = %248
+  %287 = load i32, ptr %9, align 4
+  %288 = zext i32 %287 to i64
+  %289 = getelementptr inbounds [4 x i32], ptr @fMinLitGroupsFirst, i64 0, i64 %288
+  %290 = load i32, ptr %289, align 4
+  %291 = icmp ne i32 %290, 0
+  br i1 %291, label %292, label %315
 
-290:                                              ; preds = %284
+292:                                              ; preds = %286
   store i32 1000000, ptr @GroupCostBest, align 4
   store i32 0, ptr %10, align 4
-  br label %291
+  br label %293
 
-291:                                              ; preds = %309, %290
-  %292 = load i32, ptr %10, align 4
-  %293 = load i32, ptr @nGroups, align 4
-  %294 = icmp slt i32 %292, %293
-  br i1 %294, label %295, label %312
+293:                                              ; preds = %311, %292
+  %294 = load i32, ptr %10, align 4
+  %295 = load i32, ptr @nGroups, align 4
+  %296 = icmp slt i32 %294, %295
+  br i1 %296, label %297, label %314
 
-295:                                              ; preds = %291
-  %296 = load i32, ptr @GroupCostBest, align 4
-  %297 = load i32, ptr %10, align 4
-  %298 = sext i32 %297 to i64
-  %299 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %298
-  %300 = load i32, ptr %299, align 4
-  %301 = icmp sgt i32 %296, %300
-  br i1 %301, label %302, label %308
+297:                                              ; preds = %293
+  %298 = load i32, ptr @GroupCostBest, align 4
+  %299 = load i32, ptr %10, align 4
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %300
+  %302 = load i32, ptr %301, align 4
+  %303 = icmp sgt i32 %298, %302
+  br i1 %303, label %304, label %310
 
-302:                                              ; preds = %295
-  %303 = load i32, ptr %10, align 4
-  %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %304
-  %306 = load i32, ptr %305, align 4
-  store i32 %306, ptr @GroupCostBest, align 4
-  %307 = load i32, ptr %10, align 4
-  store i32 %307, ptr @GroupCostBestNum, align 4
-  br label %308
+304:                                              ; preds = %297
+  %305 = load i32, ptr %10, align 4
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %306
+  %308 = load i32, ptr %307, align 4
+  store i32 %308, ptr @GroupCostBest, align 4
+  %309 = load i32, ptr %10, align 4
+  store i32 %309, ptr @GroupCostBestNum, align 4
+  br label %310
 
-308:                                              ; preds = %302, %295
-  br label %309
+310:                                              ; preds = %304, %297
+  br label %311
 
-309:                                              ; preds = %308
-  %310 = load i32, ptr %10, align 4
-  %311 = add nsw i32 %310, 1
-  store i32 %311, ptr %10, align 4
-  br label %291, !llvm.loop !11
+311:                                              ; preds = %310
+  %312 = load i32, ptr %10, align 4
+  %313 = add nsw i32 %312, 1
+  store i32 %313, ptr %10, align 4
+  br label %293, !llvm.loop !11
 
-312:                                              ; preds = %291
-  br label %336
+314:                                              ; preds = %293
+  br label %338
 
-313:                                              ; preds = %284
+315:                                              ; preds = %286
   store i32 -1, ptr @GroupCostBest, align 4
   store i32 0, ptr %10, align 4
-  br label %314
+  br label %316
 
-314:                                              ; preds = %332, %313
-  %315 = load i32, ptr %10, align 4
-  %316 = load i32, ptr @nGroups, align 4
-  %317 = icmp slt i32 %315, %316
-  br i1 %317, label %318, label %335
+316:                                              ; preds = %334, %315
+  %317 = load i32, ptr %10, align 4
+  %318 = load i32, ptr @nGroups, align 4
+  %319 = icmp slt i32 %317, %318
+  br i1 %319, label %320, label %337
 
-318:                                              ; preds = %314
-  %319 = load i32, ptr @GroupCostBest, align 4
-  %320 = load i32, ptr %10, align 4
-  %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %321
-  %323 = load i32, ptr %322, align 4
-  %324 = icmp slt i32 %319, %323
-  br i1 %324, label %325, label %331
+320:                                              ; preds = %316
+  %321 = load i32, ptr @GroupCostBest, align 4
+  %322 = load i32, ptr %10, align 4
+  %323 = sext i32 %322 to i64
+  %324 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %323
+  %325 = load i32, ptr %324, align 4
+  %326 = icmp slt i32 %321, %325
+  br i1 %326, label %327, label %333
 
-325:                                              ; preds = %318
-  %326 = load i32, ptr %10, align 4
-  %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %327
-  %329 = load i32, ptr %328, align 4
-  store i32 %329, ptr @GroupCostBest, align 4
-  %330 = load i32, ptr %10, align 4
-  store i32 %330, ptr @GroupCostBestNum, align 4
-  br label %331
+327:                                              ; preds = %320
+  %328 = load i32, ptr %10, align 4
+  %329 = sext i32 %328 to i64
+  %330 = getelementptr inbounds [32 x i32], ptr @GroupCosts, i64 0, i64 %329
+  %331 = load i32, ptr %330, align 4
+  store i32 %331, ptr @GroupCostBest, align 4
+  %332 = load i32, ptr %10, align 4
+  store i32 %332, ptr @GroupCostBestNum, align 4
+  br label %333
 
-331:                                              ; preds = %325, %318
-  br label %332
+333:                                              ; preds = %327, %320
+  br label %334
 
-332:                                              ; preds = %331
-  %333 = load i32, ptr %10, align 4
-  %334 = add nsw i32 %333, 1
-  store i32 %334, ptr %10, align 4
-  br label %314, !llvm.loop !12
+334:                                              ; preds = %333
+  %335 = load i32, ptr %10, align 4
+  %336 = add nsw i32 %335, 1
+  store i32 %336, ptr %10, align 4
+  br label %316, !llvm.loop !12
 
-335:                                              ; preds = %314
-  br label %336
+337:                                              ; preds = %316
+  br label %338
 
-336:                                              ; preds = %335, %312
+338:                                              ; preds = %337, %314
   store i32 0, ptr @LastGroup, align 4
   store i32 0, ptr %11, align 4
-  br label %337
+  br label %339
 
-337:                                              ; preds = %668, %336
-  %338 = load i32, ptr %11, align 4
-  %339 = load i32, ptr @nCubes, align 4
-  %340 = icmp slt i32 %338, %339
-  br i1 %340, label %341, label %671
+339:                                              ; preds = %679, %338
+  %340 = load i32, ptr %11, align 4
+  %341 = load i32, ptr @nCubes, align 4
+  %342 = icmp slt i32 %340, %341
+  br i1 %342, label %343, label %682
 
-341:                                              ; preds = %337
-  %342 = load i32, ptr %9, align 4
-  %343 = zext i32 %342 to i64
-  %344 = getelementptr inbounds [3 x [24 x [4 x i32]]], ptr @s_ELGroupRules, i64 0, i64 %343
-  %345 = load i32, ptr @GroupCostBestNum, align 4
-  %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds [24 x [4 x i32]], ptr %344, i64 0, i64 %346
-  %348 = load i32, ptr %11, align 4
-  %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds [4 x i32], ptr %347, i64 0, i64 %349
-  %351 = load i32, ptr %350, align 4
-  store i32 %351, ptr @CubeNum, align 4
-  %352 = load i32, ptr @CubeNum, align 4
-  %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %353
-  %355 = load i32, ptr %354, align 4
-  %356 = load i32, ptr @LastGroup, align 4
-  %357 = or i32 %356, %355
-  store i32 %357, ptr @LastGroup, align 4
-  %358 = call ptr (...) @GetFreeCube()
-  %359 = load i32, ptr @CubeNum, align 4
-  %360 = sext i32 %359 to i64
-  %361 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %360
-  store ptr %358, ptr %361, align 8
+343:                                              ; preds = %339
+  %344 = load i32, ptr %9, align 4
+  %345 = zext i32 %344 to i64
+  %346 = getelementptr inbounds [3 x [24 x [4 x i32]]], ptr @s_ELGroupRules, i64 0, i64 %345
+  %347 = load i32, ptr @GroupCostBestNum, align 4
+  %348 = sext i32 %347 to i64
+  %349 = getelementptr inbounds [24 x [4 x i32]], ptr %346, i64 0, i64 %348
+  %350 = load i32, ptr %11, align 4
+  %351 = sext i32 %350 to i64
+  %352 = getelementptr inbounds [4 x i32], ptr %349, i64 0, i64 %351
+  %353 = load i32, ptr %352, align 4
+  store i32 %353, ptr @CubeNum, align 4
+  %354 = load i32, ptr @CubeNum, align 4
+  %355 = sext i32 %354 to i64
+  %356 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %355
+  %357 = load i32, ptr %356, align 4
+  %358 = load i32, ptr @LastGroup, align 4
+  %359 = or i32 %358, %357
+  store i32 %359, ptr @LastGroup, align 4
+  %360 = call ptr (...) @GetFreeCube()
+  %361 = load i32, ptr @CubeNum, align 4
+  %362 = sext i32 %361 to i64
+  %363 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %362
+  store ptr %360, ptr %363, align 8
   store i32 0, ptr %10, align 4
-  br label %362
+  br label %364
 
-362:                                              ; preds = %380, %341
-  %363 = load i32, ptr %10, align 4
-  %364 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2), align 8
-  %365 = icmp slt i32 %363, %364
-  br i1 %365, label %366, label %383
+364:                                              ; preds = %383, %343
+  %365 = load i32, ptr %10, align 4
+  %366 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2
+  %367 = load i32, ptr %366, align 8
+  %368 = icmp slt i32 %365, %367
+  br i1 %368, label %369, label %386
 
-366:                                              ; preds = %362
-  %367 = load i32, ptr %10, align 4
-  %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %368
-  %370 = load i32, ptr %369, align 4
-  %371 = load i32, ptr @CubeNum, align 4
-  %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %372
-  %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds %struct.cube, ptr %374, i32 0, i32 5
-  %376 = load ptr, ptr %375, align 8
-  %377 = load i32, ptr %10, align 4
-  %378 = sext i32 %377 to i64
-  %379 = getelementptr inbounds i32, ptr %376, i64 %378
-  store i32 %370, ptr %379, align 4
-  br label %380
+369:                                              ; preds = %364
+  %370 = load i32, ptr %10, align 4
+  %371 = sext i32 %370 to i64
+  %372 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %371
+  %373 = load i32, ptr %372, align 4
+  %374 = load i32, ptr @CubeNum, align 4
+  %375 = sext i32 %374 to i64
+  %376 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %375
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr inbounds %struct.cube, ptr %377, i32 0, i32 5
+  %379 = load ptr, ptr %378, align 8
+  %380 = load i32, ptr %10, align 4
+  %381 = sext i32 %380 to i64
+  %382 = getelementptr inbounds i32, ptr %379, i64 %381
+  store i32 %373, ptr %382, align 4
+  br label %383
 
-380:                                              ; preds = %366
-  %381 = load i32, ptr %10, align 4
-  %382 = add nsw i32 %381, 1
-  store i32 %382, ptr %10, align 4
-  br label %362, !llvm.loop !13
+383:                                              ; preds = %369
+  %384 = load i32, ptr %10, align 4
+  %385 = add nsw i32 %384, 1
+  store i32 %385, ptr %10, align 4
+  br label %364, !llvm.loop !13
 
-383:                                              ; preds = %362
+386:                                              ; preds = %364
   store i32 0, ptr @NewZ, align 4
-  %384 = load i32, ptr @DiffVars, align 16
-  %385 = icmp sge i32 %384, 0
-  br i1 %385, label %386, label %416
+  %387 = load i32, ptr @DiffVars, align 16
+  %388 = icmp sge i32 %387, 0
+  br i1 %388, label %389, label %420
 
-386:                                              ; preds = %383
+389:                                              ; preds = %386
   store i32 0, ptr %10, align 4
-  br label %387
+  br label %390
 
-387:                                              ; preds = %408, %386
-  %388 = load i32, ptr %10, align 4
-  %389 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %390 = icmp slt i32 %388, %389
-  br i1 %390, label %391, label %411
+390:                                              ; preds = %412, %389
+  %391 = load i32, ptr %10, align 4
+  %392 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %393 = load i32, ptr %392, align 4
+  %394 = icmp slt i32 %391, %393
+  br i1 %394, label %395, label %415
 
-391:                                              ; preds = %387
-  %392 = load ptr, ptr @pCA, align 8
-  %393 = getelementptr inbounds %struct.cube, ptr %392, i32 0, i32 6
-  %394 = load ptr, ptr %393, align 8
-  %395 = load i32, ptr %10, align 4
-  %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds i32, ptr %394, i64 %396
-  %398 = load i32, ptr %397, align 4
-  %399 = load i32, ptr @CubeNum, align 4
+395:                                              ; preds = %390
+  %396 = load ptr, ptr @pCA, align 8
+  %397 = getelementptr inbounds %struct.cube, ptr %396, i32 0, i32 6
+  %398 = load ptr, ptr %397, align 8
+  %399 = load i32, ptr %10, align 4
   %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %400
-  %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds %struct.cube, ptr %402, i32 0, i32 6
-  %404 = load ptr, ptr %403, align 8
-  %405 = load i32, ptr %10, align 4
-  %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds i32, ptr %404, i64 %406
-  store i32 %398, ptr %407, align 4
-  br label %408
-
-408:                                              ; preds = %391
+  %401 = getelementptr inbounds i32, ptr %398, i64 %400
+  %402 = load i32, ptr %401, align 4
+  %403 = load i32, ptr @CubeNum, align 4
+  %404 = sext i32 %403 to i64
+  %405 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %404
+  %406 = load ptr, ptr %405, align 8
+  %407 = getelementptr inbounds %struct.cube, ptr %406, i32 0, i32 6
+  %408 = load ptr, ptr %407, align 8
   %409 = load i32, ptr %10, align 4
-  %410 = add nsw i32 %409, 1
-  store i32 %410, ptr %10, align 4
-  br label %387, !llvm.loop !14
+  %410 = sext i32 %409 to i64
+  %411 = getelementptr inbounds i32, ptr %408, i64 %410
+  store i32 %402, ptr %411, align 4
+  br label %412
 
-411:                                              ; preds = %387
-  %412 = load ptr, ptr @pCA, align 8
-  %413 = getelementptr inbounds %struct.cube, ptr %412, i32 0, i32 3
-  %414 = load i16, ptr %413, align 4
-  %415 = sext i16 %414 to i32
-  store i32 %415, ptr @NewZ, align 4
-  br label %572
+412:                                              ; preds = %395
+  %413 = load i32, ptr %10, align 4
+  %414 = add nsw i32 %413, 1
+  store i32 %414, ptr %10, align 4
+  br label %390, !llvm.loop !14
 
-416:                                              ; preds = %383
-  %417 = load i32, ptr %9, align 4
-  %418 = zext i32 %417 to i64
-  %419 = getelementptr inbounds [3 x [32 x [4 x i32]]], ptr @s_ELCubeRules, i64 0, i64 %418
-  %420 = load i32, ptr @CubeNum, align 4
-  %421 = sext i32 %420 to i64
-  %422 = getelementptr inbounds [32 x [4 x i32]], ptr %419, i64 0, i64 %421
-  %423 = load i32, ptr @nDiffVarsIn, align 4
-  %424 = sext i32 %423 to i64
-  %425 = getelementptr inbounds [4 x i32], ptr %422, i64 0, i64 %424
-  %426 = load i32, ptr %425, align 4
-  store i32 %426, ptr @Value, align 4
-  %427 = load i32, ptr @Value, align 4
-  %428 = icmp eq i32 %427, 0
-  br i1 %428, label %429, label %471
+415:                                              ; preds = %390
+  %416 = load ptr, ptr @pCA, align 8
+  %417 = getelementptr inbounds %struct.cube, ptr %416, i32 0, i32 3
+  %418 = load i16, ptr %417, align 4
+  %419 = sext i16 %418 to i32
+  store i32 %419, ptr @NewZ, align 4
+  br label %579
 
-429:                                              ; preds = %416
+420:                                              ; preds = %386
+  %421 = load i32, ptr %9, align 4
+  %422 = zext i32 %421 to i64
+  %423 = getelementptr inbounds [3 x [32 x [4 x i32]]], ptr @s_ELCubeRules, i64 0, i64 %422
+  %424 = load i32, ptr @CubeNum, align 4
+  %425 = sext i32 %424 to i64
+  %426 = getelementptr inbounds [32 x [4 x i32]], ptr %423, i64 0, i64 %425
+  %427 = load i32, ptr @nDiffVarsIn, align 4
+  %428 = sext i32 %427 to i64
+  %429 = getelementptr inbounds [4 x i32], ptr %426, i64 0, i64 %428
+  %430 = load i32, ptr %429, align 4
+  store i32 %430, ptr @Value, align 4
+  %431 = load i32, ptr @Value, align 4
+  %432 = icmp eq i32 %431, 0
+  br i1 %432, label %433, label %476
+
+433:                                              ; preds = %420
   store i32 0, ptr %10, align 4
-  br label %430
+  br label %434
 
-430:                                              ; preds = %467, %429
-  %431 = load i32, ptr %10, align 4
-  %432 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %433 = icmp slt i32 %431, %432
-  br i1 %433, label %434, label %470
+434:                                              ; preds = %472, %433
+  %435 = load i32, ptr %10, align 4
+  %436 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %437 = load i32, ptr %436, align 4
+  %438 = icmp slt i32 %435, %437
+  br i1 %438, label %439, label %475
 
-434:                                              ; preds = %430
-  %435 = load ptr, ptr @pCA, align 8
-  %436 = getelementptr inbounds %struct.cube, ptr %435, i32 0, i32 6
-  %437 = load ptr, ptr %436, align 8
-  %438 = load i32, ptr %10, align 4
-  %439 = sext i32 %438 to i64
-  %440 = getelementptr inbounds i32, ptr %437, i64 %439
-  %441 = load i32, ptr %440, align 4
-  store i32 %441, ptr @Temp, align 4
-  %442 = load i32, ptr @Temp, align 4
-  %443 = load i32, ptr @CubeNum, align 4
+439:                                              ; preds = %434
+  %440 = load ptr, ptr @pCA, align 8
+  %441 = getelementptr inbounds %struct.cube, ptr %440, i32 0, i32 6
+  %442 = load ptr, ptr %441, align 8
+  %443 = load i32, ptr %10, align 4
   %444 = sext i32 %443 to i64
-  %445 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %444
-  %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds %struct.cube, ptr %446, i32 0, i32 6
-  %448 = load ptr, ptr %447, align 8
-  %449 = load i32, ptr %10, align 4
-  %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds i32, ptr %448, i64 %450
-  store i32 %442, ptr %451, align 4
-  %452 = load i32, ptr @Temp, align 4
-  %453 = and i32 %452, 65535
-  %454 = zext i32 %453 to i64
-  %455 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %454
-  %456 = load i8, ptr %455, align 1
-  %457 = zext i8 %456 to i32
-  %458 = load i32, ptr @Temp, align 4
-  %459 = lshr i32 %458, 16
-  %460 = zext i32 %459 to i64
-  %461 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %460
-  %462 = load i8, ptr %461, align 1
-  %463 = zext i8 %462 to i32
-  %464 = add nsw i32 %457, %463
-  %465 = load i32, ptr @NewZ, align 4
-  %466 = add nsw i32 %465, %464
-  store i32 %466, ptr @NewZ, align 4
-  br label %467
+  %445 = getelementptr inbounds i32, ptr %442, i64 %444
+  %446 = load i32, ptr %445, align 4
+  store i32 %446, ptr @Temp, align 4
+  %447 = load i32, ptr @Temp, align 4
+  %448 = load i32, ptr @CubeNum, align 4
+  %449 = sext i32 %448 to i64
+  %450 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %449
+  %451 = load ptr, ptr %450, align 8
+  %452 = getelementptr inbounds %struct.cube, ptr %451, i32 0, i32 6
+  %453 = load ptr, ptr %452, align 8
+  %454 = load i32, ptr %10, align 4
+  %455 = sext i32 %454 to i64
+  %456 = getelementptr inbounds i32, ptr %453, i64 %455
+  store i32 %447, ptr %456, align 4
+  %457 = load i32, ptr @Temp, align 4
+  %458 = and i32 %457, 65535
+  %459 = zext i32 %458 to i64
+  %460 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %459
+  %461 = load i8, ptr %460, align 1
+  %462 = zext i8 %461 to i32
+  %463 = load i32, ptr @Temp, align 4
+  %464 = lshr i32 %463, 16
+  %465 = zext i32 %464 to i64
+  %466 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %465
+  %467 = load i8, ptr %466, align 1
+  %468 = zext i8 %467 to i32
+  %469 = add nsw i32 %462, %468
+  %470 = load i32, ptr @NewZ, align 4
+  %471 = add nsw i32 %470, %469
+  store i32 %471, ptr @NewZ, align 4
+  br label %472
 
-467:                                              ; preds = %434
-  %468 = load i32, ptr %10, align 4
-  %469 = add nsw i32 %468, 1
-  store i32 %469, ptr %10, align 4
-  br label %430, !llvm.loop !15
+472:                                              ; preds = %439
+  %473 = load i32, ptr %10, align 4
+  %474 = add nsw i32 %473, 1
+  store i32 %474, ptr %10, align 4
+  br label %434, !llvm.loop !15
 
-470:                                              ; preds = %430
-  br label %571
+475:                                              ; preds = %434
+  br label %578
 
-471:                                              ; preds = %416
-  %472 = load i32, ptr @Value, align 4
-  %473 = icmp eq i32 %472, 1
-  br i1 %473, label %474, label %516
+476:                                              ; preds = %420
+  %477 = load i32, ptr @Value, align 4
+  %478 = icmp eq i32 %477, 1
+  br i1 %478, label %479, label %522
 
-474:                                              ; preds = %471
+479:                                              ; preds = %476
   store i32 0, ptr %10, align 4
-  br label %475
+  br label %480
 
-475:                                              ; preds = %512, %474
-  %476 = load i32, ptr %10, align 4
-  %477 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %478 = icmp slt i32 %476, %477
-  br i1 %478, label %479, label %515
+480:                                              ; preds = %518, %479
+  %481 = load i32, ptr %10, align 4
+  %482 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %483 = load i32, ptr %482, align 4
+  %484 = icmp slt i32 %481, %483
+  br i1 %484, label %485, label %521
 
-479:                                              ; preds = %475
-  %480 = load ptr, ptr @pCB, align 8
-  %481 = getelementptr inbounds %struct.cube, ptr %480, i32 0, i32 6
-  %482 = load ptr, ptr %481, align 8
-  %483 = load i32, ptr %10, align 4
-  %484 = sext i32 %483 to i64
-  %485 = getelementptr inbounds i32, ptr %482, i64 %484
-  %486 = load i32, ptr %485, align 4
-  store i32 %486, ptr @Temp, align 4
-  %487 = load i32, ptr @Temp, align 4
-  %488 = load i32, ptr @CubeNum, align 4
-  %489 = sext i32 %488 to i64
-  %490 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %489
-  %491 = load ptr, ptr %490, align 8
-  %492 = getelementptr inbounds %struct.cube, ptr %491, i32 0, i32 6
-  %493 = load ptr, ptr %492, align 8
-  %494 = load i32, ptr %10, align 4
+485:                                              ; preds = %480
+  %486 = load ptr, ptr @pCB, align 8
+  %487 = getelementptr inbounds %struct.cube, ptr %486, i32 0, i32 6
+  %488 = load ptr, ptr %487, align 8
+  %489 = load i32, ptr %10, align 4
+  %490 = sext i32 %489 to i64
+  %491 = getelementptr inbounds i32, ptr %488, i64 %490
+  %492 = load i32, ptr %491, align 4
+  store i32 %492, ptr @Temp, align 4
+  %493 = load i32, ptr @Temp, align 4
+  %494 = load i32, ptr @CubeNum, align 4
   %495 = sext i32 %494 to i64
-  %496 = getelementptr inbounds i32, ptr %493, i64 %495
-  store i32 %487, ptr %496, align 4
-  %497 = load i32, ptr @Temp, align 4
-  %498 = and i32 %497, 65535
-  %499 = zext i32 %498 to i64
-  %500 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %499
-  %501 = load i8, ptr %500, align 1
-  %502 = zext i8 %501 to i32
+  %496 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %495
+  %497 = load ptr, ptr %496, align 8
+  %498 = getelementptr inbounds %struct.cube, ptr %497, i32 0, i32 6
+  %499 = load ptr, ptr %498, align 8
+  %500 = load i32, ptr %10, align 4
+  %501 = sext i32 %500 to i64
+  %502 = getelementptr inbounds i32, ptr %499, i64 %501
+  store i32 %493, ptr %502, align 4
   %503 = load i32, ptr @Temp, align 4
-  %504 = lshr i32 %503, 16
+  %504 = and i32 %503, 65535
   %505 = zext i32 %504 to i64
   %506 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %505
   %507 = load i8, ptr %506, align 1
   %508 = zext i8 %507 to i32
-  %509 = add nsw i32 %502, %508
-  %510 = load i32, ptr @NewZ, align 4
-  %511 = add nsw i32 %510, %509
-  store i32 %511, ptr @NewZ, align 4
-  br label %512
+  %509 = load i32, ptr @Temp, align 4
+  %510 = lshr i32 %509, 16
+  %511 = zext i32 %510 to i64
+  %512 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %511
+  %513 = load i8, ptr %512, align 1
+  %514 = zext i8 %513 to i32
+  %515 = add nsw i32 %508, %514
+  %516 = load i32, ptr @NewZ, align 4
+  %517 = add nsw i32 %516, %515
+  store i32 %517, ptr @NewZ, align 4
+  br label %518
 
-512:                                              ; preds = %479
-  %513 = load i32, ptr %10, align 4
-  %514 = add nsw i32 %513, 1
-  store i32 %514, ptr %10, align 4
-  br label %475, !llvm.loop !16
+518:                                              ; preds = %485
+  %519 = load i32, ptr %10, align 4
+  %520 = add nsw i32 %519, 1
+  store i32 %520, ptr %10, align 4
+  br label %480, !llvm.loop !16
 
-515:                                              ; preds = %475
-  br label %570
+521:                                              ; preds = %480
+  br label %577
 
-516:                                              ; preds = %471
-  %517 = load i32, ptr @Value, align 4
-  %518 = icmp eq i32 %517, 2
-  br i1 %518, label %519, label %569
+522:                                              ; preds = %476
+  %523 = load i32, ptr @Value, align 4
+  %524 = icmp eq i32 %523, 2
+  br i1 %524, label %525, label %576
 
-519:                                              ; preds = %516
+525:                                              ; preds = %522
   store i32 0, ptr %10, align 4
-  br label %520
+  br label %526
 
-520:                                              ; preds = %565, %519
-  %521 = load i32, ptr %10, align 4
-  %522 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %523 = icmp slt i32 %521, %522
-  br i1 %523, label %524, label %568
+526:                                              ; preds = %572, %525
+  %527 = load i32, ptr %10, align 4
+  %528 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %529 = load i32, ptr %528, align 4
+  %530 = icmp slt i32 %527, %529
+  br i1 %530, label %531, label %575
 
-524:                                              ; preds = %520
-  %525 = load ptr, ptr @pCA, align 8
-  %526 = getelementptr inbounds %struct.cube, ptr %525, i32 0, i32 6
-  %527 = load ptr, ptr %526, align 8
-  %528 = load i32, ptr %10, align 4
-  %529 = sext i32 %528 to i64
-  %530 = getelementptr inbounds i32, ptr %527, i64 %529
-  %531 = load i32, ptr %530, align 4
-  %532 = load ptr, ptr @pCB, align 8
+531:                                              ; preds = %526
+  %532 = load ptr, ptr @pCA, align 8
   %533 = getelementptr inbounds %struct.cube, ptr %532, i32 0, i32 6
   %534 = load ptr, ptr %533, align 8
   %535 = load i32, ptr %10, align 4
   %536 = sext i32 %535 to i64
   %537 = getelementptr inbounds i32, ptr %534, i64 %536
   %538 = load i32, ptr %537, align 4
-  %539 = xor i32 %531, %538
-  store i32 %539, ptr @Temp, align 4
-  %540 = load i32, ptr @Temp, align 4
-  %541 = load i32, ptr @CubeNum, align 4
-  %542 = sext i32 %541 to i64
-  %543 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %542
-  %544 = load ptr, ptr %543, align 8
-  %545 = getelementptr inbounds %struct.cube, ptr %544, i32 0, i32 6
-  %546 = load ptr, ptr %545, align 8
-  %547 = load i32, ptr %10, align 4
-  %548 = sext i32 %547 to i64
-  %549 = getelementptr inbounds i32, ptr %546, i64 %548
-  store i32 %540, ptr %549, align 4
-  %550 = load i32, ptr @Temp, align 4
-  %551 = and i32 %550, 65535
-  %552 = zext i32 %551 to i64
-  %553 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %552
-  %554 = load i8, ptr %553, align 1
-  %555 = zext i8 %554 to i32
-  %556 = load i32, ptr @Temp, align 4
-  %557 = lshr i32 %556, 16
-  %558 = zext i32 %557 to i64
-  %559 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %558
-  %560 = load i8, ptr %559, align 1
-  %561 = zext i8 %560 to i32
-  %562 = add nsw i32 %555, %561
-  %563 = load i32, ptr @NewZ, align 4
-  %564 = add nsw i32 %563, %562
-  store i32 %564, ptr @NewZ, align 4
-  br label %565
-
-565:                                              ; preds = %524
-  %566 = load i32, ptr %10, align 4
-  %567 = add nsw i32 %566, 1
-  store i32 %567, ptr %10, align 4
-  br label %520, !llvm.loop !17
-
-568:                                              ; preds = %520
-  br label %569
-
-569:                                              ; preds = %568, %516
-  br label %570
-
-570:                                              ; preds = %569, %515
-  br label %571
-
-571:                                              ; preds = %570, %470
+  %539 = load ptr, ptr @pCB, align 8
+  %540 = getelementptr inbounds %struct.cube, ptr %539, i32 0, i32 6
+  %541 = load ptr, ptr %540, align 8
+  %542 = load i32, ptr %10, align 4
+  %543 = sext i32 %542 to i64
+  %544 = getelementptr inbounds i32, ptr %541, i64 %543
+  %545 = load i32, ptr %544, align 4
+  %546 = xor i32 %538, %545
+  store i32 %546, ptr @Temp, align 4
+  %547 = load i32, ptr @Temp, align 4
+  %548 = load i32, ptr @CubeNum, align 4
+  %549 = sext i32 %548 to i64
+  %550 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %549
+  %551 = load ptr, ptr %550, align 8
+  %552 = getelementptr inbounds %struct.cube, ptr %551, i32 0, i32 6
+  %553 = load ptr, ptr %552, align 8
+  %554 = load i32, ptr %10, align 4
+  %555 = sext i32 %554 to i64
+  %556 = getelementptr inbounds i32, ptr %553, i64 %555
+  store i32 %547, ptr %556, align 4
+  %557 = load i32, ptr @Temp, align 4
+  %558 = and i32 %557, 65535
+  %559 = zext i32 %558 to i64
+  %560 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %559
+  %561 = load i8, ptr %560, align 1
+  %562 = zext i8 %561 to i32
+  %563 = load i32, ptr @Temp, align 4
+  %564 = lshr i32 %563, 16
+  %565 = zext i32 %564 to i64
+  %566 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %565
+  %567 = load i8, ptr %566, align 1
+  %568 = zext i8 %567 to i32
+  %569 = add nsw i32 %562, %568
+  %570 = load i32, ptr @NewZ, align 4
+  %571 = add nsw i32 %570, %569
+  store i32 %571, ptr @NewZ, align 4
   br label %572
 
-572:                                              ; preds = %571, %411
+572:                                              ; preds = %531
+  %573 = load i32, ptr %10, align 4
+  %574 = add nsw i32 %573, 1
+  store i32 %574, ptr %10, align 4
+  br label %526, !llvm.loop !17
+
+575:                                              ; preds = %526
+  br label %576
+
+576:                                              ; preds = %575, %522
+  br label %577
+
+577:                                              ; preds = %576, %521
+  br label %578
+
+578:                                              ; preds = %577, %475
+  br label %579
+
+579:                                              ; preds = %578, %415
   store i32 0, ptr %10, align 4
-  br label %573
+  br label %580
 
-573:                                              ; preds = %614, %572
-  %574 = load i32, ptr %10, align 4
-  %575 = load i32, ptr @nDiffVarsIn, align 4
-  %576 = icmp slt i32 %574, %575
-  br i1 %576, label %577, label %617
+580:                                              ; preds = %621, %579
+  %581 = load i32, ptr %10, align 4
+  %582 = load i32, ptr @nDiffVarsIn, align 4
+  %583 = icmp slt i32 %581, %582
+  br i1 %583, label %584, label %624
 
-577:                                              ; preds = %573
-  %578 = load i32, ptr %10, align 4
-  %579 = sext i32 %578 to i64
-  %580 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %579
-  %581 = load i32, ptr %9, align 4
-  %582 = zext i32 %581 to i64
-  %583 = getelementptr inbounds [3 x [32 x [4 x i32]]], ptr @s_ELCubeRules, i64 0, i64 %582
-  %584 = load i32, ptr @CubeNum, align 4
-  %585 = sext i32 %584 to i64
-  %586 = getelementptr inbounds [32 x [4 x i32]], ptr %583, i64 0, i64 %585
-  %587 = load i32, ptr %10, align 4
-  %588 = sext i32 %587 to i64
-  %589 = getelementptr inbounds [4 x i32], ptr %586, i64 0, i64 %588
-  %590 = load i32, ptr %589, align 4
-  %591 = sext i32 %590 to i64
-  %592 = getelementptr inbounds [3 x i32], ptr %580, i64 0, i64 %591
-  %593 = load i32, ptr %592, align 4
-  store i32 %593, ptr @Value, align 4
-  %594 = load i32, ptr @Value, align 4
-  %595 = load i32, ptr %10, align 4
-  %596 = sext i32 %595 to i64
-  %597 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %596
-  %598 = load i32, ptr %597, align 4
-  %599 = shl i32 %594, %598
-  %600 = load i32, ptr @CubeNum, align 4
-  %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %601
-  %603 = load ptr, ptr %602, align 8
-  %604 = getelementptr inbounds %struct.cube, ptr %603, i32 0, i32 5
-  %605 = load ptr, ptr %604, align 8
-  %606 = load i32, ptr %10, align 4
-  %607 = sext i32 %606 to i64
-  %608 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %607
-  %609 = load i32, ptr %608, align 4
-  %610 = sext i32 %609 to i64
-  %611 = getelementptr inbounds i32, ptr %605, i64 %610
-  %612 = load i32, ptr %611, align 4
-  %613 = or i32 %612, %599
-  store i32 %613, ptr %611, align 4
-  br label %614
+584:                                              ; preds = %580
+  %585 = load i32, ptr %10, align 4
+  %586 = sext i32 %585 to i64
+  %587 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %586
+  %588 = load i32, ptr %9, align 4
+  %589 = zext i32 %588 to i64
+  %590 = getelementptr inbounds [3 x [32 x [4 x i32]]], ptr @s_ELCubeRules, i64 0, i64 %589
+  %591 = load i32, ptr @CubeNum, align 4
+  %592 = sext i32 %591 to i64
+  %593 = getelementptr inbounds [32 x [4 x i32]], ptr %590, i64 0, i64 %592
+  %594 = load i32, ptr %10, align 4
+  %595 = sext i32 %594 to i64
+  %596 = getelementptr inbounds [4 x i32], ptr %593, i64 0, i64 %595
+  %597 = load i32, ptr %596, align 4
+  %598 = sext i32 %597 to i64
+  %599 = getelementptr inbounds [3 x i32], ptr %587, i64 0, i64 %598
+  %600 = load i32, ptr %599, align 4
+  store i32 %600, ptr @Value, align 4
+  %601 = load i32, ptr @Value, align 4
+  %602 = load i32, ptr %10, align 4
+  %603 = sext i32 %602 to i64
+  %604 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %603
+  %605 = load i32, ptr %604, align 4
+  %606 = shl i32 %601, %605
+  %607 = load i32, ptr @CubeNum, align 4
+  %608 = sext i32 %607 to i64
+  %609 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %608
+  %610 = load ptr, ptr %609, align 8
+  %611 = getelementptr inbounds %struct.cube, ptr %610, i32 0, i32 5
+  %612 = load ptr, ptr %611, align 8
+  %613 = load i32, ptr %10, align 4
+  %614 = sext i32 %613 to i64
+  %615 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %614
+  %616 = load i32, ptr %615, align 4
+  %617 = sext i32 %616 to i64
+  %618 = getelementptr inbounds i32, ptr %612, i64 %617
+  %619 = load i32, ptr %618, align 4
+  %620 = or i32 %619, %606
+  store i32 %620, ptr %618, align 4
+  br label %621
 
-614:                                              ; preds = %577
-  %615 = load i32, ptr %10, align 4
-  %616 = add nsw i32 %615, 1
-  store i32 %616, ptr %10, align 4
-  br label %573, !llvm.loop !18
+621:                                              ; preds = %584
+  %622 = load i32, ptr %10, align 4
+  %623 = add nsw i32 %622, 1
+  store i32 %623, ptr %10, align 4
+  br label %580, !llvm.loop !18
 
-617:                                              ; preds = %573
-  %618 = load i32, ptr @StartingLiterals, align 4
-  %619 = load i32, ptr @CubeNum, align 4
-  %620 = sext i32 %619 to i64
-  %621 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %620
-  %622 = load i32, ptr %621, align 4
-  %623 = add nsw i32 %618, %622
-  %624 = trunc i32 %623 to i16
-  %625 = load i32, ptr @CubeNum, align 4
-  %626 = sext i32 %625 to i64
-  %627 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %626
-  %628 = load ptr, ptr %627, align 8
-  %629 = getelementptr inbounds %struct.cube, ptr %628, i32 0, i32 2
-  store i16 %624, ptr %629, align 2
-  %630 = load i32, ptr @NewZ, align 4
+624:                                              ; preds = %580
+  %625 = load i32, ptr @StartingLiterals, align 4
+  %626 = load i32, ptr @CubeNum, align 4
+  %627 = sext i32 %626 to i64
+  %628 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %627
+  %629 = load i32, ptr %628, align 4
+  %630 = add nsw i32 %625, %629
   %631 = trunc i32 %630 to i16
   %632 = load i32, ptr @CubeNum, align 4
   %633 = sext i32 %632 to i64
   %634 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %633
   %635 = load ptr, ptr %634, align 8
-  %636 = getelementptr inbounds %struct.cube, ptr %635, i32 0, i32 3
-  store i16 %631, ptr %636, align 4
-  %637 = load i32, ptr @CubeNum, align 4
-  %638 = sext i32 %637 to i64
-  %639 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %638
-  %640 = load ptr, ptr %639, align 8
-  %641 = call i32 @ComputeQCostBits(ptr noundef %640)
-  %642 = trunc i32 %641 to i16
-  %643 = load i32, ptr @CubeNum, align 4
-  %644 = sext i32 %643 to i64
-  %645 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %644
-  %646 = load ptr, ptr %645, align 8
-  %647 = getelementptr inbounds %struct.cube, ptr %646, i32 0, i32 4
-  store i16 %642, ptr %647, align 2
-  %648 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %649 = add nsw i32 %648, 1
-  store i32 %649, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %650 = trunc i32 %648 to i8
-  %651 = load i32, ptr @CubeNum, align 4
-  %652 = sext i32 %651 to i64
-  %653 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %652
-  %654 = load ptr, ptr %653, align 8
-  %655 = getelementptr inbounds %struct.cube, ptr %654, i32 0, i32 1
-  store i8 %650, ptr %655, align 1
-  %656 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %657 = icmp eq i32 %656, 256
-  br i1 %657, label %658, label %659
-
-658:                                              ; preds = %617
-  store i32 1, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  br label %659
-
-659:                                              ; preds = %658, %617
+  %636 = getelementptr inbounds %struct.cube, ptr %635, i32 0, i32 2
+  store i16 %631, ptr %636, align 2
+  %637 = load i32, ptr @NewZ, align 4
+  %638 = trunc i32 %637 to i16
+  %639 = load i32, ptr @CubeNum, align 4
+  %640 = sext i32 %639 to i64
+  %641 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %640
+  %642 = load ptr, ptr %641, align 8
+  %643 = getelementptr inbounds %struct.cube, ptr %642, i32 0, i32 3
+  store i16 %638, ptr %643, align 4
+  %644 = load i32, ptr @CubeNum, align 4
+  %645 = sext i32 %644 to i64
+  %646 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %645
+  %647 = load ptr, ptr %646, align 8
+  %648 = call i32 @ComputeQCostBits(ptr noundef %647)
+  %649 = trunc i32 %648 to i16
+  %650 = load i32, ptr @CubeNum, align 4
+  %651 = sext i32 %650 to i64
+  %652 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %651
+  %653 = load ptr, ptr %652, align 8
+  %654 = getelementptr inbounds %struct.cube, ptr %653, i32 0, i32 4
+  store i16 %649, ptr %654, align 2
+  %655 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  %656 = load i32, ptr %655, align 8
+  %657 = add nsw i32 %656, 1
+  %658 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  store i32 %657, ptr %658, align 8
+  %659 = trunc i32 %656 to i8
   %660 = load i32, ptr @CubeNum, align 4
   %661 = sext i32 %660 to i64
   %662 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %661
   %663 = load ptr, ptr %662, align 8
-  %664 = load ptr, ptr %6, align 8
-  %665 = load i32, ptr %11, align 4
-  %666 = sext i32 %665 to i64
-  %667 = getelementptr inbounds ptr, ptr %664, i64 %666
-  store ptr %663, ptr %667, align 8
-  br label %668
+  %664 = getelementptr inbounds %struct.cube, ptr %663, i32 0, i32 1
+  store i8 %659, ptr %664, align 1
+  %665 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  %666 = load i32, ptr %665, align 8
+  %667 = icmp eq i32 %666, 256
+  br i1 %667, label %668, label %670
 
-668:                                              ; preds = %659
-  %669 = load i32, ptr %11, align 4
-  %670 = add nsw i32 %669, 1
-  store i32 %670, ptr %11, align 4
-  br label %337, !llvm.loop !19
+668:                                              ; preds = %624
+  %669 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  store i32 1, ptr %669, align 8
+  br label %670
 
-671:                                              ; preds = %337
-  %672 = load i32, ptr @GroupCostBestNum, align 4
-  %673 = sext i32 %672 to i64
-  %674 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %673
-  %675 = load i32, ptr %674, align 4
-  %676 = load i32, ptr @VisitedGroups, align 4
-  %677 = or i32 %676, %675
-  store i32 %677, ptr @VisitedGroups, align 4
-  %678 = load i32, ptr @GroupCostBestNum, align 4
-  store i32 %678, ptr @GroupOrder, align 16
+670:                                              ; preds = %668, %624
+  %671 = load i32, ptr @CubeNum, align 4
+  %672 = sext i32 %671 to i64
+  %673 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %672
+  %674 = load ptr, ptr %673, align 8
+  %675 = load ptr, ptr %6, align 8
+  %676 = load i32, ptr %11, align 4
+  %677 = sext i32 %676 to i64
+  %678 = getelementptr inbounds ptr, ptr %675, i64 %677
+  store ptr %674, ptr %678, align 8
+  br label %679
+
+679:                                              ; preds = %670
+  %680 = load i32, ptr %11, align 4
+  %681 = add nsw i32 %680, 1
+  store i32 %681, ptr %11, align 4
+  br label %339, !llvm.loop !19
+
+682:                                              ; preds = %339
+  %683 = load i32, ptr @GroupCostBestNum, align 4
+  %684 = sext i32 %683 to i64
+  %685 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %684
+  %686 = load i32, ptr %685, align 4
+  %687 = load i32, ptr @VisitedGroups, align 4
+  %688 = or i32 %687, %686
+  store i32 %688, ptr @VisitedGroups, align 4
+  %689 = load i32, ptr @GroupCostBestNum, align 4
+  store i32 %689, ptr @GroupOrder, align 16
   store i32 1, ptr @nVisitedGroups, align 4
   store i32 1, ptr @fWorking, align 4
   store i32 1, ptr %5, align 4
-  br label %679
+  br label %690
 
-679:                                              ; preds = %671, %31
-  %680 = load i32, ptr %5, align 4
-  ret i32 %680
+690:                                              ; preds = %682, %31
+  %691 = load i32, ptr %5, align 4
+  ret i32 %691
 }
 
 declare i32 @FindDiffVars(ptr noundef, ptr noundef, ptr noundef) #1
@@ -1035,7 +1046,7 @@ define i32 @ExorLinkCubeIteratorNext(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %432
+  br label %441
 
 10:                                               ; preds = %1
   %11 = load i32, ptr @nDist, align 4
@@ -1154,11 +1165,11 @@ define i32 @ExorLinkCubeIteratorNext(ptr noundef %0) #0 {
   store i32 0, ptr %5, align 4
   br label %79
 
-79:                                               ; preds = %417, %78
+79:                                               ; preds = %426, %78
   %80 = load i32, ptr %5, align 4
   %81 = load i32, ptr @nCubes, align 4
   %82 = icmp slt i32 %80, %81
-  br i1 %82, label %83, label %420
+  br i1 %82, label %83, label %429
 
 83:                                               ; preds = %79
   %84 = load i32, ptr @nDist, align 4
@@ -1184,7 +1195,7 @@ define i32 @ExorLinkCubeIteratorNext(ptr noundef %0) #0 {
   %102 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %408
+  br i1 %104, label %105, label %417
 
 105:                                              ; preds = %83
   %106 = call ptr (...) @GetFreeCube()
@@ -1195,450 +1206,459 @@ define i32 @ExorLinkCubeIteratorNext(ptr noundef %0) #0 {
   store i32 0, ptr %4, align 4
   br label %110
 
-110:                                              ; preds = %128, %105
+110:                                              ; preds = %129, %105
   %111 = load i32, ptr %4, align 4
-  %112 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2), align 8
-  %113 = icmp slt i32 %111, %112
-  br i1 %113, label %114, label %131
+  %112 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 2
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp slt i32 %111, %113
+  br i1 %114, label %115, label %132
 
-114:                                              ; preds = %110
-  %115 = load i32, ptr %4, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4
-  %119 = load i32, ptr @CubeNum, align 4
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %120
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.cube, ptr %122, i32 0, i32 5
-  %124 = load ptr, ptr %123, align 8
-  %125 = load i32, ptr %4, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %124, i64 %126
-  store i32 %118, ptr %127, align 4
-  br label %128
+115:                                              ; preds = %110
+  %116 = load i32, ptr %4, align 4
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = load i32, ptr @CubeNum, align 4
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %121
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds %struct.cube, ptr %123, i32 0, i32 5
+  %125 = load ptr, ptr %124, align 8
+  %126 = load i32, ptr %4, align 4
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i32, ptr %125, i64 %127
+  store i32 %119, ptr %128, align 4
+  br label %129
 
-128:                                              ; preds = %114
-  %129 = load i32, ptr %4, align 4
-  %130 = add nsw i32 %129, 1
-  store i32 %130, ptr %4, align 4
+129:                                              ; preds = %115
+  %130 = load i32, ptr %4, align 4
+  %131 = add nsw i32 %130, 1
+  store i32 %131, ptr %4, align 4
   br label %110, !llvm.loop !22
 
-131:                                              ; preds = %110
+132:                                              ; preds = %110
   store i32 0, ptr @NewZ, align 4
-  %132 = load i32, ptr @DiffVars, align 16
-  %133 = icmp sge i32 %132, 0
-  br i1 %133, label %134, label %164
+  %133 = load i32, ptr @DiffVars, align 16
+  %134 = icmp sge i32 %133, 0
+  br i1 %134, label %135, label %166
 
-134:                                              ; preds = %131
+135:                                              ; preds = %132
   store i32 0, ptr %4, align 4
-  br label %135
+  br label %136
 
-135:                                              ; preds = %156, %134
-  %136 = load i32, ptr %4, align 4
-  %137 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %138 = icmp slt i32 %136, %137
-  br i1 %138, label %139, label %159
+136:                                              ; preds = %158, %135
+  %137 = load i32, ptr %4, align 4
+  %138 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp slt i32 %137, %139
+  br i1 %140, label %141, label %161
 
-139:                                              ; preds = %135
-  %140 = load ptr, ptr @pCA, align 8
-  %141 = getelementptr inbounds %struct.cube, ptr %140, i32 0, i32 6
-  %142 = load ptr, ptr %141, align 8
-  %143 = load i32, ptr %4, align 4
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %142, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %147 = load i32, ptr @CubeNum, align 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %148
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds %struct.cube, ptr %150, i32 0, i32 6
+141:                                              ; preds = %136
+  %142 = load ptr, ptr @pCA, align 8
+  %143 = getelementptr inbounds %struct.cube, ptr %142, i32 0, i32 6
+  %144 = load ptr, ptr %143, align 8
+  %145 = load i32, ptr %4, align 4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds i32, ptr %144, i64 %146
+  %148 = load i32, ptr %147, align 4
+  %149 = load i32, ptr @CubeNum, align 4
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %150
   %152 = load ptr, ptr %151, align 8
-  %153 = load i32, ptr %4, align 4
-  %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %152, i64 %154
-  store i32 %146, ptr %155, align 4
-  br label %156
+  %153 = getelementptr inbounds %struct.cube, ptr %152, i32 0, i32 6
+  %154 = load ptr, ptr %153, align 8
+  %155 = load i32, ptr %4, align 4
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds i32, ptr %154, i64 %156
+  store i32 %148, ptr %157, align 4
+  br label %158
 
-156:                                              ; preds = %139
-  %157 = load i32, ptr %4, align 4
-  %158 = add nsw i32 %157, 1
-  store i32 %158, ptr %4, align 4
-  br label %135, !llvm.loop !23
+158:                                              ; preds = %141
+  %159 = load i32, ptr %4, align 4
+  %160 = add nsw i32 %159, 1
+  store i32 %160, ptr %4, align 4
+  br label %136, !llvm.loop !23
 
-159:                                              ; preds = %135
-  %160 = load ptr, ptr @pCA, align 8
-  %161 = getelementptr inbounds %struct.cube, ptr %160, i32 0, i32 3
-  %162 = load i16, ptr %161, align 4
-  %163 = sext i16 %162 to i32
-  store i32 %163, ptr @NewZ, align 4
-  br label %320
+161:                                              ; preds = %136
+  %162 = load ptr, ptr @pCA, align 8
+  %163 = getelementptr inbounds %struct.cube, ptr %162, i32 0, i32 3
+  %164 = load i16, ptr %163, align 4
+  %165 = sext i16 %164 to i32
+  store i32 %165, ptr @NewZ, align 4
+  br label %325
 
-164:                                              ; preds = %131
-  %165 = load i32, ptr @nDist, align 4
-  %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds [3 x [32 x [4 x i32]]], ptr @s_ELCubeRules, i64 0, i64 %166
-  %168 = load i32, ptr @CubeNum, align 4
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds [32 x [4 x i32]], ptr %167, i64 0, i64 %169
-  %171 = load i32, ptr @nDiffVarsIn, align 4
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds [4 x i32], ptr %170, i64 0, i64 %172
-  %174 = load i32, ptr %173, align 4
-  store i32 %174, ptr @Value, align 4
-  %175 = load i32, ptr @Value, align 4
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %219
+166:                                              ; preds = %132
+  %167 = load i32, ptr @nDist, align 4
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds [3 x [32 x [4 x i32]]], ptr @s_ELCubeRules, i64 0, i64 %168
+  %170 = load i32, ptr @CubeNum, align 4
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds [32 x [4 x i32]], ptr %169, i64 0, i64 %171
+  %173 = load i32, ptr @nDiffVarsIn, align 4
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr inbounds [4 x i32], ptr %172, i64 0, i64 %174
+  %176 = load i32, ptr %175, align 4
+  store i32 %176, ptr @Value, align 4
+  %177 = load i32, ptr @Value, align 4
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %222
 
-177:                                              ; preds = %164
+179:                                              ; preds = %166
   store i32 0, ptr %4, align 4
-  br label %178
+  br label %180
 
-178:                                              ; preds = %215, %177
-  %179 = load i32, ptr %4, align 4
-  %180 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %181 = icmp slt i32 %179, %180
-  br i1 %181, label %182, label %218
+180:                                              ; preds = %218, %179
+  %181 = load i32, ptr %4, align 4
+  %182 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %183 = load i32, ptr %182, align 4
+  %184 = icmp slt i32 %181, %183
+  br i1 %184, label %185, label %221
 
-182:                                              ; preds = %178
-  %183 = load ptr, ptr @pCA, align 8
-  %184 = getelementptr inbounds %struct.cube, ptr %183, i32 0, i32 6
-  %185 = load ptr, ptr %184, align 8
-  %186 = load i32, ptr %4, align 4
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds i32, ptr %185, i64 %187
-  %189 = load i32, ptr %188, align 4
-  store i32 %189, ptr @Temp, align 4
-  %190 = load i32, ptr @Temp, align 4
-  %191 = load i32, ptr @CubeNum, align 4
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %192
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds %struct.cube, ptr %194, i32 0, i32 6
-  %196 = load ptr, ptr %195, align 8
-  %197 = load i32, ptr %4, align 4
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds i32, ptr %196, i64 %198
-  store i32 %190, ptr %199, align 4
-  %200 = load i32, ptr @Temp, align 4
-  %201 = and i32 %200, 65535
-  %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %202
-  %204 = load i8, ptr %203, align 1
-  %205 = zext i8 %204 to i32
-  %206 = load i32, ptr @Temp, align 4
-  %207 = lshr i32 %206, 16
-  %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %208
-  %210 = load i8, ptr %209, align 1
-  %211 = zext i8 %210 to i32
-  %212 = add nsw i32 %205, %211
-  %213 = load i32, ptr @NewZ, align 4
-  %214 = add nsw i32 %213, %212
-  store i32 %214, ptr @NewZ, align 4
-  br label %215
+185:                                              ; preds = %180
+  %186 = load ptr, ptr @pCA, align 8
+  %187 = getelementptr inbounds %struct.cube, ptr %186, i32 0, i32 6
+  %188 = load ptr, ptr %187, align 8
+  %189 = load i32, ptr %4, align 4
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %188, i64 %190
+  %192 = load i32, ptr %191, align 4
+  store i32 %192, ptr @Temp, align 4
+  %193 = load i32, ptr @Temp, align 4
+  %194 = load i32, ptr @CubeNum, align 4
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %195
+  %197 = load ptr, ptr %196, align 8
+  %198 = getelementptr inbounds %struct.cube, ptr %197, i32 0, i32 6
+  %199 = load ptr, ptr %198, align 8
+  %200 = load i32, ptr %4, align 4
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds i32, ptr %199, i64 %201
+  store i32 %193, ptr %202, align 4
+  %203 = load i32, ptr @Temp, align 4
+  %204 = and i32 %203, 65535
+  %205 = zext i32 %204 to i64
+  %206 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %205
+  %207 = load i8, ptr %206, align 1
+  %208 = zext i8 %207 to i32
+  %209 = load i32, ptr @Temp, align 4
+  %210 = lshr i32 %209, 16
+  %211 = zext i32 %210 to i64
+  %212 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %211
+  %213 = load i8, ptr %212, align 1
+  %214 = zext i8 %213 to i32
+  %215 = add nsw i32 %208, %214
+  %216 = load i32, ptr @NewZ, align 4
+  %217 = add nsw i32 %216, %215
+  store i32 %217, ptr @NewZ, align 4
+  br label %218
 
-215:                                              ; preds = %182
-  %216 = load i32, ptr %4, align 4
-  %217 = add nsw i32 %216, 1
-  store i32 %217, ptr %4, align 4
-  br label %178, !llvm.loop !24
+218:                                              ; preds = %185
+  %219 = load i32, ptr %4, align 4
+  %220 = add nsw i32 %219, 1
+  store i32 %220, ptr %4, align 4
+  br label %180, !llvm.loop !24
 
-218:                                              ; preds = %178
-  br label %319
+221:                                              ; preds = %180
+  br label %324
 
-219:                                              ; preds = %164
-  %220 = load i32, ptr @Value, align 4
-  %221 = icmp eq i32 %220, 1
-  br i1 %221, label %222, label %264
+222:                                              ; preds = %166
+  %223 = load i32, ptr @Value, align 4
+  %224 = icmp eq i32 %223, 1
+  br i1 %224, label %225, label %268
 
-222:                                              ; preds = %219
+225:                                              ; preds = %222
   store i32 0, ptr %4, align 4
-  br label %223
+  br label %226
 
-223:                                              ; preds = %260, %222
-  %224 = load i32, ptr %4, align 4
-  %225 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %226 = icmp slt i32 %224, %225
-  br i1 %226, label %227, label %263
+226:                                              ; preds = %264, %225
+  %227 = load i32, ptr %4, align 4
+  %228 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %229 = load i32, ptr %228, align 4
+  %230 = icmp slt i32 %227, %229
+  br i1 %230, label %231, label %267
 
-227:                                              ; preds = %223
-  %228 = load ptr, ptr @pCB, align 8
-  %229 = getelementptr inbounds %struct.cube, ptr %228, i32 0, i32 6
-  %230 = load ptr, ptr %229, align 8
-  %231 = load i32, ptr %4, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds i32, ptr %230, i64 %232
-  %234 = load i32, ptr %233, align 4
-  store i32 %234, ptr @Temp, align 4
-  %235 = load i32, ptr @Temp, align 4
-  %236 = load i32, ptr @CubeNum, align 4
-  %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %237
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds %struct.cube, ptr %239, i32 0, i32 6
-  %241 = load ptr, ptr %240, align 8
-  %242 = load i32, ptr %4, align 4
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds i32, ptr %241, i64 %243
-  store i32 %235, ptr %244, align 4
-  %245 = load i32, ptr @Temp, align 4
-  %246 = and i32 %245, 65535
-  %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %247
-  %249 = load i8, ptr %248, align 1
-  %250 = zext i8 %249 to i32
-  %251 = load i32, ptr @Temp, align 4
-  %252 = lshr i32 %251, 16
-  %253 = zext i32 %252 to i64
-  %254 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %253
-  %255 = load i8, ptr %254, align 1
-  %256 = zext i8 %255 to i32
-  %257 = add nsw i32 %250, %256
-  %258 = load i32, ptr @NewZ, align 4
-  %259 = add nsw i32 %258, %257
-  store i32 %259, ptr @NewZ, align 4
-  br label %260
+231:                                              ; preds = %226
+  %232 = load ptr, ptr @pCB, align 8
+  %233 = getelementptr inbounds %struct.cube, ptr %232, i32 0, i32 6
+  %234 = load ptr, ptr %233, align 8
+  %235 = load i32, ptr %4, align 4
+  %236 = sext i32 %235 to i64
+  %237 = getelementptr inbounds i32, ptr %234, i64 %236
+  %238 = load i32, ptr %237, align 4
+  store i32 %238, ptr @Temp, align 4
+  %239 = load i32, ptr @Temp, align 4
+  %240 = load i32, ptr @CubeNum, align 4
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %241
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds %struct.cube, ptr %243, i32 0, i32 6
+  %245 = load ptr, ptr %244, align 8
+  %246 = load i32, ptr %4, align 4
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds i32, ptr %245, i64 %247
+  store i32 %239, ptr %248, align 4
+  %249 = load i32, ptr @Temp, align 4
+  %250 = and i32 %249, 65535
+  %251 = zext i32 %250 to i64
+  %252 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %251
+  %253 = load i8, ptr %252, align 1
+  %254 = zext i8 %253 to i32
+  %255 = load i32, ptr @Temp, align 4
+  %256 = lshr i32 %255, 16
+  %257 = zext i32 %256 to i64
+  %258 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %257
+  %259 = load i8, ptr %258, align 1
+  %260 = zext i8 %259 to i32
+  %261 = add nsw i32 %254, %260
+  %262 = load i32, ptr @NewZ, align 4
+  %263 = add nsw i32 %262, %261
+  store i32 %263, ptr @NewZ, align 4
+  br label %264
 
-260:                                              ; preds = %227
-  %261 = load i32, ptr %4, align 4
-  %262 = add nsw i32 %261, 1
-  store i32 %262, ptr %4, align 4
-  br label %223, !llvm.loop !25
+264:                                              ; preds = %231
+  %265 = load i32, ptr %4, align 4
+  %266 = add nsw i32 %265, 1
+  store i32 %266, ptr %4, align 4
+  br label %226, !llvm.loop !25
 
-263:                                              ; preds = %223
+267:                                              ; preds = %226
+  br label %323
+
+268:                                              ; preds = %222
+  %269 = load i32, ptr @Value, align 4
+  %270 = icmp eq i32 %269, 2
+  br i1 %270, label %271, label %322
+
+271:                                              ; preds = %268
+  store i32 0, ptr %4, align 4
+  br label %272
+
+272:                                              ; preds = %318, %271
+  %273 = load i32, ptr %4, align 4
+  %274 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3
+  %275 = load i32, ptr %274, align 4
+  %276 = icmp slt i32 %273, %275
+  br i1 %276, label %277, label %321
+
+277:                                              ; preds = %272
+  %278 = load ptr, ptr @pCA, align 8
+  %279 = getelementptr inbounds %struct.cube, ptr %278, i32 0, i32 6
+  %280 = load ptr, ptr %279, align 8
+  %281 = load i32, ptr %4, align 4
+  %282 = sext i32 %281 to i64
+  %283 = getelementptr inbounds i32, ptr %280, i64 %282
+  %284 = load i32, ptr %283, align 4
+  %285 = load ptr, ptr @pCB, align 8
+  %286 = getelementptr inbounds %struct.cube, ptr %285, i32 0, i32 6
+  %287 = load ptr, ptr %286, align 8
+  %288 = load i32, ptr %4, align 4
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds i32, ptr %287, i64 %289
+  %291 = load i32, ptr %290, align 4
+  %292 = xor i32 %284, %291
+  store i32 %292, ptr @Temp, align 4
+  %293 = load i32, ptr @Temp, align 4
+  %294 = load i32, ptr @CubeNum, align 4
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %295
+  %297 = load ptr, ptr %296, align 8
+  %298 = getelementptr inbounds %struct.cube, ptr %297, i32 0, i32 6
+  %299 = load ptr, ptr %298, align 8
+  %300 = load i32, ptr %4, align 4
+  %301 = sext i32 %300 to i64
+  %302 = getelementptr inbounds i32, ptr %299, i64 %301
+  store i32 %293, ptr %302, align 4
+  %303 = load i32, ptr @Temp, align 4
+  %304 = and i32 %303, 65535
+  %305 = zext i32 %304 to i64
+  %306 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %305
+  %307 = load i8, ptr %306, align 1
+  %308 = zext i8 %307 to i32
+  %309 = load i32, ptr @Temp, align 4
+  %310 = lshr i32 %309, 16
+  %311 = zext i32 %310 to i64
+  %312 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %311
+  %313 = load i8, ptr %312, align 1
+  %314 = zext i8 %313 to i32
+  %315 = add nsw i32 %308, %314
+  %316 = load i32, ptr @NewZ, align 4
+  %317 = add nsw i32 %316, %315
+  store i32 %317, ptr @NewZ, align 4
   br label %318
 
-264:                                              ; preds = %219
-  %265 = load i32, ptr @Value, align 4
-  %266 = icmp eq i32 %265, 2
-  br i1 %266, label %267, label %317
+318:                                              ; preds = %277
+  %319 = load i32, ptr %4, align 4
+  %320 = add nsw i32 %319, 1
+  store i32 %320, ptr %4, align 4
+  br label %272, !llvm.loop !26
 
-267:                                              ; preds = %264
+321:                                              ; preds = %272
+  br label %322
+
+322:                                              ; preds = %321, %268
+  br label %323
+
+323:                                              ; preds = %322, %267
+  br label %324
+
+324:                                              ; preds = %323, %221
+  br label %325
+
+325:                                              ; preds = %324, %161
   store i32 0, ptr %4, align 4
-  br label %268
+  br label %326
 
-268:                                              ; preds = %313, %267
-  %269 = load i32, ptr %4, align 4
-  %270 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 3), align 4
-  %271 = icmp slt i32 %269, %270
-  br i1 %271, label %272, label %316
+326:                                              ; preds = %367, %325
+  %327 = load i32, ptr %4, align 4
+  %328 = load i32, ptr @nDiffVarsIn, align 4
+  %329 = icmp slt i32 %327, %328
+  br i1 %329, label %330, label %370
 
-272:                                              ; preds = %268
-  %273 = load ptr, ptr @pCA, align 8
-  %274 = getelementptr inbounds %struct.cube, ptr %273, i32 0, i32 6
-  %275 = load ptr, ptr %274, align 8
-  %276 = load i32, ptr %4, align 4
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds i32, ptr %275, i64 %277
-  %279 = load i32, ptr %278, align 4
-  %280 = load ptr, ptr @pCB, align 8
-  %281 = getelementptr inbounds %struct.cube, ptr %280, i32 0, i32 6
-  %282 = load ptr, ptr %281, align 8
-  %283 = load i32, ptr %4, align 4
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds i32, ptr %282, i64 %284
-  %286 = load i32, ptr %285, align 4
-  %287 = xor i32 %279, %286
-  store i32 %287, ptr @Temp, align 4
-  %288 = load i32, ptr @Temp, align 4
-  %289 = load i32, ptr @CubeNum, align 4
-  %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %290
-  %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds %struct.cube, ptr %292, i32 0, i32 6
-  %294 = load ptr, ptr %293, align 8
-  %295 = load i32, ptr %4, align 4
-  %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds i32, ptr %294, i64 %296
-  store i32 %288, ptr %297, align 4
-  %298 = load i32, ptr @Temp, align 4
-  %299 = and i32 %298, 65535
-  %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %300
-  %302 = load i8, ptr %301, align 1
-  %303 = zext i8 %302 to i32
-  %304 = load i32, ptr @Temp, align 4
-  %305 = lshr i32 %304, 16
-  %306 = zext i32 %305 to i64
-  %307 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %306
-  %308 = load i8, ptr %307, align 1
-  %309 = zext i8 %308 to i32
-  %310 = add nsw i32 %303, %309
-  %311 = load i32, ptr @NewZ, align 4
-  %312 = add nsw i32 %311, %310
-  store i32 %312, ptr @NewZ, align 4
-  br label %313
-
-313:                                              ; preds = %272
-  %314 = load i32, ptr %4, align 4
-  %315 = add nsw i32 %314, 1
-  store i32 %315, ptr %4, align 4
-  br label %268, !llvm.loop !26
-
-316:                                              ; preds = %268
-  br label %317
-
-317:                                              ; preds = %316, %264
-  br label %318
-
-318:                                              ; preds = %317, %263
-  br label %319
-
-319:                                              ; preds = %318, %218
-  br label %320
-
-320:                                              ; preds = %319, %159
-  store i32 0, ptr %4, align 4
-  br label %321
-
-321:                                              ; preds = %362, %320
-  %322 = load i32, ptr %4, align 4
-  %323 = load i32, ptr @nDiffVarsIn, align 4
-  %324 = icmp slt i32 %322, %323
-  br i1 %324, label %325, label %365
-
-325:                                              ; preds = %321
-  %326 = load i32, ptr %4, align 4
-  %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %327
-  %329 = load i32, ptr @nDist, align 4
-  %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds [3 x [32 x [4 x i32]]], ptr @s_ELCubeRules, i64 0, i64 %330
-  %332 = load i32, ptr @CubeNum, align 4
-  %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds [32 x [4 x i32]], ptr %331, i64 0, i64 %333
-  %335 = load i32, ptr %4, align 4
-  %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds [4 x i32], ptr %334, i64 0, i64 %336
-  %338 = load i32, ptr %337, align 4
-  %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds [3 x i32], ptr %328, i64 0, i64 %339
-  %341 = load i32, ptr %340, align 4
-  store i32 %341, ptr @Value, align 4
-  %342 = load i32, ptr @Value, align 4
-  %343 = load i32, ptr %4, align 4
+330:                                              ; preds = %326
+  %331 = load i32, ptr %4, align 4
+  %332 = sext i32 %331 to i64
+  %333 = getelementptr inbounds [4 x [3 x i32]], ptr @DiffVarValues, i64 0, i64 %332
+  %334 = load i32, ptr @nDist, align 4
+  %335 = sext i32 %334 to i64
+  %336 = getelementptr inbounds [3 x [32 x [4 x i32]]], ptr @s_ELCubeRules, i64 0, i64 %335
+  %337 = load i32, ptr @CubeNum, align 4
+  %338 = sext i32 %337 to i64
+  %339 = getelementptr inbounds [32 x [4 x i32]], ptr %336, i64 0, i64 %338
+  %340 = load i32, ptr %4, align 4
+  %341 = sext i32 %340 to i64
+  %342 = getelementptr inbounds [4 x i32], ptr %339, i64 0, i64 %341
+  %343 = load i32, ptr %342, align 4
   %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %344
+  %345 = getelementptr inbounds [3 x i32], ptr %333, i64 0, i64 %344
   %346 = load i32, ptr %345, align 4
-  %347 = shl i32 %342, %346
-  %348 = load i32, ptr @CubeNum, align 4
+  store i32 %346, ptr @Value, align 4
+  %347 = load i32, ptr @Value, align 4
+  %348 = load i32, ptr %4, align 4
   %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %349
-  %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds %struct.cube, ptr %351, i32 0, i32 5
-  %353 = load ptr, ptr %352, align 8
-  %354 = load i32, ptr %4, align 4
-  %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %355
-  %357 = load i32, ptr %356, align 4
-  %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds i32, ptr %353, i64 %358
-  %360 = load i32, ptr %359, align 4
-  %361 = or i32 %360, %347
-  store i32 %361, ptr %359, align 4
-  br label %362
+  %350 = getelementptr inbounds [5 x i32], ptr @DiffVarBits, i64 0, i64 %349
+  %351 = load i32, ptr %350, align 4
+  %352 = shl i32 %347, %351
+  %353 = load i32, ptr @CubeNum, align 4
+  %354 = sext i32 %353 to i64
+  %355 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %354
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr inbounds %struct.cube, ptr %356, i32 0, i32 5
+  %358 = load ptr, ptr %357, align 8
+  %359 = load i32, ptr %4, align 4
+  %360 = sext i32 %359 to i64
+  %361 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %360
+  %362 = load i32, ptr %361, align 4
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr inbounds i32, ptr %358, i64 %363
+  %365 = load i32, ptr %364, align 4
+  %366 = or i32 %365, %352
+  store i32 %366, ptr %364, align 4
+  br label %367
 
-362:                                              ; preds = %325
-  %363 = load i32, ptr %4, align 4
-  %364 = add nsw i32 %363, 1
-  store i32 %364, ptr %4, align 4
-  br label %321, !llvm.loop !27
+367:                                              ; preds = %330
+  %368 = load i32, ptr %4, align 4
+  %369 = add nsw i32 %368, 1
+  store i32 %369, ptr %4, align 4
+  br label %326, !llvm.loop !27
 
-365:                                              ; preds = %321
-  %366 = load i32, ptr @StartingLiterals, align 4
-  %367 = load i32, ptr @CubeNum, align 4
-  %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %368
-  %370 = load i32, ptr %369, align 4
-  %371 = add nsw i32 %366, %370
-  %372 = trunc i32 %371 to i16
-  %373 = load i32, ptr @CubeNum, align 4
-  %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %374
-  %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds %struct.cube, ptr %376, i32 0, i32 2
-  store i16 %372, ptr %377, align 2
-  %378 = load i32, ptr @NewZ, align 4
-  %379 = trunc i32 %378 to i16
-  %380 = load i32, ptr @CubeNum, align 4
-  %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %381
-  %383 = load ptr, ptr %382, align 8
-  %384 = getelementptr inbounds %struct.cube, ptr %383, i32 0, i32 3
-  store i16 %379, ptr %384, align 4
+370:                                              ; preds = %326
+  %371 = load i32, ptr @StartingLiterals, align 4
+  %372 = load i32, ptr @CubeNum, align 4
+  %373 = sext i32 %372 to i64
+  %374 = getelementptr inbounds [32 x i32], ptr @CubeLiterals, i64 0, i64 %373
+  %375 = load i32, ptr %374, align 4
+  %376 = add nsw i32 %371, %375
+  %377 = trunc i32 %376 to i16
+  %378 = load i32, ptr @CubeNum, align 4
+  %379 = sext i32 %378 to i64
+  %380 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %379
+  %381 = load ptr, ptr %380, align 8
+  %382 = getelementptr inbounds %struct.cube, ptr %381, i32 0, i32 2
+  store i16 %377, ptr %382, align 2
+  %383 = load i32, ptr @NewZ, align 4
+  %384 = trunc i32 %383 to i16
   %385 = load i32, ptr @CubeNum, align 4
   %386 = sext i32 %385 to i64
   %387 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %386
   %388 = load ptr, ptr %387, align 8
-  %389 = call i32 @ComputeQCostBits(ptr noundef %388)
-  %390 = trunc i32 %389 to i16
-  %391 = load i32, ptr @CubeNum, align 4
-  %392 = sext i32 %391 to i64
-  %393 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %392
-  %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds %struct.cube, ptr %394, i32 0, i32 4
-  store i16 %390, ptr %395, align 2
-  %396 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %397 = add nsw i32 %396, 1
-  store i32 %397, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %398 = trunc i32 %396 to i8
-  %399 = load i32, ptr @CubeNum, align 4
-  %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %400
-  %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds %struct.cube, ptr %402, i32 0, i32 1
-  store i8 %398, ptr %403, align 1
-  %404 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  %405 = icmp eq i32 %404, 256
-  br i1 %405, label %406, label %407
+  %389 = getelementptr inbounds %struct.cube, ptr %388, i32 0, i32 3
+  store i16 %384, ptr %389, align 4
+  %390 = load i32, ptr @CubeNum, align 4
+  %391 = sext i32 %390 to i64
+  %392 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %391
+  %393 = load ptr, ptr %392, align 8
+  %394 = call i32 @ComputeQCostBits(ptr noundef %393)
+  %395 = trunc i32 %394 to i16
+  %396 = load i32, ptr @CubeNum, align 4
+  %397 = sext i32 %396 to i64
+  %398 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %397
+  %399 = load ptr, ptr %398, align 8
+  %400 = getelementptr inbounds %struct.cube, ptr %399, i32 0, i32 4
+  store i16 %395, ptr %400, align 2
+  %401 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  %402 = load i32, ptr %401, align 8
+  %403 = add nsw i32 %402, 1
+  %404 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  store i32 %403, ptr %404, align 8
+  %405 = trunc i32 %402 to i8
+  %406 = load i32, ptr @CubeNum, align 4
+  %407 = sext i32 %406 to i64
+  %408 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %407
+  %409 = load ptr, ptr %408, align 8
+  %410 = getelementptr inbounds %struct.cube, ptr %409, i32 0, i32 1
+  store i8 %405, ptr %410, align 1
+  %411 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  %412 = load i32, ptr %411, align 8
+  %413 = icmp eq i32 %412, 256
+  br i1 %413, label %414, label %416
 
-406:                                              ; preds = %365
-  store i32 1, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12), align 8
-  br label %407
+414:                                              ; preds = %370
+  %415 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 12
+  store i32 1, ptr %415, align 8
+  br label %416
 
-407:                                              ; preds = %406, %365
-  br label %408
-
-408:                                              ; preds = %407, %83
-  %409 = load i32, ptr @CubeNum, align 4
-  %410 = sext i32 %409 to i64
-  %411 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %410
-  %412 = load ptr, ptr %411, align 8
-  %413 = load ptr, ptr %3, align 8
-  %414 = load i32, ptr %5, align 4
-  %415 = sext i32 %414 to i64
-  %416 = getelementptr inbounds ptr, ptr %413, i64 %415
-  store ptr %412, ptr %416, align 8
+416:                                              ; preds = %414, %370
   br label %417
 
-417:                                              ; preds = %408
-  %418 = load i32, ptr %5, align 4
-  %419 = add nsw i32 %418, 1
-  store i32 %419, ptr %5, align 4
+417:                                              ; preds = %416, %83
+  %418 = load i32, ptr @CubeNum, align 4
+  %419 = sext i32 %418 to i64
+  %420 = getelementptr inbounds [32 x ptr], ptr @ELCubes, i64 0, i64 %419
+  %421 = load ptr, ptr %420, align 8
+  %422 = load ptr, ptr %3, align 8
+  %423 = load i32, ptr %5, align 4
+  %424 = sext i32 %423 to i64
+  %425 = getelementptr inbounds ptr, ptr %422, i64 %424
+  store ptr %421, ptr %425, align 8
+  br label %426
+
+426:                                              ; preds = %417
+  %427 = load i32, ptr %5, align 4
+  %428 = add nsw i32 %427, 1
+  store i32 %428, ptr %5, align 4
   br label %79, !llvm.loop !28
 
-420:                                              ; preds = %79
-  %421 = load i32, ptr @GroupCostBestNum, align 4
-  %422 = sext i32 %421 to i64
-  %423 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %422
-  %424 = load i32, ptr %423, align 4
-  %425 = load i32, ptr @VisitedGroups, align 4
-  %426 = or i32 %425, %424
-  store i32 %426, ptr @VisitedGroups, align 4
-  %427 = load i32, ptr @GroupCostBestNum, align 4
-  %428 = load i32, ptr @nVisitedGroups, align 4
-  %429 = add nsw i32 %428, 1
-  store i32 %429, ptr @nVisitedGroups, align 4
-  %430 = sext i32 %428 to i64
-  %431 = getelementptr inbounds [24 x i32], ptr @GroupOrder, i64 0, i64 %430
-  store i32 %427, ptr %431, align 4
+429:                                              ; preds = %79
+  %430 = load i32, ptr @GroupCostBestNum, align 4
+  %431 = sext i32 %430 to i64
+  %432 = getelementptr inbounds [32 x i32], ptr @s_BitMasks, i64 0, i64 %431
+  %433 = load i32, ptr %432, align 4
+  %434 = load i32, ptr @VisitedGroups, align 4
+  %435 = or i32 %434, %433
+  store i32 %435, ptr @VisitedGroups, align 4
+  %436 = load i32, ptr @GroupCostBestNum, align 4
+  %437 = load i32, ptr @nVisitedGroups, align 4
+  %438 = add nsw i32 %437, 1
+  store i32 %438, ptr @nVisitedGroups, align 4
+  %439 = sext i32 %437 to i64
+  %440 = getelementptr inbounds [24 x i32], ptr @GroupOrder, i64 0, i64 %439
+  store i32 %436, ptr %440, align 4
   store i32 1, ptr %2, align 4
-  br label %432
+  br label %441
 
-432:                                              ; preds = %420, %9
-  %433 = load i32, ptr %2, align 4
-  ret i32 %433
+441:                                              ; preds = %429, %9
+  %442 = load i32, ptr %2, align 4
+  ret i32 %442
 }
 
 ; Function Attrs: nounwind uwtable

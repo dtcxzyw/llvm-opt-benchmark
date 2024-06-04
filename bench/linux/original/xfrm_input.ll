@@ -2298,7 +2298,7 @@ define dso_local void @xfrm_input_init() local_unnamed_addr #7 section ".init.te
   br label %6
 
 6:                                                ; preds = %21, %5
-  %7 = phi i64 [ %34, %21 ], [ 0, %5 ]
+  %7 = phi i64 [ %35, %21 ], [ 0, %5 ]
   %8 = and i64 %7, 4294967295
   %9 = icmp ugt i64 %8, 63
   br i1 %9, label %17, label %10, !prof !5
@@ -2318,33 +2318,34 @@ define dso_local void @xfrm_input_init() local_unnamed_addr #7 section ".init.te
   %18 = phi i64 [ 64, %6 ], [ %16, %15 ], [ 64, %10 ]
   %19 = and i64 %18, 4294967232
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %35
+  br i1 %20, label %21, label %36
 
 21:                                               ; preds = %17
   %22 = and i64 %18, 63
   %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8
-  %25 = add i64 %24, ptrtoint (ptr @xfrm_trans_tasklet to i64)
-  %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
-  store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 40
-  store ptr %28, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 48
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 56
-  store i32 0, ptr %30, align 8
-  store i64 68719476704, ptr %26, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
-  store volatile ptr %31, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 16
-  store volatile ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 24
-  store ptr @xfrm_trans_reinject, ptr %33, align 8
-  %34 = add nuw nsw i64 %18, 1
+  %25 = ptrtoint ptr @xfrm_trans_tasklet to i64
+  %26 = add i64 %24, %25
+  %27 = inttoptr i64 %26 to ptr
+  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 40
+  store ptr %29, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %27, i64 48
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %27, i64 56
+  store i32 0, ptr %31, align 8
+  store i64 68719476704, ptr %27, align 8
+  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  store volatile ptr %32, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %27, i64 16
+  store volatile ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %27, i64 24
+  store ptr @xfrm_trans_reinject, ptr %34, align 8
+  %35 = add nuw nsw i64 %18, 1
   br label %6, !llvm.loop !45
 
-35:                                               ; preds = %17
+36:                                               ; preds = %17
   ret void
 }
 
@@ -2397,38 +2398,40 @@ define internal void @xfrm_trans_reinject(ptr noundef %0) #0 align 16 {
 19:                                               ; preds = %9, %1
   call void @_raw_spin_unlock_bh(ptr noundef %5) #10
   %20 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !46
-  call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #10, !srcloc !47
+  %21 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %22 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %21, i32 512, ptr nonnull elementtype(i32) %22) #10, !srcloc !47
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !48
-  %21 = load ptr, ptr %2, align 8
-  %22 = icmp eq ptr %21, %2
-  %23 = icmp eq ptr %21, null
-  %24 = or i1 %22, %23
-  br i1 %24, label %42, label %25
+  %23 = load ptr, ptr %2, align 8
+  %24 = icmp eq ptr %23, %2
+  %25 = icmp eq ptr %23, null
+  %26 = or i1 %24, %25
+  br i1 %26, label %44, label %27
 
-25:                                               ; preds = %25, %19
-  %26 = phi ptr [ %38, %25 ], [ %21, %19 ]
-  %27 = load i32, ptr %4, align 8
-  %28 = add i32 %27, -1
-  store volatile i32 %28, ptr %4, align 8
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  store volatile ptr %31, ptr %32, align 8
-  store volatile ptr %29, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 64
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %26, i64 72
+27:                                               ; preds = %27, %19
+  %28 = phi ptr [ %40, %27 ], [ %23, %19 ]
+  %29 = load i32, ptr %4, align 8
+  %30 = add i32 %29, -1
+  store volatile i32 %30, ptr %4, align 8
+  %31 = load ptr, ptr %28, align 8
+  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  store volatile ptr %33, ptr %34, align 8
+  store volatile ptr %31, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %28, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = call i32 %34(ptr noundef %36, ptr noundef null, ptr noundef nonnull %26) #10
-  %38 = load ptr, ptr %2, align 8
-  %39 = icmp eq ptr %38, %2
-  %40 = icmp eq ptr %38, null
-  %41 = or i1 %39, %40
-  br i1 %41, label %42, label %25, !llvm.loop !49
+  %37 = getelementptr inbounds i8, ptr %28, i64 72
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i32 %36(ptr noundef %38, ptr noundef null, ptr noundef nonnull %28) #10
+  %40 = load ptr, ptr %2, align 8
+  %41 = icmp eq ptr %40, %2
+  %42 = icmp eq ptr %40, null
+  %43 = or i1 %41, %42
+  br i1 %43, label %44, label %27, !llvm.loop !49
 
-42:                                               ; preds = %25, %19
+44:                                               ; preds = %27, %19
   call void @__local_bh_enable_ip(i64 noundef %20, i32 noundef 512) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
   ret void

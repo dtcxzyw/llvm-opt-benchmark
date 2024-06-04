@@ -45,15 +45,21 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @php_register_incomplete_class_handlers() #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @php_incomplete_object_handlers, ptr align 8 @std_object_handlers, i64 200, i1 false)
-  store ptr @incomplete_class_get_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 4), align 8
-  store ptr @incomplete_class_has_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 9), align 8
-  store ptr @incomplete_class_unset_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 10), align 8
-  store ptr @incomplete_class_write_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 5), align 8
-  store ptr @incomplete_class_get_property_ptr_ptr, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 8), align 8
-  store ptr @incomplete_class_get_method, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 14), align 8
-  %1 = load ptr, ptr @php_ce_incomplete_class, align 8
-  %2 = getelementptr inbounds %struct._zend_class_entry, ptr %1, i32 0, i32 32
-  store ptr @php_create_incomplete_object, ptr %2, align 8
+  %1 = getelementptr inbounds %struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 4
+  store ptr @incomplete_class_get_property, ptr %1, align 8
+  %2 = getelementptr inbounds %struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 9
+  store ptr @incomplete_class_has_property, ptr %2, align 8
+  %3 = getelementptr inbounds %struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 10
+  store ptr @incomplete_class_unset_property, ptr %3, align 8
+  %4 = getelementptr inbounds %struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 5
+  store ptr @incomplete_class_write_property, ptr %4, align 8
+  %5 = getelementptr inbounds %struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 8
+  store ptr @incomplete_class_get_property_ptr_ptr, ptr %5, align 8
+  %6 = getelementptr inbounds %struct._zend_object_handlers, ptr @php_incomplete_object_handlers, i32 0, i32 14
+  store ptr @incomplete_class_get_method, ptr %6, align 8
+  %7 = load ptr, ptr @php_ce_incomplete_class, align 8
+  %8 = getelementptr inbounds %struct._zend_class_entry, ptr %7, i32 0, i32 32
+  store ptr @php_create_incomplete_object, ptr %8, align 8
   ret void
 }
 
@@ -163,7 +169,8 @@ define internal ptr @incomplete_class_get_property_ptr_ptr(ptr noundef %0, ptr n
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @throw_incomplete_class_error(ptr noundef %9, ptr noundef @.str.4)
-  ret ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 1)
+  %10 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 1
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable

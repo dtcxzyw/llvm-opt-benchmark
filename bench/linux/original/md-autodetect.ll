@@ -471,154 +471,155 @@ define internal fastcc void @md_setup_drive(ptr nocapture noundef readonly %0) u
   %84 = getelementptr [28 x i32], ptr %2, i64 0, i64 %83
   store i32 0, ptr %84, align 4
   %85 = icmp eq i32 %82, 0
-  br i1 %85, label %167, label %86
+  br i1 %85, label %168, label %86
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %9, align 8
   %88 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef nonnull %4, ptr noundef %87) #9
   %89 = call ptr @md_alloc(i32 noundef %26, ptr noundef nonnull %4) #8
-  %90 = icmp ugt ptr %89, inttoptr (i64 -4096 to ptr)
-  br i1 %90, label %91, label %93
+  %90 = inttoptr i64 -4096 to ptr
+  %91 = icmp ugt ptr %89, %90
+  br i1 %91, label %92, label %94
 
-91:                                               ; preds = %86
-  %92 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef nonnull %4) #9
+92:                                               ; preds = %86
+  %93 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef nonnull %4) #9
+  br label %168
+
+94:                                               ; preds = %86
+  %95 = call i32 @mddev_suspend(ptr noundef %89, i1 noundef zeroext true) #8
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %102
+
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds i8, ptr %89, i64 536
+  %99 = call i32 @mutex_lock_interruptible(ptr noundef %98) #8
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %104, label %101
+
+101:                                              ; preds = %97
+  call void @mddev_resume(ptr noundef %89) #8
+  br label %102
+
+102:                                              ; preds = %101, %94
+  %103 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #9
   br label %167
 
-93:                                               ; preds = %86
-  %94 = call i32 @mddev_suspend(ptr noundef %89, i1 noundef zeroext true) #8
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %101
+104:                                              ; preds = %97
+  %105 = getelementptr inbounds i8, ptr %89, i64 24
+  %106 = load volatile ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, %105
+  br i1 %107, label %108, label %163
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %89, i64 536
-  %98 = call i32 @mutex_lock_interruptible(ptr noundef %97) #8
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %103, label %100
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %89, i64 280
+  %110 = load i32, ptr %109, align 8
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %163
 
-100:                                              ; preds = %96
-  call void @mddev_resume(ptr noundef %89) #8
-  br label %101
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds i8, ptr %0, i64 8
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp eq i32 %114, -1000000
+  br i1 %115, label %135, label %116
 
-101:                                              ; preds = %100, %93
-  %102 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #9
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 %114, ptr %117, align 4
+  %118 = load i32, ptr %0, align 8
+  %119 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 %118, ptr %119, align 4
+  %120 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 1, ptr %120, align 4
+  %121 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %121, align 4
+  %122 = getelementptr inbounds i8, ptr %0, i64 12
+  %123 = load i32, ptr %122, align 4
+  %124 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 %123, ptr %124, align 4
+  %125 = getelementptr inbounds i8, ptr %3, i64 28
+  %126 = load i32, ptr %125, align 4
+  br label %127
+
+127:                                              ; preds = %127, %116
+  %128 = phi i32 [ %133, %127 ], [ %126, %116 ]
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr [28 x i32], ptr %2, i64 0, i64 %129
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp eq i32 %131, 0
+  %133 = add i32 %128, 1
+  br i1 %132, label %134, label %127, !llvm.loop !12
+
+134:                                              ; preds = %127
+  store i32 %128, ptr %125, align 4
+  br label %135
+
+135:                                              ; preds = %134, %112
+  %136 = call i32 @md_set_array_info(ptr noundef %89, ptr noundef nonnull %3) #8
+  %137 = getelementptr inbounds i8, ptr %8, i64 4
+  %138 = getelementptr inbounds i8, ptr %8, i64 8
+  %139 = getelementptr inbounds i8, ptr %8, i64 12
+  %140 = getelementptr inbounds i8, ptr %8, i64 16
+  br label %141
+
+141:                                              ; preds = %154, %135
+  %142 = phi i64 [ 0, %135 ], [ %156, %154 ]
+  %143 = getelementptr [28 x i32], ptr %2, i64 0, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %158, label %146
+
+146:                                              ; preds = %141
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #8
+  %147 = lshr i32 %144, 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false)
+  store i32 %147, ptr %137, align 4
+  %148 = and i32 %144, 1048575
+  store i32 %148, ptr %138, align 4
+  store i32 0, ptr %139, align 4
+  store i32 0, ptr %140, align 4
+  %149 = load i32, ptr %113, align 8
+  %150 = icmp eq i32 %149, -1000000
+  br i1 %150, label %154, label %151
+
+151:                                              ; preds = %146
+  %152 = trunc i64 %142 to i32
+  store i32 %152, ptr %8, align 4
+  %153 = trunc i64 %142 to i32
+  store i32 %153, ptr %139, align 4
+  store i32 6, ptr %140, align 4
+  br label %154
+
+154:                                              ; preds = %151, %146
+  %155 = call i32 @md_add_new_disk(ptr noundef %89, ptr noundef nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #8
+  %156 = add nuw nsw i64 %142, 1
+  %157 = icmp eq i64 %156, 28
+  br i1 %157, label %158, label %141, !llvm.loop !13
+
+158:                                              ; preds = %154, %141
+  %159 = icmp eq i32 %136, 0
+  br i1 %159, label %160, label %163
+
+160:                                              ; preds = %158
+  %161 = call i32 @do_md_run(ptr noundef %89) #8
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %166, label %163
+
+163:                                              ; preds = %160, %158, %108, %104
+  %164 = phi ptr [ @.str.23, %104 ], [ @.str.23, %108 ], [ @.str.24, %158 ], [ @.str.24, %160 ]
+  %165 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %164, ptr noundef nonnull %4) #9
   br label %166
 
-103:                                              ; preds = %96
-  %104 = getelementptr inbounds i8, ptr %89, i64 24
-  %105 = load volatile ptr, ptr %104, align 8
-  %106 = icmp eq ptr %105, %104
-  br i1 %106, label %107, label %162
-
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %89, i64 280
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %162
-
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %0, i64 8
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp eq i32 %113, -1000000
-  br i1 %114, label %134, label %115
-
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %113, ptr %116, align 4
-  %117 = load i32, ptr %0, align 8
-  %118 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 %117, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 1, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 1, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %0, i64 12
-  %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds i8, ptr %3, i64 68
-  store i32 %122, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %3, i64 28
-  %125 = load i32, ptr %124, align 4
-  br label %126
-
-126:                                              ; preds = %126, %115
-  %127 = phi i32 [ %132, %126 ], [ %125, %115 ]
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr [28 x i32], ptr %2, i64 0, i64 %128
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp eq i32 %130, 0
-  %132 = add i32 %127, 1
-  br i1 %131, label %133, label %126, !llvm.loop !12
-
-133:                                              ; preds = %126
-  store i32 %127, ptr %124, align 4
-  br label %134
-
-134:                                              ; preds = %133, %111
-  %135 = call i32 @md_set_array_info(ptr noundef %89, ptr noundef nonnull %3) #8
-  %136 = getelementptr inbounds i8, ptr %8, i64 4
-  %137 = getelementptr inbounds i8, ptr %8, i64 8
-  %138 = getelementptr inbounds i8, ptr %8, i64 12
-  %139 = getelementptr inbounds i8, ptr %8, i64 16
-  br label %140
-
-140:                                              ; preds = %153, %134
-  %141 = phi i64 [ 0, %134 ], [ %155, %153 ]
-  %142 = getelementptr [28 x i32], ptr %2, i64 0, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %157, label %145
-
-145:                                              ; preds = %140
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #8
-  %146 = lshr i32 %143, 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false)
-  store i32 %146, ptr %136, align 4
-  %147 = and i32 %143, 1048575
-  store i32 %147, ptr %137, align 4
-  store i32 0, ptr %138, align 4
-  store i32 0, ptr %139, align 4
-  %148 = load i32, ptr %112, align 8
-  %149 = icmp eq i32 %148, -1000000
-  br i1 %149, label %153, label %150
-
-150:                                              ; preds = %145
-  %151 = trunc i64 %141 to i32
-  store i32 %151, ptr %8, align 4
-  %152 = trunc i64 %141 to i32
-  store i32 %152, ptr %138, align 4
-  store i32 6, ptr %139, align 4
-  br label %153
-
-153:                                              ; preds = %150, %145
-  %154 = call i32 @md_add_new_disk(ptr noundef %89, ptr noundef nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #8
-  %155 = add nuw nsw i64 %141, 1
-  %156 = icmp eq i64 %155, 28
-  br i1 %156, label %157, label %140, !llvm.loop !13
-
-157:                                              ; preds = %153, %140
-  %158 = icmp eq i32 %135, 0
-  br i1 %158, label %159, label %162
-
-159:                                              ; preds = %157
-  %160 = call i32 @do_md_run(ptr noundef %89) #8
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %165, label %162
-
-162:                                              ; preds = %159, %157, %107, %103
-  %163 = phi ptr [ @.str.23, %103 ], [ @.str.23, %107 ], [ @.str.24, %157 ], [ @.str.24, %159 ]
-  %164 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %163, ptr noundef nonnull %4) #9
-  br label %165
-
-165:                                              ; preds = %162, %159
+166:                                              ; preds = %163, %160
   call void @mddev_unlock(ptr noundef %89) #8
   call void @mddev_resume(ptr noundef %89) #8
-  br label %166
-
-166:                                              ; preds = %165, %101
-  call void @mddev_put(ptr noundef %89) #8
   br label %167
 
-167:                                              ; preds = %166, %91, %81
+167:                                              ; preds = %166, %102
+  call void @mddev_put(ptr noundef %89) #8
+  br label %168
+
+168:                                              ; preds = %167, %92, %81
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #8

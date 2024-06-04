@@ -124,15 +124,16 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %17 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 311), align 8
-  store i64 %17, ptr @mt, align 16
+  %17 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 311
+  %18 = load i64, ptr %17, align 8
+  store i64 %18, ptr @mt, align 16
   store i64 1, ptr %i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %18 = load i64, ptr %j, align 8
-  %19 = load i64, ptr %key_length.addr, align 8
-  %cmp10 = icmp uge i64 %18, %19
+  %19 = load i64, ptr %j, align 8
+  %20 = load i64, ptr %key_length.addr, align 8
+  %cmp10 = icmp uge i64 %19, %20
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end
@@ -143,8 +144,8 @@ if.end12:                                         ; preds = %if.then11, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12
-  %20 = load i64, ptr %k, align 8
-  %dec = add i64 %20, -1
+  %21 = load i64, ptr %k, align 8
+  %dec = add i64 %21, -1
   store i64 %dec, ptr %k, align 8
   br label %for.cond, !llvm.loop !7
 
@@ -153,41 +154,42 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond13
 
 for.cond13:                                       ; preds = %for.inc31, %for.end
-  %21 = load i64, ptr %k, align 8
-  %tobool14 = icmp ne i64 %21, 0
+  %22 = load i64, ptr %k, align 8
+  %tobool14 = icmp ne i64 %22, 0
   br i1 %tobool14, label %for.body15, label %for.end33
 
 for.body15:                                       ; preds = %for.cond13
-  %22 = load i64, ptr %i, align 8
-  %arrayidx16 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %22
-  %23 = load i64, ptr %arrayidx16, align 8
-  %24 = load i64, ptr %i, align 8
-  %sub17 = sub i64 %24, 1
+  %23 = load i64, ptr %i, align 8
+  %arrayidx16 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %23
+  %24 = load i64, ptr %arrayidx16, align 8
+  %25 = load i64, ptr %i, align 8
+  %sub17 = sub i64 %25, 1
   %arrayidx18 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %sub17
-  %25 = load i64, ptr %arrayidx18, align 8
-  %26 = load i64, ptr %i, align 8
-  %sub19 = sub i64 %26, 1
+  %26 = load i64, ptr %arrayidx18, align 8
+  %27 = load i64, ptr %i, align 8
+  %sub19 = sub i64 %27, 1
   %arrayidx20 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %sub19
-  %27 = load i64, ptr %arrayidx20, align 8
-  %shr21 = lshr i64 %27, 62
-  %xor22 = xor i64 %25, %shr21
+  %28 = load i64, ptr %arrayidx20, align 8
+  %shr21 = lshr i64 %28, 62
+  %xor22 = xor i64 %26, %shr21
   %mul23 = mul i64 %xor22, 2862933555777941757
-  %xor24 = xor i64 %23, %mul23
-  %28 = load i64, ptr %i, align 8
-  %sub25 = sub i64 %xor24, %28
+  %xor24 = xor i64 %24, %mul23
   %29 = load i64, ptr %i, align 8
-  %arrayidx26 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %29
-  store i64 %sub25, ptr %arrayidx26, align 8
+  %sub25 = sub i64 %xor24, %29
   %30 = load i64, ptr %i, align 8
-  %inc27 = add i64 %30, 1
-  store i64 %inc27, ptr %i, align 8
+  %arrayidx26 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %30
+  store i64 %sub25, ptr %arrayidx26, align 8
   %31 = load i64, ptr %i, align 8
-  %cmp28 = icmp uge i64 %31, 312
+  %inc27 = add i64 %31, 1
+  store i64 %inc27, ptr %i, align 8
+  %32 = load i64, ptr %i, align 8
+  %cmp28 = icmp uge i64 %32, 312
   br i1 %cmp28, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %for.body15
-  %32 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 311), align 8
-  store i64 %32, ptr @mt, align 16
+  %33 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 311
+  %34 = load i64, ptr %33, align 8
+  store i64 %34, ptr @mt, align 16
   store i64 1, ptr %i, align 8
   br label %if.end30
 
@@ -195,8 +197,8 @@ if.end30:                                         ; preds = %if.then29, %for.bod
   br label %for.inc31
 
 for.inc31:                                        ; preds = %if.end30
-  %33 = load i64, ptr %k, align 8
-  %dec32 = add i64 %33, -1
+  %35 = load i64, ptr %k, align 8
+  %dec32 = add i64 %35, -1
   store i64 %dec32, ptr %k, align 8
   br label %for.cond13, !llvm.loop !8
 
@@ -323,60 +325,63 @@ for.inc40:                                        ; preds = %for.body19
   br label %for.cond16, !llvm.loop !10
 
 for.end42:                                        ; preds = %for.cond16
-  %26 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 311), align 8
-  %and43 = and i64 %26, -2147483648
-  %27 = load i64, ptr @mt, align 16
-  %and44 = and i64 %27, 2147483647
+  %26 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 311
+  %27 = load i64, ptr %26, align 8
+  %and43 = and i64 %27, -2147483648
+  %28 = load i64, ptr @mt, align 16
+  %and44 = and i64 %28, 2147483647
   %or45 = or i64 %and43, %and44
   store i64 %or45, ptr %x, align 8
-  %28 = load i64, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 155), align 8
-  %29 = load i64, ptr %x, align 8
-  %shr46 = lshr i64 %29, 1
-  %xor47 = xor i64 %28, %shr46
-  %30 = load i64, ptr %x, align 8
-  %and48 = and i64 %30, 1
+  %29 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 155
+  %30 = load i64, ptr %29, align 8
+  %31 = load i64, ptr %x, align 8
+  %shr46 = lshr i64 %31, 1
+  %xor47 = xor i64 %30, %shr46
+  %32 = load i64, ptr %x, align 8
+  %and48 = and i64 %32, 1
   %conv49 = trunc i64 %and48 to i32
   %idxprom50 = sext i32 %conv49 to i64
   %arrayidx51 = getelementptr inbounds [2 x i64], ptr @genrand64_int64.mag01, i64 0, i64 %idxprom50
-  %31 = load i64, ptr %arrayidx51, align 8
-  %xor52 = xor i64 %xor47, %31
-  store i64 %xor52, ptr getelementptr inbounds ([312 x i64], ptr @mt, i64 0, i64 311), align 8
+  %33 = load i64, ptr %arrayidx51, align 8
+  %xor52 = xor i64 %xor47, %33
+  %34 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 311
+  store i64 %xor52, ptr %34, align 8
   store i32 0, ptr @mti, align 4
   br label %if.end53
 
 if.end53:                                         ; preds = %for.end42, %entry
-  %32 = load i32, ptr @mti, align 4
-  %inc54 = add nsw i32 %32, 1
+  %35 = load i32, ptr @mti, align 4
+  %inc54 = add nsw i32 %35, 1
   store i32 %inc54, ptr @mti, align 4
-  %idxprom55 = sext i32 %32 to i64
+  %idxprom55 = sext i32 %35 to i64
   %arrayidx56 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %idxprom55
-  %33 = load i64, ptr %arrayidx56, align 8
-  store i64 %33, ptr %x, align 8
-  %34 = load i64, ptr %x, align 8
-  %shr57 = lshr i64 %34, 29
-  %and58 = and i64 %shr57, 6148914691236517205
-  %35 = load i64, ptr %x, align 8
-  %xor59 = xor i64 %35, %and58
-  store i64 %xor59, ptr %x, align 8
-  %36 = load i64, ptr %x, align 8
-  %shl = shl i64 %36, 17
-  %and60 = and i64 %shl, 8202884508482404352
+  %36 = load i64, ptr %arrayidx56, align 8
+  store i64 %36, ptr %x, align 8
   %37 = load i64, ptr %x, align 8
-  %xor61 = xor i64 %37, %and60
-  store i64 %xor61, ptr %x, align 8
+  %shr57 = lshr i64 %37, 29
+  %and58 = and i64 %shr57, 6148914691236517205
   %38 = load i64, ptr %x, align 8
-  %shl62 = shl i64 %38, 37
-  %and63 = and i64 %shl62, -2270628950310912
+  %xor59 = xor i64 %38, %and58
+  store i64 %xor59, ptr %x, align 8
   %39 = load i64, ptr %x, align 8
-  %xor64 = xor i64 %39, %and63
-  store i64 %xor64, ptr %x, align 8
+  %shl = shl i64 %39, 17
+  %and60 = and i64 %shl, 8202884508482404352
   %40 = load i64, ptr %x, align 8
-  %shr65 = lshr i64 %40, 43
+  %xor61 = xor i64 %40, %and60
+  store i64 %xor61, ptr %x, align 8
   %41 = load i64, ptr %x, align 8
-  %xor66 = xor i64 %41, %shr65
-  store i64 %xor66, ptr %x, align 8
+  %shl62 = shl i64 %41, 37
+  %and63 = and i64 %shl62, -2270628950310912
   %42 = load i64, ptr %x, align 8
-  ret i64 %42
+  %xor64 = xor i64 %42, %and63
+  store i64 %xor64, ptr %x, align 8
+  %43 = load i64, ptr %x, align 8
+  %shr65 = lshr i64 %43, 43
+  %44 = load i64, ptr %x, align 8
+  %xor66 = xor i64 %44, %shr65
+  store i64 %xor66, ptr %x, align 8
+  %45 = load i64, ptr %x, align 8
+  ret i64 %45
 }
 
 ; Function Attrs: nounwind uwtable

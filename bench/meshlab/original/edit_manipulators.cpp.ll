@@ -6111,163 +6111,165 @@ define void @_ZN22EditManipulatorsPluginC2Ev(ptr noundef nonnull align 8 derefer
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %7 unwind label %44
+          to label %7 unwind label %46
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV22EditManipulatorsPlugin, i32 0, i32 0, i32 2), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV22EditManipulatorsPlugin, i32 0, i32 1, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 2
-  invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %9)
-          to label %10 unwind label %48
+  %8 = getelementptr inbounds { [22 x ptr], [20 x ptr] }, ptr @_ZTV22EditManipulatorsPlugin, i32 0, i32 0, i32 2
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds { [22 x ptr], [20 x ptr] }, ptr @_ZTV22EditManipulatorsPlugin, i32 0, i32 1, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 2
+  invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %11)
+          to label %12 unwind label %50
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 3
-  invoke void @_ZN3vcg8Matrix44IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %11)
-          to label %12 unwind label %52
-
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 4
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 3
   invoke void @_ZN3vcg8Matrix44IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %13)
-          to label %14 unwind label %56
+          to label %14 unwind label %54
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 10
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  %16 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 14
-  invoke void @_ZN3vcg6Point2IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %16)
-          to label %17 unwind label %60
+  %15 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 4
+  invoke void @_ZN3vcg8Matrix44IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %15)
+          to label %16 unwind label %58
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 15
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 10
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  %18 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 14
   invoke void @_ZN3vcg6Point2IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %18)
-          to label %19 unwind label %60
+          to label %19 unwind label %62
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 26
-  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %20)
-          to label %21 unwind label %60
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 15
+  invoke void @_ZN3vcg6Point2IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %20)
+          to label %21 unwind label %62
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 27
+  %22 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 26
   invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %22)
-          to label %23 unwind label %60
+          to label %23 unwind label %62
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 28
+  %24 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 27
   invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %24)
-          to label %25 unwind label %60
+          to label %25 unwind label %62
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 5
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 6
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 13
-  store i8 0, ptr %28, align 8
-  %29 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 8
-  store i8 0, ptr %29, align 1
-  %30 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 7
-  store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 9
-  store float 1.000000e+00, ptr %31, align 4
+  %26 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 28
+  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %26)
+          to label %27 unwind label %62
+
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 5
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 6
+  store i32 0, ptr %29, align 4
+  %30 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 13
+  store i8 0, ptr %30, align 8
+  %31 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 8
+  store i8 0, ptr %31, align 1
+  %32 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 7
+  store i8 1, ptr %32, align 8
+  %33 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 9
+  store float 1.000000e+00, ptr %33, align 4
   invoke void @_ZN22EditManipulatorsPlugin12resetOffsetsEv(ptr noundef nonnull align 8 dereferenceable(304) %5)
-          to label %32 unwind label %60
+          to label %34 unwind label %62
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 10
-  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef @.str.6)
-          to label %35 unwind label %60
+34:                                               ; preds = %27
+  %35 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 10
+  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef @.str.6)
+          to label %37 unwind label %62
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 11
-  store i8 0, ptr %36, align 8
-  %37 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 12
-  store float 0.000000e+00, ptr %37, align 4
-  %38 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN3vcg8Matrix44IfE8IdentityEv()
-          to label %39 unwind label %60
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 11
+  store i8 0, ptr %38, align 8
+  %39 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 12
+  store float 0.000000e+00, ptr %39, align 4
+  %40 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN3vcg8Matrix44IfE8IdentityEv()
+          to label %41 unwind label %62
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 4 %38, i64 64, i1 false)
-  %41 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN3vcg8Matrix44IfE8IdentityEv()
-          to label %42 unwind label %60
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 4 %40, i64 64, i1 false)
+  %43 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN3vcg8Matrix44IfE8IdentityEv()
+          to label %44 unwind label %62
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 4 %41, i64 64, i1 false)
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds %class.EditManipulatorsPlugin, ptr %5, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr align 4 %43, i64 64, i1 false)
   ret void
 
-44:                                               ; preds = %1
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %1
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %3, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %4, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %3, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %4, align 4
+  br label %70
+
+50:                                               ; preds = %7
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %3, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %4, align 4
   br label %68
 
-48:                                               ; preds = %7
-  %49 = landingpad { ptr, i32 }
+54:                                               ; preds = %12
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %3, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %4, align 4
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %3, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %4, align 4
+  br label %67
+
+58:                                               ; preds = %14
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %3, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %4, align 4
   br label %66
 
-52:                                               ; preds = %10
-  %53 = landingpad { ptr, i32 }
+62:                                               ; preds = %41, %37, %34, %27, %25, %23, %21, %19, %16
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %3, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %4, align 4
-  br label %65
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %3, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %4, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  call void @_ZN3vcg8Matrix44IfED2Ev(ptr noundef nonnull align 4 dereferenceable(64) %15) #3
+  br label %66
 
-56:                                               ; preds = %12
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %3, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %4, align 4
-  br label %64
-
-60:                                               ; preds = %39, %35, %32, %25, %23, %21, %19, %17, %14
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %3, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %4, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+66:                                               ; preds = %62, %58
   call void @_ZN3vcg8Matrix44IfED2Ev(ptr noundef nonnull align 4 dereferenceable(64) %13) #3
-  br label %64
+  br label %67
 
-64:                                               ; preds = %60, %56
-  call void @_ZN3vcg8Matrix44IfED2Ev(ptr noundef nonnull align 4 dereferenceable(64) %11) #3
-  br label %65
-
-65:                                               ; preds = %64, %52
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #3
-  br label %66
-
-66:                                               ; preds = %65, %48
-  %67 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN8EditToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %67) #3
+67:                                               ; preds = %66, %54
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #3
   br label %68
 
-68:                                               ; preds = %66, %44
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  br label %69
+68:                                               ; preds = %67, %50
+  %69 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @_ZN8EditToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %69) #3
+  br label %70
 
-69:                                               ; preds = %68
-  %70 = load ptr, ptr %3, align 8
-  %71 = load i32, ptr %4, align 4
-  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
-  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
-  resume { ptr, i32 } %73
+70:                                               ; preds = %68, %46
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %3, align 8
+  %73 = load i32, ptr %4, align 4
+  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
+  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
+  resume { ptr, i32 } %75
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -6278,7 +6280,8 @@ define linkonce_odr void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN19MeshLabPluginLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

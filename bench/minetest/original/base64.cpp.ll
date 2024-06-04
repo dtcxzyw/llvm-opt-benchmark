@@ -866,38 +866,49 @@ entry:
   %__dnew.i.i.i = alloca i64, align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL12base64_charsB5cxx11, i64 0, i32 2, i32 0), ptr @_ZL12base64_charsB5cxx11, align 8, !tbaa !10
+  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL12base64_charsB5cxx11, i64 0, i32 2, i32 0
+  store ptr %1, ptr @_ZL12base64_charsB5cxx11, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #11
   store i64 64, ptr %__dnew.i.i.i, align 8, !tbaa !21
   %call2.i11.i2.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL12base64_charsB5cxx11, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
   store ptr %call2.i11.i2.i, ptr @_ZL12base64_charsB5cxx11, align 8, !tbaa !16
-  %1 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !21
-  store i64 %1, ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL12base64_charsB5cxx11, i64 0, i32 2, i32 0), align 8, !tbaa !4
+  %2 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !21
+  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL12base64_charsB5cxx11, i64 0, i32 2, i32 0
+  store i64 %2, ptr %3, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %call2.i11.i2.i, ptr noundef nonnull align 1 dereferenceable(64) @.str, i64 64, i1 false)
-  store i64 %1, ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL12base64_charsB5cxx11, i64 0, i32 1), align 8, !tbaa !13
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call2.i11.i2.i, i64 %1
+  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL12base64_charsB5cxx11, i64 0, i32 1
+  store i64 %2, ptr %4, align 8, !tbaa !13
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call2.i11.i2.i, i64 %2
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #11
-  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZL12base64_charsB5cxx11, ptr nonnull @__dso_handle) #11
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_1B5cxx11, i64 0, i32 2, i32 0), ptr @_ZL22base64_chars_padding_1B5cxx11, align 8, !tbaa !10
+  %5 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZL12base64_charsB5cxx11, ptr nonnull @__dso_handle) #11
+  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_1B5cxx11, i64 0, i32 2, i32 0
+  store ptr %6, ptr @_ZL22base64_chars_padding_1B5cxx11, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i1) #11
   store i64 16, ptr %__dnew.i.i.i1, align 8, !tbaa !21
   %call2.i11.i2.i2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL22base64_chars_padding_1B5cxx11, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i1, i64 noundef 0)
   store ptr %call2.i11.i2.i2, ptr @_ZL22base64_chars_padding_1B5cxx11, align 8, !tbaa !16
-  %3 = load i64, ptr %__dnew.i.i.i1, align 8, !tbaa !21
-  store i64 %3, ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_1B5cxx11, i64 0, i32 2, i32 0), align 8, !tbaa !4
+  %7 = load i64, ptr %__dnew.i.i.i1, align 8, !tbaa !21
+  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_1B5cxx11, i64 0, i32 2, i32 0
+  store i64 %7, ptr %8, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i11.i2.i2, ptr noundef nonnull align 1 dereferenceable(16) @.str.3, i64 16, i1 false)
-  store i64 %3, ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_1B5cxx11, i64 0, i32 1), align 8, !tbaa !13
-  %4 = load ptr, ptr @_ZL22base64_chars_padding_1B5cxx11, align 8, !tbaa !16
-  %arrayidx.i.i.i.i3 = getelementptr inbounds i8, ptr %4, i64 %3
+  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_1B5cxx11, i64 0, i32 1
+  store i64 %7, ptr %9, align 8, !tbaa !13
+  %10 = load ptr, ptr @_ZL22base64_chars_padding_1B5cxx11, align 8, !tbaa !16
+  %arrayidx.i.i.i.i3 = getelementptr inbounds i8, ptr %10, i64 %7
   store i8 0, ptr %arrayidx.i.i.i.i3, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i1) #11
-  %5 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZL22base64_chars_padding_1B5cxx11, ptr nonnull @__dso_handle) #11
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_2B5cxx11, i64 0, i32 2, i32 0), ptr @_ZL22base64_chars_padding_2B5cxx11, align 8, !tbaa !10
-  store i32 2003259713, ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_2B5cxx11, i64 0, i32 2, i32 0), align 8
-  store i64 4, ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_2B5cxx11, i64 0, i32 1), align 8, !tbaa !13
-  store i8 0, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_2B5cxx11, i64 0, i32 2, i32 0), i64 4), align 4, !tbaa !4
-  %6 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZL22base64_chars_padding_2B5cxx11, ptr nonnull @__dso_handle) #11
+  %11 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZL22base64_chars_padding_1B5cxx11, ptr nonnull @__dso_handle) #11
+  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_2B5cxx11, i64 0, i32 2, i32 0
+  store ptr %12, ptr @_ZL22base64_chars_padding_2B5cxx11, align 8, !tbaa !10
+  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_2B5cxx11, i64 0, i32 2, i32 0
+  store i32 2003259713, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_2B5cxx11, i64 0, i32 1
+  store i64 4, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL22base64_chars_padding_2B5cxx11, i64 0, i32 2, i32 0
+  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  store i8 0, ptr %16, align 4, !tbaa !4
+  %17 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZL22base64_chars_padding_2B5cxx11, ptr nonnull @__dso_handle) #11
   ret void
 }
 

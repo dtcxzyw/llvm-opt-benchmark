@@ -1421,32 +1421,33 @@ if.then:                                          ; preds = %land.lhs.true
   %page_requested6 = getelementptr inbounds %struct.MigrationIncomingState, ptr %11, i32 0, i32 37
   %12 = load ptr, ptr %page_requested6, align 8
   %13 = load ptr, ptr %aligned, align 8
-  call void @g_tree_insert(ptr noundef %12, ptr noundef %13, ptr noundef inttoptr (i64 1 to ptr))
-  %14 = load ptr, ptr %mis.addr, align 8
-  %page_requested_count = getelementptr inbounds %struct.MigrationIncomingState, ptr %14, i32 0, i32 38
+  %14 = inttoptr i64 1 to ptr
+  call void @g_tree_insert(ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  %15 = load ptr, ptr %mis.addr, align 8
+  %page_requested_count = getelementptr inbounds %struct.MigrationIncomingState, ptr %15, i32 0, i32 38
   store i32 1, ptr %.atomictmp, align 4
-  %15 = load i32, ptr %.atomictmp, align 4
-  %16 = atomicrmw add ptr %page_requested_count, i32 %15 seq_cst, align 8
-  store i32 %16, ptr %atomic-temp, align 4
-  %17 = load ptr, ptr %aligned, align 8
-  %18 = load ptr, ptr %mis.addr, align 8
-  %page_requested_count7 = getelementptr inbounds %struct.MigrationIncomingState, ptr %18, i32 0, i32 38
-  %19 = load i32, ptr %page_requested_count7, align 8
-  call void @trace_postcopy_page_req_add(ptr noundef %17, i32 noundef %19)
+  %16 = load i32, ptr %.atomictmp, align 4
+  %17 = atomicrmw add ptr %page_requested_count, i32 %16 seq_cst, align 8
+  store i32 %17, ptr %atomic-temp, align 4
+  %18 = load ptr, ptr %aligned, align 8
+  %19 = load ptr, ptr %mis.addr, align 8
+  %page_requested_count7 = getelementptr inbounds %struct.MigrationIncomingState, ptr %19, i32 0, i32 38
+  %20 = load i32, ptr %page_requested_count7, align 8
+  call void @trace_postcopy_page_req_add(ptr noundef %18, i32 noundef %20)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %20 = load ptr, ptr %qemu_lockable_auto7, align 8
-  call void @qemu_lockable_auto_unlock(ptr noundef %20)
+  %21 = load ptr, ptr %qemu_lockable_auto7, align 8
+  call void @qemu_lockable_auto_unlock(ptr noundef %21)
   store ptr null, ptr %qemu_lockable_auto7, align 8
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond.cleanup
-  %21 = load i8, ptr %received, align 1
-  %tobool8 = trunc i8 %21 to i1
+  %22 = load i8, ptr %received, align 1
+  %tobool8 = trunc i8 %22 to i1
   br i1 %tobool8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %for.end
@@ -1454,16 +1455,16 @@ if.then9:                                         ; preds = %for.end
   br label %return
 
 if.end10:                                         ; preds = %for.end
-  %22 = load ptr, ptr %mis.addr, align 8
-  %23 = load ptr, ptr %rb.addr, align 8
-  %24 = load i64, ptr %start.addr, align 8
-  %call11 = call i32 @migrate_send_rp_message_req_pages(ptr noundef %22, ptr noundef %23, i64 noundef %24)
+  %23 = load ptr, ptr %mis.addr, align 8
+  %24 = load ptr, ptr %rb.addr, align 8
+  %25 = load i64, ptr %start.addr, align 8
+  %call11 = call i32 @migrate_send_rp_message_req_pages(ptr noundef %23, ptr noundef %24, i64 noundef %25)
   store i32 %call11, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then9
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+  %26 = load i32, ptr %retval, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3838,13 +3839,13 @@ entry:
   store ptr %errp, ptr %errp.addr, align 8
   store i32 %mode, ptr %mode.addr, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i32, ptr %mode.addr, align 4
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @get_modes(i32 noundef %0, ptr noundef %arraydecay1)
   store i32 %call, ptr %modes, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %1 = load ptr, ptr %reasonp.addr, align 8
   %2 = load ptr, ptr %errp.addr, align 8
   %3 = load i32, ptr %modes, align 4
@@ -3893,9 +3894,6 @@ entry:
   %call = call i32 (ptr, ptr, i32, ...) @migrate_add_blocker_modes(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef -1)
   ret i32 %call
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @get_modes(i32 noundef %mode, ptr noundef %ap) #0 {
@@ -3988,9 +3986,6 @@ if.end8:                                          ; preds = %if.then7, %while.en
   %13 = load i32, ptr %modes, align 4
   ret i32 %13
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @is_only_migratable(ptr noundef %reasonp, ptr noundef %errp, i32 noundef %modes) #0 {
@@ -5720,40 +5715,41 @@ if.end8:                                          ; preds = %if.else, %if.then5
   %23 = load ptr, ptr %s.addr, align 8
   %pages_per_second = getelementptr inbounds %struct.MigrationState, ptr %23, i32 0, i32 11
   store double %div24, ptr %pages_per_second, align 8
-  %call25 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 1))
+  %24 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 1
+  %call25 = call i64 @stat64_get(ptr noundef %24)
   %tobool26 = icmp ne i64 %call25, 0
   br i1 %tobool26, label %land.lhs.true, label %if.end34
 
 land.lhs.true:                                    ; preds = %if.end8
-  %24 = load i64, ptr %transferred, align 8
-  %cmp27 = icmp ugt i64 %24, 10000
+  %25 = load i64, ptr %transferred, align 8
+  %cmp27 = icmp ugt i64 %25, 10000
   br i1 %cmp27, label %if.then29, label %if.end34
 
 if.then29:                                        ; preds = %land.lhs.true
   %call30 = call i64 @stat64_get(ptr noundef @mig_stats)
   %conv31 = uitofp i64 %call30 to double
-  %25 = load double, ptr %expected_bw_per_ms, align 8
-  %div32 = fdiv double %conv31, %25
+  %26 = load double, ptr %expected_bw_per_ms, align 8
+  %div32 = fdiv double %conv31, %26
   %conv33 = fptosi double %div32 to i64
-  %26 = load ptr, ptr %s.addr, align 8
-  %expected_downtime = getelementptr inbounds %struct.MigrationState, ptr %26, i32 0, i32 23
+  %27 = load ptr, ptr %s.addr, align 8
+  %expected_downtime = getelementptr inbounds %struct.MigrationState, ptr %27, i32 0, i32 23
   store i64 %conv33, ptr %expected_downtime, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then29, %land.lhs.true, %if.end8
   call void @migration_rate_reset()
-  %27 = load ptr, ptr %s.addr, align 8
-  call void @update_iteration_initial_status(ptr noundef %27)
-  %28 = load i64, ptr %transferred, align 8
-  %29 = load i64, ptr %time_spent, align 8
-  %30 = load double, ptr %bandwidth, align 8
-  %conv35 = fptoui double %30 to i64
-  %31 = load i64, ptr %switchover_bw, align 8
-  %div36 = udiv i64 %31, 1000
-  %32 = load ptr, ptr %s.addr, align 8
-  %threshold_size37 = getelementptr inbounds %struct.MigrationState, ptr %32, i32 0, i32 14
-  %33 = load i64, ptr %threshold_size37, align 8
-  call void @trace_migrate_transferred(i64 noundef %28, i64 noundef %29, i64 noundef %conv35, i64 noundef %div36, i64 noundef %33)
+  %28 = load ptr, ptr %s.addr, align 8
+  call void @update_iteration_initial_status(ptr noundef %28)
+  %29 = load i64, ptr %transferred, align 8
+  %30 = load i64, ptr %time_spent, align 8
+  %31 = load double, ptr %bandwidth, align 8
+  %conv35 = fptoui double %31 to i64
+  %32 = load i64, ptr %switchover_bw, align 8
+  %div36 = udiv i64 %32, 1000
+  %33 = load ptr, ptr %s.addr, align 8
+  %threshold_size37 = getelementptr inbounds %struct.MigrationState, ptr %33, i32 0, i32 14
+  %34 = load i64, ptr %threshold_size37, align 8
+  call void @trace_migrate_transferred(i64 noundef %29, i64 noundef %30, i64 noundef %conv35, i64 noundef %div36, i64 noundef %34)
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then
@@ -6743,7 +6739,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare i32 @gettimeofday(ptr noundef, ptr noundef) #10
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #9
 
 declare void @qemu_log(ptr noundef, ...) #1
 
@@ -6752,10 +6748,10 @@ declare i32 @qemu_get_thread_id() #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #11
+declare i64 @llvm.bswap.i64(i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #11
+declare i32 @llvm.bswap.i32(i32) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @trace_migrate_send_rp_message(i32 noundef %msg_type, i16 noundef zeroext %len) #0 {
@@ -7013,7 +7009,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #10
+declare ptr @strerror(i32 noundef) #9
 
 declare i32 @colo_incoming_co() #1
 
@@ -7433,188 +7429,204 @@ entry:
   %4 = load ptr, ptr %ram5, align 8
   %total = getelementptr inbounds %struct.MigrationStats, ptr %4, i32 0, i32 2
   store i64 %call4, ptr %total, align 8
-  %call6 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 14))
-  %5 = load ptr, ptr %info.addr, align 8
-  %ram7 = getelementptr inbounds %struct.MigrationInfo, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %ram7, align 8
-  %duplicate = getelementptr inbounds %struct.MigrationStats, ptr %6, i32 0, i32 3
+  %5 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 14
+  %call6 = call i64 @stat64_get(ptr noundef %5)
+  %6 = load ptr, ptr %info.addr, align 8
+  %ram7 = getelementptr inbounds %struct.MigrationInfo, ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %ram7, align 8
+  %duplicate = getelementptr inbounds %struct.MigrationStats, ptr %7, i32 0, i32 3
   store i64 %call6, ptr %duplicate, align 8
-  %7 = load ptr, ptr %info.addr, align 8
-  %ram8 = getelementptr inbounds %struct.MigrationInfo, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %ram8, align 8
-  %skipped = getelementptr inbounds %struct.MigrationStats, ptr %8, i32 0, i32 4
+  %8 = load ptr, ptr %info.addr, align 8
+  %ram8 = getelementptr inbounds %struct.MigrationInfo, ptr %8, i32 0, i32 2
+  %9 = load ptr, ptr %ram8, align 8
+  %skipped = getelementptr inbounds %struct.MigrationStats, ptr %9, i32 0, i32 4
   store i64 0, ptr %skipped, align 8
-  %call9 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 6))
-  %9 = load ptr, ptr %info.addr, align 8
-  %ram10 = getelementptr inbounds %struct.MigrationInfo, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %ram10, align 8
-  %normal = getelementptr inbounds %struct.MigrationStats, ptr %10, i32 0, i32 5
-  store i64 %call9, ptr %normal, align 8
+  %10 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 6
+  %call9 = call i64 @stat64_get(ptr noundef %10)
   %11 = load ptr, ptr %info.addr, align 8
-  %ram11 = getelementptr inbounds %struct.MigrationInfo, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %ram11, align 8
-  %normal12 = getelementptr inbounds %struct.MigrationStats, ptr %12, i32 0, i32 5
-  %13 = load i64, ptr %normal12, align 8
-  %14 = load i64, ptr %page_size, align 8
-  %mul = mul i64 %13, %14
-  %15 = load ptr, ptr %info.addr, align 8
-  %ram13 = getelementptr inbounds %struct.MigrationInfo, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %ram13, align 8
-  %normal_bytes = getelementptr inbounds %struct.MigrationStats, ptr %16, i32 0, i32 6
+  %ram10 = getelementptr inbounds %struct.MigrationInfo, ptr %11, i32 0, i32 2
+  %12 = load ptr, ptr %ram10, align 8
+  %normal = getelementptr inbounds %struct.MigrationStats, ptr %12, i32 0, i32 5
+  store i64 %call9, ptr %normal, align 8
+  %13 = load ptr, ptr %info.addr, align 8
+  %ram11 = getelementptr inbounds %struct.MigrationInfo, ptr %13, i32 0, i32 2
+  %14 = load ptr, ptr %ram11, align 8
+  %normal12 = getelementptr inbounds %struct.MigrationStats, ptr %14, i32 0, i32 5
+  %15 = load i64, ptr %normal12, align 8
+  %16 = load i64, ptr %page_size, align 8
+  %mul = mul i64 %15, %16
+  %17 = load ptr, ptr %info.addr, align 8
+  %ram13 = getelementptr inbounds %struct.MigrationInfo, ptr %17, i32 0, i32 2
+  %18 = load ptr, ptr %ram13, align 8
+  %normal_bytes = getelementptr inbounds %struct.MigrationStats, ptr %18, i32 0, i32 6
   store i64 %mul, ptr %normal_bytes, align 8
-  %17 = load ptr, ptr %s.addr, align 8
-  %mbps = getelementptr inbounds %struct.MigrationState, ptr %17, i32 0, i32 18
-  %18 = load double, ptr %mbps, align 8
-  %19 = load ptr, ptr %info.addr, align 8
-  %ram14 = getelementptr inbounds %struct.MigrationInfo, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %ram14, align 8
-  %mbps15 = getelementptr inbounds %struct.MigrationStats, ptr %20, i32 0, i32 8
-  store double %18, ptr %mbps15, align 8
-  %call16 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 2))
+  %19 = load ptr, ptr %s.addr, align 8
+  %mbps = getelementptr inbounds %struct.MigrationState, ptr %19, i32 0, i32 18
+  %20 = load double, ptr %mbps, align 8
   %21 = load ptr, ptr %info.addr, align 8
-  %ram17 = getelementptr inbounds %struct.MigrationInfo, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %ram17, align 8
-  %dirty_sync_count = getelementptr inbounds %struct.MigrationStats, ptr %22, i32 0, i32 9
+  %ram14 = getelementptr inbounds %struct.MigrationInfo, ptr %21, i32 0, i32 2
+  %22 = load ptr, ptr %ram14, align 8
+  %mbps15 = getelementptr inbounds %struct.MigrationStats, ptr %22, i32 0, i32 8
+  store double %20, ptr %mbps15, align 8
+  %23 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 2
+  %call16 = call i64 @stat64_get(ptr noundef %23)
+  %24 = load ptr, ptr %info.addr, align 8
+  %ram17 = getelementptr inbounds %struct.MigrationInfo, ptr %24, i32 0, i32 2
+  %25 = load ptr, ptr %ram17, align 8
+  %dirty_sync_count = getelementptr inbounds %struct.MigrationStats, ptr %25, i32 0, i32 9
   store i64 %call16, ptr %dirty_sync_count, align 8
-  %call18 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 3))
-  %23 = load ptr, ptr %info.addr, align 8
-  %ram19 = getelementptr inbounds %struct.MigrationInfo, ptr %23, i32 0, i32 2
-  %24 = load ptr, ptr %ram19, align 8
-  %dirty_sync_missed_zero_copy = getelementptr inbounds %struct.MigrationStats, ptr %24, i32 0, i32 17
+  %26 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 3
+  %call18 = call i64 @stat64_get(ptr noundef %26)
+  %27 = load ptr, ptr %info.addr, align 8
+  %ram19 = getelementptr inbounds %struct.MigrationInfo, ptr %27, i32 0, i32 2
+  %28 = load ptr, ptr %ram19, align 8
+  %dirty_sync_missed_zero_copy = getelementptr inbounds %struct.MigrationStats, ptr %28, i32 0, i32 17
   store i64 %call18, ptr %dirty_sync_missed_zero_copy, align 8
-  %call20 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 8))
-  %25 = load ptr, ptr %info.addr, align 8
-  %ram21 = getelementptr inbounds %struct.MigrationInfo, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %ram21, align 8
-  %postcopy_requests = getelementptr inbounds %struct.MigrationStats, ptr %26, i32 0, i32 10
-  store i64 %call20, ptr %postcopy_requests, align 8
-  %27 = load i64, ptr %page_size, align 8
-  %28 = load ptr, ptr %info.addr, align 8
-  %ram22 = getelementptr inbounds %struct.MigrationInfo, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %ram22, align 8
-  %page_size23 = getelementptr inbounds %struct.MigrationStats, ptr %29, i32 0, i32 11
-  store i64 %27, ptr %page_size23, align 8
-  %call24 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 5))
+  %29 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 8
+  %call20 = call i64 @stat64_get(ptr noundef %29)
   %30 = load ptr, ptr %info.addr, align 8
-  %ram25 = getelementptr inbounds %struct.MigrationInfo, ptr %30, i32 0, i32 2
-  %31 = load ptr, ptr %ram25, align 8
-  %multifd_bytes = getelementptr inbounds %struct.MigrationStats, ptr %31, i32 0, i32 12
-  store i64 %call24, ptr %multifd_bytes, align 8
-  %32 = load ptr, ptr %s.addr, align 8
-  %pages_per_second = getelementptr inbounds %struct.MigrationState, ptr %32, i32 0, i32 11
-  %33 = load double, ptr %pages_per_second, align 8
-  %conv = fptoui double %33 to i64
-  %34 = load ptr, ptr %info.addr, align 8
-  %ram26 = getelementptr inbounds %struct.MigrationInfo, ptr %34, i32 0, i32 2
-  %35 = load ptr, ptr %ram26, align 8
-  %pages_per_second27 = getelementptr inbounds %struct.MigrationStats, ptr %35, i32 0, i32 13
-  store i64 %conv, ptr %pages_per_second27, align 8
-  %call28 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 9))
+  %ram21 = getelementptr inbounds %struct.MigrationInfo, ptr %30, i32 0, i32 2
+  %31 = load ptr, ptr %ram21, align 8
+  %postcopy_requests = getelementptr inbounds %struct.MigrationStats, ptr %31, i32 0, i32 10
+  store i64 %call20, ptr %postcopy_requests, align 8
+  %32 = load i64, ptr %page_size, align 8
+  %33 = load ptr, ptr %info.addr, align 8
+  %ram22 = getelementptr inbounds %struct.MigrationInfo, ptr %33, i32 0, i32 2
+  %34 = load ptr, ptr %ram22, align 8
+  %page_size23 = getelementptr inbounds %struct.MigrationStats, ptr %34, i32 0, i32 11
+  store i64 %32, ptr %page_size23, align 8
+  %35 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 5
+  %call24 = call i64 @stat64_get(ptr noundef %35)
   %36 = load ptr, ptr %info.addr, align 8
-  %ram29 = getelementptr inbounds %struct.MigrationInfo, ptr %36, i32 0, i32 2
-  %37 = load ptr, ptr %ram29, align 8
-  %precopy_bytes = getelementptr inbounds %struct.MigrationStats, ptr %37, i32 0, i32 14
-  store i64 %call28, ptr %precopy_bytes, align 8
-  %call30 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 4))
-  %38 = load ptr, ptr %info.addr, align 8
-  %ram31 = getelementptr inbounds %struct.MigrationInfo, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %ram31, align 8
-  %downtime_bytes = getelementptr inbounds %struct.MigrationStats, ptr %39, i32 0, i32 15
-  store i64 %call30, ptr %downtime_bytes, align 8
-  %call32 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 7))
+  %ram25 = getelementptr inbounds %struct.MigrationInfo, ptr %36, i32 0, i32 2
+  %37 = load ptr, ptr %ram25, align 8
+  %multifd_bytes = getelementptr inbounds %struct.MigrationStats, ptr %37, i32 0, i32 12
+  store i64 %call24, ptr %multifd_bytes, align 8
+  %38 = load ptr, ptr %s.addr, align 8
+  %pages_per_second = getelementptr inbounds %struct.MigrationState, ptr %38, i32 0, i32 11
+  %39 = load double, ptr %pages_per_second, align 8
+  %conv = fptoui double %39 to i64
   %40 = load ptr, ptr %info.addr, align 8
-  %ram33 = getelementptr inbounds %struct.MigrationInfo, ptr %40, i32 0, i32 2
-  %41 = load ptr, ptr %ram33, align 8
-  %postcopy_bytes = getelementptr inbounds %struct.MigrationStats, ptr %41, i32 0, i32 16
+  %ram26 = getelementptr inbounds %struct.MigrationInfo, ptr %40, i32 0, i32 2
+  %41 = load ptr, ptr %ram26, align 8
+  %pages_per_second27 = getelementptr inbounds %struct.MigrationStats, ptr %41, i32 0, i32 13
+  store i64 %conv, ptr %pages_per_second27, align 8
+  %42 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 9
+  %call28 = call i64 @stat64_get(ptr noundef %42)
+  %43 = load ptr, ptr %info.addr, align 8
+  %ram29 = getelementptr inbounds %struct.MigrationInfo, ptr %43, i32 0, i32 2
+  %44 = load ptr, ptr %ram29, align 8
+  %precopy_bytes = getelementptr inbounds %struct.MigrationStats, ptr %44, i32 0, i32 14
+  store i64 %call28, ptr %precopy_bytes, align 8
+  %45 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 4
+  %call30 = call i64 @stat64_get(ptr noundef %45)
+  %46 = load ptr, ptr %info.addr, align 8
+  %ram31 = getelementptr inbounds %struct.MigrationInfo, ptr %46, i32 0, i32 2
+  %47 = load ptr, ptr %ram31, align 8
+  %downtime_bytes = getelementptr inbounds %struct.MigrationStats, ptr %47, i32 0, i32 15
+  store i64 %call30, ptr %downtime_bytes, align 8
+  %48 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 7
+  %call32 = call i64 @stat64_get(ptr noundef %48)
+  %49 = load ptr, ptr %info.addr, align 8
+  %ram33 = getelementptr inbounds %struct.MigrationInfo, ptr %49, i32 0, i32 2
+  %50 = load ptr, ptr %ram33, align 8
+  %postcopy_bytes = getelementptr inbounds %struct.MigrationStats, ptr %50, i32 0, i32 16
   store i64 %call32, ptr %postcopy_bytes, align 8
   %call34 = call zeroext i1 @migrate_xbzrle()
   br i1 %call34, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call35 = call noalias ptr @g_malloc0(i64 noundef 56) #17
-  %42 = load ptr, ptr %info.addr, align 8
-  %xbzrle_cache = getelementptr inbounds %struct.MigrationInfo, ptr %42, i32 0, i32 5
+  %51 = load ptr, ptr %info.addr, align 8
+  %xbzrle_cache = getelementptr inbounds %struct.MigrationInfo, ptr %51, i32 0, i32 5
   store ptr %call35, ptr %xbzrle_cache, align 8
   %call36 = call i64 @migrate_xbzrle_cache_size()
-  %43 = load ptr, ptr %info.addr, align 8
-  %xbzrle_cache37 = getelementptr inbounds %struct.MigrationInfo, ptr %43, i32 0, i32 5
-  %44 = load ptr, ptr %xbzrle_cache37, align 8
-  %cache_size = getelementptr inbounds %struct.XBZRLECacheStats, ptr %44, i32 0, i32 0
-  store i64 %call36, ptr %cache_size, align 8
-  %45 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 1), align 8
-  %46 = load ptr, ptr %info.addr, align 8
-  %xbzrle_cache38 = getelementptr inbounds %struct.MigrationInfo, ptr %46, i32 0, i32 5
-  %47 = load ptr, ptr %xbzrle_cache38, align 8
-  %bytes = getelementptr inbounds %struct.XBZRLECacheStats, ptr %47, i32 0, i32 1
-  store i64 %45, ptr %bytes, align 8
-  %48 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 2), align 8
-  %49 = load ptr, ptr %info.addr, align 8
-  %xbzrle_cache39 = getelementptr inbounds %struct.MigrationInfo, ptr %49, i32 0, i32 5
-  %50 = load ptr, ptr %xbzrle_cache39, align 8
-  %pages = getelementptr inbounds %struct.XBZRLECacheStats, ptr %50, i32 0, i32 2
-  store i64 %48, ptr %pages, align 8
-  %51 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 3), align 8
   %52 = load ptr, ptr %info.addr, align 8
-  %xbzrle_cache40 = getelementptr inbounds %struct.MigrationInfo, ptr %52, i32 0, i32 5
-  %53 = load ptr, ptr %xbzrle_cache40, align 8
-  %cache_miss = getelementptr inbounds %struct.XBZRLECacheStats, ptr %53, i32 0, i32 3
-  store i64 %51, ptr %cache_miss, align 8
-  %54 = load double, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 4), align 8
-  %55 = load ptr, ptr %info.addr, align 8
-  %xbzrle_cache41 = getelementptr inbounds %struct.MigrationInfo, ptr %55, i32 0, i32 5
-  %56 = load ptr, ptr %xbzrle_cache41, align 8
-  %cache_miss_rate = getelementptr inbounds %struct.XBZRLECacheStats, ptr %56, i32 0, i32 4
-  store double %54, ptr %cache_miss_rate, align 8
-  %57 = load double, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 5), align 8
-  %58 = load ptr, ptr %info.addr, align 8
-  %xbzrle_cache42 = getelementptr inbounds %struct.MigrationInfo, ptr %58, i32 0, i32 5
-  %59 = load ptr, ptr %xbzrle_cache42, align 8
-  %encoding_rate = getelementptr inbounds %struct.XBZRLECacheStats, ptr %59, i32 0, i32 5
-  store double %57, ptr %encoding_rate, align 8
-  %60 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 6), align 8
-  %61 = load ptr, ptr %info.addr, align 8
-  %xbzrle_cache43 = getelementptr inbounds %struct.MigrationInfo, ptr %61, i32 0, i32 5
-  %62 = load ptr, ptr %xbzrle_cache43, align 8
-  %overflow = getelementptr inbounds %struct.XBZRLECacheStats, ptr %62, i32 0, i32 6
-  store i64 %60, ptr %overflow, align 8
+  %xbzrle_cache37 = getelementptr inbounds %struct.MigrationInfo, ptr %52, i32 0, i32 5
+  %53 = load ptr, ptr %xbzrle_cache37, align 8
+  %cache_size = getelementptr inbounds %struct.XBZRLECacheStats, ptr %53, i32 0, i32 0
+  store i64 %call36, ptr %cache_size, align 8
+  %54 = getelementptr inbounds %struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8
+  %56 = load ptr, ptr %info.addr, align 8
+  %xbzrle_cache38 = getelementptr inbounds %struct.MigrationInfo, ptr %56, i32 0, i32 5
+  %57 = load ptr, ptr %xbzrle_cache38, align 8
+  %bytes = getelementptr inbounds %struct.XBZRLECacheStats, ptr %57, i32 0, i32 1
+  store i64 %55, ptr %bytes, align 8
+  %58 = getelementptr inbounds %struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 2
+  %59 = load i64, ptr %58, align 8
+  %60 = load ptr, ptr %info.addr, align 8
+  %xbzrle_cache39 = getelementptr inbounds %struct.MigrationInfo, ptr %60, i32 0, i32 5
+  %61 = load ptr, ptr %xbzrle_cache39, align 8
+  %pages = getelementptr inbounds %struct.XBZRLECacheStats, ptr %61, i32 0, i32 2
+  store i64 %59, ptr %pages, align 8
+  %62 = getelementptr inbounds %struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 3
+  %63 = load i64, ptr %62, align 8
+  %64 = load ptr, ptr %info.addr, align 8
+  %xbzrle_cache40 = getelementptr inbounds %struct.MigrationInfo, ptr %64, i32 0, i32 5
+  %65 = load ptr, ptr %xbzrle_cache40, align 8
+  %cache_miss = getelementptr inbounds %struct.XBZRLECacheStats, ptr %65, i32 0, i32 3
+  store i64 %63, ptr %cache_miss, align 8
+  %66 = getelementptr inbounds %struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 4
+  %67 = load double, ptr %66, align 8
+  %68 = load ptr, ptr %info.addr, align 8
+  %xbzrle_cache41 = getelementptr inbounds %struct.MigrationInfo, ptr %68, i32 0, i32 5
+  %69 = load ptr, ptr %xbzrle_cache41, align 8
+  %cache_miss_rate = getelementptr inbounds %struct.XBZRLECacheStats, ptr %69, i32 0, i32 4
+  store double %67, ptr %cache_miss_rate, align 8
+  %70 = getelementptr inbounds %struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 5
+  %71 = load double, ptr %70, align 8
+  %72 = load ptr, ptr %info.addr, align 8
+  %xbzrle_cache42 = getelementptr inbounds %struct.MigrationInfo, ptr %72, i32 0, i32 5
+  %73 = load ptr, ptr %xbzrle_cache42, align 8
+  %encoding_rate = getelementptr inbounds %struct.XBZRLECacheStats, ptr %73, i32 0, i32 5
+  store double %71, ptr %encoding_rate, align 8
+  %74 = getelementptr inbounds %struct.XBZRLECacheStats, ptr @xbzrle_counters, i32 0, i32 6
+  %75 = load i64, ptr %74, align 8
+  %76 = load ptr, ptr %info.addr, align 8
+  %xbzrle_cache43 = getelementptr inbounds %struct.MigrationInfo, ptr %76, i32 0, i32 5
+  %77 = load ptr, ptr %xbzrle_cache43, align 8
+  %overflow = getelementptr inbounds %struct.XBZRLECacheStats, ptr %77, i32 0, i32 6
+  store i64 %75, ptr %overflow, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %63 = load ptr, ptr %info.addr, align 8
-  call void @populate_compress(ptr noundef %63)
+  %78 = load ptr, ptr %info.addr, align 8
+  call void @populate_compress(ptr noundef %78)
   %call44 = call zeroext i1 @cpu_throttle_active()
   br i1 %call44, label %if.then45, label %if.end48
 
 if.then45:                                        ; preds = %if.end
-  %64 = load ptr, ptr %info.addr, align 8
-  %has_cpu_throttle_percentage = getelementptr inbounds %struct.MigrationInfo, ptr %64, i32 0, i32 14
+  %79 = load ptr, ptr %info.addr, align 8
+  %has_cpu_throttle_percentage = getelementptr inbounds %struct.MigrationInfo, ptr %79, i32 0, i32 14
   store i8 1, ptr %has_cpu_throttle_percentage, align 8
   %call46 = call i32 @cpu_throttle_get_percentage()
   %conv47 = sext i32 %call46 to i64
-  %65 = load ptr, ptr %info.addr, align 8
-  %cpu_throttle_percentage = getelementptr inbounds %struct.MigrationInfo, ptr %65, i32 0, i32 15
+  %80 = load ptr, ptr %info.addr, align 8
+  %cpu_throttle_percentage = getelementptr inbounds %struct.MigrationInfo, ptr %80, i32 0, i32 15
   store i64 %conv47, ptr %cpu_throttle_percentage, align 8
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then45, %if.end
-  %66 = load ptr, ptr %s.addr, align 8
-  %state = getelementptr inbounds %struct.MigrationState, ptr %66, i32 0, i32 16
-  %67 = load i32, ptr %state, align 8
-  %cmp = icmp ne i32 %67, 8
+  %81 = load ptr, ptr %s.addr, align 8
+  %state = getelementptr inbounds %struct.MigrationState, ptr %81, i32 0, i32 16
+  %82 = load i32, ptr %state, align 8
+  %cmp = icmp ne i32 %82, 8
   br i1 %cmp, label %if.then50, label %if.end55
 
 if.then50:                                        ; preds = %if.end48
   %call51 = call i64 @ram_bytes_remaining()
-  %68 = load ptr, ptr %info.addr, align 8
-  %ram52 = getelementptr inbounds %struct.MigrationInfo, ptr %68, i32 0, i32 2
-  %69 = load ptr, ptr %ram52, align 8
-  %remaining = getelementptr inbounds %struct.MigrationStats, ptr %69, i32 0, i32 1
+  %83 = load ptr, ptr %info.addr, align 8
+  %ram52 = getelementptr inbounds %struct.MigrationInfo, ptr %83, i32 0, i32 2
+  %84 = load ptr, ptr %ram52, align 8
+  %remaining = getelementptr inbounds %struct.MigrationStats, ptr %84, i32 0, i32 1
   store i64 %call51, ptr %remaining, align 8
-  %call53 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 1))
-  %70 = load ptr, ptr %info.addr, align 8
-  %ram54 = getelementptr inbounds %struct.MigrationInfo, ptr %70, i32 0, i32 2
-  %71 = load ptr, ptr %ram54, align 8
-  %dirty_pages_rate = getelementptr inbounds %struct.MigrationStats, ptr %71, i32 0, i32 7
+  %85 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 1
+  %call53 = call i64 @stat64_get(ptr noundef %85)
+  %86 = load ptr, ptr %info.addr, align 8
+  %ram54 = getelementptr inbounds %struct.MigrationInfo, ptr %86, i32 0, i32 2
+  %87 = load ptr, ptr %ram54, align 8
+  %dirty_pages_rate = getelementptr inbounds %struct.MigrationStats, ptr %87, i32 0, i32 7
   store i64 %call53, ptr %dirty_pages_rate, align 8
   br label %if.end55
 
@@ -7627,19 +7639,19 @@ land.lhs.true:                                    ; preds = %if.end55
   br i1 %call58, label %if.then60, label %if.end63
 
 if.then60:                                        ; preds = %land.lhs.true
-  %72 = load ptr, ptr %info.addr, align 8
-  %has_dirty_limit_throttle_time_per_round = getelementptr inbounds %struct.MigrationInfo, ptr %72, i32 0, i32 26
+  %88 = load ptr, ptr %info.addr, align 8
+  %has_dirty_limit_throttle_time_per_round = getelementptr inbounds %struct.MigrationInfo, ptr %88, i32 0, i32 26
   store i8 1, ptr %has_dirty_limit_throttle_time_per_round, align 8
   %call61 = call i64 @dirtylimit_throttle_time_per_round()
-  %73 = load ptr, ptr %info.addr, align 8
-  %dirty_limit_throttle_time_per_round = getelementptr inbounds %struct.MigrationInfo, ptr %73, i32 0, i32 27
+  %89 = load ptr, ptr %info.addr, align 8
+  %dirty_limit_throttle_time_per_round = getelementptr inbounds %struct.MigrationInfo, ptr %89, i32 0, i32 27
   store i64 %call61, ptr %dirty_limit_throttle_time_per_round, align 8
-  %74 = load ptr, ptr %info.addr, align 8
-  %has_dirty_limit_ring_full_time = getelementptr inbounds %struct.MigrationInfo, ptr %74, i32 0, i32 28
+  %90 = load ptr, ptr %info.addr, align 8
+  %has_dirty_limit_ring_full_time = getelementptr inbounds %struct.MigrationInfo, ptr %90, i32 0, i32 28
   store i8 1, ptr %has_dirty_limit_ring_full_time, align 8
   %call62 = call i64 @dirtylimit_ring_full_time()
-  %75 = load ptr, ptr %info.addr, align 8
-  %dirty_limit_ring_full_time = getelementptr inbounds %struct.MigrationInfo, ptr %75, i32 0, i32 29
+  %91 = load ptr, ptr %info.addr, align 8
+  %dirty_limit_ring_full_time = getelementptr inbounds %struct.MigrationInfo, ptr %91, i32 0, i32 29
   store i64 %call62, ptr %dirty_limit_ring_full_time, align 8
   br label %if.end63
 
@@ -9494,7 +9506,7 @@ entry:
 declare i32 @ram_save_queue_pages(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @getpagesize() #12
+declare i32 @getpagesize() #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @_nocheck__trace_migrate_handle_rp_req_pages(ptr noundef %rbname, i64 noundef %start, i64 noundef %len) #0 {
@@ -12559,6 +12571,12 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) #1
 
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12568,10 +12586,10 @@ attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tra
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { allocsize(0,1) }
 attributes #15 = { nounwind willreturn memory(read) }

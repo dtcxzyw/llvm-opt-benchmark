@@ -2950,18 +2950,19 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6theory15QuantifiersUtilC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14RelevantDomainE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14RelevantDomainE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_rel_doms = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::RelevantDomain", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_ImPNS1_6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS8_EEES9_IS3_ESaISB_IKS3_SF_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_rel_doms) #3
   %d_qs = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::RelevantDomain", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %qs.addr, align 8
-  store ptr %1, ptr %d_qs, align 8
+  %2 = load ptr, ptr %qs.addr, align 8
+  store ptr %2, ptr %d_qs, align 8
   %d_qreg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::RelevantDomain", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %qr.addr, align 8
-  store ptr %2, ptr %d_qreg, align 8
+  %3 = load ptr, ptr %qr.addr, align 8
+  store ptr %3, ptr %d_qreg, align 8
   %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::RelevantDomain", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %tr.addr, align 8
-  store ptr %3, ptr %d_treg, align 8
+  %4 = load ptr, ptr %tr.addr, align 8
+  store ptr %4, ptr %d_treg, align 8
   %d_rel_dom_lit = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::RelevantDomain", ptr %this1, i32 0, i32 6
   call void @_ZNSt3mapIbS_IbS_IN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers14RelevantDomain10RDomainLitESt4lessIS3_ESaISt4pairIKS3_S7_EEES8_IbESaISA_IKbSE_EEESF_SaISA_ISG_SJ_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_rel_dom_lit) #3
   %d_is_computed = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::RelevantDomain", ptr %this1, i32 0, i32 5
@@ -3008,15 +3009,16 @@ entry:
   %current = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14RelevantDomainE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14RelevantDomainE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_rel_doms = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::RelevantDomain", ptr %this1, i32 0, i32 1
   store ptr %d_rel_doms, ptr %__range3, align 8
-  %0 = load ptr, ptr %__range3, align 8
-  %call = call ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_ImPNS1_6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS8_EEES9_IS3_ESaISB_IKS3_SF_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #3
+  %1 = load ptr, ptr %__range3, align 8
+  %call = call ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_ImPNS1_6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS8_EEES9_IS3_ESaISB_IKS3_SF_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #3
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_iterator.378", ptr %__begin3, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
-  %1 = load ptr, ptr %__range3, align 8
-  %call2 = call ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_ImPNS1_6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS8_EEES9_IS3_ESaISB_IKS3_SF_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #3
+  %2 = load ptr, ptr %__range3, align 8
+  %call2 = call ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_ImPNS1_6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS8_EEES9_IS3_ESaISB_IKS3_SF_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #3
   %coerce.dive3 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.378", ptr %__end3, i32 0, i32 0
   store ptr %call2, ptr %coerce.dive3, align 8
   br label %for.cond
@@ -3028,15 +3030,15 @@ for.cond:                                         ; preds = %for.inc16, %entry
 for.body:                                         ; preds = %for.cond
   %call5 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb1EEESt3mapImPNS2_6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaIS0_IKmSB_EEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin3) #3
   store ptr %call5, ptr %r, align 8
-  %2 = load ptr, ptr %r, align 8
-  %second = getelementptr inbounds %"struct.std::pair.379", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %r, align 8
+  %second = getelementptr inbounds %"struct.std::pair.379", ptr %3, i32 0, i32 1
   store ptr %second, ptr %__range4, align 8
-  %3 = load ptr, ptr %__range4, align 8
-  %call6 = call ptr @_ZNSt3mapImPN4cvc58internal6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS6_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
+  %4 = load ptr, ptr %__range4, align 8
+  %call6 = call ptr @_ZNSt3mapImPN4cvc58internal6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS6_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %coerce.dive7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.389", ptr %__begin4, i32 0, i32 0
   store ptr %call6, ptr %coerce.dive7, align 8
-  %4 = load ptr, ptr %__range4, align 8
-  %call8 = call ptr @_ZNSt3mapImPN4cvc58internal6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS6_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %5 = load ptr, ptr %__range4, align 8
+  %call8 = call ptr @_ZNSt3mapImPN4cvc58internal6theory11quantifiers14RelevantDomain7RDomainESt4lessImESaISt4pairIKmS6_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   %coerce.dive9 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.389", ptr %__end4, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive9, align 8
   br label %for.cond10
@@ -3048,17 +3050,17 @@ for.cond10:                                       ; preds = %for.inc, %for.body
 for.body12:                                       ; preds = %for.cond10
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKmPN4cvc58internal6theory11quantifiers14RelevantDomain7RDomainEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin4) #3
   store ptr %call13, ptr %rr, align 8
-  %5 = load ptr, ptr %rr, align 8
-  %second14 = getelementptr inbounds %"struct.std::pair.390", ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %second14, align 8
-  store ptr %6, ptr %current, align 8
-  %7 = load ptr, ptr %current, align 8
-  %isnull = icmp eq ptr %7, null
+  %6 = load ptr, ptr %rr, align 8
+  %second14 = getelementptr inbounds %"struct.std::pair.390", ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %second14, align 8
+  store ptr %7, ptr %current, align 8
+  %8 = load ptr, ptr %current, align 8
+  %isnull = icmp eq ptr %8, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body12
-  call void @_ZN4cvc58internal6theory11quantifiers14RelevantDomain7RDomainD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  call void @_ZdlPv(ptr noundef %7) #17
+  call void @_ZN4cvc58internal6theory11quantifiers14RelevantDomain7RDomainD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZdlPv(ptr noundef %8) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body12
@@ -6390,7 +6392,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal11TermContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal19PolarityTermContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal19PolarityTermContextE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7296,7 +7299,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal9TCtxStackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal9TCtxStackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_stack = getelementptr inbounds %"class.cvc5::internal::TCtxStack", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb1EEEjESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_stack) #3
   ret void
@@ -13085,7 +13089,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal11TermContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal11TermContextE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -1042,7 +1042,8 @@ define internal void @_ZN3gmx18CompositeHelpTopicIN12_GLOBAL__N_114CommonHelpTex
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx26AbstractCompositeHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx18CompositeHelpTopicIN12_GLOBAL__N_114CommonHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx18CompositeHelpTopicIN12_GLOBAL__N_114CommonHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2183,7 +2184,8 @@ define internal void @_ZN3gmx15SimpleHelpTopicIN12_GLOBAL__N_115CmdLineHelpTextE
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_115CmdLineHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_115CmdLineHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2230,7 +2232,8 @@ define linkonce_odr void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx10IHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx23AbstractSimpleHelpTopicE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx23AbstractSimpleHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2288,7 +2291,8 @@ define linkonce_odr void @_ZN3gmx10IHelpTopicC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx10IHelpTopicE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx10IHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2467,7 +2471,8 @@ define internal void @_ZN3gmx15SimpleHelpTopicIN12_GLOBAL__N_114SyntaxHelpTextEE
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_114SyntaxHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_114SyntaxHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2538,7 +2543,8 @@ define internal void @_ZN3gmx15SimpleHelpTopicIN12_GLOBAL__N_117PositionsHelpTex
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_117PositionsHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_117PositionsHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2609,7 +2615,8 @@ define internal void @_ZN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118ArithmeticHelpTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118ArithmeticHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118ArithmeticHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2691,251 +2698,252 @@ define internal void @_ZN3gmx12_GLOBAL__N_117KeywordsHelpTopicC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %14 = load ptr, ptr %2, align 8
   call void @_ZN3gmx18CompositeHelpTopicIN12_GLOBAL__N_116KeywordsHelpTextEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordsHelpTopic", ptr %14, i32 0, i32 1
-  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tESaISA_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
-          to label %17 unwind label %62
+  %15 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordsHelpTopic", ptr %14, i32 0, i32 1
+  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tESaISA_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
+          to label %18 unwind label %63
 
-17:                                               ; preds = %1
-  invoke void @_ZN3gmx26SelectionParserSymbolTableC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %18 unwind label %66
+18:                                               ; preds = %1
+  invoke void @_ZN3gmx26SelectionParserSymbolTableC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %19 unwind label %67
 
-18:                                               ; preds = %17
-  call void @_ZNSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %16) #12
-  %19 = call noundef ptr @_ZNKSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  %20 = invoke noundef i32 @_Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE(ptr noundef %19)
-          to label %21 unwind label %70
+19:                                               ; preds = %18
+  call void @_ZNSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %17) #12
+  %20 = call noundef ptr @_ZNKSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  %21 = invoke noundef i32 @_Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE(ptr noundef %20)
+          to label %22 unwind label %71
 
-21:                                               ; preds = %18
-  %22 = call noundef ptr @_ZNKSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  invoke void @_ZNK3gmx26SelectionParserSymbolTable13beginIteratorENS_21SelectionParserSymbol10SymbolTypeE(ptr dead_on_unwind writable sret(%"class.gmx::SelectionParserSymbolIterator") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef 2)
-          to label %23 unwind label %70
+22:                                               ; preds = %19
+  %23 = call noundef ptr @_ZNKSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  invoke void @_ZNK3gmx26SelectionParserSymbolTable13beginIteratorENS_21SelectionParserSymbol10SymbolTypeE(ptr dead_on_unwind writable sret(%"class.gmx::SelectionParserSymbolIterator") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef 2)
+          to label %24 unwind label %71
 
-23:                                               ; preds = %21
-  br label %24
+24:                                               ; preds = %22
+  br label %25
 
-24:                                               ; preds = %106, %23
+25:                                               ; preds = %107, %24
   invoke void @_ZN3gmx29SelectionParserSymbolIteratorC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %25 unwind label %74
+          to label %26 unwind label %75
 
-25:                                               ; preds = %24
-  %26 = call noundef ptr @_ZNKSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  invoke void @_ZNK3gmx26SelectionParserSymbolTable11endIteratorEv(ptr dead_on_unwind writable sret(%"class.gmx::SelectionParserSymbolIterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %27 unwind label %78
+26:                                               ; preds = %25
+  %27 = call noundef ptr @_ZNKSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  invoke void @_ZNK3gmx26SelectionParserSymbolTable11endIteratorEv(ptr dead_on_unwind writable sret(%"class.gmx::SelectionParserSymbolIterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %27)
+          to label %28 unwind label %79
 
-27:                                               ; preds = %25
-  %28 = invoke noundef zeroext i1 @_ZN3gmx5boost14stl_interfaces2v1neINS_29SelectionParserSymbolIteratorES4_EEDTcmclsr6v1_dtlE16derived_iteratorfp_Enteqfp_fp0_ET_T0_(ptr noundef %7, ptr noundef %8)
-          to label %29 unwind label %82
+28:                                               ; preds = %26
+  %29 = invoke noundef zeroext i1 @_ZN3gmx5boost14stl_interfaces2v1neINS_29SelectionParserSymbolIteratorES4_EEDTcmclsr6v1_dtlE16derived_iteratorfp_Enteqfp_fp0_ET_T0_(ptr noundef %7, ptr noundef %8)
+          to label %30 unwind label %83
 
-29:                                               ; preds = %27
+30:                                               ; preds = %28
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  br i1 %28, label %30, label %107
+  br i1 %29, label %31, label %108
 
-30:                                               ; preds = %29
-  %31 = invoke noundef ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %32 unwind label %74
+31:                                               ; preds = %30
+  %32 = invoke noundef ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %33 unwind label %75
 
-32:                                               ; preds = %30
-  %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3gmx21SelectionParserSymbol4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %31)
-          to label %34 unwind label %74
+33:                                               ; preds = %31
+  %34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3gmx21SelectionParserSymbol4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %32)
+          to label %35 unwind label %75
 
-34:                                               ; preds = %32
-  store ptr %33, ptr %9, align 8
-  %35 = invoke noundef ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %36 unwind label %74
+35:                                               ; preds = %33
+  store ptr %34, ptr %9, align 8
+  %36 = invoke noundef ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %37 unwind label %75
 
-36:                                               ; preds = %34
-  %37 = invoke noundef ptr @_ZNK3gmx21SelectionParserSymbol11methodValueEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
-          to label %38 unwind label %74
+37:                                               ; preds = %35
+  %38 = invoke noundef ptr @_ZNK3gmx21SelectionParserSymbol11methodValueEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
+          to label %39 unwind label %75
 
-38:                                               ; preds = %36
-  store ptr %37, ptr %10, align 8
-  %39 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordsHelpTopic", ptr %14, i32 0, i32 1
-  %40 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %40)
-          to label %41 unwind label %74
+39:                                               ; preds = %37
+  store ptr %38, ptr %10, align 8
+  %40 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordsHelpTopic", ptr %14, i32 0, i32 1
+  %41 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %41)
+          to label %42 unwind label %75
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   invoke void @_ZSt9make_pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPK19gmx_ana_selmethod_tESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSB_INSC_IT0_E4typeEE6__typeEEOSD_OSI_(ptr dead_on_unwind writable sret(%"struct.std::pair") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %42 unwind label %87
-
-42:                                               ; preds = %41
-  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tESaISA_EE9push_backEOSA_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(40) %11)
-          to label %43 unwind label %91
+          to label %43 unwind label %88
 
 43:                                               ; preds = %42
+  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tESaISA_EE9push_backEOSA_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(40) %11)
+          to label %44 unwind label %92
+
+44:                                               ; preds = %43
   call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds %struct.gmx_ana_selmethod_t, ptr %44, i32 0, i32 13
-  %46 = getelementptr inbounds %struct.gmx_ana_selmethod_help_t, ptr %45, i32 0, i32 2
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %104
+  %45 = load ptr, ptr %10, align 8
+  %46 = getelementptr inbounds %struct.gmx_ana_selmethod_t, ptr %45, i32 0, i32 13
+  %47 = getelementptr inbounds %struct.gmx_ana_selmethod_help_t, ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %50, label %105
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds %struct.gmx_ana_selmethod_t, ptr %50, i32 0, i32 13
-  %52 = getelementptr inbounds %struct.gmx_ana_selmethod_help_t, ptr %51, i32 0, i32 3
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %104
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %10, align 8
+  %52 = getelementptr inbounds %struct.gmx_ana_selmethod_t, ptr %51, i32 0, i32 13
+  %53 = getelementptr inbounds %struct.gmx_ana_selmethod_help_t, ptr %52, i32 0, i32 3
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %105
 
-55:                                               ; preds = %49
-  %56 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #11
-          to label %57 unwind label %74
+56:                                               ; preds = %50
+  %57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #11
+          to label %58 unwind label %75
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %9, align 8
-  %59 = load ptr, ptr %10, align 8
-  invoke void @_ZN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19gmx_ana_selmethod_t(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(128) %59)
-          to label %60 unwind label %96
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %10, align 8
+  invoke void @_ZN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19gmx_ana_selmethod_t(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(128) %60)
+          to label %61 unwind label %97
 
-60:                                               ; preds = %57
-  call void @_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %56) #12
+61:                                               ; preds = %58
+  call void @_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %57) #12
   invoke void @_ZN3gmx26AbstractCompositeHelpTopic11addSubTopicESt10unique_ptrINS_10IHelpTopicESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %13)
-          to label %61 unwind label %100
+          to label %62 unwind label %101
 
-61:                                               ; preds = %60
+62:                                               ; preds = %61
   call void @_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
-  br label %104
+  br label %105
 
-62:                                               ; preds = %1
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %1
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %4, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %5, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %4, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %5, align 4
+  br label %111
+
+67:                                               ; preds = %18
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %4, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %17) #13
+  br label %111
+
+71:                                               ; preds = %22, %19
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %4, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %5, align 4
   br label %110
 
-66:                                               ; preds = %17
-  %67 = landingpad { ptr, i32 }
+75:                                               ; preds = %105, %56, %39, %37, %35, %33, %31, %25
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %4, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %5, align 4
-  call void @_ZdlPv(ptr noundef %16) #13
-  br label %110
-
-70:                                               ; preds = %21, %18
-  %71 = landingpad { ptr, i32 }
-          cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %4, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %5, align 4
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %4, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %5, align 4
   br label %109
 
-74:                                               ; preds = %104, %55, %38, %36, %34, %32, %30, %24
-  %75 = landingpad { ptr, i32 }
+79:                                               ; preds = %26
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %4, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %5, align 4
-  br label %108
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %4, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %5, align 4
+  br label %87
 
-78:                                               ; preds = %25
-  %79 = landingpad { ptr, i32 }
+83:                                               ; preds = %28
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %4, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %5, align 4
-  br label %86
-
-82:                                               ; preds = %27
-  %83 = landingpad { ptr, i32 }
-          cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %4, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %5, align 4
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %4, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %5, align 4
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  br label %86
+  br label %87
 
-86:                                               ; preds = %82, %78
+87:                                               ; preds = %83, %79
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  br label %108
+  br label %109
 
-87:                                               ; preds = %41
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %42
+  %89 = landingpad { ptr, i32 }
           cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %4, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %5, align 4
-  br label %95
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %4, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %5, align 4
+  br label %96
 
-91:                                               ; preds = %42
-  %92 = landingpad { ptr, i32 }
+92:                                               ; preds = %43
+  %93 = landingpad { ptr, i32 }
           cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %4, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %5, align 4
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %4, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %5, align 4
   call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #12
-  br label %95
+  br label %96
 
-95:                                               ; preds = %91, %87
+96:                                               ; preds = %92, %88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
-  br label %108
+  br label %109
 
-96:                                               ; preds = %57
-  %97 = landingpad { ptr, i32 }
+97:                                               ; preds = %58
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %4, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %5, align 4
-  call void @_ZdlPv(ptr noundef %56) #13
-  br label %108
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %4, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %57) #13
+  br label %109
 
-100:                                              ; preds = %60
-  %101 = landingpad { ptr, i32 }
+101:                                              ; preds = %61
+  %102 = landingpad { ptr, i32 }
           cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  store ptr %102, ptr %4, align 8
-  %103 = extractvalue { ptr, i32 } %101, 1
-  store i32 %103, ptr %5, align 4
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %4, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %5, align 4
   call void @_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
-  br label %108
+  br label %109
 
-104:                                              ; preds = %61, %49, %43
-  %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx29SelectionParserSymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %106 unwind label %74
+105:                                              ; preds = %62, %50, %44
+  %106 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx29SelectionParserSymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %107 unwind label %75
 
-106:                                              ; preds = %104
-  br label %24, !llvm.loop !7
+107:                                              ; preds = %105
+  br label %25, !llvm.loop !7
 
-107:                                              ; preds = %29
+108:                                              ; preds = %30
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
   call void @_ZNSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 
-108:                                              ; preds = %100, %96, %95, %86, %74
+109:                                              ; preds = %101, %97, %96, %87, %75
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  br label %109
-
-109:                                              ; preds = %108, %70
-  call void @_ZNSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   br label %110
 
-110:                                              ; preds = %109, %66, %62
-  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  call void @_ZN3gmx18CompositeHelpTopicIN12_GLOBAL__N_116KeywordsHelpTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+110:                                              ; preds = %109, %71
+  call void @_ZNSt10unique_ptrIN3gmx26SelectionParserSymbolTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   br label %111
 
-111:                                              ; preds = %110
-  %112 = load ptr, ptr %4, align 8
-  %113 = load i32, ptr %5, align 4
-  %114 = insertvalue { ptr, i32 } poison, ptr %112, 0
-  %115 = insertvalue { ptr, i32 } %114, i32 %113, 1
-  resume { ptr, i32 } %115
+111:                                              ; preds = %110, %67, %63
+  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
+  call void @_ZN3gmx18CompositeHelpTopicIN12_GLOBAL__N_116KeywordsHelpTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+  br label %112
+
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %4, align 8
+  %114 = load i32, ptr %5, align 4
+  %115 = insertvalue { ptr, i32 } poison, ptr %113, 0
+  %116 = insertvalue { ptr, i32 } %115, i32 %114, 1
+  resume { ptr, i32 } %116
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2944,7 +2952,8 @@ define internal void @_ZN3gmx18CompositeHelpTopicIN12_GLOBAL__N_116KeywordsHelpT
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx26AbstractCompositeHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx18CompositeHelpTopicIN12_GLOBAL__N_116KeywordsHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx18CompositeHelpTopicIN12_GLOBAL__N_116KeywordsHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3086,34 +3095,35 @@ define internal void @_ZN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicC2ERKNSt7__c
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordDetailsHelpTopic", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %15
+  %10 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordDetailsHelpTopic", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %16
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordDetailsHelpTopic", ptr %9, i32 0, i32 2
-  %14 = load ptr, ptr %6, align 8
-  store ptr %14, ptr %13, align 8
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordDetailsHelpTopic", ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %6, align 8
+  store ptr %15, ptr %14, align 8
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN3gmx23AbstractSimpleHelpTopicD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx29SelectionParserSymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(8)) #4
@@ -3187,9 +3197,10 @@ define internal void @_ZN3gmx12_GLOBAL__N_117KeywordsHelpTopicD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordsHelpTopic", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_117KeywordsHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordsHelpTopic", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK19gmx_ana_selmethod_tESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   call void @_ZN3gmx18CompositeHelpTopicIN12_GLOBAL__N_116KeywordsHelpTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   ret void
 }
@@ -4372,9 +4383,10 @@ define internal void @_ZN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordDetailsHelpTopic", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_123KeywordDetailsHelpTopicE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::(anonymous namespace)::KeywordDetailsHelpTopic", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @_ZN3gmx23AbstractSimpleHelpTopicD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 }
@@ -6877,7 +6889,8 @@ define internal void @_ZN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118EvaluationHelpTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118EvaluationHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_118EvaluationHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6948,7 +6961,8 @@ define internal void @_ZN3gmx15SimpleHelpTopicIN12_GLOBAL__N_119LimitationsHelpT
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_119LimitationsHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_119LimitationsHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7019,7 +7033,8 @@ define internal void @_ZN3gmx15SimpleHelpTopicIN12_GLOBAL__N_116ExamplesHelpText
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx23AbstractSimpleHelpTopicC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_116ExamplesHelpTextEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3gmx15SimpleHelpTopicIN12_GLOBAL__N_116ExamplesHelpTextEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

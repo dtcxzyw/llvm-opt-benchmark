@@ -235,33 +235,37 @@ if.end60:                                         ; preds = %if.then55, %if.end5
   %36 = load i32, ptr %edx, align 4
   store i32 %36, ptr @OPENSSL_ia32cap_P, align 16
   %37 = load i32, ptr %ecx, align 4
-  store i32 %37, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %38 = load i32, ptr %extended_features, align 4
-  store i32 %38, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 8
-  store i32 0, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 3), align 4
+  %38 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  store i32 %37, ptr %38, align 4
+  %39 = load i32, ptr %extended_features, align 4
+  %40 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2
+  store i32 %39, ptr %40, align 8
+  %41 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 3
+  store i32 0, ptr %41, align 4
   %call61 = call ptr @getenv(ptr noundef @.str) #3
   store ptr %call61, ptr %env1, align 8
-  %39 = load ptr, ptr %env1, align 8
-  %cmp62 = icmp eq ptr %39, null
+  %42 = load ptr, ptr %env1, align 8
+  %cmp62 = icmp eq ptr %42, null
   br i1 %cmp62, label %if.then63, label %if.end64
 
 if.then63:                                        ; preds = %if.end60
   br label %if.end68
 
 if.end64:                                         ; preds = %if.end60
-  %40 = load ptr, ptr %env1, align 8
-  call void @handle_cpu_env(ptr noundef @OPENSSL_ia32cap_P, ptr noundef %40)
-  %41 = load ptr, ptr %env1, align 8
-  %call65 = call ptr @strchr(ptr noundef %41, i32 noundef 58) #4
+  %43 = load ptr, ptr %env1, align 8
+  call void @handle_cpu_env(ptr noundef @OPENSSL_ia32cap_P, ptr noundef %43)
+  %44 = load ptr, ptr %env1, align 8
+  %call65 = call ptr @strchr(ptr noundef %44, i32 noundef 58) #4
   store ptr %call65, ptr %env2, align 8
-  %42 = load ptr, ptr %env2, align 8
-  %cmp66 = icmp ne ptr %42, null
+  %45 = load ptr, ptr %env2, align 8
+  %cmp66 = icmp ne ptr %45, null
   br i1 %cmp66, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %if.end64
-  %43 = load ptr, ptr %env2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %43, i64 1
-  call void @handle_cpu_env(ptr noundef getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), ptr noundef %add.ptr)
+  %46 = load ptr, ptr %env2, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %46, i64 1
+  %47 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2
+  call void @handle_cpu_env(ptr noundef %47, ptr noundef %add.ptr)
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then67, %if.end64, %if.then63

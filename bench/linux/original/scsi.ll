@@ -380,22 +380,23 @@ declare dso_local i32 @__SCT__tp_func_scsi_dispatch_cmd_start(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_scsi_dispatch_cmd_start(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_scsi_dispatch_cmd_start, i64 0, i32 8), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %13, label %5
+  %3 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_scsi_dispatch_cmd_start, i64 0, i32 8
+  %4 = load volatile ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %14, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %10, %5 ], [ %3, %2 ]
-  %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8
-  tail call void %7(ptr noundef %9, ptr noundef %1) #15
-  %10 = getelementptr i8, ptr %6, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %5, !llvm.loop !5
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %11, %6 ], [ %4, %2 ]
+  %8 = load volatile ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void %8(ptr noundef %10, ptr noundef %1) #15
+  %11 = getelementptr i8, ptr %7, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %6, !llvm.loop !5
 
-13:                                               ; preds = %5, %2
+14:                                               ; preds = %6, %2
   ret i32 0
 }
 
@@ -415,22 +416,23 @@ declare dso_local i32 @__SCT__tp_func_scsi_dispatch_cmd_error(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_scsi_dispatch_cmd_error(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_scsi_dispatch_cmd_error, i64 0, i32 8), align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %14, label %6
+  %4 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_scsi_dispatch_cmd_error, i64 0, i32 8
+  %5 = load volatile ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %15, label %7
 
-6:                                                ; preds = %6, %3
-  %7 = phi ptr [ %11, %6 ], [ %4, %3 ]
-  %8 = load volatile ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8
-  tail call void %8(ptr noundef %10, ptr noundef %1, i32 noundef %2) #15
-  %11 = getelementptr i8, ptr %7, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %6, !llvm.loop !8
+7:                                                ; preds = %7, %3
+  %8 = phi ptr [ %12, %7 ], [ %5, %3 ]
+  %9 = load volatile ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load ptr, ptr %10, align 8
+  tail call void %9(ptr noundef %11, ptr noundef %1, i32 noundef %2) #15
+  %12 = getelementptr i8, ptr %8, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %7, !llvm.loop !8
 
-14:                                               ; preds = %6, %3
+15:                                               ; preds = %7, %3
   ret i32 0
 }
 
@@ -444,22 +446,23 @@ declare dso_local i32 @__SCT__tp_func_scsi_dispatch_cmd_done(ptr noundef, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_scsi_dispatch_cmd_done(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_scsi_dispatch_cmd_done, i64 0, i32 8), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %13, label %5
+  %3 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_scsi_dispatch_cmd_done, i64 0, i32 8
+  %4 = load volatile ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %14, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %10, %5 ], [ %3, %2 ]
-  %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8
-  tail call void %7(ptr noundef %9, ptr noundef %1) #15
-  %10 = getelementptr i8, ptr %6, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %5, !llvm.loop !9
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %11, %6 ], [ %4, %2 ]
+  %8 = load volatile ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void %8(ptr noundef %10, ptr noundef %1) #15
+  %11 = getelementptr i8, ptr %7, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %6, !llvm.loop !9
 
-13:                                               ; preds = %5, %2
+14:                                               ; preds = %6, %2
   ret i32 0
 }
 
@@ -473,22 +476,23 @@ declare dso_local i32 @__SCT__tp_func_scsi_dispatch_cmd_timeout(ptr noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_scsi_dispatch_cmd_timeout(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_scsi_dispatch_cmd_timeout, i64 0, i32 8), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %13, label %5
+  %3 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_scsi_dispatch_cmd_timeout, i64 0, i32 8
+  %4 = load volatile ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %14, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %10, %5 ], [ %3, %2 ]
-  %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8
-  tail call void %7(ptr noundef %9, ptr noundef %1) #15
-  %10 = getelementptr i8, ptr %6, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %5, !llvm.loop !10
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %11, %6 ], [ %4, %2 ]
+  %8 = load volatile ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void %8(ptr noundef %10, ptr noundef %1) #15
+  %11 = getelementptr i8, ptr %7, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %6, !llvm.loop !10
 
-13:                                               ; preds = %5, %2
+14:                                               ; preds = %6, %2
   ret i32 0
 }
 
@@ -502,22 +506,23 @@ declare dso_local i32 @__SCT__tp_func_scsi_eh_wakeup(ptr noundef, ptr noundef) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_scsi_eh_wakeup(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_scsi_eh_wakeup, i64 0, i32 8), align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %13, label %5
+  %3 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_scsi_eh_wakeup, i64 0, i32 8
+  %4 = load volatile ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %14, label %6
 
-5:                                                ; preds = %5, %2
-  %6 = phi ptr [ %10, %5 ], [ %3, %2 ]
-  %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8
-  tail call void %7(ptr noundef %9, ptr noundef %1) #15
-  %10 = getelementptr i8, ptr %6, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %5, !llvm.loop !11
+6:                                                ; preds = %6, %2
+  %7 = phi ptr [ %11, %6 ], [ %4, %2 ]
+  %8 = load volatile ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void %8(ptr noundef %10, ptr noundef %1) #15
+  %11 = getelementptr i8, ptr %7, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %6, !llvm.loop !11
 
-13:                                               ; preds = %5, %2
+14:                                               ; preds = %6, %2
   ret i32 0
 }
 
@@ -2330,117 +2335,118 @@ define dso_local void @scsi_cdl_check(ptr noundef %0) local_unnamed_addr #1 alig
   %7 = load i64, ptr %6, align 4
   %8 = and i64 %7, -36028797018963969
   store i64 %8, ptr %6, align 4
-  br label %79
+  br label %80
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %11 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 64) #19
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %17
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %11 = load ptr, ptr %10, align 16
+  %12 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 64) #19
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %18
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 332
-  %15 = load i64, ptr %14, align 4
-  %16 = and i64 %15, -36028797018963969
-  store i64 %16, ptr %14, align 4
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %0, i64 332
+  %16 = load i64, ptr %15, align 4
+  %17 = and i64 %16, -36028797018963969
+  store i64 %17, ptr %15, align 4
+  br label %80
+
+18:                                               ; preds = %9
+  %19 = tail call i32 @scsi_report_opcode(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 64, i8 noundef zeroext -120, i16 noundef zeroext 0), !range !23
+  %20 = icmp slt i32 %19, 1
+  br i1 %20, label %31, label %21
+
+21:                                               ; preds = %18
+  %22 = getelementptr i8, ptr %12, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = and i8 %23, 3
+  %25 = icmp eq i8 %24, 3
+  br i1 %25, label %26, label %31
+
+26:                                               ; preds = %21
+  %27 = lshr i8 %23, 3
+  %28 = and i8 %27, 3
+  %29 = add nsw i8 %28, -1
+  %30 = icmp ult i8 %29, 2
+  br i1 %30, label %70, label %31
+
+31:                                               ; preds = %26, %21, %18
+  %32 = tail call i32 @scsi_report_opcode(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 64, i8 noundef zeroext -118, i16 noundef zeroext 0), !range !23
+  %33 = icmp slt i32 %32, 1
+  br i1 %33, label %44, label %34
+
+34:                                               ; preds = %31
+  %35 = getelementptr i8, ptr %12, i64 1
+  %36 = load i8, ptr %35, align 1
+  %37 = and i8 %36, 3
+  %38 = icmp eq i8 %37, 3
+  br i1 %38, label %39, label %44
+
+39:                                               ; preds = %34
+  %40 = lshr i8 %36, 3
+  %41 = and i8 %40, 3
+  %42 = add nsw i8 %41, -1
+  %43 = icmp ult i8 %42, 2
+  br i1 %43, label %70, label %44
+
+44:                                               ; preds = %39, %34, %31
+  %45 = tail call i32 @scsi_report_opcode(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 64, i8 noundef zeroext 127, i16 noundef zeroext 9), !range !23
+  %46 = icmp slt i32 %45, 1
+  br i1 %46, label %57, label %47
+
+47:                                               ; preds = %44
+  %48 = getelementptr i8, ptr %12, i64 1
+  %49 = load i8, ptr %48, align 1
+  %50 = and i8 %49, 3
+  %51 = icmp eq i8 %50, 3
+  br i1 %51, label %52, label %57
+
+52:                                               ; preds = %47
+  %53 = lshr i8 %49, 3
+  %54 = and i8 %53, 3
+  %55 = add nsw i8 %54, -1
+  %56 = icmp ult i8 %55, 2
+  br i1 %56, label %70, label %57
+
+57:                                               ; preds = %52, %47, %44
+  %58 = tail call i32 @scsi_report_opcode(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 64, i8 noundef zeroext 127, i16 noundef zeroext 11), !range !23
+  %59 = icmp slt i32 %58, 1
+  br i1 %59, label %75, label %60
+
+60:                                               ; preds = %57
+  %61 = getelementptr i8, ptr %12, i64 1
+  %62 = load i8, ptr %61, align 1
+  %63 = and i8 %62, 3
+  %64 = icmp eq i8 %63, 3
+  br i1 %64, label %65, label %75
+
+65:                                               ; preds = %60
+  %66 = lshr i8 %62, 3
+  %67 = and i8 %66, 3
+  %68 = add nsw i8 %67, -1
+  %69 = icmp ult i8 %68, 2
+  br i1 %69, label %70, label %75
+
+70:                                               ; preds = %65, %52, %39, %26
+  %71 = getelementptr inbounds i8, ptr %0, i64 332
+  %72 = load i64, ptr %71, align 4
+  %73 = and i64 %72, -36028797053042689
+  %74 = or disjoint i64 %73, 36028797052518400
+  store i64 %74, ptr %71, align 4
   br label %79
 
-17:                                               ; preds = %9
-  %18 = tail call i32 @scsi_report_opcode(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 64, i8 noundef zeroext -120, i16 noundef zeroext 0), !range !23
-  %19 = icmp slt i32 %18, 1
-  br i1 %19, label %30, label %20
-
-20:                                               ; preds = %17
-  %21 = getelementptr i8, ptr %11, i64 1
-  %22 = load i8, ptr %21, align 1
-  %23 = and i8 %22, 3
-  %24 = icmp eq i8 %23, 3
-  br i1 %24, label %25, label %30
-
-25:                                               ; preds = %20
-  %26 = lshr i8 %22, 3
-  %27 = and i8 %26, 3
-  %28 = add nsw i8 %27, -1
-  %29 = icmp ult i8 %28, 2
-  br i1 %29, label %69, label %30
-
-30:                                               ; preds = %25, %20, %17
-  %31 = tail call i32 @scsi_report_opcode(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 64, i8 noundef zeroext -118, i16 noundef zeroext 0), !range !23
-  %32 = icmp slt i32 %31, 1
-  br i1 %32, label %43, label %33
-
-33:                                               ; preds = %30
-  %34 = getelementptr i8, ptr %11, i64 1
-  %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 3
-  %37 = icmp eq i8 %36, 3
-  br i1 %37, label %38, label %43
-
-38:                                               ; preds = %33
-  %39 = lshr i8 %35, 3
-  %40 = and i8 %39, 3
-  %41 = add nsw i8 %40, -1
-  %42 = icmp ult i8 %41, 2
-  br i1 %42, label %69, label %43
-
-43:                                               ; preds = %38, %33, %30
-  %44 = tail call i32 @scsi_report_opcode(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 64, i8 noundef zeroext 127, i16 noundef zeroext 9), !range !23
-  %45 = icmp slt i32 %44, 1
-  br i1 %45, label %56, label %46
-
-46:                                               ; preds = %43
-  %47 = getelementptr i8, ptr %11, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 3
-  %50 = icmp eq i8 %49, 3
-  br i1 %50, label %51, label %56
-
-51:                                               ; preds = %46
-  %52 = lshr i8 %48, 3
-  %53 = and i8 %52, 3
-  %54 = add nsw i8 %53, -1
-  %55 = icmp ult i8 %54, 2
-  br i1 %55, label %69, label %56
-
-56:                                               ; preds = %51, %46, %43
-  %57 = tail call i32 @scsi_report_opcode(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 64, i8 noundef zeroext 127, i16 noundef zeroext 11), !range !23
-  %58 = icmp slt i32 %57, 1
-  br i1 %58, label %74, label %59
-
-59:                                               ; preds = %56
-  %60 = getelementptr i8, ptr %11, i64 1
-  %61 = load i8, ptr %60, align 1
-  %62 = and i8 %61, 3
-  %63 = icmp eq i8 %62, 3
-  br i1 %63, label %64, label %74
-
-64:                                               ; preds = %59
-  %65 = lshr i8 %61, 3
-  %66 = and i8 %65, 3
-  %67 = add nsw i8 %66, -1
-  %68 = icmp ult i8 %67, 2
-  br i1 %68, label %69, label %74
-
-69:                                               ; preds = %64, %51, %38, %25
-  %70 = getelementptr inbounds i8, ptr %0, i64 332
-  %71 = load i64, ptr %70, align 4
-  %72 = and i64 %71, -36028797053042689
-  %73 = or disjoint i64 %72, 36028797052518400
-  store i64 %73, ptr %70, align 4
-  br label %78
-
-74:                                               ; preds = %64, %59, %56
-  %75 = getelementptr inbounds i8, ptr %0, i64 332
-  %76 = load i64, ptr %75, align 4
-  %77 = and i64 %76, -36028797018963969
-  store i64 %77, ptr %75, align 4
-  br label %78
-
-78:                                               ; preds = %74, %69
-  tail call void @kfree(ptr noundef nonnull %11) #15
+75:                                               ; preds = %65, %60, %57
+  %76 = getelementptr inbounds i8, ptr %0, i64 332
+  %77 = load i64, ptr %76, align 4
+  %78 = and i64 %77, -36028797018963969
+  store i64 %78, ptr %76, align 4
   br label %79
 
-79:                                               ; preds = %78, %13, %5
+79:                                               ; preds = %75, %70
+  tail call void @kfree(ptr noundef nonnull %12) #15
+  br label %80
+
+80:                                               ; preds = %79, %14, %5
   ret void
 }
 

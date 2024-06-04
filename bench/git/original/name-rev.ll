@@ -1141,60 +1141,62 @@ entry:
   %i = alloca i32, align 4
   %e = alloca ptr, align 8
   %0 = load ptr, ptr @tip_table, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %conv = sext i32 %1 to i64
+  %1 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %2 = load i32, ptr %1, align 8
+  %conv = sext i32 %2 to i64
   call void @sane_qsort(ptr noundef %0, i64 noundef %conv, i64 noundef 72, ptr noundef @cmp_by_tag_and_age)
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %cmp = icmp slt i32 %2, %3
+  %3 = load i32, ptr %i, align 4
+  %4 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8
+  %cmp = icmp slt i32 %3, %5
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr @tip_table, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.tip_table_entry, ptr %4, i64 %idxprom
+  %6 = load ptr, ptr @tip_table, align 8
+  %7 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %7 to i64
+  %arrayidx = getelementptr inbounds %struct.tip_table_entry, ptr %6, i64 %idxprom
   store ptr %arrayidx, ptr %e, align 8
-  %6 = load ptr, ptr %e, align 8
-  %commit = getelementptr inbounds %struct.tip_table_entry, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %commit, align 8
-  %tobool = icmp ne ptr %7, null
+  %8 = load ptr, ptr %e, align 8
+  %commit = getelementptr inbounds %struct.tip_table_entry, ptr %8, i32 0, i32 2
+  %9 = load ptr, ptr %commit, align 8
+  %tobool = icmp ne ptr %9, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %8 = load ptr, ptr %e, align 8
-  %commit2 = getelementptr inbounds %struct.tip_table_entry, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %commit2, align 8
   %10 = load ptr, ptr %e, align 8
-  %refname = getelementptr inbounds %struct.tip_table_entry, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %refname, align 8
+  %commit2 = getelementptr inbounds %struct.tip_table_entry, ptr %10, i32 0, i32 2
+  %11 = load ptr, ptr %commit2, align 8
   %12 = load ptr, ptr %e, align 8
-  %taggerdate = getelementptr inbounds %struct.tip_table_entry, ptr %12, i32 0, i32 3
-  %13 = load i64, ptr %taggerdate, align 8
+  %refname = getelementptr inbounds %struct.tip_table_entry, ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %refname, align 8
   %14 = load ptr, ptr %e, align 8
-  %from_tag = getelementptr inbounds %struct.tip_table_entry, ptr %14, i32 0, i32 4
+  %taggerdate = getelementptr inbounds %struct.tip_table_entry, ptr %14, i32 0, i32 3
+  %15 = load i64, ptr %taggerdate, align 8
+  %16 = load ptr, ptr %e, align 8
+  %from_tag = getelementptr inbounds %struct.tip_table_entry, ptr %16, i32 0, i32 4
   %bf.load = load i8, ptr %from_tag, align 8
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext i8 %bf.clear to i32
-  %15 = load ptr, ptr %e, align 8
-  %deref = getelementptr inbounds %struct.tip_table_entry, ptr %15, i32 0, i32 4
+  %17 = load ptr, ptr %e, align 8
+  %deref = getelementptr inbounds %struct.tip_table_entry, ptr %17, i32 0, i32 4
   %bf.load3 = load i8, ptr %deref, align 8
   %bf.lshr = lshr i8 %bf.load3, 1
   %bf.clear4 = and i8 %bf.lshr, 1
   %bf.cast5 = zext i8 %bf.clear4 to i32
-  call void @name_rev(ptr noundef %9, ptr noundef %11, i64 noundef %13, i32 noundef %bf.cast, i32 noundef %bf.cast5)
+  call void @name_rev(ptr noundef %11, ptr noundef %13, i64 noundef %15, i32 noundef %bf.cast, i32 noundef %bf.cast5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %16 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %16, 1
+  %18 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %18, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !13
 
@@ -1724,42 +1726,51 @@ if.end5:                                          ; preds = %if.end, %if.then
   br label %do.body
 
 do.body:                                          ; preds = %if.end5
-  %4 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %add = add nsw i32 %4, 1
-  %5 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 2), align 4
-  %cmp = icmp sgt i32 %add, %5
+  %4 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8
+  %add = add nsw i32 %5, 1
+  %6 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 2
+  %7 = load i32, ptr %6, align 4
+  %cmp = icmp sgt i32 %add, %7
   br i1 %cmp, label %if.then6, label %if.end19
 
 if.then6:                                         ; preds = %do.body
-  %6 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 2), align 4
-  %add7 = add nsw i32 %6, 16
+  %8 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 2
+  %9 = load i32, ptr %8, align 4
+  %add7 = add nsw i32 %9, 16
   %mul = mul nsw i32 %add7, 3
   %div = sdiv i32 %mul, 2
-  %7 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %add8 = add nsw i32 %7, 1
+  %10 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  %add8 = add nsw i32 %11, 1
   %cmp9 = icmp slt i32 %div, %add8
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.then6
-  %8 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %add11 = add nsw i32 %8, 1
-  store i32 %add11, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 2), align 4
+  %12 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  %add11 = add nsw i32 %13, 1
+  %14 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 2
+  store i32 %add11, ptr %14, align 4
   br label %if.end16
 
 if.else12:                                        ; preds = %if.then6
-  %9 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 2), align 4
-  %add13 = add nsw i32 %9, 16
+  %15 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 2
+  %16 = load i32, ptr %15, align 4
+  %add13 = add nsw i32 %16, 16
   %mul14 = mul nsw i32 %add13, 3
   %div15 = sdiv i32 %mul14, 2
-  store i32 %div15, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 2), align 4
+  %17 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 2
+  store i32 %div15, ptr %17, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else12, %if.then10
-  %10 = load ptr, ptr @tip_table, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 2), align 4
-  %conv = sext i32 %11 to i64
+  %18 = load ptr, ptr @tip_table, align 8
+  %19 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 2
+  %20 = load i32, ptr %19, align 4
+  %conv = sext i32 %20 to i64
   %call17 = call i64 @st_mult(i64 noundef 72, i64 noundef %conv)
-  %call18 = call ptr @xrealloc(ptr noundef %10, i64 noundef %call17)
+  %call18 = call ptr @xrealloc(ptr noundef %18, i64 noundef %call17)
   store ptr %call18, ptr @tip_table, align 8
   br label %if.end19
 
@@ -1767,77 +1778,86 @@ if.end19:                                         ; preds = %if.end16, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end19
-  %12 = load ptr, ptr @tip_table, align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds %struct.tip_table_entry, ptr %12, i64 %idxprom
+  %21 = load ptr, ptr @tip_table, align 8
+  %22 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  %idxprom = sext i32 %23 to i64
+  %arrayidx = getelementptr inbounds %struct.tip_table_entry, ptr %21, i64 %idxprom
   %oid20 = getelementptr inbounds %struct.tip_table_entry, ptr %arrayidx, i32 0, i32 0
-  %14 = load ptr, ptr %oid.addr, align 8
-  call void @oidcpy(ptr noundef %oid20, ptr noundef %14)
-  %15 = load ptr, ptr %short_refname, align 8
-  %tobool21 = icmp ne ptr %15, null
+  %24 = load ptr, ptr %oid.addr, align 8
+  call void @oidcpy(ptr noundef %oid20, ptr noundef %24)
+  %25 = load ptr, ptr %short_refname, align 8
+  %tobool21 = icmp ne ptr %25, null
   br i1 %tobool21, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %do.end
-  %16 = load ptr, ptr %short_refname, align 8
+  %26 = load ptr, ptr %short_refname, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %do.end
-  %17 = load ptr, ptr %refname.addr, align 8
-  %call22 = call ptr @xstrdup(ptr noundef %17)
+  %27 = load ptr, ptr %refname.addr, align 8
+  %call22 = call ptr @xstrdup(ptr noundef %27)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %16, %cond.true ], [ %call22, %cond.false ]
-  %18 = load ptr, ptr @tip_table, align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %idxprom23 = sext i32 %19 to i64
-  %arrayidx24 = getelementptr inbounds %struct.tip_table_entry, ptr %18, i64 %idxprom23
+  %cond = phi ptr [ %26, %cond.true ], [ %call22, %cond.false ]
+  %28 = load ptr, ptr @tip_table, align 8
+  %29 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8
+  %idxprom23 = sext i32 %30 to i64
+  %arrayidx24 = getelementptr inbounds %struct.tip_table_entry, ptr %28, i64 %idxprom23
   %refname25 = getelementptr inbounds %struct.tip_table_entry, ptr %arrayidx24, i32 0, i32 1
   store ptr %cond, ptr %refname25, align 8
-  %20 = load ptr, ptr %commit.addr, align 8
-  %21 = load ptr, ptr @tip_table, align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %idxprom26 = sext i32 %22 to i64
-  %arrayidx27 = getelementptr inbounds %struct.tip_table_entry, ptr %21, i64 %idxprom26
+  %31 = load ptr, ptr %commit.addr, align 8
+  %32 = load ptr, ptr @tip_table, align 8
+  %33 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %34 = load i32, ptr %33, align 8
+  %idxprom26 = sext i32 %34 to i64
+  %arrayidx27 = getelementptr inbounds %struct.tip_table_entry, ptr %32, i64 %idxprom26
   %commit28 = getelementptr inbounds %struct.tip_table_entry, ptr %arrayidx27, i32 0, i32 2
-  store ptr %20, ptr %commit28, align 8
-  %23 = load i64, ptr %taggerdate.addr, align 8
-  %24 = load ptr, ptr @tip_table, align 8
-  %25 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %idxprom29 = sext i32 %25 to i64
-  %arrayidx30 = getelementptr inbounds %struct.tip_table_entry, ptr %24, i64 %idxprom29
+  store ptr %31, ptr %commit28, align 8
+  %35 = load i64, ptr %taggerdate.addr, align 8
+  %36 = load ptr, ptr @tip_table, align 8
+  %37 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8
+  %idxprom29 = sext i32 %38 to i64
+  %arrayidx30 = getelementptr inbounds %struct.tip_table_entry, ptr %36, i64 %idxprom29
   %taggerdate31 = getelementptr inbounds %struct.tip_table_entry, ptr %arrayidx30, i32 0, i32 3
-  store i64 %23, ptr %taggerdate31, align 8
-  %26 = load i32, ptr %from_tag.addr, align 4
-  %27 = load ptr, ptr @tip_table, align 8
-  %28 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %idxprom32 = sext i32 %28 to i64
-  %arrayidx33 = getelementptr inbounds %struct.tip_table_entry, ptr %27, i64 %idxprom32
+  store i64 %35, ptr %taggerdate31, align 8
+  %39 = load i32, ptr %from_tag.addr, align 4
+  %40 = load ptr, ptr @tip_table, align 8
+  %41 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8
+  %idxprom32 = sext i32 %42 to i64
+  %arrayidx33 = getelementptr inbounds %struct.tip_table_entry, ptr %40, i64 %idxprom32
   %from_tag34 = getelementptr inbounds %struct.tip_table_entry, ptr %arrayidx33, i32 0, i32 4
-  %29 = trunc i32 %26 to i8
+  %43 = trunc i32 %39 to i8
   %bf.load = load i8, ptr %from_tag34, align 8
-  %bf.value = and i8 %29, 1
+  %bf.value = and i8 %43, 1
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or i8 %bf.clear, %bf.value
   store i8 %bf.set, ptr %from_tag34, align 8
-  %30 = load i32, ptr %deref.addr, align 4
-  %31 = load ptr, ptr @tip_table, align 8
-  %32 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %idxprom35 = sext i32 %32 to i64
-  %arrayidx36 = getelementptr inbounds %struct.tip_table_entry, ptr %31, i64 %idxprom35
+  %44 = load i32, ptr %deref.addr, align 4
+  %45 = load ptr, ptr @tip_table, align 8
+  %46 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %47 = load i32, ptr %46, align 8
+  %idxprom35 = sext i32 %47 to i64
+  %arrayidx36 = getelementptr inbounds %struct.tip_table_entry, ptr %45, i64 %idxprom35
   %deref37 = getelementptr inbounds %struct.tip_table_entry, ptr %arrayidx36, i32 0, i32 4
-  %33 = trunc i32 %30 to i8
+  %48 = trunc i32 %44 to i8
   %bf.load38 = load i8, ptr %deref37, align 8
-  %bf.value39 = and i8 %33, 1
+  %bf.value39 = and i8 %48, 1
   %bf.shl = shl i8 %bf.value39, 1
   %bf.clear40 = and i8 %bf.load38, -3
   %bf.set41 = or i8 %bf.clear40, %bf.shl
   store i8 %bf.set41, ptr %deref37, align 8
-  %34 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %inc = add nsw i32 %34, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 3), align 8
+  %49 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %50 = load i32, ptr %49, align 8
+  %inc = add nsw i32 %50, 1
+  %51 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  store i32 %inc, ptr %51, align 8
+  %52 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 3
+  store i32 0, ptr %52, align 8
   ret void
 }
 
@@ -3098,8 +3118,9 @@ entry:
   br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %tobool1 = icmp ne i32 %1, 0
+  %1 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %2 = load i32, ptr %1, align 8
+  %tobool1 = icmp ne i32 %2, 0
   br i1 %tobool1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -3107,38 +3128,42 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %2 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 3), align 8
-  %tobool2 = icmp ne i32 %2, 0
+  %3 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 3
+  %4 = load i32, ptr %3, align 8
+  %tobool2 = icmp ne i32 %4, 0
   br i1 %tobool2, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %3 = load ptr, ptr @tip_table, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %conv = sext i32 %4 to i64
-  call void @sane_qsort(ptr noundef %3, i64 noundef %conv, i64 noundef 72, ptr noundef @tipcmp)
-  store i32 1, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 3), align 8
+  %5 = load ptr, ptr @tip_table, align 8
+  %6 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %7 = load i32, ptr %6, align 8
+  %conv = sext i32 %7 to i64
+  call void @sane_qsort(ptr noundef %5, i64 noundef %conv, i64 noundef 72, ptr noundef @tipcmp)
+  %8 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 3
+  store i32 1, ptr %8, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %5 = load ptr, ptr %o.addr, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr @tip_table, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.tip_table, ptr @tip_table, i32 0, i32 1), align 8
-  %conv5 = sext i32 %7 to i64
-  %call = call i32 @oid_pos(ptr noundef %oid, ptr noundef %6, i64 noundef %conv5, ptr noundef @nth_tip_table_ent)
+  %9 = load ptr, ptr %o.addr, align 8
+  %oid = getelementptr inbounds %struct.object, ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr @tip_table, align 8
+  %11 = getelementptr inbounds %struct.tip_table, ptr @tip_table, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  %conv5 = sext i32 %12 to i64
+  %call = call i32 @oid_pos(ptr noundef %oid, ptr noundef %10, i64 noundef %conv5, ptr noundef @nth_tip_table_ent)
   store i32 %call, ptr %found, align 4
-  %8 = load i32, ptr %found, align 4
-  %cmp = icmp sle i32 0, %8
+  %13 = load i32, ptr %found, align 4
+  %cmp = icmp sle i32 0, %13
   br i1 %cmp, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
-  %9 = load ptr, ptr @tip_table, align 8
-  %10 = load i32, ptr %found, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds %struct.tip_table_entry, ptr %9, i64 %idxprom
+  %14 = load ptr, ptr @tip_table, align 8
+  %15 = load i32, ptr %found, align 4
+  %idxprom = sext i32 %15 to i64
+  %arrayidx = getelementptr inbounds %struct.tip_table_entry, ptr %14, i64 %idxprom
   %refname = getelementptr inbounds %struct.tip_table_entry, ptr %arrayidx, i32 0, i32 1
-  %11 = load ptr, ptr %refname, align 8
-  store ptr %11, ptr %retval, align 8
+  %16 = load ptr, ptr %refname, align 8
+  store ptr %16, ptr %retval, align 8
   br label %return
 
 if.end8:                                          ; preds = %if.end4
@@ -3146,8 +3171,8 @@ if.end8:                                          ; preds = %if.end4
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %17 = load ptr, ptr %retval, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable

@@ -26,22 +26,25 @@ define dso_local void @init_tablespaces() #0 {
   call void @get_tablespace_paths()
   call void @set_tablespace_directory_suffix(ptr noundef @old_cluster)
   call void @set_tablespace_directory_suffix(ptr noundef @new_cluster)
-  %1 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 4), align 8
-  %2 = icmp sgt i32 %1, 0
-  br i1 %2, label %3, label %9
+  %1 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 4
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp sgt i32 %2, 0
+  br i1 %3, label %4, label %12
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 12), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i32 0, i32 12), align 8
-  %6 = call i32 @strcmp(ptr noundef %4, ptr noundef %5) #6
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %9
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 12
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.ClusterInfo, ptr @new_cluster, i32 0, i32 12
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 @strcmp(ptr noundef %6, ptr noundef %8) #6
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %12
 
-8:                                                ; preds = %3
+11:                                               ; preds = %4
   call void (ptr, ...) @pg_fatal(ptr noundef @.str) #7
   unreachable
 
-9:                                                ; preds = %3, %0
+12:                                               ; preds = %4, %0
   ret void
 }
 
@@ -63,115 +66,125 @@ define internal void @get_tablespace_paths() #0 {
   store ptr %12, ptr %2, align 8
   %13 = load ptr, ptr %2, align 8
   %14 = call i32 @PQntuples(ptr noundef %13)
-  store i32 %14, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 4), align 8
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %21
+  %15 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 4
+  store i32 %14, ptr %15, align 8
+  %16 = icmp ne i32 %14, 0
+  br i1 %16, label %17, label %24
 
-16:                                               ; preds = %0
-  %17 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 4), align 8
-  %18 = sext i32 %17 to i64
-  %19 = mul i64 %18, 8
-  %20 = call ptr @pg_malloc(i64 noundef %19)
-  store ptr %20, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 3), align 8
-  br label %22
+17:                                               ; preds = %0
+  %18 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = sext i32 %19 to i64
+  %21 = mul i64 %20, 8
+  %22 = call ptr @pg_malloc(i64 noundef %21)
+  %23 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 3
+  store ptr %22, ptr %23, align 8
+  br label %26
 
-21:                                               ; preds = %0
-  store ptr null, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 3), align 8
-  br label %22
+24:                                               ; preds = %0
+  %25 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 3
+  store ptr null, ptr %25, align 8
+  br label %26
 
-22:                                               ; preds = %21, %16
-  %23 = load ptr, ptr %2, align 8
-  %24 = call i32 @PQfnumber(ptr noundef %23, ptr noundef @.str.4)
-  store i32 %24, ptr %4, align 4
+26:                                               ; preds = %24, %17
+  %27 = load ptr, ptr %2, align 8
+  %28 = call i32 @PQfnumber(ptr noundef %27, ptr noundef @.str.4)
+  store i32 %28, ptr %4, align 4
   store i32 0, ptr %3, align 4
-  br label %25
+  br label %29
 
-25:                                               ; preds = %78, %22
-  %26 = load i32, ptr %3, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 4), align 8
-  %28 = icmp slt i32 %26, %27
-  br i1 %28, label %29, label %81
+29:                                               ; preds = %88, %26
+  %30 = load i32, ptr %3, align 4
+  %31 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 4
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp slt i32 %30, %32
+  br i1 %33, label %34, label %91
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %2, align 8
-  %31 = load i32, ptr %3, align 4
-  %32 = load i32, ptr %4, align 4
-  %33 = call ptr @PQgetvalue(ptr noundef %30, i32 noundef %31, i32 noundef %32)
-  %34 = call ptr @pg_strdup(ptr noundef %33)
-  %35 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 3), align 8
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %2, align 8
   %36 = load i32, ptr %3, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr ptr, ptr %35, i64 %37
-  store ptr %34, ptr %38, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 3), align 8
-  %40 = load i32, ptr %3, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr ptr, ptr %39, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = call i32 @stat(ptr noundef %43, ptr noundef %6) #8
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %66
+  %37 = load i32, ptr %4, align 4
+  %38 = call ptr @PQgetvalue(ptr noundef %35, i32 noundef %36, i32 noundef %37)
+  %39 = call ptr @pg_strdup(ptr noundef %38)
+  %40 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %3, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr ptr, ptr %41, i64 %43
+  store ptr %39, ptr %44, align 8
+  %45 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 3
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %3, align 4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr ptr, ptr %46, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  %51 = call i32 @stat(ptr noundef %50, ptr noundef %6) #8
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %75
 
-46:                                               ; preds = %29
-  %47 = call ptr @__errno_location() #9
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, 2
-  br i1 %49, label %50, label %56
+53:                                               ; preds = %34
+  %54 = call ptr @__errno_location() #9
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, 2
+  br i1 %56, label %57, label %64
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 3), align 8
-  %52 = load i32, ptr %3, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr ptr, ptr %51, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  call void (i32, ptr, ...) @report_status(i32 noundef 5, ptr noundef @.str.5, ptr noundef %55)
-  br label %65
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i32, ptr %3, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr ptr, ptr %59, i64 %61
+  %63 = load ptr, ptr %62, align 8
+  call void (i32, ptr, ...) @report_status(i32 noundef 5, ptr noundef @.str.5, ptr noundef %63)
+  br label %74
 
-56:                                               ; preds = %46
-  %57 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 3), align 8
-  %58 = load i32, ptr %3, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr ptr, ptr %57, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr @__errno_location() #9
-  %63 = load i32, ptr %62, align 4
-  %64 = call ptr @pg_strerror(i32 noundef %63)
-  call void (i32, ptr, ...) @report_status(i32 noundef 5, ptr noundef @.str.6, ptr noundef %61, ptr noundef %64)
-  br label %65
+64:                                               ; preds = %53
+  %65 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 3
+  %66 = load ptr, ptr %65, align 8
+  %67 = load i32, ptr %3, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr ptr, ptr %66, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  %71 = call ptr @__errno_location() #9
+  %72 = load i32, ptr %71, align 4
+  %73 = call ptr @pg_strerror(i32 noundef %72)
+  call void (i32, ptr, ...) @report_status(i32 noundef 5, ptr noundef @.str.6, ptr noundef %70, ptr noundef %73)
+  br label %74
 
-65:                                               ; preds = %56, %50
-  br label %66
+74:                                               ; preds = %64, %57
+  br label %75
 
-66:                                               ; preds = %65, %29
-  %67 = getelementptr inbounds %struct.stat, ptr %6, i32 0, i32 3
-  %68 = load i32, ptr %67, align 8
-  %69 = and i32 %68, 61440
-  %70 = icmp eq i32 %69, 16384
-  br i1 %70, label %77, label %71
+75:                                               ; preds = %74, %34
+  %76 = getelementptr inbounds %struct.stat, ptr %6, i32 0, i32 3
+  %77 = load i32, ptr %76, align 8
+  %78 = and i32 %77, 61440
+  %79 = icmp eq i32 %78, 16384
+  br i1 %79, label %87, label %80
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 3), align 8
-  %73 = load i32, ptr %3, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr ptr, ptr %72, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  call void (i32, ptr, ...) @report_status(i32 noundef 5, ptr noundef @.str.7, ptr noundef %76)
-  br label %77
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i32, ptr %3, align 4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr ptr, ptr %82, i64 %84
+  %86 = load ptr, ptr %85, align 8
+  call void (i32, ptr, ...) @report_status(i32 noundef 5, ptr noundef @.str.7, ptr noundef %86)
+  br label %87
 
-77:                                               ; preds = %71, %66
-  br label %78
+87:                                               ; preds = %80, %75
+  br label %88
 
-78:                                               ; preds = %77
-  %79 = load i32, ptr %3, align 4
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %3, align 4
-  br label %25, !llvm.loop !5
+88:                                               ; preds = %87
+  %89 = load i32, ptr %3, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %3, align 4
+  br label %29, !llvm.loop !5
 
-81:                                               ; preds = %25
-  %82 = load ptr, ptr %2, align 8
-  call void @PQclear(ptr noundef %82)
-  %83 = load ptr, ptr %1, align 8
-  call void @PQfinish(ptr noundef %83)
+91:                                               ; preds = %29
+  %92 = load ptr, ptr %2, align 8
+  call void @PQclear(ptr noundef %92)
+  %93 = load ptr, ptr %1, align 8
+  call void @PQfinish(ptr noundef %93)
   ret void
 }
 

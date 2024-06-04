@@ -497,8 +497,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @have_rdrand() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 1073741824
+  %0 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 1073741824
   %cmp = icmp ne i32 %and, 0
   %conv = zext i1 %cmp to i32
   ret i32 %conv

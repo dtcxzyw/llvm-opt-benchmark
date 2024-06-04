@@ -94,45 +94,46 @@ module asm ".previous\09\09\09\09\09"
 define internal i32 @dmi_id_init() #0 section ".init.text" align 16 {
   %1 = load i32, ptr @dmi_available, align 4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %21, label %3
+  br i1 %2, label %22, label %3
 
 3:                                                ; preds = %0
   tail call fastcc void @dmi_id_init_attr_table() #6
   %4 = tail call i32 @class_register(ptr noundef nonnull @dmi_class) #7
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %21
+  br i1 %5, label %6, label %22
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 728) #8
-  store ptr %8, ptr @dmi_dev, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %19, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 728) #8
+  store ptr %9, ptr @dmi_dev, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %20, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 672
-  store ptr @dmi_class, ptr %11, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %8, ptr noundef nonnull @.str) #7
-  %13 = load ptr, ptr @dmi_dev, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 680
-  store ptr @sys_dmi_attribute_groups, ptr %14, align 8
-  %15 = tail call i32 @device_register(ptr noundef %13) #7
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %21, label %17
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %9, i64 672
+  store ptr @dmi_class, ptr %12, align 8
+  %13 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %9, ptr noundef nonnull @.str) #7
+  %14 = load ptr, ptr @dmi_dev, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 680
+  store ptr @sys_dmi_attribute_groups, ptr %15, align 8
+  %16 = tail call i32 @device_register(ptr noundef %14) #7
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %22, label %18
 
-17:                                               ; preds = %10
-  %18 = load ptr, ptr @dmi_dev, align 8
-  tail call void @put_device(ptr noundef %18) #7
-  br label %19
+18:                                               ; preds = %11
+  %19 = load ptr, ptr @dmi_dev, align 8
+  tail call void @put_device(ptr noundef %19) #7
+  br label %20
 
-19:                                               ; preds = %17, %6
-  %20 = phi i32 [ %15, %17 ], [ -12, %6 ]
+20:                                               ; preds = %18, %6
+  %21 = phi i32 [ %16, %18 ], [ -12, %6 ]
   tail call void @class_unregister(ptr noundef nonnull @dmi_class) #7
-  br label %21
+  br label %22
 
-21:                                               ; preds = %19, %10, %3, %0
-  %22 = phi i32 [ %20, %19 ], [ -19, %0 ], [ %4, %3 ], [ 0, %10 ]
-  ret i32 %22
+22:                                               ; preds = %20, %11, %3, %0
+  %23 = phi i32 [ %21, %20 ], [ -19, %0 ], [ %4, %3 ], [ 0, %11 ]
+  ret i32 %23
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

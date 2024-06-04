@@ -138,62 +138,63 @@ define hidden void @_ZN7nanogui7TextureC2ENS0_11PixelFormatENS0_15ComponentForma
   store i8 %23, ptr %20, align 1
   %24 = load ptr, ptr %11, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %24)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 1
-  %26 = load i8, ptr %12, align 1
-  store i8 %26, ptr %25, align 4
-  %27 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 2
-  %28 = load i8, ptr %13, align 1
-  store i8 %28, ptr %27, align 1
-  %29 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 3
-  %30 = load i8, ptr %15, align 1
-  store i8 %30, ptr %29, align 2
-  %31 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 4
-  %32 = load i8, ptr %16, align 1
-  store i8 %32, ptr %31, align 1
-  %33 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 5
-  %34 = load i8, ptr %17, align 1
-  store i8 %34, ptr %33, align 8
-  %35 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 6
-  %36 = load i8, ptr %18, align 1
-  store i8 %36, ptr %35, align 1
-  %37 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 7
-  %38 = load i8, ptr %19, align 1
-  store i8 %38, ptr %37, align 2
-  %39 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 8
-  %40 = load ptr, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %39, ptr align 4 %40, i64 8, i1 false)
-  %41 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 9
-  %42 = load i8, ptr %20, align 1
-  %43 = trunc i8 %42 to i1
-  %44 = zext i1 %43 to i8
-  store i8 %44, ptr %41, align 4
-  %45 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 10
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 11
-  store i32 0, ptr %46, align 4
+  %25 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 1
+  %27 = load i8, ptr %12, align 1
+  store i8 %27, ptr %26, align 4
+  %28 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 2
+  %29 = load i8, ptr %13, align 1
+  store i8 %29, ptr %28, align 1
+  %30 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 3
+  %31 = load i8, ptr %15, align 1
+  store i8 %31, ptr %30, align 2
+  %32 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 4
+  %33 = load i8, ptr %16, align 1
+  store i8 %33, ptr %32, align 1
+  %34 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 5
+  %35 = load i8, ptr %17, align 1
+  store i8 %35, ptr %34, align 8
+  %36 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 6
+  %37 = load i8, ptr %18, align 1
+  store i8 %37, ptr %36, align 1
+  %38 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 7
+  %39 = load i8, ptr %19, align 1
+  store i8 %39, ptr %38, align 2
+  %40 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 8
+  %41 = load ptr, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %41, i64 8, i1 false)
+  %42 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 9
+  %43 = load i8, ptr %20, align 1
+  %44 = trunc i8 %43 to i1
+  %45 = zext i1 %44 to i8
+  store i8 %45, ptr %42, align 4
+  %46 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 10
+  store i32 0, ptr %46, align 8
+  %47 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 11
+  store i32 0, ptr %47, align 4
   invoke void @_ZN7nanogui7Texture4initEv(ptr noundef nonnull align 8 dereferenceable(40) %24)
-          to label %47 unwind label %48
-
-47:                                               ; preds = %10
-  ret void
+          to label %48 unwind label %49
 
 48:                                               ; preds = %10
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %21, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %22, align 4
-  call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %24) #6
-  br label %52
+  ret void
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %21, align 8
-  %54 = load i32, ptr %22, align 4
-  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
-  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
-  resume { ptr, i32 } %56
+49:                                               ; preds = %10
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %21, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %22, align 4
+  call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %24) #6
+  br label %53
+
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %21, align 8
+  %55 = load i32, ptr %22, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -201,9 +202,10 @@ define linkonce_odr hidden void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #6
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #6
   ret void
 }
 
@@ -240,242 +242,243 @@ define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_
   store i8 %4, ptr %10, align 1
   %20 = load ptr, ptr %6, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 2
-  store i8 2, ptr %21, align 1
-  %22 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 3
-  %23 = load i8, ptr %8, align 1
-  store i8 %23, ptr %22, align 2
-  %24 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 4
-  %25 = load i8, ptr %9, align 1
-  store i8 %25, ptr %24, align 1
-  %26 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 5
-  %27 = load i8, ptr %10, align 1
-  store i8 %27, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 6
-  store i8 1, ptr %28, align 1
-  %29 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 7
-  store i8 1, ptr %29, align 2
-  %30 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 8
-  invoke void @_ZN7nanogui5ArrayIiLm2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %30)
-          to label %31 unwind label %52
+  %21 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 2
+  store i8 2, ptr %22, align 1
+  %23 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 3
+  %24 = load i8, ptr %8, align 1
+  store i8 %24, ptr %23, align 2
+  %25 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 4
+  %26 = load i8, ptr %9, align 1
+  store i8 %26, ptr %25, align 1
+  %27 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 5
+  %28 = load i8, ptr %10, align 1
+  store i8 %28, ptr %27, align 8
+  %29 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 6
+  store i8 1, ptr %29, align 1
+  %30 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 7
+  store i8 1, ptr %30, align 2
+  %31 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 8
+  invoke void @_ZN7nanogui5ArrayIiLm2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %31)
+          to label %32 unwind label %53
 
-31:                                               ; preds = %5
-  %32 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 9
-  store i8 0, ptr %32, align 4
-  %33 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 10
-  store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 11
-  store i32 0, ptr %34, align 4
+32:                                               ; preds = %5
+  %33 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 9
+  store i8 0, ptr %33, align 4
+  %34 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 10
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 11
+  store i32 0, ptr %35, align 4
   store i32 0, ptr %13, align 4
-  %35 = load ptr, ptr %7, align 8
-  %36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #6
-  %37 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 8
-  %38 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7nanogui5ArrayIiLm2EE1xILm2ETnNSt9enable_ifIXgeT_Li1EEiE4typeELi0EEERiv(ptr noundef nonnull align 4 dereferenceable(8) %37)
-          to label %39 unwind label %52
+  %36 = load ptr, ptr %7, align 8
+  %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #6
+  %38 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 8
+  %39 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7nanogui5ArrayIiLm2EE1xILm2ETnNSt9enable_ifIXgeT_Li1EEiE4typeELi0EEERiv(ptr noundef nonnull align 4 dereferenceable(8) %38)
+          to label %40 unwind label %53
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 8
-  %41 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7nanogui5ArrayIiLm2EE1yILm2ETnNSt9enable_ifIXgeT_Li2EEiE4typeELi0EEERiv(ptr noundef nonnull align 4 dereferenceable(8) %40)
-          to label %42 unwind label %52
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 8
+  %42 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7nanogui5ArrayIiLm2EE1yILm2ETnNSt9enable_ifIXgeT_Li2EEiE4typeELi0EEERiv(ptr noundef nonnull align 4 dereferenceable(8) %41)
+          to label %43 unwind label %53
 
-42:                                               ; preds = %39
-  %43 = invoke ptr @stbi_load(ptr noundef %36, ptr noundef %38, ptr noundef %41, ptr noundef %13, i32 noundef 0)
-          to label %44 unwind label %52
+43:                                               ; preds = %40
+  %44 = invoke ptr @stbi_load(ptr noundef %37, ptr noundef %39, ptr noundef %42, ptr noundef %13, i32 noundef 0)
+          to label %45 unwind label %53
 
-44:                                               ; preds = %42
+45:                                               ; preds = %43
   store ptr @stbi_image_free, ptr %15, align 8
-  call void @_ZNSt10unique_ptrIA_hPFvPvEEC2IPhS3_vEET_NSt9enable_ifIXntsr19is_lvalue_referenceIT0_EE5valueEOS9_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(8) %15) #6
-  %45 = call noundef zeroext i1 @_ZNKSt10unique_ptrIA_hPFvPvEEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #6
-  br i1 %45, label %73, label %46
+  call void @_ZNSt10unique_ptrIA_hPFvPvEEC2IPhS3_vEET_NSt9enable_ifIXntsr19is_lvalue_referenceIT0_EE5valueEOS9_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(8) %15) #6
+  %46 = call noundef zeroext i1 @_ZNKSt10unique_ptrIA_hPFvPvEEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #6
+  br i1 %46, label %74, label %47
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   store i1 true, ptr %18, align 1
-  %47 = call ptr @__cxa_allocate_exception(i64 16) #6
-  %48 = load ptr, ptr %7, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef @.str, ptr noundef nonnull align 8 dereferenceable(32) %48)
-          to label %49 unwind label %56
+  %48 = call ptr @__cxa_allocate_exception(i64 16) #6
+  %49 = load ptr, ptr %7, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef @.str, ptr noundef nonnull align 8 dereferenceable(32) %49)
+          to label %50 unwind label %57
 
-49:                                               ; preds = %46
+50:                                               ; preds = %47
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @.str.1)
-          to label %50 unwind label %60
-
-50:                                               ; preds = %49
-  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %51 unwind label %64
+          to label %51 unwind label %61
 
 51:                                               ; preds = %50
-  store i1 false, ptr %18, align 1
-  invoke void @__cxa_throw(ptr %47, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #7
-          to label %119 unwind label %64
+  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %52 unwind label %65
 
-52:                                               ; preds = %42, %39, %31, %5
-  %53 = landingpad { ptr, i32 }
+52:                                               ; preds = %51
+  store i1 false, ptr %18, align 1
+  invoke void @__cxa_throw(ptr %48, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #7
+          to label %120 unwind label %65
+
+53:                                               ; preds = %43, %40, %32, %5
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %11, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %12, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %11, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %12, align 4
+  br label %114
+
+57:                                               ; preds = %47
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %11, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %12, align 4
+  br label %70
+
+61:                                               ; preds = %50
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %11, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %12, align 4
+  br label %69
+
+65:                                               ; preds = %52, %51
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %11, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #6
+  br label %69
+
+69:                                               ; preds = %65, %61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #6
+  br label %70
+
+70:                                               ; preds = %69, %57
+  %71 = load i1, ptr %18, align 1
+  br i1 %71, label %72, label %73
+
+72:                                               ; preds = %70
+  call void @__cxa_free_exception(ptr %48) #6
+  br label %73
+
+73:                                               ; preds = %72, %70
   br label %113
 
-56:                                               ; preds = %46
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %11, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %12, align 4
-  br label %69
-
-60:                                               ; preds = %49
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %11, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %12, align 4
-  br label %68
-
-64:                                               ; preds = %51, %50
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %11, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #6
-  br label %68
-
-68:                                               ; preds = %64, %60
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #6
-  br label %69
-
-69:                                               ; preds = %68, %56
-  %70 = load i1, ptr %18, align 1
-  br i1 %70, label %71, label %72
-
-71:                                               ; preds = %69
-  call void @__cxa_free_exception(ptr %47) #6
-  br label %72
-
-72:                                               ; preds = %71, %69
-  br label %112
-
-73:                                               ; preds = %44
-  %74 = load i32, ptr %13, align 4
-  switch i32 %74, label %83 [
-    i32 1, label %75
-    i32 2, label %77
-    i32 3, label %79
-    i32 4, label %81
+74:                                               ; preds = %45
+  %75 = load i32, ptr %13, align 4
+  switch i32 %75, label %84 [
+    i32 1, label %76
+    i32 2, label %78
+    i32 3, label %80
+    i32 4, label %82
   ]
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
-  store i8 0, ptr %76, align 4
-  br label %94
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
+  store i8 0, ptr %77, align 4
+  br label %95
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
-  store i8 1, ptr %78, align 4
-  br label %94
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
+  store i8 1, ptr %79, align 4
+  br label %95
 
-79:                                               ; preds = %73
-  %80 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
-  store i8 2, ptr %80, align 4
-  br label %94
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
+  store i8 2, ptr %81, align 4
+  br label %95
 
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
-  store i8 3, ptr %82, align 4
-  br label %94
+82:                                               ; preds = %74
+  %83 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
+  store i8 3, ptr %83, align 4
+  br label %95
 
-83:                                               ; preds = %73
-  %84 = call ptr @__cxa_allocate_exception(i64 16) #6
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef @.str.2)
-          to label %85 unwind label %86
+84:                                               ; preds = %74
+  %85 = call ptr @__cxa_allocate_exception(i64 16) #6
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef @.str.2)
+          to label %86 unwind label %87
 
-85:                                               ; preds = %83
-  invoke void @__cxa_throw(ptr %84, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #7
-          to label %119 unwind label %90
+86:                                               ; preds = %84
+  invoke void @__cxa_throw(ptr %85, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #7
+          to label %120 unwind label %91
 
-86:                                               ; preds = %83
-  %87 = landingpad { ptr, i32 }
+87:                                               ; preds = %84
+  %88 = landingpad { ptr, i32 }
           cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %11, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %84) #6
-  br label %112
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %11, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %12, align 4
+  call void @__cxa_free_exception(ptr %85) #6
+  br label %113
 
-90:                                               ; preds = %109, %104, %94, %85
-  %91 = landingpad { ptr, i32 }
+91:                                               ; preds = %110, %105, %95, %86
+  %92 = landingpad { ptr, i32 }
           cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %11, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %12, align 4
-  br label %112
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %11, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %12, align 4
+  br label %113
 
-94:                                               ; preds = %81, %79, %77, %75
-  %95 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
-  %96 = load i8, ptr %95, align 4
-  store i8 %96, ptr %19, align 1
+95:                                               ; preds = %82, %80, %78, %76
+  %96 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
+  %97 = load i8, ptr %96, align 4
+  store i8 %97, ptr %19, align 1
   invoke void @_ZN7nanogui7Texture4initEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
-          to label %97 unwind label %90
+          to label %98 unwind label %91
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
-  %99 = load i8, ptr %98, align 4
-  %100 = load i8, ptr %19, align 1
-  %101 = icmp ne i8 %99, %100
-  br i1 %101, label %102, label %109
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 1
+  %100 = load i8, ptr %99, align 4
+  %101 = load i8, ptr %19, align 1
+  %102 = icmp ne i8 %100, %101
+  br i1 %102, label %103, label %110
 
-102:                                              ; preds = %97
-  %103 = call ptr @__cxa_allocate_exception(i64 16) #6
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef @.str.3)
-          to label %104 unwind label %105
+103:                                              ; preds = %98
+  %104 = call ptr @__cxa_allocate_exception(i64 16) #6
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef @.str.3)
+          to label %105 unwind label %106
 
-104:                                              ; preds = %102
-  invoke void @__cxa_throw(ptr %103, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #7
-          to label %119 unwind label %90
+105:                                              ; preds = %103
+  invoke void @__cxa_throw(ptr %104, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #7
+          to label %120 unwind label %91
 
-105:                                              ; preds = %102
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %103
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %11, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %12, align 4
-  call void @__cxa_free_exception(ptr %103) #6
-  br label %112
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %11, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %12, align 4
+  call void @__cxa_free_exception(ptr %104) #6
+  br label %113
 
-109:                                              ; preds = %97
-  %110 = call noundef ptr @_ZNKSt10unique_ptrIA_hPFvPvEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #6
-  invoke void @_ZN7nanogui7Texture6uploadEPKh(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef %110)
-          to label %111 unwind label %90
+110:                                              ; preds = %98
+  %111 = call noundef ptr @_ZNKSt10unique_ptrIA_hPFvPvEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #6
+  invoke void @_ZN7nanogui7Texture6uploadEPKh(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef %111)
+          to label %112 unwind label %91
 
-111:                                              ; preds = %109
+112:                                              ; preds = %110
   call void @_ZNSt10unique_ptrIA_hPFvPvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #6
   ret void
 
-112:                                              ; preds = %105, %90, %86, %72
+113:                                              ; preds = %106, %91, %87, %73
   call void @_ZNSt10unique_ptrIA_hPFvPvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #6
-  br label %113
-
-113:                                              ; preds = %112, %52
-  call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #6
   br label %114
 
-114:                                              ; preds = %113
-  %115 = load ptr, ptr %11, align 8
-  %116 = load i32, ptr %12, align 4
-  %117 = insertvalue { ptr, i32 } poison, ptr %115, 0
-  %118 = insertvalue { ptr, i32 } %117, i32 %116, 1
-  resume { ptr, i32 } %118
+114:                                              ; preds = %113, %53
+  call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #6
+  br label %115
 
-119:                                              ; preds = %104, %85, %51
+115:                                              ; preds = %114
+  %116 = load ptr, ptr %11, align 8
+  %117 = load i32, ptr %12, align 4
+  %118 = insertvalue { ptr, i32 } poison, ptr %116, 0
+  %119 = insertvalue { ptr, i32 } %118, i32 %117, 1
+  resume { ptr, i32 } %119
+
+120:                                              ; preds = %105, %86, %52
   unreachable
 }
 

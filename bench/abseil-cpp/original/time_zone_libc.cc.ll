@@ -718,18 +718,19 @@ invoke.cont:                                      ; preds = %init
   %7 = extractvalue { i64, i64 } %call5, 0
   store i64 %7, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, align 8
   %8 = extractvalue { i64, i64 } %call5, 1
-  store i64 %8, ptr getelementptr inbounds ({ i64, i64 }, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i32 0, i32 1), align 8
+  %9 = getelementptr inbounds { i64, i64 }, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs, i32 0, i32 1
+  store i64 %8, ptr %9, align 8
   call void @__cxa_guard_release(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #5
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %if.then
-  %9 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs acquire, align 8
-  %guard.uninitialized6 = icmp eq i8 %9, 0
+  %10 = load atomic i8, ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs acquire, align 8
+  %guard.uninitialized6 = icmp eq i8 %10, 0
   br i1 %guard.uninitialized6, label %init.check7, label %init.end19, !prof !5
 
 init.check7:                                      ; preds = %init.end
-  %10 = call i32 @__cxa_guard_acquire(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
-  %tobool8 = icmp ne i32 %10, 0
+  %11 = call i32 @__cxa_guard_acquire(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
+  %tobool8 = icmp ne i32 %11, 0
   br i1 %tobool8, label %init9, label %init.end19
 
 init9:                                            ; preds = %init.check7
@@ -742,21 +743,22 @@ init9:                                            ; preds = %init.check7
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %init9
-  %11 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 0
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 1
-  %14 = load i64, ptr %13, align 8
-  %call18 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 %12, i64 %14, i64 noundef %call17) #5
-  %15 = extractvalue { i64, i64 } %call18, 0
-  store i64 %15, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
-  %16 = extractvalue { i64, i64 } %call18, 1
-  store i64 %16, ptr getelementptr inbounds ({ i64, i64 }, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i32 0, i32 1), align 8
+  %12 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp10, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8
+  %call18 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS2_10second_tagEEEl(i64 %13, i64 %15, i64 noundef %call17) #5
+  %16 = extractvalue { i64, i64 } %call18, 0
+  store i64 %16, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, align 8
+  %17 = extractvalue { i64, i64 } %call18, 1
+  %18 = getelementptr inbounds { i64, i64 }, ptr @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs, i32 0, i32 1
+  store i64 %17, ptr %18, align 8
   call void @__cxa_guard_release(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
   br label %init.end19
 
 init.end19:                                       ; preds = %invoke.cont16, %init.check7, %init.end
-  %17 = load ptr, ptr %cs.addr, align 8
-  %call20 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #5
+  %19 = load ptr, ptr %cs.addr, align 8
+  %call20 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #5
   br i1 %call20, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %init.end19
@@ -767,8 +769,8 @@ cond.true:                                        ; preds = %init.end19
   br label %cond.end36
 
 cond.false:                                       ; preds = %init.end19
-  %18 = load ptr, ptr %cs.addr, align 8
-  %call24 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
+  %20 = load ptr, ptr %cs.addr, align 8
+  %call24 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) @_ZZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
   br i1 %call24, label %cond.true25, label %cond.false29
 
 cond.true25:                                      ; preds = %cond.false
@@ -779,18 +781,18 @@ cond.true25:                                      ; preds = %cond.false
   br label %cond.end
 
 cond.false29:                                     ; preds = %cond.false
-  %19 = load ptr, ptr %cs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp30, ptr align 8 %19, i64 16, i1 false)
+  %21 = load ptr, ptr %cs.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp30, ptr align 8 %21, i64 16, i1 false)
   call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31) #5
-  %20 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp30, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp30, i32 0, i32 1
+  %22 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp30, i32 0, i32 0
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp31, i32 0, i32 0
+  %24 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp30, i32 0, i32 1
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp31, i32 0, i32 1
+  %26 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp31, i32 0, i32 0
   %27 = load i64, ptr %26, align 8
-  %call32 = call noundef i64 @_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS2_10second_tagEEES5_(i64 %21, i64 %23, i64 %25, i64 %27) #5
+  %28 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp31, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %call32 = call noundef i64 @_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS2_10second_tagEEES5_(i64 %23, i64 %25, i64 %27, i64 %29) #5
   %call33 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %call32)
   %coerce.dive34 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp, i32 0, i32 0
   %coerce.dive35 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive34, i32 0, i32 0
@@ -812,34 +814,34 @@ cond.end36:                                       ; preds = %cond.end, %cond.tru
   br label %return
 
 lpad:                                             ; preds = %init
-  %28 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9min_tp_cs) #5
   br label %eh.resume
 
 lpad15:                                           ; preds = %init9
-  %31 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZNK4absl13time_internal4cctz12TimeZoneLibC8MakeTimeERKNS1_6detail10civil_timeINS3_10second_tagEEEE9max_tp_cs) #5
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %34 = load ptr, ptr %cs.addr, align 8
-  %call37 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #5
+  %36 = load ptr, ptr %cs.addr, align 8
+  %call37 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #5
   %cmp = icmp slt i64 %call37, 0
   br i1 %cmp, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.end
-  %35 = load ptr, ptr %cs.addr, align 8
-  %call39 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #5
+  %37 = load ptr, ptr %cs.addr, align 8
+  %call39 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #5
   %call40 = call noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #5
   %conv = sext i32 %call40 to i64
   %add = add nsw i64 %conv, 1900
@@ -865,8 +867,8 @@ if.end51:                                         ; preds = %if.then38
   br label %if.end66
 
 if.else:                                          ; preds = %if.end
-  %36 = load ptr, ptr %cs.addr, align 8
-  %call52 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #5
+  %38 = load ptr, ptr %cs.addr, align 8
+  %call52 = call noundef i64 @_ZNK4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEE4yearEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #5
   %sub = sub nsw i64 %call52, 1900
   %call53 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #5
   %conv54 = sext i32 %call53 to i64
@@ -892,39 +894,39 @@ if.end65:                                         ; preds = %if.else
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end65, %if.end51
-  %37 = load ptr, ptr %cs.addr, align 8
-  %call67 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef 0, ptr noundef %t0, ptr noundef %tm0)
+  %39 = load ptr, ptr %cs.addr, align 8
+  %call67 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 0, ptr noundef %t0, ptr noundef %tm0)
   br i1 %call67, label %land.lhs.true, label %if.end125
 
 land.lhs.true:                                    ; preds = %if.end66
-  %38 = load ptr, ptr %cs.addr, align 8
-  %call68 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef 1, ptr noundef %t1, ptr noundef %tm1)
+  %40 = load ptr, ptr %cs.addr, align 8
+  %call68 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 1, ptr noundef %t1, ptr noundef %tm1)
   br i1 %call68, label %if.then69, label %if.end125
 
 if.then69:                                        ; preds = %land.lhs.true
   %tm_isdst = getelementptr inbounds %struct.tm, ptr %tm0, i32 0, i32 8
-  %39 = load i32, ptr %tm_isdst, align 8
+  %41 = load i32, ptr %tm_isdst, align 8
   %tm_isdst70 = getelementptr inbounds %struct.tm, ptr %tm1, i32 0, i32 8
-  %40 = load i32, ptr %tm_isdst70, align 8
-  %cmp71 = icmp eq i32 %39, %40
+  %42 = load i32, ptr %tm_isdst70, align 8
+  %cmp71 = icmp eq i32 %41, %42
   br i1 %cmp71, label %if.then72, label %if.end86
 
 if.then72:                                        ; preds = %if.then69
   %tm_isdst74 = getelementptr inbounds %struct.tm, ptr %tm0, i32 0, i32 8
-  %41 = load i32, ptr %tm_isdst74, align 8
-  %tobool75 = icmp ne i32 %41, 0
+  %43 = load i32, ptr %tm_isdst74, align 8
+  %tobool75 = icmp ne i32 %43, 0
   br i1 %tobool75, label %cond.true76, label %cond.false77
 
 cond.true76:                                      ; preds = %if.then72
-  %42 = load i64, ptr %t1, align 8
+  %44 = load i64, ptr %t1, align 8
   br label %cond.end78
 
 cond.false77:                                     ; preds = %if.then72
-  %43 = load i64, ptr %t0, align 8
+  %45 = load i64, ptr %t0, align 8
   br label %cond.end78
 
 cond.end78:                                       ; preds = %cond.false77, %cond.true76
-  %cond = phi i64 [ %42, %cond.true76 ], [ %43, %cond.false77 ]
+  %cond = phi i64 [ %44, %cond.true76 ], [ %45, %cond.false77 ]
   %call79 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %cond)
   %coerce.dive80 = getelementptr inbounds %"class.std::chrono::time_point", ptr %tp73, i32 0, i32 0
   %coerce.dive81 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive80, i32 0, i32 0
@@ -942,9 +944,9 @@ cond.end78:                                       ; preds = %cond.false77, %cond
 if.end86:                                         ; preds = %if.then69
   %call87 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19tm_gmtoffI2tmEEDtdtfp_9tm_gmtoffERKT_(ptr noundef nonnull align 8 dereferenceable(56) %tm0)
   store i64 %call87, ptr %offset, align 8
-  %44 = load i64, ptr %t0, align 8
-  %45 = load i64, ptr %t1, align 8
-  %cmp88 = icmp slt i64 %44, %45
+  %46 = load i64, ptr %t0, align 8
+  %47 = load i64, ptr %t1, align 8
+  %cmp88 = icmp slt i64 %46, %47
   br i1 %cmp88, label %if.then89, label %if.end91
 
 if.then89:                                        ; preds = %if.end86
@@ -954,29 +956,29 @@ if.then89:                                        ; preds = %if.end86
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then89, %if.end86
-  %46 = load i64, ptr %t1, align 8
-  %47 = load i64, ptr %t0, align 8
-  %48 = load i64, ptr %offset, align 8
-  %call92 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll(i64 noundef %46, i64 noundef %47, i64 noundef %48)
+  %48 = load i64, ptr %t1, align 8
+  %49 = load i64, ptr %t0, align 8
+  %50 = load i64, ptr %offset, align 8
+  %call92 = call noundef i64 @_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll(i64 noundef %48, i64 noundef %49, i64 noundef %50)
   store i64 %call92, ptr %tt, align 8
-  %49 = load i64, ptr %tt, align 8
-  %call94 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %49)
+  %51 = load i64, ptr %tt, align 8
+  %call94 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %51)
   %coerce.dive95 = getelementptr inbounds %"class.std::chrono::time_point", ptr %trans93, i32 0, i32 0
   %coerce.dive96 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive95, i32 0, i32 0
   store i64 %call94, ptr %coerce.dive96, align 8
   %tm_isdst97 = getelementptr inbounds %struct.tm, ptr %tm0, i32 0, i32 8
-  %50 = load i32, ptr %tm_isdst97, align 8
-  %tobool98 = icmp ne i32 %50, 0
+  %52 = load i32, ptr %tm_isdst97, align 8
+  %tobool98 = icmp ne i32 %52, 0
   br i1 %tobool98, label %if.then99, label %if.end112
 
 if.then99:                                        ; preds = %if.end91
-  %51 = load i64, ptr %t0, align 8
-  %call101 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %51)
+  %53 = load i64, ptr %t0, align 8
+  %call101 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %53)
   %coerce.dive102 = getelementptr inbounds %"class.std::chrono::time_point", ptr %pre100, i32 0, i32 0
   %coerce.dive103 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive102, i32 0, i32 0
   store i64 %call101, ptr %coerce.dive103, align 8
-  %52 = load i64, ptr %t1, align 8
-  %call105 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %52)
+  %54 = load i64, ptr %t1, align 8
+  %call105 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %54)
   %coerce.dive106 = getelementptr inbounds %"class.std::chrono::time_point", ptr %post104, i32 0, i32 0
   %coerce.dive107 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive106, i32 0, i32 0
   store i64 %call105, ptr %coerce.dive107, align 8
@@ -991,13 +993,13 @@ if.then99:                                        ; preds = %if.end91
   br label %return
 
 if.end112:                                        ; preds = %if.end91
-  %53 = load i64, ptr %t1, align 8
-  %call114 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %53)
+  %55 = load i64, ptr %t1, align 8
+  %call114 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %55)
   %coerce.dive115 = getelementptr inbounds %"class.std::chrono::time_point", ptr %pre113, i32 0, i32 0
   %coerce.dive116 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive115, i32 0, i32 0
   store i64 %call114, ptr %coerce.dive116, align 8
-  %54 = load i64, ptr %t0, align 8
-  %call118 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %54)
+  %56 = load i64, ptr %t0, align 8
+  %call118 = call i64 @_ZN4absl13time_internal4cctz15FromUnixSecondsEl(i64 noundef %56)
   %coerce.dive119 = getelementptr inbounds %"class.std::chrono::time_point", ptr %post117, i32 0, i32 0
   %coerce.dive120 = getelementptr inbounds %"class.std::chrono::duration", ptr %coerce.dive119, i32 0, i32 0
   store i64 %call118, ptr %coerce.dive120, align 8
@@ -1012,9 +1014,9 @@ if.end112:                                        ; preds = %if.end91
   br label %return
 
 if.end125:                                        ; preds = %land.lhs.true, %if.end66
-  %55 = load ptr, ptr %cs.addr, align 8
+  %57 = load ptr, ptr %cs.addr, align 8
   call void @_ZN4absl13time_internal4cctz6detail10civil_timeINS2_10second_tagEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127) #5
-  %call128 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127) #5
+  %call128 = call noundef zeroext i1 @_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127) #5
   br i1 %call128, label %cond.true129, label %cond.false133
 
 cond.true129:                                     ; preds = %if.end125
@@ -1833,10 +1835,11 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl13time_internal4cctz10TimeZoneIfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneLibCE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneLibCE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %local_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneLibC", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name.addr, align 8
-  %call = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef @.str.2)
+  %1 = load ptr, ptr %name.addr, align 8
+  %call = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1845,12 +1848,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN4absl13time_internal4cctz10TimeZoneIfD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
   br label %eh.resume
 
@@ -1868,7 +1871,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz10TimeZoneIfE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz10TimeZoneIfE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

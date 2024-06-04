@@ -53,35 +53,36 @@ define dso_local i32 @crypto_init_scomp_ops_async(ptr nocapture noundef %0) loca
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = tail call ptr @crypto_mod_get(ptr noundef %3) #4
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %19, label %8
+  br i1 %7, label %20, label %8
 
 8:                                                ; preds = %1
   %9 = tail call ptr @crypto_create_tfm_node(ptr noundef %3, ptr noundef nonnull @crypto_scomp_type, i32 noundef -1) #4
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %11, label %14
+  %10 = inttoptr i64 -4096 to ptr
+  %11 = icmp ugt ptr %9, %10
+  br i1 %11, label %12, label %15
 
-11:                                               ; preds = %8
+12:                                               ; preds = %8
   tail call void @crypto_mod_put(ptr noundef %3) #4
-  %12 = ptrtoint ptr %9 to i64
-  %13 = trunc i64 %12 to i32
-  br label %19
+  %13 = ptrtoint ptr %9 to i64
+  %14 = trunc i64 %13 to i32
+  br label %20
 
-14:                                               ; preds = %8
+15:                                               ; preds = %8
   store ptr %9, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr @crypto_exit_scomp_ops_async, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @crypto_exit_scomp_ops_async, ptr %16, align 8
   store ptr @scomp_acomp_compress, ptr %4, align 8
-  %16 = getelementptr i8, ptr %0, i64 -24
-  store ptr @scomp_acomp_decompress, ptr %16, align 8
-  %17 = getelementptr i8, ptr %0, i64 -16
-  store ptr @sgl_free, ptr %17, align 8
-  %18 = getelementptr i8, ptr %0, i64 -8
-  store i32 8, ptr %18, align 8
-  br label %19
+  %17 = getelementptr i8, ptr %0, i64 -24
+  store ptr @scomp_acomp_decompress, ptr %17, align 8
+  %18 = getelementptr i8, ptr %0, i64 -16
+  store ptr @sgl_free, ptr %18, align 8
+  %19 = getelementptr i8, ptr %0, i64 -8
+  store i32 8, ptr %19, align 8
+  br label %20
 
-19:                                               ; preds = %14, %11, %1
-  %20 = phi i32 [ %13, %11 ], [ 0, %14 ], [ -11, %1 ]
-  ret i32 %20
+20:                                               ; preds = %15, %12, %1
+  %21 = phi i32 [ %14, %12 ], [ 0, %15 ], [ -11, %1 ]
+  ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -100,10 +101,10 @@ define internal void @crypto_exit_scomp_ops_async(ptr nocapture noundef readonly
   %5 = add i32 %4, -1
   store i32 %5, ptr @scomp_scratch_users, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %33
+  br i1 %6, label %7, label %34
 
 7:                                                ; preds = %22, %1
-  %8 = phi i64 [ %32, %22 ], [ 0, %1 ]
+  %8 = phi i64 [ %33, %22 ], [ 0, %1 ]
   %9 = and i64 %8, 4294967295
   %10 = icmp ugt i64 %9, 63
   br i1 %10, label %18, label %11, !prof !5
@@ -123,25 +124,26 @@ define internal void @crypto_exit_scomp_ops_async(ptr nocapture noundef readonly
   %19 = phi i64 [ 64, %7 ], [ %17, %16 ], [ 64, %11 ]
   %20 = and i64 %19, 4294967232
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %33
+  br i1 %21, label %22, label %34
 
 22:                                               ; preds = %18
   %23 = and i64 %19, 63
   %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, ptrtoint (ptr @scomp_scratch to i64)
-  %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  tail call void @vfree(ptr noundef %29) #4
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
-  %31 = load ptr, ptr %30, align 8
-  tail call void @vfree(ptr noundef %31) #4
-  %32 = add nuw nsw i64 %19, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  %26 = ptrtoint ptr @scomp_scratch to i64
+  %27 = add i64 %25, %26
+  %28 = inttoptr i64 %27 to ptr
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  tail call void @vfree(ptr noundef %30) #4
+  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %32 = load ptr, ptr %31, align 8
+  tail call void @vfree(ptr noundef %32) #4
+  %33 = add nuw nsw i64 %19, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %7, !llvm.loop !7
 
-33:                                               ; preds = %18, %1
+34:                                               ; preds = %18, %1
   tail call void @mutex_unlock(ptr noundef nonnull @scomp_lock) #4
   ret void
 }
@@ -172,21 +174,22 @@ define dso_local noundef ptr @crypto_acomp_scomp_alloc_ctx(ptr noundef %0) local
   %8 = getelementptr i8, ptr %7, i64 -32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef %5) #4
-  %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %1
-  tail call void @kfree(ptr noundef %0) #4
-  br label %15
+  %11 = inttoptr i64 -4096 to ptr
+  %12 = icmp ugt ptr %10, %11
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %10, ptr %14, align 8
-  br label %15
+  tail call void @kfree(ptr noundef %0) #4
+  br label %16
 
-15:                                               ; preds = %13, %12
-  %16 = phi ptr [ null, %12 ], [ %0, %13 ]
-  ret ptr %16
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %10, ptr %15, align 8
+  br label %16
+
+16:                                               ; preds = %14, %13
+  %17 = phi ptr [ null, %13 ], [ %0, %14 ]
+  ret ptr %17
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -455,10 +458,10 @@ define internal noundef i32 @crypto_scomp_init_tfm(ptr nocapture readnone %0) #0
   %3 = add i32 %2, 1
   store i32 %3, ptr @scomp_scratch_users, align 4
   %4 = icmp eq i32 %2, 0
-  br i1 %4, label %5, label %71
+  br i1 %4, label %5, label %75
 
-5:                                                ; preds = %43, %1
-  %6 = phi i64 [ %44, %43 ], [ 0, %1 ]
+5:                                                ; preds = %46, %1
+  %6 = phi i64 [ %47, %46 ], [ 0, %1 ]
   %7 = and i64 %6, 4294967295
   %8 = icmp ugt i64 %7, 63
   br i1 %8, label %16, label %9, !prof !5
@@ -478,91 +481,95 @@ define internal noundef i32 @crypto_scomp_init_tfm(ptr nocapture readnone %0) #0
   %17 = phi i64 [ 64, %5 ], [ %15, %14 ], [ 64, %9 ]
   %18 = and i64 %17, 4294967232
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %71
+  br i1 %19, label %20, label %75
 
 20:                                               ; preds = %16
   %21 = and i64 %17, 63
   %22 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
-  %24 = add i64 %23, ptrtoint (ptr @scomp_scratch to i64)
-  %25 = inttoptr i64 %24 to ptr
-  %26 = add i64 %23, ptrtoint (ptr @numa_node to i64)
-  %27 = inttoptr i64 %26 to ptr
-  %28 = load i32, ptr %27, align 4
-  %29 = tail call noalias dereferenceable_or_null(131072) ptr @vmalloc_node(i64 noundef 131072, i32 noundef %28) #6
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %41, label %31
+  %24 = ptrtoint ptr @scomp_scratch to i64
+  %25 = add i64 %23, %24
+  %26 = inttoptr i64 %25 to ptr
+  %27 = ptrtoint ptr @numa_node to i64
+  %28 = add i64 %23, %27
+  %29 = inttoptr i64 %28 to ptr
+  %30 = load i32, ptr %29, align 4
+  %31 = tail call noalias dereferenceable_or_null(131072) ptr @vmalloc_node(i64 noundef 131072, i32 noundef %30) #6
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %44, label %33
 
-31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %29, ptr %32, align 8
-  %33 = load i64, ptr %22, align 8
-  %34 = add i64 %33, ptrtoint (ptr @numa_node to i64)
-  %35 = inttoptr i64 %34 to ptr
-  %36 = load i32, ptr %35, align 4
-  %37 = tail call noalias dereferenceable_or_null(131072) ptr @vmalloc_node(i64 noundef 131072, i32 noundef %36) #6
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %41, label %39
+33:                                               ; preds = %20
+  %34 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %31, ptr %34, align 8
+  %35 = load i64, ptr %22, align 8
+  %36 = ptrtoint ptr @numa_node to i64
+  %37 = add i64 %35, %36
+  %38 = inttoptr i64 %37 to ptr
+  %39 = load i32, ptr %38, align 4
+  %40 = tail call noalias dereferenceable_or_null(131072) ptr @vmalloc_node(i64 noundef 131072, i32 noundef %39) #6
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %44, label %42
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %37, ptr %40, align 8
-  br label %41
+42:                                               ; preds = %33
+  %43 = getelementptr inbounds i8, ptr %26, i64 16
+  store ptr %40, ptr %43, align 8
+  br label %44
 
-41:                                               ; preds = %39, %31, %20
-  %42 = phi i32 [ 0, %39 ], [ 7, %20 ], [ 7, %31 ]
-  switch i32 %42, label %71 [
-    i32 0, label %43
-    i32 7, label %45
+44:                                               ; preds = %42, %33, %20
+  %45 = phi i32 [ 0, %42 ], [ 7, %20 ], [ 7, %33 ]
+  switch i32 %45, label %75 [
+    i32 0, label %46
+    i32 7, label %48
   ]
 
-43:                                               ; preds = %41
-  %44 = add nuw nsw i64 %17, 1
+46:                                               ; preds = %44
+  %47 = add nuw nsw i64 %17, 1
   br label %5, !llvm.loop !14
 
-45:                                               ; preds = %60, %41
-  %46 = phi i64 [ %70, %60 ], [ 0, %41 ]
-  %47 = and i64 %46, 4294967295
-  %48 = icmp ugt i64 %47, 63
-  br i1 %48, label %56, label %49, !prof !5
+48:                                               ; preds = %63, %44
+  %49 = phi i64 [ %74, %63 ], [ 0, %44 ]
+  %50 = and i64 %49, 4294967295
+  %51 = icmp ugt i64 %50, 63
+  br i1 %51, label %59, label %52, !prof !5
 
-49:                                               ; preds = %45
-  %50 = load i64, ptr @__cpu_possible_mask, align 8
-  %51 = shl nsw i64 -1, %47
-  %52 = and i64 %50, %51
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %56, label %54
+52:                                               ; preds = %48
+  %53 = load i64, ptr @__cpu_possible_mask, align 8
+  %54 = shl nsw i64 -1, %50
+  %55 = and i64 %53, %54
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %59, label %57
 
-54:                                               ; preds = %49
-  %55 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %52) #5, !srcloc !6
-  br label %56
+57:                                               ; preds = %52
+  %58 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %55) #5, !srcloc !6
+  br label %59
 
-56:                                               ; preds = %54, %49, %45
-  %57 = phi i64 [ 64, %45 ], [ %55, %54 ], [ 64, %49 ]
-  %58 = and i64 %57, 4294967232
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %60, label %71
+59:                                               ; preds = %57, %52, %48
+  %60 = phi i64 [ 64, %48 ], [ %58, %57 ], [ 64, %52 ]
+  %61 = and i64 %60, 4294967232
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %63, label %75
 
-60:                                               ; preds = %56
-  %61 = and i64 %57, 63
-  %62 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %61
-  %63 = load i64, ptr %62, align 8
-  %64 = add i64 %63, ptrtoint (ptr @scomp_scratch to i64)
-  %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8
-  tail call void @vfree(ptr noundef %67) #4
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
-  %69 = load ptr, ptr %68, align 8
-  tail call void @vfree(ptr noundef %69) #4
-  %70 = add nuw nsw i64 %57, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
-  br label %45, !llvm.loop !7
+63:                                               ; preds = %59
+  %64 = and i64 %60, 63
+  %65 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %64
+  %66 = load i64, ptr %65, align 8
+  %67 = ptrtoint ptr @scomp_scratch to i64
+  %68 = add i64 %66, %67
+  %69 = inttoptr i64 %68 to ptr
+  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = load ptr, ptr %70, align 8
+  tail call void @vfree(ptr noundef %71) #4
+  %72 = getelementptr inbounds i8, ptr %69, i64 16
+  %73 = load ptr, ptr %72, align 8
+  tail call void @vfree(ptr noundef %73) #4
+  %74 = add nuw nsw i64 %60, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  br label %48, !llvm.loop !7
 
-71:                                               ; preds = %56, %41, %16, %1
-  %72 = phi i32 [ 0, %1 ], [ -12, %56 ], [ 0, %16 ], [ 0, %41 ]
+75:                                               ; preds = %59, %44, %16, %1
+  %76 = phi i32 [ 0, %1 ], [ -12, %59 ], [ 0, %16 ], [ 0, %44 ]
   tail call void @mutex_unlock(ptr noundef nonnull @scomp_lock) #4
-  ret i32 %72
+  ret i32 %76
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

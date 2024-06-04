@@ -57,25 +57,26 @@ entry:
   store i32 %timeType, ptr %timeType.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512DateTimeRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512DateTimeRuleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %month.addr, align 4
-  store i32 %0, ptr %fMonth, align 8
+  %1 = load i32, ptr %month.addr, align 4
+  store i32 %1, ptr %fMonth, align 8
   %fDayOfMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %dayOfMonth.addr, align 4
-  store i32 %1, ptr %fDayOfMonth, align 4
+  %2 = load i32, ptr %dayOfMonth.addr, align 4
+  store i32 %2, ptr %fDayOfMonth, align 4
   %fDayOfWeek = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 3
   store i32 0, ptr %fDayOfWeek, align 8
   %fWeekInMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 4
   store i32 0, ptr %fWeekInMonth, align 4
   %fMillisInDay = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %millisInDay.addr, align 4
-  store i32 %2, ptr %fMillisInDay, align 8
+  %3 = load i32, ptr %millisInDay.addr, align 4
+  store i32 %3, ptr %fMillisInDay, align 8
   %fDateRuleType = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 6
   store i32 0, ptr %fDateRuleType, align 4
   %fTimeRuleType = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 7
-  %3 = load i32, ptr %timeType.addr, align 4
-  store i32 %3, ptr %fTimeRuleType, align 8
+  %4 = load i32, ptr %timeType.addr, align 4
+  store i32 %4, ptr %fTimeRuleType, align 8
   ret void
 }
 
@@ -85,7 +86,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -106,26 +108,27 @@ entry:
   store i32 %timeType, ptr %timeType.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512DateTimeRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512DateTimeRuleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %month.addr, align 4
-  store i32 %0, ptr %fMonth, align 8
+  %1 = load i32, ptr %month.addr, align 4
+  store i32 %1, ptr %fMonth, align 8
   %fDayOfMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 2
   store i32 0, ptr %fDayOfMonth, align 4
   %fDayOfWeek = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %dayOfWeek.addr, align 4
-  store i32 %1, ptr %fDayOfWeek, align 8
+  %2 = load i32, ptr %dayOfWeek.addr, align 4
+  store i32 %2, ptr %fDayOfWeek, align 8
   %fWeekInMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %weekInMonth.addr, align 4
-  store i32 %2, ptr %fWeekInMonth, align 4
+  %3 = load i32, ptr %weekInMonth.addr, align 4
+  store i32 %3, ptr %fWeekInMonth, align 4
   %fMillisInDay = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 5
-  %3 = load i32, ptr %millisInDay.addr, align 4
-  store i32 %3, ptr %fMillisInDay, align 8
+  %4 = load i32, ptr %millisInDay.addr, align 4
+  store i32 %4, ptr %fMillisInDay, align 8
   %fDateRuleType = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 6
   store i32 1, ptr %fDateRuleType, align 4
   %fTimeRuleType = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 7
-  %4 = load i32, ptr %timeType.addr, align 4
-  store i32 %4, ptr %fTimeRuleType, align 8
+  %5 = load i32, ptr %timeType.addr, align 4
+  store i32 %5, ptr %fTimeRuleType, align 8
   ret void
 }
 
@@ -150,26 +153,27 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512DateTimeRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512DateTimeRuleE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %month.addr, align 4
-  store i32 %1, ptr %fMonth, align 8
+  %2 = load i32, ptr %month.addr, align 4
+  store i32 %2, ptr %fMonth, align 8
   %fDayOfMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %dayOfMonth.addr, align 4
-  store i32 %2, ptr %fDayOfMonth, align 4
+  %3 = load i32, ptr %dayOfMonth.addr, align 4
+  store i32 %3, ptr %fDayOfMonth, align 4
   %fDayOfWeek = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %dayOfWeek.addr, align 4
-  store i32 %3, ptr %fDayOfWeek, align 8
+  %4 = load i32, ptr %dayOfWeek.addr, align 4
+  store i32 %4, ptr %fDayOfWeek, align 8
   %fWeekInMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 4
   store i32 0, ptr %fWeekInMonth, align 4
   %fMillisInDay = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 5
-  %4 = load i32, ptr %millisInDay.addr, align 4
-  store i32 %4, ptr %fMillisInDay, align 8
+  %5 = load i32, ptr %millisInDay.addr, align 4
+  store i32 %5, ptr %fMillisInDay, align 8
   %fTimeRuleType = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 7
-  %5 = load i32, ptr %timeType.addr, align 4
-  store i32 %5, ptr %fTimeRuleType, align 8
-  %6 = load i8, ptr %after.addr, align 1
-  %tobool = icmp ne i8 %6, 0
+  %6 = load i32, ptr %timeType.addr, align 4
+  store i32 %6, ptr %fTimeRuleType, align 8
+  %7 = load i8, ptr %after.addr, align 1
+  %tobool = icmp ne i8 %7, 0
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -199,42 +203,43 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512DateTimeRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7512DateTimeRuleE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %source.addr, align 8
-  %fMonth2 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %fMonth2, align 8
-  store i32 %2, ptr %fMonth, align 8
+  %2 = load ptr, ptr %source.addr, align 8
+  %fMonth2 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %fMonth2, align 8
+  store i32 %3, ptr %fMonth, align 8
   %fDayOfMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %source.addr, align 8
-  %fDayOfMonth3 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %fDayOfMonth3, align 4
-  store i32 %4, ptr %fDayOfMonth, align 4
+  %4 = load ptr, ptr %source.addr, align 8
+  %fDayOfMonth3 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %fDayOfMonth3, align 4
+  store i32 %5, ptr %fDayOfMonth, align 4
   %fDayOfWeek = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %source.addr, align 8
-  %fDayOfWeek4 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %fDayOfWeek4, align 8
-  store i32 %6, ptr %fDayOfWeek, align 8
+  %6 = load ptr, ptr %source.addr, align 8
+  %fDayOfWeek4 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %6, i32 0, i32 3
+  %7 = load i32, ptr %fDayOfWeek4, align 8
+  store i32 %7, ptr %fDayOfWeek, align 8
   %fWeekInMonth = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 4
-  %7 = load ptr, ptr %source.addr, align 8
-  %fWeekInMonth5 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %7, i32 0, i32 4
-  %8 = load i32, ptr %fWeekInMonth5, align 4
-  store i32 %8, ptr %fWeekInMonth, align 4
+  %8 = load ptr, ptr %source.addr, align 8
+  %fWeekInMonth5 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %8, i32 0, i32 4
+  %9 = load i32, ptr %fWeekInMonth5, align 4
+  store i32 %9, ptr %fWeekInMonth, align 4
   %fMillisInDay = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 5
-  %9 = load ptr, ptr %source.addr, align 8
-  %fMillisInDay6 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %9, i32 0, i32 5
-  %10 = load i32, ptr %fMillisInDay6, align 8
-  store i32 %10, ptr %fMillisInDay, align 8
+  %10 = load ptr, ptr %source.addr, align 8
+  %fMillisInDay6 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %10, i32 0, i32 5
+  %11 = load i32, ptr %fMillisInDay6, align 8
+  store i32 %11, ptr %fMillisInDay, align 8
   %fDateRuleType = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 6
-  %11 = load ptr, ptr %source.addr, align 8
-  %fDateRuleType7 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %11, i32 0, i32 6
-  %12 = load i32, ptr %fDateRuleType7, align 4
-  store i32 %12, ptr %fDateRuleType, align 4
+  %12 = load ptr, ptr %source.addr, align 8
+  %fDateRuleType7 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %12, i32 0, i32 6
+  %13 = load i32, ptr %fDateRuleType7, align 4
+  store i32 %13, ptr %fDateRuleType, align 4
   %fTimeRuleType = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %this1, i32 0, i32 7
-  %13 = load ptr, ptr %source.addr, align 8
-  %fTimeRuleType8 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %13, i32 0, i32 7
-  %14 = load i32, ptr %fTimeRuleType8, align 8
-  store i32 %14, ptr %fTimeRuleType, align 8
+  %14 = load ptr, ptr %source.addr, align 8
+  %fTimeRuleType8 = getelementptr inbounds %"class.icu_75::DateTimeRule", ptr %14, i32 0, i32 7
+  %15 = load i32, ptr %fTimeRuleType8, align 8
+  store i32 %15, ptr %fTimeRuleType, align 8
   ret void
 }
 
@@ -246,7 +251,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

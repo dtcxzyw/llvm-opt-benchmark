@@ -35,118 +35,122 @@ define i32 @opal_patcher_base_select() #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_patcher_base_framework, i32 0, i32 11), align 4
-  %7 = call i32 @mca_base_select(ptr noundef @.str, i32 noundef %6, ptr noundef getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_patcher_base_framework, i32 0, i32 12), ptr noundef %2, ptr noundef %3, ptr noundef %5)
-  store i32 %7, ptr %4, align 4
-  %8 = load i32, ptr %4, align 4
-  %9 = icmp ne i32 0, %8
-  br i1 %9, label %10, label %12
-
-10:                                               ; preds = %0
-  %11 = load i32, ptr %4, align 4
-  store i32 %11, ptr %1, align 4
-  br label %63
+  %6 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_patcher_base_framework, i32 0, i32 11
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_patcher_base_framework, i32 0, i32 12
+  %9 = call i32 @mca_base_select(ptr noundef @.str, i32 noundef %7, ptr noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+  store i32 %9, ptr %4, align 4
+  %10 = load i32, ptr %4, align 4
+  %11 = icmp ne i32 0, %10
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %0
-  br label %13
+  %13 = load i32, ptr %4, align 4
+  store i32 %13, ptr %1, align 4
+  br label %67
 
-13:                                               ; preds = %12
-  br label %14
+14:                                               ; preds = %0
+  br label %15
 
-14:                                               ; preds = %13
-  %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %17 = icmp ne i32 %15, %16
-  br i1 %17, label %18, label %19
+15:                                               ; preds = %14
+  br label %16
 
-18:                                               ; preds = %14
+16:                                               ; preds = %15
+  %17 = load i32, ptr @opal_class_init_epoch, align 4
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %17, %19
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %16
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %19
+  br label %22
 
-19:                                               ; preds = %18, %14
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %20, i32 0, i32 1
-  %22 = getelementptr inbounds %struct.opal_object_t, ptr %21, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %22, align 8
+22:                                               ; preds = %21, %16
   %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %23, i32 0, i32 1
-  %25 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 1
-  store volatile i32 1, ptr %25, align 8
+  %25 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %25, align 8
   %26 = load ptr, ptr %2, align 8
   %27 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %26, i32 0, i32 1
-  call void @opal_obj_run_constructors(ptr noundef %27)
-  br label %28
-
-28:                                               ; preds = %19
-  br label %29
-
-29:                                               ; preds = %28
-  br label %30
-
-30:                                               ; preds = %29
+  %28 = getelementptr inbounds %struct.opal_object_t, ptr %27, i32 0, i32 1
+  store volatile i32 1, ptr %28, align 8
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %29, i32 0, i32 1
+  call void @opal_obj_run_constructors(ptr noundef %30)
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load i32, ptr @opal_class_init_epoch, align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %34 = icmp ne i32 %32, %33
-  br i1 %34, label %35, label %36
+31:                                               ; preds = %22
+  br label %32
 
-35:                                               ; preds = %31
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load i32, ptr @opal_class_init_epoch, align 4
+  %36 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp ne i32 %35, %37
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %34
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %36
+  br label %40
 
-36:                                               ; preds = %35, %31
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %37, i32 0, i32 2
-  %39 = getelementptr inbounds %struct.opal_object_t, ptr %38, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %39, align 8
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %40, i32 0, i32 2
-  %42 = getelementptr inbounds %struct.opal_object_t, ptr %41, i32 0, i32 1
-  store volatile i32 1, ptr %42, align 8
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %43, i32 0, i32 2
-  call void @opal_obj_run_constructors(ptr noundef %44)
-  br label %45
-
-45:                                               ; preds = %36
-  br label %46
-
-46:                                               ; preds = %45
+40:                                               ; preds = %39, %34
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %41, i32 0, i32 2
+  %43 = getelementptr inbounds %struct.opal_object_t, ptr %42, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %43, align 8
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %44, i32 0, i32 2
+  %46 = getelementptr inbounds %struct.opal_object_t, ptr %45, i32 0, i32 1
+  store volatile i32 1, ptr %46, align 8
   %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %61
+  %48 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %47, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %48)
+  br label %49
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %52, i32 0, i32 3
-  %54 = load ptr, ptr %53, align 8
-  %55 = call i32 %54()
-  store i32 %55, ptr %4, align 4
-  %56 = load i32, ptr %4, align 4
-  %57 = icmp ne i32 0, %56
-  br i1 %57, label %58, label %60
+49:                                               ; preds = %40
+  br label %50
 
-58:                                               ; preds = %51
-  %59 = load i32, ptr %4, align 4
-  store i32 %59, ptr %1, align 4
-  br label %63
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %2, align 8
+  %52 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %51, i32 0, i32 3
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %65
 
-60:                                               ; preds = %51
-  br label %61
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds %struct.mca_patcher_base_module_t, ptr %56, i32 0, i32 3
+  %58 = load ptr, ptr %57, align 8
+  %59 = call i32 %58()
+  store i32 %59, ptr %4, align 4
+  %60 = load i32, ptr %4, align 4
+  %61 = icmp ne i32 0, %60
+  br i1 %61, label %62, label %64
 
-61:                                               ; preds = %60, %46
-  %62 = load ptr, ptr %2, align 8
-  store ptr %62, ptr @opal_patcher, align 8
+62:                                               ; preds = %55
+  %63 = load i32, ptr %4, align 4
+  store i32 %63, ptr %1, align 4
+  br label %67
+
+64:                                               ; preds = %55
+  br label %65
+
+65:                                               ; preds = %64, %50
+  %66 = load ptr, ptr %2, align 8
+  store ptr %66, ptr @opal_patcher, align 8
   store i32 0, ptr %1, align 4
-  br label %63
+  br label %67
 
-63:                                               ; preds = %61, %58, %10
-  %64 = load i32, ptr %1, align 4
-  ret i32 %64
+67:                                               ; preds = %65, %62, %12
+  %68 = load i32, ptr %1, align 4
+  ret i32 %68
 }
 
 declare i32 @mca_base_select(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

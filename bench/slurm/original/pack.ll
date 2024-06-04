@@ -173,7 +173,7 @@ define dso_local ptr @create_mmap_buf(ptr noundef %0) #0 {
 
 20:                                               ; preds = %19
   store ptr null, ptr %2, align 8
-  br label %78
+  br label %79
 
 21:                                               ; preds = %1
   %22 = load i32, ptr %5, align 4
@@ -207,7 +207,7 @@ define dso_local ptr @create_mmap_buf(ptr noundef %0) #0 {
   %35 = load i32, ptr %5, align 4
   %36 = call i32 @close(i32 noundef %35)
   store ptr null, ptr %2, align 8
-  br label %78
+  br label %79
 
 37:                                               ; preds = %21
   %38 = getelementptr inbounds %struct.stat, ptr %6, i32 0, i32 8
@@ -218,82 +218,83 @@ define dso_local ptr @create_mmap_buf(ptr noundef %0) #0 {
   %42 = load i32, ptr %5, align 4
   %43 = call i32 @close(i32 noundef %42)
   %44 = load ptr, ptr %7, align 8
-  %45 = icmp eq ptr %44, inttoptr (i64 -1 to ptr)
-  br i1 %45, label %46, label %56
+  %45 = inttoptr i64 -1 to ptr
+  %46 = icmp eq ptr %44, %45
+  br i1 %46, label %47, label %57
 
-46:                                               ; preds = %37
-  br label %47
-
-47:                                               ; preds = %46
+47:                                               ; preds = %37
   br label %48
 
 48:                                               ; preds = %47
-  %49 = call i32 @get_log_level()
-  %50 = icmp sge i32 %49, 5
-  br i1 %50, label %51, label %53
+  br label %49
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.4, ptr noundef @__func__.create_mmap_buf, ptr noundef %52)
-  br label %53
+49:                                               ; preds = %48
+  %50 = call i32 @get_log_level()
+  %51 = icmp sge i32 %50, 5
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %51, %48
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.4, ptr noundef @__func__.create_mmap_buf, ptr noundef %53)
   br label %54
 
-54:                                               ; preds = %53
+54:                                               ; preds = %52, %49
   br label %55
 
 55:                                               ; preds = %54
+  br label %56
+
+56:                                               ; preds = %55
   store ptr null, ptr %2, align 8
-  br label %78
+  br label %79
 
-56:                                               ; preds = %37
-  %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds %struct.stat, ptr %6, i32 0, i32 8
-  %59 = load i64, ptr %58, align 8
-  %60 = trunc i64 %59 to i32
-  %61 = call ptr @create_buf(ptr noundef %57, i32 noundef %60)
-  store ptr %61, ptr %4, align 8
-  %62 = load ptr, ptr %4, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %67
+57:                                               ; preds = %37
+  %58 = load ptr, ptr %7, align 8
+  %59 = getelementptr inbounds %struct.stat, ptr %6, i32 0, i32 8
+  %60 = load i64, ptr %59, align 8
+  %61 = trunc i64 %60 to i32
+  %62 = call ptr @create_buf(ptr noundef %58, i32 noundef %61)
+  store ptr %62, ptr %4, align 8
+  %63 = load ptr, ptr %4, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %56
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.buf_t, ptr %65, i32 0, i32 4
-  store i8 1, ptr %66, align 8
-  br label %67
-
-67:                                               ; preds = %64, %56
+65:                                               ; preds = %57
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds %struct.buf_t, ptr %66, i32 0, i32 4
+  store i8 1, ptr %67, align 8
   br label %68
 
-68:                                               ; preds = %67
+68:                                               ; preds = %65, %57
   br label %69
 
 69:                                               ; preds = %68
-  %70 = call i32 @get_log_level()
-  %71 = icmp sge i32 %70, 7
-  br i1 %71, label %72, label %74
+  br label %70
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.5, ptr noundef @__func__.create_mmap_buf, ptr noundef %73)
-  br label %74
+70:                                               ; preds = %69
+  %71 = call i32 @get_log_level()
+  %72 = icmp sge i32 %71, 7
+  br i1 %72, label %73, label %75
 
-74:                                               ; preds = %72, %69
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %3, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.5, ptr noundef @__func__.create_mmap_buf, ptr noundef %74)
   br label %75
 
-75:                                               ; preds = %74
+75:                                               ; preds = %73, %70
   br label %76
 
 76:                                               ; preds = %75
-  %77 = load ptr, ptr %4, align 8
-  store ptr %77, ptr %2, align 8
-  br label %78
+  br label %77
 
-78:                                               ; preds = %76, %55, %34, %20
-  %79 = load ptr, ptr %2, align 8
-  ret ptr %79
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %4, align 8
+  store ptr %78, ptr %2, align 8
+  br label %79
+
+79:                                               ; preds = %77, %56, %34, %20
+  %80 = load ptr, ptr %2, align 8
+  ret ptr %80
 }
 
 ; Function Attrs: nounwind uwtable

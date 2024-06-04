@@ -1537,80 +1537,84 @@ entry:
   call void @_ZN3net19QuicPacketGenerator17DelegateInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
   %2 = getelementptr inbounds i8, ptr %this1, i64 24
   call void @_ZN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %5 = getelementptr inbounds { [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 2, i32 2
+  store ptr %5, ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
+  %6 = getelementptr inbounds { [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 3, i32 2
+  store ptr %6, ptr %add.ptr3, align 8
   %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %supported_versions.addr, align 8
-  %4 = load ptr, ptr %helper.addr, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %supported_versions.addr, align 8
+  %8 = load ptr, ptr %helper.addr, align 8
+  %vtable = load ptr, ptr %8, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %5 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %9 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %vtable4 = load ptr, ptr %call, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
-  %6 = load ptr, ptr %vfn5, align 8
-  %call7 = invoke i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  %10 = load ptr, ptr %vfn5, align 8
+  %call7 = invoke i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %coerce.dive = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp, i32 0, i32 0
   store i64 %call7, ptr %coerce.dive, align 8
-  %7 = load i32, ptr %perspective.addr, align 4
+  %11 = load i32, ptr %perspective.addr, align 4
   %coerce.dive8 = getelementptr inbounds %"class.net::QuicTime", ptr %agg.tmp, i32 0, i32 0
-  %8 = load i64, ptr %coerce.dive8, align 8
-  invoke void @_ZN3net10QuicFramerC1ERKSt6vectorINS_11QuicVersionESaIS2_EENS_8QuicTimeENS_11PerspectiveE(ptr noundef nonnull align 8 dereferenceable(408) %framer_, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %8, i32 noundef %7)
+  %12 = load i64, ptr %coerce.dive8, align 8
+  invoke void @_ZN3net10QuicFramerC1ERKSt6vectorINS_11QuicVersionESaIS2_EENS_8QuicTimeENS_11PerspectiveE(ptr noundef nonnull align 8 dereferenceable(408) %framer_, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %12, i32 noundef %11)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   %helper_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 5
-  %9 = load ptr, ptr %helper.addr, align 8
-  store ptr %9, ptr %helper_, align 8
+  %13 = load ptr, ptr %helper.addr, align 8
+  store ptr %13, ptr %helper_, align 8
   %alarm_factory_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 6
-  %10 = load ptr, ptr %alarm_factory.addr, align 8
-  store ptr %10, ptr %alarm_factory_, align 8
+  %14 = load ptr, ptr %alarm_factory.addr, align 8
+  store ptr %14, ptr %alarm_factory_, align 8
   %per_packet_options_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 7
   store ptr null, ptr %per_packet_options_, align 8
   %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 8
-  %11 = load ptr, ptr %writer.addr, align 8
-  store ptr %11, ptr %writer_, align 8
+  %15 = load ptr, ptr %writer.addr, align 8
+  store ptr %15, ptr %writer_, align 8
   %owns_writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 9
-  %12 = load i8, ptr %owns_writer.addr, align 1
-  %tobool = trunc i8 %12 to i1
+  %16 = load i8, ptr %owns_writer.addr, align 1
+  %tobool = trunc i8 %16 to i1
   %frombool10 = zext i1 %tobool to i8
   store i8 %frombool10, ptr %owns_writer_, align 8
   %encryption_level_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 10
   store i8 0, ptr %encryption_level_, align 1
   %clock_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 12
-  %13 = load ptr, ptr %helper.addr, align 8
-  %vtable11 = load ptr, ptr %13, align 8
+  %17 = load ptr, ptr %helper.addr, align 8
+  %vtable11 = load ptr, ptr %17, align 8
   %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 2
-  %14 = load ptr, ptr %vfn12, align 8
-  %call15 = invoke noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %18 = load ptr, ptr %vfn12, align 8
+  %call15 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont9
   store ptr %call15, ptr %clock_, align 8
   %random_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 13
-  %15 = load ptr, ptr %helper.addr, align 8
-  %vtable16 = load ptr, ptr %15, align 8
+  %19 = load ptr, ptr %helper.addr, align 8
+  %vtable16 = load ptr, ptr %19, align 8
   %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 3
-  %16 = load ptr, ptr %vfn17, align 8
-  %call19 = invoke noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %20 = load ptr, ptr %vfn17, align 8
+  %call19 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %invoke.cont18 unwind label %lpad13
 
 invoke.cont18:                                    ; preds = %invoke.cont14
   store ptr %call19, ptr %random_generator_, align 8
   %connection_id_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 14
-  %17 = load i64, ptr %connection_id.addr, align 8
-  store i64 %17, ptr %connection_id_, align 8
+  %21 = load i64, ptr %connection_id.addr, align 8
+  store i64 %21, ptr %connection_id_, align 8
   %self_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 15
   invoke void @_ZN3net10IPEndPointC1Ev(ptr noundef nonnull align 8 dereferenceable(26) %self_address_)
           to label %invoke.cont20 unwind label %lpad13
@@ -1704,12 +1708,12 @@ invoke.cont32:                                    ; preds = %invoke.cont30
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %18 = getelementptr inbounds { i64, i64 }, ptr %ping_timeout_, i32 0, i32 0
-  %19 = extractvalue { i64, i64 } %call35, 0
-  store i64 %19, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %ping_timeout_, i32 0, i32 1
-  %21 = extractvalue { i64, i64 } %call35, 1
-  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, i64 }, ptr %ping_timeout_, i32 0, i32 0
+  %23 = extractvalue { i64, i64 } %call35, 0
+  store i64 %23, ptr %22, align 8
+  %24 = getelementptr inbounds { i64, i64 }, ptr %ping_timeout_, i32 0, i32 1
+  %25 = extractvalue { i64, i64 } %call35, 1
+  store i64 %25, ptr %24, align 8
   %arena_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
   invoke void @_ZN3net17QuicOneBlockArenaILj1024EEC2Ev(ptr noundef nonnull align 8 dereferenceable(1028) %arena_)
           to label %invoke.cont36 unwind label %lpad33
@@ -1717,7 +1721,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
 invoke.cont36:                                    ; preds = %invoke.cont34
   %ack_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 60
   %alarm_factory_37 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 6
-  %22 = load ptr, ptr %alarm_factory_37, align 8
+  %26 = load ptr, ptr %alarm_factory_37, align 8
   %arena_39 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
   store ptr %this1, ptr %ref.tmp40, align 8
   invoke void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_116AckAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr sret(%"class.net::QuicArenaScopedPtr.86") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1028) %arena_39, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp40)
@@ -1729,10 +1733,10 @@ invoke.cont41:                                    ; preds = %invoke.cont36
 
 invoke.cont43:                                    ; preds = %invoke.cont41
   %arena_44 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
-  %vtable45 = load ptr, ptr %22, align 8
+  %vtable45 = load ptr, ptr %26, align 8
   %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 3
-  %23 = load ptr, ptr %vfn46, align 8
-  invoke void %23(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %ack_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %agg.tmp38, ptr noundef %arena_44)
+  %27 = load ptr, ptr %vfn46, align 8
+  invoke void %27(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %ack_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %agg.tmp38, ptr noundef %arena_44)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont43
@@ -1740,7 +1744,7 @@ invoke.cont48:                                    ; preds = %invoke.cont43
   call void @_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
   %retransmission_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 61
   %alarm_factory_49 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 6
-  %24 = load ptr, ptr %alarm_factory_49, align 8
+  %28 = load ptr, ptr %alarm_factory_49, align 8
   %arena_52 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
   store ptr %this1, ptr %ref.tmp53, align 8
   invoke void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr sret(%"class.net::QuicArenaScopedPtr.87") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(1028) %arena_52, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp53)
@@ -1752,10 +1756,10 @@ invoke.cont55:                                    ; preds = %invoke.cont48
 
 invoke.cont57:                                    ; preds = %invoke.cont55
   %arena_58 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
-  %vtable59 = load ptr, ptr %24, align 8
+  %vtable59 = load ptr, ptr %28, align 8
   %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 3
-  %25 = load ptr, ptr %vfn60, align 8
-  invoke void %25(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %retransmission_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %agg.tmp50, ptr noundef %arena_58)
+  %29 = load ptr, ptr %vfn60, align 8
+  invoke void %29(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %retransmission_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %agg.tmp50, ptr noundef %arena_58)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont57
@@ -1763,7 +1767,7 @@ invoke.cont62:                                    ; preds = %invoke.cont57
   call void @_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp51) #14
   %send_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 62
   %alarm_factory_65 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 6
-  %26 = load ptr, ptr %alarm_factory_65, align 8
+  %30 = load ptr, ptr %alarm_factory_65, align 8
   %arena_68 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
   store ptr %this1, ptr %ref.tmp69, align 8
   invoke void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr sret(%"class.net::QuicArenaScopedPtr.88") align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(1028) %arena_68, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp69)
@@ -1775,10 +1779,10 @@ invoke.cont71:                                    ; preds = %invoke.cont62
 
 invoke.cont73:                                    ; preds = %invoke.cont71
   %arena_74 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
-  %vtable75 = load ptr, ptr %26, align 8
+  %vtable75 = load ptr, ptr %30, align 8
   %vfn76 = getelementptr inbounds ptr, ptr %vtable75, i64 3
-  %27 = load ptr, ptr %vfn76, align 8
-  invoke void %27(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %send_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %agg.tmp66, ptr noundef %arena_74)
+  %31 = load ptr, ptr %vfn76, align 8
+  invoke void %31(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %send_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %agg.tmp66, ptr noundef %arena_74)
           to label %invoke.cont78 unwind label %lpad77
 
 invoke.cont78:                                    ; preds = %invoke.cont73
@@ -1786,7 +1790,7 @@ invoke.cont78:                                    ; preds = %invoke.cont73
   call void @_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67) #14
   %resume_writes_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 63
   %alarm_factory_81 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 6
-  %28 = load ptr, ptr %alarm_factory_81, align 8
+  %32 = load ptr, ptr %alarm_factory_81, align 8
   %arena_84 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
   store ptr %this1, ptr %ref.tmp85, align 8
   invoke void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr sret(%"class.net::QuicArenaScopedPtr.88") align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(1028) %arena_84, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp85)
@@ -1798,10 +1802,10 @@ invoke.cont87:                                    ; preds = %invoke.cont78
 
 invoke.cont89:                                    ; preds = %invoke.cont87
   %arena_90 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
-  %vtable91 = load ptr, ptr %28, align 8
+  %vtable91 = load ptr, ptr %32, align 8
   %vfn92 = getelementptr inbounds ptr, ptr %vtable91, i64 3
-  %29 = load ptr, ptr %vfn92, align 8
-  invoke void %29(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %resume_writes_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %agg.tmp82, ptr noundef %arena_90)
+  %33 = load ptr, ptr %vfn92, align 8
+  invoke void %33(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %resume_writes_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %agg.tmp82, ptr noundef %arena_90)
           to label %invoke.cont94 unwind label %lpad93
 
 invoke.cont94:                                    ; preds = %invoke.cont89
@@ -1809,7 +1813,7 @@ invoke.cont94:                                    ; preds = %invoke.cont89
   call void @_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83) #14
   %timeout_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 64
   %alarm_factory_97 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 6
-  %30 = load ptr, ptr %alarm_factory_97, align 8
+  %34 = load ptr, ptr %alarm_factory_97, align 8
   %arena_100 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
   store ptr %this1, ptr %ref.tmp101, align 8
   invoke void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_120TimeoutAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr sret(%"class.net::QuicArenaScopedPtr.89") align 8 %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(1028) %arena_100, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp101)
@@ -1821,10 +1825,10 @@ invoke.cont103:                                   ; preds = %invoke.cont94
 
 invoke.cont105:                                   ; preds = %invoke.cont103
   %arena_106 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
-  %vtable107 = load ptr, ptr %30, align 8
+  %vtable107 = load ptr, ptr %34, align 8
   %vfn108 = getelementptr inbounds ptr, ptr %vtable107, i64 3
-  %31 = load ptr, ptr %vfn108, align 8
-  invoke void %31(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %timeout_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %agg.tmp98, ptr noundef %arena_106)
+  %35 = load ptr, ptr %vfn108, align 8
+  invoke void %35(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %timeout_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %agg.tmp98, ptr noundef %arena_106)
           to label %invoke.cont110 unwind label %lpad109
 
 invoke.cont110:                                   ; preds = %invoke.cont105
@@ -1832,7 +1836,7 @@ invoke.cont110:                                   ; preds = %invoke.cont105
   call void @_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp99) #14
   %ping_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 65
   %alarm_factory_113 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 6
-  %32 = load ptr, ptr %alarm_factory_113, align 8
+  %36 = load ptr, ptr %alarm_factory_113, align 8
   %arena_116 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
   store ptr %this1, ptr %ref.tmp117, align 8
   invoke void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117PingAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr sret(%"class.net::QuicArenaScopedPtr.90") align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(1028) %arena_116, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp117)
@@ -1844,10 +1848,10 @@ invoke.cont119:                                   ; preds = %invoke.cont110
 
 invoke.cont121:                                   ; preds = %invoke.cont119
   %arena_122 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
-  %vtable123 = load ptr, ptr %32, align 8
+  %vtable123 = load ptr, ptr %36, align 8
   %vfn124 = getelementptr inbounds ptr, ptr %vtable123, i64 3
-  %33 = load ptr, ptr %vfn124, align 8
-  invoke void %33(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %ping_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %agg.tmp114, ptr noundef %arena_122)
+  %37 = load ptr, ptr %vfn124, align 8
+  invoke void %37(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %ping_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %agg.tmp114, ptr noundef %arena_122)
           to label %invoke.cont126 unwind label %lpad125
 
 invoke.cont126:                                   ; preds = %invoke.cont121
@@ -1855,7 +1859,7 @@ invoke.cont126:                                   ; preds = %invoke.cont121
   call void @_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115) #14
   %mtu_discovery_alarm_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 66
   %alarm_factory_129 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 6
-  %34 = load ptr, ptr %alarm_factory_129, align 8
+  %38 = load ptr, ptr %alarm_factory_129, align 8
   %arena_132 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
   store ptr %this1, ptr %ref.tmp133, align 8
   invoke void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr sret(%"class.net::QuicArenaScopedPtr.91") align 8 %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(1028) %arena_132, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp133)
@@ -1867,10 +1871,10 @@ invoke.cont135:                                   ; preds = %invoke.cont126
 
 invoke.cont137:                                   ; preds = %invoke.cont135
   %arena_138 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 59
-  %vtable139 = load ptr, ptr %34, align 8
+  %vtable139 = load ptr, ptr %38, align 8
   %vfn140 = getelementptr inbounds ptr, ptr %vtable139, i64 3
-  %35 = load ptr, ptr %vfn140, align 8
-  invoke void %35(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %mtu_discovery_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %agg.tmp130, ptr noundef %arena_138)
+  %39 = load ptr, ptr %vfn140, align 8
+  invoke void %39(ptr sret(%"class.net::QuicArenaScopedPtr") align 8 %mtu_discovery_alarm_, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %agg.tmp130, ptr noundef %arena_138)
           to label %invoke.cont142 unwind label %lpad141
 
 invoke.cont142:                                   ; preds = %invoke.cont137
@@ -1882,20 +1886,20 @@ invoke.cont142:                                   ; preds = %invoke.cont137
   store ptr null, ptr %debug_visitor_, align 8
   %packet_generator_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 69
   %connection_id_145 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 14
-  %36 = load i64, ptr %connection_id_145, align 8
+  %40 = load i64, ptr %connection_id_145, align 8
   %framer_146 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 4
   %random_generator_147 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 13
-  %37 = load ptr, ptr %random_generator_147, align 8
-  %38 = load ptr, ptr %helper.addr, align 8
-  %vtable148 = load ptr, ptr %38, align 8
+  %41 = load ptr, ptr %random_generator_147, align 8
+  %42 = load ptr, ptr %helper.addr, align 8
+  %vtable148 = load ptr, ptr %42, align 8
   %vfn149 = getelementptr inbounds ptr, ptr %vtable148, i64 4
-  %39 = load ptr, ptr %vfn149, align 8
-  %call152 = invoke noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %38)
+  %43 = load ptr, ptr %vfn149, align 8
+  %call152 = invoke noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %invoke.cont142
   %add.ptr153 = getelementptr inbounds i8, ptr %this1, i64 16
-  invoke void @_ZN3net19QuicPacketGeneratorC1EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, i64 noundef %36, ptr noundef %framer_146, ptr noundef %37, ptr noundef %call152, ptr noundef %add.ptr153)
+  invoke void @_ZN3net19QuicPacketGeneratorC1EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, i64 noundef %40, ptr noundef %framer_146, ptr noundef %41, ptr noundef %call152, ptr noundef %add.ptr153)
           to label %invoke.cont154 unwind label %lpad150
 
 invoke.cont154:                                   ; preds = %invoke.cont151
@@ -1904,23 +1908,23 @@ invoke.cont154:                                   ; preds = %invoke.cont151
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %invoke.cont154
-  %40 = getelementptr inbounds { i64, i64 }, ptr %idle_network_timeout_, i32 0, i32 0
-  %41 = extractvalue { i64, i64 } %call157, 0
-  store i64 %41, ptr %40, align 8
-  %42 = getelementptr inbounds { i64, i64 }, ptr %idle_network_timeout_, i32 0, i32 1
-  %43 = extractvalue { i64, i64 } %call157, 1
-  store i64 %43, ptr %42, align 8
+  %44 = getelementptr inbounds { i64, i64 }, ptr %idle_network_timeout_, i32 0, i32 0
+  %45 = extractvalue { i64, i64 } %call157, 0
+  store i64 %45, ptr %44, align 8
+  %46 = getelementptr inbounds { i64, i64 }, ptr %idle_network_timeout_, i32 0, i32 1
+  %47 = extractvalue { i64, i64 } %call157, 1
+  store i64 %47, ptr %46, align 8
   %handshake_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 71
   %call159 = invoke { i64, i64 } @_ZN3net8QuicTime5Delta8InfiniteEv()
           to label %invoke.cont158 unwind label %lpad155
 
 invoke.cont158:                                   ; preds = %invoke.cont156
-  %44 = getelementptr inbounds { i64, i64 }, ptr %handshake_timeout_, i32 0, i32 0
-  %45 = extractvalue { i64, i64 } %call159, 0
-  store i64 %45, ptr %44, align 8
-  %46 = getelementptr inbounds { i64, i64 }, ptr %handshake_timeout_, i32 0, i32 1
-  %47 = extractvalue { i64, i64 } %call159, 1
-  store i64 %47, ptr %46, align 8
+  %48 = getelementptr inbounds { i64, i64 }, ptr %handshake_timeout_, i32 0, i32 0
+  %49 = extractvalue { i64, i64 } %call159, 0
+  store i64 %49, ptr %48, align 8
+  %50 = getelementptr inbounds { i64, i64 }, ptr %handshake_timeout_, i32 0, i32 1
+  %51 = extractvalue { i64, i64 } %call159, 1
+  store i64 %51, ptr %50, align 8
   %stats_160 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 72
   invoke void @_ZN3net19QuicConnectionStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %stats_160)
           to label %invoke.cont161 unwind label %lpad155
@@ -1928,11 +1932,11 @@ invoke.cont158:                                   ; preds = %invoke.cont156
 invoke.cont161:                                   ; preds = %invoke.cont158
   %time_of_last_received_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 73
   %clock_162 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 12
-  %48 = load ptr, ptr %clock_162, align 8
-  %vtable163 = load ptr, ptr %48, align 8
+  %52 = load ptr, ptr %clock_162, align 8
+  %vtable163 = load ptr, ptr %52, align 8
   %vfn164 = getelementptr inbounds ptr, ptr %vtable163, i64 2
-  %49 = load ptr, ptr %vfn164, align 8
-  %call167 = invoke i64 %49(ptr noundef nonnull align 8 dereferenceable(8) %48)
+  %53 = load ptr, ptr %vfn164, align 8
+  %call167 = invoke i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %52)
           to label %invoke.cont166 unwind label %lpad165
 
 invoke.cont166:                                   ; preds = %invoke.cont161
@@ -1940,11 +1944,11 @@ invoke.cont166:                                   ; preds = %invoke.cont161
   store i64 %call167, ptr %coerce.dive168, align 8
   %time_of_last_sent_new_packet_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 74
   %clock_169 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 12
-  %50 = load ptr, ptr %clock_169, align 8
-  %vtable170 = load ptr, ptr %50, align 8
+  %54 = load ptr, ptr %clock_169, align 8
+  %vtable170 = load ptr, ptr %54, align 8
   %vfn171 = getelementptr inbounds ptr, ptr %vtable170, i64 2
-  %51 = load ptr, ptr %vfn171, align 8
-  %call173 = invoke i64 %51(ptr noundef nonnull align 8 dereferenceable(8) %50)
+  %55 = load ptr, ptr %vfn171, align 8
+  %call173 = invoke i64 %55(ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %invoke.cont172 unwind label %lpad165
 
 invoke.cont172:                                   ; preds = %invoke.cont166
@@ -1952,11 +1956,11 @@ invoke.cont172:                                   ; preds = %invoke.cont166
   store i64 %call173, ptr %coerce.dive174, align 8
   %last_send_for_timeout_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 75
   %clock_175 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 12
-  %52 = load ptr, ptr %clock_175, align 8
-  %vtable176 = load ptr, ptr %52, align 8
+  %56 = load ptr, ptr %clock_175, align 8
+  %vtable176 = load ptr, ptr %56, align 8
   %vfn177 = getelementptr inbounds ptr, ptr %vtable176, i64 2
-  %53 = load ptr, ptr %vfn177, align 8
-  %call179 = invoke i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %52)
+  %57 = load ptr, ptr %vfn177, align 8
+  %call179 = invoke i64 %57(ptr noundef nonnull align 8 dereferenceable(8) %56)
           to label %invoke.cont178 unwind label %lpad165
 
 invoke.cont178:                                   ; preds = %invoke.cont172
@@ -1969,11 +1973,11 @@ invoke.cont178:                                   ; preds = %invoke.cont172
           to label %invoke.cont181 unwind label %lpad165
 
 invoke.cont181:                                   ; preds = %invoke.cont178
-  %54 = load i32, ptr %perspective.addr, align 4
+  %58 = load i32, ptr %perspective.addr, align 4
   %clock_183 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 12
-  %55 = load ptr, ptr %clock_183, align 8
+  %59 = load ptr, ptr %clock_183, align 8
   %stats_184 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 72
-  invoke void @_ZN3net21QuicSentPacketManagerC1ENS_11PerspectiveEhPKNS_9QuicClockEPNS_19QuicConnectionStatsENS_21CongestionControlTypeENS_17LossDetectionTypeEPNS0_26MultipathDelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(776) %call182, i32 noundef %54, i8 noundef zeroext 0, ptr noundef %55, ptr noundef %stats_184, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  invoke void @_ZN3net21QuicSentPacketManagerC1ENS_11PerspectiveEhPKNS_9QuicClockEPNS_19QuicConnectionStatsENS_21CongestionControlTypeENS_17LossDetectionTypeEPNS0_26MultipathDelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(776) %call182, i32 noundef %58, i8 noundef zeroext 0, ptr noundef %59, ptr noundef %stats_184, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %invoke.cont186 unwind label %lpad185
 
 invoke.cont186:                                   ; preds = %invoke.cont181
@@ -1981,8 +1985,8 @@ invoke.cont186:                                   ; preds = %invoke.cont181
   %version_negotiation_state_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 78
   store i32 0, ptr %version_negotiation_state_, align 8
   %perspective_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 79
-  %56 = load i32, ptr %perspective.addr, align 4
-  store i32 %56, ptr %perspective_, align 4
+  %60 = load i32, ptr %perspective.addr, align 4
+  store i32 %60, ptr %perspective_, align 4
   %connected_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 80
   store i8 1, ptr %connected_, align 8
   %last_packet_destination_address_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 82
@@ -2035,11 +2039,11 @@ invoke.cont198:                                   ; preds = %invoke.cont195
   %least_unacked = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %last_stop_waiting_frame_199, i32 0, i32 2
   store i64 0, ptr %least_unacked, align 8
   %clock_201 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 12
-  %57 = load ptr, ptr %clock_201, align 8
-  %vtable202 = load ptr, ptr %57, align 8
+  %61 = load ptr, ptr %clock_201, align 8
+  %vtable202 = load ptr, ptr %61, align 8
   %vfn203 = getelementptr inbounds ptr, ptr %vtable202, i64 2
-  %58 = load ptr, ptr %vfn203, align 8
-  %call205 = invoke i64 %58(ptr noundef nonnull align 8 dereferenceable(8) %57)
+  %62 = load ptr, ptr %vfn203, align 8
+  %call205 = invoke i64 %62(ptr noundef nonnull align 8 dereferenceable(8) %61)
           to label %invoke.cont204 unwind label %lpad194
 
 invoke.cont204:                                   ; preds = %invoke.cont198
@@ -2048,8 +2052,8 @@ invoke.cont204:                                   ; preds = %invoke.cont198
   %stats_207 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 72
   %connection_creation_time = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %stats_207, i32 0, i32 30
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %connection_creation_time, ptr align 8 %ref.tmp200, i64 8, i1 false)
-  %59 = load i8, ptr @FLAGS_quic_enable_multipath, align 1
-  %tobool208 = trunc i8 %59 to i1
+  %63 = load i8, ptr @FLAGS_quic_enable_multipath, align 1
+  %tobool208 = trunc i8 %63 to i1
   br i1 %tobool208, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont204
@@ -2069,102 +2073,102 @@ invoke.cont216:                                   ; preds = %invoke.cont210
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont6, %invoke.cont, %entry
-  %60 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %exn.slot, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %ehselector.slot, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %exn.slot, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %ehselector.slot, align 4
   br label %ehcleanup253
 
 lpad13:                                           ; preds = %invoke.cont18, %invoke.cont14, %invoke.cont9
-  %63 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %exn.slot, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %ehselector.slot, align 4
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %exn.slot, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %ehselector.slot, align 4
   br label %ehcleanup252
 
 lpad21:                                           ; preds = %invoke.cont20
-  %66 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %exn.slot, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %ehselector.slot, align 4
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %exn.slot, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %ehselector.slot, align 4
   br label %ehcleanup251
 
 lpad23:                                           ; preds = %invoke.cont22
-  %69 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %exn.slot, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %ehselector.slot, align 4
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %exn.slot, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %ehselector.slot, align 4
   br label %ehcleanup250
 
 lpad25:                                           ; preds = %invoke.cont24
-  %72 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %exn.slot, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %ehselector.slot, align 4
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %exn.slot, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %ehselector.slot, align 4
   br label %ehcleanup249
 
 lpad27:                                           ; preds = %invoke.cont26
-  %75 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %exn.slot, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %ehselector.slot, align 4
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %exn.slot, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %ehselector.slot, align 4
   br label %ehcleanup248
 
 lpad29:                                           ; preds = %invoke.cont28
-  %78 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %exn.slot, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %ehselector.slot, align 4
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %exn.slot, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %ehselector.slot, align 4
   br label %ehcleanup245
 
 lpad31:                                           ; preds = %invoke.cont30
-  %81 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %exn.slot, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %ehselector.slot, align 4
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %exn.slot, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %ehselector.slot, align 4
   br label %ehcleanup244
 
 lpad33:                                           ; preds = %invoke.cont36, %invoke.cont34, %invoke.cont32
-  %84 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %exn.slot, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %ehselector.slot, align 4
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %exn.slot, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %ehselector.slot, align 4
   br label %ehcleanup243
 
 lpad42:                                           ; preds = %invoke.cont41
-  %87 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %exn.slot, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %ehselector.slot, align 4
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %exn.slot, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad47:                                           ; preds = %invoke.cont43
-  %90 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %exn.slot, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %ehselector.slot, align 4
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %exn.slot, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp38) #14
   br label %ehcleanup
 
@@ -2173,30 +2177,30 @@ ehcleanup:                                        ; preds = %lpad47, %lpad42
   br label %ehcleanup243
 
 lpad54:                                           ; preds = %invoke.cont48
-  %93 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %exn.slot, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %ehselector.slot, align 4
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %exn.slot, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %ehselector.slot, align 4
   br label %ehcleanup242
 
 lpad56:                                           ; preds = %invoke.cont55
-  %96 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %exn.slot, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %ehselector.slot, align 4
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %exn.slot, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %ehselector.slot, align 4
   br label %ehcleanup64
 
 lpad61:                                           ; preds = %invoke.cont57
-  %99 = landingpad { ptr, i32 }
+  %103 = landingpad { ptr, i32 }
           cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %exn.slot, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %ehselector.slot, align 4
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %exn.slot, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp50) #14
   br label %ehcleanup64
 
@@ -2205,30 +2209,30 @@ ehcleanup64:                                      ; preds = %lpad61, %lpad56
   br label %ehcleanup242
 
 lpad70:                                           ; preds = %invoke.cont62
-  %102 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %exn.slot, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %ehselector.slot, align 4
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %exn.slot, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %ehselector.slot, align 4
   br label %ehcleanup241
 
 lpad72:                                           ; preds = %invoke.cont71
-  %105 = landingpad { ptr, i32 }
+  %109 = landingpad { ptr, i32 }
           cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %exn.slot, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %ehselector.slot, align 4
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %exn.slot, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %ehselector.slot, align 4
   br label %ehcleanup80
 
 lpad77:                                           ; preds = %invoke.cont73
-  %108 = landingpad { ptr, i32 }
+  %112 = landingpad { ptr, i32 }
           cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %exn.slot, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %ehselector.slot, align 4
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %exn.slot, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp66) #14
   br label %ehcleanup80
 
@@ -2237,30 +2241,30 @@ ehcleanup80:                                      ; preds = %lpad77, %lpad72
   br label %ehcleanup241
 
 lpad86:                                           ; preds = %invoke.cont78
-  %111 = landingpad { ptr, i32 }
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %exn.slot, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %ehselector.slot, align 4
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %exn.slot, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %ehselector.slot, align 4
   br label %ehcleanup240
 
 lpad88:                                           ; preds = %invoke.cont87
-  %114 = landingpad { ptr, i32 }
+  %118 = landingpad { ptr, i32 }
           cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %exn.slot, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %ehselector.slot, align 4
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %exn.slot, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %ehselector.slot, align 4
   br label %ehcleanup96
 
 lpad93:                                           ; preds = %invoke.cont89
-  %117 = landingpad { ptr, i32 }
+  %121 = landingpad { ptr, i32 }
           cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %exn.slot, align 8
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %ehselector.slot, align 4
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %exn.slot, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp82) #14
   br label %ehcleanup96
 
@@ -2269,30 +2273,30 @@ ehcleanup96:                                      ; preds = %lpad93, %lpad88
   br label %ehcleanup240
 
 lpad102:                                          ; preds = %invoke.cont94
-  %120 = landingpad { ptr, i32 }
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %121 = extractvalue { ptr, i32 } %120, 0
-  store ptr %121, ptr %exn.slot, align 8
-  %122 = extractvalue { ptr, i32 } %120, 1
-  store i32 %122, ptr %ehselector.slot, align 4
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %exn.slot, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %ehselector.slot, align 4
   br label %ehcleanup239
 
 lpad104:                                          ; preds = %invoke.cont103
-  %123 = landingpad { ptr, i32 }
+  %127 = landingpad { ptr, i32 }
           cleanup
-  %124 = extractvalue { ptr, i32 } %123, 0
-  store ptr %124, ptr %exn.slot, align 8
-  %125 = extractvalue { ptr, i32 } %123, 1
-  store i32 %125, ptr %ehselector.slot, align 4
+  %128 = extractvalue { ptr, i32 } %127, 0
+  store ptr %128, ptr %exn.slot, align 8
+  %129 = extractvalue { ptr, i32 } %127, 1
+  store i32 %129, ptr %ehselector.slot, align 4
   br label %ehcleanup112
 
 lpad109:                                          ; preds = %invoke.cont105
-  %126 = landingpad { ptr, i32 }
+  %130 = landingpad { ptr, i32 }
           cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  store ptr %127, ptr %exn.slot, align 8
-  %128 = extractvalue { ptr, i32 } %126, 1
-  store i32 %128, ptr %ehselector.slot, align 4
+  %131 = extractvalue { ptr, i32 } %130, 0
+  store ptr %131, ptr %exn.slot, align 8
+  %132 = extractvalue { ptr, i32 } %130, 1
+  store i32 %132, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp98) #14
   br label %ehcleanup112
 
@@ -2301,30 +2305,30 @@ ehcleanup112:                                     ; preds = %lpad109, %lpad104
   br label %ehcleanup239
 
 lpad118:                                          ; preds = %invoke.cont110
-  %129 = landingpad { ptr, i32 }
+  %133 = landingpad { ptr, i32 }
           cleanup
-  %130 = extractvalue { ptr, i32 } %129, 0
-  store ptr %130, ptr %exn.slot, align 8
-  %131 = extractvalue { ptr, i32 } %129, 1
-  store i32 %131, ptr %ehselector.slot, align 4
+  %134 = extractvalue { ptr, i32 } %133, 0
+  store ptr %134, ptr %exn.slot, align 8
+  %135 = extractvalue { ptr, i32 } %133, 1
+  store i32 %135, ptr %ehselector.slot, align 4
   br label %ehcleanup238
 
 lpad120:                                          ; preds = %invoke.cont119
-  %132 = landingpad { ptr, i32 }
+  %136 = landingpad { ptr, i32 }
           cleanup
-  %133 = extractvalue { ptr, i32 } %132, 0
-  store ptr %133, ptr %exn.slot, align 8
-  %134 = extractvalue { ptr, i32 } %132, 1
-  store i32 %134, ptr %ehselector.slot, align 4
+  %137 = extractvalue { ptr, i32 } %136, 0
+  store ptr %137, ptr %exn.slot, align 8
+  %138 = extractvalue { ptr, i32 } %136, 1
+  store i32 %138, ptr %ehselector.slot, align 4
   br label %ehcleanup128
 
 lpad125:                                          ; preds = %invoke.cont121
-  %135 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           cleanup
-  %136 = extractvalue { ptr, i32 } %135, 0
-  store ptr %136, ptr %exn.slot, align 8
-  %137 = extractvalue { ptr, i32 } %135, 1
-  store i32 %137, ptr %ehselector.slot, align 4
+  %140 = extractvalue { ptr, i32 } %139, 0
+  store ptr %140, ptr %exn.slot, align 8
+  %141 = extractvalue { ptr, i32 } %139, 1
+  store i32 %141, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp114) #14
   br label %ehcleanup128
 
@@ -2333,30 +2337,30 @@ ehcleanup128:                                     ; preds = %lpad125, %lpad120
   br label %ehcleanup238
 
 lpad134:                                          ; preds = %invoke.cont126
-  %138 = landingpad { ptr, i32 }
+  %142 = landingpad { ptr, i32 }
           cleanup
-  %139 = extractvalue { ptr, i32 } %138, 0
-  store ptr %139, ptr %exn.slot, align 8
-  %140 = extractvalue { ptr, i32 } %138, 1
-  store i32 %140, ptr %ehselector.slot, align 4
+  %143 = extractvalue { ptr, i32 } %142, 0
+  store ptr %143, ptr %exn.slot, align 8
+  %144 = extractvalue { ptr, i32 } %142, 1
+  store i32 %144, ptr %ehselector.slot, align 4
   br label %ehcleanup237
 
 lpad136:                                          ; preds = %invoke.cont135
-  %141 = landingpad { ptr, i32 }
+  %145 = landingpad { ptr, i32 }
           cleanup
-  %142 = extractvalue { ptr, i32 } %141, 0
-  store ptr %142, ptr %exn.slot, align 8
-  %143 = extractvalue { ptr, i32 } %141, 1
-  store i32 %143, ptr %ehselector.slot, align 4
+  %146 = extractvalue { ptr, i32 } %145, 0
+  store ptr %146, ptr %exn.slot, align 8
+  %147 = extractvalue { ptr, i32 } %145, 1
+  store i32 %147, ptr %ehselector.slot, align 4
   br label %ehcleanup144
 
 lpad141:                                          ; preds = %invoke.cont137
-  %144 = landingpad { ptr, i32 }
+  %148 = landingpad { ptr, i32 }
           cleanup
-  %145 = extractvalue { ptr, i32 } %144, 0
-  store ptr %145, ptr %exn.slot, align 8
-  %146 = extractvalue { ptr, i32 } %144, 1
-  store i32 %146, ptr %ehselector.slot, align 4
+  %149 = extractvalue { ptr, i32 } %148, 0
+  store ptr %149, ptr %exn.slot, align 8
+  %150 = extractvalue { ptr, i32 } %148, 1
+  store i32 %150, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp130) #14
   br label %ehcleanup144
 
@@ -2365,76 +2369,76 @@ ehcleanup144:                                     ; preds = %lpad141, %lpad136
   br label %ehcleanup237
 
 lpad150:                                          ; preds = %invoke.cont151, %invoke.cont142
-  %147 = landingpad { ptr, i32 }
+  %151 = landingpad { ptr, i32 }
           cleanup
-  %148 = extractvalue { ptr, i32 } %147, 0
-  store ptr %148, ptr %exn.slot, align 8
-  %149 = extractvalue { ptr, i32 } %147, 1
-  store i32 %149, ptr %ehselector.slot, align 4
+  %152 = extractvalue { ptr, i32 } %151, 0
+  store ptr %152, ptr %exn.slot, align 8
+  %153 = extractvalue { ptr, i32 } %151, 1
+  store i32 %153, ptr %ehselector.slot, align 4
   br label %ehcleanup236
 
 lpad155:                                          ; preds = %invoke.cont158, %invoke.cont156, %invoke.cont154
-  %150 = landingpad { ptr, i32 }
+  %154 = landingpad { ptr, i32 }
           cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %exn.slot, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %ehselector.slot, align 4
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %exn.slot, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %ehselector.slot, align 4
   br label %ehcleanup235
 
 lpad165:                                          ; preds = %invoke.cont178, %invoke.cont172, %invoke.cont166, %invoke.cont161
-  %153 = landingpad { ptr, i32 }
+  %157 = landingpad { ptr, i32 }
           cleanup
-  %154 = extractvalue { ptr, i32 } %153, 0
-  store ptr %154, ptr %exn.slot, align 8
-  %155 = extractvalue { ptr, i32 } %153, 1
-  store i32 %155, ptr %ehselector.slot, align 4
+  %158 = extractvalue { ptr, i32 } %157, 0
+  store ptr %158, ptr %exn.slot, align 8
+  %159 = extractvalue { ptr, i32 } %157, 1
+  store i32 %159, ptr %ehselector.slot, align 4
   br label %ehcleanup234
 
 lpad185:                                          ; preds = %invoke.cont181
-  %156 = landingpad { ptr, i32 }
+  %160 = landingpad { ptr, i32 }
           cleanup
-  %157 = extractvalue { ptr, i32 } %156, 0
-  store ptr %157, ptr %exn.slot, align 8
-  %158 = extractvalue { ptr, i32 } %156, 1
-  store i32 %158, ptr %ehselector.slot, align 4
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %exn.slot, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call182) #16
   br label %ehcleanup234
 
 lpad188:                                          ; preds = %invoke.cont186
-  %159 = landingpad { ptr, i32 }
+  %163 = landingpad { ptr, i32 }
           cleanup
-  %160 = extractvalue { ptr, i32 } %159, 0
-  store ptr %160, ptr %exn.slot, align 8
-  %161 = extractvalue { ptr, i32 } %159, 1
-  store i32 %161, ptr %ehselector.slot, align 4
+  %164 = extractvalue { ptr, i32 } %163, 0
+  store ptr %164, ptr %exn.slot, align 8
+  %165 = extractvalue { ptr, i32 } %163, 1
+  store i32 %165, ptr %ehselector.slot, align 4
   br label %ehcleanup233
 
 lpad190:                                          ; preds = %invoke.cont189
-  %162 = landingpad { ptr, i32 }
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %exn.slot, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %ehselector.slot, align 4
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %exn.slot, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %ehselector.slot, align 4
   br label %ehcleanup232
 
 lpad194:                                          ; preds = %invoke.cont227, %invoke.cont225, %invoke.cont223, %if.end, %if.then, %invoke.cont198, %invoke.cont195, %invoke.cont191
-  %165 = landingpad { ptr, i32 }
+  %169 = landingpad { ptr, i32 }
           cleanup
-  %166 = extractvalue { ptr, i32 } %165, 0
-  store ptr %166, ptr %exn.slot, align 8
-  %167 = extractvalue { ptr, i32 } %165, 1
-  store i32 %167, ptr %ehselector.slot, align 4
+  %170 = extractvalue { ptr, i32 } %169, 0
+  store ptr %170, ptr %exn.slot, align 8
+  %171 = extractvalue { ptr, i32 } %169, 1
+  store i32 %171, ptr %ehselector.slot, align 4
   br label %ehcleanup230
 
 lpad215:                                          ; preds = %invoke.cont210
-  %168 = landingpad { ptr, i32 }
+  %172 = landingpad { ptr, i32 }
           cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %exn.slot, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %ehselector.slot, align 4
+  %173 = extractvalue { ptr, i32 } %172, 0
+  store ptr %173, ptr %exn.slot, align 8
+  %174 = extractvalue { ptr, i32 } %172, 1
+  store i32 %174, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call211) #16
   br label %ehcleanup230
 
@@ -2444,14 +2448,14 @@ if.end:                                           ; preds = %invoke.cont216, %in
   %add.ptr220 = getelementptr inbounds i8, ptr %this1, i64 24
   %vtable221 = load ptr, ptr %call219, align 8
   %vfn222 = getelementptr inbounds ptr, ptr %vtable221, i64 34
-  %171 = load ptr, ptr %vfn222, align 8
-  invoke void %171(ptr noundef nonnull align 8 dereferenceable(8) %call219, ptr noundef %add.ptr220)
+  %175 = load ptr, ptr %vfn222, align 8
+  invoke void %175(ptr noundef nonnull align 8 dereferenceable(8) %call219, ptr noundef %add.ptr220)
           to label %invoke.cont223 unwind label %lpad194
 
 invoke.cont223:                                   ; preds = %if.end
   %perspective_224 = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 79
-  %172 = load i32, ptr %perspective_224, align 4
-  %cmp = icmp eq i32 %172, 0
+  %176 = load i32, ptr %perspective_224, align 4
+  %cmp = icmp eq i32 %176, 0
   %cond = select i1 %cmp, i64 1000, i64 1350
   invoke void @_ZN3net14QuicConnection18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(3372) %this1, i64 noundef %cond)
           to label %invoke.cont225 unwind label %lpad194
@@ -2552,12 +2556,12 @@ ehcleanup252:                                     ; preds = %ehcleanup251, %lpad
   br label %ehcleanup253
 
 ehcleanup253:                                     ; preds = %ehcleanup252, %lpad
-  %173 = getelementptr inbounds i8, ptr %this1, i64 24
-  call void @_ZN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %173) #14
-  %174 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN3net19QuicPacketGenerator17DelegateInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %174) #14
-  %175 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN3net26QuicBlockedWriterInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %175) #14
+  %177 = getelementptr inbounds i8, ptr %this1, i64 24
+  call void @_ZN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %177) #14
+  %178 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN3net19QuicPacketGenerator17DelegateInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %178) #14
+  %179 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN3net26QuicBlockedWriterInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %179) #14
   call void @_ZN3net26QuicFramerVisitorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
   br label %eh.resume
 
@@ -2575,7 +2579,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3net26QuicFramerVisitorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN3net26QuicFramerVisitorInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2585,7 +2590,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26QuicBlockedWriterInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net26QuicBlockedWriterInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2596,7 +2602,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net17QuicPacketCreator17DelegateInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3net19QuicPacketGenerator17DelegateInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3net19QuicPacketGenerator17DelegateInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2606,7 +2613,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4405,29 +4413,33 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %2 = getelementptr inbounds { [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 2, i32 2
+  store ptr %2, ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
+  %3 = getelementptr inbounds { [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 3, i32 2
+  store ptr %3, ptr %add.ptr3, align 8
   %owns_writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 9
-  %0 = load i8, ptr %owns_writer_, align 8
-  %tobool = trunc i8 %0 to i1
+  %4 = load i8, ptr %owns_writer_, align 8
+  %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 8
-  %1 = load ptr, ptr %writer_, align 8
-  %isnull = icmp eq ptr %1, null
+  %5 = load ptr, ptr %writer_, align 8
+  %isnull = icmp eq ptr %5, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
+  %6 = load ptr, ptr %vfn, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -4489,20 +4501,20 @@ invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %self_address_) #14
   %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 4
   call void @_ZN3net10QuicFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %framer_) #14
-  %3 = getelementptr inbounds i8, ptr %this1, i64 24
-  call void @_ZN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  %4 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN3net19QuicPacketGenerator17DelegateInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  %5 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN3net26QuicBlockedWriterInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %7 = getelementptr inbounds i8, ptr %this1, i64 24
+  call void @_ZN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  %8 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN3net19QuicPacketGenerator17DelegateInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  %9 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN3net26QuicBlockedWriterInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #14
   call void @_ZN3net26QuicFramerVisitorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %if.end
-  %6 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #17
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #17
   unreachable
 }
 
@@ -17802,7 +17814,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net36QuicConnectionCloseDelegateInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicPacketCreator17DelegateInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3net17QuicPacketCreator17DelegateInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17831,7 +17844,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net36QuicConnectionCloseDelegateInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net36QuicConnectionCloseDelegateInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22037,10 +22051,11 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_116AckAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_116AckAlarmDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::AckAlarmDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %connection.addr, align 8
-  store ptr %0, ptr %connection_, align 8
+  %1 = load ptr, ptr %connection.addr, align 8
+  store ptr %1, ptr %connection_, align 8
   ret void
 }
 
@@ -22116,7 +22131,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net9QuicAlarm8DelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net9QuicAlarm8DelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22472,10 +22488,11 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::RetransmissionAlarmDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %connection.addr, align 8
-  store ptr %0, ptr %connection_, align 8
+  %1 = load ptr, ptr %connection.addr, align 8
+  store ptr %1, ptr %connection_, align 8
   ret void
 }
 
@@ -22688,10 +22705,11 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::SendAlarmDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %connection.addr, align 8
-  store ptr %0, ptr %connection_, align 8
+  %1 = load ptr, ptr %connection.addr, align 8
+  store ptr %1, ptr %connection_, align 8
   ret void
 }
 
@@ -22904,10 +22922,11 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::TimeoutAlarmDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %connection.addr, align 8
-  store ptr %0, ptr %connection_, align 8
+  %1 = load ptr, ptr %connection.addr, align 8
+  store ptr %1, ptr %connection_, align 8
   ret void
 }
 
@@ -23120,10 +23139,11 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::PingAlarmDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %connection.addr, align 8
-  store ptr %0, ptr %connection_, align 8
+  %1 = load ptr, ptr %connection.addr, align 8
+  store ptr %1, ptr %connection_, align 8
   ret void
 }
 
@@ -23336,10 +23356,11 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::MtuDiscoveryAlarmDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %connection.addr, align 8
-  store ptr %0, ptr %connection_, align 8
+  %1 = load ptr, ptr %connection.addr, align 8
+  store ptr %1, ptr %connection_, align 8
   ret void
 }
 

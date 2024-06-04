@@ -4523,37 +4523,39 @@ if.end:                                           ; preds = %if.then, %entry
   store i64 64, ptr %ref.tmp13, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA9_cmEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.39, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
   %6 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 1 dereferenceable(5) @.str.40, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2))
-  %7 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node10JSONWriter13json_keyvalueIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.41, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3))
+  %7 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2
+  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 1 dereferenceable(5) @.str.40, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %8 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node6reportL22PrintComponentVersionsEPNS_10JSONWriterE(ptr noundef %8)
-  %9 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node6reportL12PrintReleaseEPNS_10JSONWriterE(ptr noundef %9)
+  %9 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3
+  call void @_ZN4node10JSONWriter13json_keyvalueIA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 1 dereferenceable(9) @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %10 = load ptr, ptr %writer.addr, align 8
+  call void @_ZN4node6reportL22PrintComponentVersionsEPNS_10JSONWriterE(ptr noundef %10)
+  %11 = load ptr, ptr %writer.addr, align 8
+  call void @_ZN4node6reportL12PrintReleaseEPNS_10JSONWriterE(ptr noundef %11)
   %call14 = call i32 @uv_os_uname(ptr noundef %os_info)
   %cmp15 = icmp eq i32 %call14, 0
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end
-  %10 = load ptr, ptr %writer.addr, align 8
-  %sysname = getelementptr inbounds %struct.uv_utsname_s, ptr %os_info, i32 0, i32 0
-  call void @_ZN4node10JSONWriter13json_keyvalueIA7_cA256_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 1 dereferenceable(7) @.str.42, ptr noundef nonnull align 1 dereferenceable(256) %sysname)
-  %11 = load ptr, ptr %writer.addr, align 8
-  %release = getelementptr inbounds %struct.uv_utsname_s, ptr %os_info, i32 0, i32 1
-  call void @_ZN4node10JSONWriter13json_keyvalueIA10_cA256_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 1 dereferenceable(10) @.str.43, ptr noundef nonnull align 1 dereferenceable(256) %release)
   %12 = load ptr, ptr %writer.addr, align 8
-  %version = getelementptr inbounds %struct.uv_utsname_s, ptr %os_info, i32 0, i32 2
-  call void @_ZN4node10JSONWriter13json_keyvalueIA10_cA256_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 1 dereferenceable(10) @.str.44, ptr noundef nonnull align 1 dereferenceable(256) %version)
+  %sysname = getelementptr inbounds %struct.uv_utsname_s, ptr %os_info, i32 0, i32 0
+  call void @_ZN4node10JSONWriter13json_keyvalueIA7_cA256_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 1 dereferenceable(7) @.str.42, ptr noundef nonnull align 1 dereferenceable(256) %sysname)
   %13 = load ptr, ptr %writer.addr, align 8
+  %release = getelementptr inbounds %struct.uv_utsname_s, ptr %os_info, i32 0, i32 1
+  call void @_ZN4node10JSONWriter13json_keyvalueIA10_cA256_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(10) @.str.43, ptr noundef nonnull align 1 dereferenceable(256) %release)
+  %14 = load ptr, ptr %writer.addr, align 8
+  %version = getelementptr inbounds %struct.uv_utsname_s, ptr %os_info, i32 0, i32 2
+  call void @_ZN4node10JSONWriter13json_keyvalueIA10_cA256_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 1 dereferenceable(10) @.str.44, ptr noundef nonnull align 1 dereferenceable(256) %version)
+  %15 = load ptr, ptr %writer.addr, align 8
   %machine = getelementptr inbounds %struct.uv_utsname_s, ptr %os_info, i32 0, i32 3
-  call void @_ZN4node10JSONWriter13json_keyvalueIA10_cA256_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(10) @.str.45, ptr noundef nonnull align 1 dereferenceable(256) %machine)
+  call void @_ZN4node10JSONWriter13json_keyvalueIA10_cA256_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 1 dereferenceable(10) @.str.45, ptr noundef nonnull align 1 dereferenceable(256) %machine)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.end
-  %14 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node6reportL12PrintCpuInfoEPNS_10JSONWriterE(ptr noundef %14)
-  %15 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node6reportL25PrintNetworkInterfaceInfoEPNS_10JSONWriterE(ptr noundef %15)
+  %16 = load ptr, ptr %writer.addr, align 8
+  call void @_ZN4node6reportL12PrintCpuInfoEPNS_10JSONWriterE(ptr noundef %16)
+  %17 = load ptr, ptr %writer.addr, align 8
+  call void @_ZN4node6reportL25PrintNetworkInterfaceInfoEPNS_10JSONWriterE(ptr noundef %17)
   store i64 65, ptr %host_size, align 8
   %arraydecay = getelementptr inbounds [65 x i8], ptr %host, i64 0, i64 0
   %call18 = call i32 @uv_os_gethostname(ptr noundef %arraydecay, ptr noundef %host_size)
@@ -4561,8 +4563,8 @@ if.end17:                                         ; preds = %if.then16, %if.end
   br i1 %cmp19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end17
-  %16 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cA65_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 1 dereferenceable(5) @.str.46, ptr noundef nonnull align 1 dereferenceable(65) %host)
+  %18 = load ptr, ptr %writer.addr, align 8
+  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cA65_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 1 dereferenceable(5) @.str.46, ptr noundef nonnull align 1 dereferenceable(65) %host)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.end17
@@ -7101,11 +7103,12 @@ do.end:                                           ; preds = %do.cond
   br label %do.body1
 
 do.body1:                                         ; preds = %do.end
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 1 dereferenceable(3) @.str.49, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1))
-  %2 = load ptr, ptr %slot, align 8
-  %incdec.ptr3 = getelementptr inbounds %"struct.std::pair.263", ptr %2, i32 1
+  %2 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 1 dereferenceable(3) @.str.49, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %3 = load ptr, ptr %slot, align 8
+  %incdec.ptr3 = getelementptr inbounds %"struct.std::pair.263", ptr %3, i32 1
   store ptr %incdec.ptr3, ptr %slot, align 8
-  %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #3
+  %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #3
   br label %do.cond5
 
 do.cond5:                                         ; preds = %do.body1
@@ -7115,11 +7118,12 @@ do.end6:                                          ; preds = %do.cond5
   br label %do.body7
 
 do.body7:                                         ; preds = %do.end6
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2))
-  %3 = load ptr, ptr %slot, align 8
-  %incdec.ptr9 = getelementptr inbounds %"struct.std::pair.263", ptr %3, i32 1
+  %4 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 2
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = load ptr, ptr %slot, align 8
+  %incdec.ptr9 = getelementptr inbounds %"struct.std::pair.263", ptr %5, i32 1
   store ptr %incdec.ptr9, ptr %slot, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #3
+  %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #3
   br label %do.cond11
 
 do.cond11:                                        ; preds = %do.body7
@@ -7129,11 +7133,12 @@ do.end12:                                         ; preds = %do.cond11
   br label %do.body13
 
 do.body13:                                        ; preds = %do.end12
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 1 dereferenceable(5) @.str.51, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3))
-  %4 = load ptr, ptr %slot, align 8
-  %incdec.ptr15 = getelementptr inbounds %"struct.std::pair.263", ptr %4, i32 1
+  %6 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 3
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 1 dereferenceable(5) @.str.51, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load ptr, ptr %slot, align 8
+  %incdec.ptr15 = getelementptr inbounds %"struct.std::pair.263", ptr %7, i32 1
   store ptr %incdec.ptr15, ptr %slot, align 8
-  %call16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #3
+  %call16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #3
   br label %do.cond17
 
 do.cond17:                                        ; preds = %do.body13
@@ -7143,11 +7148,12 @@ do.end18:                                         ; preds = %do.cond17
   br label %do.body19
 
 do.body19:                                        ; preds = %do.end18
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef nonnull align 1 dereferenceable(7) @.str.52, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 4))
-  %5 = load ptr, ptr %slot, align 8
-  %incdec.ptr21 = getelementptr inbounds %"struct.std::pair.263", ptr %5, i32 1
+  %8 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 4
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef nonnull align 1 dereferenceable(7) @.str.52, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %9 = load ptr, ptr %slot, align 8
+  %incdec.ptr21 = getelementptr inbounds %"struct.std::pair.263", ptr %9, i32 1
   store ptr %incdec.ptr21, ptr %slot, align 8
-  %call22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #3
+  %call22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #3
   br label %do.cond23
 
 do.cond23:                                        ; preds = %do.body19
@@ -7157,11 +7163,12 @@ do.end24:                                         ; preds = %do.cond23
   br label %do.body25
 
 do.body25:                                        ; preds = %do.end24
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef nonnull align 1 dereferenceable(5) @.str.53, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 5))
-  %6 = load ptr, ptr %slot, align 8
-  %incdec.ptr27 = getelementptr inbounds %"struct.std::pair.263", ptr %6, i32 1
+  %10 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 5
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef nonnull align 1 dereferenceable(5) @.str.53, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %11 = load ptr, ptr %slot, align 8
+  %incdec.ptr27 = getelementptr inbounds %"struct.std::pair.263", ptr %11, i32 1
   store ptr %incdec.ptr27, ptr %slot, align 8
-  %call28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #3
+  %call28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #3
   br label %do.cond29
 
 do.cond29:                                        ; preds = %do.body25
@@ -7171,11 +7178,12 @@ do.end30:                                         ; preds = %do.cond29
   br label %do.body31
 
 do.body31:                                        ; preds = %do.end30
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, ptr noundef nonnull align 1 dereferenceable(8) @.str.54, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 6))
-  %7 = load ptr, ptr %slot, align 8
-  %incdec.ptr33 = getelementptr inbounds %"struct.std::pair.263", ptr %7, i32 1
+  %12 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 6
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, ptr noundef nonnull align 1 dereferenceable(8) @.str.54, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %13 = load ptr, ptr %slot, align 8
+  %incdec.ptr33 = getelementptr inbounds %"struct.std::pair.263", ptr %13, i32 1
   store ptr %incdec.ptr33, ptr %slot, align 8
-  %call34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #3
+  %call34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #3
   br label %do.cond35
 
 do.cond35:                                        ; preds = %do.body31
@@ -7185,11 +7193,12 @@ do.end36:                                         ; preds = %do.cond35
   br label %do.body37
 
 do.body37:                                        ; preds = %do.end36
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, ptr noundef nonnull align 1 dereferenceable(8) @.str.55, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 7))
-  %8 = load ptr, ptr %slot, align 8
-  %incdec.ptr39 = getelementptr inbounds %"struct.std::pair.263", ptr %8, i32 1
+  %14 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 7
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, ptr noundef nonnull align 1 dereferenceable(8) @.str.55, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %15 = load ptr, ptr %slot, align 8
+  %incdec.ptr39 = getelementptr inbounds %"struct.std::pair.263", ptr %15, i32 1
   store ptr %incdec.ptr39, ptr %slot, align 8
-  %call40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #3
+  %call40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #3
   br label %do.cond41
 
 do.cond41:                                        ; preds = %do.body37
@@ -7199,11 +7208,12 @@ do.end42:                                         ; preds = %do.cond41
   br label %do.body43
 
 do.body43:                                        ; preds = %do.end42
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef nonnull align 1 dereferenceable(5) @.str.56, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 8))
-  %9 = load ptr, ptr %slot, align 8
-  %incdec.ptr45 = getelementptr inbounds %"struct.std::pair.263", ptr %9, i32 1
+  %16 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 8
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef nonnull align 1 dereferenceable(5) @.str.56, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %17 = load ptr, ptr %slot, align 8
+  %incdec.ptr45 = getelementptr inbounds %"struct.std::pair.263", ptr %17, i32 1
   store ptr %incdec.ptr45, ptr %slot, align 8
-  %call46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #3
+  %call46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #3
   br label %do.cond47
 
 do.cond47:                                        ; preds = %do.body43
@@ -7213,11 +7223,12 @@ do.end48:                                         ; preds = %do.cond47
   br label %do.body49
 
 do.body49:                                        ; preds = %do.end48
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 9))
-  %10 = load ptr, ptr %slot, align 8
-  %incdec.ptr51 = getelementptr inbounds %"struct.std::pair.263", ptr %10, i32 1
+  %18 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 9
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %19 = load ptr, ptr %slot, align 8
+  %incdec.ptr51 = getelementptr inbounds %"struct.std::pair.263", ptr %19, i32 1
   store ptr %incdec.ptr51, ptr %slot, align 8
-  %call52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #3
+  %call52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #3
   br label %do.cond53
 
 do.cond53:                                        ; preds = %do.body49
@@ -7227,11 +7238,12 @@ do.end54:                                         ; preds = %do.cond53
   br label %do.body55
 
 do.body55:                                        ; preds = %do.end54
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull align 1 dereferenceable(7) @.str.58, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 10))
-  %11 = load ptr, ptr %slot, align 8
-  %incdec.ptr57 = getelementptr inbounds %"struct.std::pair.263", ptr %11, i32 1
+  %20 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 10
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull align 1 dereferenceable(7) @.str.58, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  %21 = load ptr, ptr %slot, align 8
+  %incdec.ptr57 = getelementptr inbounds %"struct.std::pair.263", ptr %21, i32 1
   store ptr %incdec.ptr57, ptr %slot, align 8
-  %call58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56) #3
+  %call58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56) #3
   br label %do.cond59
 
 do.cond59:                                        ; preds = %do.body55
@@ -7241,11 +7253,12 @@ do.end60:                                         ; preds = %do.cond59
   br label %do.body61
 
 do.body61:                                        ; preds = %do.end60
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA6_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62, ptr noundef nonnull align 1 dereferenceable(6) @.str.59, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 11))
-  %12 = load ptr, ptr %slot, align 8
-  %incdec.ptr63 = getelementptr inbounds %"struct.std::pair.263", ptr %12, i32 1
+  %22 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 11
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA6_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62, ptr noundef nonnull align 1 dereferenceable(6) @.str.59, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %23 = load ptr, ptr %slot, align 8
+  %incdec.ptr63 = getelementptr inbounds %"struct.std::pair.263", ptr %23, i32 1
   store ptr %incdec.ptr63, ptr %slot, align 8
-  %call64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #3
+  %call64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #3
   br label %do.cond65
 
 do.cond65:                                        ; preds = %do.body61
@@ -7255,11 +7268,12 @@ do.end66:                                         ; preds = %do.cond65
   br label %do.body67
 
 do.body67:                                        ; preds = %do.end66
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA9_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68, ptr noundef nonnull align 1 dereferenceable(9) @.str.60, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 12))
-  %13 = load ptr, ptr %slot, align 8
-  %incdec.ptr69 = getelementptr inbounds %"struct.std::pair.263", ptr %13, i32 1
+  %24 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 12
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA9_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68, ptr noundef nonnull align 1 dereferenceable(9) @.str.60, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = load ptr, ptr %slot, align 8
+  %incdec.ptr69 = getelementptr inbounds %"struct.std::pair.263", ptr %25, i32 1
   store ptr %incdec.ptr69, ptr %slot, align 8
-  %call70 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #3
+  %call70 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #3
   br label %do.cond71
 
 do.cond71:                                        ; preds = %do.body67
@@ -7269,11 +7283,12 @@ do.end72:                                         ; preds = %do.cond71
   br label %do.body73
 
 do.body73:                                        ; preds = %do.end72
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, ptr noundef nonnull align 1 dereferenceable(8) @.str.61, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 13))
-  %14 = load ptr, ptr %slot, align 8
-  %incdec.ptr75 = getelementptr inbounds %"struct.std::pair.263", ptr %14, i32 1
+  %26 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 13
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, ptr noundef nonnull align 1 dereferenceable(8) @.str.61, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %27 = load ptr, ptr %slot, align 8
+  %incdec.ptr75 = getelementptr inbounds %"struct.std::pair.263", ptr %27, i32 1
   store ptr %incdec.ptr75, ptr %slot, align 8
-  %call76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #3
+  %call76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #3
   br label %do.cond77
 
 do.cond77:                                        ; preds = %do.body73
@@ -7283,11 +7298,12 @@ do.end78:                                         ; preds = %do.cond77
   br label %do.body79
 
 do.body79:                                        ; preds = %do.end78
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA4_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, ptr noundef nonnull align 1 dereferenceable(4) @.str.62, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 14))
-  %15 = load ptr, ptr %slot, align 8
-  %incdec.ptr81 = getelementptr inbounds %"struct.std::pair.263", ptr %15, i32 1
+  %28 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 14
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA4_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, ptr noundef nonnull align 1 dereferenceable(4) @.str.62, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %29 = load ptr, ptr %slot, align 8
+  %incdec.ptr81 = getelementptr inbounds %"struct.std::pair.263", ptr %29, i32 1
   store ptr %incdec.ptr81, ptr %slot, align 8
-  %call82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #3
+  %call82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #3
   br label %do.cond83
 
 do.cond83:                                        ; preds = %do.body79
@@ -7297,11 +7313,12 @@ do.end84:                                         ; preds = %do.cond83
   br label %do.body85
 
 do.body85:                                        ; preds = %do.end84
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86, ptr noundef nonnull align 1 dereferenceable(7) @.str.63, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 15))
-  %16 = load ptr, ptr %slot, align 8
-  %incdec.ptr87 = getelementptr inbounds %"struct.std::pair.263", ptr %16, i32 1
+  %30 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 15
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86, ptr noundef nonnull align 1 dereferenceable(7) @.str.63, ptr noundef nonnull align 8 dereferenceable(32) %30)
+  %31 = load ptr, ptr %slot, align 8
+  %incdec.ptr87 = getelementptr inbounds %"struct.std::pair.263", ptr %31, i32 1
   store ptr %incdec.ptr87, ptr %slot, align 8
-  %call88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86) #3
+  %call88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86) #3
   br label %do.cond89
 
 do.cond89:                                        ; preds = %do.body85
@@ -7311,11 +7328,12 @@ do.end90:                                         ; preds = %do.cond89
   br label %do.body91
 
 do.body91:                                        ; preds = %do.end90
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA17_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92, ptr noundef nonnull align 1 dereferenceable(17) @.str.64, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 16))
-  %17 = load ptr, ptr %slot, align 8
-  %incdec.ptr93 = getelementptr inbounds %"struct.std::pair.263", ptr %17, i32 1
+  %32 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 16
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA17_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92, ptr noundef nonnull align 1 dereferenceable(17) @.str.64, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  %33 = load ptr, ptr %slot, align 8
+  %incdec.ptr93 = getelementptr inbounds %"struct.std::pair.263", ptr %33, i32 1
   store ptr %incdec.ptr93, ptr %slot, align 8
-  %call94 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92) #3
+  %call94 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92) #3
   br label %do.cond95
 
 do.cond95:                                        ; preds = %do.body91
@@ -7325,11 +7343,12 @@ do.end96:                                         ; preds = %do.cond95
   br label %do.body97
 
 do.body97:                                        ; preds = %do.end96
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98, ptr noundef nonnull align 1 dereferenceable(7) @.str.65, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 17))
-  %18 = load ptr, ptr %slot, align 8
-  %incdec.ptr99 = getelementptr inbounds %"struct.std::pair.263", ptr %18, i32 1
+  %34 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 17
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98, ptr noundef nonnull align 1 dereferenceable(7) @.str.65, ptr noundef nonnull align 8 dereferenceable(32) %34)
+  %35 = load ptr, ptr %slot, align 8
+  %incdec.ptr99 = getelementptr inbounds %"struct.std::pair.263", ptr %35, i32 1
   store ptr %incdec.ptr99, ptr %slot, align 8
-  %call100 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #3
+  %call100 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #3
   br label %do.cond101
 
 do.cond101:                                       ; preds = %do.body97
@@ -7339,11 +7358,12 @@ do.end102:                                        ; preds = %do.cond101
   br label %do.body103
 
 do.body103:                                       ; preds = %do.end102
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull align 1 dereferenceable(8) @.str.66, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 18))
-  %19 = load ptr, ptr %slot, align 8
-  %incdec.ptr105 = getelementptr inbounds %"struct.std::pair.263", ptr %19, i32 1
+  %36 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 18
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull align 1 dereferenceable(8) @.str.66, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  %37 = load ptr, ptr %slot, align 8
+  %incdec.ptr105 = getelementptr inbounds %"struct.std::pair.263", ptr %37, i32 1
   store ptr %incdec.ptr105, ptr %slot, align 8
-  %call106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104) #3
+  %call106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104) #3
   br label %do.cond107
 
 do.cond107:                                       ; preds = %do.body103
@@ -7353,11 +7373,12 @@ do.end108:                                        ; preds = %do.cond107
   br label %do.body109
 
 do.body109:                                       ; preds = %do.end108
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 1 dereferenceable(5) @.str.67, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 19))
-  %20 = load ptr, ptr %slot, align 8
-  %incdec.ptr111 = getelementptr inbounds %"struct.std::pair.263", ptr %20, i32 1
+  %38 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 19
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA5_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 1 dereferenceable(5) @.str.67, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  %39 = load ptr, ptr %slot, align 8
+  %incdec.ptr111 = getelementptr inbounds %"struct.std::pair.263", ptr %39, i32 1
   store ptr %incdec.ptr111, ptr %slot, align 8
-  %call112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110) #3
+  %call112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110) #3
   br label %do.cond113
 
 do.cond113:                                       ; preds = %do.body109
@@ -7367,11 +7388,12 @@ do.end114:                                        ; preds = %do.cond113
   br label %do.body115
 
 do.body115:                                       ; preds = %do.end114
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA4_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116, ptr noundef nonnull align 1 dereferenceable(4) @.str.68, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 20))
-  %21 = load ptr, ptr %slot, align 8
-  %incdec.ptr117 = getelementptr inbounds %"struct.std::pair.263", ptr %21, i32 1
+  %40 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 20
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA4_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116, ptr noundef nonnull align 1 dereferenceable(4) @.str.68, ptr noundef nonnull align 8 dereferenceable(32) %40)
+  %41 = load ptr, ptr %slot, align 8
+  %incdec.ptr117 = getelementptr inbounds %"struct.std::pair.263", ptr %41, i32 1
   store ptr %incdec.ptr117, ptr %slot, align 8
-  %call118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116) #3
+  %call118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116) #3
   br label %do.cond119
 
 do.cond119:                                       ; preds = %do.body115
@@ -7381,11 +7403,12 @@ do.end120:                                        ; preds = %do.cond119
   br label %do.body121
 
 do.body121:                                       ; preds = %do.end120
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122, ptr noundef nonnull align 1 dereferenceable(3) @.str.69, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 21))
-  %22 = load ptr, ptr %slot, align 8
-  %incdec.ptr123 = getelementptr inbounds %"struct.std::pair.263", ptr %22, i32 1
+  %42 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 21
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA3_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122, ptr noundef nonnull align 1 dereferenceable(3) @.str.69, ptr noundef nonnull align 8 dereferenceable(32) %42)
+  %43 = load ptr, ptr %slot, align 8
+  %incdec.ptr123 = getelementptr inbounds %"struct.std::pair.263", ptr %43, i32 1
   store ptr %incdec.ptr123, ptr %slot, align 8
-  %call124 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #3
+  %call124 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #3
   br label %do.cond125
 
 do.cond125:                                       ; preds = %do.body121
@@ -7395,11 +7418,12 @@ do.end126:                                        ; preds = %do.cond125
   br label %do.body127
 
 do.body127:                                       ; preds = %do.end126
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128, ptr noundef nonnull align 1 dereferenceable(8) @.str.70, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 22))
-  %23 = load ptr, ptr %slot, align 8
-  %incdec.ptr129 = getelementptr inbounds %"struct.std::pair.263", ptr %23, i32 1
+  %44 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 22
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128, ptr noundef nonnull align 1 dereferenceable(8) @.str.70, ptr noundef nonnull align 8 dereferenceable(32) %44)
+  %45 = load ptr, ptr %slot, align 8
+  %incdec.ptr129 = getelementptr inbounds %"struct.std::pair.263", ptr %45, i32 1
   store ptr %incdec.ptr129, ptr %slot, align 8
-  %call130 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128) #3
+  %call130 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128) #3
   br label %do.cond131
 
 do.cond131:                                       ; preds = %do.body127
@@ -7409,11 +7433,12 @@ do.end132:                                        ; preds = %do.cond131
   br label %do.body133
 
 do.body133:                                       ; preds = %do.end132
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134, ptr noundef nonnull align 1 dereferenceable(7) @.str.71, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 23))
-  %24 = load ptr, ptr %slot, align 8
-  %incdec.ptr135 = getelementptr inbounds %"struct.std::pair.263", ptr %24, i32 1
+  %46 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 23
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA7_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134, ptr noundef nonnull align 1 dereferenceable(7) @.str.71, ptr noundef nonnull align 8 dereferenceable(32) %46)
+  %47 = load ptr, ptr %slot, align 8
+  %incdec.ptr135 = getelementptr inbounds %"struct.std::pair.263", ptr %47, i32 1
   store ptr %incdec.ptr135, ptr %slot, align 8
-  %call136 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134) #3
+  %call136 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134) #3
   br label %do.cond137
 
 do.cond137:                                       ; preds = %do.body133
@@ -7423,11 +7448,12 @@ do.end138:                                        ; preds = %do.cond137
   br label %do.body139
 
 do.body139:                                       ; preds = %do.end138
-  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp140, ptr noundef nonnull align 1 dereferenceable(8) @.str.72, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 24))
-  %25 = load ptr, ptr %slot, align 8
-  %incdec.ptr141 = getelementptr inbounds %"struct.std::pair.263", ptr %25, i32 1
+  %48 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr @_ZN4node11per_process8metadataE, i32 0, i32 24
+  call void @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EC2IRA8_KcRNSt7__cxx1112basic_stringIcS2_SaIcEEETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp140, ptr noundef nonnull align 1 dereferenceable(8) @.str.72, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  %49 = load ptr, ptr %slot, align 8
+  %incdec.ptr141 = getelementptr inbounds %"struct.std::pair.263", ptr %49, i32 1
   store ptr %incdec.ptr141, ptr %slot, align 8
-  %call142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp140) #3
+  %call142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt4pairISt17basic_string_viewIcSt11char_traitsIcEES3_EaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp140) #3
   br label %do.cond143
 
 do.cond143:                                       ; preds = %do.body139
@@ -7439,41 +7465,41 @@ do.end144:                                        ; preds = %do.cond143
   %arrayidx147 = getelementptr inbounds [25 x %"struct.std::pair.263"], ptr %versions_array, i64 0, i64 %call146
   call void @"_ZSt4sortIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_EZN4node6reportL22PrintComponentVersionsEPNS7_10JSONWriterEE3$_0EvT_SC_T0_"(ptr noundef %arrayidx145, ptr noundef %arrayidx147)
   store ptr %versions_array, ptr %__range2, align 8
-  %26 = load ptr, ptr %__range2, align 8
-  %arraydecay = getelementptr inbounds [25 x %"struct.std::pair.263"], ptr %26, i64 0, i64 0
+  %50 = load ptr, ptr %__range2, align 8
+  %arraydecay = getelementptr inbounds [25 x %"struct.std::pair.263"], ptr %50, i64 0, i64 0
   store ptr %arraydecay, ptr %__begin2, align 8
-  %27 = load ptr, ptr %__range2, align 8
-  %arraydecay148 = getelementptr inbounds [25 x %"struct.std::pair.263"], ptr %27, i64 0, i64 0
+  %51 = load ptr, ptr %__range2, align 8
+  %arraydecay148 = getelementptr inbounds [25 x %"struct.std::pair.263"], ptr %51, i64 0, i64 0
   %add.ptr = getelementptr inbounds %"struct.std::pair.263", ptr %arraydecay148, i64 25
   store ptr %add.ptr, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end144
-  %28 = load ptr, ptr %__begin2, align 8
-  %29 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %28, %29
+  %52 = load ptr, ptr %__begin2, align 8
+  %53 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %52, %53
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %30 = load ptr, ptr %__begin2, align 8
-  store ptr %30, ptr %version, align 8
-  %31 = load ptr, ptr %writer.addr, align 8
-  %32 = load ptr, ptr %version, align 8
-  %first = getelementptr inbounds %"struct.std::pair.263", ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %version, align 8
-  %second = getelementptr inbounds %"struct.std::pair.263", ptr %33, i32 0, i32 1
-  call void @_ZN4node10JSONWriter13json_keyvalueISt17basic_string_viewIcSt11char_traitsIcEES5_EEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %31, ptr noundef nonnull align 8 dereferenceable(16) %first, ptr noundef nonnull align 8 dereferenceable(16) %second)
+  %54 = load ptr, ptr %__begin2, align 8
+  store ptr %54, ptr %version, align 8
+  %55 = load ptr, ptr %writer.addr, align 8
+  %56 = load ptr, ptr %version, align 8
+  %first = getelementptr inbounds %"struct.std::pair.263", ptr %56, i32 0, i32 0
+  %57 = load ptr, ptr %version, align 8
+  %second = getelementptr inbounds %"struct.std::pair.263", ptr %57, i32 0, i32 1
+  call void @_ZN4node10JSONWriter13json_keyvalueISt17basic_string_viewIcSt11char_traitsIcEES5_EEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %55, ptr noundef nonnull align 8 dereferenceable(16) %first, ptr noundef nonnull align 8 dereferenceable(16) %second)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %34 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr149 = getelementptr inbounds %"struct.std::pair.263", ptr %34, i32 1
+  %58 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr149 = getelementptr inbounds %"struct.std::pair.263", ptr %58, i32 1
   store ptr %incdec.ptr149, ptr %__begin2, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  %35 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node10JSONWriter14json_objectendEv(ptr noundef nonnull align 8 dereferenceable(20) %35)
+  %59 = load ptr, ptr %writer.addr, align 8
+  call void @_ZN4node10JSONWriter14json_objectendEv(ptr noundef nonnull align 8 dereferenceable(20) %59)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %buf) #3
   ret void
 }
@@ -7486,9 +7512,10 @@ entry:
   %0 = load ptr, ptr %writer.addr, align 8
   call void @_ZN4node10JSONWriter16json_objectstartIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef @.str.73)
   %1 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 1 dereferenceable(5) @.str.74, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1))
-  %2 = load ptr, ptr %writer.addr, align 8
-  call void @_ZN4node10JSONWriter14json_objectendEv(ptr noundef nonnull align 8 dereferenceable(20) %2)
+  %2 = getelementptr inbounds %"class.node::Metadata", ptr @_ZN4node11per_process8metadataE, i32 0, i32 1
+  call void @_ZN4node10JSONWriter13json_keyvalueIA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 1 dereferenceable(5) @.str.74, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %3 = load ptr, ptr %writer.addr, align 8
+  call void @_ZN4node10JSONWriter14json_objectendEv(ptr noundef nonnull align 8 dereferenceable(20) %3)
   ret void
 }
 
@@ -16753,10 +16780,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_EE", i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %callback_, ptr align 8 %1, i64 32, i1 false)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %callback_, ptr align 8 %2, i64 32, i1 false)
   ret void
 }
 
@@ -16782,10 +16810,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %flags, ptr %flags.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %flags.addr, align 4
-  store i32 %0, ptr %flags_, align 8
+  %1 = load i32, ptr %flags.addr, align 4
+  store i32 %1, ptr %flags_, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -16844,7 +16873,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void

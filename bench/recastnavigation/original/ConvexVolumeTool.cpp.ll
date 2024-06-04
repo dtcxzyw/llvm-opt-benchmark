@@ -70,21 +70,22 @@ define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16ConvexVolumeTool, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 2
-  store i32 4, ptr %5, align 8
-  %6 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 3
-  store float 0.000000e+00, ptr %6, align 4
-  %7 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 4
-  store float 6.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 5
-  store float 1.000000e+00, ptr %8, align 4
-  %9 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 7
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 9
-  store i32 0, ptr %10, align 4
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV16ConvexVolumeTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 2
+  store i32 4, ptr %6, align 8
+  %7 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 3
+  store float 0.000000e+00, ptr %7, align 4
+  %8 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 4
+  store float 6.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 5
+  store float 1.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 7
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %class.ConvexVolumeTool, ptr %3, i32 0, i32 9
+  store i32 0, ptr %11, align 4
   ret void
 }
 
@@ -93,7 +94,8 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -3508,9 +3508,10 @@ define linkonce_odr void @_ZN5faiss14ParameterSpaceD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14ParameterSpaceE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5faiss14ParameterRangeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss14ParameterSpaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5faiss14ParameterRangeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
   ret void
 }
 
@@ -3548,19 +3549,20 @@ define void @_ZN5faiss17AutoTuneCriterionC2Ell(ptr noundef nonnull align 8 deref
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss17AutoTuneCriterionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 3
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 4
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #5
-  %14 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 5
-  call void @_ZNSt6vectorIlSaIlEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #5
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss17AutoTuneCriterionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 3
+  store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 4
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #5
+  %15 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %7, i32 0, i32 5
+  call void @_ZNSt6vectorIlSaIlEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #5
   ret void
 }
 
@@ -3589,11 +3591,12 @@ define linkonce_odr void @_ZN5faiss17AutoTuneCriterionD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss17AutoTuneCriterionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
-  %5 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss17AutoTuneCriterionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
+  %6 = getelementptr inbounds %"struct.faiss::AutoTuneCriterion", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #5
   ret void
 }
 
@@ -5752,10 +5755,11 @@ define void @_ZN5faiss21OneRecallAtRCriterionC2Ell(ptr noundef nonnull align 8 d
   %8 = load i64, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5faiss17AutoTuneCriterionC2Ell(ptr noundef nonnull align 8 dereferenceable(80) %7, i64 noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss21OneRecallAtRCriterionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"struct.faiss::OneRecallAtRCriterion", ptr %7, i32 0, i32 1
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss21OneRecallAtRCriterionE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"struct.faiss::OneRecallAtRCriterion", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -5783,9 +5787,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -5825,10 +5830,11 @@ define void @_ZN5faiss21IntersectionCriterionC2Ell(ptr noundef nonnull align 8 d
   %8 = load i64, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5faiss17AutoTuneCriterionC2Ell(ptr noundef nonnull align 8 dereferenceable(80) %7, i64 noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss21IntersectionCriterionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"struct.faiss::IntersectionCriterion", ptr %7, i32 0, i32 1
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss21IntersectionCriterionE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"struct.faiss::IntersectionCriterion", ptr %7, i32 0, i32 1
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -9319,19 +9325,20 @@ define void @_ZN5faiss14ParameterSpaceC2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14ParameterSpaceE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5faiss14ParameterRangeESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
-  %5 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 3
-  store i32 500, ptr %6, align 4
-  %7 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 4
-  store i64 1073741824, ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 5
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 6
-  store double 0.000000e+00, ptr %9, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss14ParameterSpaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5faiss14ParameterRangeESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
+  %6 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 8
+  %7 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 3
+  store i32 500, ptr %7, align 4
+  %8 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 4
+  store i64 1073741824, ptr %8, align 8
+  %9 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 5
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"struct.faiss::ParameterSpace", ptr %3, i32 0, i32 6
+  store double 0.000000e+00, ptr %10, align 8
   ret void
 }
 

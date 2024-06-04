@@ -1966,196 +1966,199 @@ define void @_ZN19ExtcapOptionsDialogC2EbP7QWidget(ptr noundef nonnull align 8 d
   %18 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %19 = load i32, ptr %18, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef %17, i32 %19)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19ExtcapOptionsDialog, i32 0, i32 0, i32 2), ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19ExtcapOptionsDialog, i32 0, i32 1, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #19
-          to label %23 unwind label %64
-
-23:                                               ; preds = %3
+  %20 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19ExtcapOptionsDialog, i32 0, i32 0, i32 2
+  store ptr %20, ptr %16, align 8
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19ExtcapOptionsDialog, i32 0, i32 1, i32 2
   store ptr %22, ptr %21, align 8
-  %24 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 2
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef @.str)
-          to label %25 unwind label %64
+  %23 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #19
+          to label %25 unwind label %67
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 3
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 4
+25:                                               ; preds = %3
+  store ptr %24, ptr %23, align 8
+  %26 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 2
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef @.str)
+          to label %27 unwind label %67
+
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 3
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 4
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.1)
-          to label %28 unwind label %68
+          to label %30 unwind label %71
 
-28:                                               ; preds = %25
+30:                                               ; preds = %27
   invoke void @_ZN9StockIconC1E7QString(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
-          to label %29 unwind label %72
+          to label %31 unwind label %75
 
-29:                                               ; preds = %28
-  call void @_ZN5QIconC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %10) #18
+31:                                               ; preds = %30
+  call void @_ZN5QIconC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   call void @_ZN9StockIconD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
-  %30 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 5
-  call void @_ZN5QListIP14ExtcapArgumentEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #18
-  %31 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  invoke void @_ZN22Ui_ExtcapOptionsDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef %16)
-          to label %33 unwind label %76
+  %32 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 5
+  call void @_ZN5QListIP14ExtcapArgumentEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #18
+  %33 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  invoke void @_ZN22Ui_ExtcapOptionsDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef %16)
+          to label %35 unwind label %79
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr @mainApp, align 8
+35:                                               ; preds = %31
+  %36 = load ptr, ptr @mainApp, align 8
   invoke void @_ZN19ExtcapOptionsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %13, ptr noundef @.str.2, ptr noundef null, i32 noundef -1)
-          to label %35 unwind label %76
+          to label %37 unwind label %79
 
-35:                                               ; preds = %33
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(216) %34, ptr noundef %13)
-          to label %36 unwind label %80
+37:                                               ; preds = %35
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(216) %36, ptr noundef %13)
+          to label %38 unwind label %83
 
-36:                                               ; preds = %35
+38:                                               ; preds = %37
   invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %37 unwind label %84
+          to label %39 unwind label %87
 
-37:                                               ; preds = %36
+39:                                               ; preds = %38
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  %38 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %class.Ui_ExtcapOptionsDialog, ptr %39, i32 0, i32 3
+  %40 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
   %41 = load ptr, ptr %40, align 8
-  %42 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 114), align 8
-  %43 = icmp ne i32 %42, 0
-  %44 = select i1 %43, i32 2, i32 0
-  invoke void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef nonnull align 8 dereferenceable(40) %41, i32 noundef %44)
-          to label %45 unwind label %76
+  %42 = getelementptr inbounds %class.Ui_ExtcapOptionsDialog, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 114
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp ne i32 %45, 0
+  %47 = select i1 %46, i32 2, i32 0
+  invoke void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef nonnull align 8 dereferenceable(40) %43, i32 noundef %47)
+          to label %48 unwind label %79
 
-45:                                               ; preds = %37
-  %46 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %class.Ui_ExtcapOptionsDialog, ptr %47, i32 0, i32 4
-  %49 = load ptr, ptr %48, align 8
-  %50 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %49, i32 noundef 1024)
-          to label %51 unwind label %76
+48:                                               ; preds = %39
+  %49 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %class.Ui_ExtcapOptionsDialog, ptr %50, i32 0, i32 4
+  %52 = load ptr, ptr %51, align 8
+  %53 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %52, i32 noundef 1024)
+          to label %54 unwind label %79
 
-51:                                               ; preds = %45
+54:                                               ; preds = %48
   invoke void @_ZN19ExtcapOptionsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef @.str.3, ptr noundef null, i32 noundef -1)
-          to label %52 unwind label %76
+          to label %55 unwind label %79
 
-52:                                               ; preds = %51
-  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %53 unwind label %89
+55:                                               ; preds = %54
+  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %56 unwind label %92
 
-53:                                               ; preds = %52
+56:                                               ; preds = %55
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  %54 = load i8, ptr %5, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %93
+  %57 = load i8, ptr %5, align 1
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %96
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %class.Ui_ExtcapOptionsDialog, ptr %58, i32 0, i32 4
-  %60 = load ptr, ptr %59, align 8
-  %61 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %60, i32 noundef 2048)
-          to label %62 unwind label %76
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %16, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds %class.Ui_ExtcapOptionsDialog, ptr %61, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8
+  %64 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %63, i32 noundef 2048)
+          to label %65 unwind label %79
 
-62:                                               ; preds = %56
-  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %61)
-          to label %63 unwind label %76
+65:                                               ; preds = %59
+  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %64)
+          to label %66 unwind label %79
 
-63:                                               ; preds = %62
-  br label %93
-
-64:                                               ; preds = %23, %3
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %8, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %9, align 4
+66:                                               ; preds = %65
   br label %96
 
-68:                                               ; preds = %25
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %25, %3
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %8, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %9, align 4
-  br label %95
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %8, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %9, align 4
+  br label %99
 
-72:                                               ; preds = %28
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %27
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %8, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %9, align 4
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %8, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %9, align 4
+  br label %98
+
+75:                                               ; preds = %30
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %8, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %9, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
-  br label %95
+  br label %98
 
-76:                                               ; preds = %62, %56, %51, %45, %37, %33, %29
-  %77 = landingpad { ptr, i32 }
+79:                                               ; preds = %65, %59, %54, %48, %39, %35, %31
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %8, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %9, align 4
-  br label %94
-
-80:                                               ; preds = %35
-  %81 = landingpad { ptr, i32 }
-          cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %8, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %9, align 4
-  br label %88
-
-84:                                               ; preds = %36
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %8, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %9, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  br label %88
-
-88:                                               ; preds = %84, %80
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  br label %94
-
-89:                                               ; preds = %52
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %8, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %9, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  br label %94
-
-93:                                               ; preds = %63, %53
-  ret void
-
-94:                                               ; preds = %89, %88, %76
-  call void @_ZN5QListIP14ExtcapArgumentED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #18
-  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #18
-  br label %95
-
-95:                                               ; preds = %94, %72, %68
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #18
-  br label %96
-
-96:                                               ; preds = %95, %64
-  call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %8, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %9, align 4
   br label %97
 
-97:                                               ; preds = %96
-  %98 = load ptr, ptr %8, align 8
-  %99 = load i32, ptr %9, align 4
-  %100 = insertvalue { ptr, i32 } poison, ptr %98, 0
-  %101 = insertvalue { ptr, i32 } %100, i32 %99, 1
-  resume { ptr, i32 } %101
+83:                                               ; preds = %37
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %8, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %9, align 4
+  br label %91
+
+87:                                               ; preds = %38
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %8, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %9, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  br label %91
+
+91:                                               ; preds = %87, %83
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
+  br label %97
+
+92:                                               ; preds = %55
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %8, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %9, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
+  br label %97
+
+96:                                               ; preds = %66, %56
+  ret void
+
+97:                                               ; preds = %92, %91, %79
+  call void @_ZN5QListIP14ExtcapArgumentED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #18
+  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #18
+  br label %98
+
+98:                                               ; preds = %97, %75, %71
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #18
+  br label %99
+
+99:                                               ; preds = %98, %67
+  call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #18
+  br label %100
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %8, align 8
+  %102 = load i32, ptr %9, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2743,195 +2746,197 @@ define noundef ptr @_ZN19ExtcapOptionsDialog15createForDeviceER7QStringbP7QWidge
 
 24:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %110
+  br label %112
 
 25:                                               ; preds = %3
   store i32 0, ptr %11, align 4
   br label %26
 
-26:                                               ; preds = %55, %25
+26:                                               ; preds = %57, %25
   %27 = load i32, ptr %11, align 4
-  %28 = load ptr, ptr getelementptr inbounds (%struct.capture_options_tag, ptr @global_capture_opts, i32 0, i32 2), align 8
-  %29 = getelementptr inbounds %struct._GArray, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp ult i32 %27, %30
-  br i1 %31, label %32, label %58
+  %28 = getelementptr inbounds %struct.capture_options_tag, ptr @global_capture_opts, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct._GArray, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp ult i32 %27, %31
+  br i1 %32, label %33, label %60
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr getelementptr inbounds (%struct.capture_options_tag, ptr @global_capture_opts, i32 0, i32 2), align 8
-  %34 = getelementptr inbounds %struct._GArray, ptr %33, i32 0, i32 0
+33:                                               ; preds = %26
+  %34 = getelementptr inbounds %struct.capture_options_tag, ptr @global_capture_opts, i32 0, i32 2
   %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr %11, align 4
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr %struct.interface_tag, ptr %35, i64 %37
-  store ptr %38, ptr %8, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.interface_tag, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %42)
-  %43 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 1) #18
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %51
+  %36 = getelementptr inbounds %struct._GArray, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = load i32, ptr %11, align 4
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr %struct.interface_tag, ptr %37, i64 %39
+  store ptr %40, ptr %8, align 8
+  %41 = load ptr, ptr %5, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds %struct.interface_tag, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %44)
+  %45 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 1) #18
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %53
 
-45:                                               ; preds = %32
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.interface_tag, ptr %46, i32 0, i32 13
-  %48 = getelementptr inbounds %struct.if_info_t, ptr %47, i32 0, i32 4
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 8
-  br label %51
+47:                                               ; preds = %33
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds %struct.interface_tag, ptr %48, i32 0, i32 13
+  %50 = getelementptr inbounds %struct.if_info_t, ptr %49, i32 0, i32 4
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp eq i32 %51, 8
+  br label %53
 
-51:                                               ; preds = %45, %32
-  %52 = phi i1 [ false, %32 ], [ %50, %45 ]
+53:                                               ; preds = %47, %33
+  %54 = phi i1 [ false, %33 ], [ %52, %47 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  br i1 %52, label %53, label %54
+  br i1 %54, label %55, label %56
 
-53:                                               ; preds = %51
+55:                                               ; preds = %53
   store i8 1, ptr %10, align 1
-  br label %58
+  br label %60
 
-54:                                               ; preds = %51
-  br label %55
+56:                                               ; preds = %53
+  br label %57
 
-55:                                               ; preds = %54
-  %56 = load i32, ptr %11, align 4
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %11, align 4
+57:                                               ; preds = %56
+  %58 = load i32, ptr %11, align 4
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %11, align 4
   br label %26, !llvm.loop !4
 
-58:                                               ; preds = %53, %26
-  %59 = load i8, ptr %10, align 1
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %62, label %61
+60:                                               ; preds = %55, %26
+  %61 = load i8, ptr %10, align 1
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %64, label %63
 
-61:                                               ; preds = %58
+63:                                               ; preds = %60
   store ptr null, ptr %4, align 8
-  br label %110
+  br label %112
 
-62:                                               ; preds = %58
-  %63 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #19
-  %64 = load i8, ptr %6, align 1
-  %65 = trunc i8 %64 to i1
-  %66 = load ptr, ptr %7, align 8
-  invoke void @_ZN19ExtcapOptionsDialogC1EbP7QWidget(ptr noundef nonnull align 8 dereferenceable(112) %63, i1 noundef zeroext %65, ptr noundef %66)
-          to label %67 unwind label %87
+64:                                               ; preds = %60
+  %65 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #19
+  %66 = load i8, ptr %6, align 1
+  %67 = trunc i8 %66 to i1
+  %68 = load ptr, ptr %7, align 8
+  invoke void @_ZN19ExtcapOptionsDialogC1EbP7QWidget(ptr noundef nonnull align 8 dereferenceable(112) %65, i1 noundef zeroext %67, ptr noundef %68)
+          to label %69 unwind label %89
 
-67:                                               ; preds = %62
-  store ptr %63, ptr %9, align 8
-  %68 = load ptr, ptr %5, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %68) #18
-  %69 = load ptr, ptr %9, align 8
-  %70 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %69, i32 0, i32 2
-  %71 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+69:                                               ; preds = %64
+  store ptr %65, ptr %9, align 8
+  %70 = load ptr, ptr %5, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %70) #18
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %71, i32 0, i32 2
+  %73 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %15) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
-  %72 = load i32, ptr %11, align 4
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %73, i32 0, i32 3
-  store i32 %72, ptr %74, align 8
+  %74 = load i32, ptr %11, align 4
   %75 = load ptr, ptr %9, align 8
-  %76 = load ptr, ptr @mainApp, align 8
+  %76 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %75, i32 0, i32 3
+  store i32 %74, ptr %76, align 8
+  %77 = load ptr, ptr %9, align 8
+  %78 = load ptr, ptr @mainApp, align 8
   call void @_ZN19ExtcapOptionsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef @.str.2, ptr noundef null, i32 noundef -1)
   invoke void @_ZplRK7QStringPKc(ptr dead_on_unwind writable sret(%class.QString) align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef @.str.4)
-          to label %77 unwind label %91
+          to label %79 unwind label %93
 
-77:                                               ; preds = %67
-  %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.interface_tag, ptr %78, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
-  invoke void @_ZplRK7QStringPKc(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef %80)
-          to label %81 unwind label %95
+79:                                               ; preds = %69
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds %struct.interface_tag, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  invoke void @_ZplRK7QStringPKc(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef %82)
+          to label %83 unwind label %97
 
-81:                                               ; preds = %77
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %16, ptr noundef nonnull align 8 dereferenceable(216) %76, ptr noundef %17)
-          to label %82 unwind label %99
+83:                                               ; preds = %79
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %16, ptr noundef nonnull align 8 dereferenceable(216) %78, ptr noundef %17)
+          to label %84 unwind label %101
 
-82:                                               ; preds = %81
-  invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %83 unwind label %103
+84:                                               ; preds = %83
+  invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %85 unwind label %105
 
-83:                                               ; preds = %82
+85:                                               ; preds = %84
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
-  %84 = load ptr, ptr %9, align 8
-  call void @_ZN19ExtcapOptionsDialog13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(112) %84)
-  %85 = load ptr, ptr %9, align 8
-  call void @_ZN19ExtcapOptionsDialog15anyValueChangedEv(ptr noundef nonnull align 8 dereferenceable(112) %85)
   %86 = load ptr, ptr %9, align 8
-  store ptr %86, ptr %4, align 8
+  call void @_ZN19ExtcapOptionsDialog13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(112) %86)
+  %87 = load ptr, ptr %9, align 8
+  call void @_ZN19ExtcapOptionsDialog15anyValueChangedEv(ptr noundef nonnull align 8 dereferenceable(112) %87)
+  %88 = load ptr, ptr %9, align 8
+  store ptr %88, ptr %4, align 8
+  br label %112
+
+89:                                               ; preds = %64
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %13, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %14, align 4
+  call void @_ZdlPv(ptr noundef %65) #21
+  br label %114
+
+93:                                               ; preds = %69
+  %94 = landingpad { ptr, i32 }
+          cleanup
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %13, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %14, align 4
+  br label %111
+
+97:                                               ; preds = %79
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %13, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %14, align 4
   br label %110
 
-87:                                               ; preds = %62
-  %88 = landingpad { ptr, i32 }
+101:                                              ; preds = %83
+  %102 = landingpad { ptr, i32 }
           cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %13, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %14, align 4
-  call void @_ZdlPv(ptr noundef %63) #21
-  br label %112
-
-91:                                               ; preds = %67
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %13, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %14, align 4
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %13, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %14, align 4
   br label %109
 
-95:                                               ; preds = %77
-  %96 = landingpad { ptr, i32 }
+105:                                              ; preds = %84
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %13, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %14, align 4
-  br label %108
-
-99:                                               ; preds = %81
-  %100 = landingpad { ptr, i32 }
-          cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %13, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %14, align 4
-  br label %107
-
-103:                                              ; preds = %82
-  %104 = landingpad { ptr, i32 }
-          cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  store ptr %105, ptr %13, align 8
-  %106 = extractvalue { ptr, i32 } %104, 1
-  store i32 %106, ptr %14, align 4
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %13, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %14, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  br label %107
-
-107:                                              ; preds = %103, %99
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
-  br label %108
-
-108:                                              ; preds = %107, %95
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   br label %109
 
-109:                                              ; preds = %108, %91
+109:                                              ; preds = %105, %101
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  br label %110
+
+110:                                              ; preds = %109, %97
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
+  br label %111
+
+111:                                              ; preds = %110, %93
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
-  br label %112
+  br label %114
 
-110:                                              ; preds = %83, %61, %24
-  %111 = load ptr, ptr %4, align 8
-  ret ptr %111
+112:                                              ; preds = %85, %63, %24
+  %113 = load ptr, ptr %4, align 8
+  ret ptr %113
 
-112:                                              ; preds = %109, %87
-  %113 = load ptr, ptr %13, align 8
-  %114 = load i32, ptr %14, align 4
-  %115 = insertvalue { ptr, i32 } poison, ptr %113, 0
-  %116 = insertvalue { ptr, i32 } %115, i32 %114, 1
-  resume { ptr, i32 } %116
+114:                                              ; preds = %111, %89
+  %115 = load ptr, ptr %13, align 8
+  %116 = load i32, ptr %14, align 4
+  %117 = insertvalue { ptr, i32 } poison, ptr %115, 0
+  %118 = insertvalue { ptr, i32 } %117, i32 %116, 1
+  resume { ptr, i32 } %118
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4606,25 +4611,27 @@ define void @_ZN19ExtcapOptionsDialogD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19ExtcapOptionsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19ExtcapOptionsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19ExtcapOptionsDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19ExtcapOptionsDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #21
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #21
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %3, i32 0, i32 5
-  call void @_ZN5QListIP14ExtcapArgumentED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %11 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %3, i32 0, i32 4
-  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
-  %12 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %3, i32 0, i32 2
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %3, i32 0, i32 5
+  call void @_ZN5QListIP14ExtcapArgumentED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  %13 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %3, i32 0, i32 4
+  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #18
+  %14 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %3, i32 0, i32 2
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #18
   ret void
 }
@@ -5783,19 +5790,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.14, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #18
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #18
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #18
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #18
   ret void
 }
 
@@ -5923,297 +5931,298 @@ define void @_ZN19ExtcapOptionsDialog26on_buttonBox_helpRequestedEv(ptr noundef 
   store ptr %0, ptr %2, align 8
   %23 = load ptr, ptr %2, align 8
   call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef null)
-  %24 = load ptr, ptr getelementptr inbounds (%struct.capture_options_tag, ptr @global_capture_opts, i32 0, i32 2), align 8
-  %25 = getelementptr inbounds %struct._GArray, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %23, i32 0, i32 3
-  %28 = load i32, ptr %27, align 8
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr %struct.interface_tag, ptr %26, i64 %29
-  store ptr %30, ptr %3, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.interface_tag, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = invoke ptr @extcap_get_help_for_ifname(ptr noundef %33)
-          to label %35 unwind label %43
+  %24 = getelementptr inbounds %struct.capture_options_tag, ptr @global_capture_opts, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct._GArray, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %23, i32 0, i32 3
+  %29 = load i32, ptr %28, align 8
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr %struct.interface_tag, ptr %27, i64 %30
+  store ptr %31, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds %struct.interface_tag, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = invoke ptr @extcap_get_help_for_ifname(ptr noundef %34)
+          to label %36 unwind label %44
 
-35:                                               ; preds = %1
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %34)
-          to label %36 unwind label %43
+36:                                               ; preds = %1
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %35)
+          to label %37 unwind label %44
 
-36:                                               ; preds = %35
-  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+37:                                               ; preds = %36
+  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
-  %38 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %39 unwind label %43
+  %39 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %40 unwind label %44
 
-39:                                               ; preds = %36
-  br i1 %38, label %40, label %47
+40:                                               ; preds = %37
+  br i1 %39, label %41, label %48
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr @mainApp, align 8
-  invoke void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef nonnull align 8 dereferenceable(216) %41, i32 noundef 223)
-          to label %42 unwind label %43
+41:                                               ; preds = %40
+  %42 = load ptr, ptr @mainApp, align 8
+  invoke void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef nonnull align 8 dereferenceable(216) %42, i32 noundef 223)
+          to label %43 unwind label %44
 
-42:                                               ; preds = %40
+43:                                               ; preds = %41
   store i32 1, ptr %8, align 4
-  br label %129
+  br label %130
 
-43:                                               ; preds = %47, %40, %36, %35, %1
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %48, %41, %37, %36, %1
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %6, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %7, align 4
-  br label %133
-
-47:                                               ; preds = %39
-  invoke void @_ZN4QUrlC1ERK7QStringNS_11ParsingModeE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 0)
-          to label %48 unwind label %43
-
-48:                                               ; preds = %47
-  %49 = invoke noundef zeroext i1 @_ZNK4QUrl11isLocalFileEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %50 unwind label %78
-
-50:                                               ; preds = %48
-  br i1 %49, label %51, label %125
-
-51:                                               ; preds = %50
-  invoke void @_ZNK4QUrl11toLocalFileEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %52 unwind label %78
-
-52:                                               ; preds = %51
-  invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %53 unwind label %82
-
-53:                                               ; preds = %52
-  %54 = invoke noundef zeroext i1 @_ZNK9QFileInfo6existsEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %55 unwind label %86
-
-55:                                               ; preds = %53
-  br i1 %54, label %119, label %56
-
-56:                                               ; preds = %55
-  invoke void @_ZN19ExtcapOptionsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef @.str.12, ptr noundef null, i32 noundef -1)
-          to label %57 unwind label %86
-
-57:                                               ; preds = %56
-  invoke void @_ZN19ExtcapOptionsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %15, ptr noundef @.str.13, ptr noundef null, i32 noundef -1)
-          to label %58 unwind label %90
-
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.interface_tag, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %61)
-          to label %62 unwind label %94
-
-62:                                               ; preds = %58
-  call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %18, i8 noundef signext 32) #18
-  %63 = getelementptr inbounds %struct.QLatin1Char, ptr %18, i32 0, i32 0
-  %64 = load i8, ptr %63, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %17, i8 %64) #18
-  %65 = getelementptr inbounds %class.QChar, ptr %17, i32 0, i32 0
-  %66 = load i16, ptr %65, align 2
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 0, i16 %66)
-          to label %67 unwind label %98
-
-67:                                               ; preds = %62
-  invoke void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %68 unwind label %102
-
-68:                                               ; preds = %67
-  call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %21, i8 noundef signext 32) #18
-  %69 = getelementptr inbounds %struct.QLatin1Char, ptr %21, i32 0, i32 0
-  %70 = load i8, ptr %69, align 1
-  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %20, i8 %70) #18
-  %71 = getelementptr inbounds %class.QChar, ptr %20, i32 0, i32 0
-  %72 = load i16, ptr %71, align 2
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef 0, i16 %72)
-          to label %73 unwind label %106
-
-73:                                               ; preds = %68
-  call void @_ZN6QFlagsIN11QMessageBox14StandardButtonEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %22, i32 noundef 1024) #18
-  %74 = getelementptr inbounds %class.QFlags.24, ptr %22, i32 0, i32 0
-  %75 = load i32, ptr %74, align 4
-  %76 = invoke noundef i32 @_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_6QFlagsINS_14StandardButtonEES6_(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 %75, i32 noundef 0)
-          to label %77 unwind label %110
-
-77:                                               ; preds = %73
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  store i32 1, ptr %8, align 4
-  br label %120
-
-78:                                               ; preds = %125, %51, %48
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %6, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %7, align 4
-  br label %132
-
-82:                                               ; preds = %52
-  %83 = landingpad { ptr, i32 }
-          cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %6, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %7, align 4
-  br label %124
-
-86:                                               ; preds = %56, %53
-  %87 = landingpad { ptr, i32 }
-          cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %6, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %7, align 4
-  br label %123
-
-90:                                               ; preds = %57
-  %91 = landingpad { ptr, i32 }
-          cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %6, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %7, align 4
-  br label %118
-
-94:                                               ; preds = %58
-  %95 = landingpad { ptr, i32 }
-          cleanup
-  %96 = extractvalue { ptr, i32 } %95, 0
-  store ptr %96, ptr %6, align 8
-  %97 = extractvalue { ptr, i32 } %95, 1
-  store i32 %97, ptr %7, align 4
-  br label %117
-
-98:                                               ; preds = %62
-  %99 = landingpad { ptr, i32 }
-          cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %6, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %7, align 4
-  br label %116
-
-102:                                              ; preds = %67
-  %103 = landingpad { ptr, i32 }
-          cleanup
-  %104 = extractvalue { ptr, i32 } %103, 0
-  store ptr %104, ptr %6, align 8
-  %105 = extractvalue { ptr, i32 } %103, 1
-  store i32 %105, ptr %7, align 4
-  br label %115
-
-106:                                              ; preds = %68
-  %107 = landingpad { ptr, i32 }
-          cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %6, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %7, align 4
-  br label %114
-
-110:                                              ; preds = %73
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %6, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %7, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  br label %114
-
-114:                                              ; preds = %110, %106
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
-  br label %115
-
-115:                                              ; preds = %114, %102
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  br label %116
-
-116:                                              ; preds = %115, %98
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  br label %117
-
-117:                                              ; preds = %116, %94
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
-  br label %118
-
-118:                                              ; preds = %117, %90
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  br label %123
-
-119:                                              ; preds = %55
-  store i32 0, ptr %8, align 4
-  br label %120
-
-120:                                              ; preds = %119, %77
-  call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %121 = load i32, ptr %8, align 4
-  switch i32 %121, label %128 [
-    i32 0, label %122
-  ]
-
-122:                                              ; preds = %120
-  br label %125
-
-123:                                              ; preds = %118, %86
-  call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
-  br label %124
-
-124:                                              ; preds = %123, %82
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  br label %132
-
-125:                                              ; preds = %122, %50
-  %126 = invoke noundef zeroext i1 @_ZN16QDesktopServices7openUrlERK4QUrl(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %127 unwind label %78
-
-127:                                              ; preds = %125
-  store i32 0, ptr %8, align 4
-  br label %128
-
-128:                                              ; preds = %127, %120
-  call void @_ZN4QUrlD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
-  br label %129
-
-129:                                              ; preds = %128, %42
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  %130 = load i32, ptr %8, align 4
-  switch i32 %130, label %139 [
-    i32 0, label %131
-    i32 1, label %131
-  ]
-
-131:                                              ; preds = %129, %129
-  ret void
-
-132:                                              ; preds = %124, %78
-  call void @_ZN4QUrlD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
-  br label %133
-
-133:                                              ; preds = %132, %43
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %6, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %7, align 4
   br label %134
 
-134:                                              ; preds = %133
-  %135 = load ptr, ptr %6, align 8
-  %136 = load i32, ptr %7, align 4
-  %137 = insertvalue { ptr, i32 } poison, ptr %135, 0
-  %138 = insertvalue { ptr, i32 } %137, i32 %136, 1
-  resume { ptr, i32 } %138
+48:                                               ; preds = %40
+  invoke void @_ZN4QUrlC1ERK7QStringNS_11ParsingModeE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 0)
+          to label %49 unwind label %44
 
-139:                                              ; preds = %129
+49:                                               ; preds = %48
+  %50 = invoke noundef zeroext i1 @_ZNK4QUrl11isLocalFileEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %51 unwind label %79
+
+51:                                               ; preds = %49
+  br i1 %50, label %52, label %126
+
+52:                                               ; preds = %51
+  invoke void @_ZNK4QUrl11toLocalFileEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %53 unwind label %79
+
+53:                                               ; preds = %52
+  invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %54 unwind label %83
+
+54:                                               ; preds = %53
+  %55 = invoke noundef zeroext i1 @_ZNK9QFileInfo6existsEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %56 unwind label %87
+
+56:                                               ; preds = %54
+  br i1 %55, label %120, label %57
+
+57:                                               ; preds = %56
+  invoke void @_ZN19ExtcapOptionsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef @.str.12, ptr noundef null, i32 noundef -1)
+          to label %58 unwind label %87
+
+58:                                               ; preds = %57
+  invoke void @_ZN19ExtcapOptionsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %15, ptr noundef @.str.13, ptr noundef null, i32 noundef -1)
+          to label %59 unwind label %91
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds %struct.interface_tag, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %62)
+          to label %63 unwind label %95
+
+63:                                               ; preds = %59
+  call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %18, i8 noundef signext 32) #18
+  %64 = getelementptr inbounds %struct.QLatin1Char, ptr %18, i32 0, i32 0
+  %65 = load i8, ptr %64, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %17, i8 %65) #18
+  %66 = getelementptr inbounds %class.QChar, ptr %17, i32 0, i32 0
+  %67 = load i16, ptr %66, align 2
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 0, i16 %67)
+          to label %68 unwind label %99
+
+68:                                               ; preds = %63
+  invoke void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %69 unwind label %103
+
+69:                                               ; preds = %68
+  call void @_ZN11QLatin1CharC2Ec(ptr noundef nonnull align 1 dereferenceable(1) %21, i8 noundef signext 32) #18
+  %70 = getelementptr inbounds %struct.QLatin1Char, ptr %21, i32 0, i32 0
+  %71 = load i8, ptr %70, align 1
+  call void @_ZN5QCharC2E11QLatin1Char(ptr noundef nonnull align 2 dereferenceable(2) %20, i8 %71) #18
+  %72 = getelementptr inbounds %class.QChar, ptr %20, i32 0, i32 0
+  %73 = load i16, ptr %72, align 2
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef 0, i16 %73)
+          to label %74 unwind label %107
+
+74:                                               ; preds = %69
+  call void @_ZN6QFlagsIN11QMessageBox14StandardButtonEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %22, i32 noundef 1024) #18
+  %75 = getelementptr inbounds %class.QFlags.24, ptr %22, i32 0, i32 0
+  %76 = load i32, ptr %75, align 4
+  %77 = invoke noundef i32 @_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_6QFlagsINS_14StandardButtonEES6_(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 %76, i32 noundef 0)
+          to label %78 unwind label %111
+
+78:                                               ; preds = %74
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  store i32 1, ptr %8, align 4
+  br label %121
+
+79:                                               ; preds = %126, %52, %49
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %6, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %7, align 4
+  br label %133
+
+83:                                               ; preds = %53
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %6, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %7, align 4
+  br label %125
+
+87:                                               ; preds = %57, %54
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %6, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %7, align 4
+  br label %124
+
+91:                                               ; preds = %58
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %6, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %7, align 4
+  br label %119
+
+95:                                               ; preds = %59
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %6, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %7, align 4
+  br label %118
+
+99:                                               ; preds = %63
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %6, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %7, align 4
+  br label %117
+
+103:                                              ; preds = %68
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %6, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %7, align 4
+  br label %116
+
+107:                                              ; preds = %69
+  %108 = landingpad { ptr, i32 }
+          cleanup
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %6, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %7, align 4
+  br label %115
+
+111:                                              ; preds = %74
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %6, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %7, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
+  br label %115
+
+115:                                              ; preds = %111, %107
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  br label %116
+
+116:                                              ; preds = %115, %103
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
+  br label %117
+
+117:                                              ; preds = %116, %99
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
+  br label %118
+
+118:                                              ; preds = %117, %95
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  br label %119
+
+119:                                              ; preds = %118, %91
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  br label %124
+
+120:                                              ; preds = %56
+  store i32 0, ptr %8, align 4
+  br label %121
+
+121:                                              ; preds = %120, %78
+  call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  %122 = load i32, ptr %8, align 4
+  switch i32 %122, label %129 [
+    i32 0, label %123
+  ]
+
+123:                                              ; preds = %121
+  br label %126
+
+124:                                              ; preds = %119, %87
+  call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
+  br label %125
+
+125:                                              ; preds = %124, %83
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  br label %133
+
+126:                                              ; preds = %123, %51
+  %127 = invoke noundef zeroext i1 @_ZN16QDesktopServices7openUrlERK4QUrl(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %128 unwind label %79
+
+128:                                              ; preds = %126
+  store i32 0, ptr %8, align 4
+  br label %129
+
+129:                                              ; preds = %128, %121
+  call void @_ZN4QUrlD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
+  br label %130
+
+130:                                              ; preds = %129, %43
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
+  %131 = load i32, ptr %8, align 4
+  switch i32 %131, label %140 [
+    i32 0, label %132
+    i32 1, label %132
+  ]
+
+132:                                              ; preds = %130, %130
+  ret void
+
+133:                                              ; preds = %125, %79
+  call void @_ZN4QUrlD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
+  br label %134
+
+134:                                              ; preds = %133, %44
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
+  br label %135
+
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %6, align 8
+  %137 = load i32, ptr %7, align 4
+  %138 = insertvalue { ptr, i32 } poison, ptr %136, 0
+  %139 = insertvalue { ptr, i32 } %138, i32 %137, 1
+  resume { ptr, i32 } %139
+
+140:                                              ; preds = %130
   unreachable
 }
 
@@ -6318,285 +6327,286 @@ define noundef zeroext i1 @_ZN19ExtcapOptionsDialog23saveOptionToCaptureInfoEv(p
   %18 = alloca %class.QString, align 8
   store ptr %0, ptr %2, align 8
   %19 = load ptr, ptr %2, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.capture_options_tag, ptr @global_capture_opts, i32 0, i32 2), align 8
-  %21 = getelementptr inbounds %struct._GArray, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %19, i32 0, i32 3
-  %24 = load i32, ptr %23, align 8
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr %struct.interface_tag, ptr %22, i64 %25
-  store ptr %26, ptr %4, align 8
-  %27 = call ptr @g_hash_table_new_full(ptr noundef @g_str_hash, ptr noundef @g_str_equal, ptr noundef @g_free, ptr noundef @g_free)
-  store ptr %27, ptr %3, align 8
+  %20 = getelementptr inbounds %struct.capture_options_tag, ptr @global_capture_opts, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds %struct._GArray, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %19, i32 0, i32 3
+  %25 = load i32, ptr %24, align 8
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr %struct.interface_tag, ptr %23, i64 %26
+  store ptr %27, ptr %4, align 8
+  %28 = call ptr @g_hash_table_new_full(ptr noundef @g_str_hash, ptr noundef @g_str_equal, ptr noundef @g_free, ptr noundef @g_free)
+  store ptr %28, ptr %3, align 8
   call void @_ZN5QListIP14ExtcapArgumentE14const_iteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
-  %28 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %19, i32 0, i32 5
-  %29 = call ptr @_ZNK5QListIP14ExtcapArgumentE10constBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #18
-  %30 = getelementptr inbounds %"class.QList<ExtcapArgument *>::const_iterator", ptr %6, i32 0, i32 0
-  store ptr %29, ptr %30, align 8
+  %29 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %19, i32 0, i32 5
+  %30 = call ptr @_ZNK5QListIP14ExtcapArgumentE10constBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #18
+  %31 = getelementptr inbounds %"class.QList<ExtcapArgument *>::const_iterator", ptr %6, i32 0, i32 0
+  store ptr %30, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 8, i1 false)
-  br label %31
+  br label %32
 
-31:                                               ; preds = %135, %1
-  %32 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %19, i32 0, i32 5
-  %33 = call ptr @_ZNK5QListIP14ExtcapArgumentE8constEndEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #18
-  %34 = getelementptr inbounds %"class.QList<ExtcapArgument *>::const_iterator", ptr %7, i32 0, i32 0
-  store ptr %33, ptr %34, align 8
+32:                                               ; preds = %136, %1
+  %33 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %19, i32 0, i32 5
+  %34 = call ptr @_ZNK5QListIP14ExtcapArgumentE8constEndEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #18
   %35 = getelementptr inbounds %"class.QList<ExtcapArgument *>::const_iterator", ptr %7, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = call noundef zeroext i1 @_ZNK5QListIP14ExtcapArgumentE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %36)
-  br i1 %37, label %38, label %140
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds %"class.QList<ExtcapArgument *>::const_iterator", ptr %7, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = call noundef zeroext i1 @_ZNK5QListIP14ExtcapArgumentE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %37)
+  br i1 %38, label %39, label %141
 
-38:                                               ; preds = %31
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %40 = load ptr, ptr %39, align 8
+39:                                               ; preds = %32
+  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 15
-  %43 = load ptr, ptr %42, align 8
-  call void %43(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(88) %40)
-  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %45 unwind label %74
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds ptr, ptr %42, i64 15
+  %44 = load ptr, ptr %43, align 8
+  call void %44(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(88) %41)
+  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %46 unwind label %75
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr %44, align 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  invoke void %49(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %46)
-          to label %50 unwind label %74
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %45, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds ptr, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  invoke void %50(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %47)
+          to label %51 unwind label %75
 
-50:                                               ; preds = %45
-  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %52 unwind label %78
+51:                                               ; preds = %46
+  %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %53 unwind label %79
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %51, align 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 19
-  %56 = load ptr, ptr %55, align 8
-  invoke void %56(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(88) %53)
-          to label %57 unwind label %78
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %52, align 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds ptr, ptr %55, i64 19
+  %57 = load ptr, ptr %56, align 8
+  invoke void %57(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(88) %54)
+          to label %58 unwind label %79
 
-57:                                               ; preds = %52
-  %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %59 unwind label %82
+58:                                               ; preds = %53
+  %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %60 unwind label %83
 
-59:                                               ; preds = %57
-  %60 = load ptr, ptr %58, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 14
-  %63 = load ptr, ptr %62, align 8
-  %64 = invoke noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(88) %60)
-          to label %65 unwind label %82
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %59, align 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds ptr, ptr %62, i64 14
+  %64 = load ptr, ptr %63, align 8
+  %65 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(88) %61)
+          to label %66 unwind label %83
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds %struct._extcap_arg, ptr %64, i32 0, i32 12
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp ne i32 %67, 6
-  br i1 %68, label %69, label %86
+66:                                               ; preds = %60
+  %67 = getelementptr inbounds %struct._extcap_arg, ptr %65, i32 0, i32 12
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp ne i32 %68, 6
+  br i1 %69, label %70, label %87
 
-69:                                               ; preds = %65
-  %70 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %71 unwind label %82
+70:                                               ; preds = %66
+  %71 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %72 unwind label %83
 
-71:                                               ; preds = %69
-  %72 = icmp eq i64 %70, 0
-  br i1 %72, label %73, label %86
+72:                                               ; preds = %70
+  %73 = icmp eq i64 %71, 0
+  br i1 %73, label %74, label %87
 
-73:                                               ; preds = %71
+74:                                               ; preds = %72
   store i32 4, ptr %13, align 4
-  br label %132
+  br label %133
 
-74:                                               ; preds = %45, %38
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %46, %39
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %10, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %11, align 4
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %10, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %11, align 4
+  br label %140
+
+79:                                               ; preds = %53, %51
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %10, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %11, align 4
   br label %139
 
-78:                                               ; preds = %52, %50
-  %79 = landingpad { ptr, i32 }
+83:                                               ; preds = %127, %112, %104, %102, %94, %92, %87, %70, %60, %58
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %10, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %11, align 4
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %10, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %11, align 4
   br label %138
 
-82:                                               ; preds = %126, %111, %103, %101, %93, %91, %86, %69, %59, %57
-  %83 = landingpad { ptr, i32 }
-          cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %10, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %11, align 4
-  br label %137
+87:                                               ; preds = %72, %66
+  %88 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %89 unwind label %83
 
-86:                                               ; preds = %71, %65
-  %87 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %88 unwind label %82
+89:                                               ; preds = %87
+  %90 = icmp sle i64 %88, 0
+  br i1 %90, label %91, label %92
 
-88:                                               ; preds = %86
-  %89 = icmp sle i64 %87, 0
-  br i1 %89, label %90, label %91
-
-90:                                               ; preds = %88
+91:                                               ; preds = %89
   store i32 4, ptr %13, align 4
-  br label %132
+  br label %133
 
-91:                                               ; preds = %88
-  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %93 unwind label %82
+92:                                               ; preds = %89
+  %93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %94 unwind label %83
 
-93:                                               ; preds = %91
-  %94 = load ptr, ptr %92, align 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds ptr, ptr %95, i64 17
-  %97 = load ptr, ptr %96, align 8
-  invoke void %97(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(88) %94)
-          to label %98 unwind label %82
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %93, align 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds ptr, ptr %96, i64 17
+  %98 = load ptr, ptr %97, align 8
+  invoke void %98(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(88) %95)
+          to label %99 unwind label %83
 
-98:                                               ; preds = %93
-  %99 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 1) #18
-  %100 = icmp eq i32 %99, 0
+99:                                               ; preds = %94
+  %100 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 1) #18
+  %101 = icmp eq i32 %100, 0
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  br i1 %100, label %101, label %109
+  br i1 %101, label %102, label %110
 
-101:                                              ; preds = %98
-  %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %103 unwind label %82
+102:                                              ; preds = %99
+  %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP14ExtcapArgumentE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %104 unwind label %83
 
-103:                                              ; preds = %101
-  %104 = load ptr, ptr %102, align 8
-  %105 = invoke noundef zeroext i1 @_ZN14ExtcapArgument10isRequiredEv(ptr noundef nonnull align 8 dereferenceable(88) %104)
-          to label %106 unwind label %82
+104:                                              ; preds = %102
+  %105 = load ptr, ptr %103, align 8
+  %106 = invoke noundef zeroext i1 @_ZN14ExtcapArgument10isRequiredEv(ptr noundef nonnull align 8 dereferenceable(88) %105)
+          to label %107 unwind label %83
 
-106:                                              ; preds = %103
-  br i1 %105, label %108, label %107
+107:                                              ; preds = %104
+  br i1 %106, label %109, label %108
 
-107:                                              ; preds = %106
+108:                                              ; preds = %107
   store i32 4, ptr %13, align 4
-  br label %132
+  br label %133
 
-108:                                              ; preds = %106
-  br label %109
+109:                                              ; preds = %107
+  br label %110
 
-109:                                              ; preds = %108, %98
+110:                                              ; preds = %109, %99
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  %110 = invoke noundef ptr @_Z14qstring_strdup7QString(ptr noundef %16)
-          to label %111 unwind label %118
+  %111 = invoke noundef ptr @_Z14qstring_strdup7QString(ptr noundef %16)
+          to label %112 unwind label %119
 
-111:                                              ; preds = %109
+112:                                              ; preds = %110
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  store ptr %110, ptr %15, align 8
+  store ptr %111, ptr %15, align 8
   store ptr null, ptr %17, align 8
-  %112 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %113 unwind label %82
+  %113 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %114 unwind label %83
 
-113:                                              ; preds = %111
-  %114 = icmp sgt i64 %112, 0
-  br i1 %114, label %115, label %126
+114:                                              ; preds = %112
+  %115 = icmp sgt i64 %113, 0
+  br i1 %115, label %116, label %127
 
-115:                                              ; preds = %113
+116:                                              ; preds = %114
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %9) #18
-  %116 = invoke noundef ptr @_Z14qstring_strdup7QString(ptr noundef %18)
-          to label %117 unwind label %122
+  %117 = invoke noundef ptr @_Z14qstring_strdup7QString(ptr noundef %18)
+          to label %118 unwind label %123
 
-117:                                              ; preds = %115
-  store ptr %116, ptr %17, align 8
+118:                                              ; preds = %116
+  store ptr %117, ptr %17, align 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
-  br label %126
+  br label %127
 
-118:                                              ; preds = %109
-  %119 = landingpad { ptr, i32 }
+119:                                              ; preds = %110
+  %120 = landingpad { ptr, i32 }
           cleanup
-  %120 = extractvalue { ptr, i32 } %119, 0
-  store ptr %120, ptr %10, align 8
-  %121 = extractvalue { ptr, i32 } %119, 1
-  store i32 %121, ptr %11, align 4
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %10, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  br label %137
+  br label %138
 
-122:                                              ; preds = %115
-  %123 = landingpad { ptr, i32 }
+123:                                              ; preds = %116
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %124 = extractvalue { ptr, i32 } %123, 0
-  store ptr %124, ptr %10, align 8
-  %125 = extractvalue { ptr, i32 } %123, 1
-  store i32 %125, ptr %11, align 4
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %10, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
-  br label %137
+  br label %138
 
-126:                                              ; preds = %117, %113
-  %127 = load ptr, ptr %3, align 8
-  %128 = load ptr, ptr %15, align 8
-  %129 = load ptr, ptr %17, align 8
-  %130 = invoke i32 @g_hash_table_insert(ptr noundef %127, ptr noundef %128, ptr noundef %129)
-          to label %131 unwind label %82
+127:                                              ; preds = %118, %114
+  %128 = load ptr, ptr %3, align 8
+  %129 = load ptr, ptr %15, align 8
+  %130 = load ptr, ptr %17, align 8
+  %131 = invoke i32 @g_hash_table_insert(ptr noundef %128, ptr noundef %129, ptr noundef %130)
+          to label %132 unwind label %83
 
-131:                                              ; preds = %126
+132:                                              ; preds = %127
   store i32 0, ptr %13, align 4
-  br label %132
+  br label %133
 
-132:                                              ; preds = %131, %107, %90, %73
+133:                                              ; preds = %132, %108, %91, %74
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  %133 = load i32, ptr %13, align 4
-  switch i32 %133, label %158 [
-    i32 0, label %134
-    i32 4, label %135
+  %134 = load i32, ptr %13, align 4
+  switch i32 %134, label %159 [
+    i32 0, label %135
+    i32 4, label %136
   ]
 
-134:                                              ; preds = %132
-  br label %135
+135:                                              ; preds = %133
+  br label %136
 
-135:                                              ; preds = %134, %132
-  %136 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP14ExtcapArgumentE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %31, !llvm.loop !13
+136:                                              ; preds = %135, %133
+  %137 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP14ExtcapArgumentE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %32, !llvm.loop !13
 
-137:                                              ; preds = %122, %118, %82
+138:                                              ; preds = %123, %119, %83
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  br label %138
-
-138:                                              ; preds = %137, %78
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   br label %139
 
-139:                                              ; preds = %138, %74
+139:                                              ; preds = %138, %79
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  br label %140
+
+140:                                              ; preds = %139, %75
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  br label %153
+  br label %154
 
-140:                                              ; preds = %31
-  %141 = load ptr, ptr %4, align 8
-  %142 = getelementptr inbounds %struct.interface_tag, ptr %141, i32 0, i32 16
-  %143 = load ptr, ptr %142, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %149
+141:                                              ; preds = %32
+  %142 = load ptr, ptr %4, align 8
+  %143 = getelementptr inbounds %struct.interface_tag, ptr %142, i32 0, i32 16
+  %144 = load ptr, ptr %143, align 8
+  %145 = icmp ne ptr %144, null
+  br i1 %145, label %146, label %150
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %4, align 8
-  %147 = getelementptr inbounds %struct.interface_tag, ptr %146, i32 0, i32 16
-  %148 = load ptr, ptr %147, align 8
-  call void @g_hash_table_unref(ptr noundef %148)
-  br label %149
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %4, align 8
+  %148 = getelementptr inbounds %struct.interface_tag, ptr %147, i32 0, i32 16
+  %149 = load ptr, ptr %148, align 8
+  call void @g_hash_table_unref(ptr noundef %149)
+  br label %150
 
-149:                                              ; preds = %145, %140
-  %150 = load ptr, ptr %3, align 8
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds %struct.interface_tag, ptr %151, i32 0, i32 16
-  store ptr %150, ptr %152, align 8
+150:                                              ; preds = %146, %141
+  %151 = load ptr, ptr %3, align 8
+  %152 = load ptr, ptr %4, align 8
+  %153 = getelementptr inbounds %struct.interface_tag, ptr %152, i32 0, i32 16
+  store ptr %151, ptr %153, align 8
   ret i1 true
 
-153:                                              ; preds = %139
-  %154 = load ptr, ptr %10, align 8
-  %155 = load i32, ptr %11, align 4
-  %156 = insertvalue { ptr, i32 } poison, ptr %154, 0
-  %157 = insertvalue { ptr, i32 } %156, i32 %155, 1
-  resume { ptr, i32 } %157
+154:                                              ; preds = %140
+  %155 = load ptr, ptr %10, align 8
+  %156 = load i32, ptr %11, align 4
+  %157 = insertvalue { ptr, i32 } poison, ptr %155, 0
+  %158 = insertvalue { ptr, i32 } %157, i32 %156, 1
+  resume { ptr, i32 } %158
 
-158:                                              ; preds = %132
+159:                                              ; preds = %133
   unreachable
 }
 
@@ -6627,7 +6637,7 @@ define void @_ZN19ExtcapOptionsDialog20on_buttonBox_clickedEP15QAbstractButton(p
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = call noundef i32 @_ZNK16QDialogButtonBox10buttonRoleEP15QAbstractButton(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10)
-  switch i32 %11, label %48 [
+  switch i32 %11, label %50 [
     i32 7, label %12
     i32 1, label %13
     i32 2, label %13
@@ -6636,18 +6646,18 @@ define void @_ZN19ExtcapOptionsDialog20on_buttonBox_clickedEP15QAbstractButton(p
 
 12:                                               ; preds = %2
   call void @_ZN19ExtcapOptionsDialog11resetValuesEv(ptr noundef nonnull align 8 dereferenceable(112) %5)
-  br label %49
+  br label %51
 
 13:                                               ; preds = %2, %2
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds ptr, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(40) %5)
-  br label %49
+  br label %51
 
 17:                                               ; preds = %2
   %18 = call noundef zeroext i1 @_ZN19ExtcapOptionsDialog23saveOptionToCaptureInfoEv(ptr noundef nonnull align 8 dereferenceable(112) %5)
-  br i1 %18, label %19, label %47
+  br i1 %18, label %19, label %49
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %5, i32 0, i32 1
@@ -6657,50 +6667,52 @@ define void @_ZN19ExtcapOptionsDialog20on_buttonBox_clickedEP15QAbstractButton(p
   %24 = call noundef i32 @_ZNK9QCheckBox10checkStateEv(ptr noundef nonnull align 8 dereferenceable(40) %23)
   %25 = icmp eq i32 %24, 2
   %26 = zext i1 %25 to i32
-  store i32 %26, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 114), align 8
-  %27 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %5, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %class.Ui_ExtcapOptionsDialog, ptr %28, i32 0, i32 4
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = call noundef i32 @_ZNK16QDialogButtonBox14standardButtonEP15QAbstractButton(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef %31)
-  %33 = icmp eq i32 %32, 2048
-  br i1 %33, label %34, label %38
+  %27 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 114
+  store i32 %26, ptr %27, align 8
+  %28 = getelementptr inbounds %class.ExtcapOptionsDialog, ptr %5, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %class.Ui_ExtcapOptionsDialog, ptr %29, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = call noundef i32 @_ZNK16QDialogButtonBox14standardButtonEP15QAbstractButton(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef %32)
+  %34 = icmp eq i32 %33, 2048
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %19
+35:                                               ; preds = %19
   call void @_ZN19ExtcapOptionsDialog11storeValuesEv(ptr noundef nonnull align 8 dereferenceable(112) %5)
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 56
-  %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %5)
-  br label %46
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds ptr, ptr %36, i64 56
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  br label %48
 
-38:                                               ; preds = %19
-  %39 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 114), align 8
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %19
+  %40 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 114
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %38
+43:                                               ; preds = %39
   call void @_ZN19ExtcapOptionsDialog11storeValuesEv(ptr noundef nonnull align 8 dereferenceable(112) %5)
-  br label %42
+  br label %44
 
-42:                                               ; preds = %41, %38
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 55
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %5)
-  br label %46
+44:                                               ; preds = %43, %39
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds ptr, ptr %45, i64 55
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  br label %48
 
-46:                                               ; preds = %42, %34
-  br label %47
-
-47:                                               ; preds = %46, %17
+48:                                               ; preds = %44, %35
   br label %49
 
-48:                                               ; preds = %2
-  br label %49
+49:                                               ; preds = %48, %17
+  br label %51
 
-49:                                               ; preds = %48, %47, %13, %12
+50:                                               ; preds = %2
+  br label %51
+
+51:                                               ; preds = %50, %49, %13, %12
   ret void
 }
 
@@ -8563,25 +8575,26 @@ define linkonce_odr void @_ZN11ExtcapValueC2E7QStringS0_bb(ptr noundef nonnull a
   %12 = zext i1 %4 to i8
   store i8 %12, ptr %10, align 1
   %13 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1) #18
-  %15 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 2
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %2) #18
-  %16 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 3
-  %17 = load i8, ptr %9, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %16, align 8
-  %20 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 4
-  %21 = load i8, ptr %10, align 1
-  %22 = trunc i8 %21 to i1
-  %23 = zext i1 %22 to i8
-  store i8 %23, ptr %20, align 1
-  %24 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 5
-  store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 6
-  call void @_ZN5QListI11ExtcapValueEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #18
+  %14 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1) #18
+  %16 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 2
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %17 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 3
+  %18 = load i8, ptr %9, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %17, align 8
+  %21 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 4
+  %22 = load i8, ptr %10, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = zext i1 %23 to i8
+  store i8 %24, ptr %21, align 1
+  %25 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 5
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 6
+  call void @_ZN5QListI11ExtcapValueEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #18
   ret void
 }
 
@@ -12168,9 +12181,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 
@@ -26372,23 +26386,24 @@ define linkonce_odr void @_ZN11ExtcapValueC2ERKS_(ptr noundef nonnull align 8 de
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.ExtcapValue, ptr %7, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  %9 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %class.ExtcapValue, ptr %10, i32 0, i32 2
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11) #18
-  %12 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 3
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %14, i64 8, i1 false)
-  %15 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 6
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %class.ExtcapValue, ptr %16, i32 0, i32 6
-  call void @_ZN5QListI11ExtcapValueEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %class.ExtcapValue, ptr %8, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %10 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 2
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %class.ExtcapValue, ptr %11, i32 0, i32 2
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  %13 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 3
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %class.ExtcapValue, ptr %14, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 8, i1 false)
+  %16 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 6
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %class.ExtcapValue, ptr %17, i32 0, i32 6
+  call void @_ZN5QListI11ExtcapValueEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   ret void
 }
 

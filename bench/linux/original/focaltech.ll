@@ -41,131 +41,132 @@ declare dso_local zeroext i1 @psmouse_matches_pnp_id(ptr noundef, ptr noundef) l
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @focaltech_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [3 x i8], align 1
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(76) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 76) #9
-  store ptr %4, ptr %0, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %72, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(76) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 76) #9
+  store ptr %5, ptr %0, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %73, label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = tail call i32 @ps2_command(ptr noundef %7, ptr noundef null, i32 noundef 246) #8
-  %9 = tail call i32 @psmouse_reset(ptr noundef %0) #8
-  %10 = load ptr, ptr %0, align 8
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = tail call i32 @ps2_command(ptr noundef %8, ptr noundef null, i32 noundef 246) #8
+  %10 = tail call i32 @psmouse_reset(ptr noundef %0) #8
+  %11 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, i8 0, i64 3, i1 false), !annotation !5
-  %11 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 230) #8
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %38
+  %12 = call i32 @ps2_command(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 230) #8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %39
 
-13:                                               ; preds = %6
+14:                                               ; preds = %7
   store i8 0, ptr %2, align 1
-  %14 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 4328) #8
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %38
+  %15 = call i32 @ps2_command(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 4328) #8
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %39
 
-16:                                               ; preds = %13
-  %17 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 4328) #8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %38
+17:                                               ; preds = %14
+  %18 = call i32 @ps2_command(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 4328) #8
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %39
 
-19:                                               ; preds = %16
-  %20 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 4328) #8
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %38
+20:                                               ; preds = %17
+  %21 = call i32 @ps2_command(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 4328) #8
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %39
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   store i8 2, ptr %2, align 1
-  %23 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 4328) #8
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %38
+  %24 = call i32 @ps2_command(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 4328) #8
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %39
 
-25:                                               ; preds = %22
-  %26 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 1001) #8
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %38
+26:                                               ; preds = %23
+  %27 = call i32 @ps2_command(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 1001) #8
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %39
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %2, i64 1
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = shl nuw nsw i32 %31, 7
-  store i32 %32, ptr %10, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 2
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 7
-  %37 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %36, ptr %37, align 4
-  br label %38
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %2, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = shl nuw nsw i32 %32, 7
+  store i32 %33, ptr %11, align 4
+  %34 = getelementptr inbounds i8, ptr %2, i64 2
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = shl nuw nsw i32 %36, 7
+  %38 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %37, ptr %38, align 4
+  br label %39
 
-38:                                               ; preds = %28, %25, %22, %19, %16, %13, %6
-  %39 = phi i1 [ true, %28 ], [ false, %25 ], [ false, %22 ], [ false, %19 ], [ false, %16 ], [ false, %13 ], [ false, %6 ]
-  %40 = phi i32 [ 0, %28 ], [ -5, %25 ], [ -5, %22 ], [ -5, %19 ], [ -5, %16 ], [ -5, %13 ], [ -5, %6 ]
+39:                                               ; preds = %29, %26, %23, %20, %17, %14, %7
+  %40 = phi i1 [ true, %29 ], [ false, %26 ], [ false, %23 ], [ false, %20 ], [ false, %17 ], [ false, %14 ], [ false, %7 ]
+  %41 = phi i32 [ 0, %29 ], [ -5, %26 ], [ -5, %23 ], [ -5, %20 ], [ -5, %17 ], [ -5, %14 ], [ -5, %7 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2) #8
-  br i1 %39, label %41, label %65
+  br i1 %40, label %42, label %66
 
-41:                                               ; preds = %38
-  %42 = call fastcc i32 @focaltech_switch_protocol(ptr noundef %0), !range !6
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %65
+42:                                               ; preds = %39
+  %43 = call fastcc i32 @focaltech_switch_protocol(ptr noundef %0), !range !6
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %66
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 40
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %48, i64 2) #8, !srcloc !7
-  %49 = getelementptr inbounds i8, ptr %46, i64 144
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 0) #8, !srcloc !7
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 1) #8, !srcloc !7
-  %50 = getelementptr inbounds i8, ptr %46, i64 48
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 273) #8, !srcloc !7
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 274) #8, !srcloc !7
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %48, i64 3) #8, !srcloc !8
-  %51 = load i32, ptr %47, align 4
-  call void @input_set_abs_params(ptr noundef %46, i32 noundef 53, i32 noundef 0, i32 noundef %51, i32 noundef 0, i32 noundef 0) #8
-  %52 = getelementptr inbounds i8, ptr %47, i64 4
-  %53 = load i32, ptr %52, align 4
-  call void @input_set_abs_params(ptr noundef %46, i32 noundef 54, i32 noundef 0, i32 noundef %53, i32 noundef 0, i32 noundef 0) #8
-  call void @input_set_abs_params(ptr noundef %46, i32 noundef 28, i32 noundef 0, i32 noundef 15, i32 noundef 0, i32 noundef 0) #8
-  %54 = call i32 @input_mt_init_slots(ptr noundef %46, i32 noundef 5, i32 noundef 1) #8
-  %55 = getelementptr inbounds i8, ptr %46, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %55, i64 2) #8, !srcloc !8
-  %56 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @focaltech_process_byte, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 6, ptr %57, align 2
-  %58 = getelementptr inbounds i8, ptr %0, i64 448
-  store ptr @focaltech_disconnect, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 432
-  store ptr @focaltech_reconnect, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 456
-  store ptr @focaltech_reset, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 392
-  store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @focaltech_set_resolution, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr @focaltech_set_rate, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 424
-  store ptr @focaltech_set_scale, ptr %64, align 8
-  br label %72
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr inbounds i8, ptr %47, i64 40
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 2) #8, !srcloc !7
+  %50 = getelementptr inbounds i8, ptr %47, i64 144
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 0) #8, !srcloc !7
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 1) #8, !srcloc !7
+  %51 = getelementptr inbounds i8, ptr %47, i64 48
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %51, i64 273) #8, !srcloc !7
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %51, i64 274) #8, !srcloc !7
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 3) #8, !srcloc !8
+  %52 = load i32, ptr %48, align 4
+  call void @input_set_abs_params(ptr noundef %47, i32 noundef 53, i32 noundef 0, i32 noundef %52, i32 noundef 0, i32 noundef 0) #8
+  %53 = getelementptr inbounds i8, ptr %48, i64 4
+  %54 = load i32, ptr %53, align 4
+  call void @input_set_abs_params(ptr noundef %47, i32 noundef 54, i32 noundef 0, i32 noundef %54, i32 noundef 0, i32 noundef 0) #8
+  call void @input_set_abs_params(ptr noundef %47, i32 noundef 28, i32 noundef 0, i32 noundef 15, i32 noundef 0, i32 noundef 0) #8
+  %55 = call i32 @input_mt_init_slots(ptr noundef %47, i32 noundef 5, i32 noundef 1) #8
+  %56 = getelementptr inbounds i8, ptr %47, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 2) #8, !srcloc !8
+  %57 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @focaltech_process_byte, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 6, ptr %58, align 2
+  %59 = getelementptr inbounds i8, ptr %0, i64 448
+  store ptr @focaltech_disconnect, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 432
+  store ptr @focaltech_reconnect, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 456
+  store ptr @focaltech_reset, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 392
+  store i32 0, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @focaltech_set_resolution, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr @focaltech_set_rate, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 424
+  store ptr @focaltech_set_scale, ptr %65, align 8
+  br label %73
 
-65:                                               ; preds = %41, %38
-  %66 = phi ptr [ @.str.2, %38 ], [ @.str.3, %41 ]
-  %67 = phi i32 [ %40, %38 ], [ %42, %41 ]
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 344
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %69, ptr noundef nonnull %66) #10
-  %70 = call i32 @ps2_command(ptr noundef %7, ptr noundef null, i32 noundef 246) #8
-  %71 = call i32 @psmouse_reset(ptr noundef %0) #8
-  call void @kfree(ptr noundef nonnull %4) #8
-  br label %72
+66:                                               ; preds = %42, %39
+  %67 = phi ptr [ @.str.2, %39 ], [ @.str.3, %42 ]
+  %68 = phi i32 [ %41, %39 ], [ %43, %42 ]
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 344
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %70, ptr noundef nonnull %67) #10
+  %71 = call i32 @ps2_command(ptr noundef %8, ptr noundef null, i32 noundef 246) #8
+  %72 = call i32 @psmouse_reset(ptr noundef %0) #8
+  call void @kfree(ptr noundef nonnull %5) #8
+  br label %73
 
-72:                                               ; preds = %65, %44, %1
-  %73 = phi i32 [ %67, %65 ], [ 0, %44 ], [ -12, %1 ]
-  ret i32 %73
+73:                                               ; preds = %66, %45, %1
+  %74 = phi i32 [ %68, %66 ], [ 0, %45 ], [ -12, %1 ]
+  ret i32 %74
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

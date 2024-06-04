@@ -864,18 +864,19 @@ define void @_ZN5ZXing12BinaryBitmapC2ERKNS_9ImageViewE(ptr noundef nonnull alig
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing12BinaryBitmapE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %5, i32 0, i32 1
-  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-  call void @_ZN5ZXing12BinaryBitmap5CacheC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  call void @_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7) #12
-  %8 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %5, i32 0, i32 3
-  store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %5, i32 0, i32 5
-  %11 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %11, i64 32, i1 false)
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing12BinaryBitmapE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %5, i32 0, i32 1
+  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @_ZN5ZXing12BinaryBitmap5CacheC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  call void @_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8) #12
+  %9 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %5, i32 0, i32 3
+  store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %5, i32 0, i32 5
+  %12 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 32, i1 false)
   ret void
 }
 
@@ -925,9 +926,10 @@ define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing12BinaryBitmapE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing12BinaryBitmapE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ZXing::BinaryBitmap", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   ret void
 }
 

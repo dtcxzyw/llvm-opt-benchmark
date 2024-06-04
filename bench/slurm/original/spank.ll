@@ -143,25 +143,26 @@ define ptr @spank_stack_init(i32 noundef %0) #0 {
   %4 = alloca ptr, align 8
   store i32 %0, ptr %2, align 4
   store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 112), align 8
-  %6 = call ptr @xstrdup(ptr noundef %5)
-  store ptr %6, ptr %3, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %10, label %8
+  %5 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 112
+  %6 = load ptr, ptr %5, align 8
+  %7 = call ptr @xstrdup(ptr noundef %6)
+  store ptr %7, ptr %3, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %11, label %9
 
-8:                                                ; preds = %1
-  %9 = call ptr @get_extra_conf_path(ptr noundef @.str.12)
-  store ptr %9, ptr %3, align 8
-  br label %10
+9:                                                ; preds = %1
+  %10 = call ptr @get_extra_conf_path(ptr noundef @.str.12)
+  store ptr %10, ptr %3, align 8
+  br label %11
 
-10:                                               ; preds = %8, %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = load i32, ptr %2, align 4
-  %13 = call ptr @spank_stack_create(ptr noundef %11, i32 noundef %12)
-  store ptr %13, ptr %4, align 8
+11:                                               ; preds = %9, %1
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %2, align 4
+  %14 = call ptr @spank_stack_create(ptr noundef %12, i32 noundef %13)
+  store ptr %14, ptr %4, align 8
   call void @slurm_xfree(ptr noundef %3)
-  %14 = load ptr, ptr %4, align 8
-  ret ptr %14
+  %15 = load ptr, ptr %4, align 8
+  ret ptr %15
 }
 
 declare ptr @xstrdup(ptr noundef) #1
@@ -2669,7 +2670,7 @@ define i32 @spank_get_item(ptr noundef %0, i32 noundef %1, ...) #0 {
 
 76:                                               ; preds = %75, %48
   %77 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %23, i64 0, i64 0
-  call void @llvm.va_start(ptr %77)
+  call void @llvm.va_start.p0(ptr %77)
   %78 = load i32, ptr %5, align 4
   switch i32 %78, label %1247 [
     i32 0, label %79
@@ -4624,7 +4625,7 @@ define i32 @spank_get_item(ptr noundef %0, i32 noundef %1, ...) #0 {
 
 1248:                                             ; preds = %1247, %1243, %1225, %1207, %1189, %1174, %1146, %1119, %1092, %1065, %1032, %1001, %932, %881, %830, %799, %762, %732, %701, %674, %609, %582, %555, %505, %478, %451, %401, %370, %339, %298, %242, %194, %136
   %1249 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %23, i64 0, i64 0
-  call void @llvm.va_end(ptr %1249)
+  call void @llvm.va_end.p0(ptr %1249)
   %1250 = load i32, ptr %24, align 4
   store i32 %1250, ptr %3, align 4
   br label %1251
@@ -4797,9 +4798,6 @@ define internal i32 @_check_spank_item_validity(ptr noundef %0, i32 noundef %1) 
   %84 = load i32, ptr %3, align 4
   ret i32 %84
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
 
 ; Function Attrs: nounwind
 declare i32 @getuid() #2
@@ -4994,9 +4992,6 @@ define internal i32 @_global_to_local_id(ptr noundef %0, i32 noundef %1, ptr nou
   %55 = load i32, ptr %4, align 4
   ret i32 %55
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @spank_env_access_check(ptr noundef %0) #0 {
@@ -6570,7 +6565,7 @@ declare i32 @open(ptr noundef, i32 noundef, ...) #1
 declare noalias ptr @fdopen(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #6
+declare ptr @__errno_location() #5
 
 declare ptr @fgets(ptr noundef, i32 noundef, ptr noundef) #1
 
@@ -7913,7 +7908,7 @@ define internal ptr @spank_plugin_get_fn(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @spank_stack_post_opt(ptr noundef %0, ptr noundef %1) #0 {
@@ -8502,7 +8497,7 @@ define internal ptr @_find_word_boundary(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() #6
+declare ptr @__ctype_b_loc() #5
 
 ; Function Attrs: nounwind uwtable
 define internal signext i8 @_canonical_char(i8 noundef signext %0) #0 {
@@ -8734,14 +8729,20 @@ define internal i32 @_valid_in_allocator_context(i32 noundef %0) #0 {
   ret i32 %8
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind willreturn memory(none) }
 attributes #10 = { nounwind }

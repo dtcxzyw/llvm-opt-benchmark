@@ -100,41 +100,42 @@ if.then.i.i9:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN6duckdb25NoOperatorCachingVerifierE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6duckdb25NoOperatorCachingVerifierE, i64 0, i32 0, i64 2
+  store ptr %8, ptr %this, align 8, !tbaa !15
   ret void
 
 lpad3:                                            ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %agg.tmp2, align 8, !tbaa !14
-  %cmp.not.i10 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %agg.tmp2, align 8, !tbaa !14
+  %cmp.not.i10 = icmp eq ptr %10, null
   br i1 %cmp.not.i10, label %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit14, label %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i11
 
 _ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i11: ; preds = %lpad3
-  %vtable.i.i12 = load ptr, ptr %9, align 8, !tbaa !15
+  %vtable.i.i12 = load ptr, ptr %10, align 8, !tbaa !15
   %vfn.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i12, i64 8
-  %10 = load ptr, ptr %vfn.i.i13, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(128) %9) #10
+  %11 = load ptr, ptr %vfn.i.i13, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(128) %10) #10
   br label %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit14
 
 _ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit14: ; preds = %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i11, %lpad3
   store ptr null, ptr %agg.tmp2, align 8, !tbaa !14
-  %11 = load ptr, ptr %agg.tmp, align 8, !tbaa !10
-  %cmp.i.i.i15 = icmp eq ptr %11, %0
+  %12 = load ptr, ptr %agg.tmp, align 8, !tbaa !10
+  %cmp.i.i.i15 = icmp eq ptr %12, %0
   br i1 %cmp.i.i.i15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17, label %if.then.i.i16
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17: ; preds = %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit14
-  %12 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13
-  %cmp3.i.i.i19 = icmp ult i64 %12, 16
+  %13 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13
+  %cmp3.i.i.i19 = icmp ult i64 %13, 16
   call void @llvm.assume(i1 %cmp3.i.i.i19)
   br label %ehcleanup
 
 if.then.i.i16:                                    ; preds = %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit14
-  call void @_ZdlPv(ptr noundef %11) #11
+  call void @_ZdlPv(ptr noundef %12) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -42,90 +42,102 @@ define void @amd_l_control(ptr noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %17, %7
-  %19 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %25
+  %19 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %23 = load double, ptr %3, align 8
-  %24 = call i32 (ptr, ...) %22(ptr noundef @.str, i32 noundef 2, i32 noundef 4, i32 noundef 6, ptr noundef @.str.1, double noundef %23)
-  br label %25
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8
+  %25 = load double, ptr %3, align 8
+  %26 = call i32 (ptr, ...) %24(ptr noundef @.str, i32 noundef 2, i32 noundef 4, i32 noundef 6, ptr noundef @.str.1, double noundef %25)
+  br label %27
 
-25:                                               ; preds = %21, %18
-  %26 = load double, ptr %3, align 8
-  %27 = fcmp olt double %26, 0.000000e+00
-  br i1 %27, label %28, label %35
+27:                                               ; preds = %22, %18
+  %28 = load double, ptr %3, align 8
+  %29 = fcmp olt double %28, 0.000000e+00
+  br i1 %29, label %30, label %39
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %34
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %38
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %33 = call i32 (ptr, ...) %32(ptr noundef @.str.2)
-  br label %34
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8
+  %37 = call i32 (ptr, ...) %36(ptr noundef @.str.2)
+  br label %38
 
-34:                                               ; preds = %31, %28
-  br label %43
+38:                                               ; preds = %34, %30
+  br label %49
 
-35:                                               ; preds = %25
-  %36 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %42
+39:                                               ; preds = %27
+  %40 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %48
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %40 = load double, ptr %3, align 8
-  %41 = call i32 (ptr, ...) %39(ptr noundef @.str.3, double noundef %40)
-  br label %42
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  %46 = load double, ptr %3, align 8
+  %47 = call i32 (ptr, ...) %45(ptr noundef @.str.3, double noundef %46)
+  br label %48
 
-42:                                               ; preds = %38, %35
-  br label %43
+48:                                               ; preds = %43, %39
+  br label %49
 
-43:                                               ; preds = %42, %34
-  %44 = load i64, ptr %4, align 8
-  %45 = icmp ne i64 %44, 0
-  br i1 %45, label %46, label %53
+49:                                               ; preds = %48, %38
+  %50 = load i64, ptr %4, align 8
+  %51 = icmp ne i64 %50, 0
+  br i1 %51, label %52, label %61
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %49, label %52
-
-49:                                               ; preds = %46
-  %50 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %51 = call i32 (ptr, ...) %50(ptr noundef @.str.4)
-  br label %52
-
-52:                                               ; preds = %49, %46
-  br label %60
-
-53:                                               ; preds = %43
-  %54 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %54 = load ptr, ptr %53, align 8
   %55 = icmp ne ptr %54, null
-  br i1 %55, label %56, label %59
+  br i1 %55, label %56, label %60
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %58 = call i32 (ptr, ...) %57(ptr noundef @.str.5)
-  br label %59
-
-59:                                               ; preds = %56, %53
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %58 = load ptr, ptr %57, align 8
+  %59 = call i32 (ptr, ...) %58(ptr noundef @.str.4)
   br label %60
 
-60:                                               ; preds = %59, %52
-  %61 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %66
+60:                                               ; preds = %56, %52
+  br label %70
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3), align 8
-  %65 = call i32 (ptr, ...) %64(ptr noundef @.str.6, i64 noundef 8)
-  br label %66
+61:                                               ; preds = %49
+  %62 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %69
 
-66:                                               ; preds = %63, %60
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %67 = load ptr, ptr %66, align 8
+  %68 = call i32 (ptr, ...) %67(ptr noundef @.str.5)
+  br label %69
+
+69:                                               ; preds = %65, %61
+  br label %70
+
+70:                                               ; preds = %69, %60
+  %71 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %78
+
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 3
+  %76 = load ptr, ptr %75, align 8
+  %77 = call i32 (ptr, ...) %76(ptr noundef @.str.6, i64 noundef 8)
+  br label %78
+
+78:                                               ; preds = %74, %70
   ret void
 }
 

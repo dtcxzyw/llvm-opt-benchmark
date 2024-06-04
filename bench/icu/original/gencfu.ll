@@ -109,13 +109,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %9 = load i8, ptr getelementptr inbounds (%struct.UOption, ptr @_ZL7options, i32 0, i32 6), align 2
-  %tobool = icmp ne i8 %9, 0
+  %9 = getelementptr inbounds %struct.UOption, ptr @_ZL7options, i32 0, i32 6
+  %10 = load i8, ptr %9, align 2
+  %tobool = icmp ne i8 %10, 0
   br i1 %tobool, label %if.then4, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %10 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6), align 2
-  %tobool3 = icmp ne i8 %10, 0
+  %11 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 1, i32 6
+  %12 = load i8, ptr %11, align 2
+  %tobool3 = icmp ne i8 %12, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end
@@ -123,49 +125,58 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %lor.lhs.false
-  %11 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6), align 2
-  %tobool6 = icmp ne i8 %11, 0
+  %13 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 6
+  %14 = load i8, ptr %13, align 2
+  %tobool6 = icmp ne i8 %14, 0
   br i1 %tobool6, label %land.lhs.true, label %if.then8
 
 land.lhs.true:                                    ; preds = %if.end5
-  %12 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6), align 2
-  %tobool7 = icmp ne i8 %12, 0
+  %15 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 6
+  %16 = load i8, ptr %15, align 2
+  %tobool7 = icmp ne i8 %16, 0
   br i1 %tobool7, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true, %if.end5
-  %13 = load ptr, ptr @stderr, align 8
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.3)
+  %17 = load ptr, ptr @stderr, align 8
+  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.3)
   call void @_Z11usageAndDiei(i32 noundef 1)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %land.lhs.true
-  %14 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 1), align 8
-  store ptr %14, ptr %confFileName, align 8
-  %15 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 1), align 8
-  store ptr %15, ptr %outFileName, align 8
-  %16 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6), align 2
-  %tobool11 = icmp ne i8 %16, 0
+  %18 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 3, i32 1
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %confFileName, align 8
+  %20 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 5, i32 1
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %outFileName, align 8
+  %22 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 6
+  %23 = load i8, ptr %22, align 2
+  %tobool11 = icmp ne i8 %23, 0
   br i1 %tobool11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10
-  %17 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 1), align 8
-  call void @u_setDataDirectory_75(ptr noundef %17)
+  %24 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 1
+  %25 = load ptr, ptr %24, align 8
+  call void @u_setDataDirectory_75(ptr noundef %25)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end10
   store i32 0, ptr %status, align 4
-  %18 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6), align 2
-  %tobool14 = icmp ne i8 %18, 0
+  %26 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 6
+  %27 = load i8, ptr %26, align 2
+  %tobool14 = icmp ne i8 %27, 0
   br i1 %tobool14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end13
-  %19 = load ptr, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1), align 8
-  store ptr %19, ptr %outDir, align 8
+  %28 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 7, i32 1
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %outDir, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %if.end13
-  %20 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6), align 2
-  %tobool17 = icmp ne i8 %20, 0
+  %30 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 8, i32 6
+  %31 = load i8, ptr %30, align 2
+  %tobool17 = icmp ne i8 %31, 0
   br i1 %tobool17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end16
@@ -174,8 +185,9 @@ if.then18:                                        ; preds = %if.end16
 
 if.end19:                                         ; preds = %if.then18, %if.end16
   store i8 0, ptr %quiet, align 1
-  %21 = load i8, ptr getelementptr inbounds ([10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 9, i32 6), align 2
-  %tobool20 = icmp ne i8 %21, 0
+  %32 = getelementptr inbounds [10 x %struct.UOption], ptr @_ZL7options, i64 0, i64 9, i32 6
+  %33 = load i8, ptr %32, align 2
+  %tobool20 = icmp ne i8 %33, 0
   br i1 %tobool20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end19
@@ -184,35 +196,35 @@ if.then21:                                        ; preds = %if.end19
 
 if.end22:                                         ; preds = %if.then21, %if.end19
   call void @u_init_75(ptr noundef %status)
-  %22 = load i32, ptr %status, align 4
-  %call23 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %22)
+  %34 = load i32, ptr %status, align 4
+  %call23 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %34)
   %tobool24 = icmp ne i8 %call23, 0
   br i1 %tobool24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end22
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = load ptr, ptr %argv.addr, align 8
-  %arrayidx26 = getelementptr inbounds ptr, ptr %24, i64 0
-  %25 = load ptr, ptr %arrayidx26, align 8
-  %26 = load i32, ptr %status, align 4
-  %call27 = call ptr @u_errorName_75(i32 noundef %26)
-  %call28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.5, ptr noundef %25, ptr noundef %call27)
+  %35 = load ptr, ptr @stderr, align 8
+  %36 = load ptr, ptr %argv.addr, align 8
+  %arrayidx26 = getelementptr inbounds ptr, ptr %36, i64 0
+  %37 = load ptr, ptr %arrayidx26, align 8
+  %38 = load i32, ptr %status, align 4
+  %call27 = call ptr @u_errorName_75(i32 noundef %38)
+  %call28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.5, ptr noundef %37, ptr noundef %call27)
   call void @exit(i32 noundef 1) #8
   unreachable
 
 if.end29:                                         ; preds = %if.end22
   store i32 0, ptr %status, align 4
   store i32 0, ptr %confusablesLen, align 4
-  %27 = load ptr, ptr %confFileName, align 8
-  %call30 = call noundef ptr @_ZL8readFilePKcPi(ptr noundef %27, ptr noundef %confusablesLen)
+  %39 = load ptr, ptr %confFileName, align 8
+  %call30 = call noundef ptr @_ZL8readFilePKcPi(ptr noundef %39, ptr noundef %confusablesLen)
   store ptr %call30, ptr %confusables, align 8
-  %28 = load ptr, ptr %confusables, align 8
-  %cmp31 = icmp eq ptr %28, null
+  %40 = load ptr, ptr %confusables, align 8
+  %cmp31 = icmp eq ptr %40, null
   br i1 %cmp31, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end29
-  %29 = load ptr, ptr %confFileName, align 8
-  %call33 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, ptr noundef %29)
+  %41 = load ptr, ptr %confFileName, align 8
+  %call33 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, ptr noundef %41)
   call void @exit(i32 noundef -1) #8
   unreachable
 
@@ -221,146 +233,148 @@ if.end34:                                         ; preds = %if.end29
   store i32 0, ptr %line, align 4
   %offset = getelementptr inbounds %struct.UParseError, ptr %parseError, i32 0, i32 1
   store i32 0, ptr %offset, align 4
-  %30 = load ptr, ptr %confusables, align 8
-  %31 = load i32, ptr %confusablesLen, align 4
-  %call35 = call ptr @uspoof_openFromSource_75(ptr noundef %30, i32 noundef %31, ptr noundef null, i32 noundef 0, ptr noundef %errType, ptr noundef %parseError, ptr noundef %status)
+  %42 = load ptr, ptr %confusables, align 8
+  %43 = load i32, ptr %confusablesLen, align 4
+  %call35 = call ptr @uspoof_openFromSource_75(ptr noundef %42, i32 noundef %43, ptr noundef null, i32 noundef 0, ptr noundef %errType, ptr noundef %parseError, ptr noundef %status)
   store ptr %call35, ptr %sc, align 8
-  %32 = load i32, ptr %status, align 4
-  %call36 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %32)
+  %44 = load i32, ptr %status, align 4
+  %call36 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %44)
   %tobool37 = icmp ne i8 %call36, 0
   br i1 %tobool37, label %if.then38, label %if.end43
 
 if.then38:                                        ; preds = %if.end34
-  %33 = load ptr, ptr @stderr, align 8
-  %34 = load i32, ptr %status, align 4
-  %call39 = call ptr @u_errorName_75(i32 noundef %34)
-  %35 = load ptr, ptr %confFileName, align 8
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = load i32, ptr %status, align 4
+  %call39 = call ptr @u_errorName_75(i32 noundef %46)
+  %47 = load ptr, ptr %confFileName, align 8
   %line40 = getelementptr inbounds %struct.UParseError, ptr %parseError, i32 0, i32 0
-  %36 = load i32, ptr %line40, align 4
+  %48 = load i32, ptr %line40, align 4
   %offset41 = getelementptr inbounds %struct.UParseError, ptr %parseError, i32 0, i32 1
-  %37 = load i32, ptr %offset41, align 4
-  %call42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.7, ptr noundef %call39, ptr noundef %35, i32 noundef %36, i32 noundef %37)
-  %38 = load i32, ptr %status, align 4
-  call void @exit(i32 noundef %38) #8
+  %49 = load i32, ptr %offset41, align 4
+  %call42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.7, ptr noundef %call39, ptr noundef %47, i32 noundef %48, i32 noundef %49)
+  %50 = load i32, ptr %status, align 4
+  call void @exit(i32 noundef %50) #8
   unreachable
 
 if.end43:                                         ; preds = %if.end34
-  %39 = load ptr, ptr %sc, align 8
-  %call44 = call i32 @uspoof_serialize_75(ptr noundef %39, ptr noundef null, i32 noundef 0, ptr noundef %status)
+  %51 = load ptr, ptr %sc, align 8
+  %call44 = call i32 @uspoof_serialize_75(ptr noundef %51, ptr noundef null, i32 noundef 0, ptr noundef %status)
   store i32 %call44, ptr %outDataSize, align 4
-  %40 = load i32, ptr %status, align 4
-  %cmp45 = icmp ne i32 %40, 15
+  %52 = load i32, ptr %status, align 4
+  %cmp45 = icmp ne i32 %52, 15
   br i1 %cmp45, label %if.then46, label %if.end49
 
 if.then46:                                        ; preds = %if.end43
-  %41 = load ptr, ptr @stderr, align 8
-  %42 = load i32, ptr %status, align 4
-  %call47 = call ptr @u_errorName_75(i32 noundef %42)
-  %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.8, ptr noundef %call47)
-  %43 = load i32, ptr %status, align 4
-  call void @exit(i32 noundef %43) #8
+  %53 = load ptr, ptr @stderr, align 8
+  %54 = load i32, ptr %status, align 4
+  %call47 = call ptr @u_errorName_75(i32 noundef %54)
+  %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.8, ptr noundef %call47)
+  %55 = load i32, ptr %status, align 4
+  call void @exit(i32 noundef %55) #8
   unreachable
 
 if.end49:                                         ; preds = %if.end43
   store i32 0, ptr %status, align 4
-  %44 = load i32, ptr %outDataSize, align 4
-  %conv = zext i32 %44 to i64
+  %56 = load i32, ptr %outDataSize, align 4
+  %conv = zext i32 %56 to i64
   %call50 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #9
   store ptr %call50, ptr %outData, align 8
-  %45 = load ptr, ptr %sc, align 8
-  %46 = load ptr, ptr %outData, align 8
-  %47 = load i32, ptr %outDataSize, align 4
-  %call51 = call i32 @uspoof_serialize_75(ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef %status)
+  %57 = load ptr, ptr %sc, align 8
+  %58 = load ptr, ptr %outData, align 8
+  %59 = load i32, ptr %outDataSize, align 4
+  %call51 = call i32 @uspoof_serialize_75(ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef %status)
   br label %do.body
 
 do.body:                                          ; preds = %if.end49
-  %48 = load ptr, ptr %outData, align 8
-  %fFormatVersion = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %48, i32 0, i32 1
+  %60 = load ptr, ptr %outData, align 8
+  %fFormatVersion = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %60, i32 0, i32 1
   %arraydecay = getelementptr inbounds [4 x i8], ptr %fFormatVersion, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 getelementptr inbounds (%struct.DataHeader, ptr @dh, i32 0, i32 1, i32 7), ptr align 4 %arraydecay, i64 4, i1 false)
+  %61 = getelementptr inbounds %struct.DataHeader, ptr @dh, i32 0, i32 1, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %61, ptr align 4 %arraydecay, i64 4, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %49 = load ptr, ptr %outDir, align 8
-  %50 = load ptr, ptr %outFileName, align 8
-  %51 = load ptr, ptr %copyright, align 8
-  %call52 = call ptr @udata_create(ptr noundef %49, ptr noundef null, ptr noundef %50, ptr noundef getelementptr inbounds (%struct.DataHeader, ptr @dh, i32 0, i32 1), ptr noundef %51, ptr noundef %status)
+  %62 = load ptr, ptr %outDir, align 8
+  %63 = load ptr, ptr %outFileName, align 8
+  %64 = load ptr, ptr %copyright, align 8
+  %65 = getelementptr inbounds %struct.DataHeader, ptr @dh, i32 0, i32 1
+  %call52 = call ptr @udata_create(ptr noundef %62, ptr noundef null, ptr noundef %63, ptr noundef %65, ptr noundef %64, ptr noundef %status)
   store ptr %call52, ptr %pData, align 8
-  %52 = load i32, ptr %status, align 4
-  %call53 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %52)
+  %66 = load i32, ptr %status, align 4
+  %call53 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %66)
   %tobool54 = icmp ne i8 %call53, 0
   br i1 %tobool54, label %if.then55, label %if.end58
 
 if.then55:                                        ; preds = %do.end
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = load ptr, ptr %outFileName, align 8
-  %55 = load i32, ptr %status, align 4
-  %call56 = call ptr @u_errorName_75(i32 noundef %55)
-  %call57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.9, ptr noundef %54, ptr noundef %call56)
-  %56 = load i32, ptr %status, align 4
-  call void @exit(i32 noundef %56) #8
+  %67 = load ptr, ptr @stderr, align 8
+  %68 = load ptr, ptr %outFileName, align 8
+  %69 = load i32, ptr %status, align 4
+  %call56 = call ptr @u_errorName_75(i32 noundef %69)
+  %call57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.9, ptr noundef %68, ptr noundef %call56)
+  %70 = load i32, ptr %status, align 4
+  call void @exit(i32 noundef %70) #8
   unreachable
 
 if.end58:                                         ; preds = %do.end
-  %57 = load ptr, ptr %pData, align 8
-  %58 = load ptr, ptr %outData, align 8
-  %59 = load i32, ptr %outDataSize, align 4
-  call void @udata_writeBlock(ptr noundef %57, ptr noundef %58, i32 noundef %59)
-  %60 = load ptr, ptr %pData, align 8
-  %call59 = call i32 @udata_finish(ptr noundef %60, ptr noundef %status)
+  %71 = load ptr, ptr %pData, align 8
+  %72 = load ptr, ptr %outData, align 8
+  %73 = load i32, ptr %outDataSize, align 4
+  call void @udata_writeBlock(ptr noundef %71, ptr noundef %72, i32 noundef %73)
+  %74 = load ptr, ptr %pData, align 8
+  %call59 = call i32 @udata_finish(ptr noundef %74, ptr noundef %status)
   %conv60 = zext i32 %call59 to i64
   store i64 %conv60, ptr %bytesWritten, align 8
-  %61 = load i32, ptr %status, align 4
-  %call61 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %61)
+  %75 = load i32, ptr %status, align 4
+  %call61 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %75)
   %tobool62 = icmp ne i8 %call61, 0
   br i1 %tobool62, label %if.then63, label %if.end65
 
 if.then63:                                        ; preds = %if.end58
-  %62 = load ptr, ptr @stderr, align 8
-  %63 = load i32, ptr %status, align 4
-  %call64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef @.str.10, i32 noundef %63)
-  %64 = load i32, ptr %status, align 4
-  call void @exit(i32 noundef %64) #8
+  %76 = load ptr, ptr @stderr, align 8
+  %77 = load i32, ptr %status, align 4
+  %call64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.10, i32 noundef %77)
+  %78 = load i32, ptr %status, align 4
+  call void @exit(i32 noundef %78) #8
   unreachable
 
 if.end65:                                         ; preds = %if.end58
-  %65 = load i64, ptr %bytesWritten, align 8
-  %66 = load i32, ptr %outDataSize, align 4
-  %conv66 = zext i32 %66 to i64
-  %cmp67 = icmp ne i64 %65, %conv66
+  %79 = load i64, ptr %bytesWritten, align 8
+  %80 = load i32, ptr %outDataSize, align 4
+  %conv66 = zext i32 %80 to i64
+  %cmp67 = icmp ne i64 %79, %conv66
   br i1 %cmp67, label %if.then68, label %if.end70
 
 if.then68:                                        ; preds = %if.end65
-  %67 = load ptr, ptr @stderr, align 8
-  %68 = load ptr, ptr %outFileName, align 8
-  %call69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.11, ptr noundef %68)
+  %81 = load ptr, ptr @stderr, align 8
+  %82 = load ptr, ptr %outFileName, align 8
+  %call69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.11, ptr noundef %82)
   call void @exit(i32 noundef -1) #8
   unreachable
 
 if.end70:                                         ; preds = %if.end65
-  %69 = load ptr, ptr %sc, align 8
-  call void @uspoof_close_75(ptr noundef %69)
-  %70 = load ptr, ptr %outData, align 8
-  %isnull = icmp eq ptr %70, null
+  %83 = load ptr, ptr %sc, align 8
+  call void @uspoof_close_75(ptr noundef %83)
+  %84 = load ptr, ptr %outData, align 8
+  %isnull = icmp eq ptr %84, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end70
-  call void @_ZdaPv(ptr noundef %70) #10
+  call void @_ZdaPv(ptr noundef %84) #10
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end70
-  %71 = load ptr, ptr %confusables, align 8
-  %isnull71 = icmp eq ptr %71, null
+  %85 = load ptr, ptr %confusables, align 8
+  %isnull71 = icmp eq ptr %85, null
   br i1 %isnull71, label %delete.end73, label %delete.notnull72
 
 delete.notnull72:                                 ; preds = %delete.end
-  call void @_ZdaPv(ptr noundef %71) #10
+  call void @_ZdaPv(ptr noundef %85) #10
   br label %delete.end73
 
 delete.end73:                                     ; preds = %delete.notnull72, %delete.end
   call void @u_cleanup_75()
-  %72 = load i8, ptr %quiet, align 1
-  %tobool74 = icmp ne i8 %72, 0
+  %86 = load i8, ptr %quiet, align 1
+  %tobool74 = icmp ne i8 %86, 0
   br i1 %tobool74, label %if.end77, label %if.then75
 
 if.then75:                                        ; preds = %delete.end73

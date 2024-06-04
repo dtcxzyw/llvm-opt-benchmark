@@ -2345,7 +2345,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh19SmallPtrSetImplBase18getTombstoneMarkerEv() #0 comdat align 2 {
 entry:
-  ret ptr inttoptr (i64 -2 to ptr)
+  %0 = inttoptr i64 -2 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2647,7 +2648,8 @@ while.end:                                        ; preds = %land.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh19SmallPtrSetImplBase14getEmptyMarkerEv() #0 comdat align 2 {
 entry:
-  ret ptr inttoptr (i64 -1 to ptr)
+  %0 = inttoptr i64 -1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -54,45 +54,46 @@ define dso_local noalias ptr @module_alloc(i64 noundef %0) local_unnamed_addr #0
   %2 = add i64 %0, 4095
   %3 = and i64 %2, -4096
   %4 = icmp ugt i64 %3, 1056964608
-  br i1 %4, label %26, label %5
+  br i1 %4, label %27, label %5
 
 5:                                                ; preds = %1
-  %6 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 14), align 1
-  %7 = and i8 %6, 2
-  %8 = icmp eq i8 %7, 0
-  br i1 %8, label %19, label %9
+  %6 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 14
+  %7 = load i8, ptr %6, align 1
+  %8 = and i8 %7, 2
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %20, label %10
 
-9:                                                ; preds = %5
+10:                                               ; preds = %5
   tail call void @mutex_lock(ptr noundef nonnull @module_kaslr_mutex) #10
-  %10 = load i64, ptr @module_load_offset, align 8
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %18
+  %11 = load i64, ptr @module_load_offset, align 8
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %19
 
-12:                                               ; preds = %9
-  %13 = tail call zeroext i16 @get_random_u16() #10
-  %14 = lshr i16 %13, 6
-  %15 = add nuw nsw i16 %14, 1
-  %16 = zext nneg i16 %15 to i64
-  %17 = shl nuw nsw i64 %16, 12
-  store i64 %17, ptr @module_load_offset, align 8
-  br label %18
-
-18:                                               ; preds = %12, %9
-  tail call void @mutex_unlock(ptr noundef nonnull @module_kaslr_mutex) #10
+13:                                               ; preds = %10
+  %14 = tail call zeroext i16 @get_random_u16() #10
+  %15 = lshr i16 %14, 6
+  %16 = add nuw nsw i16 %15, 1
+  %17 = zext nneg i16 %16 to i64
+  %18 = shl nuw nsw i64 %17, 12
+  store i64 %18, ptr @module_load_offset, align 8
   br label %19
 
-19:                                               ; preds = %18, %5
-  %20 = load i64, ptr @module_load_offset, align 8
-  %21 = or disjoint i64 %20, -1073741824
-  %22 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %23 = and i64 %22, -9223372036854775453
-  %24 = tail call ptr @llvm.returnaddress(i32 0)
-  %25 = tail call noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef 4096, i64 noundef %21, i64 noundef -16777216, i32 noundef 3264, i64 %23, i64 noundef 256, i32 noundef -1, ptr noundef %24) #11
-  br label %26
+19:                                               ; preds = %13, %10
+  tail call void @mutex_unlock(ptr noundef nonnull @module_kaslr_mutex) #10
+  br label %20
 
-26:                                               ; preds = %19, %1
-  %27 = phi ptr [ null, %1 ], [ %25, %19 ]
-  ret ptr %27
+20:                                               ; preds = %19, %5
+  %21 = load i64, ptr @module_load_offset, align 8
+  %22 = or disjoint i64 %21, -1073741824
+  %23 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %24 = and i64 %23, -9223372036854775453
+  %25 = tail call ptr @llvm.returnaddress(i32 0)
+  %26 = tail call noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef 4096, i64 noundef %22, i64 noundef -16777216, i32 noundef 3264, i64 %24, i64 noundef 256, i32 noundef -1, ptr noundef %25) #11
+  br label %27
+
+27:                                               ; preds = %20, %1
+  %28 = phi ptr [ null, %1 ], [ %26, %20 ]
+  ret ptr %28
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

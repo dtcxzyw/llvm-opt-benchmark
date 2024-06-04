@@ -151,54 +151,56 @@ define dso_local zeroext i1 @trace_event_dyn_busy(ptr noundef %0) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @dyn_event_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %26, label %3
+  br i1 %2, label %28, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %26, label %7
+  br i1 %6, label %28, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %26, label %11
+  br i1 %10, label %28, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %26, label %15
+  br i1 %14, label %28, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %26, label %19
+  br i1 %18, label %28, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %26, label %23
+  br i1 %22, label %28, label %23
 
 23:                                               ; preds = %19
   store volatile ptr %0, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr %0, ptr %24, align 8
   tail call void @mutex_lock(ptr noundef nonnull @dyn_event_ops_mutex) #9
-  %25 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_ops_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @dyn_event_ops_list, i64 0, i32 1), align 8
+  %25 = getelementptr inbounds %struct.list_head, ptr @dyn_event_ops_list, i64 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.list_head, ptr @dyn_event_ops_list, i64 0, i32 1
+  store ptr %0, ptr %27, align 8
   store ptr @dyn_event_ops_list, ptr %0, align 8
-  store ptr %25, ptr %24, align 8
-  store volatile ptr %0, ptr %25, align 8
+  store ptr %26, ptr %24, align 8
+  store volatile ptr %0, ptr %26, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @dyn_event_ops_mutex) #9
-  br label %26
+  br label %28
 
-26:                                               ; preds = %23, %19, %15, %11, %7, %3, %1
-  %27 = phi i32 [ 0, %23 ], [ -22, %19 ], [ -22, %15 ], [ -22, %11 ], [ -22, %7 ], [ -22, %3 ], [ -22, %1 ]
-  ret i32 %27
+28:                                               ; preds = %23, %19, %15, %11, %7, %3, %1
+  %29 = phi i32 [ 0, %23 ], [ -22, %19 ], [ -22, %15 ], [ -22, %11 ], [ -22, %7 ], [ -22, %3 ], [ -22, %1 ]
+  ret i32 %29
 }
 
 ; Function Attrs: null_pointer_is_valid

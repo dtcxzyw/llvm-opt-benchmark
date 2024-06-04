@@ -67,62 +67,68 @@ define internal i32 @setup_listener(ptr noundef %0, i64 noundef %1) #1 {
 15:                                               ; preds = %2
   %16 = load i32, ptr %6, align 4
   store i32 %16, ptr %3, align 4
-  br label %45
+  br label %51
 
 17:                                               ; preds = %2
-  %18 = load i8, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 17), align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %44
+  %18 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 17
+  %19 = load i8, ptr %18, align 8
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %50
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i32 0, i32 17), align 8
-  %22 = icmp ne ptr null, %21
-  br i1 %22, label %23, label %26
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds %struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i32 0, i32 17
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr null, %23
+  br i1 %24, label %25, label %29
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i32 0, i32 17), align 8
-  %25 = call i32 @PMIx_Argv_append_nosize(ptr noundef %7, ptr noundef %24)
-  br label %26
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds %struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i32 0, i32 17
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 @PMIx_Argv_append_nosize(ptr noundef %7, ptr noundef %27)
+  br label %29
 
-26:                                               ; preds = %23, %20
-  %27 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i32 0, i32 16), align 8
-  %28 = icmp ne ptr null, %27
-  br i1 %28, label %29, label %32
+29:                                               ; preds = %25, %21
+  %30 = getelementptr inbounds %struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i32 0, i32 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr null, %31
+  br i1 %32, label %33, label %37
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (%struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i32 0, i32 16), align 8
-  %31 = call i32 @PMIx_Argv_append_nosize(ptr noundef %7, ptr noundef %30)
-  br label %32
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds %struct.pmix_ptl_base_t, ptr @pmix_ptl_base, i32 0, i32 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i32 @PMIx_Argv_append_nosize(ptr noundef %7, ptr noundef %35)
+  br label %37
 
-32:                                               ; preds = %29, %26
-  %33 = load ptr, ptr %7, align 8
-  %34 = icmp ne ptr null, %33
-  br i1 %34, label %35, label %43
-
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %7, align 8
-  %37 = call ptr @PMIx_Argv_join(ptr noundef %36, i32 noundef 44)
-  store ptr %37, ptr %8, align 8
+37:                                               ; preds = %33, %29
   %38 = load ptr, ptr %7, align 8
-  call void @PMIx_Argv_free(ptr noundef %38)
-  %39 = load ptr, ptr %8, align 8
-  %40 = call i32 @PMIx_Info_load(ptr noundef %9, ptr noundef @.str.1, ptr noundef %39, i16 noundef zeroext 3)
-  %41 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %41) #3
-  %42 = call i32 @PMIx_Job_control_nb(ptr noundef getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 1), i64 noundef 1, ptr noundef %9, i64 noundef 1, ptr noundef null, ptr noundef null)
+  %39 = icmp ne ptr null, %38
+  br i1 %39, label %40, label %49
+
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %7, align 8
+  %42 = call ptr @PMIx_Argv_join(ptr noundef %41, i32 noundef 44)
+  store ptr %42, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  call void @PMIx_Argv_free(ptr noundef %43)
+  %44 = load ptr, ptr %8, align 8
+  %45 = call i32 @PMIx_Info_load(ptr noundef %9, ptr noundef @.str.1, ptr noundef %44, i16 noundef zeroext 3)
+  %46 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %46) #3
+  %47 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 1
+  %48 = call i32 @PMIx_Job_control_nb(ptr noundef %47, i64 noundef 1, ptr noundef %9, i64 noundef 1, ptr noundef null, ptr noundef null)
   call void @PMIx_Info_destruct(ptr noundef %9)
-  br label %43
+  br label %49
 
-43:                                               ; preds = %35, %32
-  br label %44
+49:                                               ; preds = %40, %37
+  br label %50
 
-44:                                               ; preds = %43, %17
+50:                                               ; preds = %49, %17
   store i32 0, ptr %3, align 4
-  br label %45
+  br label %51
 
-45:                                               ; preds = %44, %15
-  %46 = load i32, ptr %3, align 4
-  ret i32 %46
+51:                                               ; preds = %50, %15
+  %52 = load i32, ptr %3, align 4
+  ret i32 %52
 }
 
 declare i32 @pmix_ptl_base_setup_fork(ptr noundef, ptr noundef) #0

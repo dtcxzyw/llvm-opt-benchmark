@@ -158,12 +158,12 @@ define dso_local void @i915_hwmon_register(ptr noundef %0) local_unnamed_addr #0
   %8 = load i64, ptr %7, align 4
   %9 = and i64 %8, 8
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %145, label %11
+  br i1 %10, label %147, label %11
 
 11:                                               ; preds = %1
   %12 = tail call noalias noundef dereferenceable_or_null(336) ptr @devm_kmalloc(ptr noundef %4, i64 noundef 336, i32 noundef 3520) #11
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %145, label %14
+  br i1 %13, label %147, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 9296
@@ -337,56 +337,58 @@ define dso_local void @i915_hwmon_register(ptr noundef %0) local_unnamed_addr #0
 113:                                              ; preds = %110, %96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   %114 = tail call ptr @devm_hwmon_device_register_with_info(ptr noundef %4, ptr noundef %19, ptr noundef nonnull %12, ptr noundef nonnull @hwm_chip_info, ptr noundef nonnull @hwm_groups) #10
-  %115 = icmp ugt ptr %114, inttoptr (i64 -4096 to ptr)
-  br i1 %115, label %116, label %117
-
-116:                                              ; preds = %113
-  store ptr null, ptr %15, align 8
-  br label %145
+  %115 = inttoptr i64 -4096 to ptr
+  %116 = icmp ugt ptr %114, %115
+  br i1 %116, label %117, label %118
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %114, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 9304
-  %120 = getelementptr inbounds i8, ptr %12, i64 88
-  br label %121
+  store ptr null, ptr %15, align 8
+  br label %147
 
-121:                                              ; preds = %142, %117
-  %122 = phi i64 [ 0, %117 ], [ %143, %142 ]
-  %123 = getelementptr [2 x ptr], ptr %119, i64 0, i64 %122
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %142, label %126
+118:                                              ; preds = %113
+  %119 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %114, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 9304
+  %121 = getelementptr inbounds i8, ptr %12, i64 88
+  br label %122
 
-126:                                              ; preds = %121
-  %127 = getelementptr %struct.hwm_drvdata, ptr %120, i64 %122
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %127, i64 52
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp slt i32 %130, 0
-  %132 = select i1 %131, i64 312, i64 316
-  %133 = getelementptr inbounds i8, ptr %128, i64 %132
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %142, label %136
+122:                                              ; preds = %144, %118
+  %123 = phi i64 [ 0, %118 ], [ %145, %144 ]
+  %124 = getelementptr [2 x ptr], ptr %120, i64 0, i64 %123
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %144, label %127
 
-136:                                              ; preds = %126
-  %137 = getelementptr inbounds i8, ptr %127, i64 40
-  %138 = tail call ptr @devm_hwmon_device_register_with_info(ptr noundef %4, ptr noundef %137, ptr noundef %127, ptr noundef nonnull @hwm_gt_chip_info, ptr noundef null) #10
-  %139 = icmp ugt ptr %138, inttoptr (i64 -4096 to ptr)
-  br i1 %139, label %142, label %140
+127:                                              ; preds = %122
+  %128 = getelementptr %struct.hwm_drvdata, ptr %121, i64 %123
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %128, i64 52
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp slt i32 %131, 0
+  %133 = select i1 %132, i64 312, i64 316
+  %134 = getelementptr inbounds i8, ptr %129, i64 %133
+  %135 = load i32, ptr %134, align 4
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %144, label %137
 
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %127, i64 16
-  store ptr %138, ptr %141, align 8
-  br label %142
+137:                                              ; preds = %127
+  %138 = getelementptr inbounds i8, ptr %128, i64 40
+  %139 = tail call ptr @devm_hwmon_device_register_with_info(ptr noundef %4, ptr noundef %138, ptr noundef %128, ptr noundef nonnull @hwm_gt_chip_info, ptr noundef null) #10
+  %140 = inttoptr i64 -4096 to ptr
+  %141 = icmp ugt ptr %139, %140
+  br i1 %141, label %144, label %142
 
-142:                                              ; preds = %140, %136, %126, %121
-  %143 = add nuw nsw i64 %122, 1
-  %144 = icmp eq i64 %122, 0
-  br i1 %144, label %121, label %145, !llvm.loop !10
+142:                                              ; preds = %137
+  %143 = getelementptr inbounds i8, ptr %128, i64 16
+  store ptr %139, ptr %143, align 8
+  br label %144
 
-145:                                              ; preds = %142, %116, %11, %1
+144:                                              ; preds = %142, %137, %127, %122
+  %145 = add nuw nsw i64 %123, 1
+  %146 = icmp eq i64 %123, 0
+  br i1 %146, label %122, label %147, !llvm.loop !10
+
+147:                                              ; preds = %144, %117, %11, %1
   ret void
 }
 
@@ -1136,7 +1138,7 @@ declare dso_local i32 @snb_pcode_write_p(ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal zeroext i16 @hwm_attributes_visible(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 %2) #4 align 16 {
   %4 = icmp eq ptr %1, @sensor_dev_attr_power1_max_interval
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %15
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1145,13 +1147,14 @@ define internal zeroext i16 @hwm_attributes_visible(ptr nocapture noundef readon
   %9 = getelementptr inbounds i8, ptr %8, i64 308
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = load i16, ptr getelementptr inbounds (%struct.sensor_device_attribute, ptr @sensor_dev_attr_power1_max_interval, i64 0, i32 0, i32 0, i32 1), align 8
-  %13 = select i1 %11, i16 0, i16 %12
-  br label %14
+  %12 = getelementptr inbounds %struct.sensor_device_attribute, ptr @sensor_dev_attr_power1_max_interval, i64 0, i32 0, i32 0, i32 1
+  %13 = load i16, ptr %12, align 8
+  %14 = select i1 %11, i16 0, i16 %13
+  br label %15
 
-14:                                               ; preds = %5, %3
-  %15 = phi i16 [ %13, %5 ], [ 0, %3 ]
-  ret i16 %15
+15:                                               ; preds = %5, %3
+  %16 = phi i16 [ %14, %5 ], [ 0, %3 ]
+  ret i16 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

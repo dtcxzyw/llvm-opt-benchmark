@@ -109,47 +109,48 @@ entry:
   store i32 1, ptr %ok, align 4
   store ptr @_ZL16kRIPEMDTestCases, ptr %__range1, align 8
   store ptr @_ZL16kRIPEMDTestCases, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.RIPEMDTestCase, ptr @_ZL16kRIPEMDTestCases, i64 8), ptr %__end1, align 8
+  %0 = getelementptr inbounds %struct.RIPEMDTestCase, ptr @_ZL16kRIPEMDTestCases, i64 8
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc28, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end29
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %test, align 8
-  %3 = load i32, ptr %test_num, align 4
-  %inc = add i32 %3, 1
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %test, align 8
+  %4 = load i32, ptr %test_num, align 4
+  %inc = add i32 %4, 1
   store i32 %inc, ptr %test_num, align 4
-  %4 = load ptr, ptr %test, align 8
-  %input = getelementptr inbounds %struct.RIPEMDTestCase, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %input, align 8
-  %call = call i64 @strlen(ptr noundef %5) #9
+  %5 = load ptr, ptr %test, align 8
+  %input = getelementptr inbounds %struct.RIPEMDTestCase, ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %input, align 8
+  %call = call i64 @strlen(ptr noundef %6) #9
   store i64 %call, ptr %input_len, align 8
   store i64 0, ptr %stride, align 8
   br label %for.cond1
 
 for.cond1:                                        ; preds = %for.inc, %for.body
-  %6 = load i64, ptr %stride, align 8
-  %7 = load i64, ptr %input_len, align 8
-  %cmp2 = icmp ule i64 %6, %7
+  %7 = load i64, ptr %stride, align 8
+  %8 = load i64, ptr %input_len, align 8
+  %cmp2 = icmp ule i64 %7, %8
   br i1 %cmp2, label %for.body3, label %for.end27
 
 for.body3:                                        ; preds = %for.cond1
-  %8 = load i64, ptr %stride, align 8
-  %cmp4 = icmp eq i64 %8, 0
+  %9 = load i64, ptr %stride, align 8
+  %cmp4 = icmp eq i64 %9, 0
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body3
-  %9 = load ptr, ptr %test, align 8
-  %input5 = getelementptr inbounds %struct.RIPEMDTestCase, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %input5, align 8
-  %11 = load i64, ptr %input_len, align 8
+  %10 = load ptr, ptr %test, align 8
+  %input5 = getelementptr inbounds %struct.RIPEMDTestCase, ptr %10, i32 0, i32 0
+  %11 = load ptr, ptr %input5, align 8
+  %12 = load i64, ptr %input_len, align 8
   %arraydecay = getelementptr inbounds [20 x i8], ptr %digest, i64 0, i64 0
-  %call6 = call ptr @RIPEMD160(ptr noundef %10, i64 noundef %11, ptr noundef %arraydecay)
+  %call6 = call ptr @RIPEMD160(ptr noundef %11, i64 noundef %12, ptr noundef %arraydecay)
   br label %if.end17
 
 if.else:                                          ; preds = %for.body3
@@ -158,39 +159,39 @@ if.else:                                          ; preds = %for.body3
   br label %for.cond8
 
 for.cond8:                                        ; preds = %if.end, %if.else
-  %12 = load i64, ptr %done, align 8
-  %13 = load i64, ptr %input_len, align 8
-  %cmp9 = icmp ult i64 %12, %13
+  %13 = load i64, ptr %done, align 8
+  %14 = load i64, ptr %input_len, align 8
+  %cmp9 = icmp ult i64 %13, %14
   br i1 %cmp9, label %for.body10, label %for.end
 
 for.body10:                                       ; preds = %for.cond8
-  %14 = load i64, ptr %input_len, align 8
-  %15 = load i64, ptr %done, align 8
-  %sub = sub i64 %14, %15
+  %15 = load i64, ptr %input_len, align 8
+  %16 = load i64, ptr %done, align 8
+  %sub = sub i64 %15, %16
   store i64 %sub, ptr %remaining, align 8
-  %16 = load i64, ptr %stride, align 8
-  store i64 %16, ptr %todo, align 8
-  %17 = load i64, ptr %todo, align 8
-  %18 = load i64, ptr %remaining, align 8
-  %cmp11 = icmp ugt i64 %17, %18
+  %17 = load i64, ptr %stride, align 8
+  store i64 %17, ptr %todo, align 8
+  %18 = load i64, ptr %todo, align 8
+  %19 = load i64, ptr %remaining, align 8
+  %cmp11 = icmp ugt i64 %18, %19
   br i1 %cmp11, label %if.then12, label %if.end
 
 if.then12:                                        ; preds = %for.body10
-  %19 = load i64, ptr %remaining, align 8
-  store i64 %19, ptr %todo, align 8
+  %20 = load i64, ptr %remaining, align 8
+  store i64 %20, ptr %todo, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then12, %for.body10
-  %20 = load ptr, ptr %test, align 8
-  %input13 = getelementptr inbounds %struct.RIPEMDTestCase, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %input13, align 8
-  %22 = load i64, ptr %done, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %21, i64 %22
-  %23 = load i64, ptr %todo, align 8
-  %call14 = call i32 @RIPEMD160_Update(ptr noundef %ctx, ptr noundef %arrayidx, i64 noundef %23)
+  %21 = load ptr, ptr %test, align 8
+  %input13 = getelementptr inbounds %struct.RIPEMDTestCase, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %input13, align 8
+  %23 = load i64, ptr %done, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %22, i64 %23
   %24 = load i64, ptr %todo, align 8
-  %25 = load i64, ptr %done, align 8
-  %add = add i64 %25, %24
+  %call14 = call i32 @RIPEMD160_Update(ptr noundef %ctx, ptr noundef %arrayidx, i64 noundef %24)
+  %25 = load i64, ptr %todo, align 8
+  %26 = load i64, ptr %done, align 8
+  %add = add i64 %26, %25
   store i64 %add, ptr %done, align 8
   br label %for.cond8, !llvm.loop !7
 
@@ -201,22 +202,22 @@ for.end:                                          ; preds = %for.cond8
 
 if.end17:                                         ; preds = %for.end, %if.then
   %arraydecay18 = getelementptr inbounds [20 x i8], ptr %digest, i64 0, i64 0
-  %26 = load ptr, ptr %test, align 8
-  %expected = getelementptr inbounds %struct.RIPEMDTestCase, ptr %26, i32 0, i32 1
+  %27 = load ptr, ptr %test, align 8
+  %expected = getelementptr inbounds %struct.RIPEMDTestCase, ptr %27, i32 0, i32 1
   %arraydecay19 = getelementptr inbounds [20 x i8], ptr %expected, i64 0, i64 0
   %call20 = call i32 @memcmp(ptr noundef %arraydecay18, ptr noundef %arraydecay19, i64 noundef 20) #9
   %cmp21 = icmp ne i32 %call20, 0
   br i1 %cmp21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %if.end17
-  %27 = load ptr, ptr @stderr, align 8
-  %28 = load i32, ptr %test_num, align 4
-  %29 = load i64, ptr %stride, align 8
-  %conv = trunc i64 %29 to i32
-  %call23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str, i32 noundef %28, i32 noundef %conv)
-  %30 = load ptr, ptr @stderr, align 8
+  %28 = load ptr, ptr @stderr, align 8
+  %29 = load i32, ptr %test_num, align 4
+  %30 = load i64, ptr %stride, align 8
+  %conv = trunc i64 %30 to i32
+  %call23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str, i32 noundef %29, i32 noundef %conv)
+  %31 = load ptr, ptr @stderr, align 8
   %arraydecay24 = getelementptr inbounds [20 x i8], ptr %digest, i64 0, i64 0
-  call void @hexdump(ptr noundef %30, ptr noundef @.str.1, ptr noundef %arraydecay24, i64 noundef 20)
+  call void @hexdump(ptr noundef %31, ptr noundef @.str.1, ptr noundef %arraydecay24, i64 noundef 20)
   store i32 0, ptr %ok, align 4
   br label %if.end25
 
@@ -224,8 +225,8 @@ if.end25:                                         ; preds = %if.then22, %if.end1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end25
-  %31 = load i64, ptr %stride, align 8
-  %inc26 = add i64 %31, 1
+  %32 = load i64, ptr %stride, align 8
+  %inc26 = add i64 %32, 1
   store i64 %inc26, ptr %stride, align 8
   br label %for.cond1, !llvm.loop !9
 
@@ -233,8 +234,8 @@ for.end27:                                        ; preds = %for.cond1
   br label %for.inc28
 
 for.inc28:                                        ; preds = %for.end27
-  %32 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.RIPEMDTestCase, ptr %32, i32 1
+  %33 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.RIPEMDTestCase, ptr %33, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -255,14 +256,14 @@ invoke.cont:                                      ; preds = %for.end29
   br i1 %cmp38, label %if.then39, label %if.end44
 
 if.then39:                                        ; preds = %invoke.cont
-  %33 = load ptr, ptr @stderr, align 8
-  %call41 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.2)
+  %34 = load ptr, ptr @stderr, align 8
+  %call41 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.2)
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %if.then39
-  %34 = load ptr, ptr @stderr, align 8
+  %35 = load ptr, ptr @stderr, align 8
   %arraydecay42 = getelementptr inbounds [20 x i8], ptr %digest32, i64 0, i64 0
-  invoke void @hexdump(ptr noundef %34, ptr noundef @.str.1, ptr noundef %arraydecay42, i64 noundef 20)
+  invoke void @hexdump(ptr noundef %35, ptr noundef @.str.1, ptr noundef %arraydecay42, i64 noundef 20)
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %invoke.cont40
@@ -270,18 +271,18 @@ invoke.cont43:                                    ; preds = %invoke.cont40
   br label %if.end44
 
 lpad:                                             ; preds = %if.end46, %invoke.cont40, %if.then39, %for.end29
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %buf) #11
   br label %eh.resume
 
 if.end44:                                         ; preds = %invoke.cont43, %invoke.cont
-  %38 = load i32, ptr %ok, align 4
-  %tobool = icmp ne i32 %38, 0
+  %39 = load i32, ptr %ok, align 4
+  %tobool = icmp ne i32 %39, 0
   br i1 %tobool, label %if.end46, label %if.then45
 
 if.then45:                                        ; preds = %if.end44
@@ -300,8 +301,8 @@ invoke.cont47:                                    ; preds = %if.end46
 
 cleanup:                                          ; preds = %invoke.cont47, %if.then45
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %buf) #11
-  %39 = load i32, ptr %retval, align 4
-  ret i32 %39
+  %40 = load i32, ptr %retval, align 4
+  ret i32 %40
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

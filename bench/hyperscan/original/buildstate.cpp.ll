@@ -3431,7 +3431,8 @@ entry:
   store ptr %why, ptr %why.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(32) %why)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5048,43 +5049,44 @@ entry:
   store i8 %frombool, ptr %prefilter.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue218GlushkovBuildStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %startState = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %b.addr, align 8
-  %vtable = load ptr, ptr %0, align 8
+  %1 = load ptr, ptr %b.addr, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %1 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %2 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i32 %call, ptr %startState, align 8
   %startDotstarState = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %b.addr, align 8
-  %vtable2 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %b.addr, align 8
+  %vtable2 = load ptr, ptr %3, align 8
   %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
-  %3 = load ptr, ptr %vfn3, align 8
-  %call5 = invoke noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %4 = load ptr, ptr %vfn3, align 8
+  %call5 = invoke noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   store i32 %call5, ptr %startDotstarState, align 4
   %acceptState = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %b.addr, align 8
-  %vtable6 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %b.addr, align 8
+  %vtable6 = load ptr, ptr %5, align 8
   %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 5
-  %5 = load ptr, ptr %vfn7, align 8
-  %call9 = invoke noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = load ptr, ptr %vfn7, align 8
+  %call9 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   store i32 %call9, ptr %acceptState, align 8
   %acceptEodState = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 4
-  %6 = load ptr, ptr %b.addr, align 8
-  %vtable10 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %b.addr, align 8
+  %vtable10 = load ptr, ptr %7, align 8
   %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 6
-  %7 = load ptr, ptr %vfn11, align 8
-  %call13 = invoke noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = load ptr, ptr %vfn11, align 8
+  %call13 = invoke noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -5094,11 +5096,11 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   %acceptNlState = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 6
   store i32 -1, ptr %acceptNlState, align 4
   %builder = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 7
-  %8 = load ptr, ptr %b.addr, align 8
-  store ptr %8, ptr %builder, align 8
+  %9 = load ptr, ptr %b.addr, align 8
+  store ptr %9, ptr %builder, align 8
   %doPrefilter = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 8
-  %9 = load i8, ptr %prefilter.addr, align 1
-  %tobool = trunc i8 %9 to i1
+  %10 = load i8, ptr %prefilter.addr, align 1
+  %tobool = trunc i8 %10 to i1
   %frombool14 = zext i1 %tobool to i8
   store i8 %frombool14, ptr %doPrefilter, align 8
   %successors = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 9
@@ -5106,8 +5108,8 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   call void @_ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %lasts) #15
   call void @_ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %firsts) #15
   %startState15 = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 1
-  %10 = load i32, ptr %startState15, align 8
-  invoke void @_ZN3ue212PositionInfoC2Ej(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef %10)
+  %11 = load i32, ptr %startState15, align 8
+  invoke void @_ZN3ue212PositionInfoC2Ej(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, i32 noundef %11)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont12
@@ -5116,8 +5118,8 @@ invoke.cont17:                                    ; preds = %invoke.cont12
 
 invoke.cont18:                                    ; preds = %invoke.cont17
   %startDotstarState20 = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 2
-  %11 = load i32, ptr %startDotstarState20, align 4
-  invoke void @_ZN3ue212PositionInfoC2Ej(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, i32 noundef %11)
+  %12 = load i32, ptr %startDotstarState20, align 4
+  invoke void @_ZN3ue212PositionInfoC2Ej(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, i32 noundef %12)
           to label %invoke.cont21 unwind label %lpad16
 
 invoke.cont21:                                    ; preds = %invoke.cont18
@@ -5126,8 +5128,8 @@ invoke.cont21:                                    ; preds = %invoke.cont18
 
 invoke.cont22:                                    ; preds = %invoke.cont21
   %startDotstarState24 = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 2
-  %12 = load i32, ptr %startDotstarState24, align 4
-  invoke void @_ZN3ue212PositionInfoC2Ej(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp23, i32 noundef %12)
+  %13 = load i32, ptr %startDotstarState24, align 4
+  invoke void @_ZN3ue212PositionInfoC2Ej(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp23, i32 noundef %13)
           to label %invoke.cont25 unwind label %lpad16
 
 invoke.cont25:                                    ; preds = %invoke.cont22
@@ -5137,30 +5139,30 @@ invoke.cont25:                                    ; preds = %invoke.cont22
 invoke.cont26:                                    ; preds = %invoke.cont25
   %vtable27 = load ptr, ptr %this1, align 8
   %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 4
-  %13 = load ptr, ptr %vfn28, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(24) %lasts, ptr noundef nonnull align 8 dereferenceable(24) %firsts)
+  %14 = load ptr, ptr %vfn28, align 8
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(24) %lasts, ptr noundef nonnull align 8 dereferenceable(24) %firsts)
           to label %invoke.cont29 unwind label %lpad16
 
 invoke.cont29:                                    ; preds = %invoke.cont26
   %builder30 = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 7
-  %14 = load ptr, ptr %builder30, align 8
+  %15 = load ptr, ptr %builder30, align 8
   %startState31 = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 1
-  %15 = load i32, ptr %startState31, align 8
-  %vtable32 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %startState31, align 8
+  %vtable32 = load ptr, ptr %15, align 8
   %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 8
-  %16 = load ptr, ptr %vfn33, align 8
-  invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %15, i32 noundef 0)
+  %17 = load ptr, ptr %vfn33, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %16, i32 noundef 0)
           to label %invoke.cont34 unwind label %lpad16
 
 invoke.cont34:                                    ; preds = %invoke.cont29
   %builder35 = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 7
-  %17 = load ptr, ptr %builder35, align 8
+  %18 = load ptr, ptr %builder35, align 8
   %startDotstarState36 = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 2
-  %18 = load i32, ptr %startDotstarState36, align 4
-  %vtable37 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %startDotstarState36, align 4
+  %vtable37 = load ptr, ptr %18, align 8
   %vfn38 = getelementptr inbounds ptr, ptr %vtable37, i64 8
-  %19 = load ptr, ptr %vfn38, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %18, i32 noundef 0)
+  %20 = load ptr, ptr %vfn38, align 8
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %19, i32 noundef 0)
           to label %invoke.cont39 unwind label %lpad16
 
 invoke.cont39:                                    ; preds = %invoke.cont34
@@ -5169,21 +5171,21 @@ invoke.cont39:                                    ; preds = %invoke.cont34
   ret void
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont4, %invoke.cont, %entry
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad16:                                           ; preds = %invoke.cont34, %invoke.cont29, %invoke.cont26, %invoke.cont25, %invoke.cont22, %invoke.cont21, %invoke.cont18, %invoke.cont17, %invoke.cont12
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %firsts) #15
   call void @_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %lasts) #15
   call void @_ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pairIKjS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %successors) #15
@@ -5231,7 +5233,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue218GlushkovBuildStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3ue218GlushkovBuildStateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5276,7 +5279,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %successors = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 9
   call void @_ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pairIKjS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %successors) #15
   call void @_ZN3ue218GlushkovBuildStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15

@@ -2573,10 +2573,12 @@ if.else:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.else
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename, align 8
-  %8 = load i32, ptr %rate.addr, align 4
-  %conv = sext i32 %8 to i64
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 262, ptr noundef @.str.1, i64 noundef %conv)
+  %8 = getelementptr i8, ptr @.str, i64 123
+  store ptr %8, ptr %absl_raw_log_internal_basename, align 8
+  %9 = load i32, ptr %rate.addr, align 4
+  %conv = sext i32 %9 to i64
+  %10 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %10, i32 noundef 262, ptr noundef @.str.1, i64 noundef %conv)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -2671,8 +2673,10 @@ if.else:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.else
-  store ptr getelementptr (i8, ptr @.str, i64 123), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str, i64 123), i32 noundef 279, ptr noundef @.str.2)
+  %2 = getelementptr i8, ptr @.str, i64 123
+  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
+  %3 = getelementptr i8, ptr @.str, i64 123
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %3, i32 noundef 279, ptr noundef @.str.2)
   br label %do.end
 
 do.end:                                           ; preds = %do.body

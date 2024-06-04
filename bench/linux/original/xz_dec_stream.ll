@@ -775,54 +775,55 @@ define dso_local void @xz_dec_reset(ptr nocapture noundef writeonly %0) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @xz_dec_init(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %4 = tail call noalias align 8 dereferenceable_or_null(1232) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 1232) #15
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %25, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias align 8 dereferenceable_or_null(1232) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 1232) #15
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %26, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 %0, ptr %7, align 8
-  %8 = icmp eq i32 %0, 0
-  %9 = tail call ptr @xz_dec_bcj_create(i1 noundef zeroext %8) #14
-  %10 = getelementptr inbounds i8, ptr %4, i64 1216
-  store ptr %9, ptr %10, align 8
-  %11 = icmp eq ptr %9, null
-  br i1 %11, label %24, label %12
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 %0, ptr %8, align 8
+  %9 = icmp eq i32 %0, 0
+  %10 = tail call ptr @xz_dec_bcj_create(i1 noundef zeroext %9) #14
+  %11 = getelementptr inbounds i8, ptr %5, i64 1216
+  store ptr %10, ptr %11, align 8
+  %12 = icmp eq ptr %10, null
+  br i1 %12, label %25, label %13
 
-12:                                               ; preds = %6
-  %13 = tail call ptr @xz_dec_lzma2_create(i32 noundef %0, i32 noundef %1) #14
-  %14 = getelementptr inbounds i8, ptr %4, i64 1208
-  store ptr %13, ptr %14, align 8
-  %15 = icmp eq ptr %13, null
-  br i1 %15, label %22, label %16
+13:                                               ; preds = %7
+  %14 = tail call ptr @xz_dec_lzma2_create(i32 noundef %0, i32 noundef %1) #14
+  %15 = getelementptr inbounds i8, ptr %5, i64 1208
+  store ptr %14, ptr %15, align 8
+  %16 = icmp eq ptr %14, null
+  br i1 %16, label %23, label %17
 
-16:                                               ; preds = %12
-  store i32 0, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 44
-  store i8 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 72
-  %21 = getelementptr inbounds i8, ptr %4, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %20, i8 0, i64 104, i1 false)
-  store i64 12, ptr %21, align 8
+17:                                               ; preds = %13
+  store i32 0, ptr %5, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 44
+  store i8 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 72
+  %22 = getelementptr inbounds i8, ptr %5, i64 176
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %21, i8 0, i64 104, i1 false)
+  store i64 12, ptr %22, align 8
+  br label %26
+
+23:                                               ; preds = %13
+  %24 = load ptr, ptr %11, align 8
+  tail call void @kfree(ptr noundef %24) #14
   br label %25
 
-22:                                               ; preds = %12
-  %23 = load ptr, ptr %10, align 8
-  tail call void @kfree(ptr noundef %23) #14
-  br label %24
+25:                                               ; preds = %23, %7
+  tail call void @kfree(ptr noundef nonnull %5) #14
+  br label %26
 
-24:                                               ; preds = %22, %6
-  tail call void @kfree(ptr noundef nonnull %4) #14
-  br label %25
-
-25:                                               ; preds = %24, %16, %2
-  %26 = phi ptr [ null, %24 ], [ %4, %16 ], [ null, %2 ]
-  ret ptr %26
+26:                                               ; preds = %25, %17, %2
+  %27 = phi ptr [ null, %25 ], [ %5, %17 ], [ null, %2 ]
+  ret ptr %27
 }
 
 ; Function Attrs: null_pointer_is_valid

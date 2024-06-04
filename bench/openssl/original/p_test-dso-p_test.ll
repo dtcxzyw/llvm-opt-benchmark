@@ -233,7 +233,7 @@ entry:
   store ptr %func, ptr %func.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr @c_new_error, align 8
   call void %0(ptr noundef null)
   %1 = load ptr, ptr @c_set_error_debug, align 8
@@ -255,15 +255,9 @@ entry:
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void %5(ptr noundef null, i32 noundef %conv3, ptr noundef %8, ptr noundef %arraydecay4)
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @p_gettable_params(ptr noundef %_) #0 {
@@ -347,16 +341,18 @@ if.then7:                                         ; preds = %if.then5
   br label %if.end
 
 if.else:                                          ; preds = %if.then5
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ossl_param_st, ptr @p_get_params.counter_request, i32 0, i32 2), align 16
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %versionp, align 8
-  %16 = load ptr, ptr getelementptr inbounds ([4 x %struct.ossl_param_st], ptr @p_get_params.counter_request, i64 0, i64 1, i32 2), align 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %namep, align 8
+  %14 = getelementptr inbounds %struct.ossl_param_st, ptr @p_get_params.counter_request, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 16
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %versionp, align 8
+  %17 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr @p_get_params.counter_request, i64 0, i64 1, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %namep, align 8
   %arraydecay9 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 0
-  %18 = load ptr, ptr %versionp, align 8
-  %19 = load ptr, ptr %namep, align 8
-  %call10 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %arraydecay9, ptr noundef @.str.5, ptr noundef %18, ptr noundef %19) #6
+  %20 = load ptr, ptr %versionp, align 8
+  %21 = load ptr, ptr %namep, align 8
+  %call10 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %arraydecay9, ptr noundef @.str.5, ptr noundef %20, ptr noundef %21) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then7
@@ -372,22 +368,22 @@ if.end14:                                         ; preds = %if.else11, %if.end
   %call16 = call i64 @strlen(ptr noundef %arraydecay15) #7
   %add = add i64 %call16, 1
   store i64 %add, ptr %buf_l, align 8
-  %20 = load ptr, ptr %p, align 8
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %20, i32 0, i32 4
+  %22 = load ptr, ptr %p, align 8
+  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %22, i32 0, i32 4
   store i64 %add, ptr %return_size, align 8
-  %21 = load ptr, ptr %p, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %21, i32 0, i32 3
-  %22 = load i64, ptr %data_size, align 8
-  %23 = load i64, ptr %buf_l, align 8
-  %cmp17 = icmp uge i64 %22, %23
+  %23 = load ptr, ptr %p, align 8
+  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %23, i32 0, i32 3
+  %24 = load i64, ptr %data_size, align 8
+  %25 = load i64, ptr %buf_l, align 8
+  %cmp17 = icmp uge i64 %24, %25
   br i1 %cmp17, label %if.then18, label %if.else21
 
 if.then18:                                        ; preds = %if.end14
-  %24 = load ptr, ptr %p, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %24, i32 0, i32 2
-  %25 = load ptr, ptr %data, align 8
+  %26 = load ptr, ptr %p, align 8
+  %data = getelementptr inbounds %struct.ossl_param_st, ptr %26, i32 0, i32 2
+  %27 = load ptr, ptr %data, align 8
   %arraydecay19 = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 0
-  %call20 = call ptr @strcpy(ptr noundef %25, ptr noundef %arraydecay19) #6
+  %call20 = call ptr @strcpy(ptr noundef %27, ptr noundef %arraydecay19) #6
   br label %if.end22
 
 if.else21:                                        ; preds = %if.end14
@@ -398,29 +394,29 @@ if.end22:                                         ; preds = %if.else21, %if.then
   br label %if.end49
 
 if.else23:                                        ; preds = %for.body
-  %26 = load ptr, ptr %p, align 8
-  %key24 = getelementptr inbounds %struct.ossl_param_st, ptr %26, i32 0, i32 0
-  %27 = load ptr, ptr %key24, align 8
-  %call25 = call i32 @strcmp(ptr noundef %27, ptr noundef @.str.2) #7
+  %28 = load ptr, ptr %p, align 8
+  %key24 = getelementptr inbounds %struct.ossl_param_st, ptr %28, i32 0, i32 0
+  %29 = load ptr, ptr %key24, align 8
+  %call25 = call i32 @strcmp(ptr noundef %29, ptr noundef @.str.2) #7
   %cmp26 = icmp eq i32 %call25, 0
   br i1 %cmp26, label %if.then27, label %if.else35
 
 if.then27:                                        ; preds = %if.else23
   store i32 0, ptr %digestsuccess, align 4
-  %28 = load ptr, ptr %p, align 8
-  %data_size28 = getelementptr inbounds %struct.ossl_param_st, ptr %28, i32 0, i32 3
-  %29 = load i64, ptr %data_size28, align 8
-  %cmp29 = icmp uge i64 %29, 4
+  %30 = load ptr, ptr %p, align 8
+  %data_size28 = getelementptr inbounds %struct.ossl_param_st, ptr %30, i32 0, i32 3
+  %31 = load i64, ptr %data_size28, align 8
+  %cmp29 = icmp uge i64 %31, 4
   br i1 %cmp29, label %if.then30, label %if.else33
 
 if.then30:                                        ; preds = %if.then27
-  %30 = load i32, ptr %digestsuccess, align 4
-  %31 = load ptr, ptr %p, align 8
-  %data31 = getelementptr inbounds %struct.ossl_param_st, ptr %31, i32 0, i32 2
-  %32 = load ptr, ptr %data31, align 8
-  store i32 %30, ptr %32, align 4
+  %32 = load i32, ptr %digestsuccess, align 4
   %33 = load ptr, ptr %p, align 8
-  %return_size32 = getelementptr inbounds %struct.ossl_param_st, ptr %33, i32 0, i32 4
+  %data31 = getelementptr inbounds %struct.ossl_param_st, ptr %33, i32 0, i32 2
+  %34 = load ptr, ptr %data31, align 8
+  store i32 %32, ptr %34, align 4
+  %35 = load ptr, ptr %p, align 8
+  %return_size32 = getelementptr inbounds %struct.ossl_param_st, ptr %35, i32 0, i32 4
   store i64 4, ptr %return_size32, align 8
   br label %if.end34
 
@@ -432,29 +428,29 @@ if.end34:                                         ; preds = %if.else33, %if.then
   br label %if.end48
 
 if.else35:                                        ; preds = %if.else23
-  %34 = load ptr, ptr %p, align 8
-  %key36 = getelementptr inbounds %struct.ossl_param_st, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %key36, align 8
-  %call37 = call i32 @strcmp(ptr noundef %35, ptr noundef @.str.7) #7
+  %36 = load ptr, ptr %p, align 8
+  %key36 = getelementptr inbounds %struct.ossl_param_st, ptr %36, i32 0, i32 0
+  %37 = load ptr, ptr %key36, align 8
+  %call37 = call i32 @strcmp(ptr noundef %37, ptr noundef @.str.7) #7
   %cmp38 = icmp eq i32 %call37, 0
   br i1 %cmp38, label %if.then39, label %if.end47
 
 if.then39:                                        ; preds = %if.else35
   store i32 0, ptr %stopsuccess, align 4
-  %36 = load ptr, ptr %p, align 8
-  %data_size40 = getelementptr inbounds %struct.ossl_param_st, ptr %36, i32 0, i32 3
-  %37 = load i64, ptr %data_size40, align 8
-  %cmp41 = icmp uge i64 %37, 4
+  %38 = load ptr, ptr %p, align 8
+  %data_size40 = getelementptr inbounds %struct.ossl_param_st, ptr %38, i32 0, i32 3
+  %39 = load i64, ptr %data_size40, align 8
+  %cmp41 = icmp uge i64 %39, 4
   br i1 %cmp41, label %if.then42, label %if.else45
 
 if.then42:                                        ; preds = %if.then39
-  %38 = load i32, ptr %stopsuccess, align 4
-  %39 = load ptr, ptr %p, align 8
-  %data43 = getelementptr inbounds %struct.ossl_param_st, ptr %39, i32 0, i32 2
-  %40 = load ptr, ptr %data43, align 8
-  store i32 %38, ptr %40, align 4
+  %40 = load i32, ptr %stopsuccess, align 4
   %41 = load ptr, ptr %p, align 8
-  %return_size44 = getelementptr inbounds %struct.ossl_param_st, ptr %41, i32 0, i32 4
+  %data43 = getelementptr inbounds %struct.ossl_param_st, ptr %41, i32 0, i32 2
+  %42 = load ptr, ptr %data43, align 8
+  store i32 %40, ptr %42, align 4
+  %43 = load ptr, ptr %p, align 8
+  %return_size44 = getelementptr inbounds %struct.ossl_param_st, ptr %43, i32 0, i32 4
   store i64 4, ptr %return_size44, align 8
   br label %if.end46
 
@@ -475,14 +471,14 @@ if.end49:                                         ; preds = %if.end48, %if.end22
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end49
-  %42 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %42, i32 1
+  %44 = load ptr, ptr %p, align 8
+  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %44, i32 1
   store ptr %incdec.ptr, ptr %p, align 8
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %land.end
-  %43 = load i32, ptr %ok, align 4
-  ret i32 %43
+  %45 = load i32, ptr %ok, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind uwtable
@@ -515,7 +511,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #4
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
 declare ptr @strcpy(ptr noundef, ptr noundef) #2
@@ -524,16 +520,22 @@ declare ptr @strcpy(ptr noundef, ptr noundef) #2
 declare i32 @sprintf(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind
 declare void @free(ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind allocsize(0) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

@@ -39,35 +39,39 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @ourglobals, align 8
   %call1 = call ptr @OSSL_PROVIDER_load(ptr noundef %1, ptr noundef @.str)
-  store ptr %call1, ptr getelementptr inbounds (%struct.filter_prov_globals_st, ptr @ourglobals, i32 0, i32 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.filter_prov_globals_st, ptr @ourglobals, i32 0, i32 1), align 8
-  %cmp2 = icmp eq ptr %2, null
+  %2 = getelementptr inbounds %struct.filter_prov_globals_st, ptr @ourglobals, i32 0, i32 1
+  store ptr %call1, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.filter_prov_globals_st, ptr @ourglobals, i32 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %cmp2 = icmp eq ptr %4, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
   br label %err
 
 if.end4:                                          ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (%struct.filter_prov_globals_st, ptr @ourglobals, i32 0, i32 1), align 8
-  %call5 = call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %3)
-  %4 = load ptr, ptr %provctx.addr, align 8
-  store ptr %call5, ptr %4, align 8
-  %5 = load ptr, ptr %out.addr, align 8
-  store ptr @filter_dispatch_table, ptr %5, align 8
+  %5 = getelementptr inbounds %struct.filter_prov_globals_st, ptr @ourglobals, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %call5 = call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %6)
+  %7 = load ptr, ptr %provctx.addr, align 8
+  store ptr %call5, ptr %7, align 8
+  %8 = load ptr, ptr %out.addr, align 8
+  store ptr @filter_dispatch_table, ptr %8, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 err:                                              ; preds = %if.then3, %if.then
-  %6 = load ptr, ptr getelementptr inbounds (%struct.filter_prov_globals_st, ptr @ourglobals, i32 0, i32 1), align 8
-  %call6 = call i32 @OSSL_PROVIDER_unload(ptr noundef %6)
-  %7 = load ptr, ptr @ourglobals, align 8
-  call void @OSSL_LIB_CTX_free(ptr noundef %7)
+  %9 = getelementptr inbounds %struct.filter_prov_globals_st, ptr @ourglobals, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %call6 = call i32 @OSSL_PROVIDER_unload(ptr noundef %10)
+  %11 = load ptr, ptr @ourglobals, align 8
+  call void @OSSL_LIB_CTX_free(ptr noundef %11)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %err, %if.end4
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

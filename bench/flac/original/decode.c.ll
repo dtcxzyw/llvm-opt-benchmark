@@ -2750,31 +2750,32 @@ land.lhs.true281:                                 ; preds = %land.lhs.true278
   br i1 %cmp283, label %if.then285, label %if.else310
 
 if.then285:                                       ; preds = %land.lhs.true281
-  store ptr getelementptr inbounds (i16, ptr @write_callback.ubuf, i64 1), ptr %buf1_, align 8
-  %254 = load i32, ptr %is_big_endian, align 4
-  %tobool286 = icmp ne i32 %254, 0
+  %254 = getelementptr inbounds i16, ptr @write_callback.ubuf, i64 1
+  store ptr %254, ptr %buf1_, align 8
+  %255 = load i32, ptr %is_big_endian, align 4
+  %tobool286 = icmp ne i32 %255, 0
   br i1 %tobool286, label %if.then287, label %if.else291
 
 if.then287:                                       ; preds = %if.then285
-  %255 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx288 = getelementptr inbounds ptr, ptr %255, i64 0
-  %256 = load ptr, ptr %arrayidx288, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %256, i64 2
-  %257 = load i32, ptr %wide_samples, align 4
-  %conv289 = zext i32 %257 to i64
+  %256 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx288 = getelementptr inbounds ptr, ptr %256, i64 0
+  %257 = load ptr, ptr %arrayidx288, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %257, i64 2
+  %258 = load i32, ptr %wide_samples, align 4
+  %conv289 = zext i32 %258 to i64
   %mul = mul i64 4, %conv289
   %sub290 = sub i64 %mul, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 @write_callback.ubuf, ptr align 1 %add.ptr, i64 %sub290, i1 false)
   br label %if.end295
 
 if.else291:                                       ; preds = %if.then285
-  %258 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx292 = getelementptr inbounds ptr, ptr %258, i64 0
-  %259 = load ptr, ptr %arrayidx292, align 8
-  %260 = load i32, ptr %wide_samples, align 4
-  %conv293 = zext i32 %260 to i64
+  %259 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx292 = getelementptr inbounds ptr, ptr %259, i64 0
+  %260 = load ptr, ptr %arrayidx292, align 8
+  %261 = load i32, ptr %wide_samples, align 4
+  %conv293 = zext i32 %261 to i64
   %mul294 = mul i64 4, %conv293
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @write_callback.ubuf, ptr align 4 %259, i64 %mul294, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @write_callback.ubuf, ptr align 4 %260, i64 %mul294, i1 false)
   br label %if.end295
 
 if.end295:                                        ; preds = %if.else291, %if.then287
@@ -2782,60 +2783,60 @@ if.end295:                                        ; preds = %if.else291, %if.the
   br label %for.cond296
 
 for.cond296:                                      ; preds = %for.inc304, %if.end295
-  %261 = load i32, ptr %sample, align 4
-  %262 = load i32, ptr %wide_samples, align 4
-  %cmp297 = icmp ult i32 %261, %262
+  %262 = load i32, ptr %sample, align 4
+  %263 = load i32, ptr %wide_samples, align 4
+  %cmp297 = icmp ult i32 %262, %263
   br i1 %cmp297, label %for.body299, label %for.end307
 
 for.body299:                                      ; preds = %for.cond296
-  %263 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx300 = getelementptr inbounds ptr, ptr %263, i64 1
-  %264 = load ptr, ptr %arrayidx300, align 8
-  %265 = load i32, ptr %sample, align 4
-  %idxprom301 = zext i32 %265 to i64
-  %arrayidx302 = getelementptr inbounds i32, ptr %264, i64 %idxprom301
-  %266 = load i32, ptr %arrayidx302, align 4
-  %conv303 = trunc i32 %266 to i16
-  %267 = load ptr, ptr %buf1_, align 8
-  store i16 %conv303, ptr %267, align 2
+  %264 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx300 = getelementptr inbounds ptr, ptr %264, i64 1
+  %265 = load ptr, ptr %arrayidx300, align 8
+  %266 = load i32, ptr %sample, align 4
+  %idxprom301 = zext i32 %266 to i64
+  %arrayidx302 = getelementptr inbounds i32, ptr %265, i64 %idxprom301
+  %267 = load i32, ptr %arrayidx302, align 4
+  %conv303 = trunc i32 %267 to i16
+  %268 = load ptr, ptr %buf1_, align 8
+  store i16 %conv303, ptr %268, align 2
   br label %for.inc304
 
 for.inc304:                                       ; preds = %for.body299
-  %268 = load i32, ptr %sample, align 4
-  %inc305 = add i32 %268, 1
+  %269 = load i32, ptr %sample, align 4
+  %inc305 = add i32 %269, 1
   store i32 %inc305, ptr %sample, align 4
-  %269 = load ptr, ptr %buf1_, align 8
-  %add.ptr306 = getelementptr inbounds i16, ptr %269, i64 2
+  %270 = load ptr, ptr %buf1_, align 8
+  %add.ptr306 = getelementptr inbounds i16, ptr %270, i64 2
   store ptr %add.ptr306, ptr %buf1_, align 8
   br label %for.cond296, !llvm.loop !10
 
 for.end307:                                       ; preds = %for.cond296
-  %270 = load i32, ptr %sample, align 4
-  %mul308 = mul i32 4, %270
+  %271 = load i32, ptr %sample, align 4
+  %mul308 = mul i32 4, %271
   %conv309 = zext i32 %mul308 to i64
   store i64 %conv309, ptr %bytes_to_write, align 8
   br label %if.end810
 
 if.else310:                                       ; preds = %land.lhs.true281, %land.lhs.true278, %land.lhs.true276, %if.else273
-  %271 = load i32, ptr %is_big_endian, align 4
-  %272 = load i32, ptr @is_big_endian_host_, align 4
-  %cmp311 = icmp eq i32 %271, %272
+  %272 = load i32, ptr %is_big_endian, align 4
+  %273 = load i32, ptr @is_big_endian_host_, align 4
+  %cmp311 = icmp eq i32 %272, %273
   br i1 %cmp311, label %land.lhs.true313, label %if.else337
 
 land.lhs.true313:                                 ; preds = %if.else310
-  %273 = load i32, ptr %is_unsigned_samples, align 4
-  %tobool314 = icmp ne i32 %273, 0
+  %274 = load i32, ptr %is_unsigned_samples, align 4
+  %tobool314 = icmp ne i32 %274, 0
   br i1 %tobool314, label %if.else337, label %land.lhs.true315
 
 land.lhs.true315:                                 ; preds = %land.lhs.true313
-  %274 = load i32, ptr %channels, align 4
-  %cmp316 = icmp eq i32 %274, 1
+  %275 = load i32, ptr %channels, align 4
+  %cmp316 = icmp eq i32 %275, 1
   br i1 %cmp316, label %land.lhs.true318, label %if.else337
 
 land.lhs.true318:                                 ; preds = %land.lhs.true315
-  %275 = load i32, ptr %bps, align 4
-  %276 = load i32, ptr %shift, align 4
-  %add319 = add i32 %275, %276
+  %276 = load i32, ptr %bps, align 4
+  %277 = load i32, ptr %shift, align 4
+  %add319 = add i32 %276, %277
   %cmp320 = icmp eq i32 %add319, 16
   br i1 %cmp320, label %if.then322, label %if.else337
 
@@ -2845,54 +2846,54 @@ if.then322:                                       ; preds = %land.lhs.true318
   br label %for.cond324
 
 for.cond324:                                      ; preds = %for.inc332, %if.then322
-  %277 = load i32, ptr %sample, align 4
-  %278 = load i32, ptr %wide_samples, align 4
-  %cmp325 = icmp ult i32 %277, %278
+  %278 = load i32, ptr %sample, align 4
+  %279 = load i32, ptr %wide_samples, align 4
+  %cmp325 = icmp ult i32 %278, %279
   br i1 %cmp325, label %for.body327, label %for.end334
 
 for.body327:                                      ; preds = %for.cond324
-  %279 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx328 = getelementptr inbounds ptr, ptr %279, i64 0
-  %280 = load ptr, ptr %arrayidx328, align 8
-  %281 = load i32, ptr %sample, align 4
-  %idxprom329 = zext i32 %281 to i64
-  %arrayidx330 = getelementptr inbounds i32, ptr %280, i64 %idxprom329
-  %282 = load i32, ptr %arrayidx330, align 4
-  %conv331 = trunc i32 %282 to i16
-  %283 = load ptr, ptr %buf1_323, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %283, i32 1
+  %280 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx328 = getelementptr inbounds ptr, ptr %280, i64 0
+  %281 = load ptr, ptr %arrayidx328, align 8
+  %282 = load i32, ptr %sample, align 4
+  %idxprom329 = zext i32 %282 to i64
+  %arrayidx330 = getelementptr inbounds i32, ptr %281, i64 %idxprom329
+  %283 = load i32, ptr %arrayidx330, align 4
+  %conv331 = trunc i32 %283 to i16
+  %284 = load ptr, ptr %buf1_323, align 8
+  %incdec.ptr = getelementptr inbounds i16, ptr %284, i32 1
   store ptr %incdec.ptr, ptr %buf1_323, align 8
-  store i16 %conv331, ptr %283, align 2
+  store i16 %conv331, ptr %284, align 2
   br label %for.inc332
 
 for.inc332:                                       ; preds = %for.body327
-  %284 = load i32, ptr %sample, align 4
-  %inc333 = add i32 %284, 1
+  %285 = load i32, ptr %sample, align 4
+  %inc333 = add i32 %285, 1
   store i32 %inc333, ptr %sample, align 4
   br label %for.cond324, !llvm.loop !11
 
 for.end334:                                       ; preds = %for.cond324
-  %285 = load i32, ptr %sample, align 4
-  %mul335 = mul i32 2, %285
+  %286 = load i32, ptr %sample, align 4
+  %mul335 = mul i32 2, %286
   %conv336 = zext i32 %mul335 to i64
   store i64 %conv336, ptr %bytes_to_write, align 8
   br label %if.end809
 
 if.else337:                                       ; preds = %land.lhs.true318, %land.lhs.true315, %land.lhs.true313, %if.else310
-  %286 = load i32, ptr %bps, align 4
-  %287 = load i32, ptr %shift, align 4
-  %add338 = add i32 %286, %287
+  %287 = load i32, ptr %bps, align 4
+  %288 = load i32, ptr %shift, align 4
+  %add338 = add i32 %287, %288
   %cmp339 = icmp eq i32 %add338, 16
   br i1 %cmp339, label %if.then341, label %if.else508
 
 if.then341:                                       ; preds = %if.else337
-  %288 = load i32, ptr %is_unsigned_samples, align 4
-  %tobool342 = icmp ne i32 %288, 0
+  %289 = load i32, ptr %is_unsigned_samples, align 4
+  %tobool342 = icmp ne i32 %289, 0
   br i1 %tobool342, label %if.then343, label %if.else415
 
 if.then343:                                       ; preds = %if.then341
-  %289 = load i32, ptr %channels, align 4
-  %cmp344 = icmp eq i32 %289, 2
+  %290 = load i32, ptr %channels, align 4
+  %cmp344 = icmp eq i32 %290, 2
   br i1 %cmp344, label %if.then346, label %if.else370
 
 if.then346:                                       ; preds = %if.then343
@@ -2901,47 +2902,47 @@ if.then346:                                       ; preds = %if.then343
   br label %for.cond347
 
 for.cond347:                                      ; preds = %for.inc367, %if.then346
-  %290 = load i32, ptr %wide_sample, align 4
-  %291 = load i32, ptr %wide_samples, align 4
-  %cmp348 = icmp ult i32 %290, %291
+  %291 = load i32, ptr %wide_sample, align 4
+  %292 = load i32, ptr %wide_samples, align 4
+  %cmp348 = icmp ult i32 %291, %292
   br i1 %cmp348, label %for.body350, label %for.end369
 
 for.body350:                                      ; preds = %for.cond347
-  %292 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx351 = getelementptr inbounds ptr, ptr %292, i64 0
-  %293 = load ptr, ptr %arrayidx351, align 8
-  %294 = load i32, ptr %wide_sample, align 4
-  %idxprom352 = zext i32 %294 to i64
-  %arrayidx353 = getelementptr inbounds i32, ptr %293, i64 %idxprom352
-  %295 = load i32, ptr %arrayidx353, align 4
-  %add354 = add nsw i32 %295, 32768
+  %293 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx351 = getelementptr inbounds ptr, ptr %293, i64 0
+  %294 = load ptr, ptr %arrayidx351, align 8
+  %295 = load i32, ptr %wide_sample, align 4
+  %idxprom352 = zext i32 %295 to i64
+  %arrayidx353 = getelementptr inbounds i32, ptr %294, i64 %idxprom352
+  %296 = load i32, ptr %arrayidx353, align 4
+  %add354 = add nsw i32 %296, 32768
   %conv355 = trunc i32 %add354 to i16
-  %296 = load i32, ptr %sample, align 4
-  %inc356 = add i32 %296, 1
+  %297 = load i32, ptr %sample, align 4
+  %inc356 = add i32 %297, 1
   store i32 %inc356, ptr %sample, align 4
-  %idxprom357 = zext i32 %296 to i64
+  %idxprom357 = zext i32 %297 to i64
   %arrayidx358 = getelementptr inbounds [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %idxprom357
   store i16 %conv355, ptr %arrayidx358, align 2
-  %297 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx359 = getelementptr inbounds ptr, ptr %297, i64 1
-  %298 = load ptr, ptr %arrayidx359, align 8
-  %299 = load i32, ptr %wide_sample, align 4
-  %idxprom360 = zext i32 %299 to i64
-  %arrayidx361 = getelementptr inbounds i32, ptr %298, i64 %idxprom360
-  %300 = load i32, ptr %arrayidx361, align 4
-  %add362 = add nsw i32 %300, 32768
+  %298 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx359 = getelementptr inbounds ptr, ptr %298, i64 1
+  %299 = load ptr, ptr %arrayidx359, align 8
+  %300 = load i32, ptr %wide_sample, align 4
+  %idxprom360 = zext i32 %300 to i64
+  %arrayidx361 = getelementptr inbounds i32, ptr %299, i64 %idxprom360
+  %301 = load i32, ptr %arrayidx361, align 4
+  %add362 = add nsw i32 %301, 32768
   %conv363 = trunc i32 %add362 to i16
-  %301 = load i32, ptr %sample, align 4
-  %inc364 = add i32 %301, 1
+  %302 = load i32, ptr %sample, align 4
+  %inc364 = add i32 %302, 1
   store i32 %inc364, ptr %sample, align 4
-  %idxprom365 = zext i32 %301 to i64
+  %idxprom365 = zext i32 %302 to i64
   %arrayidx366 = getelementptr inbounds [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %idxprom365
   store i16 %conv363, ptr %arrayidx366, align 2
   br label %for.inc367
 
 for.inc367:                                       ; preds = %for.body350
-  %302 = load i32, ptr %wide_sample, align 4
-  %inc368 = add i32 %302, 1
+  %303 = load i32, ptr %wide_sample, align 4
+  %inc368 = add i32 %303, 1
   store i32 %inc368, ptr %wide_sample, align 4
   br label %for.cond347, !llvm.loop !12
 
@@ -2949,8 +2950,8 @@ for.end369:                                       ; preds = %for.cond347
   br label %if.end414
 
 if.else370:                                       ; preds = %if.then343
-  %303 = load i32, ptr %channels, align 4
-  %cmp371 = icmp eq i32 %303, 1
+  %304 = load i32, ptr %channels, align 4
+  %cmp371 = icmp eq i32 %304, 1
   br i1 %cmp371, label %if.then373, label %if.else389
 
 if.then373:                                       ; preds = %if.else370
@@ -2959,32 +2960,32 @@ if.then373:                                       ; preds = %if.else370
   br label %for.cond374
 
 for.cond374:                                      ; preds = %for.inc386, %if.then373
-  %304 = load i32, ptr %wide_sample, align 4
-  %305 = load i32, ptr %wide_samples, align 4
-  %cmp375 = icmp ult i32 %304, %305
+  %305 = load i32, ptr %wide_sample, align 4
+  %306 = load i32, ptr %wide_samples, align 4
+  %cmp375 = icmp ult i32 %305, %306
   br i1 %cmp375, label %for.body377, label %for.end388
 
 for.body377:                                      ; preds = %for.cond374
-  %306 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx378 = getelementptr inbounds ptr, ptr %306, i64 0
-  %307 = load ptr, ptr %arrayidx378, align 8
-  %308 = load i32, ptr %wide_sample, align 4
-  %idxprom379 = zext i32 %308 to i64
-  %arrayidx380 = getelementptr inbounds i32, ptr %307, i64 %idxprom379
-  %309 = load i32, ptr %arrayidx380, align 4
-  %add381 = add nsw i32 %309, 32768
+  %307 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx378 = getelementptr inbounds ptr, ptr %307, i64 0
+  %308 = load ptr, ptr %arrayidx378, align 8
+  %309 = load i32, ptr %wide_sample, align 4
+  %idxprom379 = zext i32 %309 to i64
+  %arrayidx380 = getelementptr inbounds i32, ptr %308, i64 %idxprom379
+  %310 = load i32, ptr %arrayidx380, align 4
+  %add381 = add nsw i32 %310, 32768
   %conv382 = trunc i32 %add381 to i16
-  %310 = load i32, ptr %sample, align 4
-  %inc383 = add i32 %310, 1
+  %311 = load i32, ptr %sample, align 4
+  %inc383 = add i32 %311, 1
   store i32 %inc383, ptr %sample, align 4
-  %idxprom384 = zext i32 %310 to i64
+  %idxprom384 = zext i32 %311 to i64
   %arrayidx385 = getelementptr inbounds [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %idxprom384
   store i16 %conv382, ptr %arrayidx385, align 2
   br label %for.inc386
 
 for.inc386:                                       ; preds = %for.body377
-  %311 = load i32, ptr %wide_sample, align 4
-  %inc387 = add i32 %311, 1
+  %312 = load i32, ptr %wide_sample, align 4
+  %inc387 = add i32 %312, 1
   store i32 %inc387, ptr %wide_sample, align 4
   br label %for.cond374, !llvm.loop !13
 
@@ -2997,9 +2998,9 @@ if.else389:                                       ; preds = %if.else370
   br label %for.cond390
 
 for.cond390:                                      ; preds = %for.inc410, %if.else389
-  %312 = load i32, ptr %wide_sample, align 4
-  %313 = load i32, ptr %wide_samples, align 4
-  %cmp391 = icmp ult i32 %312, %313
+  %313 = load i32, ptr %wide_sample, align 4
+  %314 = load i32, ptr %wide_samples, align 4
+  %cmp391 = icmp ult i32 %313, %314
   br i1 %cmp391, label %for.body393, label %for.end412
 
 for.body393:                                      ; preds = %for.cond390
@@ -3007,35 +3008,35 @@ for.body393:                                      ; preds = %for.cond390
   br label %for.cond394
 
 for.cond394:                                      ; preds = %for.inc406, %for.body393
-  %314 = load i32, ptr %channel, align 4
-  %315 = load i32, ptr %channels, align 4
-  %cmp395 = icmp ult i32 %314, %315
+  %315 = load i32, ptr %channel, align 4
+  %316 = load i32, ptr %channels, align 4
+  %cmp395 = icmp ult i32 %315, %316
   br i1 %cmp395, label %for.body397, label %for.end409
 
 for.body397:                                      ; preds = %for.cond394
-  %316 = load ptr, ptr %buffer.addr, align 8
-  %317 = load i32, ptr %channel, align 4
-  %idxprom398 = zext i32 %317 to i64
-  %arrayidx399 = getelementptr inbounds ptr, ptr %316, i64 %idxprom398
-  %318 = load ptr, ptr %arrayidx399, align 8
-  %319 = load i32, ptr %wide_sample, align 4
-  %idxprom400 = zext i32 %319 to i64
-  %arrayidx401 = getelementptr inbounds i32, ptr %318, i64 %idxprom400
-  %320 = load i32, ptr %arrayidx401, align 4
-  %add402 = add nsw i32 %320, 32768
+  %317 = load ptr, ptr %buffer.addr, align 8
+  %318 = load i32, ptr %channel, align 4
+  %idxprom398 = zext i32 %318 to i64
+  %arrayidx399 = getelementptr inbounds ptr, ptr %317, i64 %idxprom398
+  %319 = load ptr, ptr %arrayidx399, align 8
+  %320 = load i32, ptr %wide_sample, align 4
+  %idxprom400 = zext i32 %320 to i64
+  %arrayidx401 = getelementptr inbounds i32, ptr %319, i64 %idxprom400
+  %321 = load i32, ptr %arrayidx401, align 4
+  %add402 = add nsw i32 %321, 32768
   %conv403 = trunc i32 %add402 to i16
-  %321 = load i32, ptr %sample, align 4
-  %idxprom404 = zext i32 %321 to i64
+  %322 = load i32, ptr %sample, align 4
+  %idxprom404 = zext i32 %322 to i64
   %arrayidx405 = getelementptr inbounds [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %idxprom404
   store i16 %conv403, ptr %arrayidx405, align 2
   br label %for.inc406
 
 for.inc406:                                       ; preds = %for.body397
-  %322 = load i32, ptr %channel, align 4
-  %inc407 = add i32 %322, 1
+  %323 = load i32, ptr %channel, align 4
+  %inc407 = add i32 %323, 1
   store i32 %inc407, ptr %channel, align 4
-  %323 = load i32, ptr %sample, align 4
-  %inc408 = add i32 %323, 1
+  %324 = load i32, ptr %sample, align 4
+  %inc408 = add i32 %324, 1
   store i32 %inc408, ptr %sample, align 4
   br label %for.cond394, !llvm.loop !14
 
@@ -3043,8 +3044,8 @@ for.end409:                                       ; preds = %for.cond394
   br label %for.inc410
 
 for.inc410:                                       ; preds = %for.end409
-  %324 = load i32, ptr %wide_sample, align 4
-  %inc411 = add i32 %324, 1
+  %325 = load i32, ptr %wide_sample, align 4
+  %inc411 = add i32 %325, 1
   store i32 %inc411, ptr %wide_sample, align 4
   br label %for.cond390, !llvm.loop !15
 
@@ -3058,8 +3059,8 @@ if.end414:                                        ; preds = %if.end413, %for.end
   br label %if.end483
 
 if.else415:                                       ; preds = %if.then341
-  %325 = load i32, ptr %channels, align 4
-  %cmp416 = icmp eq i32 %325, 2
+  %326 = load i32, ptr %channels, align 4
+  %cmp416 = icmp eq i32 %326, 2
   br i1 %cmp416, label %if.then418, label %if.else440
 
 if.then418:                                       ; preds = %if.else415
@@ -3068,45 +3069,45 @@ if.then418:                                       ; preds = %if.else415
   br label %for.cond419
 
 for.cond419:                                      ; preds = %for.inc437, %if.then418
-  %326 = load i32, ptr %wide_sample, align 4
-  %327 = load i32, ptr %wide_samples, align 4
-  %cmp420 = icmp ult i32 %326, %327
+  %327 = load i32, ptr %wide_sample, align 4
+  %328 = load i32, ptr %wide_samples, align 4
+  %cmp420 = icmp ult i32 %327, %328
   br i1 %cmp420, label %for.body422, label %for.end439
 
 for.body422:                                      ; preds = %for.cond419
-  %328 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx423 = getelementptr inbounds ptr, ptr %328, i64 0
-  %329 = load ptr, ptr %arrayidx423, align 8
-  %330 = load i32, ptr %wide_sample, align 4
-  %idxprom424 = zext i32 %330 to i64
-  %arrayidx425 = getelementptr inbounds i32, ptr %329, i64 %idxprom424
-  %331 = load i32, ptr %arrayidx425, align 4
-  %conv426 = trunc i32 %331 to i16
-  %332 = load i32, ptr %sample, align 4
-  %inc427 = add i32 %332, 1
+  %329 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx423 = getelementptr inbounds ptr, ptr %329, i64 0
+  %330 = load ptr, ptr %arrayidx423, align 8
+  %331 = load i32, ptr %wide_sample, align 4
+  %idxprom424 = zext i32 %331 to i64
+  %arrayidx425 = getelementptr inbounds i32, ptr %330, i64 %idxprom424
+  %332 = load i32, ptr %arrayidx425, align 4
+  %conv426 = trunc i32 %332 to i16
+  %333 = load i32, ptr %sample, align 4
+  %inc427 = add i32 %333, 1
   store i32 %inc427, ptr %sample, align 4
-  %idxprom428 = zext i32 %332 to i64
+  %idxprom428 = zext i32 %333 to i64
   %arrayidx429 = getelementptr inbounds [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %idxprom428
   store i16 %conv426, ptr %arrayidx429, align 2
-  %333 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx430 = getelementptr inbounds ptr, ptr %333, i64 1
-  %334 = load ptr, ptr %arrayidx430, align 8
-  %335 = load i32, ptr %wide_sample, align 4
-  %idxprom431 = zext i32 %335 to i64
-  %arrayidx432 = getelementptr inbounds i32, ptr %334, i64 %idxprom431
-  %336 = load i32, ptr %arrayidx432, align 4
-  %conv433 = trunc i32 %336 to i16
-  %337 = load i32, ptr %sample, align 4
-  %inc434 = add i32 %337, 1
+  %334 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx430 = getelementptr inbounds ptr, ptr %334, i64 1
+  %335 = load ptr, ptr %arrayidx430, align 8
+  %336 = load i32, ptr %wide_sample, align 4
+  %idxprom431 = zext i32 %336 to i64
+  %arrayidx432 = getelementptr inbounds i32, ptr %335, i64 %idxprom431
+  %337 = load i32, ptr %arrayidx432, align 4
+  %conv433 = trunc i32 %337 to i16
+  %338 = load i32, ptr %sample, align 4
+  %inc434 = add i32 %338, 1
   store i32 %inc434, ptr %sample, align 4
-  %idxprom435 = zext i32 %337 to i64
+  %idxprom435 = zext i32 %338 to i64
   %arrayidx436 = getelementptr inbounds [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %idxprom435
   store i16 %conv433, ptr %arrayidx436, align 2
   br label %for.inc437
 
 for.inc437:                                       ; preds = %for.body422
-  %338 = load i32, ptr %wide_sample, align 4
-  %inc438 = add i32 %338, 1
+  %339 = load i32, ptr %wide_sample, align 4
+  %inc438 = add i32 %339, 1
   store i32 %inc438, ptr %wide_sample, align 4
   br label %for.cond419, !llvm.loop !16
 
@@ -3114,8 +3115,8 @@ for.end439:                                       ; preds = %for.cond419
   br label %if.end482
 
 if.else440:                                       ; preds = %if.else415
-  %339 = load i32, ptr %channels, align 4
-  %cmp441 = icmp eq i32 %339, 1
+  %340 = load i32, ptr %channels, align 4
+  %cmp441 = icmp eq i32 %340, 1
   br i1 %cmp441, label %if.then443, label %if.else458
 
 if.then443:                                       ; preds = %if.else440
@@ -3124,31 +3125,31 @@ if.then443:                                       ; preds = %if.else440
   br label %for.cond444
 
 for.cond444:                                      ; preds = %for.inc455, %if.then443
-  %340 = load i32, ptr %wide_sample, align 4
-  %341 = load i32, ptr %wide_samples, align 4
-  %cmp445 = icmp ult i32 %340, %341
+  %341 = load i32, ptr %wide_sample, align 4
+  %342 = load i32, ptr %wide_samples, align 4
+  %cmp445 = icmp ult i32 %341, %342
   br i1 %cmp445, label %for.body447, label %for.end457
 
 for.body447:                                      ; preds = %for.cond444
-  %342 = load ptr, ptr %buffer.addr, align 8
-  %arrayidx448 = getelementptr inbounds ptr, ptr %342, i64 0
-  %343 = load ptr, ptr %arrayidx448, align 8
-  %344 = load i32, ptr %wide_sample, align 4
-  %idxprom449 = zext i32 %344 to i64
-  %arrayidx450 = getelementptr inbounds i32, ptr %343, i64 %idxprom449
-  %345 = load i32, ptr %arrayidx450, align 4
-  %conv451 = trunc i32 %345 to i16
-  %346 = load i32, ptr %sample, align 4
-  %inc452 = add i32 %346, 1
+  %343 = load ptr, ptr %buffer.addr, align 8
+  %arrayidx448 = getelementptr inbounds ptr, ptr %343, i64 0
+  %344 = load ptr, ptr %arrayidx448, align 8
+  %345 = load i32, ptr %wide_sample, align 4
+  %idxprom449 = zext i32 %345 to i64
+  %arrayidx450 = getelementptr inbounds i32, ptr %344, i64 %idxprom449
+  %346 = load i32, ptr %arrayidx450, align 4
+  %conv451 = trunc i32 %346 to i16
+  %347 = load i32, ptr %sample, align 4
+  %inc452 = add i32 %347, 1
   store i32 %inc452, ptr %sample, align 4
-  %idxprom453 = zext i32 %346 to i64
+  %idxprom453 = zext i32 %347 to i64
   %arrayidx454 = getelementptr inbounds [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %idxprom453
   store i16 %conv451, ptr %arrayidx454, align 2
   br label %for.inc455
 
 for.inc455:                                       ; preds = %for.body447
-  %347 = load i32, ptr %wide_sample, align 4
-  %inc456 = add i32 %347, 1
+  %348 = load i32, ptr %wide_sample, align 4
+  %inc456 = add i32 %348, 1
   store i32 %inc456, ptr %wide_sample, align 4
   br label %for.cond444, !llvm.loop !17
 
@@ -3161,9 +3162,9 @@ if.else458:                                       ; preds = %if.else440
   br label %for.cond459
 
 for.cond459:                                      ; preds = %for.inc478, %if.else458
-  %348 = load i32, ptr %wide_sample, align 4
-  %349 = load i32, ptr %wide_samples, align 4
-  %cmp460 = icmp ult i32 %348, %349
+  %349 = load i32, ptr %wide_sample, align 4
+  %350 = load i32, ptr %wide_samples, align 4
+  %cmp460 = icmp ult i32 %349, %350
   br i1 %cmp460, label %for.body462, label %for.end480
 
 for.body462:                                      ; preds = %for.cond459
@@ -3171,34 +3172,34 @@ for.body462:                                      ; preds = %for.cond459
   br label %for.cond463
 
 for.cond463:                                      ; preds = %for.inc474, %for.body462
-  %350 = load i32, ptr %channel, align 4
-  %351 = load i32, ptr %channels, align 4
-  %cmp464 = icmp ult i32 %350, %351
+  %351 = load i32, ptr %channel, align 4
+  %352 = load i32, ptr %channels, align 4
+  %cmp464 = icmp ult i32 %351, %352
   br i1 %cmp464, label %for.body466, label %for.end477
 
 for.body466:                                      ; preds = %for.cond463
-  %352 = load ptr, ptr %buffer.addr, align 8
-  %353 = load i32, ptr %channel, align 4
-  %idxprom467 = zext i32 %353 to i64
-  %arrayidx468 = getelementptr inbounds ptr, ptr %352, i64 %idxprom467
-  %354 = load ptr, ptr %arrayidx468, align 8
-  %355 = load i32, ptr %wide_sample, align 4
-  %idxprom469 = zext i32 %355 to i64
-  %arrayidx470 = getelementptr inbounds i32, ptr %354, i64 %idxprom469
-  %356 = load i32, ptr %arrayidx470, align 4
-  %conv471 = trunc i32 %356 to i16
-  %357 = load i32, ptr %sample, align 4
-  %idxprom472 = zext i32 %357 to i64
+  %353 = load ptr, ptr %buffer.addr, align 8
+  %354 = load i32, ptr %channel, align 4
+  %idxprom467 = zext i32 %354 to i64
+  %arrayidx468 = getelementptr inbounds ptr, ptr %353, i64 %idxprom467
+  %355 = load ptr, ptr %arrayidx468, align 8
+  %356 = load i32, ptr %wide_sample, align 4
+  %idxprom469 = zext i32 %356 to i64
+  %arrayidx470 = getelementptr inbounds i32, ptr %355, i64 %idxprom469
+  %357 = load i32, ptr %arrayidx470, align 4
+  %conv471 = trunc i32 %357 to i16
+  %358 = load i32, ptr %sample, align 4
+  %idxprom472 = zext i32 %358 to i64
   %arrayidx473 = getelementptr inbounds [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %idxprom472
   store i16 %conv471, ptr %arrayidx473, align 2
   br label %for.inc474
 
 for.inc474:                                       ; preds = %for.body466
-  %358 = load i32, ptr %channel, align 4
-  %inc475 = add i32 %358, 1
+  %359 = load i32, ptr %channel, align 4
+  %inc475 = add i32 %359, 1
   store i32 %inc475, ptr %channel, align 4
-  %359 = load i32, ptr %sample, align 4
-  %inc476 = add i32 %359, 1
+  %360 = load i32, ptr %sample, align 4
+  %inc476 = add i32 %360, 1
   store i32 %inc476, ptr %sample, align 4
   br label %for.cond463, !llvm.loop !18
 
@@ -3206,8 +3207,8 @@ for.end477:                                       ; preds = %for.cond463
   br label %for.inc478
 
 for.inc478:                                       ; preds = %for.end477
-  %360 = load i32, ptr %wide_sample, align 4
-  %inc479 = add i32 %360, 1
+  %361 = load i32, ptr %wide_sample, align 4
+  %inc479 = add i32 %361, 1
   store i32 %inc479, ptr %wide_sample, align 4
   br label %for.cond459, !llvm.loop !19
 
@@ -3221,50 +3222,50 @@ if.end482:                                        ; preds = %if.end481, %for.end
   br label %if.end483
 
 if.end483:                                        ; preds = %if.end482, %if.end414
-  %361 = load i32, ptr %is_big_endian, align 4
-  %362 = load i32, ptr @is_big_endian_host_, align 4
-  %cmp484 = icmp ne i32 %361, %362
+  %362 = load i32, ptr %is_big_endian, align 4
+  %363 = load i32, ptr @is_big_endian_host_, align 4
+  %cmp484 = icmp ne i32 %362, %363
   br i1 %cmp484, label %if.then486, label %if.end505
 
 if.then486:                                       ; preds = %if.end483
-  %363 = load i32, ptr %sample, align 4
-  %mul487 = mul i32 %363, 2
+  %364 = load i32, ptr %sample, align 4
+  %mul487 = mul i32 %364, 2
   store i32 %mul487, ptr %bytes, align 4
   store i32 0, ptr %b, align 4
   br label %for.cond488
 
 for.cond488:                                      ; preds = %for.inc502, %if.then486
-  %364 = load i32, ptr %b, align 4
-  %365 = load i32, ptr %bytes, align 4
-  %cmp489 = icmp ult i32 %364, %365
+  %365 = load i32, ptr %b, align 4
+  %366 = load i32, ptr %bytes, align 4
+  %cmp489 = icmp ult i32 %365, %366
   br i1 %cmp489, label %for.body491, label %for.end504
 
 for.body491:                                      ; preds = %for.cond488
-  %366 = load i32, ptr %b, align 4
-  %idxprom492 = zext i32 %366 to i64
+  %367 = load i32, ptr %b, align 4
+  %idxprom492 = zext i32 %367 to i64
   %arrayidx493 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom492
-  %367 = load i8, ptr %arrayidx493, align 1
-  store i8 %367, ptr %tmp, align 1
-  %368 = load i32, ptr %b, align 4
-  %add494 = add i32 %368, 1
+  %368 = load i8, ptr %arrayidx493, align 1
+  store i8 %368, ptr %tmp, align 1
+  %369 = load i32, ptr %b, align 4
+  %add494 = add i32 %369, 1
   %idxprom495 = zext i32 %add494 to i64
   %arrayidx496 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom495
-  %369 = load i8, ptr %arrayidx496, align 1
-  %370 = load i32, ptr %b, align 4
-  %idxprom497 = zext i32 %370 to i64
+  %370 = load i8, ptr %arrayidx496, align 1
+  %371 = load i32, ptr %b, align 4
+  %idxprom497 = zext i32 %371 to i64
   %arrayidx498 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom497
-  store i8 %369, ptr %arrayidx498, align 1
-  %371 = load i8, ptr %tmp, align 1
-  %372 = load i32, ptr %b, align 4
-  %add499 = add i32 %372, 1
+  store i8 %370, ptr %arrayidx498, align 1
+  %372 = load i8, ptr %tmp, align 1
+  %373 = load i32, ptr %b, align 4
+  %add499 = add i32 %373, 1
   %idxprom500 = zext i32 %add499 to i64
   %arrayidx501 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom500
-  store i8 %371, ptr %arrayidx501, align 1
+  store i8 %372, ptr %arrayidx501, align 1
   br label %for.inc502
 
 for.inc502:                                       ; preds = %for.body491
-  %373 = load i32, ptr %b, align 4
-  %add503 = add i32 %373, 2
+  %374 = load i32, ptr %b, align 4
+  %add503 = add i32 %374, 2
   store i32 %add503, ptr %b, align 4
   br label %for.cond488, !llvm.loop !20
 
@@ -3272,22 +3273,22 @@ for.end504:                                       ; preds = %for.cond488
   br label %if.end505
 
 if.end505:                                        ; preds = %for.end504, %if.end483
-  %374 = load i32, ptr %sample, align 4
-  %mul506 = mul i32 2, %374
+  %375 = load i32, ptr %sample, align 4
+  %mul506 = mul i32 2, %375
   %conv507 = zext i32 %mul506 to i64
   store i64 %conv507, ptr %bytes_to_write, align 8
   br label %if.end808
 
 if.else508:                                       ; preds = %if.else337
-  %375 = load i32, ptr %bps, align 4
-  %376 = load i32, ptr %shift, align 4
-  %add509 = add i32 %375, %376
+  %376 = load i32, ptr %bps, align 4
+  %377 = load i32, ptr %shift, align 4
+  %add509 = add i32 %376, %377
   %cmp510 = icmp eq i32 %add509, 24
   br i1 %cmp510, label %if.then512, label %if.else658
 
 if.then512:                                       ; preds = %if.else508
-  %377 = load i32, ptr %is_unsigned_samples, align 4
-  %tobool513 = icmp ne i32 %377, 0
+  %378 = load i32, ptr %is_unsigned_samples, align 4
+  %tobool513 = icmp ne i32 %378, 0
   br i1 %tobool513, label %if.then514, label %if.else537
 
 if.then514:                                       ; preds = %if.then512
@@ -3296,9 +3297,9 @@ if.then514:                                       ; preds = %if.then512
   br label %for.cond515
 
 for.cond515:                                      ; preds = %for.inc534, %if.then514
-  %378 = load i32, ptr %wide_sample, align 4
-  %379 = load i32, ptr %wide_samples, align 4
-  %cmp516 = icmp ult i32 %378, %379
+  %379 = load i32, ptr %wide_sample, align 4
+  %380 = load i32, ptr %wide_samples, align 4
+  %cmp516 = icmp ult i32 %379, %380
   br i1 %cmp516, label %for.body518, label %for.end536
 
 for.body518:                                      ; preds = %for.cond515
@@ -3306,34 +3307,34 @@ for.body518:                                      ; preds = %for.cond515
   br label %for.cond519
 
 for.cond519:                                      ; preds = %for.inc530, %for.body518
-  %380 = load i32, ptr %channel, align 4
-  %381 = load i32, ptr %channels, align 4
-  %cmp520 = icmp ult i32 %380, %381
+  %381 = load i32, ptr %channel, align 4
+  %382 = load i32, ptr %channels, align 4
+  %cmp520 = icmp ult i32 %381, %382
   br i1 %cmp520, label %for.body522, label %for.end533
 
 for.body522:                                      ; preds = %for.cond519
-  %382 = load ptr, ptr %buffer.addr, align 8
-  %383 = load i32, ptr %channel, align 4
-  %idxprom523 = zext i32 %383 to i64
-  %arrayidx524 = getelementptr inbounds ptr, ptr %382, i64 %idxprom523
-  %384 = load ptr, ptr %arrayidx524, align 8
-  %385 = load i32, ptr %wide_sample, align 4
-  %idxprom525 = zext i32 %385 to i64
-  %arrayidx526 = getelementptr inbounds i32, ptr %384, i64 %idxprom525
-  %386 = load i32, ptr %arrayidx526, align 4
-  %add527 = add nsw i32 %386, 8388608
-  %387 = load i32, ptr %sample, align 4
-  %idxprom528 = zext i32 %387 to i64
+  %383 = load ptr, ptr %buffer.addr, align 8
+  %384 = load i32, ptr %channel, align 4
+  %idxprom523 = zext i32 %384 to i64
+  %arrayidx524 = getelementptr inbounds ptr, ptr %383, i64 %idxprom523
+  %385 = load ptr, ptr %arrayidx524, align 8
+  %386 = load i32, ptr %wide_sample, align 4
+  %idxprom525 = zext i32 %386 to i64
+  %arrayidx526 = getelementptr inbounds i32, ptr %385, i64 %idxprom525
+  %387 = load i32, ptr %arrayidx526, align 4
+  %add527 = add nsw i32 %387, 8388608
+  %388 = load i32, ptr %sample, align 4
+  %idxprom528 = zext i32 %388 to i64
   %arrayidx529 = getelementptr inbounds [524280 x i32], ptr @write_callback.ubuf, i64 0, i64 %idxprom528
   store i32 %add527, ptr %arrayidx529, align 4
   br label %for.inc530
 
 for.inc530:                                       ; preds = %for.body522
-  %388 = load i32, ptr %channel, align 4
-  %inc531 = add i32 %388, 1
+  %389 = load i32, ptr %channel, align 4
+  %inc531 = add i32 %389, 1
   store i32 %inc531, ptr %channel, align 4
-  %389 = load i32, ptr %sample, align 4
-  %inc532 = add i32 %389, 1
+  %390 = load i32, ptr %sample, align 4
+  %inc532 = add i32 %390, 1
   store i32 %inc532, ptr %sample, align 4
   br label %for.cond519, !llvm.loop !21
 
@@ -3341,8 +3342,8 @@ for.end533:                                       ; preds = %for.cond519
   br label %for.inc534
 
 for.inc534:                                       ; preds = %for.end533
-  %390 = load i32, ptr %wide_sample, align 4
-  %inc535 = add i32 %390, 1
+  %391 = load i32, ptr %wide_sample, align 4
+  %inc535 = add i32 %391, 1
   store i32 %inc535, ptr %wide_sample, align 4
   br label %for.cond515, !llvm.loop !22
 
@@ -3355,9 +3356,9 @@ if.else537:                                       ; preds = %if.then512
   br label %for.cond538
 
 for.cond538:                                      ; preds = %for.inc556, %if.else537
-  %391 = load i32, ptr %wide_sample, align 4
-  %392 = load i32, ptr %wide_samples, align 4
-  %cmp539 = icmp ult i32 %391, %392
+  %392 = load i32, ptr %wide_sample, align 4
+  %393 = load i32, ptr %wide_samples, align 4
+  %cmp539 = icmp ult i32 %392, %393
   br i1 %cmp539, label %for.body541, label %for.end558
 
 for.body541:                                      ; preds = %for.cond538
@@ -3365,33 +3366,33 @@ for.body541:                                      ; preds = %for.cond538
   br label %for.cond542
 
 for.cond542:                                      ; preds = %for.inc552, %for.body541
-  %393 = load i32, ptr %channel, align 4
-  %394 = load i32, ptr %channels, align 4
-  %cmp543 = icmp ult i32 %393, %394
+  %394 = load i32, ptr %channel, align 4
+  %395 = load i32, ptr %channels, align 4
+  %cmp543 = icmp ult i32 %394, %395
   br i1 %cmp543, label %for.body545, label %for.end555
 
 for.body545:                                      ; preds = %for.cond542
-  %395 = load ptr, ptr %buffer.addr, align 8
-  %396 = load i32, ptr %channel, align 4
-  %idxprom546 = zext i32 %396 to i64
-  %arrayidx547 = getelementptr inbounds ptr, ptr %395, i64 %idxprom546
-  %397 = load ptr, ptr %arrayidx547, align 8
-  %398 = load i32, ptr %wide_sample, align 4
-  %idxprom548 = zext i32 %398 to i64
-  %arrayidx549 = getelementptr inbounds i32, ptr %397, i64 %idxprom548
-  %399 = load i32, ptr %arrayidx549, align 4
-  %400 = load i32, ptr %sample, align 4
-  %idxprom550 = zext i32 %400 to i64
+  %396 = load ptr, ptr %buffer.addr, align 8
+  %397 = load i32, ptr %channel, align 4
+  %idxprom546 = zext i32 %397 to i64
+  %arrayidx547 = getelementptr inbounds ptr, ptr %396, i64 %idxprom546
+  %398 = load ptr, ptr %arrayidx547, align 8
+  %399 = load i32, ptr %wide_sample, align 4
+  %idxprom548 = zext i32 %399 to i64
+  %arrayidx549 = getelementptr inbounds i32, ptr %398, i64 %idxprom548
+  %400 = load i32, ptr %arrayidx549, align 4
+  %401 = load i32, ptr %sample, align 4
+  %idxprom550 = zext i32 %401 to i64
   %arrayidx551 = getelementptr inbounds [524280 x i32], ptr @write_callback.ubuf, i64 0, i64 %idxprom550
-  store i32 %399, ptr %arrayidx551, align 4
+  store i32 %400, ptr %arrayidx551, align 4
   br label %for.inc552
 
 for.inc552:                                       ; preds = %for.body545
-  %401 = load i32, ptr %channel, align 4
-  %inc553 = add i32 %401, 1
+  %402 = load i32, ptr %channel, align 4
+  %inc553 = add i32 %402, 1
   store i32 %inc553, ptr %channel, align 4
-  %402 = load i32, ptr %sample, align 4
-  %inc554 = add i32 %402, 1
+  %403 = load i32, ptr %sample, align 4
+  %inc554 = add i32 %403, 1
   store i32 %inc554, ptr %sample, align 4
   br label %for.cond542, !llvm.loop !23
 
@@ -3399,8 +3400,8 @@ for.end555:                                       ; preds = %for.cond542
   br label %for.inc556
 
 for.inc556:                                       ; preds = %for.end555
-  %403 = load i32, ptr %wide_sample, align 4
-  %inc557 = add i32 %403, 1
+  %404 = load i32, ptr %wide_sample, align 4
+  %inc557 = add i32 %404, 1
   store i32 %inc557, ptr %wide_sample, align 4
   br label %for.cond538, !llvm.loop !24
 
@@ -3408,72 +3409,72 @@ for.end558:                                       ; preds = %for.cond538
   br label %if.end559
 
 if.end559:                                        ; preds = %for.end558, %for.end536
-  %404 = load i32, ptr %is_big_endian, align 4
-  %405 = load i32, ptr @is_big_endian_host_, align 4
-  %cmp560 = icmp ne i32 %404, %405
+  %405 = load i32, ptr %is_big_endian, align 4
+  %406 = load i32, ptr @is_big_endian_host_, align 4
+  %cmp560 = icmp ne i32 %405, %406
   br i1 %cmp560, label %if.then562, label %if.end596
 
 if.then562:                                       ; preds = %if.end559
-  %406 = load i32, ptr %sample, align 4
-  %mul565 = mul i32 %406, 4
+  %407 = load i32, ptr %sample, align 4
+  %mul565 = mul i32 %407, 4
   store i32 %mul565, ptr %bytes564, align 4
   store i32 0, ptr %b566, align 4
   br label %for.cond567
 
 for.cond567:                                      ; preds = %for.inc593, %if.then562
-  %407 = load i32, ptr %b566, align 4
-  %408 = load i32, ptr %bytes564, align 4
-  %cmp568 = icmp ult i32 %407, %408
+  %408 = load i32, ptr %b566, align 4
+  %409 = load i32, ptr %bytes564, align 4
+  %cmp568 = icmp ult i32 %408, %409
   br i1 %cmp568, label %for.body570, label %for.end595
 
 for.body570:                                      ; preds = %for.cond567
-  %409 = load i32, ptr %b566, align 4
-  %idxprom571 = zext i32 %409 to i64
+  %410 = load i32, ptr %b566, align 4
+  %idxprom571 = zext i32 %410 to i64
   %arrayidx572 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom571
-  %410 = load i8, ptr %arrayidx572, align 1
-  store i8 %410, ptr %tmp563, align 1
-  %411 = load i32, ptr %b566, align 4
-  %add573 = add i32 %411, 3
+  %411 = load i8, ptr %arrayidx572, align 1
+  store i8 %411, ptr %tmp563, align 1
+  %412 = load i32, ptr %b566, align 4
+  %add573 = add i32 %412, 3
   %idxprom574 = zext i32 %add573 to i64
   %arrayidx575 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom574
-  %412 = load i8, ptr %arrayidx575, align 1
-  %413 = load i32, ptr %b566, align 4
-  %idxprom576 = zext i32 %413 to i64
+  %413 = load i8, ptr %arrayidx575, align 1
+  %414 = load i32, ptr %b566, align 4
+  %idxprom576 = zext i32 %414 to i64
   %arrayidx577 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom576
-  store i8 %412, ptr %arrayidx577, align 1
-  %414 = load i8, ptr %tmp563, align 1
-  %415 = load i32, ptr %b566, align 4
-  %add578 = add i32 %415, 3
+  store i8 %413, ptr %arrayidx577, align 1
+  %415 = load i8, ptr %tmp563, align 1
+  %416 = load i32, ptr %b566, align 4
+  %add578 = add i32 %416, 3
   %idxprom579 = zext i32 %add578 to i64
   %arrayidx580 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom579
-  store i8 %414, ptr %arrayidx580, align 1
-  %416 = load i32, ptr %b566, align 4
-  %add581 = add i32 %416, 1
+  store i8 %415, ptr %arrayidx580, align 1
+  %417 = load i32, ptr %b566, align 4
+  %add581 = add i32 %417, 1
   %idxprom582 = zext i32 %add581 to i64
   %arrayidx583 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom582
-  %417 = load i8, ptr %arrayidx583, align 1
-  store i8 %417, ptr %tmp563, align 1
-  %418 = load i32, ptr %b566, align 4
-  %add584 = add i32 %418, 2
+  %418 = load i8, ptr %arrayidx583, align 1
+  store i8 %418, ptr %tmp563, align 1
+  %419 = load i32, ptr %b566, align 4
+  %add584 = add i32 %419, 2
   %idxprom585 = zext i32 %add584 to i64
   %arrayidx586 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom585
-  %419 = load i8, ptr %arrayidx586, align 1
-  %420 = load i32, ptr %b566, align 4
-  %add587 = add i32 %420, 1
+  %420 = load i8, ptr %arrayidx586, align 1
+  %421 = load i32, ptr %b566, align 4
+  %add587 = add i32 %421, 1
   %idxprom588 = zext i32 %add587 to i64
   %arrayidx589 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom588
-  store i8 %419, ptr %arrayidx589, align 1
-  %421 = load i8, ptr %tmp563, align 1
-  %422 = load i32, ptr %b566, align 4
-  %add590 = add i32 %422, 2
+  store i8 %420, ptr %arrayidx589, align 1
+  %422 = load i8, ptr %tmp563, align 1
+  %423 = load i32, ptr %b566, align 4
+  %add590 = add i32 %423, 2
   %idxprom591 = zext i32 %add590 to i64
   %arrayidx592 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom591
-  store i8 %421, ptr %arrayidx592, align 1
+  store i8 %422, ptr %arrayidx592, align 1
   br label %for.inc593
 
 for.inc593:                                       ; preds = %for.body570
-  %423 = load i32, ptr %b566, align 4
-  %add594 = add i32 %423, 4
+  %424 = load i32, ptr %b566, align 4
+  %add594 = add i32 %424, 4
   store i32 %add594, ptr %b566, align 4
   br label %for.cond567, !llvm.loop !25
 
@@ -3481,122 +3482,122 @@ for.end595:                                       ; preds = %for.cond567
   br label %if.end596
 
 if.end596:                                        ; preds = %for.end595, %if.end559
-  %424 = load i32, ptr %is_big_endian, align 4
-  %tobool597 = icmp ne i32 %424, 0
+  %425 = load i32, ptr %is_big_endian, align 4
+  %tobool597 = icmp ne i32 %425, 0
   br i1 %tobool597, label %if.then598, label %if.else626
 
 if.then598:                                       ; preds = %if.end596
-  %425 = load i32, ptr %sample, align 4
-  %mul601 = mul i32 %425, 4
+  %426 = load i32, ptr %sample, align 4
+  %mul601 = mul i32 %426, 4
   store i32 %mul601, ptr %bytes600, align 4
   store i32 0, ptr %b599, align 4
   store i32 0, ptr %lbyte, align 4
   br label %for.cond602
 
 for.cond602:                                      ; preds = %for.body605, %if.then598
-  %426 = load i32, ptr %b599, align 4
-  %427 = load i32, ptr %bytes600, align 4
-  %cmp603 = icmp ult i32 %426, %427
+  %427 = load i32, ptr %b599, align 4
+  %428 = load i32, ptr %bytes600, align 4
+  %cmp603 = icmp ult i32 %427, %428
   br i1 %cmp603, label %for.body605, label %for.end625
 
 for.body605:                                      ; preds = %for.cond602
-  %428 = load i32, ptr %b599, align 4
-  %inc606 = add i32 %428, 1
-  store i32 %inc606, ptr %b599, align 4
   %429 = load i32, ptr %b599, align 4
-  %inc607 = add i32 %429, 1
+  %inc606 = add i32 %429, 1
+  store i32 %inc606, ptr %b599, align 4
+  %430 = load i32, ptr %b599, align 4
+  %inc607 = add i32 %430, 1
   store i32 %inc607, ptr %b599, align 4
-  %idxprom608 = zext i32 %429 to i64
+  %idxprom608 = zext i32 %430 to i64
   %arrayidx609 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom608
-  %430 = load i8, ptr %arrayidx609, align 1
-  %431 = load i32, ptr %lbyte, align 4
-  %inc610 = add i32 %431, 1
+  %431 = load i8, ptr %arrayidx609, align 1
+  %432 = load i32, ptr %lbyte, align 4
+  %inc610 = add i32 %432, 1
   store i32 %inc610, ptr %lbyte, align 4
-  %idxprom611 = zext i32 %431 to i64
+  %idxprom611 = zext i32 %432 to i64
   %arrayidx612 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom611
-  store i8 %430, ptr %arrayidx612, align 1
-  %432 = load i32, ptr %b599, align 4
-  %inc613 = add i32 %432, 1
+  store i8 %431, ptr %arrayidx612, align 1
+  %433 = load i32, ptr %b599, align 4
+  %inc613 = add i32 %433, 1
   store i32 %inc613, ptr %b599, align 4
-  %idxprom614 = zext i32 %432 to i64
+  %idxprom614 = zext i32 %433 to i64
   %arrayidx615 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom614
-  %433 = load i8, ptr %arrayidx615, align 1
-  %434 = load i32, ptr %lbyte, align 4
-  %inc616 = add i32 %434, 1
+  %434 = load i8, ptr %arrayidx615, align 1
+  %435 = load i32, ptr %lbyte, align 4
+  %inc616 = add i32 %435, 1
   store i32 %inc616, ptr %lbyte, align 4
-  %idxprom617 = zext i32 %434 to i64
+  %idxprom617 = zext i32 %435 to i64
   %arrayidx618 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom617
-  store i8 %433, ptr %arrayidx618, align 1
-  %435 = load i32, ptr %b599, align 4
-  %inc619 = add i32 %435, 1
+  store i8 %434, ptr %arrayidx618, align 1
+  %436 = load i32, ptr %b599, align 4
+  %inc619 = add i32 %436, 1
   store i32 %inc619, ptr %b599, align 4
-  %idxprom620 = zext i32 %435 to i64
+  %idxprom620 = zext i32 %436 to i64
   %arrayidx621 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom620
-  %436 = load i8, ptr %arrayidx621, align 1
-  %437 = load i32, ptr %lbyte, align 4
-  %inc622 = add i32 %437, 1
+  %437 = load i8, ptr %arrayidx621, align 1
+  %438 = load i32, ptr %lbyte, align 4
+  %inc622 = add i32 %438, 1
   store i32 %inc622, ptr %lbyte, align 4
-  %idxprom623 = zext i32 %437 to i64
+  %idxprom623 = zext i32 %438 to i64
   %arrayidx624 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom623
-  store i8 %436, ptr %arrayidx624, align 1
+  store i8 %437, ptr %arrayidx624, align 1
   br label %for.cond602, !llvm.loop !26
 
 for.end625:                                       ; preds = %for.cond602
   br label %if.end655
 
 if.else626:                                       ; preds = %if.end596
-  %438 = load i32, ptr %sample, align 4
-  %mul630 = mul i32 %438, 4
+  %439 = load i32, ptr %sample, align 4
+  %mul630 = mul i32 %439, 4
   store i32 %mul630, ptr %bytes629, align 4
   store i32 0, ptr %b627, align 4
   store i32 0, ptr %lbyte628, align 4
   br label %for.cond631
 
 for.cond631:                                      ; preds = %for.body634, %if.else626
-  %439 = load i32, ptr %b627, align 4
-  %440 = load i32, ptr %bytes629, align 4
-  %cmp632 = icmp ult i32 %439, %440
+  %440 = load i32, ptr %b627, align 4
+  %441 = load i32, ptr %bytes629, align 4
+  %cmp632 = icmp ult i32 %440, %441
   br i1 %cmp632, label %for.body634, label %for.end654
 
 for.body634:                                      ; preds = %for.cond631
-  %441 = load i32, ptr %b627, align 4
-  %inc635 = add i32 %441, 1
+  %442 = load i32, ptr %b627, align 4
+  %inc635 = add i32 %442, 1
   store i32 %inc635, ptr %b627, align 4
-  %idxprom636 = zext i32 %441 to i64
+  %idxprom636 = zext i32 %442 to i64
   %arrayidx637 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom636
-  %442 = load i8, ptr %arrayidx637, align 1
-  %443 = load i32, ptr %lbyte628, align 4
-  %inc638 = add i32 %443, 1
+  %443 = load i8, ptr %arrayidx637, align 1
+  %444 = load i32, ptr %lbyte628, align 4
+  %inc638 = add i32 %444, 1
   store i32 %inc638, ptr %lbyte628, align 4
-  %idxprom639 = zext i32 %443 to i64
+  %idxprom639 = zext i32 %444 to i64
   %arrayidx640 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom639
-  store i8 %442, ptr %arrayidx640, align 1
-  %444 = load i32, ptr %b627, align 4
-  %inc641 = add i32 %444, 1
+  store i8 %443, ptr %arrayidx640, align 1
+  %445 = load i32, ptr %b627, align 4
+  %inc641 = add i32 %445, 1
   store i32 %inc641, ptr %b627, align 4
-  %idxprom642 = zext i32 %444 to i64
+  %idxprom642 = zext i32 %445 to i64
   %arrayidx643 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom642
-  %445 = load i8, ptr %arrayidx643, align 1
-  %446 = load i32, ptr %lbyte628, align 4
-  %inc644 = add i32 %446, 1
+  %446 = load i8, ptr %arrayidx643, align 1
+  %447 = load i32, ptr %lbyte628, align 4
+  %inc644 = add i32 %447, 1
   store i32 %inc644, ptr %lbyte628, align 4
-  %idxprom645 = zext i32 %446 to i64
+  %idxprom645 = zext i32 %447 to i64
   %arrayidx646 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom645
-  store i8 %445, ptr %arrayidx646, align 1
-  %447 = load i32, ptr %b627, align 4
-  %inc647 = add i32 %447, 1
+  store i8 %446, ptr %arrayidx646, align 1
+  %448 = load i32, ptr %b627, align 4
+  %inc647 = add i32 %448, 1
   store i32 %inc647, ptr %b627, align 4
-  %idxprom648 = zext i32 %447 to i64
+  %idxprom648 = zext i32 %448 to i64
   %arrayidx649 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom648
-  %448 = load i8, ptr %arrayidx649, align 1
-  %449 = load i32, ptr %lbyte628, align 4
-  %inc650 = add i32 %449, 1
+  %449 = load i8, ptr %arrayidx649, align 1
+  %450 = load i32, ptr %lbyte628, align 4
+  %inc650 = add i32 %450, 1
   store i32 %inc650, ptr %lbyte628, align 4
-  %idxprom651 = zext i32 %449 to i64
+  %idxprom651 = zext i32 %450 to i64
   %arrayidx652 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom651
-  store i8 %448, ptr %arrayidx652, align 1
-  %450 = load i32, ptr %b627, align 4
-  %inc653 = add i32 %450, 1
+  store i8 %449, ptr %arrayidx652, align 1
+  %451 = load i32, ptr %b627, align 4
+  %inc653 = add i32 %451, 1
   store i32 %inc653, ptr %b627, align 4
   br label %for.cond631, !llvm.loop !27
 
@@ -3604,22 +3605,22 @@ for.end654:                                       ; preds = %for.cond631
   br label %if.end655
 
 if.end655:                                        ; preds = %for.end654, %for.end625
-  %451 = load i32, ptr %sample, align 4
-  %mul656 = mul i32 3, %451
+  %452 = load i32, ptr %sample, align 4
+  %mul656 = mul i32 3, %452
   %conv657 = zext i32 %mul656 to i64
   store i64 %conv657, ptr %bytes_to_write, align 8
   br label %if.end807
 
 if.else658:                                       ; preds = %if.else508
-  %452 = load i32, ptr %bps, align 4
-  %453 = load i32, ptr %shift, align 4
-  %add659 = add i32 %452, %453
+  %453 = load i32, ptr %bps, align 4
+  %454 = load i32, ptr %shift, align 4
+  %add659 = add i32 %453, %454
   %cmp660 = icmp eq i32 %add659, 8
   br i1 %cmp660, label %if.then662, label %if.else713
 
 if.then662:                                       ; preds = %if.else658
-  %454 = load i32, ptr %is_unsigned_samples, align 4
-  %tobool663 = icmp ne i32 %454, 0
+  %455 = load i32, ptr %is_unsigned_samples, align 4
+  %tobool663 = icmp ne i32 %455, 0
   br i1 %tobool663, label %if.then664, label %if.else688
 
 if.then664:                                       ; preds = %if.then662
@@ -3628,9 +3629,9 @@ if.then664:                                       ; preds = %if.then662
   br label %for.cond665
 
 for.cond665:                                      ; preds = %for.inc685, %if.then664
-  %455 = load i32, ptr %wide_sample, align 4
-  %456 = load i32, ptr %wide_samples, align 4
-  %cmp666 = icmp ult i32 %455, %456
+  %456 = load i32, ptr %wide_sample, align 4
+  %457 = load i32, ptr %wide_samples, align 4
+  %cmp666 = icmp ult i32 %456, %457
   br i1 %cmp666, label %for.body668, label %for.end687
 
 for.body668:                                      ; preds = %for.cond665
@@ -3638,35 +3639,35 @@ for.body668:                                      ; preds = %for.cond665
   br label %for.cond669
 
 for.cond669:                                      ; preds = %for.inc681, %for.body668
-  %457 = load i32, ptr %channel, align 4
-  %458 = load i32, ptr %channels, align 4
-  %cmp670 = icmp ult i32 %457, %458
+  %458 = load i32, ptr %channel, align 4
+  %459 = load i32, ptr %channels, align 4
+  %cmp670 = icmp ult i32 %458, %459
   br i1 %cmp670, label %for.body672, label %for.end684
 
 for.body672:                                      ; preds = %for.cond669
-  %459 = load ptr, ptr %buffer.addr, align 8
-  %460 = load i32, ptr %channel, align 4
-  %idxprom673 = zext i32 %460 to i64
-  %arrayidx674 = getelementptr inbounds ptr, ptr %459, i64 %idxprom673
-  %461 = load ptr, ptr %arrayidx674, align 8
-  %462 = load i32, ptr %wide_sample, align 4
-  %idxprom675 = zext i32 %462 to i64
-  %arrayidx676 = getelementptr inbounds i32, ptr %461, i64 %idxprom675
-  %463 = load i32, ptr %arrayidx676, align 4
-  %add677 = add nsw i32 %463, 128
+  %460 = load ptr, ptr %buffer.addr, align 8
+  %461 = load i32, ptr %channel, align 4
+  %idxprom673 = zext i32 %461 to i64
+  %arrayidx674 = getelementptr inbounds ptr, ptr %460, i64 %idxprom673
+  %462 = load ptr, ptr %arrayidx674, align 8
+  %463 = load i32, ptr %wide_sample, align 4
+  %idxprom675 = zext i32 %463 to i64
+  %arrayidx676 = getelementptr inbounds i32, ptr %462, i64 %idxprom675
+  %464 = load i32, ptr %arrayidx676, align 4
+  %add677 = add nsw i32 %464, 128
   %conv678 = trunc i32 %add677 to i8
-  %464 = load i32, ptr %sample, align 4
-  %idxprom679 = zext i32 %464 to i64
+  %465 = load i32, ptr %sample, align 4
+  %idxprom679 = zext i32 %465 to i64
   %arrayidx680 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom679
   store i8 %conv678, ptr %arrayidx680, align 1
   br label %for.inc681
 
 for.inc681:                                       ; preds = %for.body672
-  %465 = load i32, ptr %channel, align 4
-  %inc682 = add i32 %465, 1
+  %466 = load i32, ptr %channel, align 4
+  %inc682 = add i32 %466, 1
   store i32 %inc682, ptr %channel, align 4
-  %466 = load i32, ptr %sample, align 4
-  %inc683 = add i32 %466, 1
+  %467 = load i32, ptr %sample, align 4
+  %inc683 = add i32 %467, 1
   store i32 %inc683, ptr %sample, align 4
   br label %for.cond669, !llvm.loop !28
 
@@ -3674,8 +3675,8 @@ for.end684:                                       ; preds = %for.cond669
   br label %for.inc685
 
 for.inc685:                                       ; preds = %for.end684
-  %467 = load i32, ptr %wide_sample, align 4
-  %inc686 = add i32 %467, 1
+  %468 = load i32, ptr %wide_sample, align 4
+  %inc686 = add i32 %468, 1
   store i32 %inc686, ptr %wide_sample, align 4
   br label %for.cond665, !llvm.loop !29
 
@@ -3688,9 +3689,9 @@ if.else688:                                       ; preds = %if.then662
   br label %for.cond689
 
 for.cond689:                                      ; preds = %for.inc708, %if.else688
-  %468 = load i32, ptr %wide_sample, align 4
-  %469 = load i32, ptr %wide_samples, align 4
-  %cmp690 = icmp ult i32 %468, %469
+  %469 = load i32, ptr %wide_sample, align 4
+  %470 = load i32, ptr %wide_samples, align 4
+  %cmp690 = icmp ult i32 %469, %470
   br i1 %cmp690, label %for.body692, label %for.end710
 
 for.body692:                                      ; preds = %for.cond689
@@ -3698,34 +3699,34 @@ for.body692:                                      ; preds = %for.cond689
   br label %for.cond693
 
 for.cond693:                                      ; preds = %for.inc704, %for.body692
-  %470 = load i32, ptr %channel, align 4
-  %471 = load i32, ptr %channels, align 4
-  %cmp694 = icmp ult i32 %470, %471
+  %471 = load i32, ptr %channel, align 4
+  %472 = load i32, ptr %channels, align 4
+  %cmp694 = icmp ult i32 %471, %472
   br i1 %cmp694, label %for.body696, label %for.end707
 
 for.body696:                                      ; preds = %for.cond693
-  %472 = load ptr, ptr %buffer.addr, align 8
-  %473 = load i32, ptr %channel, align 4
-  %idxprom697 = zext i32 %473 to i64
-  %arrayidx698 = getelementptr inbounds ptr, ptr %472, i64 %idxprom697
-  %474 = load ptr, ptr %arrayidx698, align 8
-  %475 = load i32, ptr %wide_sample, align 4
-  %idxprom699 = zext i32 %475 to i64
-  %arrayidx700 = getelementptr inbounds i32, ptr %474, i64 %idxprom699
-  %476 = load i32, ptr %arrayidx700, align 4
-  %conv701 = trunc i32 %476 to i8
-  %477 = load i32, ptr %sample, align 4
-  %idxprom702 = zext i32 %477 to i64
+  %473 = load ptr, ptr %buffer.addr, align 8
+  %474 = load i32, ptr %channel, align 4
+  %idxprom697 = zext i32 %474 to i64
+  %arrayidx698 = getelementptr inbounds ptr, ptr %473, i64 %idxprom697
+  %475 = load ptr, ptr %arrayidx698, align 8
+  %476 = load i32, ptr %wide_sample, align 4
+  %idxprom699 = zext i32 %476 to i64
+  %arrayidx700 = getelementptr inbounds i32, ptr %475, i64 %idxprom699
+  %477 = load i32, ptr %arrayidx700, align 4
+  %conv701 = trunc i32 %477 to i8
+  %478 = load i32, ptr %sample, align 4
+  %idxprom702 = zext i32 %478 to i64
   %arrayidx703 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom702
   store i8 %conv701, ptr %arrayidx703, align 1
   br label %for.inc704
 
 for.inc704:                                       ; preds = %for.body696
-  %478 = load i32, ptr %channel, align 4
-  %inc705 = add i32 %478, 1
+  %479 = load i32, ptr %channel, align 4
+  %inc705 = add i32 %479, 1
   store i32 %inc705, ptr %channel, align 4
-  %479 = load i32, ptr %sample, align 4
-  %inc706 = add i32 %479, 1
+  %480 = load i32, ptr %sample, align 4
+  %inc706 = add i32 %480, 1
   store i32 %inc706, ptr %sample, align 4
   br label %for.cond693, !llvm.loop !30
 
@@ -3733,8 +3734,8 @@ for.end707:                                       ; preds = %for.cond693
   br label %for.inc708
 
 for.inc708:                                       ; preds = %for.end707
-  %480 = load i32, ptr %wide_sample, align 4
-  %inc709 = add i32 %480, 1
+  %481 = load i32, ptr %wide_sample, align 4
+  %inc709 = add i32 %481, 1
   store i32 %inc709, ptr %wide_sample, align 4
   br label %for.cond689, !llvm.loop !31
 
@@ -3742,21 +3743,21 @@ for.end710:                                       ; preds = %for.cond689
   br label %if.end711
 
 if.end711:                                        ; preds = %for.end710, %for.end687
-  %481 = load i32, ptr %sample, align 4
-  %conv712 = zext i32 %481 to i64
+  %482 = load i32, ptr %sample, align 4
+  %conv712 = zext i32 %482 to i64
   store i64 %conv712, ptr %bytes_to_write, align 8
   br label %if.end806
 
 if.else713:                                       ; preds = %if.else658
-  %482 = load i32, ptr %bps, align 4
-  %483 = load i32, ptr %shift, align 4
-  %add714 = add i32 %482, %483
+  %483 = load i32, ptr %bps, align 4
+  %484 = load i32, ptr %shift, align 4
+  %add714 = add i32 %483, %484
   %cmp715 = icmp eq i32 %add714, 32
   br i1 %cmp715, label %if.then717, label %if.else803
 
 if.then717:                                       ; preds = %if.else713
-  %484 = load i32, ptr %is_unsigned_samples, align 4
-  %tobool718 = icmp ne i32 %484, 0
+  %485 = load i32, ptr %is_unsigned_samples, align 4
+  %tobool718 = icmp ne i32 %485, 0
   br i1 %tobool718, label %if.then719, label %if.else741
 
 if.then719:                                       ; preds = %if.then717
@@ -3765,9 +3766,9 @@ if.then719:                                       ; preds = %if.then717
   br label %for.cond720
 
 for.cond720:                                      ; preds = %for.inc738, %if.then719
-  %485 = load i32, ptr %wide_sample, align 4
-  %486 = load i32, ptr %wide_samples, align 4
-  %cmp721 = icmp ult i32 %485, %486
+  %486 = load i32, ptr %wide_sample, align 4
+  %487 = load i32, ptr %wide_samples, align 4
+  %cmp721 = icmp ult i32 %486, %487
   br i1 %cmp721, label %for.body723, label %for.end740
 
 for.body723:                                      ; preds = %for.cond720
@@ -3775,33 +3776,33 @@ for.body723:                                      ; preds = %for.cond720
   br label %for.cond724
 
 for.cond724:                                      ; preds = %for.inc734, %for.body723
-  %487 = load i32, ptr %channel, align 4
-  %488 = load i32, ptr %channels, align 4
-  %cmp725 = icmp ult i32 %487, %488
+  %488 = load i32, ptr %channel, align 4
+  %489 = load i32, ptr %channels, align 4
+  %cmp725 = icmp ult i32 %488, %489
   br i1 %cmp725, label %for.body727, label %for.end737
 
 for.body727:                                      ; preds = %for.cond724
-  %489 = load ptr, ptr %buffer.addr, align 8
-  %490 = load i32, ptr %channel, align 4
-  %idxprom728 = zext i32 %490 to i64
-  %arrayidx729 = getelementptr inbounds ptr, ptr %489, i64 %idxprom728
-  %491 = load ptr, ptr %arrayidx729, align 8
-  %492 = load i32, ptr %wide_sample, align 4
-  %idxprom730 = zext i32 %492 to i64
-  %arrayidx731 = getelementptr inbounds i32, ptr %491, i64 %idxprom730
-  %493 = load i32, ptr %arrayidx731, align 4
-  %494 = load i32, ptr %sample, align 4
-  %idxprom732 = zext i32 %494 to i64
+  %490 = load ptr, ptr %buffer.addr, align 8
+  %491 = load i32, ptr %channel, align 4
+  %idxprom728 = zext i32 %491 to i64
+  %arrayidx729 = getelementptr inbounds ptr, ptr %490, i64 %idxprom728
+  %492 = load ptr, ptr %arrayidx729, align 8
+  %493 = load i32, ptr %wide_sample, align 4
+  %idxprom730 = zext i32 %493 to i64
+  %arrayidx731 = getelementptr inbounds i32, ptr %492, i64 %idxprom730
+  %494 = load i32, ptr %arrayidx731, align 4
+  %495 = load i32, ptr %sample, align 4
+  %idxprom732 = zext i32 %495 to i64
   %arrayidx733 = getelementptr inbounds [524280 x i32], ptr @write_callback.ubuf, i64 0, i64 %idxprom732
-  store i32 %493, ptr %arrayidx733, align 4
+  store i32 %494, ptr %arrayidx733, align 4
   br label %for.inc734
 
 for.inc734:                                       ; preds = %for.body727
-  %495 = load i32, ptr %channel, align 4
-  %inc735 = add i32 %495, 1
+  %496 = load i32, ptr %channel, align 4
+  %inc735 = add i32 %496, 1
   store i32 %inc735, ptr %channel, align 4
-  %496 = load i32, ptr %sample, align 4
-  %inc736 = add i32 %496, 1
+  %497 = load i32, ptr %sample, align 4
+  %inc736 = add i32 %497, 1
   store i32 %inc736, ptr %sample, align 4
   br label %for.cond724, !llvm.loop !32
 
@@ -3809,8 +3810,8 @@ for.end737:                                       ; preds = %for.cond724
   br label %for.inc738
 
 for.inc738:                                       ; preds = %for.end737
-  %497 = load i32, ptr %wide_sample, align 4
-  %inc739 = add i32 %497, 1
+  %498 = load i32, ptr %wide_sample, align 4
+  %inc739 = add i32 %498, 1
   store i32 %inc739, ptr %wide_sample, align 4
   br label %for.cond720, !llvm.loop !33
 
@@ -3823,9 +3824,9 @@ if.else741:                                       ; preds = %if.then717
   br label %for.cond742
 
 for.cond742:                                      ; preds = %for.inc760, %if.else741
-  %498 = load i32, ptr %wide_sample, align 4
-  %499 = load i32, ptr %wide_samples, align 4
-  %cmp743 = icmp ult i32 %498, %499
+  %499 = load i32, ptr %wide_sample, align 4
+  %500 = load i32, ptr %wide_samples, align 4
+  %cmp743 = icmp ult i32 %499, %500
   br i1 %cmp743, label %for.body745, label %for.end762
 
 for.body745:                                      ; preds = %for.cond742
@@ -3833,33 +3834,33 @@ for.body745:                                      ; preds = %for.cond742
   br label %for.cond746
 
 for.cond746:                                      ; preds = %for.inc756, %for.body745
-  %500 = load i32, ptr %channel, align 4
-  %501 = load i32, ptr %channels, align 4
-  %cmp747 = icmp ult i32 %500, %501
+  %501 = load i32, ptr %channel, align 4
+  %502 = load i32, ptr %channels, align 4
+  %cmp747 = icmp ult i32 %501, %502
   br i1 %cmp747, label %for.body749, label %for.end759
 
 for.body749:                                      ; preds = %for.cond746
-  %502 = load ptr, ptr %buffer.addr, align 8
-  %503 = load i32, ptr %channel, align 4
-  %idxprom750 = zext i32 %503 to i64
-  %arrayidx751 = getelementptr inbounds ptr, ptr %502, i64 %idxprom750
-  %504 = load ptr, ptr %arrayidx751, align 8
-  %505 = load i32, ptr %wide_sample, align 4
-  %idxprom752 = zext i32 %505 to i64
-  %arrayidx753 = getelementptr inbounds i32, ptr %504, i64 %idxprom752
-  %506 = load i32, ptr %arrayidx753, align 4
-  %507 = load i32, ptr %sample, align 4
-  %idxprom754 = zext i32 %507 to i64
+  %503 = load ptr, ptr %buffer.addr, align 8
+  %504 = load i32, ptr %channel, align 4
+  %idxprom750 = zext i32 %504 to i64
+  %arrayidx751 = getelementptr inbounds ptr, ptr %503, i64 %idxprom750
+  %505 = load ptr, ptr %arrayidx751, align 8
+  %506 = load i32, ptr %wide_sample, align 4
+  %idxprom752 = zext i32 %506 to i64
+  %arrayidx753 = getelementptr inbounds i32, ptr %505, i64 %idxprom752
+  %507 = load i32, ptr %arrayidx753, align 4
+  %508 = load i32, ptr %sample, align 4
+  %idxprom754 = zext i32 %508 to i64
   %arrayidx755 = getelementptr inbounds [524280 x i32], ptr @write_callback.ubuf, i64 0, i64 %idxprom754
-  store i32 %506, ptr %arrayidx755, align 4
+  store i32 %507, ptr %arrayidx755, align 4
   br label %for.inc756
 
 for.inc756:                                       ; preds = %for.body749
-  %508 = load i32, ptr %channel, align 4
-  %inc757 = add i32 %508, 1
+  %509 = load i32, ptr %channel, align 4
+  %inc757 = add i32 %509, 1
   store i32 %inc757, ptr %channel, align 4
-  %509 = load i32, ptr %sample, align 4
-  %inc758 = add i32 %509, 1
+  %510 = load i32, ptr %sample, align 4
+  %inc758 = add i32 %510, 1
   store i32 %inc758, ptr %sample, align 4
   br label %for.cond746, !llvm.loop !34
 
@@ -3867,8 +3868,8 @@ for.end759:                                       ; preds = %for.cond746
   br label %for.inc760
 
 for.inc760:                                       ; preds = %for.end759
-  %510 = load i32, ptr %wide_sample, align 4
-  %inc761 = add i32 %510, 1
+  %511 = load i32, ptr %wide_sample, align 4
+  %inc761 = add i32 %511, 1
   store i32 %inc761, ptr %wide_sample, align 4
   br label %for.cond742, !llvm.loop !35
 
@@ -3876,72 +3877,72 @@ for.end762:                                       ; preds = %for.cond742
   br label %if.end763
 
 if.end763:                                        ; preds = %for.end762, %for.end740
-  %511 = load i32, ptr %is_big_endian, align 4
-  %512 = load i32, ptr @is_big_endian_host_, align 4
-  %cmp764 = icmp ne i32 %511, %512
+  %512 = load i32, ptr %is_big_endian, align 4
+  %513 = load i32, ptr @is_big_endian_host_, align 4
+  %cmp764 = icmp ne i32 %512, %513
   br i1 %cmp764, label %if.then766, label %if.end800
 
 if.then766:                                       ; preds = %if.end763
-  %513 = load i32, ptr %sample, align 4
-  %mul769 = mul i32 %513, 4
+  %514 = load i32, ptr %sample, align 4
+  %mul769 = mul i32 %514, 4
   store i32 %mul769, ptr %bytes768, align 4
   store i32 0, ptr %b770, align 4
   br label %for.cond771
 
 for.cond771:                                      ; preds = %for.inc797, %if.then766
-  %514 = load i32, ptr %b770, align 4
-  %515 = load i32, ptr %bytes768, align 4
-  %cmp772 = icmp ult i32 %514, %515
+  %515 = load i32, ptr %b770, align 4
+  %516 = load i32, ptr %bytes768, align 4
+  %cmp772 = icmp ult i32 %515, %516
   br i1 %cmp772, label %for.body774, label %for.end799
 
 for.body774:                                      ; preds = %for.cond771
-  %516 = load i32, ptr %b770, align 4
-  %idxprom775 = zext i32 %516 to i64
+  %517 = load i32, ptr %b770, align 4
+  %idxprom775 = zext i32 %517 to i64
   %arrayidx776 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom775
-  %517 = load i8, ptr %arrayidx776, align 1
-  store i8 %517, ptr %tmp767, align 1
-  %518 = load i32, ptr %b770, align 4
-  %add777 = add i32 %518, 3
+  %518 = load i8, ptr %arrayidx776, align 1
+  store i8 %518, ptr %tmp767, align 1
+  %519 = load i32, ptr %b770, align 4
+  %add777 = add i32 %519, 3
   %idxprom778 = zext i32 %add777 to i64
   %arrayidx779 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom778
-  %519 = load i8, ptr %arrayidx779, align 1
-  %520 = load i32, ptr %b770, align 4
-  %idxprom780 = zext i32 %520 to i64
+  %520 = load i8, ptr %arrayidx779, align 1
+  %521 = load i32, ptr %b770, align 4
+  %idxprom780 = zext i32 %521 to i64
   %arrayidx781 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom780
-  store i8 %519, ptr %arrayidx781, align 1
-  %521 = load i8, ptr %tmp767, align 1
-  %522 = load i32, ptr %b770, align 4
-  %add782 = add i32 %522, 3
+  store i8 %520, ptr %arrayidx781, align 1
+  %522 = load i8, ptr %tmp767, align 1
+  %523 = load i32, ptr %b770, align 4
+  %add782 = add i32 %523, 3
   %idxprom783 = zext i32 %add782 to i64
   %arrayidx784 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom783
-  store i8 %521, ptr %arrayidx784, align 1
-  %523 = load i32, ptr %b770, align 4
-  %add785 = add i32 %523, 1
+  store i8 %522, ptr %arrayidx784, align 1
+  %524 = load i32, ptr %b770, align 4
+  %add785 = add i32 %524, 1
   %idxprom786 = zext i32 %add785 to i64
   %arrayidx787 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom786
-  %524 = load i8, ptr %arrayidx787, align 1
-  store i8 %524, ptr %tmp767, align 1
-  %525 = load i32, ptr %b770, align 4
-  %add788 = add i32 %525, 2
+  %525 = load i8, ptr %arrayidx787, align 1
+  store i8 %525, ptr %tmp767, align 1
+  %526 = load i32, ptr %b770, align 4
+  %add788 = add i32 %526, 2
   %idxprom789 = zext i32 %add788 to i64
   %arrayidx790 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom789
-  %526 = load i8, ptr %arrayidx790, align 1
-  %527 = load i32, ptr %b770, align 4
-  %add791 = add i32 %527, 1
+  %527 = load i8, ptr %arrayidx790, align 1
+  %528 = load i32, ptr %b770, align 4
+  %add791 = add i32 %528, 1
   %idxprom792 = zext i32 %add791 to i64
   %arrayidx793 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom792
-  store i8 %526, ptr %arrayidx793, align 1
-  %528 = load i8, ptr %tmp767, align 1
-  %529 = load i32, ptr %b770, align 4
-  %add794 = add i32 %529, 2
+  store i8 %527, ptr %arrayidx793, align 1
+  %529 = load i8, ptr %tmp767, align 1
+  %530 = load i32, ptr %b770, align 4
+  %add794 = add i32 %530, 2
   %idxprom795 = zext i32 %add794 to i64
   %arrayidx796 = getelementptr inbounds [2097120 x i8], ptr @write_callback.ubuf, i64 0, i64 %idxprom795
-  store i8 %528, ptr %arrayidx796, align 1
+  store i8 %529, ptr %arrayidx796, align 1
   br label %for.inc797
 
 for.inc797:                                       ; preds = %for.body774
-  %530 = load i32, ptr %b770, align 4
-  %add798 = add i32 %530, 4
+  %531 = load i32, ptr %b770, align 4
+  %add798 = add i32 %531, 4
   store i32 %add798, ptr %b770, align 4
   br label %for.cond771, !llvm.loop !36
 
@@ -3949,15 +3950,15 @@ for.end799:                                       ; preds = %for.cond771
   br label %if.end800
 
 if.end800:                                        ; preds = %for.end799, %if.end763
-  %531 = load i32, ptr %sample, align 4
-  %mul801 = mul i32 4, %531
+  %532 = load i32, ptr %sample, align 4
+  %mul801 = mul i32 4, %532
   %conv802 = zext i32 %mul801 to i64
   store i64 %conv802, ptr %bytes_to_write, align 8
   br label %if.end805
 
 if.else803:                                       ; preds = %if.else713
-  %532 = load ptr, ptr %decoder_session, align 8
-  %abort_flag804 = getelementptr inbounds %struct.DecoderSession, ptr %532, i32 0, i32 21
+  %533 = load ptr, ptr %decoder_session, align 8
+  %abort_flag804 = getelementptr inbounds %struct.DecoderSession, ptr %533, i32 0, i32 21
   store i32 1, ptr %abort_flag804, align 4
   store i32 1, ptr %retval, align 4
   br label %return
@@ -3990,41 +3991,41 @@ if.end813:                                        ; preds = %if.end812, %if.then
   br label %if.end814
 
 if.end814:                                        ; preds = %if.end813, %if.end208
-  %533 = load i64, ptr %bytes_to_write, align 8
-  %cmp815 = icmp ugt i64 %533, 0
+  %534 = load i64, ptr %bytes_to_write, align 8
+  %cmp815 = icmp ugt i64 %534, 0
   br i1 %cmp815, label %if.then817, label %if.end834
 
 if.then817:                                       ; preds = %if.end814
-  %534 = load i64, ptr %bytes_to_write, align 8
-  %535 = load ptr, ptr %fout, align 8
-  %call818 = call i64 @fwrite(ptr noundef @write_callback.ubuf, i64 noundef 1, i64 noundef %534, ptr noundef %535)
-  %536 = load i64, ptr %bytes_to_write, align 8
-  %cmp819 = icmp ne i64 %call818, %536
+  %535 = load i64, ptr %bytes_to_write, align 8
+  %536 = load ptr, ptr %fout, align 8
+  %call818 = call i64 @fwrite(ptr noundef @write_callback.ubuf, i64 noundef 1, i64 noundef %535, ptr noundef %536)
+  %537 = load i64, ptr %bytes_to_write, align 8
+  %cmp819 = icmp ne i64 %call818, %537
   br i1 %cmp819, label %if.then821, label %if.end833
 
 if.then821:                                       ; preds = %if.then817
   %call822 = call ptr @__errno_location() #8
-  %537 = load i32, ptr %call822, align 4
-  %cmp823 = icmp eq i32 %537, 32
+  %538 = load i32, ptr %call822, align 4
+  %cmp823 = icmp eq i32 %538, 32
   br i1 %cmp823, label %land.lhs.true825, label %if.end831
 
 land.lhs.true825:                                 ; preds = %if.then821
-  %538 = load ptr, ptr %decoder_session, align 8
-  %fout826 = getelementptr inbounds %struct.DecoderSession, ptr %538, i32 0, i32 38
-  %539 = load ptr, ptr %fout826, align 8
-  %540 = load ptr, ptr @stdout, align 8
-  %cmp827 = icmp eq ptr %539, %540
+  %539 = load ptr, ptr %decoder_session, align 8
+  %fout826 = getelementptr inbounds %struct.DecoderSession, ptr %539, i32 0, i32 38
+  %540 = load ptr, ptr %fout826, align 8
+  %541 = load ptr, ptr @stdout, align 8
+  %cmp827 = icmp eq ptr %540, %541
   br i1 %cmp827, label %if.then829, label %if.end831
 
 if.then829:                                       ; preds = %land.lhs.true825
-  %541 = load ptr, ptr %decoder_session, align 8
-  %aborting_due_to_until830 = getelementptr inbounds %struct.DecoderSession, ptr %541, i32 0, i32 22
+  %542 = load ptr, ptr %decoder_session, align 8
+  %aborting_due_to_until830 = getelementptr inbounds %struct.DecoderSession, ptr %542, i32 0, i32 22
   store i32 1, ptr %aborting_due_to_until830, align 8
   br label %if.end831
 
 if.end831:                                        ; preds = %if.then829, %land.lhs.true825, %if.then821
-  %542 = load ptr, ptr %decoder_session, align 8
-  %abort_flag832 = getelementptr inbounds %struct.DecoderSession, ptr %542, i32 0, i32 21
+  %543 = load ptr, ptr %decoder_session, align 8
+  %abort_flag832 = getelementptr inbounds %struct.DecoderSession, ptr %543, i32 0, i32 21
   store i32 1, ptr %abort_flag832, align 4
   store i32 1, ptr %retval, align 4
   br label %return
@@ -4037,8 +4038,8 @@ if.end834:                                        ; preds = %if.end833, %if.end8
   br label %return
 
 return:                                           ; preds = %if.end834, %if.end831, %if.else803, %if.then199, %if.else176, %if.else159, %if.then140, %if.then110, %if.then86, %if.then70, %if.then
-  %543 = load i32, ptr %retval, align 4
-  ret i32 %543
+  %544 = load i32, ptr %retval, align 4
+  ret i32 %544
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

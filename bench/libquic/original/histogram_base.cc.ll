@@ -627,10 +627,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base13HistogramBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4base13HistogramBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %histogram_name_ = getelementptr inbounds %"class.base::HistogramBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %name.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %flags_ = getelementptr inbounds %"class.base::HistogramBase", ptr %this1, i32 0, i32 2
   store i32 0, ptr %flags_, align 8
   ret void
@@ -644,7 +645,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base13HistogramBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4base13HistogramBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %histogram_name_ = getelementptr inbounds %"class.base::HistogramBase", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_) #10
   ret void

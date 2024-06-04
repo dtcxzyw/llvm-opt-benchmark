@@ -311,127 +311,129 @@ define internal i32 @_handle_device_access(ptr noundef %0, ptr noundef %1) #0 {
   %14 = getelementptr inbounds %struct.gres_device_t, ptr %13, i32 0, i32 2
   %15 = call ptr @gres_device_id2str(ptr noundef %14)
   store ptr %15, ptr %8, align 8
-  %16 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %17 = and i64 %16, 64
-  %18 = icmp ne i64 %17, 0
-  br i1 %18, label %19, label %58
+  %16 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %17, 64
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %60
 
-19:                                               ; preds = %2
+20:                                               ; preds = %2
   store ptr null, ptr %10, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.handle_dev_args, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  switch i32 %22, label %32 [
-    i32 7, label %23
-    i32 3, label %28
-    i32 4, label %30
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds %struct.handle_dev_args, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8
+  switch i32 %23, label %33 [
+    i32 7, label %24
+    i32 3, label %29
+    i32 4, label %31
   ]
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.handle_dev_args, ptr %24, i32 0, i32 1
-  %26 = load i32, ptr %25, align 4
-  %27 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.2, i32 noundef %26)
-  store ptr %27, ptr %10, align 8
-  br label %34
-
-28:                                               ; preds = %19
-  %29 = call ptr @xstrdup(ptr noundef @.str.3)
-  store ptr %29, ptr %10, align 8
-  br label %34
-
-30:                                               ; preds = %19
-  %31 = call ptr @xstrdup(ptr noundef @.str.4)
-  store ptr %31, ptr %10, align 8
-  br label %34
-
-32:                                               ; preds = %19
-  %33 = call ptr @xstrdup(ptr noundef @.str.5)
-  store ptr %33, ptr %10, align 8
-  br label %34
-
-34:                                               ; preds = %32, %30, %28, %23
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %struct.handle_dev_args, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4
+  %28 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.2, i32 noundef %27)
+  store ptr %28, ptr %10, align 8
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %37 = and i64 %36, 64
-  %38 = icmp ne i64 %37, 0
-  br i1 %38, label %39, label %56
+29:                                               ; preds = %20
+  %30 = call ptr @xstrdup(ptr noundef @.str.3)
+  store ptr %30, ptr %10, align 8
+  br label %35
 
-39:                                               ; preds = %35
-  br label %40
+31:                                               ; preds = %20
+  %32 = call ptr @xstrdup(ptr noundef @.str.4)
+  store ptr %32, ptr %10, align 8
+  br label %35
 
-40:                                               ; preds = %39
-  %41 = call i32 @get_log_level()
-  %42 = icmp sge i32 %41, 4
-  br i1 %42, label %43, label %54
+33:                                               ; preds = %20
+  %34 = call ptr @xstrdup(ptr noundef @.str.5)
+  store ptr %34, ptr %10, align 8
+  br label %35
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.gres_device_t, ptr %45, i32 0, i32 1
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp ne i32 %47, 0
-  %49 = select i1 %48, ptr @.str.7, ptr @.str.8
-  %50 = load ptr, ptr %8, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.gres_device_t, ptr %51, i32 0, i32 4
-  %53 = load ptr, ptr %52, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__._handle_device_access, ptr noundef %44, ptr noundef %49, ptr noundef %50, ptr noundef %53)
-  br label %54
+35:                                               ; preds = %33, %31, %29, %24
+  br label %36
 
-54:                                               ; preds = %43, %40
-  br label %55
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, 64
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %58
 
-55:                                               ; preds = %54
+41:                                               ; preds = %36
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = call i32 @get_log_level()
+  %44 = icmp sge i32 %43, 4
+  br i1 %44, label %45, label %56
+
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds %struct.gres_device_t, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp ne i32 %49, 0
+  %51 = select i1 %50, ptr @.str.7, ptr @.str.8
+  %52 = load ptr, ptr %8, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds %struct.gres_device_t, ptr %53, i32 0, i32 4
+  %55 = load ptr, ptr %54, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__._handle_device_access, ptr noundef %46, ptr noundef %51, ptr noundef %52, ptr noundef %55)
   br label %56
 
-56:                                               ; preds = %55, %35
+56:                                               ; preds = %45, %42
   br label %57
 
 57:                                               ; preds = %56
-  call void @slurm_xfree(ptr noundef %10)
   br label %58
 
-58:                                               ; preds = %57, %2
+58:                                               ; preds = %57, %36
+  br label %59
+
+59:                                               ; preds = %58
+  call void @slurm_xfree(ptr noundef %10)
+  br label %60
+
+60:                                               ; preds = %59, %2
   call void @cgroup_init_limits(ptr noundef %7)
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.gres_device_t, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp ne i32 %61, 0
-  %63 = getelementptr inbounds %struct.cgroup_limits_t, ptr %7, i32 0, i32 6
-  %64 = zext i1 %62 to i8
-  store i8 %64, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.cgroup_limits_t, ptr %7, i32 0, i32 7
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.gres_device_t, ptr %66, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr align 8 %67, i64 12, i1 false)
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.handle_dev_args, ptr %68, i32 0, i32 1
-  %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds %struct.cgroup_limits_t, ptr %7, i32 0, i32 1
-  store i32 %70, ptr %71, align 8
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.handle_dev_args, ptr %72, i32 0, i32 0
-  %74 = load i32, ptr %73, align 8
-  %75 = call i32 @cgroup_g_constrain_set(i32 noundef 3, i32 noundef %74, ptr noundef %7)
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %83
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds %struct.gres_device_t, ptr %61, i32 0, i32 1
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp ne i32 %63, 0
+  %65 = getelementptr inbounds %struct.cgroup_limits_t, ptr %7, i32 0, i32 6
+  %66 = zext i1 %64 to i8
+  store i8 %66, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.cgroup_limits_t, ptr %7, i32 0, i32 7
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds %struct.gres_device_t, ptr %68, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %67, ptr align 8 %69, i64 12, i1 false)
+  %70 = load ptr, ptr %6, align 8
+  %71 = getelementptr inbounds %struct.handle_dev_args, ptr %70, i32 0, i32 1
+  %72 = load i32, ptr %71, align 4
+  %73 = getelementptr inbounds %struct.cgroup_limits_t, ptr %7, i32 0, i32 1
+  store i32 %72, ptr %73, align 8
+  %74 = load ptr, ptr %6, align 8
+  %75 = getelementptr inbounds %struct.handle_dev_args, ptr %74, i32 0, i32 0
+  %76 = load i32, ptr %75, align 8
+  %77 = call i32 @cgroup_g_constrain_set(i32 noundef 3, i32 noundef %76, ptr noundef %7)
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %85
 
-77:                                               ; preds = %58
-  %78 = load ptr, ptr %8, align 8
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.gres_device_t, ptr %79, i32 0, i32 4
-  %81 = load ptr, ptr %80, align 8
-  %82 = call i32 (ptr, ...) @error(ptr noundef @.str.9, ptr noundef %78, ptr noundef %81)
+79:                                               ; preds = %60
+  %80 = load ptr, ptr %8, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds %struct.gres_device_t, ptr %81, i32 0, i32 4
+  %83 = load ptr, ptr %82, align 8
+  %84 = call i32 (ptr, ...) @error(ptr noundef @.str.9, ptr noundef %80, ptr noundef %83)
   store i32 -1, ptr %9, align 4
-  br label %83
+  br label %85
 
-83:                                               ; preds = %77, %58
+85:                                               ; preds = %79, %60
   call void @slurm_xfree(ptr noundef %8)
-  %84 = load i32, ptr %9, align 4
-  ret i32 %84
+  %86 = load i32, ptr %9, align 4
+  ret i32 %86
 }
 
 declare void @list_destroy(ptr noundef) #1

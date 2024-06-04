@@ -6809,362 +6809,371 @@ define internal void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, i1 noun
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 @__const._set_type_tres_cnt.locks, i64 28, i1 false)
   %23 = load i8, ptr @_set_type_tres_cnt.first_run, align 1
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %26
+  br i1 %24, label %25, label %27
 
 25:                                               ; preds = %3
   store i8 0, ptr @_set_type_tres_cnt.first_run, align 1
   call void @llvm.memset.p0.i64(ptr align 8 @_set_type_tres_cnt.tres_rec, i8 0, i64 48, i1 false)
-  store ptr @.str.53, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 5), align 8
-  br label %26
+  %26 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 5
+  store ptr @.str.53, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %25, %3
-  %27 = load ptr, ptr %4, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %32
+27:                                               ; preds = %25, %3
+  %28 = load ptr, ptr %4, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %5, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %33, label %32
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %5, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %29, %26
-  br label %225
+33:                                               ; preds = %30, %27
+  br label %234
 
-33:                                               ; preds = %29
-  %34 = load i8, ptr %6, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %37, label %36
+34:                                               ; preds = %30
+  %35 = load i8, ptr %6, align 1
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %38, label %37
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   call void @assoc_mgr_lock(ptr noundef %15)
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %33
-  %38 = load ptr, ptr %5, align 8
-  call void @gres_clear_tres_cnt(ptr noundef %38, i1 noundef zeroext true)
-  %39 = load ptr, ptr %4, align 8
-  %40 = call ptr @list_iterator_create(ptr noundef %39)
-  store ptr %40, ptr %7, align 8
-  br label %41
+38:                                               ; preds = %37, %34
+  %39 = load ptr, ptr %5, align 8
+  call void @gres_clear_tres_cnt(ptr noundef %39, i1 noundef zeroext true)
+  %40 = load ptr, ptr %4, align 8
+  %41 = call ptr @list_iterator_create(ptr noundef %40)
+  store ptr %41, ptr %7, align 8
+  br label %42
 
-41:                                               ; preds = %219, %214, %81, %37
-  %42 = load ptr, ptr %7, align 8
-  %43 = call ptr @list_next(ptr noundef %42)
-  store ptr %43, ptr %8, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %220
+42:                                               ; preds = %228, %223, %85, %38
+  %43 = load ptr, ptr %7, align 8
+  %44 = call ptr @list_next(ptr noundef %43)
+  store ptr %44, ptr %8, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %229
 
-45:                                               ; preds = %41
+46:                                               ; preds = %42
   store i8 0, ptr %16, align 1
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.gres_state, ptr %46, i32 0, i32 3
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4), align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.gres_state, ptr %49, i32 0, i32 4
-  %51 = load i32, ptr %50, align 8
-  switch i32 %51, label %81 [
-    i32 2, label %52
-    i32 1, label %74
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds %struct.gres_state, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4
+  store ptr %49, ptr %50, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds %struct.gres_state, ptr %51, i32 0, i32 4
+  %53 = load i32, ptr %52, align 8
+  switch i32 %53, label %85 [
+    i32 2, label %54
+    i32 1, label %78
   ]
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.gres_state, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %17, align 8
-  %56 = load ptr, ptr %17, align 8
-  %57 = getelementptr inbounds %struct.gres_job_state, ptr %56, i32 0, i32 16
-  %58 = load i64, ptr %57, align 8
-  store i64 %58, ptr %13, align 8
-  %59 = load ptr, ptr %12, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4), align 8
-  %61 = call i32 @xstrcmp(ptr noundef %59, ptr noundef %60)
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %66
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds %struct.gres_state, ptr %55, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %17, align 8
+  %58 = load ptr, ptr %17, align 8
+  %59 = getelementptr inbounds %struct.gres_job_state, ptr %58, i32 0, i32 16
+  %60 = load i64, ptr %59, align 8
+  store i64 %60, ptr %13, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 @xstrcmp(ptr noundef %61, ptr noundef %63)
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %70
 
-63:                                               ; preds = %52
+66:                                               ; preds = %54
   store i8 0, ptr %9, align 1
   call void @slurm_xfree(ptr noundef %12)
-  %64 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4), align 8
-  %65 = call ptr @xstrdup(ptr noundef %64)
-  store ptr %65, ptr %12, align 8
-  br label %66
+  %67 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4
+  %68 = load ptr, ptr %67, align 8
+  %69 = call ptr @xstrdup(ptr noundef %68)
+  store ptr %69, ptr %12, align 8
+  br label %70
 
-66:                                               ; preds = %63, %52
-  %67 = load ptr, ptr %17, align 8
-  %68 = getelementptr inbounds %struct.gres_job_state, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp ne ptr %69, null
-  br i1 %70, label %72, label %71
+70:                                               ; preds = %66, %54
+  %71 = load ptr, ptr %17, align 8
+  %72 = getelementptr inbounds %struct.gres_job_state, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %76, label %75
 
-71:                                               ; preds = %66
+75:                                               ; preds = %70
   store i8 1, ptr %9, align 1
   store i8 1, ptr %10, align 1
-  br label %73
+  br label %77
 
-72:                                               ; preds = %66
+76:                                               ; preds = %70
   store i8 0, ptr %10, align 1
-  br label %73
+  br label %77
 
-73:                                               ; preds = %72, %71
-  br label %86
+77:                                               ; preds = %76, %75
+  br label %90
 
-74:                                               ; preds = %45
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds %struct.gres_state, ptr %75, i32 0, i32 2
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %18, align 8
-  %78 = load ptr, ptr %18, align 8
-  %79 = getelementptr inbounds %struct.gres_node_state, ptr %78, i32 0, i32 7
-  %80 = load i64, ptr %79, align 8
-  store i64 %80, ptr %13, align 8
-  br label %86
+78:                                               ; preds = %46
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds %struct.gres_state, ptr %79, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8
+  store ptr %81, ptr %18, align 8
+  %82 = load ptr, ptr %18, align 8
+  %83 = getelementptr inbounds %struct.gres_node_state, ptr %82, i32 0, i32 7
+  %84 = load i64, ptr %83, align 8
+  store i64 %84, ptr %13, align 8
+  br label %90
 
-81:                                               ; preds = %45
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds %struct.gres_state, ptr %82, i32 0, i32 4
-  %84 = load i32, ptr %83, align 8
-  %85 = call i32 (ptr, ...) @error(ptr noundef @.str.23, ptr noundef @__func__._set_type_tres_cnt, i32 noundef %84)
-  br label %41, !llvm.loop !43
+85:                                               ; preds = %46
+  %86 = load ptr, ptr %8, align 8
+  %87 = getelementptr inbounds %struct.gres_state, ptr %86, i32 0, i32 4
+  %88 = load i32, ptr %87, align 8
+  %89 = call i32 (ptr, ...) @error(ptr noundef @.str.23, ptr noundef @__func__._set_type_tres_cnt, i32 noundef %88)
+  br label %42, !llvm.loop !43
 
-86:                                               ; preds = %74, %73
-  %87 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true)
-  store i32 %87, ptr %14, align 4
-  %88 = icmp ne i32 %87, -1
-  br i1 %88, label %89, label %120
+90:                                               ; preds = %78, %77
+  %91 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true)
+  store i32 %91, ptr %14, align 4
+  %92 = icmp ne i32 %91, -1
+  br i1 %92, label %93, label %124
 
-89:                                               ; preds = %86
-  %90 = load i64, ptr %13, align 8
-  %91 = icmp eq i64 %90, -3
-  br i1 %91, label %92, label %97
+93:                                               ; preds = %90
+  %94 = load i64, ptr %13, align 8
+  %95 = icmp eq i64 %94, -3
+  br i1 %95, label %96, label %101
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %5, align 8
-  %94 = load i32, ptr %14, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i64, ptr %93, i64 %95
-  store i64 -3, ptr %96, align 8
-  br label %119
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %5, align 8
+  %98 = load i32, ptr %14, align 4
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i64, ptr %97, i64 %99
+  store i64 -3, ptr %100, align 8
+  br label %123
 
-97:                                               ; preds = %89
-  %98 = load i8, ptr %9, align 1
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %108, label %100
+101:                                              ; preds = %93
+  %102 = load i8, ptr %9, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %112, label %104
 
-100:                                              ; preds = %97
-  %101 = load i64, ptr %13, align 8
-  %102 = load ptr, ptr %5, align 8
-  %103 = load i32, ptr %14, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i64, ptr %102, i64 %104
-  %106 = load i64, ptr %105, align 8
-  %107 = add i64 %106, %101
-  store i64 %107, ptr %105, align 8
-  br label %118
+104:                                              ; preds = %101
+  %105 = load i64, ptr %13, align 8
+  %106 = load ptr, ptr %5, align 8
+  %107 = load i32, ptr %14, align 4
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds i64, ptr %106, i64 %108
+  %110 = load i64, ptr %109, align 8
+  %111 = add i64 %110, %105
+  store i64 %111, ptr %109, align 8
+  br label %122
 
-108:                                              ; preds = %97
-  %109 = load i8, ptr %10, align 1
-  %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %117
+112:                                              ; preds = %101
+  %113 = load i8, ptr %10, align 1
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %121
 
-111:                                              ; preds = %108
-  %112 = load i64, ptr %13, align 8
-  %113 = load ptr, ptr %5, align 8
-  %114 = load i32, ptr %14, align 4
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i64, ptr %113, i64 %115
-  store i64 %112, ptr %116, align 8
-  br label %117
+115:                                              ; preds = %112
+  %116 = load i64, ptr %13, align 8
+  %117 = load ptr, ptr %5, align 8
+  %118 = load i32, ptr %14, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds i64, ptr %117, i64 %119
+  store i64 %116, ptr %120, align 8
+  br label %121
 
-117:                                              ; preds = %111, %108
-  br label %118
+121:                                              ; preds = %115, %112
+  br label %122
 
-118:                                              ; preds = %117, %100
-  br label %119
+122:                                              ; preds = %121, %104
+  br label %123
 
-119:                                              ; preds = %118, %92
+123:                                              ; preds = %122, %96
   store i8 1, ptr %16, align 1
-  br label %120
+  br label %124
 
-120:                                              ; preds = %119, %86
-  %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds %struct.gres_state, ptr %121, i32 0, i32 4
-  %123 = load i32, ptr %122, align 8
-  switch i32 %123, label %214 [
-    i32 2, label %124
-    i32 1, label %166
+124:                                              ; preds = %123, %90
+  %125 = load ptr, ptr %8, align 8
+  %126 = getelementptr inbounds %struct.gres_state, ptr %125, i32 0, i32 4
+  %127 = load i32, ptr %126, align 8
+  switch i32 %127, label %223 [
+    i32 2, label %128
+    i32 1, label %173
   ]
 
-124:                                              ; preds = %120
-  %125 = load ptr, ptr %8, align 8
-  %126 = getelementptr inbounds %struct.gres_state, ptr %125, i32 0, i32 2
-  %127 = load ptr, ptr %126, align 8
-  store ptr %127, ptr %19, align 8
-  %128 = load ptr, ptr %19, align 8
-  %129 = getelementptr inbounds %struct.gres_job_state, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %11, align 8
-  %131 = load ptr, ptr %11, align 8
-  %132 = icmp ne ptr %131, null
-  br i1 %132, label %133, label %148
+128:                                              ; preds = %124
+  %129 = load ptr, ptr %8, align 8
+  %130 = getelementptr inbounds %struct.gres_state, ptr %129, i32 0, i32 2
+  %131 = load ptr, ptr %130, align 8
+  store ptr %131, ptr %19, align 8
+  %132 = load ptr, ptr %19, align 8
+  %133 = getelementptr inbounds %struct.gres_job_state, ptr %132, i32 0, i32 1
+  %134 = load ptr, ptr %133, align 8
+  store ptr %134, ptr %11, align 8
+  %135 = load ptr, ptr %11, align 8
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %137, label %154
 
-133:                                              ; preds = %124
-  %134 = load ptr, ptr %8, align 8
-  %135 = getelementptr inbounds %struct.gres_state, ptr %134, i32 0, i32 3
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %11, align 8
-  %138 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.54, ptr noundef %136, ptr noundef %137)
-  store ptr %138, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4), align 8
-  %139 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true)
-  store i32 %139, ptr %14, align 4
-  %140 = icmp ne i32 %139, -1
-  br i1 %140, label %141, label %147
+137:                                              ; preds = %128
+  %138 = load ptr, ptr %8, align 8
+  %139 = getelementptr inbounds %struct.gres_state, ptr %138, i32 0, i32 3
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %11, align 8
+  %142 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.54, ptr noundef %140, ptr noundef %141)
+  %143 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4
+  store ptr %142, ptr %143, align 8
+  %144 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true)
+  store i32 %144, ptr %14, align 4
+  %145 = icmp ne i32 %144, -1
+  br i1 %145, label %146, label %152
 
-141:                                              ; preds = %133
-  %142 = load i64, ptr %13, align 8
-  %143 = load ptr, ptr %5, align 8
-  %144 = load i32, ptr %14, align 4
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i64, ptr %143, i64 %145
-  store i64 %142, ptr %146, align 8
-  br label %147
+146:                                              ; preds = %137
+  %147 = load i64, ptr %13, align 8
+  %148 = load ptr, ptr %5, align 8
+  %149 = load i32, ptr %14, align 4
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds i64, ptr %148, i64 %150
+  store i64 %147, ptr %151, align 8
+  br label %152
 
-147:                                              ; preds = %141, %133
-  call void @slurm_xfree(ptr noundef getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4))
-  br label %165
+152:                                              ; preds = %146, %137
+  %153 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4
+  call void @slurm_xfree(ptr noundef %153)
+  br label %172
 
-148:                                              ; preds = %124
-  %149 = load i8, ptr %16, align 1
-  %150 = trunc i8 %149 to i1
-  br i1 %150, label %164, label %151
+154:                                              ; preds = %128
+  %155 = load i8, ptr %16, align 1
+  %156 = trunc i8 %155 to i1
+  br i1 %156, label %171, label %157
 
-151:                                              ; preds = %148
-  %152 = load ptr, ptr %8, align 8
-  %153 = getelementptr inbounds %struct.gres_state, ptr %152, i32 0, i32 3
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4), align 8
-  %155 = call i32 @assoc_mgr_find_tres_pos2(ptr noundef @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true)
-  store i32 %155, ptr %14, align 4
-  %156 = icmp ne i32 %155, -1
-  br i1 %156, label %157, label %163
+157:                                              ; preds = %154
+  %158 = load ptr, ptr %8, align 8
+  %159 = getelementptr inbounds %struct.gres_state, ptr %158, i32 0, i32 3
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4
+  store ptr %160, ptr %161, align 8
+  %162 = call i32 @assoc_mgr_find_tres_pos2(ptr noundef @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true)
+  store i32 %162, ptr %14, align 4
+  %163 = icmp ne i32 %162, -1
+  br i1 %163, label %164, label %170
 
-157:                                              ; preds = %151
-  %158 = load i64, ptr %13, align 8
-  %159 = load ptr, ptr %5, align 8
-  %160 = load i32, ptr %14, align 4
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i64, ptr %159, i64 %161
-  store i64 %158, ptr %162, align 8
-  br label %163
-
-163:                                              ; preds = %157, %151
-  br label %164
-
-164:                                              ; preds = %163, %148
-  br label %165
-
-165:                                              ; preds = %164, %147
-  br label %219
-
-166:                                              ; preds = %120
-  %167 = load ptr, ptr %8, align 8
-  %168 = getelementptr inbounds %struct.gres_state, ptr %167, i32 0, i32 2
-  %169 = load ptr, ptr %168, align 8
-  store ptr %169, ptr %21, align 8
-  store i32 0, ptr %20, align 4
+164:                                              ; preds = %157
+  %165 = load i64, ptr %13, align 8
+  %166 = load ptr, ptr %5, align 8
+  %167 = load i32, ptr %14, align 4
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds i64, ptr %166, i64 %168
+  store i64 %165, ptr %169, align 8
   br label %170
 
-170:                                              ; preds = %210, %166
-  %171 = load i32, ptr %20, align 4
-  %172 = load ptr, ptr %21, align 8
-  %173 = getelementptr inbounds %struct.gres_node_state, ptr %172, i32 0, i32 18
-  %174 = load i16, ptr %173, align 8
-  %175 = zext i16 %174 to i32
-  %176 = icmp slt i32 %171, %175
-  br i1 %176, label %177, label %213
+170:                                              ; preds = %164, %157
+  br label %171
 
-177:                                              ; preds = %170
-  %178 = load ptr, ptr %21, align 8
-  %179 = getelementptr inbounds %struct.gres_node_state, ptr %178, i32 0, i32 22
-  %180 = load ptr, ptr %179, align 8
-  %181 = load i32, ptr %20, align 4
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds ptr, ptr %180, i64 %182
-  %184 = load ptr, ptr %183, align 8
-  store ptr %184, ptr %11, align 8
-  %185 = load ptr, ptr %11, align 8
-  %186 = icmp ne ptr %185, null
-  br i1 %186, label %188, label %187
+171:                                              ; preds = %170, %154
+  br label %172
 
-187:                                              ; preds = %177
-  br label %210
+172:                                              ; preds = %171, %152
+  br label %228
 
-188:                                              ; preds = %177
-  %189 = load ptr, ptr %8, align 8
-  %190 = getelementptr inbounds %struct.gres_state, ptr %189, i32 0, i32 3
+173:                                              ; preds = %124
+  %174 = load ptr, ptr %8, align 8
+  %175 = getelementptr inbounds %struct.gres_state, ptr %174, i32 0, i32 2
+  %176 = load ptr, ptr %175, align 8
+  store ptr %176, ptr %21, align 8
+  store i32 0, ptr %20, align 4
+  br label %177
+
+177:                                              ; preds = %219, %173
+  %178 = load i32, ptr %20, align 4
+  %179 = load ptr, ptr %21, align 8
+  %180 = getelementptr inbounds %struct.gres_node_state, ptr %179, i32 0, i32 18
+  %181 = load i16, ptr %180, align 8
+  %182 = zext i16 %181 to i32
+  %183 = icmp slt i32 %178, %182
+  br i1 %183, label %184, label %222
+
+184:                                              ; preds = %177
+  %185 = load ptr, ptr %21, align 8
+  %186 = getelementptr inbounds %struct.gres_node_state, ptr %185, i32 0, i32 22
+  %187 = load ptr, ptr %186, align 8
+  %188 = load i32, ptr %20, align 4
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr inbounds ptr, ptr %187, i64 %189
   %191 = load ptr, ptr %190, align 8
+  store ptr %191, ptr %11, align 8
   %192 = load ptr, ptr %11, align 8
-  %193 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.54, ptr noundef %191, ptr noundef %192)
-  store ptr %193, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4), align 8
-  %194 = load ptr, ptr %21, align 8
-  %195 = getelementptr inbounds %struct.gres_node_state, ptr %194, i32 0, i32 19
-  %196 = load ptr, ptr %195, align 8
-  %197 = load i32, ptr %20, align 4
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds i64, ptr %196, i64 %198
-  %200 = load i64, ptr %199, align 8
-  store i64 %200, ptr %13, align 8
-  %201 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true)
-  store i32 %201, ptr %14, align 4
-  %202 = icmp ne i32 %201, -1
-  br i1 %202, label %203, label %209
+  %193 = icmp ne ptr %192, null
+  br i1 %193, label %195, label %194
 
-203:                                              ; preds = %188
-  %204 = load i64, ptr %13, align 8
-  %205 = load ptr, ptr %5, align 8
-  %206 = load i32, ptr %14, align 4
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i64, ptr %205, i64 %207
-  store i64 %204, ptr %208, align 8
-  br label %209
-
-209:                                              ; preds = %203, %188
-  call void @slurm_xfree(ptr noundef getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4))
-  br label %210
-
-210:                                              ; preds = %209, %187
-  %211 = load i32, ptr %20, align 4
-  %212 = add nsw i32 %211, 1
-  store i32 %212, ptr %20, align 4
-  br label %170, !llvm.loop !44
-
-213:                                              ; preds = %170
+194:                                              ; preds = %184
   br label %219
 
-214:                                              ; preds = %120
-  %215 = load ptr, ptr %8, align 8
-  %216 = getelementptr inbounds %struct.gres_state, ptr %215, i32 0, i32 4
-  %217 = load i32, ptr %216, align 8
-  %218 = call i32 (ptr, ...) @error(ptr noundef @.str.23, ptr noundef @__func__._set_type_tres_cnt, i32 noundef %217)
-  br label %41, !llvm.loop !43
+195:                                              ; preds = %184
+  %196 = load ptr, ptr %8, align 8
+  %197 = getelementptr inbounds %struct.gres_state, ptr %196, i32 0, i32 3
+  %198 = load ptr, ptr %197, align 8
+  %199 = load ptr, ptr %11, align 8
+  %200 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.54, ptr noundef %198, ptr noundef %199)
+  %201 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4
+  store ptr %200, ptr %201, align 8
+  %202 = load ptr, ptr %21, align 8
+  %203 = getelementptr inbounds %struct.gres_node_state, ptr %202, i32 0, i32 19
+  %204 = load ptr, ptr %203, align 8
+  %205 = load i32, ptr %20, align 4
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr inbounds i64, ptr %204, i64 %206
+  %208 = load i64, ptr %207, align 8
+  store i64 %208, ptr %13, align 8
+  %209 = call i32 @assoc_mgr_find_tres_pos(ptr noundef @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true)
+  store i32 %209, ptr %14, align 4
+  %210 = icmp ne i32 %209, -1
+  br i1 %210, label %211, label %217
 
-219:                                              ; preds = %213, %165
-  br label %41, !llvm.loop !43
+211:                                              ; preds = %195
+  %212 = load i64, ptr %13, align 8
+  %213 = load ptr, ptr %5, align 8
+  %214 = load i32, ptr %14, align 4
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds i64, ptr %213, i64 %215
+  store i64 %212, ptr %216, align 8
+  br label %217
 
-220:                                              ; preds = %41
-  %221 = load ptr, ptr %7, align 8
-  call void @list_iterator_destroy(ptr noundef %221)
+217:                                              ; preds = %211, %195
+  %218 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_set_type_tres_cnt.tres_rec, i32 0, i32 4
+  call void @slurm_xfree(ptr noundef %218)
+  br label %219
+
+219:                                              ; preds = %217, %194
+  %220 = load i32, ptr %20, align 4
+  %221 = add nsw i32 %220, 1
+  store i32 %221, ptr %20, align 4
+  br label %177, !llvm.loop !44
+
+222:                                              ; preds = %177
+  br label %228
+
+223:                                              ; preds = %124
+  %224 = load ptr, ptr %8, align 8
+  %225 = getelementptr inbounds %struct.gres_state, ptr %224, i32 0, i32 4
+  %226 = load i32, ptr %225, align 8
+  %227 = call i32 (ptr, ...) @error(ptr noundef @.str.23, ptr noundef @__func__._set_type_tres_cnt, i32 noundef %226)
+  br label %42, !llvm.loop !43
+
+228:                                              ; preds = %222, %172
+  br label %42, !llvm.loop !43
+
+229:                                              ; preds = %42
+  %230 = load ptr, ptr %7, align 8
+  call void @list_iterator_destroy(ptr noundef %230)
   call void @slurm_xfree(ptr noundef %12)
-  %222 = load i8, ptr %6, align 1
-  %223 = trunc i8 %222 to i1
-  br i1 %223, label %225, label %224
+  %231 = load i8, ptr %6, align 1
+  %232 = trunc i8 %231 to i1
+  br i1 %232, label %234, label %233
 
-224:                                              ; preds = %220
+233:                                              ; preds = %229
   call void @assoc_mgr_unlock(ptr noundef %15)
-  br label %225
+  br label %234
 
-225:                                              ; preds = %224, %220, %32
+234:                                              ; preds = %233, %229, %33
   ret void
 }
 
@@ -7232,7 +7241,7 @@ define dso_local i32 @gres_ctld_step_alloc(ptr noundef %0, ptr noundef %1, ptr n
 
 41:                                               ; preds = %14
   store i32 0, ptr %15, align 4
-  br label %183
+  br label %184
 
 42:                                               ; preds = %14
   %43 = load ptr, ptr %18, align 8
@@ -7243,7 +7252,7 @@ define dso_local i32 @gres_ctld_step_alloc(ptr noundef %0, ptr noundef %1, ptr n
   %46 = load i32, ptr %23, align 4
   %47 = call i32 (ptr, ...) @error(ptr noundef @.str.15, ptr noundef @__func__.gres_ctld_step_alloc, i32 noundef %46)
   store i32 2134, ptr %15, align 4
-  br label %183
+  br label %184
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %17, align 8
@@ -7273,12 +7282,12 @@ define dso_local i32 @gres_ctld_step_alloc(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %63, ptr %31, align 8
   br label %64
 
-64:                                               ; preds = %179, %55
+64:                                               ; preds = %180, %55
   %65 = load ptr, ptr %31, align 8
   %66 = call ptr @list_next(ptr noundef %65)
   store ptr %66, ptr %32, align 8
   %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %180
+  br i1 %67, label %68, label %181
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %32, align 8
@@ -7364,107 +7373,108 @@ define dso_local i32 @gres_ctld_step_alloc(ptr noundef %0, ptr noundef %1, ptr n
   %125 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 2
   %126 = load i64, ptr %125, align 8
   %127 = icmp ne i64 %126, 0
-  br i1 %127, label %128, label %145
+  br i1 %127, label %128, label %146
 
 128:                                              ; preds = %91
   br label %129
 
 129:                                              ; preds = %128
-  %130 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %131 = and i64 %130, 2
-  %132 = icmp ne i64 %131, 0
-  br i1 %132, label %133, label %143
+  %130 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %131 = load i64, ptr %130, align 8
+  %132 = and i64 %131, 2
+  %133 = icmp ne i64 %132, 0
+  br i1 %133, label %134, label %144
 
-133:                                              ; preds = %129
-  br label %134
+134:                                              ; preds = %129
+  br label %135
 
-134:                                              ; preds = %133
-  %135 = call i32 @get_log_level()
-  %136 = icmp sge i32 %135, 4
-  br i1 %136, label %137, label %141
+135:                                              ; preds = %134
+  %136 = call i32 @get_log_level()
+  %137 = icmp sge i32 %136, 4
+  br i1 %137, label %138, label %142
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %32, align 8
-  %139 = getelementptr inbounds %struct.gres_state, ptr %138, i32 0, i32 3
-  %140 = load ptr, ptr %139, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.16, ptr noundef %140, ptr noundef %33)
-  br label %141
-
-141:                                              ; preds = %137, %134
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %32, align 8
+  %140 = getelementptr inbounds %struct.gres_state, ptr %139, i32 0, i32 3
+  %141 = load ptr, ptr %140, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.16, ptr noundef %141, ptr noundef %33)
   br label %142
 
-142:                                              ; preds = %141
+142:                                              ; preds = %138, %135
   br label %143
 
-143:                                              ; preds = %142, %129
+143:                                              ; preds = %142
   br label %144
 
-144:                                              ; preds = %143
+144:                                              ; preds = %143, %129
   br label %145
 
-145:                                              ; preds = %144, %91
-  %146 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 0
-  store ptr null, ptr %146, align 8
-  %147 = load ptr, ptr %18, align 8
-  %148 = call i32 @list_for_each(ptr noundef %147, ptr noundef @_step_alloc_type, ptr noundef %36)
-  %149 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 12
-  %150 = load i32, ptr %149, align 4
-  %151 = load ptr, ptr %29, align 8
-  %152 = load i32, ptr %151, align 4
-  %153 = add nsw i32 %152, %150
-  store i32 %153, ptr %151, align 4
-  %154 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 7
-  %155 = load i32, ptr %154, align 4
-  %156 = icmp ne i32 %155, 0
-  br i1 %156, label %157, label %160
+145:                                              ; preds = %144
+  br label %146
 
-157:                                              ; preds = %145
-  %158 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 7
-  %159 = load i32, ptr %158, align 4
-  store i32 %159, ptr %30, align 4
-  br label %160
+146:                                              ; preds = %145, %91
+  %147 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 0
+  store ptr null, ptr %147, align 8
+  %148 = load ptr, ptr %18, align 8
+  %149 = call i32 @list_for_each(ptr noundef %148, ptr noundef @_step_alloc_type, ptr noundef %36)
+  %150 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 12
+  %151 = load i32, ptr %150, align 4
+  %152 = load ptr, ptr %29, align 8
+  %153 = load i32, ptr %152, align 4
+  %154 = add nsw i32 %153, %151
+  store i32 %154, ptr %152, align 4
+  %155 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 7
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %161
 
-160:                                              ; preds = %157, %145
-  %161 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 2
-  %162 = load i64, ptr %161, align 8
-  %163 = icmp ne i64 %162, 0
-  br i1 %163, label %164, label %179
+158:                                              ; preds = %146
+  %159 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 7
+  %160 = load i32, ptr %159, align 4
+  store i32 %160, ptr %30, align 4
+  br label %161
 
-164:                                              ; preds = %160
-  %165 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 2
-  %166 = load i64, ptr %165, align 8
-  %167 = icmp ne i64 %166, -1
-  br i1 %167, label %168, label %179
+161:                                              ; preds = %158, %146
+  %162 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 2
+  %163 = load i64, ptr %162, align 8
+  %164 = icmp ne i64 %163, 0
+  br i1 %164, label %165, label %180
 
-168:                                              ; preds = %164
-  %169 = load i32, ptr %30, align 4
-  %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %179
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 2
+  %167 = load i64, ptr %166, align 8
+  %168 = icmp ne i64 %167, -1
+  br i1 %168, label %169, label %180
 
-171:                                              ; preds = %168
-  %172 = load ptr, ptr %32, align 8
-  %173 = getelementptr inbounds %struct.gres_state, ptr %172, i32 0, i32 3
-  %174 = load ptr, ptr %173, align 8
-  %175 = load i32, ptr %19, align 4
-  %176 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 2
-  %177 = load i64, ptr %176, align 8
-  %178 = call i32 (ptr, ...) @error(ptr noundef @.str.17, ptr noundef %174, ptr noundef @__func__.gres_ctld_step_alloc, ptr noundef %33, i32 noundef %175, i64 noundef %177)
+169:                                              ; preds = %165
+  %170 = load i32, ptr %30, align 4
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %172, label %180
+
+172:                                              ; preds = %169
+  %173 = load ptr, ptr %32, align 8
+  %174 = getelementptr inbounds %struct.gres_state, ptr %173, i32 0, i32 3
+  %175 = load ptr, ptr %174, align 8
+  %176 = load i32, ptr %19, align 4
+  %177 = getelementptr inbounds %struct.foreach_step_alloc_t, ptr %36, i32 0, i32 2
+  %178 = load i64, ptr %177, align 8
+  %179 = call i32 (ptr, ...) @error(ptr noundef @.str.17, ptr noundef %175, ptr noundef @__func__.gres_ctld_step_alloc, ptr noundef %33, i32 noundef %176, i64 noundef %178)
   store i32 2134, ptr %30, align 4
-  br label %179
+  br label %180
 
-179:                                              ; preds = %171, %168, %164, %160
+180:                                              ; preds = %172, %169, %165, %161
   br label %64, !llvm.loop !45
 
-180:                                              ; preds = %64
-  %181 = load ptr, ptr %31, align 8
-  call void @list_iterator_destroy(ptr noundef %181)
-  %182 = load i32, ptr %30, align 4
-  store i32 %182, ptr %15, align 4
-  br label %183
+181:                                              ; preds = %64
+  %182 = load ptr, ptr %31, align 8
+  call void @list_iterator_destroy(ptr noundef %182)
+  %183 = load i32, ptr %30, align 4
+  store i32 %183, ptr %15, align 4
+  br label %184
 
-183:                                              ; preds = %180, %45, %41
-  %184 = load i32, ptr %15, align 4
-  ret i32 %184
+184:                                              ; preds = %181, %45, %41
+  %185 = load i32, ptr %15, align 4
+  ret i32 %185
 }
 
 declare void @gres_step_list_delete(ptr noundef) #1
@@ -8954,58 +8964,62 @@ define internal void @_gres_2_tres_str_internal(ptr noundef %0, ptr noundef %1, 
   store i64 %3, ptr %8, align 8
   %10 = load i8, ptr @_gres_2_tres_str_internal.first_run, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %13
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
   store i8 0, ptr @_gres_2_tres_str_internal.first_run, align 1
   call void @llvm.memset.p0.i64(ptr align 8 @_gres_2_tres_str_internal.tres_req, i8 0, i64 48, i1 false)
-  store ptr @.str.53, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_gres_2_tres_str_internal.tres_req, i32 0, i32 5), align 8
-  br label %13
+  %13 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_gres_2_tres_str_internal.tres_req, i32 0, i32 5
+  store ptr @.str.53, ptr %13, align 8
+  br label %14
 
-13:                                               ; preds = %12, %4
-  %14 = load ptr, ptr %6, align 8
-  store ptr %14, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_gres_2_tres_str_internal.tres_req, i32 0, i32 4), align 8
-  %15 = call ptr @assoc_mgr_find_tres_rec(ptr noundef @_gres_2_tres_str_internal.tres_req)
-  store ptr %15, ptr %9, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %22
+14:                                               ; preds = %12, %4
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_gres_2_tres_str_internal.tres_req, i32 0, i32 4
+  store ptr %15, ptr %16, align 8
+  %17 = call ptr @assoc_mgr_find_tres_rec(ptr noundef @_gres_2_tres_str_internal.tres_req)
+  store ptr %17, ptr %9, align 8
+  %18 = load ptr, ptr %9, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %24
 
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = load i64, ptr %8, align 8
-  call void @_gres_add_2_tres_str(ptr noundef %19, ptr noundef %20, i64 noundef %21)
-  br label %22
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = load i64, ptr %8, align 8
+  call void @_gres_add_2_tres_str(ptr noundef %21, ptr noundef %22, i64 noundef %23)
+  br label %24
 
-22:                                               ; preds = %18, %13
-  %23 = load ptr, ptr %7, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %37
+24:                                               ; preds = %20, %14
+  %25 = load ptr, ptr %7, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %41
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %6, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.54, ptr noundef %26, ptr noundef %27)
-  store ptr %28, ptr getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_gres_2_tres_str_internal.tres_req, i32 0, i32 4), align 8
-  %29 = call ptr @assoc_mgr_find_tres_rec(ptr noundef @_gres_2_tres_str_internal.tres_req)
-  store ptr %29, ptr %9, align 8
-  call void @slurm_xfree(ptr noundef getelementptr inbounds (%struct.slurmdb_tres_rec_t, ptr @_gres_2_tres_str_internal.tres_req, i32 0, i32 4))
-  %30 = load ptr, ptr %9, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %36
-
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %5, align 8
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef @.str.54, ptr noundef %28, ptr noundef %29)
+  %31 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_gres_2_tres_str_internal.tres_req, i32 0, i32 4
+  store ptr %30, ptr %31, align 8
+  %32 = call ptr @assoc_mgr_find_tres_rec(ptr noundef @_gres_2_tres_str_internal.tres_req)
+  store ptr %32, ptr %9, align 8
+  %33 = getelementptr inbounds %struct.slurmdb_tres_rec_t, ptr @_gres_2_tres_str_internal.tres_req, i32 0, i32 4
+  call void @slurm_xfree(ptr noundef %33)
   %34 = load ptr, ptr %9, align 8
-  %35 = load i64, ptr %8, align 8
-  call void @_gres_add_2_tres_str(ptr noundef %33, ptr noundef %34, i64 noundef %35)
-  br label %36
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %40
 
-36:                                               ; preds = %32, %25
-  br label %37
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %5, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i64, ptr %8, align 8
+  call void @_gres_add_2_tres_str(ptr noundef %37, ptr noundef %38, i64 noundef %39)
+  br label %40
 
-37:                                               ; preds = %36, %22
+40:                                               ; preds = %36, %27
+  br label %41
+
+41:                                               ; preds = %40, %24
   ret void
 }
 
@@ -9038,7 +9052,7 @@ define dso_local i64 @gres_ctld_step_test(ptr noundef %0) #0 {
 
 20:                                               ; preds = %1
   store i64 -2, ptr %2, align 8
-  br label %169
+  br label %170
 
 21:                                               ; preds = %1
   %22 = load ptr, ptr %3, align 8
@@ -9049,7 +9063,7 @@ define dso_local i64 @gres_ctld_step_test(ptr noundef %0) #0 {
 
 26:                                               ; preds = %21
   store i64 0, ptr %2, align 8
-  br label %169
+  br label %170
 
 27:                                               ; preds = %21
   %28 = load i16, ptr %6, align 2
@@ -9097,12 +9111,12 @@ define dso_local i64 @gres_ctld_step_test(ptr noundef %0) #0 {
   store ptr %56, ptr %7, align 8
   br label %57
 
-57:                                               ; preds = %165, %32
+57:                                               ; preds = %166, %32
   %58 = load ptr, ptr %7, align 8
   %59 = call ptr @list_next(ptr noundef %58)
   store ptr %59, ptr %8, align 8
   %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %166
+  br i1 %60, label %61, label %167
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr %8, align 8
@@ -9155,125 +9169,126 @@ define dso_local i64 @gres_ctld_step_test(ptr noundef %0) #0 {
   %95 = getelementptr inbounds %struct.foreach_gres_cnt_t, ptr %11, i32 0, i32 0
   %96 = load i64, ptr %95, align 8
   %97 = icmp eq i64 %96, -1
-  br i1 %97, label %98, label %118
+  br i1 %97, label %98, label %119
 
 98:                                               ; preds = %84
   br label %99
 
 99:                                               ; preds = %98
-  %100 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %101 = and i64 %100, 2
-  %102 = icmp ne i64 %101, 0
-  br i1 %102, label %103, label %116
+  %100 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %101 = load i64, ptr %100, align 8
+  %102 = and i64 %101, 2
+  %103 = icmp ne i64 %102, 0
+  br i1 %103, label %104, label %117
 
-103:                                              ; preds = %99
-  br label %104
+104:                                              ; preds = %99
+  br label %105
 
-104:                                              ; preds = %103
-  %105 = call i32 @get_log_level()
-  %106 = icmp sge i32 %105, 4
-  br i1 %106, label %107, label %114
+105:                                              ; preds = %104
+  %106 = call i32 @get_log_level()
+  %107 = icmp sge i32 %106, 4
+  br i1 %107, label %108, label %115
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds %struct.gres_state, ptr %108, i32 0, i32 3
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %9, align 8
-  %112 = getelementptr inbounds %struct.gres_step_state, ptr %111, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.22, ptr noundef @__func__.gres_ctld_step_test, ptr noundef %110, ptr noundef %113)
-  br label %114
-
-114:                                              ; preds = %107, %104
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds %struct.gres_state, ptr %109, i32 0, i32 3
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %9, align 8
+  %113 = getelementptr inbounds %struct.gres_step_state, ptr %112, i32 0, i32 1
+  %114 = load ptr, ptr %113, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.22, ptr noundef @__func__.gres_ctld_step_test, ptr noundef %111, ptr noundef %114)
   br label %115
 
-115:                                              ; preds = %114
+115:                                              ; preds = %108, %105
   br label %116
 
-116:                                              ; preds = %115, %99
+116:                                              ; preds = %115
   br label %117
 
-117:                                              ; preds = %116
+117:                                              ; preds = %116, %99
+  br label %118
+
+118:                                              ; preds = %117
   store i64 0, ptr %4, align 8
-  br label %166
+  br label %167
 
-118:                                              ; preds = %84
-  %119 = getelementptr inbounds %struct.foreach_gres_cnt_t, ptr %11, i32 0, i32 0
-  %120 = load i64, ptr %119, align 8
-  %121 = icmp eq i64 %120, -3
-  br i1 %121, label %122, label %123
+119:                                              ; preds = %84
+  %120 = getelementptr inbounds %struct.foreach_gres_cnt_t, ptr %11, i32 0, i32 0
+  %121 = load i64, ptr %120, align 8
+  %122 = icmp eq i64 %121, -3
+  br i1 %122, label %123, label %124
 
-122:                                              ; preds = %118
+123:                                              ; preds = %119
   store i64 -2, ptr %4, align 8
-  br label %166
+  br label %167
 
-123:                                              ; preds = %118
-  %124 = load ptr, ptr %9, align 8
-  %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %125, i32 0, i32 2
-  %127 = load i8, ptr %126, align 8
-  %128 = trunc i8 %127 to i1
-  %129 = load i16, ptr %6, align 2
-  %130 = load ptr, ptr %3, align 8
-  %131 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %130, i32 0, i32 7
-  %132 = load i32, ptr %131, align 8
-  %133 = load ptr, ptr %3, align 8
-  %134 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %133, i32 0, i32 3
-  %135 = load i8, ptr %134, align 1
-  %136 = trunc i8 %135 to i1
-  %137 = getelementptr inbounds %struct.foreach_gres_cnt_t, ptr %11, i32 0, i32 0
-  %138 = load i64, ptr %137, align 8
-  %139 = load ptr, ptr %3, align 8
-  %140 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %139, i32 0, i32 11
-  %141 = load i8, ptr %140, align 4
-  %142 = trunc i8 %141 to i1
-  %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %143, i32 0, i32 8
-  %145 = load i32, ptr %144, align 4
-  %146 = load ptr, ptr %3, align 8
-  %147 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %146, i32 0, i32 6
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %3, align 8
-  %150 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %149, i32 0, i32 1
-  %151 = load ptr, ptr %150, align 8
-  %152 = call i64 @_step_test(ptr noundef %124, i1 noundef zeroext %128, i16 noundef zeroext %129, i32 noundef %132, i1 noundef zeroext %136, i64 noundef %138, i1 noundef zeroext %142, i32 noundef %145, ptr noundef %10, ptr noundef %148, ptr noundef %151)
-  store i64 %152, ptr %5, align 8
-  %153 = load i64, ptr %5, align 8
-  %154 = icmp ne i64 %153, -2
-  br i1 %154, label %155, label %161
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %9, align 8
+  %126 = load ptr, ptr %3, align 8
+  %127 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %126, i32 0, i32 2
+  %128 = load i8, ptr %127, align 8
+  %129 = trunc i8 %128 to i1
+  %130 = load i16, ptr %6, align 2
+  %131 = load ptr, ptr %3, align 8
+  %132 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %131, i32 0, i32 7
+  %133 = load i32, ptr %132, align 8
+  %134 = load ptr, ptr %3, align 8
+  %135 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %134, i32 0, i32 3
+  %136 = load i8, ptr %135, align 1
+  %137 = trunc i8 %136 to i1
+  %138 = getelementptr inbounds %struct.foreach_gres_cnt_t, ptr %11, i32 0, i32 0
+  %139 = load i64, ptr %138, align 8
+  %140 = load ptr, ptr %3, align 8
+  %141 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %140, i32 0, i32 11
+  %142 = load i8, ptr %141, align 4
+  %143 = trunc i8 %142 to i1
+  %144 = load ptr, ptr %3, align 8
+  %145 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %144, i32 0, i32 8
+  %146 = load i32, ptr %145, align 4
+  %147 = load ptr, ptr %3, align 8
+  %148 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %147, i32 0, i32 6
+  %149 = load ptr, ptr %148, align 8
+  %150 = load ptr, ptr %3, align 8
+  %151 = getelementptr inbounds %struct.gres_ctld_step_test_args, ptr %150, i32 0, i32 1
+  %152 = load ptr, ptr %151, align 8
+  %153 = call i64 @_step_test(ptr noundef %125, i1 noundef zeroext %129, i16 noundef zeroext %130, i32 noundef %133, i1 noundef zeroext %137, i64 noundef %139, i1 noundef zeroext %143, i32 noundef %146, ptr noundef %10, ptr noundef %149, ptr noundef %152)
+  store i64 %153, ptr %5, align 8
+  %154 = load i64, ptr %5, align 8
+  %155 = icmp ne i64 %154, -2
+  br i1 %155, label %156, label %162
 
-155:                                              ; preds = %123
-  %156 = load i64, ptr %5, align 8
-  %157 = load i64, ptr %4, align 8
-  %158 = icmp ult i64 %156, %157
-  br i1 %158, label %159, label %161
+156:                                              ; preds = %124
+  %157 = load i64, ptr %5, align 8
+  %158 = load i64, ptr %4, align 8
+  %159 = icmp ult i64 %157, %158
+  br i1 %159, label %160, label %162
 
-159:                                              ; preds = %155
-  %160 = load i64, ptr %5, align 8
-  store i64 %160, ptr %4, align 8
-  br label %161
+160:                                              ; preds = %156
+  %161 = load i64, ptr %5, align 8
+  store i64 %161, ptr %4, align 8
+  br label %162
 
-161:                                              ; preds = %159, %155, %123
-  %162 = load i64, ptr %4, align 8
-  %163 = icmp eq i64 %162, 0
-  br i1 %163, label %164, label %165
+162:                                              ; preds = %160, %156, %124
+  %163 = load i64, ptr %4, align 8
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %165, label %166
 
-164:                                              ; preds = %161
-  br label %166
+165:                                              ; preds = %162
+  br label %167
 
-165:                                              ; preds = %161
+166:                                              ; preds = %162
   br label %57, !llvm.loop !51
 
-166:                                              ; preds = %164, %122, %117, %57
-  %167 = load ptr, ptr %7, align 8
-  call void @list_iterator_destroy(ptr noundef %167)
-  %168 = load i64, ptr %4, align 8
-  store i64 %168, ptr %2, align 8
-  br label %169
+167:                                              ; preds = %165, %123, %118, %57
+  %168 = load ptr, ptr %7, align 8
+  call void @list_iterator_destroy(ptr noundef %168)
+  %169 = load i64, ptr %4, align 8
+  store i64 %169, ptr %2, align 8
+  br label %170
 
-169:                                              ; preds = %166, %26, %20
-  %170 = load i64, ptr %2, align 8
-  ret i64 %170
+170:                                              ; preds = %167, %26, %20
+  %171 = load i64, ptr %2, align 8
+  ret i64 %171
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -9601,7 +9616,7 @@ define internal i64 @_step_test(ptr noundef %0, i1 noundef zeroext %1, i16 nound
 
 37:                                               ; preds = %11
   store i64 0, ptr %12, align 8
-  br label %277
+  br label %278
 
 38:                                               ; preds = %11
   %39 = load i8, ptr %14, align 1
@@ -9845,31 +9860,31 @@ define internal i64 @_step_test(ptr noundef %0, i1 noundef zeroext %1, i16 nound
 186:                                              ; preds = %185, %184
   %187 = load i8, ptr %19, align 1
   %188 = trunc i8 %187 to i1
-  br i1 %188, label %189, label %256
+  br i1 %188, label %189, label %257
 
 189:                                              ; preds = %186
   %190 = load i64, ptr %24, align 8
   %191 = icmp ne i64 %190, 0
-  br i1 %191, label %192, label %256
+  br i1 %191, label %192, label %257
 
 192:                                              ; preds = %189
   %193 = load i64, ptr %18, align 8
   %194 = icmp ne i64 %193, 0
-  br i1 %194, label %195, label %256
+  br i1 %194, label %195, label %257
 
 195:                                              ; preds = %192
   %196 = load ptr, ptr %13, align 8
   %197 = getelementptr inbounds %struct.gres_step_state, ptr %196, i32 0, i32 8
   %198 = load i64, ptr %197, align 8
   %199 = icmp ne i64 %198, 0
-  br i1 %199, label %200, label %256
+  br i1 %199, label %200, label %257
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %13, align 8
   %202 = getelementptr inbounds %struct.gres_step_state, ptr %201, i32 0, i32 8
   %203 = load i64, ptr %202, align 8
   %204 = icmp ne i64 %203, -2
-  br i1 %204, label %205, label %256
+  br i1 %204, label %205, label %257
 
 205:                                              ; preds = %200
   %206 = load ptr, ptr %13, align 8
@@ -9909,91 +9924,92 @@ define internal i64 @_step_test(ptr noundef %0, i1 noundef zeroext %1, i16 nound
   %232 = load i64, ptr %31, align 8
   %233 = load i64, ptr %30, align 8
   %234 = icmp ult i64 %232, %233
-  br i1 %234, label %235, label %255
+  br i1 %234, label %235, label %256
 
 235:                                              ; preds = %231
   br label %236
 
 236:                                              ; preds = %235
-  %237 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %238 = and i64 %237, 2
-  %239 = icmp ne i64 %238, 0
-  br i1 %239, label %240, label %252
+  %237 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %238 = load i64, ptr %237, align 8
+  %239 = and i64 %238, 2
+  %240 = icmp ne i64 %239, 0
+  br i1 %240, label %241, label %253
 
-240:                                              ; preds = %236
-  br label %241
+241:                                              ; preds = %236
+  br label %242
 
-241:                                              ; preds = %240
-  %242 = call i32 @get_log_level()
-  %243 = icmp sge i32 %242, 4
-  br i1 %243, label %244, label %250
+242:                                              ; preds = %241
+  %243 = call i32 @get_log_level()
+  %244 = icmp sge i32 %243, 4
+  br i1 %244, label %245, label %251
 
-244:                                              ; preds = %241
-  %245 = load ptr, ptr %21, align 8
-  %246 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %245, i32 0, i32 0
-  %247 = load i32, ptr %246, align 4
-  %248 = load i64, ptr %31, align 8
-  %249 = load i64, ptr %30, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.71, ptr noundef @__func__._step_test, i32 noundef %247, i64 noundef %248, i64 noundef %249)
-  br label %250
-
-250:                                              ; preds = %244, %241
+245:                                              ; preds = %242
+  %246 = load ptr, ptr %21, align 8
+  %247 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %246, i32 0, i32 0
+  %248 = load i32, ptr %247, align 4
+  %249 = load i64, ptr %31, align 8
+  %250 = load i64, ptr %30, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.71, ptr noundef @__func__._step_test, i32 noundef %248, i64 noundef %249, i64 noundef %250)
   br label %251
 
-251:                                              ; preds = %250
+251:                                              ; preds = %245, %242
   br label %252
 
-252:                                              ; preds = %251, %236
+252:                                              ; preds = %251
   br label %253
 
-253:                                              ; preds = %252
-  store i64 0, ptr %24, align 8
-  %254 = load ptr, ptr %23, align 8
-  store i32 2044, ptr %254, align 4
-  br label %255
+253:                                              ; preds = %252, %236
+  br label %254
 
-255:                                              ; preds = %253, %231
+254:                                              ; preds = %253
+  store i64 0, ptr %24, align 8
+  %255 = load ptr, ptr %23, align 8
+  store i32 2044, ptr %255, align 4
   br label %256
 
-256:                                              ; preds = %255, %200, %195, %192, %189, %186
-  %257 = load i64, ptr %24, align 8
-  %258 = icmp ne i64 %257, 0
-  br i1 %258, label %259, label %275
+256:                                              ; preds = %254, %231
+  br label %257
 
-259:                                              ; preds = %256
-  %260 = load i8, ptr %17, align 1
-  %261 = trunc i8 %260 to i1
-  br i1 %261, label %262, label %268
+257:                                              ; preds = %256, %200, %195, %192, %189, %186
+  %258 = load i64, ptr %24, align 8
+  %259 = icmp ne i64 %258, 0
+  br i1 %259, label %260, label %276
 
-262:                                              ; preds = %259
-  %263 = load i64, ptr %18, align 8
-  %264 = load ptr, ptr %13, align 8
-  %265 = getelementptr inbounds %struct.gres_step_state, ptr %264, i32 0, i32 11
-  %266 = load i64, ptr %265, align 8
-  %267 = add i64 %266, %263
-  store i64 %267, ptr %265, align 8
-  br label %274
+260:                                              ; preds = %257
+  %261 = load i8, ptr %17, align 1
+  %262 = trunc i8 %261 to i1
+  br i1 %262, label %263, label %269
 
-268:                                              ; preds = %259
-  %269 = load i64, ptr %18, align 8
-  %270 = load ptr, ptr %13, align 8
-  %271 = getelementptr inbounds %struct.gres_step_state, ptr %270, i32 0, i32 10
-  %272 = load i64, ptr %271, align 8
-  %273 = add i64 %272, %269
-  store i64 %273, ptr %271, align 8
-  br label %274
-
-274:                                              ; preds = %268, %262
+263:                                              ; preds = %260
+  %264 = load i64, ptr %18, align 8
+  %265 = load ptr, ptr %13, align 8
+  %266 = getelementptr inbounds %struct.gres_step_state, ptr %265, i32 0, i32 11
+  %267 = load i64, ptr %266, align 8
+  %268 = add i64 %267, %264
+  store i64 %268, ptr %266, align 8
   br label %275
 
-275:                                              ; preds = %274, %256
-  %276 = load i64, ptr %24, align 8
-  store i64 %276, ptr %12, align 8
-  br label %277
+269:                                              ; preds = %260
+  %270 = load i64, ptr %18, align 8
+  %271 = load ptr, ptr %13, align 8
+  %272 = getelementptr inbounds %struct.gres_step_state, ptr %271, i32 0, i32 10
+  %273 = load i64, ptr %272, align 8
+  %274 = add i64 %273, %270
+  store i64 %274, ptr %272, align 8
+  br label %275
 
-277:                                              ; preds = %275, %37
-  %278 = load i64, ptr %12, align 8
-  ret i64 %278
+275:                                              ; preds = %269, %263
+  br label %276
+
+276:                                              ; preds = %275, %257
+  %277 = load i64, ptr %24, align 8
+  store i64 %277, ptr %12, align 8
+  br label %278
+
+278:                                              ; preds = %276, %37
+  %279 = load i64, ptr %12, align 8
+  ret i64 %279
 }
 
 ; Function Attrs: nounwind uwtable

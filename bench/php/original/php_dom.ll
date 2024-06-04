@@ -1336,14 +1336,14 @@ define hidden ptr @dom_write_property(ptr noundef %0, ptr noundef %1, ptr nounde
 48:                                               ; preds = %46, %4
   %49 = load ptr, ptr %16, align 8
   %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %135
+  br i1 %50, label %51, label %138
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %16, align 8
   %53 = getelementptr inbounds %struct._dom_prop_handler, ptr %52, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
   %55 = icmp ne ptr %54, null
-  br i1 %55, label %67, label %56
+  br i1 %55, label %68, label %56
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %11, align 8
@@ -1357,128 +1357,131 @@ define hidden ptr @dom_write_property(ptr noundef %0, ptr noundef %1, ptr nounde
   %65 = getelementptr inbounds %struct._zend_string, ptr %64, i32 0, i32 3
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 0
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str, ptr noundef %63, ptr noundef %66)
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 1), ptr %10, align 8
-  br label %141
+  %67 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 1
+  store ptr %67, ptr %10, align 8
+  br label %144
 
-67:                                               ; preds = %51
-  %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds %struct._zend_object, ptr %68, i32 0, i32 2
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = call ptr @zend_get_property_info(ptr noundef %70, ptr noundef %71, i32 noundef 1)
-  store ptr %72, ptr %17, align 8
-  %73 = load ptr, ptr %17, align 8
-  %74 = icmp ne ptr %73, null
-  br i1 %74, label %75, label %126
+68:                                               ; preds = %51
+  %69 = load ptr, ptr %11, align 8
+  %70 = getelementptr inbounds %struct._zend_object, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %12, align 8
+  %73 = call ptr @zend_get_property_info(ptr noundef %71, ptr noundef %72, i32 noundef 1)
+  store ptr %73, ptr %17, align 8
+  %74 = load ptr, ptr %17, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %129
 
-75:                                               ; preds = %67
-  %76 = load ptr, ptr %17, align 8
-  %77 = getelementptr inbounds %struct._zend_property_info, ptr %76, i32 0, i32 6
-  %78 = getelementptr inbounds %struct.zend_type, ptr %77, i32 0, i32 1
-  %79 = load i32, ptr %78, align 8
-  %80 = and i32 %79, 33554431
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %126
+76:                                               ; preds = %68
+  %77 = load ptr, ptr %17, align 8
+  %78 = getelementptr inbounds %struct._zend_property_info, ptr %77, i32 0, i32 6
+  %79 = getelementptr inbounds %struct.zend_type, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %79, align 8
+  %81 = and i32 %80, 33554431
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %129
 
-82:                                               ; preds = %75
-  br label %83
+83:                                               ; preds = %76
+  br label %84
 
-83:                                               ; preds = %82
+84:                                               ; preds = %83
   store ptr %18, ptr %19, align 8
-  %84 = load ptr, ptr %13, align 8
-  store ptr %84, ptr %20, align 8
-  %85 = load ptr, ptr %20, align 8
-  %86 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  store ptr %87, ptr %21, align 8
-  %88 = load ptr, ptr %20, align 8
-  %89 = getelementptr inbounds %struct._zval_struct, ptr %88, i32 0, i32 1
-  %90 = load i32, ptr %89, align 8
-  store i32 %90, ptr %22, align 4
-  br label %91
+  %85 = load ptr, ptr %13, align 8
+  store ptr %85, ptr %20, align 8
+  %86 = load ptr, ptr %20, align 8
+  %87 = getelementptr inbounds %struct._zval_struct, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  store ptr %88, ptr %21, align 8
+  %89 = load ptr, ptr %20, align 8
+  %90 = getelementptr inbounds %struct._zval_struct, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %90, align 8
+  store i32 %91, ptr %22, align 4
+  br label %92
 
-91:                                               ; preds = %83
-  %92 = load ptr, ptr %21, align 8
-  %93 = load ptr, ptr %19, align 8
-  %94 = getelementptr inbounds %struct._zval_struct, ptr %93, i32 0, i32 0
-  store ptr %92, ptr %94, align 8
-  %95 = load i32, ptr %22, align 4
-  %96 = load ptr, ptr %19, align 8
-  %97 = getelementptr inbounds %struct._zval_struct, ptr %96, i32 0, i32 1
-  store i32 %95, ptr %97, align 8
-  br label %98
+92:                                               ; preds = %84
+  %93 = load ptr, ptr %21, align 8
+  %94 = load ptr, ptr %19, align 8
+  %95 = getelementptr inbounds %struct._zval_struct, ptr %94, i32 0, i32 0
+  store ptr %93, ptr %95, align 8
+  %96 = load i32, ptr %22, align 4
+  %97 = load ptr, ptr %19, align 8
+  %98 = getelementptr inbounds %struct._zval_struct, ptr %97, i32 0, i32 1
+  store i32 %96, ptr %98, align 8
+  br label %99
 
-98:                                               ; preds = %91
-  %99 = load i32, ptr %22, align 4
-  %100 = and i32 %99, 65280
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %108
+99:                                               ; preds = %92
+  %100 = load i32, ptr %22, align 4
+  %101 = and i32 %100, 65280
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %109
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr %21, align 8
-  %104 = getelementptr inbounds %struct._zend_refcounted, ptr %103, i32 0, i32 0
-  store ptr %104, ptr %5, align 8
-  %105 = load ptr, ptr %5, align 8
-  %106 = load i32, ptr %105, align 4
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %105, align 4
-  br label %108
-
-108:                                              ; preds = %102, %98
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %21, align 8
+  %105 = getelementptr inbounds %struct._zend_refcounted, ptr %104, i32 0, i32 0
+  store ptr %105, ptr %5, align 8
+  %106 = load ptr, ptr %5, align 8
+  %107 = load i32, ptr %106, align 4
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %106, align 4
   br label %109
 
-109:                                              ; preds = %108
-  %110 = load ptr, ptr %17, align 8
-  %111 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17), align 8
-  %112 = getelementptr inbounds %struct._zend_execute_data, ptr %111, i32 0, i32 3
+109:                                              ; preds = %103, %99
+  br label %110
+
+110:                                              ; preds = %109
+  %111 = load ptr, ptr %17, align 8
+  %112 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 17
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct.anon.13, ptr %113, i32 0, i32 2
-  %115 = load i32, ptr %114, align 4
-  %116 = and i32 %115, -2147483648
-  %117 = icmp ne i32 %116, 0
-  %118 = call zeroext i1 @zend_verify_property_type(ptr noundef %110, ptr noundef %18, i1 noundef zeroext %117)
-  br i1 %118, label %120, label %119
+  %114 = getelementptr inbounds %struct._zend_execute_data, ptr %113, i32 0, i32 3
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds %struct.anon.13, ptr %115, i32 0, i32 2
+  %117 = load i32, ptr %116, align 4
+  %118 = and i32 %117, -2147483648
+  %119 = icmp ne i32 %118, 0
+  %120 = call zeroext i1 @zend_verify_property_type(ptr noundef %111, ptr noundef %18, i1 noundef zeroext %119)
+  br i1 %120, label %123, label %121
 
-119:                                              ; preds = %109
+121:                                              ; preds = %110
   call void @zval_ptr_dtor(ptr noundef %18)
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 1), ptr %10, align 8
-  br label %141
+  %122 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 1
+  store ptr %122, ptr %10, align 8
+  br label %144
 
-120:                                              ; preds = %109
-  %121 = load ptr, ptr %16, align 8
-  %122 = getelementptr inbounds %struct._dom_prop_handler, ptr %121, i32 0, i32 1
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %15, align 8
-  %125 = call i32 %123(ptr noundef %124, ptr noundef %18)
+123:                                              ; preds = %110
+  %124 = load ptr, ptr %16, align 8
+  %125 = getelementptr inbounds %struct._dom_prop_handler, ptr %124, i32 0, i32 1
+  %126 = load ptr, ptr %125, align 8
+  %127 = load ptr, ptr %15, align 8
+  %128 = call i32 %126(ptr noundef %127, ptr noundef %18)
   call void @zval_ptr_dtor(ptr noundef %18)
-  br label %133
+  br label %136
 
-126:                                              ; preds = %75, %67
-  %127 = load ptr, ptr %16, align 8
-  %128 = getelementptr inbounds %struct._dom_prop_handler, ptr %127, i32 0, i32 1
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %15, align 8
-  %131 = load ptr, ptr %13, align 8
-  %132 = call i32 %129(ptr noundef %130, ptr noundef %131)
-  br label %133
-
-133:                                              ; preds = %126, %120
+129:                                              ; preds = %76, %68
+  %130 = load ptr, ptr %16, align 8
+  %131 = getelementptr inbounds %struct._dom_prop_handler, ptr %130, i32 0, i32 1
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %15, align 8
   %134 = load ptr, ptr %13, align 8
-  store ptr %134, ptr %10, align 8
-  br label %141
+  %135 = call i32 %132(ptr noundef %133, ptr noundef %134)
+  br label %136
 
-135:                                              ; preds = %48
-  %136 = load ptr, ptr %11, align 8
-  %137 = load ptr, ptr %12, align 8
-  %138 = load ptr, ptr %13, align 8
-  %139 = load ptr, ptr %14, align 8
-  %140 = call ptr @zend_std_write_property(ptr noundef %136, ptr noundef %137, ptr noundef %138, ptr noundef %139)
-  store ptr %140, ptr %10, align 8
-  br label %141
+136:                                              ; preds = %129, %123
+  %137 = load ptr, ptr %13, align 8
+  store ptr %137, ptr %10, align 8
+  br label %144
 
-141:                                              ; preds = %135, %133, %119, %56
-  %142 = load ptr, ptr %10, align 8
-  ret ptr %142
+138:                                              ; preds = %48
+  %139 = load ptr, ptr %11, align 8
+  %140 = load ptr, ptr %12, align 8
+  %141 = load ptr, ptr %13, align 8
+  %142 = load ptr, ptr %14, align 8
+  %143 = call ptr @zend_std_write_property(ptr noundef %139, ptr noundef %140, ptr noundef %141, ptr noundef %142)
+  store ptr %143, ptr %10, align 8
+  br label %144
+
+144:                                              ; preds = %138, %136, %121, %56
+  %145 = load ptr, ptr %10, align 8
+  ret ptr %145
 }
 
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) #1
@@ -1540,84 +1543,86 @@ define hidden void @zif_dom_import_simplexml(ptr noundef %0, ptr noundef %1) #0 
   %12 = load i32, ptr %11, align 4
   %13 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %12, ptr noundef @.str.1, ptr noundef %5)
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %21
 
 15:                                               ; preds = %2
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %62
+  %17 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  call void @llvm.assume(i1 %19)
+  br label %64
 
-19:                                               ; No predecessors!
-  br label %20
+20:                                               ; No predecessors!
+  br label %21
 
-20:                                               ; preds = %19, %2
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct._zval_struct, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct._zval_struct, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct._zend_object, ptr %26, i32 0, i32 3
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._zend_object_handlers, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %29, align 8
-  %31 = sext i32 %30 to i64
-  %32 = sub i64 0, %31
-  %33 = getelementptr inbounds i8, ptr %23, i64 %32
-  store ptr %33, ptr %7, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = call ptr @php_libxml_import_node(ptr noundef %34)
-  store ptr %35, ptr %6, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %57
+21:                                               ; preds = %20, %2
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct._zend_object, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct._zend_object_handlers, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 8
+  %32 = sext i32 %31 to i64
+  %33 = sub i64 0, %32
+  %34 = getelementptr inbounds i8, ptr %24, i64 %33
+  store ptr %34, ptr %7, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = call ptr @php_libxml_import_node(ptr noundef %35)
+  store ptr %36, ptr %6, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %58
 
-38:                                               ; preds = %20
-  %39 = load ptr, ptr %7, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %57
+39:                                               ; preds = %21
+  %40 = load ptr, ptr %7, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %58
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct._xmlNode, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %44, 1
-  br i1 %45, label %51, label %46
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %6, align 8
+  %44 = getelementptr inbounds %struct._xmlNode, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %52, label %47
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct._xmlNode, ptr %47, i32 0, i32 1
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 2
-  br i1 %50, label %51, label %57
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %6, align 8
+  %49 = getelementptr inbounds %struct._xmlNode, ptr %48, i32 0, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 2
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %46, %41
-  %52 = load ptr, ptr %6, align 8
-  %53 = load ptr, ptr %4, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = call zeroext i1 @php_dom_create_object(ptr noundef %52, ptr noundef %53, ptr noundef %54)
-  %56 = zext i1 %55 to i32
-  store i32 %56, ptr %8, align 4
-  br label %62
+52:                                               ; preds = %47, %42
+  %53 = load ptr, ptr %6, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = call zeroext i1 @php_dom_create_object(ptr noundef %53, ptr noundef %54, ptr noundef %55)
+  %57 = zext i1 %56 to i32
+  store i32 %57, ptr %8, align 4
+  br label %64
 
-57:                                               ; preds = %46, %38, %20
+58:                                               ; preds = %47, %39, %21
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef @.str.2)
-  br label %58
+  br label %59
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %60 = icmp ne ptr %59, null
-  call void @llvm.assume(i1 %60)
-  br label %62
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp ne ptr %61, null
+  call void @llvm.assume(i1 %62)
+  br label %64
 
-61:                                               ; No predecessors!
-  br label %62
+63:                                               ; No predecessors!
+  br label %64
 
-62:                                               ; preds = %61, %58, %51, %16
+64:                                               ; preds = %63, %59, %52, %16
   ret void
 }
 
@@ -2015,1450 +2020,1467 @@ define hidden i32 @zm_startup_dom(i32 noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %124, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @dom_object_handlers, ptr align 8 @std_object_handlers, i64 200, i1 false)
   store i32 24, ptr @dom_object_handlers, align 8
-  store ptr @dom_objects_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 1), align 8
-  store ptr @dom_read_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 4), align 8
-  store ptr @dom_write_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 5), align 8
-  store ptr @dom_get_property_ptr_ptr, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 8), align 8
-  store ptr @dom_objects_store_clone_obj, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 3), align 8
-  store ptr @dom_property_exists, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 9), align 8
-  store ptr @dom_get_debug_info, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 19), align 8
+  %126 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 1
+  store ptr @dom_objects_free_storage, ptr %126, align 8
+  %127 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 4
+  store ptr @dom_read_property, ptr %127, align 8
+  %128 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 5
+  store ptr @dom_write_property, ptr %128, align 8
+  %129 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 8
+  store ptr @dom_get_property_ptr_ptr, ptr %129, align 8
+  %130 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 3
+  store ptr @dom_objects_store_clone_obj, ptr %130, align 8
+  %131 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 9
+  store ptr @dom_property_exists, ptr %131, align 8
+  %132 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_handlers, i32 0, i32 19
+  store ptr @dom_get_debug_info, ptr %132, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @dom_nnodemap_object_handlers, ptr align 8 @dom_object_handlers, i64 200, i1 false)
-  store ptr @dom_nnodemap_objects_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_nnodemap_object_handlers, i32 0, i32 1), align 8
-  store ptr @dom_nodemap_read_dimension, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_nnodemap_object_handlers, i32 0, i32 6), align 8
-  store ptr @dom_nodemap_has_dimension, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_nnodemap_object_handlers, i32 0, i32 11), align 8
+  %133 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_nnodemap_object_handlers, i32 0, i32 1
+  store ptr @dom_nnodemap_objects_free_storage, ptr %133, align 8
+  %134 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_nnodemap_object_handlers, i32 0, i32 6
+  store ptr @dom_nodemap_read_dimension, ptr %134, align 8
+  %135 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_nnodemap_object_handlers, i32 0, i32 11
+  store ptr @dom_nodemap_has_dimension, ptr %135, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @dom_nodelist_object_handlers, ptr align 8 @dom_nnodemap_object_handlers, i64 200, i1 false)
-  store ptr @dom_nodelist_read_dimension, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_nodelist_object_handlers, i32 0, i32 6), align 8
-  store ptr @dom_nodelist_has_dimension, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_nodelist_object_handlers, i32 0, i32 11), align 8
+  %136 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_nodelist_object_handlers, i32 0, i32 6
+  store ptr @dom_nodelist_read_dimension, ptr %136, align 8
+  %137 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_nodelist_object_handlers, i32 0, i32 11
+  store ptr @dom_nodelist_has_dimension, ptr %137, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @dom_object_namespace_node_handlers, ptr align 8 @dom_object_handlers, i64 200, i1 false)
   store i32 32, ptr @dom_object_namespace_node_handlers, align 8
-  store ptr @dom_object_namespace_node_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_namespace_node_handlers, i32 0, i32 1), align 8
-  store ptr @dom_object_namespace_node_clone_obj, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_object_namespace_node_handlers, i32 0, i32 3), align 8
+  %138 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_namespace_node_handlers, i32 0, i32 1
+  store ptr @dom_object_namespace_node_free_storage, ptr %138, align 8
+  %139 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_object_namespace_node_handlers, i32 0, i32 3
+  store ptr @dom_object_namespace_node_clone_obj, ptr %139, align 8
   call void @_zend_hash_init(ptr noundef @classes, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  %126 = load ptr, ptr @zend_ce_exception, align 8
-  %127 = call ptr @register_class_DOMException(ptr noundef %126)
-  store ptr %127, ptr @dom_domexception_class_entry, align 8
-  %128 = call ptr @register_class_DOMParentNode()
-  store ptr %128, ptr @dom_parentnode_class_entry, align 8
-  %129 = call ptr @register_class_DOMChildNode()
-  store ptr %129, ptr @dom_childnode_class_entry, align 8
-  %130 = call ptr @register_class_DOMImplementation()
-  store ptr %130, ptr @dom_domimplementation_class_entry, align 8
-  %131 = load ptr, ptr @dom_domimplementation_class_entry, align 8
-  %132 = getelementptr inbounds %struct._zend_class_entry, ptr %131, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %132, align 8
-  %133 = call ptr @register_class_DOMNode()
-  store ptr %133, ptr @dom_node_class_entry, align 8
-  %134 = load ptr, ptr @dom_node_class_entry, align 8
-  %135 = getelementptr inbounds %struct._zend_class_entry, ptr %134, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %135, align 8
+  %140 = load ptr, ptr @zend_ce_exception, align 8
+  %141 = call ptr @register_class_DOMException(ptr noundef %140)
+  store ptr %141, ptr @dom_domexception_class_entry, align 8
+  %142 = call ptr @register_class_DOMParentNode()
+  store ptr %142, ptr @dom_parentnode_class_entry, align 8
+  %143 = call ptr @register_class_DOMChildNode()
+  store ptr %143, ptr @dom_childnode_class_entry, align 8
+  %144 = call ptr @register_class_DOMImplementation()
+  store ptr %144, ptr @dom_domimplementation_class_entry, align 8
+  %145 = load ptr, ptr @dom_domimplementation_class_entry, align 8
+  %146 = getelementptr inbounds %struct._zend_class_entry, ptr %145, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %146, align 8
+  %147 = call ptr @register_class_DOMNode()
+  store ptr %147, ptr @dom_node_class_entry, align 8
+  %148 = load ptr, ptr @dom_node_class_entry, align 8
+  %149 = getelementptr inbounds %struct._zend_class_entry, ptr %148, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %149, align 8
   call void @_zend_hash_init(ptr noundef @dom_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %136
-
-136:                                              ; preds = %2
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.6, i64 noundef 8, ptr noundef @zm_startup_dom.hnd)
-  br label %137
-
-137:                                              ; preds = %136
-  br label %138
-
-138:                                              ; preds = %137
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.8, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.7)
-  br label %139
-
-139:                                              ; preds = %138
-  br label %140
-
-140:                                              ; preds = %139
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.10, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.9)
-  br label %141
-
-141:                                              ; preds = %140
-  br label %142
-
-142:                                              ; preds = %141
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.12, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.11)
-  br label %143
-
-143:                                              ; preds = %142
-  br label %144
-
-144:                                              ; preds = %143
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.14, i64 noundef 13, ptr noundef @zm_startup_dom.hnd.13)
-  br label %145
-
-145:                                              ; preds = %144
-  br label %146
-
-146:                                              ; preds = %145
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.16, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.15)
-  br label %147
-
-147:                                              ; preds = %146
-  br label %148
-
-148:                                              ; preds = %147
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.18, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.17)
-  br label %149
-
-149:                                              ; preds = %148
   br label %150
 
-150:                                              ; preds = %149
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.20, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.19)
+150:                                              ; preds = %2
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.6, i64 noundef 8, ptr noundef @zm_startup_dom.hnd)
   br label %151
 
 151:                                              ; preds = %150
   br label %152
 
 152:                                              ; preds = %151
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.22, i64 noundef 15, ptr noundef @zm_startup_dom.hnd.21)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.8, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.7)
   br label %153
 
 153:                                              ; preds = %152
   br label %154
 
 154:                                              ; preds = %153
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.24, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.23)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.10, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.9)
   br label %155
 
 155:                                              ; preds = %154
   br label %156
 
 156:                                              ; preds = %155
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.26, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.25)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.12, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.11)
   br label %157
 
 157:                                              ; preds = %156
   br label %158
 
 158:                                              ; preds = %157
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.28, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.27)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.14, i64 noundef 13, ptr noundef @zm_startup_dom.hnd.13)
   br label %159
 
 159:                                              ; preds = %158
   br label %160
 
 160:                                              ; preds = %159
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.30, i64 noundef 13, ptr noundef @zm_startup_dom.hnd.29)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.16, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.15)
   br label %161
 
 161:                                              ; preds = %160
   br label %162
 
 162:                                              ; preds = %161
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.32, i64 noundef 12, ptr noundef @zm_startup_dom.hnd.31)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.18, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.17)
   br label %163
 
 163:                                              ; preds = %162
   br label %164
 
 164:                                              ; preds = %163
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.34, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.33)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.20, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.19)
   br label %165
 
 165:                                              ; preds = %164
   br label %166
 
 166:                                              ; preds = %165
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.36, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.35)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.22, i64 noundef 15, ptr noundef @zm_startup_dom.hnd.21)
   br label %167
 
 167:                                              ; preds = %166
   br label %168
 
 168:                                              ; preds = %167
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.38, i64 noundef 7, ptr noundef @zm_startup_dom.hnd.37)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.24, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.23)
   br label %169
 
 169:                                              ; preds = %168
   br label %170
 
 170:                                              ; preds = %169
-  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.40, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.39)
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.26, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.25)
   br label %171
 
 171:                                              ; preds = %170
-  %172 = load ptr, ptr @dom_node_class_entry, align 8
-  %173 = getelementptr inbounds %struct._zend_class_entry, ptr %172, i32 0, i32 1
-  %174 = load ptr, ptr %173, align 8
+  br label %172
+
+172:                                              ; preds = %171
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.28, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.27)
+  br label %173
+
+173:                                              ; preds = %172
+  br label %174
+
+174:                                              ; preds = %173
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.30, i64 noundef 13, ptr noundef @zm_startup_dom.hnd.29)
+  br label %175
+
+175:                                              ; preds = %174
+  br label %176
+
+176:                                              ; preds = %175
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.32, i64 noundef 12, ptr noundef @zm_startup_dom.hnd.31)
+  br label %177
+
+177:                                              ; preds = %176
+  br label %178
+
+178:                                              ; preds = %177
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.34, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.33)
+  br label %179
+
+179:                                              ; preds = %178
+  br label %180
+
+180:                                              ; preds = %179
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.36, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.35)
+  br label %181
+
+181:                                              ; preds = %180
+  br label %182
+
+182:                                              ; preds = %181
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.38, i64 noundef 7, ptr noundef @zm_startup_dom.hnd.37)
+  br label %183
+
+183:                                              ; preds = %182
+  br label %184
+
+184:                                              ; preds = %183
+  call void @dom_register_prop_handler(ptr noundef @dom_node_prop_handlers, ptr noundef @.str.40, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.39)
+  br label %185
+
+185:                                              ; preds = %184
+  %186 = load ptr, ptr @dom_node_class_entry, align 8
+  %187 = getelementptr inbounds %struct._zend_class_entry, ptr %186, i32 0, i32 1
+  %188 = load ptr, ptr %187, align 8
   store ptr @classes, ptr %4, align 8
-  store ptr %174, ptr %5, align 8
+  store ptr %188, ptr %5, align 8
   store ptr @dom_node_prop_handlers, ptr %6, align 8
-  %175 = load ptr, ptr %6, align 8
-  store ptr %175, ptr %7, align 8
-  %176 = getelementptr inbounds %struct._zval_struct, ptr %7, i32 0, i32 1
-  store i32 13, ptr %176, align 8
-  %177 = load ptr, ptr %4, align 8
-  %178 = load ptr, ptr %5, align 8
-  %179 = call ptr @zend_hash_add_new(ptr noundef %177, ptr noundef %178, ptr noundef %7) #12
-  store ptr %179, ptr %8, align 8
-  %180 = load ptr, ptr %8, align 8
-  %181 = icmp ne ptr %180, null
-  br i1 %181, label %182, label %188
+  %189 = load ptr, ptr %6, align 8
+  store ptr %189, ptr %7, align 8
+  %190 = getelementptr inbounds %struct._zval_struct, ptr %7, i32 0, i32 1
+  store i32 13, ptr %190, align 8
+  %191 = load ptr, ptr %4, align 8
+  %192 = load ptr, ptr %5, align 8
+  %193 = call ptr @zend_hash_add_new(ptr noundef %191, ptr noundef %192, ptr noundef %7) #12
+  store ptr %193, ptr %8, align 8
+  %194 = load ptr, ptr %8, align 8
+  %195 = icmp ne ptr %194, null
+  br i1 %195, label %196, label %202
 
-182:                                              ; preds = %171
-  %183 = load ptr, ptr %8, align 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = icmp ne ptr %184, null
-  call void @llvm.assume(i1 %185)
-  %186 = load ptr, ptr %8, align 8
-  %187 = load ptr, ptr %186, align 8
-  store ptr %187, ptr %3, align 8
-  br label %189
-
-188:                                              ; preds = %171
-  store ptr null, ptr %3, align 8
-  br label %189
-
-189:                                              ; preds = %188, %182
-  %190 = call ptr @register_class_DOMNameSpaceNode()
-  store ptr %190, ptr @dom_namespace_node_class_entry, align 8
-  %191 = load ptr, ptr @dom_namespace_node_class_entry, align 8
-  %192 = getelementptr inbounds %struct._zend_class_entry, ptr %191, i32 0, i32 32
-  store ptr @dom_objects_namespace_node_new, ptr %192, align 8
-  call void @_zend_hash_init(ptr noundef @dom_namespace_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %193
-
-193:                                              ; preds = %189
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.6, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.41)
-  br label %194
-
-194:                                              ; preds = %193
-  br label %195
-
-195:                                              ; preds = %194
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.8, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.42)
-  br label %196
-
-196:                                              ; preds = %195
-  br label %197
-
-197:                                              ; preds = %196
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.10, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.43)
-  br label %198
-
-198:                                              ; preds = %197
-  br label %199
-
-199:                                              ; preds = %198
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.34, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.44)
-  br label %200
-
-200:                                              ; preds = %199
-  br label %201
-
-201:                                              ; preds = %200
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.36, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.45)
-  br label %202
-
-202:                                              ; preds = %201
+196:                                              ; preds = %185
+  %197 = load ptr, ptr %8, align 8
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp ne ptr %198, null
+  call void @llvm.assume(i1 %199)
+  %200 = load ptr, ptr %8, align 8
+  %201 = load ptr, ptr %200, align 8
+  store ptr %201, ptr %3, align 8
   br label %203
 
-203:                                              ; preds = %202
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.32, i64 noundef 12, ptr noundef @zm_startup_dom.hnd.46)
-  br label %204
+202:                                              ; preds = %185
+  store ptr null, ptr %3, align 8
+  br label %203
 
-204:                                              ; preds = %203
-  br label %205
-
-205:                                              ; preds = %204
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.28, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.47)
-  br label %206
-
-206:                                              ; preds = %205
+203:                                              ; preds = %202, %196
+  %204 = call ptr @register_class_DOMNameSpaceNode()
+  store ptr %204, ptr @dom_namespace_node_class_entry, align 8
+  %205 = load ptr, ptr @dom_namespace_node_class_entry, align 8
+  %206 = getelementptr inbounds %struct._zend_class_entry, ptr %205, i32 0, i32 32
+  store ptr @dom_objects_namespace_node_new, ptr %206, align 8
+  call void @_zend_hash_init(ptr noundef @dom_namespace_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
   br label %207
 
-207:                                              ; preds = %206
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.30, i64 noundef 13, ptr noundef @zm_startup_dom.hnd.48)
+207:                                              ; preds = %203
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.6, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.41)
   br label %208
 
 208:                                              ; preds = %207
   br label %209
 
 209:                                              ; preds = %208
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.12, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.49)
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.8, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.42)
   br label %210
 
 210:                                              ; preds = %209
   br label %211
 
 211:                                              ; preds = %210
-  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.14, i64 noundef 13, ptr noundef @zm_startup_dom.hnd.50)
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.10, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.43)
   br label %212
 
 212:                                              ; preds = %211
-  %213 = load ptr, ptr @dom_namespace_node_class_entry, align 8
-  %214 = getelementptr inbounds %struct._zend_class_entry, ptr %213, i32 0, i32 1
-  %215 = load ptr, ptr %214, align 8
+  br label %213
+
+213:                                              ; preds = %212
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.34, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.44)
+  br label %214
+
+214:                                              ; preds = %213
+  br label %215
+
+215:                                              ; preds = %214
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.36, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.45)
+  br label %216
+
+216:                                              ; preds = %215
+  br label %217
+
+217:                                              ; preds = %216
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.32, i64 noundef 12, ptr noundef @zm_startup_dom.hnd.46)
+  br label %218
+
+218:                                              ; preds = %217
+  br label %219
+
+219:                                              ; preds = %218
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.28, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.47)
+  br label %220
+
+220:                                              ; preds = %219
+  br label %221
+
+221:                                              ; preds = %220
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.30, i64 noundef 13, ptr noundef @zm_startup_dom.hnd.48)
+  br label %222
+
+222:                                              ; preds = %221
+  br label %223
+
+223:                                              ; preds = %222
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.12, i64 noundef 10, ptr noundef @zm_startup_dom.hnd.49)
+  br label %224
+
+224:                                              ; preds = %223
+  br label %225
+
+225:                                              ; preds = %224
+  call void @dom_register_prop_handler(ptr noundef @dom_namespace_node_prop_handlers, ptr noundef @.str.14, i64 noundef 13, ptr noundef @zm_startup_dom.hnd.50)
+  br label %226
+
+226:                                              ; preds = %225
+  %227 = load ptr, ptr @dom_namespace_node_class_entry, align 8
+  %228 = getelementptr inbounds %struct._zend_class_entry, ptr %227, i32 0, i32 1
+  %229 = load ptr, ptr %228, align 8
   store ptr @classes, ptr %10, align 8
-  store ptr %215, ptr %11, align 8
+  store ptr %229, ptr %11, align 8
   store ptr @dom_namespace_node_prop_handlers, ptr %12, align 8
-  %216 = load ptr, ptr %12, align 8
-  store ptr %216, ptr %13, align 8
-  %217 = getelementptr inbounds %struct._zval_struct, ptr %13, i32 0, i32 1
-  store i32 13, ptr %217, align 8
-  %218 = load ptr, ptr %10, align 8
-  %219 = load ptr, ptr %11, align 8
-  %220 = call ptr @zend_hash_add_new(ptr noundef %218, ptr noundef %219, ptr noundef %13) #12
-  store ptr %220, ptr %14, align 8
-  %221 = load ptr, ptr %14, align 8
-  %222 = icmp ne ptr %221, null
-  br i1 %222, label %223, label %229
+  %230 = load ptr, ptr %12, align 8
+  store ptr %230, ptr %13, align 8
+  %231 = getelementptr inbounds %struct._zval_struct, ptr %13, i32 0, i32 1
+  store i32 13, ptr %231, align 8
+  %232 = load ptr, ptr %10, align 8
+  %233 = load ptr, ptr %11, align 8
+  %234 = call ptr @zend_hash_add_new(ptr noundef %232, ptr noundef %233, ptr noundef %13) #12
+  store ptr %234, ptr %14, align 8
+  %235 = load ptr, ptr %14, align 8
+  %236 = icmp ne ptr %235, null
+  br i1 %236, label %237, label %243
 
-223:                                              ; preds = %212
-  %224 = load ptr, ptr %14, align 8
-  %225 = load ptr, ptr %224, align 8
-  %226 = icmp ne ptr %225, null
-  call void @llvm.assume(i1 %226)
-  %227 = load ptr, ptr %14, align 8
-  %228 = load ptr, ptr %227, align 8
-  store ptr %228, ptr %9, align 8
-  br label %230
+237:                                              ; preds = %226
+  %238 = load ptr, ptr %14, align 8
+  %239 = load ptr, ptr %238, align 8
+  %240 = icmp ne ptr %239, null
+  call void @llvm.assume(i1 %240)
+  %241 = load ptr, ptr %14, align 8
+  %242 = load ptr, ptr %241, align 8
+  store ptr %242, ptr %9, align 8
+  br label %244
 
-229:                                              ; preds = %212
+243:                                              ; preds = %226
   store ptr null, ptr %9, align 8
-  br label %230
+  br label %244
 
-230:                                              ; preds = %229, %223
-  %231 = load ptr, ptr @dom_node_class_entry, align 8
-  %232 = load ptr, ptr @dom_parentnode_class_entry, align 8
-  %233 = call ptr @register_class_DOMDocumentFragment(ptr noundef %231, ptr noundef %232)
-  store ptr %233, ptr @dom_documentfragment_class_entry, align 8
-  %234 = load ptr, ptr @dom_documentfragment_class_entry, align 8
-  %235 = getelementptr inbounds %struct._zend_class_entry, ptr %234, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %235, align 8
+244:                                              ; preds = %243, %237
+  %245 = load ptr, ptr @dom_node_class_entry, align 8
+  %246 = load ptr, ptr @dom_parentnode_class_entry, align 8
+  %247 = call ptr @register_class_DOMDocumentFragment(ptr noundef %245, ptr noundef %246)
+  store ptr %247, ptr @dom_documentfragment_class_entry, align 8
+  %248 = load ptr, ptr @dom_documentfragment_class_entry, align 8
+  %249 = getelementptr inbounds %struct._zend_class_entry, ptr %248, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %249, align 8
   call void @_zend_hash_init(ptr noundef @dom_documentfragment_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %236
+  br label %250
 
-236:                                              ; preds = %230
+250:                                              ; preds = %244
   call void @dom_register_prop_handler(ptr noundef @dom_documentfragment_prop_handlers, ptr noundef @.str.52, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.51)
-  br label %237
+  br label %251
 
-237:                                              ; preds = %236
-  br label %238
+251:                                              ; preds = %250
+  br label %252
 
-238:                                              ; preds = %237
+252:                                              ; preds = %251
   call void @dom_register_prop_handler(ptr noundef @dom_documentfragment_prop_handlers, ptr noundef @.str.54, i64 noundef 16, ptr noundef @zm_startup_dom.hnd.53)
-  br label %239
+  br label %253
 
-239:                                              ; preds = %238
-  br label %240
+253:                                              ; preds = %252
+  br label %254
 
-240:                                              ; preds = %239
+254:                                              ; preds = %253
   call void @dom_register_prop_handler(ptr noundef @dom_documentfragment_prop_handlers, ptr noundef @.str.56, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.55)
-  br label %241
+  br label %255
 
-241:                                              ; preds = %240
+255:                                              ; preds = %254
   call void @zend_hash_merge(ptr noundef @dom_documentfragment_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
-  %242 = load ptr, ptr @dom_documentfragment_class_entry, align 8
-  %243 = getelementptr inbounds %struct._zend_class_entry, ptr %242, i32 0, i32 1
-  %244 = load ptr, ptr %243, align 8
+  %256 = load ptr, ptr @dom_documentfragment_class_entry, align 8
+  %257 = getelementptr inbounds %struct._zend_class_entry, ptr %256, i32 0, i32 1
+  %258 = load ptr, ptr %257, align 8
   store ptr @classes, ptr %16, align 8
-  store ptr %244, ptr %17, align 8
+  store ptr %258, ptr %17, align 8
   store ptr @dom_documentfragment_prop_handlers, ptr %18, align 8
-  %245 = load ptr, ptr %18, align 8
-  store ptr %245, ptr %19, align 8
-  %246 = getelementptr inbounds %struct._zval_struct, ptr %19, i32 0, i32 1
-  store i32 13, ptr %246, align 8
-  %247 = load ptr, ptr %16, align 8
-  %248 = load ptr, ptr %17, align 8
-  %249 = call ptr @zend_hash_add_new(ptr noundef %247, ptr noundef %248, ptr noundef %19) #12
-  store ptr %249, ptr %20, align 8
-  %250 = load ptr, ptr %20, align 8
-  %251 = icmp ne ptr %250, null
-  br i1 %251, label %252, label %258
+  %259 = load ptr, ptr %18, align 8
+  store ptr %259, ptr %19, align 8
+  %260 = getelementptr inbounds %struct._zval_struct, ptr %19, i32 0, i32 1
+  store i32 13, ptr %260, align 8
+  %261 = load ptr, ptr %16, align 8
+  %262 = load ptr, ptr %17, align 8
+  %263 = call ptr @zend_hash_add_new(ptr noundef %261, ptr noundef %262, ptr noundef %19) #12
+  store ptr %263, ptr %20, align 8
+  %264 = load ptr, ptr %20, align 8
+  %265 = icmp ne ptr %264, null
+  br i1 %265, label %266, label %272
 
-252:                                              ; preds = %241
-  %253 = load ptr, ptr %20, align 8
-  %254 = load ptr, ptr %253, align 8
-  %255 = icmp ne ptr %254, null
-  call void @llvm.assume(i1 %255)
-  %256 = load ptr, ptr %20, align 8
-  %257 = load ptr, ptr %256, align 8
-  store ptr %257, ptr %15, align 8
-  br label %259
-
-258:                                              ; preds = %241
-  store ptr null, ptr %15, align 8
-  br label %259
-
-259:                                              ; preds = %258, %252
-  %260 = load ptr, ptr @dom_node_class_entry, align 8
-  %261 = load ptr, ptr @dom_parentnode_class_entry, align 8
-  %262 = call ptr @register_class_DOM_Document(ptr noundef %260, ptr noundef %261)
-  store ptr %262, ptr @dom_abstract_base_document_class_entry, align 8
-  call void @_zend_hash_init(ptr noundef %125, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %263
-
-263:                                              ; preds = %259
-  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.58, i64 noundef 7, ptr noundef @zm_startup_dom.hnd.57)
-  br label %264
-
-264:                                              ; preds = %263
-  br label %265
-
-265:                                              ; preds = %264
-  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.60, i64 noundef 15, ptr noundef @zm_startup_dom.hnd.59)
-  br label %266
-
-266:                                              ; preds = %265
-  br label %267
-
-267:                                              ; preds = %266
-  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.62, i64 noundef 19, ptr noundef @zm_startup_dom.hnd.61)
-  br label %268
-
-268:                                              ; preds = %267
-  br label %269
-
-269:                                              ; preds = %268
-  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.64, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.63)
-  br label %270
-
-270:                                              ; preds = %269
-  br label %271
-
-271:                                              ; preds = %270
-  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.52, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.65)
-  br label %272
-
-272:                                              ; preds = %271
+266:                                              ; preds = %255
+  %267 = load ptr, ptr %20, align 8
+  %268 = load ptr, ptr %267, align 8
+  %269 = icmp ne ptr %268, null
+  call void @llvm.assume(i1 %269)
+  %270 = load ptr, ptr %20, align 8
+  %271 = load ptr, ptr %270, align 8
+  store ptr %271, ptr %15, align 8
   br label %273
 
-273:                                              ; preds = %272
-  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.54, i64 noundef 16, ptr noundef @zm_startup_dom.hnd.66)
-  br label %274
+272:                                              ; preds = %255
+  store ptr null, ptr %15, align 8
+  br label %273
 
-274:                                              ; preds = %273
-  br label %275
+273:                                              ; preds = %272, %266
+  %274 = load ptr, ptr @dom_node_class_entry, align 8
+  %275 = load ptr, ptr @dom_parentnode_class_entry, align 8
+  %276 = call ptr @register_class_DOM_Document(ptr noundef %274, ptr noundef %275)
+  store ptr %276, ptr @dom_abstract_base_document_class_entry, align 8
+  call void @_zend_hash_init(ptr noundef %125, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
+  br label %277
 
-275:                                              ; preds = %274
-  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.56, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.67)
-  br label %276
+277:                                              ; preds = %273
+  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.58, i64 noundef 7, ptr noundef @zm_startup_dom.hnd.57)
+  br label %278
 
-276:                                              ; preds = %275
-  call void @zend_hash_merge(ptr noundef %125, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
-  %277 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8
-  %278 = call ptr @register_class_DOMDocument(ptr noundef %277)
-  store ptr %278, ptr @dom_document_class_entry, align 8
-  %279 = load ptr, ptr @dom_document_class_entry, align 8
-  %280 = getelementptr inbounds %struct._zend_class_entry, ptr %279, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %280, align 8
-  call void @_zend_hash_init(ptr noundef @dom_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
+278:                                              ; preds = %277
+  br label %279
+
+279:                                              ; preds = %278
+  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.60, i64 noundef 15, ptr noundef @zm_startup_dom.hnd.59)
+  br label %280
+
+280:                                              ; preds = %279
   br label %281
 
-281:                                              ; preds = %276
-  call void @dom_register_prop_handler(ptr noundef @dom_document_prop_handlers, ptr noundef @.str.69, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.68)
+281:                                              ; preds = %280
+  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.62, i64 noundef 19, ptr noundef @zm_startup_dom.hnd.61)
   br label %282
 
 282:                                              ; preds = %281
   br label %283
 
 283:                                              ; preds = %282
-  call void @dom_register_prop_handler(ptr noundef @dom_document_prop_handlers, ptr noundef @.str.71, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.70)
+  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.64, i64 noundef 11, ptr noundef @zm_startup_dom.hnd.63)
   br label %284
 
 284:                                              ; preds = %283
   br label %285
 
 285:                                              ; preds = %284
-  call void @dom_register_prop_handler(ptr noundef @dom_document_prop_handlers, ptr noundef @.str.73, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.72)
+  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.52, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.65)
   br label %286
 
 286:                                              ; preds = %285
+  br label %287
+
+287:                                              ; preds = %286
+  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.54, i64 noundef 16, ptr noundef @zm_startup_dom.hnd.66)
+  br label %288
+
+288:                                              ; preds = %287
+  br label %289
+
+289:                                              ; preds = %288
+  call void @dom_register_prop_handler(ptr noundef %125, ptr noundef @.str.56, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.67)
+  br label %290
+
+290:                                              ; preds = %289
+  call void @zend_hash_merge(ptr noundef %125, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
+  %291 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8
+  %292 = call ptr @register_class_DOMDocument(ptr noundef %291)
+  store ptr %292, ptr @dom_document_class_entry, align 8
+  %293 = load ptr, ptr @dom_document_class_entry, align 8
+  %294 = getelementptr inbounds %struct._zend_class_entry, ptr %293, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %294, align 8
+  call void @_zend_hash_init(ptr noundef @dom_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
+  br label %295
+
+295:                                              ; preds = %290
+  call void @dom_register_prop_handler(ptr noundef @dom_document_prop_handlers, ptr noundef @.str.69, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.68)
+  br label %296
+
+296:                                              ; preds = %295
+  br label %297
+
+297:                                              ; preds = %296
+  call void @dom_register_prop_handler(ptr noundef @dom_document_prop_handlers, ptr noundef @.str.71, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.70)
+  br label %298
+
+298:                                              ; preds = %297
+  br label %299
+
+299:                                              ; preds = %298
+  call void @dom_register_prop_handler(ptr noundef @dom_document_prop_handlers, ptr noundef @.str.73, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.72)
+  br label %300
+
+300:                                              ; preds = %299
   call void @register_nondeprecated_xml_props(ptr noundef @dom_document_prop_handlers)
   call void @zend_hash_merge(ptr noundef @dom_document_prop_handlers, ptr noundef %125, ptr noundef null, i1 noundef zeroext false)
-  %287 = load ptr, ptr @dom_document_class_entry, align 8
-  %288 = getelementptr inbounds %struct._zend_class_entry, ptr %287, i32 0, i32 1
-  %289 = load ptr, ptr %288, align 8
+  %301 = load ptr, ptr @dom_document_class_entry, align 8
+  %302 = getelementptr inbounds %struct._zend_class_entry, ptr %301, i32 0, i32 1
+  %303 = load ptr, ptr %302, align 8
   store ptr @classes, ptr %22, align 8
-  store ptr %289, ptr %23, align 8
+  store ptr %303, ptr %23, align 8
   store ptr @dom_document_prop_handlers, ptr %24, align 8
-  %290 = load ptr, ptr %24, align 8
-  store ptr %290, ptr %25, align 8
-  %291 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 1
-  store i32 13, ptr %291, align 8
-  %292 = load ptr, ptr %22, align 8
-  %293 = load ptr, ptr %23, align 8
-  %294 = call ptr @zend_hash_add_new(ptr noundef %292, ptr noundef %293, ptr noundef %25) #12
-  store ptr %294, ptr %26, align 8
-  %295 = load ptr, ptr %26, align 8
-  %296 = icmp ne ptr %295, null
-  br i1 %296, label %297, label %303
+  %304 = load ptr, ptr %24, align 8
+  store ptr %304, ptr %25, align 8
+  %305 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 1
+  store i32 13, ptr %305, align 8
+  %306 = load ptr, ptr %22, align 8
+  %307 = load ptr, ptr %23, align 8
+  %308 = call ptr @zend_hash_add_new(ptr noundef %306, ptr noundef %307, ptr noundef %25) #12
+  store ptr %308, ptr %26, align 8
+  %309 = load ptr, ptr %26, align 8
+  %310 = icmp ne ptr %309, null
+  br i1 %310, label %311, label %317
 
-297:                                              ; preds = %286
-  %298 = load ptr, ptr %26, align 8
-  %299 = load ptr, ptr %298, align 8
-  %300 = icmp ne ptr %299, null
-  call void @llvm.assume(i1 %300)
-  %301 = load ptr, ptr %26, align 8
-  %302 = load ptr, ptr %301, align 8
-  store ptr %302, ptr %21, align 8
-  br label %304
-
-303:                                              ; preds = %286
-  store ptr null, ptr %21, align 8
-  br label %304
-
-304:                                              ; preds = %303, %297
-  %305 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8
-  %306 = call ptr @register_class_DOM_HTMLDocument(ptr noundef %305)
-  store ptr %306, ptr @dom_html_document_class_entry, align 8
-  %307 = load ptr, ptr @dom_document_class_entry, align 8
-  %308 = getelementptr inbounds %struct._zend_class_entry, ptr %307, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %308, align 8
-  call void @_zend_hash_init(ptr noundef @dom_html_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %309
-
-309:                                              ; preds = %304
-  call void @dom_register_prop_handler(ptr noundef @dom_html_document_prop_handlers, ptr noundef @.str.75, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.74)
-  br label %310
-
-310:                                              ; preds = %309
-  call void @zend_hash_merge(ptr noundef @dom_html_document_prop_handlers, ptr noundef %125, ptr noundef null, i1 noundef zeroext false)
-  %311 = load ptr, ptr @dom_html_document_class_entry, align 8
-  %312 = getelementptr inbounds %struct._zend_class_entry, ptr %311, i32 0, i32 1
+311:                                              ; preds = %300
+  %312 = load ptr, ptr %26, align 8
   %313 = load ptr, ptr %312, align 8
+  %314 = icmp ne ptr %313, null
+  call void @llvm.assume(i1 %314)
+  %315 = load ptr, ptr %26, align 8
+  %316 = load ptr, ptr %315, align 8
+  store ptr %316, ptr %21, align 8
+  br label %318
+
+317:                                              ; preds = %300
+  store ptr null, ptr %21, align 8
+  br label %318
+
+318:                                              ; preds = %317, %311
+  %319 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8
+  %320 = call ptr @register_class_DOM_HTMLDocument(ptr noundef %319)
+  store ptr %320, ptr @dom_html_document_class_entry, align 8
+  %321 = load ptr, ptr @dom_document_class_entry, align 8
+  %322 = getelementptr inbounds %struct._zend_class_entry, ptr %321, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %322, align 8
+  call void @_zend_hash_init(ptr noundef @dom_html_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
+  br label %323
+
+323:                                              ; preds = %318
+  call void @dom_register_prop_handler(ptr noundef @dom_html_document_prop_handlers, ptr noundef @.str.75, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.74)
+  br label %324
+
+324:                                              ; preds = %323
+  call void @zend_hash_merge(ptr noundef @dom_html_document_prop_handlers, ptr noundef %125, ptr noundef null, i1 noundef zeroext false)
+  %325 = load ptr, ptr @dom_html_document_class_entry, align 8
+  %326 = getelementptr inbounds %struct._zend_class_entry, ptr %325, i32 0, i32 1
+  %327 = load ptr, ptr %326, align 8
   store ptr @classes, ptr %28, align 8
-  store ptr %313, ptr %29, align 8
+  store ptr %327, ptr %29, align 8
   store ptr @dom_html_document_prop_handlers, ptr %30, align 8
-  %314 = load ptr, ptr %30, align 8
-  store ptr %314, ptr %31, align 8
-  %315 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 1
-  store i32 13, ptr %315, align 8
-  %316 = load ptr, ptr %28, align 8
-  %317 = load ptr, ptr %29, align 8
-  %318 = call ptr @zend_hash_add_new(ptr noundef %316, ptr noundef %317, ptr noundef %31) #12
-  store ptr %318, ptr %32, align 8
-  %319 = load ptr, ptr %32, align 8
-  %320 = icmp ne ptr %319, null
-  br i1 %320, label %321, label %327
+  %328 = load ptr, ptr %30, align 8
+  store ptr %328, ptr %31, align 8
+  %329 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 1
+  store i32 13, ptr %329, align 8
+  %330 = load ptr, ptr %28, align 8
+  %331 = load ptr, ptr %29, align 8
+  %332 = call ptr @zend_hash_add_new(ptr noundef %330, ptr noundef %331, ptr noundef %31) #12
+  store ptr %332, ptr %32, align 8
+  %333 = load ptr, ptr %32, align 8
+  %334 = icmp ne ptr %333, null
+  br i1 %334, label %335, label %341
 
-321:                                              ; preds = %310
-  %322 = load ptr, ptr %32, align 8
-  %323 = load ptr, ptr %322, align 8
-  %324 = icmp ne ptr %323, null
-  call void @llvm.assume(i1 %324)
-  %325 = load ptr, ptr %32, align 8
-  %326 = load ptr, ptr %325, align 8
-  store ptr %326, ptr %27, align 8
-  br label %328
+335:                                              ; preds = %324
+  %336 = load ptr, ptr %32, align 8
+  %337 = load ptr, ptr %336, align 8
+  %338 = icmp ne ptr %337, null
+  call void @llvm.assume(i1 %338)
+  %339 = load ptr, ptr %32, align 8
+  %340 = load ptr, ptr %339, align 8
+  store ptr %340, ptr %27, align 8
+  br label %342
 
-327:                                              ; preds = %310
+341:                                              ; preds = %324
   store ptr null, ptr %27, align 8
-  br label %328
+  br label %342
 
-328:                                              ; preds = %327, %321
-  %329 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8
-  %330 = call ptr @register_class_DOM_XMLDocument(ptr noundef %329)
-  store ptr %330, ptr @dom_xml_document_class_entry, align 8
-  %331 = load ptr, ptr @dom_xml_document_class_entry, align 8
-  %332 = getelementptr inbounds %struct._zend_class_entry, ptr %331, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %332, align 8
+342:                                              ; preds = %341, %335
+  %343 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8
+  %344 = call ptr @register_class_DOM_XMLDocument(ptr noundef %343)
+  store ptr %344, ptr @dom_xml_document_class_entry, align 8
+  %345 = load ptr, ptr @dom_xml_document_class_entry, align 8
+  %346 = getelementptr inbounds %struct._zend_class_entry, ptr %345, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %346, align 8
   call void @_zend_hash_init(ptr noundef @dom_xml_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
   call void @register_nondeprecated_xml_props(ptr noundef @dom_xml_document_prop_handlers)
   call void @zend_hash_merge(ptr noundef @dom_xml_document_prop_handlers, ptr noundef %125, ptr noundef null, i1 noundef zeroext false)
-  %333 = load ptr, ptr @dom_xml_document_class_entry, align 8
-  %334 = getelementptr inbounds %struct._zend_class_entry, ptr %333, i32 0, i32 1
-  %335 = load ptr, ptr %334, align 8
+  %347 = load ptr, ptr @dom_xml_document_class_entry, align 8
+  %348 = getelementptr inbounds %struct._zend_class_entry, ptr %347, i32 0, i32 1
+  %349 = load ptr, ptr %348, align 8
   store ptr @classes, ptr %34, align 8
-  store ptr %335, ptr %35, align 8
+  store ptr %349, ptr %35, align 8
   store ptr @dom_xml_document_prop_handlers, ptr %36, align 8
-  %336 = load ptr, ptr %36, align 8
-  store ptr %336, ptr %37, align 8
-  %337 = getelementptr inbounds %struct._zval_struct, ptr %37, i32 0, i32 1
-  store i32 13, ptr %337, align 8
-  %338 = load ptr, ptr %34, align 8
-  %339 = load ptr, ptr %35, align 8
-  %340 = call ptr @zend_hash_add_new(ptr noundef %338, ptr noundef %339, ptr noundef %37) #12
-  store ptr %340, ptr %38, align 8
-  %341 = load ptr, ptr %38, align 8
-  %342 = icmp ne ptr %341, null
-  br i1 %342, label %343, label %349
+  %350 = load ptr, ptr %36, align 8
+  store ptr %350, ptr %37, align 8
+  %351 = getelementptr inbounds %struct._zval_struct, ptr %37, i32 0, i32 1
+  store i32 13, ptr %351, align 8
+  %352 = load ptr, ptr %34, align 8
+  %353 = load ptr, ptr %35, align 8
+  %354 = call ptr @zend_hash_add_new(ptr noundef %352, ptr noundef %353, ptr noundef %37) #12
+  store ptr %354, ptr %38, align 8
+  %355 = load ptr, ptr %38, align 8
+  %356 = icmp ne ptr %355, null
+  br i1 %356, label %357, label %363
 
-343:                                              ; preds = %328
-  %344 = load ptr, ptr %38, align 8
-  %345 = load ptr, ptr %344, align 8
-  %346 = icmp ne ptr %345, null
-  call void @llvm.assume(i1 %346)
-  %347 = load ptr, ptr %38, align 8
-  %348 = load ptr, ptr %347, align 8
-  store ptr %348, ptr %33, align 8
-  br label %350
+357:                                              ; preds = %342
+  %358 = load ptr, ptr %38, align 8
+  %359 = load ptr, ptr %358, align 8
+  %360 = icmp ne ptr %359, null
+  call void @llvm.assume(i1 %360)
+  %361 = load ptr, ptr %38, align 8
+  %362 = load ptr, ptr %361, align 8
+  store ptr %362, ptr %33, align 8
+  br label %364
 
-349:                                              ; preds = %328
+363:                                              ; preds = %342
   store ptr null, ptr %33, align 8
-  br label %350
+  br label %364
 
-350:                                              ; preds = %349, %343
+364:                                              ; preds = %363, %357
   call void @zend_hash_destroy(ptr noundef %125)
-  %351 = load ptr, ptr @zend_ce_aggregate, align 8
-  %352 = load ptr, ptr @zend_ce_countable, align 8
-  %353 = call ptr @register_class_DOMNodeList(ptr noundef %351, ptr noundef %352)
-  store ptr %353, ptr @dom_nodelist_class_entry, align 8
-  %354 = load ptr, ptr @dom_nodelist_class_entry, align 8
-  %355 = getelementptr inbounds %struct._zend_class_entry, ptr %354, i32 0, i32 32
-  store ptr @dom_nnodemap_objects_new, ptr %355, align 8
-  %356 = load ptr, ptr @dom_nodelist_class_entry, align 8
-  %357 = getelementptr inbounds %struct._zend_class_entry, ptr %356, i32 0, i32 29
-  store ptr @dom_nodelist_object_handlers, ptr %357, align 8
-  %358 = load ptr, ptr @dom_nodelist_class_entry, align 8
-  %359 = getelementptr inbounds %struct._zend_class_entry, ptr %358, i32 0, i32 33
-  store ptr @php_dom_get_iterator, ptr %359, align 8
+  %365 = load ptr, ptr @zend_ce_aggregate, align 8
+  %366 = load ptr, ptr @zend_ce_countable, align 8
+  %367 = call ptr @register_class_DOMNodeList(ptr noundef %365, ptr noundef %366)
+  store ptr %367, ptr @dom_nodelist_class_entry, align 8
+  %368 = load ptr, ptr @dom_nodelist_class_entry, align 8
+  %369 = getelementptr inbounds %struct._zend_class_entry, ptr %368, i32 0, i32 32
+  store ptr @dom_nnodemap_objects_new, ptr %369, align 8
+  %370 = load ptr, ptr @dom_nodelist_class_entry, align 8
+  %371 = getelementptr inbounds %struct._zend_class_entry, ptr %370, i32 0, i32 29
+  store ptr @dom_nodelist_object_handlers, ptr %371, align 8
+  %372 = load ptr, ptr @dom_nodelist_class_entry, align 8
+  %373 = getelementptr inbounds %struct._zend_class_entry, ptr %372, i32 0, i32 33
+  store ptr @php_dom_get_iterator, ptr %373, align 8
   call void @_zend_hash_init(ptr noundef @dom_nodelist_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %360
+  br label %374
 
-360:                                              ; preds = %350
+374:                                              ; preds = %364
   call void @dom_register_prop_handler(ptr noundef @dom_nodelist_prop_handlers, ptr noundef @.str.77, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.76)
-  br label %361
+  br label %375
 
-361:                                              ; preds = %360
-  %362 = load ptr, ptr @dom_nodelist_class_entry, align 8
-  %363 = getelementptr inbounds %struct._zend_class_entry, ptr %362, i32 0, i32 1
-  %364 = load ptr, ptr %363, align 8
+375:                                              ; preds = %374
+  %376 = load ptr, ptr @dom_nodelist_class_entry, align 8
+  %377 = getelementptr inbounds %struct._zend_class_entry, ptr %376, i32 0, i32 1
+  %378 = load ptr, ptr %377, align 8
   store ptr @classes, ptr %40, align 8
-  store ptr %364, ptr %41, align 8
+  store ptr %378, ptr %41, align 8
   store ptr @dom_nodelist_prop_handlers, ptr %42, align 8
-  %365 = load ptr, ptr %42, align 8
-  store ptr %365, ptr %43, align 8
-  %366 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 1
-  store i32 13, ptr %366, align 8
-  %367 = load ptr, ptr %40, align 8
-  %368 = load ptr, ptr %41, align 8
-  %369 = call ptr @zend_hash_add_new(ptr noundef %367, ptr noundef %368, ptr noundef %43) #12
-  store ptr %369, ptr %44, align 8
-  %370 = load ptr, ptr %44, align 8
-  %371 = icmp ne ptr %370, null
-  br i1 %371, label %372, label %378
+  %379 = load ptr, ptr %42, align 8
+  store ptr %379, ptr %43, align 8
+  %380 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 1
+  store i32 13, ptr %380, align 8
+  %381 = load ptr, ptr %40, align 8
+  %382 = load ptr, ptr %41, align 8
+  %383 = call ptr @zend_hash_add_new(ptr noundef %381, ptr noundef %382, ptr noundef %43) #12
+  store ptr %383, ptr %44, align 8
+  %384 = load ptr, ptr %44, align 8
+  %385 = icmp ne ptr %384, null
+  br i1 %385, label %386, label %392
 
-372:                                              ; preds = %361
-  %373 = load ptr, ptr %44, align 8
-  %374 = load ptr, ptr %373, align 8
-  %375 = icmp ne ptr %374, null
-  call void @llvm.assume(i1 %375)
-  %376 = load ptr, ptr %44, align 8
-  %377 = load ptr, ptr %376, align 8
-  store ptr %377, ptr %39, align 8
-  br label %379
+386:                                              ; preds = %375
+  %387 = load ptr, ptr %44, align 8
+  %388 = load ptr, ptr %387, align 8
+  %389 = icmp ne ptr %388, null
+  call void @llvm.assume(i1 %389)
+  %390 = load ptr, ptr %44, align 8
+  %391 = load ptr, ptr %390, align 8
+  store ptr %391, ptr %39, align 8
+  br label %393
 
-378:                                              ; preds = %361
+392:                                              ; preds = %375
   store ptr null, ptr %39, align 8
-  br label %379
+  br label %393
 
-379:                                              ; preds = %378, %372
-  %380 = load ptr, ptr @zend_ce_aggregate, align 8
-  %381 = load ptr, ptr @zend_ce_countable, align 8
-  %382 = call ptr @register_class_DOMNamedNodeMap(ptr noundef %380, ptr noundef %381)
-  store ptr %382, ptr @dom_namednodemap_class_entry, align 8
-  %383 = load ptr, ptr @dom_namednodemap_class_entry, align 8
-  %384 = getelementptr inbounds %struct._zend_class_entry, ptr %383, i32 0, i32 32
-  store ptr @dom_nnodemap_objects_new, ptr %384, align 8
-  %385 = load ptr, ptr @dom_namednodemap_class_entry, align 8
-  %386 = getelementptr inbounds %struct._zend_class_entry, ptr %385, i32 0, i32 29
-  store ptr @dom_nnodemap_object_handlers, ptr %386, align 8
-  %387 = load ptr, ptr @dom_namednodemap_class_entry, align 8
-  %388 = getelementptr inbounds %struct._zend_class_entry, ptr %387, i32 0, i32 33
-  store ptr @php_dom_get_iterator, ptr %388, align 8
+393:                                              ; preds = %392, %386
+  %394 = load ptr, ptr @zend_ce_aggregate, align 8
+  %395 = load ptr, ptr @zend_ce_countable, align 8
+  %396 = call ptr @register_class_DOMNamedNodeMap(ptr noundef %394, ptr noundef %395)
+  store ptr %396, ptr @dom_namednodemap_class_entry, align 8
+  %397 = load ptr, ptr @dom_namednodemap_class_entry, align 8
+  %398 = getelementptr inbounds %struct._zend_class_entry, ptr %397, i32 0, i32 32
+  store ptr @dom_nnodemap_objects_new, ptr %398, align 8
+  %399 = load ptr, ptr @dom_namednodemap_class_entry, align 8
+  %400 = getelementptr inbounds %struct._zend_class_entry, ptr %399, i32 0, i32 29
+  store ptr @dom_nnodemap_object_handlers, ptr %400, align 8
+  %401 = load ptr, ptr @dom_namednodemap_class_entry, align 8
+  %402 = getelementptr inbounds %struct._zend_class_entry, ptr %401, i32 0, i32 33
+  store ptr @php_dom_get_iterator, ptr %402, align 8
   call void @_zend_hash_init(ptr noundef @dom_namednodemap_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %389
+  br label %403
 
-389:                                              ; preds = %379
+403:                                              ; preds = %393
   call void @dom_register_prop_handler(ptr noundef @dom_namednodemap_prop_handlers, ptr noundef @.str.77, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.78)
-  br label %390
+  br label %404
 
-390:                                              ; preds = %389
-  %391 = load ptr, ptr @dom_namednodemap_class_entry, align 8
-  %392 = getelementptr inbounds %struct._zend_class_entry, ptr %391, i32 0, i32 1
-  %393 = load ptr, ptr %392, align 8
+404:                                              ; preds = %403
+  %405 = load ptr, ptr @dom_namednodemap_class_entry, align 8
+  %406 = getelementptr inbounds %struct._zend_class_entry, ptr %405, i32 0, i32 1
+  %407 = load ptr, ptr %406, align 8
   store ptr @classes, ptr %46, align 8
-  store ptr %393, ptr %47, align 8
+  store ptr %407, ptr %47, align 8
   store ptr @dom_namednodemap_prop_handlers, ptr %48, align 8
-  %394 = load ptr, ptr %48, align 8
-  store ptr %394, ptr %49, align 8
-  %395 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 1
-  store i32 13, ptr %395, align 8
-  %396 = load ptr, ptr %46, align 8
-  %397 = load ptr, ptr %47, align 8
-  %398 = call ptr @zend_hash_add_new(ptr noundef %396, ptr noundef %397, ptr noundef %49) #12
-  store ptr %398, ptr %50, align 8
-  %399 = load ptr, ptr %50, align 8
-  %400 = icmp ne ptr %399, null
-  br i1 %400, label %401, label %407
+  %408 = load ptr, ptr %48, align 8
+  store ptr %408, ptr %49, align 8
+  %409 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 1
+  store i32 13, ptr %409, align 8
+  %410 = load ptr, ptr %46, align 8
+  %411 = load ptr, ptr %47, align 8
+  %412 = call ptr @zend_hash_add_new(ptr noundef %410, ptr noundef %411, ptr noundef %49) #12
+  store ptr %412, ptr %50, align 8
+  %413 = load ptr, ptr %50, align 8
+  %414 = icmp ne ptr %413, null
+  br i1 %414, label %415, label %421
 
-401:                                              ; preds = %390
-  %402 = load ptr, ptr %50, align 8
-  %403 = load ptr, ptr %402, align 8
-  %404 = icmp ne ptr %403, null
-  call void @llvm.assume(i1 %404)
-  %405 = load ptr, ptr %50, align 8
-  %406 = load ptr, ptr %405, align 8
-  store ptr %406, ptr %45, align 8
-  br label %408
+415:                                              ; preds = %404
+  %416 = load ptr, ptr %50, align 8
+  %417 = load ptr, ptr %416, align 8
+  %418 = icmp ne ptr %417, null
+  call void @llvm.assume(i1 %418)
+  %419 = load ptr, ptr %50, align 8
+  %420 = load ptr, ptr %419, align 8
+  store ptr %420, ptr %45, align 8
+  br label %422
 
-407:                                              ; preds = %390
+421:                                              ; preds = %404
   store ptr null, ptr %45, align 8
-  br label %408
+  br label %422
 
-408:                                              ; preds = %407, %401
-  %409 = load ptr, ptr @dom_node_class_entry, align 8
-  %410 = load ptr, ptr @dom_childnode_class_entry, align 8
-  %411 = call ptr @register_class_DOMCharacterData(ptr noundef %409, ptr noundef %410)
-  store ptr %411, ptr @dom_characterdata_class_entry, align 8
-  %412 = load ptr, ptr @dom_characterdata_class_entry, align 8
-  %413 = getelementptr inbounds %struct._zend_class_entry, ptr %412, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %413, align 8
+422:                                              ; preds = %421, %415
+  %423 = load ptr, ptr @dom_node_class_entry, align 8
+  %424 = load ptr, ptr @dom_childnode_class_entry, align 8
+  %425 = call ptr @register_class_DOMCharacterData(ptr noundef %423, ptr noundef %424)
+  store ptr %425, ptr @dom_characterdata_class_entry, align 8
+  %426 = load ptr, ptr @dom_characterdata_class_entry, align 8
+  %427 = getelementptr inbounds %struct._zend_class_entry, ptr %426, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %427, align 8
   call void @_zend_hash_init(ptr noundef @dom_characterdata_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %414
+  br label %428
 
-414:                                              ; preds = %408
+428:                                              ; preds = %422
   call void @dom_register_prop_handler(ptr noundef @dom_characterdata_prop_handlers, ptr noundef @.str.80, i64 noundef 4, ptr noundef @zm_startup_dom.hnd.79)
-  br label %415
+  br label %429
 
-415:                                              ; preds = %414
-  br label %416
+429:                                              ; preds = %428
+  br label %430
 
-416:                                              ; preds = %415
+430:                                              ; preds = %429
   call void @dom_register_prop_handler(ptr noundef @dom_characterdata_prop_handlers, ptr noundef @.str.77, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.81)
-  br label %417
+  br label %431
 
-417:                                              ; preds = %416
-  br label %418
+431:                                              ; preds = %430
+  br label %432
 
-418:                                              ; preds = %417
+432:                                              ; preds = %431
   call void @dom_register_prop_handler(ptr noundef @dom_characterdata_prop_handlers, ptr noundef @.str.83, i64 noundef 22, ptr noundef @zm_startup_dom.hnd.82)
-  br label %419
+  br label %433
 
-419:                                              ; preds = %418
-  br label %420
+433:                                              ; preds = %432
+  br label %434
 
-420:                                              ; preds = %419
+434:                                              ; preds = %433
   call void @dom_register_prop_handler(ptr noundef @dom_characterdata_prop_handlers, ptr noundef @.str.85, i64 noundef 18, ptr noundef @zm_startup_dom.hnd.84)
-  br label %421
+  br label %435
 
-421:                                              ; preds = %420
+435:                                              ; preds = %434
   call void @zend_hash_merge(ptr noundef @dom_characterdata_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
-  %422 = load ptr, ptr @dom_characterdata_class_entry, align 8
-  %423 = getelementptr inbounds %struct._zend_class_entry, ptr %422, i32 0, i32 1
-  %424 = load ptr, ptr %423, align 8
+  %436 = load ptr, ptr @dom_characterdata_class_entry, align 8
+  %437 = getelementptr inbounds %struct._zend_class_entry, ptr %436, i32 0, i32 1
+  %438 = load ptr, ptr %437, align 8
   store ptr @classes, ptr %52, align 8
-  store ptr %424, ptr %53, align 8
+  store ptr %438, ptr %53, align 8
   store ptr @dom_characterdata_prop_handlers, ptr %54, align 8
-  %425 = load ptr, ptr %54, align 8
-  store ptr %425, ptr %55, align 8
-  %426 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 1
-  store i32 13, ptr %426, align 8
-  %427 = load ptr, ptr %52, align 8
-  %428 = load ptr, ptr %53, align 8
-  %429 = call ptr @zend_hash_add_new(ptr noundef %427, ptr noundef %428, ptr noundef %55) #12
-  store ptr %429, ptr %56, align 8
-  %430 = load ptr, ptr %56, align 8
-  %431 = icmp ne ptr %430, null
-  br i1 %431, label %432, label %438
+  %439 = load ptr, ptr %54, align 8
+  store ptr %439, ptr %55, align 8
+  %440 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 1
+  store i32 13, ptr %440, align 8
+  %441 = load ptr, ptr %52, align 8
+  %442 = load ptr, ptr %53, align 8
+  %443 = call ptr @zend_hash_add_new(ptr noundef %441, ptr noundef %442, ptr noundef %55) #12
+  store ptr %443, ptr %56, align 8
+  %444 = load ptr, ptr %56, align 8
+  %445 = icmp ne ptr %444, null
+  br i1 %445, label %446, label %452
 
-432:                                              ; preds = %421
-  %433 = load ptr, ptr %56, align 8
-  %434 = load ptr, ptr %433, align 8
-  %435 = icmp ne ptr %434, null
-  call void @llvm.assume(i1 %435)
-  %436 = load ptr, ptr %56, align 8
-  %437 = load ptr, ptr %436, align 8
-  store ptr %437, ptr %51, align 8
-  br label %439
-
-438:                                              ; preds = %421
-  store ptr null, ptr %51, align 8
-  br label %439
-
-439:                                              ; preds = %438, %432
-  %440 = load ptr, ptr @dom_node_class_entry, align 8
-  %441 = call ptr @register_class_DOMAttr(ptr noundef %440)
-  store ptr %441, ptr @dom_attr_class_entry, align 8
-  %442 = load ptr, ptr @dom_attr_class_entry, align 8
-  %443 = getelementptr inbounds %struct._zend_class_entry, ptr %442, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %443, align 8
-  call void @_zend_hash_init(ptr noundef @dom_attr_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %444
-
-444:                                              ; preds = %439
-  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.87, i64 noundef 4, ptr noundef @zm_startup_dom.hnd.86)
-  br label %445
-
-445:                                              ; preds = %444
-  br label %446
-
-446:                                              ; preds = %445
-  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.89, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.88)
-  br label %447
-
-447:                                              ; preds = %446
-  br label %448
-
-448:                                              ; preds = %447
-  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.91, i64 noundef 5, ptr noundef @zm_startup_dom.hnd.90)
-  br label %449
-
-449:                                              ; preds = %448
-  br label %450
-
-450:                                              ; preds = %449
-  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.93, i64 noundef 12, ptr noundef @zm_startup_dom.hnd.92)
-  br label %451
-
-451:                                              ; preds = %450
-  br label %452
-
-452:                                              ; preds = %451
-  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.95, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.94)
+446:                                              ; preds = %435
+  %447 = load ptr, ptr %56, align 8
+  %448 = load ptr, ptr %447, align 8
+  %449 = icmp ne ptr %448, null
+  call void @llvm.assume(i1 %449)
+  %450 = load ptr, ptr %56, align 8
+  %451 = load ptr, ptr %450, align 8
+  store ptr %451, ptr %51, align 8
   br label %453
 
-453:                                              ; preds = %452
+452:                                              ; preds = %435
+  store ptr null, ptr %51, align 8
+  br label %453
+
+453:                                              ; preds = %452, %446
+  %454 = load ptr, ptr @dom_node_class_entry, align 8
+  %455 = call ptr @register_class_DOMAttr(ptr noundef %454)
+  store ptr %455, ptr @dom_attr_class_entry, align 8
+  %456 = load ptr, ptr @dom_attr_class_entry, align 8
+  %457 = getelementptr inbounds %struct._zend_class_entry, ptr %456, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %457, align 8
+  call void @_zend_hash_init(ptr noundef @dom_attr_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
+  br label %458
+
+458:                                              ; preds = %453
+  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.87, i64 noundef 4, ptr noundef @zm_startup_dom.hnd.86)
+  br label %459
+
+459:                                              ; preds = %458
+  br label %460
+
+460:                                              ; preds = %459
+  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.89, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.88)
+  br label %461
+
+461:                                              ; preds = %460
+  br label %462
+
+462:                                              ; preds = %461
+  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.91, i64 noundef 5, ptr noundef @zm_startup_dom.hnd.90)
+  br label %463
+
+463:                                              ; preds = %462
+  br label %464
+
+464:                                              ; preds = %463
+  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.93, i64 noundef 12, ptr noundef @zm_startup_dom.hnd.92)
+  br label %465
+
+465:                                              ; preds = %464
+  br label %466
+
+466:                                              ; preds = %465
+  call void @dom_register_prop_handler(ptr noundef @dom_attr_prop_handlers, ptr noundef @.str.95, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.94)
+  br label %467
+
+467:                                              ; preds = %466
   call void @zend_hash_merge(ptr noundef @dom_attr_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
-  %454 = load ptr, ptr @dom_attr_class_entry, align 8
-  %455 = getelementptr inbounds %struct._zend_class_entry, ptr %454, i32 0, i32 1
-  %456 = load ptr, ptr %455, align 8
+  %468 = load ptr, ptr @dom_attr_class_entry, align 8
+  %469 = getelementptr inbounds %struct._zend_class_entry, ptr %468, i32 0, i32 1
+  %470 = load ptr, ptr %469, align 8
   store ptr @classes, ptr %58, align 8
-  store ptr %456, ptr %59, align 8
+  store ptr %470, ptr %59, align 8
   store ptr @dom_attr_prop_handlers, ptr %60, align 8
-  %457 = load ptr, ptr %60, align 8
-  store ptr %457, ptr %61, align 8
-  %458 = getelementptr inbounds %struct._zval_struct, ptr %61, i32 0, i32 1
-  store i32 13, ptr %458, align 8
-  %459 = load ptr, ptr %58, align 8
-  %460 = load ptr, ptr %59, align 8
-  %461 = call ptr @zend_hash_add_new(ptr noundef %459, ptr noundef %460, ptr noundef %61) #12
-  store ptr %461, ptr %62, align 8
-  %462 = load ptr, ptr %62, align 8
-  %463 = icmp ne ptr %462, null
-  br i1 %463, label %464, label %470
+  %471 = load ptr, ptr %60, align 8
+  store ptr %471, ptr %61, align 8
+  %472 = getelementptr inbounds %struct._zval_struct, ptr %61, i32 0, i32 1
+  store i32 13, ptr %472, align 8
+  %473 = load ptr, ptr %58, align 8
+  %474 = load ptr, ptr %59, align 8
+  %475 = call ptr @zend_hash_add_new(ptr noundef %473, ptr noundef %474, ptr noundef %61) #12
+  store ptr %475, ptr %62, align 8
+  %476 = load ptr, ptr %62, align 8
+  %477 = icmp ne ptr %476, null
+  br i1 %477, label %478, label %484
 
-464:                                              ; preds = %453
-  %465 = load ptr, ptr %62, align 8
-  %466 = load ptr, ptr %465, align 8
-  %467 = icmp ne ptr %466, null
-  call void @llvm.assume(i1 %467)
-  %468 = load ptr, ptr %62, align 8
-  %469 = load ptr, ptr %468, align 8
-  store ptr %469, ptr %57, align 8
-  br label %471
-
-470:                                              ; preds = %453
-  store ptr null, ptr %57, align 8
-  br label %471
-
-471:                                              ; preds = %470, %464
-  %472 = load ptr, ptr @dom_node_class_entry, align 8
-  %473 = load ptr, ptr @dom_parentnode_class_entry, align 8
-  %474 = load ptr, ptr @dom_childnode_class_entry, align 8
-  %475 = call ptr @register_class_DOMElement(ptr noundef %472, ptr noundef %473, ptr noundef %474)
-  store ptr %475, ptr @dom_element_class_entry, align 8
-  %476 = load ptr, ptr @dom_element_class_entry, align 8
-  %477 = getelementptr inbounds %struct._zend_class_entry, ptr %476, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %477, align 8
-  call void @_zend_hash_init(ptr noundef @dom_element_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %478
-
-478:                                              ; preds = %471
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.97, i64 noundef 7, ptr noundef @zm_startup_dom.hnd.96)
-  br label %479
-
-479:                                              ; preds = %478
-  br label %480
-
-480:                                              ; preds = %479
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.99, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.98)
-  br label %481
-
-481:                                              ; preds = %480
-  br label %482
-
-482:                                              ; preds = %481
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.101, i64 noundef 2, ptr noundef @zm_startup_dom.hnd.100)
-  br label %483
-
-483:                                              ; preds = %482
-  br label %484
-
-484:                                              ; preds = %483
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.95, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.102)
+478:                                              ; preds = %467
+  %479 = load ptr, ptr %62, align 8
+  %480 = load ptr, ptr %479, align 8
+  %481 = icmp ne ptr %480, null
+  call void @llvm.assume(i1 %481)
+  %482 = load ptr, ptr %62, align 8
+  %483 = load ptr, ptr %482, align 8
+  store ptr %483, ptr %57, align 8
   br label %485
 
-485:                                              ; preds = %484
-  br label %486
+484:                                              ; preds = %467
+  store ptr null, ptr %57, align 8
+  br label %485
 
-486:                                              ; preds = %485
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.52, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.103)
-  br label %487
-
-487:                                              ; preds = %486
-  br label %488
-
-488:                                              ; preds = %487
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.54, i64 noundef 16, ptr noundef @zm_startup_dom.hnd.104)
-  br label %489
-
-489:                                              ; preds = %488
-  br label %490
-
-490:                                              ; preds = %489
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.56, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.105)
-  br label %491
-
-491:                                              ; preds = %490
+485:                                              ; preds = %484, %478
+  %486 = load ptr, ptr @dom_node_class_entry, align 8
+  %487 = load ptr, ptr @dom_parentnode_class_entry, align 8
+  %488 = load ptr, ptr @dom_childnode_class_entry, align 8
+  %489 = call ptr @register_class_DOMElement(ptr noundef %486, ptr noundef %487, ptr noundef %488)
+  store ptr %489, ptr @dom_element_class_entry, align 8
+  %490 = load ptr, ptr @dom_element_class_entry, align 8
+  %491 = getelementptr inbounds %struct._zend_class_entry, ptr %490, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %491, align 8
+  call void @_zend_hash_init(ptr noundef @dom_element_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
   br label %492
 
-492:                                              ; preds = %491
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.83, i64 noundef 22, ptr noundef @zm_startup_dom.hnd.106)
+492:                                              ; preds = %485
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.97, i64 noundef 7, ptr noundef @zm_startup_dom.hnd.96)
   br label %493
 
 493:                                              ; preds = %492
   br label %494
 
 494:                                              ; preds = %493
-  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.85, i64 noundef 18, ptr noundef @zm_startup_dom.hnd.107)
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.99, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.98)
   br label %495
 
 495:                                              ; preds = %494
+  br label %496
+
+496:                                              ; preds = %495
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.101, i64 noundef 2, ptr noundef @zm_startup_dom.hnd.100)
+  br label %497
+
+497:                                              ; preds = %496
+  br label %498
+
+498:                                              ; preds = %497
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.95, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.102)
+  br label %499
+
+499:                                              ; preds = %498
+  br label %500
+
+500:                                              ; preds = %499
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.52, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.103)
+  br label %501
+
+501:                                              ; preds = %500
+  br label %502
+
+502:                                              ; preds = %501
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.54, i64 noundef 16, ptr noundef @zm_startup_dom.hnd.104)
+  br label %503
+
+503:                                              ; preds = %502
+  br label %504
+
+504:                                              ; preds = %503
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.56, i64 noundef 17, ptr noundef @zm_startup_dom.hnd.105)
+  br label %505
+
+505:                                              ; preds = %504
+  br label %506
+
+506:                                              ; preds = %505
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.83, i64 noundef 22, ptr noundef @zm_startup_dom.hnd.106)
+  br label %507
+
+507:                                              ; preds = %506
+  br label %508
+
+508:                                              ; preds = %507
+  call void @dom_register_prop_handler(ptr noundef @dom_element_prop_handlers, ptr noundef @.str.85, i64 noundef 18, ptr noundef @zm_startup_dom.hnd.107)
+  br label %509
+
+509:                                              ; preds = %508
   call void @zend_hash_merge(ptr noundef @dom_element_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
-  %496 = load ptr, ptr @dom_element_class_entry, align 8
-  %497 = getelementptr inbounds %struct._zend_class_entry, ptr %496, i32 0, i32 1
-  %498 = load ptr, ptr %497, align 8
+  %510 = load ptr, ptr @dom_element_class_entry, align 8
+  %511 = getelementptr inbounds %struct._zend_class_entry, ptr %510, i32 0, i32 1
+  %512 = load ptr, ptr %511, align 8
   store ptr @classes, ptr %64, align 8
-  store ptr %498, ptr %65, align 8
+  store ptr %512, ptr %65, align 8
   store ptr @dom_element_prop_handlers, ptr %66, align 8
-  %499 = load ptr, ptr %66, align 8
-  store ptr %499, ptr %67, align 8
-  %500 = getelementptr inbounds %struct._zval_struct, ptr %67, i32 0, i32 1
-  store i32 13, ptr %500, align 8
-  %501 = load ptr, ptr %64, align 8
-  %502 = load ptr, ptr %65, align 8
-  %503 = call ptr @zend_hash_add_new(ptr noundef %501, ptr noundef %502, ptr noundef %67) #12
-  store ptr %503, ptr %68, align 8
-  %504 = load ptr, ptr %68, align 8
-  %505 = icmp ne ptr %504, null
-  br i1 %505, label %506, label %512
+  %513 = load ptr, ptr %66, align 8
+  store ptr %513, ptr %67, align 8
+  %514 = getelementptr inbounds %struct._zval_struct, ptr %67, i32 0, i32 1
+  store i32 13, ptr %514, align 8
+  %515 = load ptr, ptr %64, align 8
+  %516 = load ptr, ptr %65, align 8
+  %517 = call ptr @zend_hash_add_new(ptr noundef %515, ptr noundef %516, ptr noundef %67) #12
+  store ptr %517, ptr %68, align 8
+  %518 = load ptr, ptr %68, align 8
+  %519 = icmp ne ptr %518, null
+  br i1 %519, label %520, label %526
 
-506:                                              ; preds = %495
-  %507 = load ptr, ptr %68, align 8
-  %508 = load ptr, ptr %507, align 8
-  %509 = icmp ne ptr %508, null
-  call void @llvm.assume(i1 %509)
-  %510 = load ptr, ptr %68, align 8
-  %511 = load ptr, ptr %510, align 8
-  store ptr %511, ptr %63, align 8
-  br label %513
-
-512:                                              ; preds = %495
-  store ptr null, ptr %63, align 8
-  br label %513
-
-513:                                              ; preds = %512, %506
-  %514 = load ptr, ptr @dom_characterdata_class_entry, align 8
-  %515 = call ptr @register_class_DOMText(ptr noundef %514)
-  store ptr %515, ptr @dom_text_class_entry, align 8
-  %516 = load ptr, ptr @dom_text_class_entry, align 8
-  %517 = getelementptr inbounds %struct._zend_class_entry, ptr %516, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %517, align 8
-  call void @_zend_hash_init(ptr noundef @dom_text_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %518
-
-518:                                              ; preds = %513
-  call void @dom_register_prop_handler(ptr noundef @dom_text_prop_handlers, ptr noundef @.str.109, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.108)
-  br label %519
-
-519:                                              ; preds = %518
-  call void @zend_hash_merge(ptr noundef @dom_text_prop_handlers, ptr noundef @dom_characterdata_prop_handlers, ptr noundef null, i1 noundef zeroext false)
-  %520 = load ptr, ptr @dom_text_class_entry, align 8
-  %521 = getelementptr inbounds %struct._zend_class_entry, ptr %520, i32 0, i32 1
+520:                                              ; preds = %509
+  %521 = load ptr, ptr %68, align 8
   %522 = load ptr, ptr %521, align 8
+  %523 = icmp ne ptr %522, null
+  call void @llvm.assume(i1 %523)
+  %524 = load ptr, ptr %68, align 8
+  %525 = load ptr, ptr %524, align 8
+  store ptr %525, ptr %63, align 8
+  br label %527
+
+526:                                              ; preds = %509
+  store ptr null, ptr %63, align 8
+  br label %527
+
+527:                                              ; preds = %526, %520
+  %528 = load ptr, ptr @dom_characterdata_class_entry, align 8
+  %529 = call ptr @register_class_DOMText(ptr noundef %528)
+  store ptr %529, ptr @dom_text_class_entry, align 8
+  %530 = load ptr, ptr @dom_text_class_entry, align 8
+  %531 = getelementptr inbounds %struct._zend_class_entry, ptr %530, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %531, align 8
+  call void @_zend_hash_init(ptr noundef @dom_text_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
+  br label %532
+
+532:                                              ; preds = %527
+  call void @dom_register_prop_handler(ptr noundef @dom_text_prop_handlers, ptr noundef @.str.109, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.108)
+  br label %533
+
+533:                                              ; preds = %532
+  call void @zend_hash_merge(ptr noundef @dom_text_prop_handlers, ptr noundef @dom_characterdata_prop_handlers, ptr noundef null, i1 noundef zeroext false)
+  %534 = load ptr, ptr @dom_text_class_entry, align 8
+  %535 = getelementptr inbounds %struct._zend_class_entry, ptr %534, i32 0, i32 1
+  %536 = load ptr, ptr %535, align 8
   store ptr @classes, ptr %70, align 8
-  store ptr %522, ptr %71, align 8
+  store ptr %536, ptr %71, align 8
   store ptr @dom_text_prop_handlers, ptr %72, align 8
-  %523 = load ptr, ptr %72, align 8
-  store ptr %523, ptr %73, align 8
-  %524 = getelementptr inbounds %struct._zval_struct, ptr %73, i32 0, i32 1
-  store i32 13, ptr %524, align 8
-  %525 = load ptr, ptr %70, align 8
-  %526 = load ptr, ptr %71, align 8
-  %527 = call ptr @zend_hash_add_new(ptr noundef %525, ptr noundef %526, ptr noundef %73) #12
-  store ptr %527, ptr %74, align 8
-  %528 = load ptr, ptr %74, align 8
-  %529 = icmp ne ptr %528, null
-  br i1 %529, label %530, label %536
+  %537 = load ptr, ptr %72, align 8
+  store ptr %537, ptr %73, align 8
+  %538 = getelementptr inbounds %struct._zval_struct, ptr %73, i32 0, i32 1
+  store i32 13, ptr %538, align 8
+  %539 = load ptr, ptr %70, align 8
+  %540 = load ptr, ptr %71, align 8
+  %541 = call ptr @zend_hash_add_new(ptr noundef %539, ptr noundef %540, ptr noundef %73) #12
+  store ptr %541, ptr %74, align 8
+  %542 = load ptr, ptr %74, align 8
+  %543 = icmp ne ptr %542, null
+  br i1 %543, label %544, label %550
 
-530:                                              ; preds = %519
-  %531 = load ptr, ptr %74, align 8
-  %532 = load ptr, ptr %531, align 8
-  %533 = icmp ne ptr %532, null
-  call void @llvm.assume(i1 %533)
-  %534 = load ptr, ptr %74, align 8
-  %535 = load ptr, ptr %534, align 8
-  store ptr %535, ptr %69, align 8
-  br label %537
+544:                                              ; preds = %533
+  %545 = load ptr, ptr %74, align 8
+  %546 = load ptr, ptr %545, align 8
+  %547 = icmp ne ptr %546, null
+  call void @llvm.assume(i1 %547)
+  %548 = load ptr, ptr %74, align 8
+  %549 = load ptr, ptr %548, align 8
+  store ptr %549, ptr %69, align 8
+  br label %551
 
-536:                                              ; preds = %519
+550:                                              ; preds = %533
   store ptr null, ptr %69, align 8
-  br label %537
+  br label %551
 
-537:                                              ; preds = %536, %530
-  %538 = load ptr, ptr @dom_characterdata_class_entry, align 8
-  %539 = call ptr @register_class_DOMComment(ptr noundef %538)
-  store ptr %539, ptr @dom_comment_class_entry, align 8
-  %540 = load ptr, ptr @dom_comment_class_entry, align 8
-  %541 = getelementptr inbounds %struct._zend_class_entry, ptr %540, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %541, align 8
-  %542 = load ptr, ptr @dom_comment_class_entry, align 8
-  %543 = getelementptr inbounds %struct._zend_class_entry, ptr %542, i32 0, i32 1
-  %544 = load ptr, ptr %543, align 8
+551:                                              ; preds = %550, %544
+  %552 = load ptr, ptr @dom_characterdata_class_entry, align 8
+  %553 = call ptr @register_class_DOMComment(ptr noundef %552)
+  store ptr %553, ptr @dom_comment_class_entry, align 8
+  %554 = load ptr, ptr @dom_comment_class_entry, align 8
+  %555 = getelementptr inbounds %struct._zend_class_entry, ptr %554, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %555, align 8
+  %556 = load ptr, ptr @dom_comment_class_entry, align 8
+  %557 = getelementptr inbounds %struct._zend_class_entry, ptr %556, i32 0, i32 1
+  %558 = load ptr, ptr %557, align 8
   store ptr @classes, ptr %76, align 8
-  store ptr %544, ptr %77, align 8
+  store ptr %558, ptr %77, align 8
   store ptr @dom_characterdata_prop_handlers, ptr %78, align 8
-  %545 = load ptr, ptr %78, align 8
-  store ptr %545, ptr %79, align 8
-  %546 = getelementptr inbounds %struct._zval_struct, ptr %79, i32 0, i32 1
-  store i32 13, ptr %546, align 8
-  %547 = load ptr, ptr %76, align 8
-  %548 = load ptr, ptr %77, align 8
-  %549 = call ptr @zend_hash_add_new(ptr noundef %547, ptr noundef %548, ptr noundef %79) #12
-  store ptr %549, ptr %80, align 8
-  %550 = load ptr, ptr %80, align 8
-  %551 = icmp ne ptr %550, null
-  br i1 %551, label %552, label %558
+  %559 = load ptr, ptr %78, align 8
+  store ptr %559, ptr %79, align 8
+  %560 = getelementptr inbounds %struct._zval_struct, ptr %79, i32 0, i32 1
+  store i32 13, ptr %560, align 8
+  %561 = load ptr, ptr %76, align 8
+  %562 = load ptr, ptr %77, align 8
+  %563 = call ptr @zend_hash_add_new(ptr noundef %561, ptr noundef %562, ptr noundef %79) #12
+  store ptr %563, ptr %80, align 8
+  %564 = load ptr, ptr %80, align 8
+  %565 = icmp ne ptr %564, null
+  br i1 %565, label %566, label %572
 
-552:                                              ; preds = %537
-  %553 = load ptr, ptr %80, align 8
-  %554 = load ptr, ptr %553, align 8
-  %555 = icmp ne ptr %554, null
-  call void @llvm.assume(i1 %555)
-  %556 = load ptr, ptr %80, align 8
-  %557 = load ptr, ptr %556, align 8
-  store ptr %557, ptr %75, align 8
-  br label %559
+566:                                              ; preds = %551
+  %567 = load ptr, ptr %80, align 8
+  %568 = load ptr, ptr %567, align 8
+  %569 = icmp ne ptr %568, null
+  call void @llvm.assume(i1 %569)
+  %570 = load ptr, ptr %80, align 8
+  %571 = load ptr, ptr %570, align 8
+  store ptr %571, ptr %75, align 8
+  br label %573
 
-558:                                              ; preds = %537
+572:                                              ; preds = %551
   store ptr null, ptr %75, align 8
-  br label %559
+  br label %573
 
-559:                                              ; preds = %558, %552
-  %560 = load ptr, ptr @dom_text_class_entry, align 8
-  %561 = call ptr @register_class_DOMCdataSection(ptr noundef %560)
-  store ptr %561, ptr @dom_cdatasection_class_entry, align 8
-  %562 = load ptr, ptr @dom_cdatasection_class_entry, align 8
-  %563 = getelementptr inbounds %struct._zend_class_entry, ptr %562, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %563, align 8
-  %564 = load ptr, ptr @dom_cdatasection_class_entry, align 8
-  %565 = getelementptr inbounds %struct._zend_class_entry, ptr %564, i32 0, i32 1
-  %566 = load ptr, ptr %565, align 8
+573:                                              ; preds = %572, %566
+  %574 = load ptr, ptr @dom_text_class_entry, align 8
+  %575 = call ptr @register_class_DOMCdataSection(ptr noundef %574)
+  store ptr %575, ptr @dom_cdatasection_class_entry, align 8
+  %576 = load ptr, ptr @dom_cdatasection_class_entry, align 8
+  %577 = getelementptr inbounds %struct._zend_class_entry, ptr %576, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %577, align 8
+  %578 = load ptr, ptr @dom_cdatasection_class_entry, align 8
+  %579 = getelementptr inbounds %struct._zend_class_entry, ptr %578, i32 0, i32 1
+  %580 = load ptr, ptr %579, align 8
   store ptr @classes, ptr %82, align 8
-  store ptr %566, ptr %83, align 8
+  store ptr %580, ptr %83, align 8
   store ptr @dom_text_prop_handlers, ptr %84, align 8
-  %567 = load ptr, ptr %84, align 8
-  store ptr %567, ptr %85, align 8
-  %568 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 1
-  store i32 13, ptr %568, align 8
-  %569 = load ptr, ptr %82, align 8
-  %570 = load ptr, ptr %83, align 8
-  %571 = call ptr @zend_hash_add_new(ptr noundef %569, ptr noundef %570, ptr noundef %85) #12
-  store ptr %571, ptr %86, align 8
-  %572 = load ptr, ptr %86, align 8
-  %573 = icmp ne ptr %572, null
-  br i1 %573, label %574, label %580
+  %581 = load ptr, ptr %84, align 8
+  store ptr %581, ptr %85, align 8
+  %582 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 1
+  store i32 13, ptr %582, align 8
+  %583 = load ptr, ptr %82, align 8
+  %584 = load ptr, ptr %83, align 8
+  %585 = call ptr @zend_hash_add_new(ptr noundef %583, ptr noundef %584, ptr noundef %85) #12
+  store ptr %585, ptr %86, align 8
+  %586 = load ptr, ptr %86, align 8
+  %587 = icmp ne ptr %586, null
+  br i1 %587, label %588, label %594
 
-574:                                              ; preds = %559
-  %575 = load ptr, ptr %86, align 8
-  %576 = load ptr, ptr %575, align 8
-  %577 = icmp ne ptr %576, null
-  call void @llvm.assume(i1 %577)
-  %578 = load ptr, ptr %86, align 8
-  %579 = load ptr, ptr %578, align 8
-  store ptr %579, ptr %81, align 8
-  br label %581
-
-580:                                              ; preds = %559
-  store ptr null, ptr %81, align 8
-  br label %581
-
-581:                                              ; preds = %580, %574
-  %582 = load ptr, ptr @dom_node_class_entry, align 8
-  %583 = call ptr @register_class_DOMDocumentType(ptr noundef %582)
-  store ptr %583, ptr @dom_documenttype_class_entry, align 8
-  %584 = load ptr, ptr @dom_documenttype_class_entry, align 8
-  %585 = getelementptr inbounds %struct._zend_class_entry, ptr %584, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %585, align 8
-  call void @_zend_hash_init(ptr noundef @dom_documenttype_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %586
-
-586:                                              ; preds = %581
-  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.87, i64 noundef 4, ptr noundef @zm_startup_dom.hnd.110)
-  br label %587
-
-587:                                              ; preds = %586
-  br label %588
-
-588:                                              ; preds = %587
-  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.112, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.111)
-  br label %589
-
-589:                                              ; preds = %588
-  br label %590
-
-590:                                              ; preds = %589
-  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.114, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.113)
-  br label %591
-
-591:                                              ; preds = %590
-  br label %592
-
-592:                                              ; preds = %591
-  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.116, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.115)
-  br label %593
-
-593:                                              ; preds = %592
-  br label %594
-
-594:                                              ; preds = %593
-  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.118, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.117)
+588:                                              ; preds = %573
+  %589 = load ptr, ptr %86, align 8
+  %590 = load ptr, ptr %589, align 8
+  %591 = icmp ne ptr %590, null
+  call void @llvm.assume(i1 %591)
+  %592 = load ptr, ptr %86, align 8
+  %593 = load ptr, ptr %592, align 8
+  store ptr %593, ptr %81, align 8
   br label %595
 
-595:                                              ; preds = %594
-  br label %596
+594:                                              ; preds = %573
+  store ptr null, ptr %81, align 8
+  br label %595
 
-596:                                              ; preds = %595
-  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.120, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.119)
-  br label %597
-
-597:                                              ; preds = %596
-  call void @zend_hash_merge(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
+595:                                              ; preds = %594, %588
+  %596 = load ptr, ptr @dom_node_class_entry, align 8
+  %597 = call ptr @register_class_DOMDocumentType(ptr noundef %596)
+  store ptr %597, ptr @dom_documenttype_class_entry, align 8
   %598 = load ptr, ptr @dom_documenttype_class_entry, align 8
-  %599 = getelementptr inbounds %struct._zend_class_entry, ptr %598, i32 0, i32 1
-  %600 = load ptr, ptr %599, align 8
+  %599 = getelementptr inbounds %struct._zend_class_entry, ptr %598, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %599, align 8
+  call void @_zend_hash_init(ptr noundef @dom_documenttype_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
+  br label %600
+
+600:                                              ; preds = %595
+  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.87, i64 noundef 4, ptr noundef @zm_startup_dom.hnd.110)
+  br label %601
+
+601:                                              ; preds = %600
+  br label %602
+
+602:                                              ; preds = %601
+  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.112, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.111)
+  br label %603
+
+603:                                              ; preds = %602
+  br label %604
+
+604:                                              ; preds = %603
+  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.114, i64 noundef 9, ptr noundef @zm_startup_dom.hnd.113)
+  br label %605
+
+605:                                              ; preds = %604
+  br label %606
+
+606:                                              ; preds = %605
+  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.116, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.115)
+  br label %607
+
+607:                                              ; preds = %606
+  br label %608
+
+608:                                              ; preds = %607
+  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.118, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.117)
+  br label %609
+
+609:                                              ; preds = %608
+  br label %610
+
+610:                                              ; preds = %609
+  call void @dom_register_prop_handler(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @.str.120, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.119)
+  br label %611
+
+611:                                              ; preds = %610
+  call void @zend_hash_merge(ptr noundef @dom_documenttype_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
+  %612 = load ptr, ptr @dom_documenttype_class_entry, align 8
+  %613 = getelementptr inbounds %struct._zend_class_entry, ptr %612, i32 0, i32 1
+  %614 = load ptr, ptr %613, align 8
   store ptr @classes, ptr %88, align 8
-  store ptr %600, ptr %89, align 8
+  store ptr %614, ptr %89, align 8
   store ptr @dom_documenttype_prop_handlers, ptr %90, align 8
-  %601 = load ptr, ptr %90, align 8
-  store ptr %601, ptr %91, align 8
-  %602 = getelementptr inbounds %struct._zval_struct, ptr %91, i32 0, i32 1
-  store i32 13, ptr %602, align 8
-  %603 = load ptr, ptr %88, align 8
-  %604 = load ptr, ptr %89, align 8
-  %605 = call ptr @zend_hash_add_new(ptr noundef %603, ptr noundef %604, ptr noundef %91) #12
-  store ptr %605, ptr %92, align 8
-  %606 = load ptr, ptr %92, align 8
-  %607 = icmp ne ptr %606, null
-  br i1 %607, label %608, label %614
+  %615 = load ptr, ptr %90, align 8
+  store ptr %615, ptr %91, align 8
+  %616 = getelementptr inbounds %struct._zval_struct, ptr %91, i32 0, i32 1
+  store i32 13, ptr %616, align 8
+  %617 = load ptr, ptr %88, align 8
+  %618 = load ptr, ptr %89, align 8
+  %619 = call ptr @zend_hash_add_new(ptr noundef %617, ptr noundef %618, ptr noundef %91) #12
+  store ptr %619, ptr %92, align 8
+  %620 = load ptr, ptr %92, align 8
+  %621 = icmp ne ptr %620, null
+  br i1 %621, label %622, label %628
 
-608:                                              ; preds = %597
-  %609 = load ptr, ptr %92, align 8
-  %610 = load ptr, ptr %609, align 8
-  %611 = icmp ne ptr %610, null
-  call void @llvm.assume(i1 %611)
-  %612 = load ptr, ptr %92, align 8
-  %613 = load ptr, ptr %612, align 8
-  store ptr %613, ptr %87, align 8
-  br label %615
+622:                                              ; preds = %611
+  %623 = load ptr, ptr %92, align 8
+  %624 = load ptr, ptr %623, align 8
+  %625 = icmp ne ptr %624, null
+  call void @llvm.assume(i1 %625)
+  %626 = load ptr, ptr %92, align 8
+  %627 = load ptr, ptr %626, align 8
+  store ptr %627, ptr %87, align 8
+  br label %629
 
-614:                                              ; preds = %597
+628:                                              ; preds = %611
   store ptr null, ptr %87, align 8
-  br label %615
+  br label %629
 
-615:                                              ; preds = %614, %608
-  %616 = load ptr, ptr @dom_node_class_entry, align 8
-  %617 = call ptr @register_class_DOMNotation(ptr noundef %616)
-  store ptr %617, ptr @dom_notation_class_entry, align 8
-  %618 = load ptr, ptr @dom_notation_class_entry, align 8
-  %619 = getelementptr inbounds %struct._zend_class_entry, ptr %618, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %619, align 8
+629:                                              ; preds = %628, %622
+  %630 = load ptr, ptr @dom_node_class_entry, align 8
+  %631 = call ptr @register_class_DOMNotation(ptr noundef %630)
+  store ptr %631, ptr @dom_notation_class_entry, align 8
+  %632 = load ptr, ptr @dom_notation_class_entry, align 8
+  %633 = getelementptr inbounds %struct._zend_class_entry, ptr %632, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %633, align 8
   call void @_zend_hash_init(ptr noundef @dom_notation_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %620
+  br label %634
 
-620:                                              ; preds = %615
+634:                                              ; preds = %629
   call void @dom_register_prop_handler(ptr noundef @dom_notation_prop_handlers, ptr noundef @.str.116, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.121)
-  br label %621
+  br label %635
 
-621:                                              ; preds = %620
-  br label %622
+635:                                              ; preds = %634
+  br label %636
 
-622:                                              ; preds = %621
+636:                                              ; preds = %635
   call void @dom_register_prop_handler(ptr noundef @dom_notation_prop_handlers, ptr noundef @.str.118, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.122)
-  br label %623
+  br label %637
 
-623:                                              ; preds = %622
+637:                                              ; preds = %636
   call void @zend_hash_merge(ptr noundef @dom_notation_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
-  %624 = load ptr, ptr @dom_notation_class_entry, align 8
-  %625 = getelementptr inbounds %struct._zend_class_entry, ptr %624, i32 0, i32 1
-  %626 = load ptr, ptr %625, align 8
+  %638 = load ptr, ptr @dom_notation_class_entry, align 8
+  %639 = getelementptr inbounds %struct._zend_class_entry, ptr %638, i32 0, i32 1
+  %640 = load ptr, ptr %639, align 8
   store ptr @classes, ptr %94, align 8
-  store ptr %626, ptr %95, align 8
+  store ptr %640, ptr %95, align 8
   store ptr @dom_notation_prop_handlers, ptr %96, align 8
-  %627 = load ptr, ptr %96, align 8
-  store ptr %627, ptr %97, align 8
-  %628 = getelementptr inbounds %struct._zval_struct, ptr %97, i32 0, i32 1
-  store i32 13, ptr %628, align 8
-  %629 = load ptr, ptr %94, align 8
-  %630 = load ptr, ptr %95, align 8
-  %631 = call ptr @zend_hash_add_new(ptr noundef %629, ptr noundef %630, ptr noundef %97) #12
-  store ptr %631, ptr %98, align 8
-  %632 = load ptr, ptr %98, align 8
-  %633 = icmp ne ptr %632, null
-  br i1 %633, label %634, label %640
+  %641 = load ptr, ptr %96, align 8
+  store ptr %641, ptr %97, align 8
+  %642 = getelementptr inbounds %struct._zval_struct, ptr %97, i32 0, i32 1
+  store i32 13, ptr %642, align 8
+  %643 = load ptr, ptr %94, align 8
+  %644 = load ptr, ptr %95, align 8
+  %645 = call ptr @zend_hash_add_new(ptr noundef %643, ptr noundef %644, ptr noundef %97) #12
+  store ptr %645, ptr %98, align 8
+  %646 = load ptr, ptr %98, align 8
+  %647 = icmp ne ptr %646, null
+  br i1 %647, label %648, label %654
 
-634:                                              ; preds = %623
-  %635 = load ptr, ptr %98, align 8
-  %636 = load ptr, ptr %635, align 8
-  %637 = icmp ne ptr %636, null
-  call void @llvm.assume(i1 %637)
-  %638 = load ptr, ptr %98, align 8
-  %639 = load ptr, ptr %638, align 8
-  store ptr %639, ptr %93, align 8
-  br label %641
-
-640:                                              ; preds = %623
-  store ptr null, ptr %93, align 8
-  br label %641
-
-641:                                              ; preds = %640, %634
-  %642 = load ptr, ptr @dom_node_class_entry, align 8
-  %643 = call ptr @register_class_DOMEntity(ptr noundef %642)
-  store ptr %643, ptr @dom_entity_class_entry, align 8
-  %644 = load ptr, ptr @dom_entity_class_entry, align 8
-  %645 = getelementptr inbounds %struct._zend_class_entry, ptr %644, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %645, align 8
-  call void @_zend_hash_init(ptr noundef @dom_entity_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %646
-
-646:                                              ; preds = %641
-  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.116, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.123)
-  br label %647
-
-647:                                              ; preds = %646
-  br label %648
-
-648:                                              ; preds = %647
-  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.118, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.124)
-  br label %649
-
-649:                                              ; preds = %648
-  br label %650
-
-650:                                              ; preds = %649
-  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.126, i64 noundef 12, ptr noundef @zm_startup_dom.hnd.125)
-  br label %651
-
-651:                                              ; preds = %650
-  br label %652
-
-652:                                              ; preds = %651
-  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.71, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.127)
-  br label %653
-
-653:                                              ; preds = %652
-  br label %654
-
-654:                                              ; preds = %653
-  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.75, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.128)
+648:                                              ; preds = %637
+  %649 = load ptr, ptr %98, align 8
+  %650 = load ptr, ptr %649, align 8
+  %651 = icmp ne ptr %650, null
+  call void @llvm.assume(i1 %651)
+  %652 = load ptr, ptr %98, align 8
+  %653 = load ptr, ptr %652, align 8
+  store ptr %653, ptr %93, align 8
   br label %655
 
-655:                                              ; preds = %654
-  br label %656
+654:                                              ; preds = %637
+  store ptr null, ptr %93, align 8
+  br label %655
 
-656:                                              ; preds = %655
-  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.130, i64 noundef 7, ptr noundef @zm_startup_dom.hnd.129)
-  br label %657
-
-657:                                              ; preds = %656
-  call void @zend_hash_merge(ptr noundef @dom_entity_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
+655:                                              ; preds = %654, %648
+  %656 = load ptr, ptr @dom_node_class_entry, align 8
+  %657 = call ptr @register_class_DOMEntity(ptr noundef %656)
+  store ptr %657, ptr @dom_entity_class_entry, align 8
   %658 = load ptr, ptr @dom_entity_class_entry, align 8
-  %659 = getelementptr inbounds %struct._zend_class_entry, ptr %658, i32 0, i32 1
-  %660 = load ptr, ptr %659, align 8
+  %659 = getelementptr inbounds %struct._zend_class_entry, ptr %658, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %659, align 8
+  call void @_zend_hash_init(ptr noundef @dom_entity_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
+  br label %660
+
+660:                                              ; preds = %655
+  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.116, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.123)
+  br label %661
+
+661:                                              ; preds = %660
+  br label %662
+
+662:                                              ; preds = %661
+  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.118, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.124)
+  br label %663
+
+663:                                              ; preds = %662
+  br label %664
+
+664:                                              ; preds = %663
+  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.126, i64 noundef 12, ptr noundef @zm_startup_dom.hnd.125)
+  br label %665
+
+665:                                              ; preds = %664
+  br label %666
+
+666:                                              ; preds = %665
+  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.71, i64 noundef 14, ptr noundef @zm_startup_dom.hnd.127)
+  br label %667
+
+667:                                              ; preds = %666
+  br label %668
+
+668:                                              ; preds = %667
+  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.75, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.128)
+  br label %669
+
+669:                                              ; preds = %668
+  br label %670
+
+670:                                              ; preds = %669
+  call void @dom_register_prop_handler(ptr noundef @dom_entity_prop_handlers, ptr noundef @.str.130, i64 noundef 7, ptr noundef @zm_startup_dom.hnd.129)
+  br label %671
+
+671:                                              ; preds = %670
+  call void @zend_hash_merge(ptr noundef @dom_entity_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
+  %672 = load ptr, ptr @dom_entity_class_entry, align 8
+  %673 = getelementptr inbounds %struct._zend_class_entry, ptr %672, i32 0, i32 1
+  %674 = load ptr, ptr %673, align 8
   store ptr @classes, ptr %100, align 8
-  store ptr %660, ptr %101, align 8
+  store ptr %674, ptr %101, align 8
   store ptr @dom_entity_prop_handlers, ptr %102, align 8
-  %661 = load ptr, ptr %102, align 8
-  store ptr %661, ptr %103, align 8
-  %662 = getelementptr inbounds %struct._zval_struct, ptr %103, i32 0, i32 1
-  store i32 13, ptr %662, align 8
-  %663 = load ptr, ptr %100, align 8
-  %664 = load ptr, ptr %101, align 8
-  %665 = call ptr @zend_hash_add_new(ptr noundef %663, ptr noundef %664, ptr noundef %103) #12
-  store ptr %665, ptr %104, align 8
-  %666 = load ptr, ptr %104, align 8
-  %667 = icmp ne ptr %666, null
-  br i1 %667, label %668, label %674
+  %675 = load ptr, ptr %102, align 8
+  store ptr %675, ptr %103, align 8
+  %676 = getelementptr inbounds %struct._zval_struct, ptr %103, i32 0, i32 1
+  store i32 13, ptr %676, align 8
+  %677 = load ptr, ptr %100, align 8
+  %678 = load ptr, ptr %101, align 8
+  %679 = call ptr @zend_hash_add_new(ptr noundef %677, ptr noundef %678, ptr noundef %103) #12
+  store ptr %679, ptr %104, align 8
+  %680 = load ptr, ptr %104, align 8
+  %681 = icmp ne ptr %680, null
+  br i1 %681, label %682, label %688
 
-668:                                              ; preds = %657
-  %669 = load ptr, ptr %104, align 8
-  %670 = load ptr, ptr %669, align 8
-  %671 = icmp ne ptr %670, null
-  call void @llvm.assume(i1 %671)
-  %672 = load ptr, ptr %104, align 8
-  %673 = load ptr, ptr %672, align 8
-  store ptr %673, ptr %99, align 8
-  br label %675
+682:                                              ; preds = %671
+  %683 = load ptr, ptr %104, align 8
+  %684 = load ptr, ptr %683, align 8
+  %685 = icmp ne ptr %684, null
+  call void @llvm.assume(i1 %685)
+  %686 = load ptr, ptr %104, align 8
+  %687 = load ptr, ptr %686, align 8
+  store ptr %687, ptr %99, align 8
+  br label %689
 
-674:                                              ; preds = %657
+688:                                              ; preds = %671
   store ptr null, ptr %99, align 8
-  br label %675
+  br label %689
 
-675:                                              ; preds = %674, %668
-  %676 = load ptr, ptr @dom_node_class_entry, align 8
-  %677 = call ptr @register_class_DOMEntityReference(ptr noundef %676)
-  store ptr %677, ptr @dom_entityreference_class_entry, align 8
-  %678 = load ptr, ptr @dom_entityreference_class_entry, align 8
-  %679 = getelementptr inbounds %struct._zend_class_entry, ptr %678, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %679, align 8
-  %680 = load ptr, ptr @dom_entityreference_class_entry, align 8
-  %681 = getelementptr inbounds %struct._zend_class_entry, ptr %680, i32 0, i32 1
-  %682 = load ptr, ptr %681, align 8
+689:                                              ; preds = %688, %682
+  %690 = load ptr, ptr @dom_node_class_entry, align 8
+  %691 = call ptr @register_class_DOMEntityReference(ptr noundef %690)
+  store ptr %691, ptr @dom_entityreference_class_entry, align 8
+  %692 = load ptr, ptr @dom_entityreference_class_entry, align 8
+  %693 = getelementptr inbounds %struct._zend_class_entry, ptr %692, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %693, align 8
+  %694 = load ptr, ptr @dom_entityreference_class_entry, align 8
+  %695 = getelementptr inbounds %struct._zend_class_entry, ptr %694, i32 0, i32 1
+  %696 = load ptr, ptr %695, align 8
   store ptr @classes, ptr %106, align 8
-  store ptr %682, ptr %107, align 8
+  store ptr %696, ptr %107, align 8
   store ptr @dom_node_prop_handlers, ptr %108, align 8
-  %683 = load ptr, ptr %108, align 8
-  store ptr %683, ptr %109, align 8
-  %684 = getelementptr inbounds %struct._zval_struct, ptr %109, i32 0, i32 1
-  store i32 13, ptr %684, align 8
-  %685 = load ptr, ptr %106, align 8
-  %686 = load ptr, ptr %107, align 8
-  %687 = call ptr @zend_hash_add_new(ptr noundef %685, ptr noundef %686, ptr noundef %109) #12
-  store ptr %687, ptr %110, align 8
-  %688 = load ptr, ptr %110, align 8
-  %689 = icmp ne ptr %688, null
-  br i1 %689, label %690, label %696
+  %697 = load ptr, ptr %108, align 8
+  store ptr %697, ptr %109, align 8
+  %698 = getelementptr inbounds %struct._zval_struct, ptr %109, i32 0, i32 1
+  store i32 13, ptr %698, align 8
+  %699 = load ptr, ptr %106, align 8
+  %700 = load ptr, ptr %107, align 8
+  %701 = call ptr @zend_hash_add_new(ptr noundef %699, ptr noundef %700, ptr noundef %109) #12
+  store ptr %701, ptr %110, align 8
+  %702 = load ptr, ptr %110, align 8
+  %703 = icmp ne ptr %702, null
+  br i1 %703, label %704, label %710
 
-690:                                              ; preds = %675
-  %691 = load ptr, ptr %110, align 8
-  %692 = load ptr, ptr %691, align 8
-  %693 = icmp ne ptr %692, null
-  call void @llvm.assume(i1 %693)
-  %694 = load ptr, ptr %110, align 8
-  %695 = load ptr, ptr %694, align 8
-  store ptr %695, ptr %105, align 8
-  br label %697
+704:                                              ; preds = %689
+  %705 = load ptr, ptr %110, align 8
+  %706 = load ptr, ptr %705, align 8
+  %707 = icmp ne ptr %706, null
+  call void @llvm.assume(i1 %707)
+  %708 = load ptr, ptr %110, align 8
+  %709 = load ptr, ptr %708, align 8
+  store ptr %709, ptr %105, align 8
+  br label %711
 
-696:                                              ; preds = %675
+710:                                              ; preds = %689
   store ptr null, ptr %105, align 8
-  br label %697
+  br label %711
 
-697:                                              ; preds = %696, %690
-  %698 = load ptr, ptr @dom_node_class_entry, align 8
-  %699 = call ptr @register_class_DOMProcessingInstruction(ptr noundef %698)
-  store ptr %699, ptr @dom_processinginstruction_class_entry, align 8
-  %700 = load ptr, ptr @dom_processinginstruction_class_entry, align 8
-  %701 = getelementptr inbounds %struct._zend_class_entry, ptr %700, i32 0, i32 32
-  store ptr @dom_objects_new, ptr %701, align 8
+711:                                              ; preds = %710, %704
+  %712 = load ptr, ptr @dom_node_class_entry, align 8
+  %713 = call ptr @register_class_DOMProcessingInstruction(ptr noundef %712)
+  store ptr %713, ptr @dom_processinginstruction_class_entry, align 8
+  %714 = load ptr, ptr @dom_processinginstruction_class_entry, align 8
+  %715 = getelementptr inbounds %struct._zend_class_entry, ptr %714, i32 0, i32 32
+  store ptr @dom_objects_new, ptr %715, align 8
   call void @_zend_hash_init(ptr noundef @dom_processinginstruction_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %702
+  br label %716
 
-702:                                              ; preds = %697
+716:                                              ; preds = %711
   call void @dom_register_prop_handler(ptr noundef @dom_processinginstruction_prop_handlers, ptr noundef @.str.132, i64 noundef 6, ptr noundef @zm_startup_dom.hnd.131)
-  br label %703
+  br label %717
 
-703:                                              ; preds = %702
-  br label %704
+717:                                              ; preds = %716
+  br label %718
 
-704:                                              ; preds = %703
+718:                                              ; preds = %717
   call void @dom_register_prop_handler(ptr noundef @dom_processinginstruction_prop_handlers, ptr noundef @.str.80, i64 noundef 4, ptr noundef @zm_startup_dom.hnd.133)
-  br label %705
+  br label %719
 
-705:                                              ; preds = %704
+719:                                              ; preds = %718
   call void @zend_hash_merge(ptr noundef @dom_processinginstruction_prop_handlers, ptr noundef @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false)
-  %706 = load ptr, ptr @dom_processinginstruction_class_entry, align 8
-  %707 = getelementptr inbounds %struct._zend_class_entry, ptr %706, i32 0, i32 1
-  %708 = load ptr, ptr %707, align 8
+  %720 = load ptr, ptr @dom_processinginstruction_class_entry, align 8
+  %721 = getelementptr inbounds %struct._zend_class_entry, ptr %720, i32 0, i32 1
+  %722 = load ptr, ptr %721, align 8
   store ptr @classes, ptr %112, align 8
-  store ptr %708, ptr %113, align 8
+  store ptr %722, ptr %113, align 8
   store ptr @dom_processinginstruction_prop_handlers, ptr %114, align 8
-  %709 = load ptr, ptr %114, align 8
-  store ptr %709, ptr %115, align 8
-  %710 = getelementptr inbounds %struct._zval_struct, ptr %115, i32 0, i32 1
-  store i32 13, ptr %710, align 8
-  %711 = load ptr, ptr %112, align 8
-  %712 = load ptr, ptr %113, align 8
-  %713 = call ptr @zend_hash_add_new(ptr noundef %711, ptr noundef %712, ptr noundef %115) #12
-  store ptr %713, ptr %116, align 8
-  %714 = load ptr, ptr %116, align 8
-  %715 = icmp ne ptr %714, null
-  br i1 %715, label %716, label %722
+  %723 = load ptr, ptr %114, align 8
+  store ptr %723, ptr %115, align 8
+  %724 = getelementptr inbounds %struct._zval_struct, ptr %115, i32 0, i32 1
+  store i32 13, ptr %724, align 8
+  %725 = load ptr, ptr %112, align 8
+  %726 = load ptr, ptr %113, align 8
+  %727 = call ptr @zend_hash_add_new(ptr noundef %725, ptr noundef %726, ptr noundef %115) #12
+  store ptr %727, ptr %116, align 8
+  %728 = load ptr, ptr %116, align 8
+  %729 = icmp ne ptr %728, null
+  br i1 %729, label %730, label %736
 
-716:                                              ; preds = %705
-  %717 = load ptr, ptr %116, align 8
-  %718 = load ptr, ptr %717, align 8
-  %719 = icmp ne ptr %718, null
-  call void @llvm.assume(i1 %719)
-  %720 = load ptr, ptr %116, align 8
-  %721 = load ptr, ptr %720, align 8
-  store ptr %721, ptr %111, align 8
-  br label %723
+730:                                              ; preds = %719
+  %731 = load ptr, ptr %116, align 8
+  %732 = load ptr, ptr %731, align 8
+  %733 = icmp ne ptr %732, null
+  call void @llvm.assume(i1 %733)
+  %734 = load ptr, ptr %116, align 8
+  %735 = load ptr, ptr %734, align 8
+  store ptr %735, ptr %111, align 8
+  br label %737
 
-722:                                              ; preds = %705
+736:                                              ; preds = %719
   store ptr null, ptr %111, align 8
-  br label %723
+  br label %737
 
-723:                                              ; preds = %722, %716
+737:                                              ; preds = %736, %730
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @dom_xpath_object_handlers, ptr align 8 @dom_object_handlers, i64 200, i1 false)
   store i32 56, ptr @dom_xpath_object_handlers, align 8
-  store ptr @dom_xpath_objects_free_storage, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_xpath_object_handlers, i32 0, i32 1), align 8
-  store ptr @dom_xpath_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_xpath_object_handlers, i32 0, i32 21), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @dom_xpath_object_handlers, i32 0, i32 3), align 8
-  %724 = call ptr @register_class_DOMXPath()
-  store ptr %724, ptr @dom_xpath_class_entry, align 8
-  %725 = load ptr, ptr @dom_xpath_class_entry, align 8
-  %726 = getelementptr inbounds %struct._zend_class_entry, ptr %725, i32 0, i32 32
-  store ptr @dom_xpath_objects_new, ptr %726, align 8
-  %727 = load ptr, ptr @dom_xpath_class_entry, align 8
-  %728 = getelementptr inbounds %struct._zend_class_entry, ptr %727, i32 0, i32 29
-  store ptr @dom_xpath_object_handlers, ptr %728, align 8
+  %738 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_xpath_object_handlers, i32 0, i32 1
+  store ptr @dom_xpath_objects_free_storage, ptr %738, align 8
+  %739 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_xpath_object_handlers, i32 0, i32 21
+  store ptr @dom_xpath_get_gc, ptr %739, align 8
+  %740 = getelementptr inbounds %struct._zend_object_handlers, ptr @dom_xpath_object_handlers, i32 0, i32 3
+  store ptr null, ptr %740, align 8
+  %741 = call ptr @register_class_DOMXPath()
+  store ptr %741, ptr @dom_xpath_class_entry, align 8
+  %742 = load ptr, ptr @dom_xpath_class_entry, align 8
+  %743 = getelementptr inbounds %struct._zend_class_entry, ptr %742, i32 0, i32 32
+  store ptr @dom_xpath_objects_new, ptr %743, align 8
+  %744 = load ptr, ptr @dom_xpath_class_entry, align 8
+  %745 = getelementptr inbounds %struct._zend_class_entry, ptr %744, i32 0, i32 29
+  store ptr @dom_xpath_object_handlers, ptr %745, align 8
   call void @_zend_hash_init(ptr noundef @dom_xpath_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true)
-  br label %729
+  br label %746
 
-729:                                              ; preds = %723
+746:                                              ; preds = %737
   call void @dom_register_prop_handler(ptr noundef @dom_xpath_prop_handlers, ptr noundef @.str.135, i64 noundef 8, ptr noundef @zm_startup_dom.hnd.134)
-  br label %730
+  br label %747
 
-730:                                              ; preds = %729
-  br label %731
+747:                                              ; preds = %746
+  br label %748
 
-731:                                              ; preds = %730
+748:                                              ; preds = %747
   call void @dom_register_prop_handler(ptr noundef @dom_xpath_prop_handlers, ptr noundef @.str.137, i64 noundef 22, ptr noundef @zm_startup_dom.hnd.136)
-  br label %732
+  br label %749
 
-732:                                              ; preds = %731
-  %733 = load ptr, ptr @dom_xpath_class_entry, align 8
-  %734 = getelementptr inbounds %struct._zend_class_entry, ptr %733, i32 0, i32 1
-  %735 = load ptr, ptr %734, align 8
+749:                                              ; preds = %748
+  %750 = load ptr, ptr @dom_xpath_class_entry, align 8
+  %751 = getelementptr inbounds %struct._zend_class_entry, ptr %750, i32 0, i32 1
+  %752 = load ptr, ptr %751, align 8
   store ptr @classes, ptr %118, align 8
-  store ptr %735, ptr %119, align 8
+  store ptr %752, ptr %119, align 8
   store ptr @dom_xpath_prop_handlers, ptr %120, align 8
-  %736 = load ptr, ptr %120, align 8
-  store ptr %736, ptr %121, align 8
-  %737 = getelementptr inbounds %struct._zval_struct, ptr %121, i32 0, i32 1
-  store i32 13, ptr %737, align 8
-  %738 = load ptr, ptr %118, align 8
-  %739 = load ptr, ptr %119, align 8
-  %740 = call ptr @zend_hash_add_new(ptr noundef %738, ptr noundef %739, ptr noundef %121) #12
-  store ptr %740, ptr %122, align 8
-  %741 = load ptr, ptr %122, align 8
-  %742 = icmp ne ptr %741, null
-  br i1 %742, label %743, label %749
+  %753 = load ptr, ptr %120, align 8
+  store ptr %753, ptr %121, align 8
+  %754 = getelementptr inbounds %struct._zval_struct, ptr %121, i32 0, i32 1
+  store i32 13, ptr %754, align 8
+  %755 = load ptr, ptr %118, align 8
+  %756 = load ptr, ptr %119, align 8
+  %757 = call ptr @zend_hash_add_new(ptr noundef %755, ptr noundef %756, ptr noundef %121) #12
+  store ptr %757, ptr %122, align 8
+  %758 = load ptr, ptr %122, align 8
+  %759 = icmp ne ptr %758, null
+  br i1 %759, label %760, label %766
 
-743:                                              ; preds = %732
-  %744 = load ptr, ptr %122, align 8
-  %745 = load ptr, ptr %744, align 8
-  %746 = icmp ne ptr %745, null
-  call void @llvm.assume(i1 %746)
-  %747 = load ptr, ptr %122, align 8
-  %748 = load ptr, ptr %747, align 8
-  store ptr %748, ptr %117, align 8
-  br label %750
+760:                                              ; preds = %749
+  %761 = load ptr, ptr %122, align 8
+  %762 = load ptr, ptr %761, align 8
+  %763 = icmp ne ptr %762, null
+  call void @llvm.assume(i1 %763)
+  %764 = load ptr, ptr %122, align 8
+  %765 = load ptr, ptr %764, align 8
+  store ptr %765, ptr %117, align 8
+  br label %767
 
-749:                                              ; preds = %732
+766:                                              ; preds = %749
   store ptr null, ptr %117, align 8
-  br label %750
+  br label %767
 
-750:                                              ; preds = %749, %743
-  %751 = load i32, ptr %124, align 4
-  call void @register_php_dom_symbols(i32 noundef %751)
-  %752 = load ptr, ptr @dom_node_class_entry, align 8
-  %753 = call ptr @php_libxml_register_export(ptr noundef %752, ptr noundef @php_dom_export_node)
-  %754 = call i32 @lexbor_memory_setup(ptr noundef @dom_malloc, ptr noundef @dom_realloc, ptr noundef @dom_calloc, ptr noundef @dom_free)
+767:                                              ; preds = %766, %760
+  %768 = load i32, ptr %124, align 4
+  call void @register_php_dom_symbols(i32 noundef %768)
+  %769 = load ptr, ptr @dom_node_class_entry, align 8
+  %770 = call ptr @php_libxml_register_export(ptr noundef %769, ptr noundef @php_dom_export_node)
+  %771 = call i32 @lexbor_memory_setup(ptr noundef @dom_malloc, ptr noundef @dom_realloc, ptr noundef @dom_calloc, ptr noundef @dom_free)
   ret i32 0
 }
 
@@ -108934,13 +108956,13 @@ define internal void @dom_objects_set_class_ex(ptr noundef %0, ptr noundef %1) #
   store ptr %10, ptr %9, align 8
   br label %11
 
-11:                                               ; preds = %33, %2
+11:                                               ; preds = %34, %2
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds %struct._zend_class_entry, ptr %12, i32 0, i32 0
   %14 = load i8, ptr %13, align 8
   %15 = sext i8 %14 to i32
   %16 = icmp ne i32 %15, 1
-  br i1 %16, label %26, label %17
+  br i1 %16, label %27, label %17
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %9, align 8
@@ -108949,69 +108971,70 @@ define internal void @dom_objects_set_class_ex(ptr noundef %0, ptr noundef %1) #
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds %struct._zend_module_entry, ptr %21, i32 0, i32 22
   %23 = load i32, ptr %22, align 8
-  %24 = load i32, ptr getelementptr inbounds (%struct._zend_module_entry, ptr @dom_module_entry, i32 0, i32 22), align 8
-  %25 = icmp ne i32 %23, %24
-  br i1 %25, label %26, label %31
+  %24 = getelementptr inbounds %struct._zend_module_entry, ptr @dom_module_entry, i32 0, i32 22
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %23, %25
+  br i1 %26, label %27, label %32
 
-26:                                               ; preds = %17, %11
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._zend_class_entry, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp ne ptr %29, null
-  br label %31
+27:                                               ; preds = %17, %11
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds %struct._zend_class_entry, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  br label %32
 
-31:                                               ; preds = %26, %17
-  %32 = phi i1 [ false, %17 ], [ %30, %26 ]
-  br i1 %32, label %33, label %37
+32:                                               ; preds = %27, %17
+  %33 = phi i1 [ false, %17 ], [ %31, %27 ]
+  br i1 %33, label %34, label %38
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct._zend_class_entry, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %9, align 8
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds %struct._zend_class_entry, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %9, align 8
   br label %11
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds %struct._zend_class_entry, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
   store ptr @classes, ptr %4, align 8
-  store ptr %40, ptr %5, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = call ptr @zend_hash_find(ptr noundef %41, ptr noundef %42) #12
-  store ptr %43, ptr %6, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %52
+  store ptr %41, ptr %5, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = call ptr @zend_hash_find(ptr noundef %42, ptr noundef %43) #12
+  store ptr %44, ptr %6, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %53
 
-46:                                               ; preds = %37
-  %47 = load ptr, ptr %6, align 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %49)
-  %50 = load ptr, ptr %6, align 8
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %3, align 8
-  br label %53
+47:                                               ; preds = %38
+  %48 = load ptr, ptr %6, align 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp ne ptr %49, null
+  call void @llvm.assume(i1 %50)
+  %51 = load ptr, ptr %6, align 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %3, align 8
+  br label %54
 
-52:                                               ; preds = %37
+53:                                               ; preds = %38
   store ptr null, ptr %3, align 8
-  br label %53
+  br label %54
 
-53:                                               ; preds = %52, %46
-  %54 = load ptr, ptr %3, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct._dom_object, ptr %55, i32 0, i32 2
-  store ptr %54, ptr %56, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct._dom_object, ptr %57, i32 0, i32 3
-  %59 = load ptr, ptr %7, align 8
-  call void @zend_object_std_init(ptr noundef %58, ptr noundef %59)
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct._dom_object, ptr %60, i32 0, i32 3
-  %62 = load ptr, ptr %7, align 8
-  call void @object_properties_init(ptr noundef %61, ptr noundef %62)
+54:                                               ; preds = %53, %47
+  %55 = load ptr, ptr %3, align 8
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds %struct._dom_object, ptr %56, i32 0, i32 2
+  store ptr %55, ptr %57, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds %struct._dom_object, ptr %58, i32 0, i32 3
+  %60 = load ptr, ptr %7, align 8
+  call void @zend_object_std_init(ptr noundef %59, ptr noundef %60)
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds %struct._dom_object, ptr %61, i32 0, i32 3
+  %63 = load ptr, ptr %7, align 8
+  call void @object_properties_init(ptr noundef %62, ptr noundef %63)
   ret void
 }
 

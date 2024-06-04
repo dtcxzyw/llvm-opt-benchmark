@@ -1899,7 +1899,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23JSONValue
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23JSONValueTest_null_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23JSONValueTest_null_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2318,7 +2319,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28JSONValue
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28JSONValueTest_BoolFalse_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28JSONValueTest_BoolFalse_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2606,7 +2608,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27JSONValue
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27JSONValueTest_BoolTrue_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27JSONValueTest_BoolTrue_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2855,7 +2858,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30JSONValue
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30JSONValueTest_IntPositive_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30JSONValueTest_IntPositive_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3140,7 +3144,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30JSONValue
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30JSONValueTest_IntNegative_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30JSONValueTest_IntNegative_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3389,7 +3394,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25JSONValue
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25JSONValueTest_String_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25JSONValueTest_String_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3680,7 +3686,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31JSONValue
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31JSONValueTest_StringQuotes_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31JSONValueTest_StringQuotes_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3949,7 +3956,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32JSONValue
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32JSONValueTest_DISABLED_Path_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32JSONValueTest_DISABLED_Path_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5707,7 +5715,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5800,32 +5809,35 @@ define linkonce_odr void @_ZN3nix23JSONValueTest_null_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23JSONValueTest_null_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23JSONValueTest_null_TestE, i64 0, i64 1
+  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23JSONValueTest_null_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23JSONValueTest_null_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23JSONValueTest_null_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23JSONValueTest_null_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -8679,32 +8691,35 @@ define linkonce_odr void @_ZN3nix28JSONValueTest_BoolFalse_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28JSONValueTest_BoolFalse_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28JSONValueTest_BoolFalse_TestE, i64 0, i64 1
+  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28JSONValueTest_BoolFalse_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28JSONValueTest_BoolFalse_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28JSONValueTest_BoolFalse_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28JSONValueTest_BoolFalse_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8778,32 +8793,35 @@ define linkonce_odr void @_ZN3nix27JSONValueTest_BoolTrue_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27JSONValueTest_BoolTrue_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27JSONValueTest_BoolTrue_TestE, i64 0, i64 1
+  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27JSONValueTest_BoolTrue_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27JSONValueTest_BoolTrue_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27JSONValueTest_BoolTrue_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27JSONValueTest_BoolTrue_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8877,32 +8895,35 @@ define linkonce_odr void @_ZN3nix30JSONValueTest_IntPositive_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30JSONValueTest_IntPositive_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30JSONValueTest_IntPositive_TestE, i64 0, i64 1
+  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntPositive_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntPositive_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntPositive_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntPositive_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8976,32 +8997,35 @@ define linkonce_odr void @_ZN3nix30JSONValueTest_IntNegative_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30JSONValueTest_IntNegative_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30JSONValueTest_IntNegative_TestE, i64 0, i64 1
+  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntNegative_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntNegative_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntNegative_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30JSONValueTest_IntNegative_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9075,32 +9099,35 @@ define linkonce_odr void @_ZN3nix25JSONValueTest_String_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25JSONValueTest_String_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25JSONValueTest_String_TestE, i64 0, i64 1
+  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25JSONValueTest_String_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25JSONValueTest_String_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25JSONValueTest_String_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25JSONValueTest_String_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9174,32 +9201,35 @@ define linkonce_odr void @_ZN3nix31JSONValueTest_StringQuotes_TestC1Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31JSONValueTest_StringQuotes_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix31JSONValueTest_StringQuotes_TestE, i64 0, i64 1
+  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31JSONValueTest_StringQuotes_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31JSONValueTest_StringQuotes_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31JSONValueTest_StringQuotes_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31JSONValueTest_StringQuotes_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9273,32 +9303,35 @@ define linkonce_odr void @_ZN3nix32JSONValueTest_DISABLED_Path_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32JSONValueTest_DISABLED_Path_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32JSONValueTest_DISABLED_Path_TestE, i64 0, i64 1
+  invoke void @_ZN3nix13JSONValueTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32JSONValueTest_DISABLED_Path_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32JSONValueTest_DISABLED_Path_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32JSONValueTest_DISABLED_Path_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32JSONValueTest_DISABLED_Path_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9530,29 +9563,30 @@ define linkonce_odr void @_ZN3nix11LibExprTest14SetUpTestSuiteEv() #5 comdat ali
   call void @_ZN3nix6initGCEv()
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  invoke void @_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (%"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %4 unwind label %5
+  %4 = getelementptr inbounds %"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i32 0, i32 2
+  invoke void @_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(185) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %5 unwind label %6
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
   ret void
 
-5:                                                ; preds = %0
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %0
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %2, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %3, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %2, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %3, align 4
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  br label %9
+  br label %10
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i32, ptr %3, align 4
-  %12 = insertvalue { ptr, i32 } poison, ptr %10, 0
-  %13 = insertvalue { ptr, i32 } %12, i32 %11, 1
-  resume { ptr, i32 } %13
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %2, align 8
+  %12 = load i32, ptr %3, align 4
+  %13 = insertvalue { ptr, i32 } poison, ptr %11, 0
+  %14 = insertvalue { ptr, i32 } %13, i32 %12, 1
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

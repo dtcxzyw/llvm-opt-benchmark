@@ -4557,7 +4557,8 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8008,48 +8009,49 @@ entry:
   %call2 = call ptr @mmap64(ptr noundef null, i64 noundef %10, i32 noundef 2, i32 noundef 1, i32 noundef %11, i64 noundef %mul) #10
   store ptr %call2, ptr %addr, align 8
   %14 = load ptr, ptr %addr, align 8
-  %cmp = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
+  %15 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %14, %15
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   br label %err
 
 if.end:                                           ; preds = %entry
-  %15 = load ptr, ptr %v, align 8
-  %16 = load i32, ptr %queue_index.addr, align 4
-  %call4 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.86, ptr noundef %15, i32 noundef %16)
+  %16 = load ptr, ptr %v, align 8
+  %17 = load i32, ptr %queue_index.addr, align 4
+  %call4 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.86, ptr noundef %16, i32 noundef %17)
   store ptr %call4, ptr %name, align 8
-  %17 = load ptr, ptr %n, align 8
-  %mr = getelementptr inbounds %struct.VhostVDPAHostNotifier, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %vdev, align 8
-  %19 = load ptr, ptr %name, align 8
-  %20 = load i64, ptr %page_size, align 8
-  %21 = load ptr, ptr %addr, align 8
-  call void @memory_region_init_ram_device_ptr(ptr noundef %mr, ptr noundef %18, ptr noundef %19, i64 noundef %20, ptr noundef %21)
-  %22 = load ptr, ptr %name, align 8
-  call void @g_free(ptr noundef %22)
-  %23 = load ptr, ptr %vdev, align 8
-  %24 = load i32, ptr %queue_index.addr, align 4
-  %25 = load ptr, ptr %n, align 8
-  %mr5 = getelementptr inbounds %struct.VhostVDPAHostNotifier, ptr %25, i32 0, i32 0
-  %call6 = call i32 @virtio_queue_set_host_notifier_mr(ptr noundef %23, i32 noundef %24, ptr noundef %mr5, i1 noundef zeroext true)
+  %18 = load ptr, ptr %n, align 8
+  %mr = getelementptr inbounds %struct.VhostVDPAHostNotifier, ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %vdev, align 8
+  %20 = load ptr, ptr %name, align 8
+  %21 = load i64, ptr %page_size, align 8
+  %22 = load ptr, ptr %addr, align 8
+  call void @memory_region_init_ram_device_ptr(ptr noundef %mr, ptr noundef %19, ptr noundef %20, i64 noundef %21, ptr noundef %22)
+  %23 = load ptr, ptr %name, align 8
+  call void @g_free(ptr noundef %23)
+  %24 = load ptr, ptr %vdev, align 8
+  %25 = load i32, ptr %queue_index.addr, align 4
+  %26 = load ptr, ptr %n, align 8
+  %mr5 = getelementptr inbounds %struct.VhostVDPAHostNotifier, ptr %26, i32 0, i32 0
+  %call6 = call i32 @virtio_queue_set_host_notifier_mr(ptr noundef %24, i32 noundef %25, ptr noundef %mr5, i1 noundef zeroext true)
   %tobool = icmp ne i32 %call6, 0
   br i1 %tobool, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
-  %26 = load ptr, ptr %n, align 8
-  %mr8 = getelementptr inbounds %struct.VhostVDPAHostNotifier, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %n, align 8
+  %mr8 = getelementptr inbounds %struct.VhostVDPAHostNotifier, ptr %27, i32 0, i32 0
   call void @object_unparent(ptr noundef %mr8)
-  %27 = load ptr, ptr %addr, align 8
-  %28 = load i64, ptr %page_size, align 8
-  %call9 = call i32 @munmap(ptr noundef %27, i64 noundef %28) #10
+  %28 = load ptr, ptr %addr, align 8
+  %29 = load i64, ptr %page_size, align 8
+  %call9 = call i32 @munmap(ptr noundef %28, i64 noundef %29) #10
   br label %err
 
 if.end10:                                         ; preds = %if.end
-  %29 = load ptr, ptr %addr, align 8
-  %30 = load ptr, ptr %n, align 8
-  %addr11 = getelementptr inbounds %struct.VhostVDPAHostNotifier, ptr %30, i32 0, i32 1
-  store ptr %29, ptr %addr11, align 16
+  %30 = load ptr, ptr %addr, align 8
+  %31 = load ptr, ptr %n, align 8
+  %addr11 = getelementptr inbounds %struct.VhostVDPAHostNotifier, ptr %31, i32 0, i32 1
+  store ptr %30, ptr %addr11, align 16
   store i32 0, ptr %retval, align 4
   br label %return
 
@@ -8058,8 +8060,8 @@ err:                                              ; preds = %if.then7, %if.then
   br label %return
 
 return:                                           ; preds = %err, %if.end10
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+  %32 = load i32, ptr %retval, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind

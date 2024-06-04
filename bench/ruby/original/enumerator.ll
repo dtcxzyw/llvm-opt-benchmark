@@ -2520,115 +2520,116 @@ define internal i64 @lazy_zip(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
   store i32 %0, ptr %5, align 4
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
-  store ptr getelementptr inbounds ([2 x %struct.lazyenum_funcs], ptr @lazy_zip_funcs, i64 0, i64 1), ptr %11, align 8
-  %12 = call i32 @rb_block_given_p()
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %18
+  %12 = getelementptr inbounds [2 x %struct.lazyenum_funcs], ptr @lazy_zip_funcs, i64 0, i64 1
+  store ptr %12, ptr %11, align 8
+  %13 = call i32 @rb_block_given_p()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %19
 
-14:                                               ; preds = %3
-  %15 = load i32, ptr %5, align 4
-  %16 = load ptr, ptr %6, align 8
-  %17 = call i64 @rb_call_super(i32 noundef %15, ptr noundef %16)
-  store i64 %17, ptr %4, align 8
-  br label %77
+15:                                               ; preds = %3
+  %16 = load i32, ptr %5, align 4
+  %17 = load ptr, ptr %6, align 8
+  %18 = call i64 @rb_call_super(i32 noundef %16, ptr noundef %17)
+  store i64 %18, ptr %4, align 8
+  br label %78
 
-18:                                               ; preds = %3
-  %19 = load i32, ptr %5, align 4
-  %20 = sext i32 %19 to i64
-  %21 = call i64 @rb_ary_new_capa(i64 noundef %20)
-  store i64 %21, ptr %8, align 8
+19:                                               ; preds = %3
+  %20 = load i32, ptr %5, align 4
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @rb_ary_new_capa(i64 noundef %21)
+  store i64 %22, ptr %8, align 8
   store i64 0, ptr %10, align 8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %68, %18
-  %23 = load i64, ptr %10, align 8
-  %24 = load i32, ptr %5, align 4
-  %25 = sext i32 %24 to i64
-  %26 = icmp slt i64 %23, %25
-  br i1 %26, label %27, label %71
+23:                                               ; preds = %69, %19
+  %24 = load i64, ptr %10, align 8
+  %25 = load i32, ptr %5, align 4
+  %26 = sext i32 %25 to i64
+  %27 = icmp slt i64 %24, %26
+  br i1 %27, label %28, label %72
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i64, ptr %10, align 8
-  %30 = getelementptr i64, ptr %28, i64 %29
-  %31 = load i64, ptr %30, align 8
-  %32 = call i64 @rb_check_array_type(i64 noundef %31)
-  store i64 %32, ptr %9, align 8
-  %33 = load i64, ptr %9, align 8
-  %34 = call zeroext i1 @RB_NIL_P(i64 noundef %33) #17
-  br i1 %34, label %35, label %64
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %6, align 8
+  %30 = load i64, ptr %10, align 8
+  %31 = getelementptr i64, ptr %29, i64 %30
+  %32 = load i64, ptr %31, align 8
+  %33 = call i64 @rb_check_array_type(i64 noundef %32)
+  store i64 %33, ptr %9, align 8
+  %34 = load i64, ptr %9, align 8
+  %35 = call zeroext i1 @RB_NIL_P(i64 noundef %34) #17
+  br i1 %35, label %36, label %65
 
-35:                                               ; preds = %27
-  br label %36
+36:                                               ; preds = %28
+  br label %37
 
-36:                                               ; preds = %56, %35
-  %37 = load i64, ptr %10, align 8
-  %38 = load i32, ptr %5, align 4
-  %39 = sext i32 %38 to i64
-  %40 = icmp slt i64 %37, %39
-  br i1 %40, label %41, label %59
+37:                                               ; preds = %57, %36
+  %38 = load i64, ptr %10, align 8
+  %39 = load i32, ptr %5, align 4
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %38, %40
+  br i1 %41, label %42, label %60
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %6, align 8
-  %43 = load i64, ptr %10, align 8
-  %44 = getelementptr i64, ptr %42, i64 %43
-  %45 = load i64, ptr %44, align 8
-  %46 = call i32 @rb_respond_to(i64 noundef %45, i64 noundef 3041)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %55, label %48
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i64, ptr %10, align 8
+  %45 = getelementptr i64, ptr %43, i64 %44
+  %46 = load i64, ptr %45, align 8
+  %47 = call i32 @rb_respond_to(i64 noundef %46, i64 noundef 3041)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %56, label %49
 
-48:                                               ; preds = %41
-  %49 = load i64, ptr @rb_eTypeError, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = load i64, ptr %10, align 8
-  %52 = getelementptr i64, ptr %50, i64 %51
-  %53 = load i64, ptr %52, align 8
-  %54 = call i64 @rb_obj_class(i64 noundef %53)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef @.str.130, i64 noundef %54) #18
+49:                                               ; preds = %42
+  %50 = load i64, ptr @rb_eTypeError, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i64, ptr %10, align 8
+  %53 = getelementptr i64, ptr %51, i64 %52
+  %54 = load i64, ptr %53, align 8
+  %55 = call i64 @rb_obj_class(i64 noundef %54)
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef @.str.130, i64 noundef %55) #18
   unreachable
 
-55:                                               ; preds = %41
-  br label %56
+56:                                               ; preds = %42
+  br label %57
 
-56:                                               ; preds = %55
-  %57 = load i64, ptr %10, align 8
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %10, align 8
-  br label %36, !llvm.loop !9
+57:                                               ; preds = %56
+  %58 = load i64, ptr %10, align 8
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %10, align 8
+  br label %37, !llvm.loop !9
 
-59:                                               ; preds = %36
-  %60 = load i32, ptr %5, align 4
-  %61 = sext i32 %60 to i64
-  %62 = load ptr, ptr %6, align 8
-  %63 = call i64 @rb_ary_new_from_values(i64 noundef %61, ptr noundef %62)
-  store i64 %63, ptr %8, align 8
+60:                                               ; preds = %37
+  %61 = load i32, ptr %5, align 4
+  %62 = sext i32 %61 to i64
+  %63 = load ptr, ptr %6, align 8
+  %64 = call i64 @rb_ary_new_from_values(i64 noundef %62, ptr noundef %63)
+  store i64 %64, ptr %8, align 8
   store ptr @lazy_zip_funcs, ptr %11, align 8
-  br label %71
+  br label %72
 
-64:                                               ; preds = %27
-  %65 = load i64, ptr %8, align 8
-  %66 = load i64, ptr %9, align 8
-  %67 = call i64 @rb_ary_push(i64 noundef %65, i64 noundef %66)
-  br label %68
+65:                                               ; preds = %28
+  %66 = load i64, ptr %8, align 8
+  %67 = load i64, ptr %9, align 8
+  %68 = call i64 @rb_ary_push(i64 noundef %66, i64 noundef %67)
+  br label %69
 
-68:                                               ; preds = %64
-  %69 = load i64, ptr %10, align 8
-  %70 = add i64 %69, 1
-  store i64 %70, ptr %10, align 8
-  br label %22, !llvm.loop !10
+69:                                               ; preds = %65
+  %70 = load i64, ptr %10, align 8
+  %71 = add i64 %70, 1
+  store i64 %71, ptr %10, align 8
+  br label %23, !llvm.loop !10
 
-71:                                               ; preds = %59, %22
-  %72 = load i64, ptr %7, align 8
-  %73 = load i64, ptr %8, align 8
+72:                                               ; preds = %60, %23
+  %73 = load i64, ptr %7, align 8
   %74 = load i64, ptr %8, align 8
-  %75 = load ptr, ptr %11, align 8
-  %76 = call i64 @lazy_add_method(i64 noundef %72, i32 noundef 0, ptr noundef null, i64 noundef %73, i64 noundef %74, ptr noundef %75)
-  store i64 %76, ptr %4, align 8
-  br label %77
+  %75 = load i64, ptr %8, align 8
+  %76 = load ptr, ptr %11, align 8
+  %77 = call i64 @lazy_add_method(i64 noundef %73, i32 noundef 0, ptr noundef null, i64 noundef %74, i64 noundef %75, ptr noundef %76)
+  store i64 %77, ptr %4, align 8
+  br label %78
 
-77:                                               ; preds = %71, %14
-  %78 = load i64, ptr %4, align 8
-  ret i64 %78
+78:                                               ; preds = %72, %15
+  %79 = load i64, ptr %4, align 8
+  ret i64 %79
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

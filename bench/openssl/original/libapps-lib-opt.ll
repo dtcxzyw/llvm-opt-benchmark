@@ -186,7 +186,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  store i8 0, ptr getelementptr inbounds ([40 x i8], ptr @prog, i64 0, i64 39), align 1
+  %3 = getelementptr inbounds [40 x i8], ptr @prog, i64 0, i64 39
+  store i8 0, ptr %3, align 1
   ret ptr @prog
 }
 

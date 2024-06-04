@@ -104,17 +104,17 @@ define dso_local i32 @base64_encode(ptr nocapture noundef readonly %0, i32 nound
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
 define dso_local i32 @base64_decode(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %5, label %47
+  br i1 %4, label %5, label %48
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
   br label %7
 
-7:                                                ; preds = %44, %5
-  %8 = phi i64 [ 0, %5 ], [ %45, %44 ]
-  %9 = phi ptr [ %2, %5 ], [ %42, %44 ]
-  %10 = phi i32 [ 0, %5 ], [ %41, %44 ]
-  %11 = phi i32 [ 0, %5 ], [ %40, %44 ]
+7:                                                ; preds = %45, %5
+  %8 = phi i64 [ 0, %5 ], [ %46, %45 ]
+  %9 = phi ptr [ %2, %5 ], [ %43, %45 ]
+  %10 = phi i32 [ 0, %5 ], [ %42, %45 ]
+  %11 = phi i32 [ 0, %5 ], [ %41, %45 ]
   %12 = getelementptr i8, ptr %0, i64 %8
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
@@ -127,67 +127,68 @@ define dso_local i32 @base64_decode(ptr nocapture noundef readonly %0, i32 nound
   %19 = icmp sgt i32 %10, 1
   %20 = select i1 %19, i32 -2, i32 6
   %21 = add nsw i32 %20, %10
-  br label %39
+  br label %40
 
 22:                                               ; preds = %7
   %23 = icmp eq ptr %15, null
   %24 = icmp eq i8 %13, 0
   %25 = or i1 %24, %23
-  br i1 %25, label %39, label %26
+  br i1 %25, label %40, label %26
 
 26:                                               ; preds = %22
   %27 = shl i32 %11, 6
   %28 = ptrtoint ptr %15 to i64
   %29 = trunc i64 %28 to i32
-  %30 = sub i32 %29, ptrtoint (ptr @base64_table to i32)
-  %31 = or i32 %30, %27
-  %32 = add nuw nsw i32 %10, 6
-  %33 = icmp sgt i32 %10, 1
-  br i1 %33, label %34, label %39
+  %30 = ptrtoint ptr @base64_table to i32
+  %31 = sub i32 %29, %30
+  %32 = or i32 %31, %27
+  %33 = add nuw nsw i32 %10, 6
+  %34 = icmp sgt i32 %10, 1
+  br i1 %34, label %35, label %40
 
-34:                                               ; preds = %26
-  %35 = add nsw i32 %10, -2
-  %36 = lshr i32 %31, %35
-  %37 = trunc i32 %36 to i8
-  %38 = getelementptr i8, ptr %9, i64 1
-  store i8 %37, ptr %9, align 1
-  br label %39
+35:                                               ; preds = %26
+  %36 = add nsw i32 %10, -2
+  %37 = lshr i32 %32, %36
+  %38 = trunc i32 %37 to i8
+  %39 = getelementptr i8, ptr %9, i64 1
+  store i8 %38, ptr %9, align 1
+  br label %40
 
-39:                                               ; preds = %34, %26, %22, %17
-  %40 = phi i32 [ %18, %17 ], [ %11, %22 ], [ %31, %34 ], [ %31, %26 ]
-  %41 = phi i32 [ %21, %17 ], [ %10, %22 ], [ %35, %34 ], [ %32, %26 ]
-  %42 = phi ptr [ %9, %17 ], [ %9, %22 ], [ %38, %34 ], [ %9, %26 ]
-  %43 = phi i32 [ 4, %17 ], [ 1, %22 ], [ 0, %34 ], [ 0, %26 ]
-  switch i32 %43, label %60 [
-    i32 0, label %44
-    i32 4, label %44
+40:                                               ; preds = %35, %26, %22, %17
+  %41 = phi i32 [ %18, %17 ], [ %11, %22 ], [ %32, %35 ], [ %32, %26 ]
+  %42 = phi i32 [ %21, %17 ], [ %10, %22 ], [ %36, %35 ], [ %33, %26 ]
+  %43 = phi ptr [ %9, %17 ], [ %9, %22 ], [ %39, %35 ], [ %9, %26 ]
+  %44 = phi i32 [ 4, %17 ], [ 1, %22 ], [ 0, %35 ], [ 0, %26 ]
+  switch i32 %44, label %61 [
+    i32 0, label %45
+    i32 4, label %45
   ]
 
-44:                                               ; preds = %39, %39
-  %45 = add nuw nsw i64 %8, 1
-  %46 = icmp eq i64 %45, %6
-  br i1 %46, label %47, label %7, !llvm.loop !9
+45:                                               ; preds = %40, %40
+  %46 = add nuw nsw i64 %8, 1
+  %47 = icmp eq i64 %46, %6
+  br i1 %47, label %48, label %7, !llvm.loop !9
 
-47:                                               ; preds = %44, %3
-  %48 = phi i32 [ 0, %3 ], [ %40, %44 ]
-  %49 = phi i32 [ 0, %3 ], [ %41, %44 ]
-  %50 = phi ptr [ %2, %3 ], [ %42, %44 ]
-  %51 = shl nsw i32 -1, %49
-  %52 = xor i32 %51, -1
-  %53 = and i32 %48, %52
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %60
+48:                                               ; preds = %45, %3
+  %49 = phi i32 [ 0, %3 ], [ %41, %45 ]
+  %50 = phi i32 [ 0, %3 ], [ %42, %45 ]
+  %51 = phi ptr [ %2, %3 ], [ %43, %45 ]
+  %52 = shl nsw i32 -1, %50
+  %53 = xor i32 %52, -1
+  %54 = and i32 %49, %53
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %61
 
-55:                                               ; preds = %47
-  %56 = ptrtoint ptr %50 to i64
-  %57 = ptrtoint ptr %2 to i64
-  %58 = sub i64 %56, %57
-  %59 = trunc i64 %58 to i32
-  br label %60
+56:                                               ; preds = %48
+  %57 = ptrtoint ptr %51 to i64
+  %58 = ptrtoint ptr %2 to i64
+  %59 = sub i64 %57, %58
+  %60 = trunc i64 %59 to i32
+  br label %61
 
-60:                                               ; preds = %55, %47, %39
-  %61 = phi i32 [ %59, %55 ], [ -1, %47 ], [ -1, %39 ]
-  ret i32 %61
+61:                                               ; preds = %56, %48, %40
+  %62 = phi i32 [ %60, %56 ], [ -1, %48 ], [ -1, %40 ]
+  ret i32 %62
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)

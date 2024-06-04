@@ -1330,7 +1330,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db29BlobIndexCompactionFilterBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db29BlobIndexCompactionFilterBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %blob_file_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 4
   %call = call noundef zeroext i1 @_ZNKSt12__shared_ptrIN7rocksdb7blob_db8BlobFileELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %blob_file_) #3
   br i1 %call, label %if.then, label %if.end
@@ -1344,34 +1345,34 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %statistics_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %statistics_, align 8
+  %1 = load ptr, ptr %statistics_, align 8
   %expired_count_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 6
-  %1 = load i64, ptr %expired_count_, align 8
-  invoke void @_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm(ptr noundef %0, i32 noundef 110, i64 noundef %1)
+  %2 = load i64, ptr %expired_count_, align 8
+  invoke void @_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm(ptr noundef %1, i32 noundef 110, i64 noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %if.end
   %statistics_4 = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %statistics_4, align 8
+  %3 = load ptr, ptr %statistics_4, align 8
   %expired_size_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 7
-  %3 = load i64, ptr %expired_size_, align 8
-  invoke void @_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm(ptr noundef %2, i32 noundef 111, i64 noundef %3)
+  %4 = load i64, ptr %expired_size_, align 8
+  invoke void @_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm(ptr noundef %3, i32 noundef 111, i64 noundef %4)
           to label %invoke.cont5 unwind label %terminate.lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %statistics_6 = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %statistics_6, align 8
+  %5 = load ptr, ptr %statistics_6, align 8
   %evicted_count_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 8
-  %5 = load i64, ptr %evicted_count_, align 8
-  invoke void @_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm(ptr noundef %4, i32 noundef 112, i64 noundef %5)
+  %6 = load i64, ptr %evicted_count_, align 8
+  invoke void @_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm(ptr noundef %5, i32 noundef 112, i64 noundef %6)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %statistics_8 = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %statistics_8, align 8
+  %7 = load ptr, ptr %statistics_8, align 8
   %evicted_size_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 9
-  %7 = load i64, ptr %evicted_size_, align 8
-  invoke void @_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm(ptr noundef %6, i32 noundef 113, i64 noundef %7)
+  %8 = load i64, ptr %evicted_size_, align 8
+  invoke void @_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm(ptr noundef %7, i32 noundef 113, i64 noundef %8)
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -1385,10 +1386,10 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont7, %invoke.cont5, %invoke.cont3, %if.end, %if.then
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #16
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 }
 
@@ -3308,14 +3309,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db27BlobIndexCompactionFilterGCE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db27BlobIndexCompactionFilterGCE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(88) ptr @_ZNK7rocksdb7blob_db29BlobIndexCompactionFilterBase7contextEv(ptr noundef nonnull align 8 dereferenceable(216) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %blob_db_impl = getelementptr inbounds %"struct.rocksdb::blob_db::BlobCompactionContext", ptr %call, i32 0, i32 0
-  %0 = load ptr, ptr %blob_db_impl, align 8
-  %db_options_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobDBImpl", ptr %0, i32 0, i32 6
+  %1 = load ptr, ptr %blob_db_impl, align 8
+  %db_options_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobDBImpl", ptr %1, i32 0, i32 6
   %info_log = getelementptr inbounds %"struct.rocksdb::DBOptions", ptr %db_options_, i32 0, i32 11
   %call3 = invoke noundef ptr @_Z23RocksLogShorterFileNamePKc(ptr noundef @.str.1)
           to label %invoke.cont2 unwind label %terminate.lpad
@@ -3423,10 +3425,10 @@ invoke.cont45:                                    ; preds = %invoke.cont43
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont43, %invoke.cont40, %invoke.cont39, %invoke.cont37, %invoke.cont34, %invoke.cont33, %invoke.cont31, %invoke.cont28, %invoke.cont27, %invoke.cont25, %invoke.cont22, %invoke.cont21, %invoke.cont19, %invoke.cont16, %invoke.cont13, %invoke.cont10, %invoke.cont7, %cond.end, %invoke.cont2, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -5276,16 +5278,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db25BlobIndexCompactionFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db25BlobIndexCompactionFilterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
@@ -5564,21 +5567,22 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db27BlobIndexCompactionFilterGCE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db27BlobIndexCompactionFilterGCE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %context_gc_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterGC", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %context_gc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %context_gc_, ptr align 8 %4, i64 8, i1 false)
+  %5 = load ptr, ptr %context_gc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %context_gc_, ptr align 8 %5, i64 8, i1 false)
   %gc_stats_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterGC", ptr %this1, i32 0, i32 2
   call void @_ZN7rocksdb7blob_db28BlobDBGarbageCollectionStatsC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %gc_stats_) #3
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
@@ -6068,28 +6072,30 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #11 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #11 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6893,7 +6899,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb27LayeredCompactionFilterBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN7rocksdb27LayeredCompactionFilterBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %user_comp_filter_from_factory_ = getelementptr inbounds %"class.rocksdb::LayeredCompactionFilterBase", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %user_comp_filter_from_factory_) #3
   call void @_ZN7rocksdb16CompactionFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -7026,7 +7033,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #3
   ret void
@@ -9447,16 +9455,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db29BlobIndexCompactionFilterBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db29BlobIndexCompactionFilterBaseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %context_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_context.addr, align 8
-  call void @_ZN7rocksdb7blob_db21BlobCompactionContextC2EOS1_(ptr noundef nonnull align 8 dereferenceable(88) %context_, ptr noundef nonnull align 8 dereferenceable(88) %1) #3
+  %2 = load ptr, ptr %_context.addr, align 8
+  call void @_ZN7rocksdb7blob_db21BlobCompactionContextC2EOS1_(ptr noundef nonnull align 8 dereferenceable(88) %context_, ptr noundef nonnull align 8 dereferenceable(88) %2) #3
   %current_time_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %current_time.addr, align 8
-  store i64 %2, ptr %current_time_, align 8
+  %3 = load i64, ptr %current_time.addr, align 8
+  store i64 %3, ptr %current_time_, align 8
   %statistics_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %stats.addr, align 8
-  store ptr %3, ptr %statistics_, align 8
+  %4 = load ptr, ptr %stats.addr, align 8
+  store ptr %4, ptr %statistics_, align 8
   %blob_file_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %blob_file_) #3
   %writer_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %this1, i32 0, i32 5
@@ -9472,12 +9481,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
@@ -9649,15 +9658,16 @@ entry:
   store ptr %_user_comp_filter_from_factory, ptr %_user_comp_filter_from_factory.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb16CompactionFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb27LayeredCompactionFilterBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN7rocksdb27LayeredCompactionFilterBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %user_comp_filter_ = getelementptr inbounds %"class.rocksdb::LayeredCompactionFilterBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_user_comp_filter.addr, align 8
-  store ptr %0, ptr %user_comp_filter_, align 8
+  %1 = load ptr, ptr %_user_comp_filter.addr, align 8
+  store ptr %1, ptr %user_comp_filter_, align 8
   %user_comp_filter_from_factory_ = getelementptr inbounds %"class.rocksdb::LayeredCompactionFilterBase", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %user_comp_filter_from_factory_, ptr noundef nonnull align 8 dereferenceable(8) %_user_comp_filter_from_factory) #3
   %user_comp_filter_2 = getelementptr inbounds %"class.rocksdb::LayeredCompactionFilterBase", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %user_comp_filter_2, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %user_comp_filter_2, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -9721,7 +9731,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12CustomizableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb16CompactionFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN7rocksdb16CompactionFilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9743,7 +9754,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12ConfigurableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9772,7 +9784,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #3
   ret void
@@ -10392,7 +10405,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN7rocksdb7blob_db36BlobIndexCompactionFilterFactoryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN7rocksdb7blob_db36BlobIndexCompactionFilterFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %user_comp_filter_factory_ = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterFactoryBase", ptr %this1, i32 0, i32 5
   call void @_ZNSt10shared_ptrIN7rocksdb23CompactionFilterFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %user_comp_filter_factory_) #3
   call void @_ZN7rocksdb23CompactionFilterFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3

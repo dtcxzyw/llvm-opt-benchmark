@@ -12324,7 +12324,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv
@@ -12481,13 +12482,15 @@ define internal ptr @get_ident_string() #0 {
 entry:
   %retval = alloca ptr, align 8
   %uts = alloca %struct.utsname, align 1
-  %0 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i32 0, i32 1), align 8
-  %tobool = icmp ne i64 %0, 0
+  %0 = getelementptr inbounds %struct.strbuf, ptr @get_ident_string.sb, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %tobool = icmp ne i64 %1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i32 0, i32 2), align 8
-  store ptr %1, ptr %retval, align 8
+  %2 = getelementptr inbounds %struct.strbuf, ptr @get_ident_string.sb, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 8
+  store ptr %3, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -12505,13 +12508,14 @@ if.end3:                                          ; preds = %if.end
   %sysname = getelementptr inbounds %struct.utsname, ptr %uts, i32 0, i32 0
   %arraydecay = getelementptr inbounds [65 x i8], ptr %sysname, i64 0, i64 0
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @get_ident_string.sb, ptr noundef @.str.45, ptr noundef %call4, ptr noundef %arraydecay)
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @get_ident_string.sb, i32 0, i32 2), align 8
-  store ptr %2, ptr %retval, align 8
+  %4 = getelementptr inbounds %struct.strbuf, ptr @get_ident_string.sb, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  store ptr %5, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind

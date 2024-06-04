@@ -21,29 +21,30 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dev_pm_set_d
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @dev_pm_set_wake_irq(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = icmp slt i32 %1, 0
-  br i1 %3, label %13, label %4
+  br i1 %3, label %14, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 24) #4
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 24) #4
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %14, label %9
 
-8:                                                ; preds = %4
-  store ptr %0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 %1, ptr %9, align 4
-  %10 = tail call fastcc i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef nonnull %6), !range !5
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %4
+  store ptr %0, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 %1, ptr %10, align 4
+  %11 = tail call fastcc i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef nonnull %7), !range !5
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %8
-  tail call void @kfree(ptr noundef nonnull %6) #5
-  br label %13
+13:                                               ; preds = %9
+  tail call void @kfree(ptr noundef nonnull %7) #5
+  br label %14
 
-13:                                               ; preds = %12, %8, %4, %2
-  %14 = phi i32 [ -22, %2 ], [ -12, %4 ], [ %10, %12 ], [ %10, %8 ]
-  ret i32 %14
+14:                                               ; preds = %13, %9, %4, %2
+  %15 = phi i32 [ -22, %2 ], [ -12, %4 ], [ %11, %13 ], [ %11, %9 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -161,71 +162,72 @@ define dso_local i32 @dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @__dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp slt i32 %1, 0
-  br i1 %4, label %38, label %5
+  br i1 %4, label %39, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %7 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 24) #4
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %38, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 24) #4
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %39, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %15
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %0, align 8
-  br label %15
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %0, align 8
+  br label %16
 
-15:                                               ; preds = %13, %9
-  %16 = phi ptr [ %14, %13 ], [ %11, %9 ]
-  %17 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.3, ptr noundef %16) #5
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %17, ptr %18, align 8
-  %19 = icmp eq ptr %17, null
-  br i1 %19, label %36, label %20
+16:                                               ; preds = %14, %10
+  %17 = phi ptr [ %15, %14 ], [ %12, %10 ]
+  %18 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.3, ptr noundef %17) #5
+  %19 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %18, ptr %19, align 8
+  %20 = icmp eq ptr %18, null
+  br i1 %20, label %37, label %21
 
-20:                                               ; preds = %15
-  store ptr %0, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 %1, ptr %21, align 4
+21:                                               ; preds = %16
+  store ptr %0, ptr %8, align 8
+  %22 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %1, ptr %22, align 4
   tail call void @irq_modify_status(i32 noundef %1, i64 noundef 0, i64 noundef 524288) #5
-  %22 = load ptr, ptr %18, align 8
-  %23 = tail call i32 @request_threaded_irq(i32 noundef %1, ptr noundef null, ptr noundef nonnull @handle_threaded_wake_irq, i64 noundef 532480, ptr noundef %22, ptr noundef nonnull %7) #5
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %33
+  %23 = load ptr, ptr %19, align 8
+  %24 = tail call i32 @request_threaded_irq(i32 noundef %1, ptr noundef null, ptr noundef nonnull @handle_threaded_wake_irq, i64 noundef 532480, ptr noundef %23, ptr noundef nonnull %8) #5
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %34
 
-25:                                               ; preds = %20
-  %26 = tail call fastcc i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef nonnull %7), !range !5
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %31
+26:                                               ; preds = %21
+  %27 = tail call fastcc i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef nonnull %8), !range !5
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %25
-  %29 = or i32 %2, 1
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %29, ptr %30, align 8
-  br label %38
+29:                                               ; preds = %26
+  %30 = or i32 %2, 1
+  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %30, ptr %31, align 8
+  br label %39
 
-31:                                               ; preds = %25
-  %32 = tail call ptr @free_irq(i32 noundef %1, ptr noundef nonnull %7) #5
-  br label %33
+32:                                               ; preds = %26
+  %33 = tail call ptr @free_irq(i32 noundef %1, ptr noundef nonnull %8) #5
+  br label %34
 
-33:                                               ; preds = %31, %20
-  %34 = phi i32 [ %23, %20 ], [ %26, %31 ]
-  %35 = load ptr, ptr %18, align 8
-  tail call void @kfree(ptr noundef %35) #5
-  br label %36
+34:                                               ; preds = %32, %21
+  %35 = phi i32 [ %24, %21 ], [ %27, %32 ]
+  %36 = load ptr, ptr %19, align 8
+  tail call void @kfree(ptr noundef %36) #5
+  br label %37
 
-36:                                               ; preds = %33, %15
-  %37 = phi i32 [ %34, %33 ], [ -12, %15 ]
-  tail call void @kfree(ptr noundef nonnull %7) #5
-  br label %38
+37:                                               ; preds = %34, %16
+  %38 = phi i32 [ %35, %34 ], [ -12, %16 ]
+  tail call void @kfree(ptr noundef nonnull %8) #5
+  br label %39
 
-38:                                               ; preds = %36, %28, %5, %3
-  %39 = phi i32 [ %37, %36 ], [ 0, %28 ], [ -22, %3 ], [ -12, %5 ]
-  ret i32 %39
+39:                                               ; preds = %37, %29, %5, %3
+  %40 = phi i32 [ %38, %37 ], [ 0, %29 ], [ -22, %3 ], [ -12, %5 ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -108,21 +108,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %3 = load ptr, ptr getelementptr inbounds ([86 x ptr], ptr @_ZN12_GLOBAL__N_117statusTypeStringsE, i64 0, i64 84), align 16
-  store ptr %3, ptr %retval, align 8
+  %3 = getelementptr inbounds [86 x ptr], ptr @_ZN12_GLOBAL__N_117statusTypeStringsE, i64 0, i64 84
+  %4 = load ptr, ptr %3, align 16
+  store ptr %4, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %4 = load i32, ptr %statusTypeInt, align 4
-  %idxprom = sext i32 %4 to i64
+  %5 = load i32, ptr %statusTypeInt, align 4
+  %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds [86 x ptr], ptr @_ZN12_GLOBAL__N_117statusTypeStringsE, i64 0, i64 %idxprom
-  %5 = load ptr, ptr %arrayidx, align 8
-  store ptr %5, ptr %retval, align 8
+  %6 = load ptr, ptr %arrayidx, align 8
+  store ptr %6, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
 }
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

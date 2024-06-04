@@ -818,7 +818,8 @@ if.end11:                                         ; preds = %if.end7
   %12 = load i64, ptr %memory_size, align 8
   %call14 = call ptr @mmap(ptr noundef null, i64 noundef %12, i32 noundef 3, i32 noundef 32802, i32 noundef -1, i64 noundef 0) #5
   store ptr %call14, ptr %base, align 8
-  %cmp15 = icmp eq ptr %call14, inttoptr (i64 -1 to ptr)
+  %13 = inttoptr i64 -1 to ptr
+  %cmp15 = icmp eq ptr %call14, %13
   br i1 %cmp15, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end11
@@ -826,43 +827,43 @@ if.then17:                                        ; preds = %if.end11
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end11
-  %13 = load ptr, ptr %base, align 8
-  store ptr %13, ptr %memory, align 8
   %14 = load ptr, ptr %base, align 8
-  %cmp19 = icmp eq ptr %14, null
+  store ptr %14, ptr %memory, align 8
+  %15 = load ptr, ptr %base, align 8
+  %cmp19 = icmp eq ptr %15, null
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end18
-  %15 = load ptr, ptr %region.addr, align 8
-  %16 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %16) #5
-  %17 = load ptr, ptr %region.addr, align 8
-  store ptr null, ptr %17, align 8
+  %16 = load ptr, ptr %region.addr, align 8
+  %17 = load ptr, ptr %16, align 8
+  call void @free(ptr noundef %17) #5
+  %18 = load ptr, ptr %region.addr, align 8
+  store ptr null, ptr %18, align 8
   store i32 -22, ptr %retval, align 4
   br label %return
 
 if.end22:                                         ; preds = %if.end18
-  %18 = load ptr, ptr %base, align 8
-  %19 = load ptr, ptr %region.addr, align 8
-  %20 = load ptr, ptr %19, align 8
-  %base23 = getelementptr inbounds %struct.block_region_, ptr %20, i32 0, i32 0
-  store ptr %18, ptr %base23, align 8
-  %21 = load ptr, ptr %memory, align 8
-  %22 = load ptr, ptr %region.addr, align 8
-  %23 = load ptr, ptr %22, align 8
-  %memory24 = getelementptr inbounds %struct.block_region_, ptr %23, i32 0, i32 1
-  store ptr %21, ptr %memory24, align 8
-  %24 = load i64, ptr %memory_size, align 8
-  %25 = load ptr, ptr %region.addr, align 8
-  %26 = load ptr, ptr %25, align 8
-  %size = getelementptr inbounds %struct.block_region_, ptr %26, i32 0, i32 2
-  store i64 %24, ptr %size, align 8
+  %19 = load ptr, ptr %base, align 8
+  %20 = load ptr, ptr %region.addr, align 8
+  %21 = load ptr, ptr %20, align 8
+  %base23 = getelementptr inbounds %struct.block_region_, ptr %21, i32 0, i32 0
+  store ptr %19, ptr %base23, align 8
+  %22 = load ptr, ptr %memory, align 8
+  %23 = load ptr, ptr %region.addr, align 8
+  %24 = load ptr, ptr %23, align 8
+  %memory24 = getelementptr inbounds %struct.block_region_, ptr %24, i32 0, i32 1
+  store ptr %22, ptr %memory24, align 8
+  %25 = load i64, ptr %memory_size, align 8
+  %26 = load ptr, ptr %region.addr, align 8
+  %27 = load ptr, ptr %26, align 8
+  %size = getelementptr inbounds %struct.block_region_, ptr %27, i32 0, i32 2
+  store i64 %25, ptr %size, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end22, %if.then21, %if.then10, %if.then6, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+  %28 = load i32, ptr %retval, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind ssp uwtable

@@ -362,7 +362,8 @@ entry:
   %retval = alloca i32, align 4
   %use_libctx = alloca ptr, align 8
   store ptr null, ptr %use_libctx, align 8
-  %call = call ptr @signal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr)) #8
+  %0 = inttoptr i64 1 to ptr
+  %call = call ptr @signal(i32 noundef 13, ptr noundef %0) #8
   %call1 = call i32 @OPENSSL_init_ssl(i64 noundef 30272, ptr noundef null)
   %tobool = icmp ne i32 %call1, 0
   br i1 %tobool, label %if.end, label %if.then
@@ -376,13 +377,13 @@ if.end:                                           ; preds = %entry
   %call3 = call i32 @setup_engine_loader()
   %call4 = call ptr @getenv(ptr noundef @.str.29) #8
   store ptr %call4, ptr %use_libctx, align 8
-  %0 = load ptr, ptr %use_libctx, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %use_libctx, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.end
-  %1 = load ptr, ptr %use_libctx, align 8
-  %call6 = call i32 @strcmp(ptr noundef %1, ptr noundef @.str.30) #6
+  %2 = load ptr, ptr %use_libctx, align 8
+  %call6 = call i32 @strcmp(ptr noundef %2, ptr noundef @.str.30) #6
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %if.end13
 
@@ -406,8 +407,8 @@ if.end14:                                         ; preds = %if.end13, %if.end
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then11, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+  %3 = load i32, ptr %retval, align 4
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable

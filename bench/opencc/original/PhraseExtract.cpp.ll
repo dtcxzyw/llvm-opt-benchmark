@@ -2377,94 +2377,95 @@ define void @_ZN6opencc13PhraseExtractC2Ev(ptr noundef nonnull align 8 dereferen
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6opencc13PhraseExtractE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 1
-  store i64 2, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6opencc13PhraseExtractE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 1
   store i64 2, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 3
-  store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 4
+  %8 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 2
+  store i64 2, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 3
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 5
-  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEC2IRS8_vEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @_ZN6opencc13PhraseExtract27DefaultPreCalculationFilterERKS0_RKNS_19UTF8StringSliceBaseIhEE) #3
-  %11 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 6
-  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEC2IRS8_vEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @_ZN6opencc13PhraseExtract28DefaultPostCalculationFilterERKS0_RKNS_19UTF8StringSliceBaseIhEE) #3
-  %12 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 15
-  invoke void @_ZN6opencc19UTF8StringSliceBaseImEC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef @.str.33)
-          to label %13 unwind label %23
+  %10 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 4
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 5
+  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEC2IRS8_vEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @_ZN6opencc13PhraseExtract27DefaultPreCalculationFilterERKS0_RKNS_19UTF8StringSliceBaseIhEE) #3
+  %12 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 6
+  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEC2IRS8_vEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @_ZN6opencc13PhraseExtract28DefaultPostCalculationFilterERKS0_RKNS_19UTF8StringSliceBaseIhEE) #3
+  %13 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 15
+  invoke void @_ZN6opencc19UTF8StringSliceBaseImEC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef @.str.33)
+          to label %14 unwind label %24
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 18
-  call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  %15 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 19
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 18
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %16 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 20
+  %16 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 19
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 21
+  %17 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 20
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %18 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 22
-  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #17
-          to label %20 unwind label %27
+  %18 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 21
+  call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %19 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %5, i32 0, i32 22
+  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #17
+          to label %21 unwind label %28
 
-20:                                               ; preds = %13
-  invoke void @_ZN6opencc13PhraseExtract8DictTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %19)
-          to label %21 unwind label %31
-
-21:                                               ; preds = %20
-  store ptr %19, ptr %18, align 8
-  invoke void @_ZN6opencc13PhraseExtract5ResetEv(ptr noundef nonnull align 8 dereferenceable(256) %5)
-          to label %22 unwind label %27
+21:                                               ; preds = %14
+  invoke void @_ZN6opencc13PhraseExtract8DictTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %20)
+          to label %22 unwind label %32
 
 22:                                               ; preds = %21
+  store ptr %20, ptr %19, align 8
+  invoke void @_ZN6opencc13PhraseExtract5ResetEv(ptr noundef nonnull align 8 dereferenceable(256) %5)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %22
   ret void
 
-23:                                               ; preds = %1
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %1
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  br label %37
+
+28:                                               ; preds = %22, %14
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %3, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %4, align 4
   br label %36
 
-27:                                               ; preds = %21, %13
-  %28 = landingpad { ptr, i32 }
+32:                                               ; preds = %21
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %3, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %4, align 4
-  br label %35
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %3, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %20) #18
+  br label %36
 
-31:                                               ; preds = %20
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %3, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %19) #18
-  br label %35
-
-35:                                               ; preds = %31, %27
+36:                                               ; preds = %32, %28
+  call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  br label %36
-
-36:                                               ; preds = %35, %23
-  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
   br label %37
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %3, align 8
-  %39 = load i32, ptr %4, align 4
-  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
-  resume { ptr, i32 } %41
+37:                                               ; preds = %36, %24
+  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %3, align 8
+  %40 = load i32, ptr %4, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2631,30 +2632,31 @@ define void @_ZN6opencc13PhraseExtractD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6opencc13PhraseExtractE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 22
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6opencc13PhraseExtractE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 22
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZN6opencc13PhraseExtract8DictTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
-  call void @_ZdlPv(ptr noundef %5) #18
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZN6opencc13PhraseExtract8DictTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #3
+  call void @_ZdlPv(ptr noundef %6) #18
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 21
-  call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 20
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 21
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 19
+  %11 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 20
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 18
+  %12 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 19
   call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %13 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 6
-  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  %14 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 5
+  %13 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 18
+  call void @_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %14 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 6
   call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %15 = getelementptr inbounds %"class.opencc::PhraseExtract", ptr %3, i32 0, i32 5
+  call void @_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   ret void
 }
 
@@ -11617,47 +11619,48 @@ define linkonce_odr void @_ZN6opencc15ShouldNotBeHereC2Ev(ptr noundef nonnull al
   %7 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.37, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %8 unwind label %10
+          to label %8 unwind label %11
 
 8:                                                ; preds = %1
   invoke void @_ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %9 unwind label %14
+          to label %9 unwind label %15
 
 9:                                                ; preds = %8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6opencc15ShouldNotBeHereE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6opencc15ShouldNotBeHereE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %5, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %6, align 4
-  br label %18
-
-14:                                               ; preds = %8
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
-  br label %18
-
-18:                                               ; preds = %14, %10
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
   br label %19
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  br label %19
+
+19:                                               ; preds = %15, %11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 declare void @__cxa_free_exception(ptr)
@@ -14686,10 +14689,11 @@ define linkonce_odr void @_ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6opencc9ExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.opencc::Exception", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6opencc9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.opencc::Exception", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
   ret void
 }
 
@@ -14720,9 +14724,10 @@ define linkonce_odr void @_ZN6opencc9ExceptionD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6opencc9ExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.opencc::Exception", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6opencc9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.opencc::Exception", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -15195,29 +15200,30 @@ define linkonce_odr void @_ZN6opencc11InvalidUTF8C2ERKNSt7__cxx1112basic_stringI
   %9 = load ptr, ptr %4, align 8
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef @.str.38, ptr noundef nonnull align 8 dereferenceable(32) %9)
   invoke void @_ZN6opencc9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %10 unwind label %11
+          to label %10 unwind label %12
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6opencc11InvalidUTF8E, i32 0, i32 0, i32 2), ptr %8, align 8
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6opencc11InvalidUTF8E, i32 0, i32 0, i32 2
+  store ptr %11, ptr %8, align 8
   ret void
 
-11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %6, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %7, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  br label %15
+  br label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %7, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

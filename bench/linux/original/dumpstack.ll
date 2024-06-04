@@ -80,27 +80,28 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @in_entry_stack(ptr noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 section ".noinstr.text" align 16 {
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #12, !srcloc !5
-  %4 = tail call ptr @get_cpu_entry_area(i32 noundef %3) #13
-  %5 = getelementptr inbounds i8, ptr %4, i64 4096
-  %6 = getelementptr i8, ptr %4, i64 8192
-  %7 = icmp ule ptr %5, %0
-  %8 = icmp ugt ptr %6, %0
-  %9 = and i1 %7, %8
-  br i1 %9, label %10, label %14
+  %3 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3) #12, !srcloc !5
+  %5 = tail call ptr @get_cpu_entry_area(i32 noundef %4) #13
+  %6 = getelementptr inbounds i8, ptr %5, i64 4096
+  %7 = getelementptr i8, ptr %5, i64 8192
+  %8 = icmp ule ptr %6, %0
+  %9 = icmp ugt ptr %7, %0
+  %10 = and i1 %8, %9
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   store i32 4, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %5, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %6, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
-  store ptr null, ptr %13, align 8
-  br label %14
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr null, ptr %14, align 8
+  br label %15
 
-14:                                               ; preds = %10, %2
-  ret i1 %9
+15:                                               ; preds = %11, %2
+  ret i1 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -466,51 +467,52 @@ define dso_local i64 @oops_begin() #3 align 16 {
   %2 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
-  %3 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #12, !srcloc !15
-  %4 = load volatile i32, ptr @die_lock, align 4
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %11, !prof !16
+  %3 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %4 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3) #12, !srcloc !15
+  %5 = load volatile i32, ptr @die_lock, align 4
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %7, label %12, !prof !16
 
-6:                                                ; preds = %0
-  %7 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @die_lock, i32 1, ptr nonnull elementtype(i32) @die_lock, i32 %4) #13, !srcloc !17
-  %8 = extractvalue { i8, i32 } %7, 0
-  %9 = icmp ult i8 %8, 2
-  call void @llvm.assume(i1 %9)
-  %10 = icmp ne i8 %8, 0
-  br label %11
+7:                                                ; preds = %0
+  %8 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @die_lock, i32 1, ptr nonnull elementtype(i32) @die_lock, i32 %5) #13, !srcloc !17
+  %9 = extractvalue { i8, i32 } %8, 0
+  %10 = icmp ult i8 %9, 2
+  call void @llvm.assume(i1 %10)
+  %11 = icmp ne i8 %9, 0
+  br label %12
 
-11:                                               ; preds = %6, %0
-  %12 = phi i1 [ %10, %6 ], [ false, %0 ]
-  %13 = load i32, ptr @die_owner, align 4
-  %14 = icmp eq i32 %3, %13
-  %15 = select i1 %12, i1 true, i1 %14
-  br i1 %15, label %26, label %16
+12:                                               ; preds = %7, %0
+  %13 = phi i1 [ %11, %7 ], [ false, %0 ]
+  %14 = load i32, ptr @die_owner, align 4
+  %15 = icmp eq i32 %4, %14
+  %16 = select i1 %13, i1 true, i1 %15
+  br i1 %16, label %27, label %17
 
-16:                                               ; preds = %11
-  %17 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @die_lock, i32 1, ptr nonnull elementtype(i32) @die_lock, i32 0) #13, !srcloc !17
-  %18 = extractvalue { i8, i32 } %17, 0
-  %19 = icmp ult i8 %18, 2
-  call void @llvm.assume(i1 %19)
-  %20 = icmp eq i8 %18, 0
-  br i1 %20, label %21, label %23, !prof !18
+17:                                               ; preds = %12
+  %18 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @die_lock, i32 1, ptr nonnull elementtype(i32) @die_lock, i32 0) #13, !srcloc !17
+  %19 = extractvalue { i8, i32 } %18, 0
+  %20 = icmp ult i8 %19, 2
+  call void @llvm.assume(i1 %20)
+  %21 = icmp eq i8 %19, 0
+  br i1 %21, label %22, label %24, !prof !18
 
-21:                                               ; preds = %16
-  %22 = extractvalue { i8, i32 } %17, 1
-  br label %23
+22:                                               ; preds = %17
+  %23 = extractvalue { i8, i32 } %18, 1
+  br label %24
 
-23:                                               ; preds = %21, %16
-  %24 = phi i32 [ 0, %16 ], [ %22, %21 ]
-  br i1 %20, label %25, label %26, !prof !18
+24:                                               ; preds = %22, %17
+  %25 = phi i32 [ 0, %17 ], [ %23, %22 ]
+  br i1 %21, label %26, label %27, !prof !18
 
-25:                                               ; preds = %23
-  call void @queued_spin_lock_slowpath(ptr noundef nonnull @die_lock, i32 noundef %24) #13
-  br label %26
+26:                                               ; preds = %24
+  call void @queued_spin_lock_slowpath(ptr noundef nonnull @die_lock, i32 noundef %25) #13
+  br label %27
 
-26:                                               ; preds = %25, %23, %11
-  %27 = load i32, ptr @die_nest_count, align 4
-  %28 = add i32 %27, 1
-  store i32 %28, ptr @die_nest_count, align 4
-  store i32 %3, ptr @die_owner, align 4
+27:                                               ; preds = %26, %24, %12
+  %28 = load i32, ptr @die_nest_count, align 4
+  %29 = add i32 %28, 1
+  store i32 %29, ptr @die_nest_count, align 4
+  store i32 %4, ptr @die_owner, align 4
   call void @console_verbose() #13
   call void @bust_spinlocks(i32 noundef 1) #13
   ret i64 %2
@@ -575,26 +577,27 @@ define dso_local void @oops_end(i64 noundef %0, ptr noundef %1, i32 noundef %2) 
   ret void
 
 23:                                               ; preds = %20
-  %24 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #12, !srcloc !21
-  %25 = and i32 %24, 16776960
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %28, label %27
+  %24 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %25 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24) #12, !srcloc !21
+  %26 = and i32 %25, 16776960
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %29, label %28
 
-27:                                               ; preds = %23
+28:                                               ; preds = %23
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.6) #16
   unreachable
 
-28:                                               ; preds = %23
-  %29 = load i32, ptr @panic_on_oops, align 4
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %32, label %31
+29:                                               ; preds = %23
+  %30 = load i32, ptr @panic_on_oops, align 4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %33, label %32
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.7) #16
   unreachable
 
-32:                                               ; preds = %28
-  %33 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !7
+33:                                               ; preds = %29
+  %34 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !7
   tail call void @rewind_stack_and_make_dead(i32 noundef %2) #17
   unreachable
 }
@@ -634,11 +637,12 @@ define internal void @__die_header(ptr noundef %0, ptr nocapture noundef readonl
   %8 = and i64 %2, 65535
   %9 = add i32 %4, 1
   store i32 %9, ptr @die_counter, align 4
-  %10 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
-  %11 = and i64 %10, 8796093022208
-  %12 = icmp eq i64 %11, 0
-  %13 = select i1 %12, ptr @.str.18, ptr @.str.17
-  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %0, i64 noundef %8, i32 noundef %9, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %13) #15
+  %10 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16
+  %11 = load volatile i64, ptr %10, align 8
+  %12 = and i64 %11, 8796093022208
+  %13 = icmp eq i64 %12, 0
+  %14 = select i1 %13, ptr @.str.18, ptr @.str.17
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %0, i64 noundef %8, i32 noundef %9, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #15
   ret void
 }
 
@@ -689,13 +693,14 @@ define dso_local i32 @__die(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 a
   %8 = and i64 %2, 65535
   %9 = add i32 %4, 1
   store i32 %9, ptr @die_counter, align 4
-  %10 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
-  %11 = and i64 %10, 8796093022208
-  %12 = icmp eq i64 %11, 0
-  %13 = select i1 %12, ptr @.str.18, ptr @.str.17
-  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %0, i64 noundef %8, i32 noundef %9, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %13) #15
-  %15 = tail call i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !22
-  ret i32 %15
+  %10 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16
+  %11 = load volatile i64, ptr %10, align 8
+  %12 = and i64 %11, 8796093022208
+  %13 = icmp eq i64 %12, 0
+  %14 = select i1 %13, ptr @.str.18, ptr @.str.17
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %0, i64 noundef %8, i32 noundef %9, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #15
+  %16 = tail call i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !22
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -713,15 +718,16 @@ define dso_local void @die(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   %9 = and i64 %2, 65535
   %10 = add i32 %5, 1
   store i32 %10, ptr @die_counter, align 4
-  %11 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
-  %12 = and i64 %11, 8796093022208
-  %13 = icmp eq i64 %12, 0
-  %14 = select i1 %13, ptr @.str.18, ptr @.str.17
-  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %0, i64 noundef %9, i32 noundef %10, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #15
-  %16 = tail call i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !22
-  %17 = icmp eq i32 %16, 0
-  %18 = select i1 %17, i32 11, i32 0
-  tail call void @oops_end(i64 noundef %4, ptr noundef %1, i32 noundef %18)
+  %11 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16
+  %12 = load volatile i64, ptr %11, align 8
+  %13 = and i64 %12, 8796093022208
+  %14 = icmp eq i64 %13, 0
+  %15 = select i1 %14, ptr @.str.18, ptr @.str.17
+  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %0, i64 noundef %9, i32 noundef %10, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %15) #15
+  %17 = tail call i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !22
+  %18 = icmp eq i32 %17, 0
+  %19 = select i1 %18, i32 11, i32 0
+  tail call void @oops_end(i64 noundef %4, ptr noundef %1, i32 noundef %19)
   ret void
 }
 
@@ -740,15 +746,16 @@ define dso_local void @die_addr(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %10 = and i64 %2, 65535
   %11 = add i32 %6, 1
   store i32 %11, ptr @die_counter, align 4
-  %12 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
-  %13 = and i64 %12, 8796093022208
-  %14 = icmp eq i64 %13, 0
-  %15 = select i1 %14, ptr @.str.18, ptr @.str.17
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %0, i64 noundef %10, i32 noundef %11, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %15) #15
-  %17 = tail call i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !22
-  %18 = icmp eq i32 %17, 0
-  %19 = select i1 %18, i32 11, i32 0
-  tail call void @oops_end(i64 noundef %5, ptr noundef %1, i32 noundef %19)
+  %12 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16
+  %13 = load volatile i64, ptr %12, align 8
+  %14 = and i64 %13, 8796093022208
+  %15 = icmp eq i64 %14, 0
+  %16 = select i1 %15, ptr @.str.18, ptr @.str.17
+  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %0, i64 noundef %10, i32 noundef %11, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull %16) #15
+  %18 = tail call i32 @__die_body(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !22
+  %19 = icmp eq i32 %18, 0
+  %20 = select i1 %19, i32 11, i32 0
+  tail call void @oops_end(i64 noundef %5, ptr noundef %1, i32 noundef %20)
   ret void
 }
 

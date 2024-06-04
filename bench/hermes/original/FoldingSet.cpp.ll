@@ -1028,14 +1028,15 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %Log2InitSize, ptr %Log2InitSize.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load i32, ptr %Log2InitSize.addr, align 4
-  %shl = shl i32 1, %0
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load i32, ptr %Log2InitSize.addr, align 4
+  %shl = shl i32 1, %1
   %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 2
   store i32 %shl, ptr %NumBuckets, align 8
   %NumBuckets2 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %NumBuckets2, align 8
-  %call = call noundef ptr @_ZL15AllocateBucketsj(i32 noundef %1)
+  %2 = load i32, ptr %NumBuckets2, align 8
+  %call = call noundef ptr @_ZL15AllocateBucketsj(i32 noundef %2)
   %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 1
   store ptr %call, ptr %Buckets, align 8
   %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 3
@@ -1058,9 +1059,10 @@ entry:
   %2 = load i32, ptr %NumBuckets.addr, align 4
   %idxprom = zext i32 %2 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %3 = load ptr, ptr %Buckets, align 8
-  ret ptr %3
+  %3 = inttoptr i64 -1 to ptr
+  store ptr %3, ptr %arrayidx, align 8
+  %4 = load ptr, ptr %Buckets, align 8
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1071,30 +1073,31 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %Arg, ptr %Arg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Arg.addr, align 8
-  %Buckets2 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %Buckets2, align 8
-  store ptr %1, ptr %Buckets, align 8
+  %1 = load ptr, ptr %Arg.addr, align 8
+  %Buckets2 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %Buckets2, align 8
+  store ptr %2, ptr %Buckets, align 8
   %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %Arg.addr, align 8
-  %NumBuckets3 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %NumBuckets3, align 8
-  store i32 %3, ptr %NumBuckets, align 8
+  %3 = load ptr, ptr %Arg.addr, align 8
+  %NumBuckets3 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %NumBuckets3, align 8
+  store i32 %4, ptr %NumBuckets, align 8
   %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %Arg.addr, align 8
-  %NumNodes4 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %4, i32 0, i32 3
-  %5 = load i32, ptr %NumNodes4, align 4
-  store i32 %5, ptr %NumNodes, align 4
-  %6 = load ptr, ptr %Arg.addr, align 8
-  %Buckets5 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %6, i32 0, i32 1
-  store ptr null, ptr %Buckets5, align 8
+  %5 = load ptr, ptr %Arg.addr, align 8
+  %NumNodes4 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %5, i32 0, i32 3
+  %6 = load i32, ptr %NumNodes4, align 4
+  store i32 %6, ptr %NumNodes, align 4
   %7 = load ptr, ptr %Arg.addr, align 8
-  %NumBuckets6 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %7, i32 0, i32 2
-  store i32 0, ptr %NumBuckets6, align 8
+  %Buckets5 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %7, i32 0, i32 1
+  store ptr null, ptr %Buckets5, align 8
   %8 = load ptr, ptr %Arg.addr, align 8
-  %NumNodes7 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %8, i32 0, i32 3
+  %NumBuckets6 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %8, i32 0, i32 2
+  store i32 0, ptr %NumBuckets6, align 8
+  %9 = load ptr, ptr %Arg.addr, align 8
+  %NumNodes7 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %9, i32 0, i32 3
   store i32 0, ptr %NumNodes7, align 4
   ret void
 }
@@ -1146,10 +1149,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Buckets, align 8
-  call void @free(ptr noundef %0) #8
+  %1 = load ptr, ptr %Buckets, align 8
+  call void @free(ptr noundef %1) #8
   ret void
 }
 
@@ -1172,7 +1176,8 @@ entry:
   %3 = load i32, ptr %NumBuckets3, align 8
   %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
+  %4 = inttoptr i64 -1 to ptr
+  store ptr %4, ptr %arrayidx, align 8
   %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 3
   store i32 0, ptr %NumNodes, align 4
   ret void
@@ -1783,42 +1788,43 @@ entry:
 while.cond:                                       ; preds = %while.body, %entry
   %0 = load ptr, ptr %Bucket.addr, align 8
   %1 = load ptr, ptr %0, align 8
-  %cmp = icmp ne ptr %1, inttoptr (i64 -1 to ptr)
+  %2 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
-  %2 = load ptr, ptr %Bucket.addr, align 8
-  %3 = load ptr, ptr %2, align 8
-  %tobool = icmp ne ptr %3, null
+  %3 = load ptr, ptr %Bucket.addr, align 8
+  %4 = load ptr, ptr %3, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %land.rhs
-  %4 = load ptr, ptr %Bucket.addr, align 8
-  %5 = load ptr, ptr %4, align 8
-  %call = call noundef ptr @_ZL10GetNextPtrPv(ptr noundef %5)
+  %5 = load ptr, ptr %Bucket.addr, align 8
+  %6 = load ptr, ptr %5, align 8
+  %call = call noundef ptr @_ZL10GetNextPtrPv(ptr noundef %6)
   %tobool2 = icmp ne ptr %call, null
   %lnot = xor i1 %tobool2, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %6 = phi i1 [ true, %land.rhs ], [ %lnot, %lor.rhs ]
+  %7 = phi i1 [ true, %land.rhs ], [ %lnot, %lor.rhs ]
   br label %land.end
 
 land.end:                                         ; preds = %lor.end, %while.cond
-  %7 = phi i1 [ false, %while.cond ], [ %6, %lor.end ]
-  br i1 %7, label %while.body, label %while.end
+  %8 = phi i1 [ false, %while.cond ], [ %7, %lor.end ]
+  br i1 %8, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
-  %8 = load ptr, ptr %Bucket.addr, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %8, i32 1
+  %9 = load ptr, ptr %Bucket.addr, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %9, i32 1
   store ptr %incdec.ptr, ptr %Bucket.addr, align 8
   br label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %land.end
-  %9 = load ptr, ptr %Bucket.addr, align 8
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %Bucket.addr, align 8
+  %11 = load ptr, ptr %10, align 8
   %NodePtr = getelementptr inbounds %"class.llvh::FoldingSetIteratorImpl", ptr %this1, i32 0, i32 0
-  store ptr %10, ptr %NodePtr, align 8
+  store ptr %11, ptr %NodePtr, align 8
   ret void
 }
 
@@ -1863,36 +1869,37 @@ do.body:                                          ; preds = %land.end, %if.else
 do.cond:                                          ; preds = %do.body
   %6 = load ptr, ptr %Bucket, align 8
   %7 = load ptr, ptr %6, align 8
-  %cmp = icmp ne ptr %7, inttoptr (i64 -1 to ptr)
+  %8 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %7, %8
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %do.cond
-  %8 = load ptr, ptr %Bucket, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool5 = icmp ne ptr %9, null
+  %9 = load ptr, ptr %Bucket, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool5 = icmp ne ptr %10, null
   br i1 %tobool5, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %land.rhs
-  %10 = load ptr, ptr %Bucket, align 8
-  %11 = load ptr, ptr %10, align 8
-  %call6 = call noundef ptr @_ZL10GetNextPtrPv(ptr noundef %11)
+  %11 = load ptr, ptr %Bucket, align 8
+  %12 = load ptr, ptr %11, align 8
+  %call6 = call noundef ptr @_ZL10GetNextPtrPv(ptr noundef %12)
   %tobool7 = icmp ne ptr %call6, null
   %lnot = xor i1 %tobool7, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %12 = phi i1 [ true, %land.rhs ], [ %lnot, %lor.rhs ]
+  %13 = phi i1 [ true, %land.rhs ], [ %lnot, %lor.rhs ]
   br label %land.end
 
 land.end:                                         ; preds = %lor.end, %do.cond
-  %13 = phi i1 [ false, %do.cond ], [ %12, %lor.end ]
-  br i1 %13, label %do.body, label %do.end, !llvm.loop !11
+  %14 = phi i1 [ false, %do.cond ], [ %13, %lor.end ]
+  br i1 %14, label %do.body, label %do.end, !llvm.loop !11
 
 do.end:                                           ; preds = %land.end
-  %14 = load ptr, ptr %Bucket, align 8
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %Bucket, align 8
+  %16 = load ptr, ptr %15, align 8
   %NodePtr8 = getelementptr inbounds %"class.llvh::FoldingSetIteratorImpl", ptr %this1, i32 0, i32 0
-  store ptr %15, ptr %NodePtr8, align 8
+  store ptr %16, ptr %NodePtr8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %if.then

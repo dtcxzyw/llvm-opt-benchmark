@@ -256,7 +256,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen15AsyncTimeoutSet12TimeoutClockC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen18SimpleTimeoutClockE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen18SimpleTimeoutClockE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -287,7 +288,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSet8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSet8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noundef zeroext i1 @_ZNK8proxygen15AsyncTimeoutSet8Callback11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(56) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -307,10 +309,10 @@ if.end:                                           ; preds = %invoke.cont2, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #13
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #13
   unreachable
 }
 
@@ -640,16 +642,18 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this2, i64 192
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %timeoutClock_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this2, i32 0, i32 3
-  %2 = load ptr, ptr %timeoutClock.addr, align 8
-  %tobool = icmp ne ptr %2, null
+  %4 = load ptr, ptr %timeoutClock.addr, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont
-  %3 = load ptr, ptr %timeoutClock.addr, align 8
+  %5 = load ptr, ptr %timeoutClock.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont
@@ -660,7 +664,7 @@ invoke.cont4:                                     ; preds = %cond.false
   br label %cond.end
 
 cond.end:                                         ; preds = %invoke.cont4, %cond.true
-  %cond-lvalue = phi ptr [ %3, %cond.true ], [ %call, %invoke.cont4 ]
+  %cond-lvalue = phi ptr [ %5, %cond.true ], [ %call, %invoke.cont4 ]
   store ptr %cond-lvalue, ptr %timeoutClock_, align 8
   %head_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this2, i32 0, i32 4
   store ptr null, ptr %head_, align 8
@@ -675,23 +679,23 @@ cond.end:                                         ; preds = %invoke.cont4, %cond
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %cond.false
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  %10 = getelementptr inbounds i8, ptr %this2, i64 192
-  call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %10) #1
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = getelementptr inbounds i8, ptr %this2, i64 192
+  call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %12) #1
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
@@ -715,7 +719,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly22DelayedDestructionBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly18DelayedDestructionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5folly18DelayedDestructionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this1, i32 0, i32 1
   store i8 0, ptr %destroyPending_, align 4
   ret void
@@ -753,9 +758,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %3 = getelementptr inbounds { [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this2, i64 192
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %timeoutClock_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this2, i32 0, i32 3
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygen15getTimeoutClockEv()
           to label %invoke.cont4 unwind label %lpad3
@@ -775,23 +782,23 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %9 = getelementptr inbounds i8, ptr %this2, i64 192
-  call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %9) #1
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = getelementptr inbounds i8, ptr %this2, i64 192
+  call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %11) #1
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
@@ -814,11 +821,13 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 192
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
-  %0 = getelementptr inbounds i8, ptr %this1, i64 192
-  call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) #1
+  %1 = getelementptr inbounds { [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
+  %2 = getelementptr inbounds i8, ptr %this1, i64 192
+  call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %2) #1
   call void @_ZN5folly12AsyncTimeoutD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this1) #1
   ret void
 }
@@ -1470,7 +1479,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSet12TimeoutClockE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSet12TimeoutClockE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1851,7 +1861,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22DelayedDestructionBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22DelayedDestructionBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %guardCount_ = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %this1, i32 0, i32 1
   store i32 0, ptr %guardCount_, align 8
   ret void
@@ -2287,25 +2298,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @"_ZZN8proxygen15AsyncTimeoutSet14timeoutExpiredEvENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(8) %2) #1
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @"_ZZN8proxygen15AsyncTimeoutSet14timeoutExpiredEvENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #13
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #13
   unreachable
 }
 

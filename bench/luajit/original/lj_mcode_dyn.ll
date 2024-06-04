@@ -626,22 +626,23 @@ entry:
   %p = alloca ptr, align 8
   store ptr %J, ptr %J.addr, align 8
   store i64 %sz, ptr %sz.addr, align 8
-  %and = and i64 ptrtoint (ptr @lj_vm_exit_handler to i64), -65536
+  %0 = ptrtoint ptr @lj_vm_exit_handler to i64
+  %and = and i64 %0, -65536
   store i64 %and, ptr %target, align 8
   store i64 1071644672, ptr %range, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %mcarea = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 56
-  %1 = load ptr, ptr %mcarea, align 8
-  %tobool = icmp ne ptr %1, null
+  %1 = load ptr, ptr %J.addr, align 8
+  %mcarea = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 56
+  %2 = load ptr, ptr %mcarea, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %J.addr, align 8
-  %mcarea1 = getelementptr inbounds %struct.jit_State, ptr %2, i32 0, i32 56
-  %3 = load ptr, ptr %mcarea1, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %5 = load i64, ptr %sz.addr, align 8
-  %sub = sub i64 %4, %5
+  %3 = load ptr, ptr %J.addr, align 8
+  %mcarea1 = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 56
+  %4 = load ptr, ptr %mcarea1, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %6 = load i64, ptr %sz.addr, align 8
+  %sub = sub i64 %5, %6
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -654,57 +655,57 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %cond.end
-  %6 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %6, 31
+  %7 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %7, 31
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %7 = load i64, ptr %hint, align 8
-  %tobool2 = icmp ne i64 %7, 0
+  %8 = load i64, ptr %hint, align 8
+  %tobool2 = icmp ne i64 %8, 0
   br i1 %tobool2, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %for.body
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i64, ptr %hint, align 8
-  %10 = load i64, ptr %sz.addr, align 8
-  %call = call ptr @mcode_alloc_at(ptr noundef %8, i64 noundef %9, i64 noundef %10, i32 noundef 3)
+  %9 = load ptr, ptr %J.addr, align 8
+  %10 = load i64, ptr %hint, align 8
+  %11 = load i64, ptr %sz.addr, align 8
+  %call = call ptr @mcode_alloc_at(ptr noundef %9, i64 noundef %10, i64 noundef %11, i32 noundef 3)
   store ptr %call, ptr %p, align 8
-  %11 = load ptr, ptr %p, align 8
-  %tobool3 = icmp ne ptr %11, null
+  %12 = load ptr, ptr %p, align 8
+  %tobool3 = icmp ne ptr %12, null
   br i1 %tobool3, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %12 = load ptr, ptr %p, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = load i64, ptr %sz.addr, align 8
-  %add = add i64 %13, %14
-  %15 = load i64, ptr %target, align 8
-  %sub4 = sub i64 %add, %15
+  %13 = load ptr, ptr %p, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %15 = load i64, ptr %sz.addr, align 8
+  %add = add i64 %14, %15
+  %16 = load i64, ptr %target, align 8
+  %sub4 = sub i64 %add, %16
   %cmp5 = icmp ult i64 %sub4, 1071644672
   br i1 %cmp5, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %16 = load i64, ptr %target, align 8
-  %17 = load ptr, ptr %p, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %sub6 = sub i64 %16, %18
+  %17 = load i64, ptr %target, align 8
+  %18 = load ptr, ptr %p, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %sub6 = sub i64 %17, %19
   %cmp7 = icmp ult i64 %sub6, 1071644672
   br i1 %cmp7, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %lor.lhs.false, %land.lhs.true
-  %19 = load ptr, ptr %p, align 8
-  ret ptr %19
+  %20 = load ptr, ptr %p, align 8
+  ret ptr %20
 
 if.end:                                           ; preds = %lor.lhs.false, %if.then
-  %20 = load ptr, ptr %p, align 8
-  %tobool9 = icmp ne ptr %20, null
+  %21 = load ptr, ptr %p, align 8
+  %tobool9 = icmp ne ptr %21, null
   br i1 %tobool9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end
-  %21 = load ptr, ptr %J.addr, align 8
-  %22 = load ptr, ptr %p, align 8
-  %23 = load i64, ptr %sz.addr, align 8
-  call void @mcode_free(ptr noundef %21, ptr noundef %22, i64 noundef %23)
+  %22 = load ptr, ptr %J.addr, align 8
+  %23 = load ptr, ptr %p, align 8
+  %24 = load i64, ptr %sz.addr, align 8
+  call void @mcode_free(ptr noundef %22, ptr noundef %23, i64 noundef %24)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end
@@ -714,8 +715,8 @@ if.end12:                                         ; preds = %if.end11, %for.body
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end12
-  %24 = load ptr, ptr %J.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %24, i64 -824
+  %25 = load ptr, ptr %J.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %25, i64 -824
   %g = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 1
   %prng = getelementptr inbounds %struct.global_State, ptr %g, i32 0, i32 27
   %call13 = call i64 @lj_prng_u64(ptr noundef %prng)
@@ -724,30 +725,30 @@ do.body:                                          ; preds = %do.cond, %if.end12
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %25 = load i64, ptr %hint, align 8
-  %26 = load i64, ptr %sz.addr, align 8
-  %add15 = add i64 %25, %26
+  %26 = load i64, ptr %hint, align 8
+  %27 = load i64, ptr %sz.addr, align 8
+  %add15 = add i64 %26, %27
   %cmp16 = icmp ult i64 %add15, 2143289344
   %lnot = xor i1 %cmp16, true
   br i1 %lnot, label %do.body, label %do.end, !llvm.loop !5
 
 do.end:                                           ; preds = %do.cond
-  %27 = load i64, ptr %target, align 8
-  %28 = load i64, ptr %hint, align 8
-  %add17 = add i64 %27, %28
+  %28 = load i64, ptr %target, align 8
+  %29 = load i64, ptr %hint, align 8
+  %add17 = add i64 %28, %29
   %sub18 = sub i64 %add17, 1071644672
   store i64 %sub18, ptr %hint, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end
-  %29 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %29, 1
+  %30 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %30, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
-  %30 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %30, i32 noundef 27) #7
+  %31 = load ptr, ptr %J.addr, align 8
+  call void @lj_trace_err(ptr noundef %31, i32 noundef 27) #7
   unreachable
 }
 
@@ -773,17 +774,18 @@ entry:
   %call = call ptr @mmap64(ptr noundef %1, i64 noundef %2, i32 noundef %or, i32 noundef 34, i32 noundef -1, i64 noundef 0) #6
   store ptr %call, ptr %p, align 8
   %4 = load ptr, ptr %p, align 8
-  %cmp = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
+  %5 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %4, %5
   br i1 %cmp, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
-  %5 = load i64, ptr %hint.addr, align 8
-  %tobool = icmp ne i64 %5, 0
+  %6 = load i64, ptr %hint.addr, align 8
+  %tobool = icmp ne i64 %6, 0
   br i1 %tobool, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %6 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %6, i32 noundef 27) #7
+  %7 = load ptr, ptr %J.addr, align 8
+  call void @lj_trace_err(ptr noundef %7, i32 noundef 27) #7
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -791,8 +793,8 @@ if.end:                                           ; preds = %if.then
   br label %if.end2
 
 if.end2:                                          ; preds = %if.end, %entry
-  %7 = load ptr, ptr %p, align 8
-  ret ptr %7
+  %8 = load ptr, ptr %p, align 8
+  ret ptr %8
 }
 
 declare hidden i64 @lj_prng_u64(ptr noundef) #1

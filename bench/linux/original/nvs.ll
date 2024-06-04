@@ -12,90 +12,98 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @acpi_nvs_register(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %4 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 32) #6
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %48, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 32) #6
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %56, label %7
 
-6:                                                ; preds = %2
-  store i64 %0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @nvs_region_list, i64 0, i32 1), align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.list_head, ptr @nvs_region_list, i64 0, i32 1), align 8
-  store ptr @nvs_region_list, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %9, ptr %10, align 8
-  store volatile ptr %8, ptr %9, align 8
-  %11 = add i64 %0, -1
-  %12 = add i64 %11, %1
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i64 noundef %0, i64 noundef %12, i64 noundef %1) #7
-  br label %14
+7:                                                ; preds = %2
+  store i64 %0, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %1, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds %struct.list_head, ptr @nvs_region_list, i64 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds %struct.list_head, ptr @nvs_region_list, i64 0, i32 1
+  store ptr %9, ptr %12, align 8
+  store ptr @nvs_region_list, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %11, ptr %13, align 8
+  store volatile ptr %9, ptr %11, align 8
+  %14 = add i64 %0, -1
+  %15 = add i64 %14, %1
+  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i64 noundef %0, i64 noundef %15, i64 noundef %1) #7
+  br label %17
 
-14:                                               ; preds = %33, %6
-  %15 = phi i64 [ %1, %6 ], [ %35, %33 ]
-  %16 = phi i64 [ %0, %6 ], [ %36, %33 ]
-  %17 = icmp eq i64 %15, 0
-  br i1 %17, label %48, label %18
+17:                                               ; preds = %39, %7
+  %18 = phi i64 [ %1, %7 ], [ %41, %39 ]
+  %19 = phi i64 [ %0, %7 ], [ %42, %39 ]
+  %20 = icmp eq i64 %18, 0
+  br i1 %20, label %56, label %21
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %20 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 56) #6
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %33, label %22
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %23 = load ptr, ptr %22, align 16
+  %24 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 56) #6
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %39, label %26
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 40
-  %24 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @nvs_list, i64 0, i32 1), align 8
-  store ptr %23, ptr getelementptr inbounds (%struct.list_head, ptr @nvs_list, i64 0, i32 1), align 8
-  store ptr @nvs_list, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 48
-  store ptr %24, ptr %25, align 8
-  store volatile ptr %23, ptr %24, align 8
-  store i64 %16, ptr %20, align 8
-  %26 = and i64 %16, 4095
-  %27 = sub nuw nsw i64 4096, %26
-  %28 = tail call i64 @llvm.umin.i64(i64 %15, i64 %27)
-  %29 = trunc i64 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
-  store i32 %29, ptr %30, align 8
-  %31 = add i64 %28, %16
-  %32 = sub i64 %15, %28
-  br label %33
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds i8, ptr %24, i64 40
+  %28 = getelementptr inbounds %struct.list_head, ptr @nvs_list, i64 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct.list_head, ptr @nvs_list, i64 0, i32 1
+  store ptr %27, ptr %30, align 8
+  store ptr @nvs_list, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %24, i64 48
+  store ptr %29, ptr %31, align 8
+  store volatile ptr %27, ptr %29, align 8
+  store i64 %19, ptr %24, align 8
+  %32 = and i64 %19, 4095
+  %33 = sub nuw nsw i64 4096, %32
+  %34 = tail call i64 @llvm.umin.i64(i64 %18, i64 %33)
+  %35 = trunc i64 %34 to i32
+  %36 = getelementptr inbounds i8, ptr %24, i64 8
+  store i32 %35, ptr %36, align 8
+  %37 = add i64 %34, %19
+  %38 = sub i64 %18, %34
+  br label %39
 
-33:                                               ; preds = %22, %18
-  %34 = phi i32 [ 0, %22 ], [ 6, %18 ]
-  %35 = phi i64 [ %32, %22 ], [ %15, %18 ]
-  %36 = phi i64 [ %31, %22 ], [ %16, %18 ]
-  switch i32 %34, label %48 [
-    i32 0, label %14
-    i32 6, label %37
+39:                                               ; preds = %26, %21
+  %40 = phi i32 [ 0, %26 ], [ 6, %21 ]
+  %41 = phi i64 [ %38, %26 ], [ %18, %21 ]
+  %42 = phi i64 [ %37, %26 ], [ %19, %21 ]
+  switch i32 %40, label %56 [
+    i32 0, label %17
+    i32 6, label %43
   ], !llvm.loop !5
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr @nvs_list, align 8
-  %39 = icmp eq ptr %38, @nvs_list
-  br i1 %39, label %48, label %40
+43:                                               ; preds = %39
+  %44 = load ptr, ptr @nvs_list, align 8
+  %45 = icmp eq ptr %44, @nvs_list
+  br i1 %45, label %56, label %46
 
-40:                                               ; preds = %40, %37
-  %41 = phi ptr [ %43, %40 ], [ %38, %37 ]
-  %42 = getelementptr i8, ptr %41, i64 -40
-  %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
-  store ptr %45, ptr %46, align 8
-  store volatile ptr %43, ptr %45, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %41, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %44, align 8
-  tail call void @kfree(ptr noundef %42) #8
-  %47 = icmp eq ptr %43, @nvs_list
-  br i1 %47, label %48, label %40, !llvm.loop !8
+46:                                               ; preds = %46, %43
+  %47 = phi ptr [ %49, %46 ], [ %44, %43 ]
+  %48 = getelementptr i8, ptr %47, i64 -40
+  %49 = load ptr, ptr %47, align 8
+  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  store ptr %51, ptr %52, align 8
+  store volatile ptr %49, ptr %51, align 8
+  %53 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %53, ptr %47, align 8
+  %54 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %54, ptr %50, align 8
+  tail call void @kfree(ptr noundef %48) #8
+  %55 = icmp eq ptr %49, @nvs_list
+  br i1 %55, label %56, label %46, !llvm.loop !8
 
-48:                                               ; preds = %40, %37, %33, %14, %2
-  %49 = phi i32 [ -12, %2 ], [ -12, %37 ], [ -12, %40 ], [ 0, %14 ], [ 0, %33 ]
-  ret i32 %49
+56:                                               ; preds = %46, %43, %39, %17, %2
+  %57 = phi i32 [ -12, %2 ], [ -12, %43 ], [ -12, %46 ], [ 0, %17 ], [ 0, %39 ]
+  ret i32 %57
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

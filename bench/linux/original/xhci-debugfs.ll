@@ -287,7 +287,7 @@ define dso_local void @xhci_debugfs_create_endpoint(ptr nocapture noundef readno
   %4 = getelementptr inbounds i8, ptr %1, i64 4536
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %35, label %7
+  br i1 %6, label %36, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 40
@@ -295,42 +295,43 @@ define dso_local void @xhci_debugfs_create_endpoint(ptr nocapture noundef readno
   %10 = getelementptr [31 x ptr], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %35
+  br i1 %12, label %13, label %36
 
 13:                                               ; preds = %7
-  %14 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %15 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 64) #13
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %35, label %17
+  %14 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %15 = load ptr, ptr %14, align 16
+  %16 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 64) #13
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %36, label %18
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
-  %19 = getelementptr [31 x %struct.xhci_virt_ep], ptr %18, i64 0, i64 %9, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 48
-  store ptr %20, ptr %21, align 8
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %2) #14
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @debugfs_create_dir(ptr noundef nonnull %15, ptr noundef %24) #14
-  br label %26
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr [31 x %struct.xhci_virt_ep], ptr %19, i64 0, i64 %9, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %16, i64 48
+  store ptr %21, ptr %22, align 8
+  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %2) #14
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call ptr @debugfs_create_dir(ptr noundef nonnull %16, ptr noundef %25) #14
+  br label %27
 
-26:                                               ; preds = %26, %17
-  %27 = phi i64 [ %31, %26 ], [ 0, %17 ]
-  %28 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %27
-  %29 = load ptr, ptr %28, align 16
-  %30 = tail call ptr @debugfs_create_file(ptr noundef %29, i16 noundef zeroext 292, ptr noundef %25, ptr noundef %21, ptr noundef nonnull @xhci_ring_fops) #14
-  %31 = add nuw nsw i64 %27, 1
-  %32 = icmp eq i64 %31, 4
-  br i1 %32, label %33, label %26, !llvm.loop !5
+27:                                               ; preds = %27, %18
+  %28 = phi i64 [ %32, %27 ], [ 0, %18 ]
+  %29 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %28
+  %30 = load ptr, ptr %29, align 16
+  %31 = tail call ptr @debugfs_create_file(ptr noundef %30, i16 noundef zeroext 292, ptr noundef %26, ptr noundef %22, ptr noundef nonnull @xhci_ring_fops) #14
+  %32 = add nuw nsw i64 %28, 1
+  %33 = icmp eq i64 %32, 4
+  br i1 %33, label %34, label %27, !llvm.loop !5
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr %25, ptr %34, align 8
-  store ptr %15, ptr %10, align 8
-  br label %35
+34:                                               ; preds = %27
+  %35 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %26, ptr %35, align 8
+  store ptr %16, ptr %10, align 8
+  br label %36
 
-35:                                               ; preds = %33, %13, %7, %3
+36:                                               ; preds = %34, %13, %7, %3
   ret void
 }
 
@@ -428,53 +429,54 @@ define dso_local void @xhci_debugfs_create_slot(ptr nocapture noundef readonly %
   %4 = sext i32 %1 to i64
   %5 = getelementptr [256 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %8 = tail call noalias align 8 dereferenceable_or_null(296) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 296) #13
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %40, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noalias align 8 dereferenceable_or_null(296) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 296) #13
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %41, label %11
 
-10:                                               ; preds = %2
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %1) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 2752
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @debugfs_create_dir(ptr noundef nonnull %8, ptr noundef %13) #14
-  %15 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 288
-  store ptr %6, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 4536
-  store ptr %8, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 48
-  %19 = load ptr, ptr %15, align 8
-  %20 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.4, ptr noundef %19) #14
-  br label %21
+11:                                               ; preds = %2
+  %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %1) #14
+  %13 = getelementptr inbounds i8, ptr %0, i64 2752
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call ptr @debugfs_create_dir(ptr noundef nonnull %9, ptr noundef %14) #14
+  %16 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %9, i64 288
+  store ptr %6, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 4536
+  store ptr %9, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 48
+  %20 = load ptr, ptr %16, align 8
+  %21 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.4, ptr noundef %20) #14
+  br label %22
 
-21:                                               ; preds = %21, %10
-  %22 = phi i64 [ %26, %21 ], [ 0, %10 ]
-  %23 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %22
-  %24 = load ptr, ptr %23, align 16
-  %25 = tail call ptr @debugfs_create_file(ptr noundef %24, i16 noundef zeroext 292, ptr noundef %20, ptr noundef %18, ptr noundef nonnull @xhci_ring_fops) #14
-  %26 = add nuw nsw i64 %22, 1
-  %27 = icmp eq i64 %26, 4
-  br i1 %27, label %28, label %21, !llvm.loop !5
+22:                                               ; preds = %22, %11
+  %23 = phi i64 [ %27, %22 ], [ 0, %11 ]
+  %24 = getelementptr %struct.xhci_file_map, ptr @ring_files, i64 %23
+  %25 = load ptr, ptr %24, align 16
+  %26 = tail call ptr @debugfs_create_file(ptr noundef %25, i16 noundef zeroext 292, ptr noundef %21, ptr noundef %19, ptr noundef nonnull @xhci_ring_fops) #14
+  %27 = add nuw nsw i64 %23, 1
+  %28 = icmp eq i64 %27, 4
+  br i1 %28, label %29, label %22, !llvm.loop !5
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %15, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4536
-  %32 = load ptr, ptr %31, align 8
-  br label %33
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %16, align 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 4536
+  %33 = load ptr, ptr %32, align 8
+  br label %34
 
-33:                                               ; preds = %33, %28
-  %34 = phi i64 [ %38, %33 ], [ 0, %28 ]
-  %35 = getelementptr %struct.xhci_file_map, ptr @context_files, i64 %34
-  %36 = load ptr, ptr %35, align 16
-  %37 = tail call ptr @debugfs_create_file(ptr noundef %36, i16 noundef zeroext 292, ptr noundef %29, ptr noundef %32, ptr noundef nonnull @xhci_context_fops) #14
-  %38 = add nuw nsw i64 %34, 1
-  %39 = icmp eq i64 %38, 3
-  br i1 %39, label %40, label %33, !llvm.loop !5
+34:                                               ; preds = %34, %29
+  %35 = phi i64 [ %39, %34 ], [ 0, %29 ]
+  %36 = getelementptr %struct.xhci_file_map, ptr @context_files, i64 %35
+  %37 = load ptr, ptr %36, align 16
+  %38 = tail call ptr @debugfs_create_file(ptr noundef %37, i16 noundef zeroext 292, ptr noundef %30, ptr noundef %33, ptr noundef nonnull @xhci_context_fops) #14
+  %39 = add nuw nsw i64 %35, 1
+  %40 = icmp eq i64 %39, 3
+  br i1 %40, label %41, label %34, !llvm.loop !5
 
-40:                                               ; preds = %33, %2
+41:                                               ; preds = %34, %2
   ret void
 }
 
@@ -637,52 +639,53 @@ define internal void @xhci_debugfs_regset(ptr noundef %0, i32 noundef %1, ptr no
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !10
   %8 = load ptr, ptr %0, align 8
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %10 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 88) #13
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %18, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 88) #13
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %19, label %13
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %10, i64 72
-  store volatile ptr %13, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 80
-  store volatile ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 2760
-  %16 = getelementptr inbounds i8, ptr %0, i64 2768
-  %17 = load ptr, ptr %16, align 8
-  store ptr %13, ptr %16, align 8
-  store ptr %15, ptr %13, align 8
-  store ptr %17, ptr %14, align 8
-  store volatile ptr %13, ptr %17, align 8
-  br label %18
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds i8, ptr %11, i64 72
+  store volatile ptr %14, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 80
+  store volatile ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 2760
+  %17 = getelementptr inbounds i8, ptr %0, i64 2768
+  %18 = load ptr, ptr %17, align 8
+  store ptr %14, ptr %17, align 8
+  store ptr %16, ptr %14, align 8
+  store ptr %18, ptr %15, align 8
+  store volatile ptr %14, ptr %18, align 8
+  br label %19
 
-18:                                               ; preds = %12, %6
-  %19 = phi ptr [ %10, %12 ], [ null, %6 ]
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %33, label %21
+19:                                               ; preds = %13, %6
+  %20 = phi ptr [ %11, %13 ], [ null, %6 ]
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %34, label %22
 
-21:                                               ; preds = %18
-  call void @llvm.va_start(ptr nonnull %7)
-  %22 = call i32 @vsnprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef %5, ptr noundef nonnull %7) #14
-  call void @llvm.va_end(ptr %7)
-  %23 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %2, ptr %23, align 8
-  %24 = trunc i64 %3 to i32
-  %25 = getelementptr inbounds i8, ptr %19, i64 40
-  store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 352
-  %27 = load ptr, ptr %26, align 8
-  %28 = zext i32 %1 to i64
-  %29 = getelementptr i8, ptr %27, i64 %28
-  %30 = getelementptr inbounds i8, ptr %19, i64 48
-  store ptr %29, ptr %30, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %19, i64 56
-  store ptr %31, ptr %32, align 8
-  call void @debugfs_create_regset32(ptr noundef nonnull %19, i16 noundef zeroext 292, ptr noundef %4, ptr noundef %23) #14
-  br label %33
+22:                                               ; preds = %19
+  call void @llvm.va_start.p0(ptr nonnull %7)
+  %23 = call i32 @vsnprintf(ptr noundef nonnull %20, i64 noundef 32, ptr noundef %5, ptr noundef nonnull %7) #14
+  call void @llvm.va_end.p0(ptr %7)
+  %24 = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr %2, ptr %24, align 8
+  %25 = trunc i64 %3 to i32
+  %26 = getelementptr inbounds i8, ptr %20, i64 40
+  store i32 %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %8, i64 352
+  %28 = load ptr, ptr %27, align 8
+  %29 = zext i32 %1 to i64
+  %30 = getelementptr i8, ptr %28, i64 %29
+  %31 = getelementptr inbounds i8, ptr %20, i64 48
+  store ptr %30, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds i8, ptr %20, i64 56
+  store ptr %32, ptr %33, align 8
+  call void @debugfs_create_regset32(ptr noundef nonnull %20, i16 noundef zeroext 292, ptr noundef %4, ptr noundef %24) #14
+  br label %34
 
-33:                                               ; preds = %21, %18
+34:                                               ; preds = %22, %19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
   ret void
 }
@@ -817,14 +820,14 @@ define dso_local void @xhci_debugfs_exit(ptr noundef %0) local_unnamed_addr #0 a
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
-  br i1 %6, label %19, label %7
+  br i1 %6, label %21, label %7
 
-7:                                                ; preds = %17, %1
-  %8 = phi ptr [ %10, %17 ], [ %5, %1 ]
+7:                                                ; preds = %19, %1
+  %8 = phi ptr [ %10, %19 ], [ %5, %1 ]
   %9 = getelementptr i8, ptr %8, i64 -72
   %10 = load ptr, ptr %8, align 8
   %11 = icmp eq ptr %9, null
-  br i1 %11, label %17, label %12
+  br i1 %11, label %19, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr i8, ptr %8, i64 8
@@ -833,16 +836,18 @@ define dso_local void @xhci_debugfs_exit(ptr noundef %0) local_unnamed_addr #0 a
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8
   store volatile ptr %15, ptr %14, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %8, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %13, align 8
+  %17 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %17, ptr %8, align 8
+  %18 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %18, ptr %13, align 8
   tail call void @kfree(ptr noundef nonnull %9) #14
-  br label %17
+  br label %19
 
-17:                                               ; preds = %12, %7
-  %18 = icmp eq ptr %10, %4
-  br i1 %18, label %19, label %7, !llvm.loop !14
+19:                                               ; preds = %12, %7
+  %20 = icmp eq ptr %10, %4
+  br i1 %20, label %21, label %7, !llvm.loop !14
 
-19:                                               ; preds = %17, %1
+21:                                               ; preds = %19, %1
   ret void
 }
 
@@ -1615,29 +1620,30 @@ define internal i32 @xhci_ring_open(ptr nocapture noundef readonly %0, ptr nound
 16:                                               ; preds = %8, %2
   %17 = phi ptr [ %15, %8 ], [ %4, %2 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 56
-  br label %22
+  br label %23
 
-19:                                               ; preds = %22
-  %20 = add nuw nsw i64 %23, 1
+19:                                               ; preds = %23
+  %20 = add nuw nsw i64 %24, 1
   %21 = icmp eq i64 %20, 4
-  br i1 %21, label %28, label %22, !llvm.loop !18
+  %22 = getelementptr inbounds [4 x %struct.xhci_file_map], ptr @ring_files, i64 0, i64 3, i32 0
+  br i1 %21, label %29, label %23, !llvm.loop !18
 
-22:                                               ; preds = %19, %16
-  %23 = phi i64 [ 0, %16 ], [ %20, %19 ]
-  %24 = getelementptr [4 x %struct.xhci_file_map], ptr @ring_files, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 16
-  %26 = tail call i32 @strcmp(ptr noundef %25, ptr noundef %18) #14
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %19
+23:                                               ; preds = %19, %16
+  %24 = phi i64 [ 0, %16 ], [ %20, %19 ]
+  %25 = getelementptr [4 x %struct.xhci_file_map], ptr @ring_files, i64 0, i64 %24
+  %26 = load ptr, ptr %25, align 16
+  %27 = tail call i32 @strcmp(ptr noundef %26, ptr noundef %18) #14
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %19
 
-28:                                               ; preds = %22, %19
-  %29 = phi ptr [ %24, %22 ], [ getelementptr inbounds ([4 x %struct.xhci_file_map], ptr @ring_files, i64 0, i64 3, i32 0), %19 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 592
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @single_open(ptr noundef %1, ptr noundef %31, ptr noundef %33) #14
-  ret i32 %34
+29:                                               ; preds = %23, %19
+  %30 = phi ptr [ %25, %23 ], [ %22, %19 ]
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 592
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call i32 @single_open(ptr noundef %1, ptr noundef %32, ptr noundef %34) #14
+  ret i32 %35
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2145,39 +2151,34 @@ define internal i32 @xhci_context_open(ptr nocapture noundef readonly %0, ptr no
 16:                                               ; preds = %8, %2
   %17 = phi ptr [ %15, %8 ], [ %4, %2 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 56
-  br label %22
+  br label %23
 
-19:                                               ; preds = %22
-  %20 = add nuw nsw i64 %23, 1
+19:                                               ; preds = %23
+  %20 = add nuw nsw i64 %24, 1
   %21 = icmp eq i64 %20, 3
-  br i1 %21, label %28, label %22, !llvm.loop !21
+  %22 = getelementptr inbounds [3 x %struct.xhci_file_map], ptr @context_files, i64 0, i64 2, i32 0
+  br i1 %21, label %29, label %23, !llvm.loop !21
 
-22:                                               ; preds = %19, %16
-  %23 = phi i64 [ 0, %16 ], [ %20, %19 ]
-  %24 = getelementptr [3 x %struct.xhci_file_map], ptr @context_files, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 16
-  %26 = tail call i32 @strcmp(ptr noundef %25, ptr noundef %18) #14
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %19
+23:                                               ; preds = %19, %16
+  %24 = phi i64 [ 0, %16 ], [ %20, %19 ]
+  %25 = getelementptr [3 x %struct.xhci_file_map], ptr @context_files, i64 0, i64 %24
+  %26 = load ptr, ptr %25, align 16
+  %27 = tail call i32 @strcmp(ptr noundef %26, ptr noundef %18) #14
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %19
 
-28:                                               ; preds = %22, %19
-  %29 = phi ptr [ %24, %22 ], [ getelementptr inbounds ([3 x %struct.xhci_file_map], ptr @context_files, i64 0, i64 2, i32 0), %19 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 592
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @single_open(ptr noundef %1, ptr noundef %31, ptr noundef %33) #14
-  ret i32 %34
+29:                                               ; preds = %23, %19
+  %30 = phi ptr [ %25, %23 ], [ %22, %19 ]
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 592
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call i32 @single_open(ptr noundef %1, ptr noundef %32, ptr noundef %34) #14
+  ret i32 %35
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
 declare dso_local noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @debugfs_create_regset32(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -2535,13 +2536,19 @@ define internal noundef i32 @xhci_portsc_show(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2552,10 +2559,10 @@ attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nounwind allocsize(2) }
 attributes #14 = { nounwind }
 

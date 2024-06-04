@@ -1554,9 +1554,10 @@ define internal i32 @Abc_LatchIsInit0(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
-  %7 = zext i1 %6 to i32
-  ret i32 %7
+  %6 = inttoptr i64 1 to ptr
+  %7 = icmp eq ptr %5, %6
+  %8 = zext i1 %7 to i32
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind
@@ -1673,9 +1674,10 @@ define internal i32 @Abc_LatchIsInit1(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, inttoptr (i64 2 to ptr)
-  %7 = zext i1 %6 to i32
-  ret i32 %7
+  %6 = inttoptr i64 2 to ptr
+  %7 = icmp eq ptr %5, %6
+  %8 = zext i1 %7 to i32
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2637,7 +2639,7 @@ define i32 @fprintfBz2Aig(ptr noundef %0, ptr noundef %1, ...) #0 {
 
 16:                                               ; preds = %91, %15
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %17)
+  call void @llvm.va_start.p0(ptr %17)
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds %struct.bz2file, ptr %18, i32 0, i32 2
   %20 = load ptr, ptr %19, align 8
@@ -2652,7 +2654,7 @@ define i32 @fprintfBz2Aig(ptr noundef %0, ptr noundef %1, ...) #0 {
   %29 = getelementptr inbounds %struct.bz2file, ptr %28, i32 0, i32 3
   store i32 %27, ptr %29, align 8
   %30 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %30)
+  call void @llvm.va_end.p0(ptr %30)
   %31 = load ptr, ptr %4, align 8
   %32 = getelementptr inbounds %struct.bz2file, ptr %31, i32 0, i32 3
   %33 = load i32, ptr %32, align 8
@@ -2775,7 +2777,7 @@ define i32 @fprintfBz2Aig(ptr noundef %0, ptr noundef %1, ...) #0 {
 
 111:                                              ; preds = %2
   %112 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_start(ptr %112)
+  call void @llvm.va_start.p0(ptr %112)
   %113 = load ptr, ptr %4, align 8
   %114 = getelementptr inbounds %struct.bz2file, ptr %113, i32 0, i32 0
   %115 = load ptr, ptr %114, align 8
@@ -2784,7 +2786,7 @@ define i32 @fprintfBz2Aig(ptr noundef %0, ptr noundef %1, ...) #0 {
   %118 = call i32 @vfprintf(ptr noundef %115, ptr noundef %116, ptr noundef %117) #10
   store i32 %118, ptr %9, align 4
   %119 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %119)
+  call void @llvm.va_end.p0(ptr %119)
   %120 = load i32, ptr %9, align 4
   store i32 %120, ptr %3, align 4
   br label %121
@@ -2794,17 +2796,11 @@ define i32 @fprintfBz2Aig(ptr noundef %0, ptr noundef %1, ...) #0 {
   ret i32 %122
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #6
+declare ptr @realloc(ptr noundef, i64 noundef) #5
 
 declare void @BZ2_bzWrite(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
@@ -3895,7 +3891,7 @@ define void @Io_WriteAiger(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 declare ptr @BZ2_bzWriteOpen(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
@@ -4764,14 +4760,20 @@ define internal i32 @Saig_ManPiNum(ptr noundef %0) #0 {
   ret i32 %5
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind allocsize(0) }
 attributes #9 = { nounwind allocsize(1) }
 attributes #10 = { nounwind }

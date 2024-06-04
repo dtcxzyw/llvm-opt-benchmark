@@ -64,10 +64,11 @@ entry:
   store ptr %convexChildShape, ptr %convexChildShape.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN13btConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15btConvex2dShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV15btConvex2dShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_childConvexShape = getelementptr inbounds %class.btConvex2dShape, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %convexChildShape.addr, align 8
-  store ptr %0, ptr %m_childConvexShape, align 8
+  %1 = load ptr, ptr %convexChildShape.addr, align 8
+  store ptr %1, ptr %m_childConvexShape, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 18, ptr %m_shapeType, align 8
   ret void

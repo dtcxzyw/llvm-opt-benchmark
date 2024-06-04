@@ -4943,22 +4943,26 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = load double, ptr getelementptr inbounds ([22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 3), align 8
-  %3 = load double, ptr getelementptr inbounds ([22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 1), align 8
-  %sub = fsub double %2, %3
-  %4 = load double, ptr getelementptr inbounds ([22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 2), align 16
-  %5 = load double, ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, align 16
-  %sub2 = fsub double %4, %5
+  %2 = getelementptr inbounds [22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 3
+  %3 = load double, ptr %2, align 8
+  %4 = getelementptr inbounds [22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 1
+  %5 = load double, ptr %4, align 8
+  %sub = fsub double %3, %5
+  %6 = getelementptr inbounds [22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 2
+  %7 = load double, ptr %6, align 16
+  %8 = load double, ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, align 16
+  %sub2 = fsub double %7, %8
   %div = fdiv double %sub, %sub2
   store double %div, ptr %slope, align 8
-  %6 = load double, ptr getelementptr inbounds ([22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 1), align 8
-  %7 = load double, ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, align 16
-  %8 = load double, ptr %in.addr, align 8
-  %sub3 = fsub double %7, %8
-  %9 = call double @llvm.fmuladd.f64(double 0xC03064333C020ECD, double %sub3, double %6)
-  store double %9, ptr %out, align 8
-  %10 = load double, ptr %out, align 8
-  %cmp4 = fcmp olt double %10, -1.000000e+01
+  %9 = getelementptr inbounds [22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 1
+  %10 = load double, ptr %9, align 8
+  %11 = load double, ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, align 16
+  %12 = load double, ptr %in.addr, align 8
+  %sub3 = fsub double %11, %12
+  %13 = call double @llvm.fmuladd.f64(double 0xC03064333C020ECD, double %sub3, double %10)
+  store double %13, ptr %out, align 8
+  %14 = load double, ptr %out, align 8
+  %cmp4 = fcmp olt double %14, -1.000000e+01
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
@@ -4969,14 +4973,15 @@ if.end:                                           ; preds = %if.then5, %if.then
   br label %if.end15
 
 if.else:                                          ; preds = %entry
-  %11 = load double, ptr %in.addr, align 8
-  %12 = load double, ptr getelementptr inbounds ([22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 20), align 16
-  %cmp6 = fcmp ole double %11, %12
+  %15 = load double, ptr %in.addr, align 8
+  %16 = getelementptr inbounds [22 x double], ptr @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, i64 0, i64 20
+  %17 = load double, ptr %16, align 16
+  %cmp6 = fcmp ole double %15, %17
   br i1 %cmp6, label %if.then7, label %if.else8
 
 if.then7:                                         ; preds = %if.else
-  %13 = load double, ptr %in.addr, align 8
-  %call = call noundef double @_ZN19OpenColorIO_v2_4dev13Interpolate1DEjPKdd(i32 noundef 11, ptr noundef @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, double noundef %13)
+  %18 = load double, ptr %in.addr, align 8
+  %call = call noundef double @_ZN19OpenColorIO_v2_4dev13Interpolate1DEjPKdd(i32 noundef 11, ptr noundef @_ZN19OpenColorIO_v2_4dev11ADX_to_ACESL14nonuniform_LUTE, double noundef %18)
   store double %call, ptr %out, align 8
   br label %if.end14
 
@@ -4984,13 +4989,13 @@ if.else8:                                         ; preds = %if.else
   %call9 = call double @log10(double noundef 1.800000e-01) #3
   %sub10 = fsub double 0x3FF45D1745D1745D, %call9
   store double %sub10, ptr %REF_PT, align 8
-  %14 = load double, ptr %in.addr, align 8
-  %15 = load double, ptr %REF_PT, align 8
-  %neg = fneg double %15
-  %16 = call double @llvm.fmuladd.f64(double 0x3FFD1745D1745D17, double %14, double %neg)
-  store double %16, ptr %out, align 8
-  %17 = load double, ptr %out, align 8
-  %cmp11 = fcmp ogt double %17, 0x401343DBB4C71C8A
+  %19 = load double, ptr %in.addr, align 8
+  %20 = load double, ptr %REF_PT, align 8
+  %neg = fneg double %20
+  %21 = call double @llvm.fmuladd.f64(double 0x3FFD1745D1745D17, double %19, double %neg)
+  store double %21, ptr %out, align 8
+  %22 = load double, ptr %out, align 8
+  %cmp11 = fcmp ogt double %22, 0x401343DBB4C71C8A
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.else8
@@ -5004,8 +5009,8 @@ if.end14:                                         ; preds = %if.end13, %if.then7
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %if.end
-  %18 = load double, ptr %out, align 8
-  %conv = fptrunc double %18 to float
+  %23 = load double, ptr %out, align 8
+  %conv = fptrunc double %23 to float
   ret float %conv
 }
 
@@ -5520,28 +5525,29 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   %this9 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this9, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this9, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(200) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(216) %this9) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  %4 = load ptr, ptr %__args.addr8, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEJNS3_12GradingStyleERSt10shared_ptrIKNS3_19GradingBSplineCurveEESA_SA_SA_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  %5 = load ptr, ptr %__args.addr8, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN19OpenColorIO_v2_4dev21GradingRGBCurveOpDataEJNS3_12GradingStyleERSt10shared_ptrIKNS3_19GradingBSplineCurveEESA_SA_SA_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #3
   br label %eh.resume
 
@@ -5719,7 +5725,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

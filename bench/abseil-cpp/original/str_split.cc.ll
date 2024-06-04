@@ -704,8 +704,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 112), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 112), i32 noundef 124, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
+  %2 = getelementptr i8, ptr @.str, i64 112
+  store ptr %2, ptr %absl_raw_log_internal_basename, align 8
+  %3 = getelementptr i8, ptr @.str, i64 112
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %3, i32 noundef 124, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3)
   br label %do.body3
 
 do.body3:                                         ; preds = %do.body2

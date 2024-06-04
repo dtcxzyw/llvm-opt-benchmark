@@ -4606,167 +4606,169 @@ define internal i32 @h264_user_data_unregistered(ptr noundef %0, ptr noundef %1,
   br label %179
 
 179:                                              ; preds = %178, %64
-  br label %297
+  br label %299
 
 180:                                              ; preds = %5
-  %181 = call i32 @memcmp(ptr noundef %21, ptr noundef getelementptr inbounds ([3 x %struct._e_guid_t], ptr @ms_guids, i64 0, i64 1), i64 noundef 16) #5
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %252
+  %181 = getelementptr inbounds [3 x %struct._e_guid_t], ptr @ms_guids, i64 0, i64 1
+  %182 = call i32 @memcmp(ptr noundef %21, ptr noundef %181, i64 noundef 16) #5
+  %183 = icmp eq i32 %182, 0
+  br i1 %183, label %184, label %253
 
-183:                                              ; preds = %180
-  %184 = load ptr, ptr %8, align 8
-  %185 = getelementptr inbounds %struct._packet_info, ptr %184, i32 0, i32 1
-  %186 = load ptr, ptr %185, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %186, i32 noundef 25, ptr noundef @.str.432)
-  %187 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %187, ptr noundef @.str.433)
-  %188 = load ptr, ptr %7, align 8
-  %189 = load i32, ptr %16, align 4
-  %190 = call zeroext i8 @tvb_get_guint8(ptr noundef %188, i32 noundef %189)
-  store i8 %190, ptr %15, align 1
-  %191 = load ptr, ptr %6, align 8
-  %192 = load i32, ptr @hf_h264_sei_ms_crop_num_data, align 4
-  %193 = load ptr, ptr %7, align 8
-  %194 = load i32, ptr %16, align 4
-  %195 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %192, ptr noundef %193, i32 noundef %194, i32 noundef 1, i32 noundef 0)
-  %196 = load i32, ptr %16, align 4
-  %197 = add i32 %196, 1
-  store i32 %197, ptr %16, align 4
-  %198 = load ptr, ptr %6, align 8
-  %199 = load i32, ptr @hf_h264_sei_ms_crop_info_type, align 4
-  %200 = load ptr, ptr %7, align 8
-  %201 = load i32, ptr %16, align 4
-  %202 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef 1, i32 noundef 0)
-  %203 = load i32, ptr %16, align 4
-  %204 = add i32 %203, 1
-  store i32 %204, ptr %16, align 4
-  br label %205
+184:                                              ; preds = %180
+  %185 = load ptr, ptr %8, align 8
+  %186 = getelementptr inbounds %struct._packet_info, ptr %185, i32 0, i32 1
+  %187 = load ptr, ptr %186, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %187, i32 noundef 25, ptr noundef @.str.432)
+  %188 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %188, ptr noundef @.str.433)
+  %189 = load ptr, ptr %7, align 8
+  %190 = load i32, ptr %16, align 4
+  %191 = call zeroext i8 @tvb_get_guint8(ptr noundef %189, i32 noundef %190)
+  store i8 %191, ptr %15, align 1
+  %192 = load ptr, ptr %6, align 8
+  %193 = load i32, ptr @hf_h264_sei_ms_crop_num_data, align 4
+  %194 = load ptr, ptr %7, align 8
+  %195 = load i32, ptr %16, align 4
+  %196 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %194, i32 noundef %195, i32 noundef 1, i32 noundef 0)
+  %197 = load i32, ptr %16, align 4
+  %198 = add i32 %197, 1
+  store i32 %198, ptr %16, align 4
+  %199 = load ptr, ptr %6, align 8
+  %200 = load i32, ptr @hf_h264_sei_ms_crop_info_type, align 4
+  %201 = load ptr, ptr %7, align 8
+  %202 = load i32, ptr %16, align 4
+  %203 = call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %200, ptr noundef %201, i32 noundef %202, i32 noundef 1, i32 noundef 0)
+  %204 = load i32, ptr %16, align 4
+  %205 = add i32 %204, 1
+  store i32 %205, ptr %16, align 4
+  br label %206
 
-205:                                              ; preds = %209, %183
-  %206 = load i8, ptr %15, align 1
-  %207 = zext i8 %206 to i32
-  %208 = icmp ne i32 %207, 0
-  br i1 %208, label %209, label %251
+206:                                              ; preds = %210, %184
+  %207 = load i8, ptr %15, align 1
+  %208 = zext i8 %207 to i32
+  %209 = icmp ne i32 %208, 0
+  br i1 %209, label %210, label %252
 
-209:                                              ; preds = %205
-  %210 = load ptr, ptr %6, align 8
-  %211 = load ptr, ptr %7, align 8
-  %212 = load i32, ptr %16, align 4
-  %213 = load i32, ptr @ett_h264_ms_crop_data, align 4
-  %214 = load i8, ptr %14, align 1
-  %215 = add i8 %214, 1
-  store i8 %215, ptr %14, align 1
-  %216 = zext i8 %215 to i32
-  %217 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %210, ptr noundef %211, i32 noundef %212, i32 noundef 9, i32 noundef %213, ptr noundef null, ptr noundef @.str.434, i32 noundef %216)
-  store ptr %217, ptr %20, align 8
-  %218 = load ptr, ptr %20, align 8
-  %219 = load i32, ptr @hf_h264_sei_ms_crop_confidence_level, align 4
-  %220 = load ptr, ptr %7, align 8
-  %221 = load i32, ptr %16, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %219, ptr noundef %220, i32 noundef %221, i32 noundef 1, i32 noundef 0)
-  %223 = load ptr, ptr %20, align 8
-  %224 = load i32, ptr @hf_h264_sei_ms_crop_frame_left_offset, align 4
-  %225 = load ptr, ptr %7, align 8
-  %226 = load i32, ptr %16, align 4
-  %227 = add i32 %226, 1
-  %228 = call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %224, ptr noundef %225, i32 noundef %227, i32 noundef 2, i32 noundef 0)
-  %229 = load ptr, ptr %20, align 8
-  %230 = load i32, ptr @hf_h264_sei_ms_crop_frame_right_offset, align 4
-  %231 = load ptr, ptr %7, align 8
-  %232 = load i32, ptr %16, align 4
-  %233 = add i32 %232, 3
-  %234 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %230, ptr noundef %231, i32 noundef %233, i32 noundef 2, i32 noundef 0)
-  %235 = load ptr, ptr %20, align 8
-  %236 = load i32, ptr @hf_h264_sei_ms_crop_frame_top_offset, align 4
-  %237 = load ptr, ptr %7, align 8
-  %238 = load i32, ptr %16, align 4
-  %239 = add i32 %238, 5
-  %240 = call ptr @proto_tree_add_item(ptr noundef %235, i32 noundef %236, ptr noundef %237, i32 noundef %239, i32 noundef 2, i32 noundef 0)
-  %241 = load ptr, ptr %20, align 8
-  %242 = load i32, ptr @hf_h264_sei_ms_crop_frame_bottom_offset, align 4
-  %243 = load ptr, ptr %7, align 8
-  %244 = load i32, ptr %16, align 4
-  %245 = add i32 %244, 7
-  %246 = call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %242, ptr noundef %243, i32 noundef %245, i32 noundef 2, i32 noundef 0)
-  %247 = load i8, ptr %15, align 1
-  %248 = add i8 %247, -1
-  store i8 %248, ptr %15, align 1
-  %249 = load i32, ptr %16, align 4
-  %250 = add i32 %249, 9
-  store i32 %250, ptr %16, align 4
-  br label %205, !llvm.loop !20
+210:                                              ; preds = %206
+  %211 = load ptr, ptr %6, align 8
+  %212 = load ptr, ptr %7, align 8
+  %213 = load i32, ptr %16, align 4
+  %214 = load i32, ptr @ett_h264_ms_crop_data, align 4
+  %215 = load i8, ptr %14, align 1
+  %216 = add i8 %215, 1
+  store i8 %216, ptr %14, align 1
+  %217 = zext i8 %216 to i32
+  %218 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %211, ptr noundef %212, i32 noundef %213, i32 noundef 9, i32 noundef %214, ptr noundef null, ptr noundef @.str.434, i32 noundef %217)
+  store ptr %218, ptr %20, align 8
+  %219 = load ptr, ptr %20, align 8
+  %220 = load i32, ptr @hf_h264_sei_ms_crop_confidence_level, align 4
+  %221 = load ptr, ptr %7, align 8
+  %222 = load i32, ptr %16, align 4
+  %223 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %221, i32 noundef %222, i32 noundef 1, i32 noundef 0)
+  %224 = load ptr, ptr %20, align 8
+  %225 = load i32, ptr @hf_h264_sei_ms_crop_frame_left_offset, align 4
+  %226 = load ptr, ptr %7, align 8
+  %227 = load i32, ptr %16, align 4
+  %228 = add i32 %227, 1
+  %229 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %225, ptr noundef %226, i32 noundef %228, i32 noundef 2, i32 noundef 0)
+  %230 = load ptr, ptr %20, align 8
+  %231 = load i32, ptr @hf_h264_sei_ms_crop_frame_right_offset, align 4
+  %232 = load ptr, ptr %7, align 8
+  %233 = load i32, ptr %16, align 4
+  %234 = add i32 %233, 3
+  %235 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %231, ptr noundef %232, i32 noundef %234, i32 noundef 2, i32 noundef 0)
+  %236 = load ptr, ptr %20, align 8
+  %237 = load i32, ptr @hf_h264_sei_ms_crop_frame_top_offset, align 4
+  %238 = load ptr, ptr %7, align 8
+  %239 = load i32, ptr %16, align 4
+  %240 = add i32 %239, 5
+  %241 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %238, i32 noundef %240, i32 noundef 2, i32 noundef 0)
+  %242 = load ptr, ptr %20, align 8
+  %243 = load i32, ptr @hf_h264_sei_ms_crop_frame_bottom_offset, align 4
+  %244 = load ptr, ptr %7, align 8
+  %245 = load i32, ptr %16, align 4
+  %246 = add i32 %245, 7
+  %247 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %243, ptr noundef %244, i32 noundef %246, i32 noundef 2, i32 noundef 0)
+  %248 = load i8, ptr %15, align 1
+  %249 = add i8 %248, -1
+  store i8 %249, ptr %15, align 1
+  %250 = load i32, ptr %16, align 4
+  %251 = add i32 %250, 9
+  store i32 %251, ptr %16, align 4
+  br label %206, !llvm.loop !20
 
-251:                                              ; preds = %205
-  br label %296
+252:                                              ; preds = %206
+  br label %298
 
-252:                                              ; preds = %180
-  %253 = call i32 @memcmp(ptr noundef %21, ptr noundef getelementptr inbounds ([3 x %struct._e_guid_t], ptr @ms_guids, i64 0, i64 2), i64 noundef 16) #5
-  %254 = icmp eq i32 %253, 0
-  br i1 %254, label %255, label %274
+253:                                              ; preds = %180
+  %254 = getelementptr inbounds [3 x %struct._e_guid_t], ptr @ms_guids, i64 0, i64 2
+  %255 = call i32 @memcmp(ptr noundef %21, ptr noundef %254, i64 noundef 16) #5
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %257, label %276
 
-255:                                              ; preds = %252
-  %256 = load ptr, ptr %8, align 8
-  %257 = getelementptr inbounds %struct._packet_info, ptr %256, i32 0, i32 1
-  %258 = load ptr, ptr %257, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %258, i32 noundef 25, ptr noundef @.str.435)
-  %259 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %259, ptr noundef @.str.436)
-  %260 = load ptr, ptr %6, align 8
-  %261 = load i32, ptr @hf_h264_sei_ms_bitstream_ref_frame_cnt, align 4
-  %262 = load ptr, ptr %7, align 8
-  %263 = load i32, ptr %16, align 4
-  %264 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %261, ptr noundef %262, i32 noundef %263, i32 noundef 1, i32 noundef 0)
+257:                                              ; preds = %253
+  %258 = load ptr, ptr %8, align 8
+  %259 = getelementptr inbounds %struct._packet_info, ptr %258, i32 0, i32 1
+  %260 = load ptr, ptr %259, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %260, i32 noundef 25, ptr noundef @.str.435)
+  %261 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %261, ptr noundef @.str.436)
+  %262 = load ptr, ptr %6, align 8
+  %263 = load i32, ptr @hf_h264_sei_ms_bitstream_ref_frame_cnt, align 4
+  %264 = load ptr, ptr %7, align 8
   %265 = load i32, ptr %16, align 4
-  %266 = add i32 %265, 1
-  store i32 %266, ptr %16, align 4
-  %267 = load ptr, ptr %6, align 8
-  %268 = load i32, ptr @hf_h264_sei_ms_bitstream_num_nalus, align 4
-  %269 = load ptr, ptr %7, align 8
-  %270 = load i32, ptr %16, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %268, ptr noundef %269, i32 noundef %270, i32 noundef 1, i32 noundef 0)
+  %266 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %263, ptr noundef %264, i32 noundef %265, i32 noundef 1, i32 noundef 0)
+  %267 = load i32, ptr %16, align 4
+  %268 = add i32 %267, 1
+  store i32 %268, ptr %16, align 4
+  %269 = load ptr, ptr %6, align 8
+  %270 = load i32, ptr @hf_h264_sei_ms_bitstream_num_nalus, align 4
+  %271 = load ptr, ptr %7, align 8
   %272 = load i32, ptr %16, align 4
-  %273 = add i32 %272, 1
-  store i32 %273, ptr %16, align 4
-  br label %295
-
-274:                                              ; preds = %252
-  %275 = load ptr, ptr %6, align 8
-  %276 = load i32, ptr @hf_h264_sei_iso_sec_info, align 4
-  %277 = load ptr, ptr %7, align 8
-  %278 = load i32, ptr %16, align 4
-  %279 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %276, ptr noundef %277, i32 noundef %278, i32 noundef 16, i32 noundef 0)
-  %280 = load i32, ptr %10, align 4
-  %281 = icmp ugt i32 %280, 16
-  br i1 %281, label %282, label %294
-
-282:                                              ; preds = %274
-  %283 = load ptr, ptr %6, align 8
-  %284 = load ptr, ptr %8, align 8
-  %285 = load ptr, ptr %7, align 8
-  %286 = load i32, ptr %16, align 4
-  %287 = load i32, ptr %10, align 4
-  %288 = sub i32 %287, 16
-  %289 = call ptr @proto_tree_add_expert(ptr noundef %283, ptr noundef %284, ptr noundef @ei_h264_undecoded, ptr noundef %285, i32 noundef %286, i32 noundef %288)
-  %290 = load i32, ptr %10, align 4
-  %291 = sub i32 %290, 16
-  %292 = load i32, ptr %16, align 4
-  %293 = add i32 %292, %291
-  store i32 %293, ptr %16, align 4
-  br label %294
-
-294:                                              ; preds = %282, %274
-  br label %295
-
-295:                                              ; preds = %294, %255
-  br label %296
-
-296:                                              ; preds = %295, %251
+  %273 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %270, ptr noundef %271, i32 noundef %272, i32 noundef 1, i32 noundef 0)
+  %274 = load i32, ptr %16, align 4
+  %275 = add i32 %274, 1
+  store i32 %275, ptr %16, align 4
   br label %297
 
-297:                                              ; preds = %296, %179
-  %298 = load i32, ptr %16, align 4
-  %299 = shl i32 %298, 3
-  ret i32 %299
+276:                                              ; preds = %253
+  %277 = load ptr, ptr %6, align 8
+  %278 = load i32, ptr @hf_h264_sei_iso_sec_info, align 4
+  %279 = load ptr, ptr %7, align 8
+  %280 = load i32, ptr %16, align 4
+  %281 = call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %278, ptr noundef %279, i32 noundef %280, i32 noundef 16, i32 noundef 0)
+  %282 = load i32, ptr %10, align 4
+  %283 = icmp ugt i32 %282, 16
+  br i1 %283, label %284, label %296
+
+284:                                              ; preds = %276
+  %285 = load ptr, ptr %6, align 8
+  %286 = load ptr, ptr %8, align 8
+  %287 = load ptr, ptr %7, align 8
+  %288 = load i32, ptr %16, align 4
+  %289 = load i32, ptr %10, align 4
+  %290 = sub i32 %289, 16
+  %291 = call ptr @proto_tree_add_expert(ptr noundef %285, ptr noundef %286, ptr noundef @ei_h264_undecoded, ptr noundef %287, i32 noundef %288, i32 noundef %290)
+  %292 = load i32, ptr %10, align 4
+  %293 = sub i32 %292, 16
+  %294 = load i32, ptr %16, align 4
+  %295 = add i32 %294, %293
+  store i32 %295, ptr %16, align 4
+  br label %296
+
+296:                                              ; preds = %284, %276
+  br label %297
+
+297:                                              ; preds = %296, %257
+  br label %298
+
+298:                                              ; preds = %297, %252
+  br label %299
+
+299:                                              ; preds = %298, %179
+  %300 = load i32, ptr %16, align 4
+  %301 = shl i32 %300, 3
+  ret i32 %301
 }
 
 ; Function Attrs: nounwind uwtable

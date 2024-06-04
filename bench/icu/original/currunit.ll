@@ -765,11 +765,12 @@ entry:
   store ptr %ec, ptr %ec.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i8 0, ptr %useDefault, align 1
-  %0 = load ptr, ptr %ec.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
+  %1 = load ptr, ptr %ec.addr, align 8
+  %2 = load i32, ptr %1, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -790,8 +791,8 @@ lor.lhs.false4:                                   ; preds = %invoke.cont2
 
 invoke.cont5:                                     ; preds = %lor.lhs.false4
   %arrayidx = getelementptr inbounds i16, ptr %call6, i64 0
-  %2 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %2 to i32
+  %3 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %3 to i32
   %cmp7 = icmp eq i32 %conv, 0
   br i1 %cmp7, label %if.then, label %if.else
 
@@ -800,12 +801,12 @@ if.then:                                          ; preds = %invoke.cont5, %invo
   br label %if.end39
 
 lpad:                                             ; preds = %invoke.cont49, %invoke.cont47, %if.end43, %invoke.cont29, %for.body, %invoke.cont21, %if.else20, %lor.lhs.false13, %if.else, %lor.lhs.false4, %lor.lhs.false, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1) #8
   br label %eh.resume
 
@@ -815,8 +816,8 @@ if.else:                                          ; preds = %invoke.cont5
 
 invoke.cont8:                                     ; preds = %if.else
   %arrayidx10 = getelementptr inbounds i16, ptr %call9, i64 1
-  %6 = load i16, ptr %arrayidx10, align 2
-  %conv11 = zext i16 %6 to i32
+  %7 = load i16, ptr %arrayidx10, align 2
+  %conv11 = zext i16 %7 to i32
   %cmp12 = icmp eq i32 %conv11, 0
   br i1 %cmp12, label %if.then19, label %lor.lhs.false13
 
@@ -826,15 +827,15 @@ lor.lhs.false13:                                  ; preds = %invoke.cont8
 
 invoke.cont14:                                    ; preds = %lor.lhs.false13
   %arrayidx16 = getelementptr inbounds i16, ptr %call15, i64 2
-  %7 = load i16, ptr %arrayidx16, align 2
-  %conv17 = zext i16 %7 to i32
+  %8 = load i16, ptr %arrayidx16, align 2
+  %conv17 = zext i16 %8 to i32
   %cmp18 = icmp eq i32 %conv17, 0
   br i1 %cmp18, label %if.then19, label %if.else20
 
 if.then19:                                        ; preds = %invoke.cont14, %invoke.cont8
   store i8 1, ptr %useDefault, align 1
-  %8 = load ptr, ptr %ec.addr, align 8
-  store i32 1, ptr %8, align 4
+  %9 = load ptr, ptr %ec.addr, align 8
+  store i32 1, ptr %9, align 4
   br label %if.end38
 
 if.else20:                                        ; preds = %invoke.cont14
@@ -851,8 +852,8 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 
 if.then26:                                        ; preds = %invoke.cont23
   store i8 1, ptr %useDefault, align 1
-  %9 = load ptr, ptr %ec.addr, align 8
-  store i32 26, ptr %9, align 4
+  %10 = load ptr, ptr %ec.addr, align 8
+  store i32 26, ptr %10, align 4
   br label %if.end
 
 if.else27:                                        ; preds = %invoke.cont23
@@ -860,8 +861,8 @@ if.else27:                                        ; preds = %invoke.cont23
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.else27
-  %10 = load i32, ptr %i, align 4
-  %cmp28 = icmp slt i32 %10, 3
+  %11 = load i32, ptr %i, align 4
+  %cmp28 = icmp slt i32 %11, 3
   br i1 %cmp28, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
@@ -869,24 +870,24 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %for.body
-  %11 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %11 to i64
+  %12 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %12 to i64
   %arrayidx31 = getelementptr inbounds i16, ptr %call30, i64 %idxprom
-  %12 = load i16, ptr %arrayidx31, align 2
-  %call33 = invoke zeroext i16 @u_asciiToUpper_75(i16 noundef zeroext %12)
+  %13 = load i16, ptr %arrayidx31, align 2
+  %call33 = invoke zeroext i16 @u_asciiToUpper_75(i16 noundef zeroext %13)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont29
   %isoCode = getelementptr inbounds %"class.icu_75::CurrencyUnit", ptr %this1, i32 0, i32 1
-  %13 = load i32, ptr %i, align 4
-  %idxprom34 = sext i32 %13 to i64
+  %14 = load i32, ptr %i, align 4
+  %idxprom34 = sext i32 %14 to i64
   %arrayidx35 = getelementptr inbounds [4 x i16], ptr %isoCode, i64 0, i64 %idxprom34
   store i16 %call33, ptr %arrayidx35, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont32
-  %14 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %14, 1
+  %15 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
@@ -903,8 +904,8 @@ if.end38:                                         ; preds = %if.end, %if.then19
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end38, %if.then
-  %15 = load i8, ptr %useDefault, align 1
-  %tobool40 = trunc i8 %15 to i1
+  %16 = load i8, ptr %useDefault, align 1
+  %tobool40 = trunc i8 %16 to i1
   br i1 %tobool40, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end39
@@ -935,11 +936,11 @@ invoke.cont47:                                    ; preds = %if.end43
           to label %invoke.cont49 unwind label %lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont47
-  %16 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  invoke void @_ZN6icu_7511MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr %17, i32 %19)
+  %17 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  invoke void @_ZN6icu_7511MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr %18, i32 %20)
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %invoke.cont49
@@ -998,7 +999,8 @@ entry:
   store ptr %ec, ptr %ec.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %call = invoke noundef i32 @_ZNK6icu_7511StringPiece6lengthEv(ptr noundef nonnull align 8 dereferenceable(12) %_isoCode)
           to label %invoke.cont unwind label %lpad
 
@@ -1017,17 +1019,17 @@ invoke.cont2:                                     ; preds = %lor.lhs.false
 
 if.then:                                          ; preds = %invoke.cont2, %invoke.cont
   store ptr @_ZN6icu_75L17kDefaultCurrency8E, ptr %isoCodeToUse, align 8
-  %2 = load ptr, ptr %ec.addr, align 8
-  store i32 1, ptr %2, align 4
+  %3 = load ptr, ptr %ec.addr, align 8
+  store i32 1, ptr %3, align 4
   br label %if.end20
 
 lpad:                                             ; preds = %invoke.cont23, %invoke.cont22, %if.end20, %invoke.cont13, %for.body, %invoke.cont6, %if.else, %lor.lhs.false, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1) #8
   br label %eh.resume
 
@@ -1045,8 +1047,8 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 if.then10:                                        ; preds = %invoke.cont8
   store ptr @_ZN6icu_75L17kDefaultCurrency8E, ptr %isoCodeToUse, align 8
-  %6 = load ptr, ptr %ec.addr, align 8
-  store i32 26, ptr %6, align 4
+  %7 = load ptr, ptr %ec.addr, align 8
+  store i32 26, ptr %7, align 4
   br label %if.end
 
 if.else11:                                        ; preds = %invoke.cont8
@@ -1054,8 +1056,8 @@ if.else11:                                        ; preds = %invoke.cont8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.else11
-  %7 = load i32, ptr %i, align 4
-  %cmp12 = icmp slt i32 %7, 3
+  %8 = load i32, ptr %i, align 4
+  %cmp12 = icmp slt i32 %8, 3
   br i1 %cmp12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
@@ -1063,23 +1065,23 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
+  %9 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %9 to i64
   %arrayidx = getelementptr inbounds i8, ptr %call14, i64 %idxprom
-  %9 = load i8, ptr %arrayidx, align 1
-  %call16 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %9)
+  %10 = load i8, ptr %arrayidx, align 1
+  %call16 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %10)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %10 = load i32, ptr %i, align 4
-  %idxprom17 = sext i32 %10 to i64
+  %11 = load i32, ptr %i, align 4
+  %idxprom17 = sext i32 %11 to i64
   %arrayidx18 = getelementptr inbounds [4 x i8], ptr %isoCodeBuffer, i64 0, i64 %idxprom17
   store i8 %call16, ptr %arrayidx18, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont15
-  %11 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %11, 1
+  %12 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !6
 
@@ -1094,23 +1096,23 @@ if.end:                                           ; preds = %for.end, %if.then10
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end, %if.then
-  %12 = load ptr, ptr %isoCodeToUse, align 8
+  %13 = load ptr, ptr %isoCodeToUse, align 8
   %isoCode = getelementptr inbounds %"class.icu_75::CurrencyUnit", ptr %this1, i32 0, i32 1
   %arraydecay21 = getelementptr inbounds [4 x i16], ptr %isoCode, i64 0, i64 0
-  invoke void @u_charsToUChars_75(ptr noundef %12, ptr noundef %arraydecay21, i32 noundef 4)
+  invoke void @u_charsToUChars_75(ptr noundef %13, ptr noundef %arraydecay21, i32 noundef 4)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %if.end20
-  %13 = load ptr, ptr %isoCodeToUse, align 8
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %13)
+  %14 = load ptr, ptr %isoCodeToUse, align 8
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %14)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont22
-  %14 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8
-  invoke void @_ZN6icu_7511MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr %15, i32 %17)
+  %15 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  invoke void @_ZN6icu_7511MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr %16, i32 %18)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont23
@@ -1167,11 +1169,12 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef nonnull align 8 dereferenceable(19) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %isoCode = getelementptr inbounds %"class.icu_75::CurrencyUnit", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [4 x i16], ptr %isoCode, i64 0, i64 0
-  %1 = load ptr, ptr %other.addr, align 8
-  %isoCode2 = getelementptr inbounds %"class.icu_75::CurrencyUnit", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %other.addr, align 8
+  %isoCode2 = getelementptr inbounds %"class.icu_75::CurrencyUnit", ptr %2, i32 0, i32 1
   %arraydecay3 = getelementptr inbounds [4 x i16], ptr %isoCode2, i64 0, i64 0
   %call = invoke ptr @u_strcpy_75(ptr noundef %arraydecay, ptr noundef %arraydecay3)
           to label %invoke.cont unwind label %lpad
@@ -1180,12 +1183,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1) #8
   br label %eh.resume
 
@@ -1215,7 +1218,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef nonnull align 8 dereferenceable(19) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %call = invoke noundef ptr @_ZNK6icu_7511MeasureUnit7getTypeEv(ptr noundef nonnull align 8 dereferenceable(19) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -1225,20 +1229,20 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %1 = load ptr, ptr %ec.addr, align 8
-  store i32 1, ptr %1, align 4
+  %2 = load ptr, ptr %ec.addr, align 8
+  store i32 1, ptr %2, align 4
   %isoCode = getelementptr inbounds %"class.icu_75::CurrencyUnit", ptr %this1, i32 0, i32 1
   %arrayidx = getelementptr inbounds [4 x i16], ptr %isoCode, i64 0, i64 0
   store i16 0, ptr %arrayidx, align 4
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont3, %if.else, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1) #8
   br label %eh.resume
 
@@ -1287,7 +1291,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isoCode = getelementptr inbounds %"class.icu_75::CurrencyUnit", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [4 x i16], ptr %isoCode, i64 0, i64 0
   %call = invoke ptr @u_strcpy_75(ptr noundef %arraydecay, ptr noundef @_ZN6icu_75L16kDefaultCurrencyE)
@@ -1306,23 +1311,23 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %3 = load i32, ptr %2, align 8
-  invoke void @_ZN6icu_7511MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr %1, i32 %3)
+  %1 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
+  %4 = load i32, ptr %3, align 8
+  invoke void @_ZN6icu_7511MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr %2, i32 %4)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %invoke.cont7, %invoke.cont5, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1) #8
   br label %eh.resume
 

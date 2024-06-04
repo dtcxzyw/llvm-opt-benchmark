@@ -935,33 +935,34 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr inttoptr (i64 -1 to ptr), ptr %retval, align 8
+  %4 = inttoptr i64 -1 to ptr
+  store ptr %4, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load i64, ptr %szParmDataBytes, align 8
-  %call1 = call noalias ptr @malloc(i64 noundef %4) #9
+  %5 = load i64, ptr %szParmDataBytes, align 8
+  %call1 = call noalias ptr @malloc(i64 noundef %5) #9
   store ptr %call1, ptr %cdDevices, align 8
-  %5 = load ptr, ptr @__clewGetContextInfo, align 8
-  %6 = load ptr, ptr %cxMainContext.addr, align 8
-  %7 = load i64, ptr %szParmDataBytes, align 8
-  %8 = load ptr, ptr %cdDevices, align 8
-  %call2 = call i32 %5(ptr noundef %6, i32 noundef 4225, i64 noundef %7, ptr noundef %8, ptr noundef null)
+  %6 = load ptr, ptr @__clewGetContextInfo, align 8
+  %7 = load ptr, ptr %cxMainContext.addr, align 8
+  %8 = load i64, ptr %szParmDataBytes, align 8
   %9 = load ptr, ptr %cdDevices, align 8
-  %10 = load i32, ptr %deviceIndex.addr, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  store ptr %11, ptr %device, align 8
-  %12 = load ptr, ptr %cdDevices, align 8
-  call void @free(ptr noundef %12) #10
-  %13 = load ptr, ptr %device, align 8
-  store ptr %13, ptr %retval, align 8
+  %call2 = call i32 %6(ptr noundef %7, i32 noundef 4225, i64 noundef %8, ptr noundef %9, ptr noundef null)
+  %10 = load ptr, ptr %cdDevices, align 8
+  %11 = load i32, ptr %deviceIndex.addr, align 4
+  %idxprom = sext i32 %11 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom
+  %12 = load ptr, ptr %arrayidx, align 8
+  store ptr %12, ptr %device, align 8
+  %13 = load ptr, ptr %cdDevices, align 8
+  call void @free(ptr noundef %13) #10
+  %14 = load ptr, ptr %device, align 8
+  store ptr %14, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %14 = load ptr, ptr %retval, align 8
-  ret ptr %14
+  %15 = load ptr, ptr %retval, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2655,7 +2655,7 @@ define i32 @Cec_ManSimAnalyzeOutputs(ptr noundef %0) #0 {
 
 13:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %189
+  br label %191
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %3, align 8
@@ -2664,20 +2664,20 @@ define i32 @Cec_ManSimAnalyzeOutputs(ptr noundef %0) #0 {
   %18 = getelementptr inbounds %struct.Cec_ParSim_t_, ptr %17, i32 0, i32 5
   %19 = load i32, ptr %18, align 4
   %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %108
+  br i1 %20, label %21, label %109
 
 21:                                               ; preds = %14
   store i32 0, ptr %6, align 4
   br label %22
 
-22:                                               ; preds = %104, %21
+22:                                               ; preds = %105, %21
   %23 = load i32, ptr %6, align 4
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %24, i32 0, i32 0
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @Gia_ManPoNum(ptr noundef %26)
   %28 = icmp slt i32 %23, %27
-  br i1 %28, label %29, label %107
+  br i1 %28, label %29, label %108
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %3, align 8
@@ -2701,7 +2701,7 @@ define i32 @Cec_ManSimAnalyzeOutputs(ptr noundef %0) #0 {
   %45 = load i32, ptr %44, align 8
   %46 = call i32 @Cec_ManSimCompareEqual(ptr noundef %41, ptr noundef %42, i32 noundef %45)
   %47 = icmp ne i32 %46, 0
-  br i1 %47, label %103, label %48
+  br i1 %47, label %104, label %48
 
 48:                                               ; preds = %29
   %49 = load ptr, ptr %3, align 8
@@ -2756,7 +2756,7 @@ define i32 @Cec_ManSimAnalyzeOutputs(ptr noundef %0) #0 {
   %87 = getelementptr inbounds ptr, ptr %83, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %102
+  br i1 %89, label %90, label %103
 
 90:                                               ; preds = %80
   %91 = load ptr, ptr %3, align 8
@@ -2771,145 +2771,147 @@ define i32 @Cec_ManSimAnalyzeOutputs(ptr noundef %0) #0 {
   %99 = sdiv i32 %98, 2
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds ptr, ptr %97, i64 %100
-  store ptr inttoptr (i64 1 to ptr), ptr %101, align 8
-  br label %102
-
-102:                                              ; preds = %90, %80
+  %102 = inttoptr i64 1 to ptr
+  store ptr %102, ptr %101, align 8
   br label %103
 
-103:                                              ; preds = %102, %29
+103:                                              ; preds = %90, %80
   br label %104
 
-104:                                              ; preds = %103
-  %105 = load i32, ptr %6, align 4
-  %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %6, align 4
+104:                                              ; preds = %103, %29
+  br label %105
+
+105:                                              ; preds = %104
+  %106 = load i32, ptr %6, align 4
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %6, align 4
   br label %22, !llvm.loop !36
 
-107:                                              ; preds = %22
-  br label %183
+108:                                              ; preds = %22
+  br label %185
 
-108:                                              ; preds = %14
+109:                                              ; preds = %14
   store i32 0, ptr %6, align 4
-  br label %109
+  br label %110
 
-109:                                              ; preds = %179, %108
-  %110 = load i32, ptr %6, align 4
-  %111 = load ptr, ptr %3, align 8
-  %112 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %111, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  %114 = call i32 @Gia_ManPoNum(ptr noundef %113)
-  %115 = icmp slt i32 %110, %114
-  br i1 %115, label %116, label %182
+110:                                              ; preds = %181, %109
+  %111 = load i32, ptr %6, align 4
+  %112 = load ptr, ptr %3, align 8
+  %113 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %112, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  %115 = call i32 @Gia_ManPoNum(ptr noundef %114)
+  %116 = icmp slt i32 %111, %115
+  br i1 %116, label %117, label %184
 
-116:                                              ; preds = %109
-  %117 = load ptr, ptr %3, align 8
-  %118 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %117, i32 0, i32 11
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i32, ptr %6, align 4
-  %121 = call ptr @Vec_PtrEntry(ptr noundef %119, i32 noundef %120)
-  store ptr %121, ptr %4, align 8
-  %122 = load ptr, ptr %4, align 8
-  %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %123, i32 0, i32 2
-  %125 = load i32, ptr %124, align 8
-  %126 = call i32 @Cec_ManSimCompareConst(ptr noundef %122, i32 noundef %125)
-  %127 = icmp ne i32 %126, 0
-  br i1 %127, label %178, label %128
+117:                                              ; preds = %110
+  %118 = load ptr, ptr %3, align 8
+  %119 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %118, i32 0, i32 11
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i32, ptr %6, align 4
+  %122 = call ptr @Vec_PtrEntry(ptr noundef %120, i32 noundef %121)
+  store ptr %122, ptr %4, align 8
+  %123 = load ptr, ptr %4, align 8
+  %124 = load ptr, ptr %3, align 8
+  %125 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %124, i32 0, i32 2
+  %126 = load i32, ptr %125, align 8
+  %127 = call i32 @Cec_ManSimCompareConst(ptr noundef %123, i32 noundef %126)
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %180, label %129
 
-128:                                              ; preds = %116
-  %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %129, i32 0, i32 13
-  %131 = load i32, ptr %130, align 8
-  %132 = icmp eq i32 %131, -1
-  br i1 %132, label %133, label %143
+129:                                              ; preds = %117
+  %130 = load ptr, ptr %3, align 8
+  %131 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %130, i32 0, i32 13
+  %132 = load i32, ptr %131, align 8
+  %133 = icmp eq i32 %132, -1
+  br i1 %133, label %134, label %144
 
-133:                                              ; preds = %128
-  %134 = load i32, ptr %6, align 4
-  %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %135, i32 0, i32 13
-  store i32 %134, ptr %136, align 8
-  %137 = load ptr, ptr %3, align 8
-  %138 = load ptr, ptr %4, align 8
-  %139 = load ptr, ptr %3, align 8
-  %140 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %139, i32 0, i32 2
-  %141 = load i32, ptr %140, align 8
-  %142 = call i32 @Cec_ManSimCompareConstFirstBit(ptr noundef %138, i32 noundef %141)
-  call void @Cec_ManSimSavePattern(ptr noundef %137, i32 noundef %142)
-  br label %143
+134:                                              ; preds = %129
+  %135 = load i32, ptr %6, align 4
+  %136 = load ptr, ptr %3, align 8
+  %137 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %136, i32 0, i32 13
+  store i32 %135, ptr %137, align 8
+  %138 = load ptr, ptr %3, align 8
+  %139 = load ptr, ptr %4, align 8
+  %140 = load ptr, ptr %3, align 8
+  %141 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %140, i32 0, i32 2
+  %142 = load i32, ptr %141, align 8
+  %143 = call i32 @Cec_ManSimCompareConstFirstBit(ptr noundef %139, i32 noundef %142)
+  call void @Cec_ManSimSavePattern(ptr noundef %138, i32 noundef %143)
+  br label %144
 
-143:                                              ; preds = %133, %128
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %144, i32 0, i32 12
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %157
+144:                                              ; preds = %134, %129
+  %145 = load ptr, ptr %3, align 8
+  %146 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %145, i32 0, i32 12
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %149, label %158
 
-148:                                              ; preds = %143
-  %149 = load ptr, ptr %3, align 8
-  %150 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %149, i32 0, i32 0
-  %151 = load ptr, ptr %150, align 8
-  %152 = call i32 @Gia_ManPoNum(ptr noundef %151)
-  %153 = sext i32 %152 to i64
-  %154 = call noalias ptr @calloc(i64 noundef %153, i64 noundef 8) #11
-  %155 = load ptr, ptr %3, align 8
-  %156 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %155, i32 0, i32 12
-  store ptr %154, ptr %156, align 8
-  br label %157
+149:                                              ; preds = %144
+  %150 = load ptr, ptr %3, align 8
+  %151 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %150, i32 0, i32 0
+  %152 = load ptr, ptr %151, align 8
+  %153 = call i32 @Gia_ManPoNum(ptr noundef %152)
+  %154 = sext i32 %153 to i64
+  %155 = call noalias ptr @calloc(i64 noundef %154, i64 noundef 8) #11
+  %156 = load ptr, ptr %3, align 8
+  %157 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %156, i32 0, i32 12
+  store ptr %155, ptr %157, align 8
+  br label %158
 
-157:                                              ; preds = %148, %143
-  %158 = load ptr, ptr %3, align 8
-  %159 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %158, i32 0, i32 12
-  %160 = load ptr, ptr %159, align 8
-  %161 = load i32, ptr %6, align 4
-  %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds ptr, ptr %160, i64 %162
-  %164 = load ptr, ptr %163, align 8
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %166, label %177
+158:                                              ; preds = %149, %144
+  %159 = load ptr, ptr %3, align 8
+  %160 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %159, i32 0, i32 12
+  %161 = load ptr, ptr %160, align 8
+  %162 = load i32, ptr %6, align 4
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds ptr, ptr %161, i64 %163
+  %165 = load ptr, ptr %164, align 8
+  %166 = icmp eq ptr %165, null
+  br i1 %166, label %167, label %179
 
-166:                                              ; preds = %157
-  %167 = load ptr, ptr %3, align 8
-  %168 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %167, i32 0, i32 14
-  %169 = load i32, ptr %168, align 4
-  %170 = add nsw i32 %169, 1
-  store i32 %170, ptr %168, align 4
-  %171 = load ptr, ptr %3, align 8
-  %172 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %171, i32 0, i32 12
-  %173 = load ptr, ptr %172, align 8
-  %174 = load i32, ptr %6, align 4
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds ptr, ptr %173, i64 %175
-  store ptr inttoptr (i64 1 to ptr), ptr %176, align 8
-  br label %177
-
-177:                                              ; preds = %166, %157
-  br label %178
-
-178:                                              ; preds = %177, %116
+167:                                              ; preds = %158
+  %168 = load ptr, ptr %3, align 8
+  %169 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %168, i32 0, i32 14
+  %170 = load i32, ptr %169, align 4
+  %171 = add nsw i32 %170, 1
+  store i32 %171, ptr %169, align 4
+  %172 = load ptr, ptr %3, align 8
+  %173 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %172, i32 0, i32 12
+  %174 = load ptr, ptr %173, align 8
+  %175 = load i32, ptr %6, align 4
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds ptr, ptr %174, i64 %176
+  %178 = inttoptr i64 1 to ptr
+  store ptr %178, ptr %177, align 8
   br label %179
 
-179:                                              ; preds = %178
-  %180 = load i32, ptr %6, align 4
-  %181 = add nsw i32 %180, 1
-  store i32 %181, ptr %6, align 4
-  br label %109, !llvm.loop !37
+179:                                              ; preds = %167, %158
+  br label %180
 
-182:                                              ; preds = %109
-  br label %183
+180:                                              ; preds = %179, %117
+  br label %181
 
-183:                                              ; preds = %182, %107
-  %184 = load ptr, ptr %3, align 8
-  %185 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %184, i32 0, i32 12
-  %186 = load ptr, ptr %185, align 8
-  %187 = icmp ne ptr %186, null
-  %188 = zext i1 %187 to i32
-  store i32 %188, ptr %2, align 4
-  br label %189
+181:                                              ; preds = %180
+  %182 = load i32, ptr %6, align 4
+  %183 = add nsw i32 %182, 1
+  store i32 %183, ptr %6, align 4
+  br label %110, !llvm.loop !37
 
-189:                                              ; preds = %183, %13
-  %190 = load i32, ptr %2, align 4
-  ret i32 %190
+184:                                              ; preds = %110
+  br label %185
+
+185:                                              ; preds = %184, %108
+  %186 = load ptr, ptr %3, align 8
+  %187 = getelementptr inbounds %struct.Cec_ManSim_t_, ptr %186, i32 0, i32 12
+  %188 = load ptr, ptr %187, align 8
+  %189 = icmp ne ptr %188, null
+  %190 = zext i1 %189 to i32
+  store i32 %190, ptr %2, align 4
+  br label %191
+
+191:                                              ; preds = %185, %13
+  %192 = load i32, ptr %2, align 4
+  ret i32 %192
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4012,7 +4014,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -4040,7 +4042,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -5124,19 +5126,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #8
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Gia_ObjLevelId(ptr noundef %0, i32 noundef %1) #0 {
@@ -5263,6 +5259,12 @@ define internal void @Vec_IntFillExtra(ptr noundef %0, i32 noundef %1, i32 nound
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5270,8 +5272,8 @@ attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"
 attributes #4 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind allocsize(1) }
 attributes #10 = { nounwind allocsize(0) }
 attributes #11 = { nounwind allocsize(0,1) }

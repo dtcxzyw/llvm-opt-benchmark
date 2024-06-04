@@ -40,30 +40,32 @@ define internal i32 @default_notify(i32 noundef %0, ptr noundef %1, i8 noundef z
   store i64 %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i32 0, i32 14), align 8
-  %17 = icmp ne ptr null, %16
-  br i1 %17, label %18, label %28
+  %16 = getelementptr inbounds %struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr null, %17
+  br i1 %18, label %19, label %30
 
-18:                                               ; preds = %7
-  %19 = load ptr, ptr getelementptr inbounds (%struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i32 0, i32 14), align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i8, ptr %10, align 1
-  %23 = load ptr, ptr %11, align 8
-  %24 = load i64, ptr %12, align 8
-  %25 = load ptr, ptr %13, align 8
-  %26 = load ptr, ptr %14, align 8
-  %27 = call i32 %19(i32 noundef %20, ptr noundef %21, i8 noundef zeroext %22, ptr noundef %23, i64 noundef %24, ptr noundef %25, ptr noundef %26)
-  store i32 %27, ptr %15, align 4
-  br label %29
+19:                                               ; preds = %7
+  %20 = getelementptr inbounds %struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i32 0, i32 14
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i8, ptr %10, align 1
+  %25 = load ptr, ptr %11, align 8
+  %26 = load i64, ptr %12, align 8
+  %27 = load ptr, ptr %13, align 8
+  %28 = load ptr, ptr %14, align 8
+  %29 = call i32 %21(i32 noundef %22, ptr noundef %23, i8 noundef zeroext %24, ptr noundef %25, i64 noundef %26, ptr noundef %27, ptr noundef %28)
+  store i32 %29, ptr %15, align 4
+  br label %31
 
-28:                                               ; preds = %7
+30:                                               ; preds = %7
   store i32 -47, ptr %15, align 4
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %18
-  %30 = load i32, ptr %15, align 4
-  ret i32 %30
+31:                                               ; preds = %30, %19
+  %32 = load i32, ptr %15, align 4
+  ret i32 %32
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

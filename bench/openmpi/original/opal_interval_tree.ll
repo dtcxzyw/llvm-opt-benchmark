@@ -57,219 +57,223 @@ define internal void @opal_interval_tree_construct(ptr noundef %0) #0 {
 
 5:                                                ; preds = %4
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_interval_tree_node_t_class, i32 0, i32 4), align 8
-  %8 = icmp ne i32 %6, %7
-  br i1 %8, label %9, label %10
+  %7 = getelementptr inbounds %struct.opal_class_t, ptr @opal_interval_tree_node_t_class, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp ne i32 %6, %8
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %5
+10:                                               ; preds = %5
   call void @opal_class_initialize(ptr noundef @opal_interval_tree_node_t_class)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %9, %5
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %11, i32 0, i32 1
-  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
-  store ptr @opal_interval_tree_node_t_class, ptr %13, align 16
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %14, i32 0, i32 1
-  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
-  store volatile i32 1, ptr %16, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %17, i32 0, i32 1
-  call void @opal_obj_run_constructors(ptr noundef %18)
-  br label %19
-
-19:                                               ; preds = %10
+11:                                               ; preds = %10, %5
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds %struct.opal_object_t, ptr %13, i32 0, i32 0
+  store ptr @opal_interval_tree_node_t_class, ptr %14, align 16
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 1
+  store volatile i32 1, ptr %17, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %18, i32 0, i32 1
+  call void @opal_obj_run_constructors(ptr noundef %19)
   br label %20
 
-20:                                               ; preds = %19
+20:                                               ; preds = %11
   br label %21
 
 21:                                               ; preds = %20
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_interval_tree_node_t_class, i32 0, i32 4), align 8
-  %25 = icmp ne i32 %23, %24
-  br i1 %25, label %26, label %27
+  br label %23
 
-26:                                               ; preds = %22
+23:                                               ; preds = %22
+  %24 = load i32, ptr @opal_class_init_epoch, align 4
+  %25 = getelementptr inbounds %struct.opal_class_t, ptr @opal_interval_tree_node_t_class, i32 0, i32 4
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp ne i32 %24, %26
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %23
   call void @opal_class_initialize(ptr noundef @opal_interval_tree_node_t_class)
-  br label %27
+  br label %29
 
-27:                                               ; preds = %26, %22
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %28, i32 0, i32 2
-  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 0
-  store ptr @opal_interval_tree_node_t_class, ptr %30, align 16
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %31, i32 0, i32 2
-  %33 = getelementptr inbounds %struct.opal_object_t, ptr %32, i32 0, i32 1
-  store volatile i32 1, ptr %33, align 8
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %34, i32 0, i32 2
-  call void @opal_obj_run_constructors(ptr noundef %35)
-  br label %36
-
-36:                                               ; preds = %27
-  br label %37
-
-37:                                               ; preds = %36
+29:                                               ; preds = %28, %23
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %30, i32 0, i32 2
+  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 0
+  store ptr @opal_interval_tree_node_t_class, ptr %32, align 16
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %33, i32 0, i32 2
+  %35 = getelementptr inbounds %struct.opal_object_t, ptr %34, i32 0, i32 1
+  store volatile i32 1, ptr %35, align 8
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %36, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %37)
   br label %38
 
-38:                                               ; preds = %37
+38:                                               ; preds = %29
   br label %39
 
 39:                                               ; preds = %38
-  %40 = load i32, ptr @opal_class_init_epoch, align 4
-  %41 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %42 = icmp ne i32 %40, %41
-  br i1 %42, label %43, label %44
+  br label %40
 
-43:                                               ; preds = %39
+40:                                               ; preds = %39
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i32, ptr @opal_class_init_epoch, align 4
+  %43 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp ne i32 %42, %44
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %41
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %44
+  br label %47
 
-44:                                               ; preds = %43, %39
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %45, i32 0, i32 3
-  %47 = getelementptr inbounds %struct.opal_object_t, ptr %46, i32 0, i32 0
-  store ptr @opal_free_list_t_class, ptr %47, align 16
+47:                                               ; preds = %46, %41
   %48 = load ptr, ptr %2, align 8
   %49 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %48, i32 0, i32 3
-  %50 = getelementptr inbounds %struct.opal_object_t, ptr %49, i32 0, i32 1
-  store volatile i32 1, ptr %50, align 8
+  %50 = getelementptr inbounds %struct.opal_object_t, ptr %49, i32 0, i32 0
+  store ptr @opal_free_list_t_class, ptr %50, align 16
   %51 = load ptr, ptr %2, align 8
   %52 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %51, i32 0, i32 3
-  call void @opal_obj_run_constructors(ptr noundef %52)
-  br label %53
-
-53:                                               ; preds = %44
-  br label %54
-
-54:                                               ; preds = %53
-  br label %55
-
-55:                                               ; preds = %54
+  %53 = getelementptr inbounds %struct.opal_object_t, ptr %52, i32 0, i32 1
+  store volatile i32 1, ptr %53, align 8
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %54, i32 0, i32 3
+  call void @opal_obj_run_constructors(ptr noundef %55)
   br label %56
 
-56:                                               ; preds = %55
-  %57 = load i32, ptr @opal_class_init_epoch, align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %59 = icmp ne i32 %57, %58
-  br i1 %59, label %60, label %61
+56:                                               ; preds = %47
+  br label %57
 
-60:                                               ; preds = %56
+57:                                               ; preds = %56
+  br label %58
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load i32, ptr @opal_class_init_epoch, align 4
+  %61 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp ne i32 %60, %62
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %59
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %61
+  br label %65
 
-61:                                               ; preds = %60, %56
-  %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %62, i32 0, i32 4
-  %64 = getelementptr inbounds %struct.opal_object_t, ptr %63, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %64, align 16
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %65, i32 0, i32 4
-  %67 = getelementptr inbounds %struct.opal_object_t, ptr %66, i32 0, i32 1
-  store volatile i32 1, ptr %67, align 8
-  %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %68, i32 0, i32 4
-  call void @opal_obj_run_constructors(ptr noundef %69)
-  br label %70
-
-70:                                               ; preds = %61
-  br label %71
-
-71:                                               ; preds = %70
+65:                                               ; preds = %64, %59
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %66, i32 0, i32 4
+  %68 = getelementptr inbounds %struct.opal_object_t, ptr %67, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %68, align 16
+  %69 = load ptr, ptr %2, align 8
+  %70 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %69, i32 0, i32 4
+  %71 = getelementptr inbounds %struct.opal_object_t, ptr %70, i32 0, i32 1
+  store volatile i32 1, ptr %71, align 8
   %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %72, i32 0, i32 2
-  %74 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %73, i32 0, i32 1
-  store i32 1, ptr %74, align 8
-  %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %75, i32 0, i32 2
-  %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %77, i32 0, i32 2
-  %79 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %78, i32 0, i32 2
-  store ptr %76, ptr %79, align 16
-  %80 = load ptr, ptr %2, align 8
-  %81 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %80, i32 0, i32 2
-  %82 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %81, i32 0, i32 4
-  store ptr %76, ptr %82, align 16
-  %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %83, i32 0, i32 2
-  %85 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %84, i32 0, i32 3
-  store ptr %76, ptr %85, align 8
-  %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %86, i32 0, i32 2
-  %88 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %87, i32 0, i32 9
-  store i64 0, ptr %88, align 8
-  %89 = load ptr, ptr %2, align 8
-  %90 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %89, i32 0, i32 2
-  %91 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %90, i32 0, i32 6
-  store ptr null, ptr %91, align 16
-  %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %92, i32 0, i32 1
-  %94 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %93, i32 0, i32 1
-  store i32 1, ptr %94, align 8
-  %95 = load ptr, ptr %2, align 8
-  %96 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %95, i32 0, i32 2
-  %97 = load ptr, ptr %2, align 8
-  %98 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %97, i32 0, i32 1
-  %99 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %98, i32 0, i32 2
-  store ptr %96, ptr %99, align 16
-  %100 = load ptr, ptr %2, align 8
-  %101 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %100, i32 0, i32 1
-  %102 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %101, i32 0, i32 4
-  store ptr %96, ptr %102, align 16
-  %103 = load ptr, ptr %2, align 8
-  %104 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %103, i32 0, i32 1
-  %105 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %104, i32 0, i32 3
-  store ptr %96, ptr %105, align 8
-  %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %106, i32 0, i32 1
-  %108 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %107, i32 0, i32 7
-  store i64 -1, ptr %108, align 8
-  %109 = load ptr, ptr %2, align 8
-  %110 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %109, i32 0, i32 1
-  %111 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %110, i32 0, i32 6
-  store ptr null, ptr %111, align 16
-  %112 = load ptr, ptr %2, align 8
-  %113 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %112, i32 0, i32 6
-  store volatile i64 0, ptr %113, align 8
-  %114 = load ptr, ptr %2, align 8
-  %115 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %114, i32 0, i32 7
-  store volatile i32 0, ptr %115, align 16
+  %73 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %72, i32 0, i32 4
+  call void @opal_obj_run_constructors(ptr noundef %73)
+  br label %74
+
+74:                                               ; preds = %65
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %2, align 8
+  %77 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %76, i32 0, i32 2
+  %78 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %77, i32 0, i32 1
+  store i32 1, ptr %78, align 8
+  %79 = load ptr, ptr %2, align 8
+  %80 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %79, i32 0, i32 2
+  %81 = load ptr, ptr %2, align 8
+  %82 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %81, i32 0, i32 2
+  %83 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %82, i32 0, i32 2
+  store ptr %80, ptr %83, align 16
+  %84 = load ptr, ptr %2, align 8
+  %85 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %84, i32 0, i32 2
+  %86 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %85, i32 0, i32 4
+  store ptr %80, ptr %86, align 16
+  %87 = load ptr, ptr %2, align 8
+  %88 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %87, i32 0, i32 2
+  %89 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %88, i32 0, i32 3
+  store ptr %80, ptr %89, align 8
+  %90 = load ptr, ptr %2, align 8
+  %91 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %90, i32 0, i32 2
+  %92 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %91, i32 0, i32 9
+  store i64 0, ptr %92, align 8
+  %93 = load ptr, ptr %2, align 8
+  %94 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %93, i32 0, i32 2
+  %95 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %94, i32 0, i32 6
+  store ptr null, ptr %95, align 16
+  %96 = load ptr, ptr %2, align 8
+  %97 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %96, i32 0, i32 1
+  %98 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %97, i32 0, i32 1
+  store i32 1, ptr %98, align 8
+  %99 = load ptr, ptr %2, align 8
+  %100 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %2, align 8
+  %102 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %101, i32 0, i32 1
+  %103 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %102, i32 0, i32 2
+  store ptr %100, ptr %103, align 16
+  %104 = load ptr, ptr %2, align 8
+  %105 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %104, i32 0, i32 1
+  %106 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %105, i32 0, i32 4
+  store ptr %100, ptr %106, align 16
+  %107 = load ptr, ptr %2, align 8
+  %108 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %107, i32 0, i32 1
+  %109 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %108, i32 0, i32 3
+  store ptr %100, ptr %109, align 8
+  %110 = load ptr, ptr %2, align 8
+  %111 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %110, i32 0, i32 1
+  %112 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %111, i32 0, i32 7
+  store i64 -1, ptr %112, align 8
+  %113 = load ptr, ptr %2, align 8
+  %114 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %113, i32 0, i32 1
+  %115 = getelementptr inbounds %struct.opal_interval_tree_node_t, ptr %114, i32 0, i32 6
+  store ptr null, ptr %115, align 16
   %116 = load ptr, ptr %2, align 8
-  %117 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %116, i32 0, i32 8
-  store volatile i32 0, ptr %117, align 4
+  %117 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %116, i32 0, i32 6
+  store volatile i64 0, ptr %117, align 8
   %118 = load ptr, ptr %2, align 8
-  %119 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %118, i32 0, i32 5
-  store i32 0, ptr %119, align 16
+  %119 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %118, i32 0, i32 7
+  store volatile i32 0, ptr %119, align 16
+  %120 = load ptr, ptr %2, align 8
+  %121 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %120, i32 0, i32 8
+  store volatile i32 0, ptr %121, align 4
+  %122 = load ptr, ptr %2, align 8
+  %123 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %122, i32 0, i32 5
+  store i32 0, ptr %123, align 16
   store i32 0, ptr %3, align 4
-  br label %120
+  br label %124
 
-120:                                              ; preds = %129, %71
-  %121 = load i32, ptr %3, align 4
-  %122 = icmp slt i32 %121, 128
-  br i1 %122, label %123, label %132
+124:                                              ; preds = %133, %75
+  %125 = load i32, ptr %3, align 4
+  %126 = icmp slt i32 %125, 128
+  br i1 %126, label %127, label %136
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr %2, align 8
-  %125 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %124, i32 0, i32 10
-  %126 = load i32, ptr %3, align 4
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds [128 x i32], ptr %125, i64 0, i64 %127
-  store volatile i32 -1, ptr %128, align 4
-  br label %129
-
-129:                                              ; preds = %123
+127:                                              ; preds = %124
+  %128 = load ptr, ptr %2, align 8
+  %129 = getelementptr inbounds %struct.opal_interval_tree_t, ptr %128, i32 0, i32 10
   %130 = load i32, ptr %3, align 4
-  %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %3, align 4
-  br label %120, !llvm.loop !4
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds [128 x i32], ptr %129, i64 0, i64 %131
+  store volatile i32 -1, ptr %132, align 4
+  br label %133
 
-132:                                              ; preds = %120
+133:                                              ; preds = %127
+  %134 = load i32, ptr %3, align 4
+  %135 = add nsw i32 %134, 1
+  store i32 %135, ptr %3, align 4
+  br label %124, !llvm.loop !4
+
+136:                                              ; preds = %124
   ret void
 }
 

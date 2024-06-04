@@ -3338,7 +3338,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %batch, ptr %batch.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core12BatchBuilder17PendingCompletionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core12BatchBuilder17PendingCompletionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %done_latch = getelementptr inbounds %"struct.grpc_core::BatchBuilder::PendingCompletion", ptr %this1, i32 0, i32 2
   call void @_ZN9grpc_core5LatchIN4absl12lts_202308026StatusEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %done_latch)
   %batch2 = getelementptr inbounds %"struct.grpc_core::BatchBuilder::PendingCompletion", ptr %this1, i32 0, i32 3
@@ -3351,12 +3352,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_12BatchBuilder5BatchEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %batch2) #3
   call void @_ZN9grpc_core5LatchIN4absl12lts_202308026StatusEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %done_latch) #3
   br label %eh.resume
@@ -5871,15 +5872,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core8Activity19g_current_activity_E() #10 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6499,7 +6501,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6509,7 +6512,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6923,23 +6927,24 @@ entry:
   %4 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   call void @_ZN9grpc_core5Party11ParticipantC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 %3, ptr %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS3_18CompletionCallbackES4_S7_E3$_1EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @"_ZTVN9grpc_core5Party15ParticipantImplIZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0ZNS3_18CompletionCallbackES4_S7_E3$_1EE", i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %started_ = getelementptr inbounds %"class.grpc_core::Party::ParticipantImpl", ptr %this1, i32 0, i32 2
   store i8 0, ptr %started_, align 8
-  %6 = getelementptr inbounds %"class.grpc_core::Party::ParticipantImpl", ptr %this1, i32 0, i32 1
-  invoke void @"_ZN9grpc_core9ConstructINS_14promise_detail18OncePromiseFactoryIvZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0EEJS9_EEEvPT_DpOT0_"(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %promise_factory)
+  %7 = getelementptr inbounds %"class.grpc_core::Party::ParticipantImpl", ptr %this1, i32 0, i32 1
+  invoke void @"_ZN9grpc_core9ConstructINS_14promise_detail18OncePromiseFactoryIvZNS_12BatchBuilder17PendingCompletion18CompletionCallbackEPvN4absl12lts_202308026StatusEE3$_0EEJS9_EEEvPT_DpOT0_"(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %promise_factory)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
   br label %eh.resume
 
@@ -6962,7 +6967,8 @@ entry:
   store ptr %name.coerce1, ptr %1, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Party11ParticipantE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core5Party11ParticipantE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %handle_ = getelementptr inbounds %"class.grpc_core::Party::Participant", ptr %this1, i32 0, i32 1
   store ptr null, ptr %handle_, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::Party::Participant", ptr %this1, i32 0, i32 2
@@ -7745,7 +7751,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core12BatchBuilder17PendingCompletionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core12BatchBuilder17PendingCompletionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %batch = getelementptr inbounds %"struct.grpc_core::BatchBuilder::PendingCompletion", ptr %this1, i32 0, i32 3
   call void @_ZN9grpc_core13RefCountedPtrINS_12BatchBuilder5BatchEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %batch) #3
   %done_latch = getelementptr inbounds %"struct.grpc_core::BatchBuilder::PendingCompletion", ptr %this1, i32 0, i32 2
@@ -7875,7 +7882,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core12BatchBuilder22PendingReceiveMetadataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core12BatchBuilder22PendingReceiveMetadataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %metadata = getelementptr inbounds %"struct.grpc_core::BatchBuilder::PendingReceiveMetadata", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %metadata) #3
   call void @_ZN9grpc_core12BatchBuilder17PendingCompletionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3

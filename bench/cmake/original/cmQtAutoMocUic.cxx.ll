@@ -2639,121 +2639,122 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicTC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17cmQtAutoGeneratorC2EN11cmQtAutoGen4GenTE(ptr noundef nonnull align 8 dereferenceable(328) %5, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicTE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 1
-  invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13BaseSettingsTC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6)
-          to label %7 unwind label %23
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicTE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 1
+  invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13BaseSettingsTC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %7)
+          to label %8 unwind label %24
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 2
-  invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9BaseEvalTC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %8)
-          to label %9 unwind label %27
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 2
+  invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9BaseEvalTC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %9)
+          to label %10 unwind label %28
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 3
-  invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsTC2Ev(ptr noundef nonnull align 8 dereferenceable(920) %10)
-          to label %11 unwind label %31
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 3
+  invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsTC2Ev(ptr noundef nonnull align 8 dereferenceable(920) %11)
+          to label %12 unwind label %32
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 4
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8MocEvalTC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %12) #3
-  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 5
-  invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsTC2Ev(ptr noundef nonnull align 8 dereferenceable(768) %13)
-          to label %14 unwind label %35
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 4
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8MocEvalTC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %13) #3
+  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 5
+  invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsTC2Ev(ptr noundef nonnull align 8 dereferenceable(768) %14)
+          to label %15 unwind label %36
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 6
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8UicEvalTC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %15) #3
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  %17 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 8
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 6
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8UicEvalTC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %16) #3
+  %17 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
-  %18 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 9
+  %18 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  %19 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 10
-  call void @_ZNSt6atomicIbEC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %19, i1 noundef zeroext false) #3
-  %20 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 11
-  invoke void @_ZN12cmWorkerPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20)
-          to label %21 unwind label %39
+  %19 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  %20 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 10
+  call void @_ZNSt6atomicIbEC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %20, i1 noundef zeroext false) #3
+  %21 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 11
+  invoke void @_ZN12cmWorkerPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21)
+          to label %22 unwind label %40
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 12
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #3
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %5, i32 0, i32 12
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #3
   ret void
 
-23:                                               ; preds = %1
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %1
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
-  br label %46
-
-27:                                               ; preds = %7
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %3, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %4, align 4
-  br label %45
-
-31:                                               ; preds = %9
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %3, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %4, align 4
-  br label %44
-
-35:                                               ; preds = %11
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %3, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %4, align 4
-  br label %43
-
-39:                                               ; preds = %14
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %3, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8UicEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %15) #3
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %13) #3
-  br label %43
-
-43:                                               ; preds = %39, %35
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8MocEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %12) #3
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %10) #3
-  br label %44
-
-44:                                               ; preds = %43, %31
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9BaseEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %8) #3
-  br label %45
-
-45:                                               ; preds = %44, %27
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13BaseSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6) #3
-  br label %46
-
-46:                                               ; preds = %45, %23
-  call void @_ZN17cmQtAutoGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %5) #3
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %3, align 8
-  %49 = load i32, ptr %4, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+28:                                               ; preds = %8
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %3, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %4, align 4
+  br label %46
+
+32:                                               ; preds = %10
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %3, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %4, align 4
+  br label %45
+
+36:                                               ; preds = %12
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %3, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %4, align 4
+  br label %44
+
+40:                                               ; preds = %15
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %3, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %4, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8UicEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %16) #3
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %14) #3
+  br label %44
+
+44:                                               ; preds = %40, %36
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8MocEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %13) #3
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %11) #3
+  br label %45
+
+45:                                               ; preds = %44, %32
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9BaseEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %9) #3
+  br label %46
+
+46:                                               ; preds = %45, %28
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13BaseSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %7) #3
+  br label %47
+
+47:                                               ; preds = %46, %24
+  call void @_ZN17cmQtAutoGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %5) #3
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %3, align 8
+  %50 = load i32, ptr %4, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 declare noundef zeroext i1 @_ZN17cmQtAutoGenerator3RunESt17basic_string_viewIcSt11char_traitsIcEES3_S3_(ptr noundef nonnull align 8 dereferenceable(328), i64, ptr, i64, ptr, ptr noundef byval(%"class.std::basic_string_view") align 8) #1
@@ -2768,27 +2769,28 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicTD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 11
-  call void @_ZN12cmWorkerPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 11
+  call void @_ZN12cmWorkerPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 7
+  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 6
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8UicEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %8) #3
-  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 5
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %9) #3
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 4
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8MocEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %10) #3
-  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 3
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %11) #3
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 2
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9BaseEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %12) #3
-  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 1
-  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13BaseSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %13) #3
+  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 6
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8UicEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %9) #3
+  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 5
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %10) #3
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 4
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT8MocEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %11) #3
+  %12 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 3
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %12) #3
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 2
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9BaseEvalTD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %13) #3
+  %14 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT", ptr %3, i32 0, i32 1
+  call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13BaseSettingsTD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %14) #3
   call void @_ZN17cmQtAutoGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %3) #3
   ret void
 }
@@ -17079,33 +17081,34 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMo
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(96) %9) #3
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(112) %8) #3
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(96) %10) #3
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(112) %8) #3
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17263,11 +17266,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -25908,11 +25912,12 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMo
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.171", ptr %4, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(152) %5) #3
-  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(168) %4) #3
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %6) #3
+  %5 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.171", ptr %4, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(152) %6) #3
+  %7 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(168) %4) #3
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %7) #3
   ret void
 }
 
@@ -28467,7 +28472,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobMocPredefsTC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobMocPredefsTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobMocPredefsTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29109,7 +29115,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTC2Eb(ptr noundef no
   %7 = load i8, ptr %4, align 1
   %8 = trunc i8 %7 to i1
   call void @_ZN12cmWorkerPool4JobTC2Eb(ptr noundef nonnull align 8 dereferenceable(21) %6, i1 noundef zeroext %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT4JobTE, i32 0, i32 0, i32 2), ptr %6, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT4JobTE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %6, align 8
   ret void
 }
 
@@ -29147,16 +29154,17 @@ define linkonce_odr dso_local void @_ZN12cmWorkerPool4JobTC2Eb(ptr noundef nonnu
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 1
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12cmWorkerPool4JobTE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.cmWorkerPool::JobT", ptr %6, i32 0, i32 1
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmWorkerPool::JobT", ptr %6, i32 0, i32 2
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.cmWorkerPool::JobT", ptr %6, i32 0, i32 3
-  %10 = load i8, ptr %4, align 1
-  %11 = trunc i8 %10 to i1
-  %12 = zext i1 %11 to i8
-  store i8 %12, ptr %9, align 4
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12cmWorkerPool4JobTE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.cmWorkerPool::JobT", ptr %6, i32 0, i32 1
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.cmWorkerPool::JobT", ptr %6, i32 0, i32 2
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.cmWorkerPool::JobT", ptr %6, i32 0, i32 3
+  %11 = load i8, ptr %4, align 1
+  %12 = trunc i8 %11 to i1
+  %13 = zext i1 %12 to i8
+  store i8 %13, ptr %10, align 4
   ret void
 }
 
@@ -33519,7 +33527,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTCI2NS0_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTC2ESt10shared_ptrINS0_11SourceFileTEE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -33573,11 +33582,12 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTC2ESt10shared_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTC2Eb(ptr noundef nonnull align 8 dereferenceable(21) %5, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobParseT", ptr %5, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobParseT", ptr %5, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobParseT", ptr %5, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
+  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobParseT", ptr %5, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   ret void
 }
 
@@ -33645,11 +33655,12 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobParseT", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobParseT", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobParseT", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobParseT", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTD2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3) #3
   ret void
 }
@@ -35948,7 +35959,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTCI2NS0_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTC2ESt10shared_ptrINS0_11SourceFileTEE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -36682,7 +36694,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTC2Eb(ptr noundef nonnull align 8 dereferenceable(21) %3, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -37144,7 +37157,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocTC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -37177,9 +37191,10 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTC2Eb(ptr noundef nonnull align 8 dereferenceable(21) %3, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheT", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheT", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   ret void
 }
 
@@ -37321,9 +37336,10 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTD2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheT", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheT", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTD2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3) #3
   ret void
 }
@@ -40207,11 +40223,12 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMo
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.276", ptr %4, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(104) %5) #3
-  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %4) #3
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %6) #3
+  %5 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.276", ptr %4, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(104) %6) #3
+  %7 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %4) #3
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %7) #3
   ret void
 }
 
@@ -45548,33 +45565,34 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMo
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(96) %9) #3
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(112) %8) #3
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(96) %10) #3
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(112) %8) #3
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -48136,11 +48154,12 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheUicT", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheUicT", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheUicT", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheUicT", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   ret void
 }
 
@@ -48172,11 +48191,12 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTD2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheUicT", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheUicT", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheUicT", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobEvalCacheUicT", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
   ret void
 }
@@ -51307,7 +51327,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT19JobEvalCacheFinishTC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT19JobEvalCacheFinishTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT19JobEvalCacheFinishTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51613,7 +51634,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobProbeDepsMocTC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobProbeDepsTC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobProbeDepsMocTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobProbeDepsMocTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51646,7 +51668,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobProbeDepsTC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTC2Eb(ptr noundef nonnull align 8 dereferenceable(21) %3, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobProbeDepsTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobProbeDepsTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -55491,33 +55514,34 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTC2ESt10s
   call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   invoke void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTC2ESt10shared_ptrINS0_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %9, ptr noundef %10)
-          to label %14 unwind label %16
+          to label %14 unwind label %17
 
 14:                                               ; preds = %4
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileMocT", ptr %13, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileMocT", ptr %13, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 
-16:                                               ; preds = %4
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %4
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %11, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %12, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %11, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %12, align 4
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %11, align 8
-  %22 = load i32, ptr %12, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %11, align 8
+  %23 = load i32, ptr %12, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -55617,11 +55641,12 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTC2ESt10shar
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTC2Eb(ptr noundef nonnull align 8 dereferenceable(21) %7, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileT", ptr %7, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileT", ptr %7, i32 0, i32 2
-  call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileT", ptr %7, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
+  %10 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileT", ptr %7, i32 0, i32 2
+  call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   ret void
 }
 
@@ -55630,9 +55655,10 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileMocT", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileMocT", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
   ret void
 }
@@ -56502,11 +56528,12 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTD2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileT", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileT", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileT", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.(anonymous namespace)::cmQtAutoMocUicT::JobCompileT", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT4JobTD2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3) #3
   ret void
 }
@@ -59205,7 +59232,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobProbeDepsUicTC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobProbeDepsTC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobProbeDepsUicTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobProbeDepsUicTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -59974,7 +60002,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTCI2NS0_1
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTC2ESt10shared_ptrINS0_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -61410,7 +61439,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT19JobProbeDepsFinishTC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT19JobProbeDepsFinishTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT19JobProbeDepsFinishTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -63202,7 +63232,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT19JobMocsCompilationTC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT19JobMocsCompilationTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT19JobMocsCompilationTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -64428,7 +64459,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeTC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -69616,7 +69648,8 @@ define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT10JobFinishTC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobFenceTC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT10JobFinishTE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT10JobFinishTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -245,61 +245,64 @@ define internal ptr @tcp6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %48, label %13
+  %13 = inttoptr i64 -22 to ptr
+  br i1 %12, label %51, label %14
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
-  %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 116
-  %17 = load i32, ptr %16, align 4
-  %18 = sub i32 %15, %17
-  %19 = icmp ugt i32 %18, 19
-  br i1 %19, label %26, label %20, !prof !7
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = load i32, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 116
+  %18 = load i32, ptr %17, align 4
+  %19 = sub i32 %16, %18
+  %20 = icmp ugt i32 %19, 19
+  br i1 %20, label %29, label %21, !prof !7
 
-20:                                               ; preds = %13
-  %21 = icmp ult i32 %15, 20
-  br i1 %21, label %48, label %22, !prof !8
+21:                                               ; preds = %14
+  %22 = icmp ult i32 %16, 20
+  %23 = inttoptr i64 -22 to ptr
+  br i1 %22, label %51, label %24, !prof !8
 
-22:                                               ; preds = %20
-  %23 = sub nsw i32 20, %18
-  %24 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %23) #4
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %48, label %26
+24:                                               ; preds = %21
+  %25 = sub nsw i32 20, %19
+  %26 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %25) #4
+  %27 = icmp eq ptr %26, null
+  %28 = inttoptr i64 -22 to ptr
+  br i1 %27, label %51, label %29
 
-26:                                               ; preds = %22, %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 128
-  %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 96
-  %30 = icmp eq i8 %29, 96
-  br i1 %30, label %46, label %31, !prof !7
+29:                                               ; preds = %24, %14
+  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = load i8, ptr %30, align 8
+  %32 = and i8 %31, 96
+  %33 = icmp eq i8 %32, 96
+  br i1 %33, label %49, label %34, !prof !7
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 180
-  %34 = load i16, ptr %33, align 4
-  %35 = zext i16 %34 to i64
-  %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 178
-  %38 = load i16, ptr %37, align 2
-  %39 = zext i16 %38 to i64
-  %40 = getelementptr i8, ptr %32, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
-  store i16 0, ptr %41, align 4
-  %42 = load i8, ptr %27, align 8
-  %43 = or i8 %42, 96
-  store i8 %43, ptr %27, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 8
-  %45 = getelementptr inbounds i8, ptr %36, i64 24
-  tail call fastcc void @__tcp_v6_send_check(ptr noundef %0, ptr noundef %44, ptr noundef %45)
-  br label %46
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 180
+  %37 = load i16, ptr %36, align 4
+  %38 = zext i16 %37 to i64
+  %39 = getelementptr i8, ptr %35, i64 %38
+  %40 = getelementptr inbounds i8, ptr %0, i64 178
+  %41 = load i16, ptr %40, align 2
+  %42 = zext i16 %41 to i64
+  %43 = getelementptr i8, ptr %35, i64 %42
+  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  store i16 0, ptr %44, align 4
+  %45 = load i8, ptr %30, align 8
+  %46 = or i8 %45, 96
+  store i8 %46, ptr %30, align 8
+  %47 = getelementptr inbounds i8, ptr %39, i64 8
+  %48 = getelementptr inbounds i8, ptr %39, i64 24
+  tail call fastcc void @__tcp_v6_send_check(ptr noundef %0, ptr noundef %47, ptr noundef %48)
+  br label %49
 
-46:                                               ; preds = %31, %26
-  %47 = tail call ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) #4
-  br label %48
+49:                                               ; preds = %34, %29
+  %50 = tail call ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) #4
+  br label %51
 
-48:                                               ; preds = %46, %22, %20, %2
-  %49 = phi ptr [ %47, %46 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -22 to ptr), %22 ], [ inttoptr (i64 -22 to ptr), %20 ]
-  ret ptr %49
+51:                                               ; preds = %49, %24, %21, %2
+  %52 = phi ptr [ %50, %49 ], [ %13, %2 ], [ %28, %24 ], [ %23, %21 ]
+  ret ptr %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

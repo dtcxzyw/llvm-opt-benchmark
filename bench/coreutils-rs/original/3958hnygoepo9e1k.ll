@@ -424,19 +424,20 @@ define void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT
   store i64 %9, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %11, ptr %13, align 8
-  br label %19
+  br label %20
 
 14:                                               ; preds = %2
   store i64 0, ptr %0, align 8
   %15 = load i64, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, align 8, !range !7, !noundef !4
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, i64 8), align 8
-  %17 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %16, ptr %18, align 8
-  br label %19
+  %16 = getelementptr inbounds i8, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %17, ptr %19, align 8
+  br label %20
 
-19:                                               ; preds = %14, %7
+20:                                               ; preds = %14, %7
   ret void
 }
 
@@ -459,19 +460,20 @@ define void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT
   store i64 %9, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %11, ptr %13, align 8
-  br label %19
+  br label %20
 
 14:                                               ; preds = %2
   store i64 0, ptr %0, align 8
   %15 = load i64, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, align 8, !range !7, !noundef !4
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, i64 8), align 8
-  %17 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %16, ptr %18, align 8
-  br label %19
+  %16 = getelementptr inbounds i8, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %17, ptr %19, align 8
+  br label %20
 
-19:                                               ; preds = %14, %7
+20:                                               ; preds = %14, %7
   ret void
 }
 
@@ -495,19 +497,20 @@ define void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT
   store i64 %10, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %12, ptr %14, align 8
-  br label %20
+  br label %21
 
 15:                                               ; preds = %2
   store i64 0, ptr %0, align 8
   %16 = load i64, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, align 8, !range !7, !noundef !4
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, i64 8), align 8
-  %18 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 %17, ptr %19, align 8
-  br label %20
+  %17 = getelementptr inbounds i8, ptr @anon.182a924fe0ec767dcbe8ccfc91a2eabd.0, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %16, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  store i64 %18, ptr %20, align 8
+  br label %21
 
-20:                                               ; preds = %15, %7
+21:                                               ; preds = %15, %7
   ret void
 }
 

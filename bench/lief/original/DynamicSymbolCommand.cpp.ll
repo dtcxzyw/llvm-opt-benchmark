@@ -221,45 +221,46 @@ define void @_ZN4LIEF5MachO20DynamicSymbolCommandC2Ev(ptr noundef nonnull align 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %3, i64 noundef 11, i32 noundef 80)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 3
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 4
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 5
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 6
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 7
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 8
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 9
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 10
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 11
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 12
-  store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 13
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 14
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 15
-  store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 16
-  store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 17
-  store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 18
-  store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 19
-  call void @_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #10
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 3
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 4
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 5
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 6
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 7
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 8
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 9
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 10
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 11
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 12
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 13
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 14
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 15
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 16
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 17
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 18
+  store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 19
+  call void @_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #10
   ret void
 }
 
@@ -289,99 +290,100 @@ define void @_ZN4LIEF5MachO20DynamicSymbolCommandC2ERKNS0_7details16dysymtab_com
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %18, i32 0, i32 3
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %17, align 4
-  %21 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 3
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %22, i32 0, i32 4
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %21, align 8
-  %25 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 4
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %26, i32 0, i32 5
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %25, align 4
-  %29 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 5
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %30, i32 0, i32 6
-  %32 = load i32, ptr %31, align 4
-  store i32 %32, ptr %29, align 8
-  %33 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 6
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %34, i32 0, i32 7
-  %36 = load i32, ptr %35, align 4
-  store i32 %36, ptr %33, align 4
-  %37 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 7
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %38, i32 0, i32 8
-  %40 = load i32, ptr %39, align 4
-  store i32 %40, ptr %37, align 8
-  %41 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %42, i32 0, i32 9
-  %44 = load i32, ptr %43, align 4
-  store i32 %44, ptr %41, align 4
-  %45 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 9
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %46, i32 0, i32 10
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr %45, align 8
-  %49 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 10
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %50, i32 0, i32 11
-  %52 = load i32, ptr %51, align 4
-  store i32 %52, ptr %49, align 4
-  %53 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 11
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %54, i32 0, i32 12
-  %56 = load i32, ptr %55, align 4
-  store i32 %56, ptr %53, align 8
-  %57 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 12
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %58, i32 0, i32 13
-  %60 = load i32, ptr %59, align 4
-  store i32 %60, ptr %57, align 4
-  %61 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 13
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %62, i32 0, i32 14
-  %64 = load i32, ptr %63, align 4
-  store i32 %64, ptr %61, align 8
-  %65 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 14
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %66, i32 0, i32 15
-  %68 = load i32, ptr %67, align 4
-  store i32 %68, ptr %65, align 4
-  %69 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 15
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %70, i32 0, i32 16
-  %72 = load i32, ptr %71, align 4
-  store i32 %72, ptr %69, align 8
-  %73 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 16
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %74, i32 0, i32 17
-  %76 = load i32, ptr %75, align 4
-  store i32 %76, ptr %73, align 4
-  %77 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 17
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %78, i32 0, i32 18
-  %80 = load i32, ptr %79, align 4
-  store i32 %80, ptr %77, align 8
-  %81 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 18
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %82, i32 0, i32 19
-  %84 = load i32, ptr %83, align 4
-  store i32 %84, ptr %81, align 4
-  %85 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 19
-  call void @_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %85) #10
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 2
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %19, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4
+  store i32 %21, ptr %18, align 4
+  %22 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 3
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %23, i32 0, i32 4
+  %25 = load i32, ptr %24, align 4
+  store i32 %25, ptr %22, align 8
+  %26 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 4
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %27, i32 0, i32 5
+  %29 = load i32, ptr %28, align 4
+  store i32 %29, ptr %26, align 4
+  %30 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 5
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %31, i32 0, i32 6
+  %33 = load i32, ptr %32, align 4
+  store i32 %33, ptr %30, align 8
+  %34 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 6
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %35, i32 0, i32 7
+  %37 = load i32, ptr %36, align 4
+  store i32 %37, ptr %34, align 4
+  %38 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 7
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %39, i32 0, i32 8
+  %41 = load i32, ptr %40, align 4
+  store i32 %41, ptr %38, align 8
+  %42 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 8
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %43, i32 0, i32 9
+  %45 = load i32, ptr %44, align 4
+  store i32 %45, ptr %42, align 4
+  %46 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 9
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %47, i32 0, i32 10
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %46, align 8
+  %50 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 10
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %51, i32 0, i32 11
+  %53 = load i32, ptr %52, align 4
+  store i32 %53, ptr %50, align 4
+  %54 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 11
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %55, i32 0, i32 12
+  %57 = load i32, ptr %56, align 4
+  store i32 %57, ptr %54, align 8
+  %58 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 12
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %59, i32 0, i32 13
+  %61 = load i32, ptr %60, align 4
+  store i32 %61, ptr %58, align 4
+  %62 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 13
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %63, i32 0, i32 14
+  %65 = load i32, ptr %64, align 4
+  store i32 %65, ptr %62, align 8
+  %66 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 14
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %67, i32 0, i32 15
+  %69 = load i32, ptr %68, align 4
+  store i32 %69, ptr %66, align 4
+  %70 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 15
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %71, i32 0, i32 16
+  %73 = load i32, ptr %72, align 4
+  store i32 %73, ptr %70, align 8
+  %74 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 16
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %75, i32 0, i32 17
+  %77 = load i32, ptr %76, align 4
+  store i32 %77, ptr %74, align 4
+  %78 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 17
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %79, i32 0, i32 18
+  %81 = load i32, ptr %80, align 4
+  store i32 %81, ptr %78, align 8
+  %82 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 18
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds %"struct.LIEF::MachO::details::dysymtab_command", ptr %83, i32 0, i32 19
+  %85 = load i32, ptr %84, align 4
+  store i32 %85, ptr %82, align 4
+  %86 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %5, i32 0, i32 19
+  call void @_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #10
   ret void
 }
 
@@ -622,36 +624,37 @@ define void @_ZN4LIEF5MachO20DynamicSymbolCommandC2ERKS1_(ptr noundef nonnull al
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %10, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 72, i1 false)
-  %12 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %7, i32 0, i32 19
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %13, i32 0, i32 19
-  invoke void @_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %11, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %12, i64 72, i1 false)
+  %13 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %7, i32 0, i32 19
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %14, i32 0, i32 19
+  invoke void @_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #10
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %5, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %6, align 4
+  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #10
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 declare void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
@@ -739,9 +742,10 @@ define void @_ZN4LIEF5MachO20DynamicSymbolCommandD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 19
-  call void @_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DynamicSymbolCommand", ptr %3, i32 0, i32 19
+  call void @_ZNSt6vectorIPN4LIEF5MachO6SymbolESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #10
   ret void
 }

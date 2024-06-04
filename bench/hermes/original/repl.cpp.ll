@@ -2308,13 +2308,14 @@ entry:
   call void @_ZN4llvh2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(145) %this5, i32 noundef 0, i32 noundef 0)
   %0 = getelementptr inbounds i8, ptr %this5, i64 152
   call void @_ZN4llvh2cl11opt_storageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this5, align 8
   %Parser = getelementptr inbounds %"class.llvh::cl::opt", ptr %this5, i32 0, i32 2
   call void @_ZN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) %Parser, ptr noundef nonnull align 8 dereferenceable(145) %this5)
-  %1 = load ptr, ptr %Ms.addr, align 8
-  %2 = load ptr, ptr %Ms.addr2, align 8
-  %3 = load ptr, ptr %Ms.addr4, align 8
-  call void @_ZN4llvh2cl5applyINS0_3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS8_EEEEA7_cJNS0_11initializerIA4_cEENS0_4descEEEEvPT_RKT0_DpRKT1_(ptr noundef %this5, ptr noundef nonnull align 1 dereferenceable(7) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %2 = load ptr, ptr %Ms.addr, align 8
+  %3 = load ptr, ptr %Ms.addr2, align 8
+  %4 = load ptr, ptr %Ms.addr4, align 8
+  call void @_ZN4llvh2cl5applyINS0_3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS8_EEEEA7_cJNS0_11initializerIA4_cEENS0_4descEEEEvPT_RKT0_DpRKT1_(ptr noundef %this5, ptr noundef nonnull align 1 dereferenceable(7) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(240) %this5)
   ret void
 }
@@ -2401,13 +2402,14 @@ entry:
   call void @_ZN4llvh2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(145) %this5, i32 noundef 0, i32 noundef 0)
   %0 = getelementptr inbounds i8, ptr %this5, i64 152
   call void @_ZN4llvh2cl11opt_storageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this5, align 8
   %Parser = getelementptr inbounds %"class.llvh::cl::opt", ptr %this5, i32 0, i32 2
   call void @_ZN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) %Parser, ptr noundef nonnull align 8 dereferenceable(145) %this5)
-  %1 = load ptr, ptr %Ms.addr, align 8
-  %2 = load ptr, ptr %Ms.addr2, align 8
-  %3 = load ptr, ptr %Ms.addr4, align 8
-  call void @_ZN4llvh2cl5applyINS0_3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS8_EEEEA8_cJNS0_11initializerIA6_cEENS0_4descEEEEvPT_RKT0_DpRKT1_(ptr noundef %this5, ptr noundef nonnull align 1 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %2 = load ptr, ptr %Ms.addr, align 8
+  %3 = load ptr, ptr %Ms.addr2, align 8
+  %4 = load ptr, ptr %Ms.addr4, align 8
+  call void @_ZN4llvh2cl5applyINS0_3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS8_EEEEA8_cJNS0_11initializerIA6_cEENS0_4descEEEEvPT_RKT0_DpRKT1_(ptr noundef %this5, ptr noundef nonnull align 1 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEE4doneEv(ptr noundef nonnull align 8 dereferenceable(240) %this5)
   ret void
 }
@@ -2708,24 +2710,26 @@ while.body:                                       ; preds = %while.cond
   br i1 %call98, label %cond.true99, label %cond.false101
 
 cond.true99:                                      ; preds = %while.body
-  %call100 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL12PromptStringB5cxx11, i64 152)) #3
+  %35 = getelementptr inbounds i8, ptr @_ZL12PromptStringB5cxx11, i64 152
+  %call100 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #3
   br label %cond.end103
 
 cond.false101:                                    ; preds = %while.body
-  %call102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL13Prompt2StringB5cxx11, i64 152)) #3
+  %36 = getelementptr inbounds i8, ptr @_ZL13Prompt2StringB5cxx11, i64 152
+  %call102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #3
   br label %cond.end103
 
 cond.end103:                                      ; preds = %cond.false101, %cond.true99
   %cond = phi ptr [ %call100, %cond.true99 ], [ %call102, %cond.false101 ]
   %call104 = call noundef i32 @_ZL13readInputLinePKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %cond, ptr noundef nonnull align 8 dereferenceable(32) %code)
   store i32 %call104, ptr %readResult, align 4
-  %35 = load i32, ptr %readResult, align 4
-  %cmp105 = icmp eq i32 %35, 1
+  %37 = load i32, ptr %readResult, align 4
+  %cmp105 = icmp eq i32 %37, 1
   br i1 %cmp105, label %if.then109, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cond.end103
-  %36 = load i32, ptr %readResult, align 4
-  %cmp106 = icmp eq i32 %36, 2
+  %38 = load i32, ptr %readResult, align 4
+  %cmp106 = icmp eq i32 %38, 2
   br i1 %cmp106, label %land.lhs.true107, label %if.end117
 
 land.lhs.true107:                                 ; preds = %lor.lhs.false
@@ -2735,8 +2739,8 @@ land.lhs.true107:                                 ; preds = %lor.lhs.false
 if.then109:                                       ; preds = %land.lhs.true107, %cond.end103
   %call110 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv()
   %call111 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEc(ptr noundef nonnull align 8 dereferenceable(36) %call110, i8 noundef signext 10)
-  %37 = load i32, ptr @history_length, align 4
-  %cmp112 = icmp sgt i32 %37, 0
+  %39 = load i32, ptr @history_length, align 4
+  %cmp112 = icmp sgt i32 %39, 0
   br i1 %cmp112, label %if.then113, label %if.end116
 
 if.then113:                                       ; preds = %if.then109
@@ -2752,8 +2756,8 @@ if.end116:                                        ; preds = %if.then113, %if.the
   br label %cleanup273
 
 if.end117:                                        ; preds = %land.lhs.true107, %lor.lhs.false
-  %38 = load i32, ptr %readResult, align 4
-  %cmp118 = icmp eq i32 %38, 2
+  %40 = load i32, ptr %readResult, align 4
+  %cmp118 = icmp eq i32 %40, 2
   br i1 %cmp118, label %if.then119, label %if.end122
 
 if.then119:                                       ; preds = %if.end117
@@ -2766,18 +2770,18 @@ if.end122:                                        ; preds = %if.end117
   store ptr %agg.tmp123, ptr %this.addr.i277, align 8
   store ptr %code, ptr %Str.addr.i278, align 8
   %this1.i279 = load ptr, ptr %this.addr.i277, align 8
-  %39 = load ptr, ptr %Str.addr.i278, align 8
-  %call.i280 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #3
+  %41 = load ptr, ptr %Str.addr.i278, align 8
+  %call.i280 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
   store ptr %call.i280, ptr %this1.i279, align 8
   %Length.i281 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i279, i32 0, i32 1
-  %40 = load ptr, ptr %Str.addr.i278, align 8
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #3
+  %42 = load ptr, ptr %Str.addr.i278, align 8
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #3
   store i64 %call2.i, ptr %Length.i281, align 8
-  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp123, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp123, i32 0, i32 1
-  %44 = load i64, ptr %43, align 8
-  %call124 = call noundef zeroext i1 @_ZL16needsAnotherLineN4llvh9StringRefE(ptr %42, i64 %44)
+  %43 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp123, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp123, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %call124 = call noundef zeroext i1 @_ZL16needsAnotherLineN4llvh9StringRefE(ptr %44, i64 %46)
   br i1 %call124, label %if.then125, label %if.end127
 
 if.then125:                                       ; preds = %if.end122
@@ -2789,24 +2793,24 @@ if.end127:                                        ; preds = %if.end122
   store ptr %agg.tmp128, ptr %this.addr.i282, align 8
   store ptr %code, ptr %Str.addr.i283, align 8
   %this1.i284 = load ptr, ptr %this.addr.i282, align 8
-  %45 = load ptr, ptr %Str.addr.i283, align 8
-  %call.i285 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #3
+  %47 = load ptr, ptr %Str.addr.i283, align 8
+  %call.i285 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #3
   store ptr %call.i285, ptr %this1.i284, align 8
   %Length.i286 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i284, i32 0, i32 1
-  %46 = load ptr, ptr %Str.addr.i283, align 8
-  %call2.i287 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #3
+  %48 = load ptr, ptr %Str.addr.i283, align 8
+  %call2.i287 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #3
   store i64 %call2.i287, ptr %Length.i286, align 8
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp128, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp128, i32 0, i32 1
-  %50 = load i64, ptr %49, align 8
-  %call129 = call noundef zeroext i1 @_ZN4llvh24convertUTF8ToUTF16StringENS_9StringRefERNS_15SmallVectorImplItEE(ptr %48, i64 %50, ptr noundef nonnull align 8 dereferenceable(16) %utf16Buf)
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp128, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp128, i32 0, i32 1
+  %52 = load i64, ptr %51, align 8
+  %call129 = call noundef zeroext i1 @_ZN4llvh24convertUTF8ToUTF16StringENS_9StringRefERNS_15SmallVectorImplItEE(ptr %50, i64 %52, ptr noundef nonnull align 8 dereferenceable(16) %utf16Buf)
   br i1 %call129, label %if.end132, label %if.then130
 
 if.then130:                                       ; preds = %if.end127
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #3
-  %51 = load i8, ptr %hasColors, align 1
-  %tobool131 = trunc i8 %51 to i1
+  %53 = load i8, ptr %hasColors, align 1
+  %tobool131 = trunc i8 %53 to i1
   call void @_ZL10printErrorPKcb(ptr noundef @.str.13, i1 noundef zeroext %tobool131)
   store i32 2, ptr %cleanup.dest.slot, align 4
   br label %cleanup269, !llvm.loop !5
@@ -2815,12 +2819,12 @@ if.end132:                                        ; preds = %if.end127
   %call133 = call noundef ptr @_ZN4llvh25SmallVectorTemplateCommonItvE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %utf16Buf)
   %call134 = call noundef i64 @_ZNK4llvh15SmallVectorBase4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %utf16Buf)
   %call135 = call { ptr, i64 } @_ZN4llvh12makeArrayRefIDsEENS_8ArrayRefIT_EEPKS2_m(ptr noundef %call133, i64 noundef %call134)
-  %52 = getelementptr inbounds { ptr, i64 }, ptr %utf16Code, i32 0, i32 0
-  %53 = extractvalue { ptr, i64 } %call135, 0
-  store ptr %53, ptr %52, align 8
-  %54 = getelementptr inbounds { ptr, i64 }, ptr %utf16Code, i32 0, i32 1
-  %55 = extractvalue { ptr, i64 } %call135, 1
-  store i64 %55, ptr %54, align 8
+  %54 = getelementptr inbounds { ptr, i64 }, ptr %utf16Code, i32 0, i32 0
+  %55 = extractvalue { ptr, i64 } %call135, 0
+  store ptr %55, ptr %54, align 8
+  %56 = getelementptr inbounds { ptr, i64 }, ptr %utf16Code, i32 0, i32 1
+  %57 = extractvalue { ptr, i64 } %call135, 1
+  store i64 %57, ptr %56, align 8
   %call136 = call noundef nonnull align 8 dereferenceable(9832) ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm7RuntimeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %runtime) #3
   call void @_ZN6hermes2vm17GCScopeMarkerRAIIC2ERNS0_15HandleRootOwnerE(ptr noundef nonnull align 8 dereferenceable(24) %gcMarker, ptr noundef nonnull align 8 dereferenceable(16) %call136)
   store i8 0, ptr %threwException, align 1
@@ -2830,55 +2834,55 @@ if.end132:                                        ; preds = %if.end127
   call void @_ZN6hermes2vm6HandleINS0_11HermesValueEEC2INS0_8JSObjectEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp141, ptr noundef nonnull align 8 dereferenceable(8) %global)
   %call144 = call noundef nonnull align 8 dereferenceable(9832) ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm7RuntimeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %runtime) #3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp145, ptr align 8 %utf16Code, i64 16, i1 false)
-  %56 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp145, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp145, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
-  %call146 = call ptr @_ZN6hermes2vm15StringPrimitive13createNoThrowERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %call144, ptr %57, i64 %59)
+  %58 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp145, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp145, i32 0, i32 1
+  %61 = load i64, ptr %60, align 8
+  %call146 = call ptr @_ZN6hermes2vm15StringPrimitive13createNoThrowERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %call144, ptr %59, i64 %61)
   %coerce.dive147 = getelementptr inbounds %"class.hermes::vm::Handle.178", ptr %ref.tmp143, i32 0, i32 0
   %coerce.dive148 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive147, i32 0, i32 0
   store ptr %call146, ptr %coerce.dive148, align 8
   %call149 = call i64 @_ZNK6hermes2vm10HandleBase14getHermesValueEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp143)
   %coerce.dive150 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp142, i32 0, i32 0
   store i64 %call149, ptr %coerce.dive150, align 8
-  %60 = load i8, ptr %hasColors, align 1
-  %tobool152 = trunc i8 %60 to i1
+  %62 = load i8, ptr %hasColors, align 1
+  %tobool152 = trunc i8 %62 to i1
   %call153 = call i64 @_ZN6hermes2vm11HermesValue15encodeBoolValueEb(i1 noundef zeroext %tobool152)
   %coerce.dive154 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp151, i32 0, i32 0
   store i64 %call153, ptr %coerce.dive154, align 8
   %coerce.dive155 = getelementptr inbounds %"class.hermes::vm::Handle.177", ptr %agg.tmp139, i32 0, i32 0
   %coerce.dive156 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive155, i32 0, i32 0
-  %61 = load ptr, ptr %coerce.dive156, align 8
+  %63 = load ptr, ptr %coerce.dive156, align 8
   %coerce.dive157 = getelementptr inbounds %"class.hermes::vm::Handle.176", ptr %agg.tmp141, i32 0, i32 0
   %coerce.dive158 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive157, i32 0, i32 0
-  %62 = load ptr, ptr %coerce.dive158, align 8
+  %64 = load ptr, ptr %coerce.dive158, align 8
   %coerce.dive159 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp142, i32 0, i32 0
-  %63 = load i64, ptr %coerce.dive159, align 8
+  %65 = load i64, ptr %coerce.dive159, align 8
   %coerce.dive160 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp151, i32 0, i32 0
-  %64 = load i64, ptr %coerce.dive160, align 8
-  %call161 = call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall2ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_b(ptr %61, ptr noundef nonnull align 8 dereferenceable(9832) %call140, ptr %62, i64 %63, i64 %64, i1 noundef zeroext false)
-  %65 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp137, i32 0, i32 0
-  %66 = extractvalue { i32, i64 } %call161, 0
-  store i32 %66, ptr %65, align 8
-  %67 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp137, i32 0, i32 1
-  %68 = extractvalue { i32, i64 } %call161, 1
-  store i64 %68, ptr %67, align 8
+  %66 = load i64, ptr %coerce.dive160, align 8
+  %call161 = call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall2ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_b(ptr %63, ptr noundef nonnull align 8 dereferenceable(9832) %call140, ptr %64, i64 %65, i64 %66, i1 noundef zeroext false)
+  %67 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp137, i32 0, i32 0
+  %68 = extractvalue { i32, i64 } %call161, 0
+  store i32 %68, ptr %67, align 8
+  %69 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp137, i32 0, i32 1
+  %70 = extractvalue { i32, i64 } %call161, 1
+  store i64 %70, ptr %69, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %callRes, ptr align 8 %ref.tmp137, i64 16, i1 false)
   %call162 = call noundef zeroext i1 @_ZN6hermes2vmeqINS0_12PseudoHandleINS0_11HermesValueEEEEEbRKNS0_10CallResultIT_Xsr6detail23GetCallResultSpecializeIS6_EE5valueEEENS0_15ExecutionStatusE(ptr noundef nonnull align 8 dereferenceable(16) %callRes, i32 noundef 0)
   br i1 %call162, label %if.then163, label %if.else
 
 if.then163:                                       ; preds = %if.end132
   %call164 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm7RuntimeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %runtime) #3
-  %69 = load i8, ptr %hasColors, align 1
-  %tobool165 = trunc i8 %69 to i1
+  %71 = load i8, ptr %hasColors, align 1
+  %tobool165 = trunc i8 %71 to i1
   br i1 %tobool165, label %cond.true166, label %cond.false171
 
 cond.true166:                                     ; preds = %if.then163
   %call167 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv()
   %vtable168 = load ptr, ptr %call167, align 8
   %vfn169 = getelementptr inbounds ptr, ptr %vtable168, i64 2
-  %70 = load ptr, ptr %vfn169, align 8
-  %call170 = call noundef nonnull align 8 dereferenceable(36) ptr %70(ptr noundef nonnull align 8 dereferenceable(36) %call167, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false)
+  %72 = load ptr, ptr %vfn169, align 8
+  %call170 = call noundef nonnull align 8 dereferenceable(36) ptr %72(ptr noundef nonnull align 8 dereferenceable(36) %call167, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %cond.end173
 
 cond.false171:                                    ; preds = %if.then163
@@ -2893,20 +2897,20 @@ cond.end173:                                      ; preds = %cond.false171, %con
   %coerce.dive180 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp177, i32 0, i32 0
   store i64 %call179, ptr %coerce.dive180, align 8
   %coerce.dive181 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp177, i32 0, i32 0
-  %71 = load i64, ptr %coerce.dive181, align 8
-  %call182 = call ptr @_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(16) %call176, i64 %71)
+  %73 = load i64, ptr %coerce.dive181, align 8
+  %call182 = call ptr @_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(16) %call176, i64 %73)
   %coerce.dive183 = getelementptr inbounds %"class.hermes::vm::Handle.176", ptr %agg.tmp175, i32 0, i32 0
   %coerce.dive184 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive183, i32 0, i32 0
   store ptr %call182, ptr %coerce.dive184, align 8
   %coerce.dive185 = getelementptr inbounds %"class.hermes::vm::Handle.176", ptr %agg.tmp175, i32 0, i32 0
   %coerce.dive186 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive185, i32 0, i32 0
-  %72 = load ptr, ptr %coerce.dive186, align 8
-  call void @_ZN6hermes2vm7Runtime14printExceptionERN4llvh11raw_ostreamENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %call164, ptr noundef nonnull align 8 dereferenceable(36) %cond-lvalue174, ptr %72)
+  %74 = load ptr, ptr %coerce.dive186, align 8
+  call void @_ZN6hermes2vm7Runtime14printExceptionERN4llvh11raw_ostreamENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %call164, ptr noundef nonnull align 8 dereferenceable(36) %cond-lvalue174, ptr %74)
   %call187 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv()
   %vtable188 = load ptr, ptr %call187, align 8
   %vfn189 = getelementptr inbounds ptr, ptr %vtable188, i64 3
-  %73 = load ptr, ptr %vfn189, align 8
-  %call190 = call noundef nonnull align 8 dereferenceable(36) ptr %73(ptr noundef nonnull align 8 dereferenceable(36) %call187)
+  %75 = load ptr, ptr %vfn189, align 8
+  %call190 = call noundef nonnull align 8 dereferenceable(36) ptr %75(ptr noundef nonnull align 8 dereferenceable(36) %call187)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #3
   store i8 1, ptr %threwException, align 1
   br label %if.end193
@@ -2948,33 +2952,33 @@ while.body201:                                    ; preds = %while.cond199
   store ptr %call207, ptr %coerce.dive209, align 8
   %coerce.dive210 = getelementptr inbounds %"class.hermes::vm::Handle.177", ptr %agg.tmp204, i32 0, i32 0
   %coerce.dive211 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive210, i32 0, i32 0
-  %74 = load ptr, ptr %coerce.dive211, align 8
+  %76 = load ptr, ptr %coerce.dive211, align 8
   %coerce.dive212 = getelementptr inbounds %"class.hermes::vm::Handle.176", ptr %agg.tmp206, i32 0, i32 0
   %coerce.dive213 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive212, i32 0, i32 0
-  %75 = load ptr, ptr %coerce.dive213, align 8
-  %call214 = call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb(ptr %74, ptr noundef nonnull align 8 dereferenceable(9832) %call205, ptr %75, i1 noundef zeroext false)
-  %76 = getelementptr inbounds { i32, i64 }, ptr %taskCallRes, i32 0, i32 0
-  %77 = extractvalue { i32, i64 } %call214, 0
-  store i32 %77, ptr %76, align 8
-  %78 = getelementptr inbounds { i32, i64 }, ptr %taskCallRes, i32 0, i32 1
-  %79 = extractvalue { i32, i64 } %call214, 1
-  store i64 %79, ptr %78, align 8
+  %77 = load ptr, ptr %coerce.dive213, align 8
+  %call214 = call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb(ptr %76, ptr noundef nonnull align 8 dereferenceable(9832) %call205, ptr %77, i1 noundef zeroext false)
+  %78 = getelementptr inbounds { i32, i64 }, ptr %taskCallRes, i32 0, i32 0
+  %79 = extractvalue { i32, i64 } %call214, 0
+  store i32 %79, ptr %78, align 8
+  %80 = getelementptr inbounds { i32, i64 }, ptr %taskCallRes, i32 0, i32 1
+  %81 = extractvalue { i32, i64 } %call214, 1
+  store i64 %81, ptr %80, align 8
   %call215 = call noundef zeroext i1 @_ZN6hermes2vmeqINS0_12PseudoHandleINS0_11HermesValueEEEEEbRKNS0_10CallResultIT_Xsr6detail23GetCallResultSpecializeIS6_EE5valueEEENS0_15ExecutionStatusE(ptr noundef nonnull align 8 dereferenceable(16) %taskCallRes, i32 noundef 0)
   br i1 %call215, label %if.then216, label %if.end244
 
 if.then216:                                       ; preds = %while.body201
   store i8 1, ptr %threwException, align 1
   %call217 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm7RuntimeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %runtime) #3
-  %80 = load i8, ptr %hasColors, align 1
-  %tobool218 = trunc i8 %80 to i1
+  %82 = load i8, ptr %hasColors, align 1
+  %tobool218 = trunc i8 %82 to i1
   br i1 %tobool218, label %cond.true219, label %cond.false224
 
 cond.true219:                                     ; preds = %if.then216
   %call220 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv()
   %vtable221 = load ptr, ptr %call220, align 8
   %vfn222 = getelementptr inbounds ptr, ptr %vtable221, i64 2
-  %81 = load ptr, ptr %vfn222, align 8
-  %call223 = call noundef nonnull align 8 dereferenceable(36) ptr %81(ptr noundef nonnull align 8 dereferenceable(36) %call220, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false)
+  %83 = load ptr, ptr %vfn222, align 8
+  %call223 = call noundef nonnull align 8 dereferenceable(36) ptr %83(ptr noundef nonnull align 8 dereferenceable(36) %call220, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %cond.end226
 
 cond.false224:                                    ; preds = %if.then216
@@ -2989,20 +2993,20 @@ cond.end226:                                      ; preds = %cond.false224, %con
   %coerce.dive233 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp230, i32 0, i32 0
   store i64 %call232, ptr %coerce.dive233, align 8
   %coerce.dive234 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp230, i32 0, i32 0
-  %82 = load i64, ptr %coerce.dive234, align 8
-  %call235 = call ptr @_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(16) %call229, i64 %82)
+  %84 = load i64, ptr %coerce.dive234, align 8
+  %call235 = call ptr @_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(16) %call229, i64 %84)
   %coerce.dive236 = getelementptr inbounds %"class.hermes::vm::Handle.176", ptr %agg.tmp228, i32 0, i32 0
   %coerce.dive237 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive236, i32 0, i32 0
   store ptr %call235, ptr %coerce.dive237, align 8
   %coerce.dive238 = getelementptr inbounds %"class.hermes::vm::Handle.176", ptr %agg.tmp228, i32 0, i32 0
   %coerce.dive239 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive238, i32 0, i32 0
-  %83 = load ptr, ptr %coerce.dive239, align 8
-  call void @_ZN6hermes2vm7Runtime14printExceptionERN4llvh11raw_ostreamENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %call217, ptr noundef nonnull align 8 dereferenceable(36) %cond-lvalue227, ptr %83)
+  %85 = load ptr, ptr %coerce.dive239, align 8
+  call void @_ZN6hermes2vm7Runtime14printExceptionERN4llvh11raw_ostreamENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %call217, ptr noundef nonnull align 8 dereferenceable(36) %cond-lvalue227, ptr %85)
   %call240 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv()
   %vtable241 = load ptr, ptr %call240, align 8
   %vfn242 = getelementptr inbounds ptr, ptr %vtable241, i64 3
-  %84 = load ptr, ptr %vfn242, align 8
-  %call243 = call noundef nonnull align 8 dereferenceable(36) ptr %84(ptr noundef nonnull align 8 dereferenceable(36) %call240)
+  %86 = load ptr, ptr %vfn242, align 8
+  %call243 = call noundef nonnull align 8 dereferenceable(36) ptr %86(ptr noundef nonnull align 8 dereferenceable(36) %call240)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #3
   br label %if.end244
 
@@ -3027,8 +3031,8 @@ while.end:                                        ; preds = %cleanup
   br label %if.end246
 
 if.end246:                                        ; preds = %while.end, %if.end193
-  %85 = load i8, ptr %threwException, align 1
-  %tobool247 = trunc i8 %85 to i1
+  %87 = load i8, ptr %threwException, align 1
+  %tobool247 = trunc i8 %87 to i1
   br i1 %tobool247, label %if.then248, label %if.end249
 
 if.then248:                                       ; preds = %if.end246
@@ -3055,26 +3059,26 @@ if.end253:                                        ; preds = %if.end249
   store ptr %call259, ptr %coerce.dive261, align 8
   %coerce.dive262 = getelementptr inbounds %"class.hermes::vm::Handle.178", ptr %agg.tmp258, i32 0, i32 0
   %coerce.dive263 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive262, i32 0, i32 0
-  %86 = load ptr, ptr %coerce.dive263, align 8
-  %call264 = call { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %call257, ptr %86)
-  %87 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp256, i32 0, i32 0
-  %88 = extractvalue { ptr, i64 } %call264, 0
-  store ptr %88, ptr %87, align 8
-  %89 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp256, i32 0, i32 1
-  %90 = extractvalue { ptr, i64 } %call264, 1
-  store i64 %90, ptr %89, align 8
+  %88 = load ptr, ptr %coerce.dive263, align 8
+  %call264 = call { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %call257, ptr %88)
+  %89 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp256, i32 0, i32 0
+  %90 = extractvalue { ptr, i64 } %call264, 0
+  store ptr %90, ptr %89, align 8
+  %91 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp256, i32 0, i32 1
+  %92 = extractvalue { ptr, i64 } %call264, 1
+  store i64 %92, ptr %91, align 8
   %call265 = call { ptr, i64 } @_ZNK6hermes2vm10StringView11getUTF16RefERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp256, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
-  %91 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp255, i32 0, i32 0
-  %92 = extractvalue { ptr, i64 } %call265, 0
-  store ptr %92, ptr %91, align 8
-  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp255, i32 0, i32 1
-  %94 = extractvalue { ptr, i64 } %call265, 1
-  store i64 %94, ptr %93, align 8
-  %95 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp255, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp255, i32 0, i32 1
-  %98 = load i64, ptr %97, align 8
-  %call266 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamENS1_8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(36) %call254, ptr %96, i64 %98)
+  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp255, i32 0, i32 0
+  %94 = extractvalue { ptr, i64 } %call265, 0
+  store ptr %94, ptr %93, align 8
+  %95 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp255, i32 0, i32 1
+  %96 = extractvalue { ptr, i64 } %call265, 1
+  store i64 %96, ptr %95, align 8
+  %97 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp255, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp255, i32 0, i32 1
+  %100 = load i64, ptr %99, align 8
+  %call266 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamENS1_8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(36) %call254, ptr %98, i64 %100)
   %call267 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %call266, ptr noundef @.str.14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %code) #3
   call void @_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tmp) #3
@@ -3101,8 +3105,8 @@ cleanup273:                                       ; preds = %if.end116, %cond.en
   call void @_ZN6hermes18ConsoleHostContextD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %ctx) #3
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #3
   call void @_ZNSt10shared_ptrIN6hermes2vm7RuntimeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %runtime) #3
-  %99 = load i32, ptr %retval, align 4
-  ret i32 %99
+  %101 = load i32, ptr %retval, align 4
+  ret i32 %101
 
 unreachable:                                      ; preds = %cleanup269, %cleanup
   unreachable
@@ -4654,7 +4658,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Subs = getelementptr inbounds %"class.llvh::cl::Option", ptr %this1, i32 0, i32 10
   call void @_ZN4llvh11SmallPtrSetIPNS_2cl10SubCommandELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %Subs) #3
   ret void
@@ -4679,7 +4684,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Value = getelementptr inbounds %"class.llvh::cl::OptionValueCopy", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Value) #3
   ret void
@@ -11023,16 +11029,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11043,16 +11050,17 @@ entry:
   %length.addr.i = alloca i64, align 8
   %retval = alloca %"class.llvh::StringRef", align 8
   store ptr %retval, ptr %this.addr.i, align 8
-  store ptr inttoptr (i64 -2 to ptr), ptr %data.addr.i, align 8
+  %0 = inttoptr i64 -2 to ptr
+  store ptr %0, ptr %data.addr.i, align 8
   store i64 0, ptr %length.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load ptr, ptr %data.addr.i, align 8
-  store ptr %0, ptr %this1.i, align 8
+  %1 = load ptr, ptr %data.addr.i, align 8
+  store ptr %1, ptr %this1.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %1 = load i64, ptr %length.addr.i, align 8
-  store i64 %1, ptr %Length.i, align 8
-  %2 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %2
+  %2 = load i64, ptr %length.addr.i, align 8
+  store i64 %2, ptr %Length.i, align 8
+  %3 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16997,14 +17005,15 @@ entry:
   store i32 %OccurrencesFlag, ptr %OccurrencesFlag.addr, align 4
   store i32 %Hidden, ptr %Hidden.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %NumOccurrences = getelementptr inbounds %"class.llvh::cl::Option", ptr %this1, i32 0, i32 1
   store i32 0, ptr %NumOccurrences, align 8
   %Occurrences = getelementptr inbounds %"class.llvh::cl::Option", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %OccurrencesFlag.addr, align 4
-  %1 = trunc i32 %0 to i16
+  %1 = load i32, ptr %OccurrencesFlag.addr, align 4
+  %2 = trunc i32 %1 to i16
   %bf.load = load i16, ptr %Occurrences, align 4
-  %bf.value = and i16 %1, 7
+  %bf.value = and i16 %2, 7
   %bf.clear = and i16 %bf.load, -8
   %bf.set = or i16 %bf.clear, %bf.value
   store i16 %bf.set, ptr %Occurrences, align 4
@@ -17014,10 +17023,10 @@ entry:
   %bf.set4 = or i16 %bf.clear3, 0
   store i16 %bf.set4, ptr %Value, align 4
   %HiddenFlag = getelementptr inbounds %"class.llvh::cl::Option", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %Hidden.addr, align 4
-  %3 = trunc i32 %2 to i16
+  %3 = load i32, ptr %Hidden.addr, align 4
+  %4 = trunc i32 %3 to i16
   %bf.load5 = load i16, ptr %HiddenFlag, align 4
-  %bf.value6 = and i16 %3, 3
+  %bf.value6 = and i16 %4, 3
   %bf.shl = shl i16 %bf.value6, 5
   %bf.clear7 = and i16 %bf.load5, -97
   %bf.set8 = or i16 %bf.clear7, %bf.shl
@@ -17073,7 +17082,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %O.addr, align 8
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(145) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17206,7 +17216,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17217,7 +17228,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh2cl18GenericOptionValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Value = getelementptr inbounds %"class.llvh::cl::OptionValueCopy", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Value) #3
   %Valid = getelementptr inbounds %"class.llvh::cl::OptionValueCopy", ptr %this1, i32 0, i32 2
@@ -17231,7 +17243,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl18GenericOptionValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh2cl18GenericOptionValueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

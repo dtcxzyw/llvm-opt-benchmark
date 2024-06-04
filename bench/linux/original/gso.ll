@@ -23,34 +23,36 @@ define dso_local ptr @skb_eth_gso_segment(ptr noundef %0, i64 noundef %1, i16 no
   tail call void @__rcu_read_lock() #5
   %4 = load volatile ptr, ptr @offload_base, align 8
   %5 = icmp eq ptr %4, @offload_base
-  br i1 %5, label %20, label %6
+  %6 = inttoptr i64 -93 to ptr
+  br i1 %5, label %22, label %7
 
-6:                                                ; preds = %17, %3
-  %7 = phi ptr [ %18, %17 ], [ %4, %3 ]
-  %8 = getelementptr i8, ptr %7, i64 -32
-  %9 = load i16, ptr %8, align 8
-  %10 = icmp eq i16 %9, %2
-  br i1 %10, label %11, label %17
+7:                                                ; preds = %18, %3
+  %8 = phi ptr [ %19, %18 ], [ %4, %3 ]
+  %9 = getelementptr i8, ptr %8, i64 -32
+  %10 = load i16, ptr %9, align 8
+  %11 = icmp eq i16 %10, %2
+  br i1 %11, label %12, label %18
 
-11:                                               ; preds = %6
-  %12 = getelementptr i8, ptr %7, i64 -24
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %17, label %15
+12:                                               ; preds = %7
+  %13 = getelementptr i8, ptr %8, i64 -24
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %18, label %16
 
-15:                                               ; preds = %11
-  %16 = tail call ptr %13(ptr noundef %0, i64 noundef %1) #5
-  br label %20
+16:                                               ; preds = %12
+  %17 = tail call ptr %14(ptr noundef %0, i64 noundef %1) #5
+  br label %22
 
-17:                                               ; preds = %11, %6
-  %18 = load volatile ptr, ptr %7, align 8
-  %19 = icmp eq ptr %18, @offload_base
-  br i1 %19, label %20, label %6, !llvm.loop !5
+18:                                               ; preds = %12, %7
+  %19 = load volatile ptr, ptr %8, align 8
+  %20 = icmp eq ptr %19, @offload_base
+  %21 = inttoptr i64 -93 to ptr
+  br i1 %20, label %22, label %7, !llvm.loop !5
 
-20:                                               ; preds = %17, %15, %3
-  %21 = phi ptr [ %16, %15 ], [ inttoptr (i64 -93 to ptr), %3 ], [ inttoptr (i64 -93 to ptr), %17 ]
+22:                                               ; preds = %18, %16, %3
+  %23 = phi ptr [ %17, %16 ], [ %6, %3 ], [ %21, %18 ]
   tail call void @__rcu_read_unlock() #5
-  ret ptr %21
+  ret ptr %23
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -70,84 +72,87 @@ define dso_local ptr @skb_mac_gso_segment(ptr noundef %0, i64 noundef %1) #0 ali
   store i32 %6, ptr %3, align 4
   %7 = call zeroext i16 @skb_network_protocol(ptr noundef %0, ptr noundef nonnull %3) #5
   %8 = icmp eq i16 %7, 0
-  br i1 %8, label %57, label %9, !prof !9
+  %9 = inttoptr i64 -22 to ptr
+  br i1 %8, label %60, label %10, !prof !9
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
-  %12 = load i32, ptr %11, align 8
-  %13 = sub i32 %12, %10
-  store i32 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 116
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp ult i32 %13, %15
-  br i1 %16, label %17, label %18, !prof !9
+10:                                               ; preds = %2
+  %11 = load i32, ptr %3, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = load i32, ptr %12, align 8
+  %14 = sub i32 %13, %11
+  store i32 %14, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 116
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ult i32 %14, %16
+  br i1 %17, label %18, label %19, !prof !9
 
-17:                                               ; preds = %9
+18:                                               ; preds = %10
   call void asm sideeffect "412: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 412b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 412) #5, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2660, i32 0, i64 12) #5, !srcloc !11
   unreachable
 
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
-  %20 = load ptr, ptr %19, align 8
-  %21 = zext i32 %10 to i64
-  %22 = getelementptr i8, ptr %20, i64 %21
-  store ptr %22, ptr %19, align 8
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds i8, ptr %0, i64 200
+  %21 = load ptr, ptr %20, align 8
+  %22 = zext i32 %11 to i64
+  %23 = getelementptr i8, ptr %21, i64 %22
+  store ptr %23, ptr %20, align 8
   call void @__rcu_read_lock() #5
-  %23 = load volatile ptr, ptr @offload_base, align 8
-  %24 = icmp eq ptr %23, @offload_base
-  br i1 %24, label %39, label %25
+  %24 = load volatile ptr, ptr @offload_base, align 8
+  %25 = icmp eq ptr %24, @offload_base
+  %26 = inttoptr i64 -93 to ptr
+  br i1 %25, label %42, label %27
 
-25:                                               ; preds = %36, %18
-  %26 = phi ptr [ %37, %36 ], [ %23, %18 ]
-  %27 = getelementptr i8, ptr %26, i64 -32
-  %28 = load i16, ptr %27, align 8
-  %29 = icmp eq i16 %28, %7
-  br i1 %29, label %30, label %36
+27:                                               ; preds = %38, %19
+  %28 = phi ptr [ %39, %38 ], [ %24, %19 ]
+  %29 = getelementptr i8, ptr %28, i64 -32
+  %30 = load i16, ptr %29, align 8
+  %31 = icmp eq i16 %30, %7
+  br i1 %31, label %32, label %38
 
-30:                                               ; preds = %25
-  %31 = getelementptr i8, ptr %26, i64 -24
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %36, label %34
+32:                                               ; preds = %27
+  %33 = getelementptr i8, ptr %28, i64 -24
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %38, label %36
 
-34:                                               ; preds = %30
-  %35 = call ptr %32(ptr noundef %0, i64 noundef %1) #5
-  br label %39
+36:                                               ; preds = %32
+  %37 = call ptr %34(ptr noundef %0, i64 noundef %1) #5
+  br label %42
 
-36:                                               ; preds = %30, %25
-  %37 = load volatile ptr, ptr %26, align 8
-  %38 = icmp eq ptr %37, @offload_base
-  br i1 %38, label %39, label %25, !llvm.loop !12
+38:                                               ; preds = %32, %27
+  %39 = load volatile ptr, ptr %28, align 8
+  %40 = icmp eq ptr %39, @offload_base
+  %41 = inttoptr i64 -93 to ptr
+  br i1 %40, label %42, label %27, !llvm.loop !12
 
-39:                                               ; preds = %36, %34, %18
-  %40 = phi ptr [ %35, %34 ], [ inttoptr (i64 -93 to ptr), %18 ], [ inttoptr (i64 -93 to ptr), %36 ]
+42:                                               ; preds = %38, %36, %19
+  %43 = phi ptr [ %37, %36 ], [ %26, %19 ], [ %41, %38 ]
   call void @__rcu_read_unlock() #5
-  %41 = load ptr, ptr %19, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 192
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 182
-  %45 = load i16, ptr %44, align 2
-  %46 = zext i16 %45 to i64
-  %47 = getelementptr i8, ptr %43, i64 %46
-  %48 = ptrtoint ptr %41 to i64
-  %49 = ptrtoint ptr %47 to i64
-  %50 = sub i64 %48, %49
-  %51 = trunc i64 %50 to i32
-  %52 = and i64 %50, 4294967295
-  %53 = sub nsw i64 0, %52
-  %54 = getelementptr i8, ptr %41, i64 %53
-  store ptr %54, ptr %19, align 8
-  %55 = load i32, ptr %11, align 8
-  %56 = add i32 %55, %51
-  store i32 %56, ptr %11, align 8
-  br label %57
+  %44 = load ptr, ptr %20, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 192
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 182
+  %48 = load i16, ptr %47, align 2
+  %49 = zext i16 %48 to i64
+  %50 = getelementptr i8, ptr %46, i64 %49
+  %51 = ptrtoint ptr %44 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = trunc i64 %53 to i32
+  %55 = and i64 %53, 4294967295
+  %56 = sub nsw i64 0, %55
+  %57 = getelementptr i8, ptr %44, i64 %56
+  store ptr %57, ptr %20, align 8
+  %58 = load i32, ptr %12, align 8
+  %59 = add i32 %58, %54
+  store i32 %59, ptr %12, align 8
+  br label %60
 
-57:                                               ; preds = %39, %2
-  %58 = phi ptr [ %40, %39 ], [ inttoptr (i64 -22 to ptr), %2 ]
+60:                                               ; preds = %42, %2
+  %61 = phi ptr [ %43, %42 ], [ %9, %2 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  ret ptr %58
+  ret ptr %61
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -167,7 +172,7 @@ define dso_local ptr @__skb_gso_segment(ptr noundef %0, i64 noundef %1, i1 nound
   %11 = icmp sgt i32 %10, -1
   %12 = sext i32 %10 to i64
   %13 = inttoptr i64 %12 to ptr
-  br i1 %11, label %14, label %79
+  br i1 %11, label %14, label %80
 
 14:                                               ; preds = %9, %3
   %15 = and i64 %1, 268435456
@@ -237,7 +242,7 @@ define dso_local ptr @__skb_gso_segment(ptr noundef %0, i64 noundef %1, i1 nound
   store i16 %66, ptr %67, align 8
   %68 = tail call ptr @skb_mac_gso_segment(ptr noundef %0, i64 noundef %51)
   %69 = icmp eq ptr %68, %0
-  br i1 %69, label %79, label %70
+  br i1 %69, label %80, label %70
 
 70:                                               ; preds = %50
   %71 = getelementptr inbounds i8, ptr %0, i64 128
@@ -245,17 +250,18 @@ define dso_local ptr @__skb_gso_segment(ptr noundef %0, i64 noundef %1, i1 nound
   %73 = select i1 %2, i8 32, i8 96
   %74 = and i8 %72, %73
   %75 = icmp eq i8 %74, 0
-  %76 = icmp ule ptr %68, inttoptr (i64 -4096 to ptr)
-  %77 = and i1 %76, %75
-  br i1 %77, label %78, label %79, !prof !13
+  %76 = inttoptr i64 -4096 to ptr
+  %77 = icmp ule ptr %68, %76
+  %78 = and i1 %77, %75
+  br i1 %78, label %79, label %80, !prof !13
 
-78:                                               ; preds = %70
+79:                                               ; preds = %70
   tail call void @skb_warn_bad_offload(ptr noundef %0) #5
-  br label %79
+  br label %80
 
-79:                                               ; preds = %78, %70, %50, %9
-  %80 = phi ptr [ %13, %9 ], [ %68, %70 ], [ %68, %78 ], [ %68, %50 ]
-  ret ptr %80
+80:                                               ; preds = %79, %70, %50, %9
+  %81 = phi ptr [ %13, %9 ], [ %68, %70 ], [ %68, %79 ], [ %68, %50 ]
+  ret ptr %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

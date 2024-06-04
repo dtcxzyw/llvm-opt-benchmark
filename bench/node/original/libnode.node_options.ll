@@ -6031,7 +6031,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerProcessOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node17PerProcessOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %per_isolate = getelementptr inbounds %"class.node::PerProcessOptions", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #17
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 104, i1 false)
@@ -9984,7 +9985,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser18DebugOptionsParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser18DebugOptionsParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = call noundef zeroext i1 @_ZN4node3sea18IsSingleExecutableEv()
   br i1 %call, label %if.then, label %if.end
 
@@ -10008,11 +10010,11 @@ if.end:                                           ; preds = %entry
   store i64 2, ptr %_M_len, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE8AddAliasEPKcRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.52, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %array.begin = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp2, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 2
+  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %if.end
-  %arraydestroy.elementPast = phi ptr [ %0, %if.end ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %if.end ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -10040,11 +10042,11 @@ arraydestroy.done5:                               ; preds = %arraydestroy.body
   store i64 2, ptr %_M_len14, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE8AddAliasEPKcRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.60, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
   %array.begin15 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp7, i32 0, i32 0
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin15, i64 2
+  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin15, i64 2
   br label %arraydestroy.body16
 
 arraydestroy.body16:                              ; preds = %arraydestroy.body16, %arraydestroy.done5
-  %arraydestroy.elementPast17 = phi ptr [ %1, %arraydestroy.done5 ], [ %arraydestroy.element18, %arraydestroy.body16 ]
+  %arraydestroy.elementPast17 = phi ptr [ %2, %arraydestroy.done5 ], [ %arraydestroy.element18, %arraydestroy.body16 ]
   %arraydestroy.element18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast17, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element18) #3
   %arraydestroy.done19 = icmp eq ptr %arraydestroy.element18, %array.begin15
@@ -10068,11 +10070,11 @@ arraydestroy.done20:                              ; preds = %arraydestroy.body16
   store i64 2, ptr %_M_len29, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE8AddAliasEPKcRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.62, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21)
   %array.begin30 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp22, i32 0, i32 0
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin30, i64 2
+  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin30, i64 2
   br label %arraydestroy.body31
 
 arraydestroy.body31:                              ; preds = %arraydestroy.body31, %arraydestroy.done20
-  %arraydestroy.elementPast32 = phi ptr [ %2, %arraydestroy.done20 ], [ %arraydestroy.element33, %arraydestroy.body31 ]
+  %arraydestroy.elementPast32 = phi ptr [ %3, %arraydestroy.done20 ], [ %arraydestroy.element33, %arraydestroy.body31 ]
   %arraydestroy.element33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast32, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element33) #3
   %arraydestroy.done34 = icmp eq ptr %arraydestroy.element33, %array.begin30
@@ -10094,7 +10096,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.node::options_parser::OptionsParser", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_12DebugOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %options_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser", ptr %this1, i32 0, i32 2
@@ -10468,7 +10471,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser24EnvironmentOptionsParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser24EnvironmentOptionsParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE9AddOptionEPKcS5_MS2_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.65, ptr noundef @.str.66, i64 16, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE8AddAliasEPKcS5_(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.67, ptr noundef @.str.65)
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE9AddOptionEPKcS5_MS2_bNS_20OptionEnvvarSettingsEb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.68, ptr noundef @.str.69, i64 40, i32 noundef 0, i1 noundef zeroext false)
@@ -10539,11 +10543,11 @@ entry:
   store i64 2, ptr %_M_len, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE8AddAliasEPKcRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.161, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %array.begin = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp10, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 2
+  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -10613,11 +10617,11 @@ arraydestroy.done13:                              ; preds = %arraydestroy.body
   store i64 2, ptr %_M_len22, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE8AddAliasEPKcRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.247, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14)
   %array.begin23 = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp15, i32 0, i32 0
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin23, i64 2
+  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin23, i64 2
   br label %arraydestroy.body24
 
 arraydestroy.body24:                              ; preds = %arraydestroy.body24, %arraydestroy.done13
-  %arraydestroy.elementPast25 = phi ptr [ %1, %arraydestroy.done13 ], [ %arraydestroy.element26, %arraydestroy.body24 ]
+  %arraydestroy.elementPast25 = phi ptr [ %2, %arraydestroy.done13 ], [ %arraydestroy.element26, %arraydestroy.body24 ]
   %arraydestroy.element26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast25, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element26) #3
   %arraydestroy.done27 = icmp eq ptr %arraydestroy.element26, %array.begin23
@@ -10649,7 +10653,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.46", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_18EnvironmentOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %options_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.46", ptr %this1, i32 0, i32 2
@@ -11190,7 +11195,8 @@ entry:
   store ptr %eop, ptr %eop.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser23PerIsolateOptionsParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser23PerIsolateOptionsParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE9AddOptionEPKcS5_MS2_bNS_20OptionEnvvarSettingsEb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.272, ptr noundef @.str.273, i64 24, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE9AddOptionEPKcS5_NS3_8V8OptionENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.274, ptr noundef @.str.275, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE9AddOptionEPKcS5_NS3_8V8OptionENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.276, ptr noundef @.str.277, i32 noundef 0)
@@ -11218,13 +11224,13 @@ entry:
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE9AddOptionEPKcS5_MS2_bNS_20OptionEnvvarSettingsEb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.303, ptr noundef @.str.304, i64 64, i32 noundef 1, i1 noundef zeroext false)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE9AddOptionEPKcS5_MS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.305, ptr noundef @.str.306, i64 72, i32 noundef 1)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ImpliesEPKcS5_(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.305, ptr noundef @.str.303)
-  %0 = load ptr, ptr %eop.addr, align 8
+  %1 = load ptr, ptr %eop.addr, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN4node17PerIsolateOptions19get_per_env_optionsEv to i64), i64 0 }, ptr %coerce, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %2 = load i64, ptr %1, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %4 = load i64, ptr %3, align 8
-  call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE6InsertINS_18EnvironmentOptionsEEEvRKNS1_IT_EEMS2_FPS6_vE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(176) %0, i64 %2, i64 %4)
+  %2 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE6InsertINS_18EnvironmentOptionsEEEvRKNS1_IT_EEMS2_FPS6_vE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 %3, i64 %5)
   ret void
 }
 
@@ -11234,7 +11240,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.75", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerIsolateOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %options_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.75", ptr %this1, i32 0, i32 2
@@ -11839,7 +11846,8 @@ entry:
   store ptr %iop, ptr %iop.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser23PerProcessOptionsParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser23PerProcessOptionsParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.307, ptr noundef @.str.308, i64 24, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.309, ptr noundef @.str.310, i64 56, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.311, ptr noundef @.str.312, i64 88, i32 noundef 0)
@@ -11856,11 +11864,11 @@ entry:
   store i64 2, ptr %_M_len, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE8AddAliasEPKcRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.313, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %array.begin = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp2, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 2
+  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -11904,13 +11912,13 @@ arraydestroy.done5:                               ; preds = %arraydestroy.body
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_bNS_20OptionEnvvarSettingsEb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.367, ptr noundef @.str.368, i64 390, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.369, ptr noundef @.str.370, i64 464, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_bNS_20OptionEnvvarSettingsEb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.371, ptr noundef @.str.372, i64 496, i32 noundef 0, i1 noundef zeroext false)
-  %1 = load ptr, ptr %iop.addr, align 8
+  %2 = load ptr, ptr %iop.addr, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN4node17PerProcessOptions23get_per_isolate_optionsEv to i64), i64 0 }, ptr %coerce, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6InsertINS_17PerIsolateOptionsEEEvRKNS1_IT_EEMS2_FPS6_vE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 %3, i64 %5)
+  %3 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
+  %4 = load i64, ptr %3, align 8
+  %5 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
+  call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6InsertINS_17PerIsolateOptionsEEEvRKNS1_IT_EEMS2_FPS6_vE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 %4, i64 %6)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_NS3_4NoOpENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.373, ptr noundef @.str.374, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ImpliesEPKcS5_(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.373, ptr noundef @.str.319)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ImpliesEPKcS5_(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.373, ptr noundef @.str.230)
@@ -11924,7 +11932,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %options_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr %this1, i32 0, i32 2
@@ -12990,12 +12999,15 @@ entry:
   store ptr @_ZN4node14options_parserL14_ppop_instanceE, ptr %parser, align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %out)
   %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef @.str.377)
-  store ptr getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8), ptr %__range2, align 8
-  %call1 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8)) #3
+  %0 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8
+  store ptr %0, ptr %__range2, align 8
+  %1 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8
+  %call1 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
   %coerce.dive = getelementptr inbounds %"struct.std::__detail::_Node_const_iterator", ptr %__begin2, i32 0, i32 0
   %coerce.dive2 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive, i32 0, i32 0
   store ptr %call1, ptr %coerce.dive2, align 8
-  %call3 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8)) #3
+  %2 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8
+  %call3 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #3
   %coerce.dive4 = getelementptr inbounds %"struct.std::__detail::_Node_const_iterator", ptr %__end2, i32 0, i32 0
   %coerce.dive5 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive4, i32 0, i32 0
   store ptr %call3, ptr %coerce.dive5, align 8
@@ -13008,17 +13020,17 @@ for.cond:                                         ; preds = %for.inc, %entry
 for.body:                                         ; preds = %for.cond
   %call7 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS9_17PerProcessOptionsEE10OptionInfoEELb0ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #3
   store ptr %call7, ptr %item, align 8
-  %0 = load ptr, ptr %item, align 8
-  %first = getelementptr inbounds %"struct.std::pair", ptr %0, i32 0, i32 0
+  %3 = load ptr, ptr %item, align 8
+  %first = getelementptr inbounds %"struct.std::pair", ptr %3, i32 0, i32 0
   %call8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %first, i64 noundef 0) #3
-  %1 = load i8, ptr %call8, align 1
-  %conv = sext i8 %1 to i32
+  %4 = load i8, ptr %call8, align 1
+  %conv = sext i8 %4 to i32
   %cmp = icmp ne i32 %conv, 91
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %2 = load ptr, ptr %item, align 8
-  %first9 = getelementptr inbounds %"struct.std::pair", ptr %2, i32 0, i32 0
+  %5 = load ptr, ptr %item, align 8
+  %first9 = getelementptr inbounds %"struct.std::pair", ptr %5, i32 0, i32 0
   %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %first9)
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef @.str.378)
   br label %if.end
@@ -13031,12 +13043,15 @@ for.inc:                                          ; preds = %if.end
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  store ptr getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 64), ptr %__range213, align 8
-  %call15 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 64)) #3
+  %6 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 64
+  store ptr %6, ptr %__range213, align 8
+  %7 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 64
+  %call15 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #3
   %coerce.dive16 = getelementptr inbounds %"struct.std::__detail::_Node_const_iterator.138", ptr %__begin214, i32 0, i32 0
   %coerce.dive17 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base.139", ptr %coerce.dive16, i32 0, i32 0
   store ptr %call15, ptr %coerce.dive17, align 8
-  %call19 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 64)) #3
+  %8 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 64
+  %call19 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
   %coerce.dive20 = getelementptr inbounds %"struct.std::__detail::_Node_const_iterator.138", ptr %__end218, i32 0, i32 0
   %coerce.dive21 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base.139", ptr %coerce.dive20, i32 0, i32 0
   store ptr %call19, ptr %coerce.dive21, align 8
@@ -13049,17 +13064,17 @@ for.cond22:                                       ; preds = %for.inc36, %for.end
 for.body24:                                       ; preds = %for.cond22
   %call26 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEELb0ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin214) #3
   store ptr %call26, ptr %item25, align 8
-  %3 = load ptr, ptr %item25, align 8
-  %first27 = getelementptr inbounds %"struct.std::pair.140", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %item25, align 8
+  %first27 = getelementptr inbounds %"struct.std::pair.140", ptr %9, i32 0, i32 0
   %call28 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %first27, i64 noundef 0) #3
-  %4 = load i8, ptr %call28, align 1
-  %conv29 = sext i8 %4 to i32
+  %10 = load i8, ptr %call28, align 1
+  %conv29 = sext i8 %10 to i32
   %cmp30 = icmp ne i32 %conv29, 91
   br i1 %cmp30, label %if.then31, label %if.end35
 
 if.then31:                                        ; preds = %for.body24
-  %5 = load ptr, ptr %item25, align 8
-  %first32 = getelementptr inbounds %"struct.std::pair.140", ptr %5, i32 0, i32 0
+  %11 = load ptr, ptr %item25, align 8
+  %first32 = getelementptr inbounds %"struct.std::pair.140", ptr %11, i32 0, i32 0
   %call33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %first32)
   %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call33, ptr noundef @.str.378)
   br label %if.end35
@@ -13072,7 +13087,8 @@ for.inc36:                                        ; preds = %if.end35
   br label %for.cond22
 
 for.end38:                                        ; preds = %for.cond22
-  %call39 = call noundef i64 @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%"class.node::options_parser::OptionsParser.104", ptr @_ZN4node14options_parserL14_ppop_instanceE, i32 0, i32 2)) #3
+  %12 = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr @_ZN4node14options_parserL14_ppop_instanceE, i32 0, i32 2
+  %call39 = call noundef i64 @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %12) #3
   %cmp40 = icmp ugt i64 %call39, 0
   br i1 %cmp40, label %if.then41, label %if.end43
 
@@ -13899,12 +13915,15 @@ if.then44:                                        ; preds = %if.end
   br label %cleanup578
 
 if.end45:                                         ; preds = %if.end
-  store ptr getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8), ptr %__range2, align 8
-  %call46 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8)) #3
+  %19 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8
+  store ptr %19, ptr %__range2, align 8
+  %20 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8
+  %call46 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %20) #3
   %coerce.dive47 = getelementptr inbounds %"struct.std::__detail::_Node_const_iterator", ptr %__begin2, i32 0, i32 0
   %coerce.dive48 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive47, i32 0, i32 0
   store ptr %call46, ptr %coerce.dive48, align 8
-  %call49 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr (i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8)) #3
+  %21 = getelementptr i8, ptr @_ZN4node14options_parserL14_ppop_instanceE, i64 8
+  %call49 = call ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %21) #3
   %coerce.dive50 = getelementptr inbounds %"struct.std::__detail::_Node_const_iterator", ptr %__end2, i32 0, i32 0
   %coerce.dive51 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive50, i32 0, i32 0
   store ptr %call49, ptr %coerce.dive51, align 8
@@ -13924,18 +13943,18 @@ for.body:                                         ; preds = %for.cond
   store ptr %this1.i835, ptr %this.addr.i836, align 8
   %this1.i837 = load ptr, ptr %this.addr.i836, align 8
   store ptr null, ptr %this1.i837, align 8
-  %19 = load ptr, ptr %item, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %19, i32 0, i32 1
+  %22 = load ptr, ptr %item, align 8
+  %second = getelementptr inbounds %"struct.std::pair", ptr %22, i32 0, i32 1
   store ptr %second, ptr %option_info, align 8
-  %20 = load ptr, ptr %option_info, align 8
-  %field54 = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %20, i32 0, i32 2
+  %23 = load ptr, ptr %option_info, align 8
+  %field54 = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %23, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %field, ptr noundef nonnull align 8 dereferenceable(16) %field54) #3
   %call55 = call noundef ptr @_ZNKSt12__shared_ptrIN4node17PerProcessOptionsELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4node11per_process11cli_optionsE) #3
   store ptr %call55, ptr %opts, align 8
-  %21 = load ptr, ptr %option_info, align 8
-  %type = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %type, align 8
-  switch i32 %22, label %sw.default [
+  %24 = load ptr, ptr %option_info, align 8
+  %type = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %24, i32 0, i32 0
+  %25 = load i32, ptr %type, align 8
+  switch i32 %25, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
     i32 2, label %sw.bb78
@@ -13947,196 +13966,196 @@ for.body:                                         ; preds = %for.cond
   ]
 
 sw.bb:                                            ; preds = %for.body, %for.body
-  %23 = load ptr, ptr %item, align 8
-  %first = getelementptr inbounds %"struct.std::pair", ptr %23, i32 0, i32 0
+  %26 = load ptr, ptr %item, align 8
+  %first = getelementptr inbounds %"struct.std::pair", ptr %26, i32 0, i32 0
   %call56 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %first, ptr noundef @.str.274)
   br i1 %call56, label %if.then57, label %if.else
 
 if.then57:                                        ; preds = %sw.bb
-  %24 = load ptr, ptr %isolate, align 8
+  %27 = load ptr, ptr %isolate, align 8
   %call60 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN4node18EnvironmentOptionsELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %original_per_env) #3
   %abort_on_uncaught_exception = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %call60, i32 0, i32 1
-  %25 = load i8, ptr %abort_on_uncaught_exception, align 8
-  %tobool = trunc i8 %25 to i1
-  store ptr %24, ptr %isolate.addr.i644, align 8
+  %28 = load i8, ptr %abort_on_uncaught_exception, align 8
+  %tobool = trunc i8 %28 to i1
+  store ptr %27, ptr %isolate.addr.i644, align 8
   %frombool.i646 = zext i1 %tobool to i8
   store i8 %frombool.i646, ptr %value.addr.i645, align 1
-  %26 = load i8, ptr %value.addr.i645, align 1
-  %tobool.i647 = trunc i8 %26 to i1
+  %29 = load i8, ptr %value.addr.i645, align 1
+  %tobool.i647 = trunc i8 %29 to i1
   br i1 %tobool.i647, label %cond.true.i650, label %cond.false.i648
 
 cond.true.i650:                                   ; preds = %if.then57
-  %27 = load ptr, ptr %isolate.addr.i644, align 8
-  store ptr %27, ptr %isolate.addr.i845, align 8
-  %28 = load ptr, ptr %isolate.addr.i845, align 8
-  store ptr %28, ptr %isolate.addr.i879, align 8
-  %29 = load ptr, ptr %isolate.addr.i845, align 8
-  store ptr %29, ptr %isolate.addr.i910, align 8
+  %30 = load ptr, ptr %isolate.addr.i644, align 8
+  store ptr %30, ptr %isolate.addr.i845, align 8
+  %31 = load ptr, ptr %isolate.addr.i845, align 8
+  store ptr %31, ptr %isolate.addr.i879, align 8
+  %32 = load ptr, ptr %isolate.addr.i845, align 8
+  store ptr %32, ptr %isolate.addr.i910, align 8
   store i32 7, ptr %index.addr.i911, align 4
-  %30 = load ptr, ptr %isolate.addr.i910, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %add.i913 = add i64 %31, 576
-  %32 = load i32, ptr %index.addr.i911, align 4
-  %mul.i914 = mul nsw i32 %32, 8
+  %33 = load ptr, ptr %isolate.addr.i910, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %add.i913 = add i64 %34, 576
+  %35 = load i32, ptr %index.addr.i911, align 4
+  %mul.i914 = mul nsw i32 %35, 8
   %conv.i915 = sext i32 %mul.i914 to i64
   %add1.i916 = add i64 %add.i913, %conv.i915
   store i64 %add1.i916, ptr %addr.i912, align 8
-  %33 = load i64, ptr %addr.i912, align 8
-  %34 = inttoptr i64 %33 to ptr
-  store ptr %34, ptr %slot.i846, align 8
-  %35 = load ptr, ptr %slot.i846, align 8
-  store ptr %35, ptr %slot.addr.i943, align 8
-  %36 = load ptr, ptr %slot.addr.i943, align 8
-  store ptr %36, ptr %slot.addr.i947, align 8
-  %37 = load ptr, ptr %slot.addr.i947, align 8
+  %36 = load i64, ptr %addr.i912, align 8
+  %37 = inttoptr i64 %36 to ptr
+  store ptr %37, ptr %slot.i846, align 8
+  %38 = load ptr, ptr %slot.i846, align 8
+  store ptr %38, ptr %slot.addr.i943, align 8
+  %39 = load ptr, ptr %slot.addr.i943, align 8
+  store ptr %39, ptr %slot.addr.i947, align 8
+  %40 = load ptr, ptr %slot.addr.i947, align 8
   store ptr %retval.i946, ptr %this.addr.i989, align 8
-  store ptr %37, ptr %location.addr.i990, align 8
+  store ptr %40, ptr %location.addr.i990, align 8
   %this1.i991 = load ptr, ptr %this.addr.i989, align 8
-  %38 = load ptr, ptr %location.addr.i990, align 8
+  %41 = load ptr, ptr %location.addr.i990, align 8
   store ptr %this1.i991, ptr %this.addr.i992, align 8
-  store ptr %38, ptr %location.addr.i993, align 8
+  store ptr %41, ptr %location.addr.i993, align 8
   %this1.i994 = load ptr, ptr %this.addr.i992, align 8
-  %39 = load ptr, ptr %location.addr.i993, align 8
-  store ptr %39, ptr %this1.i994, align 8
-  %40 = load ptr, ptr %retval.i946, align 8
-  store ptr %40, ptr %ref.tmp.i944, align 8
+  %42 = load ptr, ptr %location.addr.i993, align 8
+  store ptr %42, ptr %this1.i994, align 8
+  %43 = load ptr, ptr %retval.i946, align 8
+  store ptr %43, ptr %ref.tmp.i944, align 8
   store ptr %retval.i942, ptr %this.addr.i958, align 8
   store ptr %ref.tmp.i944, ptr %other.addr.i, align 8
   %this1.i959 = load ptr, ptr %this.addr.i958, align 8
-  %41 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i959, ptr align 8 %41, i64 8, i1 false)
-  %42 = load ptr, ptr %retval.i942, align 8
-  store ptr %42, ptr %retval.i844, align 8
-  %43 = load ptr, ptr %retval.i844, align 8
-  store ptr %43, ptr %retval.i643, align 8
+  %44 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i959, ptr align 8 %44, i64 8, i1 false)
+  %45 = load ptr, ptr %retval.i942, align 8
+  store ptr %45, ptr %retval.i844, align 8
+  %46 = load ptr, ptr %retval.i844, align 8
+  store ptr %46, ptr %retval.i643, align 8
   br label %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit652
 
 cond.false.i648:                                  ; preds = %if.then57
-  %44 = load ptr, ptr %isolate.addr.i644, align 8
-  store ptr %44, ptr %isolate.addr.i860, align 8
-  %45 = load ptr, ptr %isolate.addr.i860, align 8
-  store ptr %45, ptr %isolate.addr.i876, align 8
-  %46 = load ptr, ptr %isolate.addr.i860, align 8
-  store ptr %46, ptr %isolate.addr.i889, align 8
+  %47 = load ptr, ptr %isolate.addr.i644, align 8
+  store ptr %47, ptr %isolate.addr.i860, align 8
+  %48 = load ptr, ptr %isolate.addr.i860, align 8
+  store ptr %48, ptr %isolate.addr.i876, align 8
+  %49 = load ptr, ptr %isolate.addr.i860, align 8
+  store ptr %49, ptr %isolate.addr.i889, align 8
   store i32 8, ptr %index.addr.i890, align 4
-  %47 = load ptr, ptr %isolate.addr.i889, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %add.i892 = add i64 %48, 576
-  %49 = load i32, ptr %index.addr.i890, align 4
-  %mul.i893 = mul nsw i32 %49, 8
+  %50 = load ptr, ptr %isolate.addr.i889, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %add.i892 = add i64 %51, 576
+  %52 = load i32, ptr %index.addr.i890, align 4
+  %mul.i893 = mul nsw i32 %52, 8
   %conv.i894 = sext i32 %mul.i893 to i64
   %add1.i895 = add i64 %add.i892, %conv.i894
   store i64 %add1.i895, ptr %addr.i891, align 8
-  %50 = load i64, ptr %addr.i891, align 8
-  %51 = inttoptr i64 %50 to ptr
-  store ptr %51, ptr %slot.i861, align 8
-  %52 = load ptr, ptr %slot.i861, align 8
-  store ptr %52, ptr %slot.addr.i931, align 8
-  %53 = load ptr, ptr %slot.addr.i931, align 8
-  store ptr %53, ptr %slot.addr.i953, align 8
-  %54 = load ptr, ptr %slot.addr.i953, align 8
+  %53 = load i64, ptr %addr.i891, align 8
+  %54 = inttoptr i64 %53 to ptr
+  store ptr %54, ptr %slot.i861, align 8
+  %55 = load ptr, ptr %slot.i861, align 8
+  store ptr %55, ptr %slot.addr.i931, align 8
+  %56 = load ptr, ptr %slot.addr.i931, align 8
+  store ptr %56, ptr %slot.addr.i953, align 8
+  %57 = load ptr, ptr %slot.addr.i953, align 8
   store ptr %retval.i952, ptr %this.addr.i980, align 8
-  store ptr %54, ptr %location.addr.i981, align 8
+  store ptr %57, ptr %location.addr.i981, align 8
   %this1.i982 = load ptr, ptr %this.addr.i980, align 8
-  %55 = load ptr, ptr %location.addr.i981, align 8
+  %58 = load ptr, ptr %location.addr.i981, align 8
   store ptr %this1.i982, ptr %this.addr.i1001, align 8
-  store ptr %55, ptr %location.addr.i1002, align 8
+  store ptr %58, ptr %location.addr.i1002, align 8
   %this1.i1003 = load ptr, ptr %this.addr.i1001, align 8
-  %56 = load ptr, ptr %location.addr.i1002, align 8
-  store ptr %56, ptr %this1.i1003, align 8
-  %57 = load ptr, ptr %retval.i952, align 8
-  store ptr %57, ptr %ref.tmp.i932, align 8
+  %59 = load ptr, ptr %location.addr.i1002, align 8
+  store ptr %59, ptr %this1.i1003, align 8
+  %60 = load ptr, ptr %retval.i952, align 8
+  store ptr %60, ptr %ref.tmp.i932, align 8
   store ptr %retval.i930, ptr %this.addr.i966, align 8
   store ptr %ref.tmp.i932, ptr %other.addr.i967, align 8
   %this1.i968 = load ptr, ptr %this.addr.i966, align 8
-  %58 = load ptr, ptr %other.addr.i967, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i968, ptr align 8 %58, i64 8, i1 false)
-  %59 = load ptr, ptr %retval.i930, align 8
-  store ptr %59, ptr %retval.i859, align 8
-  %60 = load ptr, ptr %retval.i859, align 8
-  store ptr %60, ptr %retval.i643, align 8
+  %61 = load ptr, ptr %other.addr.i967, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i968, ptr align 8 %61, i64 8, i1 false)
+  %62 = load ptr, ptr %retval.i930, align 8
+  store ptr %62, ptr %retval.i859, align 8
+  %63 = load ptr, ptr %retval.i859, align 8
+  store ptr %63, ptr %retval.i643, align 8
   br label %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit652
 
 _ZN2v87Boolean3NewEPNS_7IsolateEb.exit652:        ; preds = %cond.false.i648, %cond.true.i650
-  %61 = load ptr, ptr %retval.i643, align 8
+  %64 = load ptr, ptr %retval.i643, align 8
   %coerce.dive62 = getelementptr inbounds %"class.v8::Local.457", ptr %agg.tmp59, i32 0, i32 0
   %coerce.dive63 = getelementptr inbounds %"class.v8::LocalBase.458", ptr %coerce.dive62, i32 0, i32 0
   %coerce.dive64 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive63, i32 0, i32 0
-  store ptr %61, ptr %coerce.dive64, align 8
+  store ptr %64, ptr %coerce.dive64, align 8
   %coerce.dive65 = getelementptr inbounds %"class.v8::Local.457", ptr %agg.tmp59, i32 0, i32 0
   %coerce.dive66 = getelementptr inbounds %"class.v8::LocalBase.458", ptr %coerce.dive65, i32 0, i32 0
   %coerce.dive67 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive66, i32 0, i32 0
-  %62 = load ptr, ptr %coerce.dive67, align 8
-  store ptr %62, ptr %that.i653, align 8
+  %65 = load ptr, ptr %coerce.dive67, align 8
+  store ptr %65, ptr %that.i653, align 8
   store ptr %ref.tmp58, ptr %this.addr.i654, align 8
   %this3.i655 = load ptr, ptr %this.addr.i654, align 8
   store ptr %this3.i655, ptr %this.addr.i1178, align 8
   store ptr %that.i653, ptr %other.addr.i1179, align 8
   %this1.i1180 = load ptr, ptr %this.addr.i1178, align 8
-  %63 = load ptr, ptr %other.addr.i1179, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1180, ptr align 8 %63, i64 8, i1 false)
+  %66 = load ptr, ptr %other.addr.i1179, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1180, ptr align 8 %66, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value, ptr align 8 %ref.tmp58, i64 8, i1 false)
   br label %if.end77
 
 if.else:                                          ; preds = %sw.bb
-  %64 = load ptr, ptr %isolate, align 8
-  store ptr %64, ptr %isolate.addr.i663, align 8
-  %65 = load ptr, ptr %isolate.addr.i663, align 8
-  store ptr %65, ptr %isolate.addr.i880, align 8
-  %66 = load ptr, ptr %isolate.addr.i663, align 8
-  store ptr %66, ptr %isolate.addr.i917, align 8
+  %67 = load ptr, ptr %isolate, align 8
+  store ptr %67, ptr %isolate.addr.i663, align 8
+  %68 = load ptr, ptr %isolate.addr.i663, align 8
+  store ptr %68, ptr %isolate.addr.i880, align 8
+  %69 = load ptr, ptr %isolate.addr.i663, align 8
+  store ptr %69, ptr %isolate.addr.i917, align 8
   store i32 4, ptr %index.addr.i918, align 4
-  %67 = load ptr, ptr %isolate.addr.i917, align 8
-  %68 = ptrtoint ptr %67 to i64
-  %add.i920 = add i64 %68, 576
-  %69 = load i32, ptr %index.addr.i918, align 4
-  %mul.i921 = mul nsw i32 %69, 8
+  %70 = load ptr, ptr %isolate.addr.i917, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %add.i920 = add i64 %71, 576
+  %72 = load i32, ptr %index.addr.i918, align 4
+  %mul.i921 = mul nsw i32 %72, 8
   %conv.i922 = sext i32 %mul.i921 to i64
   %add1.i923 = add i64 %add.i920, %conv.i922
   store i64 %add1.i923, ptr %addr.i919, align 8
-  %70 = load i64, ptr %addr.i919, align 8
-  %71 = inttoptr i64 %70 to ptr
-  store ptr %71, ptr %slot.i, align 8
-  %72 = load ptr, ptr %slot.i, align 8
-  store ptr %72, ptr %slot.addr.i1011, align 8
-  %73 = load ptr, ptr %slot.addr.i1011, align 8
-  store ptr %73, ptr %slot.addr.i1015, align 8
-  %74 = load ptr, ptr %slot.addr.i1015, align 8
+  %73 = load i64, ptr %addr.i919, align 8
+  %74 = inttoptr i64 %73 to ptr
+  store ptr %74, ptr %slot.i, align 8
+  %75 = load ptr, ptr %slot.i, align 8
+  store ptr %75, ptr %slot.addr.i1011, align 8
+  %76 = load ptr, ptr %slot.addr.i1011, align 8
+  store ptr %76, ptr %slot.addr.i1015, align 8
+  %77 = load ptr, ptr %slot.addr.i1015, align 8
   store ptr %retval.i1014, ptr %this.addr.i1020, align 8
-  store ptr %74, ptr %location.addr.i1021, align 8
+  store ptr %77, ptr %location.addr.i1021, align 8
   %this1.i1022 = load ptr, ptr %this.addr.i1020, align 8
-  %75 = load ptr, ptr %location.addr.i1021, align 8
+  %78 = load ptr, ptr %location.addr.i1021, align 8
   store ptr %this1.i1022, ptr %this.addr.i.i1019, align 8
-  store ptr %75, ptr %location.addr.i.i, align 8
+  store ptr %78, ptr %location.addr.i.i, align 8
   %this1.i.i1023 = load ptr, ptr %this.addr.i.i1019, align 8
-  %76 = load ptr, ptr %location.addr.i.i, align 8
-  store ptr %76, ptr %this1.i.i1023, align 8
-  %77 = load ptr, ptr %retval.i1014, align 8
-  store ptr %77, ptr %ref.tmp.i1012, align 8
+  %79 = load ptr, ptr %location.addr.i.i, align 8
+  store ptr %79, ptr %this1.i.i1023, align 8
+  %80 = load ptr, ptr %retval.i1014, align 8
+  store ptr %80, ptr %ref.tmp.i1012, align 8
   store ptr %retval.i1010, ptr %this.addr.i1016, align 8
   store ptr %ref.tmp.i1012, ptr %other.addr.i1017, align 8
   %this1.i1018 = load ptr, ptr %this.addr.i1016, align 8
-  %78 = load ptr, ptr %other.addr.i1017, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1018, ptr align 8 %78, i64 8, i1 false)
-  %79 = load ptr, ptr %retval.i1010, align 8
-  store ptr %79, ptr %retval.i662, align 8
-  %80 = load ptr, ptr %retval.i662, align 8
+  %81 = load ptr, ptr %other.addr.i1017, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1018, ptr align 8 %81, i64 8, i1 false)
+  %82 = load ptr, ptr %retval.i1010, align 8
+  store ptr %82, ptr %retval.i662, align 8
+  %83 = load ptr, ptr %retval.i662, align 8
   %coerce.dive71 = getelementptr inbounds %"class.v8::Local.459", ptr %agg.tmp69, i32 0, i32 0
   %coerce.dive72 = getelementptr inbounds %"class.v8::LocalBase.460", ptr %coerce.dive71, i32 0, i32 0
   %coerce.dive73 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive72, i32 0, i32 0
-  store ptr %80, ptr %coerce.dive73, align 8
+  store ptr %83, ptr %coerce.dive73, align 8
   %coerce.dive74 = getelementptr inbounds %"class.v8::Local.459", ptr %agg.tmp69, i32 0, i32 0
   %coerce.dive75 = getelementptr inbounds %"class.v8::LocalBase.460", ptr %coerce.dive74, i32 0, i32 0
   %coerce.dive76 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive75, i32 0, i32 0
-  %81 = load ptr, ptr %coerce.dive76, align 8
-  store ptr %81, ptr %that.i665, align 8
+  %84 = load ptr, ptr %coerce.dive76, align 8
+  store ptr %84, ptr %that.i665, align 8
   store ptr %ref.tmp68, ptr %this.addr.i666, align 8
   %this3.i667 = load ptr, ptr %this.addr.i666, align 8
   store ptr %this3.i667, ptr %this.addr.i1181, align 8
   store ptr %that.i665, ptr %other.addr.i1182, align 8
   %this1.i1183 = load ptr, ptr %this.addr.i1181, align 8
-  %82 = load ptr, ptr %other.addr.i1182, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1183, ptr align 8 %82, i64 8, i1 false)
+  %85 = load ptr, ptr %other.addr.i1182, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1183, ptr align 8 %85, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value, ptr align 8 %ref.tmp68, i64 8, i1 false)
   br label %if.end77
 
@@ -14144,141 +14163,141 @@ if.end77:                                         ; preds = %if.else, %_ZN2v87Bo
   br label %sw.epilog
 
 sw.bb78:                                          ; preds = %for.body
-  %83 = load ptr, ptr %isolate, align 8
+  %86 = load ptr, ptr %isolate, align 8
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp81, ptr noundef nonnull align 8 dereferenceable(16) %field) #3
-  %84 = load ptr, ptr %opts, align 8
-  %call82 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupIbEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp81, ptr noundef %84)
-  %85 = load i8, ptr %call82, align 1
-  %tobool83 = trunc i8 %85 to i1
-  store ptr %83, ptr %isolate.addr.i634, align 8
+  %87 = load ptr, ptr %opts, align 8
+  %call82 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupIbEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp81, ptr noundef %87)
+  %88 = load i8, ptr %call82, align 1
+  %tobool83 = trunc i8 %88 to i1
+  store ptr %86, ptr %isolate.addr.i634, align 8
   %frombool.i636 = zext i1 %tobool83 to i8
   store i8 %frombool.i636, ptr %value.addr.i635, align 1
-  %86 = load i8, ptr %value.addr.i635, align 1
-  %tobool.i637 = trunc i8 %86 to i1
+  %89 = load i8, ptr %value.addr.i635, align 1
+  %tobool.i637 = trunc i8 %89 to i1
   br i1 %tobool.i637, label %cond.true.i640, label %cond.false.i638
 
 cond.true.i640:                                   ; preds = %sw.bb78
-  %87 = load ptr, ptr %isolate.addr.i634, align 8
-  store ptr %87, ptr %isolate.addr.i850, align 8
-  %88 = load ptr, ptr %isolate.addr.i850, align 8
-  store ptr %88, ptr %isolate.addr.i878, align 8
-  %89 = load ptr, ptr %isolate.addr.i850, align 8
-  store ptr %89, ptr %isolate.addr.i903, align 8
+  %90 = load ptr, ptr %isolate.addr.i634, align 8
+  store ptr %90, ptr %isolate.addr.i850, align 8
+  %91 = load ptr, ptr %isolate.addr.i850, align 8
+  store ptr %91, ptr %isolate.addr.i878, align 8
+  %92 = load ptr, ptr %isolate.addr.i850, align 8
+  store ptr %92, ptr %isolate.addr.i903, align 8
   store i32 7, ptr %index.addr.i904, align 4
-  %90 = load ptr, ptr %isolate.addr.i903, align 8
-  %91 = ptrtoint ptr %90 to i64
-  %add.i906 = add i64 %91, 576
-  %92 = load i32, ptr %index.addr.i904, align 4
-  %mul.i907 = mul nsw i32 %92, 8
+  %93 = load ptr, ptr %isolate.addr.i903, align 8
+  %94 = ptrtoint ptr %93 to i64
+  %add.i906 = add i64 %94, 576
+  %95 = load i32, ptr %index.addr.i904, align 4
+  %mul.i907 = mul nsw i32 %95, 8
   %conv.i908 = sext i32 %mul.i907 to i64
   %add1.i909 = add i64 %add.i906, %conv.i908
   store i64 %add1.i909, ptr %addr.i905, align 8
-  %93 = load i64, ptr %addr.i905, align 8
-  %94 = inttoptr i64 %93 to ptr
-  store ptr %94, ptr %slot.i851, align 8
-  %95 = load ptr, ptr %slot.i851, align 8
-  store ptr %95, ptr %slot.addr.i939, align 8
-  %96 = load ptr, ptr %slot.addr.i939, align 8
-  store ptr %96, ptr %slot.addr.i949, align 8
-  %97 = load ptr, ptr %slot.addr.i949, align 8
+  %96 = load i64, ptr %addr.i905, align 8
+  %97 = inttoptr i64 %96 to ptr
+  store ptr %97, ptr %slot.i851, align 8
+  %98 = load ptr, ptr %slot.i851, align 8
+  store ptr %98, ptr %slot.addr.i939, align 8
+  %99 = load ptr, ptr %slot.addr.i939, align 8
+  store ptr %99, ptr %slot.addr.i949, align 8
+  %100 = load ptr, ptr %slot.addr.i949, align 8
   store ptr %retval.i948, ptr %this.addr.i986, align 8
-  store ptr %97, ptr %location.addr.i987, align 8
+  store ptr %100, ptr %location.addr.i987, align 8
   %this1.i988 = load ptr, ptr %this.addr.i986, align 8
-  %98 = load ptr, ptr %location.addr.i987, align 8
+  %101 = load ptr, ptr %location.addr.i987, align 8
   store ptr %this1.i988, ptr %this.addr.i995, align 8
-  store ptr %98, ptr %location.addr.i996, align 8
+  store ptr %101, ptr %location.addr.i996, align 8
   %this1.i997 = load ptr, ptr %this.addr.i995, align 8
-  %99 = load ptr, ptr %location.addr.i996, align 8
-  store ptr %99, ptr %this1.i997, align 8
-  %100 = load ptr, ptr %retval.i948, align 8
-  store ptr %100, ptr %ref.tmp.i940, align 8
+  %102 = load ptr, ptr %location.addr.i996, align 8
+  store ptr %102, ptr %this1.i997, align 8
+  %103 = load ptr, ptr %retval.i948, align 8
+  store ptr %103, ptr %ref.tmp.i940, align 8
   store ptr %retval.i938, ptr %this.addr.i960, align 8
   store ptr %ref.tmp.i940, ptr %other.addr.i961, align 8
   %this1.i962 = load ptr, ptr %this.addr.i960, align 8
-  %101 = load ptr, ptr %other.addr.i961, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i962, ptr align 8 %101, i64 8, i1 false)
-  %102 = load ptr, ptr %retval.i938, align 8
-  store ptr %102, ptr %retval.i849, align 8
-  %103 = load ptr, ptr %retval.i849, align 8
-  store ptr %103, ptr %retval.i633, align 8
+  %104 = load ptr, ptr %other.addr.i961, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i962, ptr align 8 %104, i64 8, i1 false)
+  %105 = load ptr, ptr %retval.i938, align 8
+  store ptr %105, ptr %retval.i849, align 8
+  %106 = load ptr, ptr %retval.i849, align 8
+  store ptr %106, ptr %retval.i633, align 8
   br label %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit642
 
 cond.false.i638:                                  ; preds = %sw.bb78
-  %104 = load ptr, ptr %isolate.addr.i634, align 8
-  store ptr %104, ptr %isolate.addr.i865, align 8
-  %105 = load ptr, ptr %isolate.addr.i865, align 8
-  store ptr %105, ptr %isolate.addr.i875, align 8
-  %106 = load ptr, ptr %isolate.addr.i865, align 8
-  store ptr %106, ptr %isolate.addr.i882, align 8
+  %107 = load ptr, ptr %isolate.addr.i634, align 8
+  store ptr %107, ptr %isolate.addr.i865, align 8
+  %108 = load ptr, ptr %isolate.addr.i865, align 8
+  store ptr %108, ptr %isolate.addr.i875, align 8
+  %109 = load ptr, ptr %isolate.addr.i865, align 8
+  store ptr %109, ptr %isolate.addr.i882, align 8
   store i32 8, ptr %index.addr.i883, align 4
-  %107 = load ptr, ptr %isolate.addr.i882, align 8
-  %108 = ptrtoint ptr %107 to i64
-  %add.i885 = add i64 %108, 576
-  %109 = load i32, ptr %index.addr.i883, align 4
-  %mul.i886 = mul nsw i32 %109, 8
+  %110 = load ptr, ptr %isolate.addr.i882, align 8
+  %111 = ptrtoint ptr %110 to i64
+  %add.i885 = add i64 %111, 576
+  %112 = load i32, ptr %index.addr.i883, align 4
+  %mul.i886 = mul nsw i32 %112, 8
   %conv.i887 = sext i32 %mul.i886 to i64
   %add1.i888 = add i64 %add.i885, %conv.i887
   store i64 %add1.i888, ptr %addr.i884, align 8
-  %110 = load i64, ptr %addr.i884, align 8
-  %111 = inttoptr i64 %110 to ptr
-  store ptr %111, ptr %slot.i866, align 8
-  %112 = load ptr, ptr %slot.i866, align 8
-  store ptr %112, ptr %slot.addr.i927, align 8
-  %113 = load ptr, ptr %slot.addr.i927, align 8
-  store ptr %113, ptr %slot.addr.i955, align 8
-  %114 = load ptr, ptr %slot.addr.i955, align 8
+  %113 = load i64, ptr %addr.i884, align 8
+  %114 = inttoptr i64 %113 to ptr
+  store ptr %114, ptr %slot.i866, align 8
+  %115 = load ptr, ptr %slot.i866, align 8
+  store ptr %115, ptr %slot.addr.i927, align 8
+  %116 = load ptr, ptr %slot.addr.i927, align 8
+  store ptr %116, ptr %slot.addr.i955, align 8
+  %117 = load ptr, ptr %slot.addr.i955, align 8
   store ptr %retval.i954, ptr %this.addr.i977, align 8
-  store ptr %114, ptr %location.addr.i978, align 8
+  store ptr %117, ptr %location.addr.i978, align 8
   %this1.i979 = load ptr, ptr %this.addr.i977, align 8
-  %115 = load ptr, ptr %location.addr.i978, align 8
+  %118 = load ptr, ptr %location.addr.i978, align 8
   store ptr %this1.i979, ptr %this.addr.i1004, align 8
-  store ptr %115, ptr %location.addr.i1005, align 8
+  store ptr %118, ptr %location.addr.i1005, align 8
   %this1.i1006 = load ptr, ptr %this.addr.i1004, align 8
-  %116 = load ptr, ptr %location.addr.i1005, align 8
-  store ptr %116, ptr %this1.i1006, align 8
-  %117 = load ptr, ptr %retval.i954, align 8
-  store ptr %117, ptr %ref.tmp.i928, align 8
+  %119 = load ptr, ptr %location.addr.i1005, align 8
+  store ptr %119, ptr %this1.i1006, align 8
+  %120 = load ptr, ptr %retval.i954, align 8
+  store ptr %120, ptr %ref.tmp.i928, align 8
   store ptr %retval.i926, ptr %this.addr.i969, align 8
   store ptr %ref.tmp.i928, ptr %other.addr.i970, align 8
   %this1.i971 = load ptr, ptr %this.addr.i969, align 8
-  %118 = load ptr, ptr %other.addr.i970, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i971, ptr align 8 %118, i64 8, i1 false)
-  %119 = load ptr, ptr %retval.i926, align 8
-  store ptr %119, ptr %retval.i864, align 8
-  %120 = load ptr, ptr %retval.i864, align 8
-  store ptr %120, ptr %retval.i633, align 8
+  %121 = load ptr, ptr %other.addr.i970, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i971, ptr align 8 %121, i64 8, i1 false)
+  %122 = load ptr, ptr %retval.i926, align 8
+  store ptr %122, ptr %retval.i864, align 8
+  %123 = load ptr, ptr %retval.i864, align 8
+  store ptr %123, ptr %retval.i633, align 8
   br label %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit642
 
 _ZN2v87Boolean3NewEPNS_7IsolateEb.exit642:        ; preds = %cond.false.i638, %cond.true.i640
-  %121 = load ptr, ptr %retval.i633, align 8
+  %124 = load ptr, ptr %retval.i633, align 8
   %coerce.dive85 = getelementptr inbounds %"class.v8::Local.457", ptr %agg.tmp80, i32 0, i32 0
   %coerce.dive86 = getelementptr inbounds %"class.v8::LocalBase.458", ptr %coerce.dive85, i32 0, i32 0
   %coerce.dive87 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive86, i32 0, i32 0
-  store ptr %121, ptr %coerce.dive87, align 8
+  store ptr %124, ptr %coerce.dive87, align 8
   %coerce.dive88 = getelementptr inbounds %"class.v8::Local.457", ptr %agg.tmp80, i32 0, i32 0
   %coerce.dive89 = getelementptr inbounds %"class.v8::LocalBase.458", ptr %coerce.dive88, i32 0, i32 0
   %coerce.dive90 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive89, i32 0, i32 0
-  %122 = load ptr, ptr %coerce.dive90, align 8
-  store ptr %122, ptr %that.i656, align 8
+  %125 = load ptr, ptr %coerce.dive90, align 8
+  store ptr %125, ptr %that.i656, align 8
   store ptr %ref.tmp79, ptr %this.addr.i657, align 8
   %this3.i658 = load ptr, ptr %this.addr.i657, align 8
   store ptr %this3.i658, ptr %this.addr.i1175, align 8
   store ptr %that.i656, ptr %other.addr.i1176, align 8
   %this1.i1177 = load ptr, ptr %this.addr.i1175, align 8
-  %123 = load ptr, ptr %other.addr.i1176, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1177, ptr align 8 %123, i64 8, i1 false)
+  %126 = load ptr, ptr %other.addr.i1176, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1177, ptr align 8 %126, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value, ptr align 8 %ref.tmp79, i64 8, i1 false)
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp81) #3
   br label %sw.epilog
 
 sw.bb91:                                          ; preds = %for.body
-  %124 = load ptr, ptr %isolate, align 8
+  %127 = load ptr, ptr %isolate, align 8
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp94, ptr noundef nonnull align 8 dereferenceable(16) %field) #3
-  %125 = load ptr, ptr %opts, align 8
-  %call95 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupIlEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp94, ptr noundef %125)
-  %126 = load i64, ptr %call95, align 8
-  %conv = sitofp i64 %126 to double
-  %call96 = call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %124, double noundef %conv)
+  %128 = load ptr, ptr %opts, align 8
+  %call95 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupIlEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp94, ptr noundef %128)
+  %129 = load i64, ptr %call95, align 8
+  %conv = sitofp i64 %129 to double
+  %call96 = call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %127, double noundef %conv)
   %coerce.dive97 = getelementptr inbounds %"class.v8::Local.461", ptr %agg.tmp93, i32 0, i32 0
   %coerce.dive98 = getelementptr inbounds %"class.v8::LocalBase.462", ptr %coerce.dive97, i32 0, i32 0
   %coerce.dive99 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive98, i32 0, i32 0
@@ -14286,27 +14305,27 @@ sw.bb91:                                          ; preds = %for.body
   %coerce.dive100 = getelementptr inbounds %"class.v8::Local.461", ptr %agg.tmp93, i32 0, i32 0
   %coerce.dive101 = getelementptr inbounds %"class.v8::LocalBase.462", ptr %coerce.dive100, i32 0, i32 0
   %coerce.dive102 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive101, i32 0, i32 0
-  %127 = load ptr, ptr %coerce.dive102, align 8
-  store ptr %127, ptr %that.i668, align 8
+  %130 = load ptr, ptr %coerce.dive102, align 8
+  store ptr %130, ptr %that.i668, align 8
   store ptr %ref.tmp92, ptr %this.addr.i669, align 8
   %this3.i670 = load ptr, ptr %this.addr.i669, align 8
   store ptr %this3.i670, ptr %this.addr.i1187, align 8
   store ptr %that.i668, ptr %other.addr.i1188, align 8
   %this1.i1189 = load ptr, ptr %this.addr.i1187, align 8
-  %128 = load ptr, ptr %other.addr.i1188, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1189, ptr align 8 %128, i64 8, i1 false)
+  %131 = load ptr, ptr %other.addr.i1188, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1189, ptr align 8 %131, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value, ptr align 8 %ref.tmp92, i64 8, i1 false)
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp94) #3
   br label %sw.epilog
 
 sw.bb103:                                         ; preds = %for.body
-  %129 = load ptr, ptr %isolate, align 8
+  %132 = load ptr, ptr %isolate, align 8
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp106, ptr noundef nonnull align 8 dereferenceable(16) %field) #3
-  %130 = load ptr, ptr %opts, align 8
-  %call107 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupImEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp106, ptr noundef %130)
-  %131 = load i64, ptr %call107, align 8
-  %conv108 = uitofp i64 %131 to double
-  %call109 = call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %129, double noundef %conv108)
+  %133 = load ptr, ptr %opts, align 8
+  %call107 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupImEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp106, ptr noundef %133)
+  %134 = load i64, ptr %call107, align 8
+  %conv108 = uitofp i64 %134 to double
+  %call109 = call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %132, double noundef %conv108)
   %coerce.dive110 = getelementptr inbounds %"class.v8::Local.461", ptr %agg.tmp105, i32 0, i32 0
   %coerce.dive111 = getelementptr inbounds %"class.v8::LocalBase.462", ptr %coerce.dive110, i32 0, i32 0
   %coerce.dive112 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive111, i32 0, i32 0
@@ -14314,15 +14333,15 @@ sw.bb103:                                         ; preds = %for.body
   %coerce.dive113 = getelementptr inbounds %"class.v8::Local.461", ptr %agg.tmp105, i32 0, i32 0
   %coerce.dive114 = getelementptr inbounds %"class.v8::LocalBase.462", ptr %coerce.dive113, i32 0, i32 0
   %coerce.dive115 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive114, i32 0, i32 0
-  %132 = load ptr, ptr %coerce.dive115, align 8
-  store ptr %132, ptr %that.i671, align 8
+  %135 = load ptr, ptr %coerce.dive115, align 8
+  store ptr %135, ptr %that.i671, align 8
   store ptr %ref.tmp104, ptr %this.addr.i672, align 8
   %this3.i673 = load ptr, ptr %this.addr.i672, align 8
   store ptr %this3.i673, ptr %this.addr.i1184, align 8
   store ptr %that.i671, ptr %other.addr.i1185, align 8
   %this1.i1186 = load ptr, ptr %this.addr.i1184, align 8
-  %133 = load ptr, ptr %other.addr.i1185, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1186, ptr align 8 %133, i64 8, i1 false)
+  %136 = load ptr, ptr %other.addr.i1185, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1186, ptr align 8 %136, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value, ptr align 8 %ref.tmp104, i64 8, i1 false)
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp106) #3
   br label %sw.epilog
@@ -14330,24 +14349,24 @@ sw.bb103:                                         ; preds = %for.body
 sw.bb116:                                         ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp118, ptr align 8 %context, i64 8, i1 false)
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp120, ptr noundef nonnull align 8 dereferenceable(16) %field) #3
-  %134 = load ptr, ptr %opts, align 8
-  %call121 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp120, ptr noundef %134)
+  %137 = load ptr, ptr %opts, align 8
+  %call121 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp120, ptr noundef %137)
   %call122 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call121) #3
-  %135 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp119, i32 0, i32 0
-  %136 = extractvalue { i64, ptr } %call122, 0
-  store i64 %136, ptr %135, align 8
-  %137 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp119, i32 0, i32 1
-  %138 = extractvalue { i64, ptr } %call122, 1
-  store ptr %138, ptr %137, align 8
+  %138 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp119, i32 0, i32 0
+  %139 = extractvalue { i64, ptr } %call122, 0
+  store i64 %139, ptr %138, align 8
+  %140 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp119, i32 0, i32 1
+  %141 = extractvalue { i64, ptr } %call122, 1
+  store ptr %141, ptr %140, align 8
   %coerce.dive123 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp118, i32 0, i32 0
   %coerce.dive124 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive123, i32 0, i32 0
   %coerce.dive125 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive124, i32 0, i32 0
-  %139 = load ptr, ptr %coerce.dive125, align 8
-  %140 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp119, i32 0, i32 0
-  %141 = load i64, ptr %140, align 8
-  %142 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp119, i32 0, i32 1
-  %143 = load ptr, ptr %142, align 8
-  %call126 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %139, i64 %141, ptr %143, ptr noundef null)
+  %142 = load ptr, ptr %coerce.dive125, align 8
+  %143 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp119, i32 0, i32 0
+  %144 = load i64, ptr %143, align 8
+  %145 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp119, i32 0, i32 1
+  %146 = load ptr, ptr %145, align 8
+  %call126 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %142, i64 %144, ptr %146, ptr noundef null)
   %coerce.dive127 = getelementptr inbounds %"class.v8::MaybeLocal", ptr %ref.tmp117, i32 0, i32 0
   %coerce.dive128 = getelementptr inbounds %"class.v8::Local.453", ptr %coerce.dive127, i32 0, i32 0
   %coerce.dive129 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive128, i32 0, i32 0
@@ -14356,14 +14375,14 @@ sw.bb116:                                         ; preds = %for.body
   store ptr %ref.tmp117, ptr %this.addr.i693, align 8
   store ptr %value, ptr %out.addr.i694, align 8
   %this1.i695 = load ptr, ptr %this.addr.i693, align 8
-  %144 = load ptr, ptr %out.addr.i694, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %144, ptr align 8 %this1.i695, i64 8, i1 false)
+  %147 = load ptr, ptr %out.addr.i694, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %147, ptr align 8 %this1.i695, i64 8, i1 false)
   store ptr %this1.i695, ptr %this.addr.i1030, align 8
   %this1.i1031 = load ptr, ptr %this.addr.i1030, align 8
   store ptr %this1.i1031, ptr %this.addr.i.i1029, align 8
   %this1.i.i1032 = load ptr, ptr %this.addr.i.i1029, align 8
-  %145 = load ptr, ptr %this1.i.i1032, align 8
-  %cmp.i.i1033 = icmp eq ptr %145, null
+  %148 = load ptr, ptr %this1.i.i1032, align 8
+  %cmp.i.i1033 = icmp eq ptr %148, null
   %lnot.i697 = xor i1 %cmp.i.i1033, true
   %lnot = xor i1 %lnot.i697, true
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp120) #3
@@ -14379,13 +14398,13 @@ if.end133:                                        ; preds = %sw.bb116
 sw.bb134:                                         ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp136, ptr align 8 %context, i64 8, i1 false)
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp137, ptr noundef nonnull align 8 dereferenceable(16) %field) #3
-  %146 = load ptr, ptr %opts, align 8
-  %call138 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp137, ptr noundef %146)
+  %149 = load ptr, ptr %opts, align 8
+  %call138 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp137, ptr noundef %149)
   %coerce.dive139 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp136, i32 0, i32 0
   %coerce.dive140 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive139, i32 0, i32 0
   %coerce.dive141 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive140, i32 0, i32 0
-  %147 = load ptr, ptr %coerce.dive141, align 8
-  %call142 = call ptr @_ZN4node9ToV8ValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN2v810MaybeLocalINS7_5ValueEEENS7_5LocalINS7_7ContextEEERKSt6vectorIT_SaISF_EEPNS7_7IsolateE(ptr %147, ptr noundef nonnull align 8 dereferenceable(24) %call138, ptr noundef null)
+  %150 = load ptr, ptr %coerce.dive141, align 8
+  %call142 = call ptr @_ZN4node9ToV8ValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN2v810MaybeLocalINS7_5ValueEEENS7_5LocalINS7_7ContextEEERKSt6vectorIT_SaISF_EEPNS7_7IsolateE(ptr %150, ptr noundef nonnull align 8 dereferenceable(24) %call138, ptr noundef null)
   %coerce.dive143 = getelementptr inbounds %"class.v8::MaybeLocal", ptr %ref.tmp135, i32 0, i32 0
   %coerce.dive144 = getelementptr inbounds %"class.v8::Local.453", ptr %coerce.dive143, i32 0, i32 0
   %coerce.dive145 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive144, i32 0, i32 0
@@ -14394,14 +14413,14 @@ sw.bb134:                                         ; preds = %for.body
   store ptr %ref.tmp135, ptr %this.addr.i688, align 8
   store ptr %value, ptr %out.addr.i689, align 8
   %this1.i690 = load ptr, ptr %this.addr.i688, align 8
-  %148 = load ptr, ptr %out.addr.i689, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %148, ptr align 8 %this1.i690, i64 8, i1 false)
+  %151 = load ptr, ptr %out.addr.i689, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %151, ptr align 8 %this1.i690, i64 8, i1 false)
   store ptr %this1.i690, ptr %this.addr.i1035, align 8
   %this1.i1036 = load ptr, ptr %this.addr.i1035, align 8
   store ptr %this1.i1036, ptr %this.addr.i.i1034, align 8
   %this1.i.i1037 = load ptr, ptr %this.addr.i.i1034, align 8
-  %149 = load ptr, ptr %this1.i.i1037, align 8
-  %cmp.i.i1038 = icmp eq ptr %149, null
+  %152 = load ptr, ptr %this1.i.i1037, align 8
+  %cmp.i.i1038 = icmp eq ptr %152, null
   %lnot.i692 = xor i1 %cmp.i.i1038, true
   %lnot148 = xor i1 %lnot.i692, true
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp137) #3
@@ -14416,12 +14435,12 @@ if.end150:                                        ; preds = %sw.bb134
 
 sw.bb151:                                         ; preds = %for.body
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp152, ptr noundef nonnull align 8 dereferenceable(16) %field) #3
-  %150 = load ptr, ptr %opts, align 8
-  %call153 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupINS_8HostPortEEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp152, ptr noundef %150)
+  %153 = load ptr, ptr %opts, align 8
+  %call153 = call noundef ptr @_ZNK4node14options_parser13OptionsParserINS_17PerProcessOptionsEE6LookupINS_8HostPortEEEPT_St10shared_ptrINS3_15BaseOptionFieldEEPS2_(ptr noundef nonnull align 8 dereferenceable(176) @_ZN4node14options_parserL14_ppop_instanceE, ptr noundef %agg.tmp152, ptr noundef %153)
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp152) #3
   store ptr %call153, ptr %host_port, align 8
-  %151 = load ptr, ptr %isolate, align 8
-  %call154 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %151)
+  %154 = load ptr, ptr %isolate, align 8
+  %call154 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %154)
   %coerce.dive155 = getelementptr inbounds %"class.v8::Local.455", ptr %obj, i32 0, i32 0
   %coerce.dive156 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive155, i32 0, i32 0
   %coerce.dive157 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive156, i32 0, i32 0
@@ -14434,24 +14453,24 @@ sw.bb151:                                         ; preds = %for.body
   %this1.i839 = load ptr, ptr %this.addr.i838, align 8
   store ptr null, ptr %this1.i839, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp159, ptr align 8 %context, i64 8, i1 false)
-  %152 = load ptr, ptr %host_port, align 8
-  %call161 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4node8HostPort4hostB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(34) %152)
+  %155 = load ptr, ptr %host_port, align 8
+  %call161 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4node8HostPort4hostB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(34) %155)
   %call162 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call161) #3
-  %153 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp160, i32 0, i32 0
-  %154 = extractvalue { i64, ptr } %call162, 0
-  store i64 %154, ptr %153, align 8
-  %155 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp160, i32 0, i32 1
-  %156 = extractvalue { i64, ptr } %call162, 1
-  store ptr %156, ptr %155, align 8
+  %156 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp160, i32 0, i32 0
+  %157 = extractvalue { i64, ptr } %call162, 0
+  store i64 %157, ptr %156, align 8
+  %158 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp160, i32 0, i32 1
+  %159 = extractvalue { i64, ptr } %call162, 1
+  store ptr %159, ptr %158, align 8
   %coerce.dive163 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp159, i32 0, i32 0
   %coerce.dive164 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive163, i32 0, i32 0
   %coerce.dive165 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive164, i32 0, i32 0
-  %157 = load ptr, ptr %coerce.dive165, align 8
-  %158 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp160, i32 0, i32 0
-  %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp160, i32 0, i32 1
-  %161 = load ptr, ptr %160, align 8
-  %call166 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %157, i64 %159, ptr %161, ptr noundef null)
+  %160 = load ptr, ptr %coerce.dive165, align 8
+  %161 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp160, i32 0, i32 0
+  %162 = load i64, ptr %161, align 8
+  %163 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp160, i32 0, i32 1
+  %164 = load ptr, ptr %163, align 8
+  %call166 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %160, i64 %162, ptr %164, ptr noundef null)
   %coerce.dive167 = getelementptr inbounds %"class.v8::MaybeLocal", ptr %ref.tmp158, i32 0, i32 0
   %coerce.dive168 = getelementptr inbounds %"class.v8::Local.453", ptr %coerce.dive167, i32 0, i32 0
   %coerce.dive169 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive168, i32 0, i32 0
@@ -14460,14 +14479,14 @@ sw.bb151:                                         ; preds = %for.body
   store ptr %ref.tmp158, ptr %this.addr.i683, align 8
   store ptr %host, ptr %out.addr.i684, align 8
   %this1.i685 = load ptr, ptr %this.addr.i683, align 8
-  %162 = load ptr, ptr %out.addr.i684, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %162, ptr align 8 %this1.i685, i64 8, i1 false)
+  %165 = load ptr, ptr %out.addr.i684, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %165, ptr align 8 %this1.i685, i64 8, i1 false)
   store ptr %this1.i685, ptr %this.addr.i1040, align 8
   %this1.i1041 = load ptr, ptr %this.addr.i1040, align 8
   store ptr %this1.i1041, ptr %this.addr.i.i1039, align 8
   %this1.i.i1042 = load ptr, ptr %this.addr.i.i1039, align 8
-  %163 = load ptr, ptr %this1.i.i1042, align 8
-  %cmp.i.i1043 = icmp eq ptr %163, null
+  %166 = load ptr, ptr %this1.i.i1042, align 8
+  %cmp.i.i1043 = icmp eq ptr %166, null
   %lnot.i687 = xor i1 %cmp.i.i1043, true
   br i1 %lnot.i687, label %lor.lhs.false, label %lor.end
 
@@ -14478,12 +14497,12 @@ lor.lhs.false:                                    ; preds = %sw.bb151
   %this1.i1056 = load ptr, ptr %this.addr.i1055, align 8
   store ptr %this1.i1056, ptr %this.addr.i.i1054, align 8
   %this1.i.i1057 = load ptr, ptr %this.addr.i.i1054, align 8
-  %164 = load ptr, ptr %this1.i.i1057, align 8
-  store ptr %164, ptr %slot.addr.i1112, align 8
-  %165 = load ptr, ptr %slot.addr.i1112, align 8
+  %167 = load ptr, ptr %this1.i.i1057, align 8
+  store ptr %167, ptr %slot.addr.i1112, align 8
+  %168 = load ptr, ptr %slot.addr.i1112, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp174, ptr align 8 %context, i64 8, i1 false)
-  %166 = load ptr, ptr %env, align 8
-  %call177 = call ptr @_ZNK4node11Environment11host_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %166)
+  %169 = load ptr, ptr %env, align 8
+  %call177 = call ptr @_ZNK4node11Environment11host_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %169)
   %coerce.dive178 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp176, i32 0, i32 0
   %coerce.dive179 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive178, i32 0, i32 0
   %coerce.dive180 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive179, i32 0, i32 0
@@ -14491,34 +14510,34 @@ lor.lhs.false:                                    ; preds = %sw.bb151
   %coerce.dive181 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp176, i32 0, i32 0
   %coerce.dive182 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive181, i32 0, i32 0
   %coerce.dive183 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive182, i32 0, i32 0
-  %167 = load ptr, ptr %coerce.dive183, align 8
-  store ptr %167, ptr %that.i728, align 8
+  %170 = load ptr, ptr %coerce.dive183, align 8
+  store ptr %170, ptr %that.i728, align 8
   store ptr %agg.tmp175, ptr %this.addr.i729, align 8
   %this3.i730 = load ptr, ptr %this.addr.i729, align 8
   store ptr %this3.i730, ptr %this.addr.i1137, align 8
   store ptr %that.i728, ptr %other.addr.i1138, align 8
   %this1.i1139 = load ptr, ptr %this.addr.i1137, align 8
-  %168 = load ptr, ptr %other.addr.i1138, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1139, ptr align 8 %168, i64 8, i1 false)
+  %171 = load ptr, ptr %other.addr.i1138, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1139, ptr align 8 %171, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp184, ptr align 8 %host, i64 8, i1 false)
   %coerce.dive185 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp174, i32 0, i32 0
   %coerce.dive186 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive185, i32 0, i32 0
   %coerce.dive187 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive186, i32 0, i32 0
-  %169 = load ptr, ptr %coerce.dive187, align 8
+  %172 = load ptr, ptr %coerce.dive187, align 8
   %coerce.dive188 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp175, i32 0, i32 0
   %coerce.dive189 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive188, i32 0, i32 0
   %coerce.dive190 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive189, i32 0, i32 0
-  %170 = load ptr, ptr %coerce.dive190, align 8
+  %173 = load ptr, ptr %coerce.dive190, align 8
   %coerce.dive191 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp184, i32 0, i32 0
   %coerce.dive192 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive191, i32 0, i32 0
   %coerce.dive193 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive192, i32 0, i32 0
-  %171 = load ptr, ptr %coerce.dive193, align 8
-  %call194 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %165, ptr %169, ptr %170, ptr %171)
+  %174 = load ptr, ptr %coerce.dive193, align 8
+  %call194 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %168, ptr %172, ptr %173, ptr %174)
   store i16 %call194, ptr %ref.tmp172, align 1
   store ptr %ref.tmp172, ptr %this.addr.i615, align 8
   %this1.i616 = load ptr, ptr %this.addr.i615, align 8
-  %172 = load i8, ptr %this1.i616, align 1
-  %tobool.i617 = trunc i8 %172 to i1
+  %175 = load i8, ptr %this1.i616, align 1
+  %tobool.i617 = trunc i8 %175 to i1
   %lnot.i618 = xor i1 %tobool.i617, true
   br i1 %lnot.i618, label %lor.end, label %lor.rhs
 
@@ -14529,12 +14548,12 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   %this1.i1060 = load ptr, ptr %this.addr.i1059, align 8
   store ptr %this1.i1060, ptr %this.addr.i.i1058, align 8
   %this1.i.i1061 = load ptr, ptr %this.addr.i.i1058, align 8
-  %173 = load ptr, ptr %this1.i.i1061, align 8
-  store ptr %173, ptr %slot.addr.i1111, align 8
-  %174 = load ptr, ptr %slot.addr.i1111, align 8
+  %176 = load ptr, ptr %this1.i.i1061, align 8
+  store ptr %176, ptr %slot.addr.i1111, align 8
+  %177 = load ptr, ptr %slot.addr.i1111, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp198, ptr align 8 %context, i64 8, i1 false)
-  %175 = load ptr, ptr %env, align 8
-  %call201 = call ptr @_ZNK4node11Environment11port_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %175)
+  %178 = load ptr, ptr %env, align 8
+  %call201 = call ptr @_ZNK4node11Environment11port_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %178)
   %coerce.dive202 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp200, i32 0, i32 0
   %coerce.dive203 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive202, i32 0, i32 0
   %coerce.dive204 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive203, i32 0, i32 0
@@ -14542,20 +14561,20 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   %coerce.dive205 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp200, i32 0, i32 0
   %coerce.dive206 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive205, i32 0, i32 0
   %coerce.dive207 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive206, i32 0, i32 0
-  %176 = load ptr, ptr %coerce.dive207, align 8
-  store ptr %176, ptr %that.i731, align 8
+  %179 = load ptr, ptr %coerce.dive207, align 8
+  store ptr %179, ptr %that.i731, align 8
   store ptr %agg.tmp199, ptr %this.addr.i732, align 8
   %this3.i733 = load ptr, ptr %this.addr.i732, align 8
   store ptr %this3.i733, ptr %this.addr.i1134, align 8
   store ptr %that.i731, ptr %other.addr.i1135, align 8
   %this1.i1136 = load ptr, ptr %this.addr.i1134, align 8
-  %177 = load ptr, ptr %other.addr.i1135, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1136, ptr align 8 %177, i64 8, i1 false)
-  %178 = load ptr, ptr %isolate, align 8
-  %179 = load ptr, ptr %host_port, align 8
-  %call210 = call noundef zeroext i16 @_ZNK4node8HostPort4portEv(ptr noundef nonnull align 8 dereferenceable(34) %179)
+  %180 = load ptr, ptr %other.addr.i1135, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1136, ptr align 8 %180, i64 8, i1 false)
+  %181 = load ptr, ptr %isolate, align 8
+  %182 = load ptr, ptr %host_port, align 8
+  %call210 = call noundef zeroext i16 @_ZNK4node8HostPort4portEv(ptr noundef nonnull align 8 dereferenceable(34) %182)
   %conv211 = zext i16 %call210 to i32
-  %call212 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %178, i32 noundef %conv211)
+  %call212 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %181, i32 noundef %conv211)
   %coerce.dive213 = getelementptr inbounds %"class.v8::Local.465", ptr %agg.tmp209, i32 0, i32 0
   %coerce.dive214 = getelementptr inbounds %"class.v8::LocalBase.466", ptr %coerce.dive213, i32 0, i32 0
   %coerce.dive215 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive214, i32 0, i32 0
@@ -14563,39 +14582,39 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   %coerce.dive216 = getelementptr inbounds %"class.v8::Local.465", ptr %agg.tmp209, i32 0, i32 0
   %coerce.dive217 = getelementptr inbounds %"class.v8::LocalBase.466", ptr %coerce.dive216, i32 0, i32 0
   %coerce.dive218 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive217, i32 0, i32 0
-  %180 = load ptr, ptr %coerce.dive218, align 8
-  store ptr %180, ptr %that.i755, align 8
+  %183 = load ptr, ptr %coerce.dive218, align 8
+  store ptr %183, ptr %that.i755, align 8
   store ptr %agg.tmp208, ptr %this.addr.i756, align 8
   %this3.i757 = load ptr, ptr %this.addr.i756, align 8
   store ptr %this3.i757, ptr %this.addr.i1196, align 8
   store ptr %that.i755, ptr %other.addr.i1197, align 8
   %this1.i1198 = load ptr, ptr %this.addr.i1196, align 8
-  %181 = load ptr, ptr %other.addr.i1197, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1198, ptr align 8 %181, i64 8, i1 false)
+  %184 = load ptr, ptr %other.addr.i1197, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1198, ptr align 8 %184, i64 8, i1 false)
   %coerce.dive219 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp198, i32 0, i32 0
   %coerce.dive220 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive219, i32 0, i32 0
   %coerce.dive221 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive220, i32 0, i32 0
-  %182 = load ptr, ptr %coerce.dive221, align 8
+  %185 = load ptr, ptr %coerce.dive221, align 8
   %coerce.dive222 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp199, i32 0, i32 0
   %coerce.dive223 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive222, i32 0, i32 0
   %coerce.dive224 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive223, i32 0, i32 0
-  %183 = load ptr, ptr %coerce.dive224, align 8
+  %186 = load ptr, ptr %coerce.dive224, align 8
   %coerce.dive225 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp208, i32 0, i32 0
   %coerce.dive226 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive225, i32 0, i32 0
   %coerce.dive227 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive226, i32 0, i32 0
-  %184 = load ptr, ptr %coerce.dive227, align 8
-  %call228 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %174, ptr %182, ptr %183, ptr %184)
+  %187 = load ptr, ptr %coerce.dive227, align 8
+  %call228 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %177, ptr %185, ptr %186, ptr %187)
   store i16 %call228, ptr %ref.tmp196, align 1
   store ptr %ref.tmp196, ptr %this.addr.i611, align 8
   %this1.i612 = load ptr, ptr %this.addr.i611, align 8
-  %185 = load i8, ptr %this1.i612, align 1
-  %tobool.i613 = trunc i8 %185 to i1
+  %188 = load i8, ptr %this1.i612, align 1
+  %tobool.i613 = trunc i8 %188 to i1
   %lnot.i614 = xor i1 %tobool.i613, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %sw.bb151
-  %186 = phi i1 [ true, %lor.lhs.false ], [ true, %sw.bb151 ], [ %lnot.i614, %lor.rhs ]
-  br i1 %186, label %if.then230, label %if.end231
+  %189 = phi i1 [ true, %lor.lhs.false ], [ true, %sw.bb151 ], [ %lnot.i614, %lor.rhs ]
+  br i1 %189, label %if.then230, label %if.end231
 
 if.then230:                                       ; preds = %lor.end
   store i32 1, ptr %cleanup.dest.slot, align 4
@@ -14606,15 +14625,15 @@ if.end231:                                        ; preds = %lor.end
   %coerce.dive234 = getelementptr inbounds %"class.v8::Local.455", ptr %agg.tmp233, i32 0, i32 0
   %coerce.dive235 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive234, i32 0, i32 0
   %coerce.dive236 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive235, i32 0, i32 0
-  %187 = load ptr, ptr %coerce.dive236, align 8
-  store ptr %187, ptr %that.i588, align 8
+  %190 = load ptr, ptr %coerce.dive236, align 8
+  store ptr %190, ptr %that.i588, align 8
   store ptr %ref.tmp232, ptr %this.addr.i589, align 8
   %this3.i590 = load ptr, ptr %this.addr.i589, align 8
   store ptr %this3.i590, ptr %this.addr.i1146, align 8
   store ptr %that.i588, ptr %other.addr.i1147, align 8
   %this1.i1148 = load ptr, ptr %this.addr.i1146, align 8
-  %188 = load ptr, ptr %other.addr.i1147, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1148, ptr align 8 %188, i64 8, i1 false)
+  %191 = load ptr, ptr %other.addr.i1147, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1148, ptr align 8 %191, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value, ptr align 8 %ref.tmp232, i64 8, i1 false)
   br label %sw.epilog
 
@@ -14638,8 +14657,8 @@ sw.epilog:                                        ; preds = %do.end, %if.end231,
 do.body237:                                       ; preds = %sw.epilog
   store ptr %value, ptr %this.addr.i764, align 8
   %this1.i765 = load ptr, ptr %this.addr.i764, align 8
-  %189 = load ptr, ptr %this1.i765, align 8
-  %cmp.i = icmp eq ptr %189, null
+  %192 = load ptr, ptr %this1.i765, align 8
+  %cmp.i = icmp eq ptr %192, null
   %lnot239 = xor i1 %cmp.i, true
   %lnot240 = xor i1 %lnot239, true
   %lnot241 = xor i1 %lnot240, true
@@ -14668,24 +14687,24 @@ do.cond249:                                       ; preds = %if.end248
 
 do.end250:                                        ; preds = %do.cond249
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp252, ptr align 8 %context, i64 8, i1 false)
-  %190 = load ptr, ptr %item, align 8
-  %first254 = getelementptr inbounds %"struct.std::pair", ptr %190, i32 0, i32 0
+  %193 = load ptr, ptr %item, align 8
+  %first254 = getelementptr inbounds %"struct.std::pair", ptr %193, i32 0, i32 0
   %call255 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %first254) #3
-  %191 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp253, i32 0, i32 0
-  %192 = extractvalue { i64, ptr } %call255, 0
-  store i64 %192, ptr %191, align 8
-  %193 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp253, i32 0, i32 1
-  %194 = extractvalue { i64, ptr } %call255, 1
-  store ptr %194, ptr %193, align 8
+  %194 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp253, i32 0, i32 0
+  %195 = extractvalue { i64, ptr } %call255, 0
+  store i64 %195, ptr %194, align 8
+  %196 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp253, i32 0, i32 1
+  %197 = extractvalue { i64, ptr } %call255, 1
+  store ptr %197, ptr %196, align 8
   %coerce.dive256 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp252, i32 0, i32 0
   %coerce.dive257 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive256, i32 0, i32 0
   %coerce.dive258 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive257, i32 0, i32 0
-  %195 = load ptr, ptr %coerce.dive258, align 8
-  %196 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp253, i32 0, i32 0
-  %197 = load i64, ptr %196, align 8
-  %198 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp253, i32 0, i32 1
-  %199 = load ptr, ptr %198, align 8
-  %call259 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %195, i64 %197, ptr %199, ptr noundef null)
+  %198 = load ptr, ptr %coerce.dive258, align 8
+  %199 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp253, i32 0, i32 0
+  %200 = load i64, ptr %199, align 8
+  %201 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp253, i32 0, i32 1
+  %202 = load ptr, ptr %201, align 8
+  %call259 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %198, i64 %200, ptr %202, ptr noundef null)
   %coerce.dive260 = getelementptr inbounds %"class.v8::MaybeLocal", ptr %ref.tmp251, i32 0, i32 0
   %coerce.dive261 = getelementptr inbounds %"class.v8::Local.453", ptr %coerce.dive260, i32 0, i32 0
   %coerce.dive262 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive261, i32 0, i32 0
@@ -14697,8 +14716,8 @@ do.end250:                                        ; preds = %do.cond249
   %this1.i1026 = load ptr, ptr %this.addr.i1025, align 8
   store ptr %this1.i1026, ptr %this.addr.i.i1024, align 8
   %this1.i.i1027 = load ptr, ptr %this.addr.i.i1024, align 8
-  %200 = load ptr, ptr %this1.i.i1027, align 8
-  %cmp.i.i1028 = icmp eq ptr %200, null
+  %203 = load ptr, ptr %this1.i.i1027, align 8
+  %cmp.i.i1028 = icmp eq ptr %203, null
   br i1 %cmp.i.i1028, label %if.then.i, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 if.then.i:                                        ; preds = %do.end250
@@ -14707,13 +14726,13 @@ if.then.i:                                        ; preds = %do.end250
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i, %do.end250
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.i766, ptr align 8 %this1.i768, i64 8, i1 false)
-  %201 = load ptr, ptr %retval.i766, align 8
+  %204 = load ptr, ptr %retval.i766, align 8
   %coerce.dive265 = getelementptr inbounds %"class.v8::Local.453", ptr %name, i32 0, i32 0
   %coerce.dive266 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive265, i32 0, i32 0
   %coerce.dive267 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive266, i32 0, i32 0
-  store ptr %201, ptr %coerce.dive267, align 8
-  %202 = load ptr, ptr %isolate, align 8
-  %call268 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %202)
+  store ptr %204, ptr %coerce.dive267, align 8
+  %205 = load ptr, ptr %isolate, align 8
+  %call268 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %205)
   %coerce.dive269 = getelementptr inbounds %"class.v8::Local.455", ptr %info, i32 0, i32 0
   %coerce.dive270 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive269, i32 0, i32 0
   %coerce.dive271 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive270, i32 0, i32 0
@@ -14726,24 +14745,24 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i, %do
   %this1.i841 = load ptr, ptr %this.addr.i840, align 8
   store ptr null, ptr %this1.i841, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp273, ptr align 8 %context, i64 8, i1 false)
-  %203 = load ptr, ptr %option_info, align 8
-  %help_text275 = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %203, i32 0, i32 5
+  %206 = load ptr, ptr %option_info, align 8
+  %help_text275 = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %206, i32 0, i32 5
   %call276 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %help_text275) #3
-  %204 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp274, i32 0, i32 0
-  %205 = extractvalue { i64, ptr } %call276, 0
-  store i64 %205, ptr %204, align 8
-  %206 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp274, i32 0, i32 1
-  %207 = extractvalue { i64, ptr } %call276, 1
-  store ptr %207, ptr %206, align 8
+  %207 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp274, i32 0, i32 0
+  %208 = extractvalue { i64, ptr } %call276, 0
+  store i64 %208, ptr %207, align 8
+  %209 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp274, i32 0, i32 1
+  %210 = extractvalue { i64, ptr } %call276, 1
+  store ptr %210, ptr %209, align 8
   %coerce.dive277 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp273, i32 0, i32 0
   %coerce.dive278 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive277, i32 0, i32 0
   %coerce.dive279 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive278, i32 0, i32 0
-  %208 = load ptr, ptr %coerce.dive279, align 8
-  %209 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp274, i32 0, i32 0
-  %210 = load i64, ptr %209, align 8
-  %211 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp274, i32 0, i32 1
-  %212 = load ptr, ptr %211, align 8
-  %call280 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %208, i64 %210, ptr %212, ptr noundef null)
+  %211 = load ptr, ptr %coerce.dive279, align 8
+  %212 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp274, i32 0, i32 0
+  %213 = load i64, ptr %212, align 8
+  %214 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp274, i32 0, i32 1
+  %215 = load ptr, ptr %214, align 8
+  %call280 = call ptr @_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE(ptr %211, i64 %213, ptr %215, ptr noundef null)
   %coerce.dive281 = getelementptr inbounds %"class.v8::MaybeLocal", ptr %ref.tmp272, i32 0, i32 0
   %coerce.dive282 = getelementptr inbounds %"class.v8::Local.453", ptr %coerce.dive281, i32 0, i32 0
   %coerce.dive283 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive282, i32 0, i32 0
@@ -14752,14 +14771,14 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i, %do
   store ptr %ref.tmp272, ptr %this.addr.i678, align 8
   store ptr %help_text, ptr %out.addr.i679, align 8
   %this1.i680 = load ptr, ptr %this.addr.i678, align 8
-  %213 = load ptr, ptr %out.addr.i679, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %213, ptr align 8 %this1.i680, i64 8, i1 false)
+  %216 = load ptr, ptr %out.addr.i679, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %216, ptr align 8 %this1.i680, i64 8, i1 false)
   store ptr %this1.i680, ptr %this.addr.i1045, align 8
   %this1.i1046 = load ptr, ptr %this.addr.i1045, align 8
   store ptr %this1.i1046, ptr %this.addr.i.i1044, align 8
   %this1.i.i1047 = load ptr, ptr %this.addr.i.i1044, align 8
-  %214 = load ptr, ptr %this1.i.i1047, align 8
-  %cmp.i.i1048 = icmp eq ptr %214, null
+  %217 = load ptr, ptr %this1.i.i1047, align 8
+  %cmp.i.i1048 = icmp eq ptr %217, null
   %lnot.i682 = xor i1 %cmp.i.i1048, true
   br i1 %lnot.i682, label %lor.lhs.false286, label %lor.end466
 
@@ -14770,12 +14789,12 @@ lor.lhs.false286:                                 ; preds = %_ZN2v810MaybeLocalI
   %this1.i1065 = load ptr, ptr %this.addr.i1064, align 8
   store ptr %this1.i1065, ptr %this.addr.i.i1063, align 8
   %this1.i.i1066 = load ptr, ptr %this.addr.i.i1063, align 8
-  %215 = load ptr, ptr %this1.i.i1066, align 8
-  store ptr %215, ptr %slot.addr.i1110, align 8
-  %216 = load ptr, ptr %slot.addr.i1110, align 8
+  %218 = load ptr, ptr %this1.i.i1066, align 8
+  store ptr %218, ptr %slot.addr.i1110, align 8
+  %219 = load ptr, ptr %slot.addr.i1110, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp289, ptr align 8 %context, i64 8, i1 false)
-  %217 = load ptr, ptr %env, align 8
-  %call292 = call ptr @_ZNK4node11Environment16help_text_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %217)
+  %220 = load ptr, ptr %env, align 8
+  %call292 = call ptr @_ZNK4node11Environment16help_text_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %220)
   %coerce.dive293 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp291, i32 0, i32 0
   %coerce.dive294 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive293, i32 0, i32 0
   %coerce.dive295 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive294, i32 0, i32 0
@@ -14783,48 +14802,48 @@ lor.lhs.false286:                                 ; preds = %_ZN2v810MaybeLocalI
   %coerce.dive296 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp291, i32 0, i32 0
   %coerce.dive297 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive296, i32 0, i32 0
   %coerce.dive298 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive297, i32 0, i32 0
-  %218 = load ptr, ptr %coerce.dive298, align 8
-  store ptr %218, ptr %that.i734, align 8
+  %221 = load ptr, ptr %coerce.dive298, align 8
+  store ptr %221, ptr %that.i734, align 8
   store ptr %agg.tmp290, ptr %this.addr.i735, align 8
   %this3.i736 = load ptr, ptr %this.addr.i735, align 8
   store ptr %this3.i736, ptr %this.addr.i1131, align 8
   store ptr %that.i734, ptr %other.addr.i1132, align 8
   %this1.i1133 = load ptr, ptr %this.addr.i1131, align 8
-  %219 = load ptr, ptr %other.addr.i1132, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1133, ptr align 8 %219, i64 8, i1 false)
+  %222 = load ptr, ptr %other.addr.i1132, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1133, ptr align 8 %222, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp299, ptr align 8 %help_text, i64 8, i1 false)
   %coerce.dive300 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp289, i32 0, i32 0
   %coerce.dive301 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive300, i32 0, i32 0
   %coerce.dive302 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive301, i32 0, i32 0
-  %220 = load ptr, ptr %coerce.dive302, align 8
+  %223 = load ptr, ptr %coerce.dive302, align 8
   %coerce.dive303 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp290, i32 0, i32 0
   %coerce.dive304 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive303, i32 0, i32 0
   %coerce.dive305 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive304, i32 0, i32 0
-  %221 = load ptr, ptr %coerce.dive305, align 8
+  %224 = load ptr, ptr %coerce.dive305, align 8
   %coerce.dive306 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp299, i32 0, i32 0
   %coerce.dive307 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive306, i32 0, i32 0
   %coerce.dive308 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive307, i32 0, i32 0
-  %222 = load ptr, ptr %coerce.dive308, align 8
-  %call309 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %216, ptr %220, ptr %221, ptr %222)
+  %225 = load ptr, ptr %coerce.dive308, align 8
+  %call309 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %219, ptr %223, ptr %224, ptr %225)
   store i16 %call309, ptr %ref.tmp287, align 1
   store i8 0, ptr %ref.tmp310, align 1
   store ptr %ref.tmp287, ptr %this.addr.i798, align 8
   store ptr %ref.tmp310, ptr %default_value.addr.i799, align 8
   %this1.i800 = load ptr, ptr %this.addr.i798, align 8
-  %223 = load i8, ptr %this1.i800, align 1
-  %tobool.i801 = trunc i8 %223 to i1
+  %226 = load i8, ptr %this1.i800, align 1
+  %tobool.i801 = trunc i8 %226 to i1
   br i1 %tobool.i801, label %cond.true.i805, label %cond.false.i802
 
 cond.true.i805:                                   ; preds = %lor.lhs.false286
   %value_.i806 = getelementptr inbounds %"class.v8::Maybe", ptr %this1.i800, i32 0, i32 1
-  %224 = load i8, ptr %value_.i806, align 1
-  %tobool2.i807 = trunc i8 %224 to i1
+  %227 = load i8, ptr %value_.i806, align 1
+  %tobool2.i807 = trunc i8 %227 to i1
   br label %_ZNK2v85MaybeIbE9FromMaybeERKb.exit808
 
 cond.false.i802:                                  ; preds = %lor.lhs.false286
-  %225 = load ptr, ptr %default_value.addr.i799, align 8
-  %226 = load i8, ptr %225, align 1
-  %tobool3.i803 = trunc i8 %226 to i1
+  %228 = load ptr, ptr %default_value.addr.i799, align 8
+  %229 = load i8, ptr %228, align 1
+  %tobool3.i803 = trunc i8 %229 to i1
   br label %_ZNK2v85MaybeIbE9FromMaybeERKb.exit808
 
 _ZNK2v85MaybeIbE9FromMaybeERKb.exit808:           ; preds = %cond.false.i802, %cond.true.i805
@@ -14838,12 +14857,12 @@ lor.lhs.false312:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %this1.i1070 = load ptr, ptr %this.addr.i1069, align 8
   store ptr %this1.i1070, ptr %this.addr.i.i1068, align 8
   %this1.i.i1071 = load ptr, ptr %this.addr.i.i1068, align 8
-  %227 = load ptr, ptr %this1.i.i1071, align 8
-  store ptr %227, ptr %slot.addr.i1109, align 8
-  %228 = load ptr, ptr %slot.addr.i1109, align 8
+  %230 = load ptr, ptr %this1.i.i1071, align 8
+  store ptr %230, ptr %slot.addr.i1109, align 8
+  %231 = load ptr, ptr %slot.addr.i1109, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp315, ptr align 8 %context, i64 8, i1 false)
-  %229 = load ptr, ptr %env, align 8
-  %call318 = call ptr @_ZNK4node11Environment23env_var_settings_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %229)
+  %232 = load ptr, ptr %env, align 8
+  %call318 = call ptr @_ZNK4node11Environment23env_var_settings_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %232)
   %coerce.dive319 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp317, i32 0, i32 0
   %coerce.dive320 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive319, i32 0, i32 0
   %coerce.dive321 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive320, i32 0, i32 0
@@ -14851,20 +14870,20 @@ lor.lhs.false312:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %coerce.dive322 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp317, i32 0, i32 0
   %coerce.dive323 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive322, i32 0, i32 0
   %coerce.dive324 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive323, i32 0, i32 0
-  %230 = load ptr, ptr %coerce.dive324, align 8
-  store ptr %230, ptr %that.i737, align 8
+  %233 = load ptr, ptr %coerce.dive324, align 8
+  store ptr %233, ptr %that.i737, align 8
   store ptr %agg.tmp316, ptr %this.addr.i738, align 8
   %this3.i739 = load ptr, ptr %this.addr.i738, align 8
   store ptr %this3.i739, ptr %this.addr.i1128, align 8
   store ptr %that.i737, ptr %other.addr.i1129, align 8
   %this1.i1130 = load ptr, ptr %this.addr.i1128, align 8
-  %231 = load ptr, ptr %other.addr.i1129, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1130, ptr align 8 %231, i64 8, i1 false)
-  %232 = load ptr, ptr %isolate, align 8
-  %233 = load ptr, ptr %option_info, align 8
-  %env_setting = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %233, i32 0, i32 3
-  %234 = load i32, ptr %env_setting, align 8
-  %call327 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %232, i32 noundef %234)
+  %234 = load ptr, ptr %other.addr.i1129, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1130, ptr align 8 %234, i64 8, i1 false)
+  %235 = load ptr, ptr %isolate, align 8
+  %236 = load ptr, ptr %option_info, align 8
+  %env_setting = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %236, i32 0, i32 3
+  %237 = load i32, ptr %env_setting, align 8
+  %call327 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %235, i32 noundef %237)
   %coerce.dive328 = getelementptr inbounds %"class.v8::Local.465", ptr %agg.tmp326, i32 0, i32 0
   %coerce.dive329 = getelementptr inbounds %"class.v8::LocalBase.466", ptr %coerce.dive328, i32 0, i32 0
   %coerce.dive330 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive329, i32 0, i32 0
@@ -14872,47 +14891,47 @@ lor.lhs.false312:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %coerce.dive331 = getelementptr inbounds %"class.v8::Local.465", ptr %agg.tmp326, i32 0, i32 0
   %coerce.dive332 = getelementptr inbounds %"class.v8::LocalBase.466", ptr %coerce.dive331, i32 0, i32 0
   %coerce.dive333 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive332, i32 0, i32 0
-  %235 = load ptr, ptr %coerce.dive333, align 8
-  store ptr %235, ptr %that.i758, align 8
+  %238 = load ptr, ptr %coerce.dive333, align 8
+  store ptr %238, ptr %that.i758, align 8
   store ptr %agg.tmp325, ptr %this.addr.i759, align 8
   %this3.i760 = load ptr, ptr %this.addr.i759, align 8
   store ptr %this3.i760, ptr %this.addr.i1193, align 8
   store ptr %that.i758, ptr %other.addr.i1194, align 8
   %this1.i1195 = load ptr, ptr %this.addr.i1193, align 8
-  %236 = load ptr, ptr %other.addr.i1194, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1195, ptr align 8 %236, i64 8, i1 false)
+  %239 = load ptr, ptr %other.addr.i1194, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1195, ptr align 8 %239, i64 8, i1 false)
   %coerce.dive334 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp315, i32 0, i32 0
   %coerce.dive335 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive334, i32 0, i32 0
   %coerce.dive336 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive335, i32 0, i32 0
-  %237 = load ptr, ptr %coerce.dive336, align 8
+  %240 = load ptr, ptr %coerce.dive336, align 8
   %coerce.dive337 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp316, i32 0, i32 0
   %coerce.dive338 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive337, i32 0, i32 0
   %coerce.dive339 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive338, i32 0, i32 0
-  %238 = load ptr, ptr %coerce.dive339, align 8
+  %241 = load ptr, ptr %coerce.dive339, align 8
   %coerce.dive340 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp325, i32 0, i32 0
   %coerce.dive341 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive340, i32 0, i32 0
   %coerce.dive342 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive341, i32 0, i32 0
-  %239 = load ptr, ptr %coerce.dive342, align 8
-  %call343 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %228, ptr %237, ptr %238, ptr %239)
+  %242 = load ptr, ptr %coerce.dive342, align 8
+  %call343 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %231, ptr %240, ptr %241, ptr %242)
   store i16 %call343, ptr %ref.tmp313, align 1
   store i8 0, ptr %ref.tmp344, align 1
   store ptr %ref.tmp313, ptr %this.addr.i787, align 8
   store ptr %ref.tmp344, ptr %default_value.addr.i788, align 8
   %this1.i789 = load ptr, ptr %this.addr.i787, align 8
-  %240 = load i8, ptr %this1.i789, align 1
-  %tobool.i790 = trunc i8 %240 to i1
+  %243 = load i8, ptr %this1.i789, align 1
+  %tobool.i790 = trunc i8 %243 to i1
   br i1 %tobool.i790, label %cond.true.i794, label %cond.false.i791
 
 cond.true.i794:                                   ; preds = %lor.lhs.false312
   %value_.i795 = getelementptr inbounds %"class.v8::Maybe", ptr %this1.i789, i32 0, i32 1
-  %241 = load i8, ptr %value_.i795, align 1
-  %tobool2.i796 = trunc i8 %241 to i1
+  %244 = load i8, ptr %value_.i795, align 1
+  %tobool2.i796 = trunc i8 %244 to i1
   br label %_ZNK2v85MaybeIbE9FromMaybeERKb.exit797
 
 cond.false.i791:                                  ; preds = %lor.lhs.false312
-  %242 = load ptr, ptr %default_value.addr.i788, align 8
-  %243 = load i8, ptr %242, align 1
-  %tobool3.i792 = trunc i8 %243 to i1
+  %245 = load ptr, ptr %default_value.addr.i788, align 8
+  %246 = load i8, ptr %245, align 1
+  %tobool3.i792 = trunc i8 %246 to i1
   br label %_ZNK2v85MaybeIbE9FromMaybeERKb.exit797
 
 _ZNK2v85MaybeIbE9FromMaybeERKb.exit797:           ; preds = %cond.false.i791, %cond.true.i794
@@ -14926,12 +14945,12 @@ lor.lhs.false346:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %this1.i1075 = load ptr, ptr %this.addr.i1074, align 8
   store ptr %this1.i1075, ptr %this.addr.i.i1073, align 8
   %this1.i.i1076 = load ptr, ptr %this.addr.i.i1073, align 8
-  %244 = load ptr, ptr %this1.i.i1076, align 8
-  store ptr %244, ptr %slot.addr.i1108, align 8
-  %245 = load ptr, ptr %slot.addr.i1108, align 8
+  %247 = load ptr, ptr %this1.i.i1076, align 8
+  store ptr %247, ptr %slot.addr.i1108, align 8
+  %248 = load ptr, ptr %slot.addr.i1108, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp349, ptr align 8 %context, i64 8, i1 false)
-  %246 = load ptr, ptr %env, align 8
-  %call352 = call ptr @_ZNK4node11Environment11type_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %246)
+  %249 = load ptr, ptr %env, align 8
+  %call352 = call ptr @_ZNK4node11Environment11type_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %249)
   %coerce.dive353 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp351, i32 0, i32 0
   %coerce.dive354 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive353, i32 0, i32 0
   %coerce.dive355 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive354, i32 0, i32 0
@@ -14939,20 +14958,20 @@ lor.lhs.false346:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %coerce.dive356 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp351, i32 0, i32 0
   %coerce.dive357 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive356, i32 0, i32 0
   %coerce.dive358 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive357, i32 0, i32 0
-  %247 = load ptr, ptr %coerce.dive358, align 8
-  store ptr %247, ptr %that.i740, align 8
+  %250 = load ptr, ptr %coerce.dive358, align 8
+  store ptr %250, ptr %that.i740, align 8
   store ptr %agg.tmp350, ptr %this.addr.i741, align 8
   %this3.i742 = load ptr, ptr %this.addr.i741, align 8
   store ptr %this3.i742, ptr %this.addr.i1125, align 8
   store ptr %that.i740, ptr %other.addr.i1126, align 8
   %this1.i1127 = load ptr, ptr %this.addr.i1125, align 8
-  %248 = load ptr, ptr %other.addr.i1126, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1127, ptr align 8 %248, i64 8, i1 false)
-  %249 = load ptr, ptr %isolate, align 8
-  %250 = load ptr, ptr %option_info, align 8
-  %type361 = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %250, i32 0, i32 0
-  %251 = load i32, ptr %type361, align 8
-  %call362 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %249, i32 noundef %251)
+  %251 = load ptr, ptr %other.addr.i1126, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1127, ptr align 8 %251, i64 8, i1 false)
+  %252 = load ptr, ptr %isolate, align 8
+  %253 = load ptr, ptr %option_info, align 8
+  %type361 = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %253, i32 0, i32 0
+  %254 = load i32, ptr %type361, align 8
+  %call362 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %252, i32 noundef %254)
   %coerce.dive363 = getelementptr inbounds %"class.v8::Local.465", ptr %agg.tmp360, i32 0, i32 0
   %coerce.dive364 = getelementptr inbounds %"class.v8::LocalBase.466", ptr %coerce.dive363, i32 0, i32 0
   %coerce.dive365 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive364, i32 0, i32 0
@@ -14960,47 +14979,47 @@ lor.lhs.false346:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %coerce.dive366 = getelementptr inbounds %"class.v8::Local.465", ptr %agg.tmp360, i32 0, i32 0
   %coerce.dive367 = getelementptr inbounds %"class.v8::LocalBase.466", ptr %coerce.dive366, i32 0, i32 0
   %coerce.dive368 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive367, i32 0, i32 0
-  %252 = load ptr, ptr %coerce.dive368, align 8
-  store ptr %252, ptr %that.i761, align 8
+  %255 = load ptr, ptr %coerce.dive368, align 8
+  store ptr %255, ptr %that.i761, align 8
   store ptr %agg.tmp359, ptr %this.addr.i762, align 8
   %this3.i763 = load ptr, ptr %this.addr.i762, align 8
   store ptr %this3.i763, ptr %this.addr.i1190, align 8
   store ptr %that.i761, ptr %other.addr.i1191, align 8
   %this1.i1192 = load ptr, ptr %this.addr.i1190, align 8
-  %253 = load ptr, ptr %other.addr.i1191, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1192, ptr align 8 %253, i64 8, i1 false)
+  %256 = load ptr, ptr %other.addr.i1191, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1192, ptr align 8 %256, i64 8, i1 false)
   %coerce.dive369 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp349, i32 0, i32 0
   %coerce.dive370 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive369, i32 0, i32 0
   %coerce.dive371 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive370, i32 0, i32 0
-  %254 = load ptr, ptr %coerce.dive371, align 8
+  %257 = load ptr, ptr %coerce.dive371, align 8
   %coerce.dive372 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp350, i32 0, i32 0
   %coerce.dive373 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive372, i32 0, i32 0
   %coerce.dive374 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive373, i32 0, i32 0
-  %255 = load ptr, ptr %coerce.dive374, align 8
+  %258 = load ptr, ptr %coerce.dive374, align 8
   %coerce.dive375 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp359, i32 0, i32 0
   %coerce.dive376 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive375, i32 0, i32 0
   %coerce.dive377 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive376, i32 0, i32 0
-  %256 = load ptr, ptr %coerce.dive377, align 8
-  %call378 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %245, ptr %254, ptr %255, ptr %256)
+  %259 = load ptr, ptr %coerce.dive377, align 8
+  %call378 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %248, ptr %257, ptr %258, ptr %259)
   store i16 %call378, ptr %ref.tmp347, align 1
   store i8 0, ptr %ref.tmp379, align 1
   store ptr %ref.tmp347, ptr %this.addr.i776, align 8
   store ptr %ref.tmp379, ptr %default_value.addr.i777, align 8
   %this1.i778 = load ptr, ptr %this.addr.i776, align 8
-  %257 = load i8, ptr %this1.i778, align 1
-  %tobool.i779 = trunc i8 %257 to i1
+  %260 = load i8, ptr %this1.i778, align 1
+  %tobool.i779 = trunc i8 %260 to i1
   br i1 %tobool.i779, label %cond.true.i783, label %cond.false.i780
 
 cond.true.i783:                                   ; preds = %lor.lhs.false346
   %value_.i784 = getelementptr inbounds %"class.v8::Maybe", ptr %this1.i778, i32 0, i32 1
-  %258 = load i8, ptr %value_.i784, align 1
-  %tobool2.i785 = trunc i8 %258 to i1
+  %261 = load i8, ptr %value_.i784, align 1
+  %tobool2.i785 = trunc i8 %261 to i1
   br label %_ZNK2v85MaybeIbE9FromMaybeERKb.exit786
 
 cond.false.i780:                                  ; preds = %lor.lhs.false346
-  %259 = load ptr, ptr %default_value.addr.i777, align 8
-  %260 = load i8, ptr %259, align 1
-  %tobool3.i781 = trunc i8 %260 to i1
+  %262 = load ptr, ptr %default_value.addr.i777, align 8
+  %263 = load i8, ptr %262, align 1
+  %tobool3.i781 = trunc i8 %263 to i1
   br label %_ZNK2v85MaybeIbE9FromMaybeERKb.exit786
 
 _ZNK2v85MaybeIbE9FromMaybeERKb.exit786:           ; preds = %cond.false.i780, %cond.true.i783
@@ -15014,12 +15033,12 @@ lor.lhs.false381:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %this1.i1080 = load ptr, ptr %this.addr.i1079, align 8
   store ptr %this1.i1080, ptr %this.addr.i.i1078, align 8
   %this1.i.i1081 = load ptr, ptr %this.addr.i.i1078, align 8
-  %261 = load ptr, ptr %this1.i.i1081, align 8
-  store ptr %261, ptr %slot.addr.i1107, align 8
-  %262 = load ptr, ptr %slot.addr.i1107, align 8
+  %264 = load ptr, ptr %this1.i.i1081, align 8
+  store ptr %264, ptr %slot.addr.i1107, align 8
+  %265 = load ptr, ptr %slot.addr.i1107, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp384, ptr align 8 %context, i64 8, i1 false)
-  %263 = load ptr, ptr %env, align 8
-  %call387 = call ptr @_ZNK4node11Environment22default_is_true_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %263)
+  %266 = load ptr, ptr %env, align 8
+  %call387 = call ptr @_ZNK4node11Environment22default_is_true_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %266)
   %coerce.dive388 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp386, i32 0, i32 0
   %coerce.dive389 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive388, i32 0, i32 0
   %coerce.dive390 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive389, i32 0, i32 0
@@ -15027,169 +15046,169 @@ lor.lhs.false381:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %coerce.dive391 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp386, i32 0, i32 0
   %coerce.dive392 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive391, i32 0, i32 0
   %coerce.dive393 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive392, i32 0, i32 0
-  %264 = load ptr, ptr %coerce.dive393, align 8
-  store ptr %264, ptr %that.i743, align 8
+  %267 = load ptr, ptr %coerce.dive393, align 8
+  store ptr %267, ptr %that.i743, align 8
   store ptr %agg.tmp385, ptr %this.addr.i744, align 8
   %this3.i745 = load ptr, ptr %this.addr.i744, align 8
   store ptr %this3.i745, ptr %this.addr.i1122, align 8
   store ptr %that.i743, ptr %other.addr.i1123, align 8
   %this1.i1124 = load ptr, ptr %this.addr.i1122, align 8
-  %265 = load ptr, ptr %other.addr.i1123, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1124, ptr align 8 %265, i64 8, i1 false)
-  %266 = load ptr, ptr %isolate, align 8
-  %267 = load ptr, ptr %option_info, align 8
-  %default_is_true = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %267, i32 0, i32 6
-  %268 = load i8, ptr %default_is_true, align 8
-  %tobool396 = trunc i8 %268 to i1
-  store ptr %266, ptr %isolate.addr.i, align 8
+  %268 = load ptr, ptr %other.addr.i1123, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1124, ptr align 8 %268, i64 8, i1 false)
+  %269 = load ptr, ptr %isolate, align 8
+  %270 = load ptr, ptr %option_info, align 8
+  %default_is_true = getelementptr inbounds %"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo", ptr %270, i32 0, i32 6
+  %271 = load i8, ptr %default_is_true, align 8
+  %tobool396 = trunc i8 %271 to i1
+  store ptr %269, ptr %isolate.addr.i, align 8
   %frombool.i = zext i1 %tobool396 to i8
   store i8 %frombool.i, ptr %value.addr.i, align 1
-  %269 = load i8, ptr %value.addr.i, align 1
-  %tobool.i631 = trunc i8 %269 to i1
+  %272 = load i8, ptr %value.addr.i, align 1
+  %tobool.i631 = trunc i8 %272 to i1
   br i1 %tobool.i631, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %lor.lhs.false381
-  %270 = load ptr, ptr %isolate.addr.i, align 8
-  store ptr %270, ptr %isolate.addr.i855, align 8
-  %271 = load ptr, ptr %isolate.addr.i855, align 8
-  store ptr %271, ptr %isolate.addr.i877, align 8
-  %272 = load ptr, ptr %isolate.addr.i855, align 8
-  store ptr %272, ptr %isolate.addr.i896, align 8
+  %273 = load ptr, ptr %isolate.addr.i, align 8
+  store ptr %273, ptr %isolate.addr.i855, align 8
+  %274 = load ptr, ptr %isolate.addr.i855, align 8
+  store ptr %274, ptr %isolate.addr.i877, align 8
+  %275 = load ptr, ptr %isolate.addr.i855, align 8
+  store ptr %275, ptr %isolate.addr.i896, align 8
   store i32 7, ptr %index.addr.i897, align 4
-  %273 = load ptr, ptr %isolate.addr.i896, align 8
-  %274 = ptrtoint ptr %273 to i64
-  %add.i899 = add i64 %274, 576
-  %275 = load i32, ptr %index.addr.i897, align 4
-  %mul.i900 = mul nsw i32 %275, 8
+  %276 = load ptr, ptr %isolate.addr.i896, align 8
+  %277 = ptrtoint ptr %276 to i64
+  %add.i899 = add i64 %277, 576
+  %278 = load i32, ptr %index.addr.i897, align 4
+  %mul.i900 = mul nsw i32 %278, 8
   %conv.i901 = sext i32 %mul.i900 to i64
   %add1.i902 = add i64 %add.i899, %conv.i901
   store i64 %add1.i902, ptr %addr.i898, align 8
-  %276 = load i64, ptr %addr.i898, align 8
-  %277 = inttoptr i64 %276 to ptr
-  store ptr %277, ptr %slot.i856, align 8
-  %278 = load ptr, ptr %slot.i856, align 8
-  store ptr %278, ptr %slot.addr.i935, align 8
-  %279 = load ptr, ptr %slot.addr.i935, align 8
-  store ptr %279, ptr %slot.addr.i951, align 8
-  %280 = load ptr, ptr %slot.addr.i951, align 8
+  %279 = load i64, ptr %addr.i898, align 8
+  %280 = inttoptr i64 %279 to ptr
+  store ptr %280, ptr %slot.i856, align 8
+  %281 = load ptr, ptr %slot.i856, align 8
+  store ptr %281, ptr %slot.addr.i935, align 8
+  %282 = load ptr, ptr %slot.addr.i935, align 8
+  store ptr %282, ptr %slot.addr.i951, align 8
+  %283 = load ptr, ptr %slot.addr.i951, align 8
   store ptr %retval.i950, ptr %this.addr.i983, align 8
-  store ptr %280, ptr %location.addr.i984, align 8
+  store ptr %283, ptr %location.addr.i984, align 8
   %this1.i985 = load ptr, ptr %this.addr.i983, align 8
-  %281 = load ptr, ptr %location.addr.i984, align 8
+  %284 = load ptr, ptr %location.addr.i984, align 8
   store ptr %this1.i985, ptr %this.addr.i998, align 8
-  store ptr %281, ptr %location.addr.i999, align 8
+  store ptr %284, ptr %location.addr.i999, align 8
   %this1.i1000 = load ptr, ptr %this.addr.i998, align 8
-  %282 = load ptr, ptr %location.addr.i999, align 8
-  store ptr %282, ptr %this1.i1000, align 8
-  %283 = load ptr, ptr %retval.i950, align 8
-  store ptr %283, ptr %ref.tmp.i936, align 8
+  %285 = load ptr, ptr %location.addr.i999, align 8
+  store ptr %285, ptr %this1.i1000, align 8
+  %286 = load ptr, ptr %retval.i950, align 8
+  store ptr %286, ptr %ref.tmp.i936, align 8
   store ptr %retval.i934, ptr %this.addr.i963, align 8
   store ptr %ref.tmp.i936, ptr %other.addr.i964, align 8
   %this1.i965 = load ptr, ptr %this.addr.i963, align 8
-  %284 = load ptr, ptr %other.addr.i964, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i965, ptr align 8 %284, i64 8, i1 false)
-  %285 = load ptr, ptr %retval.i934, align 8
-  store ptr %285, ptr %retval.i854, align 8
-  %286 = load ptr, ptr %retval.i854, align 8
-  store ptr %286, ptr %retval.i, align 8
+  %287 = load ptr, ptr %other.addr.i964, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i965, ptr align 8 %287, i64 8, i1 false)
+  %288 = load ptr, ptr %retval.i934, align 8
+  store ptr %288, ptr %retval.i854, align 8
+  %289 = load ptr, ptr %retval.i854, align 8
+  store ptr %289, ptr %retval.i, align 8
   br label %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit
 
 cond.false.i:                                     ; preds = %lor.lhs.false381
-  %287 = load ptr, ptr %isolate.addr.i, align 8
-  store ptr %287, ptr %isolate.addr.i870, align 8
-  %288 = load ptr, ptr %isolate.addr.i870, align 8
-  store ptr %288, ptr %isolate.addr.i874, align 8
-  %289 = load ptr, ptr %isolate.addr.i870, align 8
-  store ptr %289, ptr %isolate.addr.i881, align 8
+  %290 = load ptr, ptr %isolate.addr.i, align 8
+  store ptr %290, ptr %isolate.addr.i870, align 8
+  %291 = load ptr, ptr %isolate.addr.i870, align 8
+  store ptr %291, ptr %isolate.addr.i874, align 8
+  %292 = load ptr, ptr %isolate.addr.i870, align 8
+  store ptr %292, ptr %isolate.addr.i881, align 8
   store i32 8, ptr %index.addr.i, align 4
-  %290 = load ptr, ptr %isolate.addr.i881, align 8
-  %291 = ptrtoint ptr %290 to i64
-  %add.i = add i64 %291, 576
-  %292 = load i32, ptr %index.addr.i, align 4
-  %mul.i = mul nsw i32 %292, 8
+  %293 = load ptr, ptr %isolate.addr.i881, align 8
+  %294 = ptrtoint ptr %293 to i64
+  %add.i = add i64 %294, 576
+  %295 = load i32, ptr %index.addr.i, align 4
+  %mul.i = mul nsw i32 %295, 8
   %conv.i = sext i32 %mul.i to i64
   %add1.i = add i64 %add.i, %conv.i
   store i64 %add1.i, ptr %addr.i, align 8
-  %293 = load i64, ptr %addr.i, align 8
-  %294 = inttoptr i64 %293 to ptr
-  store ptr %294, ptr %slot.i871, align 8
-  %295 = load ptr, ptr %slot.i871, align 8
-  store ptr %295, ptr %slot.addr.i, align 8
-  %296 = load ptr, ptr %slot.addr.i, align 8
-  store ptr %296, ptr %slot.addr.i957, align 8
-  %297 = load ptr, ptr %slot.addr.i957, align 8
+  %296 = load i64, ptr %addr.i, align 8
+  %297 = inttoptr i64 %296 to ptr
+  store ptr %297, ptr %slot.i871, align 8
+  %298 = load ptr, ptr %slot.i871, align 8
+  store ptr %298, ptr %slot.addr.i, align 8
+  %299 = load ptr, ptr %slot.addr.i, align 8
+  store ptr %299, ptr %slot.addr.i957, align 8
+  %300 = load ptr, ptr %slot.addr.i957, align 8
   store ptr %retval.i956, ptr %this.addr.i975, align 8
-  store ptr %297, ptr %location.addr.i, align 8
+  store ptr %300, ptr %location.addr.i, align 8
   %this1.i976 = load ptr, ptr %this.addr.i975, align 8
-  %298 = load ptr, ptr %location.addr.i, align 8
+  %301 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i976, ptr %this.addr.i1007, align 8
-  store ptr %298, ptr %location.addr.i1008, align 8
+  store ptr %301, ptr %location.addr.i1008, align 8
   %this1.i1009 = load ptr, ptr %this.addr.i1007, align 8
-  %299 = load ptr, ptr %location.addr.i1008, align 8
-  store ptr %299, ptr %this1.i1009, align 8
-  %300 = load ptr, ptr %retval.i956, align 8
-  store ptr %300, ptr %ref.tmp.i, align 8
+  %302 = load ptr, ptr %location.addr.i1008, align 8
+  store ptr %302, ptr %this1.i1009, align 8
+  %303 = load ptr, ptr %retval.i956, align 8
+  store ptr %303, ptr %ref.tmp.i, align 8
   store ptr %retval.i924, ptr %this.addr.i972, align 8
   store ptr %ref.tmp.i, ptr %other.addr.i973, align 8
   %this1.i974 = load ptr, ptr %this.addr.i972, align 8
-  %301 = load ptr, ptr %other.addr.i973, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i974, ptr align 8 %301, i64 8, i1 false)
-  %302 = load ptr, ptr %retval.i924, align 8
-  store ptr %302, ptr %retval.i869, align 8
-  %303 = load ptr, ptr %retval.i869, align 8
-  store ptr %303, ptr %retval.i, align 8
+  %304 = load ptr, ptr %other.addr.i973, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i974, ptr align 8 %304, i64 8, i1 false)
+  %305 = load ptr, ptr %retval.i924, align 8
+  store ptr %305, ptr %retval.i869, align 8
+  %306 = load ptr, ptr %retval.i869, align 8
+  store ptr %306, ptr %retval.i, align 8
   br label %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit
 
 _ZN2v87Boolean3NewEPNS_7IsolateEb.exit:           ; preds = %cond.false.i, %cond.true.i
-  %304 = load ptr, ptr %retval.i, align 8
+  %307 = load ptr, ptr %retval.i, align 8
   %coerce.dive398 = getelementptr inbounds %"class.v8::Local.457", ptr %agg.tmp395, i32 0, i32 0
   %coerce.dive399 = getelementptr inbounds %"class.v8::LocalBase.458", ptr %coerce.dive398, i32 0, i32 0
   %coerce.dive400 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive399, i32 0, i32 0
-  store ptr %304, ptr %coerce.dive400, align 8
+  store ptr %307, ptr %coerce.dive400, align 8
   %coerce.dive401 = getelementptr inbounds %"class.v8::Local.457", ptr %agg.tmp395, i32 0, i32 0
   %coerce.dive402 = getelementptr inbounds %"class.v8::LocalBase.458", ptr %coerce.dive401, i32 0, i32 0
   %coerce.dive403 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive402, i32 0, i32 0
-  %305 = load ptr, ptr %coerce.dive403, align 8
-  store ptr %305, ptr %that.i659, align 8
+  %308 = load ptr, ptr %coerce.dive403, align 8
+  store ptr %308, ptr %that.i659, align 8
   store ptr %agg.tmp394, ptr %this.addr.i660, align 8
   %this3.i661 = load ptr, ptr %this.addr.i660, align 8
   store ptr %this3.i661, ptr %this.addr.i1172, align 8
   store ptr %that.i659, ptr %other.addr.i1173, align 8
   %this1.i1174 = load ptr, ptr %this.addr.i1172, align 8
-  %306 = load ptr, ptr %other.addr.i1173, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1174, ptr align 8 %306, i64 8, i1 false)
+  %309 = load ptr, ptr %other.addr.i1173, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1174, ptr align 8 %309, i64 8, i1 false)
   %coerce.dive404 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp384, i32 0, i32 0
   %coerce.dive405 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive404, i32 0, i32 0
   %coerce.dive406 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive405, i32 0, i32 0
-  %307 = load ptr, ptr %coerce.dive406, align 8
+  %310 = load ptr, ptr %coerce.dive406, align 8
   %coerce.dive407 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp385, i32 0, i32 0
   %coerce.dive408 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive407, i32 0, i32 0
   %coerce.dive409 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive408, i32 0, i32 0
-  %308 = load ptr, ptr %coerce.dive409, align 8
+  %311 = load ptr, ptr %coerce.dive409, align 8
   %coerce.dive410 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp394, i32 0, i32 0
   %coerce.dive411 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive410, i32 0, i32 0
   %coerce.dive412 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive411, i32 0, i32 0
-  %309 = load ptr, ptr %coerce.dive412, align 8
-  %call413 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %262, ptr %307, ptr %308, ptr %309)
+  %312 = load ptr, ptr %coerce.dive412, align 8
+  %call413 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %265, ptr %310, ptr %311, ptr %312)
   store i16 %call413, ptr %ref.tmp382, align 1
   store i8 0, ptr %ref.tmp414, align 1
   store ptr %ref.tmp382, ptr %this.addr.i771, align 8
   store ptr %ref.tmp414, ptr %default_value.addr.i, align 8
   %this1.i772 = load ptr, ptr %this.addr.i771, align 8
-  %310 = load i8, ptr %this1.i772, align 1
-  %tobool.i773 = trunc i8 %310 to i1
+  %313 = load i8, ptr %this1.i772, align 1
+  %tobool.i773 = trunc i8 %313 to i1
   br i1 %tobool.i773, label %cond.true.i775, label %cond.false.i774
 
 cond.true.i775:                                   ; preds = %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit
   %value_.i = getelementptr inbounds %"class.v8::Maybe", ptr %this1.i772, i32 0, i32 1
-  %311 = load i8, ptr %value_.i, align 1
-  %tobool2.i = trunc i8 %311 to i1
+  %314 = load i8, ptr %value_.i, align 1
+  %tobool2.i = trunc i8 %314 to i1
   br label %_ZNK2v85MaybeIbE9FromMaybeERKb.exit
 
 cond.false.i774:                                  ; preds = %_ZN2v87Boolean3NewEPNS_7IsolateEb.exit
-  %312 = load ptr, ptr %default_value.addr.i, align 8
-  %313 = load i8, ptr %312, align 1
-  %tobool3.i = trunc i8 %313 to i1
+  %315 = load ptr, ptr %default_value.addr.i, align 8
+  %316 = load i8, ptr %315, align 1
+  %tobool3.i = trunc i8 %316 to i1
   br label %_ZNK2v85MaybeIbE9FromMaybeERKb.exit
 
 _ZNK2v85MaybeIbE9FromMaybeERKb.exit:              ; preds = %cond.false.i774, %cond.true.i775
@@ -15203,12 +15222,12 @@ lor.lhs.false416:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %this1.i1085 = load ptr, ptr %this.addr.i1084, align 8
   store ptr %this1.i1085, ptr %this.addr.i.i1083, align 8
   %this1.i.i1086 = load ptr, ptr %this.addr.i.i1083, align 8
-  %314 = load ptr, ptr %this1.i.i1086, align 8
-  store ptr %314, ptr %slot.addr.i1106, align 8
-  %315 = load ptr, ptr %slot.addr.i1106, align 8
+  %317 = load ptr, ptr %this1.i.i1086, align 8
+  store ptr %317, ptr %slot.addr.i1106, align 8
+  %318 = load ptr, ptr %slot.addr.i1106, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp419, ptr align 8 %context, i64 8, i1 false)
-  %316 = load ptr, ptr %env, align 8
-  %call422 = call ptr @_ZNK4node11Environment12value_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %316)
+  %319 = load ptr, ptr %env, align 8
+  %call422 = call ptr @_ZNK4node11Environment12value_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %319)
   %coerce.dive423 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp421, i32 0, i32 0
   %coerce.dive424 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive423, i32 0, i32 0
   %coerce.dive425 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive424, i32 0, i32 0
@@ -15216,34 +15235,34 @@ lor.lhs.false416:                                 ; preds = %_ZNK2v85MaybeIbE9Fr
   %coerce.dive426 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp421, i32 0, i32 0
   %coerce.dive427 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive426, i32 0, i32 0
   %coerce.dive428 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive427, i32 0, i32 0
-  %317 = load ptr, ptr %coerce.dive428, align 8
-  store ptr %317, ptr %that.i746, align 8
+  %320 = load ptr, ptr %coerce.dive428, align 8
+  store ptr %320, ptr %that.i746, align 8
   store ptr %agg.tmp420, ptr %this.addr.i747, align 8
   %this3.i748 = load ptr, ptr %this.addr.i747, align 8
   store ptr %this3.i748, ptr %this.addr.i1119, align 8
   store ptr %that.i746, ptr %other.addr.i1120, align 8
   %this1.i1121 = load ptr, ptr %this.addr.i1119, align 8
-  %318 = load ptr, ptr %other.addr.i1120, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1121, ptr align 8 %318, i64 8, i1 false)
+  %321 = load ptr, ptr %other.addr.i1120, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1121, ptr align 8 %321, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp429, ptr align 8 %value, i64 8, i1 false)
   %coerce.dive430 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp419, i32 0, i32 0
   %coerce.dive431 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive430, i32 0, i32 0
   %coerce.dive432 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive431, i32 0, i32 0
-  %319 = load ptr, ptr %coerce.dive432, align 8
+  %322 = load ptr, ptr %coerce.dive432, align 8
   %coerce.dive433 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp420, i32 0, i32 0
   %coerce.dive434 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive433, i32 0, i32 0
   %coerce.dive435 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive434, i32 0, i32 0
-  %320 = load ptr, ptr %coerce.dive435, align 8
+  %323 = load ptr, ptr %coerce.dive435, align 8
   %coerce.dive436 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp429, i32 0, i32 0
   %coerce.dive437 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive436, i32 0, i32 0
   %coerce.dive438 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive437, i32 0, i32 0
-  %321 = load ptr, ptr %coerce.dive438, align 8
-  %call439 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %315, ptr %319, ptr %320, ptr %321)
+  %324 = load ptr, ptr %coerce.dive438, align 8
+  %call439 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %318, ptr %322, ptr %323, ptr %324)
   store i16 %call439, ptr %ref.tmp417, align 1
   store ptr %ref.tmp417, ptr %this.addr.i607, align 8
   %this1.i608 = load ptr, ptr %this.addr.i607, align 8
-  %322 = load i8, ptr %this1.i608, align 1
-  %tobool.i609 = trunc i8 %322 to i1
+  %325 = load i8, ptr %this1.i608, align 1
+  %tobool.i609 = trunc i8 %325 to i1
   %lnot.i610 = xor i1 %tobool.i609, true
   br i1 %lnot.i610, label %lor.end466, label %lor.rhs441
 
@@ -15254,37 +15273,37 @@ lor.rhs441:                                       ; preds = %lor.lhs.false416
   %this1.i1167 = load ptr, ptr %this.addr.i1166, align 8
   store ptr %this1.i1167, ptr %this.addr.i.i1165, align 8
   %this1.i.i1168 = load ptr, ptr %this.addr.i.i1165, align 8
-  %323 = load ptr, ptr %this1.i.i1168, align 8
-  store ptr %323, ptr %slot.addr.i1170, align 8
-  %324 = load ptr, ptr %slot.addr.i1170, align 8
+  %326 = load ptr, ptr %this1.i.i1168, align 8
+  store ptr %326, ptr %slot.addr.i1170, align 8
+  %327 = load ptr, ptr %slot.addr.i1170, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp444, ptr align 8 %context, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp445, ptr align 8 %name, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp447, ptr align 8 %info, i64 8, i1 false)
   %coerce.dive448 = getelementptr inbounds %"class.v8::Local.455", ptr %agg.tmp447, i32 0, i32 0
   %coerce.dive449 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive448, i32 0, i32 0
   %coerce.dive450 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive449, i32 0, i32 0
-  %325 = load ptr, ptr %coerce.dive450, align 8
-  store ptr %325, ptr %that.i591, align 8
+  %328 = load ptr, ptr %coerce.dive450, align 8
+  store ptr %328, ptr %that.i591, align 8
   store ptr %agg.tmp446, ptr %this.addr.i592, align 8
   %this3.i593 = load ptr, ptr %this.addr.i592, align 8
   store ptr %this3.i593, ptr %this.addr.i1143, align 8
   store ptr %that.i591, ptr %other.addr.i1144, align 8
   %this1.i1145 = load ptr, ptr %this.addr.i1143, align 8
-  %326 = load ptr, ptr %other.addr.i1144, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1145, ptr align 8 %326, i64 8, i1 false)
+  %329 = load ptr, ptr %other.addr.i1144, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1145, ptr align 8 %329, i64 8, i1 false)
   %coerce.dive451 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp444, i32 0, i32 0
   %coerce.dive452 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive451, i32 0, i32 0
   %coerce.dive453 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive452, i32 0, i32 0
-  %327 = load ptr, ptr %coerce.dive453, align 8
+  %330 = load ptr, ptr %coerce.dive453, align 8
   %coerce.dive454 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp445, i32 0, i32 0
   %coerce.dive455 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive454, i32 0, i32 0
   %coerce.dive456 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive455, i32 0, i32 0
-  %328 = load ptr, ptr %coerce.dive456, align 8
+  %331 = load ptr, ptr %coerce.dive456, align 8
   %coerce.dive457 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp446, i32 0, i32 0
   %coerce.dive458 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive457, i32 0, i32 0
   %coerce.dive459 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive458, i32 0, i32 0
-  %329 = load ptr, ptr %coerce.dive459, align 8
-  %call460 = call ptr @_ZN2v83Map3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %324, ptr %327, ptr %328, ptr %329)
+  %332 = load ptr, ptr %coerce.dive459, align 8
+  %call460 = call ptr @_ZN2v83Map3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %327, ptr %330, ptr %331, ptr %332)
   %coerce.dive461 = getelementptr inbounds %"class.v8::MaybeLocal.467", ptr %ref.tmp442, i32 0, i32 0
   %coerce.dive462 = getelementptr inbounds %"class.v8::Local.451", ptr %coerce.dive461, i32 0, i32 0
   %coerce.dive463 = getelementptr inbounds %"class.v8::LocalBase.452", ptr %coerce.dive462, i32 0, i32 0
@@ -15294,13 +15313,13 @@ lor.rhs441:                                       ; preds = %lor.lhs.false416
   %this1.i810 = load ptr, ptr %this.addr.i809, align 8
   store ptr %this1.i810, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %330 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %330, null
+  %333 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %333, null
   br label %lor.end466
 
 lor.end466:                                       ; preds = %lor.rhs441, %lor.lhs.false416, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit786, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit797, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit808, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %331 = phi i1 [ true, %lor.lhs.false416 ], [ true, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit ], [ true, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit786 ], [ true, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit797 ], [ true, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit808 ], [ true, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %cmp.i.i, %lor.rhs441 ]
-  br i1 %331, label %if.then467, label %if.end468
+  %334 = phi i1 [ true, %lor.lhs.false416 ], [ true, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit ], [ true, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit786 ], [ true, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit797 ], [ true, %_ZNK2v85MaybeIbE9FromMaybeERKb.exit808 ], [ true, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %cmp.i.i, %lor.rhs441 ]
+  br i1 %334, label %if.then467, label %if.end468
 
 if.then467:                                       ; preds = %lor.end466
   store i32 1, ptr %cleanup.dest.slot, align 4
@@ -15336,8 +15355,9 @@ for.end:                                          ; preds = %for.cond
   %coerce.dive472 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp471, i32 0, i32 0
   %coerce.dive473 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive472, i32 0, i32 0
   %coerce.dive474 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive473, i32 0, i32 0
-  %332 = load ptr, ptr %coerce.dive474, align 8
-  %call475 = call ptr @_ZN4node9ToV8ValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEN2v810MaybeLocalINSA_5ValueEEENSA_5LocalINSA_7ContextEEERKSt13unordered_mapIT_T0_St4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEEPNSA_7IsolateE(ptr %332, ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%"class.node::options_parser::OptionsParser.104", ptr @_ZN4node14options_parserL14_ppop_instanceE, i32 0, i32 2), ptr noundef null)
+  %335 = load ptr, ptr %coerce.dive474, align 8
+  %336 = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr @_ZN4node14options_parserL14_ppop_instanceE, i32 0, i32 2
+  %call475 = call ptr @_ZN4node9ToV8ValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEN2v810MaybeLocalINSA_5ValueEEENSA_5LocalINSA_7ContextEEERKSt13unordered_mapIT_T0_St4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_SJ_EEEPNSA_7IsolateE(ptr %335, ptr noundef nonnull align 8 dereferenceable(56) %336, ptr noundef null)
   %coerce.dive476 = getelementptr inbounds %"class.v8::MaybeLocal", ptr %ref.tmp470, i32 0, i32 0
   %coerce.dive477 = getelementptr inbounds %"class.v8::Local.453", ptr %coerce.dive476, i32 0, i32 0
   %coerce.dive478 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive477, i32 0, i32 0
@@ -15346,14 +15366,14 @@ for.end:                                          ; preds = %for.cond
   store ptr %ref.tmp470, ptr %this.addr.i674, align 8
   store ptr %aliases, ptr %out.addr.i, align 8
   %this1.i675 = load ptr, ptr %this.addr.i674, align 8
-  %333 = load ptr, ptr %out.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %333, ptr align 8 %this1.i675, i64 8, i1 false)
+  %337 = load ptr, ptr %out.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %337, ptr align 8 %this1.i675, i64 8, i1 false)
   store ptr %this1.i675, ptr %this.addr.i1050, align 8
   %this1.i1051 = load ptr, ptr %this.addr.i1050, align 8
   store ptr %this1.i1051, ptr %this.addr.i.i1049, align 8
   %this1.i.i1052 = load ptr, ptr %this.addr.i.i1049, align 8
-  %334 = load ptr, ptr %this1.i.i1052, align 8
-  %cmp.i.i1053 = icmp eq ptr %334, null
+  %338 = load ptr, ptr %this1.i.i1052, align 8
+  %cmp.i.i1053 = icmp eq ptr %338, null
   %lnot.i677 = xor i1 %cmp.i.i1053, true
   %lnot481 = xor i1 %lnot.i677, true
   br i1 %lnot481, label %if.then482, label %if.end483
@@ -15366,37 +15386,37 @@ if.end483:                                        ; preds = %for.end
   store ptr %aliases, ptr %this.addr.i812, align 8
   %this1.i813 = load ptr, ptr %this.addr.i812, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %this1.i813, i64 8, i1 false)
-  %335 = load ptr, ptr %agg.tmp.i, align 8
-  store ptr %335, ptr %that.i1153, align 8
+  %339 = load ptr, ptr %agg.tmp.i, align 8
+  store ptr %339, ptr %that.i1153, align 8
   store ptr %ref.tmp.i1154, ptr %this.addr.i1155, align 8
   store ptr %that.i1153, ptr %other.addr.i1156, align 8
   %this1.i1157 = load ptr, ptr %this.addr.i1155, align 8
-  %336 = load ptr, ptr %other.addr.i1156, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1157, ptr align 8 %336, i64 8, i1 false)
+  %340 = load ptr, ptr %other.addr.i1156, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1157, ptr align 8 %340, i64 8, i1 false)
   store ptr %retval.i1152, ptr %this.addr.i1158, align 8
   store ptr %ref.tmp.i1154, ptr %other.addr.i1159, align 8
   %this1.i1160 = load ptr, ptr %this.addr.i1158, align 8
-  %337 = load ptr, ptr %other.addr.i1159, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1160, ptr align 8 %337, i64 8, i1 false)
-  %338 = load ptr, ptr %retval.i1152, align 8
-  store ptr %338, ptr %retval.i811, align 8
-  %339 = load ptr, ptr %retval.i811, align 8
+  %341 = load ptr, ptr %other.addr.i1159, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1160, ptr align 8 %341, i64 8, i1 false)
+  %342 = load ptr, ptr %retval.i1152, align 8
+  store ptr %342, ptr %retval.i811, align 8
+  %343 = load ptr, ptr %retval.i811, align 8
   %coerce.dive487 = getelementptr inbounds %"class.v8::Local.455", ptr %ref.tmp485, i32 0, i32 0
   %coerce.dive488 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive487, i32 0, i32 0
   %coerce.dive489 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive488, i32 0, i32 0
-  store ptr %339, ptr %coerce.dive489, align 8
+  store ptr %343, ptr %coerce.dive489, align 8
   store ptr %ref.tmp485, ptr %this.addr.i704, align 8
   %this1.i705 = load ptr, ptr %this.addr.i704, align 8
   store ptr %this1.i705, ptr %this.addr.i1089, align 8
   %this1.i1090 = load ptr, ptr %this.addr.i1089, align 8
   store ptr %this1.i1090, ptr %this.addr.i.i1088, align 8
   %this1.i.i1091 = load ptr, ptr %this.addr.i.i1088, align 8
-  %340 = load ptr, ptr %this1.i.i1091, align 8
-  store ptr %340, ptr %slot.addr.i1105, align 8
-  %341 = load ptr, ptr %slot.addr.i1105, align 8
+  %344 = load ptr, ptr %this1.i.i1091, align 8
+  store ptr %344, ptr %slot.addr.i1105, align 8
+  %345 = load ptr, ptr %slot.addr.i1105, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp491, ptr align 8 %context, i64 8, i1 false)
-  %342 = load ptr, ptr %env, align 8
-  %call494 = call ptr @_ZNK4node11Environment37primordials_safe_map_prototype_objectEv(ptr noundef nonnull align 8 dereferenceable(2872) %342)
+  %346 = load ptr, ptr %env, align 8
+  %call494 = call ptr @_ZNK4node11Environment37primordials_safe_map_prototype_objectEv(ptr noundef nonnull align 8 dereferenceable(2872) %346)
   %coerce.dive495 = getelementptr inbounds %"class.v8::Local.455", ptr %agg.tmp493, i32 0, i32 0
   %coerce.dive496 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive495, i32 0, i32 0
   %coerce.dive497 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive496, i32 0, i32 0
@@ -15404,29 +15424,29 @@ if.end483:                                        ; preds = %for.end
   %coerce.dive498 = getelementptr inbounds %"class.v8::Local.455", ptr %agg.tmp493, i32 0, i32 0
   %coerce.dive499 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive498, i32 0, i32 0
   %coerce.dive500 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive499, i32 0, i32 0
-  %343 = load ptr, ptr %coerce.dive500, align 8
-  store ptr %343, ptr %that.i594, align 8
+  %347 = load ptr, ptr %coerce.dive500, align 8
+  store ptr %347, ptr %that.i594, align 8
   store ptr %agg.tmp492, ptr %this.addr.i595, align 8
   %this3.i596 = load ptr, ptr %this.addr.i595, align 8
   store ptr %this3.i596, ptr %this.addr.i1140, align 8
   store ptr %that.i594, ptr %other.addr.i1141, align 8
   %this1.i1142 = load ptr, ptr %this.addr.i1140, align 8
-  %344 = load ptr, ptr %other.addr.i1141, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1142, ptr align 8 %344, i64 8, i1 false)
+  %348 = load ptr, ptr %other.addr.i1141, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1142, ptr align 8 %348, i64 8, i1 false)
   %coerce.dive501 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp491, i32 0, i32 0
   %coerce.dive502 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive501, i32 0, i32 0
   %coerce.dive503 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive502, i32 0, i32 0
-  %345 = load ptr, ptr %coerce.dive503, align 8
+  %349 = load ptr, ptr %coerce.dive503, align 8
   %coerce.dive504 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp492, i32 0, i32 0
   %coerce.dive505 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive504, i32 0, i32 0
   %coerce.dive506 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive505, i32 0, i32 0
-  %346 = load ptr, ptr %coerce.dive506, align 8
-  %call507 = call i16 @_ZN2v86Object12SetPrototypeENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %341, ptr %345, ptr %346)
+  %350 = load ptr, ptr %coerce.dive506, align 8
+  %call507 = call i16 @_ZN2v86Object12SetPrototypeENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %345, ptr %349, ptr %350)
   store i16 %call507, ptr %ref.tmp484, align 1
   store ptr %ref.tmp484, ptr %this.addr.i603, align 8
   %this1.i604 = load ptr, ptr %this.addr.i603, align 8
-  %347 = load i8, ptr %this1.i604, align 1
-  %tobool.i605 = trunc i8 %347 to i1
+  %351 = load i8, ptr %this1.i604, align 1
+  %tobool.i605 = trunc i8 %351 to i1
   %lnot.i606 = xor i1 %tobool.i605, true
   br i1 %lnot.i606, label %if.then509, label %if.end510
 
@@ -15435,8 +15455,8 @@ if.then509:                                       ; preds = %if.end483
   br label %cleanup578
 
 if.end510:                                        ; preds = %if.end483
-  %348 = load ptr, ptr %isolate, align 8
-  %call511 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %348)
+  %352 = load ptr, ptr %isolate, align 8
+  %call511 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %352)
   %coerce.dive512 = getelementptr inbounds %"class.v8::Local.455", ptr %ret, i32 0, i32 0
   %coerce.dive513 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive512, i32 0, i32 0
   %coerce.dive514 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive513, i32 0, i32 0
@@ -15447,12 +15467,12 @@ if.end510:                                        ; preds = %if.end483
   %this1.i1095 = load ptr, ptr %this.addr.i1094, align 8
   store ptr %this1.i1095, ptr %this.addr.i.i1093, align 8
   %this1.i.i1096 = load ptr, ptr %this.addr.i.i1093, align 8
-  %349 = load ptr, ptr %this1.i.i1096, align 8
-  store ptr %349, ptr %slot.addr.i1104, align 8
-  %350 = load ptr, ptr %slot.addr.i1104, align 8
+  %353 = load ptr, ptr %this1.i.i1096, align 8
+  store ptr %353, ptr %slot.addr.i1104, align 8
+  %354 = load ptr, ptr %slot.addr.i1104, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp517, ptr align 8 %context, i64 8, i1 false)
-  %351 = load ptr, ptr %env, align 8
-  %call520 = call ptr @_ZNK4node11Environment14options_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %351)
+  %355 = load ptr, ptr %env, align 8
+  %call520 = call ptr @_ZNK4node11Environment14options_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %355)
   %coerce.dive521 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp519, i32 0, i32 0
   %coerce.dive522 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive521, i32 0, i32 0
   %coerce.dive523 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive522, i32 0, i32 0
@@ -15460,46 +15480,46 @@ if.end510:                                        ; preds = %if.end483
   %coerce.dive524 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp519, i32 0, i32 0
   %coerce.dive525 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive524, i32 0, i32 0
   %coerce.dive526 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive525, i32 0, i32 0
-  %352 = load ptr, ptr %coerce.dive526, align 8
-  store ptr %352, ptr %that.i749, align 8
+  %356 = load ptr, ptr %coerce.dive526, align 8
+  store ptr %356, ptr %that.i749, align 8
   store ptr %agg.tmp518, ptr %this.addr.i750, align 8
   %this3.i751 = load ptr, ptr %this.addr.i750, align 8
   store ptr %this3.i751, ptr %this.addr.i1116, align 8
   store ptr %that.i749, ptr %other.addr.i1117, align 8
   %this1.i1118 = load ptr, ptr %this.addr.i1116, align 8
-  %353 = load ptr, ptr %other.addr.i1117, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1118, ptr align 8 %353, i64 8, i1 false)
+  %357 = load ptr, ptr %other.addr.i1117, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1118, ptr align 8 %357, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp528, ptr align 8 %options, i64 8, i1 false)
   %coerce.dive529 = getelementptr inbounds %"class.v8::Local.451", ptr %agg.tmp528, i32 0, i32 0
   %coerce.dive530 = getelementptr inbounds %"class.v8::LocalBase.452", ptr %coerce.dive529, i32 0, i32 0
   %coerce.dive531 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive530, i32 0, i32 0
-  %354 = load ptr, ptr %coerce.dive531, align 8
-  store ptr %354, ptr %that.i815, align 8
+  %358 = load ptr, ptr %coerce.dive531, align 8
+  store ptr %358, ptr %that.i815, align 8
   store ptr %agg.tmp527, ptr %this.addr.i816, align 8
   %this3.i817 = load ptr, ptr %this.addr.i816, align 8
   store ptr %this3.i817, ptr %this.addr.i1199, align 8
   store ptr %that.i815, ptr %other.addr.i1200, align 8
   %this1.i1201 = load ptr, ptr %this.addr.i1199, align 8
-  %355 = load ptr, ptr %other.addr.i1200, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1201, ptr align 8 %355, i64 8, i1 false)
+  %359 = load ptr, ptr %other.addr.i1200, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1201, ptr align 8 %359, i64 8, i1 false)
   %coerce.dive532 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp517, i32 0, i32 0
   %coerce.dive533 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive532, i32 0, i32 0
   %coerce.dive534 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive533, i32 0, i32 0
-  %356 = load ptr, ptr %coerce.dive534, align 8
+  %360 = load ptr, ptr %coerce.dive534, align 8
   %coerce.dive535 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp518, i32 0, i32 0
   %coerce.dive536 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive535, i32 0, i32 0
   %coerce.dive537 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive536, i32 0, i32 0
-  %357 = load ptr, ptr %coerce.dive537, align 8
+  %361 = load ptr, ptr %coerce.dive537, align 8
   %coerce.dive538 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp527, i32 0, i32 0
   %coerce.dive539 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive538, i32 0, i32 0
   %coerce.dive540 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive539, i32 0, i32 0
-  %358 = load ptr, ptr %coerce.dive540, align 8
-  %call541 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %350, ptr %356, ptr %357, ptr %358)
+  %362 = load ptr, ptr %coerce.dive540, align 8
+  %call541 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %354, ptr %360, ptr %361, ptr %362)
   store i16 %call541, ptr %ref.tmp515, align 1
   store ptr %ref.tmp515, ptr %this.addr.i599, align 8
   %this1.i600 = load ptr, ptr %this.addr.i599, align 8
-  %359 = load i8, ptr %this1.i600, align 1
-  %tobool.i601 = trunc i8 %359 to i1
+  %363 = load i8, ptr %this1.i600, align 1
+  %tobool.i601 = trunc i8 %363 to i1
   %lnot.i602 = xor i1 %tobool.i601, true
   br i1 %lnot.i602, label %lor.end568, label %lor.rhs543
 
@@ -15510,12 +15530,12 @@ lor.rhs543:                                       ; preds = %if.end510
   %this1.i1100 = load ptr, ptr %this.addr.i1099, align 8
   store ptr %this1.i1100, ptr %this.addr.i.i1098, align 8
   %this1.i.i1101 = load ptr, ptr %this.addr.i.i1098, align 8
-  %360 = load ptr, ptr %this1.i.i1101, align 8
-  store ptr %360, ptr %slot.addr.i1103, align 8
-  %361 = load ptr, ptr %slot.addr.i1103, align 8
+  %364 = load ptr, ptr %this1.i.i1101, align 8
+  store ptr %364, ptr %slot.addr.i1103, align 8
+  %365 = load ptr, ptr %slot.addr.i1103, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp546, ptr align 8 %context, i64 8, i1 false)
-  %362 = load ptr, ptr %env, align 8
-  %call549 = call ptr @_ZNK4node11Environment14aliases_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %362)
+  %366 = load ptr, ptr %env, align 8
+  %call549 = call ptr @_ZNK4node11Environment14aliases_stringEv(ptr noundef nonnull align 8 dereferenceable(2872) %366)
   %coerce.dive550 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp548, i32 0, i32 0
   %coerce.dive551 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive550, i32 0, i32 0
   %coerce.dive552 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive551, i32 0, i32 0
@@ -15523,71 +15543,71 @@ lor.rhs543:                                       ; preds = %if.end510
   %coerce.dive553 = getelementptr inbounds %"class.v8::Local.463", ptr %agg.tmp548, i32 0, i32 0
   %coerce.dive554 = getelementptr inbounds %"class.v8::LocalBase.464", ptr %coerce.dive553, i32 0, i32 0
   %coerce.dive555 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive554, i32 0, i32 0
-  %363 = load ptr, ptr %coerce.dive555, align 8
-  store ptr %363, ptr %that.i752, align 8
+  %367 = load ptr, ptr %coerce.dive555, align 8
+  store ptr %367, ptr %that.i752, align 8
   store ptr %agg.tmp547, ptr %this.addr.i753, align 8
   %this3.i754 = load ptr, ptr %this.addr.i753, align 8
   store ptr %this3.i754, ptr %this.addr.i1113, align 8
   store ptr %that.i752, ptr %other.addr.i1114, align 8
   %this1.i1115 = load ptr, ptr %this.addr.i1113, align 8
-  %364 = load ptr, ptr %other.addr.i1114, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1115, ptr align 8 %364, i64 8, i1 false)
+  %368 = load ptr, ptr %other.addr.i1114, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i1115, ptr align 8 %368, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp556, ptr align 8 %aliases, i64 8, i1 false)
   %coerce.dive557 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp546, i32 0, i32 0
   %coerce.dive558 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive557, i32 0, i32 0
   %coerce.dive559 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive558, i32 0, i32 0
-  %365 = load ptr, ptr %coerce.dive559, align 8
+  %369 = load ptr, ptr %coerce.dive559, align 8
   %coerce.dive560 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp547, i32 0, i32 0
   %coerce.dive561 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive560, i32 0, i32 0
   %coerce.dive562 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive561, i32 0, i32 0
-  %366 = load ptr, ptr %coerce.dive562, align 8
+  %370 = load ptr, ptr %coerce.dive562, align 8
   %coerce.dive563 = getelementptr inbounds %"class.v8::Local.453", ptr %agg.tmp556, i32 0, i32 0
   %coerce.dive564 = getelementptr inbounds %"class.v8::LocalBase.454", ptr %coerce.dive563, i32 0, i32 0
   %coerce.dive565 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive564, i32 0, i32 0
-  %367 = load ptr, ptr %coerce.dive565, align 8
-  %call566 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %361, ptr %365, ptr %366, ptr %367)
+  %371 = load ptr, ptr %coerce.dive565, align 8
+  %call566 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %365, ptr %369, ptr %370, ptr %371)
   store i16 %call566, ptr %ref.tmp544, align 1
   store ptr %ref.tmp544, ptr %this.addr.i597, align 8
   %this1.i598 = load ptr, ptr %this.addr.i597, align 8
-  %368 = load i8, ptr %this1.i598, align 1
-  %tobool.i = trunc i8 %368 to i1
+  %372 = load i8, ptr %this1.i598, align 1
+  %tobool.i = trunc i8 %372 to i1
   %lnot.i = xor i1 %tobool.i, true
   br label %lor.end568
 
 lor.end568:                                       ; preds = %lor.rhs543, %if.end510
-  %369 = phi i1 [ true, %if.end510 ], [ %lnot.i, %lor.rhs543 ]
-  br i1 %369, label %if.then569, label %if.end570
+  %373 = phi i1 [ true, %if.end510 ], [ %lnot.i, %lor.rhs543 ]
+  br i1 %373, label %if.then569, label %if.end570
 
 if.then569:                                       ; preds = %lor.end568
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup578
 
 if.end570:                                        ; preds = %lor.end568
-  %370 = load ptr, ptr %args.addr, align 8
-  store ptr %370, ptr %this.addr.i819, align 8
+  %374 = load ptr, ptr %args.addr, align 8
+  store ptr %374, ptr %this.addr.i819, align 8
   %this1.i820 = load ptr, ptr %this.addr.i819, align 8
-  %371 = load ptr, ptr %this1.i820, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %371, i64 3
+  %375 = load ptr, ptr %this1.i820, align 8
+  %arrayidx.i = getelementptr inbounds i64, ptr %375, i64 3
   store ptr %retval.i818, ptr %this.addr.i1202, align 8
   store ptr %arrayidx.i, ptr %slot.addr.i1203, align 8
   %this1.i1204 = load ptr, ptr %this.addr.i1202, align 8
-  %372 = load ptr, ptr %slot.addr.i1203, align 8
-  store ptr %372, ptr %this1.i1204, align 8
-  %373 = load ptr, ptr %retval.i818, align 8
+  %376 = load ptr, ptr %slot.addr.i1203, align 8
+  store ptr %376, ptr %this1.i1204, align 8
+  %377 = load ptr, ptr %retval.i818, align 8
   %coerce.dive573 = getelementptr inbounds %"class.v8::ReturnValue", ptr %ref.tmp571, i32 0, i32 0
-  store ptr %373, ptr %coerce.dive573, align 8
+  store ptr %377, ptr %coerce.dive573, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp574, ptr align 8 %ret, i64 8, i1 false)
   %coerce.dive575 = getelementptr inbounds %"class.v8::Local.455", ptr %agg.tmp574, i32 0, i32 0
   %coerce.dive576 = getelementptr inbounds %"class.v8::LocalBase.456", ptr %coerce.dive575, i32 0, i32 0
   %coerce.dive577 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive576, i32 0, i32 0
-  %374 = load ptr, ptr %coerce.dive577, align 8
-  store ptr %374, ptr %handle.i, align 8
+  %378 = load ptr, ptr %coerce.dive577, align 8
+  store ptr %378, ptr %handle.i, align 8
   store ptr %ref.tmp571, ptr %this.addr.i822, align 8
   %this3.i823 = load ptr, ptr %this.addr.i822, align 8
   store ptr %handle.i, ptr %this.addr.i.i821, align 8
   %this1.i.i824 = load ptr, ptr %this.addr.i.i821, align 8
-  %375 = load ptr, ptr %this1.i.i824, align 8
-  %cmp.i.i825 = icmp eq ptr %375, null
+  %379 = load ptr, ptr %this1.i.i824, align 8
+  %cmp.i.i825 = icmp eq ptr %379, null
   br i1 %cmp.i.i825, label %if.then.i827, label %if.else.i
 
 if.then.i827:                                     ; preds = %if.end570
@@ -15595,37 +15615,37 @@ if.then.i827:                                     ; preds = %if.end570
   %this1.i1206 = load ptr, ptr %this.addr.i1205, align 8
   store ptr %this1.i1206, ptr %this.addr.i1211, align 8
   %this1.i1212 = load ptr, ptr %this.addr.i1211, align 8
-  %376 = load ptr, ptr %this1.i1212, align 8
-  %arrayidx.i1213 = getelementptr inbounds i64, ptr %376, i64 -2
-  %377 = load ptr, ptr %arrayidx.i1213, align 8
-  store ptr %377, ptr %isolate.addr.i1209, align 8
+  %380 = load ptr, ptr %this1.i1212, align 8
+  %arrayidx.i1213 = getelementptr inbounds i64, ptr %380, i64 -2
+  %381 = load ptr, ptr %arrayidx.i1213, align 8
+  store ptr %381, ptr %isolate.addr.i1209, align 8
   store i32 5, ptr %index.addr.i1210, align 4
-  %378 = load ptr, ptr %isolate.addr.i1209, align 8
-  %379 = load i32, ptr %index.addr.i1210, align 4
-  store ptr %378, ptr %isolate.addr.i.i, align 8
-  store i32 %379, ptr %index.addr.i.i, align 4
-  %380 = load ptr, ptr %isolate.addr.i.i, align 8
-  %381 = ptrtoint ptr %380 to i64
-  %add.i.i = add i64 %381, 576
-  %382 = load i32, ptr %index.addr.i.i, align 4
-  %mul.i.i = mul nsw i32 %382, 8
+  %382 = load ptr, ptr %isolate.addr.i1209, align 8
+  %383 = load i32, ptr %index.addr.i1210, align 4
+  store ptr %382, ptr %isolate.addr.i.i, align 8
+  store i32 %383, ptr %index.addr.i.i, align 4
+  %384 = load ptr, ptr %isolate.addr.i.i, align 8
+  %385 = ptrtoint ptr %384 to i64
+  %add.i.i = add i64 %385, 576
+  %386 = load i32, ptr %index.addr.i.i, align 4
+  %mul.i.i = mul nsw i32 %386, 8
   %conv.i.i = sext i32 %mul.i.i to i64
   %add1.i.i = add i64 %add.i.i, %conv.i.i
   store i64 %add1.i.i, ptr %addr.i.i, align 8
-  %383 = load i64, ptr %addr.i.i, align 8
-  %384 = inttoptr i64 %383 to ptr
-  %385 = load i64, ptr %384, align 8
-  %386 = load ptr, ptr %this3.i823, align 8
-  store i64 %385, ptr %386, align 8
+  %387 = load i64, ptr %addr.i.i, align 8
+  %388 = inttoptr i64 %387 to ptr
+  %389 = load i64, ptr %388, align 8
+  %390 = load ptr, ptr %this3.i823, align 8
+  store i64 %389, ptr %390, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit
 
 if.else.i:                                        ; preds = %if.end570
   store ptr %handle.i, ptr %this.addr.i1207, align 8
   %this1.i1208 = load ptr, ptr %this.addr.i1207, align 8
-  %387 = load ptr, ptr %this1.i1208, align 8
-  %388 = load i64, ptr %387, align 8
-  %389 = load ptr, ptr %this3.i823, align 8
-  store i64 %388, ptr %389, align 8
+  %391 = load ptr, ptr %this1.i1208, align 8
+  %392 = load i64, ptr %391, align 8
+  %393 = load ptr, ptr %this3.i823, align 8
+  store i64 %392, ptr %393, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit: ; preds = %if.else.i, %if.then.i827
@@ -20497,7 +20517,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerProcessOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node17PerProcessOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cmdline = getelementptr inbounds %"class.node::PerProcessOptions", ptr %this1, i32 0, i32 35
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %cmdline) #3
   %use_largepages = getelementptr inbounds %"class.node::PerProcessOptions", ptr %this1, i32 0, i32 33
@@ -20549,7 +20570,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %build_snapshot_config = getelementptr inbounds %"class.node::PerIsolateOptions", ptr %this1, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %build_snapshot_config) #3
   %report_signal = getelementptr inbounds %"class.node::PerIsolateOptions", ptr %this1, i32 0, i32 6
@@ -20577,7 +20599,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %debug_options_ = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %this1, i32 0, i32 99
   call void @_ZN4node12DebugOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %debug_options_) #3
   %user_argv = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %this1, i32 0, i32 98
@@ -20659,7 +20682,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %host_port = getelementptr inbounds %"class.node::DebugOptions", ptr %this1, i32 0, i32 9
   call void @_ZN4node8HostPortD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %host_port) #3
   %inspect_publish_uid_string = getelementptr inbounds %"class.node::DebugOptions", ptr %this1, i32 0, i32 6
@@ -20729,7 +20753,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7OptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node7OptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20741,7 +20766,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %per_env = getelementptr inbounds %"class.node::PerIsolateOptions", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 1144) #17
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 1144, i1 false)
@@ -20823,7 +20849,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %abort_on_uncaught_exception = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %this1, i32 0, i32 1
   store i8 0, ptr %abort_on_uncaught_exception, align 8
   %conditions = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %this1, i32 0, i32 2
@@ -21048,7 +21075,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %allow_attaching_debugger = getelementptr inbounds %"class.node::DebugOptions", ptr %this1, i32 0, i32 1
   store i8 1, ptr %allow_attaching_debugger, align 8
   %inspector_enabled = getelementptr inbounds %"class.node::DebugOptions", ptr %this1, i32 0, i32 2
@@ -21141,10 +21169,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node18EnvironmentOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node18EnvironmentOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -21154,7 +21183,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -21344,10 +21374,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.480", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -21977,7 +22008,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %implications_ = getelementptr inbounds %"class.node::options_parser::OptionsParser", ptr %this1, i32 0, i32 3
   call void @_ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_12DebugOptionsEE11ImplicationESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %implications_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser", ptr %this1, i32 0, i32 2
@@ -27684,12 +27716,13 @@ entry:
   store { i64, i64 } %get_child1, ptr %get_child.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS1_INS_12DebugOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS1_INS_12DebugOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %original3 = getelementptr inbounds %struct.AdaptedField, ptr %this2, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %original3, ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   %get_child4 = getelementptr inbounds %struct.AdaptedField, ptr %this2, i32 0, i32 2
-  %2 = load { i64, i64 }, ptr %get_child.addr, align 8
-  store { i64, i64 } %2, ptr %get_child4, align 8
+  %3 = load { i64, i64 }, ptr %get_child.addr, align 8
+  store { i64, i64 } %3, ptr %get_child4, align 8
   ret void
 }
 
@@ -27712,7 +27745,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27722,7 +27756,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS1_INS_12DebugOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS1_INS_12DebugOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %original = getelementptr inbounds %struct.AdaptedField, ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -27898,10 +27933,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE7ConvertINS2_INS0_12DebugOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE7ConvertINS2_INS0_12DebugOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.529", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -30029,7 +30065,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %implications_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.46", ptr %this1, i32 0, i32 3
   call void @_ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_18EnvironmentOptionsEE11ImplicationESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %implications_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.46", ptr %this1, i32 0, i32 2
@@ -30282,7 +30319,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %implications_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.75", ptr %this1, i32 0, i32 3
   call void @_ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerIsolateOptionsEE11ImplicationESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %implications_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.75", ptr %this1, i32 0, i32 2
@@ -31136,7 +31174,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %implications_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr %this1, i32 0, i32 3
   call void @_ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE11ImplicationESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %implications_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr %this1, i32 0, i32 2
@@ -36226,10 +36265,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerProcessOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerProcessOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.583", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -44670,12 +44710,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINS0_8HostPortEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINS0_8HostPortEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINS0_8HostPortEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINS0_8HostPortEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_12DebugOptionsEE17SimpleOptionFieldINS3_8HostPortEEEJRMS6_S9_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_12DebugOptionsEE17SimpleOptionFieldINS3_8HostPortEEEJRMS6_S9_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -44976,10 +45017,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldINS_8HostPortEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldINS_8HostPortEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::DebugOptions>::SimpleOptionField", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -44989,7 +45031,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -46287,12 +46330,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.626", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_12DebugOptionsEE17SimpleOptionFieldIbEEJRMS6_bEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_12DebugOptionsEE17SimpleOptionFieldIbEEJRMS6_bEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -46583,10 +46627,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::DebugOptions>::SimpleOptionField.628", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -48859,12 +48904,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.639", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRMS6_SE_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRMS6_SE_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -49155,10 +49201,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::DebugOptions>::SimpleOptionField.641", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -49810,12 +49857,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.649", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESG_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEJRMS6_SH_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEJRMS6_SH_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -50106,10 +50154,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -50464,12 +50513,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.658", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldIbEEJRMS6_bEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldIbEEJRMS6_bEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -50760,10 +50810,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField.660", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -51118,12 +51169,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.668", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRMS6_SE_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRMS6_SE_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -51414,10 +51466,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField.670", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -52224,12 +52277,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.678", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldIlEEJRMS6_lEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldIlEEJRMS6_lEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -52520,10 +52574,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField.680", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -52902,12 +52957,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.688", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldImEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldImEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldImEEJRMS6_mEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_18EnvironmentOptionsEE17SimpleOptionFieldImEEJRMS6_mEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -53198,10 +53254,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldImEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldImEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField.690", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -54498,12 +54555,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.702", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerIsolateOptionsEE17SimpleOptionFieldIbEEJRMS6_bEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerIsolateOptionsEE17SimpleOptionFieldIbEEJRMS6_bEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -54794,10 +54852,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerIsolateOptions>::SimpleOptionField", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -54807,7 +54866,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -55214,12 +55274,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.711", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRMS6_SE_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRMS6_SE_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -55510,10 +55571,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerIsolateOptions>::SimpleOptionField.713", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -57659,12 +57721,13 @@ entry:
   store { i64, i64 } %get_child1, ptr %get_child.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS1_INS_18EnvironmentOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS1_INS_18EnvironmentOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %original3 = getelementptr inbounds %struct.AdaptedField.718, ptr %this2, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %original3, ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   %get_child4 = getelementptr inbounds %struct.AdaptedField.718, ptr %this2, i32 0, i32 2
-  %2 = load { i64, i64 }, ptr %get_child.addr, align 8
-  store { i64, i64 } %2, ptr %get_child4, align 8
+  %3 = load { i64, i64 }, ptr %get_child.addr, align 8
+  store { i64, i64 } %3, ptr %get_child4, align 8
   ret void
 }
 
@@ -57687,7 +57750,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS1_INS_18EnvironmentOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS1_INS_18EnvironmentOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %original = getelementptr inbounds %struct.AdaptedField.718, ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -57846,10 +57910,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE7ConvertINS2_INS0_18EnvironmentOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE7ConvertINS2_INS0_18EnvironmentOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.719", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -59320,12 +59385,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.731", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRMS6_SE_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRMS6_SE_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -59616,10 +59682,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerProcessOptions>::SimpleOptionField", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -59629,7 +59696,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -60025,12 +60093,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.740", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerProcessOptionsEE17SimpleOptionFieldIlEEJRMS6_lEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerProcessOptionsEE17SimpleOptionFieldIlEEJRMS6_lEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -60321,10 +60390,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerProcessOptions>::SimpleOptionField.742", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -60679,12 +60749,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.750", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerProcessOptionsEE17SimpleOptionFieldIbEEJRMS6_bEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerProcessOptionsEE17SimpleOptionFieldIbEEJRMS6_bEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -60975,10 +61046,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerProcessOptions>::SimpleOptionField.752", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -61333,12 +61405,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.760", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESG_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEJRMS6_SH_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node14options_parser13OptionsParserINS3_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEJRMS6_SH_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -61629,10 +61702,11 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerProcessOptions>::SimpleOptionField.762", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %field.addr, align 8
-  store i64 %0, ptr %field_, align 8
+  %1 = load i64, ptr %field.addr, align 8
+  store i64 %1, ptr %field_, align 8
   ret void
 }
 
@@ -63709,12 +63783,13 @@ entry:
   store { i64, i64 } %get_child1, ptr %get_child.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS1_INS_17PerIsolateOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS1_INS_17PerIsolateOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %original3 = getelementptr inbounds %struct.AdaptedField.766, ptr %this2, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %original3, ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   %get_child4 = getelementptr inbounds %struct.AdaptedField.766, ptr %this2, i32 0, i32 2
-  %2 = load { i64, i64 }, ptr %get_child.addr, align 8
-  store { i64, i64 } %2, ptr %get_child4, align 8
+  %3 = load { i64, i64 }, ptr %get_child.addr, align 8
+  store { i64, i64 } %3, ptr %get_child4, align 8
   ret void
 }
 
@@ -63737,7 +63812,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS1_INS_17PerIsolateOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS1_INS_17PerIsolateOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %original = getelementptr inbounds %struct.AdaptedField.766, ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -63865,10 +63941,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE7ConvertINS2_INS0_17PerIsolateOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE7ConvertINS2_INS0_17PerIsolateOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.767", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 

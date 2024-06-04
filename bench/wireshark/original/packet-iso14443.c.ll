@@ -1563,14 +1563,14 @@ define internal i32 @dissect_iso14443_cmd_type_attrib(ptr noundef %0, ptr nounde
   %30 = load i32, ptr %9, align 4
   %31 = call i32 @dissect_iso14443_attrib(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef %30)
   store i32 %31, ptr %11, align 4
-  br label %121
+  br label %122
 
 32:                                               ; preds = %4
   %33 = load ptr, ptr %6, align 8
   %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 36
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 1
-  br i1 %36, label %37, label %120
+  br i1 %36, label %37, label %121
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %6, align 8
@@ -1586,107 +1586,108 @@ define internal i32 @dissect_iso14443_cmd_type_attrib(ptr noundef %0, ptr nounde
   store ptr %45, ptr %15, align 8
   %46 = load ptr, ptr %15, align 8
   %47 = load i32, ptr @proto_iso14443, align 4
-  call void @conversation_add_proto_data(ptr noundef %46, i32 noundef %47, ptr noundef inttoptr (i64 1 to ptr))
-  %48 = load ptr, ptr %5, align 8
-  %49 = load i32, ptr %11, align 4
-  %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %48, i32 noundef %49)
-  %51 = zext i8 %50 to i32
-  %52 = ashr i32 %51, 4
-  %53 = trunc i32 %52 to i8
-  store i8 %53, ptr %12, align 1
-  %54 = load ptr, ptr %7, align 8
-  %55 = load i32, ptr @hf_iso14443_mbli, align 4
-  %56 = load ptr, ptr %5, align 8
-  %57 = load i32, ptr %11, align 4
-  %58 = mul i32 %57, 8
-  %59 = load i8, ptr %12, align 1
-  %60 = zext i8 %59 to i32
-  %61 = load i8, ptr %12, align 1
-  %62 = zext i8 %61 to i32
-  %63 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %58, i32 noundef 4, i32 noundef %60, i32 noundef 0, ptr noundef @.str.258, i32 noundef %62)
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i32, ptr %11, align 4
-  %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %64, i32 noundef %65)
-  %67 = zext i8 %66 to i32
-  %68 = and i32 %67, 15
-  %69 = trunc i32 %68 to i8
-  store i8 %69, ptr %13, align 1
-  %70 = load ptr, ptr %7, align 8
-  %71 = load i32, ptr @hf_iso14443_cid, align 4
-  %72 = load ptr, ptr %5, align 8
-  %73 = load i32, ptr %11, align 4
-  %74 = mul i32 %73, 8
-  %75 = add i32 %74, 4
-  %76 = load i8, ptr %13, align 1
-  %77 = zext i8 %76 to i32
-  %78 = load i8, ptr %13, align 1
-  %79 = zext i8 %78 to i32
-  %80 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %75, i32 noundef 4, i32 noundef %77, i32 noundef 0, ptr noundef @.str.258, i32 noundef %79)
-  %81 = load i32, ptr %11, align 4
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %11, align 4
-  %83 = load i32, ptr %9, align 4
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %89
+  %48 = inttoptr i64 1 to ptr
+  call void @conversation_add_proto_data(ptr noundef %46, i32 noundef %47, ptr noundef %48)
+  %49 = load ptr, ptr %5, align 8
+  %50 = load i32, ptr %11, align 4
+  %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %49, i32 noundef %50)
+  %52 = zext i8 %51 to i32
+  %53 = ashr i32 %52, 4
+  %54 = trunc i32 %53 to i8
+  store i8 %54, ptr %12, align 1
+  %55 = load ptr, ptr %7, align 8
+  %56 = load i32, ptr @hf_iso14443_mbli, align 4
+  %57 = load ptr, ptr %5, align 8
+  %58 = load i32, ptr %11, align 4
+  %59 = mul i32 %58, 8
+  %60 = load i8, ptr %12, align 1
+  %61 = zext i8 %60 to i32
+  %62 = load i8, ptr %12, align 1
+  %63 = zext i8 %62 to i32
+  %64 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %59, i32 noundef 4, i32 noundef %61, i32 noundef 0, ptr noundef @.str.258, i32 noundef %63)
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %11, align 4
+  %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %65, i32 noundef %66)
+  %68 = zext i8 %67 to i32
+  %69 = and i32 %68, 15
+  %70 = trunc i32 %69 to i8
+  store i8 %70, ptr %13, align 1
+  %71 = load ptr, ptr %7, align 8
+  %72 = load i32, ptr @hf_iso14443_cid, align 4
+  %73 = load ptr, ptr %5, align 8
+  %74 = load i32, ptr %11, align 4
+  %75 = mul i32 %74, 8
+  %76 = add i32 %75, 4
+  %77 = load i8, ptr %13, align 1
+  %78 = zext i8 %77 to i32
+  %79 = load i8, ptr %13, align 1
+  %80 = zext i8 %79 to i32
+  %81 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %76, i32 noundef 4, i32 noundef %78, i32 noundef 0, ptr noundef @.str.258, i32 noundef %80)
+  %82 = load i32, ptr %11, align 4
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %11, align 4
+  %84 = load i32, ptr %9, align 4
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %90
 
-85:                                               ; preds = %37
-  %86 = load ptr, ptr %5, align 8
-  %87 = load i32, ptr %11, align 4
-  %88 = call i32 @tvb_reported_length_remaining(ptr noundef %86, i32 noundef %87)
-  br label %94
+86:                                               ; preds = %37
+  %87 = load ptr, ptr %5, align 8
+  %88 = load i32, ptr %11, align 4
+  %89 = call i32 @tvb_reported_length_remaining(ptr noundef %87, i32 noundef %88)
+  br label %95
 
-89:                                               ; preds = %37
-  %90 = load ptr, ptr %5, align 8
-  %91 = load i32, ptr %11, align 4
-  %92 = call i32 @tvb_reported_length_remaining(ptr noundef %90, i32 noundef %91)
-  %93 = sub i32 %92, 2
-  br label %94
+90:                                               ; preds = %37
+  %91 = load ptr, ptr %5, align 8
+  %92 = load i32, ptr %11, align 4
+  %93 = call i32 @tvb_reported_length_remaining(ptr noundef %91, i32 noundef %92)
+  %94 = sub i32 %93, 2
+  br label %95
 
-94:                                               ; preds = %89, %85
-  %95 = phi i32 [ %88, %85 ], [ %93, %89 ]
-  store i32 %95, ptr %14, align 4
-  %96 = load i32, ptr %14, align 4
-  %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %98, label %102
+95:                                               ; preds = %90, %86
+  %96 = phi i32 [ %89, %86 ], [ %94, %90 ]
+  store i32 %96, ptr %14, align 4
+  %97 = load i32, ptr %14, align 4
+  %98 = icmp sgt i32 %97, 0
+  br i1 %98, label %99, label %103
 
-98:                                               ; preds = %94
-  %99 = load i32, ptr %14, align 4
-  %100 = load i32, ptr %11, align 4
-  %101 = add i32 %100, %99
-  store i32 %101, ptr %11, align 4
-  br label %102
+99:                                               ; preds = %95
+  %100 = load i32, ptr %14, align 4
+  %101 = load i32, ptr %11, align 4
+  %102 = add i32 %101, %100
+  store i32 %102, ptr %11, align 4
+  br label %103
 
-102:                                              ; preds = %98, %94
-  %103 = load i32, ptr %9, align 4
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %119, label %105
+103:                                              ; preds = %99, %95
+  %104 = load i32, ptr %9, align 4
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %120, label %106
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %7, align 8
-  %107 = load ptr, ptr %5, align 8
-  %108 = load i32, ptr %11, align 4
-  %109 = load i32, ptr @hf_iso14443_crc, align 4
-  %110 = load i32, ptr @hf_iso14443_crc_status, align 4
-  %111 = load ptr, ptr %6, align 8
-  %112 = load ptr, ptr %5, align 8
-  %113 = load i32, ptr %11, align 4
-  %114 = call zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef %112, i32 noundef 0, i32 noundef %113)
-  %115 = zext i16 %114 to i32
-  %116 = call ptr @proto_tree_add_checksum(ptr noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef @ei_iso14443_wrong_crc, ptr noundef %111, i32 noundef %115, i32 noundef -2147483648, i32 noundef 1)
-  %117 = load i32, ptr %11, align 4
-  %118 = add i32 %117, 2
-  store i32 %118, ptr %11, align 4
-  br label %119
-
-119:                                              ; preds = %105, %102
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %7, align 8
+  %108 = load ptr, ptr %5, align 8
+  %109 = load i32, ptr %11, align 4
+  %110 = load i32, ptr @hf_iso14443_crc, align 4
+  %111 = load i32, ptr @hf_iso14443_crc_status, align 4
+  %112 = load ptr, ptr %6, align 8
+  %113 = load ptr, ptr %5, align 8
+  %114 = load i32, ptr %11, align 4
+  %115 = call zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef %113, i32 noundef 0, i32 noundef %114)
+  %116 = zext i16 %115 to i32
+  %117 = call ptr @proto_tree_add_checksum(ptr noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef %110, i32 noundef %111, ptr noundef @ei_iso14443_wrong_crc, ptr noundef %112, i32 noundef %116, i32 noundef -2147483648, i32 noundef 1)
+  %118 = load i32, ptr %11, align 4
+  %119 = add i32 %118, 2
+  store i32 %119, ptr %11, align 4
   br label %120
 
-120:                                              ; preds = %119, %32
+120:                                              ; preds = %106, %103
   br label %121
 
-121:                                              ; preds = %120, %25
-  %122 = load i32, ptr %11, align 4
-  ret i32 %122
+121:                                              ; preds = %120, %32
+  br label %122
+
+122:                                              ; preds = %121, %25
+  %123 = load i32, ptr %11, align 4
+  ret i32 %123
 }
 
 ; Function Attrs: nounwind uwtable

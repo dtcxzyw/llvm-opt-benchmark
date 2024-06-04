@@ -27425,22 +27425,23 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7easylog8appender12start_threadEvEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7easylog8appender12start_threadEvEUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN7easylog8appender12start_threadEvEUlvE_EEEC2IJS4_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_func, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN7easylog8appender12start_threadEvEUlvE_EEEC2IJS4_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_func, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -27520,7 +27521,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -35646,34 +35648,35 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx.addr, align 8
   call void @_ZN4asio6detail30execution_context_service_baseINS0_9schedulerEEC2ERNS_17execution_contextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail9schedulerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail9schedulerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %one_thread_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %concurrency_hint.addr, align 4
-  %cmp = icmp eq i32 %1, 1
+  %2 = load i32, ptr %concurrency_hint.addr, align 4
+  %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %lor.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %concurrency_hint.addr, align 4
-  %and = and i32 %2, -65535
+  %3 = load i32, ptr %concurrency_hint.addr, align 4
+  %and = and i32 %3, -65535
   %xor = xor i32 %and, -1525678080
   %cmp2 = icmp ne i32 %xor, 0
   br i1 %cmp2, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %3 = load i32, ptr %concurrency_hint.addr, align 4
-  %and3 = and i32 %3, -65532
+  %4 = load i32, ptr %concurrency_hint.addr, align 4
+  %and3 = and i32 %4, -65532
   %xor4 = xor i32 %and3, -1525678080
   %cmp5 = icmp ne i32 %xor4, 0
   %lnot = xor i1 %cmp5, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %entry
-  %4 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %lnot, %lor.rhs ]
-  %frombool6 = zext i1 %4 to i8
+  %5 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %lnot, %lor.rhs ]
+  %frombool6 = zext i1 %5 to i8
   store i8 %frombool6, ptr %one_thread_, align 8
   %mutex_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 3
-  %5 = load i32, ptr %concurrency_hint.addr, align 4
-  %and7 = and i32 %5, -65535
+  %6 = load i32, ptr %concurrency_hint.addr, align 4
+  %and7 = and i32 %6, -65535
   %xor8 = xor i32 %and7, -1525678080
   %cmp9 = icmp ne i32 %xor8, 0
   invoke void @_ZN4asio6detail27conditionally_enabled_mutexC2Eb(ptr noundef nonnull align 8 dereferenceable(49) %mutex_, i1 noundef zeroext %cmp9)
@@ -35688,8 +35691,8 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %task_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 5
   store ptr null, ptr %task_, align 8
   %get_task_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %get_task.addr, align 8
-  store ptr %6, ptr %get_task_, align 8
+  %7 = load ptr, ptr %get_task.addr, align 8
+  store ptr %7, ptr %get_task_, align 8
   %task_operation_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 7
   invoke void @_ZN4asio6detail9scheduler14task_operationC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %task_operation_)
           to label %invoke.cont13 unwind label %lpad12
@@ -35709,12 +35712,12 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   %shutdown_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 12
   store i8 0, ptr %shutdown_, align 1
   %concurrency_hint_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 13
-  %7 = load i32, ptr %concurrency_hint.addr, align 4
-  store i32 %7, ptr %concurrency_hint_, align 4
+  %8 = load i32, ptr %concurrency_hint.addr, align 4
+  store i32 %8, ptr %concurrency_hint_, align 4
   %thread_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 14
   store ptr null, ptr %thread_, align 8
-  %8 = load i8, ptr %own_thread.addr, align 1
-  %tobool = trunc i8 %8 to i1
+  %9 = load i8, ptr %own_thread.addr, align 1
+  %tobool = trunc i8 %9 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont15
@@ -35733,8 +35736,8 @@ invoke.cont20:                                    ; preds = %invoke.cont18
 
 invoke.cont23:                                    ; preds = %invoke.cont20
   %coerce.dive = getelementptr inbounds %"class.asio::detail::scheduler::thread_function", ptr %agg.tmp, i32 0, i32 0
-  %9 = load ptr, ptr %coerce.dive, align 8
-  invoke void @_ZN4asio6detail12posix_threadC2INS0_9scheduler15thread_functionEEET_j(ptr noundef nonnull align 8 dereferenceable(9) %call21, ptr %9, i32 noundef 0)
+  %10 = load ptr, ptr %coerce.dive, align 8
+  invoke void @_ZN4asio6detail12posix_threadC2INS0_9scheduler15thread_functionEEET_j(ptr noundef nonnull align 8 dereferenceable(9) %call21, ptr %10, i32 noundef 0)
           to label %invoke.cont24 unwind label %lpad22
 
 invoke.cont24:                                    ; preds = %invoke.cont23
@@ -35744,66 +35747,66 @@ invoke.cont24:                                    ; preds = %invoke.cont23
   br label %if.end
 
 lpad:                                             ; preds = %lor.end
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup30
 
 lpad10:                                           ; preds = %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup29
 
 lpad12:                                           ; preds = %invoke.cont11
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup28
 
 lpad14:                                           ; preds = %invoke.cont13
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup27
 
 lpad17:                                           ; preds = %if.then
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup26
 
 lpad19:                                           ; preds = %invoke.cont18
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad22:                                           ; preds = %invoke.cont23, %invoke.cont20
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call21) #30
   br label %ehcleanup
 
@@ -36101,36 +36104,37 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %__ec, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup8
 
 lpad4:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -36577,10 +36581,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %_M_code2, i64 16, i1 false)
   ret void
 }
@@ -36884,7 +36889,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.933)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio21invalid_service_ownerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio21invalid_service_ownerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -37037,7 +37043,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.934)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio22service_already_existsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio22service_already_existsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -37093,7 +37100,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio21invalid_service_ownerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio21invalid_service_ownerE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -37222,7 +37230,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio22service_already_existsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio22service_already_existsE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -37514,20 +37523,22 @@ entry:
   call void @_ZN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEEC2ERNS_17execution_contextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %1 = getelementptr inbounds i8, ptr %this1, i64 40
   call void @_ZN4asio6detail14scheduler_taskC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN4asio6detail13epoll_reactorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN4asio6detail13epoll_reactorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN4asio6detail13epoll_reactorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN4asio6detail13epoll_reactorE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %scheduler_ = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4asio11use_serviceINS_6detail9schedulerEEERT_RNS_17execution_contextE(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %4 = load ptr, ptr %ctx.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4asio11use_serviceINS_6detail9schedulerEEERT_RNS_17execution_contextE(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %scheduler_, align 8
   %mutex_ = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 3
   %scheduler_2 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %scheduler_2, align 8
-  %call4 = invoke noundef i32 @_ZNK4asio6detail9scheduler16concurrency_hintEv(ptr noundef nonnull align 8 dereferenceable(256) %3)
+  %5 = load ptr, ptr %scheduler_2, align 8
+  %call4 = invoke noundef i32 @_ZNK4asio6detail9scheduler16concurrency_hintEv(ptr noundef nonnull align 8 dereferenceable(256) %5)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -37584,21 +37595,21 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   %data = getelementptr inbounds %struct.epoll_event, ptr %ev, i32 0, i32 1
   store ptr %interrupter_20, ptr %data, align 1
   %epoll_fd_21 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 5
-  %4 = load i32, ptr %epoll_fd_21, align 8
+  %6 = load i32, ptr %epoll_fd_21, align 8
   %interrupter_22 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 4
   %call25 = invoke noundef i32 @_ZNK4asio6detail26eventfd_select_interrupter15read_descriptorEv(ptr noundef nonnull align 4 dereferenceable(8) %interrupter_22)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont19
-  %call26 = call i32 @epoll_ctl(i32 noundef %4, i32 noundef 1, i32 noundef %call25, ptr noundef %ev) #3
+  %call26 = call i32 @epoll_ctl(i32 noundef %6, i32 noundef 1, i32 noundef %call25, ptr noundef %ev) #3
   %interrupter_27 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 4
   invoke void @_ZN4asio6detail26eventfd_select_interrupter9interruptEv(ptr noundef nonnull align 4 dereferenceable(8) %interrupter_27)
           to label %invoke.cont28 unwind label %lpad23
 
 invoke.cont28:                                    ; preds = %invoke.cont24
   %timer_fd_29 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 6
-  %5 = load i32, ptr %timer_fd_29, align 4
-  %cmp30 = icmp ne i32 %5, -1
+  %7 = load i32, ptr %timer_fd_29, align 4
+  %cmp30 = icmp ne i32 %7, -1
   br i1 %cmp30, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont28
@@ -37608,55 +37619,55 @@ if.then:                                          ; preds = %invoke.cont28
   %data33 = getelementptr inbounds %struct.epoll_event, ptr %ev, i32 0, i32 1
   store ptr %timer_fd_32, ptr %data33, align 1
   %epoll_fd_34 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 5
-  %6 = load i32, ptr %epoll_fd_34, align 8
+  %8 = load i32, ptr %epoll_fd_34, align 8
   %timer_fd_35 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 6
-  %7 = load i32, ptr %timer_fd_35, align 4
-  %call36 = call i32 @epoll_ctl(i32 noundef %6, i32 noundef 1, i32 noundef %7, ptr noundef %ev) #3
+  %9 = load i32, ptr %timer_fd_35, align 4
+  %call36 = call i32 @epoll_ctl(i32 noundef %8, i32 noundef 1, i32 noundef %9, ptr noundef %ev) #3
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup39
 
 lpad6:                                            ; preds = %invoke.cont5
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad8:                                            ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup37
 
 lpad18:                                           ; preds = %invoke.cont17
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad23:                                           ; preds = %invoke.cont24, %invoke.cont19
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZN4asio6detail11object_poolINS0_13epoll_reactor16descriptor_stateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %registered_descriptors_) #3
   br label %ehcleanup
 
@@ -37676,8 +37687,8 @@ ehcleanup38:                                      ; preds = %ehcleanup37, %lpad6
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %ehcleanup38, %lpad
-  %23 = getelementptr inbounds i8, ptr %this1, i64 40
-  call void @_ZN4asio6detail14scheduler_taskD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
+  %25 = getelementptr inbounds i8, ptr %this1, i64 40
+  call void @_ZN4asio6detail14scheduler_taskD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
   call void @_ZN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -37699,7 +37710,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %e.addr, align 8
   call void @_ZN4asio17execution_context7serviceC2ERS0_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -37709,7 +37721,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4asio6detail14scheduler_taskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4asio6detail14scheduler_taskE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -38023,18 +38036,20 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN4asio6detail13epoll_reactorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN4asio6detail13epoll_reactorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN4asio6detail13epoll_reactorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN4asio6detail13epoll_reactorE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %epoll_fd_ = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 5
-  %0 = load i32, ptr %epoll_fd_, align 8
-  %cmp = icmp ne i32 %0, -1
+  %2 = load i32, ptr %epoll_fd_, align 8
+  %cmp = icmp ne i32 %2, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %epoll_fd_2 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 5
-  %1 = load i32, ptr %epoll_fd_2, align 8
-  %call = invoke i32 @close(i32 noundef %1)
+  %3 = load i32, ptr %epoll_fd_2, align 8
+  %call = invoke i32 @close(i32 noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -38042,14 +38057,14 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %timer_fd_ = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 6
-  %2 = load i32, ptr %timer_fd_, align 4
-  %cmp3 = icmp ne i32 %2, -1
+  %4 = load i32, ptr %timer_fd_, align 4
+  %cmp3 = icmp ne i32 %4, -1
   br i1 %cmp3, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
   %timer_fd_5 = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 6
-  %3 = load i32, ptr %timer_fd_5, align 4
-  %call7 = invoke i32 @close(i32 noundef %3)
+  %5 = load i32, ptr %timer_fd_5, align 4
+  %call7 = invoke i32 @close(i32 noundef %5)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %if.then4
@@ -38064,16 +38079,16 @@ if.end8:                                          ; preds = %invoke.cont6, %if.e
   call void @_ZN4asio6detail26eventfd_select_interrupterD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %interrupter_) #3
   %mutex_ = getelementptr inbounds %"class.asio::detail::epoll_reactor", ptr %this1, i32 0, i32 3
   call void @_ZN4asio6detail27conditionally_enabled_mutexD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %mutex_) #3
-  %4 = getelementptr inbounds i8, ptr %this1, i64 40
-  call void @_ZN4asio6detail14scheduler_taskD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %6 = getelementptr inbounds i8, ptr %this1, i64 40
+  call void @_ZN4asio6detail14scheduler_taskD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   ret void
 
 terminate.lpad:                                   ; preds = %if.then4, %if.then
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #28
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #28
   unreachable
 }
 
@@ -38680,26 +38695,27 @@ entry:
   store ptr %owner, ptr %owner.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4asio6detail11noncopyableC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio17execution_context7serviceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio17execution_context7serviceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.asio::execution_context::service", ptr %this1, i32 0, i32 1
   invoke void @_ZN4asio17execution_context7service3keyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %key_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %owner_ = getelementptr inbounds %"class.asio::execution_context::service", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %owner.addr, align 8
-  store ptr %0, ptr %owner_, align 8
+  %1 = load ptr, ptr %owner.addr, align 8
+  store ptr %1, ptr %owner_, align 8
   %next_ = getelementptr inbounds %"class.asio::execution_context::service", ptr %this1, i32 0, i32 3
   store ptr null, ptr %next_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN4asio6detail11noncopyableD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
   br label %eh.resume
 
@@ -40216,7 +40232,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %e.addr, align 8
   call void @_ZN4asio17execution_context7serviceC2ERS0_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_9schedulerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_9schedulerEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -40444,10 +40461,11 @@ entry:
   %lock = alloca %"class.asio::detail::conditionally_enabled_mutex::scoped_lock", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail9schedulerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail9schedulerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %thread_ = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 14
-  %0 = load ptr, ptr %thread_, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %thread_, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -40467,19 +40485,19 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %thread_4 = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 14
-  %1 = load ptr, ptr %thread_4, align 8
-  invoke void @_ZN4asio6detail12posix_thread4joinEv(ptr noundef nonnull align 8 dereferenceable(9) %1)
+  %2 = load ptr, ptr %thread_4, align 8
+  invoke void @_ZN4asio6detail12posix_thread4joinEv(ptr noundef nonnull align 8 dereferenceable(9) %2)
           to label %invoke.cont5 unwind label %terminate.lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %thread_6 = getelementptr inbounds %"class.asio::detail::scheduler", ptr %this1, i32 0, i32 14
-  %2 = load ptr, ptr %thread_6, align 8
-  %isnull = icmp eq ptr %2, null
+  %3 = load ptr, ptr %thread_6, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont5
-  call void @_ZN4asio6detail12posix_threadD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %2) #3
-  call void @_ZdlPv(ptr noundef %2) #30
+  call void @_ZN4asio6detail12posix_threadD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #30
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont5
@@ -40499,10 +40517,10 @@ if.end:                                           ; preds = %delete.end, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont3, %invoke.cont2, %invoke.cont, %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #28
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #28
   unreachable
 }
 
@@ -40821,7 +40839,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4asio6detail12posix_thread9func_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio6detail12posix_thread4funcINS0_9scheduler15thread_functionEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio6detail12posix_thread4funcINS0_9scheduler15thread_functionEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %f_ = getelementptr inbounds %"class.asio::detail::posix_thread::func", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %f_, ptr align 8 %f, i64 8, i1 false)
   ret void
@@ -40899,7 +40918,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio6detail12posix_thread9func_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio6detail12posix_thread9func_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -42832,10 +42852,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4asio10io_contextELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -42859,7 +42880,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -43137,10 +43159,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4asio10io_context4workELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4asio10io_context4workELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.212", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -44184,27 +44207,28 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %executor_ = getelementptr inbounds %"class.coro_io::ExecutorWrapper", ptr %this1, i32 0, i32 1
   call void @_ZN4asio10io_context19basic_executor_typeISaIvELm0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %executor_, ptr noundef nonnull align 8 dereferenceable(8) %executor) #3
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   br label %ehcleanup
 
@@ -44252,7 +44276,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %name, ptr %name.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12async_simple8ExecutorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN12async_simple8ExecutorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_name = getelementptr inbounds %"class.async_simple::Executor", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name, ptr noundef nonnull align 8 dereferenceable(32) %name) #3
   ret void
@@ -44280,7 +44305,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %executor_ = getelementptr inbounds %"class.coro_io::ExecutorWrapper", ptr %this1, i32 0, i32 1
   call void @_ZN4asio10io_context19basic_executor_typeISaIvELm0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %executor_) #3
   call void @_ZN12async_simple8ExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
@@ -44554,7 +44580,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12async_simple8ExecutorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN12async_simple8ExecutorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_name = getelementptr inbounds %"class.async_simple::Executor", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name) #3
   ret void
@@ -44916,22 +44943,23 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.217", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEC2IJSC_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %_M_func, ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEC2IJSC_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %_M_func, ptr noundef nonnull align 8 dereferenceable(48) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -44963,7 +44991,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.217", ptr %this1, i32 0, i32 1
   call void @_ZNSt6thread8_InvokerISt5tupleIJZN12async_simple8Executor8scheduleESt8functionIFvvEENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEUlvE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_func) #3
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -46651,7 +46680,8 @@ entry:
   store ptr %first, ptr %first.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio19multiple_exceptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio19multiple_exceptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %first_ = getelementptr inbounds %"class.asio::multiple_exceptions", ptr %this1, i32 0, i32 1
   call void @_ZNSt15__exception_ptr13exception_ptrC2EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %first_, ptr noundef nonnull align 8 dereferenceable(8) %first) #3
   ret void
@@ -46663,7 +46693,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio19multiple_exceptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio19multiple_exceptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %first_ = getelementptr inbounds %"class.asio::multiple_exceptions", ptr %this1, i32 0, i32 1
   call void @_ZNSt15__exception_ptr13exception_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %first_) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -46720,10 +46751,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio19multiple_exceptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio19multiple_exceptionsE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %first_ = getelementptr inbounds %"class.asio::multiple_exceptions", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %first_2 = getelementptr inbounds %"class.asio::multiple_exceptions", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %first_2 = getelementptr inbounds %"class.asio::multiple_exceptions", ptr %3, i32 0, i32 1
   call void @_ZNSt15__exception_ptr13exception_ptrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %first_, ptr noundef nonnull align 8 dereferenceable(8) %first_2) #3
   ret void
 }
@@ -46739,7 +46771,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -46768,7 +46801,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -47117,7 +47151,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -47146,7 +47181,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -48246,50 +48282,51 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %context.addr, align 8
   call void @_ZN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEEC2ERNS_17execution_contextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %timer_queue_ = getelementptr inbounds %"class.asio::detail::deadline_timer_service", ptr %this1, i32 0, i32 1
   invoke void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %scheduler_ = getelementptr inbounds %"class.asio::detail::deadline_timer_service", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %context.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(216) ptr @_ZN4asio11use_serviceINS_6detail13epoll_reactorEEERT_RNS_17execution_contextE(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %2 = load ptr, ptr %context.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(216) ptr @_ZN4asio11use_serviceINS_6detail13epoll_reactorEEERT_RNS_17execution_contextE(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call, ptr %scheduler_, align 8
   %scheduler_4 = getelementptr inbounds %"class.asio::detail::deadline_timer_service", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %scheduler_4, align 8
-  invoke void @_ZN4asio6detail13epoll_reactor9init_taskEv(ptr noundef nonnull align 8 dereferenceable(216) %2)
+  %3 = load ptr, ptr %scheduler_4, align 8
+  invoke void @_ZN4asio6detail13epoll_reactor9init_taskEv(ptr noundef nonnull align 8 dereferenceable(216) %3)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %scheduler_6 = getelementptr inbounds %"class.asio::detail::deadline_timer_service", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %scheduler_6, align 8
+  %4 = load ptr, ptr %scheduler_6, align 8
   %timer_queue_7 = getelementptr inbounds %"class.asio::detail::deadline_timer_service", ptr %this1, i32 0, i32 1
-  invoke void @_ZN4asio6detail13epoll_reactor15add_timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEvRNS0_11timer_queueIT_EE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_7)
+  invoke void @_ZN4asio6detail13epoll_reactor15add_timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEvRNS0_11timer_queueIT_EE(ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_7)
           to label %invoke.cont8 unwind label %lpad2
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont5, %invoke.cont3, %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_) #3
   br label %ehcleanup
 
@@ -48315,7 +48352,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %e.addr, align 8
   call void @_ZN4asio17execution_context7serviceC2ERS0_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -48326,7 +48364,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4asio6detail16timer_queue_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %timers_ = getelementptr inbounds %"class.asio::detail::timer_queue", ptr %this1, i32 0, i32 1
   store ptr null, ptr %timers_, align 8
   %heap_ = getelementptr inbounds %"class.asio::detail::timer_queue", ptr %this1, i32 0, i32 2
@@ -48366,7 +48405,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %heap_ = getelementptr inbounds %"class.asio::detail::timer_queue", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE10heap_entryESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %heap_) #3
   call void @_ZN4asio6detail16timer_queue_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -48379,11 +48419,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %scheduler_ = getelementptr inbounds %"class.asio::detail::deadline_timer_service", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %scheduler_, align 8
+  %1 = load ptr, ptr %scheduler_, align 8
   %timer_queue_ = getelementptr inbounds %"class.asio::detail::deadline_timer_service", ptr %this1, i32 0, i32 1
-  invoke void @_ZN4asio6detail13epoll_reactor18remove_timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEvRNS0_11timer_queueIT_EE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_)
+  invoke void @_ZN4asio6detail13epoll_reactor18remove_timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEvRNS0_11timer_queueIT_EE(ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -48393,10 +48434,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #28
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 }
 
@@ -48445,7 +48486,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4asio6detail11noncopyableC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4asio6detail16timer_queue_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4asio6detail16timer_queue_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.asio::detail::timer_queue_base", ptr %this1, i32 0, i32 1
   store ptr null, ptr %next_, align 8
   ret void
@@ -52914,7 +52956,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio9execution12bad_executorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio9execution12bad_executorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -52969,7 +53012,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4asio9execution12bad_executorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4asio9execution12bad_executorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -55527,28 +55571,29 @@ entry:
   store ptr %args1, ptr %args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZN4asio6detail25cancellation_handler_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4asio6detail20cancellation_handlerINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEE15op_cancellationEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4asio6detail20cancellation_handlerINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEE15op_cancellationEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %handler_ = getelementptr inbounds %"class.asio::detail::cancellation_handler", ptr %this3, i32 0, i32 1
-  %0 = load ptr, ptr %args.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %args.addr2, align 8
-  %3 = load ptr, ptr %2, align 8
-  invoke void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE15op_cancellationC2EPS9_PNS0_11timer_queueIS8_E14per_timer_dataE(ptr noundef nonnull align 8 dereferenceable(16) %handler_, ptr noundef %1, ptr noundef %3)
+  %1 = load ptr, ptr %args.addr, align 8
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %args.addr2, align 8
+  %4 = load ptr, ptr %3, align 8
+  invoke void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE15op_cancellationC2EPS9_PNS0_11timer_queueIS8_E14per_timer_dataE(ptr noundef nonnull align 8 dereferenceable(16) %handler_, ptr noundef %2, ptr noundef %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %size_ = getelementptr inbounds %"class.asio::detail::cancellation_handler", ptr %this3, i32 0, i32 2
-  %4 = load i64, ptr %size.addr, align 8
-  store i64 %4, ptr %size_, align 8
+  %5 = load i64, ptr %size.addr, align 8
+  store i64 %5, ptr %size_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4asio6detail25cancellation_handler_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
   br label %eh.resume
 
@@ -55918,7 +55963,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4asio6detail25cancellation_handler_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4asio6detail25cancellation_handler_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -65888,16 +65934,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail23reactive_socket_serviceINS_2ip3tcpEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail23reactive_socket_serviceINS_2ip3tcpEEE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -65919,7 +65966,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %e.addr, align 8
   call void @_ZN4asio17execution_context7serviceC2ERS0_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -66133,7 +66181,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -66329,7 +66378,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
@@ -66649,7 +66699,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_result = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_result) #3
   %_M_status = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 2
@@ -66664,10 +66715,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -66731,7 +66782,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_result = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_result) #3
   ret void
@@ -68512,10 +68564,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::future_error", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %_M_code2 = getelementptr inbounds %"class.std::future_error", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %_M_code2 = getelementptr inbounds %"class.std::future_error", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %_M_code2, i64 16, i1 false)
   ret void
 }
@@ -68559,27 +68612,28 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::future_error", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %__ec, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -70844,18 +70898,19 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %__ec, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %eh.resume
 
@@ -75870,7 +75925,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %parent_.addr, align 8
   call void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBaseC2EPS4_b(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef %0, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %blockIndex = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE16ExplicitProducer16BlockIndexHeaderEEC2ES8_(ptr noundef nonnull align 8 dereferenceable(8) %blockIndex, ptr noundef null) #3
   %pr_blockIndexSlotsUsed = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 2
@@ -75883,34 +75939,34 @@ entry:
   store ptr null, ptr %pr_blockIndexEntries, align 8
   %pr_blockIndexRaw = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 6
   store ptr null, ptr %pr_blockIndexRaw, align 8
-  %1 = load ptr, ptr %parent_.addr, align 8
-  %initialBlockPoolSize = getelementptr inbounds %"class.moodycamel::ConcurrentQueue", ptr %1, i32 0, i32 5
-  %2 = load i64, ptr %initialBlockPoolSize, align 8
-  %call = invoke noundef i64 @_ZN10moodycamel7detailsL13ceil_to_pow_2ImEET_S2_(i64 noundef %2)
+  %2 = load ptr, ptr %parent_.addr, align 8
+  %initialBlockPoolSize = getelementptr inbounds %"class.moodycamel::ConcurrentQueue", ptr %2, i32 0, i32 5
+  %3 = load i64, ptr %initialBlockPoolSize, align 8
+  %call = invoke noundef i64 @_ZN10moodycamel7detailsL13ceil_to_pow_2ImEET_S2_(i64 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %shr = lshr i64 %call, 1
   store i64 %shr, ptr %poolBasedIndexSize, align 8
-  %3 = load i64, ptr %poolBasedIndexSize, align 8
+  %4 = load i64, ptr %poolBasedIndexSize, align 8
   %pr_blockIndexSize2 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %pr_blockIndexSize2, align 8
-  %cmp = icmp ugt i64 %3, %4
+  %5 = load i64, ptr %pr_blockIndexSize2, align 8
+  %cmp = icmp ugt i64 %4, %5
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  %5 = load i64, ptr %poolBasedIndexSize, align 8
+  %6 = load i64, ptr %poolBasedIndexSize, align 8
   %pr_blockIndexSize3 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 3
-  store i64 %5, ptr %pr_blockIndexSize3, align 8
+  store i64 %6, ptr %pr_blockIndexSize3, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
   br label %eh.resume
 
@@ -75942,7 +75998,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN10moodycamel7details35ConcurrentQueueProducerTypelessBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBaseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %tailIndex = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 2
   call void @_ZNSt6atomicImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %tailIndex, i64 noundef 0) #3
   %headIndex = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 3
@@ -75954,13 +76011,13 @@ entry:
   %tailBlock = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
   store ptr null, ptr %tailBlock, align 8
   %isExplicit = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 7
-  %1 = load i8, ptr %isExplicit_.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %isExplicit_.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %isExplicit, align 8
   %parent = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 8
-  %2 = load ptr, ptr %parent_.addr, align 8
-  store ptr %2, ptr %parent, align 8
+  %3 = load ptr, ptr %parent_.addr, align 8
+  store ptr %3, ptr %parent, align 8
   ret void
 }
 
@@ -76238,10 +76295,11 @@ entry:
   %prev = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tailBlock = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %tailBlock, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %tailBlock, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end43
 
 if.then:                                          ; preds = %entry
@@ -76250,125 +76308,125 @@ if.then:                                          ; preds = %entry
   store ptr %headIndex, ptr %this.addr.i92, align 8
   store i32 0, ptr %__m.addr.i93, align 4
   %this1.i96 = load ptr, ptr %this.addr.i92, align 8
-  %1 = load i32, ptr %__m.addr.i93, align 4
-  %call.i97 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-  store i32 %call.i97, ptr %__b.i94, align 4
   %2 = load i32, ptr %__m.addr.i93, align 4
-  switch i32 %2, label %monotonic.i100 [
+  %call.i97 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %2, i32 noundef 65535)
+  store i32 %call.i97, ptr %__b.i94, align 4
+  %3 = load i32, ptr %__m.addr.i93, align 4
+  switch i32 %3, label %monotonic.i100 [
     i32 1, label %acquire.i99
     i32 2, label %acquire.i99
     i32 5, label %seqcst.i98
   ]
 
 monotonic.i100:                                   ; preds = %if.then
-  %3 = load atomic i64, ptr %this1.i96 monotonic, align 8
-  store i64 %3, ptr %atomic-temp.i95, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit101
-
-acquire.i99:                                      ; preds = %if.then, %if.then
-  %4 = load atomic i64, ptr %this1.i96 acquire, align 8
+  %4 = load atomic i64, ptr %this1.i96 monotonic, align 8
   store i64 %4, ptr %atomic-temp.i95, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit101
 
-seqcst.i98:                                       ; preds = %if.then
-  %5 = load atomic i64, ptr %this1.i96 seq_cst, align 8
+acquire.i99:                                      ; preds = %if.then, %if.then
+  %5 = load atomic i64, ptr %this1.i96 acquire, align 8
   store i64 %5, ptr %atomic-temp.i95, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit101
 
+seqcst.i98:                                       ; preds = %if.then
+  %6 = load atomic i64, ptr %this1.i96 seq_cst, align 8
+  store i64 %6, ptr %atomic-temp.i95, align 8
+  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit101
+
 _ZNKSt13__atomic_baseImE4loadESt12memory_order.exit101: ; preds = %seqcst.i98, %acquire.i99, %monotonic.i100
-  %6 = load i64, ptr %atomic-temp.i95, align 8
-  %and = and i64 %6, 31
+  %7 = load i64, ptr %atomic-temp.i95, align 8
+  %and = and i64 %7, 31
   %cmp2 = icmp ne i64 %and, 0
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit101
   %pr_blockIndexFront = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 4
-  %7 = load i64, ptr %pr_blockIndexFront, align 8
+  %8 = load i64, ptr %pr_blockIndexFront, align 8
   %pr_blockIndexSlotsUsed = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 2
-  %8 = load i64, ptr %pr_blockIndexSlotsUsed, align 8
-  %sub = sub i64 %7, %8
+  %9 = load i64, ptr %pr_blockIndexSlotsUsed, align 8
+  %sub = sub i64 %8, %9
   %pr_blockIndexSize = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 3
-  %9 = load i64, ptr %pr_blockIndexSize, align 8
-  %sub4 = sub i64 %9, 1
+  %10 = load i64, ptr %pr_blockIndexSize, align 8
+  %sub4 = sub i64 %10, 1
   %and5 = and i64 %sub, %sub4
   store i64 %and5, ptr %i, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then3
   %pr_blockIndexEntries = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 5
-  %10 = load ptr, ptr %pr_blockIndexEntries, align 8
-  %11 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %10, i64 %11
+  %11 = load ptr, ptr %pr_blockIndexEntries, align 8
+  %12 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %11, i64 %12
   %base = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %arrayidx, i32 0, i32 0
-  %12 = load i64, ptr %base, align 8
-  %add = add i64 %12, 32
+  %13 = load i64, ptr %base, align 8
+  %add = add i64 %13, 32
   %headIndex6 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 3
   store ptr %headIndex6, ptr %this.addr.i82, align 8
   store i32 0, ptr %__m.addr.i83, align 4
   %this1.i86 = load ptr, ptr %this.addr.i82, align 8
-  %13 = load i32, ptr %__m.addr.i83, align 4
-  %call.i87 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %13, i32 noundef 65535)
-  store i32 %call.i87, ptr %__b.i84, align 4
   %14 = load i32, ptr %__m.addr.i83, align 4
-  switch i32 %14, label %monotonic.i90 [
+  %call.i87 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %14, i32 noundef 65535)
+  store i32 %call.i87, ptr %__b.i84, align 4
+  %15 = load i32, ptr %__m.addr.i83, align 4
+  switch i32 %15, label %monotonic.i90 [
     i32 1, label %acquire.i89
     i32 2, label %acquire.i89
     i32 5, label %seqcst.i88
   ]
 
 monotonic.i90:                                    ; preds = %while.cond
-  %15 = load atomic i64, ptr %this1.i86 monotonic, align 8
-  store i64 %15, ptr %atomic-temp.i85, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit91
-
-acquire.i89:                                      ; preds = %while.cond, %while.cond
-  %16 = load atomic i64, ptr %this1.i86 acquire, align 8
+  %16 = load atomic i64, ptr %this1.i86 monotonic, align 8
   store i64 %16, ptr %atomic-temp.i85, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit91
 
-seqcst.i88:                                       ; preds = %while.cond
-  %17 = load atomic i64, ptr %this1.i86 seq_cst, align 8
+acquire.i89:                                      ; preds = %while.cond, %while.cond
+  %17 = load atomic i64, ptr %this1.i86 acquire, align 8
   store i64 %17, ptr %atomic-temp.i85, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit91
 
+seqcst.i88:                                       ; preds = %while.cond
+  %18 = load atomic i64, ptr %this1.i86 seq_cst, align 8
+  store i64 %18, ptr %atomic-temp.i85, align 8
+  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit91
+
 _ZNKSt13__atomic_baseImE4loadESt12memory_order.exit91: ; preds = %seqcst.i88, %acquire.i89, %monotonic.i90
-  %18 = load i64, ptr %atomic-temp.i85, align 8
-  %call8 = call noundef zeroext i1 @_ZN10moodycamel7detailsL18circular_less_thanImEEbT_S2_(i64 noundef %add, i64 noundef %18)
+  %19 = load i64, ptr %atomic-temp.i85, align 8
+  %call8 = call noundef zeroext i1 @_ZN10moodycamel7detailsL18circular_less_thanImEEbT_S2_(i64 noundef %add, i64 noundef %19)
   br i1 %call8, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit91
-  %19 = load i64, ptr %i, align 8
-  %add9 = add i64 %19, 1
+  %20 = load i64, ptr %i, align 8
+  %add9 = add i64 %20, 1
   %pr_blockIndexSize10 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 3
-  %20 = load i64, ptr %pr_blockIndexSize10, align 8
-  %sub11 = sub i64 %20, 1
+  %21 = load i64, ptr %pr_blockIndexSize10, align 8
+  %sub11 = sub i64 %21, 1
   %and12 = and i64 %add9, %sub11
   store i64 %and12, ptr %i, align 8
   br label %while.cond, !llvm.loop !112
 
 while.end:                                        ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit91
   %pr_blockIndexEntries13 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 5
-  %21 = load ptr, ptr %pr_blockIndexEntries13, align 8
-  %22 = load i64, ptr %i, align 8
-  %arrayidx14 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %21, i64 %22
+  %22 = load ptr, ptr %pr_blockIndexEntries13, align 8
+  %23 = load i64, ptr %i, align 8
+  %arrayidx14 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %22, i64 %23
   %block = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %arrayidx14, i32 0, i32 1
-  %23 = load ptr, ptr %block, align 8
-  store ptr %23, ptr %halfDequeuedBlock, align 8
+  %24 = load ptr, ptr %block, align 8
+  store ptr %24, ptr %halfDequeuedBlock, align 8
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit101
   %tailBlock16 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %24 = load ptr, ptr %tailBlock16, align 8
-  store ptr %24, ptr %block15, align 8
+  %25 = load ptr, ptr %tailBlock16, align 8
+  store ptr %25, ptr %block15, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end
-  %25 = load ptr, ptr %block15, align 8
-  %next = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::Block", ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %next, align 8
-  store ptr %26, ptr %block15, align 8
-  %27 = load ptr, ptr %block15, align 8
-  %call17 = invoke noundef zeroext i1 @_ZNK10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE5Block8is_emptyILNS4_17InnerQueueContextE1EEEbv(ptr noundef nonnull align 8 dereferenceable(2625) %27)
+  %26 = load ptr, ptr %block15, align 8
+  %next = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::Block", ptr %26, i32 0, i32 1
+  %27 = load ptr, ptr %next, align 8
+  store ptr %27, ptr %block15, align 8
+  %28 = load ptr, ptr %block15, align 8
+  %call17 = invoke noundef zeroext i1 @_ZNK10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE5Block8is_emptyILNS4_17InnerQueueContextE1EEEbv(ptr noundef nonnull align 8 dereferenceable(2625) %28)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %do.body
@@ -76379,9 +76437,9 @@ if.then18:                                        ; preds = %invoke.cont
 
 if.end19:                                         ; preds = %invoke.cont
   store i64 0, ptr %i20, align 8
-  %28 = load ptr, ptr %block15, align 8
-  %29 = load ptr, ptr %halfDequeuedBlock, align 8
-  %cmp21 = icmp eq ptr %28, %29
+  %29 = load ptr, ptr %block15, align 8
+  %30 = load ptr, ptr %halfDequeuedBlock, align 8
+  %cmp21 = icmp eq ptr %29, %30
   br i1 %cmp21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end19
@@ -76389,34 +76447,34 @@ if.then22:                                        ; preds = %if.end19
   store ptr %headIndex23, ptr %this.addr.i72, align 8
   store i32 0, ptr %__m.addr.i73, align 4
   %this1.i76 = load ptr, ptr %this.addr.i72, align 8
-  %30 = load i32, ptr %__m.addr.i73, align 4
-  %call.i77 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %30, i32 noundef 65535)
-  store i32 %call.i77, ptr %__b.i74, align 4
   %31 = load i32, ptr %__m.addr.i73, align 4
-  switch i32 %31, label %monotonic.i80 [
+  %call.i77 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %31, i32 noundef 65535)
+  store i32 %call.i77, ptr %__b.i74, align 4
+  %32 = load i32, ptr %__m.addr.i73, align 4
+  switch i32 %32, label %monotonic.i80 [
     i32 1, label %acquire.i79
     i32 2, label %acquire.i79
     i32 5, label %seqcst.i78
   ]
 
 monotonic.i80:                                    ; preds = %if.then22
-  %32 = load atomic i64, ptr %this1.i76 monotonic, align 8
-  store i64 %32, ptr %atomic-temp.i75, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit81
-
-acquire.i79:                                      ; preds = %if.then22, %if.then22
-  %33 = load atomic i64, ptr %this1.i76 acquire, align 8
+  %33 = load atomic i64, ptr %this1.i76 monotonic, align 8
   store i64 %33, ptr %atomic-temp.i75, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit81
 
-seqcst.i78:                                       ; preds = %if.then22
-  %34 = load atomic i64, ptr %this1.i76 seq_cst, align 8
+acquire.i79:                                      ; preds = %if.then22, %if.then22
+  %34 = load atomic i64, ptr %this1.i76 acquire, align 8
   store i64 %34, ptr %atomic-temp.i75, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit81
 
+seqcst.i78:                                       ; preds = %if.then22
+  %35 = load atomic i64, ptr %this1.i76 seq_cst, align 8
+  store i64 %35, ptr %atomic-temp.i75, align 8
+  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit81
+
 _ZNKSt13__atomic_baseImE4loadESt12memory_order.exit81: ; preds = %seqcst.i78, %acquire.i79, %monotonic.i80
-  %35 = load i64, ptr %atomic-temp.i75, align 8
-  %and25 = and i64 %35, 31
+  %36 = load i64, ptr %atomic-temp.i75, align 8
+  %and25 = and i64 %36, 31
   store i64 %and25, ptr %i20, align 8
   br label %if.end26
 
@@ -76425,34 +76483,34 @@ if.end26:                                         ; preds = %_ZNKSt13__atomic_ba
   store ptr %tailIndex, ptr %this.addr.i62, align 8
   store i32 0, ptr %__m.addr.i63, align 4
   %this1.i66 = load ptr, ptr %this.addr.i62, align 8
-  %36 = load i32, ptr %__m.addr.i63, align 4
-  %call.i67 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %36, i32 noundef 65535)
-  store i32 %call.i67, ptr %__b.i64, align 4
   %37 = load i32, ptr %__m.addr.i63, align 4
-  switch i32 %37, label %monotonic.i70 [
+  %call.i67 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %37, i32 noundef 65535)
+  store i32 %call.i67, ptr %__b.i64, align 4
+  %38 = load i32, ptr %__m.addr.i63, align 4
+  switch i32 %38, label %monotonic.i70 [
     i32 1, label %acquire.i69
     i32 2, label %acquire.i69
     i32 5, label %seqcst.i68
   ]
 
 monotonic.i70:                                    ; preds = %if.end26
-  %38 = load atomic i64, ptr %this1.i66 monotonic, align 8
-  store i64 %38, ptr %atomic-temp.i65, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit71
-
-acquire.i69:                                      ; preds = %if.end26, %if.end26
-  %39 = load atomic i64, ptr %this1.i66 acquire, align 8
+  %39 = load atomic i64, ptr %this1.i66 monotonic, align 8
   store i64 %39, ptr %atomic-temp.i65, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit71
 
-seqcst.i68:                                       ; preds = %if.end26
-  %40 = load atomic i64, ptr %this1.i66 seq_cst, align 8
+acquire.i69:                                      ; preds = %if.end26, %if.end26
+  %40 = load atomic i64, ptr %this1.i66 acquire, align 8
   store i64 %40, ptr %atomic-temp.i65, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit71
 
+seqcst.i68:                                       ; preds = %if.end26
+  %41 = load atomic i64, ptr %this1.i66 seq_cst, align 8
+  store i64 %41, ptr %atomic-temp.i65, align 8
+  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit71
+
 _ZNKSt13__atomic_baseImE4loadESt12memory_order.exit71: ; preds = %seqcst.i68, %acquire.i69, %monotonic.i70
-  %41 = load i64, ptr %atomic-temp.i65, align 8
-  %and28 = and i64 %41, 31
+  %42 = load i64, ptr %atomic-temp.i65, align 8
+  %and28 = and i64 %42, 31
   %cmp29 = icmp eq i64 %and28, 0
   br i1 %cmp29, label %cond.true, label %cond.false
 
@@ -76464,34 +76522,34 @@ cond.false:                                       ; preds = %_ZNKSt13__atomic_ba
   store ptr %tailIndex30, ptr %this.addr.i, align 8
   store i32 0, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %42 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %42, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
   %43 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %43, label %monotonic.i [
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %43, i32 noundef 65535)
+  store i32 %call.i, ptr %__b.i, align 4
+  %44 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %44, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %cond.false
-  %44 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %44, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %cond.false, %cond.false
-  %45 = load atomic i64, ptr %this1.i acquire, align 8
+  %45 = load atomic i64, ptr %this1.i monotonic, align 8
   store i64 %45, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
 
-seqcst.i:                                         ; preds = %cond.false
-  %46 = load atomic i64, ptr %this1.i seq_cst, align 8
+acquire.i:                                        ; preds = %cond.false, %cond.false
+  %46 = load atomic i64, ptr %this1.i acquire, align 8
   store i64 %46, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
 
+seqcst.i:                                         ; preds = %cond.false
+  %47 = load atomic i64, ptr %this1.i seq_cst, align 8
+  store i64 %47, ptr %atomic-temp.i, align 8
+  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
+
 _ZNKSt13__atomic_baseImE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %47 = load i64, ptr %atomic-temp.i, align 8
-  %and32 = and i64 %47, 31
+  %48 = load i64, ptr %atomic-temp.i, align 8
+  %and32 = and i64 %48, 31
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit, %cond.true
@@ -76500,37 +76558,37 @@ cond.end:                                         ; preds = %_ZNKSt13__atomic_ba
   br label %while.cond33
 
 while.cond33:                                     ; preds = %while.body38, %cond.end
-  %48 = load i64, ptr %i20, align 8
-  %cmp34 = icmp ne i64 %48, 32
+  %49 = load i64, ptr %i20, align 8
+  %cmp34 = icmp ne i64 %49, 32
   br i1 %cmp34, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond33
-  %49 = load ptr, ptr %block15, align 8
+  %50 = load ptr, ptr %block15, align 8
   %tailBlock35 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %50 = load ptr, ptr %tailBlock35, align 8
-  %cmp36 = icmp ne ptr %49, %50
+  %51 = load ptr, ptr %tailBlock35, align 8
+  %cmp36 = icmp ne ptr %50, %51
   br i1 %cmp36, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %51 = load i64, ptr %i20, align 8
-  %52 = load i64, ptr %lastValidIndex, align 8
-  %cmp37 = icmp ne i64 %51, %52
+  %52 = load i64, ptr %i20, align 8
+  %53 = load i64, ptr %lastValidIndex, align 8
+  %cmp37 = icmp ne i64 %52, %53
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %53 = phi i1 [ true, %land.rhs ], [ %cmp37, %lor.rhs ]
+  %54 = phi i1 [ true, %land.rhs ], [ %cmp37, %lor.rhs ]
   br label %land.end
 
 land.end:                                         ; preds = %lor.end, %while.cond33
-  %54 = phi i1 [ false, %while.cond33 ], [ %53, %lor.end ]
-  br i1 %54, label %while.body38, label %while.end40
+  %55 = phi i1 [ false, %while.cond33 ], [ %54, %lor.end ]
+  br i1 %55, label %while.body38, label %while.end40
 
 while.body38:                                     ; preds = %land.end
-  %55 = load ptr, ptr %block15, align 8
-  %56 = load i64, ptr %i20, align 8
-  %inc = add i64 %56, 1
+  %56 = load ptr, ptr %block15, align 8
+  %57 = load i64, ptr %i20, align 8
+  %inc = add i64 %57, 1
   store i64 %inc, ptr %i20, align 8
-  %call39 = call noundef ptr @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE5BlockixEm(ptr noundef nonnull align 8 dereferenceable(2625) %55, i64 noundef %56) #3
+  %call39 = call noundef ptr @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE5BlockixEm(ptr noundef nonnull align 8 dereferenceable(2625) %56, i64 noundef %57) #3
   call void @_ZN7easylog8record_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %call39) #3
   br label %while.cond33, !llvm.loop !113
 
@@ -76538,10 +76596,10 @@ while.end40:                                      ; preds = %land.end
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end40, %if.then18
-  %57 = load ptr, ptr %block15, align 8
+  %58 = load ptr, ptr %block15, align 8
   %tailBlock41 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %58 = load ptr, ptr %tailBlock41, align 8
-  %cmp42 = icmp ne ptr %57, %58
+  %59 = load ptr, ptr %tailBlock41, align 8
+  %cmp42 = icmp ne ptr %58, %59
   br i1 %cmp42, label %do.body, label %do.end, !llvm.loop !114
 
 do.end:                                           ; preds = %do.cond
@@ -76549,37 +76607,37 @@ do.end:                                           ; preds = %do.cond
 
 if.end43:                                         ; preds = %do.end, %entry
   %tailBlock44 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %59 = load ptr, ptr %tailBlock44, align 8
-  %cmp45 = icmp ne ptr %59, null
+  %60 = load ptr, ptr %tailBlock44, align 8
+  %cmp45 = icmp ne ptr %60, null
   br i1 %cmp45, label %if.then46, label %if.end56
 
 if.then46:                                        ; preds = %if.end43
   %tailBlock48 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %60 = load ptr, ptr %tailBlock48, align 8
-  store ptr %60, ptr %block47, align 8
+  %61 = load ptr, ptr %tailBlock48, align 8
+  store ptr %61, ptr %block47, align 8
   br label %do.body49
 
 do.body49:                                        ; preds = %do.cond52, %if.then46
-  %61 = load ptr, ptr %block47, align 8
-  %next50 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::Block", ptr %61, i32 0, i32 1
-  %62 = load ptr, ptr %next50, align 8
-  store ptr %62, ptr %nextBlock, align 8
+  %62 = load ptr, ptr %block47, align 8
+  %next50 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::Block", ptr %62, i32 0, i32 1
+  %63 = load ptr, ptr %next50, align 8
+  store ptr %63, ptr %nextBlock, align 8
   %parent = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 8
-  %63 = load ptr, ptr %parent, align 8
-  %64 = load ptr, ptr %block47, align 8
-  invoke void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE(ptr noundef nonnull align 8 dereferenceable(612) %63, ptr noundef %64)
+  %64 = load ptr, ptr %parent, align 8
+  %65 = load ptr, ptr %block47, align 8
+  invoke void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE(ptr noundef nonnull align 8 dereferenceable(612) %64, ptr noundef %65)
           to label %invoke.cont51 unwind label %terminate.lpad
 
 invoke.cont51:                                    ; preds = %do.body49
-  %65 = load ptr, ptr %nextBlock, align 8
-  store ptr %65, ptr %block47, align 8
+  %66 = load ptr, ptr %nextBlock, align 8
+  store ptr %66, ptr %block47, align 8
   br label %do.cond52
 
 do.cond52:                                        ; preds = %invoke.cont51
-  %66 = load ptr, ptr %block47, align 8
+  %67 = load ptr, ptr %block47, align 8
   %tailBlock53 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %67 = load ptr, ptr %tailBlock53, align 8
-  %cmp54 = icmp ne ptr %66, %67
+  %68 = load ptr, ptr %tailBlock53, align 8
+  %cmp54 = icmp ne ptr %67, %68
   br i1 %cmp54, label %do.body49, label %do.end55, !llvm.loop !115
 
 do.end55:                                         ; preds = %do.cond52
@@ -76587,24 +76645,24 @@ do.end55:                                         ; preds = %do.cond52
 
 if.end56:                                         ; preds = %do.end55, %if.end43
   %pr_blockIndexRaw = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer", ptr %this1, i32 0, i32 6
-  %68 = load ptr, ptr %pr_blockIndexRaw, align 8
-  store ptr %68, ptr %header, align 8
+  %69 = load ptr, ptr %pr_blockIndexRaw, align 8
+  store ptr %69, ptr %header, align 8
   br label %while.cond57
 
 while.cond57:                                     ; preds = %while.body59, %if.end56
-  %69 = load ptr, ptr %header, align 8
-  %cmp58 = icmp ne ptr %69, null
+  %70 = load ptr, ptr %header, align 8
+  %cmp58 = icmp ne ptr %70, null
   br i1 %cmp58, label %while.body59, label %while.end61
 
 while.body59:                                     ; preds = %while.cond57
-  %70 = load ptr, ptr %header, align 8
-  %prev60 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexHeader", ptr %70, i32 0, i32 3
-  %71 = load ptr, ptr %prev60, align 8
-  store ptr %71, ptr %prev, align 8
-  %72 = load ptr, ptr %header, align 8
-  call void @_ZN10moodycamel28ConcurrentQueueDefaultTraits4freeEPv(ptr noundef %72)
-  %73 = load ptr, ptr %prev, align 8
-  store ptr %73, ptr %header, align 8
+  %71 = load ptr, ptr %header, align 8
+  %prev60 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexHeader", ptr %71, i32 0, i32 3
+  %72 = load ptr, ptr %prev60, align 8
+  store ptr %72, ptr %prev, align 8
+  %73 = load ptr, ptr %header, align 8
+  call void @_ZN10moodycamel28ConcurrentQueueDefaultTraits4freeEPv(ptr noundef %73)
+  %74 = load ptr, ptr %prev, align 8
+  store ptr %74, ptr %header, align 8
   br label %while.cond57, !llvm.loop !116
 
 while.end61:                                      ; preds = %while.cond57
@@ -76612,10 +76670,10 @@ while.end61:                                      ; preds = %while.cond57
   ret void
 
 terminate.lpad:                                   ; preds = %do.body49, %do.body
-  %74 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #28
+  %76 = extractvalue { ptr, i32 } %75, 0
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 }
 
@@ -76853,7 +76911,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %parent_.addr, align 8
   call void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBaseC2EPS4_b(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef %0, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %nextBlockIndexCapacity = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducer", ptr %this1, i32 0, i32 1
   store i64 32, ptr %nextBlockIndexCapacity, align 8
   %blockIndex = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducer", ptr %this1, i32 0, i32 2
@@ -76865,12 +76924,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
   br label %eh.resume
 
@@ -77231,114 +77290,115 @@ entry:
   %prev = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tailIndex = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 2
   store ptr %tailIndex, ptr %this.addr.i31, align 8
   store i32 0, ptr %__m.addr.i32, align 4
   %this1.i35 = load ptr, ptr %this.addr.i31, align 8
-  %0 = load i32, ptr %__m.addr.i32, align 4
-  %call.i36 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
-  store i32 %call.i36, ptr %__b.i33, align 4
   %1 = load i32, ptr %__m.addr.i32, align 4
-  switch i32 %1, label %monotonic.i39 [
+  %call.i36 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
+  store i32 %call.i36, ptr %__b.i33, align 4
+  %2 = load i32, ptr %__m.addr.i32, align 4
+  switch i32 %2, label %monotonic.i39 [
     i32 1, label %acquire.i38
     i32 2, label %acquire.i38
     i32 5, label %seqcst.i37
   ]
 
 monotonic.i39:                                    ; preds = %entry
-  %2 = load atomic i64, ptr %this1.i35 monotonic, align 8
-  store i64 %2, ptr %atomic-temp.i34, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
-
-acquire.i38:                                      ; preds = %entry, %entry
-  %3 = load atomic i64, ptr %this1.i35 acquire, align 8
+  %3 = load atomic i64, ptr %this1.i35 monotonic, align 8
   store i64 %3, ptr %atomic-temp.i34, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
 
-seqcst.i37:                                       ; preds = %entry
-  %4 = load atomic i64, ptr %this1.i35 seq_cst, align 8
+acquire.i38:                                      ; preds = %entry, %entry
+  %4 = load atomic i64, ptr %this1.i35 acquire, align 8
   store i64 %4, ptr %atomic-temp.i34, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
 
+seqcst.i37:                                       ; preds = %entry
+  %5 = load atomic i64, ptr %this1.i35 seq_cst, align 8
+  store i64 %5, ptr %atomic-temp.i34, align 8
+  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
+
 _ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40: ; preds = %seqcst.i37, %acquire.i38, %monotonic.i39
-  %5 = load i64, ptr %atomic-temp.i34, align 8
-  store i64 %5, ptr %tail, align 8
+  %6 = load i64, ptr %atomic-temp.i34, align 8
+  store i64 %6, ptr %tail, align 8
   %headIndex = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 3
   store ptr %headIndex, ptr %this.addr.i, align 8
   store i32 0, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %6 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %6, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
   %7 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %7, label %monotonic.i [
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %7, i32 noundef 65535)
+  store i32 %call.i, ptr %__b.i, align 4
+  %8 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %8, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
-  %8 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %8, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40, %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
-  %9 = load atomic i64, ptr %this1.i acquire, align 8
+  %9 = load atomic i64, ptr %this1.i monotonic, align 8
   store i64 %9, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
 
-seqcst.i:                                         ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
-  %10 = load atomic i64, ptr %this1.i seq_cst, align 8
+acquire.i:                                        ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40, %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
+  %10 = load atomic i64, ptr %this1.i acquire, align 8
   store i64 %10, ptr %atomic-temp.i, align 8
   br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
 
+seqcst.i:                                         ; preds = %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit40
+  %11 = load atomic i64, ptr %this1.i seq_cst, align 8
+  store i64 %11, ptr %atomic-temp.i, align 8
+  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
+
 _ZNKSt13__atomic_baseImE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %11 = load i64, ptr %atomic-temp.i, align 8
-  store i64 %11, ptr %index, align 8
+  %12 = load i64, ptr %atomic-temp.i, align 8
+  store i64 %12, ptr %index, align 8
   store ptr null, ptr %block, align 8
-  %12 = load i64, ptr %index, align 8
-  %13 = load i64, ptr %tail, align 8
-  %cmp = icmp ne i64 %12, %13
+  %13 = load i64, ptr %index, align 8
+  %14 = load i64, ptr %tail, align 8
+  %cmp = icmp ne i64 %13, %14
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %forceFreeLastBlock, align 1
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end11, %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
-  %14 = load i64, ptr %index, align 8
-  %15 = load i64, ptr %tail, align 8
-  %cmp3 = icmp ne i64 %14, %15
+  %15 = load i64, ptr %index, align 8
+  %16 = load i64, ptr %tail, align 8
+  %cmp3 = icmp ne i64 %15, %16
   br i1 %cmp3, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %16 = load i64, ptr %index, align 8
-  %and = and i64 %16, 31
+  %17 = load i64, ptr %index, align 8
+  %and = and i64 %17, 31
   %cmp4 = icmp eq i64 %and, 0
   br i1 %cmp4, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %17 = load ptr, ptr %block, align 8
-  %cmp5 = icmp eq ptr %17, null
+  %18 = load ptr, ptr %block, align 8
+  %cmp5 = icmp eq ptr %18, null
   br i1 %cmp5, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %lor.lhs.false, %while.body
-  %18 = load ptr, ptr %block, align 8
-  %cmp6 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %block, align 8
+  %cmp6 = icmp ne ptr %19, null
   br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %if.then
   %parent = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 8
-  %19 = load ptr, ptr %parent, align 8
-  %20 = load ptr, ptr %block, align 8
-  invoke void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE(ptr noundef nonnull align 8 dereferenceable(612) %19, ptr noundef %20)
+  %20 = load ptr, ptr %parent, align 8
+  %21 = load ptr, ptr %block, align 8
+  invoke void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE(ptr noundef nonnull align 8 dereferenceable(612) %20, ptr noundef %21)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then7
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont, %if.then
-  %21 = load i64, ptr %index, align 8
-  %call9 = invoke noundef ptr @_ZNK10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer31get_block_index_entry_for_indexEm(ptr noundef nonnull align 8 dereferenceable(104) %this1, i64 noundef %21)
+  %22 = load i64, ptr %index, align 8
+  %call9 = invoke noundef ptr @_ZNK10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer31get_block_index_entry_for_indexEm(ptr noundef nonnull align 8 dereferenceable(104) %this1, i64 noundef %22)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %if.end
@@ -77348,38 +77408,38 @@ invoke.cont8:                                     ; preds = %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %invoke.cont8, %lor.lhs.false
-  %22 = load ptr, ptr %block, align 8
-  %23 = load i64, ptr %index, align 8
-  %call12 = call noundef ptr @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE5BlockixEm(ptr noundef nonnull align 8 dereferenceable(2625) %22, i64 noundef %23) #3
-  call void @_ZN7easylog8record_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %call12) #3
+  %23 = load ptr, ptr %block, align 8
   %24 = load i64, ptr %index, align 8
-  %inc = add i64 %24, 1
+  %call12 = call noundef ptr @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE5BlockixEm(ptr noundef nonnull align 8 dereferenceable(2625) %23, i64 noundef %24) #3
+  call void @_ZN7easylog8record_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %call12) #3
+  %25 = load i64, ptr %index, align 8
+  %inc = add i64 %25, 1
   store i64 %inc, ptr %index, align 8
   br label %while.cond, !llvm.loop !120
 
 while.end:                                        ; preds = %while.cond
   %tailBlock = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %25 = load ptr, ptr %tailBlock, align 8
-  %cmp13 = icmp ne ptr %25, null
+  %26 = load ptr, ptr %tailBlock, align 8
+  %cmp13 = icmp ne ptr %26, null
   br i1 %cmp13, label %land.lhs.true, label %if.end21
 
 land.lhs.true:                                    ; preds = %while.end
-  %26 = load i8, ptr %forceFreeLastBlock, align 1
-  %tobool = trunc i8 %26 to i1
+  %27 = load i8, ptr %forceFreeLastBlock, align 1
+  %tobool = trunc i8 %27 to i1
   br i1 %tobool, label %if.then17, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %land.lhs.true
-  %27 = load i64, ptr %tail, align 8
-  %and15 = and i64 %27, 31
+  %28 = load i64, ptr %tail, align 8
+  %and15 = and i64 %28, 31
   %cmp16 = icmp ne i64 %and15, 0
   br i1 %cmp16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %lor.lhs.false14, %land.lhs.true
   %parent18 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 8
-  %28 = load ptr, ptr %parent18, align 8
+  %29 = load ptr, ptr %parent18, align 8
   %tailBlock19 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ProducerBase", ptr %this1, i32 0, i32 6
-  %29 = load ptr, ptr %tailBlock19, align 8
-  invoke void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE(ptr noundef nonnull align 8 dereferenceable(612) %28, ptr noundef %29)
+  %30 = load ptr, ptr %tailBlock19, align 8
+  invoke void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE(ptr noundef nonnull align 8 dereferenceable(612) %29, ptr noundef %30)
           to label %invoke.cont20 unwind label %terminate.lpad
 
 invoke.cont20:                                    ; preds = %if.then17
@@ -77389,8 +77449,8 @@ if.end21:                                         ; preds = %invoke.cont20, %lor
   %blockIndex = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducer", ptr %this1, i32 0, i32 2
   %call22 = call noundef ptr @_ZNKSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer16BlockIndexHeaderEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %blockIndex, i32 noundef 0) #3
   store ptr %call22, ptr %localBlockIndex, align 8
-  %30 = load ptr, ptr %localBlockIndex, align 8
-  %cmp23 = icmp ne ptr %30, null
+  %31 = load ptr, ptr %localBlockIndex, align 8
+  %cmp23 = icmp ne ptr %31, null
   br i1 %cmp23, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %if.end21
@@ -77398,19 +77458,19 @@ if.then24:                                        ; preds = %if.end21
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then24
-  %31 = load i64, ptr %i, align 8
-  %32 = load ptr, ptr %localBlockIndex, align 8
-  %capacity = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducer::BlockIndexHeader", ptr %32, i32 0, i32 0
-  %33 = load i64, ptr %capacity, align 8
-  %cmp25 = icmp ne i64 %31, %33
+  %32 = load i64, ptr %i, align 8
+  %33 = load ptr, ptr %localBlockIndex, align 8
+  %capacity = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducer::BlockIndexHeader", ptr %33, i32 0, i32 0
+  %34 = load i64, ptr %capacity, align 8
+  %cmp25 = icmp ne i64 %32, %34
   br i1 %cmp25, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %34 = load i64, ptr %i, align 8
-  %inc27 = add i64 %34, 1
+  %35 = load i64, ptr %i, align 8
+  %inc27 = add i64 %35, 1
   store i64 %inc27, ptr %i, align 8
   br label %for.cond, !llvm.loop !121
 
@@ -77418,19 +77478,19 @@ for.end:                                          ; preds = %for.cond
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %for.end
-  %35 = load ptr, ptr %localBlockIndex, align 8
-  %prev28 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducer::BlockIndexHeader", ptr %35, i32 0, i32 4
-  %36 = load ptr, ptr %prev28, align 8
-  store ptr %36, ptr %prev, align 8
-  %37 = load ptr, ptr %localBlockIndex, align 8
-  call void @_ZN10moodycamel28ConcurrentQueueDefaultTraits4freeEPv(ptr noundef %37)
-  %38 = load ptr, ptr %prev, align 8
-  store ptr %38, ptr %localBlockIndex, align 8
+  %36 = load ptr, ptr %localBlockIndex, align 8
+  %prev28 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducer::BlockIndexHeader", ptr %36, i32 0, i32 4
+  %37 = load ptr, ptr %prev28, align 8
+  store ptr %37, ptr %prev, align 8
+  %38 = load ptr, ptr %localBlockIndex, align 8
+  call void @_ZN10moodycamel28ConcurrentQueueDefaultTraits4freeEPv(ptr noundef %38)
+  %39 = load ptr, ptr %prev, align 8
+  store ptr %39, ptr %localBlockIndex, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %39 = load ptr, ptr %localBlockIndex, align 8
-  %cmp29 = icmp ne ptr %39, null
+  %40 = load ptr, ptr %localBlockIndex, align 8
+  %cmp29 = icmp ne ptr %40, null
   br i1 %cmp29, label %do.body, label %do.end, !llvm.loop !122
 
 do.end:                                           ; preds = %do.cond
@@ -77441,10 +77501,10 @@ if.end30:                                         ; preds = %do.end, %if.end21
   ret void
 
 terminate.lpad:                                   ; preds = %if.then17, %if.end, %if.then7
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #28
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #28
   unreachable
 }
 
@@ -95370,10 +95430,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -98211,32 +98272,33 @@ entry:
   store ptr %args5, ptr %args.addr6, align 8
   %this7 = load ptr, ptr %this.addr, align 8
   call void @_ZN4asio6detail25cancellation_handler_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4asio6detail20cancellation_handlerINS0_28reactive_socket_service_base23reactor_op_cancellationEEE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4asio6detail20cancellation_handlerINS0_28reactive_socket_service_base23reactor_op_cancellationEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this7, align 8
   %handler_ = getelementptr inbounds %"class.asio::detail::cancellation_handler.489", ptr %this7, i32 0, i32 1
-  %0 = load ptr, ptr %args.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %args.addr2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %args.addr4, align 8
-  %5 = load i32, ptr %4, align 4
-  %6 = load ptr, ptr %args.addr6, align 8
-  %7 = load i32, ptr %6, align 4
-  invoke void @_ZN4asio6detail28reactive_socket_service_base23reactor_op_cancellationC2EPNS0_13epoll_reactorEPPNS3_16descriptor_stateEii(ptr noundef nonnull align 8 dereferenceable(24) %handler_, ptr noundef %1, ptr noundef %3, i32 noundef %5, i32 noundef %7)
+  %1 = load ptr, ptr %args.addr, align 8
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %args.addr2, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %args.addr4, align 8
+  %6 = load i32, ptr %5, align 4
+  %7 = load ptr, ptr %args.addr6, align 8
+  %8 = load i32, ptr %7, align 4
+  invoke void @_ZN4asio6detail28reactive_socket_service_base23reactor_op_cancellationC2EPNS0_13epoll_reactorEPPNS3_16descriptor_stateEii(ptr noundef nonnull align 8 dereferenceable(24) %handler_, ptr noundef %2, ptr noundef %4, i32 noundef %6, i32 noundef %8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %size_ = getelementptr inbounds %"class.asio::detail::cancellation_handler.489", ptr %this7, i32 0, i32 2
-  %8 = load i64, ptr %size.addr, align 8
-  store i64 %8, ptr %size_, align 8
+  %9 = load i64, ptr %size.addr, align 8
+  store i64 %9, ptr %size_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN4asio6detail25cancellation_handler_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this7) #3
   br label %eh.resume
 
@@ -99891,17 +99953,19 @@ entry:
 
 memptr.virtual:                                   ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %2 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm to i64), i64 1), !nosanitize !169
-  %memptr.virtualfn = load ptr, ptr %2, align 8, !nosanitize !169
+  %2 = ptrtoint ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm to i64
+  %3 = sub i64 %2, 1
+  %4 = getelementptr i8, ptr %vtable, i64 %3, !nosanitize !169
+  %memptr.virtualfn = load ptr, ptr %4, align 8, !nosanitize !169
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %entry
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %3 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm, %memptr.nonvirtual ]
-  %4 = load i64, ptr %sz.addr, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %4)
+  %5 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm, %memptr.nonvirtual ]
+  %6 = load i64, ptr %sz.addr, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6)
   ret void
 }
 
@@ -100271,24 +100335,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7coro_io15io_context_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7coro_io15io_context_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.499", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN7coro_io15io_context_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(112) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7coro_io15io_context_poolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(128) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7coro_io15io_context_poolEJRjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7coro_io15io_context_poolEJRjEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -100785,22 +100850,23 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.504", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS2_15io_context_poolEEERT_jENKUlS5_E_clISt10shared_ptrIS4_EEEDaS5_EUlvE_EEEC2IJSB_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS2_15io_context_poolEEERT_jENKUlS5_E_clISt10shared_ptrIS4_EEEDaS5_EUlvE_EEEC2IJSB_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -100832,7 +100898,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS3_15io_context_poolEEERT_jENKUlS6_E_clISt10shared_ptrIS5_EEEDaS6_EUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.504", ptr %this1, i32 0, i32 1
   call void @_ZNSt6thread8_InvokerISt5tupleIJZZN7coro_io23g_block_io_context_poolINS2_15io_context_poolEEERT_jENKUlS5_E_clISt10shared_ptrIS4_EEEDaS5_EUlvE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_M_func) #3
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -102377,25 +102444,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6threadSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6threadSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.524", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceISt6threadSaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt6threadSaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %this3) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructISt6threadJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_RS9_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructISt6threadJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_RS9_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #3
   br label %eh.resume
 
@@ -102768,23 +102836,24 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.528", ptr %this3, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S7_EEEC2IJS8_RS7_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %_M_func, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S7_EEEC2IJS8_RS7_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %_M_func, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
   br label %eh.resume
 
@@ -102819,7 +102888,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S8_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.528", ptr %this1, i32 0, i32 1
   call void @_ZNSt6thread8_InvokerISt5tupleIJZN7coro_io15io_context_pool3runEvEUlSt10shared_ptrIN4asio10io_contextEEE_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_M_func) #3
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -106227,11 +106297,12 @@ entry:
   store ptr %__a, ptr %__a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPiZN7coro_io9coro_file7open_fdESt17basic_string_viewIcSt11char_traitsIcEEiEUlS0_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPiZN7coro_io9coro_file7open_fdESt17basic_string_viewIcSt11char_traitsIcEEiEUlS0_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPiZN7coro_io9coro_file7open_fdESt17basic_string_viewIcSt11char_traitsIcEEiEUlS0_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES0_S7_RKS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  %2 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPiZN7coro_io9coro_file7open_fdESt17basic_string_viewIcSt11char_traitsIcEEiEUlS0_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES0_S7_RKS8_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   ret void
 }
 
@@ -109407,7 +109478,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -109561,9 +109632,6 @@ entry:
   call void @_ZNK7coro_io21callback_awaitor_baseIN12async_simple3TryIbEENS_16callback_awaitorIS3_EEE15awaitor_handler6resumeEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12async_simple3TryIbE12setExceptionENSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %error) #4 comdat align 2 {
@@ -110002,11 +110070,12 @@ entry:
   store ptr %__a, ptr %__a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIP8_IO_FILEZZN7coro_io9coro_file10async_openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS2_9read_typeEENKUlvE_clEvEUlS1_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIP8_IO_FILEZZN7coro_io9coro_file10async_openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS2_9read_typeEENKUlvE_clEvEUlS1_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter.627", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIP8_IO_FILEZZN7coro_io9coro_file10async_openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS2_9read_typeEENKUlvE_clEvEUlS1_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_SC_RKSD_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  %2 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIP8_IO_FILEZZN7coro_io9coro_file10async_openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS2_9read_typeEENKUlvE_clEvEUlS1_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_SC_RKSD_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   ret void
 }
 
@@ -115840,7 +115909,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -121405,7 +121474,7 @@ do.end:                                           ; preds = %do.cond
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr dso_local void @_ZSt27__throw_bad_optional_accessv() #23 comdat {
+define linkonce_odr dso_local void @_ZSt27__throw_bad_optional_accessv() #22 comdat {
 entry:
   %exception = call ptr @__cxa_allocate_exception(i64 8) #3
   call void @llvm.memset.p0.i64(ptr align 16 %exception, i8 0, i64 8, i1 false)
@@ -121431,7 +121500,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -126286,7 +126356,7 @@ entry:
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #24
+declare i1 @llvm.is.constant.i64(i64) #23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN4asio12const_bufferESt6vectorIS2_SaIS2_EEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
@@ -128022,7 +128092,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -134764,22 +134835,23 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7cinatra16coro_http_server11async_startEvEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7cinatra16coro_http_server11async_startEvEUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.774", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN7cinatra16coro_http_server11async_startEvEUlvE_EEEC2IJS4_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_func, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN7cinatra16coro_http_server11async_startEvEUlvE_EEEC2IJS4_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_func, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -141019,25 +141091,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7cinatra20coro_http_connectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7cinatra20coro_http_connectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.843", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN7cinatra20coro_http_connectionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(4040) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7cinatra20coro_http_connectionESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(4056) %this3) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7cinatra20coro_http_connectionEJRPN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeIS0_Lm0EEEEENS7_19basic_stream_socketINS7_2ip3tcpENS7_15any_io_executorEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7cinatra20coro_http_connectionEJRPN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeIS0_Lm0EEEEENS7_19basic_stream_socketINS7_2ip3tcpENS7_15any_io_executorEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #3
   br label %eh.resume
 
@@ -141699,23 +141772,24 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
   call void @_ZN4asio6detail11noncopyableC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %max_size_ = getelementptr inbounds %"class.asio::basic_streambuf", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %maximum_size.addr, align 8
-  store i64 %0, ptr %max_size_, align 8
+  %1 = load i64, ptr %maximum_size.addr, align 8
+  store i64 %1, ptr %max_size_, align 8
   %buffer_ = getelementptr inbounds %"class.asio::basic_streambuf", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %allocator.addr, align 8
-  call void @_ZNSt6vectorIcSaIcEEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %buffer_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
+  %2 = load ptr, ptr %allocator.addr, align 8
+  call void @_ZNSt6vectorIcSaIcEEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %buffer_, ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   %max_size_2 = getelementptr inbounds %"class.asio::basic_streambuf", ptr %this1, i32 0, i32 1
   store i64 128, ptr %ref.tmp, align 8
   %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %max_size_2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %2 = load i64, ptr %call, align 8
-  store i64 %2, ptr %pend, align 8
+  %3 = load i64, ptr %call, align 8
+  store i64 %3, ptr %pend, align 8
   %buffer_3 = getelementptr inbounds %"class.asio::basic_streambuf", ptr %this1, i32 0, i32 2
   store i64 1, ptr %ref.tmp4, align 8
   %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %pend, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
-  %3 = load i64, ptr %call5, align 8
-  invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %buffer_3, i64 noundef %3)
+  %4 = load i64, ptr %call5, align 8
+  invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %buffer_3, i64 noundef %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -141733,8 +141807,8 @@ invoke.cont12:                                    ; preds = %invoke.cont
   %call14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt6vectorIcSaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %buffer_13, i64 noundef 0) #3
   %buffer_15 = getelementptr inbounds %"class.asio::basic_streambuf", ptr %this1, i32 0, i32 2
   %call16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt6vectorIcSaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %buffer_15, i64 noundef 0) #3
-  %4 = load i64, ptr %pend, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call16, i64 %4
+  %5 = load i64, ptr %pend, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call16, i64 %5
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %call14, ptr noundef %add.ptr)
           to label %invoke.cont17 unwind label %lpad
 
@@ -141742,12 +141816,12 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %invoke.cont12, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer_) #3
   call void @_ZN4asio6detail11noncopyableD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3
@@ -142041,7 +142115,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4asio15basic_streambufISaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.asio::basic_streambuf", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer_) #3
   call void @_ZN4asio6detail11noncopyableD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
@@ -143410,7 +143485,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -150841,7 +150917,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch23, label %catch
 
@@ -151397,7 +151473,7 @@ ehcleanup34:                                      ; preds = %ehcleanup, %lpad13
 
 catch.dispatch:                                   ; preds = %ehcleanup34
   %sel = load i32, ptr %ehselector.slot, align 4
-  %26 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %26
   br i1 %matches, label %catch72, label %catch
 
@@ -156046,7 +156122,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIN7cinatra11http_headerELm100EE4dataEv(ptr noundef nonnull align 8 dereferenceable(3200) %this) #25 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIN7cinatra11http_headerELm100EE4dataEv(ptr noundef nonnull align 8 dereferenceable(3200) %this) #24 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -167788,7 +167864,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %3 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -169870,7 +169946,7 @@ lpad42:                                           ; preds = %if.then41
 
 catch.dispatch:                                   ; preds = %lpad42, %ehcleanup39, %ehcleanup, %lpad12
   %sel = load i32, ptr %ehselector.slot, align 4
-  %39 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %39
   br i1 %matches, label %catch, label %ehcleanup53
 
@@ -203982,7 +204058,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN7coro_io11async_writeIN4asio19basic_stream_socketINS1_2ip3tcpENS1_15any_io_executorEEERSt5arrayINS1_12const_bufferELm2EEEEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_.resume(ptr noundef nonnull align 8 dereferenceable(168) %0) #5 personality ptr @__gxx_personality_v0 {
@@ -258963,7 +259039,7 @@ ehcleanup34:                                      ; preds = %ehcleanup, %lpad13
 
 catch.dispatch:                                   ; preds = %ehcleanup34
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch72, label %catch
 
@@ -259615,7 +259691,7 @@ ehcleanup34:                                      ; preds = %ehcleanup, %lpad13
 
 catch.dispatch:                                   ; preds = %ehcleanup34
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch72, label %catch
 
@@ -260292,7 +260368,7 @@ ehcleanup34:                                      ; preds = %ehcleanup, %lpad13
 
 catch.dispatch:                                   ; preds = %ehcleanup34
   %sel = load i32, ptr %ehselector.slot, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %19
   br i1 %matches, label %catch72, label %catch
 
@@ -273014,6 +273090,9 @@ unreachable95:                                    ; preds = %resume.entry
   unreachable
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #26
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -273036,11 +273115,11 @@ attributes #18 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nounwind memory(none) }
-attributes #23 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #25 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #22 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #24 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #26 = { nounwind memory(none) }
 attributes #27 = { noreturn }
 attributes #28 = { noreturn nounwind }
 attributes #29 = { builtin allocsize(0) }

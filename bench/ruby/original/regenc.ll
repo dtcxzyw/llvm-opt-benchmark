@@ -2297,58 +2297,59 @@ define dso_local i32 @onigenc_minimum_property_name_to_ctype(ptr noundef %0, ptr
   store ptr @onigenc_minimum_property_name_to_ctype.PBS, ptr %8, align 8
   br label %14
 
-14:                                               ; preds = %42, %3
+14:                                               ; preds = %43, %3
   %15 = load ptr, ptr %8, align 8
-  %16 = icmp ult ptr %15, getelementptr (%struct.PosixBracketEntryType, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 14)
-  br i1 %16, label %17, label %45
+  %16 = getelementptr %struct.PosixBracketEntryType, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 14
+  %17 = icmp ult ptr %15, %16
+  br i1 %17, label %18, label %46
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %9, align 4
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %19, i32 0, i32 0
-  %21 = load i16, ptr %20, align 4
-  %22 = sext i16 %21 to i32
-  %23 = icmp eq i32 %18, %22
-  br i1 %23, label %24, label %41
+18:                                               ; preds = %14
+  %19 = load i32, ptr %9, align 4
+  %20 = load ptr, ptr %8, align 8
+  %21 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %20, i32 0, i32 0
+  %22 = load i16, ptr %21, align 4
+  %23 = sext i16 %22 to i32
+  %24 = icmp eq i32 %19, %23
+  br i1 %24, label %25, label %42
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %28, i32 0, i32 1
-  %30 = getelementptr inbounds [6 x i8], ptr %29, i64 0, i64 0
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %31, i32 0, i32 0
-  %33 = load i16, ptr %32, align 4
-  %34 = sext i16 %33 to i32
-  %35 = call i32 @onigenc_with_ascii_strnicmp(ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %30, i32 noundef %34)
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %41
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %29, i32 0, i32 1
+  %31 = getelementptr inbounds [6 x i8], ptr %30, i64 0, i64 0
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %32, i32 0, i32 0
+  %34 = load i16, ptr %33, align 4
+  %35 = sext i16 %34 to i32
+  %36 = call i32 @onigenc_with_ascii_strnicmp(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %31, i32 noundef %35)
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %24
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %38, i32 0, i32 2
-  %40 = load i32, ptr %39, align 4
-  store i32 %40, ptr %4, align 4
-  br label %46
+38:                                               ; preds = %25
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds %struct.PosixBracketEntryType, ptr %39, i32 0, i32 2
+  %41 = load i32, ptr %40, align 4
+  store i32 %41, ptr %4, align 4
+  br label %47
 
-41:                                               ; preds = %24, %17
-  br label %42
+42:                                               ; preds = %25, %18
+  br label %43
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr %struct.PosixBracketEntryType, ptr %43, i32 1
-  store ptr %44, ptr %8, align 8
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr %struct.PosixBracketEntryType, ptr %44, i32 1
+  store ptr %45, ptr %8, align 8
   br label %14, !llvm.loop !18
 
-45:                                               ; preds = %14
+46:                                               ; preds = %14
   store i32 -223, ptr %4, align 4
-  br label %46
+  br label %47
 
-46:                                               ; preds = %45, %37
-  %47 = load i32, ptr %4, align 4
-  ret i32 %47
+47:                                               ; preds = %46, %38
+  %48 = load i32, ptr %4, align 4
+  ret i32 %48
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

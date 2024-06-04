@@ -456,28 +456,29 @@ define internal i64 @nvram_misc_write(ptr nocapture readnone %0, ptr noundef %1,
   %6 = load i1, ptr @nvram_size, align 8
   %7 = select i1 %6, i64 114, i64 0
   %8 = icmp slt i64 %5, %7
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %20
 
 9:                                                ; preds = %4
   %10 = sub i64 %7, %5
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %2)
   %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 4096)
   %13 = tail call ptr @memdup_user(ptr noundef %1, i64 noundef %12) #9
-  %14 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)
-  br i1 %14, label %15, label %17
+  %14 = inttoptr i64 -4096 to ptr
+  %15 = icmp ugt ptr %13, %14
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %9
-  %16 = ptrtoint ptr %13 to i64
-  br label %19
+16:                                               ; preds = %9
+  %17 = ptrtoint ptr %13 to i64
+  br label %20
 
-17:                                               ; preds = %9
-  %18 = tail call noundef i64 @pc_nvram_write(ptr noundef %13, i64 noundef %12, ptr noundef %3)
+18:                                               ; preds = %9
+  %19 = tail call noundef i64 @pc_nvram_write(ptr noundef %13, i64 noundef %12, ptr noundef %3)
   tail call void @kfree(ptr noundef %13) #9
-  br label %19
+  br label %20
 
-19:                                               ; preds = %17, %15, %4
-  %20 = phi i64 [ %16, %15 ], [ %18, %17 ], [ 0, %4 ]
-  ret i64 %20
+20:                                               ; preds = %18, %16, %4
+  %21 = phi i64 [ %17, %16 ], [ %19, %18 ], [ 0, %4 ]
+  ret i64 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -693,7 +693,8 @@ entry:
   store ptr %q, ptr %q.addr, align 8
   store i32 %pairCapacity, ptr %pairCapacity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV21b3GpuPgsContactSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV21b3GpuPgsContactSolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_debugOutput = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_debugOutput, align 8
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 392) #12
@@ -703,591 +704,591 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_data = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
   store ptr %call, ptr %m_data, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
   %m_data2 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %m_data2, align 8
-  %m_context = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %1, i32 0, i32 0
-  store ptr %0, ptr %m_context, align 8
-  %2 = load ptr, ptr %device.addr, align 8
+  %2 = load ptr, ptr %m_data2, align 8
+  %m_context = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %2, i32 0, i32 0
+  store ptr %1, ptr %m_context, align 8
+  %3 = load ptr, ptr %device.addr, align 8
   %m_data3 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %m_data3, align 8
-  %m_device = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %3, i32 0, i32 1
-  store ptr %2, ptr %m_device, align 8
-  %4 = load ptr, ptr %q.addr, align 8
+  %4 = load ptr, ptr %m_data3, align 8
+  %m_device = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %4, i32 0, i32 1
+  store ptr %3, ptr %m_device, align 8
+  %5 = load ptr, ptr %q.addr, align 8
   %m_data4 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %m_data4, align 8
-  %m_queue = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %5, i32 0, i32 2
-  store ptr %4, ptr %m_queue, align 8
-  %6 = load i32, ptr %pairCapacity.addr, align 4
+  %6 = load ptr, ptr %m_data4, align 8
+  %m_queue = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %6, i32 0, i32 2
+  store ptr %5, ptr %m_queue, align 8
+  %7 = load i32, ptr %pairCapacity.addr, align 4
   %m_data5 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %m_data5, align 8
-  %m_pairCapacity = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %7, i32 0, i32 3
-  store i32 %6, ptr %m_pairCapacity, align 8
+  %8 = load ptr, ptr %m_data5, align 8
+  %m_pairCapacity = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %8, i32 0, i32 3
+  store i32 %7, ptr %m_pairCapacity, align 8
   %m_data6 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %8 = load ptr, ptr %m_data6, align 8
-  %m_nIterations = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %8, i32 0, i32 4
+  %9 = load ptr, ptr %m_data6, align 8
+  %m_nIterations = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %9, i32 0, i32 4
   store i32 4, ptr %m_nIterations, align 4
   %call7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %10 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call7, ptr noundef %9, ptr noundef %10, i64 noundef 0, i1 noundef zeroext true)
+  %10 = load ptr, ptr %ctx.addr, align 8
+  %11 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call7, ptr noundef %10, ptr noundef %11, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %m_data10 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %m_data10, align 8
-  %m_batchSizesGpu = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %11, i32 0, i32 37
+  %12 = load ptr, ptr %m_data10, align 8
+  %m_batchSizesGpu = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %12, i32 0, i32 37
   store ptr %call7, ptr %m_batchSizesGpu, align 8
   %call11 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %13 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI15b3RigidBodyDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call11, ptr noundef %12, ptr noundef %13, i64 noundef 0, i1 noundef zeroext true)
+  %13 = load ptr, ptr %ctx.addr, align 8
+  %14 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI15b3RigidBodyDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call11, ptr noundef %13, ptr noundef %14, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   %m_data14 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %14 = load ptr, ptr %m_data14, align 8
-  %m_bodyBufferGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %14, i32 0, i32 28
+  %15 = load ptr, ptr %m_data14, align 8
+  %m_bodyBufferGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %15, i32 0, i32 28
   store ptr %call11, ptr %m_bodyBufferGPU, align 8
   %call15 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %15 = load ptr, ptr %ctx.addr, align 8
-  %16 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI13b3InertiaDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call15, ptr noundef %15, ptr noundef %16, i64 noundef 0, i1 noundef zeroext true)
+  %16 = load ptr, ptr %ctx.addr, align 8
+  %17 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI13b3InertiaDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call15, ptr noundef %16, ptr noundef %17, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont13
   %m_data18 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %17 = load ptr, ptr %m_data18, align 8
-  %m_inertiaBufferGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %17, i32 0, i32 29
+  %18 = load ptr, ptr %m_data18, align 8
+  %m_inertiaBufferGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %18, i32 0, i32 29
   store ptr %call15, ptr %m_inertiaBufferGPU, align 8
   %call19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %18 = load ptr, ptr %ctx.addr, align 8
-  %19 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3Contact4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call19, ptr noundef %18, ptr noundef %19, i64 noundef 0, i1 noundef zeroext true)
+  %19 = load ptr, ptr %ctx.addr, align 8
+  %20 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3Contact4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call19, ptr noundef %19, ptr noundef %20, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont17
   %m_data22 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %20 = load ptr, ptr %m_data22, align 8
-  %m_pBufContactOutGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %20, i32 0, i32 30
+  %21 = load ptr, ptr %m_data22, align 8
+  %m_pBufContactOutGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %21, i32 0, i32 30
   store ptr %call19, ptr %m_pBufContactOutGPU, align 8
   %call23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %22 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3Contact4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call23, ptr noundef %21, ptr noundef %22, i64 noundef 0, i1 noundef zeroext true)
+  %22 = load ptr, ptr %ctx.addr, align 8
+  %23 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3Contact4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call23, ptr noundef %22, ptr noundef %23, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   %m_data26 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %23 = load ptr, ptr %m_data26, align 8
-  %m_pBufContactOutGPUCopy = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %23, i32 0, i32 31
+  %24 = load ptr, ptr %m_data26, align 8
+  %m_pBufContactOutGPUCopy = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %24, i32 0, i32 31
   store ptr %call23, ptr %m_pBufContactOutGPUCopy, align 8
   %call27 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %25 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call27, ptr noundef %24, ptr noundef %25, i64 noundef 0, i1 noundef zeroext true)
+  %25 = load ptr, ptr %ctx.addr, align 8
+  %26 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call27, ptr noundef %25, ptr noundef %26, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont25
   %m_data30 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %26 = load ptr, ptr %m_data30, align 8
-  %m_contactKeyValues = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %26, i32 0, i32 32
+  %27 = load ptr, ptr %m_data30, align 8
+  %m_contactKeyValues = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %27, i32 0, i32 32
   store ptr %call27, ptr %m_contactKeyValues, align 8
   %call31 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 216) #12
-  %27 = load ptr, ptr %ctx.addr, align 8
-  %28 = load ptr, ptr %device.addr, align 8
-  %29 = load ptr, ptr %q.addr, align 8
-  invoke void @_ZN8b3SolverC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(216) %call31, ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef 524288)
+  %28 = load ptr, ptr %ctx.addr, align 8
+  %29 = load ptr, ptr %device.addr, align 8
+  %30 = load ptr, ptr %q.addr, align 8
+  invoke void @_ZN8b3SolverC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(216) %call31, ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef 524288)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont29
   %m_data34 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %30 = load ptr, ptr %m_data34, align 8
-  %m_solverGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %30, i32 0, i32 8
+  %31 = load ptr, ptr %m_data34, align 8
+  %m_solverGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %31, i32 0, i32 8
   store ptr %call31, ptr %m_solverGPU, align 8
   %call35 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 128) #12
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %32 = load ptr, ptr %device.addr, align 8
+  %32 = load ptr, ptr %ctx.addr, align 8
+  %33 = load ptr, ptr %device.addr, align 8
   %m_data36 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %33 = load ptr, ptr %m_data36, align 8
-  %m_queue37 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %33, i32 0, i32 2
-  %34 = load ptr, ptr %m_queue37, align 8
-  invoke void @_ZN15b3RadixSort32CLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(128) %call35, ptr noundef %31, ptr noundef %32, ptr noundef %34, i32 noundef 0)
+  %34 = load ptr, ptr %m_data36, align 8
+  %m_queue37 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %34, i32 0, i32 2
+  %35 = load ptr, ptr %m_queue37, align 8
+  invoke void @_ZN15b3RadixSort32CLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(128) %call35, ptr noundef %32, ptr noundef %33, ptr noundef %35, i32 noundef 0)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont33
   %m_data40 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %35 = load ptr, ptr %m_data40, align 8
-  %m_sort32 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %35, i32 0, i32 23
+  %36 = load ptr, ptr %m_data40, align 8
+  %m_sort32 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %36, i32 0, i32 23
   store ptr %call35, ptr %m_sort32, align 8
   %call41 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #12
-  %36 = load ptr, ptr %ctx.addr, align 8
-  %37 = load ptr, ptr %device.addr, align 8
+  %37 = load ptr, ptr %ctx.addr, align 8
+  %38 = load ptr, ptr %device.addr, align 8
   %m_data42 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %38 = load ptr, ptr %m_data42, align 8
-  %m_queue43 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %m_queue43, align 8
-  invoke void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %call41, ptr noundef %36, ptr noundef %37, ptr noundef %39, i32 noundef 256)
+  %39 = load ptr, ptr %m_data42, align 8
+  %m_queue43 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %39, i32 0, i32 2
+  %40 = load ptr, ptr %m_queue43, align 8
+  invoke void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(48) %call41, ptr noundef %37, ptr noundef %38, ptr noundef %40, i32 noundef 256)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont39
   %m_data46 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %40 = load ptr, ptr %m_data46, align 8
-  %m_scan = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %40, i32 0, i32 25
+  %41 = load ptr, ptr %m_data46, align 8
+  %m_scan = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %41, i32 0, i32 25
   store ptr %call41, ptr %m_scan, align 8
   %call47 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #12
-  %41 = load ptr, ptr %ctx.addr, align 8
-  %42 = load ptr, ptr %device.addr, align 8
+  %42 = load ptr, ptr %ctx.addr, align 8
+  %43 = load ptr, ptr %device.addr, align 8
   %m_data48 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %43 = load ptr, ptr %m_data48, align 8
-  %m_queue49 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %43, i32 0, i32 2
-  %44 = load ptr, ptr %m_queue49, align 8
-  invoke void @_ZN15b3BoundSearchCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(88) %call47, ptr noundef %41, ptr noundef %42, ptr noundef %44, i32 noundef 256)
+  %44 = load ptr, ptr %m_data48, align 8
+  %m_queue49 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %44, i32 0, i32 2
+  %45 = load ptr, ptr %m_queue49, align 8
+  invoke void @_ZN15b3BoundSearchCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(88) %call47, ptr noundef %42, ptr noundef %43, ptr noundef %45, i32 noundef 256)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont45
   %m_data52 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %45 = load ptr, ptr %m_data52, align 8
-  %m_search = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %45, i32 0, i32 24
+  %46 = load ptr, ptr %m_data52, align 8
+  %m_search = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %46, i32 0, i32 24
   store ptr %call47, ptr %m_search, align 8
-  %46 = load i32, ptr %pairCapacity.addr, align 4
-  %div = sdiv i32 %46, 512
   %47 = load i32, ptr %pairCapacity.addr, align 4
-  %rem = srem i32 %47, 512
+  %div = sdiv i32 %47, 512
+  %48 = load i32, ptr %pairCapacity.addr, align 4
+  %rem = srem i32 %48, 512
   %cmp = icmp eq i32 %rem, 0
   %cond = select i1 %cmp, i32 0, i32 1
   %add = add nsw i32 %div, %cond
   %mul = mul nsw i32 %add, 512
   store i32 %mul, ptr %sortSize, align 4
   %call53 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %48 = load ptr, ptr %ctx.addr, align 8
+  %49 = load ptr, ptr %ctx.addr, align 8
   %m_data54 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %49 = load ptr, ptr %m_data54, align 8
-  %m_queue55 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %49, i32 0, i32 2
-  %50 = load ptr, ptr %m_queue55, align 8
-  %51 = load i32, ptr %sortSize, align 4
-  %conv = sext i32 %51 to i64
-  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call53, ptr noundef %48, ptr noundef %50, i64 noundef %conv, i1 noundef zeroext true)
+  %50 = load ptr, ptr %m_data54, align 8
+  %m_queue55 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %50, i32 0, i32 2
+  %51 = load ptr, ptr %m_queue55, align 8
+  %52 = load i32, ptr %sortSize, align 4
+  %conv = sext i32 %52 to i64
+  invoke void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call53, ptr noundef %49, ptr noundef %51, i64 noundef %conv, i1 noundef zeroext true)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont51
   %m_data58 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %52 = load ptr, ptr %m_data58, align 8
-  %m_sortDataBuffer = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %52, i32 0, i32 26
+  %53 = load ptr, ptr %m_data58, align 8
+  %m_sortDataBuffer = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %53, i32 0, i32 26
   store ptr %call53, ptr %m_sortDataBuffer, align 8
   %call59 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %53 = load ptr, ptr %ctx.addr, align 8
+  %54 = load ptr, ptr %ctx.addr, align 8
   %m_data60 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %54 = load ptr, ptr %m_data60, align 8
-  %m_queue61 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %54, i32 0, i32 2
-  %55 = load ptr, ptr %m_queue61, align 8
-  invoke void @_ZN13b3OpenCLArrayI10b3Contact4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call59, ptr noundef %53, ptr noundef %55, i64 noundef 0, i1 noundef zeroext true)
+  %55 = load ptr, ptr %m_data60, align 8
+  %m_queue61 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %55, i32 0, i32 2
+  %56 = load ptr, ptr %m_queue61, align 8
+  invoke void @_ZN13b3OpenCLArrayI10b3Contact4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call59, ptr noundef %54, ptr noundef %56, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont57
   %m_data64 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %56 = load ptr, ptr %m_data64, align 8
-  %m_contactBuffer = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %56, i32 0, i32 27
+  %57 = load ptr, ptr %m_data64, align 8
+  %m_contactBuffer = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %57, i32 0, i32 27
   store ptr %call59, ptr %m_contactBuffer, align 8
   %call65 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %57 = load ptr, ptr %ctx.addr, align 8
+  %58 = load ptr, ptr %ctx.addr, align 8
   %m_data66 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %58 = load ptr, ptr %m_data66, align 8
-  %m_queue67 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %58, i32 0, i32 2
-  %59 = load ptr, ptr %m_queue67, align 8
-  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call65, ptr noundef %57, ptr noundef %59, i64 noundef 256, i1 noundef zeroext true)
+  %59 = load ptr, ptr %m_data66, align 8
+  %m_queue67 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %59, i32 0, i32 2
+  %60 = load ptr, ptr %m_queue67, align 8
+  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call65, ptr noundef %58, ptr noundef %60, i64 noundef 256, i1 noundef zeroext true)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont63
   %m_data70 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %60 = load ptr, ptr %m_data70, align 8
-  %m_numConstraints = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %60, i32 0, i32 6
+  %61 = load ptr, ptr %m_data70, align 8
+  %m_numConstraints = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %61, i32 0, i32 6
   store ptr %call65, ptr %m_numConstraints, align 8
   %m_data71 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %61 = load ptr, ptr %m_data71, align 8
-  %m_numConstraints72 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %61, i32 0, i32 6
-  %62 = load ptr, ptr %m_numConstraints72, align 8
-  %call73 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %62, i64 noundef 256, i1 noundef zeroext true)
+  %62 = load ptr, ptr %m_data71, align 8
+  %m_numConstraints72 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %62, i32 0, i32 6
+  %63 = load ptr, ptr %m_numConstraints72, align 8
+  %call73 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %63, i64 noundef 256, i1 noundef zeroext true)
   %call74 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %63 = load ptr, ptr %ctx.addr, align 8
-  %64 = load ptr, ptr %q.addr, align 8
-  %65 = load i32, ptr %pairCapacity.addr, align 4
-  %conv75 = sext i32 %65 to i64
-  invoke void @_ZN13b3OpenCLArrayI16b3GpuConstraint4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call74, ptr noundef %63, ptr noundef %64, i64 noundef %conv75, i1 noundef zeroext true)
+  %64 = load ptr, ptr %ctx.addr, align 8
+  %65 = load ptr, ptr %q.addr, align 8
+  %66 = load i32, ptr %pairCapacity.addr, align 4
+  %conv75 = sext i32 %66 to i64
+  invoke void @_ZN13b3OpenCLArrayI16b3GpuConstraint4EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call74, ptr noundef %64, ptr noundef %65, i64 noundef %conv75, i1 noundef zeroext true)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont69
   %m_data78 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %66 = load ptr, ptr %m_data78, align 8
-  %m_contactCGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %66, i32 0, i32 5
+  %67 = load ptr, ptr %m_data78, align 8
+  %m_contactCGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %67, i32 0, i32 5
   store ptr %call74, ptr %m_contactCGPU, align 8
   %call79 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #12
-  %67 = load ptr, ptr %ctx.addr, align 8
+  %68 = load ptr, ptr %ctx.addr, align 8
   %m_data80 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %68 = load ptr, ptr %m_data80, align 8
-  %m_queue81 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %68, i32 0, i32 2
-  %69 = load ptr, ptr %m_queue81, align 8
-  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call79, ptr noundef %67, ptr noundef %69, i64 noundef 256, i1 noundef zeroext true)
+  %69 = load ptr, ptr %m_data80, align 8
+  %m_queue81 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %69, i32 0, i32 2
+  %70 = load ptr, ptr %m_queue81, align 8
+  invoke void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %call79, ptr noundef %68, ptr noundef %70, i64 noundef 256, i1 noundef zeroext true)
           to label %invoke.cont83 unwind label %lpad82
 
 invoke.cont83:                                    ; preds = %invoke.cont77
   %m_data84 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %70 = load ptr, ptr %m_data84, align 8
-  %m_offsets = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %70, i32 0, i32 7
+  %71 = load ptr, ptr %m_data84, align 8
+  %m_offsets = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %71, i32 0, i32 7
   store ptr %call79, ptr %m_offsets, align 8
   %m_data85 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %71 = load ptr, ptr %m_data85, align 8
-  %m_offsets86 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %71, i32 0, i32 7
-  %72 = load ptr, ptr %m_offsets86, align 8
-  %call87 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %72, i64 noundef 256, i1 noundef zeroext true)
+  %72 = load ptr, ptr %m_data85, align 8
+  %m_offsets86 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %72, i32 0, i32 7
+  %73 = load ptr, ptr %m_offsets86, align 8
+  %call87 = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %73, i64 noundef 256, i1 noundef zeroext true)
   store ptr @.str, ptr %additionalMacros, align 8
-  %73 = load ptr, ptr @_ZL17batchingKernelsCL, align 8
-  store ptr %73, ptr %batchKernelSource, align 8
-  %74 = load ptr, ptr @_ZL20batchingKernelsNewCL, align 8
-  store ptr %74, ptr %batchKernelNewSource, align 8
-  %75 = load ptr, ptr @_ZL13solverSetupCL, align 8
-  store ptr %75, ptr %solverSetupSource, align 8
-  %76 = load ptr, ptr @_ZL14solverSetup2CL, align 8
-  store ptr %76, ptr %solverSetup2Source, align 8
-  %77 = load ptr, ptr @_ZL14solveContactCL, align 8
-  store ptr %77, ptr %solveContactSource, align 8
-  %78 = load ptr, ptr @_ZL15solveFrictionCL, align 8
-  store ptr %78, ptr %solveFrictionSource, align 8
-  %79 = load ptr, ptr %ctx.addr, align 8
-  %80 = load ptr, ptr %device.addr, align 8
-  %81 = load ptr, ptr %solveContactSource, align 8
-  %82 = load ptr, ptr %additionalMacros, align 8
-  %call88 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %pErrNum, ptr noundef %82, ptr noundef @.str.1, i1 noundef zeroext false)
+  %74 = load ptr, ptr @_ZL17batchingKernelsCL, align 8
+  store ptr %74, ptr %batchKernelSource, align 8
+  %75 = load ptr, ptr @_ZL20batchingKernelsNewCL, align 8
+  store ptr %75, ptr %batchKernelNewSource, align 8
+  %76 = load ptr, ptr @_ZL13solverSetupCL, align 8
+  store ptr %76, ptr %solverSetupSource, align 8
+  %77 = load ptr, ptr @_ZL14solverSetup2CL, align 8
+  store ptr %77, ptr %solverSetup2Source, align 8
+  %78 = load ptr, ptr @_ZL14solveContactCL, align 8
+  store ptr %78, ptr %solveContactSource, align 8
+  %79 = load ptr, ptr @_ZL15solveFrictionCL, align 8
+  store ptr %79, ptr %solveFrictionSource, align 8
+  %80 = load ptr, ptr %ctx.addr, align 8
+  %81 = load ptr, ptr %device.addr, align 8
+  %82 = load ptr, ptr %solveContactSource, align 8
+  %83 = load ptr, ptr %additionalMacros, align 8
+  %call88 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %pErrNum, ptr noundef %83, ptr noundef @.str.1, i1 noundef zeroext false)
   store ptr %call88, ptr %solveContactProg, align 8
-  %83 = load ptr, ptr %ctx.addr, align 8
-  %84 = load ptr, ptr %device.addr, align 8
-  %85 = load ptr, ptr %solveFrictionSource, align 8
-  %86 = load ptr, ptr %additionalMacros, align 8
-  %call89 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %pErrNum, ptr noundef %86, ptr noundef @.str.2, i1 noundef zeroext false)
+  %84 = load ptr, ptr %ctx.addr, align 8
+  %85 = load ptr, ptr %device.addr, align 8
+  %86 = load ptr, ptr %solveFrictionSource, align 8
+  %87 = load ptr, ptr %additionalMacros, align 8
+  %call89 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %pErrNum, ptr noundef %87, ptr noundef @.str.2, i1 noundef zeroext false)
   store ptr %call89, ptr %solveFrictionProg, align 8
-  %87 = load ptr, ptr %ctx.addr, align 8
-  %88 = load ptr, ptr %device.addr, align 8
-  %89 = load ptr, ptr %solverSetup2Source, align 8
-  %90 = load ptr, ptr %additionalMacros, align 8
-  %call90 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %pErrNum, ptr noundef %90, ptr noundef @.str.3, i1 noundef zeroext false)
+  %88 = load ptr, ptr %ctx.addr, align 8
+  %89 = load ptr, ptr %device.addr, align 8
+  %90 = load ptr, ptr %solverSetup2Source, align 8
+  %91 = load ptr, ptr %additionalMacros, align 8
+  %call90 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef %pErrNum, ptr noundef %91, ptr noundef @.str.3, i1 noundef zeroext false)
   store ptr %call90, ptr %solverSetup2Prog, align 8
-  %91 = load ptr, ptr %ctx.addr, align 8
-  %92 = load ptr, ptr %device.addr, align 8
-  %93 = load ptr, ptr %solverSetupSource, align 8
-  %94 = load ptr, ptr %additionalMacros, align 8
-  %call91 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %pErrNum, ptr noundef %94, ptr noundef @.str.4, i1 noundef zeroext false)
+  %92 = load ptr, ptr %ctx.addr, align 8
+  %93 = load ptr, ptr %device.addr, align 8
+  %94 = load ptr, ptr %solverSetupSource, align 8
+  %95 = load ptr, ptr %additionalMacros, align 8
+  %call91 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef %pErrNum, ptr noundef %95, ptr noundef @.str.4, i1 noundef zeroext false)
   store ptr %call91, ptr %solverSetupProg, align 8
-  %95 = load ptr, ptr %ctx.addr, align 8
-  %96 = load ptr, ptr %device.addr, align 8
-  %97 = load ptr, ptr %solveFrictionSource, align 8
-  %98 = load ptr, ptr %solveFrictionProg, align 8
-  %99 = load ptr, ptr %additionalMacros, align 8
-  %call92 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef @.str.5, ptr noundef %pErrNum, ptr noundef %98, ptr noundef %99)
+  %96 = load ptr, ptr %ctx.addr, align 8
+  %97 = load ptr, ptr %device.addr, align 8
+  %98 = load ptr, ptr %solveFrictionSource, align 8
+  %99 = load ptr, ptr %solveFrictionProg, align 8
+  %100 = load ptr, ptr %additionalMacros, align 8
+  %call92 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef @.str.5, ptr noundef %pErrNum, ptr noundef %99, ptr noundef %100)
   %m_data93 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %100 = load ptr, ptr %m_data93, align 8
-  %m_solveFrictionKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %100, i32 0, i32 14
+  %101 = load ptr, ptr %m_data93, align 8
+  %m_solveFrictionKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %101, i32 0, i32 14
   store ptr %call92, ptr %m_solveFrictionKernel, align 8
-  %101 = load ptr, ptr %ctx.addr, align 8
-  %102 = load ptr, ptr %device.addr, align 8
-  %103 = load ptr, ptr %solveContactSource, align 8
-  %104 = load ptr, ptr %solveContactProg, align 8
-  %105 = load ptr, ptr %additionalMacros, align 8
-  %call94 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef @.str.6, ptr noundef %pErrNum, ptr noundef %104, ptr noundef %105)
+  %102 = load ptr, ptr %ctx.addr, align 8
+  %103 = load ptr, ptr %device.addr, align 8
+  %104 = load ptr, ptr %solveContactSource, align 8
+  %105 = load ptr, ptr %solveContactProg, align 8
+  %106 = load ptr, ptr %additionalMacros, align 8
+  %call94 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef @.str.6, ptr noundef %pErrNum, ptr noundef %105, ptr noundef %106)
   %m_data95 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %106 = load ptr, ptr %m_data95, align 8
-  %m_solveContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %106, i32 0, i32 11
+  %107 = load ptr, ptr %m_data95, align 8
+  %m_solveContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %107, i32 0, i32 11
   store ptr %call94, ptr %m_solveContactKernel, align 8
-  %107 = load ptr, ptr %ctx.addr, align 8
-  %108 = load ptr, ptr %device.addr, align 8
-  %109 = load ptr, ptr %solveContactSource, align 8
-  %110 = load ptr, ptr %solveContactProg, align 8
-  %111 = load ptr, ptr %additionalMacros, align 8
-  %call96 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %107, ptr noundef %108, ptr noundef %109, ptr noundef @.str.7, ptr noundef %pErrNum, ptr noundef %110, ptr noundef %111)
+  %108 = load ptr, ptr %ctx.addr, align 8
+  %109 = load ptr, ptr %device.addr, align 8
+  %110 = load ptr, ptr %solveContactSource, align 8
+  %111 = load ptr, ptr %solveContactProg, align 8
+  %112 = load ptr, ptr %additionalMacros, align 8
+  %call96 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef @.str.7, ptr noundef %pErrNum, ptr noundef %111, ptr noundef %112)
   %m_data97 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %112 = load ptr, ptr %m_data97, align 8
-  %m_solveSingleContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %112, i32 0, i32 12
+  %113 = load ptr, ptr %m_data97, align 8
+  %m_solveSingleContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %113, i32 0, i32 12
   store ptr %call96, ptr %m_solveSingleContactKernel, align 8
-  %113 = load ptr, ptr %ctx.addr, align 8
-  %114 = load ptr, ptr %device.addr, align 8
-  %115 = load ptr, ptr %solveFrictionSource, align 8
-  %116 = load ptr, ptr %solveFrictionProg, align 8
-  %117 = load ptr, ptr %additionalMacros, align 8
-  %call98 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef @.str.8, ptr noundef %pErrNum, ptr noundef %116, ptr noundef %117)
+  %114 = load ptr, ptr %ctx.addr, align 8
+  %115 = load ptr, ptr %device.addr, align 8
+  %116 = load ptr, ptr %solveFrictionSource, align 8
+  %117 = load ptr, ptr %solveFrictionProg, align 8
+  %118 = load ptr, ptr %additionalMacros, align 8
+  %call98 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef @.str.8, ptr noundef %pErrNum, ptr noundef %117, ptr noundef %118)
   %m_data99 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %118 = load ptr, ptr %m_data99, align 8
-  %m_solveSingleFrictionKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %118, i32 0, i32 13
+  %119 = load ptr, ptr %m_data99, align 8
+  %m_solveSingleFrictionKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %119, i32 0, i32 13
   store ptr %call98, ptr %m_solveSingleFrictionKernel, align 8
-  %119 = load ptr, ptr %ctx.addr, align 8
-  %120 = load ptr, ptr %device.addr, align 8
-  %121 = load ptr, ptr %solverSetupSource, align 8
-  %122 = load ptr, ptr %solverSetupProg, align 8
-  %123 = load ptr, ptr %additionalMacros, align 8
-  %call100 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef @.str.9, ptr noundef %pErrNum, ptr noundef %122, ptr noundef %123)
+  %120 = load ptr, ptr %ctx.addr, align 8
+  %121 = load ptr, ptr %device.addr, align 8
+  %122 = load ptr, ptr %solverSetupSource, align 8
+  %123 = load ptr, ptr %solverSetupProg, align 8
+  %124 = load ptr, ptr %additionalMacros, align 8
+  %call100 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef @.str.9, ptr noundef %pErrNum, ptr noundef %123, ptr noundef %124)
   %m_data101 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %124 = load ptr, ptr %m_data101, align 8
-  %m_contactToConstraintKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %124, i32 0, i32 15
+  %125 = load ptr, ptr %m_data101, align 8
+  %m_contactToConstraintKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %125, i32 0, i32 15
   store ptr %call100, ptr %m_contactToConstraintKernel, align 8
-  %125 = load ptr, ptr %ctx.addr, align 8
-  %126 = load ptr, ptr %device.addr, align 8
-  %127 = load ptr, ptr %solverSetup2Source, align 8
-  %128 = load ptr, ptr %solverSetup2Prog, align 8
-  %129 = load ptr, ptr %additionalMacros, align 8
-  %call102 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef @.str.10, ptr noundef %pErrNum, ptr noundef %128, ptr noundef %129)
+  %126 = load ptr, ptr %ctx.addr, align 8
+  %127 = load ptr, ptr %device.addr, align 8
+  %128 = load ptr, ptr %solverSetup2Source, align 8
+  %129 = load ptr, ptr %solverSetup2Prog, align 8
+  %130 = load ptr, ptr %additionalMacros, align 8
+  %call102 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef @.str.10, ptr noundef %pErrNum, ptr noundef %129, ptr noundef %130)
   %m_data103 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %130 = load ptr, ptr %m_data103, align 8
-  %m_setSortDataKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %130, i32 0, i32 16
+  %131 = load ptr, ptr %m_data103, align 8
+  %m_setSortDataKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %131, i32 0, i32 16
   store ptr %call102, ptr %m_setSortDataKernel, align 8
-  %131 = load ptr, ptr %ctx.addr, align 8
-  %132 = load ptr, ptr %device.addr, align 8
-  %133 = load ptr, ptr %solverSetup2Source, align 8
-  %134 = load ptr, ptr %solverSetup2Prog, align 8
-  %135 = load ptr, ptr %additionalMacros, align 8
-  %call104 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef @.str.11, ptr noundef %pErrNum, ptr noundef %134, ptr noundef %135)
+  %132 = load ptr, ptr %ctx.addr, align 8
+  %133 = load ptr, ptr %device.addr, align 8
+  %134 = load ptr, ptr %solverSetup2Source, align 8
+  %135 = load ptr, ptr %solverSetup2Prog, align 8
+  %136 = load ptr, ptr %additionalMacros, align 8
+  %call104 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef @.str.11, ptr noundef %pErrNum, ptr noundef %135, ptr noundef %136)
   %m_data105 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %136 = load ptr, ptr %m_data105, align 8
-  %m_setDeterminismSortDataBodyAKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %136, i32 0, i32 19
+  %137 = load ptr, ptr %m_data105, align 8
+  %m_setDeterminismSortDataBodyAKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %137, i32 0, i32 19
   store ptr %call104, ptr %m_setDeterminismSortDataBodyAKernel, align 8
-  %137 = load ptr, ptr %ctx.addr, align 8
-  %138 = load ptr, ptr %device.addr, align 8
-  %139 = load ptr, ptr %solverSetup2Source, align 8
-  %140 = load ptr, ptr %solverSetup2Prog, align 8
-  %141 = load ptr, ptr %additionalMacros, align 8
-  %call106 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef @.str.12, ptr noundef %pErrNum, ptr noundef %140, ptr noundef %141)
+  %138 = load ptr, ptr %ctx.addr, align 8
+  %139 = load ptr, ptr %device.addr, align 8
+  %140 = load ptr, ptr %solverSetup2Source, align 8
+  %141 = load ptr, ptr %solverSetup2Prog, align 8
+  %142 = load ptr, ptr %additionalMacros, align 8
+  %call106 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %138, ptr noundef %139, ptr noundef %140, ptr noundef @.str.12, ptr noundef %pErrNum, ptr noundef %141, ptr noundef %142)
   %m_data107 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %142 = load ptr, ptr %m_data107, align 8
-  %m_setDeterminismSortDataBodyBKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %142, i32 0, i32 20
+  %143 = load ptr, ptr %m_data107, align 8
+  %m_setDeterminismSortDataBodyBKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %143, i32 0, i32 20
   store ptr %call106, ptr %m_setDeterminismSortDataBodyBKernel, align 8
-  %143 = load ptr, ptr %ctx.addr, align 8
-  %144 = load ptr, ptr %device.addr, align 8
-  %145 = load ptr, ptr %solverSetup2Source, align 8
-  %146 = load ptr, ptr %solverSetup2Prog, align 8
-  %147 = load ptr, ptr %additionalMacros, align 8
-  %call108 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef @.str.13, ptr noundef %pErrNum, ptr noundef %146, ptr noundef %147)
+  %144 = load ptr, ptr %ctx.addr, align 8
+  %145 = load ptr, ptr %device.addr, align 8
+  %146 = load ptr, ptr %solverSetup2Source, align 8
+  %147 = load ptr, ptr %solverSetup2Prog, align 8
+  %148 = load ptr, ptr %additionalMacros, align 8
+  %call108 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %144, ptr noundef %145, ptr noundef %146, ptr noundef @.str.13, ptr noundef %pErrNum, ptr noundef %147, ptr noundef %148)
   %m_data109 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %148 = load ptr, ptr %m_data109, align 8
-  %m_setDeterminismSortDataChildShapeAKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %148, i32 0, i32 21
+  %149 = load ptr, ptr %m_data109, align 8
+  %m_setDeterminismSortDataChildShapeAKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %149, i32 0, i32 21
   store ptr %call108, ptr %m_setDeterminismSortDataChildShapeAKernel, align 8
-  %149 = load ptr, ptr %ctx.addr, align 8
-  %150 = load ptr, ptr %device.addr, align 8
-  %151 = load ptr, ptr %solverSetup2Source, align 8
-  %152 = load ptr, ptr %solverSetup2Prog, align 8
-  %153 = load ptr, ptr %additionalMacros, align 8
-  %call110 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %149, ptr noundef %150, ptr noundef %151, ptr noundef @.str.14, ptr noundef %pErrNum, ptr noundef %152, ptr noundef %153)
+  %150 = load ptr, ptr %ctx.addr, align 8
+  %151 = load ptr, ptr %device.addr, align 8
+  %152 = load ptr, ptr %solverSetup2Source, align 8
+  %153 = load ptr, ptr %solverSetup2Prog, align 8
+  %154 = load ptr, ptr %additionalMacros, align 8
+  %call110 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %150, ptr noundef %151, ptr noundef %152, ptr noundef @.str.14, ptr noundef %pErrNum, ptr noundef %153, ptr noundef %154)
   %m_data111 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %154 = load ptr, ptr %m_data111, align 8
-  %m_setDeterminismSortDataChildShapeBKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %154, i32 0, i32 22
+  %155 = load ptr, ptr %m_data111, align 8
+  %m_setDeterminismSortDataChildShapeBKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %155, i32 0, i32 22
   store ptr %call110, ptr %m_setDeterminismSortDataChildShapeBKernel, align 8
-  %155 = load ptr, ptr %ctx.addr, align 8
-  %156 = load ptr, ptr %device.addr, align 8
-  %157 = load ptr, ptr %solverSetup2Source, align 8
-  %158 = load ptr, ptr %solverSetup2Prog, align 8
-  %159 = load ptr, ptr %additionalMacros, align 8
-  %call112 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %155, ptr noundef %156, ptr noundef %157, ptr noundef @.str.15, ptr noundef %pErrNum, ptr noundef %158, ptr noundef %159)
+  %156 = load ptr, ptr %ctx.addr, align 8
+  %157 = load ptr, ptr %device.addr, align 8
+  %158 = load ptr, ptr %solverSetup2Source, align 8
+  %159 = load ptr, ptr %solverSetup2Prog, align 8
+  %160 = load ptr, ptr %additionalMacros, align 8
+  %call112 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %156, ptr noundef %157, ptr noundef %158, ptr noundef @.str.15, ptr noundef %pErrNum, ptr noundef %159, ptr noundef %160)
   %m_data113 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %160 = load ptr, ptr %m_data113, align 8
-  %m_reorderContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %160, i32 0, i32 17
+  %161 = load ptr, ptr %m_data113, align 8
+  %m_reorderContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %161, i32 0, i32 17
   store ptr %call112, ptr %m_reorderContactKernel, align 8
-  %161 = load ptr, ptr %ctx.addr, align 8
-  %162 = load ptr, ptr %device.addr, align 8
-  %163 = load ptr, ptr %solverSetup2Source, align 8
-  %164 = load ptr, ptr %solverSetup2Prog, align 8
-  %165 = load ptr, ptr %additionalMacros, align 8
-  %call114 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %161, ptr noundef %162, ptr noundef %163, ptr noundef @.str.16, ptr noundef %pErrNum, ptr noundef %164, ptr noundef %165)
+  %162 = load ptr, ptr %ctx.addr, align 8
+  %163 = load ptr, ptr %device.addr, align 8
+  %164 = load ptr, ptr %solverSetup2Source, align 8
+  %165 = load ptr, ptr %solverSetup2Prog, align 8
+  %166 = load ptr, ptr %additionalMacros, align 8
+  %call114 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %162, ptr noundef %163, ptr noundef %164, ptr noundef @.str.16, ptr noundef %pErrNum, ptr noundef %165, ptr noundef %166)
   %m_data115 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %166 = load ptr, ptr %m_data115, align 8
-  %m_copyConstraintKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %166, i32 0, i32 18
+  %167 = load ptr, ptr %m_data115, align 8
+  %m_copyConstraintKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %167, i32 0, i32 18
   store ptr %call114, ptr %m_copyConstraintKernel, align 8
-  %167 = load ptr, ptr %ctx.addr, align 8
-  %168 = load ptr, ptr %device.addr, align 8
-  %169 = load ptr, ptr %batchKernelSource, align 8
-  %170 = load ptr, ptr %additionalMacros, align 8
-  %call116 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef %pErrNum, ptr noundef %170, ptr noundef @.str.17, i1 noundef zeroext false)
+  %168 = load ptr, ptr %ctx.addr, align 8
+  %169 = load ptr, ptr %device.addr, align 8
+  %170 = load ptr, ptr %batchKernelSource, align 8
+  %171 = load ptr, ptr %additionalMacros, align 8
+  %call116 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %168, ptr noundef %169, ptr noundef %170, ptr noundef %pErrNum, ptr noundef %171, ptr noundef @.str.17, i1 noundef zeroext false)
   store ptr %call116, ptr %batchingProg, align 8
-  %171 = load ptr, ptr %ctx.addr, align 8
-  %172 = load ptr, ptr %device.addr, align 8
-  %173 = load ptr, ptr %batchKernelSource, align 8
-  %174 = load ptr, ptr %batchingProg, align 8
-  %175 = load ptr, ptr %additionalMacros, align 8
-  %call117 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef @.str.18, ptr noundef %pErrNum, ptr noundef %174, ptr noundef %175)
+  %172 = load ptr, ptr %ctx.addr, align 8
+  %173 = load ptr, ptr %device.addr, align 8
+  %174 = load ptr, ptr %batchKernelSource, align 8
+  %175 = load ptr, ptr %batchingProg, align 8
+  %176 = load ptr, ptr %additionalMacros, align 8
+  %call117 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %172, ptr noundef %173, ptr noundef %174, ptr noundef @.str.18, ptr noundef %pErrNum, ptr noundef %175, ptr noundef %176)
   %m_data118 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %176 = load ptr, ptr %m_data118, align 8
-  %m_batchingKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %176, i32 0, i32 9
+  %177 = load ptr, ptr %m_data118, align 8
+  %m_batchingKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %177, i32 0, i32 9
   store ptr %call117, ptr %m_batchingKernel, align 8
-  %177 = load ptr, ptr %ctx.addr, align 8
-  %178 = load ptr, ptr %device.addr, align 8
-  %179 = load ptr, ptr %batchKernelNewSource, align 8
-  %180 = load ptr, ptr %additionalMacros, align 8
-  %call119 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %177, ptr noundef %178, ptr noundef %179, ptr noundef %pErrNum, ptr noundef %180, ptr noundef @.str.19, i1 noundef zeroext false)
+  %178 = load ptr, ptr %ctx.addr, align 8
+  %179 = load ptr, ptr %device.addr, align 8
+  %180 = load ptr, ptr %batchKernelNewSource, align 8
+  %181 = load ptr, ptr %additionalMacros, align 8
+  %call119 = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef %pErrNum, ptr noundef %181, ptr noundef @.str.19, i1 noundef zeroext false)
   store ptr %call119, ptr %batchingNewProg, align 8
-  %181 = load ptr, ptr %ctx.addr, align 8
-  %182 = load ptr, ptr %device.addr, align 8
-  %183 = load ptr, ptr %batchKernelNewSource, align 8
-  %184 = load ptr, ptr %batchingNewProg, align 8
-  %185 = load ptr, ptr %additionalMacros, align 8
-  %call120 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %181, ptr noundef %182, ptr noundef %183, ptr noundef @.str.20, ptr noundef %pErrNum, ptr noundef %184, ptr noundef %185)
+  %182 = load ptr, ptr %ctx.addr, align 8
+  %183 = load ptr, ptr %device.addr, align 8
+  %184 = load ptr, ptr %batchKernelNewSource, align 8
+  %185 = load ptr, ptr %batchingNewProg, align 8
+  %186 = load ptr, ptr %additionalMacros, align 8
+  %call120 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %182, ptr noundef %183, ptr noundef %184, ptr noundef @.str.20, ptr noundef %pErrNum, ptr noundef %185, ptr noundef %186)
   %m_data121 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %186 = load ptr, ptr %m_data121, align 8
-  %m_batchingKernelNew = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %186, i32 0, i32 10
+  %187 = load ptr, ptr %m_data121, align 8
+  %m_batchingKernelNew = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %187, i32 0, i32 10
   store ptr %call120, ptr %m_batchingKernelNew, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %187 = landingpad { ptr, i32 }
+  %188 = landingpad { ptr, i32 }
           cleanup
-  %188 = extractvalue { ptr, i32 } %187, 0
-  store ptr %188, ptr %exn.slot, align 8
-  %189 = extractvalue { ptr, i32 } %187, 1
-  store i32 %189, ptr %ehselector.slot, align 4
+  %189 = extractvalue { ptr, i32 } %188, 0
+  store ptr %189, ptr %exn.slot, align 8
+  %190 = extractvalue { ptr, i32 } %188, 1
+  store i32 %190, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #13
   br label %eh.resume
 
 lpad8:                                            ; preds = %invoke.cont
-  %190 = landingpad { ptr, i32 }
+  %191 = landingpad { ptr, i32 }
           cleanup
-  %191 = extractvalue { ptr, i32 } %190, 0
-  store ptr %191, ptr %exn.slot, align 8
-  %192 = extractvalue { ptr, i32 } %190, 1
-  store i32 %192, ptr %ehselector.slot, align 4
+  %192 = extractvalue { ptr, i32 } %191, 0
+  store ptr %192, ptr %exn.slot, align 8
+  %193 = extractvalue { ptr, i32 } %191, 1
+  store i32 %193, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call7) #13
   br label %eh.resume
 
 lpad12:                                           ; preds = %invoke.cont9
-  %193 = landingpad { ptr, i32 }
+  %194 = landingpad { ptr, i32 }
           cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %exn.slot, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %ehselector.slot, align 4
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %exn.slot, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call11) #13
   br label %eh.resume
 
 lpad16:                                           ; preds = %invoke.cont13
-  %196 = landingpad { ptr, i32 }
+  %197 = landingpad { ptr, i32 }
           cleanup
-  %197 = extractvalue { ptr, i32 } %196, 0
-  store ptr %197, ptr %exn.slot, align 8
-  %198 = extractvalue { ptr, i32 } %196, 1
-  store i32 %198, ptr %ehselector.slot, align 4
+  %198 = extractvalue { ptr, i32 } %197, 0
+  store ptr %198, ptr %exn.slot, align 8
+  %199 = extractvalue { ptr, i32 } %197, 1
+  store i32 %199, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call15) #13
   br label %eh.resume
 
 lpad20:                                           ; preds = %invoke.cont17
-  %199 = landingpad { ptr, i32 }
+  %200 = landingpad { ptr, i32 }
           cleanup
-  %200 = extractvalue { ptr, i32 } %199, 0
-  store ptr %200, ptr %exn.slot, align 8
-  %201 = extractvalue { ptr, i32 } %199, 1
-  store i32 %201, ptr %ehselector.slot, align 4
+  %201 = extractvalue { ptr, i32 } %200, 0
+  store ptr %201, ptr %exn.slot, align 8
+  %202 = extractvalue { ptr, i32 } %200, 1
+  store i32 %202, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call19) #13
   br label %eh.resume
 
 lpad24:                                           ; preds = %invoke.cont21
-  %202 = landingpad { ptr, i32 }
+  %203 = landingpad { ptr, i32 }
           cleanup
-  %203 = extractvalue { ptr, i32 } %202, 0
-  store ptr %203, ptr %exn.slot, align 8
-  %204 = extractvalue { ptr, i32 } %202, 1
-  store i32 %204, ptr %ehselector.slot, align 4
+  %204 = extractvalue { ptr, i32 } %203, 0
+  store ptr %204, ptr %exn.slot, align 8
+  %205 = extractvalue { ptr, i32 } %203, 1
+  store i32 %205, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call23) #13
   br label %eh.resume
 
 lpad28:                                           ; preds = %invoke.cont25
-  %205 = landingpad { ptr, i32 }
+  %206 = landingpad { ptr, i32 }
           cleanup
-  %206 = extractvalue { ptr, i32 } %205, 0
-  store ptr %206, ptr %exn.slot, align 8
-  %207 = extractvalue { ptr, i32 } %205, 1
-  store i32 %207, ptr %ehselector.slot, align 4
+  %207 = extractvalue { ptr, i32 } %206, 0
+  store ptr %207, ptr %exn.slot, align 8
+  %208 = extractvalue { ptr, i32 } %206, 1
+  store i32 %208, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call27) #13
   br label %eh.resume
 
 lpad32:                                           ; preds = %invoke.cont29
-  %208 = landingpad { ptr, i32 }
+  %209 = landingpad { ptr, i32 }
           cleanup
-  %209 = extractvalue { ptr, i32 } %208, 0
-  store ptr %209, ptr %exn.slot, align 8
-  %210 = extractvalue { ptr, i32 } %208, 1
-  store i32 %210, ptr %ehselector.slot, align 4
+  %210 = extractvalue { ptr, i32 } %209, 0
+  store ptr %210, ptr %exn.slot, align 8
+  %211 = extractvalue { ptr, i32 } %209, 1
+  store i32 %211, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call31) #13
   br label %eh.resume
 
 lpad38:                                           ; preds = %invoke.cont33
-  %211 = landingpad { ptr, i32 }
+  %212 = landingpad { ptr, i32 }
           cleanup
-  %212 = extractvalue { ptr, i32 } %211, 0
-  store ptr %212, ptr %exn.slot, align 8
-  %213 = extractvalue { ptr, i32 } %211, 1
-  store i32 %213, ptr %ehselector.slot, align 4
+  %213 = extractvalue { ptr, i32 } %212, 0
+  store ptr %213, ptr %exn.slot, align 8
+  %214 = extractvalue { ptr, i32 } %212, 1
+  store i32 %214, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call35) #13
   br label %eh.resume
 
 lpad44:                                           ; preds = %invoke.cont39
-  %214 = landingpad { ptr, i32 }
+  %215 = landingpad { ptr, i32 }
           cleanup
-  %215 = extractvalue { ptr, i32 } %214, 0
-  store ptr %215, ptr %exn.slot, align 8
-  %216 = extractvalue { ptr, i32 } %214, 1
-  store i32 %216, ptr %ehselector.slot, align 4
+  %216 = extractvalue { ptr, i32 } %215, 0
+  store ptr %216, ptr %exn.slot, align 8
+  %217 = extractvalue { ptr, i32 } %215, 1
+  store i32 %217, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call41) #13
   br label %eh.resume
 
 lpad50:                                           ; preds = %invoke.cont45
-  %217 = landingpad { ptr, i32 }
+  %218 = landingpad { ptr, i32 }
           cleanup
-  %218 = extractvalue { ptr, i32 } %217, 0
-  store ptr %218, ptr %exn.slot, align 8
-  %219 = extractvalue { ptr, i32 } %217, 1
-  store i32 %219, ptr %ehselector.slot, align 4
+  %219 = extractvalue { ptr, i32 } %218, 0
+  store ptr %219, ptr %exn.slot, align 8
+  %220 = extractvalue { ptr, i32 } %218, 1
+  store i32 %220, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call47) #13
   br label %eh.resume
 
 lpad56:                                           ; preds = %invoke.cont51
-  %220 = landingpad { ptr, i32 }
+  %221 = landingpad { ptr, i32 }
           cleanup
-  %221 = extractvalue { ptr, i32 } %220, 0
-  store ptr %221, ptr %exn.slot, align 8
-  %222 = extractvalue { ptr, i32 } %220, 1
-  store i32 %222, ptr %ehselector.slot, align 4
+  %222 = extractvalue { ptr, i32 } %221, 0
+  store ptr %222, ptr %exn.slot, align 8
+  %223 = extractvalue { ptr, i32 } %221, 1
+  store i32 %223, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call53) #13
   br label %eh.resume
 
 lpad62:                                           ; preds = %invoke.cont57
-  %223 = landingpad { ptr, i32 }
+  %224 = landingpad { ptr, i32 }
           cleanup
-  %224 = extractvalue { ptr, i32 } %223, 0
-  store ptr %224, ptr %exn.slot, align 8
-  %225 = extractvalue { ptr, i32 } %223, 1
-  store i32 %225, ptr %ehselector.slot, align 4
+  %225 = extractvalue { ptr, i32 } %224, 0
+  store ptr %225, ptr %exn.slot, align 8
+  %226 = extractvalue { ptr, i32 } %224, 1
+  store i32 %226, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call59) #13
   br label %eh.resume
 
 lpad68:                                           ; preds = %invoke.cont63
-  %226 = landingpad { ptr, i32 }
+  %227 = landingpad { ptr, i32 }
           cleanup
-  %227 = extractvalue { ptr, i32 } %226, 0
-  store ptr %227, ptr %exn.slot, align 8
-  %228 = extractvalue { ptr, i32 } %226, 1
-  store i32 %228, ptr %ehselector.slot, align 4
+  %228 = extractvalue { ptr, i32 } %227, 0
+  store ptr %228, ptr %exn.slot, align 8
+  %229 = extractvalue { ptr, i32 } %227, 1
+  store i32 %229, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call65) #13
   br label %eh.resume
 
 lpad76:                                           ; preds = %invoke.cont69
-  %229 = landingpad { ptr, i32 }
+  %230 = landingpad { ptr, i32 }
           cleanup
-  %230 = extractvalue { ptr, i32 } %229, 0
-  store ptr %230, ptr %exn.slot, align 8
-  %231 = extractvalue { ptr, i32 } %229, 1
-  store i32 %231, ptr %ehselector.slot, align 4
+  %231 = extractvalue { ptr, i32 } %230, 0
+  store ptr %231, ptr %exn.slot, align 8
+  %232 = extractvalue { ptr, i32 } %230, 1
+  store i32 %232, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call74) #13
   br label %eh.resume
 
 lpad82:                                           ; preds = %invoke.cont77
-  %232 = landingpad { ptr, i32 }
+  %233 = landingpad { ptr, i32 }
           cleanup
-  %233 = extractvalue { ptr, i32 } %232, 0
-  store ptr %233, ptr %exn.slot, align 8
-  %234 = extractvalue { ptr, i32 } %232, 1
-  store i32 %234, ptr %ehselector.slot, align 4
+  %234 = extractvalue { ptr, i32 } %233, 0
+  store ptr %234, ptr %exn.slot, align 8
+  %235 = extractvalue { ptr, i32 } %233, 1
+  store i32 %235, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call79) #13
   br label %eh.resume
 
@@ -1393,7 +1394,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 2
@@ -1401,27 +1403,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1443,7 +1445,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.12, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.12, ptr %this1, i32 0, i32 2
@@ -1451,27 +1454,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.12, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.12, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.12, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.12, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.12, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.12, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1493,7 +1496,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.14, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.14, ptr %this1, i32 0, i32 2
@@ -1501,27 +1505,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.14, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.14, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.14, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.14, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.14, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.14, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1543,7 +1547,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3Contact4E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3Contact4E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 2
@@ -1551,27 +1556,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3Contact4E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3Contact4E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.16, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1593,7 +1598,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.18, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.18, ptr %this1, i32 0, i32 2
@@ -1601,27 +1607,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.18, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.18, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.18, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.18, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.18, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI10b3SortDataE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.18, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1651,7 +1657,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.20, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.20, ptr %this1, i32 0, i32 2
@@ -1659,27 +1666,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.20, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.20, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.20, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.20, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.20, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIjE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.20, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1765,7 +1772,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI16b3GpuConstraint4E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI16b3GpuConstraint4E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.22, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.22, ptr %this1, i32 0, i32 2
@@ -1773,27 +1781,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.22, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.22, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.22, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.22, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.22, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.22, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1864,376 +1872,377 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV21b3GpuPgsContactSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV21b3GpuPgsContactSolver, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_data = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %m_data, align 8
-  %m_batchSizesGpu = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %0, i32 0, i32 37
-  %1 = load ptr, ptr %m_batchSizesGpu, align 8
-  %isnull = icmp eq ptr %1, null
+  %1 = load ptr, ptr %m_data, align 8
+  %m_batchSizesGpu = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %1, i32 0, i32 37
+  %2 = load ptr, ptr %m_batchSizesGpu, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(50) %1) #10
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(50) %2) #10
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %m_data2 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %m_data2, align 8
-  %m_bodyBufferGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %3, i32 0, i32 28
-  %4 = load ptr, ptr %m_bodyBufferGPU, align 8
-  %isnull3 = icmp eq ptr %4, null
+  %4 = load ptr, ptr %m_data2, align 8
+  %m_bodyBufferGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %4, i32 0, i32 28
+  %5 = load ptr, ptr %m_bodyBufferGPU, align 8
+  %isnull3 = icmp eq ptr %5, null
   br i1 %isnull3, label %delete.end7, label %delete.notnull4
 
 delete.notnull4:                                  ; preds = %delete.end
-  %vtable5 = load ptr, ptr %4, align 8
+  %vtable5 = load ptr, ptr %5, align 8
   %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 1
-  %5 = load ptr, ptr %vfn6, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(50) %4) #10
+  %6 = load ptr, ptr %vfn6, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(50) %5) #10
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull4, %delete.end
   %m_data8 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %m_data8, align 8
-  %m_inertiaBufferGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %6, i32 0, i32 29
-  %7 = load ptr, ptr %m_inertiaBufferGPU, align 8
-  %isnull9 = icmp eq ptr %7, null
+  %7 = load ptr, ptr %m_data8, align 8
+  %m_inertiaBufferGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %7, i32 0, i32 29
+  %8 = load ptr, ptr %m_inertiaBufferGPU, align 8
+  %isnull9 = icmp eq ptr %8, null
   br i1 %isnull9, label %delete.end13, label %delete.notnull10
 
 delete.notnull10:                                 ; preds = %delete.end7
-  %vtable11 = load ptr, ptr %7, align 8
+  %vtable11 = load ptr, ptr %8, align 8
   %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 1
-  %8 = load ptr, ptr %vfn12, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(50) %7) #10
+  %9 = load ptr, ptr %vfn12, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(50) %8) #10
   br label %delete.end13
 
 delete.end13:                                     ; preds = %delete.notnull10, %delete.end7
   %m_data14 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %9 = load ptr, ptr %m_data14, align 8
-  %m_pBufContactOutGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %9, i32 0, i32 30
-  %10 = load ptr, ptr %m_pBufContactOutGPU, align 8
-  %isnull15 = icmp eq ptr %10, null
+  %10 = load ptr, ptr %m_data14, align 8
+  %m_pBufContactOutGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %10, i32 0, i32 30
+  %11 = load ptr, ptr %m_pBufContactOutGPU, align 8
+  %isnull15 = icmp eq ptr %11, null
   br i1 %isnull15, label %delete.end19, label %delete.notnull16
 
 delete.notnull16:                                 ; preds = %delete.end13
-  %vtable17 = load ptr, ptr %10, align 8
+  %vtable17 = load ptr, ptr %11, align 8
   %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 1
-  %11 = load ptr, ptr %vfn18, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(50) %10) #10
+  %12 = load ptr, ptr %vfn18, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(50) %11) #10
   br label %delete.end19
 
 delete.end19:                                     ; preds = %delete.notnull16, %delete.end13
   %m_data20 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %12 = load ptr, ptr %m_data20, align 8
-  %m_pBufContactOutGPUCopy = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %12, i32 0, i32 31
-  %13 = load ptr, ptr %m_pBufContactOutGPUCopy, align 8
-  %isnull21 = icmp eq ptr %13, null
+  %13 = load ptr, ptr %m_data20, align 8
+  %m_pBufContactOutGPUCopy = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %13, i32 0, i32 31
+  %14 = load ptr, ptr %m_pBufContactOutGPUCopy, align 8
+  %isnull21 = icmp eq ptr %14, null
   br i1 %isnull21, label %delete.end25, label %delete.notnull22
 
 delete.notnull22:                                 ; preds = %delete.end19
-  %vtable23 = load ptr, ptr %13, align 8
+  %vtable23 = load ptr, ptr %14, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 1
-  %14 = load ptr, ptr %vfn24, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(50) %13) #10
+  %15 = load ptr, ptr %vfn24, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(50) %14) #10
   br label %delete.end25
 
 delete.end25:                                     ; preds = %delete.notnull22, %delete.end19
   %m_data26 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %15 = load ptr, ptr %m_data26, align 8
-  %m_contactKeyValues = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %15, i32 0, i32 32
-  %16 = load ptr, ptr %m_contactKeyValues, align 8
-  %isnull27 = icmp eq ptr %16, null
+  %16 = load ptr, ptr %m_data26, align 8
+  %m_contactKeyValues = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %16, i32 0, i32 32
+  %17 = load ptr, ptr %m_contactKeyValues, align 8
+  %isnull27 = icmp eq ptr %17, null
   br i1 %isnull27, label %delete.end31, label %delete.notnull28
 
 delete.notnull28:                                 ; preds = %delete.end25
-  %vtable29 = load ptr, ptr %16, align 8
+  %vtable29 = load ptr, ptr %17, align 8
   %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 1
-  %17 = load ptr, ptr %vfn30, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(50) %16) #10
+  %18 = load ptr, ptr %vfn30, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(50) %17) #10
   br label %delete.end31
 
 delete.end31:                                     ; preds = %delete.notnull28, %delete.end25
   %m_data32 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %18 = load ptr, ptr %m_data32, align 8
-  %m_contactCGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %18, i32 0, i32 5
-  %19 = load ptr, ptr %m_contactCGPU, align 8
-  %isnull33 = icmp eq ptr %19, null
+  %19 = load ptr, ptr %m_data32, align 8
+  %m_contactCGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %19, i32 0, i32 5
+  %20 = load ptr, ptr %m_contactCGPU, align 8
+  %isnull33 = icmp eq ptr %20, null
   br i1 %isnull33, label %delete.end37, label %delete.notnull34
 
 delete.notnull34:                                 ; preds = %delete.end31
-  %vtable35 = load ptr, ptr %19, align 8
+  %vtable35 = load ptr, ptr %20, align 8
   %vfn36 = getelementptr inbounds ptr, ptr %vtable35, i64 1
-  %20 = load ptr, ptr %vfn36, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(50) %19) #10
+  %21 = load ptr, ptr %vfn36, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(50) %20) #10
   br label %delete.end37
 
 delete.end37:                                     ; preds = %delete.notnull34, %delete.end31
   %m_data38 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %21 = load ptr, ptr %m_data38, align 8
-  %m_numConstraints = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %21, i32 0, i32 6
-  %22 = load ptr, ptr %m_numConstraints, align 8
-  %isnull39 = icmp eq ptr %22, null
+  %22 = load ptr, ptr %m_data38, align 8
+  %m_numConstraints = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %22, i32 0, i32 6
+  %23 = load ptr, ptr %m_numConstraints, align 8
+  %isnull39 = icmp eq ptr %23, null
   br i1 %isnull39, label %delete.end43, label %delete.notnull40
 
 delete.notnull40:                                 ; preds = %delete.end37
-  %vtable41 = load ptr, ptr %22, align 8
+  %vtable41 = load ptr, ptr %23, align 8
   %vfn42 = getelementptr inbounds ptr, ptr %vtable41, i64 1
-  %23 = load ptr, ptr %vfn42, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(50) %22) #10
+  %24 = load ptr, ptr %vfn42, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(50) %23) #10
   br label %delete.end43
 
 delete.end43:                                     ; preds = %delete.notnull40, %delete.end37
   %m_data44 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %24 = load ptr, ptr %m_data44, align 8
-  %m_offsets = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %24, i32 0, i32 7
-  %25 = load ptr, ptr %m_offsets, align 8
-  %isnull45 = icmp eq ptr %25, null
+  %25 = load ptr, ptr %m_data44, align 8
+  %m_offsets = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %25, i32 0, i32 7
+  %26 = load ptr, ptr %m_offsets, align 8
+  %isnull45 = icmp eq ptr %26, null
   br i1 %isnull45, label %delete.end49, label %delete.notnull46
 
 delete.notnull46:                                 ; preds = %delete.end43
-  %vtable47 = load ptr, ptr %25, align 8
+  %vtable47 = load ptr, ptr %26, align 8
   %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 1
-  %26 = load ptr, ptr %vfn48, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(50) %25) #10
+  %27 = load ptr, ptr %vfn48, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(50) %26) #10
   br label %delete.end49
 
 delete.end49:                                     ; preds = %delete.notnull46, %delete.end43
   %m_data50 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %27 = load ptr, ptr %m_data50, align 8
-  %m_sortDataBuffer = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %27, i32 0, i32 26
-  %28 = load ptr, ptr %m_sortDataBuffer, align 8
-  %isnull51 = icmp eq ptr %28, null
+  %28 = load ptr, ptr %m_data50, align 8
+  %m_sortDataBuffer = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %28, i32 0, i32 26
+  %29 = load ptr, ptr %m_sortDataBuffer, align 8
+  %isnull51 = icmp eq ptr %29, null
   br i1 %isnull51, label %delete.end55, label %delete.notnull52
 
 delete.notnull52:                                 ; preds = %delete.end49
-  %vtable53 = load ptr, ptr %28, align 8
+  %vtable53 = load ptr, ptr %29, align 8
   %vfn54 = getelementptr inbounds ptr, ptr %vtable53, i64 1
-  %29 = load ptr, ptr %vfn54, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(50) %28) #10
+  %30 = load ptr, ptr %vfn54, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(50) %29) #10
   br label %delete.end55
 
 delete.end55:                                     ; preds = %delete.notnull52, %delete.end49
   %m_data56 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %30 = load ptr, ptr %m_data56, align 8
-  %m_contactBuffer = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %30, i32 0, i32 27
-  %31 = load ptr, ptr %m_contactBuffer, align 8
-  %isnull57 = icmp eq ptr %31, null
+  %31 = load ptr, ptr %m_data56, align 8
+  %m_contactBuffer = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %31, i32 0, i32 27
+  %32 = load ptr, ptr %m_contactBuffer, align 8
+  %isnull57 = icmp eq ptr %32, null
   br i1 %isnull57, label %delete.end61, label %delete.notnull58
 
 delete.notnull58:                                 ; preds = %delete.end55
-  %vtable59 = load ptr, ptr %31, align 8
+  %vtable59 = load ptr, ptr %32, align 8
   %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 1
-  %32 = load ptr, ptr %vfn60, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(50) %31) #10
+  %33 = load ptr, ptr %vfn60, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(50) %32) #10
   br label %delete.end61
 
 delete.end61:                                     ; preds = %delete.notnull58, %delete.end55
   %m_data62 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %33 = load ptr, ptr %m_data62, align 8
-  %m_sort32 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %33, i32 0, i32 23
-  %34 = load ptr, ptr %m_sort32, align 8
-  %isnull63 = icmp eq ptr %34, null
+  %34 = load ptr, ptr %m_data62, align 8
+  %m_sort32 = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %34, i32 0, i32 23
+  %35 = load ptr, ptr %m_sort32, align 8
+  %isnull63 = icmp eq ptr %35, null
   br i1 %isnull63, label %delete.end67, label %delete.notnull64
 
 delete.notnull64:                                 ; preds = %delete.end61
-  %vtable65 = load ptr, ptr %34, align 8
+  %vtable65 = load ptr, ptr %35, align 8
   %vfn66 = getelementptr inbounds ptr, ptr %vtable65, i64 1
-  %35 = load ptr, ptr %vfn66, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(128) %34) #10
+  %36 = load ptr, ptr %vfn66, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(128) %35) #10
   br label %delete.end67
 
 delete.end67:                                     ; preds = %delete.notnull64, %delete.end61
   %m_data68 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %36 = load ptr, ptr %m_data68, align 8
-  %m_scan = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %36, i32 0, i32 25
-  %37 = load ptr, ptr %m_scan, align 8
-  %isnull69 = icmp eq ptr %37, null
+  %37 = load ptr, ptr %m_data68, align 8
+  %m_scan = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %37, i32 0, i32 25
+  %38 = load ptr, ptr %m_scan, align 8
+  %isnull69 = icmp eq ptr %38, null
   br i1 %isnull69, label %delete.end73, label %delete.notnull70
 
 delete.notnull70:                                 ; preds = %delete.end67
-  %vtable71 = load ptr, ptr %37, align 8
+  %vtable71 = load ptr, ptr %38, align 8
   %vfn72 = getelementptr inbounds ptr, ptr %vtable71, i64 1
-  %38 = load ptr, ptr %vfn72, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(48) %37) #10
+  %39 = load ptr, ptr %vfn72, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(48) %38) #10
   br label %delete.end73
 
 delete.end73:                                     ; preds = %delete.notnull70, %delete.end67
   %m_data74 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %39 = load ptr, ptr %m_data74, align 8
-  %m_search = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %39, i32 0, i32 24
-  %40 = load ptr, ptr %m_search, align 8
-  %isnull75 = icmp eq ptr %40, null
+  %40 = load ptr, ptr %m_data74, align 8
+  %m_search = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %40, i32 0, i32 24
+  %41 = load ptr, ptr %m_search, align 8
+  %isnull75 = icmp eq ptr %41, null
   br i1 %isnull75, label %delete.end79, label %delete.notnull76
 
 delete.notnull76:                                 ; preds = %delete.end73
-  %vtable77 = load ptr, ptr %40, align 8
+  %vtable77 = load ptr, ptr %41, align 8
   %vfn78 = getelementptr inbounds ptr, ptr %vtable77, i64 1
-  %41 = load ptr, ptr %vfn78, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(88) %40) #10
+  %42 = load ptr, ptr %vfn78, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(88) %41) #10
   br label %delete.end79
 
 delete.end79:                                     ; preds = %delete.notnull76, %delete.end73
   %m_data80 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %42 = load ptr, ptr %m_data80, align 8
-  %m_solverGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %42, i32 0, i32 8
-  %43 = load ptr, ptr %m_solverGPU, align 8
-  %isnull81 = icmp eq ptr %43, null
+  %43 = load ptr, ptr %m_data80, align 8
+  %m_solverGPU = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %43, i32 0, i32 8
+  %44 = load ptr, ptr %m_solverGPU, align 8
+  %isnull81 = icmp eq ptr %44, null
   br i1 %isnull81, label %delete.end85, label %delete.notnull82
 
 delete.notnull82:                                 ; preds = %delete.end79
-  %vtable83 = load ptr, ptr %43, align 8
+  %vtable83 = load ptr, ptr %44, align 8
   %vfn84 = getelementptr inbounds ptr, ptr %vtable83, i64 1
-  %44 = load ptr, ptr %vfn84, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(216) %43) #10
+  %45 = load ptr, ptr %vfn84, align 8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(216) %44) #10
   br label %delete.end85
 
 delete.end85:                                     ; preds = %delete.notnull82, %delete.end79
-  %45 = load ptr, ptr @__clewReleaseKernel, align 8
+  %46 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data86 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %46 = load ptr, ptr %m_data86, align 8
-  %m_batchingKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %46, i32 0, i32 9
-  %47 = load ptr, ptr %m_batchingKernel, align 8
-  %call = invoke i32 %45(ptr noundef %47)
+  %47 = load ptr, ptr %m_data86, align 8
+  %m_batchingKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %47, i32 0, i32 9
+  %48 = load ptr, ptr %m_batchingKernel, align 8
+  %call = invoke i32 %46(ptr noundef %48)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %delete.end85
-  %48 = load ptr, ptr @__clewReleaseKernel, align 8
+  %49 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data87 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %49 = load ptr, ptr %m_data87, align 8
-  %m_batchingKernelNew = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %49, i32 0, i32 10
-  %50 = load ptr, ptr %m_batchingKernelNew, align 8
-  %call89 = invoke i32 %48(ptr noundef %50)
+  %50 = load ptr, ptr %m_data87, align 8
+  %m_batchingKernelNew = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %50, i32 0, i32 10
+  %51 = load ptr, ptr %m_batchingKernelNew, align 8
+  %call89 = invoke i32 %49(ptr noundef %51)
           to label %invoke.cont88 unwind label %terminate.lpad
 
 invoke.cont88:                                    ; preds = %invoke.cont
-  %51 = load ptr, ptr @__clewReleaseKernel, align 8
+  %52 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data90 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %52 = load ptr, ptr %m_data90, align 8
-  %m_solveSingleContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %52, i32 0, i32 12
-  %53 = load ptr, ptr %m_solveSingleContactKernel, align 8
-  %call92 = invoke i32 %51(ptr noundef %53)
+  %53 = load ptr, ptr %m_data90, align 8
+  %m_solveSingleContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %53, i32 0, i32 12
+  %54 = load ptr, ptr %m_solveSingleContactKernel, align 8
+  %call92 = invoke i32 %52(ptr noundef %54)
           to label %invoke.cont91 unwind label %terminate.lpad
 
 invoke.cont91:                                    ; preds = %invoke.cont88
-  %54 = load ptr, ptr @__clewReleaseKernel, align 8
+  %55 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data93 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %55 = load ptr, ptr %m_data93, align 8
-  %m_solveSingleFrictionKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %55, i32 0, i32 13
-  %56 = load ptr, ptr %m_solveSingleFrictionKernel, align 8
-  %call95 = invoke i32 %54(ptr noundef %56)
+  %56 = load ptr, ptr %m_data93, align 8
+  %m_solveSingleFrictionKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %56, i32 0, i32 13
+  %57 = load ptr, ptr %m_solveSingleFrictionKernel, align 8
+  %call95 = invoke i32 %55(ptr noundef %57)
           to label %invoke.cont94 unwind label %terminate.lpad
 
 invoke.cont94:                                    ; preds = %invoke.cont91
-  %57 = load ptr, ptr @__clewReleaseKernel, align 8
+  %58 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data96 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %58 = load ptr, ptr %m_data96, align 8
-  %m_solveContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %58, i32 0, i32 11
-  %59 = load ptr, ptr %m_solveContactKernel, align 8
-  %call98 = invoke i32 %57(ptr noundef %59)
+  %59 = load ptr, ptr %m_data96, align 8
+  %m_solveContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %59, i32 0, i32 11
+  %60 = load ptr, ptr %m_solveContactKernel, align 8
+  %call98 = invoke i32 %58(ptr noundef %60)
           to label %invoke.cont97 unwind label %terminate.lpad
 
 invoke.cont97:                                    ; preds = %invoke.cont94
-  %60 = load ptr, ptr @__clewReleaseKernel, align 8
+  %61 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data99 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %61 = load ptr, ptr %m_data99, align 8
-  %m_solveFrictionKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %61, i32 0, i32 14
-  %62 = load ptr, ptr %m_solveFrictionKernel, align 8
-  %call101 = invoke i32 %60(ptr noundef %62)
+  %62 = load ptr, ptr %m_data99, align 8
+  %m_solveFrictionKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %62, i32 0, i32 14
+  %63 = load ptr, ptr %m_solveFrictionKernel, align 8
+  %call101 = invoke i32 %61(ptr noundef %63)
           to label %invoke.cont100 unwind label %terminate.lpad
 
 invoke.cont100:                                   ; preds = %invoke.cont97
-  %63 = load ptr, ptr @__clewReleaseKernel, align 8
+  %64 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data102 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %64 = load ptr, ptr %m_data102, align 8
-  %m_contactToConstraintKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %64, i32 0, i32 15
-  %65 = load ptr, ptr %m_contactToConstraintKernel, align 8
-  %call104 = invoke i32 %63(ptr noundef %65)
+  %65 = load ptr, ptr %m_data102, align 8
+  %m_contactToConstraintKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %65, i32 0, i32 15
+  %66 = load ptr, ptr %m_contactToConstraintKernel, align 8
+  %call104 = invoke i32 %64(ptr noundef %66)
           to label %invoke.cont103 unwind label %terminate.lpad
 
 invoke.cont103:                                   ; preds = %invoke.cont100
-  %66 = load ptr, ptr @__clewReleaseKernel, align 8
+  %67 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data105 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %67 = load ptr, ptr %m_data105, align 8
-  %m_setSortDataKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %67, i32 0, i32 16
-  %68 = load ptr, ptr %m_setSortDataKernel, align 8
-  %call107 = invoke i32 %66(ptr noundef %68)
+  %68 = load ptr, ptr %m_data105, align 8
+  %m_setSortDataKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %68, i32 0, i32 16
+  %69 = load ptr, ptr %m_setSortDataKernel, align 8
+  %call107 = invoke i32 %67(ptr noundef %69)
           to label %invoke.cont106 unwind label %terminate.lpad
 
 invoke.cont106:                                   ; preds = %invoke.cont103
-  %69 = load ptr, ptr @__clewReleaseKernel, align 8
+  %70 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data108 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %70 = load ptr, ptr %m_data108, align 8
-  %m_reorderContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %70, i32 0, i32 17
-  %71 = load ptr, ptr %m_reorderContactKernel, align 8
-  %call110 = invoke i32 %69(ptr noundef %71)
+  %71 = load ptr, ptr %m_data108, align 8
+  %m_reorderContactKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %71, i32 0, i32 17
+  %72 = load ptr, ptr %m_reorderContactKernel, align 8
+  %call110 = invoke i32 %70(ptr noundef %72)
           to label %invoke.cont109 unwind label %terminate.lpad
 
 invoke.cont109:                                   ; preds = %invoke.cont106
-  %72 = load ptr, ptr @__clewReleaseKernel, align 8
+  %73 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data111 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %73 = load ptr, ptr %m_data111, align 8
-  %m_copyConstraintKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %73, i32 0, i32 18
-  %74 = load ptr, ptr %m_copyConstraintKernel, align 8
-  %call113 = invoke i32 %72(ptr noundef %74)
+  %74 = load ptr, ptr %m_data111, align 8
+  %m_copyConstraintKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %74, i32 0, i32 18
+  %75 = load ptr, ptr %m_copyConstraintKernel, align 8
+  %call113 = invoke i32 %73(ptr noundef %75)
           to label %invoke.cont112 unwind label %terminate.lpad
 
 invoke.cont112:                                   ; preds = %invoke.cont109
-  %75 = load ptr, ptr @__clewReleaseKernel, align 8
+  %76 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data114 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %76 = load ptr, ptr %m_data114, align 8
-  %m_setDeterminismSortDataBodyAKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %76, i32 0, i32 19
-  %77 = load ptr, ptr %m_setDeterminismSortDataBodyAKernel, align 8
-  %call116 = invoke i32 %75(ptr noundef %77)
+  %77 = load ptr, ptr %m_data114, align 8
+  %m_setDeterminismSortDataBodyAKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %77, i32 0, i32 19
+  %78 = load ptr, ptr %m_setDeterminismSortDataBodyAKernel, align 8
+  %call116 = invoke i32 %76(ptr noundef %78)
           to label %invoke.cont115 unwind label %terminate.lpad
 
 invoke.cont115:                                   ; preds = %invoke.cont112
-  %78 = load ptr, ptr @__clewReleaseKernel, align 8
+  %79 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data117 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %79 = load ptr, ptr %m_data117, align 8
-  %m_setDeterminismSortDataBodyBKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %79, i32 0, i32 20
-  %80 = load ptr, ptr %m_setDeterminismSortDataBodyBKernel, align 8
-  %call119 = invoke i32 %78(ptr noundef %80)
+  %80 = load ptr, ptr %m_data117, align 8
+  %m_setDeterminismSortDataBodyBKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %80, i32 0, i32 20
+  %81 = load ptr, ptr %m_setDeterminismSortDataBodyBKernel, align 8
+  %call119 = invoke i32 %79(ptr noundef %81)
           to label %invoke.cont118 unwind label %terminate.lpad
 
 invoke.cont118:                                   ; preds = %invoke.cont115
-  %81 = load ptr, ptr @__clewReleaseKernel, align 8
+  %82 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data120 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %82 = load ptr, ptr %m_data120, align 8
-  %m_setDeterminismSortDataChildShapeAKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %82, i32 0, i32 21
-  %83 = load ptr, ptr %m_setDeterminismSortDataChildShapeAKernel, align 8
-  %call122 = invoke i32 %81(ptr noundef %83)
+  %83 = load ptr, ptr %m_data120, align 8
+  %m_setDeterminismSortDataChildShapeAKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %83, i32 0, i32 21
+  %84 = load ptr, ptr %m_setDeterminismSortDataChildShapeAKernel, align 8
+  %call122 = invoke i32 %82(ptr noundef %84)
           to label %invoke.cont121 unwind label %terminate.lpad
 
 invoke.cont121:                                   ; preds = %invoke.cont118
-  %84 = load ptr, ptr @__clewReleaseKernel, align 8
+  %85 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_data123 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %85 = load ptr, ptr %m_data123, align 8
-  %m_setDeterminismSortDataChildShapeBKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %85, i32 0, i32 22
-  %86 = load ptr, ptr %m_setDeterminismSortDataChildShapeBKernel, align 8
-  %call125 = invoke i32 %84(ptr noundef %86)
+  %86 = load ptr, ptr %m_data123, align 8
+  %m_setDeterminismSortDataChildShapeBKernel = getelementptr inbounds %struct.b3GpuBatchingPgsSolverInternalData, ptr %86, i32 0, i32 22
+  %87 = load ptr, ptr %m_setDeterminismSortDataChildShapeBKernel, align 8
+  %call125 = invoke i32 %85(ptr noundef %87)
           to label %invoke.cont124 unwind label %terminate.lpad
 
 invoke.cont124:                                   ; preds = %invoke.cont121
   %m_data126 = getelementptr inbounds %class.b3GpuPgsContactSolver, ptr %this1, i32 0, i32 2
-  %87 = load ptr, ptr %m_data126, align 8
-  %isnull127 = icmp eq ptr %87, null
+  %88 = load ptr, ptr %m_data126, align 8
+  %isnull127 = icmp eq ptr %88, null
   br i1 %isnull127, label %delete.end129, label %delete.notnull128
 
 delete.notnull128:                                ; preds = %invoke.cont124
-  call void @_ZN34b3GpuBatchingPgsSolverInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %87) #10
-  call void @_ZdlPv(ptr noundef %87) #13
+  call void @_ZN34b3GpuBatchingPgsSolverInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %88) #10
+  call void @_ZdlPv(ptr noundef %88) #13
   br label %delete.end129
 
 delete.end129:                                    ; preds = %delete.notnull128, %invoke.cont124
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont121, %invoke.cont118, %invoke.cont115, %invoke.cont112, %invoke.cont109, %invoke.cont106, %invoke.cont103, %invoke.cont100, %invoke.cont97, %invoke.cont94, %invoke.cont91, %invoke.cont88, %invoke.cont, %delete.end85
-  %88 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #14
+  %90 = extractvalue { ptr, i32 } %89, 0
+  call void @__clang_call_terminate(ptr %90) #14
   unreachable
 }
 
@@ -9463,7 +9472,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -9475,10 +9485,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -9700,7 +9710,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI15b3RigidBodyDataE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -9712,10 +9723,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -9937,7 +9948,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI13b3InertiaDataE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -9949,10 +9961,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -10174,7 +10186,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3Contact4E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3Contact4E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10186,10 +10199,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -10350,7 +10363,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI10b3SortDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10362,10 +10376,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -10587,7 +10601,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayIjE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10599,10 +10614,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -10813,7 +10828,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI16b3GpuConstraint4E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI16b3GpuConstraint4E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10825,10 +10841,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 

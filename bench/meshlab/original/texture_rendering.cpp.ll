@@ -4054,14 +4054,14 @@ define internal void @_ZL13RenderTextureRSt6vectorIP8MeshFaceSaIS1_EER4MeshSt10s
   store i64 %123, ptr %26, align 8
   br label %101, !llvm.loop !10
 
-124:                                              ; preds = %349, %328, %323, %318, %317, %314, %313, %312, %309, %307, %306, %303, %300, %298, %295, %293, %290, %287, %283, %280, %277, %273, %270, %267, %263, %260, %246, %240, %238, %232, %230, %224, %222, %207, %194, %192, %186, %180, %171, %166, %156, %152, %139, %135, %131, %128, %115, %111, %107, %101
+124:                                              ; preds = %351, %330, %325, %320, %319, %316, %315, %314, %311, %309, %308, %305, %302, %300, %297, %295, %292, %288, %284, %281, %277, %273, %270, %267, %263, %260, %246, %240, %238, %232, %230, %224, %222, %207, %194, %192, %186, %180, %171, %166, %156, %152, %139, %135, %131, %128, %115, %111, %107, %101
   %125 = landingpad { ptr, i32 }
           cleanup
   %126 = extractvalue { ptr, i32 } %125, 0
   store ptr %126, ptr %27, align 8
   %127 = extractvalue { ptr, i32 } %125, 1
   store i32 %127, ptr %28, align 4
-  br label %546
+  br label %548
 
 128:                                              ; preds = %105
   %129 = load ptr, ptr @__glewBindBuffer, align 8
@@ -4314,629 +4314,631 @@ define internal void @_ZL13RenderTextureRSt6vectorIP8MeshFaceSaIS1_EER4MeshSt10s
   store i32 %276, ptr %42, align 4
   %278 = load ptr, ptr @__glewVertexAttribPointer, align 8
   %279 = load i32, ptr %42, align 4
-  invoke void %278(i32 noundef %279, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 20, ptr noundef inttoptr (i64 8 to ptr))
-          to label %280 unwind label %124
+  %280 = inttoptr i64 8 to ptr
+  invoke void %278(i32 noundef %279, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 20, ptr noundef %280)
+          to label %281 unwind label %124
 
-280:                                              ; preds = %277
-  %281 = load ptr, ptr @__glewEnableVertexAttribArray, align 8
-  %282 = load i32, ptr %42, align 4
-  invoke void %281(i32 noundef %282)
-          to label %283 unwind label %124
+281:                                              ; preds = %277
+  %282 = load ptr, ptr @__glewEnableVertexAttribArray, align 8
+  %283 = load i32, ptr %42, align 4
+  invoke void %282(i32 noundef %283)
+          to label %284 unwind label %124
 
-283:                                              ; preds = %280
-  %284 = load ptr, ptr @__glewGetAttribLocation, align 8
-  %285 = load i32, ptr %23, align 4
-  %286 = invoke i32 %284(i32 noundef %285, ptr noundef @.str.13)
-          to label %287 unwind label %124
+284:                                              ; preds = %281
+  %285 = load ptr, ptr @__glewGetAttribLocation, align 8
+  %286 = load i32, ptr %23, align 4
+  %287 = invoke i32 %285(i32 noundef %286, ptr noundef @.str.13)
+          to label %288 unwind label %124
 
-287:                                              ; preds = %283
-  store i32 %286, ptr %43, align 4
-  %288 = load ptr, ptr @__glewVertexAttribPointer, align 8
-  %289 = load i32, ptr %43, align 4
-  invoke void %288(i32 noundef %289, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 20, ptr noundef inttoptr (i64 16 to ptr))
-          to label %290 unwind label %124
+288:                                              ; preds = %284
+  store i32 %287, ptr %43, align 4
+  %289 = load ptr, ptr @__glewVertexAttribPointer, align 8
+  %290 = load i32, ptr %43, align 4
+  %291 = inttoptr i64 16 to ptr
+  invoke void %289(i32 noundef %290, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 20, ptr noundef %291)
+          to label %292 unwind label %124
 
-290:                                              ; preds = %287
-  %291 = load ptr, ptr @__glewEnableVertexAttribArray, align 8
-  %292 = load i32, ptr %43, align 4
-  invoke void %291(i32 noundef %292)
-          to label %293 unwind label %124
-
-293:                                              ; preds = %290
-  store ptr null, ptr %32, align 8
-  %294 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %294(i32 noundef 34962, i32 noundef 0)
+292:                                              ; preds = %288
+  %293 = load ptr, ptr @__glewEnableVertexAttribArray, align 8
+  %294 = load i32, ptr %43, align 4
+  invoke void %293(i32 noundef %294)
           to label %295 unwind label %124
 
-295:                                              ; preds = %293
-  %296 = load i32, ptr %15, align 4
-  store i32 %296, ptr %44, align 4
-  %297 = load i32, ptr %16, align 4
-  store i32 %297, ptr %45, align 4
-  invoke void @glGetIntegerv(i32 noundef 3073, ptr noundef %46)
-          to label %298 unwind label %124
+295:                                              ; preds = %292
+  store ptr null, ptr %32, align 8
+  %296 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %296(i32 noundef 34962, i32 noundef 0)
+          to label %297 unwind label %124
 
-298:                                              ; preds = %295
-  %299 = load ptr, ptr @__glewGenFramebuffers, align 8
-  invoke void %299(i32 noundef 1, ptr noundef %47)
+297:                                              ; preds = %295
+  %298 = load i32, ptr %15, align 4
+  store i32 %298, ptr %44, align 4
+  %299 = load i32, ptr %16, align 4
+  store i32 %299, ptr %45, align 4
+  invoke void @glGetIntegerv(i32 noundef 3073, ptr noundef %46)
           to label %300 unwind label %124
 
-300:                                              ; preds = %298
-  %301 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %302 = load i32, ptr %47, align 4
-  invoke void %301(i32 noundef 36160, i32 noundef %302)
-          to label %303 unwind label %124
+300:                                              ; preds = %297
+  %301 = load ptr, ptr @__glewGenFramebuffers, align 8
+  invoke void %301(i32 noundef 1, ptr noundef %47)
+          to label %302 unwind label %124
 
-303:                                              ; preds = %300
-  %304 = load i32, ptr %44, align 4
-  %305 = load i32, ptr %45, align 4
-  invoke void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %304, i32 noundef %305)
-          to label %306 unwind label %124
+302:                                              ; preds = %300
+  %303 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %304 = load i32, ptr %47, align 4
+  invoke void %303(i32 noundef 36160, i32 noundef %304)
+          to label %305 unwind label %124
 
-306:                                              ; preds = %303
+305:                                              ; preds = %302
+  %306 = load i32, ptr %44, align 4
+  %307 = load i32, ptr %45, align 4
+  invoke void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %306, i32 noundef %307)
+          to label %308 unwind label %124
+
+308:                                              ; preds = %305
   invoke void @glGenTextures(i32 noundef 1, ptr noundef %48)
-          to label %307 unwind label %124
-
-307:                                              ; preds = %306
-  %308 = load i32, ptr %48, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %308)
           to label %309 unwind label %124
 
-309:                                              ; preds = %307
-  %310 = load i32, ptr %44, align 4
-  %311 = load i32, ptr %45, align 4
-  invoke void @glTexImage2D(i32 noundef 3553, i32 noundef 0, i32 noundef 32856, i32 noundef %310, i32 noundef %311, i32 noundef 0, i32 noundef 32993, i32 noundef 5121, ptr noundef null)
-          to label %312 unwind label %124
+309:                                              ; preds = %308
+  %310 = load i32, ptr %48, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %310)
+          to label %311 unwind label %124
 
-312:                                              ; preds = %309
-  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9729)
-          to label %313 unwind label %124
-
-313:                                              ; preds = %312
-  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
+311:                                              ; preds = %309
+  %312 = load i32, ptr %44, align 4
+  %313 = load i32, ptr %45, align 4
+  invoke void @glTexImage2D(i32 noundef 3553, i32 noundef 0, i32 noundef 32856, i32 noundef %312, i32 noundef %313, i32 noundef 0, i32 noundef 32993, i32 noundef 5121, ptr noundef null)
           to label %314 unwind label %124
 
-314:                                              ; preds = %313
-  %315 = load ptr, ptr @__glewFramebufferTexture, align 8
-  %316 = load i32, ptr %48, align 4
-  invoke void %315(i32 noundef 36160, i32 noundef 36064, i32 noundef %316, i32 noundef 0)
-          to label %317 unwind label %124
+314:                                              ; preds = %311
+  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9729)
+          to label %315 unwind label %124
 
-317:                                              ; preds = %314
+315:                                              ; preds = %314
+  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
+          to label %316 unwind label %124
+
+316:                                              ; preds = %315
+  %317 = load ptr, ptr @__glewFramebufferTexture, align 8
+  %318 = load i32, ptr %48, align 4
+  invoke void %317(i32 noundef 36160, i32 noundef 36064, i32 noundef %318, i32 noundef 0)
+          to label %319 unwind label %124
+
+319:                                              ; preds = %316
   invoke void @glBindTexture(i32 noundef 3553, i32 noundef 0)
-          to label %318 unwind label %124
+          to label %320 unwind label %124
 
-318:                                              ; preds = %317
-  %319 = load ptr, ptr @__glewCheckFramebufferStatus, align 8
-  %320 = invoke i32 %319(i32 noundef 36160)
-          to label %321 unwind label %124
+320:                                              ; preds = %319
+  %321 = load ptr, ptr @__glewCheckFramebufferStatus, align 8
+  %322 = invoke i32 %321(i32 noundef 36160)
+          to label %323 unwind label %124
 
-321:                                              ; preds = %318
-  %322 = icmp ne i32 %320, 36053
-  br i1 %322, label %323, label %349
-
-323:                                              ; preds = %321
-  store i1 false, ptr %51, align 1
-  %324 = invoke noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
-          to label %325 unwind label %124
+323:                                              ; preds = %320
+  %324 = icmp ne i32 %322, 36053
+  br i1 %324, label %325, label %351
 
 325:                                              ; preds = %323
-  %326 = icmp sgt i32 -2, %324
-  br i1 %326, label %327, label %328
+  store i1 false, ptr %51, align 1
+  %326 = invoke noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
+          to label %327 unwind label %124
 
 327:                                              ; preds = %325
-  br label %338
+  %328 = icmp sgt i32 -2, %326
+  br i1 %328, label %329, label %330
 
-328:                                              ; preds = %325
+329:                                              ; preds = %327
+  br label %340
+
+330:                                              ; preds = %327
   invoke void @_ZN7logging6BufferC1Ei(ptr noundef nonnull align 8 dereferenceable(376) %50, i32 noundef -2)
-          to label %329 unwind label %124
+          to label %331 unwind label %124
 
-329:                                              ; preds = %328
+331:                                              ; preds = %330
   store i1 true, ptr %51, align 1
-  %330 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN7logging6BufferlsIA29_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(376) %50, ptr noundef nonnull align 1 dereferenceable(29) @.str.14)
-          to label %331 unwind label %342
+  %332 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN7logging6BufferlsIA29_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(376) %50, ptr noundef nonnull align 1 dereferenceable(29) @.str.14)
+          to label %333 unwind label %344
 
-331:                                              ; preds = %329
-  %332 = load ptr, ptr @__glewCheckFramebufferStatus, align 8
-  %333 = invoke i32 %332(i32 noundef 36160)
-          to label %334 unwind label %342
+333:                                              ; preds = %331
+  %334 = load ptr, ptr @__glewCheckFramebufferStatus, align 8
+  %335 = invoke i32 %334(i32 noundef 36160)
+          to label %336 unwind label %344
 
-334:                                              ; preds = %331
-  store i32 %333, ptr %52, align 4
-  %335 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN7logging6BufferlsIjEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(376) %330, ptr noundef nonnull align 4 dereferenceable(4) %52)
-          to label %336 unwind label %342
+336:                                              ; preds = %333
+  store i32 %335, ptr %52, align 4
+  %337 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN7logging6BufferlsIjEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(376) %332, ptr noundef nonnull align 4 dereferenceable(4) %52)
+          to label %338 unwind label %344
 
-336:                                              ; preds = %334
-  invoke void @_ZN7logging2V_anERKNS_6BufferE(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(376) %335)
-          to label %337 unwind label %342
+338:                                              ; preds = %336
+  invoke void @_ZN7logging2V_anERKNS_6BufferE(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(376) %337)
+          to label %339 unwind label %344
 
-337:                                              ; preds = %336
-  br label %338
+339:                                              ; preds = %338
+  br label %340
 
-338:                                              ; preds = %337, %327
-  %339 = load i1, ptr %51, align 1
-  br i1 %339, label %340, label %341
+340:                                              ; preds = %339, %329
+  %341 = load i1, ptr %51, align 1
+  br i1 %341, label %342, label %343
 
-340:                                              ; preds = %338
+342:                                              ; preds = %340
   call void @_ZN7logging6BufferD1Ev(ptr noundef nonnull align 8 dereferenceable(376) %50) #3
-  br label %341
+  br label %343
 
-341:                                              ; preds = %340, %338
+343:                                              ; preds = %342, %340
   call void @exit(i32 noundef -1) #18
   unreachable
 
-342:                                              ; preds = %336, %334, %331, %329
-  %343 = landingpad { ptr, i32 }
+344:                                              ; preds = %338, %336, %333, %331
+  %345 = landingpad { ptr, i32 }
           cleanup
-  %344 = extractvalue { ptr, i32 } %343, 0
-  store ptr %344, ptr %27, align 8
-  %345 = extractvalue { ptr, i32 } %343, 1
-  store i32 %345, ptr %28, align 4
-  %346 = load i1, ptr %51, align 1
-  br i1 %346, label %347, label %348
+  %346 = extractvalue { ptr, i32 } %345, 0
+  store ptr %346, ptr %27, align 8
+  %347 = extractvalue { ptr, i32 } %345, 1
+  store i32 %347, ptr %28, align 4
+  %348 = load i1, ptr %51, align 1
+  br i1 %348, label %349, label %350
 
-347:                                              ; preds = %342
+349:                                              ; preds = %344
   call void @_ZN7logging6BufferD1Ev(ptr noundef nonnull align 8 dereferenceable(376) %50) #3
-  br label %348
+  br label %350
 
-348:                                              ; preds = %347, %342
-  br label %546
+350:                                              ; preds = %349, %344
+  br label %548
 
-349:                                              ; preds = %321
+351:                                              ; preds = %323
   store i1 false, ptr %53, align 1
   store i32 5, ptr %54, align 4
   invoke void @_ZSt11make_sharedI6QImageJRiS1_NS0_6FormatEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.81") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 4 dereferenceable(4) %54)
-          to label %350 unwind label %124
-
-350:                                              ; preds = %349
-  invoke void @glDisable(i32 noundef 2929)
-          to label %351 unwind label %396
-
-351:                                              ; preds = %350
-  invoke void @glDisable(i32 noundef 2960)
-          to label %352 unwind label %396
+          to label %352 unwind label %124
 
 352:                                              ; preds = %351
-  invoke void @glDrawBuffer(i32 noundef 36064)
-          to label %353 unwind label %396
+  invoke void @glDisable(i32 noundef 2929)
+          to label %353 unwind label %398
 
 353:                                              ; preds = %352
-  invoke void @glClearColor(float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0x3FE0101020000000)
-          to label %354 unwind label %396
+  invoke void @glDisable(i32 noundef 2960)
+          to label %354 unwind label %398
 
 354:                                              ; preds = %353
-  invoke void @glClear(i32 noundef 16384)
-          to label %355 unwind label %396
+  invoke void @glDrawBuffer(i32 noundef 36064)
+          to label %355 unwind label %398
 
 355:                                              ; preds = %354
-  %356 = load ptr, ptr %10, align 8
-  %357 = call ptr @_ZNSt6vectorIP8MeshFaceSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %356) #3
-  %358 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %55, i32 0, i32 0
-  store ptr %357, ptr %358, align 8
+  invoke void @glClearColor(float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0x3FE0101020000000)
+          to label %356 unwind label %398
+
+356:                                              ; preds = %355
+  invoke void @glClear(i32 noundef 16384)
+          to label %357 unwind label %398
+
+357:                                              ; preds = %356
+  %358 = load ptr, ptr %10, align 8
+  %359 = call ptr @_ZNSt6vectorIP8MeshFaceSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %358) #3
+  %360 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %55, i32 0, i32 0
+  store ptr %359, ptr %360, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %55, i64 8, i1 false)
-  br label %359
+  br label %361
 
-359:                                              ; preds = %505, %355
-  %360 = load ptr, ptr %10, align 8
-  %361 = call ptr @_ZNSt6vectorIP8MeshFaceSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %360) #3
-  %362 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %57, i32 0, i32 0
-  store ptr %361, ptr %362, align 8
-  %363 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP8MeshFaceSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %57) #3
-  br i1 %363, label %364, label %506
+361:                                              ; preds = %507, %357
+  %362 = load ptr, ptr %10, align 8
+  %363 = call ptr @_ZNSt6vectorIP8MeshFaceSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %362) #3
+  %364 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %57, i32 0, i32 0
+  store ptr %363, ptr %364, align 8
+  %365 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP8MeshFaceSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %57) #3
+  br i1 %365, label %366, label %508
 
-364:                                              ; preds = %359
+366:                                              ; preds = %361
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %58, ptr align 8 %56, i64 8, i1 false)
-  %365 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %58) #3
-  %366 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_E15AttributeHandleI15TexCoordStorageS8_EixIPS6_EERSC_RKT_(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(8) %365)
-          to label %367 unwind label %396
+  %367 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %58) #3
+  %368 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_E15AttributeHandleI15TexCoordStorageS8_EixIPS6_EERSC_RKT_(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(8) %367)
+          to label %369 unwind label %398
 
-367:                                              ; preds = %364
-  %368 = getelementptr inbounds %struct.TexCoordStorage, ptr %366, i32 0, i32 0
-  %369 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %368, i64 0, i64 0
-  %370 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZN3vcg9TexCoord2IdLi1EE1NEv(ptr noundef nonnull align 8 dereferenceable(18) %369)
-          to label %371 unwind label %396
+369:                                              ; preds = %366
+  %370 = getelementptr inbounds %struct.TexCoordStorage, ptr %368, i32 0, i32 0
+  %371 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %370, i64 0, i64 0
+  %372 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZN3vcg9TexCoord2IdLi1EE1NEv(ptr noundef nonnull align 8 dereferenceable(18) %371)
+          to label %373 unwind label %398
 
-371:                                              ; preds = %367
-  %372 = load i16, ptr %370, align 2
-  %373 = sext i16 %372 to i32
-  store i32 %373, ptr %59, align 4
-  br label %374
+373:                                              ; preds = %369
+  %374 = load i16, ptr %372, align 2
+  %375 = sext i16 %374 to i32
+  store i32 %375, ptr %59, align 4
+  br label %376
 
-374:                                              ; preds = %393, %371
-  %375 = load ptr, ptr %10, align 8
-  %376 = call ptr @_ZNSt6vectorIP8MeshFaceSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %375) #3
-  %377 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %60, i32 0, i32 0
-  store ptr %376, ptr %377, align 8
-  %378 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP8MeshFaceSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %60) #3
-  br i1 %378, label %379, label %391
+376:                                              ; preds = %395, %373
+  %377 = load ptr, ptr %10, align 8
+  %378 = call ptr @_ZNSt6vectorIP8MeshFaceSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %377) #3
+  %379 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %60, i32 0, i32 0
+  store ptr %378, ptr %379, align 8
+  %380 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP8MeshFaceSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %60) #3
+  br i1 %380, label %381, label %393
 
-379:                                              ; preds = %374
-  %380 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %58) #3
-  %381 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_E15AttributeHandleI15TexCoordStorageS8_EixIPS6_EERSC_RKT_(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(8) %380)
-          to label %382 unwind label %396
+381:                                              ; preds = %376
+  %382 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %58) #3
+  %383 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14DummyContainerES9_S9_E15AttributeHandleI15TexCoordStorageS8_EixIPS6_EERSC_RKT_(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(8) %382)
+          to label %384 unwind label %398
 
-382:                                              ; preds = %379
-  %383 = getelementptr inbounds %struct.TexCoordStorage, ptr %381, i32 0, i32 0
-  %384 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %383, i64 0, i64 0
-  %385 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZN3vcg9TexCoord2IdLi1EE1NEv(ptr noundef nonnull align 8 dereferenceable(18) %384)
-          to label %386 unwind label %396
+384:                                              ; preds = %381
+  %385 = getelementptr inbounds %struct.TexCoordStorage, ptr %383, i32 0, i32 0
+  %386 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %385, i64 0, i64 0
+  %387 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZN3vcg9TexCoord2IdLi1EE1NEv(ptr noundef nonnull align 8 dereferenceable(18) %386)
+          to label %388 unwind label %398
 
-386:                                              ; preds = %382
-  %387 = load i16, ptr %385, align 2
-  %388 = sext i16 %387 to i32
-  %389 = load i32, ptr %59, align 4
-  %390 = icmp eq i32 %388, %389
-  br label %391
+388:                                              ; preds = %384
+  %389 = load i16, ptr %387, align 2
+  %390 = sext i16 %389 to i32
+  %391 = load i32, ptr %59, align 4
+  %392 = icmp eq i32 %390, %391
+  br label %393
 
-391:                                              ; preds = %386, %374
-  %392 = phi i1 [ false, %374 ], [ %390, %386 ]
-  br i1 %392, label %393, label %400
+393:                                              ; preds = %388, %376
+  %394 = phi i1 [ false, %376 ], [ %392, %388 ]
+  br i1 %394, label %395, label %402
 
-393:                                              ; preds = %391
-  %394 = call ptr @_ZN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS2_SaIS2_EEEppEi(ptr noundef nonnull align 8 dereferenceable(8) %58, i32 noundef 0) #3
-  %395 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %61, i32 0, i32 0
-  store ptr %394, ptr %395, align 8
-  br label %374, !llvm.loop !12
+395:                                              ; preds = %393
+  %396 = call ptr @_ZN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS2_SaIS2_EEEppEi(ptr noundef nonnull align 8 dereferenceable(8) %58, i32 noundef 0) #3
+  %397 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %61, i32 0, i32 0
+  store ptr %396, ptr %397, align 8
+  br label %376, !llvm.loop !12
 
-396:                                              ; preds = %539, %537, %534, %529, %527, %524, %522, %520, %519, %517, %515, %513, %512, %507, %506, %502, %501, %498, %496, %492, %490, %489, %487, %486, %485, %483, %482, %481, %478, %466, %462, %460, %454, %447, %443, %440, %436, %433, %423, %418, %414, %406, %400, %382, %379, %367, %364, %354, %353, %352, %351, %350
-  %397 = landingpad { ptr, i32 }
+398:                                              ; preds = %541, %539, %536, %531, %529, %526, %524, %522, %521, %519, %517, %515, %514, %509, %508, %504, %503, %500, %498, %494, %492, %491, %489, %488, %487, %485, %484, %483, %480, %468, %464, %462, %456, %449, %445, %442, %438, %435, %425, %420, %416, %408, %402, %384, %381, %369, %366, %356, %355, %354, %353, %352
+  %399 = landingpad { ptr, i32 }
           cleanup
-  %398 = extractvalue { ptr, i32 } %397, 0
-  store ptr %398, ptr %27, align 8
-  %399 = extractvalue { ptr, i32 } %397, 1
-  store i32 %399, ptr %28, align 4
-  br label %545
+  %400 = extractvalue { ptr, i32 } %399, 0
+  store ptr %400, ptr %27, align 8
+  %401 = extractvalue { ptr, i32 } %399, 1
+  store i32 %401, ptr %28, align 4
+  br label %547
 
-400:                                              ; preds = %391
+402:                                              ; preds = %393
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %63, ptr align 8 %55, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %64, ptr align 8 %56, i64 8, i1 false)
-  %401 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %63, i32 0, i32 0
-  %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %64, i32 0, i32 0
+  %403 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %63, i32 0, i32 0
   %404 = load ptr, ptr %403, align 8
-  %405 = invoke noundef i64 @_ZSt8distanceIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEEENSt15iterator_traitsIT_E15difference_typeESA_SA_(ptr %402, ptr %404)
-          to label %406 unwind label %396
+  %405 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %64, i32 0, i32 0
+  %406 = load ptr, ptr %405, align 8
+  %407 = invoke noundef i64 @_ZSt8distanceIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEEENSt15iterator_traitsIT_E15difference_typeESA_SA_(ptr %404, ptr %406)
+          to label %408 unwind label %398
 
-406:                                              ; preds = %400
-  %407 = mul nsw i64 %405, 3
-  %408 = trunc i64 %407 to i32
-  store i32 %408, ptr %62, align 4
+408:                                              ; preds = %402
+  %409 = mul nsw i64 %407, 3
+  %410 = trunc i64 %409 to i32
+  store i32 %410, ptr %62, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %66, ptr align 8 %56, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr align 8 %58, i64 8, i1 false)
-  %409 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %66, i32 0, i32 0
-  %410 = load ptr, ptr %409, align 8
-  %411 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %67, i32 0, i32 0
+  %411 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %66, i32 0, i32 0
   %412 = load ptr, ptr %411, align 8
-  %413 = invoke noundef i64 @_ZSt8distanceIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEEENSt15iterator_traitsIT_E15difference_typeESA_SA_(ptr %410, ptr %412)
-          to label %414 unwind label %396
+  %413 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.70", ptr %67, i32 0, i32 0
+  %414 = load ptr, ptr %413, align 8
+  %415 = invoke noundef i64 @_ZSt8distanceIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEEENSt15iterator_traitsIT_E15difference_typeESA_SA_(ptr %412, ptr %414)
+          to label %416 unwind label %398
 
-414:                                              ; preds = %406
-  %415 = mul nsw i64 %413, 3
-  %416 = trunc i64 %415 to i32
-  store i32 %416, ptr %65, align 4
-  %417 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %417(i32 noundef 33984)
-          to label %418 unwind label %396
+416:                                              ; preds = %408
+  %417 = mul nsw i64 %415, 3
+  %418 = trunc i64 %417 to i32
+  store i32 %418, ptr %65, align 4
+  %419 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %419(i32 noundef 33984)
+          to label %420 unwind label %398
 
-418:                                              ; preds = %414
+420:                                              ; preds = %416
   store i1 false, ptr %70, align 1
-  %419 = invoke noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
-          to label %420 unwind label %396
-
-420:                                              ; preds = %418
-  %421 = icmp sgt i32 2, %419
-  br i1 %421, label %422, label %423
+  %421 = invoke noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
+          to label %422 unwind label %398
 
 422:                                              ; preds = %420
-  br label %430
+  %423 = icmp sgt i32 2, %421
+  br i1 %423, label %424, label %425
 
-423:                                              ; preds = %420
+424:                                              ; preds = %422
+  br label %432
+
+425:                                              ; preds = %422
   invoke void @_ZN7logging6BufferC1Ei(ptr noundef nonnull align 8 dereferenceable(376) %69, i32 noundef 2)
-          to label %424 unwind label %396
+          to label %426 unwind label %398
 
-424:                                              ; preds = %423
+426:                                              ; preds = %425
   store i1 true, ptr %70, align 1
-  %425 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN7logging6BufferlsIA22_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(376) %69, ptr noundef nonnull align 1 dereferenceable(22) @.str.15)
-          to label %426 unwind label %471
-
-426:                                              ; preds = %424
-  %427 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN7logging6BufferlsIiEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(376) %425, ptr noundef nonnull align 4 dereferenceable(4) %59)
-          to label %428 unwind label %471
+  %427 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN7logging6BufferlsIA22_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(376) %69, ptr noundef nonnull align 1 dereferenceable(22) @.str.15)
+          to label %428 unwind label %473
 
 428:                                              ; preds = %426
-  invoke void @_ZN7logging2V_anERKNS_6BufferE(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 8 dereferenceable(376) %427)
-          to label %429 unwind label %471
+  %429 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN7logging6BufferlsIiEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(376) %427, ptr noundef nonnull align 4 dereferenceable(4) %59)
+          to label %430 unwind label %473
 
-429:                                              ; preds = %428
-  br label %430
+430:                                              ; preds = %428
+  invoke void @_ZN7logging2V_anERKNS_6BufferE(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 8 dereferenceable(376) %429)
+          to label %431 unwind label %473
 
-430:                                              ; preds = %429, %422
-  %431 = load i1, ptr %70, align 1
-  br i1 %431, label %432, label %433
+431:                                              ; preds = %430
+  br label %432
 
-432:                                              ; preds = %430
+432:                                              ; preds = %431, %424
+  %433 = load i1, ptr %70, align 1
+  br i1 %433, label %434, label %435
+
+434:                                              ; preds = %432
   call void @_ZN7logging6BufferD1Ev(ptr noundef nonnull align 8 dereferenceable(376) %69) #3
-  br label %433
+  br label %435
 
-433:                                              ; preds = %432, %430
-  %434 = call noundef ptr @_ZNKSt19__shared_ptr_accessI13TextureObjectLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  %435 = load i32, ptr %59, align 4
-  invoke void @_ZN13TextureObject4BindEi(ptr noundef nonnull align 8 dereferenceable(48) %434, i32 noundef %435)
-          to label %436 unwind label %396
+435:                                              ; preds = %434, %432
+  %436 = call noundef ptr @_ZNKSt19__shared_ptr_accessI13TextureObjectLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  %437 = load i32, ptr %59, align 4
+  invoke void @_ZN13TextureObject4BindEi(ptr noundef nonnull align 8 dereferenceable(48) %436, i32 noundef %437)
+          to label %438 unwind label %398
 
-436:                                              ; preds = %433
-  %437 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %438 = load i32, ptr %23, align 4
-  %439 = invoke i32 %437(i32 noundef %438, ptr noundef @.str.16)
-          to label %440 unwind label %396
+438:                                              ; preds = %435
+  %439 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %440 = load i32, ptr %23, align 4
+  %441 = invoke i32 %439(i32 noundef %440, ptr noundef @.str.16)
+          to label %442 unwind label %398
 
-440:                                              ; preds = %436
-  store i32 %439, ptr %71, align 4
-  %441 = load ptr, ptr @__glewUniform1i, align 8
-  %442 = load i32, ptr %71, align 4
-  invoke void %441(i32 noundef %442, i32 noundef 0)
-          to label %443 unwind label %396
+442:                                              ; preds = %438
+  store i32 %441, ptr %71, align 4
+  %443 = load ptr, ptr @__glewUniform1i, align 8
+  %444 = load i32, ptr %71, align 4
+  invoke void %443(i32 noundef %444, i32 noundef 0)
+          to label %445 unwind label %398
 
-443:                                              ; preds = %440
-  %444 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %445 = load i32, ptr %23, align 4
-  %446 = invoke i32 %444(i32 noundef %445, ptr noundef @.str.17)
-          to label %447 unwind label %396
+445:                                              ; preds = %442
+  %446 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %447 = load i32, ptr %23, align 4
+  %448 = invoke i32 %446(i32 noundef %447, ptr noundef @.str.17)
+          to label %449 unwind label %398
 
-447:                                              ; preds = %443
-  store i32 %446, ptr %72, align 4
-  %448 = load ptr, ptr @__glewUniform2f, align 8
-  %449 = load i32, ptr %72, align 4
-  %450 = call noundef ptr @_ZNKSt19__shared_ptr_accessI13TextureObjectLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  %451 = load i32, ptr %59, align 4
-  %452 = sext i32 %451 to i64
-  %453 = invoke noundef i32 @_ZN13TextureObject12TextureWidthEm(ptr noundef nonnull align 8 dereferenceable(48) %450, i64 noundef %452)
-          to label %454 unwind label %396
+449:                                              ; preds = %445
+  store i32 %448, ptr %72, align 4
+  %450 = load ptr, ptr @__glewUniform2f, align 8
+  %451 = load i32, ptr %72, align 4
+  %452 = call noundef ptr @_ZNKSt19__shared_ptr_accessI13TextureObjectLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  %453 = load i32, ptr %59, align 4
+  %454 = sext i32 %453 to i64
+  %455 = invoke noundef i32 @_ZN13TextureObject12TextureWidthEm(ptr noundef nonnull align 8 dereferenceable(48) %452, i64 noundef %454)
+          to label %456 unwind label %398
 
-454:                                              ; preds = %447
-  %455 = sitofp i32 %453 to float
-  %456 = call noundef ptr @_ZNKSt19__shared_ptr_accessI13TextureObjectLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  %457 = load i32, ptr %59, align 4
-  %458 = sext i32 %457 to i64
-  %459 = invoke noundef i32 @_ZN13TextureObject13TextureHeightEm(ptr noundef nonnull align 8 dereferenceable(48) %456, i64 noundef %458)
-          to label %460 unwind label %396
+456:                                              ; preds = %449
+  %457 = sitofp i32 %455 to float
+  %458 = call noundef ptr @_ZNKSt19__shared_ptr_accessI13TextureObjectLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  %459 = load i32, ptr %59, align 4
+  %460 = sext i32 %459 to i64
+  %461 = invoke noundef i32 @_ZN13TextureObject13TextureHeightEm(ptr noundef nonnull align 8 dereferenceable(48) %458, i64 noundef %460)
+          to label %462 unwind label %398
 
-460:                                              ; preds = %454
-  %461 = sitofp i32 %459 to float
-  invoke void %448(i32 noundef %449, float noundef %455, float noundef %461)
-          to label %462 unwind label %396
+462:                                              ; preds = %456
+  %463 = sitofp i32 %461 to float
+  invoke void %450(i32 noundef %451, float noundef %457, float noundef %463)
+          to label %464 unwind label %398
 
-462:                                              ; preds = %460
-  %463 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %464 = load i32, ptr %23, align 4
-  %465 = invoke i32 %463(i32 noundef %464, ptr noundef @.str.18)
-          to label %466 unwind label %396
+464:                                              ; preds = %462
+  %465 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %466 = load i32, ptr %23, align 4
+  %467 = invoke i32 %465(i32 noundef %466, ptr noundef @.str.18)
+          to label %468 unwind label %398
 
-466:                                              ; preds = %462
-  store i32 %465, ptr %73, align 4
-  %467 = load ptr, ptr @__glewUniform1i, align 8
-  %468 = load i32, ptr %73, align 4
-  invoke void %467(i32 noundef %468, i32 noundef 0)
-          to label %469 unwind label %396
+468:                                              ; preds = %464
+  store i32 %467, ptr %73, align 4
+  %469 = load ptr, ptr @__glewUniform1i, align 8
+  %470 = load i32, ptr %73, align 4
+  invoke void %469(i32 noundef %470, i32 noundef 0)
+          to label %471 unwind label %398
 
-469:                                              ; preds = %466
-  %470 = load i32, ptr %14, align 4
-  switch i32 %470, label %496 [
-    i32 2, label %478
-    i32 1, label %485
-    i32 0, label %489
-    i32 3, label %492
+471:                                              ; preds = %468
+  %472 = load i32, ptr %14, align 4
+  switch i32 %472, label %498 [
+    i32 2, label %480
+    i32 1, label %487
+    i32 0, label %491
+    i32 3, label %494
   ]
 
-471:                                              ; preds = %428, %426, %424
-  %472 = landingpad { ptr, i32 }
+473:                                              ; preds = %430, %428, %426
+  %474 = landingpad { ptr, i32 }
           cleanup
-  %473 = extractvalue { ptr, i32 } %472, 0
-  store ptr %473, ptr %27, align 8
-  %474 = extractvalue { ptr, i32 } %472, 1
-  store i32 %474, ptr %28, align 4
-  %475 = load i1, ptr %70, align 1
-  br i1 %475, label %476, label %477
+  %475 = extractvalue { ptr, i32 } %474, 0
+  store ptr %475, ptr %27, align 8
+  %476 = extractvalue { ptr, i32 } %474, 1
+  store i32 %476, ptr %28, align 4
+  %477 = load i1, ptr %70, align 1
+  br i1 %477, label %478, label %479
 
-476:                                              ; preds = %471
+478:                                              ; preds = %473
   call void @_ZN7logging6BufferD1Ev(ptr noundef nonnull align 8 dereferenceable(376) %69) #3
-  br label %477
+  br label %479
 
-477:                                              ; preds = %476, %471
-  br label %545
+479:                                              ; preds = %478, %473
+  br label %547
 
-478:                                              ; preds = %469
-  %479 = load ptr, ptr @__glewUniform1i, align 8
-  %480 = load i32, ptr %73, align 4
-  invoke void %479(i32 noundef %480, i32 noundef 1)
-          to label %481 unwind label %396
+480:                                              ; preds = %471
+  %481 = load ptr, ptr @__glewUniform1i, align 8
+  %482 = load i32, ptr %73, align 4
+  invoke void %481(i32 noundef %482, i32 noundef 1)
+          to label %483 unwind label %398
 
-481:                                              ; preds = %478
+483:                                              ; preds = %480
   invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
-          to label %482 unwind label %396
-
-482:                                              ; preds = %481
-  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9987)
-          to label %483 unwind label %396
-
-483:                                              ; preds = %482
-  invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 34046, float noundef 1.600000e+01)
-          to label %484 unwind label %396
+          to label %484 unwind label %398
 
 484:                                              ; preds = %483
-  br label %498
+  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9987)
+          to label %485 unwind label %398
 
-485:                                              ; preds = %469
-  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
-          to label %486 unwind label %396
+485:                                              ; preds = %484
+  invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 34046, float noundef 1.600000e+01)
+          to label %486 unwind label %398
 
 486:                                              ; preds = %485
-  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9987)
-          to label %487 unwind label %396
+  br label %500
 
-487:                                              ; preds = %486
-  invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 34046, float noundef 1.600000e+01)
-          to label %488 unwind label %396
+487:                                              ; preds = %471
+  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
+          to label %488 unwind label %398
 
 488:                                              ; preds = %487
-  br label %498
+  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9987)
+          to label %489 unwind label %398
 
-489:                                              ; preds = %469
-  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9728)
-          to label %490 unwind label %396
+489:                                              ; preds = %488
+  invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 34046, float noundef 1.600000e+01)
+          to label %490 unwind label %398
 
 490:                                              ; preds = %489
+  br label %500
+
+491:                                              ; preds = %471
+  invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9728)
+          to label %492 unwind label %398
+
+492:                                              ; preds = %491
   invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef 9728)
-          to label %491 unwind label %396
+          to label %493 unwind label %398
 
-491:                                              ; preds = %490
-  br label %498
+493:                                              ; preds = %492
+  br label %500
 
-492:                                              ; preds = %469
-  %493 = load ptr, ptr @__glewUniform1i, align 8
-  %494 = load i32, ptr %73, align 4
-  invoke void %493(i32 noundef %494, i32 noundef 2)
-          to label %495 unwind label %396
+494:                                              ; preds = %471
+  %495 = load ptr, ptr @__glewUniform1i, align 8
+  %496 = load i32, ptr %73, align 4
+  invoke void %495(i32 noundef %496, i32 noundef 2)
+          to label %497 unwind label %398
 
-495:                                              ; preds = %492
-  br label %498
+497:                                              ; preds = %494
+  br label %500
 
-496:                                              ; preds = %469
+498:                                              ; preds = %471
   invoke void @_Z11ensure_failPKcS0_j(ptr noundef @.str.19, ptr noundef @.str.4, i32 noundef 306) #17
-          to label %497 unwind label %396
+          to label %499 unwind label %398
 
-497:                                              ; preds = %496
+499:                                              ; preds = %498
   unreachable
 
-498:                                              ; preds = %495, %491, %488, %484
-  %499 = load i32, ptr %62, align 4
-  %500 = load i32, ptr %65, align 4
-  invoke void @glDrawArrays(i32 noundef 4, i32 noundef %499, i32 noundef %500)
-          to label %501 unwind label %396
+500:                                              ; preds = %497, %493, %490, %486
+  %501 = load i32, ptr %62, align 4
+  %502 = load i32, ptr %65, align 4
+  invoke void @glDrawArrays(i32 noundef 4, i32 noundef %501, i32 noundef %502)
+          to label %503 unwind label %398
 
-501:                                              ; preds = %498
+503:                                              ; preds = %500
   invoke void @_Z12CheckGLErrorv()
-          to label %502 unwind label %396
+          to label %504 unwind label %398
 
-502:                                              ; preds = %501
-  %503 = call noundef ptr @_ZNKSt19__shared_ptr_accessI13TextureObjectLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  %504 = load i32, ptr %59, align 4
-  invoke void @_ZN13TextureObject7ReleaseEi(ptr noundef nonnull align 8 dereferenceable(48) %503, i32 noundef %504)
-          to label %505 unwind label %396
+504:                                              ; preds = %503
+  %505 = call noundef ptr @_ZNKSt19__shared_ptr_accessI13TextureObjectLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  %506 = load i32, ptr %59, align 4
+  invoke void @_ZN13TextureObject7ReleaseEi(ptr noundef nonnull align 8 dereferenceable(48) %505, i32 noundef %506)
+          to label %507 unwind label %398
 
-505:                                              ; preds = %502
+507:                                              ; preds = %504
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %58, i64 8, i1 false)
-  br label %359, !llvm.loop !13
+  br label %361, !llvm.loop !13
 
-506:                                              ; preds = %359
+508:                                              ; preds = %361
   invoke void @glReadBuffer(i32 noundef 36064)
-          to label %507 unwind label %396
+          to label %509 unwind label %398
 
-507:                                              ; preds = %506
-  %508 = load i32, ptr %44, align 4
-  %509 = load i32, ptr %45, align 4
-  %510 = call noundef ptr @_ZNKSt19__shared_ptr_accessI6QImageLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
-  %511 = invoke noundef ptr @_ZN6QImage4bitsEv(ptr noundef nonnull align 8 dereferenceable(32) %510)
-          to label %512 unwind label %396
+509:                                              ; preds = %508
+  %510 = load i32, ptr %44, align 4
+  %511 = load i32, ptr %45, align 4
+  %512 = call noundef ptr @_ZNKSt19__shared_ptr_accessI6QImageLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %513 = invoke noundef ptr @_ZN6QImage4bitsEv(ptr noundef nonnull align 8 dereferenceable(32) %512)
+          to label %514 unwind label %398
 
-512:                                              ; preds = %507
-  invoke void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %508, i32 noundef %509, i32 noundef 32993, i32 noundef 5121, ptr noundef %511)
-          to label %513 unwind label %396
+514:                                              ; preds = %509
+  invoke void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %510, i32 noundef %511, i32 noundef 32993, i32 noundef 5121, ptr noundef %513)
+          to label %515 unwind label %398
 
-513:                                              ; preds = %512
-  %514 = load ptr, ptr @__glewUseProgram, align 8
-  invoke void %514(i32 noundef 0)
-          to label %515 unwind label %396
-
-515:                                              ; preds = %513
-  %516 = load ptr, ptr @__glewBindFramebuffer, align 8
-  invoke void %516(i32 noundef 36160, i32 noundef 0)
-          to label %517 unwind label %396
+515:                                              ; preds = %514
+  %516 = load ptr, ptr @__glewUseProgram, align 8
+  invoke void %516(i32 noundef 0)
+          to label %517 unwind label %398
 
 517:                                              ; preds = %515
-  %518 = load ptr, ptr @__glewBindVertexArray, align 8
-  invoke void %518(i32 noundef 0)
-          to label %519 unwind label %396
+  %518 = load ptr, ptr @__glewBindFramebuffer, align 8
+  invoke void %518(i32 noundef 36160, i32 noundef 0)
+          to label %519 unwind label %398
 
 519:                                              ; preds = %517
+  %520 = load ptr, ptr @__glewBindVertexArray, align 8
+  invoke void %520(i32 noundef 0)
+          to label %521 unwind label %398
+
+521:                                              ; preds = %519
   invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %48)
-          to label %520 unwind label %396
+          to label %522 unwind label %398
 
-520:                                              ; preds = %519
-  %521 = load ptr, ptr @__glewDeleteFramebuffers, align 8
-  invoke void %521(i32 noundef 1, ptr noundef %47)
-          to label %522 unwind label %396
-
-522:                                              ; preds = %520
-  %523 = load ptr, ptr @__glewDeleteBuffers, align 8
-  invoke void %523(i32 noundef 1, ptr noundef %24)
-          to label %524 unwind label %396
+522:                                              ; preds = %521
+  %523 = load ptr, ptr @__glewDeleteFramebuffers, align 8
+  invoke void %523(i32 noundef 1, ptr noundef %47)
+          to label %524 unwind label %398
 
 524:                                              ; preds = %522
-  %525 = load ptr, ptr @__glewDeleteProgram, align 8
-  %526 = load i32, ptr %23, align 4
-  invoke void %525(i32 noundef %526)
-          to label %527 unwind label %396
+  %525 = load ptr, ptr @__glewDeleteBuffers, align 8
+  invoke void %525(i32 noundef 1, ptr noundef %24)
+          to label %526 unwind label %398
 
-527:                                              ; preds = %524
-  %528 = load ptr, ptr @__glewDeleteVertexArrays, align 8
-  invoke void %528(i32 noundef 1, ptr noundef %22)
-          to label %529 unwind label %396
+526:                                              ; preds = %524
+  %527 = load ptr, ptr @__glewDeleteProgram, align 8
+  %528 = load i32, ptr %23, align 4
+  invoke void %527(i32 noundef %528)
+          to label %529 unwind label %398
 
-529:                                              ; preds = %527
-  %530 = load i32, ptr %46, align 4
-  invoke void @glDrawBuffer(i32 noundef %530)
-          to label %531 unwind label %396
+529:                                              ; preds = %526
+  %530 = load ptr, ptr @__glewDeleteVertexArrays, align 8
+  invoke void %530(i32 noundef 1, ptr noundef %22)
+          to label %531 unwind label %398
 
 531:                                              ; preds = %529
-  %532 = load i8, ptr %13, align 1
-  %533 = trunc i8 %532 to i1
-  br i1 %533, label %534, label %539
+  %532 = load i32, ptr %46, align 4
+  invoke void @glDrawBuffer(i32 noundef %532)
+          to label %533 unwind label %398
 
-534:                                              ; preds = %531
-  %535 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt19__shared_ptr_accessI6QImageLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
-  %536 = invoke noundef i32 @_Z5qRgbaiiii(i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 128)
-          to label %537 unwind label %396
+533:                                              ; preds = %531
+  %534 = load i8, ptr %13, align 1
+  %535 = trunc i8 %534 to i1
+  br i1 %535, label %536, label %541
 
-537:                                              ; preds = %534
-  invoke void @_ZN3vcgL8PullPushER6QImagej(ptr noundef nonnull align 8 dereferenceable(32) %535, i32 noundef %536)
-          to label %538 unwind label %396
+536:                                              ; preds = %533
+  %537 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt19__shared_ptr_accessI6QImageLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %538 = invoke noundef i32 @_Z5qRgbaiiii(i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 128)
+          to label %539 unwind label %398
 
-538:                                              ; preds = %537
-  br label %539
+539:                                              ; preds = %536
+  invoke void @_ZN3vcgL8PullPushER6QImagej(ptr noundef nonnull align 8 dereferenceable(32) %537, i32 noundef %538)
+          to label %540 unwind label %398
 
-539:                                              ; preds = %538, %531
-  %540 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt19__shared_ptr_accessI6QImageLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
-  invoke void @_Z6MirrorR6QImage(ptr noundef nonnull align 8 dereferenceable(32) %540)
-          to label %541 unwind label %396
+540:                                              ; preds = %539
+  br label %541
 
-541:                                              ; preds = %539
-  store i1 true, ptr %53, align 1
-  %542 = load i1, ptr %53, align 1
-  br i1 %542, label %544, label %543
+541:                                              ; preds = %540, %533
+  %542 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt19__shared_ptr_accessI6QImageLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  invoke void @_Z6MirrorR6QImage(ptr noundef nonnull align 8 dereferenceable(32) %542)
+          to label %543 unwind label %398
 
 543:                                              ; preds = %541
-  call void @_ZNSt10shared_ptrI6QImageED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
-  br label %544
+  store i1 true, ptr %53, align 1
+  %544 = load i1, ptr %53, align 1
+  br i1 %544, label %546, label %545
 
-544:                                              ; preds = %543, %541
-  call void @_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  ret void
-
-545:                                              ; preds = %477, %396
+545:                                              ; preds = %543
   call void @_ZNSt10shared_ptrI6QImageED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
   br label %546
 
-546:                                              ; preds = %545, %348, %124
+546:                                              ; preds = %545, %543
   call void @_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  br label %547
+  ret void
 
-547:                                              ; preds = %546
-  %548 = load ptr, ptr %27, align 8
-  %549 = load i32, ptr %28, align 4
-  %550 = insertvalue { ptr, i32 } poison, ptr %548, 0
-  %551 = insertvalue { ptr, i32 } %550, i32 %549, 1
-  resume { ptr, i32 } %551
+547:                                              ; preds = %479, %398
+  call void @_ZNSt10shared_ptrI6QImageED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
+  br label %548
+
+548:                                              ; preds = %547, %350, %124
+  call void @_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %549
+
+549:                                              ; preds = %548
+  %550 = load ptr, ptr %27, align 8
+  %551 = load i32, ptr %28, align 4
+  %552 = insertvalue { ptr, i32 } poison, ptr %550, 0
+  %553 = insertvalue { ptr, i32 } %552, i32 %551, 1
+  resume { ptr, i32 } %553
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7384,49 +7386,50 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15T
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3vcg18SimpleTempDataBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWI15TexCoordStorageJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 3
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
-  %13 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = call noundef i64 @_ZNKSt6vectorI8MeshFaceSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  invoke void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %15)
-          to label %16 unwind label %22
+  %8 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWI15TexCoordStorageJEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 3
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
+  %14 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i64 @_ZNKSt6vectorI8MeshFaceSaIS0_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  invoke void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %16)
+          to label %17 unwind label %23
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
-  %18 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = call noundef i64 @_ZNKSt6vectorI8MeshFaceSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
-  invoke void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20)
-          to label %21 unwind label %22
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 2
+  %19 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %7, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef i64 @_ZNKSt6vectorI8MeshFaceSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  invoke void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %21)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %16
+22:                                               ; preds = %17
   ret void
 
-22:                                               ; preds = %16, %2
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %17, %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  call void @_ZN3vcg9VectorNBWI15TexCoordStorageJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZN3vcg9VectorNBWI15TexCoordStorageJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7465,7 +7468,8 @@ define linkonce_odr void @_ZN3vcg18SimpleTempDataBaseC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg18SimpleTempDataBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg18SimpleTempDataBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7628,11 +7632,12 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15T
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %3, i32 0, i32 2
-  call void @_ZN3vcg9VectorNBWI15TexCoordStorageJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.vcg::SimpleTempData", ptr %3, i32 0, i32 2
+  call void @_ZN3vcg9VectorNBWI15TexCoordStorageJEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN3vcg18SimpleTempDataBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -12304,35 +12309,36 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cx
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructI6QImageJRiS4_NS3_6FormatEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %4
-  ret void
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %15 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructI6QImageJRiS4_NS3_6FormatEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %10, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %11, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %10, align 8
-  %25 = load i32, ptr %11, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %10, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %11, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12490,11 +12496,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

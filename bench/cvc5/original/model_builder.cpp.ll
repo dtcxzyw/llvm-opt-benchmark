@@ -1468,23 +1468,24 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6theory24TheoryEngineModelBuilderC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers13QModelBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers13QModelBuilderE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_addedLemmas = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 1
   store i32 0, ptr %d_addedLemmas, align 8
   %d_triedLemmas = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 2
   store i32 0, ptr %d_triedLemmas, align 4
   %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %qs.addr, align 8
-  store ptr %1, ptr %d_qstate, align 8
+  %2 = load ptr, ptr %qs.addr, align 8
+  store ptr %2, ptr %d_qstate, align 8
   %d_qim = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %qim.addr, align 8
-  store ptr %2, ptr %d_qim, align 8
+  %3 = load ptr, ptr %qim.addr, align 8
+  store ptr %3, ptr %d_qim, align 8
   %d_qreg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %qr.addr, align 8
-  store ptr %3, ptr %d_qreg, align 8
+  %4 = load ptr, ptr %qr.addr, align 8
+  store ptr %4, ptr %d_qreg, align 8
   %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %tr.addr, align 8
-  store ptr %4, ptr %d_treg, align 8
+  %5 = load ptr, ptr %tr.addr, align 8
+  store ptr %5, ptr %d_treg, align 8
   %d_model = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 7
   store ptr null, ptr %d_model, align 8
   %d_modelAloc = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 8
@@ -4782,7 +4783,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12QRepBoundExtE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12QRepBoundExtE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_instMatch = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QRepBoundExt", ptr %this1, i32 0, i32 4
   call void @_ZN4cvc58internal6theory11quantifiers9InstMatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_instMatch) #3
   %d_bound_int = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QRepBoundExt", ptr %this1, i32 0, i32 3
@@ -4808,7 +4810,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers13QModelBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers13QModelBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_modelAloc = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 8
   call void @_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15FirstOrderModelESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_modelAloc) #3
   call void @_ZN4cvc58internal6theory24TheoryEngineModelBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this1) #3
@@ -7229,7 +7232,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9InstMatchE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9InstMatchE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_quant = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstMatch", ptr %this1, i32 0, i32 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_quant) #3
   %d_vals = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstMatch", ptr %this1, i32 0, i32 3
@@ -7608,7 +7612,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory24TheoryEngineModelBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory24TheoryEngineModelBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_constantReps = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModelBuilder", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_constantReps) #3
   %d_normalizedCache = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModelBuilder", ptr %this1, i32 0, i32 1

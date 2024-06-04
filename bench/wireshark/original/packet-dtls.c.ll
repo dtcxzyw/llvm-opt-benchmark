@@ -4284,7 +4284,7 @@ define internal i32 @decrypt_dtls_record(ptr noundef %0, ptr noundef %1, i32 nou
 32:                                               ; preds = %26, %10
   call void (ptr, ...) @ssl_debug_printf(ptr noundef @.str.876)
   store i32 0, ptr %11, align 4
-  br label %141
+  br label %146
 
 33:                                               ; preds = %26
   %34 = load i16, ptr %18, align 2
@@ -4334,127 +4334,132 @@ define internal i32 @decrypt_dtls_record(ptr noundef %0, ptr noundef %1, i32 nou
 63:                                               ; preds = %56
   call void (ptr, ...) @ssl_debug_printf(ptr noundef @.str.880)
   store i32 0, ptr %11, align 4
-  br label %141
+  br label %146
 
 64:                                               ; preds = %56, %53
   %65 = load i16, ptr %18, align 2
   %66 = zext i16 %65 to i32
-  %67 = load i32, ptr getelementptr inbounds (%struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1), align 8
-  %68 = icmp ugt i32 %66, %67
-  br i1 %68, label %69, label %83
+  %67 = getelementptr inbounds %struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp ugt i32 %66, %68
+  br i1 %69, label %70, label %86
 
-69:                                               ; preds = %64
-  %70 = load i16, ptr %18, align 2
-  %71 = zext i16 %70 to i32
-  %72 = add i32 %71, 32
-  %73 = load i32, ptr getelementptr inbounds (%struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1), align 8
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef @.str.881, i32 noundef %72, i32 noundef %73)
-  %74 = load ptr, ptr @dtls_decrypted_data, align 8
-  %75 = load i16, ptr %18, align 2
-  %76 = zext i16 %75 to i32
-  %77 = add i32 %76, 32
-  %78 = sext i32 %77 to i64
-  %79 = call ptr @g_realloc(ptr noundef %74, i64 noundef %78)
-  store ptr %79, ptr @dtls_decrypted_data, align 8
-  %80 = load i16, ptr %18, align 2
-  %81 = zext i16 %80 to i32
-  %82 = add i32 %81, 32
-  store i32 %82, ptr getelementptr inbounds (%struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1), align 8
-  br label %83
+70:                                               ; preds = %64
+  %71 = load i16, ptr %18, align 2
+  %72 = zext i16 %71 to i32
+  %73 = add i32 %72, 32
+  %74 = getelementptr inbounds %struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1
+  %75 = load i32, ptr %74, align 8
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef @.str.881, i32 noundef %73, i32 noundef %75)
+  %76 = load ptr, ptr @dtls_decrypted_data, align 8
+  %77 = load i16, ptr %18, align 2
+  %78 = zext i16 %77 to i32
+  %79 = add i32 %78, 32
+  %80 = sext i32 %79 to i64
+  %81 = call ptr @g_realloc(ptr noundef %76, i64 noundef %80)
+  store ptr %81, ptr @dtls_decrypted_data, align 8
+  %82 = load i16, ptr %18, align 2
+  %83 = zext i16 %82 to i32
+  %84 = add i32 %83, 32
+  %85 = getelementptr inbounds %struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1
+  store i32 %84, ptr %85, align 8
+  br label %86
 
-83:                                               ; preds = %69, %64
-  %84 = load i32, ptr getelementptr inbounds (%struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1), align 8
-  store i32 %84, ptr @dtls_decrypted_data_avail, align 4
-  %85 = load ptr, ptr %15, align 8
-  %86 = getelementptr inbounds %struct._SslDecryptSession, ptr %85, i32 0, i32 15
-  %87 = load i32, ptr %86, align 8
-  %88 = and i32 %87, 8
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %110
+86:                                               ; preds = %70, %64
+  %87 = getelementptr inbounds %struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1
+  %88 = load i32, ptr %87, align 8
+  store i32 %88, ptr @dtls_decrypted_data_avail, align 4
+  %89 = load ptr, ptr %15, align 8
+  %90 = getelementptr inbounds %struct._SslDecryptSession, ptr %89, i32 0, i32 15
+  %91 = load i32, ptr %90, align 8
+  %92 = and i32 %91, 8
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %114
 
-90:                                               ; preds = %83
-  %91 = load ptr, ptr %23, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %94, label %93
+94:                                               ; preds = %86
+  %95 = load ptr, ptr %23, align 8
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %98, label %97
 
-93:                                               ; preds = %90
+97:                                               ; preds = %94
   call void (ptr, ...) @ssl_debug_printf(ptr noundef @.str.880)
   store i32 0, ptr %11, align 4
-  br label %141
+  br label %146
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %15, align 8
-  %96 = load ptr, ptr %23, align 8
-  %97 = load i8, ptr %16, align 1
-  %98 = load i16, ptr %17, align 2
-  %99 = load ptr, ptr %12, align 8
-  %100 = load i32, ptr %14, align 4
-  %101 = load i16, ptr %18, align 2
-  %102 = zext i16 %101 to i32
-  %103 = call ptr @tvb_get_ptr(ptr noundef %99, i32 noundef %100, i32 noundef %102)
-  %104 = load i16, ptr %18, align 2
-  %105 = load ptr, ptr %20, align 8
-  %106 = load i8, ptr %21, align 1
-  %107 = call i32 @ssl_decrypt_record(ptr noundef %95, ptr noundef %96, i8 noundef zeroext %97, i16 noundef zeroext %98, i32 noundef 0, ptr noundef %103, i16 noundef zeroext %104, ptr noundef %105, i8 noundef zeroext %106, ptr noundef @dtls_compressed_data, ptr noundef @dtls_decrypted_data, ptr noundef @dtls_decrypted_data_avail)
-  %108 = icmp eq i32 %107, 0
-  %109 = zext i1 %108 to i32
-  store i32 %109, ptr %22, align 4
-  br label %128
+98:                                               ; preds = %94
+  %99 = load ptr, ptr %15, align 8
+  %100 = load ptr, ptr %23, align 8
+  %101 = load i8, ptr %16, align 1
+  %102 = load i16, ptr %17, align 2
+  %103 = load ptr, ptr %12, align 8
+  %104 = load i32, ptr %14, align 4
+  %105 = load i16, ptr %18, align 2
+  %106 = zext i16 %105 to i32
+  %107 = call ptr @tvb_get_ptr(ptr noundef %103, i32 noundef %104, i32 noundef %106)
+  %108 = load i16, ptr %18, align 2
+  %109 = load ptr, ptr %20, align 8
+  %110 = load i8, ptr %21, align 1
+  %111 = call i32 @ssl_decrypt_record(ptr noundef %99, ptr noundef %100, i8 noundef zeroext %101, i16 noundef zeroext %102, i32 noundef 0, ptr noundef %107, i16 noundef zeroext %108, ptr noundef %109, i8 noundef zeroext %110, ptr noundef @dtls_compressed_data, ptr noundef @dtls_decrypted_data, ptr noundef @dtls_decrypted_data_avail)
+  %112 = icmp eq i32 %111, 0
+  %113 = zext i1 %112 to i32
+  store i32 %113, ptr %22, align 4
+  br label %133
 
-110:                                              ; preds = %83
-  %111 = load ptr, ptr %15, align 8
-  %112 = getelementptr inbounds %struct._SslDecryptSession, ptr %111, i32 0, i32 24
-  %113 = getelementptr inbounds %struct._SslSession, ptr %112, i32 0, i32 0
-  %114 = load i32, ptr %113, align 8
-  %115 = call i32 @dtls_is_null_cipher(i32 noundef %114)
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %126
+114:                                              ; preds = %86
+  %115 = load ptr, ptr %15, align 8
+  %116 = getelementptr inbounds %struct._SslDecryptSession, ptr %115, i32 0, i32 24
+  %117 = getelementptr inbounds %struct._SslSession, ptr %116, i32 0, i32 0
+  %118 = load i32, ptr %117, align 8
+  %119 = call i32 @dtls_is_null_cipher(i32 noundef %118)
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %131
 
-117:                                              ; preds = %110
-  %118 = load ptr, ptr %12, align 8
-  %119 = load ptr, ptr @dtls_decrypted_data, align 8
-  %120 = load i32, ptr %14, align 4
-  %121 = load i16, ptr %18, align 2
-  %122 = zext i16 %121 to i64
-  %123 = call ptr @tvb_memcpy(ptr noundef %118, ptr noundef %119, i32 noundef %120, i64 noundef %122)
-  %124 = load i16, ptr %18, align 2
-  %125 = zext i16 %124 to i32
-  store i32 %125, ptr getelementptr inbounds (%struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1), align 8
-  store i32 %125, ptr @dtls_decrypted_data_avail, align 4
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %12, align 8
+  %123 = load ptr, ptr @dtls_decrypted_data, align 8
+  %124 = load i32, ptr %14, align 4
+  %125 = load i16, ptr %18, align 2
+  %126 = zext i16 %125 to i64
+  %127 = call ptr @tvb_memcpy(ptr noundef %122, ptr noundef %123, i32 noundef %124, i64 noundef %126)
+  %128 = load i16, ptr %18, align 2
+  %129 = zext i16 %128 to i32
+  %130 = getelementptr inbounds %struct._StringInfo, ptr @dtls_decrypted_data, i32 0, i32 1
+  store i32 %129, ptr %130, align 8
+  store i32 %129, ptr @dtls_decrypted_data_avail, align 4
   store i32 1, ptr %22, align 4
-  br label %127
+  br label %132
 
-126:                                              ; preds = %110
+131:                                              ; preds = %114
   store i32 0, ptr %22, align 4
-  br label %127
+  br label %132
 
-127:                                              ; preds = %126, %117
-  br label %128
+132:                                              ; preds = %131, %121
+  br label %133
 
-128:                                              ; preds = %127, %94
-  %129 = load i32, ptr %22, align 4
-  %130 = icmp ne i32 %129, 0
-  br i1 %130, label %131, label %139
+133:                                              ; preds = %132, %98
+  %134 = load i32, ptr %22, align 4
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %136, label %144
 
-131:                                              ; preds = %128
-  %132 = load ptr, ptr %13, align 8
-  %133 = load ptr, ptr %12, align 8
-  %134 = call i32 @tvb_raw_offset(ptr noundef %133)
-  %135 = load i32, ptr %14, align 4
-  %136 = add i32 %134, %135
-  %137 = load i8, ptr %16, align 1
-  %138 = load i8, ptr %19, align 1
-  call void @dtls_save_decrypted_record(ptr noundef %132, i32 noundef %136, i8 noundef zeroext %137, i8 noundef zeroext %138)
-  br label %139
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %13, align 8
+  %138 = load ptr, ptr %12, align 8
+  %139 = call i32 @tvb_raw_offset(ptr noundef %138)
+  %140 = load i32, ptr %14, align 4
+  %141 = add i32 %139, %140
+  %142 = load i8, ptr %16, align 1
+  %143 = load i8, ptr %19, align 1
+  call void @dtls_save_decrypted_record(ptr noundef %137, i32 noundef %141, i8 noundef zeroext %142, i8 noundef zeroext %143)
+  br label %144
 
-139:                                              ; preds = %131, %128
-  %140 = load i32, ptr %22, align 4
-  store i32 %140, ptr %11, align 4
-  br label %141
+144:                                              ; preds = %136, %133
+  %145 = load i32, ptr %22, align 4
+  store i32 %145, ptr %11, align 4
+  br label %146
 
-141:                                              ; preds = %139, %93, %63, %32
-  %142 = load i32, ptr %11, align 4
-  ret i32 %142
+146:                                              ; preds = %144, %97, %63, %32
+  %147 = load i32, ptr %11, align 4
+  ret i32 %147
 }
 
 declare ptr @ssl_get_record_info(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef) #1
@@ -5922,58 +5927,60 @@ define internal i32 @dissect_dtls_hnd_hello_verify_request(ptr noundef %0, ptr n
   store i32 %4, ptr %12, align 4
   store i32 %5, ptr %13, align 4
   %15 = load ptr, ptr %11, align 8
-  %16 = load i32, ptr getelementptr inbounds (%struct.anon.0, ptr @dissect_dtls_hf, i32 0, i32 125), align 4
-  %17 = load ptr, ptr %9, align 8
-  %18 = load i32, ptr %12, align 4
-  %19 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 2, i32 noundef 0)
-  %20 = load i32, ptr %12, align 4
-  %21 = add i32 %20, 2
-  store i32 %21, ptr %12, align 4
-  %22 = load ptr, ptr %8, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = load i32, ptr %12, align 4
-  %27 = load i32, ptr %13, align 4
-  %28 = load i32, ptr @dtls_hfs, align 4
-  %29 = call i32 @ssl_add_vector(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef %14, i32 noundef %28, i32 noundef 0, i32 noundef 32)
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %33, label %31
+  %16 = getelementptr inbounds %struct.anon.0, ptr @dissect_dtls_hf, i32 0, i32 125
+  %17 = load i32, ptr %16, align 4
+  %18 = load ptr, ptr %9, align 8
+  %19 = load i32, ptr %12, align 4
+  %20 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 2, i32 noundef 0)
+  %21 = load i32, ptr %12, align 4
+  %22 = add i32 %21, 2
+  store i32 %22, ptr %12, align 4
+  %23 = load ptr, ptr %8, align 8
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load i32, ptr %12, align 4
+  %28 = load i32, ptr %13, align 4
+  %29 = load i32, ptr @dtls_hfs, align 4
+  %30 = call i32 @ssl_add_vector(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef %14, i32 noundef %29, i32 noundef 0, i32 noundef 32)
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %34, label %32
 
-31:                                               ; preds = %6
-  %32 = load i32, ptr %12, align 4
-  store i32 %32, ptr %7, align 4
-  br label %50
+32:                                               ; preds = %6
+  %33 = load i32, ptr %12, align 4
+  store i32 %33, ptr %7, align 4
+  br label %52
 
-33:                                               ; preds = %6
-  %34 = load i32, ptr %12, align 4
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %12, align 4
-  %36 = load i32, ptr %14, align 4
-  %37 = icmp ugt i32 %36, 0
-  br i1 %37, label %38, label %48
+34:                                               ; preds = %6
+  %35 = load i32, ptr %12, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %12, align 4
+  %37 = load i32, ptr %14, align 4
+  %38 = icmp ugt i32 %37, 0
+  br i1 %38, label %39, label %50
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr getelementptr inbounds (%struct.dtls_hfs_t, ptr @dtls_hfs, i32 0, i32 1), align 4
-  %41 = load ptr, ptr %9, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = load i32, ptr %14, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %43, i32 noundef 0)
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %11, align 8
+  %41 = getelementptr inbounds %struct.dtls_hfs_t, ptr @dtls_hfs, i32 0, i32 1
+  %42 = load i32, ptr %41, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load i32, ptr %12, align 4
   %45 = load i32, ptr %14, align 4
-  %46 = load i32, ptr %12, align 4
-  %47 = add i32 %46, %45
-  store i32 %47, ptr %12, align 4
-  br label %48
-
-48:                                               ; preds = %38, %33
-  %49 = load i32, ptr %12, align 4
-  store i32 %49, ptr %7, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef 0)
+  %47 = load i32, ptr %14, align 4
+  %48 = load i32, ptr %12, align 4
+  %49 = add i32 %48, %47
+  store i32 %49, ptr %12, align 4
   br label %50
 
-50:                                               ; preds = %48, %31
-  %51 = load i32, ptr %7, align 4
-  ret i32 %51
+50:                                               ; preds = %39, %34
+  %51 = load i32, ptr %12, align 4
+  store i32 %51, ptr %7, align 4
+  br label %52
+
+52:                                               ; preds = %50, %32
+  %53 = load i32, ptr %7, align 4
+  ret i32 %53
 }
 
 declare void @ssl_dissect_hnd_new_ses_ticket(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1

@@ -13932,67 +13932,68 @@ define void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
   store ptr %15, ptr %8, align 8
   %18 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %17, ptr %18, align 8
-  br label %23
+  br label %24
 
 19:                                               ; preds = %1
   %20 = load ptr, ptr @anon.3ee1b06f86061f40e5d59eb404727f08.3, align 8, !align !5, !noundef !3
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.3ee1b06f86061f40e5d59eb404727f08.3, i64 8), align 8
+  %21 = getelementptr inbounds i8, ptr @anon.3ee1b06f86061f40e5d59eb404727f08.3, i64 8
+  %22 = load ptr, ptr %21, align 8
   store ptr %20, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %21, ptr %22, align 8
-  br label %23
+  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %22, ptr %23, align 8
+  br label %24
 
-23:                                               ; preds = %19, %12
-  %24 = load ptr, ptr %8, align 8, !noundef !3
-  %25 = ptrtoint ptr %24 to i64
-  %26 = icmp eq i64 %25, 0
-  %27 = select i1 %26, i64 0, i64 1
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %34
+24:                                               ; preds = %19, %12
+  %25 = load ptr, ptr %8, align 8, !noundef !3
+  %26 = ptrtoint ptr %25 to i64
+  %27 = icmp eq i64 %26, 0
+  %28 = select i1 %27, i64 0, i64 1
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %35
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
-  %31 = atomicrmw sub ptr %30, i64 1 release, align 8
-  store i64 %31, ptr %4, align 8
-  %32 = load i64, ptr %4, align 8, !noundef !3
-  %33 = icmp eq i64 %32, 1
-  br i1 %33, label %35, label %51
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
+  %32 = atomicrmw sub ptr %31, i64 1 release, align 8
+  store i64 %32, ptr %4, align 8
+  %33 = load i64, ptr %4, align 8, !noundef !3
+  %34 = icmp eq i64 %33, 1
+  br i1 %34, label %36, label %52
 
-34:                                               ; preds = %23
-  br label %53
+35:                                               ; preds = %24
+  br label %54
 
-35:                                               ; preds = %29
+36:                                               ; preds = %30
   call void @_ZN4core4sync6atomic5fence17hb407a3acb6347766E(i8 2)
-  %36 = getelementptr inbounds { { { ptr, i64 } }, ptr }, ptr %0, i32 0, i32 1
-  %37 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  store ptr %37, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load i64, ptr %38, align 8, !noundef !3
-  %40 = mul nsw i64 %39, 1
-  %41 = add i64 16, %40
-  %42 = add i64 %41, 7
-  %43 = and i64 %42, -8
-  store i64 %43, ptr %3, align 8
-  %44 = load i64, ptr %3, align 8, !noundef !3
+  %37 = getelementptr inbounds { { { ptr, i64 } }, ptr }, ptr %0, i32 0, i32 1
+  %38 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  store ptr %38, ptr %7, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = load i64, ptr %39, align 8, !noundef !3
+  %41 = mul nsw i64 %40, 1
+  %42 = add i64 16, %41
+  %43 = add i64 %42, 7
+  %44 = and i64 %43, -8
+  store i64 %44, ptr %3, align 8
+  %45 = load i64, ptr %3, align 8, !noundef !3
   store i64 8, ptr %2, align 8
-  %45 = load i64, ptr %2, align 8, !noundef !3
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %44, ptr %46, align 8
-  store i64 %45, ptr %6, align 8
-  %47 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %48 = load i64, ptr %6, align 8, !range !26, !noundef !3
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
-  %50 = load i64, ptr %49, align 8, !noundef !3
-  call void @"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h27a36084cc27ddd0E"(ptr align 8 %36, ptr %47, i64 %48, i64 %50)
-  br label %52
-
-51:                                               ; preds = %29
-  br label %52
-
-52:                                               ; preds = %51, %35
+  %46 = load i64, ptr %2, align 8, !noundef !3
+  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %45, ptr %47, align 8
+  store i64 %46, ptr %6, align 8
+  %48 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %49 = load i64, ptr %6, align 8, !range !26, !noundef !3
+  %50 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = load i64, ptr %50, align 8, !noundef !3
+  call void @"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h27a36084cc27ddd0E"(ptr align 8 %37, ptr %48, i64 %49, i64 %51)
   br label %53
 
-53:                                               ; preds = %52, %34
+52:                                               ; preds = %30
+  br label %53
+
+53:                                               ; preds = %52, %36
+  br label %54
+
+54:                                               ; preds = %53, %35
   ret void
 }
 

@@ -230,10 +230,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16btITaskScheduler, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV16btITaskScheduler, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %m_name = getelementptr inbounds %class.btITaskScheduler, ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_name, align 8
+  store ptr %1, ptr %m_name, align 8
   %m_savedThreadCounter = getelementptr inbounds %class.btITaskScheduler, ptr %this1, i32 0, i32 2
   store i32 0, ptr %m_savedThreadCounter, align 8
   %m_isActive = getelementptr inbounds %class.btITaskScheduler, ptr %this1, i32 0, i32 3
@@ -467,7 +468,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN16btITaskSchedulerC2EPKc(ptr noundef nonnull align 8 dereferenceable(21) %this1, ptr noundef @.str)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV25btTaskSchedulerSequential, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV25btTaskSchedulerSequential, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

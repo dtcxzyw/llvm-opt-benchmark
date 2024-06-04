@@ -57,119 +57,127 @@ define void @ompi_dist_graph_create_adjacent_f(ptr noundef %0, ptr noundef %1, p
   store ptr %34, ptr %23, align 8
   %35 = load ptr, ptr %15, align 8
   %36 = icmp eq ptr %35, @mpi_fortran_unweighted_
-  br i1 %36, label %37, label %38
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %11
-  store ptr inttoptr (i64 2 to ptr), ptr %27, align 8
-  br label %45
+  %38 = inttoptr i64 2 to ptr
+  store ptr %38, ptr %27, align 8
+  br label %47
 
-38:                                               ; preds = %11
-  %39 = load ptr, ptr %15, align 8
-  %40 = icmp eq ptr %39, @mpi_fortran_weights_empty_
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %11
+  %40 = load ptr, ptr %15, align 8
+  %41 = icmp eq ptr %40, @mpi_fortran_weights_empty_
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %38
-  store ptr inttoptr (i64 3 to ptr), ptr %27, align 8
-  br label %44
-
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %15, align 8
+42:                                               ; preds = %39
+  %43 = inttoptr i64 3 to ptr
   store ptr %43, ptr %27, align 8
-  br label %44
+  br label %46
 
-44:                                               ; preds = %42, %41
-  br label %45
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %15, align 8
+  store ptr %45, ptr %27, align 8
+  br label %46
 
-45:                                               ; preds = %44, %37
-  %46 = load ptr, ptr %18, align 8
-  %47 = icmp eq ptr %46, @mpi_fortran_unweighted_
-  br i1 %47, label %48, label %49
+46:                                               ; preds = %44, %42
+  br label %47
 
-48:                                               ; preds = %45
-  store ptr inttoptr (i64 2 to ptr), ptr %26, align 8
-  br label %56
+47:                                               ; preds = %46, %37
+  %48 = load ptr, ptr %18, align 8
+  %49 = icmp eq ptr %48, @mpi_fortran_unweighted_
+  br i1 %49, label %50, label %52
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %18, align 8
-  %51 = icmp eq ptr %50, @mpi_fortran_weights_empty_
-  br i1 %51, label %52, label %53
+50:                                               ; preds = %47
+  %51 = inttoptr i64 2 to ptr
+  store ptr %51, ptr %26, align 8
+  br label %60
 
-52:                                               ; preds = %49
-  store ptr inttoptr (i64 3 to ptr), ptr %26, align 8
-  br label %55
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %18, align 8
+  %54 = icmp eq ptr %53, @mpi_fortran_weights_empty_
+  br i1 %54, label %55, label %57
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %18, align 8
-  store ptr %54, ptr %26, align 8
-  br label %55
+55:                                               ; preds = %52
+  %56 = inttoptr i64 3 to ptr
+  store ptr %56, ptr %26, align 8
+  br label %59
 
-55:                                               ; preds = %53, %52
-  br label %56
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %18, align 8
+  store ptr %58, ptr %26, align 8
+  br label %59
 
-56:                                               ; preds = %55, %48
-  %57 = load ptr, ptr %24, align 8
-  %58 = load ptr, ptr %13, align 8
-  %59 = load i32, ptr %58, align 4
-  %60 = load ptr, ptr %14, align 8
-  %61 = load ptr, ptr %27, align 8
-  %62 = load ptr, ptr %16, align 8
+59:                                               ; preds = %57, %55
+  br label %60
+
+60:                                               ; preds = %59, %50
+  %61 = load ptr, ptr %24, align 8
+  %62 = load ptr, ptr %13, align 8
   %63 = load i32, ptr %62, align 4
-  %64 = load ptr, ptr %17, align 8
-  %65 = load ptr, ptr %26, align 8
-  %66 = load ptr, ptr %23, align 8
-  %67 = load ptr, ptr %20, align 8
-  %68 = load i32, ptr %67, align 4
-  %69 = call i32 @PMPI_Dist_graph_create_adjacent(ptr noundef %57, i32 noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %68, ptr noundef %25)
-  store i32 %69, ptr %28, align 4
-  %70 = load ptr, ptr %22, align 8
-  %71 = icmp ne ptr null, %70
-  br i1 %71, label %72, label %75
-
-72:                                               ; preds = %56
-  %73 = load i32, ptr %28, align 4
+  %64 = load ptr, ptr %14, align 8
+  %65 = load ptr, ptr %27, align 8
+  %66 = load ptr, ptr %16, align 8
+  %67 = load i32, ptr %66, align 4
+  %68 = load ptr, ptr %17, align 8
+  %69 = load ptr, ptr %26, align 8
+  %70 = load ptr, ptr %23, align 8
+  %71 = load ptr, ptr %20, align 8
+  %72 = load i32, ptr %71, align 4
+  %73 = call i32 @PMPI_Dist_graph_create_adjacent(ptr noundef %61, i32 noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %72, ptr noundef %25)
+  store i32 %73, ptr %28, align 4
   %74 = load ptr, ptr %22, align 8
-  store i32 %73, ptr %74, align 4
-  br label %75
+  %75 = icmp ne ptr null, %74
+  br i1 %75, label %76, label %79
 
-75:                                               ; preds = %72, %56
-  %76 = load i32, ptr %28, align 4
-  %77 = icmp eq i32 0, %76
-  br i1 %77, label %78, label %82
+76:                                               ; preds = %60
+  %77 = load i32, ptr %28, align 4
+  %78 = load ptr, ptr %22, align 8
+  store i32 %77, ptr %78, align 4
+  br label %79
 
-78:                                               ; preds = %75
-  %79 = load ptr, ptr %25, align 8
-  %80 = call i32 @PMPI_Comm_c2f(ptr noundef %79)
-  %81 = load ptr, ptr %21, align 8
-  store i32 %80, ptr %81, align 4
-  br label %82
+79:                                               ; preds = %76, %60
+  %80 = load i32, ptr %28, align 4
+  %81 = icmp eq i32 0, %80
+  br i1 %81, label %82, label %86
 
-82:                                               ; preds = %78, %75
-  %83 = load ptr, ptr %27, align 8
-  %84 = icmp ne ptr inttoptr (i64 2 to ptr), %83
-  br i1 %84, label %85, label %89
+82:                                               ; preds = %79
+  %83 = load ptr, ptr %25, align 8
+  %84 = call i32 @PMPI_Comm_c2f(ptr noundef %83)
+  %85 = load ptr, ptr %21, align 8
+  store i32 %84, ptr %85, align 4
+  br label %86
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %27, align 8
-  %87 = icmp ne ptr inttoptr (i64 3 to ptr), %86
-  br i1 %87, label %88, label %89
+86:                                               ; preds = %82, %79
+  %87 = load ptr, ptr %27, align 8
+  %88 = inttoptr i64 2 to ptr
+  %89 = icmp ne ptr %88, %87
+  br i1 %89, label %90, label %95
 
-88:                                               ; preds = %85
-  br label %89
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %27, align 8
+  %92 = inttoptr i64 3 to ptr
+  %93 = icmp ne ptr %92, %91
+  br i1 %93, label %94, label %95
 
-89:                                               ; preds = %88, %85, %82
-  %90 = load ptr, ptr %26, align 8
-  %91 = icmp ne ptr inttoptr (i64 2 to ptr), %90
-  br i1 %91, label %92, label %96
+94:                                               ; preds = %90
+  br label %95
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %26, align 8
-  %94 = icmp ne ptr inttoptr (i64 3 to ptr), %93
-  br i1 %94, label %95, label %96
+95:                                               ; preds = %94, %90, %86
+  %96 = load ptr, ptr %26, align 8
+  %97 = inttoptr i64 2 to ptr
+  %98 = icmp ne ptr %97, %96
+  br i1 %98, label %99, label %104
 
-95:                                               ; preds = %92
-  br label %96
+99:                                               ; preds = %95
+  %100 = load ptr, ptr %26, align 8
+  %101 = inttoptr i64 3 to ptr
+  %102 = icmp ne ptr %101, %100
+  br i1 %102, label %103, label %104
 
-96:                                               ; preds = %95, %92, %89
+103:                                              ; preds = %99
+  br label %104
+
+104:                                              ; preds = %103, %99, %95
   ret void
 }
 

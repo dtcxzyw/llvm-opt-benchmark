@@ -27,82 +27,83 @@ define i32 @PMPI_T_pvar_stop(ptr noundef %0, ptr noundef %1) #0 {
 
 9:                                                ; preds = %2
   store i32 55, ptr %3, align 4
-  br label %50
+  br label %51
 
 10:                                               ; preds = %2
   call void @ompi_mpit_lock()
   %11 = load ptr, ptr %5, align 8
-  %12 = icmp eq ptr inttoptr (i64 -1 to ptr), %11
-  br i1 %12, label %13, label %44
+  %12 = inttoptr i64 -1 to ptr
+  %13 = icmp eq ptr %12, %11
+  br i1 %13, label %14, label %45
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.mca_base_pvar_session_t, ptr %14, i32 0, i32 1
-  %16 = getelementptr inbounds %struct.opal_list_t, ptr %15, i32 0, i32 1
-  %17 = getelementptr inbounds %struct.opal_list_item_t, ptr %16, i32 0, i32 1
-  %18 = load volatile ptr, ptr %17, align 8
-  store ptr %18, ptr %5, align 8
-  br label %19
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %struct.mca_base_pvar_session_t, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds %struct.opal_list_t, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds %struct.opal_list_item_t, ptr %17, i32 0, i32 1
+  %19 = load volatile ptr, ptr %18, align 8
+  store ptr %19, ptr %5, align 8
+  br label %20
 
-19:                                               ; preds = %39, %13
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.mca_base_pvar_session_t, ptr %21, i32 0, i32 1
-  %23 = getelementptr inbounds %struct.opal_list_t, ptr %22, i32 0, i32 1
-  %24 = icmp ne ptr %20, %23
-  br i1 %24, label %25, label %43
+20:                                               ; preds = %40, %14
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %struct.mca_base_pvar_session_t, ptr %22, i32 0, i32 1
+  %24 = getelementptr inbounds %struct.opal_list_t, ptr %23, i32 0, i32 1
+  %25 = icmp ne ptr %21, %24
+  br i1 %25, label %26, label %44
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %5, align 8
-  %27 = call zeroext i1 @mca_base_pvar_handle_is_running(ptr noundef %26)
-  br i1 %27, label %28, label %38
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %5, align 8
+  %28 = call zeroext i1 @mca_base_pvar_handle_is_running(ptr noundef %27)
+  br i1 %28, label %29, label %39
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.mca_base_pvar_handle_t, ptr %29, i32 0, i32 3
-  %31 = load ptr, ptr %30, align 8
-  %32 = call zeroext i1 @mca_base_pvar_is_continuous(ptr noundef %31)
-  br i1 %32, label %38, label %33
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.mca_base_pvar_handle_t, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = call zeroext i1 @mca_base_pvar_is_continuous(ptr noundef %32)
+  br i1 %33, label %39, label %34
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i32 @pvar_handle_stop(ptr noundef %34)
-  %36 = icmp ne i32 0, %35
-  br i1 %36, label %37, label %38
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %5, align 8
+  %36 = call i32 @pvar_handle_stop(ptr noundef %35)
+  %37 = icmp ne i32 0, %36
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %33
+38:                                               ; preds = %34
   store i32 65, ptr %6, align 4
-  br label %38
-
-38:                                               ; preds = %37, %33, %28, %25
   br label %39
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.opal_list_item_t, ptr %40, i32 0, i32 1
-  %42 = load volatile ptr, ptr %41, align 8
-  store ptr %42, ptr %5, align 8
-  br label %19, !llvm.loop !4
+39:                                               ; preds = %38, %34, %29, %26
+  br label %40
 
-43:                                               ; preds = %19
-  br label %47
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds %struct.opal_list_item_t, ptr %41, i32 0, i32 1
+  %43 = load volatile ptr, ptr %42, align 8
+  store ptr %43, ptr %5, align 8
+  br label %20, !llvm.loop !4
 
-44:                                               ; preds = %10
-  %45 = load ptr, ptr %5, align 8
-  %46 = call i32 @pvar_handle_stop(ptr noundef %45)
-  store i32 %46, ptr %6, align 4
-  br label %47
+44:                                               ; preds = %20
+  br label %48
 
-47:                                               ; preds = %44, %43
+45:                                               ; preds = %10
+  %46 = load ptr, ptr %5, align 8
+  %47 = call i32 @pvar_handle_stop(ptr noundef %46)
+  store i32 %47, ptr %6, align 4
+  br label %48
+
+48:                                               ; preds = %45, %44
   call void @ompi_mpit_unlock()
-  %48 = load i32, ptr %6, align 4
-  %49 = call i32 @ompit_opal_to_mpit_error(i32 noundef %48)
-  store i32 %49, ptr %3, align 4
-  br label %50
+  %49 = load i32, ptr %6, align 4
+  %50 = call i32 @ompit_opal_to_mpit_error(i32 noundef %49)
+  store i32 %50, ptr %3, align 4
+  br label %51
 
-50:                                               ; preds = %47, %9
-  %51 = load i32, ptr %3, align 4
-  ret i32 %51
+51:                                               ; preds = %48, %9
+  %52 = load i32, ptr %3, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable

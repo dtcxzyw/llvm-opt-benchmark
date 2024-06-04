@@ -552,17 +552,19 @@ define dso_local double @anl_random_fract() #0 {
   %6 = zext i1 %5 to i32
   %7 = sext i32 %6 to i64
   %8 = icmp ne i64 %7, 0
-  br i1 %8, label %9, label %11
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %0
   %10 = call i32 @pg_prng_uint32(ptr noundef @pg_global_prng_state)
-  call void @sampler_random_init_state(i32 noundef %10, ptr noundef getelementptr inbounds (%struct.ReservoirStateData, ptr @oldrs, i32 0, i32 1))
+  %11 = getelementptr inbounds %struct.ReservoirStateData, ptr @oldrs, i32 0, i32 1
+  call void @sampler_random_init_state(i32 noundef %10, ptr noundef %11)
   store i8 1, ptr @oldrs_initialized, align 1
-  br label %11
+  br label %12
 
-11:                                               ; preds = %9, %0
-  %12 = call double @sampler_random_fract(ptr noundef getelementptr inbounds (%struct.ReservoirStateData, ptr @oldrs, i32 0, i32 1))
-  ret double %12
+12:                                               ; preds = %9, %0
+  %13 = getelementptr inbounds %struct.ReservoirStateData, ptr @oldrs, i32 0, i32 1
+  %14 = call double @sampler_random_fract(ptr noundef %13)
+  ret double %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -577,23 +579,25 @@ define dso_local double @anl_init_selection_state(i32 noundef %0) #0 {
   %8 = zext i1 %7 to i32
   %9 = sext i32 %8 to i64
   %10 = icmp ne i64 %9, 0
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %1
   %12 = call i32 @pg_prng_uint32(ptr noundef @pg_global_prng_state)
-  call void @sampler_random_init_state(i32 noundef %12, ptr noundef getelementptr inbounds (%struct.ReservoirStateData, ptr @oldrs, i32 0, i32 1))
+  %13 = getelementptr inbounds %struct.ReservoirStateData, ptr @oldrs, i32 0, i32 1
+  call void @sampler_random_init_state(i32 noundef %12, ptr noundef %13)
   store i8 1, ptr @oldrs_initialized, align 1
-  br label %13
+  br label %14
 
-13:                                               ; preds = %11, %1
-  %14 = call double @sampler_random_fract(ptr noundef getelementptr inbounds (%struct.ReservoirStateData, ptr @oldrs, i32 0, i32 1))
-  %15 = call double @log(double noundef %14) #4
-  %16 = fneg double %15
-  %17 = load i32, ptr %2, align 4
-  %18 = sitofp i32 %17 to double
-  %19 = fdiv double %16, %18
-  %20 = call double @exp(double noundef %19) #4
-  ret double %20
+14:                                               ; preds = %11, %1
+  %15 = getelementptr inbounds %struct.ReservoirStateData, ptr @oldrs, i32 0, i32 1
+  %16 = call double @sampler_random_fract(ptr noundef %15)
+  %17 = call double @log(double noundef %16) #4
+  %18 = fneg double %17
+  %19 = load i32, ptr %2, align 4
+  %20 = sitofp i32 %19 to double
+  %21 = fdiv double %18, %20
+  %22 = call double @exp(double noundef %21) #4
+  ret double %22
 }
 
 ; Function Attrs: nounwind uwtable

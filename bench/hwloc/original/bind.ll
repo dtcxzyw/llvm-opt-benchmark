@@ -2148,19 +2148,20 @@ define hidden ptr @hwloc_alloc_mmap(ptr noundef %0, i64 noundef %1) #0 {
   %7 = call ptr @mmap(ptr noundef null, i64 noundef %6, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  br label %13
+  %9 = inttoptr i64 -1 to ptr
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  br label %13
+  br label %14
 
-13:                                               ; preds = %11, %10
-  %14 = phi ptr [ null, %10 ], [ %12, %11 ]
-  ret ptr %14
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8
+  br label %14
+
+14:                                               ; preds = %12, %11
+  %15 = phi ptr [ null, %11 ], [ %13, %12 ]
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind

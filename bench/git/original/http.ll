@@ -1750,33 +1750,34 @@ for.cond:                                         ; preds = %for.inc, %entry
 land.rhs:                                         ; preds = %for.cond
   %2 = load ptr, ptr %item, align 8
   %3 = load ptr, ptr @extra_http_headers, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @extra_http_headers, i32 0, i32 1), align 8
-  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %3, i64 %4
+  %4 = getelementptr inbounds %struct.string_list, ptr @extra_http_headers, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %3, i64 %5
   %cmp = icmp ult ptr %2, %add.ptr
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %5 = phi i1 [ false, %for.cond ], [ %cmp, %land.rhs ]
-  br i1 %5, label %for.body, label %for.end
+  %6 = phi i1 [ false, %for.cond ], [ %cmp, %land.rhs ]
+  br i1 %6, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %6 = load ptr, ptr %headers, align 8
-  %7 = load ptr, ptr %item, align 8
-  %string = getelementptr inbounds %struct.string_list_item, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %string, align 8
-  %call = call ptr @curl_slist_append(ptr noundef %6, ptr noundef %8)
+  %7 = load ptr, ptr %headers, align 8
+  %8 = load ptr, ptr %item, align 8
+  %string = getelementptr inbounds %struct.string_list_item, ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %string, align 8
+  %call = call ptr @curl_slist_append(ptr noundef %7, ptr noundef %9)
   store ptr %call, ptr %headers, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %9 = load ptr, ptr %item, align 8
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %9, i32 1
+  %10 = load ptr, ptr %item, align 8
+  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %10, i32 1
   store ptr %incdec.ptr, ptr %item, align 8
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %land.end
-  %10 = load ptr, ptr %headers, align 8
-  ret ptr %10
+  %11 = load ptr, ptr %headers, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind
@@ -2103,107 +2104,108 @@ if.end100:                                        ; preds = %if.then98, %if.end9
 
 if.then103:                                       ; preds = %if.end100
   %53 = load ptr, ptr %result, align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 4), align 8
-  %call104 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %53, i32 noundef 10026, ptr noundef %54)
+  %54 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 4
+  %55 = load ptr, ptr %54, align 8
+  %call104 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %53, i32 noundef 10026, ptr noundef %55)
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then103, %if.end100
-  %55 = load ptr, ptr @ssl_key, align 8
-  %tobool106 = icmp ne ptr %55, null
+  %56 = load ptr, ptr @ssl_key, align 8
+  %tobool106 = icmp ne ptr %56, null
   br i1 %tobool106, label %if.then107, label %if.end109
 
 if.then107:                                       ; preds = %if.end105
-  %56 = load ptr, ptr %result, align 8
-  %57 = load ptr, ptr @ssl_key, align 8
-  %call108 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %56, i32 noundef 10087, ptr noundef %57)
+  %57 = load ptr, ptr %result, align 8
+  %58 = load ptr, ptr @ssl_key, align 8
+  %call108 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %57, i32 noundef 10087, ptr noundef %58)
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then107, %if.end105
-  %58 = load ptr, ptr @ssl_key_type, align 8
-  %tobool110 = icmp ne ptr %58, null
+  %59 = load ptr, ptr @ssl_key_type, align 8
+  %tobool110 = icmp ne ptr %59, null
   br i1 %tobool110, label %if.then111, label %if.end113
 
 if.then111:                                       ; preds = %if.end109
-  %59 = load ptr, ptr %result, align 8
-  %60 = load ptr, ptr @ssl_key_type, align 8
-  %call112 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %59, i32 noundef 10088, ptr noundef %60)
+  %60 = load ptr, ptr %result, align 8
+  %61 = load ptr, ptr @ssl_key_type, align 8
+  %call112 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %60, i32 noundef 10088, ptr noundef %61)
   br label %if.end113
 
 if.end113:                                        ; preds = %if.then111, %if.end109
-  %61 = load ptr, ptr @ssl_capath, align 8
-  %tobool114 = icmp ne ptr %61, null
+  %62 = load ptr, ptr @ssl_capath, align 8
+  %tobool114 = icmp ne ptr %62, null
   br i1 %tobool114, label %if.then115, label %if.end117
 
 if.then115:                                       ; preds = %if.end113
-  %62 = load ptr, ptr %result, align 8
-  %63 = load ptr, ptr @ssl_capath, align 8
-  %call116 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %62, i32 noundef 10097, ptr noundef %63)
+  %63 = load ptr, ptr %result, align 8
+  %64 = load ptr, ptr @ssl_capath, align 8
+  %call116 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %63, i32 noundef 10097, ptr noundef %64)
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then115, %if.end113
-  %64 = load ptr, ptr @ssl_pinnedkey, align 8
-  %tobool118 = icmp ne ptr %64, null
+  %65 = load ptr, ptr @ssl_pinnedkey, align 8
+  %tobool118 = icmp ne ptr %65, null
   br i1 %tobool118, label %if.then119, label %if.end121
 
 if.then119:                                       ; preds = %if.end117
-  %65 = load ptr, ptr %result, align 8
-  %66 = load ptr, ptr @ssl_pinnedkey, align 8
-  %call120 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %65, i32 noundef 10230, ptr noundef %66)
+  %66 = load ptr, ptr %result, align 8
+  %67 = load ptr, ptr @ssl_pinnedkey, align 8
+  %call120 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %66, i32 noundef 10230, ptr noundef %67)
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then119, %if.end117
-  %67 = load ptr, ptr @http_ssl_backend, align 8
-  %tobool122 = icmp ne ptr %67, null
+  %68 = load ptr, ptr @http_ssl_backend, align 8
+  %tobool122 = icmp ne ptr %68, null
   br i1 %tobool122, label %land.lhs.true123, label %if.else131
 
 land.lhs.true123:                                 ; preds = %if.end121
-  %68 = load ptr, ptr @http_ssl_backend, align 8
-  %call124 = call i32 @strcmp(ptr noundef @.str.117, ptr noundef %68) #10
+  %69 = load ptr, ptr @http_ssl_backend, align 8
+  %call124 = call i32 @strcmp(ptr noundef @.str.117, ptr noundef %69) #10
   %tobool125 = icmp ne i32 %call124, 0
   br i1 %tobool125, label %if.else131, label %land.lhs.true126
 
 land.lhs.true126:                                 ; preds = %land.lhs.true123
-  %69 = load i32, ptr @http_schannel_use_ssl_cainfo, align 4
-  %tobool127 = icmp ne i32 %69, 0
+  %70 = load i32, ptr @http_schannel_use_ssl_cainfo, align 4
+  %tobool127 = icmp ne i32 %70, 0
   br i1 %tobool127, label %if.else131, label %if.then128
 
 if.then128:                                       ; preds = %land.lhs.true126
-  %70 = load ptr, ptr %result, align 8
-  %call129 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %70, i32 noundef 10065, ptr noundef null)
   %71 = load ptr, ptr %result, align 8
-  %call130 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %71, i32 noundef 10246, ptr noundef null)
+  %call129 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %71, i32 noundef 10065, ptr noundef null)
+  %72 = load ptr, ptr %result, align 8
+  %call130 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %72, i32 noundef 10246, ptr noundef null)
   br label %if.end146
 
 if.else131:                                       ; preds = %land.lhs.true126, %land.lhs.true123, %if.end121
-  %72 = load ptr, ptr @ssl_cainfo, align 8
-  %cmp132 = icmp ne ptr %72, null
+  %73 = load ptr, ptr @ssl_cainfo, align 8
+  %cmp132 = icmp ne ptr %73, null
   br i1 %cmp132, label %if.then136, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else131
-  %73 = load ptr, ptr @http_proxy_ssl_ca_info, align 8
-  %cmp134 = icmp ne ptr %73, null
+  %74 = load ptr, ptr @http_proxy_ssl_ca_info, align 8
+  %cmp134 = icmp ne ptr %74, null
   br i1 %cmp134, label %if.then136, label %if.end145
 
 if.then136:                                       ; preds = %lor.lhs.false, %if.else131
-  %74 = load ptr, ptr @ssl_cainfo, align 8
-  %tobool137 = icmp ne ptr %74, null
+  %75 = load ptr, ptr @ssl_cainfo, align 8
+  %tobool137 = icmp ne ptr %75, null
   br i1 %tobool137, label %if.then138, label %if.end140
 
 if.then138:                                       ; preds = %if.then136
-  %75 = load ptr, ptr %result, align 8
-  %76 = load ptr, ptr @ssl_cainfo, align 8
-  %call139 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %75, i32 noundef 10065, ptr noundef %76)
+  %76 = load ptr, ptr %result, align 8
+  %77 = load ptr, ptr @ssl_cainfo, align 8
+  %call139 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %76, i32 noundef 10065, ptr noundef %77)
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then138, %if.then136
-  %77 = load ptr, ptr @http_proxy_ssl_ca_info, align 8
-  %tobool141 = icmp ne ptr %77, null
+  %78 = load ptr, ptr @http_proxy_ssl_ca_info, align 8
+  %tobool141 = icmp ne ptr %78, null
   br i1 %tobool141, label %if.then142, label %if.end144
 
 if.then142:                                       ; preds = %if.end140
-  %78 = load ptr, ptr %result, align 8
-  %79 = load ptr, ptr @http_proxy_ssl_ca_info, align 8
-  %call143 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %78, i32 noundef 10246, ptr noundef %79)
+  %79 = load ptr, ptr %result, align 8
+  %80 = load ptr, ptr @http_proxy_ssl_ca_info, align 8
+  %call143 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %79, i32 noundef 10246, ptr noundef %80)
   br label %if.end144
 
 if.end144:                                        ; preds = %if.then142, %if.end140
@@ -2213,35 +2215,35 @@ if.end145:                                        ; preds = %if.end144, %lor.lhs
   br label %if.end146
 
 if.end146:                                        ; preds = %if.end145, %if.then128
-  %80 = load i64, ptr @curl_low_speed_limit, align 8
-  %cmp147 = icmp sgt i64 %80, 0
+  %81 = load i64, ptr @curl_low_speed_limit, align 8
+  %cmp147 = icmp sgt i64 %81, 0
   br i1 %cmp147, label %land.lhs.true149, label %if.end155
 
 land.lhs.true149:                                 ; preds = %if.end146
-  %81 = load i64, ptr @curl_low_speed_time, align 8
-  %cmp150 = icmp sgt i64 %81, 0
+  %82 = load i64, ptr @curl_low_speed_time, align 8
+  %cmp150 = icmp sgt i64 %82, 0
   br i1 %cmp150, label %if.then152, label %if.end155
 
 if.then152:                                       ; preds = %land.lhs.true149
-  %82 = load ptr, ptr %result, align 8
-  %83 = load i64, ptr @curl_low_speed_limit, align 8
-  %call153 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %82, i32 noundef 19, i64 noundef %83)
-  %84 = load ptr, ptr %result, align 8
-  %85 = load i64, ptr @curl_low_speed_time, align 8
-  %call154 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %84, i32 noundef 20, i64 noundef %85)
+  %83 = load ptr, ptr %result, align 8
+  %84 = load i64, ptr @curl_low_speed_limit, align 8
+  %call153 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %83, i32 noundef 19, i64 noundef %84)
+  %85 = load ptr, ptr %result, align 8
+  %86 = load i64, ptr @curl_low_speed_time, align 8
+  %call154 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %85, i32 noundef 20, i64 noundef %86)
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then152, %land.lhs.true149, %if.end146
-  %86 = load ptr, ptr %result, align 8
-  %call156 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %86, i32 noundef 68, i32 noundef 20)
   %87 = load ptr, ptr %result, align 8
-  %call157 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %87, i32 noundef 161, i32 noundef 7)
+  %call156 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %87, i32 noundef 68, i32 noundef 20)
   %88 = load ptr, ptr %result, align 8
-  %call158 = call i64 @get_curl_allowed_protocols(i32 noundef 0, ptr noundef null)
-  %call159 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %88, i32 noundef 182, i64 noundef %call158)
+  %call157 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %88, i32 noundef 161, i32 noundef 7)
   %89 = load ptr, ptr %result, align 8
+  %call158 = call i64 @get_curl_allowed_protocols(i32 noundef 0, ptr noundef null)
+  %call159 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %89, i32 noundef 182, i64 noundef %call158)
+  %90 = load ptr, ptr %result, align 8
   %call160 = call i64 @get_curl_allowed_protocols(i32 noundef -1, ptr noundef null)
-  %call161 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %89, i32 noundef 181, i64 noundef %call160)
+  %call161 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %90, i32 noundef 181, i64 noundef %call160)
   %call162 = call ptr @getenv(ptr noundef @.str.121) #9
   %tobool163 = icmp ne ptr %call162, null
   br i1 %tobool163, label %if.then164, label %if.end165
@@ -2251,8 +2253,8 @@ if.then164:                                       ; preds = %if.end155
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then164, %if.end155
-  %90 = load ptr, ptr %result, align 8
-  call void @setup_curl_trace(ptr noundef %90)
+  %91 = load ptr, ptr %result, align 8
+  call void @setup_curl_trace(ptr noundef %91)
   %call166 = call ptr @getenv(ptr noundef @.str.122) #9
   %tobool167 = icmp ne ptr %call166, null
   br i1 %tobool167, label %if.then168, label %if.end169
@@ -2271,13 +2273,13 @@ if.then172:                                       ; preds = %if.end169
   br label %if.end173
 
 if.end173:                                        ; preds = %if.then172, %if.end169
-  %91 = load ptr, ptr %result, align 8
-  %92 = load ptr, ptr @user_agent, align 8
-  %tobool174 = icmp ne ptr %92, null
+  %92 = load ptr, ptr %result, align 8
+  %93 = load ptr, ptr @user_agent, align 8
+  %tobool174 = icmp ne ptr %93, null
   br i1 %tobool174, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end173
-  %93 = load ptr, ptr @user_agent, align 8
+  %94 = load ptr, ptr @user_agent, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end173
@@ -2285,40 +2287,42 @@ cond.false:                                       ; preds = %if.end173
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %93, %cond.true ], [ %call175, %cond.false ]
-  %call176 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %91, i32 noundef 10018, ptr noundef %cond)
-  %94 = load i32, ptr @curl_ftp_no_epsv, align 4
-  %tobool177 = icmp ne i32 %94, 0
+  %cond = phi ptr [ %94, %cond.true ], [ %call175, %cond.false ]
+  %call176 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %92, i32 noundef 10018, ptr noundef %cond)
+  %95 = load i32, ptr @curl_ftp_no_epsv, align 4
+  %tobool177 = icmp ne i32 %95, 0
   br i1 %tobool177, label %if.then178, label %if.end180
 
 if.then178:                                       ; preds = %cond.end
-  %95 = load ptr, ptr %result, align 8
-  %call179 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %95, i32 noundef 85, i32 noundef 0)
+  %96 = load ptr, ptr %result, align 8
+  %call179 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %96, i32 noundef 85, i32 noundef 0)
   br label %if.end180
 
 if.end180:                                        ; preds = %if.then178, %cond.end
-  %96 = load i32, ptr @curl_ssl_try, align 4
-  %tobool181 = icmp ne i32 %96, 0
+  %97 = load i32, ptr @curl_ssl_try, align 4
+  %tobool181 = icmp ne i32 %97, 0
   br i1 %tobool181, label %if.then182, label %if.end184
 
 if.then182:                                       ; preds = %if.end180
-  %97 = load ptr, ptr %result, align 8
-  %call183 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %97, i32 noundef 119, i32 noundef 1)
+  %98 = load ptr, ptr %result, align 8
+  %call183 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %98, i32 noundef 119, i32 noundef 1)
   br label %if.end184
 
 if.end184:                                        ; preds = %if.then182, %if.end180
-  %98 = load ptr, ptr @curl_http_proxy, align 8
-  %tobool185 = icmp ne ptr %98, null
+  %99 = load ptr, ptr @curl_http_proxy, align 8
+  %tobool185 = icmp ne ptr %99, null
   br i1 %tobool185, label %if.end202, label %if.then186
 
 if.then186:                                       ; preds = %if.end184
-  %99 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 5), align 8
-  %tobool187 = icmp ne ptr %99, null
+  %100 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 5
+  %101 = load ptr, ptr %100, align 8
+  %tobool187 = icmp ne ptr %101, null
   br i1 %tobool187, label %land.lhs.true188, label %if.else194
 
 land.lhs.true188:                                 ; preds = %if.then186
-  %100 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 5), align 8
-  %call189 = call i32 @strcmp(ptr noundef %100, ptr noundef @.str.124) #10
+  %102 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 5
+  %103 = load ptr, ptr %102, align 8
+  %call189 = call i32 @strcmp(ptr noundef %103, ptr noundef @.str.124) #10
   %tobool190 = icmp ne i32 %call189, 0
   br i1 %tobool190, label %if.else194, label %if.then191
 
@@ -2335,8 +2339,8 @@ if.else194:                                       ; preds = %land.lhs.true188, %
   br label %if.end196
 
 if.end196:                                        ; preds = %if.else194, %if.then191
-  %101 = load ptr, ptr @curl_http_proxy, align 8
-  %tobool197 = icmp ne ptr %101, null
+  %104 = load ptr, ptr @curl_http_proxy, align 8
+  %tobool197 = icmp ne ptr %104, null
   br i1 %tobool197, label %if.end201, label %if.then198
 
 if.then198:                                       ; preds = %if.end196
@@ -2350,100 +2354,100 @@ if.end201:                                        ; preds = %if.then198, %if.end
   br label %if.end202
 
 if.end202:                                        ; preds = %if.end201, %if.end184
-  %102 = load ptr, ptr @curl_http_proxy, align 8
-  %tobool203 = icmp ne ptr %102, null
+  %105 = load ptr, ptr @curl_http_proxy, align 8
+  %tobool203 = icmp ne ptr %105, null
   br i1 %tobool203, label %land.lhs.true204, label %if.else211
 
 land.lhs.true204:                                 ; preds = %if.end202
-  %103 = load ptr, ptr @curl_http_proxy, align 8
-  %arrayidx205 = getelementptr inbounds i8, ptr %103, i64 0
-  %104 = load i8, ptr %arrayidx205, align 1
-  %conv206 = sext i8 %104 to i32
+  %106 = load ptr, ptr @curl_http_proxy, align 8
+  %arrayidx205 = getelementptr inbounds i8, ptr %106, i64 0
+  %107 = load i8, ptr %arrayidx205, align 1
+  %conv206 = sext i8 %107 to i32
   %cmp207 = icmp eq i32 %conv206, 0
   br i1 %cmp207, label %if.then209, label %if.else211
 
 if.then209:                                       ; preds = %land.lhs.true204
-  %105 = load ptr, ptr %result, align 8
-  %call210 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %105, i32 noundef 10004, ptr noundef @.str.114)
+  %108 = load ptr, ptr %result, align 8
+  %call210 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %108, i32 noundef 10004, ptr noundef @.str.114)
   br label %if.end269
 
 if.else211:                                       ; preds = %land.lhs.true204, %if.end202
-  %106 = load ptr, ptr @curl_http_proxy, align 8
-  %tobool212 = icmp ne ptr %106, null
+  %109 = load ptr, ptr @curl_http_proxy, align 8
+  %tobool212 = icmp ne ptr %109, null
   br i1 %tobool212, label %if.then213, label %if.end268
 
 if.then213:                                       ; preds = %if.else211
-  %107 = load ptr, ptr @curl_http_proxy, align 8
-  %call214 = call i32 @starts_with(ptr noundef %107, ptr noundef @.str.130)
+  %110 = load ptr, ptr @curl_http_proxy, align 8
+  %call214 = call i32 @starts_with(ptr noundef %110, ptr noundef @.str.130)
   %tobool215 = icmp ne i32 %call214, 0
   br i1 %tobool215, label %if.then216, label %if.else218
 
 if.then216:                                       ; preds = %if.then213
-  %108 = load ptr, ptr %result, align 8
-  %call217 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %108, i32 noundef 101, i32 noundef 7)
+  %111 = load ptr, ptr %result, align 8
+  %call217 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %111, i32 noundef 101, i32 noundef 7)
   br label %if.end255
 
 if.else218:                                       ; preds = %if.then213
-  %109 = load ptr, ptr @curl_http_proxy, align 8
-  %call219 = call i32 @starts_with(ptr noundef %109, ptr noundef @.str.131)
+  %112 = load ptr, ptr @curl_http_proxy, align 8
+  %call219 = call i32 @starts_with(ptr noundef %112, ptr noundef @.str.131)
   %tobool220 = icmp ne i32 %call219, 0
   br i1 %tobool220, label %if.then221, label %if.else223
 
 if.then221:                                       ; preds = %if.else218
-  %110 = load ptr, ptr %result, align 8
-  %call222 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %110, i32 noundef 101, i32 noundef 5)
+  %113 = load ptr, ptr %result, align 8
+  %call222 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %113, i32 noundef 101, i32 noundef 5)
   br label %if.end254
 
 if.else223:                                       ; preds = %if.else218
-  %111 = load ptr, ptr @curl_http_proxy, align 8
-  %call224 = call i32 @starts_with(ptr noundef %111, ptr noundef @.str.132)
+  %114 = load ptr, ptr @curl_http_proxy, align 8
+  %call224 = call i32 @starts_with(ptr noundef %114, ptr noundef @.str.132)
   %tobool225 = icmp ne i32 %call224, 0
   br i1 %tobool225, label %if.then226, label %if.else228
 
 if.then226:                                       ; preds = %if.else223
-  %112 = load ptr, ptr %result, align 8
-  %call227 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %112, i32 noundef 101, i32 noundef 6)
+  %115 = load ptr, ptr %result, align 8
+  %call227 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %115, i32 noundef 101, i32 noundef 6)
   br label %if.end253
 
 if.else228:                                       ; preds = %if.else223
-  %113 = load ptr, ptr @curl_http_proxy, align 8
-  %call229 = call i32 @starts_with(ptr noundef %113, ptr noundef @.str.133)
+  %116 = load ptr, ptr @curl_http_proxy, align 8
+  %call229 = call i32 @starts_with(ptr noundef %116, ptr noundef @.str.133)
   %tobool230 = icmp ne i32 %call229, 0
   br i1 %tobool230, label %if.then231, label %if.else233
 
 if.then231:                                       ; preds = %if.else228
-  %114 = load ptr, ptr %result, align 8
-  %call232 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %114, i32 noundef 101, i32 noundef 4)
+  %117 = load ptr, ptr %result, align 8
+  %call232 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %117, i32 noundef 101, i32 noundef 4)
   br label %if.end252
 
 if.else233:                                       ; preds = %if.else228
-  %115 = load ptr, ptr @curl_http_proxy, align 8
-  %call234 = call i32 @starts_with(ptr noundef %115, ptr noundef @.str.124)
+  %118 = load ptr, ptr @curl_http_proxy, align 8
+  %call234 = call i32 @starts_with(ptr noundef %118, ptr noundef @.str.124)
   %tobool235 = icmp ne i32 %call234, 0
   br i1 %tobool235, label %if.then236, label %if.end251
 
 if.then236:                                       ; preds = %if.else233
-  %116 = load ptr, ptr %result, align 8
-  %call237 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %116, i32 noundef 101, i32 noundef 2)
-  %117 = load ptr, ptr @http_proxy_ssl_cert, align 8
-  %tobool238 = icmp ne ptr %117, null
+  %119 = load ptr, ptr %result, align 8
+  %call237 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %119, i32 noundef 101, i32 noundef 2)
+  %120 = load ptr, ptr @http_proxy_ssl_cert, align 8
+  %tobool238 = icmp ne ptr %120, null
   br i1 %tobool238, label %if.then239, label %if.end241
 
 if.then239:                                       ; preds = %if.then236
-  %118 = load ptr, ptr %result, align 8
-  %119 = load ptr, ptr @http_proxy_ssl_cert, align 8
-  %call240 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %118, i32 noundef 10254, ptr noundef %119)
+  %121 = load ptr, ptr %result, align 8
+  %122 = load ptr, ptr @http_proxy_ssl_cert, align 8
+  %call240 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %121, i32 noundef 10254, ptr noundef %122)
   br label %if.end241
 
 if.end241:                                        ; preds = %if.then239, %if.then236
-  %120 = load ptr, ptr @http_proxy_ssl_key, align 8
-  %tobool242 = icmp ne ptr %120, null
+  %123 = load ptr, ptr @http_proxy_ssl_key, align 8
+  %tobool242 = icmp ne ptr %123, null
   br i1 %tobool242, label %if.then243, label %if.end245
 
 if.then243:                                       ; preds = %if.end241
-  %121 = load ptr, ptr %result, align 8
-  %122 = load ptr, ptr @http_proxy_ssl_key, align 8
-  %call244 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %121, i32 noundef 10256, ptr noundef %122)
+  %124 = load ptr, ptr %result, align 8
+  %125 = load ptr, ptr @http_proxy_ssl_key, align 8
+  %call244 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %124, i32 noundef 10256, ptr noundef %125)
   br label %if.end245
 
 if.end245:                                        ; preds = %if.then243, %if.end241
@@ -2452,9 +2456,10 @@ if.end245:                                        ; preds = %if.then243, %if.end
   br i1 %tobool247, label %if.then248, label %if.end250
 
 if.then248:                                       ; preds = %if.end245
-  %123 = load ptr, ptr %result, align 8
-  %124 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 4), align 8
-  %call249 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %123, i32 noundef 10258, ptr noundef %124)
+  %126 = load ptr, ptr %result, align 8
+  %127 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 4
+  %128 = load ptr, ptr %127, align 8
+  %call249 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %126, i32 noundef 10258, ptr noundef %128)
   br label %if.end250
 
 if.end250:                                        ; preds = %if.then248, %if.end245
@@ -2473,59 +2478,61 @@ if.end254:                                        ; preds = %if.end253, %if.then
   br label %if.end255
 
 if.end255:                                        ; preds = %if.end254, %if.then216
-  %125 = load ptr, ptr @curl_http_proxy, align 8
-  %call256 = call ptr @strstr(ptr noundef %125, ptr noundef @.str.134) #10
+  %129 = load ptr, ptr @curl_http_proxy, align 8
+  %call256 = call ptr @strstr(ptr noundef %129, ptr noundef @.str.134) #10
   %tobool257 = icmp ne ptr %call256, null
   br i1 %tobool257, label %if.then258, label %if.else259
 
 if.then258:                                       ; preds = %if.end255
-  %126 = load ptr, ptr @curl_http_proxy, align 8
-  call void @credential_from_url(ptr noundef @proxy_auth, ptr noundef %126)
+  %130 = load ptr, ptr @curl_http_proxy, align 8
+  call void @credential_from_url(ptr noundef @proxy_auth, ptr noundef %130)
   br label %if.end260
 
 if.else259:                                       ; preds = %if.end255
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %url, ptr align 8 @__const.get_curl_handle.url, i64 24, i1 false)
-  %127 = load ptr, ptr @curl_http_proxy, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %url, ptr noundef @.str.135, ptr noundef %127)
+  %131 = load ptr, ptr @curl_http_proxy, align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %url, ptr noundef @.str.135, ptr noundef %131)
   %buf = getelementptr inbounds %struct.strbuf, ptr %url, i32 0, i32 2
-  %128 = load ptr, ptr %buf, align 8
-  call void @credential_from_url(ptr noundef @proxy_auth, ptr noundef %128)
+  %132 = load ptr, ptr %buf, align 8
+  call void @credential_from_url(ptr noundef @proxy_auth, ptr noundef %132)
   call void @strbuf_release(ptr noundef %url)
   br label %if.end260
 
 if.end260:                                        ; preds = %if.else259, %if.then258
-  %129 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 6), align 8
-  %tobool261 = icmp ne ptr %129, null
+  %133 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 6
+  %134 = load ptr, ptr %133, align 8
+  %tobool261 = icmp ne ptr %134, null
   br i1 %tobool261, label %if.end263, label %if.then262
 
 if.then262:                                       ; preds = %if.end260
-  %130 = load ptr, ptr @curl_http_proxy, align 8
-  call void (ptr, ...) @die(ptr noundef @.str.136, ptr noundef %130) #8
+  %135 = load ptr, ptr @curl_http_proxy, align 8
+  call void (ptr, ...) @die(ptr noundef @.str.136, ptr noundef %135) #8
   unreachable
 
 if.end263:                                        ; preds = %if.end260
-  %131 = load ptr, ptr %result, align 8
-  %132 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 6), align 8
-  %call264 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %131, i32 noundef 10004, ptr noundef %132)
+  %136 = load ptr, ptr %result, align 8
+  %137 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 6
+  %138 = load ptr, ptr %137, align 8
+  %call264 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %136, i32 noundef 10004, ptr noundef %138)
   %call265 = call ptr @getenv(ptr noundef @.str.137) #9
   call void @var_override(ptr noundef @curl_no_proxy, ptr noundef %call265)
   %call266 = call ptr @getenv(ptr noundef @.str.138) #9
   call void @var_override(ptr noundef @curl_no_proxy, ptr noundef %call266)
-  %133 = load ptr, ptr %result, align 8
-  %134 = load ptr, ptr @curl_no_proxy, align 8
-  %call267 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %133, i32 noundef 10177, ptr noundef %134)
+  %139 = load ptr, ptr %result, align 8
+  %140 = load ptr, ptr @curl_no_proxy, align 8
+  %call267 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %139, i32 noundef 10177, ptr noundef %140)
   br label %if.end268
 
 if.end268:                                        ; preds = %if.end263, %if.else211
   br label %if.end269
 
 if.end269:                                        ; preds = %if.end268, %if.then209
-  %135 = load ptr, ptr %result, align 8
-  call void @init_curl_proxy_auth(ptr noundef %135)
-  %136 = load ptr, ptr %result, align 8
-  call void @set_curl_keepalive(ptr noundef %136)
-  %137 = load ptr, ptr %result, align 8
-  ret ptr %137
+  %141 = load ptr, ptr %result, align 8
+  call void @init_curl_proxy_auth(ptr noundef %141)
+  %142 = load ptr, ptr %result, align 8
+  call void @set_curl_keepalive(ptr noundef %142)
+  %143 = load ptr, ptr %result, align 8
+  ret ptr %143
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2597,48 +2604,58 @@ if.then4:                                         ; preds = %while.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %while.end
-  %18 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 4), align 8
-  %tobool6 = icmp ne ptr %18, null
+  %18 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 4
+  %19 = load ptr, ptr %18, align 8
+  %tobool6 = icmp ne ptr %19, null
   br i1 %tobool6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end5
-  %19 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 4), align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 4), align 8
-  %call8 = call i64 @strlen(ptr noundef %20) #10
-  call void @llvm.memset.p0.i64(ptr align 1 %19, i8 0, i64 %call8, i1 false)
+  %20 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 4
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 4
+  %23 = load ptr, ptr %22, align 8
+  %call8 = call i64 @strlen(ptr noundef %23) #10
+  call void @llvm.memset.p0.i64(ptr align 1 %21, i8 0, i64 %call8, i1 false)
   br label %do.body
 
 do.body:                                          ; preds = %if.then7
-  %21 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 4), align 8
-  call void @free(ptr noundef %21) #9
-  store ptr null, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 4), align 8
+  %24 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 4
+  %25 = load ptr, ptr %24, align 8
+  call void @free(ptr noundef %25) #9
+  %26 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 4
+  store ptr null, ptr %26, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
   br label %if.end9
 
 if.end9:                                          ; preds = %do.end, %if.end5
-  %22 = load ptr, ptr @curl_proxyuserpwd, align 8
-  call void @free(ptr noundef %22) #9
+  %27 = load ptr, ptr @curl_proxyuserpwd, align 8
+  call void @free(ptr noundef %27) #9
   store ptr null, ptr @curl_proxyuserpwd, align 8
-  %23 = load ptr, ptr @http_proxy_authmethod, align 8
-  call void @free(ptr noundef %23) #9
+  %28 = load ptr, ptr @http_proxy_authmethod, align 8
+  call void @free(ptr noundef %28) #9
   store ptr null, ptr @http_proxy_authmethod, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 4), align 8
-  %tobool10 = icmp ne ptr %24, null
+  %29 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 4
+  %30 = load ptr, ptr %29, align 8
+  %tobool10 = icmp ne ptr %30, null
   br i1 %tobool10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %25 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 4), align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 4), align 8
-  %call12 = call i64 @strlen(ptr noundef %26) #10
-  call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %call12, i1 false)
+  %31 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 4
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 4
+  %34 = load ptr, ptr %33, align 8
+  %call12 = call i64 @strlen(ptr noundef %34) #10
+  call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %call12, i1 false)
   br label %do.body13
 
 do.body13:                                        ; preds = %if.then11
-  %27 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 4), align 8
-  call void @free(ptr noundef %27) #9
-  store ptr null, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 4), align 8
+  %35 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8
+  call void @free(ptr noundef %36) #9
+  %37 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 4
+  store ptr null, ptr %37, align 8
   br label %do.end14
 
 do.end14:                                         ; preds = %do.body13
@@ -2646,21 +2663,26 @@ do.end14:                                         ; preds = %do.body13
 
 if.end15:                                         ; preds = %do.end14, %if.end9
   store i32 0, ptr @ssl_cert_password_required, align 4
-  %28 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 4), align 8
-  %tobool16 = icmp ne ptr %28, null
+  %38 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  %tobool16 = icmp ne ptr %39, null
   br i1 %tobool16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %29 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 4), align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 4), align 8
-  %call18 = call i64 @strlen(ptr noundef %30) #10
-  call void @llvm.memset.p0.i64(ptr align 1 %29, i8 0, i64 %call18, i1 false)
+  %40 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 4
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 4
+  %43 = load ptr, ptr %42, align 8
+  %call18 = call i64 @strlen(ptr noundef %43) #10
+  call void @llvm.memset.p0.i64(ptr align 1 %41, i8 0, i64 %call18, i1 false)
   br label %do.body19
 
 do.body19:                                        ; preds = %if.then17
-  %31 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 4), align 8
-  call void @free(ptr noundef %31) #9
-  store ptr null, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 4), align 8
+  %44 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 4
+  %45 = load ptr, ptr %44, align 8
+  call void @free(ptr noundef %45) #9
+  %46 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 4
+  store ptr null, ptr %46, align 8
   br label %do.end20
 
 do.end20:                                         ; preds = %do.body19
@@ -2671,8 +2693,8 @@ if.end21:                                         ; preds = %do.end20, %if.end15
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end21
-  %32 = load ptr, ptr @cached_accept_language, align 8
-  call void @free(ptr noundef %32) #9
+  %47 = load ptr, ptr @cached_accept_language, align 8
+  call void @free(ptr noundef %47) #9
   store ptr null, ptr @cached_accept_language, align 8
   br label %do.end23
 
@@ -2948,8 +2970,9 @@ if.end66:                                         ; preds = %if.else63, %if.then
   %77 = load ptr, ptr %curl69, align 8
   %78 = load i64, ptr @http_auth_methods, align 8
   %call70 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %77, i32 noundef 107, i64 noundef %78)
-  %79 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 4), align 8
-  %tobool71 = icmp ne ptr %79, null
+  %79 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 4
+  %80 = load ptr, ptr %79, align 8
+  %tobool71 = icmp ne ptr %80, null
   br i1 %tobool71, label %if.then74, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end66
@@ -2958,15 +2981,15 @@ lor.lhs.false:                                    ; preds = %if.end66
   br i1 %tobool73, label %if.then74, label %if.end76
 
 if.then74:                                        ; preds = %lor.lhs.false, %if.end66
-  %80 = load ptr, ptr %slot, align 8
-  %curl75 = getelementptr inbounds %struct.active_request_slot, ptr %80, i32 0, i32 0
-  %81 = load ptr, ptr %curl75, align 8
-  call void @init_curl_http_auth(ptr noundef %81)
+  %81 = load ptr, ptr %slot, align 8
+  %curl75 = getelementptr inbounds %struct.active_request_slot, ptr %81, i32 0, i32 0
+  %82 = load ptr, ptr %curl75, align 8
+  call void @init_curl_http_auth(ptr noundef %82)
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then74, %lor.lhs.false
-  %82 = load ptr, ptr %slot, align 8
-  ret ptr %82
+  %83 = load ptr, ptr %slot, align 8
+  ret ptr %83
 }
 
 declare i32 @curl_multi_perform(ptr noundef, ptr noundef) #3
@@ -3120,14 +3143,16 @@ define internal void @init_curl_http_auth(ptr noundef %result) #0 {
 entry:
   %result.addr = alloca ptr, align 8
   store ptr %result, ptr %result.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 3), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 3
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 3), align 8
-  %2 = load i8, ptr %1, align 1
-  %tobool1 = icmp ne i8 %2, 0
+  %2 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 3
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i8, ptr %3, align 1
+  %tobool1 = icmp ne i8 %4, 0
   br i1 %tobool1, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -3136,8 +3161,8 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %3 = load ptr, ptr %result.addr, align 8
-  %call4 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %3, i32 noundef 10005, ptr noundef @.str.164)
+  %5 = load ptr, ptr %result.addr, align 8
+  %call4 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %5, i32 noundef 10005, ptr noundef @.str.164)
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
@@ -3145,12 +3170,14 @@ if.end:                                           ; preds = %if.then3, %if.then
 
 if.end5:                                          ; preds = %lor.lhs.false
   call void @credential_fill(ptr noundef @http_auth)
-  %4 = load ptr, ptr %result.addr, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 3), align 8
-  %call6 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %4, i32 noundef 10173, ptr noundef %5)
   %6 = load ptr, ptr %result.addr, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 4), align 8
-  %call7 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %6, i32 noundef 10174, ptr noundef %7)
+  %7 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  %call6 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %6, i32 noundef 10173, ptr noundef %8)
+  %9 = load ptr, ptr %result.addr, align 8
+  %10 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8
+  %call7 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %9, i32 noundef 10174, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %if.end5, %if.end
@@ -3874,13 +3901,15 @@ if.else13:                                        ; preds = %if.else9
   br i1 %cmp15, label %if.then17, label %if.else26
 
 if.then17:                                        ; preds = %if.else13
-  %15 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 3), align 8
-  %tobool18 = icmp ne ptr %15, null
+  %15 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 3
+  %16 = load ptr, ptr %15, align 8
+  %tobool18 = icmp ne ptr %16, null
   br i1 %tobool18, label %land.lhs.true, label %if.else21
 
 land.lhs.true:                                    ; preds = %if.then17
-  %16 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 4), align 8
-  %tobool19 = icmp ne ptr %16, null
+  %17 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %tobool19 = icmp ne ptr %18, null
   br i1 %tobool19, label %if.then20, label %if.else21
 
 if.then20:                                        ; preds = %land.lhs.true
@@ -3889,21 +3918,21 @@ if.then20:                                        ; preds = %land.lhs.true
   br label %return
 
 if.else21:                                        ; preds = %land.lhs.true, %if.then17
-  %17 = load i64, ptr @http_auth_methods, align 8
-  %and = and i64 %17, -5
+  %19 = load i64, ptr @http_auth_methods, align 8
+  %and = and i64 %19, -5
   store i64 %and, ptr @http_auth_methods, align 8
-  %18 = load ptr, ptr %results.addr, align 8
-  %auth_avail = getelementptr inbounds %struct.slot_results, ptr %18, i32 0, i32 2
-  %19 = load i64, ptr %auth_avail, align 8
-  %tobool22 = icmp ne i64 %19, 0
+  %20 = load ptr, ptr %results.addr, align 8
+  %auth_avail = getelementptr inbounds %struct.slot_results, ptr %20, i32 0, i32 2
+  %21 = load i64, ptr %auth_avail, align 8
+  %tobool22 = icmp ne i64 %21, 0
   br i1 %tobool22, label %if.then23, label %if.end
 
 if.then23:                                        ; preds = %if.else21
-  %20 = load ptr, ptr %results.addr, align 8
-  %auth_avail24 = getelementptr inbounds %struct.slot_results, ptr %20, i32 0, i32 2
-  %21 = load i64, ptr %auth_avail24, align 8
-  %22 = load i64, ptr @http_auth_methods, align 8
-  %and25 = and i64 %22, %21
+  %22 = load ptr, ptr %results.addr, align 8
+  %auth_avail24 = getelementptr inbounds %struct.slot_results, ptr %22, i32 0, i32 2
+  %23 = load i64, ptr %auth_avail24, align 8
+  %24 = load i64, ptr @http_auth_methods, align 8
+  %and25 = and i64 %24, %23
   store i64 %and25, ptr @http_auth_methods, align 8
   store i32 1, ptr @http_auth_methods_restricted, align 4
   br label %if.end
@@ -3913,10 +3942,10 @@ if.end:                                           ; preds = %if.then23, %if.else
   br label %return
 
 if.else26:                                        ; preds = %if.else13
-  %23 = load ptr, ptr %results.addr, align 8
-  %http_connectcode = getelementptr inbounds %struct.slot_results, ptr %23, i32 0, i32 3
-  %24 = load i64, ptr %http_connectcode, align 8
-  %cmp27 = icmp eq i64 %24, 407
+  %25 = load ptr, ptr %results.addr, align 8
+  %http_connectcode = getelementptr inbounds %struct.slot_results, ptr %25, i32 0, i32 3
+  %26 = load i64, ptr %http_connectcode, align 8
+  %cmp27 = icmp eq i64 %26, 407
   br i1 %cmp27, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.else26
@@ -3924,15 +3953,15 @@ if.then29:                                        ; preds = %if.else26
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %if.else26
-  %25 = load i8, ptr @curl_errorstr, align 16
-  %tobool31 = icmp ne i8 %25, 0
+  %27 = load i8, ptr @curl_errorstr, align 16
+  %tobool31 = icmp ne i8 %27, 0
   br i1 %tobool31, label %if.end36, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
-  %26 = load ptr, ptr %results.addr, align 8
-  %curl_result33 = getelementptr inbounds %struct.slot_results, ptr %26, i32 0, i32 0
-  %27 = load i32, ptr %curl_result33, align 8
-  %call34 = call ptr @curl_easy_strerror(i32 noundef %27)
+  %28 = load ptr, ptr %results.addr, align 8
+  %curl_result33 = getelementptr inbounds %struct.slot_results, ptr %28, i32 0, i32 0
+  %29 = load i32, ptr %curl_result33, align 8
+  %call34 = call ptr @curl_easy_strerror(i32 noundef %29)
   %call35 = call i64 @gitstrlcpy(ptr noundef @curl_errorstr, ptr noundef %call34, i64 noundef 256)
   br label %if.end36
 
@@ -3941,8 +3970,8 @@ if.end36:                                         ; preds = %if.then32, %if.end3
   br label %return
 
 return:                                           ; preds = %if.end36, %if.end, %if.then20, %if.then12, %if.then8, %if.then4, %if.then
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+  %30 = load i32, ptr %retval, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7373,20 +7402,25 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 4), align 8
-  %tobool = icmp ne ptr %2, null
+  %2 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call = call ptr @xstrdup(ptr noundef @.str.152)
-  store ptr %call, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 5), align 8
+  %4 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 5
+  store ptr %call, ptr %4, align 8
   %call3 = call ptr @xstrdup(ptr noundef @.str.114)
-  store ptr %call3, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 6), align 8
+  %5 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 6
+  store ptr %call3, ptr %5, align 8
   %call4 = call ptr @xstrdup(ptr noundef @.str.114)
-  store ptr %call4, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 3), align 8
-  %3 = load ptr, ptr @ssl_cert, align 8
-  %call5 = call ptr @xstrdup(ptr noundef %3)
-  store ptr %call5, ptr getelementptr inbounds (%struct.credential, ptr @cert_auth, i32 0, i32 7), align 8
+  %6 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 3
+  store ptr %call4, ptr %6, align 8
+  %7 = load ptr, ptr @ssl_cert, align 8
+  %call5 = call ptr @xstrdup(ptr noundef %7)
+  %8 = getelementptr inbounds %struct.credential, ptr @cert_auth, i32 0, i32 7
+  store ptr %call5, ptr %8, align 8
   call void @credential_fill(ptr noundef @cert_auth)
   br label %if.end6
 
@@ -7395,8 +7429,8 @@ if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+  %9 = load i32, ptr %retval, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7490,20 +7524,25 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 4), align 8
-  %tobool = icmp ne ptr %2, null
+  %2 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call = call ptr @xstrdup(ptr noundef @.str.152)
-  store ptr %call, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 5), align 8
+  %4 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 5
+  store ptr %call, ptr %4, align 8
   %call3 = call ptr @xstrdup(ptr noundef @.str.114)
-  store ptr %call3, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 6), align 8
+  %5 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 6
+  store ptr %call3, ptr %5, align 8
   %call4 = call ptr @xstrdup(ptr noundef @.str.114)
-  store ptr %call4, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 3), align 8
-  %3 = load ptr, ptr @http_proxy_ssl_cert, align 8
-  %call5 = call ptr @xstrdup(ptr noundef %3)
-  store ptr %call5, ptr getelementptr inbounds (%struct.credential, ptr @proxy_cert_auth, i32 0, i32 7), align 8
+  %6 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 3
+  store ptr %call4, ptr %6, align 8
+  %7 = load ptr, ptr @http_proxy_ssl_cert, align 8
+  %call5 = call ptr @xstrdup(ptr noundef %7)
+  %8 = getelementptr inbounds %struct.credential, ptr @proxy_cert_auth, i32 0, i32 7
+  store ptr %call5, ptr %8, align 8
   call void @credential_fill(ptr noundef @proxy_cert_auth)
   br label %if.end6
 
@@ -7512,8 +7551,8 @@ if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+  %9 = load i32, ptr %retval, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7522,13 +7561,15 @@ entry:
   %result.addr = alloca ptr, align 8
   %i = alloca i32, align 4
   store ptr %result, ptr %result.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 3), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 3
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 4), align 8
-  %tobool1 = icmp ne ptr %1, null
+  %2 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %tobool1 = icmp ne ptr %3, null
   br i1 %tobool1, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
@@ -7536,15 +7577,15 @@ if.then2:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %2 = load ptr, ptr %result.addr, align 8
-  call void @set_proxyauth_name_password(ptr noundef %2)
+  %4 = load ptr, ptr %result.addr, align 8
+  call void @set_proxyauth_name_password(ptr noundef %4)
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end, %entry
   %call = call ptr @getenv(ptr noundef @.str.155) #9
   call void @var_override(ptr noundef @http_proxy_authmethod, ptr noundef %call)
-  %3 = load ptr, ptr @http_proxy_authmethod, align 8
-  %tobool4 = icmp ne ptr %3, null
+  %5 = load ptr, ptr @http_proxy_authmethod, align 8
+  %tobool4 = icmp ne ptr %5, null
   br i1 %tobool4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end3
@@ -7552,60 +7593,60 @@ if.then5:                                         ; preds = %if.end3
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then5
-  %4 = load i32, ptr %i, align 4
-  %conv = sext i32 %4 to i64
+  %6 = load i32, ptr %i, align 4
+  %conv = sext i32 %6 to i64
   %cmp = icmp ult i64 %conv, 5
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr @http_proxy_authmethod, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
+  %7 = load ptr, ptr @http_proxy_authmethod, align 8
+  %8 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %8 to i64
   %arrayidx = getelementptr inbounds [5 x %struct.anon.2], ptr @proxy_authmethods, i64 0, i64 %idxprom
   %name = getelementptr inbounds %struct.anon.2, ptr %arrayidx, i32 0, i32 0
-  %7 = load ptr, ptr %name, align 16
-  %call7 = call i32 @strcmp(ptr noundef %5, ptr noundef %7) #10
+  %9 = load ptr, ptr %name, align 16
+  %call7 = call i32 @strcmp(ptr noundef %7, ptr noundef %9) #10
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %8 = load ptr, ptr %result.addr, align 8
-  %9 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %9 to i64
+  %10 = load ptr, ptr %result.addr, align 8
+  %11 = load i32, ptr %i, align 4
+  %idxprom10 = sext i32 %11 to i64
   %arrayidx11 = getelementptr inbounds [5 x %struct.anon.2], ptr @proxy_authmethods, i64 0, i64 %idxprom10
   %curlauth_param = getelementptr inbounds %struct.anon.2, ptr %arrayidx11, i32 0, i32 1
-  %10 = load i64, ptr %curlauth_param, align 8
-  %call12 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %8, i32 noundef 111, i64 noundef %10)
+  %12 = load i64, ptr %curlauth_param, align 8
+  %call12 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %10, i32 noundef 111, i64 noundef %12)
   br label %for.end
 
 if.end13:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end13
-  %11 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %11, 1
+  %13 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !49
 
 for.end:                                          ; preds = %if.then9, %for.cond
-  %12 = load i32, ptr %i, align 4
-  %conv14 = sext i32 %12 to i64
+  %14 = load i32, ptr %i, align 4
+  %conv14 = sext i32 %14 to i64
   %cmp15 = icmp eq i64 %conv14, 5
   br i1 %cmp15, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %for.end
-  %13 = load ptr, ptr @http_proxy_authmethod, align 8
-  call void (ptr, ...) @warning(ptr noundef @.str.156, ptr noundef %13)
-  %14 = load ptr, ptr %result.addr, align 8
-  %call18 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %14, i32 noundef 111, i64 noundef -17)
+  %15 = load ptr, ptr @http_proxy_authmethod, align 8
+  call void (ptr, ...) @warning(ptr noundef @.str.156, ptr noundef %15)
+  %16 = load ptr, ptr %result.addr, align 8
+  %call18 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %16, i32 noundef 111, i64 noundef -17)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %for.end
   br label %if.end21
 
 if.else:                                          ; preds = %if.end3
-  %15 = load ptr, ptr %result.addr, align 8
-  %call20 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %15, i32 noundef 111, i64 noundef -17)
+  %17 = load ptr, ptr %result.addr, align 8
+  %call20 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %17, i32 noundef 111, i64 noundef -17)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.end19
@@ -7668,11 +7709,13 @@ entry:
   %result.addr = alloca ptr, align 8
   store ptr %result, ptr %result.addr, align 8
   %0 = load ptr, ptr %result.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 3), align 8
-  %call = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef 10175, ptr noundef %1)
-  %2 = load ptr, ptr %result.addr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @proxy_auth, i32 0, i32 4), align 8
-  %call1 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %2, i32 noundef 10176, ptr noundef %3)
+  %1 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %call = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef 10175, ptr noundef %2)
+  %3 = load ptr, ptr %result.addr, align 8
+  %4 = getelementptr inbounds %struct.credential, ptr @proxy_auth, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %call1 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %3, i32 noundef 10176, ptr noundef %5)
   ret void
 }
 
@@ -8275,52 +8318,56 @@ entry:
   %1 = load i64, ptr %nmemb.addr, align 8
   %mul = mul i64 %0, %1
   store i64 %mul, ptr %size, align 8
-  store ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 1), ptr %values, align 8
+  %2 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 1
+  store ptr %2, ptr %values, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 @__const.fwrite_wwwauth.buf, i64 24, i1 false)
-  %2 = load ptr, ptr %ptr.addr, align 8
-  %3 = load i64, ptr %size, align 8
-  %call = call i32 @skip_iprefix_mem(ptr noundef %2, i64 noundef %3, ptr noundef @.str.174, ptr noundef %val, ptr noundef %val_len)
+  %3 = load ptr, ptr %ptr.addr, align 8
+  %4 = load i64, ptr %size, align 8
+  %call = call i32 @skip_iprefix_mem(ptr noundef %3, i64 noundef %4, ptr noundef @.str.174, ptr noundef %val, ptr noundef %val_len)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %val, align 8
-  %5 = load i64, ptr %val_len, align 8
-  call void @strbuf_add(ptr noundef %buf, ptr noundef %4, i64 noundef %5)
+  %5 = load ptr, ptr %val, align 8
+  %6 = load i64, ptr %val_len, align 8
+  call void @strbuf_add(ptr noundef %buf, ptr noundef %5, i64 noundef %6)
   call void @strbuf_trim(ptr noundef %buf)
-  %6 = load ptr, ptr %values, align 8
+  %7 = load ptr, ptr %values, align 8
   %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
-  %7 = load ptr, ptr %buf1, align 8
-  %call2 = call ptr @strvec_push(ptr noundef %6, ptr noundef %7)
-  %bf.load = load i8, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 2), align 8
+  %8 = load ptr, ptr %buf1, align 8
+  %call2 = call ptr @strvec_push(ptr noundef %7, ptr noundef %8)
+  %9 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 2
+  %bf.load = load i8, ptr %9, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or i8 %bf.clear, 1
-  store i8 %bf.set, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 2), align 8
+  %10 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 2
+  store i8 %bf.set, ptr %10, align 8
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %bf.load3 = load i8, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 2), align 8
+  %11 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 2
+  %bf.load3 = load i8, ptr %11, align 8
   %bf.clear4 = and i8 %bf.load3, 1
   %bf.cast = zext i8 %bf.clear4 to i32
   %tobool5 = icmp ne i32 %bf.cast, 0
   br i1 %tobool5, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.end
-  %8 = load ptr, ptr %ptr.addr, align 8
-  %9 = load i64, ptr %size, align 8
-  %call6 = call i32 @is_hdr_continuation(ptr noundef %8, i64 noundef %9)
+  %12 = load ptr, ptr %ptr.addr, align 8
+  %13 = load i64, ptr %size, align 8
+  %call6 = call i32 @is_hdr_continuation(ptr noundef %12, i64 noundef %13)
   %tobool7 = icmp ne i32 %call6, 0
   br i1 %tobool7, label %if.then8, label %if.end20
 
 if.then8:                                         ; preds = %land.lhs.true
-  %10 = load ptr, ptr %ptr.addr, align 8
-  %11 = load i64, ptr %size, align 8
-  call void @strbuf_add(ptr noundef %buf, ptr noundef %10, i64 noundef %11)
+  %14 = load ptr, ptr %ptr.addr, align 8
+  %15 = load i64, ptr %size, align 8
+  call void @strbuf_add(ptr noundef %buf, ptr noundef %14, i64 noundef %15)
   call void @strbuf_trim(ptr noundef %buf)
-  %12 = load ptr, ptr %values, align 8
-  %nr = getelementptr inbounds %struct.strvec, ptr %12, i32 0, i32 1
-  %13 = load i64, ptr %nr, align 8
-  %tobool9 = icmp ne i64 %13, 0
+  %16 = load ptr, ptr %values, align 8
+  %nr = getelementptr inbounds %struct.strvec, ptr %16, i32 0, i32 1
+  %17 = load i64, ptr %nr, align 8
+  %tobool9 = icmp ne i64 %17, 0
   br i1 %tobool9, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
@@ -8329,38 +8376,38 @@ if.then10:                                        ; preds = %if.then8
 
 if.else:                                          ; preds = %if.then8
   %len = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 1
-  %14 = load i64, ptr %len, align 8
-  %tobool11 = icmp ne i64 %14, 0
+  %18 = load i64, ptr %len, align 8
+  %tobool11 = icmp ne i64 %18, 0
   br i1 %tobool11, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %if.else
-  %15 = load ptr, ptr %values, align 8
-  %v = getelementptr inbounds %struct.strvec, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %v, align 8
-  %17 = load ptr, ptr %values, align 8
-  %nr13 = getelementptr inbounds %struct.strvec, ptr %17, i32 0, i32 1
-  %18 = load i64, ptr %nr13, align 8
-  %sub = sub i64 %18, 1
-  %arrayidx = getelementptr inbounds ptr, ptr %16, i64 %sub
-  %19 = load ptr, ptr %arrayidx, align 8
-  %call14 = call ptr @xstrdup(ptr noundef %19)
+  %19 = load ptr, ptr %values, align 8
+  %v = getelementptr inbounds %struct.strvec, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %v, align 8
+  %21 = load ptr, ptr %values, align 8
+  %nr13 = getelementptr inbounds %struct.strvec, ptr %21, i32 0, i32 1
+  %22 = load i64, ptr %nr13, align 8
+  %sub = sub i64 %22, 1
+  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %sub
+  %23 = load ptr, ptr %arrayidx, align 8
+  %call14 = call ptr @xstrdup(ptr noundef %23)
   store ptr %call14, ptr %prev, align 8
-  %20 = load ptr, ptr %prev, align 8
-  %21 = load i8, ptr %20, align 1
-  %conv = sext i8 %21 to i32
+  %24 = load ptr, ptr %prev, align 8
+  %25 = load i8, ptr %24, align 1
+  %conv = sext i8 %25 to i32
   %tobool15 = icmp ne i32 %conv, 0
   %cond = select i1 %tobool15, ptr @.str.176, ptr @.str.114
   store ptr %cond, ptr %sp, align 8
-  %22 = load ptr, ptr %values, align 8
-  call void @strvec_pop(ptr noundef %22)
-  %23 = load ptr, ptr %values, align 8
-  %24 = load ptr, ptr %prev, align 8
-  %25 = load ptr, ptr %sp, align 8
+  %26 = load ptr, ptr %values, align 8
+  call void @strvec_pop(ptr noundef %26)
+  %27 = load ptr, ptr %values, align 8
+  %28 = load ptr, ptr %prev, align 8
+  %29 = load ptr, ptr %sp, align 8
   %buf16 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
-  %26 = load ptr, ptr %buf16, align 8
-  %call17 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %23, ptr noundef @.str.177, ptr noundef %24, ptr noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %prev, align 8
-  call void @free(ptr noundef %27) #9
+  %30 = load ptr, ptr %buf16, align 8
+  %call17 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %27, ptr noundef @.str.177, ptr noundef %28, ptr noundef %29, ptr noundef %30)
+  %31 = load ptr, ptr %prev, align 8
+  call void @free(ptr noundef %31) #9
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then12, %if.else
@@ -8370,19 +8417,21 @@ if.end19:                                         ; preds = %if.end18
   br label %exit
 
 if.end20:                                         ; preds = %land.lhs.true, %if.end
-  %bf.load21 = load i8, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 2), align 8
+  %32 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 2
+  %bf.load21 = load i8, ptr %32, align 8
   %bf.clear22 = and i8 %bf.load21, -2
   %bf.set23 = or i8 %bf.clear22, 0
-  store i8 %bf.set23, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i32 0, i32 2), align 8
-  %28 = load ptr, ptr %ptr.addr, align 8
-  %29 = load i64, ptr %size, align 8
-  %call24 = call i32 @skip_iprefix_mem(ptr noundef %28, i64 noundef %29, ptr noundef @.str.178, ptr noundef %val, ptr noundef %val_len)
+  %33 = getelementptr inbounds %struct.credential, ptr @http_auth, i32 0, i32 2
+  store i8 %bf.set23, ptr %33, align 8
+  %34 = load ptr, ptr %ptr.addr, align 8
+  %35 = load i64, ptr %size, align 8
+  %call24 = call i32 @skip_iprefix_mem(ptr noundef %34, i64 noundef %35, ptr noundef @.str.178, ptr noundef %val, ptr noundef %val_len)
   %tobool25 = icmp ne i32 %call24, 0
   br i1 %tobool25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end20
-  %30 = load ptr, ptr %values, align 8
-  call void @strvec_clear(ptr noundef %30)
+  %36 = load ptr, ptr %values, align 8
+  call void @strvec_clear(ptr noundef %36)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end20
@@ -8390,8 +8439,8 @@ if.end27:                                         ; preds = %if.then26, %if.end2
 
 exit:                                             ; preds = %if.end27, %if.end19, %if.then
   call void @strbuf_release(ptr noundef %buf)
-  %31 = load i64, ptr %size, align 8
-  ret i64 %31
+  %37 = load i64, ptr %size, align 8
+  ret i64 %37
 }
 
 ; Function Attrs: nounwind uwtable

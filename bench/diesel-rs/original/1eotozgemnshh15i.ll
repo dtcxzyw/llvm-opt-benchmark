@@ -198,13 +198,14 @@ define hidden zeroext i1 @"_ZN13dsl_auto_type9auto_type25expression_type_inferen
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = load ptr, ptr @anon.957b9859b5be8bca09ccd99e02c720b5.1, align 8, !nonnull !3, !align !4, !noundef !3
-  %6 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @anon.957b9859b5be8bca09ccd99e02c720b5.1, i32 0, i32 1), align 8, !noundef !3
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 0
-  store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
-  store i64 %6, ptr %8, align 8
-  %9 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1668ce3aa363a8c3E"(ptr align 8 %4, ptr align 8 %2)
-  ret i1 %9
+  %6 = getelementptr inbounds { ptr, i64 }, ptr @anon.957b9859b5be8bca09ccd99e02c720b5.1, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 0
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
+  store i64 %7, ptr %9, align 8
+  %10 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1668ce3aa363a8c3E"(ptr align 8 %4, ptr align 8 %2)
+  ret i1 %10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

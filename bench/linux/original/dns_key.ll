@@ -634,71 +634,72 @@ declare dso_local void @unregister_key_type(ptr noundef) local_unnamed_addr #1
 define internal i32 @init_dns_resolver() #3 section ".init.text" align 16 {
   %1 = tail call ptr @prepare_kernel_cred(ptr noundef nonnull @init_task) #13
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %36, label %3
+  br i1 %2, label %37, label %3
 
 3:                                                ; preds = %0
   %4 = tail call ptr @keyring_alloc(ptr noundef nonnull @.str.25, i32 0, i32 0, ptr noundef nonnull %1, i32 noundef 520290304, i64 noundef 2, ptr noundef null, ptr noundef null) #13
-  %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %6, label %9
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %4, %5
+  br i1 %6, label %7, label %10
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %4 to i64
-  %8 = trunc i64 %7 to i32
-  br label %30
+7:                                                ; preds = %3
+  %8 = ptrtoint ptr %4 to i64
+  %9 = trunc i64 %8 to i32
+  br label %31
 
-9:                                                ; preds = %3
-  %10 = tail call i32 @register_key_type(ptr noundef nonnull @key_type_dns_resolver) #13
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %29, label %12
+10:                                               ; preds = %3
+  %11 = tail call i32 @register_key_type(ptr noundef nonnull @key_type_dns_resolver) #13
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %30, label %13
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %4, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i32 16, ptr elementtype(i8) %13) #13, !srcloc !13
-  %14 = getelementptr inbounds i8, ptr %1, i64 112
-  store ptr %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 88
-  store i8 1, ptr %15, align 8
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %4, i64 128
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 16, ptr elementtype(i8) %14) #13, !srcloc !13
+  %15 = getelementptr inbounds i8, ptr %1, i64 112
+  store ptr %4, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 88
+  store i8 1, ptr %16, align 8
   store ptr %1, ptr @dns_resolver_cache, align 8
-  %16 = load i32, ptr @dns_resolver_debug, align 4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %36, label %18, !prof !6
+  %17 = load i32, ptr @dns_resolver_debug, align 4
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %37, label %19, !prof !6
 
-18:                                               ; preds = %12
-  %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !7
-  %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 1800
-  %22 = icmp eq ptr %4, null
-  br i1 %22, label %26, label %23
+19:                                               ; preds = %13
+  %20 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !7
+  %21 = inttoptr i64 %20 to ptr
+  %22 = getelementptr inbounds i8, ptr %21, i64 1800
+  %23 = icmp eq ptr %4, null
+  br i1 %23, label %27, label %24
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %4, i64 4
-  %25 = load i32, ptr %24, align 4
-  br label %26
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = load i32, ptr %25, align 4
+  br label %27
 
-26:                                               ; preds = %23, %18
-  %27 = phi i32 [ %25, %23 ], [ 0, %18 ]
-  %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, ptr noundef %21, i32 noundef %27) #15
-  br label %36
+27:                                               ; preds = %24, %19
+  %28 = phi i32 [ %26, %24 ], [ 0, %19 ]
+  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, ptr noundef %22, i32 noundef %28) #15
+  br label %37
 
-29:                                               ; preds = %9
+30:                                               ; preds = %10
   tail call void @key_put(ptr noundef %4) #13
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %6
-  %31 = phi i32 [ %8, %6 ], [ %10, %29 ]
-  %32 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 1, ptr nonnull elementtype(i64) %1) #13, !srcloc !12
-  %33 = icmp ult i8 %32, 2
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i8 %32, 0
-  br i1 %34, label %36, label %35
+31:                                               ; preds = %30, %7
+  %32 = phi i32 [ %9, %7 ], [ %11, %30 ]
+  %33 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 1, ptr nonnull elementtype(i64) %1) #13, !srcloc !12
+  %34 = icmp ult i8 %33, 2
+  tail call void @llvm.assume(i1 %34)
+  %35 = icmp eq i8 %33, 0
+  br i1 %35, label %37, label %36
 
-35:                                               ; preds = %30
+36:                                               ; preds = %31
   tail call void @__put_cred(ptr noundef nonnull %1) #13
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %30, %26, %12, %0
-  %37 = phi i32 [ -12, %0 ], [ 0, %26 ], [ 0, %12 ], [ %31, %30 ], [ %31, %35 ]
-  ret i32 %37
+37:                                               ; preds = %36, %31, %27, %13, %0
+  %38 = phi i32 [ -12, %0 ], [ 0, %27 ], [ 0, %13 ], [ %32, %31 ], [ %32, %36 ]
+  ret i32 %38
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

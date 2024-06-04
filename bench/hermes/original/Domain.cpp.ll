@@ -1759,24 +1759,25 @@ for.end:                                          ; preds = %for.cond
   %coerce.dive59 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive58, i32 0, i32 0
   %41 = load ptr, ptr %coerce.dive59, align 8
   %coerce.val.pi = ptrtoint ptr %41 to i64
-  %call60 = call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %37, ptr %39, ptr noundef inttoptr (i64 1 to ptr), ptr noundef @_ZN6hermes2vm14throwTypeErrorEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 %40, i32 noundef 0, i64 %coerce.val.pi, i32 noundef 0)
+  %42 = inttoptr i64 1 to ptr
+  %call60 = call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %37, ptr %39, ptr noundef %42, ptr noundef @_ZN6hermes2vm14throwTypeErrorEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 %40, i32 noundef 0, i64 %coerce.val.pi, i32 noundef 0)
   %coerce.dive61 = getelementptr inbounds %"class.hermes::vm::Handle.212", ptr %requireFn, i32 0, i32 0
   %coerce.dive62 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive61, i32 0, i32 0
   store ptr %call60, ptr %coerce.dive62, align 8
-  %42 = load ptr, ptr %runtime.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp63, ptr align 8 %self, i64 8, i1 false)
   %43 = load ptr, ptr %runtime.addr, align 8
-  %call65 = call ptr @_ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE(ptr noundef nonnull align 8 dereferenceable(9832) %43, i32 noundef 13)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp63, ptr align 8 %self, i64 8, i1 false)
+  %44 = load ptr, ptr %runtime.addr, align 8
+  %call65 = call ptr @_ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE(ptr noundef nonnull align 8 dereferenceable(9832) %44, i32 noundef 13)
   %coerce.dive66 = getelementptr inbounds %"class.hermes::vm::Handle.215", ptr %agg.tmp64, i32 0, i32 0
   %coerce.dive67 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive66, i32 0, i32 0
   store ptr %call65, ptr %coerce.dive67, align 8
   %coerce.dive68 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp63, i32 0, i32 0
   %coerce.dive69 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive68, i32 0, i32 0
-  %44 = load ptr, ptr %coerce.dive69, align 8
+  %45 = load ptr, ptr %coerce.dive69, align 8
   %coerce.dive70 = getelementptr inbounds %"class.hermes::vm::Handle.215", ptr %agg.tmp64, i32 0, i32 0
   %coerce.dive71 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive70, i32 0, i32 0
-  %45 = load ptr, ptr %coerce.dive71, align 8
-  %call72 = call ptr @_ZN6hermes2vm14RequireContext6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %42, ptr %44, ptr %45)
+  %46 = load ptr, ptr %coerce.dive71, align 8
+  %call72 = call ptr @_ZN6hermes2vm14RequireContext6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %43, ptr %45, ptr %46)
   %coerce.dive73 = getelementptr inbounds %"class.hermes::vm::Handle.214", ptr %context, i32 0, i32 0
   %coerce.dive74 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive73, i32 0, i32 0
   store ptr %call72, ptr %coerce.dive74, align 8
@@ -1785,18 +1786,18 @@ for.end:                                          ; preds = %for.cond
   %coerce.dive77 = getelementptr inbounds %union.anon.216, ptr %coerce.dive76, i32 0, i32 0
   %coerce.dive78 = getelementptr inbounds %struct.anon.217, ptr %coerce.dive77, i32 0, i32 0
   store i16 %call75, ptr %coerce.dive78, align 2
-  %46 = getelementptr inbounds %"struct.hermes::vm::PropertyFlags", ptr %pf, i32 0, i32 0
-  %bf.load = load i16, ptr %46, align 2
+  %47 = getelementptr inbounds %"struct.hermes::vm::PropertyFlags", ptr %pf, i32 0, i32 0
+  %bf.load = load i16, ptr %47, align 2
   %bf.clear = and i16 %bf.load, -5
   %bf.set = or i16 %bf.clear, 0
-  store i16 %bf.set, ptr %46, align 2
-  %47 = getelementptr inbounds %"struct.hermes::vm::PropertyFlags", ptr %pf, i32 0, i32 0
-  %bf.load79 = load i16, ptr %47, align 2
+  store i16 %bf.set, ptr %47, align 2
+  %48 = getelementptr inbounds %"struct.hermes::vm::PropertyFlags", ptr %pf, i32 0, i32 0
+  %bf.load79 = load i16, ptr %48, align 2
   %bf.clear80 = and i16 %bf.load79, -9
   %bf.set81 = or i16 %bf.clear80, 0
-  store i16 %bf.set81, ptr %47, align 2
+  store i16 %bf.set81, ptr %48, align 2
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_14NativeFunctionEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp82, ptr noundef nonnull align 8 dereferenceable(8) %requireFn)
-  %48 = load ptr, ptr %runtime.addr, align 8
+  %49 = load ptr, ptr %runtime.addr, align 8
   %call84 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 466)
   %coerce.dive85 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp83, i32 0, i32 0
   store i32 %call84, ptr %coerce.dive85, align 4
@@ -1804,17 +1805,17 @@ for.end:                                          ; preds = %for.cond
   call void @_ZN6hermes2vm6HandleINS0_11HermesValueEEC2INS0_14RequireContextEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp87, ptr noundef nonnull align 8 dereferenceable(8) %context)
   %coerce.dive88 = getelementptr inbounds %"class.hermes::vm::Handle.213", ptr %agg.tmp82, i32 0, i32 0
   %coerce.dive89 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive88, i32 0, i32 0
-  %49 = load ptr, ptr %coerce.dive89, align 8
+  %50 = load ptr, ptr %coerce.dive89, align 8
   %coerce.dive90 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp83, i32 0, i32 0
-  %50 = load i32, ptr %coerce.dive90, align 4
+  %51 = load i32, ptr %coerce.dive90, align 4
   %coerce.dive91 = getelementptr inbounds %"struct.hermes::vm::PropertyFlags", ptr %agg.tmp86, i32 0, i32 0
   %coerce.dive92 = getelementptr inbounds %union.anon.216, ptr %coerce.dive91, i32 0, i32 0
   %coerce.dive93 = getelementptr inbounds %struct.anon.217, ptr %coerce.dive92, i32 0, i32 0
-  %51 = load i16, ptr %coerce.dive93, align 2
+  %52 = load i16, ptr %coerce.dive93, align 2
   %coerce.dive94 = getelementptr inbounds %"class.hermes::vm::Handle.218", ptr %agg.tmp87, i32 0, i32 0
   %coerce.dive95 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive94, i32 0, i32 0
-  %52 = load ptr, ptr %coerce.dive95, align 8
-  %call96 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %49, ptr noundef nonnull align 8 dereferenceable(9832) %48, i32 %50, i16 %51, ptr %52)
+  %53 = load ptr, ptr %coerce.dive95, align 8
+  %call96 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %50, ptr noundef nonnull align 8 dereferenceable(9832) %49, i32 %51, i16 %52, ptr %53)
   %cmp97 = icmp eq i32 %call96, 0
   br i1 %cmp97, label %if.then99, label %if.end100
 
@@ -1825,18 +1826,18 @@ if.then99:                                        ; preds = %for.end
 if.end100:                                        ; preds = %for.end
   %call101 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %throwingRequire_ = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call101, i32 0, i32 5
-  %53 = load ptr, ptr %runtime.addr, align 8
-  %call102 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_14NativeFunctionEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %requireFn)
   %54 = load ptr, ptr %runtime.addr, align 8
-  %call103 = call noundef nonnull align 8 dereferenceable(8152) ptr @_ZN6hermes2vm7Runtime7getHeapEv(ptr noundef nonnull align 8 dereferenceable(9832) %54)
-  call void @_ZN6hermes2vm9GCPointerINS0_14NativeFunctionEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE(ptr noundef nonnull align 4 dereferenceable(4) %throwingRequire_, ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef %call102, ptr noundef nonnull align 8 dereferenceable(8152) %call103)
+  %call102 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_14NativeFunctionEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %requireFn)
+  %55 = load ptr, ptr %runtime.addr, align 8
+  %call103 = call noundef nonnull align 8 dereferenceable(8152) ptr @_ZN6hermes2vm7Runtime7getHeapEv(ptr noundef nonnull align 8 dereferenceable(9832) %55)
+  call void @_ZN6hermes2vm9GCPointerINS0_14NativeFunctionEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE(ptr noundef nonnull align 4 dereferenceable(4) %throwingRequire_, ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef %call102, ptr noundef nonnull align 8 dereferenceable(8152) %call103)
   br label %if.end108
 
 if.else:                                          ; preds = %if.end
   %call104 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsModules_105 = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call104, i32 0, i32 1
-  %55 = load ptr, ptr %runtime.addr, align 8
-  %call106 = call noundef ptr @_ZNK6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_11HermesValueEEEE3getERNS0_11PointerBaseE(ptr noundef nonnull align 4 dereferenceable(4) %cjsModules_105, ptr noundef nonnull align 1 dereferenceable(1) %55)
+  %56 = load ptr, ptr %runtime.addr, align 8
+  %call106 = call noundef ptr @_ZNK6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_11HermesValueEEEE3getERNS0_11PointerBaseE(ptr noundef nonnull align 4 dereferenceable(4) %cjsModules_105, ptr noundef nonnull align 1 dereferenceable(1) %56)
   %call107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6hermes2vm13MutableHandleINS0_16ArrayStorageBaseINS0_11HermesValueEEEEaSEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %cjsModules, ptr noundef %call106)
   br label %if.end108
 
@@ -1846,64 +1847,64 @@ if.end108:                                        ; preds = %if.else, %if.end100
   %div = udiv i32 %call110, 3
   %conv111 = zext i32 %div to i64
   store i64 %conv111, ptr %maxModuleID, align 8
-  %56 = load ptr, ptr %runtimeModule.addr, align 8
-  %call113 = call noundef ptr @_ZN6hermes2vm13RuntimeModule11getBytecodeEv(ptr noundef nonnull align 8 dereferenceable(192) %56)
+  %57 = load ptr, ptr %runtimeModule.addr, align 8
+  %call113 = call noundef ptr @_ZN6hermes2vm13RuntimeModule11getBytecodeEv(ptr noundef nonnull align 8 dereferenceable(192) %57)
   %call114 = call { ptr, i64 } @_ZNK6hermes3hbc14BCProviderBase17getCJSModuleTableEv(ptr noundef nonnull align 8 dereferenceable(280) %call113)
-  %57 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp112, i32 0, i32 0
-  %58 = extractvalue { ptr, i64 } %call114, 0
-  store ptr %58, ptr %57, align 8
-  %59 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp112, i32 0, i32 1
-  %60 = extractvalue { ptr, i64 } %call114, 1
-  store i64 %60, ptr %59, align 8
+  %58 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp112, i32 0, i32 0
+  %59 = extractvalue { ptr, i64 } %call114, 0
+  store ptr %59, ptr %58, align 8
+  %60 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp112, i32 0, i32 1
+  %61 = extractvalue { ptr, i64 } %call114, 1
+  store i64 %61, ptr %60, align 8
   store ptr %ref.tmp112, ptr %__range2, align 8
-  %61 = load ptr, ptr %__range2, align 8
-  %call115 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %61)
-  store ptr %call115, ptr %__begin2, align 8
   %62 = load ptr, ptr %__range2, align 8
-  %call116 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %62)
+  %call115 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %62)
+  store ptr %call115, ptr %__begin2, align 8
+  %63 = load ptr, ptr %__range2, align 8
+  %call116 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %63)
   store ptr %call116, ptr %__end2, align 8
   br label %for.cond117
 
 for.cond117:                                      ; preds = %for.inc133, %if.end108
-  %63 = load ptr, ptr %__begin2, align 8
-  %64 = load ptr, ptr %__end2, align 8
-  %cmp118 = icmp ne ptr %63, %64
+  %64 = load ptr, ptr %__begin2, align 8
+  %65 = load ptr, ptr %__end2, align 8
+  %cmp118 = icmp ne ptr %64, %65
   br i1 %cmp118, label %for.body119, label %for.end134
 
 for.body119:                                      ; preds = %for.cond117
-  %65 = load ptr, ptr %__begin2, align 8
-  store ptr %65, ptr %pair, align 8
-  %66 = load ptr, ptr %runtimeModule.addr, align 8
-  %67 = load ptr, ptr %pair, align 8
-  %first = getelementptr inbounds %"struct.std::pair", ptr %67, i32 0, i32 0
-  %68 = load i32, ptr %first, align 4
-  %call120 = call i32 @_ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj(ptr noundef nonnull align 8 dereferenceable(192) %66, i32 noundef %68)
+  %66 = load ptr, ptr %__begin2, align 8
+  store ptr %66, ptr %pair, align 8
+  %67 = load ptr, ptr %runtimeModule.addr, align 8
+  %68 = load ptr, ptr %pair, align 8
+  %first = getelementptr inbounds %"struct.std::pair", ptr %68, i32 0, i32 0
+  %69 = load i32, ptr %first, align 4
+  %call120 = call i32 @_ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj(ptr noundef nonnull align 8 dereferenceable(192) %67, i32 noundef %69)
   %coerce.dive121 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %symbolId, i32 0, i32 0
   store i32 %call120, ptr %coerce.dive121, align 4
   %call123 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsModuleTable_ = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call123, i32 0, i32 3
   %call124 = call { ptr, ptr } @_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %cjsModuleTable_, ptr noundef nonnull align 4 dereferenceable(4) %symbolId)
-  %69 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp122, i32 0, i32 0
-  %70 = extractvalue { ptr, ptr } %call124, 0
-  store ptr %70, ptr %69, align 8
-  %71 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp122, i32 0, i32 1
-  %72 = extractvalue { ptr, ptr } %call124, 1
-  store ptr %72, ptr %71, align 8
+  %70 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp122, i32 0, i32 0
+  %71 = extractvalue { ptr, ptr } %call124, 0
+  store ptr %71, ptr %70, align 8
+  %72 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp122, i32 0, i32 1
+  %73 = extractvalue { ptr, ptr } %call124, 1
+  store ptr %73, ptr %72, align 8
   %call126 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsModuleTable_127 = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call126, i32 0, i32 3
   %call128 = call { ptr, ptr } @_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E3endEv(ptr noundef nonnull align 1 dereferenceable(1) %cjsModuleTable_127)
-  %73 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp125, i32 0, i32 0
-  %74 = extractvalue { ptr, ptr } %call128, 0
-  store ptr %74, ptr %73, align 8
-  %75 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp125, i32 0, i32 1
-  %76 = extractvalue { ptr, ptr } %call128, 1
-  store ptr %76, ptr %75, align 8
+  %74 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp125, i32 0, i32 0
+  %75 = extractvalue { ptr, ptr } %call128, 0
+  store ptr %75, ptr %74, align 8
+  %76 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp125, i32 0, i32 1
+  %77 = extractvalue { ptr, ptr } %call128, 1
+  store ptr %77, ptr %76, align 8
   %call129 = call noundef zeroext i1 @_ZNK4llvh16DenseMapIteratorIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEELb0EEeqERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp122, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp125)
   br i1 %call129, label %if.then130, label %if.end132
 
 if.then130:                                       ; preds = %for.body119
-  %77 = load i64, ptr %maxModuleID, align 8
-  %inc131 = add i64 %77, 1
+  %78 = load i64, ptr %maxModuleID, align 8
+  %inc131 = add i64 %78, 1
   store i64 %inc131, ptr %maxModuleID, align 8
   br label %if.end132
 
@@ -1911,53 +1912,53 @@ if.end132:                                        ; preds = %if.then130, %for.bo
   br label %for.inc133
 
 for.inc133:                                       ; preds = %if.end132
-  %78 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %78, i32 1
+  %79 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %79, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond117
 
 for.end134:                                       ; preds = %for.cond117
-  %79 = load ptr, ptr %runtimeModule.addr, align 8
-  %call137 = call noundef ptr @_ZN6hermes2vm13RuntimeModule11getBytecodeEv(ptr noundef nonnull align 8 dereferenceable(192) %79)
+  %80 = load ptr, ptr %runtimeModule.addr, align 8
+  %call137 = call noundef ptr @_ZN6hermes2vm13RuntimeModule11getBytecodeEv(ptr noundef nonnull align 8 dereferenceable(192) %80)
   %call138 = call { ptr, i64 } @_ZNK6hermes3hbc14BCProviderBase23getCJSModuleTableStaticEv(ptr noundef nonnull align 8 dereferenceable(280) %call137)
-  %80 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp136, i32 0, i32 0
-  %81 = extractvalue { ptr, i64 } %call138, 0
-  store ptr %81, ptr %80, align 8
-  %82 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp136, i32 0, i32 1
-  %83 = extractvalue { ptr, i64 } %call138, 1
-  store i64 %83, ptr %82, align 8
+  %81 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp136, i32 0, i32 0
+  %82 = extractvalue { ptr, i64 } %call138, 0
+  store ptr %82, ptr %81, align 8
+  %83 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp136, i32 0, i32 1
+  %84 = extractvalue { ptr, i64 } %call138, 1
+  store i64 %84, ptr %83, align 8
   store ptr %ref.tmp136, ptr %__range2135, align 8
-  %84 = load ptr, ptr %__range2135, align 8
-  %call140 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %84)
-  store ptr %call140, ptr %__begin2139, align 8
   %85 = load ptr, ptr %__range2135, align 8
-  %call142 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %85)
+  %call140 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %85)
+  store ptr %call140, ptr %__begin2139, align 8
+  %86 = load ptr, ptr %__range2135, align 8
+  %call142 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %86)
   store ptr %call142, ptr %__end2141, align 8
   br label %for.cond143
 
 for.cond143:                                      ; preds = %for.inc153, %for.end134
-  %86 = load ptr, ptr %__begin2139, align 8
-  %87 = load ptr, ptr %__end2141, align 8
-  %cmp144 = icmp ne ptr %86, %87
+  %87 = load ptr, ptr %__begin2139, align 8
+  %88 = load ptr, ptr %__end2141, align 8
+  %cmp144 = icmp ne ptr %87, %88
   br i1 %cmp144, label %for.body145, label %for.end155
 
 for.body145:                                      ; preds = %for.cond143
-  %88 = load ptr, ptr %__begin2139, align 8
-  store ptr %88, ptr %pair146, align 8
-  %89 = load ptr, ptr %pair146, align 8
-  %first147 = getelementptr inbounds %"struct.std::pair", ptr %89, i32 0, i32 0
+  %89 = load ptr, ptr %__begin2139, align 8
+  store ptr %89, ptr %pair146, align 8
+  %90 = load ptr, ptr %pair146, align 8
+  %first147 = getelementptr inbounds %"struct.std::pair", ptr %90, i32 0, i32 0
   store ptr %first147, ptr %moduleID, align 8
-  %90 = load ptr, ptr %moduleID, align 8
-  %91 = load i32, ptr %90, align 4
-  %conv148 = zext i32 %91 to i64
-  %92 = load i64, ptr %maxModuleID, align 8
-  %cmp149 = icmp ugt i64 %conv148, %92
+  %91 = load ptr, ptr %moduleID, align 8
+  %92 = load i32, ptr %91, align 4
+  %conv148 = zext i32 %92 to i64
+  %93 = load i64, ptr %maxModuleID, align 8
+  %cmp149 = icmp ugt i64 %conv148, %93
   br i1 %cmp149, label %if.then150, label %if.end152
 
 if.then150:                                       ; preds = %for.body145
-  %93 = load ptr, ptr %moduleID, align 8
-  %94 = load i32, ptr %93, align 4
-  %conv151 = zext i32 %94 to i64
+  %94 = load ptr, ptr %moduleID, align 8
+  %95 = load i32, ptr %94, align 4
+  %conv151 = zext i32 %95 to i64
   store i64 %conv151, ptr %maxModuleID, align 8
   br label %if.end152
 
@@ -1965,42 +1966,42 @@ if.end152:                                        ; preds = %if.then150, %for.bo
   br label %for.inc153
 
 for.inc153:                                       ; preds = %if.end152
-  %95 = load ptr, ptr %__begin2139, align 8
-  %incdec.ptr154 = getelementptr inbounds %"struct.std::pair", ptr %95, i32 1
+  %96 = load ptr, ptr %__begin2139, align 8
+  %incdec.ptr154 = getelementptr inbounds %"struct.std::pair", ptr %96, i32 1
   store ptr %incdec.ptr154, ptr %__begin2139, align 8
   br label %for.cond143
 
 for.end155:                                       ; preds = %for.cond143
-  %96 = load i64, ptr %maxModuleID, align 8
-  %add157 = add i64 %96, 1
+  %97 = load i64, ptr %maxModuleID, align 8
+  %add157 = add i64 %97, 1
   %mul158 = mul i64 %add157, 3
   store i64 %mul158, ptr %requiredSize156, align 8
-  %97 = load i64, ptr %requiredSize156, align 8
+  %98 = load i64, ptr %requiredSize156, align 8
   %call159 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #9
   %conv160 = zext i32 %call159 to i64
-  %cmp161 = icmp ugt i64 %97, %conv160
+  %cmp161 = icmp ugt i64 %98, %conv160
   br i1 %cmp161, label %if.then162, label %if.end165
 
 if.then162:                                       ; preds = %for.end155
-  %98 = load ptr, ptr %runtime.addr, align 8
+  %99 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm11TwineChar16C2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp163, ptr noundef @.str.2)
-  %call164 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %98, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp163)
+  %call164 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %99, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp163)
   store i32 %call164, ptr %retval, align 4
   br label %return
 
 if.end165:                                        ; preds = %for.end155
-  %99 = load i64, ptr %requiredSize156, align 8
+  %100 = load i64, ptr %requiredSize156, align 8
   %call166 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_16ArrayStorageBaseINS0_11HermesValueEEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %cjsModules)
   %call167 = call noundef i32 @_ZNK6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %call166)
   %conv168 = zext i32 %call167 to i64
-  %cmp169 = icmp ugt i64 %99, %conv168
+  %cmp169 = icmp ugt i64 %100, %conv168
   br i1 %cmp169, label %if.then170, label %if.end194
 
 if.then170:                                       ; preds = %if.end165
-  %100 = load ptr, ptr %runtime.addr, align 8
-  %101 = load i64, ptr %requiredSize156, align 8
-  %conv171 = trunc i64 %101 to i32
-  %call172 = call noundef i32 @_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6resizeERNS0_13MutableHandleIS3_EERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8) %cjsModules, ptr noundef nonnull align 8 dereferenceable(9832) %100, i32 noundef %conv171)
+  %101 = load ptr, ptr %runtime.addr, align 8
+  %102 = load i64, ptr %requiredSize156, align 8
+  %conv171 = trunc i64 %102 to i32
+  %call172 = call noundef i32 @_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6resizeERNS0_13MutableHandleIS3_EERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8) %cjsModules, ptr noundef nonnull align 8 dereferenceable(9832) %101, i32 noundef %conv171)
   %cmp173 = icmp eq i32 %call172, 0
   br i1 %cmp173, label %if.then175, label %if.end176
 
@@ -2011,8 +2012,8 @@ if.then175:                                       ; preds = %if.then170
 if.end176:                                        ; preds = %if.then170
   %call177 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsRuntimeModules_178 = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call177, i32 0, i32 2
-  %102 = load i64, ptr %maxModuleID, align 8
-  %add179 = add i64 %102, 1
+  %103 = load i64, ptr %maxModuleID, align 8
+  %add179 = add i64 %103, 1
   call void @_ZN6hermes2vm14CopyableVectorIPNS0_13RuntimeModuleEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %cjsRuntimeModules_178, i64 noundef %add179)
   %call181 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsRuntimeModules_182 = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call181, i32 0, i32 2
@@ -2021,23 +2022,23 @@ if.end176:                                        ; preds = %if.then170
   br label %for.cond184
 
 for.cond184:                                      ; preds = %for.inc191, %if.end176
-  %103 = load i64, ptr %i180, align 8
-  %104 = load i64, ptr %maxModuleID, align 8
-  %cmp185 = icmp ule i64 %103, %104
+  %104 = load i64, ptr %i180, align 8
+  %105 = load i64, ptr %maxModuleID, align 8
+  %cmp185 = icmp ule i64 %104, %105
   br i1 %cmp185, label %for.body186, label %for.end193
 
 for.body186:                                      ; preds = %for.cond184
   %call187 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsRuntimeModules_188 = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call187, i32 0, i32 2
   store ptr null, ptr %ref.tmp189, align 8
-  %105 = load ptr, ptr %runtime.addr, align 8
-  %call190 = call noundef nonnull align 8 dereferenceable(8152) ptr @_ZN6hermes2vm7Runtime7getHeapEv(ptr noundef nonnull align 8 dereferenceable(9832) %105)
+  %106 = load ptr, ptr %runtime.addr, align 8
+  %call190 = call noundef nonnull align 8 dereferenceable(8152) ptr @_ZN6hermes2vm7Runtime7getHeapEv(ptr noundef nonnull align 8 dereferenceable(9832) %106)
   call void @_ZN6hermes2vm14CopyableVectorIPNS0_13RuntimeModuleEE9push_backEOS3_RNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(24) %cjsRuntimeModules_188, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp189, ptr noundef nonnull align 8 dereferenceable(8152) %call190)
   br label %for.inc191
 
 for.inc191:                                       ; preds = %for.body186
-  %106 = load i64, ptr %i180, align 8
-  %inc192 = add i64 %106, 1
+  %107 = load i64, ptr %i180, align 8
+  %inc192 = add i64 %107, 1
   store i64 %inc192, ptr %i180, align 8
   br label %for.cond184, !llvm.loop !6
 
@@ -2045,65 +2046,65 @@ for.end193:                                       ; preds = %for.cond184
   br label %if.end194
 
 if.end194:                                        ; preds = %for.end193, %if.end165
-  %107 = getelementptr inbounds %class.anon, ptr %isModuleRegistered, i32 0, i32 0
-  store ptr %cjsModules, ptr %107, align 8
-  %108 = getelementptr inbounds %class.anon, ptr %isModuleRegistered, i32 0, i32 1
-  %109 = load i64, ptr %maxModuleID, align 8
-  store i64 %109, ptr %108, align 8
+  %108 = getelementptr inbounds %class.anon, ptr %isModuleRegistered, i32 0, i32 0
+  store ptr %cjsModules, ptr %108, align 8
+  %109 = getelementptr inbounds %class.anon, ptr %isModuleRegistered, i32 0, i32 1
+  %110 = load i64, ptr %maxModuleID, align 8
+  store i64 %110, ptr %109, align 8
   %call195 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsEntryModuleID_ = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call195, i32 0, i32 6
   store ptr %cjsEntryModuleID_, ptr %cjsEntryModuleID, align 8
   %call196 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsRuntimeModules_197 = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call196, i32 0, i32 2
   store ptr %cjsRuntimeModules_197, ptr %cjsRuntimeModules, align 8
-  %110 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 0
-  %111 = load ptr, ptr %runtime.addr, align 8
-  store ptr %111, ptr %110, align 8
-  %112 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 1
-  store ptr %cjsModules, ptr %112, align 8
-  %113 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 2
-  %114 = load ptr, ptr %cjsRuntimeModules, align 8
-  store ptr %114, ptr %113, align 8
-  %115 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 3
-  %116 = load ptr, ptr %runtimeModule.addr, align 8
-  store ptr %116, ptr %115, align 8
-  %117 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 4
-  store ptr %isModuleRegistered, ptr %117, align 8
-  %118 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 5
-  %119 = load ptr, ptr %cjsEntryModuleID, align 8
-  store ptr %119, ptr %118, align 8
-  %120 = load ptr, ptr %runtimeModule.addr, align 8
-  %call200 = call noundef ptr @_ZN6hermes2vm13RuntimeModule11getBytecodeEv(ptr noundef nonnull align 8 dereferenceable(192) %120)
+  %111 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 0
+  %112 = load ptr, ptr %runtime.addr, align 8
+  store ptr %112, ptr %111, align 8
+  %113 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 1
+  store ptr %cjsModules, ptr %113, align 8
+  %114 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 2
+  %115 = load ptr, ptr %cjsRuntimeModules, align 8
+  store ptr %115, ptr %114, align 8
+  %116 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 3
+  %117 = load ptr, ptr %runtimeModule.addr, align 8
+  store ptr %117, ptr %116, align 8
+  %118 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 4
+  store ptr %isModuleRegistered, ptr %118, align 8
+  %119 = getelementptr inbounds %class.anon.222, ptr %registerModule, i32 0, i32 5
+  %120 = load ptr, ptr %cjsEntryModuleID, align 8
+  store ptr %120, ptr %119, align 8
+  %121 = load ptr, ptr %runtimeModule.addr, align 8
+  %call200 = call noundef ptr @_ZN6hermes2vm13RuntimeModule11getBytecodeEv(ptr noundef nonnull align 8 dereferenceable(192) %121)
   %call201 = call { ptr, i64 } @_ZNK6hermes3hbc14BCProviderBase17getCJSModuleTableEv(ptr noundef nonnull align 8 dereferenceable(280) %call200)
-  %121 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp199, i32 0, i32 0
-  %122 = extractvalue { ptr, i64 } %call201, 0
-  store ptr %122, ptr %121, align 8
-  %123 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp199, i32 0, i32 1
-  %124 = extractvalue { ptr, i64 } %call201, 1
-  store i64 %124, ptr %123, align 8
+  %122 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp199, i32 0, i32 0
+  %123 = extractvalue { ptr, i64 } %call201, 0
+  store ptr %123, ptr %122, align 8
+  %124 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp199, i32 0, i32 1
+  %125 = extractvalue { ptr, i64 } %call201, 1
+  store i64 %125, ptr %124, align 8
   store ptr %ref.tmp199, ptr %__range2198, align 8
-  %125 = load ptr, ptr %__range2198, align 8
-  %call203 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %125)
-  store ptr %call203, ptr %__begin2202, align 8
   %126 = load ptr, ptr %__range2198, align 8
-  %call205 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %126)
+  %call203 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %126)
+  store ptr %call203, ptr %__begin2202, align 8
+  %127 = load ptr, ptr %__range2198, align 8
+  %call205 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %127)
   store ptr %call205, ptr %__end2204, align 8
   br label %for.cond206
 
 for.cond206:                                      ; preds = %for.inc228, %if.end194
-  %127 = load ptr, ptr %__begin2202, align 8
-  %128 = load ptr, ptr %__end2204, align 8
-  %cmp207 = icmp ne ptr %127, %128
+  %128 = load ptr, ptr %__begin2202, align 8
+  %129 = load ptr, ptr %__end2204, align 8
+  %cmp207 = icmp ne ptr %128, %129
   br i1 %cmp207, label %for.body208, label %for.end230
 
 for.body208:                                      ; preds = %for.cond206
-  %129 = load ptr, ptr %__begin2202, align 8
-  store ptr %129, ptr %pair209, align 8
-  %130 = load ptr, ptr %runtimeModule.addr, align 8
-  %131 = load ptr, ptr %pair209, align 8
-  %first211 = getelementptr inbounds %"struct.std::pair", ptr %131, i32 0, i32 0
-  %132 = load i32, ptr %first211, align 4
-  %call212 = call i32 @_ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj(ptr noundef nonnull align 8 dereferenceable(192) %130, i32 noundef %132)
+  %130 = load ptr, ptr %__begin2202, align 8
+  store ptr %130, ptr %pair209, align 8
+  %131 = load ptr, ptr %runtimeModule.addr, align 8
+  %132 = load ptr, ptr %pair209, align 8
+  %first211 = getelementptr inbounds %"struct.std::pair", ptr %132, i32 0, i32 0
+  %133 = load i32, ptr %first211, align 4
+  %call212 = call i32 @_ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj(ptr noundef nonnull align 8 dereferenceable(192) %131, i32 noundef %133)
   %coerce.dive213 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %symbolId210, i32 0, i32 0
   store i32 %call212, ptr %coerce.dive213, align 4
   %call214 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
@@ -2111,8 +2112,8 @@ for.body208:                                      ; preds = %for.cond206
   store i32 -1, ptr %ref.tmp216, align 4
   call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS4_jS6_S9_Lb0EEEbERKS4_DpOT_(ptr sret(%"struct.std::pair.223") align 8 %emplaceRes, ptr noundef nonnull align 1 dereferenceable(1) %cjsModuleTable_215, ptr noundef nonnull align 4 dereferenceable(4) %symbolId210, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp216)
   %second = getelementptr inbounds %"struct.std::pair.223", ptr %emplaceRes, i32 0, i32 1
-  %133 = load i8, ptr %second, align 8
-  %tobool = trunc i8 %133 to i1
+  %134 = load i8, ptr %second, align 8
+  %tobool = trunc i8 %134 to i1
   br i1 %tobool, label %if.then217, label %if.end227
 
 if.then217:                                       ; preds = %for.body208
@@ -2121,100 +2122,100 @@ if.then217:                                       ; preds = %for.body208
   %call221 = call noundef i32 @_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %cjsModuleTable_220)
   %sub = sub i32 %call221, 1
   store i32 %sub, ptr %moduleID218, align 4
-  %134 = load ptr, ptr %pair209, align 8
-  %second222 = getelementptr inbounds %"struct.std::pair", ptr %134, i32 0, i32 1
-  %135 = load i32, ptr %second222, align 4
-  store i32 %135, ptr %functionID, align 4
-  %136 = load i32, ptr %moduleID218, align 4
-  %137 = load i32, ptr %functionID, align 4
-  %call223 = call noundef i32 @"_ZZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleEENK3$_0clEjj"(ptr noundef nonnull align 8 dereferenceable(48) %registerModule, i32 noundef %136, i32 noundef %137)
+  %135 = load ptr, ptr %pair209, align 8
+  %second222 = getelementptr inbounds %"struct.std::pair", ptr %135, i32 0, i32 1
+  %136 = load i32, ptr %second222, align 4
+  store i32 %136, ptr %functionID, align 4
+  %137 = load i32, ptr %moduleID218, align 4
+  %138 = load i32, ptr %functionID, align 4
+  %call223 = call noundef i32 @"_ZZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleEENK3$_0clEjj"(ptr noundef nonnull align 8 dereferenceable(48) %registerModule, i32 noundef %137, i32 noundef %138)
   store i32 %call223, ptr %index, align 4
-  %138 = load i32, ptr %index, align 4
+  %139 = load i32, ptr %index, align 4
   %first224 = getelementptr inbounds %"struct.std::pair.223", ptr %emplaceRes, i32 0, i32 0
   %call225 = call noundef ptr @_ZNK4llvh16DenseMapIteratorIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %first224)
   %second226 = getelementptr inbounds %"struct.std::pair.225", ptr %call225, i32 0, i32 1
-  store i32 %138, ptr %second226, align 4
+  store i32 %139, ptr %second226, align 4
   br label %if.end227
 
 if.end227:                                        ; preds = %if.then217, %for.body208
   br label %for.inc228
 
 for.inc228:                                       ; preds = %if.end227
-  %139 = load ptr, ptr %__begin2202, align 8
-  %incdec.ptr229 = getelementptr inbounds %"struct.std::pair", ptr %139, i32 1
+  %140 = load ptr, ptr %__begin2202, align 8
+  %incdec.ptr229 = getelementptr inbounds %"struct.std::pair", ptr %140, i32 1
   store ptr %incdec.ptr229, ptr %__begin2202, align 8
   br label %for.cond206
 
 for.end230:                                       ; preds = %for.cond206
-  %140 = load ptr, ptr %runtimeModule.addr, align 8
-  %call233 = call noundef ptr @_ZN6hermes2vm13RuntimeModule11getBytecodeEv(ptr noundef nonnull align 8 dereferenceable(192) %140)
+  %141 = load ptr, ptr %runtimeModule.addr, align 8
+  %call233 = call noundef ptr @_ZN6hermes2vm13RuntimeModule11getBytecodeEv(ptr noundef nonnull align 8 dereferenceable(192) %141)
   %call234 = call { ptr, i64 } @_ZNK6hermes3hbc14BCProviderBase23getCJSModuleTableStaticEv(ptr noundef nonnull align 8 dereferenceable(280) %call233)
-  %141 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp232, i32 0, i32 0
-  %142 = extractvalue { ptr, i64 } %call234, 0
-  store ptr %142, ptr %141, align 8
-  %143 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp232, i32 0, i32 1
-  %144 = extractvalue { ptr, i64 } %call234, 1
-  store i64 %144, ptr %143, align 8
+  %142 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp232, i32 0, i32 0
+  %143 = extractvalue { ptr, i64 } %call234, 0
+  store ptr %143, ptr %142, align 8
+  %144 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp232, i32 0, i32 1
+  %145 = extractvalue { ptr, i64 } %call234, 1
+  store i64 %145, ptr %144, align 8
   store ptr %ref.tmp232, ptr %__range2231, align 8
-  %145 = load ptr, ptr %__range2231, align 8
-  %call236 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %145)
-  store ptr %call236, ptr %__begin2235, align 8
   %146 = load ptr, ptr %__range2231, align 8
-  %call238 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %146)
+  %call236 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %146)
+  store ptr %call236, ptr %__begin2235, align 8
+  %147 = load ptr, ptr %__range2231, align 8
+  %call238 = call noundef ptr @_ZNK4llvh8ArrayRefISt4pairIjjEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %147)
   store ptr %call238, ptr %__end2237, align 8
   br label %for.cond239
 
 for.cond239:                                      ; preds = %for.inc251, %for.end230
-  %147 = load ptr, ptr %__begin2235, align 8
-  %148 = load ptr, ptr %__end2237, align 8
-  %cmp240 = icmp ne ptr %147, %148
+  %148 = load ptr, ptr %__begin2235, align 8
+  %149 = load ptr, ptr %__end2237, align 8
+  %cmp240 = icmp ne ptr %148, %149
   br i1 %cmp240, label %for.body241, label %for.end253
 
 for.body241:                                      ; preds = %for.cond239
-  %149 = load ptr, ptr %__begin2235, align 8
-  store ptr %149, ptr %pair242, align 8
-  %150 = load ptr, ptr %pair242, align 8
-  %first244 = getelementptr inbounds %"struct.std::pair", ptr %150, i32 0, i32 0
-  store ptr %first244, ptr %moduleID243, align 8
+  %150 = load ptr, ptr %__begin2235, align 8
+  store ptr %150, ptr %pair242, align 8
   %151 = load ptr, ptr %pair242, align 8
-  %second246 = getelementptr inbounds %"struct.std::pair", ptr %151, i32 0, i32 1
+  %first244 = getelementptr inbounds %"struct.std::pair", ptr %151, i32 0, i32 0
+  store ptr %first244, ptr %moduleID243, align 8
+  %152 = load ptr, ptr %pair242, align 8
+  %second246 = getelementptr inbounds %"struct.std::pair", ptr %152, i32 0, i32 1
   store ptr %second246, ptr %functionID245, align 8
-  %152 = load ptr, ptr %moduleID243, align 8
-  %153 = load i32, ptr %152, align 4
-  %call247 = call noundef zeroext i1 @"_ZZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleEENK3$_1clEj"(ptr noundef nonnull align 8 dereferenceable(16) %isModuleRegistered, i32 noundef %153)
+  %153 = load ptr, ptr %moduleID243, align 8
+  %154 = load i32, ptr %153, align 4
+  %call247 = call noundef zeroext i1 @"_ZZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleEENK3$_1clEj"(ptr noundef nonnull align 8 dereferenceable(16) %isModuleRegistered, i32 noundef %154)
   br i1 %call247, label %if.end250, label %if.then248
 
 if.then248:                                       ; preds = %for.body241
-  %154 = load ptr, ptr %moduleID243, align 8
-  %155 = load i32, ptr %154, align 4
-  %156 = load ptr, ptr %functionID245, align 8
-  %157 = load i32, ptr %156, align 4
-  %call249 = call noundef i32 @"_ZZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleEENK3$_0clEjj"(ptr noundef nonnull align 8 dereferenceable(48) %registerModule, i32 noundef %155, i32 noundef %157)
+  %155 = load ptr, ptr %moduleID243, align 8
+  %156 = load i32, ptr %155, align 4
+  %157 = load ptr, ptr %functionID245, align 8
+  %158 = load i32, ptr %157, align 4
+  %call249 = call noundef i32 @"_ZZN6hermes2vm6Domain20importCJSModuleTableENS0_6HandleIS1_EERNS0_7RuntimeEPNS0_13RuntimeModuleEENK3$_0clEjj"(ptr noundef nonnull align 8 dereferenceable(48) %registerModule, i32 noundef %156, i32 noundef %158)
   br label %if.end250
 
 if.end250:                                        ; preds = %if.then248, %for.body241
   br label %for.inc251
 
 for.inc251:                                       ; preds = %if.end250
-  %158 = load ptr, ptr %__begin2235, align 8
-  %incdec.ptr252 = getelementptr inbounds %"struct.std::pair", ptr %158, i32 1
+  %159 = load ptr, ptr %__begin2235, align 8
+  %incdec.ptr252 = getelementptr inbounds %"struct.std::pair", ptr %159, i32 1
   store ptr %incdec.ptr252, ptr %__begin2235, align 8
   br label %for.cond239
 
 for.end253:                                       ; preds = %for.cond239
   %call254 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_6DomainEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %self)
   %cjsModules_255 = getelementptr inbounds %"class.hermes::vm::Domain", ptr %call254, i32 0, i32 1
-  %159 = load ptr, ptr %runtime.addr, align 8
-  %call256 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_16ArrayStorageBaseINS0_11HermesValueEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %cjsModules)
   %160 = load ptr, ptr %runtime.addr, align 8
-  %call257 = call noundef nonnull align 8 dereferenceable(8152) ptr @_ZN6hermes2vm7Runtime7getHeapEv(ptr noundef nonnull align 8 dereferenceable(9832) %160)
-  call void @_ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_11HermesValueEEEE3setERNS0_11PointerBaseEPS4_RNS0_7HadesGCE(ptr noundef nonnull align 4 dereferenceable(4) %cjsModules_255, ptr noundef nonnull align 1 dereferenceable(1) %159, ptr noundef %call256, ptr noundef nonnull align 8 dereferenceable(8152) %call257)
+  %call256 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_16ArrayStorageBaseINS0_11HermesValueEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %cjsModules)
+  %161 = load ptr, ptr %runtime.addr, align 8
+  %call257 = call noundef nonnull align 8 dereferenceable(8152) ptr @_ZN6hermes2vm7Runtime7getHeapEv(ptr noundef nonnull align 8 dereferenceable(9832) %161)
+  call void @_ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_11HermesValueEEEE3setERNS0_11PointerBaseEPS4_RNS0_7HadesGCE(ptr noundef nonnull align 4 dereferenceable(4) %cjsModules_255, ptr noundef nonnull align 1 dereferenceable(1) %160, ptr noundef %call256, ptr noundef nonnull align 8 dereferenceable(8152) %call257)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %for.end253, %if.then175, %if.then162, %if.then99, %if.then29, %if.then21, %if.then
-  %161 = load i32, ptr %retval, align 4
-  ret i32 %161
+  %162 = load i32, ptr %retval, align 4
+  ret i32 %162
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

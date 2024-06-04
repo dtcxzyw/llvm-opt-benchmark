@@ -87,67 +87,99 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @han_open() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 3), align 8
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %3, label %7
+  %1 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 3
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %11
 
-3:                                                ; preds = %0
-  %4 = call i32 @opal_output_open(ptr noundef null)
-  store i32 %4, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 2), align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 2), align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 3), align 8
-  call void @opal_output_set_verbosity(i32 noundef %5, i32 noundef %6)
-  br label %9
+4:                                                ; preds = %0
+  %5 = call i32 @opal_output_open(ptr noundef null)
+  %6 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 2
+  store i32 %5, ptr %6, align 4
+  %7 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 2
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 3
+  %10 = load i32, ptr %9, align 8
+  call void @opal_output_set_verbosity(i32 noundef %8, i32 noundef %10)
+  br label %15
 
-7:                                                ; preds = %0
-  %8 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i32 0, i32 11), align 4
-  store i32 %8, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 2), align 4
-  br label %9
+11:                                               ; preds = %0
+  %12 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i32 0, i32 11
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 2
+  store i32 %13, ptr %14, align 4
+  br label %15
 
-9:                                                ; preds = %7, %3
-  %10 = call i32 @mca_coll_han_init_dynamic_rules()
-  ret i32 %10
+15:                                               ; preds = %11, %4
+  %16 = call i32 @mca_coll_han_init_dynamic_rules()
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @han_close() #0 {
   call void @mca_coll_han_free_dynamic_rules()
-  %1 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19), align 8
-  call void @free(ptr noundef %1) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19), align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_op_up_low_module_name_t, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19), i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19
+  %2 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %2) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_op_up_low_module_name_t, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19), i32 0, i32 1), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 1), align 8
-  call void @free(ptr noundef %3) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 1), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 1, i32 1), align 8
-  call void @free(ptr noundef %4) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 1, i32 1), align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 2), align 8
-  call void @free(ptr noundef %5) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 2), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 2, i32 1), align 8
+  %3 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19
+  store ptr null, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19
+  %5 = getelementptr inbounds %struct.mca_coll_han_op_up_low_module_name_t, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %6) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 2, i32 1), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 3), align 8
-  call void @free(ptr noundef %7) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 3), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 3, i32 1), align 8
-  call void @free(ptr noundef %8) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 3, i32 1), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 4), align 8
-  call void @free(ptr noundef %9) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 4), align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 4, i32 1), align 8
+  %7 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19
+  %8 = getelementptr inbounds %struct.mca_coll_han_op_up_low_module_name_t, ptr %7, i32 0, i32 1
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 1
+  %10 = load ptr, ptr %9, align 8
   call void @free(ptr noundef %10) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 4, i32 1), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 5), align 8
-  call void @free(ptr noundef %11) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 5), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 5, i32 1), align 8
-  call void @free(ptr noundef %12) #5
-  store ptr null, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 5, i32 1), align 8
+  %11 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 1
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 1, i32 1
+  %13 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %13) #5
+  %14 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 1, i32 1
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 2
+  %16 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %16) #5
+  %17 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 2
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 2, i32 1
+  %19 = load ptr, ptr %18, align 8
+  call void @free(ptr noundef %19) #5
+  %20 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 2, i32 1
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 3
+  %22 = load ptr, ptr %21, align 8
+  call void @free(ptr noundef %22) #5
+  %23 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 3
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 3, i32 1
+  %25 = load ptr, ptr %24, align 8
+  call void @free(ptr noundef %25) #5
+  %26 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 3, i32 1
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 4
+  %28 = load ptr, ptr %27, align 8
+  call void @free(ptr noundef %28) #5
+  %29 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 4
+  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 4, i32 1
+  %31 = load ptr, ptr %30, align 8
+  call void @free(ptr noundef %31) #5
+  %32 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 4, i32 1
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 5
+  %34 = load ptr, ptr %33, align 8
+  call void @free(ptr noundef %34) #5
+  %35 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 5
+  store ptr null, ptr %35, align 8
+  %36 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 5, i32 1
+  %37 = load ptr, ptr %36, align 8
+  call void @free(ptr noundef %37) #5
+  %38 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 19, i32 5, i32 1
+  store ptr null, ptr %38, align 8
   ret i32 0
 }
 
@@ -345,427 +377,429 @@ define internal i32 @han_register() #0 {
 
 170:                                              ; preds = %0
   store i32 -1, ptr %3, align 4
-  br label %440
+  br label %442
 
 171:                                              ; preds = %0
   store i32 0, ptr %9, align 4
   br label %172
 
-172:                                              ; preds = %232, %171
+172:                                              ; preds = %234, %171
   %173 = load i32, ptr %9, align 4
   %174 = icmp ult i32 %173, 22
-  br i1 %174, label %175, label %235
+  br i1 %174, label %175, label %237
 
 175:                                              ; preds = %172
   %176 = load i32, ptr %9, align 4
   %177 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %176)
-  br i1 %177, label %178, label %184
+  br i1 %177, label %178, label %185
 
 178:                                              ; preds = %175
   %179 = load i32, ptr %9, align 4
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 29), i64 0, i64 %180
-  %182 = load i32, ptr %181, align 4
-  %183 = icmp eq i32 0, %182
-  br i1 %183, label %184, label %185
+  %181 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 29
+  %182 = getelementptr inbounds [22 x i32], ptr %181, i64 0, i64 %180
+  %183 = load i32, ptr %182, align 4
+  %184 = icmp eq i32 0, %183
+  br i1 %184, label %185, label %186
 
-184:                                              ; preds = %178, %175
-  br label %232
+185:                                              ; preds = %178, %175
+  br label %234
 
-185:                                              ; preds = %178
-  %186 = load ptr, ptr %5, align 8
-  %187 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %186, i32 0, i32 22
-  %188 = load i32, ptr %9, align 4
-  %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds [22 x i32], ptr %187, i64 0, i64 %189
-  store i32 0, ptr %190, align 4
-  %191 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
-  %192 = load i32, ptr %9, align 4
-  %193 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %192)
-  %194 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %191, i64 noundef 128, ptr noundef @.str.46, ptr noundef %193) #5
-  %195 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %196 = load i32, ptr %9, align 4
-  %197 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %196)
-  %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %195, i64 noundef 256, ptr noundef @.str.47, ptr noundef %197) #5
-  %199 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
-  %200 = load i32, ptr %9, align 4
-  %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 30), i64 0, i64 %201
-  %203 = load ptr, ptr %202, align 8
-  %204 = call i32 @mca_base_var_enum_create(ptr noundef %199, ptr noundef %203, ptr noundef %12)
-  %205 = load ptr, ptr %4, align 8
-  %206 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
-  %207 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %208 = load ptr, ptr %12, align 8
-  %209 = load ptr, ptr %5, align 8
-  %210 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %209, i32 0, i32 22
-  %211 = load i32, ptr %9, align 4
-  %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds [22 x i32], ptr %210, i64 0, i64 %212
-  %214 = call i32 @mca_base_component_var_register(ptr noundef %205, ptr noundef %206, ptr noundef %207, i32 noundef 0, ptr noundef %208, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef %213)
-  %215 = load ptr, ptr %5, align 8
-  %216 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %215, i32 0, i32 23
-  %217 = load i32, ptr %9, align 4
-  %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds [22 x i32], ptr %216, i64 0, i64 %218
-  store i32 %214, ptr %219, align 4
-  br label %220
+186:                                              ; preds = %178
+  %187 = load ptr, ptr %5, align 8
+  %188 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %187, i32 0, i32 22
+  %189 = load i32, ptr %9, align 4
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds [22 x i32], ptr %188, i64 0, i64 %190
+  store i32 0, ptr %191, align 4
+  %192 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
+  %193 = load i32, ptr %9, align 4
+  %194 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %193)
+  %195 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %192, i64 noundef 128, ptr noundef @.str.46, ptr noundef %194) #5
+  %196 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %197 = load i32, ptr %9, align 4
+  %198 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %197)
+  %199 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %196, i64 noundef 256, ptr noundef @.str.47, ptr noundef %198) #5
+  %200 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
+  %201 = load i32, ptr %9, align 4
+  %202 = zext i32 %201 to i64
+  %203 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i32 0, i32 30
+  %204 = getelementptr inbounds [22 x ptr], ptr %203, i64 0, i64 %202
+  %205 = load ptr, ptr %204, align 8
+  %206 = call i32 @mca_base_var_enum_create(ptr noundef %200, ptr noundef %205, ptr noundef %12)
+  %207 = load ptr, ptr %4, align 8
+  %208 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
+  %209 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %210 = load ptr, ptr %12, align 8
+  %211 = load ptr, ptr %5, align 8
+  %212 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %211, i32 0, i32 22
+  %213 = load i32, ptr %9, align 4
+  %214 = zext i32 %213 to i64
+  %215 = getelementptr inbounds [22 x i32], ptr %212, i64 0, i64 %214
+  %216 = call i32 @mca_base_component_var_register(ptr noundef %207, ptr noundef %208, ptr noundef %209, i32 noundef 0, ptr noundef %210, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef %215)
+  %217 = load ptr, ptr %5, align 8
+  %218 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %217, i32 0, i32 23
+  %219 = load i32, ptr %9, align 4
+  %220 = zext i32 %219 to i64
+  %221 = getelementptr inbounds [22 x i32], ptr %218, i64 0, i64 %220
+  store i32 %216, ptr %221, align 4
+  br label %222
 
-220:                                              ; preds = %185
-  %221 = load ptr, ptr %12, align 8
-  store ptr %221, ptr %1, align 8
+222:                                              ; preds = %186
+  %223 = load ptr, ptr %12, align 8
+  store ptr %223, ptr %1, align 8
   store i32 -1, ptr %2, align 4
-  %222 = load ptr, ptr %1, align 8
-  %223 = getelementptr inbounds %struct.opal_object_t, ptr %222, i32 0, i32 1
-  %224 = load i32, ptr %2, align 4
-  %225 = call i32 @opal_thread_add_fetch_32(ptr noundef %223, i32 noundef %224)
-  %226 = icmp eq i32 0, %225
-  br i1 %226, label %227, label %230
+  %224 = load ptr, ptr %1, align 8
+  %225 = getelementptr inbounds %struct.opal_object_t, ptr %224, i32 0, i32 1
+  %226 = load i32, ptr %2, align 4
+  %227 = call i32 @opal_thread_add_fetch_32(ptr noundef %225, i32 noundef %226)
+  %228 = icmp eq i32 0, %227
+  br i1 %228, label %229, label %232
 
-227:                                              ; preds = %220
-  %228 = load ptr, ptr %12, align 8
-  call void @opal_obj_run_destructors(ptr noundef %228)
-  %229 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %229) #5
+229:                                              ; preds = %222
+  %230 = load ptr, ptr %12, align 8
+  call void @opal_obj_run_destructors(ptr noundef %230)
+  %231 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %231) #5
   store ptr null, ptr %12, align 8
-  br label %230
-
-230:                                              ; preds = %227, %220
-  br label %231
-
-231:                                              ; preds = %230
   br label %232
 
-232:                                              ; preds = %231, %184
-  %233 = load i32, ptr %9, align 4
-  %234 = add i32 %233, 1
-  store i32 %234, ptr %9, align 4
+232:                                              ; preds = %229, %222
+  br label %233
+
+233:                                              ; preds = %232
+  br label %234
+
+234:                                              ; preds = %233, %185
+  %235 = load i32, ptr %9, align 4
+  %236 = add i32 %235, 1
+  store i32 %236, ptr %9, align 4
   br label %172, !llvm.loop !4
 
-235:                                              ; preds = %172
+237:                                              ; preds = %172
   store i32 0, ptr %9, align 4
-  br label %236
+  br label %238
 
-236:                                              ; preds = %277, %235
-  %237 = load i32, ptr %9, align 4
-  %238 = icmp ult i32 %237, 22
-  br i1 %238, label %239, label %280
+238:                                              ; preds = %279, %237
+  %239 = load i32, ptr %9, align 4
+  %240 = icmp ult i32 %239, 22
+  br i1 %240, label %241, label %282
 
-239:                                              ; preds = %236
-  %240 = load i32, ptr %9, align 4
-  %241 = icmp ne i32 %240, 9
-  br i1 %241, label %242, label %248
+241:                                              ; preds = %238
+  %242 = load i32, ptr %9, align 4
+  %243 = icmp ne i32 %242, 9
+  br i1 %243, label %244, label %250
 
-242:                                              ; preds = %239
-  %243 = load ptr, ptr %5, align 8
-  %244 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %243, i32 0, i32 21
-  %245 = load i32, ptr %9, align 4
-  %246 = zext i32 %245 to i64
-  %247 = getelementptr inbounds [22 x i8], ptr %244, i64 0, i64 %246
-  store i8 0, ptr %247, align 1
-  br label %254
+244:                                              ; preds = %241
+  %245 = load ptr, ptr %5, align 8
+  %246 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %245, i32 0, i32 21
+  %247 = load i32, ptr %9, align 4
+  %248 = zext i32 %247 to i64
+  %249 = getelementptr inbounds [22 x i8], ptr %246, i64 0, i64 %248
+  store i8 0, ptr %249, align 1
+  br label %256
 
-248:                                              ; preds = %239
-  %249 = load ptr, ptr %5, align 8
-  %250 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %249, i32 0, i32 21
-  %251 = load i32, ptr %9, align 4
-  %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds [22 x i8], ptr %250, i64 0, i64 %252
-  store i8 1, ptr %253, align 1
-  br label %254
+250:                                              ; preds = %241
+  %251 = load ptr, ptr %5, align 8
+  %252 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %251, i32 0, i32 21
+  %253 = load i32, ptr %9, align 4
+  %254 = zext i32 %253 to i64
+  %255 = getelementptr inbounds [22 x i8], ptr %252, i64 0, i64 %254
+  store i8 1, ptr %255, align 1
+  br label %256
 
-254:                                              ; preds = %248, %242
-  %255 = load i32, ptr %9, align 4
-  %256 = call zeroext i1 @is_simple_implemented(i32 noundef %255)
-  br i1 %256, label %257, label %276
+256:                                              ; preds = %250, %244
+  %257 = load i32, ptr %9, align 4
+  %258 = call zeroext i1 @is_simple_implemented(i32 noundef %257)
+  br i1 %258, label %259, label %278
 
-257:                                              ; preds = %254
-  %258 = load i32, ptr %9, align 4
-  %259 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %258)
-  store ptr %259, ptr %13, align 8
-  %260 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
-  %261 = load ptr, ptr %13, align 8
-  %262 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %260, i64 noundef 128, ptr noundef @.str.48, ptr noundef %261) #5
-  %263 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %264 = load ptr, ptr %13, align 8
-  %265 = load ptr, ptr %13, align 8
-  %266 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %263, i64 noundef 256, ptr noundef @.str.49, ptr noundef %264, ptr noundef %265) #5
-  %267 = load ptr, ptr %4, align 8
-  %268 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
-  %269 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %270 = load ptr, ptr %5, align 8
-  %271 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %270, i32 0, i32 21
-  %272 = load i32, ptr %9, align 4
-  %273 = zext i32 %272 to i64
-  %274 = getelementptr inbounds [22 x i8], ptr %271, i64 0, i64 %273
-  %275 = call i32 @mca_base_component_var_register(ptr noundef %267, ptr noundef %268, ptr noundef %269, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 8, i32 noundef 4, i32 noundef 1, ptr noundef %274)
-  br label %276
+259:                                              ; preds = %256
+  %260 = load i32, ptr %9, align 4
+  %261 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %260)
+  store ptr %261, ptr %13, align 8
+  %262 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
+  %263 = load ptr, ptr %13, align 8
+  %264 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %262, i64 noundef 128, ptr noundef @.str.48, ptr noundef %263) #5
+  %265 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %266 = load ptr, ptr %13, align 8
+  %267 = load ptr, ptr %13, align 8
+  %268 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %265, i64 noundef 256, ptr noundef @.str.49, ptr noundef %266, ptr noundef %267) #5
+  %269 = load ptr, ptr %4, align 8
+  %270 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
+  %271 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %272 = load ptr, ptr %5, align 8
+  %273 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %272, i32 0, i32 21
+  %274 = load i32, ptr %9, align 4
+  %275 = zext i32 %274 to i64
+  %276 = getelementptr inbounds [22 x i8], ptr %273, i64 0, i64 %275
+  %277 = call i32 @mca_base_component_var_register(ptr noundef %269, ptr noundef %270, ptr noundef %271, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 8, i32 noundef 4, i32 noundef 1, ptr noundef %276)
+  br label %278
 
-276:                                              ; preds = %257, %254
-  br label %277
+278:                                              ; preds = %259, %256
+  br label %279
 
-277:                                              ; preds = %276
-  %278 = load i32, ptr %9, align 4
-  %279 = add i32 %278, 1
-  store i32 %279, ptr %9, align 4
-  br label %236, !llvm.loop !6
+279:                                              ; preds = %278
+  %280 = load i32, ptr %9, align 4
+  %281 = add i32 %280, 1
+  store i32 %281, ptr %9, align 4
+  br label %238, !llvm.loop !6
 
-280:                                              ; preds = %236
-  %281 = load ptr, ptr %5, align 8
-  %282 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %281, i32 0, i32 28
-  %283 = getelementptr inbounds [22 x [3 x i32]], ptr %282, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %283, i8 0, i64 264, i1 false)
+282:                                              ; preds = %238
+  %283 = load ptr, ptr %5, align 8
+  %284 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %283, i32 0, i32 28
+  %285 = getelementptr inbounds [22 x [3 x i32]], ptr %284, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %285, i8 0, i64 264, i1 false)
   store i32 0, ptr %9, align 4
-  br label %284
+  br label %286
 
-284:                                              ; preds = %314, %280
-  %285 = load i32, ptr %9, align 4
-  %286 = icmp ult i32 %285, 22
-  br i1 %286, label %287, label %317
+286:                                              ; preds = %316, %282
+  %287 = load i32, ptr %9, align 4
+  %288 = icmp ult i32 %287, 22
+  br i1 %288, label %289, label %319
 
-287:                                              ; preds = %284
-  %288 = load i32, ptr %9, align 4
-  %289 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %288)
-  br i1 %289, label %291, label %290
+289:                                              ; preds = %286
+  %290 = load i32, ptr %9, align 4
+  %291 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %290)
+  br i1 %291, label %293, label %292
 
-290:                                              ; preds = %287
-  br label %314
+292:                                              ; preds = %289
+  br label %316
 
-291:                                              ; preds = %287
+293:                                              ; preds = %289
   store i32 0, ptr %10, align 4
-  br label %292
+  br label %294
 
-292:                                              ; preds = %304, %291
-  %293 = load i32, ptr %10, align 4
-  %294 = icmp ult i32 %293, 2
-  br i1 %294, label %295, label %307
+294:                                              ; preds = %306, %293
+  %295 = load i32, ptr %10, align 4
+  %296 = icmp ult i32 %295, 2
+  br i1 %296, label %297, label %309
 
-295:                                              ; preds = %292
-  %296 = load ptr, ptr %5, align 8
-  %297 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %296, i32 0, i32 28
-  %298 = load i32, ptr %9, align 4
-  %299 = zext i32 %298 to i64
-  %300 = getelementptr inbounds [22 x [3 x i32]], ptr %297, i64 0, i64 %299
-  %301 = load i32, ptr %10, align 4
-  %302 = zext i32 %301 to i64
-  %303 = getelementptr inbounds [3 x i32], ptr %300, i64 0, i64 %302
-  store i32 3, ptr %303, align 4
-  br label %304
+297:                                              ; preds = %294
+  %298 = load ptr, ptr %5, align 8
+  %299 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %298, i32 0, i32 28
+  %300 = load i32, ptr %9, align 4
+  %301 = zext i32 %300 to i64
+  %302 = getelementptr inbounds [22 x [3 x i32]], ptr %299, i64 0, i64 %301
+  %303 = load i32, ptr %10, align 4
+  %304 = zext i32 %303 to i64
+  %305 = getelementptr inbounds [3 x i32], ptr %302, i64 0, i64 %304
+  store i32 3, ptr %305, align 4
+  br label %306
 
-304:                                              ; preds = %295
-  %305 = load i32, ptr %10, align 4
-  %306 = add i32 %305, 1
-  store i32 %306, ptr %10, align 4
-  br label %292, !llvm.loop !7
+306:                                              ; preds = %297
+  %307 = load i32, ptr %10, align 4
+  %308 = add i32 %307, 1
+  store i32 %308, ptr %10, align 4
+  br label %294, !llvm.loop !7
 
-307:                                              ; preds = %292
-  %308 = load ptr, ptr %5, align 8
-  %309 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %308, i32 0, i32 28
-  %310 = load i32, ptr %9, align 4
-  %311 = zext i32 %310 to i64
-  %312 = getelementptr inbounds [22 x [3 x i32]], ptr %309, i64 0, i64 %311
-  %313 = getelementptr inbounds [3 x i32], ptr %312, i64 0, i64 2
-  store i32 6, ptr %313, align 4
-  br label %314
+309:                                              ; preds = %294
+  %310 = load ptr, ptr %5, align 8
+  %311 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %310, i32 0, i32 28
+  %312 = load i32, ptr %9, align 4
+  %313 = zext i32 %312 to i64
+  %314 = getelementptr inbounds [22 x [3 x i32]], ptr %311, i64 0, i64 %313
+  %315 = getelementptr inbounds [3 x i32], ptr %314, i64 0, i64 2
+  store i32 6, ptr %315, align 4
+  br label %316
 
-314:                                              ; preds = %307, %290
-  %315 = load i32, ptr %9, align 4
-  %316 = add i32 %315, 1
-  store i32 %316, ptr %9, align 4
-  br label %284, !llvm.loop !8
+316:                                              ; preds = %309, %292
+  %317 = load i32, ptr %9, align 4
+  %318 = add i32 %317, 1
+  store i32 %318, ptr %9, align 4
+  br label %286, !llvm.loop !8
 
-317:                                              ; preds = %284
+319:                                              ; preds = %286
   store i32 0, ptr %9, align 4
-  br label %318
+  br label %320
 
-318:                                              ; preds = %389, %317
-  %319 = load i32, ptr %9, align 4
-  %320 = icmp ult i32 %319, 22
-  br i1 %320, label %321, label %392
+320:                                              ; preds = %391, %319
+  %321 = load i32, ptr %9, align 4
+  %322 = icmp ult i32 %321, 22
+  br i1 %322, label %323, label %394
 
-321:                                              ; preds = %318
-  %322 = load i32, ptr %9, align 4
-  %323 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %322)
-  br i1 %323, label %325, label %324
+323:                                              ; preds = %320
+  %324 = load i32, ptr %9, align 4
+  %325 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %324)
+  br i1 %325, label %327, label %326
 
-324:                                              ; preds = %321
-  br label %389
+326:                                              ; preds = %323
+  br label %391
 
-325:                                              ; preds = %321
+327:                                              ; preds = %323
   store i32 0, ptr %10, align 4
-  br label %326
+  br label %328
 
-326:                                              ; preds = %385, %325
-  %327 = load i32, ptr %10, align 4
-  %328 = icmp ult i32 %327, 3
-  br i1 %328, label %329, label %388
+328:                                              ; preds = %387, %327
+  %329 = load i32, ptr %10, align 4
+  %330 = icmp ult i32 %329, 3
+  br i1 %330, label %331, label %390
 
-329:                                              ; preds = %326
-  %330 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
-  %331 = load i32, ptr %9, align 4
-  %332 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %331)
-  %333 = load i32, ptr %10, align 4
-  %334 = call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %333)
-  %335 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %330, i64 noundef 128, ptr noundef @.str.50, ptr noundef %332, ptr noundef %334) #5
-  %336 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %337 = load i32, ptr %9, align 4
-  %338 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %337)
-  %339 = load i32, ptr %10, align 4
-  %340 = call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %339)
-  %341 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %336, i64 noundef 256, ptr noundef @.str.51, ptr noundef %338, ptr noundef %340) #5
-  store i32 %341, ptr %8, align 4
+331:                                              ; preds = %328
+  %332 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
+  %333 = load i32, ptr %9, align 4
+  %334 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %333)
+  %335 = load i32, ptr %10, align 4
+  %336 = call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %335)
+  %337 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %332, i64 noundef 128, ptr noundef @.str.50, ptr noundef %334, ptr noundef %336) #5
+  %338 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %339 = load i32, ptr %9, align 4
+  %340 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %339)
+  %341 = load i32, ptr %10, align 4
+  %342 = call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %341)
+  %343 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %338, i64 noundef 256, ptr noundef @.str.51, ptr noundef %340, ptr noundef %342) #5
+  store i32 %343, ptr %8, align 4
   store i32 0, ptr %11, align 4
-  br label %342
+  br label %344
 
-342:                                              ; preds = %369, %329
-  %343 = load i32, ptr %11, align 4
-  %344 = icmp ult i32 %343, 7
-  br i1 %344, label %345, label %372
+344:                                              ; preds = %371, %331
+  %345 = load i32, ptr %11, align 4
+  %346 = icmp ult i32 %345, 7
+  br i1 %346, label %347, label %374
 
-345:                                              ; preds = %342
-  %346 = load i32, ptr %11, align 4
-  %347 = icmp eq i32 6, %346
-  br i1 %347, label %348, label %352
+347:                                              ; preds = %344
+  %348 = load i32, ptr %11, align 4
+  %349 = icmp eq i32 6, %348
+  br i1 %349, label %350, label %354
 
-348:                                              ; preds = %345
-  %349 = load i32, ptr %10, align 4
-  %350 = icmp ne i32 2, %349
-  br i1 %350, label %351, label %352
+350:                                              ; preds = %347
+  %351 = load i32, ptr %10, align 4
+  %352 = icmp ne i32 2, %351
+  br i1 %352, label %353, label %354
 
-351:                                              ; preds = %348
-  br label %369
+353:                                              ; preds = %350
+  br label %371
 
-352:                                              ; preds = %348, %345
-  %353 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %354 = load i32, ptr %8, align 4
-  %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds i8, ptr %353, i64 %355
-  %357 = load i32, ptr %8, align 4
-  %358 = sext i32 %357 to i64
-  %359 = sub i64 256, %358
-  %360 = load i32, ptr %11, align 4
-  %361 = load i32, ptr %11, align 4
-  %362 = zext i32 %361 to i64
-  %363 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %362
-  %364 = getelementptr inbounds %struct.ompi_coll_han_components, ptr %363, i32 0, i32 1
-  %365 = load ptr, ptr %364, align 8
-  %366 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %356, i64 noundef %359, ptr noundef @.str.52, i32 noundef %360, ptr noundef %365) #5
-  %367 = load i32, ptr %8, align 4
-  %368 = add nsw i32 %367, %366
-  store i32 %368, ptr %8, align 4
-  br label %369
+354:                                              ; preds = %350, %347
+  %355 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %356 = load i32, ptr %8, align 4
+  %357 = sext i32 %356 to i64
+  %358 = getelementptr inbounds i8, ptr %355, i64 %357
+  %359 = load i32, ptr %8, align 4
+  %360 = sext i32 %359 to i64
+  %361 = sub i64 256, %360
+  %362 = load i32, ptr %11, align 4
+  %363 = load i32, ptr %11, align 4
+  %364 = zext i32 %363 to i64
+  %365 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %364
+  %366 = getelementptr inbounds %struct.ompi_coll_han_components, ptr %365, i32 0, i32 1
+  %367 = load ptr, ptr %366, align 8
+  %368 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %358, i64 noundef %361, ptr noundef @.str.52, i32 noundef %362, ptr noundef %367) #5
+  %369 = load i32, ptr %8, align 4
+  %370 = add nsw i32 %369, %368
+  store i32 %370, ptr %8, align 4
+  br label %371
 
-369:                                              ; preds = %352, %351
-  %370 = load i32, ptr %11, align 4
-  %371 = add i32 %370, 1
-  store i32 %371, ptr %11, align 4
-  br label %342, !llvm.loop !9
+371:                                              ; preds = %354, %353
+  %372 = load i32, ptr %11, align 4
+  %373 = add i32 %372, 1
+  store i32 %373, ptr %11, align 4
+  br label %344, !llvm.loop !9
 
-372:                                              ; preds = %342
-  %373 = load ptr, ptr %4, align 8
-  %374 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
-  %375 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %376 = load ptr, ptr %5, align 8
-  %377 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %376, i32 0, i32 28
-  %378 = load i32, ptr %9, align 4
-  %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds [22 x [3 x i32]], ptr %377, i64 0, i64 %379
-  %381 = load i32, ptr %10, align 4
-  %382 = zext i32 %381 to i64
-  %383 = getelementptr inbounds [3 x i32], ptr %380, i64 0, i64 %382
-  %384 = call i32 @mca_base_component_var_register(ptr noundef %373, ptr noundef %374, ptr noundef %375, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %383)
-  br label %385
+374:                                              ; preds = %344
+  %375 = load ptr, ptr %4, align 8
+  %376 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 0
+  %377 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %378 = load ptr, ptr %5, align 8
+  %379 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %378, i32 0, i32 28
+  %380 = load i32, ptr %9, align 4
+  %381 = zext i32 %380 to i64
+  %382 = getelementptr inbounds [22 x [3 x i32]], ptr %379, i64 0, i64 %381
+  %383 = load i32, ptr %10, align 4
+  %384 = zext i32 %383 to i64
+  %385 = getelementptr inbounds [3 x i32], ptr %382, i64 0, i64 %384
+  %386 = call i32 @mca_base_component_var_register(ptr noundef %375, ptr noundef %376, ptr noundef %377, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %385)
+  br label %387
 
-385:                                              ; preds = %372
-  %386 = load i32, ptr %10, align 4
-  %387 = add i32 %386, 1
-  store i32 %387, ptr %10, align 4
-  br label %326, !llvm.loop !10
+387:                                              ; preds = %374
+  %388 = load i32, ptr %10, align 4
+  %389 = add i32 %388, 1
+  store i32 %389, ptr %10, align 4
+  br label %328, !llvm.loop !10
 
-388:                                              ; preds = %326
-  br label %389
+390:                                              ; preds = %328
+  br label %391
 
-389:                                              ; preds = %388, %324
-  %390 = load i32, ptr %9, align 4
-  %391 = add i32 %390, 1
-  store i32 %391, ptr %9, align 4
-  br label %318, !llvm.loop !11
+391:                                              ; preds = %390, %326
+  %392 = load i32, ptr %9, align 4
+  %393 = add i32 %392, 1
+  store i32 %393, ptr %9, align 4
+  br label %320, !llvm.loop !11
 
-392:                                              ; preds = %318
-  %393 = load ptr, ptr %5, align 8
-  %394 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %393, i32 0, i32 24
-  store i8 0, ptr %394, align 8
+394:                                              ; preds = %320
   %395 = load ptr, ptr %5, align 8
   %396 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %395, i32 0, i32 24
-  %397 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_han_component, ptr noundef @.str.53, ptr noundef @.str.54, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %396)
-  %398 = load ptr, ptr %5, align 8
-  %399 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %398, i32 0, i32 26
-  store ptr null, ptr %399, align 8
+  store i8 0, ptr %396, align 8
+  %397 = load ptr, ptr %5, align 8
+  %398 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %397, i32 0, i32 24
+  %399 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_han_component, ptr noundef @.str.53, ptr noundef @.str.54, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %398)
   %400 = load ptr, ptr %5, align 8
   %401 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %400, i32 0, i32 26
-  %402 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_han_component, ptr noundef @.str.55, ptr noundef @.str.56, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %401)
-  %403 = load ptr, ptr %5, align 8
-  %404 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %403, i32 0, i32 25
-  store i8 0, ptr %404, align 1
+  store ptr null, ptr %401, align 8
+  %402 = load ptr, ptr %5, align 8
+  %403 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %402, i32 0, i32 26
+  %404 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_han_component, ptr noundef @.str.55, ptr noundef @.str.56, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %403)
   %405 = load ptr, ptr %5, align 8
   %406 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %405, i32 0, i32 25
-  %407 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_han_component, ptr noundef @.str.57, ptr noundef @.str.58, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %406)
-  %408 = load ptr, ptr %5, align 8
-  %409 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %408, i32 0, i32 25
-  %410 = load i8, ptr %409, align 1
-  %411 = trunc i8 %410 to i1
-  br i1 %411, label %417, label %412
+  store i8 0, ptr %406, align 1
+  %407 = load ptr, ptr %5, align 8
+  %408 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %407, i32 0, i32 25
+  %409 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_han_component, ptr noundef @.str.57, ptr noundef @.str.58, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %408)
+  %410 = load ptr, ptr %5, align 8
+  %411 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %410, i32 0, i32 25
+  %412 = load i8, ptr %411, align 1
+  %413 = trunc i8 %412 to i1
+  br i1 %413, label %419, label %414
 
-412:                                              ; preds = %392
-  %413 = load ptr, ptr %5, align 8
-  %414 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %413, i32 0, i32 26
-  %415 = load ptr, ptr %414, align 8
-  %416 = icmp ne ptr null, %415
-  br i1 %416, label %417, label %434
+414:                                              ; preds = %394
+  %415 = load ptr, ptr %5, align 8
+  %416 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %415, i32 0, i32 26
+  %417 = load ptr, ptr %416, align 8
+  %418 = icmp ne ptr null, %417
+  br i1 %418, label %419, label %436
 
-417:                                              ; preds = %412, %392
-  %418 = load ptr, ptr %5, align 8
-  %419 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %418, i32 0, i32 24
-  %420 = load i8, ptr %419, align 8
-  %421 = trunc i8 %420 to i1
-  br i1 %421, label %434, label %422
+419:                                              ; preds = %414, %394
+  %420 = load ptr, ptr %5, align 8
+  %421 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %420, i32 0, i32 24
+  %422 = load i8, ptr %421, align 8
+  %423 = trunc i8 %422 to i1
+  br i1 %423, label %436, label %424
 
-422:                                              ; preds = %417
-  br label %423
+424:                                              ; preds = %419
+  br label %425
 
-423:                                              ; preds = %422
-  %424 = load ptr, ptr %5, align 8
-  %425 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %424, i32 0, i32 2
-  %426 = load i32, ptr %425, align 4
-  %427 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 0, i32 noundef %426)
-  br i1 %427, label %428, label %432
+425:                                              ; preds = %424
+  %426 = load ptr, ptr %5, align 8
+  %427 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %426, i32 0, i32 2
+  %428 = load i32, ptr %427, align 4
+  %429 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 0, i32 noundef %428)
+  br i1 %429, label %430, label %434
 
-428:                                              ; preds = %423
-  %429 = load ptr, ptr %5, align 8
-  %430 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %429, i32 0, i32 2
-  %431 = load i32, ptr %430, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %431, ptr noundef @.str.59)
-  br label %432
-
-432:                                              ; preds = %428, %423
-  br label %433
-
-433:                                              ; preds = %432
+430:                                              ; preds = %425
+  %431 = load ptr, ptr %5, align 8
+  %432 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %431, i32 0, i32 2
+  %433 = load i32, ptr %432, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %433, ptr noundef @.str.59)
   br label %434
 
-434:                                              ; preds = %433, %417, %412
-  %435 = load ptr, ptr %5, align 8
-  %436 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %435, i32 0, i32 31
-  store i32 10, ptr %436, align 8
+434:                                              ; preds = %430, %425
+  br label %435
+
+435:                                              ; preds = %434
+  br label %436
+
+436:                                              ; preds = %435, %419, %414
   %437 = load ptr, ptr %5, align 8
   %438 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %437, i32 0, i32 31
-  %439 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_han_component, ptr noundef @.str.60, ptr noundef @.str.61, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %438)
+  store i32 10, ptr %438, align 8
+  %439 = load ptr, ptr %5, align 8
+  %440 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr %439, i32 0, i32 31
+  %441 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_han_component, ptr noundef @.str.60, ptr noundef @.str.61, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %440)
   store i32 0, ptr %3, align 4
-  br label %440
+  br label %442
 
-440:                                              ; preds = %434, %170
-  %441 = load i32, ptr %3, align 4
-  ret i32 %441
+442:                                              ; preds = %436, %170
+  %443 = load i32, ptr %3, align 4
+  ret i32 %443
 }
 
 declare i32 @mca_coll_han_init_query(i1 noundef zeroext, i1 noundef zeroext) #1

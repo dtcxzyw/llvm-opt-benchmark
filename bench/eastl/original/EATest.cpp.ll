@@ -657,7 +657,7 @@ entry:
 if.then:                                          ; preds = %entry
   store i32 2048, ptr %kBufferSize, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [2048 x i8], ptr %buffer, i64 0, i64 0
   %1 = load ptr, ptr %pFormat.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
@@ -665,7 +665,7 @@ if.then:                                          ; preds = %entry
   store i32 %call, ptr %nReturnValue, align 4
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_copy(ptr %arraydecay3, ptr %arraydecay4)
+  call void @llvm.va_copy.p0(ptr %arraydecay3, ptr %arraydecay4)
   %2 = load i32, ptr %nReturnValue, align 4
   %cmp = icmp sge i32 %2, 0
   br i1 %cmp, label %if.then5, label %if.else
@@ -697,10 +697,10 @@ if.else:                                          ; preds = %if.then
 
 if.then14:                                        ; preds = %if.else
   %arraydecay15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay15)
+  call void @llvm.va_end.p0(ptr %arraydecay15)
   %arraydecay16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
   %arraydecay17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_copy(ptr %arraydecay16, ptr %arraydecay17)
+  call void @llvm.va_copy.p0(ptr %arraydecay16, ptr %arraydecay17)
   %10 = load ptr, ptr %pBuffer, align 8
   %11 = load i64, ptr %nExpectedLen, align 8
   %add18 = add i64 %11, 1
@@ -740,9 +740,9 @@ if.end:                                           ; preds = %if.else23, %delete.
 
 if.end26:                                         ; preds = %if.end, %if.then5
   %arraydecay27 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay27)
+  call void @llvm.va_end.p0(ptr %arraydecay27)
   %arraydecay28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay28)
+  call void @llvm.va_end.p0(ptr %arraydecay28)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end26, %entry
@@ -752,22 +752,13 @@ if.end29:                                         ; preds = %if.end26, %entry
   ret i32 %cond
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare noundef i32 @_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #4
-
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
+declare noundef nonnull ptr @_Znam(i64 noundef) #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) #6
+declare void @_ZdaPv(ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA8UnitTest12TestInternal21EATEST_VERIFY_F_IMP_GEbPKcz(i1 noundef zeroext %bExpression, ptr noundef %pFormat, ...) #2 {
@@ -793,10 +784,10 @@ entry:
 if.then:                                          ; preds = %entry
   store i32 2048, ptr %kBufferSize, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_copy(ptr %arraydecay1, ptr %arraydecay2)
+  call void @llvm.va_copy.p0(ptr %arraydecay1, ptr %arraydecay2)
   %arraydecay3 = getelementptr inbounds [2048 x i8], ptr %buffer, i64 0, i64 0
   %1 = load ptr, ptr %pFormat.addr, align 8
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
@@ -830,10 +821,10 @@ if.else:                                          ; preds = %if.then
 
 if.then14:                                        ; preds = %if.else
   %arraydecay15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay15)
+  call void @llvm.va_end.p0(ptr %arraydecay15)
   %arraydecay16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
   %arraydecay17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_copy(ptr %arraydecay16, ptr %arraydecay17)
+  call void @llvm.va_copy.p0(ptr %arraydecay16, ptr %arraydecay17)
   %7 = load ptr, ptr %pBuffer, align 8
   %8 = load i64, ptr %nExpectedLen, align 8
   %add18 = add i64 %8, 1
@@ -869,9 +860,9 @@ if.end26:                                         ; preds = %if.end, %if.then5
   %15 = load i32, ptr %nErrorCount, align 4
   %call27 = call noundef i32 @_ZN2EA8UnitTest25IncrementGlobalErrorCountEi(i32 noundef %15)
   %arraydecay28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay28)
+  call void @llvm.va_end.p0(ptr %arraydecay28)
   %arraydecay29 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argumentsSaved, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay29)
+  call void @llvm.va_end.p0(ptr %arraydecay29)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end26, %entry
@@ -906,12 +897,12 @@ entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %pFormat, ptr %pFormat.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %pFormat.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
   call void @_ZN2EA6EAMain7VReportEPKcP13__va_list_tag(ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -926,13 +917,13 @@ entry:
   store i32 %minVerbosity, ptr %minVerbosity.addr, align 4
   store ptr %pFormat, ptr %pFormat.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i32, ptr %minVerbosity.addr, align 4
   %1 = load ptr, ptr %pFormat.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
   call void @_ZN2EA6EAMain16VReportVerbosityEjPKcP13__va_list_tag(i32 noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -956,20 +947,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN2EA8UnitTest17IsDebuggerPresentEv() #1 {
 entry:
-  %call = call i64 (i32, ...) @ptrace(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
+  %call = call i64 (i32, ...) @ptrace(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   %cmp = icmp slt i64 %call, 0
   ret i1 %cmp
 }
 
 ; Function Attrs: nounwind
-declare i64 @ptrace(i32 noundef, ...) #7
+declare i64 @ptrace(i32 noundef, ...) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN2EA8UnitTest11IsUserAdminEv() #1 {
 entry:
   %retval = alloca i1, align 1
   %id = alloca i32, align 4
-  %call = call i32 @getuid() #13
+  %call = call i32 @getuid() #12
   store i32 %call, ptr %id, align 4
   %0 = load i32, ptr %id, align 4
   %cmp = icmp eq i32 %0, 0
@@ -980,7 +971,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @geteuid() #13
+  %call1 = call i32 @geteuid() #12
   store i32 %call1, ptr %id, align 4
   %1 = load i32, ptr %id, align 4
   %cmp2 = icmp eq i32 %1, 0
@@ -993,17 +984,17 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind
-declare i32 @getuid() #7
+declare i32 @getuid() #6
 
 ; Function Attrs: nounwind
-declare i32 @geteuid() #7
+declare i32 @geteuid() #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN2EA8UnitTest22IsRunningUnderValgrindEv() #1 {
 entry:
   %retval = alloca i1, align 1
   %pValue = alloca ptr, align 8
-  %call = call ptr @getenv(ptr noundef @.str.5) #13
+  %call = call ptr @getenv(ptr noundef @.str.5) #12
   store ptr %call, ptr %pValue, align 8
   %0 = load ptr, ptr %pValue, align 8
   %tobool = icmp ne ptr %0, null
@@ -1026,10 +1017,10 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind
-declare ptr @getenv(ptr noundef) #7
+declare ptr @getenv(ptr noundef) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #8
+declare i32 @strcmp(ptr noundef, ptr noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA8UnitTest11ThreadSleepEf(float noundef %fTimeMilliseconds) #2 {
@@ -1111,7 +1102,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = call i32 @rand() #13
+  %call = call i32 @rand() #12
   %3 = load i32, ptr %nMaxSleepMS.addr, align 4
   %4 = load i32, ptr %nMinSleepMS.addr, align 4
   %sub1 = sub i32 %3, %4
@@ -1223,7 +1214,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nounwind
-declare i32 @rand() #7
+declare i32 @rand() #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2EA6Thread10ThreadTimeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
@@ -1258,7 +1249,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN2EA6ThreadgtERKNS0_10ThreadTimeES3_(ptr noundef nonnull align 8 dereferenceable(16) %tt1, ptr noundef nonnull align 8 dereferenceable(16) %tt2) #1 comdat {
@@ -1694,12 +1685,12 @@ define dso_local void @_ZN2EA8UnitTest20NonInlinableFunctionEv() #1 {
 entry:
   %buffer = alloca [2 x i8], align 1
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buffer, i64 0, i64 0
-  %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %arraydecay, ptr noundef @.str.10) #13
+  %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %arraydecay, ptr noundef @.str.10) #12
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #7
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN2EA8UnitTest14GetInteractiveEv() #1 {
@@ -1775,9 +1766,9 @@ define dso_local noundef i64 @_ZN2EA8UnitTest17GetSystemMemoryMBEv() #1 {
 entry:
   %pageCount = alloca i64, align 8
   %pageSize = alloca i64, align 8
-  %call = call i64 @sysconf(i32 noundef 85) #13
+  %call = call i64 @sysconf(i32 noundef 85) #12
   store i64 %call, ptr %pageCount, align 8
-  %call1 = call i64 @sysconf(i32 noundef 30) #13
+  %call1 = call i64 @sysconf(i32 noundef 30) #12
   store i64 %call1, ptr %pageSize, align 8
   %0 = load i64, ptr %pageCount, align 8
   %1 = load i64, ptr %pageSize, align 8
@@ -1787,7 +1778,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) #7
+declare i64 @sysconf(i32 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN2EA8UnitTest11GetRandSeedEv() #1 {
@@ -1817,11 +1808,12 @@ entry:
   store ptr %pTestName, ptr %pTestName.addr, align 8
   store ptr %pReportFunction, ptr %pReportFunction.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pTestName.addr, align 8
+  %1 = load ptr, ptr %pTestName.addr, align 8
   call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str.11)
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %msTestName, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %msTestName, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %mpParentSuite = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 2
   store ptr null, ptr %mpParentSuite, align 8
   %mnSuccessCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 3
@@ -1829,8 +1821,8 @@ entry:
   %mnErrorCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 4
   store i64 0, ptr %mnErrorCount, align 8
   %mpReportFunction = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %pReportFunction.addr, align 8
-  store ptr %1, ptr %mpReportFunction, align 8
+  %2 = load ptr, ptr %pReportFunction.addr, align 8
+  store ptr %2, ptr %mpReportFunction, align 8
   %mbForceReport = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 6
   store i8 0, ptr %mbForceReport, align 8
   ret void
@@ -1870,9 +1862,10 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #12
   ret void
 }
 
@@ -1902,13 +1895,13 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN2EA8UnitTest4TestD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #13
+  call void @_ZN2EA8UnitTest4TestD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #12
   call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #6
+declare void @_ZdlPv(ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN2EA8UnitTest4Test4InitEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
@@ -2004,9 +1997,9 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %sName.addr, align 8
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #13
+  %call = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #12
   %msTestName2 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  %call3 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName2) #13
+  %call3 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName2) #12
   %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %call, i64 noundef %call3)
   ret void
 }
@@ -2035,8 +2028,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   ret ptr %call2
 }
 
@@ -2046,8 +2039,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   ret i64 %call2
 }
 
@@ -2092,7 +2085,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %3 = load ptr, ptr @_ZN2EA8UnitTest16gpReportFunctionE, align 8
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #13
+  %call = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #12
   call void %3(ptr noundef %call)
   %4 = load ptr, ptr @_ZN2EA8UnitTest16gpReportFunctionE, align 8
   call void %4(ptr noundef @.str.12)
@@ -2126,8 +2119,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   ret ptr %call2
 }
 
@@ -2152,14 +2145,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay2 = getelementptr inbounds [384 x i8], ptr %buffer, i64 0, i64 0
   %1 = load ptr, ptr %pFormat.addr, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
   %call = call noundef i32 @_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag(ptr noundef %arraydecay2, i64 noundef 384, ptr noundef %1, ptr noundef %arraydecay3)
   store i32 %call, ptr %nReturnValue, align 4
   %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arguments, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay4)
+  call void @llvm.va_end.p0(ptr %arraydecay4)
   %2 = load i32, ptr %nReturnValue, align 4
   %cmp = icmp sge i32 %2, 0
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -2227,7 +2220,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   store ptr %call, ptr %pReportFunction, align 8
   %arraydecay = getelementptr inbounds [384 x i8], ptr %buffer, i64 0, i64 0
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  %call3 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #13
+  %call3 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #12
   %mnErrorCount = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 4
   %3 = load i64, ptr %mnErrorCount, align 8
   %tobool4 = icmp ne i64 %3, 0
@@ -2271,10 +2264,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pTestName.addr, align 8
   call void @_ZN2EA8UnitTest4TestC2EPKcPFvS3_E(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %0, ptr noundef null)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %mpFunction = getelementptr inbounds %"class.EA::UnitTest::TestFunction", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %pFunction.addr, align 8
-  store ptr %1, ptr %mpFunction, align 8
+  %2 = load ptr, ptr %pFunction.addr, align 8
+  store ptr %2, ptr %mpFunction, align 8
   ret void
 }
 
@@ -2345,7 +2339,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
   call void @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mTests)
   ret void
@@ -2368,28 +2363,29 @@ entry:
   %ref.tmp = alloca %"class.eastl::reverse_iterator", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont4, %entry
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call = call noundef zeroext i1 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call = call noundef zeroext i1 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   %lnot = xor i1 %call, true
   br i1 %lnot, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %mTests2 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  call void @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE6rbeginEv(ptr sret(%"class.eastl::reverse_iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTests2) #13
+  call void @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE6rbeginEv(ptr sret(%"class.eastl::reverse_iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTests2) #12
   %call3 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5eastl16reverse_iteratorIPN2EA8UnitTest14TestCollection8TestInfoEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %while.body
   %mpTest = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %call3, i32 0, i32 0
-  %0 = load ptr, ptr %mpTest, align 8
+  %1 = load ptr, ptr %mpTest, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %1 = load ptr, ptr %vfn, align 8
-  %call5 = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, i1 noundef zeroext true)
+  %2 = load ptr, ptr %vfn, align 8
+  %call5 = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %1, i1 noundef zeroext true)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -2397,14 +2393,14 @@ invoke.cont4:                                     ; preds = %invoke.cont
 
 while.end:                                        ; preds = %while.cond
   %mTests6 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  call void @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mTests6) #13
+  call void @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mTests6) #12
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %while.body
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #17
   unreachable
 }
 
@@ -2465,8 +2461,8 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #13
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
   call void @_ZSt9terminatev() #17
   unreachable
 }
@@ -2489,7 +2485,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -2506,7 +2502,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN2EA8UnitTest14TestCollectionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
+  call void @_ZN2EA8UnitTest14TestCollectionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #12
   call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
@@ -2535,14 +2531,14 @@ entry:
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %mbOwned, align 8
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   store ptr %call, ptr %it, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
   %2 = load ptr, ptr %it, align 8
   %mTests3 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call4 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests3) #13
+  %call4 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests3) #12
   %cmp = icmp ne ptr %2, %call4
   br i1 %cmp, label %for.body, label %for.end
 
@@ -2612,7 +2608,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %mpEnd = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %mpEnd, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %1 = load ptr, ptr %call, align 8
   %cmp = icmp ult ptr %0, %1
   br i1 %cmp, label %if.then, label %if.else
@@ -2682,7 +2678,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA8UnitTest14TestCollection8AddTestsEPKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pCollection) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -2713,7 +2709,7 @@ if.then:                                          ; preds = %entry
   call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str.16)
   call void @_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEEC2EmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %tests, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %4 = load ptr, ptr %pCollection.addr, align 8
-  %call2 = call noundef ptr @_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %tests) #13
+  %call2 = call noundef ptr @_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %tests) #12
   %5 = load i64, ptr %nTotalTests, align 8
   %vtable3 = load ptr, ptr %4, align 8
   %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 7
@@ -2760,11 +2756,11 @@ lpad:                                             ; preds = %invoke.cont6, %for.
   store ptr %14, ptr %exn.slot, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %ehselector.slot, align 4
-  call void @_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tests) #13
+  call void @_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tests) #12
   br label %eh.resume
 
 for.end:                                          ; preds = %for.cond
-  call void @_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tests) #13
+  call void @_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tests) #12
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
@@ -2815,7 +2811,7 @@ lpad:                                             ; preds = %entry
   store ptr %7, ptr %exn.slot, align 8
   %8 = extractvalue { ptr, i32 } %6, 1
   store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -2866,7 +2862,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -2892,14 +2888,14 @@ entry:
   store i8 %frombool, ptr %bDeleteIfOwned.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   store ptr %call, ptr %itA, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load ptr, ptr %itA, align 8
   %mTests2 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests2) #13
+  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests2) #12
   %cmp = icmp ne ptr %0, %call3
   br i1 %cmp, label %for.body, label %for.end
 
@@ -2936,7 +2932,7 @@ delete.notnull:                                   ; preds = %if.then6
   %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %10 = load ptr, ptr %vfn, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(80) %9) #13
+  call void %10(ptr noundef nonnull align 8 dereferenceable(80) %9) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then6
@@ -3023,14 +3019,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName)
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   store ptr %call, ptr %it, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load ptr, ptr %it, align 8
   %mTests2 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests2) #13
+  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests2) #12
   %cmp = icmp ne ptr %0, %call3
   br i1 %cmp, label %for.body, label %for.end
 
@@ -3078,7 +3074,7 @@ lpad:                                             ; preds = %if.then, %invoke.co
   store ptr %11, ptr %exn.slot, align 8
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot, align 4
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #12
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont4
@@ -3096,7 +3092,7 @@ for.end:                                          ; preds = %for.cond
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %invoke.cont9
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #12
   %14 = load i1, ptr %retval, align 1
   ret i1 %14
 
@@ -3134,14 +3130,14 @@ entry:
   %call = call noundef i64 @_ZN5eastl10CharStrlenIcEEmPKT_(ptr noundef %0)
   store i64 %call, ptr %n, align 8
   %1 = load ptr, ptr %a.addr, align 8
-  %call1 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
+  %call1 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   %2 = load i64, ptr %n, align 8
   %cmp = icmp eq i64 %call1, %2
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   %3 = load ptr, ptr %a.addr, align 8
-  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   %4 = load ptr, ptr %p.addr, align 8
   %5 = load i64, ptr %n, align 8
   %mul = mul i64 %5, 1
@@ -3207,14 +3203,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sNameCurrent)
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   store ptr %call, ptr %it, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load ptr, ptr %it, align 8
   %mTests2 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests2) #13
+  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests2) #12
   %cmp = icmp ne ptr %0, %call3
   br i1 %cmp, label %for.body, label %for.end
 
@@ -3252,7 +3248,7 @@ lpad:                                             ; preds = %if.then17, %invoke.
   store ptr %8, ptr %exn.slot, align 8
   %9 = extractvalue { ptr, i32 } %7, 1
   store i32 %9, ptr %ehselector.slot, align 4
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sNameCurrent) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sNameCurrent) #12
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont4
@@ -3288,7 +3284,7 @@ if.then10:                                        ; preds = %if.then7
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.then10
-  %call13 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sNameCurrent) #13
+  %call13 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sNameCurrent) #12
   %call15 = invoke noundef ptr @_ZN2EA8UnitTest14TestCollection12FindTestInfoEPKcb(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %call13, i1 noundef zeroext false)
           to label %invoke.cont14 unwind label %lpad
 
@@ -3327,7 +3323,7 @@ if.end24:                                         ; preds = %if.end23, %for.end
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end24, %invoke.cont20, %if.then
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sNameCurrent) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sNameCurrent) #12
   %22 = load ptr, ptr %retval, align 8
   ret ptr %22
 
@@ -3347,10 +3343,10 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
-  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call4 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call3) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
+  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call4 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call3) #12
   %0 = load ptr, ptr %p.addr, align 8
   %1 = load ptr, ptr %p.addr, align 8
   %2 = load ptr, ptr %p.addr, align 8
@@ -3361,7 +3357,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) #8
+declare noundef ptr @strchr(ptr noundef, i32 noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK2EA8UnitTest14TestCollection14EnumerateTestsEPPNS0_4TestEm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pTestArray, i64 noundef %nTestArrayCapacity) unnamed_addr #2 align 2 {
@@ -3381,13 +3377,13 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i64, ptr %nTestArrayCapacity.addr, align 8
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   %cmp = icmp ugt i64 %1, %call
   br i1 %cmp, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
   %mTests3 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call4 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests3) #13
+  %call4 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests3) #12
   store i64 %call4, ptr %nTestArrayCapacity.addr, align 8
   br label %if.end
 
@@ -3428,7 +3424,7 @@ for.end:                                          ; preds = %for.cond
 
 if.end8:                                          ; preds = %for.end, %entry
   %mTests9 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
-  %call10 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests9) #13
+  %call10 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests9) #12
   ret i64 %call10
 }
 
@@ -3450,7 +3446,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n) #1 comdat align 2 {
@@ -3487,9 +3483,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %mnTestResult = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 2
   store i32 -2147483647, ptr %mnTestResult, align 8
   %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
@@ -3500,27 +3498,27 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %9 = getelementptr inbounds i8, ptr %this1, i64 80
-  call void @_ZN2EA8UnitTest14TestCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = getelementptr inbounds i8, ptr %this1, i64 80
+  call void @_ZN2EA8UnitTest14TestCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN2EA8UnitTest4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #13
+  call void @_ZN2EA8UnitTest4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #12
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -3547,28 +3545,30 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %0 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(80) %this1)
+  %2 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(80) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  call void @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #13
-  %1 = getelementptr inbounds i8, ptr %this1, i64 80
-  call void @_ZN2EA8UnitTest14TestCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #13
-  call void @_ZN2EA8UnitTest4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #13
+  call void @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #12
+  %3 = getelementptr inbounds i8, ptr %this1, i64 80
+  call void @_ZN2EA8UnitTest14TestCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  call void @_ZN2EA8UnitTest4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #12
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #17
   unreachable
 }
 
@@ -3586,7 +3586,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -3598,13 +3598,13 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD1Ev(ptr noundef %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD1Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 -80
-  tail call void @_ZN2EA8UnitTest9TestSuiteD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #13
+  tail call void @_ZN2EA8UnitTest9TestSuiteD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
   ret void
 }
 
@@ -3614,19 +3614,19 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN2EA8UnitTest9TestSuiteD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #13
+  call void @_ZN2EA8UnitTest9TestSuiteD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #12
   call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD0Ev(ptr noundef %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD0Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 -80
-  tail call void @_ZN2EA8UnitTest9TestSuiteD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #13
+  tail call void @_ZN2EA8UnitTest9TestSuiteD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
   ret void
 }
 
@@ -3651,7 +3651,7 @@ if.then:                                          ; preds = %entry
   %mpTest = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %2, i32 0, i32 0
   %3 = load ptr, ptr %mpTest, align 8
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %3, i32 0, i32 1
-  %call = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #13
+  %call = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #12
   call void (i32, ptr, ...) @_ZN2EA6EAMain15ReportVerbosityEjPKcz(i32 noundef 0, ptr noundef @.str.17, ptr noundef %call)
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
@@ -3668,7 +3668,7 @@ if.then4:                                         ; preds = %if.then
   %mpTest6 = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %6, i32 0, i32 0
   %7 = load ptr, ptr %mpTest6, align 8
   %msTestName7 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %7, i32 0, i32 1
-  %call8 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName7) #13
+  %call8 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName7) #12
   %call9 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.3, i32 noundef 1128, ptr noundef @.str.18, ptr noundef %call8)
   br label %if.end
 
@@ -3691,7 +3691,7 @@ if.then15:                                        ; preds = %if.end
   %mpTest17 = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %12, i32 0, i32 0
   %13 = load ptr, ptr %mpTest17, align 8
   %msTestName18 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %13, i32 0, i32 1
-  %call19 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName18) #13
+  %call19 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName18) #12
   %call20 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.3, i32 noundef 1134, ptr noundef @.str.19, ptr noundef %call19)
   br label %if.end21
 
@@ -3744,7 +3744,7 @@ if.then40:                                        ; preds = %if.then34
   %mpTest42 = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %26, i32 0, i32 0
   %27 = load ptr, ptr %mpTest42, align 8
   %msTestName43 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %27, i32 0, i32 1
-  %call44 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName43) #13
+  %call44 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName43) #12
   %call45 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.3, i32 noundef 1148, ptr noundef @.str.20, ptr noundef %call44)
   br label %if.end46
 
@@ -3764,7 +3764,7 @@ if.then51:                                        ; preds = %if.end46
   %mpTest53 = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %30, i32 0, i32 0
   %31 = load ptr, ptr %mpTest53, align 8
   %msTestName54 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %31, i32 0, i32 1
-  %call55 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName54) #13
+  %call55 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName54) #12
   %call56 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef @.str.3, i32 noundef 1154, ptr noundef @.str.21, ptr noundef %call55)
   br label %if.end57
 
@@ -3801,14 +3801,14 @@ entry:
   %mnTestResult = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 2
   store i32 0, ptr %mnTestResult, align 8
   %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #13
+  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #12
   store ptr %call, ptr %it, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load ptr, ptr %it, align 8
   %mResults2 = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults2) #13
+  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults2) #12
   %cmp = icmp ne ptr %0, %call3
   br i1 %cmp, label %for.body, label %for.end
 
@@ -3938,14 +3938,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store ptr null, ptr %pResultInfo, align 8
   %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  %call2 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #13
+  %call2 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #12
   store ptr %call2, ptr %it, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
   %3 = load ptr, ptr %it, align 8
   %mResults3 = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  %call4 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults3) #13
+  %call4 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults3) #12
   %cmp = icmp ne ptr %3, %call4
   br i1 %cmp, label %for.body, label %for.end
 
@@ -4062,7 +4062,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %mpEnd = getelementptr inbounds %"struct.eastl::VectorBase.3", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %mpEnd, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %1 = load ptr, ptr %call, align 8
   %cmp = icmp ult ptr %0, %1
   br i1 %cmp, label %if.then, label %if.else
@@ -4152,14 +4152,14 @@ entry:
   store i8 %frombool, ptr %bDeleteIfOwned.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #13
+  %call = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #12
   store ptr %call, ptr %it, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load ptr, ptr %it, align 8
   %mResults2 = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults2) #13
+  %call3 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults2) #12
   %cmp = icmp ne ptr %0, %call3
   br i1 %cmp, label %for.body, label %for.end
 
@@ -4332,12 +4332,12 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   store ptr %call, ptr %pReportFunction, align 8
   store i64 70, ptr %kMaxHeaderWidth, align 8
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  %call3 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #13
+  %call3 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #12
   %add = add i64 %call3, 17
   store i64 %add, ptr %kBaseHeaderWidth, align 8
   %arraydecay = getelementptr inbounds [384 x i8], ptr %buffer, i64 0, i64 0
   %msTestName4 = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  %call5 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName4) #13
+  %call5 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName4) #12
   %call6 = call noundef i32 (ptr, ptr, ...) @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef %arraydecay, ptr noundef @.str.23, ptr noundef %call5)
   %arraydecay7 = getelementptr inbounds [384 x i8], ptr %buffer, i64 0, i64 0
   %3 = load i64, ptr %kBaseHeaderWidth, align 8
@@ -4354,14 +4354,14 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %arraydecay10 = getelementptr inbounds [384 x i8], ptr %buffer, i64 0, i64 0
   call void %5(ptr noundef %arraydecay10)
   %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  %call11 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #13
+  %call11 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults) #12
   store ptr %call11, ptr %it, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
   %6 = load ptr, ptr %it, align 8
   %mResults12 = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
-  %call13 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults12) #13
+  %call13 = call noundef ptr @_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %mResults12) #12
   %cmp = icmp ne ptr %6, %call13
   br i1 %cmp, label %for.body, label %for.end
 
@@ -4388,12 +4388,12 @@ if.then15:                                        ; preds = %for.body
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then15
-  %call18 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sName) #13
+  %call18 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sName) #12
   invoke void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef @.str.24, ptr noundef %call18)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #12
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont, %if.then15
@@ -4403,7 +4403,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   store ptr %15, ptr %exn.slot, align 8
   %16 = extractvalue { ptr, i32 } %14, 1
   store i32 %16, ptr %ehselector.slot, align 4
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #12
   br label %eh.resume
 
 if.else:                                          ; preds = %for.body
@@ -4519,21 +4519,23 @@ entry:
   %0 = load ptr, ptr %pTestApplicationName.addr, align 8
   %call = call noundef ptr @_ZN2EA6EAMain17GetReportFunctionEv()
   call void @_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %mArgc = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %argc.addr, align 4
-  store i32 %1, ptr %mArgc, align 8
+  %3 = load i32, ptr %argc.addr, align 4
+  store i32 %3, ptr %mArgc, align 8
   %mArgv = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %argv.addr, align 8
-  store ptr %2, ptr %mArgv, align 8
+  %4 = load ptr, ptr %argv.addr, align 8
+  store ptr %4, ptr %mArgv, align 8
   %mpInitFunction = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %pInitFunction.addr, align 8
-  store ptr %3, ptr %mpInitFunction, align 8
+  %5 = load ptr, ptr %pInitFunction.addr, align 8
+  store ptr %5, ptr %mpInitFunction, align 8
   %mpShutdownFunction = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %pShutdownFunction.addr, align 8
-  store ptr %4, ptr %mpShutdownFunction, align 8
+  %6 = load ptr, ptr %pShutdownFunction.addr, align 8
+  store ptr %6, ptr %mpShutdownFunction, align 8
   ret void
 }
 
@@ -4545,18 +4547,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN2EA8UnitTest9TestSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #13
+  call void @_ZN2EA8UnitTest9TestSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD1Ev(ptr noundef %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD1Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 -80
-  tail call void @_ZN2EA8UnitTest15TestApplicationD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #13
+  tail call void @_ZN2EA8UnitTest15TestApplicationD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #12
   ret void
 }
 
@@ -4566,19 +4568,19 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN2EA8UnitTest15TestApplicationD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #13
+  call void @_ZN2EA8UnitTest15TestApplicationD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #12
   call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD0Ev(ptr noundef %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD0Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 -80
-  tail call void @_ZN2EA8UnitTest15TestApplicationD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #13
+  tail call void @_ZN2EA8UnitTest15TestApplicationD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #12
   ret void
 }
 
@@ -4764,7 +4766,7 @@ lpad:                                             ; preds = %invoke.cont201, %if
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #13
+  call void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #12
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont2, %invoke.cont
@@ -4889,7 +4891,7 @@ invoke.cont38:                                    ; preds = %if.end37
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %invoke.cont38
-  call void asm sideeffect "int3", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !21
+  call void asm sideeffect "int3", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !21
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %invoke.cont38
@@ -5112,7 +5114,7 @@ invoke.cont125:                                   ; preds = %land.lhs.true124
 if.then128:                                       ; preds = %invoke.cont125
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %add.ptr, i32 0, i32 1
-  %call129 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call129 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   %25 = load i64, ptr %nTestCount, align 8
   %add = add i64 %25, %call129
   store i64 %add, ptr %nTestCount, align 8
@@ -5166,7 +5168,7 @@ invoke.cont144:                                   ; preds = %while.body143
 if.then147:                                       ; preds = %invoke.cont144
   %add.ptr148 = getelementptr inbounds i8, ptr %this1, i64 80
   %mTests149 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %add.ptr148, i32 0, i32 1
-  %call150 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests149) #13
+  %call150 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests149) #12
   %31 = load i64, ptr %nTestCount, align 8
   %add151 = add i64 %31, %call150
   store i64 %add151, ptr %nTestCount, align 8
@@ -5336,7 +5338,7 @@ invoke.cont202:                                   ; preds = %invoke.cont201
 
 if.end204:                                        ; preds = %invoke.cont202, %if.end198
   %51 = load i32, ptr %nTestResult, align 4
-  call void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #13
+  call void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #12
   ret i32 %51
 
 eh.resume:                                        ; preds = %lpad
@@ -5385,7 +5387,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 invoke.cont7:                                     ; preds = %invoke.cont6
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %add.ptr, i32 0, i32 1
-  %call = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   %cmp = icmp uge i64 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -5432,13 +5434,13 @@ lpad10:                                           ; preds = %invoke.cont57, %inv
   store ptr %9, ptr %exn.slot, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %ehselector.slot, align 4
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #12
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont13, %invoke.cont7
   %add.ptr14 = getelementptr inbounds i8, ptr %this1, i64 80
   %mTests15 = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %add.ptr14, i32 0, i32 1
-  %call16 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests15) #13
+  %call16 = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests15) #12
   %cmp17 = icmp uge i64 %call16, 2
   br i1 %cmp17, label %if.then18, label %if.end27
 
@@ -5462,7 +5464,7 @@ invoke.cont26:                                    ; preds = %invoke.cont21
 
 if.end27:                                         ; preds = %invoke.cont26, %if.end
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
-  %call28 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #13
+  %call28 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #12
   invoke void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef @.str.54, ptr noundef %call28)
           to label %invoke.cont29 unwind label %lpad10
 
@@ -5531,21 +5533,21 @@ invoke.cont44:                                    ; preds = %invoke.cont43
           to label %invoke.cont45 unwind label %lpad10
 
 invoke.cont45:                                    ; preds = %invoke.cont44
-  %call46 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #13
+  %call46 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #12
   invoke void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef @.str.70, ptr noundef %call46)
           to label %invoke.cont47 unwind label %lpad10
 
 invoke.cont47:                                    ; preds = %invoke.cont45
-  %call48 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #13
-  %call49 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sTestName1) #13
-  %call50 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sTestName2) #13
+  %call48 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #12
+  %call49 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sTestName1) #12
+  %call50 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sTestName2) #12
   invoke void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef @.str.71, ptr noundef %call48, ptr noundef %call49, ptr noundef %call50)
           to label %invoke.cont51 unwind label %lpad10
 
 invoke.cont51:                                    ; preds = %invoke.cont47
-  %call52 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #13
-  %call53 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sTestName1) #13
-  %call54 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sTestName2) #13
+  %call52 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #12
+  %call53 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sTestName1) #12
+  %call54 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sTestName2) #12
   invoke void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef @.str.72, ptr noundef %call52, ptr noundef %call53, ptr noundef %call54)
           to label %invoke.cont55 unwind label %lpad10
 
@@ -5562,17 +5564,17 @@ invoke.cont57:                                    ; preds = %invoke.cont56
           to label %invoke.cont58 unwind label %lpad10
 
 invoke.cont58:                                    ; preds = %invoke.cont57
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #13
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestName2) #13
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestName1) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sAppName) #12
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestName2) #12
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestName1) #12
   ret void
 
 ehcleanup:                                        ; preds = %lpad10, %lpad5
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestName2) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestName2) #12
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %ehcleanup, %lpad
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestName1) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sTestName1) #12
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup59
@@ -5630,7 +5632,7 @@ entry:
   store i64 0, ptr %i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %add.ptr, i32 0, i32 1
-  %call = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #13
+  %call = call noundef i64 @_ZNK5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %mTests) #12
   store i64 %call, ptr %iEnd, align 8
   br label %for.cond
 
@@ -5659,7 +5661,7 @@ invoke.cont:                                      ; preds = %for.body
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %call6 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sName) #13
+  %call6 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(24) %sName) #12
   invoke void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef @.str.74, ptr noundef %call6)
           to label %invoke.cont7 unwind label %lpad
 
@@ -5679,11 +5681,11 @@ lpad:                                             ; preds = %invoke.cont5, %invo
   store ptr %9, ptr %exn.slot, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %ehselector.slot, align 4
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #12
   br label %eh.resume
 
 for.end:                                          ; preds = %for.cond
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sName) #12
   ret void
 
 eh.resume:                                        ; preds = %lpad
@@ -5697,7 +5699,7 @@ eh.resume:                                        ; preds = %lpad
 declare i32 @getchar() #3
 
 ; Function Attrs: nounwind
-declare void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #7
+declare void @_ZN2EA6EAMain11CommandLineD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n) #1 comdat align 2 {
@@ -5724,7 +5726,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !24
 
 init.check:                                       ; preds = %entry
-  %1 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #13
+  %1 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #12
   %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %init, label %init.end
 
@@ -5733,8 +5735,8 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  %2 = call i32 @__cxa_atexit(ptr @_ZN2EA8UnitTest14TestCollectionD1Ev, ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, ptr @__dso_handle) #13
-  call void @__cxa_guard_release(ptr @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #13
+  %2 = call i32 @__cxa_atexit(ptr @_ZN2EA8UnitTest14TestCollectionD1Ev, ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, ptr @__dso_handle) #12
+  call void @__cxa_guard_release(ptr @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #12
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -5747,7 +5749,7 @@ lpad:                                             ; preds = %init
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @__cxa_guard_abort(ptr @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #13
+  call void @__cxa_guard_abort(ptr @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #12
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -5759,16 +5761,16 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_guard_acquire(ptr) #13
+declare i32 @__cxa_guard_acquire(ptr) #12
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) #13
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #12
 
 ; Function Attrs: nounwind
-declare void @__cxa_guard_abort(ptr) #13
+declare void @__cxa_guard_abort(ptr) #12
 
 ; Function Attrs: nounwind
-declare void @__cxa_guard_release(ptr) #13
+declare void @__cxa_guard_release(ptr) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2EA8UnitTest12TestFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 comdat align 2 {
@@ -5776,7 +5778,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN2EA8UnitTest4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #13
+  call void @_ZN2EA8UnitTest4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #12
   ret void
 }
 
@@ -5786,7 +5788,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN2EA8UnitTest12TestFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #13
+  call void @_ZN2EA8UnitTest12TestFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #12
   call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
@@ -5912,15 +5914,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br i1 %call, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout12HeapBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout12HeapBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call3 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout11SSOBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout11SSOBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -5996,15 +5998,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   br i1 %call2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call4 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call3) #13
-  %call5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call6 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout15GetHeapCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %call5) #13
+  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call4 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call3) #12
+  %call5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call6 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout15GetHeapCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %call5) #12
   %add = add i64 %call6, 1
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6DoFreeEPcm(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %call4, i64 noundef %add)
   br label %if.end
@@ -6049,7 +6051,7 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE13get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE13get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %1 = load ptr, ptr %p.addr, align 8
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 1
@@ -6066,15 +6068,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br i1 %call, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout12HeapBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call2 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout12HeapBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call3 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SSOBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SSOBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -6121,7 +6123,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   ret ptr %call
 }
 
@@ -6284,7 +6286,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10ResetToSSOEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10ResetToSSOEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   ret void
 }
 
@@ -6294,9 +6296,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SSOBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SSOBeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   store i8 0, ptr %call, align 1
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10SetSSOSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef 0) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10SetSSOSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef 0) #12
   ret void
 }
 
@@ -6339,11 +6341,11 @@ entry:
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE12AllocateSelfEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %2)
   %3 = load ptr, ptr %pBegin.addr, align 8
   %4 = load ptr, ptr %pEnd.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   %call3 = call noundef ptr @_ZN5eastl27CharStringUninitializedCopyIcEEPT_PKS1_S4_S2_(ptr noundef %3, ptr noundef %4, ptr noundef %call2)
-  %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call5 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call4) #13
+  %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call5 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call4) #12
   store i8 0, ptr %call5, align 1
   ret void
 }
@@ -6397,21 +6399,21 @@ if.then:                                          ; preds = %entry
   %add = add i64 %1, 1
   %call = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE10DoAllocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %add)
   store ptr %call, ptr %pBegin, align 8
-  %call2 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call2 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %2 = load ptr, ptr %pBegin, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout15SetHeapBeginPtrEPc(ptr noundef nonnull align 8 dereferenceable(24) %call2, ptr noundef %2) #13
-  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout15SetHeapBeginPtrEPc(ptr noundef nonnull align 8 dereferenceable(24) %call2, ptr noundef %2) #12
+  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %3 = load i64, ptr %n.addr, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout15SetHeapCapacityEm(ptr noundef nonnull align 8 dereferenceable(24) %call3, i64 noundef %3) #13
-  %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout15SetHeapCapacityEm(ptr noundef nonnull align 8 dereferenceable(24) %call3, i64 noundef %3) #12
+  %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %4 = load i64, ptr %n.addr, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SetHeapSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call4, i64 noundef %4) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SetHeapSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call4, i64 noundef %4) #12
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %5 = load i64, ptr %n.addr, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10SetSSOSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call5, i64 noundef %5) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10SetSSOSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call5, i64 noundef %5) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -6452,15 +6454,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br i1 %call, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10HeapEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call2 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10HeapEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call3 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout9SSOEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout9SSOEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -6476,7 +6478,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %n, ptr %n.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE13get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE13get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %0 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %0, 1
   %call2 = call noundef ptr @_ZN5eastl9allocator8allocateEmi(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %mul, i32 noundef 0)
@@ -6547,7 +6549,7 @@ entry:
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10HeapEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
@@ -6574,7 +6576,7 @@ entry:
   %0 = getelementptr inbounds %"struct.eastl::basic_string<char>::Layout", ptr %this1, i32 0, i32 0
   %mData = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %0, i32 0, i32 0
   %arraydecay = getelementptr inbounds [23 x i8], ptr %mData, i64 0, i64 0
-  %call = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10GetSSOSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10GetSSOSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %call
   ret ptr %add.ptr
 }
@@ -6600,15 +6602,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br i1 %call, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout11GetHeapSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout11GetHeapSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call3 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10GetSSOSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10GetSSOSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -6646,8 +6648,8 @@ entry:
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %n, align 8
   %2 = load i64, ptr %n, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   %cmp = icmp ule i64 %2, %call2
   br i1 %cmp, label %if.then, label %if.else
 
@@ -6657,8 +6659,8 @@ if.then:                                          ; preds = %entry
   br i1 %tobool, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call5 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call4) #13
+  %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call5 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call4) #12
   %4 = load ptr, ptr %pBegin.addr, align 8
   %5 = load i64, ptr %n, align 8
   %mul = mul i64 %5, 1
@@ -6666,26 +6668,26 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %call6 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call7 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call6) #13
+  %call6 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call7 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call6) #12
   %6 = load i64, ptr %n, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call7, i64 %6
-  %call8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call9 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call8) #13
+  %call8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call9 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call8) #12
   %call10 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE5eraseEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %add.ptr, ptr noundef %call9)
   br label %if.end20
 
 if.else:                                          ; preds = %entry
-  %call11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call12 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call11) #13
+  %call11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call12 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call11) #12
   %7 = load ptr, ptr %pBegin.addr, align 8
-  %call13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call14 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call13) #13
+  %call13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call14 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call13) #12
   %mul15 = mul i64 %call14, 1
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %call12, ptr align 1 %7, i64 %mul15, i1 false)
   %8 = load ptr, ptr %pBegin.addr, align 8
-  %call16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call17 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call16) #13
+  %call16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call17 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call16) #12
   %add.ptr18 = getelementptr inbounds i8, ptr %8, i64 %call17
   %9 = load ptr, ptr %pEnd.addr, align 8
   %call19 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %add.ptr18, ptr noundef %9)
@@ -6714,8 +6716,8 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %pBegin.addr, align 8
   %3 = load ptr, ptr %pEnd.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   %4 = load ptr, ptr %pEnd.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %call2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %4 to i64
@@ -6729,12 +6731,12 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast4 = ptrtoint ptr %6 to i64
   %sub.ptr.sub5 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast4
   store i64 %sub.ptr.sub5, ptr %n, align 8
-  %call6 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call8 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call7) #13
+  %call6 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call8 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call7) #12
   %7 = load i64, ptr %n, align 8
   %sub = sub i64 %call8, %7
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call6, i64 noundef %sub) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call6, i64 noundef %sub) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -6766,8 +6768,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   store i64 %call2, ptr %nOldSize, align 8
   %2 = load ptr, ptr %pEnd.addr, align 8
   %3 = load ptr, ptr %pBegin.addr, align 8
@@ -6775,7 +6777,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %n, align 8
-  %call3 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   store i64 %call3, ptr %nCapacity, align 8
   %4 = load i64, ptr %nOldSize, align 8
   %5 = load i64, ptr %n, align 8
@@ -6797,10 +6799,10 @@ if.then5:                                         ; preds = %if.then
   %add7 = add i64 %11, 1
   %call8 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE10DoAllocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %add7)
   store ptr %call8, ptr %pNewBegin, align 8
-  %call9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call10 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call9) #13
-  %call11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call12 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call11) #13
+  %call9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call10 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout8BeginPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call9) #12
+  %call11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call12 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call11) #12
   %12 = load ptr, ptr %pNewBegin, align 8
   %call13 = call noundef ptr @_ZN5eastl27CharStringUninitializedCopyIcEEPT_PKS1_S4_S2_(ptr noundef %call10, ptr noundef %call12, ptr noundef %12)
   store ptr %call13, ptr %pNewEnd, align 8
@@ -6812,29 +6814,29 @@ if.then5:                                         ; preds = %if.then
   %16 = load ptr, ptr %pNewEnd, align 8
   store i8 0, ptr %16, align 1
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %call15 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call15 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %17 = load ptr, ptr %pNewBegin, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout15SetHeapBeginPtrEPc(ptr noundef nonnull align 8 dereferenceable(24) %call15, ptr noundef %17) #13
-  %call16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout15SetHeapBeginPtrEPc(ptr noundef nonnull align 8 dereferenceable(24) %call15, ptr noundef %17) #12
+  %call16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %18 = load i64, ptr %nLength, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout15SetHeapCapacityEm(ptr noundef nonnull align 8 dereferenceable(24) %call16, i64 noundef %18) #13
-  %call17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout15SetHeapCapacityEm(ptr noundef nonnull align 8 dereferenceable(24) %call16, i64 noundef %18) #12
+  %call17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %19 = load i64, ptr %nNewSize, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SetHeapSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call17, i64 noundef %19) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SetHeapSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call17, i64 noundef %19) #12
   br label %if.end
 
 if.else:                                          ; preds = %if.then
   %20 = load ptr, ptr %pBegin.addr, align 8
   %21 = load ptr, ptr %pEnd.addr, align 8
-  %call19 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call20 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call19) #13
+  %call19 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call20 = call noundef ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout6EndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %call19) #12
   %call21 = call noundef ptr @_ZN5eastl27CharStringUninitializedCopyIcEEPT_PKS1_S4_S2_(ptr noundef %20, ptr noundef %21, ptr noundef %call20)
   store ptr %call21, ptr %pNewEnd18, align 8
   %22 = load ptr, ptr %pNewEnd18, align 8
   store i8 0, ptr %22, align 1
-  %call22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %23 = load i64, ptr %nNewSize, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call22, i64 noundef %23) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %call22, i64 noundef %23) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then5
@@ -6852,17 +6854,17 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br i1 %call, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   %0 = load i64, ptr %size.addr, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SetHeapSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout11SetHeapSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0) #12
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   %1 = load i64, ptr %size.addr, align 8
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10SetSSOSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %1) #13
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10SetSSOSizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %1) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -6876,13 +6878,13 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   br i1 %call2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call4 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout15GetHeapCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %call3) #13
+  %call3 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call4 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout15GetHeapCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %call3) #12
   store i64 %call4, ptr %retval, align 8
   br label %return
 
@@ -7017,10 +7019,10 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %mpBegin2 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %mpBegin2, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %2 = load ptr, ptr %call3, align 8
   %mpBegin4 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this1, i32 0, i32 0
   %3 = load ptr, ptr %mpBegin4, align 8
@@ -7177,7 +7179,7 @@ entry:
   store ptr %call5, ptr %pNewEnd, align 8
   %7 = load ptr, ptr %pNewEnd, align 8
   %8 = load ptr, ptr %args.addr, align 8
-  %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardIRKN2EA8UnitTest14TestCollection8TestInfoEEEOT_RNS_16remove_referenceIS7_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
+  %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardIRKN2EA8UnitTest14TestCollection8TestInfoEEEOT_RNS_16remove_referenceIS7_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %call6, i64 16, i1 false)
   %9 = load ptr, ptr %pNewEnd, align 8
   %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %9, i32 1
@@ -7189,7 +7191,7 @@ entry:
   call void @_ZN5eastl8destructIPN2EA8UnitTest14TestCollection8TestInfoEEEvT_S6_(ptr noundef %10, ptr noundef %11)
   %mpBegin9 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this1, i32 0, i32 0
   %12 = load ptr, ptr %mpBegin9, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %13 = load ptr, ptr %call10, align 8
   %mpBegin11 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this1, i32 0, i32 0
   %14 = load ptr, ptr %mpBegin11, align 8
@@ -7207,7 +7209,7 @@ entry:
   %17 = load ptr, ptr %pNewData, align 8
   %18 = load i64, ptr %nNewSize, align 8
   %add.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %17, i64 %18
-  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   store ptr %add.ptr, ptr %call18, align 8
   ret void
 }
@@ -7253,7 +7255,7 @@ entry:
   br i1 %lnot2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %1 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %1, 16
   %call3 = call noundef ptr @_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %mul, i64 noundef 8, i64 noundef 0)
@@ -7311,7 +7313,7 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %1 = load ptr, ptr %p.addr, align 8
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 16
@@ -7685,7 +7687,7 @@ entry:
   %3 = load ptr, ptr %mpBegin3, align 8
   %4 = load i64, ptr %n.addr, align 8
   %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %4
-  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   store ptr %add.ptr, ptr %call4, align 8
   ret void
 }
@@ -7709,7 +7711,7 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 for.body:                                         ; preds = %for.cond
   %2 = load ptr, ptr %currentDest, align 8
-  %call = call noundef ptr @_ZN5eastl9addressofIPN2EA8UnitTest4TestEEEPT_RS5_(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %call = call noundef ptr @_ZN5eastl9addressofIPN2EA8UnitTest4TestEEEPT_RS5_(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   store ptr null, ptr %call, align 8
   br label %for.inc
 
@@ -7739,10 +7741,10 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %mpBegin2 = getelementptr inbounds %"struct.eastl::VectorBase.7", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %mpBegin2, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %2 = load ptr, ptr %call3, align 8
   %mpBegin4 = getelementptr inbounds %"struct.eastl::VectorBase.7", ptr %this1, i32 0, i32 0
   %3 = load ptr, ptr %mpBegin4, align 8
@@ -7788,7 +7790,7 @@ entry:
   br i1 %lnot2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIPN2EA8UnitTest4TestENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %1 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %1, 8
   %call3 = call noundef ptr @_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %mul, i64 noundef 8, i64 noundef 0)
@@ -8039,8 +8041,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10ResetToSSOEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  call void @_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout10ResetToSSOEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   ret void
 }
 
@@ -8050,13 +8052,13 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #13
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE14internalLayoutEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
+  %call2 = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %call) #12
   ret i64 %call2
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #8
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN5eastl12basic_stringIcNS_9allocatorEE8compareiEPKcS4_S4_S4_(ptr noundef %pBegin1, ptr noundef %pEnd1, ptr noundef %pBegin2, ptr noundef %pEnd2) #2 comdat align 2 {
@@ -8133,15 +8135,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef zeroext i1 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout6IsHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br i1 %call, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10HeapEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call2 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10HeapEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call3 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout9SSOEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout9SSOEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -8256,7 +8258,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) #8
+declare i32 @tolower(i32 noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10HeapEndPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
@@ -8283,7 +8285,7 @@ entry:
   %0 = getelementptr inbounds %"struct.eastl::basic_string<char>::Layout", ptr %this1, i32 0, i32 0
   %mData = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %0, i32 0, i32 0
   %arraydecay = getelementptr inbounds [23 x i8], ptr %mData, i64 0, i64 0
-  %call = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10GetSSOSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef i64 @_ZNK5eastl12basic_stringIcNS_9allocatorEE6Layout10GetSSOSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %call
   ret ptr %add.ptr
 }
@@ -8364,10 +8366,10 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %mpBegin2 = getelementptr inbounds %"struct.eastl::VectorBase.3", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %mpBegin2, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %2 = load ptr, ptr %call3, align 8
   %mpBegin4 = getelementptr inbounds %"struct.eastl::VectorBase.3", ptr %this1, i32 0, i32 0
   %3 = load ptr, ptr %mpBegin4, align 8
@@ -8510,7 +8512,7 @@ entry:
   store ptr %call5, ptr %pNewEnd, align 8
   %7 = load ptr, ptr %pNewEnd, align 8
   %8 = load ptr, ptr %args.addr, align 8
-  %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardIRKN2EA8UnitTest9TestSuite10ResultInfoEEEOT_RNS_16remove_referenceIS7_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
+  %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl7forwardIRKN2EA8UnitTest9TestSuite10ResultInfoEEEOT_RNS_16remove_referenceIS7_E4typeE(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %call6, i64 16, i1 false)
   %9 = load ptr, ptr %pNewEnd, align 8
   %incdec.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %9, i32 1
@@ -8522,7 +8524,7 @@ entry:
   call void @_ZN5eastl8destructIPN2EA8UnitTest9TestSuite10ResultInfoEEEvT_S6_(ptr noundef %10, ptr noundef %11)
   %mpBegin9 = getelementptr inbounds %"struct.eastl::VectorBase.3", ptr %this1, i32 0, i32 0
   %12 = load ptr, ptr %mpBegin9, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %13 = load ptr, ptr %call10, align 8
   %mpBegin11 = getelementptr inbounds %"struct.eastl::VectorBase.3", ptr %this1, i32 0, i32 0
   %14 = load ptr, ptr %mpBegin11, align 8
@@ -8540,7 +8542,7 @@ entry:
   %17 = load ptr, ptr %pNewData, align 8
   %18 = load i64, ptr %nNewSize, align 8
   %add.ptr = getelementptr inbounds %"struct.EA::UnitTest::TestSuite::ResultInfo", ptr %17, i64 %18
-  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE19internalCapacityPtrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   store ptr %add.ptr, ptr %call18, align 8
   ret void
 }
@@ -8586,7 +8588,7 @@ entry:
   br i1 %lnot2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %1 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %1, 16
   %call3 = call noundef ptr @_ZN5eastl15allocate_memoryINS_9allocatorEEEPvRT_mmm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %mul, i64 noundef 8, i64 noundef 0)
@@ -8644,7 +8646,7 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl10VectorBaseIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE17internalAllocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #12
   %1 = load ptr, ptr %p.addr, align 8
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 16
@@ -9039,20 +9041,29 @@ entry:
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
+attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { nocallback nofree nosync nounwind willreturn }
 attributes #14 = { builtin allocsize(0) }
 attributes #15 = { builtin nounwind }
 attributes #16 = { nounwind willreturn memory(read) }

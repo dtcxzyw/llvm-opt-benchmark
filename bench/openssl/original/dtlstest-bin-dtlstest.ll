@@ -225,21 +225,22 @@ if.end23:                                         ; preds = %if.end16
   br i1 %cmp24, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end23
-  store i8 -1, ptr getelementptr inbounds ([35 x i8], ptr @certstatus, i64 0, i64 10), align 2
+  %9 = getelementptr inbounds [35 x i8], ptr @certstatus, i64 0, i64 10
+  store i8 -1, ptr %9, align 2
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end23
-  %9 = load ptr, ptr %clientssl1, align 8
-  %call28 = call ptr @SSL_get_wbio(ptr noundef %9)
+  %10 = load ptr, ptr %clientssl1, align 8
+  %call28 = call ptr @SSL_get_wbio(ptr noundef %10)
   store ptr %call28, ptr %c_to_s_mempacket, align 8
-  %10 = load ptr, ptr %c_to_s_mempacket, align 8
-  %call29 = call ptr @BIO_next(ptr noundef %10)
-  store ptr %call29, ptr %c_to_s_mempacket, align 8
   %11 = load ptr, ptr %c_to_s_mempacket, align 8
-  %call30 = call i32 @mempacket_test_inject(ptr noundef %11, ptr noundef @certstatus, i32 noundef 35, i32 noundef 1, i32 noundef 2)
-  %12 = load ptr, ptr %serverssl1, align 8
-  %13 = load ptr, ptr %clientssl1, align 8
-  %call31 = call i32 @create_bare_ssl_connection(ptr noundef %12, ptr noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call29 = call ptr @BIO_next(ptr noundef %11)
+  store ptr %call29, ptr %c_to_s_mempacket, align 8
+  %12 = load ptr, ptr %c_to_s_mempacket, align 8
+  %call30 = call i32 @mempacket_test_inject(ptr noundef %12, ptr noundef @certstatus, i32 noundef 35, i32 noundef 1, i32 noundef 2)
+  %13 = load ptr, ptr %serverssl1, align 8
+  %14 = load ptr, ptr %clientssl1, align 8
+  %call31 = call i32 @create_bare_ssl_connection(ptr noundef %13, ptr noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %cmp32 = icmp ne i32 %call31, 0
   %conv33 = zext i1 %cmp32 to i32
   %call34 = call i32 @test_true(ptr noundef @.str.14, i32 noundef 128, ptr noundef @.str.30, i32 noundef %conv33)
@@ -250,8 +251,8 @@ if.then36:                                        ; preds = %if.end27
   br label %end
 
 if.end37:                                         ; preds = %if.end27
-  %14 = load i32, ptr @timer_cb_count, align 4
-  %cmp38 = icmp eq i32 %14, 0
+  %15 = load i32, ptr @timer_cb_count, align 4
+  %cmp38 = icmp eq i32 %15, 0
   br i1 %cmp38, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %if.end37
@@ -263,21 +264,21 @@ if.end42:                                         ; preds = %if.end37
   br label %end
 
 end:                                              ; preds = %if.end42, %if.then40, %if.then36, %if.then22, %if.then15, %if.then9
-  %15 = load ptr, ptr %serverssl1, align 8
-  call void @SSL_free(ptr noundef %15)
-  %16 = load ptr, ptr %clientssl1, align 8
+  %16 = load ptr, ptr %serverssl1, align 8
   call void @SSL_free(ptr noundef %16)
-  %17 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %17)
-  %18 = load ptr, ptr %cctx, align 8
+  %17 = load ptr, ptr %clientssl1, align 8
+  call void @SSL_free(ptr noundef %17)
+  %18 = load ptr, ptr %sctx, align 8
   call void @SSL_CTX_free(ptr noundef %18)
-  %19 = load i32, ptr %testresult, align 4
-  store i32 %19, ptr %retval, align 4
+  %19 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %19)
+  %20 = load i32, ptr %testresult, align 4
+  store i32 %20, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %end, %if.then
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+  %21 = load i32, ptr %retval, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable

@@ -147,13 +147,16 @@ entry:
   %3 = load ptr, ptr %session_.addr, align 8
   %4 = load ptr, ptr %peer_address_.addr, align 8
   %5 = load ptr, ptr %options_.addr, align 8
-  invoke void @_ZN3zmq12zap_client_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN3zmq16null_mechanism_tE, i64 0, i64 1), ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(1336) %5)
+  %6 = getelementptr inbounds [4 x ptr], ptr @_ZTTN3zmq16null_mechanism_tE, i64 0, i64 1
+  invoke void @_ZN3zmq12zap_client_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %6, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(1336) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq16null_mechanism_tE, i32 0, i32 0, i32 3), ptr %this1, align 8
+  %7 = getelementptr inbounds { [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq16null_mechanism_tE, i32 0, i32 0, i32 3
+  store ptr %7, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq16null_mechanism_tE, i32 0, i32 1, i32 10), ptr %add.ptr, align 8
+  %8 = getelementptr inbounds { [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq16null_mechanism_tE, i32 0, i32 1, i32 10
+  store ptr %8, ptr %add.ptr, align 8
   %_ready_command_sent = getelementptr inbounds %"class.zmq::null_mechanism_t", ptr %this1, i32 0, i32 1
   store i8 0, ptr %_ready_command_sent, align 8
   %_error_command_sent = getelementptr inbounds %"class.zmq::null_mechanism_t", ptr %this1, i32 0, i32 2
@@ -169,14 +172,14 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %9 = getelementptr inbounds i8, ptr %this1, i64 80
-  call void @_ZN3zmq16mechanism_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %9) #11
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = getelementptr inbounds i8, ptr %this1, i64 80
+  call void @_ZN3zmq16mechanism_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %12) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad

@@ -373,9 +373,10 @@ define linkonce_odr void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IOReader", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss8IOReaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IOReader", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   ret void
 }
 
@@ -465,9 +466,10 @@ define linkonce_odr void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss8IOWriterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   ret void
 }
 
@@ -529,9 +531,10 @@ define linkonce_odr void @_ZN5faiss14VectorIOWriterD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14VectorIOWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::VectorIOWriter", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss14VectorIOWriterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::VectorIOWriter", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   call void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
   ret void
 }
@@ -652,9 +655,10 @@ define linkonce_odr void @_ZN5faiss14VectorIOReaderD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14VectorIOReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::VectorIOReader", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss14VectorIOReaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::VectorIOReader", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   call void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   ret void
 }
@@ -920,9 +924,10 @@ define linkonce_odr void @_ZN5faiss16BufferedIOReaderD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOReaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   call void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   ret void
 }
@@ -1272,9 +1277,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 }
@@ -2472,12 +2478,13 @@ define void @_ZN5faiss12FileIOReaderC2EP8_IO_FILE(ptr noundef nonnull align 8 de
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5faiss8IOReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
   ret void
 }
 
@@ -2486,9 +2493,10 @@ define linkonce_odr void @_ZN5faiss8IOReaderC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IOReader", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss8IOReaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IOReader", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   ret void
 }
 
@@ -2507,129 +2515,130 @@ define void @_ZN5faiss12FileIOReaderC2EPKc(ptr noundef nonnull align 8 dereferen
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN5faiss8IOReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 1
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 2
-  store i8 0, ptr %11, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"struct.faiss::IOReader", ptr %9, i32 0, i32 1
-  %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %12)
-          to label %15 unwind label %45
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 1
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 2
+  store i8 0, ptr %12, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"struct.faiss::IOReader", ptr %9, i32 0, i32 1
+  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %13)
+          to label %16 unwind label %46
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  %17 = invoke noalias ptr @fopen(ptr noundef %16, ptr noundef @.str.5)
-          to label %18 unwind label %45
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8
+  %18 = invoke noalias ptr @fopen(ptr noundef %17, ptr noundef @.str.5)
+          to label %19 unwind label %46
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 1
-  store ptr %17, ptr %19, align 8
-  br label %20
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 1
+  store ptr %18, ptr %20, align 8
+  br label %21
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %60, label %24
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %61, label %25
 
-24:                                               ; preds = %20
-  br label %25
+25:                                               ; preds = %21
+  br label %26
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %26 = load ptr, ptr %4, align 8
-  %27 = call ptr @__errno_location() #17
-  %28 = load i32, ptr %27, align 4
-  %29 = call ptr @strerror(i32 noundef %28) #12
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef %26, ptr noundef %29) #12
-  store i32 %30, ptr %8, align 4
-  %31 = load i32, ptr %8, align 4
-  %32 = add nsw i32 %31, 1
-  %33 = sext i32 %32 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %33)
-          to label %34 unwind label %49
+  %27 = load ptr, ptr %4, align 8
+  %28 = call ptr @__errno_location() #17
+  %29 = load i32, ptr %28, align 4
+  %30 = call ptr @strerror(i32 noundef %29) #12
+  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef %27, ptr noundef %30) #12
+  store i32 %31, ptr %8, align 4
+  %32 = load i32, ptr %8, align 4
+  %33 = add nsw i32 %32, 1
+  %34 = sext i32 %33 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %34)
+          to label %35 unwind label %50
 
-34:                                               ; preds = %25
-  %35 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
-          to label %36 unwind label %49
+35:                                               ; preds = %26
+  %36 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
+          to label %37 unwind label %50
 
-36:                                               ; preds = %34
-  %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %38 = load ptr, ptr %4, align 8
-  %39 = call ptr @__errno_location() #17
-  %40 = load i32, ptr %39, align 4
-  %41 = call ptr @strerror(i32 noundef %40) #12
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %35, i64 noundef %37, ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef %38, ptr noundef %41) #12
-  %43 = call ptr @__cxa_allocate_exception(i64 40) #12
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss12FileIOReaderC2EPKc, ptr noundef @.str.1, i32 noundef 68)
-          to label %44 unwind label %53
+37:                                               ; preds = %35
+  %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %39 = load ptr, ptr %4, align 8
+  %40 = call ptr @__errno_location() #17
+  %41 = load i32, ptr %40, align 4
+  %42 = call ptr @strerror(i32 noundef %41) #12
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %36, i64 noundef %38, ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef %39, ptr noundef %42) #12
+  %44 = call ptr @__cxa_allocate_exception(i64 40) #12
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss12FileIOReaderC2EPKc, ptr noundef @.str.1, i32 noundef 68)
+          to label %45 unwind label %54
 
-44:                                               ; preds = %36
-  invoke void @__cxa_throw(ptr %43, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #13
-          to label %70 unwind label %49
+45:                                               ; preds = %37
+  invoke void @__cxa_throw(ptr %44, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #13
+          to label %71 unwind label %50
 
-45:                                               ; preds = %15, %2
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %16, %2
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  br label %64
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
+  br label %65
 
-49:                                               ; preds = %44, %34, %25
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %45, %35, %26
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  br label %57
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  br label %58
 
-53:                                               ; preds = %36
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %37
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %5, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %6, align 4
-  call void @__cxa_free_exception(ptr %43) #12
-  br label %57
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %5, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %6, align 4
+  call void @__cxa_free_exception(ptr %44) #12
+  br label %58
 
-57:                                               ; preds = %53, %49
+58:                                               ; preds = %54, %50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  br label %64
+  br label %65
 
-58:                                               ; No predecessors!
-  br label %59
-
-59:                                               ; preds = %58
+59:                                               ; No predecessors!
   br label %60
 
-60:                                               ; preds = %59, %20
+60:                                               ; preds = %59
   br label %61
 
-61:                                               ; preds = %60
+61:                                               ; preds = %60, %21
   br label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 2
-  store i8 1, ptr %63, align 8
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 2
+  store i8 1, ptr %64, align 8
   ret void
 
-64:                                               ; preds = %57, %45
+65:                                               ; preds = %58, %46
   call void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #12
-  br label %65
+  br label %66
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %5, align 8
-  %67 = load i32, ptr %6, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %5, align 8
+  %68 = load i32, ptr %6, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 
-70:                                               ; preds = %44
+71:                                               ; preds = %45
   unreachable
 }
 
@@ -2659,46 +2668,47 @@ define void @_ZN5faiss12FileIOReaderD2Ev(ptr noundef nonnull align 8 dereference
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %4, i32 0, i32 2
-  %6 = load i8, ptr %5, align 8
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %24
+  %5 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %4, i32 0, i32 2
+  %7 = load i8, ptr %6, align 8
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %25
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %4, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = invoke i32 @fclose(ptr noundef %10)
-          to label %12 unwind label %25
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %4, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = invoke i32 @fclose(ptr noundef %11)
+          to label %13 unwind label %26
 
-12:                                               ; preds = %8
-  store i32 %11, ptr %3, align 4
-  %13 = load i32, ptr %3, align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %23
+13:                                               ; preds = %9
+  store i32 %12, ptr %3, align 4
+  %14 = load i32, ptr %3, align 4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %24
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = getelementptr inbounds %"struct.faiss::IOReader", ptr %4, i32 0, i32 1
-  %18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
-  %19 = call ptr @__errno_location() #17
-  %20 = load i32, ptr %19, align 4
-  %21 = call ptr @strerror(i32 noundef %20) #12
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.8, ptr noundef %18, ptr noundef %21) #12
-  br label %23
-
-23:                                               ; preds = %15, %12
+16:                                               ; preds = %13
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = getelementptr inbounds %"struct.faiss::IOReader", ptr %4, i32 0, i32 1
+  %19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #12
+  %20 = call ptr @__errno_location() #17
+  %21 = load i32, ptr %20, align 4
+  %22 = call ptr @strerror(i32 noundef %21) #12
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.8, ptr noundef %19, ptr noundef %22) #12
   br label %24
 
-24:                                               ; preds = %23, %1
+24:                                               ; preds = %16, %13
+  br label %25
+
+25:                                               ; preds = %24, %1
   call void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
   ret void
 
-25:                                               ; preds = %8
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %9
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #14
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #14
   unreachable
 }
 
@@ -2723,12 +2733,13 @@ define void @_ZN5faiss12FileIOWriterC2EP8_IO_FILE(ptr noundef nonnull align 8 de
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5faiss8IOWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
   ret void
 }
 
@@ -2737,9 +2748,10 @@ define linkonce_odr void @_ZN5faiss8IOWriterC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss8IOWriterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   ret void
 }
 
@@ -2755,139 +2767,140 @@ define void @_ZN5faiss12FileIOWriterC2EPKc(ptr noundef nonnull align 8 dereferen
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN5faiss8IOWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 1
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 2
-  store i8 0, ptr %11, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %9, i32 0, i32 1
-  %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %12)
-          to label %15 unwind label %45
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 1
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 2
+  store i8 0, ptr %12, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %9, i32 0, i32 1
+  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %13)
+          to label %16 unwind label %46
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  %17 = invoke noalias ptr @fopen(ptr noundef %16, ptr noundef @.str.9)
-          to label %18 unwind label %45
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8
+  %18 = invoke noalias ptr @fopen(ptr noundef %17, ptr noundef @.str.9)
+          to label %19 unwind label %46
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 1
-  store ptr %17, ptr %19, align 8
-  br label %20
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 1
+  store ptr %18, ptr %20, align 8
+  br label %21
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %60, label %24
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %61, label %25
 
-24:                                               ; preds = %20
-  br label %25
+25:                                               ; preds = %21
+  br label %26
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %26 = load ptr, ptr %4, align 8
-  %27 = call ptr @__errno_location() #17
-  %28 = load i32, ptr %27, align 4
-  %29 = call ptr @strerror(i32 noundef %28) #12
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.10, ptr noundef @.str.7, ptr noundef %26, ptr noundef %29) #12
-  store i32 %30, ptr %8, align 4
-  %31 = load i32, ptr %8, align 4
-  %32 = add nsw i32 %31, 1
-  %33 = sext i32 %32 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %33)
-          to label %34 unwind label %49
+  %27 = load ptr, ptr %4, align 8
+  %28 = call ptr @__errno_location() #17
+  %29 = load i32, ptr %28, align 4
+  %30 = call ptr @strerror(i32 noundef %29) #12
+  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.10, ptr noundef @.str.7, ptr noundef %27, ptr noundef %30) #12
+  store i32 %31, ptr %8, align 4
+  %32 = load i32, ptr %8, align 4
+  %33 = add nsw i32 %32, 1
+  %34 = sext i32 %33 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %34)
+          to label %35 unwind label %50
 
-34:                                               ; preds = %25
-  %35 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
-          to label %36 unwind label %49
+35:                                               ; preds = %26
+  %36 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
+          to label %37 unwind label %50
 
-36:                                               ; preds = %34
-  %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %38 = load ptr, ptr %4, align 8
-  %39 = call ptr @__errno_location() #17
-  %40 = load i32, ptr %39, align 4
-  %41 = call ptr @strerror(i32 noundef %40) #12
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %35, i64 noundef %37, ptr noundef @.str.10, ptr noundef @.str.7, ptr noundef %38, ptr noundef %41) #12
-  %43 = call ptr @__cxa_allocate_exception(i64 40) #12
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss12FileIOWriterC2EPKc, ptr noundef @.str.1, i32 noundef 98)
-          to label %44 unwind label %53
+37:                                               ; preds = %35
+  %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %39 = load ptr, ptr %4, align 8
+  %40 = call ptr @__errno_location() #17
+  %41 = load i32, ptr %40, align 4
+  %42 = call ptr @strerror(i32 noundef %41) #12
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %36, i64 noundef %38, ptr noundef @.str.10, ptr noundef @.str.7, ptr noundef %39, ptr noundef %42) #12
+  %44 = call ptr @__cxa_allocate_exception(i64 40) #12
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss12FileIOWriterC2EPKc, ptr noundef @.str.1, i32 noundef 98)
+          to label %45 unwind label %54
 
-44:                                               ; preds = %36
-  invoke void @__cxa_throw(ptr %43, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #13
-          to label %74 unwind label %49
+45:                                               ; preds = %37
+  invoke void @__cxa_throw(ptr %44, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #13
+          to label %75 unwind label %50
 
-45:                                               ; preds = %15, %2
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %16, %2
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  br label %64
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
+  br label %65
 
-49:                                               ; preds = %44, %34, %25
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %45, %35, %26
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  br label %57
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  br label %58
 
-53:                                               ; preds = %36
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %37
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %5, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %6, align 4
-  call void @__cxa_free_exception(ptr %43) #12
-  br label %57
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %5, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %6, align 4
+  call void @__cxa_free_exception(ptr %44) #12
+  br label %58
 
-57:                                               ; preds = %53, %49
+58:                                               ; preds = %54, %50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  br label %64
+  br label %65
 
-58:                                               ; No predecessors!
-  br label %59
-
-59:                                               ; preds = %58
+59:                                               ; No predecessors!
   br label %60
 
-60:                                               ; preds = %59, %20
+60:                                               ; preds = %59
   br label %61
 
-61:                                               ; preds = %60
+61:                                               ; preds = %60, %21
   br label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 2
-  store i8 1, ptr %63, align 8
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 2
+  store i8 1, ptr %64, align 8
   ret void
 
-64:                                               ; preds = %57, %45
+65:                                               ; preds = %58, %46
   invoke void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9)
-          to label %65 unwind label %71
-
-65:                                               ; preds = %64
-  br label %66
+          to label %66 unwind label %72
 
 66:                                               ; preds = %65
-  %67 = load ptr, ptr %5, align 8
-  %68 = load i32, ptr %6, align 4
-  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
-  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
-  resume { ptr, i32 } %70
+  br label %67
 
-71:                                               ; preds = %64
-  %72 = landingpad { ptr, i32 }
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %5, align 8
+  %69 = load i32, ptr %6, align 4
+  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
+  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
+  resume { ptr, i32 } %71
+
+72:                                               ; preds = %65
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #14
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #14
   unreachable
 
-74:                                               ; preds = %44
+75:                                               ; preds = %45
   unreachable
 }
 
@@ -2899,57 +2912,58 @@ define void @_ZN5faiss12FileIOWriterD2Ev(ptr noundef nonnull align 8 dereference
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %6, i32 0, i32 2
-  %8 = load i8, ptr %7, align 8
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %30
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %6, i32 0, i32 2
+  %9 = load i8, ptr %8, align 8
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %31
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %6, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = invoke i32 @fclose(ptr noundef %12)
-          to label %14 unwind label %25
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %6, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = invoke i32 @fclose(ptr noundef %13)
+          to label %15 unwind label %26
 
-14:                                               ; preds = %10
-  store i32 %13, ptr %3, align 4
-  %15 = load i32, ptr %3, align 4
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %29
+15:                                               ; preds = %11
+  store i32 %14, ptr %3, align 4
+  %16 = load i32, ptr %3, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %30
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %6, i32 0, i32 1
-  %20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #12
-  %21 = call ptr @__errno_location() #17
-  %22 = load i32, ptr %21, align 4
-  %23 = call ptr @strerror(i32 noundef %22) #12
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.8, ptr noundef %20, ptr noundef %23) #12
-  br label %29
-
-25:                                               ; preds = %10
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %4, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %5, align 4
-  call void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
-  br label %31
-
-29:                                               ; preds = %17, %14
+18:                                               ; preds = %15
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %6, i32 0, i32 1
+  %21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #12
+  %22 = call ptr @__errno_location() #17
+  %23 = load i32, ptr %22, align 4
+  %24 = call ptr @strerror(i32 noundef %23) #12
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.8, ptr noundef %21, ptr noundef %24) #12
   br label %30
 
-30:                                               ; preds = %29, %1
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %4, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %5, align 4
+  call void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
+  br label %32
+
+30:                                               ; preds = %18, %15
+  br label %31
+
+31:                                               ; preds = %30, %1
   call void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
   ret void
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %4, align 8
-  %33 = load i32, ptr %5, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %4, align 8
+  %34 = load i32, ptr %5, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #3
@@ -2967,48 +2981,49 @@ define void @_ZN5faiss16BufferedIOReaderC2EPNS_8IOReaderEm(ptr noundef nonnull a
   store i64 %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5faiss8IOReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOReaderE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 2
-  %14 = load i64, ptr %6, align 8
-  store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 3
-  store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 4
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOReaderE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 2
+  %15 = load i64, ptr %6, align 8
+  store i64 %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 3
   store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 5
+  %17 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 4
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 6
+  %18 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 5
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 7
-  %20 = load i64, ptr %6, align 8
+  %19 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 6
+  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 7
+  %21 = load i64, ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
-  invoke void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %21 unwind label %22
+  invoke void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %3
+22:                                               ; preds = %3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
   ret void
 
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %8, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %9, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %8, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %9, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
   call void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #12
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i32, ptr %9, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3625,44 +3640,45 @@ define void @_ZN5faiss16BufferedIOWriterC2EPNS_8IOWriterEm(ptr noundef nonnull a
   store i64 %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5faiss8IOWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOWriterE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 2
-  %14 = load i64, ptr %6, align 8
-  store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 4
-  store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 5
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOWriterE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 2
+  %15 = load i64, ptr %6, align 8
+  store i64 %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 4
   store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 6
-  %18 = load i64, ptr %6, align 8
+  %17 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 5
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 6
+  %19 = load i64, ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
-  invoke void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %19 unwind label %20
+  invoke void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %20 unwind label %21
 
-19:                                               ; preds = %3
+20:                                               ; preds = %3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
   ret void
 
-20:                                               ; preds = %3
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %3
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %8, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %9, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
   call void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10)
-  br label %24
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr %9, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3676,142 +3692,143 @@ define void @_ZN5faiss16BufferedIOWriterD2Ev(ptr noundef nonnull align 8 derefer
   %8 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %9 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOWriterE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
   store i64 0, ptr %3, align 8
-  br label %10
+  br label %11
 
-10:                                               ; preds = %64, %1
-  %11 = load i64, ptr %3, align 8
-  %12 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 5
-  %13 = load i64, ptr %12, align 8
-  %14 = icmp ne i64 %11, %13
-  br i1 %14, label %15, label %68
+11:                                               ; preds = %65, %1
+  %12 = load i64, ptr %3, align 8
+  %13 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 5
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp ne i64 %12, %14
+  br i1 %15, label %16, label %69
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 6
-  %19 = call noundef ptr @_ZNSt6vectorIcSaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
-  %20 = load i64, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  %22 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 5
-  %23 = load i64, ptr %22, align 8
-  %24 = load i64, ptr %3, align 8
-  %25 = sub i64 %23, %24
-  %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef %21, i64 noundef 1, i64 noundef %25)
-          to label %30 unwind label %47
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 6
+  %20 = call noundef ptr @_ZNSt6vectorIcSaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
+  %21 = load i64, ptr %3, align 8
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  %23 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 5
+  %24 = load i64, ptr %23, align 8
+  %25 = load i64, ptr %3, align 8
+  %26 = sub i64 %24, %25
+  %27 = load ptr, ptr %18, align 8
+  %28 = getelementptr inbounds ptr, ptr %27, i64 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef %22, i64 noundef 1, i64 noundef %26)
+          to label %31 unwind label %48
 
-30:                                               ; preds = %15
-  store i64 %29, ptr %4, align 8
-  br label %31
+31:                                               ; preds = %16
+  store i64 %30, ptr %4, align 8
+  br label %32
 
-31:                                               ; preds = %30
-  %32 = load i64, ptr %4, align 8
-  %33 = icmp ugt i64 %32, 0
-  br i1 %33, label %62, label %34
+32:                                               ; preds = %31
+  %33 = load i64, ptr %4, align 8
+  %34 = icmp ugt i64 %33, 0
+  br i1 %34, label %63, label %35
 
-34:                                               ; preds = %31
-  br label %35
+35:                                               ; preds = %32
+  br label %36
 
-35:                                               ; preds = %34
+36:                                               ; preds = %35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.12, ptr noundef @.str.13) #12
-  store i32 %36, ptr %8, align 4
-  %37 = load i32, ptr %8, align 4
-  %38 = add nsw i32 %37, 1
-  %39 = sext i32 %38 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %39)
-          to label %40 unwind label %51
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.12, ptr noundef @.str.13) #12
+  store i32 %37, ptr %8, align 4
+  %38 = load i32, ptr %8, align 4
+  %39 = add nsw i32 %38, 1
+  %40 = sext i32 %39 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %40)
+          to label %41 unwind label %52
 
-40:                                               ; preds = %35
-  %41 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
-          to label %42 unwind label %51
+41:                                               ; preds = %36
+  %42 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
+          to label %43 unwind label %52
 
-42:                                               ; preds = %40
-  %43 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %41, i64 noundef %43, ptr noundef @.str.12, ptr noundef @.str.13) #12
-  %45 = call ptr @__cxa_allocate_exception(i64 40) #12
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss16BufferedIOWriterD2Ev, ptr noundef @.str.1, i32 noundef 224)
-          to label %46 unwind label %55
+43:                                               ; preds = %41
+  %44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %42, i64 noundef %44, ptr noundef @.str.12, ptr noundef @.str.13) #12
+  %46 = call ptr @__cxa_allocate_exception(i64 40) #12
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss16BufferedIOWriterD2Ev, ptr noundef @.str.1, i32 noundef 224)
+          to label %47 unwind label %56
 
-46:                                               ; preds = %42
-  invoke void @__cxa_throw(ptr %45, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #13
-          to label %77 unwind label %51
+47:                                               ; preds = %43
+  invoke void @__cxa_throw(ptr %46, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #13
+          to label %78 unwind label %52
 
-47:                                               ; preds = %15
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %16
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %5, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %6, align 4
-  br label %70
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %5, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %6, align 4
+  br label %71
 
-51:                                               ; preds = %46, %40, %35
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %47, %41, %36
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %5, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %6, align 4
-  br label %59
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %5, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %6, align 4
+  br label %60
 
-55:                                               ; preds = %42
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %43
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %5, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %6, align 4
-  call void @__cxa_free_exception(ptr %45) #12
-  br label %59
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %5, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %6, align 4
+  call void @__cxa_free_exception(ptr %46) #12
+  br label %60
 
-59:                                               ; preds = %55, %51
+60:                                               ; preds = %56, %52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  br label %70
+  br label %71
 
-60:                                               ; No predecessors!
-  br label %61
-
-61:                                               ; preds = %60
+61:                                               ; No predecessors!
   br label %62
 
-62:                                               ; preds = %61, %31
+62:                                               ; preds = %61
   br label %63
 
-63:                                               ; preds = %62
+63:                                               ; preds = %62, %32
   br label %64
 
 64:                                               ; preds = %63
-  %65 = load i64, ptr %4, align 8
-  %66 = load i64, ptr %3, align 8
-  %67 = add i64 %66, %65
-  store i64 %67, ptr %3, align 8
-  br label %10, !llvm.loop !9
+  br label %65
 
-68:                                               ; preds = %10
-  %69 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 6
-  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %69) #12
+65:                                               ; preds = %64
+  %66 = load i64, ptr %4, align 8
+  %67 = load i64, ptr %3, align 8
+  %68 = add i64 %67, %66
+  store i64 %68, ptr %3, align 8
+  br label %11, !llvm.loop !9
+
+69:                                               ; preds = %11
+  %70 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 6
+  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #12
   call void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9)
   ret void
 
-70:                                               ; preds = %59, %47
-  %71 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 6
-  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #12
+71:                                               ; preds = %60, %48
+  %72 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %9, i32 0, i32 6
+  call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #12
   call void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9)
-  br label %72
+  br label %73
 
-72:                                               ; preds = %70
-  %73 = load ptr, ptr %5, align 8
-  %74 = load i32, ptr %6, align 4
-  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
-  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
-  resume { ptr, i32 } %76
+73:                                               ; preds = %71
+  %74 = load ptr, ptr %5, align 8
+  %75 = load i32, ptr %6, align 4
+  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
+  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
+  resume { ptr, i32 } %77
 
-77:                                               ; preds = %46
+78:                                               ; preds = %47
   unreachable
 }
 

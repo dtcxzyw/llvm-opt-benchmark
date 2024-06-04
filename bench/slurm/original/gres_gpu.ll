@@ -240,103 +240,104 @@ define i32 @gres_p_node_config_load(ptr noundef %0, ptr noundef %1) #0 {
   br label %38
 
 38:                                               ; preds = %35, %30, %26
-  %39 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %40 = and i64 %39, 64
-  %41 = icmp ne i64 %40, 0
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %38
-  store i32 4, ptr %7, align 4
-  br label %44
+  %39 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %40 = load i64, ptr %39, align 8
+  %41 = and i64 %40, 64
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %44
 
 43:                                               ; preds = %38
+  store i32 4, ptr %7, align 4
+  br label %45
+
+44:                                               ; preds = %38
   store i32 5, ptr %7, align 4
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %42
-  %45 = load ptr, ptr %6, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %77
+45:                                               ; preds = %44, %43
+  %46 = load ptr, ptr %6, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %78
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %6, align 8
-  %49 = call i32 @slurm_list_is_empty(ptr noundef %48)
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %53
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %6, align 8
+  %50 = call i32 @slurm_list_is_empty(ptr noundef %49)
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %47
-  %52 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %52, ptr noundef @.str.3)
-  br label %53
+52:                                               ; preds = %48
+  %53 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %53, ptr noundef @.str.3)
+  br label %54
 
-53:                                               ; preds = %51, %47
-  %54 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %54, ptr noundef @.str.4, ptr noundef @plugin_name)
-  %55 = load ptr, ptr %3, align 8
-  %56 = load ptr, ptr %6, align 8
-  call void @_merge_system_gres_conf(ptr noundef %55, ptr noundef %56)
-  br label %57
+54:                                               ; preds = %52, %48
+  %55 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %55, ptr noundef @.str.4, ptr noundef @plugin_name)
+  %56 = load ptr, ptr %3, align 8
+  %57 = load ptr, ptr %6, align 8
+  call void @_merge_system_gres_conf(ptr noundef %56, ptr noundef %57)
+  br label %58
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %6, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %62
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %6, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %6, align 8
-  call void @slurm_list_destroy(ptr noundef %61)
-  br label %62
-
-62:                                               ; preds = %60, %57
-  store ptr null, ptr %6, align 8
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %6, align 8
+  call void @slurm_list_destroy(ptr noundef %62)
   br label %63
 
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %3, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %70
+63:                                               ; preds = %61, %58
+  store ptr null, ptr %6, align 8
+  br label %64
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %3, align 8
-  %68 = call i32 @slurm_list_is_empty(ptr noundef %67)
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %72
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %3, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %71
 
-70:                                               ; preds = %66, %63
-  %71 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %71, ptr noundef @.str.5, ptr noundef @plugin_name)
-  br label %76
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %3, align 8
+  %69 = call i32 @slurm_list_is_empty(ptr noundef %68)
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %66
-  %73 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %73, ptr noundef @.str.6, ptr noundef @plugin_name)
-  %74 = load ptr, ptr %3, align 8
-  %75 = load i32, ptr %7, align 4
-  call void @print_gres_list(ptr noundef %74, i32 noundef %75)
-  br label %76
-
-76:                                               ; preds = %72, %70
+71:                                               ; preds = %67, %64
+  %72 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %72, ptr noundef @.str.5, ptr noundef @plugin_name)
   br label %77
 
-77:                                               ; preds = %76, %44
-  %78 = load ptr, ptr %3, align 8
-  %79 = load ptr, ptr %4, align 8
-  %80 = call i32 @gres_node_config_load(ptr noundef %78, ptr noundef %79, ptr noundef @gres_devices)
-  store i32 %80, ptr %5, align 4
-  store i32 0, ptr @node_flags, align 4
-  %81 = load ptr, ptr %3, align 8
-  %82 = call i32 @slurm_list_for_each(ptr noundef %81, ptr noundef @gres_common_set_env_types_on_node_flags, ptr noundef @node_flags)
-  %83 = load i32, ptr %5, align 4
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %86
+73:                                               ; preds = %67
+  %74 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %74, ptr noundef @.str.6, ptr noundef @plugin_name)
+  %75 = load ptr, ptr %3, align 8
+  %76 = load i32, ptr %7, align 4
+  call void @print_gres_list(ptr noundef %75, i32 noundef %76)
+  br label %77
 
-85:                                               ; preds = %77
+77:                                               ; preds = %73, %71
+  br label %78
+
+78:                                               ; preds = %77, %45
+  %79 = load ptr, ptr %3, align 8
+  %80 = load ptr, ptr %4, align 8
+  %81 = call i32 @gres_node_config_load(ptr noundef %79, ptr noundef %80, ptr noundef @gres_devices)
+  store i32 %81, ptr %5, align 4
+  store i32 0, ptr @node_flags, align 4
+  %82 = load ptr, ptr %3, align 8
+  %83 = call i32 @slurm_list_for_each(ptr noundef %82, ptr noundef @gres_common_set_env_types_on_node_flags, ptr noundef @node_flags)
+  %84 = load i32, ptr %5, align 4
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %87
+
+86:                                               ; preds = %78
   call void (ptr, ...) @slurm_fatal(ptr noundef @.str.7, ptr noundef @plugin_name) #6
   unreachable
 
-86:                                               ; preds = %77
-  %87 = load i32, ptr %5, align 4
-  ret i32 %87
+87:                                               ; preds = %78
+  %88 = load i32, ptr %5, align 4
+  ret i32 %88
 }
 
 ; Function Attrs: nounwind uwtable

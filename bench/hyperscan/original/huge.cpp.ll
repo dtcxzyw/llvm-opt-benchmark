@@ -68,7 +68,8 @@ if.end11:                                         ; preds = %if.end6
 
 if.end18:                                         ; preds = %if.end11
   %call19 = call ptr @shmat(i32 noundef %call15, ptr noundef null, i32 noundef 8192) #11
-  %cmp20 = icmp eq ptr %call19, inttoptr (i64 -1 to ptr)
+  %3 = inttoptr i64 -1 to ptr
+  %cmp20 = icmp eq ptr %call19, %3
   br i1 %cmp20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end18
@@ -76,11 +77,11 @@ if.then21:                                        ; preds = %if.end18
   br label %fini
 
 if.end22:                                         ; preds = %if.end18
-  %3 = load i32, ptr @_ZL10hsdb_shmid, align 4
-  %call23 = call i32 @shmctl(i32 noundef %3, i32 noundef 0, ptr noundef null) #11
-  %4 = load ptr, ptr %bytes, align 8
-  %5 = load i64, ptr %len, align 8
-  %call24 = call i32 @hs_deserialize_database_at(ptr noundef %4, i64 noundef %5, ptr noundef %call19)
+  %4 = load i32, ptr @_ZL10hsdb_shmid, align 4
+  %call23 = call i32 @shmctl(i32 noundef %4, i32 noundef 0, ptr noundef null) #11
+  %5 = load ptr, ptr %bytes, align 8
+  %6 = load i64, ptr %len, align 8
+  %call24 = call i32 @hs_deserialize_database_at(ptr noundef %5, i64 noundef %6, ptr noundef %call19)
   %cmp25.not = icmp eq i32 %call24, 0
   br i1 %cmp25.not, label %if.end29, label %if.then26
 
@@ -90,14 +91,14 @@ if.then26:                                        ; preds = %if.end22
   br label %fini
 
 if.end29:                                         ; preds = %if.end22
-  %6 = load ptr, ptr %bytes, align 8
-  call void @free(ptr noundef %6) #11
+  %7 = load ptr, ptr %bytes, align 8
+  call void @free(ptr noundef %7) #11
   %call30 = call i32 @hs_free_database(ptr noundef %db)
   br label %cleanup31
 
 fini:                                             ; preds = %if.then26, %if.then21, %if.end11
-  %7 = load ptr, ptr %bytes, align 8
-  call void @free(ptr noundef %7) #11
+  %8 = load ptr, ptr %bytes, align 8
+  call void @free(ptr noundef %8) #11
   store i32 -1, ptr @_ZL10hsdb_shmid, align 4
   br label %cleanup31
 

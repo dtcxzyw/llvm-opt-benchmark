@@ -39,28 +39,29 @@ entry:
   store ptr %str, ptr %str.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3url12CanonOutputTIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url20StdStringCanonOutputE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url20StdStringCanonOutputE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %str_ = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %str.addr, align 8
-  store ptr %0, ptr %str_, align 8
+  %1 = load ptr, ptr %str.addr, align 8
+  store ptr %1, ptr %str_, align 8
   %str_2 = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %str_2, align 8
-  %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  %2 = load ptr, ptr %str_2, align 8
+  %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #6
   %conv = trunc i64 %call to i32
   %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 3
   store i32 %conv, ptr %cur_len_, align 4
   %str_3 = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %str_3, align 8
+  %3 = load ptr, ptr %str_3, align 8
   %str_4 = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %str_4, align 8
-  %call5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %call5)
+  %4 = load ptr, ptr %str_4, align 8
+  %call5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %call5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %str_6 = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %str_6, align 8
-  %call7 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %5 = load ptr, ptr %str_6, align 8
+  %call7 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   br i1 %call7, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont
@@ -68,8 +69,8 @@ cond.true:                                        ; preds = %invoke.cont
 
 cond.false:                                       ; preds = %invoke.cont
   %str_8 = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %str_8, align 8
-  %call10 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
+  %6 = load ptr, ptr %str_8, align 8
+  %call10 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %cond.false
@@ -80,20 +81,20 @@ cond.end:                                         ; preds = %invoke.cont9, %cond
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
   store ptr %cond, ptr %buffer_, align 8
   %str_11 = getelementptr inbounds %"class.url::StdStringCanonOutput", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %str_11, align 8
-  %call12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #6
+  %7 = load ptr, ptr %str_11, align 8
+  %call12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
   %conv13 = trunc i64 %call12 to i32
   %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 2
   store i32 %conv13, ptr %buffer_len_, align 8
   ret void
 
 lpad:                                             ; preds = %cond.false, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN3url12CanonOutputTIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #6
   br label %eh.resume
 
@@ -111,7 +112,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url12CanonOutputTIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url12CanonOutputTIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buffer_, align 8
   %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 2

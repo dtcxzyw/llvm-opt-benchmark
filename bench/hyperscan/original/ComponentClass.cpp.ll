@@ -4636,12 +4636,13 @@ entry:
   store ptr %mode_in, ptr %mode_in.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue214ComponentClassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3ue214ComponentClassE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_negate = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_negate, align 8
   %mode = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %mode_in.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %mode, ptr align 1 %0, i64 6, i1 false)
+  %1 = load ptr, ptr %mode_in.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %mode, ptr align 1 %1, i64 6, i1 false)
   %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 3
   store i8 0, ptr %in_cand_range, align 1
   %range_start = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 4

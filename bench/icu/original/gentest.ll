@@ -64,101 +64,109 @@ entry:
   store ptr %argv, ptr %argv.addr, align 8
   store i32 0, ptr %errorCode, align 4
   %call = call ptr @u_getDataDirectory_75()
-  store ptr %call, ptr getelementptr inbounds ([5 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %0 = load i32, ptr %argc.addr, align 4
-  %1 = load ptr, ptr %argv.addr, align 8
-  %call1 = call i32 @u_parseArgs(i32 noundef %0, ptr noundef %1, i32 noundef 5, ptr noundef @options)
+  %0 = getelementptr inbounds [5 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1
+  store ptr %call, ptr %0, align 8
+  %1 = load i32, ptr %argc.addr, align 4
+  %2 = load ptr, ptr %argv.addr, align 8
+  %call1 = call i32 @u_parseArgs(i32 noundef %1, ptr noundef %2, i32 noundef 5, ptr noundef @options)
   store i32 %call1, ptr %argc.addr, align 4
-  %2 = load i32, ptr %argc.addr, align 4
-  %cmp = icmp slt i32 %2, 0
+  %3 = load i32, ptr %argc.addr, align 4
+  %cmp = icmp slt i32 %3, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %argv.addr, align 8
-  %5 = load i32, ptr %argc.addr, align 4
-  %sub = sub nsw i32 0, %5
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = load ptr, ptr %argv.addr, align 8
+  %6 = load i32, ptr %argc.addr, align 4
+  %sub = sub nsw i32 0, %6
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str, ptr noundef %6)
+  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %7 = load ptr, ptr %arrayidx, align 8
+  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, ptr noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %7 = load i32, ptr %argc.addr, align 4
-  %cmp3 = icmp slt i32 %7, 0
+  %8 = load i32, ptr %argc.addr, align 4
+  %cmp3 = icmp slt i32 %8, 0
   br i1 %cmp3, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %8 = load i8, ptr getelementptr inbounds (%struct.UOption, ptr @options, i32 0, i32 6), align 2
-  %conv = sext i8 %8 to i32
+  %9 = getelementptr inbounds %struct.UOption, ptr @options, i32 0, i32 6
+  %10 = load i8, ptr %9, align 2
+  %conv = sext i8 %10 to i32
   %tobool = icmp ne i32 %conv, 0
   br i1 %tobool, label %if.then7, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %9 = load i8, ptr getelementptr inbounds ([5 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6), align 2
-  %conv5 = sext i8 %9 to i32
+  %11 = getelementptr inbounds [5 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6
+  %12 = load i8, ptr %11, align 2
+  %conv5 = sext i8 %12 to i32
   %tobool6 = icmp ne i32 %conv5, 0
   br i1 %tobool6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %lor.lhs.false4, %lor.lhs.false, %if.end
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = load ptr, ptr %argv.addr, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %11, i64 0
-  %12 = load ptr, ptr %arrayidx8, align 8
-  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.1, ptr noundef %12)
-  %13 = load i32, ptr %argc.addr, align 4
-  %cmp10 = icmp slt i32 %13, 0
+  %13 = load ptr, ptr @stderr, align 8
+  %14 = load ptr, ptr %argv.addr, align 8
+  %arrayidx8 = getelementptr inbounds ptr, ptr %14, i64 0
+  %15 = load ptr, ptr %arrayidx8, align 8
+  %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.1, ptr noundef %15)
+  %16 = load i32, ptr %argc.addr, align 4
+  %cmp10 = icmp slt i32 %16, 0
   %cond = select i1 %cmp10, i32 1, i32 0
   store i32 %cond, ptr %retval, align 4
   br label %return
 
 if.end12:                                         ; preds = %lor.lhs.false4
-  %14 = load i8, ptr getelementptr inbounds ([5 x %struct.UOption], ptr @options, i64 0, i64 4, i32 6), align 2
-  %tobool13 = icmp ne i8 %14, 0
+  %17 = getelementptr inbounds [5 x %struct.UOption], ptr @options, i64 0, i64 4, i32 6
+  %18 = load i8, ptr %17, align 2
+  %tobool13 = icmp ne i8 %18, 0
   br i1 %tobool13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end12
-  %15 = load ptr, ptr %argv.addr, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %15, i64 0
-  %16 = load ptr, ptr %arrayidx15, align 8
-  %17 = load ptr, ptr getelementptr inbounds ([5 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %call16 = call i32 @outputJavaStuff(ptr noundef %16, ptr noundef %17)
+  %19 = load ptr, ptr %argv.addr, align 8
+  %arrayidx15 = getelementptr inbounds ptr, ptr %19, i64 0
+  %20 = load ptr, ptr %arrayidx15, align 8
+  %21 = getelementptr inbounds [5 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %call16 = call i32 @outputJavaStuff(ptr noundef %20, ptr noundef %22)
   store i32 %call16, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end12
-  %18 = load i8, ptr getelementptr inbounds ([5 x %struct.UOption], ptr @options, i64 0, i64 3, i32 6), align 2
-  %tobool17 = icmp ne i8 %18, 0
+  %23 = getelementptr inbounds [5 x %struct.UOption], ptr @options, i64 0, i64 3, i32 6
+  %24 = load i8, ptr %23, align 2
+  %tobool17 = icmp ne i8 %24, 0
   br i1 %tobool17, label %if.then18, label %if.else21
 
 if.then18:                                        ; preds = %if.else
-  %19 = load ptr, ptr %argv.addr, align 8
-  %arrayidx19 = getelementptr inbounds ptr, ptr %19, i64 0
-  %20 = load ptr, ptr %arrayidx19, align 8
-  %21 = load ptr, ptr getelementptr inbounds ([5 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %call20 = call i32 @genres32(ptr noundef %20, ptr noundef %21)
+  %25 = load ptr, ptr %argv.addr, align 8
+  %arrayidx19 = getelementptr inbounds ptr, ptr %25, i64 0
+  %26 = load ptr, ptr %arrayidx19, align 8
+  %27 = getelementptr inbounds [5 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %call20 = call i32 @genres32(ptr noundef %26, ptr noundef %28)
   store i32 %call20, ptr %retval, align 4
   br label %return
 
 if.else21:                                        ; preds = %if.else
-  %22 = load ptr, ptr getelementptr inbounds ([5 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  call void @createData(ptr noundef %22, ptr noundef %errorCode)
+  %29 = getelementptr inbounds [5 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1
+  %30 = load ptr, ptr %29, align 8
+  call void @createData(ptr noundef %30, ptr noundef %errorCode)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else21
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end22
-  %23 = load i32, ptr %errorCode, align 4
-  %cmp24 = icmp sgt i32 %23, 0
+  %31 = load i32, ptr %errorCode, align 4
+  %cmp24 = icmp sgt i32 %31, 0
   %conv25 = zext i1 %cmp24 to i32
   store i32 %conv25, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end23, %if.then18, %if.then14, %if.then7
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %32 = load i32, ptr %retval, align 4
+  ret i32 %32
 }
 
 declare ptr @u_getDataDirectory_75() #1

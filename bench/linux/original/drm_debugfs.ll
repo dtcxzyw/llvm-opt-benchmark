@@ -956,41 +956,42 @@ define internal i64 @edid_write(ptr nocapture noundef readonly %0, ptr noundef %
   %7 = getelementptr inbounds i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @memdup_user(ptr noundef %1, i64 noundef %2) #6
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %11, label %13
+  %10 = inttoptr i64 -4096 to ptr
+  %11 = icmp ugt ptr %9, %10
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %4
-  %12 = ptrtoint ptr %9 to i64
-  br label %27
+12:                                               ; preds = %4
+  %13 = ptrtoint ptr %9 to i64
+  br label %28
 
-13:                                               ; preds = %4
-  %14 = icmp eq i64 %2, 5
-  br i1 %14, label %15, label %20
+14:                                               ; preds = %4
+  %15 = icmp eq i64 %2, 5
+  br i1 %15, label %16, label %21
 
-15:                                               ; preds = %13
-  %16 = tail call i32 @strncmp(ptr noundef %9, ptr noundef nonnull dereferenceable(6) @.str.37, i64 noundef 5) #6
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %20
+16:                                               ; preds = %14
+  %17 = tail call i32 @strncmp(ptr noundef %9, ptr noundef nonnull dereferenceable(6) @.str.37, i64 noundef 5) #6
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %15
-  %19 = tail call i32 @drm_edid_override_reset(ptr noundef %8) #6
-  br label %22
+19:                                               ; preds = %16
+  %20 = tail call i32 @drm_edid_override_reset(ptr noundef %8) #6
+  br label %23
 
-20:                                               ; preds = %15, %13
-  %21 = tail call i32 @drm_edid_override_set(ptr noundef %8, ptr noundef %9, i64 noundef %2) #6
-  br label %22
+21:                                               ; preds = %16, %14
+  %22 = tail call i32 @drm_edid_override_set(ptr noundef %8, ptr noundef %9, i64 noundef %2) #6
+  br label %23
 
-22:                                               ; preds = %20, %18
-  %23 = phi i32 [ %21, %20 ], [ %19, %18 ]
+23:                                               ; preds = %21, %19
+  %24 = phi i32 [ %22, %21 ], [ %20, %19 ]
   tail call void @kfree(ptr noundef %9) #6
-  %24 = icmp eq i32 %23, 0
-  %25 = sext i32 %23 to i64
-  %26 = select i1 %24, i64 %2, i64 %25
-  br label %27
+  %25 = icmp eq i32 %24, 0
+  %26 = sext i32 %24 to i64
+  %27 = select i1 %25, i64 %2, i64 %26
+  br label %28
 
-27:                                               ; preds = %22, %11
-  %28 = phi i64 [ %12, %11 ], [ %26, %22 ]
-  ret i64 %28
+28:                                               ; preds = %23, %12
+  %29 = phi i64 [ %13, %12 ], [ %27, %23 ]
+  ret i64 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

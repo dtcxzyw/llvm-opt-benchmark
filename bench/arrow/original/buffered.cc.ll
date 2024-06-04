@@ -1299,10 +1299,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN5arrow2io13FileInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0)
-  call void @_ZN5arrow2io12OutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN5arrow2io20BufferedOutputStreamE, i64 0, i64 1)) #13
-  store ptr getelementptr inbounds ({ [12 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20BufferedOutputStreamE, i32 0, i32 0, i32 3), ptr %this1, align 8
+  %1 = getelementptr inbounds [4 x ptr], ptr @_ZTTN5arrow2io20BufferedOutputStreamE, i64 0, i64 1
+  call void @_ZN5arrow2io12OutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1) #13
+  %2 = getelementptr inbounds { [12 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20BufferedOutputStreamE, i32 0, i32 0, i32 3
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [12 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20BufferedOutputStreamE, i32 0, i32 1, i32 8), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [12 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io20BufferedOutputStreamE, i32 0, i32 1, i32 8
+  store ptr %3, ptr %add.ptr, align 8
   %impl_ = getelementptr inbounds %"class.arrow::io::BufferedOutputStream", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5arrow2io20BufferedOutputStream4ImplESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #13
   %impl_2 = getelementptr inbounds %"class.arrow::io::BufferedOutputStream", ptr %this1, i32 0, i32 1
@@ -1312,8 +1315,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store i1 true, ptr %cleanup.isactive, align 1
   call void @_ZNSt10shared_ptrIN5arrow2io12OutputStreamEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %raw) #13
-  %1 = load ptr, ptr %pool.addr, align 8
-  invoke void @_ZN5arrow2io20BufferedOutputStream4ImplC2ESt10shared_ptrINS0_12OutputStreamEEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef %agg.tmp, ptr noundef %1)
+  %4 = load ptr, ptr %pool.addr, align 8
+  invoke void @_ZN5arrow2io20BufferedOutputStream4ImplC2ESt10shared_ptrINS0_12OutputStreamEEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef %agg.tmp, ptr noundef %4)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -1323,21 +1326,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad3:                                            ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = extractvalue { ptr, i32 } %5, 0
   store ptr %6, ptr %exn.slot, align 8
   %7 = extractvalue { ptr, i32 } %5, 1
   store i32 %7, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad3:                                            ; preds = %invoke.cont
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN5arrow2io12OutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #13
   %cleanup.is_active = load i1, ptr %cleanup.isactive, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
@@ -1351,9 +1354,10 @@ cleanup.done:                                     ; preds = %cleanup.action, %lp
 
 ehcleanup:                                        ; preds = %cleanup.done, %lpad
   call void @_ZNSt10unique_ptrIN5arrow2io20BufferedOutputStream4ImplESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #13
-  call void @_ZN5arrow2io12OutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN5arrow2io20BufferedOutputStreamE, i64 0, i64 1)) #13
-  %8 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %8) #13
+  %11 = getelementptr inbounds [4 x ptr], ptr @_ZTTN5arrow2io20BufferedOutputStreamE, i64 0, i64 1
+  call void @_ZN5arrow2io12OutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %11) #13
+  %12 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %12) #13
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -1372,7 +1376,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZNSt23enable_shared_from_thisIN5arrow2io13FileInterfaceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %mode_ = getelementptr inbounds %"class.arrow::io::FileInterface", ptr %this1, i32 0, i32 2
   store i32 0, ptr %mode_, align 8
   ret void
@@ -3074,14 +3079,18 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 32
   call void @_ZN5arrow2io13FileInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0)
   call void @_ZN5arrow2io8ReadableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  invoke void @_ZN5arrow2io8internal29InputStreamConcurrencyWrapperINS0_19BufferedInputStreamEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef getelementptr inbounds ([9 x ptr], ptr @_ZTTN5arrow2io19BufferedInputStreamE, i64 0, i64 1))
+  %1 = getelementptr inbounds [9 x ptr], ptr @_ZTTN5arrow2io19BufferedInputStreamE, i64 0, i64 1
+  invoke void @_ZN5arrow2io8internal29InputStreamConcurrencyWrapperINS0_19BufferedInputStreamEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io19BufferedInputStreamE, i32 0, i32 0, i32 8), ptr %this1, align 8
+  %2 = getelementptr inbounds { [23 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io19BufferedInputStreamE, i32 0, i32 0, i32 8
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io19BufferedInputStreamE, i32 0, i32 1, i32 8), ptr %add.ptr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io19BufferedInputStreamE, i32 0, i32 0, i32 8), ptr %this1, align 8
+  %3 = getelementptr inbounds { [23 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io19BufferedInputStreamE, i32 0, i32 1, i32 8
+  store ptr %3, ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [23 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io19BufferedInputStreamE, i32 0, i32 0, i32 8
+  store ptr %4, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.arrow::io::BufferedInputStream", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5arrow2io19BufferedInputStream4ImplESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #13
   invoke void @_ZSt11make_uniqueIN5arrow2io19BufferedInputStream4ImplEJSt10shared_ptrINS1_11InputStreamEERPNS0_10MemoryPoolERlEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.28") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %raw, ptr noundef nonnull align 8 dereferenceable(8) %pool.addr, ptr noundef nonnull align 8 dereferenceable(8) %raw_total_bytes_bound.addr)
@@ -3094,29 +3103,30 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN5arrow2io19BufferedInputStream4ImplESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #13
-  call void @_ZN5arrow2io8internal29InputStreamConcurrencyWrapperINS0_19BufferedInputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef getelementptr inbounds ([9 x ptr], ptr @_ZTTN5arrow2io19BufferedInputStreamE, i64 0, i64 1)) #13
+  %11 = getelementptr inbounds [9 x ptr], ptr @_ZTTN5arrow2io19BufferedInputStreamE, i64 0, i64 1
+  call void @_ZN5arrow2io8internal29InputStreamConcurrencyWrapperINS0_19BufferedInputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %11) #13
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   call void @_ZN5arrow2io8ReadableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  %7 = getelementptr inbounds i8, ptr %this1, i64 32
-  call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %7) #13
+  %12 = getelementptr inbounds i8, ptr %this1, i64 32
+  call void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %12) #13
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -3133,7 +3143,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5488,7 +5499,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7699,10 +7711,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   ret void
 }
 
@@ -7712,7 +7725,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -11291,10 +11305,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io20BufferedOutputStreamELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io20BufferedOutputStreamELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -12124,10 +12139,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io19BufferedInputStreamELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io19BufferedInputStreamELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.97", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 

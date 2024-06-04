@@ -457,13 +457,13 @@ define internal fastcc void @send_sigio_to_task(ptr noundef %0, ptr noundef %1, 
   %25 = icmp eq i32 %24, %16
   %26 = icmp eq i32 %24, %20
   %27 = or i1 %25, %26
-  br i1 %27, label %28, label %63
+  br i1 %27, label %28, label %64
 
 28:                                               ; preds = %22, %18, %14, %5
   %29 = tail call i32 @security_file_send_sigiotask(ptr noundef %0, ptr noundef %1, i32 noundef %8) #6
   %30 = icmp eq i32 %29, 0
   tail call void @__rcu_read_unlock() #6
-  br i1 %30, label %31, label %64
+  br i1 %30, label %31, label %65
 
 31:                                               ; preds = %28
   %32 = icmp eq i32 %8, 0
@@ -518,17 +518,18 @@ define internal fastcc void @send_sigio_to_task(ptr noundef %0, ptr noundef %1, 
   %59 = call i32 @do_send_sig_info(i32 noundef %8, ptr noundef nonnull %6, ptr noundef %0, i32 noundef %4) #6
   %60 = icmp eq i32 %59, 0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #6
-  br i1 %60, label %64, label %61
+  br i1 %60, label %65, label %61
 
 61:                                               ; preds = %50, %31
-  %62 = call i32 @do_send_sig_info(i32 noundef 29, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %0, i32 noundef %4) #6
-  br label %64
+  %62 = inttoptr i64 1 to ptr
+  %63 = call i32 @do_send_sig_info(i32 noundef 29, ptr noundef nonnull %62, ptr noundef %0, i32 noundef %4) #6
+  br label %65
 
-63:                                               ; preds = %22
+64:                                               ; preds = %22
   tail call void @__rcu_read_unlock() #6
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63, %61, %50, %28
+65:                                               ; preds = %64, %61, %50, %28
   ret void
 }
 
@@ -633,23 +634,24 @@ define internal fastcc void @send_sigurg_to_task(ptr noundef %0, ptr noundef %1,
   %20 = icmp eq i32 %19, %11
   %21 = icmp eq i32 %19, %15
   %22 = or i1 %20, %21
-  br i1 %22, label %23, label %28
+  br i1 %22, label %23, label %29
 
 23:                                               ; preds = %17, %13, %9, %3
   %24 = tail call i32 @security_file_send_sigiotask(ptr noundef %0, ptr noundef %1, i32 noundef 23) #6
   %25 = icmp eq i32 %24, 0
   tail call void @__rcu_read_unlock() #6
-  br i1 %25, label %26, label %29
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @do_send_sig_info(i32 noundef 23, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %0, i32 noundef %2) #6
-  br label %29
+  %27 = inttoptr i64 1 to ptr
+  %28 = tail call i32 @do_send_sig_info(i32 noundef 23, ptr noundef nonnull %27, ptr noundef %0, i32 noundef %2) #6
+  br label %30
 
-28:                                               ; preds = %17
+29:                                               ; preds = %17
   tail call void @__rcu_read_unlock() #6
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %26, %23
+30:                                               ; preds = %29, %26, %23
   ret void
 }
 

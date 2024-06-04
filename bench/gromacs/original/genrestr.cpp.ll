@@ -405,7 +405,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
 87:                                               ; preds = %86
   store i32 0, ptr %3, align 4
   store i32 1, ptr %30, align 4
-  br label %498
+  br label %500
 
 88:                                               ; preds = %165, %158, %148, %135, %126, %124, %121, %117, %113, %111, %102, %100, %96, %94, %92, %83, %80, %77, %2
   %89 = landingpad { ptr, i32 }
@@ -414,7 +414,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   store ptr %90, ptr %28, align 8
   %91 = extractvalue { ptr, i32 } %89, 1
   store i32 %91, ptr %29, align 4
-  br label %507
+  br label %509
 
 92:                                               ; preds = %86
   %93 = load ptr, ptr %8, align 8
@@ -517,7 +517,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %141 = extractvalue { ptr, i32 } %139, 1
   store i32 %141, ptr %29, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %31) #10
-  br label %507
+  br label %509
 
 142:                                              ; preds = %132, %129
   %143 = load float, ptr @_ZZ12gmx_genrestriPPcE10disre_frac, align 4
@@ -548,7 +548,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %154 = extractvalue { ptr, i32 } %152, 1
   store i32 %154, ptr %29, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %32) #10
-  br label %507
+  br label %509
 
 155:                                              ; preds = %145
   %156 = load float, ptr @_ZZ12gmx_genrestriPPcE10disre_dist, align 4
@@ -574,7 +574,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %164 = extractvalue { ptr, i32 } %162, 1
   store i32 %164, ptr %29, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %33) #10
-  br label %507
+  br label %509
 
 165:                                              ; preds = %155
   store ptr @.str.49, ptr %34, align 8
@@ -627,14 +627,14 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
 187:                                              ; preds = %182
   br label %196
 
-188:                                              ; preds = %494, %492, %490, %488, %486, %478, %440, %437, %435, %433, %431, %427, %383, %381, %372, %339, %319, %279, %276, %274, %272, %267, %254, %220, %217, %215, %207, %182, %174, %169
+188:                                              ; preds = %496, %494, %492, %490, %488, %480, %440, %437, %435, %433, %431, %427, %383, %381, %372, %339, %319, %279, %276, %274, %272, %267, %254, %220, %217, %215, %207, %182, %174, %169
   %189 = landingpad { ptr, i32 }
           cleanup
   %190 = extractvalue { ptr, i32 } %189, 0
   store ptr %190, ptr %28, align 8
   %191 = extractvalue { ptr, i32 } %189, 1
   store i32 %191, ptr %29, align 4
-  br label %497
+  br label %499
 
 192:                                              ; preds = %172
   %193 = landingpad { ptr, i32 }
@@ -644,7 +644,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %195 = extractvalue { ptr, i32 } %193, 1
   store i32 %195, ptr %29, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #10
-  br label %497
+  br label %499
 
 196:                                              ; preds = %187, %178
   store i8 1, ptr %35, align 1
@@ -686,7 +686,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %214 = extractvalue { ptr, i32 } %212, 1
   store i32 %214, ptr %29, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #10
-  br label %497
+  br label %499
 
 215:                                              ; preds = %203
   %216 = invoke noundef i32 @_Z5asizeI8t_filenmLi4EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(224) %26)
@@ -748,7 +748,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %249 = extractvalue { ptr, i32 } %247, 1
   store i32 %249, ptr %29, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #10
-  br label %497
+  br label %499
 
 250:                                              ; preds = %241, %231
   br label %251
@@ -765,7 +765,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
           to label %257 unwind label %188
 
 257:                                              ; preds = %254
-  br label %483
+  br label %485
 
 258:                                              ; preds = %197
   %259 = load i8, ptr @_ZZ12gmx_genrestriPPcE6bDisre, align 1
@@ -838,7 +838,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %297 = extractvalue { ptr, i32 } %295, 1
   store i32 %297, ptr %29, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #10
-  br label %497
+  br label %499
 
 298:                                              ; preds = %282
   %299 = load ptr, ptr %13, align 8
@@ -1036,7 +1036,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
           to label %430 unwind label %188
 
 430:                                              ; preds = %427
-  br label %482
+  br label %484
 
 431:                                              ; preds = %264, %261
   %432 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.78)
@@ -1063,7 +1063,7 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
 
 441:                                              ; preds = %440
   %442 = invoke noundef ptr @_Z10gmx_ffopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef @.str.53)
-          to label %443 unwind label %474
+          to label %443 unwind label %476
 
 443:                                              ; preds = %441
   store ptr %442, ptr %13, align 8
@@ -1079,11 +1079,11 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   store i32 0, ptr %10, align 4
   br label %452
 
-452:                                              ; preds = %471, %443
+452:                                              ; preds = %473, %443
   %453 = load i32, ptr %10, align 4
   %454 = load i32, ptr %14, align 4
   %455 = icmp slt i32 %453, %454
-  br i1 %455, label %456, label %478
+  br i1 %455, label %456, label %480
 
 456:                                              ; preds = %452
   %457 = load ptr, ptr %13, align 8
@@ -1095,119 +1095,121 @@ define noundef i32 @_Z12gmx_genrestriPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %463 = add nsw i32 %462, 1
   %464 = load float, ptr @_ZZ12gmx_genrestriPPcE2fc, align 4
   %465 = fpext float %464 to double
-  %466 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_genrestriPPcE2fc, i64 0, i64 1), align 4
-  %467 = fpext float %466 to double
-  %468 = load float, ptr getelementptr inbounds ([3 x float], ptr @_ZZ12gmx_genrestriPPcE2fc, i64 0, i64 2), align 4
-  %469 = fpext float %468 to double
-  %470 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %457, ptr noundef @.str.85, i32 noundef %463, i32 noundef 1, double noundef %465, double noundef %467, double noundef %469) #10
-  br label %471
+  %466 = getelementptr inbounds [3 x float], ptr @_ZZ12gmx_genrestriPPcE2fc, i64 0, i64 1
+  %467 = load float, ptr %466, align 4
+  %468 = fpext float %467 to double
+  %469 = getelementptr inbounds [3 x float], ptr @_ZZ12gmx_genrestriPPcE2fc, i64 0, i64 2
+  %470 = load float, ptr %469, align 4
+  %471 = fpext float %470 to double
+  %472 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %457, ptr noundef @.str.85, i32 noundef %463, i32 noundef 1, double noundef %465, double noundef %468, double noundef %471) #10
+  br label %473
 
-471:                                              ; preds = %456
-  %472 = load i32, ptr %10, align 4
-  %473 = add nsw i32 %472, 1
-  store i32 %473, ptr %10, align 4
+473:                                              ; preds = %456
+  %474 = load i32, ptr %10, align 4
+  %475 = add nsw i32 %474, 1
+  store i32 %475, ptr %10, align 4
   br label %452, !llvm.loop !9
 
-474:                                              ; preds = %441
-  %475 = landingpad { ptr, i32 }
+476:                                              ; preds = %441
+  %477 = landingpad { ptr, i32 }
           cleanup
-  %476 = extractvalue { ptr, i32 } %475, 0
-  store ptr %476, ptr %28, align 8
-  %477 = extractvalue { ptr, i32 } %475, 1
-  store i32 %477, ptr %29, align 4
+  %478 = extractvalue { ptr, i32 } %477, 0
+  store ptr %478, ptr %28, align 8
+  %479 = extractvalue { ptr, i32 } %477, 1
+  store i32 %479, ptr %29, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %49) #10
-  br label %497
+  br label %499
 
-478:                                              ; preds = %452
-  %479 = load ptr, ptr %13, align 8
-  %480 = invoke noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %479)
-          to label %481 unwind label %188
+480:                                              ; preds = %452
+  %481 = load ptr, ptr %13, align 8
+  %482 = invoke noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %481)
+          to label %483 unwind label %188
 
-481:                                              ; preds = %478
-  br label %482
+483:                                              ; preds = %480
+  br label %484
 
-482:                                              ; preds = %481, %430
-  br label %483
+484:                                              ; preds = %483, %430
+  br label %485
 
-483:                                              ; preds = %482, %257
-  %484 = load ptr, ptr %19, align 8
-  %485 = icmp ne ptr %484, null
-  br i1 %485, label %486, label %492
+485:                                              ; preds = %484, %257
+  %486 = load ptr, ptr %19, align 8
+  %487 = icmp ne ptr %486, null
+  br i1 %487, label %488, label %494
 
-486:                                              ; preds = %483
-  %487 = load ptr, ptr %24, align 8
-  invoke void @_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_(ptr noundef @.str.86, ptr noundef @.str.45, i32 noundef 301, ptr noundef %487)
-          to label %488 unwind label %188
-
-488:                                              ; preds = %486
-  %489 = load ptr, ptr %25, align 8
-  invoke void @_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_(ptr noundef @.str.87, ptr noundef @.str.45, i32 noundef 302, ptr noundef %489)
+488:                                              ; preds = %485
+  %489 = load ptr, ptr %24, align 8
+  invoke void @_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_(ptr noundef @.str.86, ptr noundef @.str.45, i32 noundef 301, ptr noundef %489)
           to label %490 unwind label %188
 
 490:                                              ; preds = %488
+  %491 = load ptr, ptr %25, align 8
+  invoke void @_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_(ptr noundef @.str.87, ptr noundef @.str.45, i32 noundef 302, ptr noundef %491)
+          to label %492 unwind label %188
+
+492:                                              ; preds = %490
   invoke void @_Z9done_atomP7t_atoms(ptr noundef %9)
-          to label %491 unwind label %188
+          to label %493 unwind label %188
 
-491:                                              ; preds = %490
-  br label %492
+493:                                              ; preds = %492
+  br label %494
 
-492:                                              ; preds = %491, %483
-  %493 = load ptr, ptr %38, align 8
-  invoke void @_ZL14gmx_sfree_implIcEvPKcS1_iPT_(ptr noundef @.str.88, ptr noundef @.str.45, i32 noundef 305, ptr noundef %493)
-          to label %494 unwind label %188
-
-494:                                              ; preds = %492
-  %495 = load ptr, ptr %37, align 8
-  invoke void @_ZL14gmx_sfree_implIiEvPKcS1_iPT_(ptr noundef @.str.89, ptr noundef @.str.45, i32 noundef 306, ptr noundef %495)
+494:                                              ; preds = %493, %485
+  %495 = load ptr, ptr %38, align 8
+  invoke void @_ZL14gmx_sfree_implIcEvPKcS1_iPT_(ptr noundef @.str.88, ptr noundef @.str.45, i32 noundef 305, ptr noundef %495)
           to label %496 unwind label %188
 
 496:                                              ; preds = %494
+  %497 = load ptr, ptr %37, align 8
+  invoke void @_ZL14gmx_sfree_implIiEvPKcS1_iPT_(ptr noundef @.str.89, ptr noundef @.str.45, i32 noundef 306, ptr noundef %497)
+          to label %498 unwind label %188
+
+498:                                              ; preds = %496
   store i32 0, ptr %3, align 4
   store i32 1, ptr %30, align 4
   call void @_ZN10gmx_mtop_tD1Ev(ptr noundef nonnull align 8 dereferenceable(768) %36) #10
-  br label %498
+  br label %500
 
-497:                                              ; preds = %474, %294, %246, %211, %192, %188
+499:                                              ; preds = %476, %294, %246, %211, %192, %188
   call void @_ZN10gmx_mtop_tD1Ev(ptr noundef nonnull align 8 dereferenceable(768) %36) #10
-  br label %507
+  br label %509
 
-498:                                              ; preds = %496, %87
-  %499 = getelementptr inbounds [4 x %struct.t_filenm], ptr %26, i32 0, i32 0
-  %500 = getelementptr inbounds %struct.t_filenm, ptr %499, i64 4
-  br label %501
+500:                                              ; preds = %498, %87
+  %501 = getelementptr inbounds [4 x %struct.t_filenm], ptr %26, i32 0, i32 0
+  %502 = getelementptr inbounds %struct.t_filenm, ptr %501, i64 4
+  br label %503
 
-501:                                              ; preds = %501, %498
-  %502 = phi ptr [ %500, %498 ], [ %503, %501 ]
-  %503 = getelementptr inbounds %struct.t_filenm, ptr %502, i64 -1
-  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %503) #10
-  %504 = icmp eq ptr %503, %499
-  br i1 %504, label %505, label %501
+503:                                              ; preds = %503, %500
+  %504 = phi ptr [ %502, %500 ], [ %505, %503 ]
+  %505 = getelementptr inbounds %struct.t_filenm, ptr %504, i64 -1
+  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %505) #10
+  %506 = icmp eq ptr %505, %501
+  br i1 %506, label %507, label %503
 
-505:                                              ; preds = %501
-  %506 = load i32, ptr %3, align 4
-  ret i32 %506
+507:                                              ; preds = %503
+  %508 = load i32, ptr %3, align 4
+  ret i32 %508
 
-507:                                              ; preds = %497, %161, %151, %138, %88
-  %508 = getelementptr inbounds [4 x %struct.t_filenm], ptr %26, i32 0, i32 0
-  %509 = getelementptr inbounds %struct.t_filenm, ptr %508, i64 4
-  br label %510
+509:                                              ; preds = %499, %161, %151, %138, %88
+  %510 = getelementptr inbounds [4 x %struct.t_filenm], ptr %26, i32 0, i32 0
+  %511 = getelementptr inbounds %struct.t_filenm, ptr %510, i64 4
+  br label %512
 
-510:                                              ; preds = %510, %507
-  %511 = phi ptr [ %509, %507 ], [ %512, %510 ]
-  %512 = getelementptr inbounds %struct.t_filenm, ptr %511, i64 -1
-  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %512) #10
-  %513 = icmp eq ptr %512, %508
-  br i1 %513, label %514, label %510
+512:                                              ; preds = %512, %509
+  %513 = phi ptr [ %511, %509 ], [ %514, %512 ]
+  %514 = getelementptr inbounds %struct.t_filenm, ptr %513, i64 -1
+  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %514) #10
+  %515 = icmp eq ptr %514, %510
+  br i1 %515, label %516, label %512
 
-514:                                              ; preds = %510
-  br label %515
+516:                                              ; preds = %512
+  br label %517
 
-515:                                              ; preds = %514
-  %516 = load ptr, ptr %28, align 8
-  %517 = load i32, ptr %29, align 4
-  %518 = insertvalue { ptr, i32 } poison, ptr %516, 0
-  %519 = insertvalue { ptr, i32 } %518, i32 %517, 1
-  resume { ptr, i32 } %519
+517:                                              ; preds = %516
+  %518 = load ptr, ptr %28, align 8
+  %519 = load i32, ptr %29, align 4
+  %520 = insertvalue { ptr, i32 } poison, ptr %518, 0
+  %521 = insertvalue { ptr, i32 } %520, i32 %519, 1
+  resume { ptr, i32 } %521
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

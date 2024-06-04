@@ -1496,7 +1496,7 @@ define i32 @Lpk_MapSuppRedDecSelect(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 201:                                              ; preds = %199, %196
   store i32 0, ptr %6, align 4
-  br label %257
+  br label %258
 
 202:                                              ; preds = %193
   %203 = load i32, ptr %22, align 4
@@ -1510,70 +1510,71 @@ define i32 @Lpk_MapSuppRedDecSelect(ptr noundef %0, ptr noundef %1, i32 noundef 
 207:                                              ; preds = %205, %202
   %208 = load i32, ptr %22, align 4
   %209 = icmp ne i32 %208, 0
-  br i1 %209, label %210, label %217
+  br i1 %209, label %210, label %218
 
 210:                                              ; preds = %207
   %211 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
   %212 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
   %213 = ptrtoint ptr %212 to i64
-  %214 = sub i64 %213, ptrtoint (ptr @Lpk_MapSuppRedDecSelect.pStore to i64)
-  %215 = sdiv exact i64 %214, 12
-  %216 = trunc i64 %215 to i32
-  call void @Lpk_MapSuppPrintSet(ptr noundef %211, i32 noundef %216)
-  br label %217
-
-217:                                              ; preds = %210, %207
+  %214 = ptrtoint ptr @Lpk_MapSuppRedDecSelect.pStore to i64
+  %215 = sub i64 %213, %214
+  %216 = sdiv exact i64 %215, 12
+  %217 = trunc i64 %216 to i32
+  call void @Lpk_MapSuppPrintSet(ptr noundef %211, i32 noundef %217)
   br label %218
 
-218:                                              ; preds = %217
-  %219 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
-  %220 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %219, i32 0, i32 4
-  %221 = load i32, ptr %220, align 4
-  %222 = lshr i32 %221, 16
-  %223 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
-  %224 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %223, i32 0, i32 5
-  %225 = load i32, ptr %224, align 4
-  %226 = lshr i32 %225, 16
-  %227 = or i32 %222, %226
-  store i32 %227, ptr %21, align 4
-  %228 = load i32, ptr %9, align 4
-  %229 = call i32 @Kit_BitMask(i32 noundef %228)
-  %230 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
-  %231 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %230, i32 0, i32 0
-  %232 = load i8, ptr %231, align 4
-  %233 = sext i8 %232 to i32
-  %234 = shl i32 1, %233
-  %235 = xor i32 %234, -1
-  %236 = and i32 %229, %235
-  %237 = load i32, ptr %21, align 4
-  %238 = xor i32 %237, -1
-  %239 = and i32 %236, %238
-  store i32 %239, ptr %21, align 4
-  %240 = load i32, ptr %21, align 4
-  %241 = call i32 @Kit_WordFindFirstBit(i32 noundef %240)
-  %242 = load ptr, ptr %11, align 8
-  store i32 %241, ptr %242, align 4
-  %243 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
-  %244 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %243, i32 0, i32 0
-  %245 = load i8, ptr %244, align 4
-  %246 = sext i8 %245 to i32
-  %247 = load ptr, ptr %10, align 8
-  store i32 %246, ptr %247, align 4
-  %248 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
-  %249 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %248, i32 0, i32 5
-  %250 = load i32, ptr %249, align 4
-  %251 = shl i32 %250, 16
-  %252 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
-  %253 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %252, i32 0, i32 4
-  %254 = load i32, ptr %253, align 4
-  %255 = and i32 %254, 65535
-  %256 = or i32 %251, %255
-  store i32 %256, ptr %6, align 4
-  br label %257
+218:                                              ; preds = %210, %207
+  br label %219
 
-257:                                              ; preds = %218, %201
-  %258 = load i32, ptr %6, align 4
-  ret i32 %258
+219:                                              ; preds = %218
+  %220 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
+  %221 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %220, i32 0, i32 4
+  %222 = load i32, ptr %221, align 4
+  %223 = lshr i32 %222, 16
+  %224 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
+  %225 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %224, i32 0, i32 5
+  %226 = load i32, ptr %225, align 4
+  %227 = lshr i32 %226, 16
+  %228 = or i32 %223, %227
+  store i32 %228, ptr %21, align 4
+  %229 = load i32, ptr %9, align 4
+  %230 = call i32 @Kit_BitMask(i32 noundef %229)
+  %231 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
+  %232 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %231, i32 0, i32 0
+  %233 = load i8, ptr %232, align 4
+  %234 = sext i8 %233 to i32
+  %235 = shl i32 1, %234
+  %236 = xor i32 %235, -1
+  %237 = and i32 %230, %236
+  %238 = load i32, ptr %21, align 4
+  %239 = xor i32 %238, -1
+  %240 = and i32 %237, %239
+  store i32 %240, ptr %21, align 4
+  %241 = load i32, ptr %21, align 4
+  %242 = call i32 @Kit_WordFindFirstBit(i32 noundef %241)
+  %243 = load ptr, ptr %11, align 8
+  store i32 %242, ptr %243, align 4
+  %244 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
+  %245 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %244, i32 0, i32 0
+  %246 = load i8, ptr %245, align 4
+  %247 = sext i8 %246 to i32
+  %248 = load ptr, ptr %10, align 8
+  store i32 %247, ptr %248, align 4
+  %249 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
+  %250 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %249, i32 0, i32 5
+  %251 = load i32, ptr %250, align 4
+  %252 = shl i32 %251, 16
+  %253 = load ptr, ptr @Lpk_MapSuppRedDecSelect.pSetBest, align 8
+  %254 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %253, i32 0, i32 4
+  %255 = load i32, ptr %254, align 4
+  %256 = and i32 %255, 65535
+  %257 = or i32 %252, %256
+  store i32 %257, ptr %6, align 4
+  br label %258
+
+258:                                              ; preds = %219, %201
+  %259 = load i32, ptr %6, align 4
+  ret i32 %259
 }
 
 ; Function Attrs: nounwind uwtable

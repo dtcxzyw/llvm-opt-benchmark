@@ -695,92 +695,95 @@ if.then:                                          ; preds = %entry
   call void @strbuf_setlen(ptr noundef @show_date.timebuf, i64 noundef 0)
   %2 = load i64, ptr %git_time.addr, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.21, i64 noundef %2)
-  %3 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @show_date.timebuf, i32 0, i32 2), align 8
-  store ptr %3, ptr %retval, align 8
+  %3 = getelementptr inbounds %struct.strbuf, ptr @show_date.timebuf, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %mode.addr, align 8
-  %type1 = getelementptr inbounds %struct.date_mode, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %type1, align 8
-  %cmp2 = icmp eq i32 %5, 1
+  %5 = load ptr, ptr %mode.addr, align 8
+  %type1 = getelementptr inbounds %struct.date_mode, ptr %5, i32 0, i32 0
+  %6 = load i32, ptr %type1, align 8
+  %cmp2 = icmp eq i32 %6, 1
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
   call void @get_time(ptr noundef %now)
   %tv_sec = getelementptr inbounds %struct.timeval, ptr %now, i32 0, i32 0
-  %6 = load i64, ptr %tv_sec, align 8
-  %call = call i32 @local_time_tzoffset(i64 noundef %6, ptr noundef %human_tm)
+  %7 = load i64, ptr %tv_sec, align 8
+  %call = call i32 @local_time_tzoffset(i64 noundef %7, ptr noundef %human_tm)
   store i32 %call, ptr %human_tz, align 4
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %7 = load ptr, ptr %mode.addr, align 8
-  %local = getelementptr inbounds %struct.date_mode, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %local, align 8
-  %tobool = icmp ne i32 %8, 0
+  %8 = load ptr, ptr %mode.addr, align 8
+  %local = getelementptr inbounds %struct.date_mode, ptr %8, i32 0, i32 2
+  %9 = load i32, ptr %local, align 8
+  %tobool = icmp ne i32 %9, 0
   br i1 %tobool, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end4
-  %9 = load i64, ptr %git_time.addr, align 8
-  %call6 = call i32 @local_tzoffset(i64 noundef %9)
+  %10 = load i64, ptr %git_time.addr, align 8
+  %call6 = call i32 @local_tzoffset(i64 noundef %10)
   store i32 %call6, ptr %tz.addr, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end4
-  %10 = load ptr, ptr %mode.addr, align 8
-  %type8 = getelementptr inbounds %struct.date_mode, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %type8, align 8
-  %cmp9 = icmp eq i32 %11, 8
+  %11 = load ptr, ptr %mode.addr, align 8
+  %type8 = getelementptr inbounds %struct.date_mode, ptr %11, i32 0, i32 0
+  %12 = load i32, ptr %type8, align 8
+  %cmp9 = icmp eq i32 %12, 8
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end7
   call void @strbuf_setlen(ptr noundef @show_date.timebuf, i64 noundef 0)
-  %12 = load i64, ptr %git_time.addr, align 8
-  %13 = load i32, ptr %tz.addr, align 4
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.22, i64 noundef %12, i32 noundef %13)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @show_date.timebuf, i32 0, i32 2), align 8
-  store ptr %14, ptr %retval, align 8
+  %13 = load i64, ptr %git_time.addr, align 8
+  %14 = load i32, ptr %tz.addr, align 4
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.22, i64 noundef %13, i32 noundef %14)
+  %15 = getelementptr inbounds %struct.strbuf, ptr @show_date.timebuf, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %retval, align 8
   br label %return
 
 if.end11:                                         ; preds = %if.end7
-  %15 = load ptr, ptr %mode.addr, align 8
-  %type12 = getelementptr inbounds %struct.date_mode, ptr %15, i32 0, i32 0
-  %16 = load i32, ptr %type12, align 8
-  %cmp13 = icmp eq i32 %16, 2
+  %17 = load ptr, ptr %mode.addr, align 8
+  %type12 = getelementptr inbounds %struct.date_mode, ptr %17, i32 0, i32 0
+  %18 = load i32, ptr %type12, align 8
+  %cmp13 = icmp eq i32 %18, 2
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
   call void @strbuf_setlen(ptr noundef @show_date.timebuf, i64 noundef 0)
-  %17 = load i64, ptr %git_time.addr, align 8
-  call void @show_date_relative(i64 noundef %17, ptr noundef @show_date.timebuf)
-  %18 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @show_date.timebuf, i32 0, i32 2), align 8
-  store ptr %18, ptr %retval, align 8
+  %19 = load i64, ptr %git_time.addr, align 8
+  call void @show_date_relative(i64 noundef %19, ptr noundef @show_date.timebuf)
+  %20 = getelementptr inbounds %struct.strbuf, ptr @show_date.timebuf, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %retval, align 8
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %19 = load ptr, ptr %mode.addr, align 8
-  %local16 = getelementptr inbounds %struct.date_mode, ptr %19, i32 0, i32 2
-  %20 = load i32, ptr %local16, align 8
-  %tobool17 = icmp ne i32 %20, 0
+  %22 = load ptr, ptr %mode.addr, align 8
+  %local16 = getelementptr inbounds %struct.date_mode, ptr %22, i32 0, i32 2
+  %23 = load i32, ptr %local16, align 8
+  %tobool17 = icmp ne i32 %23, 0
   br i1 %tobool17, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.end15
-  %21 = load i64, ptr %git_time.addr, align 8
-  %call19 = call ptr @time_to_tm_local(i64 noundef %21, ptr noundef %tmbuf)
+  %24 = load i64, ptr %git_time.addr, align 8
+  %call19 = call ptr @time_to_tm_local(i64 noundef %24, ptr noundef %tmbuf)
   store ptr %call19, ptr %tm, align 8
   br label %if.end21
 
 if.else:                                          ; preds = %if.end15
-  %22 = load i64, ptr %git_time.addr, align 8
-  %23 = load i32, ptr %tz.addr, align 4
-  %call20 = call ptr @time_to_tm(i64 noundef %22, i32 noundef %23, ptr noundef %tmbuf)
+  %25 = load i64, ptr %git_time.addr, align 8
+  %26 = load i32, ptr %tz.addr, align 4
+  %call20 = call ptr @time_to_tm(i64 noundef %25, i32 noundef %26, ptr noundef %tmbuf)
   store ptr %call20, ptr %tm, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then18
-  %24 = load ptr, ptr %tm, align 8
-  %tobool22 = icmp ne ptr %24, null
+  %27 = load ptr, ptr %tm, align 8
+  %tobool22 = icmp ne ptr %27, null
   br i1 %tobool22, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
@@ -791,175 +794,175 @@ if.then23:                                        ; preds = %if.end21
 
 if.end25:                                         ; preds = %if.then23, %if.end21
   call void @strbuf_setlen(ptr noundef @show_date.timebuf, i64 noundef 0)
-  %25 = load ptr, ptr %mode.addr, align 8
-  %type26 = getelementptr inbounds %struct.date_mode, ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %type26, align 8
-  %cmp27 = icmp eq i32 %26, 3
+  %28 = load ptr, ptr %mode.addr, align 8
+  %type26 = getelementptr inbounds %struct.date_mode, ptr %28, i32 0, i32 0
+  %29 = load i32, ptr %type26, align 8
+  %cmp27 = icmp eq i32 %29, 3
   br i1 %cmp27, label %if.then28, label %if.else30
 
 if.then28:                                        ; preds = %if.end25
-  %27 = load ptr, ptr %tm, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 5
-  %28 = load i32, ptr %tm_year, align 4
-  %add = add nsw i32 %28, 1900
-  %29 = load ptr, ptr %tm, align 8
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %29, i32 0, i32 4
-  %30 = load i32, ptr %tm_mon, align 8
-  %add29 = add nsw i32 %30, 1
-  %31 = load ptr, ptr %tm, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %31, i32 0, i32 3
-  %32 = load i32, ptr %tm_mday, align 4
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.23, i32 noundef %add, i32 noundef %add29, i32 noundef %32)
+  %30 = load ptr, ptr %tm, align 8
+  %tm_year = getelementptr inbounds %struct.tm, ptr %30, i32 0, i32 5
+  %31 = load i32, ptr %tm_year, align 4
+  %add = add nsw i32 %31, 1900
+  %32 = load ptr, ptr %tm, align 8
+  %tm_mon = getelementptr inbounds %struct.tm, ptr %32, i32 0, i32 4
+  %33 = load i32, ptr %tm_mon, align 8
+  %add29 = add nsw i32 %33, 1
+  %34 = load ptr, ptr %tm, align 8
+  %tm_mday = getelementptr inbounds %struct.tm, ptr %34, i32 0, i32 3
+  %35 = load i32, ptr %tm_mday, align 4
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.23, i32 noundef %add, i32 noundef %add29, i32 noundef %35)
   br label %if.end80
 
 if.else30:                                        ; preds = %if.end25
-  %33 = load ptr, ptr %mode.addr, align 8
-  %type31 = getelementptr inbounds %struct.date_mode, ptr %33, i32 0, i32 0
-  %34 = load i32, ptr %type31, align 8
-  %cmp32 = icmp eq i32 %34, 4
+  %36 = load ptr, ptr %mode.addr, align 8
+  %type31 = getelementptr inbounds %struct.date_mode, ptr %36, i32 0, i32 0
+  %37 = load i32, ptr %type31, align 8
+  %cmp32 = icmp eq i32 %37, 4
   br i1 %cmp32, label %if.then33, label %if.else39
 
 if.then33:                                        ; preds = %if.else30
-  %35 = load ptr, ptr %tm, align 8
-  %tm_year34 = getelementptr inbounds %struct.tm, ptr %35, i32 0, i32 5
-  %36 = load i32, ptr %tm_year34, align 4
-  %add35 = add nsw i32 %36, 1900
-  %37 = load ptr, ptr %tm, align 8
-  %tm_mon36 = getelementptr inbounds %struct.tm, ptr %37, i32 0, i32 4
-  %38 = load i32, ptr %tm_mon36, align 8
-  %add37 = add nsw i32 %38, 1
-  %39 = load ptr, ptr %tm, align 8
-  %tm_mday38 = getelementptr inbounds %struct.tm, ptr %39, i32 0, i32 3
-  %40 = load i32, ptr %tm_mday38, align 4
-  %41 = load ptr, ptr %tm, align 8
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %41, i32 0, i32 2
-  %42 = load i32, ptr %tm_hour, align 8
-  %43 = load ptr, ptr %tm, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %43, i32 0, i32 1
-  %44 = load i32, ptr %tm_min, align 4
-  %45 = load ptr, ptr %tm, align 8
-  %tm_sec = getelementptr inbounds %struct.tm, ptr %45, i32 0, i32 0
-  %46 = load i32, ptr %tm_sec, align 8
-  %47 = load i32, ptr %tz.addr, align 4
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.24, i32 noundef %add35, i32 noundef %add37, i32 noundef %40, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %47)
+  %38 = load ptr, ptr %tm, align 8
+  %tm_year34 = getelementptr inbounds %struct.tm, ptr %38, i32 0, i32 5
+  %39 = load i32, ptr %tm_year34, align 4
+  %add35 = add nsw i32 %39, 1900
+  %40 = load ptr, ptr %tm, align 8
+  %tm_mon36 = getelementptr inbounds %struct.tm, ptr %40, i32 0, i32 4
+  %41 = load i32, ptr %tm_mon36, align 8
+  %add37 = add nsw i32 %41, 1
+  %42 = load ptr, ptr %tm, align 8
+  %tm_mday38 = getelementptr inbounds %struct.tm, ptr %42, i32 0, i32 3
+  %43 = load i32, ptr %tm_mday38, align 4
+  %44 = load ptr, ptr %tm, align 8
+  %tm_hour = getelementptr inbounds %struct.tm, ptr %44, i32 0, i32 2
+  %45 = load i32, ptr %tm_hour, align 8
+  %46 = load ptr, ptr %tm, align 8
+  %tm_min = getelementptr inbounds %struct.tm, ptr %46, i32 0, i32 1
+  %47 = load i32, ptr %tm_min, align 4
+  %48 = load ptr, ptr %tm, align 8
+  %tm_sec = getelementptr inbounds %struct.tm, ptr %48, i32 0, i32 0
+  %49 = load i32, ptr %tm_sec, align 8
+  %50 = load i32, ptr %tz.addr, align 4
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.24, i32 noundef %add35, i32 noundef %add37, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef %49, i32 noundef %50)
   br label %if.end79
 
 if.else39:                                        ; preds = %if.else30
-  %48 = load ptr, ptr %mode.addr, align 8
-  %type40 = getelementptr inbounds %struct.date_mode, ptr %48, i32 0, i32 0
-  %49 = load i32, ptr %type40, align 8
-  %cmp41 = icmp eq i32 %49, 5
+  %51 = load ptr, ptr %mode.addr, align 8
+  %type40 = getelementptr inbounds %struct.date_mode, ptr %51, i32 0, i32 0
+  %52 = load i32, ptr %type40, align 8
+  %cmp41 = icmp eq i32 %52, 5
   br i1 %cmp41, label %if.then42, label %if.else53
 
 if.then42:                                        ; preds = %if.else39
-  %50 = load i32, ptr %tz.addr, align 4
-  %cmp43 = icmp sge i32 %50, 0
+  %53 = load i32, ptr %tz.addr, align 4
+  %cmp43 = icmp sge i32 %53, 0
   %cond = select i1 %cmp43, i32 43, i32 45
   %conv = trunc i32 %cond to i8
   store i8 %conv, ptr %sign, align 1
-  %51 = load i32, ptr %tz.addr, align 4
-  %52 = call i32 @llvm.abs.i32(i32 %51, i1 true)
-  store i32 %52, ptr %tz.addr, align 4
-  %53 = load ptr, ptr %tm, align 8
-  %tm_year44 = getelementptr inbounds %struct.tm, ptr %53, i32 0, i32 5
-  %54 = load i32, ptr %tm_year44, align 4
-  %add45 = add nsw i32 %54, 1900
-  %55 = load ptr, ptr %tm, align 8
-  %tm_mon46 = getelementptr inbounds %struct.tm, ptr %55, i32 0, i32 4
-  %56 = load i32, ptr %tm_mon46, align 8
-  %add47 = add nsw i32 %56, 1
-  %57 = load ptr, ptr %tm, align 8
-  %tm_mday48 = getelementptr inbounds %struct.tm, ptr %57, i32 0, i32 3
-  %58 = load i32, ptr %tm_mday48, align 4
-  %59 = load ptr, ptr %tm, align 8
-  %tm_hour49 = getelementptr inbounds %struct.tm, ptr %59, i32 0, i32 2
-  %60 = load i32, ptr %tm_hour49, align 8
-  %61 = load ptr, ptr %tm, align 8
-  %tm_min50 = getelementptr inbounds %struct.tm, ptr %61, i32 0, i32 1
-  %62 = load i32, ptr %tm_min50, align 4
-  %63 = load ptr, ptr %tm, align 8
-  %tm_sec51 = getelementptr inbounds %struct.tm, ptr %63, i32 0, i32 0
-  %64 = load i32, ptr %tm_sec51, align 8
-  %65 = load i8, ptr %sign, align 1
-  %conv52 = sext i8 %65 to i32
-  %66 = load i32, ptr %tz.addr, align 4
-  %div = sdiv i32 %66, 100
-  %67 = load i32, ptr %tz.addr, align 4
-  %rem = srem i32 %67, 100
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.25, i32 noundef %add45, i32 noundef %add47, i32 noundef %58, i32 noundef %60, i32 noundef %62, i32 noundef %64, i32 noundef %conv52, i32 noundef %div, i32 noundef %rem)
+  %54 = load i32, ptr %tz.addr, align 4
+  %55 = call i32 @llvm.abs.i32(i32 %54, i1 true)
+  store i32 %55, ptr %tz.addr, align 4
+  %56 = load ptr, ptr %tm, align 8
+  %tm_year44 = getelementptr inbounds %struct.tm, ptr %56, i32 0, i32 5
+  %57 = load i32, ptr %tm_year44, align 4
+  %add45 = add nsw i32 %57, 1900
+  %58 = load ptr, ptr %tm, align 8
+  %tm_mon46 = getelementptr inbounds %struct.tm, ptr %58, i32 0, i32 4
+  %59 = load i32, ptr %tm_mon46, align 8
+  %add47 = add nsw i32 %59, 1
+  %60 = load ptr, ptr %tm, align 8
+  %tm_mday48 = getelementptr inbounds %struct.tm, ptr %60, i32 0, i32 3
+  %61 = load i32, ptr %tm_mday48, align 4
+  %62 = load ptr, ptr %tm, align 8
+  %tm_hour49 = getelementptr inbounds %struct.tm, ptr %62, i32 0, i32 2
+  %63 = load i32, ptr %tm_hour49, align 8
+  %64 = load ptr, ptr %tm, align 8
+  %tm_min50 = getelementptr inbounds %struct.tm, ptr %64, i32 0, i32 1
+  %65 = load i32, ptr %tm_min50, align 4
+  %66 = load ptr, ptr %tm, align 8
+  %tm_sec51 = getelementptr inbounds %struct.tm, ptr %66, i32 0, i32 0
+  %67 = load i32, ptr %tm_sec51, align 8
+  %68 = load i8, ptr %sign, align 1
+  %conv52 = sext i8 %68 to i32
+  %69 = load i32, ptr %tz.addr, align 4
+  %div = sdiv i32 %69, 100
+  %70 = load i32, ptr %tz.addr, align 4
+  %rem = srem i32 %70, 100
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.25, i32 noundef %add45, i32 noundef %add47, i32 noundef %61, i32 noundef %63, i32 noundef %65, i32 noundef %67, i32 noundef %conv52, i32 noundef %div, i32 noundef %rem)
   br label %if.end78
 
 if.else53:                                        ; preds = %if.else39
-  %68 = load ptr, ptr %mode.addr, align 8
-  %type54 = getelementptr inbounds %struct.date_mode, ptr %68, i32 0, i32 0
-  %69 = load i32, ptr %type54, align 8
-  %cmp55 = icmp eq i32 %69, 6
+  %71 = load ptr, ptr %mode.addr, align 8
+  %type54 = getelementptr inbounds %struct.date_mode, ptr %71, i32 0, i32 0
+  %72 = load i32, ptr %type54, align 8
+  %cmp55 = icmp eq i32 %72, 6
   br i1 %cmp55, label %if.then57, label %if.else67
 
 if.then57:                                        ; preds = %if.else53
-  %70 = load ptr, ptr %tm, align 8
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %70, i32 0, i32 6
-  %71 = load i32, ptr %tm_wday, align 8
-  %idxprom = sext i32 %71 to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @weekday_names, i64 0, i64 %idxprom
-  %72 = load ptr, ptr %arrayidx, align 8
   %73 = load ptr, ptr %tm, align 8
-  %tm_mday58 = getelementptr inbounds %struct.tm, ptr %73, i32 0, i32 3
-  %74 = load i32, ptr %tm_mday58, align 4
-  %75 = load ptr, ptr %tm, align 8
-  %tm_mon59 = getelementptr inbounds %struct.tm, ptr %75, i32 0, i32 4
-  %76 = load i32, ptr %tm_mon59, align 8
-  %idxprom60 = sext i32 %76 to i64
-  %arrayidx61 = getelementptr inbounds [12 x ptr], ptr @month_names, i64 0, i64 %idxprom60
-  %77 = load ptr, ptr %arrayidx61, align 8
+  %tm_wday = getelementptr inbounds %struct.tm, ptr %73, i32 0, i32 6
+  %74 = load i32, ptr %tm_wday, align 8
+  %idxprom = sext i32 %74 to i64
+  %arrayidx = getelementptr inbounds [7 x ptr], ptr @weekday_names, i64 0, i64 %idxprom
+  %75 = load ptr, ptr %arrayidx, align 8
+  %76 = load ptr, ptr %tm, align 8
+  %tm_mday58 = getelementptr inbounds %struct.tm, ptr %76, i32 0, i32 3
+  %77 = load i32, ptr %tm_mday58, align 4
   %78 = load ptr, ptr %tm, align 8
-  %tm_year62 = getelementptr inbounds %struct.tm, ptr %78, i32 0, i32 5
-  %79 = load i32, ptr %tm_year62, align 4
-  %add63 = add nsw i32 %79, 1900
-  %80 = load ptr, ptr %tm, align 8
-  %tm_hour64 = getelementptr inbounds %struct.tm, ptr %80, i32 0, i32 2
-  %81 = load i32, ptr %tm_hour64, align 8
-  %82 = load ptr, ptr %tm, align 8
-  %tm_min65 = getelementptr inbounds %struct.tm, ptr %82, i32 0, i32 1
-  %83 = load i32, ptr %tm_min65, align 4
-  %84 = load ptr, ptr %tm, align 8
-  %tm_sec66 = getelementptr inbounds %struct.tm, ptr %84, i32 0, i32 0
-  %85 = load i32, ptr %tm_sec66, align 8
-  %86 = load i32, ptr %tz.addr, align 4
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.26, ptr noundef %72, i32 noundef %74, ptr noundef %77, i32 noundef %add63, i32 noundef %81, i32 noundef %83, i32 noundef %85, i32 noundef %86)
+  %tm_mon59 = getelementptr inbounds %struct.tm, ptr %78, i32 0, i32 4
+  %79 = load i32, ptr %tm_mon59, align 8
+  %idxprom60 = sext i32 %79 to i64
+  %arrayidx61 = getelementptr inbounds [12 x ptr], ptr @month_names, i64 0, i64 %idxprom60
+  %80 = load ptr, ptr %arrayidx61, align 8
+  %81 = load ptr, ptr %tm, align 8
+  %tm_year62 = getelementptr inbounds %struct.tm, ptr %81, i32 0, i32 5
+  %82 = load i32, ptr %tm_year62, align 4
+  %add63 = add nsw i32 %82, 1900
+  %83 = load ptr, ptr %tm, align 8
+  %tm_hour64 = getelementptr inbounds %struct.tm, ptr %83, i32 0, i32 2
+  %84 = load i32, ptr %tm_hour64, align 8
+  %85 = load ptr, ptr %tm, align 8
+  %tm_min65 = getelementptr inbounds %struct.tm, ptr %85, i32 0, i32 1
+  %86 = load i32, ptr %tm_min65, align 4
+  %87 = load ptr, ptr %tm, align 8
+  %tm_sec66 = getelementptr inbounds %struct.tm, ptr %87, i32 0, i32 0
+  %88 = load i32, ptr %tm_sec66, align 8
+  %89 = load i32, ptr %tz.addr, align 4
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef @show_date.timebuf, ptr noundef @.str.26, ptr noundef %75, i32 noundef %77, ptr noundef %80, i32 noundef %add63, i32 noundef %84, i32 noundef %86, i32 noundef %88, i32 noundef %89)
   br label %if.end77
 
 if.else67:                                        ; preds = %if.else53
-  %87 = load ptr, ptr %mode.addr, align 8
-  %type68 = getelementptr inbounds %struct.date_mode, ptr %87, i32 0, i32 0
-  %88 = load i32, ptr %type68, align 8
-  %cmp69 = icmp eq i32 %88, 7
+  %90 = load ptr, ptr %mode.addr, align 8
+  %type68 = getelementptr inbounds %struct.date_mode, ptr %90, i32 0, i32 0
+  %91 = load i32, ptr %type68, align 8
+  %cmp69 = icmp eq i32 %91, 7
   br i1 %cmp69, label %if.then71, label %if.else74
 
 if.then71:                                        ; preds = %if.else67
-  %89 = load ptr, ptr %mode.addr, align 8
-  %strftime_fmt = getelementptr inbounds %struct.date_mode, ptr %89, i32 0, i32 1
-  %90 = load ptr, ptr %strftime_fmt, align 8
-  %91 = load ptr, ptr %tm, align 8
-  %92 = load i32, ptr %tz.addr, align 4
-  %93 = load ptr, ptr %mode.addr, align 8
-  %local72 = getelementptr inbounds %struct.date_mode, ptr %93, i32 0, i32 2
-  %94 = load i32, ptr %local72, align 8
-  %tobool73 = icmp ne i32 %94, 0
+  %92 = load ptr, ptr %mode.addr, align 8
+  %strftime_fmt = getelementptr inbounds %struct.date_mode, ptr %92, i32 0, i32 1
+  %93 = load ptr, ptr %strftime_fmt, align 8
+  %94 = load ptr, ptr %tm, align 8
+  %95 = load i32, ptr %tz.addr, align 4
+  %96 = load ptr, ptr %mode.addr, align 8
+  %local72 = getelementptr inbounds %struct.date_mode, ptr %96, i32 0, i32 2
+  %97 = load i32, ptr %local72, align 8
+  %tobool73 = icmp ne i32 %97, 0
   %lnot = xor i1 %tobool73, true
   %lnot.ext = zext i1 %lnot to i32
-  call void @strbuf_addftime(ptr noundef @show_date.timebuf, ptr noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef %lnot.ext)
+  call void @strbuf_addftime(ptr noundef @show_date.timebuf, ptr noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef %lnot.ext)
   br label %if.end76
 
 if.else74:                                        ; preds = %if.else67
-  %95 = load i64, ptr %git_time.addr, align 8
-  %96 = load ptr, ptr %tm, align 8
-  %97 = load i32, ptr %tz.addr, align 4
-  %98 = load i32, ptr %human_tz, align 4
-  %99 = load ptr, ptr %mode.addr, align 8
-  %local75 = getelementptr inbounds %struct.date_mode, ptr %99, i32 0, i32 2
-  %100 = load i32, ptr %local75, align 8
-  call void @show_date_normal(ptr noundef @show_date.timebuf, i64 noundef %95, ptr noundef %96, i32 noundef %97, ptr noundef %human_tm, i32 noundef %98, i32 noundef %100)
+  %98 = load i64, ptr %git_time.addr, align 8
+  %99 = load ptr, ptr %tm, align 8
+  %100 = load i32, ptr %tz.addr, align 4
+  %101 = load i32, ptr %human_tz, align 4
+  %102 = load ptr, ptr %mode.addr, align 8
+  %local75 = getelementptr inbounds %struct.date_mode, ptr %102, i32 0, i32 2
+  %103 = load i32, ptr %local75, align 8
+  call void @show_date_normal(ptr noundef @show_date.timebuf, i64 noundef %98, ptr noundef %99, i32 noundef %100, ptr noundef %human_tm, i32 noundef %101, i32 noundef %103)
   br label %if.end76
 
 if.end76:                                         ; preds = %if.else74, %if.then71
@@ -975,13 +978,14 @@ if.end79:                                         ; preds = %if.end78, %if.then3
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end79, %if.then28
-  %101 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @show_date.timebuf, i32 0, i32 2), align 8
-  store ptr %101, ptr %retval, align 8
+  %104 = getelementptr inbounds %struct.strbuf, ptr @show_date.timebuf, i32 0, i32 2
+  %105 = load ptr, ptr %104, align 8
+  store ptr %105, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end80, %if.then14, %if.then10, %if.then
-  %102 = load ptr, ptr %retval, align 8
-  ret ptr %102
+  %106 = load ptr, ptr %retval, align 8
+  ret ptr %106
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

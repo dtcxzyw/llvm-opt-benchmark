@@ -7710,26 +7710,27 @@ entry:
   store ptr %parsed_files, ptr %parsed_files.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf8compiler16GeneratorContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %files_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308029btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %files_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %parsed_files_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %parsed_files.addr, align 8
-  store ptr %0, ptr %parsed_files_, align 8
+  %1 = load ptr, ptr %parsed_files.addr, align 8
+  store ptr %1, ptr %parsed_files_, align 8
   %had_error_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %this1, i32 0, i32 3
   store i8 0, ptr %had_error_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -7747,7 +7748,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler16GeneratorContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler16GeneratorContextE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9245,13 +9247,14 @@ entry:
   store i8 %frombool, ptr %append_mode.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %directory.addr, align 8
-  store ptr %0, ptr %directory_, align 8
+  %1 = load ptr, ptr %directory.addr, align 8
+  store ptr %1, ptr %directory_, align 8
   %filename_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %filename.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %filename.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -9260,8 +9263,8 @@ invoke.cont:                                      ; preds = %entry
   %data_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #3
   %append_mode_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 5
-  %2 = load i8, ptr %append_mode.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %append_mode.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %append_mode_, align 8
   %inner_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 6
@@ -9283,40 +9286,40 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #28
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_) #3
   br label %ehcleanup
 
@@ -9344,7 +9347,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9450,19 +9454,20 @@ entry:
   store ptr %insertion_point, ptr %insertion_point.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %directory.addr, align 8
-  store ptr %0, ptr %directory_, align 8
+  %1 = load ptr, ptr %directory.addr, align 8
+  store ptr %1, ptr %directory_, align 8
   %filename_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %filename.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %filename.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %insertion_point_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %insertion_point.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %insertion_point_, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %3 = load ptr, ptr %insertion_point.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %insertion_point_, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -9481,128 +9486,6 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %inner_, ptr noundef %call) #3
   %info_to_insert_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 7
   invoke void @_ZN6google8protobuf17GeneratedCodeInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %info_to_insert_)
-          to label %invoke.cont10 unwind label %lpad9
-
-invoke.cont10:                                    ; preds = %invoke.cont8
-  ret void
-
-lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup13
-
-lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  br label %ehcleanup12
-
-lpad4:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad7:                                            ; preds = %invoke.cont5
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #28
-  br label %ehcleanup
-
-lpad9:                                            ; preds = %invoke.cont8
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_) #3
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad9, %lpad7, %lpad4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %insertion_point_) #3
-  br label %ehcleanup12
-
-ehcleanup12:                                      ; preds = %ehcleanup, %lpad2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_) #3
-  br label %ehcleanup13
-
-ehcleanup13:                                      ; preds = %ehcleanup12, %lpad
-  call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup13
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val14 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val14
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKNS0_17GeneratedCodeInfoE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point, ptr noundef nonnull align 8 dereferenceable(48) %info) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %directory.addr = alloca ptr, align 8
-  %filename.addr = alloca ptr, align 8
-  %insertion_point.addr = alloca ptr, align 8
-  %info.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %directory, ptr %directory.addr, align 8
-  store ptr %filename, ptr %filename.addr, align 8
-  store ptr %insertion_point, ptr %insertion_point.addr, align 8
-  store ptr %info, ptr %info.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %directory.addr, align 8
-  store ptr %0, ptr %directory_, align 8
-  %filename_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %filename.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %insertion_point_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %insertion_point.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %insertion_point_, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %invoke.cont3 unwind label %lpad2
-
-invoke.cont3:                                     ; preds = %invoke.cont
-  %data_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #3
-  %inner_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 6
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #27
-          to label %invoke.cont5 unwind label %lpad4
-
-invoke.cont5:                                     ; preds = %invoke.cont3
-  %data_6 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
-  invoke void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %data_6)
-          to label %invoke.cont8 unwind label %lpad7
-
-invoke.cont8:                                     ; preds = %invoke.cont5
-  call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %inner_, ptr noundef %call) #3
-  %info_to_insert_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %info.addr, align 8
-  invoke void @_ZN6google8protobuf17GeneratedCodeInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %info_to_insert_, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -9652,6 +9535,129 @@ lpad9:                                            ; preds = %invoke.cont8
   store ptr %17, ptr %exn.slot, align 8
   %18 = extractvalue { ptr, i32 } %16, 1
   store i32 %18, ptr %ehselector.slot, align 4
+  call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_) #3
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad9, %lpad7, %lpad4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %insertion_point_) #3
+  br label %ehcleanup12
+
+ehcleanup12:                                      ; preds = %ehcleanup, %lpad2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_) #3
+  br label %ehcleanup13
+
+ehcleanup13:                                      ; preds = %ehcleanup12, %lpad
+  call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup13
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val14 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val14
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKNS0_17GeneratedCodeInfoE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point, ptr noundef nonnull align 8 dereferenceable(48) %info) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %directory.addr = alloca ptr, align 8
+  %filename.addr = alloca ptr, align 8
+  %insertion_point.addr = alloca ptr, align 8
+  %info.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %directory, ptr %directory.addr, align 8
+  store ptr %filename, ptr %filename.addr, align 8
+  store ptr %insertion_point, ptr %insertion_point.addr, align 8
+  store ptr %info, ptr %info.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
+  %1 = load ptr, ptr %directory.addr, align 8
+  store ptr %1, ptr %directory_, align 8
+  %filename_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %filename.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %insertion_point_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 3
+  %3 = load ptr, ptr %insertion_point.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %insertion_point_, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %data_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #3
+  %inner_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 6
+  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #27
+          to label %invoke.cont5 unwind label %lpad4
+
+invoke.cont5:                                     ; preds = %invoke.cont3
+  %data_6 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
+  invoke void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %data_6)
+          to label %invoke.cont8 unwind label %lpad7
+
+invoke.cont8:                                     ; preds = %invoke.cont5
+  call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %inner_, ptr noundef %call) #3
+  %info_to_insert_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 7
+  %4 = load ptr, ptr %info.addr, align 8
+  invoke void @_ZN6google8protobuf17GeneratedCodeInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %info_to_insert_, ptr noundef nonnull align 8 dereferenceable(48) %4)
+          to label %invoke.cont10 unwind label %lpad9
+
+invoke.cont10:                                    ; preds = %invoke.cont8
+  ret void
+
+lpad:                                             ; preds = %entry
+  %5 = landingpad { ptr, i32 }
+          cleanup
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
+  br label %ehcleanup13
+
+lpad2:                                            ; preds = %invoke.cont
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
+  br label %ehcleanup12
+
+lpad4:                                            ; preds = %invoke.cont3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad7:                                            ; preds = %invoke.cont5
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
+  call void @_ZdlPv(ptr noundef %call) #28
+  br label %ehcleanup
+
+lpad9:                                            ; preds = %invoke.cont8
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %inner_) #3
   br label %ehcleanup
 
@@ -10619,12 +10625,13 @@ entry:
   %agg.tmp157 = alloca %"class.std::basic_string_view", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %inner_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 6
   call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %inner_, ptr noundef null) #3
   %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %directory_, align 8
-  %files_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %directory_, align 8
+  %files_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %1, i32 0, i32 1
   %filename_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 2
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRS5_RA1_KcTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 1 dereferenceable(1) @.str.5)
           to label %invoke.cont unwind label %terminate.lpad
@@ -10638,8 +10645,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %first = getelementptr inbounds %"struct.std::pair.111", ptr %pair, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %it, ptr align 8 %first, i64 16, i1 false)
   %second = getelementptr inbounds %"struct.std::pair.111", ptr %pair, i32 0, i32 1
-  %1 = load i8, ptr %second, align 8
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %second, align 8
+  %tobool = trunc i8 %2 to i1
   %lnot = xor i1 %tobool, true
   %frombool = zext i1 %lnot to i8
   store i8 %frombool, ptr %already_present, align 1
@@ -10648,14 +10655,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br i1 %call, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %invoke.cont2
-  %2 = load i8, ptr %already_present, align 1
-  %tobool3 = trunc i8 %2 to i1
+  %3 = load i8, ptr %already_present, align 1
+  %tobool3 = trunc i8 %3 to i1
   br i1 %tobool3, label %if.then4, label %if.end20
 
 if.then4:                                         ; preds = %if.then
   %append_mode_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 5
-  %3 = load i8, ptr %append_mode_, align 8
-  %tobool5 = trunc i8 %3 to i1
+  %4 = load i8, ptr %append_mode_, align 8
+  %tobool5 = trunc i8 %4 to i1
   br i1 %tobool5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then4
@@ -10686,8 +10693,8 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %directory_19 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %directory_19, align 8
-  %had_error_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %4, i32 0, i32 3
+  %5 = load ptr, ptr %directory_19, align 8
+  %had_error_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %5, i32 0, i32 3
   store i8 1, ptr %had_error_, align 8
   br label %if.end
 
@@ -10720,8 +10727,8 @@ land.lhs.true:                                    ; preds = %if.end25
           to label %invoke.cont31 unwind label %terminate.lpad
 
 invoke.cont31:                                    ; preds = %land.lhs.true
-  %5 = load i8, ptr %call32, align 1
-  %conv = sext i8 %5 to i32
+  %6 = load i8, ptr %call32, align 1
+  %conv = sext i8 %6 to i32
   %cmp = icmp ne i32 %conv, 10
   br i1 %cmp, label %if.then33, label %if.end36
 
@@ -10734,8 +10741,8 @@ invoke.cont35:                                    ; preds = %if.then33
   br label %if.end36
 
 if.end36:                                         ; preds = %invoke.cont35, %invoke.cont31, %if.end25
-  %6 = load i8, ptr %already_present, align 1
-  %tobool37 = trunc i8 %6 to i1
+  %7 = load i8, ptr %already_present, align 1
+  %tobool37 = trunc i8 %7 to i1
   br i1 %tobool37, label %if.end48, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
@@ -10753,8 +10760,8 @@ invoke.cont42:                                    ; preds = %invoke.cont40
 
 invoke.cont44:                                    ; preds = %invoke.cont42
   %directory_46 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %directory_46, align 8
-  %had_error_47 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %7, i32 0, i32 3
+  %8 = load ptr, ptr %directory_46, align 8
+  %had_error_47 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %8, i32 0, i32 3
   store i8 1, ptr %had_error_47, align 8
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup171
@@ -10769,19 +10776,19 @@ invoke.cont49:                                    ; preds = %if.end48
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef @.str.11) #3
   %insertion_point_53 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 3
   call void @_ZN4absl12lts_2023080219substitute_internal3ArgC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point_53) #3
-  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  invoke void @_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %magic_string, i64 %9, ptr %11, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp52)
+  %9 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  invoke void @_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %magic_string, i64 %10, ptr %12, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp52)
           to label %invoke.cont54 unwind label %terminate.lpad
 
 invoke.cont54:                                    ; preds = %invoke.cont49
-  %12 = load ptr, ptr %target, align 8
-  %call55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %magic_string, i64 noundef 0) #3
+  %13 = load ptr, ptr %target, align 8
+  %call55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %magic_string, i64 noundef 0) #3
   store i64 %call55, ptr %pos, align 8
-  %13 = load i64, ptr %pos, align 8
-  %cmp56 = icmp eq i64 %13, -1
+  %14 = load i64, ptr %pos, align 8
+  %cmp56 = icmp eq i64 %14, -1
   br i1 %cmp56, label %if.then57, label %if.end72
 
 if.then57:                                        ; preds = %invoke.cont54
@@ -10808,23 +10815,23 @@ invoke.cont66:                                    ; preds = %invoke.cont64
 
 invoke.cont68:                                    ; preds = %invoke.cont66
   %directory_70 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %directory_70, align 8
-  %had_error_71 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %14, i32 0, i32 3
+  %15 = load ptr, ptr %directory_70, align 8
+  %had_error_71 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %15, i32 0, i32 3
   store i8 1, ptr %had_error_71, align 8
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup170
 
 if.end72:                                         ; preds = %invoke.cont54
-  %15 = load i64, ptr %pos, align 8
-  %cmp73 = icmp ugt i64 %15, 3
+  %16 = load i64, ptr %pos, align 8
+  %cmp73 = icmp ugt i64 %16, 3
   store i1 false, ptr %cleanup.cond, align 1
   br i1 %cmp73, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end72
-  %16 = load ptr, ptr %target, align 8
-  %17 = load i64, ptr %pos, align 8
-  %sub75 = sub i64 %17, 3
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %sub75, i64 noundef 2)
+  %17 = load ptr, ptr %target, align 8
+  %18 = load i64, ptr %pos, align 8
+  %sub75 = sub i64 %18, 3
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %sub75, i64 noundef 2)
           to label %invoke.cont76 unwind label %terminate.lpad
 
 invoke.cont76:                                    ; preds = %land.rhs
@@ -10836,7 +10843,7 @@ invoke.cont77:                                    ; preds = %invoke.cont76
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont77, %if.end72
-  %18 = phi i1 [ false, %if.end72 ], [ %call78, %invoke.cont77 ]
+  %19 = phi i1 [ false, %if.end72 ], [ %call78, %invoke.cont77 ]
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
@@ -10845,21 +10852,21 @@ cleanup.action:                                   ; preds = %land.end
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %land.end
-  br i1 %18, label %if.then79, label %if.else81
+  br i1 %19, label %if.then79, label %if.else81
 
 if.then79:                                        ; preds = %cleanup.done
-  %19 = load i64, ptr %pos, align 8
-  %sub80 = sub i64 %19, 3
+  %20 = load i64, ptr %pos, align 8
+  %sub80 = sub i64 %20, 3
   store i64 %sub80, ptr %pos, align 8
   br label %if.end87
 
 if.else81:                                        ; preds = %cleanup.done
-  %20 = load ptr, ptr %target, align 8
-  %21 = load i64, ptr %pos, align 8
-  %call82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 noundef signext 10, i64 noundef %21) #3
-  store i64 %call82, ptr %pos, align 8
+  %21 = load ptr, ptr %target, align 8
   %22 = load i64, ptr %pos, align 8
-  %cmp83 = icmp eq i64 %22, -1
+  %call82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext 10, i64 noundef %22) #3
+  store i64 %call82, ptr %pos, align 8
+  %23 = load i64, ptr %pos, align 8
+  %cmp83 = icmp eq i64 %23, -1
   br i1 %cmp83, label %if.then84, label %if.else85
 
 if.then84:                                        ; preds = %if.else81
@@ -10867,8 +10874,8 @@ if.then84:                                        ; preds = %if.else81
   br label %if.end86
 
 if.else85:                                        ; preds = %if.else81
-  %23 = load i64, ptr %pos, align 8
-  %inc = add i64 %23, 1
+  %24 = load i64, ptr %pos, align 8
+  %inc = add i64 %24, 1
   store i64 %inc, ptr %pos, align 8
   br label %if.end86
 
@@ -10876,14 +10883,14 @@ if.end86:                                         ; preds = %if.else85, %if.then
   br label %if.end87
 
 if.end87:                                         ; preds = %if.end86, %if.then79
-  %24 = load ptr, ptr %target, align 8
-  %25 = load i64, ptr %pos, align 8
-  %26 = load ptr, ptr %target, align 8
-  %27 = load i64, ptr %pos, align 8
-  %call88 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef @.str.15, i64 noundef %27) #3
+  %25 = load ptr, ptr %target, align 8
+  %26 = load i64, ptr %pos, align 8
+  %27 = load ptr, ptr %target, align 8
   %28 = load i64, ptr %pos, align 8
-  %sub89 = sub i64 %call88, %28
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %indent_, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %25, i64 noundef %sub89)
+  %call88 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef @.str.15, i64 noundef %28) #3
+  %29 = load i64, ptr %pos, align 8
+  %sub89 = sub i64 %call88, %29
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %indent_, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %26, i64 noundef %sub89)
           to label %invoke.cont90 unwind label %terminate.lpad
 
 invoke.cont90:                                    ; preds = %if.end87
@@ -10891,18 +10898,18 @@ invoke.cont90:                                    ; preds = %if.end87
   br i1 %call91, label %if.then92, label %if.end100
 
 if.then92:                                        ; preds = %invoke.cont90
-  %29 = load ptr, ptr %target, align 8
-  %30 = load i64, ptr %pos, align 8
+  %30 = load ptr, ptr %target, align 8
+  %31 = load i64, ptr %pos, align 8
   %data_93 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
-  %call95 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef %30, ptr noundef nonnull align 8 dereferenceable(32) %data_93)
+  %call95 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %data_93)
           to label %invoke.cont94 unwind label %terminate.lpad
 
 invoke.cont94:                                    ; preds = %if.then92
   %data_96 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
-  %31 = load i64, ptr %pos, align 8
+  %32 = load i64, ptr %pos, align 8
   %data_97 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
   %call98 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %data_97) #3
-  invoke void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStream14UpdateMetadataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmm(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(32) %data_96, i64 noundef %31, i64 noundef %call98, i64 noundef 0)
+  invoke void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStream14UpdateMetadataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmm(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(32) %data_96, i64 noundef %32, i64 noundef %call98, i64 noundef 0)
           to label %invoke.cont99 unwind label %terminate.lpad
 
 invoke.cont99:                                    ; preds = %invoke.cont94
@@ -10915,8 +10922,8 @@ if.end100:                                        ; preds = %invoke.cont90
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end100
-  %32 = load i32, ptr %i, align 4
-  %conv101 = sext i32 %32 to i64
+  %33 = load i32, ptr %i, align 4
+  %conv101 = sext i32 %33 to i64
   %data_102 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
   %call103 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %data_102) #3
   %cmp104 = icmp ult i64 %conv101, %call103
@@ -10924,21 +10931,21 @@ for.cond:                                         ; preds = %for.inc, %if.end100
 
 for.body:                                         ; preds = %for.cond
   %data_105 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
-  %33 = load i32, ptr %i, align 4
-  %conv106 = sext i32 %33 to i64
+  %34 = load i32, ptr %i, align 4
+  %conv106 = sext i32 %34 to i64
   %call108 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %data_105, i64 noundef %conv106)
           to label %invoke.cont107 unwind label %terminate.lpad
 
 invoke.cont107:                                   ; preds = %for.body
-  %34 = load i8, ptr %call108, align 1
-  %conv109 = sext i8 %34 to i32
+  %35 = load i8, ptr %call108, align 1
+  %conv109 = sext i8 %35 to i32
   %cmp110 = icmp eq i32 %conv109, 10
   br i1 %cmp110, label %if.then111, label %if.end115
 
 if.then111:                                       ; preds = %invoke.cont107
   %call112 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %indent_) #3
-  %35 = load i32, ptr %indent_size, align 4
-  %conv113 = sext i32 %35 to i64
+  %36 = load i32, ptr %indent_size, align 4
+  %conv113 = sext i32 %36 to i64
   %add = add i64 %conv113, %call112
   %conv114 = trunc i64 %add to i32
   store i32 %conv114, ptr %indent_size, align 4
@@ -10948,27 +10955,27 @@ if.end115:                                        ; preds = %if.then111, %invoke
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end115
-  %36 = load i32, ptr %i, align 4
-  %inc116 = add nsw i32 %36, 1
+  %37 = load i32, ptr %i, align 4
+  %inc116 = add nsw i32 %37, 1
   store i32 %inc116, ptr %i, align 4
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %for.cond
-  %37 = load ptr, ptr %target, align 8
-  %38 = load i64, ptr %pos, align 8
+  %38 = load ptr, ptr %target, align 8
+  %39 = load i64, ptr %pos, align 8
   %data_117 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
   %call118 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %data_117) #3
-  %39 = load i32, ptr %indent_size, align 4
-  %conv119 = sext i32 %39 to i64
+  %40 = load i32, ptr %indent_size, align 4
+  %conv119 = sext i32 %40 to i64
   %add120 = add i64 %call118, %conv119
-  %call122 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef %38, i64 noundef %add120, i8 noundef signext 0)
+  %call122 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef %39, i64 noundef %add120, i8 noundef signext 0)
           to label %invoke.cont121 unwind label %terminate.lpad
 
 invoke.cont121:                                   ; preds = %for.end
   store i64 0, ptr %data_pos, align 8
-  %40 = load ptr, ptr %target, align 8
-  %41 = load i64, ptr %pos, align 8
-  %call124 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %40, i64 noundef %41)
+  %41 = load ptr, ptr %target, align 8
+  %42 = load i64, ptr %pos, align 8
+  %call124 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %41, i64 noundef %42)
           to label %invoke.cont123 unwind label %terminate.lpad
 
 invoke.cont123:                                   ; preds = %invoke.cont121
@@ -10976,42 +10983,42 @@ invoke.cont123:                                   ; preds = %invoke.cont121
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %invoke.cont123
-  %42 = load i64, ptr %data_pos, align 8
+  %43 = load i64, ptr %data_pos, align 8
   %data_125 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
   %call126 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %data_125) #3
-  %cmp127 = icmp ult i64 %42, %call126
+  %cmp127 = icmp ult i64 %43, %call126
   br i1 %cmp127, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %43 = load ptr, ptr %target_ptr, align 8
+  %44 = load ptr, ptr %target_ptr, align 8
   %call128 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %indent_) #3
   %call129 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %indent_) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %call128, i64 %call129, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %call128, i64 %call129, i1 false)
   %call130 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %indent_) #3
-  %44 = load ptr, ptr %target_ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %44, i64 %call130
+  %45 = load ptr, ptr %target_ptr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %45, i64 %call130
   store ptr %add.ptr, ptr %target_ptr, align 8
   %data_131 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
-  %45 = load i64, ptr %data_pos, align 8
-  %call132 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %data_131, i8 noundef signext 10, i64 noundef %45) #3
-  %add133 = add i64 %call132, 1
   %46 = load i64, ptr %data_pos, align 8
-  %sub134 = sub i64 %add133, %46
+  %call132 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %data_131, i8 noundef signext 10, i64 noundef %46) #3
+  %add133 = add i64 %call132, 1
+  %47 = load i64, ptr %data_pos, align 8
+  %sub134 = sub i64 %add133, %47
   store i64 %sub134, ptr %line_length, align 8
-  %47 = load ptr, ptr %target_ptr, align 8
+  %48 = load ptr, ptr %target_ptr, align 8
   %data_135 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
   %call136 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %data_135) #3
-  %48 = load i64, ptr %data_pos, align 8
-  %add.ptr137 = getelementptr inbounds i8, ptr %call136, i64 %48
-  %49 = load i64, ptr %line_length, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %add.ptr137, i64 %49, i1 false)
+  %49 = load i64, ptr %data_pos, align 8
+  %add.ptr137 = getelementptr inbounds i8, ptr %call136, i64 %49
   %50 = load i64, ptr %line_length, align 8
-  %51 = load ptr, ptr %target_ptr, align 8
-  %add.ptr138 = getelementptr inbounds i8, ptr %51, i64 %50
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %add.ptr137, i64 %50, i1 false)
+  %51 = load i64, ptr %line_length, align 8
+  %52 = load ptr, ptr %target_ptr, align 8
+  %add.ptr138 = getelementptr inbounds i8, ptr %52, i64 %51
   store ptr %add.ptr138, ptr %target_ptr, align 8
-  %52 = load i64, ptr %line_length, align 8
-  %53 = load i64, ptr %data_pos, align 8
-  %add139 = add i64 %53, %52
+  %53 = load i64, ptr %line_length, align 8
+  %54 = load i64, ptr %data_pos, align 8
+  %add139 = add i64 %54, %53
   store i64 %add139, ptr %data_pos, align 8
   br label %while.cond, !llvm.loop !13
 
@@ -11023,17 +11030,17 @@ while.cond140:                                    ; preds = %while.end
           to label %invoke.cont141 unwind label %terminate.lpad
 
 invoke.cont141:                                   ; preds = %while.cond140
-  %54 = load ptr, ptr %target, align 8
-  %55 = load i64, ptr %pos, align 8
-  %call145 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %55)
+  %55 = load ptr, ptr %target, align 8
+  %56 = load i64, ptr %pos, align 8
+  %call145 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %55, i64 noundef %56)
           to label %invoke.cont144 unwind label %terminate.lpad
 
 invoke.cont144:                                   ; preds = %invoke.cont141
   %data_146 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
   %call147 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %data_146) #3
   %add.ptr148 = getelementptr inbounds i8, ptr %call145, i64 %call147
-  %56 = load i32, ptr %indent_size, align 4
-  %idx.ext = sext i32 %56 to i64
+  %57 = load i32, ptr %indent_size, align 4
+  %idx.ext = sext i32 %57 to i64
   %add.ptr149 = getelementptr inbounds i8, ptr %add.ptr148, i64 %idx.ext
   store ptr %add.ptr149, ptr %ref.tmp143, align 8
   %call151 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal21GetReferenceableValueIPcEERKT_S6_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp143)
@@ -11045,24 +11052,24 @@ invoke.cont150:                                   ; preds = %invoke.cont144
 
 invoke.cont152:                                   ; preds = %invoke.cont150
   store ptr %call153, ptr %absl_log_internal_check_op_result, align 8
-  %57 = load ptr, ptr %absl_log_internal_check_op_result, align 8
-  %tobool154 = icmp ne ptr %57, null
+  %58 = load ptr, ptr %absl_log_internal_check_op_result, align 8
+  %tobool154 = icmp ne ptr %58, null
   br i1 %tobool154, label %while.body155, label %while.end162
 
 while.body155:                                    ; preds = %invoke.cont152
-  %58 = load ptr, ptr %absl_log_internal_check_op_result, align 8
-  %call158 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #3
-  %59 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp157, i32 0, i32 0
-  %60 = extractvalue { i64, ptr } %call158, 0
-  store i64 %60, ptr %59, align 8
-  %61 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp157, i32 0, i32 1
-  %62 = extractvalue { i64, ptr } %call158, 1
-  store ptr %62, ptr %61, align 8
-  %63 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp157, i32 0, i32 0
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp157, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp156, ptr noundef @.str.17, i32 noundef 932, i64 %64, ptr %66) #30
+  %59 = load ptr, ptr %absl_log_internal_check_op_result, align 8
+  %call158 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #3
+  %60 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp157, i32 0, i32 0
+  %61 = extractvalue { i64, ptr } %call158, 0
+  store i64 %61, ptr %60, align 8
+  %62 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp157, i32 0, i32 1
+  %63 = extractvalue { i64, ptr } %call158, 1
+  store ptr %63, ptr %62, align 8
+  %64 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp157, i32 0, i32 0
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp157, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8
+  invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp156, ptr noundef @.str.17, i32 noundef 932, i64 %65, ptr %67) #30
           to label %invoke.cont159 unwind label %terminate.lpad
 
 invoke.cont159:                                   ; preds = %while.body155
@@ -11075,14 +11082,14 @@ invoke.cont160:                                   ; preds = %invoke.cont159
 
 while.end162:                                     ; preds = %invoke.cont152
   %data_163 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
-  %67 = load i64, ptr %pos, align 8
+  %68 = load i64, ptr %pos, align 8
   %data_164 = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 4
   %call165 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %data_164) #3
-  %68 = load i32, ptr %indent_size, align 4
-  %conv166 = sext i32 %68 to i64
+  %69 = load i32, ptr %indent_size, align 4
+  %conv166 = sext i32 %69 to i64
   %add167 = add i64 %call165, %conv166
   %call168 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %indent_) #3
-  invoke void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStream14UpdateMetadataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmm(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(32) %data_163, i64 noundef %67, i64 noundef %add167, i64 noundef %call168)
+  invoke void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStream14UpdateMetadataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmm(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(32) %data_163, i64 noundef %68, i64 noundef %add167, i64 noundef %call168)
           to label %invoke.cont169 unwind label %terminate.lpad
 
 invoke.cont169:                                   ; preds = %while.end162
@@ -11126,10 +11133,10 @@ cleanup.cont182:                                  ; preds = %cleanup171, %cleanu
   ret void
 
 terminate.lpad:                                   ; preds = %while.end162, %invoke.cont159, %while.body155, %invoke.cont150, %invoke.cont144, %invoke.cont141, %while.cond140, %invoke.cont121, %for.end, %for.body, %invoke.cont94, %if.then92, %if.end87, %invoke.cont76, %land.rhs, %invoke.cont66, %invoke.cont64, %invoke.cont61, %invoke.cont59, %if.then57, %invoke.cont49, %if.end48, %invoke.cont42, %invoke.cont40, %if.then38, %if.then33, %land.lhs.true, %if.end20, %invoke.cont15, %invoke.cont13, %if.else, %invoke.cont7, %if.then6, %invoke.cont, %entry
-  %69 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #29
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #29
   unreachable
 
 unreachable:                                      ; preds = %cleanup171
@@ -15546,17 +15553,20 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 2, i32 2), ptr %add.ptr4, align 8
+  %4 = getelementptr inbounds { [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 2, i32 2
+  store ptr %4, ptr %add.ptr4, align 8
   %format_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::ErrorPrinter", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %format.addr, align 4
-  store i32 %2, ptr %format_, align 8
+  %5 = load i32, ptr %format.addr, align 4
+  store i32 %5, ptr %format_, align 8
   %tree_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::ErrorPrinter", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %tree.addr, align 8
-  store ptr %3, ptr %tree_, align 8
+  %6 = load ptr, ptr %tree.addr, align 8
+  store ptr %6, ptr %tree_, align 8
   %found_errors_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::ErrorPrinter", ptr %this1, i32 0, i32 6
   store i8 0, ptr %found_errors_, align 8
   %found_warnings_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::ErrorPrinter", ptr %this1, i32 0, i32 7
@@ -15564,23 +15574,23 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad2:                                            ; preds = %invoke.cont
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = extractvalue { ptr, i32 } %7, 0
   store ptr %8, ptr %exn.slot, align 8
   %9 = extractvalue { ptr, i32 } %7, 1
   store i32 %9, ptr %ehselector.slot, align 4
-  %10 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %ehcleanup
+
+lpad2:                                            ; preds = %invoke.cont
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  %13 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
@@ -28915,7 +28925,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %files_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %this1, i32 0, i32 1
   call void @_ZN4absl12lts_202308029btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %files_) #3
   call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -32630,7 +32641,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler23MultiFileErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler23MultiFileErrorCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -32640,7 +32652,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io14ErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf2io14ErrorCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -32650,7 +32663,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf14DescriptorPool14ErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf14DescriptorPool14ErrorCollectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -42880,7 +42894,8 @@ eh.resume:                                        ; preds = %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -55259,7 +55274,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 

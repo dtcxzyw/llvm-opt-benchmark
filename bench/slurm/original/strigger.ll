@@ -43,63 +43,68 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   %9 = load i32, ptr %4, align 4
   %10 = load ptr, ptr %5, align 8
   call void @parse_command_line(i32 noundef %9, ptr noundef %10)
-  %11 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 36), align 4
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %19
+  %11 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 36
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %21
 
-13:                                               ; preds = %2
-  %14 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 36), align 4
-  %15 = getelementptr inbounds %struct.log_options_t, ptr %7, i32 0, i32 0
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 36
   %16 = load i32, ptr %15, align 4
-  %17 = add i32 %16, %14
-  store i32 %17, ptr %15, align 4
-  %18 = call i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8 %7, i32 noundef 24, ptr noundef null)
-  br label %19
+  %17 = getelementptr inbounds %struct.log_options_t, ptr %7, i32 0, i32 0
+  %18 = load i32, ptr %17, align 4
+  %19 = add i32 %18, %16
+  store i32 %19, ptr %17, align 4
+  %20 = call i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8 %7, i32 noundef 24, ptr noundef null)
+  br label %21
 
-19:                                               ; preds = %13, %2
-  %20 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 6), align 8
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %24
+21:                                               ; preds = %14, %2
+  %22 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 6
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %27
 
-22:                                               ; preds = %19
-  %23 = call i32 @_set_trigger()
-  store i32 %23, ptr %6, align 4
-  br label %38
+25:                                               ; preds = %21
+  %26 = call i32 @_set_trigger()
+  store i32 %26, ptr %6, align 4
+  br label %43
 
-24:                                               ; preds = %19
-  %25 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 7), align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %29
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 7
+  %29 = load i8, ptr %28, align 1
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %33
 
-27:                                               ; preds = %24
-  %28 = call i32 @_get_trigger()
-  store i32 %28, ptr %6, align 4
-  br label %37
+31:                                               ; preds = %27
+  %32 = call i32 @_get_trigger()
+  store i32 %32, ptr %6, align 4
+  br label %42
 
-29:                                               ; preds = %24
-  %30 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 8), align 2
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %34
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 8
+  %35 = load i8, ptr %34, align 2
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %39
 
-32:                                               ; preds = %29
-  %33 = call i32 @_clear_trigger()
-  store i32 %33, ptr %6, align 4
-  br label %36
+37:                                               ; preds = %33
+  %38 = call i32 @_clear_trigger()
+  store i32 %38, ptr %6, align 4
+  br label %41
 
-34:                                               ; preds = %29
-  %35 = call i32 (ptr, ...) @error(ptr noundef @.str.1)
+39:                                               ; preds = %33
+  %40 = call i32 (ptr, ...) @error(ptr noundef @.str.1)
   store i32 1, ptr %6, align 4
-  br label %36
+  br label %41
 
-36:                                               ; preds = %34, %32
-  br label %37
+41:                                               ; preds = %39, %37
+  br label %42
 
-37:                                               ; preds = %36, %27
-  br label %38
+42:                                               ; preds = %41, %31
+  br label %43
 
-38:                                               ; preds = %37, %22
-  %39 = load i32, ptr %6, align 4
-  call void @exit(i32 noundef %39) #6
+43:                                               ; preds = %42, %25
+  %44 = load i32, ptr %6, align 4
+  call void @exit(i32 noundef %44) #6
   unreachable
 }
 
@@ -120,459 +125,488 @@ define internal i32 @_set_trigger() #0 {
   %2 = alloca %struct.trigger_info, align 8
   %3 = alloca [128 x i8], align 16
   call void @slurm_init_trigger_msg(ptr noundef %2)
-  %4 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 5), align 4
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %6, label %31
+  %4 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 5
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %35
 
-6:                                                ; preds = %0
-  %7 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 1, ptr %7, align 8
-  %8 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
-  %9 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 5), align 4
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef 128, ptr noundef @.str.2, i32 noundef %9) #7
-  %11 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
-  %12 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
-  store ptr %11, ptr %12, align 8
-  %13 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 4), align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %21
+7:                                                ; preds = %0
+  %8 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 1, ptr %8, align 8
+  %9 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
+  %10 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 5
+  %11 = load i32, ptr %10, align 4
+  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %9, i64 noundef 128, ptr noundef @.str.2, i32 noundef %11) #7
+  %13 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
+  %14 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
+  store ptr %13, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 4
+  %16 = load i8, ptr %15, align 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %24
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %17 = load i32, ptr %16, align 4
-  %18 = zext i32 %17 to i64
-  %19 = or i64 %18, 16
-  %20 = trunc i64 %19 to i32
-  store i32 %20, ptr %16, align 4
-  br label %21
+18:                                               ; preds = %7
+  %19 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %20 = load i32, ptr %19, align 4
+  %21 = zext i32 %20 to i64
+  %22 = or i64 %21, 16
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %19, align 4
+  br label %24
 
-21:                                               ; preds = %15, %6
-  %22 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 33), align 2
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %30
+24:                                               ; preds = %18, %7
+  %25 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 33
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %34
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %26 = load i32, ptr %25, align 4
-  %27 = zext i32 %26 to i64
-  %28 = or i64 %27, 8
-  %29 = trunc i64 %28 to i32
-  store i32 %29, ptr %25, align 4
-  br label %30
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %30 = load i32, ptr %29, align 4
+  %31 = zext i32 %30 to i64
+  %32 = or i64 %31, 8
+  %33 = trunc i64 %32 to i32
+  store i32 %33, ptr %29, align 4
+  br label %34
 
-30:                                               ; preds = %24, %21
-  br label %53
+34:                                               ; preds = %28, %24
+  br label %60
 
-31:                                               ; preds = %0
-  %32 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 3), align 2
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %36
-
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 6, ptr %35, align 8
-  br label %52
-
-36:                                               ; preds = %31
-  %37 = load i8, ptr @params, align 8
+35:                                               ; preds = %0
+  %36 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 3
+  %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %41
 
-39:                                               ; preds = %36
+39:                                               ; preds = %35
   %40 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 7, ptr %40, align 8
-  br label %51
+  store i16 6, ptr %40, align 8
+  br label %59
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 2, ptr %42, align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 24), align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %48
+41:                                               ; preds = %35
+  %42 = load i8, ptr @params, align 8
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 24), align 8
-  %47 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
-  store ptr %46, ptr %47, align 8
-  br label %50
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 7, ptr %45, align 8
+  br label %58
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
-  store ptr @.str.7, ptr %49, align 8
-  br label %50
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 2, ptr %47, align 8
+  %48 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %55
 
-50:                                               ; preds = %48, %45
-  br label %51
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 24
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
+  store ptr %53, ptr %54, align 8
+  br label %57
 
-51:                                               ; preds = %50, %39
-  br label %52
+55:                                               ; preds = %46
+  %56 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
+  store ptr @.str.7, ptr %56, align 8
+  br label %57
 
-52:                                               ; preds = %51, %34
-  br label %53
+57:                                               ; preds = %55, %51
+  br label %58
 
-53:                                               ; preds = %52, %30
-  %54 = load i8, ptr @params, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %62
+58:                                               ; preds = %57, %44
+  br label %59
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %58 = load i32, ptr %57, align 4
-  %59 = zext i32 %58 to i64
-  %60 = or i64 %59, 1048576
-  %61 = trunc i64 %60 to i32
-  store i32 %61, ptr %57, align 4
-  br label %62
+59:                                               ; preds = %58, %39
+  br label %60
 
-62:                                               ; preds = %56, %53
-  %63 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 21), align 1
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %65, label %71
+60:                                               ; preds = %59, %34
+  %61 = load i8, ptr @params, align 8
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %69
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %67 = load i32, ptr %66, align 4
-  %68 = zext i32 %67 to i64
-  %69 = or i64 %68, 2
-  %70 = trunc i64 %69 to i32
-  store i32 %70, ptr %66, align 4
-  br label %71
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %65 = load i32, ptr %64, align 4
+  %66 = zext i32 %65 to i64
+  %67 = or i64 %66, 1048576
+  %68 = trunc i64 %67 to i32
+  store i32 %68, ptr %64, align 4
+  br label %69
 
-71:                                               ; preds = %65, %62
-  %72 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 22), align 8
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %80
+69:                                               ; preds = %63, %60
+  %70 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 21
+  %71 = load i8, ptr %70, align 1
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %79
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %76 = load i32, ptr %75, align 4
-  %77 = zext i32 %76 to i64
-  %78 = or i64 %77, 256
-  %79 = trunc i64 %78 to i32
-  store i32 %79, ptr %75, align 4
-  br label %80
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %75 = load i32, ptr %74, align 4
+  %76 = zext i32 %75 to i64
+  %77 = or i64 %76, 2
+  %78 = trunc i64 %77 to i32
+  store i32 %78, ptr %74, align 4
+  br label %79
 
-80:                                               ; preds = %74, %71
-  %81 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 26), align 1
+79:                                               ; preds = %73, %69
+  %80 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 22
+  %81 = load i8, ptr %80, align 8
   %82 = trunc i8 %81 to i1
   br i1 %82, label %83, label %89
 
-83:                                               ; preds = %80
+83:                                               ; preds = %79
   %84 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
   %85 = load i32, ptr %84, align 4
   %86 = zext i32 %85 to i64
-  %87 = or i64 %86, 4
+  %87 = or i64 %86, 256
   %88 = trunc i64 %87 to i32
   store i32 %88, ptr %84, align 4
   br label %89
 
-89:                                               ; preds = %83, %80
-  %90 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 25), align 8
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %92, label %98
+89:                                               ; preds = %83, %79
+  %90 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 26
+  %91 = load i8, ptr %90, align 1
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %99
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %94 = load i32, ptr %93, align 4
-  %95 = zext i32 %94 to i64
-  %96 = or i64 %95, 128
-  %97 = trunc i64 %96 to i32
-  store i32 %97, ptr %93, align 4
-  br label %98
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %95 = load i32, ptr %94, align 4
+  %96 = zext i32 %95 to i64
+  %97 = or i64 %96, 4
+  %98 = trunc i64 %97 to i32
+  store i32 %98, ptr %94, align 4
+  br label %99
 
-98:                                               ; preds = %92, %89
-  %99 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 28), align 1
-  %100 = trunc i8 %99 to i1
-  br i1 %100, label %101, label %107
+99:                                               ; preds = %93, %89
+  %100 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 25
+  %101 = load i8, ptr %100, align 8
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %109
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %103 = load i32, ptr %102, align 4
-  %104 = zext i32 %103 to i64
-  %105 = or i64 %104, 1
-  %106 = trunc i64 %105 to i32
-  store i32 %106, ptr %102, align 4
-  br label %107
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %105 = load i32, ptr %104, align 4
+  %106 = zext i32 %105 to i64
+  %107 = or i64 %106, 128
+  %108 = trunc i64 %107 to i32
+  store i32 %108, ptr %104, align 4
+  br label %109
 
-107:                                              ; preds = %101, %98
-  %108 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 23), align 1
-  %109 = trunc i8 %108 to i1
-  br i1 %109, label %110, label %116
+109:                                              ; preds = %103, %99
+  %110 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 28
+  %111 = load i8, ptr %110, align 1
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %119
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %112 = load i32, ptr %111, align 4
-  %113 = zext i32 %112 to i64
-  %114 = or i64 %113, 2097152
-  %115 = trunc i64 %114 to i32
-  store i32 %115, ptr %111, align 4
-  br label %116
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %115 = load i32, ptr %114, align 4
+  %116 = zext i32 %115 to i64
+  %117 = or i64 %116, 1
+  %118 = trunc i64 %117 to i32
+  store i32 %118, ptr %114, align 4
+  br label %119
 
-116:                                              ; preds = %110, %107
-  %117 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 27), align 2
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %125
+119:                                              ; preds = %113, %109
+  %120 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 23
+  %121 = load i8, ptr %120, align 1
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %123, label %129
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %121 = load i32, ptr %120, align 4
-  %122 = zext i32 %121 to i64
-  %123 = or i64 %122, 4194304
-  %124 = trunc i64 %123 to i32
-  store i32 %124, ptr %120, align 4
-  br label %125
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %125 = load i32, ptr %124, align 4
+  %126 = zext i32 %125 to i64
+  %127 = or i64 %126, 2097152
+  %128 = trunc i64 %127 to i32
+  store i32 %128, ptr %124, align 4
+  br label %129
 
-125:                                              ; preds = %119, %116
-  %126 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 32), align 1
-  %127 = trunc i8 %126 to i1
-  br i1 %127, label %128, label %134
+129:                                              ; preds = %123, %119
+  %130 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 27
+  %131 = load i8, ptr %130, align 2
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %139
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %130 = load i32, ptr %129, align 4
-  %131 = zext i32 %130 to i64
-  %132 = or i64 %131, 32
-  %133 = trunc i64 %132 to i32
-  store i32 %133, ptr %129, align 4
-  br label %134
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %135 = load i32, ptr %134, align 4
+  %136 = zext i32 %135 to i64
+  %137 = or i64 %136, 4194304
+  %138 = trunc i64 %137 to i32
+  store i32 %138, ptr %134, align 4
+  br label %139
 
-134:                                              ; preds = %128, %125
-  %135 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 9), align 1
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %137, label %144
+139:                                              ; preds = %133, %129
+  %140 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 32
+  %141 = load i8, ptr %140, align 1
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %143, label %149
 
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %139 = load i32, ptr %138, align 4
-  %140 = zext i32 %139 to i64
-  %141 = or i64 %140, 512
-  %142 = trunc i64 %141 to i32
-  store i32 %142, ptr %138, align 4
-  %143 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 3, ptr %143, align 8
-  br label %144
+143:                                              ; preds = %139
+  %144 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %145 = load i32, ptr %144, align 4
+  %146 = zext i32 %145 to i64
+  %147 = or i64 %146, 32
+  %148 = trunc i64 %147 to i32
+  store i32 %148, ptr %144, align 4
+  br label %149
 
-144:                                              ; preds = %137, %134
-  %145 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 10), align 4
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %147, label %154
+149:                                              ; preds = %143, %139
+  %150 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 9
+  %151 = load i8, ptr %150, align 1
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %153, label %160
 
-147:                                              ; preds = %144
-  %148 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %149 = load i32, ptr %148, align 4
-  %150 = zext i32 %149 to i64
-  %151 = or i64 %150, 1024
-  %152 = trunc i64 %151 to i32
-  store i32 %152, ptr %148, align 4
-  %153 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 3, ptr %153, align 8
-  br label %154
+153:                                              ; preds = %149
+  %154 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %155 = load i32, ptr %154, align 4
+  %156 = zext i32 %155 to i64
+  %157 = or i64 %156, 512
+  %158 = trunc i64 %157 to i32
+  store i32 %158, ptr %154, align 4
+  %159 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 3, ptr %159, align 8
+  br label %160
 
-154:                                              ; preds = %147, %144
-  %155 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 11), align 1
-  %156 = trunc i8 %155 to i1
-  br i1 %156, label %157, label %164
+160:                                              ; preds = %153, %149
+  %161 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 10
+  %162 = load i8, ptr %161, align 4
+  %163 = trunc i8 %162 to i1
+  br i1 %163, label %164, label %171
 
-157:                                              ; preds = %154
-  %158 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %159 = load i32, ptr %158, align 4
-  %160 = zext i32 %159 to i64
-  %161 = or i64 %160, 2048
-  %162 = trunc i64 %161 to i32
-  store i32 %162, ptr %158, align 4
-  %163 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 3, ptr %163, align 8
-  br label %164
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %166 = load i32, ptr %165, align 4
+  %167 = zext i32 %166 to i64
+  %168 = or i64 %167, 1024
+  %169 = trunc i64 %168 to i32
+  store i32 %169, ptr %165, align 4
+  %170 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 3, ptr %170, align 8
+  br label %171
 
-164:                                              ; preds = %157, %154
-  %165 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 12), align 2
-  %166 = trunc i8 %165 to i1
-  br i1 %166, label %167, label %174
+171:                                              ; preds = %164, %160
+  %172 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 11
+  %173 = load i8, ptr %172, align 1
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %175, label %182
 
-167:                                              ; preds = %164
-  %168 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %169 = load i32, ptr %168, align 4
-  %170 = zext i32 %169 to i64
-  %171 = or i64 %170, 4096
-  %172 = trunc i64 %171 to i32
-  store i32 %172, ptr %168, align 4
-  %173 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 3, ptr %173, align 8
-  br label %174
+175:                                              ; preds = %171
+  %176 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %177 = load i32, ptr %176, align 4
+  %178 = zext i32 %177 to i64
+  %179 = or i64 %178, 2048
+  %180 = trunc i64 %179 to i32
+  store i32 %180, ptr %176, align 4
+  %181 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 3, ptr %181, align 8
+  br label %182
 
-174:                                              ; preds = %167, %164
-  %175 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 13), align 1
-  %176 = trunc i8 %175 to i1
-  br i1 %176, label %177, label %184
+182:                                              ; preds = %175, %171
+  %183 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 12
+  %184 = load i8, ptr %183, align 2
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %186, label %193
 
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %179 = load i32, ptr %178, align 4
-  %180 = zext i32 %179 to i64
-  %181 = or i64 %180, 8192
-  %182 = trunc i64 %181 to i32
-  store i32 %182, ptr %178, align 4
-  %183 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 3, ptr %183, align 8
-  br label %184
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %188 = load i32, ptr %187, align 4
+  %189 = zext i32 %188 to i64
+  %190 = or i64 %189, 4096
+  %191 = trunc i64 %190 to i32
+  store i32 %191, ptr %187, align 4
+  %192 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 3, ptr %192, align 8
+  br label %193
 
-184:                                              ; preds = %177, %174
-  %185 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 14), align 8
-  %186 = trunc i8 %185 to i1
-  br i1 %186, label %187, label %194
-
-187:                                              ; preds = %184
-  %188 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %189 = load i32, ptr %188, align 4
-  %190 = zext i32 %189 to i64
-  %191 = or i64 %190, 16384
-  %192 = trunc i64 %191 to i32
-  store i32 %192, ptr %188, align 4
-  %193 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 3, ptr %193, align 8
-  br label %194
-
-194:                                              ; preds = %187, %184
-  %195 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 15), align 1
+193:                                              ; preds = %186, %182
+  %194 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 13
+  %195 = load i8, ptr %194, align 1
   %196 = trunc i8 %195 to i1
   br i1 %196, label %197, label %204
 
-197:                                              ; preds = %194
+197:                                              ; preds = %193
   %198 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
   %199 = load i32, ptr %198, align 4
   %200 = zext i32 %199 to i64
-  %201 = or i64 %200, 32768
+  %201 = or i64 %200, 8192
   %202 = trunc i64 %201 to i32
   store i32 %202, ptr %198, align 4
   %203 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
   store i16 3, ptr %203, align 8
   br label %204
 
-204:                                              ; preds = %197, %194
-  %205 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 16), align 2
-  %206 = trunc i8 %205 to i1
-  br i1 %206, label %207, label %214
+204:                                              ; preds = %197, %193
+  %205 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 14
+  %206 = load i8, ptr %205, align 8
+  %207 = trunc i8 %206 to i1
+  br i1 %207, label %208, label %215
 
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %209 = load i32, ptr %208, align 4
-  %210 = zext i32 %209 to i64
-  %211 = or i64 %210, 65536
-  %212 = trunc i64 %211 to i32
-  store i32 %212, ptr %208, align 4
-  %213 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 4, ptr %213, align 8
-  br label %214
+208:                                              ; preds = %204
+  %209 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %210 = load i32, ptr %209, align 4
+  %211 = zext i32 %210 to i64
+  %212 = or i64 %211, 16384
+  %213 = trunc i64 %212 to i32
+  store i32 %213, ptr %209, align 4
+  %214 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 3, ptr %214, align 8
+  br label %215
 
-214:                                              ; preds = %207, %204
-  %215 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 17), align 1
-  %216 = trunc i8 %215 to i1
-  br i1 %216, label %217, label %224
+215:                                              ; preds = %208, %204
+  %216 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 15
+  %217 = load i8, ptr %216, align 1
+  %218 = trunc i8 %217 to i1
+  br i1 %218, label %219, label %226
 
-217:                                              ; preds = %214
-  %218 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %219 = load i32, ptr %218, align 4
-  %220 = zext i32 %219 to i64
-  %221 = or i64 %220, 131072
-  %222 = trunc i64 %221 to i32
-  store i32 %222, ptr %218, align 4
-  %223 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 4, ptr %223, align 8
-  br label %224
+219:                                              ; preds = %215
+  %220 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %221 = load i32, ptr %220, align 4
+  %222 = zext i32 %221 to i64
+  %223 = or i64 %222, 32768
+  %224 = trunc i64 %223 to i32
+  store i32 %224, ptr %220, align 4
+  %225 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 3, ptr %225, align 8
+  br label %226
 
-224:                                              ; preds = %217, %214
-  %225 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 18), align 4
-  %226 = trunc i8 %225 to i1
-  br i1 %226, label %227, label %234
+226:                                              ; preds = %219, %215
+  %227 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 16
+  %228 = load i8, ptr %227, align 2
+  %229 = trunc i8 %228 to i1
+  br i1 %229, label %230, label %237
 
-227:                                              ; preds = %224
-  %228 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %229 = load i32, ptr %228, align 4
-  %230 = zext i32 %229 to i64
-  %231 = or i64 %230, 262144
-  %232 = trunc i64 %231 to i32
-  store i32 %232, ptr %228, align 4
-  %233 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 5, ptr %233, align 8
-  br label %234
+230:                                              ; preds = %226
+  %231 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %232 = load i32, ptr %231, align 4
+  %233 = zext i32 %232 to i64
+  %234 = or i64 %233, 65536
+  %235 = trunc i64 %234 to i32
+  store i32 %235, ptr %231, align 4
+  %236 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 4, ptr %236, align 8
+  br label %237
 
-234:                                              ; preds = %227, %224
-  %235 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 19), align 1
-  %236 = trunc i8 %235 to i1
-  br i1 %236, label %237, label %244
+237:                                              ; preds = %230, %226
+  %238 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 17
+  %239 = load i8, ptr %238, align 1
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %241, label %248
 
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
-  %239 = load i32, ptr %238, align 4
-  %240 = zext i32 %239 to i64
-  %241 = or i64 %240, 524288
-  %242 = trunc i64 %241 to i32
-  store i32 %242, ptr %238, align 4
-  %243 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 5, ptr %243, align 8
-  br label %244
+241:                                              ; preds = %237
+  %242 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %243 = load i32, ptr %242, align 4
+  %244 = zext i32 %243 to i64
+  %245 = or i64 %244, 131072
+  %246 = trunc i64 %245 to i32
+  store i32 %246, ptr %242, align 4
+  %247 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 4, ptr %247, align 8
+  br label %248
 
-244:                                              ; preds = %237, %234
-  %245 = load i16, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 2), align 8
-  %246 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 0
-  store i16 %245, ptr %246, align 8
-  %247 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 29), align 4
-  %248 = add nsw i32 %247, 32768
-  %249 = trunc i32 %248 to i16
-  %250 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 6
-  store i16 %249, ptr %250, align 8
-  %251 = load ptr, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 30), align 8
-  %252 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 8
-  store ptr %251, ptr %252, align 8
-  br label %253
+248:                                              ; preds = %241, %237
+  %249 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 18
+  %250 = load i8, ptr %249, align 4
+  %251 = trunc i8 %250 to i1
+  br i1 %251, label %252, label %259
 
-253:                                              ; preds = %260, %244
-  %254 = call i32 @slurm_set_trigger(ptr noundef %2)
-  %255 = icmp ne i32 %254, 0
-  br i1 %255, label %256, label %262
+252:                                              ; preds = %248
+  %253 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %254 = load i32, ptr %253, align 4
+  %255 = zext i32 %254 to i64
+  %256 = or i64 %255, 262144
+  %257 = trunc i64 %256 to i32
+  store i32 %257, ptr %253, align 4
+  %258 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 5, ptr %258, align 8
+  br label %259
 
-256:                                              ; preds = %253
-  call void @slurm_perror(ptr noundef @.str.8)
-  %257 = call i32 @slurm_get_errno()
-  %258 = icmp ne i32 %257, 11
-  br i1 %258, label %259, label %260
+259:                                              ; preds = %252, %248
+  %260 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 19
+  %261 = load i8, ptr %260, align 1
+  %262 = trunc i8 %261 to i1
+  br i1 %262, label %263, label %270
 
-259:                                              ; preds = %256
-  store i32 1, ptr %1, align 4
-  br label %271
-
-260:                                              ; preds = %256
-  %261 = call i32 @sleep(i32 noundef 5)
-  br label %253, !llvm.loop !7
-
-262:                                              ; preds = %253
-  br label %263
-
-263:                                              ; preds = %262
-  br label %264
-
-264:                                              ; preds = %263
-  %265 = call i32 @get_log_level()
-  %266 = icmp sge i32 %265, 4
-  br i1 %266, label %267, label %268
-
-267:                                              ; preds = %264
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.9)
-  br label %268
-
-268:                                              ; preds = %267, %264
-  br label %269
-
-269:                                              ; preds = %268
+263:                                              ; preds = %259
+  %264 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 5
+  %265 = load i32, ptr %264, align 4
+  %266 = zext i32 %265 to i64
+  %267 = or i64 %266, 524288
+  %268 = trunc i64 %267 to i32
+  store i32 %268, ptr %264, align 4
+  %269 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 5, ptr %269, align 8
   br label %270
 
-270:                                              ; preds = %269
-  store i32 0, ptr %1, align 4
-  br label %271
+270:                                              ; preds = %263, %259
+  %271 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 2
+  %272 = load i16, ptr %271, align 8
+  %273 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 0
+  store i16 %272, ptr %273, align 8
+  %274 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 29
+  %275 = load i32, ptr %274, align 4
+  %276 = add nsw i32 %275, 32768
+  %277 = trunc i32 %276 to i16
+  %278 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 6
+  store i16 %277, ptr %278, align 8
+  %279 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 30
+  %280 = load ptr, ptr %279, align 8
+  %281 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 8
+  store ptr %280, ptr %281, align 8
+  br label %282
 
-271:                                              ; preds = %270, %259
-  %272 = load i32, ptr %1, align 4
-  ret i32 %272
+282:                                              ; preds = %289, %270
+  %283 = call i32 @slurm_set_trigger(ptr noundef %2)
+  %284 = icmp ne i32 %283, 0
+  br i1 %284, label %285, label %291
+
+285:                                              ; preds = %282
+  call void @slurm_perror(ptr noundef @.str.8)
+  %286 = call i32 @slurm_get_errno()
+  %287 = icmp ne i32 %286, 11
+  br i1 %287, label %288, label %289
+
+288:                                              ; preds = %285
+  store i32 1, ptr %1, align 4
+  br label %300
+
+289:                                              ; preds = %285
+  %290 = call i32 @sleep(i32 noundef 5)
+  br label %282, !llvm.loop !7
+
+291:                                              ; preds = %282
+  br label %292
+
+292:                                              ; preds = %291
+  br label %293
+
+293:                                              ; preds = %292
+  %294 = call i32 @get_log_level()
+  %295 = icmp sge i32 %294, 4
+  br i1 %295, label %296, label %297
+
+296:                                              ; preds = %293
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.9)
+  br label %297
+
+297:                                              ; preds = %296, %293
+  br label %298
+
+298:                                              ; preds = %297
+  br label %299
+
+299:                                              ; preds = %298
+  store i32 0, ptr %1, align 4
+  br label %300
+
+300:                                              ; preds = %299, %288
+  %301 = load i32, ptr %1, align 4
+  ret i32 %301
 }
 
 ; Function Attrs: nounwind uwtable
@@ -591,7 +625,7 @@ define internal i32 @_get_trigger() #0 {
 9:                                                ; preds = %0
   call void @slurm_perror(ptr noundef @.str.10)
   store i32 1, ptr %1, align 4
-  br label %761
+  br label %789
 
 10:                                               ; preds = %0
   br label %11
@@ -621,13 +655,13 @@ define internal i32 @_get_trigger() #0 {
   store i32 0, ptr %4, align 4
   br label %22
 
-22:                                               ; preds = %756, %21
+22:                                               ; preds = %784, %21
   %23 = load i32, ptr %4, align 4
   %24 = load ptr, ptr %2, align 8
   %25 = getelementptr inbounds %struct.trigger_info_msg, ptr %24, i32 0, i32 0
   %26 = load i32, ptr %25, align 8
   %27 = icmp ult i32 %23, %26
-  br i1 %27, label %28, label %759
+  br i1 %27, label %28, label %787
 
 28:                                               ; preds = %22
   %29 = load i8, ptr @params, align 8
@@ -648,988 +682,1016 @@ define internal i32 @_get_trigger() #0 {
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %31
-  br label %756
+  br label %784
 
 43:                                               ; preds = %31
   br label %44
 
 44:                                               ; preds = %43, %28
-  %45 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 4), align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %60
+  %45 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 4
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %61
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.trigger_info_msg, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %4, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.trigger_info, ptr %50, i64 %52
-  %54 = getelementptr inbounds %struct.trigger_info, ptr %53, i32 0, i32 5
-  %55 = load i32, ptr %54, align 4
-  %56 = zext i32 %55 to i64
-  %57 = icmp ne i64 %56, 16
-  br i1 %57, label %58, label %59
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr inbounds %struct.trigger_info_msg, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %4, align 4
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %struct.trigger_info, ptr %51, i64 %53
+  %55 = getelementptr inbounds %struct.trigger_info, ptr %54, i32 0, i32 5
+  %56 = load i32, ptr %55, align 4
+  %57 = zext i32 %56 to i64
+  %58 = icmp ne i64 %57, 16
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %47
-  br label %756
+59:                                               ; preds = %48
+  br label %784
 
-59:                                               ; preds = %47
-  br label %60
+60:                                               ; preds = %48
+  br label %61
 
-60:                                               ; preds = %59, %44
-  %61 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 5), align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %91
+61:                                               ; preds = %60, %44
+  %62 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 5
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %94
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds %struct.trigger_info_msg, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %4, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.trigger_info, ptr %66, i64 %68
-  %70 = getelementptr inbounds %struct.trigger_info, ptr %69, i32 0, i32 2
-  %71 = load i16, ptr %70, align 8
-  %72 = zext i16 %71 to i32
-  %73 = icmp ne i32 %72, 1
-  br i1 %73, label %74, label %75
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds %struct.trigger_info_msg, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i32, ptr %4, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds %struct.trigger_info, ptr %68, i64 %70
+  %72 = getelementptr inbounds %struct.trigger_info, ptr %71, i32 0, i32 2
+  %73 = load i16, ptr %72, align 8
+  %74 = zext i16 %73 to i32
+  %75 = icmp ne i32 %74, 1
+  br i1 %75, label %76, label %77
 
-74:                                               ; preds = %63
-  br label %756
+76:                                               ; preds = %65
+  br label %784
 
-75:                                               ; preds = %63
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.trigger_info_msg, ptr %76, i32 0, i32 1
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr %4, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %struct.trigger_info, ptr %78, i64 %80
-  %82 = getelementptr inbounds %struct.trigger_info, ptr %81, i32 0, i32 3
-  %83 = load ptr, ptr %82, align 8
-  %84 = call i64 @atol(ptr noundef %83) #8
-  store i64 %84, ptr %6, align 8
-  %85 = load i64, ptr %6, align 8
-  %86 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 5), align 4
-  %87 = zext i32 %86 to i64
-  %88 = icmp ne i64 %85, %87
-  br i1 %88, label %89, label %90
+77:                                               ; preds = %65
+  %78 = load ptr, ptr %2, align 8
+  %79 = getelementptr inbounds %struct.trigger_info_msg, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = load i32, ptr %4, align 4
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds %struct.trigger_info, ptr %80, i64 %82
+  %84 = getelementptr inbounds %struct.trigger_info, ptr %83, i32 0, i32 3
+  %85 = load ptr, ptr %84, align 8
+  %86 = call i64 @atol(ptr noundef %85) #8
+  store i64 %86, ptr %6, align 8
+  %87 = load i64, ptr %6, align 8
+  %88 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 5
+  %89 = load i32, ptr %88, align 4
+  %90 = zext i32 %89 to i64
+  %91 = icmp ne i64 %87, %90
+  br i1 %91, label %92, label %93
 
-89:                                               ; preds = %75
-  br label %756
+92:                                               ; preds = %77
+  br label %784
 
-90:                                               ; preds = %75
-  br label %91
+93:                                               ; preds = %77
+  br label %94
 
-91:                                               ; preds = %90, %60
-  %92 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 21), align 1
-  %93 = trunc i8 %92 to i1
-  br i1 %93, label %94, label %129
+94:                                               ; preds = %93, %61
+  %95 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 21
+  %96 = load i8, ptr %95, align 1
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %133
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr %2, align 8
-  %96 = getelementptr inbounds %struct.trigger_info_msg, ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  %98 = load i32, ptr %4, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.trigger_info, ptr %97, i64 %99
-  %101 = getelementptr inbounds %struct.trigger_info, ptr %100, i32 0, i32 2
-  %102 = load i16, ptr %101, align 8
-  %103 = zext i16 %102 to i32
-  %104 = icmp ne i32 %103, 2
-  br i1 %104, label %105, label %116
+98:                                               ; preds = %94
+  %99 = load ptr, ptr %2, align 8
+  %100 = getelementptr inbounds %struct.trigger_info_msg, ptr %99, i32 0, i32 1
+  %101 = load ptr, ptr %100, align 8
+  %102 = load i32, ptr %4, align 4
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds %struct.trigger_info, ptr %101, i64 %103
+  %105 = getelementptr inbounds %struct.trigger_info, ptr %104, i32 0, i32 2
+  %106 = load i16, ptr %105, align 8
+  %107 = zext i16 %106 to i32
+  %108 = icmp ne i32 %107, 2
+  br i1 %108, label %109, label %120
 
-105:                                              ; preds = %94
-  %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds %struct.trigger_info_msg, ptr %106, i32 0, i32 1
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i32, ptr %4, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.trigger_info, ptr %108, i64 %110
-  %112 = getelementptr inbounds %struct.trigger_info, ptr %111, i32 0, i32 2
-  %113 = load i16, ptr %112, align 8
-  %114 = zext i16 %113 to i32
-  %115 = icmp ne i32 %114, 6
-  br i1 %115, label %127, label %116
+109:                                              ; preds = %98
+  %110 = load ptr, ptr %2, align 8
+  %111 = getelementptr inbounds %struct.trigger_info_msg, ptr %110, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  %113 = load i32, ptr %4, align 4
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds %struct.trigger_info, ptr %112, i64 %114
+  %116 = getelementptr inbounds %struct.trigger_info, ptr %115, i32 0, i32 2
+  %117 = load i16, ptr %116, align 8
+  %118 = zext i16 %117 to i32
+  %119 = icmp ne i32 %118, 6
+  br i1 %119, label %131, label %120
 
-116:                                              ; preds = %105, %94
-  %117 = load ptr, ptr %2, align 8
-  %118 = getelementptr inbounds %struct.trigger_info_msg, ptr %117, i32 0, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i32, ptr %4, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds %struct.trigger_info, ptr %119, i64 %121
-  %123 = getelementptr inbounds %struct.trigger_info, ptr %122, i32 0, i32 5
-  %124 = load i32, ptr %123, align 4
-  %125 = zext i32 %124 to i64
-  %126 = icmp ne i64 %125, 2
-  br i1 %126, label %127, label %128
+120:                                              ; preds = %109, %98
+  %121 = load ptr, ptr %2, align 8
+  %122 = getelementptr inbounds %struct.trigger_info_msg, ptr %121, i32 0, i32 1
+  %123 = load ptr, ptr %122, align 8
+  %124 = load i32, ptr %4, align 4
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds %struct.trigger_info, ptr %123, i64 %125
+  %127 = getelementptr inbounds %struct.trigger_info, ptr %126, i32 0, i32 5
+  %128 = load i32, ptr %127, align 4
+  %129 = zext i32 %128 to i64
+  %130 = icmp ne i64 %129, 2
+  br i1 %130, label %131, label %132
 
-127:                                              ; preds = %116, %105
-  br label %756
+131:                                              ; preds = %120, %109
+  br label %784
 
-128:                                              ; preds = %116
-  br label %129
+132:                                              ; preds = %120
+  br label %133
 
-129:                                              ; preds = %128, %91
-  %130 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 22), align 8
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %156
+133:                                              ; preds = %132, %94
+  %134 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 22
+  %135 = load i8, ptr %134, align 8
+  %136 = trunc i8 %135 to i1
+  br i1 %136, label %137, label %161
 
-132:                                              ; preds = %129
-  %133 = load ptr, ptr %2, align 8
-  %134 = getelementptr inbounds %struct.trigger_info_msg, ptr %133, i32 0, i32 1
-  %135 = load ptr, ptr %134, align 8
-  %136 = load i32, ptr %4, align 4
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds %struct.trigger_info, ptr %135, i64 %137
-  %139 = getelementptr inbounds %struct.trigger_info, ptr %138, i32 0, i32 2
-  %140 = load i16, ptr %139, align 8
-  %141 = zext i16 %140 to i32
-  %142 = icmp ne i32 %141, 2
-  br i1 %142, label %154, label %143
+137:                                              ; preds = %133
+  %138 = load ptr, ptr %2, align 8
+  %139 = getelementptr inbounds %struct.trigger_info_msg, ptr %138, i32 0, i32 1
+  %140 = load ptr, ptr %139, align 8
+  %141 = load i32, ptr %4, align 4
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds %struct.trigger_info, ptr %140, i64 %142
+  %144 = getelementptr inbounds %struct.trigger_info, ptr %143, i32 0, i32 2
+  %145 = load i16, ptr %144, align 8
+  %146 = zext i16 %145 to i32
+  %147 = icmp ne i32 %146, 2
+  br i1 %147, label %159, label %148
 
-143:                                              ; preds = %132
-  %144 = load ptr, ptr %2, align 8
-  %145 = getelementptr inbounds %struct.trigger_info_msg, ptr %144, i32 0, i32 1
-  %146 = load ptr, ptr %145, align 8
-  %147 = load i32, ptr %4, align 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct.trigger_info, ptr %146, i64 %148
-  %150 = getelementptr inbounds %struct.trigger_info, ptr %149, i32 0, i32 5
-  %151 = load i32, ptr %150, align 4
-  %152 = zext i32 %151 to i64
-  %153 = icmp ne i64 %152, 256
-  br i1 %153, label %154, label %155
+148:                                              ; preds = %137
+  %149 = load ptr, ptr %2, align 8
+  %150 = getelementptr inbounds %struct.trigger_info_msg, ptr %149, i32 0, i32 1
+  %151 = load ptr, ptr %150, align 8
+  %152 = load i32, ptr %4, align 4
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds %struct.trigger_info, ptr %151, i64 %153
+  %155 = getelementptr inbounds %struct.trigger_info, ptr %154, i32 0, i32 5
+  %156 = load i32, ptr %155, align 4
+  %157 = zext i32 %156 to i64
+  %158 = icmp ne i64 %157, 256
+  br i1 %158, label %159, label %160
 
-154:                                              ; preds = %143, %132
-  br label %756
+159:                                              ; preds = %148, %137
+  br label %784
 
-155:                                              ; preds = %143
-  br label %156
+160:                                              ; preds = %148
+  br label %161
 
-156:                                              ; preds = %155, %129
-  %157 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 26), align 1
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %159, label %183
+161:                                              ; preds = %160, %133
+  %162 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 26
+  %163 = load i8, ptr %162, align 1
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %165, label %189
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr %2, align 8
-  %161 = getelementptr inbounds %struct.trigger_info_msg, ptr %160, i32 0, i32 1
-  %162 = load ptr, ptr %161, align 8
-  %163 = load i32, ptr %4, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds %struct.trigger_info, ptr %162, i64 %164
-  %166 = getelementptr inbounds %struct.trigger_info, ptr %165, i32 0, i32 2
-  %167 = load i16, ptr %166, align 8
-  %168 = zext i16 %167 to i32
-  %169 = icmp ne i32 %168, 2
-  br i1 %169, label %181, label %170
+165:                                              ; preds = %161
+  %166 = load ptr, ptr %2, align 8
+  %167 = getelementptr inbounds %struct.trigger_info_msg, ptr %166, i32 0, i32 1
+  %168 = load ptr, ptr %167, align 8
+  %169 = load i32, ptr %4, align 4
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds %struct.trigger_info, ptr %168, i64 %170
+  %172 = getelementptr inbounds %struct.trigger_info, ptr %171, i32 0, i32 2
+  %173 = load i16, ptr %172, align 8
+  %174 = zext i16 %173 to i32
+  %175 = icmp ne i32 %174, 2
+  br i1 %175, label %187, label %176
 
-170:                                              ; preds = %159
-  %171 = load ptr, ptr %2, align 8
-  %172 = getelementptr inbounds %struct.trigger_info_msg, ptr %171, i32 0, i32 1
-  %173 = load ptr, ptr %172, align 8
-  %174 = load i32, ptr %4, align 4
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds %struct.trigger_info, ptr %173, i64 %175
-  %177 = getelementptr inbounds %struct.trigger_info, ptr %176, i32 0, i32 5
-  %178 = load i32, ptr %177, align 4
-  %179 = zext i32 %178 to i64
-  %180 = icmp ne i64 %179, 4
-  br i1 %180, label %181, label %182
+176:                                              ; preds = %165
+  %177 = load ptr, ptr %2, align 8
+  %178 = getelementptr inbounds %struct.trigger_info_msg, ptr %177, i32 0, i32 1
+  %179 = load ptr, ptr %178, align 8
+  %180 = load i32, ptr %4, align 4
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds %struct.trigger_info, ptr %179, i64 %181
+  %183 = getelementptr inbounds %struct.trigger_info, ptr %182, i32 0, i32 5
+  %184 = load i32, ptr %183, align 4
+  %185 = zext i32 %184 to i64
+  %186 = icmp ne i64 %185, 4
+  br i1 %186, label %187, label %188
 
-181:                                              ; preds = %170, %159
-  br label %756
+187:                                              ; preds = %176, %165
+  br label %784
 
-182:                                              ; preds = %170
-  br label %183
+188:                                              ; preds = %176
+  br label %189
 
-183:                                              ; preds = %182, %156
-  %184 = load ptr, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 24), align 8
-  %185 = icmp ne ptr %184, null
-  br i1 %185, label %186, label %199
+189:                                              ; preds = %188, %161
+  %190 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 24
+  %191 = load ptr, ptr %190, align 8
+  %192 = icmp ne ptr %191, null
+  br i1 %192, label %193, label %206
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %2, align 8
-  %188 = getelementptr inbounds %struct.trigger_info_msg, ptr %187, i32 0, i32 1
-  %189 = load ptr, ptr %188, align 8
-  %190 = load i32, ptr %4, align 4
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds %struct.trigger_info, ptr %189, i64 %191
-  %193 = getelementptr inbounds %struct.trigger_info, ptr %192, i32 0, i32 2
-  %194 = load i16, ptr %193, align 8
-  %195 = zext i16 %194 to i32
-  %196 = icmp ne i32 %195, 2
-  br i1 %196, label %197, label %198
+193:                                              ; preds = %189
+  %194 = load ptr, ptr %2, align 8
+  %195 = getelementptr inbounds %struct.trigger_info_msg, ptr %194, i32 0, i32 1
+  %196 = load ptr, ptr %195, align 8
+  %197 = load i32, ptr %4, align 4
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds %struct.trigger_info, ptr %196, i64 %198
+  %200 = getelementptr inbounds %struct.trigger_info, ptr %199, i32 0, i32 2
+  %201 = load i16, ptr %200, align 8
+  %202 = zext i16 %201 to i32
+  %203 = icmp ne i32 %202, 2
+  br i1 %203, label %204, label %205
 
-197:                                              ; preds = %186
-  br label %756
+204:                                              ; preds = %193
+  br label %784
 
-198:                                              ; preds = %186
-  br label %199
+205:                                              ; preds = %193
+  br label %206
 
-199:                                              ; preds = %198, %183
-  %200 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 25), align 8
-  %201 = trunc i8 %200 to i1
-  br i1 %201, label %202, label %226
+206:                                              ; preds = %205, %189
+  %207 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 25
+  %208 = load i8, ptr %207, align 8
+  %209 = trunc i8 %208 to i1
+  br i1 %209, label %210, label %234
 
-202:                                              ; preds = %199
-  %203 = load ptr, ptr %2, align 8
-  %204 = getelementptr inbounds %struct.trigger_info_msg, ptr %203, i32 0, i32 1
-  %205 = load ptr, ptr %204, align 8
-  %206 = load i32, ptr %4, align 4
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds %struct.trigger_info, ptr %205, i64 %207
-  %209 = getelementptr inbounds %struct.trigger_info, ptr %208, i32 0, i32 2
-  %210 = load i16, ptr %209, align 8
-  %211 = zext i16 %210 to i32
-  %212 = icmp ne i32 %211, 2
-  br i1 %212, label %224, label %213
+210:                                              ; preds = %206
+  %211 = load ptr, ptr %2, align 8
+  %212 = getelementptr inbounds %struct.trigger_info_msg, ptr %211, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8
+  %214 = load i32, ptr %4, align 4
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds %struct.trigger_info, ptr %213, i64 %215
+  %217 = getelementptr inbounds %struct.trigger_info, ptr %216, i32 0, i32 2
+  %218 = load i16, ptr %217, align 8
+  %219 = zext i16 %218 to i32
+  %220 = icmp ne i32 %219, 2
+  br i1 %220, label %232, label %221
 
-213:                                              ; preds = %202
-  %214 = load ptr, ptr %2, align 8
-  %215 = getelementptr inbounds %struct.trigger_info_msg, ptr %214, i32 0, i32 1
-  %216 = load ptr, ptr %215, align 8
-  %217 = load i32, ptr %4, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds %struct.trigger_info, ptr %216, i64 %218
-  %220 = getelementptr inbounds %struct.trigger_info, ptr %219, i32 0, i32 5
-  %221 = load i32, ptr %220, align 4
-  %222 = zext i32 %221 to i64
-  %223 = icmp ne i64 %222, 128
-  br i1 %223, label %224, label %225
+221:                                              ; preds = %210
+  %222 = load ptr, ptr %2, align 8
+  %223 = getelementptr inbounds %struct.trigger_info_msg, ptr %222, i32 0, i32 1
+  %224 = load ptr, ptr %223, align 8
+  %225 = load i32, ptr %4, align 4
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds %struct.trigger_info, ptr %224, i64 %226
+  %228 = getelementptr inbounds %struct.trigger_info, ptr %227, i32 0, i32 5
+  %229 = load i32, ptr %228, align 4
+  %230 = zext i32 %229 to i64
+  %231 = icmp ne i64 %230, 128
+  br i1 %231, label %232, label %233
 
-224:                                              ; preds = %213, %202
-  br label %756
+232:                                              ; preds = %221, %210
+  br label %784
 
-225:                                              ; preds = %213
-  br label %226
+233:                                              ; preds = %221
+  br label %234
 
-226:                                              ; preds = %225, %199
-  %227 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 28), align 1
-  %228 = trunc i8 %227 to i1
-  br i1 %228, label %229, label %264
+234:                                              ; preds = %233, %206
+  %235 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 28
+  %236 = load i8, ptr %235, align 1
+  %237 = trunc i8 %236 to i1
+  br i1 %237, label %238, label %273
 
-229:                                              ; preds = %226
-  %230 = load ptr, ptr %2, align 8
-  %231 = getelementptr inbounds %struct.trigger_info_msg, ptr %230, i32 0, i32 1
-  %232 = load ptr, ptr %231, align 8
-  %233 = load i32, ptr %4, align 4
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds %struct.trigger_info, ptr %232, i64 %234
-  %236 = getelementptr inbounds %struct.trigger_info, ptr %235, i32 0, i32 2
-  %237 = load i16, ptr %236, align 8
-  %238 = zext i16 %237 to i32
-  %239 = icmp ne i32 %238, 2
-  br i1 %239, label %240, label %251
+238:                                              ; preds = %234
+  %239 = load ptr, ptr %2, align 8
+  %240 = getelementptr inbounds %struct.trigger_info_msg, ptr %239, i32 0, i32 1
+  %241 = load ptr, ptr %240, align 8
+  %242 = load i32, ptr %4, align 4
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds %struct.trigger_info, ptr %241, i64 %243
+  %245 = getelementptr inbounds %struct.trigger_info, ptr %244, i32 0, i32 2
+  %246 = load i16, ptr %245, align 8
+  %247 = zext i16 %246 to i32
+  %248 = icmp ne i32 %247, 2
+  br i1 %248, label %249, label %260
 
-240:                                              ; preds = %229
-  %241 = load ptr, ptr %2, align 8
-  %242 = getelementptr inbounds %struct.trigger_info_msg, ptr %241, i32 0, i32 1
-  %243 = load ptr, ptr %242, align 8
-  %244 = load i32, ptr %4, align 4
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds %struct.trigger_info, ptr %243, i64 %245
-  %247 = getelementptr inbounds %struct.trigger_info, ptr %246, i32 0, i32 2
-  %248 = load i16, ptr %247, align 8
-  %249 = zext i16 %248 to i32
-  %250 = icmp ne i32 %249, 6
-  br i1 %250, label %262, label %251
+249:                                              ; preds = %238
+  %250 = load ptr, ptr %2, align 8
+  %251 = getelementptr inbounds %struct.trigger_info_msg, ptr %250, i32 0, i32 1
+  %252 = load ptr, ptr %251, align 8
+  %253 = load i32, ptr %4, align 4
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr inbounds %struct.trigger_info, ptr %252, i64 %254
+  %256 = getelementptr inbounds %struct.trigger_info, ptr %255, i32 0, i32 2
+  %257 = load i16, ptr %256, align 8
+  %258 = zext i16 %257 to i32
+  %259 = icmp ne i32 %258, 6
+  br i1 %259, label %271, label %260
 
-251:                                              ; preds = %240, %229
-  %252 = load ptr, ptr %2, align 8
-  %253 = getelementptr inbounds %struct.trigger_info_msg, ptr %252, i32 0, i32 1
-  %254 = load ptr, ptr %253, align 8
-  %255 = load i32, ptr %4, align 4
-  %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds %struct.trigger_info, ptr %254, i64 %256
-  %258 = getelementptr inbounds %struct.trigger_info, ptr %257, i32 0, i32 5
-  %259 = load i32, ptr %258, align 4
-  %260 = zext i32 %259 to i64
-  %261 = icmp ne i64 %260, 1
-  br i1 %261, label %262, label %263
+260:                                              ; preds = %249, %238
+  %261 = load ptr, ptr %2, align 8
+  %262 = getelementptr inbounds %struct.trigger_info_msg, ptr %261, i32 0, i32 1
+  %263 = load ptr, ptr %262, align 8
+  %264 = load i32, ptr %4, align 4
+  %265 = sext i32 %264 to i64
+  %266 = getelementptr inbounds %struct.trigger_info, ptr %263, i64 %265
+  %267 = getelementptr inbounds %struct.trigger_info, ptr %266, i32 0, i32 5
+  %268 = load i32, ptr %267, align 4
+  %269 = zext i32 %268 to i64
+  %270 = icmp ne i64 %269, 1
+  br i1 %270, label %271, label %272
 
-262:                                              ; preds = %251, %240
-  br label %756
+271:                                              ; preds = %260, %249
+  br label %784
 
-263:                                              ; preds = %251
-  br label %264
+272:                                              ; preds = %260
+  br label %273
 
-264:                                              ; preds = %263, %226
-  %265 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 23), align 1
-  %266 = trunc i8 %265 to i1
-  br i1 %266, label %267, label %291
+273:                                              ; preds = %272, %234
+  %274 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 23
+  %275 = load i8, ptr %274, align 1
+  %276 = trunc i8 %275 to i1
+  br i1 %276, label %277, label %301
 
-267:                                              ; preds = %264
-  %268 = load ptr, ptr %2, align 8
-  %269 = getelementptr inbounds %struct.trigger_info_msg, ptr %268, i32 0, i32 1
-  %270 = load ptr, ptr %269, align 8
-  %271 = load i32, ptr %4, align 4
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds %struct.trigger_info, ptr %270, i64 %272
-  %274 = getelementptr inbounds %struct.trigger_info, ptr %273, i32 0, i32 2
-  %275 = load i16, ptr %274, align 8
-  %276 = zext i16 %275 to i32
-  %277 = icmp ne i32 %276, 2
-  br i1 %277, label %289, label %278
+277:                                              ; preds = %273
+  %278 = load ptr, ptr %2, align 8
+  %279 = getelementptr inbounds %struct.trigger_info_msg, ptr %278, i32 0, i32 1
+  %280 = load ptr, ptr %279, align 8
+  %281 = load i32, ptr %4, align 4
+  %282 = sext i32 %281 to i64
+  %283 = getelementptr inbounds %struct.trigger_info, ptr %280, i64 %282
+  %284 = getelementptr inbounds %struct.trigger_info, ptr %283, i32 0, i32 2
+  %285 = load i16, ptr %284, align 8
+  %286 = zext i16 %285 to i32
+  %287 = icmp ne i32 %286, 2
+  br i1 %287, label %299, label %288
 
-278:                                              ; preds = %267
-  %279 = load ptr, ptr %2, align 8
-  %280 = getelementptr inbounds %struct.trigger_info_msg, ptr %279, i32 0, i32 1
-  %281 = load ptr, ptr %280, align 8
-  %282 = load i32, ptr %4, align 4
-  %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds %struct.trigger_info, ptr %281, i64 %283
-  %285 = getelementptr inbounds %struct.trigger_info, ptr %284, i32 0, i32 5
-  %286 = load i32, ptr %285, align 4
-  %287 = zext i32 %286 to i64
-  %288 = icmp ne i64 %287, 2097152
-  br i1 %288, label %289, label %290
+288:                                              ; preds = %277
+  %289 = load ptr, ptr %2, align 8
+  %290 = getelementptr inbounds %struct.trigger_info_msg, ptr %289, i32 0, i32 1
+  %291 = load ptr, ptr %290, align 8
+  %292 = load i32, ptr %4, align 4
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds %struct.trigger_info, ptr %291, i64 %293
+  %295 = getelementptr inbounds %struct.trigger_info, ptr %294, i32 0, i32 5
+  %296 = load i32, ptr %295, align 4
+  %297 = zext i32 %296 to i64
+  %298 = icmp ne i64 %297, 2097152
+  br i1 %298, label %299, label %300
 
-289:                                              ; preds = %278, %267
-  br label %756
+299:                                              ; preds = %288, %277
+  br label %784
 
-290:                                              ; preds = %278
-  br label %291
+300:                                              ; preds = %288
+  br label %301
 
-291:                                              ; preds = %290, %264
-  %292 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 27), align 2
-  %293 = trunc i8 %292 to i1
-  br i1 %293, label %294, label %318
+301:                                              ; preds = %300, %273
+  %302 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 27
+  %303 = load i8, ptr %302, align 2
+  %304 = trunc i8 %303 to i1
+  br i1 %304, label %305, label %329
 
-294:                                              ; preds = %291
-  %295 = load ptr, ptr %2, align 8
-  %296 = getelementptr inbounds %struct.trigger_info_msg, ptr %295, i32 0, i32 1
-  %297 = load ptr, ptr %296, align 8
-  %298 = load i32, ptr %4, align 4
-  %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds %struct.trigger_info, ptr %297, i64 %299
-  %301 = getelementptr inbounds %struct.trigger_info, ptr %300, i32 0, i32 2
-  %302 = load i16, ptr %301, align 8
-  %303 = zext i16 %302 to i32
-  %304 = icmp ne i32 %303, 2
-  br i1 %304, label %316, label %305
-
-305:                                              ; preds = %294
+305:                                              ; preds = %301
   %306 = load ptr, ptr %2, align 8
   %307 = getelementptr inbounds %struct.trigger_info_msg, ptr %306, i32 0, i32 1
   %308 = load ptr, ptr %307, align 8
   %309 = load i32, ptr %4, align 4
   %310 = sext i32 %309 to i64
   %311 = getelementptr inbounds %struct.trigger_info, ptr %308, i64 %310
-  %312 = getelementptr inbounds %struct.trigger_info, ptr %311, i32 0, i32 5
-  %313 = load i32, ptr %312, align 4
-  %314 = zext i32 %313 to i64
-  %315 = icmp ne i64 %314, 4194304
-  br i1 %315, label %316, label %317
-
-316:                                              ; preds = %305, %294
-  br label %756
-
-317:                                              ; preds = %305
-  br label %318
-
-318:                                              ; preds = %317, %291
-  %319 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 33), align 2
-  %320 = trunc i8 %319 to i1
-  br i1 %320, label %321, label %345
-
-321:                                              ; preds = %318
-  %322 = load ptr, ptr %2, align 8
-  %323 = getelementptr inbounds %struct.trigger_info_msg, ptr %322, i32 0, i32 1
-  %324 = load ptr, ptr %323, align 8
-  %325 = load i32, ptr %4, align 4
-  %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds %struct.trigger_info, ptr %324, i64 %326
-  %328 = getelementptr inbounds %struct.trigger_info, ptr %327, i32 0, i32 2
-  %329 = load i16, ptr %328, align 8
-  %330 = zext i16 %329 to i32
-  %331 = icmp ne i32 %330, 1
-  br i1 %331, label %343, label %332
-
-332:                                              ; preds = %321
-  %333 = load ptr, ptr %2, align 8
-  %334 = getelementptr inbounds %struct.trigger_info_msg, ptr %333, i32 0, i32 1
-  %335 = load ptr, ptr %334, align 8
-  %336 = load i32, ptr %4, align 4
-  %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds %struct.trigger_info, ptr %335, i64 %337
-  %339 = getelementptr inbounds %struct.trigger_info, ptr %338, i32 0, i32 5
-  %340 = load i32, ptr %339, align 4
-  %341 = zext i32 %340 to i64
-  %342 = icmp ne i64 %341, 8
-  br i1 %342, label %343, label %344
-
-343:                                              ; preds = %332, %321
-  br label %756
-
-344:                                              ; preds = %332
-  br label %345
-
-345:                                              ; preds = %344, %318
-  %346 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 34), align 4
-  %347 = icmp ne i32 %346, 0
-  br i1 %347, label %348, label %361
-
-348:                                              ; preds = %345
-  %349 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 34), align 4
-  %350 = load ptr, ptr %2, align 8
-  %351 = getelementptr inbounds %struct.trigger_info_msg, ptr %350, i32 0, i32 1
-  %352 = load ptr, ptr %351, align 8
-  %353 = load i32, ptr %4, align 4
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds %struct.trigger_info, ptr %352, i64 %354
-  %356 = getelementptr inbounds %struct.trigger_info, ptr %355, i32 0, i32 1
-  %357 = load i32, ptr %356, align 4
-  %358 = icmp ne i32 %349, %357
-  br i1 %358, label %359, label %360
-
-359:                                              ; preds = %348
-  br label %756
-
-360:                                              ; preds = %348
-  br label %361
-
-361:                                              ; preds = %360, %345
-  %362 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 35), align 8
-  %363 = icmp ne i32 %362, -2
-  br i1 %363, label %364, label %377
-
-364:                                              ; preds = %361
-  %365 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 35), align 8
-  %366 = load ptr, ptr %2, align 8
-  %367 = getelementptr inbounds %struct.trigger_info_msg, ptr %366, i32 0, i32 1
-  %368 = load ptr, ptr %367, align 8
-  %369 = load i32, ptr %4, align 4
-  %370 = sext i32 %369 to i64
-  %371 = getelementptr inbounds %struct.trigger_info, ptr %368, i64 %370
-  %372 = getelementptr inbounds %struct.trigger_info, ptr %371, i32 0, i32 7
-  %373 = load i32, ptr %372, align 4
-  %374 = icmp ne i32 %365, %373
-  br i1 %374, label %375, label %376
-
-375:                                              ; preds = %364
-  br label %756
-
-376:                                              ; preds = %364
-  br label %377
-
-377:                                              ; preds = %376, %361
-  %378 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 9), align 1
-  %379 = trunc i8 %378 to i1
-  br i1 %379, label %380, label %404
-
-380:                                              ; preds = %377
-  %381 = load ptr, ptr %2, align 8
-  %382 = getelementptr inbounds %struct.trigger_info_msg, ptr %381, i32 0, i32 1
-  %383 = load ptr, ptr %382, align 8
-  %384 = load i32, ptr %4, align 4
-  %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds %struct.trigger_info, ptr %383, i64 %385
-  %387 = getelementptr inbounds %struct.trigger_info, ptr %386, i32 0, i32 2
-  %388 = load i16, ptr %387, align 8
-  %389 = zext i16 %388 to i32
-  %390 = icmp ne i32 %389, 3
-  br i1 %390, label %402, label %391
-
-391:                                              ; preds = %380
-  %392 = load ptr, ptr %2, align 8
-  %393 = getelementptr inbounds %struct.trigger_info_msg, ptr %392, i32 0, i32 1
-  %394 = load ptr, ptr %393, align 8
-  %395 = load i32, ptr %4, align 4
-  %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds %struct.trigger_info, ptr %394, i64 %396
-  %398 = getelementptr inbounds %struct.trigger_info, ptr %397, i32 0, i32 5
-  %399 = load i32, ptr %398, align 4
-  %400 = zext i32 %399 to i64
-  %401 = icmp ne i64 %400, 512
-  br i1 %401, label %402, label %403
-
-402:                                              ; preds = %391, %380
-  br label %756
-
-403:                                              ; preds = %391
-  br label %404
-
-404:                                              ; preds = %403, %377
-  %405 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 10), align 4
-  %406 = trunc i8 %405 to i1
-  br i1 %406, label %407, label %431
-
-407:                                              ; preds = %404
-  %408 = load ptr, ptr %2, align 8
-  %409 = getelementptr inbounds %struct.trigger_info_msg, ptr %408, i32 0, i32 1
-  %410 = load ptr, ptr %409, align 8
-  %411 = load i32, ptr %4, align 4
-  %412 = sext i32 %411 to i64
-  %413 = getelementptr inbounds %struct.trigger_info, ptr %410, i64 %412
-  %414 = getelementptr inbounds %struct.trigger_info, ptr %413, i32 0, i32 2
-  %415 = load i16, ptr %414, align 8
-  %416 = zext i16 %415 to i32
-  %417 = icmp ne i32 %416, 3
-  br i1 %417, label %429, label %418
-
-418:                                              ; preds = %407
-  %419 = load ptr, ptr %2, align 8
-  %420 = getelementptr inbounds %struct.trigger_info_msg, ptr %419, i32 0, i32 1
-  %421 = load ptr, ptr %420, align 8
-  %422 = load i32, ptr %4, align 4
-  %423 = sext i32 %422 to i64
-  %424 = getelementptr inbounds %struct.trigger_info, ptr %421, i64 %423
-  %425 = getelementptr inbounds %struct.trigger_info, ptr %424, i32 0, i32 5
-  %426 = load i32, ptr %425, align 4
-  %427 = zext i32 %426 to i64
-  %428 = icmp ne i64 %427, 1024
-  br i1 %428, label %429, label %430
-
-429:                                              ; preds = %418, %407
-  br label %756
-
-430:                                              ; preds = %418
-  br label %431
-
-431:                                              ; preds = %430, %404
-  %432 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 11), align 1
-  %433 = trunc i8 %432 to i1
-  br i1 %433, label %434, label %458
-
-434:                                              ; preds = %431
-  %435 = load ptr, ptr %2, align 8
-  %436 = getelementptr inbounds %struct.trigger_info_msg, ptr %435, i32 0, i32 1
-  %437 = load ptr, ptr %436, align 8
-  %438 = load i32, ptr %4, align 4
-  %439 = sext i32 %438 to i64
-  %440 = getelementptr inbounds %struct.trigger_info, ptr %437, i64 %439
-  %441 = getelementptr inbounds %struct.trigger_info, ptr %440, i32 0, i32 2
-  %442 = load i16, ptr %441, align 8
-  %443 = zext i16 %442 to i32
-  %444 = icmp ne i32 %443, 3
-  br i1 %444, label %456, label %445
-
-445:                                              ; preds = %434
-  %446 = load ptr, ptr %2, align 8
-  %447 = getelementptr inbounds %struct.trigger_info_msg, ptr %446, i32 0, i32 1
-  %448 = load ptr, ptr %447, align 8
-  %449 = load i32, ptr %4, align 4
-  %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds %struct.trigger_info, ptr %448, i64 %450
-  %452 = getelementptr inbounds %struct.trigger_info, ptr %451, i32 0, i32 5
-  %453 = load i32, ptr %452, align 4
-  %454 = zext i32 %453 to i64
-  %455 = icmp ne i64 %454, 2048
-  br i1 %455, label %456, label %457
-
-456:                                              ; preds = %445, %434
-  br label %756
-
-457:                                              ; preds = %445
-  br label %458
-
-458:                                              ; preds = %457, %431
-  %459 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 12), align 2
-  %460 = trunc i8 %459 to i1
-  br i1 %460, label %461, label %485
-
-461:                                              ; preds = %458
-  %462 = load ptr, ptr %2, align 8
-  %463 = getelementptr inbounds %struct.trigger_info_msg, ptr %462, i32 0, i32 1
-  %464 = load ptr, ptr %463, align 8
-  %465 = load i32, ptr %4, align 4
-  %466 = sext i32 %465 to i64
-  %467 = getelementptr inbounds %struct.trigger_info, ptr %464, i64 %466
-  %468 = getelementptr inbounds %struct.trigger_info, ptr %467, i32 0, i32 2
-  %469 = load i16, ptr %468, align 8
-  %470 = zext i16 %469 to i32
-  %471 = icmp ne i32 %470, 3
-  br i1 %471, label %483, label %472
-
-472:                                              ; preds = %461
-  %473 = load ptr, ptr %2, align 8
-  %474 = getelementptr inbounds %struct.trigger_info_msg, ptr %473, i32 0, i32 1
-  %475 = load ptr, ptr %474, align 8
-  %476 = load i32, ptr %4, align 4
-  %477 = sext i32 %476 to i64
-  %478 = getelementptr inbounds %struct.trigger_info, ptr %475, i64 %477
-  %479 = getelementptr inbounds %struct.trigger_info, ptr %478, i32 0, i32 5
-  %480 = load i32, ptr %479, align 4
-  %481 = zext i32 %480 to i64
-  %482 = icmp ne i64 %481, 4096
-  br i1 %482, label %483, label %484
-
-483:                                              ; preds = %472, %461
-  br label %756
-
-484:                                              ; preds = %472
-  br label %485
-
-485:                                              ; preds = %484, %458
-  %486 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 13), align 1
-  %487 = trunc i8 %486 to i1
-  br i1 %487, label %488, label %512
-
-488:                                              ; preds = %485
-  %489 = load ptr, ptr %2, align 8
-  %490 = getelementptr inbounds %struct.trigger_info_msg, ptr %489, i32 0, i32 1
-  %491 = load ptr, ptr %490, align 8
-  %492 = load i32, ptr %4, align 4
-  %493 = sext i32 %492 to i64
-  %494 = getelementptr inbounds %struct.trigger_info, ptr %491, i64 %493
-  %495 = getelementptr inbounds %struct.trigger_info, ptr %494, i32 0, i32 2
-  %496 = load i16, ptr %495, align 8
-  %497 = zext i16 %496 to i32
-  %498 = icmp ne i32 %497, 3
-  br i1 %498, label %510, label %499
-
-499:                                              ; preds = %488
-  %500 = load ptr, ptr %2, align 8
-  %501 = getelementptr inbounds %struct.trigger_info_msg, ptr %500, i32 0, i32 1
-  %502 = load ptr, ptr %501, align 8
-  %503 = load i32, ptr %4, align 4
-  %504 = sext i32 %503 to i64
-  %505 = getelementptr inbounds %struct.trigger_info, ptr %502, i64 %504
-  %506 = getelementptr inbounds %struct.trigger_info, ptr %505, i32 0, i32 5
-  %507 = load i32, ptr %506, align 4
-  %508 = zext i32 %507 to i64
-  %509 = icmp ne i64 %508, 8192
-  br i1 %509, label %510, label %511
-
-510:                                              ; preds = %499, %488
-  br label %756
-
-511:                                              ; preds = %499
-  br label %512
-
-512:                                              ; preds = %511, %485
-  %513 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 14), align 8
-  %514 = trunc i8 %513 to i1
-  br i1 %514, label %515, label %539
-
-515:                                              ; preds = %512
-  %516 = load ptr, ptr %2, align 8
-  %517 = getelementptr inbounds %struct.trigger_info_msg, ptr %516, i32 0, i32 1
-  %518 = load ptr, ptr %517, align 8
-  %519 = load i32, ptr %4, align 4
-  %520 = sext i32 %519 to i64
-  %521 = getelementptr inbounds %struct.trigger_info, ptr %518, i64 %520
-  %522 = getelementptr inbounds %struct.trigger_info, ptr %521, i32 0, i32 2
-  %523 = load i16, ptr %522, align 8
-  %524 = zext i16 %523 to i32
-  %525 = icmp ne i32 %524, 3
-  br i1 %525, label %537, label %526
-
-526:                                              ; preds = %515
-  %527 = load ptr, ptr %2, align 8
-  %528 = getelementptr inbounds %struct.trigger_info_msg, ptr %527, i32 0, i32 1
-  %529 = load ptr, ptr %528, align 8
-  %530 = load i32, ptr %4, align 4
-  %531 = sext i32 %530 to i64
-  %532 = getelementptr inbounds %struct.trigger_info, ptr %529, i64 %531
-  %533 = getelementptr inbounds %struct.trigger_info, ptr %532, i32 0, i32 5
-  %534 = load i32, ptr %533, align 4
-  %535 = zext i32 %534 to i64
-  %536 = icmp ne i64 %535, 16384
-  br i1 %536, label %537, label %538
-
-537:                                              ; preds = %526, %515
-  br label %756
-
-538:                                              ; preds = %526
-  br label %539
-
-539:                                              ; preds = %538, %512
-  %540 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 15), align 1
-  %541 = trunc i8 %540 to i1
-  br i1 %541, label %542, label %566
-
-542:                                              ; preds = %539
-  %543 = load ptr, ptr %2, align 8
-  %544 = getelementptr inbounds %struct.trigger_info_msg, ptr %543, i32 0, i32 1
-  %545 = load ptr, ptr %544, align 8
-  %546 = load i32, ptr %4, align 4
-  %547 = sext i32 %546 to i64
-  %548 = getelementptr inbounds %struct.trigger_info, ptr %545, i64 %547
-  %549 = getelementptr inbounds %struct.trigger_info, ptr %548, i32 0, i32 2
-  %550 = load i16, ptr %549, align 8
-  %551 = zext i16 %550 to i32
-  %552 = icmp ne i32 %551, 3
-  br i1 %552, label %564, label %553
-
-553:                                              ; preds = %542
-  %554 = load ptr, ptr %2, align 8
-  %555 = getelementptr inbounds %struct.trigger_info_msg, ptr %554, i32 0, i32 1
-  %556 = load ptr, ptr %555, align 8
-  %557 = load i32, ptr %4, align 4
-  %558 = sext i32 %557 to i64
-  %559 = getelementptr inbounds %struct.trigger_info, ptr %556, i64 %558
-  %560 = getelementptr inbounds %struct.trigger_info, ptr %559, i32 0, i32 5
-  %561 = load i32, ptr %560, align 4
-  %562 = zext i32 %561 to i64
-  %563 = icmp ne i64 %562, 32768
-  br i1 %563, label %564, label %565
-
-564:                                              ; preds = %553, %542
-  br label %756
-
-565:                                              ; preds = %553
-  br label %566
-
-566:                                              ; preds = %565, %539
-  %567 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 16), align 2
-  %568 = trunc i8 %567 to i1
-  br i1 %568, label %569, label %593
-
-569:                                              ; preds = %566
-  %570 = load ptr, ptr %2, align 8
-  %571 = getelementptr inbounds %struct.trigger_info_msg, ptr %570, i32 0, i32 1
-  %572 = load ptr, ptr %571, align 8
-  %573 = load i32, ptr %4, align 4
-  %574 = sext i32 %573 to i64
-  %575 = getelementptr inbounds %struct.trigger_info, ptr %572, i64 %574
-  %576 = getelementptr inbounds %struct.trigger_info, ptr %575, i32 0, i32 2
-  %577 = load i16, ptr %576, align 8
-  %578 = zext i16 %577 to i32
-  %579 = icmp ne i32 %578, 4
-  br i1 %579, label %591, label %580
-
-580:                                              ; preds = %569
-  %581 = load ptr, ptr %2, align 8
-  %582 = getelementptr inbounds %struct.trigger_info_msg, ptr %581, i32 0, i32 1
-  %583 = load ptr, ptr %582, align 8
-  %584 = load i32, ptr %4, align 4
-  %585 = sext i32 %584 to i64
-  %586 = getelementptr inbounds %struct.trigger_info, ptr %583, i64 %585
-  %587 = getelementptr inbounds %struct.trigger_info, ptr %586, i32 0, i32 5
-  %588 = load i32, ptr %587, align 4
-  %589 = zext i32 %588 to i64
-  %590 = icmp ne i64 %589, 65536
-  br i1 %590, label %591, label %592
-
-591:                                              ; preds = %580, %569
-  br label %756
-
-592:                                              ; preds = %580
-  br label %593
-
-593:                                              ; preds = %592, %566
-  %594 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 17), align 1
-  %595 = trunc i8 %594 to i1
-  br i1 %595, label %596, label %620
-
-596:                                              ; preds = %593
-  %597 = load ptr, ptr %2, align 8
-  %598 = getelementptr inbounds %struct.trigger_info_msg, ptr %597, i32 0, i32 1
-  %599 = load ptr, ptr %598, align 8
-  %600 = load i32, ptr %4, align 4
-  %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds %struct.trigger_info, ptr %599, i64 %601
-  %603 = getelementptr inbounds %struct.trigger_info, ptr %602, i32 0, i32 2
-  %604 = load i16, ptr %603, align 8
-  %605 = zext i16 %604 to i32
-  %606 = icmp ne i32 %605, 4
-  br i1 %606, label %618, label %607
-
-607:                                              ; preds = %596
-  %608 = load ptr, ptr %2, align 8
-  %609 = getelementptr inbounds %struct.trigger_info_msg, ptr %608, i32 0, i32 1
-  %610 = load ptr, ptr %609, align 8
-  %611 = load i32, ptr %4, align 4
-  %612 = sext i32 %611 to i64
-  %613 = getelementptr inbounds %struct.trigger_info, ptr %610, i64 %612
-  %614 = getelementptr inbounds %struct.trigger_info, ptr %613, i32 0, i32 5
-  %615 = load i32, ptr %614, align 4
-  %616 = zext i32 %615 to i64
-  %617 = icmp ne i64 %616, 131072
-  br i1 %617, label %618, label %619
-
-618:                                              ; preds = %607, %596
-  br label %756
-
-619:                                              ; preds = %607
-  br label %620
-
-620:                                              ; preds = %619, %593
-  %621 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 18), align 4
-  %622 = trunc i8 %621 to i1
-  br i1 %622, label %623, label %647
-
-623:                                              ; preds = %620
-  %624 = load ptr, ptr %2, align 8
-  %625 = getelementptr inbounds %struct.trigger_info_msg, ptr %624, i32 0, i32 1
-  %626 = load ptr, ptr %625, align 8
-  %627 = load i32, ptr %4, align 4
-  %628 = sext i32 %627 to i64
-  %629 = getelementptr inbounds %struct.trigger_info, ptr %626, i64 %628
-  %630 = getelementptr inbounds %struct.trigger_info, ptr %629, i32 0, i32 2
-  %631 = load i16, ptr %630, align 8
-  %632 = zext i16 %631 to i32
-  %633 = icmp ne i32 %632, 5
-  br i1 %633, label %645, label %634
-
-634:                                              ; preds = %623
-  %635 = load ptr, ptr %2, align 8
-  %636 = getelementptr inbounds %struct.trigger_info_msg, ptr %635, i32 0, i32 1
-  %637 = load ptr, ptr %636, align 8
-  %638 = load i32, ptr %4, align 4
-  %639 = sext i32 %638 to i64
-  %640 = getelementptr inbounds %struct.trigger_info, ptr %637, i64 %639
-  %641 = getelementptr inbounds %struct.trigger_info, ptr %640, i32 0, i32 5
-  %642 = load i32, ptr %641, align 4
-  %643 = zext i32 %642 to i64
-  %644 = icmp ne i64 %643, 262144
-  br i1 %644, label %645, label %646
-
-645:                                              ; preds = %634, %623
-  br label %756
-
-646:                                              ; preds = %634
-  br label %647
-
-647:                                              ; preds = %646, %620
-  %648 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 19), align 1
-  %649 = trunc i8 %648 to i1
-  br i1 %649, label %650, label %674
-
-650:                                              ; preds = %647
-  %651 = load ptr, ptr %2, align 8
-  %652 = getelementptr inbounds %struct.trigger_info_msg, ptr %651, i32 0, i32 1
-  %653 = load ptr, ptr %652, align 8
-  %654 = load i32, ptr %4, align 4
-  %655 = sext i32 %654 to i64
-  %656 = getelementptr inbounds %struct.trigger_info, ptr %653, i64 %655
-  %657 = getelementptr inbounds %struct.trigger_info, ptr %656, i32 0, i32 2
-  %658 = load i16, ptr %657, align 8
-  %659 = zext i16 %658 to i32
-  %660 = icmp ne i32 %659, 5
-  br i1 %660, label %672, label %661
-
-661:                                              ; preds = %650
-  %662 = load ptr, ptr %2, align 8
-  %663 = getelementptr inbounds %struct.trigger_info_msg, ptr %662, i32 0, i32 1
-  %664 = load ptr, ptr %663, align 8
-  %665 = load i32, ptr %4, align 4
-  %666 = sext i32 %665 to i64
-  %667 = getelementptr inbounds %struct.trigger_info, ptr %664, i64 %666
-  %668 = getelementptr inbounds %struct.trigger_info, ptr %667, i32 0, i32 5
-  %669 = load i32, ptr %668, align 4
-  %670 = zext i32 %669 to i64
-  %671 = icmp ne i64 %670, 524288
-  br i1 %671, label %672, label %673
-
-672:                                              ; preds = %661, %650
-  br label %756
-
-673:                                              ; preds = %661
-  br label %674
-
-674:                                              ; preds = %673, %647
-  %675 = load i32, ptr %3, align 4
-  %676 = icmp eq i32 %675, 0
-  br i1 %676, label %677, label %682
-
-677:                                              ; preds = %674
-  %678 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 20), align 2
-  %679 = trunc i8 %678 to i1
-  br i1 %679, label %682, label %680
-
-680:                                              ; preds = %677
-  %681 = call i32 (ptr, ...) @printf(ptr noundef @.str.12)
-  br label %682
-
-682:                                              ; preds = %680, %677, %674
-  %683 = load i32, ptr %3, align 4
-  %684 = add nsw i32 %683, 1
-  store i32 %684, ptr %3, align 4
-  %685 = load ptr, ptr %2, align 8
-  %686 = getelementptr inbounds %struct.trigger_info_msg, ptr %685, i32 0, i32 1
-  %687 = load ptr, ptr %686, align 8
-  %688 = load i32, ptr %4, align 4
-  %689 = sext i32 %688 to i64
-  %690 = getelementptr inbounds %struct.trigger_info, ptr %687, i64 %689
-  %691 = getelementptr inbounds %struct.trigger_info, ptr %690, i32 0, i32 7
-  %692 = load i32, ptr %691, align 4
-  %693 = call ptr @uid_to_string(i32 noundef %692)
-  store ptr %693, ptr %5, align 8
-  %694 = load ptr, ptr %2, align 8
-  %695 = getelementptr inbounds %struct.trigger_info_msg, ptr %694, i32 0, i32 1
-  %696 = load ptr, ptr %695, align 8
-  %697 = load i32, ptr %4, align 4
-  %698 = sext i32 %697 to i64
-  %699 = getelementptr inbounds %struct.trigger_info, ptr %696, i64 %698
-  %700 = getelementptr inbounds %struct.trigger_info, ptr %699, i32 0, i32 1
-  %701 = load i32, ptr %700, align 4
-  %702 = load ptr, ptr %2, align 8
-  %703 = getelementptr inbounds %struct.trigger_info_msg, ptr %702, i32 0, i32 1
-  %704 = load ptr, ptr %703, align 8
-  %705 = load i32, ptr %4, align 4
-  %706 = sext i32 %705 to i64
-  %707 = getelementptr inbounds %struct.trigger_info, ptr %704, i64 %706
-  %708 = getelementptr inbounds %struct.trigger_info, ptr %707, i32 0, i32 2
-  %709 = load i16, ptr %708, align 8
-  %710 = call ptr @trigger_res_type(i16 noundef zeroext %709)
-  %711 = load ptr, ptr %2, align 8
-  %712 = getelementptr inbounds %struct.trigger_info_msg, ptr %711, i32 0, i32 1
-  %713 = load ptr, ptr %712, align 8
-  %714 = load i32, ptr %4, align 4
-  %715 = sext i32 %714 to i64
-  %716 = getelementptr inbounds %struct.trigger_info, ptr %713, i64 %715
-  %717 = getelementptr inbounds %struct.trigger_info, ptr %716, i32 0, i32 3
-  %718 = load ptr, ptr %717, align 8
-  %719 = load ptr, ptr %2, align 8
-  %720 = getelementptr inbounds %struct.trigger_info_msg, ptr %719, i32 0, i32 1
-  %721 = load ptr, ptr %720, align 8
-  %722 = load i32, ptr %4, align 4
-  %723 = sext i32 %722 to i64
-  %724 = getelementptr inbounds %struct.trigger_info, ptr %721, i64 %723
-  %725 = getelementptr inbounds %struct.trigger_info, ptr %724, i32 0, i32 5
-  %726 = load i32, ptr %725, align 4
-  %727 = call ptr @trigger_type(i32 noundef %726)
-  %728 = load ptr, ptr %2, align 8
-  %729 = getelementptr inbounds %struct.trigger_info_msg, ptr %728, i32 0, i32 1
-  %730 = load ptr, ptr %729, align 8
-  %731 = load i32, ptr %4, align 4
-  %732 = sext i32 %731 to i64
-  %733 = getelementptr inbounds %struct.trigger_info, ptr %730, i64 %732
-  %734 = getelementptr inbounds %struct.trigger_info, ptr %733, i32 0, i32 6
-  %735 = load i16, ptr %734, align 8
-  %736 = call i32 @_trig_offset(i16 noundef zeroext %735)
-  %737 = load ptr, ptr %5, align 8
-  %738 = load ptr, ptr %2, align 8
-  %739 = getelementptr inbounds %struct.trigger_info_msg, ptr %738, i32 0, i32 1
-  %740 = load ptr, ptr %739, align 8
-  %741 = load i32, ptr %4, align 4
-  %742 = sext i32 %741 to i64
-  %743 = getelementptr inbounds %struct.trigger_info, ptr %740, i64 %742
-  %744 = getelementptr inbounds %struct.trigger_info, ptr %743, i32 0, i32 0
-  %745 = load i16, ptr %744, align 8
-  %746 = call ptr @_trig_flags(i16 noundef zeroext %745)
+  %312 = getelementptr inbounds %struct.trigger_info, ptr %311, i32 0, i32 2
+  %313 = load i16, ptr %312, align 8
+  %314 = zext i16 %313 to i32
+  %315 = icmp ne i32 %314, 2
+  br i1 %315, label %327, label %316
+
+316:                                              ; preds = %305
+  %317 = load ptr, ptr %2, align 8
+  %318 = getelementptr inbounds %struct.trigger_info_msg, ptr %317, i32 0, i32 1
+  %319 = load ptr, ptr %318, align 8
+  %320 = load i32, ptr %4, align 4
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr inbounds %struct.trigger_info, ptr %319, i64 %321
+  %323 = getelementptr inbounds %struct.trigger_info, ptr %322, i32 0, i32 5
+  %324 = load i32, ptr %323, align 4
+  %325 = zext i32 %324 to i64
+  %326 = icmp ne i64 %325, 4194304
+  br i1 %326, label %327, label %328
+
+327:                                              ; preds = %316, %305
+  br label %784
+
+328:                                              ; preds = %316
+  br label %329
+
+329:                                              ; preds = %328, %301
+  %330 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 33
+  %331 = load i8, ptr %330, align 2
+  %332 = trunc i8 %331 to i1
+  br i1 %332, label %333, label %357
+
+333:                                              ; preds = %329
+  %334 = load ptr, ptr %2, align 8
+  %335 = getelementptr inbounds %struct.trigger_info_msg, ptr %334, i32 0, i32 1
+  %336 = load ptr, ptr %335, align 8
+  %337 = load i32, ptr %4, align 4
+  %338 = sext i32 %337 to i64
+  %339 = getelementptr inbounds %struct.trigger_info, ptr %336, i64 %338
+  %340 = getelementptr inbounds %struct.trigger_info, ptr %339, i32 0, i32 2
+  %341 = load i16, ptr %340, align 8
+  %342 = zext i16 %341 to i32
+  %343 = icmp ne i32 %342, 1
+  br i1 %343, label %355, label %344
+
+344:                                              ; preds = %333
+  %345 = load ptr, ptr %2, align 8
+  %346 = getelementptr inbounds %struct.trigger_info_msg, ptr %345, i32 0, i32 1
+  %347 = load ptr, ptr %346, align 8
+  %348 = load i32, ptr %4, align 4
+  %349 = sext i32 %348 to i64
+  %350 = getelementptr inbounds %struct.trigger_info, ptr %347, i64 %349
+  %351 = getelementptr inbounds %struct.trigger_info, ptr %350, i32 0, i32 5
+  %352 = load i32, ptr %351, align 4
+  %353 = zext i32 %352 to i64
+  %354 = icmp ne i64 %353, 8
+  br i1 %354, label %355, label %356
+
+355:                                              ; preds = %344, %333
+  br label %784
+
+356:                                              ; preds = %344
+  br label %357
+
+357:                                              ; preds = %356, %329
+  %358 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 34
+  %359 = load i32, ptr %358, align 4
+  %360 = icmp ne i32 %359, 0
+  br i1 %360, label %361, label %375
+
+361:                                              ; preds = %357
+  %362 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 34
+  %363 = load i32, ptr %362, align 4
+  %364 = load ptr, ptr %2, align 8
+  %365 = getelementptr inbounds %struct.trigger_info_msg, ptr %364, i32 0, i32 1
+  %366 = load ptr, ptr %365, align 8
+  %367 = load i32, ptr %4, align 4
+  %368 = sext i32 %367 to i64
+  %369 = getelementptr inbounds %struct.trigger_info, ptr %366, i64 %368
+  %370 = getelementptr inbounds %struct.trigger_info, ptr %369, i32 0, i32 1
+  %371 = load i32, ptr %370, align 4
+  %372 = icmp ne i32 %363, %371
+  br i1 %372, label %373, label %374
+
+373:                                              ; preds = %361
+  br label %784
+
+374:                                              ; preds = %361
+  br label %375
+
+375:                                              ; preds = %374, %357
+  %376 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 35
+  %377 = load i32, ptr %376, align 8
+  %378 = icmp ne i32 %377, -2
+  br i1 %378, label %379, label %393
+
+379:                                              ; preds = %375
+  %380 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 35
+  %381 = load i32, ptr %380, align 8
+  %382 = load ptr, ptr %2, align 8
+  %383 = getelementptr inbounds %struct.trigger_info_msg, ptr %382, i32 0, i32 1
+  %384 = load ptr, ptr %383, align 8
+  %385 = load i32, ptr %4, align 4
+  %386 = sext i32 %385 to i64
+  %387 = getelementptr inbounds %struct.trigger_info, ptr %384, i64 %386
+  %388 = getelementptr inbounds %struct.trigger_info, ptr %387, i32 0, i32 7
+  %389 = load i32, ptr %388, align 4
+  %390 = icmp ne i32 %381, %389
+  br i1 %390, label %391, label %392
+
+391:                                              ; preds = %379
+  br label %784
+
+392:                                              ; preds = %379
+  br label %393
+
+393:                                              ; preds = %392, %375
+  %394 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 9
+  %395 = load i8, ptr %394, align 1
+  %396 = trunc i8 %395 to i1
+  br i1 %396, label %397, label %421
+
+397:                                              ; preds = %393
+  %398 = load ptr, ptr %2, align 8
+  %399 = getelementptr inbounds %struct.trigger_info_msg, ptr %398, i32 0, i32 1
+  %400 = load ptr, ptr %399, align 8
+  %401 = load i32, ptr %4, align 4
+  %402 = sext i32 %401 to i64
+  %403 = getelementptr inbounds %struct.trigger_info, ptr %400, i64 %402
+  %404 = getelementptr inbounds %struct.trigger_info, ptr %403, i32 0, i32 2
+  %405 = load i16, ptr %404, align 8
+  %406 = zext i16 %405 to i32
+  %407 = icmp ne i32 %406, 3
+  br i1 %407, label %419, label %408
+
+408:                                              ; preds = %397
+  %409 = load ptr, ptr %2, align 8
+  %410 = getelementptr inbounds %struct.trigger_info_msg, ptr %409, i32 0, i32 1
+  %411 = load ptr, ptr %410, align 8
+  %412 = load i32, ptr %4, align 4
+  %413 = sext i32 %412 to i64
+  %414 = getelementptr inbounds %struct.trigger_info, ptr %411, i64 %413
+  %415 = getelementptr inbounds %struct.trigger_info, ptr %414, i32 0, i32 5
+  %416 = load i32, ptr %415, align 4
+  %417 = zext i32 %416 to i64
+  %418 = icmp ne i64 %417, 512
+  br i1 %418, label %419, label %420
+
+419:                                              ; preds = %408, %397
+  br label %784
+
+420:                                              ; preds = %408
+  br label %421
+
+421:                                              ; preds = %420, %393
+  %422 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 10
+  %423 = load i8, ptr %422, align 4
+  %424 = trunc i8 %423 to i1
+  br i1 %424, label %425, label %449
+
+425:                                              ; preds = %421
+  %426 = load ptr, ptr %2, align 8
+  %427 = getelementptr inbounds %struct.trigger_info_msg, ptr %426, i32 0, i32 1
+  %428 = load ptr, ptr %427, align 8
+  %429 = load i32, ptr %4, align 4
+  %430 = sext i32 %429 to i64
+  %431 = getelementptr inbounds %struct.trigger_info, ptr %428, i64 %430
+  %432 = getelementptr inbounds %struct.trigger_info, ptr %431, i32 0, i32 2
+  %433 = load i16, ptr %432, align 8
+  %434 = zext i16 %433 to i32
+  %435 = icmp ne i32 %434, 3
+  br i1 %435, label %447, label %436
+
+436:                                              ; preds = %425
+  %437 = load ptr, ptr %2, align 8
+  %438 = getelementptr inbounds %struct.trigger_info_msg, ptr %437, i32 0, i32 1
+  %439 = load ptr, ptr %438, align 8
+  %440 = load i32, ptr %4, align 4
+  %441 = sext i32 %440 to i64
+  %442 = getelementptr inbounds %struct.trigger_info, ptr %439, i64 %441
+  %443 = getelementptr inbounds %struct.trigger_info, ptr %442, i32 0, i32 5
+  %444 = load i32, ptr %443, align 4
+  %445 = zext i32 %444 to i64
+  %446 = icmp ne i64 %445, 1024
+  br i1 %446, label %447, label %448
+
+447:                                              ; preds = %436, %425
+  br label %784
+
+448:                                              ; preds = %436
+  br label %449
+
+449:                                              ; preds = %448, %421
+  %450 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 11
+  %451 = load i8, ptr %450, align 1
+  %452 = trunc i8 %451 to i1
+  br i1 %452, label %453, label %477
+
+453:                                              ; preds = %449
+  %454 = load ptr, ptr %2, align 8
+  %455 = getelementptr inbounds %struct.trigger_info_msg, ptr %454, i32 0, i32 1
+  %456 = load ptr, ptr %455, align 8
+  %457 = load i32, ptr %4, align 4
+  %458 = sext i32 %457 to i64
+  %459 = getelementptr inbounds %struct.trigger_info, ptr %456, i64 %458
+  %460 = getelementptr inbounds %struct.trigger_info, ptr %459, i32 0, i32 2
+  %461 = load i16, ptr %460, align 8
+  %462 = zext i16 %461 to i32
+  %463 = icmp ne i32 %462, 3
+  br i1 %463, label %475, label %464
+
+464:                                              ; preds = %453
+  %465 = load ptr, ptr %2, align 8
+  %466 = getelementptr inbounds %struct.trigger_info_msg, ptr %465, i32 0, i32 1
+  %467 = load ptr, ptr %466, align 8
+  %468 = load i32, ptr %4, align 4
+  %469 = sext i32 %468 to i64
+  %470 = getelementptr inbounds %struct.trigger_info, ptr %467, i64 %469
+  %471 = getelementptr inbounds %struct.trigger_info, ptr %470, i32 0, i32 5
+  %472 = load i32, ptr %471, align 4
+  %473 = zext i32 %472 to i64
+  %474 = icmp ne i64 %473, 2048
+  br i1 %474, label %475, label %476
+
+475:                                              ; preds = %464, %453
+  br label %784
+
+476:                                              ; preds = %464
+  br label %477
+
+477:                                              ; preds = %476, %449
+  %478 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 12
+  %479 = load i8, ptr %478, align 2
+  %480 = trunc i8 %479 to i1
+  br i1 %480, label %481, label %505
+
+481:                                              ; preds = %477
+  %482 = load ptr, ptr %2, align 8
+  %483 = getelementptr inbounds %struct.trigger_info_msg, ptr %482, i32 0, i32 1
+  %484 = load ptr, ptr %483, align 8
+  %485 = load i32, ptr %4, align 4
+  %486 = sext i32 %485 to i64
+  %487 = getelementptr inbounds %struct.trigger_info, ptr %484, i64 %486
+  %488 = getelementptr inbounds %struct.trigger_info, ptr %487, i32 0, i32 2
+  %489 = load i16, ptr %488, align 8
+  %490 = zext i16 %489 to i32
+  %491 = icmp ne i32 %490, 3
+  br i1 %491, label %503, label %492
+
+492:                                              ; preds = %481
+  %493 = load ptr, ptr %2, align 8
+  %494 = getelementptr inbounds %struct.trigger_info_msg, ptr %493, i32 0, i32 1
+  %495 = load ptr, ptr %494, align 8
+  %496 = load i32, ptr %4, align 4
+  %497 = sext i32 %496 to i64
+  %498 = getelementptr inbounds %struct.trigger_info, ptr %495, i64 %497
+  %499 = getelementptr inbounds %struct.trigger_info, ptr %498, i32 0, i32 5
+  %500 = load i32, ptr %499, align 4
+  %501 = zext i32 %500 to i64
+  %502 = icmp ne i64 %501, 4096
+  br i1 %502, label %503, label %504
+
+503:                                              ; preds = %492, %481
+  br label %784
+
+504:                                              ; preds = %492
+  br label %505
+
+505:                                              ; preds = %504, %477
+  %506 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 13
+  %507 = load i8, ptr %506, align 1
+  %508 = trunc i8 %507 to i1
+  br i1 %508, label %509, label %533
+
+509:                                              ; preds = %505
+  %510 = load ptr, ptr %2, align 8
+  %511 = getelementptr inbounds %struct.trigger_info_msg, ptr %510, i32 0, i32 1
+  %512 = load ptr, ptr %511, align 8
+  %513 = load i32, ptr %4, align 4
+  %514 = sext i32 %513 to i64
+  %515 = getelementptr inbounds %struct.trigger_info, ptr %512, i64 %514
+  %516 = getelementptr inbounds %struct.trigger_info, ptr %515, i32 0, i32 2
+  %517 = load i16, ptr %516, align 8
+  %518 = zext i16 %517 to i32
+  %519 = icmp ne i32 %518, 3
+  br i1 %519, label %531, label %520
+
+520:                                              ; preds = %509
+  %521 = load ptr, ptr %2, align 8
+  %522 = getelementptr inbounds %struct.trigger_info_msg, ptr %521, i32 0, i32 1
+  %523 = load ptr, ptr %522, align 8
+  %524 = load i32, ptr %4, align 4
+  %525 = sext i32 %524 to i64
+  %526 = getelementptr inbounds %struct.trigger_info, ptr %523, i64 %525
+  %527 = getelementptr inbounds %struct.trigger_info, ptr %526, i32 0, i32 5
+  %528 = load i32, ptr %527, align 4
+  %529 = zext i32 %528 to i64
+  %530 = icmp ne i64 %529, 8192
+  br i1 %530, label %531, label %532
+
+531:                                              ; preds = %520, %509
+  br label %784
+
+532:                                              ; preds = %520
+  br label %533
+
+533:                                              ; preds = %532, %505
+  %534 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 14
+  %535 = load i8, ptr %534, align 8
+  %536 = trunc i8 %535 to i1
+  br i1 %536, label %537, label %561
+
+537:                                              ; preds = %533
+  %538 = load ptr, ptr %2, align 8
+  %539 = getelementptr inbounds %struct.trigger_info_msg, ptr %538, i32 0, i32 1
+  %540 = load ptr, ptr %539, align 8
+  %541 = load i32, ptr %4, align 4
+  %542 = sext i32 %541 to i64
+  %543 = getelementptr inbounds %struct.trigger_info, ptr %540, i64 %542
+  %544 = getelementptr inbounds %struct.trigger_info, ptr %543, i32 0, i32 2
+  %545 = load i16, ptr %544, align 8
+  %546 = zext i16 %545 to i32
+  %547 = icmp ne i32 %546, 3
+  br i1 %547, label %559, label %548
+
+548:                                              ; preds = %537
+  %549 = load ptr, ptr %2, align 8
+  %550 = getelementptr inbounds %struct.trigger_info_msg, ptr %549, i32 0, i32 1
+  %551 = load ptr, ptr %550, align 8
+  %552 = load i32, ptr %4, align 4
+  %553 = sext i32 %552 to i64
+  %554 = getelementptr inbounds %struct.trigger_info, ptr %551, i64 %553
+  %555 = getelementptr inbounds %struct.trigger_info, ptr %554, i32 0, i32 5
+  %556 = load i32, ptr %555, align 4
+  %557 = zext i32 %556 to i64
+  %558 = icmp ne i64 %557, 16384
+  br i1 %558, label %559, label %560
+
+559:                                              ; preds = %548, %537
+  br label %784
+
+560:                                              ; preds = %548
+  br label %561
+
+561:                                              ; preds = %560, %533
+  %562 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 15
+  %563 = load i8, ptr %562, align 1
+  %564 = trunc i8 %563 to i1
+  br i1 %564, label %565, label %589
+
+565:                                              ; preds = %561
+  %566 = load ptr, ptr %2, align 8
+  %567 = getelementptr inbounds %struct.trigger_info_msg, ptr %566, i32 0, i32 1
+  %568 = load ptr, ptr %567, align 8
+  %569 = load i32, ptr %4, align 4
+  %570 = sext i32 %569 to i64
+  %571 = getelementptr inbounds %struct.trigger_info, ptr %568, i64 %570
+  %572 = getelementptr inbounds %struct.trigger_info, ptr %571, i32 0, i32 2
+  %573 = load i16, ptr %572, align 8
+  %574 = zext i16 %573 to i32
+  %575 = icmp ne i32 %574, 3
+  br i1 %575, label %587, label %576
+
+576:                                              ; preds = %565
+  %577 = load ptr, ptr %2, align 8
+  %578 = getelementptr inbounds %struct.trigger_info_msg, ptr %577, i32 0, i32 1
+  %579 = load ptr, ptr %578, align 8
+  %580 = load i32, ptr %4, align 4
+  %581 = sext i32 %580 to i64
+  %582 = getelementptr inbounds %struct.trigger_info, ptr %579, i64 %581
+  %583 = getelementptr inbounds %struct.trigger_info, ptr %582, i32 0, i32 5
+  %584 = load i32, ptr %583, align 4
+  %585 = zext i32 %584 to i64
+  %586 = icmp ne i64 %585, 32768
+  br i1 %586, label %587, label %588
+
+587:                                              ; preds = %576, %565
+  br label %784
+
+588:                                              ; preds = %576
+  br label %589
+
+589:                                              ; preds = %588, %561
+  %590 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 16
+  %591 = load i8, ptr %590, align 2
+  %592 = trunc i8 %591 to i1
+  br i1 %592, label %593, label %617
+
+593:                                              ; preds = %589
+  %594 = load ptr, ptr %2, align 8
+  %595 = getelementptr inbounds %struct.trigger_info_msg, ptr %594, i32 0, i32 1
+  %596 = load ptr, ptr %595, align 8
+  %597 = load i32, ptr %4, align 4
+  %598 = sext i32 %597 to i64
+  %599 = getelementptr inbounds %struct.trigger_info, ptr %596, i64 %598
+  %600 = getelementptr inbounds %struct.trigger_info, ptr %599, i32 0, i32 2
+  %601 = load i16, ptr %600, align 8
+  %602 = zext i16 %601 to i32
+  %603 = icmp ne i32 %602, 4
+  br i1 %603, label %615, label %604
+
+604:                                              ; preds = %593
+  %605 = load ptr, ptr %2, align 8
+  %606 = getelementptr inbounds %struct.trigger_info_msg, ptr %605, i32 0, i32 1
+  %607 = load ptr, ptr %606, align 8
+  %608 = load i32, ptr %4, align 4
+  %609 = sext i32 %608 to i64
+  %610 = getelementptr inbounds %struct.trigger_info, ptr %607, i64 %609
+  %611 = getelementptr inbounds %struct.trigger_info, ptr %610, i32 0, i32 5
+  %612 = load i32, ptr %611, align 4
+  %613 = zext i32 %612 to i64
+  %614 = icmp ne i64 %613, 65536
+  br i1 %614, label %615, label %616
+
+615:                                              ; preds = %604, %593
+  br label %784
+
+616:                                              ; preds = %604
+  br label %617
+
+617:                                              ; preds = %616, %589
+  %618 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 17
+  %619 = load i8, ptr %618, align 1
+  %620 = trunc i8 %619 to i1
+  br i1 %620, label %621, label %645
+
+621:                                              ; preds = %617
+  %622 = load ptr, ptr %2, align 8
+  %623 = getelementptr inbounds %struct.trigger_info_msg, ptr %622, i32 0, i32 1
+  %624 = load ptr, ptr %623, align 8
+  %625 = load i32, ptr %4, align 4
+  %626 = sext i32 %625 to i64
+  %627 = getelementptr inbounds %struct.trigger_info, ptr %624, i64 %626
+  %628 = getelementptr inbounds %struct.trigger_info, ptr %627, i32 0, i32 2
+  %629 = load i16, ptr %628, align 8
+  %630 = zext i16 %629 to i32
+  %631 = icmp ne i32 %630, 4
+  br i1 %631, label %643, label %632
+
+632:                                              ; preds = %621
+  %633 = load ptr, ptr %2, align 8
+  %634 = getelementptr inbounds %struct.trigger_info_msg, ptr %633, i32 0, i32 1
+  %635 = load ptr, ptr %634, align 8
+  %636 = load i32, ptr %4, align 4
+  %637 = sext i32 %636 to i64
+  %638 = getelementptr inbounds %struct.trigger_info, ptr %635, i64 %637
+  %639 = getelementptr inbounds %struct.trigger_info, ptr %638, i32 0, i32 5
+  %640 = load i32, ptr %639, align 4
+  %641 = zext i32 %640 to i64
+  %642 = icmp ne i64 %641, 131072
+  br i1 %642, label %643, label %644
+
+643:                                              ; preds = %632, %621
+  br label %784
+
+644:                                              ; preds = %632
+  br label %645
+
+645:                                              ; preds = %644, %617
+  %646 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 18
+  %647 = load i8, ptr %646, align 4
+  %648 = trunc i8 %647 to i1
+  br i1 %648, label %649, label %673
+
+649:                                              ; preds = %645
+  %650 = load ptr, ptr %2, align 8
+  %651 = getelementptr inbounds %struct.trigger_info_msg, ptr %650, i32 0, i32 1
+  %652 = load ptr, ptr %651, align 8
+  %653 = load i32, ptr %4, align 4
+  %654 = sext i32 %653 to i64
+  %655 = getelementptr inbounds %struct.trigger_info, ptr %652, i64 %654
+  %656 = getelementptr inbounds %struct.trigger_info, ptr %655, i32 0, i32 2
+  %657 = load i16, ptr %656, align 8
+  %658 = zext i16 %657 to i32
+  %659 = icmp ne i32 %658, 5
+  br i1 %659, label %671, label %660
+
+660:                                              ; preds = %649
+  %661 = load ptr, ptr %2, align 8
+  %662 = getelementptr inbounds %struct.trigger_info_msg, ptr %661, i32 0, i32 1
+  %663 = load ptr, ptr %662, align 8
+  %664 = load i32, ptr %4, align 4
+  %665 = sext i32 %664 to i64
+  %666 = getelementptr inbounds %struct.trigger_info, ptr %663, i64 %665
+  %667 = getelementptr inbounds %struct.trigger_info, ptr %666, i32 0, i32 5
+  %668 = load i32, ptr %667, align 4
+  %669 = zext i32 %668 to i64
+  %670 = icmp ne i64 %669, 262144
+  br i1 %670, label %671, label %672
+
+671:                                              ; preds = %660, %649
+  br label %784
+
+672:                                              ; preds = %660
+  br label %673
+
+673:                                              ; preds = %672, %645
+  %674 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 19
+  %675 = load i8, ptr %674, align 1
+  %676 = trunc i8 %675 to i1
+  br i1 %676, label %677, label %701
+
+677:                                              ; preds = %673
+  %678 = load ptr, ptr %2, align 8
+  %679 = getelementptr inbounds %struct.trigger_info_msg, ptr %678, i32 0, i32 1
+  %680 = load ptr, ptr %679, align 8
+  %681 = load i32, ptr %4, align 4
+  %682 = sext i32 %681 to i64
+  %683 = getelementptr inbounds %struct.trigger_info, ptr %680, i64 %682
+  %684 = getelementptr inbounds %struct.trigger_info, ptr %683, i32 0, i32 2
+  %685 = load i16, ptr %684, align 8
+  %686 = zext i16 %685 to i32
+  %687 = icmp ne i32 %686, 5
+  br i1 %687, label %699, label %688
+
+688:                                              ; preds = %677
+  %689 = load ptr, ptr %2, align 8
+  %690 = getelementptr inbounds %struct.trigger_info_msg, ptr %689, i32 0, i32 1
+  %691 = load ptr, ptr %690, align 8
+  %692 = load i32, ptr %4, align 4
+  %693 = sext i32 %692 to i64
+  %694 = getelementptr inbounds %struct.trigger_info, ptr %691, i64 %693
+  %695 = getelementptr inbounds %struct.trigger_info, ptr %694, i32 0, i32 5
+  %696 = load i32, ptr %695, align 4
+  %697 = zext i32 %696 to i64
+  %698 = icmp ne i64 %697, 524288
+  br i1 %698, label %699, label %700
+
+699:                                              ; preds = %688, %677
+  br label %784
+
+700:                                              ; preds = %688
+  br label %701
+
+701:                                              ; preds = %700, %673
+  %702 = load i32, ptr %3, align 4
+  %703 = icmp eq i32 %702, 0
+  br i1 %703, label %704, label %710
+
+704:                                              ; preds = %701
+  %705 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 20
+  %706 = load i8, ptr %705, align 2
+  %707 = trunc i8 %706 to i1
+  br i1 %707, label %710, label %708
+
+708:                                              ; preds = %704
+  %709 = call i32 (ptr, ...) @printf(ptr noundef @.str.12)
+  br label %710
+
+710:                                              ; preds = %708, %704, %701
+  %711 = load i32, ptr %3, align 4
+  %712 = add nsw i32 %711, 1
+  store i32 %712, ptr %3, align 4
+  %713 = load ptr, ptr %2, align 8
+  %714 = getelementptr inbounds %struct.trigger_info_msg, ptr %713, i32 0, i32 1
+  %715 = load ptr, ptr %714, align 8
+  %716 = load i32, ptr %4, align 4
+  %717 = sext i32 %716 to i64
+  %718 = getelementptr inbounds %struct.trigger_info, ptr %715, i64 %717
+  %719 = getelementptr inbounds %struct.trigger_info, ptr %718, i32 0, i32 7
+  %720 = load i32, ptr %719, align 4
+  %721 = call ptr @uid_to_string(i32 noundef %720)
+  store ptr %721, ptr %5, align 8
+  %722 = load ptr, ptr %2, align 8
+  %723 = getelementptr inbounds %struct.trigger_info_msg, ptr %722, i32 0, i32 1
+  %724 = load ptr, ptr %723, align 8
+  %725 = load i32, ptr %4, align 4
+  %726 = sext i32 %725 to i64
+  %727 = getelementptr inbounds %struct.trigger_info, ptr %724, i64 %726
+  %728 = getelementptr inbounds %struct.trigger_info, ptr %727, i32 0, i32 1
+  %729 = load i32, ptr %728, align 4
+  %730 = load ptr, ptr %2, align 8
+  %731 = getelementptr inbounds %struct.trigger_info_msg, ptr %730, i32 0, i32 1
+  %732 = load ptr, ptr %731, align 8
+  %733 = load i32, ptr %4, align 4
+  %734 = sext i32 %733 to i64
+  %735 = getelementptr inbounds %struct.trigger_info, ptr %732, i64 %734
+  %736 = getelementptr inbounds %struct.trigger_info, ptr %735, i32 0, i32 2
+  %737 = load i16, ptr %736, align 8
+  %738 = call ptr @trigger_res_type(i16 noundef zeroext %737)
+  %739 = load ptr, ptr %2, align 8
+  %740 = getelementptr inbounds %struct.trigger_info_msg, ptr %739, i32 0, i32 1
+  %741 = load ptr, ptr %740, align 8
+  %742 = load i32, ptr %4, align 4
+  %743 = sext i32 %742 to i64
+  %744 = getelementptr inbounds %struct.trigger_info, ptr %741, i64 %743
+  %745 = getelementptr inbounds %struct.trigger_info, ptr %744, i32 0, i32 3
+  %746 = load ptr, ptr %745, align 8
   %747 = load ptr, ptr %2, align 8
   %748 = getelementptr inbounds %struct.trigger_info_msg, ptr %747, i32 0, i32 1
   %749 = load ptr, ptr %748, align 8
   %750 = load i32, ptr %4, align 4
   %751 = sext i32 %750 to i64
   %752 = getelementptr inbounds %struct.trigger_info, ptr %749, i64 %751
-  %753 = getelementptr inbounds %struct.trigger_info, ptr %752, i32 0, i32 8
-  %754 = load ptr, ptr %753, align 8
-  %755 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, i32 noundef %701, ptr noundef %710, ptr noundef %718, ptr noundef %727, i32 noundef %736, ptr noundef %737, ptr noundef %746, ptr noundef %754)
+  %753 = getelementptr inbounds %struct.trigger_info, ptr %752, i32 0, i32 5
+  %754 = load i32, ptr %753, align 4
+  %755 = call ptr @trigger_type(i32 noundef %754)
+  %756 = load ptr, ptr %2, align 8
+  %757 = getelementptr inbounds %struct.trigger_info_msg, ptr %756, i32 0, i32 1
+  %758 = load ptr, ptr %757, align 8
+  %759 = load i32, ptr %4, align 4
+  %760 = sext i32 %759 to i64
+  %761 = getelementptr inbounds %struct.trigger_info, ptr %758, i64 %760
+  %762 = getelementptr inbounds %struct.trigger_info, ptr %761, i32 0, i32 6
+  %763 = load i16, ptr %762, align 8
+  %764 = call i32 @_trig_offset(i16 noundef zeroext %763)
+  %765 = load ptr, ptr %5, align 8
+  %766 = load ptr, ptr %2, align 8
+  %767 = getelementptr inbounds %struct.trigger_info_msg, ptr %766, i32 0, i32 1
+  %768 = load ptr, ptr %767, align 8
+  %769 = load i32, ptr %4, align 4
+  %770 = sext i32 %769 to i64
+  %771 = getelementptr inbounds %struct.trigger_info, ptr %768, i64 %770
+  %772 = getelementptr inbounds %struct.trigger_info, ptr %771, i32 0, i32 0
+  %773 = load i16, ptr %772, align 8
+  %774 = call ptr @_trig_flags(i16 noundef zeroext %773)
+  %775 = load ptr, ptr %2, align 8
+  %776 = getelementptr inbounds %struct.trigger_info_msg, ptr %775, i32 0, i32 1
+  %777 = load ptr, ptr %776, align 8
+  %778 = load i32, ptr %4, align 4
+  %779 = sext i32 %778 to i64
+  %780 = getelementptr inbounds %struct.trigger_info, ptr %777, i64 %779
+  %781 = getelementptr inbounds %struct.trigger_info, ptr %780, i32 0, i32 8
+  %782 = load ptr, ptr %781, align 8
+  %783 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, i32 noundef %729, ptr noundef %738, ptr noundef %746, ptr noundef %755, i32 noundef %764, ptr noundef %765, ptr noundef %774, ptr noundef %782)
   call void @slurm_xfree(ptr noundef %5)
-  br label %756
+  br label %784
 
-756:                                              ; preds = %682, %672, %645, %618, %591, %564, %537, %510, %483, %456, %429, %402, %375, %359, %343, %316, %289, %262, %224, %197, %181, %154, %127, %89, %74, %58, %42
-  %757 = load i32, ptr %4, align 4
-  %758 = add nsw i32 %757, 1
-  store i32 %758, ptr %4, align 4
+784:                                              ; preds = %710, %699, %671, %643, %615, %587, %559, %531, %503, %475, %447, %419, %391, %373, %355, %327, %299, %271, %232, %204, %187, %159, %131, %92, %76, %59, %42
+  %785 = load i32, ptr %4, align 4
+  %786 = add nsw i32 %785, 1
+  store i32 %786, ptr %4, align 4
   br label %22, !llvm.loop !9
 
-759:                                              ; preds = %22
-  %760 = load ptr, ptr %2, align 8
-  call void @slurm_free_trigger_msg(ptr noundef %760)
+787:                                              ; preds = %22
+  %788 = load ptr, ptr %2, align 8
+  call void @slurm_free_trigger_msg(ptr noundef %788)
   store i32 0, ptr %1, align 4
-  br label %761
+  br label %789
 
-761:                                              ; preds = %759, %9
-  %762 = load i32, ptr %1, align 4
-  ret i32 %762
+789:                                              ; preds = %787, %9
+  %790 = load i32, ptr %1, align 4
+  ret i32 %790
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1638,144 +1700,151 @@ define internal i32 @_clear_trigger() #0 {
   %2 = alloca %struct.trigger_info, align 8
   %3 = alloca [128 x i8], align 16
   call void @slurm_init_trigger_msg(ptr noundef %2)
-  %4 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 34), align 4
-  %5 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 1
-  store i32 %4, ptr %5, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 35), align 8
-  %7 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 7
-  store i32 %6, ptr %7, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 5), align 4
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %17
+  %4 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 34
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 1
+  store i32 %5, ptr %6, align 4
+  %7 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 35
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 7
+  store i32 %8, ptr %9, align 4
+  %10 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 5
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %21
 
-10:                                               ; preds = %0
-  %11 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
-  store i16 1, ptr %11, align 8
-  %12 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
-  %13 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 5), align 4
-  %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %12, i64 noundef 128, ptr noundef @.str.2, i32 noundef %13) #7
+13:                                               ; preds = %0
+  %14 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 2
+  store i16 1, ptr %14, align 8
   %15 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
-  %16 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
-  store ptr %15, ptr %16, align 8
-  br label %17
+  %16 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 5
+  %17 = load i32, ptr %16, align 4
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef 128, ptr noundef @.str.2, i32 noundef %17) #7
+  %19 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 0
+  %20 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
+  store ptr %19, ptr %20, align 8
+  br label %21
 
-17:                                               ; preds = %10, %0
-  %18 = call i32 @slurm_clear_trigger(ptr noundef %2)
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %25
+21:                                               ; preds = %13, %0
+  %22 = call i32 @slurm_clear_trigger(ptr noundef %2)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %30
 
-20:                                               ; preds = %17
-  %21 = load i8, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 31), align 8
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %24, label %23
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 31
+  %26 = load i8, ptr %25, align 8
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %29, label %28
 
-23:                                               ; preds = %20
+28:                                               ; preds = %24
   call void @slurm_perror(ptr noundef @.str.3)
   store i32 1, ptr %1, align 4
-  br label %66
+  br label %73
 
-24:                                               ; preds = %20
+29:                                               ; preds = %24
   store i32 0, ptr %1, align 4
-  br label %66
+  br label %73
 
-25:                                               ; preds = %17
-  %26 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 5), align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %39
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 5
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %45
 
-28:                                               ; preds = %25
-  br label %29
+34:                                               ; preds = %30
+  br label %35
 
-29:                                               ; preds = %28
-  br label %30
-
-30:                                               ; preds = %29
-  %31 = call i32 @get_log_level()
-  %32 = icmp sge i32 %31, 4
-  br i1 %32, label %33, label %36
-
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.4, ptr noundef %35)
+35:                                               ; preds = %34
   br label %36
 
-36:                                               ; preds = %33, %30
-  br label %37
+36:                                               ; preds = %35
+  %37 = call i32 @get_log_level()
+  %38 = icmp sge i32 %37, 4
+  br i1 %38, label %39, label %42
 
-37:                                               ; preds = %36
-  br label %38
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.4, ptr noundef %41)
+  br label %42
 
-38:                                               ; preds = %37
-  br label %65
-
-39:                                               ; preds = %25
-  %40 = load i32, ptr getelementptr inbounds (%struct.strigger_parameters, ptr @params, i32 0, i32 35), align 8
-  %41 = icmp ne i32 %40, -2
-  br i1 %41, label %42, label %53
-
-42:                                               ; preds = %39
+42:                                               ; preds = %39, %36
   br label %43
 
 43:                                               ; preds = %42
   br label %44
 
 44:                                               ; preds = %43
-  %45 = call i32 @get_log_level()
-  %46 = icmp sge i32 %45, 4
-  br i1 %46, label %47, label %50
+  br label %72
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 7
-  %49 = load i32, ptr %48, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.5, i32 noundef %49)
+45:                                               ; preds = %30
+  %46 = getelementptr inbounds %struct.strigger_parameters, ptr @params, i32 0, i32 35
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp ne i32 %47, -2
+  br i1 %48, label %49, label %60
+
+49:                                               ; preds = %45
   br label %50
 
-50:                                               ; preds = %47, %44
+50:                                               ; preds = %49
   br label %51
 
 51:                                               ; preds = %50
-  br label %52
+  %52 = call i32 @get_log_level()
+  %53 = icmp sge i32 %52, 4
+  br i1 %53, label %54, label %57
 
-52:                                               ; preds = %51
-  br label %64
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 7
+  %56 = load i32, ptr %55, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.5, i32 noundef %56)
+  br label %57
 
-53:                                               ; preds = %39
-  br label %54
+57:                                               ; preds = %54, %51
+  br label %58
 
-54:                                               ; preds = %53
-  br label %55
+58:                                               ; preds = %57
+  br label %59
 
-55:                                               ; preds = %54
-  %56 = call i32 @get_log_level()
-  %57 = icmp sge i32 %56, 4
-  br i1 %57, label %58, label %61
+59:                                               ; preds = %58
+  br label %71
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 1
-  %60 = load i32, ptr %59, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.6, i32 noundef %60)
+60:                                               ; preds = %45
   br label %61
 
-61:                                               ; preds = %58, %55
+61:                                               ; preds = %60
   br label %62
 
 62:                                               ; preds = %61
-  br label %63
+  %63 = call i32 @get_log_level()
+  %64 = icmp sge i32 %63, 4
+  br i1 %64, label %65, label %68
 
-63:                                               ; preds = %62
-  br label %64
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds %struct.trigger_info, ptr %2, i32 0, i32 1
+  %67 = load i32, ptr %66, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.6, i32 noundef %67)
+  br label %68
 
-64:                                               ; preds = %63, %52
-  br label %65
+68:                                               ; preds = %65, %62
+  br label %69
 
-65:                                               ; preds = %64, %38
+69:                                               ; preds = %68
+  br label %70
+
+70:                                               ; preds = %69
+  br label %71
+
+71:                                               ; preds = %70, %59
+  br label %72
+
+72:                                               ; preds = %71, %44
   store i32 0, ptr %1, align 4
-  br label %66
+  br label %73
 
-66:                                               ; preds = %65, %24, %23
-  %67 = load i32, ptr %1, align 4
-  ret i32 %67
+73:                                               ; preds = %72, %29, %28
+  %74 = load i32, ptr %1, align 4
+  ret i32 %74
 }
 
 declare i32 @error(ptr noundef, ...) #2

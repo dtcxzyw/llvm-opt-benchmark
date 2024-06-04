@@ -1651,7 +1651,7 @@ define internal i32 @_set_resv_cond(ptr noundef %0, i32 noundef %1, ptr noundef 
 22:                                               ; preds = %5
   %23 = call i32 (ptr, ...) @error(ptr noundef @.str.9)
   store i32 -1, ptr %6, align 4
-  br label %425
+  br label %426
 
 24:                                               ; preds = %5
   %25 = load ptr, ptr %10, align 8
@@ -2207,7 +2207,7 @@ define internal i32 @_set_resv_cond(ptr noundef %0, i32 noundef %1, ptr noundef 
   store i32 %394, ptr %395, align 4
   %396 = load i32, ptr %15, align 4
   %397 = icmp ne i32 %396, 0
-  br i1 %397, label %410, label %398
+  br i1 %397, label %411, label %398
 
 398:                                              ; preds = %393
   %399 = load ptr, ptr %10, align 8
@@ -2215,42 +2215,43 @@ define internal i32 @_set_resv_cond(ptr noundef %0, i32 noundef %1, ptr noundef 
   %401 = load ptr, ptr %400, align 8
   %402 = call i32 @list_count(ptr noundef %401)
   %403 = icmp ne i32 %402, 0
-  br i1 %403, label %410, label %404
+  br i1 %403, label %411, label %404
 
 404:                                              ; preds = %398
   %405 = load ptr, ptr %10, align 8
   %406 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %405, i32 0, i32 0
   %407 = load ptr, ptr %406, align 8
-  %408 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %409 = call ptr @xstrdup(ptr noundef %408)
-  call void @list_append(ptr noundef %407, ptr noundef %409)
-  br label %410
+  %408 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %409 = load ptr, ptr %408, align 8
+  %410 = call ptr @xstrdup(ptr noundef %409)
+  call void @list_append(ptr noundef %407, ptr noundef %410)
+  br label %411
 
-410:                                              ; preds = %404, %398, %393
-  %411 = load ptr, ptr %10, align 8
-  %412 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %411, i32 0, i32 7
-  %413 = load i64, ptr %412, align 8
-  store i64 %413, ptr %16, align 8
-  %414 = load ptr, ptr %10, align 8
-  %415 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %414, i32 0, i32 6
-  %416 = load i64, ptr %415, align 8
-  store i64 %416, ptr %17, align 8
-  %417 = call i32 @slurmdb_report_set_start_end_time(ptr noundef %16, ptr noundef %17)
-  %418 = load i64, ptr %16, align 8
-  %419 = load ptr, ptr %10, align 8
-  %420 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %419, i32 0, i32 7
-  store i64 %418, ptr %420, align 8
-  %421 = load i64, ptr %17, align 8
-  %422 = load ptr, ptr %10, align 8
-  %423 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %422, i32 0, i32 6
-  store i64 %421, ptr %423, align 8
-  %424 = load i32, ptr %13, align 4
-  store i32 %424, ptr %6, align 4
-  br label %425
+411:                                              ; preds = %404, %398, %393
+  %412 = load ptr, ptr %10, align 8
+  %413 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %412, i32 0, i32 7
+  %414 = load i64, ptr %413, align 8
+  store i64 %414, ptr %16, align 8
+  %415 = load ptr, ptr %10, align 8
+  %416 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %415, i32 0, i32 6
+  %417 = load i64, ptr %416, align 8
+  store i64 %417, ptr %17, align 8
+  %418 = call i32 @slurmdb_report_set_start_end_time(ptr noundef %16, ptr noundef %17)
+  %419 = load i64, ptr %16, align 8
+  %420 = load ptr, ptr %10, align 8
+  %421 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %420, i32 0, i32 7
+  store i64 %419, ptr %421, align 8
+  %422 = load i64, ptr %17, align 8
+  %423 = load ptr, ptr %10, align 8
+  %424 = getelementptr inbounds %struct.slurmdb_reservation_cond_t, ptr %423, i32 0, i32 6
+  store i64 %422, ptr %424, align 8
+  %425 = load i32, ptr %13, align 4
+  store i32 %425, ptr %6, align 4
+  br label %426
 
-425:                                              ; preds = %410, %22
-  %426 = load i32, ptr %6, align 4
-  ret i32 %426
+426:                                              ; preds = %411, %22
+  %427 = load i32, ptr %6, align 4
+  ret i32 %427
 }
 
 declare ptr @slurmdb_reservations_get(ptr noundef, ptr noundef) #1

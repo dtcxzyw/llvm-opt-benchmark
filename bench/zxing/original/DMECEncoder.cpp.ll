@@ -375,367 +375,397 @@ define internal void @__cxx_global_var_init() #0 section ".text.startup" persona
   %46 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
   %47 = load i64, ptr %46, align 8
   invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5ZXing10DataMatrixL7FACTORSE, ptr %45, i64 %47)
-          to label %48 unwind label %224
+          to label %48 unwind label %254
 
 48:                                               ; preds = %0
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 1), ptr %1, align 8
-  %49 = getelementptr inbounds [7 x i8], ptr %7, i64 0, i64 0
-  store i8 23, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 68, ptr %50, align 1
+  %49 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 1
+  store ptr %49, ptr %1, align 8
+  %50 = getelementptr inbounds [7 x i8], ptr %7, i64 0, i64 0
+  store i8 23, ptr %50, align 1
   %51 = getelementptr inbounds i8, ptr %50, i64 1
-  store i8 -112, ptr %51, align 1
+  store i8 68, ptr %51, align 1
   %52 = getelementptr inbounds i8, ptr %51, i64 1
-  store i8 -122, ptr %52, align 1
+  store i8 -112, ptr %52, align 1
   %53 = getelementptr inbounds i8, ptr %52, i64 1
-  store i8 -16, ptr %53, align 1
+  store i8 -122, ptr %53, align 1
   %54 = getelementptr inbounds i8, ptr %53, i64 1
-  store i8 92, ptr %54, align 1
+  store i8 -16, ptr %54, align 1
   %55 = getelementptr inbounds i8, ptr %54, i64 1
-  store i8 -2, ptr %55, align 1
-  %56 = getelementptr inbounds %"class.std::initializer_list", ptr %6, i32 0, i32 0
-  %57 = getelementptr inbounds [7 x i8], ptr %7, i64 0, i64 0
-  store ptr %57, ptr %56, align 8
-  %58 = getelementptr inbounds %"class.std::initializer_list", ptr %6, i32 0, i32 1
-  store i64 7, ptr %58, align 8
-  %59 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
-  %62 = load i64, ptr %61, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 1), ptr %60, i64 %62)
-          to label %63 unwind label %224
+  store i8 92, ptr %55, align 1
+  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  store i8 -2, ptr %56, align 1
+  %57 = getelementptr inbounds %"class.std::initializer_list", ptr %6, i32 0, i32 0
+  %58 = getelementptr inbounds [7 x i8], ptr %7, i64 0, i64 0
+  store ptr %58, ptr %57, align 8
+  %59 = getelementptr inbounds %"class.std::initializer_list", ptr %6, i32 0, i32 1
+  store i64 7, ptr %59, align 8
+  %60 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 1
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %61, i64 %63)
+          to label %65 unwind label %254
 
-63:                                               ; preds = %48
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 2), ptr %1, align 8
-  %64 = getelementptr inbounds [10 x i8], ptr %9, i64 0, i64 0
-  store i8 28, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %64, i64 1
-  store i8 24, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %65, i64 1
-  store i8 -71, ptr %66, align 1
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  store i8 -90, ptr %67, align 1
+65:                                               ; preds = %48
+  %66 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 2
+  store ptr %66, ptr %1, align 8
+  %67 = getelementptr inbounds [10 x i8], ptr %9, i64 0, i64 0
+  store i8 28, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %67, i64 1
-  store i8 -33, ptr %68, align 1
+  store i8 24, ptr %68, align 1
   %69 = getelementptr inbounds i8, ptr %68, i64 1
-  store i8 -8, ptr %69, align 1
+  store i8 -71, ptr %69, align 1
   %70 = getelementptr inbounds i8, ptr %69, i64 1
-  store i8 116, ptr %70, align 1
+  store i8 -90, ptr %70, align 1
   %71 = getelementptr inbounds i8, ptr %70, i64 1
-  store i8 -1, ptr %71, align 1
+  store i8 -33, ptr %71, align 1
   %72 = getelementptr inbounds i8, ptr %71, i64 1
-  store i8 110, ptr %72, align 1
+  store i8 -8, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %72, i64 1
-  store i8 61, ptr %73, align 1
-  %74 = getelementptr inbounds %"class.std::initializer_list", ptr %8, i32 0, i32 0
-  %75 = getelementptr inbounds [10 x i8], ptr %9, i64 0, i64 0
-  store ptr %75, ptr %74, align 8
-  %76 = getelementptr inbounds %"class.std::initializer_list", ptr %8, i32 0, i32 1
-  store i64 10, ptr %76, align 8
-  %77 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
-  %80 = load i64, ptr %79, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 2), ptr %78, i64 %80)
-          to label %81 unwind label %224
+  store i8 116, ptr %73, align 1
+  %74 = getelementptr inbounds i8, ptr %73, i64 1
+  store i8 -1, ptr %74, align 1
+  %75 = getelementptr inbounds i8, ptr %74, i64 1
+  store i8 110, ptr %75, align 1
+  %76 = getelementptr inbounds i8, ptr %75, i64 1
+  store i8 61, ptr %76, align 1
+  %77 = getelementptr inbounds %"class.std::initializer_list", ptr %8, i32 0, i32 0
+  %78 = getelementptr inbounds [10 x i8], ptr %9, i64 0, i64 0
+  store ptr %78, ptr %77, align 8
+  %79 = getelementptr inbounds %"class.std::initializer_list", ptr %8, i32 0, i32 1
+  store i64 10, ptr %79, align 8
+  %80 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 1
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 2
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr %81, i64 %83)
+          to label %85 unwind label %254
 
-81:                                               ; preds = %63
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 3), ptr %1, align 8
-  %82 = getelementptr inbounds [11 x i8], ptr %11, i64 0, i64 0
-  store i8 -81, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %82, i64 1
-  store i8 -118, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
-  store i8 -51, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %84, i64 1
-  store i8 12, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %85, i64 1
-  store i8 -62, ptr %86, align 1
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
-  store i8 -88, ptr %87, align 1
+85:                                               ; preds = %65
+  %86 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 3
+  store ptr %86, ptr %1, align 8
+  %87 = getelementptr inbounds [11 x i8], ptr %11, i64 0, i64 0
+  store i8 -81, ptr %87, align 1
   %88 = getelementptr inbounds i8, ptr %87, i64 1
-  store i8 39, ptr %88, align 1
+  store i8 -118, ptr %88, align 1
   %89 = getelementptr inbounds i8, ptr %88, i64 1
-  store i8 -11, ptr %89, align 1
+  store i8 -51, ptr %89, align 1
   %90 = getelementptr inbounds i8, ptr %89, i64 1
-  store i8 60, ptr %90, align 1
+  store i8 12, ptr %90, align 1
   %91 = getelementptr inbounds i8, ptr %90, i64 1
-  store i8 97, ptr %91, align 1
+  store i8 -62, ptr %91, align 1
   %92 = getelementptr inbounds i8, ptr %91, i64 1
-  store i8 120, ptr %92, align 1
-  %93 = getelementptr inbounds %"class.std::initializer_list", ptr %10, i32 0, i32 0
-  %94 = getelementptr inbounds [11 x i8], ptr %11, i64 0, i64 0
-  store ptr %94, ptr %93, align 8
-  %95 = getelementptr inbounds %"class.std::initializer_list", ptr %10, i32 0, i32 1
-  store i64 11, ptr %95, align 8
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  %99 = load i64, ptr %98, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 3), ptr %97, i64 %99)
-          to label %100 unwind label %224
+  store i8 -88, ptr %92, align 1
+  %93 = getelementptr inbounds i8, ptr %92, i64 1
+  store i8 39, ptr %93, align 1
+  %94 = getelementptr inbounds i8, ptr %93, i64 1
+  store i8 -11, ptr %94, align 1
+  %95 = getelementptr inbounds i8, ptr %94, i64 1
+  store i8 60, ptr %95, align 1
+  %96 = getelementptr inbounds i8, ptr %95, i64 1
+  store i8 97, ptr %96, align 1
+  %97 = getelementptr inbounds i8, ptr %96, i64 1
+  store i8 120, ptr %97, align 1
+  %98 = getelementptr inbounds %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  %99 = getelementptr inbounds [11 x i8], ptr %11, i64 0, i64 0
+  store ptr %99, ptr %98, align 8
+  %100 = getelementptr inbounds %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 11, ptr %100, align 8
+  %101 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
+  %104 = load i64, ptr %103, align 8
+  %105 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 3
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr %102, i64 %104)
+          to label %106 unwind label %254
 
-100:                                              ; preds = %81
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 4), ptr %1, align 8
-  %101 = getelementptr inbounds [12 x i8], ptr %13, i64 0, i64 0
-  store i8 41, ptr %101, align 1
-  %102 = getelementptr inbounds i8, ptr %101, i64 1
-  store i8 -103, ptr %102, align 1
-  %103 = getelementptr inbounds i8, ptr %102, i64 1
-  store i8 -98, ptr %103, align 1
-  %104 = getelementptr inbounds i8, ptr %103, i64 1
-  store i8 91, ptr %104, align 1
-  %105 = getelementptr inbounds i8, ptr %104, i64 1
-  store i8 61, ptr %105, align 1
-  %106 = getelementptr inbounds i8, ptr %105, i64 1
-  store i8 42, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %106, i64 1
-  store i8 -114, ptr %107, align 1
-  %108 = getelementptr inbounds i8, ptr %107, i64 1
-  store i8 -43, ptr %108, align 1
+106:                                              ; preds = %85
+  %107 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 4
+  store ptr %107, ptr %1, align 8
+  %108 = getelementptr inbounds [12 x i8], ptr %13, i64 0, i64 0
+  store i8 41, ptr %108, align 1
   %109 = getelementptr inbounds i8, ptr %108, i64 1
-  store i8 97, ptr %109, align 1
+  store i8 -103, ptr %109, align 1
   %110 = getelementptr inbounds i8, ptr %109, i64 1
-  store i8 -78, ptr %110, align 1
+  store i8 -98, ptr %110, align 1
   %111 = getelementptr inbounds i8, ptr %110, i64 1
-  store i8 100, ptr %111, align 1
+  store i8 91, ptr %111, align 1
   %112 = getelementptr inbounds i8, ptr %111, i64 1
-  store i8 -14, ptr %112, align 1
-  %113 = getelementptr inbounds %"class.std::initializer_list", ptr %12, i32 0, i32 0
-  %114 = getelementptr inbounds [12 x i8], ptr %13, i64 0, i64 0
-  store ptr %114, ptr %113, align 8
-  %115 = getelementptr inbounds %"class.std::initializer_list", ptr %12, i32 0, i32 1
-  store i64 12, ptr %115, align 8
-  %116 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
-  %119 = load i64, ptr %118, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 4), ptr %117, i64 %119)
-          to label %120 unwind label %224
+  store i8 61, ptr %112, align 1
+  %113 = getelementptr inbounds i8, ptr %112, i64 1
+  store i8 42, ptr %113, align 1
+  %114 = getelementptr inbounds i8, ptr %113, i64 1
+  store i8 -114, ptr %114, align 1
+  %115 = getelementptr inbounds i8, ptr %114, i64 1
+  store i8 -43, ptr %115, align 1
+  %116 = getelementptr inbounds i8, ptr %115, i64 1
+  store i8 97, ptr %116, align 1
+  %117 = getelementptr inbounds i8, ptr %116, i64 1
+  store i8 -78, ptr %117, align 1
+  %118 = getelementptr inbounds i8, ptr %117, i64 1
+  store i8 100, ptr %118, align 1
+  %119 = getelementptr inbounds i8, ptr %118, i64 1
+  store i8 -14, ptr %119, align 1
+  %120 = getelementptr inbounds %"class.std::initializer_list", ptr %12, i32 0, i32 0
+  %121 = getelementptr inbounds [12 x i8], ptr %13, i64 0, i64 0
+  store ptr %121, ptr %120, align 8
+  %122 = getelementptr inbounds %"class.std::initializer_list", ptr %12, i32 0, i32 1
+  store i64 12, ptr %122, align 8
+  %123 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
+  %126 = load i64, ptr %125, align 8
+  %127 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 4
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr %124, i64 %126)
+          to label %128 unwind label %254
 
-120:                                              ; preds = %100
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 5), ptr %1, align 8
-  %121 = getelementptr inbounds [14 x i8], ptr %15, i64 0, i64 0
-  store i8 -100, ptr %121, align 1
-  %122 = getelementptr inbounds i8, ptr %121, i64 1
-  store i8 97, ptr %122, align 1
-  %123 = getelementptr inbounds i8, ptr %122, i64 1
-  store i8 -64, ptr %123, align 1
-  %124 = getelementptr inbounds i8, ptr %123, i64 1
-  store i8 -4, ptr %124, align 1
-  %125 = getelementptr inbounds i8, ptr %124, i64 1
-  store i8 95, ptr %125, align 1
-  %126 = getelementptr inbounds i8, ptr %125, i64 1
-  store i8 9, ptr %126, align 1
-  %127 = getelementptr inbounds i8, ptr %126, i64 1
-  store i8 -99, ptr %127, align 1
-  %128 = getelementptr inbounds i8, ptr %127, i64 1
-  store i8 119, ptr %128, align 1
-  %129 = getelementptr inbounds i8, ptr %128, i64 1
-  store i8 -118, ptr %129, align 1
-  %130 = getelementptr inbounds i8, ptr %129, i64 1
-  store i8 45, ptr %130, align 1
+128:                                              ; preds = %106
+  %129 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 5
+  store ptr %129, ptr %1, align 8
+  %130 = getelementptr inbounds [14 x i8], ptr %15, i64 0, i64 0
+  store i8 -100, ptr %130, align 1
   %131 = getelementptr inbounds i8, ptr %130, i64 1
-  store i8 18, ptr %131, align 1
+  store i8 97, ptr %131, align 1
   %132 = getelementptr inbounds i8, ptr %131, i64 1
-  store i8 -70, ptr %132, align 1
+  store i8 -64, ptr %132, align 1
   %133 = getelementptr inbounds i8, ptr %132, i64 1
-  store i8 83, ptr %133, align 1
+  store i8 -4, ptr %133, align 1
   %134 = getelementptr inbounds i8, ptr %133, i64 1
-  store i8 -71, ptr %134, align 1
-  %135 = getelementptr inbounds %"class.std::initializer_list", ptr %14, i32 0, i32 0
-  %136 = getelementptr inbounds [14 x i8], ptr %15, i64 0, i64 0
-  store ptr %136, ptr %135, align 8
-  %137 = getelementptr inbounds %"class.std::initializer_list", ptr %14, i32 0, i32 1
-  store i64 14, ptr %137, align 8
-  %138 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 0
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
-  %141 = load i64, ptr %140, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 5), ptr %139, i64 %141)
-          to label %142 unwind label %224
+  store i8 95, ptr %134, align 1
+  %135 = getelementptr inbounds i8, ptr %134, i64 1
+  store i8 9, ptr %135, align 1
+  %136 = getelementptr inbounds i8, ptr %135, i64 1
+  store i8 -99, ptr %136, align 1
+  %137 = getelementptr inbounds i8, ptr %136, i64 1
+  store i8 119, ptr %137, align 1
+  %138 = getelementptr inbounds i8, ptr %137, i64 1
+  store i8 -118, ptr %138, align 1
+  %139 = getelementptr inbounds i8, ptr %138, i64 1
+  store i8 45, ptr %139, align 1
+  %140 = getelementptr inbounds i8, ptr %139, i64 1
+  store i8 18, ptr %140, align 1
+  %141 = getelementptr inbounds i8, ptr %140, i64 1
+  store i8 -70, ptr %141, align 1
+  %142 = getelementptr inbounds i8, ptr %141, i64 1
+  store i8 83, ptr %142, align 1
+  %143 = getelementptr inbounds i8, ptr %142, i64 1
+  store i8 -71, ptr %143, align 1
+  %144 = getelementptr inbounds %"class.std::initializer_list", ptr %14, i32 0, i32 0
+  %145 = getelementptr inbounds [14 x i8], ptr %15, i64 0, i64 0
+  store ptr %145, ptr %144, align 8
+  %146 = getelementptr inbounds %"class.std::initializer_list", ptr %14, i32 0, i32 1
+  store i64 14, ptr %146, align 8
+  %147 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds { ptr, i64 }, ptr %14, i32 0, i32 1
+  %150 = load i64, ptr %149, align 8
+  %151 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 5
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %151, ptr %148, i64 %150)
+          to label %152 unwind label %254
 
-142:                                              ; preds = %120
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 6), ptr %1, align 8
+152:                                              ; preds = %128
+  %153 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 6
+  store ptr %153, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 @constinit, i64 18, i1 false)
-  %143 = getelementptr inbounds %"class.std::initializer_list", ptr %16, i32 0, i32 0
-  %144 = getelementptr inbounds [18 x i8], ptr %17, i64 0, i64 0
-  store ptr %144, ptr %143, align 8
-  %145 = getelementptr inbounds %"class.std::initializer_list", ptr %16, i32 0, i32 1
-  store i64 18, ptr %145, align 8
-  %146 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 0
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 1
-  %149 = load i64, ptr %148, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 6), ptr %147, i64 %149)
-          to label %150 unwind label %224
+  %154 = getelementptr inbounds %"class.std::initializer_list", ptr %16, i32 0, i32 0
+  %155 = getelementptr inbounds [18 x i8], ptr %17, i64 0, i64 0
+  store ptr %155, ptr %154, align 8
+  %156 = getelementptr inbounds %"class.std::initializer_list", ptr %16, i32 0, i32 1
+  store i64 18, ptr %156, align 8
+  %157 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 0
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 1
+  %160 = load i64, ptr %159, align 8
+  %161 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 6
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %161, ptr %158, i64 %160)
+          to label %162 unwind label %254
 
-150:                                              ; preds = %142
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 7), ptr %1, align 8
+162:                                              ; preds = %152
+  %163 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 7
+  store ptr %163, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 @constinit.1, i64 20, i1 false)
-  %151 = getelementptr inbounds %"class.std::initializer_list", ptr %18, i32 0, i32 0
-  %152 = getelementptr inbounds [20 x i8], ptr %19, i64 0, i64 0
-  store ptr %152, ptr %151, align 8
-  %153 = getelementptr inbounds %"class.std::initializer_list", ptr %18, i32 0, i32 1
-  store i64 20, ptr %153, align 8
-  %154 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 0
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 1
-  %157 = load i64, ptr %156, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 7), ptr %155, i64 %157)
-          to label %158 unwind label %224
+  %164 = getelementptr inbounds %"class.std::initializer_list", ptr %18, i32 0, i32 0
+  %165 = getelementptr inbounds [20 x i8], ptr %19, i64 0, i64 0
+  store ptr %165, ptr %164, align 8
+  %166 = getelementptr inbounds %"class.std::initializer_list", ptr %18, i32 0, i32 1
+  store i64 20, ptr %166, align 8
+  %167 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 0
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 1
+  %170 = load i64, ptr %169, align 8
+  %171 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 7
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %171, ptr %168, i64 %170)
+          to label %172 unwind label %254
 
-158:                                              ; preds = %150
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 8), ptr %1, align 8
+172:                                              ; preds = %162
+  %173 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 8
+  store ptr %173, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 @constinit.2, i64 24, i1 false)
-  %159 = getelementptr inbounds %"class.std::initializer_list", ptr %20, i32 0, i32 0
-  %160 = getelementptr inbounds [24 x i8], ptr %21, i64 0, i64 0
-  store ptr %160, ptr %159, align 8
-  %161 = getelementptr inbounds %"class.std::initializer_list", ptr %20, i32 0, i32 1
-  store i64 24, ptr %161, align 8
-  %162 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 0
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 1
-  %165 = load i64, ptr %164, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 8), ptr %163, i64 %165)
-          to label %166 unwind label %224
+  %174 = getelementptr inbounds %"class.std::initializer_list", ptr %20, i32 0, i32 0
+  %175 = getelementptr inbounds [24 x i8], ptr %21, i64 0, i64 0
+  store ptr %175, ptr %174, align 8
+  %176 = getelementptr inbounds %"class.std::initializer_list", ptr %20, i32 0, i32 1
+  store i64 24, ptr %176, align 8
+  %177 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 0
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 1
+  %180 = load i64, ptr %179, align 8
+  %181 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 8
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %181, ptr %178, i64 %180)
+          to label %182 unwind label %254
 
-166:                                              ; preds = %158
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 9), ptr %1, align 8
+182:                                              ; preds = %172
+  %183 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 9
+  store ptr %183, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 @constinit.3, i64 28, i1 false)
-  %167 = getelementptr inbounds %"class.std::initializer_list", ptr %22, i32 0, i32 0
-  %168 = getelementptr inbounds [28 x i8], ptr %23, i64 0, i64 0
-  store ptr %168, ptr %167, align 8
-  %169 = getelementptr inbounds %"class.std::initializer_list", ptr %22, i32 0, i32 1
-  store i64 28, ptr %169, align 8
-  %170 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 0
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 1
-  %173 = load i64, ptr %172, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 9), ptr %171, i64 %173)
-          to label %174 unwind label %224
+  %184 = getelementptr inbounds %"class.std::initializer_list", ptr %22, i32 0, i32 0
+  %185 = getelementptr inbounds [28 x i8], ptr %23, i64 0, i64 0
+  store ptr %185, ptr %184, align 8
+  %186 = getelementptr inbounds %"class.std::initializer_list", ptr %22, i32 0, i32 1
+  store i64 28, ptr %186, align 8
+  %187 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 0
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 1
+  %190 = load i64, ptr %189, align 8
+  %191 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 9
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %191, ptr %188, i64 %190)
+          to label %192 unwind label %254
 
-174:                                              ; preds = %166
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 10), ptr %1, align 8
+192:                                              ; preds = %182
+  %193 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 10
+  store ptr %193, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 @constinit.4, i64 36, i1 false)
-  %175 = getelementptr inbounds %"class.std::initializer_list", ptr %24, i32 0, i32 0
-  %176 = getelementptr inbounds [36 x i8], ptr %25, i64 0, i64 0
-  store ptr %176, ptr %175, align 8
-  %177 = getelementptr inbounds %"class.std::initializer_list", ptr %24, i32 0, i32 1
-  store i64 36, ptr %177, align 8
-  %178 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 0
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
-  %181 = load i64, ptr %180, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 10), ptr %179, i64 %181)
-          to label %182 unwind label %224
+  %194 = getelementptr inbounds %"class.std::initializer_list", ptr %24, i32 0, i32 0
+  %195 = getelementptr inbounds [36 x i8], ptr %25, i64 0, i64 0
+  store ptr %195, ptr %194, align 8
+  %196 = getelementptr inbounds %"class.std::initializer_list", ptr %24, i32 0, i32 1
+  store i64 36, ptr %196, align 8
+  %197 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 0
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
+  %200 = load i64, ptr %199, align 8
+  %201 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 10
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %201, ptr %198, i64 %200)
+          to label %202 unwind label %254
 
-182:                                              ; preds = %174
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 11), ptr %1, align 8
+202:                                              ; preds = %192
+  %203 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 11
+  store ptr %203, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 @constinit.5, i64 42, i1 false)
-  %183 = getelementptr inbounds %"class.std::initializer_list", ptr %26, i32 0, i32 0
-  %184 = getelementptr inbounds [42 x i8], ptr %27, i64 0, i64 0
-  store ptr %184, ptr %183, align 8
-  %185 = getelementptr inbounds %"class.std::initializer_list", ptr %26, i32 0, i32 1
-  store i64 42, ptr %185, align 8
-  %186 = getelementptr inbounds { ptr, i64 }, ptr %26, i32 0, i32 0
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds { ptr, i64 }, ptr %26, i32 0, i32 1
-  %189 = load i64, ptr %188, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 11), ptr %187, i64 %189)
-          to label %190 unwind label %224
+  %204 = getelementptr inbounds %"class.std::initializer_list", ptr %26, i32 0, i32 0
+  %205 = getelementptr inbounds [42 x i8], ptr %27, i64 0, i64 0
+  store ptr %205, ptr %204, align 8
+  %206 = getelementptr inbounds %"class.std::initializer_list", ptr %26, i32 0, i32 1
+  store i64 42, ptr %206, align 8
+  %207 = getelementptr inbounds { ptr, i64 }, ptr %26, i32 0, i32 0
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds { ptr, i64 }, ptr %26, i32 0, i32 1
+  %210 = load i64, ptr %209, align 8
+  %211 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 11
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %211, ptr %208, i64 %210)
+          to label %212 unwind label %254
 
-190:                                              ; preds = %182
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 12), ptr %1, align 8
+212:                                              ; preds = %202
+  %213 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 12
+  store ptr %213, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 @constinit.6, i64 48, i1 false)
-  %191 = getelementptr inbounds %"class.std::initializer_list", ptr %28, i32 0, i32 0
-  %192 = getelementptr inbounds [48 x i8], ptr %29, i64 0, i64 0
-  store ptr %192, ptr %191, align 8
-  %193 = getelementptr inbounds %"class.std::initializer_list", ptr %28, i32 0, i32 1
-  store i64 48, ptr %193, align 8
-  %194 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 0
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 1
-  %197 = load i64, ptr %196, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 12), ptr %195, i64 %197)
-          to label %198 unwind label %224
+  %214 = getelementptr inbounds %"class.std::initializer_list", ptr %28, i32 0, i32 0
+  %215 = getelementptr inbounds [48 x i8], ptr %29, i64 0, i64 0
+  store ptr %215, ptr %214, align 8
+  %216 = getelementptr inbounds %"class.std::initializer_list", ptr %28, i32 0, i32 1
+  store i64 48, ptr %216, align 8
+  %217 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 0
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 1
+  %220 = load i64, ptr %219, align 8
+  %221 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 12
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %221, ptr %218, i64 %220)
+          to label %222 unwind label %254
 
-198:                                              ; preds = %190
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 13), ptr %1, align 8
+222:                                              ; preds = %212
+  %223 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 13
+  store ptr %223, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 @constinit.7, i64 56, i1 false)
-  %199 = getelementptr inbounds %"class.std::initializer_list", ptr %30, i32 0, i32 0
-  %200 = getelementptr inbounds [56 x i8], ptr %31, i64 0, i64 0
-  store ptr %200, ptr %199, align 8
-  %201 = getelementptr inbounds %"class.std::initializer_list", ptr %30, i32 0, i32 1
-  store i64 56, ptr %201, align 8
-  %202 = getelementptr inbounds { ptr, i64 }, ptr %30, i32 0, i32 0
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds { ptr, i64 }, ptr %30, i32 0, i32 1
-  %205 = load i64, ptr %204, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 13), ptr %203, i64 %205)
-          to label %206 unwind label %224
+  %224 = getelementptr inbounds %"class.std::initializer_list", ptr %30, i32 0, i32 0
+  %225 = getelementptr inbounds [56 x i8], ptr %31, i64 0, i64 0
+  store ptr %225, ptr %224, align 8
+  %226 = getelementptr inbounds %"class.std::initializer_list", ptr %30, i32 0, i32 1
+  store i64 56, ptr %226, align 8
+  %227 = getelementptr inbounds { ptr, i64 }, ptr %30, i32 0, i32 0
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr inbounds { ptr, i64 }, ptr %30, i32 0, i32 1
+  %230 = load i64, ptr %229, align 8
+  %231 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 13
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %231, ptr %228, i64 %230)
+          to label %232 unwind label %254
 
-206:                                              ; preds = %198
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 14), ptr %1, align 8
+232:                                              ; preds = %222
+  %233 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 14
+  store ptr %233, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 @constinit.8, i64 62, i1 false)
-  %207 = getelementptr inbounds %"class.std::initializer_list", ptr %32, i32 0, i32 0
-  %208 = getelementptr inbounds [62 x i8], ptr %33, i64 0, i64 0
-  store ptr %208, ptr %207, align 8
-  %209 = getelementptr inbounds %"class.std::initializer_list", ptr %32, i32 0, i32 1
-  store i64 62, ptr %209, align 8
-  %210 = getelementptr inbounds { ptr, i64 }, ptr %32, i32 0, i32 0
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds { ptr, i64 }, ptr %32, i32 0, i32 1
-  %213 = load i64, ptr %212, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 14), ptr %211, i64 %213)
-          to label %214 unwind label %224
+  %234 = getelementptr inbounds %"class.std::initializer_list", ptr %32, i32 0, i32 0
+  %235 = getelementptr inbounds [62 x i8], ptr %33, i64 0, i64 0
+  store ptr %235, ptr %234, align 8
+  %236 = getelementptr inbounds %"class.std::initializer_list", ptr %32, i32 0, i32 1
+  store i64 62, ptr %236, align 8
+  %237 = getelementptr inbounds { ptr, i64 }, ptr %32, i32 0, i32 0
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds { ptr, i64 }, ptr %32, i32 0, i32 1
+  %240 = load i64, ptr %239, align 8
+  %241 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 14
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %241, ptr %238, i64 %240)
+          to label %242 unwind label %254
 
-214:                                              ; preds = %206
-  store ptr getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 15), ptr %1, align 8
+242:                                              ; preds = %232
+  %243 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 15
+  store ptr %243, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 @constinit.9, i64 68, i1 false)
-  %215 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 0
-  %216 = getelementptr inbounds [68 x i8], ptr %35, i64 0, i64 0
-  store ptr %216, ptr %215, align 8
-  %217 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 1
-  store i64 68, ptr %217, align 8
-  %218 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
-  %221 = load i64, ptr %220, align 8
-  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 15), ptr %219, i64 %221)
-          to label %222 unwind label %224
+  %244 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 0
+  %245 = getelementptr inbounds [68 x i8], ptr %35, i64 0, i64 0
+  store ptr %245, ptr %244, align 8
+  %246 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 1
+  store i64 68, ptr %246, align 8
+  %247 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
+  %250 = load i64, ptr %249, align 8
+  %251 = getelementptr inbounds %"class.ZXing::ByteArray", ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 15
+  invoke void @_ZN5ZXing9ByteArrayC2ESt16initializer_listIhE(ptr noundef nonnull align 8 dereferenceable(24) %251, ptr %248, i64 %250)
+          to label %252 unwind label %254
 
-222:                                              ; preds = %214
-  %223 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayIN5ZXing9ByteArrayELm16EED2Ev, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, ptr @__dso_handle) #4
+252:                                              ; preds = %242
+  %253 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayIN5ZXing9ByteArrayELm16EED2Ev, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, ptr @__dso_handle) #4
   ret void
 
-224:                                              ; preds = %214, %206, %198, %190, %182, %174, %166, %158, %150, %142, %120, %100, %81, %63, %48, %0
-  %225 = landingpad { ptr, i32 }
+254:                                              ; preds = %242, %232, %222, %212, %202, %192, %182, %172, %162, %152, %128, %106, %85, %65, %48, %0
+  %255 = landingpad { ptr, i32 }
           cleanup
-  %226 = extractvalue { ptr, i32 } %225, 0
-  store ptr %226, ptr %4, align 8
-  %227 = extractvalue { ptr, i32 } %225, 1
-  store i32 %227, ptr %5, align 4
-  %228 = load ptr, ptr %1, align 8
-  %229 = icmp eq ptr @_ZN5ZXing10DataMatrixL7FACTORSE, %228
-  br i1 %229, label %234, label %230
+  %256 = extractvalue { ptr, i32 } %255, 0
+  store ptr %256, ptr %4, align 8
+  %257 = extractvalue { ptr, i32 } %255, 1
+  store i32 %257, ptr %5, align 4
+  %258 = load ptr, ptr %1, align 8
+  %259 = icmp eq ptr @_ZN5ZXing10DataMatrixL7FACTORSE, %258
+  br i1 %259, label %264, label %260
 
-230:                                              ; preds = %230, %224
-  %231 = phi ptr [ %228, %224 ], [ %232, %230 ]
-  %232 = getelementptr inbounds %"class.ZXing::ByteArray", ptr %231, i64 -1
-  call void @_ZN5ZXing9ByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %232) #4
-  %233 = icmp eq ptr %232, @_ZN5ZXing10DataMatrixL7FACTORSE
-  br i1 %233, label %234, label %230
+260:                                              ; preds = %260, %254
+  %261 = phi ptr [ %258, %254 ], [ %262, %260 ]
+  %262 = getelementptr inbounds %"class.ZXing::ByteArray", ptr %261, i64 -1
+  call void @_ZN5ZXing9ByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %262) #4
+  %263 = icmp eq ptr %262, @_ZN5ZXing10DataMatrixL7FACTORSE
+  br i1 %263, label %264, label %260
 
-234:                                              ; preds = %230, %224
-  br label %235
+264:                                              ; preds = %260, %254
+  br label %265
 
-235:                                              ; preds = %234
-  %236 = load ptr, ptr %4, align 8
-  %237 = load i32, ptr %5, align 4
-  %238 = insertvalue { ptr, i32 } poison, ptr %236, 0
-  %239 = insertvalue { ptr, i32 } %238, i32 %237, 1
-  resume { ptr, i32 } %239
+265:                                              ; preds = %264
+  %266 = load ptr, ptr %4, align 8
+  %267 = load i32, ptr %5, align 4
+  %268 = insertvalue { ptr, i32 } poison, ptr %266, 0
+  %269 = insertvalue { ptr, i32 } %268, i32 %267, 1
+  resume { ptr, i32 } %269
 }
 
 ; Function Attrs: mustprogress uwtable

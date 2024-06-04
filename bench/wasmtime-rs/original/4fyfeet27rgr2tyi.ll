@@ -19,60 +19,62 @@ define hidden { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$
   store i64 %9, ptr %10, align 8
   %11 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %1
   %14 = load i64, ptr @anon.c8c381b05a338c0945e43812380a85c0.0, align 8, !range !4, !noundef !3
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @anon.c8c381b05a338c0945e43812380a85c0.0, i64 8), align 8
+  %15 = getelementptr inbounds i8, ptr @anon.c8c381b05a338c0945e43812380a85c0.0, i64 8
+  %16 = load i64, ptr %15, align 8
   store i64 %14, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %15, ptr %16, align 8
-  br label %21
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %16, ptr %17, align 8
+  br label %22
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %19, ptr %20, align 8
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = load i64, ptr %19, align 8, !noundef !3
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %20, ptr %21, align 8
   store i64 0, ptr %4, align 8
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17, %13
-  %22 = load i64, ptr %4, align 8, !range !4, !noundef !3
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %32
+22:                                               ; preds = %18, %13
+  %23 = load i64, ptr %4, align 8, !range !4, !noundef !3
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  %26 = load i64, ptr %25, align 8, !noundef !3
-  %27 = load i16, ptr %0, align 2, !noundef !3
-  %28 = sub i16 %27, 1
-  %29 = and i16 %27, %28
-  store i16 %29, ptr %2, align 2
-  %30 = load i16, ptr %2, align 2, !noundef !3
-  store i16 %30, ptr %0, align 2
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %26, ptr %31, align 8
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = load i64, ptr %26, align 8, !noundef !3
+  %28 = load i16, ptr %0, align 2, !noundef !3
+  %29 = sub i16 %28, 1
+  %30 = and i16 %28, %29
+  store i16 %30, ptr %2, align 2
+  %31 = load i16, ptr %2, align 2, !noundef !3
+  store i16 %31, ptr %0, align 2
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %27, ptr %32, align 8
   store i64 1, ptr %5, align 8
-  br label %36
+  br label %38
 
-32:                                               ; preds = %21
-  %33 = load i64, ptr @anon.c8c381b05a338c0945e43812380a85c0.1, align 8, !range !4, !noundef !3
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @anon.c8c381b05a338c0945e43812380a85c0.1, i64 8), align 8
-  store i64 %33, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %34, ptr %35, align 8
-  br label %36
+33:                                               ; preds = %22
+  %34 = load i64, ptr @anon.c8c381b05a338c0945e43812380a85c0.1, align 8, !range !4, !noundef !3
+  %35 = getelementptr inbounds i8, ptr @anon.c8c381b05a338c0945e43812380a85c0.1, i64 8
+  %36 = load i64, ptr %35, align 8
+  store i64 %34, ptr %5, align 8
+  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %36, ptr %37, align 8
+  br label %38
 
-36:                                               ; preds = %32, %24
-  %37 = load i64, ptr %5, align 8, !range !4, !noundef !3
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  %39 = load i64, ptr %38, align 8
-  %40 = insertvalue { i64, i64 } poison, i64 %37, 0
-  %41 = insertvalue { i64, i64 } %40, i64 %39, 1
-  ret { i64, i64 } %41
+38:                                               ; preds = %33, %25
+  %39 = load i64, ptr %5, align 8, !range !4, !noundef !3
+  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = load i64, ptr %40, align 8
+  %42 = insertvalue { i64, i64 } poison, i64 %39, 0
+  %43 = insertvalue { i64, i64 } %42, i64 %41, 1
+  ret { i64, i64 } %43
 
-42:                                               ; No predecessors!
+44:                                               ; No predecessors!
   unreachable
 }
 
@@ -114,23 +116,24 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw7bitmask7BitMask14lowest_set_bit17h
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %21, ptr %22, align 8
   store i64 1, ptr %5, align 8
-  br label %27
+  br label %28
 
 23:                                               ; preds = %10
   %24 = load i64, ptr @anon.c8c381b05a338c0945e43812380a85c0.1, align 8, !range !4, !noundef !3
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @anon.c8c381b05a338c0945e43812380a85c0.1, i64 8), align 8
+  %25 = getelementptr inbounds i8, ptr @anon.c8c381b05a338c0945e43812380a85c0.1, i64 8
+  %26 = load i64, ptr %25, align 8
   store i64 %24, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %25, ptr %26, align 8
-  br label %27
+  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %26, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %23, %15
-  %28 = load i64, ptr %5, align 8, !range !4, !noundef !3
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = insertvalue { i64, i64 } poison, i64 %28, 0
-  %32 = insertvalue { i64, i64 } %31, i64 %30, 1
-  ret { i64, i64 } %32
+28:                                               ; preds = %23, %15
+  %29 = load i64, ptr %5, align 8, !range !4, !noundef !3
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = insertvalue { i64, i64 } poison, i64 %29, 0
+  %33 = insertvalue { i64, i64 } %32, i64 %31, 1
+  ret { i64, i64 } %33
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

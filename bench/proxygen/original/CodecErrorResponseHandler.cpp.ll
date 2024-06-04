@@ -171,7 +171,8 @@ entry:
   store i8 %0, ptr %.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen22HTTPTransactionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25CodecErrorResponseHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN8proxygen25CodecErrorResponseHandlerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::CodecErrorResponseHandler", ptr %this1, i32 0, i32 1
   store ptr null, ptr %txn_, align 8
   ret void
@@ -184,7 +185,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen18TraceEventObserverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen22HTTPTransactionHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN8proxygen22HTTPTransactionHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -864,7 +866,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen18TraceEventObserverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen18TraceEventObserverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

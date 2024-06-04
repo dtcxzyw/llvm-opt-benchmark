@@ -772,7 +772,7 @@ define internal i32 @archive_read_format_zip_streamable_read_header(ptr noundef 
   %51 = getelementptr inbounds %struct.archive_read, ptr %50, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %51, i32 noundef 12, ptr noundef @.str.11)
   store i32 -30, ptr %3, align 4
-  br label %190
+  br label %192
 
 52:                                               ; preds = %41
   br label %53
@@ -792,198 +792,200 @@ define internal i32 @archive_read_format_zip_streamable_read_header(ptr noundef 
   %63 = getelementptr inbounds %struct.zip, ptr %62, i32 0, i32 48
   %64 = load i8, ptr %63, align 8
   %65 = icmp ne i8 %64, 0
-  br i1 %65, label %66, label %71
+  br i1 %65, label %66, label %72
 
 66:                                               ; preds = %53
-  %67 = load ptr, ptr getelementptr inbounds (%struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 3), align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.zip, ptr %68, i32 0, i32 47
-  %70 = call i32 %67(ptr noundef %69)
-  br label %71
+  %67 = getelementptr inbounds %struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %6, align 8
+  %70 = getelementptr inbounds %struct.zip, ptr %69, i32 0, i32 47
+  %71 = call i32 %68(ptr noundef %70)
+  br label %72
 
-71:                                               ; preds = %66, %53
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.zip, ptr %72, i32 0, i32 50
-  %74 = load i8, ptr %73, align 8
-  %75 = icmp ne i8 %74, 0
-  br i1 %75, label %76, label %80
+72:                                               ; preds = %66, %53
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds %struct.zip, ptr %73, i32 0, i32 50
+  %75 = load i8, ptr %74, align 8
+  %76 = icmp ne i8 %75, 0
+  br i1 %76, label %77, label %82
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr getelementptr inbounds (%struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 3), align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.zip, ptr %78, i32 0, i32 49
-  call void %77(ptr noundef %79)
-  br label %80
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds %struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 3
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds %struct.zip, ptr %80, i32 0, i32 49
+  call void %79(ptr noundef %81)
+  br label %82
 
-80:                                               ; preds = %76, %71
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds %struct.zip, ptr %81, i32 0, i32 50
-  store i8 0, ptr %82, align 8
+82:                                               ; preds = %77, %72
   %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct.zip, ptr %83, i32 0, i32 48
+  %84 = getelementptr inbounds %struct.zip, ptr %83, i32 0, i32 50
   store i8 0, ptr %84, align 8
   %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.zip, ptr %85, i32 0, i32 46
-  store i8 0, ptr %86, align 4
-  %87 = load ptr, ptr %4, align 8
-  call void @__archive_read_reset_passphrase(ptr noundef %87)
-  %88 = load ptr, ptr %4, align 8
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct.zip, ptr %89, i32 0, i32 9
-  %91 = load i64, ptr %90, align 8
-  %92 = call i64 @__archive_read_consume(ptr noundef %88, i64 noundef %91)
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct.zip, ptr %93, i32 0, i32 9
-  store i64 0, ptr %94, align 8
-  br label %95
+  %86 = getelementptr inbounds %struct.zip, ptr %85, i32 0, i32 48
+  store i8 0, ptr %86, align 8
+  %87 = load ptr, ptr %6, align 8
+  %88 = getelementptr inbounds %struct.zip, ptr %87, i32 0, i32 46
+  store i8 0, ptr %88, align 4
+  %89 = load ptr, ptr %4, align 8
+  call void @__archive_read_reset_passphrase(ptr noundef %89)
+  %90 = load ptr, ptr %4, align 8
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds %struct.zip, ptr %91, i32 0, i32 9
+  %93 = load i64, ptr %92, align 8
+  %94 = call i64 @__archive_read_consume(ptr noundef %90, i64 noundef %93)
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr inbounds %struct.zip, ptr %95, i32 0, i32 9
+  store i64 0, ptr %96, align 8
+  br label %97
 
-95:                                               ; preds = %186, %80
+97:                                               ; preds = %188, %82
   store i64 0, ptr %7, align 8
-  %96 = load ptr, ptr %4, align 8
-  %97 = call ptr @__archive_read_ahead(ptr noundef %96, i64 noundef 4, ptr noundef %10)
-  store ptr %97, ptr %8, align 8
-  %98 = load ptr, ptr %8, align 8
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %101
+  %98 = load ptr, ptr %4, align 8
+  %99 = call ptr @__archive_read_ahead(ptr noundef %98, i64 noundef 4, ptr noundef %10)
+  store ptr %99, ptr %8, align 8
+  %100 = load ptr, ptr %8, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %103
 
-100:                                              ; preds = %95
+102:                                              ; preds = %97
   store i32 -30, ptr %3, align 4
-  br label %190
+  br label %192
 
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %8, align 8
-  %103 = load i64, ptr %10, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 %103
-  store ptr %104, ptr %9, align 8
-  br label %105
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %8, align 8
+  %105 = load i64, ptr %10, align 8
+  %106 = getelementptr inbounds i8, ptr %104, i64 %105
+  store ptr %106, ptr %9, align 8
+  br label %107
 
-105:                                              ; preds = %181, %101
-  %106 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 4
-  %108 = load ptr, ptr %9, align 8
-  %109 = icmp ule ptr %107, %108
-  br i1 %109, label %110, label %186
+107:                                              ; preds = %183, %103
+  %108 = load ptr, ptr %8, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %110 = load ptr, ptr %9, align 8
+  %111 = icmp ule ptr %109, %110
+  br i1 %111, label %112, label %188
 
-110:                                              ; preds = %105
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 0
-  %113 = load i8, ptr %112, align 1
-  %114 = sext i8 %113 to i32
-  %115 = icmp eq i32 %114, 80
-  br i1 %115, label %116, label %181
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %8, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 0
+  %115 = load i8, ptr %114, align 1
+  %116 = sext i8 %115 to i32
+  %117 = icmp eq i32 %116, 80
+  br i1 %117, label %118, label %183
 
-116:                                              ; preds = %110
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 1
-  %119 = load i8, ptr %118, align 1
-  %120 = sext i8 %119 to i32
-  %121 = icmp eq i32 %120, 75
-  br i1 %121, label %122, label %181
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %8, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 1
+  %121 = load i8, ptr %120, align 1
+  %122 = sext i8 %121 to i32
+  %123 = icmp eq i32 %122, 75
+  br i1 %123, label %124, label %183
 
-122:                                              ; preds = %116
-  %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 2
-  %125 = load i8, ptr %124, align 1
-  %126 = sext i8 %125 to i32
-  %127 = icmp eq i32 %126, 3
-  br i1 %127, label %128, label %142
+124:                                              ; preds = %118
+  %125 = load ptr, ptr %8, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 2
+  %127 = load i8, ptr %126, align 1
+  %128 = sext i8 %127 to i32
+  %129 = icmp eq i32 %128, 3
+  br i1 %129, label %130, label %144
 
-128:                                              ; preds = %122
-  %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 3
-  %131 = load i8, ptr %130, align 1
-  %132 = sext i8 %131 to i32
-  %133 = icmp eq i32 %132, 4
-  br i1 %133, label %134, label %142
+130:                                              ; preds = %124
+  %131 = load ptr, ptr %8, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 3
+  %133 = load i8, ptr %132, align 1
+  %134 = sext i8 %133 to i32
+  %135 = icmp eq i32 %134, 4
+  br i1 %135, label %136, label %144
 
-134:                                              ; preds = %128
-  %135 = load ptr, ptr %4, align 8
-  %136 = load i64, ptr %7, align 8
-  %137 = call i64 @__archive_read_consume(ptr noundef %135, i64 noundef %136)
-  %138 = load ptr, ptr %4, align 8
-  %139 = load ptr, ptr %5, align 8
-  %140 = load ptr, ptr %6, align 8
-  %141 = call i32 @zip_read_local_file_header(ptr noundef %138, ptr noundef %139, ptr noundef %140)
-  store i32 %141, ptr %3, align 4
-  br label %190
+136:                                              ; preds = %130
+  %137 = load ptr, ptr %4, align 8
+  %138 = load i64, ptr %7, align 8
+  %139 = call i64 @__archive_read_consume(ptr noundef %137, i64 noundef %138)
+  %140 = load ptr, ptr %4, align 8
+  %141 = load ptr, ptr %5, align 8
+  %142 = load ptr, ptr %6, align 8
+  %143 = call i32 @zip_read_local_file_header(ptr noundef %140, ptr noundef %141, ptr noundef %142)
+  store i32 %143, ptr %3, align 4
+  br label %192
 
-142:                                              ; preds = %128, %122
-  %143 = load ptr, ptr %8, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 2
-  %145 = load i8, ptr %144, align 1
-  %146 = sext i8 %145 to i32
-  %147 = icmp eq i32 %146, 1
-  br i1 %147, label %148, label %155
+144:                                              ; preds = %130, %124
+  %145 = load ptr, ptr %8, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 2
+  %147 = load i8, ptr %146, align 1
+  %148 = sext i8 %147 to i32
+  %149 = icmp eq i32 %148, 1
+  br i1 %149, label %150, label %157
 
-148:                                              ; preds = %142
-  %149 = load ptr, ptr %8, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 3
-  %151 = load i8, ptr %150, align 1
-  %152 = sext i8 %151 to i32
-  %153 = icmp eq i32 %152, 2
-  br i1 %153, label %154, label %155
+150:                                              ; preds = %144
+  %151 = load ptr, ptr %8, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 3
+  %153 = load i8, ptr %152, align 1
+  %154 = sext i8 %153 to i32
+  %155 = icmp eq i32 %154, 2
+  br i1 %155, label %156, label %157
 
-154:                                              ; preds = %148
+156:                                              ; preds = %150
   store i32 1, ptr %3, align 4
-  br label %190
+  br label %192
 
-155:                                              ; preds = %148, %142
-  %156 = load ptr, ptr %8, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 2
-  %158 = load i8, ptr %157, align 1
-  %159 = sext i8 %158 to i32
-  %160 = icmp eq i32 %159, 5
-  br i1 %160, label %161, label %167
+157:                                              ; preds = %150, %144
+  %158 = load ptr, ptr %8, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 2
+  %160 = load i8, ptr %159, align 1
+  %161 = sext i8 %160 to i32
+  %162 = icmp eq i32 %161, 5
+  br i1 %162, label %163, label %169
 
-161:                                              ; preds = %155
-  %162 = load ptr, ptr %8, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 3
-  %164 = load i8, ptr %163, align 1
-  %165 = sext i8 %164 to i32
-  %166 = icmp eq i32 %165, 6
-  br i1 %166, label %179, label %167
+163:                                              ; preds = %157
+  %164 = load ptr, ptr %8, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 3
+  %166 = load i8, ptr %165, align 1
+  %167 = sext i8 %166 to i32
+  %168 = icmp eq i32 %167, 6
+  br i1 %168, label %181, label %169
 
-167:                                              ; preds = %161, %155
-  %168 = load ptr, ptr %8, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 2
-  %170 = load i8, ptr %169, align 1
-  %171 = sext i8 %170 to i32
-  %172 = icmp eq i32 %171, 6
-  br i1 %172, label %173, label %180
+169:                                              ; preds = %163, %157
+  %170 = load ptr, ptr %8, align 8
+  %171 = getelementptr inbounds i8, ptr %170, i64 2
+  %172 = load i8, ptr %171, align 1
+  %173 = sext i8 %172 to i32
+  %174 = icmp eq i32 %173, 6
+  br i1 %174, label %175, label %182
 
-173:                                              ; preds = %167
-  %174 = load ptr, ptr %8, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 3
-  %176 = load i8, ptr %175, align 1
-  %177 = sext i8 %176 to i32
-  %178 = icmp eq i32 %177, 6
-  br i1 %178, label %179, label %180
+175:                                              ; preds = %169
+  %176 = load ptr, ptr %8, align 8
+  %177 = getelementptr inbounds i8, ptr %176, i64 3
+  %178 = load i8, ptr %177, align 1
+  %179 = sext i8 %178 to i32
+  %180 = icmp eq i32 %179, 6
+  br i1 %180, label %181, label %182
 
-179:                                              ; preds = %173, %161
+181:                                              ; preds = %175, %163
   store i32 1, ptr %3, align 4
-  br label %190
+  br label %192
 
-180:                                              ; preds = %173, %167
-  br label %181
+182:                                              ; preds = %175, %169
+  br label %183
 
-181:                                              ; preds = %180, %116, %110
-  %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i32 1
-  store ptr %183, ptr %8, align 8
-  %184 = load i64, ptr %7, align 8
-  %185 = add nsw i64 %184, 1
-  store i64 %185, ptr %7, align 8
-  br label %105, !llvm.loop !5
+183:                                              ; preds = %182, %118, %112
+  %184 = load ptr, ptr %8, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i32 1
+  store ptr %185, ptr %8, align 8
+  %186 = load i64, ptr %7, align 8
+  %187 = add nsw i64 %186, 1
+  store i64 %187, ptr %7, align 8
+  br label %107, !llvm.loop !5
 
-186:                                              ; preds = %105
-  %187 = load ptr, ptr %4, align 8
-  %188 = load i64, ptr %7, align 8
-  %189 = call i64 @__archive_read_consume(ptr noundef %187, i64 noundef %188)
-  br label %95
+188:                                              ; preds = %107
+  %189 = load ptr, ptr %4, align 8
+  %190 = load i64, ptr %7, align 8
+  %191 = call i64 @__archive_read_consume(ptr noundef %189, i64 noundef %190)
+  br label %97
 
-190:                                              ; preds = %179, %154, %134, %100, %49
-  %191 = load i32, ptr %3, align 4
-  ret i32 %191
+192:                                              ; preds = %181, %156, %136, %102, %49
+  %193 = load i32, ptr %3, align 4
+  ret i32 %193
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1842,106 +1844,109 @@ define internal i32 @archive_read_format_zip_cleanup(ptr noundef %0) #0 {
   %51 = getelementptr inbounds %struct.zip, ptr %50, i32 0, i32 32
   %52 = load i8, ptr %51, align 8
   %53 = icmp ne i8 %52, 0
-  br i1 %53, label %54, label %58
+  br i1 %53, label %54, label %59
 
 54:                                               ; preds = %46
-  %55 = load ptr, ptr getelementptr inbounds (%struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 2), align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.zip, ptr %56, i32 0, i32 31
-  call void %55(ptr noundef %57)
-  br label %58
+  %55 = getelementptr inbounds %struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds %struct.zip, ptr %57, i32 0, i32 31
+  call void %56(ptr noundef %58)
+  br label %59
 
-58:                                               ; preds = %54, %46
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.zip, ptr %59, i32 0, i32 6
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %79
+59:                                               ; preds = %54, %46
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds %struct.zip, ptr %60, i32 0, i32 6
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %80
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.zip, ptr %64, i32 0, i32 6
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %4, align 8
-  br label %67
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds %struct.zip, ptr %65, i32 0, i32 6
+  %67 = load ptr, ptr %66, align 8
+  store ptr %67, ptr %4, align 8
+  br label %68
 
-67:                                               ; preds = %70, %63
-  %68 = load ptr, ptr %4, align 8
-  %69 = icmp ne ptr %68, null
-  br i1 %69, label %70, label %78
+68:                                               ; preds = %71, %64
+  %69 = load ptr, ptr %4, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %79
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.zip_entry, ptr %71, i32 0, i32 1
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %5, align 8
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.zip_entry, ptr %74, i32 0, i32 7
-  call void @archive_string_free(ptr noundef %75)
-  %76 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %76) #10
-  %77 = load ptr, ptr %5, align 8
-  store ptr %77, ptr %4, align 8
-  br label %67, !llvm.loop !9
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds %struct.zip_entry, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %5, align 8
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds %struct.zip_entry, ptr %75, i32 0, i32 7
+  call void @archive_string_free(ptr noundef %76)
+  %77 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %77) #10
+  %78 = load ptr, ptr %5, align 8
+  store ptr %78, ptr %4, align 8
+  br label %68, !llvm.loop !9
 
-78:                                               ; preds = %67
-  br label %79
+79:                                               ; preds = %68
+  br label %80
 
-79:                                               ; preds = %78, %58
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.zip, ptr %80, i32 0, i32 40
-  %82 = load ptr, ptr %81, align 8
-  call void @free(ptr noundef %82) #10
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.zip, ptr %83, i32 0, i32 48
-  %85 = load i8, ptr %84, align 8
-  %86 = icmp ne i8 %85, 0
-  br i1 %86, label %87, label %92
+80:                                               ; preds = %79, %59
+  %81 = load ptr, ptr %3, align 8
+  %82 = getelementptr inbounds %struct.zip, ptr %81, i32 0, i32 40
+  %83 = load ptr, ptr %82, align 8
+  call void @free(ptr noundef %83) #10
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds %struct.zip, ptr %84, i32 0, i32 48
+  %86 = load i8, ptr %85, align 8
+  %87 = icmp ne i8 %86, 0
+  br i1 %87, label %88, label %94
 
-87:                                               ; preds = %79
-  %88 = load ptr, ptr getelementptr inbounds (%struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 3), align 8
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.zip, ptr %89, i32 0, i32 47
-  %91 = call i32 %88(ptr noundef %90)
-  br label %92
+88:                                               ; preds = %80
+  %89 = getelementptr inbounds %struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 3
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds %struct.zip, ptr %91, i32 0, i32 47
+  %93 = call i32 %90(ptr noundef %92)
+  br label %94
 
-92:                                               ; preds = %87, %79
-  %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds %struct.zip, ptr %93, i32 0, i32 50
-  %95 = load i8, ptr %94, align 8
-  %96 = icmp ne i8 %95, 0
-  br i1 %96, label %97, label %101
+94:                                               ; preds = %88, %80
+  %95 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds %struct.zip, ptr %95, i32 0, i32 50
+  %97 = load i8, ptr %96, align 8
+  %98 = icmp ne i8 %97, 0
+  br i1 %98, label %99, label %104
 
-97:                                               ; preds = %92
-  %98 = load ptr, ptr getelementptr inbounds (%struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 3), align 8
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.zip, ptr %99, i32 0, i32 49
-  call void %98(ptr noundef %100)
-  br label %101
-
-101:                                              ; preds = %97, %92
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds %struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 3
+  %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.zip, ptr %102, i32 0, i32 58
-  %104 = load ptr, ptr %103, align 8
-  call void @free(ptr noundef %104) #10
+  %103 = getelementptr inbounds %struct.zip, ptr %102, i32 0, i32 49
+  call void %101(ptr noundef %103)
+  br label %104
+
+104:                                              ; preds = %99, %94
   %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.zip, ptr %105, i32 0, i32 59
+  %106 = getelementptr inbounds %struct.zip, ptr %105, i32 0, i32 58
   %107 = load ptr, ptr %106, align 8
   call void @free(ptr noundef %107) #10
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.zip, ptr %108, i32 0, i32 60
+  %109 = getelementptr inbounds %struct.zip, ptr %108, i32 0, i32 59
   %110 = load ptr, ptr %109, align 8
   call void @free(ptr noundef %110) #10
   %111 = load ptr, ptr %3, align 8
-  %112 = getelementptr inbounds %struct.zip, ptr %111, i32 0, i32 0
-  call void @archive_string_free(ptr noundef %112)
-  %113 = load ptr, ptr %3, align 8
+  %112 = getelementptr inbounds %struct.zip, ptr %111, i32 0, i32 60
+  %113 = load ptr, ptr %112, align 8
   call void @free(ptr noundef %113) #10
-  %114 = load ptr, ptr %2, align 8
-  %115 = getelementptr inbounds %struct.archive_read, ptr %114, i32 0, i32 13
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds %struct.archive_format_descriptor, ptr %116, i32 0, i32 0
-  store ptr null, ptr %117, align 8
+  %114 = load ptr, ptr %3, align 8
+  %115 = getelementptr inbounds %struct.zip, ptr %114, i32 0, i32 0
+  call void @archive_string_free(ptr noundef %115)
+  %116 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %116) #10
+  %117 = load ptr, ptr %2, align 8
+  %118 = getelementptr inbounds %struct.archive_read, ptr %117, i32 0, i32 13
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds %struct.archive_format_descriptor, ptr %119, i32 0, i32 0
+  store ptr null, ptr %120, align 8
   ret i32 0
 }
 
@@ -2287,7 +2292,7 @@ define internal i32 @archive_read_format_zip_seekable_read_header(ptr noundef %0
 49:                                               ; preds = %42
   %50 = load i32, ptr %9, align 4
   store i32 %50, ptr %3, align 4
-  br label %189
+  br label %191
 
 51:                                               ; preds = %42
   %52 = load ptr, ptr %6, align 8
@@ -2330,7 +2335,7 @@ define internal i32 @archive_read_format_zip_seekable_read_header(ptr noundef %0
 
 78:                                               ; preds = %73
   store i32 1, ptr %3, align 4
-  br label %189
+  br label %191
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %6, align 8
@@ -2364,139 +2369,141 @@ define internal i32 @archive_read_format_zip_seekable_read_header(ptr noundef %0
   %100 = getelementptr inbounds %struct.zip, ptr %99, i32 0, i32 48
   %101 = load i8, ptr %100, align 8
   %102 = icmp ne i8 %101, 0
-  br i1 %102, label %103, label %108
+  br i1 %102, label %103, label %109
 
 103:                                              ; preds = %98
-  %104 = load ptr, ptr getelementptr inbounds (%struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 3), align 8
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct.zip, ptr %105, i32 0, i32 47
-  %107 = call i32 %104(ptr noundef %106)
-  br label %108
+  %104 = getelementptr inbounds %struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 3
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %6, align 8
+  %107 = getelementptr inbounds %struct.zip, ptr %106, i32 0, i32 47
+  %108 = call i32 %105(ptr noundef %107)
+  br label %109
 
-108:                                              ; preds = %103, %98
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct.zip, ptr %109, i32 0, i32 50
-  %111 = load i8, ptr %110, align 8
-  %112 = icmp ne i8 %111, 0
-  br i1 %112, label %113, label %117
+109:                                              ; preds = %103, %98
+  %110 = load ptr, ptr %6, align 8
+  %111 = getelementptr inbounds %struct.zip, ptr %110, i32 0, i32 50
+  %112 = load i8, ptr %111, align 8
+  %113 = icmp ne i8 %112, 0
+  br i1 %113, label %114, label %119
 
-113:                                              ; preds = %108
-  %114 = load ptr, ptr getelementptr inbounds (%struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 3), align 8
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %struct.zip, ptr %115, i32 0, i32 49
-  call void %114(ptr noundef %116)
-  br label %117
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds %struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 3
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds %struct.zip, ptr %117, i32 0, i32 49
+  call void %116(ptr noundef %118)
+  br label %119
 
-117:                                              ; preds = %113, %108
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct.zip, ptr %118, i32 0, i32 50
-  store i8 0, ptr %119, align 8
+119:                                              ; preds = %114, %109
   %120 = load ptr, ptr %6, align 8
-  %121 = getelementptr inbounds %struct.zip, ptr %120, i32 0, i32 48
+  %121 = getelementptr inbounds %struct.zip, ptr %120, i32 0, i32 50
   store i8 0, ptr %121, align 8
   %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds %struct.zip, ptr %122, i32 0, i32 46
-  store i8 0, ptr %123, align 4
-  %124 = load ptr, ptr %4, align 8
-  call void @__archive_read_reset_passphrase(ptr noundef %124)
-  %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds %struct.archive_read, ptr %125, i32 0, i32 0
-  %127 = call i64 @archive_filter_bytes(ptr noundef %126, i32 noundef 0)
-  store i64 %127, ptr %8, align 8
-  %128 = load i64, ptr %8, align 8
-  %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr inbounds %struct.zip, ptr %129, i32 0, i32 10
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %struct.zip_entry, ptr %131, i32 0, i32 2
-  %133 = load i64, ptr %132, align 8
-  %134 = icmp slt i64 %128, %133
-  br i1 %134, label %135, label %145
+  %123 = getelementptr inbounds %struct.zip, ptr %122, i32 0, i32 48
+  store i8 0, ptr %123, align 8
+  %124 = load ptr, ptr %6, align 8
+  %125 = getelementptr inbounds %struct.zip, ptr %124, i32 0, i32 46
+  store i8 0, ptr %125, align 4
+  %126 = load ptr, ptr %4, align 8
+  call void @__archive_read_reset_passphrase(ptr noundef %126)
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds %struct.archive_read, ptr %127, i32 0, i32 0
+  %129 = call i64 @archive_filter_bytes(ptr noundef %128, i32 noundef 0)
+  store i64 %129, ptr %8, align 8
+  %130 = load i64, ptr %8, align 8
+  %131 = load ptr, ptr %6, align 8
+  %132 = getelementptr inbounds %struct.zip, ptr %131, i32 0, i32 10
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds %struct.zip_entry, ptr %133, i32 0, i32 2
+  %135 = load i64, ptr %134, align 8
+  %136 = icmp slt i64 %130, %135
+  br i1 %136, label %137, label %147
 
-135:                                              ; preds = %117
-  %136 = load ptr, ptr %4, align 8
-  %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds %struct.zip, ptr %137, i32 0, i32 10
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds %struct.zip_entry, ptr %139, i32 0, i32 2
-  %141 = load i64, ptr %140, align 8
-  %142 = load i64, ptr %8, align 8
-  %143 = sub nsw i64 %141, %142
-  %144 = call i64 @__archive_read_consume(ptr noundef %136, i64 noundef %143)
-  br label %162
+137:                                              ; preds = %119
+  %138 = load ptr, ptr %4, align 8
+  %139 = load ptr, ptr %6, align 8
+  %140 = getelementptr inbounds %struct.zip, ptr %139, i32 0, i32 10
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds %struct.zip_entry, ptr %141, i32 0, i32 2
+  %143 = load i64, ptr %142, align 8
+  %144 = load i64, ptr %8, align 8
+  %145 = sub nsw i64 %143, %144
+  %146 = call i64 @__archive_read_consume(ptr noundef %138, i64 noundef %145)
+  br label %164
 
-145:                                              ; preds = %117
-  %146 = load i64, ptr %8, align 8
-  %147 = load ptr, ptr %6, align 8
-  %148 = getelementptr inbounds %struct.zip, ptr %147, i32 0, i32 10
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.zip_entry, ptr %149, i32 0, i32 2
-  %151 = load i64, ptr %150, align 8
-  %152 = icmp ne i64 %146, %151
-  br i1 %152, label %153, label %161
+147:                                              ; preds = %119
+  %148 = load i64, ptr %8, align 8
+  %149 = load ptr, ptr %6, align 8
+  %150 = getelementptr inbounds %struct.zip, ptr %149, i32 0, i32 10
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds %struct.zip_entry, ptr %151, i32 0, i32 2
+  %153 = load i64, ptr %152, align 8
+  %154 = icmp ne i64 %148, %153
+  br i1 %154, label %155, label %163
 
-153:                                              ; preds = %145
-  %154 = load ptr, ptr %4, align 8
-  %155 = load ptr, ptr %6, align 8
-  %156 = getelementptr inbounds %struct.zip, ptr %155, i32 0, i32 10
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %struct.zip_entry, ptr %157, i32 0, i32 2
-  %159 = load i64, ptr %158, align 8
-  %160 = call i64 @__archive_read_seek(ptr noundef %154, i64 noundef %159, i32 noundef 0)
-  br label %161
+155:                                              ; preds = %147
+  %156 = load ptr, ptr %4, align 8
+  %157 = load ptr, ptr %6, align 8
+  %158 = getelementptr inbounds %struct.zip, ptr %157, i32 0, i32 10
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds %struct.zip_entry, ptr %159, i32 0, i32 2
+  %161 = load i64, ptr %160, align 8
+  %162 = call i64 @__archive_read_seek(ptr noundef %156, i64 noundef %161, i32 noundef 0)
+  br label %163
 
-161:                                              ; preds = %153, %145
-  br label %162
+163:                                              ; preds = %155, %147
+  br label %164
 
-162:                                              ; preds = %161, %135
-  %163 = load ptr, ptr %6, align 8
-  %164 = getelementptr inbounds %struct.zip, ptr %163, i32 0, i32 9
-  store i64 0, ptr %164, align 8
-  %165 = load ptr, ptr %4, align 8
-  %166 = load ptr, ptr %5, align 8
-  %167 = load ptr, ptr %6, align 8
-  %168 = call i32 @zip_read_local_file_header(ptr noundef %165, ptr noundef %166, ptr noundef %167)
-  store i32 %168, ptr %9, align 4
-  %169 = load i32, ptr %9, align 4
-  %170 = icmp ne i32 %169, 0
-  br i1 %170, label %171, label %173
+164:                                              ; preds = %163, %137
+  %165 = load ptr, ptr %6, align 8
+  %166 = getelementptr inbounds %struct.zip, ptr %165, i32 0, i32 9
+  store i64 0, ptr %166, align 8
+  %167 = load ptr, ptr %4, align 8
+  %168 = load ptr, ptr %5, align 8
+  %169 = load ptr, ptr %6, align 8
+  %170 = call i32 @zip_read_local_file_header(ptr noundef %167, ptr noundef %168, ptr noundef %169)
+  store i32 %170, ptr %9, align 4
+  %171 = load i32, ptr %9, align 4
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %175
 
-171:                                              ; preds = %162
-  %172 = load i32, ptr %9, align 4
-  store i32 %172, ptr %3, align 4
+173:                                              ; preds = %164
+  %174 = load i32, ptr %9, align 4
+  store i32 %174, ptr %3, align 4
+  br label %191
+
+175:                                              ; preds = %164
+  %176 = load ptr, ptr %7, align 8
+  %177 = icmp ne ptr %176, null
+  br i1 %177, label %178, label %189
+
+178:                                              ; preds = %175
+  %179 = load ptr, ptr %4, align 8
+  %180 = load ptr, ptr %5, align 8
+  %181 = load ptr, ptr %7, align 8
+  %182 = call i32 @zip_read_mac_metadata(ptr noundef %179, ptr noundef %180, ptr noundef %181)
+  store i32 %182, ptr %11, align 4
+  %183 = load i32, ptr %11, align 4
+  %184 = load i32, ptr %10, align 4
+  %185 = icmp slt i32 %183, %184
+  br i1 %185, label %186, label %188
+
+186:                                              ; preds = %178
+  %187 = load i32, ptr %11, align 4
+  store i32 %187, ptr %10, align 4
+  br label %188
+
+188:                                              ; preds = %186, %178
   br label %189
 
-173:                                              ; preds = %162
-  %174 = load ptr, ptr %7, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %176, label %187
+189:                                              ; preds = %188, %175
+  %190 = load i32, ptr %10, align 4
+  store i32 %190, ptr %3, align 4
+  br label %191
 
-176:                                              ; preds = %173
-  %177 = load ptr, ptr %4, align 8
-  %178 = load ptr, ptr %5, align 8
-  %179 = load ptr, ptr %7, align 8
-  %180 = call i32 @zip_read_mac_metadata(ptr noundef %177, ptr noundef %178, ptr noundef %179)
-  store i32 %180, ptr %11, align 4
-  %181 = load i32, ptr %11, align 4
-  %182 = load i32, ptr %10, align 4
-  %183 = icmp slt i32 %181, %182
-  br i1 %183, label %184, label %186
-
-184:                                              ; preds = %176
-  %185 = load i32, ptr %11, align 4
-  store i32 %185, ptr %10, align 4
-  br label %186
-
-186:                                              ; preds = %184, %176
-  br label %187
-
-187:                                              ; preds = %186, %173
-  %188 = load i32, ptr %10, align 4
-  store i32 %188, ptr %3, align 4
-  br label %189
-
-189:                                              ; preds = %187, %171, %78, %49
-  %190 = load i32, ptr %3, align 4
-  ret i32 %190
+191:                                              ; preds = %189, %173, %78, %49
+  %192 = load i32, ptr %3, align 4
+  ret i32 %192
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5375,7 +5382,7 @@ define internal i32 @zip_read_data_deflate(ptr noundef %0, ptr noundef %1, ptr n
   %41 = getelementptr inbounds %struct.archive_read, ptr %40, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %41, i32 noundef 12, ptr noundef @.str.34)
   store i32 -30, ptr %5, align 4
-  br label %367
+  br label %369
 
 42:                                               ; preds = %26
   br label %43
@@ -5392,7 +5399,7 @@ define internal i32 @zip_read_data_deflate(ptr noundef %0, ptr noundef %1, ptr n
 49:                                               ; preds = %43
   %50 = load i32, ptr %14, align 4
   store i32 %50, ptr %5, align 4
-  br label %367
+  br label %369
 
 51:                                               ; preds = %43
   %52 = load ptr, ptr %6, align 8
@@ -5434,7 +5441,7 @@ define internal i32 @zip_read_data_deflate(ptr noundef %0, ptr noundef %1, ptr n
   %77 = getelementptr inbounds %struct.archive_read, ptr %76, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %77, i32 noundef 84, ptr noundef @.str.35)
   store i32 -30, ptr %5, align 4
-  br label %367
+  br label %369
 
 78:                                               ; preds = %72
   %79 = load ptr, ptr %10, align 8
@@ -5450,7 +5457,7 @@ define internal i32 @zip_read_data_deflate(ptr noundef %0, ptr noundef %1, ptr n
   %87 = load i8, ptr %86, align 8
   %88 = sext i8 %87 to i32
   %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %212
+  br i1 %89, label %90, label %213
 
 90:                                               ; preds = %84, %78
   %91 = load ptr, ptr %10, align 8
@@ -5458,7 +5465,7 @@ define internal i32 @zip_read_data_deflate(ptr noundef %0, ptr noundef %1, ptr n
   %93 = load i64, ptr %92, align 8
   %94 = load i64, ptr %11, align 8
   %95 = icmp ult i64 %93, %94
-  br i1 %95, label %96, label %205
+  br i1 %95, label %96, label %206
 
 96:                                               ; preds = %90
   %97 = load ptr, ptr %10, align 8
@@ -5553,7 +5560,7 @@ define internal i32 @zip_read_data_deflate(ptr noundef %0, ptr noundef %1, ptr n
 162:                                              ; preds = %161, %128, %119
   %163 = load i64, ptr %15, align 8
   %164 = icmp ugt i64 %163, 0
-  br i1 %164, label %165, label %204
+  br i1 %164, label %165, label %205
 
 165:                                              ; preds = %162
   %166 = load ptr, ptr %10, align 8
@@ -5576,280 +5583,282 @@ define internal i32 @zip_read_data_deflate(ptr noundef %0, ptr noundef %1, ptr n
   %181 = getelementptr inbounds i8, ptr %177, i64 %180
   %182 = load i64, ptr %15, align 8
   call void @trad_enc_decrypt_update(ptr noundef %172, ptr noundef %173, i64 noundef %174, ptr noundef %181, i64 noundef %182)
-  br label %198
+  br label %199
 
 183:                                              ; preds = %165
   %184 = load i64, ptr %15, align 8
   store i64 %184, ptr %16, align 8
-  %185 = load ptr, ptr getelementptr inbounds (%struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 2), align 8
-  %186 = load ptr, ptr %10, align 8
-  %187 = getelementptr inbounds %struct.zip, ptr %186, i32 0, i32 47
-  %188 = load ptr, ptr %12, align 8
-  %189 = load i64, ptr %15, align 8
-  %190 = load ptr, ptr %10, align 8
-  %191 = getelementptr inbounds %struct.zip, ptr %190, i32 0, i32 41
-  %192 = load ptr, ptr %191, align 8
-  %193 = load ptr, ptr %10, align 8
-  %194 = getelementptr inbounds %struct.zip, ptr %193, i32 0, i32 43
-  %195 = load i64, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %192, i64 %195
-  %197 = call i32 %185(ptr noundef %187, ptr noundef %188, i64 noundef %189, ptr noundef %196, ptr noundef %16)
-  br label %198
+  %185 = getelementptr inbounds %struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 2
+  %186 = load ptr, ptr %185, align 8
+  %187 = load ptr, ptr %10, align 8
+  %188 = getelementptr inbounds %struct.zip, ptr %187, i32 0, i32 47
+  %189 = load ptr, ptr %12, align 8
+  %190 = load i64, ptr %15, align 8
+  %191 = load ptr, ptr %10, align 8
+  %192 = getelementptr inbounds %struct.zip, ptr %191, i32 0, i32 41
+  %193 = load ptr, ptr %192, align 8
+  %194 = load ptr, ptr %10, align 8
+  %195 = getelementptr inbounds %struct.zip, ptr %194, i32 0, i32 43
+  %196 = load i64, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %193, i64 %196
+  %198 = call i32 %186(ptr noundef %188, ptr noundef %189, i64 noundef %190, ptr noundef %197, ptr noundef %16)
+  br label %199
 
-198:                                              ; preds = %183, %170
-  %199 = load i64, ptr %15, align 8
-  %200 = load ptr, ptr %10, align 8
-  %201 = getelementptr inbounds %struct.zip, ptr %200, i32 0, i32 43
-  %202 = load i64, ptr %201, align 8
-  %203 = add i64 %202, %199
-  store i64 %203, ptr %201, align 8
-  br label %204
-
-204:                                              ; preds = %198, %162
+199:                                              ; preds = %183, %170
+  %200 = load i64, ptr %15, align 8
+  %201 = load ptr, ptr %10, align 8
+  %202 = getelementptr inbounds %struct.zip, ptr %201, i32 0, i32 43
+  %203 = load i64, ptr %202, align 8
+  %204 = add i64 %203, %200
+  store i64 %204, ptr %202, align 8
   br label %205
 
-205:                                              ; preds = %204, %90
-  %206 = load ptr, ptr %10, align 8
-  %207 = getelementptr inbounds %struct.zip, ptr %206, i32 0, i32 43
-  %208 = load i64, ptr %207, align 8
-  store i64 %208, ptr %11, align 8
-  %209 = load ptr, ptr %10, align 8
-  %210 = getelementptr inbounds %struct.zip, ptr %209, i32 0, i32 41
-  %211 = load ptr, ptr %210, align 8
-  store ptr %211, ptr %12, align 8
-  br label %212
+205:                                              ; preds = %199, %162
+  br label %206
 
-212:                                              ; preds = %205, %84
-  %213 = load ptr, ptr %12, align 8
-  %214 = ptrtoint ptr %213 to i64
-  %215 = inttoptr i64 %214 to ptr
-  %216 = load ptr, ptr %10, align 8
-  %217 = getelementptr inbounds %struct.zip, ptr %216, i32 0, i32 21
-  %218 = getelementptr inbounds %struct.z_stream_s, ptr %217, i32 0, i32 0
-  store ptr %215, ptr %218, align 8
-  %219 = load i64, ptr %11, align 8
-  %220 = trunc i64 %219 to i32
-  %221 = load ptr, ptr %10, align 8
-  %222 = getelementptr inbounds %struct.zip, ptr %221, i32 0, i32 21
-  %223 = getelementptr inbounds %struct.z_stream_s, ptr %222, i32 0, i32 1
-  store i32 %220, ptr %223, align 8
-  %224 = load ptr, ptr %10, align 8
-  %225 = getelementptr inbounds %struct.zip, ptr %224, i32 0, i32 21
-  %226 = getelementptr inbounds %struct.z_stream_s, ptr %225, i32 0, i32 2
-  store i64 0, ptr %226, align 8
-  %227 = load ptr, ptr %10, align 8
-  %228 = getelementptr inbounds %struct.zip, ptr %227, i32 0, i32 19
-  %229 = load ptr, ptr %228, align 8
-  %230 = load ptr, ptr %10, align 8
-  %231 = getelementptr inbounds %struct.zip, ptr %230, i32 0, i32 21
-  %232 = getelementptr inbounds %struct.z_stream_s, ptr %231, i32 0, i32 3
-  store ptr %229, ptr %232, align 8
-  %233 = load ptr, ptr %10, align 8
-  %234 = getelementptr inbounds %struct.zip, ptr %233, i32 0, i32 20
-  %235 = load i64, ptr %234, align 8
-  %236 = trunc i64 %235 to i32
-  %237 = load ptr, ptr %10, align 8
-  %238 = getelementptr inbounds %struct.zip, ptr %237, i32 0, i32 21
-  %239 = getelementptr inbounds %struct.z_stream_s, ptr %238, i32 0, i32 4
-  store i32 %236, ptr %239, align 8
-  %240 = load ptr, ptr %10, align 8
-  %241 = getelementptr inbounds %struct.zip, ptr %240, i32 0, i32 21
-  %242 = getelementptr inbounds %struct.z_stream_s, ptr %241, i32 0, i32 5
-  store i64 0, ptr %242, align 8
-  %243 = load ptr, ptr %10, align 8
-  %244 = getelementptr inbounds %struct.zip, ptr %243, i32 0, i32 21
-  %245 = call i32 @cm_zlib_inflate(ptr noundef %244, i32 noundef 0)
-  store i32 %245, ptr %14, align 4
-  %246 = load i32, ptr %14, align 4
-  switch i32 %246, label %254 [
-    i32 0, label %247
-    i32 1, label %248
-    i32 -4, label %251
+206:                                              ; preds = %205, %90
+  %207 = load ptr, ptr %10, align 8
+  %208 = getelementptr inbounds %struct.zip, ptr %207, i32 0, i32 43
+  %209 = load i64, ptr %208, align 8
+  store i64 %209, ptr %11, align 8
+  %210 = load ptr, ptr %10, align 8
+  %211 = getelementptr inbounds %struct.zip, ptr %210, i32 0, i32 41
+  %212 = load ptr, ptr %211, align 8
+  store ptr %212, ptr %12, align 8
+  br label %213
+
+213:                                              ; preds = %206, %84
+  %214 = load ptr, ptr %12, align 8
+  %215 = ptrtoint ptr %214 to i64
+  %216 = inttoptr i64 %215 to ptr
+  %217 = load ptr, ptr %10, align 8
+  %218 = getelementptr inbounds %struct.zip, ptr %217, i32 0, i32 21
+  %219 = getelementptr inbounds %struct.z_stream_s, ptr %218, i32 0, i32 0
+  store ptr %216, ptr %219, align 8
+  %220 = load i64, ptr %11, align 8
+  %221 = trunc i64 %220 to i32
+  %222 = load ptr, ptr %10, align 8
+  %223 = getelementptr inbounds %struct.zip, ptr %222, i32 0, i32 21
+  %224 = getelementptr inbounds %struct.z_stream_s, ptr %223, i32 0, i32 1
+  store i32 %221, ptr %224, align 8
+  %225 = load ptr, ptr %10, align 8
+  %226 = getelementptr inbounds %struct.zip, ptr %225, i32 0, i32 21
+  %227 = getelementptr inbounds %struct.z_stream_s, ptr %226, i32 0, i32 2
+  store i64 0, ptr %227, align 8
+  %228 = load ptr, ptr %10, align 8
+  %229 = getelementptr inbounds %struct.zip, ptr %228, i32 0, i32 19
+  %230 = load ptr, ptr %229, align 8
+  %231 = load ptr, ptr %10, align 8
+  %232 = getelementptr inbounds %struct.zip, ptr %231, i32 0, i32 21
+  %233 = getelementptr inbounds %struct.z_stream_s, ptr %232, i32 0, i32 3
+  store ptr %230, ptr %233, align 8
+  %234 = load ptr, ptr %10, align 8
+  %235 = getelementptr inbounds %struct.zip, ptr %234, i32 0, i32 20
+  %236 = load i64, ptr %235, align 8
+  %237 = trunc i64 %236 to i32
+  %238 = load ptr, ptr %10, align 8
+  %239 = getelementptr inbounds %struct.zip, ptr %238, i32 0, i32 21
+  %240 = getelementptr inbounds %struct.z_stream_s, ptr %239, i32 0, i32 4
+  store i32 %237, ptr %240, align 8
+  %241 = load ptr, ptr %10, align 8
+  %242 = getelementptr inbounds %struct.zip, ptr %241, i32 0, i32 21
+  %243 = getelementptr inbounds %struct.z_stream_s, ptr %242, i32 0, i32 5
+  store i64 0, ptr %243, align 8
+  %244 = load ptr, ptr %10, align 8
+  %245 = getelementptr inbounds %struct.zip, ptr %244, i32 0, i32 21
+  %246 = call i32 @cm_zlib_inflate(ptr noundef %245, i32 noundef 0)
+  store i32 %246, ptr %14, align 4
+  %247 = load i32, ptr %14, align 4
+  switch i32 %247, label %255 [
+    i32 0, label %248
+    i32 1, label %249
+    i32 -4, label %252
   ]
 
-247:                                              ; preds = %212
-  br label %258
+248:                                              ; preds = %213
+  br label %259
 
-248:                                              ; preds = %212
-  %249 = load ptr, ptr %10, align 8
-  %250 = getelementptr inbounds %struct.zip, ptr %249, i32 0, i32 18
-  store i8 1, ptr %250, align 2
-  br label %258
+249:                                              ; preds = %213
+  %250 = load ptr, ptr %10, align 8
+  %251 = getelementptr inbounds %struct.zip, ptr %250, i32 0, i32 18
+  store i8 1, ptr %251, align 2
+  br label %259
 
-251:                                              ; preds = %212
-  %252 = load ptr, ptr %6, align 8
-  %253 = getelementptr inbounds %struct.archive_read, ptr %252, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %253, i32 noundef 12, ptr noundef @.str.36)
+252:                                              ; preds = %213
+  %253 = load ptr, ptr %6, align 8
+  %254 = getelementptr inbounds %struct.archive_read, ptr %253, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %254, i32 noundef 12, ptr noundef @.str.36)
   store i32 -30, ptr %5, align 4
-  br label %367
+  br label %369
 
-254:                                              ; preds = %212
-  %255 = load ptr, ptr %6, align 8
-  %256 = getelementptr inbounds %struct.archive_read, ptr %255, i32 0, i32 0
-  %257 = load i32, ptr %14, align 4
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %256, i32 noundef -1, ptr noundef @.str.37, i32 noundef %257)
+255:                                              ; preds = %213
+  %256 = load ptr, ptr %6, align 8
+  %257 = getelementptr inbounds %struct.archive_read, ptr %256, i32 0, i32 0
+  %258 = load i32, ptr %14, align 4
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %257, i32 noundef -1, ptr noundef @.str.37, i32 noundef %258)
   store i32 -30, ptr %5, align 4
-  br label %367
+  br label %369
 
-258:                                              ; preds = %248, %247
-  %259 = load ptr, ptr %10, align 8
-  %260 = getelementptr inbounds %struct.zip, ptr %259, i32 0, i32 21
-  %261 = getelementptr inbounds %struct.z_stream_s, ptr %260, i32 0, i32 2
-  %262 = load i64, ptr %261, align 8
-  store i64 %262, ptr %11, align 8
-  %263 = load ptr, ptr %10, align 8
-  %264 = getelementptr inbounds %struct.zip, ptr %263, i32 0, i32 46
-  %265 = load i8, ptr %264, align 4
-  %266 = sext i8 %265 to i32
-  %267 = icmp ne i32 %266, 0
-  br i1 %267, label %274, label %268
+259:                                              ; preds = %249, %248
+  %260 = load ptr, ptr %10, align 8
+  %261 = getelementptr inbounds %struct.zip, ptr %260, i32 0, i32 21
+  %262 = getelementptr inbounds %struct.z_stream_s, ptr %261, i32 0, i32 2
+  %263 = load i64, ptr %262, align 8
+  store i64 %263, ptr %11, align 8
+  %264 = load ptr, ptr %10, align 8
+  %265 = getelementptr inbounds %struct.zip, ptr %264, i32 0, i32 46
+  %266 = load i8, ptr %265, align 4
+  %267 = sext i8 %266 to i32
+  %268 = icmp ne i32 %267, 0
+  br i1 %268, label %275, label %269
 
-268:                                              ; preds = %258
-  %269 = load ptr, ptr %10, align 8
-  %270 = getelementptr inbounds %struct.zip, ptr %269, i32 0, i32 48
-  %271 = load i8, ptr %270, align 8
-  %272 = sext i8 %271 to i32
-  %273 = icmp ne i32 %272, 0
-  br i1 %273, label %274, label %297
+269:                                              ; preds = %259
+  %270 = load ptr, ptr %10, align 8
+  %271 = getelementptr inbounds %struct.zip, ptr %270, i32 0, i32 48
+  %272 = load i8, ptr %271, align 8
+  %273 = sext i8 %272 to i32
+  %274 = icmp ne i32 %273, 0
+  br i1 %274, label %275, label %298
 
-274:                                              ; preds = %268, %258
-  %275 = load i64, ptr %11, align 8
-  %276 = load ptr, ptr %10, align 8
-  %277 = getelementptr inbounds %struct.zip, ptr %276, i32 0, i32 43
-  %278 = load i64, ptr %277, align 8
-  %279 = sub i64 %278, %275
-  store i64 %279, ptr %277, align 8
-  %280 = load ptr, ptr %10, align 8
-  %281 = getelementptr inbounds %struct.zip, ptr %280, i32 0, i32 43
-  %282 = load i64, ptr %281, align 8
-  %283 = icmp eq i64 %282, 0
-  br i1 %283, label %284, label %290
+275:                                              ; preds = %269, %259
+  %276 = load i64, ptr %11, align 8
+  %277 = load ptr, ptr %10, align 8
+  %278 = getelementptr inbounds %struct.zip, ptr %277, i32 0, i32 43
+  %279 = load i64, ptr %278, align 8
+  %280 = sub i64 %279, %276
+  store i64 %280, ptr %278, align 8
+  %281 = load ptr, ptr %10, align 8
+  %282 = getelementptr inbounds %struct.zip, ptr %281, i32 0, i32 43
+  %283 = load i64, ptr %282, align 8
+  %284 = icmp eq i64 %283, 0
+  br i1 %284, label %285, label %291
 
-284:                                              ; preds = %274
-  %285 = load ptr, ptr %10, align 8
-  %286 = getelementptr inbounds %struct.zip, ptr %285, i32 0, i32 40
-  %287 = load ptr, ptr %286, align 8
-  %288 = load ptr, ptr %10, align 8
-  %289 = getelementptr inbounds %struct.zip, ptr %288, i32 0, i32 41
-  store ptr %287, ptr %289, align 8
-  br label %296
-
-290:                                              ; preds = %274
-  %291 = load i64, ptr %11, align 8
-  %292 = load ptr, ptr %10, align 8
-  %293 = getelementptr inbounds %struct.zip, ptr %292, i32 0, i32 41
-  %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 %291
-  store ptr %295, ptr %293, align 8
-  br label %296
-
-296:                                              ; preds = %290, %284
+285:                                              ; preds = %275
+  %286 = load ptr, ptr %10, align 8
+  %287 = getelementptr inbounds %struct.zip, ptr %286, i32 0, i32 40
+  %288 = load ptr, ptr %287, align 8
+  %289 = load ptr, ptr %10, align 8
+  %290 = getelementptr inbounds %struct.zip, ptr %289, i32 0, i32 41
+  store ptr %288, ptr %290, align 8
   br label %297
 
-297:                                              ; preds = %296, %268
-  %298 = load ptr, ptr %10, align 8
-  %299 = getelementptr inbounds %struct.zip, ptr %298, i32 0, i32 50
-  %300 = load i8, ptr %299, align 8
-  %301 = icmp ne i8 %300, 0
-  br i1 %301, label %302, label %308
+291:                                              ; preds = %275
+  %292 = load i64, ptr %11, align 8
+  %293 = load ptr, ptr %10, align 8
+  %294 = getelementptr inbounds %struct.zip, ptr %293, i32 0, i32 41
+  %295 = load ptr, ptr %294, align 8
+  %296 = getelementptr inbounds i8, ptr %295, i64 %292
+  store ptr %296, ptr %294, align 8
+  br label %297
 
-302:                                              ; preds = %297
-  %303 = load ptr, ptr getelementptr inbounds (%struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 1), align 8
-  %304 = load ptr, ptr %10, align 8
-  %305 = getelementptr inbounds %struct.zip, ptr %304, i32 0, i32 49
-  %306 = load ptr, ptr %13, align 8
-  %307 = load i64, ptr %11, align 8
-  call void %303(ptr noundef %305, ptr noundef %306, i64 noundef %307)
-  br label %308
+297:                                              ; preds = %291, %285
+  br label %298
 
-308:                                              ; preds = %302, %297
-  %309 = load ptr, ptr %6, align 8
-  %310 = load i64, ptr %11, align 8
-  %311 = call i64 @__archive_read_consume(ptr noundef %309, i64 noundef %310)
+298:                                              ; preds = %297, %269
+  %299 = load ptr, ptr %10, align 8
+  %300 = getelementptr inbounds %struct.zip, ptr %299, i32 0, i32 50
+  %301 = load i8, ptr %300, align 8
+  %302 = icmp ne i8 %301, 0
+  br i1 %302, label %303, label %310
+
+303:                                              ; preds = %298
+  %304 = getelementptr inbounds %struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 1
+  %305 = load ptr, ptr %304, align 8
+  %306 = load ptr, ptr %10, align 8
+  %307 = getelementptr inbounds %struct.zip, ptr %306, i32 0, i32 49
+  %308 = load ptr, ptr %13, align 8
+  %309 = load i64, ptr %11, align 8
+  call void %305(ptr noundef %307, ptr noundef %308, i64 noundef %309)
+  br label %310
+
+310:                                              ; preds = %303, %298
+  %311 = load ptr, ptr %6, align 8
   %312 = load i64, ptr %11, align 8
-  %313 = load ptr, ptr %10, align 8
-  %314 = getelementptr inbounds %struct.zip, ptr %313, i32 0, i32 11
-  %315 = load i64, ptr %314, align 8
-  %316 = sub nsw i64 %315, %312
-  store i64 %316, ptr %314, align 8
-  %317 = load i64, ptr %11, align 8
-  %318 = load ptr, ptr %10, align 8
-  %319 = getelementptr inbounds %struct.zip, ptr %318, i32 0, i32 12
-  %320 = load i64, ptr %319, align 8
-  %321 = add nsw i64 %320, %317
-  store i64 %321, ptr %319, align 8
-  %322 = load ptr, ptr %10, align 8
-  %323 = getelementptr inbounds %struct.zip, ptr %322, i32 0, i32 21
-  %324 = getelementptr inbounds %struct.z_stream_s, ptr %323, i32 0, i32 5
-  %325 = load i64, ptr %324, align 8
-  %326 = load ptr, ptr %8, align 8
-  store i64 %325, ptr %326, align 8
-  %327 = load ptr, ptr %10, align 8
-  %328 = getelementptr inbounds %struct.zip, ptr %327, i32 0, i32 21
-  %329 = getelementptr inbounds %struct.z_stream_s, ptr %328, i32 0, i32 5
-  %330 = load i64, ptr %329, align 8
-  %331 = load ptr, ptr %10, align 8
-  %332 = getelementptr inbounds %struct.zip, ptr %331, i32 0, i32 13
-  %333 = load i64, ptr %332, align 8
-  %334 = add i64 %333, %330
-  store i64 %334, ptr %332, align 8
-  %335 = load ptr, ptr %10, align 8
-  %336 = getelementptr inbounds %struct.zip, ptr %335, i32 0, i32 19
-  %337 = load ptr, ptr %336, align 8
-  %338 = load ptr, ptr %7, align 8
-  store ptr %337, ptr %338, align 8
-  %339 = load ptr, ptr %10, align 8
-  %340 = getelementptr inbounds %struct.zip, ptr %339, i32 0, i32 18
-  %341 = load i8, ptr %340, align 2
-  %342 = sext i8 %341 to i32
-  %343 = icmp ne i32 %342, 0
-  br i1 %343, label %344, label %358
+  %313 = call i64 @__archive_read_consume(ptr noundef %311, i64 noundef %312)
+  %314 = load i64, ptr %11, align 8
+  %315 = load ptr, ptr %10, align 8
+  %316 = getelementptr inbounds %struct.zip, ptr %315, i32 0, i32 11
+  %317 = load i64, ptr %316, align 8
+  %318 = sub nsw i64 %317, %314
+  store i64 %318, ptr %316, align 8
+  %319 = load i64, ptr %11, align 8
+  %320 = load ptr, ptr %10, align 8
+  %321 = getelementptr inbounds %struct.zip, ptr %320, i32 0, i32 12
+  %322 = load i64, ptr %321, align 8
+  %323 = add nsw i64 %322, %319
+  store i64 %323, ptr %321, align 8
+  %324 = load ptr, ptr %10, align 8
+  %325 = getelementptr inbounds %struct.zip, ptr %324, i32 0, i32 21
+  %326 = getelementptr inbounds %struct.z_stream_s, ptr %325, i32 0, i32 5
+  %327 = load i64, ptr %326, align 8
+  %328 = load ptr, ptr %8, align 8
+  store i64 %327, ptr %328, align 8
+  %329 = load ptr, ptr %10, align 8
+  %330 = getelementptr inbounds %struct.zip, ptr %329, i32 0, i32 21
+  %331 = getelementptr inbounds %struct.z_stream_s, ptr %330, i32 0, i32 5
+  %332 = load i64, ptr %331, align 8
+  %333 = load ptr, ptr %10, align 8
+  %334 = getelementptr inbounds %struct.zip, ptr %333, i32 0, i32 13
+  %335 = load i64, ptr %334, align 8
+  %336 = add i64 %335, %332
+  store i64 %336, ptr %334, align 8
+  %337 = load ptr, ptr %10, align 8
+  %338 = getelementptr inbounds %struct.zip, ptr %337, i32 0, i32 19
+  %339 = load ptr, ptr %338, align 8
+  %340 = load ptr, ptr %7, align 8
+  store ptr %339, ptr %340, align 8
+  %341 = load ptr, ptr %10, align 8
+  %342 = getelementptr inbounds %struct.zip, ptr %341, i32 0, i32 18
+  %343 = load i8, ptr %342, align 2
+  %344 = sext i8 %343 to i32
+  %345 = icmp ne i32 %344, 0
+  br i1 %345, label %346, label %360
 
-344:                                              ; preds = %308
-  %345 = load ptr, ptr %10, align 8
-  %346 = getelementptr inbounds %struct.zip, ptr %345, i32 0, i32 50
-  %347 = load i8, ptr %346, align 8
-  %348 = sext i8 %347 to i32
-  %349 = icmp ne i32 %348, 0
-  br i1 %349, label %350, label %358
+346:                                              ; preds = %310
+  %347 = load ptr, ptr %10, align 8
+  %348 = getelementptr inbounds %struct.zip, ptr %347, i32 0, i32 50
+  %349 = load i8, ptr %348, align 8
+  %350 = sext i8 %349 to i32
+  %351 = icmp ne i32 %350, 0
+  br i1 %351, label %352, label %360
 
-350:                                              ; preds = %344
-  %351 = load ptr, ptr %6, align 8
-  %352 = call i32 @check_authentication_code(ptr noundef %351, ptr noundef null)
-  store i32 %352, ptr %14, align 4
-  %353 = load i32, ptr %14, align 4
-  %354 = icmp ne i32 %353, 0
-  br i1 %354, label %355, label %357
+352:                                              ; preds = %346
+  %353 = load ptr, ptr %6, align 8
+  %354 = call i32 @check_authentication_code(ptr noundef %353, ptr noundef null)
+  store i32 %354, ptr %14, align 4
+  %355 = load i32, ptr %14, align 4
+  %356 = icmp ne i32 %355, 0
+  br i1 %356, label %357, label %359
 
-355:                                              ; preds = %350
-  %356 = load i32, ptr %14, align 4
-  store i32 %356, ptr %5, align 4
-  br label %367
+357:                                              ; preds = %352
+  %358 = load i32, ptr %14, align 4
+  store i32 %358, ptr %5, align 4
+  br label %369
 
-357:                                              ; preds = %350
-  br label %358
+359:                                              ; preds = %352
+  br label %360
 
-358:                                              ; preds = %357, %344, %308
-  %359 = load ptr, ptr %6, align 8
-  %360 = load ptr, ptr %10, align 8
-  %361 = call i32 @consume_optional_marker(ptr noundef %359, ptr noundef %360)
-  store i32 %361, ptr %14, align 4
-  %362 = load i32, ptr %14, align 4
-  %363 = icmp ne i32 %362, 0
-  br i1 %363, label %364, label %366
+360:                                              ; preds = %359, %346, %310
+  %361 = load ptr, ptr %6, align 8
+  %362 = load ptr, ptr %10, align 8
+  %363 = call i32 @consume_optional_marker(ptr noundef %361, ptr noundef %362)
+  store i32 %363, ptr %14, align 4
+  %364 = load i32, ptr %14, align 4
+  %365 = icmp ne i32 %364, 0
+  br i1 %365, label %366, label %368
 
-364:                                              ; preds = %358
-  %365 = load i32, ptr %14, align 4
-  store i32 %365, ptr %5, align 4
-  br label %367
+366:                                              ; preds = %360
+  %367 = load i32, ptr %14, align 4
+  store i32 %367, ptr %5, align 4
+  br label %369
 
-366:                                              ; preds = %358
+368:                                              ; preds = %360
   store i32 0, ptr %5, align 4
-  br label %367
+  br label %369
 
-367:                                              ; preds = %366, %364, %355, %254, %251, %75, %49, %39
-  %368 = load i32, ptr %5, align 4
-  ret i32 %368
+369:                                              ; preds = %368, %366, %357, %255, %252, %75, %49, %39
+  %370 = load i32, ptr %5, align 4
+  ret i32 %370
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6398,70 +6407,71 @@ define internal i32 @check_authentication_code(ptr noundef %0, ptr noundef %1) #
   %17 = getelementptr inbounds %struct.zip, ptr %16, i32 0, i32 50
   %18 = load i8, ptr %17, align 8
   %19 = icmp ne i8 %18, 0
-  br i1 %19, label %20, label %50
+  br i1 %19, label %20, label %51
 
 20:                                               ; preds = %2
   store i64 20, ptr %9, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 2), align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.zip, ptr %22, i32 0, i32 49
-  %24 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
-  call void %21(ptr noundef %23, ptr noundef %24, ptr noundef %9)
-  %25 = load ptr, ptr %5, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %36
+  %21 = getelementptr inbounds %struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %struct.zip, ptr %23, i32 0, i32 49
+  %25 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
+  call void %22(ptr noundef %24, ptr noundef %25, ptr noundef %9)
+  %26 = load ptr, ptr %5, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %37
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %4, align 8
-  %29 = call ptr @__archive_read_ahead(ptr noundef %28, i64 noundef 10, ptr noundef null)
-  store ptr %29, ptr %7, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %35
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %4, align 8
+  %30 = call ptr @__archive_read_ahead(ptr noundef %29, i64 noundef 10, ptr noundef null)
+  store ptr %30, ptr %7, align 8
+  %31 = load ptr, ptr %7, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.archive_read, ptr %33, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %34, i32 noundef 84, ptr noundef @.str.40)
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.archive_read, ptr %34, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %35, i32 noundef 84, ptr noundef @.str.40)
   store i32 -30, ptr %3, align 4
-  br label %51
+  br label %52
 
-35:                                               ; preds = %27
-  br label %38
+36:                                               ; preds = %28
+  br label %39
 
-36:                                               ; preds = %20
-  %37 = load ptr, ptr %5, align 8
-  store ptr %37, ptr %7, align 8
-  br label %38
+37:                                               ; preds = %20
+  %38 = load ptr, ptr %5, align 8
+  store ptr %38, ptr %7, align 8
+  br label %39
 
-38:                                               ; preds = %36, %35
-  %39 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
-  %40 = load ptr, ptr %7, align 8
-  %41 = call i32 @memcmp(ptr noundef %39, ptr noundef %40, i64 noundef 10) #11
-  store i32 %41, ptr %10, align 4
-  %42 = load ptr, ptr %4, align 8
-  %43 = call i64 @__archive_read_consume(ptr noundef %42, i64 noundef 10)
-  %44 = load i32, ptr %10, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %49
+39:                                               ; preds = %37, %36
+  %40 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
+  %41 = load ptr, ptr %7, align 8
+  %42 = call i32 @memcmp(ptr noundef %40, ptr noundef %41, i64 noundef 10) #11
+  store i32 %42, ptr %10, align 4
+  %43 = load ptr, ptr %4, align 8
+  %44 = call i64 @__archive_read_consume(ptr noundef %43, i64 noundef 10)
+  %45 = load i32, ptr %10, align 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %38
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.archive_read, ptr %47, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %48, i32 noundef -1, ptr noundef @.str.41)
+47:                                               ; preds = %39
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %struct.archive_read, ptr %48, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %49, i32 noundef -1, ptr noundef @.str.41)
   store i32 -20, ptr %3, align 4
+  br label %52
+
+50:                                               ; preds = %39
   br label %51
 
-49:                                               ; preds = %38
-  br label %50
-
-50:                                               ; preds = %49, %2
+51:                                               ; preds = %50, %2
   store i32 0, ptr %3, align 4
-  br label %51
+  br label %52
 
-51:                                               ; preds = %50, %46, %32
-  %52 = load i32, ptr %3, align 4
-  ret i32 %52
+52:                                               ; preds = %51, %47, %33
+  %53 = load i32, ptr %3, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7589,7 +7599,7 @@ define internal i32 @init_WinZip_AES_decryption(ptr noundef %0) #0 {
 
 29:                                               ; preds = %23, %1
   store i32 0, ptr %2, align 4
-  br label %204
+  br label %206
 
 30:                                               ; preds = %23
   %31 = load ptr, ptr %4, align 8
@@ -7620,7 +7630,7 @@ define internal i32 @init_WinZip_AES_decryption(ptr noundef %0) #0 {
   br label %41
 
 40:                                               ; preds = %30
-  br label %201
+  br label %203
 
 41:                                               ; preds = %39, %38, %37
   %42 = load ptr, ptr %3, align 8
@@ -7633,7 +7643,7 @@ define internal i32 @init_WinZip_AES_decryption(ptr noundef %0) #0 {
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %41
-  br label %198
+  br label %200
 
 49:                                               ; preds = %41
   store i32 0, ptr %10, align 4
@@ -7655,7 +7665,7 @@ define internal i32 @init_WinZip_AES_decryption(ptr noundef %0) #0 {
   %60 = select i1 %59, ptr @.str.85, ptr @.str.86
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %57, i32 noundef -1, ptr noundef %60)
   store i32 -25, ptr %2, align 4
-  br label %204
+  br label %206
 
 61:                                               ; preds = %50
   %62 = getelementptr inbounds [66 x i8], ptr %9, i64 0, i64 0
@@ -7681,7 +7691,7 @@ define internal i32 @init_WinZip_AES_decryption(ptr noundef %0) #0 {
   %78 = getelementptr inbounds %struct.archive_read, ptr %77, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %78, i32 noundef -1, ptr noundef @.str.87)
   store i32 -25, ptr %2, align 4
-  br label %204
+  br label %206
 
 79:                                               ; preds = %61
   %80 = load ptr, ptr %5, align 8
@@ -7727,7 +7737,7 @@ define internal i32 @init_WinZip_AES_decryption(ptr noundef %0) #0 {
   %111 = getelementptr inbounds %struct.archive_read, ptr %110, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %111, i32 noundef -1, ptr noundef @.str.88)
   store i32 -25, ptr %2, align 4
-  br label %204
+  br label %206
 
 112:                                              ; preds = %106
   br label %113
@@ -7739,133 +7749,135 @@ define internal i32 @init_WinZip_AES_decryption(ptr noundef %0) #0 {
   br label %50
 
 116:                                              ; preds = %105
-  %117 = load ptr, ptr getelementptr inbounds (%struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 1), align 8
-  %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %struct.zip, ptr %118, i32 0, i32 47
-  %120 = getelementptr inbounds [66 x i8], ptr %9, i64 0, i64 0
-  %121 = load i64, ptr %7, align 8
-  %122 = call i32 %117(ptr noundef %119, ptr noundef %120, i64 noundef %121)
-  store i32 %122, ptr %11, align 4
-  %123 = load i32, ptr %11, align 4
-  %124 = icmp ne i32 %123, 0
-  br i1 %124, label %125, label %128
+  %117 = getelementptr inbounds %struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds %struct.zip, ptr %119, i32 0, i32 47
+  %121 = getelementptr inbounds [66 x i8], ptr %9, i64 0, i64 0
+  %122 = load i64, ptr %7, align 8
+  %123 = call i32 %118(ptr noundef %120, ptr noundef %121, i64 noundef %122)
+  store i32 %123, ptr %11, align 4
+  %124 = load i32, ptr %11, align 4
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %126, label %129
 
-125:                                              ; preds = %116
-  %126 = load ptr, ptr %3, align 8
-  %127 = getelementptr inbounds %struct.archive_read, ptr %126, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %127, i32 noundef -1, ptr noundef @.str.87)
+126:                                              ; preds = %116
+  %127 = load ptr, ptr %3, align 8
+  %128 = getelementptr inbounds %struct.archive_read, ptr %127, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %128, i32 noundef -1, ptr noundef @.str.87)
   store i32 -25, ptr %2, align 4
-  br label %204
+  br label %206
 
-128:                                              ; preds = %116
-  %129 = load ptr, ptr @__archive_hmac, align 8
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.zip, ptr %130, i32 0, i32 49
-  %132 = getelementptr inbounds [66 x i8], ptr %9, i64 0, i64 0
-  %133 = load i64, ptr %7, align 8
-  %134 = getelementptr inbounds i8, ptr %132, i64 %133
-  %135 = load i64, ptr %7, align 8
-  %136 = call i32 %129(ptr noundef %131, ptr noundef %134, i64 noundef %135)
-  store i32 %136, ptr %11, align 4
-  %137 = load i32, ptr %11, align 4
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %146
+129:                                              ; preds = %116
+  %130 = load ptr, ptr @__archive_hmac, align 8
+  %131 = load ptr, ptr %4, align 8
+  %132 = getelementptr inbounds %struct.zip, ptr %131, i32 0, i32 49
+  %133 = getelementptr inbounds [66 x i8], ptr %9, i64 0, i64 0
+  %134 = load i64, ptr %7, align 8
+  %135 = getelementptr inbounds i8, ptr %133, i64 %134
+  %136 = load i64, ptr %7, align 8
+  %137 = call i32 %130(ptr noundef %132, ptr noundef %135, i64 noundef %136)
+  store i32 %137, ptr %11, align 4
+  %138 = load i32, ptr %11, align 4
+  %139 = icmp ne i32 %138, 0
+  br i1 %139, label %140, label %148
 
-139:                                              ; preds = %128
-  %140 = load ptr, ptr getelementptr inbounds (%struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 3), align 8
-  %141 = load ptr, ptr %4, align 8
-  %142 = getelementptr inbounds %struct.zip, ptr %141, i32 0, i32 47
-  %143 = call i32 %140(ptr noundef %142)
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds %struct.archive_read, ptr %144, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %145, i32 noundef -1, ptr noundef @.str.89)
+140:                                              ; preds = %129
+  %141 = getelementptr inbounds %struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 3
+  %142 = load ptr, ptr %141, align 8
+  %143 = load ptr, ptr %4, align 8
+  %144 = getelementptr inbounds %struct.zip, ptr %143, i32 0, i32 47
+  %145 = call i32 %142(ptr noundef %144)
+  %146 = load ptr, ptr %3, align 8
+  %147 = getelementptr inbounds %struct.archive_read, ptr %146, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %147, i32 noundef -1, ptr noundef @.str.89)
   store i32 -25, ptr %2, align 4
-  br label %204
+  br label %206
 
-146:                                              ; preds = %128
-  %147 = load ptr, ptr %4, align 8
-  %148 = getelementptr inbounds %struct.zip, ptr %147, i32 0, i32 50
-  store i8 1, ptr %148, align 8
+148:                                              ; preds = %129
   %149 = load ptr, ptr %4, align 8
-  %150 = getelementptr inbounds %struct.zip, ptr %149, i32 0, i32 48
+  %150 = getelementptr inbounds %struct.zip, ptr %149, i32 0, i32 50
   store i8 1, ptr %150, align 8
-  %151 = load ptr, ptr %3, align 8
-  %152 = load i64, ptr %8, align 8
-  %153 = add i64 %152, 2
-  %154 = call i64 @__archive_read_consume(ptr noundef %151, i64 noundef %153)
-  %155 = load i64, ptr %8, align 8
-  %156 = add i64 %155, 2
-  %157 = add i64 %156, 10
-  %158 = load ptr, ptr %4, align 8
-  %159 = getelementptr inbounds %struct.zip, ptr %158, i32 0, i32 11
-  %160 = load i64, ptr %159, align 8
-  %161 = sub i64 %160, %157
-  store i64 %161, ptr %159, align 8
-  %162 = load ptr, ptr %4, align 8
-  %163 = getelementptr inbounds %struct.zip, ptr %162, i32 0, i32 10
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct.zip_entry, ptr %164, i32 0, i32 13
-  %166 = load i16, ptr %165, align 2
-  %167 = zext i16 %166 to i32
-  %168 = and i32 %167, 8
-  %169 = icmp eq i32 0, %168
-  br i1 %169, label %170, label %176
+  %151 = load ptr, ptr %4, align 8
+  %152 = getelementptr inbounds %struct.zip, ptr %151, i32 0, i32 48
+  store i8 1, ptr %152, align 8
+  %153 = load ptr, ptr %3, align 8
+  %154 = load i64, ptr %8, align 8
+  %155 = add i64 %154, 2
+  %156 = call i64 @__archive_read_consume(ptr noundef %153, i64 noundef %155)
+  %157 = load i64, ptr %8, align 8
+  %158 = add i64 %157, 2
+  %159 = add i64 %158, 10
+  %160 = load ptr, ptr %4, align 8
+  %161 = getelementptr inbounds %struct.zip, ptr %160, i32 0, i32 11
+  %162 = load i64, ptr %161, align 8
+  %163 = sub i64 %162, %159
+  store i64 %163, ptr %161, align 8
+  %164 = load ptr, ptr %4, align 8
+  %165 = getelementptr inbounds %struct.zip, ptr %164, i32 0, i32 10
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds %struct.zip_entry, ptr %166, i32 0, i32 13
+  %168 = load i16, ptr %167, align 2
+  %169 = zext i16 %168 to i32
+  %170 = and i32 %169, 8
+  %171 = icmp eq i32 0, %170
+  br i1 %171, label %172, label %178
 
-170:                                              ; preds = %146
-  %171 = load ptr, ptr %4, align 8
-  %172 = getelementptr inbounds %struct.zip, ptr %171, i32 0, i32 11
-  %173 = load i64, ptr %172, align 8
-  %174 = icmp slt i64 %173, 0
-  br i1 %174, label %175, label %176
+172:                                              ; preds = %148
+  %173 = load ptr, ptr %4, align 8
+  %174 = getelementptr inbounds %struct.zip, ptr %173, i32 0, i32 11
+  %175 = load i64, ptr %174, align 8
+  %176 = icmp slt i64 %175, 0
+  br i1 %176, label %177, label %178
 
-175:                                              ; preds = %170
-  br label %201
+177:                                              ; preds = %172
+  br label %203
 
-176:                                              ; preds = %170, %146
-  %177 = load i64, ptr %8, align 8
-  %178 = add i64 %177, 2
-  %179 = add i64 %178, 10
-  %180 = load ptr, ptr %4, align 8
-  %181 = getelementptr inbounds %struct.zip, ptr %180, i32 0, i32 12
-  %182 = load i64, ptr %181, align 8
-  %183 = add i64 %182, %179
-  store i64 %183, ptr %181, align 8
-  %184 = load ptr, ptr %4, align 8
-  %185 = getelementptr inbounds %struct.zip, ptr %184, i32 0, i32 43
-  store i64 0, ptr %185, align 8
+178:                                              ; preds = %172, %148
+  %179 = load i64, ptr %8, align 8
+  %180 = add i64 %179, 2
+  %181 = add i64 %180, 10
+  %182 = load ptr, ptr %4, align 8
+  %183 = getelementptr inbounds %struct.zip, ptr %182, i32 0, i32 12
+  %184 = load i64, ptr %183, align 8
+  %185 = add i64 %184, %181
+  store i64 %185, ptr %183, align 8
   %186 = load ptr, ptr %4, align 8
-  %187 = getelementptr inbounds %struct.zip, ptr %186, i32 0, i32 10
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds %struct.zip_entry, ptr %188, i32 0, i32 18
-  %190 = getelementptr inbounds %struct.anon.0, ptr %189, i32 0, i32 2
-  %191 = load i8, ptr %190, align 4
-  %192 = load ptr, ptr %4, align 8
-  %193 = getelementptr inbounds %struct.zip, ptr %192, i32 0, i32 10
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds %struct.zip_entry, ptr %194, i32 0, i32 14
-  store i8 %191, ptr %195, align 8
-  %196 = load ptr, ptr %3, align 8
-  %197 = call i32 @zip_alloc_decryption_buffer(ptr noundef %196)
-  store i32 %197, ptr %2, align 4
-  br label %204
+  %187 = getelementptr inbounds %struct.zip, ptr %186, i32 0, i32 43
+  store i64 0, ptr %187, align 8
+  %188 = load ptr, ptr %4, align 8
+  %189 = getelementptr inbounds %struct.zip, ptr %188, i32 0, i32 10
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds %struct.zip_entry, ptr %190, i32 0, i32 18
+  %192 = getelementptr inbounds %struct.anon.0, ptr %191, i32 0, i32 2
+  %193 = load i8, ptr %192, align 4
+  %194 = load ptr, ptr %4, align 8
+  %195 = getelementptr inbounds %struct.zip, ptr %194, i32 0, i32 10
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds %struct.zip_entry, ptr %196, i32 0, i32 14
+  store i8 %193, ptr %197, align 8
+  %198 = load ptr, ptr %3, align 8
+  %199 = call i32 @zip_alloc_decryption_buffer(ptr noundef %198)
+  store i32 %199, ptr %2, align 4
+  br label %206
 
-198:                                              ; preds = %48
-  %199 = load ptr, ptr %3, align 8
-  %200 = getelementptr inbounds %struct.archive_read, ptr %199, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %200, i32 noundef 84, ptr noundef @.str.40)
+200:                                              ; preds = %48
+  %201 = load ptr, ptr %3, align 8
+  %202 = getelementptr inbounds %struct.archive_read, ptr %201, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %202, i32 noundef 84, ptr noundef @.str.40)
   store i32 -30, ptr %2, align 4
-  br label %204
+  br label %206
 
-201:                                              ; preds = %175, %40
-  %202 = load ptr, ptr %3, align 8
-  %203 = getelementptr inbounds %struct.archive_read, ptr %202, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %203, i32 noundef 84, ptr noundef @.str.83)
+203:                                              ; preds = %177, %40
+  %204 = load ptr, ptr %3, align 8
+  %205 = getelementptr inbounds %struct.archive_read, ptr %204, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %205, i32 noundef 84, ptr noundef @.str.83)
   store i32 -30, ptr %2, align 4
-  br label %204
+  br label %206
 
-204:                                              ; preds = %201, %198, %176, %139, %125, %109, %76, %55, %29
-  %205 = load i32, ptr %2, align 4
-  ret i32 %205
+206:                                              ; preds = %203, %200, %178, %140, %126, %109, %76, %55, %29
+  %207 = load i32, ptr %2, align 4
+  ret i32 %207
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8118,7 +8130,7 @@ define internal i32 @zip_read_data_none(ptr noundef %0, ptr noundef %1, ptr noun
   %50 = getelementptr inbounds %struct.archive_read, ptr %49, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %50, i32 noundef 84, ptr noundef @.str.40)
   store i32 -30, ptr %5, align 4
-  br label %406
+  br label %408
 
 51:                                               ; preds = %41
   %52 = load ptr, ptr %11, align 8
@@ -8246,7 +8258,7 @@ define internal i32 @zip_read_data_none(ptr noundef %0, ptr noundef %1, ptr noun
   %143 = getelementptr inbounds %struct.archive_read, ptr %142, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %143, i32 noundef 84, ptr noundef @.str.43)
   store i32 -25, ptr %5, align 4
-  br label %406
+  br label %408
 
 144:                                              ; preds = %138
   %145 = load i64, ptr %16, align 8
@@ -8317,7 +8329,7 @@ define internal i32 @zip_read_data_none(ptr noundef %0, ptr noundef %1, ptr noun
 194:                                              ; preds = %188
   %195 = load i32, ptr %13, align 4
   store i32 %195, ptr %5, align 4
-  br label %406
+  br label %408
 
 196:                                              ; preds = %188
   br label %197
@@ -8327,7 +8339,7 @@ define internal i32 @zip_read_data_none(ptr noundef %0, ptr noundef %1, ptr noun
   %199 = getelementptr inbounds %struct.zip, ptr %198, i32 0, i32 18
   store i8 1, ptr %199, align 2
   store i32 0, ptr %5, align 4
-  br label %406
+  br label %408
 
 200:                                              ; preds = %105, %99, %78, %72, %66, %60
   %201 = load ptr, ptr %14, align 8
@@ -8489,14 +8501,14 @@ define internal i32 @zip_read_data_none(ptr noundef %0, ptr noundef %1, ptr noun
 300:                                              ; preds = %295
   %301 = load i32, ptr %13, align 4
   store i32 %301, ptr %5, align 4
-  br label %406
+  br label %408
 
 302:                                              ; preds = %295
   br label %303
 
 303:                                              ; preds = %302, %288
   store i32 0, ptr %5, align 4
-  br label %406
+  br label %408
 
 304:                                              ; preds = %283
   %305 = load ptr, ptr %6, align 8
@@ -8511,7 +8523,7 @@ define internal i32 @zip_read_data_none(ptr noundef %0, ptr noundef %1, ptr noun
   %311 = getelementptr inbounds %struct.archive_read, ptr %310, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %311, i32 noundef 84, ptr noundef @.str.40)
   store i32 -30, ptr %5, align 4
-  br label %406
+  br label %408
 
 312:                                              ; preds = %304
   %313 = load i64, ptr %12, align 8
@@ -8545,7 +8557,7 @@ define internal i32 @zip_read_data_none(ptr noundef %0, ptr noundef %1, ptr noun
   %332 = load i8, ptr %331, align 8
   %333 = sext i8 %332 to i32
   %334 = icmp ne i32 %333, 0
-  br i1 %334, label %335, label %381
+  br i1 %334, label %335, label %383
 
 335:                                              ; preds = %329, %323
   %336 = load i64, ptr %12, align 8
@@ -8581,74 +8593,76 @@ define internal i32 @zip_read_data_none(ptr noundef %0, ptr noundef %1, ptr noun
   %358 = load ptr, ptr %357, align 8
   %359 = load i64, ptr %18, align 8
   call void @trad_enc_decrypt_update(ptr noundef %353, ptr noundef %354, i64 noundef %355, ptr noundef %358, i64 noundef %359)
-  br label %376
+  br label %378
 
 360:                                              ; preds = %346
   %361 = load i64, ptr %18, align 8
   store i64 %361, ptr %19, align 8
-  %362 = load ptr, ptr getelementptr inbounds (%struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 1), align 8
-  %363 = load ptr, ptr %10, align 8
-  %364 = getelementptr inbounds %struct.zip, ptr %363, i32 0, i32 49
-  %365 = load ptr, ptr %11, align 8
-  %366 = load i64, ptr %18, align 8
-  call void %362(ptr noundef %364, ptr noundef %365, i64 noundef %366)
-  %367 = load ptr, ptr getelementptr inbounds (%struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 2), align 8
-  %368 = load ptr, ptr %10, align 8
-  %369 = getelementptr inbounds %struct.zip, ptr %368, i32 0, i32 47
-  %370 = load ptr, ptr %11, align 8
-  %371 = load i64, ptr %18, align 8
-  %372 = load ptr, ptr %10, align 8
-  %373 = getelementptr inbounds %struct.zip, ptr %372, i32 0, i32 40
-  %374 = load ptr, ptr %373, align 8
-  %375 = call i32 %367(ptr noundef %369, ptr noundef %370, i64 noundef %371, ptr noundef %374, ptr noundef %19)
-  br label %376
+  %362 = getelementptr inbounds %struct.archive_hmac, ptr @__archive_hmac, i32 0, i32 1
+  %363 = load ptr, ptr %362, align 8
+  %364 = load ptr, ptr %10, align 8
+  %365 = getelementptr inbounds %struct.zip, ptr %364, i32 0, i32 49
+  %366 = load ptr, ptr %11, align 8
+  %367 = load i64, ptr %18, align 8
+  call void %363(ptr noundef %365, ptr noundef %366, i64 noundef %367)
+  %368 = getelementptr inbounds %struct.archive_cryptor, ptr @__archive_cryptor, i32 0, i32 2
+  %369 = load ptr, ptr %368, align 8
+  %370 = load ptr, ptr %10, align 8
+  %371 = getelementptr inbounds %struct.zip, ptr %370, i32 0, i32 47
+  %372 = load ptr, ptr %11, align 8
+  %373 = load i64, ptr %18, align 8
+  %374 = load ptr, ptr %10, align 8
+  %375 = getelementptr inbounds %struct.zip, ptr %374, i32 0, i32 40
+  %376 = load ptr, ptr %375, align 8
+  %377 = call i32 %369(ptr noundef %371, ptr noundef %372, i64 noundef %373, ptr noundef %376, ptr noundef %19)
+  br label %378
 
-376:                                              ; preds = %360, %351
-  %377 = load i64, ptr %18, align 8
-  store i64 %377, ptr %12, align 8
-  %378 = load ptr, ptr %10, align 8
-  %379 = getelementptr inbounds %struct.zip, ptr %378, i32 0, i32 40
-  %380 = load ptr, ptr %379, align 8
-  store ptr %380, ptr %11, align 8
-  br label %381
+378:                                              ; preds = %360, %351
+  %379 = load i64, ptr %18, align 8
+  store i64 %379, ptr %12, align 8
+  %380 = load ptr, ptr %10, align 8
+  %381 = getelementptr inbounds %struct.zip, ptr %380, i32 0, i32 40
+  %382 = load ptr, ptr %381, align 8
+  store ptr %382, ptr %11, align 8
+  br label %383
 
-381:                                              ; preds = %376, %329
-  %382 = load i64, ptr %12, align 8
-  %383 = load ptr, ptr %8, align 8
-  store i64 %382, ptr %383, align 8
+383:                                              ; preds = %378, %329
   %384 = load i64, ptr %12, align 8
-  %385 = load ptr, ptr %10, align 8
-  %386 = getelementptr inbounds %struct.zip, ptr %385, i32 0, i32 11
-  %387 = load i64, ptr %386, align 8
-  %388 = sub nsw i64 %387, %384
-  store i64 %388, ptr %386, align 8
-  %389 = load i64, ptr %12, align 8
-  %390 = load ptr, ptr %10, align 8
-  %391 = getelementptr inbounds %struct.zip, ptr %390, i32 0, i32 13
-  %392 = load i64, ptr %391, align 8
-  %393 = add nsw i64 %392, %389
-  store i64 %393, ptr %391, align 8
-  %394 = load i64, ptr %12, align 8
-  %395 = load ptr, ptr %10, align 8
-  %396 = getelementptr inbounds %struct.zip, ptr %395, i32 0, i32 12
-  %397 = load i64, ptr %396, align 8
-  %398 = add nsw i64 %397, %394
-  store i64 %398, ptr %396, align 8
-  %399 = load i64, ptr %12, align 8
-  %400 = load ptr, ptr %10, align 8
-  %401 = getelementptr inbounds %struct.zip, ptr %400, i32 0, i32 9
-  %402 = load i64, ptr %401, align 8
-  %403 = add i64 %402, %399
-  store i64 %403, ptr %401, align 8
-  %404 = load ptr, ptr %11, align 8
-  %405 = load ptr, ptr %7, align 8
-  store ptr %404, ptr %405, align 8
+  %385 = load ptr, ptr %8, align 8
+  store i64 %384, ptr %385, align 8
+  %386 = load i64, ptr %12, align 8
+  %387 = load ptr, ptr %10, align 8
+  %388 = getelementptr inbounds %struct.zip, ptr %387, i32 0, i32 11
+  %389 = load i64, ptr %388, align 8
+  %390 = sub nsw i64 %389, %386
+  store i64 %390, ptr %388, align 8
+  %391 = load i64, ptr %12, align 8
+  %392 = load ptr, ptr %10, align 8
+  %393 = getelementptr inbounds %struct.zip, ptr %392, i32 0, i32 13
+  %394 = load i64, ptr %393, align 8
+  %395 = add nsw i64 %394, %391
+  store i64 %395, ptr %393, align 8
+  %396 = load i64, ptr %12, align 8
+  %397 = load ptr, ptr %10, align 8
+  %398 = getelementptr inbounds %struct.zip, ptr %397, i32 0, i32 12
+  %399 = load i64, ptr %398, align 8
+  %400 = add nsw i64 %399, %396
+  store i64 %400, ptr %398, align 8
+  %401 = load i64, ptr %12, align 8
+  %402 = load ptr, ptr %10, align 8
+  %403 = getelementptr inbounds %struct.zip, ptr %402, i32 0, i32 9
+  %404 = load i64, ptr %403, align 8
+  %405 = add i64 %404, %401
+  store i64 %405, ptr %403, align 8
+  %406 = load ptr, ptr %11, align 8
+  %407 = load ptr, ptr %7, align 8
+  store ptr %406, ptr %407, align 8
   store i32 0, ptr %5, align 4
-  br label %406
+  br label %408
 
-406:                                              ; preds = %381, %309, %303, %300, %197, %194, %141, %48
-  %407 = load i32, ptr %5, align 4
-  ret i32 %407
+408:                                              ; preds = %383, %309, %303, %300, %197, %194, %141, %48
+  %409 = load i32, ptr %5, align 4
+  ret i32 %409
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9423,7 +9437,7 @@ define internal i32 @zip_read_data_zipx_ppmd(ptr noundef %0, ptr noundef %1, ptr
 30:                                               ; preds = %24
   %31 = load i32, ptr %11, align 4
   store i32 %31, ptr %5, align 4
-  br label %123
+  br label %125
 
 32:                                               ; preds = %24
   br label %33
@@ -9440,7 +9454,7 @@ define internal i32 @zip_read_data_zipx_ppmd(ptr noundef %0, ptr noundef %1, ptr
   %40 = getelementptr inbounds %struct.archive_read, ptr %39, i32 0, i32 0
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %40, i32 noundef 84, ptr noundef @.str.106)
   store i32 -30, ptr %5, align 4
-  br label %123
+  br label %125
 
 41:                                               ; preds = %33
   %42 = load ptr, ptr %10, align 8
@@ -9448,126 +9462,128 @@ define internal i32 @zip_read_data_zipx_ppmd(ptr noundef %0, ptr noundef %1, ptr
   store i64 0, ptr %43, align 8
   br label %44
 
-44:                                               ; preds = %72, %41
-  %45 = load ptr, ptr getelementptr inbounds (%struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 5), align 8
-  %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds %struct.zip, ptr %46, i32 0, i32 31
-  %48 = call i32 %45(ptr noundef %47)
-  store i32 %48, ptr %14, align 4
-  %49 = load i32, ptr %14, align 4
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %54
+44:                                               ; preds = %73, %41
+  %45 = getelementptr inbounds %struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 5
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = getelementptr inbounds %struct.zip, ptr %47, i32 0, i32 31
+  %49 = call i32 %46(ptr noundef %48)
+  store i32 %49, ptr %14, align 4
+  %50 = load i32, ptr %14, align 4
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %55
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds %struct.zip, ptr %52, i32 0, i32 18
-  store i8 1, ptr %53, align 2
-  br label %78
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr inbounds %struct.zip, ptr %53, i32 0, i32 18
+  store i8 1, ptr %54, align 2
+  br label %79
 
-54:                                               ; preds = %44
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.zip, ptr %55, i32 0, i32 33
-  %57 = load i8, ptr %56, align 1
-  %58 = icmp ne i8 %57, 0
-  br i1 %58, label %59, label %62
+55:                                               ; preds = %44
+  %56 = load ptr, ptr %10, align 8
+  %57 = getelementptr inbounds %struct.zip, ptr %56, i32 0, i32 33
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp ne i8 %58, 0
+  br i1 %59, label %60, label %63
 
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.archive_read, ptr %60, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %61, i32 noundef 84, ptr noundef @.str.106)
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct.archive_read, ptr %61, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %62, i32 noundef 84, ptr noundef @.str.106)
   store i32 -30, ptr %5, align 4
-  br label %123
+  br label %125
 
-62:                                               ; preds = %54
-  %63 = load i32, ptr %14, align 4
-  %64 = trunc i32 %63 to i8
-  %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds %struct.zip, ptr %65, i32 0, i32 19
-  %67 = load ptr, ptr %66, align 8
-  %68 = load i64, ptr %12, align 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  store i8 %64, ptr %69, align 1
-  %70 = load i64, ptr %12, align 8
-  %71 = add i64 %70, 1
-  store i64 %71, ptr %12, align 8
-  br label %72
+63:                                               ; preds = %55
+  %64 = load i32, ptr %14, align 4
+  %65 = trunc i32 %64 to i8
+  %66 = load ptr, ptr %10, align 8
+  %67 = getelementptr inbounds %struct.zip, ptr %66, i32 0, i32 19
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i64, ptr %12, align 8
+  %70 = getelementptr inbounds i8, ptr %68, i64 %69
+  store i8 %65, ptr %70, align 1
+  %71 = load i64, ptr %12, align 8
+  %72 = add i64 %71, 1
+  store i64 %72, ptr %12, align 8
+  br label %73
 
-72:                                               ; preds = %62
-  %73 = load i64, ptr %12, align 8
-  %74 = load ptr, ptr %10, align 8
-  %75 = getelementptr inbounds %struct.zip, ptr %74, i32 0, i32 20
-  %76 = load i64, ptr %75, align 8
-  %77 = icmp ult i64 %73, %76
-  br i1 %77, label %44, label %78, !llvm.loop !18
+73:                                               ; preds = %63
+  %74 = load i64, ptr %12, align 8
+  %75 = load ptr, ptr %10, align 8
+  %76 = getelementptr inbounds %struct.zip, ptr %75, i32 0, i32 20
+  %77 = load i64, ptr %76, align 8
+  %78 = icmp ult i64 %74, %77
+  br i1 %78, label %44, label %79, !llvm.loop !18
 
-78:                                               ; preds = %72, %51
-  %79 = load ptr, ptr %10, align 8
-  %80 = getelementptr inbounds %struct.zip, ptr %79, i32 0, i32 19
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %7, align 8
-  store ptr %81, ptr %82, align 8
-  %83 = load i64, ptr %12, align 8
-  %84 = load ptr, ptr %8, align 8
-  store i64 %83, ptr %84, align 8
-  %85 = load ptr, ptr %10, align 8
-  %86 = getelementptr inbounds %struct.zip, ptr %85, i32 0, i32 30
-  %87 = load i64, ptr %86, align 8
-  %88 = load ptr, ptr %10, align 8
-  %89 = getelementptr inbounds %struct.zip, ptr %88, i32 0, i32 11
-  %90 = load i64, ptr %89, align 8
-  %91 = sub nsw i64 %90, %87
-  store i64 %91, ptr %89, align 8
-  %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds %struct.zip, ptr %92, i32 0, i32 30
-  %94 = load i64, ptr %93, align 8
-  %95 = load ptr, ptr %10, align 8
-  %96 = getelementptr inbounds %struct.zip, ptr %95, i32 0, i32 12
-  %97 = load i64, ptr %96, align 8
-  %98 = add nsw i64 %97, %94
-  store i64 %98, ptr %96, align 8
-  %99 = load i64, ptr %12, align 8
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds %struct.zip, ptr %100, i32 0, i32 13
-  %102 = load i64, ptr %101, align 8
-  %103 = add i64 %102, %99
-  store i64 %103, ptr %101, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = getelementptr inbounds %struct.zip, ptr %104, i32 0, i32 18
-  %106 = load i8, ptr %105, align 2
-  %107 = icmp ne i8 %106, 0
-  br i1 %107, label %108, label %114
+79:                                               ; preds = %73, %52
+  %80 = load ptr, ptr %10, align 8
+  %81 = getelementptr inbounds %struct.zip, ptr %80, i32 0, i32 19
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %7, align 8
+  store ptr %82, ptr %83, align 8
+  %84 = load i64, ptr %12, align 8
+  %85 = load ptr, ptr %8, align 8
+  store i64 %84, ptr %85, align 8
+  %86 = load ptr, ptr %10, align 8
+  %87 = getelementptr inbounds %struct.zip, ptr %86, i32 0, i32 30
+  %88 = load i64, ptr %87, align 8
+  %89 = load ptr, ptr %10, align 8
+  %90 = getelementptr inbounds %struct.zip, ptr %89, i32 0, i32 11
+  %91 = load i64, ptr %90, align 8
+  %92 = sub nsw i64 %91, %88
+  store i64 %92, ptr %90, align 8
+  %93 = load ptr, ptr %10, align 8
+  %94 = getelementptr inbounds %struct.zip, ptr %93, i32 0, i32 30
+  %95 = load i64, ptr %94, align 8
+  %96 = load ptr, ptr %10, align 8
+  %97 = getelementptr inbounds %struct.zip, ptr %96, i32 0, i32 12
+  %98 = load i64, ptr %97, align 8
+  %99 = add nsw i64 %98, %95
+  store i64 %99, ptr %97, align 8
+  %100 = load i64, ptr %12, align 8
+  %101 = load ptr, ptr %10, align 8
+  %102 = getelementptr inbounds %struct.zip, ptr %101, i32 0, i32 13
+  %103 = load i64, ptr %102, align 8
+  %104 = add i64 %103, %100
+  store i64 %104, ptr %102, align 8
+  %105 = load ptr, ptr %10, align 8
+  %106 = getelementptr inbounds %struct.zip, ptr %105, i32 0, i32 18
+  %107 = load i8, ptr %106, align 2
+  %108 = icmp ne i8 %107, 0
+  br i1 %108, label %109, label %116
 
-108:                                              ; preds = %78
-  %109 = load ptr, ptr getelementptr inbounds (%struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 2), align 8
-  %110 = load ptr, ptr %10, align 8
-  %111 = getelementptr inbounds %struct.zip, ptr %110, i32 0, i32 31
-  call void %109(ptr noundef %111)
+109:                                              ; preds = %79
+  %110 = getelementptr inbounds %struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %10, align 8
-  %113 = getelementptr inbounds %struct.zip, ptr %112, i32 0, i32 32
-  store i8 0, ptr %113, align 8
-  br label %114
+  %113 = getelementptr inbounds %struct.zip, ptr %112, i32 0, i32 31
+  call void %111(ptr noundef %113)
+  %114 = load ptr, ptr %10, align 8
+  %115 = getelementptr inbounds %struct.zip, ptr %114, i32 0, i32 32
+  store i8 0, ptr %115, align 8
+  br label %116
 
-114:                                              ; preds = %108, %78
-  %115 = load ptr, ptr %6, align 8
-  %116 = load ptr, ptr %10, align 8
-  %117 = call i32 @consume_optional_marker(ptr noundef %115, ptr noundef %116)
-  store i32 %117, ptr %11, align 4
-  %118 = load i32, ptr %11, align 4
-  %119 = icmp ne i32 %118, 0
-  br i1 %119, label %120, label %122
+116:                                              ; preds = %109, %79
+  %117 = load ptr, ptr %6, align 8
+  %118 = load ptr, ptr %10, align 8
+  %119 = call i32 @consume_optional_marker(ptr noundef %117, ptr noundef %118)
+  store i32 %119, ptr %11, align 4
+  %120 = load i32, ptr %11, align 4
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %124
 
-120:                                              ; preds = %114
-  %121 = load i32, ptr %11, align 4
-  store i32 %121, ptr %5, align 4
-  br label %123
+122:                                              ; preds = %116
+  %123 = load i32, ptr %11, align 4
+  store i32 %123, ptr %5, align 4
+  br label %125
 
-122:                                              ; preds = %114
+124:                                              ; preds = %116
   store i32 0, ptr %5, align 4
-  br label %123
+  br label %125
 
-123:                                              ; preds = %122, %120, %59, %38, %30
-  %124 = load i32, ptr %5, align 4
-  ret i32 %124
+125:                                              ; preds = %124, %122, %60, %38, %30
+  %126 = load i32, ptr %5, align 4
+  ret i32 %126
 }
 
 declare ptr @__archive_read_next_passphrase(ptr noundef) #1
@@ -10014,185 +10030,189 @@ define internal i32 @zipx_ppmd8_init(ptr noundef %0, ptr noundef %1) #0 {
   %12 = getelementptr inbounds %struct.zip, ptr %11, i32 0, i32 32
   %13 = load i8, ptr %12, align 8
   %14 = icmp ne i8 %13, 0
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (%struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 2), align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.zip, ptr %17, i32 0, i32 31
-  call void %16(ptr noundef %18)
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.zip, ptr %19, i32 0, i32 32
-  store i8 0, ptr %20, align 8
-  br label %21
+  %16 = getelementptr inbounds %struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %struct.zip, ptr %18, i32 0, i32 31
+  call void %17(ptr noundef %19)
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct.zip, ptr %20, i32 0, i32 32
+  store i8 0, ptr %21, align 8
+  br label %22
 
-21:                                               ; preds = %15, %2
-  %22 = load ptr, ptr @__archive_ppmd8_functions, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.zip, ptr %23, i32 0, i32 31
-  call void %22(ptr noundef %24)
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.zip, ptr %25, i32 0, i32 33
-  store i8 0, ptr %26, align 1
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.zip, ptr %27, i32 0, i32 29
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.zip, ptr %29, i32 0, i32 31
-  %31 = getelementptr inbounds %struct.CPpmd8, ptr %30, i32 0, i32 21
-  store ptr %28, ptr %31, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.zip, ptr %33, i32 0, i32 29
-  %35 = getelementptr inbounds %struct.IByteIn, ptr %34, i32 0, i32 0
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.zip, ptr %36, i32 0, i32 29
-  %38 = getelementptr inbounds %struct.IByteIn, ptr %37, i32 0, i32 1
-  store ptr @ppmd_read, ptr %38, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.zip, ptr %39, i32 0, i32 30
-  store i64 0, ptr %40, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = call ptr @__archive_read_ahead(ptr noundef %41, i64 noundef 2, ptr noundef null)
-  store ptr %42, ptr %6, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %48, label %45
+22:                                               ; preds = %15, %2
+  %23 = load ptr, ptr @__archive_ppmd8_functions, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.zip, ptr %24, i32 0, i32 31
+  call void %23(ptr noundef %25)
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %struct.zip, ptr %26, i32 0, i32 33
+  store i8 0, ptr %27, align 1
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %struct.zip, ptr %28, i32 0, i32 29
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.zip, ptr %30, i32 0, i32 31
+  %32 = getelementptr inbounds %struct.CPpmd8, ptr %31, i32 0, i32 21
+  store ptr %29, ptr %32, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds %struct.zip, ptr %34, i32 0, i32 29
+  %36 = getelementptr inbounds %struct.IByteIn, ptr %35, i32 0, i32 0
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds %struct.zip, ptr %37, i32 0, i32 29
+  %39 = getelementptr inbounds %struct.IByteIn, ptr %38, i32 0, i32 1
+  store ptr @ppmd_read, ptr %39, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds %struct.zip, ptr %40, i32 0, i32 30
+  store i64 0, ptr %41, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = call ptr @__archive_read_ahead(ptr noundef %42, i64 noundef 2, ptr noundef null)
+  store ptr %43, ptr %6, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %49, label %46
 
-45:                                               ; preds = %21
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.archive_read, ptr %46, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %47, i32 noundef 84, ptr noundef @.str.107)
+46:                                               ; preds = %22
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds %struct.archive_read, ptr %47, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %48, i32 noundef 84, ptr noundef @.str.107)
   store i32 -30, ptr %3, align 4
-  br label %132
+  br label %136
 
-48:                                               ; preds = %21
-  %49 = load ptr, ptr %4, align 8
-  %50 = call i64 @__archive_read_consume(ptr noundef %49, i64 noundef 2)
-  %51 = load ptr, ptr %6, align 8
-  %52 = call zeroext i16 @archive_le16dec(ptr noundef %51)
-  %53 = zext i16 %52 to i32
-  store i32 %53, ptr %7, align 4
-  %54 = load i32, ptr %7, align 4
-  %55 = and i32 %54, 15
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %7, align 4
-  %58 = lshr i32 %57, 4
-  %59 = and i32 %58, 255
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %9, align 4
-  %61 = load i32, ptr %7, align 4
-  %62 = lshr i32 %61, 12
-  store i32 %62, ptr %10, align 4
-  %63 = load i32, ptr %8, align 4
-  %64 = icmp ult i32 %63, 2
-  br i1 %64, label %68, label %65
+49:                                               ; preds = %22
+  %50 = load ptr, ptr %4, align 8
+  %51 = call i64 @__archive_read_consume(ptr noundef %50, i64 noundef 2)
+  %52 = load ptr, ptr %6, align 8
+  %53 = call zeroext i16 @archive_le16dec(ptr noundef %52)
+  %54 = zext i16 %53 to i32
+  store i32 %54, ptr %7, align 4
+  %55 = load i32, ptr %7, align 4
+  %56 = and i32 %55, 15
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %8, align 4
+  %58 = load i32, ptr %7, align 4
+  %59 = lshr i32 %58, 4
+  %60 = and i32 %59, 255
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %9, align 4
+  %62 = load i32, ptr %7, align 4
+  %63 = lshr i32 %62, 12
+  store i32 %63, ptr %10, align 4
+  %64 = load i32, ptr %8, align 4
+  %65 = icmp ult i32 %64, 2
+  br i1 %65, label %69, label %66
 
-65:                                               ; preds = %48
-  %66 = load i32, ptr %10, align 4
-  %67 = icmp ugt i32 %66, 2
-  br i1 %67, label %68, label %73
+66:                                               ; preds = %49
+  %67 = load i32, ptr %10, align 4
+  %68 = icmp ugt i32 %67, 2
+  br i1 %68, label %69, label %74
 
-68:                                               ; preds = %65, %48
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.archive_read, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %8, align 4
-  %72 = load i32, ptr %10, align 4
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %70, i32 noundef 84, ptr noundef @.str.108, i32 noundef %71, i32 noundef %72)
+69:                                               ; preds = %66, %49
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds %struct.archive_read, ptr %70, i32 0, i32 0
+  %72 = load i32, ptr %8, align 4
+  %73 = load i32, ptr %10, align 4
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %71, i32 noundef 84, ptr noundef @.str.108, i32 noundef %72, i32 noundef %73)
   store i32 -25, ptr %3, align 4
-  br label %132
+  br label %136
 
-73:                                               ; preds = %65
-  %74 = load ptr, ptr getelementptr inbounds (%struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 1), align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.zip, ptr %75, i32 0, i32 31
-  %77 = load i32, ptr %9, align 4
-  %78 = shl i32 %77, 20
-  %79 = call i32 %74(ptr noundef %76, i32 noundef %78)
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %86, label %81
+74:                                               ; preds = %66
+  %75 = getelementptr inbounds %struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds %struct.zip, ptr %77, i32 0, i32 31
+  %79 = load i32, ptr %9, align 4
+  %80 = shl i32 %79, 20
+  %81 = call i32 %76(ptr noundef %78, i32 noundef %80)
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %88, label %83
 
-81:                                               ; preds = %73
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.archive_read, ptr %82, i32 0, i32 0
-  %84 = load i32, ptr %9, align 4
-  %85 = shl i32 %84, 20
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %83, i32 noundef 12, ptr noundef @.str.109, i32 noundef %85)
+83:                                               ; preds = %74
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds %struct.archive_read, ptr %84, i32 0, i32 0
+  %86 = load i32, ptr %9, align 4
+  %87 = shl i32 %86, 20
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %85, i32 noundef 12, ptr noundef @.str.109, i32 noundef %87)
   store i32 -30, ptr %3, align 4
-  br label %132
+  br label %136
 
-86:                                               ; preds = %73
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds %struct.zip, ptr %87, i32 0, i32 32
-  store i8 1, ptr %88, align 8
-  %89 = load ptr, ptr getelementptr inbounds (%struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 4), align 8
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.zip, ptr %90, i32 0, i32 31
-  %92 = call i32 %89(ptr noundef %91)
-  %93 = icmp ne i32 %92, 0
-  br i1 %93, label %97, label %94
+88:                                               ; preds = %74
+  %89 = load ptr, ptr %5, align 8
+  %90 = getelementptr inbounds %struct.zip, ptr %89, i32 0, i32 32
+  store i8 1, ptr %90, align 8
+  %91 = getelementptr inbounds %struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 4
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %5, align 8
+  %94 = getelementptr inbounds %struct.zip, ptr %93, i32 0, i32 31
+  %95 = call i32 %92(ptr noundef %94)
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %100, label %97
 
-94:                                               ; preds = %86
-  %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr inbounds %struct.archive_read, ptr %95, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %96, i32 noundef 22, ptr noundef @.str.110)
+97:                                               ; preds = %88
+  %98 = load ptr, ptr %4, align 8
+  %99 = getelementptr inbounds %struct.archive_read, ptr %98, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %99, i32 noundef 22, ptr noundef @.str.110)
   store i32 -30, ptr %3, align 4
-  br label %132
+  br label %136
 
-97:                                               ; preds = %86
-  %98 = load ptr, ptr getelementptr inbounds (%struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 3), align 8
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds %struct.zip, ptr %99, i32 0, i32 31
-  %101 = load i32, ptr %8, align 4
-  %102 = load i32, ptr %10, align 4
-  call void %98(ptr noundef %100, i32 noundef %101, i32 noundef %102)
+100:                                              ; preds = %88
+  %101 = getelementptr inbounds %struct.IPpmd8, ptr @__archive_ppmd8_functions, i32 0, i32 3
+  %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds %struct.zip, ptr %103, i32 0, i32 19
-  %105 = load ptr, ptr %104, align 8
-  call void @free(ptr noundef %105) #10
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.zip, ptr %106, i32 0, i32 20
-  store i64 262144, ptr %107, align 8
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct.zip, ptr %108, i32 0, i32 20
-  %110 = load i64, ptr %109, align 8
-  %111 = call noalias ptr @malloc(i64 noundef %110) #12
+  %104 = getelementptr inbounds %struct.zip, ptr %103, i32 0, i32 31
+  %105 = load i32, ptr %8, align 4
+  %106 = load i32, ptr %10, align 4
+  call void %102(ptr noundef %104, i32 noundef %105, i32 noundef %106)
+  %107 = load ptr, ptr %5, align 8
+  %108 = getelementptr inbounds %struct.zip, ptr %107, i32 0, i32 19
+  %109 = load ptr, ptr %108, align 8
+  call void @free(ptr noundef %109) #10
+  %110 = load ptr, ptr %5, align 8
+  %111 = getelementptr inbounds %struct.zip, ptr %110, i32 0, i32 20
+  store i64 262144, ptr %111, align 8
   %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.zip, ptr %112, i32 0, i32 19
-  store ptr %111, ptr %113, align 8
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds %struct.zip, ptr %114, i32 0, i32 19
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %118, label %121
+  %113 = getelementptr inbounds %struct.zip, ptr %112, i32 0, i32 20
+  %114 = load i64, ptr %113, align 8
+  %115 = call noalias ptr @malloc(i64 noundef %114) #12
+  %116 = load ptr, ptr %5, align 8
+  %117 = getelementptr inbounds %struct.zip, ptr %116, i32 0, i32 19
+  store ptr %115, ptr %117, align 8
+  %118 = load ptr, ptr %5, align 8
+  %119 = getelementptr inbounds %struct.zip, ptr %118, i32 0, i32 19
+  %120 = load ptr, ptr %119, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %125
 
-118:                                              ; preds = %97
-  %119 = load ptr, ptr %4, align 8
-  %120 = getelementptr inbounds %struct.archive_read, ptr %119, i32 0, i32 0
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %120, i32 noundef 12, ptr noundef @.str.111)
+122:                                              ; preds = %100
+  %123 = load ptr, ptr %4, align 8
+  %124 = getelementptr inbounds %struct.archive_read, ptr %123, i32 0, i32 0
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %124, i32 noundef 12, ptr noundef @.str.111)
   store i32 -30, ptr %3, align 4
-  br label %132
+  br label %136
 
-121:                                              ; preds = %97
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds %struct.zip, ptr %122, i32 0, i32 17
-  store i8 1, ptr %123, align 1
-  %124 = load ptr, ptr %5, align 8
-  %125 = getelementptr inbounds %struct.zip, ptr %124, i32 0, i32 30
-  %126 = load i64, ptr %125, align 8
-  %127 = add nsw i64 2, %126
+125:                                              ; preds = %100
+  %126 = load ptr, ptr %5, align 8
+  %127 = getelementptr inbounds %struct.zip, ptr %126, i32 0, i32 17
+  store i8 1, ptr %127, align 1
   %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct.zip, ptr %128, i32 0, i32 12
+  %129 = getelementptr inbounds %struct.zip, ptr %128, i32 0, i32 30
   %130 = load i64, ptr %129, align 8
-  %131 = add nsw i64 %130, %127
-  store i64 %131, ptr %129, align 8
+  %131 = add nsw i64 2, %130
+  %132 = load ptr, ptr %5, align 8
+  %133 = getelementptr inbounds %struct.zip, ptr %132, i32 0, i32 12
+  %134 = load i64, ptr %133, align 8
+  %135 = add nsw i64 %134, %131
+  store i64 %135, ptr %133, align 8
   store i32 0, ptr %3, align 4
-  br label %132
+  br label %136
 
-132:                                              ; preds = %121, %118, %94, %81, %68, %45
-  %133 = load i32, ptr %3, align 4
-  ret i32 %133
+136:                                              ; preds = %125, %122, %97, %83, %69, %46
+  %137 = load i32, ptr %3, align 4
+  ret i32 %137
 }
 
 ; Function Attrs: nounwind uwtable

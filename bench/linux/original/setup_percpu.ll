@@ -90,102 +90,111 @@ define dso_local void @setup_per_cpu_areas() local_unnamed_addr #0 section ".ini
 24:                                               ; preds = %20
   %25 = load ptr, ptr @pcpu_base_addr, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = sub i64 %26, ptrtoint (ptr @__per_cpu_start to i64)
-  br label %28
+  %27 = ptrtoint ptr @__per_cpu_start to i64
+  %28 = sub i64 %26, %27
+  br label %29
 
-28:                                               ; preds = %90, %24
-  %29 = phi i64 [ 0, %24 ], [ %91, %90 ]
-  %30 = and i64 %29, 4294967295
-  %31 = icmp ugt i64 %30, 63
-  br i1 %31, label %39, label %32, !prof !5
+29:                                               ; preds = %99, %24
+  %30 = phi i64 [ 0, %24 ], [ %100, %99 ]
+  %31 = and i64 %30, 4294967295
+  %32 = icmp ugt i64 %31, 63
+  br i1 %32, label %40, label %33, !prof !5
 
-32:                                               ; preds = %28
-  %33 = load i64, ptr @__cpu_possible_mask, align 8
-  %34 = shl nsw i64 -1, %30
-  %35 = and i64 %33, %34
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %39, label %37
+33:                                               ; preds = %29
+  %34 = load i64, ptr @__cpu_possible_mask, align 8
+  %35 = shl nsw i64 -1, %31
+  %36 = and i64 %34, %35
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %40, label %38
 
-37:                                               ; preds = %32
-  %38 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %35) #8, !srcloc !6
-  br label %39
+38:                                               ; preds = %33
+  %39 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %36) #8, !srcloc !6
+  br label %40
 
-39:                                               ; preds = %37, %32, %28
-  %40 = phi i64 [ 64, %28 ], [ %38, %37 ], [ 64, %32 ]
-  %41 = trunc i64 %40 to i32
-  %42 = icmp ult i32 %41, 64
-  br i1 %42, label %43, label %92
+40:                                               ; preds = %38, %33, %29
+  %41 = phi i64 [ 64, %29 ], [ %39, %38 ], [ 64, %33 ]
+  %42 = trunc i64 %41 to i32
+  %43 = icmp ult i32 %42, 64
+  br i1 %43, label %44, label %101
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr @pcpu_unit_offsets, align 8
-  %45 = and i64 %40, 4294967295
-  %46 = getelementptr i64, ptr %44, i64 %45
-  %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, %27
-  %49 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %45
-  store i64 %48, ptr %49, align 8
-  %50 = add i64 %48, ptrtoint (ptr @this_cpu_off to i64)
-  %51 = inttoptr i64 %50 to ptr
-  store i64 %48, ptr %51, align 8
-  %52 = load i64, ptr %49, align 8
-  %53 = add i64 %52, ptrtoint (ptr getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2) to i64)
-  %54 = inttoptr i64 %53 to ptr
-  store i32 %41, ptr %54, align 4
-  %55 = getelementptr [0 x i32], ptr @x86_cpu_to_apicid_early_map, i64 0, i64 %45
-  %56 = load i32, ptr %55, align 4
-  %57 = load i64, ptr %49, align 8
-  %58 = add i64 %57, ptrtoint (ptr @x86_cpu_to_apicid to i64)
-  %59 = inttoptr i64 %58 to ptr
-  store i32 %56, ptr %59, align 4
-  %60 = getelementptr [0 x i32], ptr @x86_cpu_to_acpiid_early_map, i64 0, i64 %45
-  %61 = load i32, ptr %60, align 4
-  %62 = load i64, ptr %49, align 8
-  %63 = add i64 %62, ptrtoint (ptr @x86_cpu_to_acpiid to i64)
+44:                                               ; preds = %40
+  %45 = load ptr, ptr @pcpu_unit_offsets, align 8
+  %46 = and i64 %41, 4294967295
+  %47 = getelementptr i64, ptr %45, i64 %46
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %48, %28
+  %50 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %46
+  store i64 %49, ptr %50, align 8
+  %51 = ptrtoint ptr @this_cpu_off to i64
+  %52 = add i64 %49, %51
+  %53 = inttoptr i64 %52 to ptr
+  store i64 %49, ptr %53, align 8
+  %54 = load i64, ptr %50, align 8
+  %55 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %56 = ptrtoint ptr %55 to i64
+  %57 = add i64 %54, %56
+  %58 = inttoptr i64 %57 to ptr
+  store i32 %42, ptr %58, align 4
+  %59 = getelementptr [0 x i32], ptr @x86_cpu_to_apicid_early_map, i64 0, i64 %46
+  %60 = load i32, ptr %59, align 4
+  %61 = load i64, ptr %50, align 8
+  %62 = ptrtoint ptr @x86_cpu_to_apicid to i64
+  %63 = add i64 %61, %62
   %64 = inttoptr i64 %63 to ptr
-  store i32 %61, ptr %64, align 4
-  %65 = getelementptr [0 x i32], ptr @x86_cpu_to_node_map_early_map, i64 0, i64 %45
+  store i32 %60, ptr %64, align 4
+  %65 = getelementptr [0 x i32], ptr @x86_cpu_to_acpiid_early_map, i64 0, i64 %46
   %66 = load i32, ptr %65, align 4
-  %67 = load i64, ptr %49, align 8
-  %68 = add i64 %67, ptrtoint (ptr @x86_cpu_to_node_map to i64)
-  %69 = inttoptr i64 %68 to ptr
-  store i32 %66, ptr %69, align 4
-  %70 = load ptr, ptr @x86_cpu_to_node_map_early_ptr, align 8
-  %71 = icmp eq ptr %70, null
-  %72 = and i64 %40, 4294967295
-  br i1 %71, label %75, label %73
+  %67 = load i64, ptr %50, align 8
+  %68 = ptrtoint ptr @x86_cpu_to_acpiid to i64
+  %69 = add i64 %67, %68
+  %70 = inttoptr i64 %69 to ptr
+  store i32 %66, ptr %70, align 4
+  %71 = getelementptr [0 x i32], ptr @x86_cpu_to_node_map_early_map, i64 0, i64 %46
+  %72 = load i32, ptr %71, align 4
+  %73 = load i64, ptr %50, align 8
+  %74 = ptrtoint ptr @x86_cpu_to_node_map to i64
+  %75 = add i64 %73, %74
+  %76 = inttoptr i64 %75 to ptr
+  store i32 %72, ptr %76, align 4
+  %77 = load ptr, ptr @x86_cpu_to_node_map_early_ptr, align 8
+  %78 = icmp eq ptr %77, null
+  %79 = and i64 %41, 4294967295
+  br i1 %78, label %82, label %80
 
-73:                                               ; preds = %43
-  %74 = getelementptr i32, ptr %70, i64 %72
-  br label %80
+80:                                               ; preds = %44
+  %81 = getelementptr i32, ptr %77, i64 %79
+  br label %88
 
-75:                                               ; preds = %43
-  %76 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %72
-  %77 = load i64, ptr %76, align 8
-  %78 = add i64 %77, ptrtoint (ptr @x86_cpu_to_node_map to i64)
-  %79 = inttoptr i64 %78 to ptr
-  br label %80
-
-80:                                               ; preds = %75, %73
-  %81 = phi ptr [ %74, %73 ], [ %79, %75 ]
-  %82 = load i32, ptr %81, align 4
-  %83 = and i64 %40, 4294967295
-  %84 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %83
-  %85 = load i64, ptr %84, align 8
-  %86 = add i64 %85, ptrtoint (ptr @numa_node to i64)
+82:                                               ; preds = %44
+  %83 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %79
+  %84 = load i64, ptr %83, align 8
+  %85 = ptrtoint ptr @x86_cpu_to_node_map to i64
+  %86 = add i64 %84, %85
   %87 = inttoptr i64 %86 to ptr
-  store i32 %82, ptr %87, align 4
-  %88 = icmp eq i32 %41, 0
-  br i1 %88, label %89, label %90
+  br label %88
 
-89:                                               ; preds = %80
+88:                                               ; preds = %82, %80
+  %89 = phi ptr [ %81, %80 ], [ %87, %82 ]
+  %90 = load i32, ptr %89, align 4
+  %91 = and i64 %41, 4294967295
+  %92 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %91
+  %93 = load i64, ptr %92, align 8
+  %94 = ptrtoint ptr @numa_node to i64
+  %95 = add i64 %93, %94
+  %96 = inttoptr i64 %95 to ptr
+  store i32 %90, ptr %96, align 4
+  %97 = icmp eq i32 %42, 0
+  br i1 %97, label %98, label %99
+
+98:                                               ; preds = %88
   tail call void @switch_gdt_and_percpu_base(i32 noundef 0) #5
-  br label %90
+  br label %99
 
-90:                                               ; preds = %89, %80
-  %91 = add i64 %40, 1
-  br label %28, !llvm.loop !7
+99:                                               ; preds = %98, %88
+  %100 = add i64 %41, 1
+  br label %29, !llvm.loop !7
 
-92:                                               ; preds = %39
+101:                                              ; preds = %40
   store ptr null, ptr @x86_cpu_to_apicid_early_ptr, align 8
   store ptr null, ptr @x86_cpu_to_acpiid_early_ptr, align 8
   store ptr null, ptr @x86_cpu_to_node_map_early_ptr, align 8
@@ -209,38 +218,40 @@ define internal i32 @pcpu_cpu_distance(i32 noundef %0, i32 noundef %1) #3 sectio
 
 6:                                                ; preds = %2
   %7 = getelementptr i32, ptr %3, i64 %5
-  br label %13
+  br label %14
 
 8:                                                ; preds = %2
   %9 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
   %10 = load i64, ptr %9, align 8
-  %11 = add i64 %10, ptrtoint (ptr @x86_cpu_to_node_map to i64)
-  %12 = inttoptr i64 %11 to ptr
-  br label %13
+  %11 = ptrtoint ptr @x86_cpu_to_node_map to i64
+  %12 = add i64 %10, %11
+  %13 = inttoptr i64 %12 to ptr
+  br label %14
 
-13:                                               ; preds = %8, %6
-  %14 = phi ptr [ %7, %6 ], [ %12, %8 ]
-  %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %1 to i64
-  br i1 %4, label %19, label %17
+14:                                               ; preds = %8, %6
+  %15 = phi ptr [ %7, %6 ], [ %13, %8 ]
+  %16 = load i32, ptr %15, align 4
+  %17 = sext i32 %1 to i64
+  br i1 %4, label %20, label %18
 
-17:                                               ; preds = %13
-  %18 = getelementptr i32, ptr %3, i64 %16
-  br label %24
+18:                                               ; preds = %14
+  %19 = getelementptr i32, ptr %3, i64 %17
+  br label %26
 
-19:                                               ; preds = %13
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %16
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, ptrtoint (ptr @x86_cpu_to_node_map to i64)
-  %23 = inttoptr i64 %22 to ptr
-  br label %24
+20:                                               ; preds = %14
+  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %17
+  %22 = load i64, ptr %21, align 8
+  %23 = ptrtoint ptr @x86_cpu_to_node_map to i64
+  %24 = add i64 %22, %23
+  %25 = inttoptr i64 %24 to ptr
+  br label %26
 
-24:                                               ; preds = %19, %17
-  %25 = phi ptr [ %18, %17 ], [ %23, %19 ]
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %15, %26
-  %28 = select i1 %27, i32 10, i32 20
-  ret i32 %28
+26:                                               ; preds = %20, %18
+  %27 = phi ptr [ %19, %18 ], [ %25, %20 ]
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %16, %28
+  %30 = select i1 %29, i32 10, i32 20
+  ret i32 %30
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, inaccessiblemem: none)
@@ -252,19 +263,20 @@ define internal i32 @pcpu_cpu_to_node(i32 noundef %0) #3 section ".init.text" al
 
 5:                                                ; preds = %1
   %6 = getelementptr i32, ptr %2, i64 %4
-  br label %12
+  br label %13
 
 7:                                                ; preds = %1
   %8 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
   %9 = load i64, ptr %8, align 8
-  %10 = add i64 %9, ptrtoint (ptr @x86_cpu_to_node_map to i64)
-  %11 = inttoptr i64 %10 to ptr
-  br label %12
+  %10 = ptrtoint ptr @x86_cpu_to_node_map to i64
+  %11 = add i64 %9, %10
+  %12 = inttoptr i64 %11 to ptr
+  br label %13
 
-12:                                               ; preds = %7, %5
-  %13 = phi ptr [ %6, %5 ], [ %11, %7 ]
-  %14 = load i32, ptr %13, align 4
-  ret i32 %14
+13:                                               ; preds = %7, %5
+  %14 = phi ptr [ %6, %5 ], [ %12, %7 ]
+  %15 = load i32, ptr %14, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: cold null_pointer_is_valid

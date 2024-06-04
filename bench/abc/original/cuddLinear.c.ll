@@ -916,7 +916,7 @@ define internal i32 @ddLinearAndSiftingAux(ptr noundef %0, i32 noundef %1, i32 n
   %22 = load i32, ptr %7, align 4
   %23 = load i32, ptr %8, align 4
   %24 = icmp eq i32 %22, %23
-  br i1 %24, label %25, label %42
+  br i1 %24, label %25, label %43
 
 25:                                               ; preds = %4
   %26 = load ptr, ptr %6, align 8
@@ -925,304 +925,310 @@ define internal i32 @ddLinearAndSiftingAux(ptr noundef %0, i32 noundef %1, i32 n
   %29 = call ptr @ddLinearAndSiftingDown(ptr noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef null)
   store ptr %29, ptr %12, align 8
   %30 = load ptr, ptr %12, align 8
-  %31 = icmp eq ptr %30, inttoptr (i64 -1 to ptr)
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %25
-  br label %170
+  %31 = inttoptr i64 -1 to ptr
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %33, label %34
 
 33:                                               ; preds = %25
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i32, ptr %13, align 4
-  %36 = load ptr, ptr %12, align 8
-  %37 = call i32 @ddLinearAndSiftingBackward(ptr noundef %34, i32 noundef %35, ptr noundef %36)
-  store i32 %37, ptr %14, align 4
-  %38 = load i32, ptr %14, align 4
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %41, label %40
+  br label %176
 
-40:                                               ; preds = %33
-  br label %170
+34:                                               ; preds = %25
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i32, ptr %13, align 4
+  %37 = load ptr, ptr %12, align 8
+  %38 = call i32 @ddLinearAndSiftingBackward(ptr noundef %35, i32 noundef %36, ptr noundef %37)
+  store i32 %38, ptr %14, align 4
+  %39 = load i32, ptr %14, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %42, label %41
 
-41:                                               ; preds = %33
-  br label %131
+41:                                               ; preds = %34
+  br label %176
 
-42:                                               ; preds = %4
-  %43 = load i32, ptr %7, align 4
-  %44 = load i32, ptr %9, align 4
-  %45 = icmp eq i32 %43, %44
-  br i1 %45, label %46, label %63
+42:                                               ; preds = %34
+  br label %137
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %6, align 8
-  %48 = load i32, ptr %7, align 4
-  %49 = load i32, ptr %8, align 4
-  %50 = call ptr @ddLinearAndSiftingUp(ptr noundef %47, i32 noundef %48, i32 noundef %49, ptr noundef null)
-  store ptr %50, ptr %11, align 8
-  %51 = load ptr, ptr %11, align 8
-  %52 = icmp eq ptr %51, inttoptr (i64 -1 to ptr)
-  br i1 %52, label %53, label %54
+43:                                               ; preds = %4
+  %44 = load i32, ptr %7, align 4
+  %45 = load i32, ptr %9, align 4
+  %46 = icmp eq i32 %44, %45
+  br i1 %46, label %47, label %65
 
-53:                                               ; preds = %46
-  br label %170
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %6, align 8
+  %49 = load i32, ptr %7, align 4
+  %50 = load i32, ptr %8, align 4
+  %51 = call ptr @ddLinearAndSiftingUp(ptr noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef null)
+  store ptr %51, ptr %11, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = inttoptr i64 -1 to ptr
+  %54 = icmp eq ptr %52, %53
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %6, align 8
-  %56 = load i32, ptr %13, align 4
-  %57 = load ptr, ptr %11, align 8
-  %58 = call i32 @ddLinearAndSiftingBackward(ptr noundef %55, i32 noundef %56, ptr noundef %57)
-  store i32 %58, ptr %14, align 4
-  %59 = load i32, ptr %14, align 4
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %62, label %61
+55:                                               ; preds = %47
+  br label %176
 
-61:                                               ; preds = %54
-  br label %170
+56:                                               ; preds = %47
+  %57 = load ptr, ptr %6, align 8
+  %58 = load i32, ptr %13, align 4
+  %59 = load ptr, ptr %11, align 8
+  %60 = call i32 @ddLinearAndSiftingBackward(ptr noundef %57, i32 noundef %58, ptr noundef %59)
+  store i32 %60, ptr %14, align 4
+  %61 = load i32, ptr %14, align 4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %64, label %63
 
-62:                                               ; preds = %54
-  br label %130
+63:                                               ; preds = %56
+  br label %176
 
-63:                                               ; preds = %42
-  %64 = load i32, ptr %7, align 4
-  %65 = load i32, ptr %8, align 4
-  %66 = sub nsw i32 %64, %65
-  %67 = load i32, ptr %9, align 4
-  %68 = load i32, ptr %7, align 4
-  %69 = sub nsw i32 %67, %68
-  %70 = icmp sgt i32 %66, %69
-  br i1 %70, label %71, label %100
+64:                                               ; preds = %56
+  br label %136
 
-71:                                               ; preds = %63
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %7, align 4
-  %74 = load i32, ptr %9, align 4
-  %75 = call ptr @ddLinearAndSiftingDown(ptr noundef %72, i32 noundef %73, i32 noundef %74, ptr noundef null)
-  store ptr %75, ptr %12, align 8
-  %76 = load ptr, ptr %12, align 8
-  %77 = icmp eq ptr %76, inttoptr (i64 -1 to ptr)
-  br i1 %77, label %78, label %79
+65:                                               ; preds = %43
+  %66 = load i32, ptr %7, align 4
+  %67 = load i32, ptr %8, align 4
+  %68 = sub nsw i32 %66, %67
+  %69 = load i32, ptr %9, align 4
+  %70 = load i32, ptr %7, align 4
+  %71 = sub nsw i32 %69, %70
+  %72 = icmp sgt i32 %68, %71
+  br i1 %72, label %73, label %104
 
-78:                                               ; preds = %71
-  br label %170
+73:                                               ; preds = %65
+  %74 = load ptr, ptr %6, align 8
+  %75 = load i32, ptr %7, align 4
+  %76 = load i32, ptr %9, align 4
+  %77 = call ptr @ddLinearAndSiftingDown(ptr noundef %74, i32 noundef %75, i32 noundef %76, ptr noundef null)
+  store ptr %77, ptr %12, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = inttoptr i64 -1 to ptr
+  %80 = icmp eq ptr %78, %79
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %71
-  %80 = load ptr, ptr %6, align 8
-  %81 = load ptr, ptr %12, align 8
-  %82 = call ptr @ddUndoMoves(ptr noundef %80, ptr noundef %81)
-  store ptr %82, ptr %11, align 8
+81:                                               ; preds = %73
+  br label %176
+
+82:                                               ; preds = %73
   %83 = load ptr, ptr %6, align 8
-  %84 = load i32, ptr %7, align 4
-  %85 = load i32, ptr %8, align 4
-  %86 = load ptr, ptr %11, align 8
-  %87 = call ptr @ddLinearAndSiftingUp(ptr noundef %83, i32 noundef %84, i32 noundef %85, ptr noundef %86)
-  store ptr %87, ptr %11, align 8
-  %88 = load ptr, ptr %11, align 8
-  %89 = icmp eq ptr %88, inttoptr (i64 -1 to ptr)
-  br i1 %89, label %90, label %91
+  %84 = load ptr, ptr %12, align 8
+  %85 = call ptr @ddUndoMoves(ptr noundef %83, ptr noundef %84)
+  store ptr %85, ptr %11, align 8
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i32, ptr %7, align 4
+  %88 = load i32, ptr %8, align 4
+  %89 = load ptr, ptr %11, align 8
+  %90 = call ptr @ddLinearAndSiftingUp(ptr noundef %86, i32 noundef %87, i32 noundef %88, ptr noundef %89)
+  store ptr %90, ptr %11, align 8
+  %91 = load ptr, ptr %11, align 8
+  %92 = inttoptr i64 -1 to ptr
+  %93 = icmp eq ptr %91, %92
+  br i1 %93, label %94, label %95
 
-90:                                               ; preds = %79
-  br label %170
+94:                                               ; preds = %82
+  br label %176
 
-91:                                               ; preds = %79
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i32, ptr %13, align 4
-  %94 = load ptr, ptr %11, align 8
-  %95 = call i32 @ddLinearAndSiftingBackward(ptr noundef %92, i32 noundef %93, ptr noundef %94)
-  store i32 %95, ptr %14, align 4
-  %96 = load i32, ptr %14, align 4
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %99, label %98
+95:                                               ; preds = %82
+  %96 = load ptr, ptr %6, align 8
+  %97 = load i32, ptr %13, align 4
+  %98 = load ptr, ptr %11, align 8
+  %99 = call i32 @ddLinearAndSiftingBackward(ptr noundef %96, i32 noundef %97, ptr noundef %98)
+  store i32 %99, ptr %14, align 4
+  %100 = load i32, ptr %14, align 4
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %103, label %102
 
-98:                                               ; preds = %91
-  br label %170
+102:                                              ; preds = %95
+  br label %176
 
-99:                                               ; preds = %91
-  br label %129
+103:                                              ; preds = %95
+  br label %135
 
-100:                                              ; preds = %63
-  %101 = load ptr, ptr %6, align 8
-  %102 = load i32, ptr %7, align 4
-  %103 = load i32, ptr %8, align 4
-  %104 = call ptr @ddLinearAndSiftingUp(ptr noundef %101, i32 noundef %102, i32 noundef %103, ptr noundef null)
-  store ptr %104, ptr %11, align 8
-  %105 = load ptr, ptr %11, align 8
-  %106 = icmp eq ptr %105, inttoptr (i64 -1 to ptr)
-  br i1 %106, label %107, label %108
+104:                                              ; preds = %65
+  %105 = load ptr, ptr %6, align 8
+  %106 = load i32, ptr %7, align 4
+  %107 = load i32, ptr %8, align 4
+  %108 = call ptr @ddLinearAndSiftingUp(ptr noundef %105, i32 noundef %106, i32 noundef %107, ptr noundef null)
+  store ptr %108, ptr %11, align 8
+  %109 = load ptr, ptr %11, align 8
+  %110 = inttoptr i64 -1 to ptr
+  %111 = icmp eq ptr %109, %110
+  br i1 %111, label %112, label %113
 
-107:                                              ; preds = %100
-  br label %170
+112:                                              ; preds = %104
+  br label %176
 
-108:                                              ; preds = %100
-  %109 = load ptr, ptr %6, align 8
-  %110 = load ptr, ptr %11, align 8
-  %111 = call ptr @ddUndoMoves(ptr noundef %109, ptr noundef %110)
-  store ptr %111, ptr %12, align 8
-  %112 = load ptr, ptr %6, align 8
-  %113 = load i32, ptr %7, align 4
-  %114 = load i32, ptr %9, align 4
-  %115 = load ptr, ptr %12, align 8
-  %116 = call ptr @ddLinearAndSiftingDown(ptr noundef %112, i32 noundef %113, i32 noundef %114, ptr noundef %115)
+113:                                              ; preds = %104
+  %114 = load ptr, ptr %6, align 8
+  %115 = load ptr, ptr %11, align 8
+  %116 = call ptr @ddUndoMoves(ptr noundef %114, ptr noundef %115)
   store ptr %116, ptr %12, align 8
-  %117 = load ptr, ptr %12, align 8
-  %118 = icmp eq ptr %117, inttoptr (i64 -1 to ptr)
-  br i1 %118, label %119, label %120
+  %117 = load ptr, ptr %6, align 8
+  %118 = load i32, ptr %7, align 4
+  %119 = load i32, ptr %9, align 4
+  %120 = load ptr, ptr %12, align 8
+  %121 = call ptr @ddLinearAndSiftingDown(ptr noundef %117, i32 noundef %118, i32 noundef %119, ptr noundef %120)
+  store ptr %121, ptr %12, align 8
+  %122 = load ptr, ptr %12, align 8
+  %123 = inttoptr i64 -1 to ptr
+  %124 = icmp eq ptr %122, %123
+  br i1 %124, label %125, label %126
 
-119:                                              ; preds = %108
-  br label %170
+125:                                              ; preds = %113
+  br label %176
 
-120:                                              ; preds = %108
-  %121 = load ptr, ptr %6, align 8
-  %122 = load i32, ptr %13, align 4
-  %123 = load ptr, ptr %12, align 8
-  %124 = call i32 @ddLinearAndSiftingBackward(ptr noundef %121, i32 noundef %122, ptr noundef %123)
-  store i32 %124, ptr %14, align 4
-  %125 = load i32, ptr %14, align 4
-  %126 = icmp ne i32 %125, 0
-  br i1 %126, label %128, label %127
+126:                                              ; preds = %113
+  %127 = load ptr, ptr %6, align 8
+  %128 = load i32, ptr %13, align 4
+  %129 = load ptr, ptr %12, align 8
+  %130 = call i32 @ddLinearAndSiftingBackward(ptr noundef %127, i32 noundef %128, ptr noundef %129)
+  store i32 %130, ptr %14, align 4
+  %131 = load i32, ptr %14, align 4
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %134, label %133
 
-127:                                              ; preds = %120
-  br label %170
+133:                                              ; preds = %126
+  br label %176
 
-128:                                              ; preds = %120
-  br label %129
+134:                                              ; preds = %126
+  br label %135
 
-129:                                              ; preds = %128, %99
-  br label %130
+135:                                              ; preds = %134, %103
+  br label %136
 
-130:                                              ; preds = %129, %62
-  br label %131
+136:                                              ; preds = %135, %64
+  br label %137
 
-131:                                              ; preds = %130, %41
-  br label %132
+137:                                              ; preds = %136, %42
+  br label %138
 
-132:                                              ; preds = %135, %131
-  %133 = load ptr, ptr %12, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %135, label %150
-
-135:                                              ; preds = %132
-  %136 = load ptr, ptr %12, align 8
-  %137 = getelementptr inbounds %struct.Move, ptr %136, i32 0, i32 4
-  %138 = load ptr, ptr %137, align 8
-  store ptr %138, ptr %10, align 8
+138:                                              ; preds = %141, %137
   %139 = load ptr, ptr %12, align 8
-  %140 = getelementptr inbounds %struct.DdNode, ptr %139, i32 0, i32 1
-  store i32 0, ptr %140, align 4
-  %141 = load ptr, ptr %6, align 8
-  %142 = getelementptr inbounds %struct.DdManager, ptr %141, i32 0, i32 48
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %12, align 8
-  %145 = getelementptr inbounds %struct.DdNode, ptr %144, i32 0, i32 2
-  store ptr %143, ptr %145, align 8
-  %146 = load ptr, ptr %12, align 8
+  %140 = icmp ne ptr %139, null
+  br i1 %140, label %141, label %156
+
+141:                                              ; preds = %138
+  %142 = load ptr, ptr %12, align 8
+  %143 = getelementptr inbounds %struct.Move, ptr %142, i32 0, i32 4
+  %144 = load ptr, ptr %143, align 8
+  store ptr %144, ptr %10, align 8
+  %145 = load ptr, ptr %12, align 8
+  %146 = getelementptr inbounds %struct.DdNode, ptr %145, i32 0, i32 1
+  store i32 0, ptr %146, align 4
   %147 = load ptr, ptr %6, align 8
   %148 = getelementptr inbounds %struct.DdManager, ptr %147, i32 0, i32 48
-  store ptr %146, ptr %148, align 8
-  %149 = load ptr, ptr %10, align 8
-  store ptr %149, ptr %12, align 8
-  br label %132, !llvm.loop !16
+  %149 = load ptr, ptr %148, align 8
+  %150 = load ptr, ptr %12, align 8
+  %151 = getelementptr inbounds %struct.DdNode, ptr %150, i32 0, i32 2
+  store ptr %149, ptr %151, align 8
+  %152 = load ptr, ptr %12, align 8
+  %153 = load ptr, ptr %6, align 8
+  %154 = getelementptr inbounds %struct.DdManager, ptr %153, i32 0, i32 48
+  store ptr %152, ptr %154, align 8
+  %155 = load ptr, ptr %10, align 8
+  store ptr %155, ptr %12, align 8
+  br label %138, !llvm.loop !16
 
-150:                                              ; preds = %132
-  br label %151
+156:                                              ; preds = %138
+  br label %157
 
-151:                                              ; preds = %154, %150
-  %152 = load ptr, ptr %11, align 8
-  %153 = icmp ne ptr %152, null
-  br i1 %153, label %154, label %169
-
-154:                                              ; preds = %151
-  %155 = load ptr, ptr %11, align 8
-  %156 = getelementptr inbounds %struct.Move, ptr %155, i32 0, i32 4
-  %157 = load ptr, ptr %156, align 8
-  store ptr %157, ptr %10, align 8
+157:                                              ; preds = %160, %156
   %158 = load ptr, ptr %11, align 8
-  %159 = getelementptr inbounds %struct.DdNode, ptr %158, i32 0, i32 1
-  store i32 0, ptr %159, align 4
-  %160 = load ptr, ptr %6, align 8
-  %161 = getelementptr inbounds %struct.DdManager, ptr %160, i32 0, i32 48
-  %162 = load ptr, ptr %161, align 8
-  %163 = load ptr, ptr %11, align 8
-  %164 = getelementptr inbounds %struct.DdNode, ptr %163, i32 0, i32 2
-  store ptr %162, ptr %164, align 8
-  %165 = load ptr, ptr %11, align 8
+  %159 = icmp ne ptr %158, null
+  br i1 %159, label %160, label %175
+
+160:                                              ; preds = %157
+  %161 = load ptr, ptr %11, align 8
+  %162 = getelementptr inbounds %struct.Move, ptr %161, i32 0, i32 4
+  %163 = load ptr, ptr %162, align 8
+  store ptr %163, ptr %10, align 8
+  %164 = load ptr, ptr %11, align 8
+  %165 = getelementptr inbounds %struct.DdNode, ptr %164, i32 0, i32 1
+  store i32 0, ptr %165, align 4
   %166 = load ptr, ptr %6, align 8
   %167 = getelementptr inbounds %struct.DdManager, ptr %166, i32 0, i32 48
-  store ptr %165, ptr %167, align 8
-  %168 = load ptr, ptr %10, align 8
-  store ptr %168, ptr %11, align 8
-  br label %151, !llvm.loop !17
+  %168 = load ptr, ptr %167, align 8
+  %169 = load ptr, ptr %11, align 8
+  %170 = getelementptr inbounds %struct.DdNode, ptr %169, i32 0, i32 2
+  store ptr %168, ptr %170, align 8
+  %171 = load ptr, ptr %11, align 8
+  %172 = load ptr, ptr %6, align 8
+  %173 = getelementptr inbounds %struct.DdManager, ptr %172, i32 0, i32 48
+  store ptr %171, ptr %173, align 8
+  %174 = load ptr, ptr %10, align 8
+  store ptr %174, ptr %11, align 8
+  br label %157, !llvm.loop !17
 
-169:                                              ; preds = %151
+175:                                              ; preds = %157
   store i32 1, ptr %5, align 4
-  br label %209
+  br label %215
 
-170:                                              ; preds = %127, %119, %107, %98, %90, %78, %61, %53, %40, %32
-  br label %171
+176:                                              ; preds = %133, %125, %112, %102, %94, %81, %63, %55, %41, %33
+  br label %177
 
-171:                                              ; preds = %174, %170
-  %172 = load ptr, ptr %12, align 8
-  %173 = icmp ne ptr %172, null
-  br i1 %173, label %174, label %189
-
-174:                                              ; preds = %171
-  %175 = load ptr, ptr %12, align 8
-  %176 = getelementptr inbounds %struct.Move, ptr %175, i32 0, i32 4
-  %177 = load ptr, ptr %176, align 8
-  store ptr %177, ptr %10, align 8
+177:                                              ; preds = %180, %176
   %178 = load ptr, ptr %12, align 8
-  %179 = getelementptr inbounds %struct.DdNode, ptr %178, i32 0, i32 1
-  store i32 0, ptr %179, align 4
-  %180 = load ptr, ptr %6, align 8
-  %181 = getelementptr inbounds %struct.DdManager, ptr %180, i32 0, i32 48
-  %182 = load ptr, ptr %181, align 8
-  %183 = load ptr, ptr %12, align 8
-  %184 = getelementptr inbounds %struct.DdNode, ptr %183, i32 0, i32 2
-  store ptr %182, ptr %184, align 8
-  %185 = load ptr, ptr %12, align 8
+  %179 = icmp ne ptr %178, null
+  br i1 %179, label %180, label %195
+
+180:                                              ; preds = %177
+  %181 = load ptr, ptr %12, align 8
+  %182 = getelementptr inbounds %struct.Move, ptr %181, i32 0, i32 4
+  %183 = load ptr, ptr %182, align 8
+  store ptr %183, ptr %10, align 8
+  %184 = load ptr, ptr %12, align 8
+  %185 = getelementptr inbounds %struct.DdNode, ptr %184, i32 0, i32 1
+  store i32 0, ptr %185, align 4
   %186 = load ptr, ptr %6, align 8
   %187 = getelementptr inbounds %struct.DdManager, ptr %186, i32 0, i32 48
-  store ptr %185, ptr %187, align 8
-  %188 = load ptr, ptr %10, align 8
-  store ptr %188, ptr %12, align 8
-  br label %171, !llvm.loop !18
+  %188 = load ptr, ptr %187, align 8
+  %189 = load ptr, ptr %12, align 8
+  %190 = getelementptr inbounds %struct.DdNode, ptr %189, i32 0, i32 2
+  store ptr %188, ptr %190, align 8
+  %191 = load ptr, ptr %12, align 8
+  %192 = load ptr, ptr %6, align 8
+  %193 = getelementptr inbounds %struct.DdManager, ptr %192, i32 0, i32 48
+  store ptr %191, ptr %193, align 8
+  %194 = load ptr, ptr %10, align 8
+  store ptr %194, ptr %12, align 8
+  br label %177, !llvm.loop !18
 
-189:                                              ; preds = %171
-  br label %190
+195:                                              ; preds = %177
+  br label %196
 
-190:                                              ; preds = %193, %189
-  %191 = load ptr, ptr %11, align 8
-  %192 = icmp ne ptr %191, null
-  br i1 %192, label %193, label %208
-
-193:                                              ; preds = %190
-  %194 = load ptr, ptr %11, align 8
-  %195 = getelementptr inbounds %struct.Move, ptr %194, i32 0, i32 4
-  %196 = load ptr, ptr %195, align 8
-  store ptr %196, ptr %10, align 8
+196:                                              ; preds = %199, %195
   %197 = load ptr, ptr %11, align 8
-  %198 = getelementptr inbounds %struct.DdNode, ptr %197, i32 0, i32 1
-  store i32 0, ptr %198, align 4
-  %199 = load ptr, ptr %6, align 8
-  %200 = getelementptr inbounds %struct.DdManager, ptr %199, i32 0, i32 48
-  %201 = load ptr, ptr %200, align 8
-  %202 = load ptr, ptr %11, align 8
-  %203 = getelementptr inbounds %struct.DdNode, ptr %202, i32 0, i32 2
-  store ptr %201, ptr %203, align 8
-  %204 = load ptr, ptr %11, align 8
+  %198 = icmp ne ptr %197, null
+  br i1 %198, label %199, label %214
+
+199:                                              ; preds = %196
+  %200 = load ptr, ptr %11, align 8
+  %201 = getelementptr inbounds %struct.Move, ptr %200, i32 0, i32 4
+  %202 = load ptr, ptr %201, align 8
+  store ptr %202, ptr %10, align 8
+  %203 = load ptr, ptr %11, align 8
+  %204 = getelementptr inbounds %struct.DdNode, ptr %203, i32 0, i32 1
+  store i32 0, ptr %204, align 4
   %205 = load ptr, ptr %6, align 8
   %206 = getelementptr inbounds %struct.DdManager, ptr %205, i32 0, i32 48
-  store ptr %204, ptr %206, align 8
-  %207 = load ptr, ptr %10, align 8
-  store ptr %207, ptr %11, align 8
-  br label %190, !llvm.loop !19
+  %207 = load ptr, ptr %206, align 8
+  %208 = load ptr, ptr %11, align 8
+  %209 = getelementptr inbounds %struct.DdNode, ptr %208, i32 0, i32 2
+  store ptr %207, ptr %209, align 8
+  %210 = load ptr, ptr %11, align 8
+  %211 = load ptr, ptr %6, align 8
+  %212 = getelementptr inbounds %struct.DdManager, ptr %211, i32 0, i32 48
+  store ptr %210, ptr %212, align 8
+  %213 = load ptr, ptr %10, align 8
+  store ptr %213, ptr %11, align 8
+  br label %196, !llvm.loop !19
 
-208:                                              ; preds = %190
+214:                                              ; preds = %196
   store i32 0, ptr %5, align 4
-  br label %209
+  br label %215
 
-209:                                              ; preds = %208, %169
-  %210 = load i32, ptr %5, align 4
-  ret i32 %210
+215:                                              ; preds = %214, %175
+  %216 = load i32, ptr %5, align 4
+  ret i32 %216
 }
 
 ; Function Attrs: nounwind
@@ -2878,7 +2884,7 @@ define internal ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %1, i32 
 231:                                              ; preds = %219, %95
   %232 = load ptr, ptr %10, align 8
   store ptr %232, ptr %5, align 8
-  br label %253
+  br label %254
 
 233:                                              ; preds = %179, %155, %149, %141
   br label %234
@@ -2911,12 +2917,13 @@ define internal ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %1, i32 
   br label %234, !llvm.loop !36
 
 252:                                              ; preds = %234
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %253
+  %253 = inttoptr i64 -1 to ptr
+  store ptr %253, ptr %5, align 8
+  br label %254
 
-253:                                              ; preds = %252, %231
-  %254 = load ptr, ptr %5, align 8
-  ret ptr %254
+254:                                              ; preds = %252, %231
+  %255 = load ptr, ptr %5, align 8
+  ret ptr %255
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3416,7 +3423,7 @@ define internal ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1, i32 no
 242:                                              ; preds = %230, %117
   %243 = load ptr, ptr %10, align 8
   store ptr %243, ptr %5, align 8
-  br label %264
+  br label %265
 
 244:                                              ; preds = %171, %147, %141, %133
   br label %245
@@ -3449,12 +3456,13 @@ define internal ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1, i32 no
   br label %245, !llvm.loop !41
 
 263:                                              ; preds = %245
-  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8
-  br label %264
+  %264 = inttoptr i64 -1 to ptr
+  store ptr %264, ptr %5, align 8
+  br label %265
 
-264:                                              ; preds = %263, %242
-  %265 = load ptr, ptr %5, align 8
-  ret ptr %265
+265:                                              ; preds = %263, %242
+  %266 = load ptr, ptr %5, align 8
+  ret ptr %266
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3644,7 +3652,7 @@ define internal ptr @ddUndoMoves(ptr noundef %0, ptr noundef %1) #0 {
 122:                                              ; preds = %11
   %123 = load ptr, ptr %6, align 8
   store ptr %123, ptr %3, align 8
-  br label %144
+  br label %145
 
 124:                                              ; preds = %111, %99, %84, %72, %52, %19
   br label %125
@@ -3677,12 +3685,13 @@ define internal ptr @ddUndoMoves(ptr noundef %0, ptr noundef %1) #0 {
   br label %125, !llvm.loop !43
 
 143:                                              ; preds = %125
-  store ptr inttoptr (i64 -1 to ptr), ptr %3, align 8
-  br label %144
+  %144 = inttoptr i64 -1 to ptr
+  store ptr %144, ptr %3, align 8
+  br label %145
 
-144:                                              ; preds = %143, %122
-  %145 = load ptr, ptr %3, align 8
-  ret ptr %145
+145:                                              ; preds = %143, %122
+  %146 = load ptr, ptr %3, align 8
+  ret ptr %146
 }
 
 declare i32 @cuddNextHigh(ptr noundef, i32 noundef) #3

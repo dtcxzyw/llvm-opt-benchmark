@@ -2024,39 +2024,40 @@ entry:
   store ptr %event_handlers, ptr %event_handlers.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks9base_sinkISt5mutexEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks15basic_file_sinkISt5mutexEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6spdlog5sinks15basic_file_sinkISt5mutexEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file_helper_ = getelementptr inbounds %"class.spdlog::sinks::basic_file_sink", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %event_handlers.addr, align 8
-  invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %0)
+  %1 = load ptr, ptr %event_handlers.addr, align 8
+  invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %file_helper_2 = getelementptr inbounds %"class.spdlog::sinks::basic_file_sink", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %filename.addr, align 8
-  %2 = load i8, ptr %truncate.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  invoke void @_ZN6spdlog7details11file_helper4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_2, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %tobool)
+  %2 = load ptr, ptr %filename.addr, align 8
+  %3 = load i8, ptr %truncate.addr, align 1
+  %tobool = trunc i8 %3 to i1
+  invoke void @_ZN6spdlog7details11file_helper4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_2, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %tobool)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6spdlog7details11file_helperD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_) #13
   br label %ehcleanup
 
@@ -2082,7 +2083,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks4sinkC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::base_sink", ptr %this1, i32 0, i32 1
   invoke void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr sret(%"class.std::unique_ptr.18") align 8 %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2095,12 +2097,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6spdlog5sinks4sinkD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
   br label %eh.resume
 
@@ -2196,10 +2198,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #13
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #13
   %store_ = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [250 x i8], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 250) #13
@@ -2265,39 +2268,40 @@ entry:
   store ptr %event_handlers, ptr %event_handlers.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks9base_sinkINS_7details10null_mutexEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks15basic_file_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6spdlog5sinks15basic_file_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file_helper_ = getelementptr inbounds %"class.spdlog::sinks::basic_file_sink.9", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %event_handlers.addr, align 8
-  invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %0)
+  %1 = load ptr, ptr %event_handlers.addr, align 8
+  invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %file_helper_2 = getelementptr inbounds %"class.spdlog::sinks::basic_file_sink.9", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %filename.addr, align 8
-  %2 = load i8, ptr %truncate.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  invoke void @_ZN6spdlog7details11file_helper4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_2, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %tobool)
+  %2 = load ptr, ptr %filename.addr, align 8
+  %3 = load i8, ptr %truncate.addr, align 1
+  %tobool = trunc i8 %3 to i1
+  invoke void @_ZN6spdlog7details11file_helper4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_2, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %tobool)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6spdlog7details11file_helperD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_) #13
   br label %ehcleanup
 
@@ -2323,7 +2327,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks4sinkC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::base_sink.10", ptr %this1, i32 0, i32 2
   invoke void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr sret(%"class.std::unique_ptr.18") align 8 %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2334,12 +2339,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6spdlog5sinks4sinkD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
   br label %eh.resume
 
@@ -2462,23 +2467,24 @@ entry:
   store ptr %event_handlers, ptr %event_handlers.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks9base_sinkISt5mutexEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkISt5mutexEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkISt5mutexEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base_filename_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_, ptr noundef nonnull align 8 dereferenceable(32) %base_filename) #13
   %max_size_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %max_size.addr, align 8
-  store i64 %0, ptr %max_size_, align 8
+  %1 = load i64, ptr %max_size.addr, align 8
+  store i64 %1, ptr %max_size_, align 8
   %max_files_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink", ptr %this1, i32 0, i32 3
-  %1 = load i64, ptr %max_files.addr, align 8
-  store i64 %1, ptr %max_files_, align 8
+  %2 = load i64, ptr %max_files.addr, align 8
+  store i64 %2, ptr %max_files_, align 8
   %file_helper_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %event_handlers.addr, align 8
-  invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %2)
+  %3 = load ptr, ptr %event_handlers.addr, align 8
+  invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load i64, ptr %max_size.addr, align 8
-  %cmp = icmp eq i64 %3, 0
+  %4 = load i64, ptr %max_size.addr, align 8
+  %cmp = icmp eq i64 %4, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
@@ -2494,30 +2500,30 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   unreachable
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup34
 
 lpad2:                                            ; preds = %if.then
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   br label %ehcleanup
 
@@ -2526,8 +2532,8 @@ ehcleanup:                                        ; preds = %lpad4, %lpad2
   br label %ehcleanup33
 
 if.end:                                           ; preds = %invoke.cont
-  %13 = load i64, ptr %max_files.addr, align 8
-  %cmp6 = icmp ugt i64 %13, 200000
+  %14 = load i64, ptr %max_files.addr, align 8
+  %cmp6 = icmp ugt i64 %14, 200000
   br i1 %cmp6, label %if.then7, label %if.end16
 
 if.then7:                                         ; preds = %if.end
@@ -2543,21 +2549,21 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   unreachable
 
 lpad10:                                           ; preds = %if.then7
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad12:                                           ; preds = %invoke.cont11
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #13
   br label %ehcleanup15
 
@@ -2584,14 +2590,14 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 invoke.cont26:                                    ; preds = %invoke.cont23
   %current_size_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink", ptr %this1, i32 0, i32 4
   store i64 %call, ptr %current_size_, align 8
-  %20 = load i8, ptr %rotate_on_open.addr, align 1
-  %tobool = trunc i8 %20 to i1
+  %21 = load i8, ptr %rotate_on_open.addr, align 1
+  %tobool = trunc i8 %21 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end32
 
 land.lhs.true:                                    ; preds = %invoke.cont26
   %current_size_27 = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink", ptr %this1, i32 0, i32 4
-  %21 = load i64, ptr %current_size_27, align 8
-  %cmp28 = icmp ugt i64 %21, 0
+  %22 = load i64, ptr %current_size_27, align 8
+  %cmp28 = icmp ugt i64 %22, 0
   br i1 %cmp28, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %land.lhs.true
@@ -2604,21 +2610,21 @@ invoke.cont30:                                    ; preds = %if.then29
   br label %if.end32
 
 lpad20:                                           ; preds = %if.then29, %invoke.cont23, %if.end16
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup33
 
 lpad22:                                           ; preds = %invoke.cont21
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #13
   br label %ehcleanup33
 
@@ -3391,23 +3397,24 @@ entry:
   store ptr %event_handlers, ptr %event_handlers.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks9base_sinkINS_7details10null_mutexEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base_filename_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink.16", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_, ptr noundef nonnull align 8 dereferenceable(32) %base_filename) #13
   %max_size_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink.16", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %max_size.addr, align 8
-  store i64 %0, ptr %max_size_, align 8
+  %1 = load i64, ptr %max_size.addr, align 8
+  store i64 %1, ptr %max_size_, align 8
   %max_files_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink.16", ptr %this1, i32 0, i32 3
-  %1 = load i64, ptr %max_files.addr, align 8
-  store i64 %1, ptr %max_files_, align 8
+  %2 = load i64, ptr %max_files.addr, align 8
+  store i64 %2, ptr %max_files_, align 8
   %file_helper_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink.16", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %event_handlers.addr, align 8
-  invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %2)
+  %3 = load ptr, ptr %event_handlers.addr, align 8
+  invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load i64, ptr %max_size.addr, align 8
-  %cmp = icmp eq i64 %3, 0
+  %4 = load i64, ptr %max_size.addr, align 8
+  %cmp = icmp eq i64 %4, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
@@ -3423,30 +3430,30 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   unreachable
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup34
 
 lpad2:                                            ; preds = %if.then
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   br label %ehcleanup
 
@@ -3455,8 +3462,8 @@ ehcleanup:                                        ; preds = %lpad4, %lpad2
   br label %ehcleanup33
 
 if.end:                                           ; preds = %invoke.cont
-  %13 = load i64, ptr %max_files.addr, align 8
-  %cmp6 = icmp ugt i64 %13, 200000
+  %14 = load i64, ptr %max_files.addr, align 8
+  %cmp6 = icmp ugt i64 %14, 200000
   br i1 %cmp6, label %if.then7, label %if.end16
 
 if.then7:                                         ; preds = %if.end
@@ -3472,21 +3479,21 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   unreachable
 
 lpad10:                                           ; preds = %if.then7
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad12:                                           ; preds = %invoke.cont11
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #13
   br label %ehcleanup15
 
@@ -3513,14 +3520,14 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 invoke.cont26:                                    ; preds = %invoke.cont23
   %current_size_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink.16", ptr %this1, i32 0, i32 4
   store i64 %call, ptr %current_size_, align 8
-  %20 = load i8, ptr %rotate_on_open.addr, align 1
-  %tobool = trunc i8 %20 to i1
+  %21 = load i8, ptr %rotate_on_open.addr, align 1
+  %tobool = trunc i8 %21 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end32
 
 land.lhs.true:                                    ; preds = %invoke.cont26
   %current_size_27 = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink.16", ptr %this1, i32 0, i32 4
-  %21 = load i64, ptr %current_size_27, align 8
-  %cmp28 = icmp ugt i64 %21, 0
+  %22 = load i64, ptr %current_size_27, align 8
+  %cmp28 = icmp ugt i64 %22, 0
   br i1 %cmp28, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %land.lhs.true
@@ -3533,21 +3540,21 @@ invoke.cont30:                                    ; preds = %if.then29
   br label %if.end32
 
 lpad20:                                           ; preds = %if.then29, %invoke.cont23, %if.end16
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup33
 
 lpad22:                                           ; preds = %invoke.cont21
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #13
   br label %ehcleanup33
 
@@ -5160,7 +5167,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::base_sink", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %formatter_) #13
   call void @_ZN6spdlog5sinks4sinkD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
@@ -5321,7 +5329,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::base_sink.10", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %formatter_) #13
   call void @_ZN6spdlog5sinks4sinkD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
@@ -5580,7 +5589,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks4sinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6spdlog5sinks4sinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %level_ = getelementptr inbounds %"class.spdlog::sinks::sink", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %level_, i32 noundef 0) #13
   ret void
@@ -7291,16 +7301,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 

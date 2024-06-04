@@ -521,92 +521,93 @@ define dso_local ptr @xfrm_ealg_get_byidx(i32 noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xfrm_probe_algs() #0 align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #6, !srcloc !8
-  %2 = and i32 %1, 65280
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %5, label %4, !prof !9
+  %1 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1) #6, !srcloc !8
+  %3 = and i32 %2, 65280
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %6, label %5, !prof !9
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   tail call void asm sideeffect "762: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 762b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 762) #5, !srcloc !10
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 816, i32 0, i64 12) #5, !srcloc !11
   unreachable
 
-5:                                                ; preds = %20, %0
-  %6 = phi i64 [ %21, %20 ], [ 0, %0 ]
-  %7 = getelementptr [10 x %struct.xfrm_algo_desc], ptr @aalg_list, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 16
-  %9 = tail call i32 @crypto_has_ahash(ptr noundef %8, i32 noundef 0, i32 noundef 0) #5
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  %11 = load i8, ptr %10, align 16
-  %12 = and i8 %11, 1
-  %13 = zext nneg i8 %12 to i32
-  %14 = icmp eq i32 %9, %13
-  br i1 %14, label %20, label %15
+6:                                                ; preds = %21, %0
+  %7 = phi i64 [ %22, %21 ], [ 0, %0 ]
+  %8 = getelementptr [10 x %struct.xfrm_algo_desc], ptr @aalg_list, i64 0, i64 %7
+  %9 = load ptr, ptr %8, align 16
+  %10 = tail call i32 @crypto_has_ahash(ptr noundef %9, i32 noundef 0, i32 noundef 0) #5
+  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = load i8, ptr %11, align 16
+  %13 = and i8 %12, 1
+  %14 = zext nneg i8 %13 to i32
+  %15 = icmp eq i32 %10, %14
+  br i1 %15, label %21, label %16
 
-15:                                               ; preds = %5
-  %16 = trunc i32 %9 to i8
-  %17 = and i8 %16, 1
-  %18 = and i8 %11, -2
-  %19 = or disjoint i8 %18, %17
-  store i8 %19, ptr %10, align 16
-  br label %20
+16:                                               ; preds = %6
+  %17 = trunc i32 %10 to i8
+  %18 = and i8 %17, 1
+  %19 = and i8 %12, -2
+  %20 = or disjoint i8 %19, %18
+  store i8 %20, ptr %11, align 16
+  br label %21
 
-20:                                               ; preds = %15, %5
-  %21 = add nuw nsw i64 %6, 1
-  %22 = icmp eq i64 %21, 10
-  br i1 %22, label %23, label %5, !llvm.loop !12
+21:                                               ; preds = %16, %6
+  %22 = add nuw nsw i64 %7, 1
+  %23 = icmp eq i64 %22, 10
+  br i1 %23, label %24, label %6, !llvm.loop !12
 
-23:                                               ; preds = %38, %20
-  %24 = phi i64 [ %39, %38 ], [ 0, %20 ]
-  %25 = getelementptr [11 x %struct.xfrm_algo_desc], ptr @ealg_list, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 16
-  %27 = tail call i32 @crypto_has_skcipher(ptr noundef %26, i32 noundef 0, i32 noundef 0) #5
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
-  %29 = load i8, ptr %28, align 16
-  %30 = and i8 %29, 1
-  %31 = zext nneg i8 %30 to i32
-  %32 = icmp eq i32 %27, %31
-  br i1 %32, label %38, label %33
+24:                                               ; preds = %39, %21
+  %25 = phi i64 [ %40, %39 ], [ 0, %21 ]
+  %26 = getelementptr [11 x %struct.xfrm_algo_desc], ptr @ealg_list, i64 0, i64 %25
+  %27 = load ptr, ptr %26, align 16
+  %28 = tail call i32 @crypto_has_skcipher(ptr noundef %27, i32 noundef 0, i32 noundef 0) #5
+  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %30 = load i8, ptr %29, align 16
+  %31 = and i8 %30, 1
+  %32 = zext nneg i8 %31 to i32
+  %33 = icmp eq i32 %28, %32
+  br i1 %33, label %39, label %34
 
-33:                                               ; preds = %23
-  %34 = trunc i32 %27 to i8
-  %35 = and i8 %34, 1
-  %36 = and i8 %29, -2
-  %37 = or disjoint i8 %36, %35
-  store i8 %37, ptr %28, align 16
-  br label %38
+34:                                               ; preds = %24
+  %35 = trunc i32 %28 to i8
+  %36 = and i8 %35, 1
+  %37 = and i8 %30, -2
+  %38 = or disjoint i8 %37, %36
+  store i8 %38, ptr %29, align 16
+  br label %39
 
-38:                                               ; preds = %33, %23
-  %39 = add nuw nsw i64 %24, 1
-  %40 = icmp eq i64 %39, 11
-  br i1 %40, label %41, label %23, !llvm.loop !13
+39:                                               ; preds = %34, %24
+  %40 = add nuw nsw i64 %25, 1
+  %41 = icmp eq i64 %40, 11
+  br i1 %41, label %42, label %24, !llvm.loop !13
 
-41:                                               ; preds = %56, %38
-  %42 = phi i64 [ %57, %56 ], [ 0, %38 ]
-  %43 = getelementptr [3 x %struct.xfrm_algo_desc], ptr @calg_list, i64 0, i64 %42
-  %44 = load ptr, ptr %43, align 16
-  %45 = tail call i32 @crypto_has_alg(ptr noundef %44, i32 noundef 2, i32 noundef 143) #5
-  %46 = getelementptr inbounds i8, ptr %43, i64 16
-  %47 = load i8, ptr %46, align 16
-  %48 = and i8 %47, 1
-  %49 = zext nneg i8 %48 to i32
-  %50 = icmp eq i32 %45, %49
-  br i1 %50, label %56, label %51
+42:                                               ; preds = %57, %39
+  %43 = phi i64 [ %58, %57 ], [ 0, %39 ]
+  %44 = getelementptr [3 x %struct.xfrm_algo_desc], ptr @calg_list, i64 0, i64 %43
+  %45 = load ptr, ptr %44, align 16
+  %46 = tail call i32 @crypto_has_alg(ptr noundef %45, i32 noundef 2, i32 noundef 143) #5
+  %47 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = load i8, ptr %47, align 16
+  %49 = and i8 %48, 1
+  %50 = zext nneg i8 %49 to i32
+  %51 = icmp eq i32 %46, %50
+  br i1 %51, label %57, label %52
 
-51:                                               ; preds = %41
-  %52 = trunc i32 %45 to i8
-  %53 = and i8 %52, 1
-  %54 = and i8 %47, -2
-  %55 = or disjoint i8 %54, %53
-  store i8 %55, ptr %46, align 16
-  br label %56
+52:                                               ; preds = %42
+  %53 = trunc i32 %46 to i8
+  %54 = and i8 %53, 1
+  %55 = and i8 %48, -2
+  %56 = or disjoint i8 %55, %54
+  store i8 %56, ptr %47, align 16
+  br label %57
 
-56:                                               ; preds = %51, %41
-  %57 = add nuw nsw i64 %42, 1
-  %58 = icmp eq i64 %57, 3
-  br i1 %58, label %59, label %41, !llvm.loop !14
+57:                                               ; preds = %52, %42
+  %58 = add nuw nsw i64 %43, 1
+  %59 = icmp eq i64 %58, 3
+  br i1 %59, label %60, label %42, !llvm.loop !14
 
-59:                                               ; preds = %56
+60:                                               ; preds = %57
   ret void
 }
 

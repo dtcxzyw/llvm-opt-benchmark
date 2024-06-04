@@ -45,23 +45,25 @@ define i32 @mca_part_base_progress() #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @mca_part_base_finalize() #0 {
   %1 = alloca i32, align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.mca_part_base_component_4_0_0_t, ptr @mca_part_base_selected_component, i32 0, i32 3), align 8
-  %3 = icmp ne ptr null, %2
-  br i1 %3, label %4, label %7
+  %2 = getelementptr inbounds %struct.mca_part_base_component_4_0_0_t, ptr @mca_part_base_selected_component, i32 0, i32 3
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr null, %3
+  br i1 %4, label %5, label %9
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mca_part_base_component_4_0_0_t, ptr @mca_part_base_selected_component, i32 0, i32 3), align 8
-  %6 = call i32 %5()
-  store i32 %6, ptr %1, align 4
-  br label %8
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds %struct.mca_part_base_component_4_0_0_t, ptr @mca_part_base_selected_component, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8
+  %8 = call i32 %7()
+  store i32 %8, ptr %1, align 4
+  br label %10
 
-7:                                                ; preds = %0
+9:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %8
+  br label %10
 
-8:                                                ; preds = %7, %4
-  %9 = load i32, ptr %1, align 4
-  ret i32 %9
+10:                                               ; preds = %9, %5
+  %11 = load i32, ptr %1, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -83,93 +85,100 @@ define internal i32 @mca_part_base_open(i32 noundef %0) #0 {
 
 5:                                                ; preds = %4
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i32 0, i32 4), align 8
-  %8 = icmp ne i32 %6, %7
-  br i1 %8, label %9, label %10
+  %7 = getelementptr inbounds %struct.opal_class_t, ptr @opal_pointer_array_t_class, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp ne i32 %6, %8
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %5
+10:                                               ; preds = %5
   call void @opal_class_initialize(ptr noundef @opal_pointer_array_t_class)
-  br label %10
-
-10:                                               ; preds = %9, %5
-  store ptr @opal_pointer_array_t_class, ptr @mca_part_base_part, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_part_base_part, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_part_base_part)
   br label %11
 
-11:                                               ; preds = %10
-  br label %12
-
-12:                                               ; preds = %11
+11:                                               ; preds = %10, %5
+  store ptr @opal_pointer_array_t_class, ptr @mca_part_base_part, align 8
+  %12 = getelementptr inbounds %struct.opal_object_t, ptr @mca_part_base_part, i32 0, i32 1
+  store volatile i32 1, ptr %12, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_part_base_part)
   br label %13
 
-13:                                               ; preds = %12
+13:                                               ; preds = %11
   br label %14
 
 14:                                               ; preds = %13
-  %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %17 = icmp ne i32 %15, %16
-  br i1 %17, label %18, label %19
+  br label %15
 
-18:                                               ; preds = %14
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = load i32, ptr @opal_class_init_epoch, align 4
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %17, %19
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %16
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %19
-
-19:                                               ; preds = %18, %14
-  store ptr @opal_free_list_t_class, ptr @mca_part_base_psend_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_part_base_psend_requests, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_part_base_psend_requests)
-  br label %20
-
-20:                                               ; preds = %19
-  br label %21
-
-21:                                               ; preds = %20
   br label %22
 
-22:                                               ; preds = %21
-  br label %23
+22:                                               ; preds = %21, %16
+  store ptr @opal_free_list_t_class, ptr @mca_part_base_psend_requests, align 16
+  %23 = getelementptr inbounds %struct.opal_object_t, ptr @mca_part_base_psend_requests, i32 0, i32 1
+  store volatile i32 1, ptr %23, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_part_base_psend_requests)
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %26 = icmp ne i32 %24, %25
-  br i1 %26, label %27, label %28
+24:                                               ; preds = %22
+  br label %25
 
-27:                                               ; preds = %23
+25:                                               ; preds = %24
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load i32, ptr @opal_class_init_epoch, align 4
+  %29 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp ne i32 %28, %30
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %27
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %28
+  br label %33
 
-28:                                               ; preds = %27, %23
+33:                                               ; preds = %32, %27
   store ptr @opal_free_list_t_class, ptr @mca_part_base_precv_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_part_base_precv_requests, i32 0, i32 1), align 8
+  %34 = getelementptr inbounds %struct.opal_object_t, ptr @mca_part_base_precv_requests, i32 0, i32 1
+  store volatile i32 1, ptr %34, align 8
   call void @opal_obj_run_constructors(ptr noundef @mca_part_base_precv_requests)
-  br label %29
+  br label %35
 
-29:                                               ; preds = %28
-  br label %30
+35:                                               ; preds = %33
+  br label %36
 
-30:                                               ; preds = %29
-  %31 = load i32, ptr %3, align 4
-  %32 = call i32 @mca_base_framework_components_open(ptr noundef @ompi_part_base_framework, i32 noundef %31)
-  %33 = icmp ne i32 0, %32
-  br i1 %33, label %34, label %35
+36:                                               ; preds = %35
+  %37 = load i32, ptr %3, align 4
+  %38 = call i32 @mca_base_framework_components_open(ptr noundef @ompi_part_base_framework, i32 noundef %37)
+  %39 = icmp ne i32 0, %38
+  br i1 %39, label %40, label %41
 
-34:                                               ; preds = %30
+40:                                               ; preds = %36
   store i32 -1, ptr %2, align 4
-  br label %38
+  br label %45
 
-35:                                               ; preds = %30
-  store ptr null, ptr getelementptr inbounds (%struct.mca_part_base_component_4_0_0_t, ptr @mca_part_base_selected_component, i32 0, i32 3), align 8
-  %36 = call noalias ptr @strdup(ptr noundef @.str.3) #3
-  %37 = call i32 @opal_pointer_array_add(ptr noundef @mca_part_base_part, ptr noundef %36)
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds %struct.mca_part_base_component_4_0_0_t, ptr @mca_part_base_selected_component, i32 0, i32 3
+  store ptr null, ptr %42, align 8
+  %43 = call noalias ptr @strdup(ptr noundef @.str.3) #3
+  %44 = call i32 @opal_pointer_array_add(ptr noundef @mca_part_base_part, ptr noundef %43)
   store i32 0, ptr %2, align 4
-  br label %38
+  br label %45
 
-38:                                               ; preds = %35, %34
-  %39 = load i32, ptr %2, align 4
-  ret i32 %39
+45:                                               ; preds = %41, %40
+  %46 = load i32, ptr %2, align 4
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable

@@ -57,7 +57,7 @@ define dso_local zeroext i1 @PrintResultInCrosstab(ptr noundef %0) #0 {
 
 21:                                               ; preds = %1
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str)
-  br label %200
+  br label %208
 
 22:                                               ; preds = %1
   %23 = load ptr, ptr %2, align 8
@@ -67,321 +67,329 @@ define dso_local zeroext i1 @PrintResultInCrosstab(ptr noundef %0) #0 {
 
 26:                                               ; preds = %22
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.1)
-  br label %200
+  br label %208
 
 27:                                               ; preds = %22
-  %28 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 16), align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %31
-
-30:                                               ; preds = %27
-  store i32 0, ptr %10, align 4
-  br label %39
+  %28 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 16), align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = call i32 @indexOfColumn(ptr noundef %32, ptr noundef %33)
-  store i32 %34, ptr %10, align 4
-  %35 = load i32, ptr %10, align 4
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %37, label %38
+  store i32 0, ptr %10, align 4
+  br label %41
 
-37:                                               ; preds = %31
-  br label %200
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = call i32 @indexOfColumn(ptr noundef %34, ptr noundef %35)
+  store i32 %36, ptr %10, align 4
+  %37 = load i32, ptr %10, align 4
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %31
-  br label %39
+39:                                               ; preds = %32
+  br label %208
 
-39:                                               ; preds = %38, %30
-  %40 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 1), align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %43
+40:                                               ; preds = %32
+  br label %41
 
-42:                                               ; preds = %39
+41:                                               ; preds = %40, %31
+  %42 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %41
   store i32 1, ptr %11, align 4
-  br label %51
+  br label %55
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 1), align 8
-  %45 = load ptr, ptr %2, align 8
-  %46 = call i32 @indexOfColumn(ptr noundef %44, ptr noundef %45)
-  store i32 %46, ptr %11, align 4
-  %47 = load i32, ptr %11, align 4
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %49, label %50
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %2, align 8
+  %50 = call i32 @indexOfColumn(ptr noundef %48, ptr noundef %49)
+  store i32 %50, ptr %11, align 4
+  %51 = load i32, ptr %11, align 4
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %54
 
-49:                                               ; preds = %43
-  br label %200
+53:                                               ; preds = %46
+  br label %208
 
-50:                                               ; preds = %43
-  br label %51
+54:                                               ; preds = %46
+  br label %55
 
-51:                                               ; preds = %50, %42
-  %52 = load i32, ptr %11, align 4
-  %53 = load i32, ptr %10, align 4
-  %54 = icmp eq i32 %52, %53
-  br i1 %54, label %55, label %56
+55:                                               ; preds = %54, %45
+  %56 = load i32, ptr %11, align 4
+  %57 = load i32, ptr %10, align 4
+  %58 = icmp eq i32 %56, %57
+  br i1 %58, label %59, label %60
 
-55:                                               ; preds = %51
+59:                                               ; preds = %55
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.2)
-  br label %200
+  br label %208
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 2), align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %85
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 2
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %90
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %2, align 8
-  %61 = call i32 @PQnfields(ptr noundef %60)
-  %62 = icmp ne i32 %61, 3
-  br i1 %62, label %63, label %64
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %2, align 8
+  %66 = call i32 @PQnfields(ptr noundef %65)
+  %67 = icmp ne i32 %66, 3
+  br i1 %67, label %68, label %69
 
-63:                                               ; preds = %59
+68:                                               ; preds = %64
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.3)
-  br label %200
+  br label %208
 
-64:                                               ; preds = %59
+69:                                               ; preds = %64
   store i32 -1, ptr %12, align 4
   store i32 0, ptr %15, align 4
-  br label %65
+  br label %70
 
-65:                                               ; preds = %81, %64
-  %66 = load i32, ptr %15, align 4
-  %67 = load ptr, ptr %2, align 8
-  %68 = call i32 @PQnfields(ptr noundef %67)
-  %69 = icmp slt i32 %66, %68
-  br i1 %69, label %70, label %84
-
-70:                                               ; preds = %65
+70:                                               ; preds = %86, %69
   %71 = load i32, ptr %15, align 4
-  %72 = load i32, ptr %10, align 4
-  %73 = icmp ne i32 %71, %72
-  br i1 %73, label %74, label %80
+  %72 = load ptr, ptr %2, align 8
+  %73 = call i32 @PQnfields(ptr noundef %72)
+  %74 = icmp slt i32 %71, %73
+  br i1 %74, label %75, label %89
 
-74:                                               ; preds = %70
-  %75 = load i32, ptr %15, align 4
-  %76 = load i32, ptr %11, align 4
-  %77 = icmp ne i32 %75, %76
-  br i1 %77, label %78, label %80
+75:                                               ; preds = %70
+  %76 = load i32, ptr %15, align 4
+  %77 = load i32, ptr %10, align 4
+  %78 = icmp ne i32 %76, %77
+  br i1 %78, label %79, label %85
 
-78:                                               ; preds = %74
-  %79 = load i32, ptr %15, align 4
-  store i32 %79, ptr %12, align 4
-  br label %84
+79:                                               ; preds = %75
+  %80 = load i32, ptr %15, align 4
+  %81 = load i32, ptr %11, align 4
+  %82 = icmp ne i32 %80, %81
+  br i1 %82, label %83, label %85
 
-80:                                               ; preds = %74, %70
-  br label %81
+83:                                               ; preds = %79
+  %84 = load i32, ptr %15, align 4
+  store i32 %84, ptr %12, align 4
+  br label %89
 
-81:                                               ; preds = %80
-  %82 = load i32, ptr %15, align 4
-  %83 = add i32 %82, 1
-  store i32 %83, ptr %15, align 4
-  br label %65, !llvm.loop !5
+85:                                               ; preds = %79, %75
+  br label %86
 
-84:                                               ; preds = %78, %65
-  br label %93
+86:                                               ; preds = %85
+  %87 = load i32, ptr %15, align 4
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %15, align 4
+  br label %70, !llvm.loop !5
 
-85:                                               ; preds = %56
-  %86 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 2), align 8
-  %87 = load ptr, ptr %2, align 8
-  %88 = call i32 @indexOfColumn(ptr noundef %86, ptr noundef %87)
-  store i32 %88, ptr %12, align 4
-  %89 = load i32, ptr %12, align 4
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %91, label %92
+89:                                               ; preds = %83, %70
+  br label %99
 
-91:                                               ; preds = %85
-  br label %200
+90:                                               ; preds = %60
+  %91 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %2, align 8
+  %94 = call i32 @indexOfColumn(ptr noundef %92, ptr noundef %93)
+  store i32 %94, ptr %12, align 4
+  %95 = load i32, ptr %12, align 4
+  %96 = icmp slt i32 %95, 0
+  br i1 %96, label %97, label %98
 
-92:                                               ; preds = %85
-  br label %93
+97:                                               ; preds = %90
+  br label %208
 
-93:                                               ; preds = %92, %84
-  %94 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 3), align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %97
+98:                                               ; preds = %90
+  br label %99
 
-96:                                               ; preds = %93
-  store i32 -1, ptr %13, align 4
-  br label %105
-
-97:                                               ; preds = %93
-  %98 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 3), align 8
-  %99 = load ptr, ptr %2, align 8
-  %100 = call i32 @indexOfColumn(ptr noundef %98, ptr noundef %99)
-  store i32 %100, ptr %13, align 4
-  %101 = load i32, ptr %13, align 4
-  %102 = icmp slt i32 %101, 0
+99:                                               ; preds = %98, %89
+  %100 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 3
+  %101 = load ptr, ptr %100, align 8
+  %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %104
 
-103:                                              ; preds = %97
-  br label %200
+103:                                              ; preds = %99
+  store i32 -1, ptr %13, align 4
+  br label %113
 
-104:                                              ; preds = %97
-  br label %105
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 16, i64 3
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %2, align 8
+  %108 = call i32 @indexOfColumn(ptr noundef %106, ptr noundef %107)
+  store i32 %108, ptr %13, align 4
+  %109 = load i32, ptr %13, align 4
+  %110 = icmp slt i32 %109, 0
+  br i1 %110, label %111, label %112
 
-105:                                              ; preds = %104, %96
+111:                                              ; preds = %104
+  br label %208
+
+112:                                              ; preds = %104
+  br label %113
+
+113:                                              ; preds = %112, %103
   store i32 0, ptr %14, align 4
-  br label %106
+  br label %114
 
-106:                                              ; preds = %160, %105
-  %107 = load i32, ptr %14, align 4
-  %108 = load ptr, ptr %2, align 8
-  %109 = call i32 @PQntuples(ptr noundef %108)
-  %110 = icmp slt i32 %107, %109
-  br i1 %110, label %111, label %163
+114:                                              ; preds = %168, %113
+  %115 = load i32, ptr %14, align 4
+  %116 = load ptr, ptr %2, align 8
+  %117 = call i32 @PQntuples(ptr noundef %116)
+  %118 = icmp slt i32 %115, %117
+  br i1 %118, label %119, label %171
 
-111:                                              ; preds = %106
-  %112 = load ptr, ptr %2, align 8
-  %113 = load i32, ptr %14, align 4
-  %114 = load i32, ptr %11, align 4
-  %115 = call i32 @PQgetisnull(ptr noundef %112, i32 noundef %113, i32 noundef %114)
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %118
+119:                                              ; preds = %114
+  %120 = load ptr, ptr %2, align 8
+  %121 = load i32, ptr %14, align 4
+  %122 = load i32, ptr %11, align 4
+  %123 = call i32 @PQgetisnull(ptr noundef %120, i32 noundef %121, i32 noundef %122)
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %125, label %126
 
-117:                                              ; preds = %111
-  br label %123
+125:                                              ; preds = %119
+  br label %131
 
-118:                                              ; preds = %111
-  %119 = load ptr, ptr %2, align 8
-  %120 = load i32, ptr %14, align 4
-  %121 = load i32, ptr %11, align 4
-  %122 = call ptr @PQgetvalue(ptr noundef %119, i32 noundef %120, i32 noundef %121)
-  br label %123
+126:                                              ; preds = %119
+  %127 = load ptr, ptr %2, align 8
+  %128 = load i32, ptr %14, align 4
+  %129 = load i32, ptr %11, align 4
+  %130 = call ptr @PQgetvalue(ptr noundef %127, i32 noundef %128, i32 noundef %129)
+  br label %131
 
-123:                                              ; preds = %118, %117
-  %124 = phi ptr [ null, %117 ], [ %122, %118 ]
-  store ptr %124, ptr %16, align 8
+131:                                              ; preds = %126, %125
+  %132 = phi ptr [ null, %125 ], [ %130, %126 ]
+  store ptr %132, ptr %16, align 8
   store ptr null, ptr %17, align 8
-  %125 = load i32, ptr %13, align 4
-  %126 = icmp sge i32 %125, 0
-  br i1 %126, label %127, label %138
+  %133 = load i32, ptr %13, align 4
+  %134 = icmp sge i32 %133, 0
+  br i1 %134, label %135, label %146
 
-127:                                              ; preds = %123
-  %128 = load ptr, ptr %2, align 8
-  %129 = load i32, ptr %14, align 4
-  %130 = load i32, ptr %13, align 4
-  %131 = call i32 @PQgetisnull(ptr noundef %128, i32 noundef %129, i32 noundef %130)
-  %132 = icmp ne i32 %131, 0
-  br i1 %132, label %138, label %133
+135:                                              ; preds = %131
+  %136 = load ptr, ptr %2, align 8
+  %137 = load i32, ptr %14, align 4
+  %138 = load i32, ptr %13, align 4
+  %139 = call i32 @PQgetisnull(ptr noundef %136, i32 noundef %137, i32 noundef %138)
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %146, label %141
 
-133:                                              ; preds = %127
-  %134 = load ptr, ptr %2, align 8
-  %135 = load i32, ptr %14, align 4
-  %136 = load i32, ptr %13, align 4
-  %137 = call ptr @PQgetvalue(ptr noundef %134, i32 noundef %135, i32 noundef %136)
-  store ptr %137, ptr %17, align 8
-  br label %138
+141:                                              ; preds = %135
+  %142 = load ptr, ptr %2, align 8
+  %143 = load i32, ptr %14, align 4
+  %144 = load i32, ptr %13, align 4
+  %145 = call ptr @PQgetvalue(ptr noundef %142, i32 noundef %143, i32 noundef %144)
+  store ptr %145, ptr %17, align 8
+  br label %146
 
-138:                                              ; preds = %133, %127, %123
-  %139 = load ptr, ptr %16, align 8
-  %140 = load ptr, ptr %17, align 8
-  call void @avlMergeValue(ptr noundef %4, ptr noundef %139, ptr noundef %140)
-  %141 = getelementptr inbounds %struct._avl_tree, ptr %4, i32 0, i32 0
-  %142 = load i32, ptr %141, align 8
-  %143 = icmp sgt i32 %142, 1600
-  br i1 %143, label %144, label %145
+146:                                              ; preds = %141, %135, %131
+  %147 = load ptr, ptr %16, align 8
+  %148 = load ptr, ptr %17, align 8
+  call void @avlMergeValue(ptr noundef %4, ptr noundef %147, ptr noundef %148)
+  %149 = getelementptr inbounds %struct._avl_tree, ptr %4, i32 0, i32 0
+  %150 = load i32, ptr %149, align 8
+  %151 = icmp sgt i32 %150, 1600
+  br i1 %151, label %152, label %153
 
-144:                                              ; preds = %138
+152:                                              ; preds = %146
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.4, i32 noundef 1600)
-  br label %200
+  br label %208
 
-145:                                              ; preds = %138
-  %146 = load ptr, ptr %2, align 8
-  %147 = load i32, ptr %14, align 4
-  %148 = load i32, ptr %10, align 4
-  %149 = call i32 @PQgetisnull(ptr noundef %146, i32 noundef %147, i32 noundef %148)
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %151, label %152
+153:                                              ; preds = %146
+  %154 = load ptr, ptr %2, align 8
+  %155 = load i32, ptr %14, align 4
+  %156 = load i32, ptr %10, align 4
+  %157 = call i32 @PQgetisnull(ptr noundef %154, i32 noundef %155, i32 noundef %156)
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %159, label %160
 
-151:                                              ; preds = %145
-  br label %157
+159:                                              ; preds = %153
+  br label %165
 
-152:                                              ; preds = %145
-  %153 = load ptr, ptr %2, align 8
-  %154 = load i32, ptr %14, align 4
-  %155 = load i32, ptr %10, align 4
-  %156 = call ptr @PQgetvalue(ptr noundef %153, i32 noundef %154, i32 noundef %155)
-  br label %157
+160:                                              ; preds = %153
+  %161 = load ptr, ptr %2, align 8
+  %162 = load i32, ptr %14, align 4
+  %163 = load i32, ptr %10, align 4
+  %164 = call ptr @PQgetvalue(ptr noundef %161, i32 noundef %162, i32 noundef %163)
+  br label %165
 
-157:                                              ; preds = %152, %151
-  %158 = phi ptr [ null, %151 ], [ %156, %152 ]
-  store ptr %158, ptr %16, align 8
-  %159 = load ptr, ptr %16, align 8
-  call void @avlMergeValue(ptr noundef %5, ptr noundef %159, ptr noundef null)
-  br label %160
+165:                                              ; preds = %160, %159
+  %166 = phi ptr [ null, %159 ], [ %164, %160 ]
+  store ptr %166, ptr %16, align 8
+  %167 = load ptr, ptr %16, align 8
+  call void @avlMergeValue(ptr noundef %5, ptr noundef %167, ptr noundef null)
+  br label %168
 
-160:                                              ; preds = %157
-  %161 = load i32, ptr %14, align 4
-  %162 = add i32 %161, 1
-  store i32 %162, ptr %14, align 4
-  br label %106, !llvm.loop !7
+168:                                              ; preds = %165
+  %169 = load i32, ptr %14, align 4
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %14, align 4
+  br label %114, !llvm.loop !7
 
-163:                                              ; preds = %106
-  %164 = getelementptr inbounds %struct._avl_tree, ptr %4, i32 0, i32 0
-  %165 = load i32, ptr %164, align 8
-  store i32 %165, ptr %8, align 4
-  %166 = getelementptr inbounds %struct._avl_tree, ptr %5, i32 0, i32 0
-  %167 = load i32, ptr %166, align 8
-  store i32 %167, ptr %9, align 4
-  %168 = load i32, ptr %8, align 4
-  %169 = sext i32 %168 to i64
-  %170 = mul i64 24, %169
-  %171 = call ptr @pg_malloc(i64 noundef %170)
-  store ptr %171, ptr %6, align 8
-  %172 = load i32, ptr %9, align 4
-  %173 = sext i32 %172 to i64
-  %174 = mul i64 24, %173
-  %175 = call ptr @pg_malloc(i64 noundef %174)
-  store ptr %175, ptr %7, align 8
-  %176 = getelementptr inbounds %struct._avl_tree, ptr %4, i32 0, i32 1
-  %177 = load ptr, ptr %176, align 8
-  %178 = load ptr, ptr %6, align 8
-  %179 = call i32 @avlCollectFields(ptr noundef %4, ptr noundef %177, ptr noundef %178, i32 noundef 0)
-  %180 = getelementptr inbounds %struct._avl_tree, ptr %5, i32 0, i32 1
-  %181 = load ptr, ptr %180, align 8
-  %182 = load ptr, ptr %7, align 8
-  %183 = call i32 @avlCollectFields(ptr noundef %5, ptr noundef %181, ptr noundef %182, i32 noundef 0)
-  %184 = load i32, ptr %13, align 4
-  %185 = icmp sge i32 %184, 0
-  br i1 %185, label %186, label %189
+171:                                              ; preds = %114
+  %172 = getelementptr inbounds %struct._avl_tree, ptr %4, i32 0, i32 0
+  %173 = load i32, ptr %172, align 8
+  store i32 %173, ptr %8, align 4
+  %174 = getelementptr inbounds %struct._avl_tree, ptr %5, i32 0, i32 0
+  %175 = load i32, ptr %174, align 8
+  store i32 %175, ptr %9, align 4
+  %176 = load i32, ptr %8, align 4
+  %177 = sext i32 %176 to i64
+  %178 = mul i64 24, %177
+  %179 = call ptr @pg_malloc(i64 noundef %178)
+  store ptr %179, ptr %6, align 8
+  %180 = load i32, ptr %9, align 4
+  %181 = sext i32 %180 to i64
+  %182 = mul i64 24, %181
+  %183 = call ptr @pg_malloc(i64 noundef %182)
+  store ptr %183, ptr %7, align 8
+  %184 = getelementptr inbounds %struct._avl_tree, ptr %4, i32 0, i32 1
+  %185 = load ptr, ptr %184, align 8
+  %186 = load ptr, ptr %6, align 8
+  %187 = call i32 @avlCollectFields(ptr noundef %4, ptr noundef %185, ptr noundef %186, i32 noundef 0)
+  %188 = getelementptr inbounds %struct._avl_tree, ptr %5, i32 0, i32 1
+  %189 = load ptr, ptr %188, align 8
+  %190 = load ptr, ptr %7, align 8
+  %191 = call i32 @avlCollectFields(ptr noundef %5, ptr noundef %189, ptr noundef %190, i32 noundef 0)
+  %192 = load i32, ptr %13, align 4
+  %193 = icmp sge i32 %192, 0
+  br i1 %193, label %194, label %197
 
-186:                                              ; preds = %163
-  %187 = load i32, ptr %8, align 4
-  %188 = load ptr, ptr %6, align 8
-  call void @rankSort(i32 noundef %187, ptr noundef %188)
-  br label %189
+194:                                              ; preds = %171
+  %195 = load i32, ptr %8, align 4
+  %196 = load ptr, ptr %6, align 8
+  call void @rankSort(i32 noundef %195, ptr noundef %196)
+  br label %197
 
-189:                                              ; preds = %186, %163
-  %190 = load ptr, ptr %2, align 8
-  %191 = load i32, ptr %8, align 4
-  %192 = load ptr, ptr %6, align 8
-  %193 = load i32, ptr %11, align 4
-  %194 = load i32, ptr %9, align 4
-  %195 = load ptr, ptr %7, align 8
-  %196 = load i32, ptr %10, align 4
-  %197 = load i32, ptr %12, align 4
-  %198 = call zeroext i1 @printCrosstab(ptr noundef %190, i32 noundef %191, ptr noundef %192, i32 noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef %197)
-  %199 = zext i1 %198 to i8
-  store i8 %199, ptr %3, align 1
-  br label %200
+197:                                              ; preds = %194, %171
+  %198 = load ptr, ptr %2, align 8
+  %199 = load i32, ptr %8, align 4
+  %200 = load ptr, ptr %6, align 8
+  %201 = load i32, ptr %11, align 4
+  %202 = load i32, ptr %9, align 4
+  %203 = load ptr, ptr %7, align 8
+  %204 = load i32, ptr %10, align 4
+  %205 = load i32, ptr %12, align 4
+  %206 = call zeroext i1 @printCrosstab(ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef %202, ptr noundef %203, i32 noundef %204, i32 noundef %205)
+  %207 = zext i1 %206 to i8
+  store i8 %207, ptr %3, align 1
+  br label %208
 
-200:                                              ; preds = %189, %144, %103, %91, %63, %55, %49, %37, %26, %21
-  %201 = getelementptr inbounds %struct._avl_tree, ptr %4, i32 0, i32 1
-  %202 = load ptr, ptr %201, align 8
-  call void @avlFree(ptr noundef %4, ptr noundef %202)
-  %203 = getelementptr inbounds %struct._avl_tree, ptr %5, i32 0, i32 1
-  %204 = load ptr, ptr %203, align 8
-  call void @avlFree(ptr noundef %5, ptr noundef %204)
-  %205 = load ptr, ptr %6, align 8
-  call void @pg_free(ptr noundef %205)
-  %206 = load ptr, ptr %7, align 8
-  call void @pg_free(ptr noundef %206)
-  %207 = load i8, ptr %3, align 1
-  %208 = trunc i8 %207 to i1
-  ret i1 %208
+208:                                              ; preds = %197, %152, %111, %97, %68, %59, %53, %39, %26, %21
+  %209 = getelementptr inbounds %struct._avl_tree, ptr %4, i32 0, i32 1
+  %210 = load ptr, ptr %209, align 8
+  call void @avlFree(ptr noundef %4, ptr noundef %210)
+  %211 = getelementptr inbounds %struct._avl_tree, ptr %5, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8
+  call void @avlFree(ptr noundef %5, ptr noundef %212)
+  %213 = load ptr, ptr %6, align 8
+  call void @pg_free(ptr noundef %213)
+  %214 = load ptr, ptr %7, align 8
+  call void @pg_free(ptr noundef %214)
+  %215 = load i8, ptr %3, align 1
+  %216 = trunc i8 %215 to i1
+  ret i1 %216
 }
 
 ; Function Attrs: nounwind uwtable
@@ -472,82 +480,83 @@ define internal i32 @indexOfColumn(ptr noundef %0, ptr noundef %1) #0 {
   %34 = call i32 @PQnfields(ptr noundef %33)
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.9, i32 noundef %32, i32 noundef %34)
   store i32 -1, ptr %3, align 4
-  br label %70
+  br label %71
 
 35:                                               ; preds = %25
-  br label %68
+  br label %69
 
 36:                                               ; preds = %13, %2
   %37 = load ptr, ptr %4, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 1), align 8
-  call void @dequote_downcase_identifier(ptr noundef %37, i1 noundef zeroext true, i32 noundef %38)
+  %38 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  call void @dequote_downcase_identifier(ptr noundef %37, i1 noundef zeroext true, i32 noundef %39)
   store i32 -1, ptr %6, align 4
   store i32 0, ptr %7, align 4
-  br label %39
+  br label %40
 
-39:                                               ; preds = %59, %36
-  %40 = load i32, ptr %7, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = call i32 @PQnfields(ptr noundef %41)
-  %43 = icmp slt i32 %40, %42
-  br i1 %43, label %44, label %62
+40:                                               ; preds = %60, %36
+  %41 = load i32, ptr %7, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = call i32 @PQnfields(ptr noundef %42)
+  %44 = icmp slt i32 %41, %43
+  br i1 %44, label %45, label %63
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %4, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = call ptr @PQfname(ptr noundef %46, i32 noundef %47)
-  %49 = call i32 @strcmp(ptr noundef %45, ptr noundef %48) #4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %58
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %4, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i32, ptr %7, align 4
+  %49 = call ptr @PQfname(ptr noundef %47, i32 noundef %48)
+  %50 = call i32 @strcmp(ptr noundef %46, ptr noundef %49) #4
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %59
 
-51:                                               ; preds = %44
-  %52 = load i32, ptr %6, align 4
-  %53 = icmp sge i32 %52, 0
-  br i1 %53, label %54, label %56
+52:                                               ; preds = %45
+  %53 = load i32, ptr %6, align 4
+  %54 = icmp sge i32 %53, 0
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %4, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.10, ptr noundef %55)
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %4, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.10, ptr noundef %56)
   store i32 -1, ptr %3, align 4
-  br label %70
+  br label %71
 
-56:                                               ; preds = %51
-  %57 = load i32, ptr %7, align 4
-  store i32 %57, ptr %6, align 4
-  br label %58
-
-58:                                               ; preds = %56, %44
+57:                                               ; preds = %52
+  %58 = load i32, ptr %7, align 4
+  store i32 %58, ptr %6, align 4
   br label %59
 
-59:                                               ; preds = %58
-  %60 = load i32, ptr %7, align 4
-  %61 = add i32 %60, 1
-  store i32 %61, ptr %7, align 4
-  br label %39, !llvm.loop !8
+59:                                               ; preds = %57, %45
+  br label %60
 
-62:                                               ; preds = %39
-  %63 = load i32, ptr %6, align 4
-  %64 = icmp eq i32 %63, -1
-  br i1 %64, label %65, label %67
+60:                                               ; preds = %59
+  %61 = load i32, ptr %7, align 4
+  %62 = add i32 %61, 1
+  store i32 %62, ptr %7, align 4
+  br label %40, !llvm.loop !8
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %4, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.11, ptr noundef %66)
+63:                                               ; preds = %40
+  %64 = load i32, ptr %6, align 4
+  %65 = icmp eq i32 %64, -1
+  br i1 %65, label %66, label %68
+
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %4, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.11, ptr noundef %67)
   store i32 -1, ptr %3, align 4
-  br label %70
+  br label %71
 
-67:                                               ; preds = %62
-  br label %68
+68:                                               ; preds = %63
+  br label %69
 
-68:                                               ; preds = %67, %35
-  %69 = load i32, ptr %6, align 4
-  store i32 %69, ptr %3, align 4
-  br label %70
+69:                                               ; preds = %68, %35
+  %70 = load i32, ptr %6, align 4
+  store i32 %70, ptr %3, align 4
+  br label %71
 
-70:                                               ; preds = %68, %65, %54, %30
-  %71 = load i32, ptr %3, align 4
-  ret i32 %71
+71:                                               ; preds = %69, %66, %55, %30
+  %72 = load i32, ptr %3, align 4
+  ret i32 %72
 }
 
 declare i32 @PQntuples(ptr noundef) #1
@@ -823,486 +832,489 @@ define internal zeroext i1 @printCrosstab(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), i64 168, i1 false)
+  %32 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %32, i64 168, i1 false)
   store i8 0, ptr %23, align 1
-  %32 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 0
-  %33 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 2
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr %10, align 4
-  %36 = add i32 %35, 1
-  %37 = load i32, ptr %13, align 4
-  call void @printTableInit(ptr noundef %18, ptr noundef %32, ptr noundef %34, i32 noundef %36, i32 noundef %37)
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %15, align 4
-  %40 = call ptr @PQfname(ptr noundef %38, i32 noundef %39)
-  %41 = load ptr, ptr %9, align 8
-  %42 = load i32, ptr %15, align 4
-  %43 = call i32 @PQftype(ptr noundef %41, i32 noundef %42)
-  %44 = call signext i8 @column_type_alignment(i32 noundef %43)
-  call void @printTableAddHeader(ptr noundef %18, ptr noundef %40, i1 noundef zeroext false, i8 noundef signext %44)
-  %45 = load i32, ptr %10, align 4
-  %46 = sext i32 %45 to i64
-  %47 = mul i64 4, %46
-  %48 = call ptr @pg_malloc(i64 noundef %47)
-  store ptr %48, ptr %22, align 8
+  %33 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 0
+  %34 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = add i32 %36, 1
+  %38 = load i32, ptr %13, align 4
+  call void @printTableInit(ptr noundef %18, ptr noundef %33, ptr noundef %35, i32 noundef %37, i32 noundef %38)
+  %39 = load ptr, ptr %9, align 8
+  %40 = load i32, ptr %15, align 4
+  %41 = call ptr @PQfname(ptr noundef %39, i32 noundef %40)
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i32, ptr %15, align 4
+  %44 = call i32 @PQftype(ptr noundef %42, i32 noundef %43)
+  %45 = call signext i8 @column_type_alignment(i32 noundef %44)
+  call void @printTableAddHeader(ptr noundef %18, ptr noundef %41, i1 noundef zeroext false, i8 noundef signext %45)
+  %46 = load i32, ptr %10, align 4
+  %47 = sext i32 %46 to i64
+  %48 = mul i64 4, %47
+  %49 = call ptr @pg_malloc(i64 noundef %48)
+  store ptr %49, ptr %22, align 8
   store i32 0, ptr %19, align 4
-  br label %49
+  br label %50
 
-49:                                               ; preds = %64, %8
-  %50 = load i32, ptr %19, align 4
-  %51 = load i32, ptr %10, align 4
-  %52 = icmp slt i32 %50, %51
-  br i1 %52, label %53, label %67
+50:                                               ; preds = %65, %8
+  %51 = load i32, ptr %19, align 4
+  %52 = load i32, ptr %10, align 4
+  %53 = icmp slt i32 %51, %52
+  br i1 %53, label %54, label %68
 
-53:                                               ; preds = %49
-  %54 = load i32, ptr %19, align 4
-  %55 = load ptr, ptr %22, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load i32, ptr %19, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr %struct._pivot_field, ptr %56, i64 %58
-  %60 = getelementptr inbounds %struct._pivot_field, ptr %59, i32 0, i32 2
-  %61 = load i32, ptr %60, align 8
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr i32, ptr %55, i64 %62
-  store i32 %54, ptr %63, align 4
-  br label %64
+54:                                               ; preds = %50
+  %55 = load i32, ptr %19, align 4
+  %56 = load ptr, ptr %22, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = load i32, ptr %19, align 4
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr %struct._pivot_field, ptr %57, i64 %59
+  %61 = getelementptr inbounds %struct._pivot_field, ptr %60, i32 0, i32 2
+  %62 = load i32, ptr %61, align 8
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr i32, ptr %56, i64 %63
+  store i32 %55, ptr %64, align 4
+  br label %65
 
-64:                                               ; preds = %53
-  %65 = load i32, ptr %19, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %19, align 4
-  br label %49, !llvm.loop !11
+65:                                               ; preds = %54
+  %66 = load i32, ptr %19, align 4
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %19, align 4
+  br label %50, !llvm.loop !11
 
-67:                                               ; preds = %49
-  %68 = load ptr, ptr %9, align 8
-  %69 = load i32, ptr %16, align 4
-  %70 = call i32 @PQftype(ptr noundef %68, i32 noundef %69)
-  %71 = call signext i8 @column_type_alignment(i32 noundef %70)
-  store i8 %71, ptr %21, align 1
+68:                                               ; preds = %50
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i32, ptr %16, align 4
+  %71 = call i32 @PQftype(ptr noundef %69, i32 noundef %70)
+  %72 = call signext i8 @column_type_alignment(i32 noundef %71)
+  store i8 %72, ptr %21, align 1
   store i32 0, ptr %19, align 4
-  br label %72
+  br label %73
 
-72:                                               ; preds = %113, %67
-  %73 = load i32, ptr %19, align 4
-  %74 = load i32, ptr %10, align 4
-  %75 = icmp slt i32 %73, %74
-  br i1 %75, label %76, label %116
+73:                                               ; preds = %114, %68
+  %74 = load i32, ptr %19, align 4
+  %75 = load i32, ptr %10, align 4
+  %76 = icmp slt i32 %74, %75
+  br i1 %76, label %77, label %117
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %11, align 8
-  %78 = load ptr, ptr %22, align 8
-  %79 = load i32, ptr %19, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr i32, ptr %78, i64 %80
-  %82 = load i32, ptr %81, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr %struct._pivot_field, ptr %77, i64 %83
-  %85 = getelementptr inbounds %struct._pivot_field, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %99
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %22, align 8
+  %80 = load i32, ptr %19, align 4
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr i32, ptr %79, i64 %81
+  %83 = load i32, ptr %82, align 4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr %struct._pivot_field, ptr %78, i64 %84
+  %86 = getelementptr inbounds %struct._pivot_field, ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %89, label %100
 
-88:                                               ; preds = %76
-  %89 = load ptr, ptr %11, align 8
-  %90 = load ptr, ptr %22, align 8
-  %91 = load i32, ptr %19, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr i32, ptr %90, i64 %92
-  %94 = load i32, ptr %93, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr %struct._pivot_field, ptr %89, i64 %95
-  %97 = getelementptr inbounds %struct._pivot_field, ptr %96, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  br label %109
+89:                                               ; preds = %77
+  %90 = load ptr, ptr %11, align 8
+  %91 = load ptr, ptr %22, align 8
+  %92 = load i32, ptr %19, align 4
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr i32, ptr %91, i64 %93
+  %95 = load i32, ptr %94, align 4
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr %struct._pivot_field, ptr %90, i64 %96
+  %98 = getelementptr inbounds %struct._pivot_field, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  br label %110
 
-99:                                               ; preds = %76
-  %100 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %101 = load ptr, ptr %100, align 8
-  %102 = icmp ne ptr %101, null
-  br i1 %102, label %103, label %106
+100:                                              ; preds = %77
+  %101 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp ne ptr %102, null
+  br i1 %103, label %104, label %107
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %105 = load ptr, ptr %104, align 8
-  br label %107
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %106 = load ptr, ptr %105, align 8
+  br label %108
 
-106:                                              ; preds = %99
-  br label %107
+107:                                              ; preds = %100
+  br label %108
 
-107:                                              ; preds = %106, %103
-  %108 = phi ptr [ %105, %103 ], [ @.str.5, %106 ]
-  br label %109
+108:                                              ; preds = %107, %104
+  %109 = phi ptr [ %106, %104 ], [ @.str.5, %107 ]
+  br label %110
 
-109:                                              ; preds = %107, %88
-  %110 = phi ptr [ %98, %88 ], [ %108, %107 ]
-  store ptr %110, ptr %24, align 8
-  %111 = load ptr, ptr %24, align 8
-  %112 = load i8, ptr %21, align 1
-  call void @printTableAddHeader(ptr noundef %18, ptr noundef %111, i1 noundef zeroext false, i8 noundef signext %112)
-  br label %113
+110:                                              ; preds = %108, %89
+  %111 = phi ptr [ %99, %89 ], [ %109, %108 ]
+  store ptr %111, ptr %24, align 8
+  %112 = load ptr, ptr %24, align 8
+  %113 = load i8, ptr %21, align 1
+  call void @printTableAddHeader(ptr noundef %18, ptr noundef %112, i1 noundef zeroext false, i8 noundef signext %113)
+  br label %114
 
-113:                                              ; preds = %109
-  %114 = load i32, ptr %19, align 4
-  %115 = add i32 %114, 1
-  store i32 %115, ptr %19, align 4
-  br label %72, !llvm.loop !12
+114:                                              ; preds = %110
+  %115 = load i32, ptr %19, align 4
+  %116 = add i32 %115, 1
+  store i32 %116, ptr %19, align 4
+  br label %73, !llvm.loop !12
 
-116:                                              ; preds = %72
-  %117 = load ptr, ptr %22, align 8
-  call void @pg_free(ptr noundef %117)
+117:                                              ; preds = %73
+  %118 = load ptr, ptr %22, align 8
+  call void @pg_free(ptr noundef %118)
   store i32 0, ptr %19, align 4
-  br label %118
+  br label %119
 
-118:                                              ; preds = %163, %116
-  %119 = load i32, ptr %19, align 4
-  %120 = load i32, ptr %13, align 4
-  %121 = icmp slt i32 %119, %120
-  br i1 %121, label %122, label %166
+119:                                              ; preds = %164, %117
+  %120 = load i32, ptr %19, align 4
+  %121 = load i32, ptr %13, align 4
+  %122 = icmp slt i32 %120, %121
+  br i1 %122, label %123, label %167
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %14, align 8
-  %124 = load i32, ptr %19, align 4
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr %struct._pivot_field, ptr %123, i64 %125
-  %127 = getelementptr inbounds %struct._pivot_field, ptr %126, i32 0, i32 2
-  %128 = load i32, ptr %127, align 8
-  store i32 %128, ptr %25, align 4
-  %129 = load ptr, ptr %14, align 8
-  %130 = load i32, ptr %19, align 4
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr %struct._pivot_field, ptr %129, i64 %131
-  %133 = getelementptr inbounds %struct._pivot_field, ptr %132, i32 0, i32 0
-  %134 = load ptr, ptr %133, align 8
-  %135 = icmp ne ptr %134, null
-  br i1 %135, label %136, label %143
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %14, align 8
+  %125 = load i32, ptr %19, align 4
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr %struct._pivot_field, ptr %124, i64 %126
+  %128 = getelementptr inbounds %struct._pivot_field, ptr %127, i32 0, i32 2
+  %129 = load i32, ptr %128, align 8
+  store i32 %129, ptr %25, align 4
+  %130 = load ptr, ptr %14, align 8
+  %131 = load i32, ptr %19, align 4
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr %struct._pivot_field, ptr %130, i64 %132
+  %134 = getelementptr inbounds %struct._pivot_field, ptr %133, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %137, label %144
 
-136:                                              ; preds = %122
-  %137 = load ptr, ptr %14, align 8
-  %138 = load i32, ptr %19, align 4
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr %struct._pivot_field, ptr %137, i64 %139
-  %141 = getelementptr inbounds %struct._pivot_field, ptr %140, i32 0, i32 0
-  %142 = load ptr, ptr %141, align 8
-  br label %153
+137:                                              ; preds = %123
+  %138 = load ptr, ptr %14, align 8
+  %139 = load i32, ptr %19, align 4
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr %struct._pivot_field, ptr %138, i64 %140
+  %142 = getelementptr inbounds %struct._pivot_field, ptr %141, i32 0, i32 0
+  %143 = load ptr, ptr %142, align 8
+  br label %154
 
-143:                                              ; preds = %122
-  %144 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp ne ptr %145, null
-  br i1 %146, label %147, label %150
+144:                                              ; preds = %123
+  %145 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %146 = load ptr, ptr %145, align 8
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %151
 
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %149 = load ptr, ptr %148, align 8
-  br label %151
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %150 = load ptr, ptr %149, align 8
+  br label %152
 
-150:                                              ; preds = %143
-  br label %151
+151:                                              ; preds = %144
+  br label %152
 
-151:                                              ; preds = %150, %147
-  %152 = phi ptr [ %149, %147 ], [ @.str.5, %150 ]
-  br label %153
+152:                                              ; preds = %151, %148
+  %153 = phi ptr [ %150, %148 ], [ @.str.5, %151 ]
+  br label %154
 
-153:                                              ; preds = %151, %136
-  %154 = phi ptr [ %142, %136 ], [ %152, %151 ]
-  %155 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
-  %156 = load ptr, ptr %155, align 8
-  %157 = load i32, ptr %25, align 4
-  %158 = load i32, ptr %10, align 4
-  %159 = add i32 %158, 1
-  %160 = mul i32 %157, %159
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr ptr, ptr %156, i64 %161
-  store ptr %154, ptr %162, align 8
-  br label %163
+154:                                              ; preds = %152, %137
+  %155 = phi ptr [ %143, %137 ], [ %153, %152 ]
+  %156 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
+  %157 = load ptr, ptr %156, align 8
+  %158 = load i32, ptr %25, align 4
+  %159 = load i32, ptr %10, align 4
+  %160 = add i32 %159, 1
+  %161 = mul i32 %158, %160
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr ptr, ptr %157, i64 %162
+  store ptr %155, ptr %163, align 8
+  br label %164
 
-163:                                              ; preds = %153
-  %164 = load i32, ptr %19, align 4
-  %165 = add i32 %164, 1
-  store i32 %165, ptr %19, align 4
-  br label %118, !llvm.loop !13
+164:                                              ; preds = %154
+  %165 = load i32, ptr %19, align 4
+  %166 = add i32 %165, 1
+  store i32 %166, ptr %19, align 4
+  br label %119, !llvm.loop !13
 
-166:                                              ; preds = %118
-  %167 = load i32, ptr %13, align 4
-  %168 = load i32, ptr %10, align 4
-  %169 = add i32 %168, 1
-  %170 = mul i32 %167, %169
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 8
-  store i64 %171, ptr %172, align 8
+167:                                              ; preds = %119
+  %168 = load i32, ptr %13, align 4
+  %169 = load i32, ptr %10, align 4
+  %170 = add i32 %169, 1
+  %171 = mul i32 %168, %170
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 8
+  store i64 %172, ptr %173, align 8
   store i32 0, ptr %20, align 4
-  br label %173
+  br label %174
 
-173:                                              ; preds = %311, %166
-  %174 = load i32, ptr %20, align 4
-  %175 = load ptr, ptr %9, align 8
-  %176 = call i32 @PQntuples(ptr noundef %175)
-  %177 = icmp slt i32 %174, %176
-  br i1 %177, label %178, label %314
+174:                                              ; preds = %312, %167
+  %175 = load i32, ptr %20, align 4
+  %176 = load ptr, ptr %9, align 8
+  %177 = call i32 @PQntuples(ptr noundef %176)
+  %178 = icmp slt i32 %175, %177
+  br i1 %178, label %179, label %315
 
-178:                                              ; preds = %173
-  %179 = load ptr, ptr %9, align 8
-  %180 = load i32, ptr %20, align 4
-  %181 = load i32, ptr %15, align 4
-  %182 = call i32 @PQgetisnull(ptr noundef %179, i32 noundef %180, i32 noundef %181)
-  %183 = icmp ne i32 %182, 0
-  br i1 %183, label %190, label %184
+179:                                              ; preds = %174
+  %180 = load ptr, ptr %9, align 8
+  %181 = load i32, ptr %20, align 4
+  %182 = load i32, ptr %15, align 4
+  %183 = call i32 @PQgetisnull(ptr noundef %180, i32 noundef %181, i32 noundef %182)
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %191, label %185
 
-184:                                              ; preds = %178
-  %185 = load ptr, ptr %9, align 8
-  %186 = load i32, ptr %20, align 4
-  %187 = load i32, ptr %15, align 4
-  %188 = call ptr @PQgetvalue(ptr noundef %185, i32 noundef %186, i32 noundef %187)
-  %189 = getelementptr inbounds %struct._pivot_field, ptr %30, i32 0, i32 0
-  store ptr %188, ptr %189, align 8
-  br label %192
+185:                                              ; preds = %179
+  %186 = load ptr, ptr %9, align 8
+  %187 = load i32, ptr %20, align 4
+  %188 = load i32, ptr %15, align 4
+  %189 = call ptr @PQgetvalue(ptr noundef %186, i32 noundef %187, i32 noundef %188)
+  %190 = getelementptr inbounds %struct._pivot_field, ptr %30, i32 0, i32 0
+  store ptr %189, ptr %190, align 8
+  br label %193
 
-190:                                              ; preds = %178
-  %191 = getelementptr inbounds %struct._pivot_field, ptr %30, i32 0, i32 0
-  store ptr null, ptr %191, align 8
-  br label %192
+191:                                              ; preds = %179
+  %192 = getelementptr inbounds %struct._pivot_field, ptr %30, i32 0, i32 0
+  store ptr null, ptr %192, align 8
+  br label %193
 
-192:                                              ; preds = %190, %184
-  %193 = load ptr, ptr %14, align 8
-  %194 = load i32, ptr %13, align 4
-  %195 = sext i32 %194 to i64
-  %196 = call ptr @bsearch(ptr noundef %30, ptr noundef %193, i64 noundef %195, i64 noundef 24, ptr noundef @pivotFieldCompare)
-  store ptr %196, ptr %28, align 8
-  %197 = load ptr, ptr %28, align 8
-  %198 = getelementptr inbounds %struct._pivot_field, ptr %197, i32 0, i32 2
-  %199 = load i32, ptr %198, align 8
-  store i32 %199, ptr %26, align 4
-  %200 = load ptr, ptr %9, align 8
-  %201 = load i32, ptr %20, align 4
-  %202 = load i32, ptr %12, align 4
-  %203 = call i32 @PQgetisnull(ptr noundef %200, i32 noundef %201, i32 noundef %202)
-  %204 = icmp ne i32 %203, 0
-  br i1 %204, label %211, label %205
+193:                                              ; preds = %191, %185
+  %194 = load ptr, ptr %14, align 8
+  %195 = load i32, ptr %13, align 4
+  %196 = sext i32 %195 to i64
+  %197 = call ptr @bsearch(ptr noundef %30, ptr noundef %194, i64 noundef %196, i64 noundef 24, ptr noundef @pivotFieldCompare)
+  store ptr %197, ptr %28, align 8
+  %198 = load ptr, ptr %28, align 8
+  %199 = getelementptr inbounds %struct._pivot_field, ptr %198, i32 0, i32 2
+  %200 = load i32, ptr %199, align 8
+  store i32 %200, ptr %26, align 4
+  %201 = load ptr, ptr %9, align 8
+  %202 = load i32, ptr %20, align 4
+  %203 = load i32, ptr %12, align 4
+  %204 = call i32 @PQgetisnull(ptr noundef %201, i32 noundef %202, i32 noundef %203)
+  %205 = icmp ne i32 %204, 0
+  br i1 %205, label %212, label %206
 
-205:                                              ; preds = %192
-  %206 = load ptr, ptr %9, align 8
-  %207 = load i32, ptr %20, align 4
-  %208 = load i32, ptr %12, align 4
-  %209 = call ptr @PQgetvalue(ptr noundef %206, i32 noundef %207, i32 noundef %208)
-  %210 = getelementptr inbounds %struct._pivot_field, ptr %30, i32 0, i32 0
-  store ptr %209, ptr %210, align 8
-  br label %213
+206:                                              ; preds = %193
+  %207 = load ptr, ptr %9, align 8
+  %208 = load i32, ptr %20, align 4
+  %209 = load i32, ptr %12, align 4
+  %210 = call ptr @PQgetvalue(ptr noundef %207, i32 noundef %208, i32 noundef %209)
+  %211 = getelementptr inbounds %struct._pivot_field, ptr %30, i32 0, i32 0
+  store ptr %210, ptr %211, align 8
+  br label %214
 
-211:                                              ; preds = %192
-  %212 = getelementptr inbounds %struct._pivot_field, ptr %30, i32 0, i32 0
-  store ptr null, ptr %212, align 8
-  br label %213
+212:                                              ; preds = %193
+  %213 = getelementptr inbounds %struct._pivot_field, ptr %30, i32 0, i32 0
+  store ptr null, ptr %213, align 8
+  br label %214
 
-213:                                              ; preds = %211, %205
-  %214 = load ptr, ptr %11, align 8
-  %215 = load i32, ptr %10, align 4
-  %216 = sext i32 %215 to i64
-  %217 = call ptr @bsearch(ptr noundef %30, ptr noundef %214, i64 noundef %216, i64 noundef 24, ptr noundef @pivotFieldCompare)
-  store ptr %217, ptr %29, align 8
-  %218 = load ptr, ptr %29, align 8
-  %219 = getelementptr inbounds %struct._pivot_field, ptr %218, i32 0, i32 2
-  %220 = load i32, ptr %219, align 8
-  store i32 %220, ptr %27, align 4
-  %221 = load i32, ptr %27, align 4
-  %222 = icmp sge i32 %221, 0
-  br i1 %222, label %223, label %310
+214:                                              ; preds = %212, %206
+  %215 = load ptr, ptr %11, align 8
+  %216 = load i32, ptr %10, align 4
+  %217 = sext i32 %216 to i64
+  %218 = call ptr @bsearch(ptr noundef %30, ptr noundef %215, i64 noundef %217, i64 noundef 24, ptr noundef @pivotFieldCompare)
+  store ptr %218, ptr %29, align 8
+  %219 = load ptr, ptr %29, align 8
+  %220 = getelementptr inbounds %struct._pivot_field, ptr %219, i32 0, i32 2
+  %221 = load i32, ptr %220, align 8
+  store i32 %221, ptr %27, align 4
+  %222 = load i32, ptr %27, align 4
+  %223 = icmp sge i32 %222, 0
+  br i1 %223, label %224, label %311
 
-223:                                              ; preds = %213
-  %224 = load i32, ptr %26, align 4
-  %225 = icmp sge i32 %224, 0
-  br i1 %225, label %226, label %310
+224:                                              ; preds = %214
+  %225 = load i32, ptr %26, align 4
+  %226 = icmp sge i32 %225, 0
+  br i1 %226, label %227, label %311
 
-226:                                              ; preds = %223
-  %227 = load i32, ptr %27, align 4
-  %228 = add i32 1, %227
-  %229 = load i32, ptr %26, align 4
-  %230 = load i32, ptr %10, align 4
-  %231 = add i32 %230, 1
-  %232 = mul i32 %229, %231
-  %233 = add i32 %228, %232
-  store i32 %233, ptr %31, align 4
-  %234 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
-  %235 = load ptr, ptr %234, align 8
-  %236 = load i32, ptr %31, align 4
-  %237 = sext i32 %236 to i64
-  %238 = getelementptr ptr, ptr %235, i64 %237
-  %239 = load ptr, ptr %238, align 8
-  %240 = icmp ne ptr %239, null
-  br i1 %240, label %241, label %282
+227:                                              ; preds = %224
+  %228 = load i32, ptr %27, align 4
+  %229 = add i32 1, %228
+  %230 = load i32, ptr %26, align 4
+  %231 = load i32, ptr %10, align 4
+  %232 = add i32 %231, 1
+  %233 = mul i32 %230, %232
+  %234 = add i32 %229, %233
+  store i32 %234, ptr %31, align 4
+  %235 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
+  %236 = load ptr, ptr %235, align 8
+  %237 = load i32, ptr %31, align 4
+  %238 = sext i32 %237 to i64
+  %239 = getelementptr ptr, ptr %236, i64 %238
+  %240 = load ptr, ptr %239, align 8
+  %241 = icmp ne ptr %240, null
+  br i1 %241, label %242, label %283
 
-241:                                              ; preds = %226
-  %242 = load ptr, ptr %28, align 8
-  %243 = getelementptr inbounds %struct._pivot_field, ptr %242, i32 0, i32 0
-  %244 = load ptr, ptr %243, align 8
-  %245 = icmp ne ptr %244, null
-  br i1 %245, label %246, label %250
+242:                                              ; preds = %227
+  %243 = load ptr, ptr %28, align 8
+  %244 = getelementptr inbounds %struct._pivot_field, ptr %243, i32 0, i32 0
+  %245 = load ptr, ptr %244, align 8
+  %246 = icmp ne ptr %245, null
+  br i1 %246, label %247, label %251
 
-246:                                              ; preds = %241
-  %247 = load ptr, ptr %28, align 8
-  %248 = getelementptr inbounds %struct._pivot_field, ptr %247, i32 0, i32 0
-  %249 = load ptr, ptr %248, align 8
-  br label %260
+247:                                              ; preds = %242
+  %248 = load ptr, ptr %28, align 8
+  %249 = getelementptr inbounds %struct._pivot_field, ptr %248, i32 0, i32 0
+  %250 = load ptr, ptr %249, align 8
+  br label %261
 
-250:                                              ; preds = %241
-  %251 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %252 = load ptr, ptr %251, align 8
-  %253 = icmp ne ptr %252, null
-  br i1 %253, label %254, label %257
+251:                                              ; preds = %242
+  %252 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %253 = load ptr, ptr %252, align 8
+  %254 = icmp ne ptr %253, null
+  br i1 %254, label %255, label %258
 
-254:                                              ; preds = %250
-  %255 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %256 = load ptr, ptr %255, align 8
-  br label %258
+255:                                              ; preds = %251
+  %256 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %257 = load ptr, ptr %256, align 8
+  br label %259
 
-257:                                              ; preds = %250
-  br label %258
+258:                                              ; preds = %251
+  br label %259
 
-258:                                              ; preds = %257, %254
-  %259 = phi ptr [ %256, %254 ], [ @.str.7, %257 ]
-  br label %260
+259:                                              ; preds = %258, %255
+  %260 = phi ptr [ %257, %255 ], [ @.str.7, %258 ]
+  br label %261
 
-260:                                              ; preds = %258, %246
-  %261 = phi ptr [ %249, %246 ], [ %259, %258 ]
-  %262 = load ptr, ptr %29, align 8
-  %263 = getelementptr inbounds %struct._pivot_field, ptr %262, i32 0, i32 0
-  %264 = load ptr, ptr %263, align 8
-  %265 = icmp ne ptr %264, null
-  br i1 %265, label %266, label %270
+261:                                              ; preds = %259, %247
+  %262 = phi ptr [ %250, %247 ], [ %260, %259 ]
+  %263 = load ptr, ptr %29, align 8
+  %264 = getelementptr inbounds %struct._pivot_field, ptr %263, i32 0, i32 0
+  %265 = load ptr, ptr %264, align 8
+  %266 = icmp ne ptr %265, null
+  br i1 %266, label %267, label %271
 
-266:                                              ; preds = %260
-  %267 = load ptr, ptr %29, align 8
-  %268 = getelementptr inbounds %struct._pivot_field, ptr %267, i32 0, i32 0
-  %269 = load ptr, ptr %268, align 8
-  br label %280
+267:                                              ; preds = %261
+  %268 = load ptr, ptr %29, align 8
+  %269 = getelementptr inbounds %struct._pivot_field, ptr %268, i32 0, i32 0
+  %270 = load ptr, ptr %269, align 8
+  br label %281
 
-270:                                              ; preds = %260
-  %271 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %272 = load ptr, ptr %271, align 8
-  %273 = icmp ne ptr %272, null
-  br i1 %273, label %274, label %277
+271:                                              ; preds = %261
+  %272 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %273 = load ptr, ptr %272, align 8
+  %274 = icmp ne ptr %273, null
+  br i1 %274, label %275, label %278
 
-274:                                              ; preds = %270
-  %275 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %276 = load ptr, ptr %275, align 8
-  br label %278
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %277 = load ptr, ptr %276, align 8
+  br label %279
 
-277:                                              ; preds = %270
-  br label %278
+278:                                              ; preds = %271
+  br label %279
 
-278:                                              ; preds = %277, %274
-  %279 = phi ptr [ %276, %274 ], [ @.str.7, %277 ]
-  br label %280
+279:                                              ; preds = %278, %275
+  %280 = phi ptr [ %277, %275 ], [ @.str.7, %278 ]
+  br label %281
 
-280:                                              ; preds = %278, %266
-  %281 = phi ptr [ %269, %266 ], [ %279, %278 ]
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.6, ptr noundef %261, ptr noundef %281)
-  br label %342
+281:                                              ; preds = %279, %267
+  %282 = phi ptr [ %270, %267 ], [ %280, %279 ]
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.6, ptr noundef %262, ptr noundef %282)
+  br label %345
 
-282:                                              ; preds = %226
-  %283 = load ptr, ptr %9, align 8
-  %284 = load i32, ptr %20, align 4
-  %285 = load i32, ptr %16, align 4
-  %286 = call i32 @PQgetisnull(ptr noundef %283, i32 noundef %284, i32 noundef %285)
-  %287 = icmp ne i32 %286, 0
-  br i1 %287, label %293, label %288
+283:                                              ; preds = %227
+  %284 = load ptr, ptr %9, align 8
+  %285 = load i32, ptr %20, align 4
+  %286 = load i32, ptr %16, align 4
+  %287 = call i32 @PQgetisnull(ptr noundef %284, i32 noundef %285, i32 noundef %286)
+  %288 = icmp ne i32 %287, 0
+  br i1 %288, label %294, label %289
 
-288:                                              ; preds = %282
-  %289 = load ptr, ptr %9, align 8
-  %290 = load i32, ptr %20, align 4
-  %291 = load i32, ptr %16, align 4
-  %292 = call ptr @PQgetvalue(ptr noundef %289, i32 noundef %290, i32 noundef %291)
-  br label %303
+289:                                              ; preds = %283
+  %290 = load ptr, ptr %9, align 8
+  %291 = load i32, ptr %20, align 4
+  %292 = load i32, ptr %16, align 4
+  %293 = call ptr @PQgetvalue(ptr noundef %290, i32 noundef %291, i32 noundef %292)
+  br label %304
 
-293:                                              ; preds = %282
-  %294 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %295 = load ptr, ptr %294, align 8
-  %296 = icmp ne ptr %295, null
-  br i1 %296, label %297, label %300
+294:                                              ; preds = %283
+  %295 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %296 = load ptr, ptr %295, align 8
+  %297 = icmp ne ptr %296, null
+  br i1 %297, label %298, label %301
 
-297:                                              ; preds = %293
-  %298 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
-  %299 = load ptr, ptr %298, align 8
-  br label %301
+298:                                              ; preds = %294
+  %299 = getelementptr inbounds %struct.printQueryOpt, ptr %17, i32 0, i32 1
+  %300 = load ptr, ptr %299, align 8
+  br label %302
 
-300:                                              ; preds = %293
-  br label %301
+301:                                              ; preds = %294
+  br label %302
 
-301:                                              ; preds = %300, %297
-  %302 = phi ptr [ %299, %297 ], [ @.str.5, %300 ]
-  br label %303
+302:                                              ; preds = %301, %298
+  %303 = phi ptr [ %300, %298 ], [ @.str.5, %301 ]
+  br label %304
 
-303:                                              ; preds = %301, %288
-  %304 = phi ptr [ %292, %288 ], [ %302, %301 ]
-  %305 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
-  %306 = load ptr, ptr %305, align 8
-  %307 = load i32, ptr %31, align 4
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr ptr, ptr %306, i64 %308
-  store ptr %304, ptr %309, align 8
-  br label %310
-
-310:                                              ; preds = %303, %223, %213
+304:                                              ; preds = %302, %289
+  %305 = phi ptr [ %293, %289 ], [ %303, %302 ]
+  %306 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
+  %307 = load ptr, ptr %306, align 8
+  %308 = load i32, ptr %31, align 4
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr ptr, ptr %307, i64 %309
+  store ptr %305, ptr %310, align 8
   br label %311
 
-311:                                              ; preds = %310
-  %312 = load i32, ptr %20, align 4
-  %313 = add i32 %312, 1
-  store i32 %313, ptr %20, align 4
-  br label %173, !llvm.loop !14
+311:                                              ; preds = %304, %224, %214
+  br label %312
 
-314:                                              ; preds = %173
+312:                                              ; preds = %311
+  %313 = load i32, ptr %20, align 4
+  %314 = add i32 %313, 1
+  store i32 %314, ptr %20, align 4
+  br label %174, !llvm.loop !14
+
+315:                                              ; preds = %174
   store i32 0, ptr %19, align 4
-  br label %315
+  br label %316
 
-315:                                              ; preds = %336, %314
-  %316 = load i32, ptr %19, align 4
-  %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 8
-  %319 = load i64, ptr %318, align 8
-  %320 = icmp ult i64 %317, %319
-  br i1 %320, label %321, label %339
+316:                                              ; preds = %337, %315
+  %317 = load i32, ptr %19, align 4
+  %318 = sext i32 %317 to i64
+  %319 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 8
+  %320 = load i64, ptr %319, align 8
+  %321 = icmp ult i64 %318, %320
+  br i1 %321, label %322, label %340
 
-321:                                              ; preds = %315
-  %322 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
-  %323 = load ptr, ptr %322, align 8
-  %324 = load i32, ptr %19, align 4
-  %325 = sext i32 %324 to i64
-  %326 = getelementptr ptr, ptr %323, i64 %325
-  %327 = load ptr, ptr %326, align 8
-  %328 = icmp eq ptr %327, null
-  br i1 %328, label %329, label %335
+322:                                              ; preds = %316
+  %323 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
+  %324 = load ptr, ptr %323, align 8
+  %325 = load i32, ptr %19, align 4
+  %326 = sext i32 %325 to i64
+  %327 = getelementptr ptr, ptr %324, i64 %326
+  %328 = load ptr, ptr %327, align 8
+  %329 = icmp eq ptr %328, null
+  br i1 %329, label %330, label %336
 
-329:                                              ; preds = %321
-  %330 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
-  %331 = load ptr, ptr %330, align 8
-  %332 = load i32, ptr %19, align 4
-  %333 = sext i32 %332 to i64
-  %334 = getelementptr ptr, ptr %331, i64 %333
-  store ptr @.str.5, ptr %334, align 8
-  br label %335
-
-335:                                              ; preds = %329, %321
+330:                                              ; preds = %322
+  %331 = getelementptr inbounds %struct.printTableContent, ptr %18, i32 0, i32 6
+  %332 = load ptr, ptr %331, align 8
+  %333 = load i32, ptr %19, align 4
+  %334 = sext i32 %333 to i64
+  %335 = getelementptr ptr, ptr %332, i64 %334
+  store ptr @.str.5, ptr %335, align 8
   br label %336
 
-336:                                              ; preds = %335
-  %337 = load i32, ptr %19, align 4
-  %338 = add i32 %337, 1
-  store i32 %338, ptr %19, align 4
-  br label %315, !llvm.loop !15
+336:                                              ; preds = %330, %322
+  br label %337
 
-339:                                              ; preds = %315
-  %340 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 2), align 8
-  %341 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 27), align 8
-  call void @printTable(ptr noundef %18, ptr noundef %340, i1 noundef zeroext false, ptr noundef %341)
+337:                                              ; preds = %336
+  %338 = load i32, ptr %19, align 4
+  %339 = add i32 %338, 1
+  store i32 %339, ptr %19, align 4
+  br label %316, !llvm.loop !15
+
+340:                                              ; preds = %316
+  %341 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 2
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 27
+  %344 = load ptr, ptr %343, align 8
+  call void @printTable(ptr noundef %18, ptr noundef %342, i1 noundef zeroext false, ptr noundef %344)
   store i8 1, ptr %23, align 1
-  br label %342
+  br label %345
 
-342:                                              ; preds = %339, %280
+345:                                              ; preds = %340, %281
   call void @printTableCleanup(ptr noundef %18)
-  %343 = load i8, ptr %23, align 1
-  %344 = trunc i8 %343 to i1
-  ret i1 %344
+  %346 = load i8, ptr %23, align 1
+  %347 = trunc i8 %346 to i1
+  ret i1 %347
 }
 
 ; Function Attrs: nounwind uwtable

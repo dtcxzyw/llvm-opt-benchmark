@@ -233,15 +233,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_pump_config_control() #0 {
   store ptr @ett_zbee_zcl_pump_config_control, ptr @proto_register_zbee_zcl_pump_config_control.ett, align 16
-  store ptr @ett_zbee_zcl_pump_config_control_status, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_pump_config_control.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_pump_config_control_alarm, ptr getelementptr inbounds ([3 x ptr], ptr @proto_register_zbee_zcl_pump_config_control.ett, i64 0, i64 2), align 16
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.59, ptr noundef @.str.60, ptr noundef @.str.61)
-  store i32 %1, ptr @proto_zbee_zcl_pump_config_control, align 4
-  %2 = load i32, ptr @proto_zbee_zcl_pump_config_control, align 4
-  call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_zbee_zcl_pump_config_control.hf, i32 noundef 30)
+  %1 = getelementptr inbounds [3 x ptr], ptr @proto_register_zbee_zcl_pump_config_control.ett, i64 0, i64 1
+  store ptr @ett_zbee_zcl_pump_config_control_status, ptr %1, align 8
+  %2 = getelementptr inbounds [3 x ptr], ptr @proto_register_zbee_zcl_pump_config_control.ett, i64 0, i64 2
+  store ptr @ett_zbee_zcl_pump_config_control_alarm, ptr %2, align 16
+  %3 = call i32 @proto_register_protocol(ptr noundef @.str.59, ptr noundef @.str.60, ptr noundef @.str.61)
+  store i32 %3, ptr @proto_zbee_zcl_pump_config_control, align 4
+  %4 = load i32, ptr @proto_zbee_zcl_pump_config_control, align 4
+  call void @proto_register_field_array(i32 noundef %4, ptr noundef @proto_register_zbee_zcl_pump_config_control.hf, i32 noundef 30)
   call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_zcl_pump_config_control.ett, i32 noundef 3)
-  %3 = load i32, ptr @proto_zbee_zcl_pump_config_control, align 4
-  %4 = call ptr @register_dissector(ptr noundef @.str.61, ptr noundef @dissect_zbee_zcl_pump_config_control, i32 noundef %3)
+  %5 = load i32, ptr @proto_zbee_zcl_pump_config_control, align 4
+  %6 = call ptr @register_dissector(ptr noundef @.str.61, ptr noundef @dissect_zbee_zcl_pump_config_control, i32 noundef %5)
   ret void
 }
 

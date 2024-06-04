@@ -47,12 +47,14 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @v9fs_register_trans(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @v9fs_trans_lock) #5
-  %2 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @v9fs_trans_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @v9fs_trans_list, i64 0, i32 1), align 8
+  %2 = getelementptr inbounds %struct.list_head, ptr @v9fs_trans_list, i64 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.list_head, ptr @v9fs_trans_list, i64 0, i32 1
+  store ptr %0, ptr %4, align 8
   store ptr @v9fs_trans_list, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %2, ptr %3, align 8
-  store volatile ptr %0, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %5, align 8
+  store volatile ptr %0, ptr %3, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @v9fs_trans_lock) #5
   ret void
 }

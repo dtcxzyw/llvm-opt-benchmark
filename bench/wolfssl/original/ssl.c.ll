@@ -17676,12 +17676,13 @@ if.end:                                           ; preds = %do.end
 
 land.lhs.true:                                    ; preds = %if.end
   %2 = load ptr, ptr %session.addr, align 8
-  %cmp2 = icmp ult ptr %2, getelementptr inbounds (i8, ptr @ClientCache, i64 17600)
+  %3 = getelementptr inbounds i8, ptr @ClientCache, i64 17600
+  %cmp2 = icmp ult ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %land.lhs.true
-  %3 = load ptr, ptr %session.addr, align 8
-  store ptr %3, ptr %clientSession, align 8
+  %4 = load ptr, ptr %session.addr, align 8
+  store ptr %4, ptr %clientSession, align 8
   store ptr null, ptr %sessRow, align 8
   store ptr null, ptr %cacheSession, align 8
   store i32 0, ptr %sessionIDHash, align 4
@@ -17702,18 +17703,18 @@ do.end7:                                          ; preds = %do.body6
   br label %return
 
 if.end8:                                          ; preds = %if.then3
-  %4 = load ptr, ptr %clientSession, align 8
-  %serverRow = getelementptr inbounds %struct.ClientSession, ptr %4, i32 0, i32 0
-  %5 = load i16, ptr %serverRow, align 4
-  %conv = zext i16 %5 to i32
+  %5 = load ptr, ptr %clientSession, align 8
+  %serverRow = getelementptr inbounds %struct.ClientSession, ptr %5, i32 0, i32 0
+  %6 = load i16, ptr %serverRow, align 4
+  %conv = zext i16 %6 to i32
   %cmp9 = icmp sge i32 %conv, 11
   br i1 %cmp9, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end8
-  %6 = load ptr, ptr %clientSession, align 8
-  %serverIdx = getelementptr inbounds %struct.ClientSession, ptr %6, i32 0, i32 1
-  %7 = load i16, ptr %serverIdx, align 2
-  %conv11 = zext i16 %7 to i32
+  %7 = load ptr, ptr %clientSession, align 8
+  %serverIdx = getelementptr inbounds %struct.ClientSession, ptr %7, i32 0, i32 1
+  %8 = load i16, ptr %serverIdx, align 2
+  %conv11 = zext i16 %8 to i32
   %cmp12 = icmp sge i32 %conv11, 3
   br i1 %cmp12, label %if.then14, label %if.end17
 
@@ -17729,21 +17730,21 @@ do.end16:                                         ; preds = %do.body15
 
 if.end17:                                         ; preds = %do.end16, %lor.lhs.false
   call void asm sideeffect "lfence", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !30
-  %8 = load i32, ptr %error, align 4
-  %cmp18 = icmp eq i32 %8, 0
+  %9 = load i32, ptr %error, align 4
+  %cmp18 = icmp eq i32 %9, 0
   br i1 %cmp18, label %if.then20, label %if.end29
 
 if.then20:                                        ; preds = %if.end17
-  %9 = load ptr, ptr %clientSession, align 8
-  %serverRow21 = getelementptr inbounds %struct.ClientSession, ptr %9, i32 0, i32 0
-  %10 = load i16, ptr %serverRow21, align 4
-  %idxprom = zext i16 %10 to i64
+  %10 = load ptr, ptr %clientSession, align 8
+  %serverRow21 = getelementptr inbounds %struct.ClientSession, ptr %10, i32 0, i32 0
+  %11 = load i16, ptr %serverRow21, align 4
+  %idxprom = zext i16 %11 to i64
   %arrayidx = getelementptr inbounds [11 x %struct.SessionRow], ptr @SessionCache, i64 0, i64 %idxprom
   store ptr %arrayidx, ptr %sessRow, align 8
   %call22 = call i32 @wc_LockRwLock_Rd(ptr noundef @session_lock)
   store i32 %call22, ptr %error, align 4
-  %11 = load i32, ptr %error, align 4
-  %cmp23 = icmp ne i32 %11, 0
+  %12 = load i32, ptr %error, align 4
+  %cmp23 = icmp ne i32 %12, 0
   br i1 %cmp23, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %if.then20
@@ -17760,28 +17761,28 @@ if.end28:                                         ; preds = %do.end27, %if.then2
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end28, %if.end17
-  %12 = load i32, ptr %error, align 4
-  %cmp30 = icmp eq i32 %12, 0
+  %13 = load i32, ptr %error, align 4
+  %cmp30 = icmp eq i32 %13, 0
   br i1 %cmp30, label %if.then32, label %if.end44
 
 if.then32:                                        ; preds = %if.end29
-  %13 = load ptr, ptr %sessRow, align 8
-  %Sessions = getelementptr inbounds %struct.SessionRow, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %clientSession, align 8
-  %serverIdx33 = getelementptr inbounds %struct.ClientSession, ptr %14, i32 0, i32 1
-  %15 = load i16, ptr %serverIdx33, align 2
-  %idxprom34 = zext i16 %15 to i64
+  %14 = load ptr, ptr %sessRow, align 8
+  %Sessions = getelementptr inbounds %struct.SessionRow, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %clientSession, align 8
+  %serverIdx33 = getelementptr inbounds %struct.ClientSession, ptr %15, i32 0, i32 1
+  %16 = load i16, ptr %serverIdx33, align 2
+  %idxprom34 = zext i16 %16 to i64
   %arrayidx35 = getelementptr inbounds [3 x %struct.WOLFSSL_SESSION], ptr %Sessions, i64 0, i64 %idxprom34
   store ptr %arrayidx35, ptr %cacheSession, align 8
-  %16 = load ptr, ptr %cacheSession, align 8
-  %tobool = icmp ne ptr %16, null
+  %17 = load ptr, ptr %cacheSession, align 8
+  %tobool = icmp ne ptr %17, null
   br i1 %tobool, label %land.lhs.true36, label %if.end43
 
 land.lhs.true36:                                  ; preds = %if.then32
-  %17 = load ptr, ptr %cacheSession, align 8
-  %sessionIDSz = getelementptr inbounds %struct.WOLFSSL_SESSION, ptr %17, i32 0, i32 10
-  %18 = load i8, ptr %sessionIDSz, align 4
-  %conv37 = zext i8 %18 to i32
+  %18 = load ptr, ptr %cacheSession, align 8
+  %sessionIDSz = getelementptr inbounds %struct.WOLFSSL_SESSION, ptr %18, i32 0, i32 10
+  %19 = load i8, ptr %sessionIDSz, align 4
+  %conv37 = zext i8 %19 to i32
   %cmp38 = icmp eq i32 %conv37, 0
   br i1 %cmp38, label %if.then40, label %if.end43
 
@@ -17800,33 +17801,33 @@ if.end43:                                         ; preds = %do.end42, %land.lhs
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end43, %if.end29
-  %19 = load i32, ptr %error, align 4
-  %cmp45 = icmp eq i32 %19, 0
+  %20 = load i32, ptr %error, align 4
+  %cmp45 = icmp eq i32 %20, 0
   br i1 %cmp45, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.end44
-  %20 = load ptr, ptr %cacheSession, align 8
-  %sessionID = getelementptr inbounds %struct.WOLFSSL_SESSION, ptr %20, i32 0, i32 9
+  %21 = load ptr, ptr %cacheSession, align 8
+  %sessionID = getelementptr inbounds %struct.WOLFSSL_SESSION, ptr %21, i32 0, i32 9
   %arraydecay = getelementptr inbounds [32 x i8], ptr %sessionID, i64 0, i64 0
   %call48 = call i32 @HashObject(ptr noundef %arraydecay, i32 noundef 32, ptr noundef %error)
   store i32 %call48, ptr %sessionIDHash, align 4
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %if.end44
-  %21 = load i32, ptr %error, align 4
-  %cmp50 = icmp eq i32 %21, 0
+  %22 = load i32, ptr %error, align 4
+  %cmp50 = icmp eq i32 %22, 0
   br i1 %cmp50, label %if.then52, label %if.end62
 
 if.then52:                                        ; preds = %if.end49
-  %22 = load ptr, ptr %clientSession, align 8
-  %sessionIDHash53 = getelementptr inbounds %struct.ClientSession, ptr %22, i32 0, i32 2
-  %23 = load i32, ptr %sessionIDHash53, align 4
-  %24 = load i32, ptr %sessionIDHash, align 4
-  %cmp54 = icmp ne i32 %23, %24
+  %23 = load ptr, ptr %clientSession, align 8
+  %sessionIDHash53 = getelementptr inbounds %struct.ClientSession, ptr %23, i32 0, i32 2
+  %24 = load i32, ptr %sessionIDHash53, align 4
+  %25 = load i32, ptr %sessionIDHash, align 4
+  %cmp54 = icmp ne i32 %24, %25
   %conv55 = zext i1 %cmp54 to i32
   store i32 %conv55, ptr %error, align 4
-  %25 = load i32, ptr %error, align 4
-  %cmp56 = icmp ne i32 %25, 0
+  %26 = load i32, ptr %error, align 4
+  %cmp56 = icmp ne i32 %26, 0
   br i1 %cmp56, label %if.then58, label %if.end61
 
 if.then58:                                        ; preds = %if.then52
@@ -17842,13 +17843,13 @@ if.end61:                                         ; preds = %do.end60, %if.then5
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end61, %if.end49
-  %26 = load i32, ptr %error, align 4
-  %cmp63 = icmp eq i32 %26, 0
+  %27 = load i32, ptr %error, align 4
+  %cmp63 = icmp eq i32 %27, 0
   br i1 %cmp63, label %if.then65, label %if.end68
 
 if.then65:                                        ; preds = %if.end62
-  %27 = load ptr, ptr %cacheSession, align 8
-  store ptr %27, ptr %session.addr, align 8
+  %28 = load ptr, ptr %cacheSession, align 8
+  store ptr %28, ptr %session.addr, align 8
   br label %do.body66
 
 do.body66:                                        ; preds = %if.then65
@@ -17858,8 +17859,8 @@ do.end67:                                         ; preds = %do.body66
   br label %if.end68
 
 if.end68:                                         ; preds = %do.end67, %if.end62
-  %28 = load ptr, ptr %sessRow, align 8
-  %cmp69 = icmp ne ptr %28, null
+  %29 = load ptr, ptr %sessRow, align 8
+  %cmp69 = icmp ne ptr %29, null
   br i1 %cmp69, label %if.then71, label %if.end73
 
 if.then71:                                        ; preds = %if.end68
@@ -17868,18 +17869,18 @@ if.then71:                                        ; preds = %if.end68
 
 if.end73:                                         ; preds = %if.then71, %if.end68
   %call74 = call i32 @wc_UnLockMutex(ptr noundef @clisession_mutex)
-  %29 = load ptr, ptr %session.addr, align 8
-  store ptr %29, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true, %if.end
   %30 = load ptr, ptr %session.addr, align 8
   store ptr %30, ptr %retval, align 8
   br label %return
 
+if.else:                                          ; preds = %land.lhs.true, %if.end
+  %31 = load ptr, ptr %session.addr, align 8
+  store ptr %31, ptr %retval, align 8
+  br label %return
+
 return:                                           ; preds = %if.else, %if.end73, %do.end7, %if.then
-  %31 = load ptr, ptr %retval, align 8
-  ret ptr %31
+  %32 = load ptr, ptr %retval, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind uwtable

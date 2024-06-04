@@ -307,79 +307,81 @@ define dso_local i32 @GetCommandTagEnum(ptr noundef %0) #0 {
 
 15:                                               ; preds = %10, %1
   store i32 0, ptr %2, align 4
-  br label %56
+  br label %58
 
 16:                                               ; preds = %10
   store ptr @tag_behavior, ptr %4, align 8
-  store ptr getelementptr (%struct.CommandTagBehavior, ptr @tag_behavior, i64 192), ptr %5, align 8
-  br label %17
+  %17 = getelementptr %struct.CommandTagBehavior, ptr @tag_behavior, i64 192
+  store ptr %17, ptr %5, align 8
+  br label %18
 
-17:                                               ; preds = %54, %16
-  %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = icmp uge ptr %18, %19
-  br i1 %20, label %21, label %55
+18:                                               ; preds = %56, %16
+  %19 = load ptr, ptr %5, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = icmp uge ptr %19, %20
+  br i1 %21, label %22, label %57
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %4, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = ptrtoint ptr %23 to i64
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = load ptr, ptr %4, align 8
   %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = sdiv exact i64 %27, 16
-  %29 = ashr i64 %28, 1
-  %30 = getelementptr %struct.CommandTagBehavior, ptr %22, i64 %29
-  store ptr %30, ptr %6, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.CommandTagBehavior, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @pg_strcasecmp(ptr noundef %31, ptr noundef %34)
-  store i32 %35, ptr %7, align 4
-  %36 = load i32, ptr %7, align 4
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %44
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = sdiv exact i64 %28, 16
+  %30 = ashr i64 %29, 1
+  %31 = getelementptr %struct.CommandTagBehavior, ptr %23, i64 %30
+  store ptr %31, ptr %6, align 8
+  %32 = load ptr, ptr %3, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds %struct.CommandTagBehavior, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i32 @pg_strcasecmp(ptr noundef %32, ptr noundef %35)
+  store i32 %36, ptr %7, align 4
+  %37 = load i32, ptr %7, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %21
-  %39 = load ptr, ptr %6, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = sub i64 %40, ptrtoint (ptr @tag_behavior to i64)
-  %42 = sdiv exact i64 %41, 16
-  %43 = trunc i64 %42 to i32
-  store i32 %43, ptr %2, align 4
+39:                                               ; preds = %22
+  %40 = load ptr, ptr %6, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = ptrtoint ptr @tag_behavior to i64
+  %43 = sub i64 %41, %42
+  %44 = sdiv exact i64 %43, 16
+  %45 = trunc i64 %44 to i32
+  store i32 %45, ptr %2, align 4
+  br label %58
+
+46:                                               ; preds = %22
+  %47 = load i32, ptr %7, align 4
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %49, label %52
+
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr %struct.CommandTagBehavior, ptr %50, i64 -1
+  store ptr %51, ptr %5, align 8
+  br label %55
+
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr %struct.CommandTagBehavior, ptr %53, i64 1
+  store ptr %54, ptr %4, align 8
+  br label %55
+
+55:                                               ; preds = %52, %49
   br label %56
 
-44:                                               ; preds = %21
-  %45 = load i32, ptr %7, align 4
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %47, label %50
+56:                                               ; preds = %55
+  br label %18, !llvm.loop !5
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr %struct.CommandTagBehavior, ptr %48, i64 -1
-  store ptr %49, ptr %5, align 8
-  br label %53
-
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr %struct.CommandTagBehavior, ptr %51, i64 1
-  store ptr %52, ptr %4, align 8
-  br label %53
-
-53:                                               ; preds = %50, %47
-  br label %54
-
-54:                                               ; preds = %53
-  br label %17, !llvm.loop !5
-
-55:                                               ; preds = %17
+57:                                               ; preds = %18
   store i32 0, ptr %2, align 4
-  br label %56
+  br label %58
 
-56:                                               ; preds = %55, %38, %15
-  %57 = load i32, ptr %2, align 4
-  ret i32 %57
+58:                                               ; preds = %57, %39, %15
+  %59 = load i32, ptr %2, align 4
+  ret i32 %59
 }
 
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) #1

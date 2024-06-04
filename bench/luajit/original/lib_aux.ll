@@ -1219,43 +1219,44 @@ declare void @lua_pushinteger(ptr noundef, i64 noundef) #2
 define dso_local ptr @luaL_newstate() #0 {
 entry:
   %L = alloca ptr, align 8
-  %call = call ptr @lua_newstate(ptr noundef inttoptr (i64 19792 to ptr), ptr noundef null)
+  %0 = inttoptr i64 19792 to ptr
+  %call = call ptr @lua_newstate(ptr noundef %0, ptr noundef null)
   store ptr %call, ptr %L, align 8
-  %0 = load ptr, ptr %L, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %L, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %L, align 8
-  %glref = getelementptr inbounds %struct.lua_State, ptr %1, i32 0, i32 5
+  %2 = load ptr, ptr %L, align 8
+  %glref = getelementptr inbounds %struct.lua_State, ptr %2, i32 0, i32 5
   %ptr64 = getelementptr inbounds %struct.MRef, ptr %glref, i32 0, i32 0
-  %2 = load i64, ptr %ptr64, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %panic = getelementptr inbounds %struct.global_State, ptr %3, i32 0, i32 21
+  %3 = load i64, ptr %ptr64, align 8
+  %4 = inttoptr i64 %3 to ptr
+  %panic = getelementptr inbounds %struct.global_State, ptr %4, i32 0, i32 21
   store ptr @panic, ptr %panic, align 8
-  %4 = load ptr, ptr %L, align 8
-  %call1 = call ptr @luaL_findtable(ptr noundef %4, i32 noundef -10000, ptr noundef @.str.6, i32 noundef 4)
   %5 = load ptr, ptr %L, align 8
-  call void @lua_pushcclosure(ptr noundef %5, ptr noundef @error_finalizer, i32 noundef 0)
+  %call1 = call ptr @luaL_findtable(ptr noundef %5, i32 noundef -10000, ptr noundef @.str.6, i32 noundef 4)
   %6 = load ptr, ptr %L, align 8
-  call void @lua_rawseti(ptr noundef %6, i32 noundef -2, i32 noundef -1765161920)
+  call void @lua_pushcclosure(ptr noundef %6, ptr noundef @error_finalizer, i32 noundef 0)
   %7 = load ptr, ptr %L, align 8
-  %glref2 = getelementptr inbounds %struct.lua_State, ptr %7, i32 0, i32 5
+  call void @lua_rawseti(ptr noundef %7, i32 noundef -2, i32 noundef -1765161920)
+  %8 = load ptr, ptr %L, align 8
+  %glref2 = getelementptr inbounds %struct.lua_State, ptr %8, i32 0, i32 5
   %ptr643 = getelementptr inbounds %struct.MRef, ptr %glref2, i32 0, i32 0
-  %8 = load i64, ptr %ptr643, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %vmevmask = getelementptr inbounds %struct.global_State, ptr %9, i32 0, i32 7
+  %9 = load i64, ptr %ptr643, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %vmevmask = getelementptr inbounds %struct.global_State, ptr %10, i32 0, i32 7
   store i8 16, ptr %vmevmask, align 1
-  %10 = load ptr, ptr %L, align 8
-  %top = getelementptr inbounds %struct.lua_State, ptr %10, i32 0, i32 8
-  %11 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %11, i32 -1
+  %11 = load ptr, ptr %L, align 8
+  %top = getelementptr inbounds %struct.lua_State, ptr %11, i32 0, i32 8
+  %12 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %12, i32 -1
   store ptr %incdec.ptr, ptr %top, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %12 = load ptr, ptr %L, align 8
-  ret ptr %12
+  %13 = load ptr, ptr %L, align 8
+  ret ptr %13
 }
 
 declare ptr @lua_newstate(ptr noundef, ptr noundef) #2

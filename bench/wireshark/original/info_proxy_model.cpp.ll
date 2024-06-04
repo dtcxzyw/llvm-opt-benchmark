@@ -486,11 +486,12 @@ define void @_ZN14InfoProxyModelC2EP7QObject(ptr noundef nonnull align 8 derefer
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV14InfoProxyModel, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.InfoProxyModel, ptr %5, i32 0, i32 1
-  store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds %class.InfoProxyModel, ptr %5, i32 0, i32 2
-  call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
+  %7 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV14InfoProxyModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.InfoProxyModel, ptr %5, i32 0, i32 1
+  store i32 -1, ptr %8, align 8
+  %9 = getelementptr inbounds %class.InfoProxyModel, ptr %5, i32 0, i32 2
+  call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
   ret void
 }
 
@@ -511,22 +512,23 @@ define void @_ZN14InfoProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV14InfoProxyModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.InfoProxyModel, ptr %3, i32 0, i32 2
-  invoke void @_ZN5QListI7QStringE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %5 unwind label %7
+  %4 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV14InfoProxyModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.InfoProxyModel, ptr %3, i32 0, i32 2
+  invoke void @_ZN5QListI7QStringE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %6 unwind label %8
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %class.InfoProxyModel, ptr %3, i32 0, i32 2
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %class.InfoProxyModel, ptr %3, i32 0, i32 2
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
   ret void
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #10
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
   unreachable
 }
 

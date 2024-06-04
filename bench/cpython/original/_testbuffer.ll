@@ -5628,7 +5628,8 @@ if.then23:                                        ; preds = %if.end20
 if.then26:                                        ; preds = %if.then23
   %30 = load ptr, ptr %view.addr, align 8
   %obj27 = getelementptr inbounds %struct.Py_buffer, ptr %30, i32 0, i32 1
-  store ptr inttoptr (i64 1 to ptr), ptr %obj27, align 8
+  %31 = inttoptr i64 1 to ptr
+  store ptr %31, ptr %obj27, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then26, %if.then23
@@ -5636,243 +5637,243 @@ if.end28:                                         ; preds = %if.then26, %if.then
   br label %return
 
 if.end29:                                         ; preds = %if.end20
-  %31 = load i32, ptr %flags.addr, align 4
-  %and30 = and i32 %31, 1
+  %32 = load i32, ptr %flags.addr, align 4
+  %and30 = and i32 %32, 1
   %tobool31 = icmp ne i32 %and30, 0
   br i1 %tobool31, label %land.lhs.true32, label %if.end35
 
 land.lhs.true32:                                  ; preds = %if.end29
-  %32 = load ptr, ptr %base, align 8
-  %readonly = getelementptr inbounds %struct.Py_buffer, ptr %32, i32 0, i32 4
-  %33 = load i32, ptr %readonly, align 8
-  %tobool33 = icmp ne i32 %33, 0
+  %33 = load ptr, ptr %base, align 8
+  %readonly = getelementptr inbounds %struct.Py_buffer, ptr %33, i32 0, i32 4
+  %34 = load i32, ptr %readonly, align 8
+  %tobool33 = icmp ne i32 %34, 0
   br i1 %tobool33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %land.lhs.true32
-  %34 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %34, ptr noundef @.str.63)
+  %35 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %35, ptr noundef @.str.63)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end35:                                         ; preds = %land.lhs.true32, %if.end29
-  %35 = load i32, ptr %flags.addr, align 4
-  %and36 = and i32 %35, 4
+  %36 = load i32, ptr %flags.addr, align 4
+  %and36 = and i32 %36, 4
   %tobool37 = icmp ne i32 %and36, 0
   br i1 %tobool37, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %36 = load ptr, ptr %view.addr, align 8
-  %format39 = getelementptr inbounds %struct.Py_buffer, ptr %36, i32 0, i32 6
+  %37 = load ptr, ptr %view.addr, align 8
+  %format39 = getelementptr inbounds %struct.Py_buffer, ptr %37, i32 0, i32 6
   store ptr null, ptr %format39, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %if.end35
-  %37 = load i32, ptr %flags.addr, align 4
-  %and41 = and i32 %37, 56
+  %38 = load i32, ptr %flags.addr, align 4
+  %and41 = and i32 %38, 56
   %cmp42 = icmp eq i32 %and41, 56
   br i1 %cmp42, label %land.lhs.true43, label %if.end47
 
 land.lhs.true43:                                  ; preds = %if.end40
-  %38 = load i32, ptr %baseflags, align 4
-  %and44 = and i32 %38, 264
+  %39 = load i32, ptr %baseflags, align 4
+  %and44 = and i32 %39, 264
   %tobool45 = icmp ne i32 %and44, 0
   br i1 %tobool45, label %if.end47, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true43
-  %39 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %39, ptr noundef @.str.71)
+  %40 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %40, ptr noundef @.str.71)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end47:                                         ; preds = %land.lhs.true43, %if.end40
-  %40 = load i32, ptr %flags.addr, align 4
-  %and48 = and i32 %40, 88
+  %41 = load i32, ptr %flags.addr, align 4
+  %and48 = and i32 %41, 88
   %cmp49 = icmp eq i32 %and48, 88
   br i1 %cmp49, label %land.lhs.true50, label %if.end54
 
 land.lhs.true50:                                  ; preds = %if.end47
-  %41 = load i32, ptr %baseflags, align 4
-  %and51 = and i32 %41, 12
+  %42 = load i32, ptr %baseflags, align 4
+  %and51 = and i32 %42, 12
   %tobool52 = icmp ne i32 %and51, 0
   br i1 %tobool52, label %if.end54, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true50
-  %42 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %42, ptr noundef @.str.72)
+  %43 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %43, ptr noundef @.str.72)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end54:                                         ; preds = %land.lhs.true50, %if.end47
-  %43 = load i32, ptr %flags.addr, align 4
-  %and55 = and i32 %43, 152
+  %44 = load i32, ptr %flags.addr, align 4
+  %and55 = and i32 %44, 152
   %cmp56 = icmp eq i32 %and55, 152
   br i1 %cmp56, label %land.lhs.true57, label %if.end61
 
 land.lhs.true57:                                  ; preds = %if.end54
-  %44 = load i32, ptr %baseflags, align 4
-  %and58 = and i32 %44, 268
+  %45 = load i32, ptr %baseflags, align 4
+  %and58 = and i32 %45, 268
   %tobool59 = icmp ne i32 %and58, 0
   br i1 %tobool59, label %if.end61, label %if.then60
 
 if.then60:                                        ; preds = %land.lhs.true57
-  %45 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %45, ptr noundef @.str.73)
+  %46 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %46, ptr noundef @.str.73)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end61:                                         ; preds = %land.lhs.true57, %if.end54
-  %46 = load i32, ptr %flags.addr, align 4
-  %and62 = and i32 %46, 280
+  %47 = load i32, ptr %flags.addr, align 4
+  %and62 = and i32 %47, 280
   %cmp63 = icmp eq i32 %and62, 280
   br i1 %cmp63, label %if.end68, label %land.lhs.true64
 
 land.lhs.true64:                                  ; preds = %if.end61
-  %47 = load i32, ptr %baseflags, align 4
-  %and65 = and i32 %47, 16
+  %48 = load i32, ptr %baseflags, align 4
+  %and65 = and i32 %48, 16
   %tobool66 = icmp ne i32 %and65, 0
   br i1 %tobool66, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %land.lhs.true64
-  %48 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %48, ptr noundef @.str.74)
+  %49 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %49, ptr noundef @.str.74)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end68:                                         ; preds = %land.lhs.true64, %if.end61
-  %49 = load i32, ptr %flags.addr, align 4
-  %and69 = and i32 %49, 24
+  %50 = load i32, ptr %flags.addr, align 4
+  %and69 = and i32 %50, 24
   %cmp70 = icmp eq i32 %and69, 24
   br i1 %cmp70, label %if.end77, label %if.then71
 
 if.then71:                                        ; preds = %if.end68
-  %50 = load i32, ptr %baseflags, align 4
-  %and72 = and i32 %50, 264
+  %51 = load i32, ptr %baseflags, align 4
+  %and72 = and i32 %51, 264
   %tobool73 = icmp ne i32 %and72, 0
   br i1 %tobool73, label %if.end75, label %if.then74
 
 if.then74:                                        ; preds = %if.then71
-  %51 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %51, ptr noundef @.str.71)
+  %52 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %52, ptr noundef @.str.71)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end75:                                         ; preds = %if.then71
-  %52 = load ptr, ptr %view.addr, align 8
-  %strides76 = getelementptr inbounds %struct.Py_buffer, ptr %52, i32 0, i32 8
+  %53 = load ptr, ptr %view.addr, align 8
+  %strides76 = getelementptr inbounds %struct.Py_buffer, ptr %53, i32 0, i32 8
   store ptr null, ptr %strides76, align 8
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end75, %if.end68
-  %53 = load i32, ptr %flags.addr, align 4
-  %and78 = and i32 %53, 8
+  %54 = load i32, ptr %flags.addr, align 4
+  %and78 = and i32 %54, 8
   %cmp79 = icmp eq i32 %and78, 8
   br i1 %cmp79, label %if.end88, label %if.then80
 
 if.then80:                                        ; preds = %if.end77
-  %54 = load ptr, ptr %view.addr, align 8
-  %format81 = getelementptr inbounds %struct.Py_buffer, ptr %54, i32 0, i32 6
-  %55 = load ptr, ptr %format81, align 8
-  %cmp82 = icmp ne ptr %55, null
+  %55 = load ptr, ptr %view.addr, align 8
+  %format81 = getelementptr inbounds %struct.Py_buffer, ptr %55, i32 0, i32 6
+  %56 = load ptr, ptr %format81, align 8
+  %cmp82 = icmp ne ptr %56, null
   br i1 %cmp82, label %if.then83, label %if.end85
 
 if.then83:                                        ; preds = %if.then80
-  %56 = load ptr, ptr @PyExc_BufferError, align 8
-  %call84 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %56, ptr noundef @.str.75)
+  %57 = load ptr, ptr @PyExc_BufferError, align 8
+  %call84 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %57, ptr noundef @.str.75)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end85:                                         ; preds = %if.then80
-  %57 = load ptr, ptr %view.addr, align 8
-  %ndim86 = getelementptr inbounds %struct.Py_buffer, ptr %57, i32 0, i32 5
-  store i32 1, ptr %ndim86, align 4
   %58 = load ptr, ptr %view.addr, align 8
-  %shape87 = getelementptr inbounds %struct.Py_buffer, ptr %58, i32 0, i32 7
+  %ndim86 = getelementptr inbounds %struct.Py_buffer, ptr %58, i32 0, i32 5
+  store i32 1, ptr %ndim86, align 4
+  %59 = load ptr, ptr %view.addr, align 8
+  %shape87 = getelementptr inbounds %struct.Py_buffer, ptr %59, i32 0, i32 7
   store ptr null, ptr %shape87, align 8
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end85, %if.end77
-  %59 = load i32, ptr %baseflags, align 4
-  %and89 = and i32 %59, 264
+  %60 = load i32, ptr %baseflags, align 4
+  %and89 = and i32 %60, 264
   %tobool90 = icmp ne i32 %and89, 0
   %lnot = xor i1 %tobool90, true
   %lnot91 = xor i1 %lnot, true
   %lnot.ext = zext i1 %lnot91 to i32
-  %60 = load ptr, ptr %view.addr, align 8
-  %call92 = call i32 @PyBuffer_IsContiguous(ptr noundef %60, i8 noundef signext 67)
+  %61 = load ptr, ptr %view.addr, align 8
+  %call92 = call i32 @PyBuffer_IsContiguous(ptr noundef %61, i8 noundef signext 67)
   %cmp93 = icmp ne i32 %lnot.ext, %call92
   br i1 %cmp93, label %if.then118, label %lor.lhs.false94
 
 lor.lhs.false94:                                  ; preds = %if.end88
-  %61 = load ptr, ptr %view.addr, align 8
-  %format95 = getelementptr inbounds %struct.Py_buffer, ptr %61, i32 0, i32 6
-  %62 = load ptr, ptr %format95, align 8
-  %cmp96 = icmp ne ptr %62, null
+  %62 = load ptr, ptr %view.addr, align 8
+  %format95 = getelementptr inbounds %struct.Py_buffer, ptr %62, i32 0, i32 6
+  %63 = load ptr, ptr %format95, align 8
+  %cmp96 = icmp ne ptr %63, null
   br i1 %cmp96, label %land.lhs.true97, label %lor.lhs.false109
 
 land.lhs.true97:                                  ; preds = %lor.lhs.false94
-  %63 = load ptr, ptr %view.addr, align 8
-  %shape98 = getelementptr inbounds %struct.Py_buffer, ptr %63, i32 0, i32 7
-  %64 = load ptr, ptr %shape98, align 8
-  %cmp99 = icmp ne ptr %64, null
+  %64 = load ptr, ptr %view.addr, align 8
+  %shape98 = getelementptr inbounds %struct.Py_buffer, ptr %64, i32 0, i32 7
+  %65 = load ptr, ptr %shape98, align 8
+  %cmp99 = icmp ne ptr %65, null
   br i1 %cmp99, label %land.lhs.true100, label %lor.lhs.false109
 
 land.lhs.true100:                                 ; preds = %land.lhs.true97
-  %65 = load i32, ptr %baseflags, align 4
-  %and101 = and i32 %65, 12
+  %66 = load i32, ptr %baseflags, align 4
+  %and101 = and i32 %66, 12
   %tobool102 = icmp ne i32 %and101, 0
   %lnot103 = xor i1 %tobool102, true
   %lnot105 = xor i1 %lnot103, true
   %lnot.ext106 = zext i1 %lnot105 to i32
-  %66 = load ptr, ptr %view.addr, align 8
-  %call107 = call i32 @PyBuffer_IsContiguous(ptr noundef %66, i8 noundef signext 70)
+  %67 = load ptr, ptr %view.addr, align 8
+  %call107 = call i32 @PyBuffer_IsContiguous(ptr noundef %67, i8 noundef signext 70)
   %cmp108 = icmp ne i32 %lnot.ext106, %call107
   br i1 %cmp108, label %if.then118, label %lor.lhs.false109
 
 lor.lhs.false109:                                 ; preds = %land.lhs.true100, %land.lhs.true97, %lor.lhs.false94
-  %67 = load ptr, ptr %view.addr, align 8
-  %format110 = getelementptr inbounds %struct.Py_buffer, ptr %67, i32 0, i32 6
-  %68 = load ptr, ptr %format110, align 8
-  %cmp111 = icmp eq ptr %68, null
+  %68 = load ptr, ptr %view.addr, align 8
+  %format110 = getelementptr inbounds %struct.Py_buffer, ptr %68, i32 0, i32 6
+  %69 = load ptr, ptr %format110, align 8
+  %cmp111 = icmp eq ptr %69, null
   br i1 %cmp111, label %land.lhs.true112, label %if.end119
 
 land.lhs.true112:                                 ; preds = %lor.lhs.false109
-  %69 = load ptr, ptr %view.addr, align 8
-  %shape113 = getelementptr inbounds %struct.Py_buffer, ptr %69, i32 0, i32 7
-  %70 = load ptr, ptr %shape113, align 8
-  %cmp114 = icmp eq ptr %70, null
+  %70 = load ptr, ptr %view.addr, align 8
+  %shape113 = getelementptr inbounds %struct.Py_buffer, ptr %70, i32 0, i32 7
+  %71 = load ptr, ptr %shape113, align 8
+  %cmp114 = icmp eq ptr %71, null
   br i1 %cmp114, label %land.lhs.true115, label %if.end119
 
 land.lhs.true115:                                 ; preds = %land.lhs.true112
-  %71 = load ptr, ptr %view.addr, align 8
-  %call116 = call i32 @PyBuffer_IsContiguous(ptr noundef %71, i8 noundef signext 70)
+  %72 = load ptr, ptr %view.addr, align 8
+  %call116 = call i32 @PyBuffer_IsContiguous(ptr noundef %72, i8 noundef signext 70)
   %tobool117 = icmp ne i32 %call116, 0
   br i1 %tobool117, label %if.end119, label %if.then118
 
 if.then118:                                       ; preds = %land.lhs.true115, %land.lhs.true100, %if.end88
-  %72 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %72, ptr noundef @.str.76)
+  %73 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %73, ptr noundef @.str.76)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end119:                                        ; preds = %land.lhs.true115, %land.lhs.true112, %lor.lhs.false109
-  %73 = load ptr, ptr %self.addr, align 8
-  %call120 = call ptr @_Py_NewRef(ptr noundef %73)
-  %74 = load ptr, ptr %view.addr, align 8
-  %obj121 = getelementptr inbounds %struct.Py_buffer, ptr %74, i32 0, i32 1
+  %74 = load ptr, ptr %self.addr, align 8
+  %call120 = call ptr @_Py_NewRef(ptr noundef %74)
+  %75 = load ptr, ptr %view.addr, align 8
+  %obj121 = getelementptr inbounds %struct.Py_buffer, ptr %75, i32 0, i32 1
   store ptr %call120, ptr %obj121, align 8
-  %75 = load ptr, ptr %self.addr, align 8
-  %head122 = getelementptr inbounds %struct.NDArrayObject, ptr %75, i32 0, i32 3
-  %76 = load ptr, ptr %head122, align 8
-  %exports = getelementptr inbounds %struct.ndbuf, ptr %76, i32 0, i32 6
-  %77 = load i64, ptr %exports, align 8
-  %inc = add i64 %77, 1
+  %76 = load ptr, ptr %self.addr, align 8
+  %head122 = getelementptr inbounds %struct.NDArrayObject, ptr %76, i32 0, i32 3
+  %77 = load ptr, ptr %head122, align 8
+  %exports = getelementptr inbounds %struct.ndbuf, ptr %77, i32 0, i32 6
+  %78 = load i64, ptr %exports, align 8
+  %inc = add i64 %78, 1
   store i64 %inc, ptr %exports, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end119, %if.then118, %if.then83, %if.then74, %if.then67, %if.then60, %if.then53, %if.then46, %if.then34, %if.end28, %if.then19, %if.then
-  %78 = load i32, ptr %retval, align 4
-  ret i32 %78
+  %79 = load i32, ptr %retval, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6391,80 +6392,84 @@ if.end28:                                         ; preds = %if.then22
   %format29 = getelementptr inbounds %struct.Py_buffer, ptr %41, i32 0, i32 6
   %42 = load ptr, ptr %format29, align 8
   %call30 = call ptr @strcpy(ptr noundef @ndarray_memoryview_from_buffer.format, ptr noundef %42) #5
-  store ptr @ndarray_memoryview_from_buffer.format, ptr getelementptr inbounds (%struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i32 0, i32 6), align 8
+  %43 = getelementptr inbounds %struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i32 0, i32 6
+  store ptr @ndarray_memoryview_from_buffer.format, ptr %43, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end28, %if.end18
-  %43 = load ptr, ptr %view, align 8
-  %ndim = getelementptr inbounds %struct.Py_buffer, ptr %43, i32 0, i32 5
-  %44 = load i32, ptr %ndim, align 4
-  %cmp32 = icmp sgt i32 %44, 128
+  %44 = load ptr, ptr %view, align 8
+  %ndim = getelementptr inbounds %struct.Py_buffer, ptr %44, i32 0, i32 5
+  %45 = load i32, ptr %ndim, align 4
+  %cmp32 = icmp sgt i32 %45, 128
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end31
-  %45 = load ptr, ptr @PyExc_TypeError, align 8
-  %call34 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %45, ptr noundef @.str.117, i32 noundef 128)
+  %46 = load ptr, ptr @PyExc_TypeError, align 8
+  %call34 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %46, ptr noundef @.str.117, i32 noundef 128)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end35:                                         ; preds = %if.end31
-  %46 = load ptr, ptr %view, align 8
-  %shape = getelementptr inbounds %struct.Py_buffer, ptr %46, i32 0, i32 7
-  %47 = load ptr, ptr %shape, align 8
-  %tobool36 = icmp ne ptr %47, null
+  %47 = load ptr, ptr %view, align 8
+  %shape = getelementptr inbounds %struct.Py_buffer, ptr %47, i32 0, i32 7
+  %48 = load ptr, ptr %shape, align 8
+  %tobool36 = icmp ne ptr %48, null
   br i1 %tobool36, label %if.then37, label %if.end40
 
 if.then37:                                        ; preds = %if.end35
-  %48 = load ptr, ptr %view, align 8
-  %shape38 = getelementptr inbounds %struct.Py_buffer, ptr %48, i32 0, i32 7
-  %49 = load ptr, ptr %shape38, align 8
-  %50 = load ptr, ptr %view, align 8
-  %ndim39 = getelementptr inbounds %struct.Py_buffer, ptr %50, i32 0, i32 5
-  %51 = load i32, ptr %ndim39, align 4
-  %conv = sext i32 %51 to i64
+  %49 = load ptr, ptr %view, align 8
+  %shape38 = getelementptr inbounds %struct.Py_buffer, ptr %49, i32 0, i32 7
+  %50 = load ptr, ptr %shape38, align 8
+  %51 = load ptr, ptr %view, align 8
+  %ndim39 = getelementptr inbounds %struct.Py_buffer, ptr %51, i32 0, i32 5
+  %52 = load i32, ptr %ndim39, align 4
+  %conv = sext i32 %52 to i64
   %mul = mul i64 %conv, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 @ndarray_memoryview_from_buffer.shape, ptr align 8 %49, i64 %mul, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.shape, ptr getelementptr inbounds (%struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i32 0, i32 7), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 @ndarray_memoryview_from_buffer.shape, ptr align 8 %50, i64 %mul, i1 false)
+  %53 = getelementptr inbounds %struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i32 0, i32 7
+  store ptr @ndarray_memoryview_from_buffer.shape, ptr %53, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then37, %if.end35
-  %52 = load ptr, ptr %view, align 8
-  %strides = getelementptr inbounds %struct.Py_buffer, ptr %52, i32 0, i32 8
-  %53 = load ptr, ptr %strides, align 8
-  %tobool41 = icmp ne ptr %53, null
+  %54 = load ptr, ptr %view, align 8
+  %strides = getelementptr inbounds %struct.Py_buffer, ptr %54, i32 0, i32 8
+  %55 = load ptr, ptr %strides, align 8
+  %tobool41 = icmp ne ptr %55, null
   br i1 %tobool41, label %if.then42, label %if.end47
 
 if.then42:                                        ; preds = %if.end40
-  %54 = load ptr, ptr %view, align 8
-  %strides43 = getelementptr inbounds %struct.Py_buffer, ptr %54, i32 0, i32 8
-  %55 = load ptr, ptr %strides43, align 8
   %56 = load ptr, ptr %view, align 8
-  %ndim44 = getelementptr inbounds %struct.Py_buffer, ptr %56, i32 0, i32 5
-  %57 = load i32, ptr %ndim44, align 4
-  %conv45 = sext i32 %57 to i64
+  %strides43 = getelementptr inbounds %struct.Py_buffer, ptr %56, i32 0, i32 8
+  %57 = load ptr, ptr %strides43, align 8
+  %58 = load ptr, ptr %view, align 8
+  %ndim44 = getelementptr inbounds %struct.Py_buffer, ptr %58, i32 0, i32 5
+  %59 = load i32, ptr %ndim44, align 4
+  %conv45 = sext i32 %59 to i64
   %mul46 = mul i64 %conv45, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 @ndarray_memoryview_from_buffer.strides, ptr align 8 %55, i64 %mul46, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.strides, ptr getelementptr inbounds (%struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i32 0, i32 8), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 @ndarray_memoryview_from_buffer.strides, ptr align 8 %57, i64 %mul46, i1 false)
+  %60 = getelementptr inbounds %struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i32 0, i32 8
+  store ptr @ndarray_memoryview_from_buffer.strides, ptr %60, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then42, %if.end40
-  %58 = load ptr, ptr %view, align 8
-  %suboffsets = getelementptr inbounds %struct.Py_buffer, ptr %58, i32 0, i32 9
-  %59 = load ptr, ptr %suboffsets, align 8
-  %tobool48 = icmp ne ptr %59, null
+  %61 = load ptr, ptr %view, align 8
+  %suboffsets = getelementptr inbounds %struct.Py_buffer, ptr %61, i32 0, i32 9
+  %62 = load ptr, ptr %suboffsets, align 8
+  %tobool48 = icmp ne ptr %62, null
   br i1 %tobool48, label %if.then49, label %if.end54
 
 if.then49:                                        ; preds = %if.end47
-  %60 = load ptr, ptr %view, align 8
-  %suboffsets50 = getelementptr inbounds %struct.Py_buffer, ptr %60, i32 0, i32 9
-  %61 = load ptr, ptr %suboffsets50, align 8
-  %62 = load ptr, ptr %view, align 8
-  %ndim51 = getelementptr inbounds %struct.Py_buffer, ptr %62, i32 0, i32 5
-  %63 = load i32, ptr %ndim51, align 4
-  %conv52 = sext i32 %63 to i64
+  %63 = load ptr, ptr %view, align 8
+  %suboffsets50 = getelementptr inbounds %struct.Py_buffer, ptr %63, i32 0, i32 9
+  %64 = load ptr, ptr %suboffsets50, align 8
+  %65 = load ptr, ptr %view, align 8
+  %ndim51 = getelementptr inbounds %struct.Py_buffer, ptr %65, i32 0, i32 5
+  %66 = load i32, ptr %ndim51, align 4
+  %conv52 = sext i32 %66 to i64
   %mul53 = mul i64 %conv52, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 @ndarray_memoryview_from_buffer.suboffsets, ptr align 8 %61, i64 %mul53, i1 false)
-  store ptr @ndarray_memoryview_from_buffer.suboffsets, ptr getelementptr inbounds (%struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i32 0, i32 9), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 @ndarray_memoryview_from_buffer.suboffsets, ptr align 8 %64, i64 %mul53, i1 false)
+  %67 = getelementptr inbounds %struct.Py_buffer, ptr @ndarray_memoryview_from_buffer.info, i32 0, i32 9
+  store ptr @ndarray_memoryview_from_buffer.suboffsets, ptr %67, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then49, %if.end47
@@ -6473,8 +6478,8 @@ if.end54:                                         ; preds = %if.then49, %if.end4
   br label %return
 
 return:                                           ; preds = %if.end54, %if.then33, %if.then26, %if.then15, %if.else11
-  %64 = load ptr, ptr %retval, align 8
-  ret ptr %64
+  %68 = load ptr, ptr %retval, align 8
+  ret ptr %68
 }
 
 ; Function Attrs: nounwind uwtable

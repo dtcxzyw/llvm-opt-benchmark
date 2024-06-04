@@ -1177,101 +1177,105 @@ entry:
   store double 0.000000e+00, ptr %Z, align 8
   %0 = load double, ptr @xyz_whitepoint, align 16
   store double %0, ptr %Xw, align 8
-  %1 = load double, ptr getelementptr inbounds ([3 x double], ptr @xyz_whitepoint, i64 0, i64 1), align 8
-  store double %1, ptr %Yw, align 8
-  %2 = load double, ptr getelementptr inbounds ([3 x double], ptr @xyz_whitepoint, i64 0, i64 2), align 16
-  store double %2, ptr %Zw, align 8
+  %1 = getelementptr inbounds [3 x double], ptr @xyz_whitepoint, i64 0, i64 1
+  %2 = load double, ptr %1, align 8
+  store double %2, ptr %Yw, align 8
+  %3 = getelementptr inbounds [3 x double], ptr @xyz_whitepoint, i64 0, i64 2
+  %4 = load double, ptr %3, align 16
+  store double %4, ptr %Zw, align 8
   store i32 0, ptr %j, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %j, align 4
-  %cmp = icmp slt i32 %3, 3
+  %5 = load i32, ptr %j, align 4
+  %cmp = icmp slt i32 %5, 3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %p.addr, align 8
-  %5 = load i32, ptr %j, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds double, ptr %4, i64 %idxprom
-  %6 = load double, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %p.addr, align 8
   %7 = load i32, ptr %j, align 4
-  %idxprom1 = sext i32 %7 to i64
+  %idxprom = sext i32 %7 to i64
+  %arrayidx = getelementptr inbounds double, ptr %6, i64 %idxprom
+  %8 = load double, ptr %arrayidx, align 8
+  %9 = load i32, ptr %j, align 4
+  %idxprom1 = sext i32 %9 to i64
   %arrayidx2 = getelementptr inbounds [3 x double], ptr @rgb_to_xyz, i64 0, i64 %idxprom1
-  %8 = load double, ptr %arrayidx2, align 8
-  %mul = fmul double %6, %8
-  %9 = load double, ptr %X, align 8
-  %add = fadd double %9, %mul
+  %10 = load double, ptr %arrayidx2, align 8
+  %mul = fmul double %8, %10
+  %11 = load double, ptr %X, align 8
+  %add = fadd double %11, %mul
   store double %add, ptr %X, align 8
-  %10 = load ptr, ptr %p.addr, align 8
-  %11 = load i32, ptr %j, align 4
-  %idxprom3 = sext i32 %11 to i64
-  %arrayidx4 = getelementptr inbounds double, ptr %10, i64 %idxprom3
-  %12 = load double, ptr %arrayidx4, align 8
+  %12 = load ptr, ptr %p.addr, align 8
   %13 = load i32, ptr %j, align 4
-  %idxprom5 = sext i32 %13 to i64
-  %arrayidx6 = getelementptr inbounds [3 x double], ptr getelementptr inbounds ([3 x [3 x double]], ptr @rgb_to_xyz, i64 0, i64 1), i64 0, i64 %idxprom5
-  %14 = load double, ptr %arrayidx6, align 8
-  %mul7 = fmul double %12, %14
-  %15 = load double, ptr %Y, align 8
-  %add8 = fadd double %15, %mul7
+  %idxprom3 = sext i32 %13 to i64
+  %arrayidx4 = getelementptr inbounds double, ptr %12, i64 %idxprom3
+  %14 = load double, ptr %arrayidx4, align 8
+  %15 = load i32, ptr %j, align 4
+  %idxprom5 = sext i32 %15 to i64
+  %16 = getelementptr inbounds [3 x [3 x double]], ptr @rgb_to_xyz, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds [3 x double], ptr %16, i64 0, i64 %idxprom5
+  %17 = load double, ptr %arrayidx6, align 8
+  %mul7 = fmul double %14, %17
+  %18 = load double, ptr %Y, align 8
+  %add8 = fadd double %18, %mul7
   store double %add8, ptr %Y, align 8
-  %16 = load ptr, ptr %p.addr, align 8
-  %17 = load i32, ptr %j, align 4
-  %idxprom9 = sext i32 %17 to i64
-  %arrayidx10 = getelementptr inbounds double, ptr %16, i64 %idxprom9
-  %18 = load double, ptr %arrayidx10, align 8
-  %19 = load i32, ptr %j, align 4
-  %idxprom11 = sext i32 %19 to i64
-  %arrayidx12 = getelementptr inbounds [3 x double], ptr getelementptr inbounds ([3 x [3 x double]], ptr @rgb_to_xyz, i64 0, i64 2), i64 0, i64 %idxprom11
-  %20 = load double, ptr %arrayidx12, align 8
-  %mul13 = fmul double %18, %20
-  %21 = load double, ptr %Z, align 8
-  %add14 = fadd double %21, %mul13
+  %19 = load ptr, ptr %p.addr, align 8
+  %20 = load i32, ptr %j, align 4
+  %idxprom9 = sext i32 %20 to i64
+  %arrayidx10 = getelementptr inbounds double, ptr %19, i64 %idxprom9
+  %21 = load double, ptr %arrayidx10, align 8
+  %22 = load i32, ptr %j, align 4
+  %idxprom11 = sext i32 %22 to i64
+  %23 = getelementptr inbounds [3 x [3 x double]], ptr @rgb_to_xyz, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds [3 x double], ptr %23, i64 0, i64 %idxprom11
+  %24 = load double, ptr %arrayidx12, align 8
+  %mul13 = fmul double %21, %24
+  %25 = load double, ptr %Z, align 8
+  %add14 = fadd double %25, %mul13
   store double %add14, ptr %Z, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %22 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %22, 1
+  %26 = load i32, ptr %j, align 4
+  %inc = add nsw i32 %26, 1
   store i32 %inc, ptr %j, align 4
   br label %for.cond, !llvm.loop !15
 
 for.end:                                          ; preds = %for.cond
-  %23 = load double, ptr %Y, align 8
-  %24 = load double, ptr %Yw, align 8
-  %div = fdiv double %23, %24
+  %27 = load double, ptr %Y, align 8
+  %28 = load double, ptr %Yw, align 8
+  %div = fdiv double %27, %28
   %call = call noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %f, double noundef %div)
   %mul15 = fmul double 1.160000e+02, %call
   %sub = fsub double %mul15, 1.600000e+01
-  %25 = load ptr, ptr %p.addr, align 8
-  %arrayidx16 = getelementptr inbounds double, ptr %25, i64 0
+  %29 = load ptr, ptr %p.addr, align 8
+  %arrayidx16 = getelementptr inbounds double, ptr %29, i64 0
   store double %sub, ptr %arrayidx16, align 8
-  %26 = load double, ptr %X, align 8
-  %27 = load double, ptr %Xw, align 8
-  %div17 = fdiv double %26, %27
+  %30 = load double, ptr %X, align 8
+  %31 = load double, ptr %Xw, align 8
+  %div17 = fdiv double %30, %31
   %call18 = call noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %f, double noundef %div17)
-  %28 = load double, ptr %Y, align 8
-  %29 = load double, ptr %Yw, align 8
-  %div19 = fdiv double %28, %29
+  %32 = load double, ptr %Y, align 8
+  %33 = load double, ptr %Yw, align 8
+  %div19 = fdiv double %32, %33
   %call20 = call noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %f, double noundef %div19)
   %sub21 = fsub double %call18, %call20
   %mul22 = fmul double 5.000000e+02, %sub21
-  %30 = load ptr, ptr %p.addr, align 8
-  %arrayidx23 = getelementptr inbounds double, ptr %30, i64 1
+  %34 = load ptr, ptr %p.addr, align 8
+  %arrayidx23 = getelementptr inbounds double, ptr %34, i64 1
   store double %mul22, ptr %arrayidx23, align 8
-  %31 = load double, ptr %Y, align 8
-  %32 = load double, ptr %Yw, align 8
-  %div24 = fdiv double %31, %32
+  %35 = load double, ptr %Y, align 8
+  %36 = load double, ptr %Yw, align 8
+  %div24 = fdiv double %35, %36
   %call25 = call noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %f, double noundef %div24)
-  %33 = load double, ptr %Z, align 8
-  %34 = load double, ptr %Zw, align 8
-  %div26 = fdiv double %33, %34
+  %37 = load double, ptr %Z, align 8
+  %38 = load double, ptr %Zw, align 8
+  %div26 = fdiv double %37, %38
   %call27 = call noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %f, double noundef %div26)
   %sub28 = fsub double %call25, %call27
   %mul29 = fmul double 2.000000e+02, %sub28
-  %35 = load ptr, ptr %p.addr, align 8
-  %arrayidx30 = getelementptr inbounds double, ptr %35, i64 2
+  %39 = load ptr, ptr %p.addr, align 8
+  %arrayidx30 = getelementptr inbounds double, ptr %39, i64 2
   store double %mul29, ptr %arrayidx30, align 8
   ret void
 }
@@ -3437,18 +3441,19 @@ entry:
   store ptr %func, ptr %func.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(29) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17ParallelForLoop1D, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17ParallelForLoop1D, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func2 = getelementptr inbounds %class.ParallelForLoop1D, ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvllEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %func2, ptr noundef nonnull align 8 dereferenceable(32) %func) #3
   %nextIndex = getelementptr inbounds %class.ParallelForLoop1D, ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %start.addr, align 8
-  store i64 %0, ptr %nextIndex, align 8
+  %1 = load i64, ptr %start.addr, align 8
+  store i64 %1, ptr %nextIndex, align 8
   %maxIndex = getelementptr inbounds %class.ParallelForLoop1D, ptr %this1, i32 0, i32 4
-  %1 = load i64, ptr %end.addr, align 8
-  store i64 %1, ptr %maxIndex, align 8
+  %2 = load i64, ptr %end.addr, align 8
+  store i64 %2, ptr %maxIndex, align 8
   %chunkSize3 = getelementptr inbounds %class.ParallelForLoop1D, ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %chunkSize.addr, align 4
-  store i32 %2, ptr %chunkSize3, align 8
+  %3 = load i32, ptr %chunkSize.addr, align 4
+  store i32 %3, ptr %chunkSize3, align 8
   ret void
 }
 
@@ -3468,7 +3473,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17ParallelForLoop1D, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17ParallelForLoop1D, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %class.ParallelForLoop1D, ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvllEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %func) #3
   call void @_ZN11ParallelJobD2Ev(ptr noundef nonnull align 8 dereferenceable(29) %this1) #3
@@ -4337,7 +4343,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11ParallelJob, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV11ParallelJob, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %prev = getelementptr inbounds %class.ParallelJob, ptr %this1, i32 0, i32 1
   store ptr null, ptr %prev, align 8
   %next = getelementptr inbounds %class.ParallelJob, ptr %this1, i32 0, i32 2
@@ -4355,7 +4362,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11ParallelJob, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV11ParallelJob, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5431,24 +5439,25 @@ entry:
   store ptr %__args3, ptr %__args.addr4, align 8
   %this5 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJM10ThreadPoolFviEPS3_iEEEEEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJM10ThreadPoolFviEPS3_iEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this5, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this5, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJM10ThreadPoolFviEPS2_iEEEC2IJS4_S5_iEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJM10ThreadPoolFviEPS2_iEEEC2IJS4_S5_iEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this5) #3
   br label %eh.resume
 
@@ -5528,7 +5537,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

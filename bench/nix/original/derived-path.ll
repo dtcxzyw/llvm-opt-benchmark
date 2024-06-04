@@ -6925,7 +6925,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix41DerivedPa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41DerivedPathExpressionTest_force_init_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41DerivedPathExpressionTest_force_init_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7289,7 +7290,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix69DerivedPa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix69DerivedPathExpressionTest_RapidCheck_prop_opaque_path_round_trip_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix69DerivedPathExpressionTest_RapidCheck_prop_opaque_path_round_trip_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8196,7 +8198,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix88DerivedPa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix88DerivedPathExpressionTest_RapidCheck_prop_derived_path_built_placeholder_round_trip_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix88DerivedPathExpressionTest_RapidCheck_prop_derived_path_built_placeholder_round_trip_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8898,34 +8901,35 @@ define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsC2Ev(ptr noundef n
   call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 48, i1 false)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
   invoke void @_ZN3nix6ConfigC2ESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef %3)
-          to label %14 unwind label %22
+          to label %14 unwind label %23
 
 14:                                               ; preds = %1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.nix::ExperimentalFeatureSettings", ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %"struct.nix::ExperimentalFeatureSettings", ptr %13, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 48, i1 false)
   call void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %16 unwind label %26
+          to label %17 unwind label %27
 
-16:                                               ; preds = %14
+17:                                               ; preds = %14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %17 unwind label %30
+          to label %18 unwind label %31
 
-17:                                               ; preds = %16
+18:                                               ; preds = %17
   call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 48, i1 false)
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
   call void @_ZNSt8optionalIN3nix19ExperimentalFeatureEEC2ESt9nullopt_t(ptr noundef nonnull align 4 dereferenceable(8) %12) #3
-  %18 = getelementptr inbounds %"class.std::optional", ptr %12, i32 0, i32 0
-  %19 = getelementptr inbounds %"struct.std::_Optional_base", ptr %18, i32 0, i32 0
-  %20 = load i64, ptr %19, align 4
-  invoke void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEC2EPNS_6ConfigERKS6_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS1_ISH_S3_ISH_ESaISH_EEbSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(233) %15, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(48) %11, i1 noundef zeroext true, i64 %20)
-          to label %21 unwind label %34
+  %19 = getelementptr inbounds %"class.std::optional", ptr %12, i32 0, i32 0
+  %20 = getelementptr inbounds %"struct.std::_Optional_base", ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 4
+  invoke void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEC2EPNS_6ConfigERKS6_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS1_ISH_S3_ISH_ESaISH_EEbSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(233) %16, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(48) %11, i1 noundef zeroext true, i64 %21)
+          to label %22 unwind label %35
 
-21:                                               ; preds = %17
+22:                                               ; preds = %18
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
@@ -8934,62 +8938,62 @@ define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsC2Ev(ptr noundef n
   call void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   ret void
 
-22:                                               ; preds = %1
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %1
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %4, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %5, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
+  br label %41
+
+27:                                               ; preds = %14
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
   br label %40
 
-26:                                               ; preds = %14
-  %27 = landingpad { ptr, i32 }
+31:                                               ; preds = %17
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %4, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %5, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
   br label %39
 
-30:                                               ; preds = %16
-  %31 = landingpad { ptr, i32 }
+35:                                               ; preds = %18
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %4, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %5, align 4
-  br label %38
-
-34:                                               ; preds = %17
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %4, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %5, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %4, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %5, align 4
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %38
-
-38:                                               ; preds = %34, %30
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   br label %39
 
-39:                                               ; preds = %38, %26
+39:                                               ; preds = %35, %31
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  br label %40
+
+40:                                               ; preds = %39, %27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   call void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %13) #3
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %22
-  %41 = load ptr, ptr %4, align 8
-  %42 = load i32, ptr %5, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %40, %23
+  %42 = load ptr, ptr %4, align 8
+  %43 = load i32, ptr %5, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 declare noundef zeroext i1 @_ZN3nix6Config3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -9061,9 +9065,10 @@ define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.nix::ExperimentalFeatureSettings", ptr %3, i32 0, i32 1
-  call void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.nix::ExperimentalFeatureSettings", ptr %3, i32 0, i32 1
+  call void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %5) #3
   call void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #3
   ret void
 }
@@ -9177,7 +9182,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix85DerivedPa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix85DerivedPathExpressionTest_RapidCheck_prop_derived_path_built_out_path_round_trip_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix85DerivedPathExpressionTest_RapidCheck_prop_derived_path_built_out_path_round_trip_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11109,7 +11115,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11202,32 +11209,35 @@ define linkonce_odr void @_ZN3nix41DerivedPathExpressionTest_force_init_TestC1Ev
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix25DerivedPathExpressionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix41DerivedPathExpressionTest_force_init_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix41DerivedPathExpressionTest_force_init_TestE, i64 0, i64 1
+  invoke void @_ZN3nix25DerivedPathExpressionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41DerivedPathExpressionTest_force_init_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41DerivedPathExpressionTest_force_init_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41DerivedPathExpressionTest_force_init_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41DerivedPathExpressionTest_force_init_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -12645,7 +12655,8 @@ define linkonce_odr void @_ZN3nix69DerivedPathExpressionTest_RapidCheck_prop_opa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix69DerivedPathExpressionTest_RapidCheck_prop_opaque_path_round_trip_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix69DerivedPathExpressionTest_RapidCheck_prop_opaque_path_round_trip_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12677,7 +12688,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12710,7 +12722,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13457,7 +13470,8 @@ define linkonce_odr void @_ZN3nix88DerivedPathExpressionTest_RapidCheck_prop_der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix88DerivedPathExpressionTest_RapidCheck_prop_derived_path_built_placeholder_round_trip_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix88DerivedPathExpressionTest_RapidCheck_prop_derived_path_built_placeholder_round_trip_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13528,30 +13542,31 @@ define linkonce_odr void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4les
   %31 = getelementptr inbounds %"struct.std::_Optional_base", ptr %30, i32 0, i32 0
   %32 = load i64, ptr %31, align 4
   call void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEC2ERKS6_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_RKS1_ISF_S3_ISF_ESaISF_EESt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(233) %23, ptr noundef nonnull align 8 dereferenceable(48) %24, i1 noundef zeroext %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 %32)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i32 0, i32 0, i32 2), ptr %23, align 8
-  %33 = load ptr, ptr %11, align 8
-  invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %33, ptr noundef %23)
-          to label %34 unwind label %35
-
-34:                                               ; preds = %8
-  ret void
+  %33 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %33, ptr %23, align 8
+  %34 = load ptr, ptr %11, align 8
+  invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef %23)
+          to label %35 unwind label %36
 
 35:                                               ; preds = %8
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %18, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %19, align 4
-  call void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %23) #3
-  br label %39
+  ret void
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %18, align 8
-  %41 = load i32, ptr %19, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+36:                                               ; preds = %8
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %18, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %19, align 4
+  call void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %23) #3
+  br label %40
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %18, align 8
+  %42 = load i32, ptr %19, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13579,9 +13594,10 @@ define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nix::Config", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nix::Config", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   call void @_ZN3nix14AbstractConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
   ret void
 }
@@ -13748,55 +13764,56 @@ define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureES
   %26 = getelementptr inbounds %"struct.std::_Optional_base", ptr %25, i32 0, i32 0
   %27 = load i64, ptr %26, align 4
   call void @_ZN3nix15AbstractSettingC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE(ptr noundef nonnull align 8 dereferenceable(136) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 %27)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i32 0, i32 0, i32 2), ptr %21, align 8
-  %28 = getelementptr inbounds %"class.nix::BaseSetting", ptr %21, i32 0, i32 1
-  %29 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %29)
-          to label %30 unwind label %38
+  %28 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %28, ptr %21, align 8
+  %29 = getelementptr inbounds %"class.nix::BaseSetting", ptr %21, i32 0, i32 1
+  %30 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %30)
+          to label %31 unwind label %39
 
-30:                                               ; preds = %7
-  %31 = getelementptr inbounds %"class.nix::BaseSetting", ptr %21, i32 0, i32 2
-  %32 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %32)
-          to label %33 unwind label %42
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds %"class.nix::BaseSetting", ptr %21, i32 0, i32 2
+  %33 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %33)
+          to label %34 unwind label %43
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds %"class.nix::BaseSetting", ptr %21, i32 0, i32 3
-  %35 = load i8, ptr %11, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = zext i1 %36 to i8
-  store i8 %37, ptr %34, align 8
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds %"class.nix::BaseSetting", ptr %21, i32 0, i32 3
+  %36 = load i8, ptr %11, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = zext i1 %37 to i8
+  store i8 %38, ptr %35, align 8
   ret void
 
-38:                                               ; preds = %7
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %7
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %16, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %17, align 4
-  br label %46
-
-42:                                               ; preds = %30
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %16, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %17, align 4
-  call void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %28) #3
-  br label %46
-
-46:                                               ; preds = %42, %38
-  call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %21) #3
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %16, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %17, align 4
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %16, align 8
-  %49 = load i32, ptr %17, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+43:                                               ; preds = %31
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %16, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %17, align 4
+  call void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #3
+  br label %47
+
+47:                                               ; preds = %43, %39
+  call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %21) #3
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %16, align 8
+  %50 = load i32, ptr %17, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 declare void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) #1
@@ -13886,11 +13903,12 @@ define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureES
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nix::BaseSetting", ptr %3, i32 0, i32 2
-  call void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %"class.nix::BaseSetting", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nix::BaseSetting", ptr %3, i32 0, i32 2
   call void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %"class.nix::BaseSetting", ptr %3, i32 0, i32 1
+  call void @_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %3) #3
   ret void
 }
@@ -15737,9 +15755,10 @@ define linkonce_odr void @_ZN3nix14AbstractConfigD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nix::AbstractConfig", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nix::AbstractConfig", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   ret void
 }
 
@@ -16449,7 +16468,8 @@ define linkonce_odr void @_ZN3nix85DerivedPathExpressionTest_RapidCheck_prop_der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix85DerivedPathExpressionTest_RapidCheck_prop_derived_path_built_out_path_round_trip_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix85DerivedPathExpressionTest_RapidCheck_prop_derived_path_built_out_path_round_trip_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -16607,29 +16627,30 @@ define linkonce_odr void @_ZN3nix11LibExprTest14SetUpTestSuiteEv() #5 comdat ali
   call void @_ZN3nix6initGCEv()
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  invoke void @_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (%"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %4 unwind label %5
+  %4 = getelementptr inbounds %"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i32 0, i32 2
+  invoke void @_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(185) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %5 unwind label %6
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
   ret void
 
-5:                                                ; preds = %0
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %0
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %2, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %3, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %2, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %3, align 4
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  br label %9
+  br label %10
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i32, ptr %3, align 4
-  %12 = insertvalue { ptr, i32 } poison, ptr %10, 0
-  %13 = insertvalue { ptr, i32 } %12, i32 %11, 1
-  resume { ptr, i32 } %13
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %2, align 8
+  %12 = load i32, ptr %3, align 4
+  %13 = insertvalue { ptr, i32 } poison, ptr %11, 0
+  %14 = insertvalue { ptr, i32 } %13, i32 %12, 1
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16924,32 +16945,35 @@ define linkonce_odr void @_ZN3nix72RapidCheckPropImpl_DerivedPathExpressionTest_
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix25DerivedPathExpressionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix72RapidCheckPropImpl_DerivedPathExpressionTest_prop_opaque_path_round_tripE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix72RapidCheckPropImpl_DerivedPathExpressionTest_prop_opaque_path_round_tripE, i64 0, i64 1
+  invoke void @_ZN3nix25DerivedPathExpressionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix72RapidCheckPropImpl_DerivedPathExpressionTest_prop_opaque_path_round_tripE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix72RapidCheckPropImpl_DerivedPathExpressionTest_prop_opaque_path_round_tripE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix72RapidCheckPropImpl_DerivedPathExpressionTest_prop_opaque_path_round_tripE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix72RapidCheckPropImpl_DerivedPathExpressionTest_prop_opaque_path_round_tripE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18562,12 +18586,13 @@ define linkonce_odr void @_ZN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6de
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE7GenImplIZNS5_7execRawINS2_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESG_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESL_EUlRKNS_6RandomEiE_EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
-  %8 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE7GenImplIZNS5_7execRawINS2_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESG_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESL_EUlRKNS_6RandomEiE_EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  %9 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -18576,7 +18601,8 @@ define linkonce_odr void @_ZN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE8IGenImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE8IGenImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -19133,34 +19159,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_S6_EUlvE_ZNSD_ISL_EESU_SO_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESJ_SO_EUlvE_ZNS5_ISE_EESQ_SJ_SO_EUlOSG_INS6_12TaggedResultESO_EE_EC2ISR_SV_EEOSJ_OT0_(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_S6_EUlvE_ZNSD_ISL_EESU_SO_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESJ_SO_EUlvE_ZNS5_ISE_EESQ_SJ_SO_EUlOSG_INS6_12TaggedResultESO_EE_EC2ISR_SV_EEOSJ_OT0_(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19201,7 +19228,8 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -19391,9 +19419,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_S6_EUlvE_ZNSD_ISL_EESU_SO_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESJ_SO_EUlvE_ZNS5_ISE_EESQ_SJ_SO_EUlOSG_INS6_12TaggedResultESO_EE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_S6_EUlvE_ZNSD_ISL_EESU_SO_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESJ_SO_EUlvE_ZNS5_ISE_EESQ_SJ_SO_EUlOSG_INS6_12TaggedResultESO_EE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #3
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -21079,7 +21108,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix17DerivedPat
 
 48:                                               ; preds = %44, %40
   %49 = load i32, ptr %10, align 4
-  %50 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2rc6detail10CaseResultE) #3
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2rc6detail10CaseResultE) #3
   %51 = icmp eq i32 %49, %50
   br i1 %51, label %52, label %61
 
@@ -21108,7 +21137,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix17DerivedPat
   ret void
 
 61:                                               ; preds = %48
-  %62 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2rc17GenerationFailureE) #3
+  %62 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2rc17GenerationFailureE) #3
   %63 = icmp eq i32 %49, %62
   br i1 %63, label %64, label %78
 
@@ -21149,7 +21178,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix17DerivedPat
   br label %59
 
 78:                                               ; preds = %61
-  %79 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %79 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %80 = icmp eq i32 %49, %79
   br i1 %80, label %81, label %95
 
@@ -21190,7 +21219,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix17DerivedPat
   br label %59
 
 95:                                               ; preds = %78
-  %96 = call i32 @llvm.eh.typeid.for(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #3
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #3
   %97 = icmp eq i32 %49, %96
   br i1 %97, label %98, label %107
 
@@ -21578,9 +21607,6 @@ define linkonce_odr void @_ZN2rc6detail10CaseResultD2Ev(ptr noundef nonnull alig
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
-
 declare void @_ZN2rc6detail10CaseResultC1ENS1_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) unnamed_addr #1
 
 declare void @_ZNK2rc6detail14AdapterContext6resultEv(ptr dead_on_unwind writable sret(%"struct.rc::detail::TaggedResult") align 8, ptr noundef nonnull align 8 dereferenceable(440)) #1
@@ -21608,13 +21634,14 @@ define linkonce_odr void @_ZN2rc6detail14AdapterContextD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc6detail14AdapterContextE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::detail::AdapterContext", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.rc::detail::AdapterContext", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #3
-  %6 = getelementptr inbounds %"class.rc::detail::AdapterContext", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc6detail14AdapterContextE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::detail::AdapterContext", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.rc::detail::AdapterContext", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #3
+  %7 = getelementptr inbounds %"class.rc::detail::AdapterContext", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN2rc6detail15PropertyContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -22959,12 +22986,13 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE7GenI
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::DerivedPathOpaque>>::GenImpl", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7) #3
-  %8 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::DerivedPathOpaque>>::GenImpl", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::DerivedPathOpaque>>::GenImpl", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8) #3
+  %9 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::DerivedPathOpaque>>::GenImpl", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -22973,7 +23001,8 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE8IGen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE8IGenImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE8IGenImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -23153,9 +23182,10 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE7GenI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::DerivedPathOpaque>>::GenImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::DerivedPathOpaque>>::GenImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
   call void @_ZN2rc3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEE8IGenImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -23505,33 +23535,34 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueE
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEEC2IJNS_10ShrinkableIS7_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %12
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEEC2IJNS_10ShrinkableIS7_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %11 unwind label %13
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl", ptr %7, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef 1) #3
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl", ptr %7, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 1) #3
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %5, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %6, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23572,7 +23603,8 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE15IShrinkableImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE15IShrinkableImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -23757,9 +23789,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -24250,34 +24283,35 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPat
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEELm1EEC2IJS8_EEEDpNS_3SeqIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %5)
-          to label %11 unwind label %12
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl", ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEELm1EEC2IJS8_EEEDpNS_3SeqIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24520,7 +24554,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPat
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -24607,9 +24642,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPat
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEELm1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEELm1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -25032,32 +25068,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPat
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEELm1EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEELm1EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25090,7 +25127,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPat
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -25259,31 +25297,32 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPat
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl.297", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEEC2IJRKNS_10ShrinkableIS7_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl.297", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEEC2IJRKNS_10ShrinkableIS7_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25355,9 +25394,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPat
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl.297", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl.297", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -26412,32 +26452,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPat
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl.297", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl.297", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl.297", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>>::SeqImpl.297", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix17DerivedPathOpaqueEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26846,34 +26887,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE14Shrinka
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<nix::DerivedPathOpaque>::ShrinkableImpl", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix17DerivedPathOpaqueEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEEC2ISA_SH_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<nix::DerivedPathOpaque>::ShrinkableImpl", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix17DerivedPathOpaqueEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEEC2ISA_SH_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<nix::DerivedPathOpaque>::ShrinkableImpl", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<nix::DerivedPathOpaque>::ShrinkableImpl", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26881,7 +26923,8 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE15IShrink
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE15IShrinkableImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE15IShrinkableImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -27071,9 +27114,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE14Shrinka
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<nix::DerivedPathOpaque>::ShrinkableImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix17DerivedPathOpaqueEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<nix::DerivedPathOpaque>::ShrinkableImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix17DerivedPathOpaqueEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableIN3nix17DerivedPathOpaqueEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -28767,12 +28811,13 @@ define linkonce_odr void @_ZN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Map
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenINS_6detail3AnyEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS6_EEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS6_EEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -28781,7 +28826,8 @@ define linkonce_odr void @_ZN2rc3GenINS_6detail3AnyEE8IGenImplC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE8IGenImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE8IGenImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -28966,9 +29012,10 @@ define linkonce_odr void @_ZN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Map
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   call void @_ZN2rc3GenINS_6detail3AnyEE8IGenImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -29215,37 +29262,38 @@ define linkonce_odr void @_ZN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS6_EEC2IRKSB_EENS_10ShrinkableIS6_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %16
+  %11 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS6_EEC2IRKSB_EENS_10ShrinkableIS6_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %17
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %15 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl", ptr %10, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
+  %16 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl", ptr %10, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 1) #3
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -29286,7 +29334,8 @@ define linkonce_odr void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplC2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29476,9 +29525,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -29779,35 +29829,36 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_EC2ISJ_EENS_3SeqISH_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %15
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_EC2ISJ_EENS_3SeqISH_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %8, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %9, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %8, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %9, align 4
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30060,7 +30111,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImpl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30133,9 +30185,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -30462,32 +30515,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_EC2ERKSK_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_EC2ERKSK_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30520,7 +30574,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImpl
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -30806,34 +30861,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueE
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS4_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS5_EEEEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl.347", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS7_EEEEEEEC2ISC_SJ_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS4_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS5_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl.347", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS7_EEEEEEEC2ISC_SJ_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl.347", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl.347", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31022,9 +31078,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS4_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS5_EEEEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl.347", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS7_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS4_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS5_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::DerivedPathOpaque>>::ShrinkableImpl.347", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix17DerivedPathOpaqueEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS7_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix17DerivedPathOpaqueEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -31188,10 +31245,11 @@ define linkonce_odr void @_ZN2rc6detail3Any7AnyImplISt5tupleIJN3nix17DerivedPath
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc6detail3Any8IAnyImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix17DerivedPathOpaqueEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt5tupleIJN3nix17DerivedPathOpaqueEEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix17DerivedPathOpaqueEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt5tupleIJN3nix17DerivedPathOpaqueEEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   ret void
 }
 
@@ -31350,7 +31408,8 @@ define linkonce_odr void @_ZN2rc6detail3Any8IAnyImplC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc6detail3Any8IAnyImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc6detail3Any8IAnyImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -31399,9 +31458,10 @@ define linkonce_odr void @_ZN2rc6detail3Any7AnyImplISt5tupleIJN3nix17DerivedPath
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix17DerivedPathOpaqueEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl", ptr %3, i32 0, i32 1
-  call void @_ZNSt5tupleIJN3nix17DerivedPathOpaqueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix17DerivedPathOpaqueEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl", ptr %3, i32 0, i32 1
+  call void @_ZNSt5tupleIJN3nix17DerivedPathOpaqueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN2rc6detail3Any8IAnyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -32186,35 +32246,36 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc3SeqINS_3gen6detail6RecipeEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_EC2ISU_EENSF_ISP_EEOSK_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %15
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc3SeqINS_3gen6detail6RecipeEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_EC2ISU_EENSF_ISP_EEOSK_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc3SeqINS_3gen6detail6RecipeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %8, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %9, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %8, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %9, align 4
   call void @_ZN2rc3SeqINS_3gen6detail6RecipeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32467,7 +32528,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -32554,9 +32616,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -33432,32 +33495,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_EC2ERKSV_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix17DerivedPathOpaqueEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_EC2ERKSV_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33490,7 +33554,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -37687,10 +37752,11 @@ define linkonce_odr void @_ZNSt18bad_variant_accessC2EPKc(ptr noundef nonnull al
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::bad_variant_access", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::bad_variant_access", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -38273,32 +38339,35 @@ define linkonce_odr void @_ZN3nix91RapidCheckPropImpl_DerivedPathExpressionTest_
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix25DerivedPathExpressionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix91RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_placeholder_round_tripE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix91RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_placeholder_round_tripE, i64 0, i64 1
+  invoke void @_ZN3nix25DerivedPathExpressionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix91RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_placeholder_round_tripE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix91RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_placeholder_round_tripE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix91RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_placeholder_round_tripE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix91RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_placeholder_round_tripE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -38567,12 +38636,13 @@ define linkonce_odr void @_ZN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6de
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE7GenImplIZNS5_7execRawINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESG_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESL_EUlRKNS_6RandomEiE_EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl.401", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
-  %8 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl.401", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE7GenImplIZNS5_7execRawINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESG_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESL_EUlRKNS_6RandomEiE_EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl.401", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  %9 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl.401", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -38969,34 +39039,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_S6_EUlvE_ZNSD_ISL_EESU_SO_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.404", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESJ_SO_EUlvE_ZNS5_ISE_EESQ_SJ_SO_EUlOSG_INS6_12TaggedResultESO_EE_EC2ISR_SV_EEOSJ_OT0_(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_S6_EUlvE_ZNSD_ISL_EESU_SO_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.404", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESJ_SO_EUlvE_ZNS5_ISE_EESQ_SJ_SO_EUlOSG_INS6_12TaggedResultESO_EE_EC2ISR_SV_EEOSJ_OT0_(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.404", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.404", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39185,9 +39256,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_S6_EUlvE_ZNSD_ISL_EESU_SO_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.404", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESJ_SO_EUlvE_ZNS5_ISE_EESQ_SJ_SO_EUlOSG_INS6_12TaggedResultESO_EE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_S6_EUlvE_ZNSD_ISL_EESU_SO_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.404", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESJ_SO_EUlvE_ZNS5_ISE_EESQ_SJ_SO_EUlOSG_INS6_12TaggedResultESO_EE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #3
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -39708,7 +39780,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix22SingleDeri
 
 48:                                               ; preds = %44, %40
   %49 = load i32, ptr %10, align 4
-  %50 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2rc6detail10CaseResultE) #3
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2rc6detail10CaseResultE) #3
   %51 = icmp eq i32 %49, %50
   br i1 %51, label %52, label %61
 
@@ -39737,7 +39809,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix22SingleDeri
   ret void
 
 61:                                               ; preds = %48
-  %62 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2rc17GenerationFailureE) #3
+  %62 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2rc17GenerationFailureE) #3
   %63 = icmp eq i32 %49, %62
   br i1 %63, label %64, label %78
 
@@ -39778,7 +39850,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix22SingleDeri
   br label %59
 
 78:                                               ; preds = %61
-  %79 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %79 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %80 = icmp eq i32 %49, %79
   br i1 %80, label %81, label %95
 
@@ -39819,7 +39891,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix22SingleDeri
   br label %59
 
 95:                                               ; preds = %78
-  %96 = call i32 @llvm.eh.typeid.for(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #3
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #3
   %97 = icmp eq i32 %49, %96
   br i1 %97, label %98, label %107
 
@@ -40533,12 +40605,13 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt>>::GenImpl", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7) #3
-  %8 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt>>::GenImpl", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt>>::GenImpl", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8) #3
+  %9 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt>>::GenImpl", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -40547,7 +40620,8 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE8IGenImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE8IGenImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -40727,9 +40801,10 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt>>::GenImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt>>::GenImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
   call void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE8IGenImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -41077,33 +41152,34 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEEC2IJNS_10ShrinkableIS7_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %12
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEEC2IJNS_10ShrinkableIS7_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %11 unwind label %13
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl", ptr %7, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef 1) #3
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl", ptr %7, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 1) #3
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %5, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %6, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -41144,7 +41220,8 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE15IShrinkableImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE15IShrinkableImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -41329,9 +41406,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJS3_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -41802,34 +41880,35 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEELm1EEC2IJS8_EEEDpNS_3SeqIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %5)
-          to label %11 unwind label %12
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl", ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEELm1EEC2IJS8_EEEDpNS_3SeqIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %5)
+          to label %12 unwind label %13
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -42072,7 +42151,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -42159,9 +42239,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEELm1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEELm1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -42584,32 +42665,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEELm1EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS6_Lm1EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEELm1EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -42642,7 +42724,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -42811,31 +42894,32 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl.436", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEEC2IJRKNS_10ShrinkableIS7_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl.436", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEEC2IJRKNS_10ShrinkableIS7_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -42907,9 +42991,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl.436", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl.436", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -43964,32 +44049,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl.436", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl.436", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJS4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl.436", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>>::SeqImpl.436", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0EEEEJN3nix22SingleDerivedPathBuiltEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -44352,34 +44438,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE14Sh
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<nix::SingleDerivedPathBuilt>::ShrinkableImpl", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix22SingleDerivedPathBuiltEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEEC2ISA_SH_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<nix::SingleDerivedPathBuilt>::ShrinkableImpl", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix22SingleDerivedPathBuiltEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEEC2ISA_SH_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<nix::SingleDerivedPathBuilt>::ShrinkableImpl", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<nix::SingleDerivedPathBuilt>::ShrinkableImpl", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44387,7 +44474,8 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE15IS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE15IShrinkableImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE15IShrinkableImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -44577,9 +44665,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE14Sh
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<nix::SingleDerivedPathBuilt>::ShrinkableImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix22SingleDerivedPathBuiltEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<nix::SingleDerivedPathBuilt>::ShrinkableImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix22SingleDerivedPathBuiltEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -45138,12 +45227,13 @@ define linkonce_odr void @_ZN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Map
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenINS_6detail3AnyEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.455", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS6_EEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.455", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.455", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS6_EEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.455", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -45328,9 +45418,10 @@ define linkonce_odr void @_ZN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Map
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.455", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.455", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   call void @_ZN2rc3GenINS_6detail3AnyEE8IGenImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -45552,37 +45643,38 @@ define linkonce_odr void @_ZN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.456", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS6_EEC2IRKSB_EENS_10ShrinkableIS6_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %16
+  %11 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.456", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS6_EEC2IRKSB_EENS_10ShrinkableIS6_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %17
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %15 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.456", ptr %10, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
+  %16 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.456", ptr %10, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 1) #3
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -45771,9 +45863,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.456", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS2_OSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.456", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -46036,35 +46129,36 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.459", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_EC2ISJ_EENS_3SeqISH_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %15
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.459", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_EC2ISJ_EENS_3SeqISH_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %8, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %9, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %8, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %9, align 4
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -46136,9 +46230,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.459", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.459", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -46353,32 +46448,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.459", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.459", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_EC2ERKSK_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFS3_OSG_EE7shrinksEvEUlONS1_ISG_EEE_SL_EEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.459", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.459", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEPFNS_6detail3AnyEOS9_EE7shrinksEvEUlONS_10ShrinkableIS9_EEE_SH_EC2ERKSK_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46599,34 +46695,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS4_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS5_EEEEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl.463", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS7_EEEEEEEC2ISC_SJ_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS4_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS5_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl.463", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS7_EEEEEEEC2ISC_SJ_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl.463", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl.463", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -46815,9 +46912,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS4_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS5_EEEEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl.463", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS7_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS4_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS5_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt>>::ShrinkableImpl.463", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS7_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -46967,31 +47065,32 @@ define linkonce_odr void @_ZN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDeriv
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2rc6detail3Any8IAnyImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl.465", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt5tupleIJN3nix22SingleDerivedPathBuiltEEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl.465", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt5tupleIJN3nix22SingleDerivedPathBuiltEEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN2rc6detail3Any8IAnyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN2rc6detail3Any8IAnyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -47039,9 +47138,10 @@ define linkonce_odr void @_ZN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDeriv
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl.465", ptr %3, i32 0, i32 1
-  call void @_ZNSt5tupleIJN3nix22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDerivedPathBuiltEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl.465", ptr %3, i32 0, i32 1
+  call void @_ZNSt5tupleIJN3nix22SingleDerivedPathBuiltEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   call void @_ZN2rc6detail3Any8IAnyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -47505,35 +47605,36 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.467", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc3SeqINS_3gen6detail6RecipeEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_EC2ISU_EENSF_ISP_EEOSK_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %15
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.467", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc3SeqINS_3gen6detail6RecipeEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_EC2ISU_EENSF_ISP_EEOSK_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc3SeqINS_3gen6detail6RecipeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %8, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %9, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %8, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %9, align 4
   call void @_ZN2rc3SeqINS_3gen6detail6RecipeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -47605,9 +47706,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.467", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.467", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -47755,32 +47857,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.467", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.467", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_EC2ERKSV_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESL_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEESQ_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.467", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.467", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltEESC_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESK_SP_EUlOSP_E_SP_EC2ERKSV_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -47830,32 +47933,35 @@ define linkonce_odr void @_ZN3nix88RapidCheckPropImpl_DerivedPathExpressionTest_
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix25DerivedPathExpressionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix88RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_out_path_round_tripE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix88RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_out_path_round_tripE, i64 0, i64 1
+  invoke void @_ZN3nix25DerivedPathExpressionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix88RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_out_path_round_tripE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix88RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_out_path_round_tripE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix88RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_out_path_round_tripE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix88RapidCheckPropImpl_DerivedPathExpressionTest_prop_derived_path_built_out_path_round_tripE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -48124,12 +48230,13 @@ define linkonce_odr void @_ZN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6de
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE7GenImplIZNS5_7execRawINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSC_9StorePathEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_EUlRKNS_6RandomEiE_EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl.471", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
-  %8 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl.471", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE7GenImplIZNS5_7execRawINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSC_9StorePathEESJ_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESO_EUlRKNS_6RandomEiE_EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl.471", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
+  %9 = getelementptr inbounds %"class.rc::Gen<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::GenImpl.471", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -48526,34 +48633,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSF_9StorePathEESM_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESR_S6_EUlvE_ZNSD_ISO_EESX_SR_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.474", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESM_SR_EUlvE_ZNS5_ISH_EEST_SM_SR_EUlOSJ_INS6_12TaggedResultESR_EE_EC2ISU_SY_EEOSM_OT0_(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSF_9StorePathEESM_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESR_S6_EUlvE_ZNSD_ISO_EESX_SR_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.474", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESM_SR_EUlvE_ZNS5_ISH_EEST_SM_SR_EUlOSJ_INS6_12TaggedResultESR_EE_EC2ISU_SY_EEOSM_OT0_(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.474", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.474", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -48742,9 +48850,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSF_9StorePathEESM_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESR_S6_EUlvE_ZNSD_ISO_EESX_SR_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.474", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESM_SR_EUlvE_ZNS5_ISH_EEST_SM_SR_EUlOSJ_INS6_12TaggedResultESR_EE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableIZNS5_20shrinkableWithRecipeINS2_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSF_9StorePathEESM_EEEENS0_IS1_INS2_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES6_EEESR_S6_EUlvE_ZNSD_ISO_EESX_SR_S6_EUlOS7_E_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>::ShrinkableImpl.474", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail20JustShrinkShrinkableIZNS_3gen6detail20shrinkableWithRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEESM_SR_EUlvE_ZNS5_ISH_EEST_SM_SR_EUlOSJ_INS6_12TaggedResultESR_EE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #3
   call void @_ZN2rc10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -49270,7 +49379,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix22SingleDeri
 
 51:                                               ; preds = %47, %43
   %52 = load i32, ptr %12, align 4
-  %53 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2rc6detail10CaseResultE) #3
+  %53 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2rc6detail10CaseResultE) #3
   %54 = icmp eq i32 %52, %53
   br i1 %54, label %55, label %64
 
@@ -49299,7 +49408,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix22SingleDeri
   ret void
 
 64:                                               ; preds = %51
-  %65 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2rc17GenerationFailureE) #3
+  %65 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2rc17GenerationFailureE) #3
   %66 = icmp eq i32 %52, %65
   br i1 %66, label %67, label %81
 
@@ -49340,7 +49449,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix22SingleDeri
   br label %62
 
 81:                                               ; preds = %64
-  %82 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %82 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %83 = icmp eq i32 %52, %82
   br i1 %83, label %84, label %98
 
@@ -49381,7 +49490,7 @@ define linkonce_odr void @_ZNK2rc6detail15PropertyAdapterIPFvRKN3nix22SingleDeri
   br label %62
 
 98:                                               ; preds = %81
-  %99 = call i32 @llvm.eh.typeid.for(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #3
+  %99 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #3
   %100 = icmp eq i32 %52, %99
   br i1 %100, label %101, label %110
 
@@ -50170,12 +50279,13 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::GenImpl", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %7) #3
-  %8 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::GenImpl", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::GenImpl", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %8) #3
+  %9 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::GenImpl", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -50184,7 +50294,8 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE8IGenImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE8IGenImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50364,9 +50475,10 @@ define linkonce_odr void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::GenImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE7GenImplINS_3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Gen<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::GenImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail8TupleGenINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #3
   call void @_ZN2rc3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE8IGenImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -50752,34 +50864,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2IJNS_10ShrinkableIS7_EENSB_IS8_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2IJNS_10ShrinkableIS7_EENSB_IS8_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -50820,7 +50933,8 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE15IShrinkableImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE15IShrinkableImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51008,9 +51122,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE14ShrinkableImplINS_3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0ELm1EEEEJS3_S4_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail15TupleShrinkableINS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -51699,38 +51814,39 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   store ptr %2, ptr %6, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS7_Lm2EEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %5, align 8
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %14 = load ptr, ptr %6, align 8
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEELm2EEC2IJS9_S9_EEEDpNS_3SeqIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %7, ptr noundef %8)
-          to label %15 unwind label %16
+  %12 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS7_Lm2EEEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %15 = load ptr, ptr %6, align 8
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEELm2EEC2IJS9_S9_EEEDpNS_3SeqIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %7, ptr noundef %8)
+          to label %16 unwind label %17
 
-15:                                               ; preds = %3
+16:                                               ; preds = %3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %9, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %10, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %9, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %10, align 4
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i32, ptr %10, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %9, align 8
+  %23 = load i32, ptr %10, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -51973,7 +52089,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52065,9 +52182,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS7_Lm2EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEELm2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS7_Lm2EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEELm2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -52490,32 +52608,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS7_Lm2EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEELm2EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3seq6detail9ConcatSeqIS7_Lm2EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail9ConcatSeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEELm2EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -52548,7 +52667,8 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -52719,32 +52839,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.509", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2IJRKNS_10ShrinkableIS7_EERKNSB_IS8_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.509", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2IJRKNS_10ShrinkableIS7_EERKNSB_IS8_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -52819,9 +52940,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.509", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.509", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -53257,32 +53379,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.509", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.509", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.509", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.509", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm0ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -53349,32 +53472,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.511", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2IJRKNS_10ShrinkableIS7_EERKNSB_IS8_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.511", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2IJRKNS_10ShrinkableIS7_EERKNSB_IS8_EEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -53449,9 +53573,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.511", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.511", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -54258,32 +54383,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDeri
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.511", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.511", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE7SeqImplINS_3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJS4_S5_EEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.511", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>>::SeqImpl.511", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3gen6detail14TupleShrinkSeqILm1ENS_6detail11IntSequenceImJLm0ELm1EEEEJN3nix22SingleDerivedPathBuiltENS6_9StorePathEEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -54665,34 +54791,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix9StorePathEE14ShrinkableImplIN
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableIN3nix9StorePathEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix9StorePathEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<nix::StorePath>::ShrinkableImpl", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix9StorePathEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEEC2ISA_SH_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix9StorePathEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<nix::StorePath>::ShrinkableImpl", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix9StorePathEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEEC2ISA_SH_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<nix::StorePath>::ShrinkableImpl", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<nix::StorePath>::ShrinkableImpl", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableIN3nix9StorePathEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -54700,7 +54827,8 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix9StorePathEE15IShrinkableImplC
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix9StorePathEE15IShrinkableImplE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix9StorePathEE15IShrinkableImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -54890,9 +55018,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableIN3nix9StorePathEE14ShrinkableImplIN
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix9StorePathEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<nix::StorePath>::ShrinkableImpl", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix9StorePathEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableIN3nix9StorePathEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS2_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS3_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<nix::StorePath>::ShrinkableImpl", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenIN3nix9StorePathEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS5_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableIN3nix9StorePathEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -55462,12 +55591,13 @@ define linkonce_odr void @_ZN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Map
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2rc3GenINS_6detail3AnyEE8IGenImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltENS9_9StorePathEEEPFS2_OSC_EEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.530", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEPFNS_6detail3AnyEOS7_EEC2EOSD_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.530", ptr %5, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 1) #3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltENS9_9StorePathEEEPFS2_OSC_EEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.530", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEPFNS_6detail3AnyEOS7_EEC2EOSD_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.530", ptr %5, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
   ret void
 }
 
@@ -55652,9 +55782,10 @@ define linkonce_odr void @_ZN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Map
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltENS9_9StorePathEEEPFS2_OSC_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.530", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEPFNS_6detail3AnyEOS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltENS9_9StorePathEEEPFS2_OSC_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Gen<rc::detail::Any>::GenImpl.530", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3gen6detail6MapGenISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEPFNS_6detail3AnyEOS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   call void @_ZN2rc3GenINS_6detail3AnyEE8IGenImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -55876,37 +56007,38 @@ define linkonce_odr void @_ZN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS9_9StorePathEEEPFS2_OSC_EEEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.531", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEPFNS_6detail3AnyEOS7_EEC2IRKSC_EENS_10ShrinkableIS7_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %16
+  %11 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS9_9StorePathEEEPFS2_OSC_EEEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.531", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEPFNS_6detail3AnyEOS7_EEC2IRKSC_EENS_10ShrinkableIS7_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %17
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %15 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.531", ptr %10, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
+  %16 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.531", ptr %10, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 1) #3
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -56095,9 +56227,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS9_9StorePathEEEPFS2_OSC_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.531", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEPFNS_6detail3AnyEOS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS9_9StorePathEEEPFS2_OSC_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<rc::detail::Any>::ShrinkableImpl.531", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEPFNS_6detail3AnyEOS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableINS_6detail3AnyEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -56360,35 +56493,36 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENSE_9StorePathEEEPFS3_OSH_EE7shrinksEvEUlONS1_ISH_EEE_SM_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.534", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS7_9StorePathEEEPFNS_6detail3AnyEOSA_EE7shrinksEvEUlONS_10ShrinkableISA_EEE_SI_EC2ISK_EENS_3SeqISI_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %15
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENSE_9StorePathEEEPFS3_OSH_EE7shrinksEvEUlONS1_ISH_EEE_SM_EEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.534", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS7_9StorePathEEEPFNS_6detail3AnyEOSA_EE7shrinksEvEUlONS_10ShrinkableISA_EEE_SI_EC2ISK_EENS_3SeqISI_EEOT_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %8, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %9, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %8, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %9, align 4
   call void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -56460,9 +56594,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENSE_9StorePathEEEPFS3_OSH_EE7shrinksEvEUlONS1_ISH_EEE_SM_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.534", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS7_9StorePathEEEPFNS_6detail3AnyEOSA_EE7shrinksEvEUlONS_10ShrinkableISA_EEE_SI_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENSE_9StorePathEEEPFS3_OSH_EE7shrinksEvEUlONS1_ISH_EEE_SM_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.534", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS7_9StorePathEEEPFNS_6detail3AnyEOSA_EE7shrinksEvEUlONS_10ShrinkableISA_EEE_SI_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -56677,32 +56812,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplI
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENSE_9StorePathEEEPFS3_OSH_EE7shrinksEvEUlONS1_ISH_EEE_SM_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.534", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.534", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS7_9StorePathEEEPFNS_6detail3AnyEOSA_EE7shrinksEvEUlONS_10ShrinkableISA_EEE_SI_EC2ERKSL_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENSE_9StorePathEEEPFS3_OSH_EE7shrinksEvEUlONS1_ISH_EEE_SM_EEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.534", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<rc::detail::Any>>::SeqImpl.534", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS7_9StorePathEEEPFNS_6detail3AnyEOSA_EE7shrinksEvEUlONS_10ShrinkableISA_EEE_SI_EC2ERKSL_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableINS_6detail3AnyEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -56923,34 +57059,35 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE15IShrinkableImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS5_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS6_EEEEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl.538", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS8_EEEEEEEC2ISD_SK_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS5_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS6_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl.538", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS8_EEEEEEEC2ISD_SK_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl.538", ptr %9, i32 0, i32 2
-  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 1) #3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl.538", ptr %9, i32 0, i32 2
+  call void @_ZNSt6atomicIlEC2El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -57139,9 +57276,10 @@ define linkonce_odr void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathB
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS5_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS6_EEEEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl.538", ptr %3, i32 0, i32 1
-  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS8_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE14ShrinkableImplINS_10shrinkable6detail16LambdaShrinkableIZNKS_3GenIS5_EclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqIS6_EEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Shrinkable<std::tuple<nix::SingleDerivedPathBuilt, nix::StorePath>>::ShrinkableImpl.538", ptr %3, i32 0, i32 1
+  call void @_ZN2rc10shrinkable6detail16LambdaShrinkableIZNKS_3GenISt5tupleIJN3nix22SingleDerivedPathBuiltENS5_9StorePathEEEEclERKNS_6RandomEiEUlvE_NS_2fn8ConstantINS_3SeqINS_10ShrinkableIS8_EEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS2_9StorePathEEEE15IShrinkableImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -57291,31 +57429,32 @@ define linkonce_odr void @_ZN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDeriv
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2rc6detail3Any8IAnyImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl.540", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt5tupleIJN3nix22SingleDerivedPathBuiltENS0_9StorePathEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl.540", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt5tupleIJN3nix22SingleDerivedPathBuiltENS0_9StorePathEEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN2rc6detail3Any8IAnyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN2rc6detail3Any8IAnyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -57363,9 +57502,10 @@ define linkonce_odr void @_ZN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDeriv
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl.540", ptr %3, i32 0, i32 1
-  call void @_ZNSt5tupleIJN3nix22SingleDerivedPathBuiltENS0_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2rc6detail3Any7AnyImplISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::detail::Any::AnyImpl.540", ptr %3, i32 0, i32 1
+  call void @_ZNSt5tupleIJN3nix22SingleDerivedPathBuiltENS0_9StorePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #3
   call void @_ZN2rc6detail3Any8IAnyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -57921,35 +58061,36 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSH_9StorePathEESO_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEEST_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.542", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  call void @_ZN2rc3SeqINS_3gen6detail6RecipeEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESN_SS_EUlOSS_E_SS_EC2ISX_EENSI_ISS_EEOSN_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %14 unwind label %15
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSH_9StorePathEESO_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEEST_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.542", ptr %10, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  call void @_ZN2rc3SeqINS_3gen6detail6RecipeEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESN_SS_EUlOSS_E_SS_EC2ISX_EENSI_ISS_EEOSN_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %16
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @_ZN2rc3SeqINS_3gen6detail6RecipeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %8, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %9, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %8, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %9, align 4
   call void @_ZN2rc3SeqINS_3gen6detail6RecipeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -58021,9 +58162,10 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSH_9StorePathEESO_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEEST_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.542", ptr %3, i32 0, i32 1
-  call void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESN_SS_EUlOSS_E_SS_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSH_9StorePathEESO_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEEST_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.542", ptr %3, i32 0, i32 1
+  call void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESN_SS_EUlOSS_E_SS_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -58171,32 +58313,33 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedR
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSH_9StorePathEESO_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEEST_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.542", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.542", ptr %10, i32 0, i32 1
-  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESN_SS_EUlOSS_E_SS_EC2ERKSY_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE7SeqImplINS_3seq6detail6MapSeqIZNS6_15shrinksOfRecipeINS3_15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNSH_9StorePathEESO_EEEENS0_INS1_IS2_INS3_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeES7_EEEEEST_S7_EUlOS7_E_S7_EEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.542", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.rc::Seq<rc::Shrinkable<std::pair<rc::detail::TaggedResult, rc::gen::detail::Recipe>>>::SeqImpl.542", ptr %11, i32 0, i32 1
+  invoke void @_ZN2rc3seq6detail6MapSeqIZNS_3gen6detail15shrinksOfRecipeINS_6detail15PropertyAdapterIPFvRKN3nix22SingleDerivedPathBuiltERKNS8_9StorePathEESF_EEEENS_3SeqINS_10ShrinkableISt4pairINS6_18FunctionTraitsImplINSt5decayIT_E4typeEE10ReturnTypeENS4_6RecipeEEEEEESN_SS_EUlOSS_E_SS_EC2ERKSY_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN2rc3SeqINS_10ShrinkableISt4pairINS_6detail12TaggedResultENS_3gen6detail6RecipeEEEEE8ISeqImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -58248,6 +58391,9 @@ define internal void @_GLOBAL__sub_I_derived_path.cc() #0 section ".text.startup
   call void @__cxx_global_var_init.18()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

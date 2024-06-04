@@ -12,7 +12,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = icmp eq ptr %0, null
-  br i1 %9, label %112, label %10
+  br i1 %9, label %113, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
@@ -21,11 +21,11 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %22, label %13
 
-13:                                               ; preds = %41, %10
-  %14 = phi ptr [ null, %10 ], [ %32, %41 ]
-  %15 = phi i32 [ %11, %10 ], [ %44, %41 ]
+13:                                               ; preds = %42, %10
+  %14 = phi ptr [ null, %10 ], [ %33, %42 ]
+  %15 = phi i32 [ %11, %10 ], [ %45, %42 ]
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %46, label %17
+  br i1 %16, label %47, label %17
 
 17:                                               ; preds = %17, %13
   %18 = phi ptr [ %20, %17 ], [ %14, %13 ]
@@ -33,13 +33,13 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   %20 = load ptr, ptr %19, align 8
   call void @kfree(ptr noundef nonnull %18) #4
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %46, label %17, !llvm.loop !6
+  br i1 %21, label %47, label %17, !llvm.loop !6
 
-22:                                               ; preds = %41, %10
-  %23 = phi ptr [ %32, %41 ], [ null, %10 ]
+22:                                               ; preds = %42, %10
+  %23 = phi ptr [ %33, %42 ], [ null, %10 ]
   %24 = load ptr, ptr %8, align 8
   %25 = icmp eq ptr %24, %1
-  br i1 %25, label %46, label %26
+  br i1 %25, label %47, label %26
 
 26:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
@@ -50,151 +50,152 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   %28 = and i64 %27, 512
   %29 = icmp eq i64 %28, 0
   %30 = select i1 %29, i32 2080, i32 3264
-  %31 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %32 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %31, i32 noundef %30, i64 noundef 16) #5
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %41
+  %31 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %32 = load ptr, ptr %31, align 16
+  %33 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %32, i32 noundef %30, i64 noundef 16) #5
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %26
-  %35 = icmp eq ptr %23, null
-  br i1 %35, label %46, label %36
+35:                                               ; preds = %26
+  %36 = icmp eq ptr %23, null
+  br i1 %36, label %47, label %37
 
-36:                                               ; preds = %36, %34
-  %37 = phi ptr [ %39, %36 ], [ %23, %34 ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  call void @kfree(ptr noundef nonnull %37) #4
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %46, label %36, !llvm.loop !6
+37:                                               ; preds = %37, %35
+  %38 = phi ptr [ %40, %37 ], [ %23, %35 ]
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8
+  call void @kfree(ptr noundef nonnull %38) #4
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %47, label %37, !llvm.loop !6
 
-41:                                               ; preds = %26
-  %42 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %23, ptr %42, align 8
-  %43 = load ptr, ptr %8, align 8
-  store ptr %43, ptr %32, align 8
-  %44 = call i32 @acpi_get_parent(ptr noundef %43, ptr noundef nonnull %8) #4
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %22, label %13, !llvm.loop !10
+42:                                               ; preds = %26
+  %43 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %23, ptr %43, align 8
+  %44 = load ptr, ptr %8, align 8
+  store ptr %44, ptr %33, align 8
+  %45 = call i32 @acpi_get_parent(ptr noundef %44, ptr noundef nonnull %8) #4
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %22, label %13, !llvm.loop !10
 
-46:                                               ; preds = %36, %34, %22, %17, %13
-  %47 = phi ptr [ %23, %34 ], [ %14, %13 ], [ %23, %36 ], [ %14, %17 ], [ %23, %22 ]
-  %48 = phi i32 [ 4, %34 ], [ %15, %13 ], [ 4, %36 ], [ %15, %17 ], [ 0, %22 ]
+47:                                               ; preds = %37, %35, %22, %17, %13
+  %48 = phi ptr [ %23, %35 ], [ %14, %13 ], [ %23, %37 ], [ %14, %17 ], [ %23, %22 ]
+  %49 = phi i32 [ 4, %35 ], [ %15, %13 ], [ 4, %37 ], [ %15, %17 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %112
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %113
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 2
-  %52 = icmp eq ptr %47, null
-  br i1 %52, label %105, label %53
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %0, i64 2
+  %53 = icmp eq ptr %48, null
+  br i1 %53, label %106, label %54
 
-53:                                               ; preds = %50
-  %54 = load i16, ptr %51, align 2
-  %55 = getelementptr inbounds i8, ptr %0, i64 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 6
-  br label %57
+54:                                               ; preds = %51
+  %55 = load i16, ptr %52, align 2
+  %56 = getelementptr inbounds i8, ptr %0, i64 4
+  %57 = getelementptr inbounds i8, ptr %0, i64 6
+  br label %58
 
-57:                                               ; preds = %101, %53
-  %58 = phi ptr [ %47, %53 ], [ %103, %101 ]
-  %59 = phi i8 [ 1, %53 ], [ %98, %101 ]
-  %60 = phi i16 [ %54, %53 ], [ %97, %101 ]
-  %61 = load ptr, ptr %58, align 8
+58:                                               ; preds = %102, %54
+  %59 = phi ptr [ %48, %54 ], [ %104, %102 ]
+  %60 = phi i8 [ 1, %54 ], [ %99, %102 ]
+  %61 = phi i16 [ %55, %54 ], [ %98, %102 ]
+  %62 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   store i32 0, ptr %4, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store i64 0, ptr %5, align 8, !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   store i64 0, ptr %6, align 8, !annotation !5
-  %62 = call i32 @acpi_get_type(ptr noundef %61, ptr noundef nonnull %4) #4
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %96
+  %63 = call i32 @acpi_get_type(ptr noundef %62, ptr noundef nonnull %4) #4
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %97
 
-64:                                               ; preds = %57
-  %65 = load i32, ptr %4, align 4
-  %66 = icmp eq i32 %65, 6
-  br i1 %66, label %67, label %96
+65:                                               ; preds = %58
+  %66 = load i32, ptr %4, align 4
+  %67 = icmp eq i32 %66, 6
+  br i1 %67, label %68, label %97
 
-67:                                               ; preds = %64
-  %68 = call i32 @acpi_ut_evaluate_numeric_object(ptr noundef nonnull @.str.1, ptr noundef %61, ptr noundef nonnull %5) #4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %96
+68:                                               ; preds = %65
+  %69 = call i32 @acpi_ut_evaluate_numeric_object(ptr noundef nonnull @.str.1, ptr noundef %62, ptr noundef nonnull %5) #4
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %97
 
-70:                                               ; preds = %67
-  %71 = load i64, ptr %5, align 8
-  %72 = lshr i64 %71, 16
-  %73 = trunc i64 %72 to i16
-  store i16 %73, ptr %55, align 2
-  %74 = trunc i64 %71 to i16
+71:                                               ; preds = %68
+  %72 = load i64, ptr %5, align 8
+  %73 = lshr i64 %72, 16
+  %74 = trunc i64 %73 to i16
   store i16 %74, ptr %56, align 2
-  %75 = icmp eq i8 %59, 0
-  br i1 %75, label %77, label %76
+  %75 = trunc i64 %72 to i16
+  store i16 %75, ptr %57, align 2
+  %76 = icmp eq i8 %60, 0
+  br i1 %76, label %78, label %77
 
-76:                                               ; preds = %70
-  store i16 %60, ptr %51, align 2
-  br label %77
+77:                                               ; preds = %71
+  store i16 %61, ptr %52, align 2
+  br label %78
 
-77:                                               ; preds = %76, %70
-  %78 = call i32 @acpi_os_read_pci_configuration(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull %6, i32 noundef 8) #4
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %96
+78:                                               ; preds = %77, %71
+  %79 = call i32 @acpi_os_read_pci_configuration(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull %6, i32 noundef 8) #4
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %97
 
-80:                                               ; preds = %77
-  %81 = load i64, ptr %6, align 8
-  %82 = and i64 %81, 127
-  store i64 %82, ptr %6, align 8
-  %83 = add nsw i64 %82, -3
-  %84 = icmp ult i64 %83, -2
-  br i1 %84, label %96, label %85
+81:                                               ; preds = %78
+  %82 = load i64, ptr %6, align 8
+  %83 = and i64 %82, 127
+  store i64 %83, ptr %6, align 8
+  %84 = add nsw i64 %83, -3
+  %85 = icmp ult i64 %84, -2
+  br i1 %85, label %97, label %86
 
-85:                                               ; preds = %80
-  %86 = call i32 @acpi_os_read_pci_configuration(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull %6, i32 noundef 8) #4
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %96
+86:                                               ; preds = %81
+  %87 = call i32 @acpi_os_read_pci_configuration(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull %6, i32 noundef 8) #4
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %97
 
-88:                                               ; preds = %85
-  %89 = load i64, ptr %6, align 8
-  %90 = trunc i64 %89 to i16
-  store i16 %90, ptr %51, align 2
-  %91 = call i32 @acpi_os_read_pci_configuration(ptr noundef nonnull %0, i32 noundef 25, ptr noundef nonnull %6, i32 noundef 8) #4
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %96
+89:                                               ; preds = %86
+  %90 = load i64, ptr %6, align 8
+  %91 = trunc i64 %90 to i16
+  store i16 %91, ptr %52, align 2
+  %92 = call i32 @acpi_os_read_pci_configuration(ptr noundef nonnull %0, i32 noundef 25, ptr noundef nonnull %6, i32 noundef 8) #4
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %97
 
-93:                                               ; preds = %88
-  %94 = load i64, ptr %6, align 8
-  %95 = trunc i64 %94 to i16
-  br label %96
+94:                                               ; preds = %89
+  %95 = load i64, ptr %6, align 8
+  %96 = trunc i64 %95 to i16
+  br label %97
 
-96:                                               ; preds = %93, %88, %85, %80, %77, %67, %64, %57
-  %97 = phi i16 [ %60, %80 ], [ %95, %93 ], [ %60, %88 ], [ %60, %85 ], [ %60, %77 ], [ %60, %67 ], [ %60, %64 ], [ %60, %57 ]
-  %98 = phi i8 [ 0, %80 ], [ 1, %93 ], [ 1, %88 ], [ 0, %85 ], [ 0, %77 ], [ %59, %67 ], [ %59, %64 ], [ %59, %57 ]
-  %99 = phi i32 [ 0, %80 ], [ 0, %93 ], [ %91, %88 ], [ %86, %85 ], [ %78, %77 ], [ 0, %67 ], [ 0, %64 ], [ %62, %57 ]
+97:                                               ; preds = %94, %89, %86, %81, %78, %68, %65, %58
+  %98 = phi i16 [ %61, %81 ], [ %96, %94 ], [ %61, %89 ], [ %61, %86 ], [ %61, %78 ], [ %61, %68 ], [ %61, %65 ], [ %61, %58 ]
+  %99 = phi i8 [ 0, %81 ], [ 1, %94 ], [ 1, %89 ], [ 0, %86 ], [ 0, %78 ], [ %60, %68 ], [ %60, %65 ], [ %60, %58 ]
+  %100 = phi i32 [ 0, %81 ], [ 0, %94 ], [ %92, %89 ], [ %87, %86 ], [ %79, %78 ], [ 0, %68 ], [ 0, %65 ], [ %63, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %105
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %106
 
-101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %58, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %57, !llvm.loop !11
+102:                                              ; preds = %97
+  %103 = getelementptr inbounds i8, ptr %59, i64 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %106, label %58, !llvm.loop !11
 
-105:                                              ; preds = %101, %96, %50
-  %106 = phi i32 [ 0, %50 ], [ %99, %96 ], [ 0, %101 ]
-  br i1 %52, label %112, label %107
+106:                                              ; preds = %102, %97, %51
+  %107 = phi i32 [ 0, %51 ], [ %100, %97 ], [ 0, %102 ]
+  br i1 %53, label %113, label %108
 
-107:                                              ; preds = %107, %105
-  %108 = phi ptr [ %110, %107 ], [ %47, %105 ]
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
-  call void @kfree(ptr noundef nonnull %108) #4
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %107, !llvm.loop !6
+108:                                              ; preds = %108, %106
+  %109 = phi ptr [ %111, %108 ], [ %48, %106 ]
+  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  call void @kfree(ptr noundef nonnull %109) #4
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %108, !llvm.loop !6
 
-112:                                              ; preds = %107, %105, %46, %3
-  %113 = phi i32 [ 4097, %3 ], [ %48, %46 ], [ %106, %105 ], [ %106, %107 ]
-  ret i32 %113
+113:                                              ; preds = %108, %106, %47, %3
+  %114 = phi i32 [ 4097, %3 ], [ %49, %47 ], [ %107, %106 ], [ %107, %108 ]
+  ret i32 %114
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

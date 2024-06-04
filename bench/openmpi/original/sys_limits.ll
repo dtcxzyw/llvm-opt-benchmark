@@ -40,7 +40,7 @@ define i32 @prte_util_init_sys_limits(ptr noundef %0) #0 {
 
 12:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %201
+  br label %207
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr @prte_set_max_sys_limits, align 8
@@ -52,20 +52,20 @@ define i32 @prte_util_init_sys_limits(ptr noundef %0) #0 {
 
 18:                                               ; preds = %13
   store i32 -2, ptr %2, align 4
-  br label %201
+  br label %207
 
 19:                                               ; preds = %13
   store i32 0, ptr %7, align 4
   br label %20
 
-20:                                               ; preds = %189, %19
+20:                                               ; preds = %195, %19
   %21 = load ptr, ptr %4, align 8
   %22 = load i32, ptr %7, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds ptr, ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp ne ptr null, %25
-  br i1 %26, label %27, label %192
+  br i1 %26, label %27, label %198
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %4, align 8
@@ -97,7 +97,7 @@ define i32 @prte_util_init_sys_limits(ptr noundef %0) #0 {
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.1) #4
   %47 = icmp eq i32 0, %46
-  br i1 %47, label %48, label %72
+  br i1 %47, label %48, label %75
 
 48:                                               ; preds = %42
   %49 = call i32 @prte_setlimit(i32 noundef 7, ptr noundef @.str, ptr noundef %9)
@@ -108,269 +108,275 @@ define i32 @prte_util_init_sys_limits(ptr noundef %0) #0 {
   %52 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef @.str)
   %53 = load ptr, ptr %3, align 8
   store ptr %52, ptr %53, align 8
-  br label %193
+  br label %199
 
 54:                                               ; preds = %48
   %55 = load i64, ptr %9, align 8
   %56 = trunc i64 %55 to i32
-  store i32 %56, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 1), align 4
-  %57 = call i32 @prte_setlimit(i32 noundef 6, ptr noundef @.str, ptr noundef %9)
-  %58 = icmp ne i32 0, %57
-  br i1 %58, label %59, label %62
+  %57 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 1
+  store i32 %56, ptr %57, align 4
+  %58 = call i32 @prte_setlimit(i32 noundef 6, ptr noundef @.str, ptr noundef %9)
+  %59 = icmp ne i32 0, %58
+  br i1 %59, label %60, label %63
 
-59:                                               ; preds = %54
-  %60 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str)
-  %61 = load ptr, ptr %3, align 8
-  store ptr %60, ptr %61, align 8
-  br label %193
-
-62:                                               ; preds = %54
-  %63 = load i64, ptr %9, align 8
-  %64 = trunc i64 %63 to i32
-  store i32 %64, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 2), align 8
-  %65 = call i32 @prte_setlimit(i32 noundef 1, ptr noundef @.str, ptr noundef %9)
-  %66 = icmp ne i32 0, %65
-  br i1 %66, label %67, label %70
-
-67:                                               ; preds = %62
-  %68 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.6, ptr noundef @.str)
-  %69 = load ptr, ptr %3, align 8
-  store ptr %68, ptr %69, align 8
-  br label %193
-
-70:                                               ; preds = %62
-  %71 = load i64, ptr %9, align 8
-  store i64 %71, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 3), align 8
-  br label %192
-
-72:                                               ; preds = %42
-  %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 0
-  %75 = load ptr, ptr %74, align 8
-  %76 = call i32 @strcmp(ptr noundef %75, ptr noundef @.str.7) #4
-  %77 = icmp eq i32 0, %76
-  br i1 %77, label %78, label %79
-
-78:                                               ; preds = %72
-  br label %192
-
-79:                                               ; preds = %72
-  br label %80
-
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds ptr, ptr %81, i64 0
-  %83 = load ptr, ptr %82, align 8
-  %84 = call i32 @strcmp(ptr noundef %83, ptr noundef @.str.8) #4
-  %85 = icmp eq i32 0, %84
-  br i1 %85, label %86, label %95
-
-86:                                               ; preds = %80
-  %87 = load ptr, ptr %6, align 8
-  %88 = call i32 @prte_setlimit(i32 noundef 4, ptr noundef %87, ptr noundef %9)
-  %89 = icmp ne i32 0, %88
-  br i1 %89, label %90, label %94
-
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %6, align 8
-  %92 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %91)
-  %93 = load ptr, ptr %3, align 8
-  store ptr %92, ptr %93, align 8
-  br label %193
-
-94:                                               ; preds = %86
-  br label %187
-
-95:                                               ; preds = %80
-  %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds ptr, ptr %96, i64 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = call i32 @strcmp(ptr noundef %98, ptr noundef @.str.6) #4
-  %100 = icmp eq i32 0, %99
-  br i1 %100, label %101, label %111
-
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %6, align 8
-  %103 = call i32 @prte_setlimit(i32 noundef 1, ptr noundef %102, ptr noundef %9)
-  %104 = icmp ne i32 0, %103
-  br i1 %104, label %105, label %109
-
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %6, align 8
-  %107 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.6, ptr noundef %106)
-  %108 = load ptr, ptr %3, align 8
-  store ptr %107, ptr %108, align 8
-  br label %193
-
-109:                                              ; preds = %101
-  %110 = load i64, ptr %9, align 8
-  store i64 %110, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 3), align 8
-  br label %186
-
-111:                                              ; preds = %95
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds ptr, ptr %112, i64 0
-  %114 = load ptr, ptr %113, align 8
-  %115 = call i32 @strcmp(ptr noundef %114, ptr noundef @.str.9) #4
-  %116 = icmp eq i32 0, %115
-  br i1 %116, label %117, label %126
-
-117:                                              ; preds = %111
-  %118 = load ptr, ptr %6, align 8
-  %119 = call i32 @prte_setlimit(i32 noundef 9, ptr noundef %118, ptr noundef %9)
-  %120 = icmp ne i32 0, %119
-  br i1 %120, label %121, label %125
-
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %6, align 8
-  %123 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.9, ptr noundef %122)
-  %124 = load ptr, ptr %3, align 8
-  store ptr %123, ptr %124, align 8
-  br label %193
-
-125:                                              ; preds = %117
-  br label %185
-
-126:                                              ; preds = %111
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr inbounds ptr, ptr %127, i64 0
-  %129 = load ptr, ptr %128, align 8
-  %130 = call i32 @strcmp(ptr noundef %129, ptr noundef @.str.4) #4
-  %131 = icmp eq i32 0, %130
-  br i1 %131, label %132, label %143
-
-132:                                              ; preds = %126
-  %133 = load ptr, ptr %6, align 8
-  %134 = call i32 @prte_setlimit(i32 noundef 7, ptr noundef %133, ptr noundef %9)
-  %135 = icmp ne i32 0, %134
-  br i1 %135, label %136, label %140
-
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %6, align 8
-  %138 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %137)
-  %139 = load ptr, ptr %3, align 8
-  store ptr %138, ptr %139, align 8
-  br label %193
-
-140:                                              ; preds = %132
-  %141 = load i64, ptr %9, align 8
-  %142 = trunc i64 %141 to i32
-  store i32 %142, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 1), align 4
-  br label %184
-
-143:                                              ; preds = %126
-  %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr inbounds ptr, ptr %144, i64 0
-  %146 = load ptr, ptr %145, align 8
-  %147 = call i32 @strcmp(ptr noundef %146, ptr noundef @.str.10) #4
-  %148 = icmp eq i32 0, %147
-  br i1 %148, label %149, label %158
-
-149:                                              ; preds = %143
-  %150 = load ptr, ptr %6, align 8
-  %151 = call i32 @prte_setlimit(i32 noundef 3, ptr noundef %150, ptr noundef %9)
-  %152 = icmp ne i32 0, %151
-  br i1 %152, label %153, label %157
-
-153:                                              ; preds = %149
-  %154 = load ptr, ptr %6, align 8
-  %155 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.10, ptr noundef %154)
-  %156 = load ptr, ptr %3, align 8
-  store ptr %155, ptr %156, align 8
-  br label %193
-
-157:                                              ; preds = %149
-  br label %183
-
-158:                                              ; preds = %143
-  %159 = load ptr, ptr %5, align 8
-  %160 = getelementptr inbounds ptr, ptr %159, i64 0
-  %161 = load ptr, ptr %160, align 8
-  %162 = call i32 @strcmp(ptr noundef %161, ptr noundef @.str.5) #4
-  %163 = icmp eq i32 0, %162
-  br i1 %163, label %164, label %175
-
-164:                                              ; preds = %158
-  %165 = load ptr, ptr %6, align 8
-  %166 = call i32 @prte_setlimit(i32 noundef 6, ptr noundef %165, ptr noundef %9)
-  %167 = icmp ne i32 0, %166
-  br i1 %167, label %168, label %172
-
-168:                                              ; preds = %164
-  %169 = load ptr, ptr %6, align 8
-  %170 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.5, ptr noundef %169)
-  %171 = load ptr, ptr %3, align 8
-  store ptr %170, ptr %171, align 8
-  br label %193
-
-172:                                              ; preds = %164
-  %173 = load i64, ptr %9, align 8
-  %174 = trunc i64 %173 to i32
-  store i32 %174, ptr getelementptr inbounds (%struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 2), align 8
-  br label %182
-
-175:                                              ; preds = %158
-  %176 = load ptr, ptr %5, align 8
-  %177 = getelementptr inbounds ptr, ptr %176, i64 0
-  %178 = load ptr, ptr %177, align 8
-  %179 = load ptr, ptr %6, align 8
-  %180 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.11, i32 noundef 1, ptr noundef %178, ptr noundef %179)
-  %181 = load ptr, ptr %3, align 8
-  store ptr %180, ptr %181, align 8
-  br label %193
-
-182:                                              ; preds = %172
-  br label %183
-
-183:                                              ; preds = %182, %157
-  br label %184
-
-184:                                              ; preds = %183, %140
-  br label %185
-
-185:                                              ; preds = %184, %125
-  br label %186
-
-186:                                              ; preds = %185, %109
-  br label %187
-
-187:                                              ; preds = %186, %94
-  %188 = load ptr, ptr %5, align 8
-  call void @PMIx_Argv_free(ptr noundef %188)
-  store ptr null, ptr %5, align 8
-  br label %189
-
-189:                                              ; preds = %187
-  %190 = load i32, ptr %7, align 4
-  %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %7, align 4
-  br label %20, !llvm.loop !4
-
-192:                                              ; preds = %78, %70, %20
-  store i8 1, ptr @prte_sys_limits, align 8
-  store i32 0, ptr %8, align 4
-  br label %193
-
-193:                                              ; preds = %192, %175, %168, %153, %136, %121, %105, %90, %67, %59, %51
-  %194 = load ptr, ptr %4, align 8
-  call void @PMIx_Argv_free(ptr noundef %194)
-  %195 = load ptr, ptr %5, align 8
-  %196 = icmp ne ptr null, %195
-  br i1 %196, label %197, label %199
-
-197:                                              ; preds = %193
-  %198 = load ptr, ptr %5, align 8
-  call void @PMIx_Argv_free(ptr noundef %198)
+60:                                               ; preds = %54
+  %61 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str)
+  %62 = load ptr, ptr %3, align 8
+  store ptr %61, ptr %62, align 8
   br label %199
 
-199:                                              ; preds = %197, %193
-  %200 = load i32, ptr %8, align 4
-  store i32 %200, ptr %2, align 4
-  br label %201
+63:                                               ; preds = %54
+  %64 = load i64, ptr %9, align 8
+  %65 = trunc i64 %64 to i32
+  %66 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 2
+  store i32 %65, ptr %66, align 8
+  %67 = call i32 @prte_setlimit(i32 noundef 1, ptr noundef @.str, ptr noundef %9)
+  %68 = icmp ne i32 0, %67
+  br i1 %68, label %69, label %72
 
-201:                                              ; preds = %199, %18, %12
-  %202 = load i32, ptr %2, align 4
-  ret i32 %202
+69:                                               ; preds = %63
+  %70 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.6, ptr noundef @.str)
+  %71 = load ptr, ptr %3, align 8
+  store ptr %70, ptr %71, align 8
+  br label %199
+
+72:                                               ; preds = %63
+  %73 = load i64, ptr %9, align 8
+  %74 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 3
+  store i64 %73, ptr %74, align 8
+  br label %198
+
+75:                                               ; preds = %42
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds ptr, ptr %76, i64 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = call i32 @strcmp(ptr noundef %78, ptr noundef @.str.7) #4
+  %80 = icmp eq i32 0, %79
+  br i1 %80, label %81, label %82
+
+81:                                               ; preds = %75
+  br label %198
+
+82:                                               ; preds = %75
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds ptr, ptr %84, i64 0
+  %86 = load ptr, ptr %85, align 8
+  %87 = call i32 @strcmp(ptr noundef %86, ptr noundef @.str.8) #4
+  %88 = icmp eq i32 0, %87
+  br i1 %88, label %89, label %98
+
+89:                                               ; preds = %83
+  %90 = load ptr, ptr %6, align 8
+  %91 = call i32 @prte_setlimit(i32 noundef 4, ptr noundef %90, ptr noundef %9)
+  %92 = icmp ne i32 0, %91
+  br i1 %92, label %93, label %97
+
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %6, align 8
+  %95 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %94)
+  %96 = load ptr, ptr %3, align 8
+  store ptr %95, ptr %96, align 8
+  br label %199
+
+97:                                               ; preds = %89
+  br label %193
+
+98:                                               ; preds = %83
+  %99 = load ptr, ptr %5, align 8
+  %100 = getelementptr inbounds ptr, ptr %99, i64 0
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 @strcmp(ptr noundef %101, ptr noundef @.str.6) #4
+  %103 = icmp eq i32 0, %102
+  br i1 %103, label %104, label %115
+
+104:                                              ; preds = %98
+  %105 = load ptr, ptr %6, align 8
+  %106 = call i32 @prte_setlimit(i32 noundef 1, ptr noundef %105, ptr noundef %9)
+  %107 = icmp ne i32 0, %106
+  br i1 %107, label %108, label %112
+
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %6, align 8
+  %110 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.6, ptr noundef %109)
+  %111 = load ptr, ptr %3, align 8
+  store ptr %110, ptr %111, align 8
+  br label %199
+
+112:                                              ; preds = %104
+  %113 = load i64, ptr %9, align 8
+  %114 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 3
+  store i64 %113, ptr %114, align 8
+  br label %192
+
+115:                                              ; preds = %98
+  %116 = load ptr, ptr %5, align 8
+  %117 = getelementptr inbounds ptr, ptr %116, i64 0
+  %118 = load ptr, ptr %117, align 8
+  %119 = call i32 @strcmp(ptr noundef %118, ptr noundef @.str.9) #4
+  %120 = icmp eq i32 0, %119
+  br i1 %120, label %121, label %130
+
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %6, align 8
+  %123 = call i32 @prte_setlimit(i32 noundef 9, ptr noundef %122, ptr noundef %9)
+  %124 = icmp ne i32 0, %123
+  br i1 %124, label %125, label %129
+
+125:                                              ; preds = %121
+  %126 = load ptr, ptr %6, align 8
+  %127 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.9, ptr noundef %126)
+  %128 = load ptr, ptr %3, align 8
+  store ptr %127, ptr %128, align 8
+  br label %199
+
+129:                                              ; preds = %121
+  br label %191
+
+130:                                              ; preds = %115
+  %131 = load ptr, ptr %5, align 8
+  %132 = getelementptr inbounds ptr, ptr %131, i64 0
+  %133 = load ptr, ptr %132, align 8
+  %134 = call i32 @strcmp(ptr noundef %133, ptr noundef @.str.4) #4
+  %135 = icmp eq i32 0, %134
+  br i1 %135, label %136, label %148
+
+136:                                              ; preds = %130
+  %137 = load ptr, ptr %6, align 8
+  %138 = call i32 @prte_setlimit(i32 noundef 7, ptr noundef %137, ptr noundef %9)
+  %139 = icmp ne i32 0, %138
+  br i1 %139, label %140, label %144
+
+140:                                              ; preds = %136
+  %141 = load ptr, ptr %6, align 8
+  %142 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.4, ptr noundef %141)
+  %143 = load ptr, ptr %3, align 8
+  store ptr %142, ptr %143, align 8
+  br label %199
+
+144:                                              ; preds = %136
+  %145 = load i64, ptr %9, align 8
+  %146 = trunc i64 %145 to i32
+  %147 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 1
+  store i32 %146, ptr %147, align 4
+  br label %190
+
+148:                                              ; preds = %130
+  %149 = load ptr, ptr %5, align 8
+  %150 = getelementptr inbounds ptr, ptr %149, i64 0
+  %151 = load ptr, ptr %150, align 8
+  %152 = call i32 @strcmp(ptr noundef %151, ptr noundef @.str.10) #4
+  %153 = icmp eq i32 0, %152
+  br i1 %153, label %154, label %163
+
+154:                                              ; preds = %148
+  %155 = load ptr, ptr %6, align 8
+  %156 = call i32 @prte_setlimit(i32 noundef 3, ptr noundef %155, ptr noundef %9)
+  %157 = icmp ne i32 0, %156
+  br i1 %157, label %158, label %162
+
+158:                                              ; preds = %154
+  %159 = load ptr, ptr %6, align 8
+  %160 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.10, ptr noundef %159)
+  %161 = load ptr, ptr %3, align 8
+  store ptr %160, ptr %161, align 8
+  br label %199
+
+162:                                              ; preds = %154
+  br label %189
+
+163:                                              ; preds = %148
+  %164 = load ptr, ptr %5, align 8
+  %165 = getelementptr inbounds ptr, ptr %164, i64 0
+  %166 = load ptr, ptr %165, align 8
+  %167 = call i32 @strcmp(ptr noundef %166, ptr noundef @.str.5) #4
+  %168 = icmp eq i32 0, %167
+  br i1 %168, label %169, label %181
+
+169:                                              ; preds = %163
+  %170 = load ptr, ptr %6, align 8
+  %171 = call i32 @prte_setlimit(i32 noundef 6, ptr noundef %170, ptr noundef %9)
+  %172 = icmp ne i32 0, %171
+  br i1 %172, label %173, label %177
+
+173:                                              ; preds = %169
+  %174 = load ptr, ptr %6, align 8
+  %175 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1, ptr noundef @.str.5, ptr noundef %174)
+  %176 = load ptr, ptr %3, align 8
+  store ptr %175, ptr %176, align 8
+  br label %199
+
+177:                                              ; preds = %169
+  %178 = load i64, ptr %9, align 8
+  %179 = trunc i64 %178 to i32
+  %180 = getelementptr inbounds %struct.prte_sys_limits_t, ptr @prte_sys_limits, i32 0, i32 2
+  store i32 %179, ptr %180, align 8
+  br label %188
+
+181:                                              ; preds = %163
+  %182 = load ptr, ptr %5, align 8
+  %183 = getelementptr inbounds ptr, ptr %182, i64 0
+  %184 = load ptr, ptr %183, align 8
+  %185 = load ptr, ptr %6, align 8
+  %186 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef @.str.2, ptr noundef @.str.11, i32 noundef 1, ptr noundef %184, ptr noundef %185)
+  %187 = load ptr, ptr %3, align 8
+  store ptr %186, ptr %187, align 8
+  br label %199
+
+188:                                              ; preds = %177
+  br label %189
+
+189:                                              ; preds = %188, %162
+  br label %190
+
+190:                                              ; preds = %189, %144
+  br label %191
+
+191:                                              ; preds = %190, %129
+  br label %192
+
+192:                                              ; preds = %191, %112
+  br label %193
+
+193:                                              ; preds = %192, %97
+  %194 = load ptr, ptr %5, align 8
+  call void @PMIx_Argv_free(ptr noundef %194)
+  store ptr null, ptr %5, align 8
+  br label %195
+
+195:                                              ; preds = %193
+  %196 = load i32, ptr %7, align 4
+  %197 = add nsw i32 %196, 1
+  store i32 %197, ptr %7, align 4
+  br label %20, !llvm.loop !4
+
+198:                                              ; preds = %81, %72, %20
+  store i8 1, ptr @prte_sys_limits, align 8
+  store i32 0, ptr %8, align 4
+  br label %199
+
+199:                                              ; preds = %198, %181, %173, %158, %140, %125, %108, %93, %69, %60, %51
+  %200 = load ptr, ptr %4, align 8
+  call void @PMIx_Argv_free(ptr noundef %200)
+  %201 = load ptr, ptr %5, align 8
+  %202 = icmp ne ptr null, %201
+  br i1 %202, label %203, label %205
+
+203:                                              ; preds = %199
+  %204 = load ptr, ptr %5, align 8
+  call void @PMIx_Argv_free(ptr noundef %204)
+  br label %205
+
+205:                                              ; preds = %203, %199
+  %206 = load i32, ptr %8, align 4
+  store i32 %206, ptr %2, align 4
+  br label %207
+
+207:                                              ; preds = %205, %18, %12
+  %208 = load i32, ptr %2, align 4
+  ret i32 %208
 }
 
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) #1

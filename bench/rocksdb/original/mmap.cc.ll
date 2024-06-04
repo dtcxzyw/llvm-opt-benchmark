@@ -179,7 +179,8 @@ if.end2:                                          ; preds = %if.then1, %if.end
   store ptr %call, ptr %addr_, align 8
   %addr_3 = getelementptr inbounds %"class.rocksdb::MemMapping", ptr %agg.result, i32 0, i32 0
   %5 = load ptr, ptr %addr_3, align 8
-  %cmp4 = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = inttoptr i64 -1 to ptr
+  %cmp4 = icmp eq ptr %5, %6
   br i1 %cmp4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end2

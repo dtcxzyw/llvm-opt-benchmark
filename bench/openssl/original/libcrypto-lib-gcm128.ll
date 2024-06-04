@@ -40,39 +40,41 @@ entry:
   %2 = load ptr, ptr %ctx.addr, align 8
   %ghash = getelementptr inbounds %struct.gcm_funcs_st, ptr %2, i32 0, i32 1
   store ptr null, ptr %ghash, align 8
-  %3 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %3, 2
+  %3 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %4 = load i32, ptr %3, align 4
+  %and = and i32 %4, 2
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %4 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %shr = lshr i32 %4, 22
+  %5 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %6 = load i32, ptr %5, align 4
+  %shr = lshr i32 %6, 22
   %and1 = and i32 %shr, 65
   %cmp = icmp eq i32 %and1, 65
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %ginit3 = getelementptr inbounds %struct.gcm_funcs_st, ptr %5, i32 0, i32 0
-  store ptr @gcm_init_avx, ptr %ginit3, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %gmult4 = getelementptr inbounds %struct.gcm_funcs_st, ptr %6, i32 0, i32 2
-  store ptr @gcm_gmult_avx, ptr %gmult4, align 8
   %7 = load ptr, ptr %ctx.addr, align 8
-  %ghash5 = getelementptr inbounds %struct.gcm_funcs_st, ptr %7, i32 0, i32 1
+  %ginit3 = getelementptr inbounds %struct.gcm_funcs_st, ptr %7, i32 0, i32 0
+  store ptr @gcm_init_avx, ptr %ginit3, align 8
+  %8 = load ptr, ptr %ctx.addr, align 8
+  %gmult4 = getelementptr inbounds %struct.gcm_funcs_st, ptr %8, i32 0, i32 2
+  store ptr @gcm_gmult_avx, ptr %gmult4, align 8
+  %9 = load ptr, ptr %ctx.addr, align 8
+  %ghash5 = getelementptr inbounds %struct.gcm_funcs_st, ptr %9, i32 0, i32 1
   store ptr @gcm_ghash_avx, ptr %ghash5, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %ginit6 = getelementptr inbounds %struct.gcm_funcs_st, ptr %8, i32 0, i32 0
-  store ptr @gcm_init_clmul, ptr %ginit6, align 8
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %gmult7 = getelementptr inbounds %struct.gcm_funcs_st, ptr %9, i32 0, i32 2
-  store ptr @gcm_gmult_clmul, ptr %gmult7, align 8
   %10 = load ptr, ptr %ctx.addr, align 8
-  %ghash8 = getelementptr inbounds %struct.gcm_funcs_st, ptr %10, i32 0, i32 1
+  %ginit6 = getelementptr inbounds %struct.gcm_funcs_st, ptr %10, i32 0, i32 0
+  store ptr @gcm_init_clmul, ptr %ginit6, align 8
+  %11 = load ptr, ptr %ctx.addr, align 8
+  %gmult7 = getelementptr inbounds %struct.gcm_funcs_st, ptr %11, i32 0, i32 2
+  store ptr @gcm_gmult_clmul, ptr %gmult7, align 8
+  %12 = load ptr, ptr %ctx.addr, align 8
+  %ghash8 = getelementptr inbounds %struct.gcm_funcs_st, ptr %12, i32 0, i32 1
   store ptr @gcm_ghash_clmul, ptr %ghash8, align 8
   br label %if.end
 
@@ -80,11 +82,11 @@ if.end:                                           ; preds = %if.else, %if.then2
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %gmult10 = getelementptr inbounds %struct.gcm_funcs_st, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %ctx.addr, align 8
+  %gmult10 = getelementptr inbounds %struct.gcm_funcs_st, ptr %13, i32 0, i32 2
   store ptr @gcm_gmult_4bit, ptr %gmult10, align 8
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %ghash11 = getelementptr inbounds %struct.gcm_funcs_st, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %ctx.addr, align 8
+  %ghash11 = getelementptr inbounds %struct.gcm_funcs_st, ptr %14, i32 0, i32 1
   store ptr @gcm_ghash_4bit, ptr %ghash11, align 8
   br label %return
 

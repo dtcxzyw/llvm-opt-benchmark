@@ -230,86 +230,88 @@ define hidden { i32, i32 } @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_di
   %9 = icmp ugt i32 %1, 10
   br i1 %9, label %13, label %10
 
-10:                                               ; preds = %28, %2
+10:                                               ; preds = %29, %2
   %11 = load i32, ptr %6, align 4, !noundef !3
   %12 = icmp ult i32 %11, %1
-  br i1 %12, label %40, label %36
+  br i1 %12, label %42, label %37
 
 13:                                               ; preds = %2
   %14 = icmp ule i32 %1, 36
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %13
-  br i1 false, label %27, label %19
+  br i1 false, label %28, label %19
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %6, align 4, !noundef !3
   %18 = icmp ult i32 %17, 10
-  br i1 %18, label %33, label %28
+  br i1 %18, label %34, label %29
 
 19:                                               ; preds = %15
   store ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.8, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1, ptr %20, align 8
   %21 = load ptr, ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.10, align 8, !align !5, !noundef !3
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.10, i64 8), align 8
-  %23 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %5, i32 0, i32 2
-  store ptr %21, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %22, ptr %24, align 8
-  %25 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %5, i32 0, i32 1
-  store ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.9, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  store i64 0, ptr %26, align 8
+  %22 = getelementptr inbounds i8, ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.10, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %5, i32 0, i32 2
+  store ptr %21, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 %23, ptr %25, align 8
+  %26 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %5, i32 0, i32 1
+  store ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.9, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 0, ptr %27, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %5, ptr align 8 @anon.dc9b0776b4d12e2f140ffb6923d55193.11) #4
   unreachable
 
-27:                                               ; preds = %15
+28:                                               ; preds = %15
   call void @_ZN4core3fmt9Arguments9new_const17haa819980d22ccd1aE(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %4, ptr align 8 @anon.dc9b0776b4d12e2f140ffb6923d55193.13, i64 1)
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %4, ptr align 8 @anon.dc9b0776b4d12e2f140ffb6923d55193.15) #4
   unreachable
 
-28:                                               ; preds = %16
-  %29 = or i32 %0, 32
-  %30 = sub i32 %29, 97
-  %31 = call i32 @llvm.uadd.sat.i32(i32 %30, i32 10)
-  store i32 %31, ptr %3, align 4
-  %32 = load i32, ptr %3, align 4, !noundef !3
-  store i32 %32, ptr %6, align 4
+29:                                               ; preds = %16
+  %30 = or i32 %0, 32
+  %31 = sub i32 %30, 97
+  %32 = call i32 @llvm.uadd.sat.i32(i32 %31, i32 10)
+  store i32 %32, ptr %3, align 4
+  %33 = load i32, ptr %3, align 4, !noundef !3
+  store i32 %33, ptr %6, align 4
   br label %10
 
-33:                                               ; preds = %16
-  %34 = load i32, ptr %6, align 4, !noundef !3
-  %35 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %34, ptr %35, align 4
+34:                                               ; preds = %16
+  %35 = load i32, ptr %6, align 4, !noundef !3
+  %36 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %35, ptr %36, align 4
   store i32 1, ptr %7, align 4
-  br label %44
+  br label %46
 
-36:                                               ; preds = %10
-  %37 = load i32, ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.16, align 4, !range !6, !noundef !3
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.16, i64 4), align 4
-  store i32 %37, ptr %7, align 4
-  %39 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %38, ptr %39, align 4
-  br label %43
+37:                                               ; preds = %10
+  %38 = load i32, ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.16, align 4, !range !6, !noundef !3
+  %39 = getelementptr inbounds i8, ptr @anon.dc9b0776b4d12e2f140ffb6923d55193.16, i64 4
+  %40 = load i32, ptr %39, align 4
+  store i32 %38, ptr %7, align 4
+  %41 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %40, ptr %41, align 4
+  br label %45
 
-40:                                               ; preds = %10
-  %41 = load i32, ptr %6, align 4, !noundef !3
-  %42 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %41, ptr %42, align 4
+42:                                               ; preds = %10
+  %43 = load i32, ptr %6, align 4, !noundef !3
+  %44 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %43, ptr %44, align 4
   store i32 1, ptr %7, align 4
-  br label %43
+  br label %45
 
-43:                                               ; preds = %40, %36
-  br label %44
+45:                                               ; preds = %42, %37
+  br label %46
 
-44:                                               ; preds = %43, %33
-  %45 = load i32, ptr %7, align 4, !range !6, !noundef !3
-  %46 = getelementptr inbounds i8, ptr %7, i64 4
-  %47 = load i32, ptr %46, align 4
-  %48 = insertvalue { i32, i32 } poison, i32 %45, 0
-  %49 = insertvalue { i32, i32 } %48, i32 %47, 1
-  ret { i32, i32 } %49
+46:                                               ; preds = %45, %34
+  %47 = load i32, ptr %7, align 4, !range !6, !noundef !3
+  %48 = getelementptr inbounds i8, ptr %7, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = insertvalue { i32, i32 } poison, i32 %47, 0
+  %51 = insertvalue { i32, i32 } %50, i32 %49, 1
+  ret { i32, i32 } %51
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

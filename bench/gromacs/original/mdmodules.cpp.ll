@@ -1972,128 +1972,129 @@ define linkonce_odr void @_ZN3gmx9MDModules4ImplC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3gmx17IMDOutputProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx9MDModules4ImplE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 1
-  call void @_ZN3gmx18MDModulesNotifiersC2Ev(ptr noundef nonnull align 8 dereferenceable(600) %6) #11
-  %7 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 2
-  invoke void @_ZN3gmx24DensityFittingModuleInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %7)
-          to label %8 unwind label %21
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx9MDModules4ImplE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 1
+  call void @_ZN3gmx18MDModulesNotifiersC2Ev(ptr noundef nonnull align 8 dereferenceable(600) %7) #11
+  %8 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 2
+  invoke void @_ZN3gmx24DensityFittingModuleInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %8)
+          to label %9 unwind label %22
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 3
-  invoke void @_ZN3gmx25createElectricFieldModuleEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %9)
-          to label %10 unwind label %25
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 3
+  invoke void @_ZN3gmx25createElectricFieldModuleEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %10)
+          to label %11 unwind label %26
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 4
-  call void @_ZNSt10unique_ptrIN3gmx14ForceProvidersESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
-  %12 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 5
-  invoke void @_ZN3gmx40createInteractiveMolecularDynamicsModuleEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %12)
-          to label %13 unwind label %29
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 4
+  call void @_ZNSt10unique_ptrIN3gmx14ForceProvidersESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  %13 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 5
+  invoke void @_ZN3gmx40createInteractiveMolecularDynamicsModuleEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %13)
+          to label %14 unwind label %30
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 6
-  invoke void @_ZN3gmx14QMMMModuleInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %14)
-          to label %15 unwind label %33
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 6
+  invoke void @_ZN3gmx14QMMMModuleInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %15)
+          to label %16 unwind label %34
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 7
-  invoke void @_ZN3gmx27createSwapCoordinatesModuleEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %16)
-          to label %17 unwind label %37
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 7
+  invoke void @_ZN3gmx27createSwapCoordinatesModuleEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %17)
+          to label %18 unwind label %38
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 8
-  invoke void @_ZN3gmx17ColvarsModuleInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %18)
-          to label %19 unwind label %41
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 8
+  invoke void @_ZN3gmx17ColvarsModuleInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.141") align 8 %19)
+          to label %20 unwind label %42
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 9
-  call void @_ZNSt6vectorISt10shared_ptrIN3gmx9IMDModuleEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #11
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %5, i32 0, i32 9
+  call void @_ZNSt6vectorISt10shared_ptrIN3gmx9IMDModuleEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #11
   ret void
 
-21:                                               ; preds = %1
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %1
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %3, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %4, align 4
-  br label %49
-
-25:                                               ; preds = %8
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %3, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %4, align 4
-  br label %48
-
-29:                                               ; preds = %10
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %3, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %4, align 4
-  br label %47
-
-33:                                               ; preds = %13
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %3, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %4, align 4
-  br label %46
-
-37:                                               ; preds = %15
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %3, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %4, align 4
-  br label %45
-
-41:                                               ; preds = %17
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %3, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %4, align 4
-  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #11
-  br label %45
-
-45:                                               ; preds = %41, %37
-  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #11
-  br label %46
-
-46:                                               ; preds = %45, %33
-  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
-  br label %47
-
-47:                                               ; preds = %46, %29
-  call void @_ZNSt10unique_ptrIN3gmx14ForceProvidersESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
-  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %48
-
-48:                                               ; preds = %47, %25
-  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  br label %49
-
-49:                                               ; preds = %48, %21
-  call void @_ZN3gmx18MDModulesNotifiersD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %6) #11
-  call void @_ZN3gmx17IMDOutputProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
   br label %50
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %3, align 8
-  %52 = load i32, ptr %4, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+26:                                               ; preds = %9
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %3, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %4, align 4
+  br label %49
+
+30:                                               ; preds = %11
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %3, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %4, align 4
+  br label %48
+
+34:                                               ; preds = %14
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %3, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %4, align 4
+  br label %47
+
+38:                                               ; preds = %16
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %3, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %4, align 4
+  br label %46
+
+42:                                               ; preds = %18
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %3, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %4, align 4
+  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #11
+  br label %46
+
+46:                                               ; preds = %42, %38
+  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #11
+  br label %47
+
+47:                                               ; preds = %46, %34
+  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
+  br label %48
+
+48:                                               ; preds = %47, %30
+  call void @_ZNSt10unique_ptrIN3gmx14ForceProvidersESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  br label %49
+
+49:                                               ; preds = %48, %26
+  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  br label %50
+
+50:                                               ; preds = %49, %22
+  call void @_ZN3gmx18MDModulesNotifiersD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %7) #11
+  call void @_ZN3gmx17IMDOutputProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %3, align 8
+  %53 = load i32, ptr %4, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -2129,7 +2130,8 @@ define linkonce_odr void @_ZN3gmx17IMDOutputProviderC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17IMDOutputProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17IMDOutputProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2351,25 +2353,26 @@ define linkonce_odr void @_ZN3gmx9MDModules4ImplD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx9MDModules4ImplE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorISt10shared_ptrIN3gmx9IMDModuleEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %5 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 8
-  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  %6 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx9MDModules4ImplE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorISt10shared_ptrIN3gmx9IMDModuleEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %6 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 8
   call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %7 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 6
+  %7 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 7
   call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  %8 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 5
+  %8 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 6
   call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %9 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 4
-  call void @_ZNSt10unique_ptrIN3gmx14ForceProvidersESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  %10 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  %11 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 2
+  %9 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %10 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 4
+  call void @_ZNSt10unique_ptrIN3gmx14ForceProvidersESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
+  %11 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
-  %12 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 1
-  call void @_ZN3gmx18MDModulesNotifiersD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %12) #11
+  %12 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN3gmx9IMDModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
+  %13 = getelementptr inbounds %"class.gmx::MDModules::Impl", ptr %3, i32 0, i32 1
+  call void @_ZN3gmx18MDModulesNotifiersD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %13) #11
   call void @_ZN3gmx17IMDOutputProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -11530,7 +11533,8 @@ define linkonce_odr void @_ZN3gmx13OptionSectionC2EPKc(ptr noundef nonnull align
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21AbstractOptionSectionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx13OptionSectionE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx13OptionSectionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -11561,7 +11565,8 @@ define linkonce_odr void @_ZN3gmx19OptionSectionHandleC2EPNS_8internal17OptionSe
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx27AbstractOptionSectionHandleC2EPNS_8internal17OptionSectionImplE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx19OptionSectionHandleE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx19OptionSectionHandleE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -11573,10 +11578,11 @@ define linkonce_odr void @_ZN3gmx27AbstractOptionSectionHandleC2EPNS_8internal17
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx29IOptionsContainerWithSectionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx27AbstractOptionSectionHandleE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::AbstractOptionSectionHandle", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx27AbstractOptionSectionHandleE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::AbstractOptionSectionHandle", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -11602,7 +11608,8 @@ define linkonce_odr void @_ZN3gmx29IOptionsContainerWithSectionsC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx17IOptionsContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx29IOptionsContainerWithSectionsE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx29IOptionsContainerWithSectionsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11611,7 +11618,8 @@ define linkonce_odr void @_ZN3gmx17IOptionsContainerC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx17IOptionsContainerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx17IOptionsContainerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11622,10 +11630,11 @@ define linkonce_odr void @_ZN3gmx21AbstractOptionSectionC2EPKc(ptr noundef nonnu
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx21AbstractOptionSectionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::AbstractOptionSection", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx21AbstractOptionSectionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::AbstractOptionSection", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 

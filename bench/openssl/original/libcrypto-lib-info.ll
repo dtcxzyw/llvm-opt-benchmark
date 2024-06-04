@@ -84,7 +84,8 @@ sw.bb7:                                           ; preds = %cond.end
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb7
-  store ptr getelementptr inbounds (i8, ptr @ossl_cpu_info_str, i64 9), ptr %retval, align 8
+  %3 = getelementptr inbounds i8, ptr @ossl_cpu_info_str, i64 9
+  store ptr %3, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %sw.bb7
@@ -98,8 +99,8 @@ sw.epilog:                                        ; preds = %sw.default, %if.end
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+  %4 = load ptr, ptr %retval, align 8
+  ret ptr %4
 }
 
 declare i32 @CRYPTO_THREAD_run_once(ptr noundef, ptr noundef) #1
@@ -118,14 +119,17 @@ entry:
   %env = alloca ptr, align 8
   %0 = load i32, ptr @OPENSSL_ia32cap_P, align 4
   %conv = zext i32 %0 to i64
-  %1 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %conv1 = zext i32 %1 to i64
+  %1 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %2 = load i32, ptr %1, align 4
+  %conv1 = zext i32 %2 to i64
   %shl = shl i64 %conv1, 32
   %or = or i64 %conv, %shl
-  %2 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
-  %conv2 = zext i32 %2 to i64
-  %3 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 3), align 4
-  %conv3 = zext i32 %3 to i64
+  %3 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2
+  %4 = load i32, ptr %3, align 4
+  %conv2 = zext i32 %4 to i64
+  %5 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 3
+  %6 = load i32, ptr %5, align 4
+  %conv3 = zext i32 %6 to i64
   %shl4 = shl i64 %conv3, 32
   %or5 = or i64 %conv2, %shl4
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef @ossl_cpu_info_str, i64 noundef 128, ptr noundef @.str.5, i64 noundef %or, i64 noundef %or5)
@@ -139,16 +143,16 @@ if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr @ossl_cpu_info_str, i64 %call8
   %call9 = call i64 @strlen(ptr noundef @ossl_cpu_info_str) #5
   %sub = sub i64 128, %call9
-  %4 = load ptr, ptr %env, align 8
-  %call10 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef @.str.7, ptr noundef %4)
+  %7 = load ptr, ptr %env, align 8
+  %call10 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef @.str.7, ptr noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %5 = load i8, ptr @init_info_strings.seeds, align 16
-  %conv11 = sext i8 %5 to i32
+  %8 = load i8, ptr @init_info_strings.seeds, align 16
+  %conv11 = sext i8 %8 to i32
   %cmp12 = icmp ne i32 %conv11, 0
   br i1 %cmp12, label %if.then14, label %if.end16
 

@@ -5030,8 +5030,9 @@ for.end:                                          ; preds = %for.cond
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %if.then
-  %11 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @format_time.time_buf, i32 0, i32 2), align 8
-  ret ptr %11
+  %11 = getelementptr inbounds %struct.strbuf, ptr @format_time.time_buf, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable

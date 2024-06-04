@@ -274,7 +274,7 @@ define ptr @compileProg(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 16:                                               ; preds = %3
   call void (i32, ptr, ...) @_err_msg(i32 noundef 2, ptr noundef @.str)
-  br label %182
+  br label %185
 
 17:                                               ; preds = %3
   %18 = load i32, ptr %6, align 4
@@ -294,7 +294,7 @@ define ptr @compileProg(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %23
-  br label %182
+  br label %185
 
 28:                                               ; preds = %23
   call void @exinit()
@@ -309,7 +309,7 @@ define ptr @compileProg(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %28
-  br label %182
+  br label %185
 
 37:                                               ; preds = %28
   store i32 0, ptr @codePhase, align 4
@@ -341,7 +341,7 @@ define ptr @compileProg(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %42
-  br label %182
+  br label %185
 
 61:                                               ; preds = %42
   br label %62
@@ -396,7 +396,7 @@ define ptr @compileProg(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %83
-  br label %182
+  br label %185
 
 99:                                               ; preds = %83
   %100 = load ptr, ptr %11, align 8
@@ -440,107 +440,110 @@ define ptr @compileProg(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 122:                                              ; preds = %114
   %123 = load ptr, ptr %7, align 8
   %124 = icmp ne ptr %123, null
-  br i1 %124, label %125, label %146
+  br i1 %124, label %125, label %148
 
 125:                                              ; preds = %122, %114
-  store i64 29, ptr getelementptr inbounds (%struct.Exid_s, ptr @symbols, i32 0, i32 3), align 16
-  store i16 64, ptr getelementptr inbounds ([27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1), align 2
-  %126 = load ptr, ptr %9, align 8
-  %127 = getelementptr inbounds %struct.comp_prog, ptr %126, i32 0, i32 1
-  %128 = load ptr, ptr %127, align 8
-  %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds %struct.parse_prog, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %4, align 8
-  %133 = getelementptr inbounds %struct.parse_prog, ptr %132, i32 0, i32 7
-  %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds %struct.parse_prog, ptr %135, i32 0, i32 3
-  %137 = load i32, ptr %136, align 8
-  %138 = load ptr, ptr %7, align 8
-  %139 = call ptr @compile(ptr noundef %128, ptr noundef %131, ptr noundef %134, i32 noundef %137, ptr noundef @.str.1, ptr noundef %138, i32 noundef 264)
-  %140 = load ptr, ptr %9, align 8
-  %141 = getelementptr inbounds %struct.comp_prog, ptr %140, i32 0, i32 5
-  store ptr %139, ptr %141, align 8
-  %142 = call i32 @getErrorErrors()
-  %143 = icmp ne i32 %142, 0
-  br i1 %143, label %144, label %145
+  %126 = getelementptr inbounds %struct.Exid_s, ptr @symbols, i32 0, i32 3
+  store i64 29, ptr %126, align 16
+  %127 = getelementptr inbounds [27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1
+  store i16 64, ptr %127, align 2
+  %128 = load ptr, ptr %9, align 8
+  %129 = getelementptr inbounds %struct.comp_prog, ptr %128, i32 0, i32 1
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %4, align 8
+  %132 = getelementptr inbounds %struct.parse_prog, ptr %131, i32 0, i32 0
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %4, align 8
+  %135 = getelementptr inbounds %struct.parse_prog, ptr %134, i32 0, i32 7
+  %136 = load ptr, ptr %135, align 8
+  %137 = load ptr, ptr %4, align 8
+  %138 = getelementptr inbounds %struct.parse_prog, ptr %137, i32 0, i32 3
+  %139 = load i32, ptr %138, align 8
+  %140 = load ptr, ptr %7, align 8
+  %141 = call ptr @compile(ptr noundef %130, ptr noundef %133, ptr noundef %136, i32 noundef %139, ptr noundef @.str.1, ptr noundef %140, i32 noundef 264)
+  %142 = load ptr, ptr %9, align 8
+  %143 = getelementptr inbounds %struct.comp_prog, ptr %142, i32 0, i32 5
+  store ptr %141, ptr %143, align 8
+  %144 = call i32 @getErrorErrors()
+  %145 = icmp ne i32 %144, 0
+  br i1 %145, label %146, label %147
 
-144:                                              ; preds = %125
-  br label %182
+146:                                              ; preds = %125
+  br label %185
 
-145:                                              ; preds = %125
-  br label %146
+147:                                              ; preds = %125
+  br label %148
 
-146:                                              ; preds = %145, %122
+148:                                              ; preds = %147, %122
   store i32 5, ptr @codePhase, align 4
-  %147 = load ptr, ptr %4, align 8
-  %148 = getelementptr inbounds %struct.parse_prog, ptr %147, i32 0, i32 8
-  %149 = load ptr, ptr %148, align 8
-  %150 = icmp ne ptr %149, null
-  br i1 %150, label %151, label %171
+  %149 = load ptr, ptr %4, align 8
+  %150 = getelementptr inbounds %struct.parse_prog, ptr %149, i32 0, i32 8
+  %151 = load ptr, ptr %150, align 8
+  %152 = icmp ne ptr %151, null
+  br i1 %152, label %153, label %174
 
-151:                                              ; preds = %146
-  store i64 30, ptr getelementptr inbounds (%struct.Exid_s, ptr @symbols, i32 0, i32 3), align 16
-  %152 = load ptr, ptr %9, align 8
-  %153 = getelementptr inbounds %struct.comp_prog, ptr %152, i32 0, i32 1
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %4, align 8
-  %156 = getelementptr inbounds %struct.parse_prog, ptr %155, i32 0, i32 0
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds %struct.Exid_s, ptr @symbols, i32 0, i32 3
+  store i64 30, ptr %154, align 16
+  %155 = load ptr, ptr %9, align 8
+  %156 = getelementptr inbounds %struct.comp_prog, ptr %155, i32 0, i32 1
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %4, align 8
-  %159 = getelementptr inbounds %struct.parse_prog, ptr %158, i32 0, i32 8
+  %159 = getelementptr inbounds %struct.parse_prog, ptr %158, i32 0, i32 0
   %160 = load ptr, ptr %159, align 8
   %161 = load ptr, ptr %4, align 8
-  %162 = getelementptr inbounds %struct.parse_prog, ptr %161, i32 0, i32 2
-  %163 = load i32, ptr %162, align 4
-  %164 = call ptr @compile(ptr noundef %154, ptr noundef %157, ptr noundef %160, i32 noundef %163, ptr noundef @.str.2, ptr noundef null, i32 noundef 264)
-  %165 = load ptr, ptr %9, align 8
-  %166 = getelementptr inbounds %struct.comp_prog, ptr %165, i32 0, i32 6
-  store ptr %164, ptr %166, align 8
-  %167 = call i32 @getErrorErrors()
-  %168 = icmp ne i32 %167, 0
-  br i1 %168, label %169, label %170
+  %162 = getelementptr inbounds %struct.parse_prog, ptr %161, i32 0, i32 8
+  %163 = load ptr, ptr %162, align 8
+  %164 = load ptr, ptr %4, align 8
+  %165 = getelementptr inbounds %struct.parse_prog, ptr %164, i32 0, i32 2
+  %166 = load i32, ptr %165, align 4
+  %167 = call ptr @compile(ptr noundef %157, ptr noundef %160, ptr noundef %163, i32 noundef %166, ptr noundef @.str.2, ptr noundef null, i32 noundef 264)
+  %168 = load ptr, ptr %9, align 8
+  %169 = getelementptr inbounds %struct.comp_prog, ptr %168, i32 0, i32 6
+  store ptr %167, ptr %169, align 8
+  %170 = call i32 @getErrorErrors()
+  %171 = icmp ne i32 %170, 0
+  br i1 %171, label %172, label %173
 
-169:                                              ; preds = %151
-  br label %182
+172:                                              ; preds = %153
+  br label %185
 
-170:                                              ; preds = %151
-  br label %171
+173:                                              ; preds = %153
+  br label %174
 
-171:                                              ; preds = %170, %146
+174:                                              ; preds = %173, %148
   call void @setErrorLine(i32 noundef 0)
-  %172 = load ptr, ptr %9, align 8
-  %173 = getelementptr inbounds %struct.comp_prog, ptr %172, i32 0, i32 6
-  %174 = load ptr, ptr %173, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %176, label %181
+  %175 = load ptr, ptr %9, align 8
+  %176 = getelementptr inbounds %struct.comp_prog, ptr %175, i32 0, i32 6
+  %177 = load ptr, ptr %176, align 8
+  %178 = icmp ne ptr %177, null
+  br i1 %178, label %179, label %184
 
-176:                                              ; preds = %171
-  %177 = load ptr, ptr %9, align 8
-  %178 = getelementptr inbounds %struct.comp_prog, ptr %177, i32 0, i32 0
-  %179 = load i32, ptr %178, align 8
-  %180 = or i32 %179, 4
-  store i32 %180, ptr %178, align 8
-  br label %181
+179:                                              ; preds = %174
+  %180 = load ptr, ptr %9, align 8
+  %181 = getelementptr inbounds %struct.comp_prog, ptr %180, i32 0, i32 0
+  %182 = load i32, ptr %181, align 8
+  %183 = or i32 %182, 4
+  store i32 %183, ptr %181, align 8
+  br label %184
 
-181:                                              ; preds = %176, %171
-  br label %182
+184:                                              ; preds = %179, %174
+  br label %185
 
-182:                                              ; preds = %181, %169, %144, %98, %60, %36, %27, %16
-  %183 = call i32 @getErrorErrors()
-  %184 = icmp ne i32 %183, 0
-  br i1 %184, label %185, label %187
+185:                                              ; preds = %184, %172, %146, %98, %60, %36, %27, %16
+  %186 = call i32 @getErrorErrors()
+  %187 = icmp ne i32 %186, 0
+  br i1 %187, label %188, label %190
 
-185:                                              ; preds = %182
-  %186 = load ptr, ptr %9, align 8
-  call void @freeCompileProg(ptr noundef %186)
+188:                                              ; preds = %185
+  %189 = load ptr, ptr %9, align 8
+  call void @freeCompileProg(ptr noundef %189)
   store ptr null, ptr %9, align 8
-  br label %187
+  br label %190
 
-187:                                              ; preds = %185, %182
-  %188 = load ptr, ptr %9, align 8
-  ret ptr %188
+190:                                              ; preds = %188, %185
+  %191 = load ptr, ptr %9, align 8
+  ret ptr %191
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
@@ -890,171 +893,177 @@ define internal i32 @mkBlock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %16 = getelementptr inbounds %struct._parse_block, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %40
+  br i1 %18, label %19, label %42
 
 19:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 32, i1 false)
   %20 = load i64, ptr %10, align 8
   %21 = call i32 (ptr, ptr, ...) @agxbprint(ptr noundef %12, ptr noundef @.str.189, ptr noundef @mkBlock.PREFIX, i64 noundef %20)
-  store i64 29, ptr getelementptr inbounds (%struct.Exid_s, ptr @symbols, i32 0, i32 3), align 16
-  store i16 64, ptr getelementptr inbounds ([27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1), align 2
-  %22 = load ptr, ptr %7, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds %struct._parse_block, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._parse_block, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = call ptr @agxbuse(ptr noundef %12)
-  %31 = call ptr @compile(ptr noundef %22, ptr noundef %23, ptr noundef %26, i32 noundef %29, ptr noundef %30, ptr noundef null, i32 noundef 264)
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.comp_block, ptr %32, i32 0, i32 0
-  store ptr %31, ptr %33, align 8
+  %22 = getelementptr inbounds %struct.Exid_s, ptr @symbols, i32 0, i32 3
+  store i64 29, ptr %22, align 16
+  %23 = getelementptr inbounds [27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1
+  store i16 64, ptr %23, align 2
+  %24 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds %struct._parse_block, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = getelementptr inbounds %struct._parse_block, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 8
+  %32 = call ptr @agxbuse(ptr noundef %12)
+  %33 = call ptr @compile(ptr noundef %24, ptr noundef %25, ptr noundef %28, i32 noundef %31, ptr noundef %32, ptr noundef null, i32 noundef 264)
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds %struct.comp_block, ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8
   call void @agxbfree(ptr noundef %12)
-  %34 = call i32 @getErrorErrors()
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %37
+  %36 = call i32 @getErrorErrors()
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %39
 
-36:                                               ; preds = %19
-  br label %107
+38:                                               ; preds = %19
+  br label %113
 
-37:                                               ; preds = %19
-  %38 = load i32, ptr %11, align 4
-  %39 = or i32 %38, 2
-  store i32 %39, ptr %11, align 4
-  br label %40
+39:                                               ; preds = %19
+  %40 = load i32, ptr %11, align 4
+  %41 = or i32 %40, 2
+  store i32 %41, ptr %11, align 4
+  br label %42
 
-40:                                               ; preds = %37, %5
+42:                                               ; preds = %39, %5
   store i32 2, ptr @codePhase, align 4
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds %struct._parse_block, ptr %41, i32 0, i32 4
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %73
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds %struct._parse_block, ptr %43, i32 0, i32 4
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %77
 
-45:                                               ; preds = %40
+47:                                               ; preds = %42
   call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 32, i1 false)
-  store i64 27, ptr getelementptr inbounds (%struct.Exid_s, ptr @symbols, i32 0, i32 3), align 16
-  store i16 16, ptr getelementptr inbounds ([27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1), align 2
-  %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds %struct._parse_block, ptr %46, i32 0, i32 2
-  %48 = load i64, ptr %47, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.comp_block, ptr %49, i32 0, i32 2
-  store i64 %48, ptr %50, align 8
-  %51 = load i64, ptr %10, align 8
-  %52 = call i32 (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef @.str.189, ptr noundef @mkBlock.PREFIX.190, i64 noundef %51)
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct._parse_block, ptr %55, i32 0, i32 4
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds %struct._parse_block, ptr %58, i32 0, i32 2
-  %60 = load i64, ptr %59, align 8
-  %61 = call ptr @agxbuse(ptr noundef %13)
-  %62 = call ptr @mkStmts(ptr noundef %53, ptr noundef %54, ptr noundef %57, i64 noundef %60, ptr noundef %61)
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.comp_block, ptr %63, i32 0, i32 4
-  store ptr %62, ptr %64, align 8
+  %48 = getelementptr inbounds %struct.Exid_s, ptr @symbols, i32 0, i32 3
+  store i64 27, ptr %48, align 16
+  %49 = getelementptr inbounds [27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1
+  store i16 16, ptr %49, align 2
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._parse_block, ptr %50, i32 0, i32 2
+  %52 = load i64, ptr %51, align 8
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds %struct.comp_block, ptr %53, i32 0, i32 2
+  store i64 %52, ptr %54, align 8
+  %55 = load i64, ptr %10, align 8
+  %56 = call i32 (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef @.str.189, ptr noundef @mkBlock.PREFIX.190, i64 noundef %55)
+  %57 = load ptr, ptr %7, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr inbounds %struct._parse_block, ptr %59, i32 0, i32 4
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds %struct._parse_block, ptr %62, i32 0, i32 2
+  %64 = load i64, ptr %63, align 8
+  %65 = call ptr @agxbuse(ptr noundef %13)
+  %66 = call ptr @mkStmts(ptr noundef %57, ptr noundef %58, ptr noundef %61, i64 noundef %64, ptr noundef %65)
+  %67 = load ptr, ptr %6, align 8
+  %68 = getelementptr inbounds %struct.comp_block, ptr %67, i32 0, i32 4
+  store ptr %66, ptr %68, align 8
   call void @agxbfree(ptr noundef %13)
-  %65 = call i32 @getErrorErrors()
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %68
+  %69 = call i32 @getErrorErrors()
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %72
 
-67:                                               ; preds = %45
-  br label %107
+71:                                               ; preds = %47
+  br label %113
 
-68:                                               ; preds = %45
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.comp_block, ptr %69, i32 0, i32 1
-  %71 = load i32, ptr %70, align 8
-  %72 = or i32 %71, 1
-  store i32 %72, ptr %70, align 8
-  br label %73
+72:                                               ; preds = %47
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds %struct.comp_block, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 8
+  %76 = or i32 %75, 1
+  store i32 %76, ptr %74, align 8
+  br label %77
 
-73:                                               ; preds = %68, %40
+77:                                               ; preds = %72, %42
   store i32 3, ptr @codePhase, align 4
-  %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds %struct._parse_block, ptr %74, i32 0, i32 5
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %106
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds %struct._parse_block, ptr %78, i32 0, i32 5
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %112
 
-78:                                               ; preds = %73
+82:                                               ; preds = %77
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 32, i1 false)
-  store i64 28, ptr getelementptr inbounds (%struct.Exid_s, ptr @symbols, i32 0, i32 3), align 16
-  store i16 32, ptr getelementptr inbounds ([27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1), align 2
-  %79 = load ptr, ptr %9, align 8
-  %80 = getelementptr inbounds %struct._parse_block, ptr %79, i32 0, i32 3
-  %81 = load i64, ptr %80, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.comp_block, ptr %82, i32 0, i32 3
-  store i64 %81, ptr %83, align 8
-  %84 = load i64, ptr %10, align 8
-  %85 = call i32 (ptr, ptr, ...) @agxbprint(ptr noundef %14, ptr noundef @.str.189, ptr noundef @mkBlock.PREFIX.191, i64 noundef %84)
-  %86 = load ptr, ptr %7, align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = load ptr, ptr %9, align 8
-  %89 = getelementptr inbounds %struct._parse_block, ptr %88, i32 0, i32 5
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds %struct._parse_block, ptr %91, i32 0, i32 3
-  %93 = load i64, ptr %92, align 8
-  %94 = call ptr @agxbuse(ptr noundef %14)
-  %95 = call ptr @mkStmts(ptr noundef %86, ptr noundef %87, ptr noundef %90, i64 noundef %93, ptr noundef %94)
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds %struct.comp_block, ptr %96, i32 0, i32 5
-  store ptr %95, ptr %97, align 8
-  call void @agxbfree(ptr noundef %14)
-  %98 = call i32 @getErrorErrors()
-  %99 = icmp ne i32 %98, 0
-  br i1 %99, label %100, label %101
-
-100:                                              ; preds = %78
-  br label %107
-
-101:                                              ; preds = %78
+  %83 = getelementptr inbounds %struct.Exid_s, ptr @symbols, i32 0, i32 3
+  store i64 28, ptr %83, align 16
+  %84 = getelementptr inbounds [27 x [2 x i16]], ptr @tchk, i64 0, i64 1, i64 1
+  store i16 32, ptr %84, align 2
+  %85 = load ptr, ptr %9, align 8
+  %86 = getelementptr inbounds %struct._parse_block, ptr %85, i32 0, i32 3
+  %87 = load i64, ptr %86, align 8
+  %88 = load ptr, ptr %6, align 8
+  %89 = getelementptr inbounds %struct.comp_block, ptr %88, i32 0, i32 3
+  store i64 %87, ptr %89, align 8
+  %90 = load i64, ptr %10, align 8
+  %91 = call i32 (ptr, ptr, ...) @agxbprint(ptr noundef %14, ptr noundef @.str.189, ptr noundef @mkBlock.PREFIX.191, i64 noundef %90)
+  %92 = load ptr, ptr %7, align 8
+  %93 = load ptr, ptr %8, align 8
+  %94 = load ptr, ptr %9, align 8
+  %95 = getelementptr inbounds %struct._parse_block, ptr %94, i32 0, i32 5
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %9, align 8
+  %98 = getelementptr inbounds %struct._parse_block, ptr %97, i32 0, i32 3
+  %99 = load i64, ptr %98, align 8
+  %100 = call ptr @agxbuse(ptr noundef %14)
+  %101 = call ptr @mkStmts(ptr noundef %92, ptr noundef %93, ptr noundef %96, i64 noundef %99, ptr noundef %100)
   %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct.comp_block, ptr %102, i32 0, i32 1
-  %104 = load i32, ptr %103, align 8
-  %105 = or i32 %104, 1
-  store i32 %105, ptr %103, align 8
-  br label %106
+  %103 = getelementptr inbounds %struct.comp_block, ptr %102, i32 0, i32 5
+  store ptr %101, ptr %103, align 8
+  call void @agxbfree(ptr noundef %14)
+  %104 = call i32 @getErrorErrors()
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %107
 
-106:                                              ; preds = %101, %73
-  br label %107
+106:                                              ; preds = %82
+  br label %113
 
-107:                                              ; preds = %106, %100, %67, %36
-  %108 = call i32 @getErrorErrors()
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %110, label %121
+107:                                              ; preds = %82
+  %108 = load ptr, ptr %6, align 8
+  %109 = getelementptr inbounds %struct.comp_block, ptr %108, i32 0, i32 1
+  %110 = load i32, ptr %109, align 8
+  %111 = or i32 %110, 1
+  store i32 %111, ptr %109, align 8
+  br label %112
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %6, align 8
-  %112 = getelementptr inbounds %struct.comp_block, ptr %111, i32 0, i32 4
-  %113 = load ptr, ptr %112, align 8
-  call void @free(ptr noundef %113) #13
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct.comp_block, ptr %114, i32 0, i32 5
-  %116 = load ptr, ptr %115, align 8
-  call void @free(ptr noundef %116) #13
+112:                                              ; preds = %107, %77
+  br label %113
+
+113:                                              ; preds = %112, %106, %71, %38
+  %114 = call i32 @getErrorErrors()
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %127
+
+116:                                              ; preds = %113
   %117 = load ptr, ptr %6, align 8
   %118 = getelementptr inbounds %struct.comp_block, ptr %117, i32 0, i32 4
-  store ptr null, ptr %118, align 8
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct.comp_block, ptr %119, i32 0, i32 5
-  store ptr null, ptr %120, align 8
-  br label %121
-
-121:                                              ; preds = %110, %107
-  %122 = load i32, ptr %11, align 4
+  %119 = load ptr, ptr %118, align 8
+  call void @free(ptr noundef %119) #13
+  %120 = load ptr, ptr %6, align 8
+  %121 = getelementptr inbounds %struct.comp_block, ptr %120, i32 0, i32 5
+  %122 = load ptr, ptr %121, align 8
+  call void @free(ptr noundef %122) #13
   %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds %struct.comp_block, ptr %123, i32 0, i32 1
-  %125 = load i32, ptr %124, align 8
-  %126 = or i32 %122, %125
-  ret i32 %126
+  %124 = getelementptr inbounds %struct.comp_block, ptr %123, i32 0, i32 4
+  store ptr null, ptr %124, align 8
+  %125 = load ptr, ptr %6, align 8
+  %126 = getelementptr inbounds %struct.comp_block, ptr %125, i32 0, i32 5
+  store ptr null, ptr %126, align 8
+  br label %127
+
+127:                                              ; preds = %116, %113
+  %128 = load i32, ptr %11, align 4
+  %129 = load ptr, ptr %6, align 8
+  %130 = getelementptr inbounds %struct.comp_block, ptr %129, i32 0, i32 1
+  %131 = load i32, ptr %130, align 8
+  %132 = or i32 %128, %131
+  ret i32 %132
 }
 
 declare void @setErrorLine(i32 noundef) #2
@@ -9291,14 +9300,14 @@ define internal i32 @agxbprint(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @vagxbprint(ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store i32 %11, ptr %6, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i32, ptr %6, align 4
   ret i32 %13
 }
@@ -9345,9 +9354,6 @@ declare i32 @fclose(ptr noundef) #2
 
 declare ptr @exexpr(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 ; Function Attrs: nounwind uwtable
 define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
@@ -9366,20 +9372,20 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %16 = load ptr, ptr %7, align 8
-  call void @llvm.va_copy(ptr %15, ptr %16)
+  call void @llvm.va_copy.p0(ptr %15, ptr %16)
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %19 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %17, ptr noundef %18) #13
   store i32 %19, ptr %11, align 4
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load i32, ptr %11, align 4
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %7, align 8
-  call void @llvm.va_end(ptr %24)
+  call void @llvm.va_end.p0(ptr %24)
   %25 = load i32, ptr %11, align 4
   store i32 %25, ptr %4, align 4
   br label %79
@@ -9466,12 +9472,6 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %80 = load i32, ptr %4, align 4
   ret i32 %80
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
@@ -9790,6 +9790,15 @@ declare i64 @read(i32 noundef, ptr noundef, i64 noundef) #2
 declare i32 @fileno(ptr noundef) #3
 
 declare i32 @fflush(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

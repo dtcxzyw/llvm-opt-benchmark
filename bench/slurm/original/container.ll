@@ -2181,164 +2181,176 @@ define internal void @_generate_patterns(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %43, ptr %5, align 8
   %44 = load ptr, ptr %5, align 8
   %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %52
+  br i1 %45, label %46, label %54
 
 46:                                               ; preds = %36
   %47 = load i8, ptr @_generate_patterns.set, align 1
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %50
+  br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46
-  call void @slurm_xfree(ptr noundef getelementptr inbounds ([4 x ptr], ptr @create_argv, i64 0, i64 2))
-  br label %50
+  %50 = getelementptr inbounds [4 x ptr], ptr @create_argv, i64 0, i64 2
+  call void @slurm_xfree(ptr noundef %50)
+  br label %51
 
-50:                                               ; preds = %49, %46
-  %51 = load ptr, ptr %5, align 8
-  store ptr %51, ptr getelementptr inbounds ([4 x ptr], ptr @create_argv, i64 0, i64 2), align 16
+51:                                               ; preds = %49, %46
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds [4 x ptr], ptr @create_argv, i64 0, i64 2
+  store ptr %52, ptr %53, align 16
   store i8 1, ptr @_generate_patterns.set, align 1
-  br label %52
+  br label %54
 
-52:                                               ; preds = %50, %36
-  %53 = load ptr, ptr @oci_conf, align 8
-  %54 = getelementptr inbounds %struct.oci_conf_t, ptr %53, i32 0, i32 7
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = load i32, ptr %6, align 4
-  %58 = load ptr, ptr %7, align 8
-  %59 = call ptr @_generate_pattern(ptr noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef %58)
-  store ptr %59, ptr %5, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %68
+54:                                               ; preds = %51, %36
+  %55 = load ptr, ptr @oci_conf, align 8
+  %56 = getelementptr inbounds %struct.oci_conf_t, ptr %55, i32 0, i32 7
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %3, align 8
+  %59 = load i32, ptr %6, align 4
+  %60 = load ptr, ptr %7, align 8
+  %61 = call ptr @_generate_pattern(ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef %60)
+  store ptr %61, ptr %5, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %72
 
-62:                                               ; preds = %52
-  %63 = load i8, ptr @_generate_patterns.set.68, align 1
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %65, label %66
+64:                                               ; preds = %54
+  %65 = load i8, ptr @_generate_patterns.set.68, align 1
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %69
 
-65:                                               ; preds = %62
-  call void @slurm_xfree(ptr noundef getelementptr inbounds ([4 x ptr], ptr @delete_argv, i64 0, i64 2))
-  br label %66
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds [4 x ptr], ptr @delete_argv, i64 0, i64 2
+  call void @slurm_xfree(ptr noundef %68)
+  br label %69
 
-66:                                               ; preds = %65, %62
-  %67 = load ptr, ptr %5, align 8
-  store ptr %67, ptr getelementptr inbounds ([4 x ptr], ptr @delete_argv, i64 0, i64 2), align 16
+69:                                               ; preds = %67, %64
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds [4 x ptr], ptr @delete_argv, i64 0, i64 2
+  store ptr %70, ptr %71, align 16
   store i8 1, ptr @_generate_patterns.set.68, align 1
-  br label %68
+  br label %72
 
-68:                                               ; preds = %66, %52
-  %69 = load ptr, ptr @oci_conf, align 8
-  %70 = getelementptr inbounds %struct.oci_conf_t, ptr %69, i32 0, i32 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = load i32, ptr %6, align 4
-  %74 = load ptr, ptr %7, align 8
-  %75 = call ptr @_generate_pattern(ptr noundef %71, ptr noundef %72, i32 noundef %73, ptr noundef %74)
-  store ptr %75, ptr %5, align 8
-  %76 = load ptr, ptr %5, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %84
+72:                                               ; preds = %69, %54
+  %73 = load ptr, ptr @oci_conf, align 8
+  %74 = getelementptr inbounds %struct.oci_conf_t, ptr %73, i32 0, i32 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = load ptr, ptr %3, align 8
+  %77 = load i32, ptr %6, align 4
+  %78 = load ptr, ptr %7, align 8
+  %79 = call ptr @_generate_pattern(ptr noundef %75, ptr noundef %76, i32 noundef %77, ptr noundef %78)
+  store ptr %79, ptr %5, align 8
+  %80 = load ptr, ptr %5, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %90
 
-78:                                               ; preds = %68
-  %79 = load i8, ptr @_generate_patterns.set.69, align 1
-  %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %82
+82:                                               ; preds = %72
+  %83 = load i8, ptr @_generate_patterns.set.69, align 1
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %87
 
-81:                                               ; preds = %78
-  call void @slurm_xfree(ptr noundef getelementptr inbounds ([4 x ptr], ptr @kill_argv, i64 0, i64 2))
-  br label %82
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds [4 x ptr], ptr @kill_argv, i64 0, i64 2
+  call void @slurm_xfree(ptr noundef %86)
+  br label %87
 
-82:                                               ; preds = %81, %78
-  %83 = load ptr, ptr %5, align 8
-  store ptr %83, ptr getelementptr inbounds ([4 x ptr], ptr @kill_argv, i64 0, i64 2), align 16
+87:                                               ; preds = %85, %82
+  %88 = load ptr, ptr %5, align 8
+  %89 = getelementptr inbounds [4 x ptr], ptr @kill_argv, i64 0, i64 2
+  store ptr %88, ptr %89, align 16
   store i8 1, ptr @_generate_patterns.set.69, align 1
-  br label %84
+  br label %90
 
-84:                                               ; preds = %82, %68
-  %85 = load ptr, ptr @oci_conf, align 8
-  %86 = getelementptr inbounds %struct.oci_conf_t, ptr %85, i32 0, i32 11
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %3, align 8
-  %89 = load i32, ptr %6, align 4
-  %90 = load ptr, ptr %7, align 8
-  %91 = call ptr @_generate_pattern(ptr noundef %87, ptr noundef %88, i32 noundef %89, ptr noundef %90)
-  store ptr %91, ptr %5, align 8
-  %92 = load ptr, ptr %5, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %100
+90:                                               ; preds = %87, %72
+  %91 = load ptr, ptr @oci_conf, align 8
+  %92 = getelementptr inbounds %struct.oci_conf_t, ptr %91, i32 0, i32 11
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %3, align 8
+  %95 = load i32, ptr %6, align 4
+  %96 = load ptr, ptr %7, align 8
+  %97 = call ptr @_generate_pattern(ptr noundef %93, ptr noundef %94, i32 noundef %95, ptr noundef %96)
+  store ptr %97, ptr %5, align 8
+  %98 = load ptr, ptr %5, align 8
+  %99 = icmp ne ptr %98, null
+  br i1 %99, label %100, label %108
 
-94:                                               ; preds = %84
-  %95 = load i8, ptr @_generate_patterns.set.70, align 1
-  %96 = trunc i8 %95 to i1
-  br i1 %96, label %97, label %98
+100:                                              ; preds = %90
+  %101 = load i8, ptr @_generate_patterns.set.70, align 1
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %105
 
-97:                                               ; preds = %94
-  call void @slurm_xfree(ptr noundef getelementptr inbounds ([4 x ptr], ptr @query_argv, i64 0, i64 2))
-  br label %98
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds [4 x ptr], ptr @query_argv, i64 0, i64 2
+  call void @slurm_xfree(ptr noundef %104)
+  br label %105
 
-98:                                               ; preds = %97, %94
-  %99 = load ptr, ptr %5, align 8
-  store ptr %99, ptr getelementptr inbounds ([4 x ptr], ptr @query_argv, i64 0, i64 2), align 16
+105:                                              ; preds = %103, %100
+  %106 = load ptr, ptr %5, align 8
+  %107 = getelementptr inbounds [4 x ptr], ptr @query_argv, i64 0, i64 2
+  store ptr %106, ptr %107, align 16
   store i8 1, ptr @_generate_patterns.set.70, align 1
-  br label %100
+  br label %108
 
-100:                                              ; preds = %98, %84
-  %101 = load ptr, ptr @oci_conf, align 8
-  %102 = getelementptr inbounds %struct.oci_conf_t, ptr %101, i32 0, i32 12
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %3, align 8
-  %105 = load i32, ptr %6, align 4
-  %106 = load ptr, ptr %7, align 8
-  %107 = call ptr @_generate_pattern(ptr noundef %103, ptr noundef %104, i32 noundef %105, ptr noundef %106)
-  store ptr %107, ptr %5, align 8
-  %108 = load ptr, ptr %5, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %116
+108:                                              ; preds = %105, %90
+  %109 = load ptr, ptr @oci_conf, align 8
+  %110 = getelementptr inbounds %struct.oci_conf_t, ptr %109, i32 0, i32 12
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %3, align 8
+  %113 = load i32, ptr %6, align 4
+  %114 = load ptr, ptr %7, align 8
+  %115 = call ptr @_generate_pattern(ptr noundef %111, ptr noundef %112, i32 noundef %113, ptr noundef %114)
+  store ptr %115, ptr %5, align 8
+  %116 = load ptr, ptr %5, align 8
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %126
 
-110:                                              ; preds = %100
-  %111 = load i8, ptr @_generate_patterns.set.71, align 1
-  %112 = trunc i8 %111 to i1
-  br i1 %112, label %113, label %114
+118:                                              ; preds = %108
+  %119 = load i8, ptr @_generate_patterns.set.71, align 1
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %123
 
-113:                                              ; preds = %110
-  call void @slurm_xfree(ptr noundef getelementptr inbounds ([4 x ptr], ptr @run_argv, i64 0, i64 2))
-  br label %114
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds [4 x ptr], ptr @run_argv, i64 0, i64 2
+  call void @slurm_xfree(ptr noundef %122)
+  br label %123
 
-114:                                              ; preds = %113, %110
-  %115 = load ptr, ptr %5, align 8
-  store ptr %115, ptr getelementptr inbounds ([4 x ptr], ptr @run_argv, i64 0, i64 2), align 16
-  store i8 1, ptr @_generate_patterns.set.71, align 1
-  br label %116
-
-116:                                              ; preds = %114, %100
-  %117 = load ptr, ptr @oci_conf, align 8
-  %118 = getelementptr inbounds %struct.oci_conf_t, ptr %117, i32 0, i32 13
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %3, align 8
-  %121 = load i32, ptr %6, align 4
-  %122 = load ptr, ptr %7, align 8
-  %123 = call ptr @_generate_pattern(ptr noundef %119, ptr noundef %120, i32 noundef %121, ptr noundef %122)
-  store ptr %123, ptr %5, align 8
+123:                                              ; preds = %121, %118
   %124 = load ptr, ptr %5, align 8
-  %125 = icmp ne ptr %124, null
-  br i1 %125, label %126, label %132
+  %125 = getelementptr inbounds [4 x ptr], ptr @run_argv, i64 0, i64 2
+  store ptr %124, ptr %125, align 16
+  store i8 1, ptr @_generate_patterns.set.71, align 1
+  br label %126
 
-126:                                              ; preds = %116
-  %127 = load i8, ptr @_generate_patterns.set.72, align 1
-  %128 = trunc i8 %127 to i1
-  br i1 %128, label %129, label %130
+126:                                              ; preds = %123, %108
+  %127 = load ptr, ptr @oci_conf, align 8
+  %128 = getelementptr inbounds %struct.oci_conf_t, ptr %127, i32 0, i32 13
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %3, align 8
+  %131 = load i32, ptr %6, align 4
+  %132 = load ptr, ptr %7, align 8
+  %133 = call ptr @_generate_pattern(ptr noundef %129, ptr noundef %130, i32 noundef %131, ptr noundef %132)
+  store ptr %133, ptr %5, align 8
+  %134 = load ptr, ptr %5, align 8
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %144
 
-129:                                              ; preds = %126
-  call void @slurm_xfree(ptr noundef getelementptr inbounds ([4 x ptr], ptr @start_argv, i64 0, i64 2))
-  br label %130
+136:                                              ; preds = %126
+  %137 = load i8, ptr @_generate_patterns.set.72, align 1
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %139, label %141
 
-130:                                              ; preds = %129, %126
-  %131 = load ptr, ptr %5, align 8
-  store ptr %131, ptr getelementptr inbounds ([4 x ptr], ptr @start_argv, i64 0, i64 2), align 16
+139:                                              ; preds = %136
+  %140 = getelementptr inbounds [4 x ptr], ptr @start_argv, i64 0, i64 2
+  call void @slurm_xfree(ptr noundef %140)
+  br label %141
+
+141:                                              ; preds = %139, %136
+  %142 = load ptr, ptr %5, align 8
+  %143 = getelementptr inbounds [4 x ptr], ptr @start_argv, i64 0, i64 2
+  store ptr %142, ptr %143, align 16
   store i8 1, ptr @_generate_patterns.set.72, align 1
-  br label %132
+  br label %144
 
-132:                                              ; preds = %130, %116
+144:                                              ; preds = %141, %126
   ret void
 }
 
@@ -2356,24 +2368,25 @@ define internal void @_run(ptr noundef %0, ptr noundef %1) #0 {
 6:                                                ; preds = %5
   %7 = call i32 @get_log_level()
   %8 = icmp sge i32 %7, 7
-  br i1 %8, label %9, label %11
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @run_argv, i64 0, i64 2), align 16
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.81, ptr noundef @__func__._run, ptr noundef %10)
-  br label %11
-
-11:                                               ; preds = %9, %6
+  %10 = getelementptr inbounds [4 x ptr], ptr @run_argv, i64 0, i64 2
+  %11 = load ptr, ptr %10, align 16
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.81, ptr noundef @__func__._run, ptr noundef %11)
   br label %12
 
-12:                                               ; preds = %11
+12:                                               ; preds = %9, %6
   br label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr @run_argv, align 16
-  %15 = call i32 @execv(ptr noundef %14, ptr noundef @run_argv) #10
-  %16 = load ptr, ptr @run_argv, align 16
-  call void (ptr, ...) @fatal(ptr noundef @.str.82, ptr noundef %16) #7
+  br label %14
+
+14:                                               ; preds = %13
+  %15 = load ptr, ptr @run_argv, align 16
+  %16 = call i32 @execv(ptr noundef %15, ptr noundef @run_argv) #10
+  %17 = load ptr, ptr @run_argv, align 16
+  call void (ptr, ...) @fatal(ptr noundef @.str.82, ptr noundef %17) #7
   unreachable
 }
 
@@ -3878,7 +3891,7 @@ define internal ptr @_get_container_state() #0 {
   %41 = load ptr, ptr %4, align 8
   %42 = call i32 (ptr, ...) @error(ptr noundef @.str.100, ptr noundef @__func__._get_container_state, i32 noundef %40, ptr noundef %41)
   store ptr null, ptr %1, align 8
-  br label %64
+  br label %65
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr %4, align 8
@@ -3886,7 +3899,7 @@ define internal ptr @_get_container_state() #0 {
   %46 = call i64 @strlen(ptr noundef %45) #8
   %47 = call i32 @serialize_g_string_to_data(ptr noundef %3, ptr noundef %44, i64 noundef %46, ptr noundef @.str.9)
   %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %62
+  br i1 %48, label %49, label %63
 
 49:                                               ; preds = %43
   %50 = load ptr, ptr %4, align 8
@@ -3894,33 +3907,34 @@ define internal ptr @_get_container_state() #0 {
   br label %52
 
 52:                                               ; preds = %49
-  %53 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %54 = and i64 %53, 2
-  %55 = icmp ne i64 %54, 0
-  br i1 %55, label %56, label %60
+  %53 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %54 = load i64, ptr %53, align 8
+  %55 = and i64 %54, 2
+  %56 = icmp ne i64 %55, 0
+  br i1 %56, label %57, label %61
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %4, align 8
+57:                                               ; preds = %52
   %58 = load ptr, ptr %4, align 8
-  %59 = call i64 @strlen(ptr noundef %58) #8
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %57, i64 noundef %59, i64 noundef -1, i64 noundef -1, ptr noundef @.str.102)
-  br label %60
-
-60:                                               ; preds = %56, %52
+  %59 = load ptr, ptr %4, align 8
+  %60 = call i64 @strlen(ptr noundef %59) #8
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %58, i64 noundef %60, i64 noundef -1, i64 noundef -1, ptr noundef @.str.102)
   br label %61
 
-61:                                               ; preds = %60
+61:                                               ; preds = %57, %52
   br label %62
 
-62:                                               ; preds = %61, %43
-  call void @slurm_xfree(ptr noundef %4)
-  %63 = load ptr, ptr %3, align 8
-  store ptr %63, ptr %1, align 8
-  br label %64
+62:                                               ; preds = %61
+  br label %63
 
-64:                                               ; preds = %62, %39
-  %65 = load ptr, ptr %1, align 8
-  ret ptr %65
+63:                                               ; preds = %62, %43
+  call void @slurm_xfree(ptr noundef %4)
+  %64 = load ptr, ptr %3, align 8
+  store ptr %64, ptr %1, align 8
+  br label %65
+
+65:                                               ; preds = %63, %39
+  %66 = load ptr, ptr %1, align 8
+  ret ptr %66
 }
 
 declare void @_log_flag_hex(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) #1

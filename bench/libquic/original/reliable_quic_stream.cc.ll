@@ -549,14 +549,15 @@ entry:
   store i32 %id, ptr %id.addr, align 4
   store ptr %session, ptr %session.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %queued_data_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %queued_data_) #10
   %queued_data_bytes_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 2
   store i64 0, ptr %queued_data_bytes_, align 8
   %sequencer_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %session.addr, align 8
-  %call = invoke noundef ptr @_ZN3net11QuicSession10connectionEv(ptr noundef nonnull align 8 dereferenceable(2044) %0)
+  %1 = load ptr, ptr %session.addr, align 8
+  %call = invoke noundef ptr @_ZN3net11QuicSession10connectionEv(ptr noundef nonnull align 8 dereferenceable(2044) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -569,11 +570,11 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %id_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %id.addr, align 4
-  store i32 %1, ptr %id_, align 8
+  %2 = load i32, ptr %id.addr, align 4
+  store i32 %2, ptr %id_, align 8
   %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %session.addr, align 8
-  store ptr %2, ptr %session_, align 8
+  %3 = load ptr, ptr %session.addr, align 8
+  store ptr %3, ptr %session_, align 8
   %stream_bytes_read_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 7
   store i64 0, ptr %stream_bytes_read_, align 8
   %stream_bytes_written_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 8
@@ -598,36 +599,36 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   store i8 0, ptr %rst_received_, align 2
   %perspective_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 19
   %session_5 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %session_5, align 8
-  %call8 = invoke noundef i32 @_ZNK3net11QuicSession11perspectiveEv(ptr noundef nonnull align 8 dereferenceable(2044) %3)
+  %4 = load ptr, ptr %session_5, align 8
+  %call8 = invoke noundef i32 @_ZNK3net11QuicSession11perspectiveEv(ptr noundef nonnull align 8 dereferenceable(2044) %4)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   store i32 %call8, ptr %perspective_, align 8
   %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 21
   %session_9 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %session_9, align 8
-  %call11 = invoke noundef ptr @_ZN3net11QuicSession10connectionEv(ptr noundef nonnull align 8 dereferenceable(2044) %4)
+  %5 = load ptr, ptr %session_9, align 8
+  %call11 = invoke noundef ptr @_ZN3net11QuicSession10connectionEv(ptr noundef nonnull align 8 dereferenceable(2044) %5)
           to label %invoke.cont10 unwind label %lpad6
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   %id_12 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 4
-  %5 = load i32, ptr %id_12, align 8
+  %6 = load i32, ptr %id_12, align 8
   %perspective_13 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 19
-  %6 = load i32, ptr %perspective_13, align 8
-  %7 = load ptr, ptr %session.addr, align 8
-  %call15 = invoke noundef i64 @_ZN3net12_GLOBAL__N_128GetReceivedFlowControlWindowEPNS_11QuicSessionE(ptr noundef %7)
+  %7 = load i32, ptr %perspective_13, align 8
+  %8 = load ptr, ptr %session.addr, align 8
+  %call15 = invoke noundef i64 @_ZN3net12_GLOBAL__N_128GetReceivedFlowControlWindowEPNS_11QuicSessionE(ptr noundef %8)
           to label %invoke.cont14 unwind label %lpad6
 
 invoke.cont14:                                    ; preds = %invoke.cont10
-  %8 = load ptr, ptr %session.addr, align 8
-  %call17 = invoke noundef i64 @_ZN3net12_GLOBAL__N_139GetInitialStreamFlowControlWindowToSendEPNS_11QuicSessionE(ptr noundef %8)
+  %9 = load ptr, ptr %session.addr, align 8
+  %call17 = invoke noundef i64 @_ZN3net12_GLOBAL__N_139GetInitialStreamFlowControlWindowToSendEPNS_11QuicSessionE(ptr noundef %9)
           to label %invoke.cont16 unwind label %lpad6
 
 invoke.cont16:                                    ; preds = %invoke.cont14
   %session_18 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 6
-  %9 = load ptr, ptr %session_18, align 8
-  %call20 = invoke noundef ptr @_ZN3net11QuicSession15flow_controllerEv(ptr noundef nonnull align 8 dereferenceable(2044) %9)
+  %10 = load ptr, ptr %session_18, align 8
+  %call20 = invoke noundef ptr @_ZN3net11QuicSession15flow_controllerEv(ptr noundef nonnull align 8 dereferenceable(2044) %10)
           to label %invoke.cont19 unwind label %lpad6
 
 invoke.cont19:                                    ; preds = %invoke.cont16
@@ -635,14 +636,14 @@ invoke.cont19:                                    ; preds = %invoke.cont16
           to label %invoke.cont21 unwind label %lpad6
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  invoke void @_ZN3net18QuicFlowControllerC1EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, ptr noundef %call11, i32 noundef %5, i32 noundef %6, i64 noundef %call15, i64 noundef %call17, i1 noundef zeroext %call22)
+  invoke void @_ZN3net18QuicFlowControllerC1EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, ptr noundef %call11, i32 noundef %6, i32 noundef %7, i64 noundef %call15, i64 noundef %call17, i1 noundef zeroext %call22)
           to label %invoke.cont23 unwind label %lpad6
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   %connection_flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 22
   %session_24 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 6
-  %10 = load ptr, ptr %session_24, align 8
-  %call27 = invoke noundef ptr @_ZN3net11QuicSession15flow_controllerEv(ptr noundef nonnull align 8 dereferenceable(2044) %10)
+  %11 = load ptr, ptr %session_24, align 8
+  %call27 = invoke noundef ptr @_ZN3net11QuicSession15flow_controllerEv(ptr noundef nonnull align 8 dereferenceable(2044) %11)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont23
@@ -656,30 +657,30 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup29
 
 lpad6:                                            ; preds = %invoke.cont21, %invoke.cont19, %invoke.cont16, %invoke.cont14, %invoke.cont10, %invoke.cont7, %invoke.cont4
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad25:                                           ; preds = %invoke.cont26, %invoke.cont23
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZN3net18QuicFlowControllerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_) #10
   br label %ehcleanup
 
@@ -844,7 +845,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 21
   call void @_ZN3net18QuicFlowControllerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_) #10
   %sequencer_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 3

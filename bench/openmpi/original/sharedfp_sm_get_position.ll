@@ -22,24 +22,25 @@ define i32 @mca_sharedfp_sm_get_position(ptr noundef %0, ptr noundef %1) #0 {
   %7 = getelementptr inbounds %struct.ompio_file_t, ptr %6, i32 0, i32 25
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %11, ptr noundef @.str)
+  %11 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i32 0, i32 11
+  %12 = load i32, ptr %11, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %12, ptr noundef @.str)
   store i32 -1, ptr %3, align 4
-  br label %16
+  br label %17
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = call i32 @mca_sharedfp_sm_request_position(ptr noundef %13, i32 noundef 0, ptr noundef %14)
-  store i32 %15, ptr %3, align 4
-  br label %16
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 @mca_sharedfp_sm_request_position(ptr noundef %14, i32 noundef 0, ptr noundef %15)
+  store i32 %16, ptr %3, align 4
+  br label %17
 
-16:                                               ; preds = %12, %10
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+17:                                               ; preds = %13, %10
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) #1

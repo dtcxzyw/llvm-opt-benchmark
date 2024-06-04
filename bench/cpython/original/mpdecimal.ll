@@ -67,62 +67,71 @@ entry:
   %word.addr = alloca i64, align 8
   store i64 %word, ptr %word.addr, align 8
   %0 = load i64, ptr %word.addr, align 8
-  %1 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp = icmp ult i64 %0, %1
+  %1 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp ult i64 %0, %2
   br i1 %cmp, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %word.addr, align 8
-  %3 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1 = icmp ult i64 %2, %3
+  %3 = load i64, ptr %word.addr, align 8
+  %4 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %5 = load i64, ptr %4, align 8
+  %cmp1 = icmp ult i64 %3, %5
   br i1 %cmp1, label %if.then2, label %if.end8
 
 if.then2:                                         ; preds = %if.then
-  %4 = load i64, ptr %word.addr, align 8
-  %5 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3 = icmp ult i64 %4, %5
+  %6 = load i64, ptr %word.addr, align 8
+  %7 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %8 = load i64, ptr %7, align 8
+  %cmp3 = icmp ult i64 %6, %8
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then2
-  %6 = load i64, ptr %word.addr, align 8
-  %7 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5 = icmp ult i64 %6, %7
+  %9 = load i64, ptr %word.addr, align 8
+  %10 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %11 = load i64, ptr %10, align 8
+  %cmp5 = icmp ult i64 %9, %11
   %cond = select i1 %cmp5, i32 1, i32 2
   store i32 %cond, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %if.then2
-  %8 = load i64, ptr %word.addr, align 8
-  %9 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6 = icmp ult i64 %8, %9
+  %12 = load i64, ptr %word.addr, align 8
+  %13 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %14 = load i64, ptr %13, align 8
+  %cmp6 = icmp ult i64 %12, %14
   %cond7 = select i1 %cmp6, i32 3, i32 4
   store i32 %cond7, ptr %retval, align 4
   br label %return
 
 if.end8:                                          ; preds = %if.then
-  %10 = load i64, ptr %word.addr, align 8
-  %11 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9 = icmp ult i64 %10, %11
+  %15 = load i64, ptr %word.addr, align 8
+  %16 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %17 = load i64, ptr %16, align 8
+  %cmp9 = icmp ult i64 %15, %17
   br i1 %cmp9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.end8
-  %12 = load i64, ptr %word.addr, align 8
-  %13 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11 = icmp ult i64 %12, %13
+  %18 = load i64, ptr %word.addr, align 8
+  %19 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %20 = load i64, ptr %19, align 8
+  %cmp11 = icmp ult i64 %18, %20
   %cond12 = select i1 %cmp11, i32 5, i32 6
   store i32 %cond12, ptr %retval, align 4
   br label %return
 
 if.end13:                                         ; preds = %if.end8
-  %14 = load i64, ptr %word.addr, align 8
-  %15 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14 = icmp ult i64 %14, %15
+  %21 = load i64, ptr %word.addr, align 8
+  %22 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %23 = load i64, ptr %22, align 8
+  %cmp14 = icmp ult i64 %21, %23
   br i1 %cmp14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %if.end13
-  %16 = load i64, ptr %word.addr, align 8
-  %17 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16 = icmp ult i64 %16, %17
+  %24 = load i64, ptr %word.addr, align 8
+  %25 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %26 = load i64, ptr %25, align 8
+  %cmp16 = icmp ult i64 %24, %26
   %cond17 = select i1 %cmp16, i32 7, i32 8
   store i32 %cond17, ptr %retval, align 4
   br label %return
@@ -132,35 +141,40 @@ if.end18:                                         ; preds = %if.end13
   br label %return
 
 if.end19:                                         ; preds = %entry
-  %18 = load i64, ptr %word.addr, align 8
-  %19 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20 = icmp ult i64 %18, %19
+  %27 = load i64, ptr %word.addr, align 8
+  %28 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %29 = load i64, ptr %28, align 8
+  %cmp20 = icmp ult i64 %27, %29
   br i1 %cmp20, label %if.then21, label %if.end32
 
 if.then21:                                        ; preds = %if.end19
-  %20 = load i64, ptr %word.addr, align 8
-  %21 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22 = icmp ult i64 %20, %21
+  %30 = load i64, ptr %word.addr, align 8
+  %31 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %32 = load i64, ptr %31, align 8
+  %cmp22 = icmp ult i64 %30, %32
   br i1 %cmp22, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %if.then21
-  %22 = load i64, ptr %word.addr, align 8
-  %23 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24 = icmp ult i64 %22, %23
+  %33 = load i64, ptr %word.addr, align 8
+  %34 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %35 = load i64, ptr %34, align 8
+  %cmp24 = icmp ult i64 %33, %35
   %cond25 = select i1 %cmp24, i32 10, i32 11
   store i32 %cond25, ptr %retval, align 4
   br label %return
 
 if.end26:                                         ; preds = %if.then21
-  %24 = load i64, ptr %word.addr, align 8
-  %25 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27 = icmp ult i64 %24, %25
+  %36 = load i64, ptr %word.addr, align 8
+  %37 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %38 = load i64, ptr %37, align 8
+  %cmp27 = icmp ult i64 %36, %38
   br i1 %cmp27, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.end26
-  %26 = load i64, ptr %word.addr, align 8
-  %27 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29 = icmp ult i64 %26, %27
+  %39 = load i64, ptr %word.addr, align 8
+  %40 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %41 = load i64, ptr %40, align 8
+  %cmp29 = icmp ult i64 %39, %41
   %cond30 = select i1 %cmp29, i32 12, i32 13
   store i32 %cond30, ptr %retval, align 4
   br label %return
@@ -170,44 +184,49 @@ if.end31:                                         ; preds = %if.end26
   br label %return
 
 if.end32:                                         ; preds = %if.end19
-  %28 = load i64, ptr %word.addr, align 8
-  %29 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33 = icmp ult i64 %28, %29
+  %42 = load i64, ptr %word.addr, align 8
+  %43 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %44 = load i64, ptr %43, align 8
+  %cmp33 = icmp ult i64 %42, %44
   br i1 %cmp33, label %if.then34, label %if.end42
 
 if.then34:                                        ; preds = %if.end32
-  %30 = load i64, ptr %word.addr, align 8
-  %31 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35 = icmp ult i64 %30, %31
+  %45 = load i64, ptr %word.addr, align 8
+  %46 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %47 = load i64, ptr %46, align 8
+  %cmp35 = icmp ult i64 %45, %47
   br i1 %cmp35, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %if.then34
-  %32 = load i64, ptr %word.addr, align 8
-  %33 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37 = icmp ult i64 %32, %33
+  %48 = load i64, ptr %word.addr, align 8
+  %49 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %50 = load i64, ptr %49, align 8
+  %cmp37 = icmp ult i64 %48, %50
   %cond38 = select i1 %cmp37, i32 15, i32 16
   store i32 %cond38, ptr %retval, align 4
   br label %return
 
 if.end39:                                         ; preds = %if.then34
-  %34 = load i64, ptr %word.addr, align 8
-  %35 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40 = icmp ult i64 %34, %35
+  %51 = load i64, ptr %word.addr, align 8
+  %52 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %53 = load i64, ptr %52, align 8
+  %cmp40 = icmp ult i64 %51, %53
   %cond41 = select i1 %cmp40, i32 17, i32 18
   store i32 %cond41, ptr %retval, align 4
   br label %return
 
 if.end42:                                         ; preds = %if.end32
-  %36 = load i64, ptr %word.addr, align 8
-  %37 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43 = icmp ult i64 %36, %37
+  %54 = load i64, ptr %word.addr, align 8
+  %55 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %56 = load i64, ptr %55, align 8
+  %cmp43 = icmp ult i64 %54, %56
   %cond44 = select i1 %cmp43, i32 19, i32 20
   store i32 %cond44, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end42, %if.end39, %if.then36, %if.end31, %if.then28, %if.then23, %if.end18, %if.then15, %if.then10, %if.end, %if.then4
-  %38 = load i32, ptr %retval, align 4
-  ret i32 %38
+  %57 = load i32, ptr %retval, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -286,62 +305,71 @@ entry:
   %0 = load i64, ptr %word.addr, align 8
   store i64 %0, ptr %word.addr.i, align 8
   %1 = load i64, ptr %word.addr.i, align 8
-  %2 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %1, %2
+  %2 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %3 = load i64, ptr %2, align 8
+  %cmp.i = icmp ult i64 %1, %3
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %entry
-  %3 = load i64, ptr %word.addr.i, align 8
-  %4 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %3, %4
+  %4 = load i64, ptr %word.addr.i, align 8
+  %5 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %6 = load i64, ptr %5, align 8
+  %cmp1.i = icmp ult i64 %4, %6
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %5 = load i64, ptr %word.addr.i, align 8
-  %6 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %5, %6
+  %7 = load i64, ptr %word.addr.i, align 8
+  %8 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %9 = load i64, ptr %8, align 8
+  %cmp3.i = icmp ult i64 %7, %9
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %7 = load i64, ptr %word.addr.i, align 8
-  %8 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %7, %8
+  %10 = load i64, ptr %word.addr.i, align 8
+  %11 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %12 = load i64, ptr %11, align 8
+  %cmp5.i = icmp ult i64 %10, %12
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %9 = load i64, ptr %word.addr.i, align 8
-  %10 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %9, %10
+  %13 = load i64, ptr %word.addr.i, align 8
+  %14 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %15 = load i64, ptr %14, align 8
+  %cmp6.i = icmp ult i64 %13, %15
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %11 = load i64, ptr %word.addr.i, align 8
-  %12 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %11, %12
+  %16 = load i64, ptr %word.addr.i, align 8
+  %17 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %18 = load i64, ptr %17, align 8
+  %cmp9.i = icmp ult i64 %16, %18
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %13 = load i64, ptr %word.addr.i, align 8
-  %14 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %13, %14
+  %19 = load i64, ptr %word.addr.i, align 8
+  %20 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %21 = load i64, ptr %20, align 8
+  %cmp11.i = icmp ult i64 %19, %21
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %15 = load i64, ptr %word.addr.i, align 8
-  %16 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %15, %16
+  %22 = load i64, ptr %word.addr.i, align 8
+  %23 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %24 = load i64, ptr %23, align 8
+  %cmp14.i = icmp ult i64 %22, %24
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %17 = load i64, ptr %word.addr.i, align 8
-  %18 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %17, %18
+  %25 = load i64, ptr %word.addr.i, align 8
+  %26 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %27 = load i64, ptr %26, align 8
+  %cmp16.i = icmp ult i64 %25, %27
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -351,35 +379,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %entry
-  %19 = load i64, ptr %word.addr.i, align 8
-  %20 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %19, %20
+  %28 = load i64, ptr %word.addr.i, align 8
+  %29 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %30 = load i64, ptr %29, align 8
+  %cmp20.i = icmp ult i64 %28, %30
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %21 = load i64, ptr %word.addr.i, align 8
-  %22 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %21, %22
+  %31 = load i64, ptr %word.addr.i, align 8
+  %32 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %33 = load i64, ptr %32, align 8
+  %cmp22.i = icmp ult i64 %31, %33
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %23 = load i64, ptr %word.addr.i, align 8
-  %24 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %23, %24
+  %34 = load i64, ptr %word.addr.i, align 8
+  %35 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %36 = load i64, ptr %35, align 8
+  %cmp24.i = icmp ult i64 %34, %36
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %25 = load i64, ptr %word.addr.i, align 8
-  %26 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %25, %26
+  %37 = load i64, ptr %word.addr.i, align 8
+  %38 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %39 = load i64, ptr %38, align 8
+  %cmp27.i = icmp ult i64 %37, %39
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %27 = load i64, ptr %word.addr.i, align 8
-  %28 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %27, %28
+  %40 = load i64, ptr %word.addr.i, align 8
+  %41 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %42 = load i64, ptr %41, align 8
+  %cmp29.i = icmp ult i64 %40, %42
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -389,51 +422,56 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %29 = load i64, ptr %word.addr.i, align 8
-  %30 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %29, %30
+  %43 = load i64, ptr %word.addr.i, align 8
+  %44 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %45 = load i64, ptr %44, align 8
+  %cmp33.i = icmp ult i64 %43, %45
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %31 = load i64, ptr %word.addr.i, align 8
-  %32 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %31, %32
+  %46 = load i64, ptr %word.addr.i, align 8
+  %47 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %48 = load i64, ptr %47, align 8
+  %cmp35.i = icmp ult i64 %46, %48
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %33 = load i64, ptr %word.addr.i, align 8
-  %34 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %33, %34
+  %49 = load i64, ptr %word.addr.i, align 8
+  %50 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %51 = load i64, ptr %50, align 8
+  %cmp37.i = icmp ult i64 %49, %51
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %35 = load i64, ptr %word.addr.i, align 8
-  %36 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %35, %36
+  %52 = load i64, ptr %word.addr.i, align 8
+  %53 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %54 = load i64, ptr %53, align 8
+  %cmp40.i = icmp ult i64 %52, %54
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %37 = load i64, ptr %word.addr.i, align 8
-  %38 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %37, %38
+  %55 = load i64, ptr %word.addr.i, align 8
+  %56 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %57 = load i64, ptr %56, align 8
+  %cmp43.i = icmp ult i64 %55, %57
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %39 = load i32, ptr %retval.i, align 4
-  store i32 %39, ptr %n, align 4
-  %40 = load i64, ptr %word.addr, align 8
-  %41 = load i32, ptr %n, align 4
-  %sub = sub i32 %41, 1
+  %58 = load i32, ptr %retval.i, align 4
+  store i32 %58, ptr %n, align 4
+  %59 = load i64, ptr %word.addr, align 8
+  %60 = load i32, ptr %n, align 4
+  %sub = sub i32 %60, 1
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom
-  %42 = load i64, ptr %arrayidx, align 8
-  %div = udiv i64 %40, %42
+  %61 = load i64, ptr %arrayidx, align 8
+  %div = udiv i64 %59, %61
   ret i64 %div
 }
 
@@ -527,62 +565,71 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %3 = load i64, ptr %exp.addr, align 8
   store i64 %3, ptr %word.addr.i, align 8
   %4 = load i64, ptr %word.addr.i, align 8
-  %5 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %4, %5
+  %5 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %6 = load i64, ptr %5, align 8
+  %cmp.i = icmp ult i64 %4, %6
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %cond.end
-  %6 = load i64, ptr %word.addr.i, align 8
-  %7 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %6, %7
+  %7 = load i64, ptr %word.addr.i, align 8
+  %8 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %9 = load i64, ptr %8, align 8
+  %cmp1.i = icmp ult i64 %7, %9
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %8 = load i64, ptr %word.addr.i, align 8
-  %9 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %8, %9
+  %10 = load i64, ptr %word.addr.i, align 8
+  %11 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %12 = load i64, ptr %11, align 8
+  %cmp3.i = icmp ult i64 %10, %12
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %10 = load i64, ptr %word.addr.i, align 8
-  %11 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %10, %11
+  %13 = load i64, ptr %word.addr.i, align 8
+  %14 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %15 = load i64, ptr %14, align 8
+  %cmp5.i = icmp ult i64 %13, %15
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %12 = load i64, ptr %word.addr.i, align 8
-  %13 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %12, %13
+  %16 = load i64, ptr %word.addr.i, align 8
+  %17 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %18 = load i64, ptr %17, align 8
+  %cmp6.i = icmp ult i64 %16, %18
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %14 = load i64, ptr %word.addr.i, align 8
-  %15 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %14, %15
+  %19 = load i64, ptr %word.addr.i, align 8
+  %20 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %21 = load i64, ptr %20, align 8
+  %cmp9.i = icmp ult i64 %19, %21
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %16 = load i64, ptr %word.addr.i, align 8
-  %17 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %16, %17
+  %22 = load i64, ptr %word.addr.i, align 8
+  %23 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %24 = load i64, ptr %23, align 8
+  %cmp11.i = icmp ult i64 %22, %24
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %18 = load i64, ptr %word.addr.i, align 8
-  %19 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %18, %19
+  %25 = load i64, ptr %word.addr.i, align 8
+  %26 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %27 = load i64, ptr %26, align 8
+  %cmp14.i = icmp ult i64 %25, %27
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %20 = load i64, ptr %word.addr.i, align 8
-  %21 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %20, %21
+  %28 = load i64, ptr %word.addr.i, align 8
+  %29 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %30 = load i64, ptr %29, align 8
+  %cmp16.i = icmp ult i64 %28, %30
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -592,35 +639,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %cond.end
-  %22 = load i64, ptr %word.addr.i, align 8
-  %23 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %22, %23
+  %31 = load i64, ptr %word.addr.i, align 8
+  %32 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %33 = load i64, ptr %32, align 8
+  %cmp20.i = icmp ult i64 %31, %33
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %24 = load i64, ptr %word.addr.i, align 8
-  %25 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %24, %25
+  %34 = load i64, ptr %word.addr.i, align 8
+  %35 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %36 = load i64, ptr %35, align 8
+  %cmp22.i = icmp ult i64 %34, %36
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %26 = load i64, ptr %word.addr.i, align 8
-  %27 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %26, %27
+  %37 = load i64, ptr %word.addr.i, align 8
+  %38 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %39 = load i64, ptr %38, align 8
+  %cmp24.i = icmp ult i64 %37, %39
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %28 = load i64, ptr %word.addr.i, align 8
-  %29 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %28, %29
+  %40 = load i64, ptr %word.addr.i, align 8
+  %41 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %42 = load i64, ptr %41, align 8
+  %cmp27.i = icmp ult i64 %40, %42
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %30 = load i64, ptr %word.addr.i, align 8
-  %31 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %30, %31
+  %43 = load i64, ptr %word.addr.i, align 8
+  %44 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %45 = load i64, ptr %44, align 8
+  %cmp29.i = icmp ult i64 %43, %45
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -630,44 +682,49 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %32 = load i64, ptr %word.addr.i, align 8
-  %33 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %32, %33
+  %46 = load i64, ptr %word.addr.i, align 8
+  %47 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %48 = load i64, ptr %47, align 8
+  %cmp33.i = icmp ult i64 %46, %48
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %34 = load i64, ptr %word.addr.i, align 8
-  %35 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %34, %35
+  %49 = load i64, ptr %word.addr.i, align 8
+  %50 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %51 = load i64, ptr %50, align 8
+  %cmp35.i = icmp ult i64 %49, %51
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %36 = load i64, ptr %word.addr.i, align 8
-  %37 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %36, %37
+  %52 = load i64, ptr %word.addr.i, align 8
+  %53 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %54 = load i64, ptr %53, align 8
+  %cmp37.i = icmp ult i64 %52, %54
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %38 = load i64, ptr %word.addr.i, align 8
-  %39 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %38, %39
+  %55 = load i64, ptr %word.addr.i, align 8
+  %56 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %57 = load i64, ptr %56, align 8
+  %cmp40.i = icmp ult i64 %55, %57
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %40 = load i64, ptr %word.addr.i, align 8
-  %41 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %40, %41
+  %58 = load i64, ptr %word.addr.i, align 8
+  %59 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %60 = load i64, ptr %59, align 8
+  %cmp43.i = icmp ult i64 %58, %60
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %42 = load i32, ptr %retval.i, align 4
-  ret i32 %42
+  %61 = load i32, ptr %retval.i, align 4
+  ret i32 %61
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -1776,62 +1833,71 @@ entry:
   %5 = load i64, ptr %arrayidx.i, align 8
   store i64 %5, ptr %word.addr.i, align 8
   %6 = load i64, ptr %word.addr.i, align 8
-  %7 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %6, %7
+  %7 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %8 = load i64, ptr %7, align 8
+  %cmp.i = icmp ult i64 %6, %8
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %entry
-  %8 = load i64, ptr %word.addr.i, align 8
-  %9 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %8, %9
+  %9 = load i64, ptr %word.addr.i, align 8
+  %10 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %11 = load i64, ptr %10, align 8
+  %cmp1.i = icmp ult i64 %9, %11
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %10 = load i64, ptr %word.addr.i, align 8
-  %11 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %10, %11
+  %12 = load i64, ptr %word.addr.i, align 8
+  %13 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %14 = load i64, ptr %13, align 8
+  %cmp3.i = icmp ult i64 %12, %14
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %12 = load i64, ptr %word.addr.i, align 8
-  %13 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %12, %13
+  %15 = load i64, ptr %word.addr.i, align 8
+  %16 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %17 = load i64, ptr %16, align 8
+  %cmp5.i = icmp ult i64 %15, %17
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %14 = load i64, ptr %word.addr.i, align 8
-  %15 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %14, %15
+  %18 = load i64, ptr %word.addr.i, align 8
+  %19 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %20 = load i64, ptr %19, align 8
+  %cmp6.i = icmp ult i64 %18, %20
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %16 = load i64, ptr %word.addr.i, align 8
-  %17 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %16, %17
+  %21 = load i64, ptr %word.addr.i, align 8
+  %22 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %23 = load i64, ptr %22, align 8
+  %cmp9.i = icmp ult i64 %21, %23
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %18 = load i64, ptr %word.addr.i, align 8
-  %19 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %18, %19
+  %24 = load i64, ptr %word.addr.i, align 8
+  %25 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %26 = load i64, ptr %25, align 8
+  %cmp11.i = icmp ult i64 %24, %26
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %20 = load i64, ptr %word.addr.i, align 8
-  %21 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %20, %21
+  %27 = load i64, ptr %word.addr.i, align 8
+  %28 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %29 = load i64, ptr %28, align 8
+  %cmp14.i = icmp ult i64 %27, %29
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %22 = load i64, ptr %word.addr.i, align 8
-  %23 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %22, %23
+  %30 = load i64, ptr %word.addr.i, align 8
+  %31 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %32 = load i64, ptr %31, align 8
+  %cmp16.i = icmp ult i64 %30, %32
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -1841,35 +1907,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %entry
-  %24 = load i64, ptr %word.addr.i, align 8
-  %25 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %24, %25
+  %33 = load i64, ptr %word.addr.i, align 8
+  %34 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %35 = load i64, ptr %34, align 8
+  %cmp20.i = icmp ult i64 %33, %35
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %26 = load i64, ptr %word.addr.i, align 8
-  %27 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %26, %27
+  %36 = load i64, ptr %word.addr.i, align 8
+  %37 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %38 = load i64, ptr %37, align 8
+  %cmp22.i = icmp ult i64 %36, %38
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %28 = load i64, ptr %word.addr.i, align 8
-  %29 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %28, %29
+  %39 = load i64, ptr %word.addr.i, align 8
+  %40 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %41 = load i64, ptr %40, align 8
+  %cmp24.i = icmp ult i64 %39, %41
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %30 = load i64, ptr %word.addr.i, align 8
-  %31 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %30, %31
+  %42 = load i64, ptr %word.addr.i, align 8
+  %43 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %44 = load i64, ptr %43, align 8
+  %cmp27.i = icmp ult i64 %42, %44
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %32 = load i64, ptr %word.addr.i, align 8
-  %33 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %32, %33
+  %45 = load i64, ptr %word.addr.i, align 8
+  %46 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %47 = load i64, ptr %46, align 8
+  %cmp29.i = icmp ult i64 %45, %47
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -1879,54 +1950,59 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %34 = load i64, ptr %word.addr.i, align 8
-  %35 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %34, %35
+  %48 = load i64, ptr %word.addr.i, align 8
+  %49 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %50 = load i64, ptr %49, align 8
+  %cmp33.i = icmp ult i64 %48, %50
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %36 = load i64, ptr %word.addr.i, align 8
-  %37 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %36, %37
+  %51 = load i64, ptr %word.addr.i, align 8
+  %52 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %53 = load i64, ptr %52, align 8
+  %cmp35.i = icmp ult i64 %51, %53
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %38 = load i64, ptr %word.addr.i, align 8
-  %39 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %38, %39
+  %54 = load i64, ptr %word.addr.i, align 8
+  %55 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %56 = load i64, ptr %55, align 8
+  %cmp37.i = icmp ult i64 %54, %56
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %40 = load i64, ptr %word.addr.i, align 8
-  %41 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %40, %41
+  %57 = load i64, ptr %word.addr.i, align 8
+  %58 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %59 = load i64, ptr %58, align 8
+  %cmp40.i = icmp ult i64 %57, %59
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %42 = load i64, ptr %word.addr.i, align 8
-  %43 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %42, %43
+  %60 = load i64, ptr %word.addr.i, align 8
+  %61 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %62 = load i64, ptr %61, align 8
+  %cmp43.i = icmp ult i64 %60, %62
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %44 = load i32, ptr %retval.i, align 4
-  %conv = sext i32 %44 to i64
+  %63 = load i32, ptr %retval.i, align 4
+  %conv = sext i32 %63 to i64
   store i64 %conv, ptr %wdigits, align 8
-  %45 = load i64, ptr %wdigits, align 8
-  %46 = load ptr, ptr %result.addr, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %46, i32 0, i32 3
-  %47 = load i64, ptr %len, align 8
-  %sub = sub i64 %47, 1
+  %64 = load i64, ptr %wdigits, align 8
+  %65 = load ptr, ptr %result.addr, align 8
+  %len = getelementptr inbounds %struct.mpd_t, ptr %65, i32 0, i32 3
+  %66 = load i64, ptr %len, align 8
+  %sub = sub i64 %66, 1
   %mul = mul i64 %sub, 19
-  %add = add i64 %45, %mul
-  %48 = load ptr, ptr %result.addr, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %48, i32 0, i32 2
+  %add = add i64 %64, %mul
+  %67 = load ptr, ptr %result.addr, align 8
+  %digits = getelementptr inbounds %struct.mpd_t, ptr %67, i32 0, i32 2
   store i64 %add, ptr %digits, align 8
   ret void
 }
@@ -7231,62 +7307,71 @@ if.then:                                          ; preds = %entry
   %5 = load i64, ptr %word, align 8
   store i64 %5, ptr %word.addr.i, align 8
   %6 = load i64, ptr %word.addr.i, align 8
-  %7 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %6, %7
+  %7 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %8 = load i64, ptr %7, align 8
+  %cmp.i = icmp ult i64 %6, %8
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.then
-  %8 = load i64, ptr %word.addr.i, align 8
-  %9 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %8, %9
+  %9 = load i64, ptr %word.addr.i, align 8
+  %10 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %11 = load i64, ptr %10, align 8
+  %cmp1.i = icmp ult i64 %9, %11
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %10 = load i64, ptr %word.addr.i, align 8
-  %11 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %10, %11
+  %12 = load i64, ptr %word.addr.i, align 8
+  %13 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %14 = load i64, ptr %13, align 8
+  %cmp3.i = icmp ult i64 %12, %14
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %12 = load i64, ptr %word.addr.i, align 8
-  %13 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %12, %13
+  %15 = load i64, ptr %word.addr.i, align 8
+  %16 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %17 = load i64, ptr %16, align 8
+  %cmp5.i = icmp ult i64 %15, %17
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %14 = load i64, ptr %word.addr.i, align 8
-  %15 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %14, %15
+  %18 = load i64, ptr %word.addr.i, align 8
+  %19 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %20 = load i64, ptr %19, align 8
+  %cmp6.i = icmp ult i64 %18, %20
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %16 = load i64, ptr %word.addr.i, align 8
-  %17 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %16, %17
+  %21 = load i64, ptr %word.addr.i, align 8
+  %22 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %23 = load i64, ptr %22, align 8
+  %cmp9.i = icmp ult i64 %21, %23
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %18 = load i64, ptr %word.addr.i, align 8
-  %19 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %18, %19
+  %24 = load i64, ptr %word.addr.i, align 8
+  %25 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %26 = load i64, ptr %25, align 8
+  %cmp11.i = icmp ult i64 %24, %26
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %20 = load i64, ptr %word.addr.i, align 8
-  %21 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %20, %21
+  %27 = load i64, ptr %word.addr.i, align 8
+  %28 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %29 = load i64, ptr %28, align 8
+  %cmp14.i = icmp ult i64 %27, %29
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %22 = load i64, ptr %word.addr.i, align 8
-  %23 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %22, %23
+  %30 = load i64, ptr %word.addr.i, align 8
+  %31 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %32 = load i64, ptr %31, align 8
+  %cmp16.i = icmp ult i64 %30, %32
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -7296,35 +7381,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %if.then
-  %24 = load i64, ptr %word.addr.i, align 8
-  %25 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %24, %25
+  %33 = load i64, ptr %word.addr.i, align 8
+  %34 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %35 = load i64, ptr %34, align 8
+  %cmp20.i = icmp ult i64 %33, %35
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %26 = load i64, ptr %word.addr.i, align 8
-  %27 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %26, %27
+  %36 = load i64, ptr %word.addr.i, align 8
+  %37 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %38 = load i64, ptr %37, align 8
+  %cmp22.i = icmp ult i64 %36, %38
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %28 = load i64, ptr %word.addr.i, align 8
-  %29 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %28, %29
+  %39 = load i64, ptr %word.addr.i, align 8
+  %40 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %41 = load i64, ptr %40, align 8
+  %cmp24.i = icmp ult i64 %39, %41
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %30 = load i64, ptr %word.addr.i, align 8
-  %31 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %30, %31
+  %42 = load i64, ptr %word.addr.i, align 8
+  %43 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %44 = load i64, ptr %43, align 8
+  %cmp27.i = icmp ult i64 %42, %44
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %32 = load i64, ptr %word.addr.i, align 8
-  %33 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %32, %33
+  %45 = load i64, ptr %word.addr.i, align 8
+  %46 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %47 = load i64, ptr %46, align 8
+  %cmp29.i = icmp ult i64 %45, %47
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -7334,60 +7424,65 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %34 = load i64, ptr %word.addr.i, align 8
-  %35 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %34, %35
+  %48 = load i64, ptr %word.addr.i, align 8
+  %49 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %50 = load i64, ptr %49, align 8
+  %cmp33.i = icmp ult i64 %48, %50
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %36 = load i64, ptr %word.addr.i, align 8
-  %37 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %36, %37
+  %51 = load i64, ptr %word.addr.i, align 8
+  %52 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %53 = load i64, ptr %52, align 8
+  %cmp35.i = icmp ult i64 %51, %53
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %38 = load i64, ptr %word.addr.i, align 8
-  %39 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %38, %39
+  %54 = load i64, ptr %word.addr.i, align 8
+  %55 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %56 = load i64, ptr %55, align 8
+  %cmp37.i = icmp ult i64 %54, %56
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %40 = load i64, ptr %word.addr.i, align 8
-  %41 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %40, %41
+  %57 = load i64, ptr %word.addr.i, align 8
+  %58 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %59 = load i64, ptr %58, align 8
+  %cmp40.i = icmp ult i64 %57, %59
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %42 = load i64, ptr %word.addr.i, align 8
-  %43 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %42, %43
+  %60 = load i64, ptr %word.addr.i, align 8
+  %61 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %62 = load i64, ptr %61, align 8
+  %cmp43.i = icmp ult i64 %60, %62
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %44 = load i32, ptr %retval.i, align 4
-  %sub1 = sub i32 %44, 1
+  %63 = load i32, ptr %retval.i, align 4
+  %sub1 = sub i32 %63, 1
   %conv = sext i32 %sub1 to i64
   call void @_mpd_divmod_pow10(ptr noundef %rnd, ptr noundef %rest, i64 noundef %4, i64 noundef %conv)
-  %45 = load i64, ptr %len.addr, align 8
-  %cmp = icmp sgt i64 %45, 1
+  %64 = load i64, ptr %len.addr, align 8
+  %cmp = icmp sgt i64 %64, 1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %mpd_word_digits.exit
-  %46 = load i64, ptr %rest, align 8
-  %cmp3 = icmp eq i64 %46, 0
+  %65 = load i64, ptr %rest, align 8
+  %cmp3 = icmp eq i64 %65, 0
   br i1 %cmp3, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %land.lhs.true
-  %47 = load ptr, ptr %data.addr, align 8
-  %48 = load i64, ptr %len.addr, align 8
-  %sub6 = sub i64 %48, 1
-  %call7 = call i32 @_mpd_isallzero(ptr noundef %47, i64 noundef %sub6)
+  %66 = load ptr, ptr %data.addr, align 8
+  %67 = load i64, ptr %len.addr, align 8
+  %sub6 = sub i64 %67, 1
+  %call7 = call i32 @_mpd_isallzero(ptr noundef %66, i64 noundef %sub6)
   %tobool8 = icmp ne i32 %call7, 0
   %lnot = xor i1 %tobool8, true
   %lnot.ext = zext i1 %lnot to i32
@@ -7399,9 +7494,9 @@ if.end:                                           ; preds = %if.then5, %land.lhs
   br label %if.end15
 
 if.else:                                          ; preds = %entry
-  %49 = load ptr, ptr %data.addr, align 8
-  %50 = load i64, ptr %len.addr, align 8
-  %call10 = call i32 @_mpd_isallzero(ptr noundef %49, i64 noundef %50)
+  %68 = load ptr, ptr %data.addr, align 8
+  %69 = load i64, ptr %len.addr, align 8
+  %call10 = call i32 @_mpd_isallzero(ptr noundef %68, i64 noundef %69)
   %tobool11 = icmp ne i32 %call10, 0
   %lnot12 = xor i1 %tobool11, true
   %lnot.ext13 = zext i1 %lnot12 to i32
@@ -7410,32 +7505,32 @@ if.else:                                          ; preds = %entry
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.end
-  %51 = load i64, ptr %rnd, align 8
-  %cmp16 = icmp eq i64 %51, 0
+  %70 = load i64, ptr %rnd, align 8
+  %cmp16 = icmp eq i64 %70, 0
   br i1 %cmp16, label %cond.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end15
-  %52 = load i64, ptr %rnd, align 8
-  %cmp18 = icmp eq i64 %52, 5
+  %71 = load i64, ptr %rnd, align 8
+  %cmp18 = icmp eq i64 %71, 5
   br i1 %cmp18, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false, %if.end15
-  %53 = load i64, ptr %rnd, align 8
-  %54 = load i64, ptr %rest, align 8
-  %tobool20 = icmp ne i64 %54, 0
+  %72 = load i64, ptr %rnd, align 8
+  %73 = load i64, ptr %rest, align 8
+  %tobool20 = icmp ne i64 %73, 0
   %lnot21 = xor i1 %tobool20, true
   %lnot23 = xor i1 %lnot21, true
   %lnot.ext24 = zext i1 %lnot23 to i32
   %conv25 = sext i32 %lnot.ext24 to i64
-  %add = add i64 %53, %conv25
+  %add = add i64 %72, %conv25
   br label %cond.end
 
 cond.false:                                       ; preds = %lor.lhs.false
-  %55 = load i64, ptr %rnd, align 8
+  %74 = load i64, ptr %rnd, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %add, %cond.true ], [ %55, %cond.false ]
+  %cond = phi i64 [ %add, %cond.true ], [ %74, %cond.false ]
   ret i64 %cond
 }
 
@@ -8112,62 +8207,71 @@ for.end41:                                        ; preds = %for.cond
   %87 = load i64, ptr %x, align 8
   store i64 %87, ptr %word.addr.i, align 8
   %88 = load i64, ptr %word.addr.i, align 8
-  %89 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %88, %89
+  %89 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %90 = load i64, ptr %89, align 8
+  %cmp.i = icmp ult i64 %88, %90
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %for.end41
-  %90 = load i64, ptr %word.addr.i, align 8
-  %91 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %90, %91
+  %91 = load i64, ptr %word.addr.i, align 8
+  %92 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %93 = load i64, ptr %92, align 8
+  %cmp1.i = icmp ult i64 %91, %93
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %92 = load i64, ptr %word.addr.i, align 8
-  %93 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %92, %93
+  %94 = load i64, ptr %word.addr.i, align 8
+  %95 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %96 = load i64, ptr %95, align 8
+  %cmp3.i = icmp ult i64 %94, %96
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %94 = load i64, ptr %word.addr.i, align 8
-  %95 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %94, %95
+  %97 = load i64, ptr %word.addr.i, align 8
+  %98 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %99 = load i64, ptr %98, align 8
+  %cmp5.i = icmp ult i64 %97, %99
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %96 = load i64, ptr %word.addr.i, align 8
-  %97 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %96, %97
+  %100 = load i64, ptr %word.addr.i, align 8
+  %101 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %102 = load i64, ptr %101, align 8
+  %cmp6.i = icmp ult i64 %100, %102
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %98 = load i64, ptr %word.addr.i, align 8
-  %99 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %98, %99
+  %103 = load i64, ptr %word.addr.i, align 8
+  %104 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %105 = load i64, ptr %104, align 8
+  %cmp9.i = icmp ult i64 %103, %105
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %100 = load i64, ptr %word.addr.i, align 8
-  %101 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %100, %101
+  %106 = load i64, ptr %word.addr.i, align 8
+  %107 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %108 = load i64, ptr %107, align 8
+  %cmp11.i = icmp ult i64 %106, %108
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %102 = load i64, ptr %word.addr.i, align 8
-  %103 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %102, %103
+  %109 = load i64, ptr %word.addr.i, align 8
+  %110 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %111 = load i64, ptr %110, align 8
+  %cmp14.i = icmp ult i64 %109, %111
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %104 = load i64, ptr %word.addr.i, align 8
-  %105 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %104, %105
+  %112 = load i64, ptr %word.addr.i, align 8
+  %113 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %114 = load i64, ptr %113, align 8
+  %cmp16.i = icmp ult i64 %112, %114
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -8177,35 +8281,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %for.end41
-  %106 = load i64, ptr %word.addr.i, align 8
-  %107 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %106, %107
+  %115 = load i64, ptr %word.addr.i, align 8
+  %116 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %117 = load i64, ptr %116, align 8
+  %cmp20.i = icmp ult i64 %115, %117
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %108 = load i64, ptr %word.addr.i, align 8
-  %109 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %108, %109
+  %118 = load i64, ptr %word.addr.i, align 8
+  %119 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %120 = load i64, ptr %119, align 8
+  %cmp22.i = icmp ult i64 %118, %120
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %110 = load i64, ptr %word.addr.i, align 8
-  %111 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %110, %111
+  %121 = load i64, ptr %word.addr.i, align 8
+  %122 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %123 = load i64, ptr %122, align 8
+  %cmp24.i = icmp ult i64 %121, %123
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %112 = load i64, ptr %word.addr.i, align 8
-  %113 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %112, %113
+  %124 = load i64, ptr %word.addr.i, align 8
+  %125 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %126 = load i64, ptr %125, align 8
+  %cmp27.i = icmp ult i64 %124, %126
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %114 = load i64, ptr %word.addr.i, align 8
-  %115 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %114, %115
+  %127 = load i64, ptr %word.addr.i, align 8
+  %128 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %129 = load i64, ptr %128, align 8
+  %cmp29.i = icmp ult i64 %127, %129
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -8215,134 +8324,139 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %116 = load i64, ptr %word.addr.i, align 8
-  %117 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %116, %117
+  %130 = load i64, ptr %word.addr.i, align 8
+  %131 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %132 = load i64, ptr %131, align 8
+  %cmp33.i = icmp ult i64 %130, %132
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %118 = load i64, ptr %word.addr.i, align 8
-  %119 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %118, %119
+  %133 = load i64, ptr %word.addr.i, align 8
+  %134 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %135 = load i64, ptr %134, align 8
+  %cmp35.i = icmp ult i64 %133, %135
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %120 = load i64, ptr %word.addr.i, align 8
-  %121 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %120, %121
+  %136 = load i64, ptr %word.addr.i, align 8
+  %137 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %138 = load i64, ptr %137, align 8
+  %cmp37.i = icmp ult i64 %136, %138
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %122 = load i64, ptr %word.addr.i, align 8
-  %123 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %122, %123
+  %139 = load i64, ptr %word.addr.i, align 8
+  %140 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %141 = load i64, ptr %140, align 8
+  %cmp40.i = icmp ult i64 %139, %141
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %124 = load i64, ptr %word.addr.i, align 8
-  %125 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %124, %125
+  %142 = load i64, ptr %word.addr.i, align 8
+  %143 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %144 = load i64, ptr %143, align 8
+  %cmp43.i = icmp ult i64 %142, %144
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %126 = load i32, ptr %retval.i, align 4
-  store i32 %126, ptr %mswdigits, align 4
+  %145 = load i32, ptr %retval.i, align 4
+  store i32 %145, ptr %mswdigits, align 4
   store i32 0, ptr %k, align 4
   br label %for.cond47
 
 for.cond47:                                       ; preds = %for.inc68, %mpd_word_digits.exit
-  %127 = load i32, ptr %k, align 4
-  %128 = load i32, ptr %mswdigits, align 4
-  %cmp48 = icmp slt i32 %127, %128
+  %146 = load i32, ptr %k, align 4
+  %147 = load i32, ptr %mswdigits, align 4
+  %cmp48 = icmp slt i32 %146, %147
   br i1 %cmp48, label %for.body49, label %for.end70
 
 for.body49:                                       ; preds = %for.cond47
-  %129 = load i64, ptr %x, align 8
-  %rem50 = urem i64 %129, 10
+  %148 = load i64, ptr %x, align 8
+  %rem50 = urem i64 %148, 10
   store i64 %rem50, ptr %xbit, align 8
-  %130 = load i64, ptr %x, align 8
-  %div51 = udiv i64 %130, 10
+  %149 = load i64, ptr %x, align 8
+  %div51 = udiv i64 %149, 10
   store i64 %div51, ptr %x, align 8
-  %131 = load i64, ptr %y, align 8
-  %rem52 = urem i64 %131, 10
+  %150 = load i64, ptr %y, align 8
+  %rem52 = urem i64 %150, 10
   store i64 %rem52, ptr %ybit, align 8
-  %132 = load i64, ptr %y, align 8
-  %div53 = udiv i64 %132, 10
+  %151 = load i64, ptr %y, align 8
+  %div53 = udiv i64 %151, 10
   store i64 %div53, ptr %y, align 8
-  %133 = load i64, ptr %xbit, align 8
-  %cmp54 = icmp ugt i64 %133, 1
+  %152 = load i64, ptr %xbit, align 8
+  %cmp54 = icmp ugt i64 %152, 1
   br i1 %cmp54, label %if.then57, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %for.body49
-  %134 = load i64, ptr %ybit, align 8
-  %cmp56 = icmp ugt i64 %134, 1
+  %153 = load i64, ptr %ybit, align 8
+  %cmp56 = icmp ugt i64 %153, 1
   br i1 %cmp56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %lor.lhs.false55, %for.body49
   br label %invalid_operation
 
 if.end58:                                         ; preds = %lor.lhs.false55
-  %135 = load i64, ptr %xbit, align 8
-  %136 = load i64, ptr %ybit, align 8
-  %and59 = and i64 %135, %136
+  %154 = load i64, ptr %xbit, align 8
+  %155 = load i64, ptr %ybit, align 8
+  %and59 = and i64 %154, %155
   %tobool60 = icmp ne i64 %and59, 0
   br i1 %tobool60, label %cond.true61, label %cond.false64
 
 cond.true61:                                      ; preds = %if.end58
-  %137 = load i32, ptr %k, align 4
-  %idxprom62 = sext i32 %137 to i64
+  %156 = load i32, ptr %k, align 4
+  %idxprom62 = sext i32 %156 to i64
   %arrayidx63 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom62
-  %138 = load i64, ptr %arrayidx63, align 8
+  %157 = load i64, ptr %arrayidx63, align 8
   br label %cond.end65
 
 cond.false64:                                     ; preds = %if.end58
   br label %cond.end65
 
 cond.end65:                                       ; preds = %cond.false64, %cond.true61
-  %cond66 = phi i64 [ %138, %cond.true61 ], [ 0, %cond.false64 ]
-  %139 = load i64, ptr %z, align 8
-  %add67 = add i64 %139, %cond66
+  %cond66 = phi i64 [ %157, %cond.true61 ], [ 0, %cond.false64 ]
+  %158 = load i64, ptr %z, align 8
+  %add67 = add i64 %158, %cond66
   store i64 %add67, ptr %z, align 8
   br label %for.inc68
 
 for.inc68:                                        ; preds = %cond.end65
-  %140 = load i32, ptr %k, align 4
-  %inc69 = add i32 %140, 1
+  %159 = load i32, ptr %k, align 4
+  %inc69 = add i32 %159, 1
   store i32 %inc69, ptr %k, align 4
   br label %for.cond47, !llvm.loop !11
 
 for.end70:                                        ; preds = %for.cond47
-  %141 = load i64, ptr %z, align 8
-  %142 = load ptr, ptr %result.addr, align 8
-  %data71 = getelementptr inbounds %struct.mpd_t, ptr %142, i32 0, i32 5
-  %143 = load ptr, ptr %data71, align 8
-  %144 = load i64, ptr %i, align 8
-  %inc72 = add i64 %144, 1
+  %160 = load i64, ptr %z, align 8
+  %161 = load ptr, ptr %result.addr, align 8
+  %data71 = getelementptr inbounds %struct.mpd_t, ptr %161, i32 0, i32 5
+  %162 = load ptr, ptr %data71, align 8
+  %163 = load i64, ptr %i, align 8
+  %inc72 = add i64 %163, 1
   store i64 %inc72, ptr %i, align 8
-  %arrayidx73 = getelementptr i64, ptr %143, i64 %144
-  store i64 %141, ptr %arrayidx73, align 8
+  %arrayidx73 = getelementptr i64, ptr %162, i64 %163
+  store i64 %160, ptr %arrayidx73, align 8
   br label %for.cond74
 
 for.cond74:                                       ; preds = %for.inc82, %for.end70
-  %145 = load i32, ptr %k, align 4
-  %cmp75 = icmp slt i32 %145, 19
+  %164 = load i32, ptr %k, align 4
+  %cmp75 = icmp slt i32 %164, 19
   br i1 %cmp75, label %for.body76, label %for.end84
 
 for.body76:                                       ; preds = %for.cond74
-  %146 = load i64, ptr %y, align 8
-  %rem77 = urem i64 %146, 10
+  %165 = load i64, ptr %y, align 8
+  %rem77 = urem i64 %165, 10
   store i64 %rem77, ptr %ybit, align 8
-  %147 = load i64, ptr %y, align 8
-  %div78 = udiv i64 %147, 10
+  %166 = load i64, ptr %y, align 8
+  %div78 = udiv i64 %166, 10
   store i64 %div78, ptr %y, align 8
-  %148 = load i64, ptr %ybit, align 8
-  %cmp79 = icmp ugt i64 %148, 1
+  %167 = load i64, ptr %ybit, align 8
+  %cmp79 = icmp ugt i64 %167, 1
   br i1 %cmp79, label %if.then80, label %if.end81
 
 if.then80:                                        ; preds = %for.body76
@@ -8352,8 +8466,8 @@ if.end81:                                         ; preds = %for.body76
   br label %for.inc82
 
 for.inc82:                                        ; preds = %if.end81
-  %149 = load i32, ptr %k, align 4
-  %inc83 = add i32 %149, 1
+  %168 = load i32, ptr %k, align 4
+  %inc83 = add i32 %168, 1
   store i32 %inc83, ptr %k, align 4
   br label %for.cond74, !llvm.loop !12
 
@@ -8361,38 +8475,38 @@ for.end84:                                        ; preds = %for.cond74
   br label %for.cond85
 
 for.cond85:                                       ; preds = %for.inc102, %for.end84
-  %150 = load i64, ptr %i, align 8
-  %151 = load ptr, ptr %big, align 8
-  %len86 = getelementptr inbounds %struct.mpd_t, ptr %151, i32 0, i32 3
-  %152 = load i64, ptr %len86, align 8
-  %cmp87 = icmp slt i64 %150, %152
+  %169 = load i64, ptr %i, align 8
+  %170 = load ptr, ptr %big, align 8
+  %len86 = getelementptr inbounds %struct.mpd_t, ptr %170, i32 0, i32 3
+  %171 = load i64, ptr %len86, align 8
+  %cmp87 = icmp slt i64 %169, %171
   br i1 %cmp87, label %for.body88, label %for.end104
 
 for.body88:                                       ; preds = %for.cond85
-  %153 = load ptr, ptr %big, align 8
-  %data89 = getelementptr inbounds %struct.mpd_t, ptr %153, i32 0, i32 5
-  %154 = load ptr, ptr %data89, align 8
-  %155 = load i64, ptr %i, align 8
-  %arrayidx90 = getelementptr i64, ptr %154, i64 %155
-  %156 = load i64, ptr %arrayidx90, align 8
-  store i64 %156, ptr %y, align 8
+  %172 = load ptr, ptr %big, align 8
+  %data89 = getelementptr inbounds %struct.mpd_t, ptr %172, i32 0, i32 5
+  %173 = load ptr, ptr %data89, align 8
+  %174 = load i64, ptr %i, align 8
+  %arrayidx90 = getelementptr i64, ptr %173, i64 %174
+  %175 = load i64, ptr %arrayidx90, align 8
+  store i64 %175, ptr %y, align 8
   store i32 0, ptr %k, align 4
   br label %for.cond91
 
 for.cond91:                                       ; preds = %for.inc99, %for.body88
-  %157 = load i32, ptr %k, align 4
-  %cmp92 = icmp slt i32 %157, 19
+  %176 = load i32, ptr %k, align 4
+  %cmp92 = icmp slt i32 %176, 19
   br i1 %cmp92, label %for.body93, label %for.end101
 
 for.body93:                                       ; preds = %for.cond91
-  %158 = load i64, ptr %y, align 8
-  %rem94 = urem i64 %158, 10
+  %177 = load i64, ptr %y, align 8
+  %rem94 = urem i64 %177, 10
   store i64 %rem94, ptr %ybit, align 8
-  %159 = load i64, ptr %y, align 8
-  %div95 = udiv i64 %159, 10
+  %178 = load i64, ptr %y, align 8
+  %div95 = udiv i64 %178, 10
   store i64 %div95, ptr %y, align 8
-  %160 = load i64, ptr %ybit, align 8
-  %cmp96 = icmp ugt i64 %160, 1
+  %179 = load i64, ptr %ybit, align 8
+  %cmp96 = icmp ugt i64 %179, 1
   br i1 %cmp96, label %if.then97, label %if.end98
 
 if.then97:                                        ; preds = %for.body93
@@ -8402,8 +8516,8 @@ if.end98:                                         ; preds = %for.body93
   br label %for.inc99
 
 for.inc99:                                        ; preds = %if.end98
-  %161 = load i32, ptr %k, align 4
-  %inc100 = add i32 %161, 1
+  %180 = load i32, ptr %k, align 4
+  %inc100 = add i32 %180, 1
   store i32 %inc100, ptr %k, align 4
   br label %for.cond91, !llvm.loop !13
 
@@ -8411,62 +8525,62 @@ for.end101:                                       ; preds = %for.cond91
   br label %for.inc102
 
 for.inc102:                                       ; preds = %for.end101
-  %162 = load i64, ptr %i, align 8
-  %inc103 = add i64 %162, 1
+  %181 = load i64, ptr %i, align 8
+  %inc103 = add i64 %181, 1
   store i64 %inc103, ptr %i, align 8
   br label %for.cond85, !llvm.loop !14
 
 for.end104:                                       ; preds = %for.cond85
-  %163 = load ptr, ptr %result.addr, align 8
-  store ptr %163, ptr %result.addr.i155, align 8
-  %164 = load ptr, ptr %result.addr.i155, align 8
-  %165 = load i8, ptr %164, align 8
-  %conv.i156 = zext i8 %165 to i32
+  %182 = load ptr, ptr %result.addr, align 8
+  store ptr %182, ptr %result.addr.i155, align 8
+  %183 = load ptr, ptr %result.addr.i155, align 8
+  %184 = load i8, ptr %183, align 8
+  %conv.i156 = zext i8 %184 to i32
   %and.i157 = and i32 %conv.i156, 240
   %conv1.i = trunc i32 %and.i157 to i8
-  store i8 %conv1.i, ptr %164, align 8
-  %166 = load ptr, ptr %result.addr, align 8
-  %exp105 = getelementptr inbounds %struct.mpd_t, ptr %166, i32 0, i32 1
+  store i8 %conv1.i, ptr %183, align 8
+  %185 = load ptr, ptr %result.addr, align 8
+  %exp105 = getelementptr inbounds %struct.mpd_t, ptr %185, i32 0, i32 1
   store i64 0, ptr %exp105, align 8
-  %167 = load ptr, ptr %result.addr, align 8
-  %data106 = getelementptr inbounds %struct.mpd_t, ptr %167, i32 0, i32 5
-  %168 = load ptr, ptr %data106, align 8
-  %169 = load ptr, ptr %small, align 8
-  %len107 = getelementptr inbounds %struct.mpd_t, ptr %169, i32 0, i32 3
-  %170 = load i64, ptr %len107, align 8
-  %call108 = call i64 @_mpd_real_size(ptr noundef %168, i64 noundef %170)
-  %171 = load ptr, ptr %result.addr, align 8
-  %len109 = getelementptr inbounds %struct.mpd_t, ptr %171, i32 0, i32 3
+  %186 = load ptr, ptr %result.addr, align 8
+  %data106 = getelementptr inbounds %struct.mpd_t, ptr %186, i32 0, i32 5
+  %187 = load ptr, ptr %data106, align 8
+  %188 = load ptr, ptr %small, align 8
+  %len107 = getelementptr inbounds %struct.mpd_t, ptr %188, i32 0, i32 3
+  %189 = load i64, ptr %len107, align 8
+  %call108 = call i64 @_mpd_real_size(ptr noundef %187, i64 noundef %189)
+  %190 = load ptr, ptr %result.addr, align 8
+  %len109 = getelementptr inbounds %struct.mpd_t, ptr %190, i32 0, i32 3
   store i64 %call108, ptr %len109, align 8
-  %172 = load ptr, ptr %result.addr, align 8
-  %173 = load ptr, ptr %result.addr, align 8
-  %len110 = getelementptr inbounds %struct.mpd_t, ptr %173, i32 0, i32 3
-  %174 = load i64, ptr %len110, align 8
-  %175 = load ptr, ptr %status.addr, align 8
-  store ptr %172, ptr %result.addr.i, align 8
-  store i64 %174, ptr %nwords.addr.i, align 8
-  store ptr %175, ptr %status.addr.i, align 8
-  %176 = load i64, ptr %nwords.addr.i, align 8
-  %177 = load i64, ptr @MPD_MINALLOC, align 8
-  %cmp.i122 = icmp sle i64 %176, %177
+  %191 = load ptr, ptr %result.addr, align 8
+  %192 = load ptr, ptr %result.addr, align 8
+  %len110 = getelementptr inbounds %struct.mpd_t, ptr %192, i32 0, i32 3
+  %193 = load i64, ptr %len110, align 8
+  %194 = load ptr, ptr %status.addr, align 8
+  store ptr %191, ptr %result.addr.i, align 8
+  store i64 %193, ptr %nwords.addr.i, align 8
+  store ptr %194, ptr %status.addr.i, align 8
+  %195 = load i64, ptr %nwords.addr.i, align 8
+  %196 = load i64, ptr @MPD_MINALLOC, align 8
+  %cmp.i122 = icmp sle i64 %195, %196
   br i1 %cmp.i122, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.end104
-  %178 = load i64, ptr @MPD_MINALLOC, align 8
+  %197 = load i64, ptr @MPD_MINALLOC, align 8
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %for.end104
-  %179 = load i64, ptr %nwords.addr.i, align 8
+  %198 = load i64, ptr %nwords.addr.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %cond.i123 = phi i64 [ %178, %cond.true.i ], [ %179, %cond.false.i ]
+  %cond.i123 = phi i64 [ %197, %cond.true.i ], [ %198, %cond.false.i ]
   store i64 %cond.i123, ptr %nwords.addr.i, align 8
-  %180 = load i64, ptr %nwords.addr.i, align 8
-  %181 = load ptr, ptr %result.addr.i, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %181, i32 0, i32 4
-  %182 = load i64, ptr %alloc.i, align 8
-  %cmp1.i124 = icmp eq i64 %180, %182
+  %199 = load i64, ptr %nwords.addr.i, align 8
+  %200 = load ptr, ptr %result.addr.i, align 8
+  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %200, i32 0, i32 4
+  %201 = load i64, ptr %alloc.i, align 8
+  %cmp1.i124 = icmp eq i64 %199, %201
   br i1 %cmp1.i124, label %if.then.i128, label %if.end.i125
 
 if.then.i128:                                     ; preds = %cond.end.i
@@ -8474,28 +8588,28 @@ if.then.i128:                                     ; preds = %cond.end.i
   br label %mpd_qresize.exit
 
 if.end.i125:                                      ; preds = %cond.end.i
-  %183 = load ptr, ptr %result.addr.i, align 8
-  store ptr %183, ptr %dec.addr.i.i, align 8
-  %184 = load ptr, ptr %dec.addr.i.i, align 8
-  %185 = load i8, ptr %184, align 8
-  %conv.i.i = zext i8 %185 to i32
+  %202 = load ptr, ptr %result.addr.i, align 8
+  store ptr %202, ptr %dec.addr.i.i, align 8
+  %203 = load ptr, ptr %dec.addr.i.i, align 8
+  %204 = load i8, ptr %203, align 8
+  %conv.i.i = zext i8 %204 to i32
   %and.i.i = and i32 %conv.i.i, 32
   %tobool.i = icmp ne i32 %and.i.i, 0
   br i1 %tobool.i, label %if.then2.i127, label %if.end8.i126
 
 if.then2.i127:                                    ; preds = %if.end.i125
-  %186 = load i64, ptr %nwords.addr.i, align 8
-  %187 = load ptr, ptr %result.addr.i, align 8
-  %alloc3.i = getelementptr inbounds %struct.mpd_t, ptr %187, i32 0, i32 4
-  %188 = load i64, ptr %alloc3.i, align 8
-  %cmp4.i = icmp sgt i64 %186, %188
+  %205 = load i64, ptr %nwords.addr.i, align 8
+  %206 = load ptr, ptr %result.addr.i, align 8
+  %alloc3.i = getelementptr inbounds %struct.mpd_t, ptr %206, i32 0, i32 4
+  %207 = load i64, ptr %alloc3.i, align 8
+  %cmp4.i = icmp sgt i64 %205, %207
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.then2.i127
-  %189 = load ptr, ptr %result.addr.i, align 8
-  %190 = load i64, ptr %nwords.addr.i, align 8
-  %191 = load ptr, ptr %status.addr.i, align 8
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef %189, i64 noundef %190, ptr noundef %191) #8
+  %208 = load ptr, ptr %result.addr.i, align 8
+  %209 = load i64, ptr %nwords.addr.i, align 8
+  %210 = load ptr, ptr %status.addr.i, align 8
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef %208, i64 noundef %209, ptr noundef %210) #8
   store i32 %call6.i, ptr %retval.i121, align 4
   br label %mpd_qresize.exit
 
@@ -8504,25 +8618,25 @@ if.end7.i:                                        ; preds = %if.then2.i127
   br label %mpd_qresize.exit
 
 if.end8.i126:                                     ; preds = %if.end.i125
-  %192 = load ptr, ptr %result.addr.i, align 8
-  %193 = load i64, ptr %nwords.addr.i, align 8
-  %194 = load ptr, ptr %status.addr.i, align 8
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef %192, i64 noundef %193, ptr noundef %194) #8
+  %211 = load ptr, ptr %result.addr.i, align 8
+  %212 = load i64, ptr %nwords.addr.i, align 8
+  %213 = load ptr, ptr %status.addr.i, align 8
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef %211, i64 noundef %212, ptr noundef %213) #8
   store i32 %call9.i, ptr %retval.i121, align 4
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i126, %if.end7.i, %if.then5.i, %if.then.i128
-  %195 = load ptr, ptr %result.addr, align 8
-  call void @mpd_setdigits(ptr noundef %195)
-  %196 = load ptr, ptr %result.addr, align 8
-  %197 = load ptr, ptr %ctx.addr, align 8
-  call void @_mpd_cap(ptr noundef %196, ptr noundef %197)
+  %214 = load ptr, ptr %result.addr, align 8
+  call void @mpd_setdigits(ptr noundef %214)
+  %215 = load ptr, ptr %result.addr, align 8
+  %216 = load ptr, ptr %ctx.addr, align 8
+  call void @_mpd_cap(ptr noundef %215, ptr noundef %216)
   br label %return
 
 invalid_operation:                                ; preds = %if.then97, %if.then80, %if.then57, %if.then33
-  %198 = load ptr, ptr %result.addr, align 8
-  %199 = load ptr, ptr %status.addr, align 8
-  call void @mpd_seterror(ptr noundef %198, i32 noundef 256, ptr noundef %199)
+  %217 = load ptr, ptr %result.addr, align 8
+  %218 = load ptr, ptr %status.addr, align 8
+  call void @mpd_seterror(ptr noundef %217, i32 noundef 256, ptr noundef %218)
   br label %return
 
 return:                                           ; preds = %invalid_operation, %mpd_qresize.exit, %if.then19, %if.then
@@ -9796,62 +9910,71 @@ for.end41:                                        ; preds = %for.cond
   %87 = load i64, ptr %x, align 8
   store i64 %87, ptr %word.addr.i, align 8
   %88 = load i64, ptr %word.addr.i, align 8
-  %89 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %88, %89
+  %89 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %90 = load i64, ptr %89, align 8
+  %cmp.i = icmp ult i64 %88, %90
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %for.end41
-  %90 = load i64, ptr %word.addr.i, align 8
-  %91 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %90, %91
+  %91 = load i64, ptr %word.addr.i, align 8
+  %92 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %93 = load i64, ptr %92, align 8
+  %cmp1.i = icmp ult i64 %91, %93
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %92 = load i64, ptr %word.addr.i, align 8
-  %93 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %92, %93
+  %94 = load i64, ptr %word.addr.i, align 8
+  %95 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %96 = load i64, ptr %95, align 8
+  %cmp3.i = icmp ult i64 %94, %96
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %94 = load i64, ptr %word.addr.i, align 8
-  %95 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %94, %95
+  %97 = load i64, ptr %word.addr.i, align 8
+  %98 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %99 = load i64, ptr %98, align 8
+  %cmp5.i = icmp ult i64 %97, %99
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %96 = load i64, ptr %word.addr.i, align 8
-  %97 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %96, %97
+  %100 = load i64, ptr %word.addr.i, align 8
+  %101 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %102 = load i64, ptr %101, align 8
+  %cmp6.i = icmp ult i64 %100, %102
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %98 = load i64, ptr %word.addr.i, align 8
-  %99 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %98, %99
+  %103 = load i64, ptr %word.addr.i, align 8
+  %104 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %105 = load i64, ptr %104, align 8
+  %cmp9.i = icmp ult i64 %103, %105
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %100 = load i64, ptr %word.addr.i, align 8
-  %101 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %100, %101
+  %106 = load i64, ptr %word.addr.i, align 8
+  %107 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %108 = load i64, ptr %107, align 8
+  %cmp11.i = icmp ult i64 %106, %108
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %102 = load i64, ptr %word.addr.i, align 8
-  %103 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %102, %103
+  %109 = load i64, ptr %word.addr.i, align 8
+  %110 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %111 = load i64, ptr %110, align 8
+  %cmp14.i = icmp ult i64 %109, %111
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %104 = load i64, ptr %word.addr.i, align 8
-  %105 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %104, %105
+  %112 = load i64, ptr %word.addr.i, align 8
+  %113 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %114 = load i64, ptr %113, align 8
+  %cmp16.i = icmp ult i64 %112, %114
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -9861,35 +9984,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %for.end41
-  %106 = load i64, ptr %word.addr.i, align 8
-  %107 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %106, %107
+  %115 = load i64, ptr %word.addr.i, align 8
+  %116 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %117 = load i64, ptr %116, align 8
+  %cmp20.i = icmp ult i64 %115, %117
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %108 = load i64, ptr %word.addr.i, align 8
-  %109 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %108, %109
+  %118 = load i64, ptr %word.addr.i, align 8
+  %119 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %120 = load i64, ptr %119, align 8
+  %cmp22.i = icmp ult i64 %118, %120
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %110 = load i64, ptr %word.addr.i, align 8
-  %111 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %110, %111
+  %121 = load i64, ptr %word.addr.i, align 8
+  %122 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %123 = load i64, ptr %122, align 8
+  %cmp24.i = icmp ult i64 %121, %123
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %112 = load i64, ptr %word.addr.i, align 8
-  %113 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %112, %113
+  %124 = load i64, ptr %word.addr.i, align 8
+  %125 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %126 = load i64, ptr %125, align 8
+  %cmp27.i = icmp ult i64 %124, %126
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %114 = load i64, ptr %word.addr.i, align 8
-  %115 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %114, %115
+  %127 = load i64, ptr %word.addr.i, align 8
+  %128 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %129 = load i64, ptr %128, align 8
+  %cmp29.i = icmp ult i64 %127, %129
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -9899,105 +10027,110 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %116 = load i64, ptr %word.addr.i, align 8
-  %117 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %116, %117
+  %130 = load i64, ptr %word.addr.i, align 8
+  %131 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %132 = load i64, ptr %131, align 8
+  %cmp33.i = icmp ult i64 %130, %132
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %118 = load i64, ptr %word.addr.i, align 8
-  %119 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %118, %119
+  %133 = load i64, ptr %word.addr.i, align 8
+  %134 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %135 = load i64, ptr %134, align 8
+  %cmp35.i = icmp ult i64 %133, %135
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %120 = load i64, ptr %word.addr.i, align 8
-  %121 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %120, %121
+  %136 = load i64, ptr %word.addr.i, align 8
+  %137 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %138 = load i64, ptr %137, align 8
+  %cmp37.i = icmp ult i64 %136, %138
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %122 = load i64, ptr %word.addr.i, align 8
-  %123 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %122, %123
+  %139 = load i64, ptr %word.addr.i, align 8
+  %140 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %141 = load i64, ptr %140, align 8
+  %cmp40.i = icmp ult i64 %139, %141
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %124 = load i64, ptr %word.addr.i, align 8
-  %125 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %124, %125
+  %142 = load i64, ptr %word.addr.i, align 8
+  %143 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %144 = load i64, ptr %143, align 8
+  %cmp43.i = icmp ult i64 %142, %144
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %126 = load i32, ptr %retval.i, align 4
-  store i32 %126, ptr %mswdigits, align 4
+  %145 = load i32, ptr %retval.i, align 4
+  store i32 %145, ptr %mswdigits, align 4
   store i32 0, ptr %k, align 4
   br label %for.cond47
 
 for.cond47:                                       ; preds = %for.inc68, %mpd_word_digits.exit
-  %127 = load i32, ptr %k, align 4
-  %128 = load i32, ptr %mswdigits, align 4
-  %cmp48 = icmp slt i32 %127, %128
+  %146 = load i32, ptr %k, align 4
+  %147 = load i32, ptr %mswdigits, align 4
+  %cmp48 = icmp slt i32 %146, %147
   br i1 %cmp48, label %for.body49, label %for.end70
 
 for.body49:                                       ; preds = %for.cond47
-  %129 = load i64, ptr %x, align 8
-  %rem50 = urem i64 %129, 10
+  %148 = load i64, ptr %x, align 8
+  %rem50 = urem i64 %148, 10
   store i64 %rem50, ptr %xbit, align 8
-  %130 = load i64, ptr %x, align 8
-  %div51 = udiv i64 %130, 10
+  %149 = load i64, ptr %x, align 8
+  %div51 = udiv i64 %149, 10
   store i64 %div51, ptr %x, align 8
-  %131 = load i64, ptr %y, align 8
-  %rem52 = urem i64 %131, 10
+  %150 = load i64, ptr %y, align 8
+  %rem52 = urem i64 %150, 10
   store i64 %rem52, ptr %ybit, align 8
-  %132 = load i64, ptr %y, align 8
-  %div53 = udiv i64 %132, 10
+  %151 = load i64, ptr %y, align 8
+  %div53 = udiv i64 %151, 10
   store i64 %div53, ptr %y, align 8
-  %133 = load i64, ptr %xbit, align 8
-  %cmp54 = icmp ugt i64 %133, 1
+  %152 = load i64, ptr %xbit, align 8
+  %cmp54 = icmp ugt i64 %152, 1
   br i1 %cmp54, label %if.then57, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %for.body49
-  %134 = load i64, ptr %ybit, align 8
-  %cmp56 = icmp ugt i64 %134, 1
+  %153 = load i64, ptr %ybit, align 8
+  %cmp56 = icmp ugt i64 %153, 1
   br i1 %cmp56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %lor.lhs.false55, %for.body49
   br label %invalid_operation
 
 if.end58:                                         ; preds = %lor.lhs.false55
-  %135 = load i64, ptr %xbit, align 8
-  %136 = load i64, ptr %ybit, align 8
-  %or59 = or i64 %135, %136
+  %154 = load i64, ptr %xbit, align 8
+  %155 = load i64, ptr %ybit, align 8
+  %or59 = or i64 %154, %155
   %tobool60 = icmp ne i64 %or59, 0
   br i1 %tobool60, label %cond.true61, label %cond.false64
 
 cond.true61:                                      ; preds = %if.end58
-  %137 = load i32, ptr %k, align 4
-  %idxprom62 = sext i32 %137 to i64
+  %156 = load i32, ptr %k, align 4
+  %idxprom62 = sext i32 %156 to i64
   %arrayidx63 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom62
-  %138 = load i64, ptr %arrayidx63, align 8
+  %157 = load i64, ptr %arrayidx63, align 8
   br label %cond.end65
 
 cond.false64:                                     ; preds = %if.end58
   br label %cond.end65
 
 cond.end65:                                       ; preds = %cond.false64, %cond.true61
-  %cond66 = phi i64 [ %138, %cond.true61 ], [ 0, %cond.false64 ]
-  %139 = load i64, ptr %z, align 8
-  %add67 = add i64 %139, %cond66
+  %cond66 = phi i64 [ %157, %cond.true61 ], [ 0, %cond.false64 ]
+  %158 = load i64, ptr %z, align 8
+  %add67 = add i64 %158, %cond66
   store i64 %add67, ptr %z, align 8
   br label %for.inc68
 
 for.inc68:                                        ; preds = %cond.end65
-  %140 = load i32, ptr %k, align 4
-  %inc69 = add i32 %140, 1
+  %159 = load i32, ptr %k, align 4
+  %inc69 = add i32 %159, 1
   store i32 %inc69, ptr %k, align 4
   br label %for.cond47, !llvm.loop !20
 
@@ -10005,87 +10138,87 @@ for.end70:                                        ; preds = %for.cond47
   br label %for.cond71
 
 for.cond71:                                       ; preds = %for.inc82, %for.end70
-  %141 = load i32, ptr %k, align 4
-  %cmp72 = icmp slt i32 %141, 19
+  %160 = load i32, ptr %k, align 4
+  %cmp72 = icmp slt i32 %160, 19
   br i1 %cmp72, label %for.body73, label %for.end84
 
 for.body73:                                       ; preds = %for.cond71
-  %142 = load i64, ptr %y, align 8
-  %rem74 = urem i64 %142, 10
+  %161 = load i64, ptr %y, align 8
+  %rem74 = urem i64 %161, 10
   store i64 %rem74, ptr %ybit, align 8
-  %143 = load i64, ptr %y, align 8
-  %div75 = udiv i64 %143, 10
+  %162 = load i64, ptr %y, align 8
+  %div75 = udiv i64 %162, 10
   store i64 %div75, ptr %y, align 8
-  %144 = load i64, ptr %ybit, align 8
-  %cmp76 = icmp ugt i64 %144, 1
+  %163 = load i64, ptr %ybit, align 8
+  %cmp76 = icmp ugt i64 %163, 1
   br i1 %cmp76, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %for.body73
   br label %invalid_operation
 
 if.end78:                                         ; preds = %for.body73
-  %145 = load i64, ptr %ybit, align 8
-  %146 = load i32, ptr %k, align 4
-  %idxprom79 = sext i32 %146 to i64
+  %164 = load i64, ptr %ybit, align 8
+  %165 = load i32, ptr %k, align 4
+  %idxprom79 = sext i32 %165 to i64
   %arrayidx80 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom79
-  %147 = load i64, ptr %arrayidx80, align 8
-  %mul = mul i64 %145, %147
-  %148 = load i64, ptr %z, align 8
-  %add81 = add i64 %148, %mul
+  %166 = load i64, ptr %arrayidx80, align 8
+  %mul = mul i64 %164, %166
+  %167 = load i64, ptr %z, align 8
+  %add81 = add i64 %167, %mul
   store i64 %add81, ptr %z, align 8
   br label %for.inc82
 
 for.inc82:                                        ; preds = %if.end78
-  %149 = load i32, ptr %k, align 4
-  %inc83 = add i32 %149, 1
+  %168 = load i32, ptr %k, align 4
+  %inc83 = add i32 %168, 1
   store i32 %inc83, ptr %k, align 4
   br label %for.cond71, !llvm.loop !21
 
 for.end84:                                        ; preds = %for.cond71
-  %150 = load i64, ptr %z, align 8
-  %151 = load ptr, ptr %result.addr, align 8
-  %data85 = getelementptr inbounds %struct.mpd_t, ptr %151, i32 0, i32 5
-  %152 = load ptr, ptr %data85, align 8
-  %153 = load i64, ptr %i, align 8
-  %inc86 = add i64 %153, 1
+  %169 = load i64, ptr %z, align 8
+  %170 = load ptr, ptr %result.addr, align 8
+  %data85 = getelementptr inbounds %struct.mpd_t, ptr %170, i32 0, i32 5
+  %171 = load ptr, ptr %data85, align 8
+  %172 = load i64, ptr %i, align 8
+  %inc86 = add i64 %172, 1
   store i64 %inc86, ptr %i, align 8
-  %arrayidx87 = getelementptr i64, ptr %152, i64 %153
-  store i64 %150, ptr %arrayidx87, align 8
+  %arrayidx87 = getelementptr i64, ptr %171, i64 %172
+  store i64 %169, ptr %arrayidx87, align 8
   br label %for.cond88
 
 for.cond88:                                       ; preds = %for.inc109, %for.end84
-  %154 = load i64, ptr %i, align 8
-  %155 = load ptr, ptr %big, align 8
-  %len89 = getelementptr inbounds %struct.mpd_t, ptr %155, i32 0, i32 3
-  %156 = load i64, ptr %len89, align 8
-  %cmp90 = icmp slt i64 %154, %156
+  %173 = load i64, ptr %i, align 8
+  %174 = load ptr, ptr %big, align 8
+  %len89 = getelementptr inbounds %struct.mpd_t, ptr %174, i32 0, i32 3
+  %175 = load i64, ptr %len89, align 8
+  %cmp90 = icmp slt i64 %173, %175
   br i1 %cmp90, label %for.body91, label %for.end111
 
 for.body91:                                       ; preds = %for.cond88
-  %157 = load ptr, ptr %big, align 8
-  %data92 = getelementptr inbounds %struct.mpd_t, ptr %157, i32 0, i32 5
-  %158 = load ptr, ptr %data92, align 8
-  %159 = load i64, ptr %i, align 8
-  %arrayidx93 = getelementptr i64, ptr %158, i64 %159
-  %160 = load i64, ptr %arrayidx93, align 8
-  store i64 %160, ptr %y, align 8
+  %176 = load ptr, ptr %big, align 8
+  %data92 = getelementptr inbounds %struct.mpd_t, ptr %176, i32 0, i32 5
+  %177 = load ptr, ptr %data92, align 8
+  %178 = load i64, ptr %i, align 8
+  %arrayidx93 = getelementptr i64, ptr %177, i64 %178
+  %179 = load i64, ptr %arrayidx93, align 8
+  store i64 %179, ptr %y, align 8
   store i32 0, ptr %k, align 4
   br label %for.cond94
 
 for.cond94:                                       ; preds = %for.inc102, %for.body91
-  %161 = load i32, ptr %k, align 4
-  %cmp95 = icmp slt i32 %161, 19
+  %180 = load i32, ptr %k, align 4
+  %cmp95 = icmp slt i32 %180, 19
   br i1 %cmp95, label %for.body96, label %for.end104
 
 for.body96:                                       ; preds = %for.cond94
-  %162 = load i64, ptr %y, align 8
-  %rem97 = urem i64 %162, 10
+  %181 = load i64, ptr %y, align 8
+  %rem97 = urem i64 %181, 10
   store i64 %rem97, ptr %ybit, align 8
-  %163 = load i64, ptr %y, align 8
-  %div98 = udiv i64 %163, 10
+  %182 = load i64, ptr %y, align 8
+  %div98 = udiv i64 %182, 10
   store i64 %div98, ptr %y, align 8
-  %164 = load i64, ptr %ybit, align 8
-  %cmp99 = icmp ugt i64 %164, 1
+  %183 = load i64, ptr %ybit, align 8
+  %cmp99 = icmp ugt i64 %183, 1
   br i1 %cmp99, label %if.then100, label %if.end101
 
 if.then100:                                       ; preds = %for.body96
@@ -10095,83 +10228,83 @@ if.end101:                                        ; preds = %for.body96
   br label %for.inc102
 
 for.inc102:                                       ; preds = %if.end101
-  %165 = load i32, ptr %k, align 4
-  %inc103 = add i32 %165, 1
+  %184 = load i32, ptr %k, align 4
+  %inc103 = add i32 %184, 1
   store i32 %inc103, ptr %k, align 4
   br label %for.cond94, !llvm.loop !22
 
 for.end104:                                       ; preds = %for.cond94
-  %166 = load ptr, ptr %big, align 8
-  %data105 = getelementptr inbounds %struct.mpd_t, ptr %166, i32 0, i32 5
-  %167 = load ptr, ptr %data105, align 8
-  %168 = load i64, ptr %i, align 8
-  %arrayidx106 = getelementptr i64, ptr %167, i64 %168
-  %169 = load i64, ptr %arrayidx106, align 8
-  %170 = load ptr, ptr %result.addr, align 8
-  %data107 = getelementptr inbounds %struct.mpd_t, ptr %170, i32 0, i32 5
-  %171 = load ptr, ptr %data107, align 8
-  %172 = load i64, ptr %i, align 8
-  %arrayidx108 = getelementptr i64, ptr %171, i64 %172
-  store i64 %169, ptr %arrayidx108, align 8
+  %185 = load ptr, ptr %big, align 8
+  %data105 = getelementptr inbounds %struct.mpd_t, ptr %185, i32 0, i32 5
+  %186 = load ptr, ptr %data105, align 8
+  %187 = load i64, ptr %i, align 8
+  %arrayidx106 = getelementptr i64, ptr %186, i64 %187
+  %188 = load i64, ptr %arrayidx106, align 8
+  %189 = load ptr, ptr %result.addr, align 8
+  %data107 = getelementptr inbounds %struct.mpd_t, ptr %189, i32 0, i32 5
+  %190 = load ptr, ptr %data107, align 8
+  %191 = load i64, ptr %i, align 8
+  %arrayidx108 = getelementptr i64, ptr %190, i64 %191
+  store i64 %188, ptr %arrayidx108, align 8
   br label %for.inc109
 
 for.inc109:                                       ; preds = %for.end104
-  %173 = load i64, ptr %i, align 8
-  %inc110 = add i64 %173, 1
+  %192 = load i64, ptr %i, align 8
+  %inc110 = add i64 %192, 1
   store i64 %inc110, ptr %i, align 8
   br label %for.cond88, !llvm.loop !23
 
 for.end111:                                       ; preds = %for.cond88
-  %174 = load ptr, ptr %result.addr, align 8
-  store ptr %174, ptr %result.addr.i162, align 8
-  %175 = load ptr, ptr %result.addr.i162, align 8
-  %176 = load i8, ptr %175, align 8
-  %conv.i163 = zext i8 %176 to i32
+  %193 = load ptr, ptr %result.addr, align 8
+  store ptr %193, ptr %result.addr.i162, align 8
+  %194 = load ptr, ptr %result.addr.i162, align 8
+  %195 = load i8, ptr %194, align 8
+  %conv.i163 = zext i8 %195 to i32
   %and.i164 = and i32 %conv.i163, 240
   %conv1.i = trunc i32 %and.i164 to i8
-  store i8 %conv1.i, ptr %175, align 8
-  %177 = load ptr, ptr %result.addr, align 8
-  %exp112 = getelementptr inbounds %struct.mpd_t, ptr %177, i32 0, i32 1
+  store i8 %conv1.i, ptr %194, align 8
+  %196 = load ptr, ptr %result.addr, align 8
+  %exp112 = getelementptr inbounds %struct.mpd_t, ptr %196, i32 0, i32 1
   store i64 0, ptr %exp112, align 8
-  %178 = load ptr, ptr %result.addr, align 8
-  %data113 = getelementptr inbounds %struct.mpd_t, ptr %178, i32 0, i32 5
-  %179 = load ptr, ptr %data113, align 8
-  %180 = load ptr, ptr %big, align 8
-  %len114 = getelementptr inbounds %struct.mpd_t, ptr %180, i32 0, i32 3
-  %181 = load i64, ptr %len114, align 8
-  %call115 = call i64 @_mpd_real_size(ptr noundef %179, i64 noundef %181)
-  %182 = load ptr, ptr %result.addr, align 8
-  %len116 = getelementptr inbounds %struct.mpd_t, ptr %182, i32 0, i32 3
+  %197 = load ptr, ptr %result.addr, align 8
+  %data113 = getelementptr inbounds %struct.mpd_t, ptr %197, i32 0, i32 5
+  %198 = load ptr, ptr %data113, align 8
+  %199 = load ptr, ptr %big, align 8
+  %len114 = getelementptr inbounds %struct.mpd_t, ptr %199, i32 0, i32 3
+  %200 = load i64, ptr %len114, align 8
+  %call115 = call i64 @_mpd_real_size(ptr noundef %198, i64 noundef %200)
+  %201 = load ptr, ptr %result.addr, align 8
+  %len116 = getelementptr inbounds %struct.mpd_t, ptr %201, i32 0, i32 3
   store i64 %call115, ptr %len116, align 8
-  %183 = load ptr, ptr %result.addr, align 8
-  %184 = load ptr, ptr %result.addr, align 8
-  %len117 = getelementptr inbounds %struct.mpd_t, ptr %184, i32 0, i32 3
-  %185 = load i64, ptr %len117, align 8
-  %186 = load ptr, ptr %status.addr, align 8
-  store ptr %183, ptr %result.addr.i, align 8
-  store i64 %185, ptr %nwords.addr.i, align 8
-  store ptr %186, ptr %status.addr.i, align 8
-  %187 = load i64, ptr %nwords.addr.i, align 8
-  %188 = load i64, ptr @MPD_MINALLOC, align 8
-  %cmp.i129 = icmp sle i64 %187, %188
+  %202 = load ptr, ptr %result.addr, align 8
+  %203 = load ptr, ptr %result.addr, align 8
+  %len117 = getelementptr inbounds %struct.mpd_t, ptr %203, i32 0, i32 3
+  %204 = load i64, ptr %len117, align 8
+  %205 = load ptr, ptr %status.addr, align 8
+  store ptr %202, ptr %result.addr.i, align 8
+  store i64 %204, ptr %nwords.addr.i, align 8
+  store ptr %205, ptr %status.addr.i, align 8
+  %206 = load i64, ptr %nwords.addr.i, align 8
+  %207 = load i64, ptr @MPD_MINALLOC, align 8
+  %cmp.i129 = icmp sle i64 %206, %207
   br i1 %cmp.i129, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.end111
-  %189 = load i64, ptr @MPD_MINALLOC, align 8
+  %208 = load i64, ptr @MPD_MINALLOC, align 8
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %for.end111
-  %190 = load i64, ptr %nwords.addr.i, align 8
+  %209 = load i64, ptr %nwords.addr.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %cond.i130 = phi i64 [ %189, %cond.true.i ], [ %190, %cond.false.i ]
+  %cond.i130 = phi i64 [ %208, %cond.true.i ], [ %209, %cond.false.i ]
   store i64 %cond.i130, ptr %nwords.addr.i, align 8
-  %191 = load i64, ptr %nwords.addr.i, align 8
-  %192 = load ptr, ptr %result.addr.i, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %192, i32 0, i32 4
-  %193 = load i64, ptr %alloc.i, align 8
-  %cmp1.i131 = icmp eq i64 %191, %193
+  %210 = load i64, ptr %nwords.addr.i, align 8
+  %211 = load ptr, ptr %result.addr.i, align 8
+  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %211, i32 0, i32 4
+  %212 = load i64, ptr %alloc.i, align 8
+  %cmp1.i131 = icmp eq i64 %210, %212
   br i1 %cmp1.i131, label %if.then.i135, label %if.end.i132
 
 if.then.i135:                                     ; preds = %cond.end.i
@@ -10179,28 +10312,28 @@ if.then.i135:                                     ; preds = %cond.end.i
   br label %mpd_qresize.exit
 
 if.end.i132:                                      ; preds = %cond.end.i
-  %194 = load ptr, ptr %result.addr.i, align 8
-  store ptr %194, ptr %dec.addr.i.i, align 8
-  %195 = load ptr, ptr %dec.addr.i.i, align 8
-  %196 = load i8, ptr %195, align 8
-  %conv.i.i = zext i8 %196 to i32
+  %213 = load ptr, ptr %result.addr.i, align 8
+  store ptr %213, ptr %dec.addr.i.i, align 8
+  %214 = load ptr, ptr %dec.addr.i.i, align 8
+  %215 = load i8, ptr %214, align 8
+  %conv.i.i = zext i8 %215 to i32
   %and.i.i = and i32 %conv.i.i, 32
   %tobool.i = icmp ne i32 %and.i.i, 0
   br i1 %tobool.i, label %if.then2.i134, label %if.end8.i133
 
 if.then2.i134:                                    ; preds = %if.end.i132
-  %197 = load i64, ptr %nwords.addr.i, align 8
-  %198 = load ptr, ptr %result.addr.i, align 8
-  %alloc3.i = getelementptr inbounds %struct.mpd_t, ptr %198, i32 0, i32 4
-  %199 = load i64, ptr %alloc3.i, align 8
-  %cmp4.i = icmp sgt i64 %197, %199
+  %216 = load i64, ptr %nwords.addr.i, align 8
+  %217 = load ptr, ptr %result.addr.i, align 8
+  %alloc3.i = getelementptr inbounds %struct.mpd_t, ptr %217, i32 0, i32 4
+  %218 = load i64, ptr %alloc3.i, align 8
+  %cmp4.i = icmp sgt i64 %216, %218
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.then2.i134
-  %200 = load ptr, ptr %result.addr.i, align 8
-  %201 = load i64, ptr %nwords.addr.i, align 8
-  %202 = load ptr, ptr %status.addr.i, align 8
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef %200, i64 noundef %201, ptr noundef %202) #8
+  %219 = load ptr, ptr %result.addr.i, align 8
+  %220 = load i64, ptr %nwords.addr.i, align 8
+  %221 = load ptr, ptr %status.addr.i, align 8
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef %219, i64 noundef %220, ptr noundef %221) #8
   store i32 %call6.i, ptr %retval.i128, align 4
   br label %mpd_qresize.exit
 
@@ -10209,25 +10342,25 @@ if.end7.i:                                        ; preds = %if.then2.i134
   br label %mpd_qresize.exit
 
 if.end8.i133:                                     ; preds = %if.end.i132
-  %203 = load ptr, ptr %result.addr.i, align 8
-  %204 = load i64, ptr %nwords.addr.i, align 8
-  %205 = load ptr, ptr %status.addr.i, align 8
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef %203, i64 noundef %204, ptr noundef %205) #8
+  %222 = load ptr, ptr %result.addr.i, align 8
+  %223 = load i64, ptr %nwords.addr.i, align 8
+  %224 = load ptr, ptr %status.addr.i, align 8
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef %222, i64 noundef %223, ptr noundef %224) #8
   store i32 %call9.i, ptr %retval.i128, align 4
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i133, %if.end7.i, %if.then5.i, %if.then.i135
-  %206 = load ptr, ptr %result.addr, align 8
-  call void @mpd_setdigits(ptr noundef %206)
-  %207 = load ptr, ptr %result.addr, align 8
-  %208 = load ptr, ptr %ctx.addr, align 8
-  call void @_mpd_cap(ptr noundef %207, ptr noundef %208)
+  %225 = load ptr, ptr %result.addr, align 8
+  call void @mpd_setdigits(ptr noundef %225)
+  %226 = load ptr, ptr %result.addr, align 8
+  %227 = load ptr, ptr %ctx.addr, align 8
+  call void @_mpd_cap(ptr noundef %226, ptr noundef %227)
   br label %return
 
 invalid_operation:                                ; preds = %if.then100, %if.then77, %if.then57, %if.then33
-  %209 = load ptr, ptr %result.addr, align 8
-  %210 = load ptr, ptr %status.addr, align 8
-  call void @mpd_seterror(ptr noundef %209, i32 noundef 256, ptr noundef %210)
+  %228 = load ptr, ptr %result.addr, align 8
+  %229 = load ptr, ptr %status.addr, align 8
+  call void @mpd_seterror(ptr noundef %228, i32 noundef 256, ptr noundef %229)
   br label %return
 
 return:                                           ; preds = %invalid_operation, %mpd_qresize.exit, %if.then19, %if.then
@@ -11476,62 +11609,71 @@ for.end41:                                        ; preds = %for.cond
   %87 = load i64, ptr %x, align 8
   store i64 %87, ptr %word.addr.i, align 8
   %88 = load i64, ptr %word.addr.i, align 8
-  %89 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %88, %89
+  %89 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %90 = load i64, ptr %89, align 8
+  %cmp.i = icmp ult i64 %88, %90
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %for.end41
-  %90 = load i64, ptr %word.addr.i, align 8
-  %91 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %90, %91
+  %91 = load i64, ptr %word.addr.i, align 8
+  %92 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %93 = load i64, ptr %92, align 8
+  %cmp1.i = icmp ult i64 %91, %93
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %92 = load i64, ptr %word.addr.i, align 8
-  %93 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %92, %93
+  %94 = load i64, ptr %word.addr.i, align 8
+  %95 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %96 = load i64, ptr %95, align 8
+  %cmp3.i = icmp ult i64 %94, %96
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %94 = load i64, ptr %word.addr.i, align 8
-  %95 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %94, %95
+  %97 = load i64, ptr %word.addr.i, align 8
+  %98 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %99 = load i64, ptr %98, align 8
+  %cmp5.i = icmp ult i64 %97, %99
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %96 = load i64, ptr %word.addr.i, align 8
-  %97 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %96, %97
+  %100 = load i64, ptr %word.addr.i, align 8
+  %101 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %102 = load i64, ptr %101, align 8
+  %cmp6.i = icmp ult i64 %100, %102
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %98 = load i64, ptr %word.addr.i, align 8
-  %99 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %98, %99
+  %103 = load i64, ptr %word.addr.i, align 8
+  %104 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %105 = load i64, ptr %104, align 8
+  %cmp9.i = icmp ult i64 %103, %105
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %100 = load i64, ptr %word.addr.i, align 8
-  %101 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %100, %101
+  %106 = load i64, ptr %word.addr.i, align 8
+  %107 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %108 = load i64, ptr %107, align 8
+  %cmp11.i = icmp ult i64 %106, %108
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %102 = load i64, ptr %word.addr.i, align 8
-  %103 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %102, %103
+  %109 = load i64, ptr %word.addr.i, align 8
+  %110 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %111 = load i64, ptr %110, align 8
+  %cmp14.i = icmp ult i64 %109, %111
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %104 = load i64, ptr %word.addr.i, align 8
-  %105 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %104, %105
+  %112 = load i64, ptr %word.addr.i, align 8
+  %113 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %114 = load i64, ptr %113, align 8
+  %cmp16.i = icmp ult i64 %112, %114
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -11541,35 +11683,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %for.end41
-  %106 = load i64, ptr %word.addr.i, align 8
-  %107 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %106, %107
+  %115 = load i64, ptr %word.addr.i, align 8
+  %116 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %117 = load i64, ptr %116, align 8
+  %cmp20.i = icmp ult i64 %115, %117
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %108 = load i64, ptr %word.addr.i, align 8
-  %109 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %108, %109
+  %118 = load i64, ptr %word.addr.i, align 8
+  %119 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %120 = load i64, ptr %119, align 8
+  %cmp22.i = icmp ult i64 %118, %120
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %110 = load i64, ptr %word.addr.i, align 8
-  %111 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %110, %111
+  %121 = load i64, ptr %word.addr.i, align 8
+  %122 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %123 = load i64, ptr %122, align 8
+  %cmp24.i = icmp ult i64 %121, %123
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %112 = load i64, ptr %word.addr.i, align 8
-  %113 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %112, %113
+  %124 = load i64, ptr %word.addr.i, align 8
+  %125 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %126 = load i64, ptr %125, align 8
+  %cmp27.i = icmp ult i64 %124, %126
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %114 = load i64, ptr %word.addr.i, align 8
-  %115 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %114, %115
+  %127 = load i64, ptr %word.addr.i, align 8
+  %128 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %129 = load i64, ptr %128, align 8
+  %cmp29.i = icmp ult i64 %127, %129
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -11579,105 +11726,110 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %116 = load i64, ptr %word.addr.i, align 8
-  %117 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %116, %117
+  %130 = load i64, ptr %word.addr.i, align 8
+  %131 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %132 = load i64, ptr %131, align 8
+  %cmp33.i = icmp ult i64 %130, %132
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %118 = load i64, ptr %word.addr.i, align 8
-  %119 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %118, %119
+  %133 = load i64, ptr %word.addr.i, align 8
+  %134 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %135 = load i64, ptr %134, align 8
+  %cmp35.i = icmp ult i64 %133, %135
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %120 = load i64, ptr %word.addr.i, align 8
-  %121 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %120, %121
+  %136 = load i64, ptr %word.addr.i, align 8
+  %137 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %138 = load i64, ptr %137, align 8
+  %cmp37.i = icmp ult i64 %136, %138
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %122 = load i64, ptr %word.addr.i, align 8
-  %123 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %122, %123
+  %139 = load i64, ptr %word.addr.i, align 8
+  %140 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %141 = load i64, ptr %140, align 8
+  %cmp40.i = icmp ult i64 %139, %141
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %124 = load i64, ptr %word.addr.i, align 8
-  %125 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %124, %125
+  %142 = load i64, ptr %word.addr.i, align 8
+  %143 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %144 = load i64, ptr %143, align 8
+  %cmp43.i = icmp ult i64 %142, %144
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %126 = load i32, ptr %retval.i, align 4
-  store i32 %126, ptr %mswdigits, align 4
+  %145 = load i32, ptr %retval.i, align 4
+  store i32 %145, ptr %mswdigits, align 4
   store i32 0, ptr %k, align 4
   br label %for.cond47
 
 for.cond47:                                       ; preds = %for.inc68, %mpd_word_digits.exit
-  %127 = load i32, ptr %k, align 4
-  %128 = load i32, ptr %mswdigits, align 4
-  %cmp48 = icmp slt i32 %127, %128
+  %146 = load i32, ptr %k, align 4
+  %147 = load i32, ptr %mswdigits, align 4
+  %cmp48 = icmp slt i32 %146, %147
   br i1 %cmp48, label %for.body49, label %for.end70
 
 for.body49:                                       ; preds = %for.cond47
-  %129 = load i64, ptr %x, align 8
-  %rem50 = urem i64 %129, 10
+  %148 = load i64, ptr %x, align 8
+  %rem50 = urem i64 %148, 10
   store i64 %rem50, ptr %xbit, align 8
-  %130 = load i64, ptr %x, align 8
-  %div51 = udiv i64 %130, 10
+  %149 = load i64, ptr %x, align 8
+  %div51 = udiv i64 %149, 10
   store i64 %div51, ptr %x, align 8
-  %131 = load i64, ptr %y, align 8
-  %rem52 = urem i64 %131, 10
+  %150 = load i64, ptr %y, align 8
+  %rem52 = urem i64 %150, 10
   store i64 %rem52, ptr %ybit, align 8
-  %132 = load i64, ptr %y, align 8
-  %div53 = udiv i64 %132, 10
+  %151 = load i64, ptr %y, align 8
+  %div53 = udiv i64 %151, 10
   store i64 %div53, ptr %y, align 8
-  %133 = load i64, ptr %xbit, align 8
-  %cmp54 = icmp ugt i64 %133, 1
+  %152 = load i64, ptr %xbit, align 8
+  %cmp54 = icmp ugt i64 %152, 1
   br i1 %cmp54, label %if.then57, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %for.body49
-  %134 = load i64, ptr %ybit, align 8
-  %cmp56 = icmp ugt i64 %134, 1
+  %153 = load i64, ptr %ybit, align 8
+  %cmp56 = icmp ugt i64 %153, 1
   br i1 %cmp56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %lor.lhs.false55, %for.body49
   br label %invalid_operation
 
 if.end58:                                         ; preds = %lor.lhs.false55
-  %135 = load i64, ptr %xbit, align 8
-  %136 = load i64, ptr %ybit, align 8
-  %xor59 = xor i64 %135, %136
+  %154 = load i64, ptr %xbit, align 8
+  %155 = load i64, ptr %ybit, align 8
+  %xor59 = xor i64 %154, %155
   %tobool60 = icmp ne i64 %xor59, 0
   br i1 %tobool60, label %cond.true61, label %cond.false64
 
 cond.true61:                                      ; preds = %if.end58
-  %137 = load i32, ptr %k, align 4
-  %idxprom62 = sext i32 %137 to i64
+  %156 = load i32, ptr %k, align 4
+  %idxprom62 = sext i32 %156 to i64
   %arrayidx63 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom62
-  %138 = load i64, ptr %arrayidx63, align 8
+  %157 = load i64, ptr %arrayidx63, align 8
   br label %cond.end65
 
 cond.false64:                                     ; preds = %if.end58
   br label %cond.end65
 
 cond.end65:                                       ; preds = %cond.false64, %cond.true61
-  %cond66 = phi i64 [ %138, %cond.true61 ], [ 0, %cond.false64 ]
-  %139 = load i64, ptr %z, align 8
-  %add67 = add i64 %139, %cond66
+  %cond66 = phi i64 [ %157, %cond.true61 ], [ 0, %cond.false64 ]
+  %158 = load i64, ptr %z, align 8
+  %add67 = add i64 %158, %cond66
   store i64 %add67, ptr %z, align 8
   br label %for.inc68
 
 for.inc68:                                        ; preds = %cond.end65
-  %140 = load i32, ptr %k, align 4
-  %inc69 = add i32 %140, 1
+  %159 = load i32, ptr %k, align 4
+  %inc69 = add i32 %159, 1
   store i32 %inc69, ptr %k, align 4
   br label %for.cond47, !llvm.loop !26
 
@@ -11685,87 +11837,87 @@ for.end70:                                        ; preds = %for.cond47
   br label %for.cond71
 
 for.cond71:                                       ; preds = %for.inc82, %for.end70
-  %141 = load i32, ptr %k, align 4
-  %cmp72 = icmp slt i32 %141, 19
+  %160 = load i32, ptr %k, align 4
+  %cmp72 = icmp slt i32 %160, 19
   br i1 %cmp72, label %for.body73, label %for.end84
 
 for.body73:                                       ; preds = %for.cond71
-  %142 = load i64, ptr %y, align 8
-  %rem74 = urem i64 %142, 10
+  %161 = load i64, ptr %y, align 8
+  %rem74 = urem i64 %161, 10
   store i64 %rem74, ptr %ybit, align 8
-  %143 = load i64, ptr %y, align 8
-  %div75 = udiv i64 %143, 10
+  %162 = load i64, ptr %y, align 8
+  %div75 = udiv i64 %162, 10
   store i64 %div75, ptr %y, align 8
-  %144 = load i64, ptr %ybit, align 8
-  %cmp76 = icmp ugt i64 %144, 1
+  %163 = load i64, ptr %ybit, align 8
+  %cmp76 = icmp ugt i64 %163, 1
   br i1 %cmp76, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %for.body73
   br label %invalid_operation
 
 if.end78:                                         ; preds = %for.body73
-  %145 = load i64, ptr %ybit, align 8
-  %146 = load i32, ptr %k, align 4
-  %idxprom79 = sext i32 %146 to i64
+  %164 = load i64, ptr %ybit, align 8
+  %165 = load i32, ptr %k, align 4
+  %idxprom79 = sext i32 %165 to i64
   %arrayidx80 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom79
-  %147 = load i64, ptr %arrayidx80, align 8
-  %mul = mul i64 %145, %147
-  %148 = load i64, ptr %z, align 8
-  %add81 = add i64 %148, %mul
+  %166 = load i64, ptr %arrayidx80, align 8
+  %mul = mul i64 %164, %166
+  %167 = load i64, ptr %z, align 8
+  %add81 = add i64 %167, %mul
   store i64 %add81, ptr %z, align 8
   br label %for.inc82
 
 for.inc82:                                        ; preds = %if.end78
-  %149 = load i32, ptr %k, align 4
-  %inc83 = add i32 %149, 1
+  %168 = load i32, ptr %k, align 4
+  %inc83 = add i32 %168, 1
   store i32 %inc83, ptr %k, align 4
   br label %for.cond71, !llvm.loop !27
 
 for.end84:                                        ; preds = %for.cond71
-  %150 = load i64, ptr %z, align 8
-  %151 = load ptr, ptr %result.addr, align 8
-  %data85 = getelementptr inbounds %struct.mpd_t, ptr %151, i32 0, i32 5
-  %152 = load ptr, ptr %data85, align 8
-  %153 = load i64, ptr %i, align 8
-  %inc86 = add i64 %153, 1
+  %169 = load i64, ptr %z, align 8
+  %170 = load ptr, ptr %result.addr, align 8
+  %data85 = getelementptr inbounds %struct.mpd_t, ptr %170, i32 0, i32 5
+  %171 = load ptr, ptr %data85, align 8
+  %172 = load i64, ptr %i, align 8
+  %inc86 = add i64 %172, 1
   store i64 %inc86, ptr %i, align 8
-  %arrayidx87 = getelementptr i64, ptr %152, i64 %153
-  store i64 %150, ptr %arrayidx87, align 8
+  %arrayidx87 = getelementptr i64, ptr %171, i64 %172
+  store i64 %169, ptr %arrayidx87, align 8
   br label %for.cond88
 
 for.cond88:                                       ; preds = %for.inc109, %for.end84
-  %154 = load i64, ptr %i, align 8
-  %155 = load ptr, ptr %big, align 8
-  %len89 = getelementptr inbounds %struct.mpd_t, ptr %155, i32 0, i32 3
-  %156 = load i64, ptr %len89, align 8
-  %cmp90 = icmp slt i64 %154, %156
+  %173 = load i64, ptr %i, align 8
+  %174 = load ptr, ptr %big, align 8
+  %len89 = getelementptr inbounds %struct.mpd_t, ptr %174, i32 0, i32 3
+  %175 = load i64, ptr %len89, align 8
+  %cmp90 = icmp slt i64 %173, %175
   br i1 %cmp90, label %for.body91, label %for.end111
 
 for.body91:                                       ; preds = %for.cond88
-  %157 = load ptr, ptr %big, align 8
-  %data92 = getelementptr inbounds %struct.mpd_t, ptr %157, i32 0, i32 5
-  %158 = load ptr, ptr %data92, align 8
-  %159 = load i64, ptr %i, align 8
-  %arrayidx93 = getelementptr i64, ptr %158, i64 %159
-  %160 = load i64, ptr %arrayidx93, align 8
-  store i64 %160, ptr %y, align 8
+  %176 = load ptr, ptr %big, align 8
+  %data92 = getelementptr inbounds %struct.mpd_t, ptr %176, i32 0, i32 5
+  %177 = load ptr, ptr %data92, align 8
+  %178 = load i64, ptr %i, align 8
+  %arrayidx93 = getelementptr i64, ptr %177, i64 %178
+  %179 = load i64, ptr %arrayidx93, align 8
+  store i64 %179, ptr %y, align 8
   store i32 0, ptr %k, align 4
   br label %for.cond94
 
 for.cond94:                                       ; preds = %for.inc102, %for.body91
-  %161 = load i32, ptr %k, align 4
-  %cmp95 = icmp slt i32 %161, 19
+  %180 = load i32, ptr %k, align 4
+  %cmp95 = icmp slt i32 %180, 19
   br i1 %cmp95, label %for.body96, label %for.end104
 
 for.body96:                                       ; preds = %for.cond94
-  %162 = load i64, ptr %y, align 8
-  %rem97 = urem i64 %162, 10
+  %181 = load i64, ptr %y, align 8
+  %rem97 = urem i64 %181, 10
   store i64 %rem97, ptr %ybit, align 8
-  %163 = load i64, ptr %y, align 8
-  %div98 = udiv i64 %163, 10
+  %182 = load i64, ptr %y, align 8
+  %div98 = udiv i64 %182, 10
   store i64 %div98, ptr %y, align 8
-  %164 = load i64, ptr %ybit, align 8
-  %cmp99 = icmp ugt i64 %164, 1
+  %183 = load i64, ptr %ybit, align 8
+  %cmp99 = icmp ugt i64 %183, 1
   br i1 %cmp99, label %if.then100, label %if.end101
 
 if.then100:                                       ; preds = %for.body96
@@ -11775,83 +11927,83 @@ if.end101:                                        ; preds = %for.body96
   br label %for.inc102
 
 for.inc102:                                       ; preds = %if.end101
-  %165 = load i32, ptr %k, align 4
-  %inc103 = add i32 %165, 1
+  %184 = load i32, ptr %k, align 4
+  %inc103 = add i32 %184, 1
   store i32 %inc103, ptr %k, align 4
   br label %for.cond94, !llvm.loop !28
 
 for.end104:                                       ; preds = %for.cond94
-  %166 = load ptr, ptr %big, align 8
-  %data105 = getelementptr inbounds %struct.mpd_t, ptr %166, i32 0, i32 5
-  %167 = load ptr, ptr %data105, align 8
-  %168 = load i64, ptr %i, align 8
-  %arrayidx106 = getelementptr i64, ptr %167, i64 %168
-  %169 = load i64, ptr %arrayidx106, align 8
-  %170 = load ptr, ptr %result.addr, align 8
-  %data107 = getelementptr inbounds %struct.mpd_t, ptr %170, i32 0, i32 5
-  %171 = load ptr, ptr %data107, align 8
-  %172 = load i64, ptr %i, align 8
-  %arrayidx108 = getelementptr i64, ptr %171, i64 %172
-  store i64 %169, ptr %arrayidx108, align 8
+  %185 = load ptr, ptr %big, align 8
+  %data105 = getelementptr inbounds %struct.mpd_t, ptr %185, i32 0, i32 5
+  %186 = load ptr, ptr %data105, align 8
+  %187 = load i64, ptr %i, align 8
+  %arrayidx106 = getelementptr i64, ptr %186, i64 %187
+  %188 = load i64, ptr %arrayidx106, align 8
+  %189 = load ptr, ptr %result.addr, align 8
+  %data107 = getelementptr inbounds %struct.mpd_t, ptr %189, i32 0, i32 5
+  %190 = load ptr, ptr %data107, align 8
+  %191 = load i64, ptr %i, align 8
+  %arrayidx108 = getelementptr i64, ptr %190, i64 %191
+  store i64 %188, ptr %arrayidx108, align 8
   br label %for.inc109
 
 for.inc109:                                       ; preds = %for.end104
-  %173 = load i64, ptr %i, align 8
-  %inc110 = add i64 %173, 1
+  %192 = load i64, ptr %i, align 8
+  %inc110 = add i64 %192, 1
   store i64 %inc110, ptr %i, align 8
   br label %for.cond88, !llvm.loop !29
 
 for.end111:                                       ; preds = %for.cond88
-  %174 = load ptr, ptr %result.addr, align 8
-  store ptr %174, ptr %result.addr.i162, align 8
-  %175 = load ptr, ptr %result.addr.i162, align 8
-  %176 = load i8, ptr %175, align 8
-  %conv.i163 = zext i8 %176 to i32
+  %193 = load ptr, ptr %result.addr, align 8
+  store ptr %193, ptr %result.addr.i162, align 8
+  %194 = load ptr, ptr %result.addr.i162, align 8
+  %195 = load i8, ptr %194, align 8
+  %conv.i163 = zext i8 %195 to i32
   %and.i164 = and i32 %conv.i163, 240
   %conv1.i = trunc i32 %and.i164 to i8
-  store i8 %conv1.i, ptr %175, align 8
-  %177 = load ptr, ptr %result.addr, align 8
-  %exp112 = getelementptr inbounds %struct.mpd_t, ptr %177, i32 0, i32 1
+  store i8 %conv1.i, ptr %194, align 8
+  %196 = load ptr, ptr %result.addr, align 8
+  %exp112 = getelementptr inbounds %struct.mpd_t, ptr %196, i32 0, i32 1
   store i64 0, ptr %exp112, align 8
-  %178 = load ptr, ptr %result.addr, align 8
-  %data113 = getelementptr inbounds %struct.mpd_t, ptr %178, i32 0, i32 5
-  %179 = load ptr, ptr %data113, align 8
-  %180 = load ptr, ptr %big, align 8
-  %len114 = getelementptr inbounds %struct.mpd_t, ptr %180, i32 0, i32 3
-  %181 = load i64, ptr %len114, align 8
-  %call115 = call i64 @_mpd_real_size(ptr noundef %179, i64 noundef %181)
-  %182 = load ptr, ptr %result.addr, align 8
-  %len116 = getelementptr inbounds %struct.mpd_t, ptr %182, i32 0, i32 3
+  %197 = load ptr, ptr %result.addr, align 8
+  %data113 = getelementptr inbounds %struct.mpd_t, ptr %197, i32 0, i32 5
+  %198 = load ptr, ptr %data113, align 8
+  %199 = load ptr, ptr %big, align 8
+  %len114 = getelementptr inbounds %struct.mpd_t, ptr %199, i32 0, i32 3
+  %200 = load i64, ptr %len114, align 8
+  %call115 = call i64 @_mpd_real_size(ptr noundef %198, i64 noundef %200)
+  %201 = load ptr, ptr %result.addr, align 8
+  %len116 = getelementptr inbounds %struct.mpd_t, ptr %201, i32 0, i32 3
   store i64 %call115, ptr %len116, align 8
-  %183 = load ptr, ptr %result.addr, align 8
-  %184 = load ptr, ptr %result.addr, align 8
-  %len117 = getelementptr inbounds %struct.mpd_t, ptr %184, i32 0, i32 3
-  %185 = load i64, ptr %len117, align 8
-  %186 = load ptr, ptr %status.addr, align 8
-  store ptr %183, ptr %result.addr.i, align 8
-  store i64 %185, ptr %nwords.addr.i, align 8
-  store ptr %186, ptr %status.addr.i, align 8
-  %187 = load i64, ptr %nwords.addr.i, align 8
-  %188 = load i64, ptr @MPD_MINALLOC, align 8
-  %cmp.i129 = icmp sle i64 %187, %188
+  %202 = load ptr, ptr %result.addr, align 8
+  %203 = load ptr, ptr %result.addr, align 8
+  %len117 = getelementptr inbounds %struct.mpd_t, ptr %203, i32 0, i32 3
+  %204 = load i64, ptr %len117, align 8
+  %205 = load ptr, ptr %status.addr, align 8
+  store ptr %202, ptr %result.addr.i, align 8
+  store i64 %204, ptr %nwords.addr.i, align 8
+  store ptr %205, ptr %status.addr.i, align 8
+  %206 = load i64, ptr %nwords.addr.i, align 8
+  %207 = load i64, ptr @MPD_MINALLOC, align 8
+  %cmp.i129 = icmp sle i64 %206, %207
   br i1 %cmp.i129, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.end111
-  %189 = load i64, ptr @MPD_MINALLOC, align 8
+  %208 = load i64, ptr @MPD_MINALLOC, align 8
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %for.end111
-  %190 = load i64, ptr %nwords.addr.i, align 8
+  %209 = load i64, ptr %nwords.addr.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %cond.i130 = phi i64 [ %189, %cond.true.i ], [ %190, %cond.false.i ]
+  %cond.i130 = phi i64 [ %208, %cond.true.i ], [ %209, %cond.false.i ]
   store i64 %cond.i130, ptr %nwords.addr.i, align 8
-  %191 = load i64, ptr %nwords.addr.i, align 8
-  %192 = load ptr, ptr %result.addr.i, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %192, i32 0, i32 4
-  %193 = load i64, ptr %alloc.i, align 8
-  %cmp1.i131 = icmp eq i64 %191, %193
+  %210 = load i64, ptr %nwords.addr.i, align 8
+  %211 = load ptr, ptr %result.addr.i, align 8
+  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %211, i32 0, i32 4
+  %212 = load i64, ptr %alloc.i, align 8
+  %cmp1.i131 = icmp eq i64 %210, %212
   br i1 %cmp1.i131, label %if.then.i135, label %if.end.i132
 
 if.then.i135:                                     ; preds = %cond.end.i
@@ -11859,28 +12011,28 @@ if.then.i135:                                     ; preds = %cond.end.i
   br label %mpd_qresize.exit
 
 if.end.i132:                                      ; preds = %cond.end.i
-  %194 = load ptr, ptr %result.addr.i, align 8
-  store ptr %194, ptr %dec.addr.i.i, align 8
-  %195 = load ptr, ptr %dec.addr.i.i, align 8
-  %196 = load i8, ptr %195, align 8
-  %conv.i.i = zext i8 %196 to i32
+  %213 = load ptr, ptr %result.addr.i, align 8
+  store ptr %213, ptr %dec.addr.i.i, align 8
+  %214 = load ptr, ptr %dec.addr.i.i, align 8
+  %215 = load i8, ptr %214, align 8
+  %conv.i.i = zext i8 %215 to i32
   %and.i.i = and i32 %conv.i.i, 32
   %tobool.i = icmp ne i32 %and.i.i, 0
   br i1 %tobool.i, label %if.then2.i134, label %if.end8.i133
 
 if.then2.i134:                                    ; preds = %if.end.i132
-  %197 = load i64, ptr %nwords.addr.i, align 8
-  %198 = load ptr, ptr %result.addr.i, align 8
-  %alloc3.i = getelementptr inbounds %struct.mpd_t, ptr %198, i32 0, i32 4
-  %199 = load i64, ptr %alloc3.i, align 8
-  %cmp4.i = icmp sgt i64 %197, %199
+  %216 = load i64, ptr %nwords.addr.i, align 8
+  %217 = load ptr, ptr %result.addr.i, align 8
+  %alloc3.i = getelementptr inbounds %struct.mpd_t, ptr %217, i32 0, i32 4
+  %218 = load i64, ptr %alloc3.i, align 8
+  %cmp4.i = icmp sgt i64 %216, %218
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.then2.i134
-  %200 = load ptr, ptr %result.addr.i, align 8
-  %201 = load i64, ptr %nwords.addr.i, align 8
-  %202 = load ptr, ptr %status.addr.i, align 8
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef %200, i64 noundef %201, ptr noundef %202) #8
+  %219 = load ptr, ptr %result.addr.i, align 8
+  %220 = load i64, ptr %nwords.addr.i, align 8
+  %221 = load ptr, ptr %status.addr.i, align 8
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef %219, i64 noundef %220, ptr noundef %221) #8
   store i32 %call6.i, ptr %retval.i128, align 4
   br label %mpd_qresize.exit
 
@@ -11889,25 +12041,25 @@ if.end7.i:                                        ; preds = %if.then2.i134
   br label %mpd_qresize.exit
 
 if.end8.i133:                                     ; preds = %if.end.i132
-  %203 = load ptr, ptr %result.addr.i, align 8
-  %204 = load i64, ptr %nwords.addr.i, align 8
-  %205 = load ptr, ptr %status.addr.i, align 8
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef %203, i64 noundef %204, ptr noundef %205) #8
+  %222 = load ptr, ptr %result.addr.i, align 8
+  %223 = load i64, ptr %nwords.addr.i, align 8
+  %224 = load ptr, ptr %status.addr.i, align 8
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef %222, i64 noundef %223, ptr noundef %224) #8
   store i32 %call9.i, ptr %retval.i128, align 4
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i133, %if.end7.i, %if.then5.i, %if.then.i135
-  %206 = load ptr, ptr %result.addr, align 8
-  call void @mpd_setdigits(ptr noundef %206)
-  %207 = load ptr, ptr %result.addr, align 8
-  %208 = load ptr, ptr %ctx.addr, align 8
-  call void @_mpd_cap(ptr noundef %207, ptr noundef %208)
+  %225 = load ptr, ptr %result.addr, align 8
+  call void @mpd_setdigits(ptr noundef %225)
+  %226 = load ptr, ptr %result.addr, align 8
+  %227 = load ptr, ptr %ctx.addr, align 8
+  call void @_mpd_cap(ptr noundef %226, ptr noundef %227)
   br label %return
 
 invalid_operation:                                ; preds = %if.then100, %if.then77, %if.then57, %if.then33
-  %209 = load ptr, ptr %result.addr, align 8
-  %210 = load ptr, ptr %status.addr, align 8
-  call void @mpd_seterror(ptr noundef %209, i32 noundef 256, ptr noundef %210)
+  %228 = load ptr, ptr %result.addr, align 8
+  %229 = load ptr, ptr %status.addr, align 8
+  call void @mpd_seterror(ptr noundef %228, i32 noundef 256, ptr noundef %229)
   br label %return
 
 return:                                           ; preds = %invalid_operation, %mpd_qresize.exit, %if.then19, %if.then
@@ -31576,57 +31728,58 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %8 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %9 = load ptr, ptr %dec.addr, align 8
-  %data4 = getelementptr inbounds %struct.mpd_t, ptr %9, i32 0, i32 5
-  %10 = load ptr, ptr %data4, align 8
-  %11 = load ptr, ptr %dec.addr, align 8
-  %len5 = getelementptr inbounds %struct.mpd_t, ptr %11, i32 0, i32 3
-  %12 = load i64, ptr %len5, align 8
-  %sub = sub i64 %12, 1
-  %arrayidx = getelementptr i64, ptr %10, i64 %sub
-  store i64 %8, ptr %arrayidx, align 8
-  %13 = load ptr, ptr %dec.addr, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %13, i32 0, i32 1
-  %14 = load i64, ptr %exp, align 8
-  %add = add i64 %14, 1
+  %8 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %9 = load i64, ptr %8, align 8
+  %10 = load ptr, ptr %dec.addr, align 8
+  %data4 = getelementptr inbounds %struct.mpd_t, ptr %10, i32 0, i32 5
+  %11 = load ptr, ptr %data4, align 8
+  %12 = load ptr, ptr %dec.addr, align 8
+  %len5 = getelementptr inbounds %struct.mpd_t, ptr %12, i32 0, i32 3
+  %13 = load i64, ptr %len5, align 8
+  %sub = sub i64 %13, 1
+  %arrayidx = getelementptr i64, ptr %11, i64 %sub
+  store i64 %9, ptr %arrayidx, align 8
+  %14 = load ptr, ptr %dec.addr, align 8
+  %exp = getelementptr inbounds %struct.mpd_t, ptr %14, i32 0, i32 1
+  %15 = load i64, ptr %exp, align 8
+  %add = add i64 %15, 1
   store i64 %add, ptr %exp, align 8
-  %15 = load ptr, ptr %dec.addr, align 8
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %17 = load ptr, ptr %status.addr, align 8
-  call void @_mpd_check_exp(ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  %16 = load ptr, ptr %dec.addr, align 8
+  %17 = load ptr, ptr %ctx.addr, align 8
+  %18 = load ptr, ptr %status.addr, align 8
+  call void @_mpd_check_exp(ptr noundef %16, ptr noundef %17, ptr noundef %18)
   br label %if.end13
 
 if.end:                                           ; preds = %if.then
-  %18 = load ptr, ptr %dec.addr, align 8
-  call void @mpd_setdigits(ptr noundef %18)
   %19 = load ptr, ptr %dec.addr, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %19, i32 0, i32 2
-  %20 = load i64, ptr %digits, align 8
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %prec = getelementptr inbounds %struct.mpd_context_t, ptr %21, i32 0, i32 0
-  %22 = load i64, ptr %prec, align 8
-  %cmp = icmp sgt i64 %20, %22
+  call void @mpd_setdigits(ptr noundef %19)
+  %20 = load ptr, ptr %dec.addr, align 8
+  %digits = getelementptr inbounds %struct.mpd_t, ptr %20, i32 0, i32 2
+  %21 = load i64, ptr %digits, align 8
+  %22 = load ptr, ptr %ctx.addr, align 8
+  %prec = getelementptr inbounds %struct.mpd_context_t, ptr %22, i32 0, i32 0
+  %23 = load i64, ptr %prec, align 8
+  %cmp = icmp sgt i64 %21, %23
   br i1 %cmp, label %if.then6, label %if.end12
 
 if.then6:                                         ; preds = %if.end
-  %23 = load ptr, ptr %dec.addr, align 8
-  %call7 = call i64 @mpd_qshiftr_inplace(ptr noundef %23, i64 noundef 1)
   %24 = load ptr, ptr %dec.addr, align 8
-  %exp8 = getelementptr inbounds %struct.mpd_t, ptr %24, i32 0, i32 1
-  %25 = load i64, ptr %exp8, align 8
-  %add9 = add i64 %25, 1
+  %call7 = call i64 @mpd_qshiftr_inplace(ptr noundef %24, i64 noundef 1)
+  %25 = load ptr, ptr %dec.addr, align 8
+  %exp8 = getelementptr inbounds %struct.mpd_t, ptr %25, i32 0, i32 1
+  %26 = load i64, ptr %exp8, align 8
+  %add9 = add i64 %26, 1
   store i64 %add9, ptr %exp8, align 8
-  %26 = load ptr, ptr %ctx.addr, align 8
-  %prec10 = getelementptr inbounds %struct.mpd_context_t, ptr %26, i32 0, i32 0
-  %27 = load i64, ptr %prec10, align 8
-  %28 = load ptr, ptr %dec.addr, align 8
-  %digits11 = getelementptr inbounds %struct.mpd_t, ptr %28, i32 0, i32 2
-  store i64 %27, ptr %digits11, align 8
+  %27 = load ptr, ptr %ctx.addr, align 8
+  %prec10 = getelementptr inbounds %struct.mpd_context_t, ptr %27, i32 0, i32 0
+  %28 = load i64, ptr %prec10, align 8
   %29 = load ptr, ptr %dec.addr, align 8
-  %30 = load ptr, ptr %ctx.addr, align 8
-  %31 = load ptr, ptr %status.addr, align 8
-  call void @_mpd_check_exp(ptr noundef %29, ptr noundef %30, ptr noundef %31)
+  %digits11 = getelementptr inbounds %struct.mpd_t, ptr %29, i32 0, i32 2
+  store i64 %28, ptr %digits11, align 8
+  %30 = load ptr, ptr %dec.addr, align 8
+  %31 = load ptr, ptr %ctx.addr, align 8
+  %32 = load ptr, ptr %status.addr, align 8
+  call void @_mpd_check_exp(ptr noundef %30, ptr noundef %31, ptr noundef %32)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then6, %if.end
@@ -33753,69 +33906,79 @@ entry:
   %arrayinit.begin = getelementptr inbounds [2 x i64], ptr %p10data, i64 0, i64 0
   store i64 0, ptr %arrayinit.begin, align 8
   %arrayinit.element = getelementptr inbounds i64, ptr %arrayinit.begin, i64 1
-  %0 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  store i64 %0, ptr %arrayinit.element, align 8
-  %1 = load ptr, ptr %v.addr, align 8
-  call void @_mpd_get_msdigits(ptr noundef %dummy, ptr noundef %word, ptr noundef %1, i32 noundef 19)
-  %2 = load i64, ptr %word, align 8
-  store i64 %2, ptr %word.addr.i, align 8
-  %3 = load i64, ptr %word.addr.i, align 8
-  %4 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %3, %4
+  %0 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %1 = load i64, ptr %0, align 8
+  store i64 %1, ptr %arrayinit.element, align 8
+  %2 = load ptr, ptr %v.addr, align 8
+  call void @_mpd_get_msdigits(ptr noundef %dummy, ptr noundef %word, ptr noundef %2, i32 noundef 19)
+  %3 = load i64, ptr %word, align 8
+  store i64 %3, ptr %word.addr.i, align 8
+  %4 = load i64, ptr %word.addr.i, align 8
+  %5 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %6 = load i64, ptr %5, align 8
+  %cmp.i = icmp ult i64 %4, %6
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %entry
-  %5 = load i64, ptr %word.addr.i, align 8
-  %6 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %5, %6
+  %7 = load i64, ptr %word.addr.i, align 8
+  %8 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %9 = load i64, ptr %8, align 8
+  %cmp1.i = icmp ult i64 %7, %9
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %7 = load i64, ptr %word.addr.i, align 8
-  %8 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %7, %8
+  %10 = load i64, ptr %word.addr.i, align 8
+  %11 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %12 = load i64, ptr %11, align 8
+  %cmp3.i = icmp ult i64 %10, %12
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %9 = load i64, ptr %word.addr.i, align 8
-  %10 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %9, %10
+  %13 = load i64, ptr %word.addr.i, align 8
+  %14 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %15 = load i64, ptr %14, align 8
+  %cmp5.i = icmp ult i64 %13, %15
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %11 = load i64, ptr %word.addr.i, align 8
-  %12 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %11, %12
+  %16 = load i64, ptr %word.addr.i, align 8
+  %17 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %18 = load i64, ptr %17, align 8
+  %cmp6.i = icmp ult i64 %16, %18
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %13 = load i64, ptr %word.addr.i, align 8
-  %14 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %13, %14
+  %19 = load i64, ptr %word.addr.i, align 8
+  %20 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %21 = load i64, ptr %20, align 8
+  %cmp9.i = icmp ult i64 %19, %21
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %15 = load i64, ptr %word.addr.i, align 8
-  %16 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %15, %16
+  %22 = load i64, ptr %word.addr.i, align 8
+  %23 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %24 = load i64, ptr %23, align 8
+  %cmp11.i = icmp ult i64 %22, %24
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %17 = load i64, ptr %word.addr.i, align 8
-  %18 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %17, %18
+  %25 = load i64, ptr %word.addr.i, align 8
+  %26 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %27 = load i64, ptr %26, align 8
+  %cmp14.i = icmp ult i64 %25, %27
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %19 = load i64, ptr %word.addr.i, align 8
-  %20 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %19, %20
+  %28 = load i64, ptr %word.addr.i, align 8
+  %29 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %30 = load i64, ptr %29, align 8
+  %cmp16.i = icmp ult i64 %28, %30
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -33825,35 +33988,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %entry
-  %21 = load i64, ptr %word.addr.i, align 8
-  %22 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %21, %22
+  %31 = load i64, ptr %word.addr.i, align 8
+  %32 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %33 = load i64, ptr %32, align 8
+  %cmp20.i = icmp ult i64 %31, %33
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %23 = load i64, ptr %word.addr.i, align 8
-  %24 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %23, %24
+  %34 = load i64, ptr %word.addr.i, align 8
+  %35 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %36 = load i64, ptr %35, align 8
+  %cmp22.i = icmp ult i64 %34, %36
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %25 = load i64, ptr %word.addr.i, align 8
-  %26 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %25, %26
+  %37 = load i64, ptr %word.addr.i, align 8
+  %38 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %39 = load i64, ptr %38, align 8
+  %cmp24.i = icmp ult i64 %37, %39
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %27 = load i64, ptr %word.addr.i, align 8
-  %28 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %27, %28
+  %40 = load i64, ptr %word.addr.i, align 8
+  %41 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %42 = load i64, ptr %41, align 8
+  %cmp27.i = icmp ult i64 %40, %42
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %29 = load i64, ptr %word.addr.i, align 8
-  %30 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %29, %30
+  %43 = load i64, ptr %word.addr.i, align 8
+  %44 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %45 = load i64, ptr %44, align 8
+  %cmp29.i = icmp ult i64 %43, %45
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -33863,78 +34031,83 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %31 = load i64, ptr %word.addr.i, align 8
-  %32 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %31, %32
+  %46 = load i64, ptr %word.addr.i, align 8
+  %47 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %48 = load i64, ptr %47, align 8
+  %cmp33.i = icmp ult i64 %46, %48
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %33 = load i64, ptr %word.addr.i, align 8
-  %34 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %33, %34
+  %49 = load i64, ptr %word.addr.i, align 8
+  %50 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %51 = load i64, ptr %50, align 8
+  %cmp35.i = icmp ult i64 %49, %51
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %35 = load i64, ptr %word.addr.i, align 8
-  %36 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %35, %36
+  %52 = load i64, ptr %word.addr.i, align 8
+  %53 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %54 = load i64, ptr %53, align 8
+  %cmp37.i = icmp ult i64 %52, %54
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %37 = load i64, ptr %word.addr.i, align 8
-  %38 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %37, %38
+  %55 = load i64, ptr %word.addr.i, align 8
+  %56 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %57 = load i64, ptr %56, align 8
+  %cmp40.i = icmp ult i64 %55, %57
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %39 = load i64, ptr %word.addr.i, align 8
-  %40 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %39, %40
+  %58 = load i64, ptr %word.addr.i, align 8
+  %59 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %60 = load i64, ptr %59, align 8
+  %cmp43.i = icmp ult i64 %58, %60
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %41 = load i32, ptr %retval.i, align 4
-  store i32 %41, ptr %n, align 4
-  %42 = load i32, ptr %n, align 4
-  %sub = sub i32 19, %42
+  %61 = load i32, ptr %retval.i, align 4
+  store i32 %61, ptr %n, align 4
+  %62 = load i32, ptr %n, align 4
+  %sub = sub i32 19, %62
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom
-  %43 = load i64, ptr %arrayidx, align 8
-  %44 = load i64, ptr %word, align 8
-  %mul = mul i64 %44, %43
+  %63 = load i64, ptr %arrayidx, align 8
+  %64 = load i64, ptr %word, align 8
+  %mul = mul i64 %64, %63
   store i64 %mul, ptr %word, align 8
-  %45 = load ptr, ptr %z.addr, align 8
-  %46 = load ptr, ptr %status.addr, align 8
-  store ptr %45, ptr %result.addr.i, align 8
+  %65 = load ptr, ptr %z.addr, align 8
+  %66 = load ptr, ptr %status.addr, align 8
+  store ptr %65, ptr %result.addr.i, align 8
   store i64 2, ptr %nwords.addr.i, align 8
-  store ptr %46, ptr %status.addr.i, align 8
-  %47 = load i64, ptr %nwords.addr.i, align 8
-  %48 = load i64, ptr @MPD_MINALLOC, align 8
-  %cmp.i6 = icmp sle i64 %47, %48
+  store ptr %66, ptr %status.addr.i, align 8
+  %67 = load i64, ptr %nwords.addr.i, align 8
+  %68 = load i64, ptr @MPD_MINALLOC, align 8
+  %cmp.i6 = icmp sle i64 %67, %68
   br i1 %cmp.i6, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %mpd_word_digits.exit
-  %49 = load i64, ptr @MPD_MINALLOC, align 8
+  %69 = load i64, ptr @MPD_MINALLOC, align 8
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %mpd_word_digits.exit
-  %50 = load i64, ptr %nwords.addr.i, align 8
+  %70 = load i64, ptr %nwords.addr.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %cond.i7 = phi i64 [ %49, %cond.true.i ], [ %50, %cond.false.i ]
+  %cond.i7 = phi i64 [ %69, %cond.true.i ], [ %70, %cond.false.i ]
   store i64 %cond.i7, ptr %nwords.addr.i, align 8
-  %51 = load i64, ptr %nwords.addr.i, align 8
-  %52 = load ptr, ptr %result.addr.i, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %52, i32 0, i32 4
-  %53 = load i64, ptr %alloc.i, align 8
-  %cmp1.i8 = icmp eq i64 %51, %53
+  %71 = load i64, ptr %nwords.addr.i, align 8
+  %72 = load ptr, ptr %result.addr.i, align 8
+  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %72, i32 0, i32 4
+  %73 = load i64, ptr %alloc.i, align 8
+  %cmp1.i8 = icmp eq i64 %71, %73
   br i1 %cmp1.i8, label %if.then.i12, label %if.end.i9
 
 if.then.i12:                                      ; preds = %cond.end.i
@@ -33942,28 +34115,28 @@ if.then.i12:                                      ; preds = %cond.end.i
   br label %mpd_qresize.exit
 
 if.end.i9:                                        ; preds = %cond.end.i
-  %54 = load ptr, ptr %result.addr.i, align 8
-  store ptr %54, ptr %dec.addr.i.i, align 8
-  %55 = load ptr, ptr %dec.addr.i.i, align 8
-  %56 = load i8, ptr %55, align 8
-  %conv.i.i = zext i8 %56 to i32
+  %74 = load ptr, ptr %result.addr.i, align 8
+  store ptr %74, ptr %dec.addr.i.i, align 8
+  %75 = load ptr, ptr %dec.addr.i.i, align 8
+  %76 = load i8, ptr %75, align 8
+  %conv.i.i = zext i8 %76 to i32
   %and.i.i = and i32 %conv.i.i, 32
   %tobool.i = icmp ne i32 %and.i.i, 0
   br i1 %tobool.i, label %if.then2.i11, label %if.end8.i10
 
 if.then2.i11:                                     ; preds = %if.end.i9
-  %57 = load i64, ptr %nwords.addr.i, align 8
-  %58 = load ptr, ptr %result.addr.i, align 8
-  %alloc3.i = getelementptr inbounds %struct.mpd_t, ptr %58, i32 0, i32 4
-  %59 = load i64, ptr %alloc3.i, align 8
-  %cmp4.i = icmp sgt i64 %57, %59
+  %77 = load i64, ptr %nwords.addr.i, align 8
+  %78 = load ptr, ptr %result.addr.i, align 8
+  %alloc3.i = getelementptr inbounds %struct.mpd_t, ptr %78, i32 0, i32 4
+  %79 = load i64, ptr %alloc3.i, align 8
+  %cmp4.i = icmp sgt i64 %77, %79
   br i1 %cmp4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.then2.i11
-  %60 = load ptr, ptr %result.addr.i, align 8
-  %61 = load i64, ptr %nwords.addr.i, align 8
-  %62 = load ptr, ptr %status.addr.i, align 8
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef %60, i64 noundef %61, ptr noundef %62) #8
+  %80 = load ptr, ptr %result.addr.i, align 8
+  %81 = load i64, ptr %nwords.addr.i, align 8
+  %82 = load ptr, ptr %status.addr.i, align 8
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef %80, i64 noundef %81, ptr noundef %82) #8
   store i32 %call6.i, ptr %retval.i5, align 4
   br label %mpd_qresize.exit
 
@@ -33972,44 +34145,44 @@ if.end7.i:                                        ; preds = %if.then2.i11
   br label %mpd_qresize.exit
 
 if.end8.i10:                                      ; preds = %if.end.i9
-  %63 = load ptr, ptr %result.addr.i, align 8
-  %64 = load i64, ptr %nwords.addr.i, align 8
-  %65 = load ptr, ptr %status.addr.i, align 8
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef %63, i64 noundef %64, ptr noundef %65) #8
+  %83 = load ptr, ptr %result.addr.i, align 8
+  %84 = load i64, ptr %nwords.addr.i, align 8
+  %85 = load ptr, ptr %status.addr.i, align 8
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef %83, i64 noundef %84, ptr noundef %85) #8
   store i32 %call9.i, ptr %retval.i5, align 4
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i10, %if.end7.i, %if.then5.i, %if.then.i12
-  %66 = load ptr, ptr %z.addr, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %66, i32 0, i32 5
-  %67 = load ptr, ptr %data, align 8
+  %86 = load ptr, ptr %z.addr, align 8
+  %data = getelementptr inbounds %struct.mpd_t, ptr %86, i32 0, i32 5
+  %87 = load ptr, ptr %data, align 8
   %arraydecay = getelementptr inbounds [2 x i64], ptr %p10data, i64 0, i64 0
-  %68 = load i64, ptr %word, align 8
-  %call2 = call i64 @_mpd_shortdiv(ptr noundef %67, ptr noundef %arraydecay, i64 noundef 2, i64 noundef %68)
-  %69 = load ptr, ptr %z.addr, align 8
-  store ptr %69, ptr %result.addr.i13, align 8
-  %70 = load ptr, ptr %result.addr.i13, align 8
-  %71 = load i8, ptr %70, align 8
-  %conv.i = zext i8 %71 to i32
+  %88 = load i64, ptr %word, align 8
+  %call2 = call i64 @_mpd_shortdiv(ptr noundef %87, ptr noundef %arraydecay, i64 noundef 2, i64 noundef %88)
+  %89 = load ptr, ptr %z.addr, align 8
+  store ptr %89, ptr %result.addr.i13, align 8
+  %90 = load ptr, ptr %result.addr.i13, align 8
+  %91 = load i8, ptr %90, align 8
+  %conv.i = zext i8 %91 to i32
   %and.i = and i32 %conv.i, 240
   %conv1.i = trunc i32 %and.i to i8
-  store i8 %conv1.i, ptr %70, align 8
-  %72 = load ptr, ptr %z.addr, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %72, i32 0, i32 1
+  store i8 %conv1.i, ptr %90, align 8
+  %92 = load ptr, ptr %z.addr, align 8
+  %exp = getelementptr inbounds %struct.mpd_t, ptr %92, i32 0, i32 1
   store i64 -17, ptr %exp, align 8
-  %73 = load ptr, ptr %z.addr, align 8
-  %data3 = getelementptr inbounds %struct.mpd_t, ptr %73, i32 0, i32 5
-  %74 = load ptr, ptr %data3, align 8
-  %arrayidx4 = getelementptr i64, ptr %74, i64 1
-  %75 = load i64, ptr %arrayidx4, align 8
-  %cmp = icmp eq i64 %75, 0
+  %93 = load ptr, ptr %z.addr, align 8
+  %data3 = getelementptr inbounds %struct.mpd_t, ptr %93, i32 0, i32 5
+  %94 = load ptr, ptr %data3, align 8
+  %arrayidx4 = getelementptr i64, ptr %94, i64 1
+  %95 = load i64, ptr %arrayidx4, align 8
+  %cmp = icmp eq i64 %95, 0
   %cond = select i1 %cmp, i32 1, i32 2
   %conv = sext i32 %cond to i64
-  %76 = load ptr, ptr %z.addr, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %76, i32 0, i32 3
+  %96 = load ptr, ptr %z.addr, align 8
+  %len = getelementptr inbounds %struct.mpd_t, ptr %96, i32 0, i32 3
   store i64 %conv, ptr %len, align 8
-  %77 = load ptr, ptr %z.addr, align 8
-  call void @mpd_setdigits(ptr noundef %77)
+  %97 = load ptr, ptr %z.addr, align 8
+  call void @mpd_setdigits(ptr noundef %97)
   ret void
 }
 
@@ -34197,62 +34370,71 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %p.addr, align 8
   store i64 %1, ptr %word.addr.i, align 8
   %2 = load i64, ptr %word.addr.i, align 8
-  %3 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %2, %3
+  %3 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %4 = load i64, ptr %3, align 8
+  %cmp.i = icmp ult i64 %2, %4
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %if.end
-  %4 = load i64, ptr %word.addr.i, align 8
-  %5 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %4, %5
+  %5 = load i64, ptr %word.addr.i, align 8
+  %6 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %7 = load i64, ptr %6, align 8
+  %cmp1.i = icmp ult i64 %5, %7
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %6 = load i64, ptr %word.addr.i, align 8
-  %7 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %6, %7
+  %8 = load i64, ptr %word.addr.i, align 8
+  %9 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %10 = load i64, ptr %9, align 8
+  %cmp3.i = icmp ult i64 %8, %10
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %8 = load i64, ptr %word.addr.i, align 8
-  %9 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %8, %9
+  %11 = load i64, ptr %word.addr.i, align 8
+  %12 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %13 = load i64, ptr %12, align 8
+  %cmp5.i = icmp ult i64 %11, %13
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %10 = load i64, ptr %word.addr.i, align 8
-  %11 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %10, %11
+  %14 = load i64, ptr %word.addr.i, align 8
+  %15 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %16 = load i64, ptr %15, align 8
+  %cmp6.i = icmp ult i64 %14, %16
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %12 = load i64, ptr %word.addr.i, align 8
-  %13 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %12, %13
+  %17 = load i64, ptr %word.addr.i, align 8
+  %18 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %19 = load i64, ptr %18, align 8
+  %cmp9.i = icmp ult i64 %17, %19
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %14 = load i64, ptr %word.addr.i, align 8
-  %15 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %14, %15
+  %20 = load i64, ptr %word.addr.i, align 8
+  %21 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %22 = load i64, ptr %21, align 8
+  %cmp11.i = icmp ult i64 %20, %22
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %16 = load i64, ptr %word.addr.i, align 8
-  %17 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %16, %17
+  %23 = load i64, ptr %word.addr.i, align 8
+  %24 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %25 = load i64, ptr %24, align 8
+  %cmp14.i = icmp ult i64 %23, %25
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %18 = load i64, ptr %word.addr.i, align 8
-  %19 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %18, %19
+  %26 = load i64, ptr %word.addr.i, align 8
+  %27 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %28 = load i64, ptr %27, align 8
+  %cmp16.i = icmp ult i64 %26, %28
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -34262,35 +34444,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %if.end
-  %20 = load i64, ptr %word.addr.i, align 8
-  %21 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %20, %21
+  %29 = load i64, ptr %word.addr.i, align 8
+  %30 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %31 = load i64, ptr %30, align 8
+  %cmp20.i = icmp ult i64 %29, %31
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %22 = load i64, ptr %word.addr.i, align 8
-  %23 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %22, %23
+  %32 = load i64, ptr %word.addr.i, align 8
+  %33 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %34 = load i64, ptr %33, align 8
+  %cmp22.i = icmp ult i64 %32, %34
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %24 = load i64, ptr %word.addr.i, align 8
-  %25 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %24, %25
+  %35 = load i64, ptr %word.addr.i, align 8
+  %36 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %37 = load i64, ptr %36, align 8
+  %cmp24.i = icmp ult i64 %35, %37
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %26 = load i64, ptr %word.addr.i, align 8
-  %27 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %26, %27
+  %38 = load i64, ptr %word.addr.i, align 8
+  %39 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %40 = load i64, ptr %39, align 8
+  %cmp27.i = icmp ult i64 %38, %40
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %28 = load i64, ptr %word.addr.i, align 8
-  %29 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %28, %29
+  %41 = load i64, ptr %word.addr.i, align 8
+  %42 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %43 = load i64, ptr %42, align 8
+  %cmp29.i = icmp ult i64 %41, %43
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -34300,86 +34487,91 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %30 = load i64, ptr %word.addr.i, align 8
-  %31 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %30, %31
+  %44 = load i64, ptr %word.addr.i, align 8
+  %45 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %46 = load i64, ptr %45, align 8
+  %cmp33.i = icmp ult i64 %44, %46
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %32 = load i64, ptr %word.addr.i, align 8
-  %33 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %32, %33
+  %47 = load i64, ptr %word.addr.i, align 8
+  %48 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %49 = load i64, ptr %48, align 8
+  %cmp35.i = icmp ult i64 %47, %49
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %34 = load i64, ptr %word.addr.i, align 8
-  %35 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %34, %35
+  %50 = load i64, ptr %word.addr.i, align 8
+  %51 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %52 = load i64, ptr %51, align 8
+  %cmp37.i = icmp ult i64 %50, %52
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %36 = load i64, ptr %word.addr.i, align 8
-  %37 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %36, %37
+  %53 = load i64, ptr %word.addr.i, align 8
+  %54 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %55 = load i64, ptr %54, align 8
+  %cmp40.i = icmp ult i64 %53, %55
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %38 = load i64, ptr %word.addr.i, align 8
-  %39 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %38, %39
+  %56 = load i64, ptr %word.addr.i, align 8
+  %57 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %58 = load i64, ptr %57, align 8
+  %cmp43.i = icmp ult i64 %56, %58
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %40 = load i32, ptr %retval.i, align 4
-  %sub = sub i32 %40, 1
+  %59 = load i32, ptr %retval.i, align 4
+  %sub = sub i32 %59, 1
   %conv = sext i32 %sub to i64
-  %41 = load ptr, ptr %r.addr, align 8
-  store ptr %41, ptr %dec.addr.i, align 8
-  %42 = load ptr, ptr %dec.addr.i, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %42, i32 0, i32 1
-  %43 = load i64, ptr %exp.i, align 8
-  %44 = load ptr, ptr %dec.addr.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %44, i32 0, i32 2
-  %45 = load i64, ptr %digits.i, align 8
-  %add.i = add i64 %43, %45
+  %60 = load ptr, ptr %r.addr, align 8
+  store ptr %60, ptr %dec.addr.i, align 8
+  %61 = load ptr, ptr %dec.addr.i, align 8
+  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %61, i32 0, i32 1
+  %62 = load i64, ptr %exp.i, align 8
+  %63 = load ptr, ptr %dec.addr.i, align 8
+  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %63, i32 0, i32 2
+  %64 = load i64, ptr %digits.i, align 8
+  %add.i = add i64 %62, %64
   %sub.i = sub i64 %add.i, 1
   %add = add i64 %sub.i, 1
   %sub2 = sub i64 %conv, %add
   store i64 %sub2, ptr %log10pbyr, align 8
-  %46 = load i64, ptr %p.addr, align 8
-  %conv3 = sitofp i64 %46 to double
-  %47 = call double @llvm.fmuladd.f64(double 1.435030e+00, double %conv3, double -1.182000e+00)
-  %48 = load i64, ptr %log10pbyr, align 8
-  %conv4 = sitofp i64 %48 to double
-  %div = fdiv double %47, %conv4
-  %49 = call double @llvm.ceil.f64(double %div)
-  %conv5 = fptosi double %49 to i64
+  %65 = load i64, ptr %p.addr, align 8
+  %conv3 = sitofp i64 %65 to double
+  %66 = call double @llvm.fmuladd.f64(double 1.435030e+00, double %conv3, double -1.182000e+00)
+  %67 = load i64, ptr %log10pbyr, align 8
+  %conv4 = sitofp i64 %67 to double
+  %div = fdiv double %66, %conv4
+  %68 = call double @llvm.ceil.f64(double %div)
+  %conv5 = fptosi double %68 to i64
   store i64 %conv5, ptr %n, align 8
-  %50 = load i64, ptr %n, align 8
-  %cmp6 = icmp sge i64 %50, 3
+  %69 = load i64, ptr %n, align 8
+  %cmp6 = icmp sge i64 %69, 3
   br i1 %cmp6, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %mpd_word_digits.exit
-  %51 = load i64, ptr %n, align 8
+  %70 = load i64, ptr %n, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %mpd_word_digits.exit
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %51, %cond.true ], [ 3, %cond.false ]
+  %cond = phi i64 [ %70, %cond.true ], [ 3, %cond.false ]
   store i64 %cond, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then
-  %52 = load i64, ptr %retval, align 8
-  ret i64 %52
+  %71 = load i64, ptr %retval, align 8
+  ret i64 %71
 }
 
 ; Function Attrs: nounwind uwtable
@@ -34663,62 +34855,71 @@ entry:
   %0 = load i64, ptr %word.addr, align 8
   store i64 %0, ptr %word.addr.i, align 8
   %1 = load i64, ptr %word.addr.i, align 8
-  %2 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %1, %2
+  %2 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %3 = load i64, ptr %2, align 8
+  %cmp.i = icmp ult i64 %1, %3
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %entry
-  %3 = load i64, ptr %word.addr.i, align 8
-  %4 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %3, %4
+  %4 = load i64, ptr %word.addr.i, align 8
+  %5 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %6 = load i64, ptr %5, align 8
+  %cmp1.i = icmp ult i64 %4, %6
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %5 = load i64, ptr %word.addr.i, align 8
-  %6 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %5, %6
+  %7 = load i64, ptr %word.addr.i, align 8
+  %8 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %9 = load i64, ptr %8, align 8
+  %cmp3.i = icmp ult i64 %7, %9
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %7 = load i64, ptr %word.addr.i, align 8
-  %8 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %7, %8
+  %10 = load i64, ptr %word.addr.i, align 8
+  %11 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %12 = load i64, ptr %11, align 8
+  %cmp5.i = icmp ult i64 %10, %12
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %9 = load i64, ptr %word.addr.i, align 8
-  %10 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %9, %10
+  %13 = load i64, ptr %word.addr.i, align 8
+  %14 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %15 = load i64, ptr %14, align 8
+  %cmp6.i = icmp ult i64 %13, %15
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %11 = load i64, ptr %word.addr.i, align 8
-  %12 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %11, %12
+  %16 = load i64, ptr %word.addr.i, align 8
+  %17 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %18 = load i64, ptr %17, align 8
+  %cmp9.i = icmp ult i64 %16, %18
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %13 = load i64, ptr %word.addr.i, align 8
-  %14 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %13, %14
+  %19 = load i64, ptr %word.addr.i, align 8
+  %20 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %21 = load i64, ptr %20, align 8
+  %cmp11.i = icmp ult i64 %19, %21
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %15 = load i64, ptr %word.addr.i, align 8
-  %16 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %15, %16
+  %22 = load i64, ptr %word.addr.i, align 8
+  %23 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %24 = load i64, ptr %23, align 8
+  %cmp14.i = icmp ult i64 %22, %24
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %17 = load i64, ptr %word.addr.i, align 8
-  %18 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %17, %18
+  %25 = load i64, ptr %word.addr.i, align 8
+  %26 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %27 = load i64, ptr %26, align 8
+  %cmp16.i = icmp ult i64 %25, %27
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -34728,35 +34929,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %entry
-  %19 = load i64, ptr %word.addr.i, align 8
-  %20 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %19, %20
+  %28 = load i64, ptr %word.addr.i, align 8
+  %29 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %30 = load i64, ptr %29, align 8
+  %cmp20.i = icmp ult i64 %28, %30
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %21 = load i64, ptr %word.addr.i, align 8
-  %22 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %21, %22
+  %31 = load i64, ptr %word.addr.i, align 8
+  %32 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %33 = load i64, ptr %32, align 8
+  %cmp22.i = icmp ult i64 %31, %33
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %23 = load i64, ptr %word.addr.i, align 8
-  %24 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %23, %24
+  %34 = load i64, ptr %word.addr.i, align 8
+  %35 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %36 = load i64, ptr %35, align 8
+  %cmp24.i = icmp ult i64 %34, %36
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %25 = load i64, ptr %word.addr.i, align 8
-  %26 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %25, %26
+  %37 = load i64, ptr %word.addr.i, align 8
+  %38 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %39 = load i64, ptr %38, align 8
+  %cmp27.i = icmp ult i64 %37, %39
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %27 = load i64, ptr %word.addr.i, align 8
-  %28 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %27, %28
+  %40 = load i64, ptr %word.addr.i, align 8
+  %41 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %42 = load i64, ptr %41, align 8
+  %cmp29.i = icmp ult i64 %40, %42
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -34766,51 +34972,56 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %29 = load i64, ptr %word.addr.i, align 8
-  %30 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %29, %30
+  %43 = load i64, ptr %word.addr.i, align 8
+  %44 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %45 = load i64, ptr %44, align 8
+  %cmp33.i = icmp ult i64 %43, %45
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %31 = load i64, ptr %word.addr.i, align 8
-  %32 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %31, %32
+  %46 = load i64, ptr %word.addr.i, align 8
+  %47 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %48 = load i64, ptr %47, align 8
+  %cmp35.i = icmp ult i64 %46, %48
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %33 = load i64, ptr %word.addr.i, align 8
-  %34 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %33, %34
+  %49 = load i64, ptr %word.addr.i, align 8
+  %50 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %51 = load i64, ptr %50, align 8
+  %cmp37.i = icmp ult i64 %49, %51
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %35 = load i64, ptr %word.addr.i, align 8
-  %36 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %35, %36
+  %52 = load i64, ptr %word.addr.i, align 8
+  %53 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %54 = load i64, ptr %53, align 8
+  %cmp40.i = icmp ult i64 %52, %54
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %37 = load i64, ptr %word.addr.i, align 8
-  %38 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %37, %38
+  %55 = load i64, ptr %word.addr.i, align 8
+  %56 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %57 = load i64, ptr %56, align 8
+  %cmp43.i = icmp ult i64 %55, %57
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %39 = load i32, ptr %retval.i, align 4
-  store i32 %39, ptr %n, align 4
-  %40 = load i64, ptr %word.addr, align 8
-  %41 = load i32, ptr %n, align 4
-  %sub = sub i32 %41, 1
+  %58 = load i32, ptr %retval.i, align 4
+  store i32 %58, ptr %n, align 4
+  %59 = load i64, ptr %word.addr, align 8
+  %60 = load i32, ptr %n, align 4
+  %sub = sub i32 %60, 1
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom
-  %42 = load i64, ptr %arrayidx, align 8
-  %cmp = icmp eq i64 %40, %42
+  %61 = load i64, ptr %arrayidx, align 8
+  %cmp = icmp eq i64 %59, %61
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %mpd_word_digits.exit
@@ -34822,8 +35033,8 @@ if.end:                                           ; preds = %mpd_word_digits.exi
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
+  %62 = load i32, ptr %retval, align 4
+  ret i32 %62
 }
 
 ; Function Attrs: nounwind uwtable
@@ -37356,62 +37567,71 @@ entry:
   %0 = load i64, ptr %word.addr, align 8
   store i64 %0, ptr %word.addr.i, align 8
   %1 = load i64, ptr %word.addr.i, align 8
-  %2 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
-  %cmp.i = icmp ult i64 %1, %2
+  %2 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 9
+  %3 = load i64, ptr %2, align 8
+  %cmp.i = icmp ult i64 %1, %3
   br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
 if.then.i:                                        ; preds = %entry
-  %3 = load i64, ptr %word.addr.i, align 8
-  %4 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 4), align 8
-  %cmp1.i = icmp ult i64 %3, %4
+  %4 = load i64, ptr %word.addr.i, align 8
+  %5 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 4
+  %6 = load i64, ptr %5, align 8
+  %cmp1.i = icmp ult i64 %4, %6
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %5 = load i64, ptr %word.addr.i, align 8
-  %6 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 2), align 8
-  %cmp3.i = icmp ult i64 %5, %6
+  %7 = load i64, ptr %word.addr.i, align 8
+  %8 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 2
+  %9 = load i64, ptr %8, align 8
+  %cmp3.i = icmp ult i64 %7, %9
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %7 = load i64, ptr %word.addr.i, align 8
-  %8 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 1), align 8
-  %cmp5.i = icmp ult i64 %7, %8
+  %10 = load i64, ptr %word.addr.i, align 8
+  %11 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 1
+  %12 = load i64, ptr %11, align 8
+  %cmp5.i = icmp ult i64 %10, %12
   %cond.i = select i1 %cmp5.i, i32 1, i32 2
   store i32 %cond.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end.i:                                         ; preds = %if.then2.i
-  %9 = load i64, ptr %word.addr.i, align 8
-  %10 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 3), align 8
-  %cmp6.i = icmp ult i64 %9, %10
+  %13 = load i64, ptr %word.addr.i, align 8
+  %14 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 3
+  %15 = load i64, ptr %14, align 8
+  %cmp6.i = icmp ult i64 %13, %15
   %cond7.i = select i1 %cmp6.i, i32 3, i32 4
   store i32 %cond7.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %11 = load i64, ptr %word.addr.i, align 8
-  %12 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 6), align 8
-  %cmp9.i = icmp ult i64 %11, %12
+  %16 = load i64, ptr %word.addr.i, align 8
+  %17 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 6
+  %18 = load i64, ptr %17, align 8
+  %cmp9.i = icmp ult i64 %16, %18
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %13 = load i64, ptr %word.addr.i, align 8
-  %14 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 5), align 8
-  %cmp11.i = icmp ult i64 %13, %14
+  %19 = load i64, ptr %word.addr.i, align 8
+  %20 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 5
+  %21 = load i64, ptr %20, align 8
+  %cmp11.i = icmp ult i64 %19, %21
   %cond12.i = select i1 %cmp11.i, i32 5, i32 6
   store i32 %cond12.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %15 = load i64, ptr %word.addr.i, align 8
-  %16 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 8), align 8
-  %cmp14.i = icmp ult i64 %15, %16
+  %22 = load i64, ptr %word.addr.i, align 8
+  %23 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 8
+  %24 = load i64, ptr %23, align 8
+  %cmp14.i = icmp ult i64 %22, %24
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %17 = load i64, ptr %word.addr.i, align 8
-  %18 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 7), align 8
-  %cmp16.i = icmp ult i64 %17, %18
+  %25 = load i64, ptr %word.addr.i, align 8
+  %26 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 7
+  %27 = load i64, ptr %26, align 8
+  %cmp16.i = icmp ult i64 %25, %27
   %cond17.i = select i1 %cmp16.i, i32 7, i32 8
   store i32 %cond17.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -37421,35 +37641,40 @@ if.end18.i:                                       ; preds = %if.end13.i
   br label %mpd_word_digits.exit
 
 if.end19.i:                                       ; preds = %entry
-  %19 = load i64, ptr %word.addr.i, align 8
-  %20 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 14), align 8
-  %cmp20.i = icmp ult i64 %19, %20
+  %28 = load i64, ptr %word.addr.i, align 8
+  %29 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 14
+  %30 = load i64, ptr %29, align 8
+  %cmp20.i = icmp ult i64 %28, %30
   br i1 %cmp20.i, label %if.then21.i, label %if.end32.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %21 = load i64, ptr %word.addr.i, align 8
-  %22 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 11), align 8
-  %cmp22.i = icmp ult i64 %21, %22
+  %31 = load i64, ptr %word.addr.i, align 8
+  %32 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 11
+  %33 = load i64, ptr %32, align 8
+  %cmp22.i = icmp ult i64 %31, %33
   br i1 %cmp22.i, label %if.then23.i, label %if.end26.i
 
 if.then23.i:                                      ; preds = %if.then21.i
-  %23 = load i64, ptr %word.addr.i, align 8
-  %24 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 10), align 8
-  %cmp24.i = icmp ult i64 %23, %24
+  %34 = load i64, ptr %word.addr.i, align 8
+  %35 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 10
+  %36 = load i64, ptr %35, align 8
+  %cmp24.i = icmp ult i64 %34, %36
   %cond25.i = select i1 %cmp24.i, i32 10, i32 11
   store i32 %cond25.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end26.i:                                       ; preds = %if.then21.i
-  %25 = load i64, ptr %word.addr.i, align 8
-  %26 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 13), align 8
-  %cmp27.i = icmp ult i64 %25, %26
+  %37 = load i64, ptr %word.addr.i, align 8
+  %38 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 13
+  %39 = load i64, ptr %38, align 8
+  %cmp27.i = icmp ult i64 %37, %39
   br i1 %cmp27.i, label %if.then28.i, label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %27 = load i64, ptr %word.addr.i, align 8
-  %28 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 12), align 8
-  %cmp29.i = icmp ult i64 %27, %28
+  %40 = load i64, ptr %word.addr.i, align 8
+  %41 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 12
+  %42 = load i64, ptr %41, align 8
+  %cmp29.i = icmp ult i64 %40, %42
   %cond30.i = select i1 %cmp29.i, i32 12, i32 13
   store i32 %cond30.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
@@ -37459,51 +37684,56 @@ if.end31.i:                                       ; preds = %if.end26.i
   br label %mpd_word_digits.exit
 
 if.end32.i:                                       ; preds = %if.end19.i
-  %29 = load i64, ptr %word.addr.i, align 8
-  %30 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 18), align 8
-  %cmp33.i = icmp ult i64 %29, %30
+  %43 = load i64, ptr %word.addr.i, align 8
+  %44 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 18
+  %45 = load i64, ptr %44, align 8
+  %cmp33.i = icmp ult i64 %43, %45
   br i1 %cmp33.i, label %if.then34.i, label %if.end42.i
 
 if.then34.i:                                      ; preds = %if.end32.i
-  %31 = load i64, ptr %word.addr.i, align 8
-  %32 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 16), align 8
-  %cmp35.i = icmp ult i64 %31, %32
+  %46 = load i64, ptr %word.addr.i, align 8
+  %47 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 16
+  %48 = load i64, ptr %47, align 8
+  %cmp35.i = icmp ult i64 %46, %48
   br i1 %cmp35.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %if.then34.i
-  %33 = load i64, ptr %word.addr.i, align 8
-  %34 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 15), align 8
-  %cmp37.i = icmp ult i64 %33, %34
+  %49 = load i64, ptr %word.addr.i, align 8
+  %50 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 15
+  %51 = load i64, ptr %50, align 8
+  %cmp37.i = icmp ult i64 %49, %51
   %cond38.i = select i1 %cmp37.i, i32 15, i32 16
   store i32 %cond38.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end39.i:                                       ; preds = %if.then34.i
-  %35 = load i64, ptr %word.addr.i, align 8
-  %36 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
-  %cmp40.i = icmp ult i64 %35, %36
+  %52 = load i64, ptr %word.addr.i, align 8
+  %53 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 17
+  %54 = load i64, ptr %53, align 8
+  %cmp40.i = icmp ult i64 %52, %54
   %cond41.i = select i1 %cmp40.i, i32 17, i32 18
   store i32 %cond41.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 if.end42.i:                                       ; preds = %if.end32.i
-  %37 = load i64, ptr %word.addr.i, align 8
-  %38 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 19), align 8
-  %cmp43.i = icmp ult i64 %37, %38
+  %55 = load i64, ptr %word.addr.i, align 8
+  %56 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 19
+  %57 = load i64, ptr %56, align 8
+  %cmp43.i = icmp ult i64 %55, %57
   %cond44.i = select i1 %cmp43.i, i32 19, i32 20
   store i32 %cond44.i, ptr %retval.i, align 4
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %if.end42.i, %if.end39.i, %if.then36.i, %if.end31.i, %if.then28.i, %if.then23.i, %if.end18.i, %if.then15.i, %if.then10.i, %if.end.i, %if.then4.i
-  %39 = load i32, ptr %retval.i, align 4
-  store i32 %39, ptr %n, align 4
-  %40 = load i64, ptr %word.addr, align 8
-  %41 = load i32, ptr %n, align 4
-  %idxprom = sext i32 %41 to i64
+  %58 = load i32, ptr %retval.i, align 4
+  store i32 %58, ptr %n, align 4
+  %59 = load i64, ptr %word.addr, align 8
+  %60 = load i32, ptr %n, align 4
+  %idxprom = sext i32 %60 to i64
   %arrayidx = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %idxprom
-  %42 = load i64, ptr %arrayidx, align 8
-  %sub = sub i64 %42, 1
-  %cmp = icmp eq i64 %40, %sub
+  %61 = load i64, ptr %arrayidx, align 8
+  %sub = sub i64 %61, 1
+  %cmp = icmp eq i64 %59, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %mpd_word_digits.exit
@@ -37515,8 +37745,8 @@ if.end:                                           ; preds = %mpd_word_digits.exi
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
+  %62 = load i32, ptr %retval, align 4
+  ret i32 %62
 }
 
 ; Function Attrs: nounwind uwtable

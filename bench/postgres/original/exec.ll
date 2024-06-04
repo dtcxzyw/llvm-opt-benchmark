@@ -89,154 +89,149 @@ define dso_local zeroext i1 @exec_prog(ptr noundef %0, ptr noundef %1, i1 nounde
   store ptr %4, ptr %10, align 8
   store i32 0, ptr %11, align 4
   %19 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  %20 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i32 0, i32 6), align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %19, i64 noundef 1024, ptr noundef @.str, ptr noundef %20, ptr noundef %21)
+  %20 = getelementptr inbounds %struct.LogOpts, ptr @log_opts, i32 0, i32 6
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %19, i64 noundef 1024, ptr noundef @.str, ptr noundef %21, ptr noundef %22)
   store i32 0, ptr %12, align 4
-  %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %16, i64 0, i64 0
-  call void @llvm.va_start(ptr %23)
-  %24 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
-  %25 = load i32, ptr %12, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr i8, ptr %24, i64 %26
-  %28 = load i32, ptr %12, align 4
-  %29 = sub i32 2048, %28
-  %30 = sext i32 %29 to i64
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %16, i64 0, i64 0
-  %33 = call i32 @pg_vsnprintf(ptr noundef %27, i64 noundef %30, ptr noundef %31, ptr noundef %32)
-  %34 = load i32, ptr %12, align 4
-  %35 = add i32 %34, %33
-  store i32 %35, ptr %12, align 4
-  %36 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %16, i64 0, i64 0
-  call void @llvm.va_end(ptr %36)
-  %37 = load i32, ptr %12, align 4
-  %38 = icmp sge i32 %37, 2048
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %5
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.1) #7
-  unreachable
+  %24 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %16, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %24)
+  %25 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
+  %26 = load i32, ptr %12, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr i8, ptr %25, i64 %27
+  %29 = load i32, ptr %12, align 4
+  %30 = sub i32 2048, %29
+  %31 = sext i32 %30 to i64
+  %32 = load ptr, ptr %10, align 8
+  %33 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %16, i64 0, i64 0
+  %34 = call i32 @pg_vsnprintf(ptr noundef %28, i64 noundef %31, ptr noundef %32, ptr noundef %33)
+  %35 = load i32, ptr %12, align 4
+  %36 = add i32 %35, %34
+  store i32 %36, ptr %12, align 4
+  %37 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %16, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %37)
+  %38 = load i32, ptr %12, align 4
+  %39 = icmp sge i32 %38, 2048
+  br i1 %39, label %40, label %41
 
 40:                                               ; preds = %5
-  %41 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
-  %42 = load i32, ptr %12, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %41, i64 %43
-  %45 = load i32, ptr %12, align 4
-  %46 = sub i32 2048, %45
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  %49 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %44, i64 noundef %47, ptr noundef @.str.2, ptr noundef %48)
-  %50 = load i32, ptr %12, align 4
-  %51 = add i32 %50, %49
-  store i32 %51, ptr %12, align 4
-  %52 = load i32, ptr %12, align 4
-  %53 = icmp sge i32 %52, 2048
-  br i1 %53, label %54, label %55
-
-54:                                               ; preds = %40
   call void (ptr, ...) @pg_fatal(ptr noundef @.str.1) #7
   unreachable
 
-55:                                               ; preds = %40
-  %56 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
-  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.3, ptr noundef %56)
-  %57 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  %58 = call noalias ptr @fopen(ptr noundef %57, ptr noundef @.str.4)
-  store ptr %58, ptr %15, align 8
-  %59 = load ptr, ptr %15, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %63
+41:                                               ; preds = %5
+  %42 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
+  %43 = load i32, ptr %12, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr i8, ptr %42, i64 %44
+  %46 = load i32, ptr %12, align 4
+  %47 = sub i32 2048, %46
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  %50 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %45, i64 noundef %48, ptr noundef @.str.2, ptr noundef %49)
+  %51 = load i32, ptr %12, align 4
+  %52 = add i32 %51, %50
+  store i32 %52, ptr %12, align 4
+  %53 = load i32, ptr %12, align 4
+  %54 = icmp sge i32 %53, 2048
+  br i1 %54, label %55, label %56
 
-61:                                               ; preds = %55
-  %62 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.5, ptr noundef %62) #7
+55:                                               ; preds = %41
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.1) #7
   unreachable
 
-63:                                               ; preds = %55
-  %64 = load ptr, ptr %15, align 8
-  %65 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
-  %66 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %64, ptr noundef @.str.6, ptr noundef %65)
-  %67 = load ptr, ptr %15, align 8
-  %68 = call i32 @fclose(ptr noundef %67)
-  %69 = call i32 @fflush(ptr noundef null)
-  %70 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
-  %71 = call i32 @system(ptr noundef %70)
-  store i32 %71, ptr %11, align 4
-  %72 = load i32, ptr %11, align 4
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %95
+56:                                               ; preds = %41
+  %57 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
+  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.3, ptr noundef %57)
+  %58 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  %59 = call noalias ptr @fopen(ptr noundef %58, ptr noundef @.str.4)
+  store ptr %59, ptr %15, align 8
+  %60 = load ptr, ptr %15, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %62, label %64
 
-74:                                               ; preds = %63
-  %75 = load i8, ptr %8, align 1
-  %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %95
+62:                                               ; preds = %56
+  %63 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.5, ptr noundef %63) #7
+  unreachable
 
-77:                                               ; preds = %74
+64:                                               ; preds = %56
+  %65 = load ptr, ptr %15, align 8
+  %66 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
+  %67 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %65, ptr noundef @.str.6, ptr noundef %66)
+  %68 = load ptr, ptr %15, align 8
+  %69 = call i32 @fclose(ptr noundef %68)
+  %70 = call i32 @fflush(ptr noundef null)
+  %71 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
+  %72 = call i32 @system(ptr noundef %71)
+  store i32 %72, ptr %11, align 4
+  %73 = load i32, ptr %11, align 4
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %96
+
+75:                                               ; preds = %64
+  %76 = load i8, ptr %8, align 1
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %96
+
+78:                                               ; preds = %75
   call void (i32, ptr, ...) @report_status(i32 noundef 3, ptr noundef @.str.7)
-  %78 = load ptr, ptr @stdout, align 8
-  %79 = call i32 @fflush(ptr noundef %78)
-  %80 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
-  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.8, ptr noundef %80)
-  %81 = load ptr, ptr %7, align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %83, label %89
+  %79 = load ptr, ptr @stdout, align 8
+  %80 = call i32 @fflush(ptr noundef %79)
+  %81 = getelementptr inbounds [2048 x i8], ptr %14, i64 0, i64 0
+  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.8, ptr noundef %81)
+  %82 = load ptr, ptr %7, align 8
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %90
 
-83:                                               ; preds = %77
-  %84 = load i8, ptr %9, align 1
-  %85 = trunc i8 %84 to i1
-  %86 = select i1 %85, i32 5, i32 3
-  %87 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  %88 = load ptr, ptr %7, align 8
-  call void (i32, ptr, ...) @pg_log(i32 noundef %86, ptr noundef @.str.9, ptr noundef %87, ptr noundef %88)
-  br label %94
-
-89:                                               ; preds = %77
-  %90 = load i8, ptr %9, align 1
-  %91 = trunc i8 %90 to i1
-  %92 = select i1 %91, i32 5, i32 3
-  %93 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  call void (i32, ptr, ...) @pg_log(i32 noundef %92, ptr noundef @.str.10, ptr noundef %93)
-  br label %94
-
-94:                                               ; preds = %89, %83
+84:                                               ; preds = %78
+  %85 = load i8, ptr %9, align 1
+  %86 = trunc i8 %85 to i1
+  %87 = select i1 %86, i32 5, i32 3
+  %88 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  %89 = load ptr, ptr %7, align 8
+  call void (i32, ptr, ...) @pg_log(i32 noundef %87, ptr noundef @.str.9, ptr noundef %88, ptr noundef %89)
   br label %95
 
-95:                                               ; preds = %94, %74, %63
-  %96 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  %97 = call noalias ptr @fopen(ptr noundef %96, ptr noundef @.str.4)
-  store ptr %97, ptr %15, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %101
+90:                                               ; preds = %78
+  %91 = load i8, ptr %9, align 1
+  %92 = trunc i8 %91 to i1
+  %93 = select i1 %92, i32 5, i32 3
+  %94 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  call void (i32, ptr, ...) @pg_log(i32 noundef %93, ptr noundef @.str.10, ptr noundef %94)
+  br label %95
 
-99:                                               ; preds = %95
-  %100 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.11, ptr noundef %100) #7
+95:                                               ; preds = %90, %84
+  br label %96
+
+96:                                               ; preds = %95, %75, %64
+  %97 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  %98 = call noalias ptr @fopen(ptr noundef %97, ptr noundef @.str.4)
+  store ptr %98, ptr %15, align 8
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %102
+
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 0
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.11, ptr noundef %101) #7
   unreachable
 
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %15, align 8
-  %103 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %102, ptr noundef @.str.12)
-  %104 = load ptr, ptr %15, align 8
-  %105 = call i32 @fclose(ptr noundef %104)
-  %106 = load i32, ptr %11, align 4
-  %107 = icmp eq i32 %106, 0
-  ret i1 %107
+102:                                              ; preds = %96
+  %103 = load ptr, ptr %15, align 8
+  %104 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %103, ptr noundef @.str.12)
+  %105 = load ptr, ptr %15, align 8
+  %106 = call i32 @fclose(ptr noundef %105)
+  %107 = load i32, ptr %11, align 4
+  %108 = icmp eq i32 %107, 0
+  ret i1 %108
 }
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
 ; Function Attrs: noreturn
-declare void @pg_fatal(ptr noundef, ...) #3
+declare void @pg_fatal(ptr noundef, ...) #2
 
 declare void @pg_log(i32 noundef, ptr noundef, ...) #1
 
@@ -306,7 +301,7 @@ define dso_local zeroext i1 @pid_lock_file_exists(ptr noundef %0) #0 {
 declare i32 @open(ptr noundef, i32 noundef, ...) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #3
 
 declare ptr @pg_strerror(i32 noundef) #1
 
@@ -331,7 +326,7 @@ define dso_local void @verify_directories() #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @access(ptr noundef, i32 noundef) #5
+declare i32 @access(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @check_bin_dir(ptr noundef %0, i1 noundef zeroext %1) #0 {
@@ -588,7 +583,7 @@ define internal void @check_single_dir(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @stat(ptr noundef, ptr noundef) #5
+declare i32 @stat(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @check_exec(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
@@ -765,7 +760,7 @@ declare ptr @pipe_read_line(ptr noundef) #1
 declare i32 @pg_strip_crlf(ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #6
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
 declare void @pg_free(ptr noundef) #1
 
@@ -778,15 +773,21 @@ declare i32 @pclose(ptr noundef) #1
 declare ptr @wait_result_to_str(i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @__isoc99_sscanf(ptr noundef, ptr noundef, ...) #5
+declare i32 @__isoc99_sscanf(ptr noundef, ptr noundef, ...) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { noreturn }
 attributes #8 = { nounwind willreturn memory(none) }
 attributes #9 = { nounwind }

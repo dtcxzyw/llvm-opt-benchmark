@@ -16,11 +16,12 @@ define internal i32 @allocate(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i32 0, i32 1), align 8
-  %8 = call i32 @prte_util_add_hostfile_nodes(ptr noundef %6, ptr noundef %7)
-  store i32 %8, ptr %5, align 4
-  %9 = load i32, ptr %5, align 4
-  ret i32 %9
+  %7 = getelementptr inbounds %struct.prte_ras_testrm_component_t, ptr @prte_mca_ras_testrm_component, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 @prte_util_add_hostfile_nodes(ptr noundef %6, ptr noundef %8)
+  store i32 %9, ptr %5, align 4
+  %10 = load i32, ptr %5, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable

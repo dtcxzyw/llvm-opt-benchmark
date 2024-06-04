@@ -578,7 +578,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758numparse4impl13SeriesMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %fMatchers)
           to label %invoke.cont unwind label %lpad
@@ -589,12 +590,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6icu_758numparse4impl13SeriesMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
 
@@ -613,7 +614,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758numparse4impl18CompositionMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SeriesMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SeriesMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -645,13 +647,14 @@ entry:
   store i32 %matchersLen, ptr %matchersLen.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758numparse4impl13SeriesMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %matchers.addr, align 8
-  call void @_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(40) %fMatchers, ptr noundef nonnull align 8 dereferenceable(40) %0) #8
+  %1 = load ptr, ptr %matchers.addr, align 8
+  call void @_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(40) %fMatchers, ptr noundef nonnull align 8 dereferenceable(40) %1) #8
   %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %matchersLen.addr, align 4
-  store i32 %1, ptr %fMatchersLen, align 8
+  %2 = load i32, ptr %matchersLen.addr, align 4
+  store i32 %2, ptr %fMatchersLen, align 8
   ret void
 }
 
@@ -829,7 +832,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %fMatchers) #8
   call void @_ZN6icu_758numparse4impl13SeriesMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
@@ -871,7 +875,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18CompositionMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18CompositionMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -881,7 +886,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18NumberParseMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18NumberParseMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

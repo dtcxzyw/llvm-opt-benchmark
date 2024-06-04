@@ -1196,7 +1196,7 @@ define dso_local void @cache_locale_time() #0 {
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %0
-  br label %181
+  br label %185
 
 12:                                               ; preds = %0
   br label %13
@@ -1484,50 +1484,54 @@ define dso_local void @cache_locale_time() #0 {
   br label %137, !llvm.loop !8
 
 158:                                              ; preds = %137
-  store ptr null, ptr getelementptr inbounds ([8 x ptr], ptr @localized_abbrev_days, i64 0, i64 7), align 8
-  store ptr null, ptr getelementptr inbounds ([8 x ptr], ptr @localized_full_days, i64 0, i64 7), align 8
+  %159 = getelementptr inbounds [8 x ptr], ptr @localized_abbrev_days, i64 0, i64 7
+  store ptr null, ptr %159, align 8
+  %160 = getelementptr inbounds [8 x ptr], ptr @localized_full_days, i64 0, i64 7
+  store ptr null, ptr %160, align 8
   store i32 0, ptr %7, align 4
-  br label %159
+  br label %161
 
-159:                                              ; preds = %177, %158
-  %160 = load i32, ptr %7, align 4
-  %161 = icmp slt i32 %160, 12
-  br i1 %161, label %162, label %180
+161:                                              ; preds = %179, %158
+  %162 = load i32, ptr %7, align 4
+  %163 = icmp slt i32 %162, 12
+  br i1 %163, label %164, label %182
 
-162:                                              ; preds = %159
-  %163 = load i32, ptr %7, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr [13 x ptr], ptr @localized_abbrev_months, i64 0, i64 %164
-  %166 = load ptr, ptr %2, align 8
-  %167 = load i32, ptr %6, align 4
-  call void @cache_single_string(ptr noundef %165, ptr noundef %166, i32 noundef %167)
+164:                                              ; preds = %161
+  %165 = load i32, ptr %7, align 4
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr [13 x ptr], ptr @localized_abbrev_months, i64 0, i64 %166
   %168 = load ptr, ptr %2, align 8
-  %169 = getelementptr i8, ptr %168, i64 80
-  store ptr %169, ptr %2, align 8
-  %170 = load i32, ptr %7, align 4
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr [13 x ptr], ptr @localized_full_months, i64 0, i64 %171
-  %173 = load ptr, ptr %2, align 8
-  %174 = load i32, ptr %6, align 4
-  call void @cache_single_string(ptr noundef %172, ptr noundef %173, i32 noundef %174)
+  %169 = load i32, ptr %6, align 4
+  call void @cache_single_string(ptr noundef %167, ptr noundef %168, i32 noundef %169)
+  %170 = load ptr, ptr %2, align 8
+  %171 = getelementptr i8, ptr %170, i64 80
+  store ptr %171, ptr %2, align 8
+  %172 = load i32, ptr %7, align 4
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr [13 x ptr], ptr @localized_full_months, i64 0, i64 %173
   %175 = load ptr, ptr %2, align 8
-  %176 = getelementptr i8, ptr %175, i64 80
-  store ptr %176, ptr %2, align 8
-  br label %177
+  %176 = load i32, ptr %6, align 4
+  call void @cache_single_string(ptr noundef %174, ptr noundef %175, i32 noundef %176)
+  %177 = load ptr, ptr %2, align 8
+  %178 = getelementptr i8, ptr %177, i64 80
+  store ptr %178, ptr %2, align 8
+  br label %179
 
-177:                                              ; preds = %162
-  %178 = load i32, ptr %7, align 4
-  %179 = add i32 %178, 1
-  store i32 %179, ptr %7, align 4
-  br label %159, !llvm.loop !9
+179:                                              ; preds = %164
+  %180 = load i32, ptr %7, align 4
+  %181 = add i32 %180, 1
+  store i32 %181, ptr %7, align 4
+  br label %161, !llvm.loop !9
 
-180:                                              ; preds = %159
-  store ptr null, ptr getelementptr inbounds ([13 x ptr], ptr @localized_abbrev_months, i64 0, i64 12), align 16
-  store ptr null, ptr getelementptr inbounds ([13 x ptr], ptr @localized_full_months, i64 0, i64 12), align 16
+182:                                              ; preds = %161
+  %183 = getelementptr inbounds [13 x ptr], ptr @localized_abbrev_months, i64 0, i64 12
+  store ptr null, ptr %183, align 16
+  %184 = getelementptr inbounds [13 x ptr], ptr @localized_full_months, i64 0, i64 12
+  store ptr null, ptr %184, align 16
   store i8 1, ptr @CurrentLCTimeValid, align 1
-  br label %181
+  br label %185
 
-181:                                              ; preds = %180, %11
+185:                                              ; preds = %182, %11
   ret void
 }
 

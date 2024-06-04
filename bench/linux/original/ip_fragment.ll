@@ -819,23 +819,28 @@ define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef %1)
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @ipfrag_init() local_unnamed_addr #6 section ".init.text" align 16 {
-  store ptr @ip4_frag_init, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip4_frags, i64 0, i32 1), align 8
-  store ptr @ip4_frag_free, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip4_frags, i64 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.inet_frags, ptr @ip4_frags, i64 0, i32 1
+  store ptr @ip4_frag_init, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.inet_frags, ptr @ip4_frags, i64 0, i32 2
+  store ptr @ip4_frag_free, ptr %2, align 8
   store i32 200, ptr @ip4_frags, align 8
-  store ptr @ip_expire, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip4_frags, i64 0, i32 3), align 8
-  store ptr @ip_frag_cache_name, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip4_frags, i64 0, i32 5), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.inet_frags, ptr @ip4_frags, i64 0, i32 6), ptr noundef nonnull align 8 dereferenceable(40) @ip4_rhash_params, i64 40, i1 false)
-  %1 = tail call i32 @inet_frags_init(ptr noundef nonnull @ip4_frags) #15
-  %2 = icmp eq i32 %1, 0
-  br i1 %2, label %4, label %3
+  %3 = getelementptr inbounds %struct.inet_frags, ptr @ip4_frags, i64 0, i32 3
+  store ptr @ip_expire, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.inet_frags, ptr @ip4_frags, i64 0, i32 5
+  store ptr @ip_frag_cache_name, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.inet_frags, ptr @ip4_frags, i64 0, i32 6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @ip4_rhash_params, i64 40, i1 false)
+  %6 = tail call i32 @inet_frags_init(ptr noundef nonnull @ip4_frags) #15
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %9, label %8
 
-3:                                                ; preds = %0
+8:                                                ; preds = %0
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.1) #16
   unreachable
 
-4:                                                ; preds = %0
-  %5 = tail call ptr @register_net_sysctl_sz(ptr noundef nonnull @init_net, ptr noundef nonnull @.str.4, ptr noundef nonnull @ip4_frags_ctl_table, i64 noundef 2) #15
-  %6 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @ip4_frags_ops) #15
+9:                                                ; preds = %0
+  %10 = tail call ptr @register_net_sysctl_sz(ptr noundef nonnull @init_net, ptr noundef nonnull @.str.4, ptr noundef nonnull @ip4_frags_ctl_table, i64 noundef 2) #15
+  %11 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @ip4_frags_ops) #15
   ret void
 }
 

@@ -50,50 +50,53 @@ declare dso_local void @efi_bgrt_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @bgrt_init() #0 section ".init.text" align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4), align 1
-  %2 = icmp eq i64 %1, 0
-  br i1 %2, label %22, label %3
+  %1 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4
+  %2 = load i64, ptr %1, align 1
+  %3 = icmp eq i64 %2, 0
+  br i1 %3, label %25, label %4
 
-3:                                                ; preds = %0
-  %4 = load i64, ptr @bgrt_image_size, align 8
-  %5 = tail call ptr @memremap(i64 noundef %1, i64 noundef %4, i64 noundef 1) #6
-  store ptr %5, ptr @bgrt_image, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %9
+4:                                                ; preds = %0
+  %5 = load i64, ptr @bgrt_image_size, align 8
+  %6 = tail call ptr @memremap(i64 noundef %2, i64 noundef %5, i64 noundef 1) #6
+  store ptr %6, ptr @bgrt_image, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %3
-  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #7
-  br label %22
+8:                                                ; preds = %4
+  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #7
+  br label %25
 
-9:                                                ; preds = %3
-  store ptr %5, ptr getelementptr inbounds (%struct.bin_attribute, ptr @bin_attr_image, i64 0, i32 2), align 8
-  %10 = load i64, ptr @bgrt_image_size, align 8
-  store i64 %10, ptr getelementptr inbounds (%struct.bin_attribute, ptr @bin_attr_image, i64 0, i32 1), align 8
-  %11 = load ptr, ptr @acpi_kobj, align 8
-  %12 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.1, ptr noundef %11) #6
-  store ptr %12, ptr @bgrt_kobj, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %19, label %14
-
-14:                                               ; preds = %9
-  %15 = tail call i32 @sysfs_create_group(ptr noundef nonnull %12, ptr noundef nonnull @bgrt_attribute_group) #6
-  %16 = icmp eq i32 %15, 0
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds %struct.bin_attribute, ptr @bin_attr_image, i64 0, i32 2
+  store ptr %6, ptr %11, align 8
+  %12 = load i64, ptr @bgrt_image_size, align 8
+  %13 = getelementptr inbounds %struct.bin_attribute, ptr @bin_attr_image, i64 0, i32 1
+  store i64 %12, ptr %13, align 8
+  %14 = load ptr, ptr @acpi_kobj, align 8
+  %15 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.1, ptr noundef %14) #6
+  store ptr %15, ptr @bgrt_kobj, align 8
+  %16 = icmp eq ptr %15, null
   br i1 %16, label %22, label %17
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr @bgrt_kobj, align 8
-  tail call void @kobject_put(ptr noundef %18) #6
-  br label %19
+17:                                               ; preds = %10
+  %18 = tail call i32 @sysfs_create_group(ptr noundef nonnull %15, ptr noundef nonnull @bgrt_attribute_group) #6
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %25, label %20
 
-19:                                               ; preds = %17, %9
-  %20 = phi i32 [ %15, %17 ], [ -22, %9 ]
-  %21 = load ptr, ptr @bgrt_image, align 8
-  tail call void @memunmap(ptr noundef %21) #6
+20:                                               ; preds = %17
+  %21 = load ptr, ptr @bgrt_kobj, align 8
+  tail call void @kobject_put(ptr noundef %21) #6
   br label %22
 
-22:                                               ; preds = %19, %14, %7, %0
-  %23 = phi i32 [ %20, %19 ], [ -12, %7 ], [ -19, %0 ], [ 0, %14 ]
-  ret i32 %23
+22:                                               ; preds = %20, %10
+  %23 = phi i32 [ %18, %20 ], [ -22, %10 ]
+  %24 = load ptr, ptr @bgrt_image, align 8
+  tail call void @memunmap(ptr noundef %24) #6
+  br label %25
+
+25:                                               ; preds = %22, %17, %8, %0
+  %26 = phi i32 [ %23, %22 ], [ -12, %8 ], [ -19, %0 ], [ 0, %17 ]
+  ret i32 %26
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -128,11 +131,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
-  %4 = load i16, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 1), align 1
-  %5 = zext i16 %4 to i32
-  %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #6
-  %7 = sext i32 %6 to i64
-  ret i64 %7
+  %4 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 1
+  %5 = load i16, ptr %4, align 1
+  %6 = zext i16 %5 to i32
+  %7 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %6) #6
+  %8 = sext i32 %7 to i64
+  ret i64 %8
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -140,36 +144,40 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @status_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
-  %4 = load i8, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 2), align 1
-  %5 = zext i8 %4 to i32
-  %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #6
-  %7 = sext i32 %6 to i64
-  ret i64 %7
+  %4 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 2
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i32
+  %7 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %6) #6
+  %8 = sext i32 %7 to i64
+  ret i64 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @type_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
-  %4 = load i8, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 3), align 1
-  %5 = zext i8 %4 to i32
+  %4 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 3
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i32
+  %7 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %6) #6
+  %8 = sext i32 %7 to i64
+  ret i64 %8
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @xoffset_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
+  %4 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 5
+  %5 = load i32, ptr %4, align 1
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #6
   %7 = sext i32 %6 to i64
   ret i64 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @xoffset_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 5), align 1
-  %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %4) #6
-  %6 = sext i32 %5 to i64
-  ret i64 %6
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @yoffset_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
-  %4 = load i32, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 6), align 1
-  %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %4) #6
-  %6 = sext i32 %5 to i64
-  ret i64 %6
+  %4 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 6
+  %5 = load i32, ptr %4, align 1
+  %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #6
+  %7 = sext i32 %6 to i64
+  ret i64 %7
 }
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

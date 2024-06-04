@@ -686,8 +686,10 @@ define linkonce_odr hidden noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx1
 define internal void @__cxx_global_var_init.56() #0 section ".text.startup" {
   %1 = load ptr, ptr @_ZN3fLSL22FLAGS_noalsologtoemailB5cxx11E, align 8
   %2 = load ptr, ptr @_ZN3fLSL22FLAGS_noalsologtoemailB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL16o_alsologtoemailE, ptr noundef @.str.57, ptr noundef @.str.58, ptr noundef @.str.7, ptr noundef %1, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1))
+  %3 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL16o_alsologtoemailE, ptr noundef @.str.57, ptr noundef @.str.58, ptr noundef @.str.7, ptr noundef %1, ptr noundef %4)
   ret void
 }
 
@@ -697,8 +699,9 @@ declare void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_t
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.59() #0 section ".text.startup" {
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL16d_alsologtoemailE, ptr noundef @_ZN3fLSL16s_alsologtoemailE, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1))
-  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL16d_alsologtoemailE, ptr @__dso_handle) #6
+  %1 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL16s_alsologtoemailE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL16d_alsologtoemailE, ptr noundef @_ZN3fLSL16s_alsologtoemailE, ptr noundef %1)
+  %2 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL16d_alsologtoemailE, ptr @__dso_handle) #6
   ret void
 }
 
@@ -1058,15 +1061,18 @@ define internal void @__cxx_global_var_init.109() #0 section ".text.startup" {
 define internal void @__cxx_global_var_init.111() #0 section ".text.startup" {
   %1 = load ptr, ptr @_ZN3fLSL17FLAGS_nologmailerB5cxx11E, align 8
   %2 = load ptr, ptr @_ZN3fLSL17FLAGS_nologmailerB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL11o_logmailerE, ptr noundef @.str.112, ptr noundef @.str.113, ptr noundef @.str.7, ptr noundef %1, ptr noundef getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1))
+  %3 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL11o_logmailerE, ptr noundef @.str.112, ptr noundef @.str.113, ptr noundef @.str.7, ptr noundef %1, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.114() #0 section ".text.startup" {
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL11d_logmailerE, ptr noundef @_ZN3fLSL11s_logmailerE, ptr noundef getelementptr inbounds ([2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1))
-  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL11d_logmailerE, ptr @__dso_handle) #6
+  %1 = getelementptr inbounds [2 x %union.anon.1], ptr @_ZN3fLSL11s_logmailerE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL11d_logmailerE, ptr noundef @_ZN3fLSL11s_logmailerE, ptr noundef %1)
+  %2 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL11d_logmailerE, ptr @__dso_handle) #6
   ret void
 }
 
@@ -1204,15 +1210,18 @@ define internal noundef ptr @_ZN12_GLOBAL__N_113DefaultLogDirEv() #2 {
 define internal void @__cxx_global_var_init.124() #0 section ".text.startup" {
   %1 = load ptr, ptr @_ZN3fLSL15FLAGS_nolog_dirB5cxx11E, align 8
   %2 = load ptr, ptr @_ZN3fLSL15FLAGS_nolog_dirB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_log_dirE, ptr noundef @.str.125, ptr noundef @.str.126, ptr noundef @.str.7, ptr noundef %1, ptr noundef getelementptr inbounds ([2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1))
+  %3 = getelementptr inbounds [2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = getelementptr inbounds [2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_log_dirE, ptr noundef @.str.125, ptr noundef @.str.126, ptr noundef @.str.7, ptr noundef %1, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.127() #0 section ".text.startup" {
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL9d_log_dirE, ptr noundef @_ZN3fLSL9s_log_dirE, ptr noundef getelementptr inbounds ([2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1))
-  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL9d_log_dirE, ptr @__dso_handle) #6
+  %1 = getelementptr inbounds [2 x %union.anon.2], ptr @_ZN3fLSL9s_log_dirE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL9d_log_dirE, ptr noundef @_ZN3fLSL9s_log_dirE, ptr noundef %1)
+  %2 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL9d_log_dirE, ptr @__dso_handle) #6
   ret void
 }
 
@@ -1247,15 +1256,18 @@ define internal void @__cxx_global_var_init.129() #0 section ".text.startup" {
 define internal void @__cxx_global_var_init.131() #0 section ".text.startup" {
   %1 = load ptr, ptr @_ZN3fLSL16FLAGS_nolog_linkB5cxx11E, align 8
   %2 = load ptr, ptr @_ZN3fLSL16FLAGS_nolog_linkB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL10o_log_linkE, ptr noundef @.str.132, ptr noundef @.str.133, ptr noundef @.str.7, ptr noundef %1, ptr noundef getelementptr inbounds ([2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1))
+  %3 = getelementptr inbounds [2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = getelementptr inbounds [2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL10o_log_linkE, ptr noundef @.str.132, ptr noundef @.str.133, ptr noundef @.str.7, ptr noundef %1, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.134() #0 section ".text.startup" {
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL10d_log_linkE, ptr noundef @_ZN3fLSL10s_log_linkE, ptr noundef getelementptr inbounds ([2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1))
-  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL10d_log_linkE, ptr @__dso_handle) #6
+  %1 = getelementptr inbounds [2 x %union.anon.3], ptr @_ZN3fLSL10s_log_linkE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL10d_log_linkE, ptr noundef @_ZN3fLSL10s_log_linkE, ptr noundef %1)
+  %2 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL10d_log_linkE, ptr @__dso_handle) #6
   ret void
 }
 
@@ -1369,15 +1381,18 @@ define internal void @__cxx_global_var_init.148() #0 section ".text.startup" {
 define internal void @__cxx_global_var_init.150() #0 section ".text.startup" {
   %1 = load ptr, ptr @_ZN3fLSL24FLAGS_nolog_backtrace_atB5cxx11E, align 8
   %2 = load ptr, ptr @_ZN3fLSL24FLAGS_nolog_backtrace_atB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL18o_log_backtrace_atE, ptr noundef @.str.151, ptr noundef @.str.152, ptr noundef @.str.7, ptr noundef %1, ptr noundef getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1))
+  %3 = getelementptr inbounds [2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = getelementptr inbounds [2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL18o_log_backtrace_atE, ptr noundef @.str.151, ptr noundef @.str.152, ptr noundef @.str.7, ptr noundef %1, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.153() #0 section ".text.startup" {
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL18d_log_backtrace_atE, ptr noundef @_ZN3fLSL18s_log_backtrace_atE, ptr noundef getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1))
-  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL18d_log_backtrace_atE, ptr @__dso_handle) #6
+  %1 = getelementptr inbounds [2 x %union.anon.4], ptr @_ZN3fLSL18s_log_backtrace_atE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL18d_log_backtrace_atE, ptr noundef @_ZN3fLSL18s_log_backtrace_atE, ptr noundef %1)
+  %2 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL18d_log_backtrace_atE, ptr @__dso_handle) #6
   ret void
 }
 
@@ -1486,15 +1501,18 @@ define internal void @__cxx_global_var_init.167() #0 section ".text.startup" {
 define internal void @__cxx_global_var_init.169() #0 section ".text.startup" {
   %1 = load ptr, ptr @_ZN3fLSL15FLAGS_novmoduleB5cxx11E, align 8
   %2 = load ptr, ptr @_ZN3fLSL15FLAGS_novmoduleB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_vmoduleE, ptr noundef @.str.170, ptr noundef @.str.171, ptr noundef @.str.7, ptr noundef %1, ptr noundef getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1))
+  %3 = getelementptr inbounds [2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = getelementptr inbounds [2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_vmoduleE, ptr noundef @.str.170, ptr noundef @.str.171, ptr noundef @.str.7, ptr noundef %1, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.172() #0 section ".text.startup" {
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL9d_vmoduleE, ptr noundef @_ZN3fLSL9s_vmoduleE, ptr noundef getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1))
-  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL9d_vmoduleE, ptr @__dso_handle) #6
+  %1 = getelementptr inbounds [2 x %union.anon.5], ptr @_ZN3fLSL9s_vmoduleE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL9d_vmoduleE, ptr noundef @_ZN3fLSL9s_vmoduleE, ptr noundef %1)
+  %2 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL9d_vmoduleE, ptr @__dso_handle) #6
   ret void
 }
 

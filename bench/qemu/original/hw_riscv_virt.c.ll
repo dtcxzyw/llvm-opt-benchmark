@@ -969,200 +969,205 @@ if.then144:                                       ; preds = %if.then141
 
 if.end146:                                        ; preds = %if.then144, %if.then141
   store i64 12884901888, ptr @virt_high_pcie_memmap, align 8
-  store i64 4294967296, ptr getelementptr inbounds (%struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1), align 8
+  %126 = getelementptr inbounds %struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1
+  store i64 4294967296, ptr %126, align 8
   br label %if.end154
 
 if.else147:                                       ; preds = %for.end
-  store i64 17179869184, ptr getelementptr inbounds (%struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1), align 8
-  %126 = load ptr, ptr %memmap, align 8
-  %arrayidx148 = getelementptr %struct.MemMapEntry, ptr %126, i64 15
+  %127 = getelementptr inbounds %struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1
+  store i64 17179869184, ptr %127, align 8
+  %128 = load ptr, ptr %memmap, align 8
+  %arrayidx148 = getelementptr %struct.MemMapEntry, ptr %128, i64 15
   %base149 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx148, i32 0, i32 0
-  %127 = load i64, ptr %base149, align 8
-  %128 = load ptr, ptr %machine.addr, align 8
-  %ram_size150 = getelementptr inbounds %struct.MachineState, ptr %128, i32 0, i32 19
-  %129 = load i64, ptr %ram_size150, align 8
-  %add151 = add i64 %127, %129
+  %129 = load i64, ptr %base149, align 8
+  %130 = load ptr, ptr %machine.addr, align 8
+  %ram_size150 = getelementptr inbounds %struct.MachineState, ptr %130, i32 0, i32 19
+  %131 = load i64, ptr %ram_size150, align 8
+  %add151 = add i64 %129, %131
   store i64 %add151, ptr @virt_high_pcie_memmap, align 8
-  %130 = load i64, ptr @virt_high_pcie_memmap, align 8
-  %131 = load i64, ptr getelementptr inbounds (%struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1), align 8
-  %add152 = add i64 %130, %131
+  %132 = load i64, ptr @virt_high_pcie_memmap, align 8
+  %133 = getelementptr inbounds %struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1
+  %134 = load i64, ptr %133, align 8
+  %add152 = add i64 %132, %134
   %sub = sub i64 %add152, 1
-  %132 = load i64, ptr getelementptr inbounds (%struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1), align 8
-  %sub153 = sub i64 0, %132
+  %135 = getelementptr inbounds %struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1
+  %136 = load i64, ptr %135, align 8
+  %sub153 = sub i64 0, %136
   %and = and i64 %sub, %sub153
   store i64 %and, ptr @virt_high_pcie_memmap, align 8
   br label %if.end154
 
 if.end154:                                        ; preds = %if.else147, %if.end146
-  %133 = load ptr, ptr %s, align 8
-  %memmap155 = getelementptr inbounds %struct.RISCVVirtState, ptr %133, i32 0, i32 14
+  %137 = load ptr, ptr %s, align 8
+  %memmap155 = getelementptr inbounds %struct.RISCVVirtState, ptr %137, i32 0, i32 14
   store ptr @virt_memmap, ptr %memmap155, align 8
-  %134 = load ptr, ptr %system_memory, align 8
-  %135 = load ptr, ptr %memmap, align 8
-  %arrayidx156 = getelementptr %struct.MemMapEntry, ptr %135, i64 15
+  %138 = load ptr, ptr %system_memory, align 8
+  %139 = load ptr, ptr %memmap, align 8
+  %arrayidx156 = getelementptr %struct.MemMapEntry, ptr %139, i64 15
   %base157 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx156, i32 0, i32 0
-  %136 = load i64, ptr %base157, align 8
-  %137 = load ptr, ptr %machine.addr, align 8
-  %ram = getelementptr inbounds %struct.MachineState, ptr %137, i32 0, i32 16
-  %138 = load ptr, ptr %ram, align 8
-  call void @memory_region_add_subregion(ptr noundef %134, i64 noundef %136, ptr noundef %138)
-  %139 = load ptr, ptr %mask_rom, align 8
-  %140 = load ptr, ptr %memmap, align 8
-  %arrayidx158 = getelementptr %struct.MemMapEntry, ptr %140, i64 1
+  %140 = load i64, ptr %base157, align 8
+  %141 = load ptr, ptr %machine.addr, align 8
+  %ram = getelementptr inbounds %struct.MachineState, ptr %141, i32 0, i32 16
+  %142 = load ptr, ptr %ram, align 8
+  call void @memory_region_add_subregion(ptr noundef %138, i64 noundef %140, ptr noundef %142)
+  %143 = load ptr, ptr %mask_rom, align 8
+  %144 = load ptr, ptr %memmap, align 8
+  %arrayidx158 = getelementptr %struct.MemMapEntry, ptr %144, i64 1
   %size159 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx158, i32 0, i32 1
-  %141 = load i64, ptr %size159, align 8
-  call void @memory_region_init_rom(ptr noundef %139, ptr noundef null, ptr noundef @.str.51, i64 noundef %141, ptr noundef @error_fatal)
-  %142 = load ptr, ptr %system_memory, align 8
-  %143 = load ptr, ptr %memmap, align 8
-  %arrayidx160 = getelementptr %struct.MemMapEntry, ptr %143, i64 1
+  %145 = load i64, ptr %size159, align 8
+  call void @memory_region_init_rom(ptr noundef %143, ptr noundef null, ptr noundef @.str.51, i64 noundef %145, ptr noundef @error_fatal)
+  %146 = load ptr, ptr %system_memory, align 8
+  %147 = load ptr, ptr %memmap, align 8
+  %arrayidx160 = getelementptr %struct.MemMapEntry, ptr %147, i64 1
   %base161 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx160, i32 0, i32 0
-  %144 = load i64, ptr %base161, align 8
-  %145 = load ptr, ptr %mask_rom, align 8
-  call void @memory_region_add_subregion(ptr noundef %142, i64 noundef %144, ptr noundef %145)
-  %146 = load ptr, ptr %machine.addr, align 8
-  %call162 = call ptr @create_fw_cfg(ptr noundef %146)
-  %147 = load ptr, ptr %s, align 8
-  %fw_cfg = getelementptr inbounds %struct.RISCVVirtState, ptr %147, i32 0, i32 6
+  %148 = load i64, ptr %base161, align 8
+  %149 = load ptr, ptr %mask_rom, align 8
+  call void @memory_region_add_subregion(ptr noundef %146, i64 noundef %148, ptr noundef %149)
+  %150 = load ptr, ptr %machine.addr, align 8
+  %call162 = call ptr @create_fw_cfg(ptr noundef %150)
+  %151 = load ptr, ptr %s, align 8
+  %fw_cfg = getelementptr inbounds %struct.RISCVVirtState, ptr %151, i32 0, i32 6
   store ptr %call162, ptr %fw_cfg, align 8
-  %148 = load ptr, ptr %s, align 8
-  %fw_cfg163 = getelementptr inbounds %struct.RISCVVirtState, ptr %148, i32 0, i32 6
-  %149 = load ptr, ptr %fw_cfg163, align 8
-  call void @rom_set_fw(ptr noundef %149)
-  %150 = load ptr, ptr %memmap, align 8
-  %arrayidx164 = getelementptr %struct.MemMapEntry, ptr %150, i64 2
+  %152 = load ptr, ptr %s, align 8
+  %fw_cfg163 = getelementptr inbounds %struct.RISCVVirtState, ptr %152, i32 0, i32 6
+  %153 = load ptr, ptr %fw_cfg163, align 8
+  call void @rom_set_fw(ptr noundef %153)
+  %154 = load ptr, ptr %memmap, align 8
+  %arrayidx164 = getelementptr %struct.MemMapEntry, ptr %154, i64 2
   %base165 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx164, i32 0, i32 0
-  %151 = load i64, ptr %base165, align 8
-  %call166 = call ptr @sifive_test_create(i64 noundef %151)
+  %155 = load i64, ptr %base165, align 8
+  %call166 = call ptr @sifive_test_create(i64 noundef %155)
   store i32 0, ptr %i, align 4
   br label %for.cond167
 
 for.cond167:                                      ; preds = %for.inc181, %if.end154
-  %152 = load i32, ptr %i, align 4
-  %cmp168 = icmp slt i32 %152, 8
+  %156 = load i32, ptr %i, align 4
+  %cmp168 = icmp slt i32 %156, 8
   br i1 %cmp168, label %for.body170, label %for.end183
 
 for.body170:                                      ; preds = %for.cond167
-  %153 = load ptr, ptr %memmap, align 8
-  %arrayidx171 = getelementptr %struct.MemMapEntry, ptr %153, i64 10
+  %157 = load ptr, ptr %memmap, align 8
+  %arrayidx171 = getelementptr %struct.MemMapEntry, ptr %157, i64 10
   %base172 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx171, i32 0, i32 0
-  %154 = load i64, ptr %base172, align 8
-  %155 = load i32, ptr %i, align 4
-  %conv173 = sext i32 %155 to i64
-  %156 = load ptr, ptr %memmap, align 8
-  %arrayidx174 = getelementptr %struct.MemMapEntry, ptr %156, i64 10
-  %size175 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx174, i32 0, i32 1
-  %157 = load i64, ptr %size175, align 8
-  %mul176 = mul i64 %conv173, %157
-  %add177 = add i64 %154, %mul176
-  %158 = load ptr, ptr %virtio_irqchip, align 8
+  %158 = load i64, ptr %base172, align 8
   %159 = load i32, ptr %i, align 4
-  %add178 = add i32 1, %159
-  %call179 = call ptr @qdev_get_gpio_in(ptr noundef %158, i32 noundef %add178)
+  %conv173 = sext i32 %159 to i64
+  %160 = load ptr, ptr %memmap, align 8
+  %arrayidx174 = getelementptr %struct.MemMapEntry, ptr %160, i64 10
+  %size175 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx174, i32 0, i32 1
+  %161 = load i64, ptr %size175, align 8
+  %mul176 = mul i64 %conv173, %161
+  %add177 = add i64 %158, %mul176
+  %162 = load ptr, ptr %virtio_irqchip, align 8
+  %163 = load i32, ptr %i, align 4
+  %add178 = add i32 1, %163
+  %call179 = call ptr @qdev_get_gpio_in(ptr noundef %162, i32 noundef %add178)
   %call180 = call ptr @sysbus_create_simple(ptr noundef @.str.52, i64 noundef %add177, ptr noundef %call179)
   br label %for.inc181
 
 for.inc181:                                       ; preds = %for.body170
-  %160 = load i32, ptr %i, align 4
-  %inc182 = add i32 %160, 1
+  %164 = load i32, ptr %i, align 4
+  %inc182 = add i32 %164, 1
   store i32 %inc182, ptr %i, align 4
   br label %for.cond167, !llvm.loop !7
 
 for.end183:                                       ; preds = %for.cond167
-  %161 = load ptr, ptr %system_memory, align 8
-  %162 = load ptr, ptr %memmap, align 8
-  %arrayidx184 = getelementptr %struct.MemMapEntry, ptr %162, i64 19
-  %base185 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx184, i32 0, i32 0
-  %163 = load i64, ptr %base185, align 8
-  %164 = load ptr, ptr %memmap, align 8
-  %arrayidx186 = getelementptr %struct.MemMapEntry, ptr %164, i64 19
-  %size187 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx186, i32 0, i32 1
-  %165 = load i64, ptr %size187, align 8
+  %165 = load ptr, ptr %system_memory, align 8
   %166 = load ptr, ptr %memmap, align 8
-  %arrayidx188 = getelementptr %struct.MemMapEntry, ptr %166, i64 16
-  %base189 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx188, i32 0, i32 0
-  %167 = load i64, ptr %base189, align 8
+  %arrayidx184 = getelementptr %struct.MemMapEntry, ptr %166, i64 19
+  %base185 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx184, i32 0, i32 0
+  %167 = load i64, ptr %base185, align 8
   %168 = load ptr, ptr %memmap, align 8
-  %arrayidx190 = getelementptr %struct.MemMapEntry, ptr %168, i64 16
-  %size191 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx190, i32 0, i32 1
-  %169 = load i64, ptr %size191, align 8
-  %170 = load i64, ptr @virt_high_pcie_memmap, align 8
-  %171 = load i64, ptr getelementptr inbounds (%struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1), align 8
+  %arrayidx186 = getelementptr %struct.MemMapEntry, ptr %168, i64 19
+  %size187 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx186, i32 0, i32 1
+  %169 = load i64, ptr %size187, align 8
+  %170 = load ptr, ptr %memmap, align 8
+  %arrayidx188 = getelementptr %struct.MemMapEntry, ptr %170, i64 16
+  %base189 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx188, i32 0, i32 0
+  %171 = load i64, ptr %base189, align 8
   %172 = load ptr, ptr %memmap, align 8
-  %arrayidx192 = getelementptr %struct.MemMapEntry, ptr %172, i64 17
+  %arrayidx190 = getelementptr %struct.MemMapEntry, ptr %172, i64 16
+  %size191 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx190, i32 0, i32 1
+  %173 = load i64, ptr %size191, align 8
+  %174 = load i64, ptr @virt_high_pcie_memmap, align 8
+  %175 = getelementptr inbounds %struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1
+  %176 = load i64, ptr %175, align 8
+  %177 = load ptr, ptr %memmap, align 8
+  %arrayidx192 = getelementptr %struct.MemMapEntry, ptr %177, i64 17
   %base193 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx192, i32 0, i32 0
-  %173 = load i64, ptr %base193, align 8
-  %174 = load ptr, ptr %pcie_irqchip, align 8
-  %call194 = call ptr @gpex_pcie_init(ptr noundef %161, i64 noundef %163, i64 noundef %165, i64 noundef %167, i64 noundef %169, i64 noundef %170, i64 noundef %171, i64 noundef %173, ptr noundef %174)
-  %175 = load ptr, ptr %s, align 8
-  %176 = load ptr, ptr %mmio_irqchip, align 8
-  call void @create_platform_bus(ptr noundef %175, ptr noundef %176)
-  %177 = load ptr, ptr %system_memory, align 8
-  %178 = load ptr, ptr %memmap, align 8
-  %arrayidx195 = getelementptr %struct.MemMapEntry, ptr %178, i64 9
+  %178 = load i64, ptr %base193, align 8
+  %179 = load ptr, ptr %pcie_irqchip, align 8
+  %call194 = call ptr @gpex_pcie_init(ptr noundef %165, i64 noundef %167, i64 noundef %169, i64 noundef %171, i64 noundef %173, i64 noundef %174, i64 noundef %176, i64 noundef %178, ptr noundef %179)
+  %180 = load ptr, ptr %s, align 8
+  %181 = load ptr, ptr %mmio_irqchip, align 8
+  call void @create_platform_bus(ptr noundef %180, ptr noundef %181)
+  %182 = load ptr, ptr %system_memory, align 8
+  %183 = load ptr, ptr %memmap, align 8
+  %arrayidx195 = getelementptr %struct.MemMapEntry, ptr %183, i64 9
   %base196 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx195, i32 0, i32 0
-  %179 = load i64, ptr %base196, align 8
-  %180 = load ptr, ptr %mmio_irqchip, align 8
-  %call197 = call ptr @qdev_get_gpio_in(ptr noundef %180, i32 noundef 10)
+  %184 = load i64, ptr %base196, align 8
+  %185 = load ptr, ptr %mmio_irqchip, align 8
+  %call197 = call ptr @qdev_get_gpio_in(ptr noundef %185, i32 noundef 10)
   %call198 = call ptr @serial_hd(i32 noundef 0)
-  %call199 = call ptr @serial_mm_init(ptr noundef %177, i64 noundef %179, i32 noundef 0, ptr noundef %call197, i32 noundef 399193, ptr noundef %call198, i32 noundef 2)
-  %181 = load ptr, ptr %memmap, align 8
-  %arrayidx200 = getelementptr %struct.MemMapEntry, ptr %181, i64 3
+  %call199 = call ptr @serial_mm_init(ptr noundef %182, i64 noundef %184, i32 noundef 0, ptr noundef %call197, i32 noundef 399193, ptr noundef %call198, i32 noundef 2)
+  %186 = load ptr, ptr %memmap, align 8
+  %arrayidx200 = getelementptr %struct.MemMapEntry, ptr %186, i64 3
   %base201 = getelementptr inbounds %struct.MemMapEntry, ptr %arrayidx200, i32 0, i32 0
-  %182 = load i64, ptr %base201, align 8
-  %183 = load ptr, ptr %mmio_irqchip, align 8
-  %call202 = call ptr @qdev_get_gpio_in(ptr noundef %183, i32 noundef 11)
-  %call203 = call ptr @sysbus_create_simple(ptr noundef @.str.53, i64 noundef %182, ptr noundef %call202)
+  %187 = load i64, ptr %base201, align 8
+  %188 = load ptr, ptr %mmio_irqchip, align 8
+  %call202 = call ptr @qdev_get_gpio_in(ptr noundef %188, i32 noundef 11)
+  %call203 = call ptr @sysbus_create_simple(ptr noundef @.str.53, i64 noundef %187, ptr noundef %call202)
   store i32 0, ptr %i, align 4
   br label %for.cond204
 
 for.cond204:                                      ; preds = %for.inc212, %for.end183
-  %184 = load i32, ptr %i, align 4
-  %conv205 = sext i32 %184 to i64
+  %189 = load i32, ptr %i, align 4
+  %conv205 = sext i32 %189 to i64
   %cmp206 = icmp ult i64 %conv205, 2
   br i1 %cmp206, label %for.body208, label %for.end214
 
 for.body208:                                      ; preds = %for.cond204
-  %185 = load ptr, ptr %s, align 8
-  %flash = getelementptr inbounds %struct.RISCVVirtState, ptr %185, i32 0, i32 5
-  %186 = load i32, ptr %i, align 4
-  %idxprom209 = sext i32 %186 to i64
+  %190 = load ptr, ptr %s, align 8
+  %flash = getelementptr inbounds %struct.RISCVVirtState, ptr %190, i32 0, i32 5
+  %191 = load i32, ptr %i, align 4
+  %idxprom209 = sext i32 %191 to i64
   %arrayidx210 = getelementptr [2 x ptr], ptr %flash, i64 0, i64 %idxprom209
-  %187 = load ptr, ptr %arrayidx210, align 8
-  %188 = load i32, ptr %i, align 4
-  %call211 = call ptr @drive_get(i32 noundef 4, i32 noundef 0, i32 noundef %188)
-  call void @pflash_cfi01_legacy_drive(ptr noundef %187, ptr noundef %call211)
+  %192 = load ptr, ptr %arrayidx210, align 8
+  %193 = load i32, ptr %i, align 4
+  %call211 = call ptr @drive_get(i32 noundef 4, i32 noundef 0, i32 noundef %193)
+  call void @pflash_cfi01_legacy_drive(ptr noundef %192, ptr noundef %call211)
   br label %for.inc212
 
 for.inc212:                                       ; preds = %for.body208
-  %189 = load i32, ptr %i, align 4
-  %inc213 = add i32 %189, 1
+  %194 = load i32, ptr %i, align 4
+  %inc213 = add i32 %194, 1
   store i32 %inc213, ptr %i, align 4
   br label %for.cond204, !llvm.loop !8
 
 for.end214:                                       ; preds = %for.cond204
-  %190 = load ptr, ptr %s, align 8
-  %191 = load ptr, ptr %system_memory, align 8
-  call void @virt_flash_map(ptr noundef %190, ptr noundef %191)
-  %192 = load ptr, ptr %machine.addr, align 8
-  %dtb = getelementptr inbounds %struct.MachineState, ptr %192, i32 0, i32 2
-  %193 = load ptr, ptr %dtb, align 8
-  %tobool215 = icmp ne ptr %193, null
+  %195 = load ptr, ptr %s, align 8
+  %196 = load ptr, ptr %system_memory, align 8
+  call void @virt_flash_map(ptr noundef %195, ptr noundef %196)
+  %197 = load ptr, ptr %machine.addr, align 8
+  %dtb = getelementptr inbounds %struct.MachineState, ptr %197, i32 0, i32 2
+  %198 = load ptr, ptr %dtb, align 8
+  %tobool215 = icmp ne ptr %198, null
   br i1 %tobool215, label %if.then216, label %if.else223
 
 if.then216:                                       ; preds = %for.end214
-  %194 = load ptr, ptr %machine.addr, align 8
-  %dtb217 = getelementptr inbounds %struct.MachineState, ptr %194, i32 0, i32 2
-  %195 = load ptr, ptr %dtb217, align 8
-  %196 = load ptr, ptr %s, align 8
-  %fdt_size = getelementptr inbounds %struct.RISCVVirtState, ptr %196, i32 0, i32 7
-  %call218 = call ptr @load_device_tree(ptr noundef %195, ptr noundef %fdt_size)
-  %197 = load ptr, ptr %machine.addr, align 8
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %197, i32 0, i32 1
+  %199 = load ptr, ptr %machine.addr, align 8
+  %dtb217 = getelementptr inbounds %struct.MachineState, ptr %199, i32 0, i32 2
+  %200 = load ptr, ptr %dtb217, align 8
+  %201 = load ptr, ptr %s, align 8
+  %fdt_size = getelementptr inbounds %struct.RISCVVirtState, ptr %201, i32 0, i32 7
+  %call218 = call ptr @load_device_tree(ptr noundef %200, ptr noundef %fdt_size)
+  %202 = load ptr, ptr %machine.addr, align 8
+  %fdt = getelementptr inbounds %struct.MachineState, ptr %202, i32 0, i32 1
   store ptr %call218, ptr %fdt, align 8
-  %198 = load ptr, ptr %machine.addr, align 8
-  %fdt219 = getelementptr inbounds %struct.MachineState, ptr %198, i32 0, i32 1
-  %199 = load ptr, ptr %fdt219, align 8
-  %tobool220 = icmp ne ptr %199, null
+  %203 = load ptr, ptr %machine.addr, align 8
+  %fdt219 = getelementptr inbounds %struct.MachineState, ptr %203, i32 0, i32 1
+  %204 = load ptr, ptr %fdt219, align 8
+  %tobool220 = icmp ne ptr %204, null
   br i1 %tobool220, label %if.end222, label %if.then221
 
 if.then221:                                       ; preds = %if.then216
@@ -1174,18 +1179,18 @@ if.end222:                                        ; preds = %if.then216
   br label %if.end224
 
 if.else223:                                       ; preds = %for.end214
-  %200 = load ptr, ptr %s, align 8
-  %201 = load ptr, ptr %memmap, align 8
-  call void @create_fdt(ptr noundef %200, ptr noundef %201)
+  %205 = load ptr, ptr %s, align 8
+  %206 = load ptr, ptr %memmap, align 8
+  call void @create_fdt(ptr noundef %205, ptr noundef %206)
   br label %if.end224
 
 if.end224:                                        ; preds = %if.else223, %if.end222
-  %202 = load ptr, ptr %s, align 8
-  %machine_done = getelementptr inbounds %struct.RISCVVirtState, ptr %202, i32 0, i32 1
+  %207 = load ptr, ptr %s, align 8
+  %machine_done = getelementptr inbounds %struct.RISCVVirtState, ptr %207, i32 0, i32 1
   %notify = getelementptr inbounds %struct.Notifier, ptr %machine_done, i32 0, i32 0
   store ptr @virt_machine_done, ptr %notify, align 8
-  %203 = load ptr, ptr %s, align 8
-  %machine_done225 = getelementptr inbounds %struct.RISCVVirtState, ptr %203, i32 0, i32 1
+  %208 = load ptr, ptr %s, align 8
+  %machine_done225 = getelementptr inbounds %struct.RISCVVirtState, ptr %208, i32 0, i32 1
   call void @qemu_add_machine_init_done_notifier(ptr noundef %machine_done225)
   ret void
 }
@@ -3613,24 +3618,25 @@ do.end59:                                         ; preds = %for.end55
   %arrayinit.element93 = getelementptr inbounds i64, ptr %arrayinit.element92, i64 1
   store i64 2, ptr %arrayinit.element93, align 8
   %arrayinit.element94 = getelementptr inbounds i64, ptr %arrayinit.element93, i64 1
-  %67 = load i64, ptr getelementptr inbounds (%struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1), align 8
-  store i64 %67, ptr %arrayinit.element94, align 8
-  %68 = load ptr, ptr %ms, align 8
-  %fdt95 = getelementptr inbounds %struct.MachineState, ptr %68, i32 0, i32 1
-  %69 = load ptr, ptr %fdt95, align 8
-  %70 = load ptr, ptr %name, align 8
+  %67 = getelementptr inbounds %struct.MemMapEntry, ptr @virt_high_pcie_memmap, i32 0, i32 1
+  %68 = load i64, ptr %67, align 8
+  store i64 %68, ptr %arrayinit.element94, align 8
+  %69 = load ptr, ptr %ms, align 8
+  %fdt95 = getelementptr inbounds %struct.MachineState, ptr %69, i32 0, i32 1
+  %70 = load ptr, ptr %fdt95, align 8
+  %71 = load ptr, ptr %name, align 8
   %arraydecay96 = getelementptr inbounds [24 x i64], ptr %qdt_tmp60, i64 0, i64 0
-  %call97 = call i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %69, ptr noundef %70, ptr noundef @.str.79, i32 noundef 12, ptr noundef %arraydecay96)
+  %call97 = call i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %70, ptr noundef %71, ptr noundef @.str.79, i32 noundef 12, ptr noundef %arraydecay96)
   store i32 %call97, ptr %tmp, align 4
-  %71 = load ptr, ptr %s.addr, align 8
-  %72 = load ptr, ptr %ms, align 8
-  %fdt98 = getelementptr inbounds %struct.MachineState, ptr %72, i32 0, i32 1
-  %73 = load ptr, ptr %fdt98, align 8
-  %74 = load ptr, ptr %name, align 8
-  %75 = load i32, ptr %irq_pcie_phandle.addr, align 4
-  call void @create_pcie_irq_map(ptr noundef %71, ptr noundef %73, ptr noundef %74, i32 noundef %75)
-  %76 = load ptr, ptr %name, align 8
-  call void @g_free(ptr noundef %76)
+  %72 = load ptr, ptr %s.addr, align 8
+  %73 = load ptr, ptr %ms, align 8
+  %fdt98 = getelementptr inbounds %struct.MachineState, ptr %73, i32 0, i32 1
+  %74 = load ptr, ptr %fdt98, align 8
+  %75 = load ptr, ptr %name, align 8
+  %76 = load i32, ptr %irq_pcie_phandle.addr, align 4
+  call void @create_pcie_irq_map(ptr noundef %72, ptr noundef %74, ptr noundef %75, i32 noundef %76)
+  %77 = load ptr, ptr %name, align 8
+  call void @g_free(ptr noundef %77)
   ret void
 }
 

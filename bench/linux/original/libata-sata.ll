@@ -1804,19 +1804,20 @@ define dso_local noundef i32 @ata_slave_link_init(ptr noundef %0) #2 align 16 {
   br label %12
 
 12:                                               ; preds = %11, %6
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
-  %14 = tail call noalias noundef align 8 dereferenceable_or_null(6464) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 6464) #14
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %17, label %16
+  %13 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call noalias noundef align 8 dereferenceable_or_null(6464) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 6464) #14
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %12
-  tail call void @ata_link_init(ptr noundef %0, ptr noundef nonnull %14, i32 noundef 1) #11
-  store ptr %14, ptr %2, align 64
-  br label %17
+17:                                               ; preds = %12
+  tail call void @ata_link_init(ptr noundef %0, ptr noundef nonnull %15, i32 noundef 1) #11
+  store ptr %15, ptr %2, align 64
+  br label %18
 
-17:                                               ; preds = %16, %12
-  %18 = phi i32 [ 0, %16 ], [ -12, %12 ]
-  ret i32 %18
+18:                                               ; preds = %17, %12
+  %19 = phi i32 [ 0, %17 ], [ -12, %12 ]
+  ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid

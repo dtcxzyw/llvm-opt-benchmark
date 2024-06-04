@@ -467,45 +467,58 @@ define internal i64 @count_imemo_objects(i32 noundef %0, ptr noundef %1, i64 nou
   store i64 %10, ptr %7, align 8
   %11 = load i64, ptr @imemo_type_ids, align 16
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %28
+  br i1 %12, label %13, label %41
 
 13:                                               ; preds = %3
   %14 = call i64 @rb_intern_const(ptr noundef @.str.81) #12
   store i64 %14, ptr @imemo_type_ids, align 16
   %15 = call i64 @rb_intern_const(ptr noundef @.str.82) #12
-  store i64 %15, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 1), align 8
-  %16 = call i64 @rb_intern_const(ptr noundef @.str.83) #12
-  store i64 %16, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 2), align 16
-  %17 = call i64 @rb_intern_const(ptr noundef @.str.84) #12
-  store i64 %17, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 3), align 8
-  %18 = call i64 @rb_intern_const(ptr noundef @.str.85) #12
-  store i64 %18, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 4), align 16
-  %19 = call i64 @rb_intern_const(ptr noundef @.str.86) #12
-  store i64 %19, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 5), align 8
-  %20 = call i64 @rb_intern_const(ptr noundef @.str.87) #12
-  store i64 %20, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 6), align 16
-  %21 = call i64 @rb_intern_const(ptr noundef @.str.88) #12
-  store i64 %21, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 7), align 8
-  %22 = call i64 @rb_intern_const(ptr noundef @.str.89) #12
-  store i64 %22, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 8), align 16
-  %23 = call i64 @rb_intern_const(ptr noundef @.str.90) #12
-  store i64 %23, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 9), align 8
-  %24 = call i64 @rb_intern_const(ptr noundef @.str.91) #12
-  store i64 %24, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 10), align 16
-  %25 = call i64 @rb_intern_const(ptr noundef @.str.92) #12
-  store i64 %25, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 11), align 8
-  %26 = call i64 @rb_intern_const(ptr noundef @.str.93) #12
-  store i64 %26, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 12), align 16
-  %27 = call i64 @rb_intern_const(ptr noundef @.str.94) #12
-  store i64 %27, ptr getelementptr inbounds ([16 x i64], ptr @imemo_type_ids, i64 0, i64 13), align 8
-  br label %28
+  %16 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 1
+  store i64 %15, ptr %16, align 8
+  %17 = call i64 @rb_intern_const(ptr noundef @.str.83) #12
+  %18 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 2
+  store i64 %17, ptr %18, align 16
+  %19 = call i64 @rb_intern_const(ptr noundef @.str.84) #12
+  %20 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 3
+  store i64 %19, ptr %20, align 8
+  %21 = call i64 @rb_intern_const(ptr noundef @.str.85) #12
+  %22 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 4
+  store i64 %21, ptr %22, align 16
+  %23 = call i64 @rb_intern_const(ptr noundef @.str.86) #12
+  %24 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 5
+  store i64 %23, ptr %24, align 8
+  %25 = call i64 @rb_intern_const(ptr noundef @.str.87) #12
+  %26 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 6
+  store i64 %25, ptr %26, align 16
+  %27 = call i64 @rb_intern_const(ptr noundef @.str.88) #12
+  %28 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 7
+  store i64 %27, ptr %28, align 8
+  %29 = call i64 @rb_intern_const(ptr noundef @.str.89) #12
+  %30 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 8
+  store i64 %29, ptr %30, align 16
+  %31 = call i64 @rb_intern_const(ptr noundef @.str.90) #12
+  %32 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 9
+  store i64 %31, ptr %32, align 8
+  %33 = call i64 @rb_intern_const(ptr noundef @.str.91) #12
+  %34 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 10
+  store i64 %33, ptr %34, align 16
+  %35 = call i64 @rb_intern_const(ptr noundef @.str.92) #12
+  %36 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 11
+  store i64 %35, ptr %36, align 8
+  %37 = call i64 @rb_intern_const(ptr noundef @.str.93) #12
+  %38 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 12
+  store i64 %37, ptr %38, align 16
+  %39 = call i64 @rb_intern_const(ptr noundef @.str.94) #12
+  %40 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 13
+  store i64 %39, ptr %40, align 8
+  br label %41
 
-28:                                               ; preds = %13, %3
-  %29 = load i64, ptr %7, align 8
-  %30 = inttoptr i64 %29 to ptr
-  call void @each_object_with_flags(ptr noundef @count_imemo_objects_i, ptr noundef %30)
-  %31 = load i64, ptr %7, align 8
-  ret i64 %31
+41:                                               ; preds = %13, %3
+  %42 = load i64, ptr %7, align 8
+  %43 = inttoptr i64 %42 to ptr
+  call void @each_object_with_flags(ptr noundef @count_imemo_objects_i, ptr noundef %43)
+  %44 = load i64, ptr %7, align 8
+  ret i64 %44
 }
 
 ; Function Attrs: nounwind uwtable

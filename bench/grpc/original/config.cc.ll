@@ -453,7 +453,8 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
   %arrayctor.cur = phi ptr [ @_ZN9grpc_core12_GLOBAL__N_120g_forced_experimentsE, %entry ], [ %arrayctor.next, %arrayctor.loop ]
   call void @_ZN9grpc_core12_GLOBAL__N_116ForcedExperimentC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %arrayctor.cur) #11
   %arrayctor.next = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ForcedExperiment", ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, getelementptr inbounds (%"struct.grpc_core::(anonymous namespace)::ForcedExperiment", ptr @_ZN9grpc_core12_GLOBAL__N_120g_forced_experimentsE, i64 41)
+  %0 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ForcedExperiment", ptr @_ZN9grpc_core12_GLOBAL__N_120g_forced_experimentsE, i64 41
+  %arrayctor.done = icmp eq ptr %arrayctor.next, %0
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %arrayctor.loop

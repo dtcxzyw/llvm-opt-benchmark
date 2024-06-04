@@ -366,9 +366,11 @@ define internal void @prepare_buf() #0 {
   br label %2, !llvm.loop !7
 
 14:                                               ; preds = %2
-  %15 = and i64 add (i64 ptrtoint (ptr @full_buf to i64), i64 8191), -8192
-  %16 = inttoptr i64 %15 to ptr
-  store ptr %16, ptr @buf, align 8
+  %15 = ptrtoint ptr @full_buf to i64
+  %16 = add i64 %15, 8191
+  %17 = and i64 %16, -8192
+  %18 = inttoptr i64 %17 to ptr
+  store ptr %18, ptr @buf, align 8
   ret void
 }
 
@@ -468,7 +470,7 @@ define internal void @test_sync(i32 noundef %0) #0 {
 21:                                               ; preds = %13
   %22 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.28, ptr noundef @.str.29)
   store i8 1, ptr %6, align 1
-  br label %67
+  br label %69
 
 23:                                               ; preds = %13
   br label %24
@@ -545,359 +547,367 @@ define internal void @test_sync(i32 noundef %0) #0 {
   %58 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
   %59 = load i32, ptr %4, align 4
   %60 = load i64, ptr @start_t, align 8
-  %61 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @start_t, i32 0, i32 1), align 8
-  %62 = load i64, ptr @stop_t, align 8
-  %63 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @stop_t, i32 0, i32 1), align 8
-  call void @print_elapse(i64 %60, i64 %61, i64 %62, i64 %63, i32 noundef %59)
-  br label %64
+  %61 = getelementptr inbounds { i64, i64 }, ptr @start_t, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8
+  %63 = load i64, ptr @stop_t, align 8
+  %64 = getelementptr inbounds { i64, i64 }, ptr @stop_t, i32 0, i32 1
+  %65 = load i64, ptr %64, align 8
+  call void @print_elapse(i64 %60, i64 %62, i64 %63, i64 %65, i32 noundef %59)
+  br label %66
 
-64:                                               ; preds = %57
-  %65 = load i32, ptr %3, align 4
-  %66 = call i32 @close(i32 noundef %65)
-  br label %67
+66:                                               ; preds = %57
+  %67 = load i32, ptr %3, align 4
+  %68 = call i32 @close(i32 noundef %67)
+  br label %69
 
-67:                                               ; preds = %64, %21
-  %68 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.30)
-  %69 = load ptr, ptr @stdout, align 8
-  %70 = call i32 @fflush(ptr noundef %69)
-  %71 = load ptr, ptr @filename, align 8
-  %72 = call i32 (ptr, i32, ...) @open(ptr noundef %71, i32 noundef 2, i32 noundef 0)
-  store i32 %72, ptr %3, align 4
-  %73 = icmp eq i32 %72, -1
-  br i1 %73, label %74, label %77
+69:                                               ; preds = %66, %21
+  %70 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.30)
+  %71 = load ptr, ptr @stdout, align 8
+  %72 = call i32 @fflush(ptr noundef %71)
+  %73 = load ptr, ptr @filename, align 8
+  %74 = call i32 (ptr, i32, ...) @open(ptr noundef %73, i32 noundef 2, i32 noundef 0)
+  store i32 %74, ptr %3, align 4
+  %75 = icmp eq i32 %74, -1
+  br i1 %75, label %76, label %79
 
-74:                                               ; preds = %67
-  br label %75
-
-75:                                               ; preds = %74
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.20)
-  call void @exit(i32 noundef 1) #10
-  unreachable
-
-76:                                               ; No predecessors!
+76:                                               ; preds = %69
   br label %77
 
-77:                                               ; preds = %76, %67
-  br label %78
-
-78:                                               ; preds = %77
-  store i32 0, ptr @alarm_triggered, align 4
-  %79 = load i32, ptr @secs_per_test, align 4
-  %80 = call i32 @alarm(i32 noundef %79) #8
-  %81 = call i32 @gettimeofday(ptr noundef @start_t, ptr noundef null) #8
-  br label %82
-
-82:                                               ; preds = %78
-  store i32 0, ptr %4, align 4
-  br label %83
-
-83:                                               ; preds = %109, %82
-  %84 = load i32, ptr @alarm_triggered, align 4
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %112
-
-86:                                               ; preds = %83
-  store i32 0, ptr %5, align 4
-  br label %87
-
-87:                                               ; preds = %103, %86
-  %88 = load i32, ptr %5, align 4
-  %89 = load i32, ptr %2, align 4
-  %90 = icmp slt i32 %88, %89
-  br i1 %90, label %91, label %106
-
-91:                                               ; preds = %87
-  %92 = load i32, ptr %3, align 4
-  %93 = load ptr, ptr @buf, align 8
-  %94 = load i32, ptr %5, align 4
-  %95 = mul i32 %94, 8192
-  %96 = sext i32 %95 to i64
-  %97 = call i64 @pwrite(i32 noundef %92, ptr noundef %93, i64 noundef 8192, i64 noundef %96)
-  %98 = icmp ne i64 %97, 8192
-  br i1 %98, label %99, label %102
-
-99:                                               ; preds = %91
-  br label %100
-
-100:                                              ; preds = %99
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.21)
-  call void @exit(i32 noundef 1) #10
-  unreachable
-
-101:                                              ; No predecessors!
-  br label %102
-
-102:                                              ; preds = %101, %91
-  br label %103
-
-103:                                              ; preds = %102
-  %104 = load i32, ptr %5, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %5, align 4
-  br label %87, !llvm.loop !10
-
-106:                                              ; preds = %87
-  %107 = load i32, ptr %3, align 4
-  %108 = call i32 @fdatasync(i32 noundef %107)
-  br label %109
-
-109:                                              ; preds = %106
-  %110 = load i32, ptr %4, align 4
-  %111 = add i32 %110, 1
-  store i32 %111, ptr %4, align 4
-  br label %83, !llvm.loop !11
-
-112:                                              ; preds = %83
-  br label %113
-
-113:                                              ; preds = %112
-  %114 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
-  %115 = load i32, ptr %4, align 4
-  %116 = load i64, ptr @start_t, align 8
-  %117 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @start_t, i32 0, i32 1), align 8
-  %118 = load i64, ptr @stop_t, align 8
-  %119 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @stop_t, i32 0, i32 1), align 8
-  call void @print_elapse(i64 %116, i64 %117, i64 %118, i64 %119, i32 noundef %115)
-  br label %120
-
-120:                                              ; preds = %113
-  %121 = load i32, ptr %3, align 4
-  %122 = call i32 @close(i32 noundef %121)
-  %123 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.31)
-  %124 = load ptr, ptr @stdout, align 8
-  %125 = call i32 @fflush(ptr noundef %124)
-  %126 = load ptr, ptr @filename, align 8
-  %127 = call i32 (ptr, i32, ...) @open(ptr noundef %126, i32 noundef 2, i32 noundef 0)
-  store i32 %127, ptr %3, align 4
-  %128 = icmp eq i32 %127, -1
-  br i1 %128, label %129, label %132
-
-129:                                              ; preds = %120
-  br label %130
-
-130:                                              ; preds = %129
+77:                                               ; preds = %76
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.20)
   call void @exit(i32 noundef 1) #10
   unreachable
 
-131:                                              ; No predecessors!
-  br label %132
+78:                                               ; No predecessors!
+  br label %79
 
-132:                                              ; preds = %131, %120
-  br label %133
+79:                                               ; preds = %78, %69
+  br label %80
 
-133:                                              ; preds = %132
+80:                                               ; preds = %79
   store i32 0, ptr @alarm_triggered, align 4
-  %134 = load i32, ptr @secs_per_test, align 4
-  %135 = call i32 @alarm(i32 noundef %134) #8
-  %136 = call i32 @gettimeofday(ptr noundef @start_t, ptr noundef null) #8
-  br label %137
+  %81 = load i32, ptr @secs_per_test, align 4
+  %82 = call i32 @alarm(i32 noundef %81) #8
+  %83 = call i32 @gettimeofday(ptr noundef @start_t, ptr noundef null) #8
+  br label %84
 
-137:                                              ; preds = %133
+84:                                               ; preds = %80
   store i32 0, ptr %4, align 4
-  br label %138
+  br label %85
 
-138:                                              ; preds = %169, %137
-  %139 = load i32, ptr @alarm_triggered, align 4
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %172
+85:                                               ; preds = %111, %84
+  %86 = load i32, ptr @alarm_triggered, align 4
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %114
 
-141:                                              ; preds = %138
+88:                                               ; preds = %85
   store i32 0, ptr %5, align 4
-  br label %142
+  br label %89
 
-142:                                              ; preds = %158, %141
-  %143 = load i32, ptr %5, align 4
-  %144 = load i32, ptr %2, align 4
-  %145 = icmp slt i32 %143, %144
-  br i1 %145, label %146, label %161
+89:                                               ; preds = %105, %88
+  %90 = load i32, ptr %5, align 4
+  %91 = load i32, ptr %2, align 4
+  %92 = icmp slt i32 %90, %91
+  br i1 %92, label %93, label %108
 
-146:                                              ; preds = %142
-  %147 = load i32, ptr %3, align 4
-  %148 = load ptr, ptr @buf, align 8
-  %149 = load i32, ptr %5, align 4
-  %150 = mul i32 %149, 8192
-  %151 = sext i32 %150 to i64
-  %152 = call i64 @pwrite(i32 noundef %147, ptr noundef %148, i64 noundef 8192, i64 noundef %151)
-  %153 = icmp ne i64 %152, 8192
-  br i1 %153, label %154, label %157
+93:                                               ; preds = %89
+  %94 = load i32, ptr %3, align 4
+  %95 = load ptr, ptr @buf, align 8
+  %96 = load i32, ptr %5, align 4
+  %97 = mul i32 %96, 8192
+  %98 = sext i32 %97 to i64
+  %99 = call i64 @pwrite(i32 noundef %94, ptr noundef %95, i64 noundef 8192, i64 noundef %98)
+  %100 = icmp ne i64 %99, 8192
+  br i1 %100, label %101, label %104
 
-154:                                              ; preds = %146
-  br label %155
+101:                                              ; preds = %93
+  br label %102
 
-155:                                              ; preds = %154
+102:                                              ; preds = %101
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.21)
   call void @exit(i32 noundef 1) #10
   unreachable
 
-156:                                              ; No predecessors!
-  br label %157
+103:                                              ; No predecessors!
+  br label %104
 
-157:                                              ; preds = %156, %146
-  br label %158
+104:                                              ; preds = %103, %93
+  br label %105
 
-158:                                              ; preds = %157
-  %159 = load i32, ptr %5, align 4
-  %160 = add i32 %159, 1
-  store i32 %160, ptr %5, align 4
-  br label %142, !llvm.loop !12
+105:                                              ; preds = %104
+  %106 = load i32, ptr %5, align 4
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %5, align 4
+  br label %89, !llvm.loop !10
 
-161:                                              ; preds = %142
-  %162 = load i32, ptr %3, align 4
-  %163 = call i32 @fsync(i32 noundef %162)
-  %164 = icmp ne i32 %163, 0
-  br i1 %164, label %165, label %168
+108:                                              ; preds = %89
+  %109 = load i32, ptr %3, align 4
+  %110 = call i32 @fdatasync(i32 noundef %109)
+  br label %111
 
-165:                                              ; preds = %161
-  br label %166
+111:                                              ; preds = %108
+  %112 = load i32, ptr %4, align 4
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %4, align 4
+  br label %85, !llvm.loop !11
 
-166:                                              ; preds = %165
+114:                                              ; preds = %85
+  br label %115
+
+115:                                              ; preds = %114
+  %116 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
+  %117 = load i32, ptr %4, align 4
+  %118 = load i64, ptr @start_t, align 8
+  %119 = getelementptr inbounds { i64, i64 }, ptr @start_t, i32 0, i32 1
+  %120 = load i64, ptr %119, align 8
+  %121 = load i64, ptr @stop_t, align 8
+  %122 = getelementptr inbounds { i64, i64 }, ptr @stop_t, i32 0, i32 1
+  %123 = load i64, ptr %122, align 8
+  call void @print_elapse(i64 %118, i64 %120, i64 %121, i64 %123, i32 noundef %117)
+  br label %124
+
+124:                                              ; preds = %115
+  %125 = load i32, ptr %3, align 4
+  %126 = call i32 @close(i32 noundef %125)
+  %127 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.31)
+  %128 = load ptr, ptr @stdout, align 8
+  %129 = call i32 @fflush(ptr noundef %128)
+  %130 = load ptr, ptr @filename, align 8
+  %131 = call i32 (ptr, i32, ...) @open(ptr noundef %130, i32 noundef 2, i32 noundef 0)
+  store i32 %131, ptr %3, align 4
+  %132 = icmp eq i32 %131, -1
+  br i1 %132, label %133, label %136
+
+133:                                              ; preds = %124
+  br label %134
+
+134:                                              ; preds = %133
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.20)
+  call void @exit(i32 noundef 1) #10
+  unreachable
+
+135:                                              ; No predecessors!
+  br label %136
+
+136:                                              ; preds = %135, %124
+  br label %137
+
+137:                                              ; preds = %136
+  store i32 0, ptr @alarm_triggered, align 4
+  %138 = load i32, ptr @secs_per_test, align 4
+  %139 = call i32 @alarm(i32 noundef %138) #8
+  %140 = call i32 @gettimeofday(ptr noundef @start_t, ptr noundef null) #8
+  br label %141
+
+141:                                              ; preds = %137
+  store i32 0, ptr %4, align 4
+  br label %142
+
+142:                                              ; preds = %173, %141
+  %143 = load i32, ptr @alarm_triggered, align 4
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %176
+
+145:                                              ; preds = %142
+  store i32 0, ptr %5, align 4
+  br label %146
+
+146:                                              ; preds = %162, %145
+  %147 = load i32, ptr %5, align 4
+  %148 = load i32, ptr %2, align 4
+  %149 = icmp slt i32 %147, %148
+  br i1 %149, label %150, label %165
+
+150:                                              ; preds = %146
+  %151 = load i32, ptr %3, align 4
+  %152 = load ptr, ptr @buf, align 8
+  %153 = load i32, ptr %5, align 4
+  %154 = mul i32 %153, 8192
+  %155 = sext i32 %154 to i64
+  %156 = call i64 @pwrite(i32 noundef %151, ptr noundef %152, i64 noundef 8192, i64 noundef %155)
+  %157 = icmp ne i64 %156, 8192
+  br i1 %157, label %158, label %161
+
+158:                                              ; preds = %150
+  br label %159
+
+159:                                              ; preds = %158
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.21)
+  call void @exit(i32 noundef 1) #10
+  unreachable
+
+160:                                              ; No predecessors!
+  br label %161
+
+161:                                              ; preds = %160, %150
+  br label %162
+
+162:                                              ; preds = %161
+  %163 = load i32, ptr %5, align 4
+  %164 = add i32 %163, 1
+  store i32 %164, ptr %5, align 4
+  br label %146, !llvm.loop !12
+
+165:                                              ; preds = %146
+  %166 = load i32, ptr %3, align 4
+  %167 = call i32 @fsync(i32 noundef %166)
+  %168 = icmp ne i32 %167, 0
+  br i1 %168, label %169, label %172
+
+169:                                              ; preds = %165
+  br label %170
+
+170:                                              ; preds = %169
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.22)
   call void @exit(i32 noundef 1) #10
   unreachable
 
-167:                                              ; No predecessors!
-  br label %168
+171:                                              ; No predecessors!
+  br label %172
 
-168:                                              ; preds = %167, %161
-  br label %169
-
-169:                                              ; preds = %168
-  %170 = load i32, ptr %4, align 4
-  %171 = add i32 %170, 1
-  store i32 %171, ptr %4, align 4
-  br label %138, !llvm.loop !13
-
-172:                                              ; preds = %138
+172:                                              ; preds = %171, %165
   br label %173
 
 173:                                              ; preds = %172
-  %174 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
-  %175 = load i32, ptr %4, align 4
-  %176 = load i64, ptr @start_t, align 8
-  %177 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @start_t, i32 0, i32 1), align 8
-  %178 = load i64, ptr @stop_t, align 8
-  %179 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @stop_t, i32 0, i32 1), align 8
-  call void @print_elapse(i64 %176, i64 %177, i64 %178, i64 %179, i32 noundef %175)
-  br label %180
+  %174 = load i32, ptr %4, align 4
+  %175 = add i32 %174, 1
+  store i32 %175, ptr %4, align 4
+  br label %142, !llvm.loop !13
 
-180:                                              ; preds = %173
-  %181 = load i32, ptr %3, align 4
-  %182 = call i32 @close(i32 noundef %181)
-  %183 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.32)
-  %184 = load ptr, ptr @stdout, align 8
-  %185 = call i32 @fflush(ptr noundef %184)
-  %186 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.28, ptr noundef @.str.33)
-  %187 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.34)
-  %188 = load ptr, ptr @stdout, align 8
-  %189 = call i32 @fflush(ptr noundef %188)
-  %190 = load ptr, ptr @filename, align 8
-  %191 = call i32 @open_direct(ptr noundef %190, i32 noundef 1052674, i32 noundef 0)
-  store i32 %191, ptr %3, align 4
-  %192 = icmp eq i32 %191, -1
-  br i1 %192, label %193, label %195
+176:                                              ; preds = %142
+  br label %177
 
-193:                                              ; preds = %180
-  %194 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.28, ptr noundef @.str.29)
+177:                                              ; preds = %176
+  %178 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
+  %179 = load i32, ptr %4, align 4
+  %180 = load i64, ptr @start_t, align 8
+  %181 = getelementptr inbounds { i64, i64 }, ptr @start_t, i32 0, i32 1
+  %182 = load i64, ptr %181, align 8
+  %183 = load i64, ptr @stop_t, align 8
+  %184 = getelementptr inbounds { i64, i64 }, ptr @stop_t, i32 0, i32 1
+  %185 = load i64, ptr %184, align 8
+  call void @print_elapse(i64 %180, i64 %182, i64 %183, i64 %185, i32 noundef %179)
+  br label %186
+
+186:                                              ; preds = %177
+  %187 = load i32, ptr %3, align 4
+  %188 = call i32 @close(i32 noundef %187)
+  %189 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.32)
+  %190 = load ptr, ptr @stdout, align 8
+  %191 = call i32 @fflush(ptr noundef %190)
+  %192 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.28, ptr noundef @.str.33)
+  %193 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.34)
+  %194 = load ptr, ptr @stdout, align 8
+  %195 = call i32 @fflush(ptr noundef %194)
+  %196 = load ptr, ptr @filename, align 8
+  %197 = call i32 @open_direct(ptr noundef %196, i32 noundef 1052674, i32 noundef 0)
+  store i32 %197, ptr %3, align 4
+  %198 = icmp eq i32 %197, -1
+  br i1 %198, label %199, label %201
+
+199:                                              ; preds = %186
+  %200 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.28, ptr noundef @.str.29)
   store i8 1, ptr %6, align 1
-  br label %239
+  br label %247
 
-195:                                              ; preds = %180
-  br label %196
+201:                                              ; preds = %186
+  br label %202
 
-196:                                              ; preds = %195
+202:                                              ; preds = %201
   store i32 0, ptr @alarm_triggered, align 4
-  %197 = load i32, ptr @secs_per_test, align 4
-  %198 = call i32 @alarm(i32 noundef %197) #8
-  %199 = call i32 @gettimeofday(ptr noundef @start_t, ptr noundef null) #8
-  br label %200
+  %203 = load i32, ptr @secs_per_test, align 4
+  %204 = call i32 @alarm(i32 noundef %203) #8
+  %205 = call i32 @gettimeofday(ptr noundef @start_t, ptr noundef null) #8
+  br label %206
 
-200:                                              ; preds = %196
+206:                                              ; preds = %202
   store i32 0, ptr %4, align 4
-  br label %201
+  br label %207
 
-201:                                              ; preds = %225, %200
-  %202 = load i32, ptr @alarm_triggered, align 4
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %204, label %228
+207:                                              ; preds = %231, %206
+  %208 = load i32, ptr @alarm_triggered, align 4
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %210, label %234
 
-204:                                              ; preds = %201
+210:                                              ; preds = %207
   store i32 0, ptr %5, align 4
-  br label %205
+  br label %211
 
-205:                                              ; preds = %221, %204
-  %206 = load i32, ptr %5, align 4
-  %207 = load i32, ptr %2, align 4
-  %208 = icmp slt i32 %206, %207
-  br i1 %208, label %209, label %224
-
-209:                                              ; preds = %205
-  %210 = load i32, ptr %3, align 4
-  %211 = load ptr, ptr @buf, align 8
+211:                                              ; preds = %227, %210
   %212 = load i32, ptr %5, align 4
-  %213 = mul i32 %212, 8192
-  %214 = sext i32 %213 to i64
-  %215 = call i64 @pwrite(i32 noundef %210, ptr noundef %211, i64 noundef 8192, i64 noundef %214)
-  %216 = icmp ne i64 %215, 8192
-  br i1 %216, label %217, label %220
+  %213 = load i32, ptr %2, align 4
+  %214 = icmp slt i32 %212, %213
+  br i1 %214, label %215, label %230
 
-217:                                              ; preds = %209
-  br label %218
+215:                                              ; preds = %211
+  %216 = load i32, ptr %3, align 4
+  %217 = load ptr, ptr @buf, align 8
+  %218 = load i32, ptr %5, align 4
+  %219 = mul i32 %218, 8192
+  %220 = sext i32 %219 to i64
+  %221 = call i64 @pwrite(i32 noundef %216, ptr noundef %217, i64 noundef 8192, i64 noundef %220)
+  %222 = icmp ne i64 %221, 8192
+  br i1 %222, label %223, label %226
 
-218:                                              ; preds = %217
+223:                                              ; preds = %215
+  br label %224
+
+224:                                              ; preds = %223
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.21)
   call void @exit(i32 noundef 1) #10
   unreachable
 
-219:                                              ; No predecessors!
-  br label %220
+225:                                              ; No predecessors!
+  br label %226
 
-220:                                              ; preds = %219, %209
-  br label %221
+226:                                              ; preds = %225, %215
+  br label %227
 
-221:                                              ; preds = %220
-  %222 = load i32, ptr %5, align 4
-  %223 = add i32 %222, 1
-  store i32 %223, ptr %5, align 4
-  br label %205, !llvm.loop !14
+227:                                              ; preds = %226
+  %228 = load i32, ptr %5, align 4
+  %229 = add i32 %228, 1
+  store i32 %229, ptr %5, align 4
+  br label %211, !llvm.loop !14
 
-224:                                              ; preds = %205
-  br label %225
+230:                                              ; preds = %211
+  br label %231
 
-225:                                              ; preds = %224
-  %226 = load i32, ptr %4, align 4
-  %227 = add i32 %226, 1
-  store i32 %227, ptr %4, align 4
-  br label %201, !llvm.loop !15
+231:                                              ; preds = %230
+  %232 = load i32, ptr %4, align 4
+  %233 = add i32 %232, 1
+  store i32 %233, ptr %4, align 4
+  br label %207, !llvm.loop !15
 
-228:                                              ; preds = %201
-  br label %229
+234:                                              ; preds = %207
+  br label %235
 
-229:                                              ; preds = %228
-  %230 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
-  %231 = load i32, ptr %4, align 4
-  %232 = load i64, ptr @start_t, align 8
-  %233 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @start_t, i32 0, i32 1), align 8
-  %234 = load i64, ptr @stop_t, align 8
-  %235 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @stop_t, i32 0, i32 1), align 8
-  call void @print_elapse(i64 %232, i64 %233, i64 %234, i64 %235, i32 noundef %231)
-  br label %236
-
-236:                                              ; preds = %229
-  %237 = load i32, ptr %3, align 4
-  %238 = call i32 @close(i32 noundef %237)
-  br label %239
-
-239:                                              ; preds = %236, %193
-  %240 = load i8, ptr %6, align 1
-  %241 = trunc i8 %240 to i1
-  br i1 %241, label %242, label %244
-
-242:                                              ; preds = %239
-  %243 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.35)
+235:                                              ; preds = %234
+  %236 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
+  %237 = load i32, ptr %4, align 4
+  %238 = load i64, ptr @start_t, align 8
+  %239 = getelementptr inbounds { i64, i64 }, ptr @start_t, i32 0, i32 1
+  %240 = load i64, ptr %239, align 8
+  %241 = load i64, ptr @stop_t, align 8
+  %242 = getelementptr inbounds { i64, i64 }, ptr @stop_t, i32 0, i32 1
+  %243 = load i64, ptr %242, align 8
+  call void @print_elapse(i64 %238, i64 %240, i64 %241, i64 %243, i32 noundef %237)
   br label %244
 
-244:                                              ; preds = %242, %239
+244:                                              ; preds = %235
+  %245 = load i32, ptr %3, align 4
+  %246 = call i32 @close(i32 noundef %245)
+  br label %247
+
+247:                                              ; preds = %244, %199
+  %248 = load i8, ptr %6, align 1
+  %249 = trunc i8 %248 to i1
+  br i1 %249, label %250, label %252
+
+250:                                              ; preds = %247
+  %251 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.35)
+  br label %252
+
+252:                                              ; preds = %250, %247
   ret void
 }
 
@@ -1031,132 +1041,136 @@ define internal void @test_file_descriptor_sync() #0 {
   %55 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
   %56 = load i32, ptr %2, align 4
   %57 = load i64, ptr @start_t, align 8
-  %58 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @start_t, i32 0, i32 1), align 8
-  %59 = load i64, ptr @stop_t, align 8
-  %60 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @stop_t, i32 0, i32 1), align 8
-  call void @print_elapse(i64 %57, i64 %58, i64 %59, i64 %60, i32 noundef %56)
-  br label %61
+  %58 = getelementptr inbounds { i64, i64 }, ptr @start_t, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8
+  %60 = load i64, ptr @stop_t, align 8
+  %61 = getelementptr inbounds { i64, i64 }, ptr @stop_t, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8
+  call void @print_elapse(i64 %57, i64 %59, i64 %60, i64 %62, i32 noundef %56)
+  br label %63
 
-61:                                               ; preds = %54
-  %62 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.47)
-  %63 = load ptr, ptr @stdout, align 8
-  %64 = call i32 @fflush(ptr noundef %63)
-  br label %65
+63:                                               ; preds = %54
+  %64 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.26, ptr noundef @.str.47)
+  %65 = load ptr, ptr @stdout, align 8
+  %66 = call i32 @fflush(ptr noundef %65)
+  br label %67
 
-65:                                               ; preds = %61
+67:                                               ; preds = %63
   store i32 0, ptr @alarm_triggered, align 4
-  %66 = load i32, ptr @secs_per_test, align 4
-  %67 = call i32 @alarm(i32 noundef %66) #8
-  %68 = call i32 @gettimeofday(ptr noundef @start_t, ptr noundef null) #8
-  br label %69
+  %68 = load i32, ptr @secs_per_test, align 4
+  %69 = call i32 @alarm(i32 noundef %68) #8
+  %70 = call i32 @gettimeofday(ptr noundef @start_t, ptr noundef null) #8
+  br label %71
 
-69:                                               ; preds = %65
+71:                                               ; preds = %67
   store i32 0, ptr %2, align 4
-  br label %70
+  br label %72
 
-70:                                               ; preds = %107, %69
-  %71 = load i32, ptr @alarm_triggered, align 4
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %110
+72:                                               ; preds = %109, %71
+  %73 = load i32, ptr @alarm_triggered, align 4
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %112
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr @filename, align 8
-  %75 = call i32 (ptr, i32, ...) @open(ptr noundef %74, i32 noundef 2, i32 noundef 0)
-  store i32 %75, ptr %1, align 4
-  %76 = icmp eq i32 %75, -1
-  br i1 %76, label %77, label %80
+75:                                               ; preds = %72
+  %76 = load ptr, ptr @filename, align 8
+  %77 = call i32 (ptr, i32, ...) @open(ptr noundef %76, i32 noundef 2, i32 noundef 0)
+  store i32 %77, ptr %1, align 4
+  %78 = icmp eq i32 %77, -1
+  br i1 %78, label %79, label %82
 
-77:                                               ; preds = %73
-  br label %78
+79:                                               ; preds = %75
+  br label %80
 
-78:                                               ; preds = %77
+80:                                               ; preds = %79
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.20)
   call void @exit(i32 noundef 1) #10
   unreachable
 
-79:                                               ; No predecessors!
-  br label %80
+81:                                               ; No predecessors!
+  br label %82
 
-80:                                               ; preds = %79, %73
-  %81 = load i32, ptr %1, align 4
-  %82 = load ptr, ptr @buf, align 8
-  %83 = call i64 @write(i32 noundef %81, ptr noundef %82, i64 noundef 8192)
-  %84 = icmp ne i64 %83, 8192
-  br i1 %84, label %85, label %88
+82:                                               ; preds = %81, %75
+  %83 = load i32, ptr %1, align 4
+  %84 = load ptr, ptr @buf, align 8
+  %85 = call i64 @write(i32 noundef %83, ptr noundef %84, i64 noundef 8192)
+  %86 = icmp ne i64 %85, 8192
+  br i1 %86, label %87, label %90
 
-85:                                               ; preds = %80
-  br label %86
+87:                                               ; preds = %82
+  br label %88
 
-86:                                               ; preds = %85
+88:                                               ; preds = %87
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.21)
   call void @exit(i32 noundef 1) #10
   unreachable
 
-87:                                               ; No predecessors!
-  br label %88
+89:                                               ; No predecessors!
+  br label %90
 
-88:                                               ; preds = %87, %80
-  %89 = load i32, ptr %1, align 4
-  %90 = call i32 @close(i32 noundef %89)
-  %91 = load ptr, ptr @filename, align 8
-  %92 = call i32 (ptr, i32, ...) @open(ptr noundef %91, i32 noundef 2, i32 noundef 0)
-  store i32 %92, ptr %1, align 4
-  %93 = icmp eq i32 %92, -1
-  br i1 %93, label %94, label %97
+90:                                               ; preds = %89, %82
+  %91 = load i32, ptr %1, align 4
+  %92 = call i32 @close(i32 noundef %91)
+  %93 = load ptr, ptr @filename, align 8
+  %94 = call i32 (ptr, i32, ...) @open(ptr noundef %93, i32 noundef 2, i32 noundef 0)
+  store i32 %94, ptr %1, align 4
+  %95 = icmp eq i32 %94, -1
+  br i1 %95, label %96, label %99
 
-94:                                               ; preds = %88
-  br label %95
+96:                                               ; preds = %90
+  br label %97
 
-95:                                               ; preds = %94
+97:                                               ; preds = %96
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.20)
   call void @exit(i32 noundef 1) #10
   unreachable
 
-96:                                               ; No predecessors!
-  br label %97
+98:                                               ; No predecessors!
+  br label %99
 
-97:                                               ; preds = %96, %88
-  %98 = load i32, ptr %1, align 4
-  %99 = call i32 @fsync(i32 noundef %98)
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %101, label %104
+99:                                               ; preds = %98, %90
+  %100 = load i32, ptr %1, align 4
+  %101 = call i32 @fsync(i32 noundef %100)
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %106
 
-101:                                              ; preds = %97
-  br label %102
+103:                                              ; preds = %99
+  br label %104
 
-102:                                              ; preds = %101
+104:                                              ; preds = %103
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.19, ptr noundef @.str.22)
   call void @exit(i32 noundef 1) #10
   unreachable
 
-103:                                              ; No predecessors!
-  br label %104
+105:                                              ; No predecessors!
+  br label %106
 
-104:                                              ; preds = %103, %97
-  %105 = load i32, ptr %1, align 4
-  %106 = call i32 @close(i32 noundef %105)
-  br label %107
+106:                                              ; preds = %105, %99
+  %107 = load i32, ptr %1, align 4
+  %108 = call i32 @close(i32 noundef %107)
+  br label %109
 
-107:                                              ; preds = %104
-  %108 = load i32, ptr %2, align 4
-  %109 = add i32 %108, 1
-  store i32 %109, ptr %2, align 4
-  br label %70, !llvm.loop !17
+109:                                              ; preds = %106
+  %110 = load i32, ptr %2, align 4
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %2, align 4
+  br label %72, !llvm.loop !17
 
-110:                                              ; preds = %70
-  br label %111
+112:                                              ; preds = %72
+  br label %113
 
-111:                                              ; preds = %110
-  %112 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
-  %113 = load i32, ptr %2, align 4
-  %114 = load i64, ptr @start_t, align 8
-  %115 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @start_t, i32 0, i32 1), align 8
-  %116 = load i64, ptr @stop_t, align 8
-  %117 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @stop_t, i32 0, i32 1), align 8
-  call void @print_elapse(i64 %114, i64 %115, i64 %116, i64 %117, i32 noundef %113)
-  br label %118
+113:                                              ; preds = %112
+  %114 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
+  %115 = load i32, ptr %2, align 4
+  %116 = load i64, ptr @start_t, align 8
+  %117 = getelementptr inbounds { i64, i64 }, ptr @start_t, i32 0, i32 1
+  %118 = load i64, ptr %117, align 8
+  %119 = load i64, ptr @stop_t, align 8
+  %120 = getelementptr inbounds { i64, i64 }, ptr @stop_t, i32 0, i32 1
+  %121 = load i64, ptr %120, align 8
+  call void @print_elapse(i64 %116, i64 %118, i64 %119, i64 %121, i32 noundef %115)
+  br label %122
 
-118:                                              ; preds = %111
+122:                                              ; preds = %113
   ret void
 }
 
@@ -1238,15 +1252,17 @@ define internal void @test_non_sync() #0 {
   %36 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
   %37 = load i32, ptr %2, align 4
   %38 = load i64, ptr @start_t, align 8
-  %39 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @start_t, i32 0, i32 1), align 8
-  %40 = load i64, ptr @stop_t, align 8
-  %41 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @stop_t, i32 0, i32 1), align 8
-  call void @print_elapse(i64 %38, i64 %39, i64 %40, i64 %41, i32 noundef %37)
-  br label %42
+  %39 = getelementptr inbounds { i64, i64 }, ptr @start_t, i32 0, i32 1
+  %40 = load i64, ptr %39, align 8
+  %41 = load i64, ptr @stop_t, align 8
+  %42 = getelementptr inbounds { i64, i64 }, ptr @stop_t, i32 0, i32 1
+  %43 = load i64, ptr %42, align 8
+  call void @print_elapse(i64 %38, i64 %40, i64 %41, i64 %43, i32 noundef %37)
+  br label %44
 
-42:                                               ; preds = %35
-  %43 = load i32, ptr %1, align 4
-  %44 = call i32 @close(i32 noundef %43)
+44:                                               ; preds = %35
+  %45 = load i32, ptr %1, align 4
+  %46 = call i32 @close(i32 noundef %45)
   ret void
 }
 
@@ -1391,7 +1407,7 @@ define internal void @test_open_sync(ptr noundef %0, i32 noundef %1) #0 {
 
 15:                                               ; preds = %2
   %16 = call i32 (ptr, ...) @pg_printf(ptr noundef @.str.28, ptr noundef @.str.29)
-  br label %70
+  br label %72
 
 17:                                               ; preds = %2
   br label %18
@@ -1477,18 +1493,20 @@ define internal void @test_open_sync(ptr noundef %0, i32 noundef %1) #0 {
   %61 = call i32 @gettimeofday(ptr noundef @stop_t, ptr noundef null) #8
   %62 = load i32, ptr %6, align 4
   %63 = load i64, ptr @start_t, align 8
-  %64 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @start_t, i32 0, i32 1), align 8
-  %65 = load i64, ptr @stop_t, align 8
-  %66 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @stop_t, i32 0, i32 1), align 8
-  call void @print_elapse(i64 %63, i64 %64, i64 %65, i64 %66, i32 noundef %62)
-  br label %67
+  %64 = getelementptr inbounds { i64, i64 }, ptr @start_t, i32 0, i32 1
+  %65 = load i64, ptr %64, align 8
+  %66 = load i64, ptr @stop_t, align 8
+  %67 = getelementptr inbounds { i64, i64 }, ptr @stop_t, i32 0, i32 1
+  %68 = load i64, ptr %67, align 8
+  call void @print_elapse(i64 %63, i64 %65, i64 %66, i64 %68, i32 noundef %62)
+  br label %69
 
-67:                                               ; preds = %60
-  %68 = load i32, ptr %5, align 4
-  %69 = call i32 @close(i32 noundef %68)
-  br label %70
+69:                                               ; preds = %60
+  %70 = load i32, ptr %5, align 4
+  %71 = call i32 @close(i32 noundef %70)
+  br label %72
 
-70:                                               ; preds = %67, %15
+72:                                               ; preds = %69, %15
   ret void
 }
 

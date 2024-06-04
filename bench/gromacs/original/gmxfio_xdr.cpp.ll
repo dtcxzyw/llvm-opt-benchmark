@@ -3573,43 +3573,44 @@ define void @_ZN3gmx19FileIOXdrSerializerC2EP8t_fileio(ptr noundef nonnull align
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZN3gmx11ISerializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN3gmx19FileIOXdrSerializerE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.gmx::FileIOXdrSerializer", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %9, align 8
+  %9 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3gmx19FileIOXdrSerializerE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.gmx::FileIOXdrSerializer", ptr %8, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %2
-  br label %16
+  store ptr %11, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %2
+  br label %17
+
+15:                                               ; preds = %2
   invoke void @"_ZZN3gmx19FileIOXdrSerializerC1EP8t_fileioENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %15 unwind label %17
+          to label %16 unwind label %18
 
-15:                                               ; preds = %14
-  br label %16
+16:                                               ; preds = %15
+  br label %17
 
-16:                                               ; preds = %15, %13
+17:                                               ; preds = %16, %14
   ret void
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %6, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %7, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %6, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %7, align 4
   call void @_ZN3gmx11ISerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i32, ptr %7, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %6, align 8
+  %24 = load i32, ptr %7, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3617,7 +3618,8 @@ define linkonce_odr void @_ZN3gmx11ISerializerC2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN3gmx11ISerializerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3gmx11ISerializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

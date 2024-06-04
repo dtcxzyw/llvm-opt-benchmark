@@ -140,7 +140,8 @@ entry:
   %1 = load i32, ptr %compress_format_version.addr, align 4
   %2 = load i64, ptr %max_output_len.addr, align 8
   call void @_ZN7rocksdb17StreamingCompressC2ENS_15CompressionTypeERKNS_18CompressionOptionsEjm(ptr noundef nonnull align 8 dereferenceable(88) %this1, i8 noundef zeroext 7, ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i64 noundef %2)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb21ZSTDStreamingCompressE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb21ZSTDStreamingCompressE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %call = invoke ptr @ZSTD_createCCtx()
           to label %invoke.cont unwind label %lpad
 
@@ -148,8 +149,8 @@ invoke.cont:                                      ; preds = %entry
   %cctx_ = getelementptr inbounds %"class.rocksdb::ZSTDStreamingCompress", ptr %this1, i32 0, i32 1
   store ptr %call, ptr %cctx_, align 8
   %cctx_2 = getelementptr inbounds %"class.rocksdb::ZSTDStreamingCompress", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %cctx_2, align 8
-  %call4 = invoke i64 @ZSTD_CCtx_setParameter(ptr noundef %3, i32 noundef 201, i32 noundef 1)
+  %4 = load ptr, ptr %cctx_2, align 8
+  %call4 = invoke i64 @ZSTD_CCtx_setParameter(ptr noundef %4, i32 noundef 201, i32 noundef 1)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -159,12 +160,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb17StreamingCompressD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #11
   br label %eh.resume
 
@@ -260,7 +261,8 @@ entry:
   %0 = load i32, ptr %compress_format_version.addr, align 4
   %1 = load i64, ptr %max_output_len.addr, align 8
   call void @_ZN7rocksdb19StreamingUncompressC2ENS_15CompressionTypeEjm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i8 noundef zeroext 7, i32 noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb23ZSTDStreamingUncompressE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb23ZSTDStreamingUncompressE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %call = invoke ptr @ZSTD_createDCtx()
           to label %invoke.cont unwind label %lpad
 
@@ -273,12 +275,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb19StreamingUncompressD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
   br label %eh.resume
 
@@ -622,19 +624,20 @@ entry:
   store i32 %compress_format_version, ptr %compress_format_version.addr, align 4
   store i64 %max_output_len, ptr %max_output_len.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb17StreamingCompressE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb17StreamingCompressE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %compression_type_ = getelementptr inbounds %"class.rocksdb::StreamingCompress", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %compression_type.addr, align 1
-  store i8 %0, ptr %compression_type_, align 8
+  %1 = load i8, ptr %compression_type.addr, align 1
+  store i8 %1, ptr %compression_type_, align 8
   %opts_ = getelementptr inbounds %"class.rocksdb::StreamingCompress", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %opts.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %opts_, ptr align 8 %1, i64 56, i1 false)
+  %2 = load ptr, ptr %opts.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %opts_, ptr align 8 %2, i64 56, i1 false)
   %compress_format_version_ = getelementptr inbounds %"class.rocksdb::StreamingCompress", ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %compress_format_version.addr, align 4
-  store i32 %2, ptr %compress_format_version_, align 8
+  %3 = load i32, ptr %compress_format_version.addr, align 4
+  store i32 %3, ptr %compress_format_version_, align 8
   %max_output_len_ = getelementptr inbounds %"class.rocksdb::StreamingCompress", ptr %this1, i32 0, i32 5
-  %3 = load i64, ptr %max_output_len.addr, align 8
-  store i64 %3, ptr %max_output_len_, align 8
+  %4 = load i64, ptr %max_output_len.addr, align 8
+  store i64 %4, ptr %max_output_len_, align 8
   ret void
 }
 
@@ -676,16 +679,17 @@ entry:
   store i32 %compress_format_version, ptr %compress_format_version.addr, align 4
   store i64 %max_output_len, ptr %max_output_len.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb19StreamingUncompressE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb19StreamingUncompressE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %compression_type_ = getelementptr inbounds %"class.rocksdb::StreamingUncompress", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %compression_type.addr, align 1
-  store i8 %0, ptr %compression_type_, align 8
+  %1 = load i8, ptr %compression_type.addr, align 1
+  store i8 %1, ptr %compression_type_, align 8
   %compress_format_version_ = getelementptr inbounds %"class.rocksdb::StreamingUncompress", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %compress_format_version.addr, align 4
-  store i32 %1, ptr %compress_format_version_, align 4
+  %2 = load i32, ptr %compress_format_version.addr, align 4
+  store i32 %2, ptr %compress_format_version_, align 4
   %max_output_len_ = getelementptr inbounds %"class.rocksdb::StreamingUncompress", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %max_output_len.addr, align 8
-  store i64 %2, ptr %max_output_len_, align 8
+  %3 = load i64, ptr %max_output_len.addr, align 8
+  store i64 %3, ptr %max_output_len_, align 8
   ret void
 }
 

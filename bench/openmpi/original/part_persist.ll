@@ -90,1117 +90,1162 @@ define internal i32 @mca_part_persist_progress() #0 {
   %26 = alloca ptr, align 8
   %27 = alloca i32, align 4
   %28 = alloca ptr, align 8
-  %29 = call i32 @opal_atomic_add_fetch_32(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16), i32 noundef 1)
-  store i32 %29, ptr %19, align 4
-  %30 = load i32, ptr %19, align 4
-  %31 = icmp slt i32 1, %30
-  br i1 %31, label %32, label %34
+  %29 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16
+  %30 = call i32 @opal_atomic_add_fetch_32(ptr noundef %29, i32 noundef 1)
+  store i32 %30, ptr %19, align 4
+  %31 = load i32, ptr %19, align 4
+  %32 = icmp slt i32 1, %31
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %0
-  %33 = call i32 @opal_atomic_add_fetch_32(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16), i32 noundef -1)
-  store i32 %33, ptr %19, align 4
+33:                                               ; preds = %0
+  %34 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16
+  %35 = call i32 @opal_atomic_add_fetch_32(ptr noundef %34, i32 noundef -1)
+  store i32 %35, ptr %19, align 4
   store i32 0, ptr %15, align 4
-  br label %776
+  br label %821
 
-34:                                               ; preds = %0
-  br label %35
+36:                                               ; preds = %0
+  br label %37
 
-35:                                               ; preds = %34
-  %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = xor i1 %37, true
-  %39 = xor i1 %38, true
-  %40 = zext i1 %39 to i32
-  %41 = sext i32 %40 to i64
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %44
+37:                                               ; preds = %36
+  %38 = load i8, ptr @opal_uses_threads, align 1
+  %39 = trunc i8 %38 to i1
+  %40 = xor i1 %39, true
+  %41 = xor i1 %40, true
+  %42 = zext i1 %41 to i32
+  %43 = sext i32 %42 to i64
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %47
 
-43:                                               ; preds = %35
-  call void @opal_mutex_lock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
-  br label %44
+45:                                               ; preds = %37
+  %46 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_lock(ptr noundef %46)
+  br label %47
 
-44:                                               ; preds = %43, %35
-  br label %45
+47:                                               ; preds = %45, %37
+  br label %48
 
-45:                                               ; preds = %44
+48:                                               ; preds = %47
   store ptr null, ptr %20, align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14), align 8
-  %47 = icmp eq i32 -1, %46
-  br i1 %47, label %48, label %61
+  %49 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 -1, %50
+  br i1 %51, label %52, label %67
 
-48:                                               ; preds = %45
-  br label %49
+52:                                               ; preds = %48
+  br label %53
 
-49:                                               ; preds = %48
-  %50 = load i8, ptr @opal_uses_threads, align 1
-  %51 = trunc i8 %50 to i1
-  %52 = xor i1 %51, true
-  %53 = xor i1 %52, true
-  %54 = zext i1 %53 to i32
-  %55 = sext i32 %54 to i64
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %58
+53:                                               ; preds = %52
+  %54 = load i8, ptr @opal_uses_threads, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = xor i1 %55, true
+  %57 = xor i1 %56, true
+  %58 = zext i1 %57 to i32
+  %59 = sext i32 %58 to i64
+  %60 = icmp ne i64 %59, 0
+  br i1 %60, label %61, label %63
 
-57:                                               ; preds = %49
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
-  br label %58
+61:                                               ; preds = %53
+  %62 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_unlock(ptr noundef %62)
+  br label %63
 
-58:                                               ; preds = %57, %49
-  br label %59
+63:                                               ; preds = %61, %53
+  br label %64
 
-59:                                               ; preds = %58
-  %60 = call i32 @opal_atomic_add_fetch_32(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16), i32 noundef -1)
-  store i32 %60, ptr %19, align 4
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16
+  %66 = call i32 @opal_atomic_add_fetch_32(ptr noundef %65, i32 noundef -1)
+  store i32 %66, ptr %19, align 4
   store i32 0, ptr %15, align 4
-  br label %776
+  br label %821
 
-61:                                               ; preds = %45
-  %62 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14), align 8
-  %63 = icmp eq i32 0, %62
-  br i1 %63, label %64, label %88
+67:                                               ; preds = %48
+  %68 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 0, %69
+  br i1 %70, label %71, label %105
 
-64:                                               ; preds = %61
-  %65 = call i32 @ompi_comm_rank(ptr noundef @ompi_mpi_comm_world)
-  store i32 %65, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 15), align 4
-  %66 = call i32 @ompi_comm_idup(ptr noundef @ompi_mpi_comm_world, ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 7), ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 8))
-  store i32 %66, ptr %17, align 4
-  %67 = load i32, ptr %17, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %70
+71:                                               ; preds = %67
+  %72 = call i32 @ompi_comm_rank(ptr noundef @ompi_mpi_comm_world)
+  %73 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 15
+  store i32 %72, ptr %73, align 4
+  %74 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 7
+  %75 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 8
+  %76 = call i32 @ompi_comm_idup(ptr noundef @ompi_mpi_comm_world, ptr noundef %74, ptr noundef %75)
+  store i32 %76, ptr %17, align 4
+  %77 = load i32, ptr %17, align 4
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %80
 
-69:                                               ; preds = %64
+79:                                               ; preds = %71
   call void @exit(i32 noundef -1) #9
   unreachable
 
-70:                                               ; preds = %64
-  store i32 0, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 9), align 8
-  %71 = call i32 @ompi_comm_idup(ptr noundef @ompi_mpi_comm_world, ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 10), ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 11))
-  store i32 %71, ptr %17, align 4
-  %72 = load i32, ptr %17, align 4
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %75
+80:                                               ; preds = %71
+  %81 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 9
+  store i32 0, ptr %81, align 8
+  %82 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 10
+  %83 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 11
+  %84 = call i32 @ompi_comm_idup(ptr noundef @ompi_mpi_comm_world, ptr noundef %82, ptr noundef %83)
+  store i32 %84, ptr %17, align 4
+  %85 = load i32, ptr %17, align 4
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %88
 
-74:                                               ; preds = %70
+87:                                               ; preds = %80
   call void @exit(i32 noundef -1) #9
   unreachable
 
-75:                                               ; preds = %70
-  store i32 0, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 12), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14), align 8
-  br label %76
-
-76:                                               ; preds = %75
-  %77 = load i8, ptr @opal_uses_threads, align 1
-  %78 = trunc i8 %77 to i1
-  %79 = xor i1 %78, true
-  %80 = xor i1 %79, true
-  %81 = zext i1 %80 to i32
-  %82 = sext i32 %81 to i64
-  %83 = icmp ne i64 %82, 0
-  br i1 %83, label %84, label %85
-
-84:                                               ; preds = %76
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
-  br label %85
-
-85:                                               ; preds = %84, %76
-  br label %86
-
-86:                                               ; preds = %85
-  %87 = call i32 @opal_atomic_add_fetch_32(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16), i32 noundef -1)
-  store i32 %87, ptr %19, align 4
-  store i32 0, ptr %15, align 4
-  br label %776
-
-88:                                               ; preds = %61
-  %89 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 13), align 4
-  %90 = icmp eq i32 0, %89
-  br i1 %90, label %91, label %123
+88:                                               ; preds = %80
+  %89 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 12
+  store i32 0, ptr %89, align 8
+  %90 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14
+  store i32 1, ptr %90, align 8
+  br label %91
 
 91:                                               ; preds = %88
-  %92 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 9), align 8
-  %93 = icmp eq i32 0, %92
-  br i1 %93, label %94, label %97
+  %92 = load i8, ptr @opal_uses_threads, align 1
+  %93 = trunc i8 %92 to i1
+  %94 = xor i1 %93, true
+  %95 = xor i1 %94, true
+  %96 = zext i1 %95 to i32
+  %97 = sext i32 %96 to i64
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %99, label %101
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr @ompi_request_functions, align 8
-  %96 = call i32 %95(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 8), ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 9), ptr noundef null)
-  br label %97
+99:                                               ; preds = %91
+  %100 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_unlock(ptr noundef %100)
+  br label %101
 
-97:                                               ; preds = %94, %91
-  %98 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 12), align 8
-  %99 = icmp eq i32 0, %98
-  br i1 %99, label %100, label %103
+101:                                              ; preds = %99, %91
+  br label %102
 
-100:                                              ; preds = %97
-  %101 = load ptr, ptr @ompi_request_functions, align 8
-  %102 = call i32 %101(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 11), ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 12), ptr noundef null)
-  br label %103
-
-103:                                              ; preds = %100, %97
-  %104 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 9), align 8
-  %105 = icmp ne i32 0, %104
-  br i1 %105, label %106, label %110
-
-106:                                              ; preds = %103
-  %107 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 12), align 8
-  %108 = icmp ne i32 0, %107
-  br i1 %108, label %109, label %110
-
-109:                                              ; preds = %106
-  store i32 1, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 13), align 4
-  br label %110
-
-110:                                              ; preds = %109, %106, %103
-  br label %111
-
-111:                                              ; preds = %110
-  %112 = load i8, ptr @opal_uses_threads, align 1
-  %113 = trunc i8 %112 to i1
-  %114 = xor i1 %113, true
-  %115 = xor i1 %114, true
-  %116 = zext i1 %115 to i32
-  %117 = sext i32 %116 to i64
-  %118 = icmp ne i64 %117, 0
-  br i1 %118, label %119, label %120
-
-119:                                              ; preds = %111
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
-  br label %120
-
-120:                                              ; preds = %119, %111
-  br label %121
-
-121:                                              ; preds = %120
-  %122 = call i32 @opal_atomic_add_fetch_32(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16), i32 noundef -1)
-  store i32 %122, ptr %19, align 4
+102:                                              ; preds = %101
+  %103 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16
+  %104 = call i32 @opal_atomic_add_fetch_32(ptr noundef %103, i32 noundef -1)
+  store i32 %104, ptr %19, align 4
   store i32 0, ptr %15, align 4
-  br label %776
+  br label %821
 
-123:                                              ; preds = %88
-  %124 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4), align 8
-  %125 = getelementptr inbounds %struct.opal_list_t, ptr %124, i32 0, i32 1
-  %126 = getelementptr inbounds %struct.opal_list_item_t, ptr %125, i32 0, i32 1
-  %127 = load volatile ptr, ptr %126, align 8
-  store ptr %127, ptr %16, align 8
-  br label %128
+105:                                              ; preds = %67
+  %106 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 13
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp eq i32 0, %107
+  br i1 %108, label %109, label %152
 
-128:                                              ; preds = %586, %123
-  %129 = load ptr, ptr %16, align 8
-  %130 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4), align 8
-  %131 = getelementptr inbounds %struct.opal_list_t, ptr %130, i32 0, i32 1
-  %132 = icmp ne ptr %129, %131
-  br i1 %132, label %133, label %590
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 9
+  %111 = load i32, ptr %110, align 8
+  %112 = icmp eq i32 0, %111
+  br i1 %112, label %113, label %118
 
-133:                                              ; preds = %128
-  %134 = load ptr, ptr %16, align 8
-  %135 = getelementptr inbounds %struct.mca_part_persist_list_t, ptr %134, i32 0, i32 1
-  %136 = load ptr, ptr %135, align 8
-  store ptr %136, ptr %21, align 8
-  %137 = load ptr, ptr %21, align 8
-  %138 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %137, i32 0, i32 24
-  %139 = load i32, ptr %138, align 4
-  %140 = icmp eq i32 0, %139
-  br i1 %140, label %141, label %417
+113:                                              ; preds = %109
+  %114 = load ptr, ptr @ompi_request_functions, align 8
+  %115 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 8
+  %116 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 9
+  %117 = call i32 %114(ptr noundef %115, ptr noundef %116, ptr noundef null)
+  br label %118
 
-141:                                              ; preds = %133
+118:                                              ; preds = %113, %109
+  %119 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 12
+  %120 = load i32, ptr %119, align 8
+  %121 = icmp eq i32 0, %120
+  br i1 %121, label %122, label %127
+
+122:                                              ; preds = %118
+  %123 = load ptr, ptr @ompi_request_functions, align 8
+  %124 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 11
+  %125 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 12
+  %126 = call i32 %123(ptr noundef %124, ptr noundef %125, ptr noundef null)
+  br label %127
+
+127:                                              ; preds = %122, %118
+  %128 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 9
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp ne i32 0, %129
+  br i1 %130, label %131, label %137
+
+131:                                              ; preds = %127
+  %132 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 12
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp ne i32 0, %133
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %131
+  %136 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 13
+  store i32 1, ptr %136, align 4
+  br label %137
+
+137:                                              ; preds = %135, %131, %127
+  br label %138
+
+138:                                              ; preds = %137
+  %139 = load i8, ptr @opal_uses_threads, align 1
+  %140 = trunc i8 %139 to i1
+  %141 = xor i1 %140, true
+  %142 = xor i1 %141, true
+  %143 = zext i1 %142 to i32
+  %144 = sext i32 %143 to i64
+  %145 = icmp ne i64 %144, 0
+  br i1 %145, label %146, label %148
+
+146:                                              ; preds = %138
+  %147 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_unlock(ptr noundef %147)
+  br label %148
+
+148:                                              ; preds = %146, %138
+  br label %149
+
+149:                                              ; preds = %148
+  %150 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16
+  %151 = call i32 @opal_atomic_add_fetch_32(ptr noundef %150, i32 noundef -1)
+  store i32 %151, ptr %19, align 4
+  store i32 0, ptr %15, align 4
+  br label %821
+
+152:                                              ; preds = %105
+  %153 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds %struct.opal_list_t, ptr %154, i32 0, i32 1
+  %156 = getelementptr inbounds %struct.opal_list_item_t, ptr %155, i32 0, i32 1
+  %157 = load volatile ptr, ptr %156, align 8
+  store ptr %157, ptr %16, align 8
+  br label %158
+
+158:                                              ; preds = %628, %152
+  %159 = load ptr, ptr %16, align 8
+  %160 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds %struct.opal_list_t, ptr %161, i32 0, i32 1
+  %163 = icmp ne ptr %159, %162
+  br i1 %163, label %164, label %632
+
+164:                                              ; preds = %158
+  %165 = load ptr, ptr %16, align 8
+  %166 = getelementptr inbounds %struct.mca_part_persist_list_t, ptr %165, i32 0, i32 1
+  %167 = load ptr, ptr %166, align 8
+  store ptr %167, ptr %21, align 8
+  %168 = load ptr, ptr %21, align 8
+  %169 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %168, i32 0, i32 24
+  %170 = load i32, ptr %169, align 4
+  %171 = icmp eq i32 0, %170
+  br i1 %171, label %172, label %457
+
+172:                                              ; preds = %164
   store i32 0, ptr %22, align 4
-  %142 = load ptr, ptr %21, align 8
-  %143 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %142, i32 0, i32 26
-  %144 = load i32, ptr %143, align 4
-  %145 = icmp eq i32 1, %144
-  br i1 %145, label %146, label %161
+  %173 = load ptr, ptr %21, align 8
+  %174 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %173, i32 0, i32 26
+  %175 = load i32, ptr %174, align 4
+  %176 = icmp eq i32 1, %175
+  br i1 %176, label %177, label %194
 
-146:                                              ; preds = %141
-  %147 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 8), align 8
-  %148 = load ptr, ptr %21, align 8
-  %149 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %148, i32 0, i32 29
-  %150 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %149, i64 0, i64 1
-  %151 = load ptr, ptr %21, align 8
-  %152 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %151, i32 0, i32 22
-  %153 = load i32, ptr %152, align 4
-  %154 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 10), align 8
-  %155 = load ptr, ptr %21, align 8
-  %156 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %155, i32 0, i32 18
-  %157 = getelementptr inbounds [2 x ptr], ptr %156, i64 0, i64 1
-  %158 = call i32 %147(ptr noundef %150, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef -1, i32 noundef %153, ptr noundef %154, ptr noundef %157)
-  store i32 %158, ptr %17, align 4
-  %159 = load ptr, ptr %21, align 8
-  %160 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %159, i32 0, i32 26
-  store i32 0, ptr %160, align 4
-  br label %161
-
-161:                                              ; preds = %146, %141
-  %162 = load ptr, ptr @ompi_request_functions, align 8
-  %163 = load ptr, ptr %21, align 8
-  %164 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %163, i32 0, i32 18
-  %165 = getelementptr inbounds [2 x ptr], ptr %164, i64 0, i64 1
-  %166 = call i32 %162(ptr noundef %165, ptr noundef %22, ptr noundef null)
-  %167 = load i32, ptr %22, align 4
-  %168 = icmp ne i32 %167, 0
-  br i1 %168, label %169, label %416
-
-169:                                              ; preds = %161
-  %170 = load ptr, ptr %21, align 8
-  %171 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %170, i32 0, i32 3
-  %172 = load i32, ptr %171, align 8
-  %173 = icmp eq i32 0, %172
-  br i1 %173, label %174, label %257
-
-174:                                              ; preds = %169
-  %175 = load ptr, ptr %21, align 8
-  %176 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %175, i32 0, i32 29
-  %177 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %176, i64 0, i64 1
-  %178 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %177, i32 0, i32 0
-  %179 = load i32, ptr %178, align 8
+177:                                              ; preds = %172
+  %178 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 8
+  %179 = load ptr, ptr %178, align 8
   %180 = load ptr, ptr %21, align 8
-  %181 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %180, i32 0, i32 23
-  store i32 %179, ptr %181, align 8
-  %182 = load ptr, ptr %21, align 8
-  %183 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %182, i32 0, i32 5
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds %struct.ompi_datatype_t, ptr %184, i32 0, i32 0
-  %186 = call i32 @opal_datatype_type_size(ptr noundef %185, ptr noundef %23)
-  store i32 %186, ptr %17, align 4
-  %187 = load i32, ptr %17, align 4
-  %188 = icmp ne i32 0, %187
-  br i1 %188, label %189, label %190
+  %181 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %180, i32 0, i32 29
+  %182 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %181, i64 0, i64 1
+  %183 = load ptr, ptr %21, align 8
+  %184 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %183, i32 0, i32 22
+  %185 = load i32, ptr %184, align 4
+  %186 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 10
+  %187 = load ptr, ptr %186, align 8
+  %188 = load ptr, ptr %21, align 8
+  %189 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %188, i32 0, i32 18
+  %190 = getelementptr inbounds [2 x ptr], ptr %189, i64 0, i64 1
+  %191 = call i32 %179(ptr noundef %182, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef -1, i32 noundef %185, ptr noundef %187, ptr noundef %190)
+  store i32 %191, ptr %17, align 4
+  %192 = load ptr, ptr %21, align 8
+  %193 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %192, i32 0, i32 26
+  store i32 0, ptr %193, align 4
+  br label %194
 
-189:                                              ; preds = %174
-  store i32 -1, ptr %15, align 4
-  br label %776
+194:                                              ; preds = %177, %172
+  %195 = load ptr, ptr @ompi_request_functions, align 8
+  %196 = load ptr, ptr %21, align 8
+  %197 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %196, i32 0, i32 18
+  %198 = getelementptr inbounds [2 x ptr], ptr %197, i64 0, i64 1
+  %199 = call i32 %195(ptr noundef %198, ptr noundef %22, ptr noundef null)
+  %200 = load i32, ptr %22, align 4
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %456
 
-190:                                              ; preds = %174
-  %191 = load i64, ptr %23, align 8
-  %192 = icmp ugt i64 %191, 2147483647
-  br i1 %192, label %193, label %194
+202:                                              ; preds = %194
+  %203 = load ptr, ptr %21, align 8
+  %204 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %203, i32 0, i32 3
+  %205 = load i32, ptr %204, align 8
+  %206 = icmp eq i32 0, %205
+  br i1 %206, label %207, label %292
 
-193:                                              ; preds = %190
-  br label %197
-
-194:                                              ; preds = %190
-  %195 = load i64, ptr %23, align 8
-  %196 = trunc i64 %195 to i32
-  br label %197
-
-197:                                              ; preds = %194, %193
-  %198 = phi i32 [ -32766, %193 ], [ %196, %194 ]
-  store i32 %198, ptr %24, align 4
-  %199 = load ptr, ptr %21, align 8
-  %200 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %199, i32 0, i32 15
-  %201 = load i64, ptr %200, align 8
-  %202 = load i32, ptr %24, align 4
-  %203 = sext i32 %202 to i64
-  %204 = mul i64 %201, %203
-  %205 = trunc i64 %204 to i32
-  store i32 %205, ptr %25, align 4
-  %206 = load ptr, ptr %21, align 8
-  %207 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %206, i32 0, i32 14
-  %208 = load i64, ptr %207, align 8
-  %209 = mul i64 8, %208
-  %210 = call noalias ptr @malloc(i64 noundef %209) #10
-  %211 = load ptr, ptr %21, align 8
-  %212 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %211, i32 0, i32 17
-  store ptr %210, ptr %212, align 8
-  store i64 0, ptr %18, align 8
-  br label %213
-
-213:                                              ; preds = %253, %197
-  %214 = load i64, ptr %18, align 8
+207:                                              ; preds = %202
+  %208 = load ptr, ptr %21, align 8
+  %209 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %208, i32 0, i32 29
+  %210 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %209, i64 0, i64 1
+  %211 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %210, i32 0, i32 0
+  %212 = load i32, ptr %211, align 8
+  %213 = load ptr, ptr %21, align 8
+  %214 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %213, i32 0, i32 23
+  store i32 %212, ptr %214, align 8
   %215 = load ptr, ptr %21, align 8
-  %216 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %215, i32 0, i32 14
-  %217 = load i64, ptr %216, align 8
-  %218 = icmp ult i64 %214, %217
-  br i1 %218, label %219, label %256
+  %216 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %215, i32 0, i32 5
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds %struct.ompi_datatype_t, ptr %217, i32 0, i32 0
+  %219 = call i32 @opal_datatype_type_size(ptr noundef %218, ptr noundef %23)
+  store i32 %219, ptr %17, align 4
+  %220 = load i32, ptr %17, align 4
+  %221 = icmp ne i32 0, %220
+  br i1 %221, label %222, label %223
 
-219:                                              ; preds = %213
-  %220 = load ptr, ptr %21, align 8
-  %221 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %220, i32 0, i32 7
-  %222 = load ptr, ptr %221, align 8
-  %223 = load i32, ptr %25, align 4
-  %224 = sext i32 %223 to i64
-  %225 = load i64, ptr %18, align 8
-  %226 = mul i64 %224, %225
-  %227 = getelementptr inbounds i8, ptr %222, i64 %226
-  store ptr %227, ptr %26, align 8
-  %228 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 10), align 8
-  %229 = load ptr, ptr %26, align 8
-  %230 = load ptr, ptr %21, align 8
-  %231 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %230, i32 0, i32 15
-  %232 = load i64, ptr %231, align 8
-  %233 = load ptr, ptr %21, align 8
-  %234 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %233, i32 0, i32 5
-  %235 = load ptr, ptr %234, align 8
-  %236 = load ptr, ptr %21, align 8
-  %237 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %236, i32 0, i32 23
-  %238 = load i32, ptr %237, align 8
+222:                                              ; preds = %207
+  store i32 -1, ptr %15, align 4
+  br label %821
+
+223:                                              ; preds = %207
+  %224 = load i64, ptr %23, align 8
+  %225 = icmp ugt i64 %224, 2147483647
+  br i1 %225, label %226, label %227
+
+226:                                              ; preds = %223
+  br label %230
+
+227:                                              ; preds = %223
+  %228 = load i64, ptr %23, align 8
+  %229 = trunc i64 %228 to i32
+  br label %230
+
+230:                                              ; preds = %227, %226
+  %231 = phi i32 [ -32766, %226 ], [ %229, %227 ]
+  store i32 %231, ptr %24, align 4
+  %232 = load ptr, ptr %21, align 8
+  %233 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %232, i32 0, i32 15
+  %234 = load i64, ptr %233, align 8
+  %235 = load i32, ptr %24, align 4
+  %236 = sext i32 %235 to i64
+  %237 = mul i64 %234, %236
+  %238 = trunc i64 %237 to i32
+  store i32 %238, ptr %25, align 4
   %239 = load ptr, ptr %21, align 8
-  %240 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %239, i32 0, i32 21
-  %241 = load i32, ptr %240, align 8
-  %242 = sext i32 %241 to i64
-  %243 = load i64, ptr %18, align 8
-  %244 = add i64 %242, %243
-  %245 = trunc i64 %244 to i32
-  %246 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 7), align 8
-  %247 = load ptr, ptr %21, align 8
-  %248 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %247, i32 0, i32 17
-  %249 = load ptr, ptr %248, align 8
-  %250 = load i64, ptr %18, align 8
-  %251 = getelementptr inbounds ptr, ptr %249, i64 %250
-  %252 = call i32 %228(ptr noundef %229, i64 noundef %232, ptr noundef %235, i32 noundef %238, i32 noundef %245, i32 noundef 4, ptr noundef %246, ptr noundef %251)
-  store i32 %252, ptr %17, align 4
-  br label %253
+  %240 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %239, i32 0, i32 14
+  %241 = load i64, ptr %240, align 8
+  %242 = mul i64 8, %241
+  %243 = call noalias ptr @malloc(i64 noundef %242) #10
+  %244 = load ptr, ptr %21, align 8
+  %245 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %244, i32 0, i32 17
+  store ptr %243, ptr %245, align 8
+  store i64 0, ptr %18, align 8
+  br label %246
 
-253:                                              ; preds = %219
-  %254 = load i64, ptr %18, align 8
-  %255 = add i64 %254, 1
-  store i64 %255, ptr %18, align 8
-  br label %213, !llvm.loop !4
+246:                                              ; preds = %288, %230
+  %247 = load i64, ptr %18, align 8
+  %248 = load ptr, ptr %21, align 8
+  %249 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %248, i32 0, i32 14
+  %250 = load i64, ptr %249, align 8
+  %251 = icmp ult i64 %247, %250
+  br i1 %251, label %252, label %291
 
-256:                                              ; preds = %213
-  br label %413
-
-257:                                              ; preds = %169
-  %258 = load ptr, ptr %21, align 8
-  %259 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %258, i32 0, i32 29
-  %260 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %259, i64 0, i64 1
-  %261 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %260, i32 0, i32 0
-  %262 = load i32, ptr %261, align 8
-  %263 = load ptr, ptr %21, align 8
-  %264 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %263, i32 0, i32 23
-  store i32 %262, ptr %264, align 8
-  %265 = load ptr, ptr %21, align 8
-  %266 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %265, i32 0, i32 29
-  %267 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %266, i64 0, i64 1
-  %268 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %267, i32 0, i32 1
-  %269 = load i32, ptr %268, align 4
+252:                                              ; preds = %246
+  %253 = load ptr, ptr %21, align 8
+  %254 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %253, i32 0, i32 7
+  %255 = load ptr, ptr %254, align 8
+  %256 = load i32, ptr %25, align 4
+  %257 = sext i32 %256 to i64
+  %258 = load i64, ptr %18, align 8
+  %259 = mul i64 %257, %258
+  %260 = getelementptr inbounds i8, ptr %255, i64 %259
+  store ptr %260, ptr %26, align 8
+  %261 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 10
+  %262 = load ptr, ptr %261, align 8
+  %263 = load ptr, ptr %26, align 8
+  %264 = load ptr, ptr %21, align 8
+  %265 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %264, i32 0, i32 15
+  %266 = load i64, ptr %265, align 8
+  %267 = load ptr, ptr %21, align 8
+  %268 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %267, i32 0, i32 5
+  %269 = load ptr, ptr %268, align 8
   %270 = load ptr, ptr %21, align 8
-  %271 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %270, i32 0, i32 21
-  store i32 %269, ptr %271, align 8
-  %272 = load ptr, ptr %21, align 8
-  %273 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %272, i32 0, i32 29
-  %274 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %273, i64 0, i64 1
-  %275 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %274, i32 0, i32 2
-  %276 = load i32, ptr %275, align 8
-  %277 = load ptr, ptr %21, align 8
-  %278 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %277, i32 0, i32 22
-  store i32 %276, ptr %278, align 4
-  %279 = load ptr, ptr %21, align 8
-  %280 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %279, i32 0, i32 29
-  %281 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %280, i64 0, i64 1
-  %282 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %281, i32 0, i32 3
-  %283 = load i64, ptr %282, align 8
-  %284 = load ptr, ptr %21, align 8
-  %285 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %284, i32 0, i32 14
-  store i64 %283, ptr %285, align 8
-  %286 = load ptr, ptr %21, align 8
-  %287 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %286, i32 0, i32 29
-  %288 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %287, i64 0, i64 1
-  %289 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %288, i32 0, i32 4
-  %290 = load i64, ptr %289, align 8
-  %291 = load ptr, ptr %21, align 8
-  %292 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %291, i32 0, i32 15
-  store i64 %290, ptr %292, align 8
+  %271 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %270, i32 0, i32 23
+  %272 = load i32, ptr %271, align 8
+  %273 = load ptr, ptr %21, align 8
+  %274 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %273, i32 0, i32 21
+  %275 = load i32, ptr %274, align 8
+  %276 = sext i32 %275 to i64
+  %277 = load i64, ptr %18, align 8
+  %278 = add i64 %276, %277
+  %279 = trunc i64 %278 to i32
+  %280 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 7
+  %281 = load ptr, ptr %280, align 8
+  %282 = load ptr, ptr %21, align 8
+  %283 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %282, i32 0, i32 17
+  %284 = load ptr, ptr %283, align 8
+  %285 = load i64, ptr %18, align 8
+  %286 = getelementptr inbounds ptr, ptr %284, i64 %285
+  %287 = call i32 %262(ptr noundef %263, i64 noundef %266, ptr noundef %269, i32 noundef %272, i32 noundef %279, i32 noundef 4, ptr noundef %281, ptr noundef %286)
+  store i32 %287, ptr %17, align 4
+  br label %288
+
+288:                                              ; preds = %252
+  %289 = load i64, ptr %18, align 8
+  %290 = add i64 %289, 1
+  store i64 %290, ptr %18, align 8
+  br label %246, !llvm.loop !4
+
+291:                                              ; preds = %246
+  br label %453
+
+292:                                              ; preds = %202
   %293 = load ptr, ptr %21, align 8
-  %294 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %293, i32 0, i32 5
-  %295 = load ptr, ptr %294, align 8
-  %296 = getelementptr inbounds %struct.ompi_datatype_t, ptr %295, i32 0, i32 0
-  %297 = call i32 @opal_datatype_type_size(ptr noundef %296, ptr noundef %23)
-  store i32 %297, ptr %17, align 4
-  %298 = load i32, ptr %17, align 4
-  %299 = icmp ne i32 0, %298
-  br i1 %299, label %300, label %301
-
-300:                                              ; preds = %257
-  store i32 -1, ptr %15, align 4
-  br label %776
-
-301:                                              ; preds = %257
-  %302 = load i64, ptr %23, align 8
-  %303 = icmp ugt i64 %302, 2147483647
-  br i1 %303, label %304, label %305
-
-304:                                              ; preds = %301
-  br label %308
-
-305:                                              ; preds = %301
-  %306 = load i64, ptr %23, align 8
-  %307 = trunc i64 %306 to i32
-  br label %308
-
-308:                                              ; preds = %305, %304
-  %309 = phi i32 [ -32766, %304 ], [ %307, %305 ]
-  store i32 %309, ptr %24, align 4
-  %310 = load ptr, ptr %21, align 8
-  %311 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %310, i32 0, i32 15
-  %312 = load i64, ptr %311, align 8
-  %313 = load i32, ptr %24, align 4
-  %314 = sext i32 %313 to i64
-  %315 = mul i64 %312, %314
-  %316 = trunc i64 %315 to i32
-  store i32 %316, ptr %27, align 4
-  %317 = load ptr, ptr %21, align 8
-  %318 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %317, i32 0, i32 14
-  %319 = load i64, ptr %318, align 8
-  %320 = mul i64 8, %319
-  %321 = call noalias ptr @malloc(i64 noundef %320) #10
-  %322 = load ptr, ptr %21, align 8
-  %323 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %322, i32 0, i32 17
-  store ptr %321, ptr %323, align 8
-  %324 = load ptr, ptr %21, align 8
-  %325 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %324, i32 0, i32 14
-  %326 = load i64, ptr %325, align 8
-  %327 = call noalias ptr @calloc(i64 noundef %326, i64 noundef 4) #11
+  %294 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %293, i32 0, i32 29
+  %295 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %294, i64 0, i64 1
+  %296 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %295, i32 0, i32 0
+  %297 = load i32, ptr %296, align 8
+  %298 = load ptr, ptr %21, align 8
+  %299 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %298, i32 0, i32 23
+  store i32 %297, ptr %299, align 8
+  %300 = load ptr, ptr %21, align 8
+  %301 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %300, i32 0, i32 29
+  %302 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %301, i64 0, i64 1
+  %303 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %302, i32 0, i32 1
+  %304 = load i32, ptr %303, align 4
+  %305 = load ptr, ptr %21, align 8
+  %306 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %305, i32 0, i32 21
+  store i32 %304, ptr %306, align 8
+  %307 = load ptr, ptr %21, align 8
+  %308 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %307, i32 0, i32 29
+  %309 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %308, i64 0, i64 1
+  %310 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %309, i32 0, i32 2
+  %311 = load i32, ptr %310, align 8
+  %312 = load ptr, ptr %21, align 8
+  %313 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %312, i32 0, i32 22
+  store i32 %311, ptr %313, align 4
+  %314 = load ptr, ptr %21, align 8
+  %315 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %314, i32 0, i32 29
+  %316 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %315, i64 0, i64 1
+  %317 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %316, i32 0, i32 3
+  %318 = load i64, ptr %317, align 8
+  %319 = load ptr, ptr %21, align 8
+  %320 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %319, i32 0, i32 14
+  store i64 %318, ptr %320, align 8
+  %321 = load ptr, ptr %21, align 8
+  %322 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %321, i32 0, i32 29
+  %323 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %322, i64 0, i64 1
+  %324 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %323, i32 0, i32 4
+  %325 = load i64, ptr %324, align 8
+  %326 = load ptr, ptr %21, align 8
+  %327 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %326, i32 0, i32 15
+  store i64 %325, ptr %327, align 8
   %328 = load ptr, ptr %21, align 8
-  %329 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %328, i32 0, i32 28
-  store ptr %327, ptr %329, align 8
-  store i64 0, ptr %18, align 8
-  br label %330
+  %329 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %328, i32 0, i32 5
+  %330 = load ptr, ptr %329, align 8
+  %331 = getelementptr inbounds %struct.ompi_datatype_t, ptr %330, i32 0, i32 0
+  %332 = call i32 @opal_datatype_type_size(ptr noundef %331, ptr noundef %23)
+  store i32 %332, ptr %17, align 4
+  %333 = load i32, ptr %17, align 4
+  %334 = icmp ne i32 0, %333
+  br i1 %334, label %335, label %336
 
-330:                                              ; preds = %370, %308
-  %331 = load i64, ptr %18, align 8
-  %332 = load ptr, ptr %21, align 8
-  %333 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %332, i32 0, i32 14
-  %334 = load i64, ptr %333, align 8
-  %335 = icmp ult i64 %331, %334
-  br i1 %335, label %336, label %373
-
-336:                                              ; preds = %330
-  %337 = load ptr, ptr %21, align 8
-  %338 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %337, i32 0, i32 7
-  %339 = load ptr, ptr %338, align 8
-  %340 = load i32, ptr %27, align 4
-  %341 = sext i32 %340 to i64
-  %342 = load i64, ptr %18, align 8
-  %343 = mul i64 %341, %342
-  %344 = getelementptr inbounds i8, ptr %339, i64 %343
-  store ptr %344, ptr %28, align 8
-  %345 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 7), align 8
-  %346 = load ptr, ptr %28, align 8
-  %347 = load ptr, ptr %21, align 8
-  %348 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %347, i32 0, i32 15
-  %349 = load i64, ptr %348, align 8
-  %350 = load ptr, ptr %21, align 8
-  %351 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %350, i32 0, i32 5
-  %352 = load ptr, ptr %351, align 8
-  %353 = load ptr, ptr %21, align 8
-  %354 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %353, i32 0, i32 23
-  %355 = load i32, ptr %354, align 8
-  %356 = load ptr, ptr %21, align 8
-  %357 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %356, i32 0, i32 21
-  %358 = load i32, ptr %357, align 8
-  %359 = sext i32 %358 to i64
-  %360 = load i64, ptr %18, align 8
-  %361 = add i64 %359, %360
-  %362 = trunc i64 %361 to i32
-  %363 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 7), align 8
-  %364 = load ptr, ptr %21, align 8
-  %365 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %364, i32 0, i32 17
-  %366 = load ptr, ptr %365, align 8
-  %367 = load i64, ptr %18, align 8
-  %368 = getelementptr inbounds ptr, ptr %366, i64 %367
-  %369 = call i32 %345(ptr noundef %346, i64 noundef %349, ptr noundef %352, i32 noundef %355, i32 noundef %362, ptr noundef %363, ptr noundef %368)
-  store i32 %369, ptr %17, align 4
-  br label %370
-
-370:                                              ; preds = %336
-  %371 = load i64, ptr %18, align 8
-  %372 = add i64 %371, 1
-  store i64 %372, ptr %18, align 8
-  br label %330, !llvm.loop !6
-
-373:                                              ; preds = %330
-  %374 = load ptr, ptr %21, align 8
-  %375 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %374, i32 0, i32 17
-  %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds ptr, ptr %376, i64 0
-  %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds %struct.ompi_request_t, ptr %378, i32 0, i32 7
-  %380 = load ptr, ptr %379, align 8
-  %381 = load ptr, ptr %21, align 8
-  %382 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %381, i32 0, i32 14
-  %383 = load i64, ptr %382, align 8
-  %384 = load ptr, ptr %21, align 8
-  %385 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %384, i32 0, i32 17
-  %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds ptr, ptr %386, i64 0
-  %388 = call i32 %380(i64 noundef %383, ptr noundef %387)
-  store i32 %388, ptr %17, align 4
-  %389 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 15), align 4
-  %390 = load ptr, ptr %21, align 8
-  %391 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %390, i32 0, i32 29
-  %392 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %391, i64 0, i64 0
-  %393 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %392, i32 0, i32 0
-  store i32 %389, ptr %393, align 8
-  %394 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 11), align 8
-  %395 = load ptr, ptr %21, align 8
-  %396 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %395, i32 0, i32 29
-  %397 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %396, i64 0, i64 0
-  %398 = load ptr, ptr %21, align 8
-  %399 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %398, i32 0, i32 23
-  %400 = load i32, ptr %399, align 8
-  %401 = load ptr, ptr %21, align 8
-  %402 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %401, i32 0, i32 22
-  %403 = load i32, ptr %402, align 4
-  %404 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 10), align 8
-  %405 = load ptr, ptr %21, align 8
-  %406 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %405, i32 0, i32 18
-  %407 = getelementptr inbounds [2 x ptr], ptr %406, i64 0, i64 0
-  %408 = call i32 %394(ptr noundef %397, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef %400, i32 noundef %403, i32 noundef 4, ptr noundef %404, ptr noundef %407)
-  store i32 %408, ptr %17, align 4
-  %409 = load i32, ptr %17, align 4
-  %410 = icmp ne i32 0, %409
-  br i1 %410, label %411, label %412
-
-411:                                              ; preds = %373
+335:                                              ; preds = %292
   store i32 -1, ptr %15, align 4
-  br label %776
+  br label %821
 
-412:                                              ; preds = %373
-  br label %413
+336:                                              ; preds = %292
+  %337 = load i64, ptr %23, align 8
+  %338 = icmp ugt i64 %337, 2147483647
+  br i1 %338, label %339, label %340
 
-413:                                              ; preds = %412, %256
-  %414 = load ptr, ptr %21, align 8
-  %415 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %414, i32 0, i32 24
-  store i32 1, ptr %415, align 4
-  br label %416
+339:                                              ; preds = %336
+  br label %343
 
-416:                                              ; preds = %413, %161
-  br label %585
+340:                                              ; preds = %336
+  %341 = load i64, ptr %23, align 8
+  %342 = trunc i64 %341 to i32
+  br label %343
 
-417:                                              ; preds = %133
-  %418 = load ptr, ptr %21, align 8
-  %419 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %418, i32 0, i32 1
-  %420 = load volatile i32, ptr %419, align 8
-  %421 = icmp eq i32 0, %420
-  br i1 %421, label %422, label %560
-
-422:                                              ; preds = %417
-  %423 = load ptr, ptr %21, align 8
-  %424 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %423, i32 0, i32 0
-  %425 = getelementptr inbounds %struct.ompi_request_t, ptr %424, i32 0, i32 3
-  %426 = load ptr, ptr %425, align 8
-  %427 = icmp ne ptr inttoptr (i64 1 to ptr), %426
-  br i1 %427, label %428, label %560
-
-428:                                              ; preds = %422
-  %429 = load ptr, ptr %21, align 8
-  %430 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %429, i32 0, i32 0
-  %431 = getelementptr inbounds %struct.ompi_request_t, ptr %430, i32 0, i32 4
-  %432 = load volatile i32, ptr %431, align 8
-  %433 = icmp eq i32 2, %432
-  br i1 %433, label %434, label %560
-
-434:                                              ; preds = %428
+343:                                              ; preds = %340, %339
+  %344 = phi i32 [ -32766, %339 ], [ %342, %340 ]
+  store i32 %344, ptr %24, align 4
+  %345 = load ptr, ptr %21, align 8
+  %346 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %345, i32 0, i32 15
+  %347 = load i64, ptr %346, align 8
+  %348 = load i32, ptr %24, align 4
+  %349 = sext i32 %348 to i64
+  %350 = mul i64 %347, %349
+  %351 = trunc i64 %350 to i32
+  store i32 %351, ptr %27, align 4
+  %352 = load ptr, ptr %21, align 8
+  %353 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %352, i32 0, i32 14
+  %354 = load i64, ptr %353, align 8
+  %355 = mul i64 8, %354
+  %356 = call noalias ptr @malloc(i64 noundef %355) #10
+  %357 = load ptr, ptr %21, align 8
+  %358 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %357, i32 0, i32 17
+  store ptr %356, ptr %358, align 8
+  %359 = load ptr, ptr %21, align 8
+  %360 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %359, i32 0, i32 14
+  %361 = load i64, ptr %360, align 8
+  %362 = call noalias ptr @calloc(i64 noundef %361, i64 noundef 4) #11
+  %363 = load ptr, ptr %21, align 8
+  %364 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %363, i32 0, i32 28
+  store ptr %362, ptr %364, align 8
   store i64 0, ptr %18, align 8
-  br label %435
+  br label %365
 
-435:                                              ; preds = %504, %434
-  %436 = load i64, ptr %18, align 8
+365:                                              ; preds = %407, %343
+  %366 = load i64, ptr %18, align 8
+  %367 = load ptr, ptr %21, align 8
+  %368 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %367, i32 0, i32 14
+  %369 = load i64, ptr %368, align 8
+  %370 = icmp ult i64 %366, %369
+  br i1 %370, label %371, label %410
+
+371:                                              ; preds = %365
+  %372 = load ptr, ptr %21, align 8
+  %373 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %372, i32 0, i32 7
+  %374 = load ptr, ptr %373, align 8
+  %375 = load i32, ptr %27, align 4
+  %376 = sext i32 %375 to i64
+  %377 = load i64, ptr %18, align 8
+  %378 = mul i64 %376, %377
+  %379 = getelementptr inbounds i8, ptr %374, i64 %378
+  store ptr %379, ptr %28, align 8
+  %380 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 7
+  %381 = load ptr, ptr %380, align 8
+  %382 = load ptr, ptr %28, align 8
+  %383 = load ptr, ptr %21, align 8
+  %384 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %383, i32 0, i32 15
+  %385 = load i64, ptr %384, align 8
+  %386 = load ptr, ptr %21, align 8
+  %387 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %386, i32 0, i32 5
+  %388 = load ptr, ptr %387, align 8
+  %389 = load ptr, ptr %21, align 8
+  %390 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %389, i32 0, i32 23
+  %391 = load i32, ptr %390, align 8
+  %392 = load ptr, ptr %21, align 8
+  %393 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %392, i32 0, i32 21
+  %394 = load i32, ptr %393, align 8
+  %395 = sext i32 %394 to i64
+  %396 = load i64, ptr %18, align 8
+  %397 = add i64 %395, %396
+  %398 = trunc i64 %397 to i32
+  %399 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 7
+  %400 = load ptr, ptr %399, align 8
+  %401 = load ptr, ptr %21, align 8
+  %402 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %401, i32 0, i32 17
+  %403 = load ptr, ptr %402, align 8
+  %404 = load i64, ptr %18, align 8
+  %405 = getelementptr inbounds ptr, ptr %403, i64 %404
+  %406 = call i32 %381(ptr noundef %382, i64 noundef %385, ptr noundef %388, i32 noundef %391, i32 noundef %398, ptr noundef %400, ptr noundef %405)
+  store i32 %406, ptr %17, align 4
+  br label %407
+
+407:                                              ; preds = %371
+  %408 = load i64, ptr %18, align 8
+  %409 = add i64 %408, 1
+  store i64 %409, ptr %18, align 8
+  br label %365, !llvm.loop !6
+
+410:                                              ; preds = %365
+  %411 = load ptr, ptr %21, align 8
+  %412 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %411, i32 0, i32 17
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds ptr, ptr %413, i64 0
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds %struct.ompi_request_t, ptr %415, i32 0, i32 7
+  %417 = load ptr, ptr %416, align 8
+  %418 = load ptr, ptr %21, align 8
+  %419 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %418, i32 0, i32 14
+  %420 = load i64, ptr %419, align 8
+  %421 = load ptr, ptr %21, align 8
+  %422 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %421, i32 0, i32 17
+  %423 = load ptr, ptr %422, align 8
+  %424 = getelementptr inbounds ptr, ptr %423, i64 0
+  %425 = call i32 %417(i64 noundef %420, ptr noundef %424)
+  store i32 %425, ptr %17, align 4
+  %426 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 15
+  %427 = load i32, ptr %426, align 4
+  %428 = load ptr, ptr %21, align 8
+  %429 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %428, i32 0, i32 29
+  %430 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %429, i64 0, i64 0
+  %431 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %430, i32 0, i32 0
+  store i32 %427, ptr %431, align 8
+  %432 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 11
+  %433 = load ptr, ptr %432, align 8
+  %434 = load ptr, ptr %21, align 8
+  %435 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %434, i32 0, i32 29
+  %436 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %435, i64 0, i64 0
   %437 = load ptr, ptr %21, align 8
-  %438 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %437, i32 0, i32 14
-  %439 = load i64, ptr %438, align 8
-  %440 = icmp ult i64 %436, %439
-  br i1 %440, label %441, label %507
-
-441:                                              ; preds = %435
-  %442 = load ptr, ptr %21, align 8
-  %443 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %442, i32 0, i32 28
+  %438 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %437, i32 0, i32 23
+  %439 = load i32, ptr %438, align 8
+  %440 = load ptr, ptr %21, align 8
+  %441 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %440, i32 0, i32 22
+  %442 = load i32, ptr %441, align 4
+  %443 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 10
   %444 = load ptr, ptr %443, align 8
-  %445 = load i64, ptr %18, align 8
-  %446 = getelementptr inbounds i32, ptr %444, i64 %445
-  %447 = load i32, ptr %446, align 4
-  %448 = icmp eq i32 -2, %447
-  br i1 %448, label %449, label %469
+  %445 = load ptr, ptr %21, align 8
+  %446 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %445, i32 0, i32 18
+  %447 = getelementptr inbounds [2 x ptr], ptr %446, i64 0, i64 0
+  %448 = call i32 %433(ptr noundef %436, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef %439, i32 noundef %442, i32 noundef 4, ptr noundef %444, ptr noundef %447)
+  store i32 %448, ptr %17, align 4
+  %449 = load i32, ptr %17, align 4
+  %450 = icmp ne i32 0, %449
+  br i1 %450, label %451, label %452
 
-449:                                              ; preds = %441
-  %450 = load ptr, ptr %21, align 8
-  %451 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %450, i32 0, i32 17
-  %452 = load ptr, ptr %451, align 8
-  %453 = load i64, ptr %18, align 8
-  %454 = getelementptr inbounds ptr, ptr %452, i64 %453
-  %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds %struct.ompi_request_t, ptr %455, i32 0, i32 7
-  %457 = load ptr, ptr %456, align 8
+451:                                              ; preds = %410
+  store i32 -1, ptr %15, align 4
+  br label %821
+
+452:                                              ; preds = %410
+  br label %453
+
+453:                                              ; preds = %452, %291
+  %454 = load ptr, ptr %21, align 8
+  %455 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %454, i32 0, i32 24
+  store i32 1, ptr %455, align 4
+  br label %456
+
+456:                                              ; preds = %453, %194
+  br label %627
+
+457:                                              ; preds = %164
   %458 = load ptr, ptr %21, align 8
-  %459 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %458, i32 0, i32 17
-  %460 = load ptr, ptr %459, align 8
-  %461 = load i64, ptr %18, align 8
-  %462 = getelementptr inbounds ptr, ptr %460, i64 %461
-  %463 = call i32 %457(i64 noundef 1, ptr noundef %462)
-  store i32 %463, ptr %17, align 4
-  %464 = load ptr, ptr %21, align 8
-  %465 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %464, i32 0, i32 28
+  %459 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %458, i32 0, i32 1
+  %460 = load volatile i32, ptr %459, align 8
+  %461 = icmp eq i32 0, %460
+  br i1 %461, label %462, label %601
+
+462:                                              ; preds = %457
+  %463 = load ptr, ptr %21, align 8
+  %464 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %463, i32 0, i32 0
+  %465 = getelementptr inbounds %struct.ompi_request_t, ptr %464, i32 0, i32 3
   %466 = load ptr, ptr %465, align 8
-  %467 = load i64, ptr %18, align 8
-  %468 = getelementptr inbounds i32, ptr %466, i64 %467
-  store i32 0, ptr %468, align 4
-  br label %469
+  %467 = inttoptr i64 1 to ptr
+  %468 = icmp ne ptr %467, %466
+  br i1 %468, label %469, label %601
 
-469:                                              ; preds = %449, %441
+469:                                              ; preds = %462
   %470 = load ptr, ptr %21, align 8
-  %471 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %470, i32 0, i32 28
-  %472 = load ptr, ptr %471, align 8
-  %473 = load i64, ptr %18, align 8
-  %474 = getelementptr inbounds i32, ptr %472, i64 %473
-  %475 = load i32, ptr %474, align 4
-  %476 = icmp eq i32 0, %475
-  br i1 %476, label %477, label %503
+  %471 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %470, i32 0, i32 0
+  %472 = getelementptr inbounds %struct.ompi_request_t, ptr %471, i32 0, i32 4
+  %473 = load volatile i32, ptr %472, align 8
+  %474 = icmp eq i32 2, %473
+  br i1 %474, label %475, label %601
 
-477:                                              ; preds = %469
-  %478 = load ptr, ptr @ompi_request_functions, align 8
-  %479 = load ptr, ptr %21, align 8
-  %480 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %479, i32 0, i32 17
-  %481 = load ptr, ptr %480, align 8
-  %482 = load i64, ptr %18, align 8
-  %483 = getelementptr inbounds ptr, ptr %481, i64 %482
-  %484 = load ptr, ptr %21, align 8
-  %485 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %484, i32 0, i32 28
-  %486 = load ptr, ptr %485, align 8
-  %487 = load i64, ptr %18, align 8
-  %488 = getelementptr inbounds i32, ptr %486, i64 %487
-  %489 = call i32 %478(ptr noundef %483, ptr noundef %488, ptr noundef null)
-  %490 = load ptr, ptr %21, align 8
-  %491 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %490, i32 0, i32 28
-  %492 = load ptr, ptr %491, align 8
-  %493 = load i64, ptr %18, align 8
-  %494 = getelementptr inbounds i32, ptr %492, i64 %493
-  %495 = load i32, ptr %494, align 4
-  %496 = icmp ne i32 0, %495
-  br i1 %496, label %497, label %502
+475:                                              ; preds = %469
+  store i64 0, ptr %18, align 8
+  br label %476
 
-497:                                              ; preds = %477
-  %498 = load ptr, ptr %21, align 8
-  %499 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %498, i32 0, i32 27
-  %500 = load i64, ptr %499, align 8
-  %501 = add i64 %500, 1
-  store i64 %501, ptr %499, align 8
-  br label %502
+476:                                              ; preds = %545, %475
+  %477 = load i64, ptr %18, align 8
+  %478 = load ptr, ptr %21, align 8
+  %479 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %478, i32 0, i32 14
+  %480 = load i64, ptr %479, align 8
+  %481 = icmp ult i64 %477, %480
+  br i1 %481, label %482, label %548
 
-502:                                              ; preds = %497, %477
-  br label %503
+482:                                              ; preds = %476
+  %483 = load ptr, ptr %21, align 8
+  %484 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %483, i32 0, i32 28
+  %485 = load ptr, ptr %484, align 8
+  %486 = load i64, ptr %18, align 8
+  %487 = getelementptr inbounds i32, ptr %485, i64 %486
+  %488 = load i32, ptr %487, align 4
+  %489 = icmp eq i32 -2, %488
+  br i1 %489, label %490, label %510
 
-503:                                              ; preds = %502, %469
-  br label %504
+490:                                              ; preds = %482
+  %491 = load ptr, ptr %21, align 8
+  %492 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %491, i32 0, i32 17
+  %493 = load ptr, ptr %492, align 8
+  %494 = load i64, ptr %18, align 8
+  %495 = getelementptr inbounds ptr, ptr %493, i64 %494
+  %496 = load ptr, ptr %495, align 8
+  %497 = getelementptr inbounds %struct.ompi_request_t, ptr %496, i32 0, i32 7
+  %498 = load ptr, ptr %497, align 8
+  %499 = load ptr, ptr %21, align 8
+  %500 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %499, i32 0, i32 17
+  %501 = load ptr, ptr %500, align 8
+  %502 = load i64, ptr %18, align 8
+  %503 = getelementptr inbounds ptr, ptr %501, i64 %502
+  %504 = call i32 %498(i64 noundef 1, ptr noundef %503)
+  store i32 %504, ptr %17, align 4
+  %505 = load ptr, ptr %21, align 8
+  %506 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %505, i32 0, i32 28
+  %507 = load ptr, ptr %506, align 8
+  %508 = load i64, ptr %18, align 8
+  %509 = getelementptr inbounds i32, ptr %507, i64 %508
+  store i32 0, ptr %509, align 4
+  br label %510
 
-504:                                              ; preds = %503
-  %505 = load i64, ptr %18, align 8
-  %506 = add i64 %505, 1
-  store i64 %506, ptr %18, align 8
-  br label %435, !llvm.loop !7
-
-507:                                              ; preds = %435
-  %508 = load ptr, ptr %21, align 8
-  %509 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %508, i32 0, i32 27
-  %510 = load i64, ptr %509, align 8
+510:                                              ; preds = %490, %482
   %511 = load ptr, ptr %21, align 8
-  %512 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %511, i32 0, i32 14
-  %513 = load i64, ptr %512, align 8
-  %514 = icmp eq i64 %510, %513
-  br i1 %514, label %515, label %559
+  %512 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %511, i32 0, i32 28
+  %513 = load ptr, ptr %512, align 8
+  %514 = load i64, ptr %18, align 8
+  %515 = getelementptr inbounds i32, ptr %513, i64 %514
+  %516 = load i32, ptr %515, align 4
+  %517 = icmp eq i32 0, %516
+  br i1 %517, label %518, label %544
 
-515:                                              ; preds = %507
-  %516 = load ptr, ptr %21, align 8
-  %517 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %516, i32 0, i32 25
-  store i32 0, ptr %517, align 8
-  %518 = load ptr, ptr %21, align 8
-  store ptr %518, ptr %14, align 8
-  %519 = load ptr, ptr %14, align 8
-  %520 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %519, i32 0, i32 3
-  %521 = load i32, ptr %520, align 8
-  %522 = icmp eq i32 1, %521
-  br i1 %522, label %523, label %529
+518:                                              ; preds = %510
+  %519 = load ptr, ptr @ompi_request_functions, align 8
+  %520 = load ptr, ptr %21, align 8
+  %521 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %520, i32 0, i32 17
+  %522 = load ptr, ptr %521, align 8
+  %523 = load i64, ptr %18, align 8
+  %524 = getelementptr inbounds ptr, ptr %522, i64 %523
+  %525 = load ptr, ptr %21, align 8
+  %526 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %525, i32 0, i32 28
+  %527 = load ptr, ptr %526, align 8
+  %528 = load i64, ptr %18, align 8
+  %529 = getelementptr inbounds i32, ptr %527, i64 %528
+  %530 = call i32 %519(ptr noundef %524, ptr noundef %529, ptr noundef null)
+  %531 = load ptr, ptr %21, align 8
+  %532 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %531, i32 0, i32 28
+  %533 = load ptr, ptr %532, align 8
+  %534 = load i64, ptr %18, align 8
+  %535 = getelementptr inbounds i32, ptr %533, i64 %534
+  %536 = load i32, ptr %535, align 4
+  %537 = icmp ne i32 0, %536
+  br i1 %537, label %538, label %543
 
-523:                                              ; preds = %515
-  %524 = load ptr, ptr %14, align 8
-  %525 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %524, i32 0, i32 10
-  %526 = load i32, ptr %525, align 8
-  %527 = load ptr, ptr %14, align 8
-  %528 = getelementptr inbounds %struct.ompi_request_t, ptr %527, i32 0, i32 2
-  store i32 %526, ptr %528, align 8
-  br label %537
+538:                                              ; preds = %518
+  %539 = load ptr, ptr %21, align 8
+  %540 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %539, i32 0, i32 27
+  %541 = load i64, ptr %540, align 8
+  %542 = add i64 %541, 1
+  store i64 %542, ptr %540, align 8
+  br label %543
 
-529:                                              ; preds = %515
-  %530 = load ptr, ptr %14, align 8
-  %531 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %530, i32 0, i32 4
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds %struct.ompi_communicator_t, ptr %532, i32 0, i32 6
-  %534 = load i32, ptr %533, align 4
-  %535 = load ptr, ptr %14, align 8
-  %536 = getelementptr inbounds %struct.ompi_request_t, ptr %535, i32 0, i32 2
-  store i32 %534, ptr %536, align 8
-  br label %537
+543:                                              ; preds = %538, %518
+  br label %544
 
-537:                                              ; preds = %529, %523
-  %538 = load ptr, ptr %14, align 8
-  %539 = getelementptr inbounds %struct.ompi_request_t, ptr %538, i32 0, i32 10
-  store ptr null, ptr %539, align 8
-  %540 = load ptr, ptr %14, align 8
-  %541 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %540, i32 0, i32 11
-  %542 = load i32, ptr %541, align 4
-  %543 = load ptr, ptr %14, align 8
-  %544 = getelementptr inbounds %struct.ompi_request_t, ptr %543, i32 0, i32 2
-  %545 = getelementptr inbounds %struct.ompi_status_public_t, ptr %544, i32 0, i32 1
-  store i32 %542, ptr %545, align 4
-  %546 = load ptr, ptr %14, align 8
-  %547 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %546, i32 0, i32 13
-  %548 = load i64, ptr %547, align 8
-  %549 = load ptr, ptr %14, align 8
-  %550 = getelementptr inbounds %struct.ompi_request_t, ptr %549, i32 0, i32 2
-  %551 = getelementptr inbounds %struct.ompi_status_public_t, ptr %550, i32 0, i32 4
-  store i64 %548, ptr %551, align 8
-  %552 = load ptr, ptr %14, align 8
-  %553 = getelementptr inbounds %struct.ompi_request_t, ptr %552, i32 0, i32 2
-  %554 = getelementptr inbounds %struct.ompi_status_public_t, ptr %553, i32 0, i32 2
-  store i32 0, ptr %554, align 8
-  %555 = load ptr, ptr %14, align 8
-  %556 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %555, i32 0, i32 1
-  store volatile i32 1, ptr %556, align 8
-  %557 = load ptr, ptr %14, align 8
-  %558 = call i32 @ompi_request_complete(ptr noundef %557, i1 noundef zeroext true)
-  br label %559
+544:                                              ; preds = %543, %510
+  br label %545
 
-559:                                              ; preds = %537, %507
-  br label %560
+545:                                              ; preds = %544
+  %546 = load i64, ptr %18, align 8
+  %547 = add i64 %546, 1
+  store i64 %547, ptr %18, align 8
+  br label %476, !llvm.loop !7
 
-560:                                              ; preds = %559, %428, %422, %417
-  %561 = load ptr, ptr %21, align 8
-  %562 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %561, i32 0, i32 2
-  %563 = load volatile i32, ptr %562, align 4
-  %564 = icmp eq i32 1, %563
-  br i1 %564, label %565, label %584
+548:                                              ; preds = %476
+  %549 = load ptr, ptr %21, align 8
+  %550 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %549, i32 0, i32 27
+  %551 = load i64, ptr %550, align 8
+  %552 = load ptr, ptr %21, align 8
+  %553 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %552, i32 0, i32 14
+  %554 = load i64, ptr %553, align 8
+  %555 = icmp eq i64 %551, %554
+  br i1 %555, label %556, label %600
 
-565:                                              ; preds = %560
-  %566 = load ptr, ptr %21, align 8
-  %567 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %566, i32 0, i32 1
-  %568 = load volatile i32, ptr %567, align 8
-  %569 = icmp eq i32 1, %568
-  br i1 %569, label %570, label %584
+556:                                              ; preds = %548
+  %557 = load ptr, ptr %21, align 8
+  %558 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %557, i32 0, i32 25
+  store i32 0, ptr %558, align 8
+  %559 = load ptr, ptr %21, align 8
+  store ptr %559, ptr %14, align 8
+  %560 = load ptr, ptr %14, align 8
+  %561 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %560, i32 0, i32 3
+  %562 = load i32, ptr %561, align 8
+  %563 = icmp eq i32 1, %562
+  br i1 %563, label %564, label %570
 
-570:                                              ; preds = %565
-  %571 = load ptr, ptr %21, align 8
-  %572 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %571, i32 0, i32 0
-  %573 = getelementptr inbounds %struct.ompi_request_t, ptr %572, i32 0, i32 3
-  %574 = load ptr, ptr %573, align 8
-  %575 = icmp eq ptr inttoptr (i64 1 to ptr), %574
-  br i1 %575, label %576, label %584
+564:                                              ; preds = %556
+  %565 = load ptr, ptr %14, align 8
+  %566 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %565, i32 0, i32 10
+  %567 = load i32, ptr %566, align 8
+  %568 = load ptr, ptr %14, align 8
+  %569 = getelementptr inbounds %struct.ompi_request_t, ptr %568, i32 0, i32 2
+  store i32 %567, ptr %569, align 8
+  br label %578
 
-576:                                              ; preds = %570
-  %577 = load ptr, ptr %21, align 8
-  %578 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %577, i32 0, i32 0
-  %579 = getelementptr inbounds %struct.ompi_request_t, ptr %578, i32 0, i32 4
-  %580 = load volatile i32, ptr %579, align 8
-  %581 = icmp eq i32 1, %580
-  br i1 %581, label %582, label %584
+570:                                              ; preds = %556
+  %571 = load ptr, ptr %14, align 8
+  %572 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %571, i32 0, i32 4
+  %573 = load ptr, ptr %572, align 8
+  %574 = getelementptr inbounds %struct.ompi_communicator_t, ptr %573, i32 0, i32 6
+  %575 = load i32, ptr %574, align 4
+  %576 = load ptr, ptr %14, align 8
+  %577 = getelementptr inbounds %struct.ompi_request_t, ptr %576, i32 0, i32 2
+  store i32 %575, ptr %577, align 8
+  br label %578
 
-582:                                              ; preds = %576
-  %583 = load ptr, ptr %21, align 8
-  store ptr %583, ptr %20, align 8
-  br label %584
-
-584:                                              ; preds = %582, %576, %570, %565, %560
-  br label %585
-
-585:                                              ; preds = %584, %416
-  br label %586
-
-586:                                              ; preds = %585
-  %587 = load ptr, ptr %16, align 8
-  %588 = getelementptr inbounds %struct.opal_list_item_t, ptr %587, i32 0, i32 1
-  %589 = load volatile ptr, ptr %588, align 8
-  store ptr %589, ptr %16, align 8
-  br label %128, !llvm.loop !8
-
-590:                                              ; preds = %128
-  br label %591
-
-591:                                              ; preds = %590
-  %592 = load i8, ptr @opal_uses_threads, align 1
-  %593 = trunc i8 %592 to i1
-  %594 = xor i1 %593, true
-  %595 = xor i1 %594, true
-  %596 = zext i1 %595 to i32
-  %597 = sext i32 %596 to i64
-  %598 = icmp ne i64 %597, 0
-  br i1 %598, label %599, label %600
-
-599:                                              ; preds = %591
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
+578:                                              ; preds = %570, %564
+  %579 = load ptr, ptr %14, align 8
+  %580 = getelementptr inbounds %struct.ompi_request_t, ptr %579, i32 0, i32 10
+  store ptr null, ptr %580, align 8
+  %581 = load ptr, ptr %14, align 8
+  %582 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %581, i32 0, i32 11
+  %583 = load i32, ptr %582, align 4
+  %584 = load ptr, ptr %14, align 8
+  %585 = getelementptr inbounds %struct.ompi_request_t, ptr %584, i32 0, i32 2
+  %586 = getelementptr inbounds %struct.ompi_status_public_t, ptr %585, i32 0, i32 1
+  store i32 %583, ptr %586, align 4
+  %587 = load ptr, ptr %14, align 8
+  %588 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %587, i32 0, i32 13
+  %589 = load i64, ptr %588, align 8
+  %590 = load ptr, ptr %14, align 8
+  %591 = getelementptr inbounds %struct.ompi_request_t, ptr %590, i32 0, i32 2
+  %592 = getelementptr inbounds %struct.ompi_status_public_t, ptr %591, i32 0, i32 4
+  store i64 %589, ptr %592, align 8
+  %593 = load ptr, ptr %14, align 8
+  %594 = getelementptr inbounds %struct.ompi_request_t, ptr %593, i32 0, i32 2
+  %595 = getelementptr inbounds %struct.ompi_status_public_t, ptr %594, i32 0, i32 2
+  store i32 0, ptr %595, align 8
+  %596 = load ptr, ptr %14, align 8
+  %597 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %596, i32 0, i32 1
+  store volatile i32 1, ptr %597, align 8
+  %598 = load ptr, ptr %14, align 8
+  %599 = call i32 @ompi_request_complete(ptr noundef %598, i1 noundef zeroext true)
   br label %600
 
-600:                                              ; preds = %599, %591
+600:                                              ; preds = %578, %548
   br label %601
 
-601:                                              ; preds = %600
-  %602 = call i32 @opal_atomic_add_fetch_32(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16), i32 noundef -1)
-  store i32 %602, ptr %19, align 4
-  %603 = load ptr, ptr %20, align 8
-  %604 = icmp ne ptr %603, null
-  br i1 %604, label %605, label %775
+601:                                              ; preds = %600, %469, %462, %457
+  %602 = load ptr, ptr %21, align 8
+  %603 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %602, i32 0, i32 2
+  %604 = load volatile i32, ptr %603, align 4
+  %605 = icmp eq i32 1, %604
+  br i1 %605, label %606, label %626
 
-605:                                              ; preds = %601
-  %606 = load ptr, ptr %20, align 8
-  store ptr %606, ptr %11, align 8
+606:                                              ; preds = %601
+  %607 = load ptr, ptr %21, align 8
+  %608 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %607, i32 0, i32 1
+  %609 = load volatile i32, ptr %608, align 8
+  %610 = icmp eq i32 1, %609
+  br i1 %610, label %611, label %626
+
+611:                                              ; preds = %606
+  %612 = load ptr, ptr %21, align 8
+  %613 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %612, i32 0, i32 0
+  %614 = getelementptr inbounds %struct.ompi_request_t, ptr %613, i32 0, i32 3
+  %615 = load ptr, ptr %614, align 8
+  %616 = inttoptr i64 1 to ptr
+  %617 = icmp eq ptr %616, %615
+  br i1 %617, label %618, label %626
+
+618:                                              ; preds = %611
+  %619 = load ptr, ptr %21, align 8
+  %620 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %619, i32 0, i32 0
+  %621 = getelementptr inbounds %struct.ompi_request_t, ptr %620, i32 0, i32 4
+  %622 = load volatile i32, ptr %621, align 8
+  %623 = icmp eq i32 1, %622
+  br i1 %623, label %624, label %626
+
+624:                                              ; preds = %618
+  %625 = load ptr, ptr %21, align 8
+  store ptr %625, ptr %20, align 8
+  br label %626
+
+626:                                              ; preds = %624, %618, %611, %606, %601
+  br label %627
+
+627:                                              ; preds = %626, %456
+  br label %628
+
+628:                                              ; preds = %627
+  %629 = load ptr, ptr %16, align 8
+  %630 = getelementptr inbounds %struct.opal_list_item_t, ptr %629, i32 0, i32 1
+  %631 = load volatile ptr, ptr %630, align 8
+  store ptr %631, ptr %16, align 8
+  br label %158, !llvm.loop !8
+
+632:                                              ; preds = %158
+  br label %633
+
+633:                                              ; preds = %632
+  %634 = load i8, ptr @opal_uses_threads, align 1
+  %635 = trunc i8 %634 to i1
+  %636 = xor i1 %635, true
+  %637 = xor i1 %636, true
+  %638 = zext i1 %637 to i32
+  %639 = sext i32 %638 to i64
+  %640 = icmp ne i64 %639, 0
+  br i1 %640, label %641, label %643
+
+641:                                              ; preds = %633
+  %642 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_unlock(ptr noundef %642)
+  br label %643
+
+643:                                              ; preds = %641, %633
+  br label %644
+
+644:                                              ; preds = %643
+  %645 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 16
+  %646 = call i32 @opal_atomic_add_fetch_32(ptr noundef %645, i32 noundef -1)
+  store i32 %646, ptr %19, align 4
+  %647 = load ptr, ptr %20, align 8
+  %648 = icmp ne ptr %647, null
+  br i1 %648, label %649, label %820
+
+649:                                              ; preds = %644
+  %650 = load ptr, ptr %20, align 8
+  store ptr %650, ptr %11, align 8
   store i32 0, ptr %12, align 4
-  %607 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4), align 8
-  %608 = load ptr, ptr %11, align 8
-  %609 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %608, i32 0, i32 30
-  %610 = load ptr, ptr %609, align 8
-  %611 = call ptr @opal_list_remove_item(ptr noundef %607, ptr noundef %610)
-  %612 = load ptr, ptr %11, align 8
-  %613 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %612, i32 0, i32 30
-  %614 = load ptr, ptr %613, align 8
-  store ptr %614, ptr %1, align 8
-  store i32 -1, ptr %2, align 4
-  %615 = load ptr, ptr %1, align 8
-  %616 = getelementptr inbounds %struct.opal_object_t, ptr %615, i32 0, i32 1
-  %617 = load i32, ptr %2, align 4
-  %618 = call i32 @opal_thread_add_fetch_32(ptr noundef %616, i32 noundef %617)
-  %619 = icmp eq i32 0, %618
-  br i1 %619, label %620, label %629
-
-620:                                              ; preds = %605
-  %621 = load ptr, ptr %11, align 8
-  %622 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %621, i32 0, i32 30
-  %623 = load ptr, ptr %622, align 8
-  call void @opal_obj_run_destructors(ptr noundef %623)
-  %624 = load ptr, ptr %11, align 8
-  %625 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %624, i32 0, i32 30
-  %626 = load ptr, ptr %625, align 8
-  call void @free(ptr noundef %626) #12
-  %627 = load ptr, ptr %11, align 8
-  %628 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %627, i32 0, i32 30
-  store ptr null, ptr %628, align 8
-  br label %629
-
-629:                                              ; preds = %620, %605
-  store i64 0, ptr %13, align 8
-  br label %630
-
-630:                                              ; preds = %636, %629
-  %631 = load i64, ptr %13, align 8
-  %632 = load ptr, ptr %11, align 8
-  %633 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %632, i32 0, i32 14
-  %634 = load i64, ptr %633, align 8
-  %635 = icmp ult i64 %631, %634
-  br i1 %635, label %636, label %645
-
-636:                                              ; preds = %630
-  %637 = load ptr, ptr %11, align 8
-  %638 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %637, i32 0, i32 17
-  %639 = load ptr, ptr %638, align 8
-  %640 = load i64, ptr %13, align 8
-  %641 = getelementptr inbounds ptr, ptr %639, i64 %640
-  %642 = call i32 @ompi_request_free(ptr noundef %641)
-  %643 = load i64, ptr %13, align 8
-  %644 = add i64 %643, 1
-  store i64 %644, ptr %13, align 8
-  br label %630, !llvm.loop !9
-
-645:                                              ; preds = %630
-  %646 = load ptr, ptr %11, align 8
-  %647 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %646, i32 0, i32 17
-  %648 = load ptr, ptr %647, align 8
-  call void @free(ptr noundef %648) #12
-  %649 = load ptr, ptr %11, align 8
-  %650 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %649, i32 0, i32 28
-  %651 = load ptr, ptr %650, align 8
-  call void @free(ptr noundef %651) #12
-  %652 = load ptr, ptr %11, align 8
-  %653 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %652, i32 0, i32 3
-  %654 = load i32, ptr %653, align 8
-  %655 = icmp eq i32 1, %654
-  br i1 %655, label %656, label %718
-
-656:                                              ; preds = %645
+  %651 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4
+  %652 = load ptr, ptr %651, align 8
+  %653 = load ptr, ptr %11, align 8
+  %654 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %653, i32 0, i32 30
+  %655 = load ptr, ptr %654, align 8
+  %656 = call ptr @opal_list_remove_item(ptr noundef %652, ptr noundef %655)
   %657 = load ptr, ptr %11, align 8
-  %658 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %657, i32 0, i32 4
+  %658 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %657, i32 0, i32 30
   %659 = load ptr, ptr %658, align 8
-  store ptr %659, ptr %7, align 8
-  store i32 -1, ptr %8, align 4
-  %660 = load ptr, ptr %7, align 8
+  store ptr %659, ptr %1, align 8
+  store i32 -1, ptr %2, align 4
+  %660 = load ptr, ptr %1, align 8
   %661 = getelementptr inbounds %struct.opal_object_t, ptr %660, i32 0, i32 1
-  %662 = load i32, ptr %8, align 4
+  %662 = load i32, ptr %2, align 4
   %663 = call i32 @opal_thread_add_fetch_32(ptr noundef %661, i32 noundef %662)
   %664 = icmp eq i32 0, %663
   br i1 %664, label %665, label %674
 
-665:                                              ; preds = %656
+665:                                              ; preds = %649
   %666 = load ptr, ptr %11, align 8
-  %667 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %666, i32 0, i32 4
+  %667 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %666, i32 0, i32 30
   %668 = load ptr, ptr %667, align 8
   call void @opal_obj_run_destructors(ptr noundef %668)
   %669 = load ptr, ptr %11, align 8
-  %670 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %669, i32 0, i32 4
+  %670 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %669, i32 0, i32 30
   %671 = load ptr, ptr %670, align 8
   call void @free(ptr noundef %671) #12
   %672 = load ptr, ptr %11, align 8
-  %673 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %672, i32 0, i32 4
+  %673 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %672, i32 0, i32 30
   store ptr null, ptr %673, align 8
   br label %674
 
-674:                                              ; preds = %665, %656
-  %675 = load ptr, ptr %11, align 8
-  %676 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %675, i32 0, i32 5
-  %677 = load ptr, ptr %676, align 8
-  %678 = call i32 @ompi_datatype_is_predefined(ptr noundef %677)
-  %679 = icmp ne i32 %678, 0
-  br i1 %679, label %699, label %680
+674:                                              ; preds = %665, %649
+  store i64 0, ptr %13, align 8
+  br label %675
 
-680:                                              ; preds = %674
-  %681 = load ptr, ptr %11, align 8
-  %682 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %681, i32 0, i32 5
-  %683 = load ptr, ptr %682, align 8
-  store ptr %683, ptr %9, align 8
-  store i32 -1, ptr %10, align 4
-  %684 = load ptr, ptr %9, align 8
-  %685 = getelementptr inbounds %struct.opal_object_t, ptr %684, i32 0, i32 1
-  %686 = load i32, ptr %10, align 4
-  %687 = call i32 @opal_thread_add_fetch_32(ptr noundef %685, i32 noundef %686)
-  %688 = icmp eq i32 0, %687
-  br i1 %688, label %689, label %698
+675:                                              ; preds = %681, %674
+  %676 = load i64, ptr %13, align 8
+  %677 = load ptr, ptr %11, align 8
+  %678 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %677, i32 0, i32 14
+  %679 = load i64, ptr %678, align 8
+  %680 = icmp ult i64 %676, %679
+  br i1 %680, label %681, label %690
 
-689:                                              ; preds = %680
-  %690 = load ptr, ptr %11, align 8
-  %691 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %690, i32 0, i32 5
-  %692 = load ptr, ptr %691, align 8
-  call void @opal_obj_run_destructors(ptr noundef %692)
-  %693 = load ptr, ptr %11, align 8
-  %694 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %693, i32 0, i32 5
-  %695 = load ptr, ptr %694, align 8
-  call void @free(ptr noundef %695) #12
-  %696 = load ptr, ptr %11, align 8
-  %697 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %696, i32 0, i32 5
-  store ptr null, ptr %697, align 8
-  br label %698
+681:                                              ; preds = %675
+  %682 = load ptr, ptr %11, align 8
+  %683 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %682, i32 0, i32 17
+  %684 = load ptr, ptr %683, align 8
+  %685 = load i64, ptr %13, align 8
+  %686 = getelementptr inbounds ptr, ptr %684, i64 %685
+  %687 = call i32 @ompi_request_free(ptr noundef %686)
+  %688 = load i64, ptr %13, align 8
+  %689 = add i64 %688, 1
+  store i64 %689, ptr %13, align 8
+  br label %675, !llvm.loop !9
 
-698:                                              ; preds = %689, %680
-  br label %699
+690:                                              ; preds = %675
+  %691 = load ptr, ptr %11, align 8
+  %692 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %691, i32 0, i32 17
+  %693 = load ptr, ptr %692, align 8
+  call void @free(ptr noundef %693) #12
+  %694 = load ptr, ptr %11, align 8
+  %695 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %694, i32 0, i32 28
+  %696 = load ptr, ptr %695, align 8
+  call void @free(ptr noundef %696) #12
+  %697 = load ptr, ptr %11, align 8
+  %698 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %697, i32 0, i32 3
+  %699 = load i32, ptr %698, align 8
+  %700 = icmp eq i32 1, %699
+  br i1 %700, label %701, label %763
 
-699:                                              ; preds = %698, %674
-  %700 = load ptr, ptr %11, align 8
-  %701 = getelementptr inbounds %struct.ompi_request_t, ptr %700, i32 0, i32 4
-  store volatile i32 0, ptr %701, align 8
+701:                                              ; preds = %690
   %702 = load ptr, ptr %11, align 8
-  %703 = getelementptr inbounds %struct.ompi_request_t, ptr %702, i32 0, i32 6
-  %704 = load i32, ptr %703, align 8
-  %705 = icmp ne i32 -32766, %704
-  br i1 %705, label %706, label %713
+  %703 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %702, i32 0, i32 4
+  %704 = load ptr, ptr %703, align 8
+  store ptr %704, ptr %7, align 8
+  store i32 -1, ptr %8, align 4
+  %705 = load ptr, ptr %7, align 8
+  %706 = getelementptr inbounds %struct.opal_object_t, ptr %705, i32 0, i32 1
+  %707 = load i32, ptr %8, align 4
+  %708 = call i32 @opal_thread_add_fetch_32(ptr noundef %706, i32 noundef %707)
+  %709 = icmp eq i32 0, %708
+  br i1 %709, label %710, label %719
 
-706:                                              ; preds = %699
-  %707 = load ptr, ptr %11, align 8
-  %708 = getelementptr inbounds %struct.ompi_request_t, ptr %707, i32 0, i32 6
-  %709 = load i32, ptr %708, align 8
-  %710 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %709, ptr noundef null) #12
+710:                                              ; preds = %701
   %711 = load ptr, ptr %11, align 8
-  %712 = getelementptr inbounds %struct.ompi_request_t, ptr %711, i32 0, i32 6
-  store i32 -32766, ptr %712, align 8
-  br label %713
-
-713:                                              ; preds = %706, %699
+  %712 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %711, i32 0, i32 4
+  %713 = load ptr, ptr %712, align 8
+  call void @opal_obj_run_destructors(ptr noundef %713)
   %714 = load ptr, ptr %11, align 8
-  %715 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %714, i32 0, i32 6
-  %716 = call i32 @opal_convertor_cleanup(ptr noundef %715)
+  %715 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %714, i32 0, i32 4
+  %716 = load ptr, ptr %715, align 8
+  call void @free(ptr noundef %716) #12
   %717 = load ptr, ptr %11, align 8
-  call void @opal_free_list_return(ptr noundef @mca_part_base_precv_requests, ptr noundef %717)
-  br label %769
+  %718 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %717, i32 0, i32 4
+  store ptr null, ptr %718, align 8
+  br label %719
 
-718:                                              ; preds = %645
-  %719 = load ptr, ptr %11, align 8
-  %720 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %719, i32 0, i32 5
-  %721 = load ptr, ptr %720, align 8
-  %722 = call i32 @ompi_datatype_is_predefined(ptr noundef %721)
-  %723 = icmp ne i32 %722, 0
-  br i1 %723, label %732, label %724
+719:                                              ; preds = %710, %701
+  %720 = load ptr, ptr %11, align 8
+  %721 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %720, i32 0, i32 5
+  %722 = load ptr, ptr %721, align 8
+  %723 = call i32 @ompi_datatype_is_predefined(ptr noundef %722)
+  %724 = icmp ne i32 %723, 0
+  br i1 %724, label %744, label %725
 
-724:                                              ; preds = %718
-  %725 = load ptr, ptr %11, align 8
-  %726 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %725, i32 0, i32 5
-  %727 = load ptr, ptr %726, align 8
-  store ptr %727, ptr %3, align 8
-  store i32 1, ptr %4, align 4
-  %728 = load ptr, ptr %3, align 8
-  %729 = getelementptr inbounds %struct.opal_object_t, ptr %728, i32 0, i32 1
-  %730 = load i32, ptr %4, align 4
-  %731 = call i32 @opal_thread_add_fetch_32(ptr noundef %729, i32 noundef %730)
-  br label %732
+725:                                              ; preds = %719
+  %726 = load ptr, ptr %11, align 8
+  %727 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %726, i32 0, i32 5
+  %728 = load ptr, ptr %727, align 8
+  store ptr %728, ptr %9, align 8
+  store i32 -1, ptr %10, align 4
+  %729 = load ptr, ptr %9, align 8
+  %730 = getelementptr inbounds %struct.opal_object_t, ptr %729, i32 0, i32 1
+  %731 = load i32, ptr %10, align 4
+  %732 = call i32 @opal_thread_add_fetch_32(ptr noundef %730, i32 noundef %731)
+  %733 = icmp eq i32 0, %732
+  br i1 %733, label %734, label %743
 
-732:                                              ; preds = %724, %718
-  %733 = load ptr, ptr %11, align 8
-  %734 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %733, i32 0, i32 4
-  %735 = load ptr, ptr %734, align 8
-  store ptr %735, ptr %5, align 8
-  store i32 -1, ptr %6, align 4
-  %736 = load ptr, ptr %5, align 8
-  %737 = getelementptr inbounds %struct.opal_object_t, ptr %736, i32 0, i32 1
-  %738 = load i32, ptr %6, align 4
-  %739 = call i32 @opal_thread_add_fetch_32(ptr noundef %737, i32 noundef %738)
-  %740 = icmp eq i32 0, %739
-  br i1 %740, label %741, label %750
+734:                                              ; preds = %725
+  %735 = load ptr, ptr %11, align 8
+  %736 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %735, i32 0, i32 5
+  %737 = load ptr, ptr %736, align 8
+  call void @opal_obj_run_destructors(ptr noundef %737)
+  %738 = load ptr, ptr %11, align 8
+  %739 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %738, i32 0, i32 5
+  %740 = load ptr, ptr %739, align 8
+  call void @free(ptr noundef %740) #12
+  %741 = load ptr, ptr %11, align 8
+  %742 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %741, i32 0, i32 5
+  store ptr null, ptr %742, align 8
+  br label %743
 
-741:                                              ; preds = %732
-  %742 = load ptr, ptr %11, align 8
-  %743 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %742, i32 0, i32 4
-  %744 = load ptr, ptr %743, align 8
-  call void @opal_obj_run_destructors(ptr noundef %744)
+743:                                              ; preds = %734, %725
+  br label %744
+
+744:                                              ; preds = %743, %719
   %745 = load ptr, ptr %11, align 8
-  %746 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %745, i32 0, i32 4
-  %747 = load ptr, ptr %746, align 8
-  call void @free(ptr noundef %747) #12
-  %748 = load ptr, ptr %11, align 8
-  %749 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %748, i32 0, i32 4
-  store ptr null, ptr %749, align 8
-  br label %750
+  %746 = getelementptr inbounds %struct.ompi_request_t, ptr %745, i32 0, i32 4
+  store volatile i32 0, ptr %746, align 8
+  %747 = load ptr, ptr %11, align 8
+  %748 = getelementptr inbounds %struct.ompi_request_t, ptr %747, i32 0, i32 6
+  %749 = load i32, ptr %748, align 8
+  %750 = icmp ne i32 -32766, %749
+  br i1 %750, label %751, label %758
 
-750:                                              ; preds = %741, %732
-  %751 = load ptr, ptr %11, align 8
-  %752 = getelementptr inbounds %struct.ompi_request_t, ptr %751, i32 0, i32 4
-  store volatile i32 0, ptr %752, align 8
-  %753 = load ptr, ptr %11, align 8
-  %754 = getelementptr inbounds %struct.ompi_request_t, ptr %753, i32 0, i32 6
-  %755 = load i32, ptr %754, align 8
-  %756 = icmp ne i32 -32766, %755
-  br i1 %756, label %757, label %764
+751:                                              ; preds = %744
+  %752 = load ptr, ptr %11, align 8
+  %753 = getelementptr inbounds %struct.ompi_request_t, ptr %752, i32 0, i32 6
+  %754 = load i32, ptr %753, align 8
+  %755 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %754, ptr noundef null) #12
+  %756 = load ptr, ptr %11, align 8
+  %757 = getelementptr inbounds %struct.ompi_request_t, ptr %756, i32 0, i32 6
+  store i32 -32766, ptr %757, align 8
+  br label %758
 
-757:                                              ; preds = %750
-  %758 = load ptr, ptr %11, align 8
-  %759 = getelementptr inbounds %struct.ompi_request_t, ptr %758, i32 0, i32 6
-  %760 = load i32, ptr %759, align 8
-  %761 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %760, ptr noundef null) #12
+758:                                              ; preds = %751, %744
+  %759 = load ptr, ptr %11, align 8
+  %760 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %759, i32 0, i32 6
+  %761 = call i32 @opal_convertor_cleanup(ptr noundef %760)
   %762 = load ptr, ptr %11, align 8
-  %763 = getelementptr inbounds %struct.ompi_request_t, ptr %762, i32 0, i32 6
-  store i32 -32766, ptr %763, align 8
-  br label %764
+  call void @opal_free_list_return(ptr noundef @mca_part_base_precv_requests, ptr noundef %762)
+  br label %814
 
-764:                                              ; preds = %757, %750
-  %765 = load ptr, ptr %11, align 8
-  %766 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %765, i32 0, i32 6
-  %767 = call i32 @opal_convertor_cleanup(ptr noundef %766)
-  %768 = load ptr, ptr %11, align 8
-  call void @opal_free_list_return(ptr noundef @mca_part_base_psend_requests, ptr noundef %768)
-  br label %769
+763:                                              ; preds = %690
+  %764 = load ptr, ptr %11, align 8
+  %765 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %764, i32 0, i32 5
+  %766 = load ptr, ptr %765, align 8
+  %767 = call i32 @ompi_datatype_is_predefined(ptr noundef %766)
+  %768 = icmp ne i32 %767, 0
+  br i1 %768, label %777, label %769
 
-769:                                              ; preds = %764, %713
-  %770 = load i32, ptr %12, align 4
-  store i32 %770, ptr %17, align 4
-  %771 = load i32, ptr %17, align 4
-  %772 = icmp ne i32 0, %771
-  br i1 %772, label %773, label %774
+769:                                              ; preds = %763
+  %770 = load ptr, ptr %11, align 8
+  %771 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %770, i32 0, i32 5
+  %772 = load ptr, ptr %771, align 8
+  store ptr %772, ptr %3, align 8
+  store i32 1, ptr %4, align 4
+  %773 = load ptr, ptr %3, align 8
+  %774 = getelementptr inbounds %struct.opal_object_t, ptr %773, i32 0, i32 1
+  %775 = load i32, ptr %4, align 4
+  %776 = call i32 @opal_thread_add_fetch_32(ptr noundef %774, i32 noundef %775)
+  br label %777
 
-773:                                              ; preds = %769
+777:                                              ; preds = %769, %763
+  %778 = load ptr, ptr %11, align 8
+  %779 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %778, i32 0, i32 4
+  %780 = load ptr, ptr %779, align 8
+  store ptr %780, ptr %5, align 8
+  store i32 -1, ptr %6, align 4
+  %781 = load ptr, ptr %5, align 8
+  %782 = getelementptr inbounds %struct.opal_object_t, ptr %781, i32 0, i32 1
+  %783 = load i32, ptr %6, align 4
+  %784 = call i32 @opal_thread_add_fetch_32(ptr noundef %782, i32 noundef %783)
+  %785 = icmp eq i32 0, %784
+  br i1 %785, label %786, label %795
+
+786:                                              ; preds = %777
+  %787 = load ptr, ptr %11, align 8
+  %788 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %787, i32 0, i32 4
+  %789 = load ptr, ptr %788, align 8
+  call void @opal_obj_run_destructors(ptr noundef %789)
+  %790 = load ptr, ptr %11, align 8
+  %791 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %790, i32 0, i32 4
+  %792 = load ptr, ptr %791, align 8
+  call void @free(ptr noundef %792) #12
+  %793 = load ptr, ptr %11, align 8
+  %794 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %793, i32 0, i32 4
+  store ptr null, ptr %794, align 8
+  br label %795
+
+795:                                              ; preds = %786, %777
+  %796 = load ptr, ptr %11, align 8
+  %797 = getelementptr inbounds %struct.ompi_request_t, ptr %796, i32 0, i32 4
+  store volatile i32 0, ptr %797, align 8
+  %798 = load ptr, ptr %11, align 8
+  %799 = getelementptr inbounds %struct.ompi_request_t, ptr %798, i32 0, i32 6
+  %800 = load i32, ptr %799, align 8
+  %801 = icmp ne i32 -32766, %800
+  br i1 %801, label %802, label %809
+
+802:                                              ; preds = %795
+  %803 = load ptr, ptr %11, align 8
+  %804 = getelementptr inbounds %struct.ompi_request_t, ptr %803, i32 0, i32 6
+  %805 = load i32, ptr %804, align 8
+  %806 = call i32 @opal_pointer_array_set_item(ptr noundef @ompi_request_f_to_c_table, i32 noundef %805, ptr noundef null) #12
+  %807 = load ptr, ptr %11, align 8
+  %808 = getelementptr inbounds %struct.ompi_request_t, ptr %807, i32 0, i32 6
+  store i32 -32766, ptr %808, align 8
+  br label %809
+
+809:                                              ; preds = %802, %795
+  %810 = load ptr, ptr %11, align 8
+  %811 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %810, i32 0, i32 6
+  %812 = call i32 @opal_convertor_cleanup(ptr noundef %811)
+  %813 = load ptr, ptr %11, align 8
+  call void @opal_free_list_return(ptr noundef @mca_part_base_psend_requests, ptr noundef %813)
+  br label %814
+
+814:                                              ; preds = %809, %758
+  %815 = load i32, ptr %12, align 4
+  store i32 %815, ptr %17, align 4
+  %816 = load i32, ptr %17, align 4
+  %817 = icmp ne i32 0, %816
+  br i1 %817, label %818, label %819
+
+818:                                              ; preds = %814
   store i32 -1, ptr %15, align 4
-  br label %776
+  br label %821
 
-774:                                              ; preds = %769
-  br label %775
+819:                                              ; preds = %814
+  br label %820
 
-775:                                              ; preds = %774, %601
+820:                                              ; preds = %819, %644
   store i32 0, ptr %15, align 4
-  br label %776
+  br label %821
 
-776:                                              ; preds = %775, %773, %411, %300, %189, %121, %86, %59, %32
-  %777 = load i32, ptr %15, align 4
-  ret i32 %777
+821:                                              ; preds = %820, %818, %451, %335, %222, %149, %102, %64, %33
+  %822 = load i32, ptr %15, align 4
+  ret i32 %822
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -1236,292 +1281,299 @@ define internal i32 @mca_part_persist_precv_init(ptr noundef %0, i64 noundef %1,
   store ptr %8, ptr %23, align 8
   store i32 0, ptr %24, align 4
   store ptr null, ptr %27, align 8
-  %30 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14), align 8
-  %31 = icmp eq i32 -1, %30
-  br i1 %31, label %32, label %33
+  %30 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 -1, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %9
-  store i32 0, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14), align 8
-  br label %33
+33:                                               ; preds = %9
+  %34 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14
+  store i32 0, ptr %34, align 8
+  br label %35
 
-33:                                               ; preds = %32, %9
-  br label %34
+35:                                               ; preds = %33, %9
+  br label %36
 
-34:                                               ; preds = %33
-  %35 = call ptr @opal_free_list_get(ptr noundef @mca_part_base_precv_requests)
-  store ptr %35, ptr %28, align 8
-  %36 = load ptr, ptr %28, align 8
-  %37 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %36, i32 0, i32 0
-  %38 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %37, i32 0, i32 3
-  store i32 1, ptr %38, align 8
-  br label %39
+36:                                               ; preds = %35
+  %37 = call ptr @opal_free_list_get(ptr noundef @mca_part_base_precv_requests)
+  store ptr %37, ptr %28, align 8
+  %38 = load ptr, ptr %28, align 8
+  %39 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %39, i32 0, i32 3
+  store i32 1, ptr %40, align 8
+  br label %41
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %28, align 8
-  %41 = icmp eq ptr null, %40
-  %42 = xor i1 %41, true
-  %43 = xor i1 %42, true
-  %44 = zext i1 %43 to i32
-  %45 = sext i32 %44 to i64
-  %46 = icmp ne i64 %45, 0
-  br i1 %46, label %47, label %48
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %28, align 8
+  %43 = icmp eq ptr null, %42
+  %44 = xor i1 %43, true
+  %45 = xor i1 %44, true
+  %46 = zext i1 %45 to i32
+  %47 = sext i32 %46 to i64
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %50
 
-47:                                               ; preds = %39
+49:                                               ; preds = %41
   store i32 -2, ptr %14, align 4
-  br label %217
+  br label %224
 
-48:                                               ; preds = %39
-  br label %49
+50:                                               ; preds = %41
+  br label %51
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %21, align 8
-  store ptr %50, ptr %10, align 8
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %21, align 8
+  store ptr %52, ptr %10, align 8
   store i32 1, ptr %11, align 4
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct.opal_object_t, ptr %51, i32 0, i32 1
-  %53 = load i32, ptr %11, align 4
-  %54 = call i32 @opal_thread_add_fetch_32(ptr noundef %52, i32 noundef %53)
-  %55 = load ptr, ptr %18, align 8
-  %56 = call i32 @ompi_datatype_is_predefined(ptr noundef %55)
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %64, label %58
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr inbounds %struct.opal_object_t, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %11, align 4
+  %56 = call i32 @opal_thread_add_fetch_32(ptr noundef %54, i32 noundef %55)
+  %57 = load ptr, ptr %18, align 8
+  %58 = call i32 @ompi_datatype_is_predefined(ptr noundef %57)
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %66, label %60
 
-58:                                               ; preds = %49
-  %59 = load ptr, ptr %18, align 8
-  store ptr %59, ptr %12, align 8
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %18, align 8
+  store ptr %61, ptr %12, align 8
   store i32 1, ptr %13, align 4
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds %struct.opal_object_t, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %13, align 4
-  %63 = call i32 @opal_thread_add_fetch_32(ptr noundef %61, i32 noundef %62)
-  br label %64
+  %62 = load ptr, ptr %12, align 8
+  %63 = getelementptr inbounds %struct.opal_object_t, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %13, align 4
+  %65 = call i32 @opal_thread_add_fetch_32(ptr noundef %63, i32 noundef %64)
+  br label %66
 
-64:                                               ; preds = %58, %49
-  %65 = load ptr, ptr %21, align 8
-  %66 = load ptr, ptr %28, align 8
-  %67 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %66, i32 0, i32 0
-  %68 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %67, i32 0, i32 4
-  store ptr %65, ptr %68, align 8
-  %69 = load ptr, ptr %18, align 8
-  %70 = load ptr, ptr %28, align 8
-  %71 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %70, i32 0, i32 0
-  %72 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %71, i32 0, i32 5
-  store ptr %69, ptr %72, align 8
-  %73 = load ptr, ptr %21, align 8
-  %74 = load ptr, ptr %28, align 8
-  %75 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %74, i32 0, i32 0
-  %76 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %75, i32 0, i32 0
-  %77 = getelementptr inbounds %struct.ompi_request_t, ptr %76, i32 0, i32 12
-  store ptr %73, ptr %77, align 8
-  %78 = load i32, ptr %19, align 4
-  %79 = load ptr, ptr %28, align 8
-  %80 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %79, i32 0, i32 0
-  %81 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %80, i32 0, i32 0
-  %82 = getelementptr inbounds %struct.ompi_request_t, ptr %81, i32 0, i32 2
-  %83 = getelementptr inbounds %struct.ompi_status_public_t, ptr %82, i32 0, i32 0
-  store i32 %78, ptr %83, align 8
-  %84 = load i32, ptr %20, align 4
-  %85 = load ptr, ptr %28, align 8
-  %86 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %85, i32 0, i32 0
-  %87 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %86, i32 0, i32 0
-  %88 = getelementptr inbounds %struct.ompi_request_t, ptr %87, i32 0, i32 2
-  %89 = getelementptr inbounds %struct.ompi_status_public_t, ptr %88, i32 0, i32 1
-  store i32 %84, ptr %89, align 4
-  %90 = load ptr, ptr %28, align 8
-  %91 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %90, i32 0, i32 0
-  %92 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %91, i32 0, i32 1
-  store volatile i32 1, ptr %92, align 8
-  %93 = load i64, ptr %17, align 8
-  %94 = load ptr, ptr %28, align 8
-  %95 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %94, i32 0, i32 0
-  %96 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %95, i32 0, i32 0
-  %97 = getelementptr inbounds %struct.ompi_request_t, ptr %96, i32 0, i32 2
-  %98 = getelementptr inbounds %struct.ompi_status_public_t, ptr %97, i32 0, i32 4
-  store i64 %93, ptr %98, align 8
-  %99 = load ptr, ptr %28, align 8
-  %100 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %99, i32 0, i32 0
-  %101 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %100, i32 0, i32 2
-  store volatile i32 0, ptr %101, align 4
-  %102 = load ptr, ptr %15, align 8
-  %103 = load ptr, ptr %28, align 8
-  %104 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %103, i32 0, i32 0
-  %105 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %104, i32 0, i32 7
-  store ptr %102, ptr %105, align 8
-  %106 = load i64, ptr %16, align 8
-  %107 = load ptr, ptr %28, align 8
-  %108 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %107, i32 0, i32 0
-  %109 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %108, i32 0, i32 8
-  store i64 %106, ptr %109, align 8
-  %110 = load i64, ptr %17, align 8
-  %111 = load ptr, ptr %28, align 8
-  %112 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %111, i32 0, i32 0
-  %113 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %112, i32 0, i32 9
-  store i64 %110, ptr %113, align 8
-  %114 = load i32, ptr %19, align 4
-  %115 = load ptr, ptr %28, align 8
-  %116 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %115, i32 0, i32 0
-  %117 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %116, i32 0, i32 10
-  store i32 %114, ptr %117, align 8
-  %118 = load i32, ptr %20, align 4
-  %119 = load ptr, ptr %28, align 8
-  %120 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %119, i32 0, i32 0
-  %121 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %120, i32 0, i32 11
-  store i32 %118, ptr %121, align 4
-  br label %122
+66:                                               ; preds = %60, %51
+  %67 = load ptr, ptr %21, align 8
+  %68 = load ptr, ptr %28, align 8
+  %69 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %69, i32 0, i32 4
+  store ptr %67, ptr %70, align 8
+  %71 = load ptr, ptr %18, align 8
+  %72 = load ptr, ptr %28, align 8
+  %73 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %73, i32 0, i32 5
+  store ptr %71, ptr %74, align 8
+  %75 = load ptr, ptr %21, align 8
+  %76 = load ptr, ptr %28, align 8
+  %77 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds %struct.ompi_request_t, ptr %78, i32 0, i32 12
+  store ptr %75, ptr %79, align 8
+  %80 = load i32, ptr %19, align 4
+  %81 = load ptr, ptr %28, align 8
+  %82 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %81, i32 0, i32 0
+  %83 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds %struct.ompi_request_t, ptr %83, i32 0, i32 2
+  %85 = getelementptr inbounds %struct.ompi_status_public_t, ptr %84, i32 0, i32 0
+  store i32 %80, ptr %85, align 8
+  %86 = load i32, ptr %20, align 4
+  %87 = load ptr, ptr %28, align 8
+  %88 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %87, i32 0, i32 0
+  %89 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds %struct.ompi_request_t, ptr %89, i32 0, i32 2
+  %91 = getelementptr inbounds %struct.ompi_status_public_t, ptr %90, i32 0, i32 1
+  store i32 %86, ptr %91, align 4
+  %92 = load ptr, ptr %28, align 8
+  %93 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %92, i32 0, i32 0
+  %94 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %93, i32 0, i32 1
+  store volatile i32 1, ptr %94, align 8
+  %95 = load i64, ptr %17, align 8
+  %96 = load ptr, ptr %28, align 8
+  %97 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %96, i32 0, i32 0
+  %98 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds %struct.ompi_request_t, ptr %98, i32 0, i32 2
+  %100 = getelementptr inbounds %struct.ompi_status_public_t, ptr %99, i32 0, i32 4
+  store i64 %95, ptr %100, align 8
+  %101 = load ptr, ptr %28, align 8
+  %102 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %101, i32 0, i32 0
+  %103 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %102, i32 0, i32 2
+  store volatile i32 0, ptr %103, align 4
+  %104 = load ptr, ptr %15, align 8
+  %105 = load ptr, ptr %28, align 8
+  %106 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %105, i32 0, i32 0
+  %107 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %106, i32 0, i32 7
+  store ptr %104, ptr %107, align 8
+  %108 = load i64, ptr %16, align 8
+  %109 = load ptr, ptr %28, align 8
+  %110 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %109, i32 0, i32 0
+  %111 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %110, i32 0, i32 8
+  store i64 %108, ptr %111, align 8
+  %112 = load i64, ptr %17, align 8
+  %113 = load ptr, ptr %28, align 8
+  %114 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %113, i32 0, i32 0
+  %115 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %114, i32 0, i32 9
+  store i64 %112, ptr %115, align 8
+  %116 = load i32, ptr %19, align 4
+  %117 = load ptr, ptr %28, align 8
+  %118 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %117, i32 0, i32 0
+  %119 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %118, i32 0, i32 10
+  store i32 %116, ptr %119, align 8
+  %120 = load i32, ptr %20, align 4
+  %121 = load ptr, ptr %28, align 8
+  %122 = getelementptr inbounds %struct.mca_part_persist_precv_request_t, ptr %121, i32 0, i32 0
+  %123 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %122, i32 0, i32 11
+  store i32 %120, ptr %123, align 4
+  br label %124
 
-122:                                              ; preds = %64
-  %123 = load ptr, ptr %28, align 8
-  store ptr %123, ptr %29, align 8
-  %124 = load ptr, ptr %29, align 8
-  %125 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %124, i32 0, i32 24
-  store i32 0, ptr %125, align 4
+124:                                              ; preds = %66
+  %125 = load ptr, ptr %28, align 8
+  store ptr %125, ptr %29, align 8
   %126 = load ptr, ptr %29, align 8
-  %127 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %126, i32 0, i32 25
-  store i32 1, ptr %127, align 8
+  %127 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %126, i32 0, i32 24
+  store i32 0, ptr %127, align 4
   %128 = load ptr, ptr %29, align 8
-  %129 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %128, i32 0, i32 26
-  store i32 0, ptr %129, align 4
+  %129 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %128, i32 0, i32 25
+  store i32 1, ptr %129, align 8
   %130 = load ptr, ptr %29, align 8
-  %131 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %130, i32 0, i32 28
-  store ptr null, ptr %131, align 8
-  %132 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 8), align 8
-  %133 = load ptr, ptr %29, align 8
-  %134 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %133, i32 0, i32 29
-  %135 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %134, i64 0, i64 1
-  %136 = load i32, ptr %19, align 4
-  %137 = load i32, ptr %20, align 4
-  %138 = load ptr, ptr %21, align 8
-  %139 = load ptr, ptr %29, align 8
-  %140 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %139, i32 0, i32 18
-  %141 = getelementptr inbounds [2 x ptr], ptr %140, i64 0, i64 1
-  %142 = call i32 %132(ptr noundef %135, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef %136, i32 noundef %137, ptr noundef %138, ptr noundef %141)
-  store i32 %142, ptr %24, align 4
-  %143 = load i32, ptr %24, align 4
-  %144 = icmp ne i32 0, %143
-  br i1 %144, label %145, label %146
+  %131 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %130, i32 0, i32 26
+  store i32 0, ptr %131, align 4
+  %132 = load ptr, ptr %29, align 8
+  %133 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %132, i32 0, i32 28
+  store ptr null, ptr %133, align 8
+  %134 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %29, align 8
+  %137 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %136, i32 0, i32 29
+  %138 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %137, i64 0, i64 1
+  %139 = load i32, ptr %19, align 4
+  %140 = load i32, ptr %20, align 4
+  %141 = load ptr, ptr %21, align 8
+  %142 = load ptr, ptr %29, align 8
+  %143 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %142, i32 0, i32 18
+  %144 = getelementptr inbounds [2 x ptr], ptr %143, i64 0, i64 1
+  %145 = call i32 %135(ptr noundef %138, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef %139, i32 noundef %140, ptr noundef %141, ptr noundef %144)
+  store i32 %145, ptr %24, align 4
+  %146 = load i32, ptr %24, align 4
+  %147 = icmp ne i32 0, %146
+  br i1 %147, label %148, label %149
 
-145:                                              ; preds = %122
+148:                                              ; preds = %124
   store i32 -1, ptr %14, align 4
-  br label %217
+  br label %224
 
-146:                                              ; preds = %122
-  %147 = load ptr, ptr %29, align 8
-  %148 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %147, i32 0, i32 5
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.ompi_datatype_t, ptr %149, i32 0, i32 0
-  %151 = call i32 @opal_datatype_type_size(ptr noundef %150, ptr noundef %25)
-  store i32 %151, ptr %24, align 4
-  %152 = load i32, ptr %24, align 4
-  %153 = icmp ne i32 0, %152
-  br i1 %153, label %154, label %155
+149:                                              ; preds = %124
+  %150 = load ptr, ptr %29, align 8
+  %151 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %150, i32 0, i32 5
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds %struct.ompi_datatype_t, ptr %152, i32 0, i32 0
+  %154 = call i32 @opal_datatype_type_size(ptr noundef %153, ptr noundef %25)
+  store i32 %154, ptr %24, align 4
+  %155 = load i32, ptr %24, align 4
+  %156 = icmp ne i32 0, %155
+  br i1 %156, label %157, label %158
 
-154:                                              ; preds = %146
+157:                                              ; preds = %149
   store i32 -1, ptr %14, align 4
-  br label %217
+  br label %224
 
-155:                                              ; preds = %146
-  %156 = load i64, ptr %25, align 8
-  %157 = icmp ugt i64 %156, 2147483647
-  br i1 %157, label %158, label %159
+158:                                              ; preds = %149
+  %159 = load i64, ptr %25, align 8
+  %160 = icmp ugt i64 %159, 2147483647
+  br i1 %160, label %161, label %162
 
-158:                                              ; preds = %155
-  br label %162
+161:                                              ; preds = %158
+  br label %165
 
-159:                                              ; preds = %155
-  %160 = load i64, ptr %25, align 8
-  %161 = trunc i64 %160 to i32
-  br label %162
+162:                                              ; preds = %158
+  %163 = load i64, ptr %25, align 8
+  %164 = trunc i64 %163 to i32
+  br label %165
 
-162:                                              ; preds = %159, %158
-  %163 = phi i32 [ -32766, %158 ], [ %161, %159 ]
-  store i32 %163, ptr %26, align 4
-  %164 = load i64, ptr %16, align 8
-  %165 = load i64, ptr %17, align 8
-  %166 = mul i64 %164, %165
-  %167 = load i32, ptr %26, align 4
-  %168 = sext i32 %167 to i64
-  %169 = mul i64 %166, %168
-  %170 = load ptr, ptr %29, align 8
-  %171 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %170, i32 0, i32 13
-  store i64 %169, ptr %171, align 8
-  %172 = load ptr, ptr %29, align 8
-  %173 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %172, i32 0, i32 0
-  %174 = getelementptr inbounds %struct.ompi_request_t, ptr %173, i32 0, i32 5
-  store i8 1, ptr %174, align 4
+165:                                              ; preds = %162, %161
+  %166 = phi i32 [ -32766, %161 ], [ %164, %162 ]
+  store i32 %166, ptr %26, align 4
+  %167 = load i64, ptr %16, align 8
+  %168 = load i64, ptr %17, align 8
+  %169 = mul i64 %167, %168
+  %170 = load i32, ptr %26, align 4
+  %171 = sext i32 %170 to i64
+  %172 = mul i64 %169, %171
+  %173 = load ptr, ptr %29, align 8
+  %174 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %173, i32 0, i32 13
+  store i64 %172, ptr %174, align 8
   %175 = load ptr, ptr %29, align 8
-  %176 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %175, i32 0, i32 1
-  store volatile i32 1, ptr %176, align 8
-  %177 = load ptr, ptr %29, align 8
-  %178 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %177, i32 0, i32 0
-  %179 = getelementptr inbounds %struct.ompi_request_t, ptr %178, i32 0, i32 3
-  store ptr inttoptr (i64 1 to ptr), ptr %179, align 8
+  %176 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %175, i32 0, i32 0
+  %177 = getelementptr inbounds %struct.ompi_request_t, ptr %176, i32 0, i32 5
+  store i8 1, ptr %177, align 4
+  %178 = load ptr, ptr %29, align 8
+  %179 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %178, i32 0, i32 1
+  store volatile i32 1, ptr %179, align 8
   %180 = load ptr, ptr %29, align 8
   %181 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %180, i32 0, i32 0
-  %182 = getelementptr inbounds %struct.ompi_request_t, ptr %181, i32 0, i32 4
-  store volatile i32 1, ptr %182, align 8
-  %183 = call ptr @opal_obj_new(ptr noundef @mca_part_persist_list_t_class)
-  store ptr %183, ptr %27, align 8
+  %182 = getelementptr inbounds %struct.ompi_request_t, ptr %181, i32 0, i32 3
+  %183 = inttoptr i64 1 to ptr
+  store ptr %183, ptr %182, align 8
   %184 = load ptr, ptr %29, align 8
-  %185 = load ptr, ptr %27, align 8
-  %186 = getelementptr inbounds %struct.mca_part_persist_list_t, ptr %185, i32 0, i32 1
-  store ptr %184, ptr %186, align 8
-  %187 = load ptr, ptr %27, align 8
+  %185 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %184, i32 0, i32 0
+  %186 = getelementptr inbounds %struct.ompi_request_t, ptr %185, i32 0, i32 4
+  store volatile i32 1, ptr %186, align 8
+  %187 = call ptr @opal_obj_new(ptr noundef @mca_part_persist_list_t_class)
+  store ptr %187, ptr %27, align 8
   %188 = load ptr, ptr %29, align 8
-  %189 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %188, i32 0, i32 30
-  store ptr %187, ptr %189, align 8
-  br label %190
+  %189 = load ptr, ptr %27, align 8
+  %190 = getelementptr inbounds %struct.mca_part_persist_list_t, ptr %189, i32 0, i32 1
+  store ptr %188, ptr %190, align 8
+  %191 = load ptr, ptr %27, align 8
+  %192 = load ptr, ptr %29, align 8
+  %193 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %192, i32 0, i32 30
+  store ptr %191, ptr %193, align 8
+  br label %194
 
-190:                                              ; preds = %162
-  %191 = load i8, ptr @opal_uses_threads, align 1
-  %192 = trunc i8 %191 to i1
-  %193 = xor i1 %192, true
-  %194 = xor i1 %193, true
-  %195 = zext i1 %194 to i32
-  %196 = sext i32 %195 to i64
-  %197 = icmp ne i64 %196, 0
-  br i1 %197, label %198, label %199
+194:                                              ; preds = %165
+  %195 = load i8, ptr @opal_uses_threads, align 1
+  %196 = trunc i8 %195 to i1
+  %197 = xor i1 %196, true
+  %198 = xor i1 %197, true
+  %199 = zext i1 %198 to i32
+  %200 = sext i32 %199 to i64
+  %201 = icmp ne i64 %200, 0
+  br i1 %201, label %202, label %204
 
-198:                                              ; preds = %190
-  call void @opal_mutex_lock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
-  br label %199
+202:                                              ; preds = %194
+  %203 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_lock(ptr noundef %203)
+  br label %204
 
-199:                                              ; preds = %198, %190
-  br label %200
+204:                                              ; preds = %202, %194
+  br label %205
 
-200:                                              ; preds = %199
-  %201 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4), align 8
-  %202 = load ptr, ptr %27, align 8
-  call void @_opal_list_append(ptr noundef %201, ptr noundef %202)
-  br label %203
+205:                                              ; preds = %204
+  %206 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4
+  %207 = load ptr, ptr %206, align 8
+  %208 = load ptr, ptr %27, align 8
+  call void @_opal_list_append(ptr noundef %207, ptr noundef %208)
+  br label %209
 
-203:                                              ; preds = %200
-  %204 = load i8, ptr @opal_uses_threads, align 1
-  %205 = trunc i8 %204 to i1
-  %206 = xor i1 %205, true
-  %207 = xor i1 %206, true
-  %208 = zext i1 %207 to i32
-  %209 = sext i32 %208 to i64
-  %210 = icmp ne i64 %209, 0
-  br i1 %210, label %211, label %212
+209:                                              ; preds = %205
+  %210 = load i8, ptr @opal_uses_threads, align 1
+  %211 = trunc i8 %210 to i1
+  %212 = xor i1 %211, true
+  %213 = xor i1 %212, true
+  %214 = zext i1 %213 to i32
+  %215 = sext i32 %214 to i64
+  %216 = icmp ne i64 %215, 0
+  br i1 %216, label %217, label %219
 
-211:                                              ; preds = %203
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
-  br label %212
+217:                                              ; preds = %209
+  %218 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_unlock(ptr noundef %218)
+  br label %219
 
-212:                                              ; preds = %211, %203
-  br label %213
+219:                                              ; preds = %217, %209
+  br label %220
 
-213:                                              ; preds = %212
-  %214 = load ptr, ptr %28, align 8
-  %215 = load ptr, ptr %23, align 8
-  store ptr %214, ptr %215, align 8
-  %216 = load i32, ptr %24, align 4
-  store i32 %216, ptr %14, align 4
-  br label %217
+220:                                              ; preds = %219
+  %221 = load ptr, ptr %28, align 8
+  %222 = load ptr, ptr %23, align 8
+  store ptr %221, ptr %222, align 8
+  %223 = load i32, ptr %24, align 4
+  store i32 %223, ptr %14, align 4
+  br label %224
 
-217:                                              ; preds = %213, %154, %145, %47
-  %218 = load i32, ptr %14, align 4
-  ret i32 %218
+224:                                              ; preds = %220, %157, %148, %49
+  %225 = load i32, ptr %14, align 4
+  ret i32 %225
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -1557,402 +1609,392 @@ define internal i32 @mca_part_persist_psend_init(ptr noundef %0, i64 noundef %1,
   store ptr %8, ptr %23, align 8
   store i32 0, ptr %24, align 4
   store ptr null, ptr %27, align 8
-  %30 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14), align 8
-  %31 = icmp eq i32 -1, %30
-  br i1 %31, label %32, label %33
+  %30 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 -1, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %9
-  store i32 0, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14), align 8
-  br label %33
+33:                                               ; preds = %9
+  %34 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 14
+  store i32 0, ptr %34, align 8
+  br label %35
 
-33:                                               ; preds = %32, %9
-  br label %34
+35:                                               ; preds = %33, %9
+  br label %36
 
-34:                                               ; preds = %33
-  %35 = call ptr @opal_free_list_wait(ptr noundef @mca_part_base_psend_requests)
-  store ptr %35, ptr %28, align 8
-  %36 = load ptr, ptr %28, align 8
-  %37 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %36, i32 0, i32 0
-  %38 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %37, i32 0, i32 3
-  store i32 0, ptr %38, align 8
-  br label %39
+36:                                               ; preds = %35
+  %37 = call ptr @opal_free_list_wait(ptr noundef @mca_part_base_psend_requests)
+  store ptr %37, ptr %28, align 8
+  %38 = load ptr, ptr %28, align 8
+  %39 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %39, i32 0, i32 3
+  store i32 0, ptr %40, align 8
+  br label %41
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %28, align 8
-  %41 = icmp eq ptr null, %40
-  %42 = xor i1 %41, true
-  %43 = xor i1 %42, true
-  %44 = zext i1 %43 to i32
-  %45 = sext i32 %44 to i64
-  %46 = icmp ne i64 %45, 0
-  br i1 %46, label %47, label %48
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %28, align 8
+  %43 = icmp eq ptr null, %42
+  %44 = xor i1 %43, true
+  %45 = xor i1 %44, true
+  %46 = zext i1 %45 to i32
+  %47 = sext i32 %46 to i64
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %50
 
-47:                                               ; preds = %39
+49:                                               ; preds = %41
   store i32 -2, ptr %14, align 4
-  br label %321
+  br label %337
 
-48:                                               ; preds = %39
-  br label %49
+50:                                               ; preds = %41
+  br label %51
 
-49:                                               ; preds = %48
-  br label %50
+51:                                               ; preds = %50
+  br label %52
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %28, align 8
-  %52 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %51, i32 0, i32 0
-  %53 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %52, i32 0, i32 0
-  %54 = getelementptr inbounds %struct.ompi_request_t, ptr %53, i32 0, i32 3
-  store ptr null, ptr %54, align 8
-  %55 = load ptr, ptr %28, align 8
-  %56 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %55, i32 0, i32 0
-  %57 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %56, i32 0, i32 0
-  %58 = getelementptr inbounds %struct.ompi_request_t, ptr %57, i32 0, i32 4
-  store volatile i32 1, ptr %58, align 8
-  %59 = load ptr, ptr %28, align 8
-  %60 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %59, i32 0, i32 0
-  %61 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds %struct.ompi_request_t, ptr %61, i32 0, i32 5
-  store i8 0, ptr %62, align 4
-  %63 = load ptr, ptr %28, align 8
-  %64 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %63, i32 0, i32 0
-  %65 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %64, i32 0, i32 0
-  %66 = getelementptr inbounds %struct.ompi_request_t, ptr %65, i32 0, i32 10
-  store ptr null, ptr %66, align 8
-  %67 = load ptr, ptr %28, align 8
-  %68 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %67, i32 0, i32 0
-  %69 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %68, i32 0, i32 0
-  %70 = getelementptr inbounds %struct.ompi_request_t, ptr %69, i32 0, i32 11
-  store ptr null, ptr %70, align 8
-  br label %71
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %28, align 8
+  %54 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds %struct.ompi_request_t, ptr %55, i32 0, i32 3
+  store ptr null, ptr %56, align 8
+  %57 = load ptr, ptr %28, align 8
+  %58 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %58, i32 0, i32 0
+  %60 = getelementptr inbounds %struct.ompi_request_t, ptr %59, i32 0, i32 4
+  store volatile i32 1, ptr %60, align 8
+  %61 = load ptr, ptr %28, align 8
+  %62 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %61, i32 0, i32 0
+  %63 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds %struct.ompi_request_t, ptr %63, i32 0, i32 5
+  store i8 0, ptr %64, align 4
+  %65 = load ptr, ptr %28, align 8
+  %66 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %65, i32 0, i32 0
+  %67 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %66, i32 0, i32 0
+  %68 = getelementptr inbounds %struct.ompi_request_t, ptr %67, i32 0, i32 10
+  store ptr null, ptr %68, align 8
+  %69 = load ptr, ptr %28, align 8
+  %70 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %70, i32 0, i32 0
+  %72 = getelementptr inbounds %struct.ompi_request_t, ptr %71, i32 0, i32 11
+  store ptr null, ptr %72, align 8
+  br label %73
 
-71:                                               ; preds = %50
-  %72 = load ptr, ptr %21, align 8
-  store ptr %72, ptr %10, align 8
+73:                                               ; preds = %52
+  %74 = load ptr, ptr %21, align 8
+  store ptr %74, ptr %10, align 8
   store i32 1, ptr %11, align 4
-  %73 = load ptr, ptr %10, align 8
-  %74 = getelementptr inbounds %struct.opal_object_t, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %11, align 4
-  %76 = call i32 @opal_thread_add_fetch_32(ptr noundef %74, i32 noundef %75)
-  %77 = load ptr, ptr %18, align 8
-  %78 = call i32 @ompi_datatype_is_predefined(ptr noundef %77)
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %86, label %80
+  %75 = load ptr, ptr %10, align 8
+  %76 = getelementptr inbounds %struct.opal_object_t, ptr %75, i32 0, i32 1
+  %77 = load i32, ptr %11, align 4
+  %78 = call i32 @opal_thread_add_fetch_32(ptr noundef %76, i32 noundef %77)
+  %79 = load ptr, ptr %18, align 8
+  %80 = call i32 @ompi_datatype_is_predefined(ptr noundef %79)
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %88, label %82
 
-80:                                               ; preds = %71
-  %81 = load ptr, ptr %18, align 8
-  store ptr %81, ptr %12, align 8
+82:                                               ; preds = %73
+  %83 = load ptr, ptr %18, align 8
+  store ptr %83, ptr %12, align 8
   store i32 1, ptr %13, align 4
-  %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds %struct.opal_object_t, ptr %82, i32 0, i32 1
-  %84 = load i32, ptr %13, align 4
-  %85 = call i32 @opal_thread_add_fetch_32(ptr noundef %83, i32 noundef %84)
-  br label %86
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds %struct.opal_object_t, ptr %84, i32 0, i32 1
+  %86 = load i32, ptr %13, align 4
+  %87 = call i32 @opal_thread_add_fetch_32(ptr noundef %85, i32 noundef %86)
+  br label %88
 
-86:                                               ; preds = %80, %71
-  %87 = load ptr, ptr %21, align 8
-  %88 = load ptr, ptr %28, align 8
-  %89 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %88, i32 0, i32 0
-  %90 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %89, i32 0, i32 4
-  store ptr %87, ptr %90, align 8
-  %91 = load ptr, ptr %18, align 8
-  %92 = load ptr, ptr %28, align 8
-  %93 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %92, i32 0, i32 0
-  %94 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %93, i32 0, i32 5
-  store ptr %91, ptr %94, align 8
-  %95 = load ptr, ptr %21, align 8
-  %96 = load ptr, ptr %28, align 8
-  %97 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %96, i32 0, i32 0
-  %98 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %97, i32 0, i32 0
-  %99 = getelementptr inbounds %struct.ompi_request_t, ptr %98, i32 0, i32 12
-  store ptr %95, ptr %99, align 8
-  %100 = load ptr, ptr %21, align 8
-  %101 = getelementptr inbounds %struct.ompi_communicator_t, ptr %100, i32 0, i32 6
-  %102 = load i32, ptr %101, align 4
-  %103 = load ptr, ptr %28, align 8
-  %104 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %103, i32 0, i32 0
-  %105 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %104, i32 0, i32 0
-  %106 = getelementptr inbounds %struct.ompi_request_t, ptr %105, i32 0, i32 2
-  %107 = getelementptr inbounds %struct.ompi_status_public_t, ptr %106, i32 0, i32 0
-  store i32 %102, ptr %107, align 8
-  %108 = load i32, ptr %20, align 4
-  %109 = load ptr, ptr %28, align 8
-  %110 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %109, i32 0, i32 0
-  %111 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %110, i32 0, i32 0
-  %112 = getelementptr inbounds %struct.ompi_request_t, ptr %111, i32 0, i32 2
-  %113 = getelementptr inbounds %struct.ompi_status_public_t, ptr %112, i32 0, i32 1
-  store i32 %108, ptr %113, align 4
-  %114 = load ptr, ptr %28, align 8
-  %115 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %114, i32 0, i32 0
-  %116 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %115, i32 0, i32 1
-  store volatile i32 1, ptr %116, align 8
-  %117 = load i64, ptr %17, align 8
-  %118 = load ptr, ptr %28, align 8
-  %119 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %118, i32 0, i32 0
-  %120 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %119, i32 0, i32 0
-  %121 = getelementptr inbounds %struct.ompi_request_t, ptr %120, i32 0, i32 2
-  %122 = getelementptr inbounds %struct.ompi_status_public_t, ptr %121, i32 0, i32 4
-  store i64 %117, ptr %122, align 8
-  %123 = load ptr, ptr %28, align 8
-  %124 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %123, i32 0, i32 0
-  %125 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %124, i32 0, i32 2
-  store volatile i32 0, ptr %125, align 4
-  %126 = load ptr, ptr %15, align 8
-  %127 = load ptr, ptr %28, align 8
-  %128 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %127, i32 0, i32 0
-  %129 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %128, i32 0, i32 7
-  store ptr %126, ptr %129, align 8
-  %130 = load i64, ptr %16, align 8
-  %131 = load ptr, ptr %28, align 8
-  %132 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %131, i32 0, i32 0
-  %133 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %132, i32 0, i32 8
-  store i64 %130, ptr %133, align 8
-  %134 = load i64, ptr %17, align 8
-  %135 = load ptr, ptr %28, align 8
-  %136 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %135, i32 0, i32 0
-  %137 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %136, i32 0, i32 9
-  store i64 %134, ptr %137, align 8
-  %138 = load i32, ptr %19, align 4
-  %139 = load ptr, ptr %28, align 8
-  %140 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %139, i32 0, i32 0
-  %141 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %140, i32 0, i32 10
-  store i32 %138, ptr %141, align 8
-  %142 = load i32, ptr %20, align 4
-  %143 = load ptr, ptr %28, align 8
-  %144 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %143, i32 0, i32 0
-  %145 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %144, i32 0, i32 11
-  store i32 %142, ptr %145, align 4
-  br label %146
+88:                                               ; preds = %82, %73
+  %89 = load ptr, ptr %21, align 8
+  %90 = load ptr, ptr %28, align 8
+  %91 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %90, i32 0, i32 0
+  %92 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %91, i32 0, i32 4
+  store ptr %89, ptr %92, align 8
+  %93 = load ptr, ptr %18, align 8
+  %94 = load ptr, ptr %28, align 8
+  %95 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %94, i32 0, i32 0
+  %96 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %95, i32 0, i32 5
+  store ptr %93, ptr %96, align 8
+  %97 = load ptr, ptr %21, align 8
+  %98 = load ptr, ptr %28, align 8
+  %99 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %98, i32 0, i32 0
+  %100 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %99, i32 0, i32 0
+  %101 = getelementptr inbounds %struct.ompi_request_t, ptr %100, i32 0, i32 12
+  store ptr %97, ptr %101, align 8
+  %102 = load ptr, ptr %21, align 8
+  %103 = getelementptr inbounds %struct.ompi_communicator_t, ptr %102, i32 0, i32 6
+  %104 = load i32, ptr %103, align 4
+  %105 = load ptr, ptr %28, align 8
+  %106 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %105, i32 0, i32 0
+  %107 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %106, i32 0, i32 0
+  %108 = getelementptr inbounds %struct.ompi_request_t, ptr %107, i32 0, i32 2
+  %109 = getelementptr inbounds %struct.ompi_status_public_t, ptr %108, i32 0, i32 0
+  store i32 %104, ptr %109, align 8
+  %110 = load i32, ptr %20, align 4
+  %111 = load ptr, ptr %28, align 8
+  %112 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %111, i32 0, i32 0
+  %113 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %112, i32 0, i32 0
+  %114 = getelementptr inbounds %struct.ompi_request_t, ptr %113, i32 0, i32 2
+  %115 = getelementptr inbounds %struct.ompi_status_public_t, ptr %114, i32 0, i32 1
+  store i32 %110, ptr %115, align 4
+  %116 = load ptr, ptr %28, align 8
+  %117 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %116, i32 0, i32 0
+  %118 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %117, i32 0, i32 1
+  store volatile i32 1, ptr %118, align 8
+  %119 = load i64, ptr %17, align 8
+  %120 = load ptr, ptr %28, align 8
+  %121 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %120, i32 0, i32 0
+  %122 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %121, i32 0, i32 0
+  %123 = getelementptr inbounds %struct.ompi_request_t, ptr %122, i32 0, i32 2
+  %124 = getelementptr inbounds %struct.ompi_status_public_t, ptr %123, i32 0, i32 4
+  store i64 %119, ptr %124, align 8
+  %125 = load ptr, ptr %28, align 8
+  %126 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %125, i32 0, i32 0
+  %127 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %126, i32 0, i32 2
+  store volatile i32 0, ptr %127, align 4
+  %128 = load ptr, ptr %15, align 8
+  %129 = load ptr, ptr %28, align 8
+  %130 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %129, i32 0, i32 0
+  %131 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %130, i32 0, i32 7
+  store ptr %128, ptr %131, align 8
+  %132 = load i64, ptr %16, align 8
+  %133 = load ptr, ptr %28, align 8
+  %134 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %133, i32 0, i32 0
+  %135 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %134, i32 0, i32 8
+  store i64 %132, ptr %135, align 8
+  %136 = load i64, ptr %17, align 8
+  %137 = load ptr, ptr %28, align 8
+  %138 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %137, i32 0, i32 0
+  %139 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %138, i32 0, i32 9
+  store i64 %136, ptr %139, align 8
+  %140 = load i32, ptr %19, align 4
+  %141 = load ptr, ptr %28, align 8
+  %142 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %141, i32 0, i32 0
+  %143 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %142, i32 0, i32 10
+  store i32 %140, ptr %143, align 8
+  %144 = load i32, ptr %20, align 4
+  %145 = load ptr, ptr %28, align 8
+  %146 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %145, i32 0, i32 0
+  %147 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %146, i32 0, i32 11
+  store i32 %144, ptr %147, align 4
+  br label %148
 
-146:                                              ; preds = %86
-  %147 = load ptr, ptr %28, align 8
-  store ptr %147, ptr %29, align 8
-  %148 = load ptr, ptr %29, align 8
-  %149 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %148, i32 0, i32 24
-  store i32 0, ptr %149, align 4
+148:                                              ; preds = %88
+  %149 = load ptr, ptr %28, align 8
+  store ptr %149, ptr %29, align 8
   %150 = load ptr, ptr %29, align 8
-  %151 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %150, i32 0, i32 25
-  store i32 1, ptr %151, align 8
+  %151 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %150, i32 0, i32 24
+  store i32 0, ptr %151, align 4
   %152 = load ptr, ptr %29, align 8
-  %153 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %152, i32 0, i32 5
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds %struct.ompi_datatype_t, ptr %154, i32 0, i32 0
-  %156 = call i32 @opal_datatype_type_size(ptr noundef %155, ptr noundef %25)
-  store i32 %156, ptr %24, align 4
-  %157 = load i32, ptr %24, align 4
-  %158 = icmp ne i32 0, %157
-  br i1 %158, label %159, label %160
+  %153 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %152, i32 0, i32 25
+  store i32 1, ptr %153, align 8
+  %154 = load ptr, ptr %29, align 8
+  %155 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %154, i32 0, i32 5
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds %struct.ompi_datatype_t, ptr %156, i32 0, i32 0
+  %158 = call i32 @opal_datatype_type_size(ptr noundef %157, ptr noundef %25)
+  store i32 %158, ptr %24, align 4
+  %159 = load i32, ptr %24, align 4
+  %160 = icmp ne i32 0, %159
+  br i1 %160, label %161, label %162
 
-159:                                              ; preds = %146
+161:                                              ; preds = %148
   store i32 -1, ptr %14, align 4
-  br label %321
+  br label %337
 
-160:                                              ; preds = %146
-  %161 = load i64, ptr %25, align 8
-  %162 = icmp ugt i64 %161, 2147483647
-  br i1 %162, label %163, label %164
+162:                                              ; preds = %148
+  %163 = load i64, ptr %25, align 8
+  %164 = icmp ugt i64 %163, 2147483647
+  br i1 %164, label %165, label %166
 
-163:                                              ; preds = %160
-  br label %167
+165:                                              ; preds = %162
+  br label %169
 
-164:                                              ; preds = %160
-  %165 = load i64, ptr %25, align 8
-  %166 = trunc i64 %165 to i32
-  br label %167
+166:                                              ; preds = %162
+  %167 = load i64, ptr %25, align 8
+  %168 = trunc i64 %167 to i32
+  br label %169
 
-167:                                              ; preds = %164, %163
-  %168 = phi i32 [ -32766, %163 ], [ %166, %164 ]
-  store i32 %168, ptr %26, align 4
-  %169 = load i64, ptr %16, align 8
-  %170 = load i64, ptr %17, align 8
-  %171 = mul i64 %169, %170
-  %172 = load i32, ptr %26, align 4
-  %173 = sext i32 %172 to i64
-  %174 = mul i64 %171, %173
-  %175 = load ptr, ptr %29, align 8
-  %176 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %175, i32 0, i32 13
-  store i64 %174, ptr %176, align 8
-  %177 = call i32 @ompi_comm_rank(ptr noundef @ompi_mpi_comm_world)
-  %178 = load ptr, ptr %29, align 8
-  %179 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %178, i32 0, i32 29
-  %180 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %179, i64 0, i64 0
-  %181 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %180, i32 0, i32 0
-  store i32 %177, ptr %181, align 8
-  %182 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 5), align 8
-  %183 = load ptr, ptr %29, align 8
-  %184 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %183, i32 0, i32 29
-  %185 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %184, i64 0, i64 0
-  %186 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %185, i32 0, i32 1
-  store i32 %182, ptr %186, align 4
-  %187 = load i64, ptr %16, align 8
-  %188 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 5), align 8
-  %189 = sext i32 %188 to i64
-  %190 = add i64 %189, %187
-  %191 = trunc i64 %190 to i32
-  store i32 %191, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 5), align 8
-  %192 = load ptr, ptr %29, align 8
-  %193 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %192, i32 0, i32 29
-  %194 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %193, i64 0, i64 0
-  %195 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %194, i32 0, i32 1
-  %196 = load i32, ptr %195, align 4
+169:                                              ; preds = %166, %165
+  %170 = phi i32 [ -32766, %165 ], [ %168, %166 ]
+  store i32 %170, ptr %26, align 4
+  %171 = load i64, ptr %16, align 8
+  %172 = load i64, ptr %17, align 8
+  %173 = mul i64 %171, %172
+  %174 = load i32, ptr %26, align 4
+  %175 = sext i32 %174 to i64
+  %176 = mul i64 %173, %175
+  %177 = load ptr, ptr %29, align 8
+  %178 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %177, i32 0, i32 13
+  store i64 %176, ptr %178, align 8
+  %179 = call i32 @ompi_comm_rank(ptr noundef @ompi_mpi_comm_world)
+  %180 = load ptr, ptr %29, align 8
+  %181 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %180, i32 0, i32 29
+  %182 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %181, i64 0, i64 0
+  %183 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %182, i32 0, i32 0
+  store i32 %179, ptr %183, align 8
+  %184 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 5
+  %185 = load i32, ptr %184, align 8
+  %186 = load ptr, ptr %29, align 8
+  %187 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %186, i32 0, i32 29
+  %188 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %187, i64 0, i64 0
+  %189 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %188, i32 0, i32 1
+  store i32 %185, ptr %189, align 4
+  %190 = load i64, ptr %16, align 8
+  %191 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 5
+  %192 = load i32, ptr %191, align 8
+  %193 = sext i32 %192 to i64
+  %194 = add i64 %193, %190
+  %195 = trunc i64 %194 to i32
+  %196 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 5
+  store i32 %195, ptr %196, align 8
   %197 = load ptr, ptr %29, align 8
-  %198 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %197, i32 0, i32 21
-  store i32 %196, ptr %198, align 8
-  %199 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 6), align 4
-  %200 = load ptr, ptr %29, align 8
-  %201 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %200, i32 0, i32 29
-  %202 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %201, i64 0, i64 0
-  %203 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %202, i32 0, i32 2
-  store i32 %199, ptr %203, align 8
-  %204 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 6), align 4
-  %205 = add nsw i32 %204, 1
-  store i32 %205, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 6), align 4
+  %198 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %197, i32 0, i32 29
+  %199 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %198, i64 0, i64 0
+  %200 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %199, i32 0, i32 1
+  %201 = load i32, ptr %200, align 4
+  %202 = load ptr, ptr %29, align 8
+  %203 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %202, i32 0, i32 21
+  store i32 %201, ptr %203, align 8
+  %204 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 6
+  %205 = load i32, ptr %204, align 4
   %206 = load ptr, ptr %29, align 8
   %207 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %206, i32 0, i32 29
   %208 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %207, i64 0, i64 0
   %209 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %208, i32 0, i32 2
-  %210 = load i32, ptr %209, align 8
-  %211 = load ptr, ptr %29, align 8
-  %212 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %211, i32 0, i32 22
-  store i32 %210, ptr %212, align 4
-  %213 = load i64, ptr %16, align 8
+  store i32 %205, ptr %209, align 8
+  %210 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 6
+  %211 = load i32, ptr %210, align 4
+  %212 = add nsw i32 %211, 1
+  %213 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 6
+  store i32 %212, ptr %213, align 4
   %214 = load ptr, ptr %29, align 8
   %215 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %214, i32 0, i32 29
   %216 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %215, i64 0, i64 0
-  %217 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %216, i32 0, i32 3
-  store i64 %213, ptr %217, align 8
-  %218 = load i64, ptr %16, align 8
+  %217 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %216, i32 0, i32 2
+  %218 = load i32, ptr %217, align 8
   %219 = load ptr, ptr %29, align 8
-  %220 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %219, i32 0, i32 14
-  store i64 %218, ptr %220, align 8
-  %221 = load i64, ptr %17, align 8
+  %220 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %219, i32 0, i32 22
+  store i32 %218, ptr %220, align 4
+  %221 = load i64, ptr %16, align 8
   %222 = load ptr, ptr %29, align 8
   %223 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %222, i32 0, i32 29
   %224 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %223, i64 0, i64 0
-  %225 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %224, i32 0, i32 4
+  %225 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %224, i32 0, i32 3
   store i64 %221, ptr %225, align 8
-  %226 = load i64, ptr %17, align 8
+  %226 = load i64, ptr %16, align 8
   %227 = load ptr, ptr %29, align 8
-  %228 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %227, i32 0, i32 15
+  %228 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %227, i32 0, i32 14
   store i64 %226, ptr %228, align 8
-  %229 = load ptr, ptr %29, align 8
-  %230 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %229, i32 0, i32 14
-  %231 = load i64, ptr %230, align 8
-  %232 = call noalias ptr @calloc(i64 noundef %231, i64 noundef 4) #11
-  %233 = load ptr, ptr %29, align 8
-  %234 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %233, i32 0, i32 28
-  store ptr %232, ptr %234, align 8
-  %235 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 11), align 8
-  %236 = load ptr, ptr %29, align 8
-  %237 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %236, i32 0, i32 29
-  %238 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %237, i64 0, i64 0
-  %239 = load i32, ptr %19, align 4
-  %240 = load i32, ptr %20, align 4
-  %241 = load ptr, ptr %21, align 8
-  %242 = load ptr, ptr %29, align 8
-  %243 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %242, i32 0, i32 18
-  %244 = getelementptr inbounds [2 x ptr], ptr %243, i64 0, i64 0
-  %245 = call i32 %235(ptr noundef %238, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef %239, i32 noundef %240, i32 noundef 4, ptr noundef %241, ptr noundef %244)
-  store i32 %245, ptr %24, align 4
-  %246 = load i32, ptr %24, align 4
-  %247 = icmp ne i32 0, %246
-  br i1 %247, label %248, label %249
+  %229 = load i64, ptr %17, align 8
+  %230 = load ptr, ptr %29, align 8
+  %231 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %230, i32 0, i32 29
+  %232 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %231, i64 0, i64 0
+  %233 = getelementptr inbounds %struct.ompi_mca_persist_setup_t, ptr %232, i32 0, i32 4
+  store i64 %229, ptr %233, align 8
+  %234 = load i64, ptr %17, align 8
+  %235 = load ptr, ptr %29, align 8
+  %236 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %235, i32 0, i32 15
+  store i64 %234, ptr %236, align 8
+  %237 = load ptr, ptr %29, align 8
+  %238 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %237, i32 0, i32 14
+  %239 = load i64, ptr %238, align 8
+  %240 = call noalias ptr @calloc(i64 noundef %239, i64 noundef 4) #11
+  %241 = load ptr, ptr %29, align 8
+  %242 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %241, i32 0, i32 28
+  store ptr %240, ptr %242, align 8
+  %243 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 11
+  %244 = load ptr, ptr %243, align 8
+  %245 = load ptr, ptr %29, align 8
+  %246 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %245, i32 0, i32 29
+  %247 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %246, i64 0, i64 0
+  %248 = load i32, ptr %19, align 4
+  %249 = load i32, ptr %20, align 4
+  %250 = load ptr, ptr %21, align 8
+  %251 = load ptr, ptr %29, align 8
+  %252 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %251, i32 0, i32 18
+  %253 = getelementptr inbounds [2 x ptr], ptr %252, i64 0, i64 0
+  %254 = call i32 %244(ptr noundef %247, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef %248, i32 noundef %249, i32 noundef 4, ptr noundef %250, ptr noundef %253)
+  store i32 %254, ptr %24, align 4
+  %255 = load i32, ptr %24, align 4
+  %256 = icmp ne i32 0, %255
+  br i1 %256, label %257, label %258
 
-248:                                              ; preds = %167
+257:                                              ; preds = %169
   store i32 -1, ptr %14, align 4
-  br label %321
+  br label %337
 
-249:                                              ; preds = %167
-  %250 = load i32, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 13), align 4
-  %251 = icmp eq i32 1, %250
-  br i1 %251, label %252, label %271
+258:                                              ; preds = %169
+  %259 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 13
+  %260 = load i32, ptr %259, align 4
+  %261 = icmp eq i32 1, %260
+  br i1 %261, label %262, label %283
 
-252:                                              ; preds = %249
-  %253 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 8), align 8
-  %254 = load ptr, ptr %29, align 8
-  %255 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %254, i32 0, i32 29
-  %256 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %255, i64 0, i64 1
-  %257 = load ptr, ptr %29, align 8
-  %258 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %257, i32 0, i32 22
-  %259 = load i32, ptr %258, align 4
-  %260 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 10), align 8
-  %261 = load ptr, ptr %29, align 8
-  %262 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %261, i32 0, i32 18
-  %263 = getelementptr inbounds [2 x ptr], ptr %262, i64 0, i64 1
-  %264 = call i32 %253(ptr noundef %256, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef -1, i32 noundef %259, ptr noundef %260, ptr noundef %263)
-  store i32 %264, ptr %24, align 4
-  %265 = load i32, ptr %24, align 4
-  %266 = icmp ne i32 0, %265
-  br i1 %266, label %267, label %268
+262:                                              ; preds = %258
+  %263 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 8
+  %264 = load ptr, ptr %263, align 8
+  %265 = load ptr, ptr %29, align 8
+  %266 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %265, i32 0, i32 29
+  %267 = getelementptr inbounds [2 x %struct.ompi_mca_persist_setup_t], ptr %266, i64 0, i64 1
+  %268 = load ptr, ptr %29, align 8
+  %269 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %268, i32 0, i32 22
+  %270 = load i32, ptr %269, align 4
+  %271 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 10
+  %272 = load ptr, ptr %271, align 8
+  %273 = load ptr, ptr %29, align 8
+  %274 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %273, i32 0, i32 18
+  %275 = getelementptr inbounds [2 x ptr], ptr %274, i64 0, i64 1
+  %276 = call i32 %264(ptr noundef %267, i64 noundef 32, ptr noundef @ompi_mpi_byte, i32 noundef -1, i32 noundef %270, ptr noundef %272, ptr noundef %275)
+  store i32 %276, ptr %24, align 4
+  %277 = load i32, ptr %24, align 4
+  %278 = icmp ne i32 0, %277
+  br i1 %278, label %279, label %280
 
-267:                                              ; preds = %252
+279:                                              ; preds = %262
   store i32 -1, ptr %14, align 4
-  br label %321
+  br label %337
 
-268:                                              ; preds = %252
-  %269 = load ptr, ptr %29, align 8
-  %270 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %269, i32 0, i32 26
-  store i32 0, ptr %270, align 4
-  br label %274
-
-271:                                              ; preds = %249
-  %272 = load ptr, ptr %29, align 8
-  %273 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %272, i32 0, i32 26
-  store i32 1, ptr %273, align 4
-  br label %274
-
-274:                                              ; preds = %271, %268
-  %275 = load ptr, ptr %28, align 8
-  %276 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %275, i32 0, i32 0
-  %277 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %276, i32 0, i32 0
-  %278 = getelementptr inbounds %struct.ompi_request_t, ptr %277, i32 0, i32 5
-  store i8 1, ptr %278, align 4
-  %279 = load ptr, ptr %29, align 8
-  %280 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %279, i32 0, i32 1
-  store volatile i32 1, ptr %280, align 8
+280:                                              ; preds = %262
   %281 = load ptr, ptr %29, align 8
-  %282 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %281, i32 0, i32 0
-  %283 = getelementptr inbounds %struct.ompi_request_t, ptr %282, i32 0, i32 3
-  store ptr inttoptr (i64 1 to ptr), ptr %283, align 8
+  %282 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %281, i32 0, i32 26
+  store i32 0, ptr %282, align 4
+  br label %286
+
+283:                                              ; preds = %258
   %284 = load ptr, ptr %29, align 8
-  %285 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %284, i32 0, i32 0
-  %286 = getelementptr inbounds %struct.ompi_request_t, ptr %285, i32 0, i32 4
-  store volatile i32 1, ptr %286, align 8
-  %287 = call ptr @opal_obj_new(ptr noundef @mca_part_persist_list_t_class)
-  store ptr %287, ptr %27, align 8
-  %288 = load ptr, ptr %29, align 8
-  %289 = load ptr, ptr %27, align 8
-  %290 = getelementptr inbounds %struct.mca_part_persist_list_t, ptr %289, i32 0, i32 1
-  store ptr %288, ptr %290, align 8
-  %291 = load ptr, ptr %27, align 8
-  %292 = load ptr, ptr %29, align 8
-  %293 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %292, i32 0, i32 30
-  store ptr %291, ptr %293, align 8
-  br label %294
+  %285 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %284, i32 0, i32 26
+  store i32 1, ptr %285, align 4
+  br label %286
 
-294:                                              ; preds = %274
-  %295 = load i8, ptr @opal_uses_threads, align 1
-  %296 = trunc i8 %295 to i1
-  %297 = xor i1 %296, true
-  %298 = xor i1 %297, true
-  %299 = zext i1 %298 to i32
-  %300 = sext i32 %299 to i64
-  %301 = icmp ne i64 %300, 0
-  br i1 %301, label %302, label %303
-
-302:                                              ; preds = %294
-  call void @opal_mutex_lock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
-  br label %303
-
-303:                                              ; preds = %302, %294
-  br label %304
-
-304:                                              ; preds = %303
-  %305 = load ptr, ptr getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4), align 8
-  %306 = load ptr, ptr %27, align 8
-  call void @_opal_list_append(ptr noundef %305, ptr noundef %306)
+286:                                              ; preds = %283, %280
+  %287 = load ptr, ptr %28, align 8
+  %288 = getelementptr inbounds %struct.mca_part_persist_psend_request_t, ptr %287, i32 0, i32 0
+  %289 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %288, i32 0, i32 0
+  %290 = getelementptr inbounds %struct.ompi_request_t, ptr %289, i32 0, i32 5
+  store i8 1, ptr %290, align 4
+  %291 = load ptr, ptr %29, align 8
+  %292 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %291, i32 0, i32 1
+  store volatile i32 1, ptr %292, align 8
+  %293 = load ptr, ptr %29, align 8
+  %294 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %293, i32 0, i32 0
+  %295 = getelementptr inbounds %struct.ompi_request_t, ptr %294, i32 0, i32 3
+  %296 = inttoptr i64 1 to ptr
+  store ptr %296, ptr %295, align 8
+  %297 = load ptr, ptr %29, align 8
+  %298 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %297, i32 0, i32 0
+  %299 = getelementptr inbounds %struct.ompi_request_t, ptr %298, i32 0, i32 4
+  store volatile i32 1, ptr %299, align 8
+  %300 = call ptr @opal_obj_new(ptr noundef @mca_part_persist_list_t_class)
+  store ptr %300, ptr %27, align 8
+  %301 = load ptr, ptr %29, align 8
+  %302 = load ptr, ptr %27, align 8
+  %303 = getelementptr inbounds %struct.mca_part_persist_list_t, ptr %302, i32 0, i32 1
+  store ptr %301, ptr %303, align 8
+  %304 = load ptr, ptr %27, align 8
+  %305 = load ptr, ptr %29, align 8
+  %306 = getelementptr inbounds %struct.mca_part_persist_request_t, ptr %305, i32 0, i32 30
+  store ptr %304, ptr %306, align 8
   br label %307
 
-307:                                              ; preds = %304
+307:                                              ; preds = %286
   %308 = load i8, ptr @opal_uses_threads, align 1
   %309 = trunc i8 %308 to i1
   %310 = xor i1 %309, true
@@ -1960,26 +2002,52 @@ define internal i32 @mca_part_persist_psend_init(ptr noundef %0, i64 noundef %1,
   %312 = zext i1 %311 to i32
   %313 = sext i32 %312 to i64
   %314 = icmp ne i64 %313, 0
-  br i1 %314, label %315, label %316
+  br i1 %314, label %315, label %317
 
 315:                                              ; preds = %307
-  call void @opal_mutex_unlock(ptr noundef getelementptr inbounds (%struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17))
-  br label %316
-
-316:                                              ; preds = %315, %307
+  %316 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_lock(ptr noundef %316)
   br label %317
 
-317:                                              ; preds = %316
-  %318 = load ptr, ptr %28, align 8
-  %319 = load ptr, ptr %23, align 8
-  store ptr %318, ptr %319, align 8
-  %320 = load i32, ptr %24, align 4
-  store i32 %320, ptr %14, align 4
-  br label %321
+317:                                              ; preds = %315, %307
+  br label %318
 
-321:                                              ; preds = %317, %267, %248, %159, %47
-  %322 = load i32, ptr %14, align 4
-  ret i32 %322
+318:                                              ; preds = %317
+  %319 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 4
+  %320 = load ptr, ptr %319, align 8
+  %321 = load ptr, ptr %27, align 8
+  call void @_opal_list_append(ptr noundef %320, ptr noundef %321)
+  br label %322
+
+322:                                              ; preds = %318
+  %323 = load i8, ptr @opal_uses_threads, align 1
+  %324 = trunc i8 %323 to i1
+  %325 = xor i1 %324, true
+  %326 = xor i1 %325, true
+  %327 = zext i1 %326 to i32
+  %328 = sext i32 %327 to i64
+  %329 = icmp ne i64 %328, 0
+  br i1 %329, label %330, label %332
+
+330:                                              ; preds = %322
+  %331 = getelementptr inbounds %struct.ompi_part_persist_t, ptr @ompi_part_persist, i32 0, i32 17
+  call void @opal_mutex_unlock(ptr noundef %331)
+  br label %332
+
+332:                                              ; preds = %330, %322
+  br label %333
+
+333:                                              ; preds = %332
+  %334 = load ptr, ptr %28, align 8
+  %335 = load ptr, ptr %23, align 8
+  store ptr %334, ptr %335, align 8
+  %336 = load i32, ptr %24, align 4
+  store i32 %336, ptr %14, align 4
+  br label %337
+
+337:                                              ; preds = %333, %279, %257, %161, %49
+  %338 = load i32, ptr %14, align 4
+  ret i32 %338
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -2598,7 +2666,7 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
 22:                                               ; preds = %13, %2
   %23 = load i32, ptr %5, align 4
   %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %51
+  br i1 %24, label %25, label %52
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %4, align 1
@@ -2631,18 +2699,19 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
   br label %46
 
 46:                                               ; preds = %40, %33
-  br label %50
+  br label %51
 
 47:                                               ; preds = %25
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds %struct.ompi_request_t, ptr %48, i32 0, i32 3
-  store ptr inttoptr (i64 1 to ptr), ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %47, %46
+  %50 = inttoptr i64 1 to ptr
+  store ptr %50, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %50, %22
+51:                                               ; preds = %47, %46
+  br label %52
+
+52:                                               ; preds = %51, %22
   ret i32 0
 }
 

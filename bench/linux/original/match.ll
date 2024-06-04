@@ -29,84 +29,88 @@ define dso_local noundef ptr @x86_match_cpu(ptr noundef readonly %0) #0 align 16
   %13 = or i16 %12, %8
   %14 = or i16 %13, %10
   %15 = icmp eq i16 %14, 0
-  br i1 %15, label %72, label %16
+  br i1 %15, label %76, label %16
 
-16:                                               ; preds = %56, %1
-  %17 = phi i16 [ %66, %56 ], [ %10, %1 ]
-  %18 = phi i16 [ %64, %56 ], [ %8, %1 ]
-  %19 = phi i16 [ %62, %56 ], [ %6, %1 ]
-  %20 = phi i16 [ %60, %56 ], [ %4, %1 ]
-  %21 = phi i16 [ %58, %56 ], [ %2, %1 ]
-  %22 = phi ptr [ %57, %56 ], [ %0, %1 ]
+16:                                               ; preds = %60, %1
+  %17 = phi i16 [ %70, %60 ], [ %10, %1 ]
+  %18 = phi i16 [ %68, %60 ], [ %8, %1 ]
+  %19 = phi i16 [ %66, %60 ], [ %6, %1 ]
+  %20 = phi i16 [ %64, %60 ], [ %4, %1 ]
+  %21 = phi i16 [ %62, %60 ], [ %2, %1 ]
+  %22 = phi ptr [ %61, %60 ], [ %0, %1 ]
   %23 = icmp eq i16 %21, -1
-  %24 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  %25 = zext i8 %24 to i16
-  %26 = icmp eq i16 %21, %25
-  %27 = select i1 %23, i1 true, i1 %26
-  br i1 %27, label %28, label %56
+  %24 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1
+  %25 = load i8, ptr %24, align 1
+  %26 = zext i8 %25 to i16
+  %27 = icmp eq i16 %21, %26
+  %28 = select i1 %23, i1 true, i1 %27
+  br i1 %28, label %29, label %60
 
-28:                                               ; preds = %16
-  %29 = icmp eq i16 %20, 0
-  %30 = load i8, ptr @boot_cpu_data, align 8
-  %31 = zext i8 %30 to i16
-  %32 = icmp eq i16 %20, %31
-  %33 = select i1 %29, i1 true, i1 %32
-  br i1 %33, label %34, label %56
+29:                                               ; preds = %16
+  %30 = icmp eq i16 %20, 0
+  %31 = load i8, ptr @boot_cpu_data, align 8
+  %32 = zext i8 %31 to i16
+  %33 = icmp eq i16 %20, %32
+  %34 = select i1 %30, i1 true, i1 %33
+  br i1 %34, label %35, label %60
 
-34:                                               ; preds = %28
-  %35 = icmp eq i16 %19, 0
-  %36 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
-  %37 = zext i8 %36 to i16
-  %38 = icmp eq i16 %19, %37
-  %39 = select i1 %35, i1 true, i1 %38
-  br i1 %39, label %40, label %56
+35:                                               ; preds = %29
+  %36 = icmp eq i16 %19, 0
+  %37 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2
+  %38 = load i8, ptr %37, align 2
+  %39 = zext i8 %38 to i16
+  %40 = icmp eq i16 %19, %39
+  %41 = select i1 %36, i1 true, i1 %40
+  br i1 %41, label %42, label %60
 
-40:                                               ; preds = %34
-  %41 = icmp eq i16 %18, 0
-  br i1 %41, label %49, label %42
+42:                                               ; preds = %35
+  %43 = icmp eq i16 %18, 0
+  br i1 %43, label %52, label %44
 
-42:                                               ; preds = %40
-  %43 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3), align 1
-  %44 = zext nneg i8 %43 to i64
-  %45 = shl nuw i64 1, %44
-  %46 = zext i16 %18 to i64
-  %47 = and i64 %45, %46
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %56, label %49
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3
+  %46 = load i8, ptr %45, align 1
+  %47 = zext nneg i8 %46 to i64
+  %48 = shl nuw i64 1, %47
+  %49 = zext i16 %18 to i64
+  %50 = and i64 %48, %49
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %60, label %52
 
-49:                                               ; preds = %42, %40
-  %50 = icmp eq i16 %17, 0
-  br i1 %50, label %72, label %51
+52:                                               ; preds = %44, %42
+  %53 = icmp eq i16 %17, 0
+  br i1 %53, label %76, label %54
 
-51:                                               ; preds = %49
-  %52 = zext i16 %17 to i64
-  %53 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), i64 %52) #3, !srcloc !5
-  %54 = icmp ult i8 %53, 2
-  tail call void @llvm.assume(i1 %54)
-  %55 = icmp eq i8 %53, 0
-  br i1 %55, label %56, label %72
+54:                                               ; preds = %52
+  %55 = zext i16 %17 to i64
+  %56 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11
+  %57 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %56, i64 %55) #3, !srcloc !5
+  %58 = icmp ult i8 %57, 2
+  tail call void @llvm.assume(i1 %58)
+  %59 = icmp eq i8 %57, 0
+  br i1 %59, label %60, label %76
 
-56:                                               ; preds = %51, %42, %34, %28, %16
-  %57 = getelementptr i8, ptr %22, i64 24
-  %58 = load i16, ptr %57, align 8
-  %59 = getelementptr i8, ptr %22, i64 26
-  %60 = load i16, ptr %59, align 2
-  %61 = getelementptr i8, ptr %22, i64 28
-  %62 = load i16, ptr %61, align 4
-  %63 = getelementptr i8, ptr %22, i64 30
+60:                                               ; preds = %54, %44, %35, %29, %16
+  %61 = getelementptr i8, ptr %22, i64 24
+  %62 = load i16, ptr %61, align 8
+  %63 = getelementptr i8, ptr %22, i64 26
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr i8, ptr %22, i64 32
-  %66 = load i16, ptr %65, align 8
-  %67 = or i16 %60, %58
-  %68 = or i16 %67, %62
-  %69 = or i16 %68, %64
-  %70 = or i16 %69, %66
-  %71 = icmp eq i16 %70, 0
-  br i1 %71, label %72, label %16, !llvm.loop !6
+  %65 = getelementptr i8, ptr %22, i64 28
+  %66 = load i16, ptr %65, align 4
+  %67 = getelementptr i8, ptr %22, i64 30
+  %68 = load i16, ptr %67, align 2
+  %69 = getelementptr i8, ptr %22, i64 32
+  %70 = load i16, ptr %69, align 8
+  %71 = or i16 %64, %62
+  %72 = or i16 %71, %66
+  %73 = or i16 %72, %68
+  %74 = or i16 %73, %70
+  %75 = icmp eq i16 %74, 0
+  br i1 %75, label %76, label %16, !llvm.loop !6
 
-72:                                               ; preds = %56, %51, %49, %1
-  %73 = phi ptr [ null, %1 ], [ %22, %51 ], [ %22, %49 ], [ null, %56 ]
-  ret ptr %73
+76:                                               ; preds = %60, %54, %52, %1
+  %77 = phi ptr [ null, %1 ], [ %22, %54 ], [ %22, %52 ], [ null, %60 ]
+  ret ptr %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
@@ -116,58 +120,62 @@ define dso_local zeroext i1 @x86_cpu_has_min_microcode_rev(ptr noundef readonly 
   %4 = load i8, ptr %3, align 2
   %5 = or i8 %4, %2
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %34, label %7
+  br i1 %6, label %37, label %7
 
 7:                                                ; preds = %1
-  %8 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  %9 = load i8, ptr @boot_cpu_data, align 8
-  %10 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
-  %11 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3), align 1
-  br label %12
+  %8 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1
+  %9 = load i8, ptr %8, align 1
+  %10 = load i8, ptr @boot_cpu_data, align 8
+  %11 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2
+  %12 = load i8, ptr %11, align 2
+  %13 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3
+  %14 = load i8, ptr %13, align 1
+  br label %15
 
-12:                                               ; preds = %27, %7
-  %13 = phi i8 [ %4, %7 ], [ %31, %27 ]
-  %14 = phi i8 [ %2, %7 ], [ %29, %27 ]
-  %15 = phi ptr [ %0, %7 ], [ %28, %27 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %8, %17
-  %19 = icmp eq i8 %9, %14
-  %20 = select i1 %18, i1 %19, i1 false
-  %21 = icmp eq i8 %10, %13
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %23, label %27
+15:                                               ; preds = %30, %7
+  %16 = phi i8 [ %4, %7 ], [ %34, %30 ]
+  %17 = phi i8 [ %2, %7 ], [ %32, %30 ]
+  %18 = phi ptr [ %0, %7 ], [ %31, %30 ]
+  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %9, %20
+  %22 = icmp eq i8 %10, %17
+  %23 = select i1 %21, i1 %22, i1 false
+  %24 = icmp eq i8 %12, %16
+  %25 = select i1 %23, i1 %24, i1 false
+  br i1 %25, label %26, label %30
 
-23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %15, i64 3
-  %25 = load i8, ptr %24, align 1
-  %26 = icmp eq i8 %11, %25
-  br i1 %26, label %34, label %27
+26:                                               ; preds = %15
+  %27 = getelementptr inbounds i8, ptr %18, i64 3
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %14, %28
+  br i1 %29, label %37, label %30
 
-27:                                               ; preds = %23, %12
-  %28 = getelementptr i8, ptr %15, i64 8
-  %29 = load i8, ptr %28, align 4
-  %30 = getelementptr i8, ptr %15, i64 10
-  %31 = load i8, ptr %30, align 2
-  %32 = or i8 %31, %29
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %34, label %12, !llvm.loop !9
+30:                                               ; preds = %26, %15
+  %31 = getelementptr i8, ptr %18, i64 8
+  %32 = load i8, ptr %31, align 4
+  %33 = getelementptr i8, ptr %18, i64 10
+  %34 = load i8, ptr %33, align 2
+  %35 = or i8 %34, %32
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %37, label %15, !llvm.loop !9
 
-34:                                               ; preds = %27, %23, %1
-  %35 = phi ptr [ null, %1 ], [ %15, %23 ], [ null, %27 ]
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %42, label %37
+37:                                               ; preds = %30, %26, %1
+  %38 = phi ptr [ null, %1 ], [ %18, %26 ], [ null, %30 ]
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %46, label %40
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 28), align 4
-  %41 = icmp ule i32 %39, %40
-  br label %42
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %38, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 28
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp ule i32 %42, %44
+  br label %46
 
-42:                                               ; preds = %37, %34
-  %43 = phi i1 [ false, %34 ], [ %41, %37 ]
-  ret i1 %43
+46:                                               ; preds = %40, %37
+  %47 = phi i1 [ false, %37 ], [ %45, %40 ]
+  ret i1 %47
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

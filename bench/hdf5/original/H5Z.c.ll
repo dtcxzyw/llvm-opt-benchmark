@@ -4406,7 +4406,7 @@ define i32 @H5Z_append(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 nound
 
 33:                                               ; preds = %32
   store i32 -1, ptr %12, align 4
-  br label %286
+  br label %288
 
 34:                                               ; No predecessors!
   br label %35
@@ -4435,19 +4435,19 @@ define i32 @H5Z_append(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 nound
   %49 = getelementptr inbounds %struct.H5O_pline_t, ptr %48, i32 0, i32 2
   %50 = load i64, ptr %49, align 8
   %51 = icmp uge i64 %47, %50
-  br i1 %51, label %52, label %167
+  br i1 %51, label %52, label %169
 
 52:                                               ; preds = %44
   store i64 0, ptr %15, align 8
   br label %53
 
-53:                                               ; preds = %83, %52
+53:                                               ; preds = %84, %52
   %54 = load i64, ptr %15, align 8
   %55 = load ptr, ptr %6, align 8
   %56 = getelementptr inbounds %struct.H5O_pline_t, ptr %55, i32 0, i32 2
   %57 = load i64, ptr %56, align 8
   %58 = icmp ult i64 %54, %57
-  br i1 %58, label %59, label %86
+  br i1 %58, label %59, label %87
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %6, align 8
@@ -4465,7 +4465,7 @@ define i32 @H5Z_append(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 nound
   %72 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %71, i32 0, i32 5
   %73 = getelementptr inbounds [4 x i32], ptr %72, i64 0, i64 0
   %74 = icmp eq ptr %66, %73
-  br i1 %74, label %75, label %82
+  br i1 %74, label %75, label %83
 
 75:                                               ; preds = %59
   %76 = load ptr, ptr %6, align 8
@@ -4474,328 +4474,330 @@ define i32 @H5Z_append(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 nound
   %79 = load i64, ptr %15, align 8
   %80 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %78, i64 %79
   %81 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %80, i32 0, i32 6
-  store ptr inttoptr (i64 -1 to ptr), ptr %81, align 8
-  br label %82
-
-82:                                               ; preds = %75, %59
+  %82 = inttoptr i64 -1 to ptr
+  store ptr %82, ptr %81, align 8
   br label %83
 
-83:                                               ; preds = %82
-  %84 = load i64, ptr %15, align 8
-  %85 = add i64 %84, 1
-  store i64 %85, ptr %15, align 8
+83:                                               ; preds = %75, %59
+  br label %84
+
+84:                                               ; preds = %83
+  %85 = load i64, ptr %15, align 8
+  %86 = add i64 %85, 1
+  store i64 %86, ptr %15, align 8
   br label %53
 
-86:                                               ; preds = %53
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds %struct.H5O_pline_t, ptr %87, i32 0, i32 2
-  %89 = load i64, ptr %88, align 8
-  %90 = mul i64 2, %89
-  %91 = icmp ugt i64 32, %90
-  br i1 %91, label %92, label %93
+87:                                               ; preds = %53
+  %88 = load ptr, ptr %6, align 8
+  %89 = getelementptr inbounds %struct.H5O_pline_t, ptr %88, i32 0, i32 2
+  %90 = load i64, ptr %89, align 8
+  %91 = mul i64 2, %90
+  %92 = icmp ugt i64 32, %91
+  br i1 %92, label %93, label %94
 
-92:                                               ; preds = %86
-  br label %98
+93:                                               ; preds = %87
+  br label %99
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds %struct.H5O_pline_t, ptr %94, i32 0, i32 2
-  %96 = load i64, ptr %95, align 8
-  %97 = mul i64 2, %96
-  br label %98
+94:                                               ; preds = %87
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr inbounds %struct.H5O_pline_t, ptr %95, i32 0, i32 2
+  %97 = load i64, ptr %96, align 8
+  %98 = mul i64 2, %97
+  br label %99
 
-98:                                               ; preds = %93, %92
-  %99 = phi i64 [ 32, %92 ], [ %97, %93 ]
-  %100 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 2
-  store i64 %99, ptr %100, align 8
-  %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds %struct.H5O_pline_t, ptr %101, i32 0, i32 4
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 2
-  %105 = load i64, ptr %104, align 8
-  %106 = mul i64 %105, 64
-  %107 = call ptr @H5MM_realloc(ptr noundef %103, i64 noundef %106)
-  %108 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
-  store ptr %107, ptr %108, align 8
+99:                                               ; preds = %94, %93
+  %100 = phi i64 [ 32, %93 ], [ %98, %94 ]
+  %101 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 2
+  store i64 %100, ptr %101, align 8
+  %102 = load ptr, ptr %6, align 8
+  %103 = getelementptr inbounds %struct.H5O_pline_t, ptr %102, i32 0, i32 4
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 2
+  %106 = load i64, ptr %105, align 8
+  %107 = mul i64 %106, 64
+  %108 = call ptr @H5MM_realloc(ptr noundef %104, i64 noundef %107)
   %109 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr null, %110
-  br i1 %111, label %112, label %127
+  store ptr %108, ptr %109, align 8
+  %110 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp eq ptr null, %111
+  br i1 %112, label %113, label %128
 
-112:                                              ; preds = %98
-  br label %113
-
-113:                                              ; preds = %112
+113:                                              ; preds = %99
   br label %114
 
 114:                                              ; preds = %113
   br label %115
 
 115:                                              ; preds = %114
-  %116 = load i64, ptr @H5E_RESOURCE_g, align 8
-  %117 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %118 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5Z_append, i32 noundef 1220, i64 noundef %116, i64 noundef %117, ptr noundef @.str.30)
-  br label %119
+  br label %116
 
-119:                                              ; preds = %115
+116:                                              ; preds = %115
+  %117 = load i64, ptr @H5E_RESOURCE_g, align 8
+  %118 = load i64, ptr @H5E_NOSPACE_g, align 8
+  %119 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5Z_append, i32 noundef 1220, i64 noundef %117, i64 noundef %118, ptr noundef @.str.30)
+  br label %120
+
+120:                                              ; preds = %116
   store i8 1, ptr %13, align 1
-  %120 = load i8, ptr %13, align 1
-  %121 = trunc i8 %120 to i1
-  %122 = zext i1 %121 to i8
-  store i8 %122, ptr %13, align 1
-  br label %123
-
-123:                                              ; preds = %119
+  %121 = load i8, ptr %13, align 1
+  %122 = trunc i8 %121 to i1
+  %123 = zext i1 %122 to i8
+  store i8 %123, ptr %13, align 1
   br label %124
 
-124:                                              ; preds = %123
+124:                                              ; preds = %120
+  br label %125
+
+125:                                              ; preds = %124
   store i32 -1, ptr %12, align 4
-  br label %286
+  br label %288
 
-125:                                              ; No predecessors!
-  br label %126
-
-126:                                              ; preds = %125
+126:                                              ; No predecessors!
   br label %127
 
-127:                                              ; preds = %126, %98
+127:                                              ; preds = %126
+  br label %128
+
+128:                                              ; preds = %127, %99
   store i64 0, ptr %15, align 8
-  br label %128
+  br label %129
 
-128:                                              ; preds = %155, %127
-  %129 = load i64, ptr %15, align 8
-  %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct.H5O_pline_t, ptr %130, i32 0, i32 2
-  %132 = load i64, ptr %131, align 8
-  %133 = icmp ult i64 %129, %132
-  br i1 %133, label %134, label %158
+129:                                              ; preds = %157, %128
+  %130 = load i64, ptr %15, align 8
+  %131 = load ptr, ptr %6, align 8
+  %132 = getelementptr inbounds %struct.H5O_pline_t, ptr %131, i32 0, i32 2
+  %133 = load i64, ptr %132, align 8
+  %134 = icmp ult i64 %130, %133
+  br i1 %134, label %135, label %160
 
-134:                                              ; preds = %128
-  %135 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
-  %136 = load ptr, ptr %135, align 8
-  %137 = load i64, ptr %15, align 8
-  %138 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %136, i64 %137
-  %139 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %138, i32 0, i32 6
-  %140 = load ptr, ptr %139, align 8
-  %141 = icmp eq ptr %140, inttoptr (i64 -1 to ptr)
-  br i1 %141, label %142, label %154
+135:                                              ; preds = %129
+  %136 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
+  %137 = load ptr, ptr %136, align 8
+  %138 = load i64, ptr %15, align 8
+  %139 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %137, i64 %138
+  %140 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %139, i32 0, i32 6
+  %141 = load ptr, ptr %140, align 8
+  %142 = inttoptr i64 -1 to ptr
+  %143 = icmp eq ptr %141, %142
+  br i1 %143, label %144, label %156
 
-142:                                              ; preds = %134
-  %143 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
-  %144 = load ptr, ptr %143, align 8
-  %145 = load i64, ptr %15, align 8
-  %146 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %144, i64 %145
-  %147 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %146, i32 0, i32 5
-  %148 = getelementptr inbounds [4 x i32], ptr %147, i64 0, i64 0
-  %149 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
-  %150 = load ptr, ptr %149, align 8
-  %151 = load i64, ptr %15, align 8
-  %152 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %150, i64 %151
-  %153 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %152, i32 0, i32 6
-  store ptr %148, ptr %153, align 8
-  br label %154
+144:                                              ; preds = %135
+  %145 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
+  %146 = load ptr, ptr %145, align 8
+  %147 = load i64, ptr %15, align 8
+  %148 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %146, i64 %147
+  %149 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %148, i32 0, i32 5
+  %150 = getelementptr inbounds [4 x i32], ptr %149, i64 0, i64 0
+  %151 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
+  %152 = load ptr, ptr %151, align 8
+  %153 = load i64, ptr %15, align 8
+  %154 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %152, i64 %153
+  %155 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %154, i32 0, i32 6
+  store ptr %150, ptr %155, align 8
+  br label %156
 
-154:                                              ; preds = %142, %134
-  br label %155
+156:                                              ; preds = %144, %135
+  br label %157
 
-155:                                              ; preds = %154
-  %156 = load i64, ptr %15, align 8
-  %157 = add i64 %156, 1
-  store i64 %157, ptr %15, align 8
-  br label %128
+157:                                              ; preds = %156
+  %158 = load i64, ptr %15, align 8
+  %159 = add i64 %158, 1
+  store i64 %159, ptr %15, align 8
+  br label %129
 
-158:                                              ; preds = %128
-  %159 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 2
-  %160 = load i64, ptr %159, align 8
-  %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr inbounds %struct.H5O_pline_t, ptr %161, i32 0, i32 2
-  store i64 %160, ptr %162, align 8
-  %163 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
-  %164 = load ptr, ptr %163, align 8
-  %165 = load ptr, ptr %6, align 8
-  %166 = getelementptr inbounds %struct.H5O_pline_t, ptr %165, i32 0, i32 4
-  store ptr %164, ptr %166, align 8
-  br label %167
+160:                                              ; preds = %129
+  %161 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 2
+  %162 = load i64, ptr %161, align 8
+  %163 = load ptr, ptr %6, align 8
+  %164 = getelementptr inbounds %struct.H5O_pline_t, ptr %163, i32 0, i32 2
+  store i64 %162, ptr %164, align 8
+  %165 = getelementptr inbounds %struct.H5O_pline_t, ptr %14, i32 0, i32 4
+  %166 = load ptr, ptr %165, align 8
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds %struct.H5O_pline_t, ptr %167, i32 0, i32 4
+  store ptr %166, ptr %168, align 8
+  br label %169
 
-167:                                              ; preds = %158, %44
-  %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds %struct.H5O_pline_t, ptr %168, i32 0, i32 3
-  %170 = load i64, ptr %169, align 8
-  store i64 %170, ptr %11, align 8
-  %171 = load i32, ptr %7, align 4
-  %172 = load ptr, ptr %6, align 8
-  %173 = getelementptr inbounds %struct.H5O_pline_t, ptr %172, i32 0, i32 4
-  %174 = load ptr, ptr %173, align 8
-  %175 = load i64, ptr %11, align 8
-  %176 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %174, i64 %175
-  %177 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %176, i32 0, i32 0
-  store i32 %171, ptr %177, align 8
-  %178 = load i32, ptr %8, align 4
-  %179 = load ptr, ptr %6, align 8
-  %180 = getelementptr inbounds %struct.H5O_pline_t, ptr %179, i32 0, i32 4
-  %181 = load ptr, ptr %180, align 8
-  %182 = load i64, ptr %11, align 8
-  %183 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %181, i64 %182
-  %184 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %183, i32 0, i32 1
-  store i32 %178, ptr %184, align 4
-  %185 = load ptr, ptr %6, align 8
-  %186 = getelementptr inbounds %struct.H5O_pline_t, ptr %185, i32 0, i32 4
-  %187 = load ptr, ptr %186, align 8
-  %188 = load i64, ptr %11, align 8
-  %189 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %187, i64 %188
-  %190 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %189, i32 0, i32 3
-  store ptr null, ptr %190, align 8
-  %191 = load i64, ptr %9, align 8
-  %192 = load ptr, ptr %6, align 8
-  %193 = getelementptr inbounds %struct.H5O_pline_t, ptr %192, i32 0, i32 4
-  %194 = load ptr, ptr %193, align 8
-  %195 = load i64, ptr %11, align 8
-  %196 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %194, i64 %195
-  %197 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %196, i32 0, i32 4
-  store i64 %191, ptr %197, align 8
-  %198 = load i64, ptr %9, align 8
-  %199 = icmp ugt i64 %198, 0
-  br i1 %199, label %200, label %274
+169:                                              ; preds = %160, %44
+  %170 = load ptr, ptr %6, align 8
+  %171 = getelementptr inbounds %struct.H5O_pline_t, ptr %170, i32 0, i32 3
+  %172 = load i64, ptr %171, align 8
+  store i64 %172, ptr %11, align 8
+  %173 = load i32, ptr %7, align 4
+  %174 = load ptr, ptr %6, align 8
+  %175 = getelementptr inbounds %struct.H5O_pline_t, ptr %174, i32 0, i32 4
+  %176 = load ptr, ptr %175, align 8
+  %177 = load i64, ptr %11, align 8
+  %178 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %176, i64 %177
+  %179 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %178, i32 0, i32 0
+  store i32 %173, ptr %179, align 8
+  %180 = load i32, ptr %8, align 4
+  %181 = load ptr, ptr %6, align 8
+  %182 = getelementptr inbounds %struct.H5O_pline_t, ptr %181, i32 0, i32 4
+  %183 = load ptr, ptr %182, align 8
+  %184 = load i64, ptr %11, align 8
+  %185 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %183, i64 %184
+  %186 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %185, i32 0, i32 1
+  store i32 %180, ptr %186, align 4
+  %187 = load ptr, ptr %6, align 8
+  %188 = getelementptr inbounds %struct.H5O_pline_t, ptr %187, i32 0, i32 4
+  %189 = load ptr, ptr %188, align 8
+  %190 = load i64, ptr %11, align 8
+  %191 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %189, i64 %190
+  %192 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %191, i32 0, i32 3
+  store ptr null, ptr %192, align 8
+  %193 = load i64, ptr %9, align 8
+  %194 = load ptr, ptr %6, align 8
+  %195 = getelementptr inbounds %struct.H5O_pline_t, ptr %194, i32 0, i32 4
+  %196 = load ptr, ptr %195, align 8
+  %197 = load i64, ptr %11, align 8
+  %198 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %196, i64 %197
+  %199 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %198, i32 0, i32 4
+  store i64 %193, ptr %199, align 8
+  %200 = load i64, ptr %9, align 8
+  %201 = icmp ugt i64 %200, 0
+  br i1 %201, label %202, label %276
 
-200:                                              ; preds = %167
-  %201 = load i64, ptr %9, align 8
-  %202 = icmp ugt i64 %201, 4
-  br i1 %202, label %203, label %237
+202:                                              ; preds = %169
+  %203 = load i64, ptr %9, align 8
+  %204 = icmp ugt i64 %203, 4
+  br i1 %204, label %205, label %239
 
-203:                                              ; preds = %200
-  %204 = load i64, ptr %9, align 8
-  %205 = mul i64 %204, 4
-  %206 = call noalias ptr @malloc(i64 noundef %205) #8
-  %207 = load ptr, ptr %6, align 8
-  %208 = getelementptr inbounds %struct.H5O_pline_t, ptr %207, i32 0, i32 4
-  %209 = load ptr, ptr %208, align 8
-  %210 = load i64, ptr %11, align 8
-  %211 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %209, i64 %210
-  %212 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %211, i32 0, i32 6
-  store ptr %206, ptr %212, align 8
-  %213 = load ptr, ptr %6, align 8
-  %214 = getelementptr inbounds %struct.H5O_pline_t, ptr %213, i32 0, i32 4
-  %215 = load ptr, ptr %214, align 8
-  %216 = load i64, ptr %11, align 8
-  %217 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %215, i64 %216
-  %218 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %217, i32 0, i32 6
-  %219 = load ptr, ptr %218, align 8
-  %220 = icmp eq ptr null, %219
-  br i1 %220, label %221, label %236
+205:                                              ; preds = %202
+  %206 = load i64, ptr %9, align 8
+  %207 = mul i64 %206, 4
+  %208 = call noalias ptr @malloc(i64 noundef %207) #8
+  %209 = load ptr, ptr %6, align 8
+  %210 = getelementptr inbounds %struct.H5O_pline_t, ptr %209, i32 0, i32 4
+  %211 = load ptr, ptr %210, align 8
+  %212 = load i64, ptr %11, align 8
+  %213 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %211, i64 %212
+  %214 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %213, i32 0, i32 6
+  store ptr %208, ptr %214, align 8
+  %215 = load ptr, ptr %6, align 8
+  %216 = getelementptr inbounds %struct.H5O_pline_t, ptr %215, i32 0, i32 4
+  %217 = load ptr, ptr %216, align 8
+  %218 = load i64, ptr %11, align 8
+  %219 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %217, i64 %218
+  %220 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %219, i32 0, i32 6
+  %221 = load ptr, ptr %220, align 8
+  %222 = icmp eq ptr null, %221
+  br i1 %222, label %223, label %238
 
-221:                                              ; preds = %203
-  br label %222
-
-222:                                              ; preds = %221
-  br label %223
-
-223:                                              ; preds = %222
+223:                                              ; preds = %205
   br label %224
 
 224:                                              ; preds = %223
-  %225 = load i64, ptr @H5E_RESOURCE_g, align 8
-  %226 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %227 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5Z_append, i32 noundef 1247, i64 noundef %225, i64 noundef %226, ptr noundef @.str.31)
-  br label %228
+  br label %225
 
-228:                                              ; preds = %224
+225:                                              ; preds = %224
+  br label %226
+
+226:                                              ; preds = %225
+  %227 = load i64, ptr @H5E_RESOURCE_g, align 8
+  %228 = load i64, ptr @H5E_NOSPACE_g, align 8
+  %229 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5Z_append, i32 noundef 1247, i64 noundef %227, i64 noundef %228, ptr noundef @.str.31)
+  br label %230
+
+230:                                              ; preds = %226
   store i8 1, ptr %13, align 1
-  %229 = load i8, ptr %13, align 1
-  %230 = trunc i8 %229 to i1
-  %231 = zext i1 %230 to i8
-  store i8 %231, ptr %13, align 1
-  br label %232
+  %231 = load i8, ptr %13, align 1
+  %232 = trunc i8 %231 to i1
+  %233 = zext i1 %232 to i8
+  store i8 %233, ptr %13, align 1
+  br label %234
 
-232:                                              ; preds = %228
-  br label %233
-
-233:                                              ; preds = %232
-  store i32 -1, ptr %12, align 4
-  br label %286
-
-234:                                              ; No predecessors!
+234:                                              ; preds = %230
   br label %235
 
 235:                                              ; preds = %234
-  br label %236
+  store i32 -1, ptr %12, align 4
+  br label %288
 
-236:                                              ; preds = %235, %203
-  br label %251
+236:                                              ; No predecessors!
+  br label %237
 
-237:                                              ; preds = %200
-  %238 = load ptr, ptr %6, align 8
-  %239 = getelementptr inbounds %struct.H5O_pline_t, ptr %238, i32 0, i32 4
-  %240 = load ptr, ptr %239, align 8
-  %241 = load i64, ptr %11, align 8
-  %242 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %240, i64 %241
-  %243 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %242, i32 0, i32 5
-  %244 = getelementptr inbounds [4 x i32], ptr %243, i64 0, i64 0
-  %245 = load ptr, ptr %6, align 8
-  %246 = getelementptr inbounds %struct.H5O_pline_t, ptr %245, i32 0, i32 4
-  %247 = load ptr, ptr %246, align 8
-  %248 = load i64, ptr %11, align 8
-  %249 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %247, i64 %248
-  %250 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %249, i32 0, i32 6
-  store ptr %244, ptr %250, align 8
-  br label %251
+237:                                              ; preds = %236
+  br label %238
 
-251:                                              ; preds = %237, %236
+238:                                              ; preds = %237, %205
+  br label %253
+
+239:                                              ; preds = %202
+  %240 = load ptr, ptr %6, align 8
+  %241 = getelementptr inbounds %struct.H5O_pline_t, ptr %240, i32 0, i32 4
+  %242 = load ptr, ptr %241, align 8
+  %243 = load i64, ptr %11, align 8
+  %244 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %242, i64 %243
+  %245 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %244, i32 0, i32 5
+  %246 = getelementptr inbounds [4 x i32], ptr %245, i64 0, i64 0
+  %247 = load ptr, ptr %6, align 8
+  %248 = getelementptr inbounds %struct.H5O_pline_t, ptr %247, i32 0, i32 4
+  %249 = load ptr, ptr %248, align 8
+  %250 = load i64, ptr %11, align 8
+  %251 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %249, i64 %250
+  %252 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %251, i32 0, i32 6
+  store ptr %246, ptr %252, align 8
+  br label %253
+
+253:                                              ; preds = %239, %238
   store i64 0, ptr %16, align 8
-  br label %252
+  br label %254
 
-252:                                              ; preds = %270, %251
-  %253 = load i64, ptr %16, align 8
-  %254 = load i64, ptr %9, align 8
-  %255 = icmp ult i64 %253, %254
-  br i1 %255, label %256, label %273
+254:                                              ; preds = %272, %253
+  %255 = load i64, ptr %16, align 8
+  %256 = load i64, ptr %9, align 8
+  %257 = icmp ult i64 %255, %256
+  br i1 %257, label %258, label %275
 
-256:                                              ; preds = %252
-  %257 = load ptr, ptr %10, align 8
-  %258 = load i64, ptr %16, align 8
-  %259 = getelementptr inbounds i32, ptr %257, i64 %258
-  %260 = load i32, ptr %259, align 4
-  %261 = load ptr, ptr %6, align 8
-  %262 = getelementptr inbounds %struct.H5O_pline_t, ptr %261, i32 0, i32 4
-  %263 = load ptr, ptr %262, align 8
-  %264 = load i64, ptr %11, align 8
-  %265 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %263, i64 %264
-  %266 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %265, i32 0, i32 6
-  %267 = load ptr, ptr %266, align 8
-  %268 = load i64, ptr %16, align 8
-  %269 = getelementptr inbounds i32, ptr %267, i64 %268
-  store i32 %260, ptr %269, align 4
-  br label %270
+258:                                              ; preds = %254
+  %259 = load ptr, ptr %10, align 8
+  %260 = load i64, ptr %16, align 8
+  %261 = getelementptr inbounds i32, ptr %259, i64 %260
+  %262 = load i32, ptr %261, align 4
+  %263 = load ptr, ptr %6, align 8
+  %264 = getelementptr inbounds %struct.H5O_pline_t, ptr %263, i32 0, i32 4
+  %265 = load ptr, ptr %264, align 8
+  %266 = load i64, ptr %11, align 8
+  %267 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %265, i64 %266
+  %268 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %267, i32 0, i32 6
+  %269 = load ptr, ptr %268, align 8
+  %270 = load i64, ptr %16, align 8
+  %271 = getelementptr inbounds i32, ptr %269, i64 %270
+  store i32 %262, ptr %271, align 4
+  br label %272
 
-270:                                              ; preds = %256
-  %271 = load i64, ptr %16, align 8
-  %272 = add i64 %271, 1
-  store i64 %272, ptr %16, align 8
-  br label %252
+272:                                              ; preds = %258
+  %273 = load i64, ptr %16, align 8
+  %274 = add i64 %273, 1
+  store i64 %274, ptr %16, align 8
+  br label %254
 
-273:                                              ; preds = %252
-  br label %281
+275:                                              ; preds = %254
+  br label %283
 
-274:                                              ; preds = %167
-  %275 = load ptr, ptr %6, align 8
-  %276 = getelementptr inbounds %struct.H5O_pline_t, ptr %275, i32 0, i32 4
-  %277 = load ptr, ptr %276, align 8
-  %278 = load i64, ptr %11, align 8
-  %279 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %277, i64 %278
-  %280 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %279, i32 0, i32 6
-  store ptr null, ptr %280, align 8
-  br label %281
+276:                                              ; preds = %169
+  %277 = load ptr, ptr %6, align 8
+  %278 = getelementptr inbounds %struct.H5O_pline_t, ptr %277, i32 0, i32 4
+  %279 = load ptr, ptr %278, align 8
+  %280 = load i64, ptr %11, align 8
+  %281 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %279, i64 %280
+  %282 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %281, i32 0, i32 6
+  store ptr null, ptr %282, align 8
+  br label %283
 
-281:                                              ; preds = %274, %273
-  %282 = load ptr, ptr %6, align 8
-  %283 = getelementptr inbounds %struct.H5O_pline_t, ptr %282, i32 0, i32 3
-  %284 = load i64, ptr %283, align 8
-  %285 = add i64 %284, 1
-  store i64 %285, ptr %283, align 8
-  br label %286
+283:                                              ; preds = %276, %275
+  %284 = load ptr, ptr %6, align 8
+  %285 = getelementptr inbounds %struct.H5O_pline_t, ptr %284, i32 0, i32 3
+  %286 = load i64, ptr %285, align 8
+  %287 = add i64 %286, 1
+  store i64 %287, ptr %285, align 8
+  br label %288
 
-286:                                              ; preds = %281, %233, %124, %33
-  %287 = load i32, ptr %12, align 4
-  ret i32 %287
+288:                                              ; preds = %283, %235, %125, %33
+  %289 = load i32, ptr %12, align 4
+  ret i32 %289
 }
 
 ; Function Attrs: nounwind uwtable

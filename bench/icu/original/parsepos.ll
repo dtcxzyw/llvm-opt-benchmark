@@ -124,17 +124,18 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %copy.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %index = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %copy.addr, align 8
-  %index2 = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %index2, align 8
-  store i32 %2, ptr %index, align 8
+  %2 = load ptr, ptr %copy.addr, align 8
+  %index2 = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %index2, align 8
+  store i32 %3, ptr %index, align 8
   %errorIndex = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %copy.addr, align 8
-  %errorIndex3 = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %errorIndex3, align 4
-  store i32 %4, ptr %errorIndex, align 4
+  %4 = load ptr, ptr %copy.addr, align 8
+  %errorIndex3 = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %errorIndex3, align 4
+  store i32 %5, ptr %errorIndex, align 4
   ret void
 }
 
@@ -148,7 +149,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

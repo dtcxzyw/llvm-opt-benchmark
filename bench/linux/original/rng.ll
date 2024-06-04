@@ -103,71 +103,72 @@ define dso_local i32 @crypto_get_default_rng() #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @crypto_default_rng_lock) #5
   %1 = load ptr, ptr @crypto_default_rng, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %3, label %34
+  br i1 %2, label %3, label %35
 
 3:                                                ; preds = %0
   %4 = tail call ptr @crypto_alloc_tfm_node(ptr noundef nonnull @.str, ptr noundef nonnull @crypto_rng_type, i32 noundef 0, i32 noundef 0, i32 noundef -1) #5
   %5 = ptrtoint ptr %4 to i64
   %6 = trunc i64 %5 to i32
-  %7 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %7, label %37, label %8
+  %7 = inttoptr i64 -4096 to ptr
+  %8 = icmp ugt ptr %4, %7
+  br i1 %8, label %38, label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i8, ptr %10, i64 -8
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %21, label %14
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr i8, ptr %11, i64 -8
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %22, label %15
 
-14:                                               ; preds = %8
-  %15 = zext i32 %12 to i64
-  %16 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %15, i32 noundef 3264) #4
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %29, label %18
+15:                                               ; preds = %9
+  %16 = zext i32 %13 to i64
+  %17 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %16, i32 noundef 3264) #4
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %30, label %19
 
-18:                                               ; preds = %14
-  %19 = tail call i32 @wait_for_random_bytes() #5
-  tail call void @get_random_bytes(ptr noundef nonnull %16, i64 noundef %15) #5
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %26
+19:                                               ; preds = %15
+  %20 = tail call i32 @wait_for_random_bytes() #5
+  tail call void @get_random_bytes(ptr noundef nonnull %17, i64 noundef %16) #5
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %18, %8
-  %22 = phi ptr [ null, %8 ], [ %16, %18 ]
-  %23 = getelementptr i8, ptr %10, i64 -24
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(ptr noundef %4, ptr noundef %22, i32 noundef %12) #5
-  br label %26
+22:                                               ; preds = %19, %9
+  %23 = phi ptr [ null, %9 ], [ %17, %19 ]
+  %24 = getelementptr i8, ptr %11, i64 -24
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 %25(ptr noundef %4, ptr noundef %23, i32 noundef %13) #5
+  br label %27
 
-26:                                               ; preds = %21, %18
-  %27 = phi ptr [ %16, %18 ], [ %22, %21 ]
-  %28 = phi i32 [ %19, %18 ], [ %25, %21 ]
-  tail call void @kfree_sensitive(ptr noundef %27) #5
-  br label %29
+27:                                               ; preds = %22, %19
+  %28 = phi ptr [ %17, %19 ], [ %23, %22 ]
+  %29 = phi i32 [ %20, %19 ], [ %26, %22 ]
+  tail call void @kfree_sensitive(ptr noundef %28) #5
+  br label %30
 
-29:                                               ; preds = %26, %14
-  %30 = phi i32 [ %28, %26 ], [ -12, %14 ]
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %33, label %32
+30:                                               ; preds = %27, %15
+  %31 = phi i32 [ %29, %27 ], [ -12, %15 ]
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %29
+33:                                               ; preds = %30
   tail call void @crypto_destroy_tfm(ptr noundef %4, ptr noundef %4) #5
-  br label %37
+  br label %38
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   store ptr %4, ptr @crypto_default_rng, align 8
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %0
-  %35 = load i32, ptr @crypto_default_rng_refcnt, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr @crypto_default_rng_refcnt, align 4
-  br label %37
+35:                                               ; preds = %34, %0
+  %36 = load i32, ptr @crypto_default_rng_refcnt, align 4
+  %37 = add i32 %36, 1
+  store i32 %37, ptr @crypto_default_rng_refcnt, align 4
+  br label %38
 
-37:                                               ; preds = %34, %32, %3
-  %38 = phi i32 [ 0, %34 ], [ %6, %3 ], [ %30, %32 ]
+38:                                               ; preds = %35, %33, %3
+  %39 = phi i32 [ 0, %35 ], [ %6, %3 ], [ %31, %33 ]
   tail call void @mutex_unlock(ptr noundef nonnull @crypto_default_rng_lock) #5
-  ret i32 %38
+  ret i32 %39
 }
 
 ; Function Attrs: null_pointer_is_valid

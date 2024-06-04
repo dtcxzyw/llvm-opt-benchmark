@@ -227,11 +227,12 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7292ef2e283
 define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h345c71f671730e3bE(ptr sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   store i64 0, ptr %0, align 8
   %3 = load i64, ptr @anon.7f0a1f96a8b77318081b60a73c3f3919.0, align 8, !range !3, !noundef !4
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @anon.7f0a1f96a8b77318081b60a73c3f3919.0, i64 8), align 8
-  %5 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
-  store i64 %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %4, ptr %6, align 8
+  %4 = getelementptr inbounds i8, ptr @anon.7f0a1f96a8b77318081b60a73c3f3919.0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %0, i32 0, i32 1
+  store i64 %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %5, ptr %7, align 8
   ret void
 }
 

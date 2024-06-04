@@ -205,46 +205,47 @@ entry:
   %2 = load ptr, ptr %uc, align 8
   %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %2, i32 0, i32 1
   store ptr @usb_uas_realize, ptr %realize, align 8
-  %3 = load ptr, ptr getelementptr inbounds ([256 x ptr], ptr @desc_strings, i64 0, i64 2), align 16
-  %4 = load ptr, ptr %uc, align 8
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %4, i32 0, i32 14
-  store ptr %3, ptr %product_desc, align 8
+  %3 = getelementptr inbounds [256 x ptr], ptr @desc_strings, i64 0, i64 2
+  %4 = load ptr, ptr %3, align 16
   %5 = load ptr, ptr %uc, align 8
-  %usb_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %5, i32 0, i32 15
-  store ptr @desc, ptr %usb_desc, align 8
+  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %5, i32 0, i32 14
+  store ptr %4, ptr %product_desc, align 8
   %6 = load ptr, ptr %uc, align 8
-  %cancel_packet = getelementptr inbounds %struct.USBDeviceClass, ptr %6, i32 0, i32 4
-  store ptr @usb_uas_cancel_io, ptr %cancel_packet, align 8
+  %usb_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %6, i32 0, i32 15
+  store ptr @desc, ptr %usb_desc, align 8
   %7 = load ptr, ptr %uc, align 8
-  %handle_attach = getelementptr inbounds %struct.USBDeviceClass, ptr %7, i32 0, i32 5
-  store ptr @usb_desc_attach, ptr %handle_attach, align 8
+  %cancel_packet = getelementptr inbounds %struct.USBDeviceClass, ptr %7, i32 0, i32 4
+  store ptr @usb_uas_cancel_io, ptr %cancel_packet, align 8
   %8 = load ptr, ptr %uc, align 8
-  %handle_reset = getelementptr inbounds %struct.USBDeviceClass, ptr %8, i32 0, i32 6
-  store ptr @usb_uas_handle_reset, ptr %handle_reset, align 8
+  %handle_attach = getelementptr inbounds %struct.USBDeviceClass, ptr %8, i32 0, i32 5
+  store ptr @usb_desc_attach, ptr %handle_attach, align 8
   %9 = load ptr, ptr %uc, align 8
-  %handle_control = getelementptr inbounds %struct.USBDeviceClass, ptr %9, i32 0, i32 7
-  store ptr @usb_uas_handle_control, ptr %handle_control, align 8
+  %handle_reset = getelementptr inbounds %struct.USBDeviceClass, ptr %9, i32 0, i32 6
+  store ptr @usb_uas_handle_reset, ptr %handle_reset, align 8
   %10 = load ptr, ptr %uc, align 8
-  %handle_data = getelementptr inbounds %struct.USBDeviceClass, ptr %10, i32 0, i32 8
-  store ptr @usb_uas_handle_data, ptr %handle_data, align 8
+  %handle_control = getelementptr inbounds %struct.USBDeviceClass, ptr %10, i32 0, i32 7
+  store ptr @usb_uas_handle_control, ptr %handle_control, align 8
   %11 = load ptr, ptr %uc, align 8
-  %unrealize = getelementptr inbounds %struct.USBDeviceClass, ptr %11, i32 0, i32 2
-  store ptr @usb_uas_unrealize, ptr %unrealize, align 8
+  %handle_data = getelementptr inbounds %struct.USBDeviceClass, ptr %11, i32 0, i32 8
+  store ptr @usb_uas_handle_data, ptr %handle_data, align 8
   %12 = load ptr, ptr %uc, align 8
-  %attached_settable = getelementptr inbounds %struct.USBDeviceClass, ptr %12, i32 0, i32 16
+  %unrealize = getelementptr inbounds %struct.USBDeviceClass, ptr %12, i32 0, i32 2
+  store ptr @usb_uas_unrealize, ptr %unrealize, align 8
+  %13 = load ptr, ptr %uc, align 8
+  %attached_settable = getelementptr inbounds %struct.USBDeviceClass, ptr %13, i32 0, i32 16
   store i8 1, ptr %attached_settable, align 8
-  %13 = load ptr, ptr %dc, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %dc, align 8
+  %categories = getelementptr inbounds %struct.DeviceClass, ptr %14, i32 0, i32 1
   %arraydecay = getelementptr inbounds [1 x i64], ptr %categories, i64 0, i64 0
   call void @set_bit(i64 noundef 2, ptr noundef %arraydecay)
-  %14 = load ptr, ptr %dc, align 8
-  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %14, i32 0, i32 2
-  store ptr @.str.2, ptr %fw_name, align 8
   %15 = load ptr, ptr %dc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %15, i32 0, i32 10
-  store ptr @vmstate_usb_uas, ptr %vmsd, align 8
+  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %15, i32 0, i32 2
+  store ptr @.str.2, ptr %fw_name, align 8
   %16 = load ptr, ptr %dc, align 8
-  call void @device_class_set_props(ptr noundef %16, ptr noundef @uas_properties)
+  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %16, i32 0, i32 10
+  store ptr @vmstate_usb_uas, ptr %vmsd, align 8
+  %17 = load ptr, ptr %dc, align 8
+  call void @device_class_set_props(ptr noundef %17, ptr noundef @uas_properties)
   ret void
 }
 

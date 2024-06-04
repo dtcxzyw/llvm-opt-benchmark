@@ -9754,7 +9754,7 @@ define dso_local { i64, i64 } @JS_ThrowInternalError(ptr noundef %0, ptr noundef
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
@@ -9767,7 +9767,7 @@ define dso_local { i64, i64 } @JS_ThrowInternalError(ptr noundef %0, ptr noundef
   store i64 %16, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %7, i64 16, i1 false)
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %17)
+  call void @llvm.va_end.p0(ptr %17)
   %18 = load { i64, i64 }, ptr %3, align 8
   ret { i64, i64 } %18
 }
@@ -15547,7 +15547,7 @@ define dso_local { i64, i64 } @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef %
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
@@ -15560,13 +15560,10 @@ define dso_local { i64, i64 } @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef %
   store i64 %16, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %7, i64 16, i1 false)
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %17)
+  call void @llvm.va_end.p0(ptr %17)
   %18 = load { i64, i64 }, ptr %3, align 8
   ret { i64, i64 } %18
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @JS_ThrowError(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -15637,9 +15634,6 @@ define internal { i64, i64 } @JS_ThrowError(ptr noundef %0, i32 noundef %1, ptr 
   ret { i64, i64 } %51
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @JS_ThrowTypeError(ptr noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca %struct.JSValue, align 8
@@ -15650,7 +15644,7 @@ define dso_local { i64, i64 } @JS_ThrowTypeError(ptr noundef %0, ptr noundef %1,
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
@@ -15663,7 +15657,7 @@ define dso_local { i64, i64 } @JS_ThrowTypeError(ptr noundef %0, ptr noundef %1,
   store i64 %16, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %7, i64 16, i1 false)
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %17)
+  call void @llvm.va_end.p0(ptr %17)
   %18 = load { i64, i64 }, ptr %3, align 8
   ret { i64, i64 } %18
 }
@@ -15678,7 +15672,7 @@ define dso_local { i64, i64 } @JS_ThrowReferenceError(ptr noundef %0, ptr nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
@@ -15691,7 +15685,7 @@ define dso_local { i64, i64 } @JS_ThrowReferenceError(ptr noundef %0, ptr nounde
   store i64 %16, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %7, i64 16, i1 false)
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %17)
+  call void @llvm.va_end.p0(ptr %17)
   %18 = load { i64, i64 }, ptr %3, align 8
   ret { i64, i64 } %18
 }
@@ -15706,7 +15700,7 @@ define dso_local { i64, i64 } @JS_ThrowRangeError(ptr noundef %0, ptr noundef %1
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
@@ -15719,7 +15713,7 @@ define dso_local { i64, i64 } @JS_ThrowRangeError(ptr noundef %0, ptr noundef %1
   store i64 %16, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %7, i64 16, i1 false)
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %17)
+  call void @llvm.va_end.p0(ptr %17)
   %18 = load { i64, i64 }, ptr %3, align 8
   ret { i64, i64 } %18
 }
@@ -26392,7 +26386,7 @@ define internal i32 @JS_ThrowTypeErrorOrFalse(ptr noundef %0, i32 noundef %1, pt
 
 21:                                               ; preds = %17, %3
   %22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %22)
+  call void @llvm.va_start.p0(ptr %22)
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %7, align 8
   %25 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
@@ -26404,7 +26398,7 @@ define internal i32 @JS_ThrowTypeErrorOrFalse(ptr noundef %0, i32 noundef %1, pt
   %30 = extractvalue { i64, i64 } %26, 1
   store i64 %30, ptr %29, align 8
   %31 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %31)
+  call void @llvm.va_end.p0(ptr %31)
   store i32 -1, ptr %4, align 4
   br label %33
 
@@ -47903,7 +47897,7 @@ define dso_local i32 @js_parse_error(ptr noundef %0, ptr noundef %1, ...) #0 {
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %5, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %12)
+  call void @llvm.va_start.p0(ptr %12)
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
@@ -47915,7 +47909,7 @@ define dso_local i32 @js_parse_error(ptr noundef %0, ptr noundef %1, ...) #0 {
   %20 = extractvalue { i64, i64 } %16, 1
   store i64 %20, ptr %19, align 8
   %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %21)
+  call void @llvm.va_end.p0(ptr %21)
   store i32 0, ptr %7, align 4
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds %struct.JSParseState, ptr %22, i32 0, i32 9
@@ -74673,13 +74667,13 @@ define internal i64 @js_def_malloc_usable_size(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #9
+declare noalias ptr @malloc(i64 noundef) #8
 
 ; Function Attrs: nounwind
 declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #10
+declare ptr @realloc(ptr noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind
 declare i64 @malloc_usable_size(ptr noundef) #5
@@ -74941,7 +74935,7 @@ define internal void @js_free_module_def(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #11
+declare ptr @llvm.frameaddress.p0(i32 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @JS_ResizeAtomHash(ptr noundef %0, i32 noundef %1) #0 {
@@ -191070,7 +191064,7 @@ define internal i32 @code_match(ptr noundef %0, i32 noundef %1, ...) #0 {
   store i32 0, ptr %12, align 4
   store i32 -1, ptr %9, align 4
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_start(ptr %20)
+  call void @llvm.va_start.p0(ptr %20)
   br label %21
 
 21:                                               ; preds = %305, %2
@@ -191518,7 +191512,7 @@ define internal i32 @code_match(ptr noundef %0, i32 noundef %1, ...) #0 {
 
 308:                                              ; preds = %307, %213, %178, %76, %54
   %309 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_end(ptr %309)
+  call void @llvm.va_end.p0(ptr %309)
   %310 = load i32, ptr %12, align 4
   ret i32 %310
 }
@@ -221162,7 +221156,7 @@ define internal i32 @js_throw_URIError(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
@@ -221174,7 +221168,7 @@ define internal i32 @js_throw_URIError(ptr noundef %0, ptr noundef %1, ...) #0 {
   %15 = extractvalue { i64, i64 } %11, 1
   store i64 %15, ptr %14, align 8
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %16)
+  call void @llvm.va_end.p0(ptr %16)
   ret i32 -1
 }
 
@@ -230042,13 +230036,13 @@ define internal { i64, i64 } @js_math_min_max(ptr noundef %0, i64 %1, i64 %2, i3
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare double @fabs(double noundef) #12
+declare double @fabs(double noundef) #11
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare double @floor(double noundef) #12
+declare double @floor(double noundef) #11
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare double @ceil(double noundef) #12
+declare double @ceil(double noundef) #11
 
 ; Function Attrs: nounwind uwtable
 define internal double @js_math_round(double noundef %0) #0 {
@@ -230169,7 +230163,7 @@ declare double @sin(double noundef) #5
 declare double @tan(double noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare double @trunc(double noundef) #12
+declare double @trunc(double noundef) #11
 
 ; Function Attrs: nounwind uwtable
 define internal double @js_math_sign(double noundef %0) #0 {
@@ -230236,7 +230230,7 @@ declare double @log1p(double noundef) #5
 declare double @log10(double noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare double @cbrt(double noundef) #12
+declare double @cbrt(double noundef) #11
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_math_hypot(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef %4) #0 {
@@ -233981,7 +233975,7 @@ define internal { i64, i64 } @js_atomics_notify(ptr noundef %0, i64 %1, i64 %2, 
   store i32 0, ptr %37, align 8
   %38 = getelementptr inbounds %struct.JSValue, ptr %9, i32 0, i32 1
   store i64 6, ptr %38, align 8
-  br label %149
+  br label %150
 
 39:                                               ; preds = %5
   %40 = load ptr, ptr %13, align 8
@@ -234015,7 +234009,7 @@ define internal { i64, i64 } @js_atomics_notify(ptr noundef %0, i64 %1, i64 %2, 
   store i32 0, ptr %60, align 8
   %61 = getelementptr inbounds %struct.JSValue, ptr %9, i32 0, i32 1
   store i64 6, ptr %61, align 8
-  br label %149
+  br label %150
 
 62:                                               ; preds = %49
   br label %63
@@ -234036,7 +234030,7 @@ define internal { i64, i64 } @js_atomics_notify(ptr noundef %0, i64 %1, i64 %2, 
   %73 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
   %74 = extractvalue { i64, i64 } %70, 1
   store i64 %74, ptr %73, align 8
-  br label %149
+  br label %150
 
 75:                                               ; preds = %63
   store i32 0, ptr %18, align 4
@@ -234045,128 +234039,129 @@ define internal { i64, i64 } @js_atomics_notify(ptr noundef %0, i64 %1, i64 %2, 
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %139
+  br i1 %80, label %81, label %140
 
 81:                                               ; preds = %75
   %82 = load i32, ptr %17, align 4
   %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %84, label %139
+  br i1 %83, label %84, label %140
 
 84:                                               ; preds = %81
   %85 = call i32 @pthread_mutex_lock(ptr noundef @js_atomics_mutex) #15
   call void @init_list_head(ptr noundef %16)
-  %86 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @js_atomics_waiter_list, i32 0, i32 1), align 8
-  store ptr %86, ptr %14, align 8
-  %87 = load ptr, ptr %14, align 8
-  %88 = getelementptr inbounds %struct.list_head, ptr %87, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %15, align 8
-  br label %90
+  %86 = getelementptr inbounds %struct.list_head, ptr @js_atomics_waiter_list, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8
+  store ptr %87, ptr %14, align 8
+  %88 = load ptr, ptr %14, align 8
+  %89 = getelementptr inbounds %struct.list_head, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  store ptr %90, ptr %15, align 8
+  br label %91
 
-90:                                               ; preds = %116, %84
-  %91 = load ptr, ptr %14, align 8
-  %92 = icmp ne ptr %91, @js_atomics_waiter_list
-  br i1 %92, label %93, label %121
+91:                                               ; preds = %117, %84
+  %92 = load ptr, ptr %14, align 8
+  %93 = icmp ne ptr %92, @js_atomics_waiter_list
+  br i1 %93, label %94, label %122
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %14, align 8
-  %95 = getelementptr i8, ptr %94, i64 0
-  store ptr %95, ptr %20, align 8
-  %96 = load ptr, ptr %20, align 8
-  %97 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %96, i32 0, i32 3
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %19, align 8
-  %100 = icmp eq ptr %98, %99
-  br i1 %100, label %101, label %115
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %14, align 8
+  %96 = getelementptr i8, ptr %95, i64 0
+  store ptr %96, ptr %20, align 8
+  %97 = load ptr, ptr %20, align 8
+  %98 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %97, i32 0, i32 3
+  %99 = load ptr, ptr %98, align 8
+  %100 = load ptr, ptr %19, align 8
+  %101 = icmp eq ptr %99, %100
+  br i1 %101, label %102, label %116
 
-101:                                              ; preds = %93
-  %102 = load ptr, ptr %20, align 8
-  %103 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %102, i32 0, i32 0
-  call void @list_del(ptr noundef %103)
-  %104 = load ptr, ptr %20, align 8
-  %105 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %104, i32 0, i32 1
-  store i32 0, ptr %105, align 8
-  %106 = load ptr, ptr %20, align 8
-  %107 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %106, i32 0, i32 0
-  call void @list_add_tail(ptr noundef %107, ptr noundef %16)
-  %108 = load i32, ptr %18, align 4
-  %109 = add i32 %108, 1
-  store i32 %109, ptr %18, align 4
-  %110 = load i32, ptr %18, align 4
-  %111 = load i32, ptr %17, align 4
-  %112 = icmp sge i32 %110, %111
-  br i1 %112, label %113, label %114
+102:                                              ; preds = %94
+  %103 = load ptr, ptr %20, align 8
+  %104 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %103, i32 0, i32 0
+  call void @list_del(ptr noundef %104)
+  %105 = load ptr, ptr %20, align 8
+  %106 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %105, i32 0, i32 1
+  store i32 0, ptr %106, align 8
+  %107 = load ptr, ptr %20, align 8
+  %108 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %107, i32 0, i32 0
+  call void @list_add_tail(ptr noundef %108, ptr noundef %16)
+  %109 = load i32, ptr %18, align 4
+  %110 = add i32 %109, 1
+  store i32 %110, ptr %18, align 4
+  %111 = load i32, ptr %18, align 4
+  %112 = load i32, ptr %17, align 4
+  %113 = icmp sge i32 %111, %112
+  br i1 %113, label %114, label %115
 
-113:                                              ; preds = %101
-  br label %121
+114:                                              ; preds = %102
+  br label %122
 
-114:                                              ; preds = %101
-  br label %115
-
-115:                                              ; preds = %114, %93
+115:                                              ; preds = %102
   br label %116
 
-116:                                              ; preds = %115
-  %117 = load ptr, ptr %15, align 8
-  store ptr %117, ptr %14, align 8
-  %118 = load ptr, ptr %14, align 8
-  %119 = getelementptr inbounds %struct.list_head, ptr %118, i32 0, i32 1
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %15, align 8
-  br label %90, !llvm.loop !586
+116:                                              ; preds = %115, %94
+  br label %117
 
-121:                                              ; preds = %113, %90
-  %122 = getelementptr inbounds %struct.list_head, ptr %16, i32 0, i32 1
-  %123 = load ptr, ptr %122, align 8
-  store ptr %123, ptr %14, align 8
-  br label %124
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %15, align 8
+  store ptr %118, ptr %14, align 8
+  %119 = load ptr, ptr %14, align 8
+  %120 = getelementptr inbounds %struct.list_head, ptr %119, i32 0, i32 1
+  %121 = load ptr, ptr %120, align 8
+  store ptr %121, ptr %15, align 8
+  br label %91, !llvm.loop !586
 
-124:                                              ; preds = %133, %121
-  %125 = load ptr, ptr %14, align 8
-  %126 = icmp ne ptr %125, %16
-  br i1 %126, label %127, label %137
+122:                                              ; preds = %114, %91
+  %123 = getelementptr inbounds %struct.list_head, ptr %16, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8
+  store ptr %124, ptr %14, align 8
+  br label %125
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %14, align 8
-  %129 = getelementptr i8, ptr %128, i64 0
-  store ptr %129, ptr %20, align 8
-  %130 = load ptr, ptr %20, align 8
-  %131 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %130, i32 0, i32 2
-  %132 = call i32 @pthread_cond_signal(ptr noundef %131) #15
-  br label %133
+125:                                              ; preds = %134, %122
+  %126 = load ptr, ptr %14, align 8
+  %127 = icmp ne ptr %126, %16
+  br i1 %127, label %128, label %138
 
-133:                                              ; preds = %127
-  %134 = load ptr, ptr %14, align 8
-  %135 = getelementptr inbounds %struct.list_head, ptr %134, i32 0, i32 1
-  %136 = load ptr, ptr %135, align 8
-  store ptr %136, ptr %14, align 8
-  br label %124, !llvm.loop !587
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %14, align 8
+  %130 = getelementptr i8, ptr %129, i64 0
+  store ptr %130, ptr %20, align 8
+  %131 = load ptr, ptr %20, align 8
+  %132 = getelementptr inbounds %struct.JSAtomicsWaiter, ptr %131, i32 0, i32 2
+  %133 = call i32 @pthread_cond_signal(ptr noundef %132) #15
+  br label %134
 
-137:                                              ; preds = %124
-  %138 = call i32 @pthread_mutex_unlock(ptr noundef @js_atomics_mutex) #15
-  br label %139
+134:                                              ; preds = %128
+  %135 = load ptr, ptr %14, align 8
+  %136 = getelementptr inbounds %struct.list_head, ptr %135, i32 0, i32 1
+  %137 = load ptr, ptr %136, align 8
+  store ptr %137, ptr %14, align 8
+  br label %125, !llvm.loop !587
 
-139:                                              ; preds = %137, %81, %75
-  %140 = load ptr, ptr %11, align 8
-  %141 = load i32, ptr %18, align 4
-  store ptr %140, ptr %7, align 8
-  store i32 %141, ptr %8, align 4
-  %142 = load i32, ptr %8, align 4
-  store i32 %142, ptr %6, align 8
-  %143 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 1
-  store i64 0, ptr %143, align 8
-  %144 = load { i64, i64 }, ptr %6, align 8
-  %145 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
-  %146 = extractvalue { i64, i64 } %144, 0
-  store i64 %146, ptr %145, align 8
-  %147 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
-  %148 = extractvalue { i64, i64 } %144, 1
-  store i64 %148, ptr %147, align 8
-  br label %149
+138:                                              ; preds = %125
+  %139 = call i32 @pthread_mutex_unlock(ptr noundef @js_atomics_mutex) #15
+  br label %140
 
-149:                                              ; preds = %139, %68, %59, %36
-  %150 = load { i64, i64 }, ptr %9, align 8
-  ret { i64, i64 } %150
+140:                                              ; preds = %138, %81, %75
+  %141 = load ptr, ptr %11, align 8
+  %142 = load i32, ptr %18, align 4
+  store ptr %141, ptr %7, align 8
+  store i32 %142, ptr %8, align 4
+  %143 = load i32, ptr %8, align 4
+  store i32 %143, ptr %6, align 8
+  %144 = getelementptr inbounds %struct.JSValue, ptr %6, i32 0, i32 1
+  store i64 0, ptr %144, align 8
+  %145 = load { i64, i64 }, ptr %6, align 8
+  %146 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %147 = extractvalue { i64, i64 } %145, 0
+  store i64 %147, ptr %146, align 8
+  %148 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %149 = extractvalue { i64, i64 } %145, 1
+  store i64 %149, ptr %148, align 8
+  br label %150
+
+150:                                              ; preds = %140, %68, %59, %36
+  %151 = load { i64, i64 }, ptr %9, align 8
+  ret { i64, i64 } %151
 }
 
 ; Function Attrs: nounwind uwtable
@@ -244527,6 +244522,12 @@ define internal void @put_u64(ptr noundef %0, i64 noundef %1) #0 {
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -244535,11 +244536,11 @@ attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #12 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind }

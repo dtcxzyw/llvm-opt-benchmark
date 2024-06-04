@@ -935,7 +935,7 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
 
 53:                                               ; preds = %50, %47, %44
   store ptr null, ptr %11, align 8
-  br label %464
+  br label %466
 
 54:                                               ; preds = %39
   %55 = load ptr, ptr %24, align 8
@@ -1008,7 +1008,7 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
 
 106:                                              ; preds = %86
   store i32 0, ptr %25, align 4
-  br label %456
+  br label %458
 
 107:                                              ; preds = %86
   %108 = load ptr, ptr %22, align 8
@@ -1076,7 +1076,7 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
   br label %145
 
 145:                                              ; preds = %144
-  br label %456
+  br label %458
 
 146:                                              ; preds = %128
   %147 = load i32, ptr %26, align 4
@@ -1109,7 +1109,7 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
   %166 = load ptr, ptr %12, align 8
   %167 = load i32, ptr %15, align 4
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %166, i32 noundef %167, ptr noundef @.str.28)
-  br label %456
+  br label %458
 
 168:                                              ; preds = %157
   %169 = load ptr, ptr %22, align 8
@@ -1149,7 +1149,7 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
   %187 = load ptr, ptr %22, align 8
   %188 = call i32 @_php_stream_free(ptr noundef %187, i32 noundef 3)
   store ptr null, ptr %22, align 8
-  br label %456
+  br label %458
 
 189:                                              ; preds = %180
   %190 = load ptr, ptr %22, align 8
@@ -1253,7 +1253,7 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
   %266 = getelementptr inbounds %struct._zend_string, ptr %265, i32 0, i32 3
   %267 = getelementptr inbounds [1 x i8], ptr %266, i64 0, i64 0
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %261, i32 noundef %262, ptr noundef @.str.31, ptr noundef %267)
-  br label %456
+  br label %458
 
 268:                                              ; preds = %248
   %269 = load ptr, ptr %31, align 8
@@ -1283,12 +1283,12 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %285, ptr %25, align 4
   %286 = load i32, ptr %25, align 4
   %287 = icmp sge i32 %286, 300
-  br i1 %287, label %288, label %423
+  br i1 %287, label %288, label %425
 
 288:                                              ; preds = %282
   %289 = load i32, ptr %25, align 4
   %290 = icmp sle i32 %289, 399
-  br i1 %290, label %291, label %423
+  br i1 %290, label %291, label %425
 
 291:                                              ; preds = %288
   br label %292
@@ -1383,7 +1383,7 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
   %359 = getelementptr inbounds %struct._zend_string, ptr %358, i32 0, i32 3
   %360 = getelementptr inbounds [1 x i8], ptr %359, i64 0, i64 0
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %354, i32 noundef %355, ptr noundef @.str.34, ptr noundef %360)
-  br label %456
+  br label %458
 
 361:                                              ; preds = %341
   %362 = load ptr, ptr %33, align 8
@@ -1399,181 +1399,183 @@ define internal ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, ptr n
   %369 = getelementptr inbounds %struct._zend_string, ptr %368, i32 0, i32 3
   %370 = getelementptr inbounds [1 x i8], ptr %369, i64 0, i64 0
   %371 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef %365, ptr noundef @.str.35, ptr noundef %370)
-  br label %383
+  br label %385
 
 372:                                              ; preds = %304
-  %373 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 5), align 8
-  %374 = icmp ne ptr %373, null
-  br i1 %374, label %375, label %379
+  %373 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 5
+  %374 = load ptr, ptr %373, align 8
+  %375 = icmp ne ptr %374, null
+  br i1 %375, label %376, label %381
 
-375:                                              ; preds = %372
-  %376 = load ptr, ptr %22, align 8
-  %377 = load ptr, ptr getelementptr inbounds (%struct.php_file_globals, ptr @file_globals, i32 0, i32 5), align 8
-  %378 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef %376, ptr noundef @.str.35, ptr noundef %377)
-  br label %382
+376:                                              ; preds = %372
+  %377 = load ptr, ptr %22, align 8
+  %378 = getelementptr inbounds %struct.php_file_globals, ptr @file_globals, i32 0, i32 5
+  %379 = load ptr, ptr %378, align 8
+  %380 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef %377, ptr noundef @.str.35, ptr noundef %379)
+  br label %384
 
-379:                                              ; preds = %372
-  %380 = load ptr, ptr %22, align 8
-  %381 = call i64 @_php_stream_write(ptr noundef %380, ptr noundef @.str.36, i64 noundef 16)
-  br label %382
+381:                                              ; preds = %372
+  %382 = load ptr, ptr %22, align 8
+  %383 = call i64 @_php_stream_write(ptr noundef %382, ptr noundef @.str.36, i64 noundef 16)
+  br label %384
 
-382:                                              ; preds = %379, %375
-  br label %383
+384:                                              ; preds = %381, %376
+  br label %385
 
-383:                                              ; preds = %382, %364
-  %384 = load ptr, ptr %22, align 8
-  %385 = getelementptr inbounds [512 x i8], ptr %28, i64 0, i64 0
-  %386 = call i32 @get_ftp_result(ptr noundef %384, ptr noundef %385, i64 noundef 512)
-  store i32 %386, ptr %25, align 4
-  %387 = load i32, ptr %25, align 4
-  %388 = icmp sgt i32 %387, 299
-  br i1 %388, label %392, label %389
+385:                                              ; preds = %384, %364
+  %386 = load ptr, ptr %22, align 8
+  %387 = getelementptr inbounds [512 x i8], ptr %28, i64 0, i64 0
+  %388 = call i32 @get_ftp_result(ptr noundef %386, ptr noundef %387, i64 noundef 512)
+  store i32 %388, ptr %25, align 4
+  %389 = load i32, ptr %25, align 4
+  %390 = icmp sgt i32 %389, 299
+  br i1 %390, label %394, label %391
 
-389:                                              ; preds = %383
-  %390 = load i32, ptr %25, align 4
-  %391 = icmp slt i32 %390, 200
-  br i1 %391, label %392, label %407
+391:                                              ; preds = %385
+  %392 = load i32, ptr %25, align 4
+  %393 = icmp slt i32 %392, 200
+  br i1 %393, label %394, label %409
 
-392:                                              ; preds = %389, %383
-  br label %393
+394:                                              ; preds = %391, %385
+  br label %395
 
-393:                                              ; preds = %392
-  %394 = load ptr, ptr %17, align 8
-  %395 = icmp ne ptr %394, null
-  br i1 %395, label %396, label %405
+395:                                              ; preds = %394
+  %396 = load ptr, ptr %17, align 8
+  %397 = icmp ne ptr %396, null
+  br i1 %397, label %398, label %407
 
-396:                                              ; preds = %393
-  %397 = load ptr, ptr %17, align 8
-  %398 = getelementptr inbounds %struct._php_stream_context, ptr %397, i32 0, i32 0
-  %399 = load ptr, ptr %398, align 8
-  %400 = icmp ne ptr %399, null
-  br i1 %400, label %401, label %405
+398:                                              ; preds = %395
+  %399 = load ptr, ptr %17, align 8
+  %400 = getelementptr inbounds %struct._php_stream_context, ptr %399, i32 0, i32 0
+  %401 = load ptr, ptr %400, align 8
+  %402 = icmp ne ptr %401, null
+  br i1 %402, label %403, label %407
 
-401:                                              ; preds = %396
-  %402 = load ptr, ptr %17, align 8
-  %403 = getelementptr inbounds [512 x i8], ptr %28, i64 0, i64 0
-  %404 = load i32, ptr %25, align 4
-  call void @php_stream_notification_notify(ptr noundef %402, i32 noundef 10, i32 noundef 2, ptr noundef %403, i32 noundef %404, i64 noundef 0, i64 noundef 0, ptr noundef null)
-  br label %405
+403:                                              ; preds = %398
+  %404 = load ptr, ptr %17, align 8
+  %405 = getelementptr inbounds [512 x i8], ptr %28, i64 0, i64 0
+  %406 = load i32, ptr %25, align 4
+  call void @php_stream_notification_notify(ptr noundef %404, i32 noundef 10, i32 noundef 2, ptr noundef %405, i32 noundef %406, i64 noundef 0, i64 noundef 0, ptr noundef null)
+  br label %407
 
-405:                                              ; preds = %401, %396, %393
-  br label %406
-
-406:                                              ; preds = %405
-  br label %422
-
-407:                                              ; preds = %389
+407:                                              ; preds = %403, %398, %395
   br label %408
 
 408:                                              ; preds = %407
-  %409 = load ptr, ptr %17, align 8
-  %410 = icmp ne ptr %409, null
-  br i1 %410, label %411, label %420
+  br label %424
 
-411:                                              ; preds = %408
-  %412 = load ptr, ptr %17, align 8
-  %413 = getelementptr inbounds %struct._php_stream_context, ptr %412, i32 0, i32 0
-  %414 = load ptr, ptr %413, align 8
-  %415 = icmp ne ptr %414, null
-  br i1 %415, label %416, label %420
+409:                                              ; preds = %391
+  br label %410
 
-416:                                              ; preds = %411
-  %417 = load ptr, ptr %17, align 8
-  %418 = getelementptr inbounds [512 x i8], ptr %28, i64 0, i64 0
-  %419 = load i32, ptr %25, align 4
-  call void @php_stream_notification_notify(ptr noundef %417, i32 noundef 10, i32 noundef 0, ptr noundef %418, i32 noundef %419, i64 noundef 0, i64 noundef 0, ptr noundef null)
-  br label %420
+410:                                              ; preds = %409
+  %411 = load ptr, ptr %17, align 8
+  %412 = icmp ne ptr %411, null
+  br i1 %412, label %413, label %422
 
-420:                                              ; preds = %416, %411, %408
-  br label %421
+413:                                              ; preds = %410
+  %414 = load ptr, ptr %17, align 8
+  %415 = getelementptr inbounds %struct._php_stream_context, ptr %414, i32 0, i32 0
+  %416 = load ptr, ptr %415, align 8
+  %417 = icmp ne ptr %416, null
+  br i1 %417, label %418, label %422
 
-421:                                              ; preds = %420
+418:                                              ; preds = %413
+  %419 = load ptr, ptr %17, align 8
+  %420 = getelementptr inbounds [512 x i8], ptr %28, i64 0, i64 0
+  %421 = load i32, ptr %25, align 4
+  call void @php_stream_notification_notify(ptr noundef %419, i32 noundef 10, i32 noundef 0, ptr noundef %420, i32 noundef %421, i64 noundef 0, i64 noundef 0, ptr noundef null)
   br label %422
 
-422:                                              ; preds = %421, %406
+422:                                              ; preds = %418, %413, %410
   br label %423
 
-423:                                              ; preds = %422, %288, %282
-  %424 = load i32, ptr %25, align 4
-  %425 = icmp sgt i32 %424, 299
-  br i1 %425, label %429, label %426
+423:                                              ; preds = %422
+  br label %424
 
-426:                                              ; preds = %423
-  %427 = load i32, ptr %25, align 4
-  %428 = icmp slt i32 %427, 200
-  br i1 %428, label %429, label %430
+424:                                              ; preds = %423, %408
+  br label %425
 
-429:                                              ; preds = %426, %423
+425:                                              ; preds = %424, %288, %282
+  %426 = load i32, ptr %25, align 4
+  %427 = icmp sgt i32 %426, 299
+  br i1 %427, label %431, label %428
+
+428:                                              ; preds = %425
+  %429 = load i32, ptr %25, align 4
+  %430 = icmp slt i32 %429, 200
+  br i1 %430, label %431, label %432
+
+431:                                              ; preds = %428, %425
+  br label %458
+
+432:                                              ; preds = %428
+  %433 = load ptr, ptr %20, align 8
+  %434 = icmp ne ptr %433, null
+  br i1 %434, label %435, label %438
+
+435:                                              ; preds = %432
+  %436 = load i32, ptr %26, align 4
+  %437 = load ptr, ptr %20, align 8
+  store i32 %436, ptr %437, align 4
+  br label %438
+
+438:                                              ; preds = %435, %432
+  %439 = load ptr, ptr %21, align 8
+  %440 = icmp ne ptr %439, null
+  br i1 %440, label %441, label %444
+
+441:                                              ; preds = %438
+  %442 = load i32, ptr %27, align 4
+  %443 = load ptr, ptr %21, align 8
+  store i32 %442, ptr %443, align 4
+  br label %444
+
+444:                                              ; preds = %441, %438
+  %445 = load ptr, ptr %18, align 8
+  %446 = icmp ne ptr %445, null
+  br i1 %446, label %447, label %450
+
+447:                                              ; preds = %444
+  %448 = load ptr, ptr %23, align 8
+  %449 = load ptr, ptr %18, align 8
+  store ptr %448, ptr %449, align 8
+  br label %450
+
+450:                                              ; preds = %447, %444
+  %451 = load ptr, ptr %19, align 8
+  %452 = icmp ne ptr %451, null
+  br i1 %452, label %453, label %456
+
+453:                                              ; preds = %450
+  %454 = load ptr, ptr %24, align 8
+  %455 = load ptr, ptr %19, align 8
+  store ptr %454, ptr %455, align 8
   br label %456
 
-430:                                              ; preds = %426
-  %431 = load ptr, ptr %20, align 8
-  %432 = icmp ne ptr %431, null
-  br i1 %432, label %433, label %436
+456:                                              ; preds = %453, %450
+  %457 = load ptr, ptr %22, align 8
+  store ptr %457, ptr %11, align 8
+  br label %466
 
-433:                                              ; preds = %430
-  %434 = load i32, ptr %26, align 4
-  %435 = load ptr, ptr %20, align 8
-  store i32 %434, ptr %435, align 4
-  br label %436
+458:                                              ; preds = %431, %353, %260, %184, %165, %145, %106
+  %459 = load ptr, ptr %24, align 8
+  call void @php_url_free(ptr noundef %459)
+  %460 = load ptr, ptr %22, align 8
+  %461 = icmp ne ptr %460, null
+  br i1 %461, label %462, label %465
 
-436:                                              ; preds = %433, %430
-  %437 = load ptr, ptr %21, align 8
-  %438 = icmp ne ptr %437, null
-  br i1 %438, label %439, label %442
+462:                                              ; preds = %458
+  %463 = load ptr, ptr %22, align 8
+  %464 = call i32 @_php_stream_free(ptr noundef %463, i32 noundef 3)
+  br label %465
 
-439:                                              ; preds = %436
-  %440 = load i32, ptr %27, align 4
-  %441 = load ptr, ptr %21, align 8
-  store i32 %440, ptr %441, align 4
-  br label %442
-
-442:                                              ; preds = %439, %436
-  %443 = load ptr, ptr %18, align 8
-  %444 = icmp ne ptr %443, null
-  br i1 %444, label %445, label %448
-
-445:                                              ; preds = %442
-  %446 = load ptr, ptr %23, align 8
-  %447 = load ptr, ptr %18, align 8
-  store ptr %446, ptr %447, align 8
-  br label %448
-
-448:                                              ; preds = %445, %442
-  %449 = load ptr, ptr %19, align 8
-  %450 = icmp ne ptr %449, null
-  br i1 %450, label %451, label %454
-
-451:                                              ; preds = %448
-  %452 = load ptr, ptr %24, align 8
-  %453 = load ptr, ptr %19, align 8
-  store ptr %452, ptr %453, align 8
-  br label %454
-
-454:                                              ; preds = %451, %448
-  %455 = load ptr, ptr %22, align 8
-  store ptr %455, ptr %11, align 8
-  br label %464
-
-456:                                              ; preds = %429, %353, %260, %184, %165, %145, %106
-  %457 = load ptr, ptr %24, align 8
-  call void @php_url_free(ptr noundef %457)
-  %458 = load ptr, ptr %22, align 8
-  %459 = icmp ne ptr %458, null
-  br i1 %459, label %460, label %463
-
-460:                                              ; preds = %456
-  %461 = load ptr, ptr %22, align 8
-  %462 = call i32 @_php_stream_free(ptr noundef %461, i32 noundef 3)
-  br label %463
-
-463:                                              ; preds = %460, %456
+465:                                              ; preds = %462, %458
   store ptr null, ptr %11, align 8
-  br label %464
+  br label %466
 
-464:                                              ; preds = %463, %454, %53
-  %465 = load ptr, ptr %11, align 8
-  ret ptr %465
+466:                                              ; preds = %465, %456, %53
+  %467 = load ptr, ptr %11, align 8
+  ret ptr %467
 }
 
 declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) #2

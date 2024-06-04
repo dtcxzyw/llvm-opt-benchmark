@@ -405,28 +405,29 @@ do.end:                                           ; preds = %if.end
   call void @e1000e_macreg_write(ptr noundef %e1000e44, i32 noundef 21504, i32 noundef %call45)
   %40 = load ptr, ptr %d, align 8
   %e1000e46 = getelementptr inbounds %struct.QE1000E_PCI, ptr %40, i32 0, i32 3
-  %41 = load i16, ptr getelementptr (i8, ptr @igb_pci_start_hw.address, i64 4), align 2
-  %call47 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %41)
+  %41 = getelementptr i8, ptr @igb_pci_start_hw.address, i64 4
+  %42 = load i16, ptr %41, align 2
+  %call47 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %42)
   %conv48 = zext i16 %call47 to i32
   %or49 = or i32 -2147221504, %conv48
   call void @e1000e_macreg_write(ptr noundef %e1000e46, i32 noundef 21508, i32 noundef %or49)
-  %42 = load ptr, ptr %d, align 8
-  %e1000e50 = getelementptr inbounds %struct.QE1000E_PCI, ptr %42, i32 0, i32 3
-  call void @e1000e_macreg_write(ptr noundef %e1000e50, i32 noundef 49164, i32 noundef 33554432)
   %43 = load ptr, ptr %d, align 8
-  %e1000e51 = getelementptr inbounds %struct.QE1000E_PCI, ptr %43, i32 0, i32 3
-  call void @e1000e_macreg_write(ptr noundef %e1000e51, i32 noundef 20488, i32 noundef 32768)
+  %e1000e50 = getelementptr inbounds %struct.QE1000E_PCI, ptr %43, i32 0, i32 3
+  call void @e1000e_macreg_write(ptr noundef %e1000e50, i32 noundef 49164, i32 noundef 33554432)
   %44 = load ptr, ptr %d, align 8
-  %e1000e52 = getelementptr inbounds %struct.QE1000E_PCI, ptr %44, i32 0, i32 3
-  call void @e1000e_macreg_write(ptr noundef %e1000e52, i32 noundef 256, i32 noundef 2)
+  %e1000e51 = getelementptr inbounds %struct.QE1000E_PCI, ptr %44, i32 0, i32 3
+  call void @e1000e_macreg_write(ptr noundef %e1000e51, i32 noundef 20488, i32 noundef 32768)
   %45 = load ptr, ptr %d, align 8
-  %e1000e53 = getelementptr inbounds %struct.QE1000E_PCI, ptr %45, i32 0, i32 3
-  call void @e1000e_macreg_write(ptr noundef %e1000e53, i32 noundef 5396, i32 noundef 16)
+  %e1000e52 = getelementptr inbounds %struct.QE1000E_PCI, ptr %45, i32 0, i32 3
+  call void @e1000e_macreg_write(ptr noundef %e1000e52, i32 noundef 256, i32 noundef 2)
   %46 = load ptr, ptr %d, align 8
-  %e1000e54 = getelementptr inbounds %struct.QE1000E_PCI, ptr %46, i32 0, i32 3
-  call void @e1000e_macreg_write(ptr noundef %e1000e54, i32 noundef 208, i32 noundef -1)
+  %e1000e53 = getelementptr inbounds %struct.QE1000E_PCI, ptr %46, i32 0, i32 3
+  call void @e1000e_macreg_write(ptr noundef %e1000e53, i32 noundef 5396, i32 noundef 16)
   %47 = load ptr, ptr %d, align 8
-  %e1000e55 = getelementptr inbounds %struct.QE1000E_PCI, ptr %47, i32 0, i32 3
+  %e1000e54 = getelementptr inbounds %struct.QE1000E_PCI, ptr %47, i32 0, i32 3
+  call void @e1000e_macreg_write(ptr noundef %e1000e54, i32 noundef 208, i32 noundef -1)
+  %48 = load ptr, ptr %d, align 8
+  %e1000e55 = getelementptr inbounds %struct.QE1000E_PCI, ptr %48, i32 0, i32 3
   call void @e1000e_macreg_write(ptr noundef %e1000e55, i32 noundef 5412, i32 noundef -1)
   ret void
 }

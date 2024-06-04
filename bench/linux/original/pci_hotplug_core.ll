@@ -70,12 +70,12 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__pci_hp_register(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %22, label %8
+  br i1 %7, label %23, label %8
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %22, label %11
+  br i1 %10, label %23, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -83,43 +83,44 @@ define dso_local i32 @__pci_hp_register(ptr noundef %0, ptr noundef %1, i32 noun
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %5, ptr %13, align 8
   %14 = tail call ptr @pci_create_slot(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %0) #6
-  %15 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
-  br i1 %15, label %16, label %19
+  %15 = inttoptr i64 -4096 to ptr
+  %16 = icmp ugt ptr %14, %15
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %11
-  %17 = ptrtoint ptr %14 to i64
-  %18 = trunc i64 %17 to i32
-  br label %22
+17:                                               ; preds = %11
+  %18 = ptrtoint ptr %14 to i64
+  %19 = trunc i64 %18 to i32
+  br label %23
 
-19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %14, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 24
-  store ptr %0, ptr %21, align 8
-  br label %22
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %14, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 24
+  store ptr %0, ptr %22, align 8
+  br label %23
 
-22:                                               ; preds = %19, %16, %8, %6
-  %23 = phi i32 [ %18, %16 ], [ 0, %19 ], [ -19, %6 ], [ -22, %8 ]
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %32
+23:                                               ; preds = %20, %17, %8, %6
+  %24 = phi i32 [ %19, %17 ], [ 0, %20 ], [ -19, %6 ], [ -22, %8 ]
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %33
 
-25:                                               ; preds = %22
-  %26 = tail call i32 @pci_hp_add(ptr noundef %0)
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %32, label %28
+26:                                               ; preds = %23
+  %27 = tail call i32 @pci_hp_add(ptr noundef %0)
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %33, label %29
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8
-  store ptr null, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  store ptr null, ptr %31, align 8
-  tail call void @pci_destroy_slot(ptr noundef %30) #6
-  br label %32
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = load ptr, ptr %30, align 8
+  store ptr null, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  store ptr null, ptr %32, align 8
+  tail call void @pci_destroy_slot(ptr noundef %31) #6
+  br label %33
 
-32:                                               ; preds = %28, %25, %22
-  %33 = phi i32 [ %23, %22 ], [ %26, %28 ], [ %26, %25 ]
-  ret i32 %33
+33:                                               ; preds = %29, %26, %23
+  %34 = phi i32 [ %24, %23 ], [ %27, %29 ], [ %27, %26 ]
+  ret i32 %34
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -128,12 +129,12 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__pci_hp_initialize(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %22, label %8
+  br i1 %7, label %23, label %8
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %22, label %11
+  br i1 %10, label %23, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -141,24 +142,25 @@ define dso_local i32 @__pci_hp_initialize(ptr noundef %0, ptr noundef %1, i32 no
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %5, ptr %13, align 8
   %14 = tail call ptr @pci_create_slot(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %0) #6
-  %15 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
-  br i1 %15, label %16, label %19
+  %15 = inttoptr i64 -4096 to ptr
+  %16 = icmp ugt ptr %14, %15
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %11
-  %17 = ptrtoint ptr %14 to i64
-  %18 = trunc i64 %17 to i32
-  br label %22
+17:                                               ; preds = %11
+  %18 = ptrtoint ptr %14 to i64
+  %19 = trunc i64 %18 to i32
+  br label %23
 
-19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %14, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 24
-  store ptr %0, ptr %21, align 8
-  br label %22
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %14, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 24
+  store ptr %0, ptr %22, align 8
+  br label %23
 
-22:                                               ; preds = %19, %16, %8, %6
-  %23 = phi i32 [ %18, %16 ], [ 0, %19 ], [ -19, %6 ], [ -22, %8 ]
-  ret i32 %23
+23:                                               ; preds = %20, %17, %8, %6
+  %24 = phi i32 [ %19, %17 ], [ 0, %20 ], [ -19, %6 ], [ -22, %8 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -485,7 +487,7 @@ define dso_local void @pci_hp_del(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "403: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 403b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 403) #6, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 523, i32 2305, i64 12) #6, !srcloc !9
   tail call void asm sideeffect "404: nop\0A\09.pushsection .discard.instr_end\0A\09.long 404b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 404) #6, !srcloc !10
-  br label %113
+  br label %115
 
 4:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @pci_hp_mutex) #6
@@ -524,7 +526,7 @@ define dso_local void @pci_hp_del(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 528, i32 2305, i64 12) #6, !srcloc !16
   tail call void asm sideeffect "406: nop\0A\09.pushsection .discard.instr_end\0A\09.long 406b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 406) #6, !srcloc !17
   tail call void @mutex_unlock(ptr noundef nonnull @pci_hp_mutex) #6
-  br label %113
+  br label %115
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %0, i64 8
@@ -534,149 +536,151 @@ define dso_local void @pci_hp_del(ptr noundef %0) #0 align 16 {
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8
   store volatile ptr %30, ptr %29, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %27, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %28, align 8
+  %32 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %32, ptr %27, align 8
+  %33 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %33, ptr %28, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @pci_hp_mutex) #6
-  %32 = load i8, ptr @debug, align 1, !range !5, !noundef !6
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %39, label %34
+  %34 = load i8, ptr @debug, align 1, !range !5, !noundef !6
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %41, label %36
 
-34:                                               ; preds = %26
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.pci_hp_del, ptr noundef %37) #7
-  br label %39
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.pci_hp_del, ptr noundef %39) #7
+  br label %41
 
-39:                                               ; preds = %34, %26
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %60, label %44
+41:                                               ; preds = %36, %26
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %62, label %46
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %42, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %60, label %47
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %44, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %62, label %49
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %45, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %58
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %47, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %60
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %45, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %58
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %47, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %60
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %45, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %60, label %58
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %47, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %62, label %60
 
-58:                                               ; preds = %54, %50, %47
-  %59 = getelementptr inbounds i8, ptr %40, i64 40
-  tail call void @sysfs_remove_file_ns(ptr noundef %59, ptr noundef nonnull @hotplug_slot_attr_power, ptr noundef null) #6
-  br label %60
+60:                                               ; preds = %56, %52, %49
+  %61 = getelementptr inbounds i8, ptr %42, i64 40
+  tail call void @sysfs_remove_file_ns(ptr noundef %61, ptr noundef nonnull @hotplug_slot_attr_power, ptr noundef null) #6
+  br label %62
 
-60:                                               ; preds = %58, %54, %44, %39
-  %61 = load ptr, ptr %41, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %76, label %63
+62:                                               ; preds = %60, %56, %46, %41
+  %63 = load ptr, ptr %43, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %78, label %65
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %61, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %76, label %66
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %63, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %78, label %68
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %64, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %74
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds i8, ptr %66, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %76
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %64, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %76, label %74
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds i8, ptr %66, i64 40
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %78, label %76
 
-74:                                               ; preds = %70, %66
-  %75 = getelementptr inbounds i8, ptr %40, i64 40
-  tail call void @sysfs_remove_file_ns(ptr noundef %75, ptr noundef nonnull @hotplug_slot_attr_attention, ptr noundef null) #6
-  br label %76
+76:                                               ; preds = %72, %68
+  %77 = getelementptr inbounds i8, ptr %42, i64 40
+  tail call void @sysfs_remove_file_ns(ptr noundef %77, ptr noundef nonnull @hotplug_slot_attr_attention, ptr noundef null) #6
+  br label %78
 
-76:                                               ; preds = %74, %70, %63, %60
-  %77 = load ptr, ptr %41, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %88, label %79
+78:                                               ; preds = %76, %72, %65, %62
+  %79 = load ptr, ptr %43, align 8
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %90, label %81
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %77, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %88, label %82
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %79, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %90, label %84
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %80, i64 48
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %88, label %86
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds i8, ptr %82, i64 48
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %90, label %88
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %40, i64 40
-  tail call void @sysfs_remove_file_ns(ptr noundef %87, ptr noundef nonnull @hotplug_slot_attr_latch, ptr noundef null) #6
-  br label %88
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds i8, ptr %42, i64 40
+  tail call void @sysfs_remove_file_ns(ptr noundef %89, ptr noundef nonnull @hotplug_slot_attr_latch, ptr noundef null) #6
+  br label %90
 
-88:                                               ; preds = %86, %82, %79, %76
-  %89 = load ptr, ptr %41, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %100, label %91
+90:                                               ; preds = %88, %84, %81, %78
+  %91 = load ptr, ptr %43, align 8
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %102, label %93
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %89, align 8
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %100, label %94
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %91, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %102, label %96
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %92, i64 56
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %100, label %98
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds i8, ptr %94, i64 56
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %102, label %100
 
-98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %40, i64 40
-  tail call void @sysfs_remove_file_ns(ptr noundef %99, ptr noundef nonnull @hotplug_slot_attr_presence, ptr noundef null) #6
-  br label %100
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds i8, ptr %42, i64 40
+  tail call void @sysfs_remove_file_ns(ptr noundef %101, ptr noundef nonnull @hotplug_slot_attr_presence, ptr noundef null) #6
+  br label %102
 
-100:                                              ; preds = %98, %94, %91, %88
-  %101 = load ptr, ptr %41, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %112, label %103
+102:                                              ; preds = %100, %96, %93, %90
+  %103 = load ptr, ptr %43, align 8
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %114, label %105
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %101, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %112, label %106
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %103, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %114, label %108
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %104, i64 24
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %112, label %110
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds i8, ptr %106, i64 24
+  %110 = load ptr, ptr %109, align 8
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %114, label %112
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %40, i64 40
-  tail call void @sysfs_remove_file_ns(ptr noundef %111, ptr noundef nonnull @hotplug_slot_attr_test, ptr noundef null) #6
-  br label %112
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds i8, ptr %42, i64 40
+  tail call void @sysfs_remove_file_ns(ptr noundef %113, ptr noundef nonnull @hotplug_slot_attr_test, ptr noundef null) #6
+  br label %114
 
-112:                                              ; preds = %110, %106, %103, %100
-  tail call void @pci_hp_remove_module_link(ptr noundef %40) #6
-  br label %113
+114:                                              ; preds = %112, %108, %105, %102
+  tail call void @pci_hp_remove_module_link(ptr noundef %42) #6
+  br label %115
 
-113:                                              ; preds = %112, %25, %3
+115:                                              ; preds = %114, %25, %3
   ret void
 }
 

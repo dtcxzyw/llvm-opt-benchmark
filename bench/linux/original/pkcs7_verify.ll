@@ -81,167 +81,169 @@ define internal fastcc i32 @pkcs7_digest(ptr nocapture noundef readonly %0, ptr 
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %110
+  br i1 %8, label %9, label %112
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %5, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %110, label %13
+  br i1 %12, label %112, label %13
 
 13:                                               ; preds = %9
   %14 = tail call ptr @crypto_alloc_shash(ptr noundef nonnull %11, i32 noundef 0, i32 noundef 0) #7
-  %15 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
-  br i1 %15, label %16, label %21
+  %15 = inttoptr i64 -4096 to ptr
+  %16 = icmp ugt ptr %14, %15
+  br i1 %16, label %17, label %23
 
-16:                                               ; preds = %13
-  %17 = ptrtoint ptr %14 to i64
-  %18 = icmp eq ptr %14, inttoptr (i64 -2 to ptr)
-  %19 = trunc i64 %17 to i32
-  %20 = select i1 %18, i32 -65, i32 %19
-  br label %110
+17:                                               ; preds = %13
+  %18 = ptrtoint ptr %14 to i64
+  %19 = inttoptr i64 -2 to ptr
+  %20 = icmp eq ptr %14, %19
+  %21 = trunc i64 %18 to i32
+  %22 = select i1 %20, i32 -65, i32 %21
+  br label %112
 
-21:                                               ; preds = %13
-  %22 = load i32, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr i8, ptr %24, i64 -8
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 44
-  store i32 %26, ptr %27, align 4
-  %28 = zext i32 %26 to i64
-  %29 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %28, i32 noundef 3264) #8
-  store ptr %29, ptr %6, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %107, label %31
+23:                                               ; preds = %13
+  %24 = load i32, ptr %14, align 8
+  %25 = getelementptr inbounds i8, ptr %14, i64 32
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr i8, ptr %26, i64 -8
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 44
+  store i32 %28, ptr %29, align 4
+  %30 = zext i32 %28 to i64
+  %31 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %30, i32 noundef 3264) #8
+  store ptr %31, ptr %6, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %109, label %33
 
-31:                                               ; preds = %21
-  %32 = zext i32 %22 to i64
-  %33 = add nuw nsw i64 %32, 8
-  %34 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %33, i32 noundef 3520) #8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %107, label %36
+33:                                               ; preds = %23
+  %34 = zext i32 %24 to i64
+  %35 = add nuw nsw i64 %34, 8
+  %36 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %35, i32 noundef 3520) #8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %109, label %38
 
-36:                                               ; preds = %31
-  store ptr %14, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  %40 = load i64, ptr %39, align 8
-  %41 = trunc i64 %40 to i32
-  %42 = load ptr, ptr %6, align 8
-  %43 = tail call i32 @crypto_shash_digest(ptr noundef nonnull %34, ptr noundef %38, i32 noundef %41, ptr noundef %42) #7
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %105, label %45
+38:                                               ; preds = %33
+  store ptr %14, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = load i64, ptr %41, align 8
+  %43 = trunc i64 %42 to i32
+  %44 = load ptr, ptr %6, align 8
+  %45 = tail call i32 @crypto_shash_digest(ptr noundef nonnull %36, ptr noundef %40, i32 noundef %43, ptr noundef %44) #7
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %107, label %47
 
-45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %1, i64 40
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %105, label %49
+47:                                               ; preds = %38
+  %48 = getelementptr inbounds i8, ptr %1, i64 40
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %107, label %51
 
-49:                                               ; preds = %45
+51:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 0, ptr %3, align 1, !annotation !5
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %57
+  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %59
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %1, i64 16
-  %55 = load i32, ptr %54, align 8
-  %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %55) #9
-  br label %102
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %57 = load i32, ptr %56, align 8
+  %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %57) #9
+  br label %104
 
-57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %1, i64 32
-  %59 = load i32, ptr %58, align 8
-  %60 = load i32, ptr %27, align 4
-  %61 = icmp eq i32 %59, %60
-  br i1 %61, label %66, label %62
+59:                                               ; preds = %51
+  %60 = getelementptr inbounds i8, ptr %1, i64 32
+  %61 = load i32, ptr %60, align 8
+  %62 = load i32, ptr %29, align 4
+  %63 = icmp eq i32 %61, %62
+  br i1 %63, label %68, label %64
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %1, i64 16
-  %64 = load i32, ptr %63, align 8
-  %65 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %64, i32 noundef %59) #9
-  br label %102
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = load i32, ptr %65, align 8
+  %67 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %66, i32 noundef %61) #9
+  br label %104
 
-66:                                               ; preds = %57
-  %67 = load ptr, ptr %6, align 8
-  %68 = zext i32 %59 to i64
-  %69 = tail call i32 @bcmp(ptr %67, ptr nonnull %51, i64 %68)
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %75, label %71
+68:                                               ; preds = %59
+  %69 = load ptr, ptr %6, align 8
+  %70 = zext i32 %61 to i64
+  %71 = tail call i32 @bcmp(ptr %69, ptr nonnull %53, i64 %70)
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %77, label %73
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %1, i64 16
-  %73 = load i32, ptr %72, align 8
-  %74 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %73) #9
-  br label %102
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds i8, ptr %1, i64 16
+  %75 = load i32, ptr %74, align 8
+  %76 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %75) #9
+  br label %104
 
-75:                                               ; preds = %66
-  %76 = zext i32 %60 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %67, i8 0, i64 %76, i1 false)
-  %77 = load ptr, ptr %34, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 12
-  %79 = load i32, ptr %78, align 4
-  %80 = and i32 %79, 1
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %88
+77:                                               ; preds = %68
+  %78 = zext i32 %62 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %69, i8 0, i64 %78, i1 false)
+  %79 = load ptr, ptr %36, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 12
+  %81 = load i32, ptr %80, align 4
+  %82 = and i32 %81, 1
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %90
 
-82:                                               ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %77, i64 32
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr i8, ptr %84, i64 -104
+84:                                               ; preds = %77
+  %85 = getelementptr inbounds i8, ptr %79, i64 32
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call i32 %86(ptr noundef nonnull %34) #7
-  br label %88
+  %87 = getelementptr i8, ptr %86, i64 -104
+  %88 = load ptr, ptr %87, align 8
+  %89 = tail call i32 %88(ptr noundef nonnull %36) #7
+  br label %90
 
-88:                                               ; preds = %82, %75
-  %89 = phi i32 [ %87, %82 ], [ -126, %75 ]
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %102, label %91
+90:                                               ; preds = %84, %77
+  %91 = phi i32 [ %89, %84 ], [ -126, %77 ]
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %104, label %93
 
-91:                                               ; preds = %88
+93:                                               ; preds = %90
   store i8 49, ptr %3, align 1
-  %92 = call i32 @crypto_shash_update(ptr noundef nonnull %34, ptr noundef nonnull %3, i32 noundef 1) #7
-  %93 = icmp slt i32 %92, 0
-  br i1 %93, label %102, label %94
+  %94 = call i32 @crypto_shash_update(ptr noundef nonnull %36, ptr noundef nonnull %3, i32 noundef 1) #7
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %104, label %96
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr %46, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 36
-  %97 = load i32, ptr %96, align 4
-  %98 = load ptr, ptr %6, align 8
-  %99 = call i32 @crypto_shash_finup(ptr noundef nonnull %34, ptr noundef %95, i32 noundef %97, ptr noundef %98) #7
-  %100 = icmp slt i32 %99, 0
-  %101 = select i1 %100, i32 3, i32 0
-  br label %102
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %48, align 8
+  %98 = getelementptr inbounds i8, ptr %1, i64 36
+  %99 = load i32, ptr %98, align 4
+  %100 = load ptr, ptr %6, align 8
+  %101 = call i32 @crypto_shash_finup(ptr noundef nonnull %36, ptr noundef %97, i32 noundef %99, ptr noundef %100) #7
+  %102 = icmp slt i32 %101, 0
+  %103 = select i1 %102, i32 3, i32 0
+  br label %104
 
-102:                                              ; preds = %94, %91, %88, %71, %62, %53
-  %103 = phi i32 [ 3, %62 ], [ 3, %71 ], [ 3, %53 ], [ 3, %88 ], [ 3, %91 ], [ %101, %94 ]
-  %104 = phi i32 [ -74, %62 ], [ -129, %71 ], [ -129, %53 ], [ %89, %88 ], [ %92, %91 ], [ %99, %94 ]
+104:                                              ; preds = %96, %93, %90, %73, %64, %55
+  %105 = phi i32 [ 3, %64 ], [ 3, %73 ], [ 3, %55 ], [ 3, %90 ], [ 3, %93 ], [ %103, %96 ]
+  %106 = phi i32 [ -74, %64 ], [ -129, %73 ], [ -129, %55 ], [ %91, %90 ], [ %94, %93 ], [ %101, %96 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
-  switch i32 %103, label %110 [
-    i32 0, label %105
-    i32 3, label %105
+  switch i32 %105, label %112 [
+    i32 0, label %107
+    i32 3, label %107
   ]
 
-105:                                              ; preds = %102, %102, %45, %36
-  %106 = phi i32 [ %43, %36 ], [ %104, %102 ], [ %104, %102 ], [ %43, %45 ]
-  call void @kfree(ptr noundef nonnull %34) #7
-  br label %107
+107:                                              ; preds = %104, %104, %47, %38
+  %108 = phi i32 [ %45, %38 ], [ %106, %104 ], [ %106, %104 ], [ %45, %47 ]
+  call void @kfree(ptr noundef nonnull %36) #7
+  br label %109
 
-107:                                              ; preds = %105, %31, %21
-  %108 = phi i32 [ %106, %105 ], [ -12, %31 ], [ -12, %21 ]
-  %109 = getelementptr inbounds i8, ptr %14, i64 8
-  call void @crypto_destroy_tfm(ptr noundef %14, ptr noundef %109) #7
-  br label %110
+109:                                              ; preds = %107, %33, %23
+  %110 = phi i32 [ %108, %107 ], [ -12, %33 ], [ -12, %23 ]
+  %111 = getelementptr inbounds i8, ptr %14, i64 8
+  call void @crypto_destroy_tfm(ptr noundef %14, ptr noundef %111) #7
+  br label %112
 
-110:                                              ; preds = %107, %102, %16, %9, %2
-  %111 = phi i32 [ %108, %107 ], [ undef, %102 ], [ 0, %2 ], [ -65, %9 ], [ %20, %16 ]
-  ret i32 %111
+112:                                              ; preds = %109, %104, %17, %9, %2
+  %113 = phi i32 [ %110, %109 ], [ undef, %104 ], [ 0, %2 ], [ -65, %9 ], [ %22, %17 ]
+  ret i32 %113
 }
 
 ; Function Attrs: null_pointer_is_valid

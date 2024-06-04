@@ -1275,35 +1275,36 @@ define i32 @prte_hwloc_base_report_bind_failure(ptr noundef %0, i32 noundef %1, 
   store i32 %3, ptr %9, align 4
   %10 = load i32, ptr @prte_hwloc_base_report_bind_failure.already_reported, align 4
   %11 = icmp ne i32 %10, 0
-  br i1 %11, label %26, label %12
+  br i1 %11, label %27, label %12
 
 12:                                               ; preds = %4
   %13 = load i32, ptr @prte_hwloc_base_mbfa, align 4
   %14 = icmp ne i32 0, %13
-  br i1 %14, label %15, label %26
+  br i1 %14, label %15, label %27
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %17 = call i32 @getpid() #8
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i32, ptr @prte_hwloc_base_mbfa, align 4
-  %22 = icmp eq i32 1, %21
-  %23 = select i1 %22, ptr @.str.17, ptr @.str.18
-  %24 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.15, ptr noundef @.str.16, i32 noundef 1, ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20, ptr noundef %23)
+  %16 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
+  %17 = load ptr, ptr %16, align 8
+  %18 = call i32 @getpid() #8
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr @prte_hwloc_base_mbfa, align 4
+  %23 = icmp eq i32 1, %22
+  %24 = select i1 %23, ptr @.str.17, ptr @.str.18
+  %25 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.15, ptr noundef @.str.16, i32 noundef 1, ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %24)
   store i32 1, ptr @prte_hwloc_base_report_bind_failure.already_reported, align 4
-  %25 = load i32, ptr %9, align 4
-  store i32 %25, ptr %5, align 4
-  br label %27
+  %26 = load i32, ptr %9, align 4
+  store i32 %26, ptr %5, align 4
+  br label %28
 
-26:                                               ; preds = %12, %4
+27:                                               ; preds = %12, %4
   store i32 0, ptr %5, align 4
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %15
-  %28 = load i32, ptr %5, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %15
+  %29 = load i32, ptr %5, align 4
+  ret i32 %29
 }
 
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) #3

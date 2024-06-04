@@ -178,26 +178,26 @@ declare dso_local void @put_device(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pcmcia_register_socket(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %96, label %3
+  br i1 %2, label %101, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 352
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %96, label %7
+  br i1 %6, label %101, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 560
   %9 = getelementptr inbounds i8, ptr %0, i64 624
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %96, label %12
+  br i1 %11, label %101, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 360
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %96, label %16
+  br i1 %15, label %101, label %16
 
 16:                                               ; preds = %12
   tail call void @down_write(ptr noundef nonnull @pcmcia_socket_list_rwsem) #6
@@ -236,110 +236,115 @@ define dso_local i32 @pcmcia_register_socket(ptr noundef %0) #0 align 16 {
   %39 = getelementptr inbounds i8, ptr %0, i64 312
   store i32 %38, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 264
-  %41 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @pcmcia_socket_list, i64 0, i32 1), align 8
-  store ptr %40, ptr getelementptr inbounds (%struct.list_head, ptr @pcmcia_socket_list, i64 0, i32 1), align 8
+  %41 = getelementptr inbounds %struct.list_head, ptr @pcmcia_socket_list, i64 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds %struct.list_head, ptr @pcmcia_socket_list, i64 0, i32 1
+  store ptr %40, ptr %43, align 8
   store ptr @pcmcia_socket_list, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr %41, ptr %42, align 8
-  store volatile ptr %40, ptr %41, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 272
+  store ptr %42, ptr %44, align 8
+  store volatile ptr %40, ptr %42, align 8
   tail call void @up_write(ptr noundef nonnull @pcmcia_socket_list_rwsem) #6
-  %43 = getelementptr inbounds i8, ptr %0, i64 680
-  store ptr %0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 1232
-  store ptr @pcmcia_socket_class, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 312
-  %46 = load i32, ptr %45, align 8
-  %47 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef %46) #6
-  %48 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 0, ptr %48, align 1
-  %49 = load i32, ptr @cis_speed, align 4
-  %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds i8, ptr %0, i64 34
-  store i16 %50, ptr %51, align 2
-  %52 = getelementptr inbounds i8, ptr %0, i64 232
-  store volatile ptr %52, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 240
-  store volatile ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 280
-  store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call void @__init_swait_queue_head(ptr noundef %55, ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
-  %56 = getelementptr inbounds i8, ptr %0, i64 408
+  %45 = getelementptr inbounds i8, ptr %0, i64 680
+  store ptr %0, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 1232
+  store ptr @pcmcia_socket_class, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 312
+  %48 = load i32, ptr %47, align 8
+  %49 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef %48) #6
+  %50 = getelementptr inbounds i8, ptr %0, i64 33
+  store i8 0, ptr %50, align 1
+  %51 = load i32, ptr @cis_speed, align 4
+  %52 = trunc i32 %51 to i16
+  %53 = getelementptr inbounds i8, ptr %0, i64 34
+  store i16 %52, ptr %53, align 2
+  %54 = getelementptr inbounds i8, ptr %0, i64 232
+  store volatile ptr %54, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 240
+  store volatile ptr %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 280
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 416
+  %57 = getelementptr inbounds i8, ptr %0, i64 288
   tail call void @__init_swait_queue_head(ptr noundef %57, ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
-  %58 = getelementptr inbounds i8, ptr %0, i64 448
-  tail call void @__mutex_init(ptr noundef %58, ptr noundef nonnull @.str.1, ptr noundef nonnull @pcmcia_register_socket.__key) #6
-  %59 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @__mutex_init(ptr noundef %59, ptr noundef nonnull @.str.3, ptr noundef nonnull @pcmcia_register_socket.__key.2) #6
-  %60 = getelementptr inbounds i8, ptr %0, i64 512
-  store i32 0, ptr %60, align 8
-  %61 = load ptr, ptr %13, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %71, label %65
+  %58 = getelementptr inbounds i8, ptr %0, i64 408
+  store i32 0, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 416
+  tail call void @__init_swait_queue_head(ptr noundef %59, ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
+  %60 = getelementptr inbounds i8, ptr %0, i64 448
+  tail call void @__mutex_init(ptr noundef %60, ptr noundef nonnull @.str.1, ptr noundef nonnull @pcmcia_register_socket.__key) #6
+  %61 = getelementptr inbounds i8, ptr %0, i64 480
+  tail call void @__mutex_init(ptr noundef %61, ptr noundef nonnull @.str.3, ptr noundef nonnull @pcmcia_register_socket.__key.2) #6
+  %62 = getelementptr inbounds i8, ptr %0, i64 512
+  store i32 0, ptr %62, align 8
+  %63 = load ptr, ptr %13, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %73, label %67
 
-65:                                               ; preds = %37
-  tail call void @mutex_lock(ptr noundef %59) #6
-  %66 = load ptr, ptr %13, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 %68(ptr noundef %0) #6
-  tail call void @mutex_unlock(ptr noundef %59) #6
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %91
+67:                                               ; preds = %37
+  tail call void @mutex_lock(ptr noundef %61) #6
+  %68 = load ptr, ptr %13, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call i32 %70(ptr noundef %0) #6
+  tail call void @mutex_unlock(ptr noundef %61) #6
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %94
 
-71:                                               ; preds = %65, %37
-  %72 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @pccardd, ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.4) #6
-  %73 = icmp ugt ptr %72, inttoptr (i64 -4096 to ptr)
-  br i1 %73, label %79, label %74
+73:                                               ; preds = %67, %37
+  %74 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @pccardd, ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.4) #6
+  %75 = inttoptr i64 -4096 to ptr
+  %76 = icmp ugt ptr %74, %75
+  br i1 %76, label %82, label %77
 
-74:                                               ; preds = %71
-  %75 = tail call i32 @wake_up_process(ptr noundef %72) #6
-  tail call void @wait_for_completion(ptr noundef %56) #6
-  %76 = getelementptr inbounds i8, ptr %0, i64 400
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %82, label %83
+77:                                               ; preds = %73
+  %78 = tail call i32 @wake_up_process(ptr noundef %74) #6
+  tail call void @wait_for_completion(ptr noundef %58) #6
+  %79 = getelementptr inbounds i8, ptr %0, i64 400
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %85, label %86
 
-79:                                               ; preds = %71
-  %80 = ptrtoint ptr %72 to i64
-  %81 = trunc i64 %80 to i32
-  br label %91
+82:                                               ; preds = %73
+  %83 = ptrtoint ptr %74 to i64
+  %84 = trunc i64 %83 to i32
+  br label %94
 
-82:                                               ; preds = %74
+85:                                               ; preds = %77
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %8, ptr noundef nonnull @.str.5) #7
-  br label %96
+  br label %101
 
-83:                                               ; preds = %74
-  %84 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %60) #6
-  %85 = getelementptr inbounds i8, ptr %0, i64 440
-  %86 = load i32, ptr %85, align 8
-  %87 = or i32 %86, 128
-  store i32 %87, ptr %85, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %60, i64 noundef %84) #6
-  %88 = load ptr, ptr %76, align 8
-  %89 = tail call i32 @wake_up_process(ptr noundef %88) #6
-  %90 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext false, ptr noundef nonnull @.str.6) #6
-  br label %96
+86:                                               ; preds = %77
+  %87 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %62) #6
+  %88 = getelementptr inbounds i8, ptr %0, i64 440
+  %89 = load i32, ptr %88, align 8
+  %90 = or i32 %89, 128
+  store i32 %90, ptr %88, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %62, i64 noundef %87) #6
+  %91 = load ptr, ptr %79, align 8
+  %92 = tail call i32 @wake_up_process(ptr noundef %91) #6
+  %93 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext false, ptr noundef nonnull @.str.6) #6
+  br label %101
 
-91:                                               ; preds = %79, %65
-  %92 = phi i32 [ %69, %65 ], [ %81, %79 ]
+94:                                               ; preds = %82, %67
+  %95 = phi i32 [ %71, %67 ], [ %84, %82 ]
   tail call void @down_write(ptr noundef nonnull @pcmcia_socket_list_rwsem) #6
-  %93 = load ptr, ptr %42, align 8
-  %94 = load ptr, ptr %40, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
-  store ptr %93, ptr %95, align 8
-  store volatile ptr %94, ptr %93, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %40, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %42, align 8
+  %96 = load ptr, ptr %44, align 8
+  %97 = load ptr, ptr %40, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  store ptr %96, ptr %98, align 8
+  store volatile ptr %97, ptr %96, align 8
+  %99 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %99, ptr %40, align 8
+  %100 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %100, ptr %44, align 8
   tail call void @up_write(ptr noundef nonnull @pcmcia_socket_list_rwsem) #6
-  br label %96
+  br label %101
 
-96:                                               ; preds = %91, %83, %82, %12, %7, %3, %1
-  %97 = phi i32 [ %92, %91 ], [ 0, %83 ], [ -5, %82 ], [ -22, %12 ], [ -22, %7 ], [ -22, %3 ], [ -22, %1 ]
-  ret i32 %97
+101:                                              ; preds = %94, %86, %85, %12, %7, %3, %1
+  %102 = phi i32 [ %95, %94 ], [ 0, %86 ], [ -5, %85 ], [ -22, %12 ], [ -22, %7 ], [ -22, %3 ], [ -22, %1 ]
+  ret i32 %102
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -796,7 +801,7 @@ declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) lo
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcmcia_unregister_socket(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %27, label %3
+  br i1 %2, label %29, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 400
@@ -817,32 +822,34 @@ define dso_local void @pcmcia_unregister_socket(ptr noundef %0) #0 align 16 {
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   store volatile ptr %13, ptr %12, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %10, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %11, align 8
+  %15 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %15, ptr %10, align 8
+  %16 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %16, ptr %11, align 8
   tail call void @up_write(ptr noundef nonnull @pcmcia_socket_list_rwsem) #6
-  %15 = getelementptr inbounds i8, ptr %0, i64 360
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds i8, ptr %0, i64 360
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %25, label %20
+  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %27, label %22
 
-20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @mutex_lock(ptr noundef %21) #6
-  %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %0) #6
-  tail call void @mutex_unlock(ptr noundef %21) #6
-  br label %25
-
-25:                                               ; preds = %20, %9
-  %26 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @wait_for_completion(ptr noundef %26) #6
+22:                                               ; preds = %9
+  %23 = getelementptr inbounds i8, ptr %0, i64 480
+  tail call void @mutex_lock(ptr noundef %23) #6
+  %24 = load ptr, ptr %17, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull %0) #6
+  tail call void @mutex_unlock(ptr noundef %23) #6
   br label %27
 
-27:                                               ; preds = %25, %1
+27:                                               ; preds = %22, %9
+  %28 = getelementptr inbounds i8, ptr %0, i64 280
+  tail call void @wait_for_completion(ptr noundef %28) #6
+  br label %29
+
+29:                                               ; preds = %27, %1
   ret void
 }
 
@@ -1219,9 +1226,10 @@ declare dso_local void @class_unregister(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @init_pcmcia_cs() #5 section ".init.text" align 16 {
   store i32 0, ptr @pcmcia_unload, align 8
-  tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds (%struct.completion, ptr @pcmcia_unload, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
-  %1 = tail call i32 @class_register(ptr noundef nonnull @pcmcia_socket_class) #6
-  ret i32 %1
+  %1 = getelementptr inbounds %struct.completion, ptr @pcmcia_unload, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
+  %2 = tail call i32 @class_register(ptr noundef nonnull @pcmcia_socket_class) #6
+  ret i32 %2
 }
 
 ; Function Attrs: null_pointer_is_valid

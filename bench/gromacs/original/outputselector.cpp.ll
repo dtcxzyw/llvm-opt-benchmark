@@ -307,17 +307,18 @@ define linkonce_odr void @_ZN3gmx14OutputSelectorD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx14OutputSelectorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
-  %6 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx14OutputSelectorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
-  %7 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 3
+  %7 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
-  %8 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
+  %8 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
+  %9 = getelementptr inbounds %"class.gmx::OutputSelector", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
   call void @_ZN3gmx14IOutputAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }

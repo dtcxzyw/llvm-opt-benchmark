@@ -502,28 +502,31 @@ do.body15:                                        ; preds = %for.end
   %26 = load ptr, ptr %e, align 8
   %entries16 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %26, i32 0, i32 3
   store ptr null, ptr %entries16, align 8
-  %27 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1), align 8
-  %28 = load ptr, ptr %e, align 8
-  %entries17 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %28, i32 0, i32 3
-  %tql_prev18 = getelementptr inbounds %struct.QTailQLink, ptr %entries17, i32 0, i32 1
-  store ptr %27, ptr %tql_prev18, align 8
+  %27 = getelementptr inbounds %struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %e, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1), align 8
-  %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %30, i32 0, i32 0
-  store ptr %29, ptr %tql_next19, align 8
-  %31 = load ptr, ptr %e, align 8
-  %entries20 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %31, i32 0, i32 3
-  store ptr %entries20, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1), align 8
+  %entries17 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %29, i32 0, i32 3
+  %tql_prev18 = getelementptr inbounds %struct.QTailQLink, ptr %entries17, i32 0, i32 1
+  store ptr %28, ptr %tql_prev18, align 8
+  %30 = load ptr, ptr %e, align 8
+  %31 = getelementptr inbounds %struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %32, i32 0, i32 0
+  store ptr %30, ptr %tql_next19, align 8
+  %33 = load ptr, ptr %e, align 8
+  %entries20 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %33, i32 0, i32 3
+  %34 = getelementptr inbounds %struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1
+  store ptr %entries20, ptr %34, align 8
   br label %do.end21
 
 do.end21:                                         ; preds = %do.body15
-  %32 = load ptr, ptr %e, align 8
-  store ptr %32, ptr %retval, align 8
+  %35 = load ptr, ptr %e, align 8
+  store ptr %35, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end21, %do.end
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %36 = load ptr, ptr %retval, align 8
+  ret ptr %36
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -571,35 +574,36 @@ if.else:                                          ; preds = %do.body
   %entries5 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %6, i32 0, i32 3
   %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %entries5, i32 0, i32 1
   %7 = load ptr, ptr %tql_prev6, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %e.addr, align 8
-  %entries7 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %entries7, align 8
-  %10 = load ptr, ptr %e.addr, align 8
-  %entries8 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %10, i32 0, i32 3
+  %9 = load ptr, ptr %e.addr, align 8
+  %entries7 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %9, i32 0, i32 3
+  %10 = load ptr, ptr %entries7, align 8
+  %11 = load ptr, ptr %e.addr, align 8
+  %entries8 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %11, i32 0, i32 3
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %entries8, i32 0, i32 1
-  %11 = load ptr, ptr %tql_prev9, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %12 = load ptr, ptr %e.addr, align 8
-  %entries10 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %12, i32 0, i32 3
+  %12 = load ptr, ptr %tql_prev9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %e.addr, align 8
+  %entries10 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %13, i32 0, i32 3
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %entries10, i32 0, i32 1
   store ptr null, ptr %tql_prev11, align 8
-  %13 = load ptr, ptr %e.addr, align 8
-  %entries12 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %13, i32 0, i32 3
+  %14 = load ptr, ptr %e.addr, align 8
+  %entries12 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %14, i32 0, i32 3
   %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %entries12, i32 0, i32 0
   store ptr null, ptr %tql_next13, align 8
-  %14 = load ptr, ptr %e.addr, align 8
-  %entries14 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %14, i32 0, i32 3
+  %15 = load ptr, ptr %e.addr, align 8
+  %entries14 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %15, i32 0, i32 3
   store ptr null, ptr %entries14, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %15 = load ptr, ptr %e.addr, align 8
-  call void @g_free(ptr noundef %15)
+  %16 = load ptr, ptr %e.addr, align 8
+  call void @g_free(ptr noundef %16)
   ret void
 }
 
@@ -718,109 +722,111 @@ for.end16:                                        ; preds = %land.end11
   br label %if.end51
 
 if.else:                                          ; preds = %entry
-  %30 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %30, i32 0, i32 1
-  %31 = load ptr, ptr %tql_prev, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %tql_next, align 8
-  store ptr %32, ptr %e, align 8
+  %30 = getelementptr inbounds %struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %31, i32 0, i32 1
+  %32 = load ptr, ptr %tql_prev, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %32, i32 0, i32 0
+  %33 = load ptr, ptr %tql_next, align 8
+  store ptr %33, ptr %e, align 8
   br label %for.cond17
 
 for.cond17:                                       ; preds = %for.inc33, %if.else
-  %33 = load ptr, ptr %e, align 8
-  %tobool18 = icmp ne ptr %33, null
+  %34 = load ptr, ptr %e, align 8
+  %tobool18 = icmp ne ptr %34, null
   br i1 %tobool18, label %land.rhs19, label %land.end24
 
 land.rhs19:                                       ; preds = %for.cond17
-  %34 = load ptr, ptr %e, align 8
-  %entries20 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %34, i32 0, i32 3
+  %35 = load ptr, ptr %e, align 8
+  %entries20 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %35, i32 0, i32 3
   %tql_prev21 = getelementptr inbounds %struct.QTailQLink, ptr %entries20, i32 0, i32 1
-  %35 = load ptr, ptr %tql_prev21, align 8
-  %tql_prev22 = getelementptr inbounds %struct.QTailQLink, ptr %35, i32 0, i32 1
-  %36 = load ptr, ptr %tql_prev22, align 8
-  %tql_next23 = getelementptr inbounds %struct.QTailQLink, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %tql_next23, align 8
-  store ptr %37, ptr %next, align 8
+  %36 = load ptr, ptr %tql_prev21, align 8
+  %tql_prev22 = getelementptr inbounds %struct.QTailQLink, ptr %36, i32 0, i32 1
+  %37 = load ptr, ptr %tql_prev22, align 8
+  %tql_next23 = getelementptr inbounds %struct.QTailQLink, ptr %37, i32 0, i32 0
+  %38 = load ptr, ptr %tql_next23, align 8
+  store ptr %38, ptr %next, align 8
   br label %land.end24
 
 land.end24:                                       ; preds = %land.rhs19, %for.cond17
-  %38 = phi i1 [ false, %for.cond17 ], [ true, %land.rhs19 ]
-  br i1 %38, label %for.body25, label %for.end34
+  %39 = phi i1 [ false, %for.cond17 ], [ true, %land.rhs19 ]
+  br i1 %39, label %for.body25, label %for.end34
 
 for.body25:                                       ; preds = %land.end24
-  %39 = load ptr, ptr %e, align 8
-  %prepare_cb26 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %prepare_cb26, align 8
-  %tobool27 = icmp ne ptr %40, null
+  %40 = load ptr, ptr %e, align 8
+  %prepare_cb26 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %prepare_cb26, align 8
+  %tobool27 = icmp ne ptr %41, null
   br i1 %tobool27, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %for.body25
-  %41 = load ptr, ptr %e, align 8
-  %prepare_cb29 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %41, i32 0, i32 1
-  %42 = load ptr, ptr %prepare_cb29, align 8
-  %43 = load ptr, ptr %e, align 8
-  %opaque30 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %43, i32 0, i32 2
-  %44 = load ptr, ptr %opaque30, align 8
-  %45 = load i8, ptr %running.addr, align 1
-  %tobool31 = trunc i8 %45 to i1
-  %46 = load i32, ptr %state.addr, align 4
-  call void %42(ptr noundef %44, i1 noundef zeroext %tobool31, i32 noundef %46)
+  %42 = load ptr, ptr %e, align 8
+  %prepare_cb29 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %42, i32 0, i32 1
+  %43 = load ptr, ptr %prepare_cb29, align 8
+  %44 = load ptr, ptr %e, align 8
+  %opaque30 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %44, i32 0, i32 2
+  %45 = load ptr, ptr %opaque30, align 8
+  %46 = load i8, ptr %running.addr, align 1
+  %tobool31 = trunc i8 %46 to i1
+  %47 = load i32, ptr %state.addr, align 4
+  call void %43(ptr noundef %45, i1 noundef zeroext %tobool31, i32 noundef %47)
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then28, %for.body25
   br label %for.inc33
 
 for.inc33:                                        ; preds = %if.end32
-  %47 = load ptr, ptr %next, align 8
-  store ptr %47, ptr %e, align 8
+  %48 = load ptr, ptr %next, align 8
+  store ptr %48, ptr %e, align 8
   br label %for.cond17, !llvm.loop !9
 
 for.end34:                                        ; preds = %land.end24
-  %48 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1), align 8
-  %tql_prev35 = getelementptr inbounds %struct.QTailQLink, ptr %48, i32 0, i32 1
-  %49 = load ptr, ptr %tql_prev35, align 8
-  %tql_next36 = getelementptr inbounds %struct.QTailQLink, ptr %49, i32 0, i32 0
-  %50 = load ptr, ptr %tql_next36, align 8
-  store ptr %50, ptr %e, align 8
+  %49 = getelementptr inbounds %struct.QTailQLink, ptr @vm_change_state_head, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %tql_prev35 = getelementptr inbounds %struct.QTailQLink, ptr %50, i32 0, i32 1
+  %51 = load ptr, ptr %tql_prev35, align 8
+  %tql_next36 = getelementptr inbounds %struct.QTailQLink, ptr %51, i32 0, i32 0
+  %52 = load ptr, ptr %tql_next36, align 8
+  store ptr %52, ptr %e, align 8
   br label %for.cond37
 
 for.cond37:                                       ; preds = %for.inc49, %for.end34
-  %51 = load ptr, ptr %e, align 8
-  %tobool38 = icmp ne ptr %51, null
+  %53 = load ptr, ptr %e, align 8
+  %tobool38 = icmp ne ptr %53, null
   br i1 %tobool38, label %land.rhs39, label %land.end44
 
 land.rhs39:                                       ; preds = %for.cond37
-  %52 = load ptr, ptr %e, align 8
-  %entries40 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %52, i32 0, i32 3
+  %54 = load ptr, ptr %e, align 8
+  %entries40 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %54, i32 0, i32 3
   %tql_prev41 = getelementptr inbounds %struct.QTailQLink, ptr %entries40, i32 0, i32 1
-  %53 = load ptr, ptr %tql_prev41, align 8
-  %tql_prev42 = getelementptr inbounds %struct.QTailQLink, ptr %53, i32 0, i32 1
-  %54 = load ptr, ptr %tql_prev42, align 8
-  %tql_next43 = getelementptr inbounds %struct.QTailQLink, ptr %54, i32 0, i32 0
-  %55 = load ptr, ptr %tql_next43, align 8
-  store ptr %55, ptr %next, align 8
+  %55 = load ptr, ptr %tql_prev41, align 8
+  %tql_prev42 = getelementptr inbounds %struct.QTailQLink, ptr %55, i32 0, i32 1
+  %56 = load ptr, ptr %tql_prev42, align 8
+  %tql_next43 = getelementptr inbounds %struct.QTailQLink, ptr %56, i32 0, i32 0
+  %57 = load ptr, ptr %tql_next43, align 8
+  store ptr %57, ptr %next, align 8
   br label %land.end44
 
 land.end44:                                       ; preds = %land.rhs39, %for.cond37
-  %56 = phi i1 [ false, %for.cond37 ], [ true, %land.rhs39 ]
-  br i1 %56, label %for.body45, label %for.end50
+  %58 = phi i1 [ false, %for.cond37 ], [ true, %land.rhs39 ]
+  br i1 %58, label %for.body45, label %for.end50
 
 for.body45:                                       ; preds = %land.end44
-  %57 = load ptr, ptr %e, align 8
-  %cb46 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %57, i32 0, i32 0
-  %58 = load ptr, ptr %cb46, align 8
   %59 = load ptr, ptr %e, align 8
-  %opaque47 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %59, i32 0, i32 2
-  %60 = load ptr, ptr %opaque47, align 8
-  %61 = load i8, ptr %running.addr, align 1
-  %tobool48 = trunc i8 %61 to i1
-  %62 = load i32, ptr %state.addr, align 4
-  call void %58(ptr noundef %60, i1 noundef zeroext %tobool48, i32 noundef %62)
+  %cb46 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %59, i32 0, i32 0
+  %60 = load ptr, ptr %cb46, align 8
+  %61 = load ptr, ptr %e, align 8
+  %opaque47 = getelementptr inbounds %struct.VMChangeStateEntry, ptr %61, i32 0, i32 2
+  %62 = load ptr, ptr %opaque47, align 8
+  %63 = load i8, ptr %running.addr, align 1
+  %tobool48 = trunc i8 %63 to i1
+  %64 = load i32, ptr %state.addr, align 4
+  call void %60(ptr noundef %62, i1 noundef zeroext %tobool48, i32 noundef %64)
   br label %for.inc49
 
 for.inc49:                                        ; preds = %for.body45
-  %63 = load ptr, ptr %next, align 8
-  store ptr %63, ptr %e, align 8
+  %65 = load ptr, ptr %next, align 8
+  store ptr %65, ptr %e, align 8
   br label %for.cond37, !llvm.loop !10
 
 for.end50:                                        ; preds = %land.end44

@@ -13147,19 +13147,21 @@ entry:
   store ptr %call, ptr %uc_begin, align 8
   %call1 = call noundef ptr @_ZSt3endIKN3ue27unicaseELm2254EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(18032) @_ZN3ue2L16ucp_caseless_defE) #9
   store ptr %call1, ptr %uc_end, align 8
-  %call2 = call noundef ptr @_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_(ptr noundef @_ZN3ue2L16ucp_caseless_defE, ptr noundef getelementptr (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032), ptr noundef nonnull align 4 dereferenceable(8) %test)
+  %2 = getelementptr i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032
+  %call2 = call noundef ptr @_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_(ptr noundef @_ZN3ue2L16ucp_caseless_defE, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %test)
   store ptr %call2, ptr %f, align 8
-  %2 = load ptr, ptr %f, align 8
-  %cmp = icmp ne ptr %2, getelementptr (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
+  %3 = load ptr, ptr %f, align 8
+  %4 = getelementptr i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr %f, align 8
-  %base3 = getelementptr inbounds %"struct.ue2::unicase", ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %base3, align 4
-  %5 = load ptr, ptr %c.addr, align 8
-  %6 = load i32, ptr %5, align 4
-  %cmp4 = icmp eq i32 %4, %6
+  %5 = load ptr, ptr %f, align 8
+  %base3 = getelementptr inbounds %"struct.ue2::unicase", ptr %5, i32 0, i32 0
+  %6 = load i32, ptr %base3, align 4
+  %7 = load ptr, ptr %c.addr, align 8
+  %8 = load i32, ptr %7, align 4
+  %cmp4 = icmp eq i32 %6, %8
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -13169,11 +13171,11 @@ do.body:                                          ; preds = %if.then
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %7 = load ptr, ptr %f, align 8
-  %caseless5 = getelementptr inbounds %"struct.ue2::unicase", ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %caseless5, align 4
-  %9 = load ptr, ptr %c.addr, align 8
-  store i32 %8, ptr %9, align 4
+  %9 = load ptr, ptr %f, align 8
+  %caseless5 = getelementptr inbounds %"struct.ue2::unicase", ptr %9, i32 0, i32 1
+  %10 = load i32, ptr %caseless5, align 4
+  %11 = load ptr, ptr %c.addr, align 8
+  store i32 %10, ptr %11, align 4
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -13182,8 +13184,8 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br label %return
 
 return:                                           ; preds = %if.end, %do.end
-  %10 = load i1, ptr %retval, align 1
-  ret i1 %10
+  %12 = load i1, ptr %retval, align 1
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -36,228 +36,248 @@ define i32 @mca_vprotocol_base_request_parasite() #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.opal_free_list_t, align 16
   %4 = alloca %struct.opal_free_list_t, align 16
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24), align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %76
+  %5 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %86
 
-7:                                                ; preds = %0
+8:                                                ; preds = %0
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %3, ptr align 16 @mca_pml_base_recv_requests, i64 352, i1 false)
-  %8 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 9
-  %9 = load ptr, ptr %8, align 16
-  %10 = getelementptr inbounds %struct.opal_class_t, ptr %9, i32 0, i32 8
-  %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 1), align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 1), align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24), align 8
-  %14 = getelementptr inbounds %struct.opal_class_t, ptr %13, i32 0, i32 8
+  %9 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 9
+  %10 = load ptr, ptr %9, align 16
+  %11 = getelementptr inbounds %struct.opal_class_t, ptr %10, i32 0, i32 8
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 1
+  store i64 %12, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 1
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 6
-  %17 = load i64, ptr %16, align 8
-  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 300, ptr noundef @.str, i64 noundef %12, i64 noundef %15, i64 noundef %17)
-  %18 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 9
-  %19 = load ptr, ptr %18, align 16
-  %20 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24), align 8
-  %21 = getelementptr inbounds %struct.opal_class_t, ptr %20, i32 0, i32 1
-  store ptr %19, ptr %21, align 8
+  %16 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr %17, i32 0, i32 8
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 6
+  %21 = load i64, ptr %20, align 8
+  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 300, ptr noundef @.str, i64 noundef %15, i64 noundef %19, i64 noundef %21)
   %22 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 9
   %23 = load ptr, ptr %22, align 16
-  %24 = getelementptr inbounds %struct.opal_class_t, ptr %23, i32 0, i32 8
-  %25 = load i64, ptr %24, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24), align 8
-  %27 = getelementptr inbounds %struct.opal_class_t, ptr %26, i32 0, i32 8
-  %28 = load i64, ptr %27, align 8
-  %29 = add i64 %28, %25
-  store i64 %29, ptr %27, align 8
-  br label %30
+  %24 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.opal_class_t, ptr %25, i32 0, i32 1
+  store ptr %23, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 9
+  %28 = load ptr, ptr %27, align 16
+  %29 = getelementptr inbounds %struct.opal_class_t, ptr %28, i32 0, i32 8
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.opal_class_t, ptr %32, i32 0, i32 8
+  %34 = load i64, ptr %33, align 8
+  %35 = add i64 %34, %30
+  store i64 %35, ptr %33, align 8
+  br label %36
 
-30:                                               ; preds = %7
+36:                                               ; preds = %8
   call void @opal_obj_run_destructors(ptr noundef @mca_pml_base_recv_requests)
-  br label %31
+  br label %37
 
-31:                                               ; preds = %30
-  br label %32
-
-32:                                               ; preds = %31
-  br label %33
-
-33:                                               ; preds = %32
-  %34 = load i32, ptr @opal_class_init_epoch, align 4
-  %35 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %36 = icmp ne i32 %34, %35
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %33
-  call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
+37:                                               ; preds = %36
   br label %38
 
-38:                                               ; preds = %37, %33
-  store ptr @opal_free_list_t_class, ptr @mca_pml_base_recv_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_pml_base_recv_requests, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_pml_base_recv_requests)
+38:                                               ; preds = %37
   br label %39
 
 39:                                               ; preds = %38
-  br label %40
+  %40 = load i32, ptr @opal_class_init_epoch, align 4
+  %41 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp ne i32 %40, %42
+  br i1 %43, label %44, label %45
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24), align 8
-  %42 = getelementptr inbounds %struct.opal_class_t, ptr %41, i32 0, i32 8
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 6
-  %45 = load i64, ptr %44, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24), align 8
-  %47 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 7
-  %48 = load i64, ptr %47, align 16
-  %49 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 8
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 2
-  %52 = load i64, ptr %51, align 8
-  %53 = trunc i64 %52 to i32
-  %54 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 1
-  %55 = load i64, ptr %54, align 16
-  %56 = trunc i64 %55 to i32
-  %57 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 3
-  %58 = load i64, ptr %57, align 16
-  %59 = trunc i64 %58 to i32
-  %60 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 10
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 15
-  %63 = load i32, ptr %62, align 16
-  %64 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 11
-  %65 = load ptr, ptr %64, align 16
-  %66 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 17
-  %69 = load ptr, ptr %68, align 16
-  %70 = call i32 @opal_free_list_init(ptr noundef @mca_pml_base_recv_requests, i64 noundef %43, i64 noundef %45, ptr noundef %46, i64 noundef %48, i64 noundef %50, i32 noundef %53, i32 noundef %56, i32 noundef %59, ptr noundef %61, i32 noundef %63, ptr noundef %65, ptr noundef %67, ptr noundef %69)
-  store i32 %70, ptr %2, align 4
-  %71 = load i32, ptr %2, align 4
-  %72 = icmp ne i32 0, %71
-  br i1 %72, label %73, label %75
-
-73:                                               ; preds = %40
-  %74 = load i32, ptr %2, align 4
-  store i32 %74, ptr %1, align 4
-  br label %149
-
-75:                                               ; preds = %40
-  br label %76
-
-76:                                               ; preds = %75, %0
-  %77 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25), align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %148
-
-79:                                               ; preds = %76
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @mca_pml_base_send_requests, i64 352, i1 false)
-  %80 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 9
-  %81 = load ptr, ptr %80, align 16
-  %82 = getelementptr inbounds %struct.opal_class_t, ptr %81, i32 0, i32 8
-  %83 = load i64, ptr %82, align 8
-  store i64 %83, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 2), align 8
-  %84 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 2), align 8
-  %85 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25), align 8
-  %86 = getelementptr inbounds %struct.opal_class_t, ptr %85, i32 0, i32 8
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 6
-  %89 = load i64, ptr %88, align 8
-  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 300, ptr noundef @.str.1, i64 noundef %84, i64 noundef %87, i64 noundef %89)
-  %90 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 9
-  %91 = load ptr, ptr %90, align 16
-  %92 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25), align 8
-  %93 = getelementptr inbounds %struct.opal_class_t, ptr %92, i32 0, i32 1
-  store ptr %91, ptr %93, align 8
-  %94 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 9
-  %95 = load ptr, ptr %94, align 16
-  %96 = getelementptr inbounds %struct.opal_class_t, ptr %95, i32 0, i32 8
-  %97 = load i64, ptr %96, align 8
-  %98 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25), align 8
-  %99 = getelementptr inbounds %struct.opal_class_t, ptr %98, i32 0, i32 8
-  %100 = load i64, ptr %99, align 8
-  %101 = add i64 %100, %97
-  store i64 %101, ptr %99, align 8
-  br label %102
-
-102:                                              ; preds = %79
-  call void @opal_obj_run_destructors(ptr noundef @mca_pml_base_send_requests)
-  br label %103
-
-103:                                              ; preds = %102
-  br label %104
-
-104:                                              ; preds = %103
-  br label %105
-
-105:                                              ; preds = %104
-  %106 = load i32, ptr @opal_class_init_epoch, align 4
-  %107 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %108 = icmp ne i32 %106, %107
-  br i1 %108, label %109, label %110
-
-109:                                              ; preds = %105
+44:                                               ; preds = %39
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %110
+  br label %45
 
-110:                                              ; preds = %109, %105
+45:                                               ; preds = %44, %39
+  store ptr @opal_free_list_t_class, ptr @mca_pml_base_recv_requests, align 16
+  %46 = getelementptr inbounds %struct.opal_object_t, ptr @mca_pml_base_recv_requests, i32 0, i32 1
+  store volatile i32 1, ptr %46, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_pml_base_recv_requests)
+  br label %47
+
+47:                                               ; preds = %45
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct.opal_class_t, ptr %50, i32 0, i32 8
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 6
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 7
+  %58 = load i64, ptr %57, align 16
+  %59 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 8
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 2
+  %62 = load i64, ptr %61, align 8
+  %63 = trunc i64 %62 to i32
+  %64 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 1
+  %65 = load i64, ptr %64, align 16
+  %66 = trunc i64 %65 to i32
+  %67 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 3
+  %68 = load i64, ptr %67, align 16
+  %69 = trunc i64 %68 to i32
+  %70 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 10
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 15
+  %73 = load i32, ptr %72, align 16
+  %74 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 11
+  %75 = load ptr, ptr %74, align 16
+  %76 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds %struct.opal_free_list_t, ptr %3, i32 0, i32 17
+  %79 = load ptr, ptr %78, align 16
+  %80 = call i32 @opal_free_list_init(ptr noundef @mca_pml_base_recv_requests, i64 noundef %52, i64 noundef %54, ptr noundef %56, i64 noundef %58, i64 noundef %60, i32 noundef %63, i32 noundef %66, i32 noundef %69, ptr noundef %71, i32 noundef %73, ptr noundef %75, ptr noundef %77, ptr noundef %79)
+  store i32 %80, ptr %2, align 4
+  %81 = load i32, ptr %2, align 4
+  %82 = icmp ne i32 0, %81
+  br i1 %82, label %83, label %85
+
+83:                                               ; preds = %48
+  %84 = load i32, ptr %2, align 4
+  store i32 %84, ptr %1, align 4
+  br label %169
+
+85:                                               ; preds = %48
+  br label %86
+
+86:                                               ; preds = %85, %0
+  %87 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %168
+
+90:                                               ; preds = %86
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @mca_pml_base_send_requests, i64 352, i1 false)
+  %91 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 9
+  %92 = load ptr, ptr %91, align 16
+  %93 = getelementptr inbounds %struct.opal_class_t, ptr %92, i32 0, i32 8
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 2
+  store i64 %94, ptr %95, align 8
+  %96 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 2
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct.opal_class_t, ptr %99, i32 0, i32 8
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 6
+  %103 = load i64, ptr %102, align 8
+  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 300, ptr noundef @.str.1, i64 noundef %97, i64 noundef %101, i64 noundef %103)
+  %104 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 9
+  %105 = load ptr, ptr %104, align 16
+  %106 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds %struct.opal_class_t, ptr %107, i32 0, i32 1
+  store ptr %105, ptr %108, align 8
+  %109 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 9
+  %110 = load ptr, ptr %109, align 16
+  %111 = getelementptr inbounds %struct.opal_class_t, ptr %110, i32 0, i32 8
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds %struct.opal_class_t, ptr %114, i32 0, i32 8
+  %116 = load i64, ptr %115, align 8
+  %117 = add i64 %116, %112
+  store i64 %117, ptr %115, align 8
+  br label %118
+
+118:                                              ; preds = %90
+  call void @opal_obj_run_destructors(ptr noundef @mca_pml_base_send_requests)
+  br label %119
+
+119:                                              ; preds = %118
+  br label %120
+
+120:                                              ; preds = %119
+  br label %121
+
+121:                                              ; preds = %120
+  %122 = load i32, ptr @opal_class_init_epoch, align 4
+  %123 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %124 = load i32, ptr %123, align 8
+  %125 = icmp ne i32 %122, %124
+  br i1 %125, label %126, label %127
+
+126:                                              ; preds = %121
+  call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
+  br label %127
+
+127:                                              ; preds = %126, %121
   store ptr @opal_free_list_t_class, ptr @mca_pml_base_send_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_pml_base_send_requests, i32 0, i32 1), align 8
+  %128 = getelementptr inbounds %struct.opal_object_t, ptr @mca_pml_base_send_requests, i32 0, i32 1
+  store volatile i32 1, ptr %128, align 8
   call void @opal_obj_run_constructors(ptr noundef @mca_pml_base_send_requests)
-  br label %111
+  br label %129
 
-111:                                              ; preds = %110
-  br label %112
+129:                                              ; preds = %127
+  br label %130
 
-112:                                              ; preds = %111
-  %113 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25), align 8
-  %114 = getelementptr inbounds %struct.opal_class_t, ptr %113, i32 0, i32 8
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 6
-  %117 = load i64, ptr %116, align 8
-  %118 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25), align 8
-  %119 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 7
-  %120 = load i64, ptr %119, align 16
-  %121 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 8
-  %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 2
-  %124 = load i64, ptr %123, align 8
-  %125 = trunc i64 %124 to i32
-  %126 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 1
-  %127 = load i64, ptr %126, align 16
-  %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 3
-  %130 = load i64, ptr %129, align 16
-  %131 = trunc i64 %130 to i32
-  %132 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 10
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 15
-  %135 = load i32, ptr %134, align 16
-  %136 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 11
-  %137 = load ptr, ptr %136, align 16
-  %138 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 16
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 17
-  %141 = load ptr, ptr %140, align 16
-  %142 = call i32 @opal_free_list_init(ptr noundef @mca_pml_base_send_requests, i64 noundef %115, i64 noundef %117, ptr noundef %118, i64 noundef %120, i64 noundef %122, i32 noundef %125, i32 noundef %128, i32 noundef %131, ptr noundef %133, i32 noundef %135, ptr noundef %137, ptr noundef %139, ptr noundef %141)
-  store i32 %142, ptr %2, align 4
-  %143 = load i32, ptr %2, align 4
-  %144 = icmp ne i32 0, %143
-  br i1 %144, label %145, label %147
+130:                                              ; preds = %129
+  %131 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds %struct.opal_class_t, ptr %132, i32 0, i32 8
+  %134 = load i64, ptr %133, align 8
+  %135 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 6
+  %136 = load i64, ptr %135, align 8
+  %137 = getelementptr inbounds %struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i32 0, i32 25
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 7
+  %140 = load i64, ptr %139, align 16
+  %141 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 8
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 2
+  %144 = load i64, ptr %143, align 8
+  %145 = trunc i64 %144 to i32
+  %146 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 1
+  %147 = load i64, ptr %146, align 16
+  %148 = trunc i64 %147 to i32
+  %149 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 3
+  %150 = load i64, ptr %149, align 16
+  %151 = trunc i64 %150 to i32
+  %152 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 10
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 15
+  %155 = load i32, ptr %154, align 16
+  %156 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 11
+  %157 = load ptr, ptr %156, align 16
+  %158 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 16
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds %struct.opal_free_list_t, ptr %4, i32 0, i32 17
+  %161 = load ptr, ptr %160, align 16
+  %162 = call i32 @opal_free_list_init(ptr noundef @mca_pml_base_send_requests, i64 noundef %134, i64 noundef %136, ptr noundef %138, i64 noundef %140, i64 noundef %142, i32 noundef %145, i32 noundef %148, i32 noundef %151, ptr noundef %153, i32 noundef %155, ptr noundef %157, ptr noundef %159, ptr noundef %161)
+  store i32 %162, ptr %2, align 4
+  %163 = load i32, ptr %2, align 4
+  %164 = icmp ne i32 0, %163
+  br i1 %164, label %165, label %167
 
-145:                                              ; preds = %112
-  %146 = load i32, ptr %2, align 4
-  store i32 %146, ptr %1, align 4
-  br label %149
+165:                                              ; preds = %130
+  %166 = load i32, ptr %2, align 4
+  store i32 %166, ptr %1, align 4
+  br label %169
 
-147:                                              ; preds = %112
-  br label %148
+167:                                              ; preds = %130
+  br label %168
 
-148:                                              ; preds = %147, %76
+168:                                              ; preds = %167, %86
   store i32 0, ptr %1, align 4
-  br label %149
+  br label %169
 
-149:                                              ; preds = %148, %145, %73
-  %150 = load i32, ptr %1, align 4
-  ret i32 %150
+169:                                              ; preds = %168, %165, %83
+  %170 = load i32, ptr %1, align 4
+  ret i32 %170
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

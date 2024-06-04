@@ -232,28 +232,31 @@ declare i64 @time(ptr noundef) #3
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @PgArchiverMain() #4 {
   %1 = call ptr @pqsignal(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
-  %2 = call ptr @pqsignal(i32 noundef 2, ptr noundef inttoptr (i64 1 to ptr))
-  %3 = call ptr @pqsignal(i32 noundef 15, ptr noundef @SignalHandlerForShutdownRequest)
-  %4 = call ptr @pqsignal(i32 noundef 14, ptr noundef inttoptr (i64 1 to ptr))
-  %5 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %6 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
-  %7 = call ptr @pqsignal(i32 noundef 12, ptr noundef @pgarch_waken_stop)
-  %8 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
-  %9 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #10
+  %2 = inttoptr i64 1 to ptr
+  %3 = call ptr @pqsignal(i32 noundef 2, ptr noundef %2)
+  %4 = call ptr @pqsignal(i32 noundef 15, ptr noundef @SignalHandlerForShutdownRequest)
+  %5 = inttoptr i64 1 to ptr
+  %6 = call ptr @pqsignal(i32 noundef 14, ptr noundef %5)
+  %7 = inttoptr i64 1 to ptr
+  %8 = call ptr @pqsignal(i32 noundef 13, ptr noundef %7)
+  %9 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
+  %10 = call ptr @pqsignal(i32 noundef 12, ptr noundef @pgarch_waken_stop)
+  %11 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  %12 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #10
   call void @on_shmem_exit(ptr noundef @pgarch_die, i64 noundef 0)
-  %10 = load i32, ptr @MyProcNumber, align 4
-  %11 = load ptr, ptr @PgArch, align 8
-  %12 = getelementptr inbounds %struct.PgArchData, ptr %11, i32 0, i32 0
-  store i32 %10, ptr %12, align 4
-  %13 = call ptr @palloc(i64 noundef 3152)
-  store ptr %13, ptr @arch_files, align 8
-  %14 = load ptr, ptr @arch_files, align 8
-  %15 = getelementptr inbounds %struct.arch_files_state, ptr %14, i32 0, i32 1
-  store i32 0, ptr %15, align 8
-  %16 = call ptr @binaryheap_allocate(i32 noundef 64, ptr noundef @ready_file_comparator, ptr noundef null)
+  %13 = load i32, ptr @MyProcNumber, align 4
+  %14 = load ptr, ptr @PgArch, align 8
+  %15 = getelementptr inbounds %struct.PgArchData, ptr %14, i32 0, i32 0
+  store i32 %13, ptr %15, align 4
+  %16 = call ptr @palloc(i64 noundef 3152)
+  store ptr %16, ptr @arch_files, align 8
   %17 = load ptr, ptr @arch_files, align 8
-  %18 = getelementptr inbounds %struct.arch_files_state, ptr %17, i32 0, i32 0
-  store ptr %16, ptr %18, align 8
+  %18 = getelementptr inbounds %struct.arch_files_state, ptr %17, i32 0, i32 1
+  store i32 0, ptr %18, align 8
+  %19 = call ptr @binaryheap_allocate(i32 noundef 64, ptr noundef @ready_file_comparator, ptr noundef null)
+  %20 = load ptr, ptr @arch_files, align 8
+  %21 = getelementptr inbounds %struct.arch_files_state, ptr %20, i32 0, i32 0
+  store ptr %19, ptr %21, align 8
   call void @LoadArchiveLibrary()
   call void @pgarch_MainLoop()
   call void @proc_exit(i32 noundef 0) #11

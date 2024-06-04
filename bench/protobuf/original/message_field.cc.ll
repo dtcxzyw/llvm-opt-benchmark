@@ -4529,29 +4529,30 @@ entry:
   %1 = load ptr, ptr %opts.addr, align 8
   %2 = load ptr, ptr %scc.addr, align 8
   call void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(85) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_115SingularMessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_115SingularMessageE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::SingularMessage", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %field.addr, align 8
-  store ptr %3, ptr %field_, align 8
+  %4 = load ptr, ptr %field.addr, align 8
+  store ptr %4, ptr %field_, align 8
   %opts_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::SingularMessage", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %opts.addr, align 8
-  store ptr %4, ptr %opts_, align 8
+  %5 = load ptr, ptr %opts.addr, align 8
+  store ptr %5, ptr %opts_, align 8
   %has_required_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::SingularMessage", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %scc.addr, align 8
-  %6 = load ptr, ptr %field.addr, align 8
-  %call = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %6)
+  %6 = load ptr, ptr %scc.addr, align 8
+  %7 = load ptr, ptr %field.addr, align 8
+  %call = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call3 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp18MessageSCCAnalyzer17HasRequiredFieldsEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(328) %5, ptr noundef %call)
+  %call3 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp18MessageSCCAnalyzer17HasRequiredFieldsEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(328) %6, ptr noundef %call)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %frombool = zext i1 %call3 to i8
   store i8 %frombool, ptr %has_required_, align 8
   %has_hasbit_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::SingularMessage", ptr %this1, i32 0, i32 5
-  %7 = load ptr, ptr %field.addr, align 8
-  %call5 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal3cpp9HasHasbitEPKNS0_15FieldDescriptorE(ptr noundef %7)
+  %8 = load ptr, ptr %field.addr, align 8
+  %call5 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal3cpp9HasHasbitEPKNS0_15FieldDescriptorE(ptr noundef %8)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -4560,12 +4561,12 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(85) %this1) #3
   br label %eh.resume
 
@@ -4649,7 +4650,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %variables_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 4
   call void @_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %variables_) #3
   ret void
@@ -7982,7 +7984,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -16669,7 +16672,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -36415,10 +36419,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -36440,7 +36445,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -44569,21 +44575,22 @@ entry:
   %1 = load ptr, ptr %opts.addr, align 8
   %2 = load ptr, ptr %scc.addr, align 8
   call void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(85) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_115RepeatedMessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_115RepeatedMessageE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::RepeatedMessage", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %field.addr, align 8
-  store ptr %3, ptr %field_, align 8
+  %4 = load ptr, ptr %field.addr, align 8
+  store ptr %4, ptr %field_, align 8
   %opts_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::RepeatedMessage", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %opts.addr, align 8
-  store ptr %4, ptr %opts_, align 8
+  %5 = load ptr, ptr %opts.addr, align 8
+  store ptr %5, ptr %opts_, align 8
   %has_required_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::RepeatedMessage", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %scc.addr, align 8
-  %6 = load ptr, ptr %field.addr, align 8
-  %call = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %6)
+  %6 = load ptr, ptr %scc.addr, align 8
+  %7 = load ptr, ptr %field.addr, align 8
+  %call = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call3 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp18MessageSCCAnalyzer17HasRequiredFieldsEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(328) %5, ptr noundef %call)
+  %call3 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp18MessageSCCAnalyzer17HasRequiredFieldsEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(328) %6, ptr noundef %call)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -44592,12 +44599,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(85) %this1) #3
   br label %eh.resume
 
@@ -47089,7 +47096,8 @@ entry:
   %1 = load ptr, ptr %options.addr, align 8
   %2 = load ptr, ptr %scc_analyzer.addr, align 8
   call void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_115SingularMessageC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(106) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_112OneofMessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_112OneofMessageE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   ret void
 }
 

@@ -789,47 +789,48 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(389) %this1, ptr noundef nonnull align 8 dereferenceable(389) %0)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %start = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %newText.addr, align 8
-  store ptr %1, ptr %start, align 8
-  %pos = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 2
   %2 = load ptr, ptr %newText.addr, align 8
-  %3 = load ptr, ptr %other.addr, align 8
-  %pos2 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %pos2, align 8
-  %5 = load ptr, ptr %other.addr, align 8
-  %start3 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %start3, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
+  store ptr %2, ptr %start, align 8
+  %pos = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %newText.addr, align 8
+  %4 = load ptr, ptr %other.addr, align 8
+  %pos2 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %pos2, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %start3 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %start3, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 2
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i16, ptr %3, i64 %sub.ptr.div
   store ptr %add.ptr, ptr %pos, align 8
   %limit = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 3
-  %7 = load ptr, ptr %other.addr, align 8
-  %limit4 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %7, i32 0, i32 3
-  %8 = load ptr, ptr %limit4, align 8
-  %cmp = icmp eq ptr %8, null
+  %8 = load ptr, ptr %other.addr, align 8
+  %limit4 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %8, i32 0, i32 3
+  %9 = load ptr, ptr %limit4, align 8
+  %cmp = icmp eq ptr %9, null
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = load ptr, ptr %newText.addr, align 8
-  %10 = load ptr, ptr %other.addr, align 8
-  %limit5 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %10, i32 0, i32 3
-  %11 = load ptr, ptr %limit5, align 8
-  %12 = load ptr, ptr %other.addr, align 8
-  %start6 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %start6, align 8
-  %sub.ptr.lhs.cast7 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast8 = ptrtoint ptr %13 to i64
+  %10 = load ptr, ptr %newText.addr, align 8
+  %11 = load ptr, ptr %other.addr, align 8
+  %limit5 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %11, i32 0, i32 3
+  %12 = load ptr, ptr %limit5, align 8
+  %13 = load ptr, ptr %other.addr, align 8
+  %start6 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %start6, align 8
+  %sub.ptr.lhs.cast7 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast8 = ptrtoint ptr %14 to i64
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = sdiv exact i64 %sub.ptr.sub9, 2
-  %add.ptr11 = getelementptr inbounds i16, ptr %9, i64 %sub.ptr.div10
+  %add.ptr11 = getelementptr inbounds i16, ptr %10, i64 %sub.ptr.div10
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -1463,164 +1464,165 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7522UTF16CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(416) %this1, ptr noundef nonnull align 8 dereferenceable(416) %0)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %rawStart = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %newText.addr, align 8
-  store ptr %1, ptr %rawStart, align 8
-  %segmentStart = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 2
   %2 = load ptr, ptr %newText.addr, align 8
-  %3 = load ptr, ptr %other.addr, align 8
-  %segmentStart2 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %segmentStart2, align 8
-  %5 = load ptr, ptr %other.addr, align 8
-  %rawStart3 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %rawStart3, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
+  store ptr %2, ptr %rawStart, align 8
+  %segmentStart = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %newText.addr, align 8
+  %4 = load ptr, ptr %other.addr, align 8
+  %segmentStart2 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %segmentStart2, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %rawStart3 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %rawStart3, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 2
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i16, ptr %3, i64 %sub.ptr.div
   store ptr %add.ptr, ptr %segmentStart, align 8
   %segmentLimit = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 3
-  %7 = load ptr, ptr %other.addr, align 8
-  %segmentLimit4 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %7, i32 0, i32 3
-  %8 = load ptr, ptr %segmentLimit4, align 8
-  %cmp = icmp eq ptr %8, null
+  %8 = load ptr, ptr %other.addr, align 8
+  %segmentLimit4 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %8, i32 0, i32 3
+  %9 = load ptr, ptr %segmentLimit4, align 8
+  %cmp = icmp eq ptr %9, null
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = load ptr, ptr %newText.addr, align 8
-  %10 = load ptr, ptr %other.addr, align 8
-  %segmentLimit5 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %10, i32 0, i32 3
-  %11 = load ptr, ptr %segmentLimit5, align 8
-  %12 = load ptr, ptr %other.addr, align 8
-  %rawStart6 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %rawStart6, align 8
-  %sub.ptr.lhs.cast7 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast8 = ptrtoint ptr %13 to i64
+  %10 = load ptr, ptr %newText.addr, align 8
+  %11 = load ptr, ptr %other.addr, align 8
+  %segmentLimit5 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %11, i32 0, i32 3
+  %12 = load ptr, ptr %segmentLimit5, align 8
+  %13 = load ptr, ptr %other.addr, align 8
+  %rawStart6 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %rawStart6, align 8
+  %sub.ptr.lhs.cast7 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast8 = ptrtoint ptr %14 to i64
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
   %sub.ptr.div10 = sdiv exact i64 %sub.ptr.sub9, 2
-  %add.ptr11 = getelementptr inbounds i16, ptr %9, i64 %sub.ptr.div10
+  %add.ptr11 = getelementptr inbounds i16, ptr %10, i64 %sub.ptr.div10
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ null, %cond.true ], [ %add.ptr11, %cond.false ]
   store ptr %cond, ptr %segmentLimit, align 8
   %rawLimit = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 4
-  %14 = load ptr, ptr %other.addr, align 8
-  %rawLimit12 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %14, i32 0, i32 4
-  %15 = load ptr, ptr %rawLimit12, align 8
-  %cmp13 = icmp eq ptr %15, null
+  %15 = load ptr, ptr %other.addr, align 8
+  %rawLimit12 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %15, i32 0, i32 4
+  %16 = load ptr, ptr %rawLimit12, align 8
+  %cmp13 = icmp eq ptr %16, null
   br i1 %cmp13, label %cond.true14, label %cond.false15
 
 cond.true14:                                      ; preds = %cond.end
   br label %cond.end23
 
 cond.false15:                                     ; preds = %cond.end
-  %16 = load ptr, ptr %newText.addr, align 8
-  %17 = load ptr, ptr %other.addr, align 8
-  %rawLimit16 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %17, i32 0, i32 4
-  %18 = load ptr, ptr %rawLimit16, align 8
-  %19 = load ptr, ptr %other.addr, align 8
-  %rawStart17 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %rawStart17, align 8
-  %sub.ptr.lhs.cast18 = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast19 = ptrtoint ptr %20 to i64
+  %17 = load ptr, ptr %newText.addr, align 8
+  %18 = load ptr, ptr %other.addr, align 8
+  %rawLimit16 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %18, i32 0, i32 4
+  %19 = load ptr, ptr %rawLimit16, align 8
+  %20 = load ptr, ptr %other.addr, align 8
+  %rawStart17 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %20, i32 0, i32 1
+  %21 = load ptr, ptr %rawStart17, align 8
+  %sub.ptr.lhs.cast18 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast19 = ptrtoint ptr %21 to i64
   %sub.ptr.sub20 = sub i64 %sub.ptr.lhs.cast18, %sub.ptr.rhs.cast19
   %sub.ptr.div21 = sdiv exact i64 %sub.ptr.sub20, 2
-  %add.ptr22 = getelementptr inbounds i16, ptr %16, i64 %sub.ptr.div21
+  %add.ptr22 = getelementptr inbounds i16, ptr %17, i64 %sub.ptr.div21
   br label %cond.end23
 
 cond.end23:                                       ; preds = %cond.false15, %cond.true14
   %cond24 = phi ptr [ null, %cond.true14 ], [ %add.ptr22, %cond.false15 ]
   store ptr %cond24, ptr %rawLimit, align 8
   %nfcImpl = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 5
-  %21 = load ptr, ptr %other.addr, align 8
-  %nfcImpl25 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %21, i32 0, i32 5
-  %22 = load ptr, ptr %nfcImpl25, align 8
-  store ptr %22, ptr %nfcImpl, align 8
+  %22 = load ptr, ptr %other.addr, align 8
+  %nfcImpl25 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %22, i32 0, i32 5
+  %23 = load ptr, ptr %nfcImpl25, align 8
+  store ptr %23, ptr %nfcImpl, align 8
   %normalized = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 6
-  %23 = load ptr, ptr %other.addr, align 8
-  %normalized26 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %23, i32 0, i32 6
+  %24 = load ptr, ptr %other.addr, align 8
+  %normalized26 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %24, i32 0, i32 6
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %normalized, ptr noundef nonnull align 8 dereferenceable(64) %normalized26)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.end23
   %checkDir = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 7
-  %24 = load ptr, ptr %other.addr, align 8
-  %checkDir27 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %24, i32 0, i32 7
-  %25 = load i8, ptr %checkDir27, align 8
-  store i8 %25, ptr %checkDir, align 8
+  %25 = load ptr, ptr %other.addr, align 8
+  %checkDir27 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %25, i32 0, i32 7
+  %26 = load i8, ptr %checkDir27, align 8
+  store i8 %26, ptr %checkDir, align 8
   %checkDir28 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 7
-  %26 = load i8, ptr %checkDir28, align 8
-  %conv = sext i8 %26 to i32
+  %27 = load i8, ptr %checkDir28, align 8
+  %conv = sext i8 %27 to i32
   %cmp29 = icmp ne i32 %conv, 0
   br i1 %cmp29, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont
-  %27 = load ptr, ptr %other.addr, align 8
-  %start = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %start, align 8
-  %29 = load ptr, ptr %other.addr, align 8
-  %segmentStart30 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %segmentStart30, align 8
-  %cmp31 = icmp eq ptr %28, %30
+  %28 = load ptr, ptr %other.addr, align 8
+  %start = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %28, i32 0, i32 1
+  %29 = load ptr, ptr %start, align 8
+  %30 = load ptr, ptr %other.addr, align 8
+  %segmentStart30 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %30, i32 0, i32 2
+  %31 = load ptr, ptr %segmentStart30, align 8
+  %cmp31 = icmp eq ptr %29, %31
   br i1 %cmp31, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %invoke.cont
-  %31 = load ptr, ptr %newText.addr, align 8
-  %32 = load ptr, ptr %other.addr, align 8
-  %start32 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %start32, align 8
-  %34 = load ptr, ptr %other.addr, align 8
-  %rawStart33 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %rawStart33, align 8
-  %sub.ptr.lhs.cast34 = ptrtoint ptr %33 to i64
-  %sub.ptr.rhs.cast35 = ptrtoint ptr %35 to i64
+  %32 = load ptr, ptr %newText.addr, align 8
+  %33 = load ptr, ptr %other.addr, align 8
+  %start32 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %33, i32 0, i32 1
+  %34 = load ptr, ptr %start32, align 8
+  %35 = load ptr, ptr %other.addr, align 8
+  %rawStart33 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %35, i32 0, i32 1
+  %36 = load ptr, ptr %rawStart33, align 8
+  %sub.ptr.lhs.cast34 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast35 = ptrtoint ptr %36 to i64
   %sub.ptr.sub36 = sub i64 %sub.ptr.lhs.cast34, %sub.ptr.rhs.cast35
   %sub.ptr.div37 = sdiv exact i64 %sub.ptr.sub36, 2
-  %add.ptr38 = getelementptr inbounds i16, ptr %31, i64 %sub.ptr.div37
+  %add.ptr38 = getelementptr inbounds i16, ptr %32, i64 %sub.ptr.div37
   %start39 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 1
   store ptr %add.ptr38, ptr %start39, align 8
-  %36 = load ptr, ptr %newText.addr, align 8
-  %37 = load ptr, ptr %other.addr, align 8
-  %pos = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %37, i32 0, i32 2
-  %38 = load ptr, ptr %pos, align 8
-  %39 = load ptr, ptr %other.addr, align 8
-  %rawStart40 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %rawStart40, align 8
-  %sub.ptr.lhs.cast41 = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast42 = ptrtoint ptr %40 to i64
+  %37 = load ptr, ptr %newText.addr, align 8
+  %38 = load ptr, ptr %other.addr, align 8
+  %pos = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %38, i32 0, i32 2
+  %39 = load ptr, ptr %pos, align 8
+  %40 = load ptr, ptr %other.addr, align 8
+  %rawStart40 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %rawStart40, align 8
+  %sub.ptr.lhs.cast41 = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast42 = ptrtoint ptr %41 to i64
   %sub.ptr.sub43 = sub i64 %sub.ptr.lhs.cast41, %sub.ptr.rhs.cast42
   %sub.ptr.div44 = sdiv exact i64 %sub.ptr.sub43, 2
-  %add.ptr45 = getelementptr inbounds i16, ptr %36, i64 %sub.ptr.div44
+  %add.ptr45 = getelementptr inbounds i16, ptr %37, i64 %sub.ptr.div44
   %pos46 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 2
   store ptr %add.ptr45, ptr %pos46, align 8
-  %41 = load ptr, ptr %other.addr, align 8
-  %limit = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %41, i32 0, i32 3
-  %42 = load ptr, ptr %limit, align 8
-  %cmp47 = icmp eq ptr %42, null
+  %42 = load ptr, ptr %other.addr, align 8
+  %limit = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %42, i32 0, i32 3
+  %43 = load ptr, ptr %limit, align 8
+  %cmp47 = icmp eq ptr %43, null
   br i1 %cmp47, label %cond.true48, label %cond.false49
 
 cond.true48:                                      ; preds = %if.then
   br label %cond.end57
 
 cond.false49:                                     ; preds = %if.then
-  %43 = load ptr, ptr %newText.addr, align 8
-  %44 = load ptr, ptr %other.addr, align 8
-  %limit50 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %44, i32 0, i32 3
-  %45 = load ptr, ptr %limit50, align 8
-  %46 = load ptr, ptr %other.addr, align 8
-  %rawStart51 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %46, i32 0, i32 1
-  %47 = load ptr, ptr %rawStart51, align 8
-  %sub.ptr.lhs.cast52 = ptrtoint ptr %45 to i64
-  %sub.ptr.rhs.cast53 = ptrtoint ptr %47 to i64
+  %44 = load ptr, ptr %newText.addr, align 8
+  %45 = load ptr, ptr %other.addr, align 8
+  %limit50 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %45, i32 0, i32 3
+  %46 = load ptr, ptr %limit50, align 8
+  %47 = load ptr, ptr %other.addr, align 8
+  %rawStart51 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %47, i32 0, i32 1
+  %48 = load ptr, ptr %rawStart51, align 8
+  %sub.ptr.lhs.cast52 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast53 = ptrtoint ptr %48 to i64
   %sub.ptr.sub54 = sub i64 %sub.ptr.lhs.cast52, %sub.ptr.rhs.cast53
   %sub.ptr.div55 = sdiv exact i64 %sub.ptr.sub54, 2
-  %add.ptr56 = getelementptr inbounds i16, ptr %43, i64 %sub.ptr.div55
+  %add.ptr56 = getelementptr inbounds i16, ptr %44, i64 %sub.ptr.div55
   br label %cond.end57
 
 cond.end57:                                       ; preds = %cond.false49, %cond.true48
@@ -1630,12 +1632,12 @@ cond.end57:                                       ; preds = %cond.false49, %cond
   br label %if.end
 
 lpad:                                             ; preds = %cond.end23
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %exn.slot, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %ehselector.slot, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %exn.slot, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -1647,40 +1649,40 @@ invoke.cont62:                                    ; preds = %if.else
   %start63 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 1
   store ptr %call, ptr %start63, align 8
   %start64 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 1
-  %51 = load ptr, ptr %start64, align 8
-  %52 = load ptr, ptr %other.addr, align 8
-  %pos65 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %52, i32 0, i32 2
-  %53 = load ptr, ptr %pos65, align 8
-  %54 = load ptr, ptr %other.addr, align 8
-  %start66 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %54, i32 0, i32 1
-  %55 = load ptr, ptr %start66, align 8
-  %sub.ptr.lhs.cast67 = ptrtoint ptr %53 to i64
-  %sub.ptr.rhs.cast68 = ptrtoint ptr %55 to i64
+  %52 = load ptr, ptr %start64, align 8
+  %53 = load ptr, ptr %other.addr, align 8
+  %pos65 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %53, i32 0, i32 2
+  %54 = load ptr, ptr %pos65, align 8
+  %55 = load ptr, ptr %other.addr, align 8
+  %start66 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %55, i32 0, i32 1
+  %56 = load ptr, ptr %start66, align 8
+  %sub.ptr.lhs.cast67 = ptrtoint ptr %54 to i64
+  %sub.ptr.rhs.cast68 = ptrtoint ptr %56 to i64
   %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
   %sub.ptr.div70 = sdiv exact i64 %sub.ptr.sub69, 2
-  %add.ptr71 = getelementptr inbounds i16, ptr %51, i64 %sub.ptr.div70
+  %add.ptr71 = getelementptr inbounds i16, ptr %52, i64 %sub.ptr.div70
   %pos72 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 2
   store ptr %add.ptr71, ptr %pos72, align 8
   %start73 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 1
-  %56 = load ptr, ptr %start73, align 8
+  %57 = load ptr, ptr %start73, align 8
   %normalized74 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 6
   %call76 = invoke noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %normalized74)
           to label %invoke.cont75 unwind label %lpad61
 
 invoke.cont75:                                    ; preds = %invoke.cont62
   %idx.ext = sext i32 %call76 to i64
-  %add.ptr77 = getelementptr inbounds i16, ptr %56, i64 %idx.ext
+  %add.ptr77 = getelementptr inbounds i16, ptr %57, i64 %idx.ext
   %limit78 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 3
   store ptr %add.ptr77, ptr %limit78, align 8
   br label %if.end
 
 lpad61:                                           ; preds = %invoke.cont62, %if.else
-  %57 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %exn.slot, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %ehselector.slot, align 4
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %exn.slot, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #7
   br label %ehcleanup
 
@@ -1709,7 +1711,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(389) %this1, ptr noundef nonnull align 8 dereferenceable(389) %0)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %start = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %start, align 8
   %pos = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 2
@@ -1802,7 +1805,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %normalized = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 6
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #7
   call void @_ZN6icu_7522UTF16CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this1) #7

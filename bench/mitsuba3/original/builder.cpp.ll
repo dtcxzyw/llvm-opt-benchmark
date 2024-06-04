@@ -56,19 +56,20 @@ $_ZTIN6asmjit9_abi_1_1021PostponedErrorHandlerE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN6asmjit9_abi_1_1011BaseEmitterC2ENS0_11EmitterTypeE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext 2) #24
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1011BaseBuilderE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @_ZN6asmjit9_abi_1_104Zone5_initEmmPKNS0_7Support9TemporaryE(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 32712, i64 noundef 1, ptr noundef null) #24
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @_ZN6asmjit9_abi_1_104Zone5_initEmmPKNS0_7Support9TemporaryE(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 16328, i64 noundef 1, ptr noundef null) #24
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @_ZN6asmjit9_abi_1_104Zone5_initEmmPKNS0_7Support9TemporaryE(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 65480, i64 noundef 1, ptr noundef null) #24
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
-  %6 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 88, i1 false)
-  store ptr %2, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %0, i64 336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %7, i8 0, i64 74, i1 false)
+  %2 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1011BaseBuilderE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @_ZN6asmjit9_abi_1_104Zone5_initEmmPKNS0_7Support9TemporaryE(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 32712, i64 noundef 1, ptr noundef null) #24
+  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  tail call void @_ZN6asmjit9_abi_1_104Zone5_initEmmPKNS0_7Support9TemporaryE(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 16328, i64 noundef 1, ptr noundef null) #24
+  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  tail call void @_ZN6asmjit9_abi_1_104Zone5_initEmmPKNS0_7Support9TemporaryE(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 65480, i64 noundef 1, ptr noundef null) #24
+  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 88, i1 false)
+  store ptr %3, ptr %6, align 8, !tbaa !6
+  %8 = getelementptr inbounds i8, ptr %0, i64 336
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %8, i8 0, i64 74, i1 false)
   ret void
 }
 
@@ -77,36 +78,37 @@ declare void @_ZN6asmjit9_abi_1_1011BaseEmitterC2ENS0_11EmitterTypeE(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1011BaseBuilderE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 336
-  %3 = load ptr, ptr %2, align 8, !tbaa !10
-  %4 = getelementptr inbounds i8, ptr %0, i64 344
-  %5 = load i32, ptr %4, align 8, !tbaa !13
-  %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
-  %8 = icmp eq i32 %5, 0
-  br i1 %8, label %16, label %9
+  %2 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1011BaseBuilderE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds i8, ptr %0, i64 336
+  %4 = load ptr, ptr %3, align 8, !tbaa !10
+  %5 = getelementptr inbounds i8, ptr %0, i64 344
+  %6 = load i32, ptr %5, align 8, !tbaa !13
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %9 = icmp eq i32 %6, 0
+  br i1 %9, label %17, label %10
 
-9:                                                ; preds = %9, %1
-  %10 = phi ptr [ %14, %9 ], [ %3, %1 ]
-  %11 = load ptr, ptr %10, align 8, !tbaa !14
-  %12 = load ptr, ptr %11, align 8, !tbaa !3
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %11) #24
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
-  %15 = icmp eq ptr %14, %7
-  br i1 %15, label %16, label %9
+10:                                               ; preds = %10, %1
+  %11 = phi ptr [ %15, %10 ], [ %4, %1 ]
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %13 = load ptr, ptr %12, align 8, !tbaa !3
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
+  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = icmp eq ptr %15, %8
+  br i1 %16, label %17, label %10
 
-16:                                               ; preds = %9, %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 240
-  tail call void @_ZN6asmjit9_abi_1_1013ZoneAllocator5resetEPNS0_4ZoneE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef null) #24
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 1) #24
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+17:                                               ; preds = %10, %1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  %18 = getelementptr inbounds i8, ptr %0, i64 240
+  tail call void @_ZN6asmjit9_abi_1_1013ZoneAllocator5resetEPNS0_4ZoneE(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef null) #24
+  %19 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 1) #24
-  %20 = getelementptr inbounds i8, ptr %0, i64 144
+  %20 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 1) #24
+  %21 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 1) #24
   tail call void @_ZN6asmjit9_abi_1_1011BaseEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #24
   ret void
 }
@@ -1709,13 +1711,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder9runPassesEv(ptr 
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %66, label %6, !prof !15
+  br i1 %5, label %69, label %6, !prof !15
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 344
   %8 = load i32, ptr %7, align 8, !tbaa !13
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %66, label %10
+  br i1 %9, label %69, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 336
@@ -1723,101 +1725,104 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder9runPassesEv(ptr 
   %13 = load ptr, ptr %12, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %2) #24
   call void @_ZN6asmjit9_abi_1_1012ErrorHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 16, i1 false)
-  store i8 32, ptr %14, align 8, !tbaa !16
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 135, ptr %15, align 8, !tbaa !16
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
-  %17 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %16, ptr %17, align 8, !tbaa !16
-  store i8 0, ptr %16, align 8, !tbaa !16
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2
+  store ptr %14, ptr %2, align 8, !tbaa !3
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false)
+  store i8 32, ptr %15, align 8, !tbaa !16
+  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 135, ptr %16, align 8, !tbaa !16
+  %17 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %17, ptr %18, align 8, !tbaa !16
+  store i8 0, ptr %17, align 8, !tbaa !16
   call void @_ZN6asmjit9_abi_1_1011BaseEmitter15setErrorHandlerEPNS0_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %2) #24
-  %18 = load ptr, ptr %11, align 8, !tbaa !10
-  %19 = load i32, ptr %7, align 8, !tbaa !13
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
-  %22 = icmp eq i32 %19, 0
-  br i1 %22, label %41, label %23
+  %19 = load ptr, ptr %11, align 8, !tbaa !10
+  %20 = load i32, ptr %7, align 8, !tbaa !13
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %23 = icmp eq i32 %20, 0
+  br i1 %23, label %42, label %24
 
-23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %0, i64 208
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
-  br label %29
+24:                                               ; preds = %10
+  %25 = getelementptr inbounds i8, ptr %0, i64 208
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  br label %30
 
-26:                                               ; preds = %37
-  %27 = getelementptr inbounds i8, ptr %30, i64 8
-  %28 = icmp eq ptr %27, %21
-  br i1 %28, label %41, label %29
+27:                                               ; preds = %38
+  %28 = getelementptr inbounds i8, ptr %31, i64 8
+  %29 = icmp eq ptr %28, %22
+  br i1 %29, label %42, label %30
 
-29:                                               ; preds = %26, %23
-  %30 = phi ptr [ %18, %23 ], [ %27, %26 ]
-  %31 = load ptr, ptr %30, align 8, !tbaa !14
-  call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 0) #24
-  %32 = load ptr, ptr %25, align 8, !tbaa !90
-  %33 = load ptr, ptr %31, align 8, !tbaa !3
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = invoke noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull %24, ptr noundef %32)
-          to label %37 unwind label %39
+30:                                               ; preds = %27, %24
+  %31 = phi ptr [ %19, %24 ], [ %28, %27 ]
+  %32 = load ptr, ptr %31, align 8, !tbaa !14
+  call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 0) #24
+  %33 = load ptr, ptr %26, align 8, !tbaa !90
+  %34 = load ptr, ptr %32, align 8, !tbaa !3
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = invoke noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull %25, ptr noundef %33)
+          to label %38 unwind label %40
 
-37:                                               ; preds = %29
-  %38 = icmp eq i32 %36, 0
-  br i1 %38, label %26, label %41
+38:                                               ; preds = %30
+  %39 = icmp eq i32 %37, 0
+  br i1 %39, label %27, label %42
 
-39:                                               ; preds = %29
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %30
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %65
 
-41:                                               ; preds = %37, %26, %10
-  %42 = phi i32 [ 0, %10 ], [ 0, %26 ], [ %36, %37 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 0) #24
+42:                                               ; preds = %38, %27, %10
+  %43 = phi i32 [ 0, %10 ], [ 0, %27 ], [ %37, %38 ]
+  %44 = getelementptr inbounds i8, ptr %0, i64 208
+  call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef 0) #24
   call void @_ZN6asmjit9_abi_1_1011BaseEmitter15setErrorHandlerEPNS0_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %13) #24
-  %44 = icmp eq i32 %42, 0
-  br i1 %44, label %60, label %45, !prof !55
+  %45 = icmp eq i32 %43, 0
+  br i1 %45, label %61, label %46, !prof !55
 
-45:                                               ; preds = %41
-  %46 = load i8, ptr %14, align 8
-  %47 = icmp ugt i8 %46, 30
-  %48 = getelementptr inbounds i8, ptr %2, i64 16
-  %49 = load i64, ptr %48, align 8
-  %50 = zext i8 %46 to i64
-  %51 = select i1 %47, i64 %49, i64 %50
-  %52 = icmp eq i64 %51, 0
-  %53 = load ptr, ptr %17, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 9
-  %55 = select i1 %47, ptr %53, ptr %54
-  %56 = select i1 %52, ptr null, ptr %55
-  %57 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %42, ptr noundef %56)
-          to label %60 unwind label %58
+46:                                               ; preds = %42
+  %47 = load i8, ptr %15, align 8
+  %48 = icmp ugt i8 %47, 30
+  %49 = getelementptr inbounds i8, ptr %2, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = zext i8 %47 to i64
+  %52 = select i1 %48, i64 %50, i64 %51
+  %53 = icmp eq i64 %52, 0
+  %54 = load ptr, ptr %18, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 9
+  %56 = select i1 %48, ptr %54, ptr %55
+  %57 = select i1 %53, ptr null, ptr %56
+  %58 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %43, ptr noundef %57)
+          to label %61 unwind label %59
 
-58:                                               ; preds = %45
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %46
+  %60 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %65
 
-60:                                               ; preds = %45, %41
-  %61 = phi i32 [ %57, %45 ], [ 0, %41 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !3
-  %62 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
+61:                                               ; preds = %46, %42
+  %62 = phi i32 [ %58, %46 ], [ 0, %42 ]
+  %63 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2
+  store ptr %63, ptr %2, align 8, !tbaa !3
+  %64 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #24
   call void @_ZN6asmjit9_abi_1_1012ErrorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2) #24
-  br label %66
+  br label %69
 
-63:                                               ; preds = %58, %39
-  %64 = phi { ptr, i32 } [ %59, %58 ], [ %40, %39 ]
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !3
-  %65 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
+65:                                               ; preds = %59, %40
+  %66 = phi { ptr, i32 } [ %60, %59 ], [ %41, %40 ]
+  %67 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2
+  store ptr %67, ptr %2, align 8, !tbaa !3
+  %68 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #24
   call void @_ZN6asmjit9_abi_1_1012ErrorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2) #24
-  resume { ptr, i32 } %64
+  resume { ptr, i32 } %66
 
-66:                                               ; preds = %60, %6, %1
-  %67 = phi i32 [ %61, %60 ], [ 0, %6 ], [ 5, %1 ]
-  ret i32 %67
+69:                                               ; preds = %61, %6, %1
+  %70 = phi i32 [ %62, %61 ], [ 0, %6 ], [ 5, %1 ]
+  ret i32 %70
 }
 
 ; Function Attrs: nounwind
@@ -1830,9 +1835,10 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1021PostponedErrorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #15 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   tail call void @_ZN6asmjit9_abi_1_1012ErrorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   ret void
 }
@@ -3278,11 +3284,12 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onDetachEPNS0_10CodeHolde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6asmjit9_abi_1_104PassC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #17 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_104PassE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %3, align 8, !tbaa !87
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %1, ptr %4, align 8, !tbaa !85
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_104PassE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %4, align 8, !tbaa !87
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %5, align 8, !tbaa !85
   ret void
 }
 
@@ -3326,9 +3333,10 @@ declare void @_ZN6asmjit9_abi_1_1012ErrorHandlerC2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1021PostponedErrorHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #15 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1021PostponedErrorHandlerE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   tail call void @_ZN6asmjit9_abi_1_1012ErrorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void

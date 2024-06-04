@@ -187,326 +187,327 @@ define void @_ZN5Ipopt11TNLPReducerC2ERNS_4TNLPEiPKiiS4_iS4_iS4_(ptr noundef non
   store ptr %9, ptr %20, align 8
   %27 = load ptr, ptr %11, align 8
   call void @_ZN5Ipopt4TNLPC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %27)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN5Ipopt11TNLPReducerE, i32 0, i32 0, i32 2), ptr %27, align 8
-  %28 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %12, align 8
-  invoke void @_ZN5Ipopt8SmartPtrINS_4TNLPEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %29)
-          to label %30 unwind label %76
+  %28 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN5Ipopt11TNLPReducerE, i32 0, i32 0, i32 2
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 1
+  %30 = load ptr, ptr %12, align 8
+  invoke void @_ZN5Ipopt8SmartPtrINS_4TNLPEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %30)
+          to label %31 unwind label %77
 
-30:                                               ; preds = %10
-  %31 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
-  %32 = load i32, ptr %13, align 4
-  store i32 %32, ptr %31, align 8
-  %33 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
-  store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 7
+31:                                               ; preds = %10
+  %32 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
+  %33 = load i32, ptr %13, align 4
+  store i32 %33, ptr %32, align 8
+  %34 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 8
-  store i32 -1, ptr %35, align 8
-  %36 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 11
-  store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
-  %38 = load i32, ptr %15, align 4
-  store i32 %38, ptr %37, align 8
-  %39 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
-  store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
-  %41 = load i32, ptr %17, align 4
-  store i32 %41, ptr %40, align 8
-  %42 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
-  store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
-  %44 = load i32, ptr %19, align 4
-  store i32 %44, ptr %43, align 8
-  %45 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
-  store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
-  %47 = load i32, ptr %46, align 8
-  %48 = add nsw i32 %47, 1
-  %49 = sext i32 %48 to i64
-  %50 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %49, i64 4)
-  %51 = extractvalue { i64, i1 } %50, 1
-  %52 = extractvalue { i64, i1 } %50, 0
-  %53 = select i1 %51, i64 -1, i64 %52
-  %54 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %53) #8
-          to label %55 unwind label %80
+  %35 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 7
+  store ptr null, ptr %35, align 8
+  %36 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 8
+  store i32 -1, ptr %36, align 8
+  %37 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 11
+  store ptr null, ptr %37, align 8
+  %38 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
+  %39 = load i32, ptr %15, align 4
+  store i32 %39, ptr %38, align 8
+  %40 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
+  %42 = load i32, ptr %17, align 4
+  store i32 %42, ptr %41, align 8
+  %43 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
+  store ptr null, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
+  %45 = load i32, ptr %19, align 4
+  store i32 %45, ptr %44, align 8
+  %46 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
+  %48 = load i32, ptr %47, align 8
+  %49 = add nsw i32 %48, 1
+  %50 = sext i32 %49 to i64
+  %51 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %50, i64 4)
+  %52 = extractvalue { i64, i1 } %51, 1
+  %53 = extractvalue { i64, i1 } %51, 0
+  %54 = select i1 %52, i64 -1, i64 %53
+  %55 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %54) #8
+          to label %56 unwind label %81
 
-55:                                               ; preds = %30
-  %56 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
-  store ptr %54, ptr %56, align 8
+56:                                               ; preds = %31
+  %57 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
+  store ptr %55, ptr %57, align 8
   store i32 0, ptr %23, align 4
-  br label %57
+  br label %58
 
-57:                                               ; preds = %73, %55
-  %58 = load i32, ptr %23, align 4
-  %59 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp slt i32 %58, %60
-  br i1 %61, label %62, label %84
+58:                                               ; preds = %74, %56
+  %59 = load i32, ptr %23, align 4
+  %60 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp slt i32 %59, %61
+  br i1 %62, label %63, label %85
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %14, align 8
-  %64 = load i32, ptr %23, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %63, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %23, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %69, i64 %71
-  store i32 %67, ptr %72, align 4
-  br label %73
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %14, align 8
+  %65 = load i32, ptr %23, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i32, ptr %64, i64 %66
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %23, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i32, ptr %70, i64 %72
+  store i32 %68, ptr %73, align 4
+  br label %74
 
-73:                                               ; preds = %62
-  %74 = load i32, ptr %23, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %23, align 4
-  br label %57, !llvm.loop !4
+74:                                               ; preds = %63
+  %75 = load i32, ptr %23, align 4
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %23, align 4
+  br label %58, !llvm.loop !4
 
-76:                                               ; preds = %10
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %10
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %21, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %22, align 4
-  br label %238
-
-80:                                               ; preds = %222, %185, %176, %139, %130, %93, %84, %30
-  %81 = landingpad { ptr, i32 }
-          cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %21, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %22, align 4
-  call void @_ZN5Ipopt8SmartPtrINS_4TNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #9
-  br label %238
-
-84:                                               ; preds = %57
-  %85 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
-  %90 = load i32, ptr %89, align 8
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i32, ptr %88, i64 %91
-  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %86, ptr noundef %92)
-          to label %93 unwind label %80
-
-93:                                               ; preds = %84
-  %94 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
-  %97 = load i32, ptr %96, align 8
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i32, ptr %95, i64 %98
-  store i32 -1, ptr %99, align 4
-  %100 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
-  %101 = load i32, ptr %100, align 8
-  %102 = add nsw i32 %101, 1
-  %103 = sext i32 %102 to i64
-  %104 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %103, i64 4)
-  %105 = extractvalue { i64, i1 } %104, 1
-  %106 = extractvalue { i64, i1 } %104, 0
-  %107 = select i1 %105, i64 -1, i64 %106
-  %108 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %107) #8
-          to label %109 unwind label %80
-
-109:                                              ; preds = %93
-  %110 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
-  store ptr %108, ptr %110, align 8
-  store i32 0, ptr %24, align 4
-  br label %111
-
-111:                                              ; preds = %127, %109
-  %112 = load i32, ptr %24, align 4
-  %113 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
-  %114 = load i32, ptr %113, align 8
-  %115 = icmp slt i32 %112, %114
-  br i1 %115, label %116, label %130
-
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %16, align 8
-  %118 = load i32, ptr %24, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %117, i64 %119
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
-  %123 = load ptr, ptr %122, align 8
-  %124 = load i32, ptr %24, align 4
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %123, i64 %125
-  store i32 %121, ptr %126, align 4
-  br label %127
-
-127:                                              ; preds = %116
-  %128 = load i32, ptr %24, align 4
-  %129 = add nsw i32 %128, 1
-  store i32 %129, ptr %24, align 4
-  br label %111, !llvm.loop !6
-
-130:                                              ; preds = %111
-  %131 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
-  %136 = load i32, ptr %135, align 8
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr %134, i64 %137
-  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %132, ptr noundef %138)
-          to label %139 unwind label %80
-
-139:                                              ; preds = %130
-  %140 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
-  %143 = load i32, ptr %142, align 8
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %141, i64 %144
-  store i32 -1, ptr %145, align 4
-  %146 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
-  %147 = load i32, ptr %146, align 8
-  %148 = add nsw i32 %147, 1
-  %149 = sext i32 %148 to i64
-  %150 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %149, i64 4)
-  %151 = extractvalue { i64, i1 } %150, 1
-  %152 = extractvalue { i64, i1 } %150, 0
-  %153 = select i1 %151, i64 -1, i64 %152
-  %154 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %153) #8
-          to label %155 unwind label %80
-
-155:                                              ; preds = %139
-  %156 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
-  store ptr %154, ptr %156, align 8
-  store i32 0, ptr %25, align 4
-  br label %157
-
-157:                                              ; preds = %173, %155
-  %158 = load i32, ptr %25, align 4
-  %159 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
-  %160 = load i32, ptr %159, align 8
-  %161 = icmp slt i32 %158, %160
-  br i1 %161, label %162, label %176
-
-162:                                              ; preds = %157
-  %163 = load ptr, ptr %18, align 8
-  %164 = load i32, ptr %25, align 4
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i32, ptr %163, i64 %165
-  %167 = load i32, ptr %166, align 4
-  %168 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %25, align 4
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds i32, ptr %169, i64 %171
-  store i32 %167, ptr %172, align 4
-  br label %173
-
-173:                                              ; preds = %162
-  %174 = load i32, ptr %25, align 4
-  %175 = add nsw i32 %174, 1
-  store i32 %175, ptr %25, align 4
-  br label %157, !llvm.loop !7
-
-176:                                              ; preds = %157
-  %177 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
-  %182 = load i32, ptr %181, align 8
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i32, ptr %180, i64 %183
-  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %178, ptr noundef %184)
-          to label %185 unwind label %80
-
-185:                                              ; preds = %176
-  %186 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
-  %189 = load i32, ptr %188, align 8
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i32, ptr %187, i64 %190
-  store i32 -1, ptr %191, align 4
-  %192 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
-  %193 = load i32, ptr %192, align 8
-  %194 = add nsw i32 %193, 1
-  %195 = sext i32 %194 to i64
-  %196 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %195, i64 4)
-  %197 = extractvalue { i64, i1 } %196, 1
-  %198 = extractvalue { i64, i1 } %196, 0
-  %199 = select i1 %197, i64 -1, i64 %198
-  %200 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %199) #8
-          to label %201 unwind label %80
-
-201:                                              ; preds = %185
-  %202 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
-  store ptr %200, ptr %202, align 8
-  store i32 0, ptr %26, align 4
-  br label %203
-
-203:                                              ; preds = %219, %201
-  %204 = load i32, ptr %26, align 4
-  %205 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
-  %206 = load i32, ptr %205, align 8
-  %207 = icmp slt i32 %204, %206
-  br i1 %207, label %208, label %222
-
-208:                                              ; preds = %203
-  %209 = load ptr, ptr %20, align 8
-  %210 = load i32, ptr %26, align 4
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i32, ptr %209, i64 %211
-  %213 = load i32, ptr %212, align 4
-  %214 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
-  %215 = load ptr, ptr %214, align 8
-  %216 = load i32, ptr %26, align 4
-  %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds i32, ptr %215, i64 %217
-  store i32 %213, ptr %218, align 4
-  br label %219
-
-219:                                              ; preds = %208
-  %220 = load i32, ptr %26, align 4
-  %221 = add nsw i32 %220, 1
-  store i32 %221, ptr %26, align 4
-  br label %203, !llvm.loop !8
-
-222:                                              ; preds = %203
-  %223 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
-  %228 = load i32, ptr %227, align 8
-  %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds i32, ptr %226, i64 %229
-  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %224, ptr noundef %230)
-          to label %231 unwind label %80
-
-231:                                              ; preds = %222
-  %232 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
-  %235 = load i32, ptr %234, align 8
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds i32, ptr %233, i64 %236
-  store i32 -1, ptr %237, align 4
-  ret void
-
-238:                                              ; preds = %80, %76
-  call void @_ZN5Ipopt4TNLPD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %27) #9
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %21, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %22, align 4
   br label %239
 
-239:                                              ; preds = %238
-  %240 = load ptr, ptr %21, align 8
-  %241 = load i32, ptr %22, align 4
-  %242 = insertvalue { ptr, i32 } poison, ptr %240, 0
-  %243 = insertvalue { ptr, i32 } %242, i32 %241, 1
-  resume { ptr, i32 } %243
+81:                                               ; preds = %223, %186, %177, %140, %131, %94, %85, %31
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %21, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %22, align 4
+  call void @_ZN5Ipopt8SmartPtrINS_4TNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #9
+  br label %239
+
+85:                                               ; preds = %58
+  %86 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
+  %91 = load i32, ptr %90, align 8
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %89, i64 %92
+  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %87, ptr noundef %93)
+          to label %94 unwind label %81
+
+94:                                               ; preds = %85
+  %95 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 5
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 4
+  %98 = load i32, ptr %97, align 8
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i32, ptr %96, i64 %99
+  store i32 -1, ptr %100, align 4
+  %101 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
+  %102 = load i32, ptr %101, align 8
+  %103 = add nsw i32 %102, 1
+  %104 = sext i32 %103 to i64
+  %105 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %104, i64 4)
+  %106 = extractvalue { i64, i1 } %105, 1
+  %107 = extractvalue { i64, i1 } %105, 0
+  %108 = select i1 %106, i64 -1, i64 %107
+  %109 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %108) #8
+          to label %110 unwind label %81
+
+110:                                              ; preds = %94
+  %111 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
+  store ptr %109, ptr %111, align 8
+  store i32 0, ptr %24, align 4
+  br label %112
+
+112:                                              ; preds = %128, %110
+  %113 = load i32, ptr %24, align 4
+  %114 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
+  %115 = load i32, ptr %114, align 8
+  %116 = icmp slt i32 %113, %115
+  br i1 %116, label %117, label %131
+
+117:                                              ; preds = %112
+  %118 = load ptr, ptr %16, align 8
+  %119 = load i32, ptr %24, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i32, ptr %118, i64 %120
+  %122 = load i32, ptr %121, align 4
+  %123 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
+  %124 = load ptr, ptr %123, align 8
+  %125 = load i32, ptr %24, align 4
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds i32, ptr %124, i64 %126
+  store i32 %122, ptr %127, align 4
+  br label %128
+
+128:                                              ; preds = %117
+  %129 = load i32, ptr %24, align 4
+  %130 = add nsw i32 %129, 1
+  store i32 %130, ptr %24, align 4
+  br label %112, !llvm.loop !6
+
+131:                                              ; preds = %112
+  %132 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
+  %137 = load i32, ptr %136, align 8
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i32, ptr %135, i64 %138
+  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %133, ptr noundef %139)
+          to label %140 unwind label %81
+
+140:                                              ; preds = %131
+  %141 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 13
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 12
+  %144 = load i32, ptr %143, align 8
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %142, i64 %145
+  store i32 -1, ptr %146, align 4
+  %147 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
+  %148 = load i32, ptr %147, align 8
+  %149 = add nsw i32 %148, 1
+  %150 = sext i32 %149 to i64
+  %151 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %150, i64 4)
+  %152 = extractvalue { i64, i1 } %151, 1
+  %153 = extractvalue { i64, i1 } %151, 0
+  %154 = select i1 %152, i64 -1, i64 %153
+  %155 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %154) #8
+          to label %156 unwind label %81
+
+156:                                              ; preds = %140
+  %157 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
+  store ptr %155, ptr %157, align 8
+  store i32 0, ptr %25, align 4
+  br label %158
+
+158:                                              ; preds = %174, %156
+  %159 = load i32, ptr %25, align 4
+  %160 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
+  %161 = load i32, ptr %160, align 8
+  %162 = icmp slt i32 %159, %161
+  br i1 %162, label %163, label %177
+
+163:                                              ; preds = %158
+  %164 = load ptr, ptr %18, align 8
+  %165 = load i32, ptr %25, align 4
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds i32, ptr %164, i64 %166
+  %168 = load i32, ptr %167, align 4
+  %169 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
+  %170 = load ptr, ptr %169, align 8
+  %171 = load i32, ptr %25, align 4
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds i32, ptr %170, i64 %172
+  store i32 %168, ptr %173, align 4
+  br label %174
+
+174:                                              ; preds = %163
+  %175 = load i32, ptr %25, align 4
+  %176 = add nsw i32 %175, 1
+  store i32 %176, ptr %25, align 4
+  br label %158, !llvm.loop !7
+
+177:                                              ; preds = %158
+  %178 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
+  %183 = load i32, ptr %182, align 8
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds i32, ptr %181, i64 %184
+  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %179, ptr noundef %185)
+          to label %186 unwind label %81
+
+186:                                              ; preds = %177
+  %187 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 15
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 14
+  %190 = load i32, ptr %189, align 8
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds i32, ptr %188, i64 %191
+  store i32 -1, ptr %192, align 4
+  %193 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
+  %194 = load i32, ptr %193, align 8
+  %195 = add nsw i32 %194, 1
+  %196 = sext i32 %195 to i64
+  %197 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %196, i64 4)
+  %198 = extractvalue { i64, i1 } %197, 1
+  %199 = extractvalue { i64, i1 } %197, 0
+  %200 = select i1 %198, i64 -1, i64 %199
+  %201 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %200) #8
+          to label %202 unwind label %81
+
+202:                                              ; preds = %186
+  %203 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
+  store ptr %201, ptr %203, align 8
+  store i32 0, ptr %26, align 4
+  br label %204
+
+204:                                              ; preds = %220, %202
+  %205 = load i32, ptr %26, align 4
+  %206 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
+  %207 = load i32, ptr %206, align 8
+  %208 = icmp slt i32 %205, %207
+  br i1 %208, label %209, label %223
+
+209:                                              ; preds = %204
+  %210 = load ptr, ptr %20, align 8
+  %211 = load i32, ptr %26, align 4
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds i32, ptr %210, i64 %212
+  %214 = load i32, ptr %213, align 4
+  %215 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
+  %216 = load ptr, ptr %215, align 8
+  %217 = load i32, ptr %26, align 4
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds i32, ptr %216, i64 %218
+  store i32 %214, ptr %219, align 4
+  br label %220
+
+220:                                              ; preds = %209
+  %221 = load i32, ptr %26, align 4
+  %222 = add nsw i32 %221, 1
+  store i32 %222, ptr %26, align 4
+  br label %204, !llvm.loop !8
+
+223:                                              ; preds = %204
+  %224 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
+  %229 = load i32, ptr %228, align 8
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds i32, ptr %227, i64 %230
+  invoke void @_ZSt4sortIPiEvT_S1_(ptr noundef %225, ptr noundef %231)
+          to label %232 unwind label %81
+
+232:                                              ; preds = %223
+  %233 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 17
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %27, i32 0, i32 16
+  %236 = load i32, ptr %235, align 8
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds i32, ptr %234, i64 %237
+  store i32 -1, ptr %238, align 4
+  ret void
+
+239:                                              ; preds = %81, %77
+  call void @_ZN5Ipopt4TNLPD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %27) #9
+  br label %240
+
+240:                                              ; preds = %239
+  %241 = load ptr, ptr %21, align 8
+  %242 = load i32, ptr %22, align 4
+  %243 = insertvalue { ptr, i32 } poison, ptr %241, 0
+  %244 = insertvalue { ptr, i32 } %243, i32 %242, 1
+  resume { ptr, i32 } %244
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -515,7 +516,8 @@ define linkonce_odr void @_ZN5Ipopt4TNLPC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN5Ipopt4TNLPE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN5Ipopt4TNLPE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -578,69 +580,70 @@ define void @_ZN5Ipopt11TNLPReducerD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN5Ipopt11TNLPReducerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 5
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN5Ipopt11TNLPReducerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #11
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #11
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 7
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 7
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %8
-  call void @_ZdaPv(ptr noundef %10) #11
-  br label %13
+13:                                               ; preds = %9
+  call void @_ZdaPv(ptr noundef %11) #11
+  br label %14
 
-13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 11
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %18, label %17
+14:                                               ; preds = %13, %9
+  %15 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 11
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %19, label %18
 
-17:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef %15) #11
-  br label %18
+18:                                               ; preds = %14
+  call void @_ZdaPv(ptr noundef %16) #11
+  br label %19
 
-18:                                               ; preds = %17, %13
-  %19 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 13
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %23, label %22
+19:                                               ; preds = %18, %14
+  %20 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 13
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %18
-  call void @_ZdaPv(ptr noundef %20) #11
-  br label %23
+23:                                               ; preds = %19
+  call void @_ZdaPv(ptr noundef %21) #11
+  br label %24
 
-23:                                               ; preds = %22, %18
-  %24 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 15
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %28, label %27
+24:                                               ; preds = %23, %19
+  %25 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 15
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %29, label %28
 
-27:                                               ; preds = %23
-  call void @_ZdaPv(ptr noundef %25) #11
-  br label %28
+28:                                               ; preds = %24
+  call void @_ZdaPv(ptr noundef %26) #11
+  br label %29
 
-28:                                               ; preds = %27, %23
-  %29 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 17
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %33, label %32
+29:                                               ; preds = %28, %24
+  %30 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 17
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %28
-  call void @_ZdaPv(ptr noundef %30) #11
-  br label %33
+33:                                               ; preds = %29
+  call void @_ZdaPv(ptr noundef %31) #11
+  br label %34
 
-33:                                               ; preds = %32, %28
-  %34 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 1
-  call void @_ZN5Ipopt8SmartPtrINS_4TNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #9
+34:                                               ; preds = %33, %29
+  %35 = getelementptr inbounds %"class.Ipopt::TNLPReducer", ptr %3, i32 0, i32 1
+  call void @_ZN5Ipopt8SmartPtrINS_4TNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #9
   call void @_ZN5Ipopt4TNLPD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   ret void
 }
@@ -2746,9 +2749,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -2910,7 +2914,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

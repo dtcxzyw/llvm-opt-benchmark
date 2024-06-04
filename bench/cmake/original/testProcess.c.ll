@@ -1337,41 +1337,42 @@ define internal i32 @test9_grandchild(i32 noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 152, i1 false)
   %7 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %7, align 8
-  %8 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 1
-  %9 = call i32 @sigemptyset(ptr noundef %8) #6
-  %10 = call i32 @sigaction(i32 noundef 2, ptr noundef %6, ptr noundef null) #6
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %2
-  store i32 1, ptr %3, align 4
-  br label %30
+  %8 = inttoptr i64 1 to ptr
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 1
+  %10 = call i32 @sigemptyset(ptr noundef %9) #6
+  %11 = call i32 @sigaction(i32 noundef 2, ptr noundef %6, ptr noundef null) #6
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr @stdout, align 8
-  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.52) #6
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.53) #6
-  %18 = load ptr, ptr @stdout, align 8
-  %19 = call i32 @fflush(ptr noundef %18)
-  %20 = load ptr, ptr @stderr, align 8
-  %21 = call i32 @fflush(ptr noundef %20)
-  call void @testProcess_sleep(i32 noundef 9)
-  %22 = load ptr, ptr @stdout, align 8
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.54) #6
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.55) #6
-  %26 = load ptr, ptr @stdout, align 8
-  %27 = call i32 @fflush(ptr noundef %26)
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = call i32 @fflush(ptr noundef %28)
-  store i32 0, ptr %3, align 4
-  br label %30
+  store i32 1, ptr %3, align 4
+  br label %31
 
-30:                                               ; preds = %13, %12
-  %31 = load i32, ptr %3, align 4
-  ret i32 %31
+14:                                               ; preds = %2
+  %15 = load ptr, ptr @stdout, align 8
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.52) #6
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.53) #6
+  %19 = load ptr, ptr @stdout, align 8
+  %20 = call i32 @fflush(ptr noundef %19)
+  %21 = load ptr, ptr @stderr, align 8
+  %22 = call i32 @fflush(ptr noundef %21)
+  call void @testProcess_sleep(i32 noundef 9)
+  %23 = load ptr, ptr @stdout, align 8
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.54) #6
+  %25 = load ptr, ptr @stderr, align 8
+  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.55) #6
+  %27 = load ptr, ptr @stdout, align 8
+  %28 = call i32 @fflush(ptr noundef %27)
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = call i32 @fflush(ptr noundef %29)
+  store i32 0, ptr %3, align 4
+  br label %31
+
+31:                                               ; preds = %14, %13
+  %32 = load i32, ptr %3, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable

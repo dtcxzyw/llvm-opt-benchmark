@@ -1126,8 +1126,9 @@ entry:
   %flex_array_len_ = alloca i64, align 8
   store ptr %data, ptr %data.addr, align 8
   store i64 %len, ptr %len.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.hashmap, ptr @memintern.map, i32 0, i32 4), align 4
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.hashmap, ptr @memintern.map, i32 0, i32 4
+  %1 = load i32, ptr %0, align 4
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1136,60 +1137,60 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %ent = getelementptr inbounds %struct.pool_entry, ptr %key, i32 0, i32 0
-  %1 = load ptr, ptr %data.addr, align 8
-  %2 = load i64, ptr %len.addr, align 8
-  %call = call i32 @memhash(ptr noundef %1, i64 noundef %2)
-  call void @hashmap_entry_init(ptr noundef %ent, i32 noundef %call)
+  %2 = load ptr, ptr %data.addr, align 8
   %3 = load i64, ptr %len.addr, align 8
+  %call = call i32 @memhash(ptr noundef %2, i64 noundef %3)
+  call void @hashmap_entry_init(ptr noundef %ent, i32 noundef %call)
+  %4 = load i64, ptr %len.addr, align 8
   %len1 = getelementptr inbounds %struct.pool_entry, ptr %key, i32 0, i32 1
-  store i64 %3, ptr %len1, align 8
+  store i64 %4, ptr %len1, align 8
   %ent2 = getelementptr inbounds %struct.pool_entry, ptr %key, i32 0, i32 0
-  %4 = load ptr, ptr %data.addr, align 8
-  %call3 = call ptr @hashmap_get(ptr noundef @memintern.map, ptr noundef %ent2, ptr noundef %4)
+  %5 = load ptr, ptr %data.addr, align 8
+  %call3 = call ptr @hashmap_get(ptr noundef @memintern.map, ptr noundef %ent2, ptr noundef %5)
   %call4 = call ptr @container_of_or_null_offset(ptr noundef %call3, i64 noundef 0)
   store ptr %call4, ptr %e, align 8
-  %5 = load ptr, ptr %e, align 8
-  %tobool5 = icmp ne ptr %5, null
+  %6 = load ptr, ptr %e, align 8
+  %tobool5 = icmp ne ptr %6, null
   br i1 %tobool5, label %if.end15, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then6
-  %6 = load i64, ptr %len.addr, align 8
-  store i64 %6, ptr %flex_array_len_, align 8
-  %7 = load i64, ptr %flex_array_len_, align 8
-  %call7 = call i64 @st_add(i64 noundef 24, i64 noundef %7)
+  %7 = load i64, ptr %len.addr, align 8
+  store i64 %7, ptr %flex_array_len_, align 8
+  %8 = load i64, ptr %flex_array_len_, align 8
+  %call7 = call i64 @st_add(i64 noundef 24, i64 noundef %8)
   %call8 = call i64 @st_add(i64 noundef %call7, i64 noundef 1)
   %call9 = call ptr @xcalloc(i64 noundef 1, i64 noundef %call8)
   store ptr %call9, ptr %e, align 8
-  %8 = load ptr, ptr %e, align 8
-  %data10 = getelementptr inbounds %struct.pool_entry, ptr %8, i32 0, i32 2
+  %9 = load ptr, ptr %e, align 8
+  %data10 = getelementptr inbounds %struct.pool_entry, ptr %9, i32 0, i32 2
   %arraydecay = getelementptr inbounds [0 x i8], ptr %data10, i64 0, i64 0
-  %9 = load ptr, ptr %data.addr, align 8
-  %10 = load i64, ptr %flex_array_len_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %9, i64 %10, i1 false)
+  %10 = load ptr, ptr %data.addr, align 8
+  %11 = load i64, ptr %flex_array_len_, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %10, i64 %11, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %11 = load ptr, ptr %e, align 8
-  %ent11 = getelementptr inbounds %struct.pool_entry, ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %e, align 8
+  %ent11 = getelementptr inbounds %struct.pool_entry, ptr %12, i32 0, i32 0
   %ent12 = getelementptr inbounds %struct.pool_entry, ptr %key, i32 0, i32 0
   %hash = getelementptr inbounds %struct.hashmap_entry, ptr %ent12, i32 0, i32 1
-  %12 = load i32, ptr %hash, align 8
-  call void @hashmap_entry_init(ptr noundef %ent11, i32 noundef %12)
-  %13 = load i64, ptr %len.addr, align 8
-  %14 = load ptr, ptr %e, align 8
-  %len13 = getelementptr inbounds %struct.pool_entry, ptr %14, i32 0, i32 1
-  store i64 %13, ptr %len13, align 8
+  %13 = load i32, ptr %hash, align 8
+  call void @hashmap_entry_init(ptr noundef %ent11, i32 noundef %13)
+  %14 = load i64, ptr %len.addr, align 8
   %15 = load ptr, ptr %e, align 8
-  %ent14 = getelementptr inbounds %struct.pool_entry, ptr %15, i32 0, i32 0
+  %len13 = getelementptr inbounds %struct.pool_entry, ptr %15, i32 0, i32 1
+  store i64 %14, ptr %len13, align 8
+  %16 = load ptr, ptr %e, align 8
+  %ent14 = getelementptr inbounds %struct.pool_entry, ptr %16, i32 0, i32 0
   call void @hashmap_add(ptr noundef @memintern.map, ptr noundef %ent14)
   br label %if.end15
 
 if.end15:                                         ; preds = %do.end, %if.end
-  %16 = load ptr, ptr %e, align 8
-  %data16 = getelementptr inbounds %struct.pool_entry, ptr %16, i32 0, i32 2
+  %17 = load ptr, ptr %e, align 8
+  %data16 = getelementptr inbounds %struct.pool_entry, ptr %17, i32 0, i32 2
   %arraydecay17 = getelementptr inbounds [0 x i8], ptr %data16, i64 0, i64 0
   ret ptr %arraydecay17
 }

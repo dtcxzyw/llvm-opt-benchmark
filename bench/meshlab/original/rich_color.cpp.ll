@@ -291,29 +291,30 @@ define void @_ZN9RichColorC2ERK7QStringRK6QColorS2_S2_bS2_(ptr noundef nonnull a
   %26 = trunc i8 %25 to i1
   %27 = load ptr, ptr %14, align 8
   invoke void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, i1 noundef zeroext %26, ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %28 unwind label %29
+          to label %28 unwind label %30
 
 28:                                               ; preds = %7
   call void @_ZN10ColorValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9RichColor, i32 0, i32 0, i32 2), ptr %20, align 8
+  %29 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV9RichColor, i32 0, i32 0, i32 2
+  store ptr %29, ptr %20, align 8
   ret void
 
-29:                                               ; preds = %7
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %7
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %17, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %18, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %17, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %18, align 4
   call void @_ZN10ColorValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #5
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %17, align 8
-  %35 = load i32, ptr %18, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %17, align 8
+  %36 = load i32, ptr %18, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -421,7 +422,8 @@ define linkonce_odr void @_ZN9RichColorC2ERKS_(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9RichColor, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV9RichColor, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

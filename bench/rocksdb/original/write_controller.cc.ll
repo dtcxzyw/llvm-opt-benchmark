@@ -154,7 +154,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %controller.addr, align 8
   call void @_ZN7rocksdb20WriteControllerTokenC2EPNS_15WriteControllerE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb14StopWriteTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb14StopWriteTokenE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -350,7 +351,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %controller.addr, align 8
   call void @_ZN7rocksdb20WriteControllerTokenC2EPNS_15WriteControllerE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -402,7 +404,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %controller.addr, align 8
   call void @_ZN7rocksdb20WriteControllerTokenC2EPNS_15WriteControllerE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -759,10 +762,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb14StopWriteTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb14StopWriteTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %controller_ = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %controller_, align 8
-  %total_stopped_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %controller_, align 8
+  %total_stopped_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %1, i32 0, i32 0
   %call = call noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef nonnull align 4 dereferenceable(4) %total_stopped_) #6
   call void @_ZN7rocksdb20WriteControllerTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #6
   ret void
@@ -803,10 +807,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %controller_ = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %controller_, align 8
-  %total_delayed_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %controller_, align 8
+  %total_delayed_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %1, i32 0, i32 1
   %call = call noundef i32 @_ZNSt13__atomic_baseIiEmmEi(ptr noundef nonnull align 4 dereferenceable(4) %total_delayed_, i32 noundef 0) #6
   call void @_ZN7rocksdb20WriteControllerTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #6
   ret void
@@ -892,10 +897,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %controller_ = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %controller_, align 8
-  %total_compaction_pressure_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %0, i32 0, i32 2
+  %1 = load ptr, ptr %controller_, align 8
+  %total_compaction_pressure_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %1, i32 0, i32 2
   %call = call noundef i32 @_ZNSt13__atomic_baseIiEmmEi(ptr noundef nonnull align 4 dereferenceable(4) %total_compaction_pressure_, i32 noundef 0) #6
   call void @_ZN7rocksdb20WriteControllerTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #6
   ret void
@@ -920,10 +926,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %controller, ptr %controller.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb20WriteControllerTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb20WriteControllerTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %controller_ = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %controller.addr, align 8
-  store ptr %0, ptr %controller_, align 8
+  %1 = load ptr, ptr %controller.addr, align 8
+  store ptr %1, ptr %controller_, align 8
   ret void
 }
 

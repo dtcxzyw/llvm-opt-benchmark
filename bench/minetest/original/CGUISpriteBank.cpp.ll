@@ -144,8 +144,10 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !34
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !31
-  store ptr getelementptr inbounds inrange(-24, 104) ({ [16 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui14CGUISpriteBankE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [16 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui14CGUISpriteBankE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [16 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui14CGUISpriteBankE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [16 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui14CGUISpriteBankE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %Sprites = getelementptr inbounds i8, ptr %this, i64 8
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Sprites, i8 0, i64 24, i1 false)
@@ -168,8 +170,8 @@ entry:
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %env, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
-  %1 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %env) #17
+  %3 = load ptr, ptr %vfn, align 8
+  %call = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %env) #17
   store ptr %call, ptr %Driver, align 8, !tbaa !30
   %tobool6.not = icmp eq ptr %call, null
   br i1 %tobool6.not, label %if.end11, label %if.then7
@@ -180,8 +182,8 @@ if.then7:                                         ; preds = %if.then
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %call, i64 %vbase.offset
   %ReferenceCounter.i14 = getelementptr inbounds i8, ptr %add.ptr10, i64 16
-  %2 = load i32, ptr %ReferenceCounter.i14, align 8, !tbaa !31
-  %inc.i = add nsw i32 %2, 1
+  %4 = load i32, ptr %ReferenceCounter.i14, align 8, !tbaa !31
+  %inc.i = add nsw i32 %4, 1
   store i32 %inc.i, ptr %ReferenceCounter.i14, align 8, !tbaa !31
   br label %if.end11
 

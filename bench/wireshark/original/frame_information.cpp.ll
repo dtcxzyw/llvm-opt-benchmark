@@ -83,51 +83,53 @@ define void @_ZN16FrameInformationC2EP11CaptureFileP11_frame_dataP7QObject(ptr n
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZN14IDataPrintableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #10
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 1, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 2
-  %16 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 1, i32 2
   store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 3
-  %18 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %7, align 8
   store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 4
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 5
-  invoke void @wtap_rec_init(ptr noundef %20)
-          to label %21 unwind label %25
+  %19 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 3
+  %20 = load ptr, ptr %6, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 4
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 5
+  invoke void @wtap_rec_init(ptr noundef %22)
+          to label %23 unwind label %27
 
-21:                                               ; preds = %4
-  %22 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 6
-  invoke void @ws_buffer_init(ptr noundef %22, i64 noundef 1514)
-          to label %23 unwind label %25
+23:                                               ; preds = %4
+  %24 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 6
+  invoke void @ws_buffer_init(ptr noundef %24, i64 noundef 1514)
+          to label %25 unwind label %27
 
-23:                                               ; preds = %21
+25:                                               ; preds = %23
   invoke void @_ZN16FrameInformation13loadFrameTreeEv(ptr noundef nonnull align 8 dereferenceable(360) %11)
-          to label %24 unwind label %25
+          to label %26 unwind label %27
 
-24:                                               ; preds = %23
+26:                                               ; preds = %25
   ret void
 
-25:                                               ; preds = %23, %21, %4
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %25, %23, %4
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %9, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %10, align 4
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
-  call void @_ZN14IDataPrintableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #10
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %9, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %10, align 4
+  %31 = getelementptr inbounds i8, ptr %11, i64 16
+  call void @_ZN14IDataPrintableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #10
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #10
-  br label %30
+  br label %32
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %9, align 8
-  %32 = load i32, ptr %10, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -137,7 +139,8 @@ define linkonce_odr void @_ZN14IDataPrintableC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14IDataPrintable, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV14IDataPrintable, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -284,50 +287,52 @@ define void @_ZN16FrameInformationD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 4
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %15
+  %4 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 4
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %17
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 4
-  %10 = load ptr, ptr %9, align 8
-  invoke void @epan_dissect_cleanup(ptr noundef %10)
-          to label %11 unwind label %21
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  invoke void @epan_dissect_cleanup(ptr noundef %12)
+          to label %13 unwind label %23
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 4
-  %13 = load ptr, ptr %12, align 8
-  invoke void @g_free(ptr noundef %13)
-          to label %14 unwind label %21
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
+  invoke void @g_free(ptr noundef %15)
+          to label %16 unwind label %23
 
-14:                                               ; preds = %11
-  br label %15
+16:                                               ; preds = %13
+  br label %17
 
-15:                                               ; preds = %14, %1
-  %16 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 5
-  invoke void @wtap_rec_cleanup(ptr noundef %16)
-          to label %17 unwind label %21
-
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 6
-  invoke void @ws_buffer_free(ptr noundef %18)
-          to label %19 unwind label %21
+17:                                               ; preds = %16, %1
+  %18 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 5
+  invoke void @wtap_rec_cleanup(ptr noundef %18)
+          to label %19 unwind label %23
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN14IDataPrintableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #10
+  %20 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 6
+  invoke void @ws_buffer_free(ptr noundef %20)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @_ZN14IDataPrintableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #10
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   ret void
 
-21:                                               ; preds = %17, %15, %11, %8
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %19, %17, %13, %10
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #12
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #12
   unreachable
 }
 

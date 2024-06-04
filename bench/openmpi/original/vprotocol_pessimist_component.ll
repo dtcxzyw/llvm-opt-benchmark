@@ -120,138 +120,164 @@ define internal ptr @mca_vprotocol_pessimist_component_init(ptr noundef %0, i1 n
 17:                                               ; preds = %14
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.13)
   store ptr null, ptr %4, align 8
-  br label %60
+  br label %82
 
 18:                                               ; preds = %14, %3
-  store i64 1, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  store i8 0, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 9), align 16
-  br label %19
+  %19 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  store i64 1, ptr %19, align 16
+  %20 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 9
+  store i8 0, ptr %20, align 16
+  br label %21
 
-19:                                               ; preds = %18
-  br label %20
+21:                                               ; preds = %18
+  br label %22
 
-20:                                               ; preds = %19
-  %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %23 = icmp ne i32 %21, %22
-  br i1 %23, label %24, label %25
+22:                                               ; preds = %21
+  %23 = load i32, ptr @opal_class_init_epoch, align 4
+  %24 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %23, %25
+  br i1 %26, label %27, label %28
 
-24:                                               ; preds = %20
+27:                                               ; preds = %22
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %25
-
-25:                                               ; preds = %24, %20
-  store ptr @opal_list_t_class, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10), align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10))
-  br label %26
-
-26:                                               ; preds = %25
-  br label %27
-
-27:                                               ; preds = %26
   br label %28
 
-28:                                               ; preds = %27
-  br label %29
+28:                                               ; preds = %27, %22
+  %29 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  store ptr @opal_list_t_class, ptr %29, align 8
+  %30 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr %30, i32 0, i32 1
+  store volatile i32 1, ptr %31, align 8
+  %32 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  call void @opal_obj_run_constructors(ptr noundef %32)
+  br label %33
 
-29:                                               ; preds = %28
-  %30 = load i32, ptr @opal_class_init_epoch, align 4
-  %31 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %32 = icmp ne i32 %30, %31
-  br i1 %32, label %33, label %34
-
-33:                                               ; preds = %29
-  call void @opal_class_initialize(ptr noundef @opal_list_t_class)
+33:                                               ; preds = %28
   br label %34
 
-34:                                               ; preds = %33, %29
-  store ptr @opal_list_t_class, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 2), align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 2), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 2))
+34:                                               ; preds = %33
   br label %35
 
 35:                                               ; preds = %34
   br label %36
 
 36:                                               ; preds = %35
-  br label %37
+  %37 = load i32, ptr @opal_class_init_epoch, align 4
+  %38 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp ne i32 %37, %39
+  br i1 %40, label %41, label %42
 
-37:                                               ; preds = %36
-  br label %38
+41:                                               ; preds = %36
+  call void @opal_class_initialize(ptr noundef @opal_list_t_class)
+  br label %42
 
-38:                                               ; preds = %37
-  %39 = load i32, ptr @opal_class_init_epoch, align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %41 = icmp ne i32 %39, %40
-  br i1 %41, label %42, label %43
+42:                                               ; preds = %41, %36
+  %43 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 2
+  store ptr @opal_list_t_class, ptr %43, align 8
+  %44 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 2
+  %45 = getelementptr inbounds %struct.opal_object_t, ptr %44, i32 0, i32 1
+  store volatile i32 1, ptr %45, align 8
+  %46 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %46)
+  br label %47
 
-42:                                               ; preds = %38
+47:                                               ; preds = %42
+  br label %48
+
+48:                                               ; preds = %47
+  br label %49
+
+49:                                               ; preds = %48
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i32, ptr @opal_class_init_epoch, align 4
+  %52 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp ne i32 %51, %53
+  br i1 %54, label %55, label %56
+
+55:                                               ; preds = %50
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %43
+  br label %56
 
-43:                                               ; preds = %42, %38
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7))
-  br label %44
+56:                                               ; preds = %55, %50
+  %57 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7
+  store ptr @opal_free_list_t_class, ptr %57, align 16
+  %58 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7
+  %59 = getelementptr inbounds %struct.opal_object_t, ptr %58, i32 0, i32 1
+  store volatile i32 1, ptr %59, align 8
+  %60 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7
+  call void @opal_obj_run_constructors(ptr noundef %60)
+  br label %61
 
-44:                                               ; preds = %43
-  br label %45
+61:                                               ; preds = %56
+  br label %62
 
-45:                                               ; preds = %44
-  %46 = load i32, ptr @opal_cache_line_size, align 4
-  %47 = sext i32 %46 to i64
-  %48 = load i32, ptr @opal_cache_line_size, align 4
-  %49 = sext i32 %48 to i64
-  %50 = load i32, ptr @_free_list_num, align 4
-  %51 = load i32, ptr @_free_list_max, align 4
-  %52 = load i32, ptr @_free_list_inc, align 4
-  %53 = call i32 @opal_free_list_init(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7), i64 noundef 88, i64 noundef %47, ptr noundef @mca_vprotocol_pessimist_event_t_class, i64 noundef 0, i64 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  %54 = load i32, ptr @_event_buffer_size, align 4
-  %55 = sext i32 %54 to i64
-  %56 = udiv i64 %55, 16
-  store i64 %56, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 6), align 16
-  store i64 0, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 5), align 8
-  %57 = load i32, ptr @_event_buffer_size, align 4
-  %58 = sext i32 %57 to i64
-  %59 = call noalias ptr @malloc(i64 noundef %58) #4
-  store ptr %59, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 4), align 16
-  store ptr @ompi_mpi_comm_null, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
+62:                                               ; preds = %61
+  %63 = load i32, ptr @opal_cache_line_size, align 4
+  %64 = sext i32 %63 to i64
+  %65 = load i32, ptr @opal_cache_line_size, align 4
+  %66 = sext i32 %65 to i64
+  %67 = load i32, ptr @_free_list_num, align 4
+  %68 = load i32, ptr @_free_list_max, align 4
+  %69 = load i32, ptr @_free_list_inc, align 4
+  %70 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7
+  %71 = call i32 @opal_free_list_init(ptr noundef %70, i64 noundef 88, i64 noundef %64, ptr noundef @mca_vprotocol_pessimist_event_t_class, i64 noundef 0, i64 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %72 = load i32, ptr @_event_buffer_size, align 4
+  %73 = sext i32 %72 to i64
+  %74 = udiv i64 %73, 16
+  %75 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 6
+  store i64 %74, ptr %75, align 16
+  %76 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 5
+  store i64 0, ptr %76, align 8
+  %77 = load i32, ptr @_event_buffer_size, align 4
+  %78 = sext i32 %77 to i64
+  %79 = call noalias ptr @malloc(i64 noundef %78) #4
+  %80 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 4
+  store ptr %79, ptr %80, align 16
+  %81 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  store ptr @ompi_mpi_comm_null, ptr %81, align 8
   store ptr @mca_vprotocol_pessimist, ptr %4, align 8
-  br label %60
+  br label %82
 
-60:                                               ; preds = %45, %17
-  %61 = load ptr, ptr %4, align 8
-  ret ptr %61
+82:                                               ; preds = %62, %17
+  %83 = load ptr, ptr %4, align 8
+  ret ptr %83
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_vprotocol_pessimist_component_finalize() #0 {
   call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 500, ptr noundef @.str.14)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 4), align 16
-  call void @free(ptr noundef %1) #5
-  br label %2
-
-2:                                                ; preds = %0
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10))
+  %1 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 16
+  call void @free(ptr noundef %2) #5
   br label %3
 
-3:                                                ; preds = %2
-  br label %4
-
-4:                                                ; preds = %3
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 2))
+3:                                                ; preds = %0
+  %4 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  call void @opal_obj_run_destructors(ptr noundef %4)
   br label %5
 
-5:                                                ; preds = %4
+5:                                                ; preds = %3
   br label %6
 
 6:                                                ; preds = %5
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7))
-  br label %7
+  %7 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 2
+  call void @opal_obj_run_destructors(ptr noundef %7)
+  br label %8
 
-7:                                                ; preds = %6
+8:                                                ; preds = %6
+  br label %9
+
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7
+  call void @opal_obj_run_destructors(ptr noundef %10)
+  br label %11
+
+11:                                               ; preds = %9
   ret i32 0
 }
 
@@ -278,24 +304,25 @@ define i32 @mca_vprotocol_pessimist_enable(i1 noundef zeroext %0) #0 {
 14:                                               ; preds = %8
   %15 = load i32, ptr %4, align 4
   store i32 %15, ptr %2, align 4
-  br label %21
+  br label %22
 
 16:                                               ; preds = %8
-  br label %20
+  br label %21
 
 17:                                               ; preds = %1
   call void @ompi_vprotocol_pessimist_sender_based_finalize()
-  %18 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %19 = call i32 @ompi_vprotocol_pessimist_event_logger_disconnect(ptr noundef %18)
-  br label %20
-
-20:                                               ; preds = %17, %16
-  store i32 0, ptr %2, align 4
+  %18 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8
+  %20 = call i32 @ompi_vprotocol_pessimist_event_logger_disconnect(ptr noundef %19)
   br label %21
 
-21:                                               ; preds = %20, %14
-  %22 = load i32, ptr %2, align 4
-  ret i32 %22
+21:                                               ; preds = %17, %16
+  store i32 0, ptr %2, align 4
+  br label %22
+
+22:                                               ; preds = %21, %14
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
 }
 
 declare i32 @ompi_vprotocol_pessimist_sender_based_init(ptr noundef, i64 noundef) #1

@@ -1465,26 +1465,27 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop10PropEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop10PropEngineE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_inCheckSat = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 1
   store i8 0, ptr %d_inCheckSat, align 8
   %d_theoryEngine = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %te.addr, align 8
-  store ptr %1, ptr %d_theoryEngine, align 8
+  %2 = load ptr, ptr %te.addr, align 8
+  store ptr %2, ptr %d_theoryEngine, align 8
   %d_skdm = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 3
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #14
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_env = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %d_env, align 8
-  %call4 = invoke noundef ptr @_ZN4cvc58internal3Env10getContextEv(ptr noundef nonnull align 8 dereferenceable(576) %2)
+  %3 = load ptr, ptr %d_env, align 8
+  %call4 = invoke noundef ptr @_ZN4cvc58internal3Env10getContextEv(ptr noundef nonnull align 8 dereferenceable(576) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %d_env5 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %d_env5, align 8
-  %call7 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %3)
+  %4 = load ptr, ptr %d_env5, align 8
+  %call7 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %4)
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont3
@@ -1505,10 +1506,10 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   call void @_ZNSt10unique_ptrIN4cvc58internal4prop14ProofCnfStreamESt14default_deleteIS3_EEC2IS5_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %d_pfCnfStream, ptr null) #3
   %d_theoryLemmaPg = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 9
   %d_env9 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %d_env9, align 8
+  %5 = load ptr, ptr %d_env9, align 8
   %d_env10 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %d_env10, align 8
-  %call13 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %5)
+  %6 = load ptr, ptr %d_env10, align 8
+  %call13 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %6)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -1517,7 +1518,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont12
-  invoke void @_ZN4cvc58internal7CDProofC1ERNS0_3EnvEPNS_7context7ContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(217) %d_theoryLemmaPg, ptr noundef nonnull align 8 dereferenceable(576) %4, ptr noundef %call13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal7CDProofC1ERNS0_3EnvEPNS_7context7ContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(217) %d_theoryLemmaPg, ptr noundef nonnull align 8 dereferenceable(576) %5, ptr noundef %call13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i1 noundef zeroext true)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -1529,8 +1530,8 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   store i8 0, ptr %d_interrupted, align 8
   %d_assumptions = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 13
   %d_env19 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %d_env19, align 8
-  %call22 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %6)
+  %7 = load ptr, ptr %d_env19, align 8
+  %call22 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %7)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
@@ -1578,15 +1579,15 @@ invoke.cont37:                                    ; preds = %invoke.cont35
 
 cond.end:                                         ; preds = %invoke.cont37, %invoke.cont32
   %d_env39 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %d_env39, align 8
-  %call41 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %7)
+  %8 = load ptr, ptr %d_env39, align 8
+  %call41 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %8)
           to label %invoke.cont40 unwind label %lpad25
 
 invoke.cont40:                                    ; preds = %cond.end
   store ptr %call41, ptr %userContext, align 8
   %d_env42 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %d_env42, align 8
-  %call44 = invoke noundef ptr @_ZN4cvc58internal3Env19getProofNodeManagerEv(ptr noundef nonnull align 8 dereferenceable(576) %8)
+  %9 = load ptr, ptr %d_env42, align 8
+  %call44 = invoke noundef ptr @_ZN4cvc58internal3Env19getProofNodeManagerEv(ptr noundef nonnull align 8 dereferenceable(576) %9)
           to label %invoke.cont43 unwind label %lpad25
 
 invoke.cont43:                                    ; preds = %invoke.cont40
@@ -1596,16 +1597,16 @@ invoke.cont43:                                    ; preds = %invoke.cont40
 
 invoke.cont45:                                    ; preds = %invoke.cont43
   %prop = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call46, i32 0, i32 40
-  %9 = load ptr, ptr %prop, align 8
-  %satSolver = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROP", ptr %9, i32 0, i32 21
-  %10 = load i32, ptr %satSolver, align 4
-  %cmp = icmp eq i32 %10, 0
+  %10 = load ptr, ptr %prop, align 8
+  %satSolver = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROP", ptr %10, i32 0, i32 21
+  %11 = load i32, ptr %satSolver, align 4
+  %cmp = icmp eq i32 %11, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont45
   %d_env47 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %d_env47, align 8
-  %call49 = invoke noundef zeroext i1 @_ZNK4cvc58internal3Env19isSatProofProducingEv(ptr noundef nonnull align 8 dereferenceable(576) %11)
+  %12 = load ptr, ptr %d_env47, align 8
+  %call49 = invoke noundef zeroext i1 @_ZNK4cvc58internal3Env19isSatProofProducingEv(ptr noundef nonnull align 8 dereferenceable(576) %12)
           to label %invoke.cont48 unwind label %lpad25
 
 invoke.cont48:                                    ; preds = %lor.lhs.false
@@ -1613,12 +1614,12 @@ invoke.cont48:                                    ; preds = %lor.lhs.false
 
 if.then:                                          ; preds = %invoke.cont48, %invoke.cont45
   %d_env50 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %d_env50, align 8
+  %13 = load ptr, ptr %d_env50, align 8
   %call52 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4cvc58internal6EnvObj18statisticsRegistryEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont51 unwind label %lpad25
 
 invoke.cont51:                                    ; preds = %if.then
-  %call54 = invoke noundef ptr @_ZN4cvc58internal4prop16SatSolverFactory18createCDCLTMinisatERNS0_3EnvERNS0_18StatisticsRegistryE(ptr noundef nonnull align 8 dereferenceable(576) %12, ptr noundef nonnull align 8 dereferenceable(72) %call52)
+  %call54 = invoke noundef ptr @_ZN4cvc58internal4prop16SatSolverFactory18createCDCLTMinisatERNS0_3EnvERNS0_18StatisticsRegistryE(ptr noundef nonnull align 8 dereferenceable(576) %13, ptr noundef nonnull align 8 dereferenceable(72) %call52)
           to label %invoke.cont53 unwind label %lpad25
 
 invoke.cont53:                                    ; preds = %invoke.cont51
@@ -1627,49 +1628,49 @@ invoke.cont53:                                    ; preds = %invoke.cont51
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup143
 
 lpad2:                                            ; preds = %invoke.cont6, %invoke.cont3, %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #15
   br label %ehcleanup143
 
 lpad11:                                           ; preds = %invoke.cont8
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup140
 
 lpad15:                                           ; preds = %invoke.cont12
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad17:                                           ; preds = %invoke.cont16
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -1678,32 +1679,32 @@ ehcleanup:                                        ; preds = %lpad17, %lpad15
   br label %ehcleanup140
 
 lpad20:                                           ; preds = %invoke.cont21, %invoke.cont18
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   br label %ehcleanup138
 
 lpad25:                                           ; preds = %invoke.cont125, %if.then114, %cond.end111, %invoke.cont103, %invoke.cont99, %invoke.cont97, %invoke.cont89, %invoke.cont78, %if.end, %invoke.cont57, %if.else, %invoke.cont51, %if.then, %lor.lhs.false, %invoke.cont43, %invoke.cont40, %cond.end, %invoke.cont35, %invoke.cont34, %cond.false, %cond.true, %invoke.cont28, %invoke.cont26, %invoke.cont24
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup137
 
 if.else:                                          ; preds = %invoke.cont48
   %d_env56 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %34 = load ptr, ptr %d_env56, align 8
+  %35 = load ptr, ptr %d_env56, align 8
   %call58 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4cvc58internal6EnvObj18statisticsRegistryEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont57 unwind label %lpad25
 
 invoke.cont57:                                    ; preds = %if.else
-  %35 = load ptr, ptr %env.addr, align 8
-  %call60 = invoke noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef nonnull align 8 dereferenceable(576) %35)
+  %36 = load ptr, ptr %env.addr, align 8
+  %call60 = invoke noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef nonnull align 8 dereferenceable(576) %36)
           to label %invoke.cont59 unwind label %lpad25
 
 invoke.cont59:                                    ; preds = %invoke.cont57
@@ -1712,7 +1713,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %invoke.cont59
-  %call67 = invoke noundef ptr @_ZN4cvc58internal4prop16SatSolverFactory18createCadicalCDCLTERNS0_3EnvERNS0_18StatisticsRegistryEPNS0_15ResourceManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(576) %34, ptr noundef nonnull align 8 dereferenceable(72) %call58, ptr noundef %call60, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61)
+  %call67 = invoke noundef ptr @_ZN4cvc58internal4prop16SatSolverFactory18createCadicalCDCLTERNS0_3EnvERNS0_18StatisticsRegistryEPNS0_15ResourceManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(576) %35, ptr noundef nonnull align 8 dereferenceable(72) %call58, ptr noundef %call60, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %invoke.cont64
@@ -1723,21 +1724,21 @@ invoke.cont66:                                    ; preds = %invoke.cont64
   br label %if.end
 
 lpad63:                                           ; preds = %invoke.cont59
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %exn.slot, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %ehselector.slot, align 4
   br label %ehcleanup70
 
 lpad65:                                           ; preds = %invoke.cont64
-  %39 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %exn.slot, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %ehselector.slot, align 4
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %exn.slot, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #3
   br label %ehcleanup70
 
@@ -1751,12 +1752,12 @@ if.end:                                           ; preds = %invoke.cont66, %inv
 
 invoke.cont71:                                    ; preds = %if.end
   %d_env73 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %42 = load ptr, ptr %d_env73, align 8
+  %43 = load ptr, ptr %d_env73, align 8
   %d_theoryEngine74 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 2
-  %43 = load ptr, ptr %d_theoryEngine74, align 8
+  %44 = load ptr, ptr %d_theoryEngine74, align 8
   %d_skdm75 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 3
   %call76 = call noundef ptr @_ZNKSt10unique_ptrIN4cvc58internal4prop16SkolemDefManagerESt14default_deleteIS3_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %d_skdm75) #3
-  invoke void @_ZN4cvc58internal4prop11TheoryProxyC1ERNS0_3EnvEPNS1_10PropEngineEPNS0_12TheoryEngineEPNS1_16SkolemDefManagerE(ptr noundef nonnull align 8 dereferenceable(521) %call72, ptr noundef nonnull align 8 dereferenceable(576) %42, ptr noundef %this1, ptr noundef %43, ptr noundef %call76)
+  invoke void @_ZN4cvc58internal4prop11TheoryProxyC1ERNS0_3EnvEPNS1_10PropEngineEPNS0_12TheoryEngineEPNS1_16SkolemDefManagerE(ptr noundef nonnull align 8 dereferenceable(521) %call72, ptr noundef nonnull align 8 dereferenceable(576) %43, ptr noundef %this1, ptr noundef %44, ptr noundef %call76)
           to label %invoke.cont78 unwind label %lpad77
 
 invoke.cont78:                                    ; preds = %invoke.cont71
@@ -1767,27 +1768,27 @@ invoke.cont78:                                    ; preds = %invoke.cont71
 
 invoke.cont81:                                    ; preds = %invoke.cont78
   store i1 true, ptr %cleanup.isactive, align 1
-  %44 = load ptr, ptr %env.addr, align 8
+  %45 = load ptr, ptr %env.addr, align 8
   %d_satSolver83 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 5
-  %45 = load ptr, ptr %d_satSolver83, align 8
+  %46 = load ptr, ptr %d_satSolver83, align 8
   %d_theoryProxy84 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 4
-  %46 = load ptr, ptr %d_theoryProxy84, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %cast.end, label %cast.notnull
+  %47 = load ptr, ptr %d_theoryProxy84, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %cast.end, label %cast.notnull
 
 cast.notnull:                                     ; preds = %invoke.cont81
-  %add.ptr = getelementptr inbounds i8, ptr %46, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %47, i64 16
   br label %cast.end
 
 cast.end:                                         ; preds = %cast.notnull, %invoke.cont81
   %cast.result = phi ptr [ %add.ptr, %cast.notnull ], [ null, %invoke.cont81 ]
-  %48 = load ptr, ptr %userContext, align 8
+  %49 = load ptr, ptr %userContext, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %cast.end
-  invoke void @_ZN4cvc58internal4prop9CnfStreamC1ERNS0_3EnvEPNS1_9SatSolverEPNS1_9RegistrarEPNS_7context7ContextENS1_16FormulaLitPolicyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(352) %call82, ptr noundef nonnull align 8 dereferenceable(576) %44, ptr noundef %45, ptr noundef %cast.result, ptr noundef %48, i32 noundef 2, ptr noundef %agg.tmp)
+  invoke void @_ZN4cvc58internal4prop9CnfStreamC1ERNS0_3EnvEPNS1_9SatSolverEPNS1_9RegistrarEPNS_7context7ContextENS1_16FormulaLitPolicyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(352) %call82, ptr noundef nonnull align 8 dereferenceable(576) %45, ptr noundef %46, ptr noundef %cast.result, ptr noundef %49, i32 noundef 2, ptr noundef %agg.tmp)
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %invoke.cont87
@@ -1797,61 +1798,61 @@ invoke.cont89:                                    ; preds = %invoke.cont87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85) #3
   %d_theoryProxy94 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 4
-  %49 = load ptr, ptr %d_theoryProxy94, align 8
+  %50 = load ptr, ptr %d_theoryProxy94, align 8
   %d_satSolver95 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 5
-  %50 = load ptr, ptr %d_satSolver95, align 8
+  %51 = load ptr, ptr %d_satSolver95, align 8
   %d_cnfStream96 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 7
-  %51 = load ptr, ptr %d_cnfStream96, align 8
-  invoke void @_ZN4cvc58internal4prop11TheoryProxy10finishInitEPNS1_14CDCLTSatSolverEPNS1_9CnfStreamE(ptr noundef nonnull align 8 dereferenceable(521) %49, ptr noundef %50, ptr noundef %51)
+  %52 = load ptr, ptr %d_cnfStream96, align 8
+  invoke void @_ZN4cvc58internal4prop11TheoryProxy10finishInitEPNS1_14CDCLTSatSolverEPNS1_9CnfStreamE(ptr noundef nonnull align 8 dereferenceable(521) %50, ptr noundef %51, ptr noundef %52)
           to label %invoke.cont97 unwind label %lpad25
 
 invoke.cont97:                                    ; preds = %invoke.cont89
   %d_env98 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %52 = load ptr, ptr %d_env98, align 8
-  %call100 = invoke noundef zeroext i1 @_ZNK4cvc58internal3Env19isSatProofProducingEv(ptr noundef nonnull align 8 dereferenceable(576) %52)
+  %53 = load ptr, ptr %d_env98, align 8
+  %call100 = invoke noundef zeroext i1 @_ZNK4cvc58internal3Env19isSatProofProducingEv(ptr noundef nonnull align 8 dereferenceable(576) %53)
           to label %invoke.cont99 unwind label %lpad25
 
 invoke.cont99:                                    ; preds = %invoke.cont97
   %frombool = zext i1 %call100 to i8
   store i8 %frombool, ptr %satProofs, align 1
   %d_satSolver101 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 5
-  %53 = load ptr, ptr %d_satSolver101, align 8
+  %54 = load ptr, ptr %d_satSolver101, align 8
   %d_env102 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %54 = load ptr, ptr %d_env102, align 8
-  %call104 = invoke noundef ptr @_ZN4cvc58internal3Env10getContextEv(ptr noundef nonnull align 8 dereferenceable(576) %54)
+  %55 = load ptr, ptr %d_env102, align 8
+  %call104 = invoke noundef ptr @_ZN4cvc58internal3Env10getContextEv(ptr noundef nonnull align 8 dereferenceable(576) %55)
           to label %invoke.cont103 unwind label %lpad25
 
 invoke.cont103:                                   ; preds = %invoke.cont99
   %d_theoryProxy105 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 4
-  %55 = load ptr, ptr %d_theoryProxy105, align 8
+  %56 = load ptr, ptr %d_theoryProxy105, align 8
   %d_env106 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
-  %56 = load ptr, ptr %d_env106, align 8
-  %call108 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %56)
+  %57 = load ptr, ptr %d_env106, align 8
+  %call108 = invoke noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %57)
           to label %invoke.cont107 unwind label %lpad25
 
 invoke.cont107:                                   ; preds = %invoke.cont103
-  %57 = load i8, ptr %satProofs, align 1
-  %tobool = trunc i8 %57 to i1
+  %58 = load i8, ptr %satProofs, align 1
+  %tobool = trunc i8 %58 to i1
   br i1 %tobool, label %cond.true109, label %cond.false110
 
 cond.true109:                                     ; preds = %invoke.cont107
-  %58 = load ptr, ptr %pnm, align 8
+  %59 = load ptr, ptr %pnm, align 8
   br label %cond.end111
 
 cond.false110:                                    ; preds = %invoke.cont107
   br label %cond.end111
 
 cond.end111:                                      ; preds = %cond.false110, %cond.true109
-  %cond = phi ptr [ %58, %cond.true109 ], [ null, %cond.false110 ]
-  %vtable = load ptr, ptr %53, align 8
+  %cond = phi ptr [ %59, %cond.true109 ], [ null, %cond.false110 ]
+  %vtable = load ptr, ptr %54, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
-  %59 = load ptr, ptr %vfn, align 8
-  invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef %call104, ptr noundef %55, ptr noundef %call108, ptr noundef %cond)
+  %60 = load ptr, ptr %vfn, align 8
+  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %call104, ptr noundef %56, ptr noundef %call108, ptr noundef %cond)
           to label %invoke.cont112 unwind label %lpad25
 
 invoke.cont112:                                   ; preds = %cond.end111
-  %60 = load i8, ptr %satProofs, align 1
-  %tobool113 = trunc i8 %60 to i1
+  %61 = load i8, ptr %satProofs, align 1
+  %tobool113 = trunc i8 %61 to i1
   br i1 %tobool113, label %if.then114, label %if.end136
 
 if.then114:                                       ; preds = %invoke.cont112
@@ -1860,19 +1861,19 @@ if.then114:                                       ; preds = %invoke.cont112
           to label %invoke.cont116 unwind label %lpad25
 
 invoke.cont116:                                   ; preds = %if.then114
-  %61 = load ptr, ptr %env.addr, align 8
+  %62 = load ptr, ptr %env.addr, align 8
   %d_cnfStream118 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 7
-  %62 = load ptr, ptr %d_cnfStream118, align 8
+  %63 = load ptr, ptr %d_cnfStream118, align 8
   %d_satSolver119 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 5
-  %63 = load ptr, ptr %d_satSolver119, align 8
-  %vtable120 = load ptr, ptr %63, align 8
+  %64 = load ptr, ptr %d_satSolver119, align 8
+  %vtable120 = load ptr, ptr %64, align 8
   %vfn121 = getelementptr inbounds ptr, ptr %vtable120, i64 28
-  %64 = load ptr, ptr %vfn121, align 8
-  %call124 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(8) %63)
+  %65 = load ptr, ptr %vfn121, align 8
+  %call124 = invoke noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(8) %64)
           to label %invoke.cont123 unwind label %lpad122
 
 invoke.cont123:                                   ; preds = %invoke.cont116
-  invoke void @_ZN4cvc58internal4prop14ProofCnfStreamC1ERNS0_3EnvERNS1_9CnfStreamEPNS1_15SatProofManagerE(ptr noundef nonnull align 8 dereferenceable(848) %call117, ptr noundef nonnull align 8 dereferenceable(576) %61, ptr noundef nonnull align 8 dereferenceable(352) %62, ptr noundef %call124)
+  invoke void @_ZN4cvc58internal4prop14ProofCnfStreamC1ERNS0_3EnvERNS1_9CnfStreamEPNS1_15SatProofManagerE(ptr noundef nonnull align 8 dereferenceable(848) %call117, ptr noundef nonnull align 8 dereferenceable(576) %62, ptr noundef nonnull align 8 dereferenceable(352) %63, ptr noundef %call124)
           to label %invoke.cont125 unwind label %lpad122
 
 invoke.cont125:                                   ; preds = %invoke.cont123
@@ -1882,13 +1883,13 @@ invoke.cont125:                                   ; preds = %invoke.cont123
           to label %invoke.cont128 unwind label %lpad25
 
 invoke.cont128:                                   ; preds = %invoke.cont125
-  %65 = load ptr, ptr %env.addr, align 8
-  %66 = load ptr, ptr %userContext, align 8
+  %66 = load ptr, ptr %env.addr, align 8
+  %67 = load ptr, ptr %userContext, align 8
   %d_satSolver130 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 5
-  %67 = load ptr, ptr %d_satSolver130, align 8
+  %68 = load ptr, ptr %d_satSolver130, align 8
   %d_pfCnfStream131 = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 8
   %call132 = call noundef ptr @_ZNKSt10unique_ptrIN4cvc58internal4prop14ProofCnfStreamESt14default_deleteIS3_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %d_pfCnfStream131) #3
-  invoke void @_ZN4cvc58internal4prop13PropPfManagerC1ERNS0_3EnvEPNS_7context11UserContextEPNS1_14CDCLTSatSolverEPNS1_14ProofCnfStreamE(ptr noundef nonnull align 8 dereferenceable(232) %call129, ptr noundef nonnull align 8 dereferenceable(576) %65, ptr noundef %66, ptr noundef %67, ptr noundef %call132)
+  invoke void @_ZN4cvc58internal4prop13PropPfManagerC1ERNS0_3EnvEPNS_7context11UserContextEPNS1_14CDCLTSatSolverEPNS1_14ProofCnfStreamE(ptr noundef nonnull align 8 dereferenceable(232) %call129, ptr noundef nonnull align 8 dereferenceable(576) %66, ptr noundef %67, ptr noundef %68, ptr noundef %call132)
           to label %invoke.cont134 unwind label %lpad133
 
 invoke.cont134:                                   ; preds = %invoke.cont128
@@ -1896,31 +1897,31 @@ invoke.cont134:                                   ; preds = %invoke.cont128
   br label %if.end136
 
 lpad77:                                           ; preds = %invoke.cont71
-  %68 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %exn.slot, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %ehselector.slot, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %exn.slot, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call72) #15
   br label %ehcleanup137
 
 lpad86:                                           ; preds = %cast.end
-  %71 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %exn.slot, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %ehselector.slot, align 4
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %exn.slot, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %ehselector.slot, align 4
   br label %ehcleanup92
 
 lpad88:                                           ; preds = %invoke.cont87
-  %74 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %exn.slot, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %ehselector.slot, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %exn.slot, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   br label %ehcleanup92
 
@@ -1937,22 +1938,22 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   br label %ehcleanup137
 
 lpad122:                                          ; preds = %invoke.cont123, %invoke.cont116
-  %77 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %exn.slot, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %ehselector.slot, align 4
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %exn.slot, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call117) #15
   br label %ehcleanup137
 
 lpad133:                                          ; preds = %invoke.cont128
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %exn.slot, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %ehselector.slot, align 4
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %exn.slot, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call129) #15
   br label %ehcleanup137
 
@@ -2153,15 +2154,16 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %context.addr, align 8
   call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_list = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %d_list, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_list) #3
   %d_size = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
   store i64 0, ptr %d_size, align 8
   %d_callCleanup = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 3
-  %1 = load i8, ptr %callCleanup.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %callCleanup.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %d_callCleanup, align 8
   ret void
@@ -2391,14 +2393,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_callCleanup = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %d_callCleanup, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %d_callCleanup, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
@@ -2415,10 +2418,10 @@ if.end:                                           ; preds = %invoke.cont2, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -3000,7 +3003,8 @@ entry:
   %ref.tmp3 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop10PropEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop10PropEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3032,41 +3036,41 @@ invoke.cont7:                                     ; preds = %invoke.cont5
 
 cond.end:                                         ; preds = %invoke.cont7, %invoke.cont2
   %d_cnfStream = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %d_cnfStream, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %d_cnfStream, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %cond.end
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(352) %0) #3
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(352) %1) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %cond.end
   %d_satSolver = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %d_satSolver, align 8
-  %isnull9 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %d_satSolver, align 8
+  %isnull9 = icmp eq ptr %3, null
   br i1 %isnull9, label %delete.end13, label %delete.notnull10
 
 delete.notnull10:                                 ; preds = %delete.end
-  %vtable11 = load ptr, ptr %2, align 8
+  %vtable11 = load ptr, ptr %3, align 8
   %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 1
-  %3 = load ptr, ptr %vfn12, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
+  %4 = load ptr, ptr %vfn12, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   br label %delete.end13
 
 delete.end13:                                     ; preds = %delete.notnull10, %delete.end
   %d_theoryProxy = getelementptr inbounds %"class.cvc5::internal::prop::PropEngine", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %d_theoryProxy, align 8
-  %isnull14 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %d_theoryProxy, align 8
+  %isnull14 = icmp eq ptr %5, null
   br i1 %isnull14, label %delete.end18, label %delete.notnull15
 
 delete.notnull15:                                 ; preds = %delete.end13
-  %vtable16 = load ptr, ptr %4, align 8
+  %vtable16 = load ptr, ptr %5, align 8
   %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 1
-  %5 = load ptr, ptr %vfn17, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(521) %4) #3
+  %6 = load ptr, ptr %vfn17, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(521) %5) #3
   br label %delete.end18
 
 delete.end18:                                     ; preds = %delete.notnull15, %delete.end13
@@ -3086,10 +3090,10 @@ delete.end18:                                     ; preds = %delete.notnull15, %
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont5, %invoke.cont4, %cond.false, %cond.true, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #16
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #16
   unreachable
 }
 
@@ -14080,14 +14084,15 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %l.addr, align 8
   call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_list = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_list) #3
   %d_size = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %l.addr, align 8
-  %d_size2 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %1, i32 0, i32 2
-  %2 = load i64, ptr %d_size2, align 8
-  store i64 %2, ptr %d_size, align 8
+  %2 = load ptr, ptr %l.addr, align 8
+  %d_size2 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %2, i32 0, i32 2
+  %3 = load i64, ptr %d_size2, align 8
+  store i64 %3, ptr %d_size, align 8
   %d_callCleanup = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 3
   store i8 0, ptr %d_callCleanup, align 8
   %call = call noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -14118,8 +14123,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %3 = load ptr, ptr %l.addr, align 8
-  store ptr %3, ptr %ref.tmp13, align 8
+  %4 = load ptr, ptr %l.addr, align 8
+  store ptr %4, ptr %ref.tmp13, align 8
   %call15 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPKNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call12, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
           to label %invoke.cont14 unwind label %lpad
 
@@ -14144,12 +14149,12 @@ cond.end:                                         ; preds = %invoke.cont21, %inv
   ret void
 
 lpad:                                             ; preds = %invoke.cont19, %invoke.cont16, %invoke.cont14, %invoke.cont11, %invoke.cont9, %invoke.cont6, %invoke.cont5, %cond.false, %cond.true
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_list) #3
   call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
@@ -14182,10 +14187,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_pScope = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %d_pScope2 = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %d_pScope2 = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %d_pScope, ptr align 8 %d_pScope2, i64 32, i1 false)
   ret void
 }

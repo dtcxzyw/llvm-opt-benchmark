@@ -1959,7 +1959,8 @@ for.end:                                          ; preds = %for.cond
   br label %if.end10
 
 if.end10:                                         ; preds = %for.end, %entry
-  store ptr inttoptr (i64 -1 to ptr), ptr @island_marks, align 8
+  %18 = inttoptr i64 -1 to ptr
+  store ptr %18, ptr @island_marks, align 8
   ret void
 }
 

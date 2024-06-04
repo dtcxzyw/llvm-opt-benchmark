@@ -403,45 +403,47 @@ define void @_ZN21FilterExpressionFrameC2EP7QWidget(ptr noundef nonnull align 8 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV21FilterExpressionFrame, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV21FilterExpressionFrame, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.FilterExpressionFrame, ptr %7, i32 0, i32 1
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 128) #11
-          to label %12 unwind label %18
-
-12:                                               ; preds = %2
+  %9 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV21FilterExpressionFrame, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV21FilterExpressionFrame, i32 0, i32 1, i32 2
   store ptr %11, ptr %10, align 8
-  %13 = getelementptr inbounds %class.FilterExpressionFrame, ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  invoke void @_ZN24Ui_FilterExpressionFrame7setupUiEP14AccordionFrame(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef %7)
-          to label %15 unwind label %18
+  %12 = getelementptr inbounds %class.FilterExpressionFrame, ptr %7, i32 0, i32 1
+  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 128) #11
+          to label %14 unwind label %20
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds %class.FilterExpressionFrame, ptr %7, i32 0, i32 2
-  store i32 -1, ptr %16, align 8
+14:                                               ; preds = %2
+  store ptr %13, ptr %12, align 8
+  %15 = getelementptr inbounds %class.FilterExpressionFrame, ptr %7, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  invoke void @_ZN24Ui_FilterExpressionFrame7setupUiEP14AccordionFrame(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef %7)
+          to label %17 unwind label %20
+
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds %class.FilterExpressionFrame, ptr %7, i32 0, i32 2
+  store i32 -1, ptr %18, align 8
   invoke void @_ZN21FilterExpressionFrame13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(68) %7)
-          to label %17 unwind label %18
+          to label %19 unwind label %20
 
-17:                                               ; preds = %15
+19:                                               ; preds = %17
   ret void
 
-18:                                               ; preds = %15, %12, %2
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %17, %14, %2
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %5, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %6, align 4
   call void @_ZN14AccordionFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #12
-  br label %22
+  br label %24
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 declare void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) unnamed_addr #1
@@ -1545,19 +1547,21 @@ define void @_ZN21FilterExpressionFrameD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV21FilterExpressionFrame, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV21FilterExpressionFrame, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.FilterExpressionFrame, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV21FilterExpressionFrame, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV21FilterExpressionFrame, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.FilterExpressionFrame, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #13
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #13
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN14AccordionFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
   ret void
 }
@@ -2285,7 +2289,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
 
 69:                                               ; preds = %68
   store i32 1, ptr %14, align 4
-  br label %213
+  br label %214
 
 70:                                               ; preds = %1
   %71 = landingpad { ptr, i32 }
@@ -2295,7 +2299,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   %73 = extractvalue { ptr, i32 } %71, 1
   store i32 %73, ptr %6, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  br label %219
+  br label %220
 
 74:                                               ; preds = %34
   %75 = landingpad { ptr, i32 }
@@ -2304,7 +2308,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   store ptr %76, ptr %5, align 8
   %77 = extractvalue { ptr, i32 } %75, 1
   store i32 %77, ptr %6, align 4
-  br label %218
+  br label %219
 
 78:                                               ; preds = %39
   %79 = landingpad { ptr, i32 }
@@ -2314,7 +2318,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   %81 = extractvalue { ptr, i32 } %79, 1
   store i32 %81, ptr %6, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
-  br label %218
+  br label %219
 
 82:                                               ; preds = %40
   %83 = landingpad { ptr, i32 }
@@ -2323,7 +2327,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   store ptr %84, ptr %5, align 8
   %85 = extractvalue { ptr, i32 } %83, 1
   store i32 %85, ptr %6, align 4
-  br label %217
+  br label %218
 
 86:                                               ; preds = %45
   %87 = landingpad { ptr, i32 }
@@ -2333,16 +2337,16 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   %89 = extractvalue { ptr, i32 } %87, 1
   store i32 %89, ptr %6, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  br label %217
+  br label %218
 
-90:                                               ; preds = %211, %210, %209, %206, %204, %202, %200, %181, %173, %167, %159, %153, %145, %122, %118, %106, %46
+90:                                               ; preds = %212, %211, %209, %206, %204, %202, %200, %181, %173, %167, %159, %153, %145, %122, %118, %106, %46
   %91 = landingpad { ptr, i32 }
           cleanup
   %92 = extractvalue { ptr, i32 } %91, 0
   store ptr %92, ptr %5, align 8
   %93 = extractvalue { ptr, i32 } %91, 1
   store i32 %93, ptr %6, align 4
-  br label %216
+  br label %217
 
 94:                                               ; preds = %55, %51
   %95 = landingpad { ptr, i32 }
@@ -2372,7 +2376,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
 
 105:                                              ; preds = %104, %94
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  br label %216
+  br label %217
 
 106:                                              ; preds = %68
   %107 = getelementptr inbounds %class.FilterExpressionFrame, ptr %29, i32 0, i32 1
@@ -2387,7 +2391,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
 
 113:                                              ; preds = %112
   store i32 1, ptr %14, align 4
-  br label %213
+  br label %214
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds %class.FilterExpressionFrame, ptr %29, i32 0, i32 2
@@ -2429,7 +2433,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
 
 132:                                              ; preds = %129
   store i32 1, ptr %14, align 4
-  br label %213
+  br label %214
 
 133:                                              ; preds = %120
   %134 = landingpad { ptr, i32 }
@@ -2459,7 +2463,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   br label %144
 
 144:                                              ; preds = %143, %141
-  br label %216
+  br label %217
 
 145:                                              ; preds = %129
   %146 = load ptr, ptr %15, align 8
@@ -2544,7 +2548,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   %191 = extractvalue { ptr, i32 } %189, 1
   store i32 %191, ptr %6, align 4
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #12
-  br label %216
+  br label %217
 
 192:                                              ; preds = %168
   %193 = landingpad { ptr, i32 }
@@ -2554,7 +2558,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   %195 = extractvalue { ptr, i32 } %193, 1
   store i32 %195, ptr %6, align 4
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #12
-  br label %216
+  br label %217
 
 196:                                              ; preds = %182
   %197 = landingpad { ptr, i32 }
@@ -2564,7 +2568,7 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   %199 = extractvalue { ptr, i32 } %197, 1
   store i32 %199, ptr %6, align 4
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #12
-  br label %216
+  br label %217
 
 200:                                              ; preds = %114
   %201 = invoke noundef ptr @_ZNK10QByteArray9constDataEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -2586,54 +2590,55 @@ define void @_ZN21FilterExpressionFrame21on_buttonBox_acceptedEv(ptr noundef non
   br label %209
 
 209:                                              ; preds = %208, %187
-  invoke void @save_migrated_uat(ptr noundef @.str, ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 81))
-          to label %210 unwind label %90
-
-210:                                              ; preds = %209
-  invoke void @_ZN21FilterExpressionFrame21on_buttonBox_rejectedEv(ptr noundef nonnull align 8 dereferenceable(68) %29)
+  %210 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 81
+  invoke void @save_migrated_uat(ptr noundef @.str, ptr noundef %210)
           to label %211 unwind label %90
 
-211:                                              ; preds = %210
-  invoke void @_ZN21FilterExpressionFrame24filterExpressionsChangedEv(ptr noundef nonnull align 8 dereferenceable(68) %29)
+211:                                              ; preds = %209
+  invoke void @_ZN21FilterExpressionFrame21on_buttonBox_rejectedEv(ptr noundef nonnull align 8 dereferenceable(68) %29)
           to label %212 unwind label %90
 
 212:                                              ; preds = %211
-  store i32 0, ptr %14, align 4
-  br label %213
+  invoke void @_ZN21FilterExpressionFrame24filterExpressionsChangedEv(ptr noundef nonnull align 8 dereferenceable(68) %29)
+          to label %213 unwind label %90
 
-213:                                              ; preds = %212, %132, %113, %69
+213:                                              ; preds = %212
+  store i32 0, ptr %14, align 4
+  br label %214
+
+214:                                              ; preds = %213, %132, %113, %69
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  %214 = load i32, ptr %14, align 4
-  switch i32 %214, label %224 [
-    i32 0, label %215
-    i32 1, label %215
+  %215 = load i32, ptr %14, align 4
+  switch i32 %215, label %225 [
+    i32 0, label %216
+    i32 1, label %216
   ]
 
-215:                                              ; preds = %213, %213
+216:                                              ; preds = %214, %214
   ret void
 
-216:                                              ; preds = %196, %192, %188, %144, %105, %90
+217:                                              ; preds = %196, %192, %188, %144, %105, %90
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  br label %217
-
-217:                                              ; preds = %216, %86, %82
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   br label %218
 
-218:                                              ; preds = %217, %78, %74
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+218:                                              ; preds = %217, %86, %82
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   br label %219
 
-219:                                              ; preds = %218, %70
-  %220 = load ptr, ptr %5, align 8
-  %221 = load i32, ptr %6, align 4
-  %222 = insertvalue { ptr, i32 } poison, ptr %220, 0
-  %223 = insertvalue { ptr, i32 } %222, i32 %221, 1
-  resume { ptr, i32 } %223
+219:                                              ; preds = %218, %78, %74
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  br label %220
 
-224:                                              ; preds = %213
+220:                                              ; preds = %219, %70
+  %221 = load ptr, ptr %5, align 8
+  %222 = load i32, ptr %6, align 4
+  %223 = insertvalue { ptr, i32 } poison, ptr %221, 0
+  %224 = insertvalue { ptr, i32 } %223, i32 %222, 1
+  resume { ptr, i32 } %224
+
+225:                                              ; preds = %214
   unreachable
 }
 
@@ -3306,19 +3311,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.15, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #12
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #12
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #12
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #12
   ret void
 }
 
@@ -4046,9 +4052,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

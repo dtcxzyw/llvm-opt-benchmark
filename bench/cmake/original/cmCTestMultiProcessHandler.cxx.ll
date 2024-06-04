@@ -5477,160 +5477,161 @@ define dso_local void @_ZN26cmCTestMultiProcessHandlerC2Ev(ptr noundef nonnull a
   %5 = alloca %"class.std::set", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 1
-  store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 3
-  call void @_ZN19cmCTestResourceSpecC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #3
-  %9 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 5
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 1
+  store i8 0, ptr %8, align 8
+  %9 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 3
+  call void @_ZN19cmCTestResourceSpecC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #3
+  %10 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 6
-  call void @_ZNSt8optionalImEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
-  %12 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 9
-  call void @_ZN26cmCTestMultiProcessHandler7TestMapC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %13 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 10
-  call void @_ZNSt7__cxx114listIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 14
-  call void @_ZNSt3setImSt4lessImESaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  %15 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 16
-  store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 18
-  call void @_ZN26cmCTestMultiProcessHandler13PropertiesMapC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
-  %17 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 19
-  call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
-  %18 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 22
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  %19 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 23
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
-  %20 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 24
-  call void @_ZNSt3mapIiSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_IN26cmCTestMultiProcessHandler18ResourceAllocationESaIS8_EESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EESB_IiESaISD_IKiSJ_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
-  %21 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 25
-  call void @_ZNSt3mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmCTestMultiProcessHandler25ResourceAvailabilityErrorESt4lessIS5_ESaISt4pairIKS5_S7_EEES8_IiESaISA_IKiSE_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  %22 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 26
-  call void @_ZN24cmCTestResourceAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
-  %23 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 29
-  call void @_ZNSt8optionalI19cmUVJobServerClientEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
-  %24 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 30
-  call void @_ZNSt7__cxx114listIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  %25 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 33
-  invoke void @_ZN2cm11uv_loop_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25)
-          to label %26 unwind label %47
+  %11 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  %12 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 6
+  call void @_ZNSt8optionalImEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  %13 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 9
+  call void @_ZN26cmCTestMultiProcessHandler7TestMapC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  %14 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 10
+  call void @_ZNSt7__cxx114listIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 14
+  call void @_ZNSt3setImSt4lessImESaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
+  %16 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 16
+  store i8 0, ptr %16, align 8
+  %17 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 18
+  call void @_ZN26cmCTestMultiProcessHandler13PropertiesMapC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %18 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 19
+  call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
+  %19 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 22
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %20 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 23
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
+  %21 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 24
+  call void @_ZNSt3mapIiSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_IN26cmCTestMultiProcessHandler18ResourceAllocationESaIS8_EESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EESB_IiESaISD_IKiSJ_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
+  %22 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 25
+  call void @_ZNSt3mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmCTestMultiProcessHandler25ResourceAvailabilityErrorESt4lessIS5_ESaISt4pairIKS5_S7_EEES8_IiESaISA_IKiSE_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  %23 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 26
+  call void @_ZN24cmCTestResourceAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #3
+  %24 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 29
+  call void @_ZNSt8optionalI19cmUVJobServerClientEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #3
+  %25 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 30
+  call void @_ZNSt7__cxx114listIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %26 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 33
+  invoke void @_ZN2cm11uv_loop_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %27 unwind label %48
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 34
-  invoke void @_ZN2cm11uv_idle_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27)
-          to label %28 unwind label %51
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 34
+  invoke void @_ZN2cm11uv_idle_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28)
+          to label %29 unwind label %52
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 35
-  invoke void @_ZN2cm12uv_timer_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29)
-          to label %30 unwind label %55
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 35
+  invoke void @_ZN2cm12uv_timer_ptrC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30)
+          to label %31 unwind label %56
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 40
-  store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 41
-  store i32 1, ptr %32, align 8
-  %33 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 28
-  store i64 1, ptr %33, align 8
-  %34 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 31
-  store i64 0, ptr %34, align 8
-  %35 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 32
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 40
+  store i32 0, ptr %32, align 4
+  %33 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 41
+  store i32 1, ptr %33, align 8
+  %34 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 28
+  store i64 1, ptr %34, align 8
+  %35 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 31
   store i64 0, ptr %35, align 8
-  %36 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 12
+  %36 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 32
   store i64 0, ptr %36, align 8
-  %37 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 13
+  %37 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 12
   store i64 0, ptr %37, align 8
+  %38 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 13
+  store i64 0, ptr %38, align 8
   invoke void @_ZN10cmAffinity22GetProcessorsAvailableEv(ptr dead_on_unwind writable sret(%"class.std::set") align 8 %5)
-          to label %38 unwind label %59
+          to label %39 unwind label %60
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 14
-  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3setImSt4lessImESaImEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 14
+  %41 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3setImSt4lessImESaImEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %41 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 14
-  %42 = call noundef i64 @_ZNKSt3setImSt4lessImESaImEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %41) #3
-  %43 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 15
-  store i64 %42, ptr %43, align 8
-  %44 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 38
-  store i8 0, ptr %44, align 8
-  %45 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 7
+  %42 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 14
+  %43 = call noundef i64 @_ZNKSt3setImSt4lessImESaImEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %42) #3
+  %44 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 15
+  store i64 %43, ptr %44, align 8
+  %45 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 38
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 43
-  store i8 0, ptr %46, align 1
+  %46 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 7
+  store i8 0, ptr %46, align 8
+  %47 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 43
+  store i8 0, ptr %47, align 1
   ret void
 
-47:                                               ; preds = %1
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %1
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %3, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %4, align 4
-  br label %65
-
-51:                                               ; preds = %26
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %3, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %4, align 4
-  br label %64
-
-55:                                               ; preds = %28
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %3, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %4, align 4
-  br label %63
-
-59:                                               ; preds = %30
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %3, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %4, align 4
-  call void @_ZN2cm12uv_timer_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #3
-  br label %63
-
-63:                                               ; preds = %59, %55
-  call void @_ZN2cm11uv_idle_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #3
-  br label %64
-
-64:                                               ; preds = %63, %51
-  call void @_ZN2cm11uv_loop_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #3
-  br label %65
-
-65:                                               ; preds = %64, %47
-  call void @_ZNSt7__cxx114listIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  call void @_ZNSt8optionalI19cmUVJobServerClientED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
-  call void @_ZN24cmCTestResourceAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
-  call void @_ZNSt3mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmCTestMultiProcessHandler25ResourceAvailabilityErrorESt4lessIS5_ESaISt4pairIKS5_S7_EEES8_IiESaISA_IKiSE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  call void @_ZNSt3mapIiSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_IN26cmCTestMultiProcessHandler18ResourceAllocationESaIS8_EESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EESB_IiESaISD_IKiSJ_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
-  call void @_ZN26cmCTestMultiProcessHandler13PropertiesMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
-  call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  call void @_ZNSt7__cxx114listIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  call void @_ZN26cmCTestMultiProcessHandler7TestMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  call void @_ZN19cmCTestResourceSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #3
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %3, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %4, align 4
   br label %66
 
-66:                                               ; preds = %65
-  %67 = load ptr, ptr %3, align 8
-  %68 = load i32, ptr %4, align 4
-  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
-  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
-  resume { ptr, i32 } %70
+52:                                               ; preds = %27
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %3, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %4, align 4
+  br label %65
+
+56:                                               ; preds = %29
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %3, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %4, align 4
+  br label %64
+
+60:                                               ; preds = %31
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %3, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %4, align 4
+  call void @_ZN2cm12uv_timer_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #3
+  br label %64
+
+64:                                               ; preds = %60, %56
+  call void @_ZN2cm11uv_idle_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #3
+  br label %65
+
+65:                                               ; preds = %64, %52
+  call void @_ZN2cm11uv_loop_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
+  br label %66
+
+66:                                               ; preds = %65, %48
+  call void @_ZNSt7__cxx114listIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  call void @_ZNSt8optionalI19cmUVJobServerClientED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #3
+  call void @_ZN24cmCTestResourceAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #3
+  call void @_ZNSt3mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmCTestMultiProcessHandler25ResourceAvailabilityErrorESt4lessIS5_ESaISt4pairIKS5_S7_EEES8_IiESaISA_IKiSE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  call void @_ZNSt3mapIiSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_IN26cmCTestMultiProcessHandler18ResourceAllocationESaIS8_EESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EESB_IiESaISD_IKiSJ_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
+  call void @_ZN26cmCTestMultiProcessHandler13PropertiesMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
+  call void @_ZNSt7__cxx114listIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  call void @_ZN26cmCTestMultiProcessHandler7TestMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  call void @_ZN19cmCTestResourceSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #3
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %3, align 8
+  %69 = load i32, ptr %4, align 4
+  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
+  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
+  resume { ptr, i32 } %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6000,43 +6001,44 @@ define dso_local void @_ZN26cmCTestMultiProcessHandlerD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 35
-  call void @_ZN2cm12uv_timer_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  %5 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 34
-  call void @_ZN2cm11uv_idle_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  %6 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 33
-  call void @_ZN2cm11uv_loop_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  %7 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 30
-  call void @_ZNSt7__cxx114listIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 29
-  call void @_ZNSt8optionalI19cmUVJobServerClientED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  %9 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 26
-  call void @_ZN24cmCTestResourceAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
-  %10 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 25
-  call void @_ZNSt3mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmCTestMultiProcessHandler25ResourceAvailabilityErrorESt4lessIS5_ESaISt4pairIKS5_S7_EEES8_IiESaISA_IKiSE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
-  %11 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 24
-  call void @_ZNSt3mapIiSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_IN26cmCTestMultiProcessHandler18ResourceAllocationESaIS8_EESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EESB_IiESaISD_IKiSJ_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
-  %12 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 23
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %13 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 22
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 19
-  call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  %15 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 18
-  call void @_ZN26cmCTestMultiProcessHandler13PropertiesMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
-  %16 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 14
-  call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
-  %17 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 10
-  call void @_ZNSt7__cxx114listIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %18 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 9
-  call void @_ZN26cmCTestMultiProcessHandler7TestMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
-  %19 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  %20 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 35
+  call void @_ZN2cm12uv_timer_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %6 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 34
+  call void @_ZN2cm11uv_idle_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %7 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 33
+  call void @_ZN2cm11uv_loop_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  %8 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 30
+  call void @_ZNSt7__cxx114listIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 29
+  call void @_ZNSt8optionalI19cmUVJobServerClientED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  %10 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 26
+  call void @_ZN24cmCTestResourceAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
+  %11 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 25
+  call void @_ZNSt3mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmCTestMultiProcessHandler25ResourceAvailabilityErrorESt4lessIS5_ESaISt4pairIKS5_S7_EEES8_IiESaISA_IKiSE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
+  %12 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 24
+  call void @_ZNSt3mapIiSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_IN26cmCTestMultiProcessHandler18ResourceAllocationESaIS8_EESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EESB_IiESaISD_IKiSJ_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  %13 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 23
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  %14 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 22
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 19
+  call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
+  %16 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 18
+  call void @_ZN26cmCTestMultiProcessHandler13PropertiesMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+  %17 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 14
+  call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %18 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 10
+  call void @_ZNSt7__cxx114listIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %19 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 9
+  call void @_ZN26cmCTestMultiProcessHandler7TestMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
+  %20 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  %21 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 3
-  call void @_ZN19cmCTestResourceSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %21) #3
+  %21 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  %22 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 3
+  call void @_ZN19cmCTestResourceSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %22) #3
   ret void
 }
 

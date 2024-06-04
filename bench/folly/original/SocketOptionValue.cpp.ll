@@ -34,15 +34,16 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i, align 8, !tbaa !11
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2
+  store ptr %1, ptr %exception.i.i.i.i, align 8, !tbaa !11
   %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   store ptr @.str.1, ptr %_M_reason.i.i.i.i.i, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #15
   unreachable
 
 _ZSt3getIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %entry
-  %1 = load i32, ptr %this, align 8, !tbaa !17
-  ret i32 %1
+  %2 = load i32, ptr %this, align 8, !tbaa !17
+  ret i32 %2
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -87,7 +88,8 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i, align 8, !tbaa !11
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2
+  store ptr %1, ptr %exception.i.i.i.i, align 8, !tbaa !11
   %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   store ptr @.str.1, ptr %_M_reason.i.i.i.i.i, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #15
@@ -195,52 +197,53 @@ cleanup:                                          ; preds = %if.else, %invoke.co
 
 if.then.i.i.i17:                                  ; preds = %entry
   %exception.i.i.i.i.i18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i18, align 8, !tbaa !11
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2
+  store ptr %10, ptr %exception.i.i.i.i.i18, align 8, !tbaa !11
   %_M_reason.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i18, i64 8
   store ptr @.str.1, ptr %_M_reason.i.i.i.i.i.i19, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i18, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #15
   unreachable
 
 _ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit: ; preds = %entry
-  %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %10, ptr %agg.result, align 8, !tbaa !19
-  %11 = load ptr, ptr %this, align 8, !tbaa !23
+  %11 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %11, ptr %agg.result, align 8, !tbaa !19
+  %12 = load ptr, ptr %this, align 8, !tbaa !23
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !26
+  %13 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i20) #14
-  store i64 %12, ptr %__dnew.i.i20, align 8, !tbaa !21
-  %cmp.i.i21 = icmp ugt i64 %12, 15
+  store i64 %13, ptr %__dnew.i.i20, align 8, !tbaa !21
+  %cmp.i.i21 = icmp ugt i64 %13, 15
   br i1 %cmp.i.i21, label %if.then.i.i27, label %if.end.i.i22
 
 if.then.i.i27:                                    ; preds = %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit
   %call2.i12.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i20, i64 noundef 0)
   store ptr %call2.i12.i, ptr %agg.result, align 8, !tbaa !23
-  %13 = load i64, ptr %__dnew.i.i20, align 8, !tbaa !21
-  store i64 %13, ptr %10, align 8, !tbaa !25
+  %14 = load i64, ptr %__dnew.i.i20, align 8, !tbaa !21
+  store i64 %14, ptr %11, align 8, !tbaa !25
   br label %if.end.i.i22
 
 if.end.i.i22:                                     ; preds = %if.then.i.i27, %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit
-  %14 = phi ptr [ %call2.i12.i, %if.then.i.i27 ], [ %10, %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit ]
-  switch i64 %12, label %if.end.i.i.i.i.i26 [
+  %15 = phi ptr [ %call2.i12.i, %if.then.i.i27 ], [ %11, %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit ]
+  switch i64 %13, label %if.end.i.i.i.i.i26 [
     i64 1, label %if.then.i.i.i.i25
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   ]
 
 if.then.i.i.i.i25:                                ; preds = %if.end.i.i22
-  %15 = load i8, ptr %11, align 1, !tbaa !25
-  store i8 %15, ptr %14, align 1, !tbaa !25
+  %16 = load i8, ptr %12, align 1, !tbaa !25
+  store i8 %16, ptr %15, align 1, !tbaa !25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 if.end.i.i.i.i.i26:                               ; preds = %if.end.i.i22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %11, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %12, i64 %13, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %if.end.i.i.i.i.i26, %if.then.i.i.i.i25, %if.end.i.i22
-  %16 = load i64, ptr %__dnew.i.i20, align 8, !tbaa !21
+  %17 = load i64, ptr %__dnew.i.i20, align 8, !tbaa !21
   %_M_string_length.i.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %16, ptr %_M_string_length.i.i.i.i23, align 8, !tbaa !26
-  %17 = load ptr, ptr %agg.result, align 8, !tbaa !23
-  %arrayidx.i.i.i24 = getelementptr inbounds i8, ptr %17, i64 %16
+  store i64 %17, ptr %_M_string_length.i.i.i.i23, align 8, !tbaa !26
+  %18 = load ptr, ptr %agg.result, align 8, !tbaa !23
+  %arrayidx.i.i.i24 = getelementptr inbounds i8, ptr %18, i64 %17
   store i8 0, ptr %arrayidx.i.i.i24, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i20) #14
   br label %return

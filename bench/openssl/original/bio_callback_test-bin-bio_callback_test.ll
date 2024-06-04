@@ -160,46 +160,53 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false19
   br i1 %tobool24, label %lor.lhs.false25, label %if.then48
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %12 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %13 = load ptr, ptr %bio, align 8
-  %call26 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 72, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %12, ptr noundef %13)
+  %12 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %bio, align 8
+  %call26 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 72, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %13, ptr noundef %14)
   %tobool27 = icmp ne i32 %call26, 0
   br i1 %tobool27, label %lor.lhs.false28, label %if.then48
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false25
-  %14 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call29 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 73, ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef %14, i32 noundef 131)
+  %15 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %16 = load i32, ptr %15, align 4
+  %call29 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 73, ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef %16, i32 noundef 131)
   %tobool30 = icmp ne i32 %call29, 0
   br i1 %tobool30, label %lor.lhs.false31, label %if.then48
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false28
-  %15 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %17 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %18 = load ptr, ptr %17, align 8
   %arraydecay32 = getelementptr inbounds [5 x i8], ptr %test1, i64 0, i64 0
-  %call33 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 74, ptr noundef @.str.21, ptr noundef @.str.12, ptr noundef %15, ptr noundef %arraydecay32)
+  %call33 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 74, ptr noundef @.str.21, ptr noundef @.str.12, ptr noundef %18, ptr noundef %arraydecay32)
   %tobool34 = icmp ne i32 %call33, 0
   br i1 %tobool34, label %lor.lhs.false35, label %if.then48
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false31
-  %16 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_len, i64 0, i64 1), align 8
-  %call36 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 75, ptr noundef @.str.22, ptr noundef @.str.4, i64 noundef %16, i64 noundef 4)
+  %19 = getelementptr inbounds [5 x i64], ptr @my_param_len, i64 0, i64 1
+  %20 = load i64, ptr %19, align 8
+  %call36 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 75, ptr noundef @.str.22, ptr noundef @.str.4, i64 noundef %20, i64 noundef 4)
   %tobool37 = icmp ne i32 %call36, 0
   br i1 %tobool37, label %lor.lhs.false38, label %if.then48
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false35
-  %17 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call39 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 76, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %17, i64 noundef 0)
+  %21 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %22 = load i64, ptr %21, align 8
+  %call39 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 76, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %22, i64 noundef 0)
   %tobool40 = icmp ne i32 %call39, 0
   br i1 %tobool40, label %lor.lhs.false41, label %if.then48
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false38
-  %18 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_processed, i64 0, i64 1), align 8
-  %call42 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 77, ptr noundef @.str.24, ptr noundef @.str.4, i64 noundef %18, i64 noundef 4)
+  %23 = getelementptr inbounds [5 x i64], ptr @my_param_processed, i64 0, i64 1
+  %24 = load i64, ptr %23, align 8
+  %call42 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 77, ptr noundef @.str.24, ptr noundef @.str.4, i64 noundef %24, i64 noundef 4)
   %tobool43 = icmp ne i32 %call42, 0
   br i1 %tobool43, label %lor.lhs.false44, label %if.then48
 
 lor.lhs.false44:                                  ; preds = %lor.lhs.false41
-  %19 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %conv45 = trunc i64 %19 to i32
+  %25 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %26 = load i64, ptr %25, align 8
+  %conv45 = trunc i64 %26 to i32
   %call46 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 78, ptr noundef @.str.25, ptr noundef @.str.17, i32 noundef %conv45, i32 noundef 1)
   %tobool47 = icmp ne i32 %call46, 0
   br i1 %tobool47, label %if.end49, label %if.then48
@@ -209,104 +216,111 @@ if.then48:                                        ; preds = %lor.lhs.false44, %l
 
 if.end49:                                         ; preds = %lor.lhs.false44
   store i32 0, ptr @my_param_count, align 4
-  %20 = load ptr, ptr %bio, align 8
+  %27 = load ptr, ptr %bio, align 8
   %arraydecay50 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call51 = call i32 @BIO_read(ptr noundef %20, ptr noundef %arraydecay50, i32 noundef 16)
+  %call51 = call i32 @BIO_read(ptr noundef %27, ptr noundef %arraydecay50, i32 noundef 16)
   store i32 %call51, ptr %i, align 4
   %arraydecay52 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %21 = load i32, ptr %i, align 4
-  %conv53 = sext i32 %21 to i64
+  %28 = load i32, ptr %i, align 4
+  %conv53 = sext i32 %28 to i64
   %arraydecay54 = getelementptr inbounds [5 x i8], ptr %test1, i64 0, i64 0
   %call55 = call i32 @test_mem_eq(ptr noundef @.str.2, i32 noundef 83, ptr noundef @.str.26, ptr noundef @.str.12, ptr noundef %arraydecay52, i64 noundef %conv53, ptr noundef %arraydecay54, i64 noundef 4)
   %tobool56 = icmp ne i32 %call55, 0
   br i1 %tobool56, label %lor.lhs.false57, label %if.then103
 
 lor.lhs.false57:                                  ; preds = %if.end49
-  %22 = load i32, ptr @my_param_count, align 4
-  %call58 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 84, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %22, i32 noundef 2)
+  %29 = load i32, ptr @my_param_count, align 4
+  %call58 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 84, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %29, i32 noundef 2)
   %tobool59 = icmp ne i32 %call58, 0
   br i1 %tobool59, label %lor.lhs.false60, label %if.then103
 
 lor.lhs.false60:                                  ; preds = %lor.lhs.false57
-  %23 = load ptr, ptr @my_param_b, align 16
-  %24 = load ptr, ptr %bio, align 8
-  %call61 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 85, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %23, ptr noundef %24)
+  %30 = load ptr, ptr @my_param_b, align 16
+  %31 = load ptr, ptr %bio, align 8
+  %call61 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 85, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %30, ptr noundef %31)
   %tobool62 = icmp ne i32 %call61, 0
   br i1 %tobool62, label %lor.lhs.false63, label %if.then103
 
 lor.lhs.false63:                                  ; preds = %lor.lhs.false60
-  %25 = load i32, ptr @my_param_oper, align 16
-  %call64 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 86, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %25, i32 noundef 2)
+  %32 = load i32, ptr @my_param_oper, align 16
+  %call64 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 86, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %32, i32 noundef 2)
   %tobool65 = icmp ne i32 %call64, 0
   br i1 %tobool65, label %lor.lhs.false66, label %if.then103
 
 lor.lhs.false66:                                  ; preds = %lor.lhs.false63
-  %26 = load ptr, ptr @my_param_argp, align 16
+  %33 = load ptr, ptr @my_param_argp, align 16
   %arraydecay67 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call68 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 87, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %26, ptr noundef %arraydecay67)
+  %call68 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 87, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %33, ptr noundef %arraydecay67)
   %tobool69 = icmp ne i32 %call68, 0
   br i1 %tobool69, label %lor.lhs.false70, label %if.then103
 
 lor.lhs.false70:                                  ; preds = %lor.lhs.false66
-  %27 = load i64, ptr @my_param_len, align 16
-  %call71 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 88, ptr noundef @.str.13, ptr noundef @.str.28, i64 noundef %27, i64 noundef 16)
+  %34 = load i64, ptr @my_param_len, align 16
+  %call71 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 88, ptr noundef @.str.13, ptr noundef @.str.28, i64 noundef %34, i64 noundef 16)
   %tobool72 = icmp ne i32 %call71, 0
   br i1 %tobool72, label %lor.lhs.false73, label %if.then103
 
 lor.lhs.false73:                                  ; preds = %lor.lhs.false70
-  %28 = load i64, ptr @my_param_argl, align 16
-  %call74 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 89, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %28, i64 noundef 0)
+  %35 = load i64, ptr @my_param_argl, align 16
+  %call74 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 89, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %35, i64 noundef 0)
   %tobool75 = icmp ne i32 %call74, 0
   br i1 %tobool75, label %lor.lhs.false76, label %if.then103
 
 lor.lhs.false76:                                  ; preds = %lor.lhs.false73
-  %29 = load i64, ptr @my_param_ret, align 16
-  %conv77 = trunc i64 %29 to i32
+  %36 = load i64, ptr @my_param_ret, align 16
+  %conv77 = trunc i64 %36 to i32
   %call78 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 90, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %conv77, i32 noundef 1)
   %tobool79 = icmp ne i32 %call78, 0
   br i1 %tobool79, label %lor.lhs.false80, label %if.then103
 
 lor.lhs.false80:                                  ; preds = %lor.lhs.false76
-  %30 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %31 = load ptr, ptr %bio, align 8
-  %call81 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 91, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %30, ptr noundef %31)
+  %37 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %bio, align 8
+  %call81 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 91, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %38, ptr noundef %39)
   %tobool82 = icmp ne i32 %call81, 0
   br i1 %tobool82, label %lor.lhs.false83, label %if.then103
 
 lor.lhs.false83:                                  ; preds = %lor.lhs.false80
-  %32 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call84 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 92, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %32, i32 noundef 130)
+  %40 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %41 = load i32, ptr %40, align 4
+  %call84 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 92, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %41, i32 noundef 130)
   %tobool85 = icmp ne i32 %call84, 0
   br i1 %tobool85, label %lor.lhs.false86, label %if.then103
 
 lor.lhs.false86:                                  ; preds = %lor.lhs.false83
-  %33 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %42 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %43 = load ptr, ptr %42, align 8
   %arraydecay87 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call88 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 93, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %33, ptr noundef %arraydecay87)
+  %call88 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 93, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %43, ptr noundef %arraydecay87)
   %tobool89 = icmp ne i32 %call88, 0
   br i1 %tobool89, label %lor.lhs.false90, label %if.then103
 
 lor.lhs.false90:                                  ; preds = %lor.lhs.false86
-  %34 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_len, i64 0, i64 1), align 8
-  %call91 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 94, ptr noundef @.str.22, ptr noundef @.str.28, i64 noundef %34, i64 noundef 16)
+  %44 = getelementptr inbounds [5 x i64], ptr @my_param_len, i64 0, i64 1
+  %45 = load i64, ptr %44, align 8
+  %call91 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 94, ptr noundef @.str.22, ptr noundef @.str.28, i64 noundef %45, i64 noundef 16)
   %tobool92 = icmp ne i32 %call91, 0
   br i1 %tobool92, label %lor.lhs.false93, label %if.then103
 
 lor.lhs.false93:                                  ; preds = %lor.lhs.false90
-  %35 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call94 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 95, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %35, i64 noundef 0)
+  %46 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %47 = load i64, ptr %46, align 8
+  %call94 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 95, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %47, i64 noundef 0)
   %tobool95 = icmp ne i32 %call94, 0
   br i1 %tobool95, label %lor.lhs.false96, label %if.then103
 
 lor.lhs.false96:                                  ; preds = %lor.lhs.false93
-  %36 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_processed, i64 0, i64 1), align 8
-  %call97 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 96, ptr noundef @.str.24, ptr noundef @.str.4, i64 noundef %36, i64 noundef 4)
+  %48 = getelementptr inbounds [5 x i64], ptr @my_param_processed, i64 0, i64 1
+  %49 = load i64, ptr %48, align 8
+  %call97 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 96, ptr noundef @.str.24, ptr noundef @.str.4, i64 noundef %49, i64 noundef 4)
   %tobool98 = icmp ne i32 %call97, 0
   br i1 %tobool98, label %lor.lhs.false99, label %if.then103
 
 lor.lhs.false99:                                  ; preds = %lor.lhs.false96
-  %37 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %conv100 = trunc i64 %37 to i32
+  %50 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %51 = load i64, ptr %50, align 8
+  %conv100 = trunc i64 %51 to i32
   %call101 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 97, ptr noundef @.str.25, ptr noundef @.str.17, i32 noundef %conv100, i32 noundef 1)
   %tobool102 = icmp ne i32 %call101, 0
   br i1 %tobool102, label %if.end104, label %if.then103
@@ -316,101 +330,108 @@ if.then103:                                       ; preds = %lor.lhs.false99, %l
 
 if.end104:                                        ; preds = %lor.lhs.false99
   store i32 0, ptr @my_param_count, align 4
-  %38 = load ptr, ptr %bio, align 8
+  %52 = load ptr, ptr %bio, align 8
   %arraydecay105 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call106 = call i32 @BIO_read(ptr noundef %38, ptr noundef %arraydecay105, i32 noundef 16)
+  %call106 = call i32 @BIO_read(ptr noundef %52, ptr noundef %arraydecay105, i32 noundef 16)
   store i32 %call106, ptr %i, align 4
-  %39 = load i32, ptr %i, align 4
-  %call107 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 103, ptr noundef @.str.3, ptr noundef @.str.30, i32 noundef %39, i32 noundef -1)
+  %53 = load i32, ptr %i, align 4
+  %call107 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 103, ptr noundef @.str.3, ptr noundef @.str.30, i32 noundef %53, i32 noundef -1)
   %tobool108 = icmp ne i32 %call107, 0
   br i1 %tobool108, label %lor.lhs.false109, label %if.then155
 
 lor.lhs.false109:                                 ; preds = %if.end104
-  %40 = load i32, ptr @my_param_count, align 4
-  %call110 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 104, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %40, i32 noundef 2)
+  %54 = load i32, ptr @my_param_count, align 4
+  %call110 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 104, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %54, i32 noundef 2)
   %tobool111 = icmp ne i32 %call110, 0
   br i1 %tobool111, label %lor.lhs.false112, label %if.then155
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false109
-  %41 = load ptr, ptr @my_param_b, align 16
-  %42 = load ptr, ptr %bio, align 8
-  %call113 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 105, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %41, ptr noundef %42)
+  %55 = load ptr, ptr @my_param_b, align 16
+  %56 = load ptr, ptr %bio, align 8
+  %call113 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 105, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %55, ptr noundef %56)
   %tobool114 = icmp ne i32 %call113, 0
   br i1 %tobool114, label %lor.lhs.false115, label %if.then155
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false112
-  %43 = load i32, ptr @my_param_oper, align 16
-  %call116 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 106, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %43, i32 noundef 2)
+  %57 = load i32, ptr @my_param_oper, align 16
+  %call116 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 106, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %57, i32 noundef 2)
   %tobool117 = icmp ne i32 %call116, 0
   br i1 %tobool117, label %lor.lhs.false118, label %if.then155
 
 lor.lhs.false118:                                 ; preds = %lor.lhs.false115
-  %44 = load ptr, ptr @my_param_argp, align 16
+  %58 = load ptr, ptr @my_param_argp, align 16
   %arraydecay119 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call120 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 107, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %44, ptr noundef %arraydecay119)
+  %call120 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 107, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %58, ptr noundef %arraydecay119)
   %tobool121 = icmp ne i32 %call120, 0
   br i1 %tobool121, label %lor.lhs.false122, label %if.then155
 
 lor.lhs.false122:                                 ; preds = %lor.lhs.false118
-  %45 = load i64, ptr @my_param_len, align 16
-  %call123 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 108, ptr noundef @.str.13, ptr noundef @.str.28, i64 noundef %45, i64 noundef 16)
+  %59 = load i64, ptr @my_param_len, align 16
+  %call123 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 108, ptr noundef @.str.13, ptr noundef @.str.28, i64 noundef %59, i64 noundef 16)
   %tobool124 = icmp ne i32 %call123, 0
   br i1 %tobool124, label %lor.lhs.false125, label %if.then155
 
 lor.lhs.false125:                                 ; preds = %lor.lhs.false122
-  %46 = load i64, ptr @my_param_argl, align 16
-  %call126 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 109, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %46, i64 noundef 0)
+  %60 = load i64, ptr @my_param_argl, align 16
+  %call126 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 109, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %60, i64 noundef 0)
   %tobool127 = icmp ne i32 %call126, 0
   br i1 %tobool127, label %lor.lhs.false128, label %if.then155
 
 lor.lhs.false128:                                 ; preds = %lor.lhs.false125
-  %47 = load i64, ptr @my_param_ret, align 16
-  %conv129 = trunc i64 %47 to i32
+  %61 = load i64, ptr @my_param_ret, align 16
+  %conv129 = trunc i64 %61 to i32
   %call130 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 110, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %conv129, i32 noundef 1)
   %tobool131 = icmp ne i32 %call130, 0
   br i1 %tobool131, label %lor.lhs.false132, label %if.then155
 
 lor.lhs.false132:                                 ; preds = %lor.lhs.false128
-  %48 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %49 = load ptr, ptr %bio, align 8
-  %call133 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 111, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %48, ptr noundef %49)
+  %62 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %bio, align 8
+  %call133 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 111, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %63, ptr noundef %64)
   %tobool134 = icmp ne i32 %call133, 0
   br i1 %tobool134, label %lor.lhs.false135, label %if.then155
 
 lor.lhs.false135:                                 ; preds = %lor.lhs.false132
-  %50 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call136 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 112, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %50, i32 noundef 130)
+  %65 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %66 = load i32, ptr %65, align 4
+  %call136 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 112, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %66, i32 noundef 130)
   %tobool137 = icmp ne i32 %call136, 0
   br i1 %tobool137, label %lor.lhs.false138, label %if.then155
 
 lor.lhs.false138:                                 ; preds = %lor.lhs.false135
-  %51 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %67 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %68 = load ptr, ptr %67, align 8
   %arraydecay139 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call140 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 113, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %51, ptr noundef %arraydecay139)
+  %call140 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 113, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %68, ptr noundef %arraydecay139)
   %tobool141 = icmp ne i32 %call140, 0
   br i1 %tobool141, label %lor.lhs.false142, label %if.then155
 
 lor.lhs.false142:                                 ; preds = %lor.lhs.false138
-  %52 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_len, i64 0, i64 1), align 8
-  %call143 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 114, ptr noundef @.str.22, ptr noundef @.str.28, i64 noundef %52, i64 noundef 16)
+  %69 = getelementptr inbounds [5 x i64], ptr @my_param_len, i64 0, i64 1
+  %70 = load i64, ptr %69, align 8
+  %call143 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 114, ptr noundef @.str.22, ptr noundef @.str.28, i64 noundef %70, i64 noundef 16)
   %tobool144 = icmp ne i32 %call143, 0
   br i1 %tobool144, label %lor.lhs.false145, label %if.then155
 
 lor.lhs.false145:                                 ; preds = %lor.lhs.false142
-  %53 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call146 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 115, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %53, i64 noundef 0)
+  %71 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %72 = load i64, ptr %71, align 8
+  %call146 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 115, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %72, i64 noundef 0)
   %tobool147 = icmp ne i32 %call146, 0
   br i1 %tobool147, label %lor.lhs.false148, label %if.then155
 
 lor.lhs.false148:                                 ; preds = %lor.lhs.false145
-  %54 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_processed, i64 0, i64 1), align 8
-  %call149 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 116, ptr noundef @.str.24, ptr noundef @.str.31, i64 noundef %54, i64 noundef 0)
+  %73 = getelementptr inbounds [5 x i64], ptr @my_param_processed, i64 0, i64 1
+  %74 = load i64, ptr %73, align 8
+  %call149 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 116, ptr noundef @.str.24, ptr noundef @.str.31, i64 noundef %74, i64 noundef 0)
   %tobool150 = icmp ne i32 %call149, 0
   br i1 %tobool150, label %lor.lhs.false151, label %if.then155
 
 lor.lhs.false151:                                 ; preds = %lor.lhs.false148
-  %55 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %conv152 = trunc i64 %55 to i32
+  %75 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %76 = load i64, ptr %75, align 8
+  %conv152 = trunc i64 %76 to i32
   %call153 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 117, ptr noundef @.str.25, ptr noundef @.str.30, i32 noundef %conv152, i32 noundef -1)
   %tobool154 = icmp ne i32 %call153, 0
   br i1 %tobool154, label %if.end156, label %if.then155
@@ -420,93 +441,99 @@ if.then155:                                       ; preds = %lor.lhs.false151, %
 
 if.end156:                                        ; preds = %lor.lhs.false151
   store i32 0, ptr @my_param_count, align 4
-  %56 = load ptr, ptr %bio, align 8
-  %call157 = call i64 @BIO_ctrl(ptr noundef %56, i32 noundef 130, i64 noundef 0, ptr noundef null)
+  %77 = load ptr, ptr %bio, align 8
+  %call157 = call i64 @BIO_ctrl(ptr noundef %77, i32 noundef 130, i64 noundef 0, ptr noundef null)
   %conv158 = trunc i64 %call157 to i32
   store i32 %conv158, ptr %i, align 4
-  %57 = load i32, ptr %i, align 4
-  %call159 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 123, ptr noundef @.str.3, ptr noundef @.str.17, i32 noundef %57, i32 noundef 1)
+  %78 = load i32, ptr %i, align 4
+  %call159 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 123, ptr noundef @.str.3, ptr noundef @.str.17, i32 noundef %78, i32 noundef 1)
   %tobool160 = icmp ne i32 %call159, 0
   br i1 %tobool160, label %lor.lhs.false161, label %if.then202
 
 lor.lhs.false161:                                 ; preds = %if.end156
-  %58 = load i32, ptr @my_param_count, align 4
-  %call162 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 124, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %58, i32 noundef 2)
+  %79 = load i32, ptr @my_param_count, align 4
+  %call162 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 124, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %79, i32 noundef 2)
   %tobool163 = icmp ne i32 %call162, 0
   br i1 %tobool163, label %lor.lhs.false164, label %if.then202
 
 lor.lhs.false164:                                 ; preds = %lor.lhs.false161
-  %59 = load ptr, ptr @my_param_b, align 16
-  %60 = load ptr, ptr %bio, align 8
-  %call165 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 125, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %59, ptr noundef %60)
+  %80 = load ptr, ptr @my_param_b, align 16
+  %81 = load ptr, ptr %bio, align 8
+  %call165 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 125, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %80, ptr noundef %81)
   %tobool166 = icmp ne i32 %call165, 0
   br i1 %tobool166, label %lor.lhs.false167, label %if.then202
 
 lor.lhs.false167:                                 ; preds = %lor.lhs.false164
-  %61 = load i32, ptr @my_param_oper, align 16
-  %call168 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 126, ptr noundef @.str.9, ptr noundef @.str.32, i32 noundef %61, i32 noundef 6)
+  %82 = load i32, ptr @my_param_oper, align 16
+  %call168 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 126, ptr noundef @.str.9, ptr noundef @.str.32, i32 noundef %82, i32 noundef 6)
   %tobool169 = icmp ne i32 %call168, 0
   br i1 %tobool169, label %lor.lhs.false170, label %if.then202
 
 lor.lhs.false170:                                 ; preds = %lor.lhs.false167
-  %62 = load ptr, ptr @my_param_argp, align 16
-  %call171 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 127, ptr noundef @.str.11, ptr noundef @.str.33, ptr noundef %62, ptr noundef null)
+  %83 = load ptr, ptr @my_param_argp, align 16
+  %call171 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 127, ptr noundef @.str.11, ptr noundef @.str.33, ptr noundef %83, ptr noundef null)
   %tobool172 = icmp ne i32 %call171, 0
   br i1 %tobool172, label %lor.lhs.false173, label %if.then202
 
 lor.lhs.false173:                                 ; preds = %lor.lhs.false170
-  %63 = load i32, ptr @my_param_argi, align 16
-  %call174 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 128, ptr noundef @.str.34, ptr noundef @.str.35, i32 noundef %63, i32 noundef 130)
+  %84 = load i32, ptr @my_param_argi, align 16
+  %call174 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 128, ptr noundef @.str.34, ptr noundef @.str.35, i32 noundef %84, i32 noundef 130)
   %tobool175 = icmp ne i32 %call174, 0
   br i1 %tobool175, label %lor.lhs.false176, label %if.then202
 
 lor.lhs.false176:                                 ; preds = %lor.lhs.false173
-  %64 = load i64, ptr @my_param_argl, align 16
-  %call177 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 129, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %64, i64 noundef 0)
+  %85 = load i64, ptr @my_param_argl, align 16
+  %call177 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 129, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %85, i64 noundef 0)
   %tobool178 = icmp ne i32 %call177, 0
   br i1 %tobool178, label %lor.lhs.false179, label %if.then202
 
 lor.lhs.false179:                                 ; preds = %lor.lhs.false176
-  %65 = load i64, ptr @my_param_ret, align 16
-  %conv180 = trunc i64 %65 to i32
+  %86 = load i64, ptr @my_param_ret, align 16
+  %conv180 = trunc i64 %86 to i32
   %call181 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 130, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %conv180, i32 noundef 1)
   %tobool182 = icmp ne i32 %call181, 0
   br i1 %tobool182, label %lor.lhs.false183, label %if.then202
 
 lor.lhs.false183:                                 ; preds = %lor.lhs.false179
-  %66 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %67 = load ptr, ptr %bio, align 8
-  %call184 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 131, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %66, ptr noundef %67)
+  %87 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %bio, align 8
+  %call184 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 131, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %88, ptr noundef %89)
   %tobool185 = icmp ne i32 %call184, 0
   br i1 %tobool185, label %lor.lhs.false186, label %if.then202
 
 lor.lhs.false186:                                 ; preds = %lor.lhs.false183
-  %68 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call187 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 132, ptr noundef @.str.19, ptr noundef @.str.36, i32 noundef %68, i32 noundef 134)
+  %90 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %91 = load i32, ptr %90, align 4
+  %call187 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 132, ptr noundef @.str.19, ptr noundef @.str.36, i32 noundef %91, i32 noundef 134)
   %tobool188 = icmp ne i32 %call187, 0
   br i1 %tobool188, label %lor.lhs.false189, label %if.then202
 
 lor.lhs.false189:                                 ; preds = %lor.lhs.false186
-  %69 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
-  %call190 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 133, ptr noundef @.str.21, ptr noundef @.str.33, ptr noundef %69, ptr noundef null)
+  %92 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %93 = load ptr, ptr %92, align 8
+  %call190 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 133, ptr noundef @.str.21, ptr noundef @.str.33, ptr noundef %93, ptr noundef null)
   %tobool191 = icmp ne i32 %call190, 0
   br i1 %tobool191, label %lor.lhs.false192, label %if.then202
 
 lor.lhs.false192:                                 ; preds = %lor.lhs.false189
-  %70 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_argi, i64 0, i64 1), align 4
-  %call193 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 134, ptr noundef @.str.37, ptr noundef @.str.35, i32 noundef %70, i32 noundef 130)
+  %94 = getelementptr inbounds [5 x i32], ptr @my_param_argi, i64 0, i64 1
+  %95 = load i32, ptr %94, align 4
+  %call193 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 134, ptr noundef @.str.37, ptr noundef @.str.35, i32 noundef %95, i32 noundef 130)
   %tobool194 = icmp ne i32 %call193, 0
   br i1 %tobool194, label %lor.lhs.false195, label %if.then202
 
 lor.lhs.false195:                                 ; preds = %lor.lhs.false192
-  %71 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call196 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 135, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %71, i64 noundef 0)
+  %96 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %97 = load i64, ptr %96, align 8
+  %call196 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 135, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %97, i64 noundef 0)
   %tobool197 = icmp ne i32 %call196, 0
   br i1 %tobool197, label %lor.lhs.false198, label %if.then202
 
 lor.lhs.false198:                                 ; preds = %lor.lhs.false195
-  %72 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %conv199 = trunc i64 %72 to i32
+  %98 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %99 = load i64, ptr %98, align 8
+  %conv199 = trunc i64 %99 to i32
   %call200 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 136, ptr noundef @.str.25, ptr noundef @.str.17, i32 noundef %conv199, i32 noundef 1)
   %tobool201 = icmp ne i32 %call200, 0
   br i1 %tobool201, label %if.end203, label %if.then202
@@ -516,101 +543,108 @@ if.then202:                                       ; preds = %lor.lhs.false198, %
 
 if.end203:                                        ; preds = %lor.lhs.false198
   store i32 0, ptr @my_param_count, align 4
-  %73 = load ptr, ptr %bio, align 8
+  %100 = load ptr, ptr %bio, align 8
   %arraydecay204 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call205 = call i32 @BIO_read(ptr noundef %73, ptr noundef %arraydecay204, i32 noundef 16)
+  %call205 = call i32 @BIO_read(ptr noundef %100, ptr noundef %arraydecay204, i32 noundef 16)
   store i32 %call205, ptr %i, align 4
-  %74 = load i32, ptr %i, align 4
-  %call206 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 140, ptr noundef @.str.3, ptr noundef @.str.31, i32 noundef %74, i32 noundef 0)
+  %101 = load i32, ptr %i, align 4
+  %call206 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 140, ptr noundef @.str.3, ptr noundef @.str.31, i32 noundef %101, i32 noundef 0)
   %tobool207 = icmp ne i32 %call206, 0
   br i1 %tobool207, label %lor.lhs.false208, label %if.then254
 
 lor.lhs.false208:                                 ; preds = %if.end203
-  %75 = load i32, ptr @my_param_count, align 4
-  %call209 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 141, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %75, i32 noundef 2)
+  %102 = load i32, ptr @my_param_count, align 4
+  %call209 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 141, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %102, i32 noundef 2)
   %tobool210 = icmp ne i32 %call209, 0
   br i1 %tobool210, label %lor.lhs.false211, label %if.then254
 
 lor.lhs.false211:                                 ; preds = %lor.lhs.false208
-  %76 = load ptr, ptr @my_param_b, align 16
-  %77 = load ptr, ptr %bio, align 8
-  %call212 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 142, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %76, ptr noundef %77)
+  %103 = load ptr, ptr @my_param_b, align 16
+  %104 = load ptr, ptr %bio, align 8
+  %call212 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 142, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %103, ptr noundef %104)
   %tobool213 = icmp ne i32 %call212, 0
   br i1 %tobool213, label %lor.lhs.false214, label %if.then254
 
 lor.lhs.false214:                                 ; preds = %lor.lhs.false211
-  %78 = load i32, ptr @my_param_oper, align 16
-  %call215 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 143, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %78, i32 noundef 2)
+  %105 = load i32, ptr @my_param_oper, align 16
+  %call215 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 143, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %105, i32 noundef 2)
   %tobool216 = icmp ne i32 %call215, 0
   br i1 %tobool216, label %lor.lhs.false217, label %if.then254
 
 lor.lhs.false217:                                 ; preds = %lor.lhs.false214
-  %79 = load ptr, ptr @my_param_argp, align 16
+  %106 = load ptr, ptr @my_param_argp, align 16
   %arraydecay218 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call219 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 144, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %79, ptr noundef %arraydecay218)
+  %call219 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 144, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %106, ptr noundef %arraydecay218)
   %tobool220 = icmp ne i32 %call219, 0
   br i1 %tobool220, label %lor.lhs.false221, label %if.then254
 
 lor.lhs.false221:                                 ; preds = %lor.lhs.false217
-  %80 = load i64, ptr @my_param_len, align 16
-  %call222 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 145, ptr noundef @.str.13, ptr noundef @.str.28, i64 noundef %80, i64 noundef 16)
+  %107 = load i64, ptr @my_param_len, align 16
+  %call222 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 145, ptr noundef @.str.13, ptr noundef @.str.28, i64 noundef %107, i64 noundef 16)
   %tobool223 = icmp ne i32 %call222, 0
   br i1 %tobool223, label %lor.lhs.false224, label %if.then254
 
 lor.lhs.false224:                                 ; preds = %lor.lhs.false221
-  %81 = load i64, ptr @my_param_argl, align 16
-  %call225 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 146, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %81, i64 noundef 0)
+  %108 = load i64, ptr @my_param_argl, align 16
+  %call225 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 146, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %108, i64 noundef 0)
   %tobool226 = icmp ne i32 %call225, 0
   br i1 %tobool226, label %lor.lhs.false227, label %if.then254
 
 lor.lhs.false227:                                 ; preds = %lor.lhs.false224
-  %82 = load i64, ptr @my_param_ret, align 16
-  %conv228 = trunc i64 %82 to i32
+  %109 = load i64, ptr @my_param_ret, align 16
+  %conv228 = trunc i64 %109 to i32
   %call229 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 147, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %conv228, i32 noundef 1)
   %tobool230 = icmp ne i32 %call229, 0
   br i1 %tobool230, label %lor.lhs.false231, label %if.then254
 
 lor.lhs.false231:                                 ; preds = %lor.lhs.false227
-  %83 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %84 = load ptr, ptr %bio, align 8
-  %call232 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 148, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %83, ptr noundef %84)
+  %110 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %bio, align 8
+  %call232 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 148, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %111, ptr noundef %112)
   %tobool233 = icmp ne i32 %call232, 0
   br i1 %tobool233, label %lor.lhs.false234, label %if.then254
 
 lor.lhs.false234:                                 ; preds = %lor.lhs.false231
-  %85 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call235 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 149, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %85, i32 noundef 130)
+  %113 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %114 = load i32, ptr %113, align 4
+  %call235 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 149, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %114, i32 noundef 130)
   %tobool236 = icmp ne i32 %call235, 0
   br i1 %tobool236, label %lor.lhs.false237, label %if.then254
 
 lor.lhs.false237:                                 ; preds = %lor.lhs.false234
-  %86 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %115 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %116 = load ptr, ptr %115, align 8
   %arraydecay238 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call239 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 150, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %86, ptr noundef %arraydecay238)
+  %call239 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 150, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %116, ptr noundef %arraydecay238)
   %tobool240 = icmp ne i32 %call239, 0
   br i1 %tobool240, label %lor.lhs.false241, label %if.then254
 
 lor.lhs.false241:                                 ; preds = %lor.lhs.false237
-  %87 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_len, i64 0, i64 1), align 8
-  %call242 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 151, ptr noundef @.str.22, ptr noundef @.str.28, i64 noundef %87, i64 noundef 16)
+  %117 = getelementptr inbounds [5 x i64], ptr @my_param_len, i64 0, i64 1
+  %118 = load i64, ptr %117, align 8
+  %call242 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 151, ptr noundef @.str.22, ptr noundef @.str.28, i64 noundef %118, i64 noundef 16)
   %tobool243 = icmp ne i32 %call242, 0
   br i1 %tobool243, label %lor.lhs.false244, label %if.then254
 
 lor.lhs.false244:                                 ; preds = %lor.lhs.false241
-  %88 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call245 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 152, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %88, i64 noundef 0)
+  %119 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %120 = load i64, ptr %119, align 8
+  %call245 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 152, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %120, i64 noundef 0)
   %tobool246 = icmp ne i32 %call245, 0
   br i1 %tobool246, label %lor.lhs.false247, label %if.then254
 
 lor.lhs.false247:                                 ; preds = %lor.lhs.false244
-  %89 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_processed, i64 0, i64 1), align 8
-  %call248 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 153, ptr noundef @.str.24, ptr noundef @.str.31, i64 noundef %89, i64 noundef 0)
+  %121 = getelementptr inbounds [5 x i64], ptr @my_param_processed, i64 0, i64 1
+  %122 = load i64, ptr %121, align 8
+  %call248 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 153, ptr noundef @.str.24, ptr noundef @.str.31, i64 noundef %122, i64 noundef 0)
   %tobool249 = icmp ne i32 %call248, 0
   br i1 %tobool249, label %lor.lhs.false250, label %if.then254
 
 lor.lhs.false250:                                 ; preds = %lor.lhs.false247
-  %90 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %conv251 = trunc i64 %90 to i32
+  %123 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %124 = load i64, ptr %123, align 8
+  %conv251 = trunc i64 %124 to i32
   %call252 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 154, ptr noundef @.str.25, ptr noundef @.str.31, i32 noundef %conv251, i32 noundef 0)
   %tobool253 = icmp ne i32 %call252, 0
   br i1 %tobool253, label %if.end255, label %if.then254
@@ -620,101 +654,108 @@ if.then254:                                       ; preds = %lor.lhs.false250, %
 
 if.end255:                                        ; preds = %lor.lhs.false250
   store i32 0, ptr @my_param_count, align 4
-  %91 = load ptr, ptr %bio, align 8
+  %125 = load ptr, ptr %bio, align 8
   %arraydecay256 = getelementptr inbounds [6 x i8], ptr %test2, i64 0, i64 0
-  %call257 = call i32 @BIO_puts(ptr noundef %91, ptr noundef %arraydecay256)
+  %call257 = call i32 @BIO_puts(ptr noundef %125, ptr noundef %arraydecay256)
   store i32 %call257, ptr %i, align 4
-  %92 = load i32, ptr %i, align 4
-  %call258 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 159, ptr noundef @.str.3, ptr noundef @.str.38, i32 noundef %92, i32 noundef 5)
+  %126 = load i32, ptr %i, align 4
+  %call258 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 159, ptr noundef @.str.3, ptr noundef @.str.38, i32 noundef %126, i32 noundef 5)
   %tobool259 = icmp ne i32 %call258, 0
   br i1 %tobool259, label %lor.lhs.false260, label %if.then306
 
 lor.lhs.false260:                                 ; preds = %if.end255
-  %93 = load i32, ptr @my_param_count, align 4
-  %call261 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 160, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %93, i32 noundef 2)
+  %127 = load i32, ptr @my_param_count, align 4
+  %call261 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 160, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %127, i32 noundef 2)
   %tobool262 = icmp ne i32 %call261, 0
   br i1 %tobool262, label %lor.lhs.false263, label %if.then306
 
 lor.lhs.false263:                                 ; preds = %lor.lhs.false260
-  %94 = load ptr, ptr @my_param_b, align 16
-  %95 = load ptr, ptr %bio, align 8
-  %call264 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 161, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %94, ptr noundef %95)
+  %128 = load ptr, ptr @my_param_b, align 16
+  %129 = load ptr, ptr %bio, align 8
+  %call264 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 161, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %128, ptr noundef %129)
   %tobool265 = icmp ne i32 %call264, 0
   br i1 %tobool265, label %lor.lhs.false266, label %if.then306
 
 lor.lhs.false266:                                 ; preds = %lor.lhs.false263
-  %96 = load i32, ptr @my_param_oper, align 16
-  %call267 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 162, ptr noundef @.str.9, ptr noundef @.str.39, i32 noundef %96, i32 noundef 4)
+  %130 = load i32, ptr @my_param_oper, align 16
+  %call267 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 162, ptr noundef @.str.9, ptr noundef @.str.39, i32 noundef %130, i32 noundef 4)
   %tobool268 = icmp ne i32 %call267, 0
   br i1 %tobool268, label %lor.lhs.false269, label %if.then306
 
 lor.lhs.false269:                                 ; preds = %lor.lhs.false266
-  %97 = load ptr, ptr @my_param_argp, align 16
+  %131 = load ptr, ptr @my_param_argp, align 16
   %arraydecay270 = getelementptr inbounds [6 x i8], ptr %test2, i64 0, i64 0
-  %call271 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 163, ptr noundef @.str.11, ptr noundef @.str.40, ptr noundef %97, ptr noundef %arraydecay270)
+  %call271 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 163, ptr noundef @.str.11, ptr noundef @.str.40, ptr noundef %131, ptr noundef %arraydecay270)
   %tobool272 = icmp ne i32 %call271, 0
   br i1 %tobool272, label %lor.lhs.false273, label %if.then306
 
 lor.lhs.false273:                                 ; preds = %lor.lhs.false269
-  %98 = load i32, ptr @my_param_argi, align 16
-  %call274 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 164, ptr noundef @.str.34, ptr noundef @.str.31, i32 noundef %98, i32 noundef 0)
+  %132 = load i32, ptr @my_param_argi, align 16
+  %call274 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 164, ptr noundef @.str.34, ptr noundef @.str.31, i32 noundef %132, i32 noundef 0)
   %tobool275 = icmp ne i32 %call274, 0
   br i1 %tobool275, label %lor.lhs.false276, label %if.then306
 
 lor.lhs.false276:                                 ; preds = %lor.lhs.false273
-  %99 = load i64, ptr @my_param_argl, align 16
-  %call277 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 165, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %99, i64 noundef 0)
+  %133 = load i64, ptr @my_param_argl, align 16
+  %call277 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 165, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %133, i64 noundef 0)
   %tobool278 = icmp ne i32 %call277, 0
   br i1 %tobool278, label %lor.lhs.false279, label %if.then306
 
 lor.lhs.false279:                                 ; preds = %lor.lhs.false276
-  %100 = load i64, ptr @my_param_ret, align 16
-  %conv280 = trunc i64 %100 to i32
+  %134 = load i64, ptr @my_param_ret, align 16
+  %conv280 = trunc i64 %134 to i32
   %call281 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 166, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %conv280, i32 noundef 1)
   %tobool282 = icmp ne i32 %call281, 0
   br i1 %tobool282, label %lor.lhs.false283, label %if.then306
 
 lor.lhs.false283:                                 ; preds = %lor.lhs.false279
-  %101 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %102 = load ptr, ptr %bio, align 8
-  %call284 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 167, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %101, ptr noundef %102)
+  %135 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %136 = load ptr, ptr %135, align 8
+  %137 = load ptr, ptr %bio, align 8
+  %call284 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 167, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %136, ptr noundef %137)
   %tobool285 = icmp ne i32 %call284, 0
   br i1 %tobool285, label %lor.lhs.false286, label %if.then306
 
 lor.lhs.false286:                                 ; preds = %lor.lhs.false283
-  %103 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call287 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 168, ptr noundef @.str.19, ptr noundef @.str.41, i32 noundef %103, i32 noundef 132)
+  %138 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %139 = load i32, ptr %138, align 4
+  %call287 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 168, ptr noundef @.str.19, ptr noundef @.str.41, i32 noundef %139, i32 noundef 132)
   %tobool288 = icmp ne i32 %call287, 0
   br i1 %tobool288, label %lor.lhs.false289, label %if.then306
 
 lor.lhs.false289:                                 ; preds = %lor.lhs.false286
-  %104 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %140 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %141 = load ptr, ptr %140, align 8
   %arraydecay290 = getelementptr inbounds [6 x i8], ptr %test2, i64 0, i64 0
-  %call291 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 169, ptr noundef @.str.21, ptr noundef @.str.40, ptr noundef %104, ptr noundef %arraydecay290)
+  %call291 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 169, ptr noundef @.str.21, ptr noundef @.str.40, ptr noundef %141, ptr noundef %arraydecay290)
   %tobool292 = icmp ne i32 %call291, 0
   br i1 %tobool292, label %lor.lhs.false293, label %if.then306
 
 lor.lhs.false293:                                 ; preds = %lor.lhs.false289
-  %105 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_argi, i64 0, i64 1), align 4
-  %call294 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 170, ptr noundef @.str.37, ptr noundef @.str.31, i32 noundef %105, i32 noundef 0)
+  %142 = getelementptr inbounds [5 x i32], ptr @my_param_argi, i64 0, i64 1
+  %143 = load i32, ptr %142, align 4
+  %call294 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 170, ptr noundef @.str.37, ptr noundef @.str.31, i32 noundef %143, i32 noundef 0)
   %tobool295 = icmp ne i32 %call294, 0
   br i1 %tobool295, label %lor.lhs.false296, label %if.then306
 
 lor.lhs.false296:                                 ; preds = %lor.lhs.false293
-  %106 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call297 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 171, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %106, i64 noundef 0)
+  %144 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %145 = load i64, ptr %144, align 8
+  %call297 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 171, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %145, i64 noundef 0)
   %tobool298 = icmp ne i32 %call297, 0
   br i1 %tobool298, label %lor.lhs.false299, label %if.then306
 
 lor.lhs.false299:                                 ; preds = %lor.lhs.false296
-  %107 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_processed, i64 0, i64 1), align 8
-  %call300 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 172, ptr noundef @.str.24, ptr noundef @.str.42, i64 noundef %107, i64 noundef 5)
+  %146 = getelementptr inbounds [5 x i64], ptr @my_param_processed, i64 0, i64 1
+  %147 = load i64, ptr %146, align 8
+  %call300 = call i32 @test_size_t_eq(ptr noundef @.str.2, i32 noundef 172, ptr noundef @.str.24, ptr noundef @.str.42, i64 noundef %147, i64 noundef 5)
   %tobool301 = icmp ne i32 %call300, 0
   br i1 %tobool301, label %lor.lhs.false302, label %if.then306
 
 lor.lhs.false302:                                 ; preds = %lor.lhs.false299
-  %108 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %conv303 = trunc i64 %108 to i32
+  %148 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %149 = load i64, ptr %148, align 8
+  %conv303 = trunc i64 %149 to i32
   %call304 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 173, ptr noundef @.str.25, ptr noundef @.str.17, i32 noundef %conv303, i32 noundef 1)
   %tobool305 = icmp ne i32 %call304, 0
   br i1 %tobool305, label %if.end307, label %if.then306
@@ -724,54 +765,54 @@ if.then306:                                       ; preds = %lor.lhs.false302, %
 
 if.end307:                                        ; preds = %lor.lhs.false302
   store i32 0, ptr @my_param_count, align 4
-  %109 = load ptr, ptr %bio, align 8
-  %call308 = call i32 @BIO_free(ptr noundef %109)
+  %150 = load ptr, ptr %bio, align 8
+  %call308 = call i32 @BIO_free(ptr noundef %150)
   store i32 %call308, ptr %i, align 4
-  %110 = load i32, ptr %i, align 4
-  %call309 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 178, ptr noundef @.str.3, ptr noundef @.str.17, i32 noundef %110, i32 noundef 1)
+  %151 = load i32, ptr %i, align 4
+  %call309 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 178, ptr noundef @.str.3, ptr noundef @.str.17, i32 noundef %151, i32 noundef 1)
   %tobool310 = icmp ne i32 %call309, 0
   br i1 %tobool310, label %lor.lhs.false311, label %if.then333
 
 lor.lhs.false311:                                 ; preds = %if.end307
-  %111 = load i32, ptr @my_param_count, align 4
-  %call312 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 179, ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef %111, i32 noundef 1)
+  %152 = load i32, ptr @my_param_count, align 4
+  %call312 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 179, ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef %152, i32 noundef 1)
   %tobool313 = icmp ne i32 %call312, 0
   br i1 %tobool313, label %lor.lhs.false314, label %if.then333
 
 lor.lhs.false314:                                 ; preds = %lor.lhs.false311
-  %112 = load ptr, ptr @my_param_b, align 16
-  %113 = load ptr, ptr %bio, align 8
-  %call315 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 180, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %112, ptr noundef %113)
+  %153 = load ptr, ptr @my_param_b, align 16
+  %154 = load ptr, ptr %bio, align 8
+  %call315 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 180, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %153, ptr noundef %154)
   %tobool316 = icmp ne i32 %call315, 0
   br i1 %tobool316, label %lor.lhs.false317, label %if.then333
 
 lor.lhs.false317:                                 ; preds = %lor.lhs.false314
-  %114 = load i32, ptr @my_param_oper, align 16
-  %call318 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 181, ptr noundef @.str.9, ptr noundef @.str.43, i32 noundef %114, i32 noundef 1)
+  %155 = load i32, ptr @my_param_oper, align 16
+  %call318 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 181, ptr noundef @.str.9, ptr noundef @.str.43, i32 noundef %155, i32 noundef 1)
   %tobool319 = icmp ne i32 %call318, 0
   br i1 %tobool319, label %lor.lhs.false320, label %if.then333
 
 lor.lhs.false320:                                 ; preds = %lor.lhs.false317
-  %115 = load ptr, ptr @my_param_argp, align 16
-  %call321 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 182, ptr noundef @.str.11, ptr noundef @.str.33, ptr noundef %115, ptr noundef null)
+  %156 = load ptr, ptr @my_param_argp, align 16
+  %call321 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 182, ptr noundef @.str.11, ptr noundef @.str.33, ptr noundef %156, ptr noundef null)
   %tobool322 = icmp ne i32 %call321, 0
   br i1 %tobool322, label %lor.lhs.false323, label %if.then333
 
 lor.lhs.false323:                                 ; preds = %lor.lhs.false320
-  %116 = load i32, ptr @my_param_argi, align 16
-  %call324 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 183, ptr noundef @.str.34, ptr noundef @.str.31, i32 noundef %116, i32 noundef 0)
+  %157 = load i32, ptr @my_param_argi, align 16
+  %call324 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 183, ptr noundef @.str.34, ptr noundef @.str.31, i32 noundef %157, i32 noundef 0)
   %tobool325 = icmp ne i32 %call324, 0
   br i1 %tobool325, label %lor.lhs.false326, label %if.then333
 
 lor.lhs.false326:                                 ; preds = %lor.lhs.false323
-  %117 = load i64, ptr @my_param_argl, align 16
-  %call327 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 184, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %117, i64 noundef 0)
+  %158 = load i64, ptr @my_param_argl, align 16
+  %call327 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 184, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %158, i64 noundef 0)
   %tobool328 = icmp ne i32 %call327, 0
   br i1 %tobool328, label %lor.lhs.false329, label %if.then333
 
 lor.lhs.false329:                                 ; preds = %lor.lhs.false326
-  %118 = load i64, ptr @my_param_ret, align 16
-  %conv330 = trunc i64 %118 to i32
+  %159 = load i64, ptr @my_param_ret, align 16
+  %conv330 = trunc i64 %159 to i32
   %call331 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 185, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %conv330, i32 noundef 1)
   %tobool332 = icmp ne i32 %call331, 0
   br i1 %tobool332, label %if.end334, label %if.then333
@@ -784,15 +825,15 @@ if.end334:                                        ; preds = %lor.lhs.false329
   br label %finish
 
 err:                                              ; preds = %if.then306, %if.then254, %if.then202, %if.then155, %if.then103, %if.then48, %if.then
-  %119 = load ptr, ptr %bio, align 8
-  %call335 = call i32 @BIO_free(ptr noundef %119)
+  %160 = load ptr, ptr %bio, align 8
+  %call335 = call i32 @BIO_free(ptr noundef %160)
   br label %finish
 
 finish:                                           ; preds = %err, %if.end334, %if.then333
   call void @llvm.memset.p0.i64(ptr align 16 @my_param_b, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr align 16 @my_param_argp, i8 0, i64 40, i1 false)
-  %120 = load i32, ptr %ok, align 4
-  ret i32 %120
+  %161 = load i32, ptr %ok, align 4
+  ret i32 %161
 }
 
 ; Function Attrs: nounwind uwtable
@@ -879,40 +920,46 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false19
   br i1 %tobool24, label %lor.lhs.false25, label %if.then44
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %12 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %13 = load ptr, ptr %bio, align 8
-  %call26 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 244, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %12, ptr noundef %13)
+  %12 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %bio, align 8
+  %call26 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 244, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %13, ptr noundef %14)
   %tobool27 = icmp ne i32 %call26, 0
   br i1 %tobool27, label %lor.lhs.false28, label %if.then44
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false25
-  %14 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call29 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 245, ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef %14, i32 noundef 131)
+  %15 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %16 = load i32, ptr %15, align 4
+  %call29 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 245, ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef %16, i32 noundef 131)
   %tobool30 = icmp ne i32 %call29, 0
   br i1 %tobool30, label %lor.lhs.false31, label %if.then44
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false28
-  %15 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %17 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %18 = load ptr, ptr %17, align 8
   %arraydecay32 = getelementptr inbounds [5 x i8], ptr %test1, i64 0, i64 0
-  %call33 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 246, ptr noundef @.str.21, ptr noundef @.str.12, ptr noundef %15, ptr noundef %arraydecay32)
+  %call33 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 246, ptr noundef @.str.21, ptr noundef @.str.12, ptr noundef %18, ptr noundef %arraydecay32)
   %tobool34 = icmp ne i32 %call33, 0
   br i1 %tobool34, label %lor.lhs.false35, label %if.then44
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false31
-  %16 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_argi, i64 0, i64 1), align 4
-  %call36 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 247, ptr noundef @.str.37, ptr noundef @.str.4, i32 noundef %16, i32 noundef 4)
+  %19 = getelementptr inbounds [5 x i32], ptr @my_param_argi, i64 0, i64 1
+  %20 = load i32, ptr %19, align 4
+  %call36 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 247, ptr noundef @.str.37, ptr noundef @.str.4, i32 noundef %20, i32 noundef 4)
   %tobool37 = icmp ne i32 %call36, 0
   br i1 %tobool37, label %lor.lhs.false38, label %if.then44
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false35
-  %17 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call39 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 248, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %17, i64 noundef 0)
+  %21 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %22 = load i64, ptr %21, align 8
+  %call39 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 248, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %22, i64 noundef 0)
   %tobool40 = icmp ne i32 %call39, 0
   br i1 %tobool40, label %lor.lhs.false41, label %if.then44
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false38
-  %18 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %call42 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 249, ptr noundef @.str.46, ptr noundef @.str.47, i64 noundef %18, i64 noundef 4)
+  %23 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %24 = load i64, ptr %23, align 8
+  %call42 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 249, ptr noundef @.str.46, ptr noundef @.str.47, i64 noundef %24, i64 noundef 4)
   %tobool43 = icmp ne i32 %call42, 0
   br i1 %tobool43, label %if.end45, label %if.then44
 
@@ -921,97 +968,103 @@ if.then44:                                        ; preds = %lor.lhs.false41, %l
 
 if.end45:                                         ; preds = %lor.lhs.false41
   store i32 0, ptr @my_param_count, align 4
-  %19 = load ptr, ptr %bio, align 8
+  %25 = load ptr, ptr %bio, align 8
   %arraydecay46 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call47 = call i32 @BIO_read(ptr noundef %19, ptr noundef %arraydecay46, i32 noundef 16)
+  %call47 = call i32 @BIO_read(ptr noundef %25, ptr noundef %arraydecay46, i32 noundef 16)
   store i32 %call47, ptr %i, align 4
   %arraydecay48 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %20 = load i32, ptr %i, align 4
-  %conv = sext i32 %20 to i64
+  %26 = load i32, ptr %i, align 4
+  %conv = sext i32 %26 to i64
   %arraydecay49 = getelementptr inbounds [5 x i8], ptr %test1, i64 0, i64 0
   %call50 = call i32 @test_mem_eq(ptr noundef @.str.2, i32 noundef 254, ptr noundef @.str.26, ptr noundef @.str.12, ptr noundef %arraydecay48, i64 noundef %conv, ptr noundef %arraydecay49, i64 noundef 4)
   %tobool51 = icmp ne i32 %call50, 0
   br i1 %tobool51, label %lor.lhs.false52, label %if.then93
 
 lor.lhs.false52:                                  ; preds = %if.end45
-  %21 = load i32, ptr @my_param_count, align 4
-  %call53 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 255, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %21, i32 noundef 2)
+  %27 = load i32, ptr @my_param_count, align 4
+  %call53 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 255, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %27, i32 noundef 2)
   %tobool54 = icmp ne i32 %call53, 0
   br i1 %tobool54, label %lor.lhs.false55, label %if.then93
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false52
-  %22 = load ptr, ptr @my_param_b, align 16
-  %23 = load ptr, ptr %bio, align 8
-  %call56 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 256, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %22, ptr noundef %23)
+  %28 = load ptr, ptr @my_param_b, align 16
+  %29 = load ptr, ptr %bio, align 8
+  %call56 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 256, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %28, ptr noundef %29)
   %tobool57 = icmp ne i32 %call56, 0
   br i1 %tobool57, label %lor.lhs.false58, label %if.then93
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
-  %24 = load i32, ptr @my_param_oper, align 16
-  %call59 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 257, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %24, i32 noundef 2)
+  %30 = load i32, ptr @my_param_oper, align 16
+  %call59 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 257, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %30, i32 noundef 2)
   %tobool60 = icmp ne i32 %call59, 0
   br i1 %tobool60, label %lor.lhs.false61, label %if.then93
 
 lor.lhs.false61:                                  ; preds = %lor.lhs.false58
-  %25 = load ptr, ptr @my_param_argp, align 16
+  %31 = load ptr, ptr @my_param_argp, align 16
   %arraydecay62 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call63 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 258, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %25, ptr noundef %arraydecay62)
+  %call63 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 258, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %31, ptr noundef %arraydecay62)
   %tobool64 = icmp ne i32 %call63, 0
   br i1 %tobool64, label %lor.lhs.false65, label %if.then93
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false61
-  %26 = load i32, ptr @my_param_argi, align 16
-  %call66 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 259, ptr noundef @.str.34, ptr noundef @.str.28, i32 noundef %26, i32 noundef 16)
+  %32 = load i32, ptr @my_param_argi, align 16
+  %call66 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 259, ptr noundef @.str.34, ptr noundef @.str.28, i32 noundef %32, i32 noundef 16)
   %tobool67 = icmp ne i32 %call66, 0
   br i1 %tobool67, label %lor.lhs.false68, label %if.then93
 
 lor.lhs.false68:                                  ; preds = %lor.lhs.false65
-  %27 = load i64, ptr @my_param_argl, align 16
-  %call69 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 260, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %27, i64 noundef 0)
+  %33 = load i64, ptr @my_param_argl, align 16
+  %call69 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 260, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %33, i64 noundef 0)
   %tobool70 = icmp ne i32 %call69, 0
   br i1 %tobool70, label %lor.lhs.false71, label %if.then93
 
 lor.lhs.false71:                                  ; preds = %lor.lhs.false68
-  %28 = load i64, ptr @my_param_ret, align 16
-  %call72 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 261, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %28, i64 noundef 1)
+  %34 = load i64, ptr @my_param_ret, align 16
+  %call72 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 261, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %34, i64 noundef 1)
   %tobool73 = icmp ne i32 %call72, 0
   br i1 %tobool73, label %lor.lhs.false74, label %if.then93
 
 lor.lhs.false74:                                  ; preds = %lor.lhs.false71
-  %29 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %30 = load ptr, ptr %bio, align 8
-  %call75 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 262, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %29, ptr noundef %30)
+  %35 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %bio, align 8
+  %call75 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 262, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %36, ptr noundef %37)
   %tobool76 = icmp ne i32 %call75, 0
   br i1 %tobool76, label %lor.lhs.false77, label %if.then93
 
 lor.lhs.false77:                                  ; preds = %lor.lhs.false74
-  %31 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call78 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 263, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %31, i32 noundef 130)
+  %38 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %39 = load i32, ptr %38, align 4
+  %call78 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 263, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %39, i32 noundef 130)
   %tobool79 = icmp ne i32 %call78, 0
   br i1 %tobool79, label %lor.lhs.false80, label %if.then93
 
 lor.lhs.false80:                                  ; preds = %lor.lhs.false77
-  %32 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %40 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %41 = load ptr, ptr %40, align 8
   %arraydecay81 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call82 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 264, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %32, ptr noundef %arraydecay81)
+  %call82 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 264, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %41, ptr noundef %arraydecay81)
   %tobool83 = icmp ne i32 %call82, 0
   br i1 %tobool83, label %lor.lhs.false84, label %if.then93
 
 lor.lhs.false84:                                  ; preds = %lor.lhs.false80
-  %33 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_argi, i64 0, i64 1), align 4
-  %call85 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 265, ptr noundef @.str.37, ptr noundef @.str.28, i32 noundef %33, i32 noundef 16)
+  %42 = getelementptr inbounds [5 x i32], ptr @my_param_argi, i64 0, i64 1
+  %43 = load i32, ptr %42, align 4
+  %call85 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 265, ptr noundef @.str.37, ptr noundef @.str.28, i32 noundef %43, i32 noundef 16)
   %tobool86 = icmp ne i32 %call85, 0
   br i1 %tobool86, label %lor.lhs.false87, label %if.then93
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false84
-  %34 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call88 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 266, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %34, i64 noundef 0)
+  %44 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %45 = load i64, ptr %44, align 8
+  %call88 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 266, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %45, i64 noundef 0)
   %tobool89 = icmp ne i32 %call88, 0
   br i1 %tobool89, label %lor.lhs.false90, label %if.then93
 
 lor.lhs.false90:                                  ; preds = %lor.lhs.false87
-  %35 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %call91 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 267, ptr noundef @.str.46, ptr noundef @.str.47, i64 noundef %35, i64 noundef 4)
+  %46 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %47 = load i64, ptr %46, align 8
+  %call91 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 267, ptr noundef @.str.46, ptr noundef @.str.47, i64 noundef %47, i64 noundef 4)
   %tobool92 = icmp ne i32 %call91, 0
   br i1 %tobool92, label %if.end94, label %if.then93
 
@@ -1020,94 +1073,100 @@ if.then93:                                        ; preds = %lor.lhs.false90, %l
 
 if.end94:                                         ; preds = %lor.lhs.false90
   store i32 0, ptr @my_param_count, align 4
-  %36 = load ptr, ptr %bio, align 8
+  %48 = load ptr, ptr %bio, align 8
   %arraydecay95 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call96 = call i32 @BIO_read(ptr noundef %36, ptr noundef %arraydecay95, i32 noundef 16)
+  %call96 = call i32 @BIO_read(ptr noundef %48, ptr noundef %arraydecay95, i32 noundef 16)
   store i32 %call96, ptr %i, align 4
-  %37 = load i32, ptr %i, align 4
-  %call97 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 273, ptr noundef @.str.3, ptr noundef @.str.30, i32 noundef %37, i32 noundef -1)
+  %49 = load i32, ptr %i, align 4
+  %call97 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 273, ptr noundef @.str.3, ptr noundef @.str.30, i32 noundef %49, i32 noundef -1)
   %tobool98 = icmp ne i32 %call97, 0
   br i1 %tobool98, label %lor.lhs.false99, label %if.then140
 
 lor.lhs.false99:                                  ; preds = %if.end94
-  %38 = load i32, ptr @my_param_count, align 4
-  %call100 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 274, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %38, i32 noundef 2)
+  %50 = load i32, ptr @my_param_count, align 4
+  %call100 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 274, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %50, i32 noundef 2)
   %tobool101 = icmp ne i32 %call100, 0
   br i1 %tobool101, label %lor.lhs.false102, label %if.then140
 
 lor.lhs.false102:                                 ; preds = %lor.lhs.false99
-  %39 = load ptr, ptr @my_param_b, align 16
-  %40 = load ptr, ptr %bio, align 8
-  %call103 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 275, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %39, ptr noundef %40)
+  %51 = load ptr, ptr @my_param_b, align 16
+  %52 = load ptr, ptr %bio, align 8
+  %call103 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 275, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %51, ptr noundef %52)
   %tobool104 = icmp ne i32 %call103, 0
   br i1 %tobool104, label %lor.lhs.false105, label %if.then140
 
 lor.lhs.false105:                                 ; preds = %lor.lhs.false102
-  %41 = load i32, ptr @my_param_oper, align 16
-  %call106 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 276, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %41, i32 noundef 2)
+  %53 = load i32, ptr @my_param_oper, align 16
+  %call106 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 276, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %53, i32 noundef 2)
   %tobool107 = icmp ne i32 %call106, 0
   br i1 %tobool107, label %lor.lhs.false108, label %if.then140
 
 lor.lhs.false108:                                 ; preds = %lor.lhs.false105
-  %42 = load ptr, ptr @my_param_argp, align 16
+  %54 = load ptr, ptr @my_param_argp, align 16
   %arraydecay109 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call110 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 277, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %42, ptr noundef %arraydecay109)
+  %call110 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 277, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %54, ptr noundef %arraydecay109)
   %tobool111 = icmp ne i32 %call110, 0
   br i1 %tobool111, label %lor.lhs.false112, label %if.then140
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false108
-  %43 = load i32, ptr @my_param_argi, align 16
-  %call113 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 278, ptr noundef @.str.34, ptr noundef @.str.28, i32 noundef %43, i32 noundef 16)
+  %55 = load i32, ptr @my_param_argi, align 16
+  %call113 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 278, ptr noundef @.str.34, ptr noundef @.str.28, i32 noundef %55, i32 noundef 16)
   %tobool114 = icmp ne i32 %call113, 0
   br i1 %tobool114, label %lor.lhs.false115, label %if.then140
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false112
-  %44 = load i64, ptr @my_param_argl, align 16
-  %call116 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 279, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %44, i64 noundef 0)
+  %56 = load i64, ptr @my_param_argl, align 16
+  %call116 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 279, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %56, i64 noundef 0)
   %tobool117 = icmp ne i32 %call116, 0
   br i1 %tobool117, label %lor.lhs.false118, label %if.then140
 
 lor.lhs.false118:                                 ; preds = %lor.lhs.false115
-  %45 = load i64, ptr @my_param_ret, align 16
-  %call119 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 280, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %45, i64 noundef 1)
+  %57 = load i64, ptr @my_param_ret, align 16
+  %call119 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 280, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %57, i64 noundef 1)
   %tobool120 = icmp ne i32 %call119, 0
   br i1 %tobool120, label %lor.lhs.false121, label %if.then140
 
 lor.lhs.false121:                                 ; preds = %lor.lhs.false118
-  %46 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %47 = load ptr, ptr %bio, align 8
-  %call122 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 281, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %46, ptr noundef %47)
+  %58 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %bio, align 8
+  %call122 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 281, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %59, ptr noundef %60)
   %tobool123 = icmp ne i32 %call122, 0
   br i1 %tobool123, label %lor.lhs.false124, label %if.then140
 
 lor.lhs.false124:                                 ; preds = %lor.lhs.false121
-  %48 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call125 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 282, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %48, i32 noundef 130)
+  %61 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %62 = load i32, ptr %61, align 4
+  %call125 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 282, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %62, i32 noundef 130)
   %tobool126 = icmp ne i32 %call125, 0
   br i1 %tobool126, label %lor.lhs.false127, label %if.then140
 
 lor.lhs.false127:                                 ; preds = %lor.lhs.false124
-  %49 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %63 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %64 = load ptr, ptr %63, align 8
   %arraydecay128 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call129 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 283, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %49, ptr noundef %arraydecay128)
+  %call129 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 283, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %64, ptr noundef %arraydecay128)
   %tobool130 = icmp ne i32 %call129, 0
   br i1 %tobool130, label %lor.lhs.false131, label %if.then140
 
 lor.lhs.false131:                                 ; preds = %lor.lhs.false127
-  %50 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_argi, i64 0, i64 1), align 4
-  %call132 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 284, ptr noundef @.str.37, ptr noundef @.str.28, i32 noundef %50, i32 noundef 16)
+  %65 = getelementptr inbounds [5 x i32], ptr @my_param_argi, i64 0, i64 1
+  %66 = load i32, ptr %65, align 4
+  %call132 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 284, ptr noundef @.str.37, ptr noundef @.str.28, i32 noundef %66, i32 noundef 16)
   %tobool133 = icmp ne i32 %call132, 0
   br i1 %tobool133, label %lor.lhs.false134, label %if.then140
 
 lor.lhs.false134:                                 ; preds = %lor.lhs.false131
-  %51 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call135 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 285, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %51, i64 noundef 0)
+  %67 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %68 = load i64, ptr %67, align 8
+  %call135 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 285, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %68, i64 noundef 0)
   %tobool136 = icmp ne i32 %call135, 0
   br i1 %tobool136, label %lor.lhs.false137, label %if.then140
 
 lor.lhs.false137:                                 ; preds = %lor.lhs.false134
-  %52 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %call138 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 286, ptr noundef @.str.46, ptr noundef @.str.48, i64 noundef %52, i64 noundef -1)
+  %69 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %70 = load i64, ptr %69, align 8
+  %call138 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 286, ptr noundef @.str.46, ptr noundef @.str.48, i64 noundef %70, i64 noundef -1)
   %tobool139 = icmp ne i32 %call138, 0
   br i1 %tobool139, label %if.end141, label %if.then140
 
@@ -1115,97 +1174,103 @@ if.then140:                                       ; preds = %lor.lhs.false137, %
   br label %err
 
 if.end141:                                        ; preds = %lor.lhs.false137
-  %53 = load ptr, ptr %bio, align 8
-  %call142 = call i64 @BIO_ctrl(ptr noundef %53, i32 noundef 130, i64 noundef 0, ptr noundef null)
+  %71 = load ptr, ptr %bio, align 8
+  %call142 = call i64 @BIO_ctrl(ptr noundef %71, i32 noundef 130, i64 noundef 0, ptr noundef null)
   store i32 0, ptr @my_param_count, align 4
-  %54 = load ptr, ptr %bio, align 8
+  %72 = load ptr, ptr %bio, align 8
   %arraydecay143 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call144 = call i32 @BIO_read(ptr noundef %54, ptr noundef %arraydecay143, i32 noundef 16)
+  %call144 = call i32 @BIO_read(ptr noundef %72, ptr noundef %arraydecay143, i32 noundef 16)
   store i32 %call144, ptr %i, align 4
-  %55 = load i32, ptr %i, align 4
-  %call145 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 293, ptr noundef @.str.3, ptr noundef @.str.31, i32 noundef %55, i32 noundef 0)
+  %73 = load i32, ptr %i, align 4
+  %call145 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 293, ptr noundef @.str.3, ptr noundef @.str.31, i32 noundef %73, i32 noundef 0)
   %tobool146 = icmp ne i32 %call145, 0
   br i1 %tobool146, label %lor.lhs.false147, label %if.then188
 
 lor.lhs.false147:                                 ; preds = %if.end141
-  %56 = load i32, ptr @my_param_count, align 4
-  %call148 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 294, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %56, i32 noundef 2)
+  %74 = load i32, ptr @my_param_count, align 4
+  %call148 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 294, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %74, i32 noundef 2)
   %tobool149 = icmp ne i32 %call148, 0
   br i1 %tobool149, label %lor.lhs.false150, label %if.then188
 
 lor.lhs.false150:                                 ; preds = %lor.lhs.false147
-  %57 = load ptr, ptr @my_param_b, align 16
-  %58 = load ptr, ptr %bio, align 8
-  %call151 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 295, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %57, ptr noundef %58)
+  %75 = load ptr, ptr @my_param_b, align 16
+  %76 = load ptr, ptr %bio, align 8
+  %call151 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 295, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %75, ptr noundef %76)
   %tobool152 = icmp ne i32 %call151, 0
   br i1 %tobool152, label %lor.lhs.false153, label %if.then188
 
 lor.lhs.false153:                                 ; preds = %lor.lhs.false150
-  %59 = load i32, ptr @my_param_oper, align 16
-  %call154 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 296, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %59, i32 noundef 2)
+  %77 = load i32, ptr @my_param_oper, align 16
+  %call154 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 296, ptr noundef @.str.9, ptr noundef @.str.27, i32 noundef %77, i32 noundef 2)
   %tobool155 = icmp ne i32 %call154, 0
   br i1 %tobool155, label %lor.lhs.false156, label %if.then188
 
 lor.lhs.false156:                                 ; preds = %lor.lhs.false153
-  %60 = load ptr, ptr @my_param_argp, align 16
+  %78 = load ptr, ptr @my_param_argp, align 16
   %arraydecay157 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call158 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 297, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %60, ptr noundef %arraydecay157)
+  %call158 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 297, ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %78, ptr noundef %arraydecay157)
   %tobool159 = icmp ne i32 %call158, 0
   br i1 %tobool159, label %lor.lhs.false160, label %if.then188
 
 lor.lhs.false160:                                 ; preds = %lor.lhs.false156
-  %61 = load i32, ptr @my_param_argi, align 16
-  %call161 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 298, ptr noundef @.str.34, ptr noundef @.str.28, i32 noundef %61, i32 noundef 16)
+  %79 = load i32, ptr @my_param_argi, align 16
+  %call161 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 298, ptr noundef @.str.34, ptr noundef @.str.28, i32 noundef %79, i32 noundef 16)
   %tobool162 = icmp ne i32 %call161, 0
   br i1 %tobool162, label %lor.lhs.false163, label %if.then188
 
 lor.lhs.false163:                                 ; preds = %lor.lhs.false160
-  %62 = load i64, ptr @my_param_argl, align 16
-  %call164 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 299, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %62, i64 noundef 0)
+  %80 = load i64, ptr @my_param_argl, align 16
+  %call164 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 299, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %80, i64 noundef 0)
   %tobool165 = icmp ne i32 %call164, 0
   br i1 %tobool165, label %lor.lhs.false166, label %if.then188
 
 lor.lhs.false166:                                 ; preds = %lor.lhs.false163
-  %63 = load i64, ptr @my_param_ret, align 16
-  %call167 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 300, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %63, i64 noundef 1)
+  %81 = load i64, ptr @my_param_ret, align 16
+  %call167 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 300, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %81, i64 noundef 1)
   %tobool168 = icmp ne i32 %call167, 0
   br i1 %tobool168, label %lor.lhs.false169, label %if.then188
 
 lor.lhs.false169:                                 ; preds = %lor.lhs.false166
-  %64 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %65 = load ptr, ptr %bio, align 8
-  %call170 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 301, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %64, ptr noundef %65)
+  %82 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %bio, align 8
+  %call170 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 301, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %83, ptr noundef %84)
   %tobool171 = icmp ne i32 %call170, 0
   br i1 %tobool171, label %lor.lhs.false172, label %if.then188
 
 lor.lhs.false172:                                 ; preds = %lor.lhs.false169
-  %66 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call173 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 302, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %66, i32 noundef 130)
+  %85 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %86 = load i32, ptr %85, align 4
+  %call173 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 302, ptr noundef @.str.19, ptr noundef @.str.29, i32 noundef %86, i32 noundef 130)
   %tobool174 = icmp ne i32 %call173, 0
   br i1 %tobool174, label %lor.lhs.false175, label %if.then188
 
 lor.lhs.false175:                                 ; preds = %lor.lhs.false172
-  %67 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %87 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %88 = load ptr, ptr %87, align 8
   %arraydecay176 = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 0
-  %call177 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 303, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %67, ptr noundef %arraydecay176)
+  %call177 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 303, ptr noundef @.str.21, ptr noundef @.str.26, ptr noundef %88, ptr noundef %arraydecay176)
   %tobool178 = icmp ne i32 %call177, 0
   br i1 %tobool178, label %lor.lhs.false179, label %if.then188
 
 lor.lhs.false179:                                 ; preds = %lor.lhs.false175
-  %68 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_argi, i64 0, i64 1), align 4
-  %call180 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 304, ptr noundef @.str.37, ptr noundef @.str.28, i32 noundef %68, i32 noundef 16)
+  %89 = getelementptr inbounds [5 x i32], ptr @my_param_argi, i64 0, i64 1
+  %90 = load i32, ptr %89, align 4
+  %call180 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 304, ptr noundef @.str.37, ptr noundef @.str.28, i32 noundef %90, i32 noundef 16)
   %tobool181 = icmp ne i32 %call180, 0
   br i1 %tobool181, label %lor.lhs.false182, label %if.then188
 
 lor.lhs.false182:                                 ; preds = %lor.lhs.false179
-  %69 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call183 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 305, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %69, i64 noundef 0)
+  %91 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %92 = load i64, ptr %91, align 8
+  %call183 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 305, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %92, i64 noundef 0)
   %tobool184 = icmp ne i32 %call183, 0
   br i1 %tobool184, label %lor.lhs.false185, label %if.then188
 
 lor.lhs.false185:                                 ; preds = %lor.lhs.false182
-  %70 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %call186 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 306, ptr noundef @.str.46, ptr noundef @.str.15, i64 noundef %70, i64 noundef 0)
+  %93 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %94 = load i64, ptr %93, align 8
+  %call186 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 306, ptr noundef @.str.46, ptr noundef @.str.15, i64 noundef %94, i64 noundef 0)
   %tobool187 = icmp ne i32 %call186, 0
   br i1 %tobool187, label %if.end189, label %if.then188
 
@@ -1214,94 +1279,100 @@ if.then188:                                       ; preds = %lor.lhs.false185, %
 
 if.end189:                                        ; preds = %lor.lhs.false185
   store i32 0, ptr @my_param_count, align 4
-  %71 = load ptr, ptr %bio, align 8
+  %95 = load ptr, ptr %bio, align 8
   %arraydecay190 = getelementptr inbounds [6 x i8], ptr %test2, i64 0, i64 0
-  %call191 = call i32 @BIO_puts(ptr noundef %71, ptr noundef %arraydecay190)
+  %call191 = call i32 @BIO_puts(ptr noundef %95, ptr noundef %arraydecay190)
   store i32 %call191, ptr %i, align 4
-  %72 = load i32, ptr %i, align 4
-  %call192 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 311, ptr noundef @.str.3, ptr noundef @.str.38, i32 noundef %72, i32 noundef 5)
+  %96 = load i32, ptr %i, align 4
+  %call192 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 311, ptr noundef @.str.3, ptr noundef @.str.38, i32 noundef %96, i32 noundef 5)
   %tobool193 = icmp ne i32 %call192, 0
   br i1 %tobool193, label %lor.lhs.false194, label %if.then235
 
 lor.lhs.false194:                                 ; preds = %if.end189
-  %73 = load i32, ptr @my_param_count, align 4
-  %call195 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 312, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %73, i32 noundef 2)
+  %97 = load i32, ptr @my_param_count, align 4
+  %call195 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 312, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef %97, i32 noundef 2)
   %tobool196 = icmp ne i32 %call195, 0
   br i1 %tobool196, label %lor.lhs.false197, label %if.then235
 
 lor.lhs.false197:                                 ; preds = %lor.lhs.false194
-  %74 = load ptr, ptr @my_param_b, align 16
-  %75 = load ptr, ptr %bio, align 8
-  %call198 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 313, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %74, ptr noundef %75)
+  %98 = load ptr, ptr @my_param_b, align 16
+  %99 = load ptr, ptr %bio, align 8
+  %call198 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 313, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %98, ptr noundef %99)
   %tobool199 = icmp ne i32 %call198, 0
   br i1 %tobool199, label %lor.lhs.false200, label %if.then235
 
 lor.lhs.false200:                                 ; preds = %lor.lhs.false197
-  %76 = load i32, ptr @my_param_oper, align 16
-  %call201 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 314, ptr noundef @.str.9, ptr noundef @.str.39, i32 noundef %76, i32 noundef 4)
+  %100 = load i32, ptr @my_param_oper, align 16
+  %call201 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 314, ptr noundef @.str.9, ptr noundef @.str.39, i32 noundef %100, i32 noundef 4)
   %tobool202 = icmp ne i32 %call201, 0
   br i1 %tobool202, label %lor.lhs.false203, label %if.then235
 
 lor.lhs.false203:                                 ; preds = %lor.lhs.false200
-  %77 = load ptr, ptr @my_param_argp, align 16
+  %101 = load ptr, ptr @my_param_argp, align 16
   %arraydecay204 = getelementptr inbounds [6 x i8], ptr %test2, i64 0, i64 0
-  %call205 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 315, ptr noundef @.str.11, ptr noundef @.str.40, ptr noundef %77, ptr noundef %arraydecay204)
+  %call205 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 315, ptr noundef @.str.11, ptr noundef @.str.40, ptr noundef %101, ptr noundef %arraydecay204)
   %tobool206 = icmp ne i32 %call205, 0
   br i1 %tobool206, label %lor.lhs.false207, label %if.then235
 
 lor.lhs.false207:                                 ; preds = %lor.lhs.false203
-  %78 = load i32, ptr @my_param_argi, align 16
-  %call208 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 316, ptr noundef @.str.34, ptr noundef @.str.31, i32 noundef %78, i32 noundef 0)
+  %102 = load i32, ptr @my_param_argi, align 16
+  %call208 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 316, ptr noundef @.str.34, ptr noundef @.str.31, i32 noundef %102, i32 noundef 0)
   %tobool209 = icmp ne i32 %call208, 0
   br i1 %tobool209, label %lor.lhs.false210, label %if.then235
 
 lor.lhs.false210:                                 ; preds = %lor.lhs.false207
-  %79 = load i64, ptr @my_param_argl, align 16
-  %call211 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 317, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %79, i64 noundef 0)
+  %103 = load i64, ptr @my_param_argl, align 16
+  %call211 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 317, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %103, i64 noundef 0)
   %tobool212 = icmp ne i32 %call211, 0
   br i1 %tobool212, label %lor.lhs.false213, label %if.then235
 
 lor.lhs.false213:                                 ; preds = %lor.lhs.false210
-  %80 = load i64, ptr @my_param_ret, align 16
-  %call214 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 318, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %80, i64 noundef 1)
+  %104 = load i64, ptr @my_param_ret, align 16
+  %call214 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 318, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %104, i64 noundef 1)
   %tobool215 = icmp ne i32 %call214, 0
   br i1 %tobool215, label %lor.lhs.false216, label %if.then235
 
 lor.lhs.false216:                                 ; preds = %lor.lhs.false213
-  %81 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_b, i64 0, i64 1), align 8
-  %82 = load ptr, ptr %bio, align 8
-  %call217 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 319, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %81, ptr noundef %82)
+  %105 = getelementptr inbounds [5 x ptr], ptr @my_param_b, i64 0, i64 1
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %bio, align 8
+  %call217 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 319, ptr noundef @.str.18, ptr noundef @.str.8, ptr noundef %106, ptr noundef %107)
   %tobool218 = icmp ne i32 %call217, 0
   br i1 %tobool218, label %lor.lhs.false219, label %if.then235
 
 lor.lhs.false219:                                 ; preds = %lor.lhs.false216
-  %83 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_oper, i64 0, i64 1), align 4
-  %call220 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 320, ptr noundef @.str.19, ptr noundef @.str.41, i32 noundef %83, i32 noundef 132)
+  %108 = getelementptr inbounds [5 x i32], ptr @my_param_oper, i64 0, i64 1
+  %109 = load i32, ptr %108, align 4
+  %call220 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 320, ptr noundef @.str.19, ptr noundef @.str.41, i32 noundef %109, i32 noundef 132)
   %tobool221 = icmp ne i32 %call220, 0
   br i1 %tobool221, label %lor.lhs.false222, label %if.then235
 
 lor.lhs.false222:                                 ; preds = %lor.lhs.false219
-  %84 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @my_param_argp, i64 0, i64 1), align 8
+  %110 = getelementptr inbounds [5 x ptr], ptr @my_param_argp, i64 0, i64 1
+  %111 = load ptr, ptr %110, align 8
   %arraydecay223 = getelementptr inbounds [6 x i8], ptr %test2, i64 0, i64 0
-  %call224 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 321, ptr noundef @.str.21, ptr noundef @.str.40, ptr noundef %84, ptr noundef %arraydecay223)
+  %call224 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 321, ptr noundef @.str.21, ptr noundef @.str.40, ptr noundef %111, ptr noundef %arraydecay223)
   %tobool225 = icmp ne i32 %call224, 0
   br i1 %tobool225, label %lor.lhs.false226, label %if.then235
 
 lor.lhs.false226:                                 ; preds = %lor.lhs.false222
-  %85 = load i32, ptr getelementptr inbounds ([5 x i32], ptr @my_param_argi, i64 0, i64 1), align 4
-  %call227 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 322, ptr noundef @.str.37, ptr noundef @.str.31, i32 noundef %85, i32 noundef 0)
+  %112 = getelementptr inbounds [5 x i32], ptr @my_param_argi, i64 0, i64 1
+  %113 = load i32, ptr %112, align 4
+  %call227 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 322, ptr noundef @.str.37, ptr noundef @.str.31, i32 noundef %113, i32 noundef 0)
   %tobool228 = icmp ne i32 %call227, 0
   br i1 %tobool228, label %lor.lhs.false229, label %if.then235
 
 lor.lhs.false229:                                 ; preds = %lor.lhs.false226
-  %86 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_argl, i64 0, i64 1), align 8
-  %call230 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 323, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %86, i64 noundef 0)
+  %114 = getelementptr inbounds [5 x i64], ptr @my_param_argl, i64 0, i64 1
+  %115 = load i64, ptr %114, align 8
+  %call230 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 323, ptr noundef @.str.23, ptr noundef @.str.15, i64 noundef %115, i64 noundef 0)
   %tobool231 = icmp ne i32 %call230, 0
   br i1 %tobool231, label %lor.lhs.false232, label %if.then235
 
 lor.lhs.false232:                                 ; preds = %lor.lhs.false229
-  %87 = load i64, ptr getelementptr inbounds ([5 x i64], ptr @my_param_ret, i64 0, i64 1), align 8
-  %call233 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 324, ptr noundef @.str.46, ptr noundef @.str.49, i64 noundef %87, i64 noundef 5)
+  %116 = getelementptr inbounds [5 x i64], ptr @my_param_ret, i64 0, i64 1
+  %117 = load i64, ptr %116, align 8
+  %call233 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 324, ptr noundef @.str.46, ptr noundef @.str.49, i64 noundef %117, i64 noundef 5)
   %tobool234 = icmp ne i32 %call233, 0
   br i1 %tobool234, label %if.end236, label %if.then235
 
@@ -1310,54 +1381,54 @@ if.then235:                                       ; preds = %lor.lhs.false232, %
 
 if.end236:                                        ; preds = %lor.lhs.false232
   store i32 0, ptr @my_param_count, align 4
-  %88 = load ptr, ptr %bio, align 8
-  %call237 = call i32 @BIO_free(ptr noundef %88)
+  %118 = load ptr, ptr %bio, align 8
+  %call237 = call i32 @BIO_free(ptr noundef %118)
   store i32 %call237, ptr %i, align 4
-  %89 = load i32, ptr %i, align 4
-  %call238 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 329, ptr noundef @.str.3, ptr noundef @.str.17, i32 noundef %89, i32 noundef 1)
+  %119 = load i32, ptr %i, align 4
+  %call238 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 329, ptr noundef @.str.3, ptr noundef @.str.17, i32 noundef %119, i32 noundef 1)
   %tobool239 = icmp ne i32 %call238, 0
   br i1 %tobool239, label %lor.lhs.false240, label %if.then261
 
 lor.lhs.false240:                                 ; preds = %if.end236
-  %90 = load i32, ptr @my_param_count, align 4
-  %call241 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 330, ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef %90, i32 noundef 1)
+  %120 = load i32, ptr @my_param_count, align 4
+  %call241 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 330, ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef %120, i32 noundef 1)
   %tobool242 = icmp ne i32 %call241, 0
   br i1 %tobool242, label %lor.lhs.false243, label %if.then261
 
 lor.lhs.false243:                                 ; preds = %lor.lhs.false240
-  %91 = load ptr, ptr @my_param_b, align 16
-  %92 = load ptr, ptr %bio, align 8
-  %call244 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 331, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %91, ptr noundef %92)
+  %121 = load ptr, ptr @my_param_b, align 16
+  %122 = load ptr, ptr %bio, align 8
+  %call244 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 331, ptr noundef @.str.7, ptr noundef @.str.8, ptr noundef %121, ptr noundef %122)
   %tobool245 = icmp ne i32 %call244, 0
   br i1 %tobool245, label %lor.lhs.false246, label %if.then261
 
 lor.lhs.false246:                                 ; preds = %lor.lhs.false243
-  %93 = load i32, ptr @my_param_oper, align 16
-  %call247 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 332, ptr noundef @.str.9, ptr noundef @.str.43, i32 noundef %93, i32 noundef 1)
+  %123 = load i32, ptr @my_param_oper, align 16
+  %call247 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 332, ptr noundef @.str.9, ptr noundef @.str.43, i32 noundef %123, i32 noundef 1)
   %tobool248 = icmp ne i32 %call247, 0
   br i1 %tobool248, label %lor.lhs.false249, label %if.then261
 
 lor.lhs.false249:                                 ; preds = %lor.lhs.false246
-  %94 = load ptr, ptr @my_param_argp, align 16
-  %call250 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 333, ptr noundef @.str.11, ptr noundef @.str.33, ptr noundef %94, ptr noundef null)
+  %124 = load ptr, ptr @my_param_argp, align 16
+  %call250 = call i32 @test_ptr_eq(ptr noundef @.str.2, i32 noundef 333, ptr noundef @.str.11, ptr noundef @.str.33, ptr noundef %124, ptr noundef null)
   %tobool251 = icmp ne i32 %call250, 0
   br i1 %tobool251, label %lor.lhs.false252, label %if.then261
 
 lor.lhs.false252:                                 ; preds = %lor.lhs.false249
-  %95 = load i32, ptr @my_param_argi, align 16
-  %call253 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 334, ptr noundef @.str.34, ptr noundef @.str.31, i32 noundef %95, i32 noundef 0)
+  %125 = load i32, ptr @my_param_argi, align 16
+  %call253 = call i32 @test_int_eq(ptr noundef @.str.2, i32 noundef 334, ptr noundef @.str.34, ptr noundef @.str.31, i32 noundef %125, i32 noundef 0)
   %tobool254 = icmp ne i32 %call253, 0
   br i1 %tobool254, label %lor.lhs.false255, label %if.then261
 
 lor.lhs.false255:                                 ; preds = %lor.lhs.false252
-  %96 = load i64, ptr @my_param_argl, align 16
-  %call256 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 335, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %96, i64 noundef 0)
+  %126 = load i64, ptr @my_param_argl, align 16
+  %call256 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 335, ptr noundef @.str.14, ptr noundef @.str.15, i64 noundef %126, i64 noundef 0)
   %tobool257 = icmp ne i32 %call256, 0
   br i1 %tobool257, label %lor.lhs.false258, label %if.then261
 
 lor.lhs.false258:                                 ; preds = %lor.lhs.false255
-  %97 = load i64, ptr @my_param_ret, align 16
-  %call259 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 336, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %97, i64 noundef 1)
+  %127 = load i64, ptr @my_param_ret, align 16
+  %call259 = call i32 @test_long_eq(ptr noundef @.str.2, i32 noundef 336, ptr noundef @.str.44, ptr noundef @.str.45, i64 noundef %127, i64 noundef 1)
   %tobool260 = icmp ne i32 %call259, 0
   br i1 %tobool260, label %if.end262, label %if.then261
 
@@ -1369,15 +1440,15 @@ if.end262:                                        ; preds = %lor.lhs.false258
   br label %finish
 
 err:                                              ; preds = %if.then235, %if.then188, %if.then140, %if.then93, %if.then44, %if.then
-  %98 = load ptr, ptr %bio, align 8
-  %call263 = call i32 @BIO_free(ptr noundef %98)
+  %128 = load ptr, ptr %bio, align 8
+  %call263 = call i32 @BIO_free(ptr noundef %128)
   br label %finish
 
 finish:                                           ; preds = %err, %if.end262, %if.then261
   call void @llvm.memset.p0.i64(ptr align 16 @my_param_b, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr align 16 @my_param_argp, i8 0, i64 40, i1 false)
-  %99 = load i32, ptr %ok, align 4
-  ret i32 %99
+  %129 = load i32, ptr %ok, align 4
+  ret i32 %129
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

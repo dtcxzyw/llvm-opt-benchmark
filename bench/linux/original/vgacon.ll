@@ -116,39 +116,40 @@ define internal ptr @vgacon_startup() #1 align 16 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 15
   %5 = load i8, ptr %4, align 1
-  switch i8 %5, label %10 [
+  switch i8 %5, label %11 [
     i8 35, label %7
     i8 112, label %7
   ]
 
-6:                                                ; preds = %112, %109, %106, %92
-  store volatile i16 %101, ptr %97, align 2
-  store volatile i16 %103, ptr %102, align 2
+6:                                                ; preds = %113, %110, %107, %93
+  store volatile i16 %102, ptr %98, align 2
+  store volatile i16 %104, ptr %103, align 2
   br label %7
 
-7:                                                ; preds = %19, %19, %19, %19, %19, %15, %10, %6, %3, %3, %0
+7:                                                ; preds = %20, %20, %20, %20, %20, %16, %11, %6, %3, %3, %0
   store ptr @dummy_con, ptr @conswitchp, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.consw, ptr @dummy_con, i64 0, i32 1), align 8
-  %9 = tail call ptr %8() #13
-  br label %136
+  %8 = getelementptr inbounds %struct.consw, ptr @dummy_con, i64 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call ptr %9() #13
+  br label %137
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 14
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = icmp eq i8 %12, 0
-  br i1 %14, label %7, label %15
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %1, i64 14
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = icmp eq i8 %13, 0
+  br i1 %15, label %7, label %16
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 7
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %7, label %19
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %1, i64 7
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %7, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %1, i64 6
-  %21 = load i8, ptr %20, align 1
-  switch i8 %21, label %22 [
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %1, i64 6
+  %22 = load i8, ptr %21, align 1
+  switch i8 %22, label %23 [
     i8 13, label %7
     i8 14, label %7
     i8 16, label %7
@@ -156,210 +157,210 @@ define internal ptr @vgacon_startup() #1 align 16 {
     i8 106, label %7
   ]
 
-22:                                               ; preds = %19
-  store i32 %13, ptr @vga_video_num_lines, align 4
-  %23 = zext i8 %17 to i32
-  store i32 %23, ptr @vga_video_num_columns, align 4
-  %24 = load i8, ptr %20, align 1
-  %25 = icmp eq i8 %24, 7
-  br i1 %25, label %26, label %36
+23:                                               ; preds = %20
+  store i32 %14, ptr @vga_video_num_lines, align 4
+  %24 = zext i8 %18 to i32
+  store i32 %24, ptr @vga_video_num_columns, align 4
+  %25 = load i8, ptr %21, align 1
+  %26 = icmp eq i8 %25, 7
+  br i1 %26, label %27, label %37
 
-26:                                               ; preds = %22
+27:                                               ; preds = %23
   store i64 720896, ptr @vga_vram_base, align 8
   store i16 948, ptr @vga_video_port_reg, align 2
   store i16 949, ptr @vga_video_port_val, align 2
-  %27 = getelementptr inbounds i8, ptr %1, i64 10
-  %28 = load i16, ptr %27, align 1
-  %29 = and i16 %28, 255
-  %30 = icmp eq i16 %29, 16
-  br i1 %30, label %33, label %31
+  %28 = getelementptr inbounds i8, ptr %1, i64 10
+  %29 = load i16, ptr %28, align 1
+  %30 = and i16 %29, 255
+  %31 = icmp eq i16 %30, 16
+  br i1 %31, label %34, label %32
 
-31:                                               ; preds = %26
+32:                                               ; preds = %27
   store i8 32, ptr @vga_video_type, align 1
   store i32 32768, ptr @vga_vram_size, align 4
-  %32 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.ega_console_resource) #13
-  br label %92
+  %33 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.ega_console_resource) #13
+  br label %93
 
-33:                                               ; preds = %26
+34:                                               ; preds = %27
   store i8 16, ptr @vga_video_type, align 1
   store i32 8192, ptr @vga_vram_size, align 4
-  %34 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.mda1_console_resource) #13
-  %35 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.mda2_console_resource) #13
+  %35 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.mda1_console_resource) #13
+  %36 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.mda2_console_resource) #13
   store i32 14, ptr @vga_video_font_height, align 4
-  br label %92
+  br label %93
 
-36:                                               ; preds = %22
+37:                                               ; preds = %23
   store i1 true, ptr @vga_can_do_color, align 1
   store i64 753664, ptr @vga_vram_base, align 8
   store i16 980, ptr @vga_video_port_reg, align 2
   store i16 981, ptr @vga_video_port_val, align 2
-  %37 = getelementptr inbounds i8, ptr %1, i64 10
-  %38 = load i16, ptr %37, align 1
-  %39 = and i16 %38, 255
-  %40 = icmp eq i16 %39, 16
-  br i1 %40, label %90, label %41
+  %38 = getelementptr inbounds i8, ptr %1, i64 10
+  %39 = load i16, ptr %38, align 1
+  %40 = and i16 %39, 255
+  %41 = icmp eq i16 %40, 16
+  br i1 %41, label %91, label %42
 
-41:                                               ; preds = %36
+42:                                               ; preds = %37
   store i32 32768, ptr @vga_vram_size, align 4
-  %42 = icmp eq i8 %5, 0
-  br i1 %42, label %43, label %45
+  %43 = icmp eq i8 %5, 0
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   store i8 33, ptr @vga_video_type, align 1
-  %44 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.ega_console_resource.4) #13
-  br label %92
+  %45 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.ega_console_resource.4) #13
+  br label %93
 
-45:                                               ; preds = %41
+46:                                               ; preds = %42
   store i8 34, ptr @vga_video_type, align 1
-  %46 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.vga_console_resource) #13
-  br label %47
+  %47 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.vga_console_resource) #13
+  br label %48
 
-47:                                               ; preds = %47, %45
-  %48 = phi i32 [ 0, %45 ], [ %60, %47 ]
-  %49 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 986) #13, !srcloc !6
-  %50 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %51 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %50) #13, !srcloc !7
-  %52 = extractvalue { i64, i64, i64, i64, i64 } %51, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %52)
-  %53 = trunc i32 %48 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %53, i16 960) #13, !srcloc !8
-  %54 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %55 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %54) #13, !srcloc !7
-  %56 = extractvalue { i64, i64, i64, i64, i64 } %55, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %56)
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %53, i16 960) #13, !srcloc !8
-  %57 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %58 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %57) #13, !srcloc !7
-  %59 = extractvalue { i64, i64, i64, i64, i64 } %58, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %59)
-  %60 = add nuw nsw i32 %48, 1
-  %61 = icmp eq i32 %60, 16
-  br i1 %61, label %62, label %47, !llvm.loop !9
+48:                                               ; preds = %48, %46
+  %49 = phi i32 [ 0, %46 ], [ %61, %48 ]
+  %50 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 986) #13, !srcloc !6
+  %51 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %52 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %51) #13, !srcloc !7
+  %53 = extractvalue { i64, i64, i64, i64, i64 } %52, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %53)
+  %54 = trunc i32 %49 to i8
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %54, i16 960) #13, !srcloc !8
+  %55 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %56 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %55) #13, !srcloc !7
+  %57 = extractvalue { i64, i64, i64, i64, i64 } %56, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %57)
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %54, i16 960) #13, !srcloc !8
+  %58 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %59 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %58) #13, !srcloc !7
+  %60 = extractvalue { i64, i64, i64, i64, i64 } %59, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %60)
+  %61 = add nuw nsw i32 %49, 1
+  %62 = icmp eq i32 %61, 16
+  br i1 %62, label %63, label %48, !llvm.loop !9
 
-62:                                               ; preds = %47
+63:                                               ; preds = %48
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 32, i16 960) #13, !srcloc !8
-  %63 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %64 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %63) #13, !srcloc !7
-  %65 = extractvalue { i64, i64, i64, i64, i64 } %64, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %65)
-  br label %66
+  %64 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %65 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %64) #13, !srcloc !7
+  %66 = extractvalue { i64, i64, i64, i64, i64 } %65, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %66)
+  br label %67
 
-66:                                               ; preds = %66, %62
-  %67 = phi i64 [ 0, %62 ], [ %88, %66 ]
-  %68 = getelementptr [0 x i8], ptr @color_table, i64 0, i64 %67
-  %69 = load i8, ptr %68, align 1
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %69, i16 968) #13, !srcloc !8
-  %70 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %71 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %70) #13, !srcloc !7
-  %72 = extractvalue { i64, i64, i64, i64, i64 } %71, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %72)
-  %73 = getelementptr [0 x i8], ptr @default_red, i64 0, i64 %67
-  %74 = load i8, ptr %73, align 1
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %74, i16 969) #13, !srcloc !8
-  %75 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %76 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %75) #13, !srcloc !7
-  %77 = extractvalue { i64, i64, i64, i64, i64 } %76, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %77)
-  %78 = getelementptr [0 x i8], ptr @default_grn, i64 0, i64 %67
-  %79 = load i8, ptr %78, align 1
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %79, i16 969) #13, !srcloc !8
-  %80 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %81 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %80) #13, !srcloc !7
-  %82 = extractvalue { i64, i64, i64, i64, i64 } %81, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %82)
-  %83 = getelementptr [0 x i8], ptr @default_blu, i64 0, i64 %67
-  %84 = load i8, ptr %83, align 1
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %84, i16 969) #13, !srcloc !8
-  %85 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %86 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %85) #13, !srcloc !7
-  %87 = extractvalue { i64, i64, i64, i64, i64 } %86, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %87)
-  %88 = add nuw nsw i64 %67, 1
-  %89 = icmp eq i64 %88, 16
-  br i1 %89, label %92, label %66, !llvm.loop !12
+67:                                               ; preds = %67, %63
+  %68 = phi i64 [ 0, %63 ], [ %89, %67 ]
+  %69 = getelementptr [0 x i8], ptr @color_table, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %70, i16 968) #13, !srcloc !8
+  %71 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %72 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %71) #13, !srcloc !7
+  %73 = extractvalue { i64, i64, i64, i64, i64 } %72, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %73)
+  %74 = getelementptr [0 x i8], ptr @default_red, i64 0, i64 %68
+  %75 = load i8, ptr %74, align 1
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %75, i16 969) #13, !srcloc !8
+  %76 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %77 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %76) #13, !srcloc !7
+  %78 = extractvalue { i64, i64, i64, i64, i64 } %77, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %78)
+  %79 = getelementptr [0 x i8], ptr @default_grn, i64 0, i64 %68
+  %80 = load i8, ptr %79, align 1
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %80, i16 969) #13, !srcloc !8
+  %81 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %82 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %81) #13, !srcloc !7
+  %83 = extractvalue { i64, i64, i64, i64, i64 } %82, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %83)
+  %84 = getelementptr [0 x i8], ptr @default_blu, i64 0, i64 %68
+  %85 = load i8, ptr %84, align 1
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %85, i16 969) #13, !srcloc !8
+  %86 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %87 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %86) #13, !srcloc !7
+  %88 = extractvalue { i64, i64, i64, i64, i64 } %87, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %88)
+  %89 = add nuw nsw i64 %68, 1
+  %90 = icmp eq i64 %89, 16
+  br i1 %90, label %93, label %67, !llvm.loop !12
 
-90:                                               ; preds = %36
+91:                                               ; preds = %37
   store i8 17, ptr @vga_video_type, align 1
   store i32 8192, ptr @vga_vram_size, align 4
-  %91 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.cga_console_resource) #13
+  %92 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef nonnull @vgacon_startup.cga_console_resource) #13
   store i32 8, ptr @vga_video_font_height, align 4
-  br label %92
+  br label %93
 
-92:                                               ; preds = %90, %66, %43, %33, %31
-  %93 = phi ptr [ @.str.1, %31 ], [ @.str.3, %33 ], [ @.str.9, %90 ], [ @.str.5, %43 ], [ @.str.7, %66 ]
-  %94 = load i64, ptr @vga_vram_base, align 8
-  %95 = load i64, ptr @page_offset_base, align 8
-  %96 = add i64 %95, %94
-  %97 = inttoptr i64 %96 to ptr
-  store i64 %96, ptr @vga_vram_base, align 8
-  %98 = load i32, ptr @vga_vram_size, align 4
-  %99 = zext nneg i32 %98 to i64
-  %100 = add i64 %96, %99
-  store i64 %100, ptr @vga_vram_end, align 8
-  %101 = load volatile i16, ptr %97, align 2
-  %102 = getelementptr i8, ptr %97, i64 2
-  %103 = load volatile i16, ptr %102, align 2
-  store volatile i16 -21931, ptr %97, align 2
-  store volatile i16 21930, ptr %102, align 2
-  %104 = load volatile i16, ptr %97, align 2
-  %105 = icmp eq i16 %104, -21931
-  br i1 %105, label %106, label %6
+93:                                               ; preds = %91, %67, %44, %34, %32
+  %94 = phi ptr [ @.str.1, %32 ], [ @.str.3, %34 ], [ @.str.9, %91 ], [ @.str.5, %44 ], [ @.str.7, %67 ]
+  %95 = load i64, ptr @vga_vram_base, align 8
+  %96 = load i64, ptr @page_offset_base, align 8
+  %97 = add i64 %96, %95
+  %98 = inttoptr i64 %97 to ptr
+  store i64 %97, ptr @vga_vram_base, align 8
+  %99 = load i32, ptr @vga_vram_size, align 4
+  %100 = zext nneg i32 %99 to i64
+  %101 = add i64 %97, %100
+  store i64 %101, ptr @vga_vram_end, align 8
+  %102 = load volatile i16, ptr %98, align 2
+  %103 = getelementptr i8, ptr %98, i64 2
+  %104 = load volatile i16, ptr %103, align 2
+  store volatile i16 -21931, ptr %98, align 2
+  store volatile i16 21930, ptr %103, align 2
+  %105 = load volatile i16, ptr %98, align 2
+  %106 = icmp eq i16 %105, -21931
+  br i1 %106, label %107, label %6
 
-106:                                              ; preds = %92
-  %107 = load volatile i16, ptr %102, align 2
-  %108 = icmp eq i16 %107, 21930
-  br i1 %108, label %109, label %6
+107:                                              ; preds = %93
+  %108 = load volatile i16, ptr %103, align 2
+  %109 = icmp eq i16 %108, 21930
+  br i1 %109, label %110, label %6
 
-109:                                              ; preds = %106
-  store volatile i16 21930, ptr %97, align 2
-  store volatile i16 -21931, ptr %102, align 2
-  %110 = load volatile i16, ptr %97, align 2
-  %111 = icmp eq i16 %110, 21930
-  br i1 %111, label %112, label %6
+110:                                              ; preds = %107
+  store volatile i16 21930, ptr %98, align 2
+  store volatile i16 -21931, ptr %103, align 2
+  %111 = load volatile i16, ptr %98, align 2
+  %112 = icmp eq i16 %111, 21930
+  br i1 %112, label %113, label %6
 
-112:                                              ; preds = %109
-  %113 = load volatile i16, ptr %102, align 2
-  %114 = icmp eq i16 %113, -21931
-  br i1 %114, label %115, label %6
+113:                                              ; preds = %110
+  %114 = load volatile i16, ptr %103, align 2
+  %115 = icmp eq i16 %114, -21931
+  br i1 %115, label %116, label %6
 
-115:                                              ; preds = %112
-  store volatile i16 %101, ptr %97, align 2
-  store volatile i16 %103, ptr %102, align 2
-  %116 = load i8, ptr @vga_video_type, align 1
-  %117 = add i8 %116, -32
-  %118 = icmp ult i8 %117, 3
-  br i1 %118, label %119, label %129
+116:                                              ; preds = %113
+  store volatile i16 %102, ptr %98, align 2
+  store volatile i16 %104, ptr %103, align 2
+  %117 = load i8, ptr @vga_video_type, align 1
+  %118 = add i8 %117, -32
+  %119 = icmp ult i8 %118, 3
+  br i1 %119, label %120, label %130
 
-119:                                              ; preds = %115
-  %120 = load i1, ptr @vga_hardscroll_user_enable, align 1
-  %121 = xor i1 %120, true
-  %122 = zext i1 %121 to i8
-  store i8 %122, ptr @vga_hardscroll_enabled, align 1
-  %123 = load ptr, ptr @vga_si, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
-  %125 = load i16, ptr %124, align 1
-  %126 = zext i16 %125 to i32
-  store i32 %126, ptr @vga_default_font_height, align 4
-  store i32 %126, ptr @vga_video_font_height, align 4
-  %127 = load i32, ptr @vga_video_num_lines, align 4
-  %128 = mul i32 %127, %126
-  store i32 %128, ptr @vga_scan_lines, align 4
-  br label %129
+120:                                              ; preds = %116
+  %121 = load i1, ptr @vga_hardscroll_user_enable, align 1
+  %122 = xor i1 %121, true
+  %123 = zext i1 %122 to i8
+  store i8 %123, ptr @vga_hardscroll_enabled, align 1
+  %124 = load ptr, ptr @vga_si, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %126 = load i16, ptr %125, align 1
+  %127 = zext i16 %126 to i32
+  store i32 %127, ptr @vga_default_font_height, align 4
+  store i32 %127, ptr @vga_video_font_height, align 4
+  %128 = load i32, ptr @vga_video_num_lines, align 4
+  %129 = mul i32 %128, %127
+  store i32 %129, ptr @vga_scan_lines, align 4
+  br label %130
 
-129:                                              ; preds = %119, %115
-  %130 = load ptr, ptr @vga_si, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 7
-  %132 = load i8, ptr %131, align 1
-  %133 = zext i8 %132 to i32
-  %134 = shl nuw nsw i32 %133, 3
-  store i32 %134, ptr @vgacon_xres, align 4
-  %135 = load i32, ptr @vga_scan_lines, align 4
-  store i32 %135, ptr @vgacon_yres, align 4
-  br label %136
+130:                                              ; preds = %120, %116
+  %131 = load ptr, ptr @vga_si, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 7
+  %133 = load i8, ptr %132, align 1
+  %134 = zext i8 %133 to i32
+  %135 = shl nuw nsw i32 %134, 3
+  store i32 %135, ptr @vgacon_xres, align 4
+  %136 = load i32, ptr @vga_scan_lines, align 4
+  store i32 %136, ptr @vgacon_yres, align 4
+  br label %137
 
-136:                                              ; preds = %129, %7
-  %137 = phi ptr [ %9, %7 ], [ %93, %129 ]
-  ret ptr %137
+137:                                              ; preds = %130, %7
+  %138 = phi ptr [ %10, %7 ], [ %94, %130 ]
+  ret ptr %138
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

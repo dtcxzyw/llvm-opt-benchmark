@@ -1107,31 +1107,33 @@ if.end16:                                         ; preds = %if.else, %if.end15
 if.then19:                                        ; preds = %if.end16
   %15 = load ptr, ptr @bio_err, align 8
   %call20 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %15, ptr noundef @.str.69)
-  %16 = load i32, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 2), align 4
-  %cmp21 = icmp ne i32 %16, 0
+  %16 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4
+  %cmp21 = icmp ne i32 %17, 0
   br i1 %cmp21, label %if.then22, label %if.else25
 
 if.then22:                                        ; preds = %if.then19
-  %17 = load ptr, ptr @bio_err, align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 2), align 4
-  %conv = sext i32 %18 to i64
+  %18 = load ptr, ptr @bio_err, align 8
+  %19 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 2
+  %20 = load i32, ptr %19, align 4
+  %conv = sext i32 %20 to i64
   %call23 = call ptr @X509_verify_cert_error_string(i64 noundef %conv)
-  %call24 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef @.str.70, ptr noundef %call23)
+  %call24 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef @.str.70, ptr noundef %call23)
   br label %if.end26
 
 if.else25:                                        ; preds = %if.then19
-  %19 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %19)
+  %21 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %21)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else25, %if.then22
-  %20 = load ptr, ptr %scon.addr, align 8
-  %cmp27 = icmp eq ptr %20, null
+  %22 = load ptr, ptr %scon.addr, align 8
+  %cmp27 = icmp eq ptr %22, null
   br i1 %cmp27, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.end26
-  %21 = load ptr, ptr %serverCon, align 8
-  call void @SSL_free(ptr noundef %21)
+  %23 = load ptr, ptr %serverCon, align 8
+  call void @SSL_free(ptr noundef %23)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %if.end26
@@ -1143,26 +1145,26 @@ if.end31:                                         ; preds = %if.end16
   store i32 1, ptr %l_onoff, align 4
   %l_linger = getelementptr inbounds %struct.linger, ptr %no_linger, i32 0, i32 1
   store i32 0, ptr %l_linger, align 4
-  %22 = load ptr, ptr %serverCon, align 8
-  %call32 = call i32 @SSL_get_fd(ptr noundef %22)
+  %24 = load ptr, ptr %serverCon, align 8
+  %call32 = call i32 @SSL_get_fd(ptr noundef %24)
   store i32 %call32, ptr %fd, align 4
-  %23 = load i32, ptr %fd, align 4
-  %cmp33 = icmp sge i32 %23, 0
+  %25 = load i32, ptr %fd, align 4
+  %cmp33 = icmp sge i32 %25, 0
   br i1 %cmp33, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %if.end31
-  %24 = load i32, ptr %fd, align 4
-  %call36 = call i32 @setsockopt(i32 noundef %24, i32 noundef 1, i32 noundef 13, ptr noundef %no_linger, i32 noundef 8) #5
+  %26 = load i32, ptr %fd, align 4
+  %call36 = call i32 @setsockopt(i32 noundef %26, i32 noundef 1, i32 noundef 13, ptr noundef %no_linger, i32 noundef 8) #5
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then35, %if.end31
-  %25 = load ptr, ptr %serverCon, align 8
-  store ptr %25, ptr %retval, align 8
+  %27 = load ptr, ptr %serverCon, align 8
+  store ptr %27, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end37, %if.end30, %if.then13, %if.then6, %if.then
-  %26 = load ptr, ptr %retval, align 8
-  ret ptr %26
+  %28 = load ptr, ptr %retval, align 8
+  ret ptr %28
 }
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1

@@ -465,33 +465,40 @@ entry:
   br i1 %tobool, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 4), align 8
-  %tobool1 = icmp ne i32 %1, 0
+  %1 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 4
+  %2 = load i32, ptr %1, align 8
+  %tobool1 = icmp ne i32 %2, 0
   br i1 %tobool1, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.then
   %call = call zeroext i8 @replay_get_byte()
   %conv = zext i8 %call to i32
-  store i32 %conv, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  %cmp = icmp eq i32 %2, 0
+  %3 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  store i32 %conv, ptr %3, align 4
+  %4 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  %5 = load i32, ptr %4, align 4
+  %cmp = icmp eq i32 %5, 0
   br i1 %cmp, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then2
   %call5 = call i32 @replay_get_dword()
-  store i32 %call5, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 2), align 8
+  %6 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 2
+  store i32 %call5, ptr %6, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then2
   call void @replay_check_error()
-  store i32 1, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 4), align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  %cmp6 = icmp uge i32 %3, 40
+  %7 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 4
+  store i32 1, ptr %7, align 8
+  %8 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  %9 = load i32, ptr %8, align 4
+  %cmp6 = icmp uge i32 %9, 40
   br i1 %cmp6, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
-  %4 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  call void (ptr, ...) @error_report(ptr noundef @.str.4, i32 noundef %4)
+  %10 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  %11 = load i32, ptr %10, align 4
+  call void (ptr, ...) @error_report(ptr noundef @.str.4, i32 noundef %11)
   call void @exit(i32 noundef 1) #7
   unreachable
 
@@ -511,7 +518,8 @@ declare void @exit(i32 noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_finish_event() #0 {
 entry:
-  store i32 0, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 4), align 8
+  %0 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 4
+  store i32 0, ptr %0, align 8
   call void @replay_fetch_data_kind()
   ret void
 }
@@ -748,12 +756,13 @@ entry:
   %diff = alloca i32, align 4
   store i64 %current_icount, ptr %current_icount.addr, align 8
   %0 = load i64, ptr %current_icount.addr, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 1), align 8
-  %sub = sub i64 %0, %1
+  %1 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 1
+  %2 = load i64, ptr %1, align 8
+  %sub = sub i64 %0, %2
   %conv = trunc i64 %sub to i32
   store i32 %conv, ptr %diff, align 4
-  %2 = load i32, ptr %diff, align 4
-  %cmp = icmp sge i32 %2, 0
+  %3 = load i32, ptr %diff, align 4
+  %cmp = icmp sge i32 %3, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -764,56 +773,64 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %3 = load i32, ptr @replay_mode, align 4
-  %cmp2 = icmp eq i32 %3, 1
+  %4 = load i32, ptr @replay_mode, align 4
+  %cmp2 = icmp eq i32 %4, 1
   br i1 %cmp2, label %if.then4, label %if.else10
 
 if.then4:                                         ; preds = %if.end
-  %4 = load i32, ptr %diff, align 4
-  %cmp5 = icmp sgt i32 %4, 0
+  %5 = load i32, ptr %diff, align 4
+  %cmp5 = icmp sgt i32 %5, 0
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then4
   call void @replay_put_event(i8 noundef zeroext 0)
-  %5 = load i32, ptr %diff, align 4
-  call void @replay_put_dword(i32 noundef %5)
   %6 = load i32, ptr %diff, align 4
-  %conv8 = sext i32 %6 to i64
-  %7 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 1), align 8
-  %add = add i64 %7, %conv8
-  store i64 %add, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 1), align 8
+  call void @replay_put_dword(i32 noundef %6)
+  %7 = load i32, ptr %diff, align 4
+  %conv8 = sext i32 %7 to i64
+  %8 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  %add = add i64 %9, %conv8
+  %10 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 1
+  store i64 %add, ptr %10, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.then4
   br label %if.end35
 
 if.else10:                                        ; preds = %if.end
-  %8 = load i32, ptr @replay_mode, align 4
-  %cmp11 = icmp eq i32 %8, 2
+  %11 = load i32, ptr @replay_mode, align 4
+  %cmp11 = icmp eq i32 %11, 2
   br i1 %cmp11, label %if.then13, label %if.end34
 
 if.then13:                                        ; preds = %if.else10
-  %9 = load i32, ptr %diff, align 4
-  %cmp14 = icmp sgt i32 %9, 0
+  %12 = load i32, ptr %diff, align 4
+  %cmp14 = icmp sgt i32 %12, 0
   br i1 %cmp14, label %if.then16, label %if.end29
 
 if.then16:                                        ; preds = %if.then13
-  %10 = load i32, ptr %diff, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 2), align 8
-  %sub17 = sub i32 %11, %10
-  store i32 %sub17, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 2), align 8
-  %12 = load i32, ptr %diff, align 4
-  %conv18 = sext i32 %12 to i64
-  %13 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 1), align 8
-  %add19 = add i64 %13, %conv18
-  store i64 %add19, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 1), align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 2), align 8
-  %cmp20 = icmp eq i32 %14, 0
+  %13 = load i32, ptr %diff, align 4
+  %14 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 2
+  %15 = load i32, ptr %14, align 8
+  %sub17 = sub i32 %15, %13
+  %16 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 2
+  store i32 %sub17, ptr %16, align 8
+  %17 = load i32, ptr %diff, align 4
+  %conv18 = sext i32 %17 to i64
+  %18 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  %add19 = add i64 %19, %conv18
+  %20 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 1
+  store i64 %add19, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 2
+  %22 = load i32, ptr %21, align 8
+  %cmp20 = icmp eq i32 %22, 0
   br i1 %cmp20, label %if.then22, label %if.end28
 
 if.then22:                                        ; preds = %if.then16
-  %15 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  %cmp23 = icmp eq i32 %15, 0
+  %23 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  %24 = load i32, ptr %23, align 4
+  %cmp23 = icmp eq i32 %24, 0
   br i1 %cmp23, label %if.then25, label %if.else26
 
 if.then25:                                        ; preds = %if.then22
@@ -832,15 +849,16 @@ if.end28:                                         ; preds = %if.end27, %if.then1
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end28, %if.then13
-  %16 = load i64, ptr @replay_break_icount, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 1), align 8
-  %cmp30 = icmp eq i64 %16, %17
+  %25 = load i64, ptr @replay_break_icount, align 8
+  %26 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8
+  %cmp30 = icmp eq i64 %25, %27
   br i1 %cmp30, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.end29
-  %18 = load ptr, ptr @replay_break_timer, align 8
+  %28 = load ptr, ptr @replay_break_timer, align 8
   %call = call i64 @qemu_clock_get_ns(i32 noundef 0)
-  call void @timer_mod_ns(ptr noundef %18, i64 noundef %call)
+  call void @timer_mod_ns(ptr noundef %28, i64 noundef %call)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %if.end29

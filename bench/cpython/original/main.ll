@@ -937,8 +937,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   call void @pymain_free()
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 15, i32 5), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 15, i32 5
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.end
@@ -947,8 +948,8 @@ if.then1:                                         ; preds = %if.end
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %if.end
-  %1 = load i32, ptr %exitcode, align 4
-  ret i32 %1
+  %2 = load i32, ptr %exitcode, align 4
+  ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1362,7 +1363,8 @@ entry:
 define internal i32 @exit_sigint() #0 {
 entry:
   %call = call ptr @PyOS_setsig(i32 noundef 2, ptr noundef null)
-  %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
+  %0 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %call, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1837,10 +1839,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %sysdict, align 8
-  %call = call ptr @PyDict_GetItemWithError(ptr noundef %3, ptr noundef getelementptr inbounds (%struct.anon.38, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 541))
+  %4 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %5 = getelementptr inbounds %struct.anon.38, ptr %4, i32 0, i32 3, i32 1, i32 541
+  %call = call ptr @PyDict_GetItemWithError(ptr noundef %3, ptr noundef %5)
   store ptr %call, ptr %sys_path, align 8
-  %4 = load ptr, ptr %sys_path, align 8
-  %cmp2 = icmp eq ptr %4, null
+  %6 = load ptr, ptr %sys_path, align 8
+  %cmp2 = icmp eq ptr %6, null
   br i1 %cmp2, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
@@ -1860,20 +1864,20 @@ if.else:                                          ; preds = %entry
   br label %if.end5
 
 if.end5:                                          ; preds = %if.else, %if.end
-  %5 = load ptr, ptr %sys_path, align 8
-  %cmp6 = icmp eq ptr %5, null
+  %7 = load ptr, ptr %sys_path, align 8
+  %cmp6 = icmp eq ptr %7, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end5
-  %6 = load ptr, ptr @PyExc_RuntimeError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef @.str.4)
+  %8 = load ptr, ptr @PyExc_RuntimeError, align 8
+  call void @PyErr_SetString(ptr noundef %8, ptr noundef @.str.4)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %7 = load ptr, ptr %sys_path, align 8
-  %8 = load ptr, ptr %path0.addr, align 8
-  %call9 = call i32 @PyList_Insert(ptr noundef %7, i64 noundef 0, ptr noundef %8)
+  %9 = load ptr, ptr %sys_path, align 8
+  %10 = load ptr, ptr %path0.addr, align 8
+  %call9 = call i32 @PyList_Insert(ptr noundef %9, i64 noundef 0, ptr noundef %10)
   %tobool10 = icmp ne i32 %call9, 0
   br i1 %tobool10, label %if.then11, label %if.end12
 
@@ -1886,8 +1890,8 @@ if.end12:                                         ; preds = %if.end8
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then11, %if.then7, %if.then4
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %11 = load i32, ptr %retval, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2363,33 +2367,35 @@ Py_DECREF.exit81:                                 ; preds = %if.then1.i79, %if.e
   br label %return
 
 if.end26:                                         ; preds = %if.end20
-  store i32 0, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 15, i32 5), align 8
-  %56 = load ptr, ptr %runmodule, align 8
-  %57 = load ptr, ptr %runargs, align 8
-  %call27 = call ptr @PyObject_Call(ptr noundef %56, ptr noundef %57, ptr noundef null)
+  %56 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 15, i32 5
+  store i32 0, ptr %56, align 8
+  %57 = load ptr, ptr %runmodule, align 8
+  %58 = load ptr, ptr %runargs, align 8
+  %call27 = call ptr @PyObject_Call(ptr noundef %57, ptr noundef %58, ptr noundef null)
   store ptr %call27, ptr %result, align 8
-  %58 = load ptr, ptr %result, align 8
-  %tobool28 = icmp ne ptr %58, null
+  %59 = load ptr, ptr %result, align 8
+  %tobool28 = icmp ne ptr %59, null
   br i1 %tobool28, label %if.end32, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end26
   %call29 = call ptr @PyErr_Occurred()
-  %59 = load ptr, ptr @PyExc_KeyboardInterrupt, align 8
-  %cmp30 = icmp eq ptr %call29, %59
+  %60 = load ptr, ptr @PyExc_KeyboardInterrupt, align 8
+  %cmp30 = icmp eq ptr %call29, %60
   br i1 %cmp30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %land.lhs.true
-  store i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 15, i32 5), align 8
+  %61 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 15, i32 5
+  store i32 1, ptr %61, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %land.lhs.true, %if.end26
-  %60 = load ptr, ptr %runpy, align 8
-  store ptr %60, ptr %op.addr.i64, align 8
-  %61 = load ptr, ptr %op.addr.i64, align 8
-  store ptr %61, ptr %op.addr.i149, align 8
-  %62 = load ptr, ptr %op.addr.i149, align 8
-  %63 = load i64, ptr %62, align 8
-  %conv.i150 = trunc i64 %63 to i32
+  %62 = load ptr, ptr %runpy, align 8
+  store ptr %62, ptr %op.addr.i64, align 8
+  %63 = load ptr, ptr %op.addr.i64, align 8
+  store ptr %63, ptr %op.addr.i149, align 8
+  %64 = load ptr, ptr %op.addr.i149, align 8
+  %65 = load i64, ptr %64, align 8
+  %conv.i150 = trunc i64 %65 to i32
   %cmp.i151 = icmp slt i32 %conv.i150, 0
   %conv1.i152 = zext i1 %cmp.i151 to i32
   %tobool.i66 = icmp ne i32 %conv1.i152, 0
@@ -2399,26 +2405,26 @@ if.then.i71:                                      ; preds = %if.end32
   br label %Py_DECREF.exit72
 
 if.end.i67:                                       ; preds = %if.end32
-  %64 = load ptr, ptr %op.addr.i64, align 8
-  %65 = load i64, ptr %64, align 8
-  %dec.i68 = add i64 %65, -1
-  store i64 %dec.i68, ptr %64, align 8
+  %66 = load ptr, ptr %op.addr.i64, align 8
+  %67 = load i64, ptr %66, align 8
+  %dec.i68 = add i64 %67, -1
+  store i64 %dec.i68, ptr %66, align 8
   %cmp.i69 = icmp eq i64 %dec.i68, 0
   br i1 %cmp.i69, label %if.then1.i70, label %Py_DECREF.exit72
 
 if.then1.i70:                                     ; preds = %if.end.i67
-  %66 = load ptr, ptr %op.addr.i64, align 8
-  call void @_Py_Dealloc(ptr noundef %66) #10
+  %68 = load ptr, ptr %op.addr.i64, align 8
+  call void @_Py_Dealloc(ptr noundef %68) #10
   br label %Py_DECREF.exit72
 
 Py_DECREF.exit72:                                 ; preds = %if.then1.i70, %if.end.i67, %if.then.i71
-  %67 = load ptr, ptr %runmodule, align 8
-  store ptr %67, ptr %op.addr.i55, align 8
-  %68 = load ptr, ptr %op.addr.i55, align 8
-  store ptr %68, ptr %op.addr.i153, align 8
-  %69 = load ptr, ptr %op.addr.i153, align 8
-  %70 = load i64, ptr %69, align 8
-  %conv.i154 = trunc i64 %70 to i32
+  %69 = load ptr, ptr %runmodule, align 8
+  store ptr %69, ptr %op.addr.i55, align 8
+  %70 = load ptr, ptr %op.addr.i55, align 8
+  store ptr %70, ptr %op.addr.i153, align 8
+  %71 = load ptr, ptr %op.addr.i153, align 8
+  %72 = load i64, ptr %71, align 8
+  %conv.i154 = trunc i64 %72 to i32
   %cmp.i155 = icmp slt i32 %conv.i154, 0
   %conv1.i156 = zext i1 %cmp.i155 to i32
   %tobool.i57 = icmp ne i32 %conv1.i156, 0
@@ -2428,26 +2434,26 @@ if.then.i62:                                      ; preds = %Py_DECREF.exit72
   br label %Py_DECREF.exit63
 
 if.end.i58:                                       ; preds = %Py_DECREF.exit72
-  %71 = load ptr, ptr %op.addr.i55, align 8
-  %72 = load i64, ptr %71, align 8
-  %dec.i59 = add i64 %72, -1
-  store i64 %dec.i59, ptr %71, align 8
+  %73 = load ptr, ptr %op.addr.i55, align 8
+  %74 = load i64, ptr %73, align 8
+  %dec.i59 = add i64 %74, -1
+  store i64 %dec.i59, ptr %73, align 8
   %cmp.i60 = icmp eq i64 %dec.i59, 0
   br i1 %cmp.i60, label %if.then1.i61, label %Py_DECREF.exit63
 
 if.then1.i61:                                     ; preds = %if.end.i58
-  %73 = load ptr, ptr %op.addr.i55, align 8
-  call void @_Py_Dealloc(ptr noundef %73) #10
+  %75 = load ptr, ptr %op.addr.i55, align 8
+  call void @_Py_Dealloc(ptr noundef %75) #10
   br label %Py_DECREF.exit63
 
 Py_DECREF.exit63:                                 ; preds = %if.then1.i61, %if.end.i58, %if.then.i62
-  %74 = load ptr, ptr %module, align 8
-  store ptr %74, ptr %op.addr.i46, align 8
-  %75 = load ptr, ptr %op.addr.i46, align 8
-  store ptr %75, ptr %op.addr.i157, align 8
-  %76 = load ptr, ptr %op.addr.i157, align 8
-  %77 = load i64, ptr %76, align 8
-  %conv.i158 = trunc i64 %77 to i32
+  %76 = load ptr, ptr %module, align 8
+  store ptr %76, ptr %op.addr.i46, align 8
+  %77 = load ptr, ptr %op.addr.i46, align 8
+  store ptr %77, ptr %op.addr.i157, align 8
+  %78 = load ptr, ptr %op.addr.i157, align 8
+  %79 = load i64, ptr %78, align 8
+  %conv.i158 = trunc i64 %79 to i32
   %cmp.i159 = icmp slt i32 %conv.i158, 0
   %conv1.i160 = zext i1 %cmp.i159 to i32
   %tobool.i48 = icmp ne i32 %conv1.i160, 0
@@ -2457,26 +2463,26 @@ if.then.i53:                                      ; preds = %Py_DECREF.exit63
   br label %Py_DECREF.exit54
 
 if.end.i49:                                       ; preds = %Py_DECREF.exit63
-  %78 = load ptr, ptr %op.addr.i46, align 8
-  %79 = load i64, ptr %78, align 8
-  %dec.i50 = add i64 %79, -1
-  store i64 %dec.i50, ptr %78, align 8
+  %80 = load ptr, ptr %op.addr.i46, align 8
+  %81 = load i64, ptr %80, align 8
+  %dec.i50 = add i64 %81, -1
+  store i64 %dec.i50, ptr %80, align 8
   %cmp.i51 = icmp eq i64 %dec.i50, 0
   br i1 %cmp.i51, label %if.then1.i52, label %Py_DECREF.exit54
 
 if.then1.i52:                                     ; preds = %if.end.i49
-  %80 = load ptr, ptr %op.addr.i46, align 8
-  call void @_Py_Dealloc(ptr noundef %80) #10
+  %82 = load ptr, ptr %op.addr.i46, align 8
+  call void @_Py_Dealloc(ptr noundef %82) #10
   br label %Py_DECREF.exit54
 
 Py_DECREF.exit54:                                 ; preds = %if.then1.i52, %if.end.i49, %if.then.i53
-  %81 = load ptr, ptr %runargs, align 8
-  store ptr %81, ptr %op.addr.i37, align 8
-  %82 = load ptr, ptr %op.addr.i37, align 8
-  store ptr %82, ptr %op.addr.i161, align 8
-  %83 = load ptr, ptr %op.addr.i161, align 8
-  %84 = load i64, ptr %83, align 8
-  %conv.i162 = trunc i64 %84 to i32
+  %83 = load ptr, ptr %runargs, align 8
+  store ptr %83, ptr %op.addr.i37, align 8
+  %84 = load ptr, ptr %op.addr.i37, align 8
+  store ptr %84, ptr %op.addr.i161, align 8
+  %85 = load ptr, ptr %op.addr.i161, align 8
+  %86 = load i64, ptr %85, align 8
+  %conv.i162 = trunc i64 %86 to i32
   %cmp.i163 = icmp slt i32 %conv.i162, 0
   %conv1.i164 = zext i1 %cmp.i163 to i32
   %tobool.i39 = icmp ne i32 %conv1.i164, 0
@@ -2486,21 +2492,21 @@ if.then.i44:                                      ; preds = %Py_DECREF.exit54
   br label %Py_DECREF.exit45
 
 if.end.i40:                                       ; preds = %Py_DECREF.exit54
-  %85 = load ptr, ptr %op.addr.i37, align 8
-  %86 = load i64, ptr %85, align 8
-  %dec.i41 = add i64 %86, -1
-  store i64 %dec.i41, ptr %85, align 8
+  %87 = load ptr, ptr %op.addr.i37, align 8
+  %88 = load i64, ptr %87, align 8
+  %dec.i41 = add i64 %88, -1
+  store i64 %dec.i41, ptr %87, align 8
   %cmp.i42 = icmp eq i64 %dec.i41, 0
   br i1 %cmp.i42, label %if.then1.i43, label %Py_DECREF.exit45
 
 if.then1.i43:                                     ; preds = %if.end.i40
-  %87 = load ptr, ptr %op.addr.i37, align 8
-  call void @_Py_Dealloc(ptr noundef %87) #10
+  %89 = load ptr, ptr %op.addr.i37, align 8
+  call void @_Py_Dealloc(ptr noundef %89) #10
   br label %Py_DECREF.exit45
 
 Py_DECREF.exit45:                                 ; preds = %if.then1.i43, %if.end.i40, %if.then.i44
-  %88 = load ptr, ptr %result, align 8
-  %cmp33 = icmp eq ptr %88, null
+  %90 = load ptr, ptr %result, align 8
+  %cmp33 = icmp eq ptr %90, null
   br i1 %cmp33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %Py_DECREF.exit45
@@ -2509,13 +2515,13 @@ if.then34:                                        ; preds = %Py_DECREF.exit45
   br label %return
 
 if.end36:                                         ; preds = %Py_DECREF.exit45
-  %89 = load ptr, ptr %result, align 8
-  store ptr %89, ptr %op.addr.i, align 8
-  %90 = load ptr, ptr %op.addr.i, align 8
-  store ptr %90, ptr %op.addr.i165, align 8
-  %91 = load ptr, ptr %op.addr.i165, align 8
-  %92 = load i64, ptr %91, align 8
-  %conv.i166 = trunc i64 %92 to i32
+  %91 = load ptr, ptr %result, align 8
+  store ptr %91, ptr %op.addr.i, align 8
+  %92 = load ptr, ptr %op.addr.i, align 8
+  store ptr %92, ptr %op.addr.i165, align 8
+  %93 = load ptr, ptr %op.addr.i165, align 8
+  %94 = load i64, ptr %93, align 8
+  %conv.i166 = trunc i64 %94 to i32
   %cmp.i167 = icmp slt i32 %conv.i166, 0
   %conv1.i168 = zext i1 %cmp.i167 to i32
   %tobool.i = icmp ne i32 %conv1.i168, 0
@@ -2525,16 +2531,16 @@ if.then.i:                                        ; preds = %if.end36
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.end36
-  %93 = load ptr, ptr %op.addr.i, align 8
-  %94 = load i64, ptr %93, align 8
-  %dec.i = add i64 %94, -1
-  store i64 %dec.i, ptr %93, align 8
+  %95 = load ptr, ptr %op.addr.i, align 8
+  %96 = load i64, ptr %95, align 8
+  %dec.i = add i64 %96, -1
+  store i64 %dec.i, ptr %95, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %95 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %95) #10
+  %97 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %97) #10
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -2542,8 +2548,8 @@ Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end
   br label %return
 
 return:                                           ; preds = %Py_DECREF.exit, %if.then34, %Py_DECREF.exit81, %Py_DECREF.exit108, %Py_DECREF.exit126, %if.then4, %if.then
-  %96 = load i32, ptr %retval, align 4
-  ret i32 %96
+  %98 = load i32, ptr %retval, align 4
+  ret i32 %98
 }
 
 ; Function Attrs: nounwind uwtable

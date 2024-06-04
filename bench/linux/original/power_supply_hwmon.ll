@@ -28,12 +28,12 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = tail call ptr @devres_open_group(ptr noundef %3, ptr noundef nonnull @power_supply_add_hwmon_sysfs, i32 noundef 3264) #9
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %58, label %6
+  br i1 %5, label %59, label %6
 
 6:                                                ; preds = %1
   %7 = tail call noalias noundef dereferenceable_or_null(16) ptr @devm_kmalloc(ptr noundef %3, i64 noundef 16, i32 noundef 3520) #10
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %55, label %9
+  br i1 %8, label %56, label %9
 
 9:                                                ; preds = %6
   store ptr %0, ptr %7, align 8
@@ -41,7 +41,7 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
-  br i1 %12, label %55, label %13
+  br i1 %12, label %56, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %2, i64 40
@@ -109,30 +109,31 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
 43:                                               ; preds = %41, %38
   %44 = phi i32 [ 0, %41 ], [ -12, %38 ]
   %45 = phi ptr [ %39, %41 ], [ %35, %38 ]
-  br i1 %40, label %55, label %46
+  br i1 %40, label %56, label %46
 
 46:                                               ; preds = %43, %33
   %47 = phi ptr [ %45, %43 ], [ %35, %33 ]
   %48 = tail call ptr @devm_hwmon_device_register_with_info(ptr noundef %3, ptr noundef %47, ptr noundef nonnull %7, ptr noundef nonnull @power_supply_hwmon_chip_info, ptr noundef null) #9
-  %49 = icmp ugt ptr %48, inttoptr (i64 -4096 to ptr)
-  %50 = ptrtoint ptr %48 to i64
-  %51 = trunc i64 %50 to i32
-  %52 = select i1 %49, i32 %51, i32 0
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %55
+  %49 = inttoptr i64 -4096 to ptr
+  %50 = icmp ugt ptr %48, %49
+  %51 = ptrtoint ptr %48 to i64
+  %52 = trunc i64 %51 to i32
+  %53 = select i1 %50, i32 %52, i32 0
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %46
+55:                                               ; preds = %46
   tail call void @devres_close_group(ptr noundef %3, ptr noundef nonnull @power_supply_add_hwmon_sysfs) #9
-  br label %58
+  br label %59
 
-55:                                               ; preds = %46, %43, %9, %6
-  %56 = phi i32 [ %44, %43 ], [ %52, %46 ], [ -12, %6 ], [ -12, %9 ]
-  %57 = tail call i32 @devres_release_group(ptr noundef %3, ptr noundef null) #9
-  br label %58
+56:                                               ; preds = %46, %43, %9, %6
+  %57 = phi i32 [ %44, %43 ], [ %53, %46 ], [ -12, %6 ], [ -12, %9 ]
+  %58 = tail call i32 @devres_release_group(ptr noundef %3, ptr noundef null) #9
+  br label %59
 
-58:                                               ; preds = %55, %54, %1
-  %59 = phi i32 [ %56, %55 ], [ 0, %54 ], [ -12, %1 ]
-  ret i32 %59
+59:                                               ; preds = %56, %55, %1
+  %60 = phi i32 [ %57, %56 ], [ 0, %55 ], [ -12, %1 ]
+  ret i32 %60
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

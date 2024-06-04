@@ -38,8 +38,9 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %4 = load ptr, ptr %name.addr, align 8
   call void @strbuf_addstr(ptr noundef @tr2cmdname_hierarchy, ptr noundef %4)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i32 0, i32 2), align 8
-  %call2 = call i32 @setenv(ptr noundef @.str, ptr noundef %5, i32 noundef 1) #5
+  %5 = getelementptr inbounds %struct.strbuf, ptr @tr2cmdname_hierarchy, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %call2 = call i32 @setenv(ptr noundef @.str, ptr noundef %6, i32 noundef 1) #5
   ret void
 }
 
@@ -168,8 +169,9 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tr2_cmd_name_get_hierarchy() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @tr2cmdname_hierarchy, i32 0, i32 2), align 8
-  ret ptr %0
+  %0 = getelementptr inbounds %struct.strbuf, ptr @tr2cmdname_hierarchy, i32 0, i32 2
+  %1 = load ptr, ptr %0, align 8
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable

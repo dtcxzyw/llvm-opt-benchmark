@@ -2401,16 +2401,17 @@ define linkonce_odr void @_ZN2mu10ParserBase14change_dec_sepIcEC2Ecci(ptr nounde
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %5, align 8
   call void @_ZNSt7__cxx118numpunctIcEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 0)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.mu::ParserBase::change_dec_sep", ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %8, align 4
-  store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.mu::ParserBase::change_dec_sep", ptr %9, i32 0, i32 2
-  %13 = load i8, ptr %6, align 1
-  store i8 %13, ptr %12, align 4
-  %14 = getelementptr inbounds %"class.mu::ParserBase::change_dec_sep", ptr %9, i32 0, i32 3
-  %15 = load i8, ptr %7, align 1
-  store i8 %15, ptr %14, align 1
+  %10 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN2mu10ParserBase14change_dec_sepIcEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.mu::ParserBase::change_dec_sep", ptr %9, i32 0, i32 1
+  %12 = load i32, ptr %8, align 4
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.mu::ParserBase::change_dec_sep", ptr %9, i32 0, i32 2
+  %14 = load i8, ptr %6, align 1
+  store i8 %14, ptr %13, align 4
+  %15 = getelementptr inbounds %"class.mu::ParserBase::change_dec_sep", ptr %9, i32 0, i32 3
+  %16 = load i8, ptr %7, align 1
+  store i8 %16, ptr %15, align 1
   ret void
 }
 
@@ -2763,88 +2764,89 @@ define void @_ZN2mu10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu10ParserBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 1
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), i64 0 }, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 2
-  call void @_ZN2mu14ParserByteCodeC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7)
-  %8 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  %9 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN2mu10ParserBaseE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 1
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), i64 0 }, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 2
+  call void @_ZN2mu14ParserByteCodeC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %9 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  %10 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 5
-  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #4
-  %11 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 6
-  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #4
-  %12 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 7
+  %10 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  %11 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #4
+  %12 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 6
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 48, i1 false)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #4
-  %13 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 8
+  %13 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 7
   call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 48, i1 false)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #4
-  %14 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 9
+  %14 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 8
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 48, i1 false)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #4
-  %15 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 10
+  %15 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 9
   call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #4
-  %16 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 11
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #4
+  %16 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 10
   call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #4
-  %17 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 12
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #4
+  %17 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 11
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
-  %18 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 13
-  store i8 1, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
-  %20 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 16
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
+  %18 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 12
+  call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 48, i1 false)
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
+  %19 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 13
+  store i8 1, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #4
-  %21 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 17
+  %21 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #4
-  %22 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 18
-  call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #4
-  %23 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 19
-  store i32 0, ptr %23, align 8
+  %22 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #4
+  %23 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 18
+  call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #4
+  %24 = getelementptr inbounds %"class.mu::ParserBase", ptr %5, i32 0, i32 19
+  store i32 0, ptr %24, align 8
   invoke void @_ZN2mu10ParserBase15InitTokenReaderEv(ptr noundef nonnull align 8 dereferenceable(596) %5)
-          to label %24 unwind label %25
-
-24:                                               ; preds = %1
-  ret void
+          to label %25 unwind label %26
 
 25:                                               ; preds = %1
-  %26 = landingpad { ptr, i32 }
+  ret void
+
+26:                                               ; preds = %1
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %3, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %4, align 4
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %3, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %4, align 4
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #4
-  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #4
+  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  call void @_ZN2mu14ParserByteCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #4
-  br label %29
+  call void @_ZN2mu14ParserByteCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #4
+  br label %30
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i32, ptr %4, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %3, align 8
+  %32 = load i32, ptr %4, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2898,7 +2900,7 @@ define noundef double @_ZNK2mu10ParserBase11ParseStringEv(ptr noundef nonnull al
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %5, align 4
-  %33 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2mu11ParserErrorE) #4
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2mu11ParserErrorE) #4
   %34 = icmp eq i32 %32, %33
   br i1 %34, label %35, label %83
 
@@ -6207,109 +6209,110 @@ define void @_ZN2mu10ParserBaseC2ERKS0_(ptr noundef nonnull align 8 dereferencea
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu10ParserBaseE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 1
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), i64 0 }, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 2
-  call void @_ZN2mu14ParserByteCodeC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9)
-  %10 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN2mu10ParserBaseE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 1
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), i64 0 }, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 2
+  call void @_ZN2mu14ParserByteCodeC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %11 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  %12 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 5
-  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #4
-  %13 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 6
-  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #4
-  %14 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 7
+  %12 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
+  %13 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #4
+  %14 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 6
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 48, i1 false)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #4
-  %15 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 8
+  %15 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 7
   call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 48, i1 false)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #4
-  %16 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 9
+  %16 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 8
   call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 48, i1 false)
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #4
-  %17 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 10
+  %17 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 9
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
-  %18 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 11
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
+  %18 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 10
   call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
-  %19 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 12
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
+  %19 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 11
   call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #4
-  %20 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 13
-  store i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #4
-  %22 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 16
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #4
+  %20 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 12
+  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 48, i1 false)
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #4
+  %21 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 13
+  store i8 1, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #4
-  %23 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 17
+  %23 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #4
-  %24 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 18
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #4
-  %25 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 5
-  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 400) #19
-          to label %27 unwind label %31
+  %24 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #4
+  %25 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 18
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #4
+  %26 = getelementptr inbounds %"class.mu::ParserBase", ptr %7, i32 0, i32 5
+  %27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 400) #19
+          to label %28 unwind label %32
 
-27:                                               ; preds = %2
-  invoke void @_ZN2mu17ParserTokenReaderC1EPNS_10ParserBaseE(ptr noundef nonnull align 8 dereferenceable(400) %26, ptr noundef %7)
-          to label %28 unwind label %35
+28:                                               ; preds = %2
+  invoke void @_ZN2mu17ParserTokenReaderC1EPNS_10ParserBaseE(ptr noundef nonnull align 8 dereferenceable(400) %27, ptr noundef %7)
+          to label %29 unwind label %36
 
-28:                                               ; preds = %27
-  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26) #4
-  %29 = load ptr, ptr %4, align 8
-  invoke void @_ZN2mu10ParserBase6AssignERKS0_(ptr noundef nonnull align 8 dereferenceable(596) %7, ptr noundef nonnull align 8 dereferenceable(596) %29)
-          to label %30 unwind label %31
+29:                                               ; preds = %28
+  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %27) #4
+  %30 = load ptr, ptr %4, align 8
+  invoke void @_ZN2mu10ParserBase6AssignERKS0_(ptr noundef nonnull align 8 dereferenceable(596) %7, ptr noundef nonnull align 8 dereferenceable(596) %30)
+          to label %31 unwind label %32
 
-30:                                               ; preds = %28
+31:                                               ; preds = %29
   ret void
 
-31:                                               ; preds = %28, %2
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %29, %2
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %5, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %6, align 4
-  br label %39
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
+  br label %40
 
-35:                                               ; preds = %27
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %28
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %5, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %26) #20
-  br label %39
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %27) #20
+  br label %40
 
-39:                                               ; preds = %35, %31
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #4
+40:                                               ; preds = %36, %32
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #4
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #4
-  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #4
+  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  call void @_ZN2mu14ParserByteCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #4
-  br label %40
+  call void @_ZN2mu14ParserByteCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #4
+  br label %41
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %5, align 8
-  %42 = load i32, ptr %6, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i32, ptr %6, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6452,37 +6455,38 @@ define void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN2mu10ParserBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 18
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
-  %5 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #4
-  %6 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 16
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN2mu10ParserBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 18
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %6 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #4
-  %7 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 15
+  %7 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #4
-  %8 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 12
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #4
-  %9 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 11
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #4
-  %10 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 10
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #4
-  %11 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 9
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #4
-  %12 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 8
+  %8 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #4
+  %9 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 12
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #4
+  %10 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 11
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #4
+  %11 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 10
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #4
+  %12 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 9
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #4
-  %13 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 7
+  %13 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 8
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #4
-  %14 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 6
+  %14 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 7
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #4
-  %15 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 5
-  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #4
-  %16 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  %17 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 3
+  %15 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 6
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2mu14ParserCallbackESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #4
+  %16 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #4
+  %17 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #4
-  %18 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 2
-  call void @_ZN2mu14ParserByteCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #4
+  %18 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
+  %19 = getelementptr inbounds %"class.mu::ParserBase", ptr %3, i32 0, i32 2
+  call void @_ZN2mu14ParserByteCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #4
   ret void
 }
 
@@ -20685,7 +20689,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK2mu10ParserBase10Get
 
 19:                                               ; preds = %15
   %20 = load i32, ptr %4, align 4
-  %21 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2mu11ParserErrorE) #4
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2mu11ParserErrorE) #4
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %23, label %39
 
@@ -22047,9 +22051,6 @@ define void @_ZNK2mu10ParserBase9CreateRPNEv(ptr noundef nonnull align 8 derefer
   unreachable
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #15
-
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN2mu17ParserTokenReader10GetUsedVarB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(400)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22542,7 +22543,7 @@ define void @_ZNK2mu10ParserBase12ApplyStrFuncERKNS_11ParserTokenIdNSt7__cxx1112
 
 224:                                              ; preds = %220, %213, %182, %155, %132, %113, %98, %87
   %225 = load i32, ptr %12, align 4
-  %226 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN2mu11ParserErrorE) #4
+  %226 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN2mu11ParserErrorE) #4
   %227 = icmp eq i32 %225, %226
   br i1 %227, label %228, label %262
 
@@ -29965,7 +29966,7 @@ define linkonce_odr noundef ptr @_ZNK2mu14ParserByteCode7GetBaseEv(ptr noundef n
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #16
+declare double @llvm.fmuladd.f64(double, double, double) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNK2mu21generic_callable_type8call_funILm0EJEEEdDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
@@ -36599,7 +36600,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIiER
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN2mu10ParserBase4EvalEPdi.omp_outlined(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, i64 noundef %5) #17 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2mu10ParserBase4EvalEPdi.omp_outlined(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, i64 noundef %5) #16 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -36765,6 +36766,9 @@ define internal void @_GLOBAL__sub_I_muParserBase.cpp() #1 section ".text.startu
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #17
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -36780,9 +36784,9 @@ attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind memory(none) }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { builtin allocsize(0) }
 attributes #20 = { builtin nounwind }

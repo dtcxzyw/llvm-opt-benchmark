@@ -336,13 +336,15 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !75
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 496
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !77
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = getelementptr inbounds i8, ptr %this, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  %3 = getelementptr inbounds i8, ptr %this, i64 52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 56, i1 false)
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 108
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i, align 4, !tbaa !10
   %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -379,23 +381,26 @@ entry:
   %IsDebugObject.i.i = getelementptr inbounds i8, ptr %this, i64 221
   store i8 0, ptr %IsDebugObject.i.i, align 1, !tbaa !42
   %tobool.not.i.i = icmp eq ptr %parent, null
+  %4 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
   br i1 %tobool.not.i.i, label %_ZN3irr5scene14IMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %vtable3.i.i = load ptr, ptr %parent, align 8, !tbaa !3
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 136
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(222) %parent, ptr noundef nonnull %this) #19
+  %5 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(222) %parent, ptr noundef nonnull %this) #19
   %vtable4.i.i.pre = load ptr, ptr %this, align 8, !tbaa !3
   br label %_ZN3irr5scene14IMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit
 
 _ZN3irr5scene14IMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_SA_.exit: ; preds = %if.then.i.i, %entry
-  %vtable4.i.i = phi ptr [ getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
+  %vtable4.i.i = phi ptr [ %4, %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 256
-  %3 = load ptr, ptr %vfn5.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(222) %this) #19
-  store ptr getelementptr inbounds inrange(-24, 320) ({ [43 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene14CMeshSceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [43 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene14CMeshSceneNodeE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %6 = load ptr, ptr %vfn5.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(222) %this) #19
+  %7 = getelementptr inbounds { [43 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene14CMeshSceneNodeE, i64 0, i32 0, i64 3
+  store ptr %7, ptr %this, align 8, !tbaa !3
+  %8 = getelementptr inbounds { [43 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene14CMeshSceneNodeE, i64 0, i32 1, i64 3
+  store ptr %8, ptr %0, align 8, !tbaa !3
   %Materials = getelementptr inbounds i8, ptr %this, i64 224
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Materials, i8 0, i64 24, i1 false)
@@ -503,8 +508,8 @@ if.end.i:                                         ; preds = %_ZN3irr5scene14IMes
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %mesh, i64 %vbase.offset.i
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %4 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !77
-  %inc.i.i = add nsw i32 %4, 1
+  %9 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !77
+  %inc.i.i = add nsw i32 %9, 1
   store i32 %inc.i.i, ptr %ReferenceCounter.i.i, align 8, !tbaa !77
   store ptr %mesh, ptr %Mesh, align 8, !tbaa !69
   tail call void @_ZN3irr5scene14CMeshSceneNode13copyMaterialsEv(ptr noundef nonnull align 8 dereferenceable(477) %this)

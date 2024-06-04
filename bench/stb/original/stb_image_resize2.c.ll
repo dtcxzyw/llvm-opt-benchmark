@@ -6861,765 +6861,766 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end147
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end146, %if.then142, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !110
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i176, align 8
-  %9 = load ptr, ptr %__p.addr.i176, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !110
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i176, align 8
+  %10 = load ptr, ptr %__p.addr.i176, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i175, align 8
-  %12 = load ptr, ptr %__p.addr.i175, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i175, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i174, align 8
-  %15 = load ptr, ptr %__p.addr.i174, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i174, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i211, align 16
-  store <4 x float> %21, ptr %__b.addr.i212, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i211, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i212, align 16
-  %shuffle.i213 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i211, align 16
+  store <4 x float> %22, ptr %__b.addr.i212, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i211, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i212, align 16
+  %shuffle.i213 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i213, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i208, align 16
-  store <4 x float> %25, ptr %__b.addr.i209, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i209, align 16
-  %shuffle.i210 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i208, align 16
+  store <4 x float> %26, ptr %__b.addr.i209, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i209, align 16
+  %shuffle.i210 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i210, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i217, align 16
-  store <4 x float> %29, ptr %__b.addr.i218, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i217, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i218, align 16
-  %shuffle.i219 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i217, align 16
+  store <4 x float> %30, ptr %__b.addr.i218, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i217, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i218, align 16
+  %shuffle.i219 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i219, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i214, align 16
-  store <4 x float> %33, ptr %__b.addr.i215, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i214, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i215, align 16
-  %shuffle.i216 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i214, align 16
+  store <4 x float> %34, ptr %__b.addr.i215, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i214, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i215, align 16
+  %shuffle.i216 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i216, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i223, align 16
-  store <4 x float> %37, ptr %__b.addr.i224, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i223, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i224, align 16
-  %shuffle.i225 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i223, align 16
+  store <4 x float> %38, ptr %__b.addr.i224, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i223, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i224, align 16
+  %shuffle.i225 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i225, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i229, align 16
-  store <4 x float> %41, ptr %__b.addr.i230, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i229, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i230, align 16
-  %shuffle.i231 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i229, align 16
+  store <4 x float> %42, ptr %__b.addr.i230, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i229, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i230, align 16
+  %shuffle.i231 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i231, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i220, align 16
-  store <4 x float> %45, ptr %__b.addr.i221, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i220, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i221, align 16
-  %shuffle.i222 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i220, align 16
+  store <4 x float> %46, ptr %__b.addr.i221, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i220, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i221, align 16
+  %shuffle.i222 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i222, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i226, align 16
-  store <4 x float> %49, ptr %__b.addr.i227, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i226, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i227, align 16
-  %shuffle.i228 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i226, align 16
+  store <4 x float> %50, ptr %__b.addr.i227, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i226, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i227, align 16
+  %shuffle.i228 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i228, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i239, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i239, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i200, align 16
-  store <4 x float> %54, ptr %__b.addr.i201, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i200, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i201, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i239, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i200, align 16
+  store <4 x float> %55, ptr %__b.addr.i201, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i200, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i201, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i238, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i238, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i192, align 16
-  store <4 x float> %60, ptr %__b.addr.i193, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i192, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i193, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i270, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i270, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i261, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i238, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i192, align 16
+  store <4 x float> %61, ptr %__b.addr.i193, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i192, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i193, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i270, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i270, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i261, align 16
   store i32 20, ptr %__count.addr.i262, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i261, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i262, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i261, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i262, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i237, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i237, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i198, align 16
-  store <4 x float> %74, ptr %__b.addr.i199, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i198, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i199, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i237, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i198, align 16
+  store <4 x float> %75, ptr %__b.addr.i199, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i198, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i199, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i236, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i236, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i190, align 16
-  store <4 x float> %80, ptr %__b.addr.i191, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i190, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i191, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i269, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i269, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i259, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i236, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i190, align 16
+  store <4 x float> %81, ptr %__b.addr.i191, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i190, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i191, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i269, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i269, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i259, align 16
   store i32 20, ptr %__count.addr.i260, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i259, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i260, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i259, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i260, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i235, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i235, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i196, align 16
-  store <4 x float> %94, ptr %__b.addr.i197, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i196, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i197, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i235, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i196, align 16
+  store <4 x float> %95, ptr %__b.addr.i197, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i196, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i197, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i234, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i234, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i188, align 16
-  store <4 x float> %100, ptr %__b.addr.i189, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i188, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i189, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i268, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i268, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i257, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i234, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i188, align 16
+  store <4 x float> %101, ptr %__b.addr.i189, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i188, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i189, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i268, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i268, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i257, align 16
   store i32 20, ptr %__count.addr.i258, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i257, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i258, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i257, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i258, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i233, align 16
-  %113 = load <2 x i64>, ptr %__a.addr.i233, align 16
-  %114 = bitcast <2 x i64> %113 to <4 x float>
-  store <4 x float> %112, ptr %__a.addr.i194, align 16
-  store <4 x float> %114, ptr %__b.addr.i195, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i194, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i195, align 16
-  %117 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %115, <4 x float> %116)
-  store <4 x float> %117, ptr %f3, align 16
-  %118 = load <4 x float>, ptr %f3, align 16
+  %114 = load <2 x i64>, ptr %__a.addr.i233, align 16
+  %115 = bitcast <2 x i64> %114 to <4 x float>
+  store <4 x float> %113, ptr %__a.addr.i194, align 16
+  store <4 x float> %115, ptr %__b.addr.i195, align 16
+  %116 = load <4 x float>, ptr %__a.addr.i194, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i195, align 16
+  %118 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %116, <4 x float> %117)
+  store <4 x float> %118, ptr %f3, align 16
+  %119 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i232, align 16
-  %119 = load <2 x i64>, ptr %__a.addr.i232, align 16
-  %120 = bitcast <2 x i64> %119 to <4 x float>
-  store <4 x float> %118, ptr %__a.addr.i186, align 16
-  store <4 x float> %120, ptr %__b.addr.i187, align 16
-  %121 = load <4 x float>, ptr %__a.addr.i186, align 16
-  %122 = load <4 x float>, ptr %__b.addr.i187, align 16
-  %123 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %121, <4 x float> %122)
-  store <4 x float> %123, ptr %f3, align 16
-  %124 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %124, ptr %__a.addr.i267, align 16
-  %125 = load <4 x float>, ptr %__a.addr.i267, align 16
-  %126 = bitcast <4 x float> %125 to <2 x i64>
-  store <2 x i64> %126, ptr %__a.addr.i255, align 16
+  %120 = load <2 x i64>, ptr %__a.addr.i232, align 16
+  %121 = bitcast <2 x i64> %120 to <4 x float>
+  store <4 x float> %119, ptr %__a.addr.i186, align 16
+  store <4 x float> %121, ptr %__b.addr.i187, align 16
+  %122 = load <4 x float>, ptr %__a.addr.i186, align 16
+  %123 = load <4 x float>, ptr %__b.addr.i187, align 16
+  %124 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %122, <4 x float> %123)
+  store <4 x float> %124, ptr %f3, align 16
+  %125 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %125, ptr %__a.addr.i267, align 16
+  %126 = load <4 x float>, ptr %__a.addr.i267, align 16
+  %127 = bitcast <4 x float> %126 to <2 x i64>
+  store <2 x i64> %127, ptr %__a.addr.i255, align 16
   store i32 20, ptr %__count.addr.i256, align 4
-  %127 = load <2 x i64>, ptr %__a.addr.i255, align 16
-  %128 = bitcast <2 x i64> %127 to <4 x i32>
-  %129 = load i32, ptr %__count.addr.i256, align 4
-  %130 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %128, i32 %129)
-  %131 = bitcast <4 x i32> %130 to <2 x i64>
-  store <2 x i64> %131, ptr %i3, align 16
-  %132 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %132, ptr %temp0, align 16
-  %133 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %133, ptr %temp1, align 16
-  %134 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %134, ptr %temp2, align 16
-  %135 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %135, ptr %temp3, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  %128 = load <2 x i64>, ptr %__a.addr.i255, align 16
+  %129 = bitcast <2 x i64> %128 to <4 x i32>
+  %130 = load i32, ptr %__count.addr.i256, align 4
+  %131 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %129, i32 %130)
+  %132 = bitcast <4 x i32> %131 to <2 x i64>
+  store <2 x i64> %132, ptr %i3, align 16
+  %133 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %133, ptr %temp0, align 16
+  %134 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %134, ptr %temp1, align 16
+  %135 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %135, ptr %temp2, align 16
+  %136 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %136, ptr %temp3, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %137 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %137 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %136, i64 %idxprom
-  %138 = load i32, ptr %arrayidx43, align 4
+  %138 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %138 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %137, i64 %idxprom
+  %139 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %138, ptr %arrayidx44, align 16
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx44, align 16
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %140 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %140 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %139, i64 %idxprom46
-  %141 = load i32, ptr %arrayidx47, align 4
+  %141 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %141 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %140, i64 %idxprom46
+  %142 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %141, ptr %arrayidx48, align 4
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx48, align 4
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %143 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %143 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %142, i64 %idxprom50
-  %144 = load i32, ptr %arrayidx51, align 4
+  %144 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %144 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %143, i64 %idxprom50
+  %145 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %144, ptr %arrayidx52, align 8
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx52, align 8
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %146 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %146 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %145, i64 %idxprom54
-  %147 = load i32, ptr %arrayidx55, align 4
+  %147 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %147 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %146, i64 %idxprom54
+  %148 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %147, ptr %arrayidx56, align 4
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx56, align 4
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %149 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %149 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %148, i64 %idxprom58
-  %150 = load i32, ptr %arrayidx59, align 4
+  %150 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %150 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %149, i64 %idxprom58
+  %151 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %150, ptr %arrayidx60, align 16
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx60, align 16
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %152 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %152 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %151, i64 %idxprom62
-  %153 = load i32, ptr %arrayidx63, align 4
+  %153 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %153 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %152, i64 %idxprom62
+  %154 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %153, ptr %arrayidx64, align 4
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx64, align 4
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %155 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %155 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %154, i64 %idxprom66
-  %156 = load i32, ptr %arrayidx67, align 4
+  %156 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %156 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %155, i64 %idxprom66
+  %157 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %156, ptr %arrayidx68, align 8
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx68, align 8
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %158 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %158 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %157, i64 %idxprom70
-  %159 = load i32, ptr %arrayidx71, align 4
+  %159 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %159 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %158, i64 %idxprom70
+  %160 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %159, ptr %arrayidx72, align 4
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx72, align 4
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %161 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %161 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %160, i64 %idxprom74
-  %162 = load i32, ptr %arrayidx75, align 4
+  %162 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %162 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %161, i64 %idxprom74
+  %163 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %162, ptr %arrayidx76, align 16
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx76, align 16
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %164 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %164 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %163, i64 %idxprom78
-  %165 = load i32, ptr %arrayidx79, align 4
+  %165 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %165 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %164, i64 %idxprom78
+  %166 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %165, ptr %arrayidx80, align 4
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx80, align 4
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %167 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %167 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %166, i64 %idxprom82
-  %168 = load i32, ptr %arrayidx83, align 4
+  %168 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %168 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %167, i64 %idxprom82
+  %169 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %168, ptr %arrayidx84, align 8
-  %169 = load ptr, ptr %to_srgb, align 8
+  store i32 %169, ptr %arrayidx84, align 8
+  %170 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %170 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %170 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %169, i64 %idxprom86
-  %171 = load i32, ptr %arrayidx87, align 4
+  %171 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %171 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %170, i64 %idxprom86
+  %172 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %171, ptr %arrayidx88, align 4
-  %172 = load ptr, ptr %to_srgb, align 8
+  store i32 %172, ptr %arrayidx88, align 4
+  %173 = load ptr, ptr %to_srgb, align 8
   %arrayidx89 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  %173 = load i32, ptr %arrayidx89, align 16
-  %idxprom90 = sext i32 %173 to i64
-  %arrayidx91 = getelementptr inbounds i32, ptr %172, i64 %idxprom90
-  %174 = load i32, ptr %arrayidx91, align 4
+  %174 = load i32, ptr %arrayidx89, align 16
+  %idxprom90 = sext i32 %174 to i64
+  %arrayidx91 = getelementptr inbounds i32, ptr %173, i64 %idxprom90
+  %175 = load i32, ptr %arrayidx91, align 4
   %arrayidx92 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  store i32 %174, ptr %arrayidx92, align 16
-  %175 = load ptr, ptr %to_srgb, align 8
+  store i32 %175, ptr %arrayidx92, align 16
+  %176 = load ptr, ptr %to_srgb, align 8
   %arrayidx93 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  %176 = load i32, ptr %arrayidx93, align 4
-  %idxprom94 = sext i32 %176 to i64
-  %arrayidx95 = getelementptr inbounds i32, ptr %175, i64 %idxprom94
-  %177 = load i32, ptr %arrayidx95, align 4
+  %177 = load i32, ptr %arrayidx93, align 4
+  %idxprom94 = sext i32 %177 to i64
+  %arrayidx95 = getelementptr inbounds i32, ptr %176, i64 %idxprom94
+  %178 = load i32, ptr %arrayidx95, align 4
   %arrayidx96 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  store i32 %177, ptr %arrayidx96, align 4
-  %178 = load ptr, ptr %to_srgb, align 8
+  store i32 %178, ptr %arrayidx96, align 4
+  %179 = load ptr, ptr %to_srgb, align 8
   %arrayidx97 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  %179 = load i32, ptr %arrayidx97, align 8
-  %idxprom98 = sext i32 %179 to i64
-  %arrayidx99 = getelementptr inbounds i32, ptr %178, i64 %idxprom98
-  %180 = load i32, ptr %arrayidx99, align 4
+  %180 = load i32, ptr %arrayidx97, align 8
+  %idxprom98 = sext i32 %180 to i64
+  %arrayidx99 = getelementptr inbounds i32, ptr %179, i64 %idxprom98
+  %181 = load i32, ptr %arrayidx99, align 4
   %arrayidx100 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  store i32 %180, ptr %arrayidx100, align 8
-  %181 = load ptr, ptr %to_srgb, align 8
+  store i32 %181, ptr %arrayidx100, align 8
+  %182 = load ptr, ptr %to_srgb, align 8
   %arrayidx101 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  %182 = load i32, ptr %arrayidx101, align 4
-  %idxprom102 = sext i32 %182 to i64
-  %arrayidx103 = getelementptr inbounds i32, ptr %181, i64 %idxprom102
-  %183 = load i32, ptr %arrayidx103, align 4
+  %183 = load i32, ptr %arrayidx101, align 4
+  %idxprom102 = sext i32 %183 to i64
+  %arrayidx103 = getelementptr inbounds i32, ptr %182, i64 %idxprom102
+  %184 = load i32, ptr %arrayidx103, align 4
   %arrayidx104 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  store i32 %183, ptr %arrayidx104, align 4
-  %184 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %184, ptr %i0, align 16
-  %185 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %185, ptr %i1, align 16
-  %186 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %186, ptr %i2, align 16
-  %187 = load <2 x i64>, ptr %temp3, align 16
-  store <2 x i64> %187, ptr %i3, align 16
-  %188 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %188, ptr %__a.addr.i266, align 16
-  %189 = load <4 x float>, ptr %__a.addr.i266, align 16
-  %190 = bitcast <4 x float> %189 to <2 x i64>
-  store <2 x i64> %190, ptr %__a.addr.i253, align 16
+  store i32 %184, ptr %arrayidx104, align 4
+  %185 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %185, ptr %i0, align 16
+  %186 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %186, ptr %i1, align 16
+  %187 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %187, ptr %i2, align 16
+  %188 = load <2 x i64>, ptr %temp3, align 16
+  store <2 x i64> %188, ptr %i3, align 16
+  %189 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %189, ptr %__a.addr.i266, align 16
+  %190 = load <4 x float>, ptr %__a.addr.i266, align 16
+  %191 = bitcast <4 x float> %190 to <2 x i64>
+  store <2 x i64> %191, ptr %__a.addr.i253, align 16
   store i32 12, ptr %__count.addr.i254, align 4
-  %191 = load <2 x i64>, ptr %__a.addr.i253, align 16
-  %192 = bitcast <2 x i64> %191 to <4 x i32>
-  %193 = load i32, ptr %__count.addr.i254, align 4
-  %194 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %192, i32 %193)
-  %195 = bitcast <4 x i32> %194 to <2 x i64>
-  store <2 x i64> %195, ptr %temp, align 16
-  %196 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %196, ptr %__a.addr.i279, align 16
+  %192 = load <2 x i64>, ptr %__a.addr.i253, align 16
+  %193 = bitcast <2 x i64> %192 to <4 x i32>
+  %194 = load i32, ptr %__count.addr.i254, align 4
+  %195 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %193, i32 %194)
+  %196 = bitcast <4 x i32> %195 to <2 x i64>
+  store <2 x i64> %196, ptr %temp, align 16
+  %197 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %197, ptr %__a.addr.i279, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i280, align 16
-  %197 = load <2 x i64>, ptr %__a.addr.i279, align 16
-  %198 = load <2 x i64>, ptr %__b.addr.i280, align 16
-  %and.i281 = and <2 x i64> %197, %198
+  %198 = load <2 x i64>, ptr %__a.addr.i279, align 16
+  %199 = load <2 x i64>, ptr %__b.addr.i280, align 16
+  %and.i281 = and <2 x i64> %198, %199
   store <2 x i64> %and.i281, ptr %temp, align 16
-  %199 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %199, ptr %__a.addr.i290, align 16
+  %200 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %200, ptr %__a.addr.i290, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i291, align 16
-  %200 = load <2 x i64>, ptr %__a.addr.i290, align 16
-  %201 = load <2 x i64>, ptr %__b.addr.i291, align 16
-  %or.i292 = or <2 x i64> %200, %201
+  %201 = load <2 x i64>, ptr %__a.addr.i290, align 16
+  %202 = load <2 x i64>, ptr %__b.addr.i291, align 16
+  %or.i292 = or <2 x i64> %201, %202
   store <2 x i64> %or.i292, ptr %temp, align 16
-  %202 = load <2 x i64>, ptr %i0, align 16
-  %203 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %202, ptr %__a.addr.i299, align 16
-  store <2 x i64> %203, ptr %__b.addr.i300, align 16
-  %204 = load <2 x i64>, ptr %__a.addr.i299, align 16
-  %205 = bitcast <2 x i64> %204 to <8 x i16>
-  %206 = load <2 x i64>, ptr %__b.addr.i300, align 16
-  %207 = bitcast <2 x i64> %206 to <8 x i16>
-  %208 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %205, <8 x i16> %207)
-  %209 = bitcast <4 x i32> %208 to <2 x i64>
-  store <2 x i64> %209, ptr %i0, align 16
-  %210 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %210, ptr %__a.addr.i251, align 16
+  %203 = load <2 x i64>, ptr %i0, align 16
+  %204 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %203, ptr %__a.addr.i299, align 16
+  store <2 x i64> %204, ptr %__b.addr.i300, align 16
+  %205 = load <2 x i64>, ptr %__a.addr.i299, align 16
+  %206 = bitcast <2 x i64> %205 to <8 x i16>
+  %207 = load <2 x i64>, ptr %__b.addr.i300, align 16
+  %208 = bitcast <2 x i64> %207 to <8 x i16>
+  %209 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %206, <8 x i16> %208)
+  %210 = bitcast <4 x i32> %209 to <2 x i64>
+  store <2 x i64> %210, ptr %i0, align 16
+  %211 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %211, ptr %__a.addr.i251, align 16
   store i32 16, ptr %__count.addr.i252, align 4
-  %211 = load <2 x i64>, ptr %__a.addr.i251, align 16
-  %212 = bitcast <2 x i64> %211 to <4 x i32>
-  %213 = load i32, ptr %__count.addr.i252, align 4
-  %214 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %212, i32 %213)
-  %215 = bitcast <4 x i32> %214 to <2 x i64>
-  store <2 x i64> %215, ptr %i0, align 16
-  %216 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %216, ptr %__a.addr.i265, align 16
-  %217 = load <4 x float>, ptr %__a.addr.i265, align 16
-  %218 = bitcast <4 x float> %217 to <2 x i64>
-  store <2 x i64> %218, ptr %__a.addr.i249, align 16
+  %212 = load <2 x i64>, ptr %__a.addr.i251, align 16
+  %213 = bitcast <2 x i64> %212 to <4 x i32>
+  %214 = load i32, ptr %__count.addr.i252, align 4
+  %215 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %213, i32 %214)
+  %216 = bitcast <4 x i32> %215 to <2 x i64>
+  store <2 x i64> %216, ptr %i0, align 16
+  %217 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %217, ptr %__a.addr.i265, align 16
+  %218 = load <4 x float>, ptr %__a.addr.i265, align 16
+  %219 = bitcast <4 x float> %218 to <2 x i64>
+  store <2 x i64> %219, ptr %__a.addr.i249, align 16
   store i32 12, ptr %__count.addr.i250, align 4
-  %219 = load <2 x i64>, ptr %__a.addr.i249, align 16
-  %220 = bitcast <2 x i64> %219 to <4 x i32>
-  %221 = load i32, ptr %__count.addr.i250, align 4
-  %222 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %220, i32 %221)
-  %223 = bitcast <4 x i32> %222 to <2 x i64>
-  store <2 x i64> %223, ptr %temp111, align 16
-  %224 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %224, ptr %__a.addr.i276, align 16
+  %220 = load <2 x i64>, ptr %__a.addr.i249, align 16
+  %221 = bitcast <2 x i64> %220 to <4 x i32>
+  %222 = load i32, ptr %__count.addr.i250, align 4
+  %223 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %221, i32 %222)
+  %224 = bitcast <4 x i32> %223 to <2 x i64>
+  store <2 x i64> %224, ptr %temp111, align 16
+  %225 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %225, ptr %__a.addr.i276, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i277, align 16
-  %225 = load <2 x i64>, ptr %__a.addr.i276, align 16
-  %226 = load <2 x i64>, ptr %__b.addr.i277, align 16
-  %and.i278 = and <2 x i64> %225, %226
+  %226 = load <2 x i64>, ptr %__a.addr.i276, align 16
+  %227 = load <2 x i64>, ptr %__b.addr.i277, align 16
+  %and.i278 = and <2 x i64> %226, %227
   store <2 x i64> %and.i278, ptr %temp111, align 16
-  %227 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %227, ptr %__a.addr.i287, align 16
+  %228 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %228, ptr %__a.addr.i287, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i288, align 16
-  %228 = load <2 x i64>, ptr %__a.addr.i287, align 16
-  %229 = load <2 x i64>, ptr %__b.addr.i288, align 16
-  %or.i289 = or <2 x i64> %228, %229
+  %229 = load <2 x i64>, ptr %__a.addr.i287, align 16
+  %230 = load <2 x i64>, ptr %__b.addr.i288, align 16
+  %or.i289 = or <2 x i64> %229, %230
   store <2 x i64> %or.i289, ptr %temp111, align 16
-  %230 = load <2 x i64>, ptr %i1, align 16
-  %231 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %230, ptr %__a.addr.i297, align 16
-  store <2 x i64> %231, ptr %__b.addr.i298, align 16
-  %232 = load <2 x i64>, ptr %__a.addr.i297, align 16
-  %233 = bitcast <2 x i64> %232 to <8 x i16>
-  %234 = load <2 x i64>, ptr %__b.addr.i298, align 16
-  %235 = bitcast <2 x i64> %234 to <8 x i16>
-  %236 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %233, <8 x i16> %235)
-  %237 = bitcast <4 x i32> %236 to <2 x i64>
-  store <2 x i64> %237, ptr %i1, align 16
-  %238 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %238, ptr %__a.addr.i247, align 16
+  %231 = load <2 x i64>, ptr %i1, align 16
+  %232 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %231, ptr %__a.addr.i297, align 16
+  store <2 x i64> %232, ptr %__b.addr.i298, align 16
+  %233 = load <2 x i64>, ptr %__a.addr.i297, align 16
+  %234 = bitcast <2 x i64> %233 to <8 x i16>
+  %235 = load <2 x i64>, ptr %__b.addr.i298, align 16
+  %236 = bitcast <2 x i64> %235 to <8 x i16>
+  %237 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %234, <8 x i16> %236)
+  %238 = bitcast <4 x i32> %237 to <2 x i64>
+  store <2 x i64> %238, ptr %i1, align 16
+  %239 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %239, ptr %__a.addr.i247, align 16
   store i32 16, ptr %__count.addr.i248, align 4
-  %239 = load <2 x i64>, ptr %__a.addr.i247, align 16
-  %240 = bitcast <2 x i64> %239 to <4 x i32>
-  %241 = load i32, ptr %__count.addr.i248, align 4
-  %242 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %240, i32 %241)
-  %243 = bitcast <4 x i32> %242 to <2 x i64>
-  store <2 x i64> %243, ptr %i1, align 16
-  %244 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %244, ptr %__a.addr.i264, align 16
-  %245 = load <4 x float>, ptr %__a.addr.i264, align 16
-  %246 = bitcast <4 x float> %245 to <2 x i64>
-  store <2 x i64> %246, ptr %__a.addr.i245, align 16
+  %240 = load <2 x i64>, ptr %__a.addr.i247, align 16
+  %241 = bitcast <2 x i64> %240 to <4 x i32>
+  %242 = load i32, ptr %__count.addr.i248, align 4
+  %243 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %241, i32 %242)
+  %244 = bitcast <4 x i32> %243 to <2 x i64>
+  store <2 x i64> %244, ptr %i1, align 16
+  %245 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %245, ptr %__a.addr.i264, align 16
+  %246 = load <4 x float>, ptr %__a.addr.i264, align 16
+  %247 = bitcast <4 x float> %246 to <2 x i64>
+  store <2 x i64> %247, ptr %__a.addr.i245, align 16
   store i32 12, ptr %__count.addr.i246, align 4
-  %247 = load <2 x i64>, ptr %__a.addr.i245, align 16
-  %248 = bitcast <2 x i64> %247 to <4 x i32>
-  %249 = load i32, ptr %__count.addr.i246, align 4
-  %250 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %248, i32 %249)
-  %251 = bitcast <4 x i32> %250 to <2 x i64>
-  store <2 x i64> %251, ptr %temp118, align 16
-  %252 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %252, ptr %__a.addr.i273, align 16
+  %248 = load <2 x i64>, ptr %__a.addr.i245, align 16
+  %249 = bitcast <2 x i64> %248 to <4 x i32>
+  %250 = load i32, ptr %__count.addr.i246, align 4
+  %251 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %249, i32 %250)
+  %252 = bitcast <4 x i32> %251 to <2 x i64>
+  store <2 x i64> %252, ptr %temp118, align 16
+  %253 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %253, ptr %__a.addr.i273, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i274, align 16
-  %253 = load <2 x i64>, ptr %__a.addr.i273, align 16
-  %254 = load <2 x i64>, ptr %__b.addr.i274, align 16
-  %and.i275 = and <2 x i64> %253, %254
+  %254 = load <2 x i64>, ptr %__a.addr.i273, align 16
+  %255 = load <2 x i64>, ptr %__b.addr.i274, align 16
+  %and.i275 = and <2 x i64> %254, %255
   store <2 x i64> %and.i275, ptr %temp118, align 16
-  %255 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %255, ptr %__a.addr.i284, align 16
+  %256 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %256, ptr %__a.addr.i284, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i285, align 16
-  %256 = load <2 x i64>, ptr %__a.addr.i284, align 16
-  %257 = load <2 x i64>, ptr %__b.addr.i285, align 16
-  %or.i286 = or <2 x i64> %256, %257
+  %257 = load <2 x i64>, ptr %__a.addr.i284, align 16
+  %258 = load <2 x i64>, ptr %__b.addr.i285, align 16
+  %or.i286 = or <2 x i64> %257, %258
   store <2 x i64> %or.i286, ptr %temp118, align 16
-  %258 = load <2 x i64>, ptr %i2, align 16
-  %259 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %258, ptr %__a.addr.i295, align 16
-  store <2 x i64> %259, ptr %__b.addr.i296, align 16
-  %260 = load <2 x i64>, ptr %__a.addr.i295, align 16
-  %261 = bitcast <2 x i64> %260 to <8 x i16>
-  %262 = load <2 x i64>, ptr %__b.addr.i296, align 16
-  %263 = bitcast <2 x i64> %262 to <8 x i16>
-  %264 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %261, <8 x i16> %263)
-  %265 = bitcast <4 x i32> %264 to <2 x i64>
-  store <2 x i64> %265, ptr %i2, align 16
-  %266 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %266, ptr %__a.addr.i243, align 16
+  %259 = load <2 x i64>, ptr %i2, align 16
+  %260 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %259, ptr %__a.addr.i295, align 16
+  store <2 x i64> %260, ptr %__b.addr.i296, align 16
+  %261 = load <2 x i64>, ptr %__a.addr.i295, align 16
+  %262 = bitcast <2 x i64> %261 to <8 x i16>
+  %263 = load <2 x i64>, ptr %__b.addr.i296, align 16
+  %264 = bitcast <2 x i64> %263 to <8 x i16>
+  %265 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %262, <8 x i16> %264)
+  %266 = bitcast <4 x i32> %265 to <2 x i64>
+  store <2 x i64> %266, ptr %i2, align 16
+  %267 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %267, ptr %__a.addr.i243, align 16
   store i32 16, ptr %__count.addr.i244, align 4
-  %267 = load <2 x i64>, ptr %__a.addr.i243, align 16
-  %268 = bitcast <2 x i64> %267 to <4 x i32>
-  %269 = load i32, ptr %__count.addr.i244, align 4
-  %270 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %268, i32 %269)
-  %271 = bitcast <4 x i32> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i2, align 16
-  %272 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %272, ptr %__a.addr.i263, align 16
-  %273 = load <4 x float>, ptr %__a.addr.i263, align 16
-  %274 = bitcast <4 x float> %273 to <2 x i64>
-  store <2 x i64> %274, ptr %__a.addr.i241, align 16
+  %268 = load <2 x i64>, ptr %__a.addr.i243, align 16
+  %269 = bitcast <2 x i64> %268 to <4 x i32>
+  %270 = load i32, ptr %__count.addr.i244, align 4
+  %271 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %269, i32 %270)
+  %272 = bitcast <4 x i32> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i2, align 16
+  %273 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %273, ptr %__a.addr.i263, align 16
+  %274 = load <4 x float>, ptr %__a.addr.i263, align 16
+  %275 = bitcast <4 x float> %274 to <2 x i64>
+  store <2 x i64> %275, ptr %__a.addr.i241, align 16
   store i32 12, ptr %__count.addr.i242, align 4
-  %275 = load <2 x i64>, ptr %__a.addr.i241, align 16
-  %276 = bitcast <2 x i64> %275 to <4 x i32>
-  %277 = load i32, ptr %__count.addr.i242, align 4
-  %278 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %276, i32 %277)
-  %279 = bitcast <4 x i32> %278 to <2 x i64>
-  store <2 x i64> %279, ptr %temp125, align 16
-  %280 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %280, ptr %__a.addr.i271, align 16
+  %276 = load <2 x i64>, ptr %__a.addr.i241, align 16
+  %277 = bitcast <2 x i64> %276 to <4 x i32>
+  %278 = load i32, ptr %__count.addr.i242, align 4
+  %279 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %277, i32 %278)
+  %280 = bitcast <4 x i32> %279 to <2 x i64>
+  store <2 x i64> %280, ptr %temp125, align 16
+  %281 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %281, ptr %__a.addr.i271, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i272, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i271, align 16
-  %282 = load <2 x i64>, ptr %__b.addr.i272, align 16
-  %and.i = and <2 x i64> %281, %282
+  %282 = load <2 x i64>, ptr %__a.addr.i271, align 16
+  %283 = load <2 x i64>, ptr %__b.addr.i272, align 16
+  %and.i = and <2 x i64> %282, %283
   store <2 x i64> %and.i, ptr %temp125, align 16
-  %283 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %283, ptr %__a.addr.i282, align 16
+  %284 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %284, ptr %__a.addr.i282, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i283, align 16
-  %284 = load <2 x i64>, ptr %__a.addr.i282, align 16
-  %285 = load <2 x i64>, ptr %__b.addr.i283, align 16
-  %or.i = or <2 x i64> %284, %285
+  %285 = load <2 x i64>, ptr %__a.addr.i282, align 16
+  %286 = load <2 x i64>, ptr %__b.addr.i283, align 16
+  %or.i = or <2 x i64> %285, %286
   store <2 x i64> %or.i, ptr %temp125, align 16
-  %286 = load <2 x i64>, ptr %i3, align 16
-  %287 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %286, ptr %__a.addr.i293, align 16
-  store <2 x i64> %287, ptr %__b.addr.i294, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i293, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i294, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %292 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %289, <8 x i16> %291)
-  %293 = bitcast <4 x i32> %292 to <2 x i64>
-  store <2 x i64> %293, ptr %i3, align 16
-  %294 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %294, ptr %__a.addr.i240, align 16
+  %287 = load <2 x i64>, ptr %i3, align 16
+  %288 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %287, ptr %__a.addr.i293, align 16
+  store <2 x i64> %288, ptr %__b.addr.i294, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i293, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i294, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %293 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %290, <8 x i16> %292)
+  %294 = bitcast <4 x i32> %293 to <2 x i64>
+  store <2 x i64> %294, ptr %i3, align 16
+  %295 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %295, ptr %__a.addr.i240, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %295 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %296 = bitcast <2 x i64> %295 to <4 x i32>
-  %297 = load i32, ptr %__count.addr.i, align 4
-  %298 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %296, i32 %297)
-  %299 = bitcast <4 x i32> %298 to <2 x i64>
-  store <2 x i64> %299, ptr %i3, align 16
-  %300 = load <2 x i64>, ptr %i0, align 16
-  %301 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %300, ptr %__a.addr.i204, align 16
-  store <2 x i64> %301, ptr %__b.addr.i205, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i204, align 16
-  %303 = bitcast <2 x i64> %302 to <4 x i32>
-  %304 = load <2 x i64>, ptr %__b.addr.i205, align 16
-  %305 = bitcast <2 x i64> %304 to <4 x i32>
-  %306 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %303, <4 x i32> %305)
-  %307 = bitcast <8 x i16> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i0, align 16
-  %308 = load <2 x i64>, ptr %i2, align 16
-  %309 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %308, ptr %__a.addr.i202, align 16
-  store <2 x i64> %309, ptr %__b.addr.i203, align 16
-  %310 = load <2 x i64>, ptr %__a.addr.i202, align 16
-  %311 = bitcast <2 x i64> %310 to <4 x i32>
-  %312 = load <2 x i64>, ptr %__b.addr.i203, align 16
-  %313 = bitcast <2 x i64> %312 to <4 x i32>
-  %314 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %311, <4 x i32> %313)
-  %315 = bitcast <8 x i16> %314 to <2 x i64>
-  store <2 x i64> %315, ptr %i2, align 16
-  %316 = load <2 x i64>, ptr %i0, align 16
-  %317 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %316, ptr %__a.addr.i177, align 16
-  store <2 x i64> %317, ptr %__b.addr.i178, align 16
-  %318 = load <2 x i64>, ptr %__a.addr.i177, align 16
-  %319 = bitcast <2 x i64> %318 to <8 x i16>
-  %320 = load <2 x i64>, ptr %__b.addr.i178, align 16
-  %321 = bitcast <2 x i64> %320 to <8 x i16>
-  %shuffle.i179 = shufflevector <8 x i16> %319, <8 x i16> %321, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %322 = bitcast <8 x i16> %shuffle.i179 to <2 x i64>
-  store <2 x i64> %322, ptr %i1, align 16
-  %323 = load <2 x i64>, ptr %i0, align 16
-  %324 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %323, ptr %__a.addr.i183, align 16
-  store <2 x i64> %324, ptr %__b.addr.i184, align 16
-  %325 = load <2 x i64>, ptr %__a.addr.i183, align 16
-  %326 = bitcast <2 x i64> %325 to <8 x i16>
-  %327 = load <2 x i64>, ptr %__b.addr.i184, align 16
-  %328 = bitcast <2 x i64> %327 to <8 x i16>
-  %shuffle.i185 = shufflevector <8 x i16> %326, <8 x i16> %328, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %329 = bitcast <8 x i16> %shuffle.i185 to <2 x i64>
-  store <2 x i64> %329, ptr %i3, align 16
-  %330 = load <2 x i64>, ptr %i1, align 16
-  %331 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %330, ptr %__a.addr.i, align 16
-  store <2 x i64> %331, ptr %__b.addr.i, align 16
-  %332 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %333 = bitcast <2 x i64> %332 to <8 x i16>
-  %334 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %335 = bitcast <2 x i64> %334 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %333, <8 x i16> %335, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %336 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %336, ptr %i0, align 16
-  %337 = load <2 x i64>, ptr %i1, align 16
-  %338 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %337, ptr %__a.addr.i180, align 16
-  store <2 x i64> %338, ptr %__b.addr.i181, align 16
-  %339 = load <2 x i64>, ptr %__a.addr.i180, align 16
-  %340 = bitcast <2 x i64> %339 to <8 x i16>
-  %341 = load <2 x i64>, ptr %__b.addr.i181, align 16
-  %342 = bitcast <2 x i64> %341 to <8 x i16>
-  %shuffle.i182 = shufflevector <8 x i16> %340, <8 x i16> %342, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %343 = bitcast <8 x i16> %shuffle.i182 to <2 x i64>
-  store <2 x i64> %343, ptr %i2, align 16
-  %344 = load <2 x i64>, ptr %i0, align 16
-  %345 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %344, ptr %__a.addr.i206, align 16
-  store <2 x i64> %345, ptr %__b.addr.i207, align 16
-  %346 = load <2 x i64>, ptr %__a.addr.i206, align 16
-  %347 = bitcast <2 x i64> %346 to <8 x i16>
-  %348 = load <2 x i64>, ptr %__b.addr.i207, align 16
-  %349 = bitcast <2 x i64> %348 to <8 x i16>
-  %350 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %347, <8 x i16> %349)
-  %351 = bitcast <16 x i8> %350 to <2 x i64>
-  store <2 x i64> %351, ptr %i0, align 16
-  %352 = load ptr, ptr %output, align 8
-  %353 = load <2 x i64>, ptr %i0, align 16
-  store ptr %352, ptr %__p.addr.i301, align 8
-  store <2 x i64> %353, ptr %__b.addr.i302, align 16
-  %354 = load <2 x i64>, ptr %__b.addr.i302, align 16
-  %355 = load ptr, ptr %__p.addr.i301, align 8
-  store <2 x i64> %354, ptr %355, align 1
-  %356 = load ptr, ptr %encode.addr, align 8
-  %add.ptr139 = getelementptr inbounds float, ptr %356, i64 16
+  %296 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %297 = bitcast <2 x i64> %296 to <4 x i32>
+  %298 = load i32, ptr %__count.addr.i, align 4
+  %299 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %297, i32 %298)
+  %300 = bitcast <4 x i32> %299 to <2 x i64>
+  store <2 x i64> %300, ptr %i3, align 16
+  %301 = load <2 x i64>, ptr %i0, align 16
+  %302 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %301, ptr %__a.addr.i204, align 16
+  store <2 x i64> %302, ptr %__b.addr.i205, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i204, align 16
+  %304 = bitcast <2 x i64> %303 to <4 x i32>
+  %305 = load <2 x i64>, ptr %__b.addr.i205, align 16
+  %306 = bitcast <2 x i64> %305 to <4 x i32>
+  %307 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %304, <4 x i32> %306)
+  %308 = bitcast <8 x i16> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i0, align 16
+  %309 = load <2 x i64>, ptr %i2, align 16
+  %310 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %309, ptr %__a.addr.i202, align 16
+  store <2 x i64> %310, ptr %__b.addr.i203, align 16
+  %311 = load <2 x i64>, ptr %__a.addr.i202, align 16
+  %312 = bitcast <2 x i64> %311 to <4 x i32>
+  %313 = load <2 x i64>, ptr %__b.addr.i203, align 16
+  %314 = bitcast <2 x i64> %313 to <4 x i32>
+  %315 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %312, <4 x i32> %314)
+  %316 = bitcast <8 x i16> %315 to <2 x i64>
+  store <2 x i64> %316, ptr %i2, align 16
+  %317 = load <2 x i64>, ptr %i0, align 16
+  %318 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %317, ptr %__a.addr.i177, align 16
+  store <2 x i64> %318, ptr %__b.addr.i178, align 16
+  %319 = load <2 x i64>, ptr %__a.addr.i177, align 16
+  %320 = bitcast <2 x i64> %319 to <8 x i16>
+  %321 = load <2 x i64>, ptr %__b.addr.i178, align 16
+  %322 = bitcast <2 x i64> %321 to <8 x i16>
+  %shuffle.i179 = shufflevector <8 x i16> %320, <8 x i16> %322, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %323 = bitcast <8 x i16> %shuffle.i179 to <2 x i64>
+  store <2 x i64> %323, ptr %i1, align 16
+  %324 = load <2 x i64>, ptr %i0, align 16
+  %325 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %324, ptr %__a.addr.i183, align 16
+  store <2 x i64> %325, ptr %__b.addr.i184, align 16
+  %326 = load <2 x i64>, ptr %__a.addr.i183, align 16
+  %327 = bitcast <2 x i64> %326 to <8 x i16>
+  %328 = load <2 x i64>, ptr %__b.addr.i184, align 16
+  %329 = bitcast <2 x i64> %328 to <8 x i16>
+  %shuffle.i185 = shufflevector <8 x i16> %327, <8 x i16> %329, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %330 = bitcast <8 x i16> %shuffle.i185 to <2 x i64>
+  store <2 x i64> %330, ptr %i3, align 16
+  %331 = load <2 x i64>, ptr %i1, align 16
+  %332 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %331, ptr %__a.addr.i, align 16
+  store <2 x i64> %332, ptr %__b.addr.i, align 16
+  %333 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %334 = bitcast <2 x i64> %333 to <8 x i16>
+  %335 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %336 = bitcast <2 x i64> %335 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %334, <8 x i16> %336, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %337 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %337, ptr %i0, align 16
+  %338 = load <2 x i64>, ptr %i1, align 16
+  %339 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %338, ptr %__a.addr.i180, align 16
+  store <2 x i64> %339, ptr %__b.addr.i181, align 16
+  %340 = load <2 x i64>, ptr %__a.addr.i180, align 16
+  %341 = bitcast <2 x i64> %340 to <8 x i16>
+  %342 = load <2 x i64>, ptr %__b.addr.i181, align 16
+  %343 = bitcast <2 x i64> %342 to <8 x i16>
+  %shuffle.i182 = shufflevector <8 x i16> %341, <8 x i16> %343, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %344 = bitcast <8 x i16> %shuffle.i182 to <2 x i64>
+  store <2 x i64> %344, ptr %i2, align 16
+  %345 = load <2 x i64>, ptr %i0, align 16
+  %346 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %345, ptr %__a.addr.i206, align 16
+  store <2 x i64> %346, ptr %__b.addr.i207, align 16
+  %347 = load <2 x i64>, ptr %__a.addr.i206, align 16
+  %348 = bitcast <2 x i64> %347 to <8 x i16>
+  %349 = load <2 x i64>, ptr %__b.addr.i207, align 16
+  %350 = bitcast <2 x i64> %349 to <8 x i16>
+  %351 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %348, <8 x i16> %350)
+  %352 = bitcast <16 x i8> %351 to <2 x i64>
+  store <2 x i64> %352, ptr %i0, align 16
+  %353 = load ptr, ptr %output, align 8
+  %354 = load <2 x i64>, ptr %i0, align 16
+  store ptr %353, ptr %__p.addr.i301, align 8
+  store <2 x i64> %354, ptr %__b.addr.i302, align 16
+  %355 = load <2 x i64>, ptr %__b.addr.i302, align 16
+  %356 = load ptr, ptr %__p.addr.i301, align 8
+  store <2 x i64> %355, ptr %356, align 1
+  %357 = load ptr, ptr %encode.addr, align 8
+  %add.ptr139 = getelementptr inbounds float, ptr %357, i64 16
   store ptr %add.ptr139, ptr %encode.addr, align 8
-  %357 = load ptr, ptr %output, align 8
-  %add.ptr140 = getelementptr inbounds i8, ptr %357, i64 16
-  store ptr %add.ptr140, ptr %output, align 8
   %358 = load ptr, ptr %output, align 8
-  %359 = load ptr, ptr %end_output, align 8
-  %cmp141 = icmp ule ptr %358, %359
+  %add.ptr140 = getelementptr inbounds i8, ptr %358, i64 16
+  store ptr %add.ptr140, ptr %output, align 8
+  %359 = load ptr, ptr %output, align 8
+  %360 = load ptr, ptr %end_output, align 8
+  %cmp141 = icmp ule ptr %359, %360
   br i1 %cmp141, label %if.then142, label %if.end
 
 if.then142:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %360 = load ptr, ptr %output, align 8
-  %361 = load ptr, ptr %end_output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %361, i64 16
-  %cmp144 = icmp eq ptr %360, %add.ptr143
+  %361 = load ptr, ptr %output, align 8
+  %362 = load ptr, ptr %end_output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %362, i64 16
+  %cmp144 = icmp eq ptr %361, %add.ptr143
   br i1 %cmp144, label %if.then145, label %if.end146
 
 if.then145:                                       ; preds = %if.end
   br label %for.end
 
 if.end146:                                        ; preds = %if.end
-  %362 = load ptr, ptr %end_output, align 8
-  store ptr %362, ptr %output, align 8
-  %363 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %363, ptr %encode.addr, align 8
+  %363 = load ptr, ptr %end_output, align 8
+  store ptr %363, ptr %output, align 8
+  %364 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %364, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then145
   br label %while.end173
 
 if.end147:                                        ; preds = %entry
-  %364 = load ptr, ptr %output, align 8
-  %add.ptr148 = getelementptr inbounds i8, ptr %364, i64 4
+  %365 = load ptr, ptr %output, align 8
+  %add.ptr148 = getelementptr inbounds i8, ptr %365, i64 4
   store ptr %add.ptr148, ptr %output, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end147
-  %365 = load ptr, ptr %output, align 8
-  %366 = load ptr, ptr %end_output, align 8
-  %cmp149 = icmp ule ptr %365, %366
+  %366 = load ptr, ptr %output, align 8
+  %367 = load ptr, ptr %end_output, align 8
+  %cmp149 = icmp ule ptr %366, %367
   br i1 %cmp149, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %367 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %367) #9, !srcloc !111
   %368 = load ptr, ptr %encode.addr, align 8
-  %arrayidx150 = getelementptr inbounds float, ptr %368, i64 0
-  %369 = load float, ptr %arrayidx150, align 4
-  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %369)
-  %370 = load ptr, ptr %output, align 8
-  %arrayidx152 = getelementptr inbounds i8, ptr %370, i64 -4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %368) #9, !srcloc !111
+  %369 = load ptr, ptr %encode.addr, align 8
+  %arrayidx150 = getelementptr inbounds float, ptr %369, i64 0
+  %370 = load float, ptr %arrayidx150, align 4
+  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %370)
+  %371 = load ptr, ptr %output, align 8
+  %arrayidx152 = getelementptr inbounds i8, ptr %371, i64 -4
   store i8 %call151, ptr %arrayidx152, align 1
-  %371 = load ptr, ptr %encode.addr, align 8
-  %arrayidx153 = getelementptr inbounds float, ptr %371, i64 1
-  %372 = load float, ptr %arrayidx153, align 4
-  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %372)
-  %373 = load ptr, ptr %output, align 8
-  %arrayidx155 = getelementptr inbounds i8, ptr %373, i64 -3
+  %372 = load ptr, ptr %encode.addr, align 8
+  %arrayidx153 = getelementptr inbounds float, ptr %372, i64 1
+  %373 = load float, ptr %arrayidx153, align 4
+  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %373)
+  %374 = load ptr, ptr %output, align 8
+  %arrayidx155 = getelementptr inbounds i8, ptr %374, i64 -3
   store i8 %call154, ptr %arrayidx155, align 1
-  %374 = load ptr, ptr %encode.addr, align 8
-  %arrayidx156 = getelementptr inbounds float, ptr %374, i64 2
-  %375 = load float, ptr %arrayidx156, align 4
-  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %375)
-  %376 = load ptr, ptr %output, align 8
-  %arrayidx158 = getelementptr inbounds i8, ptr %376, i64 -2
+  %375 = load ptr, ptr %encode.addr, align 8
+  %arrayidx156 = getelementptr inbounds float, ptr %375, i64 2
+  %376 = load float, ptr %arrayidx156, align 4
+  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %376)
+  %377 = load ptr, ptr %output, align 8
+  %arrayidx158 = getelementptr inbounds i8, ptr %377, i64 -2
   store i8 %call157, ptr %arrayidx158, align 1
-  %377 = load ptr, ptr %encode.addr, align 8
-  %arrayidx159 = getelementptr inbounds float, ptr %377, i64 3
-  %378 = load float, ptr %arrayidx159, align 4
-  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %378)
-  %379 = load ptr, ptr %output, align 8
-  %arrayidx161 = getelementptr inbounds i8, ptr %379, i64 -1
-  store i8 %call160, ptr %arrayidx161, align 1
+  %378 = load ptr, ptr %encode.addr, align 8
+  %arrayidx159 = getelementptr inbounds float, ptr %378, i64 3
+  %379 = load float, ptr %arrayidx159, align 4
+  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %379)
   %380 = load ptr, ptr %output, align 8
-  %add.ptr162 = getelementptr inbounds i8, ptr %380, i64 4
+  %arrayidx161 = getelementptr inbounds i8, ptr %380, i64 -1
+  store i8 %call160, ptr %arrayidx161, align 1
+  %381 = load ptr, ptr %output, align 8
+  %add.ptr162 = getelementptr inbounds i8, ptr %381, i64 4
   store ptr %add.ptr162, ptr %output, align 8
-  %381 = load ptr, ptr %encode.addr, align 8
-  %add.ptr163 = getelementptr inbounds float, ptr %381, i64 4
+  %382 = load ptr, ptr %encode.addr, align 8
+  %add.ptr163 = getelementptr inbounds float, ptr %382, i64 4
   store ptr %add.ptr163, ptr %encode.addr, align 8
   br label %while.cond, !llvm.loop !112
 
 while.end:                                        ; preds = %while.cond
-  %382 = load ptr, ptr %output, align 8
-  %add.ptr164 = getelementptr inbounds i8, ptr %382, i64 -4
+  %383 = load ptr, ptr %output, align 8
+  %add.ptr164 = getelementptr inbounds i8, ptr %383, i64 -4
   store ptr %add.ptr164, ptr %output, align 8
   br label %while.cond165
 
 while.cond165:                                    ; preds = %while.body167, %while.end
-  %383 = load ptr, ptr %output, align 8
-  %384 = load ptr, ptr %end_output, align 8
-  %cmp166 = icmp ult ptr %383, %384
+  %384 = load ptr, ptr %output, align 8
+  %385 = load ptr, ptr %end_output, align 8
+  %cmp166 = icmp ult ptr %384, %385
   br i1 %cmp166, label %while.body167, label %while.end173
 
 while.body167:                                    ; preds = %while.cond165
-  %385 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %385) #9, !srcloc !113
   %386 = load ptr, ptr %encode.addr, align 8
-  %arrayidx168 = getelementptr inbounds float, ptr %386, i64 0
-  %387 = load float, ptr %arrayidx168, align 4
-  %call169 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %387)
-  %388 = load ptr, ptr %output, align 8
-  %arrayidx170 = getelementptr inbounds i8, ptr %388, i64 0
-  store i8 %call169, ptr %arrayidx170, align 1
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %386) #9, !srcloc !113
+  %387 = load ptr, ptr %encode.addr, align 8
+  %arrayidx168 = getelementptr inbounds float, ptr %387, i64 0
+  %388 = load float, ptr %arrayidx168, align 4
+  %call169 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %388)
   %389 = load ptr, ptr %output, align 8
-  %add.ptr171 = getelementptr inbounds i8, ptr %389, i64 1
+  %arrayidx170 = getelementptr inbounds i8, ptr %389, i64 0
+  store i8 %call169, ptr %arrayidx170, align 1
+  %390 = load ptr, ptr %output, align 8
+  %add.ptr171 = getelementptr inbounds i8, ptr %390, i64 1
   store ptr %add.ptr171, ptr %output, align 8
-  %390 = load ptr, ptr %encode.addr, align 8
-  %add.ptr172 = getelementptr inbounds float, ptr %390, i64 1
+  %391 = load ptr, ptr %encode.addr, align 8
+  %add.ptr172 = getelementptr inbounds float, ptr %391, i64 1
   store ptr %add.ptr172, ptr %encode.addr, align 8
   br label %while.cond165, !llvm.loop !114
 
@@ -7851,602 +7852,603 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end124
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end123, %if.then119, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !116
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i150, align 8
-  %9 = load ptr, ptr %__p.addr.i150, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !116
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i150, align 8
+  %10 = load ptr, ptr %__p.addr.i150, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i149, align 8
-  %12 = load ptr, ptr %__p.addr.i149, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i149, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i148, align 8
-  %15 = load ptr, ptr %__p.addr.i148, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i148, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i190, align 16
-  store <4 x float> %21, ptr %__b.addr.i191, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i190, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i191, align 16
-  %shuffle.i192 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i190, align 16
+  store <4 x float> %22, ptr %__b.addr.i191, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i190, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i191, align 16
+  %shuffle.i192 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i192, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i187, align 16
-  store <4 x float> %25, ptr %__b.addr.i188, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %shuffle.i189 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i187, align 16
+  store <4 x float> %26, ptr %__b.addr.i188, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %shuffle.i189 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i189, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i196, align 16
-  store <4 x float> %29, ptr %__b.addr.i197, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i196, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i197, align 16
-  %shuffle.i198 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i196, align 16
+  store <4 x float> %30, ptr %__b.addr.i197, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i196, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i197, align 16
+  %shuffle.i198 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i198, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i193, align 16
-  store <4 x float> %33, ptr %__b.addr.i194, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i193, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i194, align 16
-  %shuffle.i195 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i193, align 16
+  store <4 x float> %34, ptr %__b.addr.i194, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i193, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i194, align 16
+  %shuffle.i195 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i195, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i202, align 16
-  store <4 x float> %37, ptr %__b.addr.i203, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i202, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i203, align 16
-  %shuffle.i204 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i202, align 16
+  store <4 x float> %38, ptr %__b.addr.i203, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i202, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i203, align 16
+  %shuffle.i204 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i204, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i208, align 16
-  store <4 x float> %41, ptr %__b.addr.i209, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i209, align 16
-  %shuffle.i210 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i208, align 16
+  store <4 x float> %42, ptr %__b.addr.i209, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i209, align 16
+  %shuffle.i210 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i210, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i199, align 16
-  store <4 x float> %45, ptr %__b.addr.i200, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %shuffle.i201 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i199, align 16
+  store <4 x float> %46, ptr %__b.addr.i200, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i199, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %shuffle.i201 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i201, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i205, align 16
-  store <4 x float> %49, ptr %__b.addr.i206, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i206, align 16
-  %shuffle.i207 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i205, align 16
+  store <4 x float> %50, ptr %__b.addr.i206, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i206, align 16
+  %shuffle.i207 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i207, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i216, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i216, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i178, align 16
-  store <4 x float> %54, ptr %__b.addr.i179, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i178, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i179, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i216, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i178, align 16
+  store <4 x float> %55, ptr %__b.addr.i179, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i178, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i179, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i215, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i215, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i170, align 16
-  store <4 x float> %60, ptr %__b.addr.i171, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i170, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i171, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i239, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i239, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i232, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i215, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i170, align 16
+  store <4 x float> %61, ptr %__b.addr.i171, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i170, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i171, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i239, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i239, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i232, align 16
   store i32 20, ptr %__count.addr.i233, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i232, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i233, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i232, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i233, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i214, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i214, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i176, align 16
-  store <4 x float> %74, ptr %__b.addr.i177, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i176, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i177, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i214, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i176, align 16
+  store <4 x float> %75, ptr %__b.addr.i177, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i176, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i177, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i213, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i213, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i168, align 16
-  store <4 x float> %80, ptr %__b.addr.i169, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i168, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i169, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i238, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i238, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i230, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i213, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i168, align 16
+  store <4 x float> %81, ptr %__b.addr.i169, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i168, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i169, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i238, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i238, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i230, align 16
   store i32 20, ptr %__count.addr.i231, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i230, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i231, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i230, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i231, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i212, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i212, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i174, align 16
-  store <4 x float> %94, ptr %__b.addr.i175, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i174, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i175, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i212, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i174, align 16
+  store <4 x float> %95, ptr %__b.addr.i175, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i174, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i175, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i211, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i211, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i166, align 16
-  store <4 x float> %100, ptr %__b.addr.i167, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i166, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i167, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i237, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i237, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i228, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i211, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i166, align 16
+  store <4 x float> %101, ptr %__b.addr.i167, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i166, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i167, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i237, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i237, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i228, align 16
   store i32 20, ptr %__count.addr.i229, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i228, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i229, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i228, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i229, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__a.addr.i160, align 16
-  store <4 x float> %112, ptr %__b.addr.i161, align 16
-  %113 = load <4 x float>, ptr %__a.addr.i160, align 16
-  %114 = load <4 x float>, ptr %__b.addr.i161, align 16
-  %mul.i = fmul <4 x float> %113, %114
+  store <4 x float> %113, ptr %__b.addr.i161, align 16
+  %114 = load <4 x float>, ptr %__a.addr.i160, align 16
+  %115 = load <4 x float>, ptr %__b.addr.i161, align 16
+  %mul.i = fmul <4 x float> %114, %115
   store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %__a.addr.i162, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i163, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i162, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i163, align 16
-  %add.i = fadd <4 x float> %115, %116
+  %116 = load <4 x float>, ptr %__a.addr.i162, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i163, align 16
+  %add.i = fadd <4 x float> %116, %117
   store <4 x float> %add.i, ptr %f3, align 16
-  %117 = load <4 x float>, ptr %f3, align 16
+  %118 = load <4 x float>, ptr %f3, align 16
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i, align 16
-  %118 = load <4 x float>, ptr %.compoundliteral.i, align 16
-  store <4 x float> %117, ptr %__a.addr.i172, align 16
-  store <4 x float> %118, ptr %__b.addr.i173, align 16
-  %119 = load <4 x float>, ptr %__a.addr.i172, align 16
-  %120 = load <4 x float>, ptr %__b.addr.i173, align 16
-  %121 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %119, <4 x float> %120)
-  store <4 x float> %121, ptr %f3, align 16
-  %122 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %122, ptr %__a.addr.i164, align 16
+  %119 = load <4 x float>, ptr %.compoundliteral.i, align 16
+  store <4 x float> %118, ptr %__a.addr.i172, align 16
+  store <4 x float> %119, ptr %__b.addr.i173, align 16
+  %120 = load <4 x float>, ptr %__a.addr.i172, align 16
+  %121 = load <4 x float>, ptr %__b.addr.i173, align 16
+  %122 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %120, <4 x float> %121)
+  store <4 x float> %122, ptr %f3, align 16
+  %123 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %123, ptr %__a.addr.i164, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__b.addr.i165, align 16
-  %123 = load <4 x float>, ptr %__a.addr.i164, align 16
-  %124 = load <4 x float>, ptr %__b.addr.i165, align 16
-  %125 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %123, <4 x float> %124)
-  store <4 x float> %125, ptr %f3, align 16
-  %126 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %126, ptr %__a.addr.i180, align 16
-  %127 = load <4 x float>, ptr %__a.addr.i180, align 16
-  %128 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %127)
-  %129 = bitcast <4 x i32> %128 to <2 x i64>
-  store <2 x i64> %129, ptr %i3, align 16
-  %130 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %130, ptr %temp0, align 16
-  %131 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %131, ptr %temp1, align 16
-  %132 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %132, ptr %temp2, align 16
-  %133 = load ptr, ptr %to_srgb, align 8
+  %124 = load <4 x float>, ptr %__a.addr.i164, align 16
+  %125 = load <4 x float>, ptr %__b.addr.i165, align 16
+  %126 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %124, <4 x float> %125)
+  store <4 x float> %126, ptr %f3, align 16
+  %127 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %127, ptr %__a.addr.i180, align 16
+  %128 = load <4 x float>, ptr %__a.addr.i180, align 16
+  %129 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %128)
+  %130 = bitcast <4 x i32> %129 to <2 x i64>
+  store <2 x i64> %130, ptr %i3, align 16
+  %131 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %131, ptr %temp0, align 16
+  %132 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %132, ptr %temp1, align 16
+  %133 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %133, ptr %temp2, align 16
+  %134 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %134 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %134 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %133, i64 %idxprom
-  %135 = load i32, ptr %arrayidx43, align 4
+  %135 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %135 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %134, i64 %idxprom
+  %136 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %135, ptr %arrayidx44, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  store i32 %136, ptr %arrayidx44, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %137 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %137 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %136, i64 %idxprom46
-  %138 = load i32, ptr %arrayidx47, align 4
+  %138 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %138 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %137, i64 %idxprom46
+  %139 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %138, ptr %arrayidx48, align 4
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx48, align 4
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %140 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %140 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %139, i64 %idxprom50
-  %141 = load i32, ptr %arrayidx51, align 4
+  %141 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %141 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %140, i64 %idxprom50
+  %142 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %141, ptr %arrayidx52, align 8
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx52, align 8
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %143 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %143 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %142, i64 %idxprom54
-  %144 = load i32, ptr %arrayidx55, align 4
+  %144 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %144 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %143, i64 %idxprom54
+  %145 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %144, ptr %arrayidx56, align 4
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx56, align 4
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %146 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %146 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %145, i64 %idxprom58
-  %147 = load i32, ptr %arrayidx59, align 4
+  %147 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %147 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %146, i64 %idxprom58
+  %148 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %147, ptr %arrayidx60, align 16
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx60, align 16
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %149 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %149 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %148, i64 %idxprom62
-  %150 = load i32, ptr %arrayidx63, align 4
+  %150 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %150 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %149, i64 %idxprom62
+  %151 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %150, ptr %arrayidx64, align 4
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx64, align 4
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %152 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %152 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %151, i64 %idxprom66
-  %153 = load i32, ptr %arrayidx67, align 4
+  %153 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %153 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %152, i64 %idxprom66
+  %154 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %153, ptr %arrayidx68, align 8
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx68, align 8
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %155 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %155 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %154, i64 %idxprom70
-  %156 = load i32, ptr %arrayidx71, align 4
+  %156 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %156 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %155, i64 %idxprom70
+  %157 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %156, ptr %arrayidx72, align 4
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx72, align 4
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %158 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %158 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %157, i64 %idxprom74
-  %159 = load i32, ptr %arrayidx75, align 4
+  %159 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %159 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %158, i64 %idxprom74
+  %160 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %159, ptr %arrayidx76, align 16
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx76, align 16
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %161 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %161 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %160, i64 %idxprom78
-  %162 = load i32, ptr %arrayidx79, align 4
+  %162 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %162 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %161, i64 %idxprom78
+  %163 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %162, ptr %arrayidx80, align 4
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx80, align 4
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %164 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %164 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %163, i64 %idxprom82
-  %165 = load i32, ptr %arrayidx83, align 4
+  %165 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %165 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %164, i64 %idxprom82
+  %166 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %165, ptr %arrayidx84, align 8
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx84, align 8
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %167 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %167 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %166, i64 %idxprom86
-  %168 = load i32, ptr %arrayidx87, align 4
+  %168 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %168 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %167, i64 %idxprom86
+  %169 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %168, ptr %arrayidx88, align 4
-  %169 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %169, ptr %i0, align 16
-  %170 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %170, ptr %i1, align 16
-  %171 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %171, ptr %i2, align 16
-  %172 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %172, ptr %__a.addr.i236, align 16
-  %173 = load <4 x float>, ptr %__a.addr.i236, align 16
-  %174 = bitcast <4 x float> %173 to <2 x i64>
-  store <2 x i64> %174, ptr %__a.addr.i226, align 16
+  store i32 %169, ptr %arrayidx88, align 4
+  %170 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %170, ptr %i0, align 16
+  %171 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %171, ptr %i1, align 16
+  %172 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %172, ptr %i2, align 16
+  %173 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %173, ptr %__a.addr.i236, align 16
+  %174 = load <4 x float>, ptr %__a.addr.i236, align 16
+  %175 = bitcast <4 x float> %174 to <2 x i64>
+  store <2 x i64> %175, ptr %__a.addr.i226, align 16
   store i32 12, ptr %__count.addr.i227, align 4
-  %175 = load <2 x i64>, ptr %__a.addr.i226, align 16
-  %176 = bitcast <2 x i64> %175 to <4 x i32>
-  %177 = load i32, ptr %__count.addr.i227, align 4
-  %178 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %176, i32 %177)
-  %179 = bitcast <4 x i32> %178 to <2 x i64>
-  store <2 x i64> %179, ptr %temp, align 16
-  %180 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %180, ptr %__a.addr.i245, align 16
+  %176 = load <2 x i64>, ptr %__a.addr.i226, align 16
+  %177 = bitcast <2 x i64> %176 to <4 x i32>
+  %178 = load i32, ptr %__count.addr.i227, align 4
+  %179 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %177, i32 %178)
+  %180 = bitcast <4 x i32> %179 to <2 x i64>
+  store <2 x i64> %180, ptr %temp, align 16
+  %181 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %181, ptr %__a.addr.i245, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i246, align 16
-  %181 = load <2 x i64>, ptr %__a.addr.i245, align 16
-  %182 = load <2 x i64>, ptr %__b.addr.i246, align 16
-  %and.i247 = and <2 x i64> %181, %182
+  %182 = load <2 x i64>, ptr %__a.addr.i245, align 16
+  %183 = load <2 x i64>, ptr %__b.addr.i246, align 16
+  %and.i247 = and <2 x i64> %182, %183
   store <2 x i64> %and.i247, ptr %temp, align 16
-  %183 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %183, ptr %__a.addr.i253, align 16
+  %184 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %184, ptr %__a.addr.i253, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i254, align 16
-  %184 = load <2 x i64>, ptr %__a.addr.i253, align 16
-  %185 = load <2 x i64>, ptr %__b.addr.i254, align 16
-  %or.i255 = or <2 x i64> %184, %185
+  %185 = load <2 x i64>, ptr %__a.addr.i253, align 16
+  %186 = load <2 x i64>, ptr %__b.addr.i254, align 16
+  %or.i255 = or <2 x i64> %185, %186
   store <2 x i64> %or.i255, ptr %temp, align 16
-  %186 = load <2 x i64>, ptr %i0, align 16
-  %187 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %186, ptr %__a.addr.i260, align 16
-  store <2 x i64> %187, ptr %__b.addr.i261, align 16
-  %188 = load <2 x i64>, ptr %__a.addr.i260, align 16
-  %189 = bitcast <2 x i64> %188 to <8 x i16>
-  %190 = load <2 x i64>, ptr %__b.addr.i261, align 16
-  %191 = bitcast <2 x i64> %190 to <8 x i16>
-  %192 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %189, <8 x i16> %191)
-  %193 = bitcast <4 x i32> %192 to <2 x i64>
-  store <2 x i64> %193, ptr %i0, align 16
-  %194 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %194, ptr %__a.addr.i224, align 16
+  %187 = load <2 x i64>, ptr %i0, align 16
+  %188 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %187, ptr %__a.addr.i260, align 16
+  store <2 x i64> %188, ptr %__b.addr.i261, align 16
+  %189 = load <2 x i64>, ptr %__a.addr.i260, align 16
+  %190 = bitcast <2 x i64> %189 to <8 x i16>
+  %191 = load <2 x i64>, ptr %__b.addr.i261, align 16
+  %192 = bitcast <2 x i64> %191 to <8 x i16>
+  %193 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %190, <8 x i16> %192)
+  %194 = bitcast <4 x i32> %193 to <2 x i64>
+  store <2 x i64> %194, ptr %i0, align 16
+  %195 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %195, ptr %__a.addr.i224, align 16
   store i32 16, ptr %__count.addr.i225, align 4
-  %195 = load <2 x i64>, ptr %__a.addr.i224, align 16
-  %196 = bitcast <2 x i64> %195 to <4 x i32>
-  %197 = load i32, ptr %__count.addr.i225, align 4
-  %198 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %196, i32 %197)
-  %199 = bitcast <4 x i32> %198 to <2 x i64>
-  store <2 x i64> %199, ptr %i0, align 16
-  %200 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %200, ptr %__a.addr.i235, align 16
-  %201 = load <4 x float>, ptr %__a.addr.i235, align 16
-  %202 = bitcast <4 x float> %201 to <2 x i64>
-  store <2 x i64> %202, ptr %__a.addr.i222, align 16
+  %196 = load <2 x i64>, ptr %__a.addr.i224, align 16
+  %197 = bitcast <2 x i64> %196 to <4 x i32>
+  %198 = load i32, ptr %__count.addr.i225, align 4
+  %199 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %197, i32 %198)
+  %200 = bitcast <4 x i32> %199 to <2 x i64>
+  store <2 x i64> %200, ptr %i0, align 16
+  %201 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %201, ptr %__a.addr.i235, align 16
+  %202 = load <4 x float>, ptr %__a.addr.i235, align 16
+  %203 = bitcast <4 x float> %202 to <2 x i64>
+  store <2 x i64> %203, ptr %__a.addr.i222, align 16
   store i32 12, ptr %__count.addr.i223, align 4
-  %203 = load <2 x i64>, ptr %__a.addr.i222, align 16
-  %204 = bitcast <2 x i64> %203 to <4 x i32>
-  %205 = load i32, ptr %__count.addr.i223, align 4
-  %206 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %204, i32 %205)
-  %207 = bitcast <4 x i32> %206 to <2 x i64>
-  store <2 x i64> %207, ptr %temp95, align 16
-  %208 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %208, ptr %__a.addr.i242, align 16
+  %204 = load <2 x i64>, ptr %__a.addr.i222, align 16
+  %205 = bitcast <2 x i64> %204 to <4 x i32>
+  %206 = load i32, ptr %__count.addr.i223, align 4
+  %207 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %205, i32 %206)
+  %208 = bitcast <4 x i32> %207 to <2 x i64>
+  store <2 x i64> %208, ptr %temp95, align 16
+  %209 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %209, ptr %__a.addr.i242, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i243, align 16
-  %209 = load <2 x i64>, ptr %__a.addr.i242, align 16
-  %210 = load <2 x i64>, ptr %__b.addr.i243, align 16
-  %and.i244 = and <2 x i64> %209, %210
+  %210 = load <2 x i64>, ptr %__a.addr.i242, align 16
+  %211 = load <2 x i64>, ptr %__b.addr.i243, align 16
+  %and.i244 = and <2 x i64> %210, %211
   store <2 x i64> %and.i244, ptr %temp95, align 16
-  %211 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %211, ptr %__a.addr.i250, align 16
+  %212 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %212, ptr %__a.addr.i250, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i251, align 16
-  %212 = load <2 x i64>, ptr %__a.addr.i250, align 16
-  %213 = load <2 x i64>, ptr %__b.addr.i251, align 16
-  %or.i252 = or <2 x i64> %212, %213
+  %213 = load <2 x i64>, ptr %__a.addr.i250, align 16
+  %214 = load <2 x i64>, ptr %__b.addr.i251, align 16
+  %or.i252 = or <2 x i64> %213, %214
   store <2 x i64> %or.i252, ptr %temp95, align 16
-  %214 = load <2 x i64>, ptr %i1, align 16
-  %215 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %214, ptr %__a.addr.i258, align 16
-  store <2 x i64> %215, ptr %__b.addr.i259, align 16
-  %216 = load <2 x i64>, ptr %__a.addr.i258, align 16
-  %217 = bitcast <2 x i64> %216 to <8 x i16>
-  %218 = load <2 x i64>, ptr %__b.addr.i259, align 16
-  %219 = bitcast <2 x i64> %218 to <8 x i16>
-  %220 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %217, <8 x i16> %219)
-  %221 = bitcast <4 x i32> %220 to <2 x i64>
-  store <2 x i64> %221, ptr %i1, align 16
-  %222 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %222, ptr %__a.addr.i220, align 16
+  %215 = load <2 x i64>, ptr %i1, align 16
+  %216 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %215, ptr %__a.addr.i258, align 16
+  store <2 x i64> %216, ptr %__b.addr.i259, align 16
+  %217 = load <2 x i64>, ptr %__a.addr.i258, align 16
+  %218 = bitcast <2 x i64> %217 to <8 x i16>
+  %219 = load <2 x i64>, ptr %__b.addr.i259, align 16
+  %220 = bitcast <2 x i64> %219 to <8 x i16>
+  %221 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %218, <8 x i16> %220)
+  %222 = bitcast <4 x i32> %221 to <2 x i64>
+  store <2 x i64> %222, ptr %i1, align 16
+  %223 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %223, ptr %__a.addr.i220, align 16
   store i32 16, ptr %__count.addr.i221, align 4
-  %223 = load <2 x i64>, ptr %__a.addr.i220, align 16
-  %224 = bitcast <2 x i64> %223 to <4 x i32>
-  %225 = load i32, ptr %__count.addr.i221, align 4
-  %226 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %224, i32 %225)
-  %227 = bitcast <4 x i32> %226 to <2 x i64>
-  store <2 x i64> %227, ptr %i1, align 16
-  %228 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %228, ptr %__a.addr.i234, align 16
-  %229 = load <4 x float>, ptr %__a.addr.i234, align 16
-  %230 = bitcast <4 x float> %229 to <2 x i64>
-  store <2 x i64> %230, ptr %__a.addr.i218, align 16
+  %224 = load <2 x i64>, ptr %__a.addr.i220, align 16
+  %225 = bitcast <2 x i64> %224 to <4 x i32>
+  %226 = load i32, ptr %__count.addr.i221, align 4
+  %227 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %225, i32 %226)
+  %228 = bitcast <4 x i32> %227 to <2 x i64>
+  store <2 x i64> %228, ptr %i1, align 16
+  %229 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %229, ptr %__a.addr.i234, align 16
+  %230 = load <4 x float>, ptr %__a.addr.i234, align 16
+  %231 = bitcast <4 x float> %230 to <2 x i64>
+  store <2 x i64> %231, ptr %__a.addr.i218, align 16
   store i32 12, ptr %__count.addr.i219, align 4
-  %231 = load <2 x i64>, ptr %__a.addr.i218, align 16
-  %232 = bitcast <2 x i64> %231 to <4 x i32>
-  %233 = load i32, ptr %__count.addr.i219, align 4
-  %234 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %232, i32 %233)
-  %235 = bitcast <4 x i32> %234 to <2 x i64>
-  store <2 x i64> %235, ptr %temp102, align 16
-  %236 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %236, ptr %__a.addr.i240, align 16
+  %232 = load <2 x i64>, ptr %__a.addr.i218, align 16
+  %233 = bitcast <2 x i64> %232 to <4 x i32>
+  %234 = load i32, ptr %__count.addr.i219, align 4
+  %235 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %233, i32 %234)
+  %236 = bitcast <4 x i32> %235 to <2 x i64>
+  store <2 x i64> %236, ptr %temp102, align 16
+  %237 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %237, ptr %__a.addr.i240, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i241, align 16
-  %237 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %238 = load <2 x i64>, ptr %__b.addr.i241, align 16
-  %and.i = and <2 x i64> %237, %238
+  %238 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %239 = load <2 x i64>, ptr %__b.addr.i241, align 16
+  %and.i = and <2 x i64> %238, %239
   store <2 x i64> %and.i, ptr %temp102, align 16
-  %239 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %239, ptr %__a.addr.i248, align 16
+  %240 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %240, ptr %__a.addr.i248, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i249, align 16
-  %240 = load <2 x i64>, ptr %__a.addr.i248, align 16
-  %241 = load <2 x i64>, ptr %__b.addr.i249, align 16
-  %or.i = or <2 x i64> %240, %241
+  %241 = load <2 x i64>, ptr %__a.addr.i248, align 16
+  %242 = load <2 x i64>, ptr %__b.addr.i249, align 16
+  %or.i = or <2 x i64> %241, %242
   store <2 x i64> %or.i, ptr %temp102, align 16
-  %242 = load <2 x i64>, ptr %i2, align 16
-  %243 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %242, ptr %__a.addr.i256, align 16
-  store <2 x i64> %243, ptr %__b.addr.i257, align 16
-  %244 = load <2 x i64>, ptr %__a.addr.i256, align 16
-  %245 = bitcast <2 x i64> %244 to <8 x i16>
-  %246 = load <2 x i64>, ptr %__b.addr.i257, align 16
-  %247 = bitcast <2 x i64> %246 to <8 x i16>
-  %248 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %245, <8 x i16> %247)
-  %249 = bitcast <4 x i32> %248 to <2 x i64>
-  store <2 x i64> %249, ptr %i2, align 16
-  %250 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %250, ptr %__a.addr.i217, align 16
+  %243 = load <2 x i64>, ptr %i2, align 16
+  %244 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %243, ptr %__a.addr.i256, align 16
+  store <2 x i64> %244, ptr %__b.addr.i257, align 16
+  %245 = load <2 x i64>, ptr %__a.addr.i256, align 16
+  %246 = bitcast <2 x i64> %245 to <8 x i16>
+  %247 = load <2 x i64>, ptr %__b.addr.i257, align 16
+  %248 = bitcast <2 x i64> %247 to <8 x i16>
+  %249 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %246, <8 x i16> %248)
+  %250 = bitcast <4 x i32> %249 to <2 x i64>
+  store <2 x i64> %250, ptr %i2, align 16
+  %251 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %251, ptr %__a.addr.i217, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %251 = load <2 x i64>, ptr %__a.addr.i217, align 16
-  %252 = bitcast <2 x i64> %251 to <4 x i32>
-  %253 = load i32, ptr %__count.addr.i, align 4
-  %254 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %252, i32 %253)
-  %255 = bitcast <4 x i32> %254 to <2 x i64>
-  store <2 x i64> %255, ptr %i2, align 16
-  %256 = load <2 x i64>, ptr %i0, align 16
-  %257 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %256, ptr %__a.addr.i183, align 16
-  store <2 x i64> %257, ptr %__b.addr.i184, align 16
-  %258 = load <2 x i64>, ptr %__a.addr.i183, align 16
-  %259 = bitcast <2 x i64> %258 to <4 x i32>
-  %260 = load <2 x i64>, ptr %__b.addr.i184, align 16
-  %261 = bitcast <2 x i64> %260 to <4 x i32>
-  %262 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %259, <4 x i32> %261)
-  %263 = bitcast <8 x i16> %262 to <2 x i64>
-  store <2 x i64> %263, ptr %i0, align 16
-  %264 = load <2 x i64>, ptr %i2, align 16
-  %265 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %264, ptr %__a.addr.i181, align 16
-  store <2 x i64> %265, ptr %__b.addr.i182, align 16
-  %266 = load <2 x i64>, ptr %__a.addr.i181, align 16
-  %267 = bitcast <2 x i64> %266 to <4 x i32>
-  %268 = load <2 x i64>, ptr %__b.addr.i182, align 16
-  %269 = bitcast <2 x i64> %268 to <4 x i32>
-  %270 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %267, <4 x i32> %269)
-  %271 = bitcast <8 x i16> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i2, align 16
-  %272 = load <2 x i64>, ptr %i0, align 16
-  %273 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %272, ptr %__a.addr.i151, align 16
-  store <2 x i64> %273, ptr %__b.addr.i152, align 16
-  %274 = load <2 x i64>, ptr %__a.addr.i151, align 16
-  %275 = bitcast <2 x i64> %274 to <8 x i16>
-  %276 = load <2 x i64>, ptr %__b.addr.i152, align 16
-  %277 = bitcast <2 x i64> %276 to <8 x i16>
-  %shuffle.i153 = shufflevector <8 x i16> %275, <8 x i16> %277, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %278 = bitcast <8 x i16> %shuffle.i153 to <2 x i64>
-  store <2 x i64> %278, ptr %i1, align 16
-  %279 = load <2 x i64>, ptr %i0, align 16
-  %280 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %279, ptr %__a.addr.i157, align 16
-  store <2 x i64> %280, ptr %__b.addr.i158, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i157, align 16
-  %282 = bitcast <2 x i64> %281 to <8 x i16>
-  %283 = load <2 x i64>, ptr %__b.addr.i158, align 16
-  %284 = bitcast <2 x i64> %283 to <8 x i16>
-  %shuffle.i159 = shufflevector <8 x i16> %282, <8 x i16> %284, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %285 = bitcast <8 x i16> %shuffle.i159 to <2 x i64>
-  store <2 x i64> %285, ptr %i3, align 16
-  %286 = load <2 x i64>, ptr %i1, align 16
-  %287 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %286, ptr %__a.addr.i, align 16
-  store <2 x i64> %287, ptr %__b.addr.i, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %289, <8 x i16> %291, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %292 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %292, ptr %i0, align 16
-  %293 = load <2 x i64>, ptr %i1, align 16
-  %294 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %293, ptr %__a.addr.i154, align 16
-  store <2 x i64> %294, ptr %__b.addr.i155, align 16
-  %295 = load <2 x i64>, ptr %__a.addr.i154, align 16
-  %296 = bitcast <2 x i64> %295 to <8 x i16>
-  %297 = load <2 x i64>, ptr %__b.addr.i155, align 16
-  %298 = bitcast <2 x i64> %297 to <8 x i16>
-  %shuffle.i156 = shufflevector <8 x i16> %296, <8 x i16> %298, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %299 = bitcast <8 x i16> %shuffle.i156 to <2 x i64>
-  store <2 x i64> %299, ptr %i2, align 16
-  %300 = load <2 x i64>, ptr %i0, align 16
-  %301 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %300, ptr %__a.addr.i185, align 16
-  store <2 x i64> %301, ptr %__b.addr.i186, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i185, align 16
-  %303 = bitcast <2 x i64> %302 to <8 x i16>
-  %304 = load <2 x i64>, ptr %__b.addr.i186, align 16
-  %305 = bitcast <2 x i64> %304 to <8 x i16>
-  %306 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %303, <8 x i16> %305)
-  %307 = bitcast <16 x i8> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i0, align 16
-  %308 = load ptr, ptr %output, align 8
-  %309 = load <2 x i64>, ptr %i0, align 16
-  store ptr %308, ptr %__p.addr.i262, align 8
-  store <2 x i64> %309, ptr %__b.addr.i263, align 16
-  %310 = load <2 x i64>, ptr %__b.addr.i263, align 16
-  %311 = load ptr, ptr %__p.addr.i262, align 8
-  store <2 x i64> %310, ptr %311, align 1
-  %312 = load ptr, ptr %output, align 8
-  %add.ptr116 = getelementptr inbounds i8, ptr %312, i64 16
+  %252 = load <2 x i64>, ptr %__a.addr.i217, align 16
+  %253 = bitcast <2 x i64> %252 to <4 x i32>
+  %254 = load i32, ptr %__count.addr.i, align 4
+  %255 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %253, i32 %254)
+  %256 = bitcast <4 x i32> %255 to <2 x i64>
+  store <2 x i64> %256, ptr %i2, align 16
+  %257 = load <2 x i64>, ptr %i0, align 16
+  %258 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %257, ptr %__a.addr.i183, align 16
+  store <2 x i64> %258, ptr %__b.addr.i184, align 16
+  %259 = load <2 x i64>, ptr %__a.addr.i183, align 16
+  %260 = bitcast <2 x i64> %259 to <4 x i32>
+  %261 = load <2 x i64>, ptr %__b.addr.i184, align 16
+  %262 = bitcast <2 x i64> %261 to <4 x i32>
+  %263 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %260, <4 x i32> %262)
+  %264 = bitcast <8 x i16> %263 to <2 x i64>
+  store <2 x i64> %264, ptr %i0, align 16
+  %265 = load <2 x i64>, ptr %i2, align 16
+  %266 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %265, ptr %__a.addr.i181, align 16
+  store <2 x i64> %266, ptr %__b.addr.i182, align 16
+  %267 = load <2 x i64>, ptr %__a.addr.i181, align 16
+  %268 = bitcast <2 x i64> %267 to <4 x i32>
+  %269 = load <2 x i64>, ptr %__b.addr.i182, align 16
+  %270 = bitcast <2 x i64> %269 to <4 x i32>
+  %271 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %268, <4 x i32> %270)
+  %272 = bitcast <8 x i16> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i2, align 16
+  %273 = load <2 x i64>, ptr %i0, align 16
+  %274 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %273, ptr %__a.addr.i151, align 16
+  store <2 x i64> %274, ptr %__b.addr.i152, align 16
+  %275 = load <2 x i64>, ptr %__a.addr.i151, align 16
+  %276 = bitcast <2 x i64> %275 to <8 x i16>
+  %277 = load <2 x i64>, ptr %__b.addr.i152, align 16
+  %278 = bitcast <2 x i64> %277 to <8 x i16>
+  %shuffle.i153 = shufflevector <8 x i16> %276, <8 x i16> %278, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %279 = bitcast <8 x i16> %shuffle.i153 to <2 x i64>
+  store <2 x i64> %279, ptr %i1, align 16
+  %280 = load <2 x i64>, ptr %i0, align 16
+  %281 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %280, ptr %__a.addr.i157, align 16
+  store <2 x i64> %281, ptr %__b.addr.i158, align 16
+  %282 = load <2 x i64>, ptr %__a.addr.i157, align 16
+  %283 = bitcast <2 x i64> %282 to <8 x i16>
+  %284 = load <2 x i64>, ptr %__b.addr.i158, align 16
+  %285 = bitcast <2 x i64> %284 to <8 x i16>
+  %shuffle.i159 = shufflevector <8 x i16> %283, <8 x i16> %285, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %286 = bitcast <8 x i16> %shuffle.i159 to <2 x i64>
+  store <2 x i64> %286, ptr %i3, align 16
+  %287 = load <2 x i64>, ptr %i1, align 16
+  %288 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %287, ptr %__a.addr.i, align 16
+  store <2 x i64> %288, ptr %__b.addr.i, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %290, <8 x i16> %292, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %293 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %293, ptr %i0, align 16
+  %294 = load <2 x i64>, ptr %i1, align 16
+  %295 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %294, ptr %__a.addr.i154, align 16
+  store <2 x i64> %295, ptr %__b.addr.i155, align 16
+  %296 = load <2 x i64>, ptr %__a.addr.i154, align 16
+  %297 = bitcast <2 x i64> %296 to <8 x i16>
+  %298 = load <2 x i64>, ptr %__b.addr.i155, align 16
+  %299 = bitcast <2 x i64> %298 to <8 x i16>
+  %shuffle.i156 = shufflevector <8 x i16> %297, <8 x i16> %299, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %300 = bitcast <8 x i16> %shuffle.i156 to <2 x i64>
+  store <2 x i64> %300, ptr %i2, align 16
+  %301 = load <2 x i64>, ptr %i0, align 16
+  %302 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %301, ptr %__a.addr.i185, align 16
+  store <2 x i64> %302, ptr %__b.addr.i186, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i185, align 16
+  %304 = bitcast <2 x i64> %303 to <8 x i16>
+  %305 = load <2 x i64>, ptr %__b.addr.i186, align 16
+  %306 = bitcast <2 x i64> %305 to <8 x i16>
+  %307 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %304, <8 x i16> %306)
+  %308 = bitcast <16 x i8> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i0, align 16
+  %309 = load ptr, ptr %output, align 8
+  %310 = load <2 x i64>, ptr %i0, align 16
+  store ptr %309, ptr %__p.addr.i262, align 8
+  store <2 x i64> %310, ptr %__b.addr.i263, align 16
+  %311 = load <2 x i64>, ptr %__b.addr.i263, align 16
+  %312 = load ptr, ptr %__p.addr.i262, align 8
+  store <2 x i64> %311, ptr %312, align 1
+  %313 = load ptr, ptr %output, align 8
+  %add.ptr116 = getelementptr inbounds i8, ptr %313, i64 16
   store ptr %add.ptr116, ptr %output, align 8
-  %313 = load ptr, ptr %encode.addr, align 8
-  %add.ptr117 = getelementptr inbounds float, ptr %313, i64 16
+  %314 = load ptr, ptr %encode.addr, align 8
+  %add.ptr117 = getelementptr inbounds float, ptr %314, i64 16
   store ptr %add.ptr117, ptr %encode.addr, align 8
-  %314 = load ptr, ptr %output, align 8
-  %315 = load ptr, ptr %end_output, align 8
-  %cmp118 = icmp ule ptr %314, %315
+  %315 = load ptr, ptr %output, align 8
+  %316 = load ptr, ptr %end_output, align 8
+  %cmp118 = icmp ule ptr %315, %316
   br i1 %cmp118, label %if.then119, label %if.end
 
 if.then119:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %316 = load ptr, ptr %output, align 8
-  %317 = load ptr, ptr %end_output, align 8
-  %add.ptr120 = getelementptr inbounds i8, ptr %317, i64 16
-  %cmp121 = icmp eq ptr %316, %add.ptr120
+  %317 = load ptr, ptr %output, align 8
+  %318 = load ptr, ptr %end_output, align 8
+  %add.ptr120 = getelementptr inbounds i8, ptr %318, i64 16
+  %cmp121 = icmp eq ptr %317, %add.ptr120
   br i1 %cmp121, label %if.then122, label %if.end123
 
 if.then122:                                       ; preds = %if.end
   br label %for.end
 
 if.end123:                                        ; preds = %if.end
-  %318 = load ptr, ptr %end_output, align 8
-  store ptr %318, ptr %output, align 8
-  %319 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %319, ptr %encode.addr, align 8
+  %319 = load ptr, ptr %end_output, align 8
+  store ptr %319, ptr %output, align 8
+  %320 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %320, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then122
@@ -8456,40 +8458,40 @@ if.end124:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end124
-  %320 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %320) #9, !srcloc !117
   %321 = load ptr, ptr %encode.addr, align 8
-  %arrayidx125 = getelementptr inbounds float, ptr %321, i64 0
-  %322 = load float, ptr %arrayidx125, align 4
-  %call126 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %322)
-  %323 = load ptr, ptr %output, align 8
-  %arrayidx127 = getelementptr inbounds i8, ptr %323, i64 0
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %321) #9, !srcloc !117
+  %322 = load ptr, ptr %encode.addr, align 8
+  %arrayidx125 = getelementptr inbounds float, ptr %322, i64 0
+  %323 = load float, ptr %arrayidx125, align 4
+  %call126 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %323)
+  %324 = load ptr, ptr %output, align 8
+  %arrayidx127 = getelementptr inbounds i8, ptr %324, i64 0
   store i8 %call126, ptr %arrayidx127, align 1
-  %324 = load ptr, ptr %encode.addr, align 8
-  %arrayidx128 = getelementptr inbounds float, ptr %324, i64 1
-  %325 = load float, ptr %arrayidx128, align 4
-  %call129 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %325)
-  %326 = load ptr, ptr %output, align 8
-  %arrayidx130 = getelementptr inbounds i8, ptr %326, i64 1
+  %325 = load ptr, ptr %encode.addr, align 8
+  %arrayidx128 = getelementptr inbounds float, ptr %325, i64 1
+  %326 = load float, ptr %arrayidx128, align 4
+  %call129 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %326)
+  %327 = load ptr, ptr %output, align 8
+  %arrayidx130 = getelementptr inbounds i8, ptr %327, i64 1
   store i8 %call129, ptr %arrayidx130, align 1
-  %327 = load ptr, ptr %encode.addr, align 8
-  %arrayidx131 = getelementptr inbounds float, ptr %327, i64 2
-  %328 = load float, ptr %arrayidx131, align 4
-  %call132 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %328)
-  %329 = load ptr, ptr %output, align 8
-  %arrayidx133 = getelementptr inbounds i8, ptr %329, i64 2
+  %328 = load ptr, ptr %encode.addr, align 8
+  %arrayidx131 = getelementptr inbounds float, ptr %328, i64 2
+  %329 = load float, ptr %arrayidx131, align 4
+  %call132 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %329)
+  %330 = load ptr, ptr %output, align 8
+  %arrayidx133 = getelementptr inbounds i8, ptr %330, i64 2
   store i8 %call132, ptr %arrayidx133, align 1
-  %330 = load ptr, ptr %encode.addr, align 8
-  %arrayidx134 = getelementptr inbounds float, ptr %330, i64 3
-  %331 = load float, ptr %arrayidx134, align 4
-  %mul = fmul float %331, 2.550000e+02
+  %331 = load ptr, ptr %encode.addr, align 8
+  %arrayidx134 = getelementptr inbounds float, ptr %331, i64 3
+  %332 = load float, ptr %arrayidx134, align 4
+  %mul = fmul float %332, 2.550000e+02
   %add = fadd float %mul, 5.000000e-01
   store float %add, ptr %f, align 4
   br label %do.body135
 
 do.body135:                                       ; preds = %do.body
-  %332 = load float, ptr %f, align 4
-  %cmp136 = fcmp olt float %332, 0.000000e+00
+  %333 = load float, ptr %f, align 4
+  %cmp136 = fcmp olt float %333, 0.000000e+00
   br i1 %cmp136, label %if.then137, label %if.end138
 
 if.then137:                                       ; preds = %do.body135
@@ -8497,8 +8499,8 @@ if.then137:                                       ; preds = %do.body135
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then137, %do.body135
-  %333 = load float, ptr %f, align 4
-  %cmp139 = fcmp ogt float %333, 2.550000e+02
+  %334 = load float, ptr %f, align 4
+  %cmp139 = fcmp ogt float %334, 2.550000e+02
   br i1 %cmp139, label %if.then140, label %if.end141
 
 if.then140:                                       ; preds = %if.end138
@@ -8509,23 +8511,23 @@ if.end141:                                        ; preds = %if.then140, %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end141
-  %334 = load float, ptr %f, align 4
-  %conv = fptoui float %334 to i8
-  %335 = load ptr, ptr %output, align 8
-  %arrayidx142 = getelementptr inbounds i8, ptr %335, i64 3
-  store i8 %conv, ptr %arrayidx142, align 1
+  %335 = load float, ptr %f, align 4
+  %conv = fptoui float %335 to i8
   %336 = load ptr, ptr %output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %336, i64 4
+  %arrayidx142 = getelementptr inbounds i8, ptr %336, i64 3
+  store i8 %conv, ptr %arrayidx142, align 1
+  %337 = load ptr, ptr %output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %337, i64 4
   store ptr %add.ptr143, ptr %output, align 8
-  %337 = load ptr, ptr %encode.addr, align 8
-  %add.ptr144 = getelementptr inbounds float, ptr %337, i64 4
+  %338 = load ptr, ptr %encode.addr, align 8
+  %add.ptr144 = getelementptr inbounds float, ptr %338, i64 4
   store ptr %add.ptr144, ptr %encode.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.end
-  %338 = load ptr, ptr %output, align 8
-  %339 = load ptr, ptr %end_output, align 8
-  %cmp145 = icmp ult ptr %338, %339
+  %339 = load ptr, ptr %output, align 8
+  %340 = load ptr, ptr %end_output, align 8
+  %cmp145 = icmp ult ptr %339, %340
   br i1 %cmp145, label %do.body, label %do.end147, !llvm.loop !118
 
 do.end147:                                        ; preds = %do.cond, %for.end
@@ -8768,522 +8770,523 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end101
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end100, %if.then96, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !120
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i121, align 8
-  %9 = load ptr, ptr %__p.addr.i121, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !120
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i121, align 8
+  %10 = load ptr, ptr %__p.addr.i121, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i120, align 8
-  %12 = load ptr, ptr %__p.addr.i120, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i120, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i119, align 8
-  %15 = load ptr, ptr %__p.addr.i119, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i119, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i169, align 16
-  store <4 x float> %21, ptr %__b.addr.i170, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i169, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i170, align 16
-  %shuffle.i171 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i169, align 16
+  store <4 x float> %22, ptr %__b.addr.i170, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i169, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i170, align 16
+  %shuffle.i171 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i171, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i166, align 16
-  store <4 x float> %25, ptr %__b.addr.i167, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i166, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i167, align 16
-  %shuffle.i168 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i166, align 16
+  store <4 x float> %26, ptr %__b.addr.i167, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i166, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i167, align 16
+  %shuffle.i168 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i168, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i175, align 16
-  store <4 x float> %29, ptr %__b.addr.i176, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i175, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i176, align 16
-  %shuffle.i177 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i175, align 16
+  store <4 x float> %30, ptr %__b.addr.i176, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i175, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i176, align 16
+  %shuffle.i177 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i177, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i172, align 16
-  store <4 x float> %33, ptr %__b.addr.i173, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i172, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i173, align 16
-  %shuffle.i174 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i172, align 16
+  store <4 x float> %34, ptr %__b.addr.i173, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i172, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i173, align 16
+  %shuffle.i174 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i174, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i181, align 16
-  store <4 x float> %37, ptr %__b.addr.i182, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i181, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i182, align 16
-  %shuffle.i183 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i181, align 16
+  store <4 x float> %38, ptr %__b.addr.i182, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i181, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i182, align 16
+  %shuffle.i183 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i183, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i187, align 16
-  store <4 x float> %41, ptr %__b.addr.i188, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %shuffle.i189 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i187, align 16
+  store <4 x float> %42, ptr %__b.addr.i188, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %shuffle.i189 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i189, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i178, align 16
-  store <4 x float> %45, ptr %__b.addr.i179, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i178, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i179, align 16
-  %shuffle.i180 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i178, align 16
+  store <4 x float> %46, ptr %__b.addr.i179, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i178, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i179, align 16
+  %shuffle.i180 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i180, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i184, align 16
-  store <4 x float> %49, ptr %__b.addr.i185, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i184, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i185, align 16
-  %shuffle.i186 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i184, align 16
+  store <4 x float> %50, ptr %__b.addr.i185, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i184, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i185, align 16
+  %shuffle.i186 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i186, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i193, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i193, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i155, align 16
-  store <4 x float> %54, ptr %__b.addr.i156, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i155, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i156, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i193, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i155, align 16
+  store <4 x float> %55, ptr %__b.addr.i156, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i155, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i156, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i192, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i192, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i147, align 16
-  store <4 x float> %60, ptr %__b.addr.i148, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i147, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i148, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i208, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i203, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i192, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i147, align 16
+  store <4 x float> %61, ptr %__b.addr.i148, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i147, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i148, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i208, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i203, align 16
   store i32 20, ptr %__count.addr.i204, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i203, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i204, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i203, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i204, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__a.addr.i133, align 16
-  store <4 x float> %72, ptr %__b.addr.i134, align 16
-  %73 = load <4 x float>, ptr %__a.addr.i133, align 16
-  %74 = load <4 x float>, ptr %__b.addr.i134, align 16
-  %mul.i135 = fmul <4 x float> %73, %74
+  store <4 x float> %73, ptr %__b.addr.i134, align 16
+  %74 = load <4 x float>, ptr %__a.addr.i133, align 16
+  %75 = load <4 x float>, ptr %__b.addr.i134, align 16
+  %mul.i135 = fmul <4 x float> %74, %75
   store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %__a.addr.i138, align 16
   store <4 x float> %mul.i135, ptr %__b.addr.i139, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i138, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i139, align 16
-  %add.i140 = fadd <4 x float> %75, %76
+  %76 = load <4 x float>, ptr %__a.addr.i138, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i139, align 16
+  %add.i140 = fadd <4 x float> %76, %77
   store <4 x float> %add.i140, ptr %f1, align 16
-  %77 = load <4 x float>, ptr %f1, align 16
+  %78 = load <4 x float>, ptr %f1, align 16
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i157, align 16
-  %78 = load <4 x float>, ptr %.compoundliteral.i157, align 16
-  store <4 x float> %77, ptr %__a.addr.i153, align 16
-  store <4 x float> %78, ptr %__b.addr.i154, align 16
-  %79 = load <4 x float>, ptr %__a.addr.i153, align 16
-  %80 = load <4 x float>, ptr %__b.addr.i154, align 16
-  %81 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %79, <4 x float> %80)
-  store <4 x float> %81, ptr %f1, align 16
-  %82 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %82, ptr %__a.addr.i145, align 16
+  %79 = load <4 x float>, ptr %.compoundliteral.i157, align 16
+  store <4 x float> %78, ptr %__a.addr.i153, align 16
+  store <4 x float> %79, ptr %__b.addr.i154, align 16
+  %80 = load <4 x float>, ptr %__a.addr.i153, align 16
+  %81 = load <4 x float>, ptr %__b.addr.i154, align 16
+  %82 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %80, <4 x float> %81)
+  store <4 x float> %82, ptr %f1, align 16
+  %83 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %83, ptr %__a.addr.i145, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__b.addr.i146, align 16
-  %83 = load <4 x float>, ptr %__a.addr.i145, align 16
-  %84 = load <4 x float>, ptr %__b.addr.i146, align 16
-  %85 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %83, <4 x float> %84)
-  store <4 x float> %85, ptr %f1, align 16
-  %86 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %86, ptr %__a.addr.i159, align 16
-  %87 = load <4 x float>, ptr %__a.addr.i159, align 16
-  %88 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %87)
-  %89 = bitcast <4 x i32> %88 to <2 x i64>
-  store <2 x i64> %89, ptr %i1, align 16
-  %90 = load <4 x float>, ptr %f2, align 16
+  %84 = load <4 x float>, ptr %__a.addr.i145, align 16
+  %85 = load <4 x float>, ptr %__b.addr.i146, align 16
+  %86 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %84, <4 x float> %85)
+  store <4 x float> %86, ptr %f1, align 16
+  %87 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %87, ptr %__a.addr.i159, align 16
+  %88 = load <4 x float>, ptr %__a.addr.i159, align 16
+  %89 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %88)
+  %90 = bitcast <4 x i32> %89 to <2 x i64>
+  store <2 x i64> %90, ptr %i1, align 16
+  %91 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i191, align 16
-  %91 = load <2 x i64>, ptr %__a.addr.i191, align 16
-  %92 = bitcast <2 x i64> %91 to <4 x float>
-  store <4 x float> %90, ptr %__a.addr.i151, align 16
-  store <4 x float> %92, ptr %__b.addr.i152, align 16
-  %93 = load <4 x float>, ptr %__a.addr.i151, align 16
-  %94 = load <4 x float>, ptr %__b.addr.i152, align 16
-  %95 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %93, <4 x float> %94)
-  store <4 x float> %95, ptr %f2, align 16
-  %96 = load <4 x float>, ptr %f2, align 16
+  %92 = load <2 x i64>, ptr %__a.addr.i191, align 16
+  %93 = bitcast <2 x i64> %92 to <4 x float>
+  store <4 x float> %91, ptr %__a.addr.i151, align 16
+  store <4 x float> %93, ptr %__b.addr.i152, align 16
+  %94 = load <4 x float>, ptr %__a.addr.i151, align 16
+  %95 = load <4 x float>, ptr %__b.addr.i152, align 16
+  %96 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %94, <4 x float> %95)
+  store <4 x float> %96, ptr %f2, align 16
+  %97 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i190, align 16
-  %97 = load <2 x i64>, ptr %__a.addr.i190, align 16
-  %98 = bitcast <2 x i64> %97 to <4 x float>
-  store <4 x float> %96, ptr %__a.addr.i143, align 16
-  store <4 x float> %98, ptr %__b.addr.i144, align 16
-  %99 = load <4 x float>, ptr %__a.addr.i143, align 16
-  %100 = load <4 x float>, ptr %__b.addr.i144, align 16
-  %101 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %99, <4 x float> %100)
-  store <4 x float> %101, ptr %f2, align 16
-  %102 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %102, ptr %__a.addr.i207, align 16
-  %103 = load <4 x float>, ptr %__a.addr.i207, align 16
-  %104 = bitcast <4 x float> %103 to <2 x i64>
-  store <2 x i64> %104, ptr %__a.addr.i201, align 16
+  %98 = load <2 x i64>, ptr %__a.addr.i190, align 16
+  %99 = bitcast <2 x i64> %98 to <4 x float>
+  store <4 x float> %97, ptr %__a.addr.i143, align 16
+  store <4 x float> %99, ptr %__b.addr.i144, align 16
+  %100 = load <4 x float>, ptr %__a.addr.i143, align 16
+  %101 = load <4 x float>, ptr %__b.addr.i144, align 16
+  %102 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %100, <4 x float> %101)
+  store <4 x float> %102, ptr %f2, align 16
+  %103 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %103, ptr %__a.addr.i207, align 16
+  %104 = load <4 x float>, ptr %__a.addr.i207, align 16
+  %105 = bitcast <4 x float> %104 to <2 x i64>
+  store <2 x i64> %105, ptr %__a.addr.i201, align 16
   store i32 20, ptr %__count.addr.i202, align 4
-  %105 = load <2 x i64>, ptr %__a.addr.i201, align 16
-  %106 = bitcast <2 x i64> %105 to <4 x i32>
-  %107 = load i32, ptr %__count.addr.i202, align 4
-  %108 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %106, i32 %107)
-  %109 = bitcast <4 x i32> %108 to <2 x i64>
-  store <2 x i64> %109, ptr %i2, align 16
-  %110 = load <4 x float>, ptr %f3, align 16
+  %106 = load <2 x i64>, ptr %__a.addr.i201, align 16
+  %107 = bitcast <2 x i64> %106 to <4 x i32>
+  %108 = load i32, ptr %__count.addr.i202, align 4
+  %109 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %107, i32 %108)
+  %110 = bitcast <4 x i32> %109 to <2 x i64>
+  store <2 x i64> %110, ptr %i2, align 16
+  %111 = load <4 x float>, ptr %f3, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__a.addr.i131, align 16
-  store <4 x float> %110, ptr %__b.addr.i132, align 16
-  %111 = load <4 x float>, ptr %__a.addr.i131, align 16
-  %112 = load <4 x float>, ptr %__b.addr.i132, align 16
-  %mul.i = fmul <4 x float> %111, %112
+  store <4 x float> %111, ptr %__b.addr.i132, align 16
+  %112 = load <4 x float>, ptr %__a.addr.i131, align 16
+  %113 = load <4 x float>, ptr %__b.addr.i132, align 16
+  %mul.i = fmul <4 x float> %112, %113
   store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %__a.addr.i136, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i137, align 16
-  %113 = load <4 x float>, ptr %__a.addr.i136, align 16
-  %114 = load <4 x float>, ptr %__b.addr.i137, align 16
-  %add.i = fadd <4 x float> %113, %114
+  %114 = load <4 x float>, ptr %__a.addr.i136, align 16
+  %115 = load <4 x float>, ptr %__b.addr.i137, align 16
+  %add.i = fadd <4 x float> %114, %115
   store <4 x float> %add.i, ptr %f3, align 16
-  %115 = load <4 x float>, ptr %f3, align 16
+  %116 = load <4 x float>, ptr %f3, align 16
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i, align 16
-  %116 = load <4 x float>, ptr %.compoundliteral.i, align 16
-  store <4 x float> %115, ptr %__a.addr.i149, align 16
-  store <4 x float> %116, ptr %__b.addr.i150, align 16
-  %117 = load <4 x float>, ptr %__a.addr.i149, align 16
-  %118 = load <4 x float>, ptr %__b.addr.i150, align 16
-  %119 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %117, <4 x float> %118)
-  store <4 x float> %119, ptr %f3, align 16
-  %120 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %120, ptr %__a.addr.i141, align 16
+  %117 = load <4 x float>, ptr %.compoundliteral.i, align 16
+  store <4 x float> %116, ptr %__a.addr.i149, align 16
+  store <4 x float> %117, ptr %__b.addr.i150, align 16
+  %118 = load <4 x float>, ptr %__a.addr.i149, align 16
+  %119 = load <4 x float>, ptr %__b.addr.i150, align 16
+  %120 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %118, <4 x float> %119)
+  store <4 x float> %120, ptr %f3, align 16
+  %121 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %121, ptr %__a.addr.i141, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__b.addr.i142, align 16
-  %121 = load <4 x float>, ptr %__a.addr.i141, align 16
-  %122 = load <4 x float>, ptr %__b.addr.i142, align 16
-  %123 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %121, <4 x float> %122)
-  store <4 x float> %123, ptr %f3, align 16
-  %124 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %124, ptr %__a.addr.i158, align 16
-  %125 = load <4 x float>, ptr %__a.addr.i158, align 16
-  %126 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %125)
-  %127 = bitcast <4 x i32> %126 to <2 x i64>
-  store <2 x i64> %127, ptr %i3, align 16
-  %128 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %128, ptr %temp0, align 16
-  %129 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %129, ptr %temp1, align 16
-  %130 = load ptr, ptr %to_srgb, align 8
+  %122 = load <4 x float>, ptr %__a.addr.i141, align 16
+  %123 = load <4 x float>, ptr %__b.addr.i142, align 16
+  %124 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %122, <4 x float> %123)
+  store <4 x float> %124, ptr %f3, align 16
+  %125 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %125, ptr %__a.addr.i158, align 16
+  %126 = load <4 x float>, ptr %__a.addr.i158, align 16
+  %127 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %126)
+  %128 = bitcast <4 x i32> %127 to <2 x i64>
+  store <2 x i64> %128, ptr %i3, align 16
+  %129 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %129, ptr %temp0, align 16
+  %130 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %130, ptr %temp1, align 16
+  %131 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %131 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %131 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %130, i64 %idxprom
-  %132 = load i32, ptr %arrayidx43, align 4
+  %132 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %132 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %131, i64 %idxprom
+  %133 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %132, ptr %arrayidx44, align 16
-  %133 = load ptr, ptr %to_srgb, align 8
+  store i32 %133, ptr %arrayidx44, align 16
+  %134 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %134 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %134 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %133, i64 %idxprom46
-  %135 = load i32, ptr %arrayidx47, align 4
+  %135 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %135 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %134, i64 %idxprom46
+  %136 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %135, ptr %arrayidx48, align 4
-  %136 = load ptr, ptr %to_srgb, align 8
+  store i32 %136, ptr %arrayidx48, align 4
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %137 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %137 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %136, i64 %idxprom50
-  %138 = load i32, ptr %arrayidx51, align 4
+  %138 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %138 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %137, i64 %idxprom50
+  %139 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %138, ptr %arrayidx52, align 8
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx52, align 8
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %140 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %140 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %139, i64 %idxprom54
-  %141 = load i32, ptr %arrayidx55, align 4
+  %141 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %141 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %140, i64 %idxprom54
+  %142 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %141, ptr %arrayidx56, align 4
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx56, align 4
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %143 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %143 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %142, i64 %idxprom58
-  %144 = load i32, ptr %arrayidx59, align 4
+  %144 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %144 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %143, i64 %idxprom58
+  %145 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %144, ptr %arrayidx60, align 16
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx60, align 16
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %146 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %146 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %145, i64 %idxprom62
-  %147 = load i32, ptr %arrayidx63, align 4
+  %147 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %147 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %146, i64 %idxprom62
+  %148 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %147, ptr %arrayidx64, align 4
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx64, align 4
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %149 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %149 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %148, i64 %idxprom66
-  %150 = load i32, ptr %arrayidx67, align 4
+  %150 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %150 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %149, i64 %idxprom66
+  %151 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %150, ptr %arrayidx68, align 8
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx68, align 8
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %152 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %152 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %151, i64 %idxprom70
-  %153 = load i32, ptr %arrayidx71, align 4
+  %153 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %153 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %152, i64 %idxprom70
+  %154 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %153, ptr %arrayidx72, align 4
-  %154 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %154, ptr %i0, align 16
-  %155 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %155, ptr %i2, align 16
-  %156 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %156, ptr %__a.addr.i206, align 16
-  %157 = load <4 x float>, ptr %__a.addr.i206, align 16
-  %158 = bitcast <4 x float> %157 to <2 x i64>
-  store <2 x i64> %158, ptr %__a.addr.i199, align 16
+  store i32 %154, ptr %arrayidx72, align 4
+  %155 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %155, ptr %i0, align 16
+  %156 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %156, ptr %i2, align 16
+  %157 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %157, ptr %__a.addr.i206, align 16
+  %158 = load <4 x float>, ptr %__a.addr.i206, align 16
+  %159 = bitcast <4 x float> %158 to <2 x i64>
+  store <2 x i64> %159, ptr %__a.addr.i199, align 16
   store i32 12, ptr %__count.addr.i200, align 4
-  %159 = load <2 x i64>, ptr %__a.addr.i199, align 16
-  %160 = bitcast <2 x i64> %159 to <4 x i32>
-  %161 = load i32, ptr %__count.addr.i200, align 4
-  %162 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %160, i32 %161)
-  %163 = bitcast <4 x i32> %162 to <2 x i64>
-  store <2 x i64> %163, ptr %temp, align 16
-  %164 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %164, ptr %__a.addr.i211, align 16
+  %160 = load <2 x i64>, ptr %__a.addr.i199, align 16
+  %161 = bitcast <2 x i64> %160 to <4 x i32>
+  %162 = load i32, ptr %__count.addr.i200, align 4
+  %163 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %161, i32 %162)
+  %164 = bitcast <4 x i32> %163 to <2 x i64>
+  store <2 x i64> %164, ptr %temp, align 16
+  %165 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %165, ptr %__a.addr.i211, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i212, align 16
-  %165 = load <2 x i64>, ptr %__a.addr.i211, align 16
-  %166 = load <2 x i64>, ptr %__b.addr.i212, align 16
-  %and.i213 = and <2 x i64> %165, %166
+  %166 = load <2 x i64>, ptr %__a.addr.i211, align 16
+  %167 = load <2 x i64>, ptr %__b.addr.i212, align 16
+  %and.i213 = and <2 x i64> %166, %167
   store <2 x i64> %and.i213, ptr %temp, align 16
-  %167 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %167, ptr %__a.addr.i216, align 16
+  %168 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %168, ptr %__a.addr.i216, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i217, align 16
-  %168 = load <2 x i64>, ptr %__a.addr.i216, align 16
-  %169 = load <2 x i64>, ptr %__b.addr.i217, align 16
-  %or.i218 = or <2 x i64> %168, %169
+  %169 = load <2 x i64>, ptr %__a.addr.i216, align 16
+  %170 = load <2 x i64>, ptr %__b.addr.i217, align 16
+  %or.i218 = or <2 x i64> %169, %170
   store <2 x i64> %or.i218, ptr %temp, align 16
-  %170 = load <2 x i64>, ptr %i0, align 16
-  %171 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %170, ptr %__a.addr.i221, align 16
-  store <2 x i64> %171, ptr %__b.addr.i222, align 16
-  %172 = load <2 x i64>, ptr %__a.addr.i221, align 16
-  %173 = bitcast <2 x i64> %172 to <8 x i16>
-  %174 = load <2 x i64>, ptr %__b.addr.i222, align 16
-  %175 = bitcast <2 x i64> %174 to <8 x i16>
-  %176 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %173, <8 x i16> %175)
-  %177 = bitcast <4 x i32> %176 to <2 x i64>
-  store <2 x i64> %177, ptr %i0, align 16
-  %178 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %178, ptr %__a.addr.i197, align 16
+  %171 = load <2 x i64>, ptr %i0, align 16
+  %172 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %171, ptr %__a.addr.i221, align 16
+  store <2 x i64> %172, ptr %__b.addr.i222, align 16
+  %173 = load <2 x i64>, ptr %__a.addr.i221, align 16
+  %174 = bitcast <2 x i64> %173 to <8 x i16>
+  %175 = load <2 x i64>, ptr %__b.addr.i222, align 16
+  %176 = bitcast <2 x i64> %175 to <8 x i16>
+  %177 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %174, <8 x i16> %176)
+  %178 = bitcast <4 x i32> %177 to <2 x i64>
+  store <2 x i64> %178, ptr %i0, align 16
+  %179 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %179, ptr %__a.addr.i197, align 16
   store i32 16, ptr %__count.addr.i198, align 4
-  %179 = load <2 x i64>, ptr %__a.addr.i197, align 16
-  %180 = bitcast <2 x i64> %179 to <4 x i32>
-  %181 = load i32, ptr %__count.addr.i198, align 4
-  %182 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %180, i32 %181)
-  %183 = bitcast <4 x i32> %182 to <2 x i64>
-  store <2 x i64> %183, ptr %i0, align 16
-  %184 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %184, ptr %__a.addr.i205, align 16
-  %185 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %186 = bitcast <4 x float> %185 to <2 x i64>
-  store <2 x i64> %186, ptr %__a.addr.i195, align 16
+  %180 = load <2 x i64>, ptr %__a.addr.i197, align 16
+  %181 = bitcast <2 x i64> %180 to <4 x i32>
+  %182 = load i32, ptr %__count.addr.i198, align 4
+  %183 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %181, i32 %182)
+  %184 = bitcast <4 x i32> %183 to <2 x i64>
+  store <2 x i64> %184, ptr %i0, align 16
+  %185 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %185, ptr %__a.addr.i205, align 16
+  %186 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %187 = bitcast <4 x float> %186 to <2 x i64>
+  store <2 x i64> %187, ptr %__a.addr.i195, align 16
   store i32 12, ptr %__count.addr.i196, align 4
-  %187 = load <2 x i64>, ptr %__a.addr.i195, align 16
-  %188 = bitcast <2 x i64> %187 to <4 x i32>
-  %189 = load i32, ptr %__count.addr.i196, align 4
-  %190 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %188, i32 %189)
-  %191 = bitcast <4 x i32> %190 to <2 x i64>
-  store <2 x i64> %191, ptr %temp79, align 16
-  %192 = load <2 x i64>, ptr %temp79, align 16
-  store <2 x i64> %192, ptr %__a.addr.i209, align 16
+  %188 = load <2 x i64>, ptr %__a.addr.i195, align 16
+  %189 = bitcast <2 x i64> %188 to <4 x i32>
+  %190 = load i32, ptr %__count.addr.i196, align 4
+  %191 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %189, i32 %190)
+  %192 = bitcast <4 x i32> %191 to <2 x i64>
+  store <2 x i64> %192, ptr %temp79, align 16
+  %193 = load <2 x i64>, ptr %temp79, align 16
+  store <2 x i64> %193, ptr %__a.addr.i209, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i210, align 16
-  %193 = load <2 x i64>, ptr %__a.addr.i209, align 16
-  %194 = load <2 x i64>, ptr %__b.addr.i210, align 16
-  %and.i = and <2 x i64> %193, %194
+  %194 = load <2 x i64>, ptr %__a.addr.i209, align 16
+  %195 = load <2 x i64>, ptr %__b.addr.i210, align 16
+  %and.i = and <2 x i64> %194, %195
   store <2 x i64> %and.i, ptr %temp79, align 16
-  %195 = load <2 x i64>, ptr %temp79, align 16
-  store <2 x i64> %195, ptr %__a.addr.i214, align 16
+  %196 = load <2 x i64>, ptr %temp79, align 16
+  store <2 x i64> %196, ptr %__a.addr.i214, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i215, align 16
-  %196 = load <2 x i64>, ptr %__a.addr.i214, align 16
-  %197 = load <2 x i64>, ptr %__b.addr.i215, align 16
-  %or.i = or <2 x i64> %196, %197
+  %197 = load <2 x i64>, ptr %__a.addr.i214, align 16
+  %198 = load <2 x i64>, ptr %__b.addr.i215, align 16
+  %or.i = or <2 x i64> %197, %198
   store <2 x i64> %or.i, ptr %temp79, align 16
-  %198 = load <2 x i64>, ptr %i2, align 16
-  %199 = load <2 x i64>, ptr %temp79, align 16
-  store <2 x i64> %198, ptr %__a.addr.i219, align 16
-  store <2 x i64> %199, ptr %__b.addr.i220, align 16
-  %200 = load <2 x i64>, ptr %__a.addr.i219, align 16
-  %201 = bitcast <2 x i64> %200 to <8 x i16>
-  %202 = load <2 x i64>, ptr %__b.addr.i220, align 16
-  %203 = bitcast <2 x i64> %202 to <8 x i16>
-  %204 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %201, <8 x i16> %203)
-  %205 = bitcast <4 x i32> %204 to <2 x i64>
-  store <2 x i64> %205, ptr %i2, align 16
-  %206 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %206, ptr %__a.addr.i194, align 16
+  %199 = load <2 x i64>, ptr %i2, align 16
+  %200 = load <2 x i64>, ptr %temp79, align 16
+  store <2 x i64> %199, ptr %__a.addr.i219, align 16
+  store <2 x i64> %200, ptr %__b.addr.i220, align 16
+  %201 = load <2 x i64>, ptr %__a.addr.i219, align 16
+  %202 = bitcast <2 x i64> %201 to <8 x i16>
+  %203 = load <2 x i64>, ptr %__b.addr.i220, align 16
+  %204 = bitcast <2 x i64> %203 to <8 x i16>
+  %205 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %202, <8 x i16> %204)
+  %206 = bitcast <4 x i32> %205 to <2 x i64>
+  store <2 x i64> %206, ptr %i2, align 16
+  %207 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %207, ptr %__a.addr.i194, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %207 = load <2 x i64>, ptr %__a.addr.i194, align 16
-  %208 = bitcast <2 x i64> %207 to <4 x i32>
-  %209 = load i32, ptr %__count.addr.i, align 4
-  %210 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %208, i32 %209)
-  %211 = bitcast <4 x i32> %210 to <2 x i64>
-  store <2 x i64> %211, ptr %i2, align 16
-  %212 = load <2 x i64>, ptr %i0, align 16
-  %213 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %212, ptr %__a.addr.i162, align 16
-  store <2 x i64> %213, ptr %__b.addr.i163, align 16
-  %214 = load <2 x i64>, ptr %__a.addr.i162, align 16
-  %215 = bitcast <2 x i64> %214 to <4 x i32>
-  %216 = load <2 x i64>, ptr %__b.addr.i163, align 16
-  %217 = bitcast <2 x i64> %216 to <4 x i32>
-  %218 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %215, <4 x i32> %217)
-  %219 = bitcast <8 x i16> %218 to <2 x i64>
-  store <2 x i64> %219, ptr %i0, align 16
-  %220 = load <2 x i64>, ptr %i2, align 16
-  %221 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %220, ptr %__a.addr.i160, align 16
-  store <2 x i64> %221, ptr %__b.addr.i161, align 16
-  %222 = load <2 x i64>, ptr %__a.addr.i160, align 16
-  %223 = bitcast <2 x i64> %222 to <4 x i32>
-  %224 = load <2 x i64>, ptr %__b.addr.i161, align 16
-  %225 = bitcast <2 x i64> %224 to <4 x i32>
-  %226 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %223, <4 x i32> %225)
-  %227 = bitcast <8 x i16> %226 to <2 x i64>
-  store <2 x i64> %227, ptr %i2, align 16
-  %228 = load <2 x i64>, ptr %i0, align 16
-  %229 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %228, ptr %__a.addr.i122, align 16
-  store <2 x i64> %229, ptr %__b.addr.i123, align 16
-  %230 = load <2 x i64>, ptr %__a.addr.i122, align 16
-  %231 = bitcast <2 x i64> %230 to <8 x i16>
-  %232 = load <2 x i64>, ptr %__b.addr.i123, align 16
-  %233 = bitcast <2 x i64> %232 to <8 x i16>
-  %shuffle.i124 = shufflevector <8 x i16> %231, <8 x i16> %233, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %234 = bitcast <8 x i16> %shuffle.i124 to <2 x i64>
-  store <2 x i64> %234, ptr %i1, align 16
-  %235 = load <2 x i64>, ptr %i0, align 16
-  %236 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %235, ptr %__a.addr.i128, align 16
-  store <2 x i64> %236, ptr %__b.addr.i129, align 16
-  %237 = load <2 x i64>, ptr %__a.addr.i128, align 16
-  %238 = bitcast <2 x i64> %237 to <8 x i16>
-  %239 = load <2 x i64>, ptr %__b.addr.i129, align 16
-  %240 = bitcast <2 x i64> %239 to <8 x i16>
-  %shuffle.i130 = shufflevector <8 x i16> %238, <8 x i16> %240, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %241 = bitcast <8 x i16> %shuffle.i130 to <2 x i64>
-  store <2 x i64> %241, ptr %i3, align 16
-  %242 = load <2 x i64>, ptr %i1, align 16
-  %243 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %242, ptr %__a.addr.i, align 16
-  store <2 x i64> %243, ptr %__b.addr.i, align 16
-  %244 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %245 = bitcast <2 x i64> %244 to <8 x i16>
-  %246 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %247 = bitcast <2 x i64> %246 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %245, <8 x i16> %247, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %248 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %248, ptr %i0, align 16
-  %249 = load <2 x i64>, ptr %i1, align 16
-  %250 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %249, ptr %__a.addr.i125, align 16
-  store <2 x i64> %250, ptr %__b.addr.i126, align 16
-  %251 = load <2 x i64>, ptr %__a.addr.i125, align 16
-  %252 = bitcast <2 x i64> %251 to <8 x i16>
-  %253 = load <2 x i64>, ptr %__b.addr.i126, align 16
-  %254 = bitcast <2 x i64> %253 to <8 x i16>
-  %shuffle.i127 = shufflevector <8 x i16> %252, <8 x i16> %254, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %255 = bitcast <8 x i16> %shuffle.i127 to <2 x i64>
-  store <2 x i64> %255, ptr %i2, align 16
-  %256 = load <2 x i64>, ptr %i0, align 16
-  %257 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %256, ptr %__a.addr.i164, align 16
-  store <2 x i64> %257, ptr %__b.addr.i165, align 16
-  %258 = load <2 x i64>, ptr %__a.addr.i164, align 16
-  %259 = bitcast <2 x i64> %258 to <8 x i16>
-  %260 = load <2 x i64>, ptr %__b.addr.i165, align 16
-  %261 = bitcast <2 x i64> %260 to <8 x i16>
-  %262 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %259, <8 x i16> %261)
-  %263 = bitcast <16 x i8> %262 to <2 x i64>
-  store <2 x i64> %263, ptr %i0, align 16
-  %264 = load ptr, ptr %output, align 8
-  %265 = load <2 x i64>, ptr %i0, align 16
-  store ptr %264, ptr %__p.addr.i223, align 8
-  store <2 x i64> %265, ptr %__b.addr.i224, align 16
-  %266 = load <2 x i64>, ptr %__b.addr.i224, align 16
-  %267 = load ptr, ptr %__p.addr.i223, align 8
-  store <2 x i64> %266, ptr %267, align 1
-  %268 = load ptr, ptr %output, align 8
-  %add.ptr93 = getelementptr inbounds i8, ptr %268, i64 16
+  %208 = load <2 x i64>, ptr %__a.addr.i194, align 16
+  %209 = bitcast <2 x i64> %208 to <4 x i32>
+  %210 = load i32, ptr %__count.addr.i, align 4
+  %211 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %209, i32 %210)
+  %212 = bitcast <4 x i32> %211 to <2 x i64>
+  store <2 x i64> %212, ptr %i2, align 16
+  %213 = load <2 x i64>, ptr %i0, align 16
+  %214 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %213, ptr %__a.addr.i162, align 16
+  store <2 x i64> %214, ptr %__b.addr.i163, align 16
+  %215 = load <2 x i64>, ptr %__a.addr.i162, align 16
+  %216 = bitcast <2 x i64> %215 to <4 x i32>
+  %217 = load <2 x i64>, ptr %__b.addr.i163, align 16
+  %218 = bitcast <2 x i64> %217 to <4 x i32>
+  %219 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %216, <4 x i32> %218)
+  %220 = bitcast <8 x i16> %219 to <2 x i64>
+  store <2 x i64> %220, ptr %i0, align 16
+  %221 = load <2 x i64>, ptr %i2, align 16
+  %222 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %221, ptr %__a.addr.i160, align 16
+  store <2 x i64> %222, ptr %__b.addr.i161, align 16
+  %223 = load <2 x i64>, ptr %__a.addr.i160, align 16
+  %224 = bitcast <2 x i64> %223 to <4 x i32>
+  %225 = load <2 x i64>, ptr %__b.addr.i161, align 16
+  %226 = bitcast <2 x i64> %225 to <4 x i32>
+  %227 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %224, <4 x i32> %226)
+  %228 = bitcast <8 x i16> %227 to <2 x i64>
+  store <2 x i64> %228, ptr %i2, align 16
+  %229 = load <2 x i64>, ptr %i0, align 16
+  %230 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %229, ptr %__a.addr.i122, align 16
+  store <2 x i64> %230, ptr %__b.addr.i123, align 16
+  %231 = load <2 x i64>, ptr %__a.addr.i122, align 16
+  %232 = bitcast <2 x i64> %231 to <8 x i16>
+  %233 = load <2 x i64>, ptr %__b.addr.i123, align 16
+  %234 = bitcast <2 x i64> %233 to <8 x i16>
+  %shuffle.i124 = shufflevector <8 x i16> %232, <8 x i16> %234, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %235 = bitcast <8 x i16> %shuffle.i124 to <2 x i64>
+  store <2 x i64> %235, ptr %i1, align 16
+  %236 = load <2 x i64>, ptr %i0, align 16
+  %237 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %236, ptr %__a.addr.i128, align 16
+  store <2 x i64> %237, ptr %__b.addr.i129, align 16
+  %238 = load <2 x i64>, ptr %__a.addr.i128, align 16
+  %239 = bitcast <2 x i64> %238 to <8 x i16>
+  %240 = load <2 x i64>, ptr %__b.addr.i129, align 16
+  %241 = bitcast <2 x i64> %240 to <8 x i16>
+  %shuffle.i130 = shufflevector <8 x i16> %239, <8 x i16> %241, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %242 = bitcast <8 x i16> %shuffle.i130 to <2 x i64>
+  store <2 x i64> %242, ptr %i3, align 16
+  %243 = load <2 x i64>, ptr %i1, align 16
+  %244 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %243, ptr %__a.addr.i, align 16
+  store <2 x i64> %244, ptr %__b.addr.i, align 16
+  %245 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %246 = bitcast <2 x i64> %245 to <8 x i16>
+  %247 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %248 = bitcast <2 x i64> %247 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %246, <8 x i16> %248, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %249 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %249, ptr %i0, align 16
+  %250 = load <2 x i64>, ptr %i1, align 16
+  %251 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %250, ptr %__a.addr.i125, align 16
+  store <2 x i64> %251, ptr %__b.addr.i126, align 16
+  %252 = load <2 x i64>, ptr %__a.addr.i125, align 16
+  %253 = bitcast <2 x i64> %252 to <8 x i16>
+  %254 = load <2 x i64>, ptr %__b.addr.i126, align 16
+  %255 = bitcast <2 x i64> %254 to <8 x i16>
+  %shuffle.i127 = shufflevector <8 x i16> %253, <8 x i16> %255, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %256 = bitcast <8 x i16> %shuffle.i127 to <2 x i64>
+  store <2 x i64> %256, ptr %i2, align 16
+  %257 = load <2 x i64>, ptr %i0, align 16
+  %258 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %257, ptr %__a.addr.i164, align 16
+  store <2 x i64> %258, ptr %__b.addr.i165, align 16
+  %259 = load <2 x i64>, ptr %__a.addr.i164, align 16
+  %260 = bitcast <2 x i64> %259 to <8 x i16>
+  %261 = load <2 x i64>, ptr %__b.addr.i165, align 16
+  %262 = bitcast <2 x i64> %261 to <8 x i16>
+  %263 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %260, <8 x i16> %262)
+  %264 = bitcast <16 x i8> %263 to <2 x i64>
+  store <2 x i64> %264, ptr %i0, align 16
+  %265 = load ptr, ptr %output, align 8
+  %266 = load <2 x i64>, ptr %i0, align 16
+  store ptr %265, ptr %__p.addr.i223, align 8
+  store <2 x i64> %266, ptr %__b.addr.i224, align 16
+  %267 = load <2 x i64>, ptr %__b.addr.i224, align 16
+  %268 = load ptr, ptr %__p.addr.i223, align 8
+  store <2 x i64> %267, ptr %268, align 1
+  %269 = load ptr, ptr %output, align 8
+  %add.ptr93 = getelementptr inbounds i8, ptr %269, i64 16
   store ptr %add.ptr93, ptr %output, align 8
-  %269 = load ptr, ptr %encode.addr, align 8
-  %add.ptr94 = getelementptr inbounds float, ptr %269, i64 16
+  %270 = load ptr, ptr %encode.addr, align 8
+  %add.ptr94 = getelementptr inbounds float, ptr %270, i64 16
   store ptr %add.ptr94, ptr %encode.addr, align 8
-  %270 = load ptr, ptr %output, align 8
-  %271 = load ptr, ptr %end_output, align 8
-  %cmp95 = icmp ule ptr %270, %271
+  %271 = load ptr, ptr %output, align 8
+  %272 = load ptr, ptr %end_output, align 8
+  %cmp95 = icmp ule ptr %271, %272
   br i1 %cmp95, label %if.then96, label %if.end
 
 if.then96:                                        ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %272 = load ptr, ptr %output, align 8
-  %273 = load ptr, ptr %end_output, align 8
-  %add.ptr97 = getelementptr inbounds i8, ptr %273, i64 16
-  %cmp98 = icmp eq ptr %272, %add.ptr97
+  %273 = load ptr, ptr %output, align 8
+  %274 = load ptr, ptr %end_output, align 8
+  %add.ptr97 = getelementptr inbounds i8, ptr %274, i64 16
+  %cmp98 = icmp eq ptr %273, %add.ptr97
   br i1 %cmp98, label %if.then99, label %if.end100
 
 if.then99:                                        ; preds = %if.end
   br label %for.end
 
 if.end100:                                        ; preds = %if.end
-  %274 = load ptr, ptr %end_output, align 8
-  store ptr %274, ptr %output, align 8
-  %275 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %275, ptr %encode.addr, align 8
+  %275 = load ptr, ptr %end_output, align 8
+  store ptr %275, ptr %output, align 8
+  %276 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %276, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then99
@@ -9293,26 +9296,26 @@ if.end101:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end101
-  %276 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %276) #9, !srcloc !121
   %277 = load ptr, ptr %encode.addr, align 8
-  %arrayidx102 = getelementptr inbounds float, ptr %277, i64 0
-  %278 = load float, ptr %arrayidx102, align 4
-  %call103 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %278)
-  %279 = load ptr, ptr %output, align 8
-  %arrayidx104 = getelementptr inbounds i8, ptr %279, i64 0
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %277) #9, !srcloc !121
+  %278 = load ptr, ptr %encode.addr, align 8
+  %arrayidx102 = getelementptr inbounds float, ptr %278, i64 0
+  %279 = load float, ptr %arrayidx102, align 4
+  %call103 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %279)
+  %280 = load ptr, ptr %output, align 8
+  %arrayidx104 = getelementptr inbounds i8, ptr %280, i64 0
   store i8 %call103, ptr %arrayidx104, align 1
-  %280 = load ptr, ptr %encode.addr, align 8
-  %arrayidx105 = getelementptr inbounds float, ptr %280, i64 1
-  %281 = load float, ptr %arrayidx105, align 4
-  %mul = fmul float %281, 2.550000e+02
+  %281 = load ptr, ptr %encode.addr, align 8
+  %arrayidx105 = getelementptr inbounds float, ptr %281, i64 1
+  %282 = load float, ptr %arrayidx105, align 4
+  %mul = fmul float %282, 2.550000e+02
   %add = fadd float %mul, 5.000000e-01
   store float %add, ptr %f, align 4
   br label %do.body106
 
 do.body106:                                       ; preds = %do.body
-  %282 = load float, ptr %f, align 4
-  %cmp107 = fcmp olt float %282, 0.000000e+00
+  %283 = load float, ptr %f, align 4
+  %cmp107 = fcmp olt float %283, 0.000000e+00
   br i1 %cmp107, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %do.body106
@@ -9320,8 +9323,8 @@ if.then108:                                       ; preds = %do.body106
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then108, %do.body106
-  %283 = load float, ptr %f, align 4
-  %cmp110 = fcmp ogt float %283, 2.550000e+02
+  %284 = load float, ptr %f, align 4
+  %cmp110 = fcmp ogt float %284, 2.550000e+02
   br i1 %cmp110, label %if.then111, label %if.end112
 
 if.then111:                                       ; preds = %if.end109
@@ -9332,23 +9335,23 @@ if.end112:                                        ; preds = %if.then111, %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end112
-  %284 = load float, ptr %f, align 4
-  %conv = fptoui float %284 to i8
-  %285 = load ptr, ptr %output, align 8
-  %arrayidx113 = getelementptr inbounds i8, ptr %285, i64 1
-  store i8 %conv, ptr %arrayidx113, align 1
+  %285 = load float, ptr %f, align 4
+  %conv = fptoui float %285 to i8
   %286 = load ptr, ptr %output, align 8
-  %add.ptr114 = getelementptr inbounds i8, ptr %286, i64 2
+  %arrayidx113 = getelementptr inbounds i8, ptr %286, i64 1
+  store i8 %conv, ptr %arrayidx113, align 1
+  %287 = load ptr, ptr %output, align 8
+  %add.ptr114 = getelementptr inbounds i8, ptr %287, i64 2
   store ptr %add.ptr114, ptr %output, align 8
-  %287 = load ptr, ptr %encode.addr, align 8
-  %add.ptr115 = getelementptr inbounds float, ptr %287, i64 2
+  %288 = load ptr, ptr %encode.addr, align 8
+  %add.ptr115 = getelementptr inbounds float, ptr %288, i64 2
   store ptr %add.ptr115, ptr %encode.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.end
-  %288 = load ptr, ptr %output, align 8
-  %289 = load ptr, ptr %end_output, align 8
-  %cmp116 = icmp ult ptr %288, %289
+  %289 = load ptr, ptr %output, align 8
+  %290 = load ptr, ptr %end_output, align 8
+  %cmp116 = icmp ult ptr %289, %290
   br i1 %cmp116, label %do.body, label %do.end118, !llvm.loop !122
 
 do.end118:                                        ; preds = %do.cond, %for.end
@@ -12958,741 +12961,742 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end147
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end146, %if.then142, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !166
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i167, align 8
-  %9 = load ptr, ptr %__p.addr.i167, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !166
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i167, align 8
+  %10 = load ptr, ptr %__p.addr.i167, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i166, align 8
-  %12 = load ptr, ptr %__p.addr.i166, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i166, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i165, align 8
-  %15 = load ptr, ptr %__p.addr.i165, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i165, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i202, align 16
-  store <4 x float> %21, ptr %__b.addr.i203, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i202, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i203, align 16
-  %shuffle.i204 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i202, align 16
+  store <4 x float> %22, ptr %__b.addr.i203, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i202, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i203, align 16
+  %shuffle.i204 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i204, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i199, align 16
-  store <4 x float> %25, ptr %__b.addr.i200, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %shuffle.i201 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i199, align 16
+  store <4 x float> %26, ptr %__b.addr.i200, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i199, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %shuffle.i201 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i201, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i208, align 16
-  store <4 x float> %29, ptr %__b.addr.i209, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i209, align 16
-  %shuffle.i210 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i208, align 16
+  store <4 x float> %30, ptr %__b.addr.i209, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i209, align 16
+  %shuffle.i210 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i210, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i205, align 16
-  store <4 x float> %33, ptr %__b.addr.i206, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i206, align 16
-  %shuffle.i207 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i205, align 16
+  store <4 x float> %34, ptr %__b.addr.i206, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i206, align 16
+  %shuffle.i207 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i207, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i214, align 16
-  store <4 x float> %37, ptr %__b.addr.i215, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i214, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i215, align 16
-  %shuffle.i216 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i214, align 16
+  store <4 x float> %38, ptr %__b.addr.i215, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i214, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i215, align 16
+  %shuffle.i216 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i216, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i220, align 16
-  store <4 x float> %41, ptr %__b.addr.i221, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i220, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i221, align 16
-  %shuffle.i222 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i220, align 16
+  store <4 x float> %42, ptr %__b.addr.i221, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i220, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i221, align 16
+  %shuffle.i222 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i222, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i211, align 16
-  store <4 x float> %45, ptr %__b.addr.i212, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i211, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i212, align 16
-  %shuffle.i213 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i211, align 16
+  store <4 x float> %46, ptr %__b.addr.i212, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i211, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i212, align 16
+  %shuffle.i213 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i213, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i217, align 16
-  store <4 x float> %49, ptr %__b.addr.i218, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i217, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i218, align 16
-  %shuffle.i219 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i217, align 16
+  store <4 x float> %50, ptr %__b.addr.i218, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i217, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i218, align 16
+  %shuffle.i219 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i219, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i230, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i230, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i191, align 16
-  store <4 x float> %54, ptr %__b.addr.i192, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i191, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i192, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i230, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i191, align 16
+  store <4 x float> %55, ptr %__b.addr.i192, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i191, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i192, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i229, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i229, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i183, align 16
-  store <4 x float> %60, ptr %__b.addr.i184, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i183, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i184, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i261, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i261, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i252, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i229, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i183, align 16
+  store <4 x float> %61, ptr %__b.addr.i184, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i183, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i184, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i261, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i261, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i252, align 16
   store i32 20, ptr %__count.addr.i253, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i252, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i253, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i252, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i253, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i228, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i228, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i189, align 16
-  store <4 x float> %74, ptr %__b.addr.i190, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i189, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i190, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i228, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i189, align 16
+  store <4 x float> %75, ptr %__b.addr.i190, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i189, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i190, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i227, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i227, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i181, align 16
-  store <4 x float> %80, ptr %__b.addr.i182, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i181, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i182, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i260, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i260, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i250, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i227, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i181, align 16
+  store <4 x float> %81, ptr %__b.addr.i182, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i181, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i182, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i260, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i260, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i250, align 16
   store i32 20, ptr %__count.addr.i251, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i250, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i251, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i250, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i251, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i226, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i226, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i187, align 16
-  store <4 x float> %94, ptr %__b.addr.i188, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i226, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i187, align 16
+  store <4 x float> %95, ptr %__b.addr.i188, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i225, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i225, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i179, align 16
-  store <4 x float> %100, ptr %__b.addr.i180, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i179, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i180, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i259, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i259, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i248, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i225, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i179, align 16
+  store <4 x float> %101, ptr %__b.addr.i180, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i179, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i180, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i259, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i259, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i248, align 16
   store i32 20, ptr %__count.addr.i249, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i248, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i249, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i248, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i249, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i224, align 16
-  %113 = load <2 x i64>, ptr %__a.addr.i224, align 16
-  %114 = bitcast <2 x i64> %113 to <4 x float>
-  store <4 x float> %112, ptr %__a.addr.i185, align 16
-  store <4 x float> %114, ptr %__b.addr.i186, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i185, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i186, align 16
-  %117 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %115, <4 x float> %116)
-  store <4 x float> %117, ptr %f3, align 16
-  %118 = load <4 x float>, ptr %f3, align 16
+  %114 = load <2 x i64>, ptr %__a.addr.i224, align 16
+  %115 = bitcast <2 x i64> %114 to <4 x float>
+  store <4 x float> %113, ptr %__a.addr.i185, align 16
+  store <4 x float> %115, ptr %__b.addr.i186, align 16
+  %116 = load <4 x float>, ptr %__a.addr.i185, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i186, align 16
+  %118 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %116, <4 x float> %117)
+  store <4 x float> %118, ptr %f3, align 16
+  %119 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i223, align 16
-  %119 = load <2 x i64>, ptr %__a.addr.i223, align 16
-  %120 = bitcast <2 x i64> %119 to <4 x float>
-  store <4 x float> %118, ptr %__a.addr.i177, align 16
-  store <4 x float> %120, ptr %__b.addr.i178, align 16
-  %121 = load <4 x float>, ptr %__a.addr.i177, align 16
-  %122 = load <4 x float>, ptr %__b.addr.i178, align 16
-  %123 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %121, <4 x float> %122)
-  store <4 x float> %123, ptr %f3, align 16
-  %124 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %124, ptr %__a.addr.i258, align 16
-  %125 = load <4 x float>, ptr %__a.addr.i258, align 16
-  %126 = bitcast <4 x float> %125 to <2 x i64>
-  store <2 x i64> %126, ptr %__a.addr.i246, align 16
+  %120 = load <2 x i64>, ptr %__a.addr.i223, align 16
+  %121 = bitcast <2 x i64> %120 to <4 x float>
+  store <4 x float> %119, ptr %__a.addr.i177, align 16
+  store <4 x float> %121, ptr %__b.addr.i178, align 16
+  %122 = load <4 x float>, ptr %__a.addr.i177, align 16
+  %123 = load <4 x float>, ptr %__b.addr.i178, align 16
+  %124 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %122, <4 x float> %123)
+  store <4 x float> %124, ptr %f3, align 16
+  %125 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %125, ptr %__a.addr.i258, align 16
+  %126 = load <4 x float>, ptr %__a.addr.i258, align 16
+  %127 = bitcast <4 x float> %126 to <2 x i64>
+  store <2 x i64> %127, ptr %__a.addr.i246, align 16
   store i32 20, ptr %__count.addr.i247, align 4
-  %127 = load <2 x i64>, ptr %__a.addr.i246, align 16
-  %128 = bitcast <2 x i64> %127 to <4 x i32>
-  %129 = load i32, ptr %__count.addr.i247, align 4
-  %130 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %128, i32 %129)
-  %131 = bitcast <4 x i32> %130 to <2 x i64>
-  store <2 x i64> %131, ptr %i3, align 16
-  %132 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %132, ptr %temp0, align 16
-  %133 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %133, ptr %temp1, align 16
-  %134 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %134, ptr %temp2, align 16
-  %135 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %135, ptr %temp3, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  %128 = load <2 x i64>, ptr %__a.addr.i246, align 16
+  %129 = bitcast <2 x i64> %128 to <4 x i32>
+  %130 = load i32, ptr %__count.addr.i247, align 4
+  %131 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %129, i32 %130)
+  %132 = bitcast <4 x i32> %131 to <2 x i64>
+  store <2 x i64> %132, ptr %i3, align 16
+  %133 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %133, ptr %temp0, align 16
+  %134 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %134, ptr %temp1, align 16
+  %135 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %135, ptr %temp2, align 16
+  %136 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %136, ptr %temp3, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %137 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %137 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %136, i64 %idxprom
-  %138 = load i32, ptr %arrayidx43, align 4
+  %138 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %138 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %137, i64 %idxprom
+  %139 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %138, ptr %arrayidx44, align 16
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx44, align 16
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %140 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %140 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %139, i64 %idxprom46
-  %141 = load i32, ptr %arrayidx47, align 4
+  %141 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %141 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %140, i64 %idxprom46
+  %142 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %141, ptr %arrayidx48, align 4
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx48, align 4
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %143 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %143 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %142, i64 %idxprom50
-  %144 = load i32, ptr %arrayidx51, align 4
+  %144 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %144 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %143, i64 %idxprom50
+  %145 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %144, ptr %arrayidx52, align 8
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx52, align 8
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %146 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %146 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %145, i64 %idxprom54
-  %147 = load i32, ptr %arrayidx55, align 4
+  %147 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %147 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %146, i64 %idxprom54
+  %148 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %147, ptr %arrayidx56, align 4
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx56, align 4
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %149 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %149 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %148, i64 %idxprom58
-  %150 = load i32, ptr %arrayidx59, align 4
+  %150 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %150 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %149, i64 %idxprom58
+  %151 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %150, ptr %arrayidx60, align 16
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx60, align 16
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %152 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %152 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %151, i64 %idxprom62
-  %153 = load i32, ptr %arrayidx63, align 4
+  %153 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %153 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %152, i64 %idxprom62
+  %154 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %153, ptr %arrayidx64, align 4
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx64, align 4
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %155 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %155 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %154, i64 %idxprom66
-  %156 = load i32, ptr %arrayidx67, align 4
+  %156 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %156 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %155, i64 %idxprom66
+  %157 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %156, ptr %arrayidx68, align 8
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx68, align 8
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %158 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %158 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %157, i64 %idxprom70
-  %159 = load i32, ptr %arrayidx71, align 4
+  %159 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %159 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %158, i64 %idxprom70
+  %160 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %159, ptr %arrayidx72, align 4
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx72, align 4
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %161 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %161 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %160, i64 %idxprom74
-  %162 = load i32, ptr %arrayidx75, align 4
+  %162 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %162 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %161, i64 %idxprom74
+  %163 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %162, ptr %arrayidx76, align 16
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx76, align 16
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %164 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %164 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %163, i64 %idxprom78
-  %165 = load i32, ptr %arrayidx79, align 4
+  %165 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %165 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %164, i64 %idxprom78
+  %166 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %165, ptr %arrayidx80, align 4
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx80, align 4
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %167 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %167 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %166, i64 %idxprom82
-  %168 = load i32, ptr %arrayidx83, align 4
+  %168 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %168 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %167, i64 %idxprom82
+  %169 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %168, ptr %arrayidx84, align 8
-  %169 = load ptr, ptr %to_srgb, align 8
+  store i32 %169, ptr %arrayidx84, align 8
+  %170 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %170 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %170 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %169, i64 %idxprom86
-  %171 = load i32, ptr %arrayidx87, align 4
+  %171 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %171 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %170, i64 %idxprom86
+  %172 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %171, ptr %arrayidx88, align 4
-  %172 = load ptr, ptr %to_srgb, align 8
+  store i32 %172, ptr %arrayidx88, align 4
+  %173 = load ptr, ptr %to_srgb, align 8
   %arrayidx89 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  %173 = load i32, ptr %arrayidx89, align 16
-  %idxprom90 = sext i32 %173 to i64
-  %arrayidx91 = getelementptr inbounds i32, ptr %172, i64 %idxprom90
-  %174 = load i32, ptr %arrayidx91, align 4
+  %174 = load i32, ptr %arrayidx89, align 16
+  %idxprom90 = sext i32 %174 to i64
+  %arrayidx91 = getelementptr inbounds i32, ptr %173, i64 %idxprom90
+  %175 = load i32, ptr %arrayidx91, align 4
   %arrayidx92 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  store i32 %174, ptr %arrayidx92, align 16
-  %175 = load ptr, ptr %to_srgb, align 8
+  store i32 %175, ptr %arrayidx92, align 16
+  %176 = load ptr, ptr %to_srgb, align 8
   %arrayidx93 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  %176 = load i32, ptr %arrayidx93, align 4
-  %idxprom94 = sext i32 %176 to i64
-  %arrayidx95 = getelementptr inbounds i32, ptr %175, i64 %idxprom94
-  %177 = load i32, ptr %arrayidx95, align 4
+  %177 = load i32, ptr %arrayidx93, align 4
+  %idxprom94 = sext i32 %177 to i64
+  %arrayidx95 = getelementptr inbounds i32, ptr %176, i64 %idxprom94
+  %178 = load i32, ptr %arrayidx95, align 4
   %arrayidx96 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  store i32 %177, ptr %arrayidx96, align 4
-  %178 = load ptr, ptr %to_srgb, align 8
+  store i32 %178, ptr %arrayidx96, align 4
+  %179 = load ptr, ptr %to_srgb, align 8
   %arrayidx97 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  %179 = load i32, ptr %arrayidx97, align 8
-  %idxprom98 = sext i32 %179 to i64
-  %arrayidx99 = getelementptr inbounds i32, ptr %178, i64 %idxprom98
-  %180 = load i32, ptr %arrayidx99, align 4
+  %180 = load i32, ptr %arrayidx97, align 8
+  %idxprom98 = sext i32 %180 to i64
+  %arrayidx99 = getelementptr inbounds i32, ptr %179, i64 %idxprom98
+  %181 = load i32, ptr %arrayidx99, align 4
   %arrayidx100 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  store i32 %180, ptr %arrayidx100, align 8
-  %181 = load ptr, ptr %to_srgb, align 8
+  store i32 %181, ptr %arrayidx100, align 8
+  %182 = load ptr, ptr %to_srgb, align 8
   %arrayidx101 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  %182 = load i32, ptr %arrayidx101, align 4
-  %idxprom102 = sext i32 %182 to i64
-  %arrayidx103 = getelementptr inbounds i32, ptr %181, i64 %idxprom102
-  %183 = load i32, ptr %arrayidx103, align 4
+  %183 = load i32, ptr %arrayidx101, align 4
+  %idxprom102 = sext i32 %183 to i64
+  %arrayidx103 = getelementptr inbounds i32, ptr %182, i64 %idxprom102
+  %184 = load i32, ptr %arrayidx103, align 4
   %arrayidx104 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  store i32 %183, ptr %arrayidx104, align 4
-  %184 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %184, ptr %i0, align 16
-  %185 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %185, ptr %i1, align 16
-  %186 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %186, ptr %i2, align 16
-  %187 = load <2 x i64>, ptr %temp3, align 16
-  store <2 x i64> %187, ptr %i3, align 16
-  %188 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %188, ptr %__a.addr.i257, align 16
-  %189 = load <4 x float>, ptr %__a.addr.i257, align 16
-  %190 = bitcast <4 x float> %189 to <2 x i64>
-  store <2 x i64> %190, ptr %__a.addr.i244, align 16
+  store i32 %184, ptr %arrayidx104, align 4
+  %185 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %185, ptr %i0, align 16
+  %186 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %186, ptr %i1, align 16
+  %187 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %187, ptr %i2, align 16
+  %188 = load <2 x i64>, ptr %temp3, align 16
+  store <2 x i64> %188, ptr %i3, align 16
+  %189 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %189, ptr %__a.addr.i257, align 16
+  %190 = load <4 x float>, ptr %__a.addr.i257, align 16
+  %191 = bitcast <4 x float> %190 to <2 x i64>
+  store <2 x i64> %191, ptr %__a.addr.i244, align 16
   store i32 12, ptr %__count.addr.i245, align 4
-  %191 = load <2 x i64>, ptr %__a.addr.i244, align 16
-  %192 = bitcast <2 x i64> %191 to <4 x i32>
-  %193 = load i32, ptr %__count.addr.i245, align 4
-  %194 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %192, i32 %193)
-  %195 = bitcast <4 x i32> %194 to <2 x i64>
-  store <2 x i64> %195, ptr %temp, align 16
-  %196 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %196, ptr %__a.addr.i270, align 16
+  %192 = load <2 x i64>, ptr %__a.addr.i244, align 16
+  %193 = bitcast <2 x i64> %192 to <4 x i32>
+  %194 = load i32, ptr %__count.addr.i245, align 4
+  %195 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %193, i32 %194)
+  %196 = bitcast <4 x i32> %195 to <2 x i64>
+  store <2 x i64> %196, ptr %temp, align 16
+  %197 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %197, ptr %__a.addr.i270, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i271, align 16
-  %197 = load <2 x i64>, ptr %__a.addr.i270, align 16
-  %198 = load <2 x i64>, ptr %__b.addr.i271, align 16
-  %and.i272 = and <2 x i64> %197, %198
+  %198 = load <2 x i64>, ptr %__a.addr.i270, align 16
+  %199 = load <2 x i64>, ptr %__b.addr.i271, align 16
+  %and.i272 = and <2 x i64> %198, %199
   store <2 x i64> %and.i272, ptr %temp, align 16
-  %199 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %199, ptr %__a.addr.i281, align 16
+  %200 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %200, ptr %__a.addr.i281, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i282, align 16
-  %200 = load <2 x i64>, ptr %__a.addr.i281, align 16
-  %201 = load <2 x i64>, ptr %__b.addr.i282, align 16
-  %or.i283 = or <2 x i64> %200, %201
+  %201 = load <2 x i64>, ptr %__a.addr.i281, align 16
+  %202 = load <2 x i64>, ptr %__b.addr.i282, align 16
+  %or.i283 = or <2 x i64> %201, %202
   store <2 x i64> %or.i283, ptr %temp, align 16
-  %202 = load <2 x i64>, ptr %i0, align 16
-  %203 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %202, ptr %__a.addr.i290, align 16
-  store <2 x i64> %203, ptr %__b.addr.i291, align 16
-  %204 = load <2 x i64>, ptr %__a.addr.i290, align 16
-  %205 = bitcast <2 x i64> %204 to <8 x i16>
-  %206 = load <2 x i64>, ptr %__b.addr.i291, align 16
-  %207 = bitcast <2 x i64> %206 to <8 x i16>
-  %208 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %205, <8 x i16> %207)
-  %209 = bitcast <4 x i32> %208 to <2 x i64>
-  store <2 x i64> %209, ptr %i0, align 16
-  %210 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %210, ptr %__a.addr.i242, align 16
+  %203 = load <2 x i64>, ptr %i0, align 16
+  %204 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %203, ptr %__a.addr.i290, align 16
+  store <2 x i64> %204, ptr %__b.addr.i291, align 16
+  %205 = load <2 x i64>, ptr %__a.addr.i290, align 16
+  %206 = bitcast <2 x i64> %205 to <8 x i16>
+  %207 = load <2 x i64>, ptr %__b.addr.i291, align 16
+  %208 = bitcast <2 x i64> %207 to <8 x i16>
+  %209 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %206, <8 x i16> %208)
+  %210 = bitcast <4 x i32> %209 to <2 x i64>
+  store <2 x i64> %210, ptr %i0, align 16
+  %211 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %211, ptr %__a.addr.i242, align 16
   store i32 16, ptr %__count.addr.i243, align 4
-  %211 = load <2 x i64>, ptr %__a.addr.i242, align 16
-  %212 = bitcast <2 x i64> %211 to <4 x i32>
-  %213 = load i32, ptr %__count.addr.i243, align 4
-  %214 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %212, i32 %213)
-  %215 = bitcast <4 x i32> %214 to <2 x i64>
-  store <2 x i64> %215, ptr %i0, align 16
-  %216 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %216, ptr %__a.addr.i256, align 16
-  %217 = load <4 x float>, ptr %__a.addr.i256, align 16
-  %218 = bitcast <4 x float> %217 to <2 x i64>
-  store <2 x i64> %218, ptr %__a.addr.i240, align 16
+  %212 = load <2 x i64>, ptr %__a.addr.i242, align 16
+  %213 = bitcast <2 x i64> %212 to <4 x i32>
+  %214 = load i32, ptr %__count.addr.i243, align 4
+  %215 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %213, i32 %214)
+  %216 = bitcast <4 x i32> %215 to <2 x i64>
+  store <2 x i64> %216, ptr %i0, align 16
+  %217 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %217, ptr %__a.addr.i256, align 16
+  %218 = load <4 x float>, ptr %__a.addr.i256, align 16
+  %219 = bitcast <4 x float> %218 to <2 x i64>
+  store <2 x i64> %219, ptr %__a.addr.i240, align 16
   store i32 12, ptr %__count.addr.i241, align 4
-  %219 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %220 = bitcast <2 x i64> %219 to <4 x i32>
-  %221 = load i32, ptr %__count.addr.i241, align 4
-  %222 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %220, i32 %221)
-  %223 = bitcast <4 x i32> %222 to <2 x i64>
-  store <2 x i64> %223, ptr %temp111, align 16
-  %224 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %224, ptr %__a.addr.i267, align 16
+  %220 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %221 = bitcast <2 x i64> %220 to <4 x i32>
+  %222 = load i32, ptr %__count.addr.i241, align 4
+  %223 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %221, i32 %222)
+  %224 = bitcast <4 x i32> %223 to <2 x i64>
+  store <2 x i64> %224, ptr %temp111, align 16
+  %225 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %225, ptr %__a.addr.i267, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i268, align 16
-  %225 = load <2 x i64>, ptr %__a.addr.i267, align 16
-  %226 = load <2 x i64>, ptr %__b.addr.i268, align 16
-  %and.i269 = and <2 x i64> %225, %226
+  %226 = load <2 x i64>, ptr %__a.addr.i267, align 16
+  %227 = load <2 x i64>, ptr %__b.addr.i268, align 16
+  %and.i269 = and <2 x i64> %226, %227
   store <2 x i64> %and.i269, ptr %temp111, align 16
-  %227 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %227, ptr %__a.addr.i278, align 16
+  %228 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %228, ptr %__a.addr.i278, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i279, align 16
-  %228 = load <2 x i64>, ptr %__a.addr.i278, align 16
-  %229 = load <2 x i64>, ptr %__b.addr.i279, align 16
-  %or.i280 = or <2 x i64> %228, %229
+  %229 = load <2 x i64>, ptr %__a.addr.i278, align 16
+  %230 = load <2 x i64>, ptr %__b.addr.i279, align 16
+  %or.i280 = or <2 x i64> %229, %230
   store <2 x i64> %or.i280, ptr %temp111, align 16
-  %230 = load <2 x i64>, ptr %i1, align 16
-  %231 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %230, ptr %__a.addr.i288, align 16
-  store <2 x i64> %231, ptr %__b.addr.i289, align 16
-  %232 = load <2 x i64>, ptr %__a.addr.i288, align 16
-  %233 = bitcast <2 x i64> %232 to <8 x i16>
-  %234 = load <2 x i64>, ptr %__b.addr.i289, align 16
-  %235 = bitcast <2 x i64> %234 to <8 x i16>
-  %236 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %233, <8 x i16> %235)
-  %237 = bitcast <4 x i32> %236 to <2 x i64>
-  store <2 x i64> %237, ptr %i1, align 16
-  %238 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %238, ptr %__a.addr.i238, align 16
+  %231 = load <2 x i64>, ptr %i1, align 16
+  %232 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %231, ptr %__a.addr.i288, align 16
+  store <2 x i64> %232, ptr %__b.addr.i289, align 16
+  %233 = load <2 x i64>, ptr %__a.addr.i288, align 16
+  %234 = bitcast <2 x i64> %233 to <8 x i16>
+  %235 = load <2 x i64>, ptr %__b.addr.i289, align 16
+  %236 = bitcast <2 x i64> %235 to <8 x i16>
+  %237 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %234, <8 x i16> %236)
+  %238 = bitcast <4 x i32> %237 to <2 x i64>
+  store <2 x i64> %238, ptr %i1, align 16
+  %239 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %239, ptr %__a.addr.i238, align 16
   store i32 16, ptr %__count.addr.i239, align 4
-  %239 = load <2 x i64>, ptr %__a.addr.i238, align 16
-  %240 = bitcast <2 x i64> %239 to <4 x i32>
-  %241 = load i32, ptr %__count.addr.i239, align 4
-  %242 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %240, i32 %241)
-  %243 = bitcast <4 x i32> %242 to <2 x i64>
-  store <2 x i64> %243, ptr %i1, align 16
-  %244 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %244, ptr %__a.addr.i255, align 16
-  %245 = load <4 x float>, ptr %__a.addr.i255, align 16
-  %246 = bitcast <4 x float> %245 to <2 x i64>
-  store <2 x i64> %246, ptr %__a.addr.i236, align 16
+  %240 = load <2 x i64>, ptr %__a.addr.i238, align 16
+  %241 = bitcast <2 x i64> %240 to <4 x i32>
+  %242 = load i32, ptr %__count.addr.i239, align 4
+  %243 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %241, i32 %242)
+  %244 = bitcast <4 x i32> %243 to <2 x i64>
+  store <2 x i64> %244, ptr %i1, align 16
+  %245 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %245, ptr %__a.addr.i255, align 16
+  %246 = load <4 x float>, ptr %__a.addr.i255, align 16
+  %247 = bitcast <4 x float> %246 to <2 x i64>
+  store <2 x i64> %247, ptr %__a.addr.i236, align 16
   store i32 12, ptr %__count.addr.i237, align 4
-  %247 = load <2 x i64>, ptr %__a.addr.i236, align 16
-  %248 = bitcast <2 x i64> %247 to <4 x i32>
-  %249 = load i32, ptr %__count.addr.i237, align 4
-  %250 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %248, i32 %249)
-  %251 = bitcast <4 x i32> %250 to <2 x i64>
-  store <2 x i64> %251, ptr %temp118, align 16
-  %252 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %252, ptr %__a.addr.i264, align 16
+  %248 = load <2 x i64>, ptr %__a.addr.i236, align 16
+  %249 = bitcast <2 x i64> %248 to <4 x i32>
+  %250 = load i32, ptr %__count.addr.i237, align 4
+  %251 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %249, i32 %250)
+  %252 = bitcast <4 x i32> %251 to <2 x i64>
+  store <2 x i64> %252, ptr %temp118, align 16
+  %253 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %253, ptr %__a.addr.i264, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i265, align 16
-  %253 = load <2 x i64>, ptr %__a.addr.i264, align 16
-  %254 = load <2 x i64>, ptr %__b.addr.i265, align 16
-  %and.i266 = and <2 x i64> %253, %254
+  %254 = load <2 x i64>, ptr %__a.addr.i264, align 16
+  %255 = load <2 x i64>, ptr %__b.addr.i265, align 16
+  %and.i266 = and <2 x i64> %254, %255
   store <2 x i64> %and.i266, ptr %temp118, align 16
-  %255 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %255, ptr %__a.addr.i275, align 16
+  %256 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %256, ptr %__a.addr.i275, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i276, align 16
-  %256 = load <2 x i64>, ptr %__a.addr.i275, align 16
-  %257 = load <2 x i64>, ptr %__b.addr.i276, align 16
-  %or.i277 = or <2 x i64> %256, %257
+  %257 = load <2 x i64>, ptr %__a.addr.i275, align 16
+  %258 = load <2 x i64>, ptr %__b.addr.i276, align 16
+  %or.i277 = or <2 x i64> %257, %258
   store <2 x i64> %or.i277, ptr %temp118, align 16
-  %258 = load <2 x i64>, ptr %i2, align 16
-  %259 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %258, ptr %__a.addr.i286, align 16
-  store <2 x i64> %259, ptr %__b.addr.i287, align 16
-  %260 = load <2 x i64>, ptr %__a.addr.i286, align 16
-  %261 = bitcast <2 x i64> %260 to <8 x i16>
-  %262 = load <2 x i64>, ptr %__b.addr.i287, align 16
-  %263 = bitcast <2 x i64> %262 to <8 x i16>
-  %264 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %261, <8 x i16> %263)
-  %265 = bitcast <4 x i32> %264 to <2 x i64>
-  store <2 x i64> %265, ptr %i2, align 16
-  %266 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %266, ptr %__a.addr.i234, align 16
+  %259 = load <2 x i64>, ptr %i2, align 16
+  %260 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %259, ptr %__a.addr.i286, align 16
+  store <2 x i64> %260, ptr %__b.addr.i287, align 16
+  %261 = load <2 x i64>, ptr %__a.addr.i286, align 16
+  %262 = bitcast <2 x i64> %261 to <8 x i16>
+  %263 = load <2 x i64>, ptr %__b.addr.i287, align 16
+  %264 = bitcast <2 x i64> %263 to <8 x i16>
+  %265 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %262, <8 x i16> %264)
+  %266 = bitcast <4 x i32> %265 to <2 x i64>
+  store <2 x i64> %266, ptr %i2, align 16
+  %267 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %267, ptr %__a.addr.i234, align 16
   store i32 16, ptr %__count.addr.i235, align 4
-  %267 = load <2 x i64>, ptr %__a.addr.i234, align 16
-  %268 = bitcast <2 x i64> %267 to <4 x i32>
-  %269 = load i32, ptr %__count.addr.i235, align 4
-  %270 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %268, i32 %269)
-  %271 = bitcast <4 x i32> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i2, align 16
-  %272 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %272, ptr %__a.addr.i254, align 16
-  %273 = load <4 x float>, ptr %__a.addr.i254, align 16
-  %274 = bitcast <4 x float> %273 to <2 x i64>
-  store <2 x i64> %274, ptr %__a.addr.i232, align 16
+  %268 = load <2 x i64>, ptr %__a.addr.i234, align 16
+  %269 = bitcast <2 x i64> %268 to <4 x i32>
+  %270 = load i32, ptr %__count.addr.i235, align 4
+  %271 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %269, i32 %270)
+  %272 = bitcast <4 x i32> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i2, align 16
+  %273 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %273, ptr %__a.addr.i254, align 16
+  %274 = load <4 x float>, ptr %__a.addr.i254, align 16
+  %275 = bitcast <4 x float> %274 to <2 x i64>
+  store <2 x i64> %275, ptr %__a.addr.i232, align 16
   store i32 12, ptr %__count.addr.i233, align 4
-  %275 = load <2 x i64>, ptr %__a.addr.i232, align 16
-  %276 = bitcast <2 x i64> %275 to <4 x i32>
-  %277 = load i32, ptr %__count.addr.i233, align 4
-  %278 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %276, i32 %277)
-  %279 = bitcast <4 x i32> %278 to <2 x i64>
-  store <2 x i64> %279, ptr %temp125, align 16
-  %280 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %280, ptr %__a.addr.i262, align 16
+  %276 = load <2 x i64>, ptr %__a.addr.i232, align 16
+  %277 = bitcast <2 x i64> %276 to <4 x i32>
+  %278 = load i32, ptr %__count.addr.i233, align 4
+  %279 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %277, i32 %278)
+  %280 = bitcast <4 x i32> %279 to <2 x i64>
+  store <2 x i64> %280, ptr %temp125, align 16
+  %281 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %281, ptr %__a.addr.i262, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i263, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i262, align 16
-  %282 = load <2 x i64>, ptr %__b.addr.i263, align 16
-  %and.i = and <2 x i64> %281, %282
+  %282 = load <2 x i64>, ptr %__a.addr.i262, align 16
+  %283 = load <2 x i64>, ptr %__b.addr.i263, align 16
+  %and.i = and <2 x i64> %282, %283
   store <2 x i64> %and.i, ptr %temp125, align 16
-  %283 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %283, ptr %__a.addr.i273, align 16
+  %284 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %284, ptr %__a.addr.i273, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i274, align 16
-  %284 = load <2 x i64>, ptr %__a.addr.i273, align 16
-  %285 = load <2 x i64>, ptr %__b.addr.i274, align 16
-  %or.i = or <2 x i64> %284, %285
+  %285 = load <2 x i64>, ptr %__a.addr.i273, align 16
+  %286 = load <2 x i64>, ptr %__b.addr.i274, align 16
+  %or.i = or <2 x i64> %285, %286
   store <2 x i64> %or.i, ptr %temp125, align 16
-  %286 = load <2 x i64>, ptr %i3, align 16
-  %287 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %286, ptr %__a.addr.i284, align 16
-  store <2 x i64> %287, ptr %__b.addr.i285, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i284, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i285, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %292 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %289, <8 x i16> %291)
-  %293 = bitcast <4 x i32> %292 to <2 x i64>
-  store <2 x i64> %293, ptr %i3, align 16
-  %294 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %294, ptr %__a.addr.i231, align 16
+  %287 = load <2 x i64>, ptr %i3, align 16
+  %288 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %287, ptr %__a.addr.i284, align 16
+  store <2 x i64> %288, ptr %__b.addr.i285, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i284, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i285, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %293 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %290, <8 x i16> %292)
+  %294 = bitcast <4 x i32> %293 to <2 x i64>
+  store <2 x i64> %294, ptr %i3, align 16
+  %295 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %295, ptr %__a.addr.i231, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %295 = load <2 x i64>, ptr %__a.addr.i231, align 16
-  %296 = bitcast <2 x i64> %295 to <4 x i32>
-  %297 = load i32, ptr %__count.addr.i, align 4
-  %298 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %296, i32 %297)
-  %299 = bitcast <4 x i32> %298 to <2 x i64>
-  store <2 x i64> %299, ptr %i3, align 16
-  %300 = load <2 x i64>, ptr %i2, align 16
-  %301 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %300, ptr %__a.addr.i195, align 16
-  store <2 x i64> %301, ptr %__b.addr.i196, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i195, align 16
-  %303 = bitcast <2 x i64> %302 to <4 x i32>
-  %304 = load <2 x i64>, ptr %__b.addr.i196, align 16
-  %305 = bitcast <2 x i64> %304 to <4 x i32>
-  %306 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %303, <4 x i32> %305)
-  %307 = bitcast <8 x i16> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i2, align 16
-  %308 = load <2 x i64>, ptr %i0, align 16
-  %309 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %308, ptr %__a.addr.i193, align 16
-  store <2 x i64> %309, ptr %__b.addr.i194, align 16
-  %310 = load <2 x i64>, ptr %__a.addr.i193, align 16
-  %311 = bitcast <2 x i64> %310 to <4 x i32>
-  %312 = load <2 x i64>, ptr %__b.addr.i194, align 16
-  %313 = bitcast <2 x i64> %312 to <4 x i32>
-  %314 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %311, <4 x i32> %313)
-  %315 = bitcast <8 x i16> %314 to <2 x i64>
-  store <2 x i64> %315, ptr %i0, align 16
-  %316 = load <2 x i64>, ptr %i2, align 16
-  %317 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %316, ptr %__a.addr.i168, align 16
-  store <2 x i64> %317, ptr %__b.addr.i169, align 16
-  %318 = load <2 x i64>, ptr %__a.addr.i168, align 16
-  %319 = bitcast <2 x i64> %318 to <8 x i16>
-  %320 = load <2 x i64>, ptr %__b.addr.i169, align 16
-  %321 = bitcast <2 x i64> %320 to <8 x i16>
-  %shuffle.i170 = shufflevector <8 x i16> %319, <8 x i16> %321, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %322 = bitcast <8 x i16> %shuffle.i170 to <2 x i64>
-  store <2 x i64> %322, ptr %i1, align 16
-  %323 = load <2 x i64>, ptr %i2, align 16
-  %324 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %323, ptr %__a.addr.i174, align 16
-  store <2 x i64> %324, ptr %__b.addr.i175, align 16
-  %325 = load <2 x i64>, ptr %__a.addr.i174, align 16
-  %326 = bitcast <2 x i64> %325 to <8 x i16>
-  %327 = load <2 x i64>, ptr %__b.addr.i175, align 16
-  %328 = bitcast <2 x i64> %327 to <8 x i16>
-  %shuffle.i176 = shufflevector <8 x i16> %326, <8 x i16> %328, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %329 = bitcast <8 x i16> %shuffle.i176 to <2 x i64>
-  store <2 x i64> %329, ptr %i3, align 16
-  %330 = load <2 x i64>, ptr %i1, align 16
-  %331 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %330, ptr %__a.addr.i, align 16
-  store <2 x i64> %331, ptr %__b.addr.i, align 16
-  %332 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %333 = bitcast <2 x i64> %332 to <8 x i16>
-  %334 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %335 = bitcast <2 x i64> %334 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %333, <8 x i16> %335, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %336 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %336, ptr %i2, align 16
-  %337 = load <2 x i64>, ptr %i1, align 16
-  %338 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %337, ptr %__a.addr.i171, align 16
-  store <2 x i64> %338, ptr %__b.addr.i172, align 16
-  %339 = load <2 x i64>, ptr %__a.addr.i171, align 16
-  %340 = bitcast <2 x i64> %339 to <8 x i16>
-  %341 = load <2 x i64>, ptr %__b.addr.i172, align 16
-  %342 = bitcast <2 x i64> %341 to <8 x i16>
-  %shuffle.i173 = shufflevector <8 x i16> %340, <8 x i16> %342, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %343 = bitcast <8 x i16> %shuffle.i173 to <2 x i64>
-  store <2 x i64> %343, ptr %i0, align 16
-  %344 = load <2 x i64>, ptr %i2, align 16
-  %345 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %344, ptr %__a.addr.i197, align 16
-  store <2 x i64> %345, ptr %__b.addr.i198, align 16
-  %346 = load <2 x i64>, ptr %__a.addr.i197, align 16
-  %347 = bitcast <2 x i64> %346 to <8 x i16>
-  %348 = load <2 x i64>, ptr %__b.addr.i198, align 16
-  %349 = bitcast <2 x i64> %348 to <8 x i16>
-  %350 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %347, <8 x i16> %349)
-  %351 = bitcast <16 x i8> %350 to <2 x i64>
-  store <2 x i64> %351, ptr %i2, align 16
-  %352 = load ptr, ptr %output, align 8
-  %353 = load <2 x i64>, ptr %i2, align 16
-  store ptr %352, ptr %__p.addr.i292, align 8
-  store <2 x i64> %353, ptr %__b.addr.i293, align 16
-  %354 = load <2 x i64>, ptr %__b.addr.i293, align 16
-  %355 = load ptr, ptr %__p.addr.i292, align 8
-  store <2 x i64> %354, ptr %355, align 1
-  %356 = load ptr, ptr %encode.addr, align 8
-  %add.ptr139 = getelementptr inbounds float, ptr %356, i64 16
+  %296 = load <2 x i64>, ptr %__a.addr.i231, align 16
+  %297 = bitcast <2 x i64> %296 to <4 x i32>
+  %298 = load i32, ptr %__count.addr.i, align 4
+  %299 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %297, i32 %298)
+  %300 = bitcast <4 x i32> %299 to <2 x i64>
+  store <2 x i64> %300, ptr %i3, align 16
+  %301 = load <2 x i64>, ptr %i2, align 16
+  %302 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %301, ptr %__a.addr.i195, align 16
+  store <2 x i64> %302, ptr %__b.addr.i196, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i195, align 16
+  %304 = bitcast <2 x i64> %303 to <4 x i32>
+  %305 = load <2 x i64>, ptr %__b.addr.i196, align 16
+  %306 = bitcast <2 x i64> %305 to <4 x i32>
+  %307 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %304, <4 x i32> %306)
+  %308 = bitcast <8 x i16> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i2, align 16
+  %309 = load <2 x i64>, ptr %i0, align 16
+  %310 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %309, ptr %__a.addr.i193, align 16
+  store <2 x i64> %310, ptr %__b.addr.i194, align 16
+  %311 = load <2 x i64>, ptr %__a.addr.i193, align 16
+  %312 = bitcast <2 x i64> %311 to <4 x i32>
+  %313 = load <2 x i64>, ptr %__b.addr.i194, align 16
+  %314 = bitcast <2 x i64> %313 to <4 x i32>
+  %315 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %312, <4 x i32> %314)
+  %316 = bitcast <8 x i16> %315 to <2 x i64>
+  store <2 x i64> %316, ptr %i0, align 16
+  %317 = load <2 x i64>, ptr %i2, align 16
+  %318 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %317, ptr %__a.addr.i168, align 16
+  store <2 x i64> %318, ptr %__b.addr.i169, align 16
+  %319 = load <2 x i64>, ptr %__a.addr.i168, align 16
+  %320 = bitcast <2 x i64> %319 to <8 x i16>
+  %321 = load <2 x i64>, ptr %__b.addr.i169, align 16
+  %322 = bitcast <2 x i64> %321 to <8 x i16>
+  %shuffle.i170 = shufflevector <8 x i16> %320, <8 x i16> %322, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %323 = bitcast <8 x i16> %shuffle.i170 to <2 x i64>
+  store <2 x i64> %323, ptr %i1, align 16
+  %324 = load <2 x i64>, ptr %i2, align 16
+  %325 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %324, ptr %__a.addr.i174, align 16
+  store <2 x i64> %325, ptr %__b.addr.i175, align 16
+  %326 = load <2 x i64>, ptr %__a.addr.i174, align 16
+  %327 = bitcast <2 x i64> %326 to <8 x i16>
+  %328 = load <2 x i64>, ptr %__b.addr.i175, align 16
+  %329 = bitcast <2 x i64> %328 to <8 x i16>
+  %shuffle.i176 = shufflevector <8 x i16> %327, <8 x i16> %329, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %330 = bitcast <8 x i16> %shuffle.i176 to <2 x i64>
+  store <2 x i64> %330, ptr %i3, align 16
+  %331 = load <2 x i64>, ptr %i1, align 16
+  %332 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %331, ptr %__a.addr.i, align 16
+  store <2 x i64> %332, ptr %__b.addr.i, align 16
+  %333 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %334 = bitcast <2 x i64> %333 to <8 x i16>
+  %335 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %336 = bitcast <2 x i64> %335 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %334, <8 x i16> %336, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %337 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %337, ptr %i2, align 16
+  %338 = load <2 x i64>, ptr %i1, align 16
+  %339 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %338, ptr %__a.addr.i171, align 16
+  store <2 x i64> %339, ptr %__b.addr.i172, align 16
+  %340 = load <2 x i64>, ptr %__a.addr.i171, align 16
+  %341 = bitcast <2 x i64> %340 to <8 x i16>
+  %342 = load <2 x i64>, ptr %__b.addr.i172, align 16
+  %343 = bitcast <2 x i64> %342 to <8 x i16>
+  %shuffle.i173 = shufflevector <8 x i16> %341, <8 x i16> %343, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %344 = bitcast <8 x i16> %shuffle.i173 to <2 x i64>
+  store <2 x i64> %344, ptr %i0, align 16
+  %345 = load <2 x i64>, ptr %i2, align 16
+  %346 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %345, ptr %__a.addr.i197, align 16
+  store <2 x i64> %346, ptr %__b.addr.i198, align 16
+  %347 = load <2 x i64>, ptr %__a.addr.i197, align 16
+  %348 = bitcast <2 x i64> %347 to <8 x i16>
+  %349 = load <2 x i64>, ptr %__b.addr.i198, align 16
+  %350 = bitcast <2 x i64> %349 to <8 x i16>
+  %351 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %348, <8 x i16> %350)
+  %352 = bitcast <16 x i8> %351 to <2 x i64>
+  store <2 x i64> %352, ptr %i2, align 16
+  %353 = load ptr, ptr %output, align 8
+  %354 = load <2 x i64>, ptr %i2, align 16
+  store ptr %353, ptr %__p.addr.i292, align 8
+  store <2 x i64> %354, ptr %__b.addr.i293, align 16
+  %355 = load <2 x i64>, ptr %__b.addr.i293, align 16
+  %356 = load ptr, ptr %__p.addr.i292, align 8
+  store <2 x i64> %355, ptr %356, align 1
+  %357 = load ptr, ptr %encode.addr, align 8
+  %add.ptr139 = getelementptr inbounds float, ptr %357, i64 16
   store ptr %add.ptr139, ptr %encode.addr, align 8
-  %357 = load ptr, ptr %output, align 8
-  %add.ptr140 = getelementptr inbounds i8, ptr %357, i64 16
-  store ptr %add.ptr140, ptr %output, align 8
   %358 = load ptr, ptr %output, align 8
-  %359 = load ptr, ptr %end_output, align 8
-  %cmp141 = icmp ule ptr %358, %359
+  %add.ptr140 = getelementptr inbounds i8, ptr %358, i64 16
+  store ptr %add.ptr140, ptr %output, align 8
+  %359 = load ptr, ptr %output, align 8
+  %360 = load ptr, ptr %end_output, align 8
+  %cmp141 = icmp ule ptr %359, %360
   br i1 %cmp141, label %if.then142, label %if.end
 
 if.then142:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %360 = load ptr, ptr %output, align 8
-  %361 = load ptr, ptr %end_output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %361, i64 16
-  %cmp144 = icmp eq ptr %360, %add.ptr143
+  %361 = load ptr, ptr %output, align 8
+  %362 = load ptr, ptr %end_output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %362, i64 16
+  %cmp144 = icmp eq ptr %361, %add.ptr143
   br i1 %cmp144, label %if.then145, label %if.end146
 
 if.then145:                                       ; preds = %if.end
   br label %for.end
 
 if.end146:                                        ; preds = %if.end
-  %362 = load ptr, ptr %end_output, align 8
-  store ptr %362, ptr %output, align 8
-  %363 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %363, ptr %encode.addr, align 8
+  %363 = load ptr, ptr %end_output, align 8
+  store ptr %363, ptr %output, align 8
+  %364 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %364, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then145
   br label %return
 
 if.end147:                                        ; preds = %entry
-  %364 = load ptr, ptr %output, align 8
-  %add.ptr148 = getelementptr inbounds i8, ptr %364, i64 4
+  %365 = load ptr, ptr %output, align 8
+  %add.ptr148 = getelementptr inbounds i8, ptr %365, i64 4
   store ptr %add.ptr148, ptr %output, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end147
-  %365 = load ptr, ptr %output, align 8
-  %366 = load ptr, ptr %end_output, align 8
-  %cmp149 = icmp ule ptr %365, %366
+  %366 = load ptr, ptr %output, align 8
+  %367 = load ptr, ptr %end_output, align 8
+  %cmp149 = icmp ule ptr %366, %367
   br i1 %cmp149, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %367 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %367) #9, !srcloc !167
   %368 = load ptr, ptr %encode.addr, align 8
-  %arrayidx150 = getelementptr inbounds float, ptr %368, i64 2
-  %369 = load float, ptr %arrayidx150, align 4
-  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %369)
-  %370 = load ptr, ptr %output, align 8
-  %arrayidx152 = getelementptr inbounds i8, ptr %370, i64 -4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %368) #9, !srcloc !167
+  %369 = load ptr, ptr %encode.addr, align 8
+  %arrayidx150 = getelementptr inbounds float, ptr %369, i64 2
+  %370 = load float, ptr %arrayidx150, align 4
+  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %370)
+  %371 = load ptr, ptr %output, align 8
+  %arrayidx152 = getelementptr inbounds i8, ptr %371, i64 -4
   store i8 %call151, ptr %arrayidx152, align 1
-  %371 = load ptr, ptr %encode.addr, align 8
-  %arrayidx153 = getelementptr inbounds float, ptr %371, i64 1
-  %372 = load float, ptr %arrayidx153, align 4
-  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %372)
-  %373 = load ptr, ptr %output, align 8
-  %arrayidx155 = getelementptr inbounds i8, ptr %373, i64 -3
+  %372 = load ptr, ptr %encode.addr, align 8
+  %arrayidx153 = getelementptr inbounds float, ptr %372, i64 1
+  %373 = load float, ptr %arrayidx153, align 4
+  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %373)
+  %374 = load ptr, ptr %output, align 8
+  %arrayidx155 = getelementptr inbounds i8, ptr %374, i64 -3
   store i8 %call154, ptr %arrayidx155, align 1
-  %374 = load ptr, ptr %encode.addr, align 8
-  %arrayidx156 = getelementptr inbounds float, ptr %374, i64 0
-  %375 = load float, ptr %arrayidx156, align 4
-  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %375)
-  %376 = load ptr, ptr %output, align 8
-  %arrayidx158 = getelementptr inbounds i8, ptr %376, i64 -2
+  %375 = load ptr, ptr %encode.addr, align 8
+  %arrayidx156 = getelementptr inbounds float, ptr %375, i64 0
+  %376 = load float, ptr %arrayidx156, align 4
+  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %376)
+  %377 = load ptr, ptr %output, align 8
+  %arrayidx158 = getelementptr inbounds i8, ptr %377, i64 -2
   store i8 %call157, ptr %arrayidx158, align 1
-  %377 = load ptr, ptr %encode.addr, align 8
-  %arrayidx159 = getelementptr inbounds float, ptr %377, i64 3
-  %378 = load float, ptr %arrayidx159, align 4
-  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %378)
-  %379 = load ptr, ptr %output, align 8
-  %arrayidx161 = getelementptr inbounds i8, ptr %379, i64 -1
-  store i8 %call160, ptr %arrayidx161, align 1
+  %378 = load ptr, ptr %encode.addr, align 8
+  %arrayidx159 = getelementptr inbounds float, ptr %378, i64 3
+  %379 = load float, ptr %arrayidx159, align 4
+  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %379)
   %380 = load ptr, ptr %output, align 8
-  %add.ptr162 = getelementptr inbounds i8, ptr %380, i64 4
+  %arrayidx161 = getelementptr inbounds i8, ptr %380, i64 -1
+  store i8 %call160, ptr %arrayidx161, align 1
+  %381 = load ptr, ptr %output, align 8
+  %add.ptr162 = getelementptr inbounds i8, ptr %381, i64 4
   store ptr %add.ptr162, ptr %output, align 8
-  %381 = load ptr, ptr %encode.addr, align 8
-  %add.ptr163 = getelementptr inbounds float, ptr %381, i64 4
+  %382 = load ptr, ptr %encode.addr, align 8
+  %add.ptr163 = getelementptr inbounds float, ptr %382, i64 4
   store ptr %add.ptr163, ptr %encode.addr, align 8
   br label %while.cond, !llvm.loop !168
 
 while.end:                                        ; preds = %while.cond
-  %382 = load ptr, ptr %output, align 8
-  %add.ptr164 = getelementptr inbounds i8, ptr %382, i64 -4
+  %383 = load ptr, ptr %output, align 8
+  %add.ptr164 = getelementptr inbounds i8, ptr %383, i64 -4
   store ptr %add.ptr164, ptr %output, align 8
   br label %return
 
@@ -13922,602 +13926,603 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end124
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end123, %if.then119, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !170
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i150, align 8
-  %9 = load ptr, ptr %__p.addr.i150, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !170
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i150, align 8
+  %10 = load ptr, ptr %__p.addr.i150, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i149, align 8
-  %12 = load ptr, ptr %__p.addr.i149, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i149, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i148, align 8
-  %15 = load ptr, ptr %__p.addr.i148, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i148, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i190, align 16
-  store <4 x float> %21, ptr %__b.addr.i191, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i190, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i191, align 16
-  %shuffle.i192 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i190, align 16
+  store <4 x float> %22, ptr %__b.addr.i191, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i190, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i191, align 16
+  %shuffle.i192 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i192, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i187, align 16
-  store <4 x float> %25, ptr %__b.addr.i188, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %shuffle.i189 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i187, align 16
+  store <4 x float> %26, ptr %__b.addr.i188, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %shuffle.i189 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i189, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i196, align 16
-  store <4 x float> %29, ptr %__b.addr.i197, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i196, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i197, align 16
-  %shuffle.i198 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i196, align 16
+  store <4 x float> %30, ptr %__b.addr.i197, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i196, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i197, align 16
+  %shuffle.i198 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i198, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i193, align 16
-  store <4 x float> %33, ptr %__b.addr.i194, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i193, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i194, align 16
-  %shuffle.i195 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i193, align 16
+  store <4 x float> %34, ptr %__b.addr.i194, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i193, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i194, align 16
+  %shuffle.i195 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i195, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i202, align 16
-  store <4 x float> %37, ptr %__b.addr.i203, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i202, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i203, align 16
-  %shuffle.i204 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i202, align 16
+  store <4 x float> %38, ptr %__b.addr.i203, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i202, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i203, align 16
+  %shuffle.i204 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i204, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i208, align 16
-  store <4 x float> %41, ptr %__b.addr.i209, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i209, align 16
-  %shuffle.i210 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i208, align 16
+  store <4 x float> %42, ptr %__b.addr.i209, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i209, align 16
+  %shuffle.i210 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i210, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i199, align 16
-  store <4 x float> %45, ptr %__b.addr.i200, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %shuffle.i201 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i199, align 16
+  store <4 x float> %46, ptr %__b.addr.i200, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i199, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %shuffle.i201 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i201, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i205, align 16
-  store <4 x float> %49, ptr %__b.addr.i206, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i206, align 16
-  %shuffle.i207 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i205, align 16
+  store <4 x float> %50, ptr %__b.addr.i206, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i206, align 16
+  %shuffle.i207 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i207, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i216, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i216, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i178, align 16
-  store <4 x float> %54, ptr %__b.addr.i179, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i178, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i179, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i216, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i178, align 16
+  store <4 x float> %55, ptr %__b.addr.i179, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i178, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i179, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i215, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i215, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i170, align 16
-  store <4 x float> %60, ptr %__b.addr.i171, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i170, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i171, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i239, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i239, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i232, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i215, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i170, align 16
+  store <4 x float> %61, ptr %__b.addr.i171, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i170, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i171, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i239, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i239, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i232, align 16
   store i32 20, ptr %__count.addr.i233, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i232, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i233, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i232, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i233, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i214, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i214, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i176, align 16
-  store <4 x float> %74, ptr %__b.addr.i177, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i176, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i177, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i214, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i176, align 16
+  store <4 x float> %75, ptr %__b.addr.i177, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i176, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i177, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i213, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i213, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i168, align 16
-  store <4 x float> %80, ptr %__b.addr.i169, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i168, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i169, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i238, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i238, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i230, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i213, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i168, align 16
+  store <4 x float> %81, ptr %__b.addr.i169, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i168, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i169, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i238, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i238, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i230, align 16
   store i32 20, ptr %__count.addr.i231, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i230, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i231, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i230, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i231, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i212, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i212, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i174, align 16
-  store <4 x float> %94, ptr %__b.addr.i175, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i174, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i175, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i212, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i174, align 16
+  store <4 x float> %95, ptr %__b.addr.i175, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i174, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i175, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i211, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i211, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i166, align 16
-  store <4 x float> %100, ptr %__b.addr.i167, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i166, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i167, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i237, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i237, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i228, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i211, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i166, align 16
+  store <4 x float> %101, ptr %__b.addr.i167, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i166, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i167, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i237, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i237, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i228, align 16
   store i32 20, ptr %__count.addr.i229, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i228, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i229, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i228, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i229, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__a.addr.i160, align 16
-  store <4 x float> %112, ptr %__b.addr.i161, align 16
-  %113 = load <4 x float>, ptr %__a.addr.i160, align 16
-  %114 = load <4 x float>, ptr %__b.addr.i161, align 16
-  %mul.i = fmul <4 x float> %113, %114
+  store <4 x float> %113, ptr %__b.addr.i161, align 16
+  %114 = load <4 x float>, ptr %__a.addr.i160, align 16
+  %115 = load <4 x float>, ptr %__b.addr.i161, align 16
+  %mul.i = fmul <4 x float> %114, %115
   store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %__a.addr.i162, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i163, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i162, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i163, align 16
-  %add.i = fadd <4 x float> %115, %116
+  %116 = load <4 x float>, ptr %__a.addr.i162, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i163, align 16
+  %add.i = fadd <4 x float> %116, %117
   store <4 x float> %add.i, ptr %f3, align 16
-  %117 = load <4 x float>, ptr %f3, align 16
+  %118 = load <4 x float>, ptr %f3, align 16
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i, align 16
-  %118 = load <4 x float>, ptr %.compoundliteral.i, align 16
-  store <4 x float> %117, ptr %__a.addr.i172, align 16
-  store <4 x float> %118, ptr %__b.addr.i173, align 16
-  %119 = load <4 x float>, ptr %__a.addr.i172, align 16
-  %120 = load <4 x float>, ptr %__b.addr.i173, align 16
-  %121 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %119, <4 x float> %120)
-  store <4 x float> %121, ptr %f3, align 16
-  %122 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %122, ptr %__a.addr.i164, align 16
+  %119 = load <4 x float>, ptr %.compoundliteral.i, align 16
+  store <4 x float> %118, ptr %__a.addr.i172, align 16
+  store <4 x float> %119, ptr %__b.addr.i173, align 16
+  %120 = load <4 x float>, ptr %__a.addr.i172, align 16
+  %121 = load <4 x float>, ptr %__b.addr.i173, align 16
+  %122 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %120, <4 x float> %121)
+  store <4 x float> %122, ptr %f3, align 16
+  %123 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %123, ptr %__a.addr.i164, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__b.addr.i165, align 16
-  %123 = load <4 x float>, ptr %__a.addr.i164, align 16
-  %124 = load <4 x float>, ptr %__b.addr.i165, align 16
-  %125 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %123, <4 x float> %124)
-  store <4 x float> %125, ptr %f3, align 16
-  %126 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %126, ptr %__a.addr.i180, align 16
-  %127 = load <4 x float>, ptr %__a.addr.i180, align 16
-  %128 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %127)
-  %129 = bitcast <4 x i32> %128 to <2 x i64>
-  store <2 x i64> %129, ptr %i3, align 16
-  %130 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %130, ptr %temp0, align 16
-  %131 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %131, ptr %temp1, align 16
-  %132 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %132, ptr %temp2, align 16
-  %133 = load ptr, ptr %to_srgb, align 8
+  %124 = load <4 x float>, ptr %__a.addr.i164, align 16
+  %125 = load <4 x float>, ptr %__b.addr.i165, align 16
+  %126 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %124, <4 x float> %125)
+  store <4 x float> %126, ptr %f3, align 16
+  %127 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %127, ptr %__a.addr.i180, align 16
+  %128 = load <4 x float>, ptr %__a.addr.i180, align 16
+  %129 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %128)
+  %130 = bitcast <4 x i32> %129 to <2 x i64>
+  store <2 x i64> %130, ptr %i3, align 16
+  %131 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %131, ptr %temp0, align 16
+  %132 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %132, ptr %temp1, align 16
+  %133 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %133, ptr %temp2, align 16
+  %134 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %134 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %134 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %133, i64 %idxprom
-  %135 = load i32, ptr %arrayidx43, align 4
+  %135 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %135 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %134, i64 %idxprom
+  %136 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %135, ptr %arrayidx44, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  store i32 %136, ptr %arrayidx44, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %137 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %137 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %136, i64 %idxprom46
-  %138 = load i32, ptr %arrayidx47, align 4
+  %138 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %138 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %137, i64 %idxprom46
+  %139 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %138, ptr %arrayidx48, align 4
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx48, align 4
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %140 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %140 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %139, i64 %idxprom50
-  %141 = load i32, ptr %arrayidx51, align 4
+  %141 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %141 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %140, i64 %idxprom50
+  %142 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %141, ptr %arrayidx52, align 8
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx52, align 8
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %143 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %143 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %142, i64 %idxprom54
-  %144 = load i32, ptr %arrayidx55, align 4
+  %144 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %144 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %143, i64 %idxprom54
+  %145 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %144, ptr %arrayidx56, align 4
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx56, align 4
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %146 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %146 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %145, i64 %idxprom58
-  %147 = load i32, ptr %arrayidx59, align 4
+  %147 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %147 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %146, i64 %idxprom58
+  %148 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %147, ptr %arrayidx60, align 16
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx60, align 16
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %149 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %149 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %148, i64 %idxprom62
-  %150 = load i32, ptr %arrayidx63, align 4
+  %150 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %150 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %149, i64 %idxprom62
+  %151 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %150, ptr %arrayidx64, align 4
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx64, align 4
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %152 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %152 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %151, i64 %idxprom66
-  %153 = load i32, ptr %arrayidx67, align 4
+  %153 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %153 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %152, i64 %idxprom66
+  %154 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %153, ptr %arrayidx68, align 8
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx68, align 8
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %155 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %155 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %154, i64 %idxprom70
-  %156 = load i32, ptr %arrayidx71, align 4
+  %156 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %156 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %155, i64 %idxprom70
+  %157 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %156, ptr %arrayidx72, align 4
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx72, align 4
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %158 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %158 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %157, i64 %idxprom74
-  %159 = load i32, ptr %arrayidx75, align 4
+  %159 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %159 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %158, i64 %idxprom74
+  %160 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %159, ptr %arrayidx76, align 16
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx76, align 16
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %161 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %161 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %160, i64 %idxprom78
-  %162 = load i32, ptr %arrayidx79, align 4
+  %162 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %162 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %161, i64 %idxprom78
+  %163 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %162, ptr %arrayidx80, align 4
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx80, align 4
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %164 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %164 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %163, i64 %idxprom82
-  %165 = load i32, ptr %arrayidx83, align 4
+  %165 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %165 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %164, i64 %idxprom82
+  %166 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %165, ptr %arrayidx84, align 8
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx84, align 8
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %167 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %167 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %166, i64 %idxprom86
-  %168 = load i32, ptr %arrayidx87, align 4
+  %168 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %168 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %167, i64 %idxprom86
+  %169 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %168, ptr %arrayidx88, align 4
-  %169 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %169, ptr %i0, align 16
-  %170 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %170, ptr %i1, align 16
-  %171 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %171, ptr %i2, align 16
-  %172 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %172, ptr %__a.addr.i236, align 16
-  %173 = load <4 x float>, ptr %__a.addr.i236, align 16
-  %174 = bitcast <4 x float> %173 to <2 x i64>
-  store <2 x i64> %174, ptr %__a.addr.i226, align 16
+  store i32 %169, ptr %arrayidx88, align 4
+  %170 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %170, ptr %i0, align 16
+  %171 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %171, ptr %i1, align 16
+  %172 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %172, ptr %i2, align 16
+  %173 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %173, ptr %__a.addr.i236, align 16
+  %174 = load <4 x float>, ptr %__a.addr.i236, align 16
+  %175 = bitcast <4 x float> %174 to <2 x i64>
+  store <2 x i64> %175, ptr %__a.addr.i226, align 16
   store i32 12, ptr %__count.addr.i227, align 4
-  %175 = load <2 x i64>, ptr %__a.addr.i226, align 16
-  %176 = bitcast <2 x i64> %175 to <4 x i32>
-  %177 = load i32, ptr %__count.addr.i227, align 4
-  %178 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %176, i32 %177)
-  %179 = bitcast <4 x i32> %178 to <2 x i64>
-  store <2 x i64> %179, ptr %temp, align 16
-  %180 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %180, ptr %__a.addr.i245, align 16
+  %176 = load <2 x i64>, ptr %__a.addr.i226, align 16
+  %177 = bitcast <2 x i64> %176 to <4 x i32>
+  %178 = load i32, ptr %__count.addr.i227, align 4
+  %179 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %177, i32 %178)
+  %180 = bitcast <4 x i32> %179 to <2 x i64>
+  store <2 x i64> %180, ptr %temp, align 16
+  %181 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %181, ptr %__a.addr.i245, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i246, align 16
-  %181 = load <2 x i64>, ptr %__a.addr.i245, align 16
-  %182 = load <2 x i64>, ptr %__b.addr.i246, align 16
-  %and.i247 = and <2 x i64> %181, %182
+  %182 = load <2 x i64>, ptr %__a.addr.i245, align 16
+  %183 = load <2 x i64>, ptr %__b.addr.i246, align 16
+  %and.i247 = and <2 x i64> %182, %183
   store <2 x i64> %and.i247, ptr %temp, align 16
-  %183 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %183, ptr %__a.addr.i253, align 16
+  %184 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %184, ptr %__a.addr.i253, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i254, align 16
-  %184 = load <2 x i64>, ptr %__a.addr.i253, align 16
-  %185 = load <2 x i64>, ptr %__b.addr.i254, align 16
-  %or.i255 = or <2 x i64> %184, %185
+  %185 = load <2 x i64>, ptr %__a.addr.i253, align 16
+  %186 = load <2 x i64>, ptr %__b.addr.i254, align 16
+  %or.i255 = or <2 x i64> %185, %186
   store <2 x i64> %or.i255, ptr %temp, align 16
-  %186 = load <2 x i64>, ptr %i0, align 16
-  %187 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %186, ptr %__a.addr.i260, align 16
-  store <2 x i64> %187, ptr %__b.addr.i261, align 16
-  %188 = load <2 x i64>, ptr %__a.addr.i260, align 16
-  %189 = bitcast <2 x i64> %188 to <8 x i16>
-  %190 = load <2 x i64>, ptr %__b.addr.i261, align 16
-  %191 = bitcast <2 x i64> %190 to <8 x i16>
-  %192 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %189, <8 x i16> %191)
-  %193 = bitcast <4 x i32> %192 to <2 x i64>
-  store <2 x i64> %193, ptr %i0, align 16
-  %194 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %194, ptr %__a.addr.i224, align 16
+  %187 = load <2 x i64>, ptr %i0, align 16
+  %188 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %187, ptr %__a.addr.i260, align 16
+  store <2 x i64> %188, ptr %__b.addr.i261, align 16
+  %189 = load <2 x i64>, ptr %__a.addr.i260, align 16
+  %190 = bitcast <2 x i64> %189 to <8 x i16>
+  %191 = load <2 x i64>, ptr %__b.addr.i261, align 16
+  %192 = bitcast <2 x i64> %191 to <8 x i16>
+  %193 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %190, <8 x i16> %192)
+  %194 = bitcast <4 x i32> %193 to <2 x i64>
+  store <2 x i64> %194, ptr %i0, align 16
+  %195 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %195, ptr %__a.addr.i224, align 16
   store i32 16, ptr %__count.addr.i225, align 4
-  %195 = load <2 x i64>, ptr %__a.addr.i224, align 16
-  %196 = bitcast <2 x i64> %195 to <4 x i32>
-  %197 = load i32, ptr %__count.addr.i225, align 4
-  %198 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %196, i32 %197)
-  %199 = bitcast <4 x i32> %198 to <2 x i64>
-  store <2 x i64> %199, ptr %i0, align 16
-  %200 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %200, ptr %__a.addr.i235, align 16
-  %201 = load <4 x float>, ptr %__a.addr.i235, align 16
-  %202 = bitcast <4 x float> %201 to <2 x i64>
-  store <2 x i64> %202, ptr %__a.addr.i222, align 16
+  %196 = load <2 x i64>, ptr %__a.addr.i224, align 16
+  %197 = bitcast <2 x i64> %196 to <4 x i32>
+  %198 = load i32, ptr %__count.addr.i225, align 4
+  %199 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %197, i32 %198)
+  %200 = bitcast <4 x i32> %199 to <2 x i64>
+  store <2 x i64> %200, ptr %i0, align 16
+  %201 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %201, ptr %__a.addr.i235, align 16
+  %202 = load <4 x float>, ptr %__a.addr.i235, align 16
+  %203 = bitcast <4 x float> %202 to <2 x i64>
+  store <2 x i64> %203, ptr %__a.addr.i222, align 16
   store i32 12, ptr %__count.addr.i223, align 4
-  %203 = load <2 x i64>, ptr %__a.addr.i222, align 16
-  %204 = bitcast <2 x i64> %203 to <4 x i32>
-  %205 = load i32, ptr %__count.addr.i223, align 4
-  %206 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %204, i32 %205)
-  %207 = bitcast <4 x i32> %206 to <2 x i64>
-  store <2 x i64> %207, ptr %temp95, align 16
-  %208 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %208, ptr %__a.addr.i242, align 16
+  %204 = load <2 x i64>, ptr %__a.addr.i222, align 16
+  %205 = bitcast <2 x i64> %204 to <4 x i32>
+  %206 = load i32, ptr %__count.addr.i223, align 4
+  %207 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %205, i32 %206)
+  %208 = bitcast <4 x i32> %207 to <2 x i64>
+  store <2 x i64> %208, ptr %temp95, align 16
+  %209 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %209, ptr %__a.addr.i242, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i243, align 16
-  %209 = load <2 x i64>, ptr %__a.addr.i242, align 16
-  %210 = load <2 x i64>, ptr %__b.addr.i243, align 16
-  %and.i244 = and <2 x i64> %209, %210
+  %210 = load <2 x i64>, ptr %__a.addr.i242, align 16
+  %211 = load <2 x i64>, ptr %__b.addr.i243, align 16
+  %and.i244 = and <2 x i64> %210, %211
   store <2 x i64> %and.i244, ptr %temp95, align 16
-  %211 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %211, ptr %__a.addr.i250, align 16
+  %212 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %212, ptr %__a.addr.i250, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i251, align 16
-  %212 = load <2 x i64>, ptr %__a.addr.i250, align 16
-  %213 = load <2 x i64>, ptr %__b.addr.i251, align 16
-  %or.i252 = or <2 x i64> %212, %213
+  %213 = load <2 x i64>, ptr %__a.addr.i250, align 16
+  %214 = load <2 x i64>, ptr %__b.addr.i251, align 16
+  %or.i252 = or <2 x i64> %213, %214
   store <2 x i64> %or.i252, ptr %temp95, align 16
-  %214 = load <2 x i64>, ptr %i1, align 16
-  %215 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %214, ptr %__a.addr.i258, align 16
-  store <2 x i64> %215, ptr %__b.addr.i259, align 16
-  %216 = load <2 x i64>, ptr %__a.addr.i258, align 16
-  %217 = bitcast <2 x i64> %216 to <8 x i16>
-  %218 = load <2 x i64>, ptr %__b.addr.i259, align 16
-  %219 = bitcast <2 x i64> %218 to <8 x i16>
-  %220 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %217, <8 x i16> %219)
-  %221 = bitcast <4 x i32> %220 to <2 x i64>
-  store <2 x i64> %221, ptr %i1, align 16
-  %222 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %222, ptr %__a.addr.i220, align 16
+  %215 = load <2 x i64>, ptr %i1, align 16
+  %216 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %215, ptr %__a.addr.i258, align 16
+  store <2 x i64> %216, ptr %__b.addr.i259, align 16
+  %217 = load <2 x i64>, ptr %__a.addr.i258, align 16
+  %218 = bitcast <2 x i64> %217 to <8 x i16>
+  %219 = load <2 x i64>, ptr %__b.addr.i259, align 16
+  %220 = bitcast <2 x i64> %219 to <8 x i16>
+  %221 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %218, <8 x i16> %220)
+  %222 = bitcast <4 x i32> %221 to <2 x i64>
+  store <2 x i64> %222, ptr %i1, align 16
+  %223 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %223, ptr %__a.addr.i220, align 16
   store i32 16, ptr %__count.addr.i221, align 4
-  %223 = load <2 x i64>, ptr %__a.addr.i220, align 16
-  %224 = bitcast <2 x i64> %223 to <4 x i32>
-  %225 = load i32, ptr %__count.addr.i221, align 4
-  %226 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %224, i32 %225)
-  %227 = bitcast <4 x i32> %226 to <2 x i64>
-  store <2 x i64> %227, ptr %i1, align 16
-  %228 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %228, ptr %__a.addr.i234, align 16
-  %229 = load <4 x float>, ptr %__a.addr.i234, align 16
-  %230 = bitcast <4 x float> %229 to <2 x i64>
-  store <2 x i64> %230, ptr %__a.addr.i218, align 16
+  %224 = load <2 x i64>, ptr %__a.addr.i220, align 16
+  %225 = bitcast <2 x i64> %224 to <4 x i32>
+  %226 = load i32, ptr %__count.addr.i221, align 4
+  %227 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %225, i32 %226)
+  %228 = bitcast <4 x i32> %227 to <2 x i64>
+  store <2 x i64> %228, ptr %i1, align 16
+  %229 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %229, ptr %__a.addr.i234, align 16
+  %230 = load <4 x float>, ptr %__a.addr.i234, align 16
+  %231 = bitcast <4 x float> %230 to <2 x i64>
+  store <2 x i64> %231, ptr %__a.addr.i218, align 16
   store i32 12, ptr %__count.addr.i219, align 4
-  %231 = load <2 x i64>, ptr %__a.addr.i218, align 16
-  %232 = bitcast <2 x i64> %231 to <4 x i32>
-  %233 = load i32, ptr %__count.addr.i219, align 4
-  %234 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %232, i32 %233)
-  %235 = bitcast <4 x i32> %234 to <2 x i64>
-  store <2 x i64> %235, ptr %temp102, align 16
-  %236 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %236, ptr %__a.addr.i240, align 16
+  %232 = load <2 x i64>, ptr %__a.addr.i218, align 16
+  %233 = bitcast <2 x i64> %232 to <4 x i32>
+  %234 = load i32, ptr %__count.addr.i219, align 4
+  %235 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %233, i32 %234)
+  %236 = bitcast <4 x i32> %235 to <2 x i64>
+  store <2 x i64> %236, ptr %temp102, align 16
+  %237 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %237, ptr %__a.addr.i240, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i241, align 16
-  %237 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %238 = load <2 x i64>, ptr %__b.addr.i241, align 16
-  %and.i = and <2 x i64> %237, %238
+  %238 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %239 = load <2 x i64>, ptr %__b.addr.i241, align 16
+  %and.i = and <2 x i64> %238, %239
   store <2 x i64> %and.i, ptr %temp102, align 16
-  %239 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %239, ptr %__a.addr.i248, align 16
+  %240 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %240, ptr %__a.addr.i248, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i249, align 16
-  %240 = load <2 x i64>, ptr %__a.addr.i248, align 16
-  %241 = load <2 x i64>, ptr %__b.addr.i249, align 16
-  %or.i = or <2 x i64> %240, %241
+  %241 = load <2 x i64>, ptr %__a.addr.i248, align 16
+  %242 = load <2 x i64>, ptr %__b.addr.i249, align 16
+  %or.i = or <2 x i64> %241, %242
   store <2 x i64> %or.i, ptr %temp102, align 16
-  %242 = load <2 x i64>, ptr %i2, align 16
-  %243 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %242, ptr %__a.addr.i256, align 16
-  store <2 x i64> %243, ptr %__b.addr.i257, align 16
-  %244 = load <2 x i64>, ptr %__a.addr.i256, align 16
-  %245 = bitcast <2 x i64> %244 to <8 x i16>
-  %246 = load <2 x i64>, ptr %__b.addr.i257, align 16
-  %247 = bitcast <2 x i64> %246 to <8 x i16>
-  %248 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %245, <8 x i16> %247)
-  %249 = bitcast <4 x i32> %248 to <2 x i64>
-  store <2 x i64> %249, ptr %i2, align 16
-  %250 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %250, ptr %__a.addr.i217, align 16
+  %243 = load <2 x i64>, ptr %i2, align 16
+  %244 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %243, ptr %__a.addr.i256, align 16
+  store <2 x i64> %244, ptr %__b.addr.i257, align 16
+  %245 = load <2 x i64>, ptr %__a.addr.i256, align 16
+  %246 = bitcast <2 x i64> %245 to <8 x i16>
+  %247 = load <2 x i64>, ptr %__b.addr.i257, align 16
+  %248 = bitcast <2 x i64> %247 to <8 x i16>
+  %249 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %246, <8 x i16> %248)
+  %250 = bitcast <4 x i32> %249 to <2 x i64>
+  store <2 x i64> %250, ptr %i2, align 16
+  %251 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %251, ptr %__a.addr.i217, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %251 = load <2 x i64>, ptr %__a.addr.i217, align 16
-  %252 = bitcast <2 x i64> %251 to <4 x i32>
-  %253 = load i32, ptr %__count.addr.i, align 4
-  %254 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %252, i32 %253)
-  %255 = bitcast <4 x i32> %254 to <2 x i64>
-  store <2 x i64> %255, ptr %i2, align 16
-  %256 = load <2 x i64>, ptr %i2, align 16
-  %257 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %256, ptr %__a.addr.i183, align 16
-  store <2 x i64> %257, ptr %__b.addr.i184, align 16
-  %258 = load <2 x i64>, ptr %__a.addr.i183, align 16
-  %259 = bitcast <2 x i64> %258 to <4 x i32>
-  %260 = load <2 x i64>, ptr %__b.addr.i184, align 16
-  %261 = bitcast <2 x i64> %260 to <4 x i32>
-  %262 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %259, <4 x i32> %261)
-  %263 = bitcast <8 x i16> %262 to <2 x i64>
-  store <2 x i64> %263, ptr %i2, align 16
-  %264 = load <2 x i64>, ptr %i0, align 16
-  %265 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %264, ptr %__a.addr.i181, align 16
-  store <2 x i64> %265, ptr %__b.addr.i182, align 16
-  %266 = load <2 x i64>, ptr %__a.addr.i181, align 16
-  %267 = bitcast <2 x i64> %266 to <4 x i32>
-  %268 = load <2 x i64>, ptr %__b.addr.i182, align 16
-  %269 = bitcast <2 x i64> %268 to <4 x i32>
-  %270 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %267, <4 x i32> %269)
-  %271 = bitcast <8 x i16> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i0, align 16
-  %272 = load <2 x i64>, ptr %i2, align 16
-  %273 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %272, ptr %__a.addr.i151, align 16
-  store <2 x i64> %273, ptr %__b.addr.i152, align 16
-  %274 = load <2 x i64>, ptr %__a.addr.i151, align 16
-  %275 = bitcast <2 x i64> %274 to <8 x i16>
-  %276 = load <2 x i64>, ptr %__b.addr.i152, align 16
-  %277 = bitcast <2 x i64> %276 to <8 x i16>
-  %shuffle.i153 = shufflevector <8 x i16> %275, <8 x i16> %277, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %278 = bitcast <8 x i16> %shuffle.i153 to <2 x i64>
-  store <2 x i64> %278, ptr %i1, align 16
-  %279 = load <2 x i64>, ptr %i2, align 16
-  %280 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %279, ptr %__a.addr.i157, align 16
-  store <2 x i64> %280, ptr %__b.addr.i158, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i157, align 16
-  %282 = bitcast <2 x i64> %281 to <8 x i16>
-  %283 = load <2 x i64>, ptr %__b.addr.i158, align 16
-  %284 = bitcast <2 x i64> %283 to <8 x i16>
-  %shuffle.i159 = shufflevector <8 x i16> %282, <8 x i16> %284, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %285 = bitcast <8 x i16> %shuffle.i159 to <2 x i64>
-  store <2 x i64> %285, ptr %i3, align 16
-  %286 = load <2 x i64>, ptr %i1, align 16
-  %287 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %286, ptr %__a.addr.i, align 16
-  store <2 x i64> %287, ptr %__b.addr.i, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %289, <8 x i16> %291, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %292 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %292, ptr %i2, align 16
-  %293 = load <2 x i64>, ptr %i1, align 16
-  %294 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %293, ptr %__a.addr.i154, align 16
-  store <2 x i64> %294, ptr %__b.addr.i155, align 16
-  %295 = load <2 x i64>, ptr %__a.addr.i154, align 16
-  %296 = bitcast <2 x i64> %295 to <8 x i16>
-  %297 = load <2 x i64>, ptr %__b.addr.i155, align 16
-  %298 = bitcast <2 x i64> %297 to <8 x i16>
-  %shuffle.i156 = shufflevector <8 x i16> %296, <8 x i16> %298, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %299 = bitcast <8 x i16> %shuffle.i156 to <2 x i64>
-  store <2 x i64> %299, ptr %i0, align 16
-  %300 = load <2 x i64>, ptr %i2, align 16
-  %301 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %300, ptr %__a.addr.i185, align 16
-  store <2 x i64> %301, ptr %__b.addr.i186, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i185, align 16
-  %303 = bitcast <2 x i64> %302 to <8 x i16>
-  %304 = load <2 x i64>, ptr %__b.addr.i186, align 16
-  %305 = bitcast <2 x i64> %304 to <8 x i16>
-  %306 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %303, <8 x i16> %305)
-  %307 = bitcast <16 x i8> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i2, align 16
-  %308 = load ptr, ptr %output, align 8
-  %309 = load <2 x i64>, ptr %i2, align 16
-  store ptr %308, ptr %__p.addr.i262, align 8
-  store <2 x i64> %309, ptr %__b.addr.i263, align 16
-  %310 = load <2 x i64>, ptr %__b.addr.i263, align 16
-  %311 = load ptr, ptr %__p.addr.i262, align 8
-  store <2 x i64> %310, ptr %311, align 1
-  %312 = load ptr, ptr %output, align 8
-  %add.ptr116 = getelementptr inbounds i8, ptr %312, i64 16
+  %252 = load <2 x i64>, ptr %__a.addr.i217, align 16
+  %253 = bitcast <2 x i64> %252 to <4 x i32>
+  %254 = load i32, ptr %__count.addr.i, align 4
+  %255 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %253, i32 %254)
+  %256 = bitcast <4 x i32> %255 to <2 x i64>
+  store <2 x i64> %256, ptr %i2, align 16
+  %257 = load <2 x i64>, ptr %i2, align 16
+  %258 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %257, ptr %__a.addr.i183, align 16
+  store <2 x i64> %258, ptr %__b.addr.i184, align 16
+  %259 = load <2 x i64>, ptr %__a.addr.i183, align 16
+  %260 = bitcast <2 x i64> %259 to <4 x i32>
+  %261 = load <2 x i64>, ptr %__b.addr.i184, align 16
+  %262 = bitcast <2 x i64> %261 to <4 x i32>
+  %263 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %260, <4 x i32> %262)
+  %264 = bitcast <8 x i16> %263 to <2 x i64>
+  store <2 x i64> %264, ptr %i2, align 16
+  %265 = load <2 x i64>, ptr %i0, align 16
+  %266 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %265, ptr %__a.addr.i181, align 16
+  store <2 x i64> %266, ptr %__b.addr.i182, align 16
+  %267 = load <2 x i64>, ptr %__a.addr.i181, align 16
+  %268 = bitcast <2 x i64> %267 to <4 x i32>
+  %269 = load <2 x i64>, ptr %__b.addr.i182, align 16
+  %270 = bitcast <2 x i64> %269 to <4 x i32>
+  %271 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %268, <4 x i32> %270)
+  %272 = bitcast <8 x i16> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i0, align 16
+  %273 = load <2 x i64>, ptr %i2, align 16
+  %274 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %273, ptr %__a.addr.i151, align 16
+  store <2 x i64> %274, ptr %__b.addr.i152, align 16
+  %275 = load <2 x i64>, ptr %__a.addr.i151, align 16
+  %276 = bitcast <2 x i64> %275 to <8 x i16>
+  %277 = load <2 x i64>, ptr %__b.addr.i152, align 16
+  %278 = bitcast <2 x i64> %277 to <8 x i16>
+  %shuffle.i153 = shufflevector <8 x i16> %276, <8 x i16> %278, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %279 = bitcast <8 x i16> %shuffle.i153 to <2 x i64>
+  store <2 x i64> %279, ptr %i1, align 16
+  %280 = load <2 x i64>, ptr %i2, align 16
+  %281 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %280, ptr %__a.addr.i157, align 16
+  store <2 x i64> %281, ptr %__b.addr.i158, align 16
+  %282 = load <2 x i64>, ptr %__a.addr.i157, align 16
+  %283 = bitcast <2 x i64> %282 to <8 x i16>
+  %284 = load <2 x i64>, ptr %__b.addr.i158, align 16
+  %285 = bitcast <2 x i64> %284 to <8 x i16>
+  %shuffle.i159 = shufflevector <8 x i16> %283, <8 x i16> %285, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %286 = bitcast <8 x i16> %shuffle.i159 to <2 x i64>
+  store <2 x i64> %286, ptr %i3, align 16
+  %287 = load <2 x i64>, ptr %i1, align 16
+  %288 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %287, ptr %__a.addr.i, align 16
+  store <2 x i64> %288, ptr %__b.addr.i, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %290, <8 x i16> %292, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %293 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %293, ptr %i2, align 16
+  %294 = load <2 x i64>, ptr %i1, align 16
+  %295 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %294, ptr %__a.addr.i154, align 16
+  store <2 x i64> %295, ptr %__b.addr.i155, align 16
+  %296 = load <2 x i64>, ptr %__a.addr.i154, align 16
+  %297 = bitcast <2 x i64> %296 to <8 x i16>
+  %298 = load <2 x i64>, ptr %__b.addr.i155, align 16
+  %299 = bitcast <2 x i64> %298 to <8 x i16>
+  %shuffle.i156 = shufflevector <8 x i16> %297, <8 x i16> %299, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %300 = bitcast <8 x i16> %shuffle.i156 to <2 x i64>
+  store <2 x i64> %300, ptr %i0, align 16
+  %301 = load <2 x i64>, ptr %i2, align 16
+  %302 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %301, ptr %__a.addr.i185, align 16
+  store <2 x i64> %302, ptr %__b.addr.i186, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i185, align 16
+  %304 = bitcast <2 x i64> %303 to <8 x i16>
+  %305 = load <2 x i64>, ptr %__b.addr.i186, align 16
+  %306 = bitcast <2 x i64> %305 to <8 x i16>
+  %307 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %304, <8 x i16> %306)
+  %308 = bitcast <16 x i8> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i2, align 16
+  %309 = load ptr, ptr %output, align 8
+  %310 = load <2 x i64>, ptr %i2, align 16
+  store ptr %309, ptr %__p.addr.i262, align 8
+  store <2 x i64> %310, ptr %__b.addr.i263, align 16
+  %311 = load <2 x i64>, ptr %__b.addr.i263, align 16
+  %312 = load ptr, ptr %__p.addr.i262, align 8
+  store <2 x i64> %311, ptr %312, align 1
+  %313 = load ptr, ptr %output, align 8
+  %add.ptr116 = getelementptr inbounds i8, ptr %313, i64 16
   store ptr %add.ptr116, ptr %output, align 8
-  %313 = load ptr, ptr %encode.addr, align 8
-  %add.ptr117 = getelementptr inbounds float, ptr %313, i64 16
+  %314 = load ptr, ptr %encode.addr, align 8
+  %add.ptr117 = getelementptr inbounds float, ptr %314, i64 16
   store ptr %add.ptr117, ptr %encode.addr, align 8
-  %314 = load ptr, ptr %output, align 8
-  %315 = load ptr, ptr %end_output, align 8
-  %cmp118 = icmp ule ptr %314, %315
+  %315 = load ptr, ptr %output, align 8
+  %316 = load ptr, ptr %end_output, align 8
+  %cmp118 = icmp ule ptr %315, %316
   br i1 %cmp118, label %if.then119, label %if.end
 
 if.then119:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %316 = load ptr, ptr %output, align 8
-  %317 = load ptr, ptr %end_output, align 8
-  %add.ptr120 = getelementptr inbounds i8, ptr %317, i64 16
-  %cmp121 = icmp eq ptr %316, %add.ptr120
+  %317 = load ptr, ptr %output, align 8
+  %318 = load ptr, ptr %end_output, align 8
+  %add.ptr120 = getelementptr inbounds i8, ptr %318, i64 16
+  %cmp121 = icmp eq ptr %317, %add.ptr120
   br i1 %cmp121, label %if.then122, label %if.end123
 
 if.then122:                                       ; preds = %if.end
   br label %for.end
 
 if.end123:                                        ; preds = %if.end
-  %318 = load ptr, ptr %end_output, align 8
-  store ptr %318, ptr %output, align 8
-  %319 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %319, ptr %encode.addr, align 8
+  %319 = load ptr, ptr %end_output, align 8
+  store ptr %319, ptr %output, align 8
+  %320 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %320, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then122
@@ -14527,40 +14532,40 @@ if.end124:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end124
-  %320 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %320) #9, !srcloc !171
   %321 = load ptr, ptr %encode.addr, align 8
-  %arrayidx125 = getelementptr inbounds float, ptr %321, i64 0
-  %322 = load float, ptr %arrayidx125, align 4
-  %call126 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %322)
-  %323 = load ptr, ptr %output, align 8
-  %arrayidx127 = getelementptr inbounds i8, ptr %323, i64 2
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %321) #9, !srcloc !171
+  %322 = load ptr, ptr %encode.addr, align 8
+  %arrayidx125 = getelementptr inbounds float, ptr %322, i64 0
+  %323 = load float, ptr %arrayidx125, align 4
+  %call126 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %323)
+  %324 = load ptr, ptr %output, align 8
+  %arrayidx127 = getelementptr inbounds i8, ptr %324, i64 2
   store i8 %call126, ptr %arrayidx127, align 1
-  %324 = load ptr, ptr %encode.addr, align 8
-  %arrayidx128 = getelementptr inbounds float, ptr %324, i64 1
-  %325 = load float, ptr %arrayidx128, align 4
-  %call129 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %325)
-  %326 = load ptr, ptr %output, align 8
-  %arrayidx130 = getelementptr inbounds i8, ptr %326, i64 1
+  %325 = load ptr, ptr %encode.addr, align 8
+  %arrayidx128 = getelementptr inbounds float, ptr %325, i64 1
+  %326 = load float, ptr %arrayidx128, align 4
+  %call129 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %326)
+  %327 = load ptr, ptr %output, align 8
+  %arrayidx130 = getelementptr inbounds i8, ptr %327, i64 1
   store i8 %call129, ptr %arrayidx130, align 1
-  %327 = load ptr, ptr %encode.addr, align 8
-  %arrayidx131 = getelementptr inbounds float, ptr %327, i64 2
-  %328 = load float, ptr %arrayidx131, align 4
-  %call132 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %328)
-  %329 = load ptr, ptr %output, align 8
-  %arrayidx133 = getelementptr inbounds i8, ptr %329, i64 0
+  %328 = load ptr, ptr %encode.addr, align 8
+  %arrayidx131 = getelementptr inbounds float, ptr %328, i64 2
+  %329 = load float, ptr %arrayidx131, align 4
+  %call132 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %329)
+  %330 = load ptr, ptr %output, align 8
+  %arrayidx133 = getelementptr inbounds i8, ptr %330, i64 0
   store i8 %call132, ptr %arrayidx133, align 1
-  %330 = load ptr, ptr %encode.addr, align 8
-  %arrayidx134 = getelementptr inbounds float, ptr %330, i64 3
-  %331 = load float, ptr %arrayidx134, align 4
-  %mul = fmul float %331, 2.550000e+02
+  %331 = load ptr, ptr %encode.addr, align 8
+  %arrayidx134 = getelementptr inbounds float, ptr %331, i64 3
+  %332 = load float, ptr %arrayidx134, align 4
+  %mul = fmul float %332, 2.550000e+02
   %add = fadd float %mul, 5.000000e-01
   store float %add, ptr %f, align 4
   br label %do.body135
 
 do.body135:                                       ; preds = %do.body
-  %332 = load float, ptr %f, align 4
-  %cmp136 = fcmp olt float %332, 0.000000e+00
+  %333 = load float, ptr %f, align 4
+  %cmp136 = fcmp olt float %333, 0.000000e+00
   br i1 %cmp136, label %if.then137, label %if.end138
 
 if.then137:                                       ; preds = %do.body135
@@ -14568,8 +14573,8 @@ if.then137:                                       ; preds = %do.body135
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then137, %do.body135
-  %333 = load float, ptr %f, align 4
-  %cmp139 = fcmp ogt float %333, 2.550000e+02
+  %334 = load float, ptr %f, align 4
+  %cmp139 = fcmp ogt float %334, 2.550000e+02
   br i1 %cmp139, label %if.then140, label %if.end141
 
 if.then140:                                       ; preds = %if.end138
@@ -14580,23 +14585,23 @@ if.end141:                                        ; preds = %if.then140, %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end141
-  %334 = load float, ptr %f, align 4
-  %conv = fptoui float %334 to i8
-  %335 = load ptr, ptr %output, align 8
-  %arrayidx142 = getelementptr inbounds i8, ptr %335, i64 3
-  store i8 %conv, ptr %arrayidx142, align 1
+  %335 = load float, ptr %f, align 4
+  %conv = fptoui float %335 to i8
   %336 = load ptr, ptr %output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %336, i64 4
+  %arrayidx142 = getelementptr inbounds i8, ptr %336, i64 3
+  store i8 %conv, ptr %arrayidx142, align 1
+  %337 = load ptr, ptr %output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %337, i64 4
   store ptr %add.ptr143, ptr %output, align 8
-  %337 = load ptr, ptr %encode.addr, align 8
-  %add.ptr144 = getelementptr inbounds float, ptr %337, i64 4
+  %338 = load ptr, ptr %encode.addr, align 8
+  %add.ptr144 = getelementptr inbounds float, ptr %338, i64 4
   store ptr %add.ptr144, ptr %encode.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.end
-  %338 = load ptr, ptr %output, align 8
-  %339 = load ptr, ptr %end_output, align 8
-  %cmp145 = icmp ult ptr %338, %339
+  %339 = load ptr, ptr %output, align 8
+  %340 = load ptr, ptr %end_output, align 8
+  %cmp145 = icmp ult ptr %339, %340
   br i1 %cmp145, label %do.body, label %do.end147, !llvm.loop !172
 
 do.end147:                                        ; preds = %do.cond, %for.end
@@ -18577,741 +18582,742 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end147
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end146, %if.then142, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !210
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i167, align 8
-  %9 = load ptr, ptr %__p.addr.i167, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !210
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i167, align 8
+  %10 = load ptr, ptr %__p.addr.i167, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i166, align 8
-  %12 = load ptr, ptr %__p.addr.i166, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i166, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i165, align 8
-  %15 = load ptr, ptr %__p.addr.i165, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i165, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i202, align 16
-  store <4 x float> %21, ptr %__b.addr.i203, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i202, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i203, align 16
-  %shuffle.i204 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i202, align 16
+  store <4 x float> %22, ptr %__b.addr.i203, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i202, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i203, align 16
+  %shuffle.i204 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i204, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i199, align 16
-  store <4 x float> %25, ptr %__b.addr.i200, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %shuffle.i201 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i199, align 16
+  store <4 x float> %26, ptr %__b.addr.i200, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i199, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %shuffle.i201 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i201, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i208, align 16
-  store <4 x float> %29, ptr %__b.addr.i209, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i209, align 16
-  %shuffle.i210 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i208, align 16
+  store <4 x float> %30, ptr %__b.addr.i209, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i209, align 16
+  %shuffle.i210 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i210, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i205, align 16
-  store <4 x float> %33, ptr %__b.addr.i206, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i206, align 16
-  %shuffle.i207 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i205, align 16
+  store <4 x float> %34, ptr %__b.addr.i206, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i206, align 16
+  %shuffle.i207 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i207, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i214, align 16
-  store <4 x float> %37, ptr %__b.addr.i215, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i214, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i215, align 16
-  %shuffle.i216 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i214, align 16
+  store <4 x float> %38, ptr %__b.addr.i215, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i214, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i215, align 16
+  %shuffle.i216 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i216, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i220, align 16
-  store <4 x float> %41, ptr %__b.addr.i221, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i220, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i221, align 16
-  %shuffle.i222 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i220, align 16
+  store <4 x float> %42, ptr %__b.addr.i221, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i220, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i221, align 16
+  %shuffle.i222 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i222, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i211, align 16
-  store <4 x float> %45, ptr %__b.addr.i212, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i211, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i212, align 16
-  %shuffle.i213 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i211, align 16
+  store <4 x float> %46, ptr %__b.addr.i212, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i211, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i212, align 16
+  %shuffle.i213 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i213, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i217, align 16
-  store <4 x float> %49, ptr %__b.addr.i218, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i217, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i218, align 16
-  %shuffle.i219 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i217, align 16
+  store <4 x float> %50, ptr %__b.addr.i218, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i217, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i218, align 16
+  %shuffle.i219 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i219, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i230, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i230, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i191, align 16
-  store <4 x float> %54, ptr %__b.addr.i192, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i191, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i192, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i230, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i191, align 16
+  store <4 x float> %55, ptr %__b.addr.i192, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i191, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i192, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i229, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i229, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i183, align 16
-  store <4 x float> %60, ptr %__b.addr.i184, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i183, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i184, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i261, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i261, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i252, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i229, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i183, align 16
+  store <4 x float> %61, ptr %__b.addr.i184, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i183, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i184, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i261, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i261, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i252, align 16
   store i32 20, ptr %__count.addr.i253, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i252, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i253, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i252, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i253, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i228, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i228, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i189, align 16
-  store <4 x float> %74, ptr %__b.addr.i190, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i189, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i190, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i228, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i189, align 16
+  store <4 x float> %75, ptr %__b.addr.i190, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i189, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i190, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i227, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i227, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i181, align 16
-  store <4 x float> %80, ptr %__b.addr.i182, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i181, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i182, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i260, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i260, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i250, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i227, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i181, align 16
+  store <4 x float> %81, ptr %__b.addr.i182, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i181, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i182, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i260, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i260, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i250, align 16
   store i32 20, ptr %__count.addr.i251, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i250, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i251, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i250, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i251, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i226, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i226, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i187, align 16
-  store <4 x float> %94, ptr %__b.addr.i188, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i226, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i187, align 16
+  store <4 x float> %95, ptr %__b.addr.i188, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i225, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i225, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i179, align 16
-  store <4 x float> %100, ptr %__b.addr.i180, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i179, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i180, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i259, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i259, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i248, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i225, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i179, align 16
+  store <4 x float> %101, ptr %__b.addr.i180, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i179, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i180, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i259, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i259, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i248, align 16
   store i32 20, ptr %__count.addr.i249, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i248, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i249, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i248, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i249, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i224, align 16
-  %113 = load <2 x i64>, ptr %__a.addr.i224, align 16
-  %114 = bitcast <2 x i64> %113 to <4 x float>
-  store <4 x float> %112, ptr %__a.addr.i185, align 16
-  store <4 x float> %114, ptr %__b.addr.i186, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i185, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i186, align 16
-  %117 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %115, <4 x float> %116)
-  store <4 x float> %117, ptr %f3, align 16
-  %118 = load <4 x float>, ptr %f3, align 16
+  %114 = load <2 x i64>, ptr %__a.addr.i224, align 16
+  %115 = bitcast <2 x i64> %114 to <4 x float>
+  store <4 x float> %113, ptr %__a.addr.i185, align 16
+  store <4 x float> %115, ptr %__b.addr.i186, align 16
+  %116 = load <4 x float>, ptr %__a.addr.i185, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i186, align 16
+  %118 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %116, <4 x float> %117)
+  store <4 x float> %118, ptr %f3, align 16
+  %119 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i223, align 16
-  %119 = load <2 x i64>, ptr %__a.addr.i223, align 16
-  %120 = bitcast <2 x i64> %119 to <4 x float>
-  store <4 x float> %118, ptr %__a.addr.i177, align 16
-  store <4 x float> %120, ptr %__b.addr.i178, align 16
-  %121 = load <4 x float>, ptr %__a.addr.i177, align 16
-  %122 = load <4 x float>, ptr %__b.addr.i178, align 16
-  %123 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %121, <4 x float> %122)
-  store <4 x float> %123, ptr %f3, align 16
-  %124 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %124, ptr %__a.addr.i258, align 16
-  %125 = load <4 x float>, ptr %__a.addr.i258, align 16
-  %126 = bitcast <4 x float> %125 to <2 x i64>
-  store <2 x i64> %126, ptr %__a.addr.i246, align 16
+  %120 = load <2 x i64>, ptr %__a.addr.i223, align 16
+  %121 = bitcast <2 x i64> %120 to <4 x float>
+  store <4 x float> %119, ptr %__a.addr.i177, align 16
+  store <4 x float> %121, ptr %__b.addr.i178, align 16
+  %122 = load <4 x float>, ptr %__a.addr.i177, align 16
+  %123 = load <4 x float>, ptr %__b.addr.i178, align 16
+  %124 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %122, <4 x float> %123)
+  store <4 x float> %124, ptr %f3, align 16
+  %125 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %125, ptr %__a.addr.i258, align 16
+  %126 = load <4 x float>, ptr %__a.addr.i258, align 16
+  %127 = bitcast <4 x float> %126 to <2 x i64>
+  store <2 x i64> %127, ptr %__a.addr.i246, align 16
   store i32 20, ptr %__count.addr.i247, align 4
-  %127 = load <2 x i64>, ptr %__a.addr.i246, align 16
-  %128 = bitcast <2 x i64> %127 to <4 x i32>
-  %129 = load i32, ptr %__count.addr.i247, align 4
-  %130 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %128, i32 %129)
-  %131 = bitcast <4 x i32> %130 to <2 x i64>
-  store <2 x i64> %131, ptr %i3, align 16
-  %132 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %132, ptr %temp0, align 16
-  %133 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %133, ptr %temp1, align 16
-  %134 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %134, ptr %temp2, align 16
-  %135 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %135, ptr %temp3, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  %128 = load <2 x i64>, ptr %__a.addr.i246, align 16
+  %129 = bitcast <2 x i64> %128 to <4 x i32>
+  %130 = load i32, ptr %__count.addr.i247, align 4
+  %131 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %129, i32 %130)
+  %132 = bitcast <4 x i32> %131 to <2 x i64>
+  store <2 x i64> %132, ptr %i3, align 16
+  %133 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %133, ptr %temp0, align 16
+  %134 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %134, ptr %temp1, align 16
+  %135 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %135, ptr %temp2, align 16
+  %136 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %136, ptr %temp3, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %137 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %137 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %136, i64 %idxprom
-  %138 = load i32, ptr %arrayidx43, align 4
+  %138 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %138 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %137, i64 %idxprom
+  %139 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %138, ptr %arrayidx44, align 16
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx44, align 16
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %140 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %140 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %139, i64 %idxprom46
-  %141 = load i32, ptr %arrayidx47, align 4
+  %141 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %141 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %140, i64 %idxprom46
+  %142 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %141, ptr %arrayidx48, align 4
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx48, align 4
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %143 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %143 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %142, i64 %idxprom50
-  %144 = load i32, ptr %arrayidx51, align 4
+  %144 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %144 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %143, i64 %idxprom50
+  %145 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %144, ptr %arrayidx52, align 8
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx52, align 8
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %146 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %146 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %145, i64 %idxprom54
-  %147 = load i32, ptr %arrayidx55, align 4
+  %147 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %147 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %146, i64 %idxprom54
+  %148 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %147, ptr %arrayidx56, align 4
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx56, align 4
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %149 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %149 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %148, i64 %idxprom58
-  %150 = load i32, ptr %arrayidx59, align 4
+  %150 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %150 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %149, i64 %idxprom58
+  %151 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %150, ptr %arrayidx60, align 16
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx60, align 16
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %152 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %152 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %151, i64 %idxprom62
-  %153 = load i32, ptr %arrayidx63, align 4
+  %153 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %153 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %152, i64 %idxprom62
+  %154 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %153, ptr %arrayidx64, align 4
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx64, align 4
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %155 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %155 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %154, i64 %idxprom66
-  %156 = load i32, ptr %arrayidx67, align 4
+  %156 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %156 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %155, i64 %idxprom66
+  %157 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %156, ptr %arrayidx68, align 8
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx68, align 8
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %158 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %158 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %157, i64 %idxprom70
-  %159 = load i32, ptr %arrayidx71, align 4
+  %159 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %159 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %158, i64 %idxprom70
+  %160 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %159, ptr %arrayidx72, align 4
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx72, align 4
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %161 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %161 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %160, i64 %idxprom74
-  %162 = load i32, ptr %arrayidx75, align 4
+  %162 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %162 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %161, i64 %idxprom74
+  %163 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %162, ptr %arrayidx76, align 16
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx76, align 16
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %164 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %164 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %163, i64 %idxprom78
-  %165 = load i32, ptr %arrayidx79, align 4
+  %165 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %165 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %164, i64 %idxprom78
+  %166 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %165, ptr %arrayidx80, align 4
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx80, align 4
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %167 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %167 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %166, i64 %idxprom82
-  %168 = load i32, ptr %arrayidx83, align 4
+  %168 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %168 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %167, i64 %idxprom82
+  %169 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %168, ptr %arrayidx84, align 8
-  %169 = load ptr, ptr %to_srgb, align 8
+  store i32 %169, ptr %arrayidx84, align 8
+  %170 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %170 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %170 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %169, i64 %idxprom86
-  %171 = load i32, ptr %arrayidx87, align 4
+  %171 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %171 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %170, i64 %idxprom86
+  %172 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %171, ptr %arrayidx88, align 4
-  %172 = load ptr, ptr %to_srgb, align 8
+  store i32 %172, ptr %arrayidx88, align 4
+  %173 = load ptr, ptr %to_srgb, align 8
   %arrayidx89 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  %173 = load i32, ptr %arrayidx89, align 16
-  %idxprom90 = sext i32 %173 to i64
-  %arrayidx91 = getelementptr inbounds i32, ptr %172, i64 %idxprom90
-  %174 = load i32, ptr %arrayidx91, align 4
+  %174 = load i32, ptr %arrayidx89, align 16
+  %idxprom90 = sext i32 %174 to i64
+  %arrayidx91 = getelementptr inbounds i32, ptr %173, i64 %idxprom90
+  %175 = load i32, ptr %arrayidx91, align 4
   %arrayidx92 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  store i32 %174, ptr %arrayidx92, align 16
-  %175 = load ptr, ptr %to_srgb, align 8
+  store i32 %175, ptr %arrayidx92, align 16
+  %176 = load ptr, ptr %to_srgb, align 8
   %arrayidx93 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  %176 = load i32, ptr %arrayidx93, align 4
-  %idxprom94 = sext i32 %176 to i64
-  %arrayidx95 = getelementptr inbounds i32, ptr %175, i64 %idxprom94
-  %177 = load i32, ptr %arrayidx95, align 4
+  %177 = load i32, ptr %arrayidx93, align 4
+  %idxprom94 = sext i32 %177 to i64
+  %arrayidx95 = getelementptr inbounds i32, ptr %176, i64 %idxprom94
+  %178 = load i32, ptr %arrayidx95, align 4
   %arrayidx96 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  store i32 %177, ptr %arrayidx96, align 4
-  %178 = load ptr, ptr %to_srgb, align 8
+  store i32 %178, ptr %arrayidx96, align 4
+  %179 = load ptr, ptr %to_srgb, align 8
   %arrayidx97 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  %179 = load i32, ptr %arrayidx97, align 8
-  %idxprom98 = sext i32 %179 to i64
-  %arrayidx99 = getelementptr inbounds i32, ptr %178, i64 %idxprom98
-  %180 = load i32, ptr %arrayidx99, align 4
+  %180 = load i32, ptr %arrayidx97, align 8
+  %idxprom98 = sext i32 %180 to i64
+  %arrayidx99 = getelementptr inbounds i32, ptr %179, i64 %idxprom98
+  %181 = load i32, ptr %arrayidx99, align 4
   %arrayidx100 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  store i32 %180, ptr %arrayidx100, align 8
-  %181 = load ptr, ptr %to_srgb, align 8
+  store i32 %181, ptr %arrayidx100, align 8
+  %182 = load ptr, ptr %to_srgb, align 8
   %arrayidx101 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  %182 = load i32, ptr %arrayidx101, align 4
-  %idxprom102 = sext i32 %182 to i64
-  %arrayidx103 = getelementptr inbounds i32, ptr %181, i64 %idxprom102
-  %183 = load i32, ptr %arrayidx103, align 4
+  %183 = load i32, ptr %arrayidx101, align 4
+  %idxprom102 = sext i32 %183 to i64
+  %arrayidx103 = getelementptr inbounds i32, ptr %182, i64 %idxprom102
+  %184 = load i32, ptr %arrayidx103, align 4
   %arrayidx104 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  store i32 %183, ptr %arrayidx104, align 4
-  %184 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %184, ptr %i0, align 16
-  %185 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %185, ptr %i1, align 16
-  %186 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %186, ptr %i2, align 16
-  %187 = load <2 x i64>, ptr %temp3, align 16
-  store <2 x i64> %187, ptr %i3, align 16
-  %188 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %188, ptr %__a.addr.i257, align 16
-  %189 = load <4 x float>, ptr %__a.addr.i257, align 16
-  %190 = bitcast <4 x float> %189 to <2 x i64>
-  store <2 x i64> %190, ptr %__a.addr.i244, align 16
+  store i32 %184, ptr %arrayidx104, align 4
+  %185 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %185, ptr %i0, align 16
+  %186 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %186, ptr %i1, align 16
+  %187 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %187, ptr %i2, align 16
+  %188 = load <2 x i64>, ptr %temp3, align 16
+  store <2 x i64> %188, ptr %i3, align 16
+  %189 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %189, ptr %__a.addr.i257, align 16
+  %190 = load <4 x float>, ptr %__a.addr.i257, align 16
+  %191 = bitcast <4 x float> %190 to <2 x i64>
+  store <2 x i64> %191, ptr %__a.addr.i244, align 16
   store i32 12, ptr %__count.addr.i245, align 4
-  %191 = load <2 x i64>, ptr %__a.addr.i244, align 16
-  %192 = bitcast <2 x i64> %191 to <4 x i32>
-  %193 = load i32, ptr %__count.addr.i245, align 4
-  %194 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %192, i32 %193)
-  %195 = bitcast <4 x i32> %194 to <2 x i64>
-  store <2 x i64> %195, ptr %temp, align 16
-  %196 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %196, ptr %__a.addr.i270, align 16
+  %192 = load <2 x i64>, ptr %__a.addr.i244, align 16
+  %193 = bitcast <2 x i64> %192 to <4 x i32>
+  %194 = load i32, ptr %__count.addr.i245, align 4
+  %195 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %193, i32 %194)
+  %196 = bitcast <4 x i32> %195 to <2 x i64>
+  store <2 x i64> %196, ptr %temp, align 16
+  %197 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %197, ptr %__a.addr.i270, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i271, align 16
-  %197 = load <2 x i64>, ptr %__a.addr.i270, align 16
-  %198 = load <2 x i64>, ptr %__b.addr.i271, align 16
-  %and.i272 = and <2 x i64> %197, %198
+  %198 = load <2 x i64>, ptr %__a.addr.i270, align 16
+  %199 = load <2 x i64>, ptr %__b.addr.i271, align 16
+  %and.i272 = and <2 x i64> %198, %199
   store <2 x i64> %and.i272, ptr %temp, align 16
-  %199 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %199, ptr %__a.addr.i281, align 16
+  %200 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %200, ptr %__a.addr.i281, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i282, align 16
-  %200 = load <2 x i64>, ptr %__a.addr.i281, align 16
-  %201 = load <2 x i64>, ptr %__b.addr.i282, align 16
-  %or.i283 = or <2 x i64> %200, %201
+  %201 = load <2 x i64>, ptr %__a.addr.i281, align 16
+  %202 = load <2 x i64>, ptr %__b.addr.i282, align 16
+  %or.i283 = or <2 x i64> %201, %202
   store <2 x i64> %or.i283, ptr %temp, align 16
-  %202 = load <2 x i64>, ptr %i0, align 16
-  %203 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %202, ptr %__a.addr.i290, align 16
-  store <2 x i64> %203, ptr %__b.addr.i291, align 16
-  %204 = load <2 x i64>, ptr %__a.addr.i290, align 16
-  %205 = bitcast <2 x i64> %204 to <8 x i16>
-  %206 = load <2 x i64>, ptr %__b.addr.i291, align 16
-  %207 = bitcast <2 x i64> %206 to <8 x i16>
-  %208 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %205, <8 x i16> %207)
-  %209 = bitcast <4 x i32> %208 to <2 x i64>
-  store <2 x i64> %209, ptr %i0, align 16
-  %210 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %210, ptr %__a.addr.i242, align 16
+  %203 = load <2 x i64>, ptr %i0, align 16
+  %204 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %203, ptr %__a.addr.i290, align 16
+  store <2 x i64> %204, ptr %__b.addr.i291, align 16
+  %205 = load <2 x i64>, ptr %__a.addr.i290, align 16
+  %206 = bitcast <2 x i64> %205 to <8 x i16>
+  %207 = load <2 x i64>, ptr %__b.addr.i291, align 16
+  %208 = bitcast <2 x i64> %207 to <8 x i16>
+  %209 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %206, <8 x i16> %208)
+  %210 = bitcast <4 x i32> %209 to <2 x i64>
+  store <2 x i64> %210, ptr %i0, align 16
+  %211 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %211, ptr %__a.addr.i242, align 16
   store i32 16, ptr %__count.addr.i243, align 4
-  %211 = load <2 x i64>, ptr %__a.addr.i242, align 16
-  %212 = bitcast <2 x i64> %211 to <4 x i32>
-  %213 = load i32, ptr %__count.addr.i243, align 4
-  %214 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %212, i32 %213)
-  %215 = bitcast <4 x i32> %214 to <2 x i64>
-  store <2 x i64> %215, ptr %i0, align 16
-  %216 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %216, ptr %__a.addr.i256, align 16
-  %217 = load <4 x float>, ptr %__a.addr.i256, align 16
-  %218 = bitcast <4 x float> %217 to <2 x i64>
-  store <2 x i64> %218, ptr %__a.addr.i240, align 16
+  %212 = load <2 x i64>, ptr %__a.addr.i242, align 16
+  %213 = bitcast <2 x i64> %212 to <4 x i32>
+  %214 = load i32, ptr %__count.addr.i243, align 4
+  %215 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %213, i32 %214)
+  %216 = bitcast <4 x i32> %215 to <2 x i64>
+  store <2 x i64> %216, ptr %i0, align 16
+  %217 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %217, ptr %__a.addr.i256, align 16
+  %218 = load <4 x float>, ptr %__a.addr.i256, align 16
+  %219 = bitcast <4 x float> %218 to <2 x i64>
+  store <2 x i64> %219, ptr %__a.addr.i240, align 16
   store i32 12, ptr %__count.addr.i241, align 4
-  %219 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %220 = bitcast <2 x i64> %219 to <4 x i32>
-  %221 = load i32, ptr %__count.addr.i241, align 4
-  %222 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %220, i32 %221)
-  %223 = bitcast <4 x i32> %222 to <2 x i64>
-  store <2 x i64> %223, ptr %temp111, align 16
-  %224 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %224, ptr %__a.addr.i267, align 16
+  %220 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %221 = bitcast <2 x i64> %220 to <4 x i32>
+  %222 = load i32, ptr %__count.addr.i241, align 4
+  %223 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %221, i32 %222)
+  %224 = bitcast <4 x i32> %223 to <2 x i64>
+  store <2 x i64> %224, ptr %temp111, align 16
+  %225 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %225, ptr %__a.addr.i267, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i268, align 16
-  %225 = load <2 x i64>, ptr %__a.addr.i267, align 16
-  %226 = load <2 x i64>, ptr %__b.addr.i268, align 16
-  %and.i269 = and <2 x i64> %225, %226
+  %226 = load <2 x i64>, ptr %__a.addr.i267, align 16
+  %227 = load <2 x i64>, ptr %__b.addr.i268, align 16
+  %and.i269 = and <2 x i64> %226, %227
   store <2 x i64> %and.i269, ptr %temp111, align 16
-  %227 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %227, ptr %__a.addr.i278, align 16
+  %228 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %228, ptr %__a.addr.i278, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i279, align 16
-  %228 = load <2 x i64>, ptr %__a.addr.i278, align 16
-  %229 = load <2 x i64>, ptr %__b.addr.i279, align 16
-  %or.i280 = or <2 x i64> %228, %229
+  %229 = load <2 x i64>, ptr %__a.addr.i278, align 16
+  %230 = load <2 x i64>, ptr %__b.addr.i279, align 16
+  %or.i280 = or <2 x i64> %229, %230
   store <2 x i64> %or.i280, ptr %temp111, align 16
-  %230 = load <2 x i64>, ptr %i1, align 16
-  %231 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %230, ptr %__a.addr.i288, align 16
-  store <2 x i64> %231, ptr %__b.addr.i289, align 16
-  %232 = load <2 x i64>, ptr %__a.addr.i288, align 16
-  %233 = bitcast <2 x i64> %232 to <8 x i16>
-  %234 = load <2 x i64>, ptr %__b.addr.i289, align 16
-  %235 = bitcast <2 x i64> %234 to <8 x i16>
-  %236 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %233, <8 x i16> %235)
-  %237 = bitcast <4 x i32> %236 to <2 x i64>
-  store <2 x i64> %237, ptr %i1, align 16
-  %238 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %238, ptr %__a.addr.i238, align 16
+  %231 = load <2 x i64>, ptr %i1, align 16
+  %232 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %231, ptr %__a.addr.i288, align 16
+  store <2 x i64> %232, ptr %__b.addr.i289, align 16
+  %233 = load <2 x i64>, ptr %__a.addr.i288, align 16
+  %234 = bitcast <2 x i64> %233 to <8 x i16>
+  %235 = load <2 x i64>, ptr %__b.addr.i289, align 16
+  %236 = bitcast <2 x i64> %235 to <8 x i16>
+  %237 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %234, <8 x i16> %236)
+  %238 = bitcast <4 x i32> %237 to <2 x i64>
+  store <2 x i64> %238, ptr %i1, align 16
+  %239 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %239, ptr %__a.addr.i238, align 16
   store i32 16, ptr %__count.addr.i239, align 4
-  %239 = load <2 x i64>, ptr %__a.addr.i238, align 16
-  %240 = bitcast <2 x i64> %239 to <4 x i32>
-  %241 = load i32, ptr %__count.addr.i239, align 4
-  %242 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %240, i32 %241)
-  %243 = bitcast <4 x i32> %242 to <2 x i64>
-  store <2 x i64> %243, ptr %i1, align 16
-  %244 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %244, ptr %__a.addr.i255, align 16
-  %245 = load <4 x float>, ptr %__a.addr.i255, align 16
-  %246 = bitcast <4 x float> %245 to <2 x i64>
-  store <2 x i64> %246, ptr %__a.addr.i236, align 16
+  %240 = load <2 x i64>, ptr %__a.addr.i238, align 16
+  %241 = bitcast <2 x i64> %240 to <4 x i32>
+  %242 = load i32, ptr %__count.addr.i239, align 4
+  %243 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %241, i32 %242)
+  %244 = bitcast <4 x i32> %243 to <2 x i64>
+  store <2 x i64> %244, ptr %i1, align 16
+  %245 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %245, ptr %__a.addr.i255, align 16
+  %246 = load <4 x float>, ptr %__a.addr.i255, align 16
+  %247 = bitcast <4 x float> %246 to <2 x i64>
+  store <2 x i64> %247, ptr %__a.addr.i236, align 16
   store i32 12, ptr %__count.addr.i237, align 4
-  %247 = load <2 x i64>, ptr %__a.addr.i236, align 16
-  %248 = bitcast <2 x i64> %247 to <4 x i32>
-  %249 = load i32, ptr %__count.addr.i237, align 4
-  %250 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %248, i32 %249)
-  %251 = bitcast <4 x i32> %250 to <2 x i64>
-  store <2 x i64> %251, ptr %temp118, align 16
-  %252 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %252, ptr %__a.addr.i264, align 16
+  %248 = load <2 x i64>, ptr %__a.addr.i236, align 16
+  %249 = bitcast <2 x i64> %248 to <4 x i32>
+  %250 = load i32, ptr %__count.addr.i237, align 4
+  %251 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %249, i32 %250)
+  %252 = bitcast <4 x i32> %251 to <2 x i64>
+  store <2 x i64> %252, ptr %temp118, align 16
+  %253 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %253, ptr %__a.addr.i264, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i265, align 16
-  %253 = load <2 x i64>, ptr %__a.addr.i264, align 16
-  %254 = load <2 x i64>, ptr %__b.addr.i265, align 16
-  %and.i266 = and <2 x i64> %253, %254
+  %254 = load <2 x i64>, ptr %__a.addr.i264, align 16
+  %255 = load <2 x i64>, ptr %__b.addr.i265, align 16
+  %and.i266 = and <2 x i64> %254, %255
   store <2 x i64> %and.i266, ptr %temp118, align 16
-  %255 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %255, ptr %__a.addr.i275, align 16
+  %256 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %256, ptr %__a.addr.i275, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i276, align 16
-  %256 = load <2 x i64>, ptr %__a.addr.i275, align 16
-  %257 = load <2 x i64>, ptr %__b.addr.i276, align 16
-  %or.i277 = or <2 x i64> %256, %257
+  %257 = load <2 x i64>, ptr %__a.addr.i275, align 16
+  %258 = load <2 x i64>, ptr %__b.addr.i276, align 16
+  %or.i277 = or <2 x i64> %257, %258
   store <2 x i64> %or.i277, ptr %temp118, align 16
-  %258 = load <2 x i64>, ptr %i2, align 16
-  %259 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %258, ptr %__a.addr.i286, align 16
-  store <2 x i64> %259, ptr %__b.addr.i287, align 16
-  %260 = load <2 x i64>, ptr %__a.addr.i286, align 16
-  %261 = bitcast <2 x i64> %260 to <8 x i16>
-  %262 = load <2 x i64>, ptr %__b.addr.i287, align 16
-  %263 = bitcast <2 x i64> %262 to <8 x i16>
-  %264 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %261, <8 x i16> %263)
-  %265 = bitcast <4 x i32> %264 to <2 x i64>
-  store <2 x i64> %265, ptr %i2, align 16
-  %266 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %266, ptr %__a.addr.i234, align 16
+  %259 = load <2 x i64>, ptr %i2, align 16
+  %260 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %259, ptr %__a.addr.i286, align 16
+  store <2 x i64> %260, ptr %__b.addr.i287, align 16
+  %261 = load <2 x i64>, ptr %__a.addr.i286, align 16
+  %262 = bitcast <2 x i64> %261 to <8 x i16>
+  %263 = load <2 x i64>, ptr %__b.addr.i287, align 16
+  %264 = bitcast <2 x i64> %263 to <8 x i16>
+  %265 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %262, <8 x i16> %264)
+  %266 = bitcast <4 x i32> %265 to <2 x i64>
+  store <2 x i64> %266, ptr %i2, align 16
+  %267 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %267, ptr %__a.addr.i234, align 16
   store i32 16, ptr %__count.addr.i235, align 4
-  %267 = load <2 x i64>, ptr %__a.addr.i234, align 16
-  %268 = bitcast <2 x i64> %267 to <4 x i32>
-  %269 = load i32, ptr %__count.addr.i235, align 4
-  %270 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %268, i32 %269)
-  %271 = bitcast <4 x i32> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i2, align 16
-  %272 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %272, ptr %__a.addr.i254, align 16
-  %273 = load <4 x float>, ptr %__a.addr.i254, align 16
-  %274 = bitcast <4 x float> %273 to <2 x i64>
-  store <2 x i64> %274, ptr %__a.addr.i232, align 16
+  %268 = load <2 x i64>, ptr %__a.addr.i234, align 16
+  %269 = bitcast <2 x i64> %268 to <4 x i32>
+  %270 = load i32, ptr %__count.addr.i235, align 4
+  %271 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %269, i32 %270)
+  %272 = bitcast <4 x i32> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i2, align 16
+  %273 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %273, ptr %__a.addr.i254, align 16
+  %274 = load <4 x float>, ptr %__a.addr.i254, align 16
+  %275 = bitcast <4 x float> %274 to <2 x i64>
+  store <2 x i64> %275, ptr %__a.addr.i232, align 16
   store i32 12, ptr %__count.addr.i233, align 4
-  %275 = load <2 x i64>, ptr %__a.addr.i232, align 16
-  %276 = bitcast <2 x i64> %275 to <4 x i32>
-  %277 = load i32, ptr %__count.addr.i233, align 4
-  %278 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %276, i32 %277)
-  %279 = bitcast <4 x i32> %278 to <2 x i64>
-  store <2 x i64> %279, ptr %temp125, align 16
-  %280 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %280, ptr %__a.addr.i262, align 16
+  %276 = load <2 x i64>, ptr %__a.addr.i232, align 16
+  %277 = bitcast <2 x i64> %276 to <4 x i32>
+  %278 = load i32, ptr %__count.addr.i233, align 4
+  %279 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %277, i32 %278)
+  %280 = bitcast <4 x i32> %279 to <2 x i64>
+  store <2 x i64> %280, ptr %temp125, align 16
+  %281 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %281, ptr %__a.addr.i262, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i263, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i262, align 16
-  %282 = load <2 x i64>, ptr %__b.addr.i263, align 16
-  %and.i = and <2 x i64> %281, %282
+  %282 = load <2 x i64>, ptr %__a.addr.i262, align 16
+  %283 = load <2 x i64>, ptr %__b.addr.i263, align 16
+  %and.i = and <2 x i64> %282, %283
   store <2 x i64> %and.i, ptr %temp125, align 16
-  %283 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %283, ptr %__a.addr.i273, align 16
+  %284 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %284, ptr %__a.addr.i273, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i274, align 16
-  %284 = load <2 x i64>, ptr %__a.addr.i273, align 16
-  %285 = load <2 x i64>, ptr %__b.addr.i274, align 16
-  %or.i = or <2 x i64> %284, %285
+  %285 = load <2 x i64>, ptr %__a.addr.i273, align 16
+  %286 = load <2 x i64>, ptr %__b.addr.i274, align 16
+  %or.i = or <2 x i64> %285, %286
   store <2 x i64> %or.i, ptr %temp125, align 16
-  %286 = load <2 x i64>, ptr %i3, align 16
-  %287 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %286, ptr %__a.addr.i284, align 16
-  store <2 x i64> %287, ptr %__b.addr.i285, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i284, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i285, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %292 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %289, <8 x i16> %291)
-  %293 = bitcast <4 x i32> %292 to <2 x i64>
-  store <2 x i64> %293, ptr %i3, align 16
-  %294 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %294, ptr %__a.addr.i231, align 16
+  %287 = load <2 x i64>, ptr %i3, align 16
+  %288 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %287, ptr %__a.addr.i284, align 16
+  store <2 x i64> %288, ptr %__b.addr.i285, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i284, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i285, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %293 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %290, <8 x i16> %292)
+  %294 = bitcast <4 x i32> %293 to <2 x i64>
+  store <2 x i64> %294, ptr %i3, align 16
+  %295 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %295, ptr %__a.addr.i231, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %295 = load <2 x i64>, ptr %__a.addr.i231, align 16
-  %296 = bitcast <2 x i64> %295 to <4 x i32>
-  %297 = load i32, ptr %__count.addr.i, align 4
-  %298 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %296, i32 %297)
-  %299 = bitcast <4 x i32> %298 to <2 x i64>
-  store <2 x i64> %299, ptr %i3, align 16
-  %300 = load <2 x i64>, ptr %i3, align 16
-  %301 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %300, ptr %__a.addr.i195, align 16
-  store <2 x i64> %301, ptr %__b.addr.i196, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i195, align 16
-  %303 = bitcast <2 x i64> %302 to <4 x i32>
-  %304 = load <2 x i64>, ptr %__b.addr.i196, align 16
-  %305 = bitcast <2 x i64> %304 to <4 x i32>
-  %306 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %303, <4 x i32> %305)
-  %307 = bitcast <8 x i16> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i3, align 16
-  %308 = load <2 x i64>, ptr %i1, align 16
-  %309 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %308, ptr %__a.addr.i193, align 16
-  store <2 x i64> %309, ptr %__b.addr.i194, align 16
-  %310 = load <2 x i64>, ptr %__a.addr.i193, align 16
-  %311 = bitcast <2 x i64> %310 to <4 x i32>
-  %312 = load <2 x i64>, ptr %__b.addr.i194, align 16
-  %313 = bitcast <2 x i64> %312 to <4 x i32>
-  %314 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %311, <4 x i32> %313)
-  %315 = bitcast <8 x i16> %314 to <2 x i64>
-  store <2 x i64> %315, ptr %i1, align 16
-  %316 = load <2 x i64>, ptr %i3, align 16
-  %317 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %316, ptr %__a.addr.i168, align 16
-  store <2 x i64> %317, ptr %__b.addr.i169, align 16
-  %318 = load <2 x i64>, ptr %__a.addr.i168, align 16
-  %319 = bitcast <2 x i64> %318 to <8 x i16>
-  %320 = load <2 x i64>, ptr %__b.addr.i169, align 16
-  %321 = bitcast <2 x i64> %320 to <8 x i16>
-  %shuffle.i170 = shufflevector <8 x i16> %319, <8 x i16> %321, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %322 = bitcast <8 x i16> %shuffle.i170 to <2 x i64>
-  store <2 x i64> %322, ptr %i0, align 16
-  %323 = load <2 x i64>, ptr %i3, align 16
-  %324 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %323, ptr %__a.addr.i174, align 16
-  store <2 x i64> %324, ptr %__b.addr.i175, align 16
-  %325 = load <2 x i64>, ptr %__a.addr.i174, align 16
-  %326 = bitcast <2 x i64> %325 to <8 x i16>
-  %327 = load <2 x i64>, ptr %__b.addr.i175, align 16
-  %328 = bitcast <2 x i64> %327 to <8 x i16>
-  %shuffle.i176 = shufflevector <8 x i16> %326, <8 x i16> %328, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %329 = bitcast <8 x i16> %shuffle.i176 to <2 x i64>
-  store <2 x i64> %329, ptr %i2, align 16
-  %330 = load <2 x i64>, ptr %i0, align 16
-  %331 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %330, ptr %__a.addr.i, align 16
-  store <2 x i64> %331, ptr %__b.addr.i, align 16
-  %332 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %333 = bitcast <2 x i64> %332 to <8 x i16>
-  %334 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %335 = bitcast <2 x i64> %334 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %333, <8 x i16> %335, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %336 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %336, ptr %i3, align 16
-  %337 = load <2 x i64>, ptr %i0, align 16
-  %338 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %337, ptr %__a.addr.i171, align 16
-  store <2 x i64> %338, ptr %__b.addr.i172, align 16
-  %339 = load <2 x i64>, ptr %__a.addr.i171, align 16
-  %340 = bitcast <2 x i64> %339 to <8 x i16>
-  %341 = load <2 x i64>, ptr %__b.addr.i172, align 16
-  %342 = bitcast <2 x i64> %341 to <8 x i16>
-  %shuffle.i173 = shufflevector <8 x i16> %340, <8 x i16> %342, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %343 = bitcast <8 x i16> %shuffle.i173 to <2 x i64>
-  store <2 x i64> %343, ptr %i1, align 16
-  %344 = load <2 x i64>, ptr %i3, align 16
-  %345 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %344, ptr %__a.addr.i197, align 16
-  store <2 x i64> %345, ptr %__b.addr.i198, align 16
-  %346 = load <2 x i64>, ptr %__a.addr.i197, align 16
-  %347 = bitcast <2 x i64> %346 to <8 x i16>
-  %348 = load <2 x i64>, ptr %__b.addr.i198, align 16
-  %349 = bitcast <2 x i64> %348 to <8 x i16>
-  %350 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %347, <8 x i16> %349)
-  %351 = bitcast <16 x i8> %350 to <2 x i64>
-  store <2 x i64> %351, ptr %i3, align 16
-  %352 = load ptr, ptr %output, align 8
-  %353 = load <2 x i64>, ptr %i3, align 16
-  store ptr %352, ptr %__p.addr.i292, align 8
-  store <2 x i64> %353, ptr %__b.addr.i293, align 16
-  %354 = load <2 x i64>, ptr %__b.addr.i293, align 16
-  %355 = load ptr, ptr %__p.addr.i292, align 8
-  store <2 x i64> %354, ptr %355, align 1
-  %356 = load ptr, ptr %encode.addr, align 8
-  %add.ptr139 = getelementptr inbounds float, ptr %356, i64 16
+  %296 = load <2 x i64>, ptr %__a.addr.i231, align 16
+  %297 = bitcast <2 x i64> %296 to <4 x i32>
+  %298 = load i32, ptr %__count.addr.i, align 4
+  %299 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %297, i32 %298)
+  %300 = bitcast <4 x i32> %299 to <2 x i64>
+  store <2 x i64> %300, ptr %i3, align 16
+  %301 = load <2 x i64>, ptr %i3, align 16
+  %302 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %301, ptr %__a.addr.i195, align 16
+  store <2 x i64> %302, ptr %__b.addr.i196, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i195, align 16
+  %304 = bitcast <2 x i64> %303 to <4 x i32>
+  %305 = load <2 x i64>, ptr %__b.addr.i196, align 16
+  %306 = bitcast <2 x i64> %305 to <4 x i32>
+  %307 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %304, <4 x i32> %306)
+  %308 = bitcast <8 x i16> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i3, align 16
+  %309 = load <2 x i64>, ptr %i1, align 16
+  %310 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %309, ptr %__a.addr.i193, align 16
+  store <2 x i64> %310, ptr %__b.addr.i194, align 16
+  %311 = load <2 x i64>, ptr %__a.addr.i193, align 16
+  %312 = bitcast <2 x i64> %311 to <4 x i32>
+  %313 = load <2 x i64>, ptr %__b.addr.i194, align 16
+  %314 = bitcast <2 x i64> %313 to <4 x i32>
+  %315 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %312, <4 x i32> %314)
+  %316 = bitcast <8 x i16> %315 to <2 x i64>
+  store <2 x i64> %316, ptr %i1, align 16
+  %317 = load <2 x i64>, ptr %i3, align 16
+  %318 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %317, ptr %__a.addr.i168, align 16
+  store <2 x i64> %318, ptr %__b.addr.i169, align 16
+  %319 = load <2 x i64>, ptr %__a.addr.i168, align 16
+  %320 = bitcast <2 x i64> %319 to <8 x i16>
+  %321 = load <2 x i64>, ptr %__b.addr.i169, align 16
+  %322 = bitcast <2 x i64> %321 to <8 x i16>
+  %shuffle.i170 = shufflevector <8 x i16> %320, <8 x i16> %322, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %323 = bitcast <8 x i16> %shuffle.i170 to <2 x i64>
+  store <2 x i64> %323, ptr %i0, align 16
+  %324 = load <2 x i64>, ptr %i3, align 16
+  %325 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %324, ptr %__a.addr.i174, align 16
+  store <2 x i64> %325, ptr %__b.addr.i175, align 16
+  %326 = load <2 x i64>, ptr %__a.addr.i174, align 16
+  %327 = bitcast <2 x i64> %326 to <8 x i16>
+  %328 = load <2 x i64>, ptr %__b.addr.i175, align 16
+  %329 = bitcast <2 x i64> %328 to <8 x i16>
+  %shuffle.i176 = shufflevector <8 x i16> %327, <8 x i16> %329, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %330 = bitcast <8 x i16> %shuffle.i176 to <2 x i64>
+  store <2 x i64> %330, ptr %i2, align 16
+  %331 = load <2 x i64>, ptr %i0, align 16
+  %332 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %331, ptr %__a.addr.i, align 16
+  store <2 x i64> %332, ptr %__b.addr.i, align 16
+  %333 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %334 = bitcast <2 x i64> %333 to <8 x i16>
+  %335 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %336 = bitcast <2 x i64> %335 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %334, <8 x i16> %336, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %337 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %337, ptr %i3, align 16
+  %338 = load <2 x i64>, ptr %i0, align 16
+  %339 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %338, ptr %__a.addr.i171, align 16
+  store <2 x i64> %339, ptr %__b.addr.i172, align 16
+  %340 = load <2 x i64>, ptr %__a.addr.i171, align 16
+  %341 = bitcast <2 x i64> %340 to <8 x i16>
+  %342 = load <2 x i64>, ptr %__b.addr.i172, align 16
+  %343 = bitcast <2 x i64> %342 to <8 x i16>
+  %shuffle.i173 = shufflevector <8 x i16> %341, <8 x i16> %343, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %344 = bitcast <8 x i16> %shuffle.i173 to <2 x i64>
+  store <2 x i64> %344, ptr %i1, align 16
+  %345 = load <2 x i64>, ptr %i3, align 16
+  %346 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %345, ptr %__a.addr.i197, align 16
+  store <2 x i64> %346, ptr %__b.addr.i198, align 16
+  %347 = load <2 x i64>, ptr %__a.addr.i197, align 16
+  %348 = bitcast <2 x i64> %347 to <8 x i16>
+  %349 = load <2 x i64>, ptr %__b.addr.i198, align 16
+  %350 = bitcast <2 x i64> %349 to <8 x i16>
+  %351 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %348, <8 x i16> %350)
+  %352 = bitcast <16 x i8> %351 to <2 x i64>
+  store <2 x i64> %352, ptr %i3, align 16
+  %353 = load ptr, ptr %output, align 8
+  %354 = load <2 x i64>, ptr %i3, align 16
+  store ptr %353, ptr %__p.addr.i292, align 8
+  store <2 x i64> %354, ptr %__b.addr.i293, align 16
+  %355 = load <2 x i64>, ptr %__b.addr.i293, align 16
+  %356 = load ptr, ptr %__p.addr.i292, align 8
+  store <2 x i64> %355, ptr %356, align 1
+  %357 = load ptr, ptr %encode.addr, align 8
+  %add.ptr139 = getelementptr inbounds float, ptr %357, i64 16
   store ptr %add.ptr139, ptr %encode.addr, align 8
-  %357 = load ptr, ptr %output, align 8
-  %add.ptr140 = getelementptr inbounds i8, ptr %357, i64 16
-  store ptr %add.ptr140, ptr %output, align 8
   %358 = load ptr, ptr %output, align 8
-  %359 = load ptr, ptr %end_output, align 8
-  %cmp141 = icmp ule ptr %358, %359
+  %add.ptr140 = getelementptr inbounds i8, ptr %358, i64 16
+  store ptr %add.ptr140, ptr %output, align 8
+  %359 = load ptr, ptr %output, align 8
+  %360 = load ptr, ptr %end_output, align 8
+  %cmp141 = icmp ule ptr %359, %360
   br i1 %cmp141, label %if.then142, label %if.end
 
 if.then142:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %360 = load ptr, ptr %output, align 8
-  %361 = load ptr, ptr %end_output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %361, i64 16
-  %cmp144 = icmp eq ptr %360, %add.ptr143
+  %361 = load ptr, ptr %output, align 8
+  %362 = load ptr, ptr %end_output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %362, i64 16
+  %cmp144 = icmp eq ptr %361, %add.ptr143
   br i1 %cmp144, label %if.then145, label %if.end146
 
 if.then145:                                       ; preds = %if.end
   br label %for.end
 
 if.end146:                                        ; preds = %if.end
-  %362 = load ptr, ptr %end_output, align 8
-  store ptr %362, ptr %output, align 8
-  %363 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %363, ptr %encode.addr, align 8
+  %363 = load ptr, ptr %end_output, align 8
+  store ptr %363, ptr %output, align 8
+  %364 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %364, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then145
   br label %return
 
 if.end147:                                        ; preds = %entry
-  %364 = load ptr, ptr %output, align 8
-  %add.ptr148 = getelementptr inbounds i8, ptr %364, i64 4
+  %365 = load ptr, ptr %output, align 8
+  %add.ptr148 = getelementptr inbounds i8, ptr %365, i64 4
   store ptr %add.ptr148, ptr %output, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end147
-  %365 = load ptr, ptr %output, align 8
-  %366 = load ptr, ptr %end_output, align 8
-  %cmp149 = icmp ule ptr %365, %366
+  %366 = load ptr, ptr %output, align 8
+  %367 = load ptr, ptr %end_output, align 8
+  %cmp149 = icmp ule ptr %366, %367
   br i1 %cmp149, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %367 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %367) #9, !srcloc !211
   %368 = load ptr, ptr %encode.addr, align 8
-  %arrayidx150 = getelementptr inbounds float, ptr %368, i64 3
-  %369 = load float, ptr %arrayidx150, align 4
-  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %369)
-  %370 = load ptr, ptr %output, align 8
-  %arrayidx152 = getelementptr inbounds i8, ptr %370, i64 -4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %368) #9, !srcloc !211
+  %369 = load ptr, ptr %encode.addr, align 8
+  %arrayidx150 = getelementptr inbounds float, ptr %369, i64 3
+  %370 = load float, ptr %arrayidx150, align 4
+  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %370)
+  %371 = load ptr, ptr %output, align 8
+  %arrayidx152 = getelementptr inbounds i8, ptr %371, i64 -4
   store i8 %call151, ptr %arrayidx152, align 1
-  %371 = load ptr, ptr %encode.addr, align 8
-  %arrayidx153 = getelementptr inbounds float, ptr %371, i64 0
-  %372 = load float, ptr %arrayidx153, align 4
-  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %372)
-  %373 = load ptr, ptr %output, align 8
-  %arrayidx155 = getelementptr inbounds i8, ptr %373, i64 -3
+  %372 = load ptr, ptr %encode.addr, align 8
+  %arrayidx153 = getelementptr inbounds float, ptr %372, i64 0
+  %373 = load float, ptr %arrayidx153, align 4
+  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %373)
+  %374 = load ptr, ptr %output, align 8
+  %arrayidx155 = getelementptr inbounds i8, ptr %374, i64 -3
   store i8 %call154, ptr %arrayidx155, align 1
-  %374 = load ptr, ptr %encode.addr, align 8
-  %arrayidx156 = getelementptr inbounds float, ptr %374, i64 1
-  %375 = load float, ptr %arrayidx156, align 4
-  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %375)
-  %376 = load ptr, ptr %output, align 8
-  %arrayidx158 = getelementptr inbounds i8, ptr %376, i64 -2
+  %375 = load ptr, ptr %encode.addr, align 8
+  %arrayidx156 = getelementptr inbounds float, ptr %375, i64 1
+  %376 = load float, ptr %arrayidx156, align 4
+  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %376)
+  %377 = load ptr, ptr %output, align 8
+  %arrayidx158 = getelementptr inbounds i8, ptr %377, i64 -2
   store i8 %call157, ptr %arrayidx158, align 1
-  %377 = load ptr, ptr %encode.addr, align 8
-  %arrayidx159 = getelementptr inbounds float, ptr %377, i64 2
-  %378 = load float, ptr %arrayidx159, align 4
-  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %378)
-  %379 = load ptr, ptr %output, align 8
-  %arrayidx161 = getelementptr inbounds i8, ptr %379, i64 -1
-  store i8 %call160, ptr %arrayidx161, align 1
+  %378 = load ptr, ptr %encode.addr, align 8
+  %arrayidx159 = getelementptr inbounds float, ptr %378, i64 2
+  %379 = load float, ptr %arrayidx159, align 4
+  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %379)
   %380 = load ptr, ptr %output, align 8
-  %add.ptr162 = getelementptr inbounds i8, ptr %380, i64 4
+  %arrayidx161 = getelementptr inbounds i8, ptr %380, i64 -1
+  store i8 %call160, ptr %arrayidx161, align 1
+  %381 = load ptr, ptr %output, align 8
+  %add.ptr162 = getelementptr inbounds i8, ptr %381, i64 4
   store ptr %add.ptr162, ptr %output, align 8
-  %381 = load ptr, ptr %encode.addr, align 8
-  %add.ptr163 = getelementptr inbounds float, ptr %381, i64 4
+  %382 = load ptr, ptr %encode.addr, align 8
+  %add.ptr163 = getelementptr inbounds float, ptr %382, i64 4
   store ptr %add.ptr163, ptr %encode.addr, align 8
   br label %while.cond, !llvm.loop !212
 
 while.end:                                        ; preds = %while.cond
-  %382 = load ptr, ptr %output, align 8
-  %add.ptr164 = getelementptr inbounds i8, ptr %382, i64 -4
+  %383 = load ptr, ptr %output, align 8
+  %add.ptr164 = getelementptr inbounds i8, ptr %383, i64 -4
   store ptr %add.ptr164, ptr %output, align 8
   br label %return
 
@@ -19541,602 +19547,603 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end124
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end123, %if.then119, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !214
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i150, align 8
-  %9 = load ptr, ptr %__p.addr.i150, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !214
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i150, align 8
+  %10 = load ptr, ptr %__p.addr.i150, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i149, align 8
-  %12 = load ptr, ptr %__p.addr.i149, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i149, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i148, align 8
-  %15 = load ptr, ptr %__p.addr.i148, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i148, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i190, align 16
-  store <4 x float> %21, ptr %__b.addr.i191, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i190, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i191, align 16
-  %shuffle.i192 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i190, align 16
+  store <4 x float> %22, ptr %__b.addr.i191, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i190, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i191, align 16
+  %shuffle.i192 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i192, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i187, align 16
-  store <4 x float> %25, ptr %__b.addr.i188, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %shuffle.i189 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i187, align 16
+  store <4 x float> %26, ptr %__b.addr.i188, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %shuffle.i189 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i189, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i196, align 16
-  store <4 x float> %29, ptr %__b.addr.i197, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i196, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i197, align 16
-  %shuffle.i198 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i196, align 16
+  store <4 x float> %30, ptr %__b.addr.i197, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i196, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i197, align 16
+  %shuffle.i198 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i198, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i193, align 16
-  store <4 x float> %33, ptr %__b.addr.i194, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i193, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i194, align 16
-  %shuffle.i195 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i193, align 16
+  store <4 x float> %34, ptr %__b.addr.i194, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i193, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i194, align 16
+  %shuffle.i195 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i195, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i202, align 16
-  store <4 x float> %37, ptr %__b.addr.i203, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i202, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i203, align 16
-  %shuffle.i204 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i202, align 16
+  store <4 x float> %38, ptr %__b.addr.i203, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i202, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i203, align 16
+  %shuffle.i204 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i204, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i208, align 16
-  store <4 x float> %41, ptr %__b.addr.i209, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i209, align 16
-  %shuffle.i210 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i208, align 16
+  store <4 x float> %42, ptr %__b.addr.i209, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i209, align 16
+  %shuffle.i210 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i210, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i199, align 16
-  store <4 x float> %45, ptr %__b.addr.i200, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %shuffle.i201 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i199, align 16
+  store <4 x float> %46, ptr %__b.addr.i200, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i199, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %shuffle.i201 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i201, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i205, align 16
-  store <4 x float> %49, ptr %__b.addr.i206, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i206, align 16
-  %shuffle.i207 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i205, align 16
+  store <4 x float> %50, ptr %__b.addr.i206, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i206, align 16
+  %shuffle.i207 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i207, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i216, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i216, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i178, align 16
-  store <4 x float> %54, ptr %__b.addr.i179, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i178, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i179, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i216, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i178, align 16
+  store <4 x float> %55, ptr %__b.addr.i179, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i178, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i179, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i215, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i215, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i170, align 16
-  store <4 x float> %60, ptr %__b.addr.i171, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i170, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i171, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i239, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i239, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i232, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i215, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i170, align 16
+  store <4 x float> %61, ptr %__b.addr.i171, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i170, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i171, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i239, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i239, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i232, align 16
   store i32 20, ptr %__count.addr.i233, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i232, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i233, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i232, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i233, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i214, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i214, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i176, align 16
-  store <4 x float> %74, ptr %__b.addr.i177, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i176, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i177, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i214, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i176, align 16
+  store <4 x float> %75, ptr %__b.addr.i177, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i176, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i177, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i213, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i213, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i168, align 16
-  store <4 x float> %80, ptr %__b.addr.i169, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i168, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i169, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i238, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i238, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i230, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i213, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i168, align 16
+  store <4 x float> %81, ptr %__b.addr.i169, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i168, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i169, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i238, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i238, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i230, align 16
   store i32 20, ptr %__count.addr.i231, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i230, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i231, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i230, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i231, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i212, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i212, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i174, align 16
-  store <4 x float> %94, ptr %__b.addr.i175, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i174, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i175, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i212, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i174, align 16
+  store <4 x float> %95, ptr %__b.addr.i175, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i174, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i175, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i211, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i211, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i166, align 16
-  store <4 x float> %100, ptr %__b.addr.i167, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i166, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i167, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i237, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i237, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i228, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i211, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i166, align 16
+  store <4 x float> %101, ptr %__b.addr.i167, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i166, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i167, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i237, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i237, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i228, align 16
   store i32 20, ptr %__count.addr.i229, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i228, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i229, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i228, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i229, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__a.addr.i160, align 16
-  store <4 x float> %112, ptr %__b.addr.i161, align 16
-  %113 = load <4 x float>, ptr %__a.addr.i160, align 16
-  %114 = load <4 x float>, ptr %__b.addr.i161, align 16
-  %mul.i = fmul <4 x float> %113, %114
+  store <4 x float> %113, ptr %__b.addr.i161, align 16
+  %114 = load <4 x float>, ptr %__a.addr.i160, align 16
+  %115 = load <4 x float>, ptr %__b.addr.i161, align 16
+  %mul.i = fmul <4 x float> %114, %115
   store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %__a.addr.i162, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i163, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i162, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i163, align 16
-  %add.i = fadd <4 x float> %115, %116
+  %116 = load <4 x float>, ptr %__a.addr.i162, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i163, align 16
+  %add.i = fadd <4 x float> %116, %117
   store <4 x float> %add.i, ptr %f3, align 16
-  %117 = load <4 x float>, ptr %f3, align 16
+  %118 = load <4 x float>, ptr %f3, align 16
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i, align 16
-  %118 = load <4 x float>, ptr %.compoundliteral.i, align 16
-  store <4 x float> %117, ptr %__a.addr.i172, align 16
-  store <4 x float> %118, ptr %__b.addr.i173, align 16
-  %119 = load <4 x float>, ptr %__a.addr.i172, align 16
-  %120 = load <4 x float>, ptr %__b.addr.i173, align 16
-  %121 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %119, <4 x float> %120)
-  store <4 x float> %121, ptr %f3, align 16
-  %122 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %122, ptr %__a.addr.i164, align 16
+  %119 = load <4 x float>, ptr %.compoundliteral.i, align 16
+  store <4 x float> %118, ptr %__a.addr.i172, align 16
+  store <4 x float> %119, ptr %__b.addr.i173, align 16
+  %120 = load <4 x float>, ptr %__a.addr.i172, align 16
+  %121 = load <4 x float>, ptr %__b.addr.i173, align 16
+  %122 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %120, <4 x float> %121)
+  store <4 x float> %122, ptr %f3, align 16
+  %123 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %123, ptr %__a.addr.i164, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__b.addr.i165, align 16
-  %123 = load <4 x float>, ptr %__a.addr.i164, align 16
-  %124 = load <4 x float>, ptr %__b.addr.i165, align 16
-  %125 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %123, <4 x float> %124)
-  store <4 x float> %125, ptr %f3, align 16
-  %126 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %126, ptr %__a.addr.i180, align 16
-  %127 = load <4 x float>, ptr %__a.addr.i180, align 16
-  %128 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %127)
-  %129 = bitcast <4 x i32> %128 to <2 x i64>
-  store <2 x i64> %129, ptr %i3, align 16
-  %130 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %130, ptr %temp0, align 16
-  %131 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %131, ptr %temp1, align 16
-  %132 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %132, ptr %temp2, align 16
-  %133 = load ptr, ptr %to_srgb, align 8
+  %124 = load <4 x float>, ptr %__a.addr.i164, align 16
+  %125 = load <4 x float>, ptr %__b.addr.i165, align 16
+  %126 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %124, <4 x float> %125)
+  store <4 x float> %126, ptr %f3, align 16
+  %127 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %127, ptr %__a.addr.i180, align 16
+  %128 = load <4 x float>, ptr %__a.addr.i180, align 16
+  %129 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %128)
+  %130 = bitcast <4 x i32> %129 to <2 x i64>
+  store <2 x i64> %130, ptr %i3, align 16
+  %131 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %131, ptr %temp0, align 16
+  %132 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %132, ptr %temp1, align 16
+  %133 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %133, ptr %temp2, align 16
+  %134 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %134 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %134 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %133, i64 %idxprom
-  %135 = load i32, ptr %arrayidx43, align 4
+  %135 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %135 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %134, i64 %idxprom
+  %136 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %135, ptr %arrayidx44, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  store i32 %136, ptr %arrayidx44, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %137 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %137 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %136, i64 %idxprom46
-  %138 = load i32, ptr %arrayidx47, align 4
+  %138 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %138 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %137, i64 %idxprom46
+  %139 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %138, ptr %arrayidx48, align 4
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx48, align 4
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %140 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %140 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %139, i64 %idxprom50
-  %141 = load i32, ptr %arrayidx51, align 4
+  %141 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %141 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %140, i64 %idxprom50
+  %142 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %141, ptr %arrayidx52, align 8
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx52, align 8
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %143 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %143 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %142, i64 %idxprom54
-  %144 = load i32, ptr %arrayidx55, align 4
+  %144 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %144 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %143, i64 %idxprom54
+  %145 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %144, ptr %arrayidx56, align 4
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx56, align 4
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %146 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %146 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %145, i64 %idxprom58
-  %147 = load i32, ptr %arrayidx59, align 4
+  %147 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %147 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %146, i64 %idxprom58
+  %148 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %147, ptr %arrayidx60, align 16
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx60, align 16
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %149 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %149 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %148, i64 %idxprom62
-  %150 = load i32, ptr %arrayidx63, align 4
+  %150 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %150 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %149, i64 %idxprom62
+  %151 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %150, ptr %arrayidx64, align 4
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx64, align 4
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %152 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %152 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %151, i64 %idxprom66
-  %153 = load i32, ptr %arrayidx67, align 4
+  %153 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %153 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %152, i64 %idxprom66
+  %154 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %153, ptr %arrayidx68, align 8
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx68, align 8
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %155 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %155 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %154, i64 %idxprom70
-  %156 = load i32, ptr %arrayidx71, align 4
+  %156 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %156 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %155, i64 %idxprom70
+  %157 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %156, ptr %arrayidx72, align 4
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx72, align 4
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %158 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %158 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %157, i64 %idxprom74
-  %159 = load i32, ptr %arrayidx75, align 4
+  %159 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %159 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %158, i64 %idxprom74
+  %160 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %159, ptr %arrayidx76, align 16
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx76, align 16
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %161 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %161 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %160, i64 %idxprom78
-  %162 = load i32, ptr %arrayidx79, align 4
+  %162 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %162 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %161, i64 %idxprom78
+  %163 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %162, ptr %arrayidx80, align 4
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx80, align 4
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %164 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %164 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %163, i64 %idxprom82
-  %165 = load i32, ptr %arrayidx83, align 4
+  %165 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %165 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %164, i64 %idxprom82
+  %166 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %165, ptr %arrayidx84, align 8
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx84, align 8
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %167 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %167 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %166, i64 %idxprom86
-  %168 = load i32, ptr %arrayidx87, align 4
+  %168 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %168 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %167, i64 %idxprom86
+  %169 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %168, ptr %arrayidx88, align 4
-  %169 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %169, ptr %i0, align 16
-  %170 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %170, ptr %i1, align 16
-  %171 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %171, ptr %i2, align 16
-  %172 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %172, ptr %__a.addr.i236, align 16
-  %173 = load <4 x float>, ptr %__a.addr.i236, align 16
-  %174 = bitcast <4 x float> %173 to <2 x i64>
-  store <2 x i64> %174, ptr %__a.addr.i226, align 16
+  store i32 %169, ptr %arrayidx88, align 4
+  %170 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %170, ptr %i0, align 16
+  %171 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %171, ptr %i1, align 16
+  %172 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %172, ptr %i2, align 16
+  %173 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %173, ptr %__a.addr.i236, align 16
+  %174 = load <4 x float>, ptr %__a.addr.i236, align 16
+  %175 = bitcast <4 x float> %174 to <2 x i64>
+  store <2 x i64> %175, ptr %__a.addr.i226, align 16
   store i32 12, ptr %__count.addr.i227, align 4
-  %175 = load <2 x i64>, ptr %__a.addr.i226, align 16
-  %176 = bitcast <2 x i64> %175 to <4 x i32>
-  %177 = load i32, ptr %__count.addr.i227, align 4
-  %178 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %176, i32 %177)
-  %179 = bitcast <4 x i32> %178 to <2 x i64>
-  store <2 x i64> %179, ptr %temp, align 16
-  %180 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %180, ptr %__a.addr.i245, align 16
+  %176 = load <2 x i64>, ptr %__a.addr.i226, align 16
+  %177 = bitcast <2 x i64> %176 to <4 x i32>
+  %178 = load i32, ptr %__count.addr.i227, align 4
+  %179 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %177, i32 %178)
+  %180 = bitcast <4 x i32> %179 to <2 x i64>
+  store <2 x i64> %180, ptr %temp, align 16
+  %181 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %181, ptr %__a.addr.i245, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i246, align 16
-  %181 = load <2 x i64>, ptr %__a.addr.i245, align 16
-  %182 = load <2 x i64>, ptr %__b.addr.i246, align 16
-  %and.i247 = and <2 x i64> %181, %182
+  %182 = load <2 x i64>, ptr %__a.addr.i245, align 16
+  %183 = load <2 x i64>, ptr %__b.addr.i246, align 16
+  %and.i247 = and <2 x i64> %182, %183
   store <2 x i64> %and.i247, ptr %temp, align 16
-  %183 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %183, ptr %__a.addr.i253, align 16
+  %184 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %184, ptr %__a.addr.i253, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i254, align 16
-  %184 = load <2 x i64>, ptr %__a.addr.i253, align 16
-  %185 = load <2 x i64>, ptr %__b.addr.i254, align 16
-  %or.i255 = or <2 x i64> %184, %185
+  %185 = load <2 x i64>, ptr %__a.addr.i253, align 16
+  %186 = load <2 x i64>, ptr %__b.addr.i254, align 16
+  %or.i255 = or <2 x i64> %185, %186
   store <2 x i64> %or.i255, ptr %temp, align 16
-  %186 = load <2 x i64>, ptr %i0, align 16
-  %187 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %186, ptr %__a.addr.i260, align 16
-  store <2 x i64> %187, ptr %__b.addr.i261, align 16
-  %188 = load <2 x i64>, ptr %__a.addr.i260, align 16
-  %189 = bitcast <2 x i64> %188 to <8 x i16>
-  %190 = load <2 x i64>, ptr %__b.addr.i261, align 16
-  %191 = bitcast <2 x i64> %190 to <8 x i16>
-  %192 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %189, <8 x i16> %191)
-  %193 = bitcast <4 x i32> %192 to <2 x i64>
-  store <2 x i64> %193, ptr %i0, align 16
-  %194 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %194, ptr %__a.addr.i224, align 16
+  %187 = load <2 x i64>, ptr %i0, align 16
+  %188 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %187, ptr %__a.addr.i260, align 16
+  store <2 x i64> %188, ptr %__b.addr.i261, align 16
+  %189 = load <2 x i64>, ptr %__a.addr.i260, align 16
+  %190 = bitcast <2 x i64> %189 to <8 x i16>
+  %191 = load <2 x i64>, ptr %__b.addr.i261, align 16
+  %192 = bitcast <2 x i64> %191 to <8 x i16>
+  %193 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %190, <8 x i16> %192)
+  %194 = bitcast <4 x i32> %193 to <2 x i64>
+  store <2 x i64> %194, ptr %i0, align 16
+  %195 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %195, ptr %__a.addr.i224, align 16
   store i32 16, ptr %__count.addr.i225, align 4
-  %195 = load <2 x i64>, ptr %__a.addr.i224, align 16
-  %196 = bitcast <2 x i64> %195 to <4 x i32>
-  %197 = load i32, ptr %__count.addr.i225, align 4
-  %198 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %196, i32 %197)
-  %199 = bitcast <4 x i32> %198 to <2 x i64>
-  store <2 x i64> %199, ptr %i0, align 16
-  %200 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %200, ptr %__a.addr.i235, align 16
-  %201 = load <4 x float>, ptr %__a.addr.i235, align 16
-  %202 = bitcast <4 x float> %201 to <2 x i64>
-  store <2 x i64> %202, ptr %__a.addr.i222, align 16
+  %196 = load <2 x i64>, ptr %__a.addr.i224, align 16
+  %197 = bitcast <2 x i64> %196 to <4 x i32>
+  %198 = load i32, ptr %__count.addr.i225, align 4
+  %199 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %197, i32 %198)
+  %200 = bitcast <4 x i32> %199 to <2 x i64>
+  store <2 x i64> %200, ptr %i0, align 16
+  %201 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %201, ptr %__a.addr.i235, align 16
+  %202 = load <4 x float>, ptr %__a.addr.i235, align 16
+  %203 = bitcast <4 x float> %202 to <2 x i64>
+  store <2 x i64> %203, ptr %__a.addr.i222, align 16
   store i32 12, ptr %__count.addr.i223, align 4
-  %203 = load <2 x i64>, ptr %__a.addr.i222, align 16
-  %204 = bitcast <2 x i64> %203 to <4 x i32>
-  %205 = load i32, ptr %__count.addr.i223, align 4
-  %206 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %204, i32 %205)
-  %207 = bitcast <4 x i32> %206 to <2 x i64>
-  store <2 x i64> %207, ptr %temp95, align 16
-  %208 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %208, ptr %__a.addr.i242, align 16
+  %204 = load <2 x i64>, ptr %__a.addr.i222, align 16
+  %205 = bitcast <2 x i64> %204 to <4 x i32>
+  %206 = load i32, ptr %__count.addr.i223, align 4
+  %207 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %205, i32 %206)
+  %208 = bitcast <4 x i32> %207 to <2 x i64>
+  store <2 x i64> %208, ptr %temp95, align 16
+  %209 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %209, ptr %__a.addr.i242, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i243, align 16
-  %209 = load <2 x i64>, ptr %__a.addr.i242, align 16
-  %210 = load <2 x i64>, ptr %__b.addr.i243, align 16
-  %and.i244 = and <2 x i64> %209, %210
+  %210 = load <2 x i64>, ptr %__a.addr.i242, align 16
+  %211 = load <2 x i64>, ptr %__b.addr.i243, align 16
+  %and.i244 = and <2 x i64> %210, %211
   store <2 x i64> %and.i244, ptr %temp95, align 16
-  %211 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %211, ptr %__a.addr.i250, align 16
+  %212 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %212, ptr %__a.addr.i250, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i251, align 16
-  %212 = load <2 x i64>, ptr %__a.addr.i250, align 16
-  %213 = load <2 x i64>, ptr %__b.addr.i251, align 16
-  %or.i252 = or <2 x i64> %212, %213
+  %213 = load <2 x i64>, ptr %__a.addr.i250, align 16
+  %214 = load <2 x i64>, ptr %__b.addr.i251, align 16
+  %or.i252 = or <2 x i64> %213, %214
   store <2 x i64> %or.i252, ptr %temp95, align 16
-  %214 = load <2 x i64>, ptr %i1, align 16
-  %215 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %214, ptr %__a.addr.i258, align 16
-  store <2 x i64> %215, ptr %__b.addr.i259, align 16
-  %216 = load <2 x i64>, ptr %__a.addr.i258, align 16
-  %217 = bitcast <2 x i64> %216 to <8 x i16>
-  %218 = load <2 x i64>, ptr %__b.addr.i259, align 16
-  %219 = bitcast <2 x i64> %218 to <8 x i16>
-  %220 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %217, <8 x i16> %219)
-  %221 = bitcast <4 x i32> %220 to <2 x i64>
-  store <2 x i64> %221, ptr %i1, align 16
-  %222 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %222, ptr %__a.addr.i220, align 16
+  %215 = load <2 x i64>, ptr %i1, align 16
+  %216 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %215, ptr %__a.addr.i258, align 16
+  store <2 x i64> %216, ptr %__b.addr.i259, align 16
+  %217 = load <2 x i64>, ptr %__a.addr.i258, align 16
+  %218 = bitcast <2 x i64> %217 to <8 x i16>
+  %219 = load <2 x i64>, ptr %__b.addr.i259, align 16
+  %220 = bitcast <2 x i64> %219 to <8 x i16>
+  %221 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %218, <8 x i16> %220)
+  %222 = bitcast <4 x i32> %221 to <2 x i64>
+  store <2 x i64> %222, ptr %i1, align 16
+  %223 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %223, ptr %__a.addr.i220, align 16
   store i32 16, ptr %__count.addr.i221, align 4
-  %223 = load <2 x i64>, ptr %__a.addr.i220, align 16
-  %224 = bitcast <2 x i64> %223 to <4 x i32>
-  %225 = load i32, ptr %__count.addr.i221, align 4
-  %226 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %224, i32 %225)
-  %227 = bitcast <4 x i32> %226 to <2 x i64>
-  store <2 x i64> %227, ptr %i1, align 16
-  %228 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %228, ptr %__a.addr.i234, align 16
-  %229 = load <4 x float>, ptr %__a.addr.i234, align 16
-  %230 = bitcast <4 x float> %229 to <2 x i64>
-  store <2 x i64> %230, ptr %__a.addr.i218, align 16
+  %224 = load <2 x i64>, ptr %__a.addr.i220, align 16
+  %225 = bitcast <2 x i64> %224 to <4 x i32>
+  %226 = load i32, ptr %__count.addr.i221, align 4
+  %227 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %225, i32 %226)
+  %228 = bitcast <4 x i32> %227 to <2 x i64>
+  store <2 x i64> %228, ptr %i1, align 16
+  %229 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %229, ptr %__a.addr.i234, align 16
+  %230 = load <4 x float>, ptr %__a.addr.i234, align 16
+  %231 = bitcast <4 x float> %230 to <2 x i64>
+  store <2 x i64> %231, ptr %__a.addr.i218, align 16
   store i32 12, ptr %__count.addr.i219, align 4
-  %231 = load <2 x i64>, ptr %__a.addr.i218, align 16
-  %232 = bitcast <2 x i64> %231 to <4 x i32>
-  %233 = load i32, ptr %__count.addr.i219, align 4
-  %234 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %232, i32 %233)
-  %235 = bitcast <4 x i32> %234 to <2 x i64>
-  store <2 x i64> %235, ptr %temp102, align 16
-  %236 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %236, ptr %__a.addr.i240, align 16
+  %232 = load <2 x i64>, ptr %__a.addr.i218, align 16
+  %233 = bitcast <2 x i64> %232 to <4 x i32>
+  %234 = load i32, ptr %__count.addr.i219, align 4
+  %235 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %233, i32 %234)
+  %236 = bitcast <4 x i32> %235 to <2 x i64>
+  store <2 x i64> %236, ptr %temp102, align 16
+  %237 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %237, ptr %__a.addr.i240, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i241, align 16
-  %237 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %238 = load <2 x i64>, ptr %__b.addr.i241, align 16
-  %and.i = and <2 x i64> %237, %238
+  %238 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %239 = load <2 x i64>, ptr %__b.addr.i241, align 16
+  %and.i = and <2 x i64> %238, %239
   store <2 x i64> %and.i, ptr %temp102, align 16
-  %239 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %239, ptr %__a.addr.i248, align 16
+  %240 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %240, ptr %__a.addr.i248, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i249, align 16
-  %240 = load <2 x i64>, ptr %__a.addr.i248, align 16
-  %241 = load <2 x i64>, ptr %__b.addr.i249, align 16
-  %or.i = or <2 x i64> %240, %241
+  %241 = load <2 x i64>, ptr %__a.addr.i248, align 16
+  %242 = load <2 x i64>, ptr %__b.addr.i249, align 16
+  %or.i = or <2 x i64> %241, %242
   store <2 x i64> %or.i, ptr %temp102, align 16
-  %242 = load <2 x i64>, ptr %i2, align 16
-  %243 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %242, ptr %__a.addr.i256, align 16
-  store <2 x i64> %243, ptr %__b.addr.i257, align 16
-  %244 = load <2 x i64>, ptr %__a.addr.i256, align 16
-  %245 = bitcast <2 x i64> %244 to <8 x i16>
-  %246 = load <2 x i64>, ptr %__b.addr.i257, align 16
-  %247 = bitcast <2 x i64> %246 to <8 x i16>
-  %248 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %245, <8 x i16> %247)
-  %249 = bitcast <4 x i32> %248 to <2 x i64>
-  store <2 x i64> %249, ptr %i2, align 16
-  %250 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %250, ptr %__a.addr.i217, align 16
+  %243 = load <2 x i64>, ptr %i2, align 16
+  %244 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %243, ptr %__a.addr.i256, align 16
+  store <2 x i64> %244, ptr %__b.addr.i257, align 16
+  %245 = load <2 x i64>, ptr %__a.addr.i256, align 16
+  %246 = bitcast <2 x i64> %245 to <8 x i16>
+  %247 = load <2 x i64>, ptr %__b.addr.i257, align 16
+  %248 = bitcast <2 x i64> %247 to <8 x i16>
+  %249 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %246, <8 x i16> %248)
+  %250 = bitcast <4 x i32> %249 to <2 x i64>
+  store <2 x i64> %250, ptr %i2, align 16
+  %251 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %251, ptr %__a.addr.i217, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %251 = load <2 x i64>, ptr %__a.addr.i217, align 16
-  %252 = bitcast <2 x i64> %251 to <4 x i32>
-  %253 = load i32, ptr %__count.addr.i, align 4
-  %254 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %252, i32 %253)
-  %255 = bitcast <4 x i32> %254 to <2 x i64>
-  store <2 x i64> %255, ptr %i2, align 16
-  %256 = load <2 x i64>, ptr %i3, align 16
-  %257 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %256, ptr %__a.addr.i183, align 16
-  store <2 x i64> %257, ptr %__b.addr.i184, align 16
-  %258 = load <2 x i64>, ptr %__a.addr.i183, align 16
-  %259 = bitcast <2 x i64> %258 to <4 x i32>
-  %260 = load <2 x i64>, ptr %__b.addr.i184, align 16
-  %261 = bitcast <2 x i64> %260 to <4 x i32>
-  %262 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %259, <4 x i32> %261)
-  %263 = bitcast <8 x i16> %262 to <2 x i64>
-  store <2 x i64> %263, ptr %i3, align 16
-  %264 = load <2 x i64>, ptr %i1, align 16
-  %265 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %264, ptr %__a.addr.i181, align 16
-  store <2 x i64> %265, ptr %__b.addr.i182, align 16
-  %266 = load <2 x i64>, ptr %__a.addr.i181, align 16
-  %267 = bitcast <2 x i64> %266 to <4 x i32>
-  %268 = load <2 x i64>, ptr %__b.addr.i182, align 16
-  %269 = bitcast <2 x i64> %268 to <4 x i32>
-  %270 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %267, <4 x i32> %269)
-  %271 = bitcast <8 x i16> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i1, align 16
-  %272 = load <2 x i64>, ptr %i3, align 16
-  %273 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %272, ptr %__a.addr.i151, align 16
-  store <2 x i64> %273, ptr %__b.addr.i152, align 16
-  %274 = load <2 x i64>, ptr %__a.addr.i151, align 16
-  %275 = bitcast <2 x i64> %274 to <8 x i16>
-  %276 = load <2 x i64>, ptr %__b.addr.i152, align 16
-  %277 = bitcast <2 x i64> %276 to <8 x i16>
-  %shuffle.i153 = shufflevector <8 x i16> %275, <8 x i16> %277, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %278 = bitcast <8 x i16> %shuffle.i153 to <2 x i64>
-  store <2 x i64> %278, ptr %i0, align 16
-  %279 = load <2 x i64>, ptr %i3, align 16
-  %280 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %279, ptr %__a.addr.i157, align 16
-  store <2 x i64> %280, ptr %__b.addr.i158, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i157, align 16
-  %282 = bitcast <2 x i64> %281 to <8 x i16>
-  %283 = load <2 x i64>, ptr %__b.addr.i158, align 16
-  %284 = bitcast <2 x i64> %283 to <8 x i16>
-  %shuffle.i159 = shufflevector <8 x i16> %282, <8 x i16> %284, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %285 = bitcast <8 x i16> %shuffle.i159 to <2 x i64>
-  store <2 x i64> %285, ptr %i2, align 16
-  %286 = load <2 x i64>, ptr %i0, align 16
-  %287 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %286, ptr %__a.addr.i, align 16
-  store <2 x i64> %287, ptr %__b.addr.i, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %289, <8 x i16> %291, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %292 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %292, ptr %i3, align 16
-  %293 = load <2 x i64>, ptr %i0, align 16
-  %294 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %293, ptr %__a.addr.i154, align 16
-  store <2 x i64> %294, ptr %__b.addr.i155, align 16
-  %295 = load <2 x i64>, ptr %__a.addr.i154, align 16
-  %296 = bitcast <2 x i64> %295 to <8 x i16>
-  %297 = load <2 x i64>, ptr %__b.addr.i155, align 16
-  %298 = bitcast <2 x i64> %297 to <8 x i16>
-  %shuffle.i156 = shufflevector <8 x i16> %296, <8 x i16> %298, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %299 = bitcast <8 x i16> %shuffle.i156 to <2 x i64>
-  store <2 x i64> %299, ptr %i1, align 16
-  %300 = load <2 x i64>, ptr %i3, align 16
-  %301 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %300, ptr %__a.addr.i185, align 16
-  store <2 x i64> %301, ptr %__b.addr.i186, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i185, align 16
-  %303 = bitcast <2 x i64> %302 to <8 x i16>
-  %304 = load <2 x i64>, ptr %__b.addr.i186, align 16
-  %305 = bitcast <2 x i64> %304 to <8 x i16>
-  %306 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %303, <8 x i16> %305)
-  %307 = bitcast <16 x i8> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i3, align 16
-  %308 = load ptr, ptr %output, align 8
-  %309 = load <2 x i64>, ptr %i3, align 16
-  store ptr %308, ptr %__p.addr.i262, align 8
-  store <2 x i64> %309, ptr %__b.addr.i263, align 16
-  %310 = load <2 x i64>, ptr %__b.addr.i263, align 16
-  %311 = load ptr, ptr %__p.addr.i262, align 8
-  store <2 x i64> %310, ptr %311, align 1
-  %312 = load ptr, ptr %output, align 8
-  %add.ptr116 = getelementptr inbounds i8, ptr %312, i64 16
+  %252 = load <2 x i64>, ptr %__a.addr.i217, align 16
+  %253 = bitcast <2 x i64> %252 to <4 x i32>
+  %254 = load i32, ptr %__count.addr.i, align 4
+  %255 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %253, i32 %254)
+  %256 = bitcast <4 x i32> %255 to <2 x i64>
+  store <2 x i64> %256, ptr %i2, align 16
+  %257 = load <2 x i64>, ptr %i3, align 16
+  %258 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %257, ptr %__a.addr.i183, align 16
+  store <2 x i64> %258, ptr %__b.addr.i184, align 16
+  %259 = load <2 x i64>, ptr %__a.addr.i183, align 16
+  %260 = bitcast <2 x i64> %259 to <4 x i32>
+  %261 = load <2 x i64>, ptr %__b.addr.i184, align 16
+  %262 = bitcast <2 x i64> %261 to <4 x i32>
+  %263 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %260, <4 x i32> %262)
+  %264 = bitcast <8 x i16> %263 to <2 x i64>
+  store <2 x i64> %264, ptr %i3, align 16
+  %265 = load <2 x i64>, ptr %i1, align 16
+  %266 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %265, ptr %__a.addr.i181, align 16
+  store <2 x i64> %266, ptr %__b.addr.i182, align 16
+  %267 = load <2 x i64>, ptr %__a.addr.i181, align 16
+  %268 = bitcast <2 x i64> %267 to <4 x i32>
+  %269 = load <2 x i64>, ptr %__b.addr.i182, align 16
+  %270 = bitcast <2 x i64> %269 to <4 x i32>
+  %271 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %268, <4 x i32> %270)
+  %272 = bitcast <8 x i16> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i1, align 16
+  %273 = load <2 x i64>, ptr %i3, align 16
+  %274 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %273, ptr %__a.addr.i151, align 16
+  store <2 x i64> %274, ptr %__b.addr.i152, align 16
+  %275 = load <2 x i64>, ptr %__a.addr.i151, align 16
+  %276 = bitcast <2 x i64> %275 to <8 x i16>
+  %277 = load <2 x i64>, ptr %__b.addr.i152, align 16
+  %278 = bitcast <2 x i64> %277 to <8 x i16>
+  %shuffle.i153 = shufflevector <8 x i16> %276, <8 x i16> %278, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %279 = bitcast <8 x i16> %shuffle.i153 to <2 x i64>
+  store <2 x i64> %279, ptr %i0, align 16
+  %280 = load <2 x i64>, ptr %i3, align 16
+  %281 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %280, ptr %__a.addr.i157, align 16
+  store <2 x i64> %281, ptr %__b.addr.i158, align 16
+  %282 = load <2 x i64>, ptr %__a.addr.i157, align 16
+  %283 = bitcast <2 x i64> %282 to <8 x i16>
+  %284 = load <2 x i64>, ptr %__b.addr.i158, align 16
+  %285 = bitcast <2 x i64> %284 to <8 x i16>
+  %shuffle.i159 = shufflevector <8 x i16> %283, <8 x i16> %285, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %286 = bitcast <8 x i16> %shuffle.i159 to <2 x i64>
+  store <2 x i64> %286, ptr %i2, align 16
+  %287 = load <2 x i64>, ptr %i0, align 16
+  %288 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %287, ptr %__a.addr.i, align 16
+  store <2 x i64> %288, ptr %__b.addr.i, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %290, <8 x i16> %292, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %293 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %293, ptr %i3, align 16
+  %294 = load <2 x i64>, ptr %i0, align 16
+  %295 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %294, ptr %__a.addr.i154, align 16
+  store <2 x i64> %295, ptr %__b.addr.i155, align 16
+  %296 = load <2 x i64>, ptr %__a.addr.i154, align 16
+  %297 = bitcast <2 x i64> %296 to <8 x i16>
+  %298 = load <2 x i64>, ptr %__b.addr.i155, align 16
+  %299 = bitcast <2 x i64> %298 to <8 x i16>
+  %shuffle.i156 = shufflevector <8 x i16> %297, <8 x i16> %299, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %300 = bitcast <8 x i16> %shuffle.i156 to <2 x i64>
+  store <2 x i64> %300, ptr %i1, align 16
+  %301 = load <2 x i64>, ptr %i3, align 16
+  %302 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %301, ptr %__a.addr.i185, align 16
+  store <2 x i64> %302, ptr %__b.addr.i186, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i185, align 16
+  %304 = bitcast <2 x i64> %303 to <8 x i16>
+  %305 = load <2 x i64>, ptr %__b.addr.i186, align 16
+  %306 = bitcast <2 x i64> %305 to <8 x i16>
+  %307 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %304, <8 x i16> %306)
+  %308 = bitcast <16 x i8> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i3, align 16
+  %309 = load ptr, ptr %output, align 8
+  %310 = load <2 x i64>, ptr %i3, align 16
+  store ptr %309, ptr %__p.addr.i262, align 8
+  store <2 x i64> %310, ptr %__b.addr.i263, align 16
+  %311 = load <2 x i64>, ptr %__b.addr.i263, align 16
+  %312 = load ptr, ptr %__p.addr.i262, align 8
+  store <2 x i64> %311, ptr %312, align 1
+  %313 = load ptr, ptr %output, align 8
+  %add.ptr116 = getelementptr inbounds i8, ptr %313, i64 16
   store ptr %add.ptr116, ptr %output, align 8
-  %313 = load ptr, ptr %encode.addr, align 8
-  %add.ptr117 = getelementptr inbounds float, ptr %313, i64 16
+  %314 = load ptr, ptr %encode.addr, align 8
+  %add.ptr117 = getelementptr inbounds float, ptr %314, i64 16
   store ptr %add.ptr117, ptr %encode.addr, align 8
-  %314 = load ptr, ptr %output, align 8
-  %315 = load ptr, ptr %end_output, align 8
-  %cmp118 = icmp ule ptr %314, %315
+  %315 = load ptr, ptr %output, align 8
+  %316 = load ptr, ptr %end_output, align 8
+  %cmp118 = icmp ule ptr %315, %316
   br i1 %cmp118, label %if.then119, label %if.end
 
 if.then119:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %316 = load ptr, ptr %output, align 8
-  %317 = load ptr, ptr %end_output, align 8
-  %add.ptr120 = getelementptr inbounds i8, ptr %317, i64 16
-  %cmp121 = icmp eq ptr %316, %add.ptr120
+  %317 = load ptr, ptr %output, align 8
+  %318 = load ptr, ptr %end_output, align 8
+  %add.ptr120 = getelementptr inbounds i8, ptr %318, i64 16
+  %cmp121 = icmp eq ptr %317, %add.ptr120
   br i1 %cmp121, label %if.then122, label %if.end123
 
 if.then122:                                       ; preds = %if.end
   br label %for.end
 
 if.end123:                                        ; preds = %if.end
-  %318 = load ptr, ptr %end_output, align 8
-  store ptr %318, ptr %output, align 8
-  %319 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %319, ptr %encode.addr, align 8
+  %319 = load ptr, ptr %end_output, align 8
+  store ptr %319, ptr %output, align 8
+  %320 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %320, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then122
@@ -20146,40 +20153,40 @@ if.end124:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end124
-  %320 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %320) #9, !srcloc !215
   %321 = load ptr, ptr %encode.addr, align 8
-  %arrayidx125 = getelementptr inbounds float, ptr %321, i64 0
-  %322 = load float, ptr %arrayidx125, align 4
-  %call126 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %322)
-  %323 = load ptr, ptr %output, align 8
-  %arrayidx127 = getelementptr inbounds i8, ptr %323, i64 1
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %321) #9, !srcloc !215
+  %322 = load ptr, ptr %encode.addr, align 8
+  %arrayidx125 = getelementptr inbounds float, ptr %322, i64 0
+  %323 = load float, ptr %arrayidx125, align 4
+  %call126 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %323)
+  %324 = load ptr, ptr %output, align 8
+  %arrayidx127 = getelementptr inbounds i8, ptr %324, i64 1
   store i8 %call126, ptr %arrayidx127, align 1
-  %324 = load ptr, ptr %encode.addr, align 8
-  %arrayidx128 = getelementptr inbounds float, ptr %324, i64 1
-  %325 = load float, ptr %arrayidx128, align 4
-  %call129 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %325)
-  %326 = load ptr, ptr %output, align 8
-  %arrayidx130 = getelementptr inbounds i8, ptr %326, i64 2
+  %325 = load ptr, ptr %encode.addr, align 8
+  %arrayidx128 = getelementptr inbounds float, ptr %325, i64 1
+  %326 = load float, ptr %arrayidx128, align 4
+  %call129 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %326)
+  %327 = load ptr, ptr %output, align 8
+  %arrayidx130 = getelementptr inbounds i8, ptr %327, i64 2
   store i8 %call129, ptr %arrayidx130, align 1
-  %327 = load ptr, ptr %encode.addr, align 8
-  %arrayidx131 = getelementptr inbounds float, ptr %327, i64 2
-  %328 = load float, ptr %arrayidx131, align 4
-  %call132 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %328)
-  %329 = load ptr, ptr %output, align 8
-  %arrayidx133 = getelementptr inbounds i8, ptr %329, i64 3
+  %328 = load ptr, ptr %encode.addr, align 8
+  %arrayidx131 = getelementptr inbounds float, ptr %328, i64 2
+  %329 = load float, ptr %arrayidx131, align 4
+  %call132 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %329)
+  %330 = load ptr, ptr %output, align 8
+  %arrayidx133 = getelementptr inbounds i8, ptr %330, i64 3
   store i8 %call132, ptr %arrayidx133, align 1
-  %330 = load ptr, ptr %encode.addr, align 8
-  %arrayidx134 = getelementptr inbounds float, ptr %330, i64 3
-  %331 = load float, ptr %arrayidx134, align 4
-  %mul = fmul float %331, 2.550000e+02
+  %331 = load ptr, ptr %encode.addr, align 8
+  %arrayidx134 = getelementptr inbounds float, ptr %331, i64 3
+  %332 = load float, ptr %arrayidx134, align 4
+  %mul = fmul float %332, 2.550000e+02
   %add = fadd float %mul, 5.000000e-01
   store float %add, ptr %f, align 4
   br label %do.body135
 
 do.body135:                                       ; preds = %do.body
-  %332 = load float, ptr %f, align 4
-  %cmp136 = fcmp olt float %332, 0.000000e+00
+  %333 = load float, ptr %f, align 4
+  %cmp136 = fcmp olt float %333, 0.000000e+00
   br i1 %cmp136, label %if.then137, label %if.end138
 
 if.then137:                                       ; preds = %do.body135
@@ -20187,8 +20194,8 @@ if.then137:                                       ; preds = %do.body135
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then137, %do.body135
-  %333 = load float, ptr %f, align 4
-  %cmp139 = fcmp ogt float %333, 2.550000e+02
+  %334 = load float, ptr %f, align 4
+  %cmp139 = fcmp ogt float %334, 2.550000e+02
   br i1 %cmp139, label %if.then140, label %if.end141
 
 if.then140:                                       ; preds = %if.end138
@@ -20199,23 +20206,23 @@ if.end141:                                        ; preds = %if.then140, %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end141
-  %334 = load float, ptr %f, align 4
-  %conv = fptoui float %334 to i8
-  %335 = load ptr, ptr %output, align 8
-  %arrayidx142 = getelementptr inbounds i8, ptr %335, i64 0
-  store i8 %conv, ptr %arrayidx142, align 1
+  %335 = load float, ptr %f, align 4
+  %conv = fptoui float %335 to i8
   %336 = load ptr, ptr %output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %336, i64 4
+  %arrayidx142 = getelementptr inbounds i8, ptr %336, i64 0
+  store i8 %conv, ptr %arrayidx142, align 1
+  %337 = load ptr, ptr %output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %337, i64 4
   store ptr %add.ptr143, ptr %output, align 8
-  %337 = load ptr, ptr %encode.addr, align 8
-  %add.ptr144 = getelementptr inbounds float, ptr %337, i64 4
+  %338 = load ptr, ptr %encode.addr, align 8
+  %add.ptr144 = getelementptr inbounds float, ptr %338, i64 4
   store ptr %add.ptr144, ptr %encode.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.end
-  %338 = load ptr, ptr %output, align 8
-  %339 = load ptr, ptr %end_output, align 8
-  %cmp145 = icmp ult ptr %338, %339
+  %339 = load ptr, ptr %output, align 8
+  %340 = load ptr, ptr %end_output, align 8
+  %cmp145 = icmp ult ptr %339, %340
   br i1 %cmp145, label %do.body, label %do.end147, !llvm.loop !216
 
 do.end147:                                        ; preds = %do.cond, %for.end
@@ -24196,741 +24203,742 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end147
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end146, %if.then142, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !254
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i167, align 8
-  %9 = load ptr, ptr %__p.addr.i167, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !254
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i167, align 8
+  %10 = load ptr, ptr %__p.addr.i167, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i166, align 8
-  %12 = load ptr, ptr %__p.addr.i166, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i166, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i165, align 8
-  %15 = load ptr, ptr %__p.addr.i165, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i165, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i202, align 16
-  store <4 x float> %21, ptr %__b.addr.i203, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i202, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i203, align 16
-  %shuffle.i204 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i202, align 16
+  store <4 x float> %22, ptr %__b.addr.i203, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i202, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i203, align 16
+  %shuffle.i204 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i204, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i199, align 16
-  store <4 x float> %25, ptr %__b.addr.i200, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %shuffle.i201 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i199, align 16
+  store <4 x float> %26, ptr %__b.addr.i200, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i199, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %shuffle.i201 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i201, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i208, align 16
-  store <4 x float> %29, ptr %__b.addr.i209, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i209, align 16
-  %shuffle.i210 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i208, align 16
+  store <4 x float> %30, ptr %__b.addr.i209, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i209, align 16
+  %shuffle.i210 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i210, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i205, align 16
-  store <4 x float> %33, ptr %__b.addr.i206, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i206, align 16
-  %shuffle.i207 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i205, align 16
+  store <4 x float> %34, ptr %__b.addr.i206, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i206, align 16
+  %shuffle.i207 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i207, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i214, align 16
-  store <4 x float> %37, ptr %__b.addr.i215, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i214, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i215, align 16
-  %shuffle.i216 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i214, align 16
+  store <4 x float> %38, ptr %__b.addr.i215, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i214, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i215, align 16
+  %shuffle.i216 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i216, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i220, align 16
-  store <4 x float> %41, ptr %__b.addr.i221, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i220, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i221, align 16
-  %shuffle.i222 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i220, align 16
+  store <4 x float> %42, ptr %__b.addr.i221, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i220, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i221, align 16
+  %shuffle.i222 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i222, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i211, align 16
-  store <4 x float> %45, ptr %__b.addr.i212, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i211, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i212, align 16
-  %shuffle.i213 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i211, align 16
+  store <4 x float> %46, ptr %__b.addr.i212, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i211, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i212, align 16
+  %shuffle.i213 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i213, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i217, align 16
-  store <4 x float> %49, ptr %__b.addr.i218, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i217, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i218, align 16
-  %shuffle.i219 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i217, align 16
+  store <4 x float> %50, ptr %__b.addr.i218, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i217, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i218, align 16
+  %shuffle.i219 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i219, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i230, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i230, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i191, align 16
-  store <4 x float> %54, ptr %__b.addr.i192, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i191, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i192, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i230, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i191, align 16
+  store <4 x float> %55, ptr %__b.addr.i192, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i191, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i192, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i229, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i229, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i183, align 16
-  store <4 x float> %60, ptr %__b.addr.i184, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i183, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i184, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i261, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i261, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i252, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i229, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i183, align 16
+  store <4 x float> %61, ptr %__b.addr.i184, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i183, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i184, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i261, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i261, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i252, align 16
   store i32 20, ptr %__count.addr.i253, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i252, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i253, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i252, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i253, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i228, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i228, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i189, align 16
-  store <4 x float> %74, ptr %__b.addr.i190, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i189, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i190, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i228, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i189, align 16
+  store <4 x float> %75, ptr %__b.addr.i190, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i189, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i190, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i227, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i227, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i181, align 16
-  store <4 x float> %80, ptr %__b.addr.i182, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i181, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i182, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i260, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i260, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i250, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i227, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i181, align 16
+  store <4 x float> %81, ptr %__b.addr.i182, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i181, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i182, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i260, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i260, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i250, align 16
   store i32 20, ptr %__count.addr.i251, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i250, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i251, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i250, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i251, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i226, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i226, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i187, align 16
-  store <4 x float> %94, ptr %__b.addr.i188, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i226, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i187, align 16
+  store <4 x float> %95, ptr %__b.addr.i188, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i225, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i225, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i179, align 16
-  store <4 x float> %100, ptr %__b.addr.i180, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i179, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i180, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i259, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i259, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i248, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i225, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i179, align 16
+  store <4 x float> %101, ptr %__b.addr.i180, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i179, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i180, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i259, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i259, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i248, align 16
   store i32 20, ptr %__count.addr.i249, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i248, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i249, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i248, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i249, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i224, align 16
-  %113 = load <2 x i64>, ptr %__a.addr.i224, align 16
-  %114 = bitcast <2 x i64> %113 to <4 x float>
-  store <4 x float> %112, ptr %__a.addr.i185, align 16
-  store <4 x float> %114, ptr %__b.addr.i186, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i185, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i186, align 16
-  %117 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %115, <4 x float> %116)
-  store <4 x float> %117, ptr %f3, align 16
-  %118 = load <4 x float>, ptr %f3, align 16
+  %114 = load <2 x i64>, ptr %__a.addr.i224, align 16
+  %115 = bitcast <2 x i64> %114 to <4 x float>
+  store <4 x float> %113, ptr %__a.addr.i185, align 16
+  store <4 x float> %115, ptr %__b.addr.i186, align 16
+  %116 = load <4 x float>, ptr %__a.addr.i185, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i186, align 16
+  %118 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %116, <4 x float> %117)
+  store <4 x float> %118, ptr %f3, align 16
+  %119 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i223, align 16
-  %119 = load <2 x i64>, ptr %__a.addr.i223, align 16
-  %120 = bitcast <2 x i64> %119 to <4 x float>
-  store <4 x float> %118, ptr %__a.addr.i177, align 16
-  store <4 x float> %120, ptr %__b.addr.i178, align 16
-  %121 = load <4 x float>, ptr %__a.addr.i177, align 16
-  %122 = load <4 x float>, ptr %__b.addr.i178, align 16
-  %123 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %121, <4 x float> %122)
-  store <4 x float> %123, ptr %f3, align 16
-  %124 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %124, ptr %__a.addr.i258, align 16
-  %125 = load <4 x float>, ptr %__a.addr.i258, align 16
-  %126 = bitcast <4 x float> %125 to <2 x i64>
-  store <2 x i64> %126, ptr %__a.addr.i246, align 16
+  %120 = load <2 x i64>, ptr %__a.addr.i223, align 16
+  %121 = bitcast <2 x i64> %120 to <4 x float>
+  store <4 x float> %119, ptr %__a.addr.i177, align 16
+  store <4 x float> %121, ptr %__b.addr.i178, align 16
+  %122 = load <4 x float>, ptr %__a.addr.i177, align 16
+  %123 = load <4 x float>, ptr %__b.addr.i178, align 16
+  %124 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %122, <4 x float> %123)
+  store <4 x float> %124, ptr %f3, align 16
+  %125 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %125, ptr %__a.addr.i258, align 16
+  %126 = load <4 x float>, ptr %__a.addr.i258, align 16
+  %127 = bitcast <4 x float> %126 to <2 x i64>
+  store <2 x i64> %127, ptr %__a.addr.i246, align 16
   store i32 20, ptr %__count.addr.i247, align 4
-  %127 = load <2 x i64>, ptr %__a.addr.i246, align 16
-  %128 = bitcast <2 x i64> %127 to <4 x i32>
-  %129 = load i32, ptr %__count.addr.i247, align 4
-  %130 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %128, i32 %129)
-  %131 = bitcast <4 x i32> %130 to <2 x i64>
-  store <2 x i64> %131, ptr %i3, align 16
-  %132 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %132, ptr %temp0, align 16
-  %133 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %133, ptr %temp1, align 16
-  %134 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %134, ptr %temp2, align 16
-  %135 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %135, ptr %temp3, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  %128 = load <2 x i64>, ptr %__a.addr.i246, align 16
+  %129 = bitcast <2 x i64> %128 to <4 x i32>
+  %130 = load i32, ptr %__count.addr.i247, align 4
+  %131 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %129, i32 %130)
+  %132 = bitcast <4 x i32> %131 to <2 x i64>
+  store <2 x i64> %132, ptr %i3, align 16
+  %133 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %133, ptr %temp0, align 16
+  %134 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %134, ptr %temp1, align 16
+  %135 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %135, ptr %temp2, align 16
+  %136 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %136, ptr %temp3, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %137 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %137 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %136, i64 %idxprom
-  %138 = load i32, ptr %arrayidx43, align 4
+  %138 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %138 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %137, i64 %idxprom
+  %139 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %138, ptr %arrayidx44, align 16
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx44, align 16
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %140 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %140 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %139, i64 %idxprom46
-  %141 = load i32, ptr %arrayidx47, align 4
+  %141 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %141 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %140, i64 %idxprom46
+  %142 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %141, ptr %arrayidx48, align 4
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx48, align 4
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %143 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %143 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %142, i64 %idxprom50
-  %144 = load i32, ptr %arrayidx51, align 4
+  %144 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %144 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %143, i64 %idxprom50
+  %145 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %144, ptr %arrayidx52, align 8
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx52, align 8
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %146 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %146 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %145, i64 %idxprom54
-  %147 = load i32, ptr %arrayidx55, align 4
+  %147 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %147 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %146, i64 %idxprom54
+  %148 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %147, ptr %arrayidx56, align 4
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx56, align 4
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %149 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %149 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %148, i64 %idxprom58
-  %150 = load i32, ptr %arrayidx59, align 4
+  %150 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %150 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %149, i64 %idxprom58
+  %151 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %150, ptr %arrayidx60, align 16
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx60, align 16
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %152 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %152 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %151, i64 %idxprom62
-  %153 = load i32, ptr %arrayidx63, align 4
+  %153 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %153 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %152, i64 %idxprom62
+  %154 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %153, ptr %arrayidx64, align 4
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx64, align 4
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %155 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %155 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %154, i64 %idxprom66
-  %156 = load i32, ptr %arrayidx67, align 4
+  %156 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %156 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %155, i64 %idxprom66
+  %157 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %156, ptr %arrayidx68, align 8
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx68, align 8
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %158 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %158 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %157, i64 %idxprom70
-  %159 = load i32, ptr %arrayidx71, align 4
+  %159 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %159 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %158, i64 %idxprom70
+  %160 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %159, ptr %arrayidx72, align 4
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx72, align 4
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %161 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %161 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %160, i64 %idxprom74
-  %162 = load i32, ptr %arrayidx75, align 4
+  %162 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %162 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %161, i64 %idxprom74
+  %163 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %162, ptr %arrayidx76, align 16
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx76, align 16
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %164 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %164 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %163, i64 %idxprom78
-  %165 = load i32, ptr %arrayidx79, align 4
+  %165 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %165 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %164, i64 %idxprom78
+  %166 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %165, ptr %arrayidx80, align 4
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx80, align 4
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %167 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %167 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %166, i64 %idxprom82
-  %168 = load i32, ptr %arrayidx83, align 4
+  %168 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %168 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %167, i64 %idxprom82
+  %169 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %168, ptr %arrayidx84, align 8
-  %169 = load ptr, ptr %to_srgb, align 8
+  store i32 %169, ptr %arrayidx84, align 8
+  %170 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %170 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %170 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %169, i64 %idxprom86
-  %171 = load i32, ptr %arrayidx87, align 4
+  %171 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %171 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %170, i64 %idxprom86
+  %172 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %171, ptr %arrayidx88, align 4
-  %172 = load ptr, ptr %to_srgb, align 8
+  store i32 %172, ptr %arrayidx88, align 4
+  %173 = load ptr, ptr %to_srgb, align 8
   %arrayidx89 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  %173 = load i32, ptr %arrayidx89, align 16
-  %idxprom90 = sext i32 %173 to i64
-  %arrayidx91 = getelementptr inbounds i32, ptr %172, i64 %idxprom90
-  %174 = load i32, ptr %arrayidx91, align 4
+  %174 = load i32, ptr %arrayidx89, align 16
+  %idxprom90 = sext i32 %174 to i64
+  %arrayidx91 = getelementptr inbounds i32, ptr %173, i64 %idxprom90
+  %175 = load i32, ptr %arrayidx91, align 4
   %arrayidx92 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  store i32 %174, ptr %arrayidx92, align 16
-  %175 = load ptr, ptr %to_srgb, align 8
+  store i32 %175, ptr %arrayidx92, align 16
+  %176 = load ptr, ptr %to_srgb, align 8
   %arrayidx93 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  %176 = load i32, ptr %arrayidx93, align 4
-  %idxprom94 = sext i32 %176 to i64
-  %arrayidx95 = getelementptr inbounds i32, ptr %175, i64 %idxprom94
-  %177 = load i32, ptr %arrayidx95, align 4
+  %177 = load i32, ptr %arrayidx93, align 4
+  %idxprom94 = sext i32 %177 to i64
+  %arrayidx95 = getelementptr inbounds i32, ptr %176, i64 %idxprom94
+  %178 = load i32, ptr %arrayidx95, align 4
   %arrayidx96 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  store i32 %177, ptr %arrayidx96, align 4
-  %178 = load ptr, ptr %to_srgb, align 8
+  store i32 %178, ptr %arrayidx96, align 4
+  %179 = load ptr, ptr %to_srgb, align 8
   %arrayidx97 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  %179 = load i32, ptr %arrayidx97, align 8
-  %idxprom98 = sext i32 %179 to i64
-  %arrayidx99 = getelementptr inbounds i32, ptr %178, i64 %idxprom98
-  %180 = load i32, ptr %arrayidx99, align 4
+  %180 = load i32, ptr %arrayidx97, align 8
+  %idxprom98 = sext i32 %180 to i64
+  %arrayidx99 = getelementptr inbounds i32, ptr %179, i64 %idxprom98
+  %181 = load i32, ptr %arrayidx99, align 4
   %arrayidx100 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  store i32 %180, ptr %arrayidx100, align 8
-  %181 = load ptr, ptr %to_srgb, align 8
+  store i32 %181, ptr %arrayidx100, align 8
+  %182 = load ptr, ptr %to_srgb, align 8
   %arrayidx101 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  %182 = load i32, ptr %arrayidx101, align 4
-  %idxprom102 = sext i32 %182 to i64
-  %arrayidx103 = getelementptr inbounds i32, ptr %181, i64 %idxprom102
-  %183 = load i32, ptr %arrayidx103, align 4
+  %183 = load i32, ptr %arrayidx101, align 4
+  %idxprom102 = sext i32 %183 to i64
+  %arrayidx103 = getelementptr inbounds i32, ptr %182, i64 %idxprom102
+  %184 = load i32, ptr %arrayidx103, align 4
   %arrayidx104 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  store i32 %183, ptr %arrayidx104, align 4
-  %184 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %184, ptr %i0, align 16
-  %185 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %185, ptr %i1, align 16
-  %186 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %186, ptr %i2, align 16
-  %187 = load <2 x i64>, ptr %temp3, align 16
-  store <2 x i64> %187, ptr %i3, align 16
-  %188 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %188, ptr %__a.addr.i257, align 16
-  %189 = load <4 x float>, ptr %__a.addr.i257, align 16
-  %190 = bitcast <4 x float> %189 to <2 x i64>
-  store <2 x i64> %190, ptr %__a.addr.i244, align 16
+  store i32 %184, ptr %arrayidx104, align 4
+  %185 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %185, ptr %i0, align 16
+  %186 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %186, ptr %i1, align 16
+  %187 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %187, ptr %i2, align 16
+  %188 = load <2 x i64>, ptr %temp3, align 16
+  store <2 x i64> %188, ptr %i3, align 16
+  %189 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %189, ptr %__a.addr.i257, align 16
+  %190 = load <4 x float>, ptr %__a.addr.i257, align 16
+  %191 = bitcast <4 x float> %190 to <2 x i64>
+  store <2 x i64> %191, ptr %__a.addr.i244, align 16
   store i32 12, ptr %__count.addr.i245, align 4
-  %191 = load <2 x i64>, ptr %__a.addr.i244, align 16
-  %192 = bitcast <2 x i64> %191 to <4 x i32>
-  %193 = load i32, ptr %__count.addr.i245, align 4
-  %194 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %192, i32 %193)
-  %195 = bitcast <4 x i32> %194 to <2 x i64>
-  store <2 x i64> %195, ptr %temp, align 16
-  %196 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %196, ptr %__a.addr.i270, align 16
+  %192 = load <2 x i64>, ptr %__a.addr.i244, align 16
+  %193 = bitcast <2 x i64> %192 to <4 x i32>
+  %194 = load i32, ptr %__count.addr.i245, align 4
+  %195 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %193, i32 %194)
+  %196 = bitcast <4 x i32> %195 to <2 x i64>
+  store <2 x i64> %196, ptr %temp, align 16
+  %197 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %197, ptr %__a.addr.i270, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i271, align 16
-  %197 = load <2 x i64>, ptr %__a.addr.i270, align 16
-  %198 = load <2 x i64>, ptr %__b.addr.i271, align 16
-  %and.i272 = and <2 x i64> %197, %198
+  %198 = load <2 x i64>, ptr %__a.addr.i270, align 16
+  %199 = load <2 x i64>, ptr %__b.addr.i271, align 16
+  %and.i272 = and <2 x i64> %198, %199
   store <2 x i64> %and.i272, ptr %temp, align 16
-  %199 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %199, ptr %__a.addr.i281, align 16
+  %200 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %200, ptr %__a.addr.i281, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i282, align 16
-  %200 = load <2 x i64>, ptr %__a.addr.i281, align 16
-  %201 = load <2 x i64>, ptr %__b.addr.i282, align 16
-  %or.i283 = or <2 x i64> %200, %201
+  %201 = load <2 x i64>, ptr %__a.addr.i281, align 16
+  %202 = load <2 x i64>, ptr %__b.addr.i282, align 16
+  %or.i283 = or <2 x i64> %201, %202
   store <2 x i64> %or.i283, ptr %temp, align 16
-  %202 = load <2 x i64>, ptr %i0, align 16
-  %203 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %202, ptr %__a.addr.i290, align 16
-  store <2 x i64> %203, ptr %__b.addr.i291, align 16
-  %204 = load <2 x i64>, ptr %__a.addr.i290, align 16
-  %205 = bitcast <2 x i64> %204 to <8 x i16>
-  %206 = load <2 x i64>, ptr %__b.addr.i291, align 16
-  %207 = bitcast <2 x i64> %206 to <8 x i16>
-  %208 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %205, <8 x i16> %207)
-  %209 = bitcast <4 x i32> %208 to <2 x i64>
-  store <2 x i64> %209, ptr %i0, align 16
-  %210 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %210, ptr %__a.addr.i242, align 16
+  %203 = load <2 x i64>, ptr %i0, align 16
+  %204 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %203, ptr %__a.addr.i290, align 16
+  store <2 x i64> %204, ptr %__b.addr.i291, align 16
+  %205 = load <2 x i64>, ptr %__a.addr.i290, align 16
+  %206 = bitcast <2 x i64> %205 to <8 x i16>
+  %207 = load <2 x i64>, ptr %__b.addr.i291, align 16
+  %208 = bitcast <2 x i64> %207 to <8 x i16>
+  %209 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %206, <8 x i16> %208)
+  %210 = bitcast <4 x i32> %209 to <2 x i64>
+  store <2 x i64> %210, ptr %i0, align 16
+  %211 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %211, ptr %__a.addr.i242, align 16
   store i32 16, ptr %__count.addr.i243, align 4
-  %211 = load <2 x i64>, ptr %__a.addr.i242, align 16
-  %212 = bitcast <2 x i64> %211 to <4 x i32>
-  %213 = load i32, ptr %__count.addr.i243, align 4
-  %214 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %212, i32 %213)
-  %215 = bitcast <4 x i32> %214 to <2 x i64>
-  store <2 x i64> %215, ptr %i0, align 16
-  %216 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %216, ptr %__a.addr.i256, align 16
-  %217 = load <4 x float>, ptr %__a.addr.i256, align 16
-  %218 = bitcast <4 x float> %217 to <2 x i64>
-  store <2 x i64> %218, ptr %__a.addr.i240, align 16
+  %212 = load <2 x i64>, ptr %__a.addr.i242, align 16
+  %213 = bitcast <2 x i64> %212 to <4 x i32>
+  %214 = load i32, ptr %__count.addr.i243, align 4
+  %215 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %213, i32 %214)
+  %216 = bitcast <4 x i32> %215 to <2 x i64>
+  store <2 x i64> %216, ptr %i0, align 16
+  %217 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %217, ptr %__a.addr.i256, align 16
+  %218 = load <4 x float>, ptr %__a.addr.i256, align 16
+  %219 = bitcast <4 x float> %218 to <2 x i64>
+  store <2 x i64> %219, ptr %__a.addr.i240, align 16
   store i32 12, ptr %__count.addr.i241, align 4
-  %219 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %220 = bitcast <2 x i64> %219 to <4 x i32>
-  %221 = load i32, ptr %__count.addr.i241, align 4
-  %222 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %220, i32 %221)
-  %223 = bitcast <4 x i32> %222 to <2 x i64>
-  store <2 x i64> %223, ptr %temp111, align 16
-  %224 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %224, ptr %__a.addr.i267, align 16
+  %220 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %221 = bitcast <2 x i64> %220 to <4 x i32>
+  %222 = load i32, ptr %__count.addr.i241, align 4
+  %223 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %221, i32 %222)
+  %224 = bitcast <4 x i32> %223 to <2 x i64>
+  store <2 x i64> %224, ptr %temp111, align 16
+  %225 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %225, ptr %__a.addr.i267, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i268, align 16
-  %225 = load <2 x i64>, ptr %__a.addr.i267, align 16
-  %226 = load <2 x i64>, ptr %__b.addr.i268, align 16
-  %and.i269 = and <2 x i64> %225, %226
+  %226 = load <2 x i64>, ptr %__a.addr.i267, align 16
+  %227 = load <2 x i64>, ptr %__b.addr.i268, align 16
+  %and.i269 = and <2 x i64> %226, %227
   store <2 x i64> %and.i269, ptr %temp111, align 16
-  %227 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %227, ptr %__a.addr.i278, align 16
+  %228 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %228, ptr %__a.addr.i278, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i279, align 16
-  %228 = load <2 x i64>, ptr %__a.addr.i278, align 16
-  %229 = load <2 x i64>, ptr %__b.addr.i279, align 16
-  %or.i280 = or <2 x i64> %228, %229
+  %229 = load <2 x i64>, ptr %__a.addr.i278, align 16
+  %230 = load <2 x i64>, ptr %__b.addr.i279, align 16
+  %or.i280 = or <2 x i64> %229, %230
   store <2 x i64> %or.i280, ptr %temp111, align 16
-  %230 = load <2 x i64>, ptr %i1, align 16
-  %231 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %230, ptr %__a.addr.i288, align 16
-  store <2 x i64> %231, ptr %__b.addr.i289, align 16
-  %232 = load <2 x i64>, ptr %__a.addr.i288, align 16
-  %233 = bitcast <2 x i64> %232 to <8 x i16>
-  %234 = load <2 x i64>, ptr %__b.addr.i289, align 16
-  %235 = bitcast <2 x i64> %234 to <8 x i16>
-  %236 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %233, <8 x i16> %235)
-  %237 = bitcast <4 x i32> %236 to <2 x i64>
-  store <2 x i64> %237, ptr %i1, align 16
-  %238 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %238, ptr %__a.addr.i238, align 16
+  %231 = load <2 x i64>, ptr %i1, align 16
+  %232 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %231, ptr %__a.addr.i288, align 16
+  store <2 x i64> %232, ptr %__b.addr.i289, align 16
+  %233 = load <2 x i64>, ptr %__a.addr.i288, align 16
+  %234 = bitcast <2 x i64> %233 to <8 x i16>
+  %235 = load <2 x i64>, ptr %__b.addr.i289, align 16
+  %236 = bitcast <2 x i64> %235 to <8 x i16>
+  %237 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %234, <8 x i16> %236)
+  %238 = bitcast <4 x i32> %237 to <2 x i64>
+  store <2 x i64> %238, ptr %i1, align 16
+  %239 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %239, ptr %__a.addr.i238, align 16
   store i32 16, ptr %__count.addr.i239, align 4
-  %239 = load <2 x i64>, ptr %__a.addr.i238, align 16
-  %240 = bitcast <2 x i64> %239 to <4 x i32>
-  %241 = load i32, ptr %__count.addr.i239, align 4
-  %242 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %240, i32 %241)
-  %243 = bitcast <4 x i32> %242 to <2 x i64>
-  store <2 x i64> %243, ptr %i1, align 16
-  %244 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %244, ptr %__a.addr.i255, align 16
-  %245 = load <4 x float>, ptr %__a.addr.i255, align 16
-  %246 = bitcast <4 x float> %245 to <2 x i64>
-  store <2 x i64> %246, ptr %__a.addr.i236, align 16
+  %240 = load <2 x i64>, ptr %__a.addr.i238, align 16
+  %241 = bitcast <2 x i64> %240 to <4 x i32>
+  %242 = load i32, ptr %__count.addr.i239, align 4
+  %243 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %241, i32 %242)
+  %244 = bitcast <4 x i32> %243 to <2 x i64>
+  store <2 x i64> %244, ptr %i1, align 16
+  %245 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %245, ptr %__a.addr.i255, align 16
+  %246 = load <4 x float>, ptr %__a.addr.i255, align 16
+  %247 = bitcast <4 x float> %246 to <2 x i64>
+  store <2 x i64> %247, ptr %__a.addr.i236, align 16
   store i32 12, ptr %__count.addr.i237, align 4
-  %247 = load <2 x i64>, ptr %__a.addr.i236, align 16
-  %248 = bitcast <2 x i64> %247 to <4 x i32>
-  %249 = load i32, ptr %__count.addr.i237, align 4
-  %250 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %248, i32 %249)
-  %251 = bitcast <4 x i32> %250 to <2 x i64>
-  store <2 x i64> %251, ptr %temp118, align 16
-  %252 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %252, ptr %__a.addr.i264, align 16
+  %248 = load <2 x i64>, ptr %__a.addr.i236, align 16
+  %249 = bitcast <2 x i64> %248 to <4 x i32>
+  %250 = load i32, ptr %__count.addr.i237, align 4
+  %251 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %249, i32 %250)
+  %252 = bitcast <4 x i32> %251 to <2 x i64>
+  store <2 x i64> %252, ptr %temp118, align 16
+  %253 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %253, ptr %__a.addr.i264, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i265, align 16
-  %253 = load <2 x i64>, ptr %__a.addr.i264, align 16
-  %254 = load <2 x i64>, ptr %__b.addr.i265, align 16
-  %and.i266 = and <2 x i64> %253, %254
+  %254 = load <2 x i64>, ptr %__a.addr.i264, align 16
+  %255 = load <2 x i64>, ptr %__b.addr.i265, align 16
+  %and.i266 = and <2 x i64> %254, %255
   store <2 x i64> %and.i266, ptr %temp118, align 16
-  %255 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %255, ptr %__a.addr.i275, align 16
+  %256 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %256, ptr %__a.addr.i275, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i276, align 16
-  %256 = load <2 x i64>, ptr %__a.addr.i275, align 16
-  %257 = load <2 x i64>, ptr %__b.addr.i276, align 16
-  %or.i277 = or <2 x i64> %256, %257
+  %257 = load <2 x i64>, ptr %__a.addr.i275, align 16
+  %258 = load <2 x i64>, ptr %__b.addr.i276, align 16
+  %or.i277 = or <2 x i64> %257, %258
   store <2 x i64> %or.i277, ptr %temp118, align 16
-  %258 = load <2 x i64>, ptr %i2, align 16
-  %259 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %258, ptr %__a.addr.i286, align 16
-  store <2 x i64> %259, ptr %__b.addr.i287, align 16
-  %260 = load <2 x i64>, ptr %__a.addr.i286, align 16
-  %261 = bitcast <2 x i64> %260 to <8 x i16>
-  %262 = load <2 x i64>, ptr %__b.addr.i287, align 16
-  %263 = bitcast <2 x i64> %262 to <8 x i16>
-  %264 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %261, <8 x i16> %263)
-  %265 = bitcast <4 x i32> %264 to <2 x i64>
-  store <2 x i64> %265, ptr %i2, align 16
-  %266 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %266, ptr %__a.addr.i234, align 16
+  %259 = load <2 x i64>, ptr %i2, align 16
+  %260 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %259, ptr %__a.addr.i286, align 16
+  store <2 x i64> %260, ptr %__b.addr.i287, align 16
+  %261 = load <2 x i64>, ptr %__a.addr.i286, align 16
+  %262 = bitcast <2 x i64> %261 to <8 x i16>
+  %263 = load <2 x i64>, ptr %__b.addr.i287, align 16
+  %264 = bitcast <2 x i64> %263 to <8 x i16>
+  %265 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %262, <8 x i16> %264)
+  %266 = bitcast <4 x i32> %265 to <2 x i64>
+  store <2 x i64> %266, ptr %i2, align 16
+  %267 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %267, ptr %__a.addr.i234, align 16
   store i32 16, ptr %__count.addr.i235, align 4
-  %267 = load <2 x i64>, ptr %__a.addr.i234, align 16
-  %268 = bitcast <2 x i64> %267 to <4 x i32>
-  %269 = load i32, ptr %__count.addr.i235, align 4
-  %270 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %268, i32 %269)
-  %271 = bitcast <4 x i32> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i2, align 16
-  %272 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %272, ptr %__a.addr.i254, align 16
-  %273 = load <4 x float>, ptr %__a.addr.i254, align 16
-  %274 = bitcast <4 x float> %273 to <2 x i64>
-  store <2 x i64> %274, ptr %__a.addr.i232, align 16
+  %268 = load <2 x i64>, ptr %__a.addr.i234, align 16
+  %269 = bitcast <2 x i64> %268 to <4 x i32>
+  %270 = load i32, ptr %__count.addr.i235, align 4
+  %271 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %269, i32 %270)
+  %272 = bitcast <4 x i32> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i2, align 16
+  %273 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %273, ptr %__a.addr.i254, align 16
+  %274 = load <4 x float>, ptr %__a.addr.i254, align 16
+  %275 = bitcast <4 x float> %274 to <2 x i64>
+  store <2 x i64> %275, ptr %__a.addr.i232, align 16
   store i32 12, ptr %__count.addr.i233, align 4
-  %275 = load <2 x i64>, ptr %__a.addr.i232, align 16
-  %276 = bitcast <2 x i64> %275 to <4 x i32>
-  %277 = load i32, ptr %__count.addr.i233, align 4
-  %278 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %276, i32 %277)
-  %279 = bitcast <4 x i32> %278 to <2 x i64>
-  store <2 x i64> %279, ptr %temp125, align 16
-  %280 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %280, ptr %__a.addr.i262, align 16
+  %276 = load <2 x i64>, ptr %__a.addr.i232, align 16
+  %277 = bitcast <2 x i64> %276 to <4 x i32>
+  %278 = load i32, ptr %__count.addr.i233, align 4
+  %279 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %277, i32 %278)
+  %280 = bitcast <4 x i32> %279 to <2 x i64>
+  store <2 x i64> %280, ptr %temp125, align 16
+  %281 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %281, ptr %__a.addr.i262, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i263, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i262, align 16
-  %282 = load <2 x i64>, ptr %__b.addr.i263, align 16
-  %and.i = and <2 x i64> %281, %282
+  %282 = load <2 x i64>, ptr %__a.addr.i262, align 16
+  %283 = load <2 x i64>, ptr %__b.addr.i263, align 16
+  %and.i = and <2 x i64> %282, %283
   store <2 x i64> %and.i, ptr %temp125, align 16
-  %283 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %283, ptr %__a.addr.i273, align 16
+  %284 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %284, ptr %__a.addr.i273, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i274, align 16
-  %284 = load <2 x i64>, ptr %__a.addr.i273, align 16
-  %285 = load <2 x i64>, ptr %__b.addr.i274, align 16
-  %or.i = or <2 x i64> %284, %285
+  %285 = load <2 x i64>, ptr %__a.addr.i273, align 16
+  %286 = load <2 x i64>, ptr %__b.addr.i274, align 16
+  %or.i = or <2 x i64> %285, %286
   store <2 x i64> %or.i, ptr %temp125, align 16
-  %286 = load <2 x i64>, ptr %i3, align 16
-  %287 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %286, ptr %__a.addr.i284, align 16
-  store <2 x i64> %287, ptr %__b.addr.i285, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i284, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i285, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %292 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %289, <8 x i16> %291)
-  %293 = bitcast <4 x i32> %292 to <2 x i64>
-  store <2 x i64> %293, ptr %i3, align 16
-  %294 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %294, ptr %__a.addr.i231, align 16
+  %287 = load <2 x i64>, ptr %i3, align 16
+  %288 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %287, ptr %__a.addr.i284, align 16
+  store <2 x i64> %288, ptr %__b.addr.i285, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i284, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i285, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %293 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %290, <8 x i16> %292)
+  %294 = bitcast <4 x i32> %293 to <2 x i64>
+  store <2 x i64> %294, ptr %i3, align 16
+  %295 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %295, ptr %__a.addr.i231, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %295 = load <2 x i64>, ptr %__a.addr.i231, align 16
-  %296 = bitcast <2 x i64> %295 to <4 x i32>
-  %297 = load i32, ptr %__count.addr.i, align 4
-  %298 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %296, i32 %297)
-  %299 = bitcast <4 x i32> %298 to <2 x i64>
-  store <2 x i64> %299, ptr %i3, align 16
-  %300 = load <2 x i64>, ptr %i3, align 16
-  %301 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %300, ptr %__a.addr.i195, align 16
-  store <2 x i64> %301, ptr %__b.addr.i196, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i195, align 16
-  %303 = bitcast <2 x i64> %302 to <4 x i32>
-  %304 = load <2 x i64>, ptr %__b.addr.i196, align 16
-  %305 = bitcast <2 x i64> %304 to <4 x i32>
-  %306 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %303, <4 x i32> %305)
-  %307 = bitcast <8 x i16> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i3, align 16
-  %308 = load <2 x i64>, ptr %i1, align 16
-  %309 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %308, ptr %__a.addr.i193, align 16
-  store <2 x i64> %309, ptr %__b.addr.i194, align 16
-  %310 = load <2 x i64>, ptr %__a.addr.i193, align 16
-  %311 = bitcast <2 x i64> %310 to <4 x i32>
-  %312 = load <2 x i64>, ptr %__b.addr.i194, align 16
-  %313 = bitcast <2 x i64> %312 to <4 x i32>
-  %314 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %311, <4 x i32> %313)
-  %315 = bitcast <8 x i16> %314 to <2 x i64>
-  store <2 x i64> %315, ptr %i1, align 16
-  %316 = load <2 x i64>, ptr %i3, align 16
-  %317 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %316, ptr %__a.addr.i168, align 16
-  store <2 x i64> %317, ptr %__b.addr.i169, align 16
-  %318 = load <2 x i64>, ptr %__a.addr.i168, align 16
-  %319 = bitcast <2 x i64> %318 to <8 x i16>
-  %320 = load <2 x i64>, ptr %__b.addr.i169, align 16
-  %321 = bitcast <2 x i64> %320 to <8 x i16>
-  %shuffle.i170 = shufflevector <8 x i16> %319, <8 x i16> %321, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %322 = bitcast <8 x i16> %shuffle.i170 to <2 x i64>
-  store <2 x i64> %322, ptr %i2, align 16
-  %323 = load <2 x i64>, ptr %i3, align 16
-  %324 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %323, ptr %__a.addr.i174, align 16
-  store <2 x i64> %324, ptr %__b.addr.i175, align 16
-  %325 = load <2 x i64>, ptr %__a.addr.i174, align 16
-  %326 = bitcast <2 x i64> %325 to <8 x i16>
-  %327 = load <2 x i64>, ptr %__b.addr.i175, align 16
-  %328 = bitcast <2 x i64> %327 to <8 x i16>
-  %shuffle.i176 = shufflevector <8 x i16> %326, <8 x i16> %328, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %329 = bitcast <8 x i16> %shuffle.i176 to <2 x i64>
-  store <2 x i64> %329, ptr %i0, align 16
-  %330 = load <2 x i64>, ptr %i2, align 16
-  %331 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %330, ptr %__a.addr.i, align 16
-  store <2 x i64> %331, ptr %__b.addr.i, align 16
-  %332 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %333 = bitcast <2 x i64> %332 to <8 x i16>
-  %334 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %335 = bitcast <2 x i64> %334 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %333, <8 x i16> %335, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %336 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %336, ptr %i3, align 16
-  %337 = load <2 x i64>, ptr %i2, align 16
-  %338 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %337, ptr %__a.addr.i171, align 16
-  store <2 x i64> %338, ptr %__b.addr.i172, align 16
-  %339 = load <2 x i64>, ptr %__a.addr.i171, align 16
-  %340 = bitcast <2 x i64> %339 to <8 x i16>
-  %341 = load <2 x i64>, ptr %__b.addr.i172, align 16
-  %342 = bitcast <2 x i64> %341 to <8 x i16>
-  %shuffle.i173 = shufflevector <8 x i16> %340, <8 x i16> %342, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %343 = bitcast <8 x i16> %shuffle.i173 to <2 x i64>
-  store <2 x i64> %343, ptr %i1, align 16
-  %344 = load <2 x i64>, ptr %i3, align 16
-  %345 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %344, ptr %__a.addr.i197, align 16
-  store <2 x i64> %345, ptr %__b.addr.i198, align 16
-  %346 = load <2 x i64>, ptr %__a.addr.i197, align 16
-  %347 = bitcast <2 x i64> %346 to <8 x i16>
-  %348 = load <2 x i64>, ptr %__b.addr.i198, align 16
-  %349 = bitcast <2 x i64> %348 to <8 x i16>
-  %350 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %347, <8 x i16> %349)
-  %351 = bitcast <16 x i8> %350 to <2 x i64>
-  store <2 x i64> %351, ptr %i3, align 16
-  %352 = load ptr, ptr %output, align 8
-  %353 = load <2 x i64>, ptr %i3, align 16
-  store ptr %352, ptr %__p.addr.i292, align 8
-  store <2 x i64> %353, ptr %__b.addr.i293, align 16
-  %354 = load <2 x i64>, ptr %__b.addr.i293, align 16
-  %355 = load ptr, ptr %__p.addr.i292, align 8
-  store <2 x i64> %354, ptr %355, align 1
-  %356 = load ptr, ptr %encode.addr, align 8
-  %add.ptr139 = getelementptr inbounds float, ptr %356, i64 16
+  %296 = load <2 x i64>, ptr %__a.addr.i231, align 16
+  %297 = bitcast <2 x i64> %296 to <4 x i32>
+  %298 = load i32, ptr %__count.addr.i, align 4
+  %299 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %297, i32 %298)
+  %300 = bitcast <4 x i32> %299 to <2 x i64>
+  store <2 x i64> %300, ptr %i3, align 16
+  %301 = load <2 x i64>, ptr %i3, align 16
+  %302 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %301, ptr %__a.addr.i195, align 16
+  store <2 x i64> %302, ptr %__b.addr.i196, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i195, align 16
+  %304 = bitcast <2 x i64> %303 to <4 x i32>
+  %305 = load <2 x i64>, ptr %__b.addr.i196, align 16
+  %306 = bitcast <2 x i64> %305 to <4 x i32>
+  %307 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %304, <4 x i32> %306)
+  %308 = bitcast <8 x i16> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i3, align 16
+  %309 = load <2 x i64>, ptr %i1, align 16
+  %310 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %309, ptr %__a.addr.i193, align 16
+  store <2 x i64> %310, ptr %__b.addr.i194, align 16
+  %311 = load <2 x i64>, ptr %__a.addr.i193, align 16
+  %312 = bitcast <2 x i64> %311 to <4 x i32>
+  %313 = load <2 x i64>, ptr %__b.addr.i194, align 16
+  %314 = bitcast <2 x i64> %313 to <4 x i32>
+  %315 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %312, <4 x i32> %314)
+  %316 = bitcast <8 x i16> %315 to <2 x i64>
+  store <2 x i64> %316, ptr %i1, align 16
+  %317 = load <2 x i64>, ptr %i3, align 16
+  %318 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %317, ptr %__a.addr.i168, align 16
+  store <2 x i64> %318, ptr %__b.addr.i169, align 16
+  %319 = load <2 x i64>, ptr %__a.addr.i168, align 16
+  %320 = bitcast <2 x i64> %319 to <8 x i16>
+  %321 = load <2 x i64>, ptr %__b.addr.i169, align 16
+  %322 = bitcast <2 x i64> %321 to <8 x i16>
+  %shuffle.i170 = shufflevector <8 x i16> %320, <8 x i16> %322, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %323 = bitcast <8 x i16> %shuffle.i170 to <2 x i64>
+  store <2 x i64> %323, ptr %i2, align 16
+  %324 = load <2 x i64>, ptr %i3, align 16
+  %325 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %324, ptr %__a.addr.i174, align 16
+  store <2 x i64> %325, ptr %__b.addr.i175, align 16
+  %326 = load <2 x i64>, ptr %__a.addr.i174, align 16
+  %327 = bitcast <2 x i64> %326 to <8 x i16>
+  %328 = load <2 x i64>, ptr %__b.addr.i175, align 16
+  %329 = bitcast <2 x i64> %328 to <8 x i16>
+  %shuffle.i176 = shufflevector <8 x i16> %327, <8 x i16> %329, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %330 = bitcast <8 x i16> %shuffle.i176 to <2 x i64>
+  store <2 x i64> %330, ptr %i0, align 16
+  %331 = load <2 x i64>, ptr %i2, align 16
+  %332 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %331, ptr %__a.addr.i, align 16
+  store <2 x i64> %332, ptr %__b.addr.i, align 16
+  %333 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %334 = bitcast <2 x i64> %333 to <8 x i16>
+  %335 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %336 = bitcast <2 x i64> %335 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %334, <8 x i16> %336, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %337 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %337, ptr %i3, align 16
+  %338 = load <2 x i64>, ptr %i2, align 16
+  %339 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %338, ptr %__a.addr.i171, align 16
+  store <2 x i64> %339, ptr %__b.addr.i172, align 16
+  %340 = load <2 x i64>, ptr %__a.addr.i171, align 16
+  %341 = bitcast <2 x i64> %340 to <8 x i16>
+  %342 = load <2 x i64>, ptr %__b.addr.i172, align 16
+  %343 = bitcast <2 x i64> %342 to <8 x i16>
+  %shuffle.i173 = shufflevector <8 x i16> %341, <8 x i16> %343, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %344 = bitcast <8 x i16> %shuffle.i173 to <2 x i64>
+  store <2 x i64> %344, ptr %i1, align 16
+  %345 = load <2 x i64>, ptr %i3, align 16
+  %346 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %345, ptr %__a.addr.i197, align 16
+  store <2 x i64> %346, ptr %__b.addr.i198, align 16
+  %347 = load <2 x i64>, ptr %__a.addr.i197, align 16
+  %348 = bitcast <2 x i64> %347 to <8 x i16>
+  %349 = load <2 x i64>, ptr %__b.addr.i198, align 16
+  %350 = bitcast <2 x i64> %349 to <8 x i16>
+  %351 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %348, <8 x i16> %350)
+  %352 = bitcast <16 x i8> %351 to <2 x i64>
+  store <2 x i64> %352, ptr %i3, align 16
+  %353 = load ptr, ptr %output, align 8
+  %354 = load <2 x i64>, ptr %i3, align 16
+  store ptr %353, ptr %__p.addr.i292, align 8
+  store <2 x i64> %354, ptr %__b.addr.i293, align 16
+  %355 = load <2 x i64>, ptr %__b.addr.i293, align 16
+  %356 = load ptr, ptr %__p.addr.i292, align 8
+  store <2 x i64> %355, ptr %356, align 1
+  %357 = load ptr, ptr %encode.addr, align 8
+  %add.ptr139 = getelementptr inbounds float, ptr %357, i64 16
   store ptr %add.ptr139, ptr %encode.addr, align 8
-  %357 = load ptr, ptr %output, align 8
-  %add.ptr140 = getelementptr inbounds i8, ptr %357, i64 16
-  store ptr %add.ptr140, ptr %output, align 8
   %358 = load ptr, ptr %output, align 8
-  %359 = load ptr, ptr %end_output, align 8
-  %cmp141 = icmp ule ptr %358, %359
+  %add.ptr140 = getelementptr inbounds i8, ptr %358, i64 16
+  store ptr %add.ptr140, ptr %output, align 8
+  %359 = load ptr, ptr %output, align 8
+  %360 = load ptr, ptr %end_output, align 8
+  %cmp141 = icmp ule ptr %359, %360
   br i1 %cmp141, label %if.then142, label %if.end
 
 if.then142:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %360 = load ptr, ptr %output, align 8
-  %361 = load ptr, ptr %end_output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %361, i64 16
-  %cmp144 = icmp eq ptr %360, %add.ptr143
+  %361 = load ptr, ptr %output, align 8
+  %362 = load ptr, ptr %end_output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %362, i64 16
+  %cmp144 = icmp eq ptr %361, %add.ptr143
   br i1 %cmp144, label %if.then145, label %if.end146
 
 if.then145:                                       ; preds = %if.end
   br label %for.end
 
 if.end146:                                        ; preds = %if.end
-  %362 = load ptr, ptr %end_output, align 8
-  store ptr %362, ptr %output, align 8
-  %363 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %363, ptr %encode.addr, align 8
+  %363 = load ptr, ptr %end_output, align 8
+  store ptr %363, ptr %output, align 8
+  %364 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %364, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then145
   br label %return
 
 if.end147:                                        ; preds = %entry
-  %364 = load ptr, ptr %output, align 8
-  %add.ptr148 = getelementptr inbounds i8, ptr %364, i64 4
+  %365 = load ptr, ptr %output, align 8
+  %add.ptr148 = getelementptr inbounds i8, ptr %365, i64 4
   store ptr %add.ptr148, ptr %output, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end147
-  %365 = load ptr, ptr %output, align 8
-  %366 = load ptr, ptr %end_output, align 8
-  %cmp149 = icmp ule ptr %365, %366
+  %366 = load ptr, ptr %output, align 8
+  %367 = load ptr, ptr %end_output, align 8
+  %cmp149 = icmp ule ptr %366, %367
   br i1 %cmp149, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %367 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %367) #9, !srcloc !255
   %368 = load ptr, ptr %encode.addr, align 8
-  %arrayidx150 = getelementptr inbounds float, ptr %368, i64 3
-  %369 = load float, ptr %arrayidx150, align 4
-  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %369)
-  %370 = load ptr, ptr %output, align 8
-  %arrayidx152 = getelementptr inbounds i8, ptr %370, i64 -4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %368) #9, !srcloc !255
+  %369 = load ptr, ptr %encode.addr, align 8
+  %arrayidx150 = getelementptr inbounds float, ptr %369, i64 3
+  %370 = load float, ptr %arrayidx150, align 4
+  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %370)
+  %371 = load ptr, ptr %output, align 8
+  %arrayidx152 = getelementptr inbounds i8, ptr %371, i64 -4
   store i8 %call151, ptr %arrayidx152, align 1
-  %371 = load ptr, ptr %encode.addr, align 8
-  %arrayidx153 = getelementptr inbounds float, ptr %371, i64 2
-  %372 = load float, ptr %arrayidx153, align 4
-  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %372)
-  %373 = load ptr, ptr %output, align 8
-  %arrayidx155 = getelementptr inbounds i8, ptr %373, i64 -3
+  %372 = load ptr, ptr %encode.addr, align 8
+  %arrayidx153 = getelementptr inbounds float, ptr %372, i64 2
+  %373 = load float, ptr %arrayidx153, align 4
+  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %373)
+  %374 = load ptr, ptr %output, align 8
+  %arrayidx155 = getelementptr inbounds i8, ptr %374, i64 -3
   store i8 %call154, ptr %arrayidx155, align 1
-  %374 = load ptr, ptr %encode.addr, align 8
-  %arrayidx156 = getelementptr inbounds float, ptr %374, i64 1
-  %375 = load float, ptr %arrayidx156, align 4
-  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %375)
-  %376 = load ptr, ptr %output, align 8
-  %arrayidx158 = getelementptr inbounds i8, ptr %376, i64 -2
+  %375 = load ptr, ptr %encode.addr, align 8
+  %arrayidx156 = getelementptr inbounds float, ptr %375, i64 1
+  %376 = load float, ptr %arrayidx156, align 4
+  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %376)
+  %377 = load ptr, ptr %output, align 8
+  %arrayidx158 = getelementptr inbounds i8, ptr %377, i64 -2
   store i8 %call157, ptr %arrayidx158, align 1
-  %377 = load ptr, ptr %encode.addr, align 8
-  %arrayidx159 = getelementptr inbounds float, ptr %377, i64 0
-  %378 = load float, ptr %arrayidx159, align 4
-  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %378)
-  %379 = load ptr, ptr %output, align 8
-  %arrayidx161 = getelementptr inbounds i8, ptr %379, i64 -1
-  store i8 %call160, ptr %arrayidx161, align 1
+  %378 = load ptr, ptr %encode.addr, align 8
+  %arrayidx159 = getelementptr inbounds float, ptr %378, i64 0
+  %379 = load float, ptr %arrayidx159, align 4
+  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %379)
   %380 = load ptr, ptr %output, align 8
-  %add.ptr162 = getelementptr inbounds i8, ptr %380, i64 4
+  %arrayidx161 = getelementptr inbounds i8, ptr %380, i64 -1
+  store i8 %call160, ptr %arrayidx161, align 1
+  %381 = load ptr, ptr %output, align 8
+  %add.ptr162 = getelementptr inbounds i8, ptr %381, i64 4
   store ptr %add.ptr162, ptr %output, align 8
-  %381 = load ptr, ptr %encode.addr, align 8
-  %add.ptr163 = getelementptr inbounds float, ptr %381, i64 4
+  %382 = load ptr, ptr %encode.addr, align 8
+  %add.ptr163 = getelementptr inbounds float, ptr %382, i64 4
   store ptr %add.ptr163, ptr %encode.addr, align 8
   br label %while.cond, !llvm.loop !256
 
 while.end:                                        ; preds = %while.cond
-  %382 = load ptr, ptr %output, align 8
-  %add.ptr164 = getelementptr inbounds i8, ptr %382, i64 -4
+  %383 = load ptr, ptr %output, align 8
+  %add.ptr164 = getelementptr inbounds i8, ptr %383, i64 -4
   store ptr %add.ptr164, ptr %output, align 8
   br label %return
 
@@ -25160,602 +25168,603 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end124
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end123, %if.then119, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !258
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i150, align 8
-  %9 = load ptr, ptr %__p.addr.i150, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !258
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i150, align 8
+  %10 = load ptr, ptr %__p.addr.i150, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i149, align 8
-  %12 = load ptr, ptr %__p.addr.i149, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i149, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i148, align 8
-  %15 = load ptr, ptr %__p.addr.i148, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i148, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i190, align 16
-  store <4 x float> %21, ptr %__b.addr.i191, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i190, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i191, align 16
-  %shuffle.i192 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i190, align 16
+  store <4 x float> %22, ptr %__b.addr.i191, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i190, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i191, align 16
+  %shuffle.i192 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i192, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i187, align 16
-  store <4 x float> %25, ptr %__b.addr.i188, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %shuffle.i189 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i187, align 16
+  store <4 x float> %26, ptr %__b.addr.i188, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %shuffle.i189 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i189, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i196, align 16
-  store <4 x float> %29, ptr %__b.addr.i197, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i196, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i197, align 16
-  %shuffle.i198 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i196, align 16
+  store <4 x float> %30, ptr %__b.addr.i197, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i196, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i197, align 16
+  %shuffle.i198 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i198, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i193, align 16
-  store <4 x float> %33, ptr %__b.addr.i194, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i193, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i194, align 16
-  %shuffle.i195 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i193, align 16
+  store <4 x float> %34, ptr %__b.addr.i194, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i193, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i194, align 16
+  %shuffle.i195 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i195, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i202, align 16
-  store <4 x float> %37, ptr %__b.addr.i203, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i202, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i203, align 16
-  %shuffle.i204 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i202, align 16
+  store <4 x float> %38, ptr %__b.addr.i203, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i202, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i203, align 16
+  %shuffle.i204 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i204, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i208, align 16
-  store <4 x float> %41, ptr %__b.addr.i209, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i209, align 16
-  %shuffle.i210 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i208, align 16
+  store <4 x float> %42, ptr %__b.addr.i209, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i209, align 16
+  %shuffle.i210 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i210, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i199, align 16
-  store <4 x float> %45, ptr %__b.addr.i200, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %shuffle.i201 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i199, align 16
+  store <4 x float> %46, ptr %__b.addr.i200, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i199, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %shuffle.i201 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i201, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i205, align 16
-  store <4 x float> %49, ptr %__b.addr.i206, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i206, align 16
-  %shuffle.i207 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i205, align 16
+  store <4 x float> %50, ptr %__b.addr.i206, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i206, align 16
+  %shuffle.i207 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i207, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i216, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i216, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i178, align 16
-  store <4 x float> %54, ptr %__b.addr.i179, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i178, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i179, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i216, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i178, align 16
+  store <4 x float> %55, ptr %__b.addr.i179, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i178, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i179, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i215, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i215, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i170, align 16
-  store <4 x float> %60, ptr %__b.addr.i171, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i170, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i171, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i239, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i239, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i232, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i215, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i170, align 16
+  store <4 x float> %61, ptr %__b.addr.i171, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i170, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i171, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i239, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i239, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i232, align 16
   store i32 20, ptr %__count.addr.i233, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i232, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i233, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i232, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i233, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i214, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i214, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i176, align 16
-  store <4 x float> %74, ptr %__b.addr.i177, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i176, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i177, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i214, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i176, align 16
+  store <4 x float> %75, ptr %__b.addr.i177, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i176, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i177, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i213, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i213, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i168, align 16
-  store <4 x float> %80, ptr %__b.addr.i169, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i168, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i169, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i238, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i238, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i230, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i213, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i168, align 16
+  store <4 x float> %81, ptr %__b.addr.i169, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i168, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i169, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i238, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i238, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i230, align 16
   store i32 20, ptr %__count.addr.i231, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i230, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i231, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i230, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i231, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i212, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i212, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i174, align 16
-  store <4 x float> %94, ptr %__b.addr.i175, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i174, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i175, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i212, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i174, align 16
+  store <4 x float> %95, ptr %__b.addr.i175, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i174, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i175, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i211, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i211, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i166, align 16
-  store <4 x float> %100, ptr %__b.addr.i167, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i166, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i167, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i237, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i237, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i228, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i211, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i166, align 16
+  store <4 x float> %101, ptr %__b.addr.i167, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i166, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i167, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i237, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i237, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i228, align 16
   store i32 20, ptr %__count.addr.i229, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i228, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i229, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i228, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i229, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__a.addr.i160, align 16
-  store <4 x float> %112, ptr %__b.addr.i161, align 16
-  %113 = load <4 x float>, ptr %__a.addr.i160, align 16
-  %114 = load <4 x float>, ptr %__b.addr.i161, align 16
-  %mul.i = fmul <4 x float> %113, %114
+  store <4 x float> %113, ptr %__b.addr.i161, align 16
+  %114 = load <4 x float>, ptr %__a.addr.i160, align 16
+  %115 = load <4 x float>, ptr %__b.addr.i161, align 16
+  %mul.i = fmul <4 x float> %114, %115
   store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %__a.addr.i162, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i163, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i162, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i163, align 16
-  %add.i = fadd <4 x float> %115, %116
+  %116 = load <4 x float>, ptr %__a.addr.i162, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i163, align 16
+  %add.i = fadd <4 x float> %116, %117
   store <4 x float> %add.i, ptr %f3, align 16
-  %117 = load <4 x float>, ptr %f3, align 16
+  %118 = load <4 x float>, ptr %f3, align 16
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i, align 16
-  %118 = load <4 x float>, ptr %.compoundliteral.i, align 16
-  store <4 x float> %117, ptr %__a.addr.i172, align 16
-  store <4 x float> %118, ptr %__b.addr.i173, align 16
-  %119 = load <4 x float>, ptr %__a.addr.i172, align 16
-  %120 = load <4 x float>, ptr %__b.addr.i173, align 16
-  %121 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %119, <4 x float> %120)
-  store <4 x float> %121, ptr %f3, align 16
-  %122 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %122, ptr %__a.addr.i164, align 16
+  %119 = load <4 x float>, ptr %.compoundliteral.i, align 16
+  store <4 x float> %118, ptr %__a.addr.i172, align 16
+  store <4 x float> %119, ptr %__b.addr.i173, align 16
+  %120 = load <4 x float>, ptr %__a.addr.i172, align 16
+  %121 = load <4 x float>, ptr %__b.addr.i173, align 16
+  %122 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %120, <4 x float> %121)
+  store <4 x float> %122, ptr %f3, align 16
+  %123 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %123, ptr %__a.addr.i164, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__b.addr.i165, align 16
-  %123 = load <4 x float>, ptr %__a.addr.i164, align 16
-  %124 = load <4 x float>, ptr %__b.addr.i165, align 16
-  %125 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %123, <4 x float> %124)
-  store <4 x float> %125, ptr %f3, align 16
-  %126 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %126, ptr %__a.addr.i180, align 16
-  %127 = load <4 x float>, ptr %__a.addr.i180, align 16
-  %128 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %127)
-  %129 = bitcast <4 x i32> %128 to <2 x i64>
-  store <2 x i64> %129, ptr %i3, align 16
-  %130 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %130, ptr %temp0, align 16
-  %131 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %131, ptr %temp1, align 16
-  %132 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %132, ptr %temp2, align 16
-  %133 = load ptr, ptr %to_srgb, align 8
+  %124 = load <4 x float>, ptr %__a.addr.i164, align 16
+  %125 = load <4 x float>, ptr %__b.addr.i165, align 16
+  %126 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %124, <4 x float> %125)
+  store <4 x float> %126, ptr %f3, align 16
+  %127 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %127, ptr %__a.addr.i180, align 16
+  %128 = load <4 x float>, ptr %__a.addr.i180, align 16
+  %129 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %128)
+  %130 = bitcast <4 x i32> %129 to <2 x i64>
+  store <2 x i64> %130, ptr %i3, align 16
+  %131 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %131, ptr %temp0, align 16
+  %132 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %132, ptr %temp1, align 16
+  %133 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %133, ptr %temp2, align 16
+  %134 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %134 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %134 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %133, i64 %idxprom
-  %135 = load i32, ptr %arrayidx43, align 4
+  %135 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %135 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %134, i64 %idxprom
+  %136 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %135, ptr %arrayidx44, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  store i32 %136, ptr %arrayidx44, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %137 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %137 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %136, i64 %idxprom46
-  %138 = load i32, ptr %arrayidx47, align 4
+  %138 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %138 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %137, i64 %idxprom46
+  %139 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %138, ptr %arrayidx48, align 4
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx48, align 4
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %140 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %140 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %139, i64 %idxprom50
-  %141 = load i32, ptr %arrayidx51, align 4
+  %141 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %141 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %140, i64 %idxprom50
+  %142 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %141, ptr %arrayidx52, align 8
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx52, align 8
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %143 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %143 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %142, i64 %idxprom54
-  %144 = load i32, ptr %arrayidx55, align 4
+  %144 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %144 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %143, i64 %idxprom54
+  %145 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %144, ptr %arrayidx56, align 4
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx56, align 4
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %146 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %146 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %145, i64 %idxprom58
-  %147 = load i32, ptr %arrayidx59, align 4
+  %147 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %147 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %146, i64 %idxprom58
+  %148 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %147, ptr %arrayidx60, align 16
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx60, align 16
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %149 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %149 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %148, i64 %idxprom62
-  %150 = load i32, ptr %arrayidx63, align 4
+  %150 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %150 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %149, i64 %idxprom62
+  %151 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %150, ptr %arrayidx64, align 4
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx64, align 4
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %152 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %152 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %151, i64 %idxprom66
-  %153 = load i32, ptr %arrayidx67, align 4
+  %153 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %153 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %152, i64 %idxprom66
+  %154 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %153, ptr %arrayidx68, align 8
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx68, align 8
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %155 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %155 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %154, i64 %idxprom70
-  %156 = load i32, ptr %arrayidx71, align 4
+  %156 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %156 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %155, i64 %idxprom70
+  %157 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %156, ptr %arrayidx72, align 4
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx72, align 4
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %158 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %158 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %157, i64 %idxprom74
-  %159 = load i32, ptr %arrayidx75, align 4
+  %159 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %159 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %158, i64 %idxprom74
+  %160 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %159, ptr %arrayidx76, align 16
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx76, align 16
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %161 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %161 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %160, i64 %idxprom78
-  %162 = load i32, ptr %arrayidx79, align 4
+  %162 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %162 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %161, i64 %idxprom78
+  %163 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %162, ptr %arrayidx80, align 4
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx80, align 4
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %164 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %164 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %163, i64 %idxprom82
-  %165 = load i32, ptr %arrayidx83, align 4
+  %165 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %165 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %164, i64 %idxprom82
+  %166 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %165, ptr %arrayidx84, align 8
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx84, align 8
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %167 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %167 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %166, i64 %idxprom86
-  %168 = load i32, ptr %arrayidx87, align 4
+  %168 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %168 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %167, i64 %idxprom86
+  %169 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %168, ptr %arrayidx88, align 4
-  %169 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %169, ptr %i0, align 16
-  %170 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %170, ptr %i1, align 16
-  %171 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %171, ptr %i2, align 16
-  %172 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %172, ptr %__a.addr.i236, align 16
-  %173 = load <4 x float>, ptr %__a.addr.i236, align 16
-  %174 = bitcast <4 x float> %173 to <2 x i64>
-  store <2 x i64> %174, ptr %__a.addr.i226, align 16
+  store i32 %169, ptr %arrayidx88, align 4
+  %170 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %170, ptr %i0, align 16
+  %171 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %171, ptr %i1, align 16
+  %172 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %172, ptr %i2, align 16
+  %173 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %173, ptr %__a.addr.i236, align 16
+  %174 = load <4 x float>, ptr %__a.addr.i236, align 16
+  %175 = bitcast <4 x float> %174 to <2 x i64>
+  store <2 x i64> %175, ptr %__a.addr.i226, align 16
   store i32 12, ptr %__count.addr.i227, align 4
-  %175 = load <2 x i64>, ptr %__a.addr.i226, align 16
-  %176 = bitcast <2 x i64> %175 to <4 x i32>
-  %177 = load i32, ptr %__count.addr.i227, align 4
-  %178 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %176, i32 %177)
-  %179 = bitcast <4 x i32> %178 to <2 x i64>
-  store <2 x i64> %179, ptr %temp, align 16
-  %180 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %180, ptr %__a.addr.i245, align 16
+  %176 = load <2 x i64>, ptr %__a.addr.i226, align 16
+  %177 = bitcast <2 x i64> %176 to <4 x i32>
+  %178 = load i32, ptr %__count.addr.i227, align 4
+  %179 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %177, i32 %178)
+  %180 = bitcast <4 x i32> %179 to <2 x i64>
+  store <2 x i64> %180, ptr %temp, align 16
+  %181 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %181, ptr %__a.addr.i245, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i246, align 16
-  %181 = load <2 x i64>, ptr %__a.addr.i245, align 16
-  %182 = load <2 x i64>, ptr %__b.addr.i246, align 16
-  %and.i247 = and <2 x i64> %181, %182
+  %182 = load <2 x i64>, ptr %__a.addr.i245, align 16
+  %183 = load <2 x i64>, ptr %__b.addr.i246, align 16
+  %and.i247 = and <2 x i64> %182, %183
   store <2 x i64> %and.i247, ptr %temp, align 16
-  %183 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %183, ptr %__a.addr.i253, align 16
+  %184 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %184, ptr %__a.addr.i253, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i254, align 16
-  %184 = load <2 x i64>, ptr %__a.addr.i253, align 16
-  %185 = load <2 x i64>, ptr %__b.addr.i254, align 16
-  %or.i255 = or <2 x i64> %184, %185
+  %185 = load <2 x i64>, ptr %__a.addr.i253, align 16
+  %186 = load <2 x i64>, ptr %__b.addr.i254, align 16
+  %or.i255 = or <2 x i64> %185, %186
   store <2 x i64> %or.i255, ptr %temp, align 16
-  %186 = load <2 x i64>, ptr %i0, align 16
-  %187 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %186, ptr %__a.addr.i260, align 16
-  store <2 x i64> %187, ptr %__b.addr.i261, align 16
-  %188 = load <2 x i64>, ptr %__a.addr.i260, align 16
-  %189 = bitcast <2 x i64> %188 to <8 x i16>
-  %190 = load <2 x i64>, ptr %__b.addr.i261, align 16
-  %191 = bitcast <2 x i64> %190 to <8 x i16>
-  %192 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %189, <8 x i16> %191)
-  %193 = bitcast <4 x i32> %192 to <2 x i64>
-  store <2 x i64> %193, ptr %i0, align 16
-  %194 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %194, ptr %__a.addr.i224, align 16
+  %187 = load <2 x i64>, ptr %i0, align 16
+  %188 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %187, ptr %__a.addr.i260, align 16
+  store <2 x i64> %188, ptr %__b.addr.i261, align 16
+  %189 = load <2 x i64>, ptr %__a.addr.i260, align 16
+  %190 = bitcast <2 x i64> %189 to <8 x i16>
+  %191 = load <2 x i64>, ptr %__b.addr.i261, align 16
+  %192 = bitcast <2 x i64> %191 to <8 x i16>
+  %193 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %190, <8 x i16> %192)
+  %194 = bitcast <4 x i32> %193 to <2 x i64>
+  store <2 x i64> %194, ptr %i0, align 16
+  %195 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %195, ptr %__a.addr.i224, align 16
   store i32 16, ptr %__count.addr.i225, align 4
-  %195 = load <2 x i64>, ptr %__a.addr.i224, align 16
-  %196 = bitcast <2 x i64> %195 to <4 x i32>
-  %197 = load i32, ptr %__count.addr.i225, align 4
-  %198 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %196, i32 %197)
-  %199 = bitcast <4 x i32> %198 to <2 x i64>
-  store <2 x i64> %199, ptr %i0, align 16
-  %200 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %200, ptr %__a.addr.i235, align 16
-  %201 = load <4 x float>, ptr %__a.addr.i235, align 16
-  %202 = bitcast <4 x float> %201 to <2 x i64>
-  store <2 x i64> %202, ptr %__a.addr.i222, align 16
+  %196 = load <2 x i64>, ptr %__a.addr.i224, align 16
+  %197 = bitcast <2 x i64> %196 to <4 x i32>
+  %198 = load i32, ptr %__count.addr.i225, align 4
+  %199 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %197, i32 %198)
+  %200 = bitcast <4 x i32> %199 to <2 x i64>
+  store <2 x i64> %200, ptr %i0, align 16
+  %201 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %201, ptr %__a.addr.i235, align 16
+  %202 = load <4 x float>, ptr %__a.addr.i235, align 16
+  %203 = bitcast <4 x float> %202 to <2 x i64>
+  store <2 x i64> %203, ptr %__a.addr.i222, align 16
   store i32 12, ptr %__count.addr.i223, align 4
-  %203 = load <2 x i64>, ptr %__a.addr.i222, align 16
-  %204 = bitcast <2 x i64> %203 to <4 x i32>
-  %205 = load i32, ptr %__count.addr.i223, align 4
-  %206 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %204, i32 %205)
-  %207 = bitcast <4 x i32> %206 to <2 x i64>
-  store <2 x i64> %207, ptr %temp95, align 16
-  %208 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %208, ptr %__a.addr.i242, align 16
+  %204 = load <2 x i64>, ptr %__a.addr.i222, align 16
+  %205 = bitcast <2 x i64> %204 to <4 x i32>
+  %206 = load i32, ptr %__count.addr.i223, align 4
+  %207 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %205, i32 %206)
+  %208 = bitcast <4 x i32> %207 to <2 x i64>
+  store <2 x i64> %208, ptr %temp95, align 16
+  %209 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %209, ptr %__a.addr.i242, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i243, align 16
-  %209 = load <2 x i64>, ptr %__a.addr.i242, align 16
-  %210 = load <2 x i64>, ptr %__b.addr.i243, align 16
-  %and.i244 = and <2 x i64> %209, %210
+  %210 = load <2 x i64>, ptr %__a.addr.i242, align 16
+  %211 = load <2 x i64>, ptr %__b.addr.i243, align 16
+  %and.i244 = and <2 x i64> %210, %211
   store <2 x i64> %and.i244, ptr %temp95, align 16
-  %211 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %211, ptr %__a.addr.i250, align 16
+  %212 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %212, ptr %__a.addr.i250, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i251, align 16
-  %212 = load <2 x i64>, ptr %__a.addr.i250, align 16
-  %213 = load <2 x i64>, ptr %__b.addr.i251, align 16
-  %or.i252 = or <2 x i64> %212, %213
+  %213 = load <2 x i64>, ptr %__a.addr.i250, align 16
+  %214 = load <2 x i64>, ptr %__b.addr.i251, align 16
+  %or.i252 = or <2 x i64> %213, %214
   store <2 x i64> %or.i252, ptr %temp95, align 16
-  %214 = load <2 x i64>, ptr %i1, align 16
-  %215 = load <2 x i64>, ptr %temp95, align 16
-  store <2 x i64> %214, ptr %__a.addr.i258, align 16
-  store <2 x i64> %215, ptr %__b.addr.i259, align 16
-  %216 = load <2 x i64>, ptr %__a.addr.i258, align 16
-  %217 = bitcast <2 x i64> %216 to <8 x i16>
-  %218 = load <2 x i64>, ptr %__b.addr.i259, align 16
-  %219 = bitcast <2 x i64> %218 to <8 x i16>
-  %220 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %217, <8 x i16> %219)
-  %221 = bitcast <4 x i32> %220 to <2 x i64>
-  store <2 x i64> %221, ptr %i1, align 16
-  %222 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %222, ptr %__a.addr.i220, align 16
+  %215 = load <2 x i64>, ptr %i1, align 16
+  %216 = load <2 x i64>, ptr %temp95, align 16
+  store <2 x i64> %215, ptr %__a.addr.i258, align 16
+  store <2 x i64> %216, ptr %__b.addr.i259, align 16
+  %217 = load <2 x i64>, ptr %__a.addr.i258, align 16
+  %218 = bitcast <2 x i64> %217 to <8 x i16>
+  %219 = load <2 x i64>, ptr %__b.addr.i259, align 16
+  %220 = bitcast <2 x i64> %219 to <8 x i16>
+  %221 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %218, <8 x i16> %220)
+  %222 = bitcast <4 x i32> %221 to <2 x i64>
+  store <2 x i64> %222, ptr %i1, align 16
+  %223 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %223, ptr %__a.addr.i220, align 16
   store i32 16, ptr %__count.addr.i221, align 4
-  %223 = load <2 x i64>, ptr %__a.addr.i220, align 16
-  %224 = bitcast <2 x i64> %223 to <4 x i32>
-  %225 = load i32, ptr %__count.addr.i221, align 4
-  %226 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %224, i32 %225)
-  %227 = bitcast <4 x i32> %226 to <2 x i64>
-  store <2 x i64> %227, ptr %i1, align 16
-  %228 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %228, ptr %__a.addr.i234, align 16
-  %229 = load <4 x float>, ptr %__a.addr.i234, align 16
-  %230 = bitcast <4 x float> %229 to <2 x i64>
-  store <2 x i64> %230, ptr %__a.addr.i218, align 16
+  %224 = load <2 x i64>, ptr %__a.addr.i220, align 16
+  %225 = bitcast <2 x i64> %224 to <4 x i32>
+  %226 = load i32, ptr %__count.addr.i221, align 4
+  %227 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %225, i32 %226)
+  %228 = bitcast <4 x i32> %227 to <2 x i64>
+  store <2 x i64> %228, ptr %i1, align 16
+  %229 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %229, ptr %__a.addr.i234, align 16
+  %230 = load <4 x float>, ptr %__a.addr.i234, align 16
+  %231 = bitcast <4 x float> %230 to <2 x i64>
+  store <2 x i64> %231, ptr %__a.addr.i218, align 16
   store i32 12, ptr %__count.addr.i219, align 4
-  %231 = load <2 x i64>, ptr %__a.addr.i218, align 16
-  %232 = bitcast <2 x i64> %231 to <4 x i32>
-  %233 = load i32, ptr %__count.addr.i219, align 4
-  %234 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %232, i32 %233)
-  %235 = bitcast <4 x i32> %234 to <2 x i64>
-  store <2 x i64> %235, ptr %temp102, align 16
-  %236 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %236, ptr %__a.addr.i240, align 16
+  %232 = load <2 x i64>, ptr %__a.addr.i218, align 16
+  %233 = bitcast <2 x i64> %232 to <4 x i32>
+  %234 = load i32, ptr %__count.addr.i219, align 4
+  %235 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %233, i32 %234)
+  %236 = bitcast <4 x i32> %235 to <2 x i64>
+  store <2 x i64> %236, ptr %temp102, align 16
+  %237 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %237, ptr %__a.addr.i240, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i241, align 16
-  %237 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %238 = load <2 x i64>, ptr %__b.addr.i241, align 16
-  %and.i = and <2 x i64> %237, %238
+  %238 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %239 = load <2 x i64>, ptr %__b.addr.i241, align 16
+  %and.i = and <2 x i64> %238, %239
   store <2 x i64> %and.i, ptr %temp102, align 16
-  %239 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %239, ptr %__a.addr.i248, align 16
+  %240 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %240, ptr %__a.addr.i248, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i249, align 16
-  %240 = load <2 x i64>, ptr %__a.addr.i248, align 16
-  %241 = load <2 x i64>, ptr %__b.addr.i249, align 16
-  %or.i = or <2 x i64> %240, %241
+  %241 = load <2 x i64>, ptr %__a.addr.i248, align 16
+  %242 = load <2 x i64>, ptr %__b.addr.i249, align 16
+  %or.i = or <2 x i64> %241, %242
   store <2 x i64> %or.i, ptr %temp102, align 16
-  %242 = load <2 x i64>, ptr %i2, align 16
-  %243 = load <2 x i64>, ptr %temp102, align 16
-  store <2 x i64> %242, ptr %__a.addr.i256, align 16
-  store <2 x i64> %243, ptr %__b.addr.i257, align 16
-  %244 = load <2 x i64>, ptr %__a.addr.i256, align 16
-  %245 = bitcast <2 x i64> %244 to <8 x i16>
-  %246 = load <2 x i64>, ptr %__b.addr.i257, align 16
-  %247 = bitcast <2 x i64> %246 to <8 x i16>
-  %248 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %245, <8 x i16> %247)
-  %249 = bitcast <4 x i32> %248 to <2 x i64>
-  store <2 x i64> %249, ptr %i2, align 16
-  %250 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %250, ptr %__a.addr.i217, align 16
+  %243 = load <2 x i64>, ptr %i2, align 16
+  %244 = load <2 x i64>, ptr %temp102, align 16
+  store <2 x i64> %243, ptr %__a.addr.i256, align 16
+  store <2 x i64> %244, ptr %__b.addr.i257, align 16
+  %245 = load <2 x i64>, ptr %__a.addr.i256, align 16
+  %246 = bitcast <2 x i64> %245 to <8 x i16>
+  %247 = load <2 x i64>, ptr %__b.addr.i257, align 16
+  %248 = bitcast <2 x i64> %247 to <8 x i16>
+  %249 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %246, <8 x i16> %248)
+  %250 = bitcast <4 x i32> %249 to <2 x i64>
+  store <2 x i64> %250, ptr %i2, align 16
+  %251 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %251, ptr %__a.addr.i217, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %251 = load <2 x i64>, ptr %__a.addr.i217, align 16
-  %252 = bitcast <2 x i64> %251 to <4 x i32>
-  %253 = load i32, ptr %__count.addr.i, align 4
-  %254 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %252, i32 %253)
-  %255 = bitcast <4 x i32> %254 to <2 x i64>
-  store <2 x i64> %255, ptr %i2, align 16
-  %256 = load <2 x i64>, ptr %i3, align 16
-  %257 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %256, ptr %__a.addr.i183, align 16
-  store <2 x i64> %257, ptr %__b.addr.i184, align 16
-  %258 = load <2 x i64>, ptr %__a.addr.i183, align 16
-  %259 = bitcast <2 x i64> %258 to <4 x i32>
-  %260 = load <2 x i64>, ptr %__b.addr.i184, align 16
-  %261 = bitcast <2 x i64> %260 to <4 x i32>
-  %262 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %259, <4 x i32> %261)
-  %263 = bitcast <8 x i16> %262 to <2 x i64>
-  store <2 x i64> %263, ptr %i3, align 16
-  %264 = load <2 x i64>, ptr %i1, align 16
-  %265 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %264, ptr %__a.addr.i181, align 16
-  store <2 x i64> %265, ptr %__b.addr.i182, align 16
-  %266 = load <2 x i64>, ptr %__a.addr.i181, align 16
-  %267 = bitcast <2 x i64> %266 to <4 x i32>
-  %268 = load <2 x i64>, ptr %__b.addr.i182, align 16
-  %269 = bitcast <2 x i64> %268 to <4 x i32>
-  %270 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %267, <4 x i32> %269)
-  %271 = bitcast <8 x i16> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i1, align 16
-  %272 = load <2 x i64>, ptr %i3, align 16
-  %273 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %272, ptr %__a.addr.i151, align 16
-  store <2 x i64> %273, ptr %__b.addr.i152, align 16
-  %274 = load <2 x i64>, ptr %__a.addr.i151, align 16
-  %275 = bitcast <2 x i64> %274 to <8 x i16>
-  %276 = load <2 x i64>, ptr %__b.addr.i152, align 16
-  %277 = bitcast <2 x i64> %276 to <8 x i16>
-  %shuffle.i153 = shufflevector <8 x i16> %275, <8 x i16> %277, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %278 = bitcast <8 x i16> %shuffle.i153 to <2 x i64>
-  store <2 x i64> %278, ptr %i2, align 16
-  %279 = load <2 x i64>, ptr %i3, align 16
-  %280 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %279, ptr %__a.addr.i157, align 16
-  store <2 x i64> %280, ptr %__b.addr.i158, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i157, align 16
-  %282 = bitcast <2 x i64> %281 to <8 x i16>
-  %283 = load <2 x i64>, ptr %__b.addr.i158, align 16
-  %284 = bitcast <2 x i64> %283 to <8 x i16>
-  %shuffle.i159 = shufflevector <8 x i16> %282, <8 x i16> %284, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %285 = bitcast <8 x i16> %shuffle.i159 to <2 x i64>
-  store <2 x i64> %285, ptr %i0, align 16
-  %286 = load <2 x i64>, ptr %i2, align 16
-  %287 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %286, ptr %__a.addr.i, align 16
-  store <2 x i64> %287, ptr %__b.addr.i, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %289, <8 x i16> %291, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %292 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %292, ptr %i3, align 16
-  %293 = load <2 x i64>, ptr %i2, align 16
-  %294 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %293, ptr %__a.addr.i154, align 16
-  store <2 x i64> %294, ptr %__b.addr.i155, align 16
-  %295 = load <2 x i64>, ptr %__a.addr.i154, align 16
-  %296 = bitcast <2 x i64> %295 to <8 x i16>
-  %297 = load <2 x i64>, ptr %__b.addr.i155, align 16
-  %298 = bitcast <2 x i64> %297 to <8 x i16>
-  %shuffle.i156 = shufflevector <8 x i16> %296, <8 x i16> %298, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %299 = bitcast <8 x i16> %shuffle.i156 to <2 x i64>
-  store <2 x i64> %299, ptr %i1, align 16
-  %300 = load <2 x i64>, ptr %i3, align 16
-  %301 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %300, ptr %__a.addr.i185, align 16
-  store <2 x i64> %301, ptr %__b.addr.i186, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i185, align 16
-  %303 = bitcast <2 x i64> %302 to <8 x i16>
-  %304 = load <2 x i64>, ptr %__b.addr.i186, align 16
-  %305 = bitcast <2 x i64> %304 to <8 x i16>
-  %306 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %303, <8 x i16> %305)
-  %307 = bitcast <16 x i8> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i3, align 16
-  %308 = load ptr, ptr %output, align 8
-  %309 = load <2 x i64>, ptr %i3, align 16
-  store ptr %308, ptr %__p.addr.i262, align 8
-  store <2 x i64> %309, ptr %__b.addr.i263, align 16
-  %310 = load <2 x i64>, ptr %__b.addr.i263, align 16
-  %311 = load ptr, ptr %__p.addr.i262, align 8
-  store <2 x i64> %310, ptr %311, align 1
-  %312 = load ptr, ptr %output, align 8
-  %add.ptr116 = getelementptr inbounds i8, ptr %312, i64 16
+  %252 = load <2 x i64>, ptr %__a.addr.i217, align 16
+  %253 = bitcast <2 x i64> %252 to <4 x i32>
+  %254 = load i32, ptr %__count.addr.i, align 4
+  %255 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %253, i32 %254)
+  %256 = bitcast <4 x i32> %255 to <2 x i64>
+  store <2 x i64> %256, ptr %i2, align 16
+  %257 = load <2 x i64>, ptr %i3, align 16
+  %258 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %257, ptr %__a.addr.i183, align 16
+  store <2 x i64> %258, ptr %__b.addr.i184, align 16
+  %259 = load <2 x i64>, ptr %__a.addr.i183, align 16
+  %260 = bitcast <2 x i64> %259 to <4 x i32>
+  %261 = load <2 x i64>, ptr %__b.addr.i184, align 16
+  %262 = bitcast <2 x i64> %261 to <4 x i32>
+  %263 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %260, <4 x i32> %262)
+  %264 = bitcast <8 x i16> %263 to <2 x i64>
+  store <2 x i64> %264, ptr %i3, align 16
+  %265 = load <2 x i64>, ptr %i1, align 16
+  %266 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %265, ptr %__a.addr.i181, align 16
+  store <2 x i64> %266, ptr %__b.addr.i182, align 16
+  %267 = load <2 x i64>, ptr %__a.addr.i181, align 16
+  %268 = bitcast <2 x i64> %267 to <4 x i32>
+  %269 = load <2 x i64>, ptr %__b.addr.i182, align 16
+  %270 = bitcast <2 x i64> %269 to <4 x i32>
+  %271 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %268, <4 x i32> %270)
+  %272 = bitcast <8 x i16> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i1, align 16
+  %273 = load <2 x i64>, ptr %i3, align 16
+  %274 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %273, ptr %__a.addr.i151, align 16
+  store <2 x i64> %274, ptr %__b.addr.i152, align 16
+  %275 = load <2 x i64>, ptr %__a.addr.i151, align 16
+  %276 = bitcast <2 x i64> %275 to <8 x i16>
+  %277 = load <2 x i64>, ptr %__b.addr.i152, align 16
+  %278 = bitcast <2 x i64> %277 to <8 x i16>
+  %shuffle.i153 = shufflevector <8 x i16> %276, <8 x i16> %278, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %279 = bitcast <8 x i16> %shuffle.i153 to <2 x i64>
+  store <2 x i64> %279, ptr %i2, align 16
+  %280 = load <2 x i64>, ptr %i3, align 16
+  %281 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %280, ptr %__a.addr.i157, align 16
+  store <2 x i64> %281, ptr %__b.addr.i158, align 16
+  %282 = load <2 x i64>, ptr %__a.addr.i157, align 16
+  %283 = bitcast <2 x i64> %282 to <8 x i16>
+  %284 = load <2 x i64>, ptr %__b.addr.i158, align 16
+  %285 = bitcast <2 x i64> %284 to <8 x i16>
+  %shuffle.i159 = shufflevector <8 x i16> %283, <8 x i16> %285, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %286 = bitcast <8 x i16> %shuffle.i159 to <2 x i64>
+  store <2 x i64> %286, ptr %i0, align 16
+  %287 = load <2 x i64>, ptr %i2, align 16
+  %288 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %287, ptr %__a.addr.i, align 16
+  store <2 x i64> %288, ptr %__b.addr.i, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %290, <8 x i16> %292, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %293 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %293, ptr %i3, align 16
+  %294 = load <2 x i64>, ptr %i2, align 16
+  %295 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %294, ptr %__a.addr.i154, align 16
+  store <2 x i64> %295, ptr %__b.addr.i155, align 16
+  %296 = load <2 x i64>, ptr %__a.addr.i154, align 16
+  %297 = bitcast <2 x i64> %296 to <8 x i16>
+  %298 = load <2 x i64>, ptr %__b.addr.i155, align 16
+  %299 = bitcast <2 x i64> %298 to <8 x i16>
+  %shuffle.i156 = shufflevector <8 x i16> %297, <8 x i16> %299, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %300 = bitcast <8 x i16> %shuffle.i156 to <2 x i64>
+  store <2 x i64> %300, ptr %i1, align 16
+  %301 = load <2 x i64>, ptr %i3, align 16
+  %302 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %301, ptr %__a.addr.i185, align 16
+  store <2 x i64> %302, ptr %__b.addr.i186, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i185, align 16
+  %304 = bitcast <2 x i64> %303 to <8 x i16>
+  %305 = load <2 x i64>, ptr %__b.addr.i186, align 16
+  %306 = bitcast <2 x i64> %305 to <8 x i16>
+  %307 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %304, <8 x i16> %306)
+  %308 = bitcast <16 x i8> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i3, align 16
+  %309 = load ptr, ptr %output, align 8
+  %310 = load <2 x i64>, ptr %i3, align 16
+  store ptr %309, ptr %__p.addr.i262, align 8
+  store <2 x i64> %310, ptr %__b.addr.i263, align 16
+  %311 = load <2 x i64>, ptr %__b.addr.i263, align 16
+  %312 = load ptr, ptr %__p.addr.i262, align 8
+  store <2 x i64> %311, ptr %312, align 1
+  %313 = load ptr, ptr %output, align 8
+  %add.ptr116 = getelementptr inbounds i8, ptr %313, i64 16
   store ptr %add.ptr116, ptr %output, align 8
-  %313 = load ptr, ptr %encode.addr, align 8
-  %add.ptr117 = getelementptr inbounds float, ptr %313, i64 16
+  %314 = load ptr, ptr %encode.addr, align 8
+  %add.ptr117 = getelementptr inbounds float, ptr %314, i64 16
   store ptr %add.ptr117, ptr %encode.addr, align 8
-  %314 = load ptr, ptr %output, align 8
-  %315 = load ptr, ptr %end_output, align 8
-  %cmp118 = icmp ule ptr %314, %315
+  %315 = load ptr, ptr %output, align 8
+  %316 = load ptr, ptr %end_output, align 8
+  %cmp118 = icmp ule ptr %315, %316
   br i1 %cmp118, label %if.then119, label %if.end
 
 if.then119:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %316 = load ptr, ptr %output, align 8
-  %317 = load ptr, ptr %end_output, align 8
-  %add.ptr120 = getelementptr inbounds i8, ptr %317, i64 16
-  %cmp121 = icmp eq ptr %316, %add.ptr120
+  %317 = load ptr, ptr %output, align 8
+  %318 = load ptr, ptr %end_output, align 8
+  %add.ptr120 = getelementptr inbounds i8, ptr %318, i64 16
+  %cmp121 = icmp eq ptr %317, %add.ptr120
   br i1 %cmp121, label %if.then122, label %if.end123
 
 if.then122:                                       ; preds = %if.end
   br label %for.end
 
 if.end123:                                        ; preds = %if.end
-  %318 = load ptr, ptr %end_output, align 8
-  store ptr %318, ptr %output, align 8
-  %319 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %319, ptr %encode.addr, align 8
+  %319 = load ptr, ptr %end_output, align 8
+  store ptr %319, ptr %output, align 8
+  %320 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %320, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then122
@@ -25765,40 +25774,40 @@ if.end124:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end124
-  %320 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %320) #9, !srcloc !259
   %321 = load ptr, ptr %encode.addr, align 8
-  %arrayidx125 = getelementptr inbounds float, ptr %321, i64 0
-  %322 = load float, ptr %arrayidx125, align 4
-  %call126 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %322)
-  %323 = load ptr, ptr %output, align 8
-  %arrayidx127 = getelementptr inbounds i8, ptr %323, i64 3
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %321) #9, !srcloc !259
+  %322 = load ptr, ptr %encode.addr, align 8
+  %arrayidx125 = getelementptr inbounds float, ptr %322, i64 0
+  %323 = load float, ptr %arrayidx125, align 4
+  %call126 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %323)
+  %324 = load ptr, ptr %output, align 8
+  %arrayidx127 = getelementptr inbounds i8, ptr %324, i64 3
   store i8 %call126, ptr %arrayidx127, align 1
-  %324 = load ptr, ptr %encode.addr, align 8
-  %arrayidx128 = getelementptr inbounds float, ptr %324, i64 1
-  %325 = load float, ptr %arrayidx128, align 4
-  %call129 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %325)
-  %326 = load ptr, ptr %output, align 8
-  %arrayidx130 = getelementptr inbounds i8, ptr %326, i64 2
+  %325 = load ptr, ptr %encode.addr, align 8
+  %arrayidx128 = getelementptr inbounds float, ptr %325, i64 1
+  %326 = load float, ptr %arrayidx128, align 4
+  %call129 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %326)
+  %327 = load ptr, ptr %output, align 8
+  %arrayidx130 = getelementptr inbounds i8, ptr %327, i64 2
   store i8 %call129, ptr %arrayidx130, align 1
-  %327 = load ptr, ptr %encode.addr, align 8
-  %arrayidx131 = getelementptr inbounds float, ptr %327, i64 2
-  %328 = load float, ptr %arrayidx131, align 4
-  %call132 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %328)
-  %329 = load ptr, ptr %output, align 8
-  %arrayidx133 = getelementptr inbounds i8, ptr %329, i64 1
+  %328 = load ptr, ptr %encode.addr, align 8
+  %arrayidx131 = getelementptr inbounds float, ptr %328, i64 2
+  %329 = load float, ptr %arrayidx131, align 4
+  %call132 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %329)
+  %330 = load ptr, ptr %output, align 8
+  %arrayidx133 = getelementptr inbounds i8, ptr %330, i64 1
   store i8 %call132, ptr %arrayidx133, align 1
-  %330 = load ptr, ptr %encode.addr, align 8
-  %arrayidx134 = getelementptr inbounds float, ptr %330, i64 3
-  %331 = load float, ptr %arrayidx134, align 4
-  %mul = fmul float %331, 2.550000e+02
+  %331 = load ptr, ptr %encode.addr, align 8
+  %arrayidx134 = getelementptr inbounds float, ptr %331, i64 3
+  %332 = load float, ptr %arrayidx134, align 4
+  %mul = fmul float %332, 2.550000e+02
   %add = fadd float %mul, 5.000000e-01
   store float %add, ptr %f, align 4
   br label %do.body135
 
 do.body135:                                       ; preds = %do.body
-  %332 = load float, ptr %f, align 4
-  %cmp136 = fcmp olt float %332, 0.000000e+00
+  %333 = load float, ptr %f, align 4
+  %cmp136 = fcmp olt float %333, 0.000000e+00
   br i1 %cmp136, label %if.then137, label %if.end138
 
 if.then137:                                       ; preds = %do.body135
@@ -25806,8 +25815,8 @@ if.then137:                                       ; preds = %do.body135
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then137, %do.body135
-  %333 = load float, ptr %f, align 4
-  %cmp139 = fcmp ogt float %333, 2.550000e+02
+  %334 = load float, ptr %f, align 4
+  %cmp139 = fcmp ogt float %334, 2.550000e+02
   br i1 %cmp139, label %if.then140, label %if.end141
 
 if.then140:                                       ; preds = %if.end138
@@ -25818,23 +25827,23 @@ if.end141:                                        ; preds = %if.then140, %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end141
-  %334 = load float, ptr %f, align 4
-  %conv = fptoui float %334 to i8
-  %335 = load ptr, ptr %output, align 8
-  %arrayidx142 = getelementptr inbounds i8, ptr %335, i64 0
-  store i8 %conv, ptr %arrayidx142, align 1
+  %335 = load float, ptr %f, align 4
+  %conv = fptoui float %335 to i8
   %336 = load ptr, ptr %output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %336, i64 4
+  %arrayidx142 = getelementptr inbounds i8, ptr %336, i64 0
+  store i8 %conv, ptr %arrayidx142, align 1
+  %337 = load ptr, ptr %output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %337, i64 4
   store ptr %add.ptr143, ptr %output, align 8
-  %337 = load ptr, ptr %encode.addr, align 8
-  %add.ptr144 = getelementptr inbounds float, ptr %337, i64 4
+  %338 = load ptr, ptr %encode.addr, align 8
+  %add.ptr144 = getelementptr inbounds float, ptr %338, i64 4
   store ptr %add.ptr144, ptr %encode.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.end
-  %338 = load ptr, ptr %output, align 8
-  %339 = load ptr, ptr %end_output, align 8
-  %cmp145 = icmp ult ptr %338, %339
+  %339 = load ptr, ptr %output, align 8
+  %340 = load ptr, ptr %end_output, align 8
+  %cmp145 = icmp ult ptr %339, %340
   br i1 %cmp145, label %do.body, label %do.end147, !llvm.loop !260
 
 do.end147:                                        ; preds = %do.cond, %for.end
@@ -30177,772 +30186,773 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end147
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end146, %if.then142, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !308
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i179, align 8
-  %9 = load ptr, ptr %__p.addr.i179, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !308
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i179, align 8
+  %10 = load ptr, ptr %__p.addr.i179, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i178, align 8
-  %12 = load ptr, ptr %__p.addr.i178, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i178, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i177, align 8
-  %15 = load ptr, ptr %__p.addr.i177, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i177, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i214, align 16
-  store <4 x float> %21, ptr %__b.addr.i215, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i214, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i215, align 16
-  %shuffle.i216 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i214, align 16
+  store <4 x float> %22, ptr %__b.addr.i215, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i214, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i215, align 16
+  %shuffle.i216 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i216, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i211, align 16
-  store <4 x float> %25, ptr %__b.addr.i212, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i211, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i212, align 16
-  %shuffle.i213 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i211, align 16
+  store <4 x float> %26, ptr %__b.addr.i212, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i211, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i212, align 16
+  %shuffle.i213 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i213, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i220, align 16
-  store <4 x float> %29, ptr %__b.addr.i221, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i220, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i221, align 16
-  %shuffle.i222 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i220, align 16
+  store <4 x float> %30, ptr %__b.addr.i221, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i220, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i221, align 16
+  %shuffle.i222 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i222, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i217, align 16
-  store <4 x float> %33, ptr %__b.addr.i218, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i217, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i218, align 16
-  %shuffle.i219 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i217, align 16
+  store <4 x float> %34, ptr %__b.addr.i218, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i217, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i218, align 16
+  %shuffle.i219 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i219, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i226, align 16
-  store <4 x float> %37, ptr %__b.addr.i227, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i226, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i227, align 16
-  %shuffle.i228 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i226, align 16
+  store <4 x float> %38, ptr %__b.addr.i227, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i226, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i227, align 16
+  %shuffle.i228 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i228, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i232, align 16
-  store <4 x float> %41, ptr %__b.addr.i233, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i232, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i233, align 16
-  %shuffle.i234 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i232, align 16
+  store <4 x float> %42, ptr %__b.addr.i233, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i232, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i233, align 16
+  %shuffle.i234 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i234, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i223, align 16
-  store <4 x float> %45, ptr %__b.addr.i224, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i223, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i224, align 16
-  %shuffle.i225 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i223, align 16
+  store <4 x float> %46, ptr %__b.addr.i224, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i223, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i224, align 16
+  %shuffle.i225 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i225, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i229, align 16
-  store <4 x float> %49, ptr %__b.addr.i230, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i229, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i230, align 16
-  %shuffle.i231 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i229, align 16
+  store <4 x float> %50, ptr %__b.addr.i230, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i229, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i230, align 16
+  %shuffle.i231 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i231, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i242, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i242, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i203, align 16
-  store <4 x float> %54, ptr %__b.addr.i204, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i203, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i204, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i242, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i203, align 16
+  store <4 x float> %55, ptr %__b.addr.i204, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i203, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i204, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i241, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i241, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i195, align 16
-  store <4 x float> %60, ptr %__b.addr.i196, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i195, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i196, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i273, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i273, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i264, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i241, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i195, align 16
+  store <4 x float> %61, ptr %__b.addr.i196, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i195, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i196, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i273, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i273, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i264, align 16
   store i32 20, ptr %__count.addr.i265, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i264, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i265, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i264, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i265, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i240, align 16
-  %73 = load <2 x i64>, ptr %__a.addr.i240, align 16
-  %74 = bitcast <2 x i64> %73 to <4 x float>
-  store <4 x float> %72, ptr %__a.addr.i201, align 16
-  store <4 x float> %74, ptr %__b.addr.i202, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i201, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i202, align 16
-  %77 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %75, <4 x float> %76)
-  store <4 x float> %77, ptr %f1, align 16
-  %78 = load <4 x float>, ptr %f1, align 16
+  %74 = load <2 x i64>, ptr %__a.addr.i240, align 16
+  %75 = bitcast <2 x i64> %74 to <4 x float>
+  store <4 x float> %73, ptr %__a.addr.i201, align 16
+  store <4 x float> %75, ptr %__b.addr.i202, align 16
+  %76 = load <4 x float>, ptr %__a.addr.i201, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i202, align 16
+  %78 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> %77)
+  store <4 x float> %78, ptr %f1, align 16
+  %79 = load <4 x float>, ptr %f1, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i239, align 16
-  %79 = load <2 x i64>, ptr %__a.addr.i239, align 16
-  %80 = bitcast <2 x i64> %79 to <4 x float>
-  store <4 x float> %78, ptr %__a.addr.i193, align 16
-  store <4 x float> %80, ptr %__b.addr.i194, align 16
-  %81 = load <4 x float>, ptr %__a.addr.i193, align 16
-  %82 = load <4 x float>, ptr %__b.addr.i194, align 16
-  %83 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %81, <4 x float> %82)
-  store <4 x float> %83, ptr %f1, align 16
-  %84 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %84, ptr %__a.addr.i272, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i272, align 16
-  %86 = bitcast <4 x float> %85 to <2 x i64>
-  store <2 x i64> %86, ptr %__a.addr.i262, align 16
+  %80 = load <2 x i64>, ptr %__a.addr.i239, align 16
+  %81 = bitcast <2 x i64> %80 to <4 x float>
+  store <4 x float> %79, ptr %__a.addr.i193, align 16
+  store <4 x float> %81, ptr %__b.addr.i194, align 16
+  %82 = load <4 x float>, ptr %__a.addr.i193, align 16
+  %83 = load <4 x float>, ptr %__b.addr.i194, align 16
+  %84 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %82, <4 x float> %83)
+  store <4 x float> %84, ptr %f1, align 16
+  %85 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %85, ptr %__a.addr.i272, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i272, align 16
+  %87 = bitcast <4 x float> %86 to <2 x i64>
+  store <2 x i64> %87, ptr %__a.addr.i262, align 16
   store i32 20, ptr %__count.addr.i263, align 4
-  %87 = load <2 x i64>, ptr %__a.addr.i262, align 16
-  %88 = bitcast <2 x i64> %87 to <4 x i32>
-  %89 = load i32, ptr %__count.addr.i263, align 4
-  %90 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %88, i32 %89)
-  %91 = bitcast <4 x i32> %90 to <2 x i64>
-  store <2 x i64> %91, ptr %i1, align 16
-  %92 = load <4 x float>, ptr %f2, align 16
+  %88 = load <2 x i64>, ptr %__a.addr.i262, align 16
+  %89 = bitcast <2 x i64> %88 to <4 x i32>
+  %90 = load i32, ptr %__count.addr.i263, align 4
+  %91 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %89, i32 %90)
+  %92 = bitcast <4 x i32> %91 to <2 x i64>
+  store <2 x i64> %92, ptr %i1, align 16
+  %93 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i238, align 16
-  %93 = load <2 x i64>, ptr %__a.addr.i238, align 16
-  %94 = bitcast <2 x i64> %93 to <4 x float>
-  store <4 x float> %92, ptr %__a.addr.i199, align 16
-  store <4 x float> %94, ptr %__b.addr.i200, align 16
-  %95 = load <4 x float>, ptr %__a.addr.i199, align 16
-  %96 = load <4 x float>, ptr %__b.addr.i200, align 16
-  %97 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %95, <4 x float> %96)
-  store <4 x float> %97, ptr %f2, align 16
-  %98 = load <4 x float>, ptr %f2, align 16
+  %94 = load <2 x i64>, ptr %__a.addr.i238, align 16
+  %95 = bitcast <2 x i64> %94 to <4 x float>
+  store <4 x float> %93, ptr %__a.addr.i199, align 16
+  store <4 x float> %95, ptr %__b.addr.i200, align 16
+  %96 = load <4 x float>, ptr %__a.addr.i199, align 16
+  %97 = load <4 x float>, ptr %__b.addr.i200, align 16
+  %98 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %96, <4 x float> %97)
+  store <4 x float> %98, ptr %f2, align 16
+  %99 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i237, align 16
-  %99 = load <2 x i64>, ptr %__a.addr.i237, align 16
-  %100 = bitcast <2 x i64> %99 to <4 x float>
-  store <4 x float> %98, ptr %__a.addr.i191, align 16
-  store <4 x float> %100, ptr %__b.addr.i192, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i191, align 16
-  %102 = load <4 x float>, ptr %__b.addr.i192, align 16
-  %103 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %101, <4 x float> %102)
-  store <4 x float> %103, ptr %f2, align 16
-  %104 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %104, ptr %__a.addr.i271, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i271, align 16
-  %106 = bitcast <4 x float> %105 to <2 x i64>
-  store <2 x i64> %106, ptr %__a.addr.i260, align 16
+  %100 = load <2 x i64>, ptr %__a.addr.i237, align 16
+  %101 = bitcast <2 x i64> %100 to <4 x float>
+  store <4 x float> %99, ptr %__a.addr.i191, align 16
+  store <4 x float> %101, ptr %__b.addr.i192, align 16
+  %102 = load <4 x float>, ptr %__a.addr.i191, align 16
+  %103 = load <4 x float>, ptr %__b.addr.i192, align 16
+  %104 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %102, <4 x float> %103)
+  store <4 x float> %104, ptr %f2, align 16
+  %105 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %105, ptr %__a.addr.i271, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i271, align 16
+  %107 = bitcast <4 x float> %106 to <2 x i64>
+  store <2 x i64> %107, ptr %__a.addr.i260, align 16
   store i32 20, ptr %__count.addr.i261, align 4
-  %107 = load <2 x i64>, ptr %__a.addr.i260, align 16
-  %108 = bitcast <2 x i64> %107 to <4 x i32>
-  %109 = load i32, ptr %__count.addr.i261, align 4
-  %110 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %108, i32 %109)
-  %111 = bitcast <4 x i32> %110 to <2 x i64>
-  store <2 x i64> %111, ptr %i2, align 16
-  %112 = load <4 x float>, ptr %f3, align 16
+  %108 = load <2 x i64>, ptr %__a.addr.i260, align 16
+  %109 = bitcast <2 x i64> %108 to <4 x i32>
+  %110 = load i32, ptr %__count.addr.i261, align 4
+  %111 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %109, i32 %110)
+  %112 = bitcast <4 x i32> %111 to <2 x i64>
+  store <2 x i64> %112, ptr %i2, align 16
+  %113 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i236, align 16
-  %113 = load <2 x i64>, ptr %__a.addr.i236, align 16
-  %114 = bitcast <2 x i64> %113 to <4 x float>
-  store <4 x float> %112, ptr %__a.addr.i197, align 16
-  store <4 x float> %114, ptr %__b.addr.i198, align 16
-  %115 = load <4 x float>, ptr %__a.addr.i197, align 16
-  %116 = load <4 x float>, ptr %__b.addr.i198, align 16
-  %117 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %115, <4 x float> %116)
-  store <4 x float> %117, ptr %f3, align 16
-  %118 = load <4 x float>, ptr %f3, align 16
+  %114 = load <2 x i64>, ptr %__a.addr.i236, align 16
+  %115 = bitcast <2 x i64> %114 to <4 x float>
+  store <4 x float> %113, ptr %__a.addr.i197, align 16
+  store <4 x float> %115, ptr %__b.addr.i198, align 16
+  %116 = load <4 x float>, ptr %__a.addr.i197, align 16
+  %117 = load <4 x float>, ptr %__b.addr.i198, align 16
+  %118 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %116, <4 x float> %117)
+  store <4 x float> %118, ptr %f3, align 16
+  %119 = load <4 x float>, ptr %f3, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i235, align 16
-  %119 = load <2 x i64>, ptr %__a.addr.i235, align 16
-  %120 = bitcast <2 x i64> %119 to <4 x float>
-  store <4 x float> %118, ptr %__a.addr.i189, align 16
-  store <4 x float> %120, ptr %__b.addr.i190, align 16
-  %121 = load <4 x float>, ptr %__a.addr.i189, align 16
-  %122 = load <4 x float>, ptr %__b.addr.i190, align 16
-  %123 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %121, <4 x float> %122)
-  store <4 x float> %123, ptr %f3, align 16
-  %124 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %124, ptr %__a.addr.i270, align 16
-  %125 = load <4 x float>, ptr %__a.addr.i270, align 16
-  %126 = bitcast <4 x float> %125 to <2 x i64>
-  store <2 x i64> %126, ptr %__a.addr.i258, align 16
+  %120 = load <2 x i64>, ptr %__a.addr.i235, align 16
+  %121 = bitcast <2 x i64> %120 to <4 x float>
+  store <4 x float> %119, ptr %__a.addr.i189, align 16
+  store <4 x float> %121, ptr %__b.addr.i190, align 16
+  %122 = load <4 x float>, ptr %__a.addr.i189, align 16
+  %123 = load <4 x float>, ptr %__b.addr.i190, align 16
+  %124 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %122, <4 x float> %123)
+  store <4 x float> %124, ptr %f3, align 16
+  %125 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %125, ptr %__a.addr.i270, align 16
+  %126 = load <4 x float>, ptr %__a.addr.i270, align 16
+  %127 = bitcast <4 x float> %126 to <2 x i64>
+  store <2 x i64> %127, ptr %__a.addr.i258, align 16
   store i32 20, ptr %__count.addr.i259, align 4
-  %127 = load <2 x i64>, ptr %__a.addr.i258, align 16
-  %128 = bitcast <2 x i64> %127 to <4 x i32>
-  %129 = load i32, ptr %__count.addr.i259, align 4
-  %130 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %128, i32 %129)
-  %131 = bitcast <4 x i32> %130 to <2 x i64>
-  store <2 x i64> %131, ptr %i3, align 16
-  %132 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %132, ptr %temp0, align 16
-  %133 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %133, ptr %temp1, align 16
-  %134 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %134, ptr %temp2, align 16
-  %135 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %135, ptr %temp3, align 16
-  %136 = load ptr, ptr %to_srgb, align 8
+  %128 = load <2 x i64>, ptr %__a.addr.i258, align 16
+  %129 = bitcast <2 x i64> %128 to <4 x i32>
+  %130 = load i32, ptr %__count.addr.i259, align 4
+  %131 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %129, i32 %130)
+  %132 = bitcast <4 x i32> %131 to <2 x i64>
+  store <2 x i64> %132, ptr %i3, align 16
+  %133 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %133, ptr %temp0, align 16
+  %134 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %134, ptr %temp1, align 16
+  %135 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %135, ptr %temp2, align 16
+  %136 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %136, ptr %temp3, align 16
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %137 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %137 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %136, i64 %idxprom
-  %138 = load i32, ptr %arrayidx43, align 4
+  %138 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %138 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %137, i64 %idxprom
+  %139 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %138, ptr %arrayidx44, align 16
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx44, align 16
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %140 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %140 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %139, i64 %idxprom46
-  %141 = load i32, ptr %arrayidx47, align 4
+  %141 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %141 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %140, i64 %idxprom46
+  %142 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %141, ptr %arrayidx48, align 4
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx48, align 4
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %143 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %143 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %142, i64 %idxprom50
-  %144 = load i32, ptr %arrayidx51, align 4
+  %144 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %144 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %143, i64 %idxprom50
+  %145 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %144, ptr %arrayidx52, align 8
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx52, align 8
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %146 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %146 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %145, i64 %idxprom54
-  %147 = load i32, ptr %arrayidx55, align 4
+  %147 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %147 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %146, i64 %idxprom54
+  %148 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %147, ptr %arrayidx56, align 4
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx56, align 4
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %149 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %149 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %148, i64 %idxprom58
-  %150 = load i32, ptr %arrayidx59, align 4
+  %150 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %150 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %149, i64 %idxprom58
+  %151 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %150, ptr %arrayidx60, align 16
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx60, align 16
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %152 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %152 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %151, i64 %idxprom62
-  %153 = load i32, ptr %arrayidx63, align 4
+  %153 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %153 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %152, i64 %idxprom62
+  %154 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %153, ptr %arrayidx64, align 4
-  %154 = load ptr, ptr %to_srgb, align 8
+  store i32 %154, ptr %arrayidx64, align 4
+  %155 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %155 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %155 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %154, i64 %idxprom66
-  %156 = load i32, ptr %arrayidx67, align 4
+  %156 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %156 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %155, i64 %idxprom66
+  %157 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %156, ptr %arrayidx68, align 8
-  %157 = load ptr, ptr %to_srgb, align 8
+  store i32 %157, ptr %arrayidx68, align 8
+  %158 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %158 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %158 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %157, i64 %idxprom70
-  %159 = load i32, ptr %arrayidx71, align 4
+  %159 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %159 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %158, i64 %idxprom70
+  %160 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %159, ptr %arrayidx72, align 4
-  %160 = load ptr, ptr %to_srgb, align 8
+  store i32 %160, ptr %arrayidx72, align 4
+  %161 = load ptr, ptr %to_srgb, align 8
   %arrayidx73 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  %161 = load i32, ptr %arrayidx73, align 16
-  %idxprom74 = sext i32 %161 to i64
-  %arrayidx75 = getelementptr inbounds i32, ptr %160, i64 %idxprom74
-  %162 = load i32, ptr %arrayidx75, align 4
+  %162 = load i32, ptr %arrayidx73, align 16
+  %idxprom74 = sext i32 %162 to i64
+  %arrayidx75 = getelementptr inbounds i32, ptr %161, i64 %idxprom74
+  %163 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 0
-  store i32 %162, ptr %arrayidx76, align 16
-  %163 = load ptr, ptr %to_srgb, align 8
+  store i32 %163, ptr %arrayidx76, align 16
+  %164 = load ptr, ptr %to_srgb, align 8
   %arrayidx77 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  %164 = load i32, ptr %arrayidx77, align 4
-  %idxprom78 = sext i32 %164 to i64
-  %arrayidx79 = getelementptr inbounds i32, ptr %163, i64 %idxprom78
-  %165 = load i32, ptr %arrayidx79, align 4
+  %165 = load i32, ptr %arrayidx77, align 4
+  %idxprom78 = sext i32 %165 to i64
+  %arrayidx79 = getelementptr inbounds i32, ptr %164, i64 %idxprom78
+  %166 = load i32, ptr %arrayidx79, align 4
   %arrayidx80 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 1
-  store i32 %165, ptr %arrayidx80, align 4
-  %166 = load ptr, ptr %to_srgb, align 8
+  store i32 %166, ptr %arrayidx80, align 4
+  %167 = load ptr, ptr %to_srgb, align 8
   %arrayidx81 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  %167 = load i32, ptr %arrayidx81, align 8
-  %idxprom82 = sext i32 %167 to i64
-  %arrayidx83 = getelementptr inbounds i32, ptr %166, i64 %idxprom82
-  %168 = load i32, ptr %arrayidx83, align 4
+  %168 = load i32, ptr %arrayidx81, align 8
+  %idxprom82 = sext i32 %168 to i64
+  %arrayidx83 = getelementptr inbounds i32, ptr %167, i64 %idxprom82
+  %169 = load i32, ptr %arrayidx83, align 4
   %arrayidx84 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 2
-  store i32 %168, ptr %arrayidx84, align 8
-  %169 = load ptr, ptr %to_srgb, align 8
+  store i32 %169, ptr %arrayidx84, align 8
+  %170 = load ptr, ptr %to_srgb, align 8
   %arrayidx85 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  %170 = load i32, ptr %arrayidx85, align 4
-  %idxprom86 = sext i32 %170 to i64
-  %arrayidx87 = getelementptr inbounds i32, ptr %169, i64 %idxprom86
-  %171 = load i32, ptr %arrayidx87, align 4
+  %171 = load i32, ptr %arrayidx85, align 4
+  %idxprom86 = sext i32 %171 to i64
+  %arrayidx87 = getelementptr inbounds i32, ptr %170, i64 %idxprom86
+  %172 = load i32, ptr %arrayidx87, align 4
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %temp2, i64 0, i64 3
-  store i32 %171, ptr %arrayidx88, align 4
-  %172 = load ptr, ptr %to_srgb, align 8
+  store i32 %172, ptr %arrayidx88, align 4
+  %173 = load ptr, ptr %to_srgb, align 8
   %arrayidx89 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  %173 = load i32, ptr %arrayidx89, align 16
-  %idxprom90 = sext i32 %173 to i64
-  %arrayidx91 = getelementptr inbounds i32, ptr %172, i64 %idxprom90
-  %174 = load i32, ptr %arrayidx91, align 4
+  %174 = load i32, ptr %arrayidx89, align 16
+  %idxprom90 = sext i32 %174 to i64
+  %arrayidx91 = getelementptr inbounds i32, ptr %173, i64 %idxprom90
+  %175 = load i32, ptr %arrayidx91, align 4
   %arrayidx92 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 0
-  store i32 %174, ptr %arrayidx92, align 16
-  %175 = load ptr, ptr %to_srgb, align 8
+  store i32 %175, ptr %arrayidx92, align 16
+  %176 = load ptr, ptr %to_srgb, align 8
   %arrayidx93 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  %176 = load i32, ptr %arrayidx93, align 4
-  %idxprom94 = sext i32 %176 to i64
-  %arrayidx95 = getelementptr inbounds i32, ptr %175, i64 %idxprom94
-  %177 = load i32, ptr %arrayidx95, align 4
+  %177 = load i32, ptr %arrayidx93, align 4
+  %idxprom94 = sext i32 %177 to i64
+  %arrayidx95 = getelementptr inbounds i32, ptr %176, i64 %idxprom94
+  %178 = load i32, ptr %arrayidx95, align 4
   %arrayidx96 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 1
-  store i32 %177, ptr %arrayidx96, align 4
-  %178 = load ptr, ptr %to_srgb, align 8
+  store i32 %178, ptr %arrayidx96, align 4
+  %179 = load ptr, ptr %to_srgb, align 8
   %arrayidx97 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  %179 = load i32, ptr %arrayidx97, align 8
-  %idxprom98 = sext i32 %179 to i64
-  %arrayidx99 = getelementptr inbounds i32, ptr %178, i64 %idxprom98
-  %180 = load i32, ptr %arrayidx99, align 4
+  %180 = load i32, ptr %arrayidx97, align 8
+  %idxprom98 = sext i32 %180 to i64
+  %arrayidx99 = getelementptr inbounds i32, ptr %179, i64 %idxprom98
+  %181 = load i32, ptr %arrayidx99, align 4
   %arrayidx100 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 2
-  store i32 %180, ptr %arrayidx100, align 8
-  %181 = load ptr, ptr %to_srgb, align 8
+  store i32 %181, ptr %arrayidx100, align 8
+  %182 = load ptr, ptr %to_srgb, align 8
   %arrayidx101 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  %182 = load i32, ptr %arrayidx101, align 4
-  %idxprom102 = sext i32 %182 to i64
-  %arrayidx103 = getelementptr inbounds i32, ptr %181, i64 %idxprom102
-  %183 = load i32, ptr %arrayidx103, align 4
+  %183 = load i32, ptr %arrayidx101, align 4
+  %idxprom102 = sext i32 %183 to i64
+  %arrayidx103 = getelementptr inbounds i32, ptr %182, i64 %idxprom102
+  %184 = load i32, ptr %arrayidx103, align 4
   %arrayidx104 = getelementptr inbounds [4 x i32], ptr %temp3, i64 0, i64 3
-  store i32 %183, ptr %arrayidx104, align 4
-  %184 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %184, ptr %i0, align 16
-  %185 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %185, ptr %i1, align 16
-  %186 = load <2 x i64>, ptr %temp2, align 16
-  store <2 x i64> %186, ptr %i2, align 16
-  %187 = load <2 x i64>, ptr %temp3, align 16
-  store <2 x i64> %187, ptr %i3, align 16
-  %188 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %188, ptr %__a.addr.i269, align 16
-  %189 = load <4 x float>, ptr %__a.addr.i269, align 16
-  %190 = bitcast <4 x float> %189 to <2 x i64>
-  store <2 x i64> %190, ptr %__a.addr.i256, align 16
+  store i32 %184, ptr %arrayidx104, align 4
+  %185 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %185, ptr %i0, align 16
+  %186 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %186, ptr %i1, align 16
+  %187 = load <2 x i64>, ptr %temp2, align 16
+  store <2 x i64> %187, ptr %i2, align 16
+  %188 = load <2 x i64>, ptr %temp3, align 16
+  store <2 x i64> %188, ptr %i3, align 16
+  %189 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %189, ptr %__a.addr.i269, align 16
+  %190 = load <4 x float>, ptr %__a.addr.i269, align 16
+  %191 = bitcast <4 x float> %190 to <2 x i64>
+  store <2 x i64> %191, ptr %__a.addr.i256, align 16
   store i32 12, ptr %__count.addr.i257, align 4
-  %191 = load <2 x i64>, ptr %__a.addr.i256, align 16
-  %192 = bitcast <2 x i64> %191 to <4 x i32>
-  %193 = load i32, ptr %__count.addr.i257, align 4
-  %194 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %192, i32 %193)
-  %195 = bitcast <4 x i32> %194 to <2 x i64>
-  store <2 x i64> %195, ptr %temp, align 16
-  %196 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %196, ptr %__a.addr.i282, align 16
+  %192 = load <2 x i64>, ptr %__a.addr.i256, align 16
+  %193 = bitcast <2 x i64> %192 to <4 x i32>
+  %194 = load i32, ptr %__count.addr.i257, align 4
+  %195 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %193, i32 %194)
+  %196 = bitcast <4 x i32> %195 to <2 x i64>
+  store <2 x i64> %196, ptr %temp, align 16
+  %197 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %197, ptr %__a.addr.i282, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i283, align 16
-  %197 = load <2 x i64>, ptr %__a.addr.i282, align 16
-  %198 = load <2 x i64>, ptr %__b.addr.i283, align 16
-  %and.i284 = and <2 x i64> %197, %198
+  %198 = load <2 x i64>, ptr %__a.addr.i282, align 16
+  %199 = load <2 x i64>, ptr %__b.addr.i283, align 16
+  %and.i284 = and <2 x i64> %198, %199
   store <2 x i64> %and.i284, ptr %temp, align 16
-  %199 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %199, ptr %__a.addr.i293, align 16
+  %200 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %200, ptr %__a.addr.i293, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i294, align 16
-  %200 = load <2 x i64>, ptr %__a.addr.i293, align 16
-  %201 = load <2 x i64>, ptr %__b.addr.i294, align 16
-  %or.i295 = or <2 x i64> %200, %201
+  %201 = load <2 x i64>, ptr %__a.addr.i293, align 16
+  %202 = load <2 x i64>, ptr %__b.addr.i294, align 16
+  %or.i295 = or <2 x i64> %201, %202
   store <2 x i64> %or.i295, ptr %temp, align 16
-  %202 = load <2 x i64>, ptr %i0, align 16
-  %203 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %202, ptr %__a.addr.i302, align 16
-  store <2 x i64> %203, ptr %__b.addr.i303, align 16
-  %204 = load <2 x i64>, ptr %__a.addr.i302, align 16
-  %205 = bitcast <2 x i64> %204 to <8 x i16>
-  %206 = load <2 x i64>, ptr %__b.addr.i303, align 16
-  %207 = bitcast <2 x i64> %206 to <8 x i16>
-  %208 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %205, <8 x i16> %207)
-  %209 = bitcast <4 x i32> %208 to <2 x i64>
-  store <2 x i64> %209, ptr %i0, align 16
-  %210 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %210, ptr %__a.addr.i254, align 16
+  %203 = load <2 x i64>, ptr %i0, align 16
+  %204 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %203, ptr %__a.addr.i302, align 16
+  store <2 x i64> %204, ptr %__b.addr.i303, align 16
+  %205 = load <2 x i64>, ptr %__a.addr.i302, align 16
+  %206 = bitcast <2 x i64> %205 to <8 x i16>
+  %207 = load <2 x i64>, ptr %__b.addr.i303, align 16
+  %208 = bitcast <2 x i64> %207 to <8 x i16>
+  %209 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %206, <8 x i16> %208)
+  %210 = bitcast <4 x i32> %209 to <2 x i64>
+  store <2 x i64> %210, ptr %i0, align 16
+  %211 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %211, ptr %__a.addr.i254, align 16
   store i32 16, ptr %__count.addr.i255, align 4
-  %211 = load <2 x i64>, ptr %__a.addr.i254, align 16
-  %212 = bitcast <2 x i64> %211 to <4 x i32>
-  %213 = load i32, ptr %__count.addr.i255, align 4
-  %214 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %212, i32 %213)
-  %215 = bitcast <4 x i32> %214 to <2 x i64>
-  store <2 x i64> %215, ptr %i0, align 16
-  %216 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %216, ptr %__a.addr.i268, align 16
-  %217 = load <4 x float>, ptr %__a.addr.i268, align 16
-  %218 = bitcast <4 x float> %217 to <2 x i64>
-  store <2 x i64> %218, ptr %__a.addr.i252, align 16
+  %212 = load <2 x i64>, ptr %__a.addr.i254, align 16
+  %213 = bitcast <2 x i64> %212 to <4 x i32>
+  %214 = load i32, ptr %__count.addr.i255, align 4
+  %215 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %213, i32 %214)
+  %216 = bitcast <4 x i32> %215 to <2 x i64>
+  store <2 x i64> %216, ptr %i0, align 16
+  %217 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %217, ptr %__a.addr.i268, align 16
+  %218 = load <4 x float>, ptr %__a.addr.i268, align 16
+  %219 = bitcast <4 x float> %218 to <2 x i64>
+  store <2 x i64> %219, ptr %__a.addr.i252, align 16
   store i32 12, ptr %__count.addr.i253, align 4
-  %219 = load <2 x i64>, ptr %__a.addr.i252, align 16
-  %220 = bitcast <2 x i64> %219 to <4 x i32>
-  %221 = load i32, ptr %__count.addr.i253, align 4
-  %222 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %220, i32 %221)
-  %223 = bitcast <4 x i32> %222 to <2 x i64>
-  store <2 x i64> %223, ptr %temp111, align 16
-  %224 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %224, ptr %__a.addr.i279, align 16
+  %220 = load <2 x i64>, ptr %__a.addr.i252, align 16
+  %221 = bitcast <2 x i64> %220 to <4 x i32>
+  %222 = load i32, ptr %__count.addr.i253, align 4
+  %223 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %221, i32 %222)
+  %224 = bitcast <4 x i32> %223 to <2 x i64>
+  store <2 x i64> %224, ptr %temp111, align 16
+  %225 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %225, ptr %__a.addr.i279, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i280, align 16
-  %225 = load <2 x i64>, ptr %__a.addr.i279, align 16
-  %226 = load <2 x i64>, ptr %__b.addr.i280, align 16
-  %and.i281 = and <2 x i64> %225, %226
+  %226 = load <2 x i64>, ptr %__a.addr.i279, align 16
+  %227 = load <2 x i64>, ptr %__b.addr.i280, align 16
+  %and.i281 = and <2 x i64> %226, %227
   store <2 x i64> %and.i281, ptr %temp111, align 16
-  %227 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %227, ptr %__a.addr.i290, align 16
+  %228 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %228, ptr %__a.addr.i290, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i291, align 16
-  %228 = load <2 x i64>, ptr %__a.addr.i290, align 16
-  %229 = load <2 x i64>, ptr %__b.addr.i291, align 16
-  %or.i292 = or <2 x i64> %228, %229
+  %229 = load <2 x i64>, ptr %__a.addr.i290, align 16
+  %230 = load <2 x i64>, ptr %__b.addr.i291, align 16
+  %or.i292 = or <2 x i64> %229, %230
   store <2 x i64> %or.i292, ptr %temp111, align 16
-  %230 = load <2 x i64>, ptr %i1, align 16
-  %231 = load <2 x i64>, ptr %temp111, align 16
-  store <2 x i64> %230, ptr %__a.addr.i300, align 16
-  store <2 x i64> %231, ptr %__b.addr.i301, align 16
-  %232 = load <2 x i64>, ptr %__a.addr.i300, align 16
-  %233 = bitcast <2 x i64> %232 to <8 x i16>
-  %234 = load <2 x i64>, ptr %__b.addr.i301, align 16
-  %235 = bitcast <2 x i64> %234 to <8 x i16>
-  %236 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %233, <8 x i16> %235)
-  %237 = bitcast <4 x i32> %236 to <2 x i64>
-  store <2 x i64> %237, ptr %i1, align 16
-  %238 = load <2 x i64>, ptr %i1, align 16
-  store <2 x i64> %238, ptr %__a.addr.i250, align 16
+  %231 = load <2 x i64>, ptr %i1, align 16
+  %232 = load <2 x i64>, ptr %temp111, align 16
+  store <2 x i64> %231, ptr %__a.addr.i300, align 16
+  store <2 x i64> %232, ptr %__b.addr.i301, align 16
+  %233 = load <2 x i64>, ptr %__a.addr.i300, align 16
+  %234 = bitcast <2 x i64> %233 to <8 x i16>
+  %235 = load <2 x i64>, ptr %__b.addr.i301, align 16
+  %236 = bitcast <2 x i64> %235 to <8 x i16>
+  %237 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %234, <8 x i16> %236)
+  %238 = bitcast <4 x i32> %237 to <2 x i64>
+  store <2 x i64> %238, ptr %i1, align 16
+  %239 = load <2 x i64>, ptr %i1, align 16
+  store <2 x i64> %239, ptr %__a.addr.i250, align 16
   store i32 16, ptr %__count.addr.i251, align 4
-  %239 = load <2 x i64>, ptr %__a.addr.i250, align 16
-  %240 = bitcast <2 x i64> %239 to <4 x i32>
-  %241 = load i32, ptr %__count.addr.i251, align 4
-  %242 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %240, i32 %241)
-  %243 = bitcast <4 x i32> %242 to <2 x i64>
-  store <2 x i64> %243, ptr %i1, align 16
-  %244 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %244, ptr %__a.addr.i267, align 16
-  %245 = load <4 x float>, ptr %__a.addr.i267, align 16
-  %246 = bitcast <4 x float> %245 to <2 x i64>
-  store <2 x i64> %246, ptr %__a.addr.i248, align 16
+  %240 = load <2 x i64>, ptr %__a.addr.i250, align 16
+  %241 = bitcast <2 x i64> %240 to <4 x i32>
+  %242 = load i32, ptr %__count.addr.i251, align 4
+  %243 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %241, i32 %242)
+  %244 = bitcast <4 x i32> %243 to <2 x i64>
+  store <2 x i64> %244, ptr %i1, align 16
+  %245 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %245, ptr %__a.addr.i267, align 16
+  %246 = load <4 x float>, ptr %__a.addr.i267, align 16
+  %247 = bitcast <4 x float> %246 to <2 x i64>
+  store <2 x i64> %247, ptr %__a.addr.i248, align 16
   store i32 12, ptr %__count.addr.i249, align 4
-  %247 = load <2 x i64>, ptr %__a.addr.i248, align 16
-  %248 = bitcast <2 x i64> %247 to <4 x i32>
-  %249 = load i32, ptr %__count.addr.i249, align 4
-  %250 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %248, i32 %249)
-  %251 = bitcast <4 x i32> %250 to <2 x i64>
-  store <2 x i64> %251, ptr %temp118, align 16
-  %252 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %252, ptr %__a.addr.i276, align 16
+  %248 = load <2 x i64>, ptr %__a.addr.i248, align 16
+  %249 = bitcast <2 x i64> %248 to <4 x i32>
+  %250 = load i32, ptr %__count.addr.i249, align 4
+  %251 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %249, i32 %250)
+  %252 = bitcast <4 x i32> %251 to <2 x i64>
+  store <2 x i64> %252, ptr %temp118, align 16
+  %253 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %253, ptr %__a.addr.i276, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i277, align 16
-  %253 = load <2 x i64>, ptr %__a.addr.i276, align 16
-  %254 = load <2 x i64>, ptr %__b.addr.i277, align 16
-  %and.i278 = and <2 x i64> %253, %254
+  %254 = load <2 x i64>, ptr %__a.addr.i276, align 16
+  %255 = load <2 x i64>, ptr %__b.addr.i277, align 16
+  %and.i278 = and <2 x i64> %254, %255
   store <2 x i64> %and.i278, ptr %temp118, align 16
-  %255 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %255, ptr %__a.addr.i287, align 16
+  %256 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %256, ptr %__a.addr.i287, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i288, align 16
-  %256 = load <2 x i64>, ptr %__a.addr.i287, align 16
-  %257 = load <2 x i64>, ptr %__b.addr.i288, align 16
-  %or.i289 = or <2 x i64> %256, %257
+  %257 = load <2 x i64>, ptr %__a.addr.i287, align 16
+  %258 = load <2 x i64>, ptr %__b.addr.i288, align 16
+  %or.i289 = or <2 x i64> %257, %258
   store <2 x i64> %or.i289, ptr %temp118, align 16
-  %258 = load <2 x i64>, ptr %i2, align 16
-  %259 = load <2 x i64>, ptr %temp118, align 16
-  store <2 x i64> %258, ptr %__a.addr.i298, align 16
-  store <2 x i64> %259, ptr %__b.addr.i299, align 16
-  %260 = load <2 x i64>, ptr %__a.addr.i298, align 16
-  %261 = bitcast <2 x i64> %260 to <8 x i16>
-  %262 = load <2 x i64>, ptr %__b.addr.i299, align 16
-  %263 = bitcast <2 x i64> %262 to <8 x i16>
-  %264 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %261, <8 x i16> %263)
-  %265 = bitcast <4 x i32> %264 to <2 x i64>
-  store <2 x i64> %265, ptr %i2, align 16
-  %266 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %266, ptr %__a.addr.i246, align 16
+  %259 = load <2 x i64>, ptr %i2, align 16
+  %260 = load <2 x i64>, ptr %temp118, align 16
+  store <2 x i64> %259, ptr %__a.addr.i298, align 16
+  store <2 x i64> %260, ptr %__b.addr.i299, align 16
+  %261 = load <2 x i64>, ptr %__a.addr.i298, align 16
+  %262 = bitcast <2 x i64> %261 to <8 x i16>
+  %263 = load <2 x i64>, ptr %__b.addr.i299, align 16
+  %264 = bitcast <2 x i64> %263 to <8 x i16>
+  %265 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %262, <8 x i16> %264)
+  %266 = bitcast <4 x i32> %265 to <2 x i64>
+  store <2 x i64> %266, ptr %i2, align 16
+  %267 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %267, ptr %__a.addr.i246, align 16
   store i32 16, ptr %__count.addr.i247, align 4
-  %267 = load <2 x i64>, ptr %__a.addr.i246, align 16
-  %268 = bitcast <2 x i64> %267 to <4 x i32>
-  %269 = load i32, ptr %__count.addr.i247, align 4
-  %270 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %268, i32 %269)
-  %271 = bitcast <4 x i32> %270 to <2 x i64>
-  store <2 x i64> %271, ptr %i2, align 16
-  %272 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %272, ptr %__a.addr.i266, align 16
-  %273 = load <4 x float>, ptr %__a.addr.i266, align 16
-  %274 = bitcast <4 x float> %273 to <2 x i64>
-  store <2 x i64> %274, ptr %__a.addr.i244, align 16
+  %268 = load <2 x i64>, ptr %__a.addr.i246, align 16
+  %269 = bitcast <2 x i64> %268 to <4 x i32>
+  %270 = load i32, ptr %__count.addr.i247, align 4
+  %271 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %269, i32 %270)
+  %272 = bitcast <4 x i32> %271 to <2 x i64>
+  store <2 x i64> %272, ptr %i2, align 16
+  %273 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %273, ptr %__a.addr.i266, align 16
+  %274 = load <4 x float>, ptr %__a.addr.i266, align 16
+  %275 = bitcast <4 x float> %274 to <2 x i64>
+  store <2 x i64> %275, ptr %__a.addr.i244, align 16
   store i32 12, ptr %__count.addr.i245, align 4
-  %275 = load <2 x i64>, ptr %__a.addr.i244, align 16
-  %276 = bitcast <2 x i64> %275 to <4 x i32>
-  %277 = load i32, ptr %__count.addr.i245, align 4
-  %278 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %276, i32 %277)
-  %279 = bitcast <4 x i32> %278 to <2 x i64>
-  store <2 x i64> %279, ptr %temp125, align 16
-  %280 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %280, ptr %__a.addr.i274, align 16
+  %276 = load <2 x i64>, ptr %__a.addr.i244, align 16
+  %277 = bitcast <2 x i64> %276 to <4 x i32>
+  %278 = load i32, ptr %__count.addr.i245, align 4
+  %279 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %277, i32 %278)
+  %280 = bitcast <4 x i32> %279 to <2 x i64>
+  store <2 x i64> %280, ptr %temp125, align 16
+  %281 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %281, ptr %__a.addr.i274, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i275, align 16
-  %281 = load <2 x i64>, ptr %__a.addr.i274, align 16
-  %282 = load <2 x i64>, ptr %__b.addr.i275, align 16
-  %and.i = and <2 x i64> %281, %282
+  %282 = load <2 x i64>, ptr %__a.addr.i274, align 16
+  %283 = load <2 x i64>, ptr %__b.addr.i275, align 16
+  %and.i = and <2 x i64> %282, %283
   store <2 x i64> %and.i, ptr %temp125, align 16
-  %283 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %283, ptr %__a.addr.i285, align 16
+  %284 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %284, ptr %__a.addr.i285, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i286, align 16
-  %284 = load <2 x i64>, ptr %__a.addr.i285, align 16
-  %285 = load <2 x i64>, ptr %__b.addr.i286, align 16
-  %or.i = or <2 x i64> %284, %285
+  %285 = load <2 x i64>, ptr %__a.addr.i285, align 16
+  %286 = load <2 x i64>, ptr %__b.addr.i286, align 16
+  %or.i = or <2 x i64> %285, %286
   store <2 x i64> %or.i, ptr %temp125, align 16
-  %286 = load <2 x i64>, ptr %i3, align 16
-  %287 = load <2 x i64>, ptr %temp125, align 16
-  store <2 x i64> %286, ptr %__a.addr.i296, align 16
-  store <2 x i64> %287, ptr %__b.addr.i297, align 16
-  %288 = load <2 x i64>, ptr %__a.addr.i296, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %__b.addr.i297, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %292 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %289, <8 x i16> %291)
-  %293 = bitcast <4 x i32> %292 to <2 x i64>
-  store <2 x i64> %293, ptr %i3, align 16
-  %294 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %294, ptr %__a.addr.i243, align 16
+  %287 = load <2 x i64>, ptr %i3, align 16
+  %288 = load <2 x i64>, ptr %temp125, align 16
+  store <2 x i64> %287, ptr %__a.addr.i296, align 16
+  store <2 x i64> %288, ptr %__b.addr.i297, align 16
+  %289 = load <2 x i64>, ptr %__a.addr.i296, align 16
+  %290 = bitcast <2 x i64> %289 to <8 x i16>
+  %291 = load <2 x i64>, ptr %__b.addr.i297, align 16
+  %292 = bitcast <2 x i64> %291 to <8 x i16>
+  %293 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %290, <8 x i16> %292)
+  %294 = bitcast <4 x i32> %293 to <2 x i64>
+  store <2 x i64> %294, ptr %i3, align 16
+  %295 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %295, ptr %__a.addr.i243, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %295 = load <2 x i64>, ptr %__a.addr.i243, align 16
-  %296 = bitcast <2 x i64> %295 to <4 x i32>
-  %297 = load i32, ptr %__count.addr.i, align 4
-  %298 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %296, i32 %297)
-  %299 = bitcast <4 x i32> %298 to <2 x i64>
-  store <2 x i64> %299, ptr %i3, align 16
-  %300 = load <2 x i64>, ptr %i1, align 16
-  %301 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %300, ptr %__a.addr.i207, align 16
-  store <2 x i64> %301, ptr %__b.addr.i208, align 16
-  %302 = load <2 x i64>, ptr %__a.addr.i207, align 16
-  %303 = bitcast <2 x i64> %302 to <4 x i32>
-  %304 = load <2 x i64>, ptr %__b.addr.i208, align 16
-  %305 = bitcast <2 x i64> %304 to <4 x i32>
-  %306 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %303, <4 x i32> %305)
-  %307 = bitcast <8 x i16> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %i1, align 16
-  %308 = load <2 x i64>, ptr %i3, align 16
-  %309 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %308, ptr %__a.addr.i205, align 16
-  store <2 x i64> %309, ptr %__b.addr.i206, align 16
-  %310 = load <2 x i64>, ptr %__a.addr.i205, align 16
-  %311 = bitcast <2 x i64> %310 to <4 x i32>
-  %312 = load <2 x i64>, ptr %__b.addr.i206, align 16
-  %313 = bitcast <2 x i64> %312 to <4 x i32>
-  %314 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %311, <4 x i32> %313)
-  %315 = bitcast <8 x i16> %314 to <2 x i64>
-  store <2 x i64> %315, ptr %i3, align 16
-  %316 = load <2 x i64>, ptr %i1, align 16
-  %317 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %316, ptr %__a.addr.i180, align 16
-  store <2 x i64> %317, ptr %__b.addr.i181, align 16
-  %318 = load <2 x i64>, ptr %__a.addr.i180, align 16
-  %319 = bitcast <2 x i64> %318 to <8 x i16>
-  %320 = load <2 x i64>, ptr %__b.addr.i181, align 16
-  %321 = bitcast <2 x i64> %320 to <8 x i16>
-  %shuffle.i182 = shufflevector <8 x i16> %319, <8 x i16> %321, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %322 = bitcast <8 x i16> %shuffle.i182 to <2 x i64>
-  store <2 x i64> %322, ptr %i0, align 16
-  %323 = load <2 x i64>, ptr %i1, align 16
-  %324 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %323, ptr %__a.addr.i186, align 16
-  store <2 x i64> %324, ptr %__b.addr.i187, align 16
-  %325 = load <2 x i64>, ptr %__a.addr.i186, align 16
-  %326 = bitcast <2 x i64> %325 to <8 x i16>
-  %327 = load <2 x i64>, ptr %__b.addr.i187, align 16
-  %328 = bitcast <2 x i64> %327 to <8 x i16>
-  %shuffle.i188 = shufflevector <8 x i16> %326, <8 x i16> %328, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %329 = bitcast <8 x i16> %shuffle.i188 to <2 x i64>
-  store <2 x i64> %329, ptr %i2, align 16
-  %330 = load <2 x i64>, ptr %i0, align 16
-  %331 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %330, ptr %__a.addr.i, align 16
-  store <2 x i64> %331, ptr %__b.addr.i, align 16
-  %332 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %333 = bitcast <2 x i64> %332 to <8 x i16>
-  %334 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %335 = bitcast <2 x i64> %334 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %333, <8 x i16> %335, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %336 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %336, ptr %i1, align 16
-  %337 = load <2 x i64>, ptr %i0, align 16
-  %338 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %337, ptr %__a.addr.i183, align 16
-  store <2 x i64> %338, ptr %__b.addr.i184, align 16
-  %339 = load <2 x i64>, ptr %__a.addr.i183, align 16
-  %340 = bitcast <2 x i64> %339 to <8 x i16>
-  %341 = load <2 x i64>, ptr %__b.addr.i184, align 16
-  %342 = bitcast <2 x i64> %341 to <8 x i16>
-  %shuffle.i185 = shufflevector <8 x i16> %340, <8 x i16> %342, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %343 = bitcast <8 x i16> %shuffle.i185 to <2 x i64>
-  store <2 x i64> %343, ptr %i3, align 16
-  %344 = load <2 x i64>, ptr %i1, align 16
-  %345 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %344, ptr %__a.addr.i209, align 16
-  store <2 x i64> %345, ptr %__b.addr.i210, align 16
-  %346 = load <2 x i64>, ptr %__a.addr.i209, align 16
-  %347 = bitcast <2 x i64> %346 to <8 x i16>
-  %348 = load <2 x i64>, ptr %__b.addr.i210, align 16
-  %349 = bitcast <2 x i64> %348 to <8 x i16>
-  %350 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %347, <8 x i16> %349)
-  %351 = bitcast <16 x i8> %350 to <2 x i64>
-  store <2 x i64> %351, ptr %i1, align 16
-  %352 = load ptr, ptr %output, align 8
-  %353 = load <2 x i64>, ptr %i1, align 16
-  store ptr %352, ptr %__p.addr.i304, align 8
-  store <2 x i64> %353, ptr %__b.addr.i305, align 16
-  %354 = load <2 x i64>, ptr %__b.addr.i305, align 16
-  %355 = load ptr, ptr %__p.addr.i304, align 8
-  store <2 x i64> %354, ptr %355, align 1
-  %356 = load ptr, ptr %encode.addr, align 8
-  %add.ptr139 = getelementptr inbounds float, ptr %356, i64 16
+  %296 = load <2 x i64>, ptr %__a.addr.i243, align 16
+  %297 = bitcast <2 x i64> %296 to <4 x i32>
+  %298 = load i32, ptr %__count.addr.i, align 4
+  %299 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %297, i32 %298)
+  %300 = bitcast <4 x i32> %299 to <2 x i64>
+  store <2 x i64> %300, ptr %i3, align 16
+  %301 = load <2 x i64>, ptr %i1, align 16
+  %302 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %301, ptr %__a.addr.i207, align 16
+  store <2 x i64> %302, ptr %__b.addr.i208, align 16
+  %303 = load <2 x i64>, ptr %__a.addr.i207, align 16
+  %304 = bitcast <2 x i64> %303 to <4 x i32>
+  %305 = load <2 x i64>, ptr %__b.addr.i208, align 16
+  %306 = bitcast <2 x i64> %305 to <4 x i32>
+  %307 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %304, <4 x i32> %306)
+  %308 = bitcast <8 x i16> %307 to <2 x i64>
+  store <2 x i64> %308, ptr %i1, align 16
+  %309 = load <2 x i64>, ptr %i3, align 16
+  %310 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %309, ptr %__a.addr.i205, align 16
+  store <2 x i64> %310, ptr %__b.addr.i206, align 16
+  %311 = load <2 x i64>, ptr %__a.addr.i205, align 16
+  %312 = bitcast <2 x i64> %311 to <4 x i32>
+  %313 = load <2 x i64>, ptr %__b.addr.i206, align 16
+  %314 = bitcast <2 x i64> %313 to <4 x i32>
+  %315 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %312, <4 x i32> %314)
+  %316 = bitcast <8 x i16> %315 to <2 x i64>
+  store <2 x i64> %316, ptr %i3, align 16
+  %317 = load <2 x i64>, ptr %i1, align 16
+  %318 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %317, ptr %__a.addr.i180, align 16
+  store <2 x i64> %318, ptr %__b.addr.i181, align 16
+  %319 = load <2 x i64>, ptr %__a.addr.i180, align 16
+  %320 = bitcast <2 x i64> %319 to <8 x i16>
+  %321 = load <2 x i64>, ptr %__b.addr.i181, align 16
+  %322 = bitcast <2 x i64> %321 to <8 x i16>
+  %shuffle.i182 = shufflevector <8 x i16> %320, <8 x i16> %322, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %323 = bitcast <8 x i16> %shuffle.i182 to <2 x i64>
+  store <2 x i64> %323, ptr %i0, align 16
+  %324 = load <2 x i64>, ptr %i1, align 16
+  %325 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %324, ptr %__a.addr.i186, align 16
+  store <2 x i64> %325, ptr %__b.addr.i187, align 16
+  %326 = load <2 x i64>, ptr %__a.addr.i186, align 16
+  %327 = bitcast <2 x i64> %326 to <8 x i16>
+  %328 = load <2 x i64>, ptr %__b.addr.i187, align 16
+  %329 = bitcast <2 x i64> %328 to <8 x i16>
+  %shuffle.i188 = shufflevector <8 x i16> %327, <8 x i16> %329, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %330 = bitcast <8 x i16> %shuffle.i188 to <2 x i64>
+  store <2 x i64> %330, ptr %i2, align 16
+  %331 = load <2 x i64>, ptr %i0, align 16
+  %332 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %331, ptr %__a.addr.i, align 16
+  store <2 x i64> %332, ptr %__b.addr.i, align 16
+  %333 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %334 = bitcast <2 x i64> %333 to <8 x i16>
+  %335 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %336 = bitcast <2 x i64> %335 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %334, <8 x i16> %336, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %337 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %337, ptr %i1, align 16
+  %338 = load <2 x i64>, ptr %i0, align 16
+  %339 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %338, ptr %__a.addr.i183, align 16
+  store <2 x i64> %339, ptr %__b.addr.i184, align 16
+  %340 = load <2 x i64>, ptr %__a.addr.i183, align 16
+  %341 = bitcast <2 x i64> %340 to <8 x i16>
+  %342 = load <2 x i64>, ptr %__b.addr.i184, align 16
+  %343 = bitcast <2 x i64> %342 to <8 x i16>
+  %shuffle.i185 = shufflevector <8 x i16> %341, <8 x i16> %343, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %344 = bitcast <8 x i16> %shuffle.i185 to <2 x i64>
+  store <2 x i64> %344, ptr %i3, align 16
+  %345 = load <2 x i64>, ptr %i1, align 16
+  %346 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %345, ptr %__a.addr.i209, align 16
+  store <2 x i64> %346, ptr %__b.addr.i210, align 16
+  %347 = load <2 x i64>, ptr %__a.addr.i209, align 16
+  %348 = bitcast <2 x i64> %347 to <8 x i16>
+  %349 = load <2 x i64>, ptr %__b.addr.i210, align 16
+  %350 = bitcast <2 x i64> %349 to <8 x i16>
+  %351 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %348, <8 x i16> %350)
+  %352 = bitcast <16 x i8> %351 to <2 x i64>
+  store <2 x i64> %352, ptr %i1, align 16
+  %353 = load ptr, ptr %output, align 8
+  %354 = load <2 x i64>, ptr %i1, align 16
+  store ptr %353, ptr %__p.addr.i304, align 8
+  store <2 x i64> %354, ptr %__b.addr.i305, align 16
+  %355 = load <2 x i64>, ptr %__b.addr.i305, align 16
+  %356 = load ptr, ptr %__p.addr.i304, align 8
+  store <2 x i64> %355, ptr %356, align 1
+  %357 = load ptr, ptr %encode.addr, align 8
+  %add.ptr139 = getelementptr inbounds float, ptr %357, i64 16
   store ptr %add.ptr139, ptr %encode.addr, align 8
-  %357 = load ptr, ptr %output, align 8
-  %add.ptr140 = getelementptr inbounds i8, ptr %357, i64 16
-  store ptr %add.ptr140, ptr %output, align 8
   %358 = load ptr, ptr %output, align 8
-  %359 = load ptr, ptr %end_output, align 8
-  %cmp141 = icmp ule ptr %358, %359
+  %add.ptr140 = getelementptr inbounds i8, ptr %358, i64 16
+  store ptr %add.ptr140, ptr %output, align 8
+  %359 = load ptr, ptr %output, align 8
+  %360 = load ptr, ptr %end_output, align 8
+  %cmp141 = icmp ule ptr %359, %360
   br i1 %cmp141, label %if.then142, label %if.end
 
 if.then142:                                       ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %360 = load ptr, ptr %output, align 8
-  %361 = load ptr, ptr %end_output, align 8
-  %add.ptr143 = getelementptr inbounds i8, ptr %361, i64 16
-  %cmp144 = icmp eq ptr %360, %add.ptr143
+  %361 = load ptr, ptr %output, align 8
+  %362 = load ptr, ptr %end_output, align 8
+  %add.ptr143 = getelementptr inbounds i8, ptr %362, i64 16
+  %cmp144 = icmp eq ptr %361, %add.ptr143
   br i1 %cmp144, label %if.then145, label %if.end146
 
 if.then145:                                       ; preds = %if.end
   br label %for.end
 
 if.end146:                                        ; preds = %if.end
-  %362 = load ptr, ptr %end_output, align 8
-  store ptr %362, ptr %output, align 8
-  %363 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %363, ptr %encode.addr, align 8
+  %363 = load ptr, ptr %end_output, align 8
+  store ptr %363, ptr %output, align 8
+  %364 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %364, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then145
   br label %while.end176
 
 if.end147:                                        ; preds = %entry
-  %364 = load ptr, ptr %output, align 8
-  %add.ptr148 = getelementptr inbounds i8, ptr %364, i64 4
+  %365 = load ptr, ptr %output, align 8
+  %add.ptr148 = getelementptr inbounds i8, ptr %365, i64 4
   store ptr %add.ptr148, ptr %output, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end147
-  %365 = load ptr, ptr %output, align 8
-  %366 = load ptr, ptr %end_output, align 8
-  %cmp149 = icmp ule ptr %365, %366
+  %366 = load ptr, ptr %output, align 8
+  %367 = load ptr, ptr %end_output, align 8
+  %cmp149 = icmp ule ptr %366, %367
   br i1 %cmp149, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %367 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %367) #9, !srcloc !309
   %368 = load ptr, ptr %encode.addr, align 8
-  %arrayidx150 = getelementptr inbounds float, ptr %368, i64 1
-  %369 = load float, ptr %arrayidx150, align 4
-  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %369)
-  %370 = load ptr, ptr %output, align 8
-  %arrayidx152 = getelementptr inbounds i8, ptr %370, i64 -4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %368) #9, !srcloc !309
+  %369 = load ptr, ptr %encode.addr, align 8
+  %arrayidx150 = getelementptr inbounds float, ptr %369, i64 1
+  %370 = load float, ptr %arrayidx150, align 4
+  %call151 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %370)
+  %371 = load ptr, ptr %output, align 8
+  %arrayidx152 = getelementptr inbounds i8, ptr %371, i64 -4
   store i8 %call151, ptr %arrayidx152, align 1
-  %371 = load ptr, ptr %encode.addr, align 8
-  %arrayidx153 = getelementptr inbounds float, ptr %371, i64 0
-  %372 = load float, ptr %arrayidx153, align 4
-  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %372)
-  %373 = load ptr, ptr %output, align 8
-  %arrayidx155 = getelementptr inbounds i8, ptr %373, i64 -3
+  %372 = load ptr, ptr %encode.addr, align 8
+  %arrayidx153 = getelementptr inbounds float, ptr %372, i64 0
+  %373 = load float, ptr %arrayidx153, align 4
+  %call154 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %373)
+  %374 = load ptr, ptr %output, align 8
+  %arrayidx155 = getelementptr inbounds i8, ptr %374, i64 -3
   store i8 %call154, ptr %arrayidx155, align 1
-  %374 = load ptr, ptr %encode.addr, align 8
-  %arrayidx156 = getelementptr inbounds float, ptr %374, i64 3
-  %375 = load float, ptr %arrayidx156, align 4
-  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %375)
-  %376 = load ptr, ptr %output, align 8
-  %arrayidx158 = getelementptr inbounds i8, ptr %376, i64 -2
+  %375 = load ptr, ptr %encode.addr, align 8
+  %arrayidx156 = getelementptr inbounds float, ptr %375, i64 3
+  %376 = load float, ptr %arrayidx156, align 4
+  %call157 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %376)
+  %377 = load ptr, ptr %output, align 8
+  %arrayidx158 = getelementptr inbounds i8, ptr %377, i64 -2
   store i8 %call157, ptr %arrayidx158, align 1
-  %377 = load ptr, ptr %encode.addr, align 8
-  %arrayidx159 = getelementptr inbounds float, ptr %377, i64 2
-  %378 = load float, ptr %arrayidx159, align 4
-  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %378)
-  %379 = load ptr, ptr %output, align 8
-  %arrayidx161 = getelementptr inbounds i8, ptr %379, i64 -1
-  store i8 %call160, ptr %arrayidx161, align 1
+  %378 = load ptr, ptr %encode.addr, align 8
+  %arrayidx159 = getelementptr inbounds float, ptr %378, i64 2
+  %379 = load float, ptr %arrayidx159, align 4
+  %call160 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %379)
   %380 = load ptr, ptr %output, align 8
-  %add.ptr162 = getelementptr inbounds i8, ptr %380, i64 4
+  %arrayidx161 = getelementptr inbounds i8, ptr %380, i64 -1
+  store i8 %call160, ptr %arrayidx161, align 1
+  %381 = load ptr, ptr %output, align 8
+  %add.ptr162 = getelementptr inbounds i8, ptr %381, i64 4
   store ptr %add.ptr162, ptr %output, align 8
-  %381 = load ptr, ptr %encode.addr, align 8
-  %add.ptr163 = getelementptr inbounds float, ptr %381, i64 4
+  %382 = load ptr, ptr %encode.addr, align 8
+  %add.ptr163 = getelementptr inbounds float, ptr %382, i64 4
   store ptr %add.ptr163, ptr %encode.addr, align 8
   br label %while.cond, !llvm.loop !310
 
 while.end:                                        ; preds = %while.cond
-  %382 = load ptr, ptr %output, align 8
-  %add.ptr164 = getelementptr inbounds i8, ptr %382, i64 -4
+  %383 = load ptr, ptr %output, align 8
+  %add.ptr164 = getelementptr inbounds i8, ptr %383, i64 -4
   store ptr %add.ptr164, ptr %output, align 8
   br label %while.cond165
 
 while.cond165:                                    ; preds = %while.body167, %while.end
-  %383 = load ptr, ptr %output, align 8
-  %384 = load ptr, ptr %end_output, align 8
-  %cmp166 = icmp ult ptr %383, %384
+  %384 = load ptr, ptr %output, align 8
+  %385 = load ptr, ptr %end_output, align 8
+  %cmp166 = icmp ult ptr %384, %385
   br i1 %cmp166, label %while.body167, label %while.end176
 
 while.body167:                                    ; preds = %while.cond165
-  %385 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %385) #9, !srcloc !311
   %386 = load ptr, ptr %encode.addr, align 8
-  %arrayidx168 = getelementptr inbounds float, ptr %386, i64 1
-  %387 = load float, ptr %arrayidx168, align 4
-  %call169 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %387)
-  %388 = load ptr, ptr %output, align 8
-  %arrayidx170 = getelementptr inbounds i8, ptr %388, i64 0
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %386) #9, !srcloc !311
+  %387 = load ptr, ptr %encode.addr, align 8
+  %arrayidx168 = getelementptr inbounds float, ptr %387, i64 1
+  %388 = load float, ptr %arrayidx168, align 4
+  %call169 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %388)
+  %389 = load ptr, ptr %output, align 8
+  %arrayidx170 = getelementptr inbounds i8, ptr %389, i64 0
   store i8 %call169, ptr %arrayidx170, align 1
-  %389 = load ptr, ptr %encode.addr, align 8
-  %arrayidx171 = getelementptr inbounds float, ptr %389, i64 0
-  %390 = load float, ptr %arrayidx171, align 4
-  %call172 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %390)
-  %391 = load ptr, ptr %output, align 8
-  %arrayidx173 = getelementptr inbounds i8, ptr %391, i64 1
-  store i8 %call172, ptr %arrayidx173, align 1
+  %390 = load ptr, ptr %encode.addr, align 8
+  %arrayidx171 = getelementptr inbounds float, ptr %390, i64 0
+  %391 = load float, ptr %arrayidx171, align 4
+  %call172 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %391)
   %392 = load ptr, ptr %output, align 8
-  %add.ptr174 = getelementptr inbounds i8, ptr %392, i64 2
+  %arrayidx173 = getelementptr inbounds i8, ptr %392, i64 1
+  store i8 %call172, ptr %arrayidx173, align 1
+  %393 = load ptr, ptr %output, align 8
+  %add.ptr174 = getelementptr inbounds i8, ptr %393, i64 2
   store ptr %add.ptr174, ptr %output, align 8
-  %393 = load ptr, ptr %encode.addr, align 8
-  %add.ptr175 = getelementptr inbounds float, ptr %393, i64 2
+  %394 = load ptr, ptr %encode.addr, align 8
+  %add.ptr175 = getelementptr inbounds float, ptr %394, i64 2
   store ptr %add.ptr175, ptr %encode.addr, align 8
   br label %while.cond165, !llvm.loop !312
 
@@ -31035,17 +31045,18 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp17, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %26 = load float, ptr getelementptr inbounds ([256 x float], ptr @stbir__srgb_uchar_to_linear_float, i64 0, i64 1), align 4
-  %27 = load ptr, ptr %decode, align 8
-  %arrayidx19 = getelementptr inbounds float, ptr %27, i64 0
-  store float %26, ptr %arrayidx19, align 4
-  %28 = load ptr, ptr %input, align 8
-  %arrayidx20 = getelementptr inbounds i8, ptr %28, i64 0
-  %29 = load i8, ptr %arrayidx20, align 1
-  %conv21 = uitofp i8 %29 to float
+  %26 = getelementptr inbounds [256 x float], ptr @stbir__srgb_uchar_to_linear_float, i64 0, i64 1
+  %27 = load float, ptr %26, align 4
+  %28 = load ptr, ptr %decode, align 8
+  %arrayidx19 = getelementptr inbounds float, ptr %28, i64 0
+  store float %27, ptr %arrayidx19, align 4
+  %29 = load ptr, ptr %input, align 8
+  %arrayidx20 = getelementptr inbounds i8, ptr %29, i64 0
+  %30 = load i8, ptr %arrayidx20, align 1
+  %conv21 = uitofp i8 %30 to float
   %mul22 = fmul float %conv21, 0x3F70101020000000
-  %30 = load ptr, ptr %decode, align 8
-  %arrayidx23 = getelementptr inbounds float, ptr %30, i64 1
+  %31 = load ptr, ptr %decode, align 8
+  %arrayidx23 = getelementptr inbounds float, ptr %31, i64 1
   store float %mul22, ptr %arrayidx23, align 4
   br label %if.end
 
@@ -31186,522 +31197,523 @@ entry:
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   store ptr %add.ptr, ptr %end_output, align 8
-  store ptr getelementptr inbounds (i32, ptr @fp32_to_srgb8_tab4, i64 -912), ptr %to_srgb, align 8
-  %3 = load i32, ptr %width_times_channels.addr, align 4
-  %cmp = icmp sge i32 %3, 16
+  %3 = getelementptr inbounds i32, ptr @fp32_to_srgb8_tab4, i64 -912
+  store ptr %3, ptr %to_srgb, align 8
+  %4 = load i32, ptr %width_times_channels.addr, align 4
+  %cmp = icmp sge i32 %4, 16
   br i1 %cmp, label %if.then, label %if.end101
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %encode.addr, align 8
-  %5 = load i32, ptr %width_times_channels.addr, align 4
-  %idx.ext1 = sext i32 %5 to i64
-  %add.ptr2 = getelementptr inbounds float, ptr %4, i64 %idx.ext1
+  %5 = load ptr, ptr %encode.addr, align 8
+  %6 = load i32, ptr %width_times_channels.addr, align 4
+  %idx.ext1 = sext i32 %6 to i64
+  %add.ptr2 = getelementptr inbounds float, ptr %5, i64 %idx.ext1
   %add.ptr3 = getelementptr inbounds float, ptr %add.ptr2, i64 -16
   store ptr %add.ptr3, ptr %end_encode_m16, align 8
-  %6 = load ptr, ptr %end_output, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %6, i64 -16
+  %7 = load ptr, ptr %end_output, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %7, i64 -16
   store ptr %add.ptr4, ptr %end_output, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end100, %if.then96, %if.then
-  %7 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !314
   %8 = load ptr, ptr %encode.addr, align 8
-  store ptr %8, ptr %__p.addr.i121, align 8
-  %9 = load ptr, ptr %__p.addr.i121, align 8
-  %10 = load <4 x float>, ptr %9, align 1
-  store <4 x float> %10, ptr %f0, align 16
-  %11 = load ptr, ptr %encode.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %11, i64 4
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %8) #9, !srcloc !314
+  %9 = load ptr, ptr %encode.addr, align 8
+  store ptr %9, ptr %__p.addr.i121, align 8
+  %10 = load ptr, ptr %__p.addr.i121, align 8
+  %11 = load <4 x float>, ptr %10, align 1
+  store <4 x float> %11, ptr %f0, align 16
+  %12 = load ptr, ptr %encode.addr, align 8
+  %add.ptr5 = getelementptr inbounds float, ptr %12, i64 4
   store ptr %add.ptr5, ptr %__p.addr.i120, align 8
-  %12 = load ptr, ptr %__p.addr.i120, align 8
-  %13 = load <4 x float>, ptr %12, align 1
-  store <4 x float> %13, ptr %f1, align 16
-  %14 = load ptr, ptr %encode.addr, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %14, i64 8
+  %13 = load ptr, ptr %__p.addr.i120, align 8
+  %14 = load <4 x float>, ptr %13, align 1
+  store <4 x float> %14, ptr %f1, align 16
+  %15 = load ptr, ptr %encode.addr, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %15, i64 8
   store ptr %add.ptr7, ptr %__p.addr.i119, align 8
-  %15 = load ptr, ptr %__p.addr.i119, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %f2, align 16
-  %17 = load ptr, ptr %encode.addr, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %17, i64 12
+  %16 = load ptr, ptr %__p.addr.i119, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %f2, align 16
+  %18 = load ptr, ptr %encode.addr, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %18, i64 12
   store ptr %add.ptr9, ptr %__p.addr.i, align 8
-  %18 = load ptr, ptr %__p.addr.i, align 8
-  %19 = load <4 x float>, ptr %18, align 1
-  store <4 x float> %19, ptr %f3, align 16
-  %20 = load <4 x float>, ptr %f0, align 16
-  %21 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %20, ptr %__a.addr.i169, align 16
-  store <4 x float> %21, ptr %__b.addr.i170, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i169, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i170, align 16
-  %shuffle.i171 = shufflevector <4 x float> %22, <4 x float> %23, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %19 = load ptr, ptr %__p.addr.i, align 8
+  %20 = load <4 x float>, ptr %19, align 1
+  store <4 x float> %20, ptr %f3, align 16
+  %21 = load <4 x float>, ptr %f0, align 16
+  %22 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %21, ptr %__a.addr.i169, align 16
+  store <4 x float> %22, ptr %__b.addr.i170, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i169, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i170, align 16
+  %shuffle.i171 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i171, ptr %tmp0, align 16
-  %24 = load <4 x float>, ptr %f2, align 16
-  %25 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %24, ptr %__a.addr.i166, align 16
-  store <4 x float> %25, ptr %__b.addr.i167, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i166, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i167, align 16
-  %shuffle.i168 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %25 = load <4 x float>, ptr %f2, align 16
+  %26 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %25, ptr %__a.addr.i166, align 16
+  store <4 x float> %26, ptr %__b.addr.i167, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i166, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i167, align 16
+  %shuffle.i168 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %shuffle.i168, ptr %tmp2, align 16
-  %28 = load <4 x float>, ptr %f0, align 16
-  %29 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %28, ptr %__a.addr.i175, align 16
-  store <4 x float> %29, ptr %__b.addr.i176, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i175, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i176, align 16
-  %shuffle.i177 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %29 = load <4 x float>, ptr %f0, align 16
+  %30 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %29, ptr %__a.addr.i175, align 16
+  store <4 x float> %30, ptr %__b.addr.i176, align 16
+  %31 = load <4 x float>, ptr %__a.addr.i175, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i176, align 16
+  %shuffle.i177 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i177, ptr %tmp1, align 16
-  %32 = load <4 x float>, ptr %f2, align 16
-  %33 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %32, ptr %__a.addr.i172, align 16
-  store <4 x float> %33, ptr %__b.addr.i173, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i172, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i173, align 16
-  %shuffle.i174 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %33 = load <4 x float>, ptr %f2, align 16
+  %34 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %33, ptr %__a.addr.i172, align 16
+  store <4 x float> %34, ptr %__b.addr.i173, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i172, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i173, align 16
+  %shuffle.i174 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %shuffle.i174, ptr %tmp3, align 16
-  %36 = load <4 x float>, ptr %tmp0, align 16
-  %37 = load <4 x float>, ptr %tmp2, align 16
-  store <4 x float> %36, ptr %__a.addr.i181, align 16
-  store <4 x float> %37, ptr %__b.addr.i182, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i181, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i182, align 16
-  %shuffle.i183 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %37 = load <4 x float>, ptr %tmp0, align 16
+  %38 = load <4 x float>, ptr %tmp2, align 16
+  store <4 x float> %37, ptr %__a.addr.i181, align 16
+  store <4 x float> %38, ptr %__b.addr.i182, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i181, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i182, align 16
+  %shuffle.i183 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i183, ptr %f0, align 16
-  %40 = load <4 x float>, ptr %tmp2, align 16
-  %41 = load <4 x float>, ptr %tmp0, align 16
-  store <4 x float> %40, ptr %__a.addr.i187, align 16
-  store <4 x float> %41, ptr %__b.addr.i188, align 16
-  %42 = load <4 x float>, ptr %__a.addr.i187, align 16
-  %43 = load <4 x float>, ptr %__b.addr.i188, align 16
-  %shuffle.i189 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %41 = load <4 x float>, ptr %tmp2, align 16
+  %42 = load <4 x float>, ptr %tmp0, align 16
+  store <4 x float> %41, ptr %__a.addr.i187, align 16
+  store <4 x float> %42, ptr %__b.addr.i188, align 16
+  %43 = load <4 x float>, ptr %__a.addr.i187, align 16
+  %44 = load <4 x float>, ptr %__b.addr.i188, align 16
+  %shuffle.i189 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i189, ptr %f1, align 16
-  %44 = load <4 x float>, ptr %tmp1, align 16
-  %45 = load <4 x float>, ptr %tmp3, align 16
-  store <4 x float> %44, ptr %__a.addr.i178, align 16
-  store <4 x float> %45, ptr %__b.addr.i179, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i178, align 16
-  %47 = load <4 x float>, ptr %__b.addr.i179, align 16
-  %shuffle.i180 = shufflevector <4 x float> %46, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %45 = load <4 x float>, ptr %tmp1, align 16
+  %46 = load <4 x float>, ptr %tmp3, align 16
+  store <4 x float> %45, ptr %__a.addr.i178, align 16
+  store <4 x float> %46, ptr %__b.addr.i179, align 16
+  %47 = load <4 x float>, ptr %__a.addr.i178, align 16
+  %48 = load <4 x float>, ptr %__b.addr.i179, align 16
+  %shuffle.i180 = shufflevector <4 x float> %47, <4 x float> %48, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   store <4 x float> %shuffle.i180, ptr %f2, align 16
-  %48 = load <4 x float>, ptr %tmp3, align 16
-  %49 = load <4 x float>, ptr %tmp1, align 16
-  store <4 x float> %48, ptr %__a.addr.i184, align 16
-  store <4 x float> %49, ptr %__b.addr.i185, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i184, align 16
-  %51 = load <4 x float>, ptr %__b.addr.i185, align 16
-  %shuffle.i186 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  %49 = load <4 x float>, ptr %tmp3, align 16
+  %50 = load <4 x float>, ptr %tmp1, align 16
+  store <4 x float> %49, ptr %__a.addr.i184, align 16
+  store <4 x float> %50, ptr %__b.addr.i185, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i184, align 16
+  %52 = load <4 x float>, ptr %__b.addr.i185, align 16
+  %shuffle.i186 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i186, ptr %f3, align 16
-  %52 = load <4 x float>, ptr %f0, align 16
+  %53 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i193, align 16
-  %53 = load <2 x i64>, ptr %__a.addr.i193, align 16
-  %54 = bitcast <2 x i64> %53 to <4 x float>
-  store <4 x float> %52, ptr %__a.addr.i155, align 16
-  store <4 x float> %54, ptr %__b.addr.i156, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i155, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i156, align 16
-  %57 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> %56)
-  store <4 x float> %57, ptr %f0, align 16
-  %58 = load <4 x float>, ptr %f0, align 16
+  %54 = load <2 x i64>, ptr %__a.addr.i193, align 16
+  %55 = bitcast <2 x i64> %54 to <4 x float>
+  store <4 x float> %53, ptr %__a.addr.i155, align 16
+  store <4 x float> %55, ptr %__b.addr.i156, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i155, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i156, align 16
+  %58 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> %57)
+  store <4 x float> %58, ptr %f0, align 16
+  %59 = load <4 x float>, ptr %f0, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i192, align 16
-  %59 = load <2 x i64>, ptr %__a.addr.i192, align 16
-  %60 = bitcast <2 x i64> %59 to <4 x float>
-  store <4 x float> %58, ptr %__a.addr.i147, align 16
-  store <4 x float> %60, ptr %__b.addr.i148, align 16
-  %61 = load <4 x float>, ptr %__a.addr.i147, align 16
-  %62 = load <4 x float>, ptr %__b.addr.i148, align 16
-  %63 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %61, <4 x float> %62)
-  store <4 x float> %63, ptr %f0, align 16
-  %64 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %64, ptr %__a.addr.i208, align 16
-  %65 = load <4 x float>, ptr %__a.addr.i208, align 16
-  %66 = bitcast <4 x float> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i203, align 16
+  %60 = load <2 x i64>, ptr %__a.addr.i192, align 16
+  %61 = bitcast <2 x i64> %60 to <4 x float>
+  store <4 x float> %59, ptr %__a.addr.i147, align 16
+  store <4 x float> %61, ptr %__b.addr.i148, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i147, align 16
+  %63 = load <4 x float>, ptr %__b.addr.i148, align 16
+  %64 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %62, <4 x float> %63)
+  store <4 x float> %64, ptr %f0, align 16
+  %65 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %65, ptr %__a.addr.i208, align 16
+  %66 = load <4 x float>, ptr %__a.addr.i208, align 16
+  %67 = bitcast <4 x float> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i203, align 16
   store i32 20, ptr %__count.addr.i204, align 4
-  %67 = load <2 x i64>, ptr %__a.addr.i203, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x i32>
-  %69 = load i32, ptr %__count.addr.i204, align 4
-  %70 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %68, i32 %69)
-  %71 = bitcast <4 x i32> %70 to <2 x i64>
-  store <2 x i64> %71, ptr %i0, align 16
-  %72 = load <4 x float>, ptr %f1, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i203, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x i32>
+  %70 = load i32, ptr %__count.addr.i204, align 4
+  %71 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %69, i32 %70)
+  %72 = bitcast <4 x i32> %71 to <2 x i64>
+  store <2 x i64> %72, ptr %i0, align 16
+  %73 = load <4 x float>, ptr %f1, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__a.addr.i133, align 16
-  store <4 x float> %72, ptr %__b.addr.i134, align 16
-  %73 = load <4 x float>, ptr %__a.addr.i133, align 16
-  %74 = load <4 x float>, ptr %__b.addr.i134, align 16
-  %mul.i135 = fmul <4 x float> %73, %74
+  store <4 x float> %73, ptr %__b.addr.i134, align 16
+  %74 = load <4 x float>, ptr %__a.addr.i133, align 16
+  %75 = load <4 x float>, ptr %__b.addr.i134, align 16
+  %mul.i135 = fmul <4 x float> %74, %75
   store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %__a.addr.i138, align 16
   store <4 x float> %mul.i135, ptr %__b.addr.i139, align 16
-  %75 = load <4 x float>, ptr %__a.addr.i138, align 16
-  %76 = load <4 x float>, ptr %__b.addr.i139, align 16
-  %add.i140 = fadd <4 x float> %75, %76
+  %76 = load <4 x float>, ptr %__a.addr.i138, align 16
+  %77 = load <4 x float>, ptr %__b.addr.i139, align 16
+  %add.i140 = fadd <4 x float> %76, %77
   store <4 x float> %add.i140, ptr %f1, align 16
-  %77 = load <4 x float>, ptr %f1, align 16
+  %78 = load <4 x float>, ptr %f1, align 16
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i157, align 16
-  %78 = load <4 x float>, ptr %.compoundliteral.i157, align 16
-  store <4 x float> %77, ptr %__a.addr.i153, align 16
-  store <4 x float> %78, ptr %__b.addr.i154, align 16
-  %79 = load <4 x float>, ptr %__a.addr.i153, align 16
-  %80 = load <4 x float>, ptr %__b.addr.i154, align 16
-  %81 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %79, <4 x float> %80)
-  store <4 x float> %81, ptr %f1, align 16
-  %82 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %82, ptr %__a.addr.i145, align 16
+  %79 = load <4 x float>, ptr %.compoundliteral.i157, align 16
+  store <4 x float> %78, ptr %__a.addr.i153, align 16
+  store <4 x float> %79, ptr %__b.addr.i154, align 16
+  %80 = load <4 x float>, ptr %__a.addr.i153, align 16
+  %81 = load <4 x float>, ptr %__b.addr.i154, align 16
+  %82 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %80, <4 x float> %81)
+  store <4 x float> %82, ptr %f1, align 16
+  %83 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %83, ptr %__a.addr.i145, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__b.addr.i146, align 16
-  %83 = load <4 x float>, ptr %__a.addr.i145, align 16
-  %84 = load <4 x float>, ptr %__b.addr.i146, align 16
-  %85 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %83, <4 x float> %84)
-  store <4 x float> %85, ptr %f1, align 16
-  %86 = load <4 x float>, ptr %f1, align 16
-  store <4 x float> %86, ptr %__a.addr.i159, align 16
-  %87 = load <4 x float>, ptr %__a.addr.i159, align 16
-  %88 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %87)
-  %89 = bitcast <4 x i32> %88 to <2 x i64>
-  store <2 x i64> %89, ptr %i1, align 16
-  %90 = load <4 x float>, ptr %f2, align 16
+  %84 = load <4 x float>, ptr %__a.addr.i145, align 16
+  %85 = load <4 x float>, ptr %__b.addr.i146, align 16
+  %86 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %84, <4 x float> %85)
+  store <4 x float> %86, ptr %f1, align 16
+  %87 = load <4 x float>, ptr %f1, align 16
+  store <4 x float> %87, ptr %__a.addr.i159, align 16
+  %88 = load <4 x float>, ptr %__a.addr.i159, align 16
+  %89 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %88)
+  %90 = bitcast <4 x i32> %89 to <2 x i64>
+  store <2 x i64> %90, ptr %i1, align 16
+  %91 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4107282861118193664, i64 4107282861118193664>, ptr %__a.addr.i191, align 16
-  %91 = load <2 x i64>, ptr %__a.addr.i191, align 16
-  %92 = bitcast <2 x i64> %91 to <4 x float>
-  store <4 x float> %90, ptr %__a.addr.i151, align 16
-  store <4 x float> %92, ptr %__b.addr.i152, align 16
-  %93 = load <4 x float>, ptr %__a.addr.i151, align 16
-  %94 = load <4 x float>, ptr %__b.addr.i152, align 16
-  %95 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %93, <4 x float> %94)
-  store <4 x float> %95, ptr %f2, align 16
-  %96 = load <4 x float>, ptr %f2, align 16
+  %92 = load <2 x i64>, ptr %__a.addr.i191, align 16
+  %93 = bitcast <2 x i64> %92 to <4 x float>
+  store <4 x float> %91, ptr %__a.addr.i151, align 16
+  store <4 x float> %93, ptr %__b.addr.i152, align 16
+  %94 = load <4 x float>, ptr %__a.addr.i151, align 16
+  %95 = load <4 x float>, ptr %__b.addr.i152, align 16
+  %96 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %94, <4 x float> %95)
+  store <4 x float> %96, ptr %f2, align 16
+  %97 = load <4 x float>, ptr %f2, align 16
   store <2 x i64> <i64 4575657218178809855, i64 4575657218178809855>, ptr %__a.addr.i190, align 16
-  %97 = load <2 x i64>, ptr %__a.addr.i190, align 16
-  %98 = bitcast <2 x i64> %97 to <4 x float>
-  store <4 x float> %96, ptr %__a.addr.i143, align 16
-  store <4 x float> %98, ptr %__b.addr.i144, align 16
-  %99 = load <4 x float>, ptr %__a.addr.i143, align 16
-  %100 = load <4 x float>, ptr %__b.addr.i144, align 16
-  %101 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %99, <4 x float> %100)
-  store <4 x float> %101, ptr %f2, align 16
-  %102 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %102, ptr %__a.addr.i207, align 16
-  %103 = load <4 x float>, ptr %__a.addr.i207, align 16
-  %104 = bitcast <4 x float> %103 to <2 x i64>
-  store <2 x i64> %104, ptr %__a.addr.i201, align 16
+  %98 = load <2 x i64>, ptr %__a.addr.i190, align 16
+  %99 = bitcast <2 x i64> %98 to <4 x float>
+  store <4 x float> %97, ptr %__a.addr.i143, align 16
+  store <4 x float> %99, ptr %__b.addr.i144, align 16
+  %100 = load <4 x float>, ptr %__a.addr.i143, align 16
+  %101 = load <4 x float>, ptr %__b.addr.i144, align 16
+  %102 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %100, <4 x float> %101)
+  store <4 x float> %102, ptr %f2, align 16
+  %103 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %103, ptr %__a.addr.i207, align 16
+  %104 = load <4 x float>, ptr %__a.addr.i207, align 16
+  %105 = bitcast <4 x float> %104 to <2 x i64>
+  store <2 x i64> %105, ptr %__a.addr.i201, align 16
   store i32 20, ptr %__count.addr.i202, align 4
-  %105 = load <2 x i64>, ptr %__a.addr.i201, align 16
-  %106 = bitcast <2 x i64> %105 to <4 x i32>
-  %107 = load i32, ptr %__count.addr.i202, align 4
-  %108 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %106, i32 %107)
-  %109 = bitcast <4 x i32> %108 to <2 x i64>
-  store <2 x i64> %109, ptr %i2, align 16
-  %110 = load <4 x float>, ptr %f3, align 16
+  %106 = load <2 x i64>, ptr %__a.addr.i201, align 16
+  %107 = bitcast <2 x i64> %106 to <4 x i32>
+  %108 = load i32, ptr %__count.addr.i202, align 4
+  %109 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %107, i32 %108)
+  %110 = bitcast <4 x i32> %109 to <2 x i64>
+  store <2 x i64> %110, ptr %i2, align 16
+  %111 = load <4 x float>, ptr %f3, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__a.addr.i131, align 16
-  store <4 x float> %110, ptr %__b.addr.i132, align 16
-  %111 = load <4 x float>, ptr %__a.addr.i131, align 16
-  %112 = load <4 x float>, ptr %__b.addr.i132, align 16
-  %mul.i = fmul <4 x float> %111, %112
+  store <4 x float> %111, ptr %__b.addr.i132, align 16
+  %112 = load <4 x float>, ptr %__a.addr.i131, align 16
+  %113 = load <4 x float>, ptr %__b.addr.i132, align 16
+  %mul.i = fmul <4 x float> %112, %113
   store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %__a.addr.i136, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i137, align 16
-  %113 = load <4 x float>, ptr %__a.addr.i136, align 16
-  %114 = load <4 x float>, ptr %__b.addr.i137, align 16
-  %add.i = fadd <4 x float> %113, %114
+  %114 = load <4 x float>, ptr %__a.addr.i136, align 16
+  %115 = load <4 x float>, ptr %__b.addr.i137, align 16
+  %add.i = fadd <4 x float> %114, %115
   store <4 x float> %add.i, ptr %f3, align 16
-  %115 = load <4 x float>, ptr %f3, align 16
+  %116 = load <4 x float>, ptr %f3, align 16
   store <4 x float> zeroinitializer, ptr %.compoundliteral.i, align 16
-  %116 = load <4 x float>, ptr %.compoundliteral.i, align 16
-  store <4 x float> %115, ptr %__a.addr.i149, align 16
-  store <4 x float> %116, ptr %__b.addr.i150, align 16
-  %117 = load <4 x float>, ptr %__a.addr.i149, align 16
-  %118 = load <4 x float>, ptr %__b.addr.i150, align 16
-  %119 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %117, <4 x float> %118)
-  store <4 x float> %119, ptr %f3, align 16
-  %120 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %120, ptr %__a.addr.i141, align 16
+  %117 = load <4 x float>, ptr %.compoundliteral.i, align 16
+  store <4 x float> %116, ptr %__a.addr.i149, align 16
+  store <4 x float> %117, ptr %__b.addr.i150, align 16
+  %118 = load <4 x float>, ptr %__a.addr.i149, align 16
+  %119 = load <4 x float>, ptr %__b.addr.i150, align 16
+  %120 = call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %118, <4 x float> %119)
+  store <4 x float> %120, ptr %f3, align 16
+  %121 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %121, ptr %__a.addr.i141, align 16
   store <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, ptr %__b.addr.i142, align 16
-  %121 = load <4 x float>, ptr %__a.addr.i141, align 16
-  %122 = load <4 x float>, ptr %__b.addr.i142, align 16
-  %123 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %121, <4 x float> %122)
-  store <4 x float> %123, ptr %f3, align 16
-  %124 = load <4 x float>, ptr %f3, align 16
-  store <4 x float> %124, ptr %__a.addr.i158, align 16
-  %125 = load <4 x float>, ptr %__a.addr.i158, align 16
-  %126 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %125)
-  %127 = bitcast <4 x i32> %126 to <2 x i64>
-  store <2 x i64> %127, ptr %i3, align 16
-  %128 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %128, ptr %temp0, align 16
-  %129 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %129, ptr %temp1, align 16
-  %130 = load ptr, ptr %to_srgb, align 8
+  %122 = load <4 x float>, ptr %__a.addr.i141, align 16
+  %123 = load <4 x float>, ptr %__b.addr.i142, align 16
+  %124 = call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %122, <4 x float> %123)
+  store <4 x float> %124, ptr %f3, align 16
+  %125 = load <4 x float>, ptr %f3, align 16
+  store <4 x float> %125, ptr %__a.addr.i158, align 16
+  %126 = load <4 x float>, ptr %__a.addr.i158, align 16
+  %127 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %126)
+  %128 = bitcast <4 x i32> %127 to <2 x i64>
+  store <2 x i64> %128, ptr %i3, align 16
+  %129 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %129, ptr %temp0, align 16
+  %130 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %130, ptr %temp1, align 16
+  %131 = load ptr, ptr %to_srgb, align 8
   %arrayidx = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  %131 = load i32, ptr %arrayidx, align 16
-  %idxprom = sext i32 %131 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %130, i64 %idxprom
-  %132 = load i32, ptr %arrayidx43, align 4
+  %132 = load i32, ptr %arrayidx, align 16
+  %idxprom = sext i32 %132 to i64
+  %arrayidx43 = getelementptr inbounds i32, ptr %131, i64 %idxprom
+  %133 = load i32, ptr %arrayidx43, align 4
   %arrayidx44 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 0
-  store i32 %132, ptr %arrayidx44, align 16
-  %133 = load ptr, ptr %to_srgb, align 8
+  store i32 %133, ptr %arrayidx44, align 16
+  %134 = load ptr, ptr %to_srgb, align 8
   %arrayidx45 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  %134 = load i32, ptr %arrayidx45, align 4
-  %idxprom46 = sext i32 %134 to i64
-  %arrayidx47 = getelementptr inbounds i32, ptr %133, i64 %idxprom46
-  %135 = load i32, ptr %arrayidx47, align 4
+  %135 = load i32, ptr %arrayidx45, align 4
+  %idxprom46 = sext i32 %135 to i64
+  %arrayidx47 = getelementptr inbounds i32, ptr %134, i64 %idxprom46
+  %136 = load i32, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 1
-  store i32 %135, ptr %arrayidx48, align 4
-  %136 = load ptr, ptr %to_srgb, align 8
+  store i32 %136, ptr %arrayidx48, align 4
+  %137 = load ptr, ptr %to_srgb, align 8
   %arrayidx49 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  %137 = load i32, ptr %arrayidx49, align 8
-  %idxprom50 = sext i32 %137 to i64
-  %arrayidx51 = getelementptr inbounds i32, ptr %136, i64 %idxprom50
-  %138 = load i32, ptr %arrayidx51, align 4
+  %138 = load i32, ptr %arrayidx49, align 8
+  %idxprom50 = sext i32 %138 to i64
+  %arrayidx51 = getelementptr inbounds i32, ptr %137, i64 %idxprom50
+  %139 = load i32, ptr %arrayidx51, align 4
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 2
-  store i32 %138, ptr %arrayidx52, align 8
-  %139 = load ptr, ptr %to_srgb, align 8
+  store i32 %139, ptr %arrayidx52, align 8
+  %140 = load ptr, ptr %to_srgb, align 8
   %arrayidx53 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  %140 = load i32, ptr %arrayidx53, align 4
-  %idxprom54 = sext i32 %140 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %139, i64 %idxprom54
-  %141 = load i32, ptr %arrayidx55, align 4
+  %141 = load i32, ptr %arrayidx53, align 4
+  %idxprom54 = sext i32 %141 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %140, i64 %idxprom54
+  %142 = load i32, ptr %arrayidx55, align 4
   %arrayidx56 = getelementptr inbounds [4 x i32], ptr %temp0, i64 0, i64 3
-  store i32 %141, ptr %arrayidx56, align 4
-  %142 = load ptr, ptr %to_srgb, align 8
+  store i32 %142, ptr %arrayidx56, align 4
+  %143 = load ptr, ptr %to_srgb, align 8
   %arrayidx57 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  %143 = load i32, ptr %arrayidx57, align 16
-  %idxprom58 = sext i32 %143 to i64
-  %arrayidx59 = getelementptr inbounds i32, ptr %142, i64 %idxprom58
-  %144 = load i32, ptr %arrayidx59, align 4
+  %144 = load i32, ptr %arrayidx57, align 16
+  %idxprom58 = sext i32 %144 to i64
+  %arrayidx59 = getelementptr inbounds i32, ptr %143, i64 %idxprom58
+  %145 = load i32, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 0
-  store i32 %144, ptr %arrayidx60, align 16
-  %145 = load ptr, ptr %to_srgb, align 8
+  store i32 %145, ptr %arrayidx60, align 16
+  %146 = load ptr, ptr %to_srgb, align 8
   %arrayidx61 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  %146 = load i32, ptr %arrayidx61, align 4
-  %idxprom62 = sext i32 %146 to i64
-  %arrayidx63 = getelementptr inbounds i32, ptr %145, i64 %idxprom62
-  %147 = load i32, ptr %arrayidx63, align 4
+  %147 = load i32, ptr %arrayidx61, align 4
+  %idxprom62 = sext i32 %147 to i64
+  %arrayidx63 = getelementptr inbounds i32, ptr %146, i64 %idxprom62
+  %148 = load i32, ptr %arrayidx63, align 4
   %arrayidx64 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 1
-  store i32 %147, ptr %arrayidx64, align 4
-  %148 = load ptr, ptr %to_srgb, align 8
+  store i32 %148, ptr %arrayidx64, align 4
+  %149 = load ptr, ptr %to_srgb, align 8
   %arrayidx65 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  %149 = load i32, ptr %arrayidx65, align 8
-  %idxprom66 = sext i32 %149 to i64
-  %arrayidx67 = getelementptr inbounds i32, ptr %148, i64 %idxprom66
-  %150 = load i32, ptr %arrayidx67, align 4
+  %150 = load i32, ptr %arrayidx65, align 8
+  %idxprom66 = sext i32 %150 to i64
+  %arrayidx67 = getelementptr inbounds i32, ptr %149, i64 %idxprom66
+  %151 = load i32, ptr %arrayidx67, align 4
   %arrayidx68 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 2
-  store i32 %150, ptr %arrayidx68, align 8
-  %151 = load ptr, ptr %to_srgb, align 8
+  store i32 %151, ptr %arrayidx68, align 8
+  %152 = load ptr, ptr %to_srgb, align 8
   %arrayidx69 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  %152 = load i32, ptr %arrayidx69, align 4
-  %idxprom70 = sext i32 %152 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %151, i64 %idxprom70
-  %153 = load i32, ptr %arrayidx71, align 4
+  %153 = load i32, ptr %arrayidx69, align 4
+  %idxprom70 = sext i32 %153 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %152, i64 %idxprom70
+  %154 = load i32, ptr %arrayidx71, align 4
   %arrayidx72 = getelementptr inbounds [4 x i32], ptr %temp1, i64 0, i64 3
-  store i32 %153, ptr %arrayidx72, align 4
-  %154 = load <2 x i64>, ptr %temp0, align 16
-  store <2 x i64> %154, ptr %i0, align 16
-  %155 = load <2 x i64>, ptr %temp1, align 16
-  store <2 x i64> %155, ptr %i2, align 16
-  %156 = load <4 x float>, ptr %f0, align 16
-  store <4 x float> %156, ptr %__a.addr.i206, align 16
-  %157 = load <4 x float>, ptr %__a.addr.i206, align 16
-  %158 = bitcast <4 x float> %157 to <2 x i64>
-  store <2 x i64> %158, ptr %__a.addr.i199, align 16
+  store i32 %154, ptr %arrayidx72, align 4
+  %155 = load <2 x i64>, ptr %temp0, align 16
+  store <2 x i64> %155, ptr %i0, align 16
+  %156 = load <2 x i64>, ptr %temp1, align 16
+  store <2 x i64> %156, ptr %i2, align 16
+  %157 = load <4 x float>, ptr %f0, align 16
+  store <4 x float> %157, ptr %__a.addr.i206, align 16
+  %158 = load <4 x float>, ptr %__a.addr.i206, align 16
+  %159 = bitcast <4 x float> %158 to <2 x i64>
+  store <2 x i64> %159, ptr %__a.addr.i199, align 16
   store i32 12, ptr %__count.addr.i200, align 4
-  %159 = load <2 x i64>, ptr %__a.addr.i199, align 16
-  %160 = bitcast <2 x i64> %159 to <4 x i32>
-  %161 = load i32, ptr %__count.addr.i200, align 4
-  %162 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %160, i32 %161)
-  %163 = bitcast <4 x i32> %162 to <2 x i64>
-  store <2 x i64> %163, ptr %temp, align 16
-  %164 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %164, ptr %__a.addr.i211, align 16
+  %160 = load <2 x i64>, ptr %__a.addr.i199, align 16
+  %161 = bitcast <2 x i64> %160 to <4 x i32>
+  %162 = load i32, ptr %__count.addr.i200, align 4
+  %163 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %161, i32 %162)
+  %164 = bitcast <4 x i32> %163 to <2 x i64>
+  store <2 x i64> %164, ptr %temp, align 16
+  %165 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %165, ptr %__a.addr.i211, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i212, align 16
-  %165 = load <2 x i64>, ptr %__a.addr.i211, align 16
-  %166 = load <2 x i64>, ptr %__b.addr.i212, align 16
-  %and.i213 = and <2 x i64> %165, %166
+  %166 = load <2 x i64>, ptr %__a.addr.i211, align 16
+  %167 = load <2 x i64>, ptr %__b.addr.i212, align 16
+  %and.i213 = and <2 x i64> %166, %167
   store <2 x i64> %and.i213, ptr %temp, align 16
-  %167 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %167, ptr %__a.addr.i216, align 16
+  %168 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %168, ptr %__a.addr.i216, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i217, align 16
-  %168 = load <2 x i64>, ptr %__a.addr.i216, align 16
-  %169 = load <2 x i64>, ptr %__b.addr.i217, align 16
-  %or.i218 = or <2 x i64> %168, %169
+  %169 = load <2 x i64>, ptr %__a.addr.i216, align 16
+  %170 = load <2 x i64>, ptr %__b.addr.i217, align 16
+  %or.i218 = or <2 x i64> %169, %170
   store <2 x i64> %or.i218, ptr %temp, align 16
-  %170 = load <2 x i64>, ptr %i0, align 16
-  %171 = load <2 x i64>, ptr %temp, align 16
-  store <2 x i64> %170, ptr %__a.addr.i221, align 16
-  store <2 x i64> %171, ptr %__b.addr.i222, align 16
-  %172 = load <2 x i64>, ptr %__a.addr.i221, align 16
-  %173 = bitcast <2 x i64> %172 to <8 x i16>
-  %174 = load <2 x i64>, ptr %__b.addr.i222, align 16
-  %175 = bitcast <2 x i64> %174 to <8 x i16>
-  %176 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %173, <8 x i16> %175)
-  %177 = bitcast <4 x i32> %176 to <2 x i64>
-  store <2 x i64> %177, ptr %i0, align 16
-  %178 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %178, ptr %__a.addr.i197, align 16
+  %171 = load <2 x i64>, ptr %i0, align 16
+  %172 = load <2 x i64>, ptr %temp, align 16
+  store <2 x i64> %171, ptr %__a.addr.i221, align 16
+  store <2 x i64> %172, ptr %__b.addr.i222, align 16
+  %173 = load <2 x i64>, ptr %__a.addr.i221, align 16
+  %174 = bitcast <2 x i64> %173 to <8 x i16>
+  %175 = load <2 x i64>, ptr %__b.addr.i222, align 16
+  %176 = bitcast <2 x i64> %175 to <8 x i16>
+  %177 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %174, <8 x i16> %176)
+  %178 = bitcast <4 x i32> %177 to <2 x i64>
+  store <2 x i64> %178, ptr %i0, align 16
+  %179 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %179, ptr %__a.addr.i197, align 16
   store i32 16, ptr %__count.addr.i198, align 4
-  %179 = load <2 x i64>, ptr %__a.addr.i197, align 16
-  %180 = bitcast <2 x i64> %179 to <4 x i32>
-  %181 = load i32, ptr %__count.addr.i198, align 4
-  %182 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %180, i32 %181)
-  %183 = bitcast <4 x i32> %182 to <2 x i64>
-  store <2 x i64> %183, ptr %i0, align 16
-  %184 = load <4 x float>, ptr %f2, align 16
-  store <4 x float> %184, ptr %__a.addr.i205, align 16
-  %185 = load <4 x float>, ptr %__a.addr.i205, align 16
-  %186 = bitcast <4 x float> %185 to <2 x i64>
-  store <2 x i64> %186, ptr %__a.addr.i195, align 16
+  %180 = load <2 x i64>, ptr %__a.addr.i197, align 16
+  %181 = bitcast <2 x i64> %180 to <4 x i32>
+  %182 = load i32, ptr %__count.addr.i198, align 4
+  %183 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %181, i32 %182)
+  %184 = bitcast <4 x i32> %183 to <2 x i64>
+  store <2 x i64> %184, ptr %i0, align 16
+  %185 = load <4 x float>, ptr %f2, align 16
+  store <4 x float> %185, ptr %__a.addr.i205, align 16
+  %186 = load <4 x float>, ptr %__a.addr.i205, align 16
+  %187 = bitcast <4 x float> %186 to <2 x i64>
+  store <2 x i64> %187, ptr %__a.addr.i195, align 16
   store i32 12, ptr %__count.addr.i196, align 4
-  %187 = load <2 x i64>, ptr %__a.addr.i195, align 16
-  %188 = bitcast <2 x i64> %187 to <4 x i32>
-  %189 = load i32, ptr %__count.addr.i196, align 4
-  %190 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %188, i32 %189)
-  %191 = bitcast <4 x i32> %190 to <2 x i64>
-  store <2 x i64> %191, ptr %temp79, align 16
-  %192 = load <2 x i64>, ptr %temp79, align 16
-  store <2 x i64> %192, ptr %__a.addr.i209, align 16
+  %188 = load <2 x i64>, ptr %__a.addr.i195, align 16
+  %189 = bitcast <2 x i64> %188 to <4 x i32>
+  %190 = load i32, ptr %__count.addr.i196, align 4
+  %191 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %189, i32 %190)
+  %192 = bitcast <4 x i32> %191 to <2 x i64>
+  store <2 x i64> %192, ptr %temp79, align 16
+  %193 = load <2 x i64>, ptr %temp79, align 16
+  store <2 x i64> %193, ptr %__a.addr.i209, align 16
   store <2 x i64> <i64 1095216660735, i64 1095216660735>, ptr %__b.addr.i210, align 16
-  %193 = load <2 x i64>, ptr %__a.addr.i209, align 16
-  %194 = load <2 x i64>, ptr %__b.addr.i210, align 16
-  %and.i = and <2 x i64> %193, %194
+  %194 = load <2 x i64>, ptr %__a.addr.i209, align 16
+  %195 = load <2 x i64>, ptr %__b.addr.i210, align 16
+  %and.i = and <2 x i64> %194, %195
   store <2 x i64> %and.i, ptr %temp79, align 16
-  %195 = load <2 x i64>, ptr %temp79, align 16
-  store <2 x i64> %195, ptr %__a.addr.i214, align 16
+  %196 = load <2 x i64>, ptr %temp79, align 16
+  store <2 x i64> %196, ptr %__a.addr.i214, align 16
   store <2 x i64> <i64 144115188109410304, i64 144115188109410304>, ptr %__b.addr.i215, align 16
-  %196 = load <2 x i64>, ptr %__a.addr.i214, align 16
-  %197 = load <2 x i64>, ptr %__b.addr.i215, align 16
-  %or.i = or <2 x i64> %196, %197
+  %197 = load <2 x i64>, ptr %__a.addr.i214, align 16
+  %198 = load <2 x i64>, ptr %__b.addr.i215, align 16
+  %or.i = or <2 x i64> %197, %198
   store <2 x i64> %or.i, ptr %temp79, align 16
-  %198 = load <2 x i64>, ptr %i2, align 16
-  %199 = load <2 x i64>, ptr %temp79, align 16
-  store <2 x i64> %198, ptr %__a.addr.i219, align 16
-  store <2 x i64> %199, ptr %__b.addr.i220, align 16
-  %200 = load <2 x i64>, ptr %__a.addr.i219, align 16
-  %201 = bitcast <2 x i64> %200 to <8 x i16>
-  %202 = load <2 x i64>, ptr %__b.addr.i220, align 16
-  %203 = bitcast <2 x i64> %202 to <8 x i16>
-  %204 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %201, <8 x i16> %203)
-  %205 = bitcast <4 x i32> %204 to <2 x i64>
-  store <2 x i64> %205, ptr %i2, align 16
-  %206 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %206, ptr %__a.addr.i194, align 16
+  %199 = load <2 x i64>, ptr %i2, align 16
+  %200 = load <2 x i64>, ptr %temp79, align 16
+  store <2 x i64> %199, ptr %__a.addr.i219, align 16
+  store <2 x i64> %200, ptr %__b.addr.i220, align 16
+  %201 = load <2 x i64>, ptr %__a.addr.i219, align 16
+  %202 = bitcast <2 x i64> %201 to <8 x i16>
+  %203 = load <2 x i64>, ptr %__b.addr.i220, align 16
+  %204 = bitcast <2 x i64> %203 to <8 x i16>
+  %205 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %202, <8 x i16> %204)
+  %206 = bitcast <4 x i32> %205 to <2 x i64>
+  store <2 x i64> %206, ptr %i2, align 16
+  %207 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %207, ptr %__a.addr.i194, align 16
   store i32 16, ptr %__count.addr.i, align 4
-  %207 = load <2 x i64>, ptr %__a.addr.i194, align 16
-  %208 = bitcast <2 x i64> %207 to <4 x i32>
-  %209 = load i32, ptr %__count.addr.i, align 4
-  %210 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %208, i32 %209)
-  %211 = bitcast <4 x i32> %210 to <2 x i64>
-  store <2 x i64> %211, ptr %i2, align 16
-  %212 = load <2 x i64>, ptr %i1, align 16
-  %213 = load <2 x i64>, ptr %i0, align 16
-  store <2 x i64> %212, ptr %__a.addr.i162, align 16
-  store <2 x i64> %213, ptr %__b.addr.i163, align 16
-  %214 = load <2 x i64>, ptr %__a.addr.i162, align 16
-  %215 = bitcast <2 x i64> %214 to <4 x i32>
-  %216 = load <2 x i64>, ptr %__b.addr.i163, align 16
-  %217 = bitcast <2 x i64> %216 to <4 x i32>
-  %218 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %215, <4 x i32> %217)
-  %219 = bitcast <8 x i16> %218 to <2 x i64>
-  store <2 x i64> %219, ptr %i1, align 16
-  %220 = load <2 x i64>, ptr %i3, align 16
-  %221 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %220, ptr %__a.addr.i160, align 16
-  store <2 x i64> %221, ptr %__b.addr.i161, align 16
-  %222 = load <2 x i64>, ptr %__a.addr.i160, align 16
-  %223 = bitcast <2 x i64> %222 to <4 x i32>
-  %224 = load <2 x i64>, ptr %__b.addr.i161, align 16
-  %225 = bitcast <2 x i64> %224 to <4 x i32>
-  %226 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %223, <4 x i32> %225)
-  %227 = bitcast <8 x i16> %226 to <2 x i64>
-  store <2 x i64> %227, ptr %i3, align 16
-  %228 = load <2 x i64>, ptr %i1, align 16
-  %229 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %228, ptr %__a.addr.i122, align 16
-  store <2 x i64> %229, ptr %__b.addr.i123, align 16
-  %230 = load <2 x i64>, ptr %__a.addr.i122, align 16
-  %231 = bitcast <2 x i64> %230 to <8 x i16>
-  %232 = load <2 x i64>, ptr %__b.addr.i123, align 16
-  %233 = bitcast <2 x i64> %232 to <8 x i16>
-  %shuffle.i124 = shufflevector <8 x i16> %231, <8 x i16> %233, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %234 = bitcast <8 x i16> %shuffle.i124 to <2 x i64>
-  store <2 x i64> %234, ptr %i0, align 16
-  %235 = load <2 x i64>, ptr %i1, align 16
-  %236 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %235, ptr %__a.addr.i128, align 16
-  store <2 x i64> %236, ptr %__b.addr.i129, align 16
-  %237 = load <2 x i64>, ptr %__a.addr.i128, align 16
-  %238 = bitcast <2 x i64> %237 to <8 x i16>
-  %239 = load <2 x i64>, ptr %__b.addr.i129, align 16
-  %240 = bitcast <2 x i64> %239 to <8 x i16>
-  %shuffle.i130 = shufflevector <8 x i16> %238, <8 x i16> %240, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %241 = bitcast <8 x i16> %shuffle.i130 to <2 x i64>
-  store <2 x i64> %241, ptr %i2, align 16
-  %242 = load <2 x i64>, ptr %i0, align 16
-  %243 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %242, ptr %__a.addr.i, align 16
-  store <2 x i64> %243, ptr %__b.addr.i, align 16
-  %244 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %245 = bitcast <2 x i64> %244 to <8 x i16>
-  %246 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %247 = bitcast <2 x i64> %246 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %245, <8 x i16> %247, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %248 = bitcast <8 x i16> %shuffle.i to <2 x i64>
-  store <2 x i64> %248, ptr %i1, align 16
-  %249 = load <2 x i64>, ptr %i0, align 16
-  %250 = load <2 x i64>, ptr %i2, align 16
-  store <2 x i64> %249, ptr %__a.addr.i125, align 16
-  store <2 x i64> %250, ptr %__b.addr.i126, align 16
-  %251 = load <2 x i64>, ptr %__a.addr.i125, align 16
-  %252 = bitcast <2 x i64> %251 to <8 x i16>
-  %253 = load <2 x i64>, ptr %__b.addr.i126, align 16
-  %254 = bitcast <2 x i64> %253 to <8 x i16>
-  %shuffle.i127 = shufflevector <8 x i16> %252, <8 x i16> %254, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %255 = bitcast <8 x i16> %shuffle.i127 to <2 x i64>
-  store <2 x i64> %255, ptr %i3, align 16
-  %256 = load <2 x i64>, ptr %i1, align 16
-  %257 = load <2 x i64>, ptr %i3, align 16
-  store <2 x i64> %256, ptr %__a.addr.i164, align 16
-  store <2 x i64> %257, ptr %__b.addr.i165, align 16
-  %258 = load <2 x i64>, ptr %__a.addr.i164, align 16
-  %259 = bitcast <2 x i64> %258 to <8 x i16>
-  %260 = load <2 x i64>, ptr %__b.addr.i165, align 16
-  %261 = bitcast <2 x i64> %260 to <8 x i16>
-  %262 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %259, <8 x i16> %261)
-  %263 = bitcast <16 x i8> %262 to <2 x i64>
-  store <2 x i64> %263, ptr %i1, align 16
-  %264 = load ptr, ptr %output, align 8
-  %265 = load <2 x i64>, ptr %i1, align 16
-  store ptr %264, ptr %__p.addr.i223, align 8
-  store <2 x i64> %265, ptr %__b.addr.i224, align 16
-  %266 = load <2 x i64>, ptr %__b.addr.i224, align 16
-  %267 = load ptr, ptr %__p.addr.i223, align 8
-  store <2 x i64> %266, ptr %267, align 1
-  %268 = load ptr, ptr %output, align 8
-  %add.ptr93 = getelementptr inbounds i8, ptr %268, i64 16
+  %208 = load <2 x i64>, ptr %__a.addr.i194, align 16
+  %209 = bitcast <2 x i64> %208 to <4 x i32>
+  %210 = load i32, ptr %__count.addr.i, align 4
+  %211 = call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %209, i32 %210)
+  %212 = bitcast <4 x i32> %211 to <2 x i64>
+  store <2 x i64> %212, ptr %i2, align 16
+  %213 = load <2 x i64>, ptr %i1, align 16
+  %214 = load <2 x i64>, ptr %i0, align 16
+  store <2 x i64> %213, ptr %__a.addr.i162, align 16
+  store <2 x i64> %214, ptr %__b.addr.i163, align 16
+  %215 = load <2 x i64>, ptr %__a.addr.i162, align 16
+  %216 = bitcast <2 x i64> %215 to <4 x i32>
+  %217 = load <2 x i64>, ptr %__b.addr.i163, align 16
+  %218 = bitcast <2 x i64> %217 to <4 x i32>
+  %219 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %216, <4 x i32> %218)
+  %220 = bitcast <8 x i16> %219 to <2 x i64>
+  store <2 x i64> %220, ptr %i1, align 16
+  %221 = load <2 x i64>, ptr %i3, align 16
+  %222 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %221, ptr %__a.addr.i160, align 16
+  store <2 x i64> %222, ptr %__b.addr.i161, align 16
+  %223 = load <2 x i64>, ptr %__a.addr.i160, align 16
+  %224 = bitcast <2 x i64> %223 to <4 x i32>
+  %225 = load <2 x i64>, ptr %__b.addr.i161, align 16
+  %226 = bitcast <2 x i64> %225 to <4 x i32>
+  %227 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %224, <4 x i32> %226)
+  %228 = bitcast <8 x i16> %227 to <2 x i64>
+  store <2 x i64> %228, ptr %i3, align 16
+  %229 = load <2 x i64>, ptr %i1, align 16
+  %230 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %229, ptr %__a.addr.i122, align 16
+  store <2 x i64> %230, ptr %__b.addr.i123, align 16
+  %231 = load <2 x i64>, ptr %__a.addr.i122, align 16
+  %232 = bitcast <2 x i64> %231 to <8 x i16>
+  %233 = load <2 x i64>, ptr %__b.addr.i123, align 16
+  %234 = bitcast <2 x i64> %233 to <8 x i16>
+  %shuffle.i124 = shufflevector <8 x i16> %232, <8 x i16> %234, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %235 = bitcast <8 x i16> %shuffle.i124 to <2 x i64>
+  store <2 x i64> %235, ptr %i0, align 16
+  %236 = load <2 x i64>, ptr %i1, align 16
+  %237 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %236, ptr %__a.addr.i128, align 16
+  store <2 x i64> %237, ptr %__b.addr.i129, align 16
+  %238 = load <2 x i64>, ptr %__a.addr.i128, align 16
+  %239 = bitcast <2 x i64> %238 to <8 x i16>
+  %240 = load <2 x i64>, ptr %__b.addr.i129, align 16
+  %241 = bitcast <2 x i64> %240 to <8 x i16>
+  %shuffle.i130 = shufflevector <8 x i16> %239, <8 x i16> %241, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %242 = bitcast <8 x i16> %shuffle.i130 to <2 x i64>
+  store <2 x i64> %242, ptr %i2, align 16
+  %243 = load <2 x i64>, ptr %i0, align 16
+  %244 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %243, ptr %__a.addr.i, align 16
+  store <2 x i64> %244, ptr %__b.addr.i, align 16
+  %245 = load <2 x i64>, ptr %__a.addr.i, align 16
+  %246 = bitcast <2 x i64> %245 to <8 x i16>
+  %247 = load <2 x i64>, ptr %__b.addr.i, align 16
+  %248 = bitcast <2 x i64> %247 to <8 x i16>
+  %shuffle.i = shufflevector <8 x i16> %246, <8 x i16> %248, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %249 = bitcast <8 x i16> %shuffle.i to <2 x i64>
+  store <2 x i64> %249, ptr %i1, align 16
+  %250 = load <2 x i64>, ptr %i0, align 16
+  %251 = load <2 x i64>, ptr %i2, align 16
+  store <2 x i64> %250, ptr %__a.addr.i125, align 16
+  store <2 x i64> %251, ptr %__b.addr.i126, align 16
+  %252 = load <2 x i64>, ptr %__a.addr.i125, align 16
+  %253 = bitcast <2 x i64> %252 to <8 x i16>
+  %254 = load <2 x i64>, ptr %__b.addr.i126, align 16
+  %255 = bitcast <2 x i64> %254 to <8 x i16>
+  %shuffle.i127 = shufflevector <8 x i16> %253, <8 x i16> %255, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %256 = bitcast <8 x i16> %shuffle.i127 to <2 x i64>
+  store <2 x i64> %256, ptr %i3, align 16
+  %257 = load <2 x i64>, ptr %i1, align 16
+  %258 = load <2 x i64>, ptr %i3, align 16
+  store <2 x i64> %257, ptr %__a.addr.i164, align 16
+  store <2 x i64> %258, ptr %__b.addr.i165, align 16
+  %259 = load <2 x i64>, ptr %__a.addr.i164, align 16
+  %260 = bitcast <2 x i64> %259 to <8 x i16>
+  %261 = load <2 x i64>, ptr %__b.addr.i165, align 16
+  %262 = bitcast <2 x i64> %261 to <8 x i16>
+  %263 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %260, <8 x i16> %262)
+  %264 = bitcast <16 x i8> %263 to <2 x i64>
+  store <2 x i64> %264, ptr %i1, align 16
+  %265 = load ptr, ptr %output, align 8
+  %266 = load <2 x i64>, ptr %i1, align 16
+  store ptr %265, ptr %__p.addr.i223, align 8
+  store <2 x i64> %266, ptr %__b.addr.i224, align 16
+  %267 = load <2 x i64>, ptr %__b.addr.i224, align 16
+  %268 = load ptr, ptr %__p.addr.i223, align 8
+  store <2 x i64> %267, ptr %268, align 1
+  %269 = load ptr, ptr %output, align 8
+  %add.ptr93 = getelementptr inbounds i8, ptr %269, i64 16
   store ptr %add.ptr93, ptr %output, align 8
-  %269 = load ptr, ptr %encode.addr, align 8
-  %add.ptr94 = getelementptr inbounds float, ptr %269, i64 16
+  %270 = load ptr, ptr %encode.addr, align 8
+  %add.ptr94 = getelementptr inbounds float, ptr %270, i64 16
   store ptr %add.ptr94, ptr %encode.addr, align 8
-  %270 = load ptr, ptr %output, align 8
-  %271 = load ptr, ptr %end_output, align 8
-  %cmp95 = icmp ule ptr %270, %271
+  %271 = load ptr, ptr %output, align 8
+  %272 = load ptr, ptr %end_output, align 8
+  %cmp95 = icmp ule ptr %271, %272
   br i1 %cmp95, label %if.then96, label %if.end
 
 if.then96:                                        ; preds = %for.cond
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %272 = load ptr, ptr %output, align 8
-  %273 = load ptr, ptr %end_output, align 8
-  %add.ptr97 = getelementptr inbounds i8, ptr %273, i64 16
-  %cmp98 = icmp eq ptr %272, %add.ptr97
+  %273 = load ptr, ptr %output, align 8
+  %274 = load ptr, ptr %end_output, align 8
+  %add.ptr97 = getelementptr inbounds i8, ptr %274, i64 16
+  %cmp98 = icmp eq ptr %273, %add.ptr97
   br i1 %cmp98, label %if.then99, label %if.end100
 
 if.then99:                                        ; preds = %if.end
   br label %for.end
 
 if.end100:                                        ; preds = %if.end
-  %274 = load ptr, ptr %end_output, align 8
-  store ptr %274, ptr %output, align 8
-  %275 = load ptr, ptr %end_encode_m16, align 8
-  store ptr %275, ptr %encode.addr, align 8
+  %275 = load ptr, ptr %end_output, align 8
+  store ptr %275, ptr %output, align 8
+  %276 = load ptr, ptr %end_encode_m16, align 8
+  store ptr %276, ptr %encode.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then99
@@ -31711,26 +31723,26 @@ if.end101:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end101
-  %276 = load ptr, ptr %encode.addr, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %276) #9, !srcloc !315
   %277 = load ptr, ptr %encode.addr, align 8
-  %arrayidx102 = getelementptr inbounds float, ptr %277, i64 0
-  %278 = load float, ptr %arrayidx102, align 4
-  %call103 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %278)
-  %279 = load ptr, ptr %output, align 8
-  %arrayidx104 = getelementptr inbounds i8, ptr %279, i64 1
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %277) #9, !srcloc !315
+  %278 = load ptr, ptr %encode.addr, align 8
+  %arrayidx102 = getelementptr inbounds float, ptr %278, i64 0
+  %279 = load float, ptr %arrayidx102, align 4
+  %call103 = call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %279)
+  %280 = load ptr, ptr %output, align 8
+  %arrayidx104 = getelementptr inbounds i8, ptr %280, i64 1
   store i8 %call103, ptr %arrayidx104, align 1
-  %280 = load ptr, ptr %encode.addr, align 8
-  %arrayidx105 = getelementptr inbounds float, ptr %280, i64 1
-  %281 = load float, ptr %arrayidx105, align 4
-  %mul = fmul float %281, 2.550000e+02
+  %281 = load ptr, ptr %encode.addr, align 8
+  %arrayidx105 = getelementptr inbounds float, ptr %281, i64 1
+  %282 = load float, ptr %arrayidx105, align 4
+  %mul = fmul float %282, 2.550000e+02
   %add = fadd float %mul, 5.000000e-01
   store float %add, ptr %f, align 4
   br label %do.body106
 
 do.body106:                                       ; preds = %do.body
-  %282 = load float, ptr %f, align 4
-  %cmp107 = fcmp olt float %282, 0.000000e+00
+  %283 = load float, ptr %f, align 4
+  %cmp107 = fcmp olt float %283, 0.000000e+00
   br i1 %cmp107, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %do.body106
@@ -31738,8 +31750,8 @@ if.then108:                                       ; preds = %do.body106
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then108, %do.body106
-  %283 = load float, ptr %f, align 4
-  %cmp110 = fcmp ogt float %283, 2.550000e+02
+  %284 = load float, ptr %f, align 4
+  %cmp110 = fcmp ogt float %284, 2.550000e+02
   br i1 %cmp110, label %if.then111, label %if.end112
 
 if.then111:                                       ; preds = %if.end109
@@ -31750,23 +31762,23 @@ if.end112:                                        ; preds = %if.then111, %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end112
-  %284 = load float, ptr %f, align 4
-  %conv = fptoui float %284 to i8
-  %285 = load ptr, ptr %output, align 8
-  %arrayidx113 = getelementptr inbounds i8, ptr %285, i64 0
-  store i8 %conv, ptr %arrayidx113, align 1
+  %285 = load float, ptr %f, align 4
+  %conv = fptoui float %285 to i8
   %286 = load ptr, ptr %output, align 8
-  %add.ptr114 = getelementptr inbounds i8, ptr %286, i64 2
+  %arrayidx113 = getelementptr inbounds i8, ptr %286, i64 0
+  store i8 %conv, ptr %arrayidx113, align 1
+  %287 = load ptr, ptr %output, align 8
+  %add.ptr114 = getelementptr inbounds i8, ptr %287, i64 2
   store ptr %add.ptr114, ptr %output, align 8
-  %287 = load ptr, ptr %encode.addr, align 8
-  %add.ptr115 = getelementptr inbounds float, ptr %287, i64 2
+  %288 = load ptr, ptr %encode.addr, align 8
+  %add.ptr115 = getelementptr inbounds float, ptr %288, i64 2
   store ptr %add.ptr115, ptr %encode.addr, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.end
-  %288 = load ptr, ptr %output, align 8
-  %289 = load ptr, ptr %end_output, align 8
-  %cmp116 = icmp ult ptr %288, %289
+  %289 = load ptr, ptr %output, align 8
+  %290 = load ptr, ptr %end_output, align 8
+  %cmp116 = icmp ult ptr %289, %290
   br i1 %cmp116, label %do.body, label %do.end118, !llvm.loop !316
 
 do.end118:                                        ; preds = %do.cond, %for.end
@@ -37160,145 +37172,146 @@ entry:
   store ptr %add.ptr, ptr %output_end, align 8
   %2 = load ptr, ptr %output_buffer.addr, align 8
   store ptr %2, ptr %output, align 8
-  store ptr getelementptr inbounds (i32, ptr @STBIR_mask, i64 3), ptr %__p.addr.i27, align 8
-  %3 = load ptr, ptr %__p.addr.i27, align 8
-  %4 = load <4 x float>, ptr %3, align 1
-  store <4 x float> %4, ptr %mask, align 16
+  %3 = getelementptr inbounds i32, ptr @STBIR_mask, i64 3
+  store ptr %3, ptr %__p.addr.i27, align 8
+  %4 = load ptr, ptr %__p.addr.i27, align 8
+  %5 = load <4 x float>, ptr %4, align 1
+  store <4 x float> %5, ptr %mask, align 16
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
-  %5 = load ptr, ptr %decode_buffer.addr, align 8
-  %6 = load ptr, ptr %horizontal_contributors.addr, align 8
-  %n0 = getelementptr inbounds %struct.stbir__contributors, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %n0, align 4
-  %mul1 = mul nsw i32 %7, 1
+  %6 = load ptr, ptr %decode_buffer.addr, align 8
+  %7 = load ptr, ptr %horizontal_contributors.addr, align 8
+  %n0 = getelementptr inbounds %struct.stbir__contributors, ptr %7, i32 0, i32 0
+  %8 = load i32, ptr %n0, align 4
+  %mul1 = mul nsw i32 %8, 1
   %idx.ext2 = sext i32 %mul1 to i64
-  %add.ptr3 = getelementptr inbounds float, ptr %5, i64 %idx.ext2
+  %add.ptr3 = getelementptr inbounds float, ptr %6, i64 %idx.ext2
   store ptr %add.ptr3, ptr %decode, align 8
-  %8 = load ptr, ptr %horizontal_coefficients.addr, align 8
-  store ptr %8, ptr %hc, align 8
-  %9 = load ptr, ptr %decode, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %9) #9, !srcloc !393
-  %10 = load ptr, ptr %hc, align 8
-  store ptr %10, ptr %__p.addr.i26, align 8
-  %11 = load ptr, ptr %__p.addr.i26, align 8
-  %12 = load <4 x float>, ptr %11, align 1
-  store <4 x float> %12, ptr %c, align 16
-  %13 = load <4 x float>, ptr %c, align 16
-  %14 = load ptr, ptr %decode, align 8
-  store ptr %14, ptr %__p.addr.i25, align 8
-  %15 = load ptr, ptr %__p.addr.i25, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %13, ptr %__a.addr.i28, align 16
-  store <4 x float> %16, ptr %__b.addr.i29, align 16
-  %17 = load <4 x float>, ptr %__a.addr.i28, align 16
-  %18 = load <4 x float>, ptr %__b.addr.i29, align 16
-  %mul.i30 = fmul <4 x float> %17, %18
+  %9 = load ptr, ptr %horizontal_coefficients.addr, align 8
+  store ptr %9, ptr %hc, align 8
+  %10 = load ptr, ptr %decode, align 8
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %10) #9, !srcloc !393
+  %11 = load ptr, ptr %hc, align 8
+  store ptr %11, ptr %__p.addr.i26, align 8
+  %12 = load ptr, ptr %__p.addr.i26, align 8
+  %13 = load <4 x float>, ptr %12, align 1
+  store <4 x float> %13, ptr %c, align 16
+  %14 = load <4 x float>, ptr %c, align 16
+  %15 = load ptr, ptr %decode, align 8
+  store ptr %15, ptr %__p.addr.i25, align 8
+  %16 = load ptr, ptr %__p.addr.i25, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %14, ptr %__a.addr.i28, align 16
+  store <4 x float> %17, ptr %__b.addr.i29, align 16
+  %18 = load <4 x float>, ptr %__a.addr.i28, align 16
+  %19 = load <4 x float>, ptr %__b.addr.i29, align 16
+  %mul.i30 = fmul <4 x float> %18, %19
   store <4 x float> %mul.i30, ptr %tot, align 16
-  %19 = load ptr, ptr %hc, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %19, i64 4
+  %20 = load ptr, ptr %hc, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %20, i64 4
   store ptr %add.ptr7, ptr %__p.addr.i24, align 8
-  %20 = load ptr, ptr %__p.addr.i24, align 8
-  %21 = load <4 x float>, ptr %20, align 1
-  store <4 x float> %21, ptr %c, align 16
-  %22 = load <4 x float>, ptr %c, align 16
-  %23 = load <4 x float>, ptr %mask, align 16
-  store <4 x float> %22, ptr %__a.addr.i46, align 16
-  store <4 x float> %23, ptr %__b.addr.i47, align 16
-  %24 = load <4 x float>, ptr %__a.addr.i46, align 16
-  %25 = bitcast <4 x float> %24 to <4 x i32>
-  %26 = load <4 x float>, ptr %__b.addr.i47, align 16
-  %27 = bitcast <4 x float> %26 to <4 x i32>
-  %and.i = and <4 x i32> %25, %27
-  %28 = bitcast <4 x i32> %and.i to <4 x float>
-  store <4 x float> %28, ptr %c, align 16
-  %29 = load <4 x float>, ptr %tot, align 16
-  %30 = load <4 x float>, ptr %c, align 16
-  %31 = load ptr, ptr %decode, align 8
-  %add.ptr10 = getelementptr inbounds float, ptr %31, i64 4
+  %21 = load ptr, ptr %__p.addr.i24, align 8
+  %22 = load <4 x float>, ptr %21, align 1
+  store <4 x float> %22, ptr %c, align 16
+  %23 = load <4 x float>, ptr %c, align 16
+  %24 = load <4 x float>, ptr %mask, align 16
+  store <4 x float> %23, ptr %__a.addr.i46, align 16
+  store <4 x float> %24, ptr %__b.addr.i47, align 16
+  %25 = load <4 x float>, ptr %__a.addr.i46, align 16
+  %26 = bitcast <4 x float> %25 to <4 x i32>
+  %27 = load <4 x float>, ptr %__b.addr.i47, align 16
+  %28 = bitcast <4 x float> %27 to <4 x i32>
+  %and.i = and <4 x i32> %26, %28
+  %29 = bitcast <4 x i32> %and.i to <4 x float>
+  store <4 x float> %29, ptr %c, align 16
+  %30 = load <4 x float>, ptr %tot, align 16
+  %31 = load <4 x float>, ptr %c, align 16
+  %32 = load ptr, ptr %decode, align 8
+  %add.ptr10 = getelementptr inbounds float, ptr %32, i64 4
   store ptr %add.ptr10, ptr %__p.addr.i, align 8
-  %32 = load ptr, ptr %__p.addr.i, align 8
-  %33 = load <4 x float>, ptr %32, align 1
-  store <4 x float> %30, ptr %__a.addr.i, align 16
-  store <4 x float> %33, ptr %__b.addr.i, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i, align 16
-  %mul.i = fmul <4 x float> %34, %35
-  store <4 x float> %29, ptr %__a.addr.i33, align 16
+  %33 = load ptr, ptr %__p.addr.i, align 8
+  %34 = load <4 x float>, ptr %33, align 1
+  store <4 x float> %31, ptr %__a.addr.i, align 16
+  store <4 x float> %34, ptr %__b.addr.i, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i, align 16
+  %mul.i = fmul <4 x float> %35, %36
+  store <4 x float> %30, ptr %__a.addr.i33, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i34, align 16
-  %36 = load <4 x float>, ptr %__a.addr.i33, align 16
-  %37 = load <4 x float>, ptr %__b.addr.i34, align 16
-  %add.i35 = fadd <4 x float> %36, %37
+  %37 = load <4 x float>, ptr %__a.addr.i33, align 16
+  %38 = load <4 x float>, ptr %__b.addr.i34, align 16
+  %add.i35 = fadd <4 x float> %37, %38
   store <4 x float> %add.i35, ptr %tot, align 16
-  %38 = load <4 x float>, ptr %tot, align 16
-  store <4 x float> %38, ptr %__a.addr.i42, align 16
-  %39 = load <4 x float>, ptr %__a.addr.i42, align 16
-  %40 = bitcast <4 x float> %39 to <2 x i64>
-  %41 = bitcast <2 x i64> %40 to <4 x i32>
-  %permil = shufflevector <4 x i32> %41, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %42 = bitcast <4 x i32> %permil to <2 x i64>
-  store <2 x i64> %42, ptr %__a.addr.i40, align 16
-  %43 = load <2 x i64>, ptr %__a.addr.i40, align 16
-  %44 = bitcast <2 x i64> %43 to <4 x float>
-  store <4 x float> %44, ptr %c, align 16
-  %45 = load <4 x float>, ptr %tot, align 16
-  %46 = load <4 x float>, ptr %c, align 16
-  store <4 x float> %45, ptr %__a.addr.i31, align 16
-  store <4 x float> %46, ptr %__b.addr.i32, align 16
-  %47 = load <4 x float>, ptr %__a.addr.i31, align 16
-  %48 = load <4 x float>, ptr %__b.addr.i32, align 16
-  %add.i = fadd <4 x float> %47, %48
+  %39 = load <4 x float>, ptr %tot, align 16
+  store <4 x float> %39, ptr %__a.addr.i42, align 16
+  %40 = load <4 x float>, ptr %__a.addr.i42, align 16
+  %41 = bitcast <4 x float> %40 to <2 x i64>
+  %42 = bitcast <2 x i64> %41 to <4 x i32>
+  %permil = shufflevector <4 x i32> %42, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %43 = bitcast <4 x i32> %permil to <2 x i64>
+  store <2 x i64> %43, ptr %__a.addr.i40, align 16
+  %44 = load <2 x i64>, ptr %__a.addr.i40, align 16
+  %45 = bitcast <2 x i64> %44 to <4 x float>
+  store <4 x float> %45, ptr %c, align 16
+  %46 = load <4 x float>, ptr %tot, align 16
+  %47 = load <4 x float>, ptr %c, align 16
+  store <4 x float> %46, ptr %__a.addr.i31, align 16
+  store <4 x float> %47, ptr %__b.addr.i32, align 16
+  %48 = load <4 x float>, ptr %__a.addr.i31, align 16
+  %49 = load <4 x float>, ptr %__b.addr.i32, align 16
+  %add.i = fadd <4 x float> %48, %49
   store <4 x float> %add.i, ptr %tot, align 16
-  %49 = load <4 x float>, ptr %tot, align 16
-  store <4 x float> %49, ptr %__a.addr.i41, align 16
-  %50 = load <4 x float>, ptr %__a.addr.i41, align 16
-  %51 = bitcast <4 x float> %50 to <2 x i64>
-  %52 = bitcast <2 x i64> %51 to <4 x i32>
-  %permil18 = shufflevector <4 x i32> %52, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %53 = bitcast <4 x i32> %permil18 to <2 x i64>
-  store <2 x i64> %53, ptr %__a.addr.i39, align 16
-  %54 = load <2 x i64>, ptr %__a.addr.i39, align 16
-  %55 = bitcast <2 x i64> %54 to <4 x float>
-  store <4 x float> %55, ptr %c, align 16
-  %56 = load <4 x float>, ptr %tot, align 16
-  %57 = load <4 x float>, ptr %c, align 16
-  store <4 x float> %56, ptr %__a.addr.i36, align 16
-  store <4 x float> %57, ptr %__b.addr.i37, align 16
-  %58 = load <4 x float>, ptr %__b.addr.i37, align 16
-  %vecext.i = extractelement <4 x float> %58, i32 0
-  %59 = load <4 x float>, ptr %__a.addr.i36, align 16
-  %vecext1.i = extractelement <4 x float> %59, i32 0
-  %add.i38 = fadd float %vecext1.i, %vecext.i
+  %50 = load <4 x float>, ptr %tot, align 16
+  store <4 x float> %50, ptr %__a.addr.i41, align 16
+  %51 = load <4 x float>, ptr %__a.addr.i41, align 16
+  %52 = bitcast <4 x float> %51 to <2 x i64>
+  %53 = bitcast <2 x i64> %52 to <4 x i32>
+  %permil18 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %54 = bitcast <4 x i32> %permil18 to <2 x i64>
+  store <2 x i64> %54, ptr %__a.addr.i39, align 16
+  %55 = load <2 x i64>, ptr %__a.addr.i39, align 16
+  %56 = bitcast <2 x i64> %55 to <4 x float>
+  store <4 x float> %56, ptr %c, align 16
+  %57 = load <4 x float>, ptr %tot, align 16
+  %58 = load <4 x float>, ptr %c, align 16
+  store <4 x float> %57, ptr %__a.addr.i36, align 16
+  store <4 x float> %58, ptr %__b.addr.i37, align 16
+  %59 = load <4 x float>, ptr %__b.addr.i37, align 16
+  %vecext.i = extractelement <4 x float> %59, i32 0
   %60 = load <4 x float>, ptr %__a.addr.i36, align 16
-  %vecins.i = insertelement <4 x float> %60, float %add.i38, i32 0
-  store <4 x float> %vecins.i, ptr %__a.addr.i36, align 16
+  %vecext1.i = extractelement <4 x float> %60, i32 0
+  %add.i38 = fadd float %vecext1.i, %vecext.i
   %61 = load <4 x float>, ptr %__a.addr.i36, align 16
-  store <4 x float> %61, ptr %tot, align 16
-  %62 = load ptr, ptr %output, align 8
-  %63 = load <4 x float>, ptr %tot, align 16
-  store ptr %62, ptr %__p.addr.i43, align 8
-  store <4 x float> %63, ptr %__a.addr.i44, align 16
-  %64 = load <4 x float>, ptr %__a.addr.i44, align 16
-  %vecext.i45 = extractelement <4 x float> %64, i32 0
-  %65 = load ptr, ptr %__p.addr.i43, align 8
-  store float %vecext.i45, ptr %65, align 1
-  %66 = load i32, ptr %coefficient_width.addr, align 4
-  %67 = load ptr, ptr %horizontal_coefficients.addr, align 8
-  %idx.ext21 = sext i32 %66 to i64
-  %add.ptr22 = getelementptr inbounds float, ptr %67, i64 %idx.ext21
+  %vecins.i = insertelement <4 x float> %61, float %add.i38, i32 0
+  store <4 x float> %vecins.i, ptr %__a.addr.i36, align 16
+  %62 = load <4 x float>, ptr %__a.addr.i36, align 16
+  store <4 x float> %62, ptr %tot, align 16
+  %63 = load ptr, ptr %output, align 8
+  %64 = load <4 x float>, ptr %tot, align 16
+  store ptr %63, ptr %__p.addr.i43, align 8
+  store <4 x float> %64, ptr %__a.addr.i44, align 16
+  %65 = load <4 x float>, ptr %__a.addr.i44, align 16
+  %vecext.i45 = extractelement <4 x float> %65, i32 0
+  %66 = load ptr, ptr %__p.addr.i43, align 8
+  store float %vecext.i45, ptr %66, align 1
+  %67 = load i32, ptr %coefficient_width.addr, align 4
+  %68 = load ptr, ptr %horizontal_coefficients.addr, align 8
+  %idx.ext21 = sext i32 %67 to i64
+  %add.ptr22 = getelementptr inbounds float, ptr %68, i64 %idx.ext21
   store ptr %add.ptr22, ptr %horizontal_coefficients.addr, align 8
-  %68 = load ptr, ptr %horizontal_contributors.addr, align 8
-  %incdec.ptr = getelementptr inbounds %struct.stbir__contributors, ptr %68, i32 1
+  %69 = load ptr, ptr %horizontal_contributors.addr, align 8
+  %incdec.ptr = getelementptr inbounds %struct.stbir__contributors, ptr %69, i32 1
   store ptr %incdec.ptr, ptr %horizontal_contributors.addr, align 8
-  %69 = load ptr, ptr %output, align 8
-  %add.ptr23 = getelementptr inbounds float, ptr %69, i64 1
+  %70 = load ptr, ptr %output, align 8
+  %add.ptr23 = getelementptr inbounds float, ptr %70, i64 1
   store ptr %add.ptr23, ptr %output, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %70 = load ptr, ptr %output, align 8
-  %71 = load ptr, ptr %output_end, align 8
-  %cmp = icmp ult ptr %70, %71
+  %71 = load ptr, ptr %output, align 8
+  %72 = load ptr, ptr %output_end, align 8
+  %cmp = icmp ult ptr %71, %72
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !394
 
 do.end:                                           ; preds = %do.cond
@@ -38011,171 +38024,172 @@ entry:
   store ptr %add.ptr, ptr %output_end, align 8
   %2 = load ptr, ptr %output_buffer.addr, align 8
   store ptr %2, ptr %output, align 8
-  store ptr getelementptr inbounds (i32, ptr @STBIR_mask, i64 3), ptr %__p.addr.i35, align 8
-  %3 = load ptr, ptr %__p.addr.i35, align 8
-  %4 = load <4 x float>, ptr %3, align 1
-  store <4 x float> %4, ptr %mask, align 16
+  %3 = getelementptr inbounds i32, ptr @STBIR_mask, i64 3
+  store ptr %3, ptr %__p.addr.i35, align 8
+  %4 = load ptr, ptr %__p.addr.i35, align 8
+  %5 = load <4 x float>, ptr %4, align 1
+  store <4 x float> %5, ptr %mask, align 16
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
-  %5 = load ptr, ptr %decode_buffer.addr, align 8
-  %6 = load ptr, ptr %horizontal_contributors.addr, align 8
-  %n0 = getelementptr inbounds %struct.stbir__contributors, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %n0, align 4
-  %mul1 = mul nsw i32 %7, 1
+  %6 = load ptr, ptr %decode_buffer.addr, align 8
+  %7 = load ptr, ptr %horizontal_contributors.addr, align 8
+  %n0 = getelementptr inbounds %struct.stbir__contributors, ptr %7, i32 0, i32 0
+  %8 = load i32, ptr %n0, align 4
+  %mul1 = mul nsw i32 %8, 1
   %idx.ext2 = sext i32 %mul1 to i64
-  %add.ptr3 = getelementptr inbounds float, ptr %5, i64 %idx.ext2
+  %add.ptr3 = getelementptr inbounds float, ptr %6, i64 %idx.ext2
   store ptr %add.ptr3, ptr %decode, align 8
-  %8 = load ptr, ptr %horizontal_coefficients.addr, align 8
-  store ptr %8, ptr %hc, align 8
-  %9 = load ptr, ptr %decode, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %9) #9, !srcloc !404
-  %10 = load ptr, ptr %hc, align 8
-  store ptr %10, ptr %__p.addr.i34, align 8
-  %11 = load ptr, ptr %__p.addr.i34, align 8
-  %12 = load <4 x float>, ptr %11, align 1
-  store <4 x float> %12, ptr %c, align 16
-  %13 = load <4 x float>, ptr %c, align 16
-  %14 = load ptr, ptr %decode, align 8
-  store ptr %14, ptr %__p.addr.i33, align 8
-  %15 = load ptr, ptr %__p.addr.i33, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %13, ptr %__a.addr.i39, align 16
-  store <4 x float> %16, ptr %__b.addr.i40, align 16
-  %17 = load <4 x float>, ptr %__a.addr.i39, align 16
-  %18 = load <4 x float>, ptr %__b.addr.i40, align 16
-  %mul.i41 = fmul <4 x float> %17, %18
+  %9 = load ptr, ptr %horizontal_coefficients.addr, align 8
+  store ptr %9, ptr %hc, align 8
+  %10 = load ptr, ptr %decode, align 8
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %10) #9, !srcloc !404
+  %11 = load ptr, ptr %hc, align 8
+  store ptr %11, ptr %__p.addr.i34, align 8
+  %12 = load ptr, ptr %__p.addr.i34, align 8
+  %13 = load <4 x float>, ptr %12, align 1
+  store <4 x float> %13, ptr %c, align 16
+  %14 = load <4 x float>, ptr %c, align 16
+  %15 = load ptr, ptr %decode, align 8
+  store ptr %15, ptr %__p.addr.i33, align 8
+  %16 = load ptr, ptr %__p.addr.i33, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %14, ptr %__a.addr.i39, align 16
+  store <4 x float> %17, ptr %__b.addr.i40, align 16
+  %18 = load <4 x float>, ptr %__a.addr.i39, align 16
+  %19 = load <4 x float>, ptr %__b.addr.i40, align 16
+  %mul.i41 = fmul <4 x float> %18, %19
   store <4 x float> %mul.i41, ptr %tot, align 16
-  %19 = load ptr, ptr %decode, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %19) #9, !srcloc !405
-  %20 = load ptr, ptr %hc, align 8
-  %add.ptr7 = getelementptr inbounds float, ptr %20, i64 4
+  %20 = load ptr, ptr %decode, align 8
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %20) #9, !srcloc !405
+  %21 = load ptr, ptr %hc, align 8
+  %add.ptr7 = getelementptr inbounds float, ptr %21, i64 4
   store ptr %add.ptr7, ptr %__p.addr.i32, align 8
-  %21 = load ptr, ptr %__p.addr.i32, align 8
-  %22 = load <4 x float>, ptr %21, align 1
-  store <4 x float> %22, ptr %c, align 16
-  %23 = load <4 x float>, ptr %tot, align 16
-  %24 = load <4 x float>, ptr %c, align 16
-  %25 = load ptr, ptr %decode, align 8
-  %add.ptr9 = getelementptr inbounds float, ptr %25, i64 4
+  %22 = load ptr, ptr %__p.addr.i32, align 8
+  %23 = load <4 x float>, ptr %22, align 1
+  store <4 x float> %23, ptr %c, align 16
+  %24 = load <4 x float>, ptr %tot, align 16
+  %25 = load <4 x float>, ptr %c, align 16
+  %26 = load ptr, ptr %decode, align 8
+  %add.ptr9 = getelementptr inbounds float, ptr %26, i64 4
   store ptr %add.ptr9, ptr %__p.addr.i31, align 8
-  %26 = load ptr, ptr %__p.addr.i31, align 8
-  %27 = load <4 x float>, ptr %26, align 1
-  store <4 x float> %24, ptr %__a.addr.i36, align 16
-  store <4 x float> %27, ptr %__b.addr.i37, align 16
-  %28 = load <4 x float>, ptr %__a.addr.i36, align 16
-  %29 = load <4 x float>, ptr %__b.addr.i37, align 16
-  %mul.i38 = fmul <4 x float> %28, %29
-  store <4 x float> %23, ptr %__a.addr.i47, align 16
+  %27 = load ptr, ptr %__p.addr.i31, align 8
+  %28 = load <4 x float>, ptr %27, align 1
+  store <4 x float> %25, ptr %__a.addr.i36, align 16
+  store <4 x float> %28, ptr %__b.addr.i37, align 16
+  %29 = load <4 x float>, ptr %__a.addr.i36, align 16
+  %30 = load <4 x float>, ptr %__b.addr.i37, align 16
+  %mul.i38 = fmul <4 x float> %29, %30
+  store <4 x float> %24, ptr %__a.addr.i47, align 16
   store <4 x float> %mul.i38, ptr %__b.addr.i48, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i47, align 16
-  %31 = load <4 x float>, ptr %__b.addr.i48, align 16
-  %add.i49 = fadd <4 x float> %30, %31
+  %31 = load <4 x float>, ptr %__a.addr.i47, align 16
+  %32 = load <4 x float>, ptr %__b.addr.i48, align 16
+  %add.i49 = fadd <4 x float> %31, %32
   store <4 x float> %add.i49, ptr %tot, align 16
-  %32 = load ptr, ptr %hc, align 8
-  %add.ptr13 = getelementptr inbounds float, ptr %32, i64 8
+  %33 = load ptr, ptr %hc, align 8
+  %add.ptr13 = getelementptr inbounds float, ptr %33, i64 8
   store ptr %add.ptr13, ptr %__p.addr.i30, align 8
-  %33 = load ptr, ptr %__p.addr.i30, align 8
-  %34 = load <4 x float>, ptr %33, align 1
-  store <4 x float> %34, ptr %c, align 16
-  %35 = load <4 x float>, ptr %c, align 16
-  %36 = load <4 x float>, ptr %mask, align 16
-  store <4 x float> %35, ptr %__a.addr.i60, align 16
-  store <4 x float> %36, ptr %__b.addr.i61, align 16
-  %37 = load <4 x float>, ptr %__a.addr.i60, align 16
-  %38 = bitcast <4 x float> %37 to <4 x i32>
-  %39 = load <4 x float>, ptr %__b.addr.i61, align 16
-  %40 = bitcast <4 x float> %39 to <4 x i32>
-  %and.i = and <4 x i32> %38, %40
-  %41 = bitcast <4 x i32> %and.i to <4 x float>
-  store <4 x float> %41, ptr %c, align 16
-  %42 = load <4 x float>, ptr %tot, align 16
-  %43 = load <4 x float>, ptr %c, align 16
-  %44 = load ptr, ptr %decode, align 8
-  %add.ptr16 = getelementptr inbounds float, ptr %44, i64 8
+  %34 = load ptr, ptr %__p.addr.i30, align 8
+  %35 = load <4 x float>, ptr %34, align 1
+  store <4 x float> %35, ptr %c, align 16
+  %36 = load <4 x float>, ptr %c, align 16
+  %37 = load <4 x float>, ptr %mask, align 16
+  store <4 x float> %36, ptr %__a.addr.i60, align 16
+  store <4 x float> %37, ptr %__b.addr.i61, align 16
+  %38 = load <4 x float>, ptr %__a.addr.i60, align 16
+  %39 = bitcast <4 x float> %38 to <4 x i32>
+  %40 = load <4 x float>, ptr %__b.addr.i61, align 16
+  %41 = bitcast <4 x float> %40 to <4 x i32>
+  %and.i = and <4 x i32> %39, %41
+  %42 = bitcast <4 x i32> %and.i to <4 x float>
+  store <4 x float> %42, ptr %c, align 16
+  %43 = load <4 x float>, ptr %tot, align 16
+  %44 = load <4 x float>, ptr %c, align 16
+  %45 = load ptr, ptr %decode, align 8
+  %add.ptr16 = getelementptr inbounds float, ptr %45, i64 8
   store ptr %add.ptr16, ptr %__p.addr.i, align 8
-  %45 = load ptr, ptr %__p.addr.i, align 8
-  %46 = load <4 x float>, ptr %45, align 1
-  store <4 x float> %43, ptr %__a.addr.i, align 16
-  store <4 x float> %46, ptr %__b.addr.i, align 16
-  %47 = load <4 x float>, ptr %__a.addr.i, align 16
-  %48 = load <4 x float>, ptr %__b.addr.i, align 16
-  %mul.i = fmul <4 x float> %47, %48
-  store <4 x float> %42, ptr %__a.addr.i44, align 16
+  %46 = load ptr, ptr %__p.addr.i, align 8
+  %47 = load <4 x float>, ptr %46, align 1
+  store <4 x float> %44, ptr %__a.addr.i, align 16
+  store <4 x float> %47, ptr %__b.addr.i, align 16
+  %48 = load <4 x float>, ptr %__a.addr.i, align 16
+  %49 = load <4 x float>, ptr %__b.addr.i, align 16
+  %mul.i = fmul <4 x float> %48, %49
+  store <4 x float> %43, ptr %__a.addr.i44, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i45, align 16
-  %49 = load <4 x float>, ptr %__a.addr.i44, align 16
-  %50 = load <4 x float>, ptr %__b.addr.i45, align 16
-  %add.i46 = fadd <4 x float> %49, %50
+  %50 = load <4 x float>, ptr %__a.addr.i44, align 16
+  %51 = load <4 x float>, ptr %__b.addr.i45, align 16
+  %add.i46 = fadd <4 x float> %50, %51
   store <4 x float> %add.i46, ptr %tot, align 16
-  %51 = load <4 x float>, ptr %tot, align 16
-  store <4 x float> %51, ptr %__a.addr.i56, align 16
-  %52 = load <4 x float>, ptr %__a.addr.i56, align 16
-  %53 = bitcast <4 x float> %52 to <2 x i64>
-  %54 = bitcast <2 x i64> %53 to <4 x i32>
-  %permil = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %55 = bitcast <4 x i32> %permil to <2 x i64>
-  store <2 x i64> %55, ptr %__a.addr.i54, align 16
-  %56 = load <2 x i64>, ptr %__a.addr.i54, align 16
-  %57 = bitcast <2 x i64> %56 to <4 x float>
-  store <4 x float> %57, ptr %c, align 16
-  %58 = load <4 x float>, ptr %tot, align 16
-  %59 = load <4 x float>, ptr %c, align 16
-  store <4 x float> %58, ptr %__a.addr.i42, align 16
-  store <4 x float> %59, ptr %__b.addr.i43, align 16
-  %60 = load <4 x float>, ptr %__a.addr.i42, align 16
-  %61 = load <4 x float>, ptr %__b.addr.i43, align 16
-  %add.i = fadd <4 x float> %60, %61
+  %52 = load <4 x float>, ptr %tot, align 16
+  store <4 x float> %52, ptr %__a.addr.i56, align 16
+  %53 = load <4 x float>, ptr %__a.addr.i56, align 16
+  %54 = bitcast <4 x float> %53 to <2 x i64>
+  %55 = bitcast <2 x i64> %54 to <4 x i32>
+  %permil = shufflevector <4 x i32> %55, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %56 = bitcast <4 x i32> %permil to <2 x i64>
+  store <2 x i64> %56, ptr %__a.addr.i54, align 16
+  %57 = load <2 x i64>, ptr %__a.addr.i54, align 16
+  %58 = bitcast <2 x i64> %57 to <4 x float>
+  store <4 x float> %58, ptr %c, align 16
+  %59 = load <4 x float>, ptr %tot, align 16
+  %60 = load <4 x float>, ptr %c, align 16
+  store <4 x float> %59, ptr %__a.addr.i42, align 16
+  store <4 x float> %60, ptr %__b.addr.i43, align 16
+  %61 = load <4 x float>, ptr %__a.addr.i42, align 16
+  %62 = load <4 x float>, ptr %__b.addr.i43, align 16
+  %add.i = fadd <4 x float> %61, %62
   store <4 x float> %add.i, ptr %tot, align 16
-  %62 = load <4 x float>, ptr %tot, align 16
-  store <4 x float> %62, ptr %__a.addr.i55, align 16
-  %63 = load <4 x float>, ptr %__a.addr.i55, align 16
-  %64 = bitcast <4 x float> %63 to <2 x i64>
-  %65 = bitcast <2 x i64> %64 to <4 x i32>
-  %permil24 = shufflevector <4 x i32> %65, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %66 = bitcast <4 x i32> %permil24 to <2 x i64>
-  store <2 x i64> %66, ptr %__a.addr.i53, align 16
-  %67 = load <2 x i64>, ptr %__a.addr.i53, align 16
-  %68 = bitcast <2 x i64> %67 to <4 x float>
-  store <4 x float> %68, ptr %c, align 16
-  %69 = load <4 x float>, ptr %tot, align 16
-  %70 = load <4 x float>, ptr %c, align 16
-  store <4 x float> %69, ptr %__a.addr.i50, align 16
-  store <4 x float> %70, ptr %__b.addr.i51, align 16
-  %71 = load <4 x float>, ptr %__b.addr.i51, align 16
-  %vecext.i = extractelement <4 x float> %71, i32 0
-  %72 = load <4 x float>, ptr %__a.addr.i50, align 16
-  %vecext1.i = extractelement <4 x float> %72, i32 0
-  %add.i52 = fadd float %vecext1.i, %vecext.i
+  %63 = load <4 x float>, ptr %tot, align 16
+  store <4 x float> %63, ptr %__a.addr.i55, align 16
+  %64 = load <4 x float>, ptr %__a.addr.i55, align 16
+  %65 = bitcast <4 x float> %64 to <2 x i64>
+  %66 = bitcast <2 x i64> %65 to <4 x i32>
+  %permil24 = shufflevector <4 x i32> %66, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %67 = bitcast <4 x i32> %permil24 to <2 x i64>
+  store <2 x i64> %67, ptr %__a.addr.i53, align 16
+  %68 = load <2 x i64>, ptr %__a.addr.i53, align 16
+  %69 = bitcast <2 x i64> %68 to <4 x float>
+  store <4 x float> %69, ptr %c, align 16
+  %70 = load <4 x float>, ptr %tot, align 16
+  %71 = load <4 x float>, ptr %c, align 16
+  store <4 x float> %70, ptr %__a.addr.i50, align 16
+  store <4 x float> %71, ptr %__b.addr.i51, align 16
+  %72 = load <4 x float>, ptr %__b.addr.i51, align 16
+  %vecext.i = extractelement <4 x float> %72, i32 0
   %73 = load <4 x float>, ptr %__a.addr.i50, align 16
-  %vecins.i = insertelement <4 x float> %73, float %add.i52, i32 0
-  store <4 x float> %vecins.i, ptr %__a.addr.i50, align 16
+  %vecext1.i = extractelement <4 x float> %73, i32 0
+  %add.i52 = fadd float %vecext1.i, %vecext.i
   %74 = load <4 x float>, ptr %__a.addr.i50, align 16
-  store <4 x float> %74, ptr %tot, align 16
-  %75 = load ptr, ptr %output, align 8
-  %76 = load <4 x float>, ptr %tot, align 16
-  store ptr %75, ptr %__p.addr.i57, align 8
-  store <4 x float> %76, ptr %__a.addr.i58, align 16
-  %77 = load <4 x float>, ptr %__a.addr.i58, align 16
-  %vecext.i59 = extractelement <4 x float> %77, i32 0
-  %78 = load ptr, ptr %__p.addr.i57, align 8
-  store float %vecext.i59, ptr %78, align 1
-  %79 = load i32, ptr %coefficient_width.addr, align 4
-  %80 = load ptr, ptr %horizontal_coefficients.addr, align 8
-  %idx.ext27 = sext i32 %79 to i64
-  %add.ptr28 = getelementptr inbounds float, ptr %80, i64 %idx.ext27
+  %vecins.i = insertelement <4 x float> %74, float %add.i52, i32 0
+  store <4 x float> %vecins.i, ptr %__a.addr.i50, align 16
+  %75 = load <4 x float>, ptr %__a.addr.i50, align 16
+  store <4 x float> %75, ptr %tot, align 16
+  %76 = load ptr, ptr %output, align 8
+  %77 = load <4 x float>, ptr %tot, align 16
+  store ptr %76, ptr %__p.addr.i57, align 8
+  store <4 x float> %77, ptr %__a.addr.i58, align 16
+  %78 = load <4 x float>, ptr %__a.addr.i58, align 16
+  %vecext.i59 = extractelement <4 x float> %78, i32 0
+  %79 = load ptr, ptr %__p.addr.i57, align 8
+  store float %vecext.i59, ptr %79, align 1
+  %80 = load i32, ptr %coefficient_width.addr, align 4
+  %81 = load ptr, ptr %horizontal_coefficients.addr, align 8
+  %idx.ext27 = sext i32 %80 to i64
+  %add.ptr28 = getelementptr inbounds float, ptr %81, i64 %idx.ext27
   store ptr %add.ptr28, ptr %horizontal_coefficients.addr, align 8
-  %81 = load ptr, ptr %horizontal_contributors.addr, align 8
-  %incdec.ptr = getelementptr inbounds %struct.stbir__contributors, ptr %81, i32 1
+  %82 = load ptr, ptr %horizontal_contributors.addr, align 8
+  %incdec.ptr = getelementptr inbounds %struct.stbir__contributors, ptr %82, i32 1
   store ptr %incdec.ptr, ptr %horizontal_contributors.addr, align 8
-  %82 = load ptr, ptr %output, align 8
-  %add.ptr29 = getelementptr inbounds float, ptr %82, i64 1
+  %83 = load ptr, ptr %output, align 8
+  %add.ptr29 = getelementptr inbounds float, ptr %83, i64 1
   store ptr %add.ptr29, ptr %output, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %83 = load ptr, ptr %output, align 8
-  %84 = load ptr, ptr %output_end, align 8
-  %cmp = icmp ult ptr %83, %84
+  %84 = load ptr, ptr %output, align 8
+  %85 = load ptr, ptr %output_end, align 8
+  %cmp = icmp ult ptr %84, %85
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !406
 
 do.end:                                           ; preds = %do.cond
@@ -39201,203 +39215,204 @@ entry:
   store ptr %add.ptr, ptr %output_end, align 8
   %2 = load ptr, ptr %output_buffer.addr, align 8
   store ptr %2, ptr %output, align 8
-  store ptr getelementptr inbounds (i32, ptr @STBIR_mask, i64 3), ptr %__p.addr.i44, align 8
-  %3 = load ptr, ptr %__p.addr.i44, align 8
-  %4 = load <4 x float>, ptr %3, align 1
-  store <4 x float> %4, ptr %mask, align 16
+  %3 = getelementptr inbounds i32, ptr @STBIR_mask, i64 3
+  store ptr %3, ptr %__p.addr.i44, align 8
+  %4 = load ptr, ptr %__p.addr.i44, align 8
+  %5 = load <4 x float>, ptr %4, align 1
+  store <4 x float> %5, ptr %mask, align 16
   br label %do.body
 
 do.body:                                          ; preds = %do.cond36, %entry
-  %5 = load ptr, ptr %decode_buffer.addr, align 8
-  %6 = load ptr, ptr %horizontal_contributors.addr, align 8
-  %n0 = getelementptr inbounds %struct.stbir__contributors, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %n0, align 4
-  %mul1 = mul nsw i32 %7, 1
+  %6 = load ptr, ptr %decode_buffer.addr, align 8
+  %7 = load ptr, ptr %horizontal_contributors.addr, align 8
+  %n0 = getelementptr inbounds %struct.stbir__contributors, ptr %7, i32 0, i32 0
+  %8 = load i32, ptr %n0, align 4
+  %mul1 = mul nsw i32 %8, 1
   %idx.ext2 = sext i32 %mul1 to i64
-  %add.ptr3 = getelementptr inbounds float, ptr %5, i64 %idx.ext2
+  %add.ptr3 = getelementptr inbounds float, ptr %6, i64 %idx.ext2
   store ptr %add.ptr3, ptr %decode, align 8
-  %8 = load ptr, ptr %horizontal_contributors.addr, align 8
-  %n1 = getelementptr inbounds %struct.stbir__contributors, ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %n1, align 4
-  %10 = load ptr, ptr %horizontal_contributors.addr, align 8
-  %n04 = getelementptr inbounds %struct.stbir__contributors, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %n04, align 4
-  %sub = sub nsw i32 %9, %11
+  %9 = load ptr, ptr %horizontal_contributors.addr, align 8
+  %n1 = getelementptr inbounds %struct.stbir__contributors, ptr %9, i32 0, i32 1
+  %10 = load i32, ptr %n1, align 4
+  %11 = load ptr, ptr %horizontal_contributors.addr, align 8
+  %n04 = getelementptr inbounds %struct.stbir__contributors, ptr %11, i32 0, i32 0
+  %12 = load i32, ptr %n04, align 4
+  %sub = sub nsw i32 %10, %12
   %add = add nsw i32 %sub, 1
   %sub5 = sub nsw i32 %add, 7
   %add6 = add nsw i32 %sub5, 3
   %shr = ashr i32 %add6, 2
   store i32 %shr, ptr %n, align 4
-  %12 = load ptr, ptr %horizontal_coefficients.addr, align 8
-  store ptr %12, ptr %hc, align 8
-  %13 = load ptr, ptr %decode, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #9, !srcloc !423
-  %14 = load ptr, ptr %hc, align 8
-  store ptr %14, ptr %__p.addr.i43, align 8
-  %15 = load ptr, ptr %__p.addr.i43, align 8
-  %16 = load <4 x float>, ptr %15, align 1
-  store <4 x float> %16, ptr %c, align 16
-  %17 = load <4 x float>, ptr %c, align 16
-  %18 = load ptr, ptr %decode, align 8
-  store ptr %18, ptr %__p.addr.i42, align 8
-  %19 = load ptr, ptr %__p.addr.i42, align 8
-  %20 = load <4 x float>, ptr %19, align 1
-  store <4 x float> %17, ptr %__a.addr.i48, align 16
-  store <4 x float> %20, ptr %__b.addr.i49, align 16
-  %21 = load <4 x float>, ptr %__a.addr.i48, align 16
-  %22 = load <4 x float>, ptr %__b.addr.i49, align 16
-  %mul.i50 = fmul <4 x float> %21, %22
+  %13 = load ptr, ptr %horizontal_coefficients.addr, align 8
+  store ptr %13, ptr %hc, align 8
+  %14 = load ptr, ptr %decode, align 8
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %14) #9, !srcloc !423
+  %15 = load ptr, ptr %hc, align 8
+  store ptr %15, ptr %__p.addr.i43, align 8
+  %16 = load ptr, ptr %__p.addr.i43, align 8
+  %17 = load <4 x float>, ptr %16, align 1
+  store <4 x float> %17, ptr %c, align 16
+  %18 = load <4 x float>, ptr %c, align 16
+  %19 = load ptr, ptr %decode, align 8
+  store ptr %19, ptr %__p.addr.i42, align 8
+  %20 = load ptr, ptr %__p.addr.i42, align 8
+  %21 = load <4 x float>, ptr %20, align 1
+  store <4 x float> %18, ptr %__a.addr.i48, align 16
+  store <4 x float> %21, ptr %__b.addr.i49, align 16
+  %22 = load <4 x float>, ptr %__a.addr.i48, align 16
+  %23 = load <4 x float>, ptr %__b.addr.i49, align 16
+  %mul.i50 = fmul <4 x float> %22, %23
   store <4 x float> %mul.i50, ptr %tot, align 16
   br label %do.body10
 
 do.body10:                                        ; preds = %do.cond, %do.body
-  %23 = load ptr, ptr %hc, align 8
-  %add.ptr11 = getelementptr inbounds float, ptr %23, i64 4
+  %24 = load ptr, ptr %hc, align 8
+  %add.ptr11 = getelementptr inbounds float, ptr %24, i64 4
   store ptr %add.ptr11, ptr %hc, align 8
-  %24 = load ptr, ptr %decode, align 8
-  %add.ptr12 = getelementptr inbounds float, ptr %24, i64 4
-  store ptr %add.ptr12, ptr %decode, align 8
   %25 = load ptr, ptr %decode, align 8
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %25) #9, !srcloc !424
-  %26 = load ptr, ptr %hc, align 8
-  %add.ptr13 = getelementptr inbounds float, ptr %26, i64 0
+  %add.ptr12 = getelementptr inbounds float, ptr %25, i64 4
+  store ptr %add.ptr12, ptr %decode, align 8
+  %26 = load ptr, ptr %decode, align 8
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %26) #9, !srcloc !424
+  %27 = load ptr, ptr %hc, align 8
+  %add.ptr13 = getelementptr inbounds float, ptr %27, i64 0
   store ptr %add.ptr13, ptr %__p.addr.i41, align 8
-  %27 = load ptr, ptr %__p.addr.i41, align 8
-  %28 = load <4 x float>, ptr %27, align 1
-  store <4 x float> %28, ptr %c, align 16
-  %29 = load <4 x float>, ptr %tot, align 16
-  %30 = load <4 x float>, ptr %c, align 16
-  %31 = load ptr, ptr %decode, align 8
-  %add.ptr15 = getelementptr inbounds float, ptr %31, i64 0
+  %28 = load ptr, ptr %__p.addr.i41, align 8
+  %29 = load <4 x float>, ptr %28, align 1
+  store <4 x float> %29, ptr %c, align 16
+  %30 = load <4 x float>, ptr %tot, align 16
+  %31 = load <4 x float>, ptr %c, align 16
+  %32 = load ptr, ptr %decode, align 8
+  %add.ptr15 = getelementptr inbounds float, ptr %32, i64 0
   store ptr %add.ptr15, ptr %__p.addr.i40, align 8
-  %32 = load ptr, ptr %__p.addr.i40, align 8
-  %33 = load <4 x float>, ptr %32, align 1
-  store <4 x float> %30, ptr %__a.addr.i45, align 16
-  store <4 x float> %33, ptr %__b.addr.i46, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i45, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i46, align 16
-  %mul.i47 = fmul <4 x float> %34, %35
-  store <4 x float> %29, ptr %__a.addr.i56, align 16
+  %33 = load ptr, ptr %__p.addr.i40, align 8
+  %34 = load <4 x float>, ptr %33, align 1
+  store <4 x float> %31, ptr %__a.addr.i45, align 16
+  store <4 x float> %34, ptr %__b.addr.i46, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i45, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i46, align 16
+  %mul.i47 = fmul <4 x float> %35, %36
+  store <4 x float> %30, ptr %__a.addr.i56, align 16
   store <4 x float> %mul.i47, ptr %__b.addr.i57, align 16
-  %36 = load <4 x float>, ptr %__a.addr.i56, align 16
-  %37 = load <4 x float>, ptr %__b.addr.i57, align 16
-  %add.i58 = fadd <4 x float> %36, %37
+  %37 = load <4 x float>, ptr %__a.addr.i56, align 16
+  %38 = load <4 x float>, ptr %__b.addr.i57, align 16
+  %add.i58 = fadd <4 x float> %37, %38
   store <4 x float> %add.i58, ptr %tot, align 16
-  %38 = load i32, ptr %n, align 4
-  %dec = add nsw i32 %38, -1
+  %39 = load i32, ptr %n, align 4
+  %dec = add nsw i32 %39, -1
   store i32 %dec, ptr %n, align 4
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body10
-  %39 = load i32, ptr %n, align 4
-  %cmp = icmp sgt i32 %39, 0
+  %40 = load i32, ptr %n, align 4
+  %cmp = icmp sgt i32 %40, 0
   br i1 %cmp, label %do.body10, label %do.end, !llvm.loop !425
 
 do.end:                                           ; preds = %do.cond
-  %40 = load ptr, ptr %hc, align 8
-  %add.ptr19 = getelementptr inbounds float, ptr %40, i64 4
+  %41 = load ptr, ptr %hc, align 8
+  %add.ptr19 = getelementptr inbounds float, ptr %41, i64 4
   store ptr %add.ptr19, ptr %__p.addr.i39, align 8
-  %41 = load ptr, ptr %__p.addr.i39, align 8
-  %42 = load <4 x float>, ptr %41, align 1
-  store <4 x float> %42, ptr %c, align 16
-  %43 = load <4 x float>, ptr %c, align 16
-  %44 = load <4 x float>, ptr %mask, align 16
-  store <4 x float> %43, ptr %__a.addr.i69, align 16
-  store <4 x float> %44, ptr %__b.addr.i70, align 16
-  %45 = load <4 x float>, ptr %__a.addr.i69, align 16
-  %46 = bitcast <4 x float> %45 to <4 x i32>
-  %47 = load <4 x float>, ptr %__b.addr.i70, align 16
-  %48 = bitcast <4 x float> %47 to <4 x i32>
-  %and.i = and <4 x i32> %46, %48
-  %49 = bitcast <4 x i32> %and.i to <4 x float>
-  store <4 x float> %49, ptr %c, align 16
-  %50 = load <4 x float>, ptr %tot, align 16
-  %51 = load <4 x float>, ptr %c, align 16
-  %52 = load ptr, ptr %decode, align 8
-  %add.ptr22 = getelementptr inbounds float, ptr %52, i64 4
+  %42 = load ptr, ptr %__p.addr.i39, align 8
+  %43 = load <4 x float>, ptr %42, align 1
+  store <4 x float> %43, ptr %c, align 16
+  %44 = load <4 x float>, ptr %c, align 16
+  %45 = load <4 x float>, ptr %mask, align 16
+  store <4 x float> %44, ptr %__a.addr.i69, align 16
+  store <4 x float> %45, ptr %__b.addr.i70, align 16
+  %46 = load <4 x float>, ptr %__a.addr.i69, align 16
+  %47 = bitcast <4 x float> %46 to <4 x i32>
+  %48 = load <4 x float>, ptr %__b.addr.i70, align 16
+  %49 = bitcast <4 x float> %48 to <4 x i32>
+  %and.i = and <4 x i32> %47, %49
+  %50 = bitcast <4 x i32> %and.i to <4 x float>
+  store <4 x float> %50, ptr %c, align 16
+  %51 = load <4 x float>, ptr %tot, align 16
+  %52 = load <4 x float>, ptr %c, align 16
+  %53 = load ptr, ptr %decode, align 8
+  %add.ptr22 = getelementptr inbounds float, ptr %53, i64 4
   store ptr %add.ptr22, ptr %__p.addr.i, align 8
-  %53 = load ptr, ptr %__p.addr.i, align 8
-  %54 = load <4 x float>, ptr %53, align 1
-  store <4 x float> %51, ptr %__a.addr.i, align 16
-  store <4 x float> %54, ptr %__b.addr.i, align 16
-  %55 = load <4 x float>, ptr %__a.addr.i, align 16
-  %56 = load <4 x float>, ptr %__b.addr.i, align 16
-  %mul.i = fmul <4 x float> %55, %56
-  store <4 x float> %50, ptr %__a.addr.i53, align 16
+  %54 = load ptr, ptr %__p.addr.i, align 8
+  %55 = load <4 x float>, ptr %54, align 1
+  store <4 x float> %52, ptr %__a.addr.i, align 16
+  store <4 x float> %55, ptr %__b.addr.i, align 16
+  %56 = load <4 x float>, ptr %__a.addr.i, align 16
+  %57 = load <4 x float>, ptr %__b.addr.i, align 16
+  %mul.i = fmul <4 x float> %56, %57
+  store <4 x float> %51, ptr %__a.addr.i53, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i54, align 16
-  %57 = load <4 x float>, ptr %__a.addr.i53, align 16
-  %58 = load <4 x float>, ptr %__b.addr.i54, align 16
-  %add.i55 = fadd <4 x float> %57, %58
+  %58 = load <4 x float>, ptr %__a.addr.i53, align 16
+  %59 = load <4 x float>, ptr %__b.addr.i54, align 16
+  %add.i55 = fadd <4 x float> %58, %59
   store <4 x float> %add.i55, ptr %tot, align 16
-  %59 = load <4 x float>, ptr %tot, align 16
-  store <4 x float> %59, ptr %__a.addr.i65, align 16
-  %60 = load <4 x float>, ptr %__a.addr.i65, align 16
-  %61 = bitcast <4 x float> %60 to <2 x i64>
-  %62 = bitcast <2 x i64> %61 to <4 x i32>
-  %permil = shufflevector <4 x i32> %62, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %63 = bitcast <4 x i32> %permil to <2 x i64>
-  store <2 x i64> %63, ptr %__a.addr.i63, align 16
-  %64 = load <2 x i64>, ptr %__a.addr.i63, align 16
-  %65 = bitcast <2 x i64> %64 to <4 x float>
-  store <4 x float> %65, ptr %c, align 16
-  %66 = load <4 x float>, ptr %tot, align 16
-  %67 = load <4 x float>, ptr %c, align 16
-  store <4 x float> %66, ptr %__a.addr.i51, align 16
-  store <4 x float> %67, ptr %__b.addr.i52, align 16
-  %68 = load <4 x float>, ptr %__a.addr.i51, align 16
-  %69 = load <4 x float>, ptr %__b.addr.i52, align 16
-  %add.i = fadd <4 x float> %68, %69
+  %60 = load <4 x float>, ptr %tot, align 16
+  store <4 x float> %60, ptr %__a.addr.i65, align 16
+  %61 = load <4 x float>, ptr %__a.addr.i65, align 16
+  %62 = bitcast <4 x float> %61 to <2 x i64>
+  %63 = bitcast <2 x i64> %62 to <4 x i32>
+  %permil = shufflevector <4 x i32> %63, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %64 = bitcast <4 x i32> %permil to <2 x i64>
+  store <2 x i64> %64, ptr %__a.addr.i63, align 16
+  %65 = load <2 x i64>, ptr %__a.addr.i63, align 16
+  %66 = bitcast <2 x i64> %65 to <4 x float>
+  store <4 x float> %66, ptr %c, align 16
+  %67 = load <4 x float>, ptr %tot, align 16
+  %68 = load <4 x float>, ptr %c, align 16
+  store <4 x float> %67, ptr %__a.addr.i51, align 16
+  store <4 x float> %68, ptr %__b.addr.i52, align 16
+  %69 = load <4 x float>, ptr %__a.addr.i51, align 16
+  %70 = load <4 x float>, ptr %__b.addr.i52, align 16
+  %add.i = fadd <4 x float> %69, %70
   store <4 x float> %add.i, ptr %tot, align 16
-  %70 = load <4 x float>, ptr %tot, align 16
-  store <4 x float> %70, ptr %__a.addr.i64, align 16
-  %71 = load <4 x float>, ptr %__a.addr.i64, align 16
-  %72 = bitcast <4 x float> %71 to <2 x i64>
-  %73 = bitcast <2 x i64> %72 to <4 x i32>
-  %permil30 = shufflevector <4 x i32> %73, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %74 = bitcast <4 x i32> %permil30 to <2 x i64>
-  store <2 x i64> %74, ptr %__a.addr.i62, align 16
-  %75 = load <2 x i64>, ptr %__a.addr.i62, align 16
-  %76 = bitcast <2 x i64> %75 to <4 x float>
-  store <4 x float> %76, ptr %c, align 16
-  %77 = load <4 x float>, ptr %tot, align 16
-  %78 = load <4 x float>, ptr %c, align 16
-  store <4 x float> %77, ptr %__a.addr.i59, align 16
-  store <4 x float> %78, ptr %__b.addr.i60, align 16
-  %79 = load <4 x float>, ptr %__b.addr.i60, align 16
-  %vecext.i = extractelement <4 x float> %79, i32 0
-  %80 = load <4 x float>, ptr %__a.addr.i59, align 16
-  %vecext1.i = extractelement <4 x float> %80, i32 0
-  %add.i61 = fadd float %vecext1.i, %vecext.i
+  %71 = load <4 x float>, ptr %tot, align 16
+  store <4 x float> %71, ptr %__a.addr.i64, align 16
+  %72 = load <4 x float>, ptr %__a.addr.i64, align 16
+  %73 = bitcast <4 x float> %72 to <2 x i64>
+  %74 = bitcast <2 x i64> %73 to <4 x i32>
+  %permil30 = shufflevector <4 x i32> %74, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %75 = bitcast <4 x i32> %permil30 to <2 x i64>
+  store <2 x i64> %75, ptr %__a.addr.i62, align 16
+  %76 = load <2 x i64>, ptr %__a.addr.i62, align 16
+  %77 = bitcast <2 x i64> %76 to <4 x float>
+  store <4 x float> %77, ptr %c, align 16
+  %78 = load <4 x float>, ptr %tot, align 16
+  %79 = load <4 x float>, ptr %c, align 16
+  store <4 x float> %78, ptr %__a.addr.i59, align 16
+  store <4 x float> %79, ptr %__b.addr.i60, align 16
+  %80 = load <4 x float>, ptr %__b.addr.i60, align 16
+  %vecext.i = extractelement <4 x float> %80, i32 0
   %81 = load <4 x float>, ptr %__a.addr.i59, align 16
-  %vecins.i = insertelement <4 x float> %81, float %add.i61, i32 0
-  store <4 x float> %vecins.i, ptr %__a.addr.i59, align 16
+  %vecext1.i = extractelement <4 x float> %81, i32 0
+  %add.i61 = fadd float %vecext1.i, %vecext.i
   %82 = load <4 x float>, ptr %__a.addr.i59, align 16
-  store <4 x float> %82, ptr %tot, align 16
-  %83 = load ptr, ptr %output, align 8
-  %84 = load <4 x float>, ptr %tot, align 16
-  store ptr %83, ptr %__p.addr.i66, align 8
-  store <4 x float> %84, ptr %__a.addr.i67, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i67, align 16
-  %vecext.i68 = extractelement <4 x float> %85, i32 0
-  %86 = load ptr, ptr %__p.addr.i66, align 8
-  store float %vecext.i68, ptr %86, align 1
-  %87 = load i32, ptr %coefficient_width.addr, align 4
-  %88 = load ptr, ptr %horizontal_coefficients.addr, align 8
-  %idx.ext33 = sext i32 %87 to i64
-  %add.ptr34 = getelementptr inbounds float, ptr %88, i64 %idx.ext33
+  %vecins.i = insertelement <4 x float> %82, float %add.i61, i32 0
+  store <4 x float> %vecins.i, ptr %__a.addr.i59, align 16
+  %83 = load <4 x float>, ptr %__a.addr.i59, align 16
+  store <4 x float> %83, ptr %tot, align 16
+  %84 = load ptr, ptr %output, align 8
+  %85 = load <4 x float>, ptr %tot, align 16
+  store ptr %84, ptr %__p.addr.i66, align 8
+  store <4 x float> %85, ptr %__a.addr.i67, align 16
+  %86 = load <4 x float>, ptr %__a.addr.i67, align 16
+  %vecext.i68 = extractelement <4 x float> %86, i32 0
+  %87 = load ptr, ptr %__p.addr.i66, align 8
+  store float %vecext.i68, ptr %87, align 1
+  %88 = load i32, ptr %coefficient_width.addr, align 4
+  %89 = load ptr, ptr %horizontal_coefficients.addr, align 8
+  %idx.ext33 = sext i32 %88 to i64
+  %add.ptr34 = getelementptr inbounds float, ptr %89, i64 %idx.ext33
   store ptr %add.ptr34, ptr %horizontal_coefficients.addr, align 8
-  %89 = load ptr, ptr %horizontal_contributors.addr, align 8
-  %incdec.ptr = getelementptr inbounds %struct.stbir__contributors, ptr %89, i32 1
+  %90 = load ptr, ptr %horizontal_contributors.addr, align 8
+  %incdec.ptr = getelementptr inbounds %struct.stbir__contributors, ptr %90, i32 1
   store ptr %incdec.ptr, ptr %horizontal_contributors.addr, align 8
-  %90 = load ptr, ptr %output, align 8
-  %add.ptr35 = getelementptr inbounds float, ptr %90, i64 1
+  %91 = load ptr, ptr %output, align 8
+  %add.ptr35 = getelementptr inbounds float, ptr %91, i64 1
   store ptr %add.ptr35, ptr %output, align 8
   br label %do.cond36
 
 do.cond36:                                        ; preds = %do.end
-  %91 = load ptr, ptr %output, align 8
-  %92 = load ptr, ptr %output_end, align 8
-  %cmp37 = icmp ult ptr %91, %92
+  %92 = load ptr, ptr %output, align 8
+  %93 = load ptr, ptr %output_end, align 8
+  %cmp37 = icmp ult ptr %92, %93
   br i1 %cmp37, label %do.body, label %do.end38, !llvm.loop !426
 
 do.end38:                                         ; preds = %do.cond36

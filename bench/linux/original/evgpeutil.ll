@@ -119,7 +119,7 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
 
 11:                                               ; preds = %6
   store ptr %7, ptr %1, align 8
-  br label %48
+  br label %50
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %7, i64 8
@@ -136,61 +136,63 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
   %18 = and i64 %17, 512
   %19 = icmp eq i64 %18, 0
   %20 = select i1 %19, i32 2336, i32 3520
-  %21 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %22 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %21, i32 noundef %20, i64 noundef 32) #6
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %48, label %24
+  %21 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %22, i32 noundef %20, i64 noundef 32) #6
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %50, label %25
 
-24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
-  store i32 %0, ptr %25, align 8
-  %26 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  %27 = call i64 @acpi_os_acquire_lock(ptr noundef %26) #5
-  %28 = load ptr, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %37, label %30
+25:                                               ; preds = %16
+  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  store i32 %0, ptr %26, align 8
+  %27 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  %28 = call i64 @acpi_os_acquire_lock(ptr noundef %27) #5
+  %29 = load ptr, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %38, label %31
 
-30:                                               ; preds = %30, %24
-  %31 = phi ptr [ %33, %30 ], [ %28, %24 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %30, !llvm.loop !12
+31:                                               ; preds = %31, %25
+  %32 = phi ptr [ %34, %31 ], [ %29, %25 ]
+  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %31, !llvm.loop !12
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %22, ptr %36, align 8
-  store ptr %31, ptr %22, align 8
-  br label %38
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %23, ptr %37, align 8
+  store ptr %32, ptr %23, align 8
+  br label %39
 
-37:                                               ; preds = %24
-  store ptr %22, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
-  br label %38
+38:                                               ; preds = %25
+  store ptr %23, ptr @acpi_gbl_gpe_xrupt_list_head, align 8
+  br label %39
 
-38:                                               ; preds = %37, %35
-  %39 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  call void @acpi_os_release_lock(ptr noundef %39, i64 noundef %27) #5
-  %40 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
-  %41 = zext i16 %40 to i32
-  %42 = icmp eq i32 %41, %0
-  br i1 %42, label %47, label %43
+39:                                               ; preds = %38, %36
+  %40 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  call void @acpi_os_release_lock(ptr noundef %40, i64 noundef %28) #5
+  %41 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5
+  %42 = load i16, ptr %41, align 1
+  %43 = zext i16 %42 to i32
+  %44 = icmp eq i32 %43, %0
+  br i1 %44, label %49, label %45
 
-43:                                               ; preds = %38
-  %44 = call i32 @acpi_os_install_interrupt_handler(i32 noundef %0, ptr noundef nonnull @acpi_ev_gpe_xrupt_handler, ptr noundef nonnull %22) #5
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %47, label %46
+45:                                               ; preds = %39
+  %46 = call i32 @acpi_os_install_interrupt_handler(i32 noundef %0, ptr noundef nonnull @acpi_ev_gpe_xrupt_handler, ptr noundef nonnull %23) #5
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %49, label %48
 
-46:                                               ; preds = %43
-  call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 186, i32 noundef %44, ptr noundef nonnull @.str, i32 noundef %0) #5
-  br label %48
+48:                                               ; preds = %45
+  call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 186, i32 noundef %46, ptr noundef nonnull @.str, i32 noundef %0) #5
+  br label %50
 
-47:                                               ; preds = %43, %38
-  store ptr %22, ptr %1, align 8
-  br label %48
+49:                                               ; preds = %45, %39
+  store ptr %23, ptr %1, align 8
+  br label %50
 
-48:                                               ; preds = %47, %46, %16, %11
-  %49 = phi i32 [ 0, %11 ], [ %44, %46 ], [ 0, %47 ], [ 4, %16 ]
-  ret i32 %49
+50:                                               ; preds = %49, %48, %16, %11
+  %51 = phi i32 [ 0, %11 ], [ %46, %48 ], [ 0, %49 ], [ 4, %16 ]
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -206,50 +208,51 @@ declare dso_local void @acpi_exception(ptr noundef, i32 noundef, i32 noundef, pt
 define dso_local i32 @acpi_ev_delete_gpe_xrupt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
-  %4 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
-  %5 = zext i16 %4 to i32
-  %6 = icmp eq i32 %3, %5
-  br i1 %6, label %7, label %9
+  %4 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5
+  %5 = load i16, ptr %4, align 1
+  %6 = zext i16 %5 to i32
+  %7 = icmp eq i32 %3, %6
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %8, align 8
-  br label %28
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %9, align 8
+  br label %29
 
-9:                                                ; preds = %1
-  %10 = tail call i32 @acpi_os_remove_interrupt_handler(i32 noundef %3, ptr noundef nonnull @acpi_ev_gpe_xrupt_handler) #5
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %28
+10:                                               ; preds = %1
+  %11 = tail call i32 @acpi_os_remove_interrupt_handler(i32 noundef %3, ptr noundef nonnull @acpi_ev_gpe_xrupt_handler) #5
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %29
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  %14 = tail call i64 @acpi_os_acquire_lock(ptr noundef %13) #5
-  %15 = load ptr, ptr %0, align 8
-  %16 = icmp eq ptr %15, null
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
-  %20 = select i1 %16, ptr @acpi_gbl_gpe_xrupt_list_head, ptr %19
-  store ptr %18, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %26, label %24
+13:                                               ; preds = %10
+  %14 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  %15 = tail call i64 @acpi_os_acquire_lock(ptr noundef %14) #5
+  %16 = load ptr, ptr %0, align 8
+  %17 = icmp eq ptr %16, null
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = select i1 %17, ptr @acpi_gbl_gpe_xrupt_list_head, ptr %20
+  store ptr %19, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %27, label %25
 
-24:                                               ; preds = %12
-  %25 = load ptr, ptr %0, align 8
-  store ptr %25, ptr %22, align 8
-  br label %26
+25:                                               ; preds = %13
+  %26 = load ptr, ptr %0, align 8
+  store ptr %26, ptr %23, align 8
+  br label %27
 
-26:                                               ; preds = %24, %12
-  %27 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  tail call void @acpi_os_release_lock(ptr noundef %27, i64 noundef %14) #5
+27:                                               ; preds = %25, %13
+  %28 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  tail call void @acpi_os_release_lock(ptr noundef %28, i64 noundef %15) #5
   tail call void @kfree(ptr noundef %0) #5
-  br label %28
+  br label %29
 
-28:                                               ; preds = %26, %9, %7
-  %29 = phi i32 [ 0, %7 ], [ 0, %26 ], [ %10, %9 ]
-  ret i32 %29
+29:                                               ; preds = %27, %10, %8
+  %30 = phi i32 [ 0, %8 ], [ 0, %27 ], [ %11, %10 ]
+  ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid

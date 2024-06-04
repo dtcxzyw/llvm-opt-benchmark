@@ -7797,16 +7797,17 @@ entry:
   store i64 %length, ptr %length.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String29ExternalOneByteStringResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isolate_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %isolate.addr, align 8
-  store ptr %0, ptr %isolate_, align 8
+  %1 = load ptr, ptr %isolate.addr, align 8
+  store ptr %1, ptr %isolate_, align 8
   %data_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %data.addr, align 8
-  store ptr %1, ptr %data_, align 8
+  %2 = load ptr, ptr %data.addr, align 8
+  store ptr %2, ptr %data_, align 8
   %length_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %length.addr, align 8
-  store i64 %2, ptr %length_, align 8
+  %3 = load i64, ptr %length.addr, align 8
+  store i64 %3, ptr %length_, align 8
   ret void
 }
 
@@ -7929,7 +7930,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String26ExternalStringResourceBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v86String29ExternalOneByteStringResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN2v86String29ExternalOneByteStringResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_data_ = getelementptr inbounds %"class.v8::String::ExternalOneByteStringResource", ptr %this1, i32 0, i32 1
   store ptr null, ptr %cached_data_, align 8
   ret void
@@ -7941,10 +7943,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %data_, align 8
-  call void @free(ptr noundef %0) #3
+  %1 = load ptr, ptr %data_, align 8
+  call void @free(ptr noundef %1) #3
   %call = call noundef ptr @_ZNK4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE7isolateEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
   %call2 = call noundef i64 @_ZNK4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE11byte_lengthEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
   %sub = sub nsw i64 0, %call2
@@ -8036,7 +8039,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v86String26ExternalStringResourceBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2v86String26ExternalStringResourceBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8282,16 +8286,17 @@ entry:
   store i64 %length, ptr %length.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String22ExternalStringResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isolate_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %isolate.addr, align 8
-  store ptr %0, ptr %isolate_, align 8
+  %1 = load ptr, ptr %isolate.addr, align 8
+  store ptr %1, ptr %isolate_, align 8
   %data_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %data.addr, align 8
-  store ptr %1, ptr %data_, align 8
+  %2 = load ptr, ptr %data.addr, align 8
+  store ptr %2, ptr %data_, align 8
   %length_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %length.addr, align 8
-  store i64 %2, ptr %length_, align 8
+  %3 = load i64, ptr %length.addr, align 8
+  store i64 %3, ptr %length_, align 8
   ret void
 }
 
@@ -8414,7 +8419,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String26ExternalStringResourceBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v86String22ExternalStringResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN2v86String22ExternalStringResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_data_ = getelementptr inbounds %"class.v8::String::ExternalStringResource", ptr %this1, i32 0, i32 1
   store ptr null, ptr %cached_data_, align 8
   ret void
@@ -8426,10 +8432,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::(anonymous namespace)::ExternString.10", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %data_, align 8
-  call void @free(ptr noundef %0) #3
+  %1 = load ptr, ptr %data_, align 8
+  call void @free(ptr noundef %1) #3
   %call = call noundef ptr @_ZNK4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE7isolateEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
   %call2 = call noundef i64 @_ZNK4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE11byte_lengthEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
   %sub = sub nsw i64 0, %call2

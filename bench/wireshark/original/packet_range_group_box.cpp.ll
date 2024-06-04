@@ -302,63 +302,65 @@ define void @_ZN19PacketRangeGroupBoxC2EP7QWidget(ptr noundef nonnull align 8 de
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN9QGroupBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV19PacketRangeGroupBox, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV19PacketRangeGroupBox, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 1
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #12
-          to label %12 unwind label %29
-
-12:                                               ; preds = %2
+  %9 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV19PacketRangeGroupBox, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV19PacketRangeGroupBox, i32 0, i32 1, i32 2
   store ptr %11, ptr %10, align 8
-  %13 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 2
-  store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 3
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  invoke void @_ZN22Ui_PacketRangeGroupBox7setupUiEP9QGroupBox(ptr noundef nonnull align 8 dereferenceable(224) %16, ptr noundef %7)
-          to label %17 unwind label %29
+  %12 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 1
+  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #12
+          to label %14 unwind label %31
 
-17:                                               ; preds = %12
+14:                                               ; preds = %2
+  store ptr %13, ptr %12, align 8
+  %15 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 2
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 3
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  invoke void @_ZN22Ui_PacketRangeGroupBox7setupUiEP9QGroupBox(ptr noundef nonnull align 8 dereferenceable(224) %18, ptr noundef %7)
+          to label %19 unwind label %31
+
+19:                                               ; preds = %14
   invoke void @_ZN9QGroupBox7setFlatEb(ptr noundef nonnull align 8 dereferenceable(40) %7, i1 noundef zeroext true)
-          to label %18 unwind label %29
+          to label %20 unwind label %31
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %class.Ui_PacketRangeGroupBox, ptr %20, i32 0, i32 2
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %22, i1 noundef zeroext true)
-          to label %23 unwind label %29
+  %23 = getelementptr inbounds %class.Ui_PacketRangeGroupBox, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %24, i1 noundef zeroext true)
+          to label %25 unwind label %31
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %class.Ui_PacketRangeGroupBox, ptr %25, i32 0, i32 12
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %7, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %27, i1 noundef zeroext true)
-          to label %28 unwind label %29
+  %28 = getelementptr inbounds %class.Ui_PacketRangeGroupBox, ptr %27, i32 0, i32 12
+  %29 = load ptr, ptr %28, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %29, i1 noundef zeroext true)
+          to label %30 unwind label %31
 
-28:                                               ; preds = %23
+30:                                               ; preds = %25
   ret void
 
-29:                                               ; preds = %23, %18, %17, %12, %2
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %25, %20, %19, %14, %2
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %5, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %6, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
   call void @_ZN9QGroupBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
-  br label %33
+  br label %35
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %5, align 8
+  %37 = load i32, ptr %6, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 declare void @_ZN9QGroupBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -2158,19 +2160,21 @@ define void @_ZN19PacketRangeGroupBoxD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV19PacketRangeGroupBox, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV19PacketRangeGroupBox, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV19PacketRangeGroupBox, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV19PacketRangeGroupBox, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.PacketRangeGroupBox, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #14
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #14
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN9QGroupBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #13
   ret void
 }
@@ -5153,19 +5157,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #13
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #13
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #13
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #13
   ret void
 }
 
@@ -6181,9 +6186,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

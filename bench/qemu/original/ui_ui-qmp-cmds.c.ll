@@ -102,27 +102,28 @@ if.then1:                                         ; preds = %if.then
   br label %if.end20
 
 if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 3), align 8
-  %4 = load ptr, ptr %opts.addr, align 8
-  %password = getelementptr inbounds %struct.SetPasswordOptions, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %password, align 8
-  %6 = load ptr, ptr %opts.addr, align 8
-  %connected = getelementptr inbounds %struct.SetPasswordOptions, ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %connected, align 4
-  %cmp2 = icmp eq i32 %7, 1
-  %8 = load ptr, ptr %opts.addr, align 8
-  %connected3 = getelementptr inbounds %struct.SetPasswordOptions, ptr %8, i32 0, i32 3
-  %9 = load i32, ptr %connected3, align 4
-  %cmp4 = icmp eq i32 %9, 2
-  %call5 = call i32 %3(ptr noundef %5, i1 noundef zeroext %cmp2, i1 noundef zeroext %cmp4)
+  %3 = getelementptr inbounds %struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %opts.addr, align 8
+  %password = getelementptr inbounds %struct.SetPasswordOptions, ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %password, align 8
+  %7 = load ptr, ptr %opts.addr, align 8
+  %connected = getelementptr inbounds %struct.SetPasswordOptions, ptr %7, i32 0, i32 3
+  %8 = load i32, ptr %connected, align 4
+  %cmp2 = icmp eq i32 %8, 1
+  %9 = load ptr, ptr %opts.addr, align 8
+  %connected3 = getelementptr inbounds %struct.SetPasswordOptions, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %connected3, align 4
+  %cmp4 = icmp eq i32 %10, 2
+  %call5 = call i32 %4(ptr noundef %6, i1 noundef zeroext %cmp2, i1 noundef zeroext %cmp4)
   store i32 %call5, ptr %rc, align 4
   br label %if.end17
 
 if.else:                                          ; preds = %entry
-  %10 = load ptr, ptr %opts.addr, align 8
-  %protocol6 = getelementptr inbounds %struct.SetPasswordOptions, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %protocol6, align 8
-  %cmp7 = icmp eq i32 %11, 0
+  %11 = load ptr, ptr %opts.addr, align 8
+  %protocol6 = getelementptr inbounds %struct.SetPasswordOptions, ptr %11, i32 0, i32 0
+  %12 = load i32, ptr %protocol6, align 8
+  %cmp7 = icmp eq i32 %12, 0
   br i1 %cmp7, label %if.then8, label %if.else9
 
 if.then8:                                         ; preds = %if.else
@@ -133,37 +134,37 @@ if.else9:                                         ; preds = %if.else
   unreachable
 
 if.end10:                                         ; preds = %if.then8
-  %12 = load ptr, ptr %opts.addr, align 8
-  %connected11 = getelementptr inbounds %struct.SetPasswordOptions, ptr %12, i32 0, i32 3
-  %13 = load i32, ptr %connected11, align 4
-  %cmp12 = icmp ne i32 %13, 0
+  %13 = load ptr, ptr %opts.addr, align 8
+  %connected11 = getelementptr inbounds %struct.SetPasswordOptions, ptr %13, i32 0, i32 3
+  %14 = load i32, ptr %connected11, align 4
+  %cmp12 = icmp ne i32 %14, 0
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end10
-  %14 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %14, ptr noundef @.str.1, i32 noundef 48, ptr noundef @__func__.qmp_set_password, ptr noundef @.str.2)
+  %15 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %15, ptr noundef @.str.1, i32 noundef 48, ptr noundef @__func__.qmp_set_password, ptr noundef @.str.2)
   br label %if.end20
 
 if.end14:                                         ; preds = %if.end10
-  %15 = load ptr, ptr %opts.addr, align 8
-  %u = getelementptr inbounds %struct.SetPasswordOptions, ptr %15, i32 0, i32 4
+  %16 = load ptr, ptr %opts.addr, align 8
+  %u = getelementptr inbounds %struct.SetPasswordOptions, ptr %16, i32 0, i32 4
   %display = getelementptr inbounds %struct.SetPasswordOptionsVnc, ptr %u, i32 0, i32 0
-  %16 = load ptr, ptr %display, align 8
-  %17 = load ptr, ptr %opts.addr, align 8
-  %password15 = getelementptr inbounds %struct.SetPasswordOptions, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %password15, align 8
-  %call16 = call i32 @vnc_display_password(ptr noundef %16, ptr noundef %18)
+  %17 = load ptr, ptr %display, align 8
+  %18 = load ptr, ptr %opts.addr, align 8
+  %password15 = getelementptr inbounds %struct.SetPasswordOptions, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %password15, align 8
+  %call16 = call i32 @vnc_display_password(ptr noundef %17, ptr noundef %19)
   store i32 %call16, ptr %rc, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end14, %if.end
-  %19 = load i32, ptr %rc, align 4
-  %cmp18 = icmp ne i32 %19, 0
+  %20 = load i32, ptr %rc, align 4
+  %cmp18 = icmp ne i32 %20, 0
   br i1 %cmp18, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end17
-  %20 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %20, ptr noundef @.str.1, i32 noundef 59, ptr noundef @__func__.qmp_set_password, ptr noundef @.str.3)
+  %21 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %21, ptr noundef @.str.1, i32 noundef 59, ptr noundef @__func__.qmp_set_password, ptr noundef @.str.3)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then19, %if.end17, %if.then13, %if.then1
@@ -306,17 +307,18 @@ if.then23:                                        ; preds = %if.then21
   br label %if.end38
 
 if.end24:                                         ; preds = %if.then21
-  %17 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 4), align 8
-  %18 = load i64, ptr %when, align 8
-  %call25 = call i32 %17(i64 noundef %18)
+  %17 = getelementptr inbounds %struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i64, ptr %when, align 8
+  %call25 = call i32 %18(i64 noundef %19)
   store i32 %call25, ptr %rc, align 4
   br label %if.end34
 
 if.else26:                                        ; preds = %if.end18
-  %19 = load ptr, ptr %opts.addr, align 8
-  %protocol27 = getelementptr inbounds %struct.ExpirePasswordOptions, ptr %19, i32 0, i32 0
-  %20 = load i32, ptr %protocol27, align 8
-  %cmp28 = icmp eq i32 %20, 0
+  %20 = load ptr, ptr %opts.addr, align 8
+  %protocol27 = getelementptr inbounds %struct.ExpirePasswordOptions, ptr %20, i32 0, i32 0
+  %21 = load i32, ptr %protocol27, align 8
+  %cmp28 = icmp eq i32 %21, 0
   br i1 %cmp28, label %if.then30, label %if.else31
 
 if.then30:                                        ; preds = %if.else26
@@ -327,23 +329,23 @@ if.else31:                                        ; preds = %if.else26
   unreachable
 
 if.end32:                                         ; preds = %if.then30
-  %21 = load ptr, ptr %opts.addr, align 8
-  %u = getelementptr inbounds %struct.ExpirePasswordOptions, ptr %21, i32 0, i32 2
+  %22 = load ptr, ptr %opts.addr, align 8
+  %u = getelementptr inbounds %struct.ExpirePasswordOptions, ptr %22, i32 0, i32 2
   %display = getelementptr inbounds %struct.ExpirePasswordOptionsVnc, ptr %u, i32 0, i32 0
-  %22 = load ptr, ptr %display, align 8
-  %23 = load i64, ptr %when, align 8
-  %call33 = call i32 @vnc_display_pw_expire(ptr noundef %22, i64 noundef %23)
+  %23 = load ptr, ptr %display, align 8
+  %24 = load i64, ptr %when, align 8
+  %call33 = call i32 @vnc_display_pw_expire(ptr noundef %23, i64 noundef %24)
   store i32 %call33, ptr %rc, align 4
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end32, %if.end24
-  %24 = load i32, ptr %rc, align 4
-  %cmp35 = icmp ne i32 %24, 0
+  %25 = load i32, ptr %rc, align 4
+  %cmp35 = icmp ne i32 %25, 0
   br i1 %cmp35, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end34
-  %25 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %25, ptr noundef @.str.1, i32 noundef 103, ptr noundef @__func__.qmp_expire_password, ptr noundef @.str.7)
+  %26 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %26, ptr noundef @.str.1, i32 noundef 103, ptr noundef @__func__.qmp_expire_password, ptr noundef @.str.7)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %if.end34, %if.then23, %if.then16
@@ -446,21 +448,22 @@ cond.end13:                                       ; preds = %cond.false12, %cond
   %tobool15 = icmp ne i32 %cond14, 0
   %frombool16 = zext i1 %tobool15 to i8
   store i8 %frombool16, ptr %tls.addr, align 1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 5), align 8
-  %6 = load i32, ptr %fd.addr, align 4
-  %7 = load i8, ptr %skipauth.addr, align 1
-  %tobool17 = trunc i8 %7 to i1
+  %5 = getelementptr inbounds %struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %fd.addr, align 4
+  %8 = load i8, ptr %skipauth.addr, align 1
+  %tobool17 = trunc i8 %8 to i1
   %conv18 = zext i1 %tobool17 to i32
-  %8 = load i8, ptr %tls.addr, align 1
-  %tobool19 = trunc i8 %8 to i1
+  %9 = load i8, ptr %tls.addr, align 1
+  %tobool19 = trunc i8 %9 to i1
   %conv20 = zext i1 %tobool19 to i32
-  %call21 = call i32 %5(i32 noundef %6, i32 noundef %conv18, i32 noundef %conv20)
+  %call21 = call i32 %6(i32 noundef %7, i32 noundef %conv18, i32 noundef %conv20)
   %cmp = icmp slt i32 %call21, 0
   br i1 %cmp, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %cond.end13
-  %9 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %9, ptr noundef @.str.1, i32 noundef 125, ptr noundef @__func__.qmp_add_client_spice, ptr noundef @.str.8)
+  %10 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %10, ptr noundef @.str.1, i32 noundef 125, ptr noundef @__func__.qmp_add_client_spice, ptr noundef @.str.8)
   store i1 false, ptr %retval, align 1
   br label %return
 
@@ -469,8 +472,8 @@ if.end24:                                         ; preds = %cond.end13
   br label %return
 
 return:                                           ; preds = %if.end24, %if.then23, %if.then
-  %10 = load i1, ptr %retval, align 1
-  ret i1 %10
+  %11 = load i1, ptr %retval, align 1
+  ret i1 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -724,52 +727,53 @@ if.then5:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %5 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 2), align 8
-  %6 = load ptr, ptr %hostname.addr, align 8
-  %7 = load i8, ptr %has_port.addr, align 1
-  %tobool7 = trunc i8 %7 to i1
+  %5 = getelementptr inbounds %struct.QemuSpiceOps, ptr @qemu_spice, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %hostname.addr, align 8
+  %8 = load i8, ptr %has_port.addr, align 1
+  %tobool7 = trunc i8 %8 to i1
   br i1 %tobool7, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end6
-  %8 = load i64, ptr %port.addr, align 8
+  %9 = load i64, ptr %port.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end6
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %8, %cond.true ], [ -1, %cond.false ]
+  %cond = phi i64 [ %9, %cond.true ], [ -1, %cond.false ]
   %conv = trunc i64 %cond to i32
-  %9 = load i8, ptr %has_tls_port.addr, align 1
-  %tobool8 = trunc i8 %9 to i1
+  %10 = load i8, ptr %has_tls_port.addr, align 1
+  %tobool8 = trunc i8 %10 to i1
   br i1 %tobool8, label %cond.true10, label %cond.false11
 
 cond.true10:                                      ; preds = %cond.end
-  %10 = load i64, ptr %tls_port.addr, align 8
+  %11 = load i64, ptr %tls_port.addr, align 8
   br label %cond.end12
 
 cond.false11:                                     ; preds = %cond.end
   br label %cond.end12
 
 cond.end12:                                       ; preds = %cond.false11, %cond.true10
-  %cond13 = phi i64 [ %10, %cond.true10 ], [ -1, %cond.false11 ]
+  %cond13 = phi i64 [ %11, %cond.true10 ], [ -1, %cond.false11 ]
   %conv14 = trunc i64 %cond13 to i32
-  %11 = load ptr, ptr %cert_subject.addr, align 8
-  %call15 = call i32 %5(ptr noundef %6, i32 noundef %conv, i32 noundef %conv14, ptr noundef %11)
+  %12 = load ptr, ptr %cert_subject.addr, align 8
+  %call15 = call i32 %6(ptr noundef %7, i32 noundef %conv, i32 noundef %conv14, ptr noundef %12)
   %tobool16 = icmp ne i32 %call15, 0
   br i1 %tobool16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %cond.end12
-  %12 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %12, ptr noundef @.str.1, i32 noundef 207, ptr noundef @__func__.qmp_client_migrate_info, ptr noundef @.str.11)
+  %13 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %13, ptr noundef @.str.1, i32 noundef 207, ptr noundef @__func__.qmp_client_migrate_info, ptr noundef @.str.11)
   br label %return
 
 if.end18:                                         ; preds = %cond.end12
   br label %return
 
 if.end19:                                         ; preds = %entry
-  %13 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %13, ptr noundef @.str.1, i32 noundef 213, ptr noundef @__func__.qmp_client_migrate_info, ptr noundef @.str.12, ptr noundef @.str.13, ptr noundef @.str.14)
+  %14 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %14, ptr noundef @.str.1, i32 noundef 213, ptr noundef @__func__.qmp_client_migrate_info, ptr noundef @.str.12, ptr noundef @.str.13, ptr noundef @.str.14)
   br label %return
 
 return:                                           ; preds = %if.end19, %if.end18, %if.then17, %if.then5, %if.then3

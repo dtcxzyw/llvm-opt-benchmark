@@ -1902,39 +1902,43 @@ define hidden void @_ZN5osgeo4proj2cs8MeridianC2ERKNS0_6common5AngleE(ptr nounde
   call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   call void @_ZN5osgeo4proj2io15IJSONExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 2, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 3, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.osgeo::proj::cs::Meridian", ptr %7, i32 0, i32 2
-  %13 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs8Meridian7PrivateEJRKNS0_6common5AngleEEEESt10unique_ptrIT_St14default_deleteISB_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.10") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %15
+  %9 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 1, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 2, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 40
+  %15 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 3, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.osgeo::proj::cs::Meridian", ptr %7, i32 0, i32 2
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs8Meridian7PrivateEJRKNS0_6common5AngleEEEESt10unique_ptrIT_St14default_deleteISB_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.10") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %18 unwind label %19
 
-14:                                               ; preds = %2
+18:                                               ; preds = %2
   ret void
 
-15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #17
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  %23 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
   call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
-  br label %20
+  br label %24
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 declare void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
@@ -1944,7 +1948,8 @@ define linkonce_odr void @_ZN5osgeo4proj2io15IJSONExportableC2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io15IJSONExportableE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5osgeo4proj2io15IJSONExportableE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1996,17 +2001,21 @@ define void @_ZN5osgeo4proj2cs8MeridianD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 2, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 3, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.osgeo::proj::cs::Meridian", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj2cs8Meridian7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  %4 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 2, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i32 0, i32 3, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.osgeo::proj::cs::Meridian", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj2cs8Meridian7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
   call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   ret void
 }
@@ -2575,38 +2584,42 @@ define hidden void @_ZN5osgeo4proj2cs20CoordinateSystemAxisC2Ev(ptr noundef nonn
   call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   call void @_ZN5osgeo4proj2io15IJSONExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i32 0, i32 3, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.osgeo::proj::cs::CoordinateSystemAxis", ptr %5, i32 0, i32 2
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs20CoordinateSystemAxis7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.58") align 8 %10)
-          to label %11 unwind label %12
+  %7 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs20CoordinateSystemAxisE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.osgeo::proj::cs::CoordinateSystemAxis", ptr %5, i32 0, i32 2
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs20CoordinateSystemAxis7PrivateEJEEESt10unique_ptrIT_St14default_deleteIS7_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.58") align 8 %14)
+          to label %15 unwind label %16
 
-11:                                               ; preds = %1
+15:                                               ; preds = %1
   ret void
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #17
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  %20 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #17
   call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
-  br label %17
+  br label %21
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
-  %19 = load i32, ptr %4, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %4, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5191,39 +5204,43 @@ define hidden void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6
   call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   call void @_ZN5osgeo4proj2io15IJSONExportableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 2, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 3, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.osgeo::proj::cs::CoordinateSystem", ptr %7, i32 0, i32 2
-  %13 = load ptr, ptr %4, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.86") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %15
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 1, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 2, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 40
+  %15 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 3, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.osgeo::proj::cs::CoordinateSystem", ptr %7, i32 0, i32 2
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_2cs16CoordinateSystem7PrivateEJRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS3_20CoordinateSystemAxisEEEESaISD_EEEEESt10unique_ptrIT_St14default_deleteISJ_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.86") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %18 unwind label %19
 
-14:                                               ; preds = %2
+18:                                               ; preds = %2
   ret void
 
-15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #17
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  %23 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
   call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
-  br label %20
+  br label %24
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5266,17 +5283,21 @@ define void @_ZN5osgeo4proj2cs16CoordinateSystemD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 2, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 3, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.osgeo::proj::cs::CoordinateSystem", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj2cs16CoordinateSystem7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  %4 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 2, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i32 0, i32 3, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.osgeo::proj::cs::CoordinateSystem", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj2cs16CoordinateSystem7PrivateESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
   call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   ret void
 }
@@ -6507,13 +6528,17 @@ define hidden void @_ZN5osgeo4proj2cs11SphericalCSC2ERKSt6vectorIN7dropbox6oxyge
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11SphericalCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -7034,13 +7059,17 @@ define hidden void @_ZN5osgeo4proj2cs13EllipsoidalCSC2ERKSt6vectorIN7dropbox6oxy
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs13EllipsoidalCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -8437,11 +8466,11 @@ define hidden void @_ZN5osgeo4proj2cs10VerticalCSC2ERKN7dropbox6oxygen2nnISt10sh
   %20 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
   %21 = load i64, ptr %20, align 8
   invoke void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %19, i64 %21, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %22 unwind label %34
+          to label %22 unwind label %38
 
 22:                                               ; preds = %2
   invoke void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %23 unwind label %38
+          to label %23 unwind label %42
 
 23:                                               ; preds = %22
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
@@ -8458,56 +8487,60 @@ define hidden void @_ZN5osgeo4proj2cs10VerticalCSC2ERKN7dropbox6oxygen2nnISt10sh
   br i1 %29, label %30, label %26
 
 30:                                               ; preds = %26
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i32 0, i32 1, i32 2), ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i32 0, i32 2, i32 2), ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i32 0, i32 3, i32 2), ptr %33, align 8
+  %31 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i32 0, i32 0, i32 2
+  store ptr %31, ptr %12, align 8
+  %32 = getelementptr inbounds i8, ptr %12, i64 16
+  %33 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i32 0, i32 1, i32 2
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %12, i64 24
+  %35 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i32 0, i32 2, i32 2
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %12, i64 40
+  %37 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10VerticalCSE, i32 0, i32 3, i32 2
+  store ptr %37, ptr %36, align 8
   ret void
 
-34:                                               ; preds = %2
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %10, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %11, align 4
-  br label %42
-
-38:                                               ; preds = %22
+38:                                               ; preds = %2
   %39 = landingpad { ptr, i32 }
           cleanup
   %40 = extractvalue { ptr, i32 } %39, 0
   store ptr %40, ptr %10, align 8
   %41 = extractvalue { ptr, i32 } %39, 1
   store i32 %41, ptr %11, align 4
+  br label %46
+
+42:                                               ; preds = %22
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %10, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %11, align 4
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  br label %42
+  br label %46
 
-42:                                               ; preds = %38, %34
+46:                                               ; preds = %42, %38
   call void @_ZNSaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
-  %43 = getelementptr inbounds [1 x %"class.dropbox::oxygen::nn.67"], ptr %7, i32 0, i32 0
-  %44 = getelementptr inbounds %"class.dropbox::oxygen::nn.67", ptr %43, i64 1
-  br label %45
+  %47 = getelementptr inbounds [1 x %"class.dropbox::oxygen::nn.67"], ptr %7, i32 0, i32 0
+  %48 = getelementptr inbounds %"class.dropbox::oxygen::nn.67", ptr %47, i64 1
+  br label %49
 
-45:                                               ; preds = %45, %42
-  %46 = phi ptr [ %44, %42 ], [ %47, %45 ]
-  %47 = getelementptr inbounds %"class.dropbox::oxygen::nn.67", ptr %46, i64 -1
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #17
-  %48 = icmp eq ptr %47, %43
-  br i1 %48, label %49, label %45
+49:                                               ; preds = %49, %46
+  %50 = phi ptr [ %48, %46 ], [ %51, %49 ]
+  %51 = getelementptr inbounds %"class.dropbox::oxygen::nn.67", ptr %50, i64 -1
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %51) #17
+  %52 = icmp eq ptr %51, %47
+  br i1 %52, label %53, label %49
 
-49:                                               ; preds = %45
-  br label %50
+53:                                               ; preds = %49
+  br label %54
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr %11, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %10, align 8
+  %56 = load i32, ptr %11, align 4
+  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
+  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
+  resume { ptr, i32 } %58
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8903,13 +8936,17 @@ define hidden void @_ZN5osgeo4proj2cs11CartesianCSC2ERKSt6vectorIN7dropbox6oxyge
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs11CartesianCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -10635,13 +10672,17 @@ define hidden void @_ZN5osgeo4proj2cs8AffineCSC2ERKSt6vectorIN7dropbox6oxygen2nn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs8AffineCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -11262,13 +11303,17 @@ define hidden void @_ZN5osgeo4proj2cs9OrdinalCSC2ERKSt6vectorIN7dropbox6oxygen2n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs9OrdinalCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -11470,13 +11515,17 @@ define hidden void @_ZN5osgeo4proj2cs12ParametricCSC2ERKSt6vectorIN7dropbox6oxyg
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs12ParametricCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -12442,11 +12491,11 @@ define hidden void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10sh
   %20 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
   %21 = load i64, ptr %20, align 8
   invoke void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %19, i64 %21, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %22 unwind label %34
+          to label %22 unwind label %38
 
 22:                                               ; preds = %2
   invoke void @_ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %23 unwind label %38
+          to label %23 unwind label %42
 
 23:                                               ; preds = %22
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
@@ -12463,56 +12512,60 @@ define hidden void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10sh
   br i1 %29, label %30, label %26
 
 30:                                               ; preds = %26
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i32 0, i32 1, i32 2), ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i32 0, i32 2, i32 2), ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i32 0, i32 3, i32 2), ptr %33, align 8
+  %31 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i32 0, i32 0, i32 2
+  store ptr %31, ptr %12, align 8
+  %32 = getelementptr inbounds i8, ptr %12, i64 16
+  %33 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i32 0, i32 1, i32 2
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %12, i64 24
+  %35 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i32 0, i32 2, i32 2
+  store ptr %35, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %12, i64 40
+  %37 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs10TemporalCSE, i32 0, i32 3, i32 2
+  store ptr %37, ptr %36, align 8
   ret void
 
-34:                                               ; preds = %2
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %10, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %11, align 4
-  br label %42
-
-38:                                               ; preds = %22
+38:                                               ; preds = %2
   %39 = landingpad { ptr, i32 }
           cleanup
   %40 = extractvalue { ptr, i32 } %39, 0
   store ptr %40, ptr %10, align 8
   %41 = extractvalue { ptr, i32 } %39, 1
   store i32 %41, ptr %11, align 4
+  br label %46
+
+42:                                               ; preds = %22
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %10, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %11, align 4
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  br label %42
+  br label %46
 
-42:                                               ; preds = %38, %34
+46:                                               ; preds = %42, %38
   call void @_ZNSaIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
-  %43 = getelementptr inbounds [1 x %"class.dropbox::oxygen::nn.67"], ptr %7, i32 0, i32 0
-  %44 = getelementptr inbounds %"class.dropbox::oxygen::nn.67", ptr %43, i64 1
-  br label %45
+  %47 = getelementptr inbounds [1 x %"class.dropbox::oxygen::nn.67"], ptr %7, i32 0, i32 0
+  %48 = getelementptr inbounds %"class.dropbox::oxygen::nn.67", ptr %47, i64 1
+  br label %49
 
-45:                                               ; preds = %45, %42
-  %46 = phi ptr [ %44, %42 ], [ %47, %45 ]
-  %47 = getelementptr inbounds %"class.dropbox::oxygen::nn.67", ptr %46, i64 -1
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #17
-  %48 = icmp eq ptr %47, %43
-  br i1 %48, label %49, label %45
+49:                                               ; preds = %49, %46
+  %50 = phi ptr [ %48, %46 ], [ %51, %49 ]
+  %51 = getelementptr inbounds %"class.dropbox::oxygen::nn.67", ptr %50, i64 -1
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %51) #17
+  %52 = icmp eq ptr %51, %47
+  br i1 %52, label %53, label %49
 
-49:                                               ; preds = %45
-  br label %50
+53:                                               ; preds = %49
+  br label %54
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr %11, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %10, align 8
+  %56 = load i32, ptr %11, align 4
+  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
+  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
+  resume { ptr, i32 } %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12603,13 +12656,17 @@ define hidden void @_ZN5osgeo4proj2cs18DateTimeTemporalCSC2ERKN7dropbox6oxygen2n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs18DateTimeTemporalCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -12852,13 +12909,17 @@ define hidden void @_ZN5osgeo4proj2cs15TemporalCountCSC2ERKN7dropbox6oxygen2nnIS
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs15TemporalCountCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -13101,13 +13162,17 @@ define hidden void @_ZN5osgeo4proj2cs17TemporalMeasureCSC2ERKN7dropbox6oxygen2nn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj2cs10TemporalCSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i32 0, i32 2, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i32 0, i32 3, i32 2), ptr %9, align 8
+  %7 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i32 0, i32 2, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds { [9 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN5osgeo4proj2cs17TemporalMeasureCSE, i32 0, i32 3, i32 2
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -14847,10 +14912,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs8MeridianELN9__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs8MeridianELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs8MeridianELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -14863,11 +14929,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -15695,10 +15762,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs20CoordinateSys
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs20CoordinateSystemAxisELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.161", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs20CoordinateSystemAxisELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.161", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -17489,10 +17557,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs11SphericalCSEL
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs11SphericalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.176", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs11SphericalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.176", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -17785,10 +17854,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs13EllipsoidalCS
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs13EllipsoidalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.177", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs13EllipsoidalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.177", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -18081,10 +18151,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs10VerticalCSELN
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs10VerticalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.178", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs10VerticalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.178", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -18377,10 +18448,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs11CartesianCSEL
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs11CartesianCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.179", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs11CartesianCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.179", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -18673,10 +18745,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs8AffineCSELN9__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs8AffineCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.180", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs8AffineCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.180", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -18969,10 +19042,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs9OrdinalCSELN9_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs9OrdinalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.181", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs9OrdinalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.181", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -19265,10 +19339,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs12ParametricCSE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs12ParametricCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.182", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs12ParametricCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.182", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -23888,10 +23963,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs18DateTimeTempo
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs18DateTimeTemporalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.200", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs18DateTimeTemporalCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.200", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -24184,10 +24260,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs15TemporalCount
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs15TemporalCountCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.201", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs15TemporalCountCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.201", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -24480,10 +24557,11 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj2cs17TemporalMeasu
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs17TemporalMeasureCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.202", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5osgeo4proj2cs17TemporalMeasureCSELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr.202", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 

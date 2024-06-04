@@ -520,8 +520,10 @@ entry:
   store ptr %iou, ptr %iou.addr, align 8
   store i32 %entries, ptr %entries.addr, align 4
   store i32 %flags, ptr %flags.addr, align 4
-  store ptr inttoptr (i64 -1 to ptr), ptr %sq, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %sqe, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %sq, align 8
+  %1 = inttoptr i64 -1 to ptr
+  store ptr %1, ptr %sqe, align 8
   %call = call i32 @uv__use_io_uring()
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.end, label %if.then
@@ -531,11 +533,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr align 8 %params, i8 0, i64 120, i1 false)
-  %0 = load i32, ptr %flags.addr, align 4
+  %2 = load i32, ptr %flags.addr, align 4
   %flags1 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 2
-  store i32 %0, ptr %flags1, align 8
-  %1 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %1, 2
+  store i32 %2, ptr %flags1, align 8
+  %3 = load i32, ptr %flags.addr, align 4
+  %and = and i32 %3, 2
   %tobool2 = icmp ne i32 %and, 0
   br i1 %tobool2, label %if.then3, label %if.end4
 
@@ -545,11 +547,11 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %2 = load i32, ptr %entries.addr, align 4
-  %call5 = call i32 @uv__io_uring_setup(i32 noundef %2, ptr noundef %params)
+  %4 = load i32, ptr %entries.addr, align 4
+  %call5 = call i32 @uv__io_uring_setup(i32 noundef %4, ptr noundef %params)
   store i32 %call5, ptr %ringfd, align 4
-  %3 = load i32, ptr %ringfd, align 4
-  %cmp = icmp eq i32 %3, -1
+  %5 = load i32, ptr %ringfd, align 4
+  %cmp = icmp eq i32 %5, -1
   br i1 %cmp, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -557,8 +559,8 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end4
   %features = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 5
-  %4 = load i32, ptr %features, align 4
-  %and8 = and i32 %4, 1024
+  %6 = load i32, ptr %features, align 4
+  %and8 = and i32 %6, 1024
   %tobool9 = icmp ne i32 %and8, 0
   br i1 %tobool9, label %if.end11, label %if.then10
 
@@ -567,8 +569,8 @@ if.then10:                                        ; preds = %if.end7
 
 if.end11:                                         ; preds = %if.end7
   %features12 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 5
-  %5 = load i32, ptr %features12, align 4
-  %and13 = and i32 %5, 1
+  %7 = load i32, ptr %features12, align 4
+  %and13 = and i32 %7, 1
   %tobool14 = icmp ne i32 %and13, 0
   br i1 %tobool14, label %if.end16, label %if.then15
 
@@ -577,8 +579,8 @@ if.then15:                                        ; preds = %if.end11
 
 if.end16:                                         ; preds = %if.end11
   %features17 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 5
-  %6 = load i32, ptr %features17, align 4
-  %and18 = and i32 %6, 2
+  %8 = load i32, ptr %features17, align 4
+  %and18 = and i32 %8, 2
   %tobool19 = icmp ne i32 %and18, 0
   br i1 %tobool19, label %if.end21, label %if.then20
 
@@ -588,68 +590,70 @@ if.then20:                                        ; preds = %if.end16
 if.end21:                                         ; preds = %if.end16
   %sq_off = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 7
   %array = getelementptr inbounds %struct.uv__io_sqring_offsets, ptr %sq_off, i32 0, i32 6
-  %7 = load i32, ptr %array, align 8
-  %conv = zext i32 %7 to i64
+  %9 = load i32, ptr %array, align 8
+  %conv = zext i32 %9 to i64
   %sq_entries = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 0
-  %8 = load i32, ptr %sq_entries, align 8
-  %conv22 = zext i32 %8 to i64
+  %10 = load i32, ptr %sq_entries, align 8
+  %conv22 = zext i32 %10 to i64
   %mul = mul i64 %conv22, 4
   %add = add i64 %conv, %mul
   store i64 %add, ptr %sqlen, align 8
   %cq_off = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 8
   %cqes = getelementptr inbounds %struct.uv__io_cqring_offsets, ptr %cq_off, i32 0, i32 5
-  %9 = load i32, ptr %cqes, align 4
-  %conv23 = zext i32 %9 to i64
+  %11 = load i32, ptr %cqes, align 4
+  %conv23 = zext i32 %11 to i64
   %cq_entries = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 1
-  %10 = load i32, ptr %cq_entries, align 4
-  %conv24 = zext i32 %10 to i64
+  %12 = load i32, ptr %cq_entries, align 4
+  %conv24 = zext i32 %12 to i64
   %mul25 = mul i64 %conv24, 16
   %add26 = add i64 %conv23, %mul25
   store i64 %add26, ptr %cqlen, align 8
-  %11 = load i64, ptr %sqlen, align 8
-  %12 = load i64, ptr %cqlen, align 8
-  %cmp27 = icmp ult i64 %11, %12
+  %13 = load i64, ptr %sqlen, align 8
+  %14 = load i64, ptr %cqlen, align 8
+  %cmp27 = icmp ult i64 %13, %14
   br i1 %cmp27, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end21
-  %13 = load i64, ptr %cqlen, align 8
+  %15 = load i64, ptr %cqlen, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end21
-  %14 = load i64, ptr %sqlen, align 8
+  %16 = load i64, ptr %sqlen, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %13, %cond.true ], [ %14, %cond.false ]
+  %cond = phi i64 [ %15, %cond.true ], [ %16, %cond.false ]
   store i64 %cond, ptr %maxlen, align 8
   %sq_entries29 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 0
-  %15 = load i32, ptr %sq_entries29, align 8
-  %conv30 = zext i32 %15 to i64
+  %17 = load i32, ptr %sq_entries29, align 8
+  %conv30 = zext i32 %17 to i64
   %mul31 = mul i64 %conv30, 64
   store i64 %mul31, ptr %sqelen, align 8
-  %16 = load i64, ptr %maxlen, align 8
-  %17 = load i32, ptr %ringfd, align 4
-  %call32 = call ptr @mmap64(ptr noundef null, i64 noundef %16, i32 noundef 3, i32 noundef 32769, i32 noundef %17, i64 noundef 0) #8
-  store ptr %call32, ptr %sq, align 8
-  %18 = load i64, ptr %sqelen, align 8
+  %18 = load i64, ptr %maxlen, align 8
   %19 = load i32, ptr %ringfd, align 4
-  %call33 = call ptr @mmap64(ptr noundef null, i64 noundef %18, i32 noundef 3, i32 noundef 32769, i32 noundef %19, i64 noundef 268435456) #8
+  %call32 = call ptr @mmap64(ptr noundef null, i64 noundef %18, i32 noundef 3, i32 noundef 32769, i32 noundef %19, i64 noundef 0) #8
+  store ptr %call32, ptr %sq, align 8
+  %20 = load i64, ptr %sqelen, align 8
+  %21 = load i32, ptr %ringfd, align 4
+  %call33 = call ptr @mmap64(ptr noundef null, i64 noundef %20, i32 noundef 3, i32 noundef 32769, i32 noundef %21, i64 noundef 268435456) #8
   store ptr %call33, ptr %sqe, align 8
-  %20 = load ptr, ptr %sq, align 8
-  %cmp34 = icmp eq ptr %20, inttoptr (i64 -1 to ptr)
+  %22 = load ptr, ptr %sq, align 8
+  %23 = inttoptr i64 -1 to ptr
+  %cmp34 = icmp eq ptr %22, %23
   br i1 %cmp34, label %if.then38, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cond.end
-  %21 = load ptr, ptr %sqe, align 8
-  %cmp36 = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
+  %24 = load ptr, ptr %sqe, align 8
+  %25 = inttoptr i64 -1 to ptr
+  %cmp36 = icmp eq ptr %24, %25
   br i1 %cmp36, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %lor.lhs.false, %cond.end
   br label %fail
 
 if.end39:                                         ; preds = %lor.lhs.false
-  %22 = load i32, ptr %flags.addr, align 4
-  %and40 = and i32 %22, 2
+  %26 = load i32, ptr %flags.addr, align 4
+  %and40 = and i32 %26, 2
   %tobool41 = icmp ne i32 %and40, 0
   br i1 %tobool41, label %if.then42, label %if.end47
 
@@ -657,12 +661,12 @@ if.then42:                                        ; preds = %if.end39
   call void @llvm.memset.p0.i64(ptr align 1 %e, i8 0, i64 12, i1 false)
   %events = getelementptr inbounds %struct.epoll_event, ptr %e, i32 0, i32 0
   store i32 1, ptr %events, align 1
-  %23 = load i32, ptr %ringfd, align 4
+  %27 = load i32, ptr %ringfd, align 4
   %data = getelementptr inbounds %struct.epoll_event, ptr %e, i32 0, i32 1
-  store i32 %23, ptr %data, align 1
-  %24 = load i32, ptr %epollfd.addr, align 4
-  %25 = load i32, ptr %ringfd, align 4
-  %call43 = call i32 @epoll_ctl(i32 noundef %24, i32 noundef 1, i32 noundef %25, ptr noundef %e) #8
+  store i32 %27, ptr %data, align 1
+  %28 = load i32, ptr %epollfd.addr, align 4
+  %29 = load i32, ptr %ringfd, align 4
+  %call43 = call i32 @epoll_ctl(i32 noundef %28, i32 noundef 1, i32 noundef %29, ptr noundef %e) #8
   %tobool44 = icmp ne i32 %call43, 0
   br i1 %tobool44, label %if.then45, label %if.end46
 
@@ -673,132 +677,132 @@ if.end46:                                         ; preds = %if.then42
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end46, %if.end39
-  %26 = load ptr, ptr %sq, align 8
+  %30 = load ptr, ptr %sq, align 8
   %sq_off48 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 7
   %head = getelementptr inbounds %struct.uv__io_sqring_offsets, ptr %sq_off48, i32 0, i32 0
-  %27 = load i32, ptr %head, align 8
-  %idx.ext = zext i32 %27 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %26, i64 %idx.ext
-  %28 = load ptr, ptr %iou.addr, align 8
-  %sqhead = getelementptr inbounds %struct.uv__iou, ptr %28, i32 0, i32 0
+  %31 = load i32, ptr %head, align 8
+  %idx.ext = zext i32 %31 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %30, i64 %idx.ext
+  %32 = load ptr, ptr %iou.addr, align 8
+  %sqhead = getelementptr inbounds %struct.uv__iou, ptr %32, i32 0, i32 0
   store ptr %add.ptr, ptr %sqhead, align 8
-  %29 = load ptr, ptr %sq, align 8
+  %33 = load ptr, ptr %sq, align 8
   %sq_off49 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 7
   %tail = getelementptr inbounds %struct.uv__io_sqring_offsets, ptr %sq_off49, i32 0, i32 1
-  %30 = load i32, ptr %tail, align 4
-  %idx.ext50 = zext i32 %30 to i64
-  %add.ptr51 = getelementptr inbounds i8, ptr %29, i64 %idx.ext50
-  %31 = load ptr, ptr %iou.addr, align 8
-  %sqtail = getelementptr inbounds %struct.uv__iou, ptr %31, i32 0, i32 1
+  %34 = load i32, ptr %tail, align 4
+  %idx.ext50 = zext i32 %34 to i64
+  %add.ptr51 = getelementptr inbounds i8, ptr %33, i64 %idx.ext50
+  %35 = load ptr, ptr %iou.addr, align 8
+  %sqtail = getelementptr inbounds %struct.uv__iou, ptr %35, i32 0, i32 1
   store ptr %add.ptr51, ptr %sqtail, align 8
-  %32 = load ptr, ptr %sq, align 8
+  %36 = load ptr, ptr %sq, align 8
   %sq_off52 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 7
   %ring_mask = getelementptr inbounds %struct.uv__io_sqring_offsets, ptr %sq_off52, i32 0, i32 2
-  %33 = load i32, ptr %ring_mask, align 8
-  %idx.ext53 = zext i32 %33 to i64
-  %add.ptr54 = getelementptr inbounds i8, ptr %32, i64 %idx.ext53
-  %34 = load i32, ptr %add.ptr54, align 4
-  %35 = load ptr, ptr %iou.addr, align 8
-  %sqmask = getelementptr inbounds %struct.uv__iou, ptr %35, i32 0, i32 3
-  store i32 %34, ptr %sqmask, align 8
-  %36 = load ptr, ptr %sq, align 8
+  %37 = load i32, ptr %ring_mask, align 8
+  %idx.ext53 = zext i32 %37 to i64
+  %add.ptr54 = getelementptr inbounds i8, ptr %36, i64 %idx.ext53
+  %38 = load i32, ptr %add.ptr54, align 4
+  %39 = load ptr, ptr %iou.addr, align 8
+  %sqmask = getelementptr inbounds %struct.uv__iou, ptr %39, i32 0, i32 3
+  store i32 %38, ptr %sqmask, align 8
+  %40 = load ptr, ptr %sq, align 8
   %sq_off55 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 7
   %array56 = getelementptr inbounds %struct.uv__io_sqring_offsets, ptr %sq_off55, i32 0, i32 6
-  %37 = load i32, ptr %array56, align 8
-  %idx.ext57 = zext i32 %37 to i64
-  %add.ptr58 = getelementptr inbounds i8, ptr %36, i64 %idx.ext57
-  %38 = load ptr, ptr %iou.addr, align 8
-  %sqarray = getelementptr inbounds %struct.uv__iou, ptr %38, i32 0, i32 2
+  %41 = load i32, ptr %array56, align 8
+  %idx.ext57 = zext i32 %41 to i64
+  %add.ptr58 = getelementptr inbounds i8, ptr %40, i64 %idx.ext57
+  %42 = load ptr, ptr %iou.addr, align 8
+  %sqarray = getelementptr inbounds %struct.uv__iou, ptr %42, i32 0, i32 2
   store ptr %add.ptr58, ptr %sqarray, align 8
-  %39 = load ptr, ptr %sq, align 8
+  %43 = load ptr, ptr %sq, align 8
   %sq_off59 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 7
   %flags60 = getelementptr inbounds %struct.uv__io_sqring_offsets, ptr %sq_off59, i32 0, i32 4
-  %40 = load i32, ptr %flags60, align 8
-  %idx.ext61 = zext i32 %40 to i64
-  %add.ptr62 = getelementptr inbounds i8, ptr %39, i64 %idx.ext61
-  %41 = load ptr, ptr %iou.addr, align 8
-  %sqflags = getelementptr inbounds %struct.uv__iou, ptr %41, i32 0, i32 4
+  %44 = load i32, ptr %flags60, align 8
+  %idx.ext61 = zext i32 %44 to i64
+  %add.ptr62 = getelementptr inbounds i8, ptr %43, i64 %idx.ext61
+  %45 = load ptr, ptr %iou.addr, align 8
+  %sqflags = getelementptr inbounds %struct.uv__iou, ptr %45, i32 0, i32 4
   store ptr %add.ptr62, ptr %sqflags, align 8
-  %42 = load ptr, ptr %sq, align 8
+  %46 = load ptr, ptr %sq, align 8
   %cq_off63 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 8
   %head64 = getelementptr inbounds %struct.uv__io_cqring_offsets, ptr %cq_off63, i32 0, i32 0
-  %43 = load i32, ptr %head64, align 8
-  %idx.ext65 = zext i32 %43 to i64
-  %add.ptr66 = getelementptr inbounds i8, ptr %42, i64 %idx.ext65
-  %44 = load ptr, ptr %iou.addr, align 8
-  %cqhead = getelementptr inbounds %struct.uv__iou, ptr %44, i32 0, i32 5
+  %47 = load i32, ptr %head64, align 8
+  %idx.ext65 = zext i32 %47 to i64
+  %add.ptr66 = getelementptr inbounds i8, ptr %46, i64 %idx.ext65
+  %48 = load ptr, ptr %iou.addr, align 8
+  %cqhead = getelementptr inbounds %struct.uv__iou, ptr %48, i32 0, i32 5
   store ptr %add.ptr66, ptr %cqhead, align 8
-  %45 = load ptr, ptr %sq, align 8
+  %49 = load ptr, ptr %sq, align 8
   %cq_off67 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 8
   %tail68 = getelementptr inbounds %struct.uv__io_cqring_offsets, ptr %cq_off67, i32 0, i32 1
-  %46 = load i32, ptr %tail68, align 4
-  %idx.ext69 = zext i32 %46 to i64
-  %add.ptr70 = getelementptr inbounds i8, ptr %45, i64 %idx.ext69
-  %47 = load ptr, ptr %iou.addr, align 8
-  %cqtail = getelementptr inbounds %struct.uv__iou, ptr %47, i32 0, i32 6
+  %50 = load i32, ptr %tail68, align 4
+  %idx.ext69 = zext i32 %50 to i64
+  %add.ptr70 = getelementptr inbounds i8, ptr %49, i64 %idx.ext69
+  %51 = load ptr, ptr %iou.addr, align 8
+  %cqtail = getelementptr inbounds %struct.uv__iou, ptr %51, i32 0, i32 6
   store ptr %add.ptr70, ptr %cqtail, align 8
-  %48 = load ptr, ptr %sq, align 8
+  %52 = load ptr, ptr %sq, align 8
   %cq_off71 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 8
   %ring_mask72 = getelementptr inbounds %struct.uv__io_cqring_offsets, ptr %cq_off71, i32 0, i32 2
-  %49 = load i32, ptr %ring_mask72, align 8
-  %idx.ext73 = zext i32 %49 to i64
-  %add.ptr74 = getelementptr inbounds i8, ptr %48, i64 %idx.ext73
-  %50 = load i32, ptr %add.ptr74, align 4
-  %51 = load ptr, ptr %iou.addr, align 8
-  %cqmask = getelementptr inbounds %struct.uv__iou, ptr %51, i32 0, i32 7
-  store i32 %50, ptr %cqmask, align 8
-  %52 = load ptr, ptr %sq, align 8
-  %53 = load ptr, ptr %iou.addr, align 8
-  %sq75 = getelementptr inbounds %struct.uv__iou, ptr %53, i32 0, i32 8
-  store ptr %52, ptr %sq75, align 8
-  %54 = load ptr, ptr %sq, align 8
+  %53 = load i32, ptr %ring_mask72, align 8
+  %idx.ext73 = zext i32 %53 to i64
+  %add.ptr74 = getelementptr inbounds i8, ptr %52, i64 %idx.ext73
+  %54 = load i32, ptr %add.ptr74, align 4
+  %55 = load ptr, ptr %iou.addr, align 8
+  %cqmask = getelementptr inbounds %struct.uv__iou, ptr %55, i32 0, i32 7
+  store i32 %54, ptr %cqmask, align 8
+  %56 = load ptr, ptr %sq, align 8
+  %57 = load ptr, ptr %iou.addr, align 8
+  %sq75 = getelementptr inbounds %struct.uv__iou, ptr %57, i32 0, i32 8
+  store ptr %56, ptr %sq75, align 8
+  %58 = load ptr, ptr %sq, align 8
   %cq_off76 = getelementptr inbounds %struct.uv__io_uring_params, ptr %params, i32 0, i32 8
   %cqes77 = getelementptr inbounds %struct.uv__io_cqring_offsets, ptr %cq_off76, i32 0, i32 5
-  %55 = load i32, ptr %cqes77, align 4
-  %idx.ext78 = zext i32 %55 to i64
-  %add.ptr79 = getelementptr inbounds i8, ptr %54, i64 %idx.ext78
-  %56 = load ptr, ptr %iou.addr, align 8
-  %cqe = getelementptr inbounds %struct.uv__iou, ptr %56, i32 0, i32 9
-  store ptr %add.ptr79, ptr %cqe, align 8
-  %57 = load ptr, ptr %sqe, align 8
-  %58 = load ptr, ptr %iou.addr, align 8
-  %sqe80 = getelementptr inbounds %struct.uv__iou, ptr %58, i32 0, i32 10
-  store ptr %57, ptr %sqe80, align 8
-  %59 = load i64, ptr %sqlen, align 8
+  %59 = load i32, ptr %cqes77, align 4
+  %idx.ext78 = zext i32 %59 to i64
+  %add.ptr79 = getelementptr inbounds i8, ptr %58, i64 %idx.ext78
   %60 = load ptr, ptr %iou.addr, align 8
-  %sqlen81 = getelementptr inbounds %struct.uv__iou, ptr %60, i32 0, i32 11
-  store i64 %59, ptr %sqlen81, align 8
-  %61 = load i64, ptr %cqlen, align 8
+  %cqe = getelementptr inbounds %struct.uv__iou, ptr %60, i32 0, i32 9
+  store ptr %add.ptr79, ptr %cqe, align 8
+  %61 = load ptr, ptr %sqe, align 8
   %62 = load ptr, ptr %iou.addr, align 8
-  %cqlen82 = getelementptr inbounds %struct.uv__iou, ptr %62, i32 0, i32 12
-  store i64 %61, ptr %cqlen82, align 8
-  %63 = load i64, ptr %maxlen, align 8
+  %sqe80 = getelementptr inbounds %struct.uv__iou, ptr %62, i32 0, i32 10
+  store ptr %61, ptr %sqe80, align 8
+  %63 = load i64, ptr %sqlen, align 8
   %64 = load ptr, ptr %iou.addr, align 8
-  %maxlen83 = getelementptr inbounds %struct.uv__iou, ptr %64, i32 0, i32 13
-  store i64 %63, ptr %maxlen83, align 8
-  %65 = load i64, ptr %sqelen, align 8
+  %sqlen81 = getelementptr inbounds %struct.uv__iou, ptr %64, i32 0, i32 11
+  store i64 %63, ptr %sqlen81, align 8
+  %65 = load i64, ptr %cqlen, align 8
   %66 = load ptr, ptr %iou.addr, align 8
-  %sqelen84 = getelementptr inbounds %struct.uv__iou, ptr %66, i32 0, i32 14
-  store i64 %65, ptr %sqelen84, align 8
-  %67 = load i32, ptr %ringfd, align 4
+  %cqlen82 = getelementptr inbounds %struct.uv__iou, ptr %66, i32 0, i32 12
+  store i64 %65, ptr %cqlen82, align 8
+  %67 = load i64, ptr %maxlen, align 8
   %68 = load ptr, ptr %iou.addr, align 8
-  %ringfd85 = getelementptr inbounds %struct.uv__iou, ptr %68, i32 0, i32 15
-  store i32 %67, ptr %ringfd85, align 8
-  %69 = load ptr, ptr %iou.addr, align 8
-  %in_flight = getelementptr inbounds %struct.uv__iou, ptr %69, i32 0, i32 16
-  store i32 0, ptr %in_flight, align 4
+  %maxlen83 = getelementptr inbounds %struct.uv__iou, ptr %68, i32 0, i32 13
+  store i64 %67, ptr %maxlen83, align 8
+  %69 = load i64, ptr %sqelen, align 8
   %70 = load ptr, ptr %iou.addr, align 8
-  %flags86 = getelementptr inbounds %struct.uv__iou, ptr %70, i32 0, i32 17
+  %sqelen84 = getelementptr inbounds %struct.uv__iou, ptr %70, i32 0, i32 14
+  store i64 %69, ptr %sqelen84, align 8
+  %71 = load i32, ptr %ringfd, align 4
+  %72 = load ptr, ptr %iou.addr, align 8
+  %ringfd85 = getelementptr inbounds %struct.uv__iou, ptr %72, i32 0, i32 15
+  store i32 %71, ptr %ringfd85, align 8
+  %73 = load ptr, ptr %iou.addr, align 8
+  %in_flight = getelementptr inbounds %struct.uv__iou, ptr %73, i32 0, i32 16
+  store i32 0, ptr %in_flight, align 4
+  %74 = load ptr, ptr %iou.addr, align 8
+  %flags86 = getelementptr inbounds %struct.uv__iou, ptr %74, i32 0, i32 17
   store i32 0, ptr %flags86, align 8
   %call87 = call i32 @uv__kernel_version()
   %cmp88 = icmp uge i32 %call87, 331520
   br i1 %cmp88, label %if.then90, label %if.end92
 
 if.then90:                                        ; preds = %if.end47
-  %71 = load ptr, ptr %iou.addr, align 8
-  %flags91 = getelementptr inbounds %struct.uv__iou, ptr %71, i32 0, i32 17
-  %72 = load i32, ptr %flags91, align 8
-  %or = or i32 %72, 1
+  %75 = load ptr, ptr %iou.addr, align 8
+  %flags91 = getelementptr inbounds %struct.uv__iou, ptr %75, i32 0, i32 17
+  %76 = load i32, ptr %flags91, align 8
+  %or = or i32 %76, 1
   store i32 %or, ptr %flags91, align 8
   br label %if.end92
 
@@ -807,27 +811,27 @@ if.end92:                                         ; preds = %if.then90, %if.end4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end92
-  %73 = load i32, ptr %i, align 4
-  %74 = load ptr, ptr %iou.addr, align 8
-  %sqmask93 = getelementptr inbounds %struct.uv__iou, ptr %74, i32 0, i32 3
-  %75 = load i32, ptr %sqmask93, align 8
-  %cmp94 = icmp ule i32 %73, %75
+  %77 = load i32, ptr %i, align 4
+  %78 = load ptr, ptr %iou.addr, align 8
+  %sqmask93 = getelementptr inbounds %struct.uv__iou, ptr %78, i32 0, i32 3
+  %79 = load i32, ptr %sqmask93, align 8
+  %cmp94 = icmp ule i32 %77, %79
   br i1 %cmp94, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %76 = load i32, ptr %i, align 4
-  %77 = load ptr, ptr %iou.addr, align 8
-  %sqarray96 = getelementptr inbounds %struct.uv__iou, ptr %77, i32 0, i32 2
-  %78 = load ptr, ptr %sqarray96, align 8
-  %79 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %79 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %78, i64 %idxprom
-  store i32 %76, ptr %arrayidx, align 4
+  %80 = load i32, ptr %i, align 4
+  %81 = load ptr, ptr %iou.addr, align 8
+  %sqarray96 = getelementptr inbounds %struct.uv__iou, ptr %81, i32 0, i32 2
+  %82 = load ptr, ptr %sqarray96, align 8
+  %83 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %83 to i64
+  %arrayidx = getelementptr inbounds i32, ptr %82, i64 %idxprom
+  store i32 %80, ptr %arrayidx, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %80 = load i32, ptr %i, align 4
-  %inc = add i32 %80, 1
+  %84 = load i32, ptr %i, align 4
+  %inc = add i32 %84, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond
 
@@ -835,30 +839,32 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 fail:                                             ; preds = %if.then45, %if.then38, %if.then20, %if.then15, %if.then10
-  %81 = load ptr, ptr %sq, align 8
-  %cmp97 = icmp ne ptr %81, inttoptr (i64 -1 to ptr)
+  %85 = load ptr, ptr %sq, align 8
+  %86 = inttoptr i64 -1 to ptr
+  %cmp97 = icmp ne ptr %85, %86
   br i1 %cmp97, label %if.then99, label %if.end101
 
 if.then99:                                        ; preds = %fail
-  %82 = load ptr, ptr %sq, align 8
-  %83 = load i64, ptr %maxlen, align 8
-  %call100 = call i32 @munmap(ptr noundef %82, i64 noundef %83) #8
+  %87 = load ptr, ptr %sq, align 8
+  %88 = load i64, ptr %maxlen, align 8
+  %call100 = call i32 @munmap(ptr noundef %87, i64 noundef %88) #8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then99, %fail
-  %84 = load ptr, ptr %sqe, align 8
-  %cmp102 = icmp ne ptr %84, inttoptr (i64 -1 to ptr)
+  %89 = load ptr, ptr %sqe, align 8
+  %90 = inttoptr i64 -1 to ptr
+  %cmp102 = icmp ne ptr %89, %90
   br i1 %cmp102, label %if.then104, label %if.end106
 
 if.then104:                                       ; preds = %if.end101
-  %85 = load ptr, ptr %sqe, align 8
-  %86 = load i64, ptr %sqelen, align 8
-  %call105 = call i32 @munmap(ptr noundef %85, i64 noundef %86) #8
+  %91 = load ptr, ptr %sqe, align 8
+  %92 = load i64, ptr %sqelen, align 8
+  %call105 = call i32 @munmap(ptr noundef %91, i64 noundef %92) #8
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then104, %if.end101
-  %87 = load i32, ptr %ringfd, align 4
-  %call107 = call i32 @uv__close(i32 noundef %87)
+  %93 = load i32, ptr %ringfd, align 4
+  %call107 = call i32 @uv__close(i32 noundef %93)
   br label %return
 
 return:                                           ; preds = %if.end106, %for.end, %if.then6, %if.then
@@ -2414,42 +2420,43 @@ if.end5:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end5
   %23 = load ptr, ptr %sqe, align 8
   %24 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %23, i32 0, i32 5
-  store i64 ptrtoint (ptr @.str.5 to i64), ptr %24, align 8
-  %25 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 11
-  %26 = load i32, ptr %file, align 8
-  %27 = load ptr, ptr %sqe, align 8
-  %fd7 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %27, i32 0, i32 3
-  store i32 %26, ptr %fd7, align 4
+  %25 = ptrtoint ptr @.str.5 to i64
+  store i64 %25, ptr %24, align 8
+  %26 = load ptr, ptr %req.addr, align 8
+  %file = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 11
+  %27 = load i32, ptr %file, align 8
   %28 = load ptr, ptr %sqe, align 8
-  %29 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %28, i32 0, i32 7
-  %30 = load i32, ptr %29, align 4
-  %or = or i32 %30, 4096
-  store i32 %or, ptr %29, align 4
+  %fd7 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %28, i32 0, i32 3
+  store i32 %27, ptr %fd7, align 4
+  %29 = load ptr, ptr %sqe, align 8
+  %30 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %29, i32 0, i32 7
+  %31 = load i32, ptr %30, align 4
+  %or = or i32 %31, 4096
+  store i32 %or, ptr %30, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end5
-  %31 = load i32, ptr %is_lstat.addr, align 4
-  %tobool9 = icmp ne i32 %31, 0
+  %32 = load i32, ptr %is_lstat.addr, align 4
+  %tobool9 = icmp ne i32 %32, 0
   br i1 %tobool9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
-  %32 = load ptr, ptr %sqe, align 8
-  %33 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %32, i32 0, i32 7
-  %34 = load i32, ptr %33, align 4
-  %or11 = or i32 %34, 256
-  store i32 %or11, ptr %33, align 4
+  %33 = load ptr, ptr %sqe, align 8
+  %34 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %33, i32 0, i32 7
+  %35 = load i32, ptr %34, align 4
+  %or11 = or i32 %35, 256
+  store i32 %or11, ptr %34, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %35 = load ptr, ptr %iou, align 8
-  call void @uv__iou_submit(ptr noundef %35)
+  %36 = load ptr, ptr %iou, align 8
+  call void @uv__iou_submit(ptr noundef %36)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then4, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 declare ptr @uv__malloc(i64 noundef) #1

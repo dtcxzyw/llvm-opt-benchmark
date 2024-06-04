@@ -147,17 +147,23 @@ define hidden void @proto_register_vpp() #0 {
   %22 = load i32, ptr @proto_vpp_trace, align 4
   %23 = call ptr @register_dissector(ptr noundef @.str.42, ptr noundef @dissect_vpp_trace, i32 noundef %22)
   %24 = call ptr @find_dissector(ptr noundef @.str.43)
-  store ptr %24, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 1), align 8
-  %25 = call ptr @find_dissector(ptr noundef @.str.44)
-  store ptr %25, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 2), align 16
-  %26 = call ptr @find_dissector(ptr noundef @.str.45)
-  store ptr %26, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 3), align 8
-  %27 = call ptr @find_dissector(ptr noundef @.str.46)
-  store ptr %27, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 4), align 16
-  %28 = call ptr @find_dissector(ptr noundef @.str.47)
-  store ptr %28, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 5), align 8
-  %29 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 1), align 8
-  store ptr %29, ptr @next_dissectors, align 16
+  %25 = getelementptr inbounds [6 x ptr], ptr @next_dissectors, i64 0, i64 1
+  store ptr %24, ptr %25, align 8
+  %26 = call ptr @find_dissector(ptr noundef @.str.44)
+  %27 = getelementptr inbounds [6 x ptr], ptr @next_dissectors, i64 0, i64 2
+  store ptr %26, ptr %27, align 16
+  %28 = call ptr @find_dissector(ptr noundef @.str.45)
+  %29 = getelementptr inbounds [6 x ptr], ptr @next_dissectors, i64 0, i64 3
+  store ptr %28, ptr %29, align 8
+  %30 = call ptr @find_dissector(ptr noundef @.str.46)
+  %31 = getelementptr inbounds [6 x ptr], ptr @next_dissectors, i64 0, i64 4
+  store ptr %30, ptr %31, align 16
+  %32 = call ptr @find_dissector(ptr noundef @.str.47)
+  %33 = getelementptr inbounds [6 x ptr], ptr @next_dissectors, i64 0, i64 5
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds [6 x ptr], ptr @next_dissectors, i64 0, i64 1
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr @next_dissectors, align 16
   ret void
 }
 
@@ -242,7 +248,7 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %60 = load ptr, ptr %6, align 8
   %61 = call i32 @tvb_captured_length(ptr noundef %60)
   store i32 %61, ptr %5, align 4
-  br label %228
+  br label %230
 
 62:                                               ; preds = %4
   %63 = load i32, ptr %17, align 4
@@ -430,7 +436,7 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %205 = load i8, ptr %21, align 1
   %206 = zext i8 %205 to i32
   %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %220
+  br i1 %207, label %208, label %222
 
 208:                                              ; preds = %197
   %209 = load ptr, ptr %6, align 8
@@ -439,41 +445,43 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i8 %211, ptr %24, align 1
   %212 = load i8, ptr %24, align 1
   %213 = zext i8 %212 to i32
-  switch i32 %213, label %218 [
+  switch i32 %213, label %220 [
     i32 69, label %214
-    i32 96, label %216
+    i32 96, label %217
   ]
 
 214:                                              ; preds = %208
-  %215 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 2), align 16
-  store ptr %215, ptr %25, align 8
-  br label %219
+  %215 = getelementptr inbounds [6 x ptr], ptr @next_dissectors, i64 0, i64 2
+  %216 = load ptr, ptr %215, align 16
+  store ptr %216, ptr %25, align 8
+  br label %221
 
-216:                                              ; preds = %208
-  %217 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @next_dissectors, i64 0, i64 3), align 8
-  store ptr %217, ptr %25, align 8
-  br label %219
+217:                                              ; preds = %208
+  %218 = getelementptr inbounds [6 x ptr], ptr @next_dissectors, i64 0, i64 3
+  %219 = load ptr, ptr %218, align 8
+  store ptr %219, ptr %25, align 8
+  br label %221
 
-218:                                              ; preds = %208
-  br label %219
+220:                                              ; preds = %208
+  br label %221
 
-219:                                              ; preds = %218, %216, %214
-  br label %220
+221:                                              ; preds = %220, %217, %214
+  br label %222
 
-220:                                              ; preds = %219, %197
-  %221 = load ptr, ptr %25, align 8
-  %222 = load ptr, ptr %15, align 8
-  %223 = load ptr, ptr %7, align 8
-  %224 = load ptr, ptr %8, align 8
-  %225 = call i32 @call_dissector(ptr noundef %221, ptr noundef %222, ptr noundef %223, ptr noundef %224)
-  %226 = load ptr, ptr %6, align 8
-  %227 = call i32 @tvb_captured_length(ptr noundef %226)
-  store i32 %227, ptr %5, align 4
-  br label %228
+222:                                              ; preds = %221, %197
+  %223 = load ptr, ptr %25, align 8
+  %224 = load ptr, ptr %15, align 8
+  %225 = load ptr, ptr %7, align 8
+  %226 = load ptr, ptr %8, align 8
+  %227 = call i32 @call_dissector(ptr noundef %223, ptr noundef %224, ptr noundef %225, ptr noundef %226)
+  %228 = load ptr, ptr %6, align 8
+  %229 = call i32 @tvb_captured_length(ptr noundef %228)
+  store i32 %229, ptr %5, align 4
+  br label %230
 
-228:                                              ; preds = %220, %49
-  %229 = load i32, ptr %5, align 4
-  ret i32 %229
+230:                                              ; preds = %222, %49
+  %231 = load i32, ptr %5, align 4
+  ret i32 %231
 }
 
 declare ptr @expert_register_protocol(i32 noundef) #1

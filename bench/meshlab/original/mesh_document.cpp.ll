@@ -6175,88 +6175,89 @@ define void @_ZN12MeshDocumentC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12MeshDocument, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 1
-  invoke void @_ZN11GLLogStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
-          to label %7 unwind label %21
+  %6 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV12MeshDocument, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 1
+  invoke void @_ZN11GLLogStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
+          to label %8 unwind label %22
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 2
-  invoke void @_ZN12FilterScriptC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %9 unwind label %25
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 2
+  invoke void @_ZN12FilterScriptC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %10 unwind label %26
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 3
-  call void @_ZNSt7__cxx114listI9MeshModelSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 4
-  call void @_ZNSt7__cxx114listI11RasterModelSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 7
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 8
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 3
+  call void @_ZNSt7__cxx114listI9MeshModelSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 4
+  call void @_ZNSt7__cxx114listI11RasterModelSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 7
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %14 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 9
-  invoke void @_ZN21MeshDocumentStateDataC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %15 unwind label %29
+  %14 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 8
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %15 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 9
+  invoke void @_ZN21MeshDocumentStateDataC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %16 unwind label %30
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 5
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 6
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 11
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 12
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 5
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 6
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 11
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 10
-  store i8 0, ptr %20, align 8
+  %20 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 12
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 10
+  store i8 0, ptr %21, align 8
   ret void
 
-21:                                               ; preds = %1
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %1
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %3, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %4, align 4
-  br label %34
-
-25:                                               ; preds = %7
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %3, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %4, align 4
-  br label %33
-
-29:                                               ; preds = %9
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %3, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %4, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  call void @_ZNSt7__cxx114listI11RasterModelSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  call void @_ZNSt7__cxx114listI9MeshModelSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  call void @_ZN12FilterScriptD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  br label %33
-
-33:                                               ; preds = %29, %25
-  call void @_ZN11GLLogStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
-  br label %34
-
-34:                                               ; preds = %33, %21
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %3, align 8
-  %37 = load i32, ptr %4, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+26:                                               ; preds = %8
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %3, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %4, align 4
+  br label %34
+
+30:                                               ; preds = %10
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %3, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %4, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  call void @_ZNSt7__cxx114listI11RasterModelSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  call void @_ZNSt7__cxx114listI9MeshModelSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @_ZN12FilterScriptD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  br label %34
+
+34:                                               ; preds = %30, %26
+  call void @_ZN11GLLogStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #3
+  br label %35
+
+35:                                               ; preds = %34, %22
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %3, align 8
+  %38 = load i32, ptr %4, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -6353,11 +6354,12 @@ define linkonce_odr void @_ZN11GLLogStreamD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11GLLogStream, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.GLLogStream, ptr %3, i32 0, i32 3
-  call void @_ZN9QMultiMapI7QString5QPairIS0_S0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %class.GLLogStream, ptr %3, i32 0, i32 2
-  call void @_ZN5QListISt4pairIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV11GLLogStream, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.GLLogStream, ptr %3, i32 0, i32 3
+  call void @_ZN9QMultiMapI7QString5QPairIS0_S0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %class.GLLogStream, ptr %3, i32 0, i32 2
+  call void @_ZN5QListISt4pairIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
@@ -7642,21 +7644,22 @@ define void @_ZN12MeshDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12MeshDocument, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 9
-  call void @_ZN21MeshDocumentStateDataD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  %5 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV12MeshDocument, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 9
+  call void @_ZN21MeshDocumentStateDataD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %6 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 4
-  call void @_ZNSt7__cxx114listI11RasterModelSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx114listI9MeshModelSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 2
-  call void @_ZN12FilterScriptD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 1
-  call void @_ZN11GLLogStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #3
+  %7 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 7
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 4
+  call void @_ZNSt7__cxx114listI11RasterModelSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx114listI9MeshModelSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 2
+  call void @_ZN12FilterScriptD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 1
+  call void @_ZN11GLLogStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }

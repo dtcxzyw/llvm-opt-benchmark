@@ -22,7 +22,7 @@ define void @nxsig_release_pendingsignal(ptr noundef %0) #0 {
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i32
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %30
+  br i1 %10, label %11, label %33
 
 11:                                               ; preds = %1
   %12 = call i64 @up_irq_save()
@@ -37,99 +37,105 @@ define void @nxsig_release_pendingsignal(ptr noundef %0) #0 {
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr @g_sigpendingsignal, align 8
   %18 = icmp ne ptr %17, null
-  br i1 %18, label %22, label %19
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %4, align 8
   store ptr %20, ptr @g_sigpendingsignal, align 8
   %21 = load ptr, ptr %4, align 8
-  store ptr %21, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingsignal, i32 0, i32 1), align 8
-  br label %27
+  %22 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingsignal, i32 0, i32 1
+  store ptr %21, ptr %22, align 8
+  br label %30
 
-22:                                               ; preds = %13
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingsignal, i32 0, i32 1), align 8
-  %25 = getelementptr inbounds %struct.sq_entry_s, ptr %24, i32 0, i32 0
-  store ptr %23, ptr %25, align 8
-  %26 = load ptr, ptr %4, align 8
-  store ptr %26, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingsignal, i32 0, i32 1), align 8
-  br label %27
+23:                                               ; preds = %13
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingsignal, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.sq_entry_s, ptr %26, i32 0, i32 0
+  store ptr %24, ptr %27, align 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingsignal, i32 0, i32 1
+  store ptr %28, ptr %29, align 8
+  br label %30
 
-27:                                               ; preds = %22, %19
-  br label %28
+30:                                               ; preds = %23, %19
+  br label %31
 
-28:                                               ; preds = %27
-  %29 = load i64, ptr %3, align 8
-  call void @up_irq_restore(i64 noundef %29)
-  br label %65
+31:                                               ; preds = %30
+  %32 = load i64, ptr %3, align 8
+  call void @up_irq_restore(i64 noundef %32)
+  br label %71
 
-30:                                               ; preds = %1
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.sigpendq, ptr %31, i32 0, i32 2
-  %33 = load i8, ptr %32, align 8
-  %34 = zext i8 %33 to i32
-  %35 = icmp eq i32 %34, 2
-  br i1 %35, label %36, label %55
+33:                                               ; preds = %1
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.sigpendq, ptr %34, i32 0, i32 2
+  %36 = load i8, ptr %35, align 8
+  %37 = zext i8 %36 to i32
+  %38 = icmp eq i32 %37, 2
+  br i1 %38, label %39, label %61
 
-36:                                               ; preds = %30
-  %37 = call i64 @up_irq_save()
-  store i64 %37, ptr %3, align 8
-  br label %38
+39:                                               ; preds = %33
+  %40 = call i64 @up_irq_save()
+  store i64 %40, ptr %3, align 8
+  br label %41
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %2, align 8
-  store ptr %39, ptr %5, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.sq_entry_s, ptr %40, i32 0, i32 0
-  store ptr null, ptr %41, align 8
-  %42 = load ptr, ptr @g_sigpendingirqsignal, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %47, label %44
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %2, align 8
+  store ptr %42, ptr %5, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct.sq_entry_s, ptr %43, i32 0, i32 0
+  store ptr null, ptr %44, align 8
+  %45 = load ptr, ptr @g_sigpendingirqsignal, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %51, label %47
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr %5, align 8
-  store ptr %45, ptr @g_sigpendingirqsignal, align 8
-  %46 = load ptr, ptr %5, align 8
-  store ptr %46, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqsignal, i32 0, i32 1), align 8
-  br label %52
-
-47:                                               ; preds = %38
+47:                                               ; preds = %41
   %48 = load ptr, ptr %5, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqsignal, i32 0, i32 1), align 8
-  %50 = getelementptr inbounds %struct.sq_entry_s, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %5, align 8
-  store ptr %51, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_sigpendingirqsignal, i32 0, i32 1), align 8
-  br label %52
+  store ptr %48, ptr @g_sigpendingirqsignal, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingirqsignal, i32 0, i32 1
+  store ptr %49, ptr %50, align 8
+  br label %58
 
-52:                                               ; preds = %47, %44
-  br label %53
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingirqsignal, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.sq_entry_s, ptr %54, i32 0, i32 0
+  store ptr %52, ptr %55, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %struct.sq_queue_s, ptr @g_sigpendingirqsignal, i32 0, i32 1
+  store ptr %56, ptr %57, align 8
+  br label %58
 
-53:                                               ; preds = %52
-  %54 = load i64, ptr %3, align 8
-  call void @up_irq_restore(i64 noundef %54)
-  br label %64
+58:                                               ; preds = %51, %47
+  br label %59
 
-55:                                               ; preds = %30
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.sigpendq, ptr %56, i32 0, i32 2
-  %58 = load i8, ptr %57, align 8
-  %59 = zext i8 %58 to i32
-  %60 = icmp eq i32 %59, 1
-  br i1 %60, label %61, label %63
+59:                                               ; preds = %58
+  %60 = load i64, ptr %3, align 8
+  call void @up_irq_restore(i64 noundef %60)
+  br label %70
 
-61:                                               ; preds = %55
+61:                                               ; preds = %33
   %62 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %62)
-  br label %63
+  %63 = getelementptr inbounds %struct.sigpendq, ptr %62, i32 0, i32 2
+  %64 = load i8, ptr %63, align 8
+  %65 = zext i8 %64 to i32
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %67, label %69
 
-63:                                               ; preds = %61, %55
-  br label %64
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %68)
+  br label %69
 
-64:                                               ; preds = %63, %53
-  br label %65
+69:                                               ; preds = %67, %61
+  br label %70
 
-65:                                               ; preds = %64, %28
+70:                                               ; preds = %69, %59
+  br label %71
+
+71:                                               ; preds = %70, %31
   ret void
 }
 

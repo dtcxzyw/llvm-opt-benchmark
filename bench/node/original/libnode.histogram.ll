@@ -1516,7 +1516,8 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9HistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node9HistogramE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %histogram_ = getelementptr inbounds %"class.node::Histogram", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI13hdr_histogramN4node15FunctionDeleterIS0_XadL_Z9hdr_closeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %histogram_) #3
   %prev_ = getelementptr inbounds %"class.node::Histogram", ptr %this1, i32 0, i32 2
@@ -1530,16 +1531,16 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %options.addr, align 8
-  %lowest = getelementptr inbounds %"struct.node::Histogram::Options", ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %lowest, align 8
-  %2 = load ptr, ptr %options.addr, align 8
-  %highest = getelementptr inbounds %"struct.node::Histogram::Options", ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %highest, align 8
-  %4 = load ptr, ptr %options.addr, align 8
-  %figures = getelementptr inbounds %"struct.node::Histogram::Options", ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %figures, align 8
-  %call = call i32 @hdr_init(i64 noundef %1, i64 noundef %3, i32 noundef %5, ptr noundef %histogram)
+  %1 = load ptr, ptr %options.addr, align 8
+  %lowest = getelementptr inbounds %"struct.node::Histogram::Options", ptr %1, i32 0, i32 0
+  %2 = load i64, ptr %lowest, align 8
+  %3 = load ptr, ptr %options.addr, align 8
+  %highest = getelementptr inbounds %"struct.node::Histogram::Options", ptr %3, i32 0, i32 1
+  %4 = load i64, ptr %highest, align 8
+  %5 = load ptr, ptr %options.addr, align 8
+  %figures = getelementptr inbounds %"struct.node::Histogram::Options", ptr %5, i32 0, i32 2
+  %6 = load i32, ptr %figures, align 8
+  %call = call i32 @hdr_init(i64 noundef %2, i64 noundef %4, i32 noundef %6, ptr noundef %histogram)
   %cmp = icmp eq i32 0, %call
   %lnot = xor i1 %cmp, true
   %lnot2 = xor i1 %lnot, true
@@ -1562,8 +1563,8 @@ if.end:                                           ; preds = %do.end, %do.body
 
 do.end5:                                          ; preds = %if.end
   %histogram_6 = getelementptr inbounds %"class.node::Histogram", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %histogram, align 8
-  call void @_ZNSt10unique_ptrI13hdr_histogramN4node15FunctionDeleterIS0_XadL_Z9hdr_closeEEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %histogram_6, ptr noundef %6) #3
+  %7 = load ptr, ptr %histogram, align 8
+  call void @_ZNSt10unique_ptrI13hdr_histogramN4node15FunctionDeleterIS0_XadL_Z9hdr_closeEEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %histogram_6, ptr noundef %7) #3
   ret void
 }
 
@@ -1573,7 +1574,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1788,7 +1790,8 @@ entry:
   %2 = getelementptr inbounds i8, ptr %this3, i64 32
   %3 = load ptr, ptr %options.addr, align 8
   call void @_ZN4node13HistogramImplC2ERKNS_9Histogram7OptionsE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(20) %3)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node13HistogramBaseE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node13HistogramBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this3, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
   ret void
 }
@@ -1851,7 +1854,8 @@ entry:
   call void @_ZNSt10shared_ptrIN4node9HistogramEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %histogram) #3
   call void @_ZN4node13HistogramImplC2ESt10shared_ptrINS_9HistogramEE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %agg.tmp7)
   call void @_ZNSt10shared_ptrIN4node9HistogramEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp7) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node13HistogramBaseE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node13HistogramBaseE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this3, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
   ret void
 }
@@ -17524,30 +17528,32 @@ entry:
   store ptr %on_interval, ptr %on_interval.indirect_addr, align 8
   store ptr %options, ptr %options.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node17IntervalHistogramE, i32 0, i32 0, i32 2), ptr %this3, align 8
-  %0 = load ptr, ptr %env.addr, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node17IntervalHistogramE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
+  %1 = load ptr, ptr %env.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %wrap, i64 8, i1 false)
   %timer_ = getelementptr inbounds %"class.node::IntervalHistogram", ptr %this3, i32 0, i32 5
-  %1 = load i32, ptr %type.addr, align 4
+  %2 = load i32, ptr %type.addr, align 4
   %coerce.dive4 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive5 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive4, i32 0, i32 0
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive6, align 8
-  call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this3, ptr noundef %0, ptr %2, ptr noundef %timer_, i32 noundef %1)
-  %3 = getelementptr inbounds i8, ptr %this3, i64 88
-  %4 = load ptr, ptr %options.addr, align 8
-  call void @_ZN4node13HistogramImplC2ERKNS_9Histogram7OptionsE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(20) %4)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node17IntervalHistogramE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = load ptr, ptr %coerce.dive6, align 8
+  call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this3, ptr noundef %1, ptr %3, ptr noundef %timer_, i32 noundef %2)
+  %4 = getelementptr inbounds i8, ptr %this3, i64 88
+  %5 = load ptr, ptr %options.addr, align 8
+  call void @_ZN4node13HistogramImplC2ERKNS_9Histogram7OptionsE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5)
+  %6 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node17IntervalHistogramE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this3, align 8
   %enabled_ = getelementptr inbounds %"class.node::IntervalHistogram", ptr %this3, i32 0, i32 2
   store i8 0, ptr %enabled_, align 8
   %interval_ = getelementptr inbounds %"class.node::IntervalHistogram", ptr %this3, i32 0, i32 3
-  %5 = load i32, ptr %interval.addr, align 4
-  store i32 %5, ptr %interval_, align 4
+  %7 = load i32, ptr %interval.addr, align 4
+  store i32 %7, ptr %interval_, align 4
   %on_interval_ = getelementptr inbounds %"class.node::IntervalHistogram", ptr %this3, i32 0, i32 4
   call void @_ZNSt8functionIFvRN4node9HistogramEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, ptr noundef nonnull align 8 dereferenceable(32) %on_interval) #3
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
-  %6 = load ptr, ptr %env.addr, align 8
-  %call = call noundef ptr @_ZNK4node11Environment10event_loopEv(ptr noundef nonnull align 8 dereferenceable(2872) %6)
+  %8 = load ptr, ptr %env.addr, align 8
+  %call = call noundef ptr @_ZNK4node11Environment10event_loopEv(ptr noundef nonnull align 8 dereferenceable(2872) %8)
   %timer_8 = getelementptr inbounds %"class.node::IntervalHistogram", ptr %this3, i32 0, i32 5
   %call9 = call i32 @uv_timer_init(ptr noundef %call, ptr noundef %timer_8)
   ret void
@@ -18118,7 +18124,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node13HistogramBase21HistogramTransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node13HistogramBase21HistogramTransferDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %histogram_ = getelementptr inbounds %"class.node::HistogramBase::HistogramTransferData", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node9HistogramEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %histogram_) #3
   call void @_ZN4node6worker12TransferDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -18200,7 +18207,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9HistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node9HistogramE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.node::Histogram", ptr %this1, i32 0, i32 5
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #3
   %histogram_ = getelementptr inbounds %"class.node::Histogram", ptr %this1, i32 0, i32 1
@@ -18342,11 +18350,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node17IntervalHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node17IntervalHistogramE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %on_interval_ = getelementptr inbounds %"class.node::IntervalHistogram", ptr %this1, i32 0, i32 4
   call void @_ZNSt8functionIFvRN4node9HistogramEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 88
-  call void @_ZN4node13HistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
+  %1 = getelementptr inbounds i8, ptr %this1, i64 88
+  call void @_ZN4node13HistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #3
   call void @_ZN4node10HandleWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
   ret void
 }
@@ -18598,7 +18607,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -18609,14 +18619,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -18698,7 +18708,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21299,7 +21310,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %handle_wrap_queue_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this1, i32 0, i32 2
   call void @_ZN4node8ListNodeINS_10HandleWrapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_wrap_queue_) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
@@ -21537,10 +21549,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node9HistogramELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node9HistogramELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -21550,7 +21563,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -22756,10 +22770,11 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %retainer.addr, align 8
-  store ptr %0, ptr %retainer_, align 8
+  %1 = load ptr, ptr %retainer.addr, align 8
+  store ptr %1, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr null, ptr %wrapper_node_, align 8
   %is_root_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
@@ -22772,8 +22787,8 @@ entry:
 
 do.body:                                          ; preds = %entry
   %retainer_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %retainer_2, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %retainer_2, align 8
+  %cmp = icmp ne ptr %2, null
   %lnot = xor i1 %cmp, true
   %lnot3 = xor i1 %lnot, true
   %lnot4 = xor i1 %lnot3, true
@@ -22794,72 +22809,72 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end6
 
 do.end6:                                          ; preds = %if.end
-  %2 = load ptr, ptr %tracker.addr, align 8
-  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %3 = load ptr, ptr %tracker.addr, align 8
+  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %3)
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %call)
   %retainer_7 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %retainer_7, align 8
-  %vtable = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %retainer_7, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %4 = load ptr, ptr %vfn, align 8
-  %call8 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = load ptr, ptr %vfn, align 8
+  %call8 = call ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %coerce.dive = getelementptr inbounds %"class.v8::Local", ptr %obj, i32 0, i32 0
   %coerce.dive9 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive9, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive10, align 8
   store ptr %obj, ptr %this.addr.i36, align 8
   %this1.i = load ptr, ptr %this.addr.i36, align 8
-  %5 = load ptr, ptr %this1.i, align 8
-  %cmp.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %this1.i, align 8
+  %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %if.end21, label %if.then12
 
 if.then12:                                        ; preds = %do.end6
-  %6 = load ptr, ptr %tracker.addr, align 8
-  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %6)
+  %7 = load ptr, ptr %tracker.addr, align 8
+  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %obj, i64 8, i1 false)
   %coerce.dive14 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive14, i32 0, i32 0
   %coerce.dive16 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive15, i32 0, i32 0
-  %7 = load ptr, ptr %coerce.dive16, align 8
-  store ptr %7, ptr %that.i, align 8
+  %8 = load ptr, ptr %coerce.dive16, align 8
+  store ptr %8, ptr %that.i, align 8
   store ptr %ref.tmp, ptr %this.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this3.i, ptr %this.addr.i37, align 8
   store ptr %that.i, ptr %other.addr.i, align 8
   %this1.i38 = load ptr, ptr %this.addr.i37, align 8
-  %8 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %8, i64 8, i1 false)
+  %9 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %9, i64 8, i1 false)
   %vtable17 = load ptr, ptr %call13, align 8
   %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 0
-  %9 = load ptr, ptr %vfn18, align 8
-  %call19 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %10 = load ptr, ptr %vfn18, align 8
+  %call19 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %wrapper_node_20 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr %call19, ptr %wrapper_node_20, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then12, %do.end6
   %retainer_22 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %retainer_22, align 8
-  %vtable23 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %retainer_22, align 8
+  %vtable23 = load ptr, ptr %11, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 3
-  %11 = load ptr, ptr %vfn24, align 8
-  %call25 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load ptr, ptr %vfn24, align 8
+  %call25 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
   store ptr %call25, ptr %name_, align 8
   %retainer_26 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %retainer_26, align 8
-  %vtable27 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %retainer_26, align 8
+  %vtable27 = load ptr, ptr %13, align 8
   %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 4
-  %13 = load ptr, ptr %vfn28, align 8
-  %call29 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = load ptr, ptr %vfn28, align 8
+  %call29 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %size_30 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
   store i64 %call29, ptr %size_30, align 8
   %retainer_31 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %retainer_31, align 8
-  %vtable32 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %retainer_31, align 8
+  %vtable32 = load ptr, ptr %15, align 8
   %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 7
-  %15 = load ptr, ptr %vfn33, align 8
-  %call34 = call noundef zeroext i8 %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %16 = load ptr, ptr %vfn33, align 8
+  %call34 = call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   %detachedness_35 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 %call34, ptr %detachedness_35, align 8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #3
@@ -26309,10 +26324,11 @@ entry:
   store ptr %histogram, ptr %histogram.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node6worker12TransferDataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node13HistogramBase21HistogramTransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node13HistogramBase21HistogramTransferDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %histogram_ = getelementptr inbounds %"class.node::HistogramBase::HistogramTransferData", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %histogram.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = load ptr, ptr %histogram.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4node13HistogramImpl9histogramEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
   call void @_ZNSt10shared_ptrIN4node9HistogramEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %histogram_, ptr noundef nonnull align 8 dereferenceable(16) %call) #3
   ret void
@@ -26339,7 +26355,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node6worker12TransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node6worker12TransferDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27178,7 +27195,8 @@ entry:
   store ptr %histogram, ptr %histogram.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node6worker12TransferDataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node13HistogramBase21HistogramTransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node13HistogramBase21HistogramTransferDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %histogram_ = getelementptr inbounds %"class.node::HistogramBase::HistogramTransferData", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node9HistogramEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %histogram_, ptr noundef nonnull align 8 dereferenceable(16) %histogram) #3
   ret void

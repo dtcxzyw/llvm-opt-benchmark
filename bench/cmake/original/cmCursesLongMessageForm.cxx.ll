@@ -59,64 +59,65 @@ define dso_local void @_ZN23cmCursesLongMessageFormC2ERKSt6vectorINSt7__cxx1112b
   store i32 %3, ptr %8, align 4
   %14 = load ptr, ptr %5, align 8
   call void @_ZN12cmCursesFormC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23cmCursesLongMessageForm, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
-  %16 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 2
+  %15 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV23cmCursesLongMessageForm, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
-  %17 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 3
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
+  %18 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 3
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = load ptr, ptr %6, align 8
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @.str) #8
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  invoke void @_Z6cmJoinRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESt17basic_string_viewIcS3_ESB_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 %21, ptr %23, i64 %25, ptr %27)
-          to label %28 unwind label %39
+  %21 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 0
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds { i64, ptr }, ptr %10, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds { i64, ptr }, ptr %11, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  invoke void @_Z6cmJoinRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESt17basic_string_viewIcS3_ESB_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 %22, ptr %24, i64 %26, ptr %28)
+          to label %29 unwind label %40
 
-28:                                               ; preds = %4
-  %29 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 1
-  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %9) #8
+29:                                               ; preds = %4
+  %30 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 1
+  %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %9) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #8
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 2
-  %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef %31)
-          to label %34 unwind label %39
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 2
+  %34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %32)
+          to label %35 unwind label %40
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 4
-  %36 = getelementptr inbounds [2 x ptr], ptr %35, i64 0, i64 0
-  store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 4
-  %38 = getelementptr inbounds [2 x ptr], ptr %37, i64 0, i64 1
-  store ptr null, ptr %38, align 8
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 4
+  %37 = getelementptr inbounds [2 x ptr], ptr %36, i64 0, i64 0
+  store ptr null, ptr %37, align 8
+  %38 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 4
+  %39 = getelementptr inbounds [2 x ptr], ptr %38, i64 0, i64 1
+  store ptr null, ptr %39, align 8
   ret void
 
-39:                                               ; preds = %28, %4
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %29, %4
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %12, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %13, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %12, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %13, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
   call void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #8
-  br label %43
+  br label %44
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %12, align 8
-  %45 = load i32, ptr %13, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i32, ptr %13, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 declare void @_ZN12cmCursesFormC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -183,36 +184,37 @@ define dso_local void @_ZN23cmCursesLongMessageFormD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23cmCursesLongMessageForm, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 4
-  %5 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %14
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV23cmCursesLongMessageForm, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 4
+  %6 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %15
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 4
-  %10 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = invoke i32 @free_field(ptr noundef %11)
-          to label %13 unwind label %17
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 4
+  %11 = getelementptr inbounds [2 x ptr], ptr %10, i64 0, i64 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = invoke i32 @free_field(ptr noundef %12)
+          to label %14 unwind label %18
 
-13:                                               ; preds = %8
-  br label %14
+14:                                               ; preds = %9
+  br label %15
 
-14:                                               ; preds = %13, %1
-  %15 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
-  %16 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 1
+15:                                               ; preds = %14, %1
+  %16 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
+  %17 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
   call void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   ret void
 
-17:                                               ; preds = %8
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %9
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #9
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #9
   unreachable
 }
 

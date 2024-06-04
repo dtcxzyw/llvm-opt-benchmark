@@ -700,10 +700,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %formatter, ptr %formatter.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16XmlElementWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16XmlElementWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_formatter = getelementptr inbounds %"class.OpenColorIO_v2_4dev::XmlElementWriter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %formatter.addr, align 8
-  store ptr %0, ptr %m_formatter, align 8
+  %1 = load ptr, ptr %formatter.addr, align 8
+  store ptr %1, ptr %m_formatter, align 8
   ret void
 }
 

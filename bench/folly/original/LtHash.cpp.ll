@@ -66,7 +66,8 @@ _ZN5folly14aligned_mallocEmm.exit:                ; preds = %entry
 
 if.then:                                          ; preds = %_ZN5folly14aligned_mallocEmm.exit, %_ZN5folly14aligned_mallocEmm.exit.thread
   %exception = call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !13
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2
+  store ptr %1, ptr %exception, align 8, !tbaa !13
   call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #14
   unreachable
 
@@ -133,7 +134,8 @@ _ZN5folly14aligned_mallocEmm.exit.i:              ; preds = %entry
 
 if.then.i:                                        ; preds = %_ZN5folly14aligned_mallocEmm.exit.i, %_ZN5folly14aligned_mallocEmm.exit.thread.i
   %exception.i = call ptr @__cxa_allocate_exception(i64 8) #12, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception.i, align 8, !tbaa !13, !noalias !15
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2
+  store ptr %1, ptr %exception.i, align 8, !tbaa !13, !noalias !15
   call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #14, !noalias !15
   unreachable
 
@@ -151,11 +153,11 @@ invoke.cont:                                      ; preds = %_ZN5folly6crypto6de
   ret void
 
 lpad:                                             ; preds = %_ZN5folly6crypto6detail25allocateCacheAlignedIOBufEm.exit
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp) #12
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp) #12
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %2
 }
 
 declare i32 @__gxx_personality_v0(...)

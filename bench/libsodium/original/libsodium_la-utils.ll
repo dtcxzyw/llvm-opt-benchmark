@@ -1388,7 +1388,8 @@ entry:
   %0 = load i64, ptr %size.addr, align 8
   %call = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #10
   store ptr %call, ptr %ptr, align 8
-  %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
+  %1 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %call, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1396,8 +1397,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = load ptr, ptr %ptr, align 8
-  ret ptr %1
+  %2 = load ptr, ptr %ptr, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind

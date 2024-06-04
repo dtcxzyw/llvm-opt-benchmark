@@ -38,24 +38,26 @@ land.rhs:                                         ; preds = %entry
   br i1 %tobool1, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %land.rhs
-  %2 = load i8, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 1), align 1
-  %tobool2 = trunc i8 %2 to i1
+  %2 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 1
+  %3 = load i8, ptr %2, align 1
+  %tobool2 = trunc i8 %3 to i1
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %3 = phi i1 [ true, %land.rhs ], [ %tobool2, %lor.rhs ]
+  %4 = phi i1 [ true, %land.rhs ], [ %tobool2, %lor.rhs ]
   br label %land.end
 
 land.end:                                         ; preds = %lor.end, %entry
-  %4 = phi i1 [ false, %entry ], [ %3, %lor.end ]
-  ret i1 %4
+  %5 = phi i1 [ false, %entry ], [ %4, %lor.end ]
+  ret i1 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @semihosting_get_target() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2), align 4
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2
+  %1 = load i32, ptr %0, align 4
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -65,8 +67,9 @@ entry:
   %i.addr = alloca i32, align 4
   store i32 %i, ptr %i.addr, align 4
   %0 = load i32, ptr %i.addr, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 4), align 8
-  %cmp = icmp sge i32 %0, %1
+  %1 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 4
+  %2 = load i32, ptr %1, align 8
+  %cmp = icmp sge i32 %0, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -74,47 +77,54 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 3), align 8
-  %3 = load i32, ptr %i.addr, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %retval, align 8
+  %3 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %i.addr, align 4
+  %idxprom = sext i32 %5 to i64
+  %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
+  %6 = load ptr, ptr %arrayidx, align 8
+  store ptr %6, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %7 = load ptr, ptr %retval, align 8
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @semihosting_get_argc() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 4), align 8
-  ret i32 %0
+  %0 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 4
+  %1 = load i32, ptr %0, align 8
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @semihosting_get_cmdline() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 5), align 8
-  %cmp = icmp eq ptr %0, null
+  %0 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 4), align 8
-  %cmp1 = icmp sgt i32 %1, 0
+  %2 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 4
+  %3 = load i32, ptr %2, align 8
+  %cmp1 = icmp sgt i32 %3, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 3), align 8
-  %call = call noalias ptr @g_strjoinv(ptr noundef @.str.7, ptr noundef %2)
-  store ptr %call, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 5), align 8
+  %4 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %call = call noalias ptr @g_strjoinv(ptr noundef @.str.7, ptr noundef %5)
+  %6 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 5
+  store ptr %call, ptr %6, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %3 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 5), align 8
-  ret ptr %3
+  %7 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 5
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 declare noalias ptr @g_strjoinv(ptr noundef, ptr noundef) #1
@@ -242,7 +252,8 @@ declare ptr @strtok(ptr noundef, ptr noundef) #2
 define dso_local void @qemu_semihosting_enable() #0 {
 entry:
   store i8 1, ptr @semihosting, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2), align 4
+  %0 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2
+  store i32 0, ptr %0, align 4
   ret void
 }
 
@@ -274,50 +285,54 @@ if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %opts, align 8
   %call3 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %4, ptr noundef @.str.2, i1 noundef zeroext false)
   %frombool4 = zext i1 %call3 to i8
-  store i8 %frombool4, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 1), align 1
-  %5 = load ptr, ptr %opts, align 8
-  %call5 = call ptr @qemu_opt_get(ptr noundef %5, ptr noundef @.str.3)
-  store ptr %call5, ptr %target, align 8
+  %5 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 1
+  store i8 %frombool4, ptr %5, align 1
   %6 = load ptr, ptr %opts, align 8
-  %call6 = call ptr @qemu_opt_get(ptr noundef %6, ptr noundef @.str.4)
+  %call5 = call ptr @qemu_opt_get(ptr noundef %6, ptr noundef @.str.3)
+  store ptr %call5, ptr %target, align 8
+  %7 = load ptr, ptr %opts, align 8
+  %call6 = call ptr @qemu_opt_get(ptr noundef %7, ptr noundef @.str.4)
   store ptr %call6, ptr @semihost_chardev, align 8
-  %7 = load ptr, ptr %target, align 8
-  %cmp7 = icmp ne ptr %7, null
+  %8 = load ptr, ptr %target, align 8
+  %cmp7 = icmp ne ptr %8, null
   br i1 %cmp7, label %if.then8, label %if.else22
 
 if.then8:                                         ; preds = %if.then
-  %8 = load ptr, ptr %target, align 8
-  %call9 = call i32 @strcmp(ptr noundef @.str.8, ptr noundef %8) #6
+  %9 = load ptr, ptr %target, align 8
+  %call9 = call i32 @strcmp(ptr noundef @.str.8, ptr noundef %9) #6
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then8
-  store i32 1, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2), align 4
+  %10 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2
+  store i32 1, ptr %10, align 4
   br label %if.end21
 
 if.else:                                          ; preds = %if.then8
-  %9 = load ptr, ptr %target, align 8
-  %call12 = call i32 @strcmp(ptr noundef @.str.9, ptr noundef %9) #6
+  %11 = load ptr, ptr %target, align 8
+  %call12 = call i32 @strcmp(ptr noundef @.str.9, ptr noundef %11) #6
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.else15
 
 if.then14:                                        ; preds = %if.else
-  store i32 2, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2), align 4
+  %12 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2
+  store i32 2, ptr %12, align 4
   br label %if.end20
 
 if.else15:                                        ; preds = %if.else
-  %10 = load ptr, ptr %target, align 8
-  %call16 = call i32 @strcmp(ptr noundef @.str.10, ptr noundef %10) #6
+  %13 = load ptr, ptr %target, align 8
+  %call16 = call i32 @strcmp(ptr noundef @.str.10, ptr noundef %13) #6
   %cmp17 = icmp eq i32 %call16, 0
   br i1 %cmp17, label %if.then18, label %if.else19
 
 if.then18:                                        ; preds = %if.else15
-  store i32 0, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2), align 4
+  %14 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2
+  store i32 0, ptr %14, align 4
   br label %if.end
 
 if.else19:                                        ; preds = %if.else15
-  %11 = load ptr, ptr %optstr.addr, align 8
-  call void (ptr, ...) @error_report(ptr noundef @.str.11, ptr noundef %11)
+  %15 = load ptr, ptr %optstr.addr, align 8
+  call void (ptr, ...) @error_report(ptr noundef @.str.11, ptr noundef %15)
   store i32 1, ptr %retval, align 4
   br label %return
 
@@ -331,17 +346,18 @@ if.end21:                                         ; preds = %if.end20, %if.then1
   br label %if.end23
 
 if.else22:                                        ; preds = %if.then
-  store i32 0, ptr getelementptr inbounds (%struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2), align 4
+  %16 = getelementptr inbounds %struct.SemihostingConfig, ptr @semihosting, i32 0, i32 2
+  store i32 0, ptr %16, align 4
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else22, %if.end21
-  %12 = load ptr, ptr %opts, align 8
-  %call24 = call i32 @qemu_opt_foreach(ptr noundef %12, ptr noundef @add_semihosting_arg, ptr noundef @semihosting, ptr noundef null)
+  %17 = load ptr, ptr %opts, align 8
+  %call24 = call i32 @qemu_opt_foreach(ptr noundef %17, ptr noundef @add_semihosting_arg, ptr noundef @semihosting, ptr noundef null)
   br label %if.end26
 
 if.else25:                                        ; preds = %entry
-  %13 = load ptr, ptr %optstr.addr, align 8
-  call void (ptr, ...) @error_report(ptr noundef @.str.11, ptr noundef %13)
+  %18 = load ptr, ptr %optstr.addr, align 8
+  call void (ptr, ...) @error_report(ptr noundef @.str.11, ptr noundef %18)
   store i32 1, ptr %retval, align 4
   br label %return
 
@@ -350,8 +366,8 @@ if.end26:                                         ; preds = %if.end23
   br label %return
 
 return:                                           ; preds = %if.end26, %if.else25, %if.else19
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
+  %19 = load i32, ptr %retval, align 4
+  ret i32 %19
 }
 
 declare ptr @qemu_find_opts(ptr noundef) #1

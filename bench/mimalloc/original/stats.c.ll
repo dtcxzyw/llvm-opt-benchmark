@@ -122,12 +122,13 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %1 = load ptr, ptr %stat.addr, align 8
-  %cmp1 = icmp ult ptr %1, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
+  %2 = getelementptr inbounds i8, ptr @_mi_stats_main, i64 640
+  %cmp1 = icmp ult ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -664,24 +665,26 @@ entry:
   %call = call i64 @_mi_clock_end(i64 noundef %0) #4
   %elapsed = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 0
   store i64 %call, ptr %elapsed, align 8
-  %1 = load atomic i64, ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3, i32 3) monotonic, align 8
-  store i64 %1, ptr %atomic-temp, align 8
-  %2 = load i64, ptr %atomic-temp, align 8
+  %1 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3, i32 3
+  %2 = load atomic i64, ptr %1 monotonic, align 8
+  store i64 %2, ptr %atomic-temp, align 8
+  %3 = load i64, ptr %atomic-temp, align 8
   %current_commit1 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 5
-  store i64 %2, ptr %current_commit1, align 8
-  %3 = load atomic i64, ptr getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3, i32 2) monotonic, align 16
-  store i64 %3, ptr %atomic-temp2, align 8
-  %4 = load i64, ptr %atomic-temp2, align 8
+  store i64 %3, ptr %current_commit1, align 8
+  %4 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3, i32 2
+  %5 = load atomic i64, ptr %4 monotonic, align 16
+  store i64 %5, ptr %atomic-temp2, align 8
+  %6 = load i64, ptr %atomic-temp2, align 8
   %peak_commit3 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 6
-  store i64 %4, ptr %peak_commit3, align 8
+  store i64 %6, ptr %peak_commit3, align 8
   %current_commit4 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 5
-  %5 = load i64, ptr %current_commit4, align 8
+  %7 = load i64, ptr %current_commit4, align 8
   %current_rss5 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 3
-  store i64 %5, ptr %current_rss5, align 8
+  store i64 %7, ptr %current_rss5, align 8
   %peak_commit6 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 6
-  %6 = load i64, ptr %peak_commit6, align 8
+  %8 = load i64, ptr %peak_commit6, align 8
   %peak_rss7 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 4
-  store i64 %6, ptr %peak_rss7, align 8
+  store i64 %8, ptr %peak_rss7, align 8
   %utime = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 1
   store i64 0, ptr %utime, align 8
   %stime = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 2
@@ -689,14 +692,14 @@ entry:
   %page_faults8 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 7
   store i64 0, ptr %page_faults8, align 8
   call void @_mi_prim_process_info(ptr noundef %pinfo) #4
-  %7 = load ptr, ptr %elapsed_msecs.addr, align 8
-  %cmp = icmp ne ptr %7, null
+  %9 = load ptr, ptr %elapsed_msecs.addr, align 8
+  %cmp = icmp ne ptr %9, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %elapsed9 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 0
-  %8 = load i64, ptr %elapsed9, align 8
-  %cmp10 = icmp slt i64 %8, 0
+  %10 = load i64, ptr %elapsed9, align 8
+  %cmp10 = icmp slt i64 %10, 0
   br i1 %cmp10, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then
@@ -704,37 +707,37 @@ cond.true:                                        ; preds = %if.then
 
 cond.false:                                       ; preds = %if.then
   %elapsed11 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 0
-  %9 = load i64, ptr %elapsed11, align 8
-  %cmp12 = icmp slt i64 %9, 9223372036854775807
+  %11 = load i64, ptr %elapsed11, align 8
+  %cmp12 = icmp slt i64 %11, 9223372036854775807
   br i1 %cmp12, label %cond.true13, label %cond.false15
 
 cond.true13:                                      ; preds = %cond.false
   %elapsed14 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 0
-  %10 = load i64, ptr %elapsed14, align 8
+  %12 = load i64, ptr %elapsed14, align 8
   br label %cond.end
 
 cond.false15:                                     ; preds = %cond.false
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false15, %cond.true13
-  %cond = phi i64 [ %10, %cond.true13 ], [ 9223372036854775807, %cond.false15 ]
+  %cond = phi i64 [ %12, %cond.true13 ], [ 9223372036854775807, %cond.false15 ]
   br label %cond.end16
 
 cond.end16:                                       ; preds = %cond.end, %cond.true
   %cond17 = phi i64 [ 0, %cond.true ], [ %cond, %cond.end ]
-  %11 = load ptr, ptr %elapsed_msecs.addr, align 8
-  store i64 %cond17, ptr %11, align 8
+  %13 = load ptr, ptr %elapsed_msecs.addr, align 8
+  store i64 %cond17, ptr %13, align 8
   br label %if.end
 
 if.end:                                           ; preds = %cond.end16, %entry
-  %12 = load ptr, ptr %user_msecs.addr, align 8
-  %cmp18 = icmp ne ptr %12, null
+  %14 = load ptr, ptr %user_msecs.addr, align 8
+  %cmp18 = icmp ne ptr %14, null
   br i1 %cmp18, label %if.then19, label %if.end33
 
 if.then19:                                        ; preds = %if.end
   %utime20 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 1
-  %13 = load i64, ptr %utime20, align 8
-  %cmp21 = icmp slt i64 %13, 0
+  %15 = load i64, ptr %utime20, align 8
+  %cmp21 = icmp slt i64 %15, 0
   br i1 %cmp21, label %cond.true22, label %cond.false23
 
 cond.true22:                                      ; preds = %if.then19
@@ -742,37 +745,37 @@ cond.true22:                                      ; preds = %if.then19
 
 cond.false23:                                     ; preds = %if.then19
   %utime24 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 1
-  %14 = load i64, ptr %utime24, align 8
-  %cmp25 = icmp slt i64 %14, 9223372036854775807
+  %16 = load i64, ptr %utime24, align 8
+  %cmp25 = icmp slt i64 %16, 9223372036854775807
   br i1 %cmp25, label %cond.true26, label %cond.false28
 
 cond.true26:                                      ; preds = %cond.false23
   %utime27 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 1
-  %15 = load i64, ptr %utime27, align 8
+  %17 = load i64, ptr %utime27, align 8
   br label %cond.end29
 
 cond.false28:                                     ; preds = %cond.false23
   br label %cond.end29
 
 cond.end29:                                       ; preds = %cond.false28, %cond.true26
-  %cond30 = phi i64 [ %15, %cond.true26 ], [ 9223372036854775807, %cond.false28 ]
+  %cond30 = phi i64 [ %17, %cond.true26 ], [ 9223372036854775807, %cond.false28 ]
   br label %cond.end31
 
 cond.end31:                                       ; preds = %cond.end29, %cond.true22
   %cond32 = phi i64 [ 0, %cond.true22 ], [ %cond30, %cond.end29 ]
-  %16 = load ptr, ptr %user_msecs.addr, align 8
-  store i64 %cond32, ptr %16, align 8
+  %18 = load ptr, ptr %user_msecs.addr, align 8
+  store i64 %cond32, ptr %18, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %cond.end31, %if.end
-  %17 = load ptr, ptr %system_msecs.addr, align 8
-  %cmp34 = icmp ne ptr %17, null
+  %19 = load ptr, ptr %system_msecs.addr, align 8
+  %cmp34 = icmp ne ptr %19, null
   br i1 %cmp34, label %if.then35, label %if.end49
 
 if.then35:                                        ; preds = %if.end33
   %stime36 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 2
-  %18 = load i64, ptr %stime36, align 8
-  %cmp37 = icmp slt i64 %18, 0
+  %20 = load i64, ptr %stime36, align 8
+  %cmp37 = icmp slt i64 %20, 0
   br i1 %cmp37, label %cond.true38, label %cond.false39
 
 cond.true38:                                      ; preds = %if.then35
@@ -780,86 +783,86 @@ cond.true38:                                      ; preds = %if.then35
 
 cond.false39:                                     ; preds = %if.then35
   %stime40 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 2
-  %19 = load i64, ptr %stime40, align 8
-  %cmp41 = icmp slt i64 %19, 9223372036854775807
+  %21 = load i64, ptr %stime40, align 8
+  %cmp41 = icmp slt i64 %21, 9223372036854775807
   br i1 %cmp41, label %cond.true42, label %cond.false44
 
 cond.true42:                                      ; preds = %cond.false39
   %stime43 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 2
-  %20 = load i64, ptr %stime43, align 8
+  %22 = load i64, ptr %stime43, align 8
   br label %cond.end45
 
 cond.false44:                                     ; preds = %cond.false39
   br label %cond.end45
 
 cond.end45:                                       ; preds = %cond.false44, %cond.true42
-  %cond46 = phi i64 [ %20, %cond.true42 ], [ 9223372036854775807, %cond.false44 ]
+  %cond46 = phi i64 [ %22, %cond.true42 ], [ 9223372036854775807, %cond.false44 ]
   br label %cond.end47
 
 cond.end47:                                       ; preds = %cond.end45, %cond.true38
   %cond48 = phi i64 [ 0, %cond.true38 ], [ %cond46, %cond.end45 ]
-  %21 = load ptr, ptr %system_msecs.addr, align 8
-  store i64 %cond48, ptr %21, align 8
+  %23 = load ptr, ptr %system_msecs.addr, align 8
+  store i64 %cond48, ptr %23, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %cond.end47, %if.end33
-  %22 = load ptr, ptr %current_rss.addr, align 8
-  %cmp50 = icmp ne ptr %22, null
+  %24 = load ptr, ptr %current_rss.addr, align 8
+  %cmp50 = icmp ne ptr %24, null
   br i1 %cmp50, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %if.end49
   %current_rss52 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 3
-  %23 = load i64, ptr %current_rss52, align 8
-  %24 = load ptr, ptr %current_rss.addr, align 8
-  store i64 %23, ptr %24, align 8
+  %25 = load i64, ptr %current_rss52, align 8
+  %26 = load ptr, ptr %current_rss.addr, align 8
+  store i64 %25, ptr %26, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %if.end49
-  %25 = load ptr, ptr %peak_rss.addr, align 8
-  %cmp54 = icmp ne ptr %25, null
+  %27 = load ptr, ptr %peak_rss.addr, align 8
+  %cmp54 = icmp ne ptr %27, null
   br i1 %cmp54, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end53
   %peak_rss56 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 4
-  %26 = load i64, ptr %peak_rss56, align 8
-  %27 = load ptr, ptr %peak_rss.addr, align 8
-  store i64 %26, ptr %27, align 8
+  %28 = load i64, ptr %peak_rss56, align 8
+  %29 = load ptr, ptr %peak_rss.addr, align 8
+  store i64 %28, ptr %29, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then55, %if.end53
-  %28 = load ptr, ptr %current_commit.addr, align 8
-  %cmp58 = icmp ne ptr %28, null
+  %30 = load ptr, ptr %current_commit.addr, align 8
+  %cmp58 = icmp ne ptr %30, null
   br i1 %cmp58, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end57
   %current_commit60 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 5
-  %29 = load i64, ptr %current_commit60, align 8
-  %30 = load ptr, ptr %current_commit.addr, align 8
-  store i64 %29, ptr %30, align 8
+  %31 = load i64, ptr %current_commit60, align 8
+  %32 = load ptr, ptr %current_commit.addr, align 8
+  store i64 %31, ptr %32, align 8
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %if.end57
-  %31 = load ptr, ptr %peak_commit.addr, align 8
-  %cmp62 = icmp ne ptr %31, null
+  %33 = load ptr, ptr %peak_commit.addr, align 8
+  %cmp62 = icmp ne ptr %33, null
   br i1 %cmp62, label %if.then63, label %if.end65
 
 if.then63:                                        ; preds = %if.end61
   %peak_commit64 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 6
-  %32 = load i64, ptr %peak_commit64, align 8
-  %33 = load ptr, ptr %peak_commit.addr, align 8
-  store i64 %32, ptr %33, align 8
+  %34 = load i64, ptr %peak_commit64, align 8
+  %35 = load ptr, ptr %peak_commit.addr, align 8
+  store i64 %34, ptr %35, align 8
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then63, %if.end61
-  %34 = load ptr, ptr %page_faults.addr, align 8
-  %cmp66 = icmp ne ptr %34, null
+  %36 = load ptr, ptr %page_faults.addr, align 8
+  %cmp66 = icmp ne ptr %36, null
   br i1 %cmp66, label %if.then67, label %if.end69
 
 if.then67:                                        ; preds = %if.end65
   %page_faults68 = getelementptr inbounds %struct.mi_process_info_s, ptr %pinfo, i32 0, i32 7
-  %35 = load i64, ptr %page_faults68, align 8
-  %36 = load ptr, ptr %page_faults.addr, align 8
-  store i64 %35, ptr %36, align 8
+  %37 = load i64, ptr %page_faults68, align 8
+  %38 = load ptr, ptr %page_faults.addr, align 8
+  store i64 %37, ptr %38, align 8
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then67, %if.end65

@@ -1352,7 +1352,7 @@ define dso_local i32 @sacctmgr_remove_assoc_usage(ptr noundef %0) #0 {
 31:                                               ; preds = %25, %20, %1
   %32 = call i32 (ptr, ...) @error(ptr noundef @.str.15)
   store i32 -1, ptr %2, align 4
-  br label %232
+  br label %234
 
 33:                                               ; preds = %25
   %34 = load ptr, ptr %3, align 8
@@ -1374,331 +1374,333 @@ define dso_local i32 @sacctmgr_remove_assoc_usage(ptr noundef %0) #0 {
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 @list_count(ptr noundef %45)
   %47 = icmp ne i32 %46, 0
-  br i1 %47, label %56, label %48
+  br i1 %47, label %58, label %48
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %50 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %49)
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %55 = call ptr @xstrdup(ptr noundef %54)
-  call void @list_append(ptr noundef %53, ptr noundef %55)
-  br label %56
+  %49 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %50 = load ptr, ptr %49, align 8
+  %51 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %50)
+  %52 = load ptr, ptr %3, align 8
+  %53 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %56 = load ptr, ptr %55, align 8
+  %57 = call ptr @xstrdup(ptr noundef %56)
+  call void @list_append(ptr noundef %54, ptr noundef %57)
+  br label %58
 
-56:                                               ; preds = %48, %42
-  %57 = call i32 @commit_check(ptr noundef @.str.17)
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %62, label %59
+58:                                               ; preds = %48, %42
+  %59 = call i32 @commit_check(ptr noundef @.str.17)
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %64, label %61
 
-59:                                               ; preds = %56
-  %60 = call i32 (ptr, ...) @printf(ptr noundef @.str.18)
-  %61 = load i32, ptr %17, align 4
-  store i32 %61, ptr %2, align 4
-  br label %232
+61:                                               ; preds = %58
+  %62 = call i32 (ptr, ...) @printf(ptr noundef @.str.18)
+  %63 = load i32, ptr %17, align 4
+  store i32 %63, ptr %2, align 4
+  br label %234
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr @db_conn, align 8
-  %64 = load ptr, ptr %3, align 8
-  %65 = call ptr @slurmdb_associations_get(ptr noundef %63, ptr noundef %64)
-  store ptr %65, ptr %5, align 8
-  call void @slurmdb_init_cluster_cond(ptr noundef %16, i1 noundef zeroext false)
+64:                                               ; preds = %58
+  %65 = load ptr, ptr @db_conn, align 8
   %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %16, i32 0, i32 1
-  store ptr %68, ptr %69, align 8
-  %70 = load ptr, ptr @db_conn, align 8
-  %71 = call ptr @slurmdb_clusters_get(ptr noundef %70, ptr noundef %16)
-  store ptr %71, ptr %6, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = call ptr @list_iterator_create(ptr noundef %74)
-  store ptr %75, ptr %7, align 8
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = call ptr @list_iterator_create(ptr noundef %78)
-  store ptr %79, ptr %8, align 8
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %80, i32 0, i32 11
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %95
+  %67 = call ptr @slurmdb_associations_get(ptr noundef %65, ptr noundef %66)
+  store ptr %67, ptr %5, align 8
+  call void @slurmdb_init_cluster_cond(ptr noundef %16, i1 noundef zeroext false)
+  %68 = load ptr, ptr %3, align 8
+  %69 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %16, i32 0, i32 1
+  store ptr %70, ptr %71, align 8
+  %72 = load ptr, ptr @db_conn, align 8
+  %73 = call ptr @slurmdb_clusters_get(ptr noundef %72, ptr noundef %16)
+  store ptr %73, ptr %6, align 8
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = call ptr @list_iterator_create(ptr noundef %76)
+  store ptr %77, ptr %7, align 8
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %78, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8
+  %81 = call ptr @list_iterator_create(ptr noundef %80)
+  store ptr %81, ptr %8, align 8
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %82, i32 0, i32 11
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %97
 
-84:                                               ; preds = %62
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %85, i32 0, i32 11
-  %87 = load ptr, ptr %86, align 8
-  %88 = call i32 @list_count(ptr noundef %87)
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %95
+86:                                               ; preds = %64
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %87, i32 0, i32 11
+  %89 = load ptr, ptr %88, align 8
+  %90 = call i32 @list_count(ptr noundef %89)
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %97
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %91, i32 0, i32 11
-  %93 = load ptr, ptr %92, align 8
-  %94 = call ptr @list_iterator_create(ptr noundef %93)
-  store ptr %94, ptr %9, align 8
-  br label %95
+92:                                               ; preds = %86
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds %struct.slurmdb_assoc_cond_t, ptr %93, i32 0, i32 11
+  %95 = load ptr, ptr %94, align 8
+  %96 = call ptr @list_iterator_create(ptr noundef %95)
+  store ptr %96, ptr %9, align 8
+  br label %97
 
-95:                                               ; preds = %90, %84, %62
-  br label %96
+97:                                               ; preds = %92, %86, %64
+  br label %98
 
-96:                                               ; preds = %207, %95
-  %97 = load ptr, ptr %7, align 8
-  %98 = call ptr @list_next(ptr noundef %97)
-  store ptr %98, ptr %11, align 8
-  %99 = icmp ne ptr %98, null
-  br i1 %99, label %100, label %208
+98:                                               ; preds = %209, %97
+  %99 = load ptr, ptr %7, align 8
+  %100 = call ptr @list_next(ptr noundef %99)
+  store ptr %100, ptr %11, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %210
 
-100:                                              ; preds = %96
-  %101 = load ptr, ptr %6, align 8
-  %102 = load ptr, ptr %11, align 8
-  %103 = call ptr @sacctmgr_find_cluster_from_list(ptr noundef %101, ptr noundef %102)
-  store ptr %103, ptr %14, align 8
-  %104 = load ptr, ptr %14, align 8
-  %105 = icmp ne ptr %104, null
-  br i1 %105, label %109, label %106
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %6, align 8
+  %104 = load ptr, ptr %11, align 8
+  %105 = call ptr @sacctmgr_find_cluster_from_list(ptr noundef %103, ptr noundef %104)
+  store ptr %105, ptr %14, align 8
+  %106 = load ptr, ptr %14, align 8
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %111, label %108
 
-106:                                              ; preds = %100
-  %107 = load ptr, ptr %11, align 8
-  %108 = call i32 (ptr, ...) @error(ptr noundef @.str.19, ptr noundef %107)
+108:                                              ; preds = %102
+  %109 = load ptr, ptr %11, align 8
+  %110 = call i32 (ptr, ...) @error(ptr noundef @.str.19, ptr noundef %109)
   store i32 -1, ptr %17, align 4
-  br label %209
+  br label %211
 
-109:                                              ; preds = %100
-  %110 = call ptr @list_create(ptr noundef @slurmdb_destroy_update_object)
-  store ptr %110, ptr %4, align 8
-  %111 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 971, ptr noundef @__func__.sacctmgr_remove_assoc_usage)
-  store ptr %111, ptr %15, align 8
-  %112 = load ptr, ptr %15, align 8
-  %113 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %112, i32 0, i32 1
-  store i16 17, ptr %113, align 8
-  %114 = call ptr @list_create(ptr noundef null)
-  %115 = load ptr, ptr %15, align 8
-  %116 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %115, i32 0, i32 0
-  store ptr %114, ptr %116, align 8
-  %117 = load ptr, ptr %9, align 8
-  %118 = icmp ne ptr %117, null
-  br i1 %118, label %119, label %152
+111:                                              ; preds = %102
+  %112 = call ptr @list_create(ptr noundef @slurmdb_destroy_update_object)
+  store ptr %112, ptr %4, align 8
+  %113 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 971, ptr noundef @__func__.sacctmgr_remove_assoc_usage)
+  store ptr %113, ptr %15, align 8
+  %114 = load ptr, ptr %15, align 8
+  %115 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %114, i32 0, i32 1
+  store i16 17, ptr %115, align 8
+  %116 = call ptr @list_create(ptr noundef null)
+  %117 = load ptr, ptr %15, align 8
+  %118 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %117, i32 0, i32 0
+  store ptr %116, ptr %118, align 8
+  %119 = load ptr, ptr %9, align 8
+  %120 = icmp ne ptr %119, null
+  br i1 %120, label %121, label %154
 
-119:                                              ; preds = %109
-  br label %120
+121:                                              ; preds = %111
+  br label %122
 
-120:                                              ; preds = %148, %119
-  %121 = load ptr, ptr %9, align 8
-  %122 = call ptr @list_next(ptr noundef %121)
-  store ptr %122, ptr %12, align 8
-  %123 = icmp ne ptr %122, null
-  br i1 %123, label %124, label %150
+122:                                              ; preds = %150, %121
+  %123 = load ptr, ptr %9, align 8
+  %124 = call ptr @list_next(ptr noundef %123)
+  store ptr %124, ptr %12, align 8
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %126, label %152
 
-124:                                              ; preds = %120
-  br label %125
+126:                                              ; preds = %122
+  br label %127
 
-125:                                              ; preds = %143, %124
-  %126 = load ptr, ptr %8, align 8
-  %127 = call ptr @list_next(ptr noundef %126)
-  store ptr %127, ptr %10, align 8
-  %128 = icmp ne ptr %127, null
-  br i1 %128, label %129, label %148
+127:                                              ; preds = %145, %126
+  %128 = load ptr, ptr %8, align 8
+  %129 = call ptr @list_next(ptr noundef %128)
+  store ptr %129, ptr %10, align 8
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %150
 
-129:                                              ; preds = %125
-  %130 = load ptr, ptr %5, align 8
-  %131 = load ptr, ptr %12, align 8
-  %132 = load ptr, ptr %10, align 8
-  %133 = load ptr, ptr %11, align 8
-  %134 = call ptr @sacctmgr_find_assoc_from_list(ptr noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef @.str.20)
-  store ptr %134, ptr %13, align 8
-  %135 = load ptr, ptr %13, align 8
-  %136 = icmp ne ptr %135, null
-  br i1 %136, label %143, label %137
+131:                                              ; preds = %127
+  %132 = load ptr, ptr %5, align 8
+  %133 = load ptr, ptr %12, align 8
+  %134 = load ptr, ptr %10, align 8
+  %135 = load ptr, ptr %11, align 8
+  %136 = call ptr @sacctmgr_find_assoc_from_list(ptr noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef @.str.20)
+  store ptr %136, ptr %13, align 8
+  %137 = load ptr, ptr %13, align 8
+  %138 = icmp ne ptr %137, null
+  br i1 %138, label %145, label %139
 
-137:                                              ; preds = %129
-  %138 = load ptr, ptr %11, align 8
-  %139 = load ptr, ptr %10, align 8
-  %140 = load ptr, ptr %12, align 8
-  %141 = call i32 (ptr, ...) @error(ptr noundef @.str.21, ptr noundef %138, ptr noundef %139, ptr noundef %140)
+139:                                              ; preds = %131
+  %140 = load ptr, ptr %11, align 8
+  %141 = load ptr, ptr %10, align 8
+  %142 = load ptr, ptr %12, align 8
+  %143 = call i32 (ptr, ...) @error(ptr noundef @.str.21, ptr noundef %140, ptr noundef %141, ptr noundef %142)
   store i32 -1, ptr %17, align 4
-  %142 = load ptr, ptr %15, align 8
-  call void @slurmdb_destroy_update_object(ptr noundef %142)
-  br label %209
-
-143:                                              ; preds = %129
   %144 = load ptr, ptr %15, align 8
-  %145 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %144, i32 0, i32 0
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr %13, align 8
-  call void @list_append(ptr noundef %146, ptr noundef %147)
-  br label %125, !llvm.loop !12
+  call void @slurmdb_destroy_update_object(ptr noundef %144)
+  br label %211
 
-148:                                              ; preds = %125
-  %149 = load ptr, ptr %8, align 8
-  call void @list_iterator_reset(ptr noundef %149)
-  br label %120, !llvm.loop !13
+145:                                              ; preds = %131
+  %146 = load ptr, ptr %15, align 8
+  %147 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %13, align 8
+  call void @list_append(ptr noundef %148, ptr noundef %149)
+  br label %127, !llvm.loop !12
 
-150:                                              ; preds = %120
-  %151 = load ptr, ptr %9, align 8
+150:                                              ; preds = %127
+  %151 = load ptr, ptr %8, align 8
   call void @list_iterator_reset(ptr noundef %151)
-  br label %176
+  br label %122, !llvm.loop !13
 
-152:                                              ; preds = %109
-  br label %153
+152:                                              ; preds = %122
+  %153 = load ptr, ptr %9, align 8
+  call void @list_iterator_reset(ptr noundef %153)
+  br label %178
 
-153:                                              ; preds = %169, %152
-  %154 = load ptr, ptr %8, align 8
-  %155 = call ptr @list_next(ptr noundef %154)
-  store ptr %155, ptr %10, align 8
-  %156 = icmp ne ptr %155, null
-  br i1 %156, label %157, label %174
+154:                                              ; preds = %111
+  br label %155
 
-157:                                              ; preds = %153
-  %158 = load ptr, ptr %5, align 8
-  %159 = load ptr, ptr %10, align 8
-  %160 = load ptr, ptr %11, align 8
-  %161 = call ptr @sacctmgr_find_assoc_from_list(ptr noundef %158, ptr noundef null, ptr noundef %159, ptr noundef %160, ptr noundef @.str.20)
-  store ptr %161, ptr %13, align 8
-  %162 = load ptr, ptr %13, align 8
-  %163 = icmp ne ptr %162, null
-  br i1 %163, label %169, label %164
+155:                                              ; preds = %171, %154
+  %156 = load ptr, ptr %8, align 8
+  %157 = call ptr @list_next(ptr noundef %156)
+  store ptr %157, ptr %10, align 8
+  %158 = icmp ne ptr %157, null
+  br i1 %158, label %159, label %176
 
-164:                                              ; preds = %157
-  %165 = load ptr, ptr %11, align 8
-  %166 = load ptr, ptr %10, align 8
-  %167 = call i32 (ptr, ...) @error(ptr noundef @.str.22, ptr noundef %165, ptr noundef %166)
+159:                                              ; preds = %155
+  %160 = load ptr, ptr %5, align 8
+  %161 = load ptr, ptr %10, align 8
+  %162 = load ptr, ptr %11, align 8
+  %163 = call ptr @sacctmgr_find_assoc_from_list(ptr noundef %160, ptr noundef null, ptr noundef %161, ptr noundef %162, ptr noundef @.str.20)
+  store ptr %163, ptr %13, align 8
+  %164 = load ptr, ptr %13, align 8
+  %165 = icmp ne ptr %164, null
+  br i1 %165, label %171, label %166
+
+166:                                              ; preds = %159
+  %167 = load ptr, ptr %11, align 8
+  %168 = load ptr, ptr %10, align 8
+  %169 = call i32 (ptr, ...) @error(ptr noundef @.str.22, ptr noundef %167, ptr noundef %168)
   store i32 -1, ptr %17, align 4
-  %168 = load ptr, ptr %15, align 8
-  call void @slurmdb_destroy_update_object(ptr noundef %168)
-  br label %209
-
-169:                                              ; preds = %157
   %170 = load ptr, ptr %15, align 8
-  %171 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %170, i32 0, i32 0
-  %172 = load ptr, ptr %171, align 8
-  %173 = load ptr, ptr %13, align 8
-  call void @list_append(ptr noundef %172, ptr noundef %173)
-  br label %153, !llvm.loop !14
+  call void @slurmdb_destroy_update_object(ptr noundef %170)
+  br label %211
 
-174:                                              ; preds = %153
-  %175 = load ptr, ptr %8, align 8
-  call void @list_iterator_reset(ptr noundef %175)
-  br label %176
+171:                                              ; preds = %159
+  %172 = load ptr, ptr %15, align 8
+  %173 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %172, i32 0, i32 0
+  %174 = load ptr, ptr %173, align 8
+  %175 = load ptr, ptr %13, align 8
+  call void @list_append(ptr noundef %174, ptr noundef %175)
+  br label %155, !llvm.loop !14
 
-176:                                              ; preds = %174, %150
-  %177 = load ptr, ptr %15, align 8
-  %178 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %177, i32 0, i32 0
-  %179 = load ptr, ptr %178, align 8
-  %180 = call i32 @list_count(ptr noundef %179)
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %182, label %198
+176:                                              ; preds = %155
+  %177 = load ptr, ptr %8, align 8
+  call void @list_iterator_reset(ptr noundef %177)
+  br label %178
 
-182:                                              ; preds = %176
-  %183 = load ptr, ptr %4, align 8
-  %184 = load ptr, ptr %15, align 8
-  call void @list_append(ptr noundef %183, ptr noundef %184)
+178:                                              ; preds = %176, %152
+  %179 = load ptr, ptr %15, align 8
+  %180 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %179, i32 0, i32 0
+  %181 = load ptr, ptr %180, align 8
+  %182 = call i32 @list_count(ptr noundef %181)
+  %183 = icmp ne i32 %182, 0
+  br i1 %183, label %184, label %200
+
+184:                                              ; preds = %178
   %185 = load ptr, ptr %4, align 8
-  %186 = load ptr, ptr %11, align 8
-  %187 = load ptr, ptr %14, align 8
-  %188 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %187, i32 0, i32 4
-  %189 = load ptr, ptr %188, align 8
-  %190 = load ptr, ptr %14, align 8
-  %191 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %190, i32 0, i32 5
-  %192 = load i32, ptr %191, align 8
-  %193 = trunc i32 %192 to i16
-  %194 = load ptr, ptr %14, align 8
-  %195 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %194, i32 0, i32 14
-  %196 = load i16, ptr %195, align 8
-  %197 = call i32 @slurmdb_send_accounting_update(ptr noundef %185, ptr noundef %186, ptr noundef %189, i16 noundef zeroext %193, i16 noundef zeroext %196)
-  store i32 %197, ptr %17, align 4
-  br label %200
+  %186 = load ptr, ptr %15, align 8
+  call void @list_append(ptr noundef %185, ptr noundef %186)
+  %187 = load ptr, ptr %4, align 8
+  %188 = load ptr, ptr %11, align 8
+  %189 = load ptr, ptr %14, align 8
+  %190 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %189, i32 0, i32 4
+  %191 = load ptr, ptr %190, align 8
+  %192 = load ptr, ptr %14, align 8
+  %193 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %192, i32 0, i32 5
+  %194 = load i32, ptr %193, align 8
+  %195 = trunc i32 %194 to i16
+  %196 = load ptr, ptr %14, align 8
+  %197 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %196, i32 0, i32 14
+  %198 = load i16, ptr %197, align 8
+  %199 = call i32 @slurmdb_send_accounting_update(ptr noundef %187, ptr noundef %188, ptr noundef %191, i16 noundef zeroext %195, i16 noundef zeroext %198)
+  store i32 %199, ptr %17, align 4
+  br label %202
 
-198:                                              ; preds = %176
-  %199 = load ptr, ptr %15, align 8
-  call void @slurmdb_destroy_update_object(ptr noundef %199)
-  br label %200
+200:                                              ; preds = %178
+  %201 = load ptr, ptr %15, align 8
+  call void @slurmdb_destroy_update_object(ptr noundef %201)
+  br label %202
 
-200:                                              ; preds = %198, %182
+202:                                              ; preds = %200, %184
   store ptr null, ptr %15, align 8
-  br label %201
+  br label %203
 
-201:                                              ; preds = %200
-  %202 = load ptr, ptr %4, align 8
-  %203 = icmp ne ptr %202, null
-  br i1 %203, label %204, label %206
+203:                                              ; preds = %202
+  %204 = load ptr, ptr %4, align 8
+  %205 = icmp ne ptr %204, null
+  br i1 %205, label %206, label %208
 
-204:                                              ; preds = %201
-  %205 = load ptr, ptr %4, align 8
-  call void @list_destroy(ptr noundef %205)
-  br label %206
+206:                                              ; preds = %203
+  %207 = load ptr, ptr %4, align 8
+  call void @list_destroy(ptr noundef %207)
+  br label %208
 
-206:                                              ; preds = %204, %201
+208:                                              ; preds = %206, %203
   store ptr null, ptr %4, align 8
-  br label %207
-
-207:                                              ; preds = %206
-  br label %96, !llvm.loop !15
-
-208:                                              ; preds = %96
   br label %209
 
-209:                                              ; preds = %208, %164, %137, %106
-  %210 = load ptr, ptr %7, align 8
-  call void @list_iterator_destroy(ptr noundef %210)
-  %211 = load ptr, ptr %8, align 8
-  call void @list_iterator_destroy(ptr noundef %211)
-  %212 = load ptr, ptr %9, align 8
-  %213 = icmp ne ptr %212, null
-  br i1 %213, label %214, label %216
+209:                                              ; preds = %208
+  br label %98, !llvm.loop !15
 
-214:                                              ; preds = %209
-  %215 = load ptr, ptr %9, align 8
-  call void @list_iterator_destroy(ptr noundef %215)
-  br label %216
+210:                                              ; preds = %98
+  br label %211
 
-216:                                              ; preds = %214, %209
-  br label %217
+211:                                              ; preds = %210, %166, %139, %108
+  %212 = load ptr, ptr %7, align 8
+  call void @list_iterator_destroy(ptr noundef %212)
+  %213 = load ptr, ptr %8, align 8
+  call void @list_iterator_destroy(ptr noundef %213)
+  %214 = load ptr, ptr %9, align 8
+  %215 = icmp ne ptr %214, null
+  br i1 %215, label %216, label %218
 
-217:                                              ; preds = %216
-  %218 = load ptr, ptr %5, align 8
-  %219 = icmp ne ptr %218, null
-  br i1 %219, label %220, label %222
+216:                                              ; preds = %211
+  %217 = load ptr, ptr %9, align 8
+  call void @list_iterator_destroy(ptr noundef %217)
+  br label %218
 
-220:                                              ; preds = %217
-  %221 = load ptr, ptr %5, align 8
-  call void @list_destroy(ptr noundef %221)
-  br label %222
+218:                                              ; preds = %216, %211
+  br label %219
 
-222:                                              ; preds = %220, %217
-  store ptr null, ptr %5, align 8
-  br label %223
+219:                                              ; preds = %218
+  %220 = load ptr, ptr %5, align 8
+  %221 = icmp ne ptr %220, null
+  br i1 %221, label %222, label %224
 
-223:                                              ; preds = %222
+222:                                              ; preds = %219
+  %223 = load ptr, ptr %5, align 8
+  call void @list_destroy(ptr noundef %223)
   br label %224
 
-224:                                              ; preds = %223
-  %225 = load ptr, ptr %6, align 8
-  %226 = icmp ne ptr %225, null
-  br i1 %226, label %227, label %229
+224:                                              ; preds = %222, %219
+  store ptr null, ptr %5, align 8
+  br label %225
 
-227:                                              ; preds = %224
-  %228 = load ptr, ptr %6, align 8
-  call void @list_destroy(ptr noundef %228)
-  br label %229
+225:                                              ; preds = %224
+  br label %226
 
-229:                                              ; preds = %227, %224
+226:                                              ; preds = %225
+  %227 = load ptr, ptr %6, align 8
+  %228 = icmp ne ptr %227, null
+  br i1 %228, label %229, label %231
+
+229:                                              ; preds = %226
+  %230 = load ptr, ptr %6, align 8
+  call void @list_destroy(ptr noundef %230)
+  br label %231
+
+231:                                              ; preds = %229, %226
   store ptr null, ptr %6, align 8
-  br label %230
-
-230:                                              ; preds = %229
-  %231 = load i32, ptr %17, align 4
-  store i32 %231, ptr %2, align 4
   br label %232
 
-232:                                              ; preds = %230, %59, %31
-  %233 = load i32, ptr %2, align 4
-  ret i32 %233
+232:                                              ; preds = %231
+  %233 = load i32, ptr %17, align 4
+  store i32 %233, ptr %2, align 4
+  br label %234
+
+234:                                              ; preds = %232, %61, %31
+  %235 = load i32, ptr %2, align 4
+  ret i32 %235
 }
 
 declare i32 @list_count(ptr noundef) #2
@@ -2040,243 +2042,245 @@ define dso_local i32 @sacctmgr_update_qos_usage(ptr noundef %0, x86_fp80 noundef
   %29 = load ptr, ptr %7, align 8
   %30 = call i32 @list_count(ptr noundef %29)
   %31 = icmp ne i32 %30, 0
-  br i1 %31, label %38, label %32
+  br i1 %31, label %40, label %32
 
 32:                                               ; preds = %28
-  %33 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %34 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %33)
-  %35 = load ptr, ptr %7, align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %37 = call ptr @xstrdup(ptr noundef %36)
-  call void @list_append(ptr noundef %35, ptr noundef %37)
-  br label %38
+  %33 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %34)
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr @xstrdup(ptr noundef %38)
+  call void @list_append(ptr noundef %36, ptr noundef %39)
+  br label %40
 
-38:                                               ; preds = %32, %28
-  %39 = call i32 @commit_check(ptr noundef @.str.23)
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %44, label %41
+40:                                               ; preds = %32, %28
+  %41 = call i32 @commit_check(ptr noundef @.str.23)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %46, label %43
 
-41:                                               ; preds = %38
-  %42 = call i32 (ptr, ...) @printf(ptr noundef @.str.18)
-  %43 = load i32, ptr %18, align 4
-  store i32 %43, ptr %3, align 4
-  br label %164
+43:                                               ; preds = %40
+  %44 = call i32 (ptr, ...) @printf(ptr noundef @.str.18)
+  %45 = load i32, ptr %18, align 4
+  store i32 %45, ptr %3, align 4
+  br label %166
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr @db_conn, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = call ptr @slurmdb_qos_get(ptr noundef %45, ptr noundef %46)
-  store ptr %47, ptr %8, align 8
+46:                                               ; preds = %40
+  %47 = load ptr, ptr @db_conn, align 8
+  %48 = load ptr, ptr %4, align 8
+  %49 = call ptr @slurmdb_qos_get(ptr noundef %47, ptr noundef %48)
+  store ptr %49, ptr %8, align 8
   call void @slurmdb_init_cluster_cond(ptr noundef %17, i1 noundef zeroext false)
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %17, i32 0, i32 1
-  store ptr %48, ptr %49, align 8
-  %50 = load ptr, ptr @db_conn, align 8
-  %51 = call ptr @slurmdb_clusters_get(ptr noundef %50, ptr noundef %17)
-  store ptr %51, ptr %9, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = call ptr @list_iterator_create(ptr noundef %52)
-  store ptr %53, ptr %10, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.slurmdb_qos_cond_t, ptr %54, i32 0, i32 3
-  %56 = load ptr, ptr %55, align 8
-  %57 = call ptr @list_iterator_create(ptr noundef %56)
-  store ptr %57, ptr %11, align 8
-  br label %58
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct.slurmdb_cluster_cond_t, ptr %17, i32 0, i32 1
+  store ptr %50, ptr %51, align 8
+  %52 = load ptr, ptr @db_conn, align 8
+  %53 = call ptr @slurmdb_clusters_get(ptr noundef %52, ptr noundef %17)
+  store ptr %53, ptr %9, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = call ptr @list_iterator_create(ptr noundef %54)
+  store ptr %55, ptr %10, align 8
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds %struct.slurmdb_qos_cond_t, ptr %56, i32 0, i32 3
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr @list_iterator_create(ptr noundef %58)
+  store ptr %59, ptr %11, align 8
+  br label %60
 
-58:                                               ; preds = %144, %44
-  %59 = load ptr, ptr %10, align 8
-  %60 = call ptr @list_next(ptr noundef %59)
-  store ptr %60, ptr %13, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %145
+60:                                               ; preds = %146, %46
+  %61 = load ptr, ptr %10, align 8
+  %62 = call ptr @list_next(ptr noundef %61)
+  store ptr %62, ptr %13, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %147
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %9, align 8
-  %64 = load ptr, ptr %13, align 8
-  %65 = call ptr @sacctmgr_find_cluster_from_list(ptr noundef %63, ptr noundef %64)
-  store ptr %65, ptr %15, align 8
-  %66 = load ptr, ptr %15, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %71, label %68
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %9, align 8
+  %66 = load ptr, ptr %13, align 8
+  %67 = call ptr @sacctmgr_find_cluster_from_list(ptr noundef %65, ptr noundef %66)
+  store ptr %67, ptr %15, align 8
+  %68 = load ptr, ptr %15, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %73, label %70
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %13, align 8
-  %70 = call i32 (ptr, ...) @error(ptr noundef @.str.19, ptr noundef %69)
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %13, align 8
+  %72 = call i32 (ptr, ...) @error(ptr noundef @.str.19, ptr noundef %71)
   store i32 -1, ptr %18, align 4
-  br label %146
+  br label %148
 
-71:                                               ; preds = %62
-  %72 = call ptr @list_create(ptr noundef @slurmdb_destroy_update_object)
-  store ptr %72, ptr %6, align 8
-  %73 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 1095, ptr noundef @__func__.sacctmgr_update_qos_usage)
-  store ptr %73, ptr %16, align 8
-  %74 = load ptr, ptr %16, align 8
-  %75 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %74, i32 0, i32 1
-  store i16 21, ptr %75, align 8
-  %76 = call ptr @list_create(ptr noundef null)
-  %77 = load ptr, ptr %16, align 8
-  %78 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %77, i32 0, i32 0
-  store ptr %76, ptr %78, align 8
-  br label %79
+73:                                               ; preds = %64
+  %74 = call ptr @list_create(ptr noundef @slurmdb_destroy_update_object)
+  store ptr %74, ptr %6, align 8
+  %75 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 1095, ptr noundef @__func__.sacctmgr_update_qos_usage)
+  store ptr %75, ptr %16, align 8
+  %76 = load ptr, ptr %16, align 8
+  %77 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %76, i32 0, i32 1
+  store i16 21, ptr %77, align 8
+  %78 = call ptr @list_create(ptr noundef null)
+  %79 = load ptr, ptr %16, align 8
+  %80 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %79, i32 0, i32 0
+  store ptr %78, ptr %80, align 8
+  br label %81
 
-79:                                               ; preds = %102, %71
-  %80 = load ptr, ptr %11, align 8
-  %81 = call ptr @list_next(ptr noundef %80)
-  store ptr %81, ptr %12, align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %83, label %112
+81:                                               ; preds = %104, %73
+  %82 = load ptr, ptr %11, align 8
+  %83 = call ptr @list_next(ptr noundef %82)
+  store ptr %83, ptr %12, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %114
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %8, align 8
-  %85 = load ptr, ptr %12, align 8
-  %86 = call ptr @sacctmgr_find_qos_from_list(ptr noundef %84, ptr noundef %85)
-  store ptr %86, ptr %14, align 8
-  %87 = load ptr, ptr %14, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %93, label %89
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %8, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = call ptr @sacctmgr_find_qos_from_list(ptr noundef %86, ptr noundef %87)
+  store ptr %88, ptr %14, align 8
+  %89 = load ptr, ptr %14, align 8
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %95, label %91
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %12, align 8
-  %91 = call i32 (ptr, ...) @error(ptr noundef @.str.24, ptr noundef %90)
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %12, align 8
+  %93 = call i32 (ptr, ...) @error(ptr noundef @.str.24, ptr noundef %92)
   store i32 -1, ptr %18, align 4
-  %92 = load ptr, ptr %16, align 8
-  call void @slurmdb_destroy_update_object(ptr noundef %92)
-  br label %146
+  %94 = load ptr, ptr %16, align 8
+  call void @slurmdb_destroy_update_object(ptr noundef %94)
+  br label %148
 
-93:                                               ; preds = %83
-  %94 = load ptr, ptr %14, align 8
-  %95 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %94, i32 0, i32 46
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %102, label %98
+95:                                               ; preds = %85
+  %96 = load ptr, ptr %14, align 8
+  %97 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %96, i32 0, i32 46
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp ne ptr %98, null
+  br i1 %99, label %104, label %100
 
-98:                                               ; preds = %93
-  %99 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 1109, ptr noundef @__func__.sacctmgr_update_qos_usage)
-  %100 = load ptr, ptr %14, align 8
-  %101 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %100, i32 0, i32 46
-  store ptr %99, ptr %101, align 8
-  br label %102
+100:                                              ; preds = %95
+  %101 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 1109, ptr noundef @__func__.sacctmgr_update_qos_usage)
+  %102 = load ptr, ptr %14, align 8
+  %103 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %102, i32 0, i32 46
+  store ptr %101, ptr %103, align 8
+  br label %104
 
-102:                                              ; preds = %98, %93
-  %103 = load x86_fp80, ptr %5, align 16
-  %104 = load ptr, ptr %14, align 8
-  %105 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %104, i32 0, i32 46
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %106, i32 0, i32 12
-  store x86_fp80 %103, ptr %107, align 16
-  %108 = load ptr, ptr %16, align 8
-  %109 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %108, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %14, align 8
-  call void @list_append(ptr noundef %110, ptr noundef %111)
-  br label %79, !llvm.loop !18
+104:                                              ; preds = %100, %95
+  %105 = load x86_fp80, ptr %5, align 16
+  %106 = load ptr, ptr %14, align 8
+  %107 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %106, i32 0, i32 46
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %108, i32 0, i32 12
+  store x86_fp80 %105, ptr %109, align 16
+  %110 = load ptr, ptr %16, align 8
+  %111 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %14, align 8
+  call void @list_append(ptr noundef %112, ptr noundef %113)
+  br label %81, !llvm.loop !18
 
-112:                                              ; preds = %79
-  %113 = load ptr, ptr %11, align 8
-  call void @list_iterator_reset(ptr noundef %113)
-  %114 = load ptr, ptr %16, align 8
-  %115 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %114, i32 0, i32 0
-  %116 = load ptr, ptr %115, align 8
-  %117 = call i32 @list_count(ptr noundef %116)
-  %118 = icmp ne i32 %117, 0
-  br i1 %118, label %119, label %135
+114:                                              ; preds = %81
+  %115 = load ptr, ptr %11, align 8
+  call void @list_iterator_reset(ptr noundef %115)
+  %116 = load ptr, ptr %16, align 8
+  %117 = getelementptr inbounds %struct.slurmdb_update_object_t, ptr %116, i32 0, i32 0
+  %118 = load ptr, ptr %117, align 8
+  %119 = call i32 @list_count(ptr noundef %118)
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %137
 
-119:                                              ; preds = %112
-  %120 = load ptr, ptr %6, align 8
-  %121 = load ptr, ptr %16, align 8
-  call void @list_append(ptr noundef %120, ptr noundef %121)
+121:                                              ; preds = %114
   %122 = load ptr, ptr %6, align 8
-  %123 = load ptr, ptr %13, align 8
-  %124 = load ptr, ptr %15, align 8
-  %125 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %124, i32 0, i32 4
-  %126 = load ptr, ptr %125, align 8
-  %127 = load ptr, ptr %15, align 8
-  %128 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %127, i32 0, i32 5
-  %129 = load i32, ptr %128, align 8
-  %130 = trunc i32 %129 to i16
-  %131 = load ptr, ptr %15, align 8
-  %132 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %131, i32 0, i32 14
-  %133 = load i16, ptr %132, align 8
-  %134 = call i32 @slurmdb_send_accounting_update(ptr noundef %122, ptr noundef %123, ptr noundef %126, i16 noundef zeroext %130, i16 noundef zeroext %133)
-  store i32 %134, ptr %18, align 4
-  br label %137
+  %123 = load ptr, ptr %16, align 8
+  call void @list_append(ptr noundef %122, ptr noundef %123)
+  %124 = load ptr, ptr %6, align 8
+  %125 = load ptr, ptr %13, align 8
+  %126 = load ptr, ptr %15, align 8
+  %127 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %126, i32 0, i32 4
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %15, align 8
+  %130 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %129, i32 0, i32 5
+  %131 = load i32, ptr %130, align 8
+  %132 = trunc i32 %131 to i16
+  %133 = load ptr, ptr %15, align 8
+  %134 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %133, i32 0, i32 14
+  %135 = load i16, ptr %134, align 8
+  %136 = call i32 @slurmdb_send_accounting_update(ptr noundef %124, ptr noundef %125, ptr noundef %128, i16 noundef zeroext %132, i16 noundef zeroext %135)
+  store i32 %136, ptr %18, align 4
+  br label %139
 
-135:                                              ; preds = %112
-  %136 = load ptr, ptr %16, align 8
-  call void @slurmdb_destroy_update_object(ptr noundef %136)
-  br label %137
+137:                                              ; preds = %114
+  %138 = load ptr, ptr %16, align 8
+  call void @slurmdb_destroy_update_object(ptr noundef %138)
+  br label %139
 
-137:                                              ; preds = %135, %119
-  br label %138
+139:                                              ; preds = %137, %121
+  br label %140
 
-138:                                              ; preds = %137
-  %139 = load ptr, ptr %6, align 8
-  %140 = icmp ne ptr %139, null
-  br i1 %140, label %141, label %143
+140:                                              ; preds = %139
+  %141 = load ptr, ptr %6, align 8
+  %142 = icmp ne ptr %141, null
+  br i1 %142, label %143, label %145
 
-141:                                              ; preds = %138
-  %142 = load ptr, ptr %6, align 8
-  call void @list_destroy(ptr noundef %142)
-  br label %143
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %6, align 8
+  call void @list_destroy(ptr noundef %144)
+  br label %145
 
-143:                                              ; preds = %141, %138
+145:                                              ; preds = %143, %140
   store ptr null, ptr %6, align 8
-  br label %144
-
-144:                                              ; preds = %143
-  br label %58, !llvm.loop !19
-
-145:                                              ; preds = %58
   br label %146
 
-146:                                              ; preds = %145, %89, %68
-  %147 = load ptr, ptr %10, align 8
-  call void @list_iterator_destroy(ptr noundef %147)
-  %148 = load ptr, ptr %11, align 8
-  call void @list_iterator_destroy(ptr noundef %148)
-  br label %149
+146:                                              ; preds = %145
+  br label %60, !llvm.loop !19
 
-149:                                              ; preds = %146
-  %150 = load ptr, ptr %6, align 8
-  %151 = icmp ne ptr %150, null
-  br i1 %151, label %152, label %154
+147:                                              ; preds = %60
+  br label %148
 
-152:                                              ; preds = %149
-  %153 = load ptr, ptr %6, align 8
-  call void @list_destroy(ptr noundef %153)
-  br label %154
+148:                                              ; preds = %147, %91, %70
+  %149 = load ptr, ptr %10, align 8
+  call void @list_iterator_destroy(ptr noundef %149)
+  %150 = load ptr, ptr %11, align 8
+  call void @list_iterator_destroy(ptr noundef %150)
+  br label %151
 
-154:                                              ; preds = %152, %149
-  store ptr null, ptr %6, align 8
-  br label %155
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %6, align 8
+  %153 = icmp ne ptr %152, null
+  br i1 %153, label %154, label %156
 
-155:                                              ; preds = %154
+154:                                              ; preds = %151
+  %155 = load ptr, ptr %6, align 8
+  call void @list_destroy(ptr noundef %155)
   br label %156
 
-156:                                              ; preds = %155
-  %157 = load ptr, ptr %8, align 8
-  %158 = icmp ne ptr %157, null
-  br i1 %158, label %159, label %161
+156:                                              ; preds = %154, %151
+  store ptr null, ptr %6, align 8
+  br label %157
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr %8, align 8
-  call void @list_destroy(ptr noundef %160)
-  br label %161
+157:                                              ; preds = %156
+  br label %158
 
-161:                                              ; preds = %159, %156
+158:                                              ; preds = %157
+  %159 = load ptr, ptr %8, align 8
+  %160 = icmp ne ptr %159, null
+  br i1 %160, label %161, label %163
+
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %8, align 8
+  call void @list_destroy(ptr noundef %162)
+  br label %163
+
+163:                                              ; preds = %161, %158
   store ptr null, ptr %8, align 8
-  br label %162
-
-162:                                              ; preds = %161
-  call void @slurm_xfree(ptr noundef %13)
-  %163 = load i32, ptr %18, align 4
-  store i32 %163, ptr %3, align 4
   br label %164
 
-164:                                              ; preds = %162, %41
-  %165 = load i32, ptr %3, align 4
-  ret i32 %165
+164:                                              ; preds = %163
+  call void @slurm_xfree(ptr noundef %13)
+  %165 = load i32, ptr %18, align 4
+  store i32 %165, ptr %3, align 4
+  br label %166
+
+166:                                              ; preds = %164, %43
+  %167 = load i32, ptr %3, align 4
+  ret i32 %167
 }
 
 declare ptr @slurmdb_qos_get(ptr noundef, ptr noundef) #2

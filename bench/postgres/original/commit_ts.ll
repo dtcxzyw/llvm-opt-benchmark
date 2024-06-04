@@ -1040,48 +1040,49 @@ define dso_local void @CommitTsShmemInit() #0 {
   br label %15
 
 15:                                               ; preds = %14, %0
-  store ptr @CommitTsPagePrecedes, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @CommitTsCtlData, i32 0, i32 4), align 8
-  %16 = call i32 @CommitTsShmemBuffers()
-  call void @SimpleLruInit(ptr noundef @CommitTsCtlData, ptr noundef @.str.5, i32 noundef %16, i32 noundef 0, ptr noundef @.str.6, i32 noundef 54, i32 noundef 84, i32 noundef 2, i1 noundef zeroext false)
-  br label %17
-
-17:                                               ; preds = %15
+  %16 = getelementptr inbounds %struct.SlruCtlData, ptr @CommitTsCtlData, i32 0, i32 4
+  store ptr @CommitTsPagePrecedes, ptr %16, align 8
+  %17 = call i32 @CommitTsShmemBuffers()
+  call void @SimpleLruInit(ptr noundef @CommitTsCtlData, ptr noundef @.str.5, i32 noundef %17, i32 noundef 0, ptr noundef @.str.6, i32 noundef 54, i32 noundef 84, i32 noundef 2, i1 noundef zeroext false)
   br label %18
 
-18:                                               ; preds = %17
-  %19 = call ptr @ShmemInitStruct(ptr noundef @.str.7, i64 noundef 32, ptr noundef %1)
-  store ptr %19, ptr @commitTsShared, align 8
-  %20 = load i8, ptr @IsUnderPostmaster, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %35, label %22
+18:                                               ; preds = %15
+  br label %19
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr @commitTsShared, align 8
-  %24 = getelementptr inbounds %struct.CommitTimestampShared, ptr %23, i32 0, i32 0
-  store i32 0, ptr %24, align 8
-  br label %25
+19:                                               ; preds = %18
+  %20 = call ptr @ShmemInitStruct(ptr noundef @.str.7, i64 noundef 32, ptr noundef %1)
+  store ptr %20, ptr @commitTsShared, align 8
+  %21 = load i8, ptr @IsUnderPostmaster, align 1
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %36, label %23
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr @commitTsShared, align 8
-  %27 = getelementptr inbounds %struct.CommitTimestampShared, ptr %26, i32 0, i32 1
-  %28 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %27, i32 0, i32 0
-  store i64 -9223372036854775808, ptr %28, align 8
-  br label %29
+23:                                               ; preds = %19
+  %24 = load ptr, ptr @commitTsShared, align 8
+  %25 = getelementptr inbounds %struct.CommitTimestampShared, ptr %24, i32 0, i32 0
+  store i32 0, ptr %25, align 8
+  br label %26
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr @commitTsShared, align 8
-  %31 = getelementptr inbounds %struct.CommitTimestampShared, ptr %30, i32 0, i32 1
-  %32 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %31, i32 0, i32 1
-  store i16 0, ptr %32, align 8
-  %33 = load ptr, ptr @commitTsShared, align 8
-  %34 = getelementptr inbounds %struct.CommitTimestampShared, ptr %33, i32 0, i32 2
-  store i8 0, ptr %34, align 8
-  br label %36
+26:                                               ; preds = %23
+  %27 = load ptr, ptr @commitTsShared, align 8
+  %28 = getelementptr inbounds %struct.CommitTimestampShared, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %28, i32 0, i32 0
+  store i64 -9223372036854775808, ptr %29, align 8
+  br label %30
 
-35:                                               ; preds = %18
-  br label %36
+30:                                               ; preds = %26
+  %31 = load ptr, ptr @commitTsShared, align 8
+  %32 = getelementptr inbounds %struct.CommitTimestampShared, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds %struct.CommitTimestampEntry, ptr %32, i32 0, i32 1
+  store i16 0, ptr %33, align 8
+  %34 = load ptr, ptr @commitTsShared, align 8
+  %35 = getelementptr inbounds %struct.CommitTimestampShared, ptr %34, i32 0, i32 2
+  store i8 0, ptr %35, align 8
+  br label %37
 
-36:                                               ; preds = %35, %29
+36:                                               ; preds = %19
+  br label %37
+
+37:                                               ; preds = %36, %30
   ret void
 }
 

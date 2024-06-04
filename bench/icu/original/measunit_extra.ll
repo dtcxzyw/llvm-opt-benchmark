@@ -1807,59 +1807,60 @@ if.then39:                                        ; preds = %invoke.cont36
 if.end40:                                         ; preds = %invoke.cont36
   store ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, ptr %__range2, align 8
   store ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, i64 32), ptr %__end2, align 8
+  %43 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, i64 32
+  store ptr %43, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end40
-  %43 = load ptr, ptr %__begin2, align 8
-  %44 = load ptr, ptr %__end2, align 8
-  %cmp41 = icmp ne ptr %43, %44
+  %44 = load ptr, ptr %__begin2, align 8
+  %45 = load ptr, ptr %__end2, align 8
+  %cmp41 = icmp ne ptr %44, %45
   br i1 %cmp41, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %45 = load ptr, ptr %__begin2, align 8
-  store ptr %45, ptr %unitPrefixInfo, align 8
-  %46 = load ptr, ptr %unitPrefixInfo, align 8
-  %string = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %46, i32 0, i32 0
-  %47 = load ptr, ptr %string, align 8
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %47)
+  %46 = load ptr, ptr %__begin2, align 8
+  store ptr %46, ptr %unitPrefixInfo, align 8
+  %47 = load ptr, ptr %unitPrefixInfo, align 8
+  %string = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %47, i32 0, i32 0
+  %48 = load ptr, ptr %string, align 8
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %48)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %for.body
-  %48 = load ptr, ptr %unitPrefixInfo, align 8
-  %value = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %48, i32 0, i32 1
-  %49 = load i32, ptr %value, align 8
-  %add = add nsw i32 %49, 64
-  %50 = load ptr, ptr %status.addr, align 8
-  %51 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %54 = load i32, ptr %53, align 8
-  %call45 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %52, i32 %54, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %50)
+  %49 = load ptr, ptr %unitPrefixInfo, align 8
+  %value = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %49, i32 0, i32 1
+  %50 = load i32, ptr %value, align 8
+  %add = add nsw i32 %50, 64
+  %51 = load ptr, ptr %status.addr, align 8
+  %52 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
+  %55 = load i32, ptr %54, align 8
+  %call45 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %53, i32 %55, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %51)
           to label %invoke.cont44 unwind label %lpad42
 
 invoke.cont44:                                    ; preds = %invoke.cont43
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont44
-  %55 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %55, i32 1
+  %56 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %56, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
 lpad42:                                           ; preds = %invoke.cont136, %invoke.cont134, %if.end133, %invoke.cont127, %invoke.cont124, %invoke.cont123, %invoke.cont120, %invoke.cont119, %invoke.cont116, %invoke.cont115, %invoke.cont112, %invoke.cont111, %invoke.cont108, %invoke.cont107, %invoke.cont104, %invoke.cont103, %invoke.cont100, %invoke.cont99, %invoke.cont96, %invoke.cont95, %invoke.cont92, %invoke.cont91, %invoke.cont88, %invoke.cont87, %invoke.cont84, %invoke.cont83, %invoke.cont80, %invoke.cont79, %invoke.cont76, %invoke.cont75, %invoke.cont72, %invoke.cont71, %invoke.cont68, %invoke.cont67, %invoke.cont64, %invoke.cont63, %invoke.cont60, %invoke.cont59, %invoke.cont56, %invoke.cont55, %invoke.cont52, %invoke.cont51, %if.end49, %invoke.cont43, %for.body
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %exn.slot, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %ehselector.slot, align 4
   br label %ehcleanup194
 
 for.end:                                          ; preds = %for.cond
-  %59 = load ptr, ptr %status.addr, align 8
-  %60 = load i32, ptr %59, align 4
-  %call46 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %60)
+  %60 = load ptr, ptr %status.addr, align 8
+  %61 = load i32, ptr %60, align 4
+  %call46 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %61)
   %tobool47 = icmp ne i8 %call46, 0
   br i1 %tobool47, label %if.then48, label %if.end49
 
@@ -1872,12 +1873,12 @@ if.end49:                                         ; preds = %for.end
           to label %invoke.cont51 unwind label %lpad42
 
 invoke.cont51:                                    ; preds = %if.end49
-  %61 = load ptr, ptr %status.addr, align 8
-  %62 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp50, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp50, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %call53 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %63, i32 %65, i32 noundef 128, ptr noundef nonnull align 4 dereferenceable(4) %61)
+  %62 = load ptr, ptr %status.addr, align 8
+  %63 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp50, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp50, i32 0, i32 1
+  %66 = load i32, ptr %65, align 8
+  %call53 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %64, i32 %66, i32 noundef 128, ptr noundef nonnull align 4 dereferenceable(4) %62)
           to label %invoke.cont52 unwind label %lpad42
 
 invoke.cont52:                                    ; preds = %invoke.cont51
@@ -1885,12 +1886,12 @@ invoke.cont52:                                    ; preds = %invoke.cont51
           to label %invoke.cont55 unwind label %lpad42
 
 invoke.cont55:                                    ; preds = %invoke.cont52
-  %66 = load ptr, ptr %status.addr, align 8
-  %67 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp54, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp54, i32 0, i32 1
-  %70 = load i32, ptr %69, align 8
-  %call57 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %68, i32 %70, i32 noundef 129, ptr noundef nonnull align 4 dereferenceable(4) %66)
+  %67 = load ptr, ptr %status.addr, align 8
+  %68 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp54, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp54, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  %call57 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %69, i32 %71, i32 noundef 129, ptr noundef nonnull align 4 dereferenceable(4) %67)
           to label %invoke.cont56 unwind label %lpad42
 
 invoke.cont56:                                    ; preds = %invoke.cont55
@@ -1898,12 +1899,12 @@ invoke.cont56:                                    ; preds = %invoke.cont55
           to label %invoke.cont59 unwind label %lpad42
 
 invoke.cont59:                                    ; preds = %invoke.cont56
-  %71 = load ptr, ptr %status.addr, align 8
-  %72 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp58, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp58, i32 0, i32 1
-  %75 = load i32, ptr %74, align 8
-  %call61 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %73, i32 %75, i32 noundef 130, ptr noundef nonnull align 4 dereferenceable(4) %71)
+  %72 = load ptr, ptr %status.addr, align 8
+  %73 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp58, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp58, i32 0, i32 1
+  %76 = load i32, ptr %75, align 8
+  %call61 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %74, i32 %76, i32 noundef 130, ptr noundef nonnull align 4 dereferenceable(4) %72)
           to label %invoke.cont60 unwind label %lpad42
 
 invoke.cont60:                                    ; preds = %invoke.cont59
@@ -1911,12 +1912,12 @@ invoke.cont60:                                    ; preds = %invoke.cont59
           to label %invoke.cont63 unwind label %lpad42
 
 invoke.cont63:                                    ; preds = %invoke.cont60
-  %76 = load ptr, ptr %status.addr, align 8
-  %77 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp62, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp62, i32 0, i32 1
-  %80 = load i32, ptr %79, align 8
-  %call65 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %78, i32 %80, i32 noundef 192, ptr noundef nonnull align 4 dereferenceable(4) %76)
+  %77 = load ptr, ptr %status.addr, align 8
+  %78 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp62, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp62, i32 0, i32 1
+  %81 = load i32, ptr %80, align 8
+  %call65 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %79, i32 %81, i32 noundef 192, ptr noundef nonnull align 4 dereferenceable(4) %77)
           to label %invoke.cont64 unwind label %lpad42
 
 invoke.cont64:                                    ; preds = %invoke.cont63
@@ -1924,12 +1925,12 @@ invoke.cont64:                                    ; preds = %invoke.cont63
           to label %invoke.cont67 unwind label %lpad42
 
 invoke.cont67:                                    ; preds = %invoke.cont64
-  %81 = load ptr, ptr %status.addr, align 8
-  %82 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp66, i32 0, i32 0
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp66, i32 0, i32 1
-  %85 = load i32, ptr %84, align 8
-  %call69 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %83, i32 %85, i32 noundef 258, ptr noundef nonnull align 4 dereferenceable(4) %81)
+  %82 = load ptr, ptr %status.addr, align 8
+  %83 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp66, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp66, i32 0, i32 1
+  %86 = load i32, ptr %85, align 8
+  %call69 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %84, i32 %86, i32 noundef 258, ptr noundef nonnull align 4 dereferenceable(4) %82)
           to label %invoke.cont68 unwind label %lpad42
 
 invoke.cont68:                                    ; preds = %invoke.cont67
@@ -1937,12 +1938,12 @@ invoke.cont68:                                    ; preds = %invoke.cont67
           to label %invoke.cont71 unwind label %lpad42
 
 invoke.cont71:                                    ; preds = %invoke.cont68
-  %86 = load ptr, ptr %status.addr, align 8
-  %87 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp70, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp70, i32 0, i32 1
-  %90 = load i32, ptr %89, align 8
-  %call73 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %88, i32 %90, i32 noundef 259, ptr noundef nonnull align 4 dereferenceable(4) %86)
+  %87 = load ptr, ptr %status.addr, align 8
+  %88 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp70, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp70, i32 0, i32 1
+  %91 = load i32, ptr %90, align 8
+  %call73 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %89, i32 %91, i32 noundef 259, ptr noundef nonnull align 4 dereferenceable(4) %87)
           to label %invoke.cont72 unwind label %lpad42
 
 invoke.cont72:                                    ; preds = %invoke.cont71
@@ -1950,12 +1951,12 @@ invoke.cont72:                                    ; preds = %invoke.cont71
           to label %invoke.cont75 unwind label %lpad42
 
 invoke.cont75:                                    ; preds = %invoke.cont72
-  %91 = load ptr, ptr %status.addr, align 8
-  %92 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp74, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp74, i32 0, i32 1
-  %95 = load i32, ptr %94, align 8
-  %call77 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %93, i32 %95, i32 noundef 258, ptr noundef nonnull align 4 dereferenceable(4) %91)
+  %92 = load ptr, ptr %status.addr, align 8
+  %93 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp74, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp74, i32 0, i32 1
+  %96 = load i32, ptr %95, align 8
+  %call77 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %94, i32 %96, i32 noundef 258, ptr noundef nonnull align 4 dereferenceable(4) %92)
           to label %invoke.cont76 unwind label %lpad42
 
 invoke.cont76:                                    ; preds = %invoke.cont75
@@ -1963,12 +1964,12 @@ invoke.cont76:                                    ; preds = %invoke.cont75
           to label %invoke.cont79 unwind label %lpad42
 
 invoke.cont79:                                    ; preds = %invoke.cont76
-  %96 = load ptr, ptr %status.addr, align 8
-  %97 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp78, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp78, i32 0, i32 1
-  %100 = load i32, ptr %99, align 8
-  %call81 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %98, i32 %100, i32 noundef 259, ptr noundef nonnull align 4 dereferenceable(4) %96)
+  %97 = load ptr, ptr %status.addr, align 8
+  %98 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp78, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp78, i32 0, i32 1
+  %101 = load i32, ptr %100, align 8
+  %call81 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %99, i32 %101, i32 noundef 259, ptr noundef nonnull align 4 dereferenceable(4) %97)
           to label %invoke.cont80 unwind label %lpad42
 
 invoke.cont80:                                    ; preds = %invoke.cont79
@@ -1976,12 +1977,12 @@ invoke.cont80:                                    ; preds = %invoke.cont79
           to label %invoke.cont83 unwind label %lpad42
 
 invoke.cont83:                                    ; preds = %invoke.cont80
-  %101 = load ptr, ptr %status.addr, align 8
-  %102 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp82, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp82, i32 0, i32 1
-  %105 = load i32, ptr %104, align 8
-  %call85 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %103, i32 %105, i32 noundef 260, ptr noundef nonnull align 4 dereferenceable(4) %101)
+  %102 = load ptr, ptr %status.addr, align 8
+  %103 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp82, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp82, i32 0, i32 1
+  %106 = load i32, ptr %105, align 8
+  %call85 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %104, i32 %106, i32 noundef 260, ptr noundef nonnull align 4 dereferenceable(4) %102)
           to label %invoke.cont84 unwind label %lpad42
 
 invoke.cont84:                                    ; preds = %invoke.cont83
@@ -1989,12 +1990,12 @@ invoke.cont84:                                    ; preds = %invoke.cont83
           to label %invoke.cont87 unwind label %lpad42
 
 invoke.cont87:                                    ; preds = %invoke.cont84
-  %106 = load ptr, ptr %status.addr, align 8
-  %107 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp86, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp86, i32 0, i32 1
-  %110 = load i32, ptr %109, align 8
-  %call89 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %108, i32 %110, i32 noundef 261, ptr noundef nonnull align 4 dereferenceable(4) %106)
+  %107 = load ptr, ptr %status.addr, align 8
+  %108 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp86, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp86, i32 0, i32 1
+  %111 = load i32, ptr %110, align 8
+  %call89 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %109, i32 %111, i32 noundef 261, ptr noundef nonnull align 4 dereferenceable(4) %107)
           to label %invoke.cont88 unwind label %lpad42
 
 invoke.cont88:                                    ; preds = %invoke.cont87
@@ -2002,12 +2003,12 @@ invoke.cont88:                                    ; preds = %invoke.cont87
           to label %invoke.cont91 unwind label %lpad42
 
 invoke.cont91:                                    ; preds = %invoke.cont88
-  %111 = load ptr, ptr %status.addr, align 8
-  %112 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp90, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp90, i32 0, i32 1
-  %115 = load i32, ptr %114, align 8
-  %call93 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %113, i32 %115, i32 noundef 262, ptr noundef nonnull align 4 dereferenceable(4) %111)
+  %112 = load ptr, ptr %status.addr, align 8
+  %113 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp90, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp90, i32 0, i32 1
+  %116 = load i32, ptr %115, align 8
+  %call93 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %114, i32 %116, i32 noundef 262, ptr noundef nonnull align 4 dereferenceable(4) %112)
           to label %invoke.cont92 unwind label %lpad42
 
 invoke.cont92:                                    ; preds = %invoke.cont91
@@ -2015,12 +2016,12 @@ invoke.cont92:                                    ; preds = %invoke.cont91
           to label %invoke.cont95 unwind label %lpad42
 
 invoke.cont95:                                    ; preds = %invoke.cont92
-  %116 = load ptr, ptr %status.addr, align 8
-  %117 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp94, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp94, i32 0, i32 1
-  %120 = load i32, ptr %119, align 8
-  %call97 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %118, i32 %120, i32 noundef 263, ptr noundef nonnull align 4 dereferenceable(4) %116)
+  %117 = load ptr, ptr %status.addr, align 8
+  %118 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp94, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp94, i32 0, i32 1
+  %121 = load i32, ptr %120, align 8
+  %call97 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %119, i32 %121, i32 noundef 263, ptr noundef nonnull align 4 dereferenceable(4) %117)
           to label %invoke.cont96 unwind label %lpad42
 
 invoke.cont96:                                    ; preds = %invoke.cont95
@@ -2028,12 +2029,12 @@ invoke.cont96:                                    ; preds = %invoke.cont95
           to label %invoke.cont99 unwind label %lpad42
 
 invoke.cont99:                                    ; preds = %invoke.cont96
-  %121 = load ptr, ptr %status.addr, align 8
-  %122 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp98, i32 0, i32 0
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp98, i32 0, i32 1
-  %125 = load i32, ptr %124, align 8
-  %call101 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %123, i32 %125, i32 noundef 264, ptr noundef nonnull align 4 dereferenceable(4) %121)
+  %122 = load ptr, ptr %status.addr, align 8
+  %123 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp98, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp98, i32 0, i32 1
+  %126 = load i32, ptr %125, align 8
+  %call101 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %124, i32 %126, i32 noundef 264, ptr noundef nonnull align 4 dereferenceable(4) %122)
           to label %invoke.cont100 unwind label %lpad42
 
 invoke.cont100:                                   ; preds = %invoke.cont99
@@ -2041,12 +2042,12 @@ invoke.cont100:                                   ; preds = %invoke.cont99
           to label %invoke.cont103 unwind label %lpad42
 
 invoke.cont103:                                   ; preds = %invoke.cont100
-  %126 = load ptr, ptr %status.addr, align 8
-  %127 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp102, i32 0, i32 0
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp102, i32 0, i32 1
-  %130 = load i32, ptr %129, align 8
-  %call105 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %128, i32 %130, i32 noundef 265, ptr noundef nonnull align 4 dereferenceable(4) %126)
+  %127 = load ptr, ptr %status.addr, align 8
+  %128 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp102, i32 0, i32 0
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp102, i32 0, i32 1
+  %131 = load i32, ptr %130, align 8
+  %call105 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %129, i32 %131, i32 noundef 265, ptr noundef nonnull align 4 dereferenceable(4) %127)
           to label %invoke.cont104 unwind label %lpad42
 
 invoke.cont104:                                   ; preds = %invoke.cont103
@@ -2054,12 +2055,12 @@ invoke.cont104:                                   ; preds = %invoke.cont103
           to label %invoke.cont107 unwind label %lpad42
 
 invoke.cont107:                                   ; preds = %invoke.cont104
-  %131 = load ptr, ptr %status.addr, align 8
-  %132 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp106, i32 0, i32 0
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp106, i32 0, i32 1
-  %135 = load i32, ptr %134, align 8
-  %call109 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %133, i32 %135, i32 noundef 266, ptr noundef nonnull align 4 dereferenceable(4) %131)
+  %132 = load ptr, ptr %status.addr, align 8
+  %133 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp106, i32 0, i32 0
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp106, i32 0, i32 1
+  %136 = load i32, ptr %135, align 8
+  %call109 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %134, i32 %136, i32 noundef 266, ptr noundef nonnull align 4 dereferenceable(4) %132)
           to label %invoke.cont108 unwind label %lpad42
 
 invoke.cont108:                                   ; preds = %invoke.cont107
@@ -2067,12 +2068,12 @@ invoke.cont108:                                   ; preds = %invoke.cont107
           to label %invoke.cont111 unwind label %lpad42
 
 invoke.cont111:                                   ; preds = %invoke.cont108
-  %136 = load ptr, ptr %status.addr, align 8
-  %137 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp110, i32 0, i32 0
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp110, i32 0, i32 1
-  %140 = load i32, ptr %139, align 8
-  %call113 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %138, i32 %140, i32 noundef 267, ptr noundef nonnull align 4 dereferenceable(4) %136)
+  %137 = load ptr, ptr %status.addr, align 8
+  %138 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp110, i32 0, i32 0
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp110, i32 0, i32 1
+  %141 = load i32, ptr %140, align 8
+  %call113 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %139, i32 %141, i32 noundef 267, ptr noundef nonnull align 4 dereferenceable(4) %137)
           to label %invoke.cont112 unwind label %lpad42
 
 invoke.cont112:                                   ; preds = %invoke.cont111
@@ -2080,12 +2081,12 @@ invoke.cont112:                                   ; preds = %invoke.cont111
           to label %invoke.cont115 unwind label %lpad42
 
 invoke.cont115:                                   ; preds = %invoke.cont112
-  %141 = load ptr, ptr %status.addr, align 8
-  %142 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp114, i32 0, i32 0
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp114, i32 0, i32 1
-  %145 = load i32, ptr %144, align 8
-  %call117 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %143, i32 %145, i32 noundef 268, ptr noundef nonnull align 4 dereferenceable(4) %141)
+  %142 = load ptr, ptr %status.addr, align 8
+  %143 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp114, i32 0, i32 0
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp114, i32 0, i32 1
+  %146 = load i32, ptr %145, align 8
+  %call117 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %144, i32 %146, i32 noundef 268, ptr noundef nonnull align 4 dereferenceable(4) %142)
           to label %invoke.cont116 unwind label %lpad42
 
 invoke.cont116:                                   ; preds = %invoke.cont115
@@ -2093,12 +2094,12 @@ invoke.cont116:                                   ; preds = %invoke.cont115
           to label %invoke.cont119 unwind label %lpad42
 
 invoke.cont119:                                   ; preds = %invoke.cont116
-  %146 = load ptr, ptr %status.addr, align 8
-  %147 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp118, i32 0, i32 0
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp118, i32 0, i32 1
-  %150 = load i32, ptr %149, align 8
-  %call121 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %148, i32 %150, i32 noundef 269, ptr noundef nonnull align 4 dereferenceable(4) %146)
+  %147 = load ptr, ptr %status.addr, align 8
+  %148 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp118, i32 0, i32 0
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp118, i32 0, i32 1
+  %151 = load i32, ptr %150, align 8
+  %call121 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %149, i32 %151, i32 noundef 269, ptr noundef nonnull align 4 dereferenceable(4) %147)
           to label %invoke.cont120 unwind label %lpad42
 
 invoke.cont120:                                   ; preds = %invoke.cont119
@@ -2106,12 +2107,12 @@ invoke.cont120:                                   ; preds = %invoke.cont119
           to label %invoke.cont123 unwind label %lpad42
 
 invoke.cont123:                                   ; preds = %invoke.cont120
-  %151 = load ptr, ptr %status.addr, align 8
-  %152 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp122, i32 0, i32 0
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp122, i32 0, i32 1
-  %155 = load i32, ptr %154, align 8
-  %call125 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %153, i32 %155, i32 noundef 270, ptr noundef nonnull align 4 dereferenceable(4) %151)
+  %152 = load ptr, ptr %status.addr, align 8
+  %153 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp122, i32 0, i32 0
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp122, i32 0, i32 1
+  %156 = load i32, ptr %155, align 8
+  %call125 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %154, i32 %156, i32 noundef 270, ptr noundef nonnull align 4 dereferenceable(4) %152)
           to label %invoke.cont124 unwind label %lpad42
 
 invoke.cont124:                                   ; preds = %invoke.cont123
@@ -2119,18 +2120,18 @@ invoke.cont124:                                   ; preds = %invoke.cont123
           to label %invoke.cont127 unwind label %lpad42
 
 invoke.cont127:                                   ; preds = %invoke.cont124
-  %156 = load ptr, ptr %status.addr, align 8
-  %157 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp126, i32 0, i32 0
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp126, i32 0, i32 1
-  %160 = load i32, ptr %159, align 8
-  %call129 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %158, i32 %160, i32 noundef 271, ptr noundef nonnull align 4 dereferenceable(4) %156)
+  %157 = load ptr, ptr %status.addr, align 8
+  %158 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp126, i32 0, i32 0
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp126, i32 0, i32 1
+  %161 = load i32, ptr %160, align 8
+  %call129 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, ptr %159, i32 %161, i32 noundef 271, ptr noundef nonnull align 4 dereferenceable(4) %157)
           to label %invoke.cont128 unwind label %lpad42
 
 invoke.cont128:                                   ; preds = %invoke.cont127
-  %161 = load ptr, ptr %status.addr, align 8
-  %162 = load i32, ptr %161, align 4
-  %call130 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %162)
+  %162 = load ptr, ptr %status.addr, align 8
+  %163 = load i32, ptr %162, align 4
+  %call130 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %163)
   %tobool131 = icmp ne i8 %call130, 0
   br i1 %tobool131, label %if.then132, label %if.end133
 
@@ -2143,8 +2144,8 @@ if.end133:                                        ; preds = %invoke.cont128
           to label %invoke.cont134 unwind label %lpad42
 
 invoke.cont134:                                   ; preds = %if.end133
-  %163 = load ptr, ptr %status.addr, align 8
-  %call137 = invoke ptr @ures_getByKey_75(ptr noundef %call135, ptr noundef @.str.24, ptr noundef null, ptr noundef %163)
+  %164 = load ptr, ptr %status.addr, align 8
+  %call137 = invoke ptr @ures_getByKey_75(ptr noundef %call135, ptr noundef @.str.24, ptr noundef null, ptr noundef %164)
           to label %invoke.cont136 unwind label %lpad42
 
 invoke.cont136:                                   ; preds = %invoke.cont134
@@ -2152,9 +2153,9 @@ invoke.cont136:                                   ; preds = %invoke.cont134
           to label %invoke.cont138 unwind label %lpad42
 
 invoke.cont138:                                   ; preds = %invoke.cont136
-  %164 = load ptr, ptr %status.addr, align 8
-  %165 = load i32, ptr %164, align 4
-  %call139 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %165)
+  %165 = load ptr, ptr %status.addr, align 8
+  %166 = load i32, ptr %165, align 4
+  %call139 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %166)
   %tobool140 = icmp ne i8 %call139, 0
   br i1 %tobool140, label %if.then141, label %if.end142
 
@@ -2168,80 +2169,80 @@ if.end142:                                        ; preds = %invoke.cont138
 
 invoke.cont144:                                   ; preds = %if.end142
   %fSize146 = getelementptr inbounds %struct.UResourceBundle, ptr %call145, i32 0, i32 13
-  %166 = load i32, ptr %fSize146, align 8
-  store i32 %166, ptr %simpleUnitsCount, align 4
-  %167 = load i32, ptr %simpleUnitsCount, align 4
-  %conv147 = sext i32 %167 to i64
+  %167 = load i32, ptr %fSize146, align 8
+  store i32 %167, ptr %simpleUnitsCount, align 4
+  %168 = load i32, ptr %simpleUnitsCount, align 4
+  %conv147 = sext i32 %168 to i64
   %mul148 = mul i64 8, %conv147
   %conv149 = trunc i64 %mul148 to i32
   store i32 %conv149, ptr %arrayMallocSize, align 4
-  %168 = load i32, ptr %arrayMallocSize, align 4
-  %conv150 = sext i32 %168 to i64
+  %169 = load i32, ptr %arrayMallocSize, align 4
+  %conv150 = sext i32 %169 to i64
   %call152 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv150) #11
           to label %invoke.cont151 unwind label %lpad143
 
 invoke.cont151:                                   ; preds = %invoke.cont144
   store ptr %call152, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
-  %169 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
-  %cmp153 = icmp eq ptr %169, null
+  %170 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
+  %cmp153 = icmp eq ptr %170, null
   br i1 %cmp153, label %if.then154, label %if.end155
 
 if.then154:                                       ; preds = %invoke.cont151
-  %170 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %170, align 4
+  %171 = load ptr, ptr %status.addr, align 8
+  store i32 7, ptr %171, align 4
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup192
 
 lpad143:                                          ; preds = %if.end165, %if.end155, %invoke.cont144, %if.end142
-  %171 = landingpad { ptr, i32 }
+  %172 = landingpad { ptr, i32 }
           cleanup
-  %172 = extractvalue { ptr, i32 } %171, 0
-  store ptr %172, ptr %exn.slot, align 8
-  %173 = extractvalue { ptr, i32 } %171, 1
-  store i32 %173, ptr %ehselector.slot, align 4
+  %173 = extractvalue { ptr, i32 } %172, 0
+  store ptr %173, ptr %exn.slot, align 8
+  %174 = extractvalue { ptr, i32 } %172, 1
+  store i32 %174, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end155:                                        ; preds = %invoke.cont151
-  %174 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
-  %175 = load i32, ptr %arrayMallocSize, align 4
-  %conv156 = sext i32 %175 to i64
-  call void @llvm.memset.p0.i64(ptr align 8 %174, i8 0, i64 %conv156, i1 false)
-  %176 = load i32, ptr %simpleUnitsCount, align 4
-  %conv157 = sext i32 %176 to i64
+  %175 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
+  %176 = load i32, ptr %arrayMallocSize, align 4
+  %conv156 = sext i32 %176 to i64
+  call void @llvm.memset.p0.i64(ptr align 8 %175, i8 0, i64 %conv156, i1 false)
+  %177 = load i32, ptr %simpleUnitsCount, align 4
+  %conv157 = sext i32 %177 to i64
   %mul158 = mul i64 4, %conv157
   %conv159 = trunc i64 %mul158 to i32
   store i32 %conv159, ptr %arrayMallocSize, align 4
-  %177 = load i32, ptr %arrayMallocSize, align 4
-  %conv160 = sext i32 %177 to i64
+  %178 = load i32, ptr %arrayMallocSize, align 4
+  %conv160 = sext i32 %178 to i64
   %call162 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv160) #11
           to label %invoke.cont161 unwind label %lpad143
 
 invoke.cont161:                                   ; preds = %if.end155
   store ptr %call162, ptr @_ZN6icu_7512_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
-  %178 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
-  %cmp163 = icmp eq ptr %178, null
+  %179 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
+  %cmp163 = icmp eq ptr %179, null
   br i1 %cmp163, label %if.then164, label %if.end165
 
 if.then164:                                       ; preds = %invoke.cont161
-  %179 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %179, align 4
+  %180 = load ptr, ptr %status.addr, align 8
+  store i32 7, ptr %180, align 4
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup192
 
 if.end165:                                        ; preds = %invoke.cont161
-  %180 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
-  %181 = load i32, ptr %arrayMallocSize, align 4
-  %conv166 = sext i32 %181 to i64
-  call void @llvm.memset.p0.i64(ptr align 4 %180, i8 0, i64 %conv166, i1 false)
+  %181 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
+  %182 = load i32, ptr %arrayMallocSize, align 4
+  %conv166 = sext i32 %182 to i64
+  call void @llvm.memset.p0.i64(ptr align 4 %181, i8 0, i64 %conv166, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp167, ptr align 8 %resultQuantities, i64 16, i1 false)
-  %182 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
-  %183 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
-  %184 = load i32, ptr %simpleUnitsCount, align 4
-  %185 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp167, i32 0, i32 0
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp167, i32 0, i32 1
-  %188 = load i32, ptr %187, align 8
-  invoke void @_ZN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkC2ENS_11StringPieceEPPKcPiiRNS_16BytesTrieBuilderEi(ptr noundef nonnull align 8 dereferenceable(68) %identifierSink, ptr %186, i32 %188, ptr noundef %182, ptr noundef %183, i32 noundef %184, ptr noundef nonnull align 8 dereferenceable(56) %b, i32 noundef 512)
+  %183 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gSimpleUnitsE, align 8
+  %184 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_121gSimpleUnitCategoriesE, align 8
+  %185 = load i32, ptr %simpleUnitsCount, align 4
+  %186 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp167, i32 0, i32 0
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp167, i32 0, i32 1
+  %189 = load i32, ptr %188, align 8
+  invoke void @_ZN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkC2ENS_11StringPieceEPPKcPiiRNS_16BytesTrieBuilderEi(ptr noundef nonnull align 8 dereferenceable(68) %identifierSink, ptr %187, i32 %189, ptr noundef %183, ptr noundef %184, i32 noundef %185, ptr noundef nonnull align 8 dereferenceable(56) %b, i32 noundef 512)
           to label %invoke.cont168 unwind label %lpad143
 
 invoke.cont168:                                   ; preds = %if.end165
@@ -2249,25 +2250,25 @@ invoke.cont168:                                   ; preds = %if.end165
           to label %invoke.cont170 unwind label %lpad169
 
 invoke.cont170:                                   ; preds = %invoke.cont168
-  %189 = load ptr, ptr %status.addr, align 8
-  invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call171, ptr noundef @.str.24, ptr noundef nonnull align 8 dereferenceable(8) %identifierSink, ptr noundef nonnull align 4 dereferenceable(4) %189)
+  %190 = load ptr, ptr %status.addr, align 8
+  invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call171, ptr noundef @.str.24, ptr noundef nonnull align 8 dereferenceable(8) %identifierSink, ptr noundef nonnull align 4 dereferenceable(4) %190)
           to label %invoke.cont172 unwind label %lpad169
 
 invoke.cont172:                                   ; preds = %invoke.cont170
-  %190 = load ptr, ptr %status.addr, align 8
-  %call174 = invoke { ptr, i32 } @_ZN6icu_7516BytesTrieBuilder16buildStringPieceE22UStringTrieBuildOptionR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %190)
+  %191 = load ptr, ptr %status.addr, align 8
+  %call174 = invoke { ptr, i32 } @_ZN6icu_7516BytesTrieBuilder16buildStringPieceE22UStringTrieBuildOptionR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %b, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %191)
           to label %invoke.cont173 unwind label %lpad169
 
 invoke.cont173:                                   ; preds = %invoke.cont172
-  %191 = getelementptr inbounds { ptr, i32 }, ptr %result, i32 0, i32 0
-  %192 = extractvalue { ptr, i32 } %call174, 0
-  store ptr %192, ptr %191, align 8
-  %193 = getelementptr inbounds { ptr, i32 }, ptr %result, i32 0, i32 1
-  %194 = extractvalue { ptr, i32 } %call174, 1
-  store i32 %194, ptr %193, align 8
-  %195 = load ptr, ptr %status.addr, align 8
-  %196 = load i32, ptr %195, align 4
-  %call175 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %196)
+  %192 = getelementptr inbounds { ptr, i32 }, ptr %result, i32 0, i32 0
+  %193 = extractvalue { ptr, i32 } %call174, 0
+  store ptr %193, ptr %192, align 8
+  %194 = getelementptr inbounds { ptr, i32 }, ptr %result, i32 0, i32 1
+  %195 = extractvalue { ptr, i32 } %call174, 1
+  store i32 %195, ptr %194, align 8
+  %196 = load ptr, ptr %status.addr, align 8
+  %197 = load i32, ptr %196, align 4
+  %call175 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %197)
   %tobool176 = icmp ne i8 %call175, 0
   br i1 %tobool176, label %if.then177, label %if.end178
 
@@ -2276,12 +2277,12 @@ if.then177:                                       ; preds = %invoke.cont173
   br label %cleanup
 
 lpad169:                                          ; preds = %do.body187, %invoke.cont179, %if.end178, %invoke.cont172, %invoke.cont170, %invoke.cont168
-  %197 = landingpad { ptr, i32 }
+  %198 = landingpad { ptr, i32 }
           cleanup
-  %198 = extractvalue { ptr, i32 } %197, 0
-  store ptr %198, ptr %exn.slot, align 8
-  %199 = extractvalue { ptr, i32 } %197, 1
-  store i32 %199, ptr %ehselector.slot, align 4
+  %199 = extractvalue { ptr, i32 } %198, 0
+  store ptr %199, ptr %exn.slot, align 8
+  %200 = extractvalue { ptr, i32 } %198, 1
+  store i32 %200, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %identifierSink) #10
   br label %ehcleanup
 
@@ -2292,19 +2293,19 @@ if.end178:                                        ; preds = %invoke.cont173
 invoke.cont179:                                   ; preds = %if.end178
   %conv181 = sext i32 %call180 to i64
   store i64 %conv181, ptr %numBytes, align 8
-  %200 = load i64, ptr %numBytes, align 8
-  %call183 = invoke noalias ptr @uprv_malloc_75(i64 noundef %200) #11
+  %201 = load i64, ptr %numBytes, align 8
+  %call183 = invoke noalias ptr @uprv_malloc_75(i64 noundef %201) #11
           to label %invoke.cont182 unwind label %lpad169
 
 invoke.cont182:                                   ; preds = %invoke.cont179
   store ptr %call183, ptr @_ZN6icu_7512_GLOBAL__N_129gSerializedUnitExtrasStemTrieE, align 8
-  %201 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_129gSerializedUnitExtrasStemTrieE, align 8
-  %cmp184 = icmp eq ptr %201, null
+  %202 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_129gSerializedUnitExtrasStemTrieE, align 8
+  %cmp184 = icmp eq ptr %202, null
   br i1 %cmp184, label %if.then185, label %if.end186
 
 if.then185:                                       ; preds = %invoke.cont182
-  %202 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %202, align 4
+  %203 = load ptr, ptr %status.addr, align 8
+  store i32 7, ptr %203, align 4
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
@@ -2312,13 +2313,13 @@ if.end186:                                        ; preds = %invoke.cont182
   br label %do.body187
 
 do.body187:                                       ; preds = %if.end186
-  %203 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_129gSerializedUnitExtrasStemTrieE, align 8
+  %204 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_129gSerializedUnitExtrasStemTrieE, align 8
   %call189 = invoke noundef ptr @_ZNK6icu_7511StringPiece4dataEv(ptr noundef nonnull align 8 dereferenceable(12) %result)
           to label %invoke.cont188 unwind label %lpad169
 
 invoke.cont188:                                   ; preds = %do.body187
-  %204 = load i64, ptr %numBytes, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %203, ptr align 1 %call189, i64 %204, i1 false)
+  %205 = load i64, ptr %numBytes, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 1 %call189, i64 %205, i1 false)
   br label %do.cond190
 
 do.cond190:                                       ; preds = %invoke.cont188
@@ -3606,38 +3607,39 @@ if.then25:                                        ; preds = %if.end23
   store i8 0, ptr %found, align 1
   store ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, ptr %__range2, align 8
   store ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, i64 32), ptr %__end2, align 8
+  %37 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, i64 32
+  store ptr %37, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then25
-  %37 = load ptr, ptr %__begin2, align 8
-  %38 = load ptr, ptr %__end2, align 8
-  %cmp26 = icmp ne ptr %37, %38
+  %38 = load ptr, ptr %__begin2, align 8
+  %39 = load ptr, ptr %__end2, align 8
+  %cmp26 = icmp ne ptr %38, %39
   br i1 %cmp26, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %39 = load ptr, ptr %__begin2, align 8
-  store ptr %39, ptr %unitPrefixInfo, align 8
-  %40 = load ptr, ptr %unitPrefixInfo, align 8
-  %value = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %40, i32 0, i32 1
-  %41 = load i32, ptr %value, align 8
+  %40 = load ptr, ptr %__begin2, align 8
+  store ptr %40, ptr %unitPrefixInfo, align 8
+  %41 = load ptr, ptr %unitPrefixInfo, align 8
+  %value = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %41, i32 0, i32 1
+  %42 = load i32, ptr %value, align 8
   %unitPrefix27 = getelementptr inbounds %"struct.icu_75::SingleUnitImpl", ptr %this1, i32 0, i32 1
-  %42 = load i32, ptr %unitPrefix27, align 4
-  %cmp28 = icmp eq i32 %41, %42
+  %43 = load i32, ptr %unitPrefix27, align 4
+  %cmp28 = icmp eq i32 %42, %43
   br i1 %cmp28, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %for.body
-  %43 = load ptr, ptr %result.addr, align 8
-  %44 = load ptr, ptr %unitPrefixInfo, align 8
-  %string = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %44, i32 0, i32 0
-  %45 = load ptr, ptr %string, align 8
-  call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp30, ptr noundef %45)
-  %46 = load ptr, ptr %status.addr, align 8
-  %47 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp30, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp30, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %call31 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %43, ptr %48, i32 %50, ptr noundef nonnull align 4 dereferenceable(4) %46)
+  %44 = load ptr, ptr %result.addr, align 8
+  %45 = load ptr, ptr %unitPrefixInfo, align 8
+  %string = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %45, i32 0, i32 0
+  %46 = load ptr, ptr %string, align 8
+  call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp30, ptr noundef %46)
+  %47 = load ptr, ptr %status.addr, align 8
+  %48 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp30, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp30, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8
+  %call31 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %44, ptr %49, i32 %51, ptr noundef nonnull align 4 dereferenceable(4) %47)
   store i8 1, ptr %found, align 1
   br label %for.end
 
@@ -3645,34 +3647,34 @@ if.end32:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end32
-  %51 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %51, i32 1
+  %52 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::UnitPrefixStrings", ptr %52, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then29, %for.cond
-  %52 = load i8, ptr %found, align 1
-  %tobool33 = trunc i8 %52 to i1
+  %53 = load i8, ptr %found, align 1
+  %tobool33 = trunc i8 %53 to i1
   br i1 %tobool33, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %for.end
-  %53 = load ptr, ptr %status.addr, align 8
-  store i32 16, ptr %53, align 4
+  %54 = load ptr, ptr %status.addr, align 8
+  store i32 16, ptr %54, align 4
   br label %return
 
 if.end35:                                         ; preds = %for.end
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end35, %if.end23
-  %54 = load ptr, ptr %result.addr, align 8
+  %55 = load ptr, ptr %result.addr, align 8
   %call38 = call noundef ptr @_ZNK6icu_7514SingleUnitImpl15getSimpleUnitIDEv(ptr noundef nonnull align 4 dereferenceable(12) %this1)
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp37, ptr noundef %call38)
-  %55 = load ptr, ptr %status.addr, align 8
-  %56 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp37, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp37, i32 0, i32 1
-  %59 = load i32, ptr %58, align 8
-  %call39 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %54, ptr %57, i32 %59, ptr noundef nonnull align 4 dereferenceable(4) %55)
+  %56 = load ptr, ptr %status.addr, align 8
+  %57 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp37, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp37, i32 0, i32 1
+  %60 = load i32, ptr %59, align 8
+  %call39 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %55, ptr %58, i32 %60, ptr noundef nonnull align 4 dereferenceable(4) %56)
   br label %return
 
 return:                                           ; preds = %if.end36, %if.then34, %if.then22, %if.else17
@@ -5393,16 +5395,17 @@ entry:
   store ptr %trieBuilder, ptr %trieBuilder.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114CategoriesSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114CategoriesSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %outQuantitiesArray = getelementptr inbounds %"class.icu_75::(anonymous namespace)::CategoriesSink", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %out.addr, align 8
-  store ptr %0, ptr %outQuantitiesArray, align 8
+  %1 = load ptr, ptr %out.addr, align 8
+  store ptr %1, ptr %outQuantitiesArray, align 8
   %outSize2 = getelementptr inbounds %"class.icu_75::(anonymous namespace)::CategoriesSink", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %outSize.addr, align 8
-  store ptr %1, ptr %outSize2, align 8
+  %2 = load ptr, ptr %outSize.addr, align 8
+  store ptr %2, ptr %outSize2, align 8
   %trieBuilder3 = getelementptr inbounds %"class.icu_75::(anonymous namespace)::CategoriesSink", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %trieBuilder.addr, align 8
-  store ptr %2, ptr %trieBuilder3, align 8
+  %3 = load ptr, ptr %trieBuilder.addr, align 8
+  store ptr %3, ptr %trieBuilder3, align 8
   %outIndex = getelementptr inbounds %"class.icu_75::(anonymous namespace)::CategoriesSink", ptr %this1, i32 0, i32 4
   store i32 0, ptr %outIndex, align 8
   ret void
@@ -5458,22 +5461,23 @@ entry:
   store i32 %trieValueOffset, ptr %trieValueOffset.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_125SimpleUnitIdentifiersSinkE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %outArray = getelementptr inbounds %"class.icu_75::(anonymous namespace)::SimpleUnitIdentifiersSink", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %out.addr, align 8
-  store ptr %2, ptr %outArray, align 8
+  %3 = load ptr, ptr %out.addr, align 8
+  store ptr %3, ptr %outArray, align 8
   %outCategories2 = getelementptr inbounds %"class.icu_75::(anonymous namespace)::SimpleUnitIdentifiersSink", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %outCategories.addr, align 8
-  store ptr %3, ptr %outCategories2, align 8
+  %4 = load ptr, ptr %outCategories.addr, align 8
+  store ptr %4, ptr %outCategories2, align 8
   %outSize3 = getelementptr inbounds %"class.icu_75::(anonymous namespace)::SimpleUnitIdentifiersSink", ptr %this1, i32 0, i32 3
-  %4 = load i32, ptr %outSize.addr, align 4
-  store i32 %4, ptr %outSize3, align 8
+  %5 = load i32, ptr %outSize.addr, align 4
+  store i32 %5, ptr %outSize3, align 8
   %trieBuilder4 = getelementptr inbounds %"class.icu_75::(anonymous namespace)::SimpleUnitIdentifiersSink", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %trieBuilder.addr, align 8
-  store ptr %5, ptr %trieBuilder4, align 8
+  %6 = load ptr, ptr %trieBuilder.addr, align 8
+  store ptr %6, ptr %trieBuilder4, align 8
   %trieValueOffset5 = getelementptr inbounds %"class.icu_75::(anonymous namespace)::SimpleUnitIdentifiersSink", ptr %this1, i32 0, i32 6
-  %6 = load i32, ptr %trieValueOffset.addr, align 4
-  store i32 %6, ptr %trieValueOffset5, align 8
+  %7 = load i32, ptr %trieValueOffset.addr, align 4
+  store i32 %7, ptr %trieValueOffset5, align 8
   %quantitiesTrieData6 = getelementptr inbounds %"class.icu_75::(anonymous namespace)::SimpleUnitIdentifiersSink", ptr %this1, i32 0, i32 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %quantitiesTrieData6, ptr align 8 %quantitiesTrieData, i64 16, i1 false)
   %outIndex = getelementptr inbounds %"class.icu_75::(anonymous namespace)::SimpleUnitIdentifiersSink", ptr %this1, i32 0, i32 9
@@ -5617,7 +5621,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5772,7 +5777,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

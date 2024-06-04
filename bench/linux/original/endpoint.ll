@@ -50,54 +50,55 @@ define internal void @ep_device_release(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @usb_create_ep_devs(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(744) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 744) #6
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %29, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias noundef align 8 dereferenceable_or_null(744) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 744) #6
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %30, label %8
 
-7:                                                ; preds = %3
-  store ptr %1, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 696
-  store ptr @ep_dev_groups, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr @usb_ep_device_type, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
-  %14 = load i8, ptr %13, align 2
-  %15 = zext i8 %14 to i32
-  %16 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %9, ptr noundef nonnull @.str.1, i32 noundef %15) #5
-  %17 = tail call i32 @device_register(ptr noundef %9) #5
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %28
+8:                                                ; preds = %3
+  store ptr %1, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %2, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds i8, ptr %6, i64 696
+  store ptr @ep_dev_groups, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 104
+  store ptr @usb_ep_device_type, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 80
+  store ptr %0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 2
+  %16 = zext i8 %15 to i32
+  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef %16) #5
+  %18 = tail call i32 @device_register(ptr noundef %10) #5
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %29
 
-19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %5, i64 236
-  %21 = load i16, ptr %20, align 4
-  %22 = and i16 %21, 8
-  %23 = icmp eq i16 %22, 0
-  br i1 %23, label %24, label %26
+20:                                               ; preds = %8
+  %21 = getelementptr inbounds i8, ptr %6, i64 236
+  %22 = load i16, ptr %21, align 4
+  %23 = and i16 %22, 8
+  %24 = icmp eq i16 %23, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %19
-  %25 = or i16 %21, 2
-  store i16 %25, ptr %20, align 4
-  br label %26
+25:                                               ; preds = %20
+  %26 = or i16 %22, 2
+  store i16 %26, ptr %21, align 4
+  br label %27
 
-26:                                               ; preds = %24, %19
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr %5, ptr %27, align 8
-  br label %29
+27:                                               ; preds = %25, %20
+  %28 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr %6, ptr %28, align 8
+  br label %30
 
-28:                                               ; preds = %7
-  tail call void @put_device(ptr noundef %9) #5
-  br label %29
+29:                                               ; preds = %8
+  tail call void @put_device(ptr noundef %10) #5
+  br label %30
 
-29:                                               ; preds = %28, %26, %3
-  %30 = phi i32 [ 0, %26 ], [ %17, %28 ], [ -12, %3 ]
-  ret i32 %30
+30:                                               ; preds = %29, %27, %3
+  %31 = phi i32 [ 0, %27 ], [ %18, %29 ], [ -12, %3 ]
+  ret i32 %31
 }
 
 ; Function Attrs: null_pointer_is_valid

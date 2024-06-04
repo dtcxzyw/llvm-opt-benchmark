@@ -421,7 +421,7 @@ entry:
   store ptr %nc, ptr %nc.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %nc.addr, align 8
   %info_str = getelementptr inbounds %struct.NetClientState, ptr %0, i32 0, i32 7
   %arraydecay1 = getelementptr inbounds [256 x i8], ptr %info_str, i64 0, i64 0
@@ -429,18 +429,12 @@ entry:
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef %arraydecay1, i64 noundef 256, ptr noundef %1, ptr noundef %arraydecay2) #13
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_format_nic_info_str(ptr noundef %nc, ptr noundef %macaddr) #0 {
@@ -543,7 +537,7 @@ return:                                           ; preds = %if.end, %if.else, %
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_macaddr_set_used(ptr noundef %macaddr) #0 {
@@ -677,10 +671,10 @@ if.end:                                           ; preds = %if.then
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #8
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #7
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) #9
+declare noalias ptr @g_malloc0(i64 noundef) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_net_client_setup(ptr noundef %nc, ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name, ptr noundef %destructor, i1 noundef zeroext %is_datapath) #0 {
@@ -767,46 +761,49 @@ do.body:                                          ; preds = %if.end16
   %17 = load ptr, ptr %nc.addr, align 8
   %next = getelementptr inbounds %struct.NetClientState, ptr %17, i32 0, i32 2
   store ptr null, ptr %next, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_clients, i32 0, i32 1), align 8
-  %19 = load ptr, ptr %nc.addr, align 8
-  %next17 = getelementptr inbounds %struct.NetClientState, ptr %19, i32 0, i32 2
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next17, i32 0, i32 1
-  store ptr %18, ptr %tql_prev, align 8
+  %18 = getelementptr inbounds %struct.QTailQLink, ptr @net_clients, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %nc.addr, align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_clients, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
-  store ptr %20, ptr %tql_next, align 8
-  %22 = load ptr, ptr %nc.addr, align 8
-  %next18 = getelementptr inbounds %struct.NetClientState, ptr %22, i32 0, i32 2
-  store ptr %next18, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_clients, i32 0, i32 1), align 8
+  %next17 = getelementptr inbounds %struct.NetClientState, ptr %20, i32 0, i32 2
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next17, i32 0, i32 1
+  store ptr %19, ptr %tql_prev, align 8
+  %21 = load ptr, ptr %nc.addr, align 8
+  %22 = getelementptr inbounds %struct.QTailQLink, ptr @net_clients, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %23, i32 0, i32 0
+  store ptr %21, ptr %tql_next, align 8
+  %24 = load ptr, ptr %nc.addr, align 8
+  %next18 = getelementptr inbounds %struct.NetClientState, ptr %24, i32 0, i32 2
+  %25 = getelementptr inbounds %struct.QTailQLink, ptr @net_clients, i32 0, i32 1
+  store ptr %next18, ptr %25, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %23 = load ptr, ptr %nc.addr, align 8
-  %call19 = call ptr @qemu_new_net_queue(ptr noundef @qemu_deliver_packet_iov, ptr noundef %23)
-  %24 = load ptr, ptr %nc.addr, align 8
-  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %24, i32 0, i32 4
-  store ptr %call19, ptr %incoming_queue, align 8
-  %25 = load ptr, ptr %destructor.addr, align 8
   %26 = load ptr, ptr %nc.addr, align 8
-  %destructor20 = getelementptr inbounds %struct.NetClientState, ptr %26, i32 0, i32 9
-  store ptr %25, ptr %destructor20, align 8
-  %27 = load i8, ptr %is_datapath.addr, align 1
-  %tobool21 = trunc i8 %27 to i1
-  %28 = load ptr, ptr %nc.addr, align 8
-  %is_datapath22 = getelementptr inbounds %struct.NetClientState, ptr %28, i32 0, i32 16
+  %call19 = call ptr @qemu_new_net_queue(ptr noundef @qemu_deliver_packet_iov, ptr noundef %26)
+  %27 = load ptr, ptr %nc.addr, align 8
+  %incoming_queue = getelementptr inbounds %struct.NetClientState, ptr %27, i32 0, i32 4
+  store ptr %call19, ptr %incoming_queue, align 8
+  %28 = load ptr, ptr %destructor.addr, align 8
+  %29 = load ptr, ptr %nc.addr, align 8
+  %destructor20 = getelementptr inbounds %struct.NetClientState, ptr %29, i32 0, i32 9
+  store ptr %28, ptr %destructor20, align 8
+  %30 = load i8, ptr %is_datapath.addr, align 1
+  %tobool21 = trunc i8 %30 to i1
+  %31 = load ptr, ptr %nc.addr, align 8
+  %is_datapath22 = getelementptr inbounds %struct.NetClientState, ptr %31, i32 0, i32 16
   %frombool23 = zext i1 %tobool21 to i8
   store i8 %frombool23, ptr %is_datapath22, align 2
   br label %do.body24
 
 do.body24:                                        ; preds = %do.end
-  %29 = load ptr, ptr %nc.addr, align 8
-  %filters = getelementptr inbounds %struct.NetClientState, ptr %29, i32 0, i32 17
+  %32 = load ptr, ptr %nc.addr, align 8
+  %filters = getelementptr inbounds %struct.NetClientState, ptr %32, i32 0, i32 17
   store ptr null, ptr %filters, align 8
-  %30 = load ptr, ptr %nc.addr, align 8
-  %filters25 = getelementptr inbounds %struct.NetClientState, ptr %30, i32 0, i32 17
-  %31 = load ptr, ptr %nc.addr, align 8
-  %filters26 = getelementptr inbounds %struct.NetClientState, ptr %31, i32 0, i32 17
+  %33 = load ptr, ptr %nc.addr, align 8
+  %filters25 = getelementptr inbounds %struct.NetClientState, ptr %33, i32 0, i32 17
+  %34 = load ptr, ptr %nc.addr, align 8
+  %filters26 = getelementptr inbounds %struct.NetClientState, ptr %34, i32 0, i32 17
   %tql_prev27 = getelementptr inbounds %struct.QTailQLink, ptr %filters26, i32 0, i32 1
   store ptr %filters25, ptr %tql_prev27, align 8
   br label %do.end28
@@ -1463,49 +1460,50 @@ if.else:                                          ; preds = %do.body
   %next5 = getelementptr inbounds %struct.NetClientState, ptr %6, i32 0, i32 2
   %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %next5, i32 0, i32 1
   %7 = load ptr, ptr %tql_prev6, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_clients, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @net_clients, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %nc.addr, align 8
-  %next7 = getelementptr inbounds %struct.NetClientState, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %next7, align 8
-  %10 = load ptr, ptr %nc.addr, align 8
-  %next8 = getelementptr inbounds %struct.NetClientState, ptr %10, i32 0, i32 2
+  %9 = load ptr, ptr %nc.addr, align 8
+  %next7 = getelementptr inbounds %struct.NetClientState, ptr %9, i32 0, i32 2
+  %10 = load ptr, ptr %next7, align 8
+  %11 = load ptr, ptr %nc.addr, align 8
+  %next8 = getelementptr inbounds %struct.NetClientState, ptr %11, i32 0, i32 2
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %next8, i32 0, i32 1
-  %11 = load ptr, ptr %tql_prev9, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %12 = load ptr, ptr %nc.addr, align 8
-  %next10 = getelementptr inbounds %struct.NetClientState, ptr %12, i32 0, i32 2
+  %12 = load ptr, ptr %tql_prev9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %nc.addr, align 8
+  %next10 = getelementptr inbounds %struct.NetClientState, ptr %13, i32 0, i32 2
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %next10, i32 0, i32 1
   store ptr null, ptr %tql_prev11, align 8
-  %13 = load ptr, ptr %nc.addr, align 8
-  %next12 = getelementptr inbounds %struct.NetClientState, ptr %13, i32 0, i32 2
+  %14 = load ptr, ptr %nc.addr, align 8
+  %next12 = getelementptr inbounds %struct.NetClientState, ptr %14, i32 0, i32 2
   %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %next12, i32 0, i32 0
   store ptr null, ptr %tql_next13, align 8
-  %14 = load ptr, ptr %nc.addr, align 8
-  %next14 = getelementptr inbounds %struct.NetClientState, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %nc.addr, align 8
+  %next14 = getelementptr inbounds %struct.NetClientState, ptr %15, i32 0, i32 2
   store ptr null, ptr %next14, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %15 = load ptr, ptr %nc.addr, align 8
-  %info = getelementptr inbounds %struct.NetClientState, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %info, align 8
-  %cleanup = getelementptr inbounds %struct.NetClientInfo, ptr %16, i32 0, i32 9
-  %17 = load ptr, ptr %cleanup, align 8
-  %tobool = icmp ne ptr %17, null
+  %16 = load ptr, ptr %nc.addr, align 8
+  %info = getelementptr inbounds %struct.NetClientState, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %info, align 8
+  %cleanup = getelementptr inbounds %struct.NetClientInfo, ptr %17, i32 0, i32 9
+  %18 = load ptr, ptr %cleanup, align 8
+  %tobool = icmp ne ptr %18, null
   br i1 %tobool, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %do.end
-  %18 = load ptr, ptr %nc.addr, align 8
-  %info16 = getelementptr inbounds %struct.NetClientState, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %info16, align 8
-  %cleanup17 = getelementptr inbounds %struct.NetClientInfo, ptr %19, i32 0, i32 9
-  %20 = load ptr, ptr %cleanup17, align 8
-  %21 = load ptr, ptr %nc.addr, align 8
-  call void %20(ptr noundef %21)
+  %19 = load ptr, ptr %nc.addr, align 8
+  %info16 = getelementptr inbounds %struct.NetClientState, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %info16, align 8
+  %cleanup17 = getelementptr inbounds %struct.NetClientInfo, ptr %20, i32 0, i32 9
+  %21 = load ptr, ptr %cleanup17, align 8
+  %22 = load ptr, ptr %nc.addr, align 8
+  call void %21(ptr noundef %22)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %do.end
@@ -3020,7 +3018,7 @@ return:                                           ; preds = %for.end, %if.then2
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #7
+declare i32 @strcmp(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_get_nic_models(ptr noundef %device_type) #0 {
@@ -3272,7 +3270,7 @@ if.end6:                                          ; preds = %if.end
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #8
+declare void @exit(i32 noundef) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_find_nic_model(ptr noundef %nd, ptr noundef %models, ptr noundef %default_model) #0 {
@@ -4624,7 +4622,8 @@ entry:
 
 do.body:                                          ; preds = %entry
   store ptr null, ptr @net_clients, align 8
-  store ptr @net_clients, ptr getelementptr inbounds (%struct.QTailQLink, ptr @net_clients, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.QTailQLink, ptr @net_clients, i32 0, i32 1
+  store ptr @net_clients, ptr %0, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -4747,33 +4746,34 @@ do.body:                                          ; preds = %while.body
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  store ptr @nd_queue, ptr getelementptr inbounds (%struct.NetdevQueue, ptr @nd_queue, i32 0, i32 1), align 8
+  %5 = getelementptr inbounds %struct.NetdevQueue, ptr @nd_queue, i32 0, i32 1
+  store ptr @nd_queue, ptr %5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
-  %5 = load ptr, ptr %elm, align 8
-  %entry3 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %elm, align 8
+  %entry3 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %6, i32 0, i32 2
   %sqe_next4 = getelementptr inbounds %struct.anon, ptr %entry3, i32 0, i32 0
   store ptr null, ptr %sqe_next4, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %nd, align 8
-  %loc = getelementptr inbounds %struct.NetdevQueueEntry, ptr %6, i32 0, i32 1
-  %call = call ptr @loc_push_restore(ptr noundef %loc)
   %7 = load ptr, ptr %nd, align 8
-  %nd5 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %nd5, align 8
-  %call6 = call i32 @net_client_init1(ptr noundef %8, i1 noundef zeroext true, ptr noundef @error_fatal)
-  %9 = load ptr, ptr %nd, align 8
-  %loc7 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %9, i32 0, i32 1
-  %call8 = call ptr @loc_pop(ptr noundef %loc7)
+  %loc = getelementptr inbounds %struct.NetdevQueueEntry, ptr %7, i32 0, i32 1
+  %call = call ptr @loc_push_restore(ptr noundef %loc)
+  %8 = load ptr, ptr %nd, align 8
+  %nd5 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %nd5, align 8
+  %call6 = call i32 @net_client_init1(ptr noundef %9, i1 noundef zeroext true, ptr noundef @error_fatal)
   %10 = load ptr, ptr %nd, align 8
-  %nd9 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %nd9, align 8
-  call void @qapi_free_Netdev(ptr noundef %11)
-  %12 = load ptr, ptr %nd, align 8
-  call void @g_free(ptr noundef %12)
+  %loc7 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %10, i32 0, i32 1
+  %call8 = call ptr @loc_pop(ptr noundef %loc7)
+  %11 = load ptr, ptr %nd, align 8
+  %nd9 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %11, i32 0, i32 0
+  %12 = load ptr, ptr %nd9, align 8
+  call void @qapi_free_Netdev(ptr noundef %12)
+  %13 = load ptr, ptr %nd, align 8
+  call void @g_free(ptr noundef %13)
   br label %while.cond, !llvm.loop !36
 
 while.end:                                        ; preds = %while.cond
@@ -5055,36 +5055,37 @@ if.end:                                           ; preds = %entry
   store ptr %call, ptr %opts, align 8
   %2 = load ptr, ptr %opts, align 8
   %3 = load ptr, ptr %optstr.addr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.QemuOptsList, ptr @netdev_is_modern.dummy_opts, i32 0, i32 1), align 8
-  %call2 = call zeroext i1 @qemu_opts_do_parse(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef @error_abort)
-  %5 = load ptr, ptr %opts, align 8
-  %call3 = call ptr @qemu_opt_get(ptr noundef %5, ptr noundef @.str.47)
+  %4 = getelementptr inbounds %struct.QemuOptsList, ptr @netdev_is_modern.dummy_opts, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %call2 = call zeroext i1 @qemu_opts_do_parse(ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef @error_abort)
+  %6 = load ptr, ptr %opts, align 8
+  %call3 = call ptr @qemu_opt_get(ptr noundef %6, ptr noundef @.str.47)
   store ptr %call3, ptr %type, align 8
-  %6 = load ptr, ptr %type, align 8
-  %call4 = call i32 @g_strcmp0(ptr noundef %6, ptr noundef @.str.20)
+  %7 = load ptr, ptr %type, align 8
+  %call4 = call i32 @g_strcmp0(ptr noundef %7, ptr noundef @.str.20)
   %tobool = icmp ne i32 %call4, 0
   br i1 %tobool, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %if.end
-  %7 = load ptr, ptr %type, align 8
-  %call5 = call i32 @g_strcmp0(ptr noundef %7, ptr noundef @.str.21)
+  %8 = load ptr, ptr %type, align 8
+  %call5 = call i32 @g_strcmp0(ptr noundef %8, ptr noundef @.str.21)
   %tobool6 = icmp ne i32 %call5, 0
   %lnot = xor i1 %tobool6, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end
-  %8 = phi i1 [ true, %if.end ], [ %lnot, %lor.rhs ]
-  %frombool = zext i1 %8 to i8
+  %9 = phi i1 [ true, %if.end ], [ %lnot, %lor.rhs ]
+  %frombool = zext i1 %9 to i8
   store i8 %frombool, ptr %is_modern, align 1
   call void @qemu_opts_reset(ptr noundef @netdev_is_modern.dummy_opts)
-  %9 = load i8, ptr %is_modern, align 1
-  %tobool7 = trunc i8 %9 to i1
+  %10 = load i8, ptr %is_modern, align 1
+  %tobool7 = trunc i8 %10 to i1
   store i1 %tobool7, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %lor.end, %if.then
-  %10 = load i1, ptr %retval, align 1
-  ret i1 %10
+  %11 = load i1, ptr %retval, align 1
+  ret i1 %11
 }
 
 declare ptr @qemu_opts_create(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #4
@@ -5126,12 +5127,14 @@ do.body:                                          ; preds = %entry
   %sqe_next = getelementptr inbounds %struct.anon, ptr %entry5, i32 0, i32 0
   store ptr null, ptr %sqe_next, align 8
   %6 = load ptr, ptr %nd, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.NetdevQueue, ptr @nd_queue, i32 0, i32 1), align 8
-  store ptr %6, ptr %7, align 8
-  %8 = load ptr, ptr %nd, align 8
-  %entry6 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %8, i32 0, i32 2
+  %7 = getelementptr inbounds %struct.NetdevQueue, ptr @nd_queue, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  store ptr %6, ptr %8, align 8
+  %9 = load ptr, ptr %nd, align 8
+  %entry6 = getelementptr inbounds %struct.NetdevQueueEntry, ptr %9, i32 0, i32 2
   %sqe_next7 = getelementptr inbounds %struct.anon, ptr %entry6, i32 0, i32 0
-  store ptr %sqe_next7, ptr getelementptr inbounds (%struct.NetdevQueue, ptr @nd_queue, i32 0, i32 1), align 8
+  %10 = getelementptr inbounds %struct.NetdevQueue, ptr @nd_queue, i32 0, i32 1
+  store ptr %sqe_next7, ptr %10, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -5141,7 +5144,7 @@ do.end:                                           ; preds = %do.body
 declare ptr @qobject_input_visitor_new_str(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #10
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #9
 
 declare zeroext i1 @visit_type_Netdev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
@@ -6045,7 +6048,7 @@ return:                                           ; preds = %if.end15, %if.then3
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #9
+declare noalias ptr @g_malloc(i64 noundef) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @iov_to_buf(ptr noundef %iov, i32 noundef %iov_cnt, i64 noundef %offset, ptr noundef %buf, i64 noundef %bytes) #0 {
@@ -6120,7 +6123,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #11
+declare i1 @llvm.is.constant.i64(i64) #10
 
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) #4
 
@@ -6533,18 +6536,24 @@ declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) #4
 
 declare ptr @qemu_opt_get_del(ptr noundef, ptr noundef) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }

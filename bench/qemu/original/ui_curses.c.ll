@@ -559,57 +559,60 @@ entry:
   %call1 = call ptr @iconv_open(ptr noundef %0, ptr noundef @.str.3)
   store ptr %call1, ptr %ucs2_to_nativecharset, align 8
   %1 = load ptr, ptr %ucs2_to_nativecharset, align 8
-  %cmp = icmp eq ptr %1, inttoptr (i64 -1 to ptr)
+  %2 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr @stderr, align 8
+  %3 = load ptr, ptr @stderr, align 8
   %call2 = call ptr @__errno_location() #12
-  %3 = load i32, ptr %call2, align 4
-  %call3 = call ptr @strerror(i32 noundef %3) #9
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.4, ptr noundef %call3)
+  %4 = load i32, ptr %call2, align 4
+  %call3 = call ptr @strerror(i32 noundef %4) #9
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.4, ptr noundef %call3)
   call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %local_codeset, align 8
-  %call5 = call ptr @iconv_open(ptr noundef @.str.3, ptr noundef %4)
+  %5 = load ptr, ptr %local_codeset, align 8
+  %call5 = call ptr @iconv_open(ptr noundef @.str.3, ptr noundef %5)
   store ptr %call5, ptr %nativecharset_to_ucs2, align 8
-  %5 = load ptr, ptr %nativecharset_to_ucs2, align 8
-  %cmp6 = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = load ptr, ptr %nativecharset_to_ucs2, align 8
+  %7 = inttoptr i64 -1 to ptr
+  %cmp6 = icmp eq ptr %6, %7
   br i1 %cmp6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.end
-  %6 = load ptr, ptr %ucs2_to_nativecharset, align 8
-  %call8 = call i32 @iconv_close(ptr noundef %6)
-  %7 = load ptr, ptr @stderr, align 8
+  %8 = load ptr, ptr %ucs2_to_nativecharset, align 8
+  %call8 = call i32 @iconv_close(ptr noundef %8)
+  %9 = load ptr, ptr @stderr, align 8
   %call9 = call ptr @__errno_location() #12
-  %8 = load i32, ptr %call9, align 4
-  %call10 = call ptr @strerror(i32 noundef %8) #9
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.5, ptr noundef %call10)
+  %10 = load i32, ptr %call9, align 4
+  %call10 = call ptr @strerror(i32 noundef %10) #9
+  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.5, ptr noundef %call10)
   call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end12:                                         ; preds = %if.end
-  %9 = load ptr, ptr %local_codeset, align 8
-  %10 = load ptr, ptr @font_charset, align 8
-  %call13 = call ptr @iconv_open(ptr noundef %9, ptr noundef %10)
+  %11 = load ptr, ptr %local_codeset, align 8
+  %12 = load ptr, ptr @font_charset, align 8
+  %call13 = call ptr @iconv_open(ptr noundef %11, ptr noundef %12)
   store ptr %call13, ptr %font_conv, align 8
-  %11 = load ptr, ptr %font_conv, align 8
-  %cmp14 = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
+  %13 = load ptr, ptr %font_conv, align 8
+  %14 = inttoptr i64 -1 to ptr
+  %cmp14 = icmp eq ptr %13, %14
   br i1 %cmp14, label %if.then15, label %if.end21
 
 if.then15:                                        ; preds = %if.end12
-  %12 = load ptr, ptr %ucs2_to_nativecharset, align 8
-  %call16 = call i32 @iconv_close(ptr noundef %12)
-  %13 = load ptr, ptr %nativecharset_to_ucs2, align 8
-  %call17 = call i32 @iconv_close(ptr noundef %13)
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = load ptr, ptr @font_charset, align 8
+  %15 = load ptr, ptr %ucs2_to_nativecharset, align 8
+  %call16 = call i32 @iconv_close(ptr noundef %15)
+  %16 = load ptr, ptr %nativecharset_to_ucs2, align 8
+  %call17 = call i32 @iconv_close(ptr noundef %16)
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = load ptr, ptr @font_charset, align 8
   %call18 = call ptr @__errno_location() #12
-  %16 = load i32, ptr %call18, align 4
-  %call19 = call ptr @strerror(i32 noundef %16) #9
-  %call20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.6, ptr noundef %15, ptr noundef %call19)
+  %19 = load i32, ptr %call18, align 4
+  %call19 = call ptr @strerror(i32 noundef %19) #9
+  %call20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.6, ptr noundef %18, ptr noundef %call19)
   call void @exit(i32 noundef 1) #10
   unreachable
 
@@ -618,24 +621,24 @@ if.end21:                                         ; preds = %if.end12
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end21
-  %17 = load i32, ptr %i, align 4
-  %cmp22 = icmp sle i32 %17, 31
+  %20 = load i32, ptr %i, align 4
+  %cmp22 = icmp sle i32 %20, 31
   br i1 %cmp22, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %18 = load i32, ptr %i, align 4
-  %conv = trunc i32 %18 to i8
-  %19 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %19 to i64
+  %21 = load i32, ptr %i, align 4
+  %conv = trunc i32 %21 to i8
+  %22 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %22 to i64
   %arrayidx = getelementptr [32 x i16], ptr @font_setup.control_characters, i64 0, i64 %idxprom
-  %20 = load i16, ptr %arrayidx, align 2
-  %21 = load ptr, ptr %ucs2_to_nativecharset, align 8
-  call void @convert_ucs(i8 noundef zeroext %conv, i16 noundef zeroext %20, ptr noundef %21)
+  %23 = load i16, ptr %arrayidx, align 2
+  %24 = load ptr, ptr %ucs2_to_nativecharset, align 8
+  call void @convert_ucs(i8 noundef zeroext %conv, i16 noundef zeroext %23, ptr noundef %24)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %22 = load i32, ptr %i, align 4
-  %inc = add i32 %22, 1
+  %25 = load i32, ptr %i, align 4
+  %inc = add i32 %25, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
@@ -644,28 +647,28 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond23
 
 for.cond23:                                       ; preds = %for.inc28, %for.end
-  %23 = load i32, ptr %i, align 4
-  %cmp24 = icmp sle i32 %23, 255
+  %26 = load i32, ptr %i, align 4
+  %cmp24 = icmp sle i32 %26, 255
   br i1 %cmp24, label %for.body26, label %for.end30
 
 for.body26:                                       ; preds = %for.cond23
-  %24 = load i32, ptr %i, align 4
-  %conv27 = trunc i32 %24 to i8
-  %25 = load ptr, ptr %font_conv, align 8
-  call void @convert_font(i8 noundef zeroext %conv27, ptr noundef %25)
+  %27 = load i32, ptr %i, align 4
+  %conv27 = trunc i32 %27 to i8
+  %28 = load ptr, ptr %font_conv, align 8
+  call void @convert_font(i8 noundef zeroext %conv27, ptr noundef %28)
   br label %for.inc28
 
 for.inc28:                                        ; preds = %for.body26
-  %26 = load i32, ptr %i, align 4
-  %inc29 = add i32 %26, 1
+  %29 = load i32, ptr %i, align 4
+  %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %i, align 4
   br label %for.cond23, !llvm.loop !9
 
 for.end30:                                        ; preds = %for.cond23
-  %27 = load ptr, ptr %ucs2_to_nativecharset, align 8
-  call void @convert_ucs(i8 noundef zeroext 127, i16 noundef zeroext 8962, ptr noundef %27)
-  %28 = load ptr, ptr %local_codeset, align 8
-  %call31 = call i32 @strcmp(ptr noundef %28, ptr noundef @.str.7) #13
+  %30 = load ptr, ptr %ucs2_to_nativecharset, align 8
+  call void @convert_ucs(i8 noundef zeroext 127, i16 noundef zeroext 8962, ptr noundef %30)
+  %31 = load ptr, ptr %local_codeset, align 8
+  %call31 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str.7) #13
   %tobool = icmp ne i32 %call31, 0
   br i1 %tobool, label %if.then32, label %if.end177
 
@@ -674,20 +677,20 @@ if.then32:                                        ; preds = %for.end30
   br label %for.cond33
 
 for.cond33:                                       ; preds = %for.inc174, %if.then32
-  %29 = load i32, ptr %i, align 4
-  %cmp34 = icmp sle i32 %29, 255
+  %32 = load i32, ptr %i, align 4
+  %cmp34 = icmp sle i32 %32, 255
   br i1 %cmp34, label %for.body36, label %for.end176
 
 for.body36:                                       ; preds = %for.cond33
-  %30 = load ptr, ptr @vga_to_curses, align 8
-  %31 = load i32, ptr %i, align 4
-  %idxprom37 = sext i32 %31 to i64
-  %arrayidx38 = getelementptr %struct.cchar_t, ptr %30, i64 %idxprom37
+  %33 = load ptr, ptr @vga_to_curses, align 8
+  %34 = load i32, ptr %i, align 4
+  %idxprom37 = sext i32 %34 to i64
+  %arrayidx38 = getelementptr %struct.cchar_t, ptr %33, i64 %idxprom37
   %arraydecay = getelementptr inbounds [5 x i32], ptr %wch, i64 0, i64 0
   %call39 = call i32 @getcchar(ptr noundef %arrayidx38, ptr noundef %arraydecay, ptr noundef %attr, ptr noundef %color, ptr noundef null)
   store i32 %call39, ptr %ret, align 4
-  %32 = load i32, ptr %ret, align 4
-  %cmp40 = icmp eq i32 %32, -1
+  %35 = load i32, ptr %ret, align 4
+  %cmp40 = icmp eq i32 %35, -1
   br i1 %cmp40, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %for.body36
@@ -695,9 +698,9 @@ if.then42:                                        ; preds = %for.body36
 
 if.end43:                                         ; preds = %for.body36
   %arrayidx44 = getelementptr [5 x i32], ptr %wch, i64 0, i64 0
-  %33 = load i32, ptr %arrayidx44, align 16
-  %34 = load ptr, ptr %nativecharset_to_ucs2, align 8
-  %call45 = call zeroext i16 @get_ucs(i32 noundef %33, ptr noundef %34)
+  %36 = load i32, ptr %arrayidx44, align 16
+  %37 = load ptr, ptr %nativecharset_to_ucs2, align 8
+  %call45 = call zeroext i16 @get_ucs(i32 noundef %36, ptr noundef %37)
   %conv46 = zext i16 %call45 to i32
   switch i32 %conv46, label %sw.epilog [
     i32 163, label %sw.bb
@@ -735,322 +738,322 @@ if.end43:                                         ; preds = %for.body36
   ]
 
 sw.bb:                                            ; preds = %if.end43
-  %35 = load ptr, ptr @vga_to_curses, align 8
-  %36 = load i32, ptr %i, align 4
-  %idxprom47 = sext i32 %36 to i64
-  %arrayidx48 = getelementptr %struct.cchar_t, ptr %35, i64 %idxprom47
-  %37 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx49 = getelementptr %struct.cchar_t, ptr %37, i64 125
+  %38 = load ptr, ptr @vga_to_curses, align 8
+  %39 = load i32, ptr %i, align 4
+  %idxprom47 = sext i32 %39 to i64
+  %arrayidx48 = getelementptr %struct.cchar_t, ptr %38, i64 %idxprom47
+  %40 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx49 = getelementptr %struct.cchar_t, ptr %40, i64 125
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx48, ptr align 4 %arrayidx49, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.end43
-  %38 = load ptr, ptr @vga_to_curses, align 8
-  %39 = load i32, ptr %i, align 4
-  %idxprom51 = sext i32 %39 to i64
-  %arrayidx52 = getelementptr %struct.cchar_t, ptr %38, i64 %idxprom51
-  %40 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx53 = getelementptr %struct.cchar_t, ptr %40, i64 104
+  %41 = load ptr, ptr @vga_to_curses, align 8
+  %42 = load i32, ptr %i, align 4
+  %idxprom51 = sext i32 %42 to i64
+  %arrayidx52 = getelementptr %struct.cchar_t, ptr %41, i64 %idxprom51
+  %43 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx53 = getelementptr %struct.cchar_t, ptr %43, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx52, ptr align 4 %arrayidx53, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %if.end43
-  %41 = load ptr, ptr @vga_to_curses, align 8
-  %42 = load i32, ptr %i, align 4
-  %idxprom55 = sext i32 %42 to i64
-  %arrayidx56 = getelementptr %struct.cchar_t, ptr %41, i64 %idxprom55
-  %43 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx57 = getelementptr %struct.cchar_t, ptr %43, i64 97
+  %44 = load ptr, ptr @vga_to_curses, align 8
+  %45 = load i32, ptr %i, align 4
+  %idxprom55 = sext i32 %45 to i64
+  %arrayidx56 = getelementptr %struct.cchar_t, ptr %44, i64 %idxprom55
+  %46 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx57 = getelementptr %struct.cchar_t, ptr %46, i64 97
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx56, ptr align 4 %arrayidx57, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %if.end43
-  %44 = load ptr, ptr @vga_to_curses, align 8
-  %45 = load i32, ptr %i, align 4
-  %idxprom59 = sext i32 %45 to i64
-  %arrayidx60 = getelementptr %struct.cchar_t, ptr %44, i64 %idxprom59
-  %46 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx61 = getelementptr %struct.cchar_t, ptr %46, i64 120
+  %47 = load ptr, ptr @vga_to_curses, align 8
+  %48 = load i32, ptr %i, align 4
+  %idxprom59 = sext i32 %48 to i64
+  %arrayidx60 = getelementptr %struct.cchar_t, ptr %47, i64 %idxprom59
+  %49 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx61 = getelementptr %struct.cchar_t, ptr %49, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx60, ptr align 4 %arrayidx61, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb62:                                          ; preds = %if.end43
-  %47 = load ptr, ptr @vga_to_curses, align 8
-  %48 = load i32, ptr %i, align 4
-  %idxprom63 = sext i32 %48 to i64
-  %arrayidx64 = getelementptr %struct.cchar_t, ptr %47, i64 %idxprom63
-  %49 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx65 = getelementptr %struct.cchar_t, ptr %49, i64 117
+  %50 = load ptr, ptr @vga_to_curses, align 8
+  %51 = load i32, ptr %i, align 4
+  %idxprom63 = sext i32 %51 to i64
+  %arrayidx64 = getelementptr %struct.cchar_t, ptr %50, i64 %idxprom63
+  %52 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx65 = getelementptr %struct.cchar_t, ptr %52, i64 117
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx64, ptr align 4 %arrayidx65, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %if.end43
-  %50 = load ptr, ptr @vga_to_curses, align 8
-  %51 = load i32, ptr %i, align 4
-  %idxprom67 = sext i32 %51 to i64
-  %arrayidx68 = getelementptr %struct.cchar_t, ptr %50, i64 %idxprom67
-  %52 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx69 = getelementptr %struct.cchar_t, ptr %52, i64 107
+  %53 = load ptr, ptr @vga_to_curses, align 8
+  %54 = load i32, ptr %i, align 4
+  %idxprom67 = sext i32 %54 to i64
+  %arrayidx68 = getelementptr %struct.cchar_t, ptr %53, i64 %idxprom67
+  %55 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx69 = getelementptr %struct.cchar_t, ptr %55, i64 107
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx68, ptr align 4 %arrayidx69, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb70:                                          ; preds = %if.end43
-  %53 = load ptr, ptr @vga_to_curses, align 8
-  %54 = load i32, ptr %i, align 4
-  %idxprom71 = sext i32 %54 to i64
-  %arrayidx72 = getelementptr %struct.cchar_t, ptr %53, i64 %idxprom71
-  %55 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx73 = getelementptr %struct.cchar_t, ptr %55, i64 109
+  %56 = load ptr, ptr @vga_to_curses, align 8
+  %57 = load i32, ptr %i, align 4
+  %idxprom71 = sext i32 %57 to i64
+  %arrayidx72 = getelementptr %struct.cchar_t, ptr %56, i64 %idxprom71
+  %58 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx73 = getelementptr %struct.cchar_t, ptr %58, i64 109
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx72, ptr align 4 %arrayidx73, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb74:                                          ; preds = %if.end43
-  %56 = load ptr, ptr @vga_to_curses, align 8
-  %57 = load i32, ptr %i, align 4
-  %idxprom75 = sext i32 %57 to i64
-  %arrayidx76 = getelementptr %struct.cchar_t, ptr %56, i64 %idxprom75
-  %58 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx77 = getelementptr %struct.cchar_t, ptr %58, i64 118
+  %59 = load ptr, ptr @vga_to_curses, align 8
+  %60 = load i32, ptr %i, align 4
+  %idxprom75 = sext i32 %60 to i64
+  %arrayidx76 = getelementptr %struct.cchar_t, ptr %59, i64 %idxprom75
+  %61 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx77 = getelementptr %struct.cchar_t, ptr %61, i64 118
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx76, ptr align 4 %arrayidx77, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb78:                                          ; preds = %if.end43
-  %59 = load ptr, ptr @vga_to_curses, align 8
-  %60 = load i32, ptr %i, align 4
-  %idxprom79 = sext i32 %60 to i64
-  %arrayidx80 = getelementptr %struct.cchar_t, ptr %59, i64 %idxprom79
-  %61 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx81 = getelementptr %struct.cchar_t, ptr %61, i64 119
+  %62 = load ptr, ptr @vga_to_curses, align 8
+  %63 = load i32, ptr %i, align 4
+  %idxprom79 = sext i32 %63 to i64
+  %arrayidx80 = getelementptr %struct.cchar_t, ptr %62, i64 %idxprom79
+  %64 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx81 = getelementptr %struct.cchar_t, ptr %64, i64 119
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx80, ptr align 4 %arrayidx81, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb82:                                          ; preds = %if.end43
-  %62 = load ptr, ptr @vga_to_curses, align 8
-  %63 = load i32, ptr %i, align 4
-  %idxprom83 = sext i32 %63 to i64
-  %arrayidx84 = getelementptr %struct.cchar_t, ptr %62, i64 %idxprom83
-  %64 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx85 = getelementptr %struct.cchar_t, ptr %64, i64 116
+  %65 = load ptr, ptr @vga_to_curses, align 8
+  %66 = load i32, ptr %i, align 4
+  %idxprom83 = sext i32 %66 to i64
+  %arrayidx84 = getelementptr %struct.cchar_t, ptr %65, i64 %idxprom83
+  %67 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx85 = getelementptr %struct.cchar_t, ptr %67, i64 116
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx84, ptr align 4 %arrayidx85, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb86:                                          ; preds = %if.end43
-  %65 = load ptr, ptr @vga_to_curses, align 8
-  %66 = load i32, ptr %i, align 4
-  %idxprom87 = sext i32 %66 to i64
-  %arrayidx88 = getelementptr %struct.cchar_t, ptr %65, i64 %idxprom87
-  %67 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx89 = getelementptr %struct.cchar_t, ptr %67, i64 113
+  %68 = load ptr, ptr @vga_to_curses, align 8
+  %69 = load i32, ptr %i, align 4
+  %idxprom87 = sext i32 %69 to i64
+  %arrayidx88 = getelementptr %struct.cchar_t, ptr %68, i64 %idxprom87
+  %70 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx89 = getelementptr %struct.cchar_t, ptr %70, i64 113
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx88, ptr align 4 %arrayidx89, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb90:                                          ; preds = %if.end43
-  %68 = load ptr, ptr @vga_to_curses, align 8
-  %69 = load i32, ptr %i, align 4
-  %idxprom91 = sext i32 %69 to i64
-  %arrayidx92 = getelementptr %struct.cchar_t, ptr %68, i64 %idxprom91
-  %70 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx93 = getelementptr %struct.cchar_t, ptr %70, i64 110
+  %71 = load ptr, ptr @vga_to_curses, align 8
+  %72 = load i32, ptr %i, align 4
+  %idxprom91 = sext i32 %72 to i64
+  %arrayidx92 = getelementptr %struct.cchar_t, ptr %71, i64 %idxprom91
+  %73 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx93 = getelementptr %struct.cchar_t, ptr %73, i64 110
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx92, ptr align 4 %arrayidx93, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb94:                                          ; preds = %if.end43
-  %71 = load ptr, ptr @vga_to_curses, align 8
-  %72 = load i32, ptr %i, align 4
-  %idxprom95 = sext i32 %72 to i64
-  %arrayidx96 = getelementptr %struct.cchar_t, ptr %71, i64 %idxprom95
-  %73 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx97 = getelementptr %struct.cchar_t, ptr %73, i64 105
+  %74 = load ptr, ptr @vga_to_curses, align 8
+  %75 = load i32, ptr %i, align 4
+  %idxprom95 = sext i32 %75 to i64
+  %arrayidx96 = getelementptr %struct.cchar_t, ptr %74, i64 %idxprom95
+  %76 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx97 = getelementptr %struct.cchar_t, ptr %76, i64 105
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx96, ptr align 4 %arrayidx97, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %if.end43
-  %74 = load ptr, ptr @vga_to_curses, align 8
-  %75 = load i32, ptr %i, align 4
-  %idxprom99 = sext i32 %75 to i64
-  %arrayidx100 = getelementptr %struct.cchar_t, ptr %74, i64 %idxprom99
-  %76 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx101 = getelementptr %struct.cchar_t, ptr %76, i64 124
+  %77 = load ptr, ptr @vga_to_curses, align 8
+  %78 = load i32, ptr %i, align 4
+  %idxprom99 = sext i32 %78 to i64
+  %arrayidx100 = getelementptr %struct.cchar_t, ptr %77, i64 %idxprom99
+  %79 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx101 = getelementptr %struct.cchar_t, ptr %79, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx100, ptr align 4 %arrayidx101, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb102:                                         ; preds = %if.end43
-  %77 = load ptr, ptr @vga_to_curses, align 8
-  %78 = load i32, ptr %i, align 4
-  %idxprom103 = sext i32 %78 to i64
-  %arrayidx104 = getelementptr %struct.cchar_t, ptr %77, i64 %idxprom103
-  %79 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx105 = getelementptr %struct.cchar_t, ptr %79, i64 106
+  %80 = load ptr, ptr @vga_to_curses, align 8
+  %81 = load i32, ptr %i, align 4
+  %idxprom103 = sext i32 %81 to i64
+  %arrayidx104 = getelementptr %struct.cchar_t, ptr %80, i64 %idxprom103
+  %82 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx105 = getelementptr %struct.cchar_t, ptr %82, i64 106
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx104, ptr align 4 %arrayidx105, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb106:                                         ; preds = %if.end43
-  %80 = load ptr, ptr @vga_to_curses, align 8
-  %81 = load i32, ptr %i, align 4
-  %idxprom107 = sext i32 %81 to i64
-  %arrayidx108 = getelementptr %struct.cchar_t, ptr %80, i64 %idxprom107
-  %82 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx109 = getelementptr %struct.cchar_t, ptr %82, i64 108
+  %83 = load ptr, ptr @vga_to_curses, align 8
+  %84 = load i32, ptr %i, align 4
+  %idxprom107 = sext i32 %84 to i64
+  %arrayidx108 = getelementptr %struct.cchar_t, ptr %83, i64 %idxprom107
+  %85 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx109 = getelementptr %struct.cchar_t, ptr %85, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx108, ptr align 4 %arrayidx109, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb110:                                         ; preds = %if.end43
-  %83 = load ptr, ptr @vga_to_curses, align 8
-  %84 = load i32, ptr %i, align 4
-  %idxprom111 = sext i32 %84 to i64
-  %arrayidx112 = getelementptr %struct.cchar_t, ptr %83, i64 %idxprom111
-  %85 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx113 = getelementptr %struct.cchar_t, ptr %85, i64 48
+  %86 = load ptr, ptr @vga_to_curses, align 8
+  %87 = load i32, ptr %i, align 4
+  %idxprom111 = sext i32 %87 to i64
+  %arrayidx112 = getelementptr %struct.cchar_t, ptr %86, i64 %idxprom111
+  %88 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx113 = getelementptr %struct.cchar_t, ptr %88, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx112, ptr align 4 %arrayidx113, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb114:                                         ; preds = %if.end43
-  %86 = load ptr, ptr @vga_to_curses, align 8
-  %87 = load i32, ptr %i, align 4
-  %idxprom115 = sext i32 %87 to i64
-  %arrayidx116 = getelementptr %struct.cchar_t, ptr %86, i64 %idxprom115
-  %88 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx117 = getelementptr %struct.cchar_t, ptr %88, i64 123
+  %89 = load ptr, ptr @vga_to_curses, align 8
+  %90 = load i32, ptr %i, align 4
+  %idxprom115 = sext i32 %90 to i64
+  %arrayidx116 = getelementptr %struct.cchar_t, ptr %89, i64 %idxprom115
+  %91 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx117 = getelementptr %struct.cchar_t, ptr %91, i64 123
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx116, ptr align 4 %arrayidx117, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb118:                                         ; preds = %if.end43
-  %89 = load ptr, ptr @vga_to_curses, align 8
-  %90 = load i32, ptr %i, align 4
-  %idxprom119 = sext i32 %90 to i64
-  %arrayidx120 = getelementptr %struct.cchar_t, ptr %89, i64 %idxprom119
-  %91 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx121 = getelementptr %struct.cchar_t, ptr %91, i64 103
+  %92 = load ptr, ptr @vga_to_curses, align 8
+  %93 = load i32, ptr %i, align 4
+  %idxprom119 = sext i32 %93 to i64
+  %arrayidx120 = getelementptr %struct.cchar_t, ptr %92, i64 %idxprom119
+  %94 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx121 = getelementptr %struct.cchar_t, ptr %94, i64 103
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx120, ptr align 4 %arrayidx121, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb122:                                         ; preds = %if.end43
-  %92 = load ptr, ptr @vga_to_curses, align 8
-  %93 = load i32, ptr %i, align 4
-  %idxprom123 = sext i32 %93 to i64
-  %arrayidx124 = getelementptr %struct.cchar_t, ptr %92, i64 %idxprom123
-  %94 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx125 = getelementptr %struct.cchar_t, ptr %94, i64 122
+  %95 = load ptr, ptr @vga_to_curses, align 8
+  %96 = load i32, ptr %i, align 4
+  %idxprom123 = sext i32 %96 to i64
+  %arrayidx124 = getelementptr %struct.cchar_t, ptr %95, i64 %idxprom123
+  %97 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx125 = getelementptr %struct.cchar_t, ptr %97, i64 122
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx124, ptr align 4 %arrayidx125, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb126:                                         ; preds = %if.end43
-  %95 = load ptr, ptr @vga_to_curses, align 8
-  %96 = load i32, ptr %i, align 4
-  %idxprom127 = sext i32 %96 to i64
-  %arrayidx128 = getelementptr %struct.cchar_t, ptr %95, i64 %idxprom127
-  %97 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx129 = getelementptr %struct.cchar_t, ptr %97, i64 121
+  %98 = load ptr, ptr @vga_to_curses, align 8
+  %99 = load i32, ptr %i, align 4
+  %idxprom127 = sext i32 %99 to i64
+  %arrayidx128 = getelementptr %struct.cchar_t, ptr %98, i64 %idxprom127
+  %100 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx129 = getelementptr %struct.cchar_t, ptr %100, i64 121
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx128, ptr align 4 %arrayidx129, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb130:                                         ; preds = %if.end43
-  %98 = load ptr, ptr @vga_to_curses, align 8
-  %99 = load i32, ptr %i, align 4
-  %idxprom131 = sext i32 %99 to i64
-  %arrayidx132 = getelementptr %struct.cchar_t, ptr %98, i64 %idxprom131
-  %100 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx133 = getelementptr %struct.cchar_t, ptr %100, i64 102
+  %101 = load ptr, ptr @vga_to_curses, align 8
+  %102 = load i32, ptr %i, align 4
+  %idxprom131 = sext i32 %102 to i64
+  %arrayidx132 = getelementptr %struct.cchar_t, ptr %101, i64 %idxprom131
+  %103 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx133 = getelementptr %struct.cchar_t, ptr %103, i64 102
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx132, ptr align 4 %arrayidx133, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb134:                                         ; preds = %if.end43
-  %101 = load ptr, ptr @vga_to_curses, align 8
-  %102 = load i32, ptr %i, align 4
-  %idxprom135 = sext i32 %102 to i64
-  %arrayidx136 = getelementptr %struct.cchar_t, ptr %101, i64 %idxprom135
-  %103 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx137 = getelementptr %struct.cchar_t, ptr %103, i64 126
+  %104 = load ptr, ptr @vga_to_curses, align 8
+  %105 = load i32, ptr %i, align 4
+  %idxprom135 = sext i32 %105 to i64
+  %arrayidx136 = getelementptr %struct.cchar_t, ptr %104, i64 %idxprom135
+  %106 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx137 = getelementptr %struct.cchar_t, ptr %106, i64 126
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx136, ptr align 4 %arrayidx137, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb138:                                         ; preds = %if.end43
-  %104 = load ptr, ptr @vga_to_curses, align 8
-  %105 = load i32, ptr %i, align 4
-  %idxprom139 = sext i32 %105 to i64
-  %arrayidx140 = getelementptr %struct.cchar_t, ptr %104, i64 %idxprom139
-  %106 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx141 = getelementptr %struct.cchar_t, ptr %106, i64 96
+  %107 = load ptr, ptr @vga_to_curses, align 8
+  %108 = load i32, ptr %i, align 4
+  %idxprom139 = sext i32 %108 to i64
+  %arrayidx140 = getelementptr %struct.cchar_t, ptr %107, i64 %idxprom139
+  %109 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx141 = getelementptr %struct.cchar_t, ptr %109, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx140, ptr align 4 %arrayidx141, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb142:                                         ; preds = %if.end43
-  %107 = load ptr, ptr @vga_to_curses, align 8
-  %108 = load i32, ptr %i, align 4
-  %idxprom143 = sext i32 %108 to i64
-  %arrayidx144 = getelementptr %struct.cchar_t, ptr %107, i64 %idxprom143
-  %109 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx145 = getelementptr %struct.cchar_t, ptr %109, i64 43
+  %110 = load ptr, ptr @vga_to_curses, align 8
+  %111 = load i32, ptr %i, align 4
+  %idxprom143 = sext i32 %111 to i64
+  %arrayidx144 = getelementptr %struct.cchar_t, ptr %110, i64 %idxprom143
+  %112 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx145 = getelementptr %struct.cchar_t, ptr %112, i64 43
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx144, ptr align 4 %arrayidx145, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb146:                                         ; preds = %if.end43
-  %110 = load ptr, ptr @vga_to_curses, align 8
-  %111 = load i32, ptr %i, align 4
-  %idxprom147 = sext i32 %111 to i64
-  %arrayidx148 = getelementptr %struct.cchar_t, ptr %110, i64 %idxprom147
-  %112 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx149 = getelementptr %struct.cchar_t, ptr %112, i64 44
+  %113 = load ptr, ptr @vga_to_curses, align 8
+  %114 = load i32, ptr %i, align 4
+  %idxprom147 = sext i32 %114 to i64
+  %arrayidx148 = getelementptr %struct.cchar_t, ptr %113, i64 %idxprom147
+  %115 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx149 = getelementptr %struct.cchar_t, ptr %115, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx148, ptr align 4 %arrayidx149, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb150:                                         ; preds = %if.end43
-  %113 = load ptr, ptr @vga_to_curses, align 8
-  %114 = load i32, ptr %i, align 4
-  %idxprom151 = sext i32 %114 to i64
-  %arrayidx152 = getelementptr %struct.cchar_t, ptr %113, i64 %idxprom151
-  %115 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx153 = getelementptr %struct.cchar_t, ptr %115, i64 45
+  %116 = load ptr, ptr @vga_to_curses, align 8
+  %117 = load i32, ptr %i, align 4
+  %idxprom151 = sext i32 %117 to i64
+  %arrayidx152 = getelementptr %struct.cchar_t, ptr %116, i64 %idxprom151
+  %118 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx153 = getelementptr %struct.cchar_t, ptr %118, i64 45
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx152, ptr align 4 %arrayidx153, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb154:                                         ; preds = %if.end43
-  %116 = load ptr, ptr @vga_to_curses, align 8
-  %117 = load i32, ptr %i, align 4
-  %idxprom155 = sext i32 %117 to i64
-  %arrayidx156 = getelementptr %struct.cchar_t, ptr %116, i64 %idxprom155
-  %118 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx157 = getelementptr %struct.cchar_t, ptr %118, i64 46
+  %119 = load ptr, ptr @vga_to_curses, align 8
+  %120 = load i32, ptr %i, align 4
+  %idxprom155 = sext i32 %120 to i64
+  %arrayidx156 = getelementptr %struct.cchar_t, ptr %119, i64 %idxprom155
+  %121 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx157 = getelementptr %struct.cchar_t, ptr %121, i64 46
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx156, ptr align 4 %arrayidx157, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb158:                                         ; preds = %if.end43
-  %119 = load ptr, ptr @vga_to_curses, align 8
-  %120 = load i32, ptr %i, align 4
-  %idxprom159 = sext i32 %120 to i64
-  %arrayidx160 = getelementptr %struct.cchar_t, ptr %119, i64 %idxprom159
-  %121 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx161 = getelementptr %struct.cchar_t, ptr %121, i64 111
+  %122 = load ptr, ptr @vga_to_curses, align 8
+  %123 = load i32, ptr %i, align 4
+  %idxprom159 = sext i32 %123 to i64
+  %arrayidx160 = getelementptr %struct.cchar_t, ptr %122, i64 %idxprom159
+  %124 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx161 = getelementptr %struct.cchar_t, ptr %124, i64 111
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx160, ptr align 4 %arrayidx161, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb162:                                         ; preds = %if.end43
-  %122 = load ptr, ptr @vga_to_curses, align 8
-  %123 = load i32, ptr %i, align 4
-  %idxprom163 = sext i32 %123 to i64
-  %arrayidx164 = getelementptr %struct.cchar_t, ptr %122, i64 %idxprom163
-  %124 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx165 = getelementptr %struct.cchar_t, ptr %124, i64 112
+  %125 = load ptr, ptr @vga_to_curses, align 8
+  %126 = load i32, ptr %i, align 4
+  %idxprom163 = sext i32 %126 to i64
+  %arrayidx164 = getelementptr %struct.cchar_t, ptr %125, i64 %idxprom163
+  %127 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx165 = getelementptr %struct.cchar_t, ptr %127, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx164, ptr align 4 %arrayidx165, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb166:                                         ; preds = %if.end43
-  %125 = load ptr, ptr @vga_to_curses, align 8
-  %126 = load i32, ptr %i, align 4
-  %idxprom167 = sext i32 %126 to i64
-  %arrayidx168 = getelementptr %struct.cchar_t, ptr %125, i64 %idxprom167
-  %127 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx169 = getelementptr %struct.cchar_t, ptr %127, i64 114
+  %128 = load ptr, ptr @vga_to_curses, align 8
+  %129 = load i32, ptr %i, align 4
+  %idxprom167 = sext i32 %129 to i64
+  %arrayidx168 = getelementptr %struct.cchar_t, ptr %128, i64 %idxprom167
+  %130 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx169 = getelementptr %struct.cchar_t, ptr %130, i64 114
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx168, ptr align 4 %arrayidx169, i64 28, i1 false)
   br label %sw.epilog
 
 sw.bb170:                                         ; preds = %if.end43
-  %128 = load ptr, ptr @vga_to_curses, align 8
-  %129 = load i32, ptr %i, align 4
-  %idxprom171 = sext i32 %129 to i64
-  %arrayidx172 = getelementptr %struct.cchar_t, ptr %128, i64 %idxprom171
-  %130 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx173 = getelementptr %struct.cchar_t, ptr %130, i64 115
+  %131 = load ptr, ptr @vga_to_curses, align 8
+  %132 = load i32, ptr %i, align 4
+  %idxprom171 = sext i32 %132 to i64
+  %arrayidx172 = getelementptr %struct.cchar_t, ptr %131, i64 %idxprom171
+  %133 = load ptr, ptr @_nc_wacs, align 8
+  %arrayidx173 = getelementptr %struct.cchar_t, ptr %133, i64 115
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx172, ptr align 4 %arrayidx173, i64 28, i1 false)
   br label %sw.epilog
 
@@ -1058,8 +1061,8 @@ sw.epilog:                                        ; preds = %sw.bb170, %sw.bb166
   br label %for.inc174
 
 for.inc174:                                       ; preds = %sw.epilog, %if.then42
-  %131 = load i32, ptr %i, align 4
-  %inc175 = add i32 %131, 1
+  %134 = load i32, ptr %i, align 4
+  %inc175 = add i32 %134, 1
   store i32 %inc175, ptr %i, align 4
   br label %for.cond33, !llvm.loop !10
 
@@ -1067,12 +1070,12 @@ for.end176:                                       ; preds = %for.cond33
   br label %if.end177
 
 if.end177:                                        ; preds = %for.end176, %for.end30
-  %132 = load ptr, ptr %ucs2_to_nativecharset, align 8
-  %call178 = call i32 @iconv_close(ptr noundef %132)
-  %133 = load ptr, ptr %nativecharset_to_ucs2, align 8
-  %call179 = call i32 @iconv_close(ptr noundef %133)
-  %134 = load ptr, ptr %font_conv, align 8
-  %call180 = call i32 @iconv_close(ptr noundef %134)
+  %135 = load ptr, ptr %ucs2_to_nativecharset, align 8
+  %call178 = call i32 @iconv_close(ptr noundef %135)
+  %136 = load ptr, ptr %nativecharset_to_ucs2, align 8
+  %call179 = call i32 @iconv_close(ptr noundef %136)
+  %137 = load ptr, ptr %font_conv, align 8
+  %call180 = call i32 @iconv_close(ptr noundef %137)
   call void @g_autoptr_cleanup_generic_gfree(ptr noundef %local_codeset)
   ret void
 }

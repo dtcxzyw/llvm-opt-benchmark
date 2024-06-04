@@ -528,7 +528,8 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp9) #21
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !19
+  %1 = ptrtoint ptr @_ZN6google10LogMessage9SendToLogEv to i64
+  store i64 %1, ptr %indirect-arg-temp, align 8, !tbaa !19
   %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !19
   call void @_ZN6google15ErrnoLogMessageC1EPKciilMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9, ptr noundef nonnull @.str, i32 noundef 98, i32 noundef 2, i64 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -545,15 +546,15 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   br label %cleanup
 
 lpad10:                                           ; preds = %invoke.cont11, %if.then8
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #21
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp9) #21
   br label %ehcleanup
 
 if.end15:                                         ; preds = %if.end
-  %2 = load i32, ptr %addrLen, align 4, !tbaa !20
-  %cmp16 = icmp ugt i32 %2, 128
+  %3 = load i32, ptr %addrLen, align 4, !tbaa !20
+  %cmp16 = icmp ugt i32 %3, 128
   br i1 %cmp16, label %cond.false, label %cleanup, !prof !28
 
 cond.false:                                       ; preds = %if.end15
@@ -571,7 +572,7 @@ cleanup.action:                                   ; preds = %invoke.cont22
   unreachable
 
 lpad21:                                           ; preds = %invoke.cont22, %cond.false
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp19) #22
   unreachable
@@ -581,7 +582,7 @@ cleanup:                                          ; preds = %if.end15, %invoke.c
   ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad10, %lpad
-  %.pn = phi { ptr, i32 } [ %0, %lpad ], [ %1, %lpad10 ]
+  %.pn = phi { ptr, i32 } [ %0, %lpad ], [ %2, %lpad10 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1043,76 +1044,79 @@ invoke.cont:                                      ; preds = %init
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  %3 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 3), align 8, !tbaa !41
-  %cmp.not.not.i.i = icmp eq i64 %3, 0
+  %3 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 3
+  %4 = load i64, ptr %3, align 8, !tbaa !41
+  %cmp.not.not.i.i = icmp eq i64 %4, 0
+  %5 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 2, i32 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %init.end
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 2, i32 0), %init.end ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %5, %init.end ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !46
   %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.not.i.i, label %if.else, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
-  %4 = load i16, ptr %add.ptr.i.i, align 2, !tbaa !47
-  %cmp.i.i.i.i = icmp eq i16 %4, %cipherCode
+  %6 = load i16, ptr %add.ptr.i.i, align 2, !tbaa !47
+  %cmp.i.i.i.i = icmp eq i16 %6, %cipherCode
   br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !48
 
 if.end15.i.i:                                     ; preds = %init.end
   %conv.i.i.i.i = zext i16 %cipherCode to i64
-  %5 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 1), align 8
-  %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %5
-  %6 = load ptr, ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, align 8, !tbaa !49
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %rem.i.i.i.i.i
-  %7 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !22
-  %tobool.not.i.i.i.i = icmp eq ptr %7, null
+  %7 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %8
+  %9 = load ptr, ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, align 8, !tbaa !49
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %rem.i.i.i.i.i
+  %10 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !22
+  %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %if.else, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
-  %8 = load ptr, ptr %7, align 8, !tbaa !46
-  %add.ptr20.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load i16, ptr %add.ptr20.i.i.i.i, align 2, !tbaa !47
-  %cmp.i.i.i21.i.i.i.i = icmp eq i16 %9, %cipherCode
+  %11 = load ptr, ptr %10, align 8, !tbaa !46
+  %add.ptr20.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load i16, ptr %add.ptr20.i.i.i.i, align 2, !tbaa !47
+  %cmp.i.i.i21.i.i.i.i = icmp eq i16 %12, %cipherCode
   br i1 %cmp.i.i.i21.i.i.i.i, label %if.then, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq i16 %11, %cipherCode
+  %cmp.i.i.i.i.i.i.i = icmp eq i16 %14, %cipherCode
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !50
 
 if.end3.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i, %if.end.i.i.i.i
-  %__p.022.i.i.i.i = phi ptr [ %10, %for.cond.i.i.i.i ], [ %8, %if.end.i.i.i.i ]
-  %10 = load ptr, ptr %__p.022.i.i.i.i, align 8, !tbaa !46
-  %tobool5.not.i.i.i.i = icmp eq ptr %10, null
+  %__p.022.i.i.i.i = phi ptr [ %13, %for.cond.i.i.i.i ], [ %11, %if.end.i.i.i.i ]
+  %13 = load ptr, ptr %__p.022.i.i.i.i, align 8, !tbaa !46
+  %tobool5.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool5.not.i.i.i.i, label %if.else, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load i16, ptr %add.ptr7.i.i.i.i, align 2, !tbaa !47
-  %conv.i.i.i.i.i.i.i.i = zext i16 %11 to i64
-  %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %5
+  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load i16, ptr %add.ptr7.i.i.i.i, align 2, !tbaa !47
+  %conv.i.i.i.i.i.i.i.i = zext i16 %14 to i64
+  %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %8
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.else, !llvm.loop !51
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %if.end.i.i.i.i, %for.body.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %8, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %10, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %11, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %13, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   br label %cleanup
 
 lpad:                                             ; preds = %init
-  %12 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11) #21
   br label %eh.resume
 
 if.else:                                          ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %if.end15.i.i, %for.cond.i.i
-  %13 = load atomic i8, ptr @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11 acquire, align 8
-  %guard.uninitialized8 = icmp eq i8 %13, 0
+  %16 = load atomic i8, ptr @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11 acquire, align 8
+  %guard.uninitialized8 = icmp eq i8 %16, 0
   br i1 %guard.uninitialized8, label %init.check9, label %cleanup, !prof !40
 
 init.check9:                                      ; preds = %if.else
-  %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11) #21
-  %tobool10.not = icmp eq i32 %14, 0
+  %17 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11) #21
+  %tobool10.not = icmp eq i32 %17, 0
   br i1 %tobool10.not, label %cleanup, label %init11
 
 init11:                                           ; preds = %init.check9
@@ -1122,12 +1126,12 @@ init11:                                           ; preds = %init.check9
 
 invoke.cont14:                                    ; preds = %init11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12) #21
-  %15 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11, ptr nonnull @__dso_handle) #21
+  %18 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11, ptr nonnull @__dso_handle) #21
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11) #21
   br label %cleanup
 
 lpad13:                                           ; preds = %init11
-  %16 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12) #21
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11) #21
@@ -1138,7 +1142,7 @@ cleanup:                                          ; preds = %invoke.cont14, %ini
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %16, %lpad13 ], [ %12, %lpad ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad13 ], [ %15, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1152,11 +1156,16 @@ entry:
   %ctx = alloca ptr, align 8
   %ssl = alloca ptr, align 8
   tail call void @_ZN5folly3ssl4initEv()
-  store ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 5), ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, align 8, !tbaa !49
-  store i64 1, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 1), align 8, !tbaa !52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 2, i32 0), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 4, i32 0), align 8, !tbaa !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 4, i32 1), i8 0, i64 16, i1 false)
+  %0 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 5
+  store ptr %0, ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, align 8, !tbaa !49
+  %1 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 1
+  store i64 1, ptr %1, align 8, !tbaa !52
+  %2 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 2, i32 0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  %3 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 4, i32 0
+  store float 1.000000e+00, ptr %3, align 8, !tbaa !53
+  %4 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 4, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ctx) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ssl) #21
   %call = invoke ptr @TLS_server_method()
@@ -1172,7 +1181,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
   br i1 %cmp, label %cleanup47, label %if.end
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
@@ -1186,7 +1195,7 @@ invoke.cont6:                                     ; preds = %if.end
   br i1 %cmp8, label %if.then.i76, label %if.end10
 
 lpad5:                                            ; preds = %if.end
-  %1 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup44
 
@@ -1217,19 +1226,19 @@ if.then.i.if.then.i76_crit_edge:                  ; preds = %if.then.i
   br label %if.then.i76
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i
-  %2 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #22
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 lpad14:                                           ; preds = %if.end10
-  %4 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 lpad17:                                           ; preds = %for.cond
-  %5 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
@@ -1249,36 +1258,37 @@ invoke.cont29:                                    ; preds = %invoke.cont26
 invoke.cont33:                                    ; preds = %invoke.cont29
   %conv31.mask = and i32 %call30, 65535
   %conv.i.i.i.i = zext nneg i32 %conv31.mask to i64
-  %6 = load i64, ptr getelementptr inbounds (%"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 1), align 8
-  %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %6
-  %7 = load ptr, ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, align 8, !tbaa !49
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %rem.i.i.i.i.i
-  %8 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !22
-  %tobool.not.i.i.i.i = icmp eq ptr %8, null
+  %11 = getelementptr inbounds %"class.std::unordered_map", ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 0, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %12
+  %13 = load ptr, ptr @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, align 8, !tbaa !49
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %rem.i.i.i.i.i
+  %14 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !22
+  %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %cleanup.cont.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont33
-  %9 = load ptr, ptr %8, align 8, !tbaa !46
-  %add.ptr20.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i16, ptr %add.ptr20.i.i.i.i, align 2, !tbaa !47
-  %cmp.i.i.i21.i.i.i.i = icmp eq i16 %10, %conv31
+  %15 = load ptr, ptr %14, align 8, !tbaa !46
+  %add.ptr20.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i16, ptr %add.ptr20.i.i.i.i, align 2, !tbaa !47
+  %cmp.i.i.i21.i.i.i.i = icmp eq i16 %16, %conv31
   br i1 %cmp.i.i.i21.i.i.i.i, label %invoke.cont35, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq i16 %12, %conv31
+  %cmp.i.i.i.i.i.i.i = icmp eq i16 %18, %conv31
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont35, label %if.end3.i.i.i.i, !llvm.loop !54
 
 if.end3.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i, %if.end.i.i.i.i
-  %__p.022.i.i.i.i = phi ptr [ %11, %for.cond.i.i.i.i ], [ %9, %if.end.i.i.i.i ]
-  %11 = load ptr, ptr %__p.022.i.i.i.i, align 8, !tbaa !46
-  %tobool5.not.i.i.i.i = icmp eq ptr %11, null
+  %__p.022.i.i.i.i = phi ptr [ %17, %for.cond.i.i.i.i ], [ %15, %if.end.i.i.i.i ]
+  %17 = load ptr, ptr %__p.022.i.i.i.i, align 8, !tbaa !46
+  %tobool5.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool5.not.i.i.i.i, label %cleanup.cont.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load i16, ptr %add.ptr7.i.i.i.i, align 2, !tbaa !47
-  %conv.i.i.i.i.i.i.i.i = zext i16 %12 to i64
-  %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %6
+  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load i16, ptr %add.ptr7.i.i.i.i, align 2, !tbaa !47
+  %conv.i.i.i.i.i.i.i.i = zext i16 %18 to i64
+  %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %12
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %cleanup.cont.i.i, !llvm.loop !55
 
@@ -1293,11 +1303,11 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %cleanup.cont.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 8
   store i16 %conv31, ptr %add.ptr.i.i.i.i, align 8, !tbaa !58
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 16
-  %13 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 32
-  store ptr %13, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !62
+  %19 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 32
+  store ptr %19, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !62
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !63
-  store i8 0, ptr %13, align 1, !tbaa !19
+  store i8 0, ptr %19, align 1, !tbaa !19
   store ptr %call5.i.i.i.i.i.i73, ptr %_M_node.i.i.i, align 8, !tbaa !64
   %call7.i.i = invoke ptr @_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11, i64 noundef %rem.i.i.i.i.i, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %call5.i.i.i.i.i.i73, i64 noundef 1)
           to label %_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i unwind label %lpad.i.i
@@ -1307,19 +1317,19 @@ _ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br label %invoke.cont35
 
 lpad.i.i:                                         ; preds = %call5.i.i.i.i.i.i.noexc
-  %14 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__node5.i.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node5.i.i) #21
   br label %ehcleanup41
 
 invoke.cont35:                                    ; preds = %_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i, %for.cond.i.i.i.i, %if.end.i.i.i.i
-  %call7.pn.i.i = phi ptr [ %call7.i.i, %_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i ], [ %9, %if.end.i.i.i.i ], [ %11, %for.cond.i.i.i.i ]
+  %call7.pn.i.i = phi ptr [ %call7.i.i, %_ZNSt10_HashtableItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i.i ], [ %15, %if.end.i.i.i.i ], [ %17, %for.cond.i.i.i.i ]
   %retval.1.i.i = getelementptr inbounds i8, ptr %call7.pn.i.i, i64 16
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call7.pn.i.i, i64 24
-  %15 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !63
+  %21 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !63
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call34) #21
-  %call3.i.i74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %retval.1.i.i, i64 noundef 0, i64 noundef %15, ptr noundef %call34, i64 noundef %call.i.i.i)
+  %call3.i.i74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %retval.1.i.i, i64 noundef 0, i64 noundef %21, ptr noundef %call34, i64 noundef %call.i.i.i)
           to label %invoke.cont37 unwind label %lpad32
 
 invoke.cont37:                                    ; preds = %invoke.cont35
@@ -1327,22 +1337,22 @@ invoke.cont37:                                    ; preds = %invoke.cont35
   br label %for.cond, !llvm.loop !65
 
 lpad23:                                           ; preds = %for.body
-  %16 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 lpad28:                                           ; preds = %invoke.cont26
-  %17 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 lpad32:                                           ; preds = %invoke.cont35, %cleanup.cont.i.i, %invoke.cont29
-  %18 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %lpad32, %lpad28, %lpad23, %lpad.i.i, %lpad17, %lpad14
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %4, %lpad14 ], [ %5, %lpad17 ], [ %16, %lpad23 ], [ %17, %lpad28 ], [ %18, %lpad32 ], [ %14, %lpad.i.i ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %9, %lpad14 ], [ %10, %lpad17 ], [ %22, %lpad23 ], [ %23, %lpad28 ], [ %24, %lpad32 ], [ %20, %lpad.i.i ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_3sslL21getOpenSSLCipherNamesB5cxx11EvE3$_1Lb1EED2Ev"(i8 0, ptr nonnull %ssl) #21
   br label %ehcleanup44
 
@@ -1352,14 +1362,14 @@ if.then.i76:                                      ; preds = %if.then.i.if.then.i
           to label %cleanup47 unwind label %terminate.lpad.i.i.i78
 
 terminate.lpad.i.i.i78:                           ; preds = %if.then.i76
-  %19 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #22
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #22
   unreachable
 
 ehcleanup44:                                      ; preds = %ehcleanup41, %lpad5
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup41 ], [ %1, %lpad5 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup41 ], [ %6, %lpad5 ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_3sslL21getOpenSSLCipherNamesB5cxx11EvE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %ctx) #21
   br label %ehcleanup48
 
@@ -1369,7 +1379,7 @@ cleanup47:                                        ; preds = %if.then.i76, %invok
   ret void
 
 ehcleanup48:                                      ; preds = %ehcleanup44, %lpad
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup44 ], [ %0, %lpad ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup44 ], [ %5, %lpad ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ssl) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ctx) #21
   call void @_ZNSt13unordered_mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashItESt8equal_toItESaISt4pairIKtS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11) #21

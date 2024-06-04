@@ -642,11 +642,13 @@ define internal ptr @Ga2_ObjLeaves(ptr noundef %0, ptr noundef %1) #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = call i32 @Ga2_ObjLeaveNum(ptr noundef %5, ptr noundef %6)
-  store i32 %7, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i32 0, i32 1), align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = call ptr @Ga2_ObjLeavePtr(ptr noundef %8, ptr noundef %9)
-  store ptr %10, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i32 0, i32 2), align 8
+  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i32 0, i32 1
+  store i32 %7, ptr %8, align 4
+  %9 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call ptr @Ga2_ObjLeavePtr(ptr noundef %9, ptr noundef %10)
+  %12 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i32 0, i32 2
+  store ptr %11, ptr %12, align 8
   ret ptr @Ga2_ObjLeaves.v
 }
 

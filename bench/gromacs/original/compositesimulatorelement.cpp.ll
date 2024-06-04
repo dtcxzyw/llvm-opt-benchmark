@@ -385,14 +385,15 @@ define void @_ZN3gmx25CompositeSimulatorElementC2ESt6vectorINS_6compat8not_nullI
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %5, align 8
   call void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx25CompositeSimulatorElementE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.gmx::CompositeSimulatorElement", ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1) #5
-  %11 = getelementptr inbounds %"class.gmx::CompositeSimulatorElement", ptr %9, i32 0, i32 2
-  call void @_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2) #5
-  %12 = getelementptr inbounds %"class.gmx::CompositeSimulatorElement", ptr %9, i32 0, i32 3
-  %13 = load i32, ptr %8, align 4
-  store i32 %13, ptr %12, align 8
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx25CompositeSimulatorElementE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::CompositeSimulatorElement", ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1) #5
+  %12 = getelementptr inbounds %"class.gmx::CompositeSimulatorElement", ptr %9, i32 0, i32 2
+  call void @_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %2) #5
+  %13 = getelementptr inbounds %"class.gmx::CompositeSimulatorElement", ptr %9, i32 0, i32 3
+  %14 = load i32, ptr %8, align 4
+  store i32 %14, ptr %13, align 8
   ret void
 }
 
@@ -401,7 +402,8 @@ define linkonce_odr void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

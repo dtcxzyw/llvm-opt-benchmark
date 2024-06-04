@@ -32,91 +32,93 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ptp_convert_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @ptp_vclock_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %3 = tail call noalias align 8 dereferenceable_or_null(312) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 312) #8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %51, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias align 8 dereferenceable_or_null(312) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 312) #8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %53, label %6
 
-5:                                                ; preds = %1
-  store ptr %0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(184) %6, ptr noundef nonnull align 8 dereferenceable(184) @ptp_vclock_info, i64 184, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 968
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 144
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  %12 = select i1 %11, i64 112, i64 120
-  %13 = select i1 %11, ptr @ptp_vclock_gettime, ptr @ptp_vclock_gettimex
-  %14 = getelementptr inbounds i8, ptr %3, i64 %12
-  store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 152
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %20, label %18
+6:                                                ; preds = %1
+  store ptr %0, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(184) @ptp_vclock_info, i64 184, i1 false)
+  %8 = getelementptr inbounds i8, ptr %0, i64 968
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  %13 = select i1 %12, i64 112, i64 120
+  %14 = select i1 %12, ptr @ptp_vclock_gettime, ptr @ptp_vclock_gettimex
+  %15 = getelementptr inbounds i8, ptr %4, i64 %13
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 152
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %21, label %19
 
-18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %3, i64 128
-  store ptr @ptp_vclock_getcrosststamp, ptr %19, align 8
-  br label %20
+19:                                               ; preds = %6
+  %20 = getelementptr inbounds i8, ptr %4, i64 128
+  store ptr @ptp_vclock_getcrosststamp, ptr %20, align 8
+  br label %21
 
-20:                                               ; preds = %18, %5
-  %21 = getelementptr inbounds i8, ptr %3, i64 216
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) @ptp_vclock_cc, i64 24, i1 false)
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 980
-  %24 = load i32, ptr %23, align 4
-  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %24) #9
-  %26 = getelementptr inbounds i8, ptr %3, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  %27 = getelementptr inbounds i8, ptr %3, i64 280
-  tail call void @__mutex_init(ptr noundef %27, ptr noundef nonnull @.str.1, ptr noundef nonnull @ptp_vclock_register.__key) #9
-  %28 = getelementptr inbounds i8, ptr %0, i64 240
-  %29 = tail call ptr @ptp_clock_register(ptr noundef %6, ptr noundef %28) #9
-  %30 = getelementptr inbounds i8, ptr %3, i64 192
-  store ptr %29, ptr %30, align 8
-  %31 = icmp eq ptr %29, null
-  %32 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
-  %33 = or i1 %31, %32
-  br i1 %33, label %34, label %35
+21:                                               ; preds = %19, %6
+  %22 = getelementptr inbounds i8, ptr %4, i64 216
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) @ptp_vclock_cc, i64 24, i1 false)
+  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds i8, ptr %0, i64 980
+  %25 = load i32, ptr %24, align 4
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %25) #9
+  %27 = getelementptr inbounds i8, ptr %4, i64 200
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  %28 = getelementptr inbounds i8, ptr %4, i64 280
+  tail call void @__mutex_init(ptr noundef %28, ptr noundef nonnull @.str.1, ptr noundef nonnull @ptp_vclock_register.__key) #9
+  %29 = getelementptr inbounds i8, ptr %0, i64 240
+  %30 = tail call ptr @ptp_clock_register(ptr noundef %7, ptr noundef %29) #9
+  %31 = getelementptr inbounds i8, ptr %4, i64 192
+  store ptr %30, ptr %31, align 8
+  %32 = icmp eq ptr %30, null
+  %33 = inttoptr i64 -4096 to ptr
+  %34 = icmp ugt ptr %30, %33
+  %35 = or i1 %32, %34
+  br i1 %35, label %36, label %37
 
-34:                                               ; preds = %20
-  tail call void @kfree(ptr noundef nonnull %3) #9
-  br label %51
+36:                                               ; preds = %21
+  tail call void @kfree(ptr noundef nonnull %4) #9
+  br label %53
 
-35:                                               ; preds = %20
-  %36 = getelementptr inbounds i8, ptr %3, i64 240
-  tail call void @timecounter_init(ptr noundef %36, ptr noundef %21, i64 noundef 0) #9
-  %37 = load ptr, ptr %30, align 8
-  %38 = tail call i32 @ptp_schedule_worker(ptr noundef %37, i64 noundef 2000) #9
+37:                                               ; preds = %21
+  %38 = getelementptr inbounds i8, ptr %4, i64 240
+  tail call void @timecounter_init(ptr noundef %38, ptr noundef %22, i64 noundef 0) #9
+  %39 = load ptr, ptr %31, align 8
+  %40 = tail call i32 @ptp_schedule_worker(ptr noundef %39, i64 noundef 2000) #9
   tail call void @_raw_spin_lock(ptr noundef nonnull @vclock_hash_lock) #9
-  %39 = load ptr, ptr %30, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 980
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, 255
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr [256 x %struct.hlist_head], ptr @vclock_hash, i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %26, align 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 208
-  store volatile ptr %44, ptr %46, align 8
+  %41 = load ptr, ptr %31, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 980
+  %43 = load i32, ptr %42, align 4
+  %44 = and i32 %43, 255
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr [256 x %struct.hlist_head], ptr @vclock_hash, i64 0, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %27, align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 208
+  store volatile ptr %46, ptr %48, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
-  store volatile ptr %26, ptr %44, align 8
-  %47 = icmp eq ptr %45, null
-  br i1 %47, label %50, label %48
+  store volatile ptr %27, ptr %46, align 8
+  %49 = icmp eq ptr %47, null
+  br i1 %49, label %52, label %50
 
-48:                                               ; preds = %35
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
-  store volatile ptr %26, ptr %49, align 8
-  br label %50
+50:                                               ; preds = %37
+  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  store volatile ptr %27, ptr %51, align 8
+  br label %52
 
-50:                                               ; preds = %48, %35
+52:                                               ; preds = %50, %37
   tail call void @_raw_spin_unlock(ptr noundef nonnull @vclock_hash_lock) #9
-  br label %51
+  br label %53
 
-51:                                               ; preds = %50, %34, %1
-  %52 = phi ptr [ null, %34 ], [ %3, %50 ], [ null, %1 ]
-  ret ptr %52
+53:                                               ; preds = %52, %36, %1
+  %54 = phi ptr [ null, %36 ], [ %4, %52 ], [ null, %1 ]
+  ret ptr %54
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

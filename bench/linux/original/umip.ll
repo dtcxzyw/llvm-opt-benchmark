@@ -48,16 +48,16 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false), !annotation !5
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %128, label %8
+  br i1 %7, label %129, label %8
 
 8:                                                ; preds = %1
   %9 = call i32 @insn_fetch_from_user(ptr noundef nonnull %0, ptr noundef nonnull %5) #7
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %128, label %11
+  br i1 %10, label %129, label %11
 
 11:                                               ; preds = %8
   %12 = call zeroext i1 @insn_decode_from_regs(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %9) #7
-  br i1 %12, label %13, label %128
+  br i1 %12, label %13, label %129
 
 13:                                               ; preds = %11
   %14 = call i32 @insn_get_modrm(ptr noundef nonnull %6) #7
@@ -111,7 +111,7 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
 41:                                               ; preds = %33, %32, %31, %30, %26, %23, %13
   %42 = phi i32 [ -22, %32 ], [ 2, %31 ], [ 1, %30 ], [ -22, %13 ], [ %29, %26 ], [ -22, %23 ], [ %40, %33 ]
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %128, label %44
+  br i1 %43, label %129, label %44
 
 44:                                               ; preds = %41
   %45 = zext nneg i32 %42 to i64
@@ -205,7 +205,7 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
 91:                                               ; preds = %90, %81, %63, %57
   %92 = phi i32 [ 0, %90 ], [ %62, %57 ], [ %88, %81 ], [ 0, %63 ]
   %93 = phi i1 [ false, %90 ], [ true, %57 ], [ true, %81 ], [ false, %63 ]
-  br i1 %93, label %94, label %128
+  br i1 %93, label %94, label %129
 
 94:                                               ; preds = %91
   %95 = load i32, ptr %15, align 8
@@ -216,7 +216,7 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
 98:                                               ; preds = %94
   %99 = call i32 @insn_get_modrm_rm_off(ptr noundef nonnull %6, ptr noundef nonnull %0) #7
   %100 = icmp slt i32 %99, 0
-  br i1 %100, label %128, label %101
+  br i1 %100, label %129, label %101
 
 101:                                              ; preds = %98
   %102 = ptrtoint ptr %0 to i64
@@ -225,52 +225,53 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   %105 = inttoptr i64 %104 to ptr
   %106 = zext nneg i32 %92 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr nonnull align 2 %4, i64 %106, i1 false)
-  br label %121
+  br label %122
 
 107:                                              ; preds = %94
   %108 = call ptr @insn_get_addr_ref(ptr noundef nonnull %6, ptr noundef nonnull %0) #7
-  %109 = icmp eq ptr %108, inttoptr (i64 -1 to ptr)
-  br i1 %109, label %128, label %110
+  %109 = inttoptr i64 -1 to ptr
+  %110 = icmp eq ptr %108, %109
+  br i1 %110, label %129, label %111
 
-110:                                              ; preds = %107
-  %111 = zext nneg i32 %92 to i64
-  %112 = icmp ugt i32 %92, 10
-  br i1 %112, label %113, label %114, !prof !7
+111:                                              ; preds = %107
+  %112 = zext nneg i32 %92 to i64
+  %113 = icmp ugt i32 %92, 10
+  br i1 %113, label %114, label %115, !prof !7
 
-113:                                              ; preds = %110
-  call void @__copy_overflow(i32 noundef 10, i64 noundef %111) #7
-  br label %117
+114:                                              ; preds = %111
+  call void @__copy_overflow(i32 noundef 10, i64 noundef %112) #7
+  br label %118
 
-114:                                              ; preds = %110
-  %115 = call i64 @_copy_to_user(ptr noundef %108, ptr noundef nonnull %4, i64 noundef %111) #7
-  %116 = trunc i64 %115 to i32
-  br label %117
+115:                                              ; preds = %111
+  %116 = call i64 @_copy_to_user(ptr noundef %108, ptr noundef nonnull %4, i64 noundef %112) #7
+  %117 = trunc i64 %116 to i32
+  br label %118
 
-117:                                              ; preds = %114, %113
-  %118 = phi i32 [ %116, %114 ], [ %92, %113 ]
-  %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %120, label %121
+118:                                              ; preds = %115, %114
+  %119 = phi i32 [ %117, %115 ], [ %92, %114 ]
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %121, label %122
 
-120:                                              ; preds = %117
+121:                                              ; preds = %118
   call fastcc void @force_sig_info_umip_fault(ptr noundef %108, ptr noundef nonnull %0)
-  br label %128
+  br label %129
 
-121:                                              ; preds = %117, %101
-  %122 = getelementptr inbounds i8, ptr %6, i64 82
-  %123 = load i8, ptr %122, align 2
-  %124 = zext i8 %123 to i64
-  %125 = getelementptr inbounds i8, ptr %0, i64 128
-  %126 = load i64, ptr %125, align 8
-  %127 = add i64 %126, %124
-  store i64 %127, ptr %125, align 8
-  br label %128
+122:                                              ; preds = %118, %101
+  %123 = getelementptr inbounds i8, ptr %6, i64 82
+  %124 = load i8, ptr %123, align 2
+  %125 = zext i8 %124 to i64
+  %126 = getelementptr inbounds i8, ptr %0, i64 128
+  %127 = load i64, ptr %126, align 8
+  %128 = add i64 %127, %125
+  store i64 %128, ptr %126, align 8
+  br label %129
 
-128:                                              ; preds = %121, %120, %107, %98, %91, %41, %11, %8, %1
-  %129 = phi i1 [ true, %121 ], [ true, %120 ], [ false, %1 ], [ false, %8 ], [ false, %11 ], [ false, %41 ], [ false, %91 ], [ false, %98 ], [ false, %107 ]
+129:                                              ; preds = %122, %121, %107, %98, %91, %41, %11, %8, %1
+  %130 = phi i1 [ true, %122 ], [ true, %121 ], [ false, %1 ], [ false, %8 ], [ false, %11 ], [ false, %41 ], [ false, %91 ], [ false, %98 ], [ false, %107 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #7
-  ret i1 %129
+  ret i1 %130
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -300,7 +301,7 @@ define internal void @umip_printk(ptr nocapture noundef readonly %0, ptr noundef
 
 9:                                                ; preds = %3
   %10 = inttoptr i64 %6 to ptr
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   store ptr %2, ptr %4, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %5, ptr %11, align 8
@@ -312,7 +313,7 @@ define internal void @umip_printk(ptr nocapture noundef readonly %0, ptr noundef
   %17 = getelementptr inbounds i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
   %19 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %12, i32 noundef %14, i64 noundef %16, i64 noundef %18, ptr noundef nonnull %4) #9
-  call void @llvm.va_end(ptr %5)
+  call void @llvm.va_end.p0(ptr %5)
   br label %20
 
 20:                                               ; preds = %9, %3
@@ -367,14 +368,8 @@ declare dso_local i32 @insn_get_modrm(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #3
@@ -394,13 +389,19 @@ declare dso_local i32 @force_sig_fault(i32 noundef, i32 noundef, ptr noundef) lo
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @unhandled_signal(ptr noundef, i32 noundef) local_unnamed_addr #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind memory(none) }
 attributes #9 = { cold nounwind }

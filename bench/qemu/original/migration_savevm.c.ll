@@ -949,74 +949,76 @@ entry:
   %1 = load ptr, ptr %se, align 8
   %version_id1 = getelementptr inbounds %struct.SaveStateEntry, ptr %1, i32 0, i32 4
   store i32 %0, ptr %version_id1, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 2), align 8
-  %inc = add i32 %2, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 2), align 8
-  %3 = load ptr, ptr %se, align 8
-  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %3, i32 0, i32 6
-  store i32 %2, ptr %section_id, align 8
-  %4 = load ptr, ptr %ops.addr, align 8
+  %2 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 2
+  %3 = load i32, ptr %2, align 8
+  %inc = add i32 %3, 1
+  %4 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 2
+  store i32 %inc, ptr %4, align 8
   %5 = load ptr, ptr %se, align 8
-  %ops2 = getelementptr inbounds %struct.SaveStateEntry, ptr %5, i32 0, i32 8
-  store ptr %4, ptr %ops2, align 8
-  %6 = load ptr, ptr %opaque.addr, align 8
+  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %5, i32 0, i32 6
+  store i32 %3, ptr %section_id, align 8
+  %6 = load ptr, ptr %ops.addr, align 8
   %7 = load ptr, ptr %se, align 8
-  %opaque3 = getelementptr inbounds %struct.SaveStateEntry, ptr %7, i32 0, i32 10
-  store ptr %6, ptr %opaque3, align 8
-  %8 = load ptr, ptr %se, align 8
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %8, i32 0, i32 9
+  %ops2 = getelementptr inbounds %struct.SaveStateEntry, ptr %7, i32 0, i32 8
+  store ptr %6, ptr %ops2, align 8
+  %8 = load ptr, ptr %opaque.addr, align 8
+  %9 = load ptr, ptr %se, align 8
+  %opaque3 = getelementptr inbounds %struct.SaveStateEntry, ptr %9, i32 0, i32 10
+  store ptr %8, ptr %opaque3, align 8
+  %10 = load ptr, ptr %se, align 8
+  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %10, i32 0, i32 9
   store ptr null, ptr %vmsd, align 8
-  %9 = load ptr, ptr %ops.addr, align 8
-  %save_setup = getelementptr inbounds %struct.SaveVMHandlers, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %save_setup, align 8
-  %cmp = icmp ne ptr %10, null
+  %11 = load ptr, ptr %ops.addr, align 8
+  %save_setup = getelementptr inbounds %struct.SaveVMHandlers, ptr %11, i32 0, i32 2
+  %12 = load ptr, ptr %save_setup, align 8
+  %cmp = icmp ne ptr %12, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %11 = load ptr, ptr %se, align 8
-  %is_ram = getelementptr inbounds %struct.SaveStateEntry, ptr %11, i32 0, i32 12
+  %13 = load ptr, ptr %se, align 8
+  %is_ram = getelementptr inbounds %struct.SaveStateEntry, ptr %13, i32 0, i32 12
   store i32 1, ptr %is_ram, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %12 = load ptr, ptr %se, align 8
-  %idstr4 = getelementptr inbounds %struct.SaveStateEntry, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %se, align 8
+  %idstr4 = getelementptr inbounds %struct.SaveStateEntry, ptr %14, i32 0, i32 1
   %arraydecay = getelementptr inbounds [256 x i8], ptr %idstr4, i64 0, i64 0
-  %13 = load ptr, ptr %idstr.addr, align 8
-  %call5 = call ptr @pstrcat(ptr noundef %arraydecay, i32 noundef 256, ptr noundef %13)
-  %14 = load i32, ptr %instance_id.addr, align 4
-  %cmp6 = icmp eq i32 %14, -1
+  %15 = load ptr, ptr %idstr.addr, align 8
+  %call5 = call ptr @pstrcat(ptr noundef %arraydecay, i32 noundef 256, ptr noundef %15)
+  %16 = load i32, ptr %instance_id.addr, align 4
+  %cmp6 = icmp eq i32 %16, -1
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
-  %15 = load ptr, ptr %se, align 8
-  %idstr8 = getelementptr inbounds %struct.SaveStateEntry, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %se, align 8
+  %idstr8 = getelementptr inbounds %struct.SaveStateEntry, ptr %17, i32 0, i32 1
   %arraydecay9 = getelementptr inbounds [256 x i8], ptr %idstr8, i64 0, i64 0
   %call10 = call i32 @calculate_new_instance_id(ptr noundef %arraydecay9)
-  %16 = load ptr, ptr %se, align 8
-  %instance_id11 = getelementptr inbounds %struct.SaveStateEntry, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %se, align 8
+  %instance_id11 = getelementptr inbounds %struct.SaveStateEntry, ptr %18, i32 0, i32 2
   store i32 %call10, ptr %instance_id11, align 8
   br label %if.end13
 
 if.else:                                          ; preds = %if.end
-  %17 = load i32, ptr %instance_id.addr, align 4
-  %18 = load ptr, ptr %se, align 8
-  %instance_id12 = getelementptr inbounds %struct.SaveStateEntry, ptr %18, i32 0, i32 2
-  store i32 %17, ptr %instance_id12, align 8
+  %19 = load i32, ptr %instance_id.addr, align 4
+  %20 = load ptr, ptr %se, align 8
+  %instance_id12 = getelementptr inbounds %struct.SaveStateEntry, ptr %20, i32 0, i32 2
+  store i32 %19, ptr %instance_id12, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then7
-  %19 = load ptr, ptr %se, align 8
-  %compat = getelementptr inbounds %struct.SaveStateEntry, ptr %19, i32 0, i32 11
-  %20 = load ptr, ptr %compat, align 8
-  %tobool = icmp ne ptr %20, null
+  %21 = load ptr, ptr %se, align 8
+  %compat = getelementptr inbounds %struct.SaveStateEntry, ptr %21, i32 0, i32 11
+  %22 = load ptr, ptr %compat, align 8
+  %tobool = icmp ne ptr %22, null
   br i1 %tobool, label %lor.lhs.false, label %if.then16
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %21 = load ptr, ptr %se, align 8
-  %instance_id14 = getelementptr inbounds %struct.SaveStateEntry, ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %instance_id14, align 8
-  %cmp15 = icmp eq i32 %22, 0
+  %23 = load ptr, ptr %se, align 8
+  %instance_id14 = getelementptr inbounds %struct.SaveStateEntry, ptr %23, i32 0, i32 2
+  %24 = load i32, ptr %instance_id14, align 8
+  %cmp15 = icmp eq i32 %24, 0
   br i1 %cmp15, label %if.then16, label %if.else17
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end13
@@ -1027,8 +1029,8 @@ if.else17:                                        ; preds = %lor.lhs.false
   unreachable
 
 if.end18:                                         ; preds = %if.then16
-  %23 = load ptr, ptr %se, align 8
-  call void @savevm_state_handler_insert(ptr noundef %23)
+  %25 = load ptr, ptr %se, align 8
+  call void @savevm_state_handler_insert(ptr noundef %25)
   ret i32 0
 }
 
@@ -1167,18 +1169,19 @@ for.cond:                                         ; preds = %for.inc, %if.end6
 for.body:                                         ; preds = %for.cond
   %10 = load i32, ptr %i, align 4
   %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr [7 x ptr], ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 1), i64 0, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  store ptr %11, ptr %se, align 8
-  %12 = load ptr, ptr %se, align 8
-  %cmp8 = icmp ne ptr %12, null
+  %11 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 1
+  %arrayidx = getelementptr [7 x ptr], ptr %11, i64 0, i64 %idxprom
+  %12 = load ptr, ptr %arrayidx, align 8
+  store ptr %12, ptr %se, align 8
+  %13 = load ptr, ptr %se, align 8
+  %cmp8 = icmp ne ptr %13, null
   br i1 %cmp8, label %if.then9, label %if.end15
 
 if.then9:                                         ; preds = %for.body
-  %13 = load ptr, ptr %se, align 8
-  %call10 = call i32 @save_state_priority(ptr noundef %13)
-  %14 = load i32, ptr %priority, align 4
-  %cmp11 = icmp ult i32 %call10, %14
+  %14 = load ptr, ptr %se, align 8
+  %call10 = call i32 @save_state_priority(ptr noundef %14)
+  %15 = load i32, ptr %priority, align 4
+  %cmp11 = icmp ult i32 %call10, %15
   br i1 %cmp11, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %if.then9
@@ -1195,43 +1198,43 @@ if.end15:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end15
-  %15 = load i32, ptr %i, align 4
-  %dec = add i32 %15, -1
+  %16 = load i32, ptr %i, align 4
+  %dec = add i32 %16, -1
   store i32 %dec, ptr %i, align 4
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %if.end14, %for.cond
-  %16 = load i32, ptr %i, align 4
-  %cmp16 = icmp sge i32 %16, 0
+  %17 = load i32, ptr %i, align 4
+  %cmp16 = icmp sge i32 %17, 0
   br i1 %cmp16, label %if.then17, label %if.else27
 
 if.then17:                                        ; preds = %for.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then17
-  %17 = load ptr, ptr %se, align 8
-  %entry18 = getelementptr inbounds %struct.SaveStateEntry, ptr %17, i32 0, i32 0
+  %18 = load ptr, ptr %se, align 8
+  %entry18 = getelementptr inbounds %struct.SaveStateEntry, ptr %18, i32 0, i32 0
   %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry18, i32 0, i32 1
-  %18 = load ptr, ptr %tql_prev, align 8
-  %19 = load ptr, ptr %nse.addr, align 8
-  %entry19 = getelementptr inbounds %struct.SaveStateEntry, ptr %19, i32 0, i32 0
+  %19 = load ptr, ptr %tql_prev, align 8
+  %20 = load ptr, ptr %nse.addr, align 8
+  %entry19 = getelementptr inbounds %struct.SaveStateEntry, ptr %20, i32 0, i32 0
   %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %entry19, i32 0, i32 1
-  store ptr %18, ptr %tql_prev20, align 8
-  %20 = load ptr, ptr %se, align 8
-  %21 = load ptr, ptr %nse.addr, align 8
-  %entry21 = getelementptr inbounds %struct.SaveStateEntry, ptr %21, i32 0, i32 0
-  store ptr %20, ptr %entry21, align 8
+  store ptr %19, ptr %tql_prev20, align 8
+  %21 = load ptr, ptr %se, align 8
   %22 = load ptr, ptr %nse.addr, align 8
-  %23 = load ptr, ptr %se, align 8
-  %entry22 = getelementptr inbounds %struct.SaveStateEntry, ptr %23, i32 0, i32 0
+  %entry21 = getelementptr inbounds %struct.SaveStateEntry, ptr %22, i32 0, i32 0
+  store ptr %21, ptr %entry21, align 8
+  %23 = load ptr, ptr %nse.addr, align 8
+  %24 = load ptr, ptr %se, align 8
+  %entry22 = getelementptr inbounds %struct.SaveStateEntry, ptr %24, i32 0, i32 0
   %tql_prev23 = getelementptr inbounds %struct.QTailQLink, ptr %entry22, i32 0, i32 1
-  %24 = load ptr, ptr %tql_prev23, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %24, i32 0, i32 0
-  store ptr %22, ptr %tql_next, align 8
-  %25 = load ptr, ptr %nse.addr, align 8
-  %entry24 = getelementptr inbounds %struct.SaveStateEntry, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %se, align 8
-  %entry25 = getelementptr inbounds %struct.SaveStateEntry, ptr %26, i32 0, i32 0
+  %25 = load ptr, ptr %tql_prev23, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %25, i32 0, i32 0
+  store ptr %23, ptr %tql_next, align 8
+  %26 = load ptr, ptr %nse.addr, align 8
+  %entry24 = getelementptr inbounds %struct.SaveStateEntry, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %se, align 8
+  %entry25 = getelementptr inbounds %struct.SaveStateEntry, ptr %27, i32 0, i32 0
   %tql_prev26 = getelementptr inbounds %struct.QTailQLink, ptr %entry25, i32 0, i32 1
   store ptr %entry24, ptr %tql_prev26, align 8
   br label %do.end
@@ -1243,40 +1246,45 @@ if.else27:                                        ; preds = %for.end
   br label %do.body28
 
 do.body28:                                        ; preds = %if.else27
-  %27 = load ptr, ptr %nse.addr, align 8
-  %entry29 = getelementptr inbounds %struct.SaveStateEntry, ptr %27, i32 0, i32 0
+  %28 = load ptr, ptr %nse.addr, align 8
+  %entry29 = getelementptr inbounds %struct.SaveStateEntry, ptr %28, i32 0, i32 0
   store ptr null, ptr %entry29, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @savevm_state, i32 0, i32 1), align 8
-  %29 = load ptr, ptr %nse.addr, align 8
-  %entry30 = getelementptr inbounds %struct.SaveStateEntry, ptr %29, i32 0, i32 0
+  %29 = getelementptr inbounds %struct.QTailQLink, ptr @savevm_state, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %nse.addr, align 8
+  %entry30 = getelementptr inbounds %struct.SaveStateEntry, ptr %31, i32 0, i32 0
   %tql_prev31 = getelementptr inbounds %struct.QTailQLink, ptr %entry30, i32 0, i32 1
-  store ptr %28, ptr %tql_prev31, align 8
-  %30 = load ptr, ptr %nse.addr, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @savevm_state, i32 0, i32 1), align 8
-  %tql_next32 = getelementptr inbounds %struct.QTailQLink, ptr %31, i32 0, i32 0
-  store ptr %30, ptr %tql_next32, align 8
+  store ptr %30, ptr %tql_prev31, align 8
   %32 = load ptr, ptr %nse.addr, align 8
-  %entry33 = getelementptr inbounds %struct.SaveStateEntry, ptr %32, i32 0, i32 0
-  store ptr %entry33, ptr getelementptr inbounds (%struct.QTailQLink, ptr @savevm_state, i32 0, i32 1), align 8
+  %33 = getelementptr inbounds %struct.QTailQLink, ptr @savevm_state, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %tql_next32 = getelementptr inbounds %struct.QTailQLink, ptr %34, i32 0, i32 0
+  store ptr %32, ptr %tql_next32, align 8
+  %35 = load ptr, ptr %nse.addr, align 8
+  %entry33 = getelementptr inbounds %struct.SaveStateEntry, ptr %35, i32 0, i32 0
+  %36 = getelementptr inbounds %struct.QTailQLink, ptr @savevm_state, i32 0, i32 1
+  store ptr %entry33, ptr %36, align 8
   br label %do.end34
 
 do.end34:                                         ; preds = %do.body28
   br label %if.end35
 
 if.end35:                                         ; preds = %do.end34, %do.end
-  %33 = load i32, ptr %priority, align 4
-  %idxprom36 = zext i32 %33 to i64
-  %arrayidx37 = getelementptr [7 x ptr], ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 1), i64 0, i64 %idxprom36
-  %34 = load ptr, ptr %arrayidx37, align 8
-  %cmp38 = icmp eq ptr %34, null
+  %37 = load i32, ptr %priority, align 4
+  %idxprom36 = zext i32 %37 to i64
+  %38 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 1
+  %arrayidx37 = getelementptr [7 x ptr], ptr %38, i64 0, i64 %idxprom36
+  %39 = load ptr, ptr %arrayidx37, align 8
+  %cmp38 = icmp eq ptr %39, null
   br i1 %cmp38, label %if.then39, label %if.end42
 
 if.then39:                                        ; preds = %if.end35
-  %35 = load ptr, ptr %nse.addr, align 8
-  %36 = load i32, ptr %priority, align 4
-  %idxprom40 = zext i32 %36 to i64
-  %arrayidx41 = getelementptr [7 x ptr], ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 1), i64 0, i64 %idxprom40
-  store ptr %35, ptr %arrayidx41, align 8
+  %40 = load ptr, ptr %nse.addr, align 8
+  %41 = load i32, ptr %priority, align 4
+  %idxprom40 = zext i32 %41 to i64
+  %42 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 1
+  %arrayidx41 = getelementptr [7 x ptr], ptr %42, i64 0, i64 %idxprom40
+  store ptr %40, ptr %arrayidx41, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then39, %if.end35
@@ -1438,39 +1446,42 @@ entry:
   %1 = load ptr, ptr %se.addr, align 8
   %2 = load i32, ptr %priority, align 4
   %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr [7 x ptr], ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 1), i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp eq ptr %1, %3
+  %3 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 1
+  %arrayidx = getelementptr [7 x ptr], ptr %3, i64 0, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp eq ptr %1, %4
   br i1 %cmp, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %se.addr, align 8
-  %entry1 = getelementptr inbounds %struct.SaveStateEntry, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %entry1, align 8
-  store ptr %5, ptr %next, align 8
-  %6 = load ptr, ptr %next, align 8
-  %cmp2 = icmp ne ptr %6, null
+  %5 = load ptr, ptr %se.addr, align 8
+  %entry1 = getelementptr inbounds %struct.SaveStateEntry, ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %entry1, align 8
+  store ptr %6, ptr %next, align 8
+  %7 = load ptr, ptr %next, align 8
+  %cmp2 = icmp ne ptr %7, null
   br i1 %cmp2, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
-  %7 = load ptr, ptr %next, align 8
-  %call3 = call i32 @save_state_priority(ptr noundef %7)
-  %8 = load i32, ptr %priority, align 4
-  %cmp4 = icmp eq i32 %call3, %8
+  %8 = load ptr, ptr %next, align 8
+  %call3 = call i32 @save_state_priority(ptr noundef %8)
+  %9 = load i32, ptr %priority, align 4
+  %cmp4 = icmp eq i32 %call3, %9
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %land.lhs.true
-  %9 = load ptr, ptr %next, align 8
-  %10 = load i32, ptr %priority, align 4
-  %idxprom6 = zext i32 %10 to i64
-  %arrayidx7 = getelementptr [7 x ptr], ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 1), i64 0, i64 %idxprom6
-  store ptr %9, ptr %arrayidx7, align 8
+  %10 = load ptr, ptr %next, align 8
+  %11 = load i32, ptr %priority, align 4
+  %idxprom6 = zext i32 %11 to i64
+  %12 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 1
+  %arrayidx7 = getelementptr [7 x ptr], ptr %12, i64 0, i64 %idxprom6
+  store ptr %10, ptr %arrayidx7, align 8
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
-  %11 = load i32, ptr %priority, align 4
-  %idxprom8 = zext i32 %11 to i64
-  %arrayidx9 = getelementptr [7 x ptr], ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 1), i64 0, i64 %idxprom8
+  %13 = load i32, ptr %priority, align 4
+  %idxprom8 = zext i32 %13 to i64
+  %14 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 1
+  %arrayidx9 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %idxprom8
   store ptr null, ptr %arrayidx9, align 8
   br label %if.end
 
@@ -1481,53 +1492,54 @@ if.end10:                                         ; preds = %if.end, %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.end10
-  %12 = load ptr, ptr %se.addr, align 8
-  %entry11 = getelementptr inbounds %struct.SaveStateEntry, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %entry11, align 8
-  %cmp12 = icmp ne ptr %13, null
+  %15 = load ptr, ptr %se.addr, align 8
+  %entry11 = getelementptr inbounds %struct.SaveStateEntry, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %entry11, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.else18
 
 if.then13:                                        ; preds = %do.body
-  %14 = load ptr, ptr %se.addr, align 8
-  %entry14 = getelementptr inbounds %struct.SaveStateEntry, ptr %14, i32 0, i32 0
+  %17 = load ptr, ptr %se.addr, align 8
+  %entry14 = getelementptr inbounds %struct.SaveStateEntry, ptr %17, i32 0, i32 0
   %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry14, i32 0, i32 1
-  %15 = load ptr, ptr %tql_prev, align 8
-  %16 = load ptr, ptr %se.addr, align 8
-  %entry15 = getelementptr inbounds %struct.SaveStateEntry, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %entry15, align 8
-  %entry16 = getelementptr inbounds %struct.SaveStateEntry, ptr %17, i32 0, i32 0
+  %18 = load ptr, ptr %tql_prev, align 8
+  %19 = load ptr, ptr %se.addr, align 8
+  %entry15 = getelementptr inbounds %struct.SaveStateEntry, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %entry15, align 8
+  %entry16 = getelementptr inbounds %struct.SaveStateEntry, ptr %20, i32 0, i32 0
   %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %entry16, i32 0, i32 1
-  store ptr %15, ptr %tql_prev17, align 8
+  store ptr %18, ptr %tql_prev17, align 8
   br label %if.end21
 
 if.else18:                                        ; preds = %do.body
-  %18 = load ptr, ptr %se.addr, align 8
-  %entry19 = getelementptr inbounds %struct.SaveStateEntry, ptr %18, i32 0, i32 0
+  %21 = load ptr, ptr %se.addr, align 8
+  %entry19 = getelementptr inbounds %struct.SaveStateEntry, ptr %21, i32 0, i32 0
   %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %entry19, i32 0, i32 1
-  %19 = load ptr, ptr %tql_prev20, align 8
-  store ptr %19, ptr getelementptr inbounds (%struct.QTailQLink, ptr @savevm_state, i32 0, i32 1), align 8
+  %22 = load ptr, ptr %tql_prev20, align 8
+  %23 = getelementptr inbounds %struct.QTailQLink, ptr @savevm_state, i32 0, i32 1
+  store ptr %22, ptr %23, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else18, %if.then13
-  %20 = load ptr, ptr %se.addr, align 8
-  %entry22 = getelementptr inbounds %struct.SaveStateEntry, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %entry22, align 8
-  %22 = load ptr, ptr %se.addr, align 8
-  %entry23 = getelementptr inbounds %struct.SaveStateEntry, ptr %22, i32 0, i32 0
-  %tql_prev24 = getelementptr inbounds %struct.QTailQLink, ptr %entry23, i32 0, i32 1
-  %23 = load ptr, ptr %tql_prev24, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %23, i32 0, i32 0
-  store ptr %21, ptr %tql_next, align 8
   %24 = load ptr, ptr %se.addr, align 8
-  %entry25 = getelementptr inbounds %struct.SaveStateEntry, ptr %24, i32 0, i32 0
+  %entry22 = getelementptr inbounds %struct.SaveStateEntry, ptr %24, i32 0, i32 0
+  %25 = load ptr, ptr %entry22, align 8
+  %26 = load ptr, ptr %se.addr, align 8
+  %entry23 = getelementptr inbounds %struct.SaveStateEntry, ptr %26, i32 0, i32 0
+  %tql_prev24 = getelementptr inbounds %struct.QTailQLink, ptr %entry23, i32 0, i32 1
+  %27 = load ptr, ptr %tql_prev24, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %27, i32 0, i32 0
+  store ptr %25, ptr %tql_next, align 8
+  %28 = load ptr, ptr %se.addr, align 8
+  %entry25 = getelementptr inbounds %struct.SaveStateEntry, ptr %28, i32 0, i32 0
   %tql_prev26 = getelementptr inbounds %struct.QTailQLink, ptr %entry25, i32 0, i32 1
   store ptr null, ptr %tql_prev26, align 8
-  %25 = load ptr, ptr %se.addr, align 8
-  %entry27 = getelementptr inbounds %struct.SaveStateEntry, ptr %25, i32 0, i32 0
+  %29 = load ptr, ptr %se.addr, align 8
+  %entry27 = getelementptr inbounds %struct.SaveStateEntry, ptr %29, i32 0, i32 0
   %tql_next28 = getelementptr inbounds %struct.QTailQLink, ptr %entry27, i32 0, i32 0
   store ptr null, ptr %tql_next28, align 8
-  %26 = load ptr, ptr %se.addr, align 8
-  %entry29 = getelementptr inbounds %struct.SaveStateEntry, ptr %26, i32 0, i32 0
+  %30 = load ptr, ptr %se.addr, align 8
+  %entry29 = getelementptr inbounds %struct.SaveStateEntry, ptr %30, i32 0, i32 0
   store ptr null, ptr %entry29, align 8
   br label %do.end
 
@@ -1758,94 +1770,96 @@ if.end:                                           ; preds = %if.then
   %6 = load ptr, ptr %se, align 8
   %version_id2 = getelementptr inbounds %struct.SaveStateEntry, ptr %6, i32 0, i32 4
   store i32 %5, ptr %version_id2, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 2), align 8
-  %inc = add i32 %7, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i32 0, i32 2), align 8
-  %8 = load ptr, ptr %se, align 8
-  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %8, i32 0, i32 6
-  store i32 %7, ptr %section_id, align 8
-  %9 = load ptr, ptr %opaque.addr, align 8
+  %7 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 2
+  %8 = load i32, ptr %7, align 8
+  %inc = add i32 %8, 1
+  %9 = getelementptr inbounds %struct.SaveState, ptr @savevm_state, i32 0, i32 2
+  store i32 %inc, ptr %9, align 8
   %10 = load ptr, ptr %se, align 8
-  %opaque3 = getelementptr inbounds %struct.SaveStateEntry, ptr %10, i32 0, i32 10
-  store ptr %9, ptr %opaque3, align 8
-  %11 = load ptr, ptr %vmsd.addr, align 8
+  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %10, i32 0, i32 6
+  store i32 %8, ptr %section_id, align 8
+  %11 = load ptr, ptr %opaque.addr, align 8
   %12 = load ptr, ptr %se, align 8
-  %vmsd4 = getelementptr inbounds %struct.SaveStateEntry, ptr %12, i32 0, i32 9
-  store ptr %11, ptr %vmsd4, align 8
-  %13 = load i32, ptr %alias_id.addr, align 4
+  %opaque3 = getelementptr inbounds %struct.SaveStateEntry, ptr %12, i32 0, i32 10
+  store ptr %11, ptr %opaque3, align 8
+  %13 = load ptr, ptr %vmsd.addr, align 8
   %14 = load ptr, ptr %se, align 8
-  %alias_id5 = getelementptr inbounds %struct.SaveStateEntry, ptr %14, i32 0, i32 3
-  store i32 %13, ptr %alias_id5, align 4
-  %15 = load ptr, ptr %obj.addr, align 8
-  %tobool = icmp ne ptr %15, null
+  %vmsd4 = getelementptr inbounds %struct.SaveStateEntry, ptr %14, i32 0, i32 9
+  store ptr %13, ptr %vmsd4, align 8
+  %15 = load i32, ptr %alias_id.addr, align 4
+  %16 = load ptr, ptr %se, align 8
+  %alias_id5 = getelementptr inbounds %struct.SaveStateEntry, ptr %16, i32 0, i32 3
+  store i32 %15, ptr %alias_id5, align 4
+  %17 = load ptr, ptr %obj.addr, align 8
+  %tobool = icmp ne ptr %17, null
   br i1 %tobool, label %if.then6, label %if.end26
 
 if.then6:                                         ; preds = %if.end
-  %16 = load ptr, ptr %obj.addr, align 8
-  %call7 = call ptr @vmstate_if_get_id(ptr noundef %16)
+  %18 = load ptr, ptr %obj.addr, align 8
+  %call7 = call ptr @vmstate_if_get_id(ptr noundef %18)
   store ptr %call7, ptr %id, align 8
-  %17 = load ptr, ptr %id, align 8
-  %tobool8 = icmp ne ptr %17, null
+  %19 = load ptr, ptr %id, align 8
+  %tobool8 = icmp ne ptr %19, null
   br i1 %tobool8, label %if.then9, label %if.end25
 
 if.then9:                                         ; preds = %if.then6
-  %18 = load ptr, ptr %se, align 8
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %se, align 8
+  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %20, i32 0, i32 1
   %arraydecay = getelementptr inbounds [256 x i8], ptr %idstr, i64 0, i64 0
-  %19 = load ptr, ptr %id, align 8
-  %call10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 256, ptr noundef @.str.15, ptr noundef %19) #14
+  %21 = load ptr, ptr %id, align 8
+  %call10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 256, ptr noundef @.str.15, ptr noundef %21) #14
   %conv = sext i32 %call10 to i64
   %cmp11 = icmp uge i64 %conv, 256
   br i1 %cmp11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.then9
-  %20 = load ptr, ptr %errp.addr, align 8
-  %21 = load ptr, ptr %id, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %20, ptr noundef @.str.3, i32 noundef 904, ptr noundef @__func__.vmstate_register_with_alias_id, ptr noundef @.str.16, ptr noundef %21)
-  %22 = load ptr, ptr %id, align 8
-  call void @g_free(ptr noundef %22)
-  %23 = load ptr, ptr %se, align 8
-  call void @g_free(ptr noundef %23)
+  %22 = load ptr, ptr %errp.addr, align 8
+  %23 = load ptr, ptr %id, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %22, ptr noundef @.str.3, i32 noundef 904, ptr noundef @__func__.vmstate_register_with_alias_id, ptr noundef @.str.16, ptr noundef %23)
+  %24 = load ptr, ptr %id, align 8
+  call void @g_free(ptr noundef %24)
+  %25 = load ptr, ptr %se, align 8
+  call void @g_free(ptr noundef %25)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end14:                                         ; preds = %if.then9
-  %24 = load ptr, ptr %id, align 8
-  call void @g_free(ptr noundef %24)
+  %26 = load ptr, ptr %id, align 8
+  call void @g_free(ptr noundef %26)
   %call15 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 260) #12
-  %25 = load ptr, ptr %se, align 8
-  %compat = getelementptr inbounds %struct.SaveStateEntry, ptr %25, i32 0, i32 11
+  %27 = load ptr, ptr %se, align 8
+  %compat = getelementptr inbounds %struct.SaveStateEntry, ptr %27, i32 0, i32 11
   store ptr %call15, ptr %compat, align 8
-  %26 = load ptr, ptr %se, align 8
-  %compat16 = getelementptr inbounds %struct.SaveStateEntry, ptr %26, i32 0, i32 11
-  %27 = load ptr, ptr %compat16, align 8
-  %idstr17 = getelementptr inbounds %struct.CompatEntry, ptr %27, i32 0, i32 0
+  %28 = load ptr, ptr %se, align 8
+  %compat16 = getelementptr inbounds %struct.SaveStateEntry, ptr %28, i32 0, i32 11
+  %29 = load ptr, ptr %compat16, align 8
+  %idstr17 = getelementptr inbounds %struct.CompatEntry, ptr %29, i32 0, i32 0
   %arraydecay18 = getelementptr inbounds [256 x i8], ptr %idstr17, i64 0, i64 0
-  %28 = load ptr, ptr %vmsd.addr, align 8
-  %name = getelementptr inbounds %struct.VMStateDescription, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %name, align 8
-  call void @pstrcpy(ptr noundef %arraydecay18, i32 noundef 256, ptr noundef %29)
-  %30 = load i32, ptr %instance_id.addr, align 4
-  %cmp19 = icmp eq i32 %30, -1
+  %30 = load ptr, ptr %vmsd.addr, align 8
+  %name = getelementptr inbounds %struct.VMStateDescription, ptr %30, i32 0, i32 0
+  %31 = load ptr, ptr %name, align 8
+  call void @pstrcpy(ptr noundef %arraydecay18, i32 noundef 256, ptr noundef %31)
+  %32 = load i32, ptr %instance_id.addr, align 4
+  %cmp19 = icmp eq i32 %32, -1
   br i1 %cmp19, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end14
-  %31 = load ptr, ptr %vmsd.addr, align 8
-  %name21 = getelementptr inbounds %struct.VMStateDescription, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %name21, align 8
-  %call22 = call i32 @calculate_compat_instance_id(ptr noundef %32)
+  %33 = load ptr, ptr %vmsd.addr, align 8
+  %name21 = getelementptr inbounds %struct.VMStateDescription, ptr %33, i32 0, i32 0
+  %34 = load ptr, ptr %name21, align 8
+  %call22 = call i32 @calculate_compat_instance_id(ptr noundef %34)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end14
-  %33 = load i32, ptr %instance_id.addr, align 4
+  %35 = load i32, ptr %instance_id.addr, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call22, %cond.true ], [ %33, %cond.false ]
-  %34 = load ptr, ptr %se, align 8
-  %compat23 = getelementptr inbounds %struct.SaveStateEntry, ptr %34, i32 0, i32 11
-  %35 = load ptr, ptr %compat23, align 8
-  %instance_id24 = getelementptr inbounds %struct.CompatEntry, ptr %35, i32 0, i32 1
+  %cond = phi i32 [ %call22, %cond.true ], [ %35, %cond.false ]
+  %36 = load ptr, ptr %se, align 8
+  %compat23 = getelementptr inbounds %struct.SaveStateEntry, ptr %36, i32 0, i32 11
+  %37 = load ptr, ptr %compat23, align 8
+  %instance_id24 = getelementptr inbounds %struct.CompatEntry, ptr %37, i32 0, i32 1
   store i32 %cond, ptr %instance_id24, align 4
   store i32 -1, ptr %instance_id.addr, align 4
   br label %if.end25
@@ -1854,32 +1868,32 @@ if.end25:                                         ; preds = %cond.end, %if.then6
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end25, %if.end
-  %36 = load ptr, ptr %se, align 8
-  %idstr27 = getelementptr inbounds %struct.SaveStateEntry, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %se, align 8
+  %idstr27 = getelementptr inbounds %struct.SaveStateEntry, ptr %38, i32 0, i32 1
   %arraydecay28 = getelementptr inbounds [256 x i8], ptr %idstr27, i64 0, i64 0
-  %37 = load ptr, ptr %vmsd.addr, align 8
-  %name29 = getelementptr inbounds %struct.VMStateDescription, ptr %37, i32 0, i32 0
-  %38 = load ptr, ptr %name29, align 8
-  %call30 = call ptr @pstrcat(ptr noundef %arraydecay28, i32 noundef 256, ptr noundef %38)
-  %39 = load i32, ptr %instance_id.addr, align 4
-  %cmp31 = icmp eq i32 %39, -1
+  %39 = load ptr, ptr %vmsd.addr, align 8
+  %name29 = getelementptr inbounds %struct.VMStateDescription, ptr %39, i32 0, i32 0
+  %40 = load ptr, ptr %name29, align 8
+  %call30 = call ptr @pstrcat(ptr noundef %arraydecay28, i32 noundef 256, ptr noundef %40)
+  %41 = load i32, ptr %instance_id.addr, align 4
+  %cmp31 = icmp eq i32 %41, -1
   br i1 %cmp31, label %if.then33, label %if.else38
 
 if.then33:                                        ; preds = %if.end26
-  %40 = load ptr, ptr %se, align 8
-  %idstr34 = getelementptr inbounds %struct.SaveStateEntry, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %se, align 8
+  %idstr34 = getelementptr inbounds %struct.SaveStateEntry, ptr %42, i32 0, i32 1
   %arraydecay35 = getelementptr inbounds [256 x i8], ptr %idstr34, i64 0, i64 0
   %call36 = call i32 @calculate_new_instance_id(ptr noundef %arraydecay35)
-  %41 = load ptr, ptr %se, align 8
-  %instance_id37 = getelementptr inbounds %struct.SaveStateEntry, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %se, align 8
+  %instance_id37 = getelementptr inbounds %struct.SaveStateEntry, ptr %43, i32 0, i32 2
   store i32 %call36, ptr %instance_id37, align 8
   br label %if.end40
 
 if.else38:                                        ; preds = %if.end26
-  %42 = load i32, ptr %instance_id.addr, align 4
-  %43 = load ptr, ptr %se, align 8
-  %instance_id39 = getelementptr inbounds %struct.SaveStateEntry, ptr %43, i32 0, i32 2
-  store i32 %42, ptr %instance_id39, align 8
+  %44 = load i32, ptr %instance_id.addr, align 4
+  %45 = load ptr, ptr %se, align 8
+  %instance_id39 = getelementptr inbounds %struct.SaveStateEntry, ptr %45, i32 0, i32 2
+  store i32 %44, ptr %instance_id39, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else38, %if.then33
@@ -1887,22 +1901,22 @@ if.end40:                                         ; preds = %if.else38, %if.then
   br i1 %call41, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %if.end40
-  %44 = load ptr, ptr %vmsd.addr, align 8
-  call void @vmstate_check(ptr noundef %44)
+  %46 = load ptr, ptr %vmsd.addr, align 8
+  call void @vmstate_check(ptr noundef %46)
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.end40
-  %45 = load ptr, ptr %se, align 8
-  %compat44 = getelementptr inbounds %struct.SaveStateEntry, ptr %45, i32 0, i32 11
-  %46 = load ptr, ptr %compat44, align 8
-  %tobool45 = icmp ne ptr %46, null
+  %47 = load ptr, ptr %se, align 8
+  %compat44 = getelementptr inbounds %struct.SaveStateEntry, ptr %47, i32 0, i32 11
+  %48 = load ptr, ptr %compat44, align 8
+  %tobool45 = icmp ne ptr %48, null
   br i1 %tobool45, label %lor.lhs.false46, label %if.then50
 
 lor.lhs.false46:                                  ; preds = %if.end43
-  %47 = load ptr, ptr %se, align 8
-  %instance_id47 = getelementptr inbounds %struct.SaveStateEntry, ptr %47, i32 0, i32 2
-  %48 = load i32, ptr %instance_id47, align 8
-  %cmp48 = icmp eq i32 %48, 0
+  %49 = load ptr, ptr %se, align 8
+  %instance_id47 = getelementptr inbounds %struct.SaveStateEntry, ptr %49, i32 0, i32 2
+  %50 = load i32, ptr %instance_id47, align 8
+  %cmp48 = icmp eq i32 %50, 0
   br i1 %cmp48, label %if.then50, label %if.else51
 
 if.then50:                                        ; preds = %lor.lhs.false46, %if.end43
@@ -1913,14 +1927,14 @@ if.else51:                                        ; preds = %lor.lhs.false46
   unreachable
 
 if.end52:                                         ; preds = %if.then50
-  %49 = load ptr, ptr %se, align 8
-  call void @savevm_state_handler_insert(ptr noundef %49)
+  %51 = load ptr, ptr %se, align 8
+  call void @savevm_state_handler_insert(ptr noundef %51)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end52, %if.then13
-  %50 = load i32, ptr %retval, align 4
-  ret i32 %50
+  %52 = load i32, ptr %retval, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind

@@ -3222,7 +3222,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3url12CanonOutputTIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [1024 x i8], ptr %fixed_buffer_, i64 0, i64 0
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
@@ -3531,22 +3532,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buffer_, align 8
+  %1 = load ptr, ptr %buffer_, align 8
   %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [1024 x i8], ptr %fixed_buffer_, i64 0, i64 0
-  %cmp = icmp ne ptr %0, %arraydecay
+  %cmp = icmp ne ptr %1, %arraydecay
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %buffer_2 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %buffer_2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %buffer_2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZdaPv(ptr noundef %1) #14
+  call void @_ZdaPv(ptr noundef %2) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -5506,7 +5508,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3url12CanonOutputTItEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT.5", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [1024 x i16], ptr %fixed_buffer_, i64 0, i64 0
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 1
@@ -5526,22 +5529,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buffer_, align 8
+  %1 = load ptr, ptr %buffer_, align 8
   %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT.5", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [1024 x i16], ptr %fixed_buffer_, i64 0, i64 0
-  %cmp = icmp ne ptr %0, %arraydecay
+  %cmp = icmp ne ptr %1, %arraydecay
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %buffer_2 = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %buffer_2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %buffer_2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZdaPv(ptr noundef %1) #14
+  call void @_ZdaPv(ptr noundef %2) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -5558,7 +5562,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url12CanonOutputTItEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url12CanonOutputTItEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buffer_, align 8
   %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT.2", ptr %this1, i32 0, i32 2
@@ -5833,7 +5838,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3url15RawCanonOutputTIcLi128EEC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url14RawCanonOutputILi128EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url14RawCanonOutputILi128EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6031,7 +6037,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3url12CanonOutputTIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT.6", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [128 x i8], ptr %fixed_buffer_, i64 0, i64 0
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
@@ -6124,7 +6131,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url12CanonOutputTIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url12CanonOutputTIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buffer_, align 8
   %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 2
@@ -6140,22 +6148,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buffer_, align 8
+  %1 = load ptr, ptr %buffer_, align 8
   %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT.6", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [128 x i8], ptr %fixed_buffer_, i64 0, i64 0
-  %cmp = icmp ne ptr %0, %arraydecay
+  %cmp = icmp ne ptr %1, %arraydecay
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %buffer_2 = getelementptr inbounds %"class.url::CanonOutputT", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %buffer_2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %buffer_2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZdaPv(ptr noundef %1) #14
+  call void @_ZdaPv(ptr noundef %2) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then

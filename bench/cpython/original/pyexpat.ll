@@ -1276,41 +1276,42 @@ if.end7:                                          ; preds = %if.end
   %26 = load ptr, ptr %self, align 8
   %itself8 = getelementptr inbounds %struct.xmlparseobject, ptr %26, i32 0, i32 1
   %27 = load ptr, ptr %itself8, align 8
-  %28 = load i64, ptr getelementptr inbounds (%struct.anon.2, ptr @_Py_HashSecret, i32 0, i32 1), align 8
-  %call9 = call i32 @PyExpat_XML_SetHashSalt(ptr noundef %27, i64 noundef %28)
-  %29 = load ptr, ptr %self, align 8
-  %itself10 = getelementptr inbounds %struct.xmlparseobject, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %itself10, align 8
-  %31 = load ptr, ptr %self, align 8
-  call void @PyExpat_XML_SetUserData(ptr noundef %30, ptr noundef %31)
+  %28 = getelementptr inbounds %struct.anon.2, ptr @_Py_HashSecret, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %call9 = call i32 @PyExpat_XML_SetHashSalt(ptr noundef %27, i64 noundef %29)
+  %30 = load ptr, ptr %self, align 8
+  %itself10 = getelementptr inbounds %struct.xmlparseobject, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %itself10, align 8
   %32 = load ptr, ptr %self, align 8
-  %itself11 = getelementptr inbounds %struct.xmlparseobject, ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %itself11, align 8
-  call void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef %33, ptr noundef @PyUnknownEncodingHandler, ptr noundef null)
+  call void @PyExpat_XML_SetUserData(ptr noundef %31, ptr noundef %32)
+  %33 = load ptr, ptr %self, align 8
+  %itself11 = getelementptr inbounds %struct.xmlparseobject, ptr %33, i32 0, i32 1
+  %34 = load ptr, ptr %itself11, align 8
+  call void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef %34, ptr noundef @PyUnknownEncodingHandler, ptr noundef null)
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end7
-  %34 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %34 to i64
+  %35 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %35 to i64
   %arrayidx = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom
   %name = getelementptr inbounds %struct.HandlerInfo, ptr %arrayidx, i32 0, i32 0
-  %35 = load ptr, ptr %name, align 16
-  %cmp12 = icmp ne ptr %35, null
+  %36 = load ptr, ptr %name, align 16
+  %cmp12 = icmp ne ptr %36, null
   br i1 %cmp12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %36 = load i32, ptr %i, align 4
-  %inc = add i32 %36, 1
+  %37 = load i32, ptr %i, align 4
+  %inc = add i32 %37, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %37 = load i32, ptr %i, align 4
-  %conv = sext i32 %37 to i64
+  %38 = load i32, ptr %i, align 4
+  %conv = sext i32 %38 to i64
   %cmp13 = icmp ugt i64 %conv, 1152921504606846975
   br i1 %cmp13, label %cond.true, label %cond.false
 
@@ -1318,31 +1319,31 @@ cond.true:                                        ; preds = %for.end
   br label %cond.end
 
 cond.false:                                       ; preds = %for.end
-  %38 = load i32, ptr %i, align 4
-  %conv15 = sext i32 %38 to i64
+  %39 = load i32, ptr %i, align 4
+  %conv15 = sext i32 %39 to i64
   %mul = mul i64 %conv15, 8
   %call16 = call ptr @PyMem_Malloc(i64 noundef %mul)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ null, %cond.true ], [ %call16, %cond.false ]
-  %39 = load ptr, ptr %self, align 8
-  %handlers17 = getelementptr inbounds %struct.xmlparseobject, ptr %39, i32 0, i32 10
-  store ptr %cond, ptr %handlers17, align 8
   %40 = load ptr, ptr %self, align 8
-  %handlers18 = getelementptr inbounds %struct.xmlparseobject, ptr %40, i32 0, i32 10
-  %41 = load ptr, ptr %handlers18, align 8
-  %tobool = icmp ne ptr %41, null
+  %handlers17 = getelementptr inbounds %struct.xmlparseobject, ptr %40, i32 0, i32 10
+  store ptr %cond, ptr %handlers17, align 8
+  %41 = load ptr, ptr %self, align 8
+  %handlers18 = getelementptr inbounds %struct.xmlparseobject, ptr %41, i32 0, i32 10
+  %42 = load ptr, ptr %handlers18, align 8
+  %tobool = icmp ne ptr %42, null
   br i1 %tobool, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %cond.end
-  %42 = load ptr, ptr %self, align 8
-  store ptr %42, ptr %op.addr.i, align 8
-  %43 = load ptr, ptr %op.addr.i, align 8
-  store ptr %43, ptr %op.addr.i33, align 8
-  %44 = load ptr, ptr %op.addr.i33, align 8
-  %45 = load i64, ptr %44, align 8
-  %conv.i34 = trunc i64 %45 to i32
+  %43 = load ptr, ptr %self, align 8
+  store ptr %43, ptr %op.addr.i, align 8
+  %44 = load ptr, ptr %op.addr.i, align 8
+  store ptr %44, ptr %op.addr.i33, align 8
+  %45 = load ptr, ptr %op.addr.i33, align 8
+  %46 = load i64, ptr %45, align 8
+  %conv.i34 = trunc i64 %46 to i32
   %cmp.i35 = icmp slt i32 %conv.i34, 0
   %conv1.i36 = zext i1 %cmp.i35 to i32
   %tobool.i = icmp ne i32 %conv1.i36, 0
@@ -1352,16 +1353,16 @@ if.then.i:                                        ; preds = %if.then19
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.then19
-  %46 = load ptr, ptr %op.addr.i, align 8
-  %47 = load i64, ptr %46, align 8
-  %dec.i = add i64 %47, -1
-  store i64 %dec.i, ptr %46, align 8
+  %47 = load ptr, ptr %op.addr.i, align 8
+  %48 = load i64, ptr %47, align 8
+  %dec.i = add i64 %48, -1
+  store i64 %dec.i, ptr %47, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %48 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %48) #4
+  %49 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %49) #4
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -1370,17 +1371,17 @@ Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end
   br label %return
 
 if.end21:                                         ; preds = %cond.end
-  %49 = load ptr, ptr %self, align 8
-  call void @clear_handlers(ptr noundef %49, i32 noundef 1)
   %50 = load ptr, ptr %self, align 8
-  call void @PyObject_GC_Track(ptr noundef %50)
+  call void @clear_handlers(ptr noundef %50, i32 noundef 1)
   %51 = load ptr, ptr %self, align 8
-  store ptr %51, ptr %retval, align 8
+  call void @PyObject_GC_Track(ptr noundef %51)
+  %52 = load ptr, ptr %self, align 8
+  store ptr %52, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end21, %Py_DECREF.exit, %Py_DECREF.exit30, %if.then
-  %52 = load ptr, ptr %retval, align 8
-  ret ptr %52
+  %53 = load ptr, ptr %retval, align 8
+  ret ptr %53
 }
 
 declare ptr @PyModule_GetState(ptr noundef) #1
@@ -10453,20 +10454,21 @@ entry:
   store ptr %hi, ptr %hi.addr, align 8
   %0 = load ptr, ptr %hi.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @handler_info to i64)
+  %1 = ptrtoint ptr @handler_info to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 64
   %conv = trunc i64 %sub.ptr.div to i32
   store i32 %conv, ptr %handlernum, align 4
-  %1 = load ptr, ptr %self.addr, align 8
-  %handlers = getelementptr inbounds %struct.xmlparseobject, ptr %1, i32 0, i32 10
-  %2 = load ptr, ptr %handlers, align 8
-  %3 = load i32, ptr %handlernum, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %result, align 8
-  %5 = load ptr, ptr %result, align 8
-  %cmp = icmp eq ptr %5, null
+  %2 = load ptr, ptr %self.addr, align 8
+  %handlers = getelementptr inbounds %struct.xmlparseobject, ptr %2, i32 0, i32 10
+  %3 = load ptr, ptr %handlers, align 8
+  %4 = load i32, ptr %handlernum, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr ptr, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr %arrayidx, align 8
+  store ptr %5, ptr %result, align 8
+  %6 = load ptr, ptr %result, align 8
+  %cmp = icmp eq ptr %6, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -10474,8 +10476,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %result, align 8
-  %call = call ptr @_Py_NewRef(ptr noundef %6)
+  %7 = load ptr, ptr %result, align 8
+  %call = call ptr @_Py_NewRef(ptr noundef %7)
   ret ptr %call
 }
 
@@ -10498,28 +10500,29 @@ entry:
   store ptr %hi, ptr %hi.addr, align 8
   %0 = load ptr, ptr %hi.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @handler_info to i64)
+  %1 = ptrtoint ptr @handler_info to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 64
   %conv = trunc i64 %sub.ptr.div to i32
   store i32 %conv, ptr %handlernum, align 4
-  %1 = load ptr, ptr %v.addr, align 8
-  %cmp = icmp eq ptr %1, null
+  %2 = load ptr, ptr %v.addr, align 8
+  %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr @PyExc_RuntimeError, align 8
-  call void @PyErr_SetString(ptr noundef %2, ptr noundef @.str.128)
+  %3 = load ptr, ptr @PyExc_RuntimeError, align 8
+  call void @PyErr_SetString(ptr noundef %3, ptr noundef @.str.128)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %handlernum, align 4
-  %cmp2 = icmp eq i32 %3, 3
+  %4 = load i32, ptr %handlernum, align 4
+  %cmp2 = icmp eq i32 %4, 3
   br i1 %cmp2, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.end
-  %4 = load ptr, ptr %self.addr, align 8
-  %call = call i32 @flush_character_buffer(ptr noundef %4)
+  %5 = load ptr, ptr %self.addr, align 8
+  %call = call i32 @flush_character_buffer(ptr noundef %5)
   %cmp5 = icmp slt i32 %call, 0
   br i1 %cmp5, label %if.then7, label %if.end8
 
@@ -10532,20 +10535,20 @@ if.end8:                                          ; preds = %if.then4
 
 if.end9:                                          ; preds = %if.end8, %if.end
   store ptr null, ptr %c_handler, align 8
-  %5 = load ptr, ptr %v.addr, align 8
-  %cmp10 = icmp eq ptr %5, @_Py_NoneStruct
+  %6 = load ptr, ptr %v.addr, align 8
+  %cmp10 = icmp eq ptr %6, @_Py_NoneStruct
   br i1 %cmp10, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end9
-  %6 = load i32, ptr %handlernum, align 4
-  %cmp13 = icmp eq i32 %6, 3
+  %7 = load i32, ptr %handlernum, align 4
+  %cmp13 = icmp eq i32 %7, 3
   br i1 %cmp13, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %if.then12
-  %7 = load ptr, ptr %self.addr, align 8
-  %in_callback = getelementptr inbounds %struct.xmlparseobject, ptr %7, i32 0, i32 4
-  %8 = load i32, ptr %in_callback, align 8
-  %tobool = icmp ne i32 %8, 0
+  %8 = load ptr, ptr %self.addr, align 8
+  %in_callback = getelementptr inbounds %struct.xmlparseobject, ptr %8, i32 0, i32 4
+  %9 = load i32, ptr %in_callback, align 8
+  %tobool = icmp ne i32 %9, 0
   br i1 %tobool, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %land.lhs.true
@@ -10557,39 +10560,39 @@ if.end16:                                         ; preds = %if.then15, %land.lh
   br label %if.end21
 
 if.else:                                          ; preds = %if.end9
-  %9 = load ptr, ptr %v.addr, align 8
-  %cmp17 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %v.addr, align 8
+  %cmp17 = icmp ne ptr %10, null
   br i1 %cmp17, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.else
-  %10 = load ptr, ptr %v.addr, align 8
-  store ptr %10, ptr %op.addr.i, align 8
-  %11 = load ptr, ptr %op.addr.i, align 8
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %cur_refcnt.i, align 4
-  %13 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %13, 1
+  %11 = load ptr, ptr %v.addr, align 8
+  store ptr %11, ptr %op.addr.i, align 8
+  %12 = load ptr, ptr %op.addr.i, align 8
+  %13 = load i32, ptr %12, align 8
+  store i32 %13, ptr %cur_refcnt.i, align 4
+  %14 = load i32, ptr %cur_refcnt.i, align 4
+  %add.i = add i32 %14, 1
   store i32 %add.i, ptr %new_refcnt.i, align 4
-  %14 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i = icmp eq i32 %14, 0
+  %15 = load i32, ptr %new_refcnt.i, align 4
+  %cmp.i = icmp eq i32 %15, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then19
   br label %Py_INCREF.exit
 
 if.end.i:                                         ; preds = %if.then19
-  %15 = load i32, ptr %new_refcnt.i, align 4
-  %16 = load ptr, ptr %op.addr.i, align 8
-  store i32 %15, ptr %16, align 8
+  %16 = load i32, ptr %new_refcnt.i, align 4
+  %17 = load ptr, ptr %op.addr.i, align 8
+  store i32 %16, ptr %17, align 8
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %if.end.i, %if.then.i
-  %17 = load i32, ptr %handlernum, align 4
-  %idxprom = sext i32 %17 to i64
+  %18 = load i32, ptr %handlernum, align 4
+  %idxprom = sext i32 %18 to i64
   %arrayidx = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom
   %handler = getelementptr inbounds %struct.HandlerInfo, ptr %arrayidx, i32 0, i32 2
-  %18 = load ptr, ptr %handler, align 16
-  store ptr %18, ptr %c_handler, align 8
+  %19 = load ptr, ptr %handler, align 16
+  store ptr %19, ptr %c_handler, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %Py_INCREF.exit, %if.else
@@ -10599,40 +10602,40 @@ if.end21:                                         ; preds = %if.end20, %if.end16
   br label %do.body
 
 do.body:                                          ; preds = %if.end21
-  %19 = load ptr, ptr %self.addr, align 8
-  %handlers = getelementptr inbounds %struct.xmlparseobject, ptr %19, i32 0, i32 10
-  %20 = load ptr, ptr %handlers, align 8
-  %21 = load i32, ptr %handlernum, align 4
-  %idxprom22 = sext i32 %21 to i64
-  %arrayidx23 = getelementptr ptr, ptr %20, i64 %idxprom22
+  %20 = load ptr, ptr %self.addr, align 8
+  %handlers = getelementptr inbounds %struct.xmlparseobject, ptr %20, i32 0, i32 10
+  %21 = load ptr, ptr %handlers, align 8
+  %22 = load i32, ptr %handlernum, align 4
+  %idxprom22 = sext i32 %22 to i64
+  %arrayidx23 = getelementptr ptr, ptr %21, i64 %idxprom22
   store ptr %arrayidx23, ptr %_tmp_dst_ptr, align 8
-  %22 = load ptr, ptr %_tmp_dst_ptr, align 8
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %_tmp_old_dst, align 8
-  %24 = load ptr, ptr %v.addr, align 8
-  %25 = load ptr, ptr %_tmp_dst_ptr, align 8
-  store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr %_tmp_old_dst, align 8
-  call void @Py_XDECREF(ptr noundef %26)
+  %23 = load ptr, ptr %_tmp_dst_ptr, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %_tmp_old_dst, align 8
+  %25 = load ptr, ptr %v.addr, align 8
+  %26 = load ptr, ptr %_tmp_dst_ptr, align 8
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr %_tmp_old_dst, align 8
+  call void @Py_XDECREF(ptr noundef %27)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %27 = load i32, ptr %handlernum, align 4
-  %idxprom24 = sext i32 %27 to i64
+  %28 = load i32, ptr %handlernum, align 4
+  %idxprom24 = sext i32 %28 to i64
   %arrayidx25 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %idxprom24
   %setter = getelementptr inbounds %struct.HandlerInfo, ptr %arrayidx25, i32 0, i32 1
-  %28 = load ptr, ptr %setter, align 8
-  %29 = load ptr, ptr %self.addr, align 8
-  %itself = getelementptr inbounds %struct.xmlparseobject, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %itself, align 8
-  %31 = load ptr, ptr %c_handler, align 8
-  call void %28(ptr noundef %30, ptr noundef %31)
+  %29 = load ptr, ptr %setter, align 8
+  %30 = load ptr, ptr %self.addr, align 8
+  %itself = getelementptr inbounds %struct.xmlparseobject, ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %itself, align 8
+  %32 = load ptr, ptr %c_handler, align 8
+  call void %29(ptr noundef %31, ptr noundef %32)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %do.end, %if.then7, %if.then
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
+  %33 = load i32, ptr %retval, align 4
+  ret i32 %33
 }
 
 declare ptr @PyDescr_NewGetSet(ptr noundef, ptr noundef) #1

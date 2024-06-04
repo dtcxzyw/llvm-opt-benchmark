@@ -146,42 +146,43 @@ define internal ptr @signo2signm(i32 noundef %0) #0 {
   store ptr @siglist, ptr %4, align 8
   br label %5
 
-5:                                                ; preds = %19, %1
+5:                                                ; preds = %20, %1
   %6 = load ptr, ptr %4, align 8
-  %7 = icmp ult ptr %6, getelementptr (%struct.signals, ptr @siglist, i64 34)
-  br i1 %7, label %8, label %22
+  %7 = getelementptr %struct.signals, ptr @siglist, i64 34
+  %8 = icmp ult ptr %6, %7
+  br i1 %8, label %9, label %23
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.signals, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 4
-  %12 = load i32, ptr %3, align 4
-  %13 = icmp eq i32 %11, %12
-  br i1 %13, label %14, label %18
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %struct.signals, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp eq i32 %12, %13
+  br i1 %14, label %15, label %19
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.signals, ptr %15, i32 0, i32 0
-  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 0, i64 0
-  store ptr %17, ptr %2, align 8
-  br label %23
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %struct.signals, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 0, i64 0
+  store ptr %18, ptr %2, align 8
+  br label %24
 
-18:                                               ; preds = %8
-  br label %19
+19:                                               ; preds = %9
+  br label %20
 
-19:                                               ; preds = %18
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr %struct.signals, ptr %20, i32 1
-  store ptr %21, ptr %4, align 8
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr %struct.signals, ptr %21, i32 1
+  store ptr %22, ptr %4, align 8
   br label %5, !llvm.loop !7
 
-22:                                               ; preds = %5
+23:                                               ; preds = %5
   store ptr null, ptr %2, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %14
-  %24 = load ptr, ptr %2, align 8
-  ret ptr %24
+24:                                               ; preds = %23, %15
+  %25 = load ptr, ptr %2, align 8
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -844,7 +845,7 @@ define internal i32 @signm2signo(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %150
-  br label %219
+  br label %220
 
 156:                                              ; preds = %150
   %157 = load ptr, ptr %11, align 8
@@ -873,7 +874,7 @@ define internal i32 @signm2signo(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %162
-  br label %219
+  br label %220
 
 174:                                              ; preds = %162
   %175 = load i32, ptr %10, align 4
@@ -885,120 +886,121 @@ define internal i32 @signm2signo(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   store ptr %180, ptr %12, align 8
   br label %181
 
-181:                                              ; preds = %215, %174
+181:                                              ; preds = %216, %174
   %182 = load ptr, ptr %12, align 8
-  %183 = icmp ult ptr %182, getelementptr (%struct.signals, ptr @siglist, i64 34)
-  br i1 %183, label %184, label %218
+  %183 = getelementptr %struct.signals, ptr @siglist, i64 34
+  %184 = icmp ult ptr %182, %183
+  br i1 %184, label %185, label %219
 
-184:                                              ; preds = %181
-  %185 = load ptr, ptr %12, align 8
-  %186 = getelementptr inbounds %struct.signals, ptr %185, i32 0, i32 0
-  %187 = getelementptr inbounds [8 x i8], ptr %186, i64 0, i64 0
-  %188 = load ptr, ptr %14, align 8
-  %189 = load i64, ptr %16, align 8
-  %190 = call i32 @memcmp(ptr noundef %187, ptr noundef %188, i64 noundef %189) #23
-  %191 = icmp eq i32 %190, 0
-  br i1 %191, label %192, label %214
+185:                                              ; preds = %181
+  %186 = load ptr, ptr %12, align 8
+  %187 = getelementptr inbounds %struct.signals, ptr %186, i32 0, i32 0
+  %188 = getelementptr inbounds [8 x i8], ptr %187, i64 0, i64 0
+  %189 = load ptr, ptr %14, align 8
+  %190 = load i64, ptr %16, align 8
+  %191 = call i32 @memcmp(ptr noundef %188, ptr noundef %189, i64 noundef %190) #23
+  %192 = icmp eq i32 %191, 0
+  br i1 %192, label %193, label %215
 
-192:                                              ; preds = %184
-  %193 = load ptr, ptr %12, align 8
-  %194 = getelementptr inbounds %struct.signals, ptr %193, i32 0, i32 0
-  %195 = load i64, ptr %16, align 8
-  %196 = getelementptr [8 x i8], ptr %194, i64 0, i64 %195
-  %197 = load i8, ptr %196, align 1
-  %198 = sext i8 %197 to i32
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %200, label %214
+193:                                              ; preds = %185
+  %194 = load ptr, ptr %12, align 8
+  %195 = getelementptr inbounds %struct.signals, ptr %194, i32 0, i32 0
+  %196 = load i64, ptr %16, align 8
+  %197 = getelementptr [8 x i8], ptr %195, i64 0, i64 %196
+  %198 = load i8, ptr %197, align 1
+  %199 = sext i8 %198 to i32
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %201, label %215
 
-200:                                              ; preds = %192
-  %201 = load i32, ptr %9, align 4
-  %202 = icmp ne i32 %201, 0
-  br i1 %202, label %203, label %208
+201:                                              ; preds = %193
+  %202 = load i32, ptr %9, align 4
+  %203 = icmp ne i32 %202, 0
+  br i1 %203, label %204, label %209
 
-203:                                              ; preds = %200
-  %204 = load ptr, ptr %12, align 8
-  %205 = getelementptr inbounds %struct.signals, ptr %204, i32 0, i32 1
-  %206 = load i32, ptr %205, align 4
-  %207 = sub i32 0, %206
-  br label %212
+204:                                              ; preds = %201
+  %205 = load ptr, ptr %12, align 8
+  %206 = getelementptr inbounds %struct.signals, ptr %205, i32 0, i32 1
+  %207 = load i32, ptr %206, align 4
+  %208 = sub i32 0, %207
+  br label %213
 
-208:                                              ; preds = %200
-  %209 = load ptr, ptr %12, align 8
-  %210 = getelementptr inbounds %struct.signals, ptr %209, i32 0, i32 1
-  %211 = load i32, ptr %210, align 4
-  br label %212
+209:                                              ; preds = %201
+  %210 = load ptr, ptr %12, align 8
+  %211 = getelementptr inbounds %struct.signals, ptr %210, i32 0, i32 1
+  %212 = load i32, ptr %211, align 4
+  br label %213
 
-212:                                              ; preds = %208, %203
-  %213 = phi i32 [ %207, %203 ], [ %211, %208 ]
-  ret i32 %213
+213:                                              ; preds = %209, %204
+  %214 = phi i32 [ %208, %204 ], [ %212, %209 ]
+  ret i32 %214
 
-214:                                              ; preds = %192, %184
-  br label %215
+215:                                              ; preds = %193, %185
+  br label %216
 
-215:                                              ; preds = %214
-  %216 = load ptr, ptr %12, align 8
-  %217 = getelementptr %struct.signals, ptr %216, i32 1
-  store ptr %217, ptr %12, align 8
+216:                                              ; preds = %215
+  %217 = load ptr, ptr %12, align 8
+  %218 = getelementptr %struct.signals, ptr %217, i32 1
+  store ptr %218, ptr %12, align 8
   br label %181, !llvm.loop !11
 
-218:                                              ; preds = %181
-  br label %219
+219:                                              ; preds = %181
+  br label %220
 
-219:                                              ; preds = %218, %173, %155
-  %220 = load i32, ptr %17, align 4
-  %221 = icmp eq i32 %220, 3
-  br i1 %221, label %222, label %223
+220:                                              ; preds = %219, %173, %155
+  %221 = load i32, ptr %17, align 4
+  %222 = icmp eq i32 %221, 3
+  br i1 %222, label %223, label %224
 
-222:                                              ; preds = %219
+223:                                              ; preds = %220
+  store i32 0, ptr %17, align 4
+  br label %250
+
+224:                                              ; preds = %220
+  %225 = load i32, ptr %17, align 4
+  %226 = icmp sgt i32 %225, 3
+  br i1 %226, label %227, label %239
+
+227:                                              ; preds = %224
+  %228 = load i32, ptr %17, align 4
+  %229 = sub i32 %228, 3
+  store i32 %229, ptr %17, align 4
+  %230 = load i32, ptr %17, align 4
+  %231 = sext i32 %230 to i64
+  %232 = load i64, ptr %15, align 8
+  %233 = sub i64 %232, %231
+  store i64 %233, ptr %15, align 8
+  %234 = load i64, ptr %13, align 8
+  %235 = load i32, ptr %17, align 4
+  %236 = sext i32 %235 to i64
+  %237 = load i64, ptr %15, align 8
+  %238 = call i64 @rb_str_subseq(i64 noundef %234, i64 noundef %236, i64 noundef %237)
+  store i64 %238, ptr %13, align 8
   store i32 0, ptr %17, align 4
   br label %249
 
-223:                                              ; preds = %219
-  %224 = load i32, ptr %17, align 4
-  %225 = icmp sgt i32 %224, 3
-  br i1 %225, label %226, label %238
-
-226:                                              ; preds = %223
-  %227 = load i32, ptr %17, align 4
-  %228 = sub i32 %227, 3
-  store i32 %228, ptr %17, align 4
-  %229 = load i32, ptr %17, align 4
-  %230 = sext i32 %229 to i64
-  %231 = load i64, ptr %15, align 8
-  %232 = sub i64 %231, %230
-  store i64 %232, ptr %15, align 8
-  %233 = load i64, ptr %13, align 8
-  %234 = load i32, ptr %17, align 4
-  %235 = sext i32 %234 to i64
-  %236 = load i64, ptr %15, align 8
-  %237 = call i64 @rb_str_subseq(i64 noundef %233, i64 noundef %235, i64 noundef %236)
-  store i64 %237, ptr %13, align 8
-  store i32 0, ptr %17, align 4
-  br label %248
-
-238:                                              ; preds = %223
-  %239 = load i32, ptr %17, align 4
-  %240 = sext i32 %239 to i64
-  %241 = load i64, ptr %15, align 8
-  %242 = sub i64 %241, %240
-  store i64 %242, ptr %15, align 8
-  %243 = load i64, ptr %13, align 8
-  %244 = load i32, ptr %17, align 4
-  %245 = sext i32 %244 to i64
-  %246 = load i64, ptr %15, align 8
-  %247 = call i64 @rb_str_subseq(i64 noundef %243, i64 noundef %245, i64 noundef %246)
-  store i64 %247, ptr %13, align 8
+239:                                              ; preds = %224
+  %240 = load i32, ptr %17, align 4
+  %241 = sext i32 %240 to i64
+  %242 = load i64, ptr %15, align 8
+  %243 = sub i64 %242, %241
+  store i64 %243, ptr %15, align 8
+  %244 = load i64, ptr %13, align 8
+  %245 = load i32, ptr %17, align 4
+  %246 = sext i32 %245 to i64
+  %247 = load i64, ptr %15, align 8
+  %248 = call i64 @rb_str_subseq(i64 noundef %244, i64 noundef %246, i64 noundef %247)
+  store i64 %248, ptr %13, align 8
   store i32 3, ptr %17, align 4
-  br label %248
-
-248:                                              ; preds = %238, %226
   br label %249
 
-249:                                              ; preds = %248, %222
-  %250 = load i64, ptr @rb_eArgError, align 8
-  %251 = load i32, ptr %17, align 4
-  %252 = load i64, ptr %13, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %250, ptr noundef @.str.23, i32 noundef %251, ptr noundef @signame_prefix, i64 noundef %252) #21
+249:                                              ; preds = %239, %227
+  br label %250
+
+250:                                              ; preds = %249, %223
+  %251 = load i64, ptr @rb_eArgError, align 8
+  %252 = load i32, ptr %17, align 4
+  %253 = load i64, ptr %13, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %251, ptr noundef @.str.23, i32 noundef %252, ptr noundef @signame_prefix, i64 noundef %253) #21
   unreachable
 }
 
@@ -1094,30 +1096,31 @@ define internal i32 @signal_ignored(i32 noundef %0) #0 {
 
 22:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %33
+  br label %34
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds %struct.sigaction, ptr %5, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %4, align 8
   %26 = load ptr, ptr %4, align 8
-  %27 = icmp eq ptr %26, inttoptr (i64 1 to ptr)
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %23
-  store i32 1, ptr %2, align 4
-  br label %33
+  %27 = inttoptr i64 1 to ptr
+  %28 = icmp eq ptr %26, %27
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %23
-  %30 = load ptr, ptr %4, align 8
-  %31 = icmp eq ptr %30, @sighandler
-  %32 = select i1 %31, i32 0, i32 -1
-  store i32 %32, ptr %2, align 4
-  br label %33
+  store i32 1, ptr %2, align 4
+  br label %34
 
-33:                                               ; preds = %29, %28, %22
-  %34 = load i32, ptr %2, align 4
-  ret i32 %34
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %4, align 8
+  %32 = icmp eq ptr %31, @sighandler
+  %33 = select i1 %32, i32 0, i32 -1
+  store i32 %33, ptr %2, align 4
+  br label %34
+
+34:                                               ; preds = %30, %29, %22
+  %35 = load i32, ptr %2, align 4
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1128,7 +1131,8 @@ define internal void @signal_enque(i32 noundef %0) #0 {
   %4 = sext i32 %3 to i64
   %5 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %4
   call void @rbimpl_atomic_inc(ptr noundef %5) #25
-  call void @rbimpl_atomic_inc(ptr noundef getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i32 0, i32 1)) #25
+  %6 = getelementptr inbounds %struct.anon.5, ptr @signal_buff, i32 0, i32 1
+  call void @rbimpl_atomic_inc(ptr noundef %6) #25
   ret void
 }
 
@@ -1288,108 +1292,112 @@ define internal ptr @ruby_signal(i32 noundef %0, ptr noundef %1) #0 {
   %11 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 1
   %12 = call i32 @sigemptyset(ptr noundef %11) #18
   %13 = load ptr, ptr %5, align 8
-  %14 = icmp eq ptr %13, inttoptr (i64 1 to ptr)
-  br i1 %14, label %18, label %15
+  %14 = inttoptr i64 1 to ptr
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %19, label %16
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %5, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %22
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %5, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %23
 
-18:                                               ; preds = %15, %2
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 0
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 2
-  store i32 0, ptr %21, align 8
-  br label %26
+19:                                               ; preds = %16, %2
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 0
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 2
+  store i32 0, ptr %22, align 8
+  br label %27
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 0
-  store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 2
-  store i32 4, ptr %25, align 8
-  br label %26
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 0
+  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 2
+  store i32 4, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %22, %18
-  %27 = load i32, ptr %4, align 4
-  switch i32 %27, label %32 [
-    i32 11, label %28
-    i32 7, label %28
+27:                                               ; preds = %23, %19
+  %28 = load i32, ptr %4, align 4
+  switch i32 %28, label %33 [
+    i32 11, label %29
+    i32 7, label %29
   ]
 
-28:                                               ; preds = %26, %26
-  %29 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 2
-  %30 = load i32, ptr %29, align 8
-  %31 = or i32 %30, 134217728
-  store i32 %31, ptr %29, align 8
-  br label %32
+29:                                               ; preds = %27, %27
+  %30 = getelementptr inbounds %struct.sigaction, ptr %6, i32 0, i32 2
+  %31 = load i32, ptr %30, align 8
+  %32 = or i32 %31, 134217728
+  store i32 %32, ptr %30, align 8
+  br label %33
 
-32:                                               ; preds = %28, %26
-  %33 = getelementptr [6 x i64], ptr %8, i64 0, i64 0
-  store volatile i64 1296236546, ptr %33, align 16
-  %34 = ptrtoint ptr %7 to i64
-  %35 = getelementptr [6 x i64], ptr %8, i64 0, i64 1
-  store volatile i64 %34, ptr %35, align 8
-  %36 = getelementptr [6 x i64], ptr %8, i64 0, i64 2
-  store volatile i64 152, ptr %36, align 16
-  %37 = getelementptr [6 x i64], ptr %8, i64 0, i64 3
-  store volatile i64 0, ptr %37, align 8
-  %38 = getelementptr [6 x i64], ptr %8, i64 0, i64 4
-  store volatile i64 0, ptr %38, align 16
-  %39 = getelementptr [6 x i64], ptr %8, i64 0, i64 5
-  store volatile i64 0, ptr %39, align 8
-  %40 = getelementptr [6 x i64], ptr %8, i64 0, i64 0
-  %41 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %40, i64 0) #18, !srcloc !13
-  store volatile i64 %41, ptr %9, align 8
-  %42 = load volatile i64, ptr %9, align 8
-  store i64 %42, ptr %10, align 8
-  %43 = load i32, ptr %4, align 4
-  %44 = call i32 @sigaction(i32 noundef %43, ptr noundef %6, ptr noundef %7) #18
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %47
+33:                                               ; preds = %29, %27
+  %34 = getelementptr [6 x i64], ptr %8, i64 0, i64 0
+  store volatile i64 1296236546, ptr %34, align 16
+  %35 = ptrtoint ptr %7 to i64
+  %36 = getelementptr [6 x i64], ptr %8, i64 0, i64 1
+  store volatile i64 %35, ptr %36, align 8
+  %37 = getelementptr [6 x i64], ptr %8, i64 0, i64 2
+  store volatile i64 152, ptr %37, align 16
+  %38 = getelementptr [6 x i64], ptr %8, i64 0, i64 3
+  store volatile i64 0, ptr %38, align 8
+  %39 = getelementptr [6 x i64], ptr %8, i64 0, i64 4
+  store volatile i64 0, ptr %39, align 16
+  %40 = getelementptr [6 x i64], ptr %8, i64 0, i64 5
+  store volatile i64 0, ptr %40, align 8
+  %41 = getelementptr [6 x i64], ptr %8, i64 0, i64 0
+  %42 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 0) #18, !srcloc !13
+  store volatile i64 %42, ptr %9, align 8
+  %43 = load volatile i64, ptr %9, align 8
+  store i64 %43, ptr %10, align 8
+  %44 = load i32, ptr %4, align 4
+  %45 = call i32 @sigaction(i32 noundef %44, ptr noundef %6, ptr noundef %7) #18
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %32
-  store ptr inttoptr (i64 -1 to ptr), ptr %3, align 8
-  br label %62
+47:                                               ; preds = %33
+  %48 = inttoptr i64 -1 to ptr
+  store ptr %48, ptr %3, align 8
+  br label %65
 
-47:                                               ; preds = %32
-  %48 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 2
-  %49 = load i32, ptr %48, align 8
-  %50 = and i32 %49, 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %55
+49:                                               ; preds = %33
+  %50 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 2
+  %51 = load i32, ptr %50, align 8
+  %52 = and i32 %51, 4
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %57
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %5, align 8
-  br label %58
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %5, align 8
+  br label %60
 
-55:                                               ; preds = %47
-  %56 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %5, align 8
-  br label %58
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds %struct.sigaction, ptr %7, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %5, align 8
+  br label %60
 
-58:                                               ; preds = %55, %52
-  %59 = load ptr, ptr %5, align 8
-  %60 = icmp ne ptr %59, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %60)
+60:                                               ; preds = %57, %54
   %61 = load ptr, ptr %5, align 8
-  store ptr %61, ptr %3, align 8
-  br label %62
+  %62 = inttoptr i64 -1 to ptr
+  %63 = icmp ne ptr %61, %62
+  call void @llvm.assume(i1 %63)
+  %64 = load ptr, ptr %5, align 8
+  store ptr %64, ptr %3, align 8
+  br label %65
 
-62:                                               ; preds = %58, %46
-  %63 = load ptr, ptr %3, align 8
-  ret ptr %63
+65:                                               ; preds = %60, %47
+  %66 = load ptr, ptr %3, align 8
+  ret ptr %66
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i32 @rb_signal_buff_size() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i32 0, i32 1), align 4
-  ret i32 %1
+  %1 = getelementptr inbounds %struct.anon.5, ptr @signal_buff, i32 0, i32 1
+  %2 = load i32, ptr %1, align 4
+  ret i32 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1397,52 +1405,54 @@ define hidden i32 @rb_get_next_signal() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i32 0, i32 1), align 4
-  %4 = icmp ne i32 %3, 0
-  br i1 %4, label %5, label %25
+  %3 = getelementptr inbounds %struct.anon.5, ptr @signal_buff, i32 0, i32 1
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %27
 
-5:                                                ; preds = %0
+6:                                                ; preds = %0
   store i32 1, ptr %1, align 4
-  br label %6
+  br label %7
 
-6:                                                ; preds = %21, %5
-  %7 = load i32, ptr %1, align 4
-  %8 = icmp slt i32 %7, 65
-  br i1 %8, label %9, label %24
+7:                                                ; preds = %23, %6
+  %8 = load i32, ptr %1, align 4
+  %9 = icmp slt i32 %8, 65
+  br i1 %9, label %10, label %26
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr %1, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp ugt i32 %13, 0
-  br i1 %14, label %15, label %20
+10:                                               ; preds = %7
+  %11 = load i32, ptr %1, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %12
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp ugt i32 %14, 0
+  br i1 %15, label %16, label %22
 
-15:                                               ; preds = %9
-  %16 = load i32, ptr %1, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %17
-  call void @rbimpl_atomic_dec(ptr noundef %18) #25
-  call void @rbimpl_atomic_dec(ptr noundef getelementptr inbounds (%struct.anon.5, ptr @signal_buff, i32 0, i32 1)) #25
-  %19 = load i32, ptr %1, align 4
-  store i32 %19, ptr %2, align 4
-  br label %24
+16:                                               ; preds = %10
+  %17 = load i32, ptr %1, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %18
+  call void @rbimpl_atomic_dec(ptr noundef %19) #25
+  %20 = getelementptr inbounds %struct.anon.5, ptr @signal_buff, i32 0, i32 1
+  call void @rbimpl_atomic_dec(ptr noundef %20) #25
+  %21 = load i32, ptr %1, align 4
+  store i32 %21, ptr %2, align 4
+  br label %26
 
-20:                                               ; preds = %9
-  br label %21
+22:                                               ; preds = %10
+  br label %23
 
-21:                                               ; preds = %20
-  %22 = load i32, ptr %1, align 4
-  %23 = add i32 %22, 1
-  store i32 %23, ptr %1, align 4
-  br label %6, !llvm.loop !14
+23:                                               ; preds = %22
+  %24 = load i32, ptr %1, align 4
+  %25 = add i32 %24, 1
+  store i32 %25, ptr %1, align 4
+  br label %7, !llvm.loop !14
 
-24:                                               ; preds = %15, %6
-  br label %25
+26:                                               ; preds = %16, %7
+  br label %27
 
-25:                                               ; preds = %24, %0
-  %26 = load i32, ptr %2, align 4
-  ret i32 %26
+27:                                               ; preds = %26, %0
+  %28 = load i32, ptr %2, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -1711,17 +1721,18 @@ declare void @rb_threadptr_signal_exit(ptr noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ruby_sig_finalize() #0 {
   %1 = alloca ptr, align 8
-  %2 = call ptr @ruby_signal(i32 noundef 2, ptr noundef inttoptr (i64 1 to ptr))
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
-  %4 = icmp eq ptr %3, @sighandler
-  br i1 %4, label %5, label %7
+  %2 = inttoptr i64 1 to ptr
+  %3 = call ptr @ruby_signal(i32 noundef 2, ptr noundef %2)
+  store ptr %3, ptr %1, align 8
+  %4 = load ptr, ptr %1, align 8
+  %5 = icmp eq ptr %4, @sighandler
+  br i1 %5, label %6, label %8
 
-5:                                                ; preds = %0
-  %6 = call ptr @ruby_signal(i32 noundef 2, ptr noundef null)
-  br label %7
+6:                                                ; preds = %0
+  %7 = call ptr @ruby_signal(i32 noundef 2, ptr noundef null)
+  br label %8
 
-7:                                                ; preds = %5, %0
+8:                                                ; preds = %6, %0
   ret void
 }
 
@@ -2206,52 +2217,53 @@ define internal i64 @sig_list(i64 noundef %0) #0 {
   store ptr @siglist, ptr %4, align 8
   br label %6
 
-6:                                                ; preds = %33, %1
+6:                                                ; preds = %34, %1
   %7 = load ptr, ptr %4, align 8
-  %8 = icmp ult ptr %7, getelementptr (%struct.signals, ptr @siglist, i64 34)
-  br i1 %8, label %9, label %36
+  %8 = getelementptr %struct.signals, ptr @siglist, i64 34
+  %9 = icmp ult ptr %7, %8
+  br i1 %9, label %10, label %37
 
-9:                                                ; preds = %6
-  %10 = load i64, ptr %3, align 8
-  br i1 false, label %11, label %20
+10:                                               ; preds = %6
+  %11 = load i64, ptr %3, align 8
+  br i1 false, label %12, label %21
 
-11:                                               ; preds = %9
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.signals, ptr %12, i32 0, i32 0
-  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 0, i64 0
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.signals, ptr %15, i32 0, i32 0
-  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 0, i64 0
-  %18 = call i64 @strlen(ptr noundef %17) #23
-  %19 = call i64 @rb_fstring_new(ptr noundef %14, i64 noundef %18)
-  br label %25
+12:                                               ; preds = %10
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %struct.signals, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 0, i64 0
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %struct.signals, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 0, i64 0
+  %19 = call i64 @strlen(ptr noundef %18) #23
+  %20 = call i64 @rb_fstring_new(ptr noundef %15, i64 noundef %19)
+  br label %26
 
-20:                                               ; preds = %9
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.signals, ptr %21, i32 0, i32 0
-  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 0, i64 0
-  %24 = call i64 @rb_fstring_cstr(ptr noundef %23)
-  br label %25
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %struct.signals, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 0, i64 0
+  %25 = call i64 @rb_fstring_cstr(ptr noundef %24)
+  br label %26
 
-25:                                               ; preds = %20, %11
-  %26 = phi i64 [ %19, %11 ], [ %24, %20 ]
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.signals, ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 4
-  %30 = sext i32 %29 to i64
-  %31 = call i64 @RB_INT2FIX(i64 noundef %30) #22
-  %32 = call i64 @rb_hash_aset(i64 noundef %10, i64 noundef %26, i64 noundef %31)
-  br label %33
+26:                                               ; preds = %21, %12
+  %27 = phi i64 [ %20, %12 ], [ %25, %21 ]
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct.signals, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 4
+  %31 = sext i32 %30 to i64
+  %32 = call i64 @RB_INT2FIX(i64 noundef %31) #22
+  %33 = call i64 @rb_hash_aset(i64 noundef %11, i64 noundef %27, i64 noundef %32)
+  br label %34
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr %struct.signals, ptr %34, i32 1
-  store ptr %35, ptr %4, align 8
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr %struct.signals, ptr %35, i32 1
+  store ptr %36, ptr %4, align 8
   br label %6, !llvm.loop !15
 
-36:                                               ; preds = %6
-  %37 = load i64, ptr %3, align 8
-  ret i64 %37
+37:                                               ; preds = %6
+  %38 = load i64, ptr %3, align 8
+  ret i64 %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2488,62 +2500,64 @@ define internal i32 @install_sighandler_core(i32 noundef %0, ptr noundef %1, ptr
   %11 = call ptr @ruby_signal(i32 noundef %9, ptr noundef %10)
   store ptr %11, ptr %8, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = icmp eq ptr %12, inttoptr (i64 -1 to ptr)
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  store i32 -1, ptr %4, align 4
-  br label %39
+  %13 = inttoptr i64 -1 to ptr
+  %14 = icmp eq ptr %12, %13
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %7, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %30
+  store i32 -1, ptr %4, align 4
+  br label %41
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %8, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %24, label %21
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %7, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %32
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %8, align 8
-  %23 = icmp eq ptr %22, inttoptr (i64 1 to ptr)
-  br i1 %23, label %24, label %25
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %8, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %26, label %22
 
-24:                                               ; preds = %21, %18
-  br label %27
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %8, align 8
+  %24 = inttoptr i64 1 to ptr
+  %25 = icmp eq ptr %23, %24
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %8, align 8
-  br label %27
+26:                                               ; preds = %22, %19
+  br label %29
 
-27:                                               ; preds = %25, %24
-  %28 = phi ptr [ null, %24 ], [ %26, %25 ]
-  %29 = load ptr, ptr %7, align 8
-  store ptr %28, ptr %29, align 8
-  br label %38
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %8, align 8
+  br label %29
 
-30:                                               ; preds = %15
-  %31 = load ptr, ptr %8, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %37
+29:                                               ; preds = %27, %26
+  %30 = phi ptr [ null, %26 ], [ %28, %27 ]
+  %31 = load ptr, ptr %7, align 8
+  store ptr %30, ptr %31, align 8
+  br label %40
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %5, align 4
-  %35 = load ptr, ptr %8, align 8
-  %36 = call ptr @ruby_signal(i32 noundef %34, ptr noundef %35)
-  br label %37
+32:                                               ; preds = %16
+  %33 = load ptr, ptr %8, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %39
 
-37:                                               ; preds = %33, %30
-  br label %38
-
-38:                                               ; preds = %37, %27
-  store i32 0, ptr %4, align 4
+35:                                               ; preds = %32
+  %36 = load i32, ptr %5, align 4
+  %37 = load ptr, ptr %8, align 8
+  %38 = call ptr @ruby_signal(i32 noundef %36, ptr noundef %37)
   br label %39
 
-39:                                               ; preds = %38, %14
-  %40 = load i32, ptr %4, align 4
-  ret i32 %40
+39:                                               ; preds = %35, %32
+  br label %40
+
+40:                                               ; preds = %39, %29
+  store i32 0, ptr %4, align 4
+  br label %41
+
+41:                                               ; preds = %40, %15
+  %42 = load i32, ptr %4, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3592,185 +3606,187 @@ define internal ptr @trap_handler(ptr noundef %0, i32 noundef %1) #0 {
   %12 = load ptr, ptr %3, align 8
   %13 = load i64, ptr %12, align 8
   %14 = call zeroext i1 @RB_NIL_P(i64 noundef %13) #22
-  br i1 %14, label %15, label %16
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %2
-  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
-  br label %102
+  %16 = inttoptr i64 1 to ptr
+  store ptr %16, ptr %5, align 8
+  br label %104
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i64, ptr %17, align 8
-  %19 = call i64 @rb_check_string_type(i64 noundef %18)
-  store i64 %19, ptr %6, align 8
-  %20 = load i64, ptr %6, align 8
-  %21 = call zeroext i1 @RB_NIL_P(i64 noundef %20) #22
-  br i1 %21, label %22, label %35
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i64, ptr %18, align 8
+  %20 = call i64 @rb_check_string_type(i64 noundef %19)
+  store i64 %20, ptr %6, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = call zeroext i1 @RB_NIL_P(i64 noundef %21) #22
+  br i1 %22, label %23, label %36
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i64, ptr %23, align 8
-  %25 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %24) #23
-  br i1 %25, label %26, label %35
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %3, align 8
+  %25 = load i64, ptr %24, align 8
+  %26 = call zeroext i1 @RB_SYMBOL_P(i64 noundef %25) #23
+  br i1 %26, label %27, label %36
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %3, align 8
-  %28 = load i64, ptr %27, align 8
-  %29 = call i64 @rb_sym2str(i64 noundef %28)
-  store i64 %29, ptr %6, align 8
-  %30 = load i64, ptr %6, align 8
-  %31 = icmp ne i64 %30, 0
-  br i1 %31, label %34, label %32
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %3, align 8
+  %29 = load i64, ptr %28, align 8
+  %30 = call i64 @rb_sym2str(i64 noundef %29)
+  store i64 %30, ptr %6, align 8
+  %31 = load i64, ptr %6, align 8
+  %32 = icmp ne i64 %31, 0
+  br i1 %32, label %35, label %33
 
-32:                                               ; preds = %26
-  %33 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %33, ptr noundef @.str.28) #21
+33:                                               ; preds = %27
+  %34 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %34, ptr noundef @.str.28) #21
   unreachable
 
-34:                                               ; preds = %26
-  br label %35
+35:                                               ; preds = %27
+  br label %36
 
-35:                                               ; preds = %34, %22, %16
-  %36 = load i64, ptr %6, align 8
-  %37 = call zeroext i1 @RB_NIL_P(i64 noundef %36) #22
-  br i1 %37, label %95, label %38
+36:                                               ; preds = %35, %23, %17
+  %37 = load i64, ptr %6, align 8
+  %38 = call zeroext i1 @RB_NIL_P(i64 noundef %37) #22
+  br i1 %38, label %97, label %39
 
-38:                                               ; preds = %35
-  %39 = call i64 @rb_string_value(ptr noundef %6)
-  %40 = load i64, ptr %6, align 8
-  %41 = load ptr, ptr %3, align 8
-  store i64 %40, ptr %41, align 8
-  %42 = load i64, ptr %6, align 8
-  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %9, i64 noundef %42) #24
-  %43 = getelementptr inbounds %struct.RString, ptr %9, i32 0, i32 2
-  %44 = getelementptr inbounds %struct.anon.14, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %7, align 8
-  %46 = getelementptr inbounds %struct.RString, ptr %9, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  store i64 %47, ptr %8, align 8
-  store i64 %47, ptr %10, align 8
-  %48 = load i64, ptr %8, align 8
-  switch i64 %48, label %94 [
-    i64 0, label %55
-    i64 14, label %56
-    i64 7, label %63
-    i64 6, label %81
-    i64 4, label %87
+39:                                               ; preds = %36
+  %40 = call i64 @rb_string_value(ptr noundef %6)
+  %41 = load i64, ptr %6, align 8
+  %42 = load ptr, ptr %3, align 8
+  store i64 %41, ptr %42, align 8
+  %43 = load i64, ptr %6, align 8
+  call void @rbimpl_rstring_getmem(ptr dead_on_unwind writable sret(%struct.RString) align 8 %9, i64 noundef %43) #24
+  %44 = getelementptr inbounds %struct.RString, ptr %9, i32 0, i32 2
+  %45 = getelementptr inbounds %struct.anon.14, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %7, align 8
+  %47 = getelementptr inbounds %struct.RString, ptr %9, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8
+  store i64 %48, ptr %8, align 8
+  store i64 %48, ptr %10, align 8
+  %49 = load i64, ptr %8, align 8
+  switch i64 %49, label %96 [
+    i64 0, label %57
+    i64 14, label %58
+    i64 7, label %65
+    i64 6, label %83
+    i64 4, label %89
   ]
 
-49:                                               ; preds = %85, %67, %55
-  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
-  %50 = load ptr, ptr %3, align 8
-  store i64 20, ptr %50, align 8
-  br label %94
+50:                                               ; preds = %87, %69, %57
+  %51 = inttoptr i64 1 to ptr
+  store ptr %51, ptr %5, align 8
+  %52 = load ptr, ptr %3, align 8
+  store i64 20, ptr %52, align 8
+  br label %96
 
-51:                                               ; preds = %77, %72
-  %52 = load i32, ptr %4, align 4
-  %53 = call ptr @default_handler(i32 noundef %52)
-  store ptr %53, ptr %5, align 8
-  %54 = load ptr, ptr %3, align 8
-  store i64 0, ptr %54, align 8
-  br label %94
+53:                                               ; preds = %79, %74
+  %54 = load i32, ptr %4, align 4
+  %55 = call ptr @default_handler(i32 noundef %54)
+  store ptr %55, ptr %5, align 8
+  %56 = load ptr, ptr %3, align 8
+  store i64 0, ptr %56, align 8
+  br label %96
 
-55:                                               ; preds = %38
-  br label %49
+57:                                               ; preds = %39
+  br label %50
 
-56:                                               ; preds = %38
-  %57 = load ptr, ptr %7, align 8
-  %58 = call i32 @memcmp(ptr noundef %57, ptr noundef @.str.29, i64 noundef 14) #23
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %62
+58:                                               ; preds = %39
+  %59 = load ptr, ptr %7, align 8
+  %60 = call i32 @memcmp(ptr noundef %59, ptr noundef @.str.29, i64 noundef 14) #23
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %64
 
-60:                                               ; preds = %56
+62:                                               ; preds = %58
   store ptr null, ptr %5, align 8
-  %61 = load ptr, ptr %3, align 8
-  store i64 0, ptr %61, align 8
-  br label %62
+  %63 = load ptr, ptr %3, align 8
+  store i64 0, ptr %63, align 8
+  br label %64
 
-62:                                               ; preds = %60, %56
-  br label %94
+64:                                               ; preds = %62, %58
+  br label %96
 
-63:                                               ; preds = %38
-  %64 = load ptr, ptr %7, align 8
-  %65 = call i32 @memcmp(ptr noundef %64, ptr noundef @.str.30, i64 noundef 7) #23
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %68
+65:                                               ; preds = %39
+  %66 = load ptr, ptr %7, align 8
+  %67 = call i32 @memcmp(ptr noundef %66, ptr noundef @.str.30, i64 noundef 7) #23
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %70
 
-67:                                               ; preds = %63
-  br label %49
+69:                                               ; preds = %65
+  br label %50
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %7, align 8
-  %70 = call i32 @memcmp(ptr noundef %69, ptr noundef @.str.31, i64 noundef 7) #23
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %73
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %7, align 8
+  %72 = call i32 @memcmp(ptr noundef %71, ptr noundef @.str.31, i64 noundef 7) #23
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %75
 
-72:                                               ; preds = %68
-  br label %51
+74:                                               ; preds = %70
+  br label %53
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %7, align 8
-  %75 = call i32 @memcmp(ptr noundef %74, ptr noundef @.str.32, i64 noundef 7) #23
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %78
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %7, align 8
+  %77 = call i32 @memcmp(ptr noundef %76, ptr noundef @.str.32, i64 noundef 7) #23
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %80
 
-77:                                               ; preds = %73
-  br label %51
+79:                                               ; preds = %75
+  br label %53
 
-78:                                               ; preds = %73
-  br label %79
+80:                                               ; preds = %75
+  br label %81
 
-79:                                               ; preds = %78
-  br label %80
+81:                                               ; preds = %80
+  br label %82
 
-80:                                               ; preds = %79
-  br label %94
+82:                                               ; preds = %81
+  br label %96
 
-81:                                               ; preds = %38
-  %82 = load ptr, ptr %7, align 8
-  %83 = call i32 @memcmp(ptr noundef %82, ptr noundef @.str.33, i64 noundef 6) #23
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %86
+83:                                               ; preds = %39
+  %84 = load ptr, ptr %7, align 8
+  %85 = call i32 @memcmp(ptr noundef %84, ptr noundef @.str.33, i64 noundef 6) #23
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %88
 
-85:                                               ; preds = %81
-  br label %49
+87:                                               ; preds = %83
+  br label %50
 
-86:                                               ; preds = %81
-  br label %94
+88:                                               ; preds = %83
+  br label %96
 
-87:                                               ; preds = %38
-  %88 = load ptr, ptr %7, align 8
-  %89 = call i32 @memcmp(ptr noundef %88, ptr noundef @.str.34, i64 noundef 4) #23
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %93
+89:                                               ; preds = %39
+  %90 = load ptr, ptr %7, align 8
+  %91 = call i32 @memcmp(ptr noundef %90, ptr noundef @.str.34, i64 noundef 4) #23
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %95
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %3, align 8
-  store i64 36, ptr %92, align 8
-  br label %93
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %3, align 8
+  store i64 36, ptr %94, align 8
+  br label %95
 
-93:                                               ; preds = %91, %87
-  br label %94
+95:                                               ; preds = %93, %89
+  br label %96
 
-94:                                               ; preds = %93, %86, %80, %62, %51, %49, %38
-  br label %101
+96:                                               ; preds = %95, %88, %82, %64, %53, %50, %39
+  br label %103
 
-95:                                               ; preds = %35
-  %96 = load ptr, ptr %3, align 8
-  %97 = load i64, ptr %96, align 8
-  %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr inbounds %struct.RData, ptr %98, i32 0, i32 3
-  %100 = load ptr, ptr %99, align 8
-  store ptr %100, ptr %11, align 8
-  br label %101
+97:                                               ; preds = %36
+  %98 = load ptr, ptr %3, align 8
+  %99 = load i64, ptr %98, align 8
+  %100 = inttoptr i64 %99 to ptr
+  %101 = getelementptr inbounds %struct.RData, ptr %100, i32 0, i32 3
+  %102 = load ptr, ptr %101, align 8
+  store ptr %102, ptr %11, align 8
+  br label %103
 
-101:                                              ; preds = %95, %94
-  br label %102
+103:                                              ; preds = %97, %96
+  br label %104
 
-102:                                              ; preds = %101, %15
-  %103 = load ptr, ptr %5, align 8
-  ret ptr %103
+104:                                              ; preds = %103, %15
+  %105 = load ptr, ptr %5, align 8
+  ret ptr %105
 }
 
 declare i64 @rb_obj_is_proc(i64 noundef) #2
@@ -3848,119 +3864,122 @@ define internal i64 @trap(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   store ptr %11, ptr %9, align 8
   %12 = load i32, ptr %4, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %15
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
-  store ptr inttoptr (i64 -1 to ptr), ptr %7, align 8
-  br label %30
+  %15 = inttoptr i64 -1 to ptr
+  store ptr %15, ptr %7, align 8
+  br label %32
 
-15:                                               ; preds = %3
-  %16 = load i32, ptr %4, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = call ptr @ruby_signal(i32 noundef %16, ptr noundef %17)
-  store ptr %18, ptr %7, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %29
+16:                                               ; preds = %3
+  %17 = load i32, ptr %4, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = call ptr @ruby_signal(i32 noundef %17, ptr noundef %18)
+  store ptr %19, ptr %7, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = inttoptr i64 -1 to ptr
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %23, label %31
 
-21:                                               ; preds = %15
-  br label %22
+23:                                               ; preds = %16
+  br label %24
 
-22:                                               ; preds = %21
-  %23 = call ptr @rb_errno_ptr()
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %10, align 4
-  %25 = load i32, ptr %10, align 4
-  %26 = load i32, ptr %4, align 4
-  %27 = call i64 @rb_signo2signm(i32 noundef %26)
-  call void @rb_syserr_fail_str(i32 noundef %25, i64 noundef %27) #21
+24:                                               ; preds = %23
+  %25 = call ptr @rb_errno_ptr()
+  %26 = load i32, ptr %25, align 4
+  store i32 %26, ptr %10, align 4
+  %27 = load i32, ptr %10, align 4
+  %28 = load i32, ptr %4, align 4
+  %29 = call i64 @rb_signo2signm(i32 noundef %28)
+  call void @rb_syserr_fail_str(i32 noundef %27, i64 noundef %29) #21
   unreachable
 
-28:                                               ; No predecessors!
-  br label %29
+30:                                               ; No predecessors!
+  br label %31
 
-29:                                               ; preds = %28, %15
-  br label %30
+31:                                               ; preds = %30, %16
+  br label %32
 
-30:                                               ; preds = %29, %14
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %struct.rb_vm_struct, ptr %31, i32 0, i32 21
-  %33 = getelementptr inbounds %struct.anon.3, ptr %32, i32 0, i32 0
-  %34 = load i32, ptr %4, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr [65 x i64], ptr %33, i64 0, i64 %35
-  %37 = load i64, ptr %36, align 8
-  store i64 %37, ptr %8, align 8
-  %38 = load i64, ptr %8, align 8
-  switch i64 %38, label %61 [
-    i64 0, label %39
-    i64 20, label %39
-    i64 4, label %58
-    i64 36, label %59
+32:                                               ; preds = %31, %14
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds %struct.rb_vm_struct, ptr %33, i32 0, i32 21
+  %35 = getelementptr inbounds %struct.anon.3, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %4, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr [65 x i64], ptr %35, i64 0, i64 %37
+  %39 = load i64, ptr %38, align 8
+  store i64 %39, ptr %8, align 8
+  %40 = load i64, ptr %8, align 8
+  switch i64 %40, label %64 [
+    i64 0, label %41
+    i64 20, label %41
+    i64 4, label %61
+    i64 36, label %62
   ]
 
-39:                                               ; preds = %30, %30
-  %40 = load ptr, ptr %7, align 8
-  %41 = icmp eq ptr %40, inttoptr (i64 1 to ptr)
-  br i1 %41, label %42, label %44
+41:                                               ; preds = %32, %32
+  %42 = load ptr, ptr %7, align 8
+  %43 = inttoptr i64 1 to ptr
+  %44 = icmp eq ptr %42, %43
+  br i1 %44, label %45, label %47
 
-42:                                               ; preds = %39
-  %43 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.33)
-  store i64 %43, ptr %8, align 8
-  br label %57
+45:                                               ; preds = %41
+  %46 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.33)
+  store i64 %46, ptr %8, align 8
+  br label %60
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %7, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %49
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %7, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %52
 
-47:                                               ; preds = %44
-  %48 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.29)
-  store i64 %48, ptr %8, align 8
-  br label %56
+50:                                               ; preds = %47
+  %51 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.29)
+  store i64 %51, ptr %8, align 8
+  br label %59
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %7, align 8
-  %51 = icmp eq ptr %50, @sighandler
-  br i1 %51, label %52, label %54
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %7, align 8
+  %54 = icmp eq ptr %53, @sighandler
+  br i1 %54, label %55, label %57
 
-52:                                               ; preds = %49
-  %53 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.32)
-  store i64 %53, ptr %8, align 8
-  br label %55
+55:                                               ; preds = %52
+  %56 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.32)
+  store i64 %56, ptr %8, align 8
+  br label %58
 
-54:                                               ; preds = %49
+57:                                               ; preds = %52
   store i64 4, ptr %8, align 8
-  br label %55
+  br label %58
 
-55:                                               ; preds = %54, %52
-  br label %56
+58:                                               ; preds = %57, %55
+  br label %59
 
-56:                                               ; preds = %55, %47
-  br label %57
+59:                                               ; preds = %58, %50
+  br label %60
 
-57:                                               ; preds = %56, %42
-  br label %61
+60:                                               ; preds = %59, %45
+  br label %64
 
-58:                                               ; preds = %30
-  br label %61
+61:                                               ; preds = %32
+  br label %64
 
-59:                                               ; preds = %30
-  %60 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.34)
-  store i64 %60, ptr %8, align 8
-  br label %61
+62:                                               ; preds = %32
+  %63 = call i64 @rbimpl_str_new_cstr(ptr noundef @.str.34)
+  store i64 %63, ptr %8, align 8
+  br label %64
 
-61:                                               ; preds = %59, %58, %57, %30
-  %62 = load i64, ptr %6, align 8
-  %63 = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds %struct.rb_vm_struct, ptr %63, i32 0, i32 21
-  %65 = getelementptr inbounds %struct.anon.3, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %4, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr [65 x i64], ptr %65, i64 0, i64 %67
-  store volatile i64 %62, ptr %68, align 8
-  %69 = load i64, ptr %8, align 8
-  ret i64 %69
+64:                                               ; preds = %62, %61, %60, %32
+  %65 = load i64, ptr %6, align 8
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds %struct.rb_vm_struct, ptr %66, i32 0, i32 21
+  %68 = getelementptr inbounds %struct.anon.3, ptr %67, i32 0, i32 0
+  %69 = load i32, ptr %4, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr [65 x i64], ptr %68, i64 0, i64 %70
+  store volatile i64 %65, ptr %71, align 8
+  %72 = load i64, ptr %8, align 8
+  ret i64 %72
 }
 
 declare i64 @rb_string_value(ptr noundef) #2

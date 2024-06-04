@@ -16,11 +16,12 @@ define i32 @mca_vprotocol_pessimist_add_procs(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, i64 noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load i64, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, i64 noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -29,11 +30,12 @@ define i32 @mca_vprotocol_pessimist_del_procs(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 1), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = call i32 %5(ptr noundef %6, i64 noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load i64, ptr %4, align 8
+  %9 = call i32 %6(ptr noundef %7, i64 noundef %8)
+  ret i32 %9
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

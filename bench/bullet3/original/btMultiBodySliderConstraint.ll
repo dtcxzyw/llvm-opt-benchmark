@@ -366,33 +366,34 @@ entry:
   %0 = load ptr, ptr %body.addr, align 8
   %1 = load i32, ptr %link.addr, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef null, i32 noundef %1, i32 noundef -1, i32 noundef 5, i1 noundef zeroext false, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV27btMultiBodySliderConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV27btMultiBodySliderConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_rigidBodyA = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_rigidBodyA, align 8
   %m_rigidBodyB = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %bodyB.addr, align 8
-  store ptr %2, ptr %m_rigidBodyB, align 8
+  %3 = load ptr, ptr %bodyB.addr, align 8
+  store ptr %3, ptr %m_rigidBodyB, align 8
   %m_pivotInA = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %pivotInA.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInA, ptr align 4 %3, i64 16, i1 false)
+  %4 = load ptr, ptr %pivotInA.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInA, ptr align 4 %4, i64 16, i1 false)
   %m_pivotInB = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %pivotInB.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInB, ptr align 4 %4, i64 16, i1 false)
+  %5 = load ptr, ptr %pivotInB.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInB, ptr align 4 %5, i64 16, i1 false)
   %m_frameInA = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %frameInA.addr, align 8
-  invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(48) %5)
+  %6 = load ptr, ptr %frameInA.addr, align 8
+  invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(48) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_frameInB = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %frameInB.addr, align 8
-  invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(48) %6)
+  %7 = load ptr, ptr %frameInB.addr, align 8
+  invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(48) %7)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_jointAxis = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 7
-  %7 = load ptr, ptr %jointAxis.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_jointAxis, ptr align 4 %7, i64 16, i1 false)
+  %8 = load ptr, ptr %jointAxis.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_jointAxis, ptr align 4 %8, i64 16, i1 false)
   %m_data = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 13
   store float 0.000000e+00, ptr %ref.tmp, align 4
   invoke void @_ZN20btAlignedObjectArrayIfE6resizeEiRKf(ptr noundef nonnull align 8 dereferenceable(25) %m_data, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
@@ -402,12 +403,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #11
   br label %eh.resume
 
@@ -595,32 +596,33 @@ entry:
   %2 = load i32, ptr %linkA.addr, align 4
   %3 = load i32, ptr %linkB.addr, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 5, i1 noundef zeroext false, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV27btMultiBodySliderConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV27btMultiBodySliderConstraint, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_rigidBodyA = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_rigidBodyA, align 8
   %m_rigidBodyB = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 2
   store ptr null, ptr %m_rigidBodyB, align 8
   %m_pivotInA = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %pivotInA.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInA, ptr align 4 %4, i64 16, i1 false)
+  %5 = load ptr, ptr %pivotInA.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInA, ptr align 4 %5, i64 16, i1 false)
   %m_pivotInB = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %pivotInB.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInB, ptr align 4 %5, i64 16, i1 false)
+  %6 = load ptr, ptr %pivotInB.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_pivotInB, ptr align 4 %6, i64 16, i1 false)
   %m_frameInA = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %frameInA.addr, align 8
-  invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(48) %6)
+  %7 = load ptr, ptr %frameInA.addr, align 8
+  invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(48) %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_frameInB = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 6
-  %7 = load ptr, ptr %frameInB.addr, align 8
-  invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(48) %7)
+  %8 = load ptr, ptr %frameInB.addr, align 8
+  invoke void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(48) %8)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_jointAxis = getelementptr inbounds %class.btMultiBodySliderConstraint, ptr %this1, i32 0, i32 7
-  %8 = load ptr, ptr %jointAxis.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_jointAxis, ptr align 4 %8, i64 16, i1 false)
+  %9 = load ptr, ptr %jointAxis.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_jointAxis, ptr align 4 %9, i64 16, i1 false)
   %m_data = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 13
   store float 0.000000e+00, ptr %ref.tmp, align 4
   invoke void @_ZN20btAlignedObjectArrayIfE6resizeEiRKf(ptr noundef nonnull align 8 dereferenceable(25) %m_data, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
@@ -630,12 +632,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #11
   br label %eh.resume
 
@@ -2639,7 +2641,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

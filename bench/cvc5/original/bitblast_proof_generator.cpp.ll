@@ -633,23 +633,25 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv22BitblastProofGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv22BitblastProofGeneratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv22BitblastProofGeneratorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv22BitblastProofGeneratorE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %d_tcpg = getelementptr inbounds %"class.cvc5::internal::theory::bv::BitblastProofGenerator", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %tcpg.addr, align 8
-  store ptr %2, ptr %d_tcpg, align 8
+  %4 = load ptr, ptr %tcpg.addr, align 8
+  store ptr %4, ptr %d_tcpg, align 8
   %d_cache = getelementptr inbounds %"class.cvc5::internal::theory::bv::BitblastProofGenerator", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt5tupleIJS3_S3_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_cache) #3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal14ProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -1920,13 +1922,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv22BitblastProofGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv22BitblastProofGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv22BitblastProofGeneratorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv22BitblastProofGeneratorE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %d_cache = getelementptr inbounds %"class.cvc5::internal::theory::bv::BitblastProofGenerator", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt5tupleIJS3_S3_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_cache) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #3
   call void @_ZN4cvc58internal14ProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }

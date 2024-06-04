@@ -560,13 +560,14 @@ entry:
   %alloc = alloca ptr, align 8
   store i64 %alignment, ptr %alignment.addr, align 8
   %0 = load i64, ptr %alignment.addr, align 8
-  %call = call ptr @ggml_tallocr_new(ptr noundef inttoptr (i64 4096 to ptr), i64 noundef 9223372036854775807, i64 noundef %0)
+  %1 = inttoptr i64 4096 to ptr
+  %call = call ptr @ggml_tallocr_new(ptr noundef %1, i64 noundef 9223372036854775807, i64 noundef %0)
   store ptr %call, ptr %alloc, align 8
-  %1 = load ptr, ptr %alloc, align 8
-  %measure = getelementptr inbounds %struct.ggml_tallocr, ptr %1, i32 0, i32 7
-  store i8 1, ptr %measure, align 8
   %2 = load ptr, ptr %alloc, align 8
-  ret ptr %2
+  %measure = getelementptr inbounds %struct.ggml_tallocr, ptr %2, i32 0, i32 7
+  store i8 1, ptr %measure, align 8
+  %3 = load ptr, ptr %alloc, align 8
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable

@@ -522,395 +522,410 @@ if.end:                                           ; preds = %if.else, %if.then
   %arrayidx111 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 0
   %71 = load i32, ptr %arrayidx111, align 16
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %70, i32 noundef %71)
-  %72 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 1), align 4
+  %72 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 1
+  %73 = load i32, ptr %72, align 4
   %arrayidx112 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 1
-  %73 = load i32, ptr %arrayidx112, align 4
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %72, i32 noundef %73)
-  %74 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 2), align 8
+  %74 = load i32, ptr %arrayidx112, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %73, i32 noundef %74)
+  %75 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 2
+  %76 = load i32, ptr %75, align 8
   %arrayidx113 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 2
-  %75 = load i32, ptr %arrayidx113, align 8
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %74, i32 noundef %75)
-  %76 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 3), align 4
-  %arrayidx114 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 3
-  %77 = load i32, ptr %arrayidx114, align 4
+  %77 = load i32, ptr %arrayidx113, align 8
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %76, i32 noundef %77)
-  %78 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 4), align 16
+  %78 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 3
+  %79 = load i32, ptr %78, align 4
+  %arrayidx114 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 3
+  %80 = load i32, ptr %arrayidx114, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %79, i32 noundef %80)
+  %81 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 4
+  %82 = load i32, ptr %81, align 16
   %arrayidx115 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 4
-  %79 = load i32, ptr %arrayidx115, align 16
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %78, i32 noundef %79)
-  %80 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 5), align 4
-  %arrayidx116 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 5
-  %81 = load i32, ptr %arrayidx116, align 4
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %80, i32 noundef %81)
-  %82 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 6), align 8
-  %arrayidx117 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 6
-  %83 = load i32, ptr %arrayidx117, align 8
+  %83 = load i32, ptr %arrayidx115, align 16
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %82, i32 noundef %83)
-  %84 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 7), align 4
-  %arrayidx118 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 7
-  %85 = load i32, ptr %arrayidx118, align 4
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %84, i32 noundef %85)
-  %86 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 8), align 16
-  %arrayidx119 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 8
-  %87 = load i32, ptr %arrayidx119, align 16
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %86, i32 noundef %87)
-  %88 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 9), align 4
-  %arrayidx120 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 9
-  %89 = load i32, ptr %arrayidx120, align 4
+  %84 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 5
+  %85 = load i32, ptr %84, align 4
+  %arrayidx116 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 5
+  %86 = load i32, ptr %arrayidx116, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %85, i32 noundef %86)
+  %87 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 6
+  %88 = load i32, ptr %87, align 8
+  %arrayidx117 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 6
+  %89 = load i32, ptr %arrayidx117, align 8
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %88, i32 noundef %89)
-  %90 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 10), align 8
-  %arrayidx121 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 10
-  %91 = load i32, ptr %arrayidx121, align 8
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %90, i32 noundef %91)
-  %92 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 11), align 4
-  %arrayidx122 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 11
-  %93 = load i32, ptr %arrayidx122, align 4
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %92, i32 noundef %93)
-  %94 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 12), align 16
-  %arrayidx123 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 12
-  %95 = load i32, ptr %arrayidx123, align 16
+  %90 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 7
+  %91 = load i32, ptr %90, align 4
+  %arrayidx118 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 7
+  %92 = load i32, ptr %arrayidx118, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %91, i32 noundef %92)
+  %93 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 8
+  %94 = load i32, ptr %93, align 16
+  %arrayidx119 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 8
+  %95 = load i32, ptr %arrayidx119, align 16
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %94, i32 noundef %95)
-  %96 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 13), align 4
-  %arrayidx124 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 13
-  %97 = load i32, ptr %arrayidx124, align 4
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %96, i32 noundef %97)
-  %98 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 14), align 8
-  %arrayidx125 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 14
-  %99 = load i32, ptr %arrayidx125, align 8
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %98, i32 noundef %99)
-  %100 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @K256, i64 0, i64 15), align 4
-  %arrayidx126 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 15
-  %101 = load i32, ptr %arrayidx126, align 4
+  %96 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 9
+  %97 = load i32, ptr %96, align 4
+  %arrayidx120 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 9
+  %98 = load i32, ptr %arrayidx120, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %97, i32 noundef %98)
+  %99 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 10
+  %100 = load i32, ptr %99, align 8
+  %arrayidx121 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 10
+  %101 = load i32, ptr %arrayidx121, align 8
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %100, i32 noundef %101)
+  %102 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 11
+  %103 = load i32, ptr %102, align 4
+  %arrayidx122 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 11
+  %104 = load i32, ptr %arrayidx122, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %103, i32 noundef %104)
+  %105 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 12
+  %106 = load i32, ptr %105, align 16
+  %arrayidx123 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 12
+  %107 = load i32, ptr %arrayidx123, align 16
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %106, i32 noundef %107)
+  %108 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 13
+  %109 = load i32, ptr %108, align 4
+  %arrayidx124 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 13
+  %110 = load i32, ptr %arrayidx124, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %109, i32 noundef %110)
+  %111 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 14
+  %112 = load i32, ptr %111, align 8
+  %arrayidx125 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 14
+  %113 = load i32, ptr %arrayidx125, align 8
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %112, i32 noundef %113)
+  %114 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 15
+  %115 = load i32, ptr %114, align 4
+  %arrayidx126 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 15
+  %116 = load i32, ptr %arrayidx126, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %115, i32 noundef %116)
   store i32 16, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %102 = load i32, ptr %i, align 4
-  %cmp127 = icmp slt i32 %102, 64
+  %117 = load i32, ptr %i, align 4
+  %cmp127 = icmp slt i32 %117, 64
   br i1 %cmp127, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %arrayidx128 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 0
   %arrayidx129 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 1
-  %103 = load i32, ptr %arrayidx129, align 4
+  %118 = load i32, ptr %arrayidx129, align 4
   %arrayidx130 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 9
-  %104 = load i32, ptr %arrayidx130, align 4
+  %119 = load i32, ptr %arrayidx130, align 4
   %arrayidx131 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 14
-  %105 = load i32, ptr %arrayidx131, align 8
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx128, i32 noundef %103, i32 noundef %104, i32 noundef %105)
+  %120 = load i32, ptr %arrayidx131, align 8
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx128, i32 noundef %118, i32 noundef %119, i32 noundef %120)
   %arrayidx132 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 1
   %arrayidx133 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 2
-  %106 = load i32, ptr %arrayidx133, align 8
+  %121 = load i32, ptr %arrayidx133, align 8
   %arrayidx134 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 10
-  %107 = load i32, ptr %arrayidx134, align 8
+  %122 = load i32, ptr %arrayidx134, align 8
   %arrayidx135 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 15
-  %108 = load i32, ptr %arrayidx135, align 4
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx132, i32 noundef %106, i32 noundef %107, i32 noundef %108)
+  %123 = load i32, ptr %arrayidx135, align 4
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx132, i32 noundef %121, i32 noundef %122, i32 noundef %123)
   %arrayidx136 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 2
   %arrayidx137 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 3
-  %109 = load i32, ptr %arrayidx137, align 4
+  %124 = load i32, ptr %arrayidx137, align 4
   %arrayidx138 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 11
-  %110 = load i32, ptr %arrayidx138, align 4
+  %125 = load i32, ptr %arrayidx138, align 4
   %arrayidx139 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 0
-  %111 = load i32, ptr %arrayidx139, align 16
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx136, i32 noundef %109, i32 noundef %110, i32 noundef %111)
+  %126 = load i32, ptr %arrayidx139, align 16
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx136, i32 noundef %124, i32 noundef %125, i32 noundef %126)
   %arrayidx140 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 3
   %arrayidx141 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 4
-  %112 = load i32, ptr %arrayidx141, align 16
+  %127 = load i32, ptr %arrayidx141, align 16
   %arrayidx142 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 12
-  %113 = load i32, ptr %arrayidx142, align 16
+  %128 = load i32, ptr %arrayidx142, align 16
   %arrayidx143 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 1
-  %114 = load i32, ptr %arrayidx143, align 4
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx140, i32 noundef %112, i32 noundef %113, i32 noundef %114)
+  %129 = load i32, ptr %arrayidx143, align 4
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx140, i32 noundef %127, i32 noundef %128, i32 noundef %129)
   %arrayidx144 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 4
   %arrayidx145 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 5
-  %115 = load i32, ptr %arrayidx145, align 4
+  %130 = load i32, ptr %arrayidx145, align 4
   %arrayidx146 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 13
-  %116 = load i32, ptr %arrayidx146, align 4
+  %131 = load i32, ptr %arrayidx146, align 4
   %arrayidx147 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 2
-  %117 = load i32, ptr %arrayidx147, align 8
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx144, i32 noundef %115, i32 noundef %116, i32 noundef %117)
+  %132 = load i32, ptr %arrayidx147, align 8
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx144, i32 noundef %130, i32 noundef %131, i32 noundef %132)
   %arrayidx148 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 5
   %arrayidx149 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 6
-  %118 = load i32, ptr %arrayidx149, align 8
+  %133 = load i32, ptr %arrayidx149, align 8
   %arrayidx150 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 14
-  %119 = load i32, ptr %arrayidx150, align 8
+  %134 = load i32, ptr %arrayidx150, align 8
   %arrayidx151 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 3
-  %120 = load i32, ptr %arrayidx151, align 4
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx148, i32 noundef %118, i32 noundef %119, i32 noundef %120)
+  %135 = load i32, ptr %arrayidx151, align 4
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx148, i32 noundef %133, i32 noundef %134, i32 noundef %135)
   %arrayidx152 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 6
   %arrayidx153 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 7
-  %121 = load i32, ptr %arrayidx153, align 4
+  %136 = load i32, ptr %arrayidx153, align 4
   %arrayidx154 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 15
-  %122 = load i32, ptr %arrayidx154, align 4
+  %137 = load i32, ptr %arrayidx154, align 4
   %arrayidx155 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 4
-  %123 = load i32, ptr %arrayidx155, align 16
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx152, i32 noundef %121, i32 noundef %122, i32 noundef %123)
+  %138 = load i32, ptr %arrayidx155, align 16
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx152, i32 noundef %136, i32 noundef %137, i32 noundef %138)
   %arrayidx156 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 7
   %arrayidx157 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 8
-  %124 = load i32, ptr %arrayidx157, align 16
+  %139 = load i32, ptr %arrayidx157, align 16
   %arrayidx158 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 0
-  %125 = load i32, ptr %arrayidx158, align 16
+  %140 = load i32, ptr %arrayidx158, align 16
   %arrayidx159 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 5
-  %126 = load i32, ptr %arrayidx159, align 4
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx156, i32 noundef %124, i32 noundef %125, i32 noundef %126)
+  %141 = load i32, ptr %arrayidx159, align 4
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx156, i32 noundef %139, i32 noundef %140, i32 noundef %141)
   %arrayidx160 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 8
   %arrayidx161 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 9
-  %127 = load i32, ptr %arrayidx161, align 4
+  %142 = load i32, ptr %arrayidx161, align 4
   %arrayidx162 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 1
-  %128 = load i32, ptr %arrayidx162, align 4
+  %143 = load i32, ptr %arrayidx162, align 4
   %arrayidx163 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 6
-  %129 = load i32, ptr %arrayidx163, align 8
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx160, i32 noundef %127, i32 noundef %128, i32 noundef %129)
+  %144 = load i32, ptr %arrayidx163, align 8
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx160, i32 noundef %142, i32 noundef %143, i32 noundef %144)
   %arrayidx164 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 9
   %arrayidx165 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 10
-  %130 = load i32, ptr %arrayidx165, align 8
+  %145 = load i32, ptr %arrayidx165, align 8
   %arrayidx166 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 2
-  %131 = load i32, ptr %arrayidx166, align 8
+  %146 = load i32, ptr %arrayidx166, align 8
   %arrayidx167 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 7
-  %132 = load i32, ptr %arrayidx167, align 4
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx164, i32 noundef %130, i32 noundef %131, i32 noundef %132)
+  %147 = load i32, ptr %arrayidx167, align 4
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx164, i32 noundef %145, i32 noundef %146, i32 noundef %147)
   %arrayidx168 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 10
   %arrayidx169 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 11
-  %133 = load i32, ptr %arrayidx169, align 4
+  %148 = load i32, ptr %arrayidx169, align 4
   %arrayidx170 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 3
-  %134 = load i32, ptr %arrayidx170, align 4
+  %149 = load i32, ptr %arrayidx170, align 4
   %arrayidx171 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 8
-  %135 = load i32, ptr %arrayidx171, align 16
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx168, i32 noundef %133, i32 noundef %134, i32 noundef %135)
+  %150 = load i32, ptr %arrayidx171, align 16
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx168, i32 noundef %148, i32 noundef %149, i32 noundef %150)
   %arrayidx172 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 11
   %arrayidx173 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 12
-  %136 = load i32, ptr %arrayidx173, align 16
+  %151 = load i32, ptr %arrayidx173, align 16
   %arrayidx174 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 4
-  %137 = load i32, ptr %arrayidx174, align 16
+  %152 = load i32, ptr %arrayidx174, align 16
   %arrayidx175 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 9
-  %138 = load i32, ptr %arrayidx175, align 4
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx172, i32 noundef %136, i32 noundef %137, i32 noundef %138)
+  %153 = load i32, ptr %arrayidx175, align 4
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx172, i32 noundef %151, i32 noundef %152, i32 noundef %153)
   %arrayidx176 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 12
   %arrayidx177 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 13
-  %139 = load i32, ptr %arrayidx177, align 4
+  %154 = load i32, ptr %arrayidx177, align 4
   %arrayidx178 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 5
-  %140 = load i32, ptr %arrayidx178, align 4
+  %155 = load i32, ptr %arrayidx178, align 4
   %arrayidx179 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 10
-  %141 = load i32, ptr %arrayidx179, align 8
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx176, i32 noundef %139, i32 noundef %140, i32 noundef %141)
+  %156 = load i32, ptr %arrayidx179, align 8
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx176, i32 noundef %154, i32 noundef %155, i32 noundef %156)
   %arrayidx180 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 13
   %arrayidx181 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 14
-  %142 = load i32, ptr %arrayidx181, align 8
+  %157 = load i32, ptr %arrayidx181, align 8
   %arrayidx182 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 6
-  %143 = load i32, ptr %arrayidx182, align 8
+  %158 = load i32, ptr %arrayidx182, align 8
   %arrayidx183 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 11
-  %144 = load i32, ptr %arrayidx183, align 4
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx180, i32 noundef %142, i32 noundef %143, i32 noundef %144)
+  %159 = load i32, ptr %arrayidx183, align 4
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx180, i32 noundef %157, i32 noundef %158, i32 noundef %159)
   %arrayidx184 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 14
   %arrayidx185 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 15
-  %145 = load i32, ptr %arrayidx185, align 4
+  %160 = load i32, ptr %arrayidx185, align 4
   %arrayidx186 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 7
-  %146 = load i32, ptr %arrayidx186, align 4
+  %161 = load i32, ptr %arrayidx186, align 4
   %arrayidx187 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 12
-  %147 = load i32, ptr %arrayidx187, align 16
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx184, i32 noundef %145, i32 noundef %146, i32 noundef %147)
+  %162 = load i32, ptr %arrayidx187, align 16
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx184, i32 noundef %160, i32 noundef %161, i32 noundef %162)
   %arrayidx188 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 15
   %arrayidx189 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 0
-  %148 = load i32, ptr %arrayidx189, align 16
+  %163 = load i32, ptr %arrayidx189, align 16
   %arrayidx190 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 8
-  %149 = load i32, ptr %arrayidx190, align 16
+  %164 = load i32, ptr %arrayidx190, align 16
   %arrayidx191 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 13
-  %150 = load i32, ptr %arrayidx191, align 4
-  call void @sha256_msg_schedule_update(ptr noundef %arrayidx188, i32 noundef %148, i32 noundef %149, i32 noundef %150)
-  %151 = load i32, ptr %i, align 4
-  %add = add nsw i32 %151, 0
+  %165 = load i32, ptr %arrayidx191, align 4
+  call void @sha256_msg_schedule_update(ptr noundef %arrayidx188, i32 noundef %163, i32 noundef %164, i32 noundef %165)
+  %166 = load i32, ptr %i, align 4
+  %add = add nsw i32 %166, 0
   %idxprom = sext i32 %add to i64
   %arrayidx192 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom
-  %152 = load i32, ptr %arrayidx192, align 4
+  %167 = load i32, ptr %arrayidx192, align 4
   %arrayidx193 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 0
-  %153 = load i32, ptr %arrayidx193, align 16
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %152, i32 noundef %153)
-  %154 = load i32, ptr %i, align 4
-  %add194 = add nsw i32 %154, 1
-  %idxprom195 = sext i32 %add194 to i64
-  %arrayidx196 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom195
-  %155 = load i32, ptr %arrayidx196, align 4
-  %arrayidx197 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 1
-  %156 = load i32, ptr %arrayidx197, align 4
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %155, i32 noundef %156)
-  %157 = load i32, ptr %i, align 4
-  %add198 = add nsw i32 %157, 2
-  %idxprom199 = sext i32 %add198 to i64
-  %arrayidx200 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom199
-  %158 = load i32, ptr %arrayidx200, align 4
-  %arrayidx201 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 2
-  %159 = load i32, ptr %arrayidx201, align 8
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %158, i32 noundef %159)
-  %160 = load i32, ptr %i, align 4
-  %add202 = add nsw i32 %160, 3
-  %idxprom203 = sext i32 %add202 to i64
-  %arrayidx204 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom203
-  %161 = load i32, ptr %arrayidx204, align 4
-  %arrayidx205 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 3
-  %162 = load i32, ptr %arrayidx205, align 4
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %161, i32 noundef %162)
-  %163 = load i32, ptr %i, align 4
-  %add206 = add nsw i32 %163, 4
-  %idxprom207 = sext i32 %add206 to i64
-  %arrayidx208 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom207
-  %164 = load i32, ptr %arrayidx208, align 4
-  %arrayidx209 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 4
-  %165 = load i32, ptr %arrayidx209, align 16
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %164, i32 noundef %165)
-  %166 = load i32, ptr %i, align 4
-  %add210 = add nsw i32 %166, 5
-  %idxprom211 = sext i32 %add210 to i64
-  %arrayidx212 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom211
-  %167 = load i32, ptr %arrayidx212, align 4
-  %arrayidx213 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 5
-  %168 = load i32, ptr %arrayidx213, align 4
+  %168 = load i32, ptr %arrayidx193, align 16
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %167, i32 noundef %168)
   %169 = load i32, ptr %i, align 4
-  %add214 = add nsw i32 %169, 6
-  %idxprom215 = sext i32 %add214 to i64
-  %arrayidx216 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom215
-  %170 = load i32, ptr %arrayidx216, align 4
-  %arrayidx217 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 6
-  %171 = load i32, ptr %arrayidx217, align 8
+  %add194 = add nsw i32 %169, 1
+  %idxprom195 = sext i32 %add194 to i64
+  %arrayidx196 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom195
+  %170 = load i32, ptr %arrayidx196, align 4
+  %arrayidx197 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 1
+  %171 = load i32, ptr %arrayidx197, align 4
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %170, i32 noundef %171)
   %172 = load i32, ptr %i, align 4
-  %add218 = add nsw i32 %172, 7
-  %idxprom219 = sext i32 %add218 to i64
-  %arrayidx220 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom219
-  %173 = load i32, ptr %arrayidx220, align 4
-  %arrayidx221 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 7
-  %174 = load i32, ptr %arrayidx221, align 4
+  %add198 = add nsw i32 %172, 2
+  %idxprom199 = sext i32 %add198 to i64
+  %arrayidx200 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom199
+  %173 = load i32, ptr %arrayidx200, align 4
+  %arrayidx201 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 2
+  %174 = load i32, ptr %arrayidx201, align 8
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %173, i32 noundef %174)
   %175 = load i32, ptr %i, align 4
-  %add222 = add nsw i32 %175, 8
-  %idxprom223 = sext i32 %add222 to i64
-  %arrayidx224 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom223
-  %176 = load i32, ptr %arrayidx224, align 4
-  %arrayidx225 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 8
-  %177 = load i32, ptr %arrayidx225, align 16
+  %add202 = add nsw i32 %175, 3
+  %idxprom203 = sext i32 %add202 to i64
+  %arrayidx204 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom203
+  %176 = load i32, ptr %arrayidx204, align 4
+  %arrayidx205 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 3
+  %177 = load i32, ptr %arrayidx205, align 4
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %176, i32 noundef %177)
   %178 = load i32, ptr %i, align 4
-  %add226 = add nsw i32 %178, 9
-  %idxprom227 = sext i32 %add226 to i64
-  %arrayidx228 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom227
-  %179 = load i32, ptr %arrayidx228, align 4
-  %arrayidx229 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 9
-  %180 = load i32, ptr %arrayidx229, align 4
+  %add206 = add nsw i32 %178, 4
+  %idxprom207 = sext i32 %add206 to i64
+  %arrayidx208 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom207
+  %179 = load i32, ptr %arrayidx208, align 4
+  %arrayidx209 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 4
+  %180 = load i32, ptr %arrayidx209, align 16
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %179, i32 noundef %180)
   %181 = load i32, ptr %i, align 4
-  %add230 = add nsw i32 %181, 10
-  %idxprom231 = sext i32 %add230 to i64
-  %arrayidx232 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom231
-  %182 = load i32, ptr %arrayidx232, align 4
-  %arrayidx233 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 10
-  %183 = load i32, ptr %arrayidx233, align 8
+  %add210 = add nsw i32 %181, 5
+  %idxprom211 = sext i32 %add210 to i64
+  %arrayidx212 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom211
+  %182 = load i32, ptr %arrayidx212, align 4
+  %arrayidx213 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 5
+  %183 = load i32, ptr %arrayidx213, align 4
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %182, i32 noundef %183)
   %184 = load i32, ptr %i, align 4
-  %add234 = add nsw i32 %184, 11
-  %idxprom235 = sext i32 %add234 to i64
-  %arrayidx236 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom235
-  %185 = load i32, ptr %arrayidx236, align 4
-  %arrayidx237 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 11
-  %186 = load i32, ptr %arrayidx237, align 4
+  %add214 = add nsw i32 %184, 6
+  %idxprom215 = sext i32 %add214 to i64
+  %arrayidx216 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom215
+  %185 = load i32, ptr %arrayidx216, align 4
+  %arrayidx217 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 6
+  %186 = load i32, ptr %arrayidx217, align 8
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %185, i32 noundef %186)
   %187 = load i32, ptr %i, align 4
-  %add238 = add nsw i32 %187, 12
-  %idxprom239 = sext i32 %add238 to i64
-  %arrayidx240 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom239
-  %188 = load i32, ptr %arrayidx240, align 4
-  %arrayidx241 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 12
-  %189 = load i32, ptr %arrayidx241, align 16
+  %add218 = add nsw i32 %187, 7
+  %idxprom219 = sext i32 %add218 to i64
+  %arrayidx220 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom219
+  %188 = load i32, ptr %arrayidx220, align 4
+  %arrayidx221 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 7
+  %189 = load i32, ptr %arrayidx221, align 4
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %188, i32 noundef %189)
   %190 = load i32, ptr %i, align 4
-  %add242 = add nsw i32 %190, 13
-  %idxprom243 = sext i32 %add242 to i64
-  %arrayidx244 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom243
-  %191 = load i32, ptr %arrayidx244, align 4
-  %arrayidx245 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 13
-  %192 = load i32, ptr %arrayidx245, align 4
+  %add222 = add nsw i32 %190, 8
+  %idxprom223 = sext i32 %add222 to i64
+  %arrayidx224 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom223
+  %191 = load i32, ptr %arrayidx224, align 4
+  %arrayidx225 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 8
+  %192 = load i32, ptr %arrayidx225, align 16
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %191, i32 noundef %192)
   %193 = load i32, ptr %i, align 4
-  %add246 = add nsw i32 %193, 14
-  %idxprom247 = sext i32 %add246 to i64
-  %arrayidx248 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom247
-  %194 = load i32, ptr %arrayidx248, align 4
-  %arrayidx249 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 14
-  %195 = load i32, ptr %arrayidx249, align 8
+  %add226 = add nsw i32 %193, 9
+  %idxprom227 = sext i32 %add226 to i64
+  %arrayidx228 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom227
+  %194 = load i32, ptr %arrayidx228, align 4
+  %arrayidx229 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 9
+  %195 = load i32, ptr %arrayidx229, align 4
   call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %194, i32 noundef %195)
   %196 = load i32, ptr %i, align 4
-  %add250 = add nsw i32 %196, 15
+  %add230 = add nsw i32 %196, 10
+  %idxprom231 = sext i32 %add230 to i64
+  %arrayidx232 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom231
+  %197 = load i32, ptr %arrayidx232, align 4
+  %arrayidx233 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 10
+  %198 = load i32, ptr %arrayidx233, align 8
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %197, i32 noundef %198)
+  %199 = load i32, ptr %i, align 4
+  %add234 = add nsw i32 %199, 11
+  %idxprom235 = sext i32 %add234 to i64
+  %arrayidx236 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom235
+  %200 = load i32, ptr %arrayidx236, align 4
+  %arrayidx237 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 11
+  %201 = load i32, ptr %arrayidx237, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %200, i32 noundef %201)
+  %202 = load i32, ptr %i, align 4
+  %add238 = add nsw i32 %202, 12
+  %idxprom239 = sext i32 %add238 to i64
+  %arrayidx240 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom239
+  %203 = load i32, ptr %arrayidx240, align 4
+  %arrayidx241 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 12
+  %204 = load i32, ptr %arrayidx241, align 16
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %203, i32 noundef %204)
+  %205 = load i32, ptr %i, align 4
+  %add242 = add nsw i32 %205, 13
+  %idxprom243 = sext i32 %add242 to i64
+  %arrayidx244 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom243
+  %206 = load i32, ptr %arrayidx244, align 4
+  %arrayidx245 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 13
+  %207 = load i32, ptr %arrayidx245, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %206, i32 noundef %207)
+  %208 = load i32, ptr %i, align 4
+  %add246 = add nsw i32 %208, 14
+  %idxprom247 = sext i32 %add246 to i64
+  %arrayidx248 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom247
+  %209 = load i32, ptr %arrayidx248, align 4
+  %arrayidx249 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 14
+  %210 = load i32, ptr %arrayidx249, align 8
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %209, i32 noundef %210)
+  %211 = load i32, ptr %i, align 4
+  %add250 = add nsw i32 %211, 15
   %idxprom251 = sext i32 %add250 to i64
   %arrayidx252 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %idxprom251
-  %197 = load i32, ptr %arrayidx252, align 4
+  %212 = load i32, ptr %arrayidx252, align 4
   %arrayidx253 = getelementptr inbounds [16 x i32], ptr %X, i64 0, i64 15
-  %198 = load i32, ptr %arrayidx253, align 4
-  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %197, i32 noundef %198)
+  %213 = load i32, ptr %arrayidx253, align 4
+  call void @sha256_round(ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d, ptr noundef %e, ptr noundef %f, ptr noundef %g, ptr noundef %h, i32 noundef %212, i32 noundef %213)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %199 = load i32, ptr %i, align 4
-  %add254 = add nsw i32 %199, 16
+  %214 = load i32, ptr %i, align 4
+  %add254 = add nsw i32 %214, 16
   store i32 %add254, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %200 = load i32, ptr %a, align 4
-  %201 = load ptr, ptr %ctx.addr, align 8
-  %h255 = getelementptr inbounds %struct.SHA256state_st, ptr %201, i32 0, i32 0
-  %arrayidx256 = getelementptr inbounds [8 x i32], ptr %h255, i64 0, i64 0
-  %202 = load i32, ptr %arrayidx256, align 4
-  %add257 = add i32 %202, %200
-  store i32 %add257, ptr %arrayidx256, align 4
-  %203 = load i32, ptr %b, align 4
-  %204 = load ptr, ptr %ctx.addr, align 8
-  %h258 = getelementptr inbounds %struct.SHA256state_st, ptr %204, i32 0, i32 0
-  %arrayidx259 = getelementptr inbounds [8 x i32], ptr %h258, i64 0, i64 1
-  %205 = load i32, ptr %arrayidx259, align 4
-  %add260 = add i32 %205, %203
-  store i32 %add260, ptr %arrayidx259, align 4
-  %206 = load i32, ptr %c, align 4
-  %207 = load ptr, ptr %ctx.addr, align 8
-  %h261 = getelementptr inbounds %struct.SHA256state_st, ptr %207, i32 0, i32 0
-  %arrayidx262 = getelementptr inbounds [8 x i32], ptr %h261, i64 0, i64 2
-  %208 = load i32, ptr %arrayidx262, align 4
-  %add263 = add i32 %208, %206
-  store i32 %add263, ptr %arrayidx262, align 4
-  %209 = load i32, ptr %d, align 4
-  %210 = load ptr, ptr %ctx.addr, align 8
-  %h264 = getelementptr inbounds %struct.SHA256state_st, ptr %210, i32 0, i32 0
-  %arrayidx265 = getelementptr inbounds [8 x i32], ptr %h264, i64 0, i64 3
-  %211 = load i32, ptr %arrayidx265, align 4
-  %add266 = add i32 %211, %209
-  store i32 %add266, ptr %arrayidx265, align 4
-  %212 = load i32, ptr %e, align 4
-  %213 = load ptr, ptr %ctx.addr, align 8
-  %h267 = getelementptr inbounds %struct.SHA256state_st, ptr %213, i32 0, i32 0
-  %arrayidx268 = getelementptr inbounds [8 x i32], ptr %h267, i64 0, i64 4
-  %214 = load i32, ptr %arrayidx268, align 4
-  %add269 = add i32 %214, %212
-  store i32 %add269, ptr %arrayidx268, align 4
-  %215 = load i32, ptr %f, align 4
+  %215 = load i32, ptr %a, align 4
   %216 = load ptr, ptr %ctx.addr, align 8
-  %h270 = getelementptr inbounds %struct.SHA256state_st, ptr %216, i32 0, i32 0
-  %arrayidx271 = getelementptr inbounds [8 x i32], ptr %h270, i64 0, i64 5
-  %217 = load i32, ptr %arrayidx271, align 4
-  %add272 = add i32 %217, %215
-  store i32 %add272, ptr %arrayidx271, align 4
-  %218 = load i32, ptr %g, align 4
+  %h255 = getelementptr inbounds %struct.SHA256state_st, ptr %216, i32 0, i32 0
+  %arrayidx256 = getelementptr inbounds [8 x i32], ptr %h255, i64 0, i64 0
+  %217 = load i32, ptr %arrayidx256, align 4
+  %add257 = add i32 %217, %215
+  store i32 %add257, ptr %arrayidx256, align 4
+  %218 = load i32, ptr %b, align 4
   %219 = load ptr, ptr %ctx.addr, align 8
-  %h273 = getelementptr inbounds %struct.SHA256state_st, ptr %219, i32 0, i32 0
-  %arrayidx274 = getelementptr inbounds [8 x i32], ptr %h273, i64 0, i64 6
-  %220 = load i32, ptr %arrayidx274, align 4
-  %add275 = add i32 %220, %218
-  store i32 %add275, ptr %arrayidx274, align 4
-  %221 = load i32, ptr %h, align 4
+  %h258 = getelementptr inbounds %struct.SHA256state_st, ptr %219, i32 0, i32 0
+  %arrayidx259 = getelementptr inbounds [8 x i32], ptr %h258, i64 0, i64 1
+  %220 = load i32, ptr %arrayidx259, align 4
+  %add260 = add i32 %220, %218
+  store i32 %add260, ptr %arrayidx259, align 4
+  %221 = load i32, ptr %c, align 4
   %222 = load ptr, ptr %ctx.addr, align 8
-  %h276 = getelementptr inbounds %struct.SHA256state_st, ptr %222, i32 0, i32 0
+  %h261 = getelementptr inbounds %struct.SHA256state_st, ptr %222, i32 0, i32 0
+  %arrayidx262 = getelementptr inbounds [8 x i32], ptr %h261, i64 0, i64 2
+  %223 = load i32, ptr %arrayidx262, align 4
+  %add263 = add i32 %223, %221
+  store i32 %add263, ptr %arrayidx262, align 4
+  %224 = load i32, ptr %d, align 4
+  %225 = load ptr, ptr %ctx.addr, align 8
+  %h264 = getelementptr inbounds %struct.SHA256state_st, ptr %225, i32 0, i32 0
+  %arrayidx265 = getelementptr inbounds [8 x i32], ptr %h264, i64 0, i64 3
+  %226 = load i32, ptr %arrayidx265, align 4
+  %add266 = add i32 %226, %224
+  store i32 %add266, ptr %arrayidx265, align 4
+  %227 = load i32, ptr %e, align 4
+  %228 = load ptr, ptr %ctx.addr, align 8
+  %h267 = getelementptr inbounds %struct.SHA256state_st, ptr %228, i32 0, i32 0
+  %arrayidx268 = getelementptr inbounds [8 x i32], ptr %h267, i64 0, i64 4
+  %229 = load i32, ptr %arrayidx268, align 4
+  %add269 = add i32 %229, %227
+  store i32 %add269, ptr %arrayidx268, align 4
+  %230 = load i32, ptr %f, align 4
+  %231 = load ptr, ptr %ctx.addr, align 8
+  %h270 = getelementptr inbounds %struct.SHA256state_st, ptr %231, i32 0, i32 0
+  %arrayidx271 = getelementptr inbounds [8 x i32], ptr %h270, i64 0, i64 5
+  %232 = load i32, ptr %arrayidx271, align 4
+  %add272 = add i32 %232, %230
+  store i32 %add272, ptr %arrayidx271, align 4
+  %233 = load i32, ptr %g, align 4
+  %234 = load ptr, ptr %ctx.addr, align 8
+  %h273 = getelementptr inbounds %struct.SHA256state_st, ptr %234, i32 0, i32 0
+  %arrayidx274 = getelementptr inbounds [8 x i32], ptr %h273, i64 0, i64 6
+  %235 = load i32, ptr %arrayidx274, align 4
+  %add275 = add i32 %235, %233
+  store i32 %add275, ptr %arrayidx274, align 4
+  %236 = load i32, ptr %h, align 4
+  %237 = load ptr, ptr %ctx.addr, align 8
+  %h276 = getelementptr inbounds %struct.SHA256state_st, ptr %237, i32 0, i32 0
   %arrayidx277 = getelementptr inbounds [8 x i32], ptr %h276, i64 0, i64 7
-  %223 = load i32, ptr %arrayidx277, align 4
-  %add278 = add i32 %223, %221
+  %238 = load i32, ptr %arrayidx277, align 4
+  %add278 = add i32 %238, %236
   store i32 %add278, ptr %arrayidx277, align 4
   br label %while.cond, !llvm.loop !7
 

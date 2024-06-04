@@ -402,24 +402,25 @@ if.then111:                                       ; preds = %if.end108
   br label %return
 
 if.end115:                                        ; preds = %if.end108
-  %call116 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
+  %63 = inttoptr i64 1 to ptr
+  %call116 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %63)
   %in117 = getelementptr inbounds %struct.child_process, ptr %rev_list, i32 0, i32 7
-  %63 = load i32, ptr %in117, align 8
-  %call118 = call ptr @xfdopen(i32 noundef %63, ptr noundef @.str.15)
+  %64 = load i32, ptr %in117, align 8
+  %call118 = call ptr @xfdopen(i32 noundef %64, ptr noundef @.str.15)
   store ptr %call118, ptr %rev_list_in, align 8
   br label %do.body119
 
 do.body119:                                       ; preds = %do.cond133, %if.end115
-  %64 = load ptr, ptr %new_pack, align 8
-  %tobool120 = icmp ne ptr %64, null
+  %65 = load ptr, ptr %new_pack, align 8
+  %tobool120 = icmp ne ptr %65, null
   br i1 %tobool120, label %land.lhs.true121, label %if.end127
 
 land.lhs.true121:                                 ; preds = %do.body119
-  %65 = load ptr, ptr %oid, align 8
-  %hash122 = getelementptr inbounds %struct.object_id, ptr %65, i32 0, i32 0
+  %66 = load ptr, ptr %oid, align 8
+  %hash122 = getelementptr inbounds %struct.object_id, ptr %66, i32 0, i32 0
   %arraydecay123 = getelementptr inbounds [32 x i8], ptr %hash122, i64 0, i64 0
-  %66 = load ptr, ptr %new_pack, align 8
-  %call124 = call i64 @find_pack_entry_one(ptr noundef %arraydecay123, ptr noundef %66)
+  %67 = load ptr, ptr %new_pack, align 8
+  %call124 = call i64 @find_pack_entry_one(ptr noundef %arraydecay123, ptr noundef %67)
   %tobool125 = icmp ne i64 %call124, 0
   br i1 %tobool125, label %if.then126, label %if.end127
 
@@ -427,10 +428,10 @@ if.then126:                                       ; preds = %land.lhs.true121
   br label %do.cond133
 
 if.end127:                                        ; preds = %land.lhs.true121, %do.body119
-  %67 = load ptr, ptr %rev_list_in, align 8
-  %68 = load ptr, ptr %oid, align 8
-  %call128 = call ptr @oid_to_hex(ptr noundef %68)
-  %call129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.16, ptr noundef %call128)
+  %68 = load ptr, ptr %rev_list_in, align 8
+  %69 = load ptr, ptr %oid, align 8
+  %call128 = call ptr @oid_to_hex(ptr noundef %69)
+  %call129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef @.str.16, ptr noundef %call128)
   %cmp130 = icmp slt i32 %call129, 0
   br i1 %cmp130, label %if.then131, label %if.end132
 
@@ -441,35 +442,35 @@ if.end132:                                        ; preds = %if.end127
   br label %do.cond133
 
 do.cond133:                                       ; preds = %if.end132, %if.then126
-  %69 = load ptr, ptr %fn.addr, align 8
-  %70 = load ptr, ptr %cb_data.addr, align 8
-  %call134 = call ptr %69(ptr noundef %70)
+  %70 = load ptr, ptr %fn.addr, align 8
+  %71 = load ptr, ptr %cb_data.addr, align 8
+  %call134 = call ptr %70(ptr noundef %71)
   store ptr %call134, ptr %oid, align 8
   %cmp135 = icmp ne ptr %call134, null
   br i1 %cmp135, label %do.body119, label %do.end136, !llvm.loop !8
 
 do.end136:                                        ; preds = %do.cond133, %if.then131
-  %71 = load ptr, ptr %rev_list_in, align 8
-  %call137 = call i32 @ferror(ptr noundef %71) #7
+  %72 = load ptr, ptr %rev_list_in, align 8
+  %call137 = call i32 @ferror(ptr noundef %72) #7
   %tobool138 = icmp ne i32 %call137, 0
   br i1 %tobool138, label %if.then141, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end136
-  %72 = load ptr, ptr %rev_list_in, align 8
-  %call139 = call i32 @fflush(ptr noundef %72)
+  %73 = load ptr, ptr %rev_list_in, align 8
+  %call139 = call i32 @fflush(ptr noundef %73)
   %tobool140 = icmp ne i32 %call139, 0
   br i1 %tobool140, label %if.then141, label %if.end152
 
 if.then141:                                       ; preds = %lor.lhs.false, %do.end136
   %call142 = call ptr @__errno_location() #8
-  %73 = load i32, ptr %call142, align 4
-  %cmp143 = icmp ne i32 %73, 32
+  %74 = load i32, ptr %call142, align 4
+  %cmp143 = icmp ne i32 %74, 32
   br i1 %cmp143, label %land.lhs.true144, label %if.end151
 
 land.lhs.true144:                                 ; preds = %if.then141
   %call145 = call ptr @__errno_location() #8
-  %74 = load i32, ptr %call145, align 4
-  %cmp146 = icmp ne i32 %74, 22
+  %75 = load i32, ptr %call145, align 4
+  %cmp146 = icmp ne i32 %75, 22
   br i1 %cmp146, label %if.then147, label %if.end151
 
 if.then147:                                       ; preds = %land.lhs.true144
@@ -483,8 +484,8 @@ if.end151:                                        ; preds = %if.then147, %land.l
   br label %if.end152
 
 if.end152:                                        ; preds = %if.end151, %lor.lhs.false
-  %75 = load ptr, ptr %rev_list_in, align 8
-  %call153 = call i32 @fclose(ptr noundef %75)
+  %76 = load ptr, ptr %rev_list_in, align 8
+  %call153 = call i32 @fclose(ptr noundef %76)
   %tobool154 = icmp ne i32 %call153, 0
   br i1 %tobool154, label %if.then155, label %if.end159
 
@@ -497,26 +498,26 @@ if.then155:                                       ; preds = %if.end152
 
 if.end159:                                        ; preds = %if.then155, %if.end152
   %call160 = call i32 @sigchain_pop(i32 noundef 13)
-  %76 = load ptr, ptr %new_pack, align 8
-  call void @free(ptr noundef %76) #7
+  %77 = load ptr, ptr %new_pack, align 8
+  call void @free(ptr noundef %77) #7
   %call161 = call i32 @finish_command(ptr noundef %rev_list)
   %tobool162 = icmp ne i32 %call161, 0
   br i1 %tobool162, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end159
-  %77 = load i32, ptr %err, align 4
-  %tobool163 = icmp ne i32 %77, 0
+  %78 = load i32, ptr %err, align 4
+  %tobool163 = icmp ne i32 %78, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end159
-  %78 = phi i1 [ true, %if.end159 ], [ %tobool163, %lor.rhs ]
-  %lor.ext = zext i1 %78 to i32
+  %79 = phi i1 [ true, %if.end159 ], [ %tobool163, %lor.rhs ]
+  %lor.ext = zext i1 %79 to i32
   store i32 %lor.ext, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %lor.end, %if.then111, %do.end, %if.end8
-  %79 = load i32, ptr %retval, align 4
-  ret i32 %79
+  %80 = load i32, ptr %retval, align 4
+  ret i32 %80
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

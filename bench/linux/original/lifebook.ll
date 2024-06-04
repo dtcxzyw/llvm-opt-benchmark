@@ -93,7 +93,7 @@ define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 
   %15 = phi i32 [ 0, %9 ], [ %7, %1 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %64
+  br i1 %16, label %17, label %65
 
 17:                                               ; preds = %14
   %18 = select i1 %6, i32 4096, i32 1024
@@ -104,91 +104,92 @@ define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 
   call void @input_set_abs_params(ptr noundef %5, i32 noundef 1, i32 noundef 0, i32 noundef %18, i32 noundef 0, i32 noundef 0) #11
   %20 = load ptr, ptr @desired_serio_phys, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %55
+  br i1 %21, label %22, label %56
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %24 = call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 40) #12
-  %25 = call ptr @input_allocate_device() #11
-  %26 = icmp ne ptr %24, null
+  %23 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %24 = load ptr, ptr %23, align 16
+  %25 = call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 40) #12
+  %26 = call ptr @input_allocate_device() #11
   %27 = icmp ne ptr %25, null
-  %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %29, label %47
+  %28 = icmp ne ptr %26, null
+  %29 = select i1 %27, i1 %28, i1 false
+  br i1 %29, label %30, label %48
 
-29:                                               ; preds = %22
-  store ptr %25, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 40
-  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %30, i64 noundef 32, ptr noundef nonnull @.str.3, ptr noundef %33) #11
-  %35 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %30, ptr %35, align 8
-  store ptr @.str.4, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %25, i64 24
-  store i16 17, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %25, i64 26
-  store i16 2, ptr %37, align 2
-  %38 = getelementptr inbounds i8, ptr %25, i64 28
-  store i16 9, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %25, i64 30
-  store i16 0, ptr %39, align 2
-  %40 = load ptr, ptr %31, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 344
-  %42 = getelementptr inbounds i8, ptr %25, i64 608
-  store ptr %41, ptr %42, align 8
-  call void @input_set_capability(ptr noundef nonnull %25, i32 noundef 2, i32 noundef 0) #11
-  call void @input_set_capability(ptr noundef nonnull %25, i32 noundef 2, i32 noundef 1) #11
-  call void @input_set_capability(ptr noundef nonnull %25, i32 noundef 1, i32 noundef 272) #11
-  call void @input_set_capability(ptr noundef nonnull %25, i32 noundef 1, i32 noundef 273) #11
-  %43 = load ptr, ptr %24, align 8
-  %44 = call i32 @input_register_device(ptr noundef %43) #11
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %47
+30:                                               ; preds = %22
+  store ptr %26, ptr %25, align 8
+  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 40
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef 32, ptr noundef nonnull @.str.3, ptr noundef %34) #11
+  %36 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %31, ptr %36, align 8
+  store ptr @.str.4, ptr %26, align 8
+  %37 = getelementptr inbounds i8, ptr %26, i64 24
+  store i16 17, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %26, i64 26
+  store i16 2, ptr %38, align 2
+  %39 = getelementptr inbounds i8, ptr %26, i64 28
+  store i16 9, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %26, i64 30
+  store i16 0, ptr %40, align 2
+  %41 = load ptr, ptr %32, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 344
+  %43 = getelementptr inbounds i8, ptr %26, i64 608
+  store ptr %42, ptr %43, align 8
+  call void @input_set_capability(ptr noundef nonnull %26, i32 noundef 2, i32 noundef 0) #11
+  call void @input_set_capability(ptr noundef nonnull %26, i32 noundef 2, i32 noundef 1) #11
+  call void @input_set_capability(ptr noundef nonnull %26, i32 noundef 1, i32 noundef 272) #11
+  call void @input_set_capability(ptr noundef nonnull %26, i32 noundef 1, i32 noundef 273) #11
+  %44 = load ptr, ptr %25, align 8
+  %45 = call i32 @input_register_device(ptr noundef %44) #11
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %29
-  store ptr %24, ptr %0, align 8
-  br label %49
+47:                                               ; preds = %30
+  store ptr %25, ptr %0, align 8
+  br label %50
 
-47:                                               ; preds = %29, %22
-  %48 = phi i32 [ %44, %29 ], [ -12, %22 ]
-  call void @input_free_device(ptr noundef %25) #11
-  call void @kfree(ptr noundef %24) #11
-  br label %49
+48:                                               ; preds = %30, %22
+  %49 = phi i32 [ %45, %30 ], [ -12, %22 ]
+  call void @input_free_device(ptr noundef %26) #11
+  call void @kfree(ptr noundef %25) #11
+  br label %50
 
-49:                                               ; preds = %47, %46
-  %50 = phi i32 [ %48, %47 ], [ 0, %46 ]
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %55, label %52
+50:                                               ; preds = %48, %47
+  %51 = phi i32 [ %49, %48 ], [ 0, %47 ]
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %56, label %53
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   store i8 6, ptr %2, align 1
-  %54 = call i32 @ps2_command(ptr noundef %53, ptr noundef nonnull %2, i32 noundef 4328) #11
+  %55 = call i32 @ps2_command(ptr noundef %54, ptr noundef nonnull %2, i32 noundef 4328) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
-  br label %64
+  br label %65
 
-55:                                               ; preds = %49, %17
-  %56 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @lifebook_process_byte, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @lifebook_set_resolution, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 448
-  store ptr @lifebook_disconnect, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 432
-  store ptr @lifebook_absolute_mode, ptr %59, align 8
-  %60 = load i1, ptr @lifebook_use_6byte_proto, align 1
-  %61 = select i1 %60, i32 6, i32 3
-  %62 = getelementptr inbounds i8, ptr %0, i64 248
-  store i32 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 3, ptr %63, align 2
-  br label %64
+56:                                               ; preds = %50, %17
+  %57 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @lifebook_process_byte, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @lifebook_set_resolution, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 448
+  store ptr @lifebook_disconnect, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 432
+  store ptr @lifebook_absolute_mode, ptr %60, align 8
+  %61 = load i1, ptr @lifebook_use_6byte_proto, align 1
+  %62 = select i1 %61, i32 6, i32 3
+  %63 = getelementptr inbounds i8, ptr %0, i64 248
+  store i32 %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 3, ptr %64, align 2
+  br label %65
 
-64:                                               ; preds = %55, %52, %14
-  %65 = phi i32 [ 0, %55 ], [ %50, %52 ], [ %15, %14 ]
-  ret i32 %65
+65:                                               ; preds = %56, %53, %14
+  %66 = phi i32 [ 0, %56 ], [ %51, %53 ], [ %15, %14 ]
+  ret i32 %66
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

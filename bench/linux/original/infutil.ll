@@ -5,64 +5,65 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @zlib_inflate_blob(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %6 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 96) #4
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %37, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 96) #4
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %38, label %9
 
-8:                                                ; preds = %4
-  %9 = tail call i32 @zlib_inflate_workspacesize() #5
-  %10 = sext i32 %9 to i64
-  %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3264) #6
-  %12 = getelementptr inbounds i8, ptr %6, i64 64
-  store ptr %11, ptr %12, align 8
-  %13 = icmp eq ptr %11, null
-  br i1 %13, label %35, label %14
+9:                                                ; preds = %4
+  %10 = tail call i32 @zlib_inflate_workspacesize() #5
+  %11 = sext i32 %10 to i64
+  %12 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %11, i32 noundef 3264) #6
+  %13 = getelementptr inbounds i8, ptr %7, i64 64
+  store ptr %12, ptr %13, align 8
+  %14 = icmp eq ptr %12, null
+  br i1 %14, label %36, label %15
 
-14:                                               ; preds = %8
-  store ptr %2, ptr %6, align 8
-  %15 = zext i32 %3 to i64
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %0, ptr %17, align 8
-  %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 %18, ptr %19, align 8
-  %20 = tail call i32 @zlib_inflateInit2(ptr noundef nonnull %6, i32 noundef -15) #5
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %32
+15:                                               ; preds = %9
+  store ptr %2, ptr %7, align 8
+  %16 = zext i32 %3 to i64
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %0, ptr %18, align 8
+  %19 = zext i32 %1 to i64
+  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  store i64 %19, ptr %20, align 8
+  %21 = tail call i32 @zlib_inflateInit2(ptr noundef nonnull %7, i32 noundef -15) #5
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %33
 
-22:                                               ; preds = %14
-  %23 = tail call i32 @zlib_inflate(ptr noundef nonnull %6, i32 noundef 5) #5
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %29
+23:                                               ; preds = %15
+  %24 = tail call i32 @zlib_inflate(ptr noundef nonnull %7, i32 noundef 5) #5
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %26, label %30
 
-25:                                               ; preds = %22
-  %26 = load i64, ptr %19, align 8
-  %27 = trunc i64 %26 to i32
-  %28 = sub i32 %1, %27
-  br label %29
+26:                                               ; preds = %23
+  %27 = load i64, ptr %20, align 8
+  %28 = trunc i64 %27 to i32
+  %29 = sub i32 %1, %28
+  br label %30
 
-29:                                               ; preds = %25, %22
-  %30 = phi i32 [ %28, %25 ], [ -22, %22 ]
-  %31 = tail call i32 @zlib_inflateEnd(ptr noundef nonnull %6) #5
-  br label %32
+30:                                               ; preds = %26, %23
+  %31 = phi i32 [ %29, %26 ], [ -22, %23 ]
+  %32 = tail call i32 @zlib_inflateEnd(ptr noundef nonnull %7) #5
+  br label %33
 
-32:                                               ; preds = %29, %14
-  %33 = phi i32 [ %30, %29 ], [ -22, %14 ]
-  %34 = load ptr, ptr %12, align 8
-  tail call void @kfree(ptr noundef %34) #5
-  br label %35
+33:                                               ; preds = %30, %15
+  %34 = phi i32 [ %31, %30 ], [ -22, %15 ]
+  %35 = load ptr, ptr %13, align 8
+  tail call void @kfree(ptr noundef %35) #5
+  br label %36
 
-35:                                               ; preds = %32, %8
-  %36 = phi i32 [ -12, %8 ], [ %33, %32 ]
-  tail call void @kfree(ptr noundef nonnull %6) #5
-  br label %37
+36:                                               ; preds = %33, %9
+  %37 = phi i32 [ -12, %9 ], [ %34, %33 ]
+  tail call void @kfree(ptr noundef nonnull %7) #5
+  br label %38
 
-37:                                               ; preds = %35, %4
-  %38 = phi i32 [ -12, %4 ], [ %36, %35 ]
-  ret i32 %38
+38:                                               ; preds = %36, %4
+  %39 = phi i32 [ -12, %4 ], [ %37, %36 ]
+  ret i32 %39
 }
 
 ; Function Attrs: null_pointer_is_valid

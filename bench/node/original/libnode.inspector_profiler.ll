@@ -1631,10 +1631,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %env, ptr %env.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.node::profiler::V8ProfilerConnection", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %env.addr, align 8
-  %call = call noundef ptr @_ZNK4node11Environment15inspector_agentEv(ptr noundef nonnull align 8 dereferenceable(2872) %0)
+  %1 = load ptr, ptr %env.addr, align 8
+  %call = call noundef ptr @_ZNK4node11Environment15inspector_agentEv(ptr noundef nonnull align 8 dereferenceable(2872) %1)
   store ptr %this1, ptr %ref.tmp2, align 8
   call void @_ZSt11make_uniqueIN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateEJPS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.306") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
   call void @_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EEC2INS0_8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateES3_IS9_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
@@ -1646,8 +1647,8 @@ entry:
   %profile_ids_ = getelementptr inbounds %"class.node::profiler::V8ProfilerConnection", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %profile_ids_) #3
   %env_ = getelementptr inbounds %"class.node::profiler::V8ProfilerConnection", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %env.addr, align 8
-  store ptr %1, ptr %env_, align 8
+  %2 = load ptr, ptr %env.addr, align 8
+  store ptr %2, ptr %env_, align 8
   ret void
 }
 
@@ -7346,7 +7347,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %profile_ids_ = getelementptr inbounds %"class.node::profiler::V8ProfilerConnection", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %profile_ids_) #3
   %session_ = getelementptr inbounds %"class.node::profiler::V8ProfilerConnection", ptr %this1, i32 0, i32 1
@@ -7371,7 +7373,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.node::profiler::V8CoverageConnection", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   call void @_ZN4node8profiler20V8ProfilerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
@@ -7415,7 +7418,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.node::profiler::V8CpuProfilerConnection", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   call void @_ZN4node8profiler20V8ProfilerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
@@ -7459,7 +7463,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.node::profiler::V8HeapProfilerConnection", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   call void @_ZN4node8profiler20V8ProfilerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
@@ -13593,10 +13598,11 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector24InspectorSessionDelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.node::profiler::V8ProfilerConnection::V8ProfilerSessionDelegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %connection.addr, align 8
-  store ptr %0, ptr %connection_, align 8
+  %1 = load ptr, ptr %connection.addr, align 8
+  store ptr %1, ptr %connection_, align 8
   ret void
 }
 
@@ -13620,7 +13626,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector24InspectorSessionDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector24InspectorSessionDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17643,7 +17650,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node8profiler20V8ProfilerConnectionC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.node::profiler::V8CoverageConnection", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   %ending_ = getelementptr inbounds %"class.node::profiler::V8CoverageConnection", ptr %this1, i32 0, i32 2
@@ -17870,7 +17878,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node8profiler20V8ProfilerConnectionC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.node::profiler::V8CpuProfilerConnection", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   %ending_ = getelementptr inbounds %"class.node::profiler::V8CpuProfilerConnection", ptr %this1, i32 0, i32 2
@@ -18014,7 +18023,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node8profiler20V8ProfilerConnectionC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.node::profiler::V8HeapProfilerConnection", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   %ending_ = getelementptr inbounds %"class.node::profiler::V8HeapProfilerConnection", ptr %this1, i32 0, i32 2

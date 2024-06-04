@@ -7136,524 +7136,526 @@ define void @_ZN6colvarC2Ev(ptr noundef nonnull align 8 dereferenceable(4624) %0
   call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %5)
   %6 = getelementptr inbounds i8, ptr %5, i64 320
   invoke void @_ZN10colvardepsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %6)
-          to label %7 unwind label %95
+          to label %7 unwind label %97
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr], [8 x ptr] }, ptr @_ZTV6colvar, i32 0, i32 0, i32 2), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [15 x ptr], [8 x ptr] }, ptr @_ZTV6colvar, i32 0, i32 1, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
-  %10 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 3
-  store double 1.000000e+00, ptr %10, align 8
-  %11 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 4
-  call void @_ZNSt6vectorIP10colvarbiasSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #6
-  %12 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 5
-  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %12)
-          to label %13 unwind label %99
-
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 6
+  %8 = getelementptr inbounds { [15 x ptr], [8 x ptr] }, ptr @_ZTV6colvar, i32 0, i32 0, i32 2
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 320
+  %10 = getelementptr inbounds { [15 x ptr], [8 x ptr] }, ptr @_ZTV6colvar, i32 0, i32 1, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #6
+  %12 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 3
+  store double 1.000000e+00, ptr %12, align 8
+  %13 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorIP10colvarbiasSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #6
+  %14 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 5
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %14)
-          to label %15 unwind label %103
+          to label %15 unwind label %101
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 7
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 6
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %16)
-          to label %17 unwind label %107
+          to label %17 unwind label %105
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 8
+  %18 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 7
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %18)
-          to label %19 unwind label %111
+          to label %19 unwind label %109
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 9
+  %20 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 8
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %20)
-          to label %21 unwind label %115
+          to label %21 unwind label %113
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 10
+  %22 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 9
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %22)
-          to label %23 unwind label %119
+          to label %23 unwind label %117
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 11
+  %24 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 10
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %24)
-          to label %25 unwind label %123
+          to label %25 unwind label %121
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 12
+  %26 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 11
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %26)
-          to label %27 unwind label %127
+          to label %27 unwind label %125
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 13
-  store double 0.000000e+00, ptr %28, align 8
-  %29 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 14
-  store double 0.000000e+00, ptr %29, align 8
-  %30 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 15
+  %28 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 12
+  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %28)
+          to label %29 unwind label %129
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 13
   store double 0.000000e+00, ptr %30, align 8
-  %31 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 16
+  %31 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 14
   store double 0.000000e+00, ptr %31, align 8
-  %32 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 17
-  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %32)
-          to label %33 unwind label %131
-
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 18
+  %32 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 15
+  store double 0.000000e+00, ptr %32, align 8
+  %33 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 16
+  store double 0.000000e+00, ptr %33, align 8
+  %34 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 17
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %34)
-          to label %35 unwind label %135
+          to label %35 unwind label %133
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 19
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 18
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %36)
-          to label %37 unwind label %139
+          to label %37 unwind label %137
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 20
+  %38 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 19
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %38)
-          to label %39 unwind label %143
+          to label %39 unwind label %141
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 21
+  %40 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 20
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %40)
-          to label %41 unwind label %147
+          to label %41 unwind label %145
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 22
+  %42 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 21
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %42)
-          to label %43 unwind label %151
+          to label %43 unwind label %149
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 23
+  %44 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 22
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %44)
-          to label %45 unwind label %155
+          to label %45 unwind label %153
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 24
+  %46 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 23
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %46)
-          to label %47 unwind label %159
+          to label %47 unwind label %157
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 25
-  store double 0.000000e+00, ptr %48, align 8
-  %49 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 26
-  store double 0.000000e+00, ptr %49, align 8
-  %50 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 27
-  store i8 0, ptr %50, align 8
-  %51 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 28
-  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %51)
-          to label %52 unwind label %163
+  %48 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 24
+  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %48)
+          to label %49 unwind label %161
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 29
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 25
+  store double 0.000000e+00, ptr %50, align 8
+  %51 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 26
+  store double 0.000000e+00, ptr %51, align 8
+  %52 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 27
+  store i8 0, ptr %52, align 8
+  %53 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 28
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %53)
-          to label %54 unwind label %167
+          to label %54 unwind label %165
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 30
-  store i64 0, ptr %55, align 8
-  %56 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 31
-  store double 0.000000e+00, ptr %56, align 8
-  %57 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 34
-  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %57)
-          to label %58 unwind label %171
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 29
+  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %55)
+          to label %56 unwind label %169
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 35
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 30
+  store i64 0, ptr %57, align 8
+  %58 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 31
+  store double 0.000000e+00, ptr %58, align 8
+  %59 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 34
   invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %59)
-          to label %60 unwind label %175
+          to label %60 unwind label %173
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 37
-  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %61) #6
-  %62 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 38
-  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #6
-  %63 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 39
-  call void @_ZNSt14_List_iteratorINSt7__cxx114listI11colvarvalueSaIS2_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #6
-  %64 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 40
-  call void @_ZNSt14_List_iteratorINSt7__cxx114listI11colvarvalueSaIS2_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #6
-  %65 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 41
-  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #6
-  %66 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 42
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 35
+  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %61)
+          to label %62 unwind label %177
+
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 37
+  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #6
+  %64 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 38
+  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %64) #6
+  %65 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 39
+  call void @_ZNSt14_List_iteratorINSt7__cxx114listI11colvarvalueSaIS2_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #6
+  %66 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 40
   call void @_ZNSt14_List_iteratorINSt7__cxx114listI11colvarvalueSaIS2_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #6
-  %67 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 43
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #6
-  %68 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 49
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #6
-  %69 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 50
+  %67 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 41
+  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #6
+  %68 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 42
+  call void @_ZNSt14_List_iteratorINSt7__cxx114listI11colvarvalueSaIS2_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #6
+  %69 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #6
-  %70 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #6
-  %71 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 55
-  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %71)
-          to label %72 unwind label %179
+  %70 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 49
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #6
+  %71 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #6
+  %72 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #6
+  %73 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 55
+  invoke void @_ZN11colvarvalueC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %73)
+          to label %74 unwind label %181
 
-72:                                               ; preds = %60
-  %73 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 56
-  store double 0.000000e+00, ptr %73, align 8
-  %74 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 57
-  store double 0.000000e+00, ptr %74, align 8
-  %75 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 58
+74:                                               ; preds = %62
+  %75 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 56
   store double 0.000000e+00, ptr %75, align 8
-  %76 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 59
-  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #6
-  %77 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 60
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %77) #6
-  %78 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 61
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #6
-  %79 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 62
-  call void @_ZNSt6vectorIPK11colvarvalueSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #6
-  %80 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 63
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %80) #6
-  %81 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 64
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #6
-  %82 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 65
-  call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #6
-  %83 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 32
-  store i64 -1, ptr %83, align 8
-  %84 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 36
-  store i8 0, ptr %84, align 8
-  %85 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 57
-  store double 0.000000e+00, ptr %85, align 8
-  %86 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 58
-  store double 0.000000e+00, ptr %86, align 8
-  %87 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 33
-  store i8 0, ptr %87, align 8
-  %88 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 27
-  store i8 0, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %5, i64 320
-  %90 = getelementptr inbounds %class.colvardeps, ptr %89, i32 0, i32 1
-  %91 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef @.str)
-          to label %92 unwind label %183
+  %76 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 57
+  store double 0.000000e+00, ptr %76, align 8
+  %77 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 58
+  store double 0.000000e+00, ptr %77, align 8
+  %78 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 59
+  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #6
+  %79 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 60
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %79) #6
+  %80 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #6
+  %81 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 62
+  call void @_ZNSt6vectorIPK11colvarvalueSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #6
+  %82 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 63
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #6
+  %83 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 64
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %83) #6
+  %84 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 65
+  call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %84) #6
+  %85 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 32
+  store i64 -1, ptr %85, align 8
+  %86 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 36
+  store i8 0, ptr %86, align 8
+  %87 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 57
+  store double 0.000000e+00, ptr %87, align 8
+  %88 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 58
+  store double 0.000000e+00, ptr %88, align 8
+  %89 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 33
+  store i8 0, ptr %89, align 8
+  %90 = getelementptr inbounds %class.colvar, ptr %5, i32 0, i32 27
+  store i8 0, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %5, i64 320
+  %92 = getelementptr inbounds %class.colvardeps, ptr %91, i32 0, i32 1
+  %93 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef @.str)
+          to label %94 unwind label %185
 
-92:                                               ; preds = %72
-  %93 = invoke noundef i32 @_ZN6colvar17init_dependenciesEv(ptr noundef nonnull align 8 dereferenceable(4624) %5)
-          to label %94 unwind label %183
+94:                                               ; preds = %74
+  %95 = invoke noundef i32 @_ZN6colvar17init_dependenciesEv(ptr noundef nonnull align 8 dereferenceable(4624) %5)
+          to label %96 unwind label %185
 
-94:                                               ; preds = %92
+96:                                               ; preds = %94
   ret void
 
-95:                                               ; preds = %1
-  %96 = landingpad { ptr, i32 }
+97:                                               ; preds = %1
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %3, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %4, align 4
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %3, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %4, align 4
+  br label %211
+
+101:                                              ; preds = %7
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %3, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %4, align 4
   br label %209
 
-99:                                               ; preds = %7
-  %100 = landingpad { ptr, i32 }
+105:                                              ; preds = %15
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %3, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %4, align 4
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %3, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %4, align 4
+  br label %208
+
+109:                                              ; preds = %17
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %3, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %4, align 4
   br label %207
 
-103:                                              ; preds = %13
-  %104 = landingpad { ptr, i32 }
+113:                                              ; preds = %19
+  %114 = landingpad { ptr, i32 }
           cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  store ptr %105, ptr %3, align 8
-  %106 = extractvalue { ptr, i32 } %104, 1
-  store i32 %106, ptr %4, align 4
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %3, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %4, align 4
   br label %206
 
-107:                                              ; preds = %15
-  %108 = landingpad { ptr, i32 }
+117:                                              ; preds = %21
+  %118 = landingpad { ptr, i32 }
           cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %3, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %4, align 4
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %3, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %4, align 4
   br label %205
 
-111:                                              ; preds = %17
-  %112 = landingpad { ptr, i32 }
+121:                                              ; preds = %23
+  %122 = landingpad { ptr, i32 }
           cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %3, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %4, align 4
+  %123 = extractvalue { ptr, i32 } %122, 0
+  store ptr %123, ptr %3, align 8
+  %124 = extractvalue { ptr, i32 } %122, 1
+  store i32 %124, ptr %4, align 4
   br label %204
 
-115:                                              ; preds = %19
-  %116 = landingpad { ptr, i32 }
+125:                                              ; preds = %25
+  %126 = landingpad { ptr, i32 }
           cleanup
-  %117 = extractvalue { ptr, i32 } %116, 0
-  store ptr %117, ptr %3, align 8
-  %118 = extractvalue { ptr, i32 } %116, 1
-  store i32 %118, ptr %4, align 4
+  %127 = extractvalue { ptr, i32 } %126, 0
+  store ptr %127, ptr %3, align 8
+  %128 = extractvalue { ptr, i32 } %126, 1
+  store i32 %128, ptr %4, align 4
   br label %203
 
-119:                                              ; preds = %21
-  %120 = landingpad { ptr, i32 }
+129:                                              ; preds = %27
+  %130 = landingpad { ptr, i32 }
           cleanup
-  %121 = extractvalue { ptr, i32 } %120, 0
-  store ptr %121, ptr %3, align 8
-  %122 = extractvalue { ptr, i32 } %120, 1
-  store i32 %122, ptr %4, align 4
+  %131 = extractvalue { ptr, i32 } %130, 0
+  store ptr %131, ptr %3, align 8
+  %132 = extractvalue { ptr, i32 } %130, 1
+  store i32 %132, ptr %4, align 4
   br label %202
 
-123:                                              ; preds = %23
-  %124 = landingpad { ptr, i32 }
+133:                                              ; preds = %29
+  %134 = landingpad { ptr, i32 }
           cleanup
-  %125 = extractvalue { ptr, i32 } %124, 0
-  store ptr %125, ptr %3, align 8
-  %126 = extractvalue { ptr, i32 } %124, 1
-  store i32 %126, ptr %4, align 4
+  %135 = extractvalue { ptr, i32 } %134, 0
+  store ptr %135, ptr %3, align 8
+  %136 = extractvalue { ptr, i32 } %134, 1
+  store i32 %136, ptr %4, align 4
   br label %201
 
-127:                                              ; preds = %25
-  %128 = landingpad { ptr, i32 }
+137:                                              ; preds = %35
+  %138 = landingpad { ptr, i32 }
           cleanup
-  %129 = extractvalue { ptr, i32 } %128, 0
-  store ptr %129, ptr %3, align 8
-  %130 = extractvalue { ptr, i32 } %128, 1
-  store i32 %130, ptr %4, align 4
+  %139 = extractvalue { ptr, i32 } %138, 0
+  store ptr %139, ptr %3, align 8
+  %140 = extractvalue { ptr, i32 } %138, 1
+  store i32 %140, ptr %4, align 4
   br label %200
 
-131:                                              ; preds = %27
-  %132 = landingpad { ptr, i32 }
+141:                                              ; preds = %37
+  %142 = landingpad { ptr, i32 }
           cleanup
-  %133 = extractvalue { ptr, i32 } %132, 0
-  store ptr %133, ptr %3, align 8
-  %134 = extractvalue { ptr, i32 } %132, 1
-  store i32 %134, ptr %4, align 4
+  %143 = extractvalue { ptr, i32 } %142, 0
+  store ptr %143, ptr %3, align 8
+  %144 = extractvalue { ptr, i32 } %142, 1
+  store i32 %144, ptr %4, align 4
   br label %199
 
-135:                                              ; preds = %33
-  %136 = landingpad { ptr, i32 }
+145:                                              ; preds = %39
+  %146 = landingpad { ptr, i32 }
           cleanup
-  %137 = extractvalue { ptr, i32 } %136, 0
-  store ptr %137, ptr %3, align 8
-  %138 = extractvalue { ptr, i32 } %136, 1
-  store i32 %138, ptr %4, align 4
+  %147 = extractvalue { ptr, i32 } %146, 0
+  store ptr %147, ptr %3, align 8
+  %148 = extractvalue { ptr, i32 } %146, 1
+  store i32 %148, ptr %4, align 4
   br label %198
 
-139:                                              ; preds = %35
-  %140 = landingpad { ptr, i32 }
+149:                                              ; preds = %41
+  %150 = landingpad { ptr, i32 }
           cleanup
-  %141 = extractvalue { ptr, i32 } %140, 0
-  store ptr %141, ptr %3, align 8
-  %142 = extractvalue { ptr, i32 } %140, 1
-  store i32 %142, ptr %4, align 4
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %3, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %4, align 4
   br label %197
 
-143:                                              ; preds = %37
-  %144 = landingpad { ptr, i32 }
+153:                                              ; preds = %43
+  %154 = landingpad { ptr, i32 }
           cleanup
-  %145 = extractvalue { ptr, i32 } %144, 0
-  store ptr %145, ptr %3, align 8
-  %146 = extractvalue { ptr, i32 } %144, 1
-  store i32 %146, ptr %4, align 4
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %3, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %4, align 4
   br label %196
 
-147:                                              ; preds = %39
-  %148 = landingpad { ptr, i32 }
+157:                                              ; preds = %45
+  %158 = landingpad { ptr, i32 }
           cleanup
-  %149 = extractvalue { ptr, i32 } %148, 0
-  store ptr %149, ptr %3, align 8
-  %150 = extractvalue { ptr, i32 } %148, 1
-  store i32 %150, ptr %4, align 4
+  %159 = extractvalue { ptr, i32 } %158, 0
+  store ptr %159, ptr %3, align 8
+  %160 = extractvalue { ptr, i32 } %158, 1
+  store i32 %160, ptr %4, align 4
   br label %195
 
-151:                                              ; preds = %41
-  %152 = landingpad { ptr, i32 }
+161:                                              ; preds = %47
+  %162 = landingpad { ptr, i32 }
           cleanup
-  %153 = extractvalue { ptr, i32 } %152, 0
-  store ptr %153, ptr %3, align 8
-  %154 = extractvalue { ptr, i32 } %152, 1
-  store i32 %154, ptr %4, align 4
+  %163 = extractvalue { ptr, i32 } %162, 0
+  store ptr %163, ptr %3, align 8
+  %164 = extractvalue { ptr, i32 } %162, 1
+  store i32 %164, ptr %4, align 4
   br label %194
 
-155:                                              ; preds = %43
-  %156 = landingpad { ptr, i32 }
+165:                                              ; preds = %49
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %157 = extractvalue { ptr, i32 } %156, 0
-  store ptr %157, ptr %3, align 8
-  %158 = extractvalue { ptr, i32 } %156, 1
-  store i32 %158, ptr %4, align 4
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %3, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %4, align 4
   br label %193
 
-159:                                              ; preds = %45
-  %160 = landingpad { ptr, i32 }
+169:                                              ; preds = %54
+  %170 = landingpad { ptr, i32 }
           cleanup
-  %161 = extractvalue { ptr, i32 } %160, 0
-  store ptr %161, ptr %3, align 8
-  %162 = extractvalue { ptr, i32 } %160, 1
-  store i32 %162, ptr %4, align 4
+  %171 = extractvalue { ptr, i32 } %170, 0
+  store ptr %171, ptr %3, align 8
+  %172 = extractvalue { ptr, i32 } %170, 1
+  store i32 %172, ptr %4, align 4
   br label %192
 
-163:                                              ; preds = %47
-  %164 = landingpad { ptr, i32 }
+173:                                              ; preds = %56
+  %174 = landingpad { ptr, i32 }
           cleanup
-  %165 = extractvalue { ptr, i32 } %164, 0
-  store ptr %165, ptr %3, align 8
-  %166 = extractvalue { ptr, i32 } %164, 1
-  store i32 %166, ptr %4, align 4
+  %175 = extractvalue { ptr, i32 } %174, 0
+  store ptr %175, ptr %3, align 8
+  %176 = extractvalue { ptr, i32 } %174, 1
+  store i32 %176, ptr %4, align 4
   br label %191
 
-167:                                              ; preds = %52
-  %168 = landingpad { ptr, i32 }
+177:                                              ; preds = %60
+  %178 = landingpad { ptr, i32 }
           cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %3, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %4, align 4
+  %179 = extractvalue { ptr, i32 } %178, 0
+  store ptr %179, ptr %3, align 8
+  %180 = extractvalue { ptr, i32 } %178, 1
+  store i32 %180, ptr %4, align 4
   br label %190
 
-171:                                              ; preds = %54
-  %172 = landingpad { ptr, i32 }
+181:                                              ; preds = %62
+  %182 = landingpad { ptr, i32 }
           cleanup
-  %173 = extractvalue { ptr, i32 } %172, 0
-  store ptr %173, ptr %3, align 8
-  %174 = extractvalue { ptr, i32 } %172, 1
-  store i32 %174, ptr %4, align 4
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %3, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %4, align 4
   br label %189
 
-175:                                              ; preds = %58
-  %176 = landingpad { ptr, i32 }
+185:                                              ; preds = %94, %74
+  %186 = landingpad { ptr, i32 }
           cleanup
-  %177 = extractvalue { ptr, i32 } %176, 0
-  store ptr %177, ptr %3, align 8
-  %178 = extractvalue { ptr, i32 } %176, 1
-  store i32 %178, ptr %4, align 4
-  br label %188
+  %187 = extractvalue { ptr, i32 } %186, 0
+  store ptr %187, ptr %3, align 8
+  %188 = extractvalue { ptr, i32 } %186, 1
+  store i32 %188, ptr %4, align 4
+  call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %84) #6
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %83) #6
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #6
+  call void @_ZNSt6vectorIPK11colvarvalueSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #6
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %79) #6
+  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #6
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %73) #6
+  br label %189
 
-179:                                              ; preds = %60
-  %180 = landingpad { ptr, i32 }
-          cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %3, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %4, align 4
-  br label %187
-
-183:                                              ; preds = %92, %72
-  %184 = landingpad { ptr, i32 }
-          cleanup
-  %185 = extractvalue { ptr, i32 } %184, 0
-  store ptr %185, ptr %3, align 8
-  %186 = extractvalue { ptr, i32 } %184, 1
-  store i32 %186, ptr %4, align 4
-  call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #6
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #6
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %80) #6
-  call void @_ZNSt6vectorIPK11colvarvalueSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #6
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %77) #6
-  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #6
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %71) #6
-  br label %187
-
-187:                                              ; preds = %183, %179
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #6
+189:                                              ; preds = %185, %181
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #6
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #6
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #6
-  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #6
-  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #6
-  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %61) #6
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %59) #6
-  br label %188
-
-188:                                              ; preds = %187, %175
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %57) #6
-  br label %189
-
-189:                                              ; preds = %188, %171
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %53) #6
+  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #6
+  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %64) #6
+  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #6
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %61) #6
   br label %190
 
-190:                                              ; preds = %189, %167
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %51) #6
+190:                                              ; preds = %189, %177
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %59) #6
   br label %191
 
-191:                                              ; preds = %190, %163
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %46) #6
+191:                                              ; preds = %190, %173
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %55) #6
   br label %192
 
-192:                                              ; preds = %191, %159
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %44) #6
+192:                                              ; preds = %191, %169
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %53) #6
   br label %193
 
-193:                                              ; preds = %192, %155
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %42) #6
+193:                                              ; preds = %192, %165
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %48) #6
   br label %194
 
-194:                                              ; preds = %193, %151
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %40) #6
+194:                                              ; preds = %193, %161
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %46) #6
   br label %195
 
-195:                                              ; preds = %194, %147
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %38) #6
+195:                                              ; preds = %194, %157
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %44) #6
   br label %196
 
-196:                                              ; preds = %195, %143
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %36) #6
+196:                                              ; preds = %195, %153
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %42) #6
   br label %197
 
-197:                                              ; preds = %196, %139
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %34) #6
+197:                                              ; preds = %196, %149
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %40) #6
   br label %198
 
-198:                                              ; preds = %197, %135
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %32) #6
+198:                                              ; preds = %197, %145
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %38) #6
   br label %199
 
-199:                                              ; preds = %198, %131
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %26) #6
+199:                                              ; preds = %198, %141
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %36) #6
   br label %200
 
-200:                                              ; preds = %199, %127
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %24) #6
+200:                                              ; preds = %199, %137
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %34) #6
   br label %201
 
-201:                                              ; preds = %200, %123
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %22) #6
+201:                                              ; preds = %200, %133
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %28) #6
   br label %202
 
-202:                                              ; preds = %201, %119
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %20) #6
+202:                                              ; preds = %201, %129
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %26) #6
   br label %203
 
-203:                                              ; preds = %202, %115
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %18) #6
+203:                                              ; preds = %202, %125
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %24) #6
   br label %204
 
-204:                                              ; preds = %203, %111
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %16) #6
+204:                                              ; preds = %203, %121
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %22) #6
   br label %205
 
-205:                                              ; preds = %204, %107
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %14) #6
+205:                                              ; preds = %204, %117
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %20) #6
   br label %206
 
-206:                                              ; preds = %205, %103
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %12) #6
+206:                                              ; preds = %205, %113
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %18) #6
   br label %207
 
-207:                                              ; preds = %206, %99
-  call void @_ZNSt6vectorIP10colvarbiasSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
-  %208 = getelementptr inbounds i8, ptr %5, i64 320
-  call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %208) #6
+207:                                              ; preds = %206, %109
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %16) #6
+  br label %208
+
+208:                                              ; preds = %207, %105
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %14) #6
   br label %209
 
-209:                                              ; preds = %207, %95
-  call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %5) #6
-  br label %210
+209:                                              ; preds = %208, %101
+  call void @_ZNSt6vectorIP10colvarbiasSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #6
+  %210 = getelementptr inbounds i8, ptr %5, i64 320
+  call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %210) #6
+  br label %211
 
-210:                                              ; preds = %209
-  %211 = load ptr, ptr %3, align 8
-  %212 = load i32, ptr %4, align 4
-  %213 = insertvalue { ptr, i32 } poison, ptr %211, 0
-  %214 = insertvalue { ptr, i32 } %213, i32 %212, 1
-  resume { ptr, i32 } %214
+211:                                              ; preds = %209, %97
+  call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %5) #6
+  br label %212
+
+212:                                              ; preds = %211
+  %213 = load ptr, ptr %3, align 8
+  %214 = load i32, ptr %4, align 4
+  %215 = insertvalue { ptr, i32 } poison, ptr %213, 0
+  %216 = insertvalue { ptr, i32 } %215, i32 %214, 1
+  resume { ptr, i32 } %216
 }
 
 declare void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #0
@@ -58842,271 +58844,273 @@ define void @_ZN6colvarD2Ev(ptr noundef nonnull align 8 dereferenceable(4624) %0
   %13 = alloca %"class.__gnu_cxx::__normal_iterator.320", align 8
   store ptr %0, ptr %2, align 8
   %14 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr], [8 x ptr] }, ptr @_ZTV6colvar, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 320
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [15 x ptr], [8 x ptr] }, ptr @_ZTV6colvar, i32 0, i32 1, i32 2), ptr %15, align 8
+  %15 = getelementptr inbounds { [15 x ptr], [8 x ptr] }, ptr @_ZTV6colvar, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 320
-  invoke void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 dereferenceable(120) %16)
-          to label %17 unwind label %144
+  %17 = getelementptr inbounds { [15 x ptr], [8 x ptr] }, ptr @_ZTV6colvar, i32 0, i32 1, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %14, i64 320
+  invoke void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 dereferenceable(120) %18)
+          to label %19 unwind label %146
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 59
-  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EE6rbeginEv(ptr dead_on_unwind writable sret(%"class.std::reverse_iterator") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %18) #6
-  br label %19
-
-19:                                               ; preds = %40, %17
+19:                                               ; preds = %1
   %20 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 59
-  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EE4rendEv(ptr dead_on_unwind writable sret(%"class.std::reverse_iterator") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %20) #6
-  %21 = invoke noundef zeroext i1 @_ZStneIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEEEbRKSt16reverse_iteratorIT_ESE_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %22 unwind label %144
+  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EE6rbeginEv(ptr dead_on_unwind writable sret(%"class.std::reverse_iterator") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %20) #6
+  br label %21
 
-22:                                               ; preds = %19
-  br i1 %21, label %23, label %41
+21:                                               ; preds = %42, %19
+  %22 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 59
+  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EE4rendEv(ptr dead_on_unwind writable sret(%"class.std::reverse_iterator") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %22) #6
+  %23 = invoke noundef zeroext i1 @_ZStneIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEEEbRKSt16reverse_iteratorIT_ESE_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %24 unwind label %146
 
-23:                                               ; preds = %22
-  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %25 unwind label %144
+24:                                               ; preds = %21
+  br i1 %23, label %25, label %43
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 320
-  invoke void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 dereferenceable(120) %27)
-          to label %28 unwind label %144
+25:                                               ; preds = %24
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %27 unwind label %146
 
-28:                                               ; preds = %25
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %30 unwind label %144
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 320
+  invoke void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8 dereferenceable(120) %29)
+          to label %30 unwind label %146
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %29, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %37, label %33
+30:                                               ; preds = %27
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %32 unwind label %146
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 7
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(1648) %31) #6
-  br label %37
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %31, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %39, label %35
 
-37:                                               ; preds = %33, %30
-  br label %38
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %33, align 8
+  %37 = getelementptr inbounds ptr, ptr %36, i64 7
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(1648) %33) #6
+  br label %39
 
-38:                                               ; preds = %37
-  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %40 unwind label %144
+39:                                               ; preds = %35, %32
+  br label %40
 
-40:                                               ; preds = %38
-  br label %19, !llvm.loop !71
+40:                                               ; preds = %39
+  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %42 unwind label %146
 
-41:                                               ; preds = %22
-  %42 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 59
-  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #6
-  br label %43
+42:                                               ; preds = %40
+  br label %21, !llvm.loop !71
 
-43:                                               ; preds = %70, %41
-  %44 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
-  %45 = call noundef i64 @_ZNKSt6vectorIP10colvarbiasSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #6
-  %46 = icmp ugt i64 %45, 0
-  br i1 %46, label %47, label %71
+43:                                               ; preds = %24
+  %44 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 59
+  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #6
+  br label %45
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
-  %49 = call noundef i64 @_ZNKSt6vectorIP10colvarbiasSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %48) #6
-  %50 = sub i64 %49, 1
-  store i64 %50, ptr %5, align 8
-  %51 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 2
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef @.str.281, ptr noundef nonnull align 8 dereferenceable(32) %51)
-          to label %52 unwind label %144
+45:                                               ; preds = %72, %43
+  %46 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
+  %47 = call noundef i64 @_ZNKSt6vectorIP10colvarbiasSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #6
+  %48 = icmp ugt i64 %47, 0
+  br i1 %48, label %49, label %73
 
-52:                                               ; preds = %47
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
+  %51 = call noundef i64 @_ZNKSt6vectorIP10colvarbiasSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %50) #6
+  %52 = sub i64 %51, 1
+  store i64 %52, ptr %5, align 8
+  %53 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 2
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef @.str.281, ptr noundef nonnull align 8 dereferenceable(32) %53)
+          to label %54 unwind label %146
+
+54:                                               ; preds = %49
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str.282)
-          to label %53 unwind label %144
+          to label %55 unwind label %146
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
-  %55 = load i64, ptr %5, align 8
-  %56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIP10colvarbiasSaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %55) #6
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %class.colvarbias, ptr %57, i32 0, i32 1
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %58)
-          to label %59 unwind label %144
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
+  %57 = load i64, ptr %5, align 8
+  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIP10colvarbiasSaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %57) #6
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %class.colvarbias, ptr %59, i32 0, i32 1
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %60)
+          to label %61 unwind label %146
 
-59:                                               ; preds = %53
+61:                                               ; preds = %55
   invoke void @_ZN12colvarmodule3logERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 10)
-          to label %60 unwind label %144
+          to label %62 unwind label %146
 
-60:                                               ; preds = %59
+62:                                               ; preds = %61
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #6
-  %61 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
-  %62 = load i64, ptr %5, align 8
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIP10colvarbiasSaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %61, i64 noundef %62) #6
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %70, label %66
+  %63 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
+  %64 = load i64, ptr %5, align 8
+  %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIP10colvarbiasSaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %63, i64 noundef %64) #6
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %72, label %68
 
-66:                                               ; preds = %60
-  %67 = load ptr, ptr %64, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 19
-  %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(312) %64) #6
-  br label %70
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %66, align 8
+  %70 = getelementptr inbounds ptr, ptr %69, i64 19
+  %71 = load ptr, ptr %70, align 8
+  call void %71(ptr noundef nonnull align 8 dereferenceable(312) %66) #6
+  br label %72
 
-70:                                               ; preds = %66, %60
-  br label %43, !llvm.loop !72
+72:                                               ; preds = %68, %62
+  br label %45, !llvm.loop !72
 
-71:                                               ; preds = %43
-  %72 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
-  call void @_ZNSt6vectorIP10colvarbiasSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %72) #6
-  %73 = invoke noundef ptr @_ZN12colvarmodule4mainEv()
-          to label %74 unwind label %144
+73:                                               ; preds = %45
+  %74 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
+  call void @_ZNSt6vectorIP10colvarbiasSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %74) #6
+  %75 = invoke noundef ptr @_ZN12colvarmodule4mainEv()
+          to label %76 unwind label %146
 
-74:                                               ; preds = %71
-  store ptr %73, ptr %9, align 8
-  %75 = load ptr, ptr %9, align 8
-  %76 = invoke noundef ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull align 8 dereferenceable(616) %75)
-          to label %77 unwind label %144
+76:                                               ; preds = %73
+  store ptr %75, ptr %9, align 8
+  %77 = load ptr, ptr %9, align 8
+  %78 = invoke noundef ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull align 8 dereferenceable(616) %77)
+          to label %79 unwind label %146
 
-77:                                               ; preds = %74
-  %78 = call ptr @_ZNSt6vectorIP6colvarSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %76) #6
-  %79 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.320", ptr %10, i32 0, i32 0
-  store ptr %78, ptr %79, align 8
-  br label %80
+79:                                               ; preds = %76
+  %80 = call ptr @_ZNSt6vectorIP6colvarSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %78) #6
+  %81 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.320", ptr %10, i32 0, i32 0
+  store ptr %80, ptr %81, align 8
+  br label %82
 
-80:                                               ; preds = %101, %77
-  %81 = load ptr, ptr %9, align 8
-  %82 = invoke noundef ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull align 8 dereferenceable(616) %81)
-          to label %83 unwind label %144
+82:                                               ; preds = %103, %79
+  %83 = load ptr, ptr %9, align 8
+  %84 = invoke noundef ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull align 8 dereferenceable(616) %83)
+          to label %85 unwind label %146
 
-83:                                               ; preds = %80
-  %84 = call ptr @_ZNSt6vectorIP6colvarSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %82) #6
-  %85 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.320", ptr %11, i32 0, i32 0
-  store ptr %84, ptr %85, align 8
-  %86 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP6colvarSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  br i1 %86, label %87, label %103
+85:                                               ; preds = %82
+  %86 = call ptr @_ZNSt6vectorIP6colvarSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %84) #6
+  %87 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.320", ptr %11, i32 0, i32 0
+  store ptr %86, ptr %87, align 8
+  %88 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP6colvarSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #6
+  br i1 %88, label %89, label %105
 
-87:                                               ; preds = %83
-  %88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP6colvarSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, %14
-  br i1 %90, label %91, label %100
+89:                                               ; preds = %85
+  %90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP6colvarSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp eq ptr %91, %14
+  br i1 %92, label %93, label %102
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %9, align 8
-  %93 = invoke noundef ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull align 8 dereferenceable(616) %92)
-          to label %94 unwind label %144
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %9, align 8
+  %95 = invoke noundef ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull align 8 dereferenceable(616) %94)
+          to label %96 unwind label %146
 
-94:                                               ; preds = %91
+96:                                               ; preds = %93
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKP6colvarSt6vectorIS2_SaIS2_EEEC2IPS2_vEERKNS0_IT_S7_EE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %10) #6
-  %95 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.321", ptr %12, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  %97 = invoke ptr @_ZNSt6vectorIP6colvarSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr %96)
-          to label %98 unwind label %144
+  %97 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.321", ptr %12, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  %99 = invoke ptr @_ZNSt6vectorIP6colvarSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr %98)
+          to label %100 unwind label %146
 
-98:                                               ; preds = %94
-  %99 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.320", ptr %13, i32 0, i32 0
-  store ptr %97, ptr %99, align 8
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.320", ptr %13, i32 0, i32 0
+  store ptr %99, ptr %101, align 8
+  br label %105
+
+102:                                              ; preds = %89
   br label %103
 
-100:                                              ; preds = %87
-  br label %101
+103:                                              ; preds = %102
+  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPP6colvarSt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
+  br label %82, !llvm.loop !73
 
-101:                                              ; preds = %100
-  %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPP6colvarSt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
-  br label %80, !llvm.loop !73
+105:                                              ; preds = %100, %85
+  %106 = load ptr, ptr %9, align 8
+  invoke void @_ZN12colvarmodule14config_changedEv(ptr noundef nonnull align 8 dereferenceable(616) %106)
+          to label %107 unwind label %146
 
-103:                                              ; preds = %98, %83
-  %104 = load ptr, ptr %9, align 8
-  invoke void @_ZN12colvarmodule14config_changedEv(ptr noundef nonnull align 8 dereferenceable(616) %104)
-          to label %105 unwind label %144
-
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 65
-  call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %106) #6
-  %107 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 64
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %107) #6
-  %108 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 63
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %108) #6
-  %109 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 62
-  call void @_ZNSt6vectorIPK11colvarvalueSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #6
-  %110 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 61
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #6
-  %111 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 60
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %111) #6
-  %112 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 59
-  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #6
-  %113 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 55
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %113) #6
-  %114 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #6
-  %115 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 50
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #6
-  %116 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 49
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %116) #6
-  %117 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 43
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 65
+  call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %108) #6
+  %109 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 64
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #6
+  %110 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 63
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %110) #6
+  %111 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 62
+  call void @_ZNSt6vectorIPK11colvarvalueSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #6
+  %112 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #6
+  %113 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 60
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %113) #6
+  %114 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 59
+  call void @_ZNSt6vectorIPN6colvar3cvcESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #6
+  %115 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 55
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %115) #6
+  %116 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #6
+  %117 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #6
-  %118 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 41
-  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %118) #6
-  %119 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 38
-  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %119) #6
-  %120 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 37
+  %118 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 49
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %118) #6
+  %119 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 43
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #6
+  %120 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 41
   call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %120) #6
-  %121 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 35
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %121) #6
-  %122 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 34
-  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %122) #6
-  %123 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 29
+  %121 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 38
+  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %121) #6
+  %122 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 37
+  call void @_ZNSt7__cxx114listINS0_I11colvarvalueSaIS1_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %122) #6
+  %123 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 35
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %123) #6
-  %124 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 28
+  %124 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 34
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %124) #6
-  %125 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 24
+  %125 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 29
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %125) #6
-  %126 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 23
+  %126 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 28
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %126) #6
-  %127 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 22
+  %127 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 24
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %127) #6
-  %128 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 21
+  %128 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 23
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %128) #6
-  %129 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 20
+  %129 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 22
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %129) #6
-  %130 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 19
+  %130 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 21
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %130) #6
-  %131 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 18
+  %131 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 20
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %131) #6
-  %132 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 17
+  %132 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 19
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %132) #6
-  %133 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 12
+  %133 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 18
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %133) #6
-  %134 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 11
+  %134 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 17
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %134) #6
-  %135 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 10
+  %135 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 12
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %135) #6
-  %136 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 9
+  %136 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 11
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %136) #6
-  %137 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 8
+  %137 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 10
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %137) #6
-  %138 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 7
+  %138 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 9
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %138) #6
-  %139 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 6
+  %139 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 8
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %139) #6
-  %140 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 5
+  %140 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 7
   call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %140) #6
-  %141 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
-  call void @_ZNSt6vectorIP10colvarbiasSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %141) #6
-  %142 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %142) #6
-  %143 = getelementptr inbounds i8, ptr %14, i64 320
-  call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %143) #6
+  %141 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 6
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %141) #6
+  %142 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 5
+  call void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %142) #6
+  %143 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 4
+  call void @_ZNSt6vectorIP10colvarbiasSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %143) #6
+  %144 = getelementptr inbounds %class.colvar, ptr %14, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #6
+  %145 = getelementptr inbounds i8, ptr %14, i64 320
+  call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %145) #6
   call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %14) #6
   ret void
 
-144:                                              ; preds = %103, %94, %91, %80, %74, %71, %59, %53, %52, %47, %38, %28, %25, %23, %19, %1
-  %145 = landingpad { ptr, i32 }
+146:                                              ; preds = %105, %96, %93, %82, %76, %73, %61, %55, %54, %49, %40, %30, %27, %25, %21, %1
+  %147 = landingpad { ptr, i32 }
           catch ptr null
-  %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #20
+  %148 = extractvalue { ptr, i32 } %147, 0
+  call void @__clang_call_terminate(ptr %148) #20
   unreachable
 }
 

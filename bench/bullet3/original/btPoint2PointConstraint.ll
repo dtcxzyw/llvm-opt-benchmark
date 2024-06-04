@@ -199,7 +199,8 @@ entry:
   %0 = load ptr, ptr %rbA.addr, align 8
   %1 = load ptr, ptr %rbB.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV23btPoint2PointConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV23btPoint2PointConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_jac = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jac, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btJacobianEntry, ptr %array.begin, i64 3
@@ -217,11 +218,11 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_pivotInA = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %pivotInA.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_pivotInA, ptr align 4 %2, i64 16, i1 false)
+  %3 = load ptr, ptr %pivotInA.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_pivotInA, ptr align 4 %3, i64 16, i1 false)
   %m_pivotInB = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %pivotInB.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_pivotInB, ptr align 4 %3, i64 16, i1 false)
+  %4 = load ptr, ptr %pivotInB.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_pivotInB, ptr align 4 %4, i64 16, i1 false)
   %m_flags = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 4
   store i32 0, ptr %m_flags, align 4
   %m_useSolveConstraintObsolete = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 7
@@ -234,12 +235,12 @@ invoke.cont2:                                     ; preds = %arrayctor.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.cont, %arrayctor.loop
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
   br label %eh.resume
 
@@ -306,7 +307,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %rbA.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBody(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(744) %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV23btPoint2PointConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV23btPoint2PointConstraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_jac = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jac, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btJacobianEntry, ptr %array.begin, i64 3
@@ -324,26 +326,26 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_pivotInA = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %pivotInA.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_pivotInA, ptr align 4 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %pivotInA.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_pivotInA, ptr align 4 %2, i64 16, i1 false)
   %m_pivotInB = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %rbA.addr, align 8
-  %call = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZNK11btRigidBody24getCenterOfMassTransformEv(ptr noundef nonnull align 8 dereferenceable(744) %2)
+  %3 = load ptr, ptr %rbA.addr, align 8
+  %call = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZNK11btRigidBody24getCenterOfMassTransformEv(ptr noundef nonnull align 8 dereferenceable(744) %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %arrayctor.cont
-  %3 = load ptr, ptr %pivotInA.addr, align 8
-  %call4 = invoke { <2 x float>, <2 x float> } @_ZNK11btTransformclERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %call, ptr noundef nonnull align 4 dereferenceable(16) %3)
+  %4 = load ptr, ptr %pivotInA.addr, align 8
+  %call4 = invoke { <2 x float>, <2 x float> } @_ZNK11btTransformclERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %call, ptr noundef nonnull align 4 dereferenceable(16) %4)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %coerce.dive = getelementptr inbounds %class.btVector3, ptr %m_pivotInB, i32 0, i32 0
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %5 = extractvalue { <2 x float>, <2 x float> } %call4, 0
-  store <2 x float> %5, ptr %4, align 4
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %7 = extractvalue { <2 x float>, <2 x float> } %call4, 1
-  store <2 x float> %7, ptr %6, align 4
+  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
+  %6 = extractvalue { <2 x float>, <2 x float> } %call4, 0
+  store <2 x float> %6, ptr %5, align 4
+  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
+  %8 = extractvalue { <2 x float>, <2 x float> } %call4, 1
+  store <2 x float> %8, ptr %7, align 4
   %m_flags = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 4
   store i32 0, ptr %m_flags, align 4
   %m_useSolveConstraintObsolete = getelementptr inbounds %class.btPoint2PointConstraint, ptr %this1, i32 0, i32 7
@@ -356,12 +358,12 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont2, %arrayctor.cont, %arrayctor.loop
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
   br label %eh.resume
 
@@ -1573,7 +1575,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

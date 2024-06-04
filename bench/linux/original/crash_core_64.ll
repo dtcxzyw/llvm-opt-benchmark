@@ -26,19 +26,24 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @arch_crash_save_vmcoreinfo() local_unnamed_addr #0 align 16 {
   %1 = load i64, ptr @phys_base, align 8
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i64 noundef %1) #2
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef ptrtoint (ptr @init_top_pgt to i64)) #2
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #2
-          to label %3 [label %3, label %2], !srcloc !5
+  %2 = ptrtoint ptr @init_top_pgt to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %2) #2
+  %3 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull %3) #2
+          to label %5 [label %5, label %4], !srcloc !5
 
-2:                                                ; preds = %0
-  br label %3
+4:                                                ; preds = %0
+  br label %5
 
-3:                                                ; preds = %2, %0, %0
-  %4 = phi i32 [ 0, %2 ], [ 1, %0 ], [ 1, %0 ]
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.4, i32 noundef %4) #2
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i64 noundef ptrtoint (ptr @node_data to i64)) #2
+5:                                                ; preds = %4, %0, %0
+  %6 = phi i32 [ 0, %4 ], [ 1, %0 ], [ 1, %0 ]
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.4, i32 noundef %6) #2
+  %7 = ptrtoint ptr @node_data to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i64 noundef %7) #2
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i64 noundef 64) #2
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.7, i64 noundef sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432)) #2
+  %8 = ptrtoint ptr @_text to i64
+  %9 = sub i64 %8, -2130706432
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.7, i64 noundef %9) #2
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i64 noundef 1073741824) #2
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i64 noundef 0) #2
   ret void

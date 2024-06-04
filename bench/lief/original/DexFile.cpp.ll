@@ -205,60 +205,61 @@ define void @_ZN4LIEF3OAT7DexFileC2ERKS1_(ptr noundef nonnull align 8 dereferenc
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3OAT7DexFileE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %23
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3OAT7DexFileE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %24
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %14, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 16, i1 false)
-  %16 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %7, i32 0, i32 5
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %17, i32 0, i32 5
-  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %19 unwind label %27
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %16, i64 16, i1 false)
+  %17 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %7, i32 0, i32 5
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %18, i32 0, i32 5
+  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %28
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %7, i32 0, i32 6
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %21, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %22, i64 12, i1 false)
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %7, i32 0, i32 6
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %22, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %23, i64 12, i1 false)
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %31
-
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+28:                                               ; preds = %13
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #10
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 declare void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -558,23 +559,24 @@ define void @_ZN4LIEF3OAT7DexFileC2Ev(ptr noundef nonnull align 8 dereferenceabl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3OAT7DexFileE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
-  %5 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 3
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 4
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
-  %9 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 6
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 7
-  store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 8
-  store i32 0, ptr %11, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3OAT7DexFileE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
+  %6 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 3
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 4
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
+  %10 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 6
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 7
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 8
+  store i32 0, ptr %12, align 8
   ret void
 }
 
@@ -792,11 +794,12 @@ define void @_ZN4LIEF3OAT7DexFileD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3OAT7DexFileE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
-  %5 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3OAT7DexFileE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
+  %6 = getelementptr inbounds %"class.LIEF::OAT::DexFile", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }

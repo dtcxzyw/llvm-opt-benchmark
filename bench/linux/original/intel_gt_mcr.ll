@@ -1515,113 +1515,121 @@ define dso_local i32 @intel_gt_mcr_wait_for_reg(ptr noundef %0, i32 %1, i32 noun
 10:                                               ; preds = %8, %6
   %11 = add i32 %4, -1
   %12 = icmp ult i32 %11, 20000
-  br i1 %12, label %13, label %50
+  br i1 %12, label %13, label %58
 
 13:                                               ; preds = %10
   %14 = mul nuw nsw i32 %4, 1000
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !42
+  %15 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %16 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, ptr nonnull elementtype(i32) %16) #8, !srcloc !42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !43
-  %15 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !44
-  %16 = tail call i64 @local_clock() #8
-  br label %17
+  %17 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %18 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17) #10, !srcloc !44
+  %19 = tail call i64 @local_clock() #8
+  br label %20
 
-17:                                               ; preds = %44, %13
-  %18 = phi i64 [ %16, %13 ], [ %46, %44 ]
-  %19 = phi i32 [ %14, %13 ], [ %47, %44 ]
-  %20 = phi i32 [ 0, %13 ], [ %48, %44 ]
-  %21 = phi i32 [ %15, %13 ], [ %49, %44 ]
-  %22 = tail call i64 @local_clock() #8
+20:                                               ; preds = %52, %13
+  %21 = phi i64 [ %19, %13 ], [ %54, %52 ]
+  %22 = phi i32 [ %14, %13 ], [ %55, %52 ]
+  %23 = phi i32 [ 0, %13 ], [ %56, %52 ]
+  %24 = phi i32 [ %18, %13 ], [ %57, %52 ]
+  %25 = tail call i64 @local_clock() #8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !45
-  %23 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !46
-  %24 = icmp ult i8 %23, 2
-  tail call void @llvm.assume(i1 %24)
-  %25 = icmp eq i8 %23, 0
-  br i1 %25, label %29, label %26, !prof !17
+  %26 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %27 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %28 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, ptr nonnull elementtype(i32) %27) #8, !srcloc !46
+  %29 = icmp ult i8 %28, 2
+  tail call void @llvm.assume(i1 %29)
+  %30 = icmp eq i8 %28, 0
+  br i1 %30, label %34, label %31, !prof !17
 
-26:                                               ; preds = %17
-  %27 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %28 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %27) #8, !srcloc !47
-  tail call void @llvm.write_register.i64(metadata !0, i64 %28)
-  br label %29
+31:                                               ; preds = %20
+  %32 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %33 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %32) #8, !srcloc !47
+  tail call void @llvm.write_register.i64(metadata !0, i64 %33)
+  br label %34
 
-29:                                               ; preds = %26, %17
+34:                                               ; preds = %31, %20
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !48
-  %30 = tail call i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 %1)
-  %31 = and i32 %30, %2
-  %32 = icmp eq i32 %31, %3
-  br i1 %32, label %44, label %33
+  %35 = tail call i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 %1)
+  %36 = and i32 %35, %2
+  %37 = icmp eq i32 %36, %3
+  br i1 %37, label %52, label %38
 
-33:                                               ; preds = %29
-  %34 = sub i64 %22, %18
-  %35 = sext i32 %19 to i64
-  %36 = icmp ult i64 %34, %35
-  br i1 %36, label %37, label %44
+38:                                               ; preds = %34
+  %39 = sub i64 %25, %21
+  %40 = sext i32 %22 to i64
+  %41 = icmp ult i64 %39, %40
+  br i1 %41, label %42, label %52
 
-37:                                               ; preds = %33
+42:                                               ; preds = %38
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !49
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !42
+  %43 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %44 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %43, ptr nonnull elementtype(i32) %44) #8, !srcloc !42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !50
-  %38 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #10, !srcloc !51
-  %39 = icmp eq i32 %21, %38
-  br i1 %39, label %44, label %40, !prof !17
+  %45 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %46 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45) #10, !srcloc !51
+  %47 = icmp eq i32 %24, %46
+  br i1 %47, label %52, label %48, !prof !17
 
-40:                                               ; preds = %37
-  %41 = trunc i64 %34 to i32
-  %42 = sub i32 %19, %41
-  %43 = tail call i64 @local_clock() #8
-  br label %44
+48:                                               ; preds = %42
+  %49 = trunc i64 %39 to i32
+  %50 = sub i32 %22, %49
+  %51 = tail call i64 @local_clock() #8
+  br label %52
 
-44:                                               ; preds = %40, %37, %33, %29
-  %45 = phi i1 [ false, %29 ], [ false, %33 ], [ true, %40 ], [ true, %37 ]
-  %46 = phi i64 [ %18, %29 ], [ %18, %33 ], [ %43, %40 ], [ %18, %37 ]
-  %47 = phi i32 [ %19, %29 ], [ %19, %33 ], [ %42, %40 ], [ %19, %37 ]
-  %48 = phi i32 [ 0, %29 ], [ -110, %33 ], [ %20, %40 ], [ %20, %37 ]
-  %49 = phi i32 [ %21, %29 ], [ %21, %33 ], [ %38, %40 ], [ %21, %37 ]
-  br i1 %45, label %17, label %50
+52:                                               ; preds = %48, %42, %38, %34
+  %53 = phi i1 [ false, %34 ], [ false, %38 ], [ true, %48 ], [ true, %42 ]
+  %54 = phi i64 [ %21, %34 ], [ %21, %38 ], [ %51, %48 ], [ %21, %42 ]
+  %55 = phi i32 [ %22, %34 ], [ %22, %38 ], [ %50, %48 ], [ %22, %42 ]
+  %56 = phi i32 [ 0, %34 ], [ -110, %38 ], [ %23, %48 ], [ %23, %42 ]
+  %57 = phi i32 [ %24, %34 ], [ %24, %38 ], [ %46, %48 ], [ %24, %42 ]
+  br i1 %53, label %20, label %58
 
-50:                                               ; preds = %44, %10
-  %51 = phi i32 [ -110, %10 ], [ %48, %44 ]
-  %52 = icmp ne i32 %51, 0
-  %53 = and i1 %7, %52
-  br i1 %53, label %54, label %78
+58:                                               ; preds = %52, %10
+  %59 = phi i32 [ -110, %10 ], [ %56, %52 ]
+  %60 = icmp ne i32 %59, 0
+  %61 = and i1 %7, %60
+  br i1 %61, label %62, label %86
 
-54:                                               ; preds = %50
-  %55 = tail call i64 @ktime_get_raw() #8
-  %56 = mul i32 %5, 1000
-  %57 = zext i32 %56 to i64
-  %58 = mul nuw nsw i64 %57, 1000
-  %59 = add i64 %55, %58
-  %60 = tail call i32 @__SCT__might_resched() #8
-  br label %61
+62:                                               ; preds = %58
+  %63 = tail call i64 @ktime_get_raw() #8
+  %64 = mul i32 %5, 1000
+  %65 = zext i32 %64 to i64
+  %66 = mul nuw nsw i64 %65, 1000
+  %67 = add i64 %63, %66
+  %68 = tail call i32 @__SCT__might_resched() #8
+  br label %69
 
-61:                                               ; preds = %75, %54
-  %62 = phi i64 [ 10, %54 ], [ %76, %75 ]
-  %63 = phi i32 [ 0, %54 ], [ %77, %75 ]
-  %64 = tail call i64 @ktime_get_raw() #8
-  %65 = icmp sle i64 %64, %59
+69:                                               ; preds = %83, %62
+  %70 = phi i64 [ 10, %62 ], [ %84, %83 ]
+  %71 = phi i32 [ 0, %62 ], [ %85, %83 ]
+  %72 = tail call i64 @ktime_get_raw() #8
+  %73 = icmp sle i64 %72, %67
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !52
-  %66 = tail call i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 %1)
-  %67 = and i32 %66, %2
-  %68 = icmp ne i32 %67, %3
-  %69 = select i1 %68, i1 %65, i1 false
-  %70 = select i1 %68, i32 -110, i32 0
-  br i1 %69, label %71, label %75
+  %74 = tail call i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 %1)
+  %75 = and i32 %74, %2
+  %76 = icmp ne i32 %75, %3
+  %77 = select i1 %76, i1 %73, i1 false
+  %78 = select i1 %76, i32 -110, i32 0
+  br i1 %77, label %79, label %83
 
-71:                                               ; preds = %61
-  %72 = shl i64 %62, 1
-  tail call void @usleep_range_state(i64 noundef %62, i64 noundef %72, i32 noundef 2) #8
-  %73 = icmp slt i64 %62, 1000
-  %74 = select i1 %73, i64 %72, i64 %62
-  br label %75
+79:                                               ; preds = %69
+  %80 = shl i64 %70, 1
+  tail call void @usleep_range_state(i64 noundef %70, i64 noundef %80, i32 noundef 2) #8
+  %81 = icmp slt i64 %70, 1000
+  %82 = select i1 %81, i64 %80, i64 %70
+  br label %83
 
-75:                                               ; preds = %71, %61
-  %76 = phi i64 [ %74, %71 ], [ %62, %61 ]
-  %77 = phi i32 [ %63, %71 ], [ %70, %61 ]
-  br i1 %69, label %61, label %78
+83:                                               ; preds = %79, %69
+  %84 = phi i64 [ %82, %79 ], [ %70, %69 ]
+  %85 = phi i32 [ %71, %79 ], [ %78, %69 ]
+  br i1 %77, label %69, label %86
 
-78:                                               ; preds = %75, %50
-  %79 = phi i32 [ %51, %50 ], [ %77, %75 ]
-  ret i32 %79
+86:                                               ; preds = %83, %58
+  %87 = phi i32 [ %59, %58 ], [ %85, %83 ]
+  ret i32 %87
 }
 
 ; Function Attrs: null_pointer_is_valid

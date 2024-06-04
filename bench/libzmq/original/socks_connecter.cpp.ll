@@ -137,9 +137,11 @@ entry:
   %4 = load i8, ptr %delayed_start_.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN3zmq23stream_connecter_base_tC2EPNS_11io_thread_tEPNS_14session_base_tERKNS_9options_tEPNS_9address_tEb(ptr noundef nonnull align 8 dereferenceable(1544) %this1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1336) %2, ptr noundef %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq17socks_connecter_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq17socks_connecter_tE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq17socks_connecter_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq17socks_connecter_tE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   %_greeting_encoder = getelementptr inbounds %"class.zmq::socks_connecter_t", ptr %this1, i32 0, i32 1
   invoke void @_ZN3zmq24socks_greeting_encoder_tC1Ev(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder)
           to label %invoke.cont unwind label %lpad
@@ -171,8 +173,8 @@ invoke.cont5:                                     ; preds = %invoke.cont4
 
 invoke.cont6:                                     ; preds = %invoke.cont5
   %_proxy_addr = getelementptr inbounds %"class.zmq::socks_connecter_t", ptr %this1, i32 0, i32 7
-  %5 = load ptr, ptr %proxy_addr_.addr, align 8
-  store ptr %5, ptr %_proxy_addr, align 8
+  %7 = load ptr, ptr %proxy_addr_.addr, align 8
+  store ptr %7, ptr %_proxy_addr, align 8
   %_auth_method = getelementptr inbounds %"class.zmq::socks_connecter_t", ptr %this1, i32 0, i32 8
   store i32 0, ptr %_auth_method, align 8
   %_auth_username = getelementptr inbounds %"class.zmq::socks_connecter_t", ptr %this1, i32 0, i32 10
@@ -185,8 +187,8 @@ invoke.cont6:                                     ; preds = %invoke.cont5
 
 do.body:                                          ; preds = %invoke.cont6
   %_addr = getelementptr inbounds %"class.zmq::stream_connecter_base_t", ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %_addr, align 8
-  %protocol = getelementptr inbounds %"struct.zmq::address_t", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %_addr, align 8
+  %protocol = getelementptr inbounds %"struct.zmq::address_t", ptr %8, i32 0, i32 0
   %call = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %protocol, ptr noundef @_ZN3zmq13protocol_nameL3tcpE)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -195,13 +197,13 @@ invoke.cont8:                                     ; preds = %do.body
   br i1 %lnot, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont8
-  %7 = load ptr, ptr @stderr, align 8
-  %call10 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 39)
+  %9 = load ptr, ptr @stderr, align 8
+  %call10 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 39)
           to label %invoke.cont9 unwind label %lpad7
 
 invoke.cont9:                                     ; preds = %if.then
-  %8 = load ptr, ptr @stderr, align 8
-  %call12 = invoke i32 @fflush(ptr noundef %8)
+  %10 = load ptr, ptr @stderr, align 8
+  %call12 = invoke i32 @fflush(ptr noundef %10)
           to label %invoke.cont11 unwind label %lpad7
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -212,21 +214,21 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %do.end, %invoke.cont11, %invoke.cont9, %if.then, %do.body
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_auth_password) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_auth_username) #10
   br label %ehcleanup
@@ -239,9 +241,9 @@ do.cond:                                          ; preds = %if.end
 
 do.end:                                           ; preds = %do.cond
   %_proxy_addr14 = getelementptr inbounds %"class.zmq::socks_connecter_t", ptr %this1, i32 0, i32 7
-  %15 = load ptr, ptr %_proxy_addr14, align 8
+  %17 = load ptr, ptr %_proxy_addr14, align 8
   %_endpoint = getelementptr inbounds %"class.zmq::stream_connecter_base_t", ptr %this1, i32 0, i32 5
-  %call16 = invoke noundef i32 @_ZNK3zmq9address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
+  %call16 = invoke noundef i32 @_ZNK3zmq9address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
           to label %invoke.cont15 unwind label %lpad7
 
 invoke.cont15:                                    ; preds = %do.end

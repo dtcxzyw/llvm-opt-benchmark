@@ -17075,10 +17075,10 @@ define internal ptr @get_th(ptr noundef %0, i32 noundef %1) #0 {
 
 54:                                               ; preds = %53, %44, %41
   %55 = load i32, ptr %7, align 4
-  switch i32 %55, label %77 [
+  switch i32 %55, label %81 [
     i32 49, label %56
     i32 50, label %63
-    i32 51, label %70
+    i32 51, label %72
   ]
 
 56:                                               ; preds = %54
@@ -17089,61 +17089,67 @@ define internal ptr @get_th(ptr noundef %0, i32 noundef %1) #0 {
 59:                                               ; preds = %56
   %60 = load ptr, ptr @numTH, align 16
   store ptr %60, ptr %3, align 8
-  br label %84
+  br label %90
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr @numth, align 16
   store ptr %62, ptr %3, align 8
-  br label %84
+  br label %90
 
 63:                                               ; preds = %54
   %64 = load i32, ptr %5, align 4
   %65 = icmp eq i32 %64, 1
-  br i1 %65, label %66, label %68
+  br i1 %65, label %66, label %69
 
 66:                                               ; preds = %63
-  %67 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @numTH, i64 0, i64 1), align 8
-  store ptr %67, ptr %3, align 8
-  br label %84
+  %67 = getelementptr inbounds [5 x ptr], ptr @numTH, i64 0, i64 1
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %3, align 8
+  br label %90
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @numth, i64 0, i64 1), align 8
-  store ptr %69, ptr %3, align 8
-  br label %84
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds [5 x ptr], ptr @numth, i64 0, i64 1
+  %71 = load ptr, ptr %70, align 8
+  store ptr %71, ptr %3, align 8
+  br label %90
 
-70:                                               ; preds = %54
-  %71 = load i32, ptr %5, align 4
-  %72 = icmp eq i32 %71, 1
-  br i1 %72, label %73, label %75
+72:                                               ; preds = %54
+  %73 = load i32, ptr %5, align 4
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %75, label %78
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @numTH, i64 0, i64 2), align 16
-  store ptr %74, ptr %3, align 8
-  br label %84
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds [5 x ptr], ptr @numTH, i64 0, i64 2
+  %77 = load ptr, ptr %76, align 16
+  store ptr %77, ptr %3, align 8
+  br label %90
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @numth, i64 0, i64 2), align 16
-  store ptr %76, ptr %3, align 8
-  br label %84
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds [5 x ptr], ptr @numth, i64 0, i64 2
+  %80 = load ptr, ptr %79, align 16
+  store ptr %80, ptr %3, align 8
+  br label %90
 
-77:                                               ; preds = %54
-  %78 = load i32, ptr %5, align 4
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %82
+81:                                               ; preds = %54
+  %82 = load i32, ptr %5, align 4
+  %83 = icmp eq i32 %82, 1
+  br i1 %83, label %84, label %87
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @numTH, i64 0, i64 3), align 8
-  store ptr %81, ptr %3, align 8
-  br label %84
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds [5 x ptr], ptr @numTH, i64 0, i64 3
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %3, align 8
+  br label %90
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @numth, i64 0, i64 3), align 8
-  store ptr %83, ptr %3, align 8
-  br label %84
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds [5 x ptr], ptr @numth, i64 0, i64 3
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %3, align 8
+  br label %90
 
-84:                                               ; preds = %82, %80, %75, %73, %68, %66, %61, %59
-  %85 = load ptr, ptr %3, align 8
-  ret ptr %85
+90:                                               ; preds = %87, %84, %78, %75, %69, %66, %61, %59
+  %91 = load ptr, ptr %3, align 8
+  ret ptr %91
 }
 
 ; Function Attrs: nounwind uwtable

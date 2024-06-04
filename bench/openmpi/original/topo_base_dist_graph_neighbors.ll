@@ -52,7 +52,7 @@ define i32 @mca_topo_base_dist_graph_neighbors(ptr noundef %0, i32 noundef %1, p
 
 28:                                               ; preds = %7
   store i32 -13, ptr %8, align 4
-  br label %130
+  br label %132
 
 29:                                               ; preds = %7
   %30 = load i32, ptr %10, align 4
@@ -88,11 +88,11 @@ define i32 @mca_topo_base_dist_graph_neighbors(ptr noundef %0, i32 noundef %1, p
   store i32 0, ptr %17, align 4
   br label %50
 
-50:                                               ; preds = %86, %49
+50:                                               ; preds = %87, %49
   %51 = load i32, ptr %17, align 4
   %52 = load i32, ptr %10, align 4
   %53 = icmp slt i32 %51, %52
-  br i1 %53, label %54, label %89
+  br i1 %53, label %54, label %90
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %16, align 8
@@ -108,105 +108,107 @@ define i32 @mca_topo_base_dist_graph_neighbors(ptr noundef %0, i32 noundef %1, p
   %65 = getelementptr inbounds i32, ptr %62, i64 %64
   store i32 %61, ptr %65, align 4
   %66 = load ptr, ptr %12, align 8
-  %67 = icmp ne ptr inttoptr (i64 2 to ptr), %66
-  br i1 %67, label %68, label %85
+  %67 = inttoptr i64 2 to ptr
+  %68 = icmp ne ptr %67, %66
+  br i1 %68, label %69, label %86
 
-68:                                               ; preds = %54
-  %69 = load ptr, ptr %16, align 8
-  %70 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %69, i32 0, i32 2
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp ne ptr null, %71
-  br i1 %72, label %73, label %85
+69:                                               ; preds = %54
+  %70 = load ptr, ptr %16, align 8
+  %71 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %70, i32 0, i32 2
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp ne ptr null, %72
+  br i1 %73, label %74, label %86
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %16, align 8
-  %75 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %17, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %76, i64 %78
-  %80 = load i32, ptr %79, align 4
-  %81 = load ptr, ptr %12, align 8
-  %82 = load i32, ptr %17, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %81, i64 %83
-  store i32 %80, ptr %84, align 4
-  br label %85
-
-85:                                               ; preds = %73, %68, %54
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %16, align 8
+  %76 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %17, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i32, ptr %77, i64 %79
+  %81 = load i32, ptr %80, align 4
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i32, ptr %17, align 4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i32, ptr %82, i64 %84
+  store i32 %81, ptr %85, align 4
   br label %86
 
-86:                                               ; preds = %85
-  %87 = load i32, ptr %17, align 4
-  %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %17, align 4
+86:                                               ; preds = %74, %69, %54
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load i32, ptr %17, align 4
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %17, align 4
   br label %50, !llvm.loop !4
 
-89:                                               ; preds = %50
+90:                                               ; preds = %50
   store i32 0, ptr %17, align 4
-  br label %90
+  br label %91
 
-90:                                               ; preds = %126, %89
-  %91 = load i32, ptr %17, align 4
-  %92 = load i32, ptr %13, align 4
-  %93 = icmp slt i32 %91, %92
-  br i1 %93, label %94, label %129
+91:                                               ; preds = %128, %90
+  %92 = load i32, ptr %17, align 4
+  %93 = load i32, ptr %13, align 4
+  %94 = icmp slt i32 %92, %93
+  br i1 %94, label %95, label %131
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %16, align 8
-  %96 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %95, i32 0, i32 3
-  %97 = load ptr, ptr %96, align 8
-  %98 = load i32, ptr %17, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %97, i64 %99
-  %101 = load i32, ptr %100, align 4
-  %102 = load ptr, ptr %14, align 8
-  %103 = load i32, ptr %17, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i32, ptr %102, i64 %104
-  store i32 %101, ptr %105, align 4
-  %106 = load ptr, ptr %15, align 8
-  %107 = icmp ne ptr inttoptr (i64 2 to ptr), %106
-  br i1 %107, label %108, label %125
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %16, align 8
+  %97 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %96, i32 0, i32 3
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %17, align 4
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i32, ptr %98, i64 %100
+  %102 = load i32, ptr %101, align 4
+  %103 = load ptr, ptr %14, align 8
+  %104 = load i32, ptr %17, align 4
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i32, ptr %103, i64 %105
+  store i32 %102, ptr %106, align 4
+  %107 = load ptr, ptr %15, align 8
+  %108 = inttoptr i64 2 to ptr
+  %109 = icmp ne ptr %108, %107
+  br i1 %109, label %110, label %127
 
-108:                                              ; preds = %94
-  %109 = load ptr, ptr %16, align 8
-  %110 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %109, i32 0, i32 4
-  %111 = load ptr, ptr %110, align 8
-  %112 = icmp ne ptr null, %111
-  br i1 %112, label %113, label %125
+110:                                              ; preds = %95
+  %111 = load ptr, ptr %16, align 8
+  %112 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %111, i32 0, i32 4
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp ne ptr null, %113
+  br i1 %114, label %115, label %127
 
-113:                                              ; preds = %108
-  %114 = load ptr, ptr %16, align 8
-  %115 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %114, i32 0, i32 4
-  %116 = load ptr, ptr %115, align 8
-  %117 = load i32, ptr %17, align 4
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i32, ptr %116, i64 %118
-  %120 = load i32, ptr %119, align 4
-  %121 = load ptr, ptr %15, align 8
-  %122 = load i32, ptr %17, align 4
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %121, i64 %123
-  store i32 %120, ptr %124, align 4
-  br label %125
+115:                                              ; preds = %110
+  %116 = load ptr, ptr %16, align 8
+  %117 = getelementptr inbounds %struct.mca_topo_base_comm_dist_graph_2_2_0_t, ptr %116, i32 0, i32 4
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i32, ptr %17, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i32, ptr %118, i64 %120
+  %122 = load i32, ptr %121, align 4
+  %123 = load ptr, ptr %15, align 8
+  %124 = load i32, ptr %17, align 4
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i32, ptr %123, i64 %125
+  store i32 %122, ptr %126, align 4
+  br label %127
 
-125:                                              ; preds = %113, %108, %94
-  br label %126
+127:                                              ; preds = %115, %110, %95
+  br label %128
 
-126:                                              ; preds = %125
-  %127 = load i32, ptr %17, align 4
-  %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %17, align 4
-  br label %90, !llvm.loop !6
+128:                                              ; preds = %127
+  %129 = load i32, ptr %17, align 4
+  %130 = add nsw i32 %129, 1
+  store i32 %130, ptr %17, align 4
+  br label %91, !llvm.loop !6
 
-129:                                              ; preds = %90
+131:                                              ; preds = %91
   store i32 0, ptr %8, align 4
-  br label %130
+  br label %132
 
-130:                                              ; preds = %129, %28
-  %131 = load i32, ptr %8, align 4
-  ret i32 %131
+132:                                              ; preds = %131, %28
+  %133 = load i32, ptr %8, align 4
+  ret i32 %133
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

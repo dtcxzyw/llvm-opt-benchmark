@@ -199,17 +199,18 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12b2WheelJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2WheelJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV12b2WheelJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %localAnchorA = getelementptr inbounds %struct.b2WheelJointDef, ptr %2, i32 0, i32 1
   %m_localAnchorA2 = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorA2, ptr align 4 %localAnchorA, i64 8, i1 false)
-  %2 = load ptr, ptr %def.addr, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2WheelJointDef, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %def.addr, align 8
+  %localAnchorB = getelementptr inbounds %struct.b2WheelJointDef, ptr %3, i32 0, i32 2
   %m_localAnchorB3 = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB3, ptr align 4 %localAnchorB, i64 8, i1 false)
-  %3 = load ptr, ptr %def.addr, align 8
-  %localAxisA = getelementptr inbounds %struct.b2WheelJointDef, ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %def.addr, align 8
+  %localAxisA = getelementptr inbounds %struct.b2WheelJointDef, ptr %4, i32 0, i32 3
   %m_localXAxisA4 = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localXAxisA4, ptr align 4 %localAxisA, i64 8, i1 false)
   %m_localXAxisA5 = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 3
@@ -238,37 +239,37 @@ invoke.cont:                                      ; preds = %entry
   store float 0.000000e+00, ptr %m_lowerImpulse, align 4
   %m_upperImpulse = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 9
   store float 0.000000e+00, ptr %m_upperImpulse, align 8
-  %4 = load ptr, ptr %def.addr, align 8
-  %lowerTranslation = getelementptr inbounds %struct.b2WheelJointDef, ptr %4, i32 0, i32 5
-  %5 = load float, ptr %lowerTranslation, align 8
+  %5 = load ptr, ptr %def.addr, align 8
+  %lowerTranslation = getelementptr inbounds %struct.b2WheelJointDef, ptr %5, i32 0, i32 5
+  %6 = load float, ptr %lowerTranslation, align 8
   %m_lowerTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 11
-  store float %5, ptr %m_lowerTranslation, align 8
-  %6 = load ptr, ptr %def.addr, align 8
-  %upperTranslation = getelementptr inbounds %struct.b2WheelJointDef, ptr %6, i32 0, i32 6
-  %7 = load float, ptr %upperTranslation, align 4
+  store float %6, ptr %m_lowerTranslation, align 8
+  %7 = load ptr, ptr %def.addr, align 8
+  %upperTranslation = getelementptr inbounds %struct.b2WheelJointDef, ptr %7, i32 0, i32 6
+  %8 = load float, ptr %upperTranslation, align 4
   %m_upperTranslation = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 12
-  store float %7, ptr %m_upperTranslation, align 4
-  %8 = load ptr, ptr %def.addr, align 8
-  %enableLimit = getelementptr inbounds %struct.b2WheelJointDef, ptr %8, i32 0, i32 4
-  %9 = load i8, ptr %enableLimit, align 4
-  %tobool = trunc i8 %9 to i1
+  store float %8, ptr %m_upperTranslation, align 4
+  %9 = load ptr, ptr %def.addr, align 8
+  %enableLimit = getelementptr inbounds %struct.b2WheelJointDef, ptr %9, i32 0, i32 4
+  %10 = load i8, ptr %enableLimit, align 4
+  %tobool = trunc i8 %10 to i1
   %m_enableLimit = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 15
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_enableLimit, align 8
-  %10 = load ptr, ptr %def.addr, align 8
-  %maxMotorTorque = getelementptr inbounds %struct.b2WheelJointDef, ptr %10, i32 0, i32 8
-  %11 = load float, ptr %maxMotorTorque, align 4
+  %11 = load ptr, ptr %def.addr, align 8
+  %maxMotorTorque = getelementptr inbounds %struct.b2WheelJointDef, ptr %11, i32 0, i32 8
+  %12 = load float, ptr %maxMotorTorque, align 4
   %m_maxMotorTorque = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 13
-  store float %11, ptr %m_maxMotorTorque, align 8
-  %12 = load ptr, ptr %def.addr, align 8
-  %motorSpeed = getelementptr inbounds %struct.b2WheelJointDef, ptr %12, i32 0, i32 9
-  %13 = load float, ptr %motorSpeed, align 8
+  store float %12, ptr %m_maxMotorTorque, align 8
+  %13 = load ptr, ptr %def.addr, align 8
+  %motorSpeed = getelementptr inbounds %struct.b2WheelJointDef, ptr %13, i32 0, i32 9
+  %14 = load float, ptr %motorSpeed, align 8
   %m_motorSpeed = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 14
-  store float %13, ptr %m_motorSpeed, align 4
-  %14 = load ptr, ptr %def.addr, align 8
-  %enableMotor = getelementptr inbounds %struct.b2WheelJointDef, ptr %14, i32 0, i32 7
-  %15 = load i8, ptr %enableMotor, align 8
-  %tobool7 = trunc i8 %15 to i1
+  store float %14, ptr %m_motorSpeed, align 4
+  %15 = load ptr, ptr %def.addr, align 8
+  %enableMotor = getelementptr inbounds %struct.b2WheelJointDef, ptr %15, i32 0, i32 7
+  %16 = load i8, ptr %enableMotor, align 8
+  %tobool7 = trunc i8 %16 to i1
   %m_enableMotor = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 16
   %frombool8 = zext i1 %tobool7 to i8
   store i8 %frombool8, ptr %m_enableMotor, align 1
@@ -286,25 +287,25 @@ invoke.cont10:                                    ; preds = %invoke.cont
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %16 = load ptr, ptr %def.addr, align 8
-  %stiffness = getelementptr inbounds %struct.b2WheelJointDef, ptr %16, i32 0, i32 10
-  %17 = load float, ptr %stiffness, align 4
+  %17 = load ptr, ptr %def.addr, align 8
+  %stiffness = getelementptr inbounds %struct.b2WheelJointDef, ptr %17, i32 0, i32 10
+  %18 = load float, ptr %stiffness, align 4
   %m_stiffness = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 18
-  store float %17, ptr %m_stiffness, align 4
-  %18 = load ptr, ptr %def.addr, align 8
-  %damping = getelementptr inbounds %struct.b2WheelJointDef, ptr %18, i32 0, i32 11
-  %19 = load float, ptr %damping, align 8
+  store float %18, ptr %m_stiffness, align 4
+  %19 = load ptr, ptr %def.addr, align 8
+  %damping = getelementptr inbounds %struct.b2WheelJointDef, ptr %19, i32 0, i32 11
+  %20 = load float, ptr %damping, align 8
   %m_damping = getelementptr inbounds %class.b2WheelJoint, ptr %this1, i32 0, i32 19
-  store float %19, ptr %m_damping, align 8
+  store float %20, ptr %m_damping, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont10, %invoke.cont, %entry
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #8
   br label %eh.resume
 

@@ -357,21 +357,22 @@ define dso_local void @_ZN15LinearAllocatorD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV15LinearAllocator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.LinearAllocator, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  invoke void @_Z6dtFreePv(ptr noundef %5)
-          to label %6 unwind label %7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV15LinearAllocator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.LinearAllocator, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  invoke void @_Z6dtFreePv(ptr noundef %6)
+          to label %7 unwind label %8
 
-6:                                                ; preds = %1
+7:                                                ; preds = %1
   call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #12
   unreachable
 }
 
@@ -1386,7 +1387,8 @@ define linkonce_odr dso_local void @_ZN16FastLZCompressorC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN21dtTileCacheCompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16FastLZCompressor, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV16FastLZCompressor, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3031,123 +3033,124 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV20Sample_TempObstacles, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 1
-  store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 6
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 7
-  store float 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 8
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 9
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 10
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 11
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 12
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 13
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 14
-  store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 15
-  store float 4.800000e+01, ptr %16, align 8
+  %6 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV20Sample_TempObstacles, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 1
+  store i8 0, ptr %7, align 8
+  %8 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 6
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 7
+  store float 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 8
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 9
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 10
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 11
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 12
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 13
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 14
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 15
+  store float 4.800000e+01, ptr %17, align 8
   invoke void @_ZN6Sample19resetCommonSettingsEv(ptr noundef nonnull align 8 dereferenceable(200) %5)
-          to label %17 unwind label %33
+          to label %18 unwind label %34
 
-17:                                               ; preds = %1
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #13
-          to label %19 unwind label %33
+18:                                               ; preds = %1
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #13
+          to label %20 unwind label %34
 
-19:                                               ; preds = %17
-  invoke void @_ZN15LinearAllocatorC2Em(ptr noundef nonnull align 8 dereferenceable(40) %18, i64 noundef 32000)
-          to label %20 unwind label %37
+20:                                               ; preds = %18
+  invoke void @_ZN15LinearAllocatorC2Em(ptr noundef nonnull align 8 dereferenceable(40) %19, i64 noundef 32000)
+          to label %21 unwind label %38
 
-20:                                               ; preds = %19
-  %21 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 3
-  store ptr %18, ptr %21, align 8
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #13
-          to label %23 unwind label %33
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 3
+  store ptr %19, ptr %22, align 8
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #13
+          to label %24 unwind label %34
 
-23:                                               ; preds = %20
-  call void @_ZN16FastLZCompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #10
-  %24 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 4
-  store ptr %22, ptr %24, align 8
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
-          to label %26 unwind label %33
+24:                                               ; preds = %21
+  call void @_ZN16FastLZCompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #10
+  %25 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 4
+  store ptr %23, ptr %25, align 8
+  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
+          to label %27 unwind label %34
 
-26:                                               ; preds = %23
-  invoke void @_ZN11MeshProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25)
-          to label %27 unwind label %41
+27:                                               ; preds = %24
+  invoke void @_ZN11MeshProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %28 unwind label %42
 
-27:                                               ; preds = %26
-  %28 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 5
-  store ptr %25, ptr %28, align 8
-  %29 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
-          to label %30 unwind label %33
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds %class.Sample_TempObstacles, ptr %5, i32 0, i32 5
+  store ptr %26, ptr %29, align 8
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
+          to label %31 unwind label %34
 
-30:                                               ; preds = %27
-  invoke void @_ZN22TempObstacleCreateToolC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29)
-          to label %31 unwind label %45
-
-31:                                               ; preds = %30
-  invoke void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef %29)
-          to label %32 unwind label %33
+31:                                               ; preds = %28
+  invoke void @_ZN22TempObstacleCreateToolC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30)
+          to label %32 unwind label %46
 
 32:                                               ; preds = %31
+  invoke void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef %30)
+          to label %33 unwind label %34
+
+33:                                               ; preds = %32
   ret void
 
-33:                                               ; preds = %31, %27, %23, %20, %17, %1
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %32, %28, %24, %21, %18, %1
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %3, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %4, align 4
-  br label %49
-
-37:                                               ; preds = %19
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %3, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %18) #11
-  br label %49
-
-41:                                               ; preds = %26
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %3, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %25) #11
-  br label %49
-
-45:                                               ; preds = %30
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %3, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %29) #11
-  br label %49
-
-49:                                               ; preds = %45, %41, %37, %33
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #10
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %3, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %4, align 4
   br label %50
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %3, align 8
-  %52 = load i32, ptr %4, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+38:                                               ; preds = %20
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %3, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %19) #11
+  br label %50
+
+42:                                               ; preds = %27
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %3, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %26) #11
+  br label %50
+
+46:                                               ; preds = %31
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %3, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %30) #11
+  br label %50
+
+50:                                               ; preds = %46, %42, %38, %34
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #10
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %3, align 8
+  %53 = load i32, ptr %4, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 }
 
 declare void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
@@ -3167,38 +3170,39 @@ define linkonce_odr dso_local void @_ZN15LinearAllocatorC2Em(ptr noundef nonnull
   store i64 %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN16dtTileCacheAllocC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV15LinearAllocator, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %struct.LinearAllocator, ptr %7, i32 0, i32 1
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %struct.LinearAllocator, ptr %7, i32 0, i32 2
-  store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds %struct.LinearAllocator, ptr %7, i32 0, i32 3
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV15LinearAllocator, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.LinearAllocator, ptr %7, i32 0, i32 1
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds %struct.LinearAllocator, ptr %7, i32 0, i32 2
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds %struct.LinearAllocator, ptr %7, i32 0, i32 4
+  %11 = getelementptr inbounds %struct.LinearAllocator, ptr %7, i32 0, i32 3
   store i64 0, ptr %11, align 8
-  %12 = load i64, ptr %4, align 8
-  invoke void @_ZN15LinearAllocator6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %2
-  ret void
+  %12 = getelementptr inbounds %struct.LinearAllocator, ptr %7, i32 0, i32 4
+  store i64 0, ptr %12, align 8
+  %13 = load i64, ptr %4, align 8
+  invoke void @_ZN15LinearAllocator6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %2
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i32, ptr %6, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i32, ptr %6, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3207,9 +3211,10 @@ define linkonce_odr dso_local void @_ZN11MeshProcessC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN22dtTileCacheMeshProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MeshProcess, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.MeshProcess, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11MeshProcess, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.MeshProcess, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -3221,9 +3226,10 @@ define linkonce_odr dso_local void @_ZN22TempObstacleCreateToolC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV22TempObstacleCreateTool, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.TempObstacleCreateTool, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV22TempObstacleCreateTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.TempObstacleCreateTool, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -3235,29 +3241,30 @@ define dso_local void @_ZN20Sample_TempObstaclesD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV20Sample_TempObstacles, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.Sample, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  invoke void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %5)
-          to label %6 unwind label %11
+  %4 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV20Sample_TempObstacles, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.Sample, ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  invoke void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %6)
+          to label %7 unwind label %12
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %class.Sample, ptr %3, i32 0, i32 2
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %class.Sample_TempObstacles, ptr %3, i32 0, i32 6
-  %9 = load ptr, ptr %8, align 8
-  invoke void @_Z15dtFreeTileCacheP11dtTileCache(ptr noundef %9)
-          to label %10 unwind label %11
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %class.Sample, ptr %3, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %class.Sample_TempObstacles, ptr %3, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8
+  invoke void @_Z15dtFreeTileCacheP11dtTileCache(ptr noundef %10)
+          to label %11 unwind label %12
 
-10:                                               ; preds = %6
+11:                                               ; preds = %7
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #10
   ret void
 
-11:                                               ; preds = %6, %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %7, %1
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #12
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #12
   unreachable
 }
 
@@ -4334,22 +4341,23 @@ define linkonce_odr dso_local void @_ZN23TempObstacleHilightToolC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV23TempObstacleHilightTool, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 3
-  store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 5
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 2
-  %8 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 2
-  store float 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 2
-  %10 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 1
-  store float 0.000000e+00, ptr %10, align 4
-  %11 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 2
-  %12 = getelementptr inbounds [3 x float], ptr %11, i64 0, i64 0
-  store float 0.000000e+00, ptr %12, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV23TempObstacleHilightTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 3
+  store i8 0, ptr %6, align 4
+  %7 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 5
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 2
+  %9 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 2
+  store float 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 2
+  %11 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 1
+  store float 0.000000e+00, ptr %11, align 4
+  %12 = getelementptr inbounds %class.TempObstacleHilightTool, ptr %3, i32 0, i32 2
+  %13 = getelementptr inbounds [3 x float], ptr %12, i64 0, i64 0
+  store float 0.000000e+00, ptr %13, align 8
   ret void
 }
 
@@ -7081,7 +7089,8 @@ define linkonce_odr dso_local void @_ZN21dtTileCacheCompressorC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV21dtTileCacheCompressor, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV21dtTileCacheCompressor, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7208,7 +7217,8 @@ define linkonce_odr dso_local void @_ZN16dtTileCacheAllocC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16dtTileCacheAlloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV16dtTileCacheAlloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7246,7 +7256,8 @@ define linkonce_odr dso_local void @_ZN22dtTileCacheMeshProcessC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22dtTileCacheMeshProcess, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV22dtTileCacheMeshProcess, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7255,7 +7266,8 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

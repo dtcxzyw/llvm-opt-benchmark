@@ -270,58 +270,60 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !27
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 632
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !29
-  store ptr getelementptr inbounds inrange(-24, 200) ({ [28 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUISkinE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [28 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUISkinE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [28 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUISkinE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [28 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui8CGUISkinE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %SpriteBank = getelementptr inbounds i8, ptr %this, i64 336
   store ptr null, ptr %SpriteBank, align 8, !tbaa !6
   %arrayctor.cur5.ptr = getelementptr inbounds i8, ptr %this, i64 344
-  %1 = getelementptr inbounds i8, ptr %this, i64 360
-  store ptr %1, ptr %arrayctor.cur5.ptr, align 8, !tbaa !13
+  %3 = getelementptr inbounds i8, ptr %this, i64 360
+  store ptr %3, ptr %arrayctor.cur5.ptr, align 8, !tbaa !13
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 352
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !15
-  store i32 0, ptr %1, align 8, !tbaa !18
+  store i32 0, ptr %3, align 8, !tbaa !18
   %arrayctor.cur5.ptr.1 = getelementptr inbounds i8, ptr %this, i64 376
-  %2 = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr %2, ptr %arrayctor.cur5.ptr.1, align 8, !tbaa !13
+  %4 = getelementptr inbounds i8, ptr %this, i64 392
+  store ptr %4, ptr %arrayctor.cur5.ptr.1, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.1 = getelementptr inbounds i8, ptr %this, i64 384
   store i64 0, ptr %_M_string_length.i.i.i.i.1, align 8, !tbaa !15
-  store i32 0, ptr %2, align 8, !tbaa !18
+  store i32 0, ptr %4, align 8, !tbaa !18
   %arrayctor.cur5.ptr.2 = getelementptr inbounds i8, ptr %this, i64 408
-  %3 = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr %3, ptr %arrayctor.cur5.ptr.2, align 8, !tbaa !13
+  %5 = getelementptr inbounds i8, ptr %this, i64 424
+  store ptr %5, ptr %arrayctor.cur5.ptr.2, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.2 = getelementptr inbounds i8, ptr %this, i64 416
   store i64 0, ptr %_M_string_length.i.i.i.i.2, align 8, !tbaa !15
-  store i32 0, ptr %3, align 8, !tbaa !18
+  store i32 0, ptr %5, align 8, !tbaa !18
   %arrayctor.cur5.ptr.3 = getelementptr inbounds i8, ptr %this, i64 440
-  %4 = getelementptr inbounds i8, ptr %this, i64 456
-  store ptr %4, ptr %arrayctor.cur5.ptr.3, align 8, !tbaa !13
+  %6 = getelementptr inbounds i8, ptr %this, i64 456
+  store ptr %6, ptr %arrayctor.cur5.ptr.3, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.3 = getelementptr inbounds i8, ptr %this, i64 448
   store i64 0, ptr %_M_string_length.i.i.i.i.3, align 8, !tbaa !15
-  store i32 0, ptr %4, align 8, !tbaa !18
+  store i32 0, ptr %6, align 8, !tbaa !18
   %arrayctor.cur5.ptr.4 = getelementptr inbounds i8, ptr %this, i64 472
-  %5 = getelementptr inbounds i8, ptr %this, i64 488
-  store ptr %5, ptr %arrayctor.cur5.ptr.4, align 8, !tbaa !13
+  %7 = getelementptr inbounds i8, ptr %this, i64 488
+  store ptr %7, ptr %arrayctor.cur5.ptr.4, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.4 = getelementptr inbounds i8, ptr %this, i64 480
   store i64 0, ptr %_M_string_length.i.i.i.i.4, align 8, !tbaa !15
-  store i32 0, ptr %5, align 8, !tbaa !18
+  store i32 0, ptr %7, align 8, !tbaa !18
   %arrayctor.cur5.ptr.5 = getelementptr inbounds i8, ptr %this, i64 504
-  %6 = getelementptr inbounds i8, ptr %this, i64 520
-  store ptr %6, ptr %arrayctor.cur5.ptr.5, align 8, !tbaa !13
+  %8 = getelementptr inbounds i8, ptr %this, i64 520
+  store ptr %8, ptr %arrayctor.cur5.ptr.5, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.5 = getelementptr inbounds i8, ptr %this, i64 512
   store i64 0, ptr %_M_string_length.i.i.i.i.5, align 8, !tbaa !15
-  store i32 0, ptr %6, align 8, !tbaa !18
+  store i32 0, ptr %8, align 8, !tbaa !18
   %arrayctor.cur5.ptr.6 = getelementptr inbounds i8, ptr %this, i64 536
-  %7 = getelementptr inbounds i8, ptr %this, i64 552
-  store ptr %7, ptr %arrayctor.cur5.ptr.6, align 8, !tbaa !13
+  %9 = getelementptr inbounds i8, ptr %this, i64 552
+  store ptr %9, ptr %arrayctor.cur5.ptr.6, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.6 = getelementptr inbounds i8, ptr %this, i64 544
   store i64 0, ptr %_M_string_length.i.i.i.i.6, align 8, !tbaa !15
-  store i32 0, ptr %7, align 8, !tbaa !18
+  store i32 0, ptr %9, align 8, !tbaa !18
   %arrayctor.cur5.ptr.7 = getelementptr inbounds i8, ptr %this, i64 568
-  %8 = getelementptr inbounds i8, ptr %this, i64 584
-  store ptr %8, ptr %arrayctor.cur5.ptr.7, align 8, !tbaa !13
+  %10 = getelementptr inbounds i8, ptr %this, i64 584
+  store ptr %10, ptr %arrayctor.cur5.ptr.7, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.7 = getelementptr inbounds i8, ptr %this, i64 576
   store i64 0, ptr %_M_string_length.i.i.i.i.7, align 8, !tbaa !15
-  store i32 0, ptr %8, align 8, !tbaa !18
+  store i32 0, ptr %10, align 8, !tbaa !18
   %Colors.ptr = getelementptr inbounds i8, ptr %this, i64 8
   %Driver = getelementptr inbounds i8, ptr %this, i64 600
   store ptr %driver, ptr %Driver, align 8, !tbaa !20
@@ -348,26 +350,26 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %.sink393 = phi i32 [ 48, %if.else ], [ 30, %if.then ]
-  %9 = phi <4 x i32> [ <i32 1086835932, i32 -2144456390, i32 -2143272896, i32 -3092272>, %if.else ], [ <i32 1711276031, i32 1708315346, i32 1695551091, i32 -1>, %if.then ]
-  %10 = phi <4 x i32> [ <i32 -1067162524, i32 -803858922, i32 1007948820, i32 1818255456>, %if.else ], [ <i32 1701078116, i32 -267777526, i32 -259882366, i32 1695032427>, %if.then ]
-  %11 = phi <4 x i32> [ <i32 -790568736, i32 -257579611, i32 -2960686, i32 -267444173>, %if.else ], [ <i32 -251658241, i32 1705354661, i32 -14803426, i32 -939524096>, %if.then ]
-  %12 = phi <4 x i32> [ <i32 -1060384039, i32 -253697824, i32 -252645136, i32 -803858922>, %if.else ], [ <i32 -922746911, i32 1709631206, i32 1711276031, i32 -938866166>, %if.then ]
-  %13 = phi <4 x i32> [ <i32 -803858922, i32 -798990240, i32 1007685648, i32 -251658241>, %if.else ], [ <i32 -922746881, i32 -938990485, i32 -261856156, i32 -1>, %if.then ]
-  %14 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %if.then ]
-  %15 = phi <2 x i32> [ <i32 3, i32 2>, %if.else ], [ <i32 2, i32 0>, %if.then ]
-  %16 = shufflevector <2 x i32> %15, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %11 = phi <4 x i32> [ <i32 1086835932, i32 -2144456390, i32 -2143272896, i32 -3092272>, %if.else ], [ <i32 1711276031, i32 1708315346, i32 1695551091, i32 -1>, %if.then ]
+  %12 = phi <4 x i32> [ <i32 -1067162524, i32 -803858922, i32 1007948820, i32 1818255456>, %if.else ], [ <i32 1701078116, i32 -267777526, i32 -259882366, i32 1695032427>, %if.then ]
+  %13 = phi <4 x i32> [ <i32 -790568736, i32 -257579611, i32 -2960686, i32 -267444173>, %if.else ], [ <i32 -251658241, i32 1705354661, i32 -14803426, i32 -939524096>, %if.then ]
+  %14 = phi <4 x i32> [ <i32 -1060384039, i32 -253697824, i32 -252645136, i32 -803858922>, %if.else ], [ <i32 -922746911, i32 1709631206, i32 1711276031, i32 -938866166>, %if.then ]
+  %15 = phi <4 x i32> [ <i32 -803858922, i32 -798990240, i32 1007685648, i32 -251658241>, %if.else ], [ <i32 -922746881, i32 -938990485, i32 -261856156, i32 -1>, %if.then ]
+  %16 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %if.then ]
+  %17 = phi <2 x i32> [ <i32 3, i32 2>, %if.else ], [ <i32 2, i32 0>, %if.then ]
+  %18 = shufflevector <2 x i32> %17, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %arrayidx57 = getelementptr inbounds i8, ptr %this, i64 68
   %arrayidx45 = getelementptr inbounds i8, ptr %this, i64 52
   %arrayidx33 = getelementptr inbounds i8, ptr %this, i64 36
   %arrayidx21 = getelementptr inbounds i8, ptr %this, i64 20
-  store <4 x i32> %9, ptr %arrayidx21, align 4, !tbaa !22
-  store <4 x i32> %10, ptr %arrayidx33, align 4, !tbaa !22
-  store <4 x i32> %11, ptr %arrayidx45, align 4, !tbaa !22
-  store <4 x i32> %12, ptr %arrayidx57, align 4, !tbaa !22
+  store <4 x i32> %11, ptr %arrayidx21, align 4, !tbaa !22
+  store <4 x i32> %12, ptr %arrayidx33, align 4, !tbaa !22
+  store <4 x i32> %13, ptr %arrayidx45, align 4, !tbaa !22
+  store <4 x i32> %14, ptr %arrayidx57, align 4, !tbaa !22
   %arrayidx167 = getelementptr inbounds i8, ptr %this, i64 84
-  store <4 x i32> %13, ptr %arrayidx167, align 4, !tbaa !22
+  store <4 x i32> %15, ptr %arrayidx167, align 4, !tbaa !22
   %arrayidx179 = getelementptr inbounds i8, ptr %this, i64 100
-  store <2 x i32> %14, ptr %arrayidx179, align 4, !tbaa !22
+  store <2 x i32> %16, ptr %arrayidx179, align 4, !tbaa !22
   %Sizes183 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 14, ptr %Sizes183, align 4, !tbaa !22
   %arrayidx186 = getelementptr inbounds i8, ptr %this, i64 112
@@ -379,7 +381,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %arrayidx198 = getelementptr inbounds i8, ptr %this, i64 136
   store i32 30, ptr %arrayidx198, align 8, !tbaa !22
   %arrayidx200 = getelementptr inbounds i8, ptr %this, i64 140
-  store <4 x i32> %16, ptr %arrayidx200, align 4
+  store <4 x i32> %18, ptr %arrayidx200, align 4
   %arrayidx208 = getelementptr inbounds i8, ptr %this, i64 156
   store <4 x i32> <i32 15, i32 0, i32 500, i32 0>, ptr %arrayidx208, align 4, !tbaa !22
   %arrayidx216 = getelementptr inbounds i8, ptr %this, i64 172
@@ -391,52 +393,52 @@ if.end:                                           ; preds = %if.else, %if.then
   %arrayidx228 = getelementptr inbounds i8, ptr %this, i64 196
   store i32 0, ptr %arrayidx228, align 4, !tbaa !22
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr, i64 noundef 2, i32 noundef signext 0) #17
-  %17 = load ptr, ptr %arrayctor.cur5.ptr, align 8, !tbaa !24
-  store i32 79, ptr %17, align 4, !tbaa !18
-  %arrayidx.i.i.1 = getelementptr inbounds i8, ptr %17, i64 4
+  %19 = load ptr, ptr %arrayctor.cur5.ptr, align 8, !tbaa !24
+  store i32 79, ptr %19, align 4, !tbaa !18
+  %arrayidx.i.i.1 = getelementptr inbounds i8, ptr %19, i64 4
   store i32 75, ptr %arrayidx.i.i.1, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.1, i64 noundef 6, i32 noundef signext 0) #17
-  %18 = load ptr, ptr %arrayctor.cur5.ptr.1, align 8, !tbaa !24
-  store <4 x i32> <i32 67, i32 97, i32 110, i32 99>, ptr %18, align 4, !tbaa !18
-  %arrayidx.i.i313.4 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = load ptr, ptr %arrayctor.cur5.ptr.1, align 8, !tbaa !24
+  store <4 x i32> <i32 67, i32 97, i32 110, i32 99>, ptr %20, align 4, !tbaa !18
+  %arrayidx.i.i313.4 = getelementptr inbounds i8, ptr %20, i64 16
   store i32 101, ptr %arrayidx.i.i313.4, align 4, !tbaa !18
-  %arrayidx.i.i313.5 = getelementptr inbounds i8, ptr %18, i64 20
+  %arrayidx.i.i313.5 = getelementptr inbounds i8, ptr %20, i64 20
   store i32 108, ptr %arrayidx.i.i313.5, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.2, i64 noundef 3, i32 noundef signext 0) #17
-  %19 = load ptr, ptr %arrayctor.cur5.ptr.2, align 8, !tbaa !24
-  store i32 89, ptr %19, align 4, !tbaa !18
-  %arrayidx.i.i325.1 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = load ptr, ptr %arrayctor.cur5.ptr.2, align 8, !tbaa !24
+  store i32 89, ptr %21, align 4, !tbaa !18
+  %arrayidx.i.i325.1 = getelementptr inbounds i8, ptr %21, i64 4
   store i32 101, ptr %arrayidx.i.i325.1, align 4, !tbaa !18
-  %arrayidx.i.i325.2 = getelementptr inbounds i8, ptr %19, i64 8
+  %arrayidx.i.i325.2 = getelementptr inbounds i8, ptr %21, i64 8
   store i32 115, ptr %arrayidx.i.i325.2, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.3, i64 noundef 2, i32 noundef signext 0) #17
-  %20 = load ptr, ptr %arrayctor.cur5.ptr.3, align 8, !tbaa !24
-  store i32 78, ptr %20, align 4, !tbaa !18
-  %arrayidx.i.i337.1 = getelementptr inbounds i8, ptr %20, i64 4
+  %22 = load ptr, ptr %arrayctor.cur5.ptr.3, align 8, !tbaa !24
+  store i32 78, ptr %22, align 4, !tbaa !18
+  %arrayidx.i.i337.1 = getelementptr inbounds i8, ptr %22, i64 4
   store i32 111, ptr %arrayidx.i.i337.1, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.4, i64 noundef 5, i32 noundef signext 0) #17
-  %21 = load ptr, ptr %arrayctor.cur5.ptr.4, align 8, !tbaa !24
-  store <4 x i32> <i32 67, i32 108, i32 111, i32 115>, ptr %21, align 4, !tbaa !18
-  %arrayidx.i.i349.4 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = load ptr, ptr %arrayctor.cur5.ptr.4, align 8, !tbaa !24
+  store <4 x i32> <i32 67, i32 108, i32 111, i32 115>, ptr %23, align 4, !tbaa !18
+  %arrayidx.i.i349.4 = getelementptr inbounds i8, ptr %23, i64 16
   store i32 101, ptr %arrayidx.i.i349.4, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.7, i64 noundef 7, i32 noundef signext 0) #17
-  %22 = load ptr, ptr %arrayctor.cur5.ptr.7, align 8, !tbaa !24
-  store <4 x i32> <i32 82, i32 101, i32 115, i32 116>, ptr %22, align 4, !tbaa !18
-  %arrayidx.i.i361.4 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load ptr, ptr %arrayctor.cur5.ptr.7, align 8, !tbaa !24
+  store <4 x i32> <i32 82, i32 101, i32 115, i32 116>, ptr %24, align 4, !tbaa !18
+  %arrayidx.i.i361.4 = getelementptr inbounds i8, ptr %24, i64 16
   store i32 111, ptr %arrayidx.i.i361.4, align 4, !tbaa !18
-  %arrayidx.i.i361.5 = getelementptr inbounds i8, ptr %22, i64 20
+  %arrayidx.i.i361.5 = getelementptr inbounds i8, ptr %24, i64 20
   store i32 114, ptr %arrayidx.i.i361.5, align 4, !tbaa !18
-  %arrayidx.i.i361.6 = getelementptr inbounds i8, ptr %22, i64 24
+  %arrayidx.i.i361.6 = getelementptr inbounds i8, ptr %24, i64 24
   store i32 101, ptr %arrayidx.i.i361.6, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.6, i64 noundef 8, i32 noundef signext 0) #17
-  %23 = load ptr, ptr %arrayctor.cur5.ptr.6, align 8, !tbaa !24
-  store <4 x i32> <i32 77, i32 105, i32 110, i32 105>, ptr %23, align 4, !tbaa !18
-  %arrayidx.i.i373.4 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load ptr, ptr %arrayctor.cur5.ptr.6, align 8, !tbaa !24
+  store <4 x i32> <i32 77, i32 105, i32 110, i32 105>, ptr %25, align 4, !tbaa !18
+  %arrayidx.i.i373.4 = getelementptr inbounds i8, ptr %25, i64 16
   store <4 x i32> <i32 109, i32 105, i32 122, i32 101>, ptr %arrayidx.i.i373.4, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.5, i64 noundef 8, i32 noundef signext 0) #17
-  %24 = load ptr, ptr %arrayctor.cur5.ptr.5, align 8, !tbaa !24
-  store <4 x i32> <i32 77, i32 97, i32 120, i32 105>, ptr %24, align 4, !tbaa !18
-  %arrayidx.i.i385.4 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = load ptr, ptr %arrayctor.cur5.ptr.5, align 8, !tbaa !24
+  store <4 x i32> <i32 77, i32 97, i32 120, i32 105>, ptr %26, align 4, !tbaa !18
+  %arrayidx.i.i385.4 = getelementptr inbounds i8, ptr %26, i64 16
   store <4 x i32> <i32 109, i32 105, i32 122, i32 101>, ptr %arrayidx.i.i385.4, align 4, !tbaa !18
   %Icons = getelementptr inbounds i8, ptr %this, i64 200
   store <4 x i32> <i32 225, i32 226, i32 227, i32 228>, ptr %Icons, align 8, !tbaa !22
@@ -456,9 +458,9 @@ if.end:                                           ; preds = %if.else, %if.then
   store i32 246, ptr %arrayidx296, align 8, !tbaa !22
   %Fonts = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Fonts, i8 0, i64 40, i1 false), !tbaa !25
-  %25 = load i32, ptr %Type, align 4, !tbaa !21
-  %26 = add i32 %25, -1
-  %narrow = icmp ult i32 %26, 2
+  %27 = load i32, ptr %Type, align 4, !tbaa !21
+  %28 = add i32 %27, -1
+  %narrow = icmp ult i32 %28, 2
   %frombool = zext i1 %narrow to i8
   %UseGradient = getelementptr inbounds i8, ptr %this, i64 608
   store i8 %frombool, ptr %UseGradient, align 8, !tbaa !26

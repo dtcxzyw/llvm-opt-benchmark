@@ -539,7 +539,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
 170:                                              ; preds = %169, %105
   %171 = load i32, ptr @json_compact, align 4
   %172 = icmp ne i32 %171, 0
-  br i1 %172, label %173, label %212
+  br i1 %172, label %173, label %213
 
 173:                                              ; preds = %170
   %174 = load i32, ptr @auto_hide, align 4
@@ -598,139 +598,140 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %208, ptr %209, align 8
   %210 = getelementptr inbounds %struct.json_parser_data_t, ptr %11, i32 0, i32 2
   %211 = load ptr, ptr %210, align 8
-  call void @wmem_list_prepend(ptr noundef %211, ptr noundef inttoptr (i64 -3 to ptr))
-  br label %212
+  %212 = inttoptr i64 -3 to ptr
+  call void @wmem_list_prepend(ptr noundef %211, ptr noundef %212)
+  br label %213
 
-212:                                              ; preds = %195, %170
-  %213 = load i32, ptr @json_raw, align 4
-  %214 = icmp ne i32 %213, 0
-  br i1 %214, label %215, label %249
+213:                                              ; preds = %195, %170
+  %214 = load i32, ptr @json_raw, align 4
+  %215 = icmp ne i32 %214, 0
+  br i1 %215, label %216, label %250
 
-215:                                              ; preds = %212
-  %216 = load i32, ptr @auto_hide, align 4
-  %217 = icmp ne i32 %216, 0
-  br i1 %217, label %218, label %232
+216:                                              ; preds = %213
+  %217 = load i32, ptr @auto_hide, align 4
+  %218 = icmp ne i32 %217, 0
+  br i1 %218, label %219, label %233
 
-218:                                              ; preds = %215
-  %219 = load i32, ptr @json_compact, align 4
-  %220 = icmp ne i32 %219, 0
-  br i1 %220, label %221, label %224
+219:                                              ; preds = %216
+  %220 = load i32, ptr @json_compact, align 4
+  %221 = icmp ne i32 %220, 0
+  br i1 %221, label %222, label %225
 
-221:                                              ; preds = %218
-  %222 = load i32, ptr @json_raw, align 4
-  %223 = icmp ne i32 %222, 0
-  br i1 %223, label %224, label %230
+222:                                              ; preds = %219
+  %223 = load i32, ptr @json_raw, align 4
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %225, label %231
 
-224:                                              ; preds = %221, %218
-  %225 = load i32, ptr @json_compact, align 4
-  %226 = icmp ne i32 %225, 0
-  br i1 %226, label %232, label %227
+225:                                              ; preds = %222, %219
+  %226 = load i32, ptr @json_compact, align 4
+  %227 = icmp ne i32 %226, 0
+  br i1 %227, label %233, label %228
 
-227:                                              ; preds = %224
-  %228 = load i32, ptr @json_raw, align 4
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %230, label %232
+228:                                              ; preds = %225
+  %229 = load i32, ptr @json_raw, align 4
+  %230 = icmp ne i32 %229, 0
+  br i1 %230, label %231, label %233
 
-230:                                              ; preds = %227, %221
-  %231 = load ptr, ptr %9, align 8
-  br label %237
+231:                                              ; preds = %228, %222
+  %232 = load ptr, ptr %9, align 8
+  br label %238
 
-232:                                              ; preds = %227, %224, %215
-  %233 = load ptr, ptr %9, align 8
-  %234 = load ptr, ptr %5, align 8
-  %235 = load i32, ptr @ett_json_raw, align 4
-  %236 = call ptr @proto_tree_add_subtree(ptr noundef %233, ptr noundef %234, i32 noundef 0, i32 noundef -1, i32 noundef %235, ptr noundef null, ptr noundef @.str.118)
-  br label %237
+233:                                              ; preds = %228, %225, %216
+  %234 = load ptr, ptr %9, align 8
+  %235 = load ptr, ptr %5, align 8
+  %236 = load i32, ptr @ett_json_raw, align 4
+  %237 = call ptr @proto_tree_add_subtree(ptr noundef %234, ptr noundef %235, i32 noundef 0, i32 noundef -1, i32 noundef %236, ptr noundef null, ptr noundef @.str.118)
+  br label %238
 
-237:                                              ; preds = %232, %230
-  %238 = phi ptr [ %231, %230 ], [ %236, %232 ]
-  store ptr %238, ptr %21, align 8
-  %239 = load ptr, ptr %6, align 8
-  %240 = getelementptr inbounds %struct._packet_info, ptr %239, i32 0, i32 50
-  %241 = load ptr, ptr %240, align 8
-  %242 = call noalias ptr @wmem_list_new(ptr noundef %241)
-  %243 = getelementptr inbounds %struct.json_parser_data_t, ptr %11, i32 0, i32 5
-  store ptr %242, ptr %243, align 8
+238:                                              ; preds = %233, %231
+  %239 = phi ptr [ %232, %231 ], [ %237, %233 ]
+  store ptr %239, ptr %21, align 8
+  %240 = load ptr, ptr %6, align 8
+  %241 = getelementptr inbounds %struct._packet_info, ptr %240, i32 0, i32 50
+  %242 = load ptr, ptr %241, align 8
+  %243 = call noalias ptr @wmem_list_new(ptr noundef %242)
   %244 = getelementptr inbounds %struct.json_parser_data_t, ptr %11, i32 0, i32 5
-  %245 = load ptr, ptr %244, align 8
-  %246 = load ptr, ptr %21, align 8
-  call void @wmem_list_prepend(ptr noundef %245, ptr noundef %246)
-  %247 = getelementptr inbounds %struct.json_parser_data_t, ptr %11, i32 0, i32 7
-  store ptr null, ptr %247, align 8
-  %248 = getelementptr inbounds %struct.json_parser_data_t, ptr %11, i32 0, i32 6
-  store i32 0, ptr %248, align 8
-  br label %249
+  store ptr %243, ptr %244, align 8
+  %245 = getelementptr inbounds %struct.json_parser_data_t, ptr %11, i32 0, i32 5
+  %246 = load ptr, ptr %245, align 8
+  %247 = load ptr, ptr %21, align 8
+  call void @wmem_list_prepend(ptr noundef %246, ptr noundef %247)
+  %248 = getelementptr inbounds %struct.json_parser_data_t, ptr %11, i32 0, i32 7
+  store ptr null, ptr %248, align 8
+  %249 = getelementptr inbounds %struct.json_parser_data_t, ptr %11, i32 0, i32 6
+  store i32 0, ptr %249, align 8
+  br label %250
 
-249:                                              ; preds = %237, %212
-  %250 = load ptr, ptr %6, align 8
-  %251 = getelementptr inbounds %struct._packet_info, ptr %250, i32 0, i32 50
-  %252 = load ptr, ptr %251, align 8
-  %253 = load ptr, ptr %5, align 8
-  %254 = load i32, ptr %15, align 4
-  %255 = load i32, ptr %18, align 4
-  %256 = load i32, ptr %15, align 4
-  %257 = sub i32 %255, %256
-  %258 = load ptr, ptr @want_ignore, align 8
-  %259 = call ptr @tvbparse_init(ptr noundef %252, ptr noundef %253, i32 noundef %254, i32 noundef %257, ptr noundef %11, ptr noundef %258)
-  store ptr %259, ptr %12, align 8
-  br label %260
+250:                                              ; preds = %238, %213
+  %251 = load ptr, ptr %6, align 8
+  %252 = getelementptr inbounds %struct._packet_info, ptr %251, i32 0, i32 50
+  %253 = load ptr, ptr %252, align 8
+  %254 = load ptr, ptr %5, align 8
+  %255 = load i32, ptr %15, align 4
+  %256 = load i32, ptr %18, align 4
+  %257 = load i32, ptr %15, align 4
+  %258 = sub i32 %256, %257
+  %259 = load ptr, ptr @want_ignore, align 8
+  %260 = call ptr @tvbparse_init(ptr noundef %253, ptr noundef %254, i32 noundef %255, i32 noundef %258, ptr noundef %11, ptr noundef %259)
+  store ptr %260, ptr %12, align 8
+  br label %261
 
-260:                                              ; preds = %265, %249
-  %261 = load ptr, ptr %12, align 8
-  %262 = load ptr, ptr @want, align 8
-  %263 = call ptr @tvbparse_get(ptr noundef %261, ptr noundef %262)
-  %264 = icmp ne ptr %263, null
-  br i1 %264, label %265, label %266
+261:                                              ; preds = %266, %250
+  %262 = load ptr, ptr %12, align 8
+  %263 = load ptr, ptr @want, align 8
+  %264 = call ptr @tvbparse_get(ptr noundef %262, ptr noundef %263)
+  %265 = icmp ne ptr %264, null
+  br i1 %265, label %266, label %267
 
-265:                                              ; preds = %260
-  br label %260, !llvm.loop !6
+266:                                              ; preds = %261
+  br label %261, !llvm.loop !6
 
-266:                                              ; preds = %260
-  %267 = load ptr, ptr %12, align 8
-  %268 = call i32 @tvbparse_curr_offset(ptr noundef %267)
-  store i32 %268, ptr %15, align 4
-  %269 = load ptr, ptr %10, align 8
-  %270 = load i32, ptr %15, align 4
-  call void @proto_item_set_len(ptr noundef %269, i32 noundef %270)
-  %271 = load ptr, ptr %5, align 8
-  %272 = load i32, ptr %15, align 4
-  %273 = call i32 @tvb_reported_length_remaining(ptr noundef %271, i32 noundef %272)
-  %274 = icmp sgt i32 %273, 0
-  br i1 %274, label %275, label %285
+267:                                              ; preds = %261
+  %268 = load ptr, ptr %12, align 8
+  %269 = call i32 @tvbparse_curr_offset(ptr noundef %268)
+  store i32 %269, ptr %15, align 4
+  %270 = load ptr, ptr %10, align 8
+  %271 = load i32, ptr %15, align 4
+  call void @proto_item_set_len(ptr noundef %270, i32 noundef %271)
+  %272 = load ptr, ptr %5, align 8
+  %273 = load i32, ptr %15, align 4
+  %274 = call i32 @tvb_reported_length_remaining(ptr noundef %272, i32 noundef %273)
+  %275 = icmp sgt i32 %274, 0
+  br i1 %275, label %276, label %286
 
-275:                                              ; preds = %266
-  %276 = load ptr, ptr %5, align 8
-  %277 = load i32, ptr %15, align 4
-  %278 = call ptr @tvb_new_subset_remaining(ptr noundef %276, i32 noundef %277)
-  store ptr %278, ptr %22, align 8
-  %279 = load ptr, ptr @text_lines_handle, align 8
-  %280 = load ptr, ptr %22, align 8
-  %281 = load ptr, ptr %6, align 8
-  %282 = load ptr, ptr %7, align 8
-  %283 = load ptr, ptr %8, align 8
-  %284 = call i32 @call_dissector_with_data(ptr noundef %279, ptr noundef %280, ptr noundef %281, ptr noundef %282, ptr noundef %283)
+276:                                              ; preds = %267
+  %277 = load ptr, ptr %5, align 8
+  %278 = load i32, ptr %15, align 4
+  %279 = call ptr @tvb_new_subset_remaining(ptr noundef %277, i32 noundef %278)
+  store ptr %279, ptr %22, align 8
+  %280 = load ptr, ptr @text_lines_handle, align 8
+  %281 = load ptr, ptr %22, align 8
+  %282 = load ptr, ptr %6, align 8
+  %283 = load ptr, ptr %7, align 8
+  %284 = load ptr, ptr %8, align 8
+  %285 = call i32 @call_dissector_with_data(ptr noundef %280, ptr noundef %281, ptr noundef %282, ptr noundef %283, ptr noundef %284)
+  br label %295
+
+286:                                              ; preds = %267
+  %287 = load ptr, ptr %14, align 8
+  %288 = icmp ne ptr %287, null
+  br i1 %288, label %289, label %294
+
+289:                                              ; preds = %286
+  %290 = load ptr, ptr %6, align 8
+  %291 = getelementptr inbounds %struct._packet_info, ptr %290, i32 0, i32 1
+  %292 = load ptr, ptr %291, align 8
+  %293 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %292, i32 noundef 25, ptr noundef @.str.119, ptr noundef @.str.120, ptr noundef %293)
   br label %294
 
-285:                                              ; preds = %266
-  %286 = load ptr, ptr %14, align 8
-  %287 = icmp ne ptr %286, null
-  br i1 %287, label %288, label %293
+294:                                              ; preds = %289, %286
+  br label %295
 
-288:                                              ; preds = %285
-  %289 = load ptr, ptr %6, align 8
-  %290 = getelementptr inbounds %struct._packet_info, ptr %289, i32 0, i32 1
-  %291 = load ptr, ptr %290, align 8
-  %292 = load ptr, ptr %14, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %291, i32 noundef 25, ptr noundef @.str.119, ptr noundef @.str.120, ptr noundef %292)
-  br label %293
-
-293:                                              ; preds = %288, %285
-  br label %294
-
-294:                                              ; preds = %293, %275
-  %295 = load ptr, ptr %5, align 8
-  %296 = call i32 @tvb_captured_length(ptr noundef %295)
-  ret i32 %296
+295:                                              ; preds = %294, %276
+  %296 = load ptr, ptr %5, align 8
+  %297 = call i32 @tvb_captured_length(ptr noundef %296)
+  ret i32 %297
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2561,7 +2562,7 @@ define internal void @before_object(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @wmem_list_prepend(ptr noundef %57, ptr noundef %58)
   %59 = load i32, ptr @json_compact, align 4
   %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %102
+  br i1 %60, label %61, label %103
 
 61:                                               ; preds = %51
   %62 = load ptr, ptr %7, align 8
@@ -2617,92 +2618,93 @@ define internal void @before_object(ptr noundef %0, ptr noundef %1, ptr noundef 
   %99 = load ptr, ptr %7, align 8
   %100 = getelementptr inbounds %struct.json_parser_data_t, ptr %99, i32 0, i32 2
   %101 = load ptr, ptr %100, align 8
-  call void @wmem_list_prepend(ptr noundef %101, ptr noundef inttoptr (i64 -1 to ptr))
-  br label %102
+  %102 = inttoptr i64 -1 to ptr
+  call void @wmem_list_prepend(ptr noundef %101, ptr noundef %102)
+  br label %103
 
-102:                                              ; preds = %94, %51
-  %103 = load i32, ptr @json_raw, align 4
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %105, label %159
+103:                                              ; preds = %94, %51
+  %104 = load i32, ptr @json_raw, align 4
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %160
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds %struct.json_parser_data_t, ptr %106, i32 0, i32 5
-  %108 = load ptr, ptr %107, align 8
-  %109 = call ptr @wmem_stack_peek(ptr noundef %108)
-  store ptr %109, ptr %15, align 8
-  %110 = load ptr, ptr %7, align 8
-  %111 = getelementptr inbounds %struct.json_parser_data_t, ptr %110, i32 0, i32 7
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %123
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %7, align 8
+  %108 = getelementptr inbounds %struct.json_parser_data_t, ptr %107, i32 0, i32 5
+  %109 = load ptr, ptr %108, align 8
+  %110 = call ptr @wmem_stack_peek(ptr noundef %109)
+  store ptr %110, ptr %15, align 8
+  %111 = load ptr, ptr %7, align 8
+  %112 = getelementptr inbounds %struct.json_parser_data_t, ptr %111, i32 0, i32 7
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %124
 
-114:                                              ; preds = %105
-  %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds %struct.json_parser_data_t, ptr %115, i32 0, i32 6
-  %117 = load i32, ptr %116, align 8
-  %118 = icmp eq i32 %117, 2
-  br i1 %118, label %119, label %123
+115:                                              ; preds = %106
+  %116 = load ptr, ptr %7, align 8
+  %117 = getelementptr inbounds %struct.json_parser_data_t, ptr %116, i32 0, i32 6
+  %118 = load i32, ptr %117, align 8
+  %119 = icmp eq i32 %118, 2
+  br i1 %119, label %120, label %124
 
-119:                                              ; preds = %114
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds %struct.json_parser_data_t, ptr %120, i32 0, i32 7
-  %122 = load ptr, ptr %121, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %122, ptr noundef @.str.127)
-  br label %123
+120:                                              ; preds = %115
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds %struct.json_parser_data_t, ptr %121, i32 0, i32 7
+  %123 = load ptr, ptr %122, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef @.str.127)
+  br label %124
 
-123:                                              ; preds = %119, %114, %105
-  %124 = load ptr, ptr %7, align 8
-  %125 = getelementptr inbounds %struct.json_parser_data_t, ptr %124, i32 0, i32 6
-  %126 = load i32, ptr %125, align 8
-  %127 = icmp eq i32 %126, 5
-  br i1 %127, label %128, label %133
+124:                                              ; preds = %120, %115, %106
+  %125 = load ptr, ptr %7, align 8
+  %126 = getelementptr inbounds %struct.json_parser_data_t, ptr %125, i32 0, i32 6
+  %127 = load i32, ptr %126, align 8
+  %128 = icmp eq i32 %127, 5
+  br i1 %128, label %129, label %134
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct.json_parser_data_t, ptr %129, i32 0, i32 7
-  %131 = load ptr, ptr %130, align 8
-  store ptr %131, ptr %17, align 8
-  %132 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %132, ptr noundef @.str.158)
-  br label %146
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %7, align 8
+  %131 = getelementptr inbounds %struct.json_parser_data_t, ptr %130, i32 0, i32 7
+  %132 = load ptr, ptr %131, align 8
+  store ptr %132, ptr %17, align 8
+  %133 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %133, ptr noundef @.str.158)
+  br label %147
 
-133:                                              ; preds = %123
-  %134 = load ptr, ptr %15, align 8
-  %135 = load i32, ptr @hf_json_object_raw, align 4
-  %136 = load ptr, ptr %6, align 8
-  %137 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %136, i32 0, i32 2
-  %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %6, align 8
-  %140 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %139, i32 0, i32 3
-  %141 = load i32, ptr %140, align 8
-  %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %142, i32 0, i32 4
-  %144 = load i32, ptr %143, align 4
-  %145 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %134, i32 noundef %135, ptr noundef %138, i32 noundef %141, i32 noundef %144, ptr noundef @.str.142)
-  store ptr %145, ptr %17, align 8
-  br label %146
+134:                                              ; preds = %124
+  %135 = load ptr, ptr %15, align 8
+  %136 = load i32, ptr @hf_json_object_raw, align 4
+  %137 = load ptr, ptr %6, align 8
+  %138 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %137, i32 0, i32 2
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr %6, align 8
+  %141 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %140, i32 0, i32 3
+  %142 = load i32, ptr %141, align 8
+  %143 = load ptr, ptr %6, align 8
+  %144 = getelementptr inbounds %struct._tvbparse_elem_t, ptr %143, i32 0, i32 4
+  %145 = load i32, ptr %144, align 4
+  %146 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %135, i32 noundef %136, ptr noundef %139, i32 noundef %142, i32 noundef %145, ptr noundef @.str.142)
+  store ptr %146, ptr %17, align 8
+  br label %147
 
-146:                                              ; preds = %133, %128
-  %147 = load ptr, ptr %17, align 8
-  %148 = load i32, ptr @ett_json_object_raw, align 4
-  %149 = call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %148)
-  store ptr %149, ptr %16, align 8
-  %150 = load ptr, ptr %7, align 8
-  %151 = getelementptr inbounds %struct.json_parser_data_t, ptr %150, i32 0, i32 5
-  %152 = load ptr, ptr %151, align 8
-  %153 = load ptr, ptr %16, align 8
-  call void @wmem_list_prepend(ptr noundef %152, ptr noundef %153)
-  %154 = load ptr, ptr %17, align 8
-  %155 = load ptr, ptr %7, align 8
-  %156 = getelementptr inbounds %struct.json_parser_data_t, ptr %155, i32 0, i32 7
-  store ptr %154, ptr %156, align 8
-  %157 = load ptr, ptr %7, align 8
-  %158 = getelementptr inbounds %struct.json_parser_data_t, ptr %157, i32 0, i32 6
-  store i32 1, ptr %158, align 8
-  br label %159
+147:                                              ; preds = %134, %129
+  %148 = load ptr, ptr %17, align 8
+  %149 = load i32, ptr @ett_json_object_raw, align 4
+  %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149)
+  store ptr %150, ptr %16, align 8
+  %151 = load ptr, ptr %7, align 8
+  %152 = getelementptr inbounds %struct.json_parser_data_t, ptr %151, i32 0, i32 5
+  %153 = load ptr, ptr %152, align 8
+  %154 = load ptr, ptr %16, align 8
+  call void @wmem_list_prepend(ptr noundef %153, ptr noundef %154)
+  %155 = load ptr, ptr %17, align 8
+  %156 = load ptr, ptr %7, align 8
+  %157 = getelementptr inbounds %struct.json_parser_data_t, ptr %156, i32 0, i32 7
+  store ptr %155, ptr %157, align 8
+  %158 = load ptr, ptr %7, align 8
+  %159 = getelementptr inbounds %struct.json_parser_data_t, ptr %158, i32 0, i32 6
+  store i32 1, ptr %159, align 8
+  br label %160
 
-159:                                              ; preds = %146, %102
+160:                                              ; preds = %147, %103
   ret void
 }
 
@@ -3948,7 +3950,8 @@ define internal void @json_object_add_key(ptr noundef %0) #0 {
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds %struct.json_parser_data_t, ptr %7, i32 0, i32 2
   %9 = load ptr, ptr %8, align 8
-  call void @wmem_list_prepend(ptr noundef %9, ptr noundef inttoptr (i64 -2 to ptr))
+  %10 = inttoptr i64 -2 to ptr
+  call void @wmem_list_prepend(ptr noundef %9, ptr noundef %10)
   ret void
 }
 

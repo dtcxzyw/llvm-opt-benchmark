@@ -22,98 +22,104 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @efi_bgrt_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = load i32, ptr @acpi_disabled, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %54
+  br i1 %3, label %4, label %60
 
 4:                                                ; preds = %1
-  %5 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
-  %6 = and i64 %5, 16
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %54, label %8
+  %5 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 28
+  %6 = load volatile i64, ptr %5, align 8
+  %7 = and i64 %6, 16
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %60, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 1
-  %11 = icmp ult i32 %10, 56
-  br i1 %11, label %12, label %14
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = load i32, ptr %10, align 1
+  %12 = icmp ult i32 %11, 56
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %8
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %10, i64 noundef 56) #5
-  br label %54
+13:                                               ; preds = %9
+  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %11, i64 noundef 56) #5
+  br label %60
 
-14:                                               ; preds = %8
+15:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) @bgrt_tab, ptr noundef align 1 dereferenceable(56) %0, i64 56, i1 false)
-  %15 = load i16, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 1), align 1
-  %16 = icmp ugt i16 %15, 1
-  br i1 %16, label %17, label %20
+  %16 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 1
+  %17 = load i16, ptr %16, align 1
+  %18 = icmp ugt i16 %17, 1
+  br i1 %18, label %19, label %22
 
-17:                                               ; preds = %14
-  %18 = zext i16 %15 to i32
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %18) #5
-  br label %53
+19:                                               ; preds = %15
+  %20 = zext i16 %17 to i32
+  %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %20) #5
+  br label %59
 
-20:                                               ; preds = %14
-  %21 = load i8, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 3), align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %26, label %23
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 3
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %29, label %26
 
-23:                                               ; preds = %20
-  %24 = zext i8 %21 to i32
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %24) #5
-  br label %53
+26:                                               ; preds = %22
+  %27 = zext i8 %24 to i32
+  %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %27) #5
+  br label %59
 
-26:                                               ; preds = %20
-  %27 = load i64, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4), align 1
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %31
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4
+  %31 = load i64, ptr %30, align 1
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %35
 
-29:                                               ; preds = %26
-  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #5
-  br label %53
+33:                                               ; preds = %29
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #5
+  br label %59
 
-31:                                               ; preds = %26
-  %32 = tail call i32 @efi_mem_type(i64 noundef %27) #6
-  %33 = icmp eq i32 %32, 4
-  br i1 %33, label %36, label %34
+35:                                               ; preds = %29
+  %36 = tail call i32 @efi_mem_type(i64 noundef %31) #6
+  %37 = icmp eq i32 %36, 4
+  br i1 %37, label %40, label %38
 
-34:                                               ; preds = %31
-  %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #5
-  br label %53
+38:                                               ; preds = %35
+  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #5
+  br label %59
 
-36:                                               ; preds = %31
-  %37 = load i64, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4), align 1
-  %38 = tail call ptr @early_memremap(i64 noundef %37, i64 noundef 6) #6
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %42
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4
+  %42 = load i64, ptr %41, align 1
+  %43 = tail call ptr @early_memremap(i64 noundef %42, i64 noundef 6) #6
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %47
 
-40:                                               ; preds = %36
-  %41 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #5
-  br label %53
+45:                                               ; preds = %40
+  %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #5
+  br label %59
 
-42:                                               ; preds = %36
-  %43 = load i16, ptr %38, align 1
-  %44 = getelementptr inbounds i8, ptr %38, i64 2
-  %45 = load i32, ptr %44, align 1
-  tail call void @early_memunmap(ptr noundef nonnull %38, i64 noundef 6) #6
-  %46 = icmp eq i16 %43, 19778
-  br i1 %46, label %50, label %47
+47:                                               ; preds = %40
+  %48 = load i16, ptr %43, align 1
+  %49 = getelementptr inbounds i8, ptr %43, i64 2
+  %50 = load i32, ptr %49, align 1
+  tail call void @early_memunmap(ptr noundef nonnull %43, i64 noundef 6) #6
+  %51 = icmp eq i16 %48, 19778
+  br i1 %51, label %55, label %52
 
-47:                                               ; preds = %42
-  %48 = zext i16 %43 to i32
-  %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %48) #5
-  br label %53
+52:                                               ; preds = %47
+  %53 = zext i16 %48 to i32
+  %54 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %53) #5
+  br label %59
 
-50:                                               ; preds = %42
-  %51 = zext i32 %45 to i64
-  store i64 %51, ptr @bgrt_image_size, align 8
-  %52 = load i64, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4), align 1
-  tail call void @efi_mem_reserve(i64 noundef %52, i64 noundef %51) #6
-  br label %54
+55:                                               ; preds = %47
+  %56 = zext i32 %50 to i64
+  store i64 %56, ptr @bgrt_image_size, align 8
+  %57 = getelementptr inbounds %struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 4
+  %58 = load i64, ptr %57, align 1
+  tail call void @efi_mem_reserve(i64 noundef %58, i64 noundef %56) #6
+  br label %60
 
-53:                                               ; preds = %47, %40, %34, %29, %23, %17
+59:                                               ; preds = %52, %45, %38, %33, %26, %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) @bgrt_tab, i8 0, i64 56, i1 false)
-  br label %54
+  br label %60
 
-54:                                               ; preds = %53, %50, %12, %4, %1
+60:                                               ; preds = %59, %55, %13, %4, %1
   ret void
 }
 

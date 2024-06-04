@@ -4232,7 +4232,7 @@ define hidden void @e2ap_store_ran_function_mapping(ptr noundef %0, ptr noundef 
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28, %4
-  br label %217
+  br label %222
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %10, align 8
@@ -4247,7 +4247,7 @@ define hidden void @e2ap_store_ran_function_mapping(ptr noundef %0, ptr noundef 
   %40 = load ptr, ptr %7, align 8
   %41 = load ptr, ptr %8, align 8
   %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef %39, ptr noundef @ei_e2ap_ran_function_max_dissectors_registered, ptr noundef %40, i32 noundef 0, i32 noundef 0, ptr noundef @.str, ptr noundef %41, i32 noundef 8)
-  br label %217
+  br label %222
 
 43:                                               ; preds = %32
   %44 = load ptr, ptr %9, align 8
@@ -4325,7 +4325,7 @@ define hidden void @e2ap_store_ran_function_mapping(ptr noundef %0, ptr noundef 
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
-  br label %217
+  br label %222
 
 94:                                               ; preds = %90
   store i32 0, ptr %15, align 4
@@ -4352,7 +4352,7 @@ define hidden void @e2ap_store_ran_function_mapping(ptr noundef %0, ptr noundef 
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %101
-  br label %217
+  br label %222
 
 112:                                              ; preds = %101
   br label %113
@@ -4406,7 +4406,7 @@ define hidden void @e2ap_store_ran_function_mapping(ptr noundef %0, ptr noundef 
   store ptr %144, ptr %150, align 8
   %151 = load i32, ptr %16, align 4
   %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %217
+  br i1 %152, label %153, label %222
 
 153:                                              ; preds = %116
   %154 = load ptr, ptr %9, align 8
@@ -4421,94 +4421,99 @@ define hidden void @e2ap_store_ran_function_mapping(ptr noundef %0, ptr noundef 
   store i32 0, ptr %20, align 4
   br label %160
 
-160:                                              ; preds = %184, %153
+160:                                              ; preds = %186, %153
   %161 = load i32, ptr %20, align 4
   %162 = load i32, ptr @s_gnb_ran_functions_table, align 8
   %163 = icmp ult i32 %161, %162
-  br i1 %163, label %164, label %187
+  br i1 %163, label %164, label %189
 
 164:                                              ; preds = %160
   %165 = load i32, ptr %17, align 4
   %166 = load i32, ptr %20, align 4
   %167 = zext i32 %166 to i64
-  %168 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds (%struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1), i64 0, i64 %167
-  %169 = getelementptr inbounds %struct.anon.0, ptr %168, i32 0, i32 1
-  store i32 %165, ptr %169, align 8
-  %170 = icmp ne i32 %165, 0
-  br i1 %170, label %171, label %183
+  %168 = getelementptr inbounds %struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1
+  %169 = getelementptr [6 x %struct.anon.0], ptr %168, i64 0, i64 %167
+  %170 = getelementptr inbounds %struct.anon.0, ptr %169, i32 0, i32 1
+  store i32 %165, ptr %170, align 8
+  %171 = icmp ne i32 %165, 0
+  br i1 %171, label %172, label %185
 
-171:                                              ; preds = %164
-  %172 = load i32, ptr %20, align 4
-  %173 = zext i32 %172 to i64
-  %174 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds (%struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1), i64 0, i64 %173
-  %175 = getelementptr inbounds %struct.anon.0, ptr %174, i32 0, i32 0
-  %176 = getelementptr inbounds [6 x i8], ptr %175, i64 0, i64 0
-  %177 = load ptr, ptr %18, align 8
-  %178 = load i32, ptr %17, align 4
-  %179 = zext i32 %178 to i64
-  %180 = call i32 @memcmp(ptr noundef %176, ptr noundef %177, i64 noundef %179) #4
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %182, label %183
+172:                                              ; preds = %164
+  %173 = load i32, ptr %20, align 4
+  %174 = zext i32 %173 to i64
+  %175 = getelementptr inbounds %struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1
+  %176 = getelementptr [6 x %struct.anon.0], ptr %175, i64 0, i64 %174
+  %177 = getelementptr inbounds %struct.anon.0, ptr %176, i32 0, i32 0
+  %178 = getelementptr inbounds [6 x i8], ptr %177, i64 0, i64 0
+  %179 = load ptr, ptr %18, align 8
+  %180 = load i32, ptr %17, align 4
+  %181 = zext i32 %180 to i64
+  %182 = call i32 @memcmp(ptr noundef %178, ptr noundef %179, i64 noundef %181) #4
+  %183 = icmp eq i32 %182, 0
+  br i1 %183, label %184, label %185
 
-182:                                              ; preds = %171
+184:                                              ; preds = %172
   store i32 1, ptr %19, align 4
-  br label %187
+  br label %189
 
-183:                                              ; preds = %171, %164
-  br label %184
+185:                                              ; preds = %172, %164
+  br label %186
 
-184:                                              ; preds = %183
-  %185 = load i32, ptr %20, align 4
-  %186 = add i32 %185, 1
-  store i32 %186, ptr %20, align 4
+186:                                              ; preds = %185
+  %187 = load i32, ptr %20, align 4
+  %188 = add i32 %187, 1
+  store i32 %188, ptr %20, align 4
   br label %160, !llvm.loop !7
 
-187:                                              ; preds = %182, %160
-  %188 = load i32, ptr %19, align 4
-  %189 = icmp ne i32 %188, 0
-  br i1 %189, label %216, label %190
+189:                                              ; preds = %184, %160
+  %190 = load i32, ptr %19, align 4
+  %191 = icmp ne i32 %190, 0
+  br i1 %191, label %221, label %192
 
-190:                                              ; preds = %187
-  %191 = load i32, ptr @s_gnb_ran_functions_table, align 8
-  store i32 %191, ptr %21, align 4
-  %192 = load i32, ptr %21, align 4
-  %193 = icmp ult i32 %192, 5
-  br i1 %193, label %194, label %215
+192:                                              ; preds = %189
+  %193 = load i32, ptr @s_gnb_ran_functions_table, align 8
+  store i32 %193, ptr %21, align 4
+  %194 = load i32, ptr %21, align 4
+  %195 = icmp ult i32 %194, 5
+  br i1 %195, label %196, label %220
 
-194:                                              ; preds = %190
-  %195 = load i32, ptr %17, align 4
-  %196 = load i32, ptr %21, align 4
-  %197 = zext i32 %196 to i64
-  %198 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds (%struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1), i64 0, i64 %197
-  %199 = getelementptr inbounds %struct.anon.0, ptr %198, i32 0, i32 1
-  store i32 %195, ptr %199, align 8
-  %200 = load i32, ptr %21, align 4
-  %201 = zext i32 %200 to i64
-  %202 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds (%struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1), i64 0, i64 %201
-  %203 = getelementptr inbounds %struct.anon.0, ptr %202, i32 0, i32 0
-  %204 = getelementptr inbounds [6 x i8], ptr %203, i64 0, i64 0
-  %205 = load ptr, ptr %18, align 8
-  %206 = load i32, ptr %17, align 4
-  %207 = zext i32 %206 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %204, ptr align 1 %205, i64 %207, i1 false)
-  %208 = load ptr, ptr %10, align 8
-  %209 = load i32, ptr %21, align 4
-  %210 = zext i32 %209 to i64
-  %211 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds (%struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1), i64 0, i64 %210
-  %212 = getelementptr inbounds %struct.anon.0, ptr %211, i32 0, i32 2
-  store ptr %208, ptr %212, align 8
-  %213 = load i32, ptr @s_gnb_ran_functions_table, align 8
-  %214 = add i32 %213, 1
-  store i32 %214, ptr @s_gnb_ran_functions_table, align 8
-  br label %215
+196:                                              ; preds = %192
+  %197 = load i32, ptr %17, align 4
+  %198 = load i32, ptr %21, align 4
+  %199 = zext i32 %198 to i64
+  %200 = getelementptr inbounds %struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1
+  %201 = getelementptr [6 x %struct.anon.0], ptr %200, i64 0, i64 %199
+  %202 = getelementptr inbounds %struct.anon.0, ptr %201, i32 0, i32 1
+  store i32 %197, ptr %202, align 8
+  %203 = load i32, ptr %21, align 4
+  %204 = zext i32 %203 to i64
+  %205 = getelementptr inbounds %struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1
+  %206 = getelementptr [6 x %struct.anon.0], ptr %205, i64 0, i64 %204
+  %207 = getelementptr inbounds %struct.anon.0, ptr %206, i32 0, i32 0
+  %208 = getelementptr inbounds [6 x i8], ptr %207, i64 0, i64 0
+  %209 = load ptr, ptr %18, align 8
+  %210 = load i32, ptr %17, align 4
+  %211 = zext i32 %210 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %208, ptr align 1 %209, i64 %211, i1 false)
+  %212 = load ptr, ptr %10, align 8
+  %213 = load i32, ptr %21, align 4
+  %214 = zext i32 %213 to i64
+  %215 = getelementptr inbounds %struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1
+  %216 = getelementptr [6 x %struct.anon.0], ptr %215, i64 0, i64 %214
+  %217 = getelementptr inbounds %struct.anon.0, ptr %216, i32 0, i32 2
+  store ptr %212, ptr %217, align 8
+  %218 = load i32, ptr @s_gnb_ran_functions_table, align 8
+  %219 = add i32 %218, 1
+  store i32 %219, ptr @s_gnb_ran_functions_table, align 8
+  br label %220
 
-215:                                              ; preds = %194, %190
-  br label %216
+220:                                              ; preds = %196, %192
+  br label %221
 
-216:                                              ; preds = %215, %187
-  br label %217
+221:                                              ; preds = %220, %189
+  br label %222
 
-217:                                              ; preds = %216, %116, %111, %93, %37, %31
+222:                                              ; preds = %221, %116, %111, %93, %37, %31
   ret void
 }
 
@@ -11177,7 +11182,7 @@ define internal void @update_conversation_from_gnb_id(ptr noundef %0) #0 {
   store ptr %32, ptr %5, align 8
   %33 = load ptr, ptr %5, align 8
   %34 = icmp ne ptr %33, null
-  br i1 %34, label %101, label %35
+  br i1 %34, label %104, label %35
 
 35:                                               ; preds = %1
   %36 = load ptr, ptr %3, align 8
@@ -11217,61 +11222,64 @@ define internal void @update_conversation_from_gnb_id(ptr noundef %0) #0 {
   store i32 0, ptr %9, align 4
   br label %65
 
-65:                                               ; preds = %97, %35
+65:                                               ; preds = %100, %35
   %66 = load i32, ptr %9, align 4
   %67 = load i32, ptr @s_gnb_ran_functions_table, align 8
   %68 = icmp ult i32 %66, %67
-  br i1 %68, label %69, label %100
+  br i1 %68, label %69, label %103
 
 69:                                               ; preds = %65
   %70 = load i32, ptr %7, align 4
   %71 = load i32, ptr %9, align 4
   %72 = zext i32 %71 to i64
-  %73 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds (%struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1), i64 0, i64 %72
-  %74 = getelementptr inbounds %struct.anon.0, ptr %73, i32 0, i32 1
-  store i32 %70, ptr %74, align 8
-  %75 = icmp ne i32 %70, 0
-  br i1 %75, label %76, label %96
+  %73 = getelementptr inbounds %struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1
+  %74 = getelementptr [6 x %struct.anon.0], ptr %73, i64 0, i64 %72
+  %75 = getelementptr inbounds %struct.anon.0, ptr %74, i32 0, i32 1
+  store i32 %70, ptr %75, align 8
+  %76 = icmp ne i32 %70, 0
+  br i1 %76, label %77, label %99
 
-76:                                               ; preds = %69
-  %77 = load i32, ptr %9, align 4
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds (%struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1), i64 0, i64 %78
-  %80 = getelementptr inbounds %struct.anon.0, ptr %79, i32 0, i32 0
-  %81 = getelementptr inbounds [6 x i8], ptr %80, i64 0, i64 0
-  %82 = load ptr, ptr %8, align 8
-  %83 = load i32, ptr %7, align 4
-  %84 = zext i32 %83 to i64
-  %85 = call i32 @memcmp(ptr noundef %81, ptr noundef %82, i64 noundef %84) #4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %96
+77:                                               ; preds = %69
+  %78 = load i32, ptr %9, align 4
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds %struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1
+  %81 = getelementptr [6 x %struct.anon.0], ptr %80, i64 0, i64 %79
+  %82 = getelementptr inbounds %struct.anon.0, ptr %81, i32 0, i32 0
+  %83 = getelementptr inbounds [6 x i8], ptr %82, i64 0, i64 0
+  %84 = load ptr, ptr %8, align 8
+  %85 = load i32, ptr %7, align 4
+  %86 = zext i32 %85 to i64
+  %87 = call i32 @memcmp(ptr noundef %83, ptr noundef %84, i64 noundef %86) #4
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %99
 
-87:                                               ; preds = %76
-  %88 = load i32, ptr %9, align 4
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds (%struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1), i64 0, i64 %89
-  %91 = getelementptr inbounds %struct.anon.0, ptr %90, i32 0, i32 2
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %6, align 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = load i32, ptr @proto_e2ap, align 4
-  %95 = load ptr, ptr %6, align 8
-  call void @conversation_add_proto_data(ptr noundef %93, i32 noundef %94, ptr noundef %95)
+89:                                               ; preds = %77
+  %90 = load i32, ptr %9, align 4
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds %struct.gnb_ran_functions_t, ptr @s_gnb_ran_functions_table, i32 0, i32 1
+  %93 = getelementptr [6 x %struct.anon.0], ptr %92, i64 0, i64 %91
+  %94 = getelementptr inbounds %struct.anon.0, ptr %93, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %6, align 8
+  %96 = load ptr, ptr %5, align 8
+  %97 = load i32, ptr @proto_e2ap, align 4
+  %98 = load ptr, ptr %6, align 8
+  call void @conversation_add_proto_data(ptr noundef %96, i32 noundef %97, ptr noundef %98)
+  br label %103
+
+99:                                               ; preds = %77, %69
   br label %100
 
-96:                                               ; preds = %76, %69
-  br label %97
-
-97:                                               ; preds = %96
-  %98 = load i32, ptr %9, align 4
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %9, align 4
+100:                                              ; preds = %99
+  %101 = load i32, ptr %9, align 4
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %9, align 4
   br label %65, !llvm.loop !12
 
-100:                                              ; preds = %87, %65
-  br label %101
+103:                                              ; preds = %89, %65
+  br label %104
 
-101:                                              ; preds = %100, %1
+104:                                              ; preds = %103, %1
   ret void
 }
 

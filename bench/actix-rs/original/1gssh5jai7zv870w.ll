@@ -27,57 +27,58 @@ define hidden void @_ZN5regex8regexset6string8RegexSet10matches_at17he4f3cd41ffd
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %18, ptr %20, align 8
   %21 = load i32, ptr @anon.9bc71403f4e84169bedc06142171fcb3.0, align 4, !range !4, !noundef !3
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @anon.9bc71403f4e84169bedc06142171fcb3.0, i64 4), align 4
+  %22 = getelementptr inbounds i8, ptr @anon.9bc71403f4e84169bedc06142171fcb3.0, i64 4
+  %23 = load i32, ptr %22, align 4
   store i32 %21, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds { { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %11, i32 0, i32 3
-  store i8 0, ptr %24, align 8
+  %24 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %23, ptr %24, align 4
+  %25 = getelementptr inbounds { { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %11, i32 0, i32 3
+  store i8 0, ptr %25, align 8
   store i64 %4, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %3, ptr %25, align 8
-  %26 = load i64, ptr %10, align 8, !noundef !3
-  %27 = getelementptr inbounds i8, ptr %10, i64 8
-  %28 = load i64, ptr %27, align 8, !noundef !3
-  call void @_ZN14regex_automata4util6search5Input8set_span17h73fadf1495e1e518E(ptr align 8 %11, i64 %26, i64 %28)
+  %26 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %3, ptr %26, align 8
+  %27 = load i64, ptr %10, align 8, !noundef !3
+  %28 = getelementptr inbounds i8, ptr %10, i64 8
+  %29 = load i64, ptr %28, align 8, !noundef !3
+  call void @_ZN14regex_automata4util6search5Input8set_span17h73fadf1495e1e518E(ptr align 8 %11, i64 %27, i64 %29)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %11, i64 48, i1 false)
-  %29 = call i64 @_ZN14regex_automata4meta5regex5Regex11pattern_len17hde5be0e759e2cce7E(ptr align 8 %1)
-  call void @_ZN14regex_automata4util6search10PatternSet3new17h1a8cbbdd6b974278E(ptr sret({ { { { { ptr, i64 } }, {} }, {} }, i64 }) align 8 %9, i64 %29)
+  %30 = call i64 @_ZN14regex_automata4meta5regex5Regex11pattern_len17hde5be0e759e2cce7E(ptr align 8 %1)
+  call void @_ZN14regex_automata4util6search10PatternSet3new17h1a8cbbdd6b974278E(ptr sret({ { { { { ptr, i64 } }, {} }, {} }, i64 }) align 8 %9, i64 %30)
   invoke void @_ZN14regex_automata4meta5regex5Regex25which_overlapping_matches17h1c5ff2093cdeca91E(ptr align 8 %1, ptr align 8 %12, ptr align 8 %9)
-          to label %36 unwind label %31
+          to label %37 unwind label %32
 
-30:                                               ; preds = %31
+31:                                               ; preds = %32
   invoke void @"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..search..PatternSet$GT$17h859fa1162f6ca1ccE"(ptr align 8 %9) #4
-          to label %39 unwind label %37
+          to label %40 unwind label %38
 
-31:                                               ; preds = %5
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %5
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store ptr %33, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %34, ptr %35, align 8
-  br label %30
+  %34 = extractvalue { ptr, i32 } %33, 0
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store ptr %34, ptr %6, align 8
+  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %35, ptr %36, align 8
+  br label %31
 
-36:                                               ; preds = %5
+37:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %8, i64 24, i1 false)
   ret void
 
-37:                                               ; preds = %30
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %31
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-39:                                               ; preds = %30
-  %40 = load ptr, ptr %6, align 8, !noundef !3
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
-  %42 = load i32, ptr %41, align 8, !noundef !3
-  %43 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %6, align 8, !noundef !3
+  %42 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = load i32, ptr %42, align 8, !noundef !3
+  %44 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: nonlazybind uwtable

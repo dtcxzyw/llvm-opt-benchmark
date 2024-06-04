@@ -81,73 +81,74 @@ define internal i32 @pcie_pme_probe(ptr noundef %0) #1 align 16 {
   %5 = load i16, ptr %4, align 2
   %6 = lshr i16 %5, 4
   %7 = and i16 %6, 15
-  switch i16 %7, label %38 [
+  switch i16 %7, label %39 [
     i16 10, label %8
     i16 4, label %8
   ]
 
 8:                                                ; preds = %1, %1
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %10 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 56) #10
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %38, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %10 = load ptr, ptr %9, align 16
+  %11 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 56) #10
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %39, label %13
 
-12:                                               ; preds = %8
-  store i32 0, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
-  store i64 68719476704, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
-  store volatile ptr %14, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
-  store volatile ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr @pcie_pme_work_fn, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %10, ptr %18, align 8
-  %19 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %3, i32 noundef 28, i16 noundef zeroext 8, i16 noundef zeroext 0) #9
+13:                                               ; preds = %8
+  store i32 0, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  store i64 68719476704, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  store volatile ptr %15, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 32
+  store volatile ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 40
+  store ptr @pcie_pme_work_fn, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %11, ptr %19, align 8
+  %20 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %3, i32 noundef 28, i16 noundef zeroext 8, i16 noundef zeroext 0) #9
   tail call void @pcie_clear_root_pme_status(ptr noundef %3) #9
-  %20 = load i32, ptr %0, align 8
-  %21 = tail call i32 @request_threaded_irq(i32 noundef %20, ptr noundef nonnull @pcie_pme_irq, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.2, ptr noundef %0) #9
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %24, label %23
+  %21 = load i32, ptr %0, align 8
+  %22 = tail call i32 @request_threaded_irq(i32 noundef %21, ptr noundef nonnull @pcie_pme_irq, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.2, ptr noundef %0) #9
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %25, label %24
 
-23:                                               ; preds = %12
-  tail call void @kfree(ptr noundef nonnull %10) #9
-  br label %38
+24:                                               ; preds = %13
+  tail call void @kfree(ptr noundef nonnull %11) #9
+  br label %39
 
-24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %3, i64 184
-  %26 = load i32, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.3, i32 noundef %26) #11
-  tail call void @device_set_wakeup_capable(ptr noundef %25, i1 noundef zeroext true) #9
-  %27 = load i16, ptr %4, align 2
-  %28 = and i16 %27, 240
-  %29 = icmp eq i16 %28, 160
-  br i1 %29, label %30, label %31
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds i8, ptr %3, i64 184
+  %27 = load i32, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %26, ptr noundef nonnull @.str.3, i32 noundef %27) #11
+  tail call void @device_set_wakeup_capable(ptr noundef %26, i1 noundef zeroext true) #9
+  %28 = load i16, ptr %4, align 2
+  %29 = and i16 %28, 240
+  %30 = icmp eq i16 %29, 160
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %24
+31:                                               ; preds = %25
   tail call void @pcie_walk_rcec(ptr noundef %3, ptr noundef nonnull @pcie_pme_can_wakeup, ptr noundef null) #9
-  br label %36
+  br label %37
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %3, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %36, label %35
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds i8, ptr %3, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %37, label %36
 
-35:                                               ; preds = %31
-  tail call void @pci_walk_bus(ptr noundef nonnull %33, ptr noundef nonnull @pcie_pme_can_wakeup, ptr noundef null) #9
-  br label %36
+36:                                               ; preds = %32
+  tail call void @pci_walk_bus(ptr noundef nonnull %34, ptr noundef nonnull @pcie_pme_can_wakeup, ptr noundef null) #9
+  br label %37
 
-36:                                               ; preds = %35, %31, %30
-  %37 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %3, i32 noundef 28, i16 noundef zeroext 0, i16 noundef zeroext 8) #9
-  br label %38
+37:                                               ; preds = %36, %32, %31
+  %38 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %3, i32 noundef 28, i16 noundef zeroext 0, i16 noundef zeroext 8) #9
+  br label %39
 
-38:                                               ; preds = %36, %23, %8, %1
-  %39 = phi i32 [ %21, %23 ], [ 0, %36 ], [ -19, %1 ], [ -12, %8 ]
-  ret i32 %39
+39:                                               ; preds = %37, %24, %8, %1
+  %40 = phi i32 [ %22, %24 ], [ 0, %37 ], [ -19, %1 ], [ -12, %8 ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

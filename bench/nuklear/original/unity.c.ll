@@ -16620,55 +16620,56 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %3 = load ptr, ptr %list.addr, align 8
   %4 = load <2 x float>, ptr @nk_null_rect, align 4
-  %5 = load <2 x float>, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1), align 4
-  call void @nk_draw_list_add_clip(ptr noundef %3, <2 x float> %4, <2 x float> %5)
+  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1
+  %6 = load <2 x float>, ptr %5, align 4
+  call void @nk_draw_list_add_clip(ptr noundef %3, <2 x float> %4, <2 x float> %6)
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %6 = load ptr, ptr %list.addr, align 8
-  %call = call ptr @nk_draw_list_command_last(ptr noundef %6)
+  %7 = load ptr, ptr %list.addr, align 8
+  %call = call ptr @nk_draw_list_command_last(ptr noundef %7)
   store ptr %call, ptr %cmd, align 8
-  %7 = load ptr, ptr %cmd, align 8
-  %tobool4 = icmp ne ptr %7, null
+  %8 = load ptr, ptr %cmd, align 8
+  %tobool4 = icmp ne ptr %8, null
   br i1 %tobool4, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end3
-  %8 = load ptr, ptr %cmd, align 8
-  %texture = getelementptr inbounds %struct.nk_draw_command, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %texture, align 8
-  %10 = load ptr, ptr %list.addr, align 8
-  %config = getelementptr inbounds %struct.nk_draw_list, ptr %10, i32 0, i32 2
+  %9 = load ptr, ptr %cmd, align 8
+  %texture = getelementptr inbounds %struct.nk_draw_command, ptr %9, i32 0, i32 2
+  %10 = load ptr, ptr %texture, align 8
+  %11 = load ptr, ptr %list.addr, align 8
+  %config = getelementptr inbounds %struct.nk_draw_list, ptr %11, i32 0, i32 2
   %tex_null = getelementptr inbounds %struct.nk_convert_config, ptr %config, i32 0, i32 6
   %texture5 = getelementptr inbounds %struct.nk_draw_null_texture, ptr %tex_null, i32 0, i32 0
-  %11 = load ptr, ptr %texture5, align 8
-  %cmp = icmp ne ptr %9, %11
+  %12 = load ptr, ptr %texture5, align 8
+  %cmp = icmp ne ptr %10, %12
   br i1 %cmp, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %land.lhs.true
-  %12 = load ptr, ptr %list.addr, align 8
   %13 = load ptr, ptr %list.addr, align 8
-  %config7 = getelementptr inbounds %struct.nk_draw_list, ptr %13, i32 0, i32 2
+  %14 = load ptr, ptr %list.addr, align 8
+  %config7 = getelementptr inbounds %struct.nk_draw_list, ptr %14, i32 0, i32 2
   %tex_null8 = getelementptr inbounds %struct.nk_convert_config, ptr %config7, i32 0, i32 6
   %texture9 = getelementptr inbounds %struct.nk_draw_null_texture, ptr %tex_null8, i32 0, i32 0
   %coerce.dive = getelementptr inbounds %union.nk_handle, ptr %texture9, i32 0, i32 0
-  %14 = load ptr, ptr %coerce.dive, align 8
-  call void @nk_draw_list_push_image(ptr noundef %12, ptr %14)
+  %15 = load ptr, ptr %coerce.dive, align 8
+  call void @nk_draw_list_push_image(ptr noundef %13, ptr %15)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %land.lhs.true, %if.end3
-  %15 = load ptr, ptr %list.addr, align 8
-  %call11 = call ptr @nk_draw_list_alloc_path(ptr noundef %15, i32 noundef 1)
+  %16 = load ptr, ptr %list.addr, align 8
+  %call11 = call ptr @nk_draw_list_alloc_path(ptr noundef %16, i32 noundef 1)
   store ptr %call11, ptr %points, align 8
-  %16 = load ptr, ptr %points, align 8
-  %tobool12 = icmp ne ptr %16, null
+  %17 = load ptr, ptr %points, align 8
+  %tobool12 = icmp ne ptr %17, null
   br i1 %tobool12, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
   br label %return
 
 if.end14:                                         ; preds = %if.end10
-  %17 = load ptr, ptr %points, align 8
-  %arrayidx = getelementptr inbounds %struct.nk_vec2, ptr %17, i64 0
+  %18 = load ptr, ptr %points, align 8
+  %arrayidx = getelementptr inbounds %struct.nk_vec2, ptr %18, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx, ptr align 4 %pos, i64 8, i1 false)
   br label %return
 
@@ -16812,47 +16813,48 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %3 = load ptr, ptr %list.addr, align 8
   %4 = load <2 x float>, ptr @nk_null_rect, align 4
-  %5 = load <2 x float>, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1), align 4
+  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1
+  %6 = load <2 x float>, ptr %5, align 4
   %coerce.dive3 = getelementptr inbounds %union.nk_handle, ptr %texture, i32 0, i32 0
-  %6 = load ptr, ptr %coerce.dive3, align 8
-  %call = call ptr @nk_draw_list_push_command(ptr noundef %3, <2 x float> %4, <2 x float> %5, ptr %6)
+  %7 = load ptr, ptr %coerce.dive3, align 8
+  %call = call ptr @nk_draw_list_push_command(ptr noundef %3, <2 x float> %4, <2 x float> %6, ptr %7)
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
-  %7 = load ptr, ptr %list.addr, align 8
-  %call4 = call ptr @nk_draw_list_command_last(ptr noundef %7)
+  %8 = load ptr, ptr %list.addr, align 8
+  %call4 = call ptr @nk_draw_list_command_last(ptr noundef %8)
   store ptr %call4, ptr %prev, align 8
-  %8 = load ptr, ptr %prev, align 8
-  %elem_count = getelementptr inbounds %struct.nk_draw_command, ptr %8, i32 0, i32 0
-  %9 = load i32, ptr %elem_count, align 8
-  %cmp = icmp eq i32 %9, 0
+  %9 = load ptr, ptr %prev, align 8
+  %elem_count = getelementptr inbounds %struct.nk_draw_command, ptr %9, i32 0, i32 0
+  %10 = load i32, ptr %elem_count, align 8
+  %cmp = icmp eq i32 %10, 0
   br i1 %cmp, label %if.then5, label %if.else7
 
 if.then5:                                         ; preds = %if.else
-  %10 = load ptr, ptr %prev, align 8
-  %texture6 = getelementptr inbounds %struct.nk_draw_command, ptr %10, i32 0, i32 2
+  %11 = load ptr, ptr %prev, align 8
+  %texture6 = getelementptr inbounds %struct.nk_draw_command, ptr %11, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %texture6, ptr align 8 %texture, i64 8, i1 false)
   br label %if.end14
 
 if.else7:                                         ; preds = %if.else
-  %11 = load ptr, ptr %prev, align 8
-  %texture8 = getelementptr inbounds %struct.nk_draw_command, ptr %11, i32 0, i32 2
-  %12 = load i32, ptr %texture8, align 8
-  %13 = load i32, ptr %texture, align 8
-  %cmp9 = icmp ne i32 %12, %13
+  %12 = load ptr, ptr %prev, align 8
+  %texture8 = getelementptr inbounds %struct.nk_draw_command, ptr %12, i32 0, i32 2
+  %13 = load i32, ptr %texture8, align 8
+  %14 = load i32, ptr %texture, align 8
+  %cmp9 = icmp ne i32 %13, %14
   br i1 %cmp9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.else7
-  %14 = load ptr, ptr %list.addr, align 8
-  %15 = load ptr, ptr %prev, align 8
-  %clip_rect = getelementptr inbounds %struct.nk_draw_command, ptr %15, i32 0, i32 1
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %clip_rect, i32 0, i32 0
-  %17 = load <2 x float>, ptr %16, align 4
-  %18 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %clip_rect, i32 0, i32 1
-  %19 = load <2 x float>, ptr %18, align 4
+  %15 = load ptr, ptr %list.addr, align 8
+  %16 = load ptr, ptr %prev, align 8
+  %clip_rect = getelementptr inbounds %struct.nk_draw_command, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %clip_rect, i32 0, i32 0
+  %18 = load <2 x float>, ptr %17, align 4
+  %19 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %clip_rect, i32 0, i32 1
+  %20 = load <2 x float>, ptr %19, align 4
   %coerce.dive11 = getelementptr inbounds %union.nk_handle, ptr %texture, i32 0, i32 0
-  %20 = load ptr, ptr %coerce.dive11, align 8
-  %call12 = call ptr @nk_draw_list_push_command(ptr noundef %14, <2 x float> %17, <2 x float> %19, ptr %20)
+  %21 = load ptr, ptr %coerce.dive11, align 8
+  %call12 = call ptr @nk_draw_list_push_command(ptr noundef %15, <2 x float> %18, <2 x float> %20, ptr %21)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.else7
@@ -32842,53 +32844,56 @@ land.lhs.true:                                    ; preds = %if.end
   %arrayidx4 = getelementptr inbounds i8, ptr %5, i64 1
   %6 = load i8, ptr %arrayidx4, align 1
   %conv5 = zext i8 %6 to i32
-  %7 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 1), align 1
-  %conv6 = sext i8 %7 to i32
+  %7 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %conv6 = sext i8 %8 to i32
   %cmp7 = icmp eq i32 %conv5, %conv6
   br i1 %cmp7, label %land.lhs.true9, label %if.end40
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %8 = load ptr, ptr %font_collection.addr, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %8, i64 2
-  %9 = load i8, ptr %arrayidx10, align 1
-  %conv11 = zext i8 %9 to i32
-  %10 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 2), align 1
-  %conv12 = sext i8 %10 to i32
+  %9 = load ptr, ptr %font_collection.addr, align 8
+  %arrayidx10 = getelementptr inbounds i8, ptr %9, i64 2
+  %10 = load i8, ptr %arrayidx10, align 1
+  %conv11 = zext i8 %10 to i32
+  %11 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %conv12 = sext i8 %12 to i32
   %cmp13 = icmp eq i32 %conv11, %conv12
   br i1 %cmp13, label %land.lhs.true15, label %if.end40
 
 land.lhs.true15:                                  ; preds = %land.lhs.true9
-  %11 = load ptr, ptr %font_collection.addr, align 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %11, i64 3
-  %12 = load i8, ptr %arrayidx16, align 1
-  %conv17 = zext i8 %12 to i32
-  %13 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 3), align 1
-  %conv18 = sext i8 %13 to i32
+  %13 = load ptr, ptr %font_collection.addr, align 8
+  %arrayidx16 = getelementptr inbounds i8, ptr %13, i64 3
+  %14 = load i8, ptr %arrayidx16, align 1
+  %conv17 = zext i8 %14 to i32
+  %15 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 3
+  %16 = load i8, ptr %15, align 1
+  %conv18 = sext i8 %16 to i32
   %cmp19 = icmp eq i32 %conv17, %conv18
   br i1 %cmp19, label %if.then21, label %if.end40
 
 if.then21:                                        ; preds = %land.lhs.true15
-  %14 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %17, i64 4
   %call22 = call i32 @ttULONG(ptr noundef %add.ptr)
   %cmp23 = icmp eq i32 %call22, 65536
   br i1 %cmp23, label %if.then29, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then21
-  %15 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr25 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr25 = getelementptr inbounds i8, ptr %18, i64 4
   %call26 = call i32 @ttULONG(ptr noundef %add.ptr25)
   %cmp27 = icmp eq i32 %call26, 131072
   br i1 %cmp27, label %if.then29, label %if.end39
 
 if.then29:                                        ; preds = %lor.lhs.false, %if.then21
-  %16 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr30 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr30 = getelementptr inbounds i8, ptr %19, i64 8
   %call31 = call i32 @ttLONG(ptr noundef %add.ptr30)
   store i32 %call31, ptr %n, align 4
-  %17 = load i32, ptr %index.addr, align 4
-  %18 = load i32, ptr %n, align 4
-  %cmp32 = icmp sge i32 %17, %18
+  %20 = load i32, ptr %index.addr, align 4
+  %21 = load i32, ptr %n, align 4
+  %cmp32 = icmp sge i32 %20, %21
   br i1 %cmp32, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.then29
@@ -32896,10 +32901,10 @@ if.then34:                                        ; preds = %if.then29
   br label %return
 
 if.end35:                                         ; preds = %if.then29
-  %19 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr36 = getelementptr inbounds i8, ptr %19, i64 12
-  %20 = load i32, ptr %index.addr, align 4
-  %mul = mul nsw i32 %20, 4
+  %22 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr36 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = load i32, ptr %index.addr, align 4
+  %mul = mul nsw i32 %23, 4
   %idx.ext = sext i32 %mul to i64
   %add.ptr37 = getelementptr inbounds i8, ptr %add.ptr36, i64 %idx.ext
   %call38 = call i32 @ttULONG(ptr noundef %add.ptr37)
@@ -32914,8 +32919,8 @@ if.end40:                                         ; preds = %if.end39, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end40, %if.end35, %if.then34, %if.then
-  %21 = load i32, ptr %retval, align 4
-  ret i32 %21
+  %24 = load i32, ptr %retval, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -32958,48 +32963,51 @@ land.lhs.true:                                    ; preds = %if.end
   %arrayidx3 = getelementptr inbounds i8, ptr %4, i64 1
   %5 = load i8, ptr %arrayidx3, align 1
   %conv4 = zext i8 %5 to i32
-  %6 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 1), align 1
-  %conv5 = sext i8 %6 to i32
+  %6 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 1
+  %7 = load i8, ptr %6, align 1
+  %conv5 = sext i8 %7 to i32
   %cmp6 = icmp eq i32 %conv4, %conv5
   br i1 %cmp6, label %land.lhs.true8, label %if.end32
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %7 = load ptr, ptr %font_collection.addr, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %7, i64 2
-  %8 = load i8, ptr %arrayidx9, align 1
-  %conv10 = zext i8 %8 to i32
-  %9 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 2), align 1
-  %conv11 = sext i8 %9 to i32
+  %8 = load ptr, ptr %font_collection.addr, align 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %8, i64 2
+  %9 = load i8, ptr %arrayidx9, align 1
+  %conv10 = zext i8 %9 to i32
+  %10 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 2
+  %11 = load i8, ptr %10, align 1
+  %conv11 = sext i8 %11 to i32
   %cmp12 = icmp eq i32 %conv10, %conv11
   br i1 %cmp12, label %land.lhs.true14, label %if.end32
 
 land.lhs.true14:                                  ; preds = %land.lhs.true8
-  %10 = load ptr, ptr %font_collection.addr, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %10, i64 3
-  %11 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %11 to i32
-  %12 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 3), align 1
-  %conv17 = sext i8 %12 to i32
+  %12 = load ptr, ptr %font_collection.addr, align 8
+  %arrayidx15 = getelementptr inbounds i8, ptr %12, i64 3
+  %13 = load i8, ptr %arrayidx15, align 1
+  %conv16 = zext i8 %13 to i32
+  %14 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 3
+  %15 = load i8, ptr %14, align 1
+  %conv17 = sext i8 %15 to i32
   %cmp18 = icmp eq i32 %conv16, %conv17
   br i1 %cmp18, label %if.then20, label %if.end32
 
 if.then20:                                        ; preds = %land.lhs.true14
-  %13 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %13, i64 4
+  %16 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %16, i64 4
   %call21 = call i32 @ttULONG(ptr noundef %add.ptr)
   %cmp22 = icmp eq i32 %call21, 65536
   br i1 %cmp22, label %if.then28, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then20
-  %14 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr24 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr24 = getelementptr inbounds i8, ptr %17, i64 4
   %call25 = call i32 @ttULONG(ptr noundef %add.ptr24)
   %cmp26 = icmp eq i32 %call25, 131072
   br i1 %cmp26, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %lor.lhs.false, %if.then20
-  %15 = load ptr, ptr %font_collection.addr, align 8
-  %add.ptr29 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = load ptr, ptr %font_collection.addr, align 8
+  %add.ptr29 = getelementptr inbounds i8, ptr %18, i64 8
   %call30 = call i32 @ttLONG(ptr noundef %add.ptr29)
   store i32 %call30, ptr %retval, align 4
   br label %return
@@ -33012,8 +33020,8 @@ if.end32:                                         ; preds = %if.end31, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end32, %if.then28, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+  %19 = load i32, ptr %retval, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -48185,456 +48193,457 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 if.then15:                                        ; preds = %cond.end
   %19 = load ptr, ptr %out, align 8
   %20 = load <2 x float>, ptr @nk_null_rect, align 4
-  %21 = load <2 x float>, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1), align 4
-  call void @nk_push_scissor(ptr noundef %19, <2 x float> %20, <2 x float> %21)
+  %21 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1
+  %22 = load <2 x float>, ptr %21, align 4
+  call void @nk_push_scissor(ptr noundef %19, <2 x float> %20, <2 x float> %22)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %cond.end
-  %22 = load ptr, ptr %style, align 8
-  %window17 = getelementptr inbounds %struct.nk_style, ptr %22, i32 0, i32 21
+  %23 = load ptr, ptr %style, align 8
+  %window17 = getelementptr inbounds %struct.nk_style, ptr %23, i32 0, i32 21
   %scrollbar_size18 = getelementptr inbounds %struct.nk_style_window, ptr %window17, i32 0, i32 21
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scrollbar_size, ptr align 4 %scrollbar_size18, i64 8, i1 false)
-  %23 = load ptr, ptr %style, align 8
-  %24 = load ptr, ptr %layout, align 8
-  %type19 = getelementptr inbounds %struct.nk_panel, ptr %24, i32 0, i32 0
-  %25 = load i32, ptr %type19, align 8
-  %call20 = call <2 x float> @nk_panel_get_padding(ptr noundef %23, i32 noundef %25)
+  %24 = load ptr, ptr %style, align 8
+  %25 = load ptr, ptr %layout, align 8
+  %type19 = getelementptr inbounds %struct.nk_panel, ptr %25, i32 0, i32 0
+  %26 = load i32, ptr %type19, align 8
+  %call20 = call <2 x float> @nk_panel_get_padding(ptr noundef %24, i32 noundef %26)
   store <2 x float> %call20, ptr %tmp, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %panel_padding, ptr align 4 %tmp, i64 8, i1 false)
-  %26 = load ptr, ptr %layout, align 8
-  %row = getelementptr inbounds %struct.nk_panel, ptr %26, i32 0, i32 14
+  %27 = load ptr, ptr %layout, align 8
+  %row = getelementptr inbounds %struct.nk_panel, ptr %27, i32 0, i32 14
   %height = getelementptr inbounds %struct.nk_row_layout, ptr %row, i32 0, i32 2
-  %27 = load float, ptr %height, align 8
-  %28 = load ptr, ptr %layout, align 8
-  %at_y = getelementptr inbounds %struct.nk_panel, ptr %28, i32 0, i32 6
-  %29 = load float, ptr %at_y, align 4
-  %add = fadd float %29, %27
+  %28 = load float, ptr %height, align 8
+  %29 = load ptr, ptr %layout, align 8
+  %at_y = getelementptr inbounds %struct.nk_panel, ptr %29, i32 0, i32 6
+  %30 = load float, ptr %at_y, align 4
+  %add = fadd float %30, %28
   store float %add, ptr %at_y, align 4
-  %30 = load ptr, ptr %layout, align 8
-  %flags21 = getelementptr inbounds %struct.nk_panel, ptr %30, i32 0, i32 1
-  %31 = load i32, ptr %flags21, align 4
-  %and22 = and i32 %31, 2048
+  %31 = load ptr, ptr %layout, align 8
+  %flags21 = getelementptr inbounds %struct.nk_panel, ptr %31, i32 0, i32 1
+  %32 = load i32, ptr %flags21, align 4
+  %and22 = and i32 %32, 2048
   %tobool23 = icmp ne i32 %and22, 0
   br i1 %tobool23, label %land.lhs.true, label %if.end109
 
 land.lhs.true:                                    ; preds = %if.end16
-  %32 = load ptr, ptr %layout, align 8
-  %flags24 = getelementptr inbounds %struct.nk_panel, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %flags24, align 4
-  %and25 = and i32 %33, 32768
+  %33 = load ptr, ptr %layout, align 8
+  %flags24 = getelementptr inbounds %struct.nk_panel, ptr %33, i32 0, i32 1
+  %34 = load i32, ptr %flags24, align 4
+  %and25 = and i32 %34, 32768
   %tobool26 = icmp ne i32 %and25, 0
   br i1 %tobool26, label %if.end109, label %if.then27
 
 if.then27:                                        ; preds = %land.lhs.true
-  %34 = load ptr, ptr %layout, align 8
-  %at_y28 = getelementptr inbounds %struct.nk_panel, ptr %34, i32 0, i32 6
-  %35 = load float, ptr %at_y28, align 4
-  %36 = load ptr, ptr %layout, align 8
-  %bounds = getelementptr inbounds %struct.nk_panel, ptr %36, i32 0, i32 2
+  %35 = load ptr, ptr %layout, align 8
+  %at_y28 = getelementptr inbounds %struct.nk_panel, ptr %35, i32 0, i32 6
+  %36 = load float, ptr %at_y28, align 4
+  %37 = load ptr, ptr %layout, align 8
+  %bounds = getelementptr inbounds %struct.nk_panel, ptr %37, i32 0, i32 2
   %y = getelementptr inbounds %struct.nk_rect, ptr %bounds, i32 0, i32 1
-  %37 = load float, ptr %y, align 4
-  %38 = load ptr, ptr %layout, align 8
-  %bounds29 = getelementptr inbounds %struct.nk_panel, ptr %38, i32 0, i32 2
+  %38 = load float, ptr %y, align 4
+  %39 = load ptr, ptr %layout, align 8
+  %bounds29 = getelementptr inbounds %struct.nk_panel, ptr %39, i32 0, i32 2
   %h = getelementptr inbounds %struct.nk_rect, ptr %bounds29, i32 0, i32 3
-  %39 = load float, ptr %h, align 4
-  %add30 = fadd float %37, %39
-  %cmp = fcmp olt float %35, %add30
+  %40 = load float, ptr %h, align 4
+  %add30 = fadd float %38, %40
+  %cmp = fcmp olt float %36, %add30
   br i1 %cmp, label %if.then31, label %if.end37
 
 if.then31:                                        ; preds = %if.then27
-  %40 = load ptr, ptr %layout, align 8
-  %at_y32 = getelementptr inbounds %struct.nk_panel, ptr %40, i32 0, i32 6
-  %41 = load float, ptr %at_y32, align 4
-  %42 = load ptr, ptr %layout, align 8
-  %bounds33 = getelementptr inbounds %struct.nk_panel, ptr %42, i32 0, i32 2
+  %41 = load ptr, ptr %layout, align 8
+  %at_y32 = getelementptr inbounds %struct.nk_panel, ptr %41, i32 0, i32 6
+  %42 = load float, ptr %at_y32, align 4
+  %43 = load ptr, ptr %layout, align 8
+  %bounds33 = getelementptr inbounds %struct.nk_panel, ptr %43, i32 0, i32 2
   %y34 = getelementptr inbounds %struct.nk_rect, ptr %bounds33, i32 0, i32 1
-  %43 = load float, ptr %y34, align 4
-  %sub = fsub float %41, %43
-  %44 = load ptr, ptr %layout, align 8
-  %bounds35 = getelementptr inbounds %struct.nk_panel, ptr %44, i32 0, i32 2
+  %44 = load float, ptr %y34, align 4
+  %sub = fsub float %42, %44
+  %45 = load ptr, ptr %layout, align 8
+  %bounds35 = getelementptr inbounds %struct.nk_panel, ptr %45, i32 0, i32 2
   %h36 = getelementptr inbounds %struct.nk_rect, ptr %bounds35, i32 0, i32 3
   store float %sub, ptr %h36, align 4
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then31, %if.then27
-  %45 = load ptr, ptr %window, align 8
-  %bounds38 = getelementptr inbounds %struct.nk_window, ptr %45, i32 0, i32 4
+  %46 = load ptr, ptr %window, align 8
+  %bounds38 = getelementptr inbounds %struct.nk_window, ptr %46, i32 0, i32 4
   %x = getelementptr inbounds %struct.nk_rect, ptr %bounds38, i32 0, i32 0
-  %46 = load float, ptr %x, align 4
+  %47 = load float, ptr %x, align 4
   %x39 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 0
-  store float %46, ptr %x39, align 4
-  %47 = load ptr, ptr %layout, align 8
-  %bounds40 = getelementptr inbounds %struct.nk_panel, ptr %47, i32 0, i32 2
+  store float %47, ptr %x39, align 4
+  %48 = load ptr, ptr %layout, align 8
+  %bounds40 = getelementptr inbounds %struct.nk_panel, ptr %48, i32 0, i32 2
   %y41 = getelementptr inbounds %struct.nk_rect, ptr %bounds40, i32 0, i32 1
-  %48 = load float, ptr %y41, align 4
+  %49 = load float, ptr %y41, align 4
   %y42 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 1
-  store float %48, ptr %y42, align 4
+  store float %49, ptr %y42, align 4
   %y43 = getelementptr inbounds %struct.nk_vec2, ptr %panel_padding, i32 0, i32 1
-  %49 = load float, ptr %y43, align 4
+  %50 = load float, ptr %y43, align 4
   %h44 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 3
-  store float %49, ptr %h44, align 4
-  %50 = load ptr, ptr %window, align 8
-  %bounds45 = getelementptr inbounds %struct.nk_window, ptr %50, i32 0, i32 4
+  store float %50, ptr %h44, align 4
+  %51 = load ptr, ptr %window, align 8
+  %bounds45 = getelementptr inbounds %struct.nk_window, ptr %51, i32 0, i32 4
   %w = getelementptr inbounds %struct.nk_rect, ptr %bounds45, i32 0, i32 2
-  %51 = load float, ptr %w, align 4
+  %52 = load float, ptr %w, align 4
   %w46 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 2
-  store float %51, ptr %w46, align 4
-  %52 = load ptr, ptr %out, align 8
-  %53 = load ptr, ptr %style, align 8
-  %window47 = getelementptr inbounds %struct.nk_style, ptr %53, i32 0, i32 21
+  store float %52, ptr %w46, align 4
+  %53 = load ptr, ptr %out, align 8
+  %54 = load ptr, ptr %style, align 8
+  %window47 = getelementptr inbounds %struct.nk_style, ptr %54, i32 0, i32 21
   %background = getelementptr inbounds %struct.nk_style_window, ptr %window47, i32 0, i32 2
-  %54 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 0
-  %55 = load <2 x float>, ptr %54, align 4
-  %56 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 1
-  %57 = load <2 x float>, ptr %56, align 4
-  %58 = load i32, ptr %background, align 8
-  call void @nk_fill_rect(ptr noundef %52, <2 x float> %55, <2 x float> %57, float noundef 0.000000e+00, i32 %58)
-  %59 = load ptr, ptr %window, align 8
-  %bounds48 = getelementptr inbounds %struct.nk_window, ptr %59, i32 0, i32 4
+  %55 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 0
+  %56 = load <2 x float>, ptr %55, align 4
+  %57 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 1
+  %58 = load <2 x float>, ptr %57, align 4
+  %59 = load i32, ptr %background, align 8
+  call void @nk_fill_rect(ptr noundef %53, <2 x float> %56, <2 x float> %58, float noundef 0.000000e+00, i32 %59)
+  %60 = load ptr, ptr %window, align 8
+  %bounds48 = getelementptr inbounds %struct.nk_window, ptr %60, i32 0, i32 4
   %x49 = getelementptr inbounds %struct.nk_rect, ptr %bounds48, i32 0, i32 0
-  %60 = load float, ptr %x49, align 4
+  %61 = load float, ptr %x49, align 4
   %x50 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 0
-  store float %60, ptr %x50, align 4
-  %61 = load ptr, ptr %layout, align 8
-  %bounds51 = getelementptr inbounds %struct.nk_panel, ptr %61, i32 0, i32 2
+  store float %61, ptr %x50, align 4
+  %62 = load ptr, ptr %layout, align 8
+  %bounds51 = getelementptr inbounds %struct.nk_panel, ptr %62, i32 0, i32 2
   %y52 = getelementptr inbounds %struct.nk_rect, ptr %bounds51, i32 0, i32 1
-  %62 = load float, ptr %y52, align 4
+  %63 = load float, ptr %y52, align 4
   %y53 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 1
-  store float %62, ptr %y53, align 4
+  store float %63, ptr %y53, align 4
   %x54 = getelementptr inbounds %struct.nk_vec2, ptr %panel_padding, i32 0, i32 0
-  %63 = load float, ptr %x54, align 4
-  %64 = load ptr, ptr %layout, align 8
-  %border = getelementptr inbounds %struct.nk_panel, ptr %64, i32 0, i32 10
-  %65 = load float, ptr %border, align 4
-  %add55 = fadd float %63, %65
+  %64 = load float, ptr %x54, align 4
+  %65 = load ptr, ptr %layout, align 8
+  %border = getelementptr inbounds %struct.nk_panel, ptr %65, i32 0, i32 10
+  %66 = load float, ptr %border, align 4
+  %add55 = fadd float %64, %66
   %w56 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 2
   store float %add55, ptr %w56, align 4
-  %66 = load ptr, ptr %layout, align 8
-  %bounds57 = getelementptr inbounds %struct.nk_panel, ptr %66, i32 0, i32 2
+  %67 = load ptr, ptr %layout, align 8
+  %bounds57 = getelementptr inbounds %struct.nk_panel, ptr %67, i32 0, i32 2
   %h58 = getelementptr inbounds %struct.nk_rect, ptr %bounds57, i32 0, i32 3
-  %67 = load float, ptr %h58, align 4
+  %68 = load float, ptr %h58, align 4
   %h59 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 3
-  store float %67, ptr %h59, align 4
-  %68 = load ptr, ptr %out, align 8
-  %69 = load ptr, ptr %style, align 8
-  %window60 = getelementptr inbounds %struct.nk_style, ptr %69, i32 0, i32 21
+  store float %68, ptr %h59, align 4
+  %69 = load ptr, ptr %out, align 8
+  %70 = load ptr, ptr %style, align 8
+  %window60 = getelementptr inbounds %struct.nk_style, ptr %70, i32 0, i32 21
   %background61 = getelementptr inbounds %struct.nk_style_window, ptr %window60, i32 0, i32 2
-  %70 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 0
-  %71 = load <2 x float>, ptr %70, align 4
-  %72 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 1
-  %73 = load <2 x float>, ptr %72, align 4
-  %74 = load i32, ptr %background61, align 8
-  call void @nk_fill_rect(ptr noundef %68, <2 x float> %71, <2 x float> %73, float noundef 0.000000e+00, i32 %74)
-  %75 = load ptr, ptr %layout, align 8
-  %bounds62 = getelementptr inbounds %struct.nk_panel, ptr %75, i32 0, i32 2
+  %71 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 0
+  %72 = load <2 x float>, ptr %71, align 4
+  %73 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 1
+  %74 = load <2 x float>, ptr %73, align 4
+  %75 = load i32, ptr %background61, align 8
+  call void @nk_fill_rect(ptr noundef %69, <2 x float> %72, <2 x float> %74, float noundef 0.000000e+00, i32 %75)
+  %76 = load ptr, ptr %layout, align 8
+  %bounds62 = getelementptr inbounds %struct.nk_panel, ptr %76, i32 0, i32 2
   %x63 = getelementptr inbounds %struct.nk_rect, ptr %bounds62, i32 0, i32 0
-  %76 = load float, ptr %x63, align 8
-  %77 = load ptr, ptr %layout, align 8
-  %bounds64 = getelementptr inbounds %struct.nk_panel, ptr %77, i32 0, i32 2
+  %77 = load float, ptr %x63, align 8
+  %78 = load ptr, ptr %layout, align 8
+  %bounds64 = getelementptr inbounds %struct.nk_panel, ptr %78, i32 0, i32 2
   %w65 = getelementptr inbounds %struct.nk_rect, ptr %bounds64, i32 0, i32 2
-  %78 = load float, ptr %w65, align 8
-  %add66 = fadd float %76, %78
+  %79 = load float, ptr %w65, align 8
+  %add66 = fadd float %77, %79
   %x67 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 0
   store float %add66, ptr %x67, align 4
-  %79 = load ptr, ptr %layout, align 8
-  %bounds68 = getelementptr inbounds %struct.nk_panel, ptr %79, i32 0, i32 2
+  %80 = load ptr, ptr %layout, align 8
+  %bounds68 = getelementptr inbounds %struct.nk_panel, ptr %80, i32 0, i32 2
   %y69 = getelementptr inbounds %struct.nk_rect, ptr %bounds68, i32 0, i32 1
-  %80 = load float, ptr %y69, align 4
+  %81 = load float, ptr %y69, align 4
   %y70 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 1
-  store float %80, ptr %y70, align 4
+  store float %81, ptr %y70, align 4
   %x71 = getelementptr inbounds %struct.nk_vec2, ptr %panel_padding, i32 0, i32 0
-  %81 = load float, ptr %x71, align 4
-  %82 = load ptr, ptr %layout, align 8
-  %border72 = getelementptr inbounds %struct.nk_panel, ptr %82, i32 0, i32 10
-  %83 = load float, ptr %border72, align 4
-  %add73 = fadd float %81, %83
+  %82 = load float, ptr %x71, align 4
+  %83 = load ptr, ptr %layout, align 8
+  %border72 = getelementptr inbounds %struct.nk_panel, ptr %83, i32 0, i32 10
+  %84 = load float, ptr %border72, align 4
+  %add73 = fadd float %82, %84
   %w74 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 2
   store float %add73, ptr %w74, align 4
-  %84 = load ptr, ptr %layout, align 8
-  %bounds75 = getelementptr inbounds %struct.nk_panel, ptr %84, i32 0, i32 2
+  %85 = load ptr, ptr %layout, align 8
+  %bounds75 = getelementptr inbounds %struct.nk_panel, ptr %85, i32 0, i32 2
   %h76 = getelementptr inbounds %struct.nk_rect, ptr %bounds75, i32 0, i32 3
-  %85 = load float, ptr %h76, align 4
+  %86 = load float, ptr %h76, align 4
   %h77 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 3
-  store float %85, ptr %h77, align 4
-  %86 = load ptr, ptr %layout, align 8
-  %offset_y = getelementptr inbounds %struct.nk_panel, ptr %86, i32 0, i32 4
-  %87 = load ptr, ptr %offset_y, align 8
-  %88 = load i32, ptr %87, align 4
-  %cmp78 = icmp eq i32 %88, 0
+  store float %86, ptr %h77, align 4
+  %87 = load ptr, ptr %layout, align 8
+  %offset_y = getelementptr inbounds %struct.nk_panel, ptr %87, i32 0, i32 4
+  %88 = load ptr, ptr %offset_y, align 8
+  %89 = load i32, ptr %88, align 4
+  %cmp78 = icmp eq i32 %89, 0
   br i1 %cmp78, label %land.lhs.true79, label %if.end87
 
 land.lhs.true79:                                  ; preds = %if.end37
-  %89 = load ptr, ptr %layout, align 8
-  %flags80 = getelementptr inbounds %struct.nk_panel, ptr %89, i32 0, i32 1
-  %90 = load i32, ptr %flags80, align 4
-  %and81 = and i32 %90, 32
+  %90 = load ptr, ptr %layout, align 8
+  %flags80 = getelementptr inbounds %struct.nk_panel, ptr %90, i32 0, i32 1
+  %91 = load i32, ptr %flags80, align 4
+  %and81 = and i32 %91, 32
   %tobool82 = icmp ne i32 %and81, 0
   br i1 %tobool82, label %if.end87, label %if.then83
 
 if.then83:                                        ; preds = %land.lhs.true79
   %x84 = getelementptr inbounds %struct.nk_vec2, ptr %scrollbar_size, i32 0, i32 0
-  %91 = load float, ptr %x84, align 4
+  %92 = load float, ptr %x84, align 4
   %w85 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 2
-  %92 = load float, ptr %w85, align 4
-  %add86 = fadd float %92, %91
+  %93 = load float, ptr %w85, align 4
+  %add86 = fadd float %93, %92
   store float %add86, ptr %w85, align 4
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then83, %land.lhs.true79, %if.end37
-  %93 = load ptr, ptr %out, align 8
-  %94 = load ptr, ptr %style, align 8
-  %window88 = getelementptr inbounds %struct.nk_style, ptr %94, i32 0, i32 21
+  %94 = load ptr, ptr %out, align 8
+  %95 = load ptr, ptr %style, align 8
+  %window88 = getelementptr inbounds %struct.nk_style, ptr %95, i32 0, i32 21
   %background89 = getelementptr inbounds %struct.nk_style_window, ptr %window88, i32 0, i32 2
-  %95 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 0
-  %96 = load <2 x float>, ptr %95, align 4
-  %97 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 1
-  %98 = load <2 x float>, ptr %97, align 4
-  %99 = load i32, ptr %background89, align 8
-  call void @nk_fill_rect(ptr noundef %93, <2 x float> %96, <2 x float> %98, float noundef 0.000000e+00, i32 %99)
-  %100 = load ptr, ptr %layout, align 8
-  %footer_height = getelementptr inbounds %struct.nk_panel, ptr %100, i32 0, i32 8
-  %101 = load float, ptr %footer_height, align 4
-  %cmp90 = fcmp ogt float %101, 0.000000e+00
+  %96 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 0
+  %97 = load <2 x float>, ptr %96, align 4
+  %98 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 1
+  %99 = load <2 x float>, ptr %98, align 4
+  %100 = load i32, ptr %background89, align 8
+  call void @nk_fill_rect(ptr noundef %94, <2 x float> %97, <2 x float> %99, float noundef 0.000000e+00, i32 %100)
+  %101 = load ptr, ptr %layout, align 8
+  %footer_height = getelementptr inbounds %struct.nk_panel, ptr %101, i32 0, i32 8
+  %102 = load float, ptr %footer_height, align 4
+  %cmp90 = fcmp ogt float %102, 0.000000e+00
   br i1 %cmp90, label %if.then91, label %if.end108
 
 if.then91:                                        ; preds = %if.end87
-  %102 = load ptr, ptr %window, align 8
-  %bounds92 = getelementptr inbounds %struct.nk_window, ptr %102, i32 0, i32 4
+  %103 = load ptr, ptr %window, align 8
+  %bounds92 = getelementptr inbounds %struct.nk_window, ptr %103, i32 0, i32 4
   %x93 = getelementptr inbounds %struct.nk_rect, ptr %bounds92, i32 0, i32 0
-  %103 = load float, ptr %x93, align 4
+  %104 = load float, ptr %x93, align 4
   %x94 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 0
-  store float %103, ptr %x94, align 4
-  %104 = load ptr, ptr %layout, align 8
-  %bounds95 = getelementptr inbounds %struct.nk_panel, ptr %104, i32 0, i32 2
+  store float %104, ptr %x94, align 4
+  %105 = load ptr, ptr %layout, align 8
+  %bounds95 = getelementptr inbounds %struct.nk_panel, ptr %105, i32 0, i32 2
   %y96 = getelementptr inbounds %struct.nk_rect, ptr %bounds95, i32 0, i32 1
-  %105 = load float, ptr %y96, align 4
-  %106 = load ptr, ptr %layout, align 8
-  %bounds97 = getelementptr inbounds %struct.nk_panel, ptr %106, i32 0, i32 2
+  %106 = load float, ptr %y96, align 4
+  %107 = load ptr, ptr %layout, align 8
+  %bounds97 = getelementptr inbounds %struct.nk_panel, ptr %107, i32 0, i32 2
   %h98 = getelementptr inbounds %struct.nk_rect, ptr %bounds97, i32 0, i32 3
-  %107 = load float, ptr %h98, align 4
-  %add99 = fadd float %105, %107
+  %108 = load float, ptr %h98, align 4
+  %add99 = fadd float %106, %108
   %y100 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 1
   store float %add99, ptr %y100, align 4
-  %108 = load ptr, ptr %window, align 8
-  %bounds101 = getelementptr inbounds %struct.nk_window, ptr %108, i32 0, i32 4
+  %109 = load ptr, ptr %window, align 8
+  %bounds101 = getelementptr inbounds %struct.nk_window, ptr %109, i32 0, i32 4
   %w102 = getelementptr inbounds %struct.nk_rect, ptr %bounds101, i32 0, i32 2
-  %109 = load float, ptr %w102, align 4
+  %110 = load float, ptr %w102, align 4
   %w103 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 2
-  store float %109, ptr %w103, align 4
-  %110 = load ptr, ptr %layout, align 8
-  %footer_height104 = getelementptr inbounds %struct.nk_panel, ptr %110, i32 0, i32 8
-  %111 = load float, ptr %footer_height104, align 4
+  store float %110, ptr %w103, align 4
+  %111 = load ptr, ptr %layout, align 8
+  %footer_height104 = getelementptr inbounds %struct.nk_panel, ptr %111, i32 0, i32 8
+  %112 = load float, ptr %footer_height104, align 4
   %h105 = getelementptr inbounds %struct.nk_rect, ptr %empty_space, i32 0, i32 3
-  store float %111, ptr %h105, align 4
-  %112 = load ptr, ptr %out, align 8
-  %113 = load ptr, ptr %style, align 8
-  %window106 = getelementptr inbounds %struct.nk_style, ptr %113, i32 0, i32 21
+  store float %112, ptr %h105, align 4
+  %113 = load ptr, ptr %out, align 8
+  %114 = load ptr, ptr %style, align 8
+  %window106 = getelementptr inbounds %struct.nk_style, ptr %114, i32 0, i32 21
   %background107 = getelementptr inbounds %struct.nk_style_window, ptr %window106, i32 0, i32 2
-  %114 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 0
-  %115 = load <2 x float>, ptr %114, align 4
-  %116 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 1
-  %117 = load <2 x float>, ptr %116, align 4
-  %118 = load i32, ptr %background107, align 8
-  call void @nk_fill_rect(ptr noundef %112, <2 x float> %115, <2 x float> %117, float noundef 0.000000e+00, i32 %118)
+  %115 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 0
+  %116 = load <2 x float>, ptr %115, align 4
+  %117 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %empty_space, i32 0, i32 1
+  %118 = load <2 x float>, ptr %117, align 4
+  %119 = load i32, ptr %background107, align 8
+  call void @nk_fill_rect(ptr noundef %113, <2 x float> %116, <2 x float> %118, float noundef 0.000000e+00, i32 %119)
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then91, %if.end87
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end108, %land.lhs.true, %if.end16
-  %119 = load ptr, ptr %layout, align 8
-  %flags110 = getelementptr inbounds %struct.nk_panel, ptr %119, i32 0, i32 1
-  %120 = load i32, ptr %flags110, align 4
-  %and111 = and i32 %120, 32
+  %120 = load ptr, ptr %layout, align 8
+  %flags110 = getelementptr inbounds %struct.nk_panel, ptr %120, i32 0, i32 1
+  %121 = load i32, ptr %flags110, align 4
+  %and111 = and i32 %121, 32
   %tobool112 = icmp ne i32 %and111, 0
   br i1 %tobool112, label %if.end279, label %land.lhs.true113
 
 land.lhs.true113:                                 ; preds = %if.end109
-  %121 = load ptr, ptr %layout, align 8
-  %flags114 = getelementptr inbounds %struct.nk_panel, ptr %121, i32 0, i32 1
-  %122 = load i32, ptr %flags114, align 4
-  %and115 = and i32 %122, 32768
+  %122 = load ptr, ptr %layout, align 8
+  %flags114 = getelementptr inbounds %struct.nk_panel, ptr %122, i32 0, i32 1
+  %123 = load i32, ptr %flags114, align 4
+  %and115 = and i32 %123, 32768
   %tobool116 = icmp ne i32 %and115, 0
   br i1 %tobool116, label %if.end279, label %land.lhs.true117
 
 land.lhs.true117:                                 ; preds = %land.lhs.true113
-  %123 = load ptr, ptr %window, align 8
-  %scrollbar_hiding_timer = getelementptr inbounds %struct.nk_window, ptr %123, i32 0, i32 8
-  %124 = load float, ptr %scrollbar_hiding_timer, align 8
-  %cmp118 = fcmp olt float %124, 4.000000e+00
+  %124 = load ptr, ptr %window, align 8
+  %scrollbar_hiding_timer = getelementptr inbounds %struct.nk_window, ptr %124, i32 0, i32 8
+  %125 = load float, ptr %scrollbar_hiding_timer, align 8
+  %cmp118 = fcmp olt float %125, 4.000000e+00
   br i1 %cmp118, label %if.then119, label %if.end279
 
 if.then119:                                       ; preds = %land.lhs.true117
-  %125 = load ptr, ptr %layout, align 8
-  %type120 = getelementptr inbounds %struct.nk_panel, ptr %125, i32 0, i32 0
-  %126 = load i32, ptr %type120, align 8
-  %call121 = call i32 @nk_panel_is_sub(i32 noundef %126)
+  %126 = load ptr, ptr %layout, align 8
+  %type120 = getelementptr inbounds %struct.nk_panel, ptr %126, i32 0, i32 0
+  %127 = load i32, ptr %type120, align 8
+  %call121 = call i32 @nk_panel_is_sub(i32 noundef %127)
   %tobool122 = icmp ne i32 %call121, 0
   br i1 %tobool122, label %if.then123, label %if.else
 
 if.then123:                                       ; preds = %if.then119
-  %127 = load ptr, ptr %window, align 8
-  store ptr %127, ptr %root_window, align 8
   %128 = load ptr, ptr %window, align 8
-  %layout124 = getelementptr inbounds %struct.nk_window, ptr %128, i32 0, i32 7
-  %129 = load ptr, ptr %layout124, align 8
-  store ptr %129, ptr %root_panel, align 8
+  store ptr %128, ptr %root_window, align 8
+  %129 = load ptr, ptr %window, align 8
+  %layout124 = getelementptr inbounds %struct.nk_window, ptr %129, i32 0, i32 7
+  %130 = load ptr, ptr %layout124, align 8
+  store ptr %130, ptr %root_panel, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then123
-  %130 = load ptr, ptr %root_panel, align 8
-  %parent = getelementptr inbounds %struct.nk_panel, ptr %130, i32 0, i32 17
-  %131 = load ptr, ptr %parent, align 8
-  %tobool125 = icmp ne ptr %131, null
+  %131 = load ptr, ptr %root_panel, align 8
+  %parent = getelementptr inbounds %struct.nk_panel, ptr %131, i32 0, i32 17
+  %132 = load ptr, ptr %parent, align 8
+  %tobool125 = icmp ne ptr %132, null
   br i1 %tobool125, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %132 = load ptr, ptr %root_panel, align 8
-  %parent126 = getelementptr inbounds %struct.nk_panel, ptr %132, i32 0, i32 17
-  %133 = load ptr, ptr %parent126, align 8
-  store ptr %133, ptr %root_panel, align 8
+  %133 = load ptr, ptr %root_panel, align 8
+  %parent126 = getelementptr inbounds %struct.nk_panel, ptr %133, i32 0, i32 17
+  %134 = load ptr, ptr %parent126, align 8
+  store ptr %134, ptr %root_panel, align 8
   br label %while.cond, !llvm.loop !178
 
 while.end:                                        ; preds = %while.cond
   br label %while.cond127
 
 while.cond127:                                    ; preds = %while.body130, %while.end
-  %134 = load ptr, ptr %root_window, align 8
-  %parent128 = getelementptr inbounds %struct.nk_window, ptr %134, i32 0, i32 18
-  %135 = load ptr, ptr %parent128, align 8
-  %tobool129 = icmp ne ptr %135, null
+  %135 = load ptr, ptr %root_window, align 8
+  %parent128 = getelementptr inbounds %struct.nk_window, ptr %135, i32 0, i32 18
+  %136 = load ptr, ptr %parent128, align 8
+  %tobool129 = icmp ne ptr %136, null
   br i1 %tobool129, label %while.body130, label %while.end132
 
 while.body130:                                    ; preds = %while.cond127
-  %136 = load ptr, ptr %root_window, align 8
-  %parent131 = getelementptr inbounds %struct.nk_window, ptr %136, i32 0, i32 18
-  %137 = load ptr, ptr %parent131, align 8
-  store ptr %137, ptr %root_window, align 8
+  %137 = load ptr, ptr %root_window, align 8
+  %parent131 = getelementptr inbounds %struct.nk_window, ptr %137, i32 0, i32 18
+  %138 = load ptr, ptr %parent131, align 8
+  store ptr %138, ptr %root_window, align 8
   br label %while.cond127, !llvm.loop !179
 
 while.end132:                                     ; preds = %while.cond127
   store i32 0, ptr %scroll_has_scrolling, align 4
-  %138 = load ptr, ptr %root_window, align 8
-  %139 = load ptr, ptr %ctx.addr, align 8
-  %active = getelementptr inbounds %struct.nk_context, ptr %139, i32 0, i32 16
-  %140 = load ptr, ptr %active, align 8
-  %cmp133 = icmp eq ptr %138, %140
+  %139 = load ptr, ptr %root_window, align 8
+  %140 = load ptr, ptr %ctx.addr, align 8
+  %active = getelementptr inbounds %struct.nk_context, ptr %140, i32 0, i32 16
+  %141 = load ptr, ptr %active, align 8
+  %cmp133 = icmp eq ptr %139, %141
   br i1 %cmp133, label %land.lhs.true134, label %if.end186
 
 land.lhs.true134:                                 ; preds = %while.end132
-  %141 = load ptr, ptr %layout, align 8
-  %has_scrolling = getelementptr inbounds %struct.nk_panel, ptr %141, i32 0, i32 11
-  %142 = load i32, ptr %has_scrolling, align 8
-  %tobool135 = icmp ne i32 %142, 0
+  %142 = load ptr, ptr %layout, align 8
+  %has_scrolling = getelementptr inbounds %struct.nk_panel, ptr %142, i32 0, i32 11
+  %143 = load i32, ptr %has_scrolling, align 8
+  %tobool135 = icmp ne i32 %143, 0
   br i1 %tobool135, label %if.then136, label %if.end186
 
 if.then136:                                       ; preds = %land.lhs.true134
-  %143 = load ptr, ptr %in, align 8
-  %144 = load ptr, ptr %layout, align 8
-  %bounds137 = getelementptr inbounds %struct.nk_panel, ptr %144, i32 0, i32 2
-  %145 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %bounds137, i32 0, i32 0
-  %146 = load <2 x float>, ptr %145, align 8
-  %147 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %bounds137, i32 0, i32 1
-  %148 = load <2 x float>, ptr %147, align 8
-  %call138 = call i32 @nk_input_is_mouse_hovering_rect(ptr noundef %143, <2 x float> %146, <2 x float> %148)
+  %144 = load ptr, ptr %in, align 8
+  %145 = load ptr, ptr %layout, align 8
+  %bounds137 = getelementptr inbounds %struct.nk_panel, ptr %145, i32 0, i32 2
+  %146 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %bounds137, i32 0, i32 0
+  %147 = load <2 x float>, ptr %146, align 8
+  %148 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %bounds137, i32 0, i32 1
+  %149 = load <2 x float>, ptr %148, align 8
+  %call138 = call i32 @nk_input_is_mouse_hovering_rect(ptr noundef %144, <2 x float> %147, <2 x float> %149)
   %tobool139 = icmp ne i32 %call138, 0
   br i1 %tobool139, label %land.lhs.true140, label %if.end185
 
 land.lhs.true140:                                 ; preds = %if.then136
-  %149 = load ptr, ptr %root_panel, align 8
-  %clip = getelementptr inbounds %struct.nk_panel, ptr %149, i32 0, i32 12
+  %150 = load ptr, ptr %root_panel, align 8
+  %clip = getelementptr inbounds %struct.nk_panel, ptr %150, i32 0, i32 12
   %x141 = getelementptr inbounds %struct.nk_rect, ptr %clip, i32 0, i32 0
-  %150 = load float, ptr %x141, align 4
-  %151 = load ptr, ptr %layout, align 8
-  %bounds142 = getelementptr inbounds %struct.nk_panel, ptr %151, i32 0, i32 2
+  %151 = load float, ptr %x141, align 4
+  %152 = load ptr, ptr %layout, align 8
+  %bounds142 = getelementptr inbounds %struct.nk_panel, ptr %152, i32 0, i32 2
   %x143 = getelementptr inbounds %struct.nk_rect, ptr %bounds142, i32 0, i32 0
-  %152 = load float, ptr %x143, align 8
-  %153 = load ptr, ptr %layout, align 8
-  %bounds144 = getelementptr inbounds %struct.nk_panel, ptr %153, i32 0, i32 2
+  %153 = load float, ptr %x143, align 8
+  %154 = load ptr, ptr %layout, align 8
+  %bounds144 = getelementptr inbounds %struct.nk_panel, ptr %154, i32 0, i32 2
   %w145 = getelementptr inbounds %struct.nk_rect, ptr %bounds144, i32 0, i32 2
-  %154 = load float, ptr %w145, align 8
-  %add146 = fadd float %152, %154
-  %cmp147 = fcmp olt float %150, %add146
+  %155 = load float, ptr %w145, align 8
+  %add146 = fadd float %153, %155
+  %cmp147 = fcmp olt float %151, %add146
   br i1 %cmp147, label %land.lhs.true148, label %if.end185
 
 land.lhs.true148:                                 ; preds = %land.lhs.true140
-  %155 = load ptr, ptr %layout, align 8
-  %bounds149 = getelementptr inbounds %struct.nk_panel, ptr %155, i32 0, i32 2
+  %156 = load ptr, ptr %layout, align 8
+  %bounds149 = getelementptr inbounds %struct.nk_panel, ptr %156, i32 0, i32 2
   %x150 = getelementptr inbounds %struct.nk_rect, ptr %bounds149, i32 0, i32 0
-  %156 = load float, ptr %x150, align 8
-  %157 = load ptr, ptr %root_panel, align 8
-  %clip151 = getelementptr inbounds %struct.nk_panel, ptr %157, i32 0, i32 12
+  %157 = load float, ptr %x150, align 8
+  %158 = load ptr, ptr %root_panel, align 8
+  %clip151 = getelementptr inbounds %struct.nk_panel, ptr %158, i32 0, i32 12
   %x152 = getelementptr inbounds %struct.nk_rect, ptr %clip151, i32 0, i32 0
-  %158 = load float, ptr %x152, align 4
-  %159 = load ptr, ptr %root_panel, align 8
-  %clip153 = getelementptr inbounds %struct.nk_panel, ptr %159, i32 0, i32 12
+  %159 = load float, ptr %x152, align 4
+  %160 = load ptr, ptr %root_panel, align 8
+  %clip153 = getelementptr inbounds %struct.nk_panel, ptr %160, i32 0, i32 12
   %w154 = getelementptr inbounds %struct.nk_rect, ptr %clip153, i32 0, i32 2
-  %160 = load float, ptr %w154, align 4
-  %add155 = fadd float %158, %160
-  %cmp156 = fcmp olt float %156, %add155
+  %161 = load float, ptr %w154, align 4
+  %add155 = fadd float %159, %161
+  %cmp156 = fcmp olt float %157, %add155
   br i1 %cmp156, label %land.lhs.true157, label %if.end185
 
 land.lhs.true157:                                 ; preds = %land.lhs.true148
-  %161 = load ptr, ptr %root_panel, align 8
-  %clip158 = getelementptr inbounds %struct.nk_panel, ptr %161, i32 0, i32 12
+  %162 = load ptr, ptr %root_panel, align 8
+  %clip158 = getelementptr inbounds %struct.nk_panel, ptr %162, i32 0, i32 12
   %y159 = getelementptr inbounds %struct.nk_rect, ptr %clip158, i32 0, i32 1
-  %162 = load float, ptr %y159, align 4
-  %163 = load ptr, ptr %layout, align 8
-  %bounds160 = getelementptr inbounds %struct.nk_panel, ptr %163, i32 0, i32 2
+  %163 = load float, ptr %y159, align 4
+  %164 = load ptr, ptr %layout, align 8
+  %bounds160 = getelementptr inbounds %struct.nk_panel, ptr %164, i32 0, i32 2
   %y161 = getelementptr inbounds %struct.nk_rect, ptr %bounds160, i32 0, i32 1
-  %164 = load float, ptr %y161, align 4
-  %165 = load ptr, ptr %layout, align 8
-  %bounds162 = getelementptr inbounds %struct.nk_panel, ptr %165, i32 0, i32 2
+  %165 = load float, ptr %y161, align 4
+  %166 = load ptr, ptr %layout, align 8
+  %bounds162 = getelementptr inbounds %struct.nk_panel, ptr %166, i32 0, i32 2
   %h163 = getelementptr inbounds %struct.nk_rect, ptr %bounds162, i32 0, i32 3
-  %166 = load float, ptr %h163, align 4
-  %add164 = fadd float %164, %166
-  %cmp165 = fcmp olt float %162, %add164
+  %167 = load float, ptr %h163, align 4
+  %add164 = fadd float %165, %167
+  %cmp165 = fcmp olt float %163, %add164
   br i1 %cmp165, label %land.lhs.true166, label %if.end185
 
 land.lhs.true166:                                 ; preds = %land.lhs.true157
-  %167 = load ptr, ptr %layout, align 8
-  %bounds167 = getelementptr inbounds %struct.nk_panel, ptr %167, i32 0, i32 2
+  %168 = load ptr, ptr %layout, align 8
+  %bounds167 = getelementptr inbounds %struct.nk_panel, ptr %168, i32 0, i32 2
   %y168 = getelementptr inbounds %struct.nk_rect, ptr %bounds167, i32 0, i32 1
-  %168 = load float, ptr %y168, align 4
-  %169 = load ptr, ptr %root_panel, align 8
-  %clip169 = getelementptr inbounds %struct.nk_panel, ptr %169, i32 0, i32 12
+  %169 = load float, ptr %y168, align 4
+  %170 = load ptr, ptr %root_panel, align 8
+  %clip169 = getelementptr inbounds %struct.nk_panel, ptr %170, i32 0, i32 12
   %y170 = getelementptr inbounds %struct.nk_rect, ptr %clip169, i32 0, i32 1
-  %170 = load float, ptr %y170, align 4
-  %171 = load ptr, ptr %root_panel, align 8
-  %clip171 = getelementptr inbounds %struct.nk_panel, ptr %171, i32 0, i32 12
+  %171 = load float, ptr %y170, align 4
+  %172 = load ptr, ptr %root_panel, align 8
+  %clip171 = getelementptr inbounds %struct.nk_panel, ptr %172, i32 0, i32 12
   %h172 = getelementptr inbounds %struct.nk_rect, ptr %clip171, i32 0, i32 3
-  %172 = load float, ptr %h172, align 4
-  %add173 = fadd float %170, %172
-  %cmp174 = fcmp olt float %168, %add173
+  %173 = load float, ptr %h172, align 4
+  %add173 = fadd float %171, %173
+  %cmp174 = fcmp olt float %169, %add173
   br i1 %cmp174, label %if.then175, label %if.end185
 
 if.then175:                                       ; preds = %land.lhs.true166
-  %173 = load ptr, ptr %window, align 8
-  %layout176 = getelementptr inbounds %struct.nk_window, ptr %173, i32 0, i32 7
-  %174 = load ptr, ptr %layout176, align 8
-  store ptr %174, ptr %root_panel, align 8
+  %174 = load ptr, ptr %window, align 8
+  %layout176 = getelementptr inbounds %struct.nk_window, ptr %174, i32 0, i32 7
+  %175 = load ptr, ptr %layout176, align 8
+  store ptr %175, ptr %root_panel, align 8
   br label %while.cond177
 
 while.cond177:                                    ; preds = %while.body180, %if.then175
-  %175 = load ptr, ptr %root_panel, align 8
-  %parent178 = getelementptr inbounds %struct.nk_panel, ptr %175, i32 0, i32 17
-  %176 = load ptr, ptr %parent178, align 8
-  %tobool179 = icmp ne ptr %176, null
+  %176 = load ptr, ptr %root_panel, align 8
+  %parent178 = getelementptr inbounds %struct.nk_panel, ptr %176, i32 0, i32 17
+  %177 = load ptr, ptr %parent178, align 8
+  %tobool179 = icmp ne ptr %177, null
   br i1 %tobool179, label %while.body180, label %while.end183
 
 while.body180:                                    ; preds = %while.cond177
-  %177 = load ptr, ptr %root_panel, align 8
-  %has_scrolling181 = getelementptr inbounds %struct.nk_panel, ptr %177, i32 0, i32 11
-  store i32 0, ptr %has_scrolling181, align 8
   %178 = load ptr, ptr %root_panel, align 8
-  %parent182 = getelementptr inbounds %struct.nk_panel, ptr %178, i32 0, i32 17
-  %179 = load ptr, ptr %parent182, align 8
-  store ptr %179, ptr %root_panel, align 8
+  %has_scrolling181 = getelementptr inbounds %struct.nk_panel, ptr %178, i32 0, i32 11
+  store i32 0, ptr %has_scrolling181, align 8
+  %179 = load ptr, ptr %root_panel, align 8
+  %parent182 = getelementptr inbounds %struct.nk_panel, ptr %179, i32 0, i32 17
+  %180 = load ptr, ptr %parent182, align 8
+  store ptr %180, ptr %root_panel, align 8
   br label %while.cond177, !llvm.loop !180
 
 while.end183:                                     ; preds = %while.cond177
-  %180 = load ptr, ptr %root_panel, align 8
-  %has_scrolling184 = getelementptr inbounds %struct.nk_panel, ptr %180, i32 0, i32 11
+  %181 = load ptr, ptr %root_panel, align 8
+  %has_scrolling184 = getelementptr inbounds %struct.nk_panel, ptr %181, i32 0, i32 11
   store i32 0, ptr %has_scrolling184, align 8
   store i32 1, ptr %scroll_has_scrolling, align 4
   br label %if.end185
@@ -48646,68 +48655,68 @@ if.end186:                                        ; preds = %if.end185, %land.lh
   br label %if.end212
 
 if.else:                                          ; preds = %if.then119
-  %181 = load ptr, ptr %layout, align 8
-  %type187 = getelementptr inbounds %struct.nk_panel, ptr %181, i32 0, i32 0
-  %182 = load i32, ptr %type187, align 8
-  %call188 = call i32 @nk_panel_is_sub(i32 noundef %182)
+  %182 = load ptr, ptr %layout, align 8
+  %type187 = getelementptr inbounds %struct.nk_panel, ptr %182, i32 0, i32 0
+  %183 = load i32, ptr %type187, align 8
+  %call188 = call i32 @nk_panel_is_sub(i32 noundef %183)
   %tobool189 = icmp ne i32 %call188, 0
   br i1 %tobool189, label %if.else210, label %if.then190
 
 if.then190:                                       ; preds = %if.else
-  %183 = load ptr, ptr %window, align 8
-  %184 = load ptr, ptr %ctx.addr, align 8
-  %active191 = getelementptr inbounds %struct.nk_context, ptr %184, i32 0, i32 16
-  %185 = load ptr, ptr %active191, align 8
-  %cmp192 = icmp eq ptr %183, %185
+  %184 = load ptr, ptr %window, align 8
+  %185 = load ptr, ptr %ctx.addr, align 8
+  %active191 = getelementptr inbounds %struct.nk_context, ptr %185, i32 0, i32 16
+  %186 = load ptr, ptr %active191, align 8
+  %cmp192 = icmp eq ptr %184, %186
   br i1 %cmp192, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.then190
-  %186 = load ptr, ptr %layout, align 8
-  %has_scrolling193 = getelementptr inbounds %struct.nk_panel, ptr %186, i32 0, i32 11
-  %187 = load i32, ptr %has_scrolling193, align 8
-  %tobool194 = icmp ne i32 %187, 0
+  %187 = load ptr, ptr %layout, align 8
+  %has_scrolling193 = getelementptr inbounds %struct.nk_panel, ptr %187, i32 0, i32 11
+  %188 = load i32, ptr %has_scrolling193, align 8
+  %tobool194 = icmp ne i32 %188, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then190
-  %188 = phi i1 [ false, %if.then190 ], [ %tobool194, %land.rhs ]
-  %land.ext = zext i1 %188 to i32
+  %189 = phi i1 [ false, %if.then190 ], [ %tobool194, %land.rhs ]
+  %land.ext = zext i1 %189 to i32
   store i32 %land.ext, ptr %scroll_has_scrolling, align 4
-  %189 = load ptr, ptr %in, align 8
-  %tobool195 = icmp ne ptr %189, null
+  %190 = load ptr, ptr %in, align 8
+  %tobool195 = icmp ne ptr %190, null
   br i1 %tobool195, label %land.lhs.true196, label %if.else207
 
 land.lhs.true196:                                 ; preds = %land.end
-  %190 = load ptr, ptr %in, align 8
-  %mouse = getelementptr inbounds %struct.nk_input, ptr %190, i32 0, i32 1
+  %191 = load ptr, ptr %in, align 8
+  %mouse = getelementptr inbounds %struct.nk_input, ptr %191, i32 0, i32 1
   %scroll_delta = getelementptr inbounds %struct.nk_mouse, ptr %mouse, i32 0, i32 4
   %y197 = getelementptr inbounds %struct.nk_vec2, ptr %scroll_delta, i32 0, i32 1
-  %191 = load float, ptr %y197, align 4
-  %cmp198 = fcmp ogt float %191, 0.000000e+00
+  %192 = load float, ptr %y197, align 4
+  %cmp198 = fcmp ogt float %192, 0.000000e+00
   br i1 %cmp198, label %land.lhs.true204, label %lor.lhs.false199
 
 lor.lhs.false199:                                 ; preds = %land.lhs.true196
-  %192 = load ptr, ptr %in, align 8
-  %mouse200 = getelementptr inbounds %struct.nk_input, ptr %192, i32 0, i32 1
+  %193 = load ptr, ptr %in, align 8
+  %mouse200 = getelementptr inbounds %struct.nk_input, ptr %193, i32 0, i32 1
   %scroll_delta201 = getelementptr inbounds %struct.nk_mouse, ptr %mouse200, i32 0, i32 4
   %x202 = getelementptr inbounds %struct.nk_vec2, ptr %scroll_delta201, i32 0, i32 0
-  %193 = load float, ptr %x202, align 4
-  %cmp203 = fcmp ogt float %193, 0.000000e+00
+  %194 = load float, ptr %x202, align 4
+  %cmp203 = fcmp ogt float %194, 0.000000e+00
   br i1 %cmp203, label %land.lhs.true204, label %if.else207
 
 land.lhs.true204:                                 ; preds = %lor.lhs.false199, %land.lhs.true196
-  %194 = load i32, ptr %scroll_has_scrolling, align 4
-  %tobool205 = icmp ne i32 %194, 0
+  %195 = load i32, ptr %scroll_has_scrolling, align 4
+  %tobool205 = icmp ne i32 %195, 0
   br i1 %tobool205, label %if.then206, label %if.else207
 
 if.then206:                                       ; preds = %land.lhs.true204
-  %195 = load ptr, ptr %window, align 8
-  %scrolled = getelementptr inbounds %struct.nk_window, ptr %195, i32 0, i32 12
+  %196 = load ptr, ptr %window, align 8
+  %scrolled = getelementptr inbounds %struct.nk_window, ptr %196, i32 0, i32 12
   store i32 1, ptr %scrolled, align 4
   br label %if.end209
 
 if.else207:                                       ; preds = %land.lhs.true204, %lor.lhs.false199, %land.end
-  %196 = load ptr, ptr %window, align 8
-  %scrolled208 = getelementptr inbounds %struct.nk_window, ptr %196, i32 0, i32 12
+  %197 = load ptr, ptr %window, align 8
+  %scrolled208 = getelementptr inbounds %struct.nk_window, ptr %197, i32 0, i32 12
   store i32 0, ptr %scrolled208, align 4
   br label %if.end209
 
@@ -48723,96 +48732,96 @@ if.end211:                                        ; preds = %if.else210, %if.end
 
 if.end212:                                        ; preds = %if.end211, %if.end186
   store i32 0, ptr %state, align 4
-  %197 = load ptr, ptr %layout, align 8
-  %bounds213 = getelementptr inbounds %struct.nk_panel, ptr %197, i32 0, i32 2
+  %198 = load ptr, ptr %layout, align 8
+  %bounds213 = getelementptr inbounds %struct.nk_panel, ptr %198, i32 0, i32 2
   %x214 = getelementptr inbounds %struct.nk_rect, ptr %bounds213, i32 0, i32 0
-  %198 = load float, ptr %x214, align 8
-  %199 = load ptr, ptr %layout, align 8
-  %bounds215 = getelementptr inbounds %struct.nk_panel, ptr %199, i32 0, i32 2
+  %199 = load float, ptr %x214, align 8
+  %200 = load ptr, ptr %layout, align 8
+  %bounds215 = getelementptr inbounds %struct.nk_panel, ptr %200, i32 0, i32 2
   %w216 = getelementptr inbounds %struct.nk_rect, ptr %bounds215, i32 0, i32 2
-  %200 = load float, ptr %w216, align 8
-  %add217 = fadd float %198, %200
+  %201 = load float, ptr %w216, align 8
+  %add217 = fadd float %199, %201
   %x218 = getelementptr inbounds %struct.nk_vec2, ptr %panel_padding, i32 0, i32 0
-  %201 = load float, ptr %x218, align 4
-  %add219 = fadd float %add217, %201
+  %202 = load float, ptr %x218, align 4
+  %add219 = fadd float %add217, %202
   %x220 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 0
   store float %add219, ptr %x220, align 4
-  %202 = load ptr, ptr %layout, align 8
-  %bounds221 = getelementptr inbounds %struct.nk_panel, ptr %202, i32 0, i32 2
+  %203 = load ptr, ptr %layout, align 8
+  %bounds221 = getelementptr inbounds %struct.nk_panel, ptr %203, i32 0, i32 2
   %y222 = getelementptr inbounds %struct.nk_rect, ptr %bounds221, i32 0, i32 1
-  %203 = load float, ptr %y222, align 4
+  %204 = load float, ptr %y222, align 4
   %y223 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 1
-  store float %203, ptr %y223, align 4
+  store float %204, ptr %y223, align 4
   %x224 = getelementptr inbounds %struct.nk_vec2, ptr %scrollbar_size, i32 0, i32 0
-  %204 = load float, ptr %x224, align 4
+  %205 = load float, ptr %x224, align 4
   %w225 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 2
-  store float %204, ptr %w225, align 4
-  %205 = load ptr, ptr %layout, align 8
-  %bounds226 = getelementptr inbounds %struct.nk_panel, ptr %205, i32 0, i32 2
+  store float %205, ptr %w225, align 4
+  %206 = load ptr, ptr %layout, align 8
+  %bounds226 = getelementptr inbounds %struct.nk_panel, ptr %206, i32 0, i32 2
   %h227 = getelementptr inbounds %struct.nk_rect, ptr %bounds226, i32 0, i32 3
-  %206 = load float, ptr %h227, align 4
+  %207 = load float, ptr %h227, align 4
   %h228 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 3
-  store float %206, ptr %h228, align 4
-  %207 = load ptr, ptr %layout, align 8
-  %offset_y229 = getelementptr inbounds %struct.nk_panel, ptr %207, i32 0, i32 4
-  %208 = load ptr, ptr %offset_y229, align 8
-  %209 = load i32, ptr %208, align 4
-  %conv = uitofp i32 %209 to float
+  store float %207, ptr %h228, align 4
+  %208 = load ptr, ptr %layout, align 8
+  %offset_y229 = getelementptr inbounds %struct.nk_panel, ptr %208, i32 0, i32 4
+  %209 = load ptr, ptr %offset_y229, align 8
+  %210 = load i32, ptr %209, align 4
+  %conv = uitofp i32 %210 to float
   store float %conv, ptr %scroll_offset, align 4
   %h230 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 3
-  %210 = load float, ptr %h230, align 4
-  %mul = fmul float %210, 0x3FB99999A0000000
+  %211 = load float, ptr %h230, align 4
+  %mul = fmul float %211, 0x3FB99999A0000000
   store float %mul, ptr %scroll_step, align 4
   %h231 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 3
-  %211 = load float, ptr %h231, align 4
-  %mul232 = fmul float %211, 0x3F847AE140000000
+  %212 = load float, ptr %h231, align 4
+  %mul232 = fmul float %212, 0x3F847AE140000000
   store float %mul232, ptr %scroll_inc, align 4
-  %212 = load ptr, ptr %layout, align 8
-  %at_y233 = getelementptr inbounds %struct.nk_panel, ptr %212, i32 0, i32 6
-  %213 = load float, ptr %at_y233, align 4
+  %213 = load ptr, ptr %layout, align 8
+  %at_y233 = getelementptr inbounds %struct.nk_panel, ptr %213, i32 0, i32 6
+  %214 = load float, ptr %at_y233, align 4
   %y234 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 1
-  %214 = load float, ptr %y234, align 4
-  %sub235 = fsub float %213, %214
+  %215 = load float, ptr %y234, align 4
+  %sub235 = fsub float %214, %215
   %conv236 = fptosi float %sub235 to i32
   %conv237 = sitofp i32 %conv236 to float
   store float %conv237, ptr %scroll_target, align 4
-  %215 = load ptr, ptr %out, align 8
-  %216 = load i32, ptr %scroll_has_scrolling, align 4
-  %217 = load float, ptr %scroll_offset, align 4
-  %218 = load float, ptr %scroll_target, align 4
-  %219 = load float, ptr %scroll_step, align 4
-  %220 = load float, ptr %scroll_inc, align 4
-  %221 = load ptr, ptr %ctx.addr, align 8
-  %style238 = getelementptr inbounds %struct.nk_context, ptr %221, i32 0, i32 1
+  %216 = load ptr, ptr %out, align 8
+  %217 = load i32, ptr %scroll_has_scrolling, align 4
+  %218 = load float, ptr %scroll_offset, align 4
+  %219 = load float, ptr %scroll_target, align 4
+  %220 = load float, ptr %scroll_step, align 4
+  %221 = load float, ptr %scroll_inc, align 4
+  %222 = load ptr, ptr %ctx.addr, align 8
+  %style238 = getelementptr inbounds %struct.nk_context, ptr %222, i32 0, i32 1
   %scrollv = getelementptr inbounds %struct.nk_style, ptr %style238, i32 0, i32 18
-  %222 = load ptr, ptr %in, align 8
-  %223 = load ptr, ptr %style, align 8
-  %font = getelementptr inbounds %struct.nk_style, ptr %223, i32 0, i32 0
-  %224 = load ptr, ptr %font, align 8
-  %225 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scroll, i32 0, i32 0
-  %226 = load <2 x float>, ptr %225, align 4
-  %227 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scroll, i32 0, i32 1
-  %228 = load <2 x float>, ptr %227, align 4
-  %call239 = call float @nk_do_scrollbarv(ptr noundef %state, ptr noundef %215, <2 x float> %226, <2 x float> %228, i32 noundef %216, float noundef %217, float noundef %218, float noundef %219, float noundef %220, ptr noundef %scrollv, ptr noundef %222, ptr noundef %224)
+  %223 = load ptr, ptr %in, align 8
+  %224 = load ptr, ptr %style, align 8
+  %font = getelementptr inbounds %struct.nk_style, ptr %224, i32 0, i32 0
+  %225 = load ptr, ptr %font, align 8
+  %226 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scroll, i32 0, i32 0
+  %227 = load <2 x float>, ptr %226, align 4
+  %228 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scroll, i32 0, i32 1
+  %229 = load <2 x float>, ptr %228, align 4
+  %call239 = call float @nk_do_scrollbarv(ptr noundef %state, ptr noundef %216, <2 x float> %227, <2 x float> %229, i32 noundef %217, float noundef %218, float noundef %219, float noundef %220, float noundef %221, ptr noundef %scrollv, ptr noundef %223, ptr noundef %225)
   store float %call239, ptr %scroll_offset, align 4
-  %229 = load float, ptr %scroll_offset, align 4
-  %conv240 = fptoui float %229 to i32
-  %230 = load ptr, ptr %layout, align 8
-  %offset_y241 = getelementptr inbounds %struct.nk_panel, ptr %230, i32 0, i32 4
-  %231 = load ptr, ptr %offset_y241, align 8
-  store i32 %conv240, ptr %231, align 4
-  %232 = load ptr, ptr %in, align 8
-  %tobool242 = icmp ne ptr %232, null
+  %230 = load float, ptr %scroll_offset, align 4
+  %conv240 = fptoui float %230 to i32
+  %231 = load ptr, ptr %layout, align 8
+  %offset_y241 = getelementptr inbounds %struct.nk_panel, ptr %231, i32 0, i32 4
+  %232 = load ptr, ptr %offset_y241, align 8
+  store i32 %conv240, ptr %232, align 4
+  %233 = load ptr, ptr %in, align 8
+  %tobool242 = icmp ne ptr %233, null
   br i1 %tobool242, label %land.lhs.true243, label %if.end249
 
 land.lhs.true243:                                 ; preds = %if.end212
-  %233 = load i32, ptr %scroll_has_scrolling, align 4
-  %tobool244 = icmp ne i32 %233, 0
+  %234 = load i32, ptr %scroll_has_scrolling, align 4
+  %tobool244 = icmp ne i32 %234, 0
   br i1 %tobool244, label %if.then245, label %if.end249
 
 if.then245:                                       ; preds = %land.lhs.true243
-  %234 = load ptr, ptr %in, align 8
-  %mouse246 = getelementptr inbounds %struct.nk_input, ptr %234, i32 0, i32 1
+  %235 = load ptr, ptr %in, align 8
+  %mouse246 = getelementptr inbounds %struct.nk_input, ptr %235, i32 0, i32 1
   %scroll_delta247 = getelementptr inbounds %struct.nk_mouse, ptr %mouse246, i32 0, i32 4
   %y248 = getelementptr inbounds %struct.nk_vec2, ptr %scroll_delta247, i32 0, i32 1
   store float 0.000000e+00, ptr %y248, align 4
@@ -48820,168 +48829,168 @@ if.then245:                                       ; preds = %land.lhs.true243
 
 if.end249:                                        ; preds = %if.then245, %land.lhs.true243, %if.end212
   store i32 0, ptr %state250, align 4
-  %235 = load ptr, ptr %layout, align 8
-  %bounds251 = getelementptr inbounds %struct.nk_panel, ptr %235, i32 0, i32 2
+  %236 = load ptr, ptr %layout, align 8
+  %bounds251 = getelementptr inbounds %struct.nk_panel, ptr %236, i32 0, i32 2
   %x252 = getelementptr inbounds %struct.nk_rect, ptr %bounds251, i32 0, i32 0
-  %236 = load float, ptr %x252, align 8
+  %237 = load float, ptr %x252, align 8
   %x253 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 0
-  store float %236, ptr %x253, align 4
-  %237 = load ptr, ptr %layout, align 8
-  %bounds254 = getelementptr inbounds %struct.nk_panel, ptr %237, i32 0, i32 2
+  store float %237, ptr %x253, align 4
+  %238 = load ptr, ptr %layout, align 8
+  %bounds254 = getelementptr inbounds %struct.nk_panel, ptr %238, i32 0, i32 2
   %y255 = getelementptr inbounds %struct.nk_rect, ptr %bounds254, i32 0, i32 1
-  %238 = load float, ptr %y255, align 4
-  %239 = load ptr, ptr %layout, align 8
-  %bounds256 = getelementptr inbounds %struct.nk_panel, ptr %239, i32 0, i32 2
+  %239 = load float, ptr %y255, align 4
+  %240 = load ptr, ptr %layout, align 8
+  %bounds256 = getelementptr inbounds %struct.nk_panel, ptr %240, i32 0, i32 2
   %h257 = getelementptr inbounds %struct.nk_rect, ptr %bounds256, i32 0, i32 3
-  %240 = load float, ptr %h257, align 4
-  %add258 = fadd float %238, %240
+  %241 = load float, ptr %h257, align 4
+  %add258 = fadd float %239, %241
   %y259 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 1
   store float %add258, ptr %y259, align 4
-  %241 = load ptr, ptr %layout, align 8
-  %bounds260 = getelementptr inbounds %struct.nk_panel, ptr %241, i32 0, i32 2
+  %242 = load ptr, ptr %layout, align 8
+  %bounds260 = getelementptr inbounds %struct.nk_panel, ptr %242, i32 0, i32 2
   %w261 = getelementptr inbounds %struct.nk_rect, ptr %bounds260, i32 0, i32 2
-  %242 = load float, ptr %w261, align 8
+  %243 = load float, ptr %w261, align 8
   %w262 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 2
-  store float %242, ptr %w262, align 4
+  store float %243, ptr %w262, align 4
   %y263 = getelementptr inbounds %struct.nk_vec2, ptr %scrollbar_size, i32 0, i32 1
-  %243 = load float, ptr %y263, align 4
+  %244 = load float, ptr %y263, align 4
   %h264 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 3
-  store float %243, ptr %h264, align 4
-  %244 = load ptr, ptr %layout, align 8
-  %offset_x = getelementptr inbounds %struct.nk_panel, ptr %244, i32 0, i32 3
-  %245 = load ptr, ptr %offset_x, align 8
-  %246 = load i32, ptr %245, align 4
-  %conv265 = uitofp i32 %246 to float
+  store float %244, ptr %h264, align 4
+  %245 = load ptr, ptr %layout, align 8
+  %offset_x = getelementptr inbounds %struct.nk_panel, ptr %245, i32 0, i32 3
+  %246 = load ptr, ptr %offset_x, align 8
+  %247 = load i32, ptr %246, align 4
+  %conv265 = uitofp i32 %247 to float
   store float %conv265, ptr %scroll_offset, align 4
-  %247 = load ptr, ptr %layout, align 8
-  %max_x = getelementptr inbounds %struct.nk_panel, ptr %247, i32 0, i32 7
-  %248 = load float, ptr %max_x, align 8
+  %248 = load ptr, ptr %layout, align 8
+  %max_x = getelementptr inbounds %struct.nk_panel, ptr %248, i32 0, i32 7
+  %249 = load float, ptr %max_x, align 8
   %x266 = getelementptr inbounds %struct.nk_rect, ptr %scroll, i32 0, i32 0
-  %249 = load float, ptr %x266, align 4
-  %sub267 = fsub float %248, %249
+  %250 = load float, ptr %x266, align 4
+  %sub267 = fsub float %249, %250
   %conv268 = fptosi float %sub267 to i32
   %conv269 = sitofp i32 %conv268 to float
   store float %conv269, ptr %scroll_target, align 4
-  %250 = load ptr, ptr %layout, align 8
-  %max_x270 = getelementptr inbounds %struct.nk_panel, ptr %250, i32 0, i32 7
-  %251 = load float, ptr %max_x270, align 8
-  %mul271 = fmul float %251, 0x3FA99999A0000000
+  %251 = load ptr, ptr %layout, align 8
+  %max_x270 = getelementptr inbounds %struct.nk_panel, ptr %251, i32 0, i32 7
+  %252 = load float, ptr %max_x270, align 8
+  %mul271 = fmul float %252, 0x3FA99999A0000000
   store float %mul271, ptr %scroll_step, align 4
-  %252 = load ptr, ptr %layout, align 8
-  %max_x272 = getelementptr inbounds %struct.nk_panel, ptr %252, i32 0, i32 7
-  %253 = load float, ptr %max_x272, align 8
-  %mul273 = fmul float %253, 0x3F747AE140000000
+  %253 = load ptr, ptr %layout, align 8
+  %max_x272 = getelementptr inbounds %struct.nk_panel, ptr %253, i32 0, i32 7
+  %254 = load float, ptr %max_x272, align 8
+  %mul273 = fmul float %254, 0x3F747AE140000000
   store float %mul273, ptr %scroll_inc, align 4
-  %254 = load ptr, ptr %out, align 8
-  %255 = load i32, ptr %scroll_has_scrolling, align 4
-  %256 = load float, ptr %scroll_offset, align 4
-  %257 = load float, ptr %scroll_target, align 4
-  %258 = load float, ptr %scroll_step, align 4
-  %259 = load float, ptr %scroll_inc, align 4
-  %260 = load ptr, ptr %ctx.addr, align 8
-  %style274 = getelementptr inbounds %struct.nk_context, ptr %260, i32 0, i32 1
+  %255 = load ptr, ptr %out, align 8
+  %256 = load i32, ptr %scroll_has_scrolling, align 4
+  %257 = load float, ptr %scroll_offset, align 4
+  %258 = load float, ptr %scroll_target, align 4
+  %259 = load float, ptr %scroll_step, align 4
+  %260 = load float, ptr %scroll_inc, align 4
+  %261 = load ptr, ptr %ctx.addr, align 8
+  %style274 = getelementptr inbounds %struct.nk_context, ptr %261, i32 0, i32 1
   %scrollh = getelementptr inbounds %struct.nk_style, ptr %style274, i32 0, i32 17
-  %261 = load ptr, ptr %in, align 8
-  %262 = load ptr, ptr %style, align 8
-  %font275 = getelementptr inbounds %struct.nk_style, ptr %262, i32 0, i32 0
-  %263 = load ptr, ptr %font275, align 8
-  %264 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scroll, i32 0, i32 0
-  %265 = load <2 x float>, ptr %264, align 4
-  %266 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scroll, i32 0, i32 1
-  %267 = load <2 x float>, ptr %266, align 4
-  %call276 = call float @nk_do_scrollbarh(ptr noundef %state250, ptr noundef %254, <2 x float> %265, <2 x float> %267, i32 noundef %255, float noundef %256, float noundef %257, float noundef %258, float noundef %259, ptr noundef %scrollh, ptr noundef %261, ptr noundef %263)
+  %262 = load ptr, ptr %in, align 8
+  %263 = load ptr, ptr %style, align 8
+  %font275 = getelementptr inbounds %struct.nk_style, ptr %263, i32 0, i32 0
+  %264 = load ptr, ptr %font275, align 8
+  %265 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scroll, i32 0, i32 0
+  %266 = load <2 x float>, ptr %265, align 4
+  %267 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scroll, i32 0, i32 1
+  %268 = load <2 x float>, ptr %267, align 4
+  %call276 = call float @nk_do_scrollbarh(ptr noundef %state250, ptr noundef %255, <2 x float> %266, <2 x float> %268, i32 noundef %256, float noundef %257, float noundef %258, float noundef %259, float noundef %260, ptr noundef %scrollh, ptr noundef %262, ptr noundef %264)
   store float %call276, ptr %scroll_offset, align 4
-  %268 = load float, ptr %scroll_offset, align 4
-  %conv277 = fptoui float %268 to i32
-  %269 = load ptr, ptr %layout, align 8
-  %offset_x278 = getelementptr inbounds %struct.nk_panel, ptr %269, i32 0, i32 3
-  %270 = load ptr, ptr %offset_x278, align 8
-  store i32 %conv277, ptr %270, align 4
+  %269 = load float, ptr %scroll_offset, align 4
+  %conv277 = fptoui float %269 to i32
+  %270 = load ptr, ptr %layout, align 8
+  %offset_x278 = getelementptr inbounds %struct.nk_panel, ptr %270, i32 0, i32 3
+  %271 = load ptr, ptr %offset_x278, align 8
+  store i32 %conv277, ptr %271, align 4
   br label %if.end279
 
 if.end279:                                        ; preds = %if.end249, %land.lhs.true117, %land.lhs.true113, %if.end109
-  %271 = load ptr, ptr %window, align 8
-  %flags280 = getelementptr inbounds %struct.nk_window, ptr %271, i32 0, i32 3
-  %272 = load i32, ptr %flags280, align 8
-  %and281 = and i32 %272, 128
+  %272 = load ptr, ptr %window, align 8
+  %flags280 = getelementptr inbounds %struct.nk_window, ptr %272, i32 0, i32 3
+  %273 = load i32, ptr %flags280, align 8
+  %and281 = and i32 %273, 128
   %tobool282 = icmp ne i32 %and281, 0
   br i1 %tobool282, label %if.then283, label %if.else317
 
 if.then283:                                       ; preds = %if.end279
-  %273 = load ptr, ptr %ctx.addr, align 8
-  %input284 = getelementptr inbounds %struct.nk_context, ptr %273, i32 0, i32 0
+  %274 = load ptr, ptr %ctx.addr, align 8
+  %input284 = getelementptr inbounds %struct.nk_context, ptr %274, i32 0, i32 0
   %mouse285 = getelementptr inbounds %struct.nk_input, ptr %input284, i32 0, i32 1
   %delta = getelementptr inbounds %struct.nk_mouse, ptr %mouse285, i32 0, i32 3
   %x286 = getelementptr inbounds %struct.nk_vec2, ptr %delta, i32 0, i32 0
-  %274 = load float, ptr %x286, align 4
-  %cmp287 = fcmp une float %274, 0.000000e+00
+  %275 = load float, ptr %x286, align 4
+  %cmp287 = fcmp une float %275, 0.000000e+00
   br i1 %cmp287, label %lor.end, label %lor.lhs.false289
 
 lor.lhs.false289:                                 ; preds = %if.then283
-  %275 = load ptr, ptr %ctx.addr, align 8
-  %input290 = getelementptr inbounds %struct.nk_context, ptr %275, i32 0, i32 0
+  %276 = load ptr, ptr %ctx.addr, align 8
+  %input290 = getelementptr inbounds %struct.nk_context, ptr %276, i32 0, i32 0
   %mouse291 = getelementptr inbounds %struct.nk_input, ptr %input290, i32 0, i32 1
   %delta292 = getelementptr inbounds %struct.nk_mouse, ptr %mouse291, i32 0, i32 3
   %y293 = getelementptr inbounds %struct.nk_vec2, ptr %delta292, i32 0, i32 1
-  %276 = load float, ptr %y293, align 4
-  %cmp294 = fcmp une float %276, 0.000000e+00
+  %277 = load float, ptr %y293, align 4
+  %cmp294 = fcmp une float %277, 0.000000e+00
   br i1 %cmp294, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false289
-  %277 = load ptr, ptr %ctx.addr, align 8
-  %input296 = getelementptr inbounds %struct.nk_context, ptr %277, i32 0, i32 0
+  %278 = load ptr, ptr %ctx.addr, align 8
+  %input296 = getelementptr inbounds %struct.nk_context, ptr %278, i32 0, i32 0
   %mouse297 = getelementptr inbounds %struct.nk_input, ptr %input296, i32 0, i32 1
   %scroll_delta298 = getelementptr inbounds %struct.nk_mouse, ptr %mouse297, i32 0, i32 4
   %y299 = getelementptr inbounds %struct.nk_vec2, ptr %scroll_delta298, i32 0, i32 1
-  %278 = load float, ptr %y299, align 4
-  %cmp300 = fcmp une float %278, 0.000000e+00
+  %279 = load float, ptr %y299, align 4
+  %cmp300 = fcmp une float %279, 0.000000e+00
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false289, %if.then283
-  %279 = phi i1 [ true, %lor.lhs.false289 ], [ true, %if.then283 ], [ %cmp300, %lor.rhs ]
-  %lor.ext = zext i1 %279 to i32
+  %280 = phi i1 [ true, %lor.lhs.false289 ], [ true, %if.then283 ], [ %cmp300, %lor.rhs ]
+  %lor.ext = zext i1 %280 to i32
   store i32 %lor.ext, ptr %has_input, align 4
-  %280 = load ptr, ptr %ctx.addr, align 8
-  %call302 = call i32 @nk_window_is_hovered(ptr noundef %280)
-  store i32 %call302, ptr %is_window_hovered, align 4
   %281 = load ptr, ptr %ctx.addr, align 8
-  %last_widget_state = getelementptr inbounds %struct.nk_context, ptr %281, i32 0, i32 4
-  %282 = load i32, ptr %last_widget_state, align 8
-  %and303 = and i32 %282, 2
+  %call302 = call i32 @nk_window_is_hovered(ptr noundef %281)
+  store i32 %call302, ptr %is_window_hovered, align 4
+  %282 = load ptr, ptr %ctx.addr, align 8
+  %last_widget_state = getelementptr inbounds %struct.nk_context, ptr %282, i32 0, i32 4
+  %283 = load i32, ptr %last_widget_state, align 8
+  %and303 = and i32 %283, 2
   store i32 %and303, ptr %any_item_active, align 4
-  %283 = load i32, ptr %has_input, align 4
-  %tobool304 = icmp ne i32 %283, 0
+  %284 = load i32, ptr %has_input, align 4
+  %tobool304 = icmp ne i32 %284, 0
   br i1 %tobool304, label %lor.lhs.false307, label %land.lhs.true305
 
 land.lhs.true305:                                 ; preds = %lor.end
-  %284 = load i32, ptr %is_window_hovered, align 4
-  %tobool306 = icmp ne i32 %284, 0
+  %285 = load i32, ptr %is_window_hovered, align 4
+  %tobool306 = icmp ne i32 %285, 0
   br i1 %tobool306, label %if.then311, label %lor.lhs.false307
 
 lor.lhs.false307:                                 ; preds = %land.lhs.true305, %lor.end
-  %285 = load i32, ptr %is_window_hovered, align 4
-  %tobool308 = icmp ne i32 %285, 0
+  %286 = load i32, ptr %is_window_hovered, align 4
+  %tobool308 = icmp ne i32 %286, 0
   br i1 %tobool308, label %if.else314, label %land.lhs.true309
 
 land.lhs.true309:                                 ; preds = %lor.lhs.false307
-  %286 = load i32, ptr %any_item_active, align 4
-  %tobool310 = icmp ne i32 %286, 0
+  %287 = load i32, ptr %any_item_active, align 4
+  %tobool310 = icmp ne i32 %287, 0
   br i1 %tobool310, label %if.else314, label %if.then311
 
 if.then311:                                       ; preds = %land.lhs.true309, %land.lhs.true305
-  %287 = load ptr, ptr %ctx.addr, align 8
-  %delta_time_seconds = getelementptr inbounds %struct.nk_context, ptr %287, i32 0, i32 7
-  %288 = load float, ptr %delta_time_seconds, align 8
-  %289 = load ptr, ptr %window, align 8
-  %scrollbar_hiding_timer312 = getelementptr inbounds %struct.nk_window, ptr %289, i32 0, i32 8
-  %290 = load float, ptr %scrollbar_hiding_timer312, align 8
-  %add313 = fadd float %290, %288
+  %288 = load ptr, ptr %ctx.addr, align 8
+  %delta_time_seconds = getelementptr inbounds %struct.nk_context, ptr %288, i32 0, i32 7
+  %289 = load float, ptr %delta_time_seconds, align 8
+  %290 = load ptr, ptr %window, align 8
+  %scrollbar_hiding_timer312 = getelementptr inbounds %struct.nk_window, ptr %290, i32 0, i32 8
+  %291 = load float, ptr %scrollbar_hiding_timer312, align 8
+  %add313 = fadd float %291, %289
   store float %add313, ptr %scrollbar_hiding_timer312, align 8
   br label %if.end316
 
 if.else314:                                       ; preds = %land.lhs.true309, %lor.lhs.false307
-  %291 = load ptr, ptr %window, align 8
-  %scrollbar_hiding_timer315 = getelementptr inbounds %struct.nk_window, ptr %291, i32 0, i32 8
+  %292 = load ptr, ptr %window, align 8
+  %scrollbar_hiding_timer315 = getelementptr inbounds %struct.nk_window, ptr %292, i32 0, i32 8
   store float 0.000000e+00, ptr %scrollbar_hiding_timer315, align 8
   br label %if.end316
 
@@ -48989,83 +48998,83 @@ if.end316:                                        ; preds = %if.else314, %if.the
   br label %if.end319
 
 if.else317:                                       ; preds = %if.end279
-  %292 = load ptr, ptr %window, align 8
-  %scrollbar_hiding_timer318 = getelementptr inbounds %struct.nk_window, ptr %292, i32 0, i32 8
+  %293 = load ptr, ptr %window, align 8
+  %scrollbar_hiding_timer318 = getelementptr inbounds %struct.nk_window, ptr %293, i32 0, i32 8
   store float 0.000000e+00, ptr %scrollbar_hiding_timer318, align 8
   br label %if.end319
 
 if.end319:                                        ; preds = %if.else317, %if.end316
-  %293 = load ptr, ptr %layout, align 8
-  %flags320 = getelementptr inbounds %struct.nk_panel, ptr %293, i32 0, i32 1
-  %294 = load i32, ptr %flags320, align 4
-  %and321 = and i32 %294, 1
+  %294 = load ptr, ptr %layout, align 8
+  %flags320 = getelementptr inbounds %struct.nk_panel, ptr %294, i32 0, i32 1
+  %295 = load i32, ptr %flags320, align 4
+  %and321 = and i32 %295, 1
   %tobool322 = icmp ne i32 %and321, 0
   br i1 %tobool322, label %if.then323, label %if.end364
 
 if.then323:                                       ; preds = %if.end319
-  %295 = load ptr, ptr %style, align 8
-  %296 = load ptr, ptr %layout, align 8
-  %type324 = getelementptr inbounds %struct.nk_panel, ptr %296, i32 0, i32 0
-  %297 = load i32, ptr %type324, align 8
-  %call325 = call i32 @nk_panel_get_border_color(ptr noundef %295, i32 noundef %297)
+  %296 = load ptr, ptr %style, align 8
+  %297 = load ptr, ptr %layout, align 8
+  %type324 = getelementptr inbounds %struct.nk_panel, ptr %297, i32 0, i32 0
+  %298 = load i32, ptr %type324, align 8
+  %call325 = call i32 @nk_panel_get_border_color(ptr noundef %296, i32 noundef %298)
   store i32 %call325, ptr %border_color, align 1
-  %298 = load ptr, ptr %layout, align 8
-  %flags326 = getelementptr inbounds %struct.nk_panel, ptr %298, i32 0, i32 1
-  %299 = load i32, ptr %flags326, align 4
-  %and327 = and i32 %299, 32768
+  %299 = load ptr, ptr %layout, align 8
+  %flags326 = getelementptr inbounds %struct.nk_panel, ptr %299, i32 0, i32 1
+  %300 = load i32, ptr %flags326, align 4
+  %and327 = and i32 %300, 32768
   %tobool328 = icmp ne i32 %and327, 0
   br i1 %tobool328, label %cond.true329, label %cond.false336
 
 cond.true329:                                     ; preds = %if.then323
-  %300 = load ptr, ptr %style, align 8
-  %window330 = getelementptr inbounds %struct.nk_style, ptr %300, i32 0, i32 21
+  %301 = load ptr, ptr %style, align 8
+  %window330 = getelementptr inbounds %struct.nk_style, ptr %301, i32 0, i32 21
   %border331 = getelementptr inbounds %struct.nk_style_window, ptr %window330, i32 0, i32 11
-  %301 = load float, ptr %border331, align 8
-  %302 = load ptr, ptr %window, align 8
-  %bounds332 = getelementptr inbounds %struct.nk_window, ptr %302, i32 0, i32 4
+  %302 = load float, ptr %border331, align 8
+  %303 = load ptr, ptr %window, align 8
+  %bounds332 = getelementptr inbounds %struct.nk_window, ptr %303, i32 0, i32 4
   %y333 = getelementptr inbounds %struct.nk_rect, ptr %bounds332, i32 0, i32 1
-  %303 = load float, ptr %y333, align 4
-  %add334 = fadd float %301, %303
-  %304 = load ptr, ptr %layout, align 8
-  %header_height = getelementptr inbounds %struct.nk_panel, ptr %304, i32 0, i32 9
-  %305 = load float, ptr %header_height, align 8
-  %add335 = fadd float %add334, %305
+  %304 = load float, ptr %y333, align 4
+  %add334 = fadd float %302, %304
+  %305 = load ptr, ptr %layout, align 8
+  %header_height = getelementptr inbounds %struct.nk_panel, ptr %305, i32 0, i32 9
+  %306 = load float, ptr %header_height, align 8
+  %add335 = fadd float %add334, %306
   br label %cond.end356
 
 cond.false336:                                    ; preds = %if.then323
-  %306 = load ptr, ptr %layout, align 8
-  %flags337 = getelementptr inbounds %struct.nk_panel, ptr %306, i32 0, i32 1
-  %307 = load i32, ptr %flags337, align 4
-  %and338 = and i32 %307, 2048
+  %307 = load ptr, ptr %layout, align 8
+  %flags337 = getelementptr inbounds %struct.nk_panel, ptr %307, i32 0, i32 1
+  %308 = load i32, ptr %flags337, align 4
+  %and338 = and i32 %308, 2048
   %tobool339 = icmp ne i32 %and338, 0
   br i1 %tobool339, label %cond.true340, label %cond.false348
 
 cond.true340:                                     ; preds = %cond.false336
-  %308 = load ptr, ptr %layout, align 8
-  %bounds341 = getelementptr inbounds %struct.nk_panel, ptr %308, i32 0, i32 2
+  %309 = load ptr, ptr %layout, align 8
+  %bounds341 = getelementptr inbounds %struct.nk_panel, ptr %309, i32 0, i32 2
   %y342 = getelementptr inbounds %struct.nk_rect, ptr %bounds341, i32 0, i32 1
-  %309 = load float, ptr %y342, align 4
-  %310 = load ptr, ptr %layout, align 8
-  %bounds343 = getelementptr inbounds %struct.nk_panel, ptr %310, i32 0, i32 2
+  %310 = load float, ptr %y342, align 4
+  %311 = load ptr, ptr %layout, align 8
+  %bounds343 = getelementptr inbounds %struct.nk_panel, ptr %311, i32 0, i32 2
   %h344 = getelementptr inbounds %struct.nk_rect, ptr %bounds343, i32 0, i32 3
-  %311 = load float, ptr %h344, align 4
-  %add345 = fadd float %309, %311
-  %312 = load ptr, ptr %layout, align 8
-  %footer_height346 = getelementptr inbounds %struct.nk_panel, ptr %312, i32 0, i32 8
-  %313 = load float, ptr %footer_height346, align 4
-  %add347 = fadd float %add345, %313
+  %312 = load float, ptr %h344, align 4
+  %add345 = fadd float %310, %312
+  %313 = load ptr, ptr %layout, align 8
+  %footer_height346 = getelementptr inbounds %struct.nk_panel, ptr %313, i32 0, i32 8
+  %314 = load float, ptr %footer_height346, align 4
+  %add347 = fadd float %add345, %314
   br label %cond.end354
 
 cond.false348:                                    ; preds = %cond.false336
-  %314 = load ptr, ptr %window, align 8
-  %bounds349 = getelementptr inbounds %struct.nk_window, ptr %314, i32 0, i32 4
+  %315 = load ptr, ptr %window, align 8
+  %bounds349 = getelementptr inbounds %struct.nk_window, ptr %315, i32 0, i32 4
   %y350 = getelementptr inbounds %struct.nk_rect, ptr %bounds349, i32 0, i32 1
-  %315 = load float, ptr %y350, align 4
-  %316 = load ptr, ptr %window, align 8
-  %bounds351 = getelementptr inbounds %struct.nk_window, ptr %316, i32 0, i32 4
+  %316 = load float, ptr %y350, align 4
+  %317 = load ptr, ptr %window, align 8
+  %bounds351 = getelementptr inbounds %struct.nk_window, ptr %317, i32 0, i32 4
   %h352 = getelementptr inbounds %struct.nk_rect, ptr %bounds351, i32 0, i32 3
-  %317 = load float, ptr %h352, align 4
-  %add353 = fadd float %315, %317
+  %318 = load float, ptr %h352, align 4
+  %add353 = fadd float %316, %318
   br label %cond.end354
 
 cond.end354:                                      ; preds = %cond.false348, %cond.true340
@@ -49075,338 +49084,338 @@ cond.end354:                                      ; preds = %cond.false348, %con
 cond.end356:                                      ; preds = %cond.end354, %cond.true329
   %cond357 = phi float [ %add335, %cond.true329 ], [ %cond355, %cond.end354 ]
   store float %cond357, ptr %padding_y, align 4
-  %318 = load ptr, ptr %window, align 8
-  %bounds358 = getelementptr inbounds %struct.nk_window, ptr %318, i32 0, i32 4
+  %319 = load ptr, ptr %window, align 8
+  %bounds358 = getelementptr inbounds %struct.nk_window, ptr %319, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %b, ptr align 4 %bounds358, i64 16, i1 false)
-  %319 = load float, ptr %padding_y, align 4
-  %320 = load ptr, ptr %window, align 8
-  %bounds359 = getelementptr inbounds %struct.nk_window, ptr %320, i32 0, i32 4
+  %320 = load float, ptr %padding_y, align 4
+  %321 = load ptr, ptr %window, align 8
+  %bounds359 = getelementptr inbounds %struct.nk_window, ptr %321, i32 0, i32 4
   %y360 = getelementptr inbounds %struct.nk_rect, ptr %bounds359, i32 0, i32 1
-  %321 = load float, ptr %y360, align 4
-  %sub361 = fsub float %319, %321
+  %322 = load float, ptr %y360, align 4
+  %sub361 = fsub float %320, %322
   %h362 = getelementptr inbounds %struct.nk_rect, ptr %b, i32 0, i32 3
   store float %sub361, ptr %h362, align 4
-  %322 = load ptr, ptr %out, align 8
-  %323 = load ptr, ptr %layout, align 8
-  %border363 = getelementptr inbounds %struct.nk_panel, ptr %323, i32 0, i32 10
-  %324 = load float, ptr %border363, align 4
-  %325 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %b, i32 0, i32 0
-  %326 = load <2 x float>, ptr %325, align 4
-  %327 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %b, i32 0, i32 1
-  %328 = load <2 x float>, ptr %327, align 4
-  %329 = load i32, ptr %border_color, align 1
-  call void @nk_stroke_rect(ptr noundef %322, <2 x float> %326, <2 x float> %328, float noundef 0.000000e+00, float noundef %324, i32 %329)
+  %323 = load ptr, ptr %out, align 8
+  %324 = load ptr, ptr %layout, align 8
+  %border363 = getelementptr inbounds %struct.nk_panel, ptr %324, i32 0, i32 10
+  %325 = load float, ptr %border363, align 4
+  %326 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %b, i32 0, i32 0
+  %327 = load <2 x float>, ptr %326, align 4
+  %328 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %b, i32 0, i32 1
+  %329 = load <2 x float>, ptr %328, align 4
+  %330 = load i32, ptr %border_color, align 1
+  call void @nk_stroke_rect(ptr noundef %323, <2 x float> %327, <2 x float> %329, float noundef 0.000000e+00, float noundef %325, i32 %330)
   br label %if.end364
 
 if.end364:                                        ; preds = %cond.end356, %if.end319
-  %330 = load ptr, ptr %layout, align 8
-  %flags365 = getelementptr inbounds %struct.nk_panel, ptr %330, i32 0, i32 1
-  %331 = load i32, ptr %flags365, align 4
-  %and366 = and i32 %331, 4
+  %331 = load ptr, ptr %layout, align 8
+  %flags365 = getelementptr inbounds %struct.nk_panel, ptr %331, i32 0, i32 1
+  %332 = load i32, ptr %flags365, align 4
+  %and366 = and i32 %332, 4
   %tobool367 = icmp ne i32 %and366, 0
   br i1 %tobool367, label %land.lhs.true368, label %if.end580
 
 land.lhs.true368:                                 ; preds = %if.end364
-  %332 = load ptr, ptr %in, align 8
-  %tobool369 = icmp ne ptr %332, null
+  %333 = load ptr, ptr %in, align 8
+  %tobool369 = icmp ne ptr %333, null
   br i1 %tobool369, label %land.lhs.true370, label %if.end580
 
 land.lhs.true370:                                 ; preds = %land.lhs.true368
-  %333 = load ptr, ptr %layout, align 8
-  %flags371 = getelementptr inbounds %struct.nk_panel, ptr %333, i32 0, i32 1
-  %334 = load i32, ptr %flags371, align 4
-  %and372 = and i32 %334, 32768
+  %334 = load ptr, ptr %layout, align 8
+  %flags371 = getelementptr inbounds %struct.nk_panel, ptr %334, i32 0, i32 1
+  %335 = load i32, ptr %flags371, align 4
+  %and372 = and i32 %335, 32768
   %tobool373 = icmp ne i32 %and372, 0
   br i1 %tobool373, label %if.end580, label %if.then374
 
 if.then374:                                       ; preds = %land.lhs.true370
   %x375 = getelementptr inbounds %struct.nk_vec2, ptr %scrollbar_size, i32 0, i32 0
-  %335 = load float, ptr %x375, align 4
+  %336 = load float, ptr %x375, align 4
   %w376 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 2
-  store float %335, ptr %w376, align 4
+  store float %336, ptr %w376, align 4
   %y377 = getelementptr inbounds %struct.nk_vec2, ptr %scrollbar_size, i32 0, i32 1
-  %336 = load float, ptr %y377, align 4
+  %337 = load float, ptr %y377, align 4
   %h378 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 3
-  store float %336, ptr %h378, align 4
-  %337 = load ptr, ptr %layout, align 8
-  %bounds379 = getelementptr inbounds %struct.nk_panel, ptr %337, i32 0, i32 2
+  store float %337, ptr %h378, align 4
+  %338 = load ptr, ptr %layout, align 8
+  %bounds379 = getelementptr inbounds %struct.nk_panel, ptr %338, i32 0, i32 2
   %y380 = getelementptr inbounds %struct.nk_rect, ptr %bounds379, i32 0, i32 1
-  %338 = load float, ptr %y380, align 4
-  %339 = load ptr, ptr %layout, align 8
-  %bounds381 = getelementptr inbounds %struct.nk_panel, ptr %339, i32 0, i32 2
+  %339 = load float, ptr %y380, align 4
+  %340 = load ptr, ptr %layout, align 8
+  %bounds381 = getelementptr inbounds %struct.nk_panel, ptr %340, i32 0, i32 2
   %h382 = getelementptr inbounds %struct.nk_rect, ptr %bounds381, i32 0, i32 3
-  %340 = load float, ptr %h382, align 4
-  %add383 = fadd float %338, %340
+  %341 = load float, ptr %h382, align 4
+  %add383 = fadd float %339, %341
   %y384 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
   store float %add383, ptr %y384, align 4
-  %341 = load ptr, ptr %layout, align 8
-  %flags385 = getelementptr inbounds %struct.nk_panel, ptr %341, i32 0, i32 1
-  %342 = load i32, ptr %flags385, align 4
-  %and386 = and i32 %342, 512
+  %342 = load ptr, ptr %layout, align 8
+  %flags385 = getelementptr inbounds %struct.nk_panel, ptr %342, i32 0, i32 1
+  %343 = load i32, ptr %flags385, align 4
+  %and386 = and i32 %343, 512
   %tobool387 = icmp ne i32 %and386, 0
   br i1 %tobool387, label %if.then388, label %if.else394
 
 if.then388:                                       ; preds = %if.then374
-  %343 = load ptr, ptr %layout, align 8
-  %bounds389 = getelementptr inbounds %struct.nk_panel, ptr %343, i32 0, i32 2
+  %344 = load ptr, ptr %layout, align 8
+  %bounds389 = getelementptr inbounds %struct.nk_panel, ptr %344, i32 0, i32 2
   %x390 = getelementptr inbounds %struct.nk_rect, ptr %bounds389, i32 0, i32 0
-  %344 = load float, ptr %x390, align 8
+  %345 = load float, ptr %x390, align 8
   %x391 = getelementptr inbounds %struct.nk_vec2, ptr %panel_padding, i32 0, i32 0
-  %345 = load float, ptr %x391, align 4
-  %neg = fneg float %345
-  %346 = call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %344)
+  %346 = load float, ptr %x391, align 4
+  %neg = fneg float %346
+  %347 = call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %345)
   %x393 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  store float %346, ptr %x393, align 4
+  store float %347, ptr %x393, align 4
   br label %if.end403
 
 if.else394:                                       ; preds = %if.then374
-  %347 = load ptr, ptr %layout, align 8
-  %bounds395 = getelementptr inbounds %struct.nk_panel, ptr %347, i32 0, i32 2
+  %348 = load ptr, ptr %layout, align 8
+  %bounds395 = getelementptr inbounds %struct.nk_panel, ptr %348, i32 0, i32 2
   %x396 = getelementptr inbounds %struct.nk_rect, ptr %bounds395, i32 0, i32 0
-  %348 = load float, ptr %x396, align 8
-  %349 = load ptr, ptr %layout, align 8
-  %bounds397 = getelementptr inbounds %struct.nk_panel, ptr %349, i32 0, i32 2
+  %349 = load float, ptr %x396, align 8
+  %350 = load ptr, ptr %layout, align 8
+  %bounds397 = getelementptr inbounds %struct.nk_panel, ptr %350, i32 0, i32 2
   %w398 = getelementptr inbounds %struct.nk_rect, ptr %bounds397, i32 0, i32 2
-  %350 = load float, ptr %w398, align 8
-  %add399 = fadd float %348, %350
+  %351 = load float, ptr %w398, align 8
+  %add399 = fadd float %349, %351
   %x400 = getelementptr inbounds %struct.nk_vec2, ptr %panel_padding, i32 0, i32 0
-  %351 = load float, ptr %x400, align 4
-  %add401 = fadd float %add399, %351
+  %352 = load float, ptr %x400, align 4
+  %add401 = fadd float %add399, %352
   %x402 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
   store float %add401, ptr %x402, align 4
   br label %if.end403
 
 if.end403:                                        ; preds = %if.else394, %if.then388
-  %352 = load ptr, ptr %layout, align 8
-  %flags404 = getelementptr inbounds %struct.nk_panel, ptr %352, i32 0, i32 1
-  %353 = load i32, ptr %flags404, align 4
-  %and405 = and i32 %353, 32
+  %353 = load ptr, ptr %layout, align 8
+  %flags404 = getelementptr inbounds %struct.nk_panel, ptr %353, i32 0, i32 1
+  %354 = load i32, ptr %flags404, align 4
+  %and405 = and i32 %354, 32
   %tobool406 = icmp ne i32 %and405, 0
   br i1 %tobool406, label %if.then407, label %if.end411
 
 if.then407:                                       ; preds = %if.end403
   %w408 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 2
-  %354 = load float, ptr %w408, align 4
+  %355 = load float, ptr %w408, align 4
   %x409 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %355 = load float, ptr %x409, align 4
-  %sub410 = fsub float %355, %354
+  %356 = load float, ptr %x409, align 4
+  %sub410 = fsub float %356, %355
   store float %sub410, ptr %x409, align 4
   br label %if.end411
 
 if.end411:                                        ; preds = %if.then407, %if.end403
-  %356 = load ptr, ptr %style, align 8
-  %window412 = getelementptr inbounds %struct.nk_style, ptr %356, i32 0, i32 21
+  %357 = load ptr, ptr %style, align 8
+  %window412 = getelementptr inbounds %struct.nk_style, ptr %357, i32 0, i32 21
   %scaler413 = getelementptr inbounds %struct.nk_style_window, ptr %window412, i32 0, i32 10
   store ptr %scaler413, ptr %item, align 8
-  %357 = load ptr, ptr %item, align 8
-  %type414 = getelementptr inbounds %struct.nk_style_item, ptr %357, i32 0, i32 0
-  %358 = load i32, ptr %type414, align 8
-  %cmp415 = icmp eq i32 %358, 1
+  %358 = load ptr, ptr %item, align 8
+  %type414 = getelementptr inbounds %struct.nk_style_item, ptr %358, i32 0, i32 0
+  %359 = load i32, ptr %type414, align 8
+  %cmp415 = icmp eq i32 %359, 1
   br i1 %cmp415, label %if.then417, label %if.else418
 
 if.then417:                                       ; preds = %if.end411
-  %359 = load ptr, ptr %out, align 8
-  %360 = load ptr, ptr %item, align 8
-  %data = getelementptr inbounds %struct.nk_style_item, ptr %360, i32 0, i32 1
-  %361 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scaler, i32 0, i32 0
-  %362 = load <2 x float>, ptr %361, align 4
-  %363 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scaler, i32 0, i32 1
-  %364 = load <2 x float>, ptr %363, align 4
-  %365 = load i32, ptr @nk_white, align 1
-  call void @nk_draw_image(ptr noundef %359, <2 x float> %362, <2 x float> %364, ptr noundef %data, i32 %365)
+  %360 = load ptr, ptr %out, align 8
+  %361 = load ptr, ptr %item, align 8
+  %data = getelementptr inbounds %struct.nk_style_item, ptr %361, i32 0, i32 1
+  %362 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scaler, i32 0, i32 0
+  %363 = load <2 x float>, ptr %362, align 4
+  %364 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scaler, i32 0, i32 1
+  %365 = load <2 x float>, ptr %364, align 4
+  %366 = load i32, ptr @nk_white, align 1
+  call void @nk_draw_image(ptr noundef %360, <2 x float> %363, <2 x float> %365, ptr noundef %data, i32 %366)
   br label %if.end453
 
 if.else418:                                       ; preds = %if.end411
-  %366 = load ptr, ptr %layout, align 8
-  %flags419 = getelementptr inbounds %struct.nk_panel, ptr %366, i32 0, i32 1
-  %367 = load i32, ptr %flags419, align 4
-  %and420 = and i32 %367, 512
+  %367 = load ptr, ptr %layout, align 8
+  %flags419 = getelementptr inbounds %struct.nk_panel, ptr %367, i32 0, i32 1
+  %368 = load i32, ptr %flags419, align 4
+  %and420 = and i32 %368, 512
   %tobool421 = icmp ne i32 %and420, 0
   br i1 %tobool421, label %if.then422, label %if.else436
 
 if.then422:                                       ; preds = %if.else418
-  %368 = load ptr, ptr %out, align 8
+  %369 = load ptr, ptr %out, align 8
   %x423 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %369 = load float, ptr %x423, align 4
+  %370 = load float, ptr %x423, align 4
   %y424 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %370 = load float, ptr %y424, align 4
+  %371 = load float, ptr %y424, align 4
   %x425 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %371 = load float, ptr %x425, align 4
+  %372 = load float, ptr %x425, align 4
   %y426 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %372 = load float, ptr %y426, align 4
+  %373 = load float, ptr %y426, align 4
   %h427 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 3
-  %373 = load float, ptr %h427, align 4
-  %add428 = fadd float %372, %373
+  %374 = load float, ptr %h427, align 4
+  %add428 = fadd float %373, %374
   %x429 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %374 = load float, ptr %x429, align 4
+  %375 = load float, ptr %x429, align 4
   %w430 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 2
-  %375 = load float, ptr %w430, align 4
-  %add431 = fadd float %374, %375
+  %376 = load float, ptr %w430, align 4
+  %add431 = fadd float %375, %376
   %y432 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %376 = load float, ptr %y432, align 4
+  %377 = load float, ptr %y432, align 4
   %h433 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 3
-  %377 = load float, ptr %h433, align 4
-  %add434 = fadd float %376, %377
-  %378 = load ptr, ptr %item, align 8
-  %data435 = getelementptr inbounds %struct.nk_style_item, ptr %378, i32 0, i32 1
-  %379 = load i32, ptr %data435, align 8
-  call void @nk_fill_triangle(ptr noundef %368, float noundef %369, float noundef %370, float noundef %371, float noundef %add428, float noundef %add431, float noundef %add434, i32 %379)
+  %378 = load float, ptr %h433, align 4
+  %add434 = fadd float %377, %378
+  %379 = load ptr, ptr %item, align 8
+  %data435 = getelementptr inbounds %struct.nk_style_item, ptr %379, i32 0, i32 1
+  %380 = load i32, ptr %data435, align 8
+  call void @nk_fill_triangle(ptr noundef %369, float noundef %370, float noundef %371, float noundef %372, float noundef %add428, float noundef %add431, float noundef %add434, i32 %380)
   br label %if.end452
 
 if.else436:                                       ; preds = %if.else418
-  %380 = load ptr, ptr %out, align 8
+  %381 = load ptr, ptr %out, align 8
   %x437 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %381 = load float, ptr %x437, align 4
+  %382 = load float, ptr %x437, align 4
   %w438 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 2
-  %382 = load float, ptr %w438, align 4
-  %add439 = fadd float %381, %382
+  %383 = load float, ptr %w438, align 4
+  %add439 = fadd float %382, %383
   %y440 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %383 = load float, ptr %y440, align 4
+  %384 = load float, ptr %y440, align 4
   %x441 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %384 = load float, ptr %x441, align 4
+  %385 = load float, ptr %x441, align 4
   %w442 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 2
-  %385 = load float, ptr %w442, align 4
-  %add443 = fadd float %384, %385
+  %386 = load float, ptr %w442, align 4
+  %add443 = fadd float %385, %386
   %y444 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %386 = load float, ptr %y444, align 4
+  %387 = load float, ptr %y444, align 4
   %h445 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 3
-  %387 = load float, ptr %h445, align 4
-  %add446 = fadd float %386, %387
+  %388 = load float, ptr %h445, align 4
+  %add446 = fadd float %387, %388
   %x447 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %388 = load float, ptr %x447, align 4
+  %389 = load float, ptr %x447, align 4
   %y448 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %389 = load float, ptr %y448, align 4
+  %390 = load float, ptr %y448, align 4
   %h449 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 3
-  %390 = load float, ptr %h449, align 4
-  %add450 = fadd float %389, %390
-  %391 = load ptr, ptr %item, align 8
-  %data451 = getelementptr inbounds %struct.nk_style_item, ptr %391, i32 0, i32 1
-  %392 = load i32, ptr %data451, align 8
-  call void @nk_fill_triangle(ptr noundef %380, float noundef %add439, float noundef %383, float noundef %add443, float noundef %add446, float noundef %388, float noundef %add450, i32 %392)
+  %391 = load float, ptr %h449, align 4
+  %add450 = fadd float %390, %391
+  %392 = load ptr, ptr %item, align 8
+  %data451 = getelementptr inbounds %struct.nk_style_item, ptr %392, i32 0, i32 1
+  %393 = load i32, ptr %data451, align 8
+  call void @nk_fill_triangle(ptr noundef %381, float noundef %add439, float noundef %384, float noundef %add443, float noundef %add446, float noundef %389, float noundef %add450, i32 %393)
   br label %if.end452
 
 if.end452:                                        ; preds = %if.else436, %if.then422
   br label %if.end453
 
 if.end453:                                        ; preds = %if.end452, %if.then417
-  %393 = load ptr, ptr %window, align 8
-  %flags454 = getelementptr inbounds %struct.nk_window, ptr %393, i32 0, i32 3
-  %394 = load i32, ptr %flags454, align 8
-  %and455 = and i32 %394, 4096
+  %394 = load ptr, ptr %window, align 8
+  %flags454 = getelementptr inbounds %struct.nk_window, ptr %394, i32 0, i32 3
+  %395 = load i32, ptr %flags454, align 8
+  %and455 = and i32 %395, 4096
   %tobool456 = icmp ne i32 %and455, 0
   br i1 %tobool456, label %if.end579, label %if.then457
 
 if.then457:                                       ; preds = %if.end453
-  %395 = load ptr, ptr %style, align 8
-  %window458 = getelementptr inbounds %struct.nk_style, ptr %395, i32 0, i32 21
+  %396 = load ptr, ptr %style, align 8
+  %window458 = getelementptr inbounds %struct.nk_style, ptr %396, i32 0, i32 21
   %min_size = getelementptr inbounds %struct.nk_style_window, ptr %window458, i32 0, i32 22
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %window_size, ptr align 4 %min_size, i64 8, i1 false)
-  %396 = load ptr, ptr %in, align 8
-  %mouse459 = getelementptr inbounds %struct.nk_input, ptr %396, i32 0, i32 1
+  %397 = load ptr, ptr %in, align 8
+  %mouse459 = getelementptr inbounds %struct.nk_input, ptr %397, i32 0, i32 1
   %buttons = getelementptr inbounds %struct.nk_mouse, ptr %mouse459, i32 0, i32 0
   %arrayidx = getelementptr inbounds [4 x %struct.nk_mouse_button], ptr %buttons, i64 0, i64 0
   %down = getelementptr inbounds %struct.nk_mouse_button, ptr %arrayidx, i32 0, i32 0
-  %397 = load i32, ptr %down, align 4
-  store i32 %397, ptr %left_mouse_down, align 4
-  %398 = load ptr, ptr %in, align 8
-  %399 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scaler, i32 0, i32 0
-  %400 = load <2 x float>, ptr %399, align 4
-  %401 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scaler, i32 0, i32 1
-  %402 = load <2 x float>, ptr %401, align 4
-  %call460 = call i32 @nk_input_has_mouse_click_down_in_rect(ptr noundef %398, i32 noundef 0, <2 x float> %400, <2 x float> %402, i32 noundef 1)
+  %398 = load i32, ptr %down, align 4
+  store i32 %398, ptr %left_mouse_down, align 4
+  %399 = load ptr, ptr %in, align 8
+  %400 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scaler, i32 0, i32 0
+  %401 = load <2 x float>, ptr %400, align 4
+  %402 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %scaler, i32 0, i32 1
+  %403 = load <2 x float>, ptr %402, align 4
+  %call460 = call i32 @nk_input_has_mouse_click_down_in_rect(ptr noundef %399, i32 noundef 0, <2 x float> %401, <2 x float> %403, i32 noundef 1)
   store i32 %call460, ptr %left_mouse_click_in_scaler, align 4
-  %403 = load i32, ptr %left_mouse_down, align 4
-  %tobool461 = icmp ne i32 %403, 0
+  %404 = load i32, ptr %left_mouse_down, align 4
+  %tobool461 = icmp ne i32 %404, 0
   br i1 %tobool461, label %land.lhs.true462, label %if.end578
 
 land.lhs.true462:                                 ; preds = %if.then457
-  %404 = load i32, ptr %left_mouse_click_in_scaler, align 4
-  %tobool463 = icmp ne i32 %404, 0
+  %405 = load i32, ptr %left_mouse_click_in_scaler, align 4
+  %tobool463 = icmp ne i32 %405, 0
   br i1 %tobool463, label %if.then464, label %if.end578
 
 if.then464:                                       ; preds = %land.lhs.true462
-  %405 = load ptr, ptr %in, align 8
-  %mouse465 = getelementptr inbounds %struct.nk_input, ptr %405, i32 0, i32 1
+  %406 = load ptr, ptr %in, align 8
+  %mouse465 = getelementptr inbounds %struct.nk_input, ptr %406, i32 0, i32 1
   %delta466 = getelementptr inbounds %struct.nk_mouse, ptr %mouse465, i32 0, i32 3
   %x467 = getelementptr inbounds %struct.nk_vec2, ptr %delta466, i32 0, i32 0
-  %406 = load float, ptr %x467, align 4
-  store float %406, ptr %delta_x, align 4
-  %407 = load ptr, ptr %layout, align 8
-  %flags468 = getelementptr inbounds %struct.nk_panel, ptr %407, i32 0, i32 1
-  %408 = load i32, ptr %flags468, align 4
-  %and469 = and i32 %408, 512
+  %407 = load float, ptr %x467, align 4
+  store float %407, ptr %delta_x, align 4
+  %408 = load ptr, ptr %layout, align 8
+  %flags468 = getelementptr inbounds %struct.nk_panel, ptr %408, i32 0, i32 1
+  %409 = load i32, ptr %flags468, align 4
+  %and469 = and i32 %409, 512
   %tobool470 = icmp ne i32 %and469, 0
   br i1 %tobool470, label %if.then471, label %if.end478
 
 if.then471:                                       ; preds = %if.then464
-  %409 = load float, ptr %delta_x, align 4
-  %fneg = fneg float %409
+  %410 = load float, ptr %delta_x, align 4
+  %fneg = fneg float %410
   store float %fneg, ptr %delta_x, align 4
-  %410 = load ptr, ptr %in, align 8
-  %mouse472 = getelementptr inbounds %struct.nk_input, ptr %410, i32 0, i32 1
+  %411 = load ptr, ptr %in, align 8
+  %mouse472 = getelementptr inbounds %struct.nk_input, ptr %411, i32 0, i32 1
   %delta473 = getelementptr inbounds %struct.nk_mouse, ptr %mouse472, i32 0, i32 3
   %x474 = getelementptr inbounds %struct.nk_vec2, ptr %delta473, i32 0, i32 0
-  %411 = load float, ptr %x474, align 4
-  %412 = load ptr, ptr %window, align 8
-  %bounds475 = getelementptr inbounds %struct.nk_window, ptr %412, i32 0, i32 4
+  %412 = load float, ptr %x474, align 4
+  %413 = load ptr, ptr %window, align 8
+  %bounds475 = getelementptr inbounds %struct.nk_window, ptr %413, i32 0, i32 4
   %x476 = getelementptr inbounds %struct.nk_rect, ptr %bounds475, i32 0, i32 0
-  %413 = load float, ptr %x476, align 4
-  %add477 = fadd float %413, %411
+  %414 = load float, ptr %x476, align 4
+  %add477 = fadd float %414, %412
   store float %add477, ptr %x476, align 4
   br label %if.end478
 
 if.end478:                                        ; preds = %if.then471, %if.then464
-  %414 = load ptr, ptr %window, align 8
-  %bounds479 = getelementptr inbounds %struct.nk_window, ptr %414, i32 0, i32 4
+  %415 = load ptr, ptr %window, align 8
+  %bounds479 = getelementptr inbounds %struct.nk_window, ptr %415, i32 0, i32 4
   %w480 = getelementptr inbounds %struct.nk_rect, ptr %bounds479, i32 0, i32 2
-  %415 = load float, ptr %w480, align 4
-  %416 = load float, ptr %delta_x, align 4
-  %add481 = fadd float %415, %416
+  %416 = load float, ptr %w480, align 4
+  %417 = load float, ptr %delta_x, align 4
+  %add481 = fadd float %416, %417
   %x482 = getelementptr inbounds %struct.nk_vec2, ptr %window_size, i32 0, i32 0
-  %417 = load float, ptr %x482, align 4
-  %cmp483 = fcmp oge float %add481, %417
+  %418 = load float, ptr %x482, align 4
+  %cmp483 = fcmp oge float %add481, %418
   br i1 %cmp483, label %if.then485, label %if.end509
 
 if.then485:                                       ; preds = %if.end478
-  %418 = load float, ptr %delta_x, align 4
-  %cmp486 = fcmp olt float %418, 0.000000e+00
+  %419 = load float, ptr %delta_x, align 4
+  %cmp486 = fcmp olt float %419, 0.000000e+00
   br i1 %cmp486, label %if.then497, label %lor.lhs.false488
 
 lor.lhs.false488:                                 ; preds = %if.then485
-  %419 = load float, ptr %delta_x, align 4
-  %cmp489 = fcmp ogt float %419, 0.000000e+00
+  %420 = load float, ptr %delta_x, align 4
+  %cmp489 = fcmp ogt float %420, 0.000000e+00
   br i1 %cmp489, label %land.lhs.true491, label %if.end508
 
 land.lhs.true491:                                 ; preds = %lor.lhs.false488
-  %420 = load ptr, ptr %in, align 8
-  %mouse492 = getelementptr inbounds %struct.nk_input, ptr %420, i32 0, i32 1
+  %421 = load ptr, ptr %in, align 8
+  %mouse492 = getelementptr inbounds %struct.nk_input, ptr %421, i32 0, i32 1
   %pos = getelementptr inbounds %struct.nk_mouse, ptr %mouse492, i32 0, i32 1
   %x493 = getelementptr inbounds %struct.nk_vec2, ptr %pos, i32 0, i32 0
-  %421 = load float, ptr %x493, align 4
+  %422 = load float, ptr %x493, align 4
   %x494 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %422 = load float, ptr %x494, align 4
-  %cmp495 = fcmp oge float %421, %422
+  %423 = load float, ptr %x494, align 4
+  %cmp495 = fcmp oge float %422, %423
   br i1 %cmp495, label %if.then497, label %if.end508
 
 if.then497:                                       ; preds = %land.lhs.true491, %if.then485
-  %423 = load ptr, ptr %window, align 8
-  %bounds498 = getelementptr inbounds %struct.nk_window, ptr %423, i32 0, i32 4
+  %424 = load ptr, ptr %window, align 8
+  %bounds498 = getelementptr inbounds %struct.nk_window, ptr %424, i32 0, i32 4
   %w499 = getelementptr inbounds %struct.nk_rect, ptr %bounds498, i32 0, i32 2
-  %424 = load float, ptr %w499, align 4
-  %425 = load float, ptr %delta_x, align 4
-  %add500 = fadd float %424, %425
-  %426 = load ptr, ptr %window, align 8
-  %bounds501 = getelementptr inbounds %struct.nk_window, ptr %426, i32 0, i32 4
+  %425 = load float, ptr %w499, align 4
+  %426 = load float, ptr %delta_x, align 4
+  %add500 = fadd float %425, %426
+  %427 = load ptr, ptr %window, align 8
+  %bounds501 = getelementptr inbounds %struct.nk_window, ptr %427, i32 0, i32 4
   %w502 = getelementptr inbounds %struct.nk_rect, ptr %bounds501, i32 0, i32 2
   store float %add500, ptr %w502, align 4
-  %427 = load ptr, ptr %in, align 8
-  %mouse503 = getelementptr inbounds %struct.nk_input, ptr %427, i32 0, i32 1
+  %428 = load ptr, ptr %in, align 8
+  %mouse503 = getelementptr inbounds %struct.nk_input, ptr %428, i32 0, i32 1
   %delta504 = getelementptr inbounds %struct.nk_mouse, ptr %mouse503, i32 0, i32 3
   %x505 = getelementptr inbounds %struct.nk_vec2, ptr %delta504, i32 0, i32 0
-  %428 = load float, ptr %x505, align 4
+  %429 = load float, ptr %x505, align 4
   %x506 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %429 = load float, ptr %x506, align 4
-  %add507 = fadd float %429, %428
+  %430 = load float, ptr %x506, align 4
+  %add507 = fadd float %430, %429
   store float %add507, ptr %x506, align 4
   br label %if.end508
 
@@ -49414,81 +49423,81 @@ if.end508:                                        ; preds = %if.then497, %land.l
   br label %if.end509
 
 if.end509:                                        ; preds = %if.end508, %if.end478
-  %430 = load ptr, ptr %layout, align 8
-  %flags510 = getelementptr inbounds %struct.nk_panel, ptr %430, i32 0, i32 1
-  %431 = load i32, ptr %flags510, align 4
-  %and511 = and i32 %431, 2048
+  %431 = load ptr, ptr %layout, align 8
+  %flags510 = getelementptr inbounds %struct.nk_panel, ptr %431, i32 0, i32 1
+  %432 = load i32, ptr %flags510, align 4
+  %and511 = and i32 %432, 2048
   %tobool512 = icmp ne i32 %and511, 0
   br i1 %tobool512, label %if.end558, label %if.then513
 
 if.then513:                                       ; preds = %if.end509
   %y514 = getelementptr inbounds %struct.nk_vec2, ptr %window_size, i32 0, i32 1
-  %432 = load float, ptr %y514, align 4
-  %433 = load ptr, ptr %window, align 8
-  %bounds515 = getelementptr inbounds %struct.nk_window, ptr %433, i32 0, i32 4
+  %433 = load float, ptr %y514, align 4
+  %434 = load ptr, ptr %window, align 8
+  %bounds515 = getelementptr inbounds %struct.nk_window, ptr %434, i32 0, i32 4
   %h516 = getelementptr inbounds %struct.nk_rect, ptr %bounds515, i32 0, i32 3
-  %434 = load float, ptr %h516, align 4
-  %435 = load ptr, ptr %in, align 8
-  %mouse517 = getelementptr inbounds %struct.nk_input, ptr %435, i32 0, i32 1
+  %435 = load float, ptr %h516, align 4
+  %436 = load ptr, ptr %in, align 8
+  %mouse517 = getelementptr inbounds %struct.nk_input, ptr %436, i32 0, i32 1
   %delta518 = getelementptr inbounds %struct.nk_mouse, ptr %mouse517, i32 0, i32 3
   %y519 = getelementptr inbounds %struct.nk_vec2, ptr %delta518, i32 0, i32 1
-  %436 = load float, ptr %y519, align 4
-  %add520 = fadd float %434, %436
-  %cmp521 = fcmp olt float %432, %add520
+  %437 = load float, ptr %y519, align 4
+  %add520 = fadd float %435, %437
+  %cmp521 = fcmp olt float %433, %add520
   br i1 %cmp521, label %if.then523, label %if.end557
 
 if.then523:                                       ; preds = %if.then513
-  %437 = load ptr, ptr %in, align 8
-  %mouse524 = getelementptr inbounds %struct.nk_input, ptr %437, i32 0, i32 1
+  %438 = load ptr, ptr %in, align 8
+  %mouse524 = getelementptr inbounds %struct.nk_input, ptr %438, i32 0, i32 1
   %delta525 = getelementptr inbounds %struct.nk_mouse, ptr %mouse524, i32 0, i32 3
   %y526 = getelementptr inbounds %struct.nk_vec2, ptr %delta525, i32 0, i32 1
-  %438 = load float, ptr %y526, align 4
-  %cmp527 = fcmp olt float %438, 0.000000e+00
+  %439 = load float, ptr %y526, align 4
+  %cmp527 = fcmp olt float %439, 0.000000e+00
   br i1 %cmp527, label %if.then542, label %lor.lhs.false529
 
 lor.lhs.false529:                                 ; preds = %if.then523
-  %439 = load ptr, ptr %in, align 8
-  %mouse530 = getelementptr inbounds %struct.nk_input, ptr %439, i32 0, i32 1
+  %440 = load ptr, ptr %in, align 8
+  %mouse530 = getelementptr inbounds %struct.nk_input, ptr %440, i32 0, i32 1
   %delta531 = getelementptr inbounds %struct.nk_mouse, ptr %mouse530, i32 0, i32 3
   %y532 = getelementptr inbounds %struct.nk_vec2, ptr %delta531, i32 0, i32 1
-  %440 = load float, ptr %y532, align 4
-  %cmp533 = fcmp ogt float %440, 0.000000e+00
+  %441 = load float, ptr %y532, align 4
+  %cmp533 = fcmp ogt float %441, 0.000000e+00
   br i1 %cmp533, label %land.lhs.true535, label %if.end556
 
 land.lhs.true535:                                 ; preds = %lor.lhs.false529
-  %441 = load ptr, ptr %in, align 8
-  %mouse536 = getelementptr inbounds %struct.nk_input, ptr %441, i32 0, i32 1
+  %442 = load ptr, ptr %in, align 8
+  %mouse536 = getelementptr inbounds %struct.nk_input, ptr %442, i32 0, i32 1
   %pos537 = getelementptr inbounds %struct.nk_mouse, ptr %mouse536, i32 0, i32 1
   %y538 = getelementptr inbounds %struct.nk_vec2, ptr %pos537, i32 0, i32 1
-  %442 = load float, ptr %y538, align 4
+  %443 = load float, ptr %y538, align 4
   %y539 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %443 = load float, ptr %y539, align 4
-  %cmp540 = fcmp oge float %442, %443
+  %444 = load float, ptr %y539, align 4
+  %cmp540 = fcmp oge float %443, %444
   br i1 %cmp540, label %if.then542, label %if.end556
 
 if.then542:                                       ; preds = %land.lhs.true535, %if.then523
-  %444 = load ptr, ptr %window, align 8
-  %bounds543 = getelementptr inbounds %struct.nk_window, ptr %444, i32 0, i32 4
+  %445 = load ptr, ptr %window, align 8
+  %bounds543 = getelementptr inbounds %struct.nk_window, ptr %445, i32 0, i32 4
   %h544 = getelementptr inbounds %struct.nk_rect, ptr %bounds543, i32 0, i32 3
-  %445 = load float, ptr %h544, align 4
-  %446 = load ptr, ptr %in, align 8
-  %mouse545 = getelementptr inbounds %struct.nk_input, ptr %446, i32 0, i32 1
+  %446 = load float, ptr %h544, align 4
+  %447 = load ptr, ptr %in, align 8
+  %mouse545 = getelementptr inbounds %struct.nk_input, ptr %447, i32 0, i32 1
   %delta546 = getelementptr inbounds %struct.nk_mouse, ptr %mouse545, i32 0, i32 3
   %y547 = getelementptr inbounds %struct.nk_vec2, ptr %delta546, i32 0, i32 1
-  %447 = load float, ptr %y547, align 4
-  %add548 = fadd float %445, %447
-  %448 = load ptr, ptr %window, align 8
-  %bounds549 = getelementptr inbounds %struct.nk_window, ptr %448, i32 0, i32 4
+  %448 = load float, ptr %y547, align 4
+  %add548 = fadd float %446, %448
+  %449 = load ptr, ptr %window, align 8
+  %bounds549 = getelementptr inbounds %struct.nk_window, ptr %449, i32 0, i32 4
   %h550 = getelementptr inbounds %struct.nk_rect, ptr %bounds549, i32 0, i32 3
   store float %add548, ptr %h550, align 4
-  %449 = load ptr, ptr %in, align 8
-  %mouse551 = getelementptr inbounds %struct.nk_input, ptr %449, i32 0, i32 1
+  %450 = load ptr, ptr %in, align 8
+  %mouse551 = getelementptr inbounds %struct.nk_input, ptr %450, i32 0, i32 1
   %delta552 = getelementptr inbounds %struct.nk_mouse, ptr %mouse551, i32 0, i32 3
   %y553 = getelementptr inbounds %struct.nk_vec2, ptr %delta552, i32 0, i32 1
-  %450 = load float, ptr %y553, align 4
+  %451 = load float, ptr %y553, align 4
   %y554 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %451 = load float, ptr %y554, align 4
-  %add555 = fadd float %451, %450
+  %452 = load float, ptr %y554, align 4
+  %add555 = fadd float %452, %451
   store float %add555, ptr %y554, align 4
   br label %if.end556
 
@@ -49499,36 +49508,36 @@ if.end557:                                        ; preds = %if.end556, %if.then
   br label %if.end558
 
 if.end558:                                        ; preds = %if.end557, %if.end509
-  %452 = load ptr, ptr %ctx.addr, align 8
-  %style559 = getelementptr inbounds %struct.nk_context, ptr %452, i32 0, i32 1
+  %453 = load ptr, ptr %ctx.addr, align 8
+  %style559 = getelementptr inbounds %struct.nk_context, ptr %453, i32 0, i32 1
   %cursors = getelementptr inbounds %struct.nk_style, ptr %style559, i32 0, i32 1
   %arrayidx560 = getelementptr inbounds [7 x ptr], ptr %cursors, i64 0, i64 6
-  %453 = load ptr, ptr %arrayidx560, align 8
-  %454 = load ptr, ptr %ctx.addr, align 8
-  %style561 = getelementptr inbounds %struct.nk_context, ptr %454, i32 0, i32 1
+  %454 = load ptr, ptr %arrayidx560, align 8
+  %455 = load ptr, ptr %ctx.addr, align 8
+  %style561 = getelementptr inbounds %struct.nk_context, ptr %455, i32 0, i32 1
   %cursor_active = getelementptr inbounds %struct.nk_style, ptr %style561, i32 0, i32 2
-  store ptr %453, ptr %cursor_active, align 8
+  store ptr %454, ptr %cursor_active, align 8
   %x562 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 0
-  %455 = load float, ptr %x562, align 4
+  %456 = load float, ptr %x562, align 4
   %w563 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 2
-  %456 = load float, ptr %w563, align 4
-  %div = fdiv float %456, 2.000000e+00
-  %add564 = fadd float %455, %div
-  %457 = load ptr, ptr %in, align 8
-  %mouse565 = getelementptr inbounds %struct.nk_input, ptr %457, i32 0, i32 1
+  %457 = load float, ptr %w563, align 4
+  %div = fdiv float %457, 2.000000e+00
+  %add564 = fadd float %456, %div
+  %458 = load ptr, ptr %in, align 8
+  %mouse565 = getelementptr inbounds %struct.nk_input, ptr %458, i32 0, i32 1
   %buttons566 = getelementptr inbounds %struct.nk_mouse, ptr %mouse565, i32 0, i32 0
   %arrayidx567 = getelementptr inbounds [4 x %struct.nk_mouse_button], ptr %buttons566, i64 0, i64 0
   %clicked_pos = getelementptr inbounds %struct.nk_mouse_button, ptr %arrayidx567, i32 0, i32 2
   %x568 = getelementptr inbounds %struct.nk_vec2, ptr %clicked_pos, i32 0, i32 0
   store float %add564, ptr %x568, align 4
   %y569 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 1
-  %458 = load float, ptr %y569, align 4
+  %459 = load float, ptr %y569, align 4
   %h570 = getelementptr inbounds %struct.nk_rect, ptr %scaler, i32 0, i32 3
-  %459 = load float, ptr %h570, align 4
-  %div571 = fdiv float %459, 2.000000e+00
-  %add572 = fadd float %458, %div571
-  %460 = load ptr, ptr %in, align 8
-  %mouse573 = getelementptr inbounds %struct.nk_input, ptr %460, i32 0, i32 1
+  %460 = load float, ptr %h570, align 4
+  %div571 = fdiv float %460, 2.000000e+00
+  %add572 = fadd float %459, %div571
+  %461 = load ptr, ptr %in, align 8
+  %mouse573 = getelementptr inbounds %struct.nk_input, ptr %461, i32 0, i32 1
   %buttons574 = getelementptr inbounds %struct.nk_mouse, ptr %mouse573, i32 0, i32 0
   %arrayidx575 = getelementptr inbounds [4 x %struct.nk_mouse_button], ptr %buttons574, i64 0, i64 0
   %clicked_pos576 = getelementptr inbounds %struct.nk_mouse_button, ptr %arrayidx575, i32 0, i32 2
@@ -49543,238 +49552,238 @@ if.end579:                                        ; preds = %if.end578, %if.end4
   br label %if.end580
 
 if.end580:                                        ; preds = %if.end579, %land.lhs.true370, %land.lhs.true368, %if.end364
-  %461 = load ptr, ptr %layout, align 8
-  %type581 = getelementptr inbounds %struct.nk_panel, ptr %461, i32 0, i32 0
-  %462 = load i32, ptr %type581, align 8
-  %call582 = call i32 @nk_panel_is_sub(i32 noundef %462)
+  %462 = load ptr, ptr %layout, align 8
+  %type581 = getelementptr inbounds %struct.nk_panel, ptr %462, i32 0, i32 0
+  %463 = load i32, ptr %type581, align 8
+  %call582 = call i32 @nk_panel_is_sub(i32 noundef %463)
   %tobool583 = icmp ne i32 %call582, 0
   br i1 %tobool583, label %if.end592, label %if.then584
 
 if.then584:                                       ; preds = %if.end580
-  %463 = load ptr, ptr %layout, align 8
-  %flags585 = getelementptr inbounds %struct.nk_panel, ptr %463, i32 0, i32 1
-  %464 = load i32, ptr %flags585, align 4
-  %and586 = and i32 %464, 8192
+  %464 = load ptr, ptr %layout, align 8
+  %flags585 = getelementptr inbounds %struct.nk_panel, ptr %464, i32 0, i32 1
+  %465 = load i32, ptr %flags585, align 4
+  %and586 = and i32 %465, 8192
   %tobool587 = icmp ne i32 %and586, 0
   br i1 %tobool587, label %if.then588, label %if.else590
 
 if.then588:                                       ; preds = %if.then584
-  %465 = load ptr, ptr %window, align 8
-  %buffer589 = getelementptr inbounds %struct.nk_window, ptr %465, i32 0, i32 6
+  %466 = load ptr, ptr %window, align 8
+  %buffer589 = getelementptr inbounds %struct.nk_window, ptr %466, i32 0, i32 6
   call void @nk_command_buffer_reset(ptr noundef %buffer589)
   br label %if.end591
 
 if.else590:                                       ; preds = %if.then584
-  %466 = load ptr, ptr %ctx.addr, align 8
-  %467 = load ptr, ptr %window, align 8
-  call void @nk_finish(ptr noundef %466, ptr noundef %467)
+  %467 = load ptr, ptr %ctx.addr, align 8
+  %468 = load ptr, ptr %window, align 8
+  call void @nk_finish(ptr noundef %467, ptr noundef %468)
   br label %if.end591
 
 if.end591:                                        ; preds = %if.else590, %if.then588
   br label %if.end592
 
 if.end592:                                        ; preds = %if.end591, %if.end580
-  %468 = load ptr, ptr %layout, align 8
-  %flags593 = getelementptr inbounds %struct.nk_panel, ptr %468, i32 0, i32 1
-  %469 = load i32, ptr %flags593, align 4
-  %and594 = and i32 %469, 65536
+  %469 = load ptr, ptr %layout, align 8
+  %flags593 = getelementptr inbounds %struct.nk_panel, ptr %469, i32 0, i32 1
+  %470 = load i32, ptr %flags593, align 4
+  %and594 = and i32 %470, 65536
   %tobool595 = icmp ne i32 %and594, 0
   br i1 %tobool595, label %if.then596, label %if.end601
 
 if.then596:                                       ; preds = %if.end592
-  %470 = load ptr, ptr %layout, align 8
-  %flags597 = getelementptr inbounds %struct.nk_panel, ptr %470, i32 0, i32 1
-  %471 = load i32, ptr %flags597, align 4
-  %and598 = and i32 %471, -4097
+  %471 = load ptr, ptr %layout, align 8
+  %flags597 = getelementptr inbounds %struct.nk_panel, ptr %471, i32 0, i32 1
+  %472 = load i32, ptr %flags597, align 4
+  %and598 = and i32 %472, -4097
   store i32 %and598, ptr %flags597, align 4
-  %472 = load ptr, ptr %layout, align 8
-  %flags599 = getelementptr inbounds %struct.nk_panel, ptr %472, i32 0, i32 1
-  %473 = load i32, ptr %flags599, align 4
-  %and600 = and i32 %473, -65537
+  %473 = load ptr, ptr %layout, align 8
+  %flags599 = getelementptr inbounds %struct.nk_panel, ptr %473, i32 0, i32 1
+  %474 = load i32, ptr %flags599, align 4
+  %and600 = and i32 %474, -65537
   store i32 %and600, ptr %flags599, align 4
   br label %if.end601
 
 if.end601:                                        ; preds = %if.then596, %if.end592
-  %474 = load ptr, ptr %layout, align 8
-  %flags602 = getelementptr inbounds %struct.nk_panel, ptr %474, i32 0, i32 1
-  %475 = load i32, ptr %flags602, align 4
-  %476 = load ptr, ptr %window, align 8
-  %flags603 = getelementptr inbounds %struct.nk_window, ptr %476, i32 0, i32 3
-  store i32 %475, ptr %flags603, align 8
+  %475 = load ptr, ptr %layout, align 8
+  %flags602 = getelementptr inbounds %struct.nk_panel, ptr %475, i32 0, i32 1
+  %476 = load i32, ptr %flags602, align 4
   %477 = load ptr, ptr %window, align 8
-  %property = getelementptr inbounds %struct.nk_window, ptr %477, i32 0, i32 9
+  %flags603 = getelementptr inbounds %struct.nk_window, ptr %477, i32 0, i32 3
+  store i32 %476, ptr %flags603, align 8
+  %478 = load ptr, ptr %window, align 8
+  %property = getelementptr inbounds %struct.nk_window, ptr %478, i32 0, i32 9
   %active604 = getelementptr inbounds %struct.nk_property_state, ptr %property, i32 0, i32 0
-  %478 = load i32, ptr %active604, align 4
-  %tobool605 = icmp ne i32 %478, 0
+  %479 = load i32, ptr %active604, align 4
+  %tobool605 = icmp ne i32 %479, 0
   br i1 %tobool605, label %land.lhs.true606, label %if.else619
 
 land.lhs.true606:                                 ; preds = %if.end601
-  %479 = load ptr, ptr %window, align 8
-  %property607 = getelementptr inbounds %struct.nk_window, ptr %479, i32 0, i32 9
+  %480 = load ptr, ptr %window, align 8
+  %property607 = getelementptr inbounds %struct.nk_window, ptr %480, i32 0, i32 9
   %old = getelementptr inbounds %struct.nk_property_state, ptr %property607, i32 0, i32 9
-  %480 = load i32, ptr %old, align 4
-  %481 = load ptr, ptr %window, align 8
-  %property608 = getelementptr inbounds %struct.nk_window, ptr %481, i32 0, i32 9
+  %481 = load i32, ptr %old, align 4
+  %482 = load ptr, ptr %window, align 8
+  %property608 = getelementptr inbounds %struct.nk_window, ptr %482, i32 0, i32 9
   %seq = getelementptr inbounds %struct.nk_property_state, ptr %property608, i32 0, i32 8
-  %482 = load i32, ptr %seq, align 4
-  %cmp609 = icmp ne i32 %480, %482
+  %483 = load i32, ptr %seq, align 4
+  %cmp609 = icmp ne i32 %481, %483
   br i1 %cmp609, label %land.lhs.true611, label %if.else619
 
 land.lhs.true611:                                 ; preds = %land.lhs.true606
-  %483 = load ptr, ptr %window, align 8
-  %property612 = getelementptr inbounds %struct.nk_window, ptr %483, i32 0, i32 9
+  %484 = load ptr, ptr %window, align 8
+  %property612 = getelementptr inbounds %struct.nk_window, ptr %484, i32 0, i32 9
   %active613 = getelementptr inbounds %struct.nk_property_state, ptr %property612, i32 0, i32 0
-  %484 = load i32, ptr %active613, align 4
-  %485 = load ptr, ptr %window, align 8
-  %property614 = getelementptr inbounds %struct.nk_window, ptr %485, i32 0, i32 9
+  %485 = load i32, ptr %active613, align 4
+  %486 = load ptr, ptr %window, align 8
+  %property614 = getelementptr inbounds %struct.nk_window, ptr %486, i32 0, i32 9
   %prev = getelementptr inbounds %struct.nk_property_state, ptr %property614, i32 0, i32 1
-  %486 = load i32, ptr %prev, align 4
-  %cmp615 = icmp eq i32 %484, %486
+  %487 = load i32, ptr %prev, align 4
+  %cmp615 = icmp eq i32 %485, %487
   br i1 %cmp615, label %if.then617, label %if.else619
 
 if.then617:                                       ; preds = %land.lhs.true611
-  %487 = load ptr, ptr %window, align 8
-  %property618 = getelementptr inbounds %struct.nk_window, ptr %487, i32 0, i32 9
+  %488 = load ptr, ptr %window, align 8
+  %property618 = getelementptr inbounds %struct.nk_window, ptr %488, i32 0, i32 9
   call void @nk_zero(ptr noundef %property618, i64 noundef 104)
   br label %if.end630
 
 if.else619:                                       ; preds = %land.lhs.true611, %land.lhs.true606, %if.end601
-  %488 = load ptr, ptr %window, align 8
-  %property620 = getelementptr inbounds %struct.nk_window, ptr %488, i32 0, i32 9
+  %489 = load ptr, ptr %window, align 8
+  %property620 = getelementptr inbounds %struct.nk_window, ptr %489, i32 0, i32 9
   %seq621 = getelementptr inbounds %struct.nk_property_state, ptr %property620, i32 0, i32 8
-  %489 = load i32, ptr %seq621, align 4
-  %490 = load ptr, ptr %window, align 8
-  %property622 = getelementptr inbounds %struct.nk_window, ptr %490, i32 0, i32 9
-  %old623 = getelementptr inbounds %struct.nk_property_state, ptr %property622, i32 0, i32 9
-  store i32 %489, ptr %old623, align 4
+  %490 = load i32, ptr %seq621, align 4
   %491 = load ptr, ptr %window, align 8
-  %property624 = getelementptr inbounds %struct.nk_window, ptr %491, i32 0, i32 9
+  %property622 = getelementptr inbounds %struct.nk_window, ptr %491, i32 0, i32 9
+  %old623 = getelementptr inbounds %struct.nk_property_state, ptr %property622, i32 0, i32 9
+  store i32 %490, ptr %old623, align 4
+  %492 = load ptr, ptr %window, align 8
+  %property624 = getelementptr inbounds %struct.nk_window, ptr %492, i32 0, i32 9
   %active625 = getelementptr inbounds %struct.nk_property_state, ptr %property624, i32 0, i32 0
-  %492 = load i32, ptr %active625, align 4
-  %493 = load ptr, ptr %window, align 8
-  %property626 = getelementptr inbounds %struct.nk_window, ptr %493, i32 0, i32 9
-  %prev627 = getelementptr inbounds %struct.nk_property_state, ptr %property626, i32 0, i32 1
-  store i32 %492, ptr %prev627, align 4
+  %493 = load i32, ptr %active625, align 4
   %494 = load ptr, ptr %window, align 8
-  %property628 = getelementptr inbounds %struct.nk_window, ptr %494, i32 0, i32 9
+  %property626 = getelementptr inbounds %struct.nk_window, ptr %494, i32 0, i32 9
+  %prev627 = getelementptr inbounds %struct.nk_property_state, ptr %property626, i32 0, i32 1
+  store i32 %493, ptr %prev627, align 4
+  %495 = load ptr, ptr %window, align 8
+  %property628 = getelementptr inbounds %struct.nk_window, ptr %495, i32 0, i32 9
   %seq629 = getelementptr inbounds %struct.nk_property_state, ptr %property628, i32 0, i32 8
   store i32 0, ptr %seq629, align 4
   br label %if.end630
 
 if.end630:                                        ; preds = %if.else619, %if.then617
-  %495 = load ptr, ptr %window, align 8
-  %edit = getelementptr inbounds %struct.nk_window, ptr %495, i32 0, i32 11
+  %496 = load ptr, ptr %window, align 8
+  %edit = getelementptr inbounds %struct.nk_window, ptr %496, i32 0, i32 11
   %active631 = getelementptr inbounds %struct.nk_edit_state, ptr %edit, i32 0, i32 3
-  %496 = load i32, ptr %active631, align 4
-  %tobool632 = icmp ne i32 %496, 0
+  %497 = load i32, ptr %active631, align 4
+  %tobool632 = icmp ne i32 %497, 0
   br i1 %tobool632, label %land.lhs.true633, label %if.else649
 
 land.lhs.true633:                                 ; preds = %if.end630
-  %497 = load ptr, ptr %window, align 8
-  %edit634 = getelementptr inbounds %struct.nk_window, ptr %497, i32 0, i32 11
+  %498 = load ptr, ptr %window, align 8
+  %edit634 = getelementptr inbounds %struct.nk_window, ptr %498, i32 0, i32 11
   %old635 = getelementptr inbounds %struct.nk_edit_state, ptr %edit634, i32 0, i32 2
-  %498 = load i32, ptr %old635, align 8
-  %499 = load ptr, ptr %window, align 8
-  %edit636 = getelementptr inbounds %struct.nk_window, ptr %499, i32 0, i32 11
+  %499 = load i32, ptr %old635, align 8
+  %500 = load ptr, ptr %window, align 8
+  %edit636 = getelementptr inbounds %struct.nk_window, ptr %500, i32 0, i32 11
   %seq637 = getelementptr inbounds %struct.nk_edit_state, ptr %edit636, i32 0, i32 1
-  %500 = load i32, ptr %seq637, align 4
-  %cmp638 = icmp ne i32 %498, %500
+  %501 = load i32, ptr %seq637, align 4
+  %cmp638 = icmp ne i32 %499, %501
   br i1 %cmp638, label %land.lhs.true640, label %if.else649
 
 land.lhs.true640:                                 ; preds = %land.lhs.true633
-  %501 = load ptr, ptr %window, align 8
-  %edit641 = getelementptr inbounds %struct.nk_window, ptr %501, i32 0, i32 11
+  %502 = load ptr, ptr %window, align 8
+  %edit641 = getelementptr inbounds %struct.nk_window, ptr %502, i32 0, i32 11
   %active642 = getelementptr inbounds %struct.nk_edit_state, ptr %edit641, i32 0, i32 3
-  %502 = load i32, ptr %active642, align 4
-  %503 = load ptr, ptr %window, align 8
-  %edit643 = getelementptr inbounds %struct.nk_window, ptr %503, i32 0, i32 11
+  %503 = load i32, ptr %active642, align 4
+  %504 = load ptr, ptr %window, align 8
+  %edit643 = getelementptr inbounds %struct.nk_window, ptr %504, i32 0, i32 11
   %prev644 = getelementptr inbounds %struct.nk_edit_state, ptr %edit643, i32 0, i32 4
-  %504 = load i32, ptr %prev644, align 8
-  %cmp645 = icmp eq i32 %502, %504
+  %505 = load i32, ptr %prev644, align 8
+  %cmp645 = icmp eq i32 %503, %505
   br i1 %cmp645, label %if.then647, label %if.else649
 
 if.then647:                                       ; preds = %land.lhs.true640
-  %505 = load ptr, ptr %window, align 8
-  %edit648 = getelementptr inbounds %struct.nk_window, ptr %505, i32 0, i32 11
+  %506 = load ptr, ptr %window, align 8
+  %edit648 = getelementptr inbounds %struct.nk_window, ptr %506, i32 0, i32 11
   call void @nk_zero(ptr noundef %edit648, i64 noundef 44)
   br label %if.end660
 
 if.else649:                                       ; preds = %land.lhs.true640, %land.lhs.true633, %if.end630
-  %506 = load ptr, ptr %window, align 8
-  %edit650 = getelementptr inbounds %struct.nk_window, ptr %506, i32 0, i32 11
+  %507 = load ptr, ptr %window, align 8
+  %edit650 = getelementptr inbounds %struct.nk_window, ptr %507, i32 0, i32 11
   %seq651 = getelementptr inbounds %struct.nk_edit_state, ptr %edit650, i32 0, i32 1
-  %507 = load i32, ptr %seq651, align 4
-  %508 = load ptr, ptr %window, align 8
-  %edit652 = getelementptr inbounds %struct.nk_window, ptr %508, i32 0, i32 11
-  %old653 = getelementptr inbounds %struct.nk_edit_state, ptr %edit652, i32 0, i32 2
-  store i32 %507, ptr %old653, align 8
+  %508 = load i32, ptr %seq651, align 4
   %509 = load ptr, ptr %window, align 8
-  %edit654 = getelementptr inbounds %struct.nk_window, ptr %509, i32 0, i32 11
+  %edit652 = getelementptr inbounds %struct.nk_window, ptr %509, i32 0, i32 11
+  %old653 = getelementptr inbounds %struct.nk_edit_state, ptr %edit652, i32 0, i32 2
+  store i32 %508, ptr %old653, align 8
+  %510 = load ptr, ptr %window, align 8
+  %edit654 = getelementptr inbounds %struct.nk_window, ptr %510, i32 0, i32 11
   %active655 = getelementptr inbounds %struct.nk_edit_state, ptr %edit654, i32 0, i32 3
-  %510 = load i32, ptr %active655, align 4
-  %511 = load ptr, ptr %window, align 8
-  %edit656 = getelementptr inbounds %struct.nk_window, ptr %511, i32 0, i32 11
-  %prev657 = getelementptr inbounds %struct.nk_edit_state, ptr %edit656, i32 0, i32 4
-  store i32 %510, ptr %prev657, align 8
+  %511 = load i32, ptr %active655, align 4
   %512 = load ptr, ptr %window, align 8
-  %edit658 = getelementptr inbounds %struct.nk_window, ptr %512, i32 0, i32 11
+  %edit656 = getelementptr inbounds %struct.nk_window, ptr %512, i32 0, i32 11
+  %prev657 = getelementptr inbounds %struct.nk_edit_state, ptr %edit656, i32 0, i32 4
+  store i32 %511, ptr %prev657, align 8
+  %513 = load ptr, ptr %window, align 8
+  %edit658 = getelementptr inbounds %struct.nk_window, ptr %513, i32 0, i32 11
   %seq659 = getelementptr inbounds %struct.nk_edit_state, ptr %edit658, i32 0, i32 1
   store i32 0, ptr %seq659, align 4
   br label %if.end660
 
 if.end660:                                        ; preds = %if.else649, %if.then647
-  %513 = load ptr, ptr %window, align 8
-  %popup = getelementptr inbounds %struct.nk_window, ptr %513, i32 0, i32 10
+  %514 = load ptr, ptr %window, align 8
+  %popup = getelementptr inbounds %struct.nk_window, ptr %514, i32 0, i32 10
   %active_con = getelementptr inbounds %struct.nk_popup_state, ptr %popup, i32 0, i32 8
-  %514 = load i32, ptr %active_con, align 4
-  %tobool661 = icmp ne i32 %514, 0
+  %515 = load i32, ptr %active_con, align 4
+  %tobool661 = icmp ne i32 %515, 0
   br i1 %tobool661, label %land.lhs.true662, label %if.else674
 
 land.lhs.true662:                                 ; preds = %if.end660
-  %515 = load ptr, ptr %window, align 8
-  %popup663 = getelementptr inbounds %struct.nk_window, ptr %515, i32 0, i32 10
+  %516 = load ptr, ptr %window, align 8
+  %popup663 = getelementptr inbounds %struct.nk_window, ptr %516, i32 0, i32 10
   %con_old = getelementptr inbounds %struct.nk_popup_state, ptr %popup663, i32 0, i32 7
-  %516 = load i32, ptr %con_old, align 8
-  %517 = load ptr, ptr %window, align 8
-  %popup664 = getelementptr inbounds %struct.nk_window, ptr %517, i32 0, i32 10
+  %517 = load i32, ptr %con_old, align 8
+  %518 = load ptr, ptr %window, align 8
+  %popup664 = getelementptr inbounds %struct.nk_window, ptr %518, i32 0, i32 10
   %con_count = getelementptr inbounds %struct.nk_popup_state, ptr %popup664, i32 0, i32 6
-  %518 = load i32, ptr %con_count, align 4
-  %cmp665 = icmp ne i32 %516, %518
+  %519 = load i32, ptr %con_count, align 4
+  %cmp665 = icmp ne i32 %517, %519
   br i1 %cmp665, label %if.then667, label %if.else674
 
 if.then667:                                       ; preds = %land.lhs.true662
-  %519 = load ptr, ptr %window, align 8
-  %popup668 = getelementptr inbounds %struct.nk_window, ptr %519, i32 0, i32 10
+  %520 = load ptr, ptr %window, align 8
+  %popup668 = getelementptr inbounds %struct.nk_window, ptr %520, i32 0, i32 10
   %con_count669 = getelementptr inbounds %struct.nk_popup_state, ptr %popup668, i32 0, i32 6
   store i32 0, ptr %con_count669, align 4
-  %520 = load ptr, ptr %window, align 8
-  %popup670 = getelementptr inbounds %struct.nk_window, ptr %520, i32 0, i32 10
+  %521 = load ptr, ptr %window, align 8
+  %popup670 = getelementptr inbounds %struct.nk_window, ptr %521, i32 0, i32 10
   %con_old671 = getelementptr inbounds %struct.nk_popup_state, ptr %popup670, i32 0, i32 7
   store i32 0, ptr %con_old671, align 8
-  %521 = load ptr, ptr %window, align 8
-  %popup672 = getelementptr inbounds %struct.nk_window, ptr %521, i32 0, i32 10
+  %522 = load ptr, ptr %window, align 8
+  %popup672 = getelementptr inbounds %struct.nk_window, ptr %522, i32 0, i32 10
   %active_con673 = getelementptr inbounds %struct.nk_popup_state, ptr %popup672, i32 0, i32 8
   store i32 0, ptr %active_con673, align 4
   br label %if.end681
 
 if.else674:                                       ; preds = %land.lhs.true662, %if.end660
-  %522 = load ptr, ptr %window, align 8
-  %popup675 = getelementptr inbounds %struct.nk_window, ptr %522, i32 0, i32 10
+  %523 = load ptr, ptr %window, align 8
+  %popup675 = getelementptr inbounds %struct.nk_window, ptr %523, i32 0, i32 10
   %con_count676 = getelementptr inbounds %struct.nk_popup_state, ptr %popup675, i32 0, i32 6
-  %523 = load i32, ptr %con_count676, align 4
-  %524 = load ptr, ptr %window, align 8
-  %popup677 = getelementptr inbounds %struct.nk_window, ptr %524, i32 0, i32 10
-  %con_old678 = getelementptr inbounds %struct.nk_popup_state, ptr %popup677, i32 0, i32 7
-  store i32 %523, ptr %con_old678, align 8
+  %524 = load i32, ptr %con_count676, align 4
   %525 = load ptr, ptr %window, align 8
-  %popup679 = getelementptr inbounds %struct.nk_window, ptr %525, i32 0, i32 10
+  %popup677 = getelementptr inbounds %struct.nk_window, ptr %525, i32 0, i32 10
+  %con_old678 = getelementptr inbounds %struct.nk_popup_state, ptr %popup677, i32 0, i32 7
+  store i32 %524, ptr %con_old678, align 8
+  %526 = load ptr, ptr %window, align 8
+  %popup679 = getelementptr inbounds %struct.nk_window, ptr %526, i32 0, i32 10
   %con_count680 = getelementptr inbounds %struct.nk_popup_state, ptr %popup679, i32 0, i32 6
   store i32 0, ptr %con_count680, align 4
   br label %if.end681
 
 if.end681:                                        ; preds = %if.else674, %if.then667
-  %526 = load ptr, ptr %window, align 8
-  %popup682 = getelementptr inbounds %struct.nk_window, ptr %526, i32 0, i32 10
+  %527 = load ptr, ptr %window, align 8
+  %popup682 = getelementptr inbounds %struct.nk_window, ptr %527, i32 0, i32 10
   %combo_count = getelementptr inbounds %struct.nk_popup_state, ptr %popup682, i32 0, i32 5
   store i32 0, ptr %combo_count, align 8
   br label %return
@@ -51892,132 +51901,133 @@ if.end50:                                         ; preds = %if.then47, %if.end3
   %66 = load ptr, ptr %popup, align 8
   %buffer53 = getelementptr inbounds %struct.nk_window, ptr %66, i32 0, i32 6
   %67 = load <2 x float>, ptr @nk_null_rect, align 4
-  %68 = load <2 x float>, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1), align 4
-  call void @nk_push_scissor(ptr noundef %buffer53, <2 x float> %67, <2 x float> %68)
-  %69 = load ptr, ptr %ctx.addr, align 8
-  %70 = load ptr, ptr %title.addr, align 8
-  %call54 = call i32 @nk_panel_begin(ptr noundef %69, ptr noundef %70, i32 noundef 4)
+  %68 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1
+  %69 = load <2 x float>, ptr %68, align 4
+  call void @nk_push_scissor(ptr noundef %buffer53, <2 x float> %67, <2 x float> %69)
+  %70 = load ptr, ptr %ctx.addr, align 8
+  %71 = load ptr, ptr %title.addr, align 8
+  %call54 = call i32 @nk_panel_begin(ptr noundef %70, ptr noundef %71, i32 noundef 4)
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %if.then56, label %if.else73
 
 if.then56:                                        ; preds = %if.end50
-  %71 = load ptr, ptr %win, align 8
-  %layout57 = getelementptr inbounds %struct.nk_window, ptr %71, i32 0, i32 7
-  %72 = load ptr, ptr %layout57, align 8
-  store ptr %72, ptr %root, align 8
+  %72 = load ptr, ptr %win, align 8
+  %layout57 = getelementptr inbounds %struct.nk_window, ptr %72, i32 0, i32 7
+  %73 = load ptr, ptr %layout57, align 8
+  store ptr %73, ptr %root, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then56
-  %73 = load ptr, ptr %root, align 8
-  %tobool58 = icmp ne ptr %73, null
+  %74 = load ptr, ptr %root, align 8
+  %tobool58 = icmp ne ptr %74, null
   br i1 %tobool58, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %74 = load ptr, ptr %root, align 8
-  %flags59 = getelementptr inbounds %struct.nk_panel, ptr %74, i32 0, i32 1
-  %75 = load i32, ptr %flags59, align 4
-  %or60 = or i32 %75, 4096
+  %75 = load ptr, ptr %root, align 8
+  %flags59 = getelementptr inbounds %struct.nk_panel, ptr %75, i32 0, i32 1
+  %76 = load i32, ptr %flags59, align 4
+  %or60 = or i32 %76, 4096
   store i32 %or60, ptr %flags59, align 4
-  %76 = load ptr, ptr %root, align 8
-  %flags61 = getelementptr inbounds %struct.nk_panel, ptr %76, i32 0, i32 1
-  %77 = load i32, ptr %flags61, align 4
-  %and = and i32 %77, -65537
+  %77 = load ptr, ptr %root, align 8
+  %flags61 = getelementptr inbounds %struct.nk_panel, ptr %77, i32 0, i32 1
+  %78 = load i32, ptr %flags61, align 4
+  %and = and i32 %78, -65537
   store i32 %and, ptr %flags61, align 4
-  %78 = load ptr, ptr %root, align 8
-  %parent62 = getelementptr inbounds %struct.nk_panel, ptr %78, i32 0, i32 17
-  %79 = load ptr, ptr %parent62, align 8
-  store ptr %79, ptr %root, align 8
+  %79 = load ptr, ptr %root, align 8
+  %parent62 = getelementptr inbounds %struct.nk_panel, ptr %79, i32 0, i32 17
+  %80 = load ptr, ptr %parent62, align 8
+  store ptr %80, ptr %root, align 8
   br label %while.cond, !llvm.loop !182
 
 while.end:                                        ; preds = %while.cond
-  %80 = load ptr, ptr %win, align 8
-  %popup63 = getelementptr inbounds %struct.nk_window, ptr %80, i32 0, i32 10
+  %81 = load ptr, ptr %win, align 8
+  %popup63 = getelementptr inbounds %struct.nk_window, ptr %81, i32 0, i32 10
   %active64 = getelementptr inbounds %struct.nk_popup_state, ptr %popup63, i32 0, i32 4
   store i32 1, ptr %active64, align 4
-  %81 = load ptr, ptr %popup, align 8
-  %scrollbar = getelementptr inbounds %struct.nk_window, ptr %81, i32 0, i32 5
-  %x65 = getelementptr inbounds %struct.nk_scroll, ptr %scrollbar, i32 0, i32 0
   %82 = load ptr, ptr %popup, align 8
-  %layout66 = getelementptr inbounds %struct.nk_window, ptr %82, i32 0, i32 7
-  %83 = load ptr, ptr %layout66, align 8
-  %offset_x = getelementptr inbounds %struct.nk_panel, ptr %83, i32 0, i32 3
+  %scrollbar = getelementptr inbounds %struct.nk_window, ptr %82, i32 0, i32 5
+  %x65 = getelementptr inbounds %struct.nk_scroll, ptr %scrollbar, i32 0, i32 0
+  %83 = load ptr, ptr %popup, align 8
+  %layout66 = getelementptr inbounds %struct.nk_window, ptr %83, i32 0, i32 7
+  %84 = load ptr, ptr %layout66, align 8
+  %offset_x = getelementptr inbounds %struct.nk_panel, ptr %84, i32 0, i32 3
   store ptr %x65, ptr %offset_x, align 8
-  %84 = load ptr, ptr %popup, align 8
-  %scrollbar67 = getelementptr inbounds %struct.nk_window, ptr %84, i32 0, i32 5
-  %y68 = getelementptr inbounds %struct.nk_scroll, ptr %scrollbar67, i32 0, i32 1
   %85 = load ptr, ptr %popup, align 8
-  %layout69 = getelementptr inbounds %struct.nk_window, ptr %85, i32 0, i32 7
-  %86 = load ptr, ptr %layout69, align 8
-  %offset_y = getelementptr inbounds %struct.nk_panel, ptr %86, i32 0, i32 4
+  %scrollbar67 = getelementptr inbounds %struct.nk_window, ptr %85, i32 0, i32 5
+  %y68 = getelementptr inbounds %struct.nk_scroll, ptr %scrollbar67, i32 0, i32 1
+  %86 = load ptr, ptr %popup, align 8
+  %layout69 = getelementptr inbounds %struct.nk_window, ptr %86, i32 0, i32 7
+  %87 = load ptr, ptr %layout69, align 8
+  %offset_y = getelementptr inbounds %struct.nk_panel, ptr %87, i32 0, i32 4
   store ptr %y68, ptr %offset_y, align 8
-  %87 = load ptr, ptr %win, align 8
-  %layout70 = getelementptr inbounds %struct.nk_window, ptr %87, i32 0, i32 7
-  %88 = load ptr, ptr %layout70, align 8
-  %89 = load ptr, ptr %popup, align 8
-  %layout71 = getelementptr inbounds %struct.nk_window, ptr %89, i32 0, i32 7
-  %90 = load ptr, ptr %layout71, align 8
-  %parent72 = getelementptr inbounds %struct.nk_panel, ptr %90, i32 0, i32 17
-  store ptr %88, ptr %parent72, align 8
+  %88 = load ptr, ptr %win, align 8
+  %layout70 = getelementptr inbounds %struct.nk_window, ptr %88, i32 0, i32 7
+  %89 = load ptr, ptr %layout70, align 8
+  %90 = load ptr, ptr %popup, align 8
+  %layout71 = getelementptr inbounds %struct.nk_window, ptr %90, i32 0, i32 7
+  %91 = load ptr, ptr %layout71, align 8
+  %parent72 = getelementptr inbounds %struct.nk_panel, ptr %91, i32 0, i32 17
+  store ptr %89, ptr %parent72, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 if.else73:                                        ; preds = %if.end50
-  %91 = load ptr, ptr %win, align 8
-  %layout75 = getelementptr inbounds %struct.nk_window, ptr %91, i32 0, i32 7
-  %92 = load ptr, ptr %layout75, align 8
-  store ptr %92, ptr %root74, align 8
+  %92 = load ptr, ptr %win, align 8
+  %layout75 = getelementptr inbounds %struct.nk_window, ptr %92, i32 0, i32 7
+  %93 = load ptr, ptr %layout75, align 8
+  store ptr %93, ptr %root74, align 8
   br label %while.cond76
 
 while.cond76:                                     ; preds = %while.body78, %if.else73
-  %93 = load ptr, ptr %root74, align 8
-  %tobool77 = icmp ne ptr %93, null
+  %94 = load ptr, ptr %root74, align 8
+  %tobool77 = icmp ne ptr %94, null
   br i1 %tobool77, label %while.body78, label %while.end82
 
 while.body78:                                     ; preds = %while.cond76
-  %94 = load ptr, ptr %root74, align 8
-  %flags79 = getelementptr inbounds %struct.nk_panel, ptr %94, i32 0, i32 1
-  %95 = load i32, ptr %flags79, align 4
-  %or80 = or i32 %95, 65536
+  %95 = load ptr, ptr %root74, align 8
+  %flags79 = getelementptr inbounds %struct.nk_panel, ptr %95, i32 0, i32 1
+  %96 = load i32, ptr %flags79, align 4
+  %or80 = or i32 %96, 65536
   store i32 %or80, ptr %flags79, align 4
-  %96 = load ptr, ptr %root74, align 8
-  %parent81 = getelementptr inbounds %struct.nk_panel, ptr %96, i32 0, i32 17
-  %97 = load ptr, ptr %parent81, align 8
-  store ptr %97, ptr %root74, align 8
+  %97 = load ptr, ptr %root74, align 8
+  %parent81 = getelementptr inbounds %struct.nk_panel, ptr %97, i32 0, i32 17
+  %98 = load ptr, ptr %parent81, align 8
+  store ptr %98, ptr %root74, align 8
   br label %while.cond76, !llvm.loop !183
 
 while.end82:                                      ; preds = %while.cond76
-  %98 = load ptr, ptr %win, align 8
-  %popup83 = getelementptr inbounds %struct.nk_window, ptr %98, i32 0, i32 10
+  %99 = load ptr, ptr %win, align 8
+  %popup83 = getelementptr inbounds %struct.nk_window, ptr %99, i32 0, i32 10
   %buf = getelementptr inbounds %struct.nk_popup_state, ptr %popup83, i32 0, i32 2
   %active84 = getelementptr inbounds %struct.nk_popup_buffer, ptr %buf, i32 0, i32 4
   store i32 0, ptr %active84, align 8
-  %99 = load ptr, ptr %win, align 8
-  %popup85 = getelementptr inbounds %struct.nk_window, ptr %99, i32 0, i32 10
+  %100 = load ptr, ptr %win, align 8
+  %popup85 = getelementptr inbounds %struct.nk_window, ptr %100, i32 0, i32 10
   %active86 = getelementptr inbounds %struct.nk_popup_state, ptr %popup85, i32 0, i32 4
   store i32 0, ptr %active86, align 4
-  %100 = load i64, ptr %allocated, align 8
-  %101 = load ptr, ptr %ctx.addr, align 8
-  %memory87 = getelementptr inbounds %struct.nk_context, ptr %101, i32 0, i32 2
+  %101 = load i64, ptr %allocated, align 8
+  %102 = load ptr, ptr %ctx.addr, align 8
+  %memory87 = getelementptr inbounds %struct.nk_context, ptr %102, i32 0, i32 2
   %allocated88 = getelementptr inbounds %struct.nk_buffer, ptr %memory87, i32 0, i32 5
-  store i64 %100, ptr %allocated88, align 8
-  %102 = load ptr, ptr %win, align 8
-  %103 = load ptr, ptr %ctx.addr, align 8
-  %current89 = getelementptr inbounds %struct.nk_context, ptr %103, i32 0, i32 17
-  store ptr %102, ptr %current89, align 8
+  store i64 %101, ptr %allocated88, align 8
+  %103 = load ptr, ptr %win, align 8
   %104 = load ptr, ptr %ctx.addr, align 8
-  %105 = load ptr, ptr %popup, align 8
-  %layout90 = getelementptr inbounds %struct.nk_window, ptr %105, i32 0, i32 7
-  %106 = load ptr, ptr %layout90, align 8
-  call void @nk_free_panel(ptr noundef %104, ptr noundef %106)
-  %107 = load ptr, ptr %popup, align 8
-  %layout91 = getelementptr inbounds %struct.nk_window, ptr %107, i32 0, i32 7
+  %current89 = getelementptr inbounds %struct.nk_context, ptr %104, i32 0, i32 17
+  store ptr %103, ptr %current89, align 8
+  %105 = load ptr, ptr %ctx.addr, align 8
+  %106 = load ptr, ptr %popup, align 8
+  %layout90 = getelementptr inbounds %struct.nk_window, ptr %106, i32 0, i32 7
+  %107 = load ptr, ptr %layout90, align 8
+  call void @nk_free_panel(ptr noundef %105, ptr noundef %107)
+  %108 = load ptr, ptr %popup, align 8
+  %layout91 = getelementptr inbounds %struct.nk_window, ptr %108, i32 0, i32 7
   store ptr null, ptr %layout91, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %while.end82, %while.end, %if.else, %if.then
-  %108 = load i32, ptr %retval, align 4
-  ret i32 %108
+  %109 = load i32, ptr %retval, align 4
+  ret i32 %109
 }
 
 ; Function Attrs: nounwind uwtable
@@ -52209,33 +52219,34 @@ if.end17:                                         ; preds = %while.end, %if.end8
   %22 = load ptr, ptr %popup, align 8
   %buffer = getelementptr inbounds %struct.nk_window, ptr %22, i32 0, i32 6
   %23 = load <2 x float>, ptr @nk_null_rect, align 4
-  %24 = load <2 x float>, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1), align 4
-  call void @nk_push_scissor(ptr noundef %buffer, <2 x float> %23, <2 x float> %24)
-  %25 = load ptr, ptr %ctx.addr, align 8
-  call void @nk_end(ptr noundef %25)
-  %26 = load ptr, ptr %win, align 8
-  %buffer18 = getelementptr inbounds %struct.nk_window, ptr %26, i32 0, i32 6
-  %27 = load ptr, ptr %popup, align 8
-  %buffer19 = getelementptr inbounds %struct.nk_window, ptr %27, i32 0, i32 6
+  %24 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1
+  %25 = load <2 x float>, ptr %24, align 4
+  call void @nk_push_scissor(ptr noundef %buffer, <2 x float> %23, <2 x float> %25)
+  %26 = load ptr, ptr %ctx.addr, align 8
+  call void @nk_end(ptr noundef %26)
+  %27 = load ptr, ptr %win, align 8
+  %buffer18 = getelementptr inbounds %struct.nk_window, ptr %27, i32 0, i32 6
+  %28 = load ptr, ptr %popup, align 8
+  %buffer19 = getelementptr inbounds %struct.nk_window, ptr %28, i32 0, i32 6
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer18, ptr align 8 %buffer19, i64 64, i1 false)
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %29 = load ptr, ptr %win, align 8
-  call void @nk_finish_popup(ptr noundef %28, ptr noundef %29)
+  %29 = load ptr, ptr %ctx.addr, align 8
   %30 = load ptr, ptr %win, align 8
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %current20 = getelementptr inbounds %struct.nk_context, ptr %31, i32 0, i32 17
-  store ptr %30, ptr %current20, align 8
-  %32 = load ptr, ptr %win, align 8
-  %buffer21 = getelementptr inbounds %struct.nk_window, ptr %32, i32 0, i32 6
+  call void @nk_finish_popup(ptr noundef %29, ptr noundef %30)
+  %31 = load ptr, ptr %win, align 8
+  %32 = load ptr, ptr %ctx.addr, align 8
+  %current20 = getelementptr inbounds %struct.nk_context, ptr %32, i32 0, i32 17
+  store ptr %31, ptr %current20, align 8
   %33 = load ptr, ptr %win, align 8
-  %layout22 = getelementptr inbounds %struct.nk_window, ptr %33, i32 0, i32 7
-  %34 = load ptr, ptr %layout22, align 8
-  %clip = getelementptr inbounds %struct.nk_panel, ptr %34, i32 0, i32 12
-  %35 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %clip, i32 0, i32 0
-  %36 = load <2 x float>, ptr %35, align 4
-  %37 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %clip, i32 0, i32 1
-  %38 = load <2 x float>, ptr %37, align 4
-  call void @nk_push_scissor(ptr noundef %buffer21, <2 x float> %36, <2 x float> %38)
+  %buffer21 = getelementptr inbounds %struct.nk_window, ptr %33, i32 0, i32 6
+  %34 = load ptr, ptr %win, align 8
+  %layout22 = getelementptr inbounds %struct.nk_window, ptr %34, i32 0, i32 7
+  %35 = load ptr, ptr %layout22, align 8
+  %clip = getelementptr inbounds %struct.nk_panel, ptr %35, i32 0, i32 12
+  %36 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %clip, i32 0, i32 0
+  %37 = load <2 x float>, ptr %36, align 4
+  %38 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %clip, i32 0, i32 1
+  %39 = load <2 x float>, ptr %38, align 4
+  call void @nk_push_scissor(ptr noundef %buffer21, <2 x float> %37, <2 x float> %39)
   br label %return
 
 return:                                           ; preds = %if.end17, %if.then7, %if.then
@@ -52653,42 +52664,43 @@ if.end56:                                         ; preds = %if.else, %if.then46
   %61 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %body, i32 0, i32 1
   %62 = load <2 x float>, ptr %61, align 4
   %63 = load <2 x float>, ptr @nk_contextual_begin.null_rect, align 4
-  %64 = load <2 x float>, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr @nk_contextual_begin.null_rect, i32 0, i32 1), align 4
-  %call59 = call i32 @nk_nonblock_begin(ptr noundef %57, i32 noundef %or, <2 x float> %60, <2 x float> %62, <2 x float> %63, <2 x float> %64, i32 noundef 16)
+  %64 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr @nk_contextual_begin.null_rect, i32 0, i32 1
+  %65 = load <2 x float>, ptr %64, align 4
+  %call59 = call i32 @nk_nonblock_begin(ptr noundef %57, i32 noundef %or, <2 x float> %60, <2 x float> %62, <2 x float> %63, <2 x float> %65, i32 noundef 16)
   store i32 %call59, ptr %ret, align 4
-  %65 = load i32, ptr %ret, align 4
-  %tobool60 = icmp ne i32 %65, 0
+  %66 = load i32, ptr %ret, align 4
+  %tobool60 = icmp ne i32 %66, 0
   br i1 %tobool60, label %if.then61, label %if.else64
 
 if.then61:                                        ; preds = %if.end56
-  %66 = load ptr, ptr %win, align 8
-  %popup62 = getelementptr inbounds %struct.nk_window, ptr %66, i32 0, i32 10
+  %67 = load ptr, ptr %win, align 8
+  %popup62 = getelementptr inbounds %struct.nk_window, ptr %67, i32 0, i32 10
   %type63 = getelementptr inbounds %struct.nk_popup_state, ptr %popup62, i32 0, i32 1
   store i32 16, ptr %type63, align 8
   br label %if.end77
 
 if.else64:                                        ; preds = %if.end56
-  %67 = load ptr, ptr %win, align 8
-  %popup65 = getelementptr inbounds %struct.nk_window, ptr %67, i32 0, i32 10
+  %68 = load ptr, ptr %win, align 8
+  %popup65 = getelementptr inbounds %struct.nk_window, ptr %68, i32 0, i32 10
   %active_con66 = getelementptr inbounds %struct.nk_popup_state, ptr %popup65, i32 0, i32 8
   store i32 0, ptr %active_con66, align 4
-  %68 = load ptr, ptr %win, align 8
-  %popup67 = getelementptr inbounds %struct.nk_window, ptr %68, i32 0, i32 10
+  %69 = load ptr, ptr %win, align 8
+  %popup67 = getelementptr inbounds %struct.nk_window, ptr %69, i32 0, i32 10
   %type68 = getelementptr inbounds %struct.nk_popup_state, ptr %popup67, i32 0, i32 1
   store i32 0, ptr %type68, align 8
-  %69 = load ptr, ptr %win, align 8
-  %popup69 = getelementptr inbounds %struct.nk_window, ptr %69, i32 0, i32 10
+  %70 = load ptr, ptr %win, align 8
+  %popup69 = getelementptr inbounds %struct.nk_window, ptr %70, i32 0, i32 10
   %win70 = getelementptr inbounds %struct.nk_popup_state, ptr %popup69, i32 0, i32 0
-  %70 = load ptr, ptr %win70, align 8
-  %tobool71 = icmp ne ptr %70, null
+  %71 = load ptr, ptr %win70, align 8
+  %tobool71 = icmp ne ptr %71, null
   br i1 %tobool71, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %if.else64
-  %71 = load ptr, ptr %win, align 8
-  %popup73 = getelementptr inbounds %struct.nk_window, ptr %71, i32 0, i32 10
+  %72 = load ptr, ptr %win, align 8
+  %popup73 = getelementptr inbounds %struct.nk_window, ptr %72, i32 0, i32 10
   %win74 = getelementptr inbounds %struct.nk_popup_state, ptr %popup73, i32 0, i32 0
-  %72 = load ptr, ptr %win74, align 8
-  %flags75 = getelementptr inbounds %struct.nk_window, ptr %72, i32 0, i32 3
+  %73 = load ptr, ptr %win74, align 8
+  %flags75 = getelementptr inbounds %struct.nk_window, ptr %73, i32 0, i32 3
   store i32 0, ptr %flags75, align 8
   br label %if.end76
 
@@ -52699,13 +52711,13 @@ if.end77:                                         ; preds = %if.end76, %if.then6
   br label %if.end78
 
 if.end78:                                         ; preds = %if.end77, %cond.end
-  %73 = load i32, ptr %ret, align 4
-  store i32 %73, ptr %retval, align 4
+  %74 = load i32, ptr %ret, align 4
+  store i32 %74, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end78, %if.then39, %if.then25, %if.then8, %if.then
-  %74 = load i32, ptr %retval, align 4
-  ret i32 %74
+  %75 = load i32, ptr %retval, align 4
+  ret i32 %75
 }
 
 ; Function Attrs: nounwind uwtable
@@ -52933,75 +52945,76 @@ if.end34:                                         ; preds = %if.end25
   %69 = load ptr, ptr %popup, align 8
   %buffer47 = getelementptr inbounds %struct.nk_window, ptr %69, i32 0, i32 6
   %70 = load <2 x float>, ptr @nk_null_rect, align 4
-  %71 = load <2 x float>, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1), align 4
-  call void @nk_push_scissor(ptr noundef %buffer47, <2 x float> %70, <2 x float> %71)
-  %72 = load ptr, ptr %popup, align 8
-  %73 = load ptr, ptr %ctx.addr, align 8
-  %current48 = getelementptr inbounds %struct.nk_context, ptr %73, i32 0, i32 17
-  store ptr %72, ptr %current48, align 8
+  %71 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr @nk_null_rect, i32 0, i32 1
+  %72 = load <2 x float>, ptr %71, align 4
+  call void @nk_push_scissor(ptr noundef %buffer47, <2 x float> %70, <2 x float> %72)
+  %73 = load ptr, ptr %popup, align 8
   %74 = load ptr, ptr %ctx.addr, align 8
-  %75 = load i32, ptr %panel_type.addr, align 4
-  %call49 = call i32 @nk_panel_begin(ptr noundef %74, ptr noundef null, i32 noundef %75)
-  %76 = load ptr, ptr %win, align 8
-  %buffer50 = getelementptr inbounds %struct.nk_window, ptr %76, i32 0, i32 6
-  %77 = load ptr, ptr %popup, align 8
-  %buffer51 = getelementptr inbounds %struct.nk_window, ptr %77, i32 0, i32 6
+  %current48 = getelementptr inbounds %struct.nk_context, ptr %74, i32 0, i32 17
+  store ptr %73, ptr %current48, align 8
+  %75 = load ptr, ptr %ctx.addr, align 8
+  %76 = load i32, ptr %panel_type.addr, align 4
+  %call49 = call i32 @nk_panel_begin(ptr noundef %75, ptr noundef null, i32 noundef %76)
+  %77 = load ptr, ptr %win, align 8
+  %buffer50 = getelementptr inbounds %struct.nk_window, ptr %77, i32 0, i32 6
+  %78 = load ptr, ptr %popup, align 8
+  %buffer51 = getelementptr inbounds %struct.nk_window, ptr %78, i32 0, i32 6
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer50, ptr align 8 %buffer51, i64 64, i1 false)
-  %78 = load ptr, ptr %win, align 8
-  %layout52 = getelementptr inbounds %struct.nk_window, ptr %78, i32 0, i32 7
-  %79 = load ptr, ptr %layout52, align 8
-  %80 = load ptr, ptr %popup, align 8
-  %layout53 = getelementptr inbounds %struct.nk_window, ptr %80, i32 0, i32 7
-  %81 = load ptr, ptr %layout53, align 8
-  %parent54 = getelementptr inbounds %struct.nk_panel, ptr %81, i32 0, i32 17
-  store ptr %79, ptr %parent54, align 8
-  %82 = load ptr, ptr %popup, align 8
-  %scrollbar = getelementptr inbounds %struct.nk_window, ptr %82, i32 0, i32 5
-  %x = getelementptr inbounds %struct.nk_scroll, ptr %scrollbar, i32 0, i32 0
+  %79 = load ptr, ptr %win, align 8
+  %layout52 = getelementptr inbounds %struct.nk_window, ptr %79, i32 0, i32 7
+  %80 = load ptr, ptr %layout52, align 8
+  %81 = load ptr, ptr %popup, align 8
+  %layout53 = getelementptr inbounds %struct.nk_window, ptr %81, i32 0, i32 7
+  %82 = load ptr, ptr %layout53, align 8
+  %parent54 = getelementptr inbounds %struct.nk_panel, ptr %82, i32 0, i32 17
+  store ptr %80, ptr %parent54, align 8
   %83 = load ptr, ptr %popup, align 8
-  %layout55 = getelementptr inbounds %struct.nk_window, ptr %83, i32 0, i32 7
-  %84 = load ptr, ptr %layout55, align 8
-  %offset_x = getelementptr inbounds %struct.nk_panel, ptr %84, i32 0, i32 3
+  %scrollbar = getelementptr inbounds %struct.nk_window, ptr %83, i32 0, i32 5
+  %x = getelementptr inbounds %struct.nk_scroll, ptr %scrollbar, i32 0, i32 0
+  %84 = load ptr, ptr %popup, align 8
+  %layout55 = getelementptr inbounds %struct.nk_window, ptr %84, i32 0, i32 7
+  %85 = load ptr, ptr %layout55, align 8
+  %offset_x = getelementptr inbounds %struct.nk_panel, ptr %85, i32 0, i32 3
   store ptr %x, ptr %offset_x, align 8
-  %85 = load ptr, ptr %popup, align 8
-  %scrollbar56 = getelementptr inbounds %struct.nk_window, ptr %85, i32 0, i32 5
-  %y = getelementptr inbounds %struct.nk_scroll, ptr %scrollbar56, i32 0, i32 1
   %86 = load ptr, ptr %popup, align 8
-  %layout57 = getelementptr inbounds %struct.nk_window, ptr %86, i32 0, i32 7
-  %87 = load ptr, ptr %layout57, align 8
-  %offset_y = getelementptr inbounds %struct.nk_panel, ptr %87, i32 0, i32 4
+  %scrollbar56 = getelementptr inbounds %struct.nk_window, ptr %86, i32 0, i32 5
+  %y = getelementptr inbounds %struct.nk_scroll, ptr %scrollbar56, i32 0, i32 1
+  %87 = load ptr, ptr %popup, align 8
+  %layout57 = getelementptr inbounds %struct.nk_window, ptr %87, i32 0, i32 7
+  %88 = load ptr, ptr %layout57, align 8
+  %offset_y = getelementptr inbounds %struct.nk_panel, ptr %88, i32 0, i32 4
   store ptr %y, ptr %offset_y, align 8
-  %88 = load ptr, ptr %win, align 8
-  %layout59 = getelementptr inbounds %struct.nk_window, ptr %88, i32 0, i32 7
-  %89 = load ptr, ptr %layout59, align 8
-  store ptr %89, ptr %root58, align 8
+  %89 = load ptr, ptr %win, align 8
+  %layout59 = getelementptr inbounds %struct.nk_window, ptr %89, i32 0, i32 7
+  %90 = load ptr, ptr %layout59, align 8
+  store ptr %90, ptr %root58, align 8
   br label %while.cond60
 
 while.cond60:                                     ; preds = %while.body62, %if.end34
-  %90 = load ptr, ptr %root58, align 8
-  %tobool61 = icmp ne ptr %90, null
+  %91 = load ptr, ptr %root58, align 8
+  %tobool61 = icmp ne ptr %91, null
   br i1 %tobool61, label %while.body62, label %while.end66
 
 while.body62:                                     ; preds = %while.cond60
-  %91 = load ptr, ptr %root58, align 8
-  %flags63 = getelementptr inbounds %struct.nk_panel, ptr %91, i32 0, i32 1
-  %92 = load i32, ptr %flags63, align 4
-  %or64 = or i32 %92, 4096
+  %92 = load ptr, ptr %root58, align 8
+  %flags63 = getelementptr inbounds %struct.nk_panel, ptr %92, i32 0, i32 1
+  %93 = load i32, ptr %flags63, align 4
+  %or64 = or i32 %93, 4096
   store i32 %or64, ptr %flags63, align 4
-  %93 = load ptr, ptr %root58, align 8
-  %parent65 = getelementptr inbounds %struct.nk_panel, ptr %93, i32 0, i32 17
-  %94 = load ptr, ptr %parent65, align 8
-  store ptr %94, ptr %root58, align 8
+  %94 = load ptr, ptr %root58, align 8
+  %parent65 = getelementptr inbounds %struct.nk_panel, ptr %94, i32 0, i32 17
+  %95 = load ptr, ptr %parent65, align 8
+  store ptr %95, ptr %root58, align 8
   br label %while.cond60, !llvm.loop !186
 
 while.end66:                                      ; preds = %while.cond60
-  %95 = load i32, ptr %is_active, align 4
-  store i32 %95, ptr %retval, align 4
+  %96 = load i32, ptr %is_active, align 4
+  store i32 %96, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %while.end66, %while.end, %if.then
-  %96 = load i32, ptr %retval, align 4
-  ret i32 %96
+  %97 = load i32, ptr %retval, align 4
+  ret i32 %97
 }
 
 ; Function Attrs: nounwind uwtable
@@ -83043,97 +83056,98 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   %13 = load float, ptr %width.addr, align 4
   %call = call i32 @nk_iceilf(float noundef %13)
   store i32 %call, ptr %w, align 4
-  %14 = load float, ptr getelementptr inbounds (%struct.nk_rect, ptr @nk_null_rect, i32 0, i32 3), align 4
-  %call12 = call i32 @nk_iceilf(float noundef %14)
+  %14 = getelementptr inbounds %struct.nk_rect, ptr @nk_null_rect, i32 0, i32 3
+  %15 = load float, ptr %14, align 4
+  %call12 = call i32 @nk_iceilf(float noundef %15)
   store i32 %call12, ptr %h, align 4
-  %15 = load ptr, ptr %in, align 8
-  %mouse = getelementptr inbounds %struct.nk_input, ptr %15, i32 0, i32 1
+  %16 = load ptr, ptr %in, align 8
+  %mouse = getelementptr inbounds %struct.nk_input, ptr %16, i32 0, i32 1
   %pos = getelementptr inbounds %struct.nk_mouse, ptr %mouse, i32 0, i32 1
   %x13 = getelementptr inbounds %struct.nk_vec2, ptr %pos, i32 0, i32 0
-  %16 = load float, ptr %x13, align 4
-  %add = fadd float %16, 1.000000e+00
+  %17 = load float, ptr %x13, align 4
+  %add = fadd float %17, 1.000000e+00
   %call14 = call i32 @nk_ifloorf(float noundef %add)
-  %17 = load ptr, ptr %win, align 8
-  %layout15 = getelementptr inbounds %struct.nk_window, ptr %17, i32 0, i32 7
-  %18 = load ptr, ptr %layout15, align 8
-  %clip = getelementptr inbounds %struct.nk_panel, ptr %18, i32 0, i32 12
+  %18 = load ptr, ptr %win, align 8
+  %layout15 = getelementptr inbounds %struct.nk_window, ptr %18, i32 0, i32 7
+  %19 = load ptr, ptr %layout15, align 8
+  %clip = getelementptr inbounds %struct.nk_panel, ptr %19, i32 0, i32 12
   %x16 = getelementptr inbounds %struct.nk_rect, ptr %clip, i32 0, i32 0
-  %19 = load float, ptr %x16, align 4
-  %conv = fptosi float %19 to i32
+  %20 = load float, ptr %x16, align 4
+  %conv = fptosi float %20 to i32
   %sub = sub nsw i32 %call14, %conv
   store i32 %sub, ptr %x, align 4
-  %20 = load ptr, ptr %in, align 8
-  %mouse17 = getelementptr inbounds %struct.nk_input, ptr %20, i32 0, i32 1
+  %21 = load ptr, ptr %in, align 8
+  %mouse17 = getelementptr inbounds %struct.nk_input, ptr %21, i32 0, i32 1
   %pos18 = getelementptr inbounds %struct.nk_mouse, ptr %mouse17, i32 0, i32 1
   %y19 = getelementptr inbounds %struct.nk_vec2, ptr %pos18, i32 0, i32 1
-  %21 = load float, ptr %y19, align 4
-  %add20 = fadd float %21, 1.000000e+00
+  %22 = load float, ptr %y19, align 4
+  %add20 = fadd float %22, 1.000000e+00
   %call21 = call i32 @nk_ifloorf(float noundef %add20)
-  %22 = load ptr, ptr %win, align 8
-  %layout22 = getelementptr inbounds %struct.nk_window, ptr %22, i32 0, i32 7
-  %23 = load ptr, ptr %layout22, align 8
-  %clip23 = getelementptr inbounds %struct.nk_panel, ptr %23, i32 0, i32 12
+  %23 = load ptr, ptr %win, align 8
+  %layout22 = getelementptr inbounds %struct.nk_window, ptr %23, i32 0, i32 7
+  %24 = load ptr, ptr %layout22, align 8
+  %clip23 = getelementptr inbounds %struct.nk_panel, ptr %24, i32 0, i32 12
   %y24 = getelementptr inbounds %struct.nk_rect, ptr %clip23, i32 0, i32 1
-  %24 = load float, ptr %y24, align 4
-  %conv25 = fptosi float %24 to i32
+  %25 = load float, ptr %y24, align 4
+  %conv25 = fptosi float %25 to i32
   %sub26 = sub nsw i32 %call21, %conv25
   store i32 %sub26, ptr %y, align 4
-  %25 = load i32, ptr %x, align 4
-  %conv27 = sitofp i32 %25 to float
+  %26 = load i32, ptr %x, align 4
+  %conv27 = sitofp i32 %26 to float
   %x28 = getelementptr inbounds %struct.nk_rect, ptr %bounds, i32 0, i32 0
   store float %conv27, ptr %x28, align 4
-  %26 = load i32, ptr %y, align 4
-  %conv29 = sitofp i32 %26 to float
+  %27 = load i32, ptr %y, align 4
+  %conv29 = sitofp i32 %27 to float
   %y30 = getelementptr inbounds %struct.nk_rect, ptr %bounds, i32 0, i32 1
   store float %conv29, ptr %y30, align 4
-  %27 = load i32, ptr %w, align 4
-  %conv31 = sitofp i32 %27 to float
+  %28 = load i32, ptr %w, align 4
+  %conv31 = sitofp i32 %28 to float
   %w32 = getelementptr inbounds %struct.nk_rect, ptr %bounds, i32 0, i32 2
   store float %conv31, ptr %w32, align 4
-  %28 = load i32, ptr %h, align 4
-  %conv33 = sitofp i32 %28 to float
+  %29 = load i32, ptr %h, align 4
+  %conv33 = sitofp i32 %29 to float
   %h34 = getelementptr inbounds %struct.nk_rect, ptr %bounds, i32 0, i32 3
   store float %conv33, ptr %h34, align 4
-  %29 = load ptr, ptr %ctx.addr, align 8
-  %30 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %bounds, i32 0, i32 0
-  %31 = load <2 x float>, ptr %30, align 4
-  %32 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %bounds, i32 0, i32 1
-  %33 = load <2 x float>, ptr %32, align 4
-  %call35 = call i32 @nk_popup_begin(ptr noundef %29, i32 noundef 1, ptr noundef @.str.2, i32 noundef 33, <2 x float> %31, <2 x float> %33)
+  %30 = load ptr, ptr %ctx.addr, align 8
+  %31 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %bounds, i32 0, i32 0
+  %32 = load <2 x float>, ptr %31, align 4
+  %33 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %bounds, i32 0, i32 1
+  %34 = load <2 x float>, ptr %33, align 4
+  %call35 = call i32 @nk_popup_begin(ptr noundef %30, i32 noundef 1, ptr noundef @.str.2, i32 noundef 33, <2 x float> %32, <2 x float> %34)
   store i32 %call35, ptr %ret, align 4
-  %34 = load i32, ptr %ret, align 4
-  %tobool36 = icmp ne i32 %34, 0
+  %35 = load i32, ptr %ret, align 4
+  %tobool36 = icmp ne i32 %35, 0
   br i1 %tobool36, label %if.then37, label %if.end40
 
 if.then37:                                        ; preds = %if.end11
-  %35 = load ptr, ptr %win, align 8
-  %layout38 = getelementptr inbounds %struct.nk_window, ptr %35, i32 0, i32 7
-  %36 = load ptr, ptr %layout38, align 8
-  %flags = getelementptr inbounds %struct.nk_panel, ptr %36, i32 0, i32 1
-  %37 = load i32, ptr %flags, align 4
-  %and39 = and i32 %37, -4097
+  %36 = load ptr, ptr %win, align 8
+  %layout38 = getelementptr inbounds %struct.nk_window, ptr %36, i32 0, i32 7
+  %37 = load ptr, ptr %layout38, align 8
+  %flags = getelementptr inbounds %struct.nk_panel, ptr %37, i32 0, i32 1
+  %38 = load i32, ptr %flags, align 4
+  %and39 = and i32 %38, -4097
   store i32 %and39, ptr %flags, align 4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then37, %if.end11
-  %38 = load ptr, ptr %win, align 8
-  %popup41 = getelementptr inbounds %struct.nk_window, ptr %38, i32 0, i32 10
+  %39 = load ptr, ptr %win, align 8
+  %popup41 = getelementptr inbounds %struct.nk_window, ptr %39, i32 0, i32 10
   %type42 = getelementptr inbounds %struct.nk_popup_state, ptr %popup41, i32 0, i32 1
   store i32 128, ptr %type42, align 8
-  %39 = load ptr, ptr %ctx.addr, align 8
-  %current43 = getelementptr inbounds %struct.nk_context, ptr %39, i32 0, i32 17
-  %40 = load ptr, ptr %current43, align 8
-  %layout44 = getelementptr inbounds %struct.nk_window, ptr %40, i32 0, i32 7
-  %41 = load ptr, ptr %layout44, align 8
-  %type45 = getelementptr inbounds %struct.nk_panel, ptr %41, i32 0, i32 0
+  %40 = load ptr, ptr %ctx.addr, align 8
+  %current43 = getelementptr inbounds %struct.nk_context, ptr %40, i32 0, i32 17
+  %41 = load ptr, ptr %current43, align 8
+  %layout44 = getelementptr inbounds %struct.nk_window, ptr %41, i32 0, i32 7
+  %42 = load ptr, ptr %layout44, align 8
+  %type45 = getelementptr inbounds %struct.nk_panel, ptr %42, i32 0, i32 0
   store i32 128, ptr %type45, align 8
-  %42 = load i32, ptr %ret, align 4
-  store i32 %42, ptr %retval, align 4
+  %43 = load i32, ptr %ret, align 4
+  store i32 %43, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end40, %if.then10, %if.then
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
+  %44 = load i32, ptr %retval, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: nounwind uwtable
@@ -91555,28 +91569,31 @@ land.lhs.true21:                                  ; preds = %if.end
   %arrayidx22 = getelementptr inbounds i8, ptr %11, i64 1
   %12 = load i8, ptr %arrayidx22, align 1
   %conv23 = zext i8 %12 to i32
-  %13 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 1), align 1
-  %conv24 = sext i8 %13 to i32
+  %13 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 1
+  %14 = load i8, ptr %13, align 1
+  %conv24 = sext i8 %14 to i32
   %cmp25 = icmp eq i32 %conv23, %conv24
   br i1 %cmp25, label %land.lhs.true27, label %if.end40
 
 land.lhs.true27:                                  ; preds = %land.lhs.true21
-  %14 = load ptr, ptr %font.addr, align 8
-  %arrayidx28 = getelementptr inbounds i8, ptr %14, i64 2
-  %15 = load i8, ptr %arrayidx28, align 1
-  %conv29 = zext i8 %15 to i32
-  %16 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 2), align 1
-  %conv30 = sext i8 %16 to i32
+  %15 = load ptr, ptr %font.addr, align 8
+  %arrayidx28 = getelementptr inbounds i8, ptr %15, i64 2
+  %16 = load i8, ptr %arrayidx28, align 1
+  %conv29 = zext i8 %16 to i32
+  %17 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 2
+  %18 = load i8, ptr %17, align 1
+  %conv30 = sext i8 %18 to i32
   %cmp31 = icmp eq i32 %conv29, %conv30
   br i1 %cmp31, label %land.lhs.true33, label %if.end40
 
 land.lhs.true33:                                  ; preds = %land.lhs.true27
-  %17 = load ptr, ptr %font.addr, align 8
-  %arrayidx34 = getelementptr inbounds i8, ptr %17, i64 3
-  %18 = load i8, ptr %arrayidx34, align 1
-  %conv35 = zext i8 %18 to i32
-  %19 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 3), align 1
-  %conv36 = sext i8 %19 to i32
+  %19 = load ptr, ptr %font.addr, align 8
+  %arrayidx34 = getelementptr inbounds i8, ptr %19, i64 3
+  %20 = load i8, ptr %arrayidx34, align 1
+  %conv35 = zext i8 %20 to i32
+  %21 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 3
+  %22 = load i8, ptr %21, align 1
+  %conv36 = sext i8 %22 to i32
   %cmp37 = icmp eq i32 %conv35, %conv36
   br i1 %cmp37, label %if.then39, label %if.end40
 
@@ -91585,42 +91602,45 @@ if.then39:                                        ; preds = %land.lhs.true33
   br label %return
 
 if.end40:                                         ; preds = %land.lhs.true33, %land.lhs.true27, %land.lhs.true21, %if.end
-  %20 = load ptr, ptr %font.addr, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %20, i64 0
-  %21 = load i8, ptr %arrayidx41, align 1
-  %conv42 = zext i8 %21 to i32
-  %22 = load i8, ptr @.str.6, align 1
-  %conv43 = sext i8 %22 to i32
+  %23 = load ptr, ptr %font.addr, align 8
+  %arrayidx41 = getelementptr inbounds i8, ptr %23, i64 0
+  %24 = load i8, ptr %arrayidx41, align 1
+  %conv42 = zext i8 %24 to i32
+  %25 = load i8, ptr @.str.6, align 1
+  %conv43 = sext i8 %25 to i32
   %cmp44 = icmp eq i32 %conv42, %conv43
   br i1 %cmp44, label %land.lhs.true46, label %if.end65
 
 land.lhs.true46:                                  ; preds = %if.end40
-  %23 = load ptr, ptr %font.addr, align 8
-  %arrayidx47 = getelementptr inbounds i8, ptr %23, i64 1
-  %24 = load i8, ptr %arrayidx47, align 1
-  %conv48 = zext i8 %24 to i32
-  %25 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 1), align 1
-  %conv49 = sext i8 %25 to i32
+  %26 = load ptr, ptr %font.addr, align 8
+  %arrayidx47 = getelementptr inbounds i8, ptr %26, i64 1
+  %27 = load i8, ptr %arrayidx47, align 1
+  %conv48 = zext i8 %27 to i32
+  %28 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 1
+  %29 = load i8, ptr %28, align 1
+  %conv49 = sext i8 %29 to i32
   %cmp50 = icmp eq i32 %conv48, %conv49
   br i1 %cmp50, label %land.lhs.true52, label %if.end65
 
 land.lhs.true52:                                  ; preds = %land.lhs.true46
-  %26 = load ptr, ptr %font.addr, align 8
-  %arrayidx53 = getelementptr inbounds i8, ptr %26, i64 2
-  %27 = load i8, ptr %arrayidx53, align 1
-  %conv54 = zext i8 %27 to i32
-  %28 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 2), align 1
-  %conv55 = sext i8 %28 to i32
+  %30 = load ptr, ptr %font.addr, align 8
+  %arrayidx53 = getelementptr inbounds i8, ptr %30, i64 2
+  %31 = load i8, ptr %arrayidx53, align 1
+  %conv54 = zext i8 %31 to i32
+  %32 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 2
+  %33 = load i8, ptr %32, align 1
+  %conv55 = sext i8 %33 to i32
   %cmp56 = icmp eq i32 %conv54, %conv55
   br i1 %cmp56, label %land.lhs.true58, label %if.end65
 
 land.lhs.true58:                                  ; preds = %land.lhs.true52
-  %29 = load ptr, ptr %font.addr, align 8
-  %arrayidx59 = getelementptr inbounds i8, ptr %29, i64 3
-  %30 = load i8, ptr %arrayidx59, align 1
-  %conv60 = zext i8 %30 to i32
-  %31 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.6, i64 0, i64 3), align 1
-  %conv61 = sext i8 %31 to i32
+  %34 = load ptr, ptr %font.addr, align 8
+  %arrayidx59 = getelementptr inbounds i8, ptr %34, i64 3
+  %35 = load i8, ptr %arrayidx59, align 1
+  %conv60 = zext i8 %35 to i32
+  %36 = getelementptr inbounds [5 x i8], ptr @.str.6, i64 0, i64 3
+  %37 = load i8, ptr %36, align 1
+  %conv61 = sext i8 %37 to i32
   %cmp62 = icmp eq i32 %conv60, %conv61
   br i1 %cmp62, label %if.then64, label %if.end65
 
@@ -91629,34 +91649,34 @@ if.then64:                                        ; preds = %land.lhs.true58
   br label %return
 
 if.end65:                                         ; preds = %land.lhs.true58, %land.lhs.true52, %land.lhs.true46, %if.end40
-  %32 = load ptr, ptr %font.addr, align 8
-  %arrayidx66 = getelementptr inbounds i8, ptr %32, i64 0
-  %33 = load i8, ptr %arrayidx66, align 1
-  %conv67 = zext i8 %33 to i32
+  %38 = load ptr, ptr %font.addr, align 8
+  %arrayidx66 = getelementptr inbounds i8, ptr %38, i64 0
+  %39 = load i8, ptr %arrayidx66, align 1
+  %conv67 = zext i8 %39 to i32
   %cmp68 = icmp eq i32 %conv67, 0
   br i1 %cmp68, label %land.lhs.true70, label %if.end86
 
 land.lhs.true70:                                  ; preds = %if.end65
-  %34 = load ptr, ptr %font.addr, align 8
-  %arrayidx71 = getelementptr inbounds i8, ptr %34, i64 1
-  %35 = load i8, ptr %arrayidx71, align 1
-  %conv72 = zext i8 %35 to i32
+  %40 = load ptr, ptr %font.addr, align 8
+  %arrayidx71 = getelementptr inbounds i8, ptr %40, i64 1
+  %41 = load i8, ptr %arrayidx71, align 1
+  %conv72 = zext i8 %41 to i32
   %cmp73 = icmp eq i32 %conv72, 1
   br i1 %cmp73, label %land.lhs.true75, label %if.end86
 
 land.lhs.true75:                                  ; preds = %land.lhs.true70
-  %36 = load ptr, ptr %font.addr, align 8
-  %arrayidx76 = getelementptr inbounds i8, ptr %36, i64 2
-  %37 = load i8, ptr %arrayidx76, align 1
-  %conv77 = zext i8 %37 to i32
+  %42 = load ptr, ptr %font.addr, align 8
+  %arrayidx76 = getelementptr inbounds i8, ptr %42, i64 2
+  %43 = load i8, ptr %arrayidx76, align 1
+  %conv77 = zext i8 %43 to i32
   %cmp78 = icmp eq i32 %conv77, 0
   br i1 %cmp78, label %land.lhs.true80, label %if.end86
 
 land.lhs.true80:                                  ; preds = %land.lhs.true75
-  %38 = load ptr, ptr %font.addr, align 8
-  %arrayidx81 = getelementptr inbounds i8, ptr %38, i64 3
-  %39 = load i8, ptr %arrayidx81, align 1
-  %conv82 = zext i8 %39 to i32
+  %44 = load ptr, ptr %font.addr, align 8
+  %arrayidx81 = getelementptr inbounds i8, ptr %44, i64 3
+  %45 = load i8, ptr %arrayidx81, align 1
+  %conv82 = zext i8 %45 to i32
   %cmp83 = icmp eq i32 %conv82, 0
   br i1 %cmp83, label %if.then85, label %if.end86
 
@@ -91665,42 +91685,45 @@ if.then85:                                        ; preds = %land.lhs.true80
   br label %return
 
 if.end86:                                         ; preds = %land.lhs.true80, %land.lhs.true75, %land.lhs.true70, %if.end65
-  %40 = load ptr, ptr %font.addr, align 8
-  %arrayidx87 = getelementptr inbounds i8, ptr %40, i64 0
-  %41 = load i8, ptr %arrayidx87, align 1
-  %conv88 = zext i8 %41 to i32
-  %42 = load i8, ptr @.str.7, align 1
-  %conv89 = sext i8 %42 to i32
+  %46 = load ptr, ptr %font.addr, align 8
+  %arrayidx87 = getelementptr inbounds i8, ptr %46, i64 0
+  %47 = load i8, ptr %arrayidx87, align 1
+  %conv88 = zext i8 %47 to i32
+  %48 = load i8, ptr @.str.7, align 1
+  %conv89 = sext i8 %48 to i32
   %cmp90 = icmp eq i32 %conv88, %conv89
   br i1 %cmp90, label %land.lhs.true92, label %if.end111
 
 land.lhs.true92:                                  ; preds = %if.end86
-  %43 = load ptr, ptr %font.addr, align 8
-  %arrayidx93 = getelementptr inbounds i8, ptr %43, i64 1
-  %44 = load i8, ptr %arrayidx93, align 1
-  %conv94 = zext i8 %44 to i32
-  %45 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 1), align 1
-  %conv95 = sext i8 %45 to i32
+  %49 = load ptr, ptr %font.addr, align 8
+  %arrayidx93 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = load i8, ptr %arrayidx93, align 1
+  %conv94 = zext i8 %50 to i32
+  %51 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 1
+  %52 = load i8, ptr %51, align 1
+  %conv95 = sext i8 %52 to i32
   %cmp96 = icmp eq i32 %conv94, %conv95
   br i1 %cmp96, label %land.lhs.true98, label %if.end111
 
 land.lhs.true98:                                  ; preds = %land.lhs.true92
-  %46 = load ptr, ptr %font.addr, align 8
-  %arrayidx99 = getelementptr inbounds i8, ptr %46, i64 2
-  %47 = load i8, ptr %arrayidx99, align 1
-  %conv100 = zext i8 %47 to i32
-  %48 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 2), align 1
-  %conv101 = sext i8 %48 to i32
+  %53 = load ptr, ptr %font.addr, align 8
+  %arrayidx99 = getelementptr inbounds i8, ptr %53, i64 2
+  %54 = load i8, ptr %arrayidx99, align 1
+  %conv100 = zext i8 %54 to i32
+  %55 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 2
+  %56 = load i8, ptr %55, align 1
+  %conv101 = sext i8 %56 to i32
   %cmp102 = icmp eq i32 %conv100, %conv101
   br i1 %cmp102, label %land.lhs.true104, label %if.end111
 
 land.lhs.true104:                                 ; preds = %land.lhs.true98
-  %49 = load ptr, ptr %font.addr, align 8
-  %arrayidx105 = getelementptr inbounds i8, ptr %49, i64 3
-  %50 = load i8, ptr %arrayidx105, align 1
-  %conv106 = zext i8 %50 to i32
-  %51 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 3), align 1
-  %conv107 = sext i8 %51 to i32
+  %57 = load ptr, ptr %font.addr, align 8
+  %arrayidx105 = getelementptr inbounds i8, ptr %57, i64 3
+  %58 = load i8, ptr %arrayidx105, align 1
+  %conv106 = zext i8 %58 to i32
+  %59 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 3
+  %60 = load i8, ptr %59, align 1
+  %conv107 = sext i8 %60 to i32
   %cmp108 = icmp eq i32 %conv106, %conv107
   br i1 %cmp108, label %if.then110, label %if.end111
 
@@ -91713,8 +91736,8 @@ if.end111:                                        ; preds = %land.lhs.true104, %
   br label %return
 
 return:                                           ; preds = %if.end111, %if.then110, %if.then85, %if.then64, %if.then39, %if.then
-  %52 = load i32, ptr %retval, align 4
-  ret i32 %52
+  %61 = load i32, ptr %retval, align 4
+  ret i32 %61
 }
 
 ; Function Attrs: nounwind uwtable

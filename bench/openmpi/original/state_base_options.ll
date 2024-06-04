@@ -95,7 +95,7 @@ define i32 @prte_state_base_set_runtime_options(ptr noundef %0, ptr noundef %1) 
   store ptr %9, ptr %10, align 8
   %16 = load ptr, ptr %5, align 8
   %17 = icmp eq ptr null, %16
-  br i1 %17, label %18, label %180
+  br i1 %17, label %18, label %190
 
 18:                                               ; preds = %2
   %19 = load ptr, ptr %4, align 8
@@ -115,942 +115,952 @@ define i32 @prte_state_base_set_runtime_options(ptr noundef %0, ptr noundef %1) 
   br label %28
 
 28:                                               ; preds = %25, %22
-  br label %37
+  br label %38
 
 29:                                               ; preds = %18
-  %30 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 6), align 1
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %36
+  %30 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 6
+  %31 = load i8, ptr %30, align 1
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.prte_job_t, ptr %33, i32 0, i32 26
-  %35 = call i32 @prte_set_attribute(ptr noundef %34, i16 noundef zeroext 302, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  br label %36
-
-36:                                               ; preds = %32, %29
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.prte_job_t, ptr %34, i32 0, i32 26
+  %36 = call i32 @prte_set_attribute(ptr noundef %35, i16 noundef zeroext 302, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
   br label %37
 
-37:                                               ; preds = %36, %28
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.prte_job_t, ptr %38, i32 0, i32 26
-  %40 = call zeroext i1 @prte_get_attribute(ptr noundef %39, i16 noundef zeroext 304, ptr noundef %10, i16 noundef zeroext 1)
-  br i1 %40, label %41, label %48
+37:                                               ; preds = %33, %29
+  br label %38
 
-41:                                               ; preds = %37
-  %42 = load i8, ptr %9, align 1
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %47, label %44
+38:                                               ; preds = %37, %28
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %struct.prte_job_t, ptr %39, i32 0, i32 26
+  %41 = call zeroext i1 @prte_get_attribute(ptr noundef %40, i16 noundef zeroext 304, ptr noundef %10, i16 noundef zeroext 1)
+  br i1 %41, label %42, label %49
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.prte_job_t, ptr %45, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %46, i16 noundef zeroext 304)
-  br label %47
+42:                                               ; preds = %38
+  %43 = load i8, ptr %9, align 1
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %48, label %45
 
-47:                                               ; preds = %44, %41
-  br label %56
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %struct.prte_job_t, ptr %46, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %47, i16 noundef zeroext 304)
+  br label %48
 
-48:                                               ; preds = %37
-  %49 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 7), align 2
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %55
+48:                                               ; preds = %45, %42
+  br label %58
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.prte_job_t, ptr %52, i32 0, i32 26
-  %54 = call i32 @prte_set_attribute(ptr noundef %53, i16 noundef zeroext 304, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  br label %55
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 7
+  %51 = load i8, ptr %50, align 2
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %57
 
-55:                                               ; preds = %51, %48
-  br label %56
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %4, align 8
+  %55 = getelementptr inbounds %struct.prte_job_t, ptr %54, i32 0, i32 26
+  %56 = call i32 @prte_set_attribute(ptr noundef %55, i16 noundef zeroext 304, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
+  br label %57
 
-56:                                               ; preds = %55, %47
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.prte_job_t, ptr %57, i32 0, i32 26
-  %59 = call zeroext i1 @prte_get_attribute(ptr noundef %58, i16 noundef zeroext 305, ptr noundef null, i16 noundef zeroext 1)
-  br i1 %59, label %60, label %67
+57:                                               ; preds = %53, %49
+  br label %58
 
-60:                                               ; preds = %56
-  %61 = load i8, ptr %9, align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %66, label %63
+58:                                               ; preds = %57, %48
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds %struct.prte_job_t, ptr %59, i32 0, i32 26
+  %61 = call zeroext i1 @prte_get_attribute(ptr noundef %60, i16 noundef zeroext 305, ptr noundef null, i16 noundef zeroext 1)
+  br i1 %61, label %62, label %69
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.prte_job_t, ptr %64, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %65, i16 noundef zeroext 305)
-  br label %66
+62:                                               ; preds = %58
+  %63 = load i8, ptr %9, align 1
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %68, label %65
 
-66:                                               ; preds = %63, %60
-  br label %75
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds %struct.prte_job_t, ptr %66, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %67, i16 noundef zeroext 305)
+  br label %68
 
-67:                                               ; preds = %56
-  %68 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 3), align 2
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %74
+68:                                               ; preds = %65, %62
+  br label %78
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.prte_job_t, ptr %71, i32 0, i32 26
-  %73 = call i32 @prte_set_attribute(ptr noundef %72, i16 noundef zeroext 305, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  br label %74
+69:                                               ; preds = %58
+  %70 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 3
+  %71 = load i8, ptr %70, align 2
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %77
 
-74:                                               ; preds = %70, %67
-  br label %75
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds %struct.prte_job_t, ptr %74, i32 0, i32 26
+  %76 = call i32 @prte_set_attribute(ptr noundef %75, i16 noundef zeroext 305, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
+  br label %77
 
-75:                                               ; preds = %74, %66
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.prte_job_t, ptr %76, i32 0, i32 26
-  %78 = call zeroext i1 @prte_get_attribute(ptr noundef %77, i16 noundef zeroext 219, ptr noundef %10, i16 noundef zeroext 1)
-  br i1 %78, label %79, label %86
+77:                                               ; preds = %73, %69
+  br label %78
 
-79:                                               ; preds = %75
-  %80 = load i8, ptr %9, align 1
-  %81 = trunc i8 %80 to i1
-  br i1 %81, label %85, label %82
+78:                                               ; preds = %77, %68
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds %struct.prte_job_t, ptr %79, i32 0, i32 26
+  %81 = call zeroext i1 @prte_get_attribute(ptr noundef %80, i16 noundef zeroext 219, ptr noundef %10, i16 noundef zeroext 1)
+  br i1 %81, label %82, label %89
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.prte_job_t, ptr %83, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %84, i16 noundef zeroext 219)
-  br label %85
+82:                                               ; preds = %78
+  %83 = load i8, ptr %9, align 1
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %88, label %85
 
-85:                                               ; preds = %82, %79
-  br label %94
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %4, align 8
+  %87 = getelementptr inbounds %struct.prte_job_t, ptr %86, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %87, i16 noundef zeroext 219)
+  br label %88
 
-86:                                               ; preds = %75
-  %87 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 5), align 4
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %89, label %93
+88:                                               ; preds = %85, %82
+  br label %98
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.prte_job_t, ptr %90, i32 0, i32 26
-  %92 = call i32 @prte_set_attribute(ptr noundef %91, i16 noundef zeroext 219, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  br label %93
+89:                                               ; preds = %78
+  %90 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 5
+  %91 = load i8, ptr %90, align 4
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %97
 
-93:                                               ; preds = %89, %86
-  br label %94
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds %struct.prte_job_t, ptr %94, i32 0, i32 26
+  %96 = call i32 @prte_set_attribute(ptr noundef %95, i16 noundef zeroext 219, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
+  br label %97
 
-94:                                               ; preds = %93, %85
-  %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr inbounds %struct.prte_job_t, ptr %95, i32 0, i32 26
-  %97 = call zeroext i1 @prte_get_attribute(ptr noundef %96, i16 noundef zeroext 306, ptr noundef null, i16 noundef zeroext 1)
-  br i1 %97, label %98, label %105
+97:                                               ; preds = %93, %89
+  br label %98
 
-98:                                               ; preds = %94
-  %99 = load i8, ptr %9, align 1
-  %100 = trunc i8 %99 to i1
-  br i1 %100, label %104, label %101
+98:                                               ; preds = %97, %88
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds %struct.prte_job_t, ptr %99, i32 0, i32 26
+  %101 = call zeroext i1 @prte_get_attribute(ptr noundef %100, i16 noundef zeroext 306, ptr noundef null, i16 noundef zeroext 1)
+  br i1 %101, label %102, label %109
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %4, align 8
-  %103 = getelementptr inbounds %struct.prte_job_t, ptr %102, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %103, i16 noundef zeroext 306)
-  br label %104
+102:                                              ; preds = %98
+  %103 = load i8, ptr %9, align 1
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %108, label %105
 
-104:                                              ; preds = %101, %98
-  br label %113
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %4, align 8
+  %107 = getelementptr inbounds %struct.prte_job_t, ptr %106, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %107, i16 noundef zeroext 306)
+  br label %108
 
-105:                                              ; preds = %94
-  %106 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 8), align 1
-  %107 = trunc i8 %106 to i1
-  br i1 %107, label %108, label %112
+108:                                              ; preds = %105, %102
+  br label %118
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds %struct.prte_job_t, ptr %109, i32 0, i32 26
-  %111 = call i32 @prte_set_attribute(ptr noundef %110, i16 noundef zeroext 306, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  br label %112
+109:                                              ; preds = %98
+  %110 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 8
+  %111 = load i8, ptr %110, align 1
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %117
 
-112:                                              ; preds = %108, %105
-  br label %113
-
-113:                                              ; preds = %112, %104
+113:                                              ; preds = %109
   %114 = load ptr, ptr %4, align 8
   %115 = getelementptr inbounds %struct.prte_job_t, ptr %114, i32 0, i32 26
-  %116 = call zeroext i1 @prte_get_attribute(ptr noundef %115, i16 noundef zeroext 307, ptr noundef null, i16 noundef zeroext 1)
-  br i1 %116, label %117, label %124
+  %116 = call i32 @prte_set_attribute(ptr noundef %115, i16 noundef zeroext 306, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
+  br label %117
 
-117:                                              ; preds = %113
-  %118 = load i8, ptr %9, align 1
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %123, label %120
+117:                                              ; preds = %113, %109
+  br label %118
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds %struct.prte_job_t, ptr %121, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %122, i16 noundef zeroext 307)
-  br label %123
+118:                                              ; preds = %117, %108
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds %struct.prte_job_t, ptr %119, i32 0, i32 26
+  %121 = call zeroext i1 @prte_get_attribute(ptr noundef %120, i16 noundef zeroext 307, ptr noundef null, i16 noundef zeroext 1)
+  br i1 %121, label %122, label %129
 
-123:                                              ; preds = %120, %117
-  br label %132
+122:                                              ; preds = %118
+  %123 = load i8, ptr %9, align 1
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %128, label %125
 
-124:                                              ; preds = %113
-  %125 = load i8, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 9), align 4
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %131
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %4, align 8
+  %127 = getelementptr inbounds %struct.prte_job_t, ptr %126, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %127, i16 noundef zeroext 307)
+  br label %128
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %4, align 8
-  %129 = getelementptr inbounds %struct.prte_job_t, ptr %128, i32 0, i32 26
-  %130 = call i32 @prte_set_attribute(ptr noundef %129, i16 noundef zeroext 307, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  br label %131
+128:                                              ; preds = %125, %122
+  br label %138
 
-131:                                              ; preds = %127, %124
-  br label %132
+129:                                              ; preds = %118
+  %130 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 9
+  %131 = load i8, ptr %130, align 4
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %137
 
-132:                                              ; preds = %131, %123
-  %133 = load ptr, ptr %4, align 8
-  %134 = getelementptr inbounds %struct.prte_job_t, ptr %133, i32 0, i32 26
-  %135 = call zeroext i1 @prte_get_attribute(ptr noundef %134, i16 noundef zeroext 295, ptr noundef null, i16 noundef zeroext 3)
-  br i1 %135, label %145, label %136
+133:                                              ; preds = %129
+  %134 = load ptr, ptr %4, align 8
+  %135 = getelementptr inbounds %struct.prte_job_t, ptr %134, i32 0, i32 26
+  %136 = call i32 @prte_set_attribute(ptr noundef %135, i16 noundef zeroext 307, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
+  br label %137
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr getelementptr inbounds (%struct.prte_odls_globals_t, ptr @prte_odls_globals, i32 0, i32 11), align 8
-  %138 = icmp ne ptr null, %137
-  br i1 %138, label %139, label %144
+137:                                              ; preds = %133, %129
+  br label %138
 
-139:                                              ; preds = %136
-  %140 = load ptr, ptr %4, align 8
-  %141 = getelementptr inbounds %struct.prte_job_t, ptr %140, i32 0, i32 26
-  %142 = load ptr, ptr getelementptr inbounds (%struct.prte_odls_globals_t, ptr @prte_odls_globals, i32 0, i32 11), align 8
-  %143 = call i32 @prte_set_attribute(ptr noundef %141, i16 noundef zeroext 295, i1 noundef zeroext false, ptr noundef %142, i16 noundef zeroext 3)
-  br label %144
+138:                                              ; preds = %137, %128
+  %139 = load ptr, ptr %4, align 8
+  %140 = getelementptr inbounds %struct.prte_job_t, ptr %139, i32 0, i32 26
+  %141 = call zeroext i1 @prte_get_attribute(ptr noundef %140, i16 noundef zeroext 295, ptr noundef null, i16 noundef zeroext 3)
+  br i1 %141, label %153, label %142
 
-144:                                              ; preds = %139, %136
-  br label %145
+142:                                              ; preds = %138
+  %143 = getelementptr inbounds %struct.prte_odls_globals_t, ptr @prte_odls_globals, i32 0, i32 11
+  %144 = load ptr, ptr %143, align 8
+  %145 = icmp ne ptr null, %144
+  br i1 %145, label %146, label %152
 
-145:                                              ; preds = %144, %132
-  %146 = load i32, ptr getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 4), align 4
-  %147 = icmp slt i32 0, %146
-  br i1 %147, label %148, label %179
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %4, align 8
+  %148 = getelementptr inbounds %struct.prte_job_t, ptr %147, i32 0, i32 26
+  %149 = getelementptr inbounds %struct.prte_odls_globals_t, ptr @prte_odls_globals, i32 0, i32 11
+  %150 = load ptr, ptr %149, align 8
+  %151 = call i32 @prte_set_attribute(ptr noundef %148, i16 noundef zeroext 295, i1 noundef zeroext false, ptr noundef %150, i16 noundef zeroext 3)
+  br label %152
 
-148:                                              ; preds = %145
+152:                                              ; preds = %146, %142
+  br label %153
+
+153:                                              ; preds = %152, %138
+  %154 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 4
+  %155 = load i32, ptr %154, align 4
+  %156 = icmp slt i32 0, %155
+  br i1 %156, label %157, label %189
+
+157:                                              ; preds = %153
   store i32 0, ptr %8, align 4
-  br label %149
+  br label %158
 
-149:                                              ; preds = %175, %148
-  %150 = load i32, ptr %8, align 4
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds %struct.prte_job_t, ptr %151, i32 0, i32 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds %struct.pmix_pointer_array_t, ptr %153, i32 0, i32 3
-  %155 = load i32, ptr %154, align 8
-  %156 = icmp slt i32 %150, %155
-  br i1 %156, label %157, label %178
+158:                                              ; preds = %185, %157
+  %159 = load i32, ptr %8, align 4
+  %160 = load ptr, ptr %4, align 8
+  %161 = getelementptr inbounds %struct.prte_job_t, ptr %160, i32 0, i32 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds %struct.pmix_pointer_array_t, ptr %162, i32 0, i32 3
+  %164 = load i32, ptr %163, align 8
+  %165 = icmp slt i32 %159, %164
+  br i1 %165, label %166, label %188
 
-157:                                              ; preds = %149
-  %158 = load ptr, ptr %4, align 8
-  %159 = getelementptr inbounds %struct.prte_job_t, ptr %158, i32 0, i32 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = load i32, ptr %8, align 4
-  %162 = call ptr @pmix_pointer_array_get_item(ptr noundef %160, i32 noundef %161)
-  store ptr %162, ptr %13, align 8
-  %163 = load ptr, ptr %13, align 8
-  %164 = icmp eq ptr null, %163
-  br i1 %164, label %165, label %166
+166:                                              ; preds = %158
+  %167 = load ptr, ptr %4, align 8
+  %168 = getelementptr inbounds %struct.prte_job_t, ptr %167, i32 0, i32 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = load i32, ptr %8, align 4
+  %171 = call ptr @pmix_pointer_array_get_item(ptr noundef %169, i32 noundef %170)
+  store ptr %171, ptr %13, align 8
+  %172 = load ptr, ptr %13, align 8
+  %173 = icmp eq ptr null, %172
+  br i1 %173, label %174, label %175
 
-165:                                              ; preds = %157
-  br label %175
+174:                                              ; preds = %166
+  br label %185
 
-166:                                              ; preds = %157
-  %167 = load ptr, ptr %13, align 8
-  %168 = getelementptr inbounds %struct.prte_app_context_t, ptr %167, i32 0, i32 12
-  %169 = call zeroext i1 @prte_get_attribute(ptr noundef %168, i16 noundef zeroext 11, ptr noundef null, i16 noundef zeroext 9)
-  br i1 %169, label %174, label %170
+175:                                              ; preds = %166
+  %176 = load ptr, ptr %13, align 8
+  %177 = getelementptr inbounds %struct.prte_app_context_t, ptr %176, i32 0, i32 12
+  %178 = call zeroext i1 @prte_get_attribute(ptr noundef %177, i16 noundef zeroext 11, ptr noundef null, i16 noundef zeroext 9)
+  br i1 %178, label %184, label %179
 
-170:                                              ; preds = %166
-  %171 = load ptr, ptr %13, align 8
-  %172 = getelementptr inbounds %struct.prte_app_context_t, ptr %171, i32 0, i32 12
-  %173 = call i32 @prte_set_attribute(ptr noundef %172, i16 noundef zeroext 11, i1 noundef zeroext false, ptr noundef getelementptr inbounds (%struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 4), i16 noundef zeroext 9)
-  br label %174
+179:                                              ; preds = %175
+  %180 = load ptr, ptr %13, align 8
+  %181 = getelementptr inbounds %struct.prte_app_context_t, ptr %180, i32 0, i32 12
+  %182 = getelementptr inbounds %struct.prte_state_base_t, ptr @prte_state_base, i32 0, i32 4
+  %183 = call i32 @prte_set_attribute(ptr noundef %181, i16 noundef zeroext 11, i1 noundef zeroext false, ptr noundef %182, i16 noundef zeroext 9)
+  br label %184
 
-174:                                              ; preds = %170, %166
-  br label %175
+184:                                              ; preds = %179, %175
+  br label %185
 
-175:                                              ; preds = %174, %165
-  %176 = load i32, ptr %8, align 4
-  %177 = add nsw i32 %176, 1
-  store i32 %177, ptr %8, align 4
-  br label %149, !llvm.loop !4
+185:                                              ; preds = %184, %174
+  %186 = load i32, ptr %8, align 4
+  %187 = add nsw i32 %186, 1
+  store i32 %187, ptr %8, align 4
+  br label %158, !llvm.loop !4
 
-178:                                              ; preds = %149
-  br label %179
+188:                                              ; preds = %158
+  br label %189
 
-179:                                              ; preds = %178, %145
+189:                                              ; preds = %188, %153
+  br label %616
+
+190:                                              ; preds = %2
+  %191 = load ptr, ptr %5, align 8
+  %192 = call ptr @PMIx_Argv_split(ptr noundef %191, i32 noundef 44)
+  store ptr %192, ptr %6, align 8
+  store i32 0, ptr %8, align 4
+  br label %193
+
+193:                                              ; preds = %611, %190
+  %194 = load ptr, ptr %6, align 8
+  %195 = load i32, ptr %8, align 4
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr inbounds ptr, ptr %194, i64 %196
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp ne ptr null, %198
+  br i1 %199, label %200, label %614
+
+200:                                              ; preds = %193
+  %201 = load ptr, ptr %6, align 8
+  %202 = load i32, ptr %8, align 4
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds ptr, ptr %201, i64 %203
+  %205 = load ptr, ptr %204, align 8
+  %206 = call ptr @strchr(ptr noundef %205, i32 noundef 61) #4
+  store ptr %206, ptr %7, align 8
+  %207 = load ptr, ptr %7, align 8
+  %208 = icmp ne ptr null, %207
+  br i1 %208, label %209, label %226
+
+209:                                              ; preds = %200
+  %210 = load ptr, ptr %7, align 8
+  store i8 0, ptr %210, align 1
+  %211 = load ptr, ptr %7, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i32 1
+  store ptr %212, ptr %7, align 8
+  %213 = load ptr, ptr %7, align 8
+  %214 = load i8, ptr %213, align 1
+  %215 = sext i8 %214 to i32
+  %216 = icmp eq i32 0, %215
+  br i1 %216, label %217, label %225
+
+217:                                              ; preds = %209
+  %218 = load ptr, ptr %6, align 8
+  %219 = load i32, ptr %8, align 4
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds ptr, ptr %218, i64 %220
+  %222 = load ptr, ptr %221, align 8
+  %223 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef @.str.2, ptr noundef %222, ptr noundef @.str.3)
+  %224 = load ptr, ptr %6, align 8
+  call void @PMIx_Argv_free(ptr noundef %224)
+  store i32 -5, ptr %3, align 4
+  br label %631
+
+225:                                              ; preds = %209
+  br label %226
+
+226:                                              ; preds = %225, %200
+  %227 = load ptr, ptr %7, align 8
+  %228 = call i32 @PMIx_Value_load(ptr noundef %15, ptr noundef %227, i16 noundef zeroext 3)
+  %229 = load ptr, ptr %6, align 8
+  %230 = load i32, ptr %8, align 4
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds ptr, ptr %229, i64 %231
+  %233 = load ptr, ptr %232, align 8
+  %234 = call zeroext i1 @pmix_check_cli_option(ptr noundef %233, ptr noundef @.str.4)
+  br i1 %234, label %235, label %244
+
+235:                                              ; preds = %226
+  %236 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %237 = icmp eq i32 0, %236
+  %238 = select i1 %237, i32 1, i32 0
+  %239 = icmp ne i32 %238, 0
+  %240 = zext i1 %239 to i8
+  store i8 %240, ptr %9, align 1
+  %241 = load ptr, ptr %4, align 8
+  %242 = getelementptr inbounds %struct.prte_job_t, ptr %241, i32 0, i32 26
+  %243 = call i32 @prte_set_attribute(ptr noundef %242, i16 noundef zeroext 302, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %610
+
+244:                                              ; preds = %226
+  %245 = load ptr, ptr %6, align 8
+  %246 = load i32, ptr %8, align 4
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds ptr, ptr %245, i64 %247
+  %249 = load ptr, ptr %248, align 8
+  %250 = call zeroext i1 @pmix_check_cli_option(ptr noundef %249, ptr noundef @.str.5)
+  br i1 %250, label %251, label %268
+
+251:                                              ; preds = %244
+  %252 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %253 = icmp eq i32 0, %252
+  %254 = select i1 %253, i32 1, i32 0
+  %255 = icmp ne i32 %254, 0
+  %256 = zext i1 %255 to i8
+  store i8 %256, ptr %9, align 1
+  %257 = load ptr, ptr %4, align 8
+  %258 = getelementptr inbounds %struct.prte_job_t, ptr %257, i32 0, i32 26
+  %259 = call i32 @prte_set_attribute(ptr noundef %258, i16 noundef zeroext 269, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  %260 = load i8, ptr @prte_persistent, align 1
+  %261 = trunc i8 %260 to i1
+  br i1 %261, label %267, label %262
+
+262:                                              ; preds = %251
+  %263 = call ptr @prte_get_job_data_object(ptr noundef @prte_process_info)
+  store ptr %263, ptr %12, align 8
+  %264 = load ptr, ptr %12, align 8
+  %265 = getelementptr inbounds %struct.prte_job_t, ptr %264, i32 0, i32 26
+  %266 = call i32 @prte_set_attribute(ptr noundef %265, i16 noundef zeroext 269, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %267
+
+267:                                              ; preds = %262, %251
+  br label %609
+
+268:                                              ; preds = %244
+  %269 = load ptr, ptr %6, align 8
+  %270 = load i32, ptr %8, align 4
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds ptr, ptr %269, i64 %271
+  %273 = load ptr, ptr %272, align 8
+  %274 = call zeroext i1 @pmix_check_cli_option(ptr noundef %273, ptr noundef @.str.6)
+  br i1 %274, label %275, label %284
+
+275:                                              ; preds = %268
+  %276 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %277 = icmp eq i32 0, %276
+  %278 = select i1 %277, i32 1, i32 0
+  %279 = icmp ne i32 %278, 0
+  %280 = zext i1 %279 to i8
+  store i8 %280, ptr %9, align 1
+  %281 = load ptr, ptr %4, align 8
+  %282 = getelementptr inbounds %struct.prte_job_t, ptr %281, i32 0, i32 26
+  %283 = call i32 @prte_set_attribute(ptr noundef %282, i16 noundef zeroext 304, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %608
+
+284:                                              ; preds = %268
+  %285 = load ptr, ptr %6, align 8
+  %286 = load i32, ptr %8, align 4
+  %287 = sext i32 %286 to i64
+  %288 = getelementptr inbounds ptr, ptr %285, i64 %287
+  %289 = load ptr, ptr %288, align 8
+  %290 = call zeroext i1 @pmix_check_cli_option(ptr noundef %289, ptr noundef @.str.7)
+  br i1 %290, label %291, label %300
+
+291:                                              ; preds = %284
+  %292 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %293 = icmp eq i32 0, %292
+  %294 = select i1 %293, i32 1, i32 0
+  %295 = icmp ne i32 %294, 0
+  %296 = zext i1 %295 to i8
+  store i8 %296, ptr %9, align 1
+  %297 = load ptr, ptr %4, align 8
+  %298 = getelementptr inbounds %struct.prte_job_t, ptr %297, i32 0, i32 26
+  %299 = call i32 @prte_set_attribute(ptr noundef %298, i16 noundef zeroext 306, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %607
+
+300:                                              ; preds = %284
+  %301 = load ptr, ptr %6, align 8
+  %302 = load i32, ptr %8, align 4
+  %303 = sext i32 %302 to i64
+  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
+  %305 = load ptr, ptr %304, align 8
+  %306 = call zeroext i1 @pmix_check_cli_option(ptr noundef %305, ptr noundef @.str.8)
+  br i1 %306, label %307, label %316
+
+307:                                              ; preds = %300
+  %308 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %309 = icmp eq i32 0, %308
+  %310 = select i1 %309, i32 1, i32 0
+  %311 = icmp ne i32 %310, 0
+  %312 = zext i1 %311 to i8
+  store i8 %312, ptr %9, align 1
+  %313 = load ptr, ptr %4, align 8
+  %314 = getelementptr inbounds %struct.prte_job_t, ptr %313, i32 0, i32 26
+  %315 = call i32 @prte_set_attribute(ptr noundef %314, i16 noundef zeroext 305, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
   br label %606
 
-180:                                              ; preds = %2
-  %181 = load ptr, ptr %5, align 8
-  %182 = call ptr @PMIx_Argv_split(ptr noundef %181, i32 noundef 44)
-  store ptr %182, ptr %6, align 8
-  store i32 0, ptr %8, align 4
-  br label %183
+316:                                              ; preds = %300
+  %317 = load ptr, ptr %6, align 8
+  %318 = load i32, ptr %8, align 4
+  %319 = sext i32 %318 to i64
+  %320 = getelementptr inbounds ptr, ptr %317, i64 %319
+  %321 = load ptr, ptr %320, align 8
+  %322 = call zeroext i1 @pmix_check_cli_option(ptr noundef %321, ptr noundef @.str.9)
+  br i1 %322, label %323, label %332
 
-183:                                              ; preds = %601, %180
-  %184 = load ptr, ptr %6, align 8
-  %185 = load i32, ptr %8, align 4
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds ptr, ptr %184, i64 %186
-  %188 = load ptr, ptr %187, align 8
-  %189 = icmp ne ptr null, %188
-  br i1 %189, label %190, label %604
+323:                                              ; preds = %316
+  %324 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %325 = icmp eq i32 0, %324
+  %326 = select i1 %325, i32 1, i32 0
+  %327 = icmp ne i32 %326, 0
+  %328 = zext i1 %327 to i8
+  store i8 %328, ptr %9, align 1
+  %329 = load ptr, ptr %4, align 8
+  %330 = getelementptr inbounds %struct.prte_job_t, ptr %329, i32 0, i32 26
+  %331 = call i32 @prte_set_attribute(ptr noundef %330, i16 noundef zeroext 307, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %605
 
-190:                                              ; preds = %183
-  %191 = load ptr, ptr %6, align 8
-  %192 = load i32, ptr %8, align 4
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds ptr, ptr %191, i64 %193
-  %195 = load ptr, ptr %194, align 8
-  %196 = call ptr @strchr(ptr noundef %195, i32 noundef 61) #4
-  store ptr %196, ptr %7, align 8
-  %197 = load ptr, ptr %7, align 8
-  %198 = icmp ne ptr null, %197
-  br i1 %198, label %199, label %216
+332:                                              ; preds = %316
+  %333 = load ptr, ptr %6, align 8
+  %334 = load i32, ptr %8, align 4
+  %335 = sext i32 %334 to i64
+  %336 = getelementptr inbounds ptr, ptr %333, i64 %335
+  %337 = load ptr, ptr %336, align 8
+  %338 = call zeroext i1 @pmix_check_cli_option(ptr noundef %337, ptr noundef @.str.10)
+  br i1 %338, label %339, label %348
 
-199:                                              ; preds = %190
-  %200 = load ptr, ptr %7, align 8
-  store i8 0, ptr %200, align 1
-  %201 = load ptr, ptr %7, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i32 1
-  store ptr %202, ptr %7, align 8
-  %203 = load ptr, ptr %7, align 8
-  %204 = load i8, ptr %203, align 1
-  %205 = sext i8 %204 to i32
-  %206 = icmp eq i32 0, %205
-  br i1 %206, label %207, label %215
+339:                                              ; preds = %332
+  %340 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %341 = icmp eq i32 0, %340
+  %342 = select i1 %341, i32 1, i32 0
+  %343 = icmp ne i32 %342, 0
+  %344 = zext i1 %343 to i8
+  store i8 %344, ptr %9, align 1
+  %345 = load ptr, ptr %4, align 8
+  %346 = getelementptr inbounds %struct.prte_job_t, ptr %345, i32 0, i32 26
+  %347 = call i32 @prte_set_attribute(ptr noundef %346, i16 noundef zeroext 219, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %604
 
-207:                                              ; preds = %199
-  %208 = load ptr, ptr %6, align 8
-  %209 = load i32, ptr %8, align 4
-  %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds ptr, ptr %208, i64 %210
-  %212 = load ptr, ptr %211, align 8
-  %213 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef @.str.2, ptr noundef %212, ptr noundef @.str.3)
-  %214 = load ptr, ptr %6, align 8
-  call void @PMIx_Argv_free(ptr noundef %214)
+348:                                              ; preds = %332
+  %349 = load ptr, ptr %6, align 8
+  %350 = load i32, ptr %8, align 4
+  %351 = sext i32 %350 to i64
+  %352 = getelementptr inbounds ptr, ptr %349, i64 %351
+  %353 = load ptr, ptr %352, align 8
+  %354 = call zeroext i1 @pmix_check_cli_option(ptr noundef %353, ptr noundef @.str.11)
+  br i1 %354, label %355, label %397
+
+355:                                              ; preds = %348
+  %356 = load ptr, ptr %7, align 8
+  %357 = load i8, ptr %356, align 1
+  %358 = sext i8 %357 to i32
+  %359 = icmp eq i32 0, %358
+  br i1 %359, label %360, label %368
+
+360:                                              ; preds = %355
+  %361 = load ptr, ptr %6, align 8
+  %362 = load i32, ptr %8, align 4
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr inbounds ptr, ptr %361, i64 %363
+  %365 = load ptr, ptr %364, align 8
+  %366 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef @.str.2, ptr noundef %365, ptr noundef @.str.3)
+  %367 = load ptr, ptr %6, align 8
+  call void @PMIx_Argv_free(ptr noundef %367)
   store i32 -5, ptr %3, align 4
-  br label %621
+  br label %631
 
-215:                                              ; preds = %199
-  br label %216
-
-216:                                              ; preds = %215, %190
-  %217 = load ptr, ptr %7, align 8
-  %218 = call i32 @PMIx_Value_load(ptr noundef %15, ptr noundef %217, i16 noundef zeroext 3)
-  %219 = load ptr, ptr %6, align 8
-  %220 = load i32, ptr %8, align 4
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds ptr, ptr %219, i64 %221
-  %223 = load ptr, ptr %222, align 8
-  %224 = call zeroext i1 @pmix_check_cli_option(ptr noundef %223, ptr noundef @.str.4)
-  br i1 %224, label %225, label %234
-
-225:                                              ; preds = %216
-  %226 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %227 = icmp eq i32 0, %226
-  %228 = select i1 %227, i32 1, i32 0
-  %229 = icmp ne i32 %228, 0
-  %230 = zext i1 %229 to i8
-  store i8 %230, ptr %9, align 1
-  %231 = load ptr, ptr %4, align 8
-  %232 = getelementptr inbounds %struct.prte_job_t, ptr %231, i32 0, i32 26
-  %233 = call i32 @prte_set_attribute(ptr noundef %232, i16 noundef zeroext 302, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %600
-
-234:                                              ; preds = %216
-  %235 = load ptr, ptr %6, align 8
-  %236 = load i32, ptr %8, align 4
-  %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds ptr, ptr %235, i64 %237
-  %239 = load ptr, ptr %238, align 8
-  %240 = call zeroext i1 @pmix_check_cli_option(ptr noundef %239, ptr noundef @.str.5)
-  br i1 %240, label %241, label %258
-
-241:                                              ; preds = %234
-  %242 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %243 = icmp eq i32 0, %242
-  %244 = select i1 %243, i32 1, i32 0
-  %245 = icmp ne i32 %244, 0
-  %246 = zext i1 %245 to i8
-  store i8 %246, ptr %9, align 1
-  %247 = load ptr, ptr %4, align 8
-  %248 = getelementptr inbounds %struct.prte_job_t, ptr %247, i32 0, i32 26
-  %249 = call i32 @prte_set_attribute(ptr noundef %248, i16 noundef zeroext 269, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  %250 = load i8, ptr @prte_persistent, align 1
-  %251 = trunc i8 %250 to i1
-  br i1 %251, label %257, label %252
-
-252:                                              ; preds = %241
-  %253 = call ptr @prte_get_job_data_object(ptr noundef @prte_process_info)
-  store ptr %253, ptr %12, align 8
-  %254 = load ptr, ptr %12, align 8
-  %255 = getelementptr inbounds %struct.prte_job_t, ptr %254, i32 0, i32 26
-  %256 = call i32 @prte_set_attribute(ptr noundef %255, i16 noundef zeroext 269, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %257
-
-257:                                              ; preds = %252, %241
-  br label %599
-
-258:                                              ; preds = %234
-  %259 = load ptr, ptr %6, align 8
-  %260 = load i32, ptr %8, align 4
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds ptr, ptr %259, i64 %261
-  %263 = load ptr, ptr %262, align 8
-  %264 = call zeroext i1 @pmix_check_cli_option(ptr noundef %263, ptr noundef @.str.6)
-  br i1 %264, label %265, label %274
-
-265:                                              ; preds = %258
-  %266 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %267 = icmp eq i32 0, %266
-  %268 = select i1 %267, i32 1, i32 0
-  %269 = icmp ne i32 %268, 0
-  %270 = zext i1 %269 to i8
-  store i8 %270, ptr %9, align 1
-  %271 = load ptr, ptr %4, align 8
-  %272 = getelementptr inbounds %struct.prte_job_t, ptr %271, i32 0, i32 26
-  %273 = call i32 @prte_set_attribute(ptr noundef %272, i16 noundef zeroext 304, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %598
-
-274:                                              ; preds = %258
-  %275 = load ptr, ptr %6, align 8
-  %276 = load i32, ptr %8, align 4
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds ptr, ptr %275, i64 %277
-  %279 = load ptr, ptr %278, align 8
-  %280 = call zeroext i1 @pmix_check_cli_option(ptr noundef %279, ptr noundef @.str.7)
-  br i1 %280, label %281, label %290
-
-281:                                              ; preds = %274
-  %282 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %283 = icmp eq i32 0, %282
-  %284 = select i1 %283, i32 1, i32 0
-  %285 = icmp ne i32 %284, 0
-  %286 = zext i1 %285 to i8
-  store i8 %286, ptr %9, align 1
-  %287 = load ptr, ptr %4, align 8
-  %288 = getelementptr inbounds %struct.prte_job_t, ptr %287, i32 0, i32 26
-  %289 = call i32 @prte_set_attribute(ptr noundef %288, i16 noundef zeroext 306, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %597
-
-290:                                              ; preds = %274
-  %291 = load ptr, ptr %6, align 8
-  %292 = load i32, ptr %8, align 4
-  %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds ptr, ptr %291, i64 %293
-  %295 = load ptr, ptr %294, align 8
-  %296 = call zeroext i1 @pmix_check_cli_option(ptr noundef %295, ptr noundef @.str.8)
-  br i1 %296, label %297, label %306
-
-297:                                              ; preds = %290
-  %298 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %299 = icmp eq i32 0, %298
-  %300 = select i1 %299, i32 1, i32 0
-  %301 = icmp ne i32 %300, 0
-  %302 = zext i1 %301 to i8
-  store i8 %302, ptr %9, align 1
-  %303 = load ptr, ptr %4, align 8
-  %304 = getelementptr inbounds %struct.prte_job_t, ptr %303, i32 0, i32 26
-  %305 = call i32 @prte_set_attribute(ptr noundef %304, i16 noundef zeroext 305, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %596
-
-306:                                              ; preds = %290
-  %307 = load ptr, ptr %6, align 8
-  %308 = load i32, ptr %8, align 4
-  %309 = sext i32 %308 to i64
-  %310 = getelementptr inbounds ptr, ptr %307, i64 %309
-  %311 = load ptr, ptr %310, align 8
-  %312 = call zeroext i1 @pmix_check_cli_option(ptr noundef %311, ptr noundef @.str.9)
-  br i1 %312, label %313, label %322
-
-313:                                              ; preds = %306
-  %314 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %315 = icmp eq i32 0, %314
-  %316 = select i1 %315, i32 1, i32 0
-  %317 = icmp ne i32 %316, 0
-  %318 = zext i1 %317 to i8
-  store i8 %318, ptr %9, align 1
-  %319 = load ptr, ptr %4, align 8
-  %320 = getelementptr inbounds %struct.prte_job_t, ptr %319, i32 0, i32 26
-  %321 = call i32 @prte_set_attribute(ptr noundef %320, i16 noundef zeroext 307, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %595
-
-322:                                              ; preds = %306
-  %323 = load ptr, ptr %6, align 8
-  %324 = load i32, ptr %8, align 4
-  %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds ptr, ptr %323, i64 %325
-  %327 = load ptr, ptr %326, align 8
-  %328 = call zeroext i1 @pmix_check_cli_option(ptr noundef %327, ptr noundef @.str.10)
-  br i1 %328, label %329, label %338
-
-329:                                              ; preds = %322
-  %330 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %331 = icmp eq i32 0, %330
-  %332 = select i1 %331, i32 1, i32 0
-  %333 = icmp ne i32 %332, 0
-  %334 = zext i1 %333 to i8
-  store i8 %334, ptr %9, align 1
-  %335 = load ptr, ptr %4, align 8
-  %336 = getelementptr inbounds %struct.prte_job_t, ptr %335, i32 0, i32 26
-  %337 = call i32 @prte_set_attribute(ptr noundef %336, i16 noundef zeroext 219, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %594
-
-338:                                              ; preds = %322
-  %339 = load ptr, ptr %6, align 8
-  %340 = load i32, ptr %8, align 4
-  %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds ptr, ptr %339, i64 %341
-  %343 = load ptr, ptr %342, align 8
-  %344 = call zeroext i1 @pmix_check_cli_option(ptr noundef %343, ptr noundef @.str.11)
-  br i1 %344, label %345, label %387
-
-345:                                              ; preds = %338
-  %346 = load ptr, ptr %7, align 8
-  %347 = load i8, ptr %346, align 1
-  %348 = sext i8 %347 to i32
-  %349 = icmp eq i32 0, %348
-  br i1 %349, label %350, label %358
-
-350:                                              ; preds = %345
-  %351 = load ptr, ptr %6, align 8
-  %352 = load i32, ptr %8, align 4
-  %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds ptr, ptr %351, i64 %353
-  %355 = load ptr, ptr %354, align 8
-  %356 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1, ptr noundef @.str.2, ptr noundef %355, ptr noundef @.str.3)
-  %357 = load ptr, ptr %6, align 8
-  call void @PMIx_Argv_free(ptr noundef %357)
-  store i32 -5, ptr %3, align 4
-  br label %621
-
-358:                                              ; preds = %345
-  %359 = load ptr, ptr %7, align 8
-  %360 = call i64 @strtol(ptr noundef %359, ptr noundef null, i32 noundef 10) #5
-  %361 = trunc i64 %360 to i32
-  store i32 %361, ptr %11, align 4
+368:                                              ; preds = %355
+  %369 = load ptr, ptr %7, align 8
+  %370 = call i64 @strtol(ptr noundef %369, ptr noundef null, i32 noundef 10) #5
+  %371 = trunc i64 %370 to i32
+  store i32 %371, ptr %11, align 4
   store i32 0, ptr %8, align 4
-  br label %362
+  br label %372
 
-362:                                              ; preds = %383, %358
-  %363 = load i32, ptr %8, align 4
-  %364 = load ptr, ptr %4, align 8
-  %365 = getelementptr inbounds %struct.prte_job_t, ptr %364, i32 0, i32 8
-  %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds %struct.pmix_pointer_array_t, ptr %366, i32 0, i32 3
-  %368 = load i32, ptr %367, align 8
-  %369 = icmp slt i32 %363, %368
-  br i1 %369, label %370, label %386
+372:                                              ; preds = %393, %368
+  %373 = load i32, ptr %8, align 4
+  %374 = load ptr, ptr %4, align 8
+  %375 = getelementptr inbounds %struct.prte_job_t, ptr %374, i32 0, i32 8
+  %376 = load ptr, ptr %375, align 8
+  %377 = getelementptr inbounds %struct.pmix_pointer_array_t, ptr %376, i32 0, i32 3
+  %378 = load i32, ptr %377, align 8
+  %379 = icmp slt i32 %373, %378
+  br i1 %379, label %380, label %396
 
-370:                                              ; preds = %362
-  %371 = load ptr, ptr %4, align 8
-  %372 = getelementptr inbounds %struct.prte_job_t, ptr %371, i32 0, i32 8
-  %373 = load ptr, ptr %372, align 8
-  %374 = load i32, ptr %8, align 4
-  %375 = call ptr @pmix_pointer_array_get_item(ptr noundef %373, i32 noundef %374)
-  store ptr %375, ptr %13, align 8
-  %376 = load ptr, ptr %13, align 8
-  %377 = icmp eq ptr null, %376
-  br i1 %377, label %378, label %379
-
-378:                                              ; preds = %370
-  br label %383
-
-379:                                              ; preds = %370
-  %380 = load ptr, ptr %13, align 8
-  %381 = getelementptr inbounds %struct.prte_app_context_t, ptr %380, i32 0, i32 12
-  %382 = call i32 @prte_set_attribute(ptr noundef %381, i16 noundef zeroext 11, i1 noundef zeroext false, ptr noundef %11, i16 noundef zeroext 9)
-  br label %383
-
-383:                                              ; preds = %379, %378
+380:                                              ; preds = %372
+  %381 = load ptr, ptr %4, align 8
+  %382 = getelementptr inbounds %struct.prte_job_t, ptr %381, i32 0, i32 8
+  %383 = load ptr, ptr %382, align 8
   %384 = load i32, ptr %8, align 4
-  %385 = add nsw i32 %384, 1
-  store i32 %385, ptr %8, align 4
-  br label %362, !llvm.loop !6
+  %385 = call ptr @pmix_pointer_array_get_item(ptr noundef %383, i32 noundef %384)
+  store ptr %385, ptr %13, align 8
+  %386 = load ptr, ptr %13, align 8
+  %387 = icmp eq ptr null, %386
+  br i1 %387, label %388, label %389
 
-386:                                              ; preds = %362
-  br label %593
+388:                                              ; preds = %380
+  br label %393
 
-387:                                              ; preds = %338
-  %388 = load ptr, ptr %6, align 8
-  %389 = load i32, ptr %8, align 4
-  %390 = sext i32 %389 to i64
-  %391 = getelementptr inbounds ptr, ptr %388, i64 %390
-  %392 = load ptr, ptr %391, align 8
-  %393 = call zeroext i1 @pmix_check_cli_option(ptr noundef %392, ptr noundef @.str.12)
-  br i1 %393, label %394, label %399
+389:                                              ; preds = %380
+  %390 = load ptr, ptr %13, align 8
+  %391 = getelementptr inbounds %struct.prte_app_context_t, ptr %390, i32 0, i32 12
+  %392 = call i32 @prte_set_attribute(ptr noundef %391, i16 noundef zeroext 11, i1 noundef zeroext false, ptr noundef %11, i16 noundef zeroext 9)
+  br label %393
 
-394:                                              ; preds = %387
-  %395 = load ptr, ptr %4, align 8
-  %396 = getelementptr inbounds %struct.prte_job_t, ptr %395, i32 0, i32 26
-  %397 = load ptr, ptr %7, align 8
-  %398 = call i32 @prte_set_attribute(ptr noundef %396, i16 noundef zeroext 295, i1 noundef zeroext false, ptr noundef %397, i16 noundef zeroext 3)
-  br label %592
+393:                                              ; preds = %389, %388
+  %394 = load i32, ptr %8, align 4
+  %395 = add nsw i32 %394, 1
+  store i32 %395, ptr %8, align 4
+  br label %372, !llvm.loop !6
 
-399:                                              ; preds = %387
-  %400 = load ptr, ptr %6, align 8
-  %401 = load i32, ptr %8, align 4
-  %402 = sext i32 %401 to i64
-  %403 = getelementptr inbounds ptr, ptr %400, i64 %402
-  %404 = load ptr, ptr %403, align 8
-  %405 = call zeroext i1 @pmix_check_cli_option(ptr noundef %404, ptr noundef @.str.13)
-  br i1 %405, label %406, label %409
+396:                                              ; preds = %372
+  br label %603
 
-406:                                              ; preds = %399
-  %407 = load ptr, ptr %4, align 8
-  %408 = getelementptr inbounds %struct.prte_job_t, ptr %407, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %408, i16 noundef zeroext 295)
-  br label %591
+397:                                              ; preds = %348
+  %398 = load ptr, ptr %6, align 8
+  %399 = load i32, ptr %8, align 4
+  %400 = sext i32 %399 to i64
+  %401 = getelementptr inbounds ptr, ptr %398, i64 %400
+  %402 = load ptr, ptr %401, align 8
+  %403 = call zeroext i1 @pmix_check_cli_option(ptr noundef %402, ptr noundef @.str.12)
+  br i1 %403, label %404, label %409
 
-409:                                              ; preds = %399
+404:                                              ; preds = %397
+  %405 = load ptr, ptr %4, align 8
+  %406 = getelementptr inbounds %struct.prte_job_t, ptr %405, i32 0, i32 26
+  %407 = load ptr, ptr %7, align 8
+  %408 = call i32 @prte_set_attribute(ptr noundef %406, i16 noundef zeroext 295, i1 noundef zeroext false, ptr noundef %407, i16 noundef zeroext 3)
+  br label %602
+
+409:                                              ; preds = %397
   %410 = load ptr, ptr %6, align 8
   %411 = load i32, ptr %8, align 4
   %412 = sext i32 %411 to i64
   %413 = getelementptr inbounds ptr, ptr %410, i64 %412
   %414 = load ptr, ptr %413, align 8
-  %415 = call zeroext i1 @pmix_check_cli_option(ptr noundef %414, ptr noundef @.str.14)
-  br i1 %415, label %416, label %432
+  %415 = call zeroext i1 @pmix_check_cli_option(ptr noundef %414, ptr noundef @.str.13)
+  br i1 %415, label %416, label %419
 
 416:                                              ; preds = %409
-  %417 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %418 = icmp eq i32 0, %417
-  %419 = select i1 %418, i32 1, i32 0
-  %420 = icmp ne i32 %419, 0
-  %421 = zext i1 %420 to i8
-  store i8 %421, ptr %9, align 1
-  %422 = load i8, ptr %9, align 1
-  %423 = trunc i8 %422 to i1
-  br i1 %423, label %424, label %428
-
-424:                                              ; preds = %416
-  %425 = load ptr, ptr %4, align 8
-  %426 = getelementptr inbounds %struct.prte_job_t, ptr %425, i32 0, i32 26
-  %427 = call i32 @prte_set_attribute(ptr noundef %426, i16 noundef zeroext 262, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  br label %431
-
-428:                                              ; preds = %416
-  %429 = load ptr, ptr %4, align 8
-  %430 = getelementptr inbounds %struct.prte_job_t, ptr %429, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %430, i16 noundef zeroext 262)
-  br label %431
-
-431:                                              ; preds = %428, %424
-  br label %590
-
-432:                                              ; preds = %409
-  %433 = load ptr, ptr %6, align 8
-  %434 = load i32, ptr %8, align 4
-  %435 = sext i32 %434 to i64
-  %436 = getelementptr inbounds ptr, ptr %433, i64 %435
-  %437 = load ptr, ptr %436, align 8
-  %438 = call zeroext i1 @pmix_check_cli_option(ptr noundef %437, ptr noundef @.str.15)
-  br i1 %438, label %439, label %458
-
-439:                                              ; preds = %432
-  %440 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %441 = icmp eq i32 0, %440
-  %442 = select i1 %441, i32 1, i32 0
-  %443 = icmp ne i32 %442, 0
-  %444 = zext i1 %443 to i8
-  store i8 %444, ptr %9, align 1
-  %445 = load i8, ptr %9, align 1
-  %446 = trunc i8 %445 to i1
-  br i1 %446, label %447, label %454
-
-447:                                              ; preds = %439
-  %448 = load ptr, ptr %4, align 8
-  %449 = getelementptr inbounds %struct.prte_job_t, ptr %448, i32 0, i32 26
-  %450 = call i32 @prte_set_attribute(ptr noundef %449, i16 noundef zeroext 288, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  %451 = call i32 @PMIx_Info_load(ptr noundef %14, ptr noundef @.str.16, ptr noundef null, i16 noundef zeroext 1)
-  %452 = load ptr, ptr %4, align 8
-  %453 = call i32 @pmix_server_cache_job_info(ptr noundef %452, ptr noundef %14)
-  br label %457
-
-454:                                              ; preds = %439
-  %455 = load ptr, ptr %4, align 8
-  %456 = getelementptr inbounds %struct.prte_job_t, ptr %455, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %456, i16 noundef zeroext 288)
-  br label %457
-
-457:                                              ; preds = %454, %447
-  br label %589
-
-458:                                              ; preds = %432
-  %459 = load ptr, ptr %6, align 8
-  %460 = load i32, ptr %8, align 4
-  %461 = sext i32 %460 to i64
-  %462 = getelementptr inbounds ptr, ptr %459, i64 %461
-  %463 = load ptr, ptr %462, align 8
-  %464 = call zeroext i1 @pmix_check_cli_option(ptr noundef %463, ptr noundef @.str.17)
-  br i1 %464, label %465, label %484
-
-465:                                              ; preds = %458
-  %466 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %467 = icmp eq i32 0, %466
-  %468 = select i1 %467, i32 1, i32 0
-  %469 = icmp ne i32 %468, 0
-  %470 = zext i1 %469 to i8
-  store i8 %470, ptr %9, align 1
-  %471 = load i8, ptr %9, align 1
-  %472 = trunc i8 %471 to i1
-  br i1 %472, label %473, label %480
-
-473:                                              ; preds = %465
-  %474 = load ptr, ptr %4, align 8
-  %475 = getelementptr inbounds %struct.prte_job_t, ptr %474, i32 0, i32 26
-  %476 = call i32 @prte_set_attribute(ptr noundef %475, i16 noundef zeroext 289, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
-  %477 = call i32 @PMIx_Info_load(ptr noundef %14, ptr noundef @.str.18, ptr noundef null, i16 noundef zeroext 1)
-  %478 = load ptr, ptr %4, align 8
-  %479 = call i32 @pmix_server_cache_job_info(ptr noundef %478, ptr noundef %14)
-  br label %483
-
-480:                                              ; preds = %465
-  %481 = load ptr, ptr %4, align 8
-  %482 = getelementptr inbounds %struct.prte_job_t, ptr %481, i32 0, i32 26
-  call void @prte_remove_attribute(ptr noundef %482, i16 noundef zeroext 289)
-  br label %483
-
-483:                                              ; preds = %480, %473
-  br label %588
-
-484:                                              ; preds = %458
-  %485 = load ptr, ptr %6, align 8
-  %486 = load i32, ptr %8, align 4
-  %487 = sext i32 %486 to i64
-  %488 = getelementptr inbounds ptr, ptr %485, i64 %487
-  %489 = load ptr, ptr %488, align 8
-  %490 = call zeroext i1 @pmix_check_cli_option(ptr noundef %489, ptr noundef @.str.19)
-  br i1 %490, label %491, label %497
-
-491:                                              ; preds = %484
-  %492 = load ptr, ptr %7, align 8
-  %493 = call i32 @pmix_convert_string_to_time(ptr noundef %492)
-  store i32 %493, ptr %8, align 4
-  %494 = load ptr, ptr %4, align 8
-  %495 = getelementptr inbounds %struct.prte_job_t, ptr %494, i32 0, i32 26
-  %496 = call i32 @prte_set_attribute(ptr noundef %495, i16 noundef zeroext 271, i1 noundef zeroext false, ptr noundef %8, i16 noundef zeroext 6)
-  br label %587
-
-497:                                              ; preds = %484
-  %498 = load ptr, ptr %6, align 8
-  %499 = load i32, ptr %8, align 4
-  %500 = sext i32 %499 to i64
-  %501 = getelementptr inbounds ptr, ptr %498, i64 %500
-  %502 = load ptr, ptr %501, align 8
-  %503 = call zeroext i1 @pmix_check_cli_option(ptr noundef %502, ptr noundef @.str.20)
-  br i1 %503, label %504, label %510
-
-504:                                              ; preds = %497
-  %505 = load ptr, ptr %7, align 8
-  %506 = call i32 @pmix_convert_string_to_time(ptr noundef %505)
-  store i32 %506, ptr %8, align 4
-  %507 = load ptr, ptr %4, align 8
-  %508 = getelementptr inbounds %struct.prte_job_t, ptr %507, i32 0, i32 26
-  %509 = call i32 @prte_set_attribute(ptr noundef %508, i16 noundef zeroext 293, i1 noundef zeroext false, ptr noundef %8, i16 noundef zeroext 6)
-  br label %586
-
-510:                                              ; preds = %497
-  %511 = load ptr, ptr %6, align 8
-  %512 = load i32, ptr %8, align 4
-  %513 = sext i32 %512 to i64
-  %514 = getelementptr inbounds ptr, ptr %511, i64 %513
-  %515 = load ptr, ptr %514, align 8
-  %516 = call zeroext i1 @pmix_check_cli_option(ptr noundef %515, ptr noundef @.str.21)
-  br i1 %516, label %517, label %526
-
-517:                                              ; preds = %510
-  %518 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %519 = icmp eq i32 0, %518
-  %520 = select i1 %519, i32 1, i32 0
-  %521 = icmp ne i32 %520, 0
-  %522 = zext i1 %521 to i8
-  store i8 %522, ptr %9, align 1
-  %523 = load ptr, ptr %4, align 8
-  %524 = getelementptr inbounds %struct.prte_job_t, ptr %523, i32 0, i32 26
-  %525 = call i32 @prte_set_attribute(ptr noundef %524, i16 noundef zeroext 272, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %585
-
-526:                                              ; preds = %510
-  %527 = load ptr, ptr %6, align 8
-  %528 = load i32, ptr %8, align 4
-  %529 = sext i32 %528 to i64
-  %530 = getelementptr inbounds ptr, ptr %527, i64 %529
-  %531 = load ptr, ptr %530, align 8
-  %532 = call zeroext i1 @pmix_check_cli_option(ptr noundef %531, ptr noundef @.str.22)
-  br i1 %532, label %533, label %542
-
-533:                                              ; preds = %526
-  %534 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %535 = icmp eq i32 0, %534
-  %536 = select i1 %535, i32 1, i32 0
-  %537 = icmp ne i32 %536, 0
-  %538 = zext i1 %537 to i8
-  store i8 %538, ptr %9, align 1
-  %539 = load ptr, ptr %4, align 8
-  %540 = getelementptr inbounds %struct.prte_job_t, ptr %539, i32 0, i32 26
-  %541 = call i32 @prte_set_attribute(ptr noundef %540, i16 noundef zeroext 273, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %584
-
-542:                                              ; preds = %526
-  %543 = load ptr, ptr %6, align 8
-  %544 = load i32, ptr %8, align 4
-  %545 = sext i32 %544 to i64
-  %546 = getelementptr inbounds ptr, ptr %543, i64 %545
-  %547 = load ptr, ptr %546, align 8
-  %548 = call zeroext i1 @pmix_check_cli_option(ptr noundef %547, ptr noundef @.str.23)
-  br i1 %548, label %549, label %558
-
-549:                                              ; preds = %542
-  %550 = call i32 @PMIx_Value_true(ptr noundef %15)
-  %551 = icmp eq i32 0, %550
-  %552 = select i1 %551, i32 1, i32 0
-  %553 = icmp ne i32 %552, 0
-  %554 = zext i1 %553 to i8
-  store i8 %554, ptr %9, align 1
-  %555 = load ptr, ptr %4, align 8
-  %556 = getelementptr inbounds %struct.prte_job_t, ptr %555, i32 0, i32 26
-  %557 = call i32 @prte_set_attribute(ptr noundef %556, i16 noundef zeroext 296, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
-  br label %583
-
-558:                                              ; preds = %542
-  %559 = load ptr, ptr %6, align 8
-  %560 = load i32, ptr %8, align 4
-  %561 = sext i32 %560 to i64
-  %562 = getelementptr inbounds ptr, ptr %559, i64 %561
-  %563 = load ptr, ptr %562, align 8
-  %564 = call zeroext i1 @pmix_check_cli_option(ptr noundef %563, ptr noundef @.str.24)
-  br i1 %564, label %565, label %579
-
-565:                                              ; preds = %558
-  %566 = load ptr, ptr %7, align 8
-  %567 = icmp eq ptr null, %566
-  br i1 %567, label %573, label %568
-
-568:                                              ; preds = %565
-  %569 = load ptr, ptr %7, align 8
-  %570 = load i8, ptr %569, align 1
-  %571 = sext i8 %570 to i32
-  %572 = icmp eq i32 0, %571
-  br i1 %572, label %573, label %574
-
-573:                                              ; preds = %568, %565
-  store ptr @.str.25, ptr %7, align 8
-  br label %574
-
-574:                                              ; preds = %573, %568
-  %575 = load ptr, ptr %4, align 8
-  %576 = getelementptr inbounds %struct.prte_job_t, ptr %575, i32 0, i32 26
-  %577 = load ptr, ptr %7, align 8
-  %578 = call i32 @prte_set_attribute(ptr noundef %576, i16 noundef zeroext 308, i1 noundef zeroext false, ptr noundef %577, i16 noundef zeroext 3)
-  br label %582
-
-579:                                              ; preds = %558
-  %580 = load ptr, ptr %5, align 8
-  %581 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str, ptr noundef @.str.26, i32 noundef 1, ptr noundef @.str.2, ptr noundef %580)
-  store i32 -43, ptr %3, align 4
-  br label %621
-
-582:                                              ; preds = %574
-  br label %583
-
-583:                                              ; preds = %582, %549
-  br label %584
-
-584:                                              ; preds = %583, %533
-  br label %585
-
-585:                                              ; preds = %584, %517
-  br label %586
-
-586:                                              ; preds = %585, %504
-  br label %587
-
-587:                                              ; preds = %586, %491
-  br label %588
-
-588:                                              ; preds = %587, %483
-  br label %589
-
-589:                                              ; preds = %588, %457
-  br label %590
-
-590:                                              ; preds = %589, %431
-  br label %591
-
-591:                                              ; preds = %590, %406
-  br label %592
-
-592:                                              ; preds = %591, %394
-  br label %593
-
-593:                                              ; preds = %592, %386
-  br label %594
-
-594:                                              ; preds = %593, %329
-  br label %595
-
-595:                                              ; preds = %594, %313
-  br label %596
-
-596:                                              ; preds = %595, %297
-  br label %597
-
-597:                                              ; preds = %596, %281
-  br label %598
-
-598:                                              ; preds = %597, %265
-  br label %599
-
-599:                                              ; preds = %598, %257
-  br label %600
-
-600:                                              ; preds = %599, %225
+  %417 = load ptr, ptr %4, align 8
+  %418 = getelementptr inbounds %struct.prte_job_t, ptr %417, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %418, i16 noundef zeroext 295)
   br label %601
 
-601:                                              ; preds = %600
-  %602 = load i32, ptr %8, align 4
-  %603 = add nsw i32 %602, 1
-  store i32 %603, ptr %8, align 4
-  br label %183, !llvm.loop !7
+419:                                              ; preds = %409
+  %420 = load ptr, ptr %6, align 8
+  %421 = load i32, ptr %8, align 4
+  %422 = sext i32 %421 to i64
+  %423 = getelementptr inbounds ptr, ptr %420, i64 %422
+  %424 = load ptr, ptr %423, align 8
+  %425 = call zeroext i1 @pmix_check_cli_option(ptr noundef %424, ptr noundef @.str.14)
+  br i1 %425, label %426, label %442
 
-604:                                              ; preds = %183
-  %605 = load ptr, ptr %6, align 8
-  call void @PMIx_Argv_free(ptr noundef %605)
+426:                                              ; preds = %419
+  %427 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %428 = icmp eq i32 0, %427
+  %429 = select i1 %428, i32 1, i32 0
+  %430 = icmp ne i32 %429, 0
+  %431 = zext i1 %430 to i8
+  store i8 %431, ptr %9, align 1
+  %432 = load i8, ptr %9, align 1
+  %433 = trunc i8 %432 to i1
+  br i1 %433, label %434, label %438
+
+434:                                              ; preds = %426
+  %435 = load ptr, ptr %4, align 8
+  %436 = getelementptr inbounds %struct.prte_job_t, ptr %435, i32 0, i32 26
+  %437 = call i32 @prte_set_attribute(ptr noundef %436, i16 noundef zeroext 262, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
+  br label %441
+
+438:                                              ; preds = %426
+  %439 = load ptr, ptr %4, align 8
+  %440 = getelementptr inbounds %struct.prte_job_t, ptr %439, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %440, i16 noundef zeroext 262)
+  br label %441
+
+441:                                              ; preds = %438, %434
+  br label %600
+
+442:                                              ; preds = %419
+  %443 = load ptr, ptr %6, align 8
+  %444 = load i32, ptr %8, align 4
+  %445 = sext i32 %444 to i64
+  %446 = getelementptr inbounds ptr, ptr %443, i64 %445
+  %447 = load ptr, ptr %446, align 8
+  %448 = call zeroext i1 @pmix_check_cli_option(ptr noundef %447, ptr noundef @.str.15)
+  br i1 %448, label %449, label %468
+
+449:                                              ; preds = %442
+  %450 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %451 = icmp eq i32 0, %450
+  %452 = select i1 %451, i32 1, i32 0
+  %453 = icmp ne i32 %452, 0
+  %454 = zext i1 %453 to i8
+  store i8 %454, ptr %9, align 1
+  %455 = load i8, ptr %9, align 1
+  %456 = trunc i8 %455 to i1
+  br i1 %456, label %457, label %464
+
+457:                                              ; preds = %449
+  %458 = load ptr, ptr %4, align 8
+  %459 = getelementptr inbounds %struct.prte_job_t, ptr %458, i32 0, i32 26
+  %460 = call i32 @prte_set_attribute(ptr noundef %459, i16 noundef zeroext 288, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
+  %461 = call i32 @PMIx_Info_load(ptr noundef %14, ptr noundef @.str.16, ptr noundef null, i16 noundef zeroext 1)
+  %462 = load ptr, ptr %4, align 8
+  %463 = call i32 @pmix_server_cache_job_info(ptr noundef %462, ptr noundef %14)
+  br label %467
+
+464:                                              ; preds = %449
+  %465 = load ptr, ptr %4, align 8
+  %466 = getelementptr inbounds %struct.prte_job_t, ptr %465, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %466, i16 noundef zeroext 288)
+  br label %467
+
+467:                                              ; preds = %464, %457
+  br label %599
+
+468:                                              ; preds = %442
+  %469 = load ptr, ptr %6, align 8
+  %470 = load i32, ptr %8, align 4
+  %471 = sext i32 %470 to i64
+  %472 = getelementptr inbounds ptr, ptr %469, i64 %471
+  %473 = load ptr, ptr %472, align 8
+  %474 = call zeroext i1 @pmix_check_cli_option(ptr noundef %473, ptr noundef @.str.17)
+  br i1 %474, label %475, label %494
+
+475:                                              ; preds = %468
+  %476 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %477 = icmp eq i32 0, %476
+  %478 = select i1 %477, i32 1, i32 0
+  %479 = icmp ne i32 %478, 0
+  %480 = zext i1 %479 to i8
+  store i8 %480, ptr %9, align 1
+  %481 = load i8, ptr %9, align 1
+  %482 = trunc i8 %481 to i1
+  br i1 %482, label %483, label %490
+
+483:                                              ; preds = %475
+  %484 = load ptr, ptr %4, align 8
+  %485 = getelementptr inbounds %struct.prte_job_t, ptr %484, i32 0, i32 26
+  %486 = call i32 @prte_set_attribute(ptr noundef %485, i16 noundef zeroext 289, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1)
+  %487 = call i32 @PMIx_Info_load(ptr noundef %14, ptr noundef @.str.18, ptr noundef null, i16 noundef zeroext 1)
+  %488 = load ptr, ptr %4, align 8
+  %489 = call i32 @pmix_server_cache_job_info(ptr noundef %488, ptr noundef %14)
+  br label %493
+
+490:                                              ; preds = %475
+  %491 = load ptr, ptr %4, align 8
+  %492 = getelementptr inbounds %struct.prte_job_t, ptr %491, i32 0, i32 26
+  call void @prte_remove_attribute(ptr noundef %492, i16 noundef zeroext 289)
+  br label %493
+
+493:                                              ; preds = %490, %483
+  br label %598
+
+494:                                              ; preds = %468
+  %495 = load ptr, ptr %6, align 8
+  %496 = load i32, ptr %8, align 4
+  %497 = sext i32 %496 to i64
+  %498 = getelementptr inbounds ptr, ptr %495, i64 %497
+  %499 = load ptr, ptr %498, align 8
+  %500 = call zeroext i1 @pmix_check_cli_option(ptr noundef %499, ptr noundef @.str.19)
+  br i1 %500, label %501, label %507
+
+501:                                              ; preds = %494
+  %502 = load ptr, ptr %7, align 8
+  %503 = call i32 @pmix_convert_string_to_time(ptr noundef %502)
+  store i32 %503, ptr %8, align 4
+  %504 = load ptr, ptr %4, align 8
+  %505 = getelementptr inbounds %struct.prte_job_t, ptr %504, i32 0, i32 26
+  %506 = call i32 @prte_set_attribute(ptr noundef %505, i16 noundef zeroext 271, i1 noundef zeroext false, ptr noundef %8, i16 noundef zeroext 6)
+  br label %597
+
+507:                                              ; preds = %494
+  %508 = load ptr, ptr %6, align 8
+  %509 = load i32, ptr %8, align 4
+  %510 = sext i32 %509 to i64
+  %511 = getelementptr inbounds ptr, ptr %508, i64 %510
+  %512 = load ptr, ptr %511, align 8
+  %513 = call zeroext i1 @pmix_check_cli_option(ptr noundef %512, ptr noundef @.str.20)
+  br i1 %513, label %514, label %520
+
+514:                                              ; preds = %507
+  %515 = load ptr, ptr %7, align 8
+  %516 = call i32 @pmix_convert_string_to_time(ptr noundef %515)
+  store i32 %516, ptr %8, align 4
+  %517 = load ptr, ptr %4, align 8
+  %518 = getelementptr inbounds %struct.prte_job_t, ptr %517, i32 0, i32 26
+  %519 = call i32 @prte_set_attribute(ptr noundef %518, i16 noundef zeroext 293, i1 noundef zeroext false, ptr noundef %8, i16 noundef zeroext 6)
+  br label %596
+
+520:                                              ; preds = %507
+  %521 = load ptr, ptr %6, align 8
+  %522 = load i32, ptr %8, align 4
+  %523 = sext i32 %522 to i64
+  %524 = getelementptr inbounds ptr, ptr %521, i64 %523
+  %525 = load ptr, ptr %524, align 8
+  %526 = call zeroext i1 @pmix_check_cli_option(ptr noundef %525, ptr noundef @.str.21)
+  br i1 %526, label %527, label %536
+
+527:                                              ; preds = %520
+  %528 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %529 = icmp eq i32 0, %528
+  %530 = select i1 %529, i32 1, i32 0
+  %531 = icmp ne i32 %530, 0
+  %532 = zext i1 %531 to i8
+  store i8 %532, ptr %9, align 1
+  %533 = load ptr, ptr %4, align 8
+  %534 = getelementptr inbounds %struct.prte_job_t, ptr %533, i32 0, i32 26
+  %535 = call i32 @prte_set_attribute(ptr noundef %534, i16 noundef zeroext 272, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %595
+
+536:                                              ; preds = %520
+  %537 = load ptr, ptr %6, align 8
+  %538 = load i32, ptr %8, align 4
+  %539 = sext i32 %538 to i64
+  %540 = getelementptr inbounds ptr, ptr %537, i64 %539
+  %541 = load ptr, ptr %540, align 8
+  %542 = call zeroext i1 @pmix_check_cli_option(ptr noundef %541, ptr noundef @.str.22)
+  br i1 %542, label %543, label %552
+
+543:                                              ; preds = %536
+  %544 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %545 = icmp eq i32 0, %544
+  %546 = select i1 %545, i32 1, i32 0
+  %547 = icmp ne i32 %546, 0
+  %548 = zext i1 %547 to i8
+  store i8 %548, ptr %9, align 1
+  %549 = load ptr, ptr %4, align 8
+  %550 = getelementptr inbounds %struct.prte_job_t, ptr %549, i32 0, i32 26
+  %551 = call i32 @prte_set_attribute(ptr noundef %550, i16 noundef zeroext 273, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %594
+
+552:                                              ; preds = %536
+  %553 = load ptr, ptr %6, align 8
+  %554 = load i32, ptr %8, align 4
+  %555 = sext i32 %554 to i64
+  %556 = getelementptr inbounds ptr, ptr %553, i64 %555
+  %557 = load ptr, ptr %556, align 8
+  %558 = call zeroext i1 @pmix_check_cli_option(ptr noundef %557, ptr noundef @.str.23)
+  br i1 %558, label %559, label %568
+
+559:                                              ; preds = %552
+  %560 = call i32 @PMIx_Value_true(ptr noundef %15)
+  %561 = icmp eq i32 0, %560
+  %562 = select i1 %561, i32 1, i32 0
+  %563 = icmp ne i32 %562, 0
+  %564 = zext i1 %563 to i8
+  store i8 %564, ptr %9, align 1
+  %565 = load ptr, ptr %4, align 8
+  %566 = getelementptr inbounds %struct.prte_job_t, ptr %565, i32 0, i32 26
+  %567 = call i32 @prte_set_attribute(ptr noundef %566, i16 noundef zeroext 296, i1 noundef zeroext false, ptr noundef %9, i16 noundef zeroext 1)
+  br label %593
+
+568:                                              ; preds = %552
+  %569 = load ptr, ptr %6, align 8
+  %570 = load i32, ptr %8, align 4
+  %571 = sext i32 %570 to i64
+  %572 = getelementptr inbounds ptr, ptr %569, i64 %571
+  %573 = load ptr, ptr %572, align 8
+  %574 = call zeroext i1 @pmix_check_cli_option(ptr noundef %573, ptr noundef @.str.24)
+  br i1 %574, label %575, label %589
+
+575:                                              ; preds = %568
+  %576 = load ptr, ptr %7, align 8
+  %577 = icmp eq ptr null, %576
+  br i1 %577, label %583, label %578
+
+578:                                              ; preds = %575
+  %579 = load ptr, ptr %7, align 8
+  %580 = load i8, ptr %579, align 1
+  %581 = sext i8 %580 to i32
+  %582 = icmp eq i32 0, %581
+  br i1 %582, label %583, label %584
+
+583:                                              ; preds = %578, %575
+  store ptr @.str.25, ptr %7, align 8
+  br label %584
+
+584:                                              ; preds = %583, %578
+  %585 = load ptr, ptr %4, align 8
+  %586 = getelementptr inbounds %struct.prte_job_t, ptr %585, i32 0, i32 26
+  %587 = load ptr, ptr %7, align 8
+  %588 = call i32 @prte_set_attribute(ptr noundef %586, i16 noundef zeroext 308, i1 noundef zeroext false, ptr noundef %587, i16 noundef zeroext 3)
+  br label %592
+
+589:                                              ; preds = %568
+  %590 = load ptr, ptr %5, align 8
+  %591 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str, ptr noundef @.str.26, i32 noundef 1, ptr noundef @.str.2, ptr noundef %590)
+  store i32 -43, ptr %3, align 4
+  br label %631
+
+592:                                              ; preds = %584
+  br label %593
+
+593:                                              ; preds = %592, %559
+  br label %594
+
+594:                                              ; preds = %593, %543
+  br label %595
+
+595:                                              ; preds = %594, %527
+  br label %596
+
+596:                                              ; preds = %595, %514
+  br label %597
+
+597:                                              ; preds = %596, %501
+  br label %598
+
+598:                                              ; preds = %597, %493
+  br label %599
+
+599:                                              ; preds = %598, %467
+  br label %600
+
+600:                                              ; preds = %599, %441
+  br label %601
+
+601:                                              ; preds = %600, %416
+  br label %602
+
+602:                                              ; preds = %601, %404
+  br label %603
+
+603:                                              ; preds = %602, %396
+  br label %604
+
+604:                                              ; preds = %603, %339
+  br label %605
+
+605:                                              ; preds = %604, %323
   br label %606
 
-606:                                              ; preds = %604, %179
-  %607 = load ptr, ptr %4, align 8
-  %608 = getelementptr inbounds %struct.prte_job_t, ptr %607, i32 0, i32 26
-  %609 = call zeroext i1 @prte_get_attribute(ptr noundef %608, i16 noundef zeroext 306, ptr noundef null, i16 noundef zeroext 1)
-  br i1 %609, label %610, label %620
+606:                                              ; preds = %605, %307
+  br label %607
 
-610:                                              ; preds = %606
-  %611 = load ptr, ptr %4, align 8
-  %612 = getelementptr inbounds %struct.prte_job_t, ptr %611, i32 0, i32 26
-  %613 = call zeroext i1 @prte_get_attribute(ptr noundef %612, i16 noundef zeroext 305, ptr noundef null, i16 noundef zeroext 1)
-  br i1 %613, label %620, label %614
+607:                                              ; preds = %606, %291
+  br label %608
 
-614:                                              ; preds = %610
-  %615 = load ptr, ptr %4, align 8
-  %616 = getelementptr inbounds %struct.prte_job_t, ptr %615, i32 0, i32 26
-  %617 = call zeroext i1 @prte_get_attribute(ptr noundef %616, i16 noundef zeroext 219, ptr noundef null, i16 noundef zeroext 1)
-  br i1 %617, label %620, label %618
+608:                                              ; preds = %607, %275
+  br label %609
 
-618:                                              ; preds = %614
-  %619 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.27, ptr noundef @.str.28, i32 noundef 1)
+609:                                              ; preds = %608, %267
+  br label %610
+
+610:                                              ; preds = %609, %235
+  br label %611
+
+611:                                              ; preds = %610
+  %612 = load i32, ptr %8, align 4
+  %613 = add nsw i32 %612, 1
+  store i32 %613, ptr %8, align 4
+  br label %193, !llvm.loop !7
+
+614:                                              ; preds = %193
+  %615 = load ptr, ptr %6, align 8
+  call void @PMIx_Argv_free(ptr noundef %615)
+  br label %616
+
+616:                                              ; preds = %614, %189
+  %617 = load ptr, ptr %4, align 8
+  %618 = getelementptr inbounds %struct.prte_job_t, ptr %617, i32 0, i32 26
+  %619 = call zeroext i1 @prte_get_attribute(ptr noundef %618, i16 noundef zeroext 306, ptr noundef null, i16 noundef zeroext 1)
+  br i1 %619, label %620, label %630
+
+620:                                              ; preds = %616
+  %621 = load ptr, ptr %4, align 8
+  %622 = getelementptr inbounds %struct.prte_job_t, ptr %621, i32 0, i32 26
+  %623 = call zeroext i1 @prte_get_attribute(ptr noundef %622, i16 noundef zeroext 305, ptr noundef null, i16 noundef zeroext 1)
+  br i1 %623, label %630, label %624
+
+624:                                              ; preds = %620
+  %625 = load ptr, ptr %4, align 8
+  %626 = getelementptr inbounds %struct.prte_job_t, ptr %625, i32 0, i32 26
+  %627 = call zeroext i1 @prte_get_attribute(ptr noundef %626, i16 noundef zeroext 219, ptr noundef null, i16 noundef zeroext 1)
+  br i1 %627, label %630, label %628
+
+628:                                              ; preds = %624
+  %629 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.27, ptr noundef @.str.28, i32 noundef 1)
   store i32 -43, ptr %3, align 4
-  br label %621
+  br label %631
 
-620:                                              ; preds = %614, %610, %606
+630:                                              ; preds = %624, %620, %616
   store i32 0, ptr %3, align 4
-  br label %621
+  br label %631
 
-621:                                              ; preds = %620, %618, %579, %350, %207
-  %622 = load i32, ptr %3, align 4
-  ret i32 %622
+631:                                              ; preds = %630, %628, %589, %360, %217
+  %632 = load i32, ptr %3, align 4
+  ret i32 %632
 }
 
 declare zeroext i1 @prte_get_attribute(ptr noundef, i16 noundef zeroext, ptr noundef, i16 noundef zeroext) #1

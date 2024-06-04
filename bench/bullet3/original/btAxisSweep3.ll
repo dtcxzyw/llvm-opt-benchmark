@@ -441,7 +441,8 @@ entry:
   %4 = load i8, ptr %disableRaycastAccelerator.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN20btAxisSweep3InternalItEC2ERK9btVector3S3_tttP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i16 noundef zeroext -2, i16 noundef zeroext -1, i16 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12btAxisSweep3, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV12btAxisSweep3, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   ret void
 }
 
@@ -481,13 +482,14 @@ entry:
   store i8 %frombool, ptr %disableRaycastAccelerator.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btBroadphaseInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_bpHandleMask = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 1
-  %0 = load i16, ptr %handleMask.addr, align 2
-  store i16 %0, ptr %m_bpHandleMask, align 8
+  %1 = load i16, ptr %handleMask.addr, align 2
+  store i16 %1, ptr %m_bpHandleMask, align 8
   %m_handleSentinel = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 2
-  %1 = load i16, ptr %handleSentinel.addr, align 2
-  store i16 %1, ptr %m_handleSentinel, align 2
+  %2 = load i16, ptr %handleSentinel.addr, align 2
+  store i16 %2, ptr %m_handleSentinel, align 2
   %m_worldAabbMin = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 3
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_worldAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -504,8 +506,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %m_pairCache = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 12
-  %2 = load ptr, ptr %pairCache.addr, align 8
-  store ptr %2, ptr %m_pairCache, align 8
+  %3 = load ptr, ptr %pairCache.addr, align 8
+  store ptr %3, ptr %m_pairCache, align 8
   %m_userPairCallback = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 13
   store ptr null, ptr %m_userPairCallback, align 8
   %m_ownsPairCache = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 14
@@ -514,14 +516,14 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   store i32 0, ptr %m_invalidPair, align 4
   %m_raycastAccelerator = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 16
   store ptr null, ptr %m_raycastAccelerator, align 8
-  %3 = load i16, ptr %userMaxHandles.addr, align 2
-  %conv = zext i16 %3 to i32
+  %4 = load i16, ptr %userMaxHandles.addr, align 2
+  %conv = zext i16 %4 to i32
   %add = add nsw i32 %conv, 1
   %conv4 = trunc i32 %add to i16
   store i16 %conv4, ptr %maxHandles, align 2
   %m_pairCache5 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 12
-  %4 = load ptr, ptr %m_pairCache5, align 8
-  %tobool = icmp ne ptr %4, null
+  %5 = load ptr, ptr %m_pairCache5, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont3
@@ -530,8 +532,8 @@ if.then:                                          ; preds = %invoke.cont3
 
 invoke.cont6:                                     ; preds = %if.then
   store ptr %call, ptr %ptr, align 8
-  %5 = load ptr, ptr %ptr, align 8
-  %call8 = invoke noundef ptr @_ZN28btHashedOverlappingPairCachenwEmPv(i64 noundef 120, ptr noundef %5)
+  %6 = load ptr, ptr %ptr, align 8
+  %call8 = invoke noundef ptr @_ZN28btHashedOverlappingPairCachenwEmPv(i64 noundef 120, ptr noundef %6)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont6
@@ -546,27 +548,27 @@ invoke.cont10:                                    ; preds = %invoke.cont7
   br label %if.end
 
 lpad:                                             ; preds = %for.body65, %for.end, %for.body, %invoke.cont40, %invoke.cont39, %invoke.cont29, %if.end24, %invoke.cont18, %invoke.cont17, %invoke.cont15, %if.then14, %invoke.cont6, %if.then, %invoke.cont2, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont7
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZN28btHashedOverlappingPairCachedlEPvS0_(ptr noundef %call8, ptr noundef %5) #11
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  call void @_ZN28btHashedOverlappingPairCachedlEPvS0_(ptr noundef %call8, ptr noundef %6) #11
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont10, %invoke.cont3
-  %12 = load i8, ptr %disableRaycastAccelerator.addr, align 1
-  %tobool13 = trunc i8 %12 to i1
+  %13 = load i8, ptr %disableRaycastAccelerator.addr, align 1
+  %tobool13 = trunc i8 %13 to i1
   br i1 %tobool13, label %if.end24, label %if.then14
 
 if.then14:                                        ; preds = %if.end
@@ -586,26 +588,26 @@ invoke.cont17:                                    ; preds = %invoke.cont15
 
 invoke.cont18:                                    ; preds = %invoke.cont17
   %m_nullPairCache20 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 17
-  %13 = load ptr, ptr %m_nullPairCache20, align 8
-  invoke void @_ZN16btDbvtBroadphaseC1EP22btOverlappingPairCache(ptr noundef nonnull align 8 dereferenceable(256) %call19, ptr noundef %13)
+  %14 = load ptr, ptr %m_nullPairCache20, align 8
+  invoke void @_ZN16btDbvtBroadphaseC1EP22btOverlappingPairCache(ptr noundef nonnull align 8 dereferenceable(256) %call19, ptr noundef %14)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont18
   %m_raycastAccelerator22 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 16
   store ptr %call19, ptr %m_raycastAccelerator22, align 8
   %m_raycastAccelerator23 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 16
-  %14 = load ptr, ptr %m_raycastAccelerator23, align 8
-  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %14, i32 0, i32 18
+  %15 = load ptr, ptr %m_raycastAccelerator23, align 8
+  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %15, i32 0, i32 18
   store i8 1, ptr %m_deferedcollide, align 1
   br label %if.end24
 
 if.end24:                                         ; preds = %invoke.cont21, %if.end
-  %15 = load ptr, ptr %worldAabbMin.addr, align 8
+  %16 = load ptr, ptr %worldAabbMin.addr, align 8
   %m_worldAabbMin25 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_worldAabbMin25, ptr align 4 %15, i64 16, i1 false)
-  %16 = load ptr, ptr %worldAabbMax.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_worldAabbMin25, ptr align 4 %16, i64 16, i1 false)
+  %17 = load ptr, ptr %worldAabbMax.addr, align 8
   %m_worldAabbMax26 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_worldAabbMax26, ptr align 4 %16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_worldAabbMax26, ptr align 4 %17, i64 16, i1 false)
   %m_worldAabbMax27 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 4
   %m_worldAabbMin28 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 3
   %call30 = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_worldAabbMax27, ptr noundef nonnull align 4 dereferenceable(16) %m_worldAabbMin28)
@@ -613,23 +615,23 @@ if.end24:                                         ; preds = %invoke.cont21, %if.
 
 invoke.cont29:                                    ; preds = %if.end24
   %coerce.dive = getelementptr inbounds %class.btVector3, ptr %aabbSize, i32 0, i32 0
-  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %18 = extractvalue { <2 x float>, <2 x float> } %call30, 0
-  store <2 x float> %18, ptr %17, align 4
-  %19 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %20 = extractvalue { <2 x float>, <2 x float> } %call30, 1
-  store <2 x float> %20, ptr %19, align 4
+  %18 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
+  %19 = extractvalue { <2 x float>, <2 x float> } %call30, 0
+  store <2 x float> %19, ptr %18, align 4
+  %20 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
+  %21 = extractvalue { <2 x float>, <2 x float> } %call30, 1
+  store <2 x float> %21, ptr %20, align 4
   %m_handleSentinel31 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 2
-  %21 = load i16, ptr %m_handleSentinel31, align 2
-  store i16 %21, ptr %maxInt, align 2
-  %22 = load i16, ptr %maxInt, align 2
-  %conv34 = uitofp i16 %22 to float
-  store float %conv34, ptr %ref.tmp33, align 4
+  %22 = load i16, ptr %m_handleSentinel31, align 2
+  store i16 %22, ptr %maxInt, align 2
   %23 = load i16, ptr %maxInt, align 2
-  %conv36 = uitofp i16 %23 to float
-  store float %conv36, ptr %ref.tmp35, align 4
+  %conv34 = uitofp i16 %23 to float
+  store float %conv34, ptr %ref.tmp33, align 4
   %24 = load i16, ptr %maxInt, align 2
-  %conv38 = uitofp i16 %24 to float
+  %conv36 = uitofp i16 %24 to float
+  store float %conv36, ptr %ref.tmp35, align 4
+  %25 = load i16, ptr %maxInt, align 2
+  %conv38 = uitofp i16 %25 to float
   store float %conv38, ptr %ref.tmp37, align 4
   invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37)
           to label %invoke.cont39 unwind label %lpad
@@ -640,21 +642,21 @@ invoke.cont39:                                    ; preds = %invoke.cont29
 
 invoke.cont40:                                    ; preds = %invoke.cont39
   %coerce.dive42 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %25 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive42, i32 0, i32 0
-  %26 = extractvalue { <2 x float>, <2 x float> } %call41, 0
-  store <2 x float> %26, ptr %25, align 4
-  %27 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive42, i32 0, i32 1
-  %28 = extractvalue { <2 x float>, <2 x float> } %call41, 1
-  store <2 x float> %28, ptr %27, align 4
+  %26 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive42, i32 0, i32 0
+  %27 = extractvalue { <2 x float>, <2 x float> } %call41, 0
+  store <2 x float> %27, ptr %26, align 4
+  %28 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive42, i32 0, i32 1
+  %29 = extractvalue { <2 x float>, <2 x float> } %call41, 1
+  store <2 x float> %29, ptr %28, align 4
   %m_quantize43 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_quantize43, ptr align 4 %ref.tmp, i64 16, i1 false)
-  %29 = load i16, ptr %maxHandles, align 2
-  %conv44 = zext i16 %29 to i64
-  %30 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv44, i64 72)
-  %31 = extractvalue { i64, i1 } %30, 1
-  %32 = extractvalue { i64, i1 } %30, 0
-  %33 = select i1 %31, i64 -1, i64 %32
-  %call46 = invoke noundef ptr @_ZN20btAxisSweep3InternalItE6HandlenaEm(i64 noundef %33)
+  %30 = load i16, ptr %maxHandles, align 2
+  %conv44 = zext i16 %30 to i64
+  %31 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv44, i64 72)
+  %32 = extractvalue { i64, i1 } %31, 1
+  %33 = extractvalue { i64, i1 } %31, 0
+  %34 = select i1 %32, i64 -1, i64 %33
+  %call46 = invoke noundef ptr @_ZN20btAxisSweep3InternalItE6HandlenaEm(i64 noundef %34)
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont40
@@ -678,34 +680,34 @@ invoke.cont48:                                    ; preds = %arrayctor.loop
 arrayctor.cont:                                   ; preds = %invoke.cont48, %invoke.cont45
   %m_pHandles = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 8
   store ptr %call46, ptr %m_pHandles, align 8
-  %34 = load i16, ptr %maxHandles, align 2
+  %35 = load i16, ptr %maxHandles, align 2
   %m_maxHandles = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 7
-  store i16 %34, ptr %m_maxHandles, align 2
+  store i16 %35, ptr %m_maxHandles, align 2
   %m_numHandles = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 6
   store i16 0, ptr %m_numHandles, align 4
   %m_firstFreeHandle = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 9
   store i16 1, ptr %m_firstFreeHandle, align 8
   %m_firstFreeHandle49 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 9
-  %35 = load i16, ptr %m_firstFreeHandle49, align 8
-  store i16 %35, ptr %i, align 2
+  %36 = load i16, ptr %m_firstFreeHandle49, align 8
+  store i16 %36, ptr %i, align 2
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %arrayctor.cont
-  %36 = load i16, ptr %i, align 2
-  %conv50 = zext i16 %36 to i32
-  %37 = load i16, ptr %maxHandles, align 2
-  %conv51 = zext i16 %37 to i32
+  %37 = load i16, ptr %i, align 2
+  %conv50 = zext i16 %37 to i32
+  %38 = load i16, ptr %maxHandles, align 2
+  %conv51 = zext i16 %38 to i32
   %cmp = icmp slt i32 %conv50, %conv51
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_pHandles52 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 8
-  %38 = load ptr, ptr %m_pHandles52, align 8
-  %39 = load i16, ptr %i, align 2
-  %idxprom = zext i16 %39 to i64
-  %arrayidx = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %38, i64 %idxprom
+  %39 = load ptr, ptr %m_pHandles52, align 8
   %40 = load i16, ptr %i, align 2
-  %conv53 = zext i16 %40 to i32
+  %idxprom = zext i16 %40 to i64
+  %arrayidx = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %39, i64 %idxprom
+  %41 = load i16, ptr %i, align 2
+  %conv53 = zext i16 %41 to i32
   %add54 = add nsw i32 %conv53, 1
   %conv55 = trunc i32 %add54 to i16
   invoke void @_ZN20btAxisSweep3InternalItE6Handle11SetNextFreeEt(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx, i16 noundef zeroext %conv55)
@@ -715,29 +717,29 @@ invoke.cont56:                                    ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont56
-  %41 = load i16, ptr %i, align 2
-  %inc = add i16 %41, 1
+  %42 = load i16, ptr %i, align 2
+  %inc = add i16 %42, 1
   store i16 %inc, ptr %i, align 2
   br label %for.cond, !llvm.loop !5
 
 lpad47:                                           ; preds = %arrayctor.loop
-  %42 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %exn.slot, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %ehselector.slot, align 4
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %exn.slot, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %ehselector.slot, align 4
   call void @_ZN20btAxisSweep3InternalItE6HandledaEPv(ptr noundef %call46) #11
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %m_pHandles57 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 8
-  %45 = load ptr, ptr %m_pHandles57, align 8
-  %46 = load i16, ptr %maxHandles, align 2
-  %conv58 = zext i16 %46 to i32
+  %46 = load ptr, ptr %m_pHandles57, align 8
+  %47 = load i16, ptr %maxHandles, align 2
+  %conv58 = zext i16 %47 to i32
   %sub = sub nsw i32 %conv58, 1
   %idxprom59 = sext i32 %sub to i64
-  %arrayidx60 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %45, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %46, i64 %idxprom59
   invoke void @_ZN20btAxisSweep3InternalItE6Handle11SetNextFreeEt(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx60, i16 noundef zeroext 0)
           to label %invoke.cont61 unwind label %lpad
 
@@ -746,13 +748,13 @@ invoke.cont61:                                    ; preds = %for.end
   br label %for.cond63
 
 for.cond63:                                       ; preds = %for.inc80, %invoke.cont61
-  %47 = load i32, ptr %i62, align 4
-  %cmp64 = icmp slt i32 %47, 3
+  %48 = load i32, ptr %i62, align 4
+  %cmp64 = icmp slt i32 %48, 3
   br i1 %cmp64, label %for.body65, label %for.end82
 
 for.body65:                                       ; preds = %for.cond63
-  %48 = load i16, ptr %maxHandles, align 2
-  %conv66 = zext i16 %48 to i64
+  %49 = load i16, ptr %maxHandles, align 2
+  %conv66 = zext i16 %49 to i64
   %mul = mul i64 4, %conv66
   %mul67 = mul i64 %mul, 2
   %call69 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul67, i32 noundef 16)
@@ -760,98 +762,98 @@ for.body65:                                       ; preds = %for.cond63
 
 invoke.cont68:                                    ; preds = %for.body65
   %m_pEdgesRawPtr = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 11
-  %49 = load i32, ptr %i62, align 4
-  %idxprom70 = sext i32 %49 to i64
+  %50 = load i32, ptr %i62, align 4
+  %idxprom70 = sext i32 %50 to i64
   %arrayidx71 = getelementptr inbounds [3 x ptr], ptr %m_pEdgesRawPtr, i64 0, i64 %idxprom70
   store ptr %call69, ptr %arrayidx71, align 8
   %m_pEdgesRawPtr75 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 11
-  %50 = load i32, ptr %i62, align 4
-  %idxprom76 = sext i32 %50 to i64
+  %51 = load i32, ptr %i62, align 4
+  %idxprom76 = sext i32 %51 to i64
   %arrayidx77 = getelementptr inbounds [3 x ptr], ptr %m_pEdgesRawPtr75, i64 0, i64 %idxprom76
-  %51 = load ptr, ptr %arrayidx77, align 8
+  %52 = load ptr, ptr %arrayidx77, align 8
   %m_pEdges = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 10
-  %52 = load i32, ptr %i62, align 4
-  %idxprom78 = sext i32 %52 to i64
+  %53 = load i32, ptr %i62, align 4
+  %idxprom78 = sext i32 %53 to i64
   %arrayidx79 = getelementptr inbounds [3 x ptr], ptr %m_pEdges, i64 0, i64 %idxprom78
-  store ptr %51, ptr %arrayidx79, align 8
+  store ptr %52, ptr %arrayidx79, align 8
   br label %for.inc80
 
 for.inc80:                                        ; preds = %invoke.cont68
-  %53 = load i32, ptr %i62, align 4
-  %inc81 = add nsw i32 %53, 1
+  %54 = load i32, ptr %i62, align 4
+  %inc81 = add nsw i32 %54, 1
   store i32 %inc81, ptr %i62, align 4
   br label %for.cond63, !llvm.loop !7
 
 for.end82:                                        ; preds = %for.cond63
   %m_pHandles83 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 8
-  %54 = load ptr, ptr %m_pHandles83, align 8
-  %arrayidx84 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %54, i64 0
+  %55 = load ptr, ptr %m_pHandles83, align 8
+  %arrayidx84 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %55, i64 0
   %m_clientObject = getelementptr inbounds %struct.btBroadphaseProxy, ptr %arrayidx84, i32 0, i32 0
   store ptr null, ptr %m_clientObject, align 8
   store i32 0, ptr %axis, align 4
   br label %for.cond85
 
 for.cond85:                                       ; preds = %for.inc115, %for.end82
-  %55 = load i32, ptr %axis, align 4
-  %cmp86 = icmp slt i32 %55, 3
+  %56 = load i32, ptr %axis, align 4
+  %cmp86 = icmp slt i32 %56, 3
   br i1 %cmp86, label %for.body87, label %for.end117
 
 for.body87:                                       ; preds = %for.cond85
   %m_pHandles88 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 8
-  %56 = load ptr, ptr %m_pHandles88, align 8
-  %arrayidx89 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %56, i64 0
+  %57 = load ptr, ptr %m_pHandles88, align 8
+  %arrayidx89 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %57, i64 0
   %m_minEdges = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %arrayidx89, i32 0, i32 1
-  %57 = load i32, ptr %axis, align 4
-  %idxprom90 = sext i32 %57 to i64
+  %58 = load i32, ptr %axis, align 4
+  %idxprom90 = sext i32 %58 to i64
   %arrayidx91 = getelementptr inbounds [3 x i16], ptr %m_minEdges, i64 0, i64 %idxprom90
   store i16 0, ptr %arrayidx91, align 2
   %m_pHandles92 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 8
-  %58 = load ptr, ptr %m_pHandles92, align 8
-  %arrayidx93 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %58, i64 0
+  %59 = load ptr, ptr %m_pHandles92, align 8
+  %arrayidx93 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %59, i64 0
   %m_maxEdges = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %arrayidx93, i32 0, i32 2
-  %59 = load i32, ptr %axis, align 4
-  %idxprom94 = sext i32 %59 to i64
+  %60 = load i32, ptr %axis, align 4
+  %idxprom94 = sext i32 %60 to i64
   %arrayidx95 = getelementptr inbounds [3 x i16], ptr %m_maxEdges, i64 0, i64 %idxprom94
   store i16 1, ptr %arrayidx95, align 2
   %m_pEdges96 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 10
-  %60 = load i32, ptr %axis, align 4
-  %idxprom97 = sext i32 %60 to i64
+  %61 = load i32, ptr %axis, align 4
+  %idxprom97 = sext i32 %61 to i64
   %arrayidx98 = getelementptr inbounds [3 x ptr], ptr %m_pEdges96, i64 0, i64 %idxprom97
-  %61 = load ptr, ptr %arrayidx98, align 8
-  %arrayidx99 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %61, i64 0
+  %62 = load ptr, ptr %arrayidx98, align 8
+  %arrayidx99 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %62, i64 0
   %m_pos = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %arrayidx99, i32 0, i32 0
   store i16 0, ptr %m_pos, align 2
   %m_pEdges100 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 10
-  %62 = load i32, ptr %axis, align 4
-  %idxprom101 = sext i32 %62 to i64
+  %63 = load i32, ptr %axis, align 4
+  %idxprom101 = sext i32 %63 to i64
   %arrayidx102 = getelementptr inbounds [3 x ptr], ptr %m_pEdges100, i64 0, i64 %idxprom101
-  %63 = load ptr, ptr %arrayidx102, align 8
-  %arrayidx103 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %63, i64 0
+  %64 = load ptr, ptr %arrayidx102, align 8
+  %arrayidx103 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %64, i64 0
   %m_handle = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %arrayidx103, i32 0, i32 1
   store i16 0, ptr %m_handle, align 2
   %m_handleSentinel104 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 2
-  %64 = load i16, ptr %m_handleSentinel104, align 2
+  %65 = load i16, ptr %m_handleSentinel104, align 2
   %m_pEdges105 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 10
-  %65 = load i32, ptr %axis, align 4
-  %idxprom106 = sext i32 %65 to i64
+  %66 = load i32, ptr %axis, align 4
+  %idxprom106 = sext i32 %66 to i64
   %arrayidx107 = getelementptr inbounds [3 x ptr], ptr %m_pEdges105, i64 0, i64 %idxprom106
-  %66 = load ptr, ptr %arrayidx107, align 8
-  %arrayidx108 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %66, i64 1
+  %67 = load ptr, ptr %arrayidx107, align 8
+  %arrayidx108 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %67, i64 1
   %m_pos109 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %arrayidx108, i32 0, i32 0
-  store i16 %64, ptr %m_pos109, align 2
+  store i16 %65, ptr %m_pos109, align 2
   %m_pEdges110 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 10
-  %67 = load i32, ptr %axis, align 4
-  %idxprom111 = sext i32 %67 to i64
+  %68 = load i32, ptr %axis, align 4
+  %idxprom111 = sext i32 %68 to i64
   %arrayidx112 = getelementptr inbounds [3 x ptr], ptr %m_pEdges110, i64 0, i64 %idxprom111
-  %68 = load ptr, ptr %arrayidx112, align 8
-  %arrayidx113 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %68, i64 1
+  %69 = load ptr, ptr %arrayidx112, align 8
+  %arrayidx113 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %69, i64 1
   %m_handle114 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %arrayidx113, i32 0, i32 1
   store i16 0, ptr %m_handle114, align 2
   br label %for.inc115
 
 for.inc115:                                       ; preds = %for.body87
-  %69 = load i32, ptr %axis, align 4
-  %inc116 = add nsw i32 %69, 1
+  %70 = load i32, ptr %axis, align 4
+  %inc116 = add nsw i32 %70, 1
   store i32 %inc116, ptr %axis, align 4
   br label %for.cond85, !llvm.loop !8
 
@@ -894,7 +896,8 @@ entry:
   %4 = load i8, ptr %disableRaycastAccelerator.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN20btAxisSweep3InternalIjEC2ERK9btVector3S3_jjjP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef -2, i32 noundef 2147483647, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV17bt32BitAxisSweep3, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV17bt32BitAxisSweep3, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   ret void
 }
 
@@ -934,13 +937,14 @@ entry:
   store i8 %frombool, ptr %disableRaycastAccelerator.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btBroadphaseInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_bpHandleMask = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %handleMask.addr, align 4
-  store i32 %0, ptr %m_bpHandleMask, align 8
+  %1 = load i32, ptr %handleMask.addr, align 4
+  store i32 %1, ptr %m_bpHandleMask, align 8
   %m_handleSentinel = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %handleSentinel.addr, align 4
-  store i32 %1, ptr %m_handleSentinel, align 4
+  %2 = load i32, ptr %handleSentinel.addr, align 4
+  store i32 %2, ptr %m_handleSentinel, align 4
   %m_worldAabbMin = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 3
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_worldAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -957,8 +961,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %m_pairCache = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 12
-  %2 = load ptr, ptr %pairCache.addr, align 8
-  store ptr %2, ptr %m_pairCache, align 8
+  %3 = load ptr, ptr %pairCache.addr, align 8
+  store ptr %3, ptr %m_pairCache, align 8
   %m_userPairCallback = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 13
   store ptr null, ptr %m_userPairCallback, align 8
   %m_ownsPairCache = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 14
@@ -967,12 +971,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   store i32 0, ptr %m_invalidPair, align 4
   %m_raycastAccelerator = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 16
   store ptr null, ptr %m_raycastAccelerator, align 8
-  %3 = load i32, ptr %userMaxHandles.addr, align 4
-  %add = add i32 %3, 1
+  %4 = load i32, ptr %userMaxHandles.addr, align 4
+  %add = add i32 %4, 1
   store i32 %add, ptr %maxHandles, align 4
   %m_pairCache4 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 12
-  %4 = load ptr, ptr %m_pairCache4, align 8
-  %tobool = icmp ne ptr %4, null
+  %5 = load ptr, ptr %m_pairCache4, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont3
@@ -981,8 +985,8 @@ if.then:                                          ; preds = %invoke.cont3
 
 invoke.cont5:                                     ; preds = %if.then
   store ptr %call, ptr %ptr, align 8
-  %5 = load ptr, ptr %ptr, align 8
-  %call6 = call noundef ptr @_ZN28btHashedOverlappingPairCachenwEmPv(i64 noundef 120, ptr noundef %5)
+  %6 = load ptr, ptr %ptr, align 8
+  %call6 = call noundef ptr @_ZN28btHashedOverlappingPairCachenwEmPv(i64 noundef 120, ptr noundef %6)
   invoke void @_ZN28btHashedOverlappingPairCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %call6)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -994,27 +998,27 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   br label %if.end
 
 lpad:                                             ; preds = %for.body57, %for.end, %for.body, %invoke.cont37, %invoke.cont36, %invoke.cont27, %if.end22, %invoke.cont16, %invoke.cont15, %invoke.cont13, %if.then12, %if.then, %invoke.cont2, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZN28btHashedOverlappingPairCachedlEPvS0_(ptr noundef %call6, ptr noundef %5) #11
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
+  call void @_ZN28btHashedOverlappingPairCachedlEPvS0_(ptr noundef %call6, ptr noundef %6) #11
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont8, %invoke.cont3
-  %12 = load i8, ptr %disableRaycastAccelerator.addr, align 1
-  %tobool11 = trunc i8 %12 to i1
+  %13 = load i8, ptr %disableRaycastAccelerator.addr, align 1
+  %tobool11 = trunc i8 %13 to i1
   br i1 %tobool11, label %if.end22, label %if.then12
 
 if.then12:                                        ; preds = %if.end
@@ -1034,26 +1038,26 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 
 invoke.cont16:                                    ; preds = %invoke.cont15
   %m_nullPairCache18 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 17
-  %13 = load ptr, ptr %m_nullPairCache18, align 8
-  invoke void @_ZN16btDbvtBroadphaseC1EP22btOverlappingPairCache(ptr noundef nonnull align 8 dereferenceable(256) %call17, ptr noundef %13)
+  %14 = load ptr, ptr %m_nullPairCache18, align 8
+  invoke void @_ZN16btDbvtBroadphaseC1EP22btOverlappingPairCache(ptr noundef nonnull align 8 dereferenceable(256) %call17, ptr noundef %14)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont16
   %m_raycastAccelerator20 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 16
   store ptr %call17, ptr %m_raycastAccelerator20, align 8
   %m_raycastAccelerator21 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 16
-  %14 = load ptr, ptr %m_raycastAccelerator21, align 8
-  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %14, i32 0, i32 18
+  %15 = load ptr, ptr %m_raycastAccelerator21, align 8
+  %m_deferedcollide = getelementptr inbounds %struct.btDbvtBroadphase, ptr %15, i32 0, i32 18
   store i8 1, ptr %m_deferedcollide, align 1
   br label %if.end22
 
 if.end22:                                         ; preds = %invoke.cont19, %if.end
-  %15 = load ptr, ptr %worldAabbMin.addr, align 8
+  %16 = load ptr, ptr %worldAabbMin.addr, align 8
   %m_worldAabbMin23 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_worldAabbMin23, ptr align 4 %15, i64 16, i1 false)
-  %16 = load ptr, ptr %worldAabbMax.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_worldAabbMin23, ptr align 4 %16, i64 16, i1 false)
+  %17 = load ptr, ptr %worldAabbMax.addr, align 8
   %m_worldAabbMax24 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_worldAabbMax24, ptr align 4 %16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_worldAabbMax24, ptr align 4 %17, i64 16, i1 false)
   %m_worldAabbMax25 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 4
   %m_worldAabbMin26 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 3
   %call28 = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_worldAabbMax25, ptr noundef nonnull align 4 dereferenceable(16) %m_worldAabbMin26)
@@ -1061,23 +1065,23 @@ if.end22:                                         ; preds = %invoke.cont19, %if.
 
 invoke.cont27:                                    ; preds = %if.end22
   %coerce.dive = getelementptr inbounds %class.btVector3, ptr %aabbSize, i32 0, i32 0
-  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %18 = extractvalue { <2 x float>, <2 x float> } %call28, 0
-  store <2 x float> %18, ptr %17, align 4
-  %19 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %20 = extractvalue { <2 x float>, <2 x float> } %call28, 1
-  store <2 x float> %20, ptr %19, align 4
+  %18 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
+  %19 = extractvalue { <2 x float>, <2 x float> } %call28, 0
+  store <2 x float> %19, ptr %18, align 4
+  %20 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
+  %21 = extractvalue { <2 x float>, <2 x float> } %call28, 1
+  store <2 x float> %21, ptr %20, align 4
   %m_handleSentinel29 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 2
-  %21 = load i32, ptr %m_handleSentinel29, align 4
-  store i32 %21, ptr %maxInt, align 4
-  %22 = load i32, ptr %maxInt, align 4
-  %conv = uitofp i32 %22 to float
-  store float %conv, ptr %ref.tmp31, align 4
+  %22 = load i32, ptr %m_handleSentinel29, align 4
+  store i32 %22, ptr %maxInt, align 4
   %23 = load i32, ptr %maxInt, align 4
-  %conv33 = uitofp i32 %23 to float
-  store float %conv33, ptr %ref.tmp32, align 4
+  %conv = uitofp i32 %23 to float
+  store float %conv, ptr %ref.tmp31, align 4
   %24 = load i32, ptr %maxInt, align 4
-  %conv35 = uitofp i32 %24 to float
+  %conv33 = uitofp i32 %24 to float
+  store float %conv33, ptr %ref.tmp32, align 4
+  %25 = load i32, ptr %maxInt, align 4
+  %conv35 = uitofp i32 %25 to float
   store float %conv35, ptr %ref.tmp34, align 4
   invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34)
           to label %invoke.cont36 unwind label %lpad
@@ -1088,21 +1092,21 @@ invoke.cont36:                                    ; preds = %invoke.cont27
 
 invoke.cont37:                                    ; preds = %invoke.cont36
   %coerce.dive39 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %25 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive39, i32 0, i32 0
-  %26 = extractvalue { <2 x float>, <2 x float> } %call38, 0
-  store <2 x float> %26, ptr %25, align 4
-  %27 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive39, i32 0, i32 1
-  %28 = extractvalue { <2 x float>, <2 x float> } %call38, 1
-  store <2 x float> %28, ptr %27, align 4
+  %26 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive39, i32 0, i32 0
+  %27 = extractvalue { <2 x float>, <2 x float> } %call38, 0
+  store <2 x float> %27, ptr %26, align 4
+  %28 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive39, i32 0, i32 1
+  %29 = extractvalue { <2 x float>, <2 x float> } %call38, 1
+  store <2 x float> %29, ptr %28, align 4
   %m_quantize40 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_quantize40, ptr align 4 %ref.tmp, i64 16, i1 false)
-  %29 = load i32, ptr %maxHandles, align 4
-  %conv41 = zext i32 %29 to i64
-  %30 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv41, i64 88)
-  %31 = extractvalue { i64, i1 } %30, 1
-  %32 = extractvalue { i64, i1 } %30, 0
-  %33 = select i1 %31, i64 -1, i64 %32
-  %call43 = invoke noundef ptr @_ZN20btAxisSweep3InternalIjE6HandlenaEm(i64 noundef %33)
+  %30 = load i32, ptr %maxHandles, align 4
+  %conv41 = zext i32 %30 to i64
+  %31 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv41, i64 88)
+  %32 = extractvalue { i64, i1 } %31, 1
+  %33 = extractvalue { i64, i1 } %31, 0
+  %34 = select i1 %32, i64 -1, i64 %33
+  %call43 = invoke noundef ptr @_ZN20btAxisSweep3InternalIjE6HandlenaEm(i64 noundef %34)
           to label %invoke.cont42 unwind label %lpad
 
 invoke.cont42:                                    ; preds = %invoke.cont37
@@ -1126,32 +1130,32 @@ invoke.cont45:                                    ; preds = %arrayctor.loop
 arrayctor.cont:                                   ; preds = %invoke.cont45, %invoke.cont42
   %m_pHandles = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 8
   store ptr %call43, ptr %m_pHandles, align 8
-  %34 = load i32, ptr %maxHandles, align 4
+  %35 = load i32, ptr %maxHandles, align 4
   %m_maxHandles = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 7
-  store i32 %34, ptr %m_maxHandles, align 4
+  store i32 %35, ptr %m_maxHandles, align 4
   %m_numHandles = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 6
   store i32 0, ptr %m_numHandles, align 8
   %m_firstFreeHandle = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 9
   store i32 1, ptr %m_firstFreeHandle, align 8
   %m_firstFreeHandle46 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 9
-  %35 = load i32, ptr %m_firstFreeHandle46, align 8
-  store i32 %35, ptr %i, align 4
+  %36 = load i32, ptr %m_firstFreeHandle46, align 8
+  store i32 %36, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %arrayctor.cont
-  %36 = load i32, ptr %i, align 4
-  %37 = load i32, ptr %maxHandles, align 4
-  %cmp = icmp ult i32 %36, %37
+  %37 = load i32, ptr %i, align 4
+  %38 = load i32, ptr %maxHandles, align 4
+  %cmp = icmp ult i32 %37, %38
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_pHandles47 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 8
-  %38 = load ptr, ptr %m_pHandles47, align 8
-  %39 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %39 to i64
-  %arrayidx = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %38, i64 %idxprom
+  %39 = load ptr, ptr %m_pHandles47, align 8
   %40 = load i32, ptr %i, align 4
-  %add48 = add i32 %40, 1
+  %idxprom = zext i32 %40 to i64
+  %arrayidx = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %39, i64 %idxprom
+  %41 = load i32, ptr %i, align 4
+  %add48 = add i32 %41, 1
   invoke void @_ZN20btAxisSweep3InternalIjE6Handle11SetNextFreeEj(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx, i32 noundef %add48)
           to label %invoke.cont49 unwind label %lpad
 
@@ -1159,28 +1163,28 @@ invoke.cont49:                                    ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont49
-  %41 = load i32, ptr %i, align 4
-  %inc = add i32 %41, 1
+  %42 = load i32, ptr %i, align 4
+  %inc = add i32 %42, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
 lpad44:                                           ; preds = %arrayctor.loop
-  %42 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %exn.slot, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %ehselector.slot, align 4
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %exn.slot, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %ehselector.slot, align 4
   call void @_ZN20btAxisSweep3InternalIjE6HandledaEPv(ptr noundef %call43) #11
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %m_pHandles50 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 8
-  %45 = load ptr, ptr %m_pHandles50, align 8
-  %46 = load i32, ptr %maxHandles, align 4
-  %sub = sub i32 %46, 1
+  %46 = load ptr, ptr %m_pHandles50, align 8
+  %47 = load i32, ptr %maxHandles, align 4
+  %sub = sub i32 %47, 1
   %idxprom51 = zext i32 %sub to i64
-  %arrayidx52 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %45, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %46, i64 %idxprom51
   invoke void @_ZN20btAxisSweep3InternalIjE6Handle11SetNextFreeEj(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx52, i32 noundef 0)
           to label %invoke.cont53 unwind label %lpad
 
@@ -1189,13 +1193,13 @@ invoke.cont53:                                    ; preds = %for.end
   br label %for.cond55
 
 for.cond55:                                       ; preds = %for.inc71, %invoke.cont53
-  %47 = load i32, ptr %i54, align 4
-  %cmp56 = icmp slt i32 %47, 3
+  %48 = load i32, ptr %i54, align 4
+  %cmp56 = icmp slt i32 %48, 3
   br i1 %cmp56, label %for.body57, label %for.end73
 
 for.body57:                                       ; preds = %for.cond55
-  %48 = load i32, ptr %maxHandles, align 4
-  %conv58 = zext i32 %48 to i64
+  %49 = load i32, ptr %maxHandles, align 4
+  %conv58 = zext i32 %49 to i64
   %mul = mul i64 8, %conv58
   %mul59 = mul i64 %mul, 2
   %call61 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul59, i32 noundef 16)
@@ -1203,98 +1207,98 @@ for.body57:                                       ; preds = %for.cond55
 
 invoke.cont60:                                    ; preds = %for.body57
   %m_pEdgesRawPtr = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 11
-  %49 = load i32, ptr %i54, align 4
-  %idxprom62 = sext i32 %49 to i64
+  %50 = load i32, ptr %i54, align 4
+  %idxprom62 = sext i32 %50 to i64
   %arrayidx63 = getelementptr inbounds [3 x ptr], ptr %m_pEdgesRawPtr, i64 0, i64 %idxprom62
   store ptr %call61, ptr %arrayidx63, align 8
   %m_pEdgesRawPtr66 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 11
-  %50 = load i32, ptr %i54, align 4
-  %idxprom67 = sext i32 %50 to i64
+  %51 = load i32, ptr %i54, align 4
+  %idxprom67 = sext i32 %51 to i64
   %arrayidx68 = getelementptr inbounds [3 x ptr], ptr %m_pEdgesRawPtr66, i64 0, i64 %idxprom67
-  %51 = load ptr, ptr %arrayidx68, align 8
+  %52 = load ptr, ptr %arrayidx68, align 8
   %m_pEdges = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 10
-  %52 = load i32, ptr %i54, align 4
-  %idxprom69 = sext i32 %52 to i64
+  %53 = load i32, ptr %i54, align 4
+  %idxprom69 = sext i32 %53 to i64
   %arrayidx70 = getelementptr inbounds [3 x ptr], ptr %m_pEdges, i64 0, i64 %idxprom69
-  store ptr %51, ptr %arrayidx70, align 8
+  store ptr %52, ptr %arrayidx70, align 8
   br label %for.inc71
 
 for.inc71:                                        ; preds = %invoke.cont60
-  %53 = load i32, ptr %i54, align 4
-  %inc72 = add nsw i32 %53, 1
+  %54 = load i32, ptr %i54, align 4
+  %inc72 = add nsw i32 %54, 1
   store i32 %inc72, ptr %i54, align 4
   br label %for.cond55, !llvm.loop !10
 
 for.end73:                                        ; preds = %for.cond55
   %m_pHandles74 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 8
-  %54 = load ptr, ptr %m_pHandles74, align 8
-  %arrayidx75 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %54, i64 0
+  %55 = load ptr, ptr %m_pHandles74, align 8
+  %arrayidx75 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %55, i64 0
   %m_clientObject = getelementptr inbounds %struct.btBroadphaseProxy, ptr %arrayidx75, i32 0, i32 0
   store ptr null, ptr %m_clientObject, align 8
   store i32 0, ptr %axis, align 4
   br label %for.cond76
 
 for.cond76:                                       ; preds = %for.inc106, %for.end73
-  %55 = load i32, ptr %axis, align 4
-  %cmp77 = icmp slt i32 %55, 3
+  %56 = load i32, ptr %axis, align 4
+  %cmp77 = icmp slt i32 %56, 3
   br i1 %cmp77, label %for.body78, label %for.end108
 
 for.body78:                                       ; preds = %for.cond76
   %m_pHandles79 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 8
-  %56 = load ptr, ptr %m_pHandles79, align 8
-  %arrayidx80 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %56, i64 0
+  %57 = load ptr, ptr %m_pHandles79, align 8
+  %arrayidx80 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %57, i64 0
   %m_minEdges = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %arrayidx80, i32 0, i32 1
-  %57 = load i32, ptr %axis, align 4
-  %idxprom81 = sext i32 %57 to i64
+  %58 = load i32, ptr %axis, align 4
+  %idxprom81 = sext i32 %58 to i64
   %arrayidx82 = getelementptr inbounds [3 x i32], ptr %m_minEdges, i64 0, i64 %idxprom81
   store i32 0, ptr %arrayidx82, align 4
   %m_pHandles83 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 8
-  %58 = load ptr, ptr %m_pHandles83, align 8
-  %arrayidx84 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %58, i64 0
+  %59 = load ptr, ptr %m_pHandles83, align 8
+  %arrayidx84 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %59, i64 0
   %m_maxEdges = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %arrayidx84, i32 0, i32 2
-  %59 = load i32, ptr %axis, align 4
-  %idxprom85 = sext i32 %59 to i64
+  %60 = load i32, ptr %axis, align 4
+  %idxprom85 = sext i32 %60 to i64
   %arrayidx86 = getelementptr inbounds [3 x i32], ptr %m_maxEdges, i64 0, i64 %idxprom85
   store i32 1, ptr %arrayidx86, align 4
   %m_pEdges87 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 10
-  %60 = load i32, ptr %axis, align 4
-  %idxprom88 = sext i32 %60 to i64
+  %61 = load i32, ptr %axis, align 4
+  %idxprom88 = sext i32 %61 to i64
   %arrayidx89 = getelementptr inbounds [3 x ptr], ptr %m_pEdges87, i64 0, i64 %idxprom88
-  %61 = load ptr, ptr %arrayidx89, align 8
-  %arrayidx90 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %61, i64 0
+  %62 = load ptr, ptr %arrayidx89, align 8
+  %arrayidx90 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %62, i64 0
   %m_pos = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %arrayidx90, i32 0, i32 0
   store i32 0, ptr %m_pos, align 4
   %m_pEdges91 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 10
-  %62 = load i32, ptr %axis, align 4
-  %idxprom92 = sext i32 %62 to i64
+  %63 = load i32, ptr %axis, align 4
+  %idxprom92 = sext i32 %63 to i64
   %arrayidx93 = getelementptr inbounds [3 x ptr], ptr %m_pEdges91, i64 0, i64 %idxprom92
-  %63 = load ptr, ptr %arrayidx93, align 8
-  %arrayidx94 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %63, i64 0
+  %64 = load ptr, ptr %arrayidx93, align 8
+  %arrayidx94 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %64, i64 0
   %m_handle = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %arrayidx94, i32 0, i32 1
   store i32 0, ptr %m_handle, align 4
   %m_handleSentinel95 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 2
-  %64 = load i32, ptr %m_handleSentinel95, align 4
+  %65 = load i32, ptr %m_handleSentinel95, align 4
   %m_pEdges96 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 10
-  %65 = load i32, ptr %axis, align 4
-  %idxprom97 = sext i32 %65 to i64
+  %66 = load i32, ptr %axis, align 4
+  %idxprom97 = sext i32 %66 to i64
   %arrayidx98 = getelementptr inbounds [3 x ptr], ptr %m_pEdges96, i64 0, i64 %idxprom97
-  %66 = load ptr, ptr %arrayidx98, align 8
-  %arrayidx99 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %66, i64 1
+  %67 = load ptr, ptr %arrayidx98, align 8
+  %arrayidx99 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %67, i64 1
   %m_pos100 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %arrayidx99, i32 0, i32 0
-  store i32 %64, ptr %m_pos100, align 4
+  store i32 %65, ptr %m_pos100, align 4
   %m_pEdges101 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 10
-  %67 = load i32, ptr %axis, align 4
-  %idxprom102 = sext i32 %67 to i64
+  %68 = load i32, ptr %axis, align 4
+  %idxprom102 = sext i32 %68 to i64
   %arrayidx103 = getelementptr inbounds [3 x ptr], ptr %m_pEdges101, i64 0, i64 %idxprom102
-  %68 = load ptr, ptr %arrayidx103, align 8
-  %arrayidx104 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %68, i64 1
+  %69 = load ptr, ptr %arrayidx103, align 8
+  %arrayidx104 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %69, i64 1
   %m_handle105 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %arrayidx104, i32 0, i32 1
   store i32 0, ptr %m_handle105, align 4
   br label %for.inc106
 
 for.inc106:                                       ; preds = %for.body78
-  %69 = load i32, ptr %axis, align 4
-  %inc107 = add nsw i32 %69, 1
+  %70 = load i32, ptr %axis, align 4
+  %inc107 = add nsw i32 %70, 1
   store i32 %inc107, ptr %axis, align 4
   br label %for.cond76, !llvm.loop !11
 
@@ -2707,7 +2711,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2758,7 +2763,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN22btOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTV15btNullPairCache, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_overlappingPairArray = getelementptr inbounds %class.btNullPairCache, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayI16btBroadphasePairEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray)
           to label %invoke.cont unwind label %lpad
@@ -2767,12 +2773,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN22btOverlappingPairCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -2981,34 +2987,35 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_raycastAccelerator = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 16
-  %0 = load ptr, ptr %m_raycastAccelerator, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %m_raycastAccelerator, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_nullPairCache = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 17
-  %1 = load ptr, ptr %m_nullPairCache, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %m_nullPairCache, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   %m_nullPairCache2 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 17
-  %3 = load ptr, ptr %m_nullPairCache2, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
+  %4 = load ptr, ptr %m_nullPairCache2, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
   %m_raycastAccelerator3 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 16
-  %4 = load ptr, ptr %m_raycastAccelerator3, align 8
-  %vtable4 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %m_raycastAccelerator3, align 8
+  %vtable4 = load ptr, ptr %5, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 0
-  %5 = load ptr, ptr %vfn5, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(256) %4) #11
+  %6 = load ptr, ptr %vfn5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(256) %5) #11
   %m_raycastAccelerator6 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 16
-  %6 = load ptr, ptr %m_raycastAccelerator6, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
+  %7 = load ptr, ptr %m_raycastAccelerator6, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %7)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -3019,54 +3026,54 @@ if.end:                                           ; preds = %invoke.cont7, %entr
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load i32, ptr %i, align 4
-  %cmp = icmp sge i32 %7, 0
+  %8 = load i32, ptr %i, align 4
+  %cmp = icmp sge i32 %8, 0
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_pEdgesRawPtr = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 11
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
+  %9 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %9 to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr %m_pEdgesRawPtr, i64 0, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %9)
+  %10 = load ptr, ptr %arrayidx, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %10)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont8
-  %10 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %10, -1
+  %11 = load i32, ptr %i, align 4
+  %dec = add nsw i32 %11, -1
   store i32 %dec, ptr %i, align 4
   br label %for.cond, !llvm.loop !20
 
 for.end:                                          ; preds = %for.cond
   %m_pHandles = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 8
-  %11 = load ptr, ptr %m_pHandles, align 8
-  %isnull = icmp eq ptr %11, null
+  %12 = load ptr, ptr %m_pHandles, align 8
+  %isnull = icmp eq ptr %12, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.end
-  call void @_ZN20btAxisSweep3InternalItE6HandledaEPv(ptr noundef %11) #11
+  call void @_ZN20btAxisSweep3InternalItE6HandledaEPv(ptr noundef %12) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.end
   %m_ownsPairCache = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 14
-  %12 = load i8, ptr %m_ownsPairCache, align 8
-  %tobool9 = trunc i8 %12 to i1
+  %13 = load i8, ptr %m_ownsPairCache, align 8
+  %tobool9 = trunc i8 %13 to i1
   br i1 %tobool9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %delete.end
   %m_pairCache = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 12
-  %13 = load ptr, ptr %m_pairCache, align 8
-  %vtable11 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %m_pairCache, align 8
+  %vtable11 = load ptr, ptr %14, align 8
   %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 0
-  %14 = load ptr, ptr %vfn12, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
+  %15 = load ptr, ptr %vfn12, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #11
   %m_pairCache13 = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 12
-  %15 = load ptr, ptr %m_pairCache13, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %15)
+  %16 = load ptr, ptr %m_pairCache13, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %16)
           to label %invoke.cont14 unwind label %terminate.lpad
 
 invoke.cont14:                                    ; preds = %if.then10
@@ -3077,10 +3084,10 @@ if.end15:                                         ; preds = %invoke.cont14, %del
   ret void
 
 terminate.lpad:                                   ; preds = %if.then10, %for.body, %invoke.cont, %if.then
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #12
   unreachable
 }
 
@@ -3134,7 +3141,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN25btOverlappingPairCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV22btOverlappingPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTV22btOverlappingPairCache, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3156,7 +3164,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTV15btNullPairCache, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_overlappingPairArray = getelementptr inbounds %class.btNullPairCache, ptr %this1, i32 0, i32 1
   call void @_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray) #11
   call void @_ZN22btOverlappingPairCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -3385,7 +3394,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV25btOverlappingPairCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV25btOverlappingPairCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3717,34 +3727,35 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_raycastAccelerator = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 16
-  %0 = load ptr, ptr %m_raycastAccelerator, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %m_raycastAccelerator, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_nullPairCache = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 17
-  %1 = load ptr, ptr %m_nullPairCache, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %m_nullPairCache, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   %m_nullPairCache2 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 17
-  %3 = load ptr, ptr %m_nullPairCache2, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
+  %4 = load ptr, ptr %m_nullPairCache2, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
   %m_raycastAccelerator3 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 16
-  %4 = load ptr, ptr %m_raycastAccelerator3, align 8
-  %vtable4 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %m_raycastAccelerator3, align 8
+  %vtable4 = load ptr, ptr %5, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 0
-  %5 = load ptr, ptr %vfn5, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(256) %4) #11
+  %6 = load ptr, ptr %vfn5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(256) %5) #11
   %m_raycastAccelerator6 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 16
-  %6 = load ptr, ptr %m_raycastAccelerator6, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
+  %7 = load ptr, ptr %m_raycastAccelerator6, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %7)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -3755,54 +3766,54 @@ if.end:                                           ; preds = %invoke.cont7, %entr
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load i32, ptr %i, align 4
-  %cmp = icmp sge i32 %7, 0
+  %8 = load i32, ptr %i, align 4
+  %cmp = icmp sge i32 %8, 0
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_pEdgesRawPtr = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 11
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
+  %9 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %9 to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr %m_pEdgesRawPtr, i64 0, i64 %idxprom
-  %9 = load ptr, ptr %arrayidx, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %9)
+  %10 = load ptr, ptr %arrayidx, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %10)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont8
-  %10 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %10, -1
+  %11 = load i32, ptr %i, align 4
+  %dec = add nsw i32 %11, -1
   store i32 %dec, ptr %i, align 4
   br label %for.cond, !llvm.loop !22
 
 for.end:                                          ; preds = %for.cond
   %m_pHandles = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 8
-  %11 = load ptr, ptr %m_pHandles, align 8
-  %isnull = icmp eq ptr %11, null
+  %12 = load ptr, ptr %m_pHandles, align 8
+  %isnull = icmp eq ptr %12, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.end
-  call void @_ZN20btAxisSweep3InternalIjE6HandledaEPv(ptr noundef %11) #11
+  call void @_ZN20btAxisSweep3InternalIjE6HandledaEPv(ptr noundef %12) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.end
   %m_ownsPairCache = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 14
-  %12 = load i8, ptr %m_ownsPairCache, align 8
-  %tobool9 = trunc i8 %12 to i1
+  %13 = load i8, ptr %m_ownsPairCache, align 8
+  %tobool9 = trunc i8 %13 to i1
   br i1 %tobool9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %delete.end
   %m_pairCache = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 12
-  %13 = load ptr, ptr %m_pairCache, align 8
-  %vtable11 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %m_pairCache, align 8
+  %vtable11 = load ptr, ptr %14, align 8
   %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 0
-  %14 = load ptr, ptr %vfn12, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
+  %15 = load ptr, ptr %vfn12, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #11
   %m_pairCache13 = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 12
-  %15 = load ptr, ptr %m_pairCache13, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %15)
+  %16 = load ptr, ptr %m_pairCache13, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %16)
           to label %invoke.cont14 unwind label %terminate.lpad
 
 invoke.cont14:                                    ; preds = %if.then10
@@ -3813,10 +3824,10 @@ if.end15:                                         ; preds = %invoke.cont14, %del
   ret void
 
 terminate.lpad:                                   ; preds = %if.then10, %for.body, %invoke.cont, %if.then
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #12
   unreachable
 }
 

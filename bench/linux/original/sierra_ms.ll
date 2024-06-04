@@ -28,7 +28,7 @@ define dso_local i32 @sierra_ms_init(ptr nocapture noundef readonly %0) local_un
   %4 = load i32, ptr @swi_tru_install, align 4
   switch i32 %4, label %10 [
     i32 3, label %5
-    i32 2, label %42
+    i32 2, label %43
   ]
 
 5:                                                ; preds = %1
@@ -36,71 +36,72 @@ define dso_local i32 @sierra_ms_init(ptr nocapture noundef readonly %0) local_un
   %7 = shl i32 %6, 8
   %8 = or i32 %7, -2147483648
   %9 = tail call i32 @usb_control_msg(ptr noundef %3, i32 noundef %8, i8 noundef zeroext 11, i8 noundef zeroext 64, i16 noundef zeroext 1, i16 noundef zeroext 0, ptr noundef null, i16 noundef zeroext 0, i32 noundef 5000) #3
-  br label %47
+  br label %48
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %12 = tail call noalias align 8 dereferenceable_or_null(60) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 60) #4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %47, label %14
+  %11 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %12 = load ptr, ptr %11, align 16
+  %13 = tail call noalias align 8 dereferenceable_or_null(60) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 60) #4
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %48, label %15
 
-14:                                               ; preds = %24, %10
-  %15 = phi i32 [ %16, %24 ], [ 3, %10 ]
-  %16 = add nsw i32 %15, -1
-  %17 = load i32, ptr %3, align 8
-  %18 = shl i32 %17, 8
-  %19 = or i32 %18, -2147483520
-  %20 = tail call i32 @usb_control_msg(ptr noundef %3, i32 noundef %19, i8 noundef zeroext 10, i8 noundef zeroext -64, i16 noundef zeroext 0, i16 noundef zeroext 0, ptr noundef nonnull %12, i16 noundef zeroext 60, i32 noundef 5000) #3
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %24
+15:                                               ; preds = %25, %10
+  %16 = phi i32 [ %17, %25 ], [ 3, %10 ]
+  %17 = add nsw i32 %16, -1
+  %18 = load i32, ptr %3, align 8
+  %19 = shl i32 %18, 8
+  %20 = or i32 %19, -2147483520
+  %21 = tail call i32 @usb_control_msg(ptr noundef %3, i32 noundef %20, i8 noundef zeroext 10, i8 noundef zeroext -64, i16 noundef zeroext 0, i16 noundef zeroext 0, ptr noundef nonnull %13, i16 noundef zeroext 60, i32 noundef 5000) #3
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %14
-  %23 = tail call i64 @schedule_timeout_uninterruptible(i64 noundef 2000) #3
-  br label %24
+23:                                               ; preds = %15
+  %24 = tail call i64 @schedule_timeout_uninterruptible(i64 noundef 2000) #3
+  br label %25
 
-24:                                               ; preds = %22, %14
-  %25 = icmp ne i32 %16, 0
-  %26 = and i1 %25, %21
-  br i1 %26, label %14, label %27, !llvm.loop !5
+25:                                               ; preds = %23, %15
+  %26 = icmp ne i32 %17, 0
+  %27 = and i1 %26, %22
+  br i1 %27, label %15, label %28, !llvm.loop !5
 
-27:                                               ; preds = %24
-  br i1 %21, label %28, label %29
+28:                                               ; preds = %25
+  br i1 %22, label %29, label %30
 
-28:                                               ; preds = %27
-  tail call void @kfree(ptr noundef nonnull %12) #3
-  br label %47
+29:                                               ; preds = %28
+  tail call void @kfree(ptr noundef nonnull %13) #3
+  br label %48
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %12, i64 9
-  %31 = load i16, ptr %30, align 1
-  %32 = add i16 %31, -8448
-  %33 = icmp ult i16 %32, 3840
-  %34 = icmp sgt i16 %31, 28927
-  %35 = or i1 %34, %33
-  br i1 %35, label %41, label %36
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %13, i64 9
+  %32 = load i16, ptr %31, align 1
+  %33 = add i16 %32, -8448
+  %34 = icmp ult i16 %33, 3840
+  %35 = icmp sgt i16 %32, 28927
+  %36 = or i1 %35, %34
+  br i1 %36, label %42, label %37
 
-36:                                               ; preds = %29
-  %37 = load i32, ptr %3, align 8
-  %38 = shl i32 %37, 8
-  %39 = or i32 %38, -2147483648
-  %40 = tail call i32 @usb_control_msg(ptr noundef %3, i32 noundef %39, i8 noundef zeroext 11, i8 noundef zeroext 64, i16 noundef zeroext 1, i16 noundef zeroext 0, ptr noundef null, i16 noundef zeroext 0, i32 noundef 5000) #3
-  tail call void @kfree(ptr noundef nonnull %12) #3
-  br label %47
+37:                                               ; preds = %30
+  %38 = load i32, ptr %3, align 8
+  %39 = shl i32 %38, 8
+  %40 = or i32 %39, -2147483648
+  %41 = tail call i32 @usb_control_msg(ptr noundef %3, i32 noundef %40, i8 noundef zeroext 11, i8 noundef zeroext 64, i16 noundef zeroext 1, i16 noundef zeroext 0, ptr noundef null, i16 noundef zeroext 0, i32 noundef 5000) #3
+  tail call void @kfree(ptr noundef nonnull %13) #3
+  br label %48
 
-41:                                               ; preds = %29
-  tail call void @kfree(ptr noundef nonnull %12) #3
-  br label %42
+42:                                               ; preds = %30
+  tail call void @kfree(ptr noundef nonnull %13) #3
+  br label %43
 
-42:                                               ; preds = %41, %1
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
-  %46 = tail call i32 @device_create_file(ptr noundef %45, ptr noundef nonnull @dev_attr_truinst) #3
-  br label %47
+43:                                               ; preds = %42, %1
+  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 80
+  %47 = tail call i32 @device_create_file(ptr noundef %46, ptr noundef nonnull @dev_attr_truinst) #3
+  br label %48
 
-47:                                               ; preds = %42, %36, %28, %10, %5
-  %48 = phi i32 [ -5, %5 ], [ %46, %42 ], [ -5, %28 ], [ -5, %36 ], [ -12, %10 ]
-  ret i32 %48
+48:                                               ; preds = %43, %37, %29, %10, %5
+  %49 = phi i32 [ -5, %5 ], [ %47, %43 ], [ -5, %29 ], [ -5, %37 ], [ -12, %10 ]
+  ret i32 %49
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -129,52 +130,53 @@ define internal i64 @truinst_show(ptr nocapture noundef readonly %0, ptr nocaptu
 
 9:                                                ; preds = %3
   %10 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.2) #3
-  br label %35
+  br label %36
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %13 = tail call noalias align 8 dereferenceable_or_null(60) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 60) #4
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %17
+  %12 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %13 = load ptr, ptr %12, align 16
+  %14 = tail call noalias align 8 dereferenceable_or_null(60) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 60) #4
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %11
-  %16 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.3) #3
-  br label %38
+16:                                               ; preds = %11
+  %17 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.3) #3
+  br label %39
 
-17:                                               ; preds = %11
-  %18 = load i32, ptr %6, align 8
-  %19 = shl i32 %18, 8
-  %20 = or i32 %19, -2147483520
-  %21 = tail call i32 @usb_control_msg(ptr noundef %6, i32 noundef %20, i8 noundef zeroext 10, i8 noundef zeroext -64, i16 noundef zeroext 0, i16 noundef zeroext 0, ptr noundef nonnull %13, i16 noundef zeroext 60, i32 noundef 5000) #3
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %25
+18:                                               ; preds = %11
+  %19 = load i32, ptr %6, align 8
+  %20 = shl i32 %19, 8
+  %21 = or i32 %20, -2147483520
+  %22 = tail call i32 @usb_control_msg(ptr noundef %6, i32 noundef %21, i8 noundef zeroext 10, i8 noundef zeroext -64, i16 noundef zeroext 0, i16 noundef zeroext 0, ptr noundef nonnull %14, i16 noundef zeroext 60, i32 noundef 5000) #3
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %17
-  tail call void @kfree(ptr noundef nonnull %13) #3
-  %24 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.3) #3
-  br label %38
+24:                                               ; preds = %18
+  tail call void @kfree(ptr noundef nonnull %14) #3
+  %25 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.3) #3
+  br label %39
 
-25:                                               ; preds = %17
-  %26 = load i8, ptr %13, align 8
-  %27 = zext i8 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %13, i64 9
-  %29 = load i16, ptr %28, align 1
-  %30 = zext i16 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %13, i64 11
-  %32 = load i16, ptr %31, align 1
-  %33 = zext i16 %32 to i32
-  %34 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %27, i32 noundef %30, i32 noundef %33) #3
-  tail call void @kfree(ptr noundef nonnull %13) #3
-  br label %35
+26:                                               ; preds = %18
+  %27 = load i8, ptr %14, align 8
+  %28 = zext i8 %27 to i32
+  %29 = getelementptr inbounds i8, ptr %14, i64 9
+  %30 = load i16, ptr %29, align 1
+  %31 = zext i16 %30 to i32
+  %32 = getelementptr inbounds i8, ptr %14, i64 11
+  %33 = load i16, ptr %32, align 1
+  %34 = zext i16 %33 to i32
+  %35 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %28, i32 noundef %31, i32 noundef %34) #3
+  tail call void @kfree(ptr noundef nonnull %14) #3
+  br label %36
 
-35:                                               ; preds = %25, %9
-  %36 = phi i32 [ %10, %9 ], [ %34, %25 ]
-  %37 = sext i32 %36 to i64
-  br label %38
+36:                                               ; preds = %26, %9
+  %37 = phi i32 [ %10, %9 ], [ %35, %26 ]
+  %38 = sext i32 %37 to i64
+  br label %39
 
-38:                                               ; preds = %35, %23, %15
-  %39 = phi i64 [ %37, %35 ], [ -5, %23 ], [ -12, %15 ]
-  ret i64 %39
+39:                                               ; preds = %36, %24, %16
+  %40 = phi i64 [ %38, %36 ], [ -5, %24 ], [ -12, %16 ]
+  ret i64 %40
 }
 
 ; Function Attrs: null_pointer_is_valid

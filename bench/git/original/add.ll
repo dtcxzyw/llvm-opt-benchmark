@@ -1472,32 +1472,33 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 2), align 4
-  %cmp = icmp ult i32 %0, %1
+  %1 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 2
+  %2 = load i32, ptr %1, align 4
+  %cmp = icmp ult i32 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @the_index, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %ce, align 8
-  %5 = load i32, ptr @include_sparse, align 4
-  %tobool = icmp ne i32 %5, 0
+  %3 = load ptr, ptr @the_index, align 8
+  %4 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr %arrayidx, align 8
+  store ptr %5, ptr %ce, align 8
+  %6 = load i32, ptr @include_sparse, align 4
+  %tobool = icmp ne i32 %6, 0
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %6 = load ptr, ptr %ce, align 8
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %7, 1073741824
+  %7 = load ptr, ptr %ce, align 8
+  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %7, i32 0, i32 3
+  %8 = load i32, ptr %ce_flags, align 8
+  %and = and i32 %8, 1073741824
   %tobool2 = icmp ne i32 %and, 0
   br i1 %tobool2, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %8 = load ptr, ptr %ce, align 8
-  %name = getelementptr inbounds %struct.cache_entry, ptr %8, i32 0, i32 8
+  %9 = load ptr, ptr %ce, align 8
+  %name = getelementptr inbounds %struct.cache_entry, ptr %9, i32 0, i32 8
   %arraydecay = getelementptr inbounds [0 x i8], ptr %name, i64 0, i64 0
   %call = call i32 @path_in_sparse_checkout(ptr noundef %arraydecay, ptr noundef @the_index)
   %tobool3 = icmp ne i32 %call, 0
@@ -1507,10 +1508,10 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   br label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false, %for.body
-  %9 = load ptr, ptr %ce, align 8
-  %ce_flags4 = getelementptr inbounds %struct.cache_entry, ptr %9, i32 0, i32 3
-  %10 = load i32, ptr %ce_flags4, align 8
-  %and5 = and i32 12288, %10
+  %10 = load ptr, ptr %ce, align 8
+  %ce_flags4 = getelementptr inbounds %struct.cache_entry, ptr %10, i32 0, i32 3
+  %11 = load i32, ptr %ce_flags4, align 8
+  %and5 = and i32 12288, %11
   %shr = lshr i32 %and5, 12
   %tobool6 = icmp ne i32 %shr, 0
   br i1 %tobool6, label %if.then7, label %if.end8
@@ -1519,18 +1520,18 @@ if.then7:                                         ; preds = %if.end
   br label %for.inc
 
 if.end8:                                          ; preds = %if.end
-  %11 = load ptr, ptr %ce, align 8
-  %ce_mode = getelementptr inbounds %struct.cache_entry, ptr %11, i32 0, i32 2
-  %12 = load i32, ptr %ce_mode, align 4
-  %and9 = and i32 %12, 61440
+  %12 = load ptr, ptr %ce, align 8
+  %ce_mode = getelementptr inbounds %struct.cache_entry, ptr %12, i32 0, i32 2
+  %13 = load i32, ptr %ce_mode, align 4
+  %and9 = and i32 %13, 61440
   %cmp10 = icmp eq i32 %and9, 32768
   br i1 %cmp10, label %if.end16, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end8
-  %13 = load ptr, ptr %ce, align 8
-  %ce_mode12 = getelementptr inbounds %struct.cache_entry, ptr %13, i32 0, i32 2
-  %14 = load i32, ptr %ce_mode12, align 4
-  %and13 = and i32 %14, 61440
+  %14 = load ptr, ptr %ce, align 8
+  %ce_mode12 = getelementptr inbounds %struct.cache_entry, ptr %14, i32 0, i32 2
+  %15 = load i32, ptr %ce_mode12, align 4
+  %and13 = and i32 %15, 61440
   %cmp14 = icmp eq i32 %and13, 40960
   br i1 %cmp14, label %if.end16, label %if.then15
 
@@ -1538,14 +1539,14 @@ if.then15:                                        ; preds = %land.lhs.true11
   br label %for.inc
 
 if.end16:                                         ; preds = %land.lhs.true11, %if.end8
-  %15 = load ptr, ptr %pathspec.addr, align 8
-  %tobool17 = icmp ne ptr %15, null
+  %16 = load ptr, ptr %pathspec.addr, align 8
+  %tobool17 = icmp ne ptr %16, null
   br i1 %tobool17, label %land.lhs.true18, label %if.end22
 
 land.lhs.true18:                                  ; preds = %if.end16
-  %16 = load ptr, ptr %ce, align 8
-  %17 = load ptr, ptr %pathspec.addr, align 8
-  %call19 = call i32 @ce_path_match(ptr noundef @the_index, ptr noundef %16, ptr noundef %17, ptr noundef null)
+  %17 = load ptr, ptr %ce, align 8
+  %18 = load ptr, ptr %pathspec.addr, align 8
+  %call19 = call i32 @ce_path_match(ptr noundef @the_index, ptr noundef %17, ptr noundef %18, ptr noundef null)
   %tobool20 = icmp ne i32 %call19, 0
   br i1 %tobool20, label %if.end22, label %if.then21
 
@@ -1553,26 +1554,26 @@ if.then21:                                        ; preds = %land.lhs.true18
   br label %for.inc
 
 if.end22:                                         ; preds = %land.lhs.true18, %if.end16
-  %18 = load ptr, ptr %ce, align 8
-  %name23 = getelementptr inbounds %struct.cache_entry, ptr %18, i32 0, i32 8
+  %19 = load ptr, ptr %ce, align 8
+  %name23 = getelementptr inbounds %struct.cache_entry, ptr %19, i32 0, i32 8
   %arraydecay24 = getelementptr inbounds [0 x i8], ptr %name23, i64 0, i64 0
-  %19 = load i32, ptr %flags.addr, align 4
-  %or = or i32 %19, 64
+  %20 = load i32, ptr %flags.addr, align 4
+  %or = or i32 %20, 64
   %call25 = call i32 @add_file_to_index(ptr noundef @the_index, ptr noundef %arraydecay24, i32 noundef %or)
-  %20 = load i32, ptr %retval1, align 4
-  %or26 = or i32 %20, %call25
+  %21 = load i32, ptr %retval1, align 4
+  %or26 = or i32 %21, %call25
   store i32 %or26, ptr %retval1, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end22, %if.then21, %if.then15, %if.then7, %if.then
-  %21 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %21, 1
+  %22 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
-  %22 = load i32, ptr %retval1, align 4
-  ret i32 %22
+  %23 = load i32, ptr %retval1, align 4
+  ret i32 %23
 }
 
 declare i32 @add_files_to_cache(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
@@ -1775,32 +1776,33 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 2), align 4
-  %cmp = icmp ult i32 %0, %1
+  %1 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 2
+  %2 = load i32, ptr %1, align 4
+  %cmp = icmp ult i32 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @the_index, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %ce, align 8
-  %5 = load i32, ptr @include_sparse, align 4
-  %tobool = icmp ne i32 %5, 0
+  %3 = load ptr, ptr @the_index, align 8
+  %4 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr %arrayidx, align 8
+  store ptr %5, ptr %ce, align 8
+  %6 = load i32, ptr @include_sparse, align 4
+  %tobool = icmp ne i32 %6, 0
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %6 = load ptr, ptr %ce, align 8
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %7, 1073741824
+  %7 = load ptr, ptr %ce, align 8
+  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %7, i32 0, i32 3
+  %8 = load i32, ptr %ce_flags, align 8
+  %and = and i32 %8, 1073741824
   %tobool1 = icmp ne i32 %and, 0
   br i1 %tobool1, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %8 = load ptr, ptr %ce, align 8
-  %name = getelementptr inbounds %struct.cache_entry, ptr %8, i32 0, i32 8
+  %9 = load ptr, ptr %ce, align 8
+  %name = getelementptr inbounds %struct.cache_entry, ptr %9, i32 0, i32 8
   %arraydecay = getelementptr inbounds [0 x i8], ptr %name, i64 0, i64 0
   %call = call i32 @path_in_sparse_checkout(ptr noundef %arraydecay, ptr noundef @the_index)
   %tobool2 = icmp ne i32 %call, 0
@@ -1810,14 +1812,14 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   br label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false, %for.body
-  %9 = load ptr, ptr %pathspec.addr, align 8
-  %tobool3 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %pathspec.addr, align 8
+  %tobool3 = icmp ne ptr %10, null
   br i1 %tobool3, label %land.lhs.true4, label %if.end8
 
 land.lhs.true4:                                   ; preds = %if.end
-  %10 = load ptr, ptr %ce, align 8
-  %11 = load ptr, ptr %pathspec.addr, align 8
-  %call5 = call i32 @ce_path_match(ptr noundef @the_index, ptr noundef %10, ptr noundef %11, ptr noundef null)
+  %11 = load ptr, ptr %ce, align 8
+  %12 = load ptr, ptr %pathspec.addr, align 8
+  %call5 = call i32 @ce_path_match(ptr noundef @the_index, ptr noundef %11, ptr noundef %12, ptr noundef null)
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.end8, label %if.then7
 
@@ -1825,38 +1827,38 @@ if.then7:                                         ; preds = %land.lhs.true4
   br label %for.inc
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %12 = load i32, ptr %show_only.addr, align 4
-  %tobool9 = icmp ne i32 %12, 0
+  %13 = load i32, ptr %show_only.addr, align 4
+  %tobool9 = icmp ne i32 %13, 0
   br i1 %tobool9, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %13 = load ptr, ptr %ce, align 8
-  %14 = load i8, ptr %flip.addr, align 1
-  %call11 = call i32 @chmod_index_entry(ptr noundef @the_index, ptr noundef %13, i8 noundef signext %14)
+  %14 = load ptr, ptr %ce, align 8
+  %15 = load i8, ptr %flip.addr, align 1
+  %call11 = call i32 @chmod_index_entry(ptr noundef @the_index, ptr noundef %14, i8 noundef signext %15)
   store i32 %call11, ptr %err, align 4
   br label %if.end14
 
 if.else:                                          ; preds = %if.end8
-  %15 = load ptr, ptr %ce, align 8
-  %ce_mode = getelementptr inbounds %struct.cache_entry, ptr %15, i32 0, i32 2
-  %16 = load i32, ptr %ce_mode, align 4
-  %and12 = and i32 %16, 61440
+  %16 = load ptr, ptr %ce, align 8
+  %ce_mode = getelementptr inbounds %struct.cache_entry, ptr %16, i32 0, i32 2
+  %17 = load i32, ptr %ce_mode, align 4
+  %and12 = and i32 %17, 61440
   %cmp13 = icmp eq i32 %and12, 32768
   %cond = select i1 %cmp13, i32 0, i32 -1
   store i32 %cond, ptr %err, align 4
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then10
-  %17 = load i32, ptr %err, align 4
-  %cmp15 = icmp slt i32 %17, 0
+  %18 = load i32, ptr %err, align 4
+  %cmp15 = icmp slt i32 %18, 0
   br i1 %cmp15, label %if.then16, label %if.end22
 
 if.then16:                                        ; preds = %if.end14
   %call17 = call ptr @_(ptr noundef @.str.84)
-  %18 = load i8, ptr %flip.addr, align 1
-  %conv = sext i8 %18 to i32
-  %19 = load ptr, ptr %ce, align 8
-  %name18 = getelementptr inbounds %struct.cache_entry, ptr %19, i32 0, i32 8
+  %19 = load i8, ptr %flip.addr, align 1
+  %conv = sext i8 %19 to i32
+  %20 = load ptr, ptr %ce, align 8
+  %name18 = getelementptr inbounds %struct.cache_entry, ptr %20, i32 0, i32 8
   %arraydecay19 = getelementptr inbounds [0 x i8], ptr %name18, i64 0, i64 0
   %call20 = call i32 (ptr, ...) @error(ptr noundef %call17, i32 noundef %conv, ptr noundef %arraydecay19)
   %call21 = call i32 @const_error()
@@ -1867,14 +1869,14 @@ if.end22:                                         ; preds = %if.then16, %if.end1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end22, %if.then7, %if.then
-  %20 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %20, 1
+  %21 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %21, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %for.cond
-  %21 = load i32, ptr %ret, align 4
-  ret i32 %21
+  %22 = load i32, ptr %ret, align 4
+  ret i32 %22
 }
 
 declare void @end_odb_transaction() #1

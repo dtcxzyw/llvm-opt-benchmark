@@ -127,16 +127,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_ias_ace() #0 {
   store ptr @ett_zbee_zcl_ias_ace, ptr @proto_register_zbee_zcl_ias_ace.ett, align 16
-  store ptr @ett_zbee_zcl_ias_ace_zone_id, ptr getelementptr inbounds ([4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 1), align 8
-  store ptr @ett_zbee_zcl_ias_ace_zone_id_map_sec, ptr getelementptr inbounds ([4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 2), align 16
-  store ptr @ett_zbee_zcl_ias_ace_zone_id_map_sec_elem, ptr getelementptr inbounds ([4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 3), align 8
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef @.str.21)
-  store i32 %1, ptr @proto_zbee_zcl_ias_ace, align 4
-  %2 = load i32, ptr @proto_zbee_zcl_ias_ace, align 4
-  call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_zbee_zcl_ias_ace.hf, i32 noundef 10)
+  %1 = getelementptr inbounds [4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 1
+  store ptr @ett_zbee_zcl_ias_ace_zone_id, ptr %1, align 8
+  %2 = getelementptr inbounds [4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 2
+  store ptr @ett_zbee_zcl_ias_ace_zone_id_map_sec, ptr %2, align 16
+  %3 = getelementptr inbounds [4 x ptr], ptr @proto_register_zbee_zcl_ias_ace.ett, i64 0, i64 3
+  store ptr @ett_zbee_zcl_ias_ace_zone_id_map_sec_elem, ptr %3, align 8
+  %4 = call i32 @proto_register_protocol(ptr noundef @.str.19, ptr noundef @.str.20, ptr noundef @.str.21)
+  store i32 %4, ptr @proto_zbee_zcl_ias_ace, align 4
+  %5 = load i32, ptr @proto_zbee_zcl_ias_ace, align 4
+  call void @proto_register_field_array(i32 noundef %5, ptr noundef @proto_register_zbee_zcl_ias_ace.hf, i32 noundef 10)
   call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_zcl_ias_ace.ett, i32 noundef 4)
-  %3 = load i32, ptr @proto_zbee_zcl_ias_ace, align 4
-  %4 = call ptr @register_dissector(ptr noundef @.str.21, ptr noundef @dissect_zbee_zcl_ias_ace, i32 noundef %3)
+  %6 = load i32, ptr @proto_zbee_zcl_ias_ace, align 4
+  %7 = call ptr @register_dissector(ptr noundef @.str.21, ptr noundef @dissect_zbee_zcl_ias_ace, i32 noundef %6)
   ret void
 }
 

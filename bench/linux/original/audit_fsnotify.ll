@@ -59,87 +59,92 @@ define dso_local ptr @audit_alloc_mark(ptr noundef %0, ptr noundef %1, i32 nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !5
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq i8 %5, 47
-  br i1 %6, label %7, label %52
+  %7 = inttoptr i64 -22 to ptr
+  br i1 %6, label %8, label %57
 
-7:                                                ; preds = %3
-  %8 = add i32 %2, -1
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %1, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = icmp eq i8 %11, 47
-  br i1 %12, label %52, label %13
+8:                                                ; preds = %3
+  %9 = add i32 %2, -1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr i8, ptr %1, i64 %10
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 47
+  %14 = inttoptr i64 -22 to ptr
+  br i1 %13, label %57, label %15
 
-13:                                               ; preds = %7
-  %14 = call ptr @kern_path_locked(ptr noundef %1, ptr noundef nonnull %4) #7
-  %15 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
-  br i1 %15, label %52, label %16
+15:                                               ; preds = %8
+  %16 = call ptr @kern_path_locked(ptr noundef %1, ptr noundef nonnull %4) #7
+  %17 = inttoptr i64 -4096 to ptr
+  %18 = icmp ugt ptr %16, %17
+  br i1 %18, label %57, label %19
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 160
-  call void @up_write(ptr noundef %21) #7
-  %22 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %23 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 104) #8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %50, label %25, !prof !6
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 160
+  call void @up_write(ptr noundef %24) #7
+  %25 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %26 = load ptr, ptr %25, align 8
+  %27 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 104) #8
+  %28 = icmp eq ptr %27, null
+  %29 = inttoptr i64 -12 to ptr
+  br i1 %28, label %55, label %30, !prof !6
 
-25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
-  %27 = load ptr, ptr @audit_fsnotify_group, align 8
-  call void @fsnotify_init_mark(ptr noundef %26, ptr noundef %27) #7
-  store i32 4032, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
-  store ptr %1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %39, label %32
+30:                                               ; preds = %19
+  %31 = getelementptr inbounds i8, ptr %27, i64 24
+  %32 = load ptr, ptr @audit_fsnotify_group, align 8
+  call void @fsnotify_init_mark(ptr noundef %31, ptr noundef %32) #7
+  store i32 4032, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %27, i64 16
+  store ptr %1, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %16, i64 48
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %44, label %37
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %30, i64 40
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = load i32, ptr %35, align 16
-  store i32 %36, ptr %23, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 64
-  %38 = load i64, ptr %37, align 8
-  br label %40
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds i8, ptr %35, i64 40
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load i32, ptr %40, align 16
+  store i32 %41, ptr %27, align 8
+  %42 = getelementptr inbounds i8, ptr %35, i64 64
+  %43 = load i64, ptr %42, align 8
+  br label %45
 
-39:                                               ; preds = %25
-  store i32 -1, ptr %23, align 8
-  br label %40
+44:                                               ; preds = %30
+  store i32 -1, ptr %27, align 8
+  br label %45
 
-40:                                               ; preds = %39, %32
-  %41 = phi i64 [ %38, %32 ], [ -1, %39 ]
-  %42 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %23, i64 96
-  store ptr %0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %20, i64 584
-  %45 = call i32 @fsnotify_add_mark(ptr noundef %26, ptr noundef %44, i32 noundef 0, i32 noundef 0) #7
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %47, label %50
+45:                                               ; preds = %44, %37
+  %46 = phi i64 [ %43, %37 ], [ -1, %44 ]
+  %47 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 %46, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %27, i64 96
+  store ptr %0, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %23, i64 584
+  %50 = call i32 @fsnotify_add_mark(ptr noundef %31, ptr noundef %49, i32 noundef 0, i32 noundef 0) #7
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %55
 
-47:                                               ; preds = %40
-  store ptr null, ptr %28, align 8
-  call void @fsnotify_put_mark(ptr noundef %26) #7
-  %48 = sext i32 %45 to i64
-  %49 = inttoptr i64 %48 to ptr
-  br label %50
+52:                                               ; preds = %45
+  store ptr null, ptr %33, align 8
+  call void @fsnotify_put_mark(ptr noundef %31) #7
+  %53 = sext i32 %50 to i64
+  %54 = inttoptr i64 %53 to ptr
+  br label %55
 
-50:                                               ; preds = %47, %40, %16
-  %51 = phi ptr [ %49, %47 ], [ %23, %40 ], [ inttoptr (i64 -12 to ptr), %16 ]
-  call void @dput(ptr noundef %14) #7
+55:                                               ; preds = %52, %45, %19
+  %56 = phi ptr [ %54, %52 ], [ %27, %45 ], [ %29, %19 ]
+  call void @dput(ptr noundef %16) #7
   call void @path_put(ptr noundef nonnull %4) #7
-  br label %52
+  br label %57
 
-52:                                               ; preds = %50, %13, %7, %3
-  %53 = phi ptr [ %51, %50 ], [ inttoptr (i64 -22 to ptr), %7 ], [ inttoptr (i64 -22 to ptr), %3 ], [ %14, %13 ]
+57:                                               ; preds = %55, %15, %8, %3
+  %58 = phi ptr [ %56, %55 ], [ %14, %8 ], [ %7, %3 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  ret ptr %53
+  ret ptr %58
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -193,15 +198,16 @@ define dso_local void @audit_remove_mark_rule(ptr nocapture noundef readonly %0)
 define internal noundef i32 @audit_fsnotify_init() #5 section ".init.text" align 16 {
   %1 = tail call ptr @fsnotify_alloc_group(ptr noundef nonnull @audit_mark_fsnotify_ops, i32 noundef 2) #7
   store ptr %1, ptr @audit_fsnotify_group, align 8
-  %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  br i1 %2, label %3, label %4
+  %2 = inttoptr i64 -4096 to ptr
+  %3 = icmp ugt ptr %1, %2
+  br i1 %3, label %4, label %5
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   store ptr null, ptr @audit_fsnotify_group, align 8
   tail call void @audit_panic(ptr noundef nonnull @.str.1) #7
-  br label %4
+  br label %5
 
-4:                                                ; preds = %3, %0
+5:                                                ; preds = %4, %0
   ret i32 0
 }
 

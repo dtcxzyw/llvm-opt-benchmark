@@ -614,7 +614,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp11MDLImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(158) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp11HMPImporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6Assimp11HMPImporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -636,7 +637,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp11MDLImporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6Assimp11MDLImporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %configPalette = getelementptr inbounds %"class.Assimp::MDLImporter", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %configPalette) #15
   call void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #15
@@ -850,38 +852,44 @@ invoke.cont28:                                    ; preds = %invoke.cont20
   %30 = load i8, ptr @.str.4, align 1
   %conv31 = sext i8 %30 to i32
   %shl = shl i32 %conv31, 24
-  %31 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 1), align 1
-  %conv32 = sext i8 %31 to i32
+  %31 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 1
+  %32 = load i8, ptr %31, align 1
+  %conv32 = sext i8 %32 to i32
   %shl33 = shl i32 %conv32, 16
   %add = add nsw i32 %shl, %shl33
-  %32 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 2), align 1
-  %conv34 = sext i8 %32 to i32
+  %33 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 2
+  %34 = load i8, ptr %33, align 1
+  %conv34 = sext i8 %34 to i32
   %shl35 = shl i32 %conv34, 8
   %add36 = add nsw i32 %add, %shl35
-  %33 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.4, i64 0, i64 3), align 1
-  %conv37 = sext i8 %33 to i32
+  %35 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 3
+  %36 = load i8, ptr %35, align 1
+  %conv37 = sext i8 %36 to i32
   %add38 = add nsw i32 %add36, %conv37
-  %34 = load i32, ptr %iMagic, align 4
-  %cmp39 = icmp eq i32 %add38, %34
+  %37 = load i32, ptr %iMagic, align 4
+  %cmp39 = icmp eq i32 %add38, %37
   br i1 %cmp39, label %if.then51, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont28
-  %35 = load i8, ptr @.str.5, align 1
-  %conv40 = sext i8 %35 to i32
+  %38 = load i8, ptr @.str.5, align 1
+  %conv40 = sext i8 %38 to i32
   %shl41 = shl i32 %conv40, 24
-  %36 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 1), align 1
-  %conv42 = sext i8 %36 to i32
+  %39 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 1
+  %40 = load i8, ptr %39, align 1
+  %conv42 = sext i8 %40 to i32
   %shl43 = shl i32 %conv42, 16
   %add44 = add nsw i32 %shl41, %shl43
-  %37 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 2), align 1
-  %conv45 = sext i8 %37 to i32
+  %41 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 2
+  %42 = load i8, ptr %41, align 1
+  %conv45 = sext i8 %42 to i32
   %shl46 = shl i32 %conv45, 8
   %add47 = add nsw i32 %add44, %shl46
-  %38 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.5, i64 0, i64 3), align 1
-  %conv48 = sext i8 %38 to i32
+  %43 = getelementptr inbounds [5 x i8], ptr @.str.5, i64 0, i64 3
+  %44 = load i8, ptr %43, align 1
+  %conv48 = sext i8 %44 to i32
   %add49 = add nsw i32 %add47, %conv48
-  %39 = load i32, ptr %iMagic, align 4
-  %cmp50 = icmp eq i32 %add49, %39
+  %45 = load i32, ptr %iMagic, align 4
+  %cmp50 = icmp eq i32 %add49, %45
   br i1 %cmp50, label %if.then51, label %if.else
 
 if.then51:                                        ; preds = %lor.lhs.false, %invoke.cont28
@@ -900,50 +908,56 @@ invoke.cont55:                                    ; preds = %invoke.cont54
   unreachable
 
 lpad27:                                           ; preds = %if.else113, %invoke.cont111, %invoke.cont109, %if.then108, %invoke.cont82, %invoke.cont80, %if.then79, %invoke.cont54, %invoke.cont52, %if.then51, %invoke.cont20
-  %40 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %exn.slot, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %ehselector.slot, align 4
   br label %ehcleanup125
 
 if.else:                                          ; preds = %lor.lhs.false
-  %43 = load i8, ptr @.str.7, align 1
-  %conv56 = sext i8 %43 to i32
+  %49 = load i8, ptr @.str.7, align 1
+  %conv56 = sext i8 %49 to i32
   %shl57 = shl i32 %conv56, 24
-  %44 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 1), align 1
-  %conv58 = sext i8 %44 to i32
+  %50 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 1
+  %51 = load i8, ptr %50, align 1
+  %conv58 = sext i8 %51 to i32
   %shl59 = shl i32 %conv58, 16
   %add60 = add nsw i32 %shl57, %shl59
-  %45 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 2), align 1
-  %conv61 = sext i8 %45 to i32
+  %52 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 2
+  %53 = load i8, ptr %52, align 1
+  %conv61 = sext i8 %53 to i32
   %shl62 = shl i32 %conv61, 8
   %add63 = add nsw i32 %add60, %shl62
-  %46 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.7, i64 0, i64 3), align 1
-  %conv64 = sext i8 %46 to i32
+  %54 = getelementptr inbounds [5 x i8], ptr @.str.7, i64 0, i64 3
+  %55 = load i8, ptr %54, align 1
+  %conv64 = sext i8 %55 to i32
   %add65 = add nsw i32 %add63, %conv64
-  %47 = load i32, ptr %iMagic, align 4
-  %cmp66 = icmp eq i32 %add65, %47
+  %56 = load i32, ptr %iMagic, align 4
+  %cmp66 = icmp eq i32 %add65, %56
   br i1 %cmp66, label %if.then79, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %if.else
-  %48 = load i8, ptr @.str.8, align 1
-  %conv68 = sext i8 %48 to i32
+  %57 = load i8, ptr @.str.8, align 1
+  %conv68 = sext i8 %57 to i32
   %shl69 = shl i32 %conv68, 24
-  %49 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.8, i64 0, i64 1), align 1
-  %conv70 = sext i8 %49 to i32
+  %58 = getelementptr inbounds [5 x i8], ptr @.str.8, i64 0, i64 1
+  %59 = load i8, ptr %58, align 1
+  %conv70 = sext i8 %59 to i32
   %shl71 = shl i32 %conv70, 16
   %add72 = add nsw i32 %shl69, %shl71
-  %50 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.8, i64 0, i64 2), align 1
-  %conv73 = sext i8 %50 to i32
+  %60 = getelementptr inbounds [5 x i8], ptr @.str.8, i64 0, i64 2
+  %61 = load i8, ptr %60, align 1
+  %conv73 = sext i8 %61 to i32
   %shl74 = shl i32 %conv73, 8
   %add75 = add nsw i32 %add72, %shl74
-  %51 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.8, i64 0, i64 3), align 1
-  %conv76 = sext i8 %51 to i32
+  %62 = getelementptr inbounds [5 x i8], ptr @.str.8, i64 0, i64 3
+  %63 = load i8, ptr %62, align 1
+  %conv76 = sext i8 %63 to i32
   %add77 = add nsw i32 %add75, %conv76
-  %52 = load i32, ptr %iMagic, align 4
-  %cmp78 = icmp eq i32 %add77, %52
+  %64 = load i32, ptr %iMagic, align 4
+  %cmp78 = icmp eq i32 %add77, %64
   br i1 %cmp78, label %if.then79, label %if.else84
 
 if.then79:                                        ; preds = %lor.lhs.false67, %if.else
@@ -962,41 +976,47 @@ invoke.cont83:                                    ; preds = %invoke.cont82
   br label %if.end122
 
 if.else84:                                        ; preds = %lor.lhs.false67
-  %53 = load i8, ptr @.str.10, align 1
-  %conv85 = sext i8 %53 to i32
+  %65 = load i8, ptr @.str.10, align 1
+  %conv85 = sext i8 %65 to i32
   %shl86 = shl i32 %conv85, 24
-  %54 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 1), align 1
-  %conv87 = sext i8 %54 to i32
+  %66 = getelementptr inbounds [5 x i8], ptr @.str.10, i64 0, i64 1
+  %67 = load i8, ptr %66, align 1
+  %conv87 = sext i8 %67 to i32
   %shl88 = shl i32 %conv87, 16
   %add89 = add nsw i32 %shl86, %shl88
-  %55 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 2), align 1
-  %conv90 = sext i8 %55 to i32
+  %68 = getelementptr inbounds [5 x i8], ptr @.str.10, i64 0, i64 2
+  %69 = load i8, ptr %68, align 1
+  %conv90 = sext i8 %69 to i32
   %shl91 = shl i32 %conv90, 8
   %add92 = add nsw i32 %add89, %shl91
-  %56 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.10, i64 0, i64 3), align 1
-  %conv93 = sext i8 %56 to i32
+  %70 = getelementptr inbounds [5 x i8], ptr @.str.10, i64 0, i64 3
+  %71 = load i8, ptr %70, align 1
+  %conv93 = sext i8 %71 to i32
   %add94 = add nsw i32 %add92, %conv93
-  %57 = load i32, ptr %iMagic, align 4
-  %cmp95 = icmp eq i32 %add94, %57
+  %72 = load i32, ptr %iMagic, align 4
+  %cmp95 = icmp eq i32 %add94, %72
   br i1 %cmp95, label %if.then108, label %lor.lhs.false96
 
 lor.lhs.false96:                                  ; preds = %if.else84
-  %58 = load i8, ptr @.str.11, align 1
-  %conv97 = sext i8 %58 to i32
+  %73 = load i8, ptr @.str.11, align 1
+  %conv97 = sext i8 %73 to i32
   %shl98 = shl i32 %conv97, 24
-  %59 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.11, i64 0, i64 1), align 1
-  %conv99 = sext i8 %59 to i32
+  %74 = getelementptr inbounds [5 x i8], ptr @.str.11, i64 0, i64 1
+  %75 = load i8, ptr %74, align 1
+  %conv99 = sext i8 %75 to i32
   %shl100 = shl i32 %conv99, 16
   %add101 = add nsw i32 %shl98, %shl100
-  %60 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.11, i64 0, i64 2), align 1
-  %conv102 = sext i8 %60 to i32
+  %76 = getelementptr inbounds [5 x i8], ptr @.str.11, i64 0, i64 2
+  %77 = load i8, ptr %76, align 1
+  %conv102 = sext i8 %77 to i32
   %shl103 = shl i32 %conv102, 8
   %add104 = add nsw i32 %add101, %shl103
-  %61 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.11, i64 0, i64 3), align 1
-  %conv105 = sext i8 %61 to i32
+  %78 = getelementptr inbounds [5 x i8], ptr @.str.11, i64 0, i64 3
+  %79 = load i8, ptr %78, align 1
+  %conv105 = sext i8 %79 to i32
   %add106 = add nsw i32 %add104, %conv105
-  %62 = load i32, ptr %iMagic, align 4
-  %cmp107 = icmp eq i32 %add106, %62
+  %80 = load i32, ptr %iMagic, align 4
+  %cmp107 = icmp eq i32 %add106, %80
   br i1 %cmp107, label %if.then108, label %if.else113
 
 if.then108:                                       ; preds = %lor.lhs.false96, %if.else84
@@ -1020,8 +1040,8 @@ if.else113:                                       ; preds = %lor.lhs.false96
 
 invoke.cont114:                                   ; preds = %if.else113
   %exception115 = call ptr @__cxa_allocate_exception(i64 16) #15
-  %63 = load ptr, ptr %pFile.addr, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA23_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA15_S1_RS9_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception115, ptr noundef nonnull align 1 dereferenceable(23) @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 1 dereferenceable(15) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %szBuffer, ptr noundef nonnull align 1 dereferenceable(15) @.str.15)
+  %81 = load ptr, ptr %pFile.addr, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA23_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA15_S1_RS9_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception115, ptr noundef nonnull align 1 dereferenceable(23) @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 1 dereferenceable(15) @.str.14, ptr noundef nonnull align 8 dereferenceable(32) %szBuffer, ptr noundef nonnull align 1 dereferenceable(15) @.str.15)
           to label %invoke.cont117 unwind label %lpad116
 
 invoke.cont117:                                   ; preds = %invoke.cont114
@@ -1029,22 +1049,22 @@ invoke.cont117:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %lpad119
 
 lpad116:                                          ; preds = %invoke.cont114
-  %64 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %exn.slot, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception115) #15
   br label %ehcleanup120
 
 lpad119:                                          ; preds = %invoke.cont117
-  %67 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %exn.slot, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %ehselector.slot, align 4
   br label %ehcleanup120
 
 ehcleanup120:                                     ; preds = %lpad119, %lpad116
@@ -1059,10 +1079,10 @@ if.end122:                                        ; preds = %if.end121, %invoke.
 
 if.end123:                                        ; preds = %if.end122
   %pScene124 = getelementptr inbounds %"class.Assimp::MDLImporter", ptr %this1, i32 0, i32 8
-  %70 = load ptr, ptr %pScene124, align 8
-  %mFlags = getelementptr inbounds %struct.aiScene, ptr %70, i32 0, i32 0
-  %71 = load i32, ptr %mFlags, align 8
-  %or = or i32 %71, 16
+  %88 = load ptr, ptr %pScene124, align 8
+  %mFlags = getelementptr inbounds %struct.aiScene, ptr %88, i32 0, i32 0
+  %89 = load i32, ptr %mFlags, align 8
+  %or = or i32 %89, 16
   store i32 %or, ptr %mFlags, align 8
   call void @"_ZNSt10unique_ptrIA_hZN6Assimp11HMPImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS1_8IOSystemEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %buffer) #15
   call void @_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %file) #15
@@ -1245,16 +1265,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -1307,16 +1328,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -2158,16 +2180,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this9, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #15
   br label %eh.resume
 
@@ -3804,7 +3827,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #15
   ret void

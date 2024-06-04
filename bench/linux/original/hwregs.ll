@@ -405,31 +405,32 @@ define dso_local i32 @acpi_hw_clear_acpi_status() local_unnamed_addr #0 align 16
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #5
   %3 = tail call i32 @acpi_hw_write(i64 noundef 50993, ptr noundef nonnull @acpi_gbl_xpm1a_status)
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %0
-  %6 = load i64, ptr getelementptr inbounds (%struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_status, i64 0, i32 4), align 1
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %10, label %8
+  %6 = getelementptr inbounds %struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_status, i64 0, i32 4
+  %7 = load i64, ptr %6, align 1
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %11, label %9
 
-8:                                                ; preds = %5
-  %9 = tail call i32 @acpi_hw_write(i64 noundef 50993, ptr noundef nonnull @acpi_gbl_xpm1b_status)
-  br label %10
+9:                                                ; preds = %5
+  %10 = tail call i32 @acpi_hw_write(i64 noundef 50993, ptr noundef nonnull @acpi_gbl_xpm1b_status)
+  br label %11
 
-10:                                               ; preds = %8, %5, %0
-  %11 = phi i32 [ %3, %0 ], [ %9, %8 ], [ 0, %5 ]
-  %12 = load ptr, ptr @acpi_gbl_hardware_lock, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %2) #5
-  %13 = icmp eq i32 %11, 0
-  br i1 %13, label %14, label %16
+11:                                               ; preds = %9, %5, %0
+  %12 = phi i32 [ %3, %0 ], [ %10, %9 ], [ 0, %5 ]
+  %13 = load ptr, ptr @acpi_gbl_hardware_lock, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %13, i64 noundef %2) #5
+  %14 = icmp eq i32 %12, 0
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %10
-  %15 = tail call i32 @acpi_ev_walk_gpe_list(ptr noundef nonnull @acpi_hw_clear_gpe_block, ptr noundef null) #5
-  br label %16
+15:                                               ; preds = %11
+  %16 = tail call i32 @acpi_ev_walk_gpe_list(ptr noundef nonnull @acpi_hw_clear_gpe_block, ptr noundef null) #5
+  br label %17
 
-16:                                               ; preds = %14, %10
-  %17 = phi i32 [ %11, %10 ], [ %15, %14 ]
-  ret i32 %17
+17:                                               ; preds = %15, %11
+  %18 = phi i32 [ %12, %11 ], [ %16, %15 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -438,13 +439,13 @@ define dso_local i32 @acpi_hw_register_write(i32 noundef %0, i32 noundef %1) loc
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 0, ptr %4, align 8, !annotation !8
-  switch i32 %0, label %75 [
+  switch i32 %0, label %87 [
     i32 1, label %5
-    i32 2, label %15
-    i32 3, label %24
-    i32 4, label %57
-    i32 5, label %68
-    i32 7, label %71
+    i32 2, label %16
+    i32 3, label %26
+    i32 4, label %65
+    i32 5, label %78
+    i32 7, label %82
   ]
 
 5:                                                ; preds = %2
@@ -452,120 +453,132 @@ define dso_local i32 @acpi_hw_register_write(i32 noundef %0, i32 noundef %1) loc
   %7 = zext i32 %6 to i64
   %8 = tail call i32 @acpi_hw_write(i64 noundef %7, ptr noundef nonnull @acpi_gbl_xpm1a_status)
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %76
+  br i1 %9, label %10, label %88
 
 10:                                               ; preds = %5
-  %11 = load i64, ptr getelementptr inbounds (%struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_status, i64 0, i32 4), align 1
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %76, label %13
+  %11 = getelementptr inbounds %struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_status, i64 0, i32 4
+  %12 = load i64, ptr %11, align 1
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %88, label %14
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @acpi_hw_write(i64 noundef %7, ptr noundef nonnull @acpi_gbl_xpm1b_status)
-  br label %76
+14:                                               ; preds = %10
+  %15 = tail call i32 @acpi_hw_write(i64 noundef %7, ptr noundef nonnull @acpi_gbl_xpm1b_status)
+  br label %88
 
-15:                                               ; preds = %2
-  %16 = zext i32 %1 to i64
-  %17 = tail call i32 @acpi_hw_write(i64 noundef %16, ptr noundef nonnull @acpi_gbl_xpm1a_enable)
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %76
+16:                                               ; preds = %2
+  %17 = zext i32 %1 to i64
+  %18 = tail call i32 @acpi_hw_write(i64 noundef %17, ptr noundef nonnull @acpi_gbl_xpm1a_enable)
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %88
 
-19:                                               ; preds = %15
-  %20 = load i64, ptr getelementptr inbounds (%struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_enable, i64 0, i32 4), align 1
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %76, label %22
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds %struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_enable, i64 0, i32 4
+  %22 = load i64, ptr %21, align 1
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %88, label %24
 
-22:                                               ; preds = %19
-  %23 = tail call i32 @acpi_hw_write(i64 noundef %16, ptr noundef nonnull @acpi_gbl_xpm1b_enable)
-  br label %76
+24:                                               ; preds = %20
+  %25 = tail call i32 @acpi_hw_write(i64 noundef %17, ptr noundef nonnull @acpi_gbl_xpm1b_enable)
+  br label %88
 
-24:                                               ; preds = %2
+26:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   store i64 0, ptr %3, align 8, !annotation !8
-  %25 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 47))
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %42
+  %27 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 47
+  %28 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull %27)
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %47
 
-27:                                               ; preds = %24
-  %28 = load i64, ptr %3, align 8
-  %29 = trunc i64 %28 to i32
-  %30 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48, i32 4), align 1
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %38, label %32
+30:                                               ; preds = %26
+  %31 = load i64, ptr %3, align 8
+  %32 = trunc i64 %31 to i32
+  %33 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48, i32 4
+  %34 = load i64, ptr %33, align 1
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %43, label %36
 
-32:                                               ; preds = %27
-  %33 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48))
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %42
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48
+  %38 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull %37)
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %47
 
-35:                                               ; preds = %32
-  %36 = load i64, ptr %3, align 8
-  %37 = trunc i64 %36 to i32
-  br label %38
+40:                                               ; preds = %36
+  %41 = load i64, ptr %3, align 8
+  %42 = trunc i64 %41 to i32
+  br label %43
 
-38:                                               ; preds = %35, %27
-  %39 = phi i32 [ %37, %35 ], [ 0, %27 ]
-  %40 = or i32 %39, %29
-  %41 = and i32 %40, 50168
-  br label %42
+43:                                               ; preds = %40, %30
+  %44 = phi i32 [ %42, %40 ], [ 0, %30 ]
+  %45 = or i32 %44, %32
+  %46 = and i32 %45, 50168
+  br label %47
 
-42:                                               ; preds = %38, %32, %24
-  %43 = phi i32 [ %41, %38 ], [ 0, %32 ], [ 0, %24 ]
-  %44 = phi i32 [ 0, %38 ], [ %33, %32 ], [ %25, %24 ]
+47:                                               ; preds = %43, %36, %26
+  %48 = phi i32 [ %46, %43 ], [ 0, %36 ], [ 0, %26 ]
+  %49 = phi i32 [ 0, %43 ], [ %38, %36 ], [ %28, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %76
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %88
 
-46:                                               ; preds = %42
-  %47 = and i32 %1, -50169
-  %48 = or disjoint i32 %43, %47
-  %49 = zext i32 %48 to i64
-  %50 = tail call i32 @acpi_hw_write(i64 noundef %49, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 47))
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %76
+51:                                               ; preds = %47
+  %52 = and i32 %1, -50169
+  %53 = or disjoint i32 %48, %52
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 47
+  %56 = tail call i32 @acpi_hw_write(i64 noundef %54, ptr noundef nonnull %55)
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %88
 
-52:                                               ; preds = %46
-  %53 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48, i32 4), align 1
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %76, label %55
+58:                                               ; preds = %51
+  %59 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48, i32 4
+  %60 = load i64, ptr %59, align 1
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %88, label %62
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @acpi_hw_write(i64 noundef %49, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48))
-  br label %76
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48
+  %64 = tail call i32 @acpi_hw_write(i64 noundef %54, ptr noundef nonnull %63)
+  br label %88
 
-57:                                               ; preds = %2
-  %58 = call i32 @acpi_hw_read(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 49))
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %76
+65:                                               ; preds = %2
+  %66 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 49
+  %67 = call i32 @acpi_hw_read(ptr noundef nonnull %4, ptr noundef nonnull %66)
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %88
 
-60:                                               ; preds = %57
-  %61 = load i64, ptr %4, align 8
-  %62 = trunc i64 %61 to i32
-  %63 = and i32 %1, 1
-  %64 = and i32 %62, -2
-  %65 = or disjoint i32 %64, %63
-  %66 = zext i32 %65 to i64
-  %67 = tail call i32 @acpi_hw_write(i64 noundef %66, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 49))
-  br label %76
+69:                                               ; preds = %65
+  %70 = load i64, ptr %4, align 8
+  %71 = trunc i64 %70 to i32
+  %72 = and i32 %1, 1
+  %73 = and i32 %71, -2
+  %74 = or disjoint i32 %73, %72
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 49
+  %77 = tail call i32 @acpi_hw_write(i64 noundef %75, ptr noundef nonnull %76)
+  br label %88
 
-68:                                               ; preds = %2
-  %69 = zext i32 %1 to i64
-  %70 = tail call i32 @acpi_hw_write(i64 noundef %69, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50))
-  br label %76
+78:                                               ; preds = %2
+  %79 = zext i32 %1 to i64
+  %80 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50
+  %81 = tail call i32 @acpi_hw_write(i64 noundef %79, ptr noundef nonnull %80)
+  br label %88
 
-71:                                               ; preds = %2
-  %72 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
-  %73 = zext i32 %72 to i64
-  %74 = tail call i32 @acpi_hw_write_port(i64 noundef %73, i32 noundef %1, i32 noundef 8) #5
-  br label %76
+82:                                               ; preds = %2
+  %83 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6
+  %84 = load i32, ptr %83, align 1
+  %85 = zext i32 %84 to i64
+  %86 = tail call i32 @acpi_hw_write_port(i64 noundef %85, i32 noundef %1, i32 noundef 8) #5
+  br label %88
 
-75:                                               ; preds = %2
+87:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 690, ptr noundef nonnull @.str.4, i32 noundef %0) #5
-  br label %76
+  br label %88
 
-76:                                               ; preds = %75, %71, %68, %60, %57, %55, %52, %46, %42, %22, %19, %15, %13, %10, %5
-  %77 = phi i32 [ 4097, %75 ], [ %74, %71 ], [ %70, %68 ], [ %58, %57 ], [ %67, %60 ], [ %44, %42 ], [ %8, %5 ], [ %14, %13 ], [ 0, %10 ], [ %17, %15 ], [ %23, %22 ], [ 0, %19 ], [ %50, %46 ], [ %56, %55 ], [ 0, %52 ]
+88:                                               ; preds = %87, %82, %78, %69, %65, %62, %58, %51, %47, %24, %20, %16, %14, %10, %5
+  %89 = phi i32 [ 4097, %87 ], [ %86, %82 ], [ %81, %78 ], [ %67, %65 ], [ %77, %69 ], [ %49, %47 ], [ %8, %5 ], [ %15, %14 ], [ 0, %10 ], [ %18, %16 ], [ %25, %24 ], [ 0, %20 ], [ %56, %51 ], [ %64, %62 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  ret i32 %77
+  ret i32 %89
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -596,23 +609,26 @@ define dso_local ptr @acpi_hw_get_bit_register_info(i32 noundef %0) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_hw_write_pm1_control(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = tail call i32 @acpi_hw_write(i64 noundef %3, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 47))
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %12
+  %4 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 47
+  %5 = tail call i32 @acpi_hw_write(i64 noundef %3, ptr noundef nonnull %4)
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %7, label %15
 
-6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48, i32 4), align 1
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %12, label %9
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48, i32 4
+  %9 = load i64, ptr %8, align 1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %15, label %11
 
-9:                                                ; preds = %6
-  %10 = zext i32 %1 to i64
-  %11 = tail call i32 @acpi_hw_write(i64 noundef %10, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48))
-  br label %12
+11:                                               ; preds = %7
+  %12 = zext i32 %1 to i64
+  %13 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48
+  %14 = tail call i32 @acpi_hw_write(i64 noundef %12, ptr noundef nonnull %13)
+  br label %15
 
-12:                                               ; preds = %9, %6, %2
-  %13 = phi i32 [ %4, %2 ], [ %11, %9 ], [ 0, %6 ]
-  ret i32 %13
+15:                                               ; preds = %11, %7, %2
+  %16 = phi i32 [ %5, %2 ], [ %14, %11 ], [ 0, %7 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -626,13 +642,13 @@ define dso_local i32 @acpi_hw_register_read(i32 noundef %0, ptr nocapture nounde
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
   store i64 0, ptr %7, align 8, !annotation !8
-  switch i32 %0, label %83 [
+  switch i32 %0, label %91 [
     i32 1, label %8
-    i32 2, label %27
-    i32 3, label %46
-    i32 4, label %67
-    i32 5, label %73
-    i32 7, label %79
+    i32 2, label %28
+    i32 3, label %48
+    i32 4, label %72
+    i32 5, label %79
+    i32 7, label %86
   ]
 
 8:                                                ; preds = %2
@@ -640,155 +656,163 @@ define dso_local i32 @acpi_hw_register_read(i32 noundef %0, ptr nocapture nounde
   store i64 0, ptr %5, align 8, !annotation !8
   %9 = call i32 @acpi_hw_read(ptr noundef nonnull %5, ptr noundef nonnull @acpi_gbl_xpm1a_status)
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %25
+  br i1 %10, label %11, label %26
 
 11:                                               ; preds = %8
   %12 = load i64, ptr %5, align 8
   %13 = trunc i64 %12 to i32
-  %14 = load i64, ptr getelementptr inbounds (%struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_status, i64 0, i32 4), align 1
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %22, label %16
+  %14 = getelementptr inbounds %struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_status, i64 0, i32 4
+  %15 = load i64, ptr %14, align 1
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %23, label %17
 
-16:                                               ; preds = %11
-  %17 = call i32 @acpi_hw_read(ptr noundef nonnull %5, ptr noundef nonnull @acpi_gbl_xpm1b_status)
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %25
+17:                                               ; preds = %11
+  %18 = call i32 @acpi_hw_read(ptr noundef nonnull %5, ptr noundef nonnull @acpi_gbl_xpm1b_status)
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %26
 
-19:                                               ; preds = %16
-  %20 = load i64, ptr %5, align 8
-  %21 = trunc i64 %20 to i32
-  br label %22
+20:                                               ; preds = %17
+  %21 = load i64, ptr %5, align 8
+  %22 = trunc i64 %21 to i32
+  br label %23
 
-22:                                               ; preds = %19, %11
-  %23 = phi i32 [ %21, %19 ], [ 0, %11 ]
-  %24 = or i32 %23, %13
-  store i32 %24, ptr %6, align 4
-  br label %25
+23:                                               ; preds = %20, %11
+  %24 = phi i32 [ %22, %20 ], [ 0, %11 ]
+  %25 = or i32 %24, %13
+  store i32 %25, ptr %6, align 4
+  br label %26
 
-25:                                               ; preds = %22, %16, %8
-  %26 = phi i32 [ 0, %22 ], [ %9, %8 ], [ %17, %16 ]
+26:                                               ; preds = %23, %17, %8
+  %27 = phi i32 [ 0, %23 ], [ %9, %8 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  br label %84
+  br label %92
 
-27:                                               ; preds = %2
+28:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 0, ptr %4, align 8, !annotation !8
-  %28 = call i32 @acpi_hw_read(ptr noundef nonnull %4, ptr noundef nonnull @acpi_gbl_xpm1a_enable)
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %44
+  %29 = call i32 @acpi_hw_read(ptr noundef nonnull %4, ptr noundef nonnull @acpi_gbl_xpm1a_enable)
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %46
 
-30:                                               ; preds = %27
-  %31 = load i64, ptr %4, align 8
-  %32 = trunc i64 %31 to i32
-  %33 = load i64, ptr getelementptr inbounds (%struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_enable, i64 0, i32 4), align 1
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %41, label %35
+31:                                               ; preds = %28
+  %32 = load i64, ptr %4, align 8
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds %struct.acpi_generic_address, ptr @acpi_gbl_xpm1b_enable, i64 0, i32 4
+  %35 = load i64, ptr %34, align 1
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %43, label %37
 
-35:                                               ; preds = %30
-  %36 = call i32 @acpi_hw_read(ptr noundef nonnull %4, ptr noundef nonnull @acpi_gbl_xpm1b_enable)
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %44
+37:                                               ; preds = %31
+  %38 = call i32 @acpi_hw_read(ptr noundef nonnull %4, ptr noundef nonnull @acpi_gbl_xpm1b_enable)
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %46
 
-38:                                               ; preds = %35
-  %39 = load i64, ptr %4, align 8
-  %40 = trunc i64 %39 to i32
-  br label %41
+40:                                               ; preds = %37
+  %41 = load i64, ptr %4, align 8
+  %42 = trunc i64 %41 to i32
+  br label %43
 
-41:                                               ; preds = %38, %30
-  %42 = phi i32 [ %40, %38 ], [ 0, %30 ]
-  %43 = or i32 %42, %32
-  store i32 %43, ptr %6, align 4
-  br label %44
+43:                                               ; preds = %40, %31
+  %44 = phi i32 [ %42, %40 ], [ 0, %31 ]
+  %45 = or i32 %44, %33
+  store i32 %45, ptr %6, align 4
+  br label %46
 
-44:                                               ; preds = %41, %35, %27
-  %45 = phi i32 [ 0, %41 ], [ %28, %27 ], [ %36, %35 ]
+46:                                               ; preds = %43, %37, %28
+  %47 = phi i32 [ 0, %43 ], [ %29, %28 ], [ %38, %37 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  br label %84
+  br label %92
 
-46:                                               ; preds = %2
+48:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   store i64 0, ptr %3, align 8, !annotation !8
-  %47 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 47))
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %63
+  %49 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 47
+  %50 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull %49)
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %68
 
-49:                                               ; preds = %46
-  %50 = load i64, ptr %3, align 8
-  %51 = trunc i64 %50 to i32
-  %52 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48, i32 4), align 1
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %60, label %54
+52:                                               ; preds = %48
+  %53 = load i64, ptr %3, align 8
+  %54 = trunc i64 %53 to i32
+  %55 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48, i32 4
+  %56 = load i64, ptr %55, align 1
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %65, label %58
 
-54:                                               ; preds = %49
-  %55 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48))
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %63
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 48
+  %60 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull %59)
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %68
 
-57:                                               ; preds = %54
-  %58 = load i64, ptr %3, align 8
-  %59 = trunc i64 %58 to i32
-  br label %60
+62:                                               ; preds = %58
+  %63 = load i64, ptr %3, align 8
+  %64 = trunc i64 %63 to i32
+  br label %65
 
-60:                                               ; preds = %57, %49
-  %61 = phi i32 [ %59, %57 ], [ 0, %49 ]
-  %62 = or i32 %61, %51
-  store i32 %62, ptr %6, align 4
-  br label %63
+65:                                               ; preds = %62, %52
+  %66 = phi i32 [ %64, %62 ], [ 0, %52 ]
+  %67 = or i32 %66, %54
+  store i32 %67, ptr %6, align 4
+  br label %68
 
-63:                                               ; preds = %60, %54, %46
-  %64 = phi i32 [ 0, %60 ], [ %47, %46 ], [ %55, %54 ]
+68:                                               ; preds = %65, %58, %48
+  %69 = phi i32 [ 0, %65 ], [ %50, %48 ], [ %60, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  %65 = load i32, ptr %6, align 4
-  %66 = and i32 %65, -8197
-  store i32 %66, ptr %6, align 4
-  br label %84
+  %70 = load i32, ptr %6, align 4
+  %71 = and i32 %70, -8197
+  store i32 %71, ptr %6, align 4
+  br label %92
 
-67:                                               ; preds = %2
-  %68 = call i32 @acpi_hw_read(ptr noundef nonnull %7, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 49))
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %84
-
-70:                                               ; preds = %67
-  %71 = load i64, ptr %7, align 8
-  %72 = trunc i64 %71 to i32
-  store i32 %72, ptr %6, align 4
-  br label %84
-
-73:                                               ; preds = %2
-  %74 = call i32 @acpi_hw_read(ptr noundef nonnull %7, ptr noundef nonnull getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50))
+72:                                               ; preds = %2
+  %73 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 49
+  %74 = call i32 @acpi_hw_read(ptr noundef nonnull %7, ptr noundef nonnull %73)
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %84
+  br i1 %75, label %76, label %92
 
-76:                                               ; preds = %73
+76:                                               ; preds = %72
   %77 = load i64, ptr %7, align 8
   %78 = trunc i64 %77 to i32
   store i32 %78, ptr %6, align 4
-  br label %84
+  br label %92
 
 79:                                               ; preds = %2
-  %80 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
-  %81 = zext i32 %80 to i64
-  %82 = call i32 @acpi_hw_read_port(i64 noundef %81, ptr noundef nonnull %6, i32 noundef 8) #5
-  br label %84
+  %80 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50
+  %81 = call i32 @acpi_hw_read(ptr noundef nonnull %7, ptr noundef nonnull %80)
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %92
 
-83:                                               ; preds = %2
+83:                                               ; preds = %79
+  %84 = load i64, ptr %7, align 8
+  %85 = trunc i64 %84 to i32
+  store i32 %85, ptr %6, align 4
+  br label %92
+
+86:                                               ; preds = %2
+  %87 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6
+  %88 = load i32, ptr %87, align 1
+  %89 = zext i32 %88 to i64
+  %90 = call i32 @acpi_hw_read_port(i64 noundef %89, ptr noundef nonnull %6, i32 noundef 8) #5
+  br label %92
+
+91:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 553, ptr noundef nonnull @.str.4, i32 noundef %0) #5
-  br label %84
+  br label %92
 
-84:                                               ; preds = %83, %79, %76, %73, %70, %67, %63, %44, %25
-  %85 = phi i32 [ 4097, %83 ], [ %82, %79 ], [ %74, %73 ], [ 0, %76 ], [ %68, %67 ], [ 0, %70 ], [ %64, %63 ], [ %45, %44 ], [ %26, %25 ]
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %89
+92:                                               ; preds = %91, %86, %83, %79, %76, %72, %68, %46, %26
+  %93 = phi i32 [ 4097, %91 ], [ %90, %86 ], [ %81, %79 ], [ 0, %83 ], [ %74, %72 ], [ 0, %76 ], [ %69, %68 ], [ %47, %46 ], [ %27, %26 ]
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %97
 
-87:                                               ; preds = %84
-  %88 = load i32, ptr %6, align 4
-  store i32 %88, ptr %1, align 4
-  br label %89
+95:                                               ; preds = %92
+  %96 = load i32, ptr %6, align 4
+  store i32 %96, ptr %1, align 4
+  br label %97
 
-89:                                               ; preds = %87, %84
+97:                                               ; preds = %95, %92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  ret i32 %85
+  ret i32 %93
 }
 
 ; Function Attrs: null_pointer_is_valid

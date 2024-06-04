@@ -229,7 +229,7 @@ define internal zeroext i1 @dsm_impl_posix(i32 noundef %0, i32 noundef %1, i64 n
 
 68:                                               ; preds = %67
   store i1 false, ptr %8, align 1
-  br label %282
+  br label %283
 
 69:                                               ; preds = %36, %32
   %70 = load ptr, ptr %13, align 8
@@ -294,11 +294,11 @@ define internal zeroext i1 @dsm_impl_posix(i32 noundef %0, i32 noundef %1, i64 n
 
 103:                                              ; preds = %102
   store i1 false, ptr %8, align 1
-  br label %282
+  br label %283
 
 104:                                              ; preds = %74, %69
   store i1 true, ptr %8, align 1
-  br label %282
+  br label %283
 
 105:                                              ; preds = %29
   call void @ReserveExternalFD()
@@ -377,7 +377,7 @@ define internal zeroext i1 @dsm_impl_posix(i32 noundef %0, i32 noundef %1, i64 n
 
 147:                                              ; preds = %146, %117
   store i1 false, ptr %8, align 1
-  br label %282
+  br label %283
 
 148:                                              ; preds = %105
   %149 = load i32, ptr %9, align 4
@@ -447,7 +447,7 @@ define internal zeroext i1 @dsm_impl_posix(i32 noundef %0, i32 noundef %1, i64 n
 
 186:                                              ; preds = %185
   store i1 false, ptr %8, align 1
-  br label %282
+  br label %283
 
 187:                                              ; preds = %151
   %188 = getelementptr inbounds %struct.stat, ptr %20, i32 0, i32 8
@@ -522,7 +522,7 @@ define internal zeroext i1 @dsm_impl_posix(i32 noundef %0, i32 noundef %1, i64 n
 
 229:                                              ; preds = %228
   store i1 false, ptr %8, align 1
-  br label %282
+  br label %283
 
 230:                                              ; preds = %190
   br label %231
@@ -533,94 +533,95 @@ define internal zeroext i1 @dsm_impl_posix(i32 noundef %0, i32 noundef %1, i64 n
   %234 = call ptr @mmap(ptr noundef null, i64 noundef %232, i32 noundef 3, i32 noundef 1, i32 noundef %233, i64 noundef 0) #7
   store ptr %234, ptr %19, align 8
   %235 = load ptr, ptr %19, align 8
-  %236 = icmp eq ptr %235, inttoptr (i64 -1 to ptr)
-  br i1 %236, label %237, label %275
+  %236 = inttoptr i64 -1 to ptr
+  %237 = icmp eq ptr %235, %236
+  br i1 %237, label %238, label %276
 
-237:                                              ; preds = %231
-  %238 = call ptr @__errno_location() #8
-  %239 = load i32, ptr %238, align 4
-  store i32 %239, ptr %23, align 4
-  %240 = load i32, ptr %18, align 4
-  %241 = call i32 @close(i32 noundef %240)
+238:                                              ; preds = %231
+  %239 = call ptr @__errno_location() #8
+  %240 = load i32, ptr %239, align 4
+  store i32 %240, ptr %23, align 4
+  %241 = load i32, ptr %18, align 4
+  %242 = call i32 @close(i32 noundef %241)
   call void @ReleaseExternalFD()
-  %242 = load i32, ptr %9, align 4
-  %243 = icmp eq i32 %242, 0
-  br i1 %243, label %244, label %247
+  %243 = load i32, ptr %9, align 4
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %245, label %248
 
-244:                                              ; preds = %237
-  %245 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %246 = call i32 @shm_unlink(ptr noundef %245)
-  br label %247
+245:                                              ; preds = %238
+  %246 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %247 = call i32 @shm_unlink(ptr noundef %246)
+  br label %248
 
-247:                                              ; preds = %244, %237
-  %248 = load i32, ptr %23, align 4
-  %249 = call ptr @__errno_location() #8
-  store i32 %248, ptr %249, align 4
-  br label %250
+248:                                              ; preds = %245, %238
+  %249 = load i32, ptr %23, align 4
+  %250 = call ptr @__errno_location() #8
+  store i32 %249, ptr %250, align 4
+  br label %251
 
-250:                                              ; preds = %247
-  %251 = load i32, ptr %15, align 4
-  %252 = call i1 @llvm.is.constant.i32(i32 %251)
-  br i1 %252, label %253, label %259
+251:                                              ; preds = %248
+  %252 = load i32, ptr %15, align 4
+  %253 = call i1 @llvm.is.constant.i32(i32 %252)
+  br i1 %253, label %254, label %260
 
-253:                                              ; preds = %250
-  %254 = load i32, ptr %15, align 4
-  %255 = icmp sge i32 %254, 21
-  br i1 %255, label %256, label %259
+254:                                              ; preds = %251
+  %255 = load i32, ptr %15, align 4
+  %256 = icmp sge i32 %255, 21
+  br i1 %256, label %257, label %260
 
-256:                                              ; preds = %253
-  %257 = load i32, ptr %15, align 4
-  %258 = call zeroext i1 @errstart_cold(i32 noundef %257, ptr noundef null) #6
-  br i1 %258, label %262, label %266
+257:                                              ; preds = %254
+  %258 = load i32, ptr %15, align 4
+  %259 = call zeroext i1 @errstart_cold(i32 noundef %258, ptr noundef null) #6
+  br i1 %259, label %263, label %267
 
-259:                                              ; preds = %253, %250
-  %260 = load i32, ptr %15, align 4
-  %261 = call zeroext i1 @errstart(i32 noundef %260, ptr noundef null)
-  br i1 %261, label %262, label %266
+260:                                              ; preds = %254, %251
+  %261 = load i32, ptr %15, align 4
+  %262 = call zeroext i1 @errstart(i32 noundef %261, ptr noundef null)
+  br i1 %262, label %263, label %267
 
-262:                                              ; preds = %259, %256
-  %263 = call i32 @errcode_for_dynamic_shared_memory()
-  %264 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %265 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %264)
+263:                                              ; preds = %260, %257
+  %264 = call i32 @errcode_for_dynamic_shared_memory()
+  %265 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %266 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %265)
   call void @errfinish(ptr noundef @.str.4, i32 noundef 332, ptr noundef @__func__.dsm_impl_posix)
-  br label %266
+  br label %267
 
-266:                                              ; preds = %262, %259, %256
-  %267 = load i32, ptr %15, align 4
-  %268 = call i1 @llvm.is.constant.i32(i32 %267)
-  br i1 %268, label %269, label %273
+267:                                              ; preds = %263, %260, %257
+  %268 = load i32, ptr %15, align 4
+  %269 = call i1 @llvm.is.constant.i32(i32 %268)
+  br i1 %269, label %270, label %274
 
-269:                                              ; preds = %266
-  %270 = load i32, ptr %15, align 4
-  %271 = icmp sge i32 %270, 21
-  br i1 %271, label %272, label %273
+270:                                              ; preds = %267
+  %271 = load i32, ptr %15, align 4
+  %272 = icmp sge i32 %271, 21
+  br i1 %272, label %273, label %274
 
-272:                                              ; preds = %269
+273:                                              ; preds = %270
   unreachable
 
-273:                                              ; preds = %269, %266
-  br label %274
+274:                                              ; preds = %270, %267
+  br label %275
 
-274:                                              ; preds = %273
+275:                                              ; preds = %274
   store i1 false, ptr %8, align 1
-  br label %282
+  br label %283
 
-275:                                              ; preds = %231
-  %276 = load ptr, ptr %19, align 8
-  %277 = load ptr, ptr %13, align 8
-  store ptr %276, ptr %277, align 8
-  %278 = load i64, ptr %11, align 8
-  %279 = load ptr, ptr %14, align 8
-  store i64 %278, ptr %279, align 8
-  %280 = load i32, ptr %18, align 4
-  %281 = call i32 @close(i32 noundef %280)
+276:                                              ; preds = %231
+  %277 = load ptr, ptr %19, align 8
+  %278 = load ptr, ptr %13, align 8
+  store ptr %277, ptr %278, align 8
+  %279 = load i64, ptr %11, align 8
+  %280 = load ptr, ptr %14, align 8
+  store i64 %279, ptr %280, align 8
+  %281 = load i32, ptr %18, align 4
+  %282 = call i32 @close(i32 noundef %281)
   call void @ReleaseExternalFD()
   store i1 true, ptr %8, align 1
-  br label %282
+  br label %283
 
-282:                                              ; preds = %275, %274, %229, %186, %147, %104, %103, %68
-  %283 = load i1, ptr %8, align 1
-  ret i1 %283
+283:                                              ; preds = %276, %275, %229, %186, %147, %104, %103, %68
+  %284 = load i1, ptr %8, align 1
+  ret i1 %284
 }
 
 ; Function Attrs: nounwind uwtable
@@ -704,7 +705,7 @@ define internal zeroext i1 @dsm_impl_sysv(i32 noundef %0, i32 noundef %1, i64 no
   %52 = call ptr @__errno_location() #8
   store i32 17, ptr %52, align 4
   store i1 false, ptr %8, align 1
-  br label %281
+  br label %282
 
 53:                                               ; preds = %35
   %54 = load ptr, ptr %12, align 8
@@ -817,7 +818,7 @@ define internal zeroext i1 @dsm_impl_sysv(i32 noundef %0, i32 noundef %1, i64 no
 
 114:                                              ; preds = %113, %80
   store i1 false, ptr %8, align 1
-  br label %281
+  br label %282
 
 115:                                              ; preds = %71
   %116 = load i32, ptr %17, align 4
@@ -903,7 +904,7 @@ define internal zeroext i1 @dsm_impl_sysv(i32 noundef %0, i32 noundef %1, i64 no
 
 162:                                              ; preds = %161
   store i1 false, ptr %8, align 1
-  br label %281
+  br label %282
 
 163:                                              ; preds = %132, %126
   %164 = load ptr, ptr %13, align 8
@@ -968,11 +969,11 @@ define internal zeroext i1 @dsm_impl_sysv(i32 noundef %0, i32 noundef %1, i64 no
 
 197:                                              ; preds = %196
   store i1 false, ptr %8, align 1
-  br label %281
+  br label %282
 
 198:                                              ; preds = %168, %163
   store i1 true, ptr %8, align 1
-  br label %281
+  br label %282
 
 199:                                              ; preds = %123
   %200 = load i32, ptr %9, align 4
@@ -1033,7 +1034,7 @@ define internal zeroext i1 @dsm_impl_sysv(i32 noundef %0, i32 noundef %1, i64 no
 
 231:                                              ; preds = %230
   store i1 false, ptr %8, align 1
-  br label %281
+  br label %282
 
 232:                                              ; preds = %202
   %233 = getelementptr inbounds %struct.shmid_ds, ptr %24, i32 0, i32 1
@@ -1046,88 +1047,89 @@ define internal zeroext i1 @dsm_impl_sysv(i32 noundef %0, i32 noundef %1, i64 no
   %237 = call ptr @shmat(i32 noundef %236, ptr noundef null, i32 noundef 0) #7
   store ptr %237, ptr %18, align 8
   %238 = load ptr, ptr %18, align 8
-  %239 = icmp eq ptr %238, inttoptr (i64 -1 to ptr)
-  br i1 %239, label %240, label %276
+  %239 = inttoptr i64 -1 to ptr
+  %240 = icmp eq ptr %238, %239
+  br i1 %240, label %241, label %277
 
-240:                                              ; preds = %235
-  %241 = call ptr @__errno_location() #8
-  %242 = load i32, ptr %241, align 4
-  store i32 %242, ptr %25, align 4
-  %243 = load i32, ptr %9, align 4
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %245, label %248
+241:                                              ; preds = %235
+  %242 = call ptr @__errno_location() #8
+  %243 = load i32, ptr %242, align 4
+  store i32 %243, ptr %25, align 4
+  %244 = load i32, ptr %9, align 4
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %249
 
-245:                                              ; preds = %240
-  %246 = load i32, ptr %17, align 4
-  %247 = call i32 @shmctl(i32 noundef %246, i32 noundef 0, ptr noundef null) #7
-  br label %248
+246:                                              ; preds = %241
+  %247 = load i32, ptr %17, align 4
+  %248 = call i32 @shmctl(i32 noundef %247, i32 noundef 0, ptr noundef null) #7
+  br label %249
 
-248:                                              ; preds = %245, %240
-  %249 = load i32, ptr %25, align 4
-  %250 = call ptr @__errno_location() #8
-  store i32 %249, ptr %250, align 4
-  br label %251
+249:                                              ; preds = %246, %241
+  %250 = load i32, ptr %25, align 4
+  %251 = call ptr @__errno_location() #8
+  store i32 %250, ptr %251, align 4
+  br label %252
 
-251:                                              ; preds = %248
-  %252 = load i32, ptr %15, align 4
-  %253 = call i1 @llvm.is.constant.i32(i32 %252)
-  br i1 %253, label %254, label %260
+252:                                              ; preds = %249
+  %253 = load i32, ptr %15, align 4
+  %254 = call i1 @llvm.is.constant.i32(i32 %253)
+  br i1 %254, label %255, label %261
 
-254:                                              ; preds = %251
-  %255 = load i32, ptr %15, align 4
-  %256 = icmp sge i32 %255, 21
-  br i1 %256, label %257, label %260
+255:                                              ; preds = %252
+  %256 = load i32, ptr %15, align 4
+  %257 = icmp sge i32 %256, 21
+  br i1 %257, label %258, label %261
 
-257:                                              ; preds = %254
-  %258 = load i32, ptr %15, align 4
-  %259 = call zeroext i1 @errstart_cold(i32 noundef %258, ptr noundef null) #6
-  br i1 %259, label %263, label %267
+258:                                              ; preds = %255
+  %259 = load i32, ptr %15, align 4
+  %260 = call zeroext i1 @errstart_cold(i32 noundef %259, ptr noundef null) #6
+  br i1 %260, label %264, label %268
 
-260:                                              ; preds = %254, %251
-  %261 = load i32, ptr %15, align 4
-  %262 = call zeroext i1 @errstart(i32 noundef %261, ptr noundef null)
-  br i1 %262, label %263, label %267
+261:                                              ; preds = %255, %252
+  %262 = load i32, ptr %15, align 4
+  %263 = call zeroext i1 @errstart(i32 noundef %262, ptr noundef null)
+  br i1 %263, label %264, label %268
 
-263:                                              ; preds = %260, %257
-  %264 = call i32 @errcode_for_dynamic_shared_memory()
-  %265 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 0
-  %266 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %265)
+264:                                              ; preds = %261, %258
+  %265 = call i32 @errcode_for_dynamic_shared_memory()
+  %266 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 0
+  %267 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %266)
   call void @errfinish(ptr noundef @.str.4, i32 noundef 585, ptr noundef @__func__.dsm_impl_sysv)
-  br label %267
+  br label %268
 
-267:                                              ; preds = %263, %260, %257
-  %268 = load i32, ptr %15, align 4
-  %269 = call i1 @llvm.is.constant.i32(i32 %268)
-  br i1 %269, label %270, label %274
+268:                                              ; preds = %264, %261, %258
+  %269 = load i32, ptr %15, align 4
+  %270 = call i1 @llvm.is.constant.i32(i32 %269)
+  br i1 %270, label %271, label %275
 
-270:                                              ; preds = %267
-  %271 = load i32, ptr %15, align 4
-  %272 = icmp sge i32 %271, 21
-  br i1 %272, label %273, label %274
+271:                                              ; preds = %268
+  %272 = load i32, ptr %15, align 4
+  %273 = icmp sge i32 %272, 21
+  br i1 %273, label %274, label %275
 
-273:                                              ; preds = %270
+274:                                              ; preds = %271
   unreachable
 
-274:                                              ; preds = %270, %267
-  br label %275
+275:                                              ; preds = %271, %268
+  br label %276
 
-275:                                              ; preds = %274
+276:                                              ; preds = %275
   store i1 false, ptr %8, align 1
-  br label %281
+  br label %282
 
-276:                                              ; preds = %235
-  %277 = load ptr, ptr %18, align 8
-  %278 = load ptr, ptr %13, align 8
-  store ptr %277, ptr %278, align 8
-  %279 = load i64, ptr %11, align 8
-  %280 = load ptr, ptr %14, align 8
-  store i64 %279, ptr %280, align 8
+277:                                              ; preds = %235
+  %278 = load ptr, ptr %18, align 8
+  %279 = load ptr, ptr %13, align 8
+  store ptr %278, ptr %279, align 8
+  %280 = load i64, ptr %11, align 8
+  %281 = load ptr, ptr %14, align 8
+  store i64 %280, ptr %281, align 8
   store i1 true, ptr %8, align 1
-  br label %281
+  br label %282
 
-281:                                              ; preds = %276, %275, %231, %198, %197, %162, %114, %51
-  %282 = load i1, ptr %8, align 1
-  ret i1 %282
+282:                                              ; preds = %277, %276, %231, %198, %197, %162, %114, %51
+  %283 = load i1, ptr %8, align 1
+  ret i1 %283
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1234,7 +1236,7 @@ define internal zeroext i1 @dsm_impl_mmap(i32 noundef %0, i32 noundef %1, i64 no
 
 72:                                               ; preds = %71
   store i1 false, ptr %8, align 1
-  br label %347
+  br label %348
 
 73:                                               ; preds = %40, %36
   %74 = load ptr, ptr %13, align 8
@@ -1299,11 +1301,11 @@ define internal zeroext i1 @dsm_impl_mmap(i32 noundef %0, i32 noundef %1, i64 no
 
 107:                                              ; preds = %106
   store i1 false, ptr %8, align 1
-  br label %347
+  br label %348
 
 108:                                              ; preds = %78, %73
   store i1 true, ptr %8, align 1
-  br label %347
+  br label %348
 
 109:                                              ; preds = %33
   %110 = load i32, ptr %9, align 4
@@ -1380,7 +1382,7 @@ define internal zeroext i1 @dsm_impl_mmap(i32 noundef %0, i32 noundef %1, i64 no
 
 151:                                              ; preds = %150, %121
   store i1 false, ptr %8, align 1
-  br label %347
+  br label %348
 
 152:                                              ; preds = %109
   %153 = load i32, ptr %9, align 4
@@ -1449,7 +1451,7 @@ define internal zeroext i1 @dsm_impl_mmap(i32 noundef %0, i32 noundef %1, i64 no
 
 190:                                              ; preds = %189
   store i1 false, ptr %8, align 1
-  br label %347
+  br label %348
 
 191:                                              ; preds = %155
   %192 = getelementptr inbounds %struct.stat, ptr %20, i32 0, i32 8
@@ -1591,7 +1593,7 @@ define internal zeroext i1 @dsm_impl_mmap(i32 noundef %0, i32 noundef %1, i64 no
 
 266:                                              ; preds = %265
   store i1 false, ptr %8, align 1
-  br label %347
+  br label %348
 
 267:                                              ; preds = %223
   br label %268
@@ -1602,146 +1604,147 @@ define internal zeroext i1 @dsm_impl_mmap(i32 noundef %0, i32 noundef %1, i64 no
   %271 = call ptr @mmap(ptr noundef null, i64 noundef %269, i32 noundef 3, i32 noundef 1, i32 noundef %270, i64 noundef 0) #7
   store ptr %271, ptr %19, align 8
   %272 = load ptr, ptr %19, align 8
-  %273 = icmp eq ptr %272, inttoptr (i64 -1 to ptr)
-  br i1 %273, label %274, label %312
+  %273 = inttoptr i64 -1 to ptr
+  %274 = icmp eq ptr %272, %273
+  br i1 %274, label %275, label %313
 
-274:                                              ; preds = %268
-  %275 = call ptr @__errno_location() #8
-  %276 = load i32, ptr %275, align 4
-  store i32 %276, ptr %27, align 4
-  %277 = load i32, ptr %18, align 4
-  %278 = call i32 @CloseTransientFile(i32 noundef %277)
-  %279 = load i32, ptr %9, align 4
-  %280 = icmp eq i32 %279, 0
-  br i1 %280, label %281, label %284
+275:                                              ; preds = %268
+  %276 = call ptr @__errno_location() #8
+  %277 = load i32, ptr %276, align 4
+  store i32 %277, ptr %27, align 4
+  %278 = load i32, ptr %18, align 4
+  %279 = call i32 @CloseTransientFile(i32 noundef %278)
+  %280 = load i32, ptr %9, align 4
+  %281 = icmp eq i32 %280, 0
+  br i1 %281, label %282, label %285
 
-281:                                              ; preds = %274
-  %282 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %283 = call i32 @unlink(ptr noundef %282) #7
-  br label %284
+282:                                              ; preds = %275
+  %283 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %284 = call i32 @unlink(ptr noundef %283) #7
+  br label %285
 
-284:                                              ; preds = %281, %274
-  %285 = load i32, ptr %27, align 4
-  %286 = call ptr @__errno_location() #8
-  store i32 %285, ptr %286, align 4
-  br label %287
+285:                                              ; preds = %282, %275
+  %286 = load i32, ptr %27, align 4
+  %287 = call ptr @__errno_location() #8
+  store i32 %286, ptr %287, align 4
+  br label %288
 
-287:                                              ; preds = %284
-  %288 = load i32, ptr %15, align 4
-  %289 = call i1 @llvm.is.constant.i32(i32 %288)
-  br i1 %289, label %290, label %296
+288:                                              ; preds = %285
+  %289 = load i32, ptr %15, align 4
+  %290 = call i1 @llvm.is.constant.i32(i32 %289)
+  br i1 %290, label %291, label %297
 
-290:                                              ; preds = %287
-  %291 = load i32, ptr %15, align 4
-  %292 = icmp sge i32 %291, 21
-  br i1 %292, label %293, label %296
+291:                                              ; preds = %288
+  %292 = load i32, ptr %15, align 4
+  %293 = icmp sge i32 %292, 21
+  br i1 %293, label %294, label %297
 
-293:                                              ; preds = %290
-  %294 = load i32, ptr %15, align 4
-  %295 = call zeroext i1 @errstart_cold(i32 noundef %294, ptr noundef null) #6
-  br i1 %295, label %299, label %303
+294:                                              ; preds = %291
+  %295 = load i32, ptr %15, align 4
+  %296 = call zeroext i1 @errstart_cold(i32 noundef %295, ptr noundef null) #6
+  br i1 %296, label %300, label %304
 
-296:                                              ; preds = %290, %287
-  %297 = load i32, ptr %15, align 4
-  %298 = call zeroext i1 @errstart(i32 noundef %297, ptr noundef null)
-  br i1 %298, label %299, label %303
+297:                                              ; preds = %291, %288
+  %298 = load i32, ptr %15, align 4
+  %299 = call zeroext i1 @errstart(i32 noundef %298, ptr noundef null)
+  br i1 %299, label %300, label %304
 
-299:                                              ; preds = %296, %293
-  %300 = call i32 @errcode_for_dynamic_shared_memory()
-  %301 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %302 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %301)
+300:                                              ; preds = %297, %294
+  %301 = call i32 @errcode_for_dynamic_shared_memory()
+  %302 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %303 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, ptr noundef %302)
   call void @errfinish(ptr noundef @.str.4, i32 noundef 934, ptr noundef @__func__.dsm_impl_mmap)
-  br label %303
+  br label %304
 
-303:                                              ; preds = %299, %296, %293
-  %304 = load i32, ptr %15, align 4
-  %305 = call i1 @llvm.is.constant.i32(i32 %304)
-  br i1 %305, label %306, label %310
+304:                                              ; preds = %300, %297, %294
+  %305 = load i32, ptr %15, align 4
+  %306 = call i1 @llvm.is.constant.i32(i32 %305)
+  br i1 %306, label %307, label %311
 
-306:                                              ; preds = %303
-  %307 = load i32, ptr %15, align 4
-  %308 = icmp sge i32 %307, 21
-  br i1 %308, label %309, label %310
+307:                                              ; preds = %304
+  %308 = load i32, ptr %15, align 4
+  %309 = icmp sge i32 %308, 21
+  br i1 %309, label %310, label %311
 
-309:                                              ; preds = %306
+310:                                              ; preds = %307
   unreachable
 
-310:                                              ; preds = %306, %303
-  br label %311
+311:                                              ; preds = %307, %304
+  br label %312
 
-311:                                              ; preds = %310
+312:                                              ; preds = %311
   store i1 false, ptr %8, align 1
-  br label %347
+  br label %348
 
-312:                                              ; preds = %268
-  %313 = load ptr, ptr %19, align 8
-  %314 = load ptr, ptr %13, align 8
-  store ptr %313, ptr %314, align 8
-  %315 = load i64, ptr %11, align 8
-  %316 = load ptr, ptr %14, align 8
-  store i64 %315, ptr %316, align 8
-  %317 = load i32, ptr %18, align 4
-  %318 = call i32 @CloseTransientFile(i32 noundef %317)
-  %319 = icmp ne i32 %318, 0
-  br i1 %319, label %320, label %346
+313:                                              ; preds = %268
+  %314 = load ptr, ptr %19, align 8
+  %315 = load ptr, ptr %13, align 8
+  store ptr %314, ptr %315, align 8
+  %316 = load i64, ptr %11, align 8
+  %317 = load ptr, ptr %14, align 8
+  store i64 %316, ptr %317, align 8
+  %318 = load i32, ptr %18, align 4
+  %319 = call i32 @CloseTransientFile(i32 noundef %318)
+  %320 = icmp ne i32 %319, 0
+  br i1 %320, label %321, label %347
 
-320:                                              ; preds = %312
-  br label %321
+321:                                              ; preds = %313
+  br label %322
 
-321:                                              ; preds = %320
-  %322 = load i32, ptr %15, align 4
-  %323 = call i1 @llvm.is.constant.i32(i32 %322)
-  br i1 %323, label %324, label %330
+322:                                              ; preds = %321
+  %323 = load i32, ptr %15, align 4
+  %324 = call i1 @llvm.is.constant.i32(i32 %323)
+  br i1 %324, label %325, label %331
 
-324:                                              ; preds = %321
-  %325 = load i32, ptr %15, align 4
-  %326 = icmp sge i32 %325, 21
-  br i1 %326, label %327, label %330
+325:                                              ; preds = %322
+  %326 = load i32, ptr %15, align 4
+  %327 = icmp sge i32 %326, 21
+  br i1 %327, label %328, label %331
 
-327:                                              ; preds = %324
-  %328 = load i32, ptr %15, align 4
-  %329 = call zeroext i1 @errstart_cold(i32 noundef %328, ptr noundef null) #6
-  br i1 %329, label %333, label %337
+328:                                              ; preds = %325
+  %329 = load i32, ptr %15, align 4
+  %330 = call zeroext i1 @errstart_cold(i32 noundef %329, ptr noundef null) #6
+  br i1 %330, label %334, label %338
 
-330:                                              ; preds = %324, %321
-  %331 = load i32, ptr %15, align 4
-  %332 = call zeroext i1 @errstart(i32 noundef %331, ptr noundef null)
-  br i1 %332, label %333, label %337
+331:                                              ; preds = %325, %322
+  %332 = load i32, ptr %15, align 4
+  %333 = call zeroext i1 @errstart(i32 noundef %332, ptr noundef null)
+  br i1 %333, label %334, label %338
 
-333:                                              ; preds = %330, %327
-  %334 = call i32 @errcode_for_file_access()
-  %335 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %336 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef %335)
+334:                                              ; preds = %331, %328
+  %335 = call i32 @errcode_for_file_access()
+  %336 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %337 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, ptr noundef %336)
   call void @errfinish(ptr noundef @.str.4, i32 noundef 945, ptr noundef @__func__.dsm_impl_mmap)
-  br label %337
+  br label %338
 
-337:                                              ; preds = %333, %330, %327
-  %338 = load i32, ptr %15, align 4
-  %339 = call i1 @llvm.is.constant.i32(i32 %338)
-  br i1 %339, label %340, label %344
+338:                                              ; preds = %334, %331, %328
+  %339 = load i32, ptr %15, align 4
+  %340 = call i1 @llvm.is.constant.i32(i32 %339)
+  br i1 %340, label %341, label %345
 
-340:                                              ; preds = %337
-  %341 = load i32, ptr %15, align 4
-  %342 = icmp sge i32 %341, 21
-  br i1 %342, label %343, label %344
+341:                                              ; preds = %338
+  %342 = load i32, ptr %15, align 4
+  %343 = icmp sge i32 %342, 21
+  br i1 %343, label %344, label %345
 
-343:                                              ; preds = %340
+344:                                              ; preds = %341
   unreachable
 
-344:                                              ; preds = %340, %337
-  br label %345
+345:                                              ; preds = %341, %338
+  br label %346
 
-345:                                              ; preds = %344
+346:                                              ; preds = %345
   store i1 false, ptr %8, align 1
-  br label %347
+  br label %348
 
-346:                                              ; preds = %312
+347:                                              ; preds = %313
   store i1 true, ptr %8, align 1
-  br label %347
+  br label %348
 
-347:                                              ; preds = %346, %345, %311, %266, %190, %151, %108, %107, %72
-  %348 = load i1, ptr %8, align 1
-  ret i1 %348
+348:                                              ; preds = %347, %346, %312, %266, %190, %151, %108, %107, %72
+  %349 = load i1, ptr %8, align 1
+  ret i1 %349
 }
 
 ; Function Attrs: cold

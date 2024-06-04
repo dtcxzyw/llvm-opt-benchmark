@@ -558,17 +558,20 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %7 = load ptr, ptr %prefix.addr, align 8
   %call1 = call i32 @parse_options(i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef @cmd_status.builtin_status_options, ptr noundef @builtin_status_usage, i32 noundef 0)
   store i32 %call1, ptr %argc.addr, align 4
-  %call2 = call i32 @finalize_colopts(ptr noundef getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 18), i32 noundef -1)
+  %8 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 18
+  %call2 = call i32 @finalize_colopts(ptr noundef %8, i32 noundef -1)
   call void @finalize_deferred_config(ptr noundef @cmd_status.s)
   call void @handle_untracked_files_arg(ptr noundef @cmd_status.s)
   call void @handle_ignored_arg(ptr noundef @cmd_status.s)
-  %8 = load i32, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 14), align 4
-  %cmp3 = icmp eq i32 %8, 2
+  %9 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 14
+  %10 = load i32, ptr %9, align 4
+  %cmp3 = icmp eq i32 %10, 2
   br i1 %cmp3, label %land.lhs.true4, label %if.end8
 
 land.lhs.true4:                                   ; preds = %if.end
-  %9 = load i32, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 15), align 8
-  %cmp5 = icmp eq i32 %9, 0
+  %11 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 15
+  %12 = load i32, ptr %11, align 8
+  %cmp5 = icmp eq i32 %12, 0
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %land.lhs.true4
@@ -577,16 +580,17 @@ if.then6:                                         ; preds = %land.lhs.true4
   unreachable
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %10 = load ptr, ptr %prefix.addr, align 8
-  %11 = load ptr, ptr %argv.addr, align 8
-  call void @parse_pathspec(ptr noundef getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 4), i32 noundef 0, i32 noundef 2, ptr noundef %10, ptr noundef %11)
-  %12 = load i32, ptr @status_format, align 4
-  %cmp9 = icmp ne i32 %12, 3
+  %13 = load ptr, ptr %prefix.addr, align 8
+  %14 = load ptr, ptr %argv.addr, align 8
+  %15 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 4
+  call void @parse_pathspec(ptr noundef %15, i32 noundef 0, i32 noundef 2, ptr noundef %13, ptr noundef %14)
+  %16 = load i32, ptr @status_format, align 4
+  %cmp9 = icmp ne i32 %16, 3
   br i1 %cmp9, label %land.lhs.true10, label %if.end13
 
 land.lhs.true10:                                  ; preds = %if.end8
-  %13 = load i32, ptr @status_format, align 4
-  %cmp11 = icmp ne i32 %13, 4
+  %17 = load i32, ptr @status_format, align 4
+  %cmp11 = icmp ne i32 %17, 4
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %land.lhs.true10
@@ -594,18 +598,19 @@ if.then12:                                        ; preds = %land.lhs.true10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %land.lhs.true10, %if.end8
-  %14 = load ptr, ptr @the_repository, align 8
-  %call14 = call i32 @repo_read_index(ptr noundef %14)
-  %15 = load i32, ptr %progress_flag, align 4
-  %or = or i32 6, %15
-  %call15 = call i32 @refresh_index(ptr noundef @the_index, i32 noundef %or, ptr noundef getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 4), ptr noundef null, ptr noundef null)
+  %18 = load ptr, ptr @the_repository, align 8
+  %call14 = call i32 @repo_read_index(ptr noundef %18)
+  %19 = load i32, ptr %progress_flag, align 4
+  %or = or i32 6, %19
+  %20 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 4
+  %call15 = call i32 @refresh_index(ptr noundef @the_index, i32 noundef %or, ptr noundef %20, ptr noundef null, ptr noundef null)
   %call16 = call i32 @use_optional_locks()
   %tobool17 = icmp ne i32 %call16, 0
   br i1 %tobool17, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.end13
-  %16 = load ptr, ptr @the_repository, align 8
-  %call19 = call i32 @repo_hold_locked_index(ptr noundef %16, ptr noundef @index_lock, i32 noundef 0)
+  %21 = load ptr, ptr @the_repository, align 8
+  %call19 = call i32 @repo_hold_locked_index(ptr noundef %21, ptr noundef @index_lock, i32 noundef 0)
   store i32 %call19, ptr %fd, align 4
   br label %if.end20
 
@@ -614,62 +619,73 @@ if.else:                                          ; preds = %if.end13
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then18
-  %17 = load ptr, ptr @the_repository, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 3), align 8
-  %call21 = call i32 @repo_get_oid(ptr noundef %17, ptr noundef %18, ptr noundef %oid)
+  %22 = load ptr, ptr @the_repository, align 8
+  %23 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8
+  %call21 = call i32 @repo_get_oid(ptr noundef %22, ptr noundef %24, ptr noundef %oid)
   %tobool22 = icmp ne i32 %call21, 0
   %cond = select i1 %tobool22, i32 1, i32 0
-  store i32 %cond, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 1), align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 1), align 8
-  %tobool23 = icmp ne i32 %19, 0
+  %25 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 1
+  store i32 %cond, ptr %25, align 8
+  %26 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 1
+  %27 = load i32, ptr %26, align 8
+  %tobool23 = icmp ne i32 %27, 0
   br i1 %tobool23, label %if.end25, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
-  call void @oidcpy(ptr noundef getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 30), ptr noundef %oid)
+  %28 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 30
+  call void @oidcpy(ptr noundef %28, ptr noundef %oid)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then24, %if.end20
-  %20 = load ptr, ptr @ignore_submodule_arg, align 8
-  store ptr %20, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 16), align 8
-  %21 = load i32, ptr @status_format, align 4
-  store i32 %21, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 28), align 4
-  %22 = load i32, ptr @verbose, align 4
-  store i32 %22, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 5), align 8
-  %23 = load i32, ptr @cmd_status.no_renames, align 4
-  %cmp26 = icmp ne i32 %23, -1
+  %29 = load ptr, ptr @ignore_submodule_arg, align 8
+  %30 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 16
+  store ptr %29, ptr %30, align 8
+  %31 = load i32, ptr @status_format, align 4
+  %32 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 28
+  store i32 %31, ptr %32, align 4
+  %33 = load i32, ptr @verbose, align 4
+  %34 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 5
+  store i32 %33, ptr %34, align 8
+  %35 = load i32, ptr @cmd_status.no_renames, align 4
+  %cmp26 = icmp ne i32 %35, -1
   br i1 %cmp26, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %if.end25
-  %24 = load i32, ptr @cmd_status.no_renames, align 4
-  %tobool28 = icmp ne i32 %24, 0
+  %36 = load i32, ptr @cmd_status.no_renames, align 4
+  %tobool28 = icmp ne i32 %36, 0
   %lnot = xor i1 %tobool28, true
   %lnot.ext = zext i1 %lnot to i32
-  store i32 %lnot.ext, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 25), align 8
+  %37 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 25
+  store i32 %lnot.ext, ptr %37, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then27, %if.end25
-  %25 = load ptr, ptr @cmd_status.rename_score_arg, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %cmp30 = icmp ne i64 %26, -1
+  %38 = load ptr, ptr @cmd_status.rename_score_arg, align 8
+  %39 = ptrtoint ptr %38 to i64
+  %cmp30 = icmp ne i64 %39, -1
   br i1 %cmp30, label %if.then31, label %if.end39
 
 if.then31:                                        ; preds = %if.end29
-  %27 = load i32, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 25), align 8
-  %cmp32 = icmp slt i32 %27, 1
+  %40 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 25
+  %41 = load i32, ptr %40, align 8
+  %cmp32 = icmp slt i32 %41, 1
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.then31
-  store i32 1, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 25), align 8
+  %42 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 25
+  store i32 1, ptr %42, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.then31
-  %28 = load ptr, ptr @cmd_status.rename_score_arg, align 8
-  %tobool35 = icmp ne ptr %28, null
+  %43 = load ptr, ptr @cmd_status.rename_score_arg, align 8
+  %tobool35 = icmp ne ptr %43, null
   br i1 %tobool35, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.end34
   %call37 = call i32 @parse_rename_score(ptr noundef @cmd_status.rename_score_arg)
-  store i32 %call37, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 26), align 4
+  %44 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 26
+  store i32 %call37, ptr %44, align 4
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %if.end34
@@ -677,23 +693,25 @@ if.end38:                                         ; preds = %if.then36, %if.end3
 
 if.end39:                                         ; preds = %if.end38, %if.end29
   call void @wt_status_collect(ptr noundef @cmd_status.s)
-  %29 = load i32, ptr %fd, align 4
-  %cmp40 = icmp sle i32 0, %29
+  %45 = load i32, ptr %fd, align 4
+  %cmp40 = icmp sle i32 0, %45
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end39
-  %30 = load ptr, ptr @the_repository, align 8
-  call void @repo_update_index_if_able(ptr noundef %30, ptr noundef @index_lock)
+  %46 = load ptr, ptr @the_repository, align 8
+  call void @repo_update_index_if_able(ptr noundef %46, ptr noundef @index_lock)
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end39
-  %31 = load i32, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 12), align 4
-  %tobool43 = icmp ne i32 %31, 0
+  %47 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 12
+  %48 = load i32, ptr %47, align 4
+  %tobool43 = icmp ne i32 %48, 0
   br i1 %tobool43, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %if.end42
-  %32 = load ptr, ptr %prefix.addr, align 8
-  store ptr %32, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_status.s, i32 0, i32 35), align 8
+  %49 = load ptr, ptr %prefix.addr, align 8
+  %50 = getelementptr inbounds %struct.wt_status, ptr @cmd_status.s, i32 0, i32 35
+  store ptr %49, ptr %50, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then44, %if.end42
@@ -977,94 +995,96 @@ if.then23:                                        ; preds = %if.end20
   %19 = load ptr, ptr %k.addr, align 8
   %20 = load ptr, ptr %v.addr, align 8
   %call24 = call i32 @git_config_bool(ptr noundef %19, ptr noundef %20)
-  store i32 %call24, ptr getelementptr inbounds (%struct.status_deferred_config, ptr @status_deferred_config, i32 0, i32 1), align 4
+  %21 = getelementptr inbounds %struct.status_deferred_config, ptr @status_deferred_config, i32 0, i32 1
+  store i32 %call24, ptr %21, align 4
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end25:                                         ; preds = %if.end20
-  %21 = load ptr, ptr %k.addr, align 8
-  %call26 = call i32 @strcmp(ptr noundef %21, ptr noundef @.str.148) #9
+  %22 = load ptr, ptr %k.addr, align 8
+  %call26 = call i32 @strcmp(ptr noundef %22, ptr noundef @.str.148) #9
   %tobool27 = icmp ne i32 %call26, 0
   br i1 %tobool27, label %if.end30, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
-  %22 = load ptr, ptr %k.addr, align 8
-  %23 = load ptr, ptr %v.addr, align 8
-  %call29 = call i32 @git_config_bool(ptr noundef %22, ptr noundef %23)
-  store i32 %call29, ptr getelementptr inbounds (%struct.status_deferred_config, ptr @status_deferred_config, i32 0, i32 2), align 4
+  %23 = load ptr, ptr %k.addr, align 8
+  %24 = load ptr, ptr %v.addr, align 8
+  %call29 = call i32 @git_config_bool(ptr noundef %23, ptr noundef %24)
+  %25 = getelementptr inbounds %struct.status_deferred_config, ptr @status_deferred_config, i32 0, i32 2
+  store i32 %call29, ptr %25, align 4
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end30:                                         ; preds = %if.end25
-  %24 = load ptr, ptr %k.addr, align 8
-  %call31 = call i32 @strcmp(ptr noundef %24, ptr noundef @.str.149) #9
+  %26 = load ptr, ptr %k.addr, align 8
+  %call31 = call i32 @strcmp(ptr noundef %26, ptr noundef @.str.149) #9
   %tobool32 = icmp ne i32 %call31, 0
   br i1 %tobool32, label %if.end35, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
-  %25 = load ptr, ptr %k.addr, align 8
-  %26 = load ptr, ptr %v.addr, align 8
-  %call34 = call i32 @git_config_bool(ptr noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %s, align 8
-  %show_stash = getelementptr inbounds %struct.wt_status, ptr %27, i32 0, i32 22
+  %27 = load ptr, ptr %k.addr, align 8
+  %28 = load ptr, ptr %v.addr, align 8
+  %call34 = call i32 @git_config_bool(ptr noundef %27, ptr noundef %28)
+  %29 = load ptr, ptr %s, align 8
+  %show_stash = getelementptr inbounds %struct.wt_status, ptr %29, i32 0, i32 22
   store i32 %call34, ptr %show_stash, align 4
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end35:                                         ; preds = %if.end30
-  %28 = load ptr, ptr %k.addr, align 8
-  %call36 = call i32 @strcmp(ptr noundef %28, ptr noundef @.str.150) #9
+  %30 = load ptr, ptr %k.addr, align 8
+  %call36 = call i32 @strcmp(ptr noundef %30, ptr noundef @.str.150) #9
   %tobool37 = icmp ne i32 %call36, 0
   br i1 %tobool37, label %lor.lhs.false, label %if.then40
 
 lor.lhs.false:                                    ; preds = %if.end35
-  %29 = load ptr, ptr %k.addr, align 8
-  %call38 = call i32 @strcmp(ptr noundef %29, ptr noundef @.str.151) #9
+  %31 = load ptr, ptr %k.addr, align 8
+  %call38 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str.151) #9
   %tobool39 = icmp ne i32 %call38, 0
   br i1 %tobool39, label %if.end42, label %if.then40
 
 if.then40:                                        ; preds = %lor.lhs.false, %if.end35
-  %30 = load ptr, ptr %k.addr, align 8
-  %31 = load ptr, ptr %v.addr, align 8
-  %call41 = call i32 @git_config_colorbool(ptr noundef %30, ptr noundef %31)
-  %32 = load ptr, ptr %s, align 8
-  %use_color = getelementptr inbounds %struct.wt_status, ptr %32, i32 0, i32 9
+  %32 = load ptr, ptr %k.addr, align 8
+  %33 = load ptr, ptr %v.addr, align 8
+  %call41 = call i32 @git_config_colorbool(ptr noundef %32, ptr noundef %33)
+  %34 = load ptr, ptr %s, align 8
+  %use_color = getelementptr inbounds %struct.wt_status, ptr %34, i32 0, i32 9
   store i32 %call41, ptr %use_color, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end42:                                         ; preds = %lor.lhs.false
-  %33 = load ptr, ptr %k.addr, align 8
-  %call43 = call i32 @strcmp(ptr noundef %33, ptr noundef @.str.152) #9
+  %35 = load ptr, ptr %k.addr, align 8
+  %call43 = call i32 @strcmp(ptr noundef %35, ptr noundef @.str.152) #9
   %tobool44 = icmp ne i32 %call43, 0
   br i1 %tobool44, label %if.end47, label %if.then45
 
 if.then45:                                        ; preds = %if.end42
-  %34 = load ptr, ptr %k.addr, align 8
-  %35 = load ptr, ptr %v.addr, align 8
-  %call46 = call i32 @git_config_bool(ptr noundef %34, ptr noundef %35)
-  %36 = load ptr, ptr %s, align 8
-  %display_comment_prefix = getelementptr inbounds %struct.wt_status, ptr %36, i32 0, i32 11
+  %36 = load ptr, ptr %k.addr, align 8
+  %37 = load ptr, ptr %v.addr, align 8
+  %call46 = call i32 @git_config_bool(ptr noundef %36, ptr noundef %37)
+  %38 = load ptr, ptr %s, align 8
+  %display_comment_prefix = getelementptr inbounds %struct.wt_status, ptr %38, i32 0, i32 11
   store i32 %call46, ptr %display_comment_prefix, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end47:                                         ; preds = %if.end42
-  %37 = load ptr, ptr %k.addr, align 8
-  %call48 = call zeroext i1 @skip_prefix(ptr noundef %37, ptr noundef @.str.153, ptr noundef %slot_name)
+  %39 = load ptr, ptr %k.addr, align 8
+  %call48 = call zeroext i1 @skip_prefix(ptr noundef %39, ptr noundef @.str.153, ptr noundef %slot_name)
   br i1 %call48, label %if.then51, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %if.end47
-  %38 = load ptr, ptr %k.addr, align 8
-  %call50 = call zeroext i1 @skip_prefix(ptr noundef %38, ptr noundef @.str.154, ptr noundef %slot_name)
+  %40 = load ptr, ptr %k.addr, align 8
+  %call50 = call zeroext i1 @skip_prefix(ptr noundef %40, ptr noundef @.str.154, ptr noundef %slot_name)
   br i1 %call50, label %if.then51, label %if.end61
 
 if.then51:                                        ; preds = %lor.lhs.false49, %if.end47
-  %39 = load ptr, ptr %slot_name, align 8
-  %call52 = call i32 @parse_status_slot(ptr noundef %39)
+  %41 = load ptr, ptr %slot_name, align 8
+  %call52 = call i32 @parse_status_slot(ptr noundef %41)
   store i32 %call52, ptr %slot, align 4
-  %40 = load i32, ptr %slot, align 4
-  %cmp = icmp slt i32 %40, 0
+  %42 = load i32, ptr %slot, align 4
+  %cmp = icmp slt i32 %42, 0
   br i1 %cmp, label %if.then53, label %if.end54
 
 if.then53:                                        ; preds = %if.then51
@@ -1072,103 +1092,103 @@ if.then53:                                        ; preds = %if.then51
   br label %return
 
 if.end54:                                         ; preds = %if.then51
-  %41 = load ptr, ptr %v.addr, align 8
-  %tobool55 = icmp ne ptr %41, null
+  %43 = load ptr, ptr %v.addr, align 8
+  %tobool55 = icmp ne ptr %43, null
   br i1 %tobool55, label %if.end59, label %if.then56
 
 if.then56:                                        ; preds = %if.end54
-  %42 = load ptr, ptr %k.addr, align 8
-  %call57 = call i32 @config_error_nonbool(ptr noundef %42)
+  %44 = load ptr, ptr %k.addr, align 8
+  %call57 = call i32 @config_error_nonbool(ptr noundef %44)
   %call58 = call i32 @const_error()
   store i32 %call58, ptr %retval, align 4
   br label %return
 
 if.end59:                                         ; preds = %if.end54
-  %43 = load ptr, ptr %v.addr, align 8
-  %44 = load ptr, ptr %s, align 8
-  %color_palette = getelementptr inbounds %struct.wt_status, ptr %44, i32 0, i32 17
-  %45 = load i32, ptr %slot, align 4
-  %idxprom = sext i32 %45 to i64
+  %45 = load ptr, ptr %v.addr, align 8
+  %46 = load ptr, ptr %s, align 8
+  %color_palette = getelementptr inbounds %struct.wt_status, ptr %46, i32 0, i32 17
+  %47 = load i32, ptr %slot, align 4
+  %idxprom = sext i32 %47 to i64
   %arrayidx = getelementptr inbounds [9 x [75 x i8]], ptr %color_palette, i64 0, i64 %idxprom
   %arraydecay = getelementptr inbounds [75 x i8], ptr %arrayidx, i64 0, i64 0
-  %call60 = call i32 @color_parse(ptr noundef %43, ptr noundef %arraydecay)
+  %call60 = call i32 @color_parse(ptr noundef %45, ptr noundef %arraydecay)
   store i32 %call60, ptr %retval, align 4
   br label %return
 
 if.end61:                                         ; preds = %lor.lhs.false49
-  %46 = load ptr, ptr %k.addr, align 8
-  %call62 = call i32 @strcmp(ptr noundef %46, ptr noundef @.str.155) #9
+  %48 = load ptr, ptr %k.addr, align 8
+  %call62 = call i32 @strcmp(ptr noundef %48, ptr noundef @.str.155) #9
   %tobool63 = icmp ne i32 %call62, 0
   br i1 %tobool63, label %if.end66, label %if.then64
 
 if.then64:                                        ; preds = %if.end61
-  %47 = load ptr, ptr %k.addr, align 8
-  %48 = load ptr, ptr %v.addr, align 8
-  %call65 = call i32 @git_config_bool(ptr noundef %47, ptr noundef %48)
-  %49 = load ptr, ptr %s, align 8
-  %relative_paths = getelementptr inbounds %struct.wt_status, ptr %49, i32 0, i32 12
+  %49 = load ptr, ptr %k.addr, align 8
+  %50 = load ptr, ptr %v.addr, align 8
+  %call65 = call i32 @git_config_bool(ptr noundef %49, ptr noundef %50)
+  %51 = load ptr, ptr %s, align 8
+  %relative_paths = getelementptr inbounds %struct.wt_status, ptr %51, i32 0, i32 12
   store i32 %call65, ptr %relative_paths, align 4
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end66:                                         ; preds = %if.end61
-  %50 = load ptr, ptr %k.addr, align 8
-  %call67 = call i32 @strcmp(ptr noundef %50, ptr noundef @.str.156) #9
+  %52 = load ptr, ptr %k.addr, align 8
+  %call67 = call i32 @strcmp(ptr noundef %52, ptr noundef @.str.156) #9
   %tobool68 = icmp ne i32 %call67, 0
   br i1 %tobool68, label %if.end96, label %if.then69
 
 if.then69:                                        ; preds = %if.end66
-  %51 = load ptr, ptr %v.addr, align 8
-  %tobool70 = icmp ne ptr %51, null
+  %53 = load ptr, ptr %v.addr, align 8
+  %tobool70 = icmp ne ptr %53, null
   br i1 %tobool70, label %if.else74, label %if.then71
 
 if.then71:                                        ; preds = %if.then69
-  %52 = load ptr, ptr %k.addr, align 8
-  %call72 = call i32 @config_error_nonbool(ptr noundef %52)
+  %54 = load ptr, ptr %k.addr, align 8
+  %call72 = call i32 @config_error_nonbool(ptr noundef %54)
   %call73 = call i32 @const_error()
   store i32 %call73, ptr %retval, align 4
   br label %return
 
 if.else74:                                        ; preds = %if.then69
-  %53 = load ptr, ptr %v.addr, align 8
-  %call75 = call i32 @strcmp(ptr noundef %53, ptr noundef @.str.157) #9
+  %55 = load ptr, ptr %v.addr, align 8
+  %call75 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.157) #9
   %tobool76 = icmp ne i32 %call75, 0
   br i1 %tobool76, label %if.else78, label %if.then77
 
 if.then77:                                        ; preds = %if.else74
-  %54 = load ptr, ptr %s, align 8
-  %show_untracked_files = getelementptr inbounds %struct.wt_status, ptr %54, i32 0, i32 15
+  %56 = load ptr, ptr %s, align 8
+  %show_untracked_files = getelementptr inbounds %struct.wt_status, ptr %56, i32 0, i32 15
   store i32 0, ptr %show_untracked_files, align 8
   br label %if.end94
 
 if.else78:                                        ; preds = %if.else74
-  %55 = load ptr, ptr %v.addr, align 8
-  %call79 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.158) #9
+  %57 = load ptr, ptr %v.addr, align 8
+  %call79 = call i32 @strcmp(ptr noundef %57, ptr noundef @.str.158) #9
   %tobool80 = icmp ne i32 %call79, 0
   br i1 %tobool80, label %if.else83, label %if.then81
 
 if.then81:                                        ; preds = %if.else78
-  %56 = load ptr, ptr %s, align 8
-  %show_untracked_files82 = getelementptr inbounds %struct.wt_status, ptr %56, i32 0, i32 15
+  %58 = load ptr, ptr %s, align 8
+  %show_untracked_files82 = getelementptr inbounds %struct.wt_status, ptr %58, i32 0, i32 15
   store i32 1, ptr %show_untracked_files82, align 8
   br label %if.end93
 
 if.else83:                                        ; preds = %if.else78
-  %57 = load ptr, ptr %v.addr, align 8
-  %call84 = call i32 @strcmp(ptr noundef %57, ptr noundef @.str.21) #9
+  %59 = load ptr, ptr %v.addr, align 8
+  %call84 = call i32 @strcmp(ptr noundef %59, ptr noundef @.str.21) #9
   %tobool85 = icmp ne i32 %call84, 0
   br i1 %tobool85, label %if.else88, label %if.then86
 
 if.then86:                                        ; preds = %if.else83
-  %58 = load ptr, ptr %s, align 8
-  %show_untracked_files87 = getelementptr inbounds %struct.wt_status, ptr %58, i32 0, i32 15
+  %60 = load ptr, ptr %s, align 8
+  %show_untracked_files87 = getelementptr inbounds %struct.wt_status, ptr %60, i32 0, i32 15
   store i32 2, ptr %show_untracked_files87, align 8
   br label %if.end92
 
 if.else88:                                        ; preds = %if.else83
   %call89 = call ptr @_(ptr noundef @.str.159)
-  %59 = load ptr, ptr %v.addr, align 8
-  %call90 = call i32 (ptr, ...) @error(ptr noundef %call89, ptr noundef %59)
+  %61 = load ptr, ptr %v.addr, align 8
+  %call90 = call i32 (ptr, ...) @error(ptr noundef %call89, ptr noundef %61)
   %call91 = call i32 @const_error()
   store i32 %call91, ptr %retval, align 4
   br label %return
@@ -1187,27 +1207,27 @@ if.end95:                                         ; preds = %if.end94
   br label %return
 
 if.end96:                                         ; preds = %if.end66
-  %60 = load ptr, ptr %k.addr, align 8
-  %call97 = call i32 @strcmp(ptr noundef %60, ptr noundef @.str.160) #9
+  %62 = load ptr, ptr %k.addr, align 8
+  %call97 = call i32 @strcmp(ptr noundef %62, ptr noundef @.str.160) #9
   %tobool98 = icmp ne i32 %call97, 0
   br i1 %tobool98, label %if.end106, label %if.then99
 
 if.then99:                                        ; preds = %if.end96
-  %61 = load ptr, ptr %s, align 8
-  %rename_limit = getelementptr inbounds %struct.wt_status, ptr %61, i32 0, i32 27
-  %62 = load i32, ptr %rename_limit, align 8
-  %cmp100 = icmp eq i32 %62, -1
+  %63 = load ptr, ptr %s, align 8
+  %rename_limit = getelementptr inbounds %struct.wt_status, ptr %63, i32 0, i32 27
+  %64 = load i32, ptr %rename_limit, align 8
+  %cmp100 = icmp eq i32 %64, -1
   br i1 %cmp100, label %if.then101, label %if.end105
 
 if.then101:                                       ; preds = %if.then99
-  %63 = load ptr, ptr %k.addr, align 8
-  %64 = load ptr, ptr %v.addr, align 8
-  %65 = load ptr, ptr %ctx.addr, align 8
-  %kvi102 = getelementptr inbounds %struct.config_context, ptr %65, i32 0, i32 0
-  %66 = load ptr, ptr %kvi102, align 8
-  %call103 = call i32 @git_config_int(ptr noundef %63, ptr noundef %64, ptr noundef %66)
-  %67 = load ptr, ptr %s, align 8
-  %rename_limit104 = getelementptr inbounds %struct.wt_status, ptr %67, i32 0, i32 27
+  %65 = load ptr, ptr %k.addr, align 8
+  %66 = load ptr, ptr %v.addr, align 8
+  %67 = load ptr, ptr %ctx.addr, align 8
+  %kvi102 = getelementptr inbounds %struct.config_context, ptr %67, i32 0, i32 0
+  %68 = load ptr, ptr %kvi102, align 8
+  %call103 = call i32 @git_config_int(ptr noundef %65, ptr noundef %66, ptr noundef %68)
+  %69 = load ptr, ptr %s, align 8
+  %rename_limit104 = getelementptr inbounds %struct.wt_status, ptr %69, i32 0, i32 27
   store i32 %call103, ptr %rename_limit104, align 8
   br label %if.end105
 
@@ -1216,43 +1236,43 @@ if.end105:                                        ; preds = %if.then101, %if.the
   br label %return
 
 if.end106:                                        ; preds = %if.end96
-  %68 = load ptr, ptr %k.addr, align 8
-  %call107 = call i32 @strcmp(ptr noundef %68, ptr noundef @.str.161) #9
+  %70 = load ptr, ptr %k.addr, align 8
+  %call107 = call i32 @strcmp(ptr noundef %70, ptr noundef @.str.161) #9
   %tobool108 = icmp ne i32 %call107, 0
   br i1 %tobool108, label %if.end113, label %if.then109
 
 if.then109:                                       ; preds = %if.end106
-  %69 = load ptr, ptr %k.addr, align 8
-  %70 = load ptr, ptr %v.addr, align 8
-  %71 = load ptr, ptr %ctx.addr, align 8
-  %kvi110 = getelementptr inbounds %struct.config_context, ptr %71, i32 0, i32 0
-  %72 = load ptr, ptr %kvi110, align 8
-  %call111 = call i32 @git_config_int(ptr noundef %69, ptr noundef %70, ptr noundef %72)
-  %73 = load ptr, ptr %s, align 8
-  %rename_limit112 = getelementptr inbounds %struct.wt_status, ptr %73, i32 0, i32 27
+  %71 = load ptr, ptr %k.addr, align 8
+  %72 = load ptr, ptr %v.addr, align 8
+  %73 = load ptr, ptr %ctx.addr, align 8
+  %kvi110 = getelementptr inbounds %struct.config_context, ptr %73, i32 0, i32 0
+  %74 = load ptr, ptr %kvi110, align 8
+  %call111 = call i32 @git_config_int(ptr noundef %71, ptr noundef %72, ptr noundef %74)
+  %75 = load ptr, ptr %s, align 8
+  %rename_limit112 = getelementptr inbounds %struct.wt_status, ptr %75, i32 0, i32 27
   store i32 %call111, ptr %rename_limit112, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end113:                                        ; preds = %if.end106
-  %74 = load ptr, ptr %k.addr, align 8
-  %call114 = call i32 @strcmp(ptr noundef %74, ptr noundef @.str.162) #9
+  %76 = load ptr, ptr %k.addr, align 8
+  %call114 = call i32 @strcmp(ptr noundef %76, ptr noundef @.str.162) #9
   %tobool115 = icmp ne i32 %call114, 0
   br i1 %tobool115, label %if.end122, label %if.then116
 
 if.then116:                                       ; preds = %if.end113
-  %75 = load ptr, ptr %s, align 8
-  %detect_rename = getelementptr inbounds %struct.wt_status, ptr %75, i32 0, i32 25
-  %76 = load i32, ptr %detect_rename, align 8
-  %cmp117 = icmp eq i32 %76, -1
+  %77 = load ptr, ptr %s, align 8
+  %detect_rename = getelementptr inbounds %struct.wt_status, ptr %77, i32 0, i32 25
+  %78 = load i32, ptr %detect_rename, align 8
+  %cmp117 = icmp eq i32 %78, -1
   br i1 %cmp117, label %if.then118, label %if.end121
 
 if.then118:                                       ; preds = %if.then116
-  %77 = load ptr, ptr %k.addr, align 8
-  %78 = load ptr, ptr %v.addr, align 8
-  %call119 = call i32 @git_config_rename(ptr noundef %77, ptr noundef %78)
-  %79 = load ptr, ptr %s, align 8
-  %detect_rename120 = getelementptr inbounds %struct.wt_status, ptr %79, i32 0, i32 25
+  %79 = load ptr, ptr %k.addr, align 8
+  %80 = load ptr, ptr %v.addr, align 8
+  %call119 = call i32 @git_config_rename(ptr noundef %79, ptr noundef %80)
+  %81 = load ptr, ptr %s, align 8
+  %detect_rename120 = getelementptr inbounds %struct.wt_status, ptr %81, i32 0, i32 25
   store i32 %call119, ptr %detect_rename120, align 8
   br label %if.end121
 
@@ -1261,32 +1281,32 @@ if.end121:                                        ; preds = %if.then118, %if.the
   br label %return
 
 if.end122:                                        ; preds = %if.end113
-  %80 = load ptr, ptr %k.addr, align 8
-  %call123 = call i32 @strcmp(ptr noundef %80, ptr noundef @.str.163) #9
+  %82 = load ptr, ptr %k.addr, align 8
+  %call123 = call i32 @strcmp(ptr noundef %82, ptr noundef @.str.163) #9
   %tobool124 = icmp ne i32 %call123, 0
   br i1 %tobool124, label %if.end128, label %if.then125
 
 if.then125:                                       ; preds = %if.end122
-  %81 = load ptr, ptr %k.addr, align 8
-  %82 = load ptr, ptr %v.addr, align 8
-  %call126 = call i32 @git_config_rename(ptr noundef %81, ptr noundef %82)
-  %83 = load ptr, ptr %s, align 8
-  %detect_rename127 = getelementptr inbounds %struct.wt_status, ptr %83, i32 0, i32 25
+  %83 = load ptr, ptr %k.addr, align 8
+  %84 = load ptr, ptr %v.addr, align 8
+  %call126 = call i32 @git_config_rename(ptr noundef %83, ptr noundef %84)
+  %85 = load ptr, ptr %s, align 8
+  %detect_rename127 = getelementptr inbounds %struct.wt_status, ptr %85, i32 0, i32 25
   store i32 %call126, ptr %detect_rename127, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end128:                                        ; preds = %if.end122
-  %84 = load ptr, ptr %k.addr, align 8
-  %85 = load ptr, ptr %v.addr, align 8
-  %86 = load ptr, ptr %ctx.addr, align 8
-  %call129 = call i32 @git_diff_ui_config(ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef null)
+  %86 = load ptr, ptr %k.addr, align 8
+  %87 = load ptr, ptr %v.addr, align 8
+  %88 = load ptr, ptr %ctx.addr, align 8
+  %call129 = call i32 @git_diff_ui_config(ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef null)
   store i32 %call129, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end128, %if.then125, %if.end121, %if.then109, %if.end105, %if.end95, %if.else88, %if.then71, %if.then64, %if.end59, %if.then56, %if.then53, %if.then45, %if.then40, %if.then33, %if.then28, %if.then23, %if.end19, %if.end11, %if.then
-  %87 = load i32, ptr %retval, align 4
-  ret i32 %87
+  %89 = load i32, ptr %retval, align 4
+  ret i32 %89
 }
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
@@ -1393,54 +1413,56 @@ land.lhs.true20:                                  ; preds = %if.end18
   br i1 %cmp21, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %land.lhs.true20
-  %17 = load i32, ptr getelementptr inbounds (%struct.status_deferred_config, ptr @status_deferred_config, i32 0, i32 1), align 4
-  %18 = load ptr, ptr %s.addr, align 8
-  %show_branch23 = getelementptr inbounds %struct.wt_status, ptr %18, i32 0, i32 21
-  store i32 %17, ptr %show_branch23, align 8
+  %17 = getelementptr inbounds %struct.status_deferred_config, ptr @status_deferred_config, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4
+  %19 = load ptr, ptr %s.addr, align 8
+  %show_branch23 = getelementptr inbounds %struct.wt_status, ptr %19, i32 0, i32 21
+  store i32 %18, ptr %show_branch23, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %land.lhs.true20, %if.end18
-  %19 = load ptr, ptr %s.addr, align 8
-  %show_branch25 = getelementptr inbounds %struct.wt_status, ptr %19, i32 0, i32 21
-  %20 = load i32, ptr %show_branch25, align 8
-  %cmp26 = icmp slt i32 %20, 0
+  %20 = load ptr, ptr %s.addr, align 8
+  %show_branch25 = getelementptr inbounds %struct.wt_status, ptr %20, i32 0, i32 21
+  %21 = load i32, ptr %show_branch25, align 8
+  %cmp26 = icmp slt i32 %21, 0
   br i1 %cmp26, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %if.end24
-  %21 = load ptr, ptr %s.addr, align 8
-  %show_branch28 = getelementptr inbounds %struct.wt_status, ptr %21, i32 0, i32 21
+  %22 = load ptr, ptr %s.addr, align 8
+  %show_branch28 = getelementptr inbounds %struct.wt_status, ptr %22, i32 0, i32 21
   store i32 0, ptr %show_branch28, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then27, %if.end24
-  %22 = load i32, ptr %use_deferred_config, align 4
-  %tobool30 = icmp ne i32 %22, 0
+  %23 = load i32, ptr %use_deferred_config, align 4
+  %tobool30 = icmp ne i32 %23, 0
   br i1 %tobool30, label %land.lhs.true31, label %if.end35
 
 land.lhs.true31:                                  ; preds = %if.end29
-  %23 = load ptr, ptr %s.addr, align 8
-  %ahead_behind_flags = getelementptr inbounds %struct.wt_status, ptr %23, i32 0, i32 24
-  %24 = load i32, ptr %ahead_behind_flags, align 4
-  %cmp32 = icmp eq i32 %24, -1
+  %24 = load ptr, ptr %s.addr, align 8
+  %ahead_behind_flags = getelementptr inbounds %struct.wt_status, ptr %24, i32 0, i32 24
+  %25 = load i32, ptr %ahead_behind_flags, align 4
+  %cmp32 = icmp eq i32 %25, -1
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %land.lhs.true31
-  %25 = load i32, ptr getelementptr inbounds (%struct.status_deferred_config, ptr @status_deferred_config, i32 0, i32 2), align 4
-  %26 = load ptr, ptr %s.addr, align 8
-  %ahead_behind_flags34 = getelementptr inbounds %struct.wt_status, ptr %26, i32 0, i32 24
-  store i32 %25, ptr %ahead_behind_flags34, align 4
+  %26 = getelementptr inbounds %struct.status_deferred_config, ptr @status_deferred_config, i32 0, i32 2
+  %27 = load i32, ptr %26, align 4
+  %28 = load ptr, ptr %s.addr, align 8
+  %ahead_behind_flags34 = getelementptr inbounds %struct.wt_status, ptr %28, i32 0, i32 24
+  store i32 %27, ptr %ahead_behind_flags34, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then33, %land.lhs.true31, %if.end29
-  %27 = load ptr, ptr %s.addr, align 8
-  %ahead_behind_flags36 = getelementptr inbounds %struct.wt_status, ptr %27, i32 0, i32 24
-  %28 = load i32, ptr %ahead_behind_flags36, align 4
-  %cmp37 = icmp eq i32 %28, -1
+  %29 = load ptr, ptr %s.addr, align 8
+  %ahead_behind_flags36 = getelementptr inbounds %struct.wt_status, ptr %29, i32 0, i32 24
+  %30 = load i32, ptr %ahead_behind_flags36, align 4
+  %cmp37 = icmp eq i32 %30, -1
   br i1 %cmp37, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.end35
-  %29 = load ptr, ptr %s.addr, align 8
-  %ahead_behind_flags39 = getelementptr inbounds %struct.wt_status, ptr %29, i32 0, i32 24
+  %31 = load ptr, ptr %s.addr, align 8
+  %ahead_behind_flags39 = getelementptr inbounds %struct.wt_status, ptr %31, i32 0, i32 24
   store i32 1, ptr %ahead_behind_flags39, align 4
   br label %if.end40
 
@@ -1729,11 +1751,13 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %command_requires_full_index = getelementptr inbounds %struct.repo_settings, ptr %settings, i32 0, i32 6
   store i32 0, ptr %command_requires_full_index, align 8
   call void @status_init_config(ptr noundef @cmd_commit.s, ptr noundef @git_commit_config)
-  store i32 1, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_commit.s, i32 0, i32 20), align 4
+  %5 = getelementptr inbounds %struct.wt_status, ptr @cmd_commit.s, i32 0, i32 20
+  store i32 1, ptr %5, align 4
   store i32 0, ptr @status_format, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.wt_status, ptr @cmd_commit.s, i32 0, i32 18), align 4
-  %5 = load ptr, ptr @the_repository, align 8
-  %call1 = call i32 @repo_get_oid(ptr noundef %5, ptr noundef @.str.104, ptr noundef %oid)
+  %6 = getelementptr inbounds %struct.wt_status, ptr @cmd_commit.s, i32 0, i32 18
+  store i32 0, ptr %6, align 4
+  %7 = load ptr, ptr @the_repository, align 8
+  %call1 = call i32 @repo_get_oid(ptr noundef %7, ptr noundef @.str.104, ptr noundef %oid)
   %tobool2 = icmp ne i32 %call1, 0
   br i1 %tobool2, label %if.then3, label %if.else
 
@@ -1744,9 +1768,9 @@ if.then3:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %call4 = call ptr @lookup_commit_or_die(ptr noundef %oid, ptr noundef @.str.104)
   store ptr %call4, ptr %current_head, align 8
-  %6 = load ptr, ptr @the_repository, align 8
-  %7 = load ptr, ptr %current_head, align 8
-  %call5 = call i32 @repo_parse_commit(ptr noundef %6, ptr noundef %7)
+  %8 = load ptr, ptr @the_repository, align 8
+  %9 = load ptr, ptr %current_head, align 8
+  %call5 = call i32 @repo_parse_commit(ptr noundef %8, ptr noundef %9)
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.then7, label %if.end9
 
@@ -1760,56 +1784,56 @@ if.end9:                                          ; preds = %if.else
 
 if.end10:                                         ; preds = %if.end9, %if.then3
   store i32 -1, ptr @verbose, align 4
-  %8 = load i32, ptr %argc.addr, align 4
-  %9 = load ptr, ptr %argv.addr, align 8
-  %10 = load ptr, ptr %prefix.addr, align 8
-  %11 = load ptr, ptr %current_head, align 8
-  %call11 = call i32 @parse_and_validate_options(i32 noundef %8, ptr noundef %9, ptr noundef @cmd_commit.builtin_commit_options, ptr noundef @builtin_commit_usage, ptr noundef %10, ptr noundef %11, ptr noundef @cmd_commit.s)
+  %10 = load i32, ptr %argc.addr, align 4
+  %11 = load ptr, ptr %argv.addr, align 8
+  %12 = load ptr, ptr %prefix.addr, align 8
+  %13 = load ptr, ptr %current_head, align 8
+  %call11 = call i32 @parse_and_validate_options(i32 noundef %10, ptr noundef %11, ptr noundef @cmd_commit.builtin_commit_options, ptr noundef @builtin_commit_usage, ptr noundef %12, ptr noundef %13, ptr noundef @cmd_commit.s)
   store i32 %call11, ptr %argc.addr, align 4
-  %12 = load i32, ptr @verbose, align 4
-  %cmp12 = icmp eq i32 %12, -1
+  %14 = load i32, ptr @verbose, align 4
+  %cmp12 = icmp eq i32 %14, -1
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end10
-  %13 = load i32, ptr @config_commit_verbose, align 4
-  %cmp14 = icmp slt i32 %13, 0
+  %15 = load i32, ptr @config_commit_verbose, align 4
+  %cmp14 = icmp slt i32 %15, 0
   br i1 %cmp14, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then13
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then13
-  %14 = load i32, ptr @config_commit_verbose, align 4
+  %16 = load i32, ptr @config_commit_verbose, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %14, %cond.false ]
+  %cond = phi i32 [ 0, %cond.true ], [ %16, %cond.false ]
   store i32 %cond, ptr @verbose, align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %cond.end, %if.end10
-  %15 = load i32, ptr @dry_run, align 4
-  %tobool16 = icmp ne i32 %15, 0
+  %17 = load i32, ptr @dry_run, align 4
+  %tobool16 = icmp ne i32 %17, 0
   br i1 %tobool16, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end15
-  %16 = load ptr, ptr %argv.addr, align 8
-  %17 = load ptr, ptr %prefix.addr, align 8
-  %18 = load ptr, ptr %current_head, align 8
-  %call18 = call i32 @dry_run_commit(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @cmd_commit.s)
+  %18 = load ptr, ptr %argv.addr, align 8
+  %19 = load ptr, ptr %prefix.addr, align 8
+  %20 = load ptr, ptr %current_head, align 8
+  %call18 = call i32 @dry_run_commit(ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef @cmd_commit.s)
   store i32 %call18, ptr %retval, align 4
   br label %return
 
 if.end19:                                         ; preds = %if.end15
-  %19 = load ptr, ptr %argv.addr, align 8
-  %20 = load ptr, ptr %prefix.addr, align 8
-  %21 = load ptr, ptr %current_head, align 8
-  %call20 = call ptr @prepare_index(ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef 0)
+  %21 = load ptr, ptr %argv.addr, align 8
+  %22 = load ptr, ptr %prefix.addr, align 8
+  %23 = load ptr, ptr %current_head, align 8
+  %call20 = call ptr @prepare_index(ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef 0)
   store ptr %call20, ptr %index_file, align 8
-  %22 = load ptr, ptr %index_file, align 8
-  %23 = load ptr, ptr %prefix.addr, align 8
-  %24 = load ptr, ptr %current_head, align 8
-  %call21 = call i32 @prepare_to_commit(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef @cmd_commit.s, ptr noundef %author_ident)
+  %24 = load ptr, ptr %index_file, align 8
+  %25 = load ptr, ptr %prefix.addr, align 8
+  %26 = load ptr, ptr %current_head, align 8
+  %call21 = call i32 @prepare_to_commit(ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef @cmd_commit.s, ptr noundef %author_ident)
   %tobool22 = icmp ne i32 %call21, 0
   br i1 %tobool22, label %if.end24, label %if.then23
 
@@ -1821,13 +1845,13 @@ if.then23:                                        ; preds = %if.end19
 if.end24:                                         ; preds = %if.end19
   %call25 = call ptr @getenv(ptr noundef @.str.106) #11
   store ptr %call25, ptr %reflog_msg, align 8
-  %25 = load ptr, ptr %current_head, align 8
-  %tobool26 = icmp ne ptr %25, null
+  %27 = load ptr, ptr %current_head, align 8
+  %tobool26 = icmp ne ptr %27, null
   br i1 %tobool26, label %if.else31, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
-  %26 = load ptr, ptr %reflog_msg, align 8
-  %tobool28 = icmp ne ptr %26, null
+  %28 = load ptr, ptr %reflog_msg, align 8
+  %tobool28 = icmp ne ptr %28, null
   br i1 %tobool28, label %if.end30, label %if.then29
 
 if.then29:                                        ; preds = %if.then27
@@ -1838,13 +1862,13 @@ if.end30:                                         ; preds = %if.then29, %if.then
   br label %if.end93
 
 if.else31:                                        ; preds = %if.end24
-  %27 = load i32, ptr @amend, align 4
-  %tobool32 = icmp ne i32 %27, 0
+  %29 = load i32, ptr @amend, align 4
+  %tobool32 = icmp ne i32 %29, 0
   br i1 %tobool32, label %if.then33, label %if.else39
 
 if.then33:                                        ; preds = %if.else31
-  %28 = load ptr, ptr %reflog_msg, align 8
-  %tobool34 = icmp ne ptr %28, null
+  %30 = load ptr, ptr %reflog_msg, align 8
+  %tobool34 = icmp ne ptr %30, null
   br i1 %tobool34, label %if.end36, label %if.then35
 
 if.then35:                                        ; preds = %if.then33
@@ -1852,24 +1876,24 @@ if.then35:                                        ; preds = %if.then33
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then35, %if.then33
-  %29 = load ptr, ptr %current_head, align 8
-  %parents37 = getelementptr inbounds %struct.commit, ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %parents37, align 8
-  %call38 = call ptr @copy_commit_list(ptr noundef %30)
+  %31 = load ptr, ptr %current_head, align 8
+  %parents37 = getelementptr inbounds %struct.commit, ptr %31, i32 0, i32 2
+  %32 = load ptr, ptr %parents37, align 8
+  %call38 = call ptr @copy_commit_list(ptr noundef %32)
   store ptr %call38, ptr %parents, align 8
   br label %if.end92
 
 if.else39:                                        ; preds = %if.else31
-  %31 = load i32, ptr @whence, align 4
-  %cmp40 = icmp eq i32 %31, 1
+  %33 = load i32, ptr @whence, align 4
+  %cmp40 = icmp eq i32 %33, 1
   br i1 %cmp40, label %if.then41, label %if.else77
 
 if.then41:                                        ; preds = %if.else39
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m, ptr align 8 @__const.cmd_commit.m, i64 24, i1 false)
   store i32 1, ptr %allow_fast_forward, align 4
   store ptr %parents, ptr %pptr, align 8
-  %32 = load ptr, ptr %reflog_msg, align 8
-  %tobool42 = icmp ne ptr %32, null
+  %34 = load ptr, ptr %reflog_msg, align 8
+  %tobool42 = icmp ne ptr %34, null
   br i1 %tobool42, label %if.end44, label %if.then43
 
 if.then43:                                        ; preds = %if.then41
@@ -1877,58 +1901,58 @@ if.then43:                                        ; preds = %if.then41
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.then41
-  %33 = load ptr, ptr %current_head, align 8
-  %34 = load ptr, ptr %pptr, align 8
-  %call45 = call ptr @commit_list_append(ptr noundef %33, ptr noundef %34)
+  %35 = load ptr, ptr %current_head, align 8
+  %36 = load ptr, ptr %pptr, align 8
+  %call45 = call ptr @commit_list_append(ptr noundef %35, ptr noundef %36)
   store ptr %call45, ptr %pptr, align 8
-  %35 = load ptr, ptr @the_repository, align 8
-  %call46 = call ptr @git_path_merge_head(ptr noundef %35)
+  %37 = load ptr, ptr @the_repository, align 8
+  %call46 = call ptr @git_path_merge_head(ptr noundef %37)
   %call47 = call ptr @xfopen(ptr noundef %call46, ptr noundef @.str.110)
   store ptr %call47, ptr %fp, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end55, %if.end44
-  %36 = load ptr, ptr %fp, align 8
-  %call48 = call i32 @strbuf_getline_lf(ptr noundef %m, ptr noundef %36)
+  %38 = load ptr, ptr %fp, align 8
+  %call48 = call i32 @strbuf_getline_lf(ptr noundef %m, ptr noundef %38)
   %cmp49 = icmp ne i32 %call48, -1
   br i1 %cmp49, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %buf = getelementptr inbounds %struct.strbuf, ptr %m, i32 0, i32 2
-  %37 = load ptr, ptr %buf, align 8
-  %call50 = call ptr @get_merge_parent(ptr noundef %37)
+  %39 = load ptr, ptr %buf, align 8
+  %call50 = call ptr @get_merge_parent(ptr noundef %39)
   store ptr %call50, ptr %parent, align 8
-  %38 = load ptr, ptr %parent, align 8
-  %tobool51 = icmp ne ptr %38, null
+  %40 = load ptr, ptr %parent, align 8
+  %tobool51 = icmp ne ptr %40, null
   br i1 %tobool51, label %if.end55, label %if.then52
 
 if.then52:                                        ; preds = %while.body
   %call53 = call ptr @_(ptr noundef @.str.111)
   %buf54 = getelementptr inbounds %struct.strbuf, ptr %m, i32 0, i32 2
-  %39 = load ptr, ptr %buf54, align 8
-  call void (ptr, ...) @die(ptr noundef %call53, ptr noundef %39) #10
+  %41 = load ptr, ptr %buf54, align 8
+  call void (ptr, ...) @die(ptr noundef %call53, ptr noundef %41) #10
   unreachable
 
 if.end55:                                         ; preds = %while.body
-  %40 = load ptr, ptr %parent, align 8
-  %41 = load ptr, ptr %pptr, align 8
-  %call56 = call ptr @commit_list_append(ptr noundef %40, ptr noundef %41)
+  %42 = load ptr, ptr %parent, align 8
+  %43 = load ptr, ptr %pptr, align 8
+  %call56 = call ptr @commit_list_append(ptr noundef %42, ptr noundef %43)
   store ptr %call56, ptr %pptr, align 8
   br label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond
-  %42 = load ptr, ptr %fp, align 8
-  %call57 = call i32 @fclose(ptr noundef %42)
+  %44 = load ptr, ptr %fp, align 8
+  %call57 = call i32 @fclose(ptr noundef %44)
   call void @strbuf_release(ptr noundef %m)
-  %43 = load ptr, ptr @the_repository, align 8
-  %call58 = call ptr @git_path_merge_mode(ptr noundef %43)
+  %45 = load ptr, ptr @the_repository, align 8
+  %call58 = call ptr @git_path_merge_mode(ptr noundef %45)
   %call59 = call i32 @stat64(ptr noundef %call58, ptr noundef %statbuf) #11
   %tobool60 = icmp ne i32 %call59, 0
   br i1 %tobool60, label %if.end73, label %if.then61
 
 if.then61:                                        ; preds = %while.end
-  %44 = load ptr, ptr @the_repository, align 8
-  %call62 = call ptr @git_path_merge_mode(ptr noundef %44)
+  %46 = load ptr, ptr @the_repository, align 8
+  %call62 = call ptr @git_path_merge_mode(ptr noundef %46)
   %call63 = call i64 @strbuf_read_file(ptr noundef %sb, ptr noundef %call62, i64 noundef 0)
   %cmp64 = icmp slt i64 %call63, 0
   br i1 %cmp64, label %if.then65, label %if.end67
@@ -1940,8 +1964,8 @@ if.then65:                                        ; preds = %if.then61
 
 if.end67:                                         ; preds = %if.then61
   %buf68 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %45 = load ptr, ptr %buf68, align 8
-  %call69 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.113) #9
+  %47 = load ptr, ptr %buf68, align 8
+  %call69 = call i32 @strcmp(ptr noundef %47, ptr noundef @.str.113) #9
   %tobool70 = icmp ne i32 %call69, 0
   br i1 %tobool70, label %if.end72, label %if.then71
 
@@ -1953,8 +1977,8 @@ if.end72:                                         ; preds = %if.then71, %if.end6
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end72, %while.end
-  %46 = load i32, ptr %allow_fast_forward, align 4
-  %tobool74 = icmp ne i32 %46, 0
+  %48 = load i32, ptr %allow_fast_forward, align 4
+  %tobool74 = icmp ne i32 %48, 0
   br i1 %tobool74, label %if.then75, label %if.end76
 
 if.then75:                                        ; preds = %if.end73
@@ -1965,13 +1989,13 @@ if.end76:                                         ; preds = %if.then75, %if.end7
   br label %if.end91
 
 if.else77:                                        ; preds = %if.else39
-  %47 = load ptr, ptr %reflog_msg, align 8
-  %tobool78 = icmp ne ptr %47, null
+  %49 = load ptr, ptr %reflog_msg, align 8
+  %tobool78 = icmp ne ptr %49, null
   br i1 %tobool78, label %if.end89, label %if.then79
 
 if.then79:                                        ; preds = %if.else77
-  %48 = load i32, ptr @whence, align 4
-  %call80 = call i32 @is_from_cherry_pick(i32 noundef %48)
+  %50 = load i32, ptr @whence, align 4
+  %call80 = call i32 @is_from_cherry_pick(i32 noundef %50)
   %tobool81 = icmp ne i32 %call80, 0
   br i1 %tobool81, label %cond.true82, label %cond.false83
 
@@ -1979,8 +2003,8 @@ cond.true82:                                      ; preds = %if.then79
   br label %cond.end87
 
 cond.false83:                                     ; preds = %if.then79
-  %49 = load i32, ptr @whence, align 4
-  %call84 = call i32 @is_from_rebase(i32 noundef %49)
+  %51 = load i32, ptr @whence, align 4
+  %call84 = call i32 @is_from_rebase(i32 noundef %51)
   %tobool85 = icmp ne i32 %call84, 0
   %cond86 = select i1 %tobool85, ptr @.str.115, ptr @.str.51
   br label %cond.end87
@@ -1991,8 +2015,8 @@ cond.end87:                                       ; preds = %cond.false83, %cond
   br label %if.end89
 
 if.end89:                                         ; preds = %cond.end87, %if.else77
-  %50 = load ptr, ptr %current_head, align 8
-  %call90 = call ptr @commit_list_insert(ptr noundef %50, ptr noundef %parents)
+  %52 = load ptr, ptr %current_head, align 8
+  %call90 = call ptr @commit_list_insert(ptr noundef %52, ptr noundef %parents)
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end89, %if.end76
@@ -2010,97 +2034,97 @@ if.end93:                                         ; preds = %if.end92, %if.end30
 
 if.then97:                                        ; preds = %if.end93
   %call98 = call ptr @__errno_location() #12
-  %51 = load i32, ptr %call98, align 4
-  store i32 %51, ptr %saved_errno, align 4
+  %53 = load i32, ptr %call98, align 4
+  store i32 %53, ptr %saved_errno, align 4
   call void @rollback_index_files()
   %call99 = call ptr @_(ptr noundef @.str.116)
-  %52 = load i32, ptr %saved_errno, align 4
-  %call100 = call ptr @strerror(i32 noundef %52) #11
+  %54 = load i32, ptr %saved_errno, align 4
+  %call100 = call ptr @strerror(i32 noundef %54) #11
   call void (ptr, ...) @die(ptr noundef %call99, ptr noundef %call100) #10
   unreachable
 
 if.end101:                                        ; preds = %if.end93
-  %53 = load i32, ptr @cleanup_mode, align 4
-  %54 = load i32, ptr @verbose, align 4
-  call void @cleanup_message(ptr noundef %sb, i32 noundef %53, i32 noundef %54)
   %55 = load i32, ptr @cleanup_mode, align 4
-  %call102 = call i32 @message_is_empty(ptr noundef %sb, i32 noundef %55)
+  %56 = load i32, ptr @verbose, align 4
+  call void @cleanup_message(ptr noundef %sb, i32 noundef %55, i32 noundef %56)
+  %57 = load i32, ptr @cleanup_mode, align 4
+  %call102 = call i32 @message_is_empty(ptr noundef %sb, i32 noundef %57)
   %tobool103 = icmp ne i32 %call102, 0
   br i1 %tobool103, label %land.lhs.true104, label %if.end110
 
 land.lhs.true104:                                 ; preds = %if.end101
-  %56 = load i32, ptr @allow_empty_message, align 4
-  %tobool105 = icmp ne i32 %56, 0
+  %58 = load i32, ptr @allow_empty_message, align 4
+  %tobool105 = icmp ne i32 %58, 0
   br i1 %tobool105, label %if.end110, label %if.then106
 
 if.then106:                                       ; preds = %land.lhs.true104
   call void @rollback_index_files()
-  %57 = load ptr, ptr @stderr, align 8
+  %59 = load ptr, ptr @stderr, align 8
   %call107 = call ptr @_(ptr noundef @.str.117)
-  %call108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef %call107)
+  %call108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef %call107)
   %call109 = call i32 @common_exit(ptr noundef @.str.118, i32 noundef 1806, i32 noundef 1)
   call void @exit(i32 noundef %call109) #13
   unreachable
 
 if.end110:                                        ; preds = %land.lhs.true104, %if.end101
-  %58 = load ptr, ptr @template_file, align 8
-  %59 = load i32, ptr @cleanup_mode, align 4
-  %call111 = call i32 @template_untouched(ptr noundef %sb, ptr noundef %58, i32 noundef %59)
+  %60 = load ptr, ptr @template_file, align 8
+  %61 = load i32, ptr @cleanup_mode, align 4
+  %call111 = call i32 @template_untouched(ptr noundef %sb, ptr noundef %60, i32 noundef %61)
   %tobool112 = icmp ne i32 %call111, 0
   br i1 %tobool112, label %land.lhs.true113, label %if.end119
 
 land.lhs.true113:                                 ; preds = %if.end110
-  %60 = load i32, ptr @allow_empty_message, align 4
-  %tobool114 = icmp ne i32 %60, 0
+  %62 = load i32, ptr @allow_empty_message, align 4
+  %tobool114 = icmp ne i32 %62, 0
   br i1 %tobool114, label %if.end119, label %if.then115
 
 if.then115:                                       ; preds = %land.lhs.true113
   call void @rollback_index_files()
-  %61 = load ptr, ptr @stderr, align 8
+  %63 = load ptr, ptr @stderr, align 8
   %call116 = call ptr @_(ptr noundef @.str.119)
-  %call117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef %call116)
+  %call117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef %call116)
   %call118 = call i32 @common_exit(ptr noundef @.str.118, i32 noundef 1811, i32 noundef 1)
   call void @exit(i32 noundef %call118) #13
   unreachable
 
 if.end119:                                        ; preds = %land.lhs.true113, %if.end110
-  %62 = load ptr, ptr @fixup_message, align 8
-  %tobool120 = icmp ne ptr %62, null
+  %64 = load ptr, ptr @fixup_message, align 8
+  %tobool120 = icmp ne ptr %64, null
   br i1 %tobool120, label %land.lhs.true121, label %if.end138
 
 land.lhs.true121:                                 ; preds = %if.end119
   %buf122 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %63 = load ptr, ptr %buf122, align 8
-  %call123 = call i32 @starts_with(ptr noundef %63, ptr noundef @.str.120)
+  %65 = load ptr, ptr %buf122, align 8
+  %call123 = call i32 @starts_with(ptr noundef %65, ptr noundef @.str.120)
   %tobool124 = icmp ne i32 %call123, 0
   br i1 %tobool124, label %land.lhs.true125, label %if.end138
 
 land.lhs.true125:                                 ; preds = %land.lhs.true121
-  %64 = load i32, ptr @allow_empty_message, align 4
-  %tobool126 = icmp ne i32 %64, 0
+  %66 = load i32, ptr @allow_empty_message, align 4
+  %tobool126 = icmp ne i32 %66, 0
   br i1 %tobool126, label %if.end138, label %if.then127
 
 if.then127:                                       ; preds = %land.lhs.true125
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %body, ptr align 8 @__const.cmd_commit.body, i64 24, i1 false)
   %buf128 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %65 = load ptr, ptr %buf128, align 8
-  %call129 = call i64 @commit_subject_length(ptr noundef %65)
+  %67 = load ptr, ptr %buf128, align 8
+  %call129 = call i64 @commit_subject_length(ptr noundef %67)
   store i64 %call129, ptr %len, align 8
   %buf130 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %66 = load ptr, ptr %buf130, align 8
-  %67 = load i64, ptr %len, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %66, i64 %67
+  %68 = load ptr, ptr %buf130, align 8
+  %69 = load i64, ptr %len, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %68, i64 %69
   call void @strbuf_addstr(ptr noundef %body, ptr noundef %add.ptr)
-  %68 = load i32, ptr @cleanup_mode, align 4
-  %call131 = call i32 @message_is_empty(ptr noundef %body, i32 noundef %68)
+  %70 = load i32, ptr @cleanup_mode, align 4
+  %call131 = call i32 @message_is_empty(ptr noundef %body, i32 noundef %70)
   %tobool132 = icmp ne i32 %call131, 0
   br i1 %tobool132, label %if.then133, label %if.end137
 
 if.then133:                                       ; preds = %if.then127
   call void @rollback_index_files()
-  %69 = load ptr, ptr @stderr, align 8
+  %71 = load ptr, ptr @stderr, align 8
   %call134 = call ptr @_(ptr noundef @.str.121)
-  %call135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef %call134)
+  %call135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef %call134)
   %call136 = call i32 @common_exit(ptr noundef @.str.118, i32 noundef 1822, i32 noundef 1)
   call void @exit(i32 noundef %call136) #13
   unreachable
@@ -2110,37 +2134,38 @@ if.end137:                                        ; preds = %if.then127
   br label %if.end138
 
 if.end138:                                        ; preds = %if.end137, %land.lhs.true125, %land.lhs.true121, %if.end119
-  %70 = load i32, ptr @amend, align 4
-  %tobool139 = icmp ne i32 %70, 0
+  %72 = load i32, ptr @amend, align 4
+  %tobool139 = icmp ne i32 %72, 0
   br i1 %tobool139, label %if.then140, label %if.else142
 
 if.then140:                                       ; preds = %if.end138
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %exclude_gpgsig, ptr align 16 @__const.cmd_commit.exclude_gpgsig, i64 24, i1 false)
-  %71 = load ptr, ptr %current_head, align 8
+  %73 = load ptr, ptr %current_head, align 8
   %arraydecay = getelementptr inbounds [3 x ptr], ptr %exclude_gpgsig, i64 0, i64 0
-  %call141 = call ptr @read_commit_extra_headers(ptr noundef %71, ptr noundef %arraydecay)
+  %call141 = call ptr @read_commit_extra_headers(ptr noundef %73, ptr noundef %arraydecay)
   store ptr %call141, ptr %extra, align 8
   br label %if.end143
 
 if.else142:                                       ; preds = %if.end138
   store ptr %extra, ptr %tail, align 8
-  %72 = load ptr, ptr %parents, align 8
-  call void @append_merge_tag_headers(ptr noundef %72, ptr noundef %tail)
+  %74 = load ptr, ptr %parents, align 8
+  call void @append_merge_tag_headers(ptr noundef %74, ptr noundef %tail)
   br label %if.end143
 
 if.end143:                                        ; preds = %if.else142, %if.then140
   %buf144 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %73 = load ptr, ptr %buf144, align 8
+  %75 = load ptr, ptr %buf144, align 8
   %len145 = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 1
-  %74 = load i64, ptr %len145, align 8
-  %75 = load ptr, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 6), align 8
-  %oid146 = getelementptr inbounds %struct.cache_tree, ptr %75, i32 0, i32 1
-  %76 = load ptr, ptr %parents, align 8
+  %76 = load i64, ptr %len145, align 8
+  %77 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 6
+  %78 = load ptr, ptr %77, align 8
+  %oid146 = getelementptr inbounds %struct.cache_tree, ptr %78, i32 0, i32 1
+  %79 = load ptr, ptr %parents, align 8
   %buf147 = getelementptr inbounds %struct.strbuf, ptr %author_ident, i32 0, i32 2
-  %77 = load ptr, ptr %buf147, align 8
-  %78 = load ptr, ptr @sign_commit, align 8
-  %79 = load ptr, ptr %extra, align 8
-  %call148 = call i32 @commit_tree_extended(ptr noundef %73, i64 noundef %74, ptr noundef %oid146, ptr noundef %76, ptr noundef %oid, ptr noundef %77, ptr noundef null, ptr noundef %78, ptr noundef %79)
+  %80 = load ptr, ptr %buf147, align 8
+  %81 = load ptr, ptr @sign_commit, align 8
+  %82 = load ptr, ptr %extra, align 8
+  %call148 = call i32 @commit_tree_extended(ptr noundef %75, i64 noundef %76, ptr noundef %oid146, ptr noundef %79, ptr noundef %oid, ptr noundef %80, ptr noundef null, ptr noundef %81, ptr noundef %82)
   %tobool149 = icmp ne i32 %call148, 0
   br i1 %tobool149, label %if.then150, label %if.end152
 
@@ -2151,35 +2176,35 @@ if.then150:                                       ; preds = %if.end143
   unreachable
 
 if.end152:                                        ; preds = %if.end143
-  %80 = load ptr, ptr %extra, align 8
-  call void @free_commit_extra_headers(ptr noundef %80)
-  %81 = load ptr, ptr %current_head, align 8
-  %82 = load ptr, ptr %reflog_msg, align 8
-  %call153 = call i32 @update_head_with_reflog(ptr noundef %81, ptr noundef %oid, ptr noundef %82, ptr noundef %sb, ptr noundef %err)
+  %83 = load ptr, ptr %extra, align 8
+  call void @free_commit_extra_headers(ptr noundef %83)
+  %84 = load ptr, ptr %current_head, align 8
+  %85 = load ptr, ptr %reflog_msg, align 8
+  %call153 = call i32 @update_head_with_reflog(ptr noundef %84, ptr noundef %oid, ptr noundef %85, ptr noundef %sb, ptr noundef %err)
   %tobool154 = icmp ne i32 %call153, 0
   br i1 %tobool154, label %if.then155, label %if.end157
 
 if.then155:                                       ; preds = %if.end152
   call void @rollback_index_files()
   %buf156 = getelementptr inbounds %struct.strbuf, ptr %err, i32 0, i32 2
-  %83 = load ptr, ptr %buf156, align 8
-  call void (ptr, ...) @die(ptr noundef @.str.125, ptr noundef %83) #10
+  %86 = load ptr, ptr %buf156, align 8
+  call void (ptr, ...) @die(ptr noundef @.str.125, ptr noundef %86) #10
   unreachable
 
 if.end157:                                        ; preds = %if.end152
-  %84 = load ptr, ptr @the_repository, align 8
-  call void @sequencer_post_commit_cleanup(ptr noundef %84, i32 noundef 0)
-  %85 = load ptr, ptr @the_repository, align 8
-  %call158 = call ptr @git_path_merge_head(ptr noundef %85)
-  %call159 = call i32 @unlink(ptr noundef %call158) #11
-  %86 = load ptr, ptr @the_repository, align 8
-  %call160 = call ptr @git_path_merge_msg(ptr noundef %86)
-  %call161 = call i32 @unlink(ptr noundef %call160) #11
   %87 = load ptr, ptr @the_repository, align 8
-  %call162 = call ptr @git_path_merge_mode(ptr noundef %87)
-  %call163 = call i32 @unlink(ptr noundef %call162) #11
+  call void @sequencer_post_commit_cleanup(ptr noundef %87, i32 noundef 0)
   %88 = load ptr, ptr @the_repository, align 8
-  %call164 = call ptr @git_path_squash_msg(ptr noundef %88)
+  %call158 = call ptr @git_path_merge_head(ptr noundef %88)
+  %call159 = call i32 @unlink(ptr noundef %call158) #11
+  %89 = load ptr, ptr @the_repository, align 8
+  %call160 = call ptr @git_path_merge_msg(ptr noundef %89)
+  %call161 = call i32 @unlink(ptr noundef %call160) #11
+  %90 = load ptr, ptr @the_repository, align 8
+  %call162 = call ptr @git_path_merge_mode(ptr noundef %90)
+  %call163 = call i32 @unlink(ptr noundef %call162) #11
+  %91 = load ptr, ptr @the_repository, align 8
+  %call164 = call ptr @git_path_squash_msg(ptr noundef %91)
   %call165 = call i32 @unlink(ptr noundef %call164) #11
   %call166 = call i32 @commit_index_files()
   %tobool167 = icmp ne i32 %call166, 0
@@ -2192,42 +2217,42 @@ if.then168:                                       ; preds = %if.end157
 
 if.end170:                                        ; preds = %if.end157
   call void @git_test_write_commit_graph_or_die()
-  %89 = load ptr, ptr @the_repository, align 8
-  %call171 = call i32 @repo_rerere(ptr noundef %89, i32 noundef 0)
-  %90 = load i32, ptr @quiet, align 4
-  %call172 = call i32 @run_auto_maintenance(i32 noundef %90)
-  %91 = load i32, ptr @use_editor, align 4
+  %92 = load ptr, ptr @the_repository, align 8
+  %call171 = call i32 @repo_rerere(ptr noundef %92, i32 noundef 0)
+  %93 = load i32, ptr @quiet, align 4
+  %call172 = call i32 @run_auto_maintenance(i32 noundef %93)
+  %94 = load i32, ptr @use_editor, align 4
   %call173 = call ptr @get_index_file()
-  %call174 = call i32 (i32, ptr, ptr, ptr, ...) @run_commit_hook(i32 noundef %91, ptr noundef %call173, ptr noundef null, ptr noundef @.str.127, ptr noundef null)
-  %92 = load i32, ptr @amend, align 4
-  %tobool175 = icmp ne i32 %92, 0
+  %call174 = call i32 (i32, ptr, ptr, ptr, ...) @run_commit_hook(i32 noundef %94, ptr noundef %call173, ptr noundef null, ptr noundef @.str.127, ptr noundef null)
+  %95 = load i32, ptr @amend, align 4
+  %tobool175 = icmp ne i32 %95, 0
   br i1 %tobool175, label %land.lhs.true176, label %if.end179
 
 land.lhs.true176:                                 ; preds = %if.end170
-  %93 = load i32, ptr @no_post_rewrite, align 4
-  %tobool177 = icmp ne i32 %93, 0
+  %96 = load i32, ptr @no_post_rewrite, align 4
+  %tobool177 = icmp ne i32 %96, 0
   br i1 %tobool177, label %if.end179, label %if.then178
 
 if.then178:                                       ; preds = %land.lhs.true176
-  %94 = load ptr, ptr @the_repository, align 8
-  %95 = load ptr, ptr %current_head, align 8
-  call void @commit_post_rewrite(ptr noundef %94, ptr noundef %95, ptr noundef %oid)
+  %97 = load ptr, ptr @the_repository, align 8
+  %98 = load ptr, ptr %current_head, align 8
+  call void @commit_post_rewrite(ptr noundef %97, ptr noundef %98, ptr noundef %oid)
   br label %if.end179
 
 if.end179:                                        ; preds = %if.then178, %land.lhs.true176, %if.end170
-  %96 = load i32, ptr @quiet, align 4
-  %tobool180 = icmp ne i32 %96, 0
+  %99 = load i32, ptr @quiet, align 4
+  %tobool180 = icmp ne i32 %99, 0
   br i1 %tobool180, label %if.end190, label %if.then181
 
 if.then181:                                       ; preds = %if.end179
   store i32 0, ptr %flags, align 4
-  %97 = load ptr, ptr %current_head, align 8
-  %tobool182 = icmp ne ptr %97, null
+  %100 = load ptr, ptr %current_head, align 8
+  %tobool182 = icmp ne ptr %100, null
   br i1 %tobool182, label %if.end184, label %if.then183
 
 if.then183:                                       ; preds = %if.then181
-  %98 = load i32, ptr %flags, align 4
-  %or = or i32 %98, 1
+  %101 = load i32, ptr %flags, align 4
+  %or = or i32 %101, 1
   store i32 %or, ptr %flags, align 4
   br label %if.end184
 
@@ -2237,21 +2262,21 @@ if.end184:                                        ; preds = %if.then183, %if.the
   br i1 %tobool186, label %if.then187, label %if.end189
 
 if.then187:                                       ; preds = %if.end184
-  %99 = load i32, ptr %flags, align 4
-  %or188 = or i32 %99, 2
+  %102 = load i32, ptr %flags, align 4
+  %or188 = or i32 %102, 2
   store i32 %or188, ptr %flags, align 4
   br label %if.end189
 
 if.end189:                                        ; preds = %if.then187, %if.end184
-  %100 = load ptr, ptr @the_repository, align 8
-  %101 = load ptr, ptr %prefix.addr, align 8
-  %102 = load i32, ptr %flags, align 4
-  call void @print_commit_summary(ptr noundef %100, ptr noundef %101, ptr noundef %oid, i32 noundef %102)
+  %103 = load ptr, ptr @the_repository, align 8
+  %104 = load ptr, ptr %prefix.addr, align 8
+  %105 = load i32, ptr %flags, align 4
+  call void @print_commit_summary(ptr noundef %103, ptr noundef %104, ptr noundef %oid, i32 noundef %105)
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end189, %if.end179
-  %103 = load ptr, ptr @the_repository, align 8
-  %call191 = call ptr @git_path_merge_autostash(ptr noundef %103)
+  %106 = load ptr, ptr @the_repository, align 8
+  %call191 = call ptr @git_path_merge_autostash(ptr noundef %106)
   %call192 = call i32 @apply_autostash(ptr noundef %call191)
   br label %cleanup
 
@@ -2259,13 +2284,13 @@ cleanup:                                          ; preds = %if.end190, %if.then
   call void @strbuf_release(ptr noundef %author_ident)
   call void @strbuf_release(ptr noundef %err)
   call void @strbuf_release(ptr noundef %sb)
-  %104 = load i32, ptr %ret, align 4
-  store i32 %104, ptr %retval, align 4
+  %107 = load i32, ptr %ret, align 4
+  store i32 %107, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then17
-  %105 = load i32, ptr %retval, align 4
-  ret i32 %105
+  %108 = load i32, ptr %retval, align 4
+  ret i32 %108
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3320,13 +3345,15 @@ if.then112:                                       ; preds = %land.lhs.true109
   %call113 = call i32 @repo_hold_locked_index(ptr noundef %49, ptr noundef @index_lock, i32 noundef 1)
   %50 = load i32, ptr %refresh_flags, align 4
   call void @refresh_cache_or_die(i32 noundef %50)
-  %51 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 4), align 4
-  %tobool114 = icmp ne i32 %51, 0
+  %51 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 4
+  %52 = load i32, ptr %51, align 4
+  %tobool114 = icmp ne i32 %52, 0
   br i1 %tobool114, label %if.then118, label %lor.lhs.false115
 
 lor.lhs.false115:                                 ; preds = %if.then112
-  %52 = load ptr, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 6), align 8
-  %call116 = call i32 @cache_tree_fully_valid(ptr noundef %52)
+  %53 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 6
+  %54 = load ptr, ptr %53, align 8
+  %call116 = call i32 @cache_tree_fully_valid(ptr noundef %54)
   %tobool117 = icmp ne i32 %call116, 0
   br i1 %tobool117, label %if.end120, label %if.then118
 
@@ -3352,13 +3379,13 @@ if.end125:                                        ; preds = %if.end120
 
 if.end127:                                        ; preds = %land.lhs.true109, %if.end107
   store i32 3, ptr @commit_style, align 4
-  %53 = load i32, ptr @whence, align 4
-  %cmp128 = icmp ne i32 %53, 0
+  %55 = load i32, ptr @whence, align 4
+  %cmp128 = icmp ne i32 %55, 0
   br i1 %cmp128, label %if.then130, label %if.end148
 
 if.then130:                                       ; preds = %if.end127
-  %54 = load i32, ptr @whence, align 4
-  %cmp131 = icmp eq i32 %54, 1
+  %56 = load i32, ptr @whence, align 4
+  %cmp131 = icmp eq i32 %56, 1
   br i1 %cmp131, label %if.then133, label %if.else135
 
 if.then133:                                       ; preds = %if.then130
@@ -3367,8 +3394,8 @@ if.then133:                                       ; preds = %if.then130
   unreachable
 
 if.else135:                                       ; preds = %if.then130
-  %55 = load i32, ptr @whence, align 4
-  %call136 = call i32 @is_from_cherry_pick(i32 noundef %55)
+  %57 = load i32, ptr @whence, align 4
+  %call136 = call i32 @is_from_cherry_pick(i32 noundef %57)
   %tobool137 = icmp ne i32 %call136, 0
   br i1 %tobool137, label %if.then138, label %if.else140
 
@@ -3378,8 +3405,8 @@ if.then138:                                       ; preds = %if.else135
   unreachable
 
 if.else140:                                       ; preds = %if.else135
-  %56 = load i32, ptr @whence, align 4
-  %call141 = call i32 @is_from_rebase(i32 noundef %56)
+  %58 = load i32, ptr @whence, align 4
+  %call141 = call i32 @is_from_rebase(i32 noundef %58)
   %tobool142 = icmp ne i32 %call141, 0
   br i1 %tobool142, label %if.then143, label %if.end145
 
@@ -3398,8 +3425,8 @@ if.end147:                                        ; preds = %if.end146
   br label %if.end148
 
 if.end148:                                        ; preds = %if.end147, %if.end127
-  %57 = load ptr, ptr %current_head.addr, align 8
-  %tobool149 = icmp ne ptr %57, null
+  %59 = load ptr, ptr %current_head.addr, align 8
+  %tobool149 = icmp ne ptr %59, null
   %lnot = xor i1 %tobool149, true
   %cond150 = select i1 %lnot, ptr null, ptr @.str.104
   %call151 = call i32 @list_paths(ptr noundef %partial, ptr noundef %cond150, ptr noundef %pathspec)
@@ -3413,8 +3440,8 @@ if.then153:                                       ; preds = %if.end148
 
 if.end155:                                        ; preds = %if.end148
   call void @discard_index(ptr noundef @the_index)
-  %58 = load ptr, ptr @the_repository, align 8
-  %call156 = call i32 @repo_read_index(ptr noundef %58)
+  %60 = load ptr, ptr @the_repository, align 8
+  %call156 = call i32 @repo_read_index(ptr noundef %60)
   %cmp157 = icmp slt i32 %call156, 0
   br i1 %cmp157, label %if.then159, label %if.end161
 
@@ -3424,8 +3451,8 @@ if.then159:                                       ; preds = %if.end155
   unreachable
 
 if.end161:                                        ; preds = %if.end155
-  %59 = load ptr, ptr @the_repository, align 8
-  %call162 = call i32 @repo_hold_locked_index(ptr noundef %59, ptr noundef @index_lock, i32 noundef 1)
+  %61 = load ptr, ptr @the_repository, align 8
+  %call162 = call i32 @repo_hold_locked_index(ptr noundef %61, ptr noundef @index_lock, i32 noundef 1)
   call void @add_remove_files(ptr noundef %partial)
   %call163 = call i32 @refresh_index(ptr noundef @the_index, i32 noundef 4, ptr noundef null, ptr noundef null, ptr noundef null)
   %call164 = call i32 @cache_tree_update(ptr noundef @the_index, i32 noundef 8)
@@ -3443,8 +3470,8 @@ if.end169:                                        ; preds = %if.end161
   %conv171 = sext i32 %call170 to i64
   %call172 = call ptr (ptr, ...) @git_path(ptr noundef @.str.229, i64 noundef %conv171)
   %call173 = call i32 @hold_lock_file_for_update(ptr noundef @false_lock, ptr noundef %call172, i32 noundef 1)
-  %60 = load ptr, ptr %current_head.addr, align 8
-  call void @create_base_index(ptr noundef %60)
+  %62 = load ptr, ptr %current_head.addr, align 8
+  call void @create_base_index(ptr noundef %62)
   call void @add_remove_files(ptr noundef %partial)
   %call174 = call i32 @refresh_index(ptr noundef @the_index, i32 noundef 4, ptr noundef null, ptr noundef null, ptr noundef null)
   %call175 = call i32 @write_locked_index(ptr noundef @the_index, ptr noundef @false_lock, i32 noundef 0)
@@ -3460,16 +3487,16 @@ if.end179:                                        ; preds = %if.end169
   call void @discard_index(ptr noundef @the_index)
   %call180 = call ptr @get_lock_file_path(ptr noundef @false_lock)
   store ptr %call180, ptr %ret, align 8
-  %61 = load ptr, ptr %ret, align 8
+  %63 = load ptr, ptr %ret, align 8
   %call181 = call ptr @get_git_dir()
-  %call182 = call i32 @read_index_from(ptr noundef @the_index, ptr noundef %61, ptr noundef %call181)
+  %call182 = call i32 @read_index_from(ptr noundef @the_index, ptr noundef %63, ptr noundef %call181)
   br label %out
 
 out:                                              ; preds = %if.end179, %if.end125, %if.end105, %if.end87
   call void @string_list_clear(ptr noundef %partial, i32 noundef 0)
   call void @clear_pathspec(ptr noundef %pathspec)
-  %62 = load ptr, ptr %ret, align 8
-  ret ptr %62
+  %64 = load ptr, ptr %ret, align 8
+  ret ptr %64
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4285,7 +4312,8 @@ if.end294:                                        ; preds = %if.then275, %if.end
 
 if.else299:                                       ; preds = %land.lhs.true196, %if.end193
   store ptr @.str.104, ptr %parent, align 8
-  %bf.load = load i8, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 9), align 8
+  %136 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 9
+  %bf.load = load i8, ptr %136, align 8
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1
   %bf.cast = zext i8 %bf.clear to i32
@@ -4293,8 +4321,8 @@ if.else299:                                       ; preds = %land.lhs.true196, %
   br i1 %tobool300, label %if.end307, label %land.lhs.true301
 
 land.lhs.true301:                                 ; preds = %if.else299
-  %136 = load ptr, ptr @the_repository, align 8
-  %call302 = call i32 @repo_read_index(ptr noundef %136)
+  %137 = load ptr, ptr @the_repository, align 8
+  %call302 = call i32 @repo_read_index(ptr noundef %137)
   %cmp303 = icmp slt i32 %call302, 0
   br i1 %cmp303, label %if.then305, label %if.end307
 
@@ -4304,8 +4332,8 @@ if.then305:                                       ; preds = %land.lhs.true301
   unreachable
 
 if.end307:                                        ; preds = %land.lhs.true301, %if.else299
-  %137 = load i32, ptr @amend, align 4
-  %tobool308 = icmp ne i32 %137, 0
+  %138 = load i32, ptr @amend, align 4
+  %tobool308 = icmp ne i32 %138, 0
   br i1 %tobool308, label %if.then309, label %if.end310
 
 if.then309:                                       ; preds = %if.end307
@@ -4313,9 +4341,9 @@ if.then309:                                       ; preds = %if.end307
   br label %if.end310
 
 if.end310:                                        ; preds = %if.then309, %if.end307
-  %138 = load ptr, ptr @the_repository, align 8
-  %139 = load ptr, ptr %parent, align 8
-  %call311 = call i32 @repo_get_oid(ptr noundef %138, ptr noundef %139, ptr noundef %oid)
+  %139 = load ptr, ptr @the_repository, align 8
+  %140 = load ptr, ptr %parent, align 8
+  %call311 = call i32 @repo_get_oid(ptr noundef %139, ptr noundef %140, ptr noundef %oid)
   %tobool312 = icmp ne i32 %call311, 0
   br i1 %tobool312, label %if.then313, label %if.else324
 
@@ -4326,26 +4354,27 @@ if.then313:                                       ; preds = %if.end310
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then313
-  %140 = load i32, ptr %i, align 4
-  %141 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 2), align 4
-  %cmp314 = icmp ult i32 %140, %141
+  %141 = load i32, ptr %i, align 4
+  %142 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 2
+  %143 = load i32, ptr %142, align 4
+  %cmp314 = icmp ult i32 %141, %143
   br i1 %cmp314, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %142 = load ptr, ptr @the_index, align 8
-  %143 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %143 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %142, i64 %idxprom
-  %144 = load ptr, ptr %arrayidx, align 8
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %144, i32 0, i32 3
-  %145 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %145, 536870912
+  %144 = load ptr, ptr @the_index, align 8
+  %145 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %145 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %144, i64 %idxprom
+  %146 = load ptr, ptr %arrayidx, align 8
+  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %146, i32 0, i32 3
+  %147 = load i32, ptr %ce_flags, align 8
+  %and = and i32 %147, 536870912
   %tobool316 = icmp ne i32 %and, 0
   br i1 %tobool316, label %if.then317, label %if.end319
 
 if.then317:                                       ; preds = %for.body
-  %146 = load i32, ptr %ita_nr, align 4
-  %inc318 = add nsw i32 %146, 1
+  %148 = load i32, ptr %ita_nr, align 4
+  %inc318 = add nsw i32 %148, 1
   store i32 %inc318, ptr %ita_nr, align 4
   br label %if.end319
 
@@ -4353,15 +4382,16 @@ if.end319:                                        ; preds = %if.then317, %for.bo
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end319
-  %147 = load i32, ptr %i, align 4
-  %inc320 = add nsw i32 %147, 1
+  %149 = load i32, ptr %i, align 4
+  %inc320 = add nsw i32 %149, 1
   store i32 %inc320, ptr %i, align 4
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %for.cond
-  %148 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 2), align 4
-  %149 = load i32, ptr %ita_nr, align 4
-  %sub321 = sub i32 %148, %149
+  %150 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 2
+  %151 = load i32, ptr %150, align 4
+  %152 = load i32, ptr %ita_nr, align 4
+  %sub321 = sub i32 %151, %152
   %cmp322 = icmp ugt i32 %sub321, 0
   %conv323 = zext i1 %cmp322 to i32
   store i32 %conv323, ptr %committable, align 4
@@ -4371,13 +4401,13 @@ if.else324:                                       ; preds = %if.end310
   call void @llvm.memset.p0.i64(ptr align 4 %flags, i8 0, i64 140, i1 false)
   %override_submodule_config = getelementptr inbounds %struct.diff_flags, ptr %flags, i32 0, i32 27
   store i32 1, ptr %override_submodule_config, align 4
-  %150 = load ptr, ptr @ignore_submodule_arg, align 8
-  %tobool325 = icmp ne ptr %150, null
+  %153 = load ptr, ptr @ignore_submodule_arg, align 8
+  %tobool325 = icmp ne ptr %153, null
   br i1 %tobool325, label %land.lhs.true326, label %if.end330
 
 land.lhs.true326:                                 ; preds = %if.else324
-  %151 = load ptr, ptr @ignore_submodule_arg, align 8
-  %call327 = call i32 @strcmp(ptr noundef %151, ptr noundef @.str.21) #9
+  %154 = load ptr, ptr @ignore_submodule_arg, align 8
+  %call327 = call i32 @strcmp(ptr noundef %154, ptr noundef @.str.21) #9
   %tobool328 = icmp ne i32 %call327, 0
   br i1 %tobool328, label %if.end330, label %if.then329
 
@@ -4387,9 +4417,9 @@ if.then329:                                       ; preds = %land.lhs.true326
   br label %if.end330
 
 if.end330:                                        ; preds = %if.then329, %land.lhs.true326, %if.else324
-  %152 = load ptr, ptr @the_repository, align 8
-  %153 = load ptr, ptr %parent, align 8
-  %call331 = call i32 @index_differs_from(ptr noundef %152, ptr noundef %153, ptr noundef %flags, i32 noundef 1)
+  %155 = load ptr, ptr @the_repository, align 8
+  %156 = load ptr, ptr %parent, align 8
+  %call331 = call i32 @index_differs_from(ptr noundef %155, ptr noundef %156, ptr noundef %flags, i32 noundef 1)
   store i32 %call331, ptr %committable, align 4
   br label %if.end332
 
@@ -4398,12 +4428,13 @@ if.end332:                                        ; preds = %if.end330, %for.end
 
 if.end333:                                        ; preds = %if.end332, %if.end294
   call void @strbuf_release(ptr noundef %committer_ident)
-  %154 = load ptr, ptr %s.addr, align 8
-  %fp334 = getelementptr inbounds %struct.wt_status, ptr %154, i32 0, i32 34
-  %155 = load ptr, ptr %fp334, align 8
-  %call335 = call i32 @fclose(ptr noundef %155)
-  %156 = load i64, ptr getelementptr inbounds (%struct.strvec, ptr @trailer_args, i32 0, i32 1), align 8
-  %tobool336 = icmp ne i64 %156, 0
+  %157 = load ptr, ptr %s.addr, align 8
+  %fp334 = getelementptr inbounds %struct.wt_status, ptr %157, i32 0, i32 34
+  %158 = load ptr, ptr %fp334, align 8
+  %call335 = call i32 @fclose(ptr noundef %158)
+  %159 = getelementptr inbounds %struct.strvec, ptr @trailer_args, i32 0, i32 1
+  %160 = load i64, ptr %159, align 8
+  %tobool336 = icmp ne i64 %160, 0
   br i1 %tobool336, label %if.then337, label %if.end347
 
 if.then337:                                       ; preds = %if.end333
@@ -4412,8 +4443,8 @@ if.then337:                                       ; preds = %if.end333
   %call338 = call ptr @git_path_commit_editmsg()
   call void (ptr, ...) @strvec_pushl(ptr noundef %args, ptr noundef @.str.260, ptr noundef @.str.261, ptr noundef @.str.262, ptr noundef %call338, ptr noundef null)
   %args339 = getelementptr inbounds %struct.child_process, ptr %run_trailer, i32 0, i32 0
-  %157 = load ptr, ptr @trailer_args, align 8
-  call void @strvec_pushv(ptr noundef %args339, ptr noundef %157)
+  %161 = load ptr, ptr @trailer_args, align 8
+  call void @strvec_pushv(ptr noundef %args339, ptr noundef %161)
   %git_cmd = getelementptr inbounds %struct.child_process, ptr %run_trailer, i32 0, i32 11
   %bf.load340 = load i16, ptr %git_cmd, align 8
   %bf.clear341 = and i16 %bf.load340, -9
@@ -4433,95 +4464,95 @@ if.end346:                                        ; preds = %if.then337
   br label %if.end347
 
 if.end347:                                        ; preds = %if.end346, %if.end333
-  %158 = load i32, ptr %committable, align 4
-  %tobool348 = icmp ne i32 %158, 0
+  %162 = load i32, ptr %committable, align 4
+  %tobool348 = icmp ne i32 %162, 0
   br i1 %tobool348, label %if.end395, label %land.lhs.true349
 
 land.lhs.true349:                                 ; preds = %if.end347
-  %159 = load i32, ptr @whence, align 4
-  %cmp350 = icmp ne i32 %159, 1
+  %163 = load i32, ptr @whence, align 4
+  %cmp350 = icmp ne i32 %163, 1
   br i1 %cmp350, label %land.lhs.true352, label %if.end395
 
 land.lhs.true352:                                 ; preds = %land.lhs.true349
-  %160 = load i32, ptr @allow_empty, align 4
-  %tobool353 = icmp ne i32 %160, 0
+  %164 = load i32, ptr @allow_empty, align 4
+  %tobool353 = icmp ne i32 %164, 0
   br i1 %tobool353, label %if.end395, label %land.lhs.true354
 
 land.lhs.true354:                                 ; preds = %land.lhs.true352
-  %161 = load i32, ptr @amend, align 4
-  %tobool355 = icmp ne i32 %161, 0
+  %165 = load i32, ptr @amend, align 4
+  %tobool355 = icmp ne i32 %165, 0
   br i1 %tobool355, label %land.lhs.true356, label %if.then359
 
 land.lhs.true356:                                 ; preds = %land.lhs.true354
-  %162 = load ptr, ptr %current_head.addr, align 8
-  %call357 = call i32 @is_a_merge(ptr noundef %162)
+  %166 = load ptr, ptr %current_head.addr, align 8
+  %call357 = call i32 @is_a_merge(ptr noundef %166)
   %tobool358 = icmp ne i32 %call357, 0
   br i1 %tobool358, label %if.end395, label %if.then359
 
 if.then359:                                       ; preds = %land.lhs.true356, %land.lhs.true354
   %call360 = call i32 @advice_enabled(i32 noundef 31)
-  %163 = load ptr, ptr %s.addr, align 8
-  %hints361 = getelementptr inbounds %struct.wt_status, ptr %163, i32 0, i32 23
+  %167 = load ptr, ptr %s.addr, align 8
+  %hints361 = getelementptr inbounds %struct.wt_status, ptr %167, i32 0, i32 23
   store i32 %call360, ptr %hints361, align 8
-  %164 = load i32, ptr %old_display_comment_prefix, align 4
-  %165 = load ptr, ptr %s.addr, align 8
-  %display_comment_prefix362 = getelementptr inbounds %struct.wt_status, ptr %165, i32 0, i32 11
-  store i32 %164, ptr %display_comment_prefix362, align 8
-  %166 = load ptr, ptr @stdout, align 8
-  %167 = load ptr, ptr %index_file.addr, align 8
-  %168 = load ptr, ptr %prefix.addr, align 8
+  %168 = load i32, ptr %old_display_comment_prefix, align 4
   %169 = load ptr, ptr %s.addr, align 8
-  %call363 = call i32 @run_status(ptr noundef %166, ptr noundef %167, ptr noundef %168, i32 noundef 0, ptr noundef %169)
-  %170 = load i32, ptr @amend, align 4
-  %tobool364 = icmp ne i32 %170, 0
+  %display_comment_prefix362 = getelementptr inbounds %struct.wt_status, ptr %169, i32 0, i32 11
+  store i32 %168, ptr %display_comment_prefix362, align 8
+  %170 = load ptr, ptr @stdout, align 8
+  %171 = load ptr, ptr %index_file.addr, align 8
+  %172 = load ptr, ptr %prefix.addr, align 8
+  %173 = load ptr, ptr %s.addr, align 8
+  %call363 = call i32 @run_status(ptr noundef %170, ptr noundef %171, ptr noundef %172, i32 noundef 0, ptr noundef %173)
+  %174 = load i32, ptr @amend, align 4
+  %tobool364 = icmp ne i32 %174, 0
   br i1 %tobool364, label %if.then365, label %if.else368
 
 if.then365:                                       ; preds = %if.then359
   %call366 = call ptr @_(ptr noundef @empty_amend_advice)
-  %171 = load ptr, ptr @stderr, align 8
-  %call367 = call i32 @fputs(ptr noundef %call366, ptr noundef %171)
+  %175 = load ptr, ptr @stderr, align 8
+  %call367 = call i32 @fputs(ptr noundef %call366, ptr noundef %175)
   br label %if.end394
 
 if.else368:                                       ; preds = %if.then359
-  %172 = load i32, ptr @whence, align 4
-  %call369 = call i32 @is_from_cherry_pick(i32 noundef %172)
+  %176 = load i32, ptr @whence, align 4
+  %call369 = call i32 @is_from_cherry_pick(i32 noundef %176)
   %tobool370 = icmp ne i32 %call369, 0
   br i1 %tobool370, label %if.then374, label %lor.lhs.false371
 
 lor.lhs.false371:                                 ; preds = %if.else368
-  %173 = load i32, ptr @whence, align 4
-  %cmp372 = icmp eq i32 %173, 4
+  %177 = load i32, ptr @whence, align 4
+  %cmp372 = icmp eq i32 %177, 4
   br i1 %cmp372, label %if.then374, label %if.end393
 
 if.then374:                                       ; preds = %lor.lhs.false371, %if.else368
   %call375 = call ptr @_(ptr noundef @empty_cherry_pick_advice)
-  %174 = load ptr, ptr @stderr, align 8
-  %call376 = call i32 @fputs(ptr noundef %call375, ptr noundef %174)
-  %175 = load i32, ptr @whence, align 4
-  %cmp377 = icmp eq i32 %175, 2
+  %178 = load ptr, ptr @stderr, align 8
+  %call376 = call i32 @fputs(ptr noundef %call375, ptr noundef %178)
+  %179 = load i32, ptr @whence, align 4
+  %cmp377 = icmp eq i32 %179, 2
   br i1 %cmp377, label %if.then379, label %if.else382
 
 if.then379:                                       ; preds = %if.then374
   %call380 = call ptr @_(ptr noundef @empty_cherry_pick_advice_single)
-  %176 = load ptr, ptr @stderr, align 8
-  %call381 = call i32 @fputs(ptr noundef %call380, ptr noundef %176)
+  %180 = load ptr, ptr @stderr, align 8
+  %call381 = call i32 @fputs(ptr noundef %call380, ptr noundef %180)
   br label %if.end392
 
 if.else382:                                       ; preds = %if.then374
-  %177 = load i32, ptr @whence, align 4
-  %cmp383 = icmp eq i32 %177, 3
+  %181 = load i32, ptr @whence, align 4
+  %cmp383 = icmp eq i32 %181, 3
   br i1 %cmp383, label %if.then385, label %if.else388
 
 if.then385:                                       ; preds = %if.else382
   %call386 = call ptr @_(ptr noundef @empty_cherry_pick_advice_multi)
-  %178 = load ptr, ptr @stderr, align 8
-  %call387 = call i32 @fputs(ptr noundef %call386, ptr noundef %178)
+  %182 = load ptr, ptr @stderr, align 8
+  %call387 = call i32 @fputs(ptr noundef %call386, ptr noundef %182)
   br label %if.end391
 
 if.else388:                                       ; preds = %if.else382
   %call389 = call ptr @_(ptr noundef @empty_rebase_pick_advice)
-  %179 = load ptr, ptr @stderr, align 8
-  %call390 = call i32 @fputs(ptr noundef %call389, ptr noundef %179)
+  %183 = load ptr, ptr @stderr, align 8
+  %call390 = call i32 @fputs(ptr noundef %call389, ptr noundef %183)
   br label %if.end391
 
 if.end391:                                        ; preds = %if.else388, %if.then385
@@ -4538,13 +4569,13 @@ if.end394:                                        ; preds = %if.end393, %if.then
   br label %return
 
 if.end395:                                        ; preds = %land.lhs.true356, %land.lhs.true352, %land.lhs.true349, %if.end347
-  %180 = load i32, ptr @no_verify, align 4
-  %tobool396 = icmp ne i32 %180, 0
+  %184 = load i32, ptr @no_verify, align 4
+  %tobool396 = icmp ne i32 %184, 0
   br i1 %tobool396, label %if.end400, label %land.lhs.true397
 
 land.lhs.true397:                                 ; preds = %if.end395
-  %181 = load i32, ptr %invoked_hook, align 4
-  %tobool398 = icmp ne i32 %181, 0
+  %185 = load i32, ptr %invoked_hook, align 4
+  %tobool398 = icmp ne i32 %185, 0
   br i1 %tobool398, label %if.then399, label %if.end400
 
 if.then399:                                       ; preds = %land.lhs.true397
@@ -4552,9 +4583,9 @@ if.then399:                                       ; preds = %land.lhs.true397
   br label %if.end400
 
 if.end400:                                        ; preds = %if.then399, %land.lhs.true397, %if.end395
-  %182 = load ptr, ptr %index_file.addr, align 8
+  %186 = load ptr, ptr %index_file.addr, align 8
   %call401 = call ptr @get_git_dir()
-  %call402 = call i32 @read_index_from(ptr noundef @the_index, ptr noundef %182, ptr noundef %call401)
+  %call402 = call i32 @read_index_from(ptr noundef @the_index, ptr noundef %186, ptr noundef %call401)
   %call403 = call i32 @cache_tree_update(ptr noundef @the_index, i32 noundef 0)
   %tobool404 = icmp ne i32 %call403, 0
   br i1 %tobool404, label %if.then405, label %if.end409
@@ -4567,12 +4598,12 @@ if.then405:                                       ; preds = %if.end400
   br label %return
 
 if.end409:                                        ; preds = %if.end400
-  %183 = load i32, ptr @use_editor, align 4
-  %184 = load ptr, ptr %index_file.addr, align 8
+  %187 = load i32, ptr @use_editor, align 4
+  %188 = load ptr, ptr %index_file.addr, align 8
   %call410 = call ptr @git_path_commit_editmsg()
-  %185 = load ptr, ptr %hook_arg1, align 8
-  %186 = load ptr, ptr %hook_arg2, align 8
-  %call411 = call i32 (i32, ptr, ptr, ptr, ...) @run_commit_hook(i32 noundef %183, ptr noundef %184, ptr noundef null, ptr noundef @.str.265, ptr noundef %call410, ptr noundef %185, ptr noundef %186, ptr noundef null)
+  %189 = load ptr, ptr %hook_arg1, align 8
+  %190 = load ptr, ptr %hook_arg2, align 8
+  %call411 = call i32 (i32, ptr, ptr, ptr, ...) @run_commit_hook(i32 noundef %187, ptr noundef %188, ptr noundef null, ptr noundef @.str.265, ptr noundef %call410, ptr noundef %189, ptr noundef %190, ptr noundef null)
   %tobool412 = icmp ne i32 %call411, 0
   br i1 %tobool412, label %if.then413, label %if.end414
 
@@ -4581,25 +4612,25 @@ if.then413:                                       ; preds = %if.end409
   br label %return
 
 if.end414:                                        ; preds = %if.end409
-  %187 = load i32, ptr @use_editor, align 4
-  %tobool415 = icmp ne i32 %187, 0
+  %191 = load i32, ptr @use_editor, align 4
+  %tobool415 = icmp ne i32 %191, 0
   br i1 %tobool415, label %if.then416, label %if.end426
 
 if.then416:                                       ; preds = %if.end414
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %env, ptr align 8 @__const.prepare_to_commit.env, i64 24, i1 false)
-  %188 = load ptr, ptr %index_file.addr, align 8
-  %call417 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %env, ptr noundef @.str.266, ptr noundef %188)
+  %192 = load ptr, ptr %index_file.addr, align 8
+  %call417 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %env, ptr noundef @.str.266, ptr noundef %192)
   %call418 = call ptr @git_path_commit_editmsg()
   %v = getelementptr inbounds %struct.strvec, ptr %env, i32 0, i32 0
-  %189 = load ptr, ptr %v, align 8
-  %call419 = call i32 @launch_editor(ptr noundef %call418, ptr noundef null, ptr noundef %189)
+  %193 = load ptr, ptr %v, align 8
+  %call419 = call i32 @launch_editor(ptr noundef %call418, ptr noundef null, ptr noundef %193)
   %tobool420 = icmp ne i32 %call419, 0
   br i1 %tobool420, label %if.then421, label %if.end425
 
 if.then421:                                       ; preds = %if.then416
-  %190 = load ptr, ptr @stderr, align 8
+  %194 = load ptr, ptr @stderr, align 8
   %call422 = call ptr @_(ptr noundef @.str.267)
-  %call423 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef %call422)
+  %call423 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef %call422)
   %call424 = call i32 @common_exit(ptr noundef @.str.118, i32 noundef 1099, i32 noundef 1)
   call void @exit(i32 noundef %call424) #13
   unreachable
@@ -4609,15 +4640,15 @@ if.end425:                                        ; preds = %if.then416
   br label %if.end426
 
 if.end426:                                        ; preds = %if.end425, %if.end414
-  %191 = load i32, ptr @no_verify, align 4
-  %tobool427 = icmp ne i32 %191, 0
+  %195 = load i32, ptr @no_verify, align 4
+  %tobool427 = icmp ne i32 %195, 0
   br i1 %tobool427, label %if.end433, label %land.lhs.true428
 
 land.lhs.true428:                                 ; preds = %if.end426
-  %192 = load i32, ptr @use_editor, align 4
-  %193 = load ptr, ptr %index_file.addr, align 8
+  %196 = load i32, ptr @use_editor, align 4
+  %197 = load ptr, ptr %index_file.addr, align 8
   %call429 = call ptr @git_path_commit_editmsg()
-  %call430 = call i32 (i32, ptr, ptr, ptr, ...) @run_commit_hook(i32 noundef %192, ptr noundef %193, ptr noundef null, ptr noundef @.str.268, ptr noundef %call429, ptr noundef null)
+  %call430 = call i32 (i32, ptr, ptr, ptr, ...) @run_commit_hook(i32 noundef %196, ptr noundef %197, ptr noundef null, ptr noundef @.str.268, ptr noundef %call429, ptr noundef null)
   %tobool431 = icmp ne i32 %call430, 0
   br i1 %tobool431, label %if.then432, label %if.end433
 
@@ -4630,8 +4661,8 @@ if.end433:                                        ; preds = %land.lhs.true428, %
   br label %return
 
 return:                                           ; preds = %if.end433, %if.then432, %if.then413, %if.then405, %if.end394, %if.then
-  %194 = load i32, ptr %retval, align 4
-  ret i32 %194
+  %198 = load i32, ptr %retval, align 4
+  ret i32 %198
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5710,21 +5741,22 @@ if.end5:                                          ; preds = %if.then3, %if.end
 
 for.cond:                                         ; preds = %for.inc, %if.end5
   %9 = load i32, ptr %i, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i32 0, i32 2), align 4
-  %cmp = icmp ult i32 %9, %10
+  %10 = getelementptr inbounds %struct.index_state, ptr @the_index, i32 0, i32 2
+  %11 = load i32, ptr %10, align 4
+  %cmp = icmp ult i32 %9, %11
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr @the_index, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %12 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
-  %13 = load ptr, ptr %arrayidx, align 8
-  store ptr %13, ptr %ce, align 8
-  %14 = load ptr, ptr %ce, align 8
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %14, i32 0, i32 3
-  %15 = load i32, ptr %ce_flags, align 8
-  %and = and i32 %15, 65536
+  %12 = load ptr, ptr @the_index, align 8
+  %13 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %13 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %idxprom
+  %14 = load ptr, ptr %arrayidx, align 8
+  store ptr %14, ptr %ce, align 8
+  %15 = load ptr, ptr %ce, align 8
+  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %15, i32 0, i32 3
+  %16 = load i32, ptr %ce_flags, align 8
+  %and = and i32 %16, 65536
   %tobool7 = icmp ne i32 %and, 0
   br i1 %tobool7, label %if.then8, label %if.end9
 
@@ -5732,10 +5764,10 @@ if.then8:                                         ; preds = %for.body
   br label %for.inc
 
 if.end9:                                          ; preds = %for.body
-  %16 = load ptr, ptr %ce, align 8
-  %17 = load ptr, ptr %pattern.addr, align 8
-  %18 = load ptr, ptr %m, align 8
-  %call10 = call i32 @ce_path_match(ptr noundef @the_index, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  %17 = load ptr, ptr %ce, align 8
+  %18 = load ptr, ptr %pattern.addr, align 8
+  %19 = load ptr, ptr %m, align 8
+  %call10 = call i32 @ce_path_match(ptr noundef @the_index, ptr noundef %17, ptr noundef %18, ptr noundef %19)
   %tobool11 = icmp ne i32 %call10, 0
   br i1 %tobool11, label %if.end13, label %if.then12
 
@@ -5743,49 +5775,49 @@ if.then12:                                        ; preds = %if.end9
   br label %for.inc
 
 if.end13:                                         ; preds = %if.end9
-  %19 = load ptr, ptr %list.addr, align 8
-  %20 = load ptr, ptr %ce, align 8
-  %name = getelementptr inbounds %struct.cache_entry, ptr %20, i32 0, i32 8
-  %arraydecay = getelementptr inbounds [0 x i8], ptr %name, i64 0, i64 0
-  %call14 = call ptr @string_list_insert(ptr noundef %19, ptr noundef %arraydecay)
-  store ptr %call14, ptr %item, align 8
+  %20 = load ptr, ptr %list.addr, align 8
   %21 = load ptr, ptr %ce, align 8
-  %ce_flags15 = getelementptr inbounds %struct.cache_entry, ptr %21, i32 0, i32 3
-  %22 = load i32, ptr %ce_flags15, align 8
-  %and16 = and i32 %22, 1073741824
+  %name = getelementptr inbounds %struct.cache_entry, ptr %21, i32 0, i32 8
+  %arraydecay = getelementptr inbounds [0 x i8], ptr %name, i64 0, i64 0
+  %call14 = call ptr @string_list_insert(ptr noundef %20, ptr noundef %arraydecay)
+  store ptr %call14, ptr %item, align 8
+  %22 = load ptr, ptr %ce, align 8
+  %ce_flags15 = getelementptr inbounds %struct.cache_entry, ptr %22, i32 0, i32 3
+  %23 = load i32, ptr %ce_flags15, align 8
+  %and16 = and i32 %23, 1073741824
   %tobool17 = icmp ne i32 %and16, 0
   br i1 %tobool17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end13
-  %23 = load ptr, ptr %item, align 8
   %24 = load ptr, ptr %item, align 8
-  %util = getelementptr inbounds %struct.string_list_item, ptr %24, i32 0, i32 1
-  store ptr %23, ptr %util, align 8
+  %25 = load ptr, ptr %item, align 8
+  %util = getelementptr inbounds %struct.string_list_item, ptr %25, i32 0, i32 1
+  store ptr %24, ptr %util, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end13
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end19, %if.then12, %if.then8
-  %25 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %25, 1
+  %26 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %26, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %for.cond
-  %26 = load ptr, ptr %m, align 8
-  %27 = load ptr, ptr %pattern.addr, align 8
-  %call20 = call i32 @report_path_error(ptr noundef %26, ptr noundef %27)
+  %27 = load ptr, ptr %m, align 8
+  %28 = load ptr, ptr %pattern.addr, align 8
+  %call20 = call i32 @report_path_error(ptr noundef %27, ptr noundef %28)
   store i32 %call20, ptr %ret, align 4
-  %28 = load ptr, ptr %m, align 8
-  call void @free(ptr noundef %28) #11
-  %29 = load i32, ptr %ret, align 4
-  store i32 %29, ptr %retval, align 4
+  %29 = load ptr, ptr %m, align 8
+  call void @free(ptr noundef %29) #11
+  %30 = load i32, ptr %ret, align 4
+  store i32 %30, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+  %31 = load i32, ptr %retval, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable

@@ -658,7 +658,7 @@ define internal i32 @uint64_unary_minus(ptr noundef %0, ptr noundef %1, ptr noun
 
 21:                                               ; preds = %15, %12
   store i32 3, ptr %4, align 4
-  br label %34
+  br label %35
 
 22:                                               ; preds = %3
   br label %23
@@ -667,23 +667,24 @@ define internal i32 @uint64_unary_minus(ptr noundef %0, ptr noundef %1, ptr noun
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr getelementptr inbounds ([46 x ptr], ptr @type_list, i64 0, i64 19), align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct._fvalue_t, ptr %26, i32 0, i32 0
-  store ptr %25, ptr %27, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._fvalue_t, ptr %28, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8
-  %31 = sub i64 0, %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct._fvalue_t, ptr %32, i32 0, i32 1
-  store i64 %31, ptr %33, align 8
+  %25 = getelementptr inbounds [46 x ptr], ptr @type_list, i64 0, i64 19
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct._fvalue_t, ptr %27, i32 0, i32 0
+  store ptr %26, ptr %28, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct._fvalue_t, ptr %29, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = sub i64 0, %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %struct._fvalue_t, ptr %33, i32 0, i32 1
+  store i64 %32, ptr %34, align 8
   store i32 0, ptr %4, align 4
-  br label %34
+  br label %35
 
-34:                                               ; preds = %24, %21
-  %35 = load i32, ptr %4, align 4
-  ret i32 %35
+35:                                               ; preds = %24, %21
+  %36 = load i32, ptr %4, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -742,7 +743,7 @@ define internal i32 @uint64_subtract(ptr noundef %0, ptr noundef %1, ptr noundef
   %14 = getelementptr inbounds %struct._fvalue_t, ptr %13, i32 0, i32 1
   %15 = load i64, ptr %14, align 8
   %16 = icmp ugt i64 %12, %15
-  br i1 %16, label %17, label %46
+  br i1 %16, label %17, label %47
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %7, align 8
@@ -763,7 +764,7 @@ define internal i32 @uint64_subtract(ptr noundef %0, ptr noundef %1, ptr noundef
   %29 = load ptr, ptr %9, align 8
   store ptr %28, ptr %29, align 8
   store i32 3, ptr %5, align 4
-  br label %60
+  br label %61
 
 30:                                               ; preds = %22
   br label %31
@@ -772,49 +773,50 @@ define internal i32 @uint64_subtract(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr getelementptr inbounds ([46 x ptr], ptr @type_list, i64 0, i64 19), align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct._fvalue_t, ptr %34, i32 0, i32 0
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct._fvalue_t, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._fvalue_t, ptr %38, i32 0, i32 1
-  %40 = load i64, ptr %39, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct._fvalue_t, ptr %41, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = call i32 @_sint64_subtract(ptr noundef %37, i64 noundef %40, i64 noundef %43, ptr noundef %44)
-  store i32 %45, ptr %5, align 4
-  br label %60
+  %33 = getelementptr inbounds [46 x ptr], ptr @type_list, i64 0, i64 19
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds %struct._fvalue_t, ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct._fvalue_t, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds %struct._fvalue_t, ptr %39, i32 0, i32 1
+  %41 = load i64, ptr %40, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds %struct._fvalue_t, ptr %42, i32 0, i32 1
+  %44 = load i64, ptr %43, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = call i32 @_sint64_subtract(ptr noundef %38, i64 noundef %41, i64 noundef %44, ptr noundef %45)
+  store i32 %46, ptr %5, align 4
+  br label %61
 
-46:                                               ; preds = %4
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct._fvalue_t, ptr %47, i32 0, i32 1
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._fvalue_t, ptr %49, i32 0, i32 1
-  %51 = load i64, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct._fvalue_t, ptr %52, i32 0, i32 1
-  %54 = load i64, ptr %53, align 8
-  %55 = call zeroext i1 @psnip_safe_uint64_sub(ptr noundef %48, i64 noundef %51, i64 noundef %54)
-  br i1 %55, label %59, label %56
+47:                                               ; preds = %4
+  %48 = load ptr, ptr %6, align 8
+  %49 = getelementptr inbounds %struct._fvalue_t, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct._fvalue_t, ptr %50, i32 0, i32 1
+  %52 = load i64, ptr %51, align 8
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct._fvalue_t, ptr %53, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8
+  %56 = call zeroext i1 @psnip_safe_uint64_sub(ptr noundef %49, i64 noundef %52, i64 noundef %55)
+  br i1 %56, label %60, label %57
 
-56:                                               ; preds = %46
-  %57 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.47)
-  %58 = load ptr, ptr %9, align 8
-  store ptr %57, ptr %58, align 8
+57:                                               ; preds = %47
+  %58 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.47)
+  %59 = load ptr, ptr %9, align 8
+  store ptr %58, ptr %59, align 8
   store i32 3, ptr %5, align 4
-  br label %60
+  br label %61
 
-59:                                               ; preds = %46
+60:                                               ; preds = %47
   store i32 0, ptr %5, align 4
-  br label %60
+  br label %61
 
-60:                                               ; preds = %59, %56, %32, %27
-  %61 = load i32, ptr %5, align 4
-  ret i32 %61
+61:                                               ; preds = %60, %57, %32, %27
+  %62 = load i32, ptr %5, align 4
+  ret i32 %62
 }
 
 ; Function Attrs: nounwind uwtable

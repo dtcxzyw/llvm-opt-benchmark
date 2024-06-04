@@ -427,30 +427,31 @@ if.else:                                          ; preds = %if.then5
   %call14 = call i64 @iov_size(ptr noundef %arraydecay12, i32 noundef %18)
   store i64 %call14, ptr %size, align 8
   %19 = load i64, ptr %size, align 8
-  call void @stat64_add(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 10), i64 noundef %19)
+  %20 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 10
+  call void @stat64_add(ptr noundef %20, i64 noundef %19)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then10
-  %20 = load ptr, ptr %f.addr, align 8
-  call void @qemu_iovec_release_ram(ptr noundef %20)
+  %21 = load ptr, ptr %f.addr, align 8
+  call void @qemu_iovec_release_ram(ptr noundef %21)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end15, %if.end4
-  %21 = load ptr, ptr %f.addr, align 8
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %21, i32 0, i32 2
-  store i32 0, ptr %buf_index, align 4
   %22 = load ptr, ptr %f.addr, align 8
-  %iovcnt17 = getelementptr inbounds %struct.QEMUFile, ptr %22, i32 0, i32 7
-  store i32 0, ptr %iovcnt17, align 8
+  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %22, i32 0, i32 2
+  store i32 0, ptr %buf_index, align 4
   %23 = load ptr, ptr %f.addr, align 8
-  %last_error18 = getelementptr inbounds %struct.QEMUFile, ptr %23, i32 0, i32 8
-  %24 = load i32, ptr %last_error18, align 4
-  store i32 %24, ptr %retval, align 4
+  %iovcnt17 = getelementptr inbounds %struct.QEMUFile, ptr %23, i32 0, i32 7
+  store i32 0, ptr %iovcnt17, align 8
+  %24 = load ptr, ptr %f.addr, align 8
+  %last_error18 = getelementptr inbounds %struct.QEMUFile, ptr %24, i32 0, i32 8
+  %25 = load i32, ptr %last_error18, align 4
+  store i32 %25, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end16, %if.then2, %if.then
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+  %26 = load i32, ptr %retval, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1689,13 +1690,14 @@ entry:
   %ret = alloca i64, align 8
   %i = alloca i32, align 4
   store ptr %f, ptr %f.addr, align 8
-  %call = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 10))
+  %0 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 10
+  %call = call i64 @stat64_get(ptr noundef %0)
   store i64 %call, ptr %ret, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %f.addr, align 8
-  %call1 = call zeroext i1 @qemu_file_is_writable(ptr noundef %0)
+  %1 = load ptr, ptr %f.addr, align 8
+  %call1 = call zeroext i1 @qemu_file_is_writable(ptr noundef %1)
   br i1 %call1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %do.body
@@ -1713,35 +1715,35 @@ do.end:                                           ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end
-  %1 = load i32, ptr %i, align 4
-  %2 = load ptr, ptr %f.addr, align 8
-  %iovcnt = getelementptr inbounds %struct.QEMUFile, ptr %2, i32 0, i32 7
-  %3 = load i32, ptr %iovcnt, align 8
-  %cmp = icmp ult i32 %1, %3
+  %2 = load i32, ptr %i, align 4
+  %3 = load ptr, ptr %f.addr, align 8
+  %iovcnt = getelementptr inbounds %struct.QEMUFile, ptr %3, i32 0, i32 7
+  %4 = load i32, ptr %iovcnt, align 8
+  %cmp = icmp ult i32 %2, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %f.addr, align 8
-  %iov = getelementptr inbounds %struct.QEMUFile, ptr %4, i32 0, i32 6
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
+  %5 = load ptr, ptr %f.addr, align 8
+  %iov = getelementptr inbounds %struct.QEMUFile, ptr %5, i32 0, i32 6
+  %6 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr [64 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom
   %iov_len = getelementptr inbounds %struct.iovec, ptr %arrayidx, i32 0, i32 1
-  %6 = load i64, ptr %iov_len, align 8
-  %7 = load i64, ptr %ret, align 8
-  %add = add i64 %7, %6
+  %7 = load i64, ptr %iov_len, align 8
+  %8 = load i64, ptr %ret, align 8
+  %add = add i64 %8, %7
   store i64 %add, ptr %ret, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add i32 %8, 1
+  %9 = load i32, ptr %i, align 4
+  %inc = add i32 %9, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %for.cond
-  %9 = load i64, ptr %ret, align 8
-  ret i64 %9
+  %10 = load i64, ptr %ret, align 8
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

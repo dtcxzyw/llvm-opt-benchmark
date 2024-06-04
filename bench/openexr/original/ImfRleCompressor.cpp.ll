@@ -58,19 +58,20 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %hdr.addr, align 8
   call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213RleCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_213RleCompressorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_maxScanLineSize = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %maxScanLineSize.addr, align 8
-  %conv = trunc i64 %1 to i32
+  %2 = load i64, ptr %maxScanLineSize.addr, align 8
+  %conv = trunc i64 %2 to i32
   store i32 %conv, ptr %_maxScanLineSize, align 8
   %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this1, i32 0, i32 2
   store ptr null, ptr %_tmpBuffer, align 8
   %_outBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this1, i32 0, i32 3
   store ptr null, ptr %_outBuffer, align 8
-  %2 = load i64, ptr %maxScanLineSize.addr, align 8
+  %3 = load i64, ptr %maxScanLineSize.addr, align 8
   %call = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #3
   %conv2 = sext i32 %call to i64
-  %cmp = icmp ugt i64 %2, %conv2
+  %cmp = icmp ugt i64 %3, %conv2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -83,34 +84,34 @@ invoke.cont:                                      ; preds = %if.then
           to label %unreachable unwind label %lpad3
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception) #3
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont7, %invoke.cont4, %if.end, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry
-  %9 = load i64, ptr %maxScanLineSize.addr, align 8
-  %call5 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %9) #9
+  %10 = load i64, ptr %maxScanLineSize.addr, align 8
+  %call5 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %10) #9
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %if.end
   %_tmpBuffer6 = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this1, i32 0, i32 2
   store ptr %call5, ptr %_tmpBuffer6, align 8
-  %10 = load i64, ptr %maxScanLineSize.addr, align 8
-  %call8 = invoke noundef i64 @_ZN7Imf_3_26uiMultImEET_S1_S1_(i64 noundef %10, i64 noundef 3)
+  %11 = load i64, ptr %maxScanLineSize.addr, align 8
+  %call8 = invoke noundef i64 @_ZN7Imf_3_26uiMultImEET_S1_S1_(i64 noundef %11, i64 noundef 3)
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -231,24 +232,25 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213RleCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_213RleCompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %_tmpBuffer, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_tmpBuffer, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #10
+  call void @_ZdaPv(ptr noundef %1) #10
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %_outBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %_outBuffer, align 8
-  %isnull2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_outBuffer, align 8
+  %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  call void @_ZdaPv(ptr noundef %1) #10
+  call void @_ZdaPv(ptr noundef %2) #10
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end

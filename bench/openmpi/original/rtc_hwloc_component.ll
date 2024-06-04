@@ -44,97 +44,104 @@ define internal i32 @rtc_hwloc_register() #0 {
   store i32 70, ptr @my_priority, align 4
   %3 = load ptr, ptr %2, align 8
   %4 = call i32 @pmix_mca_base_component_var_register(ptr noundef %3, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef @my_priority)
-  store i32 3, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1), align 8
-  %5 = load ptr, ptr @biggest, align 8
-  store ptr %5, ptr @vmhole, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = call i32 @pmix_mca_base_component_var_register(ptr noundef %6, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 5, ptr noundef @vmhole)
-  %8 = load ptr, ptr @vmhole, align 8
-  %9 = call i32 @strcasecmp(ptr noundef %8, ptr noundef @.str.4) #3
-  %10 = icmp eq i32 0, %9
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %0
-  store i32 -1, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1), align 8
-  br label %43
+  %5 = getelementptr inbounds %struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1
+  store i32 3, ptr %5, align 8
+  %6 = load ptr, ptr @biggest, align 8
+  store ptr %6, ptr @vmhole, align 8
+  %7 = load ptr, ptr %2, align 8
+  %8 = call i32 @pmix_mca_base_component_var_register(ptr noundef %7, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 5, ptr noundef @vmhole)
+  %9 = load ptr, ptr @vmhole, align 8
+  %10 = call i32 @strcasecmp(ptr noundef %9, ptr noundef @.str.4) #3
+  %11 = icmp eq i32 0, %10
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %0
-  %13 = load ptr, ptr @vmhole, align 8
-  %14 = call i32 @strcasecmp(ptr noundef %13, ptr noundef @.str.5) #3
-  %15 = icmp eq i32 0, %14
-  br i1 %15, label %16, label %17
+  %13 = getelementptr inbounds %struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1
+  store i32 -1, ptr %13, align 8
+  br label %50
 
-16:                                               ; preds = %12
-  store i32 0, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1), align 8
-  br label %42
+14:                                               ; preds = %0
+  %15 = load ptr, ptr @vmhole, align 8
+  %16 = call i32 @strcasecmp(ptr noundef %15, ptr noundef @.str.5) #3
+  %17 = icmp eq i32 0, %16
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr @vmhole, align 8
-  %19 = call i32 @strcasecmp(ptr noundef %18, ptr noundef @.str.6) #3
-  %20 = icmp eq i32 0, %19
-  br i1 %20, label %21, label %22
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1
+  store i32 0, ptr %19, align 8
+  br label %49
 
-21:                                               ; preds = %17
-  store i32 3, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1), align 8
-  br label %41
+20:                                               ; preds = %14
+  %21 = load ptr, ptr @vmhole, align 8
+  %22 = call i32 @strcasecmp(ptr noundef %21, ptr noundef @.str.6) #3
+  %23 = icmp eq i32 0, %22
+  br i1 %23, label %24, label %26
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr @vmhole, align 8
-  %24 = call i32 @strcasecmp(ptr noundef %23, ptr noundef @.str.7) #3
-  %25 = icmp eq i32 0, %24
-  br i1 %25, label %26, label %27
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1
+  store i32 3, ptr %25, align 8
+  br label %48
 
-26:                                               ; preds = %22
-  store i32 4, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1), align 8
-  br label %40
+26:                                               ; preds = %20
+  %27 = load ptr, ptr @vmhole, align 8
+  %28 = call i32 @strcasecmp(ptr noundef %27, ptr noundef @.str.7) #3
+  %29 = icmp eq i32 0, %28
+  br i1 %29, label %30, label %32
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr @vmhole, align 8
-  %29 = call i32 @strcasecmp(ptr noundef %28, ptr noundef @.str.8) #3
-  %30 = icmp eq i32 0, %29
-  br i1 %30, label %31, label %32
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds %struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1
+  store i32 4, ptr %31, align 8
+  br label %47
 
-31:                                               ; preds = %27
-  store i32 1, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1), align 8
-  br label %39
-
-32:                                               ; preds = %27
+32:                                               ; preds = %26
   %33 = load ptr, ptr @vmhole, align 8
-  %34 = call i32 @strcasecmp(ptr noundef %33, ptr noundef @.str.9) #3
+  %34 = call i32 @strcasecmp(ptr noundef %33, ptr noundef @.str.8) #3
   %35 = icmp eq i32 0, %34
-  br i1 %35, label %36, label %37
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %32
-  store i32 2, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1), align 8
-  br label %38
+  %37 = getelementptr inbounds %struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1
+  store i32 1, ptr %37, align 8
+  br label %46
 
-37:                                               ; preds = %32
+38:                                               ; preds = %32
+  %39 = load ptr, ptr @vmhole, align 8
+  %40 = call i32 @strcasecmp(ptr noundef %39, ptr noundef @.str.9) #3
+  %41 = icmp eq i32 0, %40
+  br i1 %41, label %42, label %44
+
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds %struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i32 0, i32 1
+  store i32 2, ptr %43, align 8
+  br label %45
+
+44:                                               ; preds = %38
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.10)
   store i32 -1, ptr %1, align 4
-  br label %44
+  br label %51
 
-38:                                               ; preds = %36
-  br label %39
+45:                                               ; preds = %42
+  br label %46
 
-39:                                               ; preds = %38, %31
-  br label %40
+46:                                               ; preds = %45, %36
+  br label %47
 
-40:                                               ; preds = %39, %26
-  br label %41
+47:                                               ; preds = %46, %30
+  br label %48
 
-41:                                               ; preds = %40, %21
-  br label %42
+48:                                               ; preds = %47, %24
+  br label %49
 
-42:                                               ; preds = %41, %16
-  br label %43
+49:                                               ; preds = %48, %18
+  br label %50
 
-43:                                               ; preds = %42, %11
+50:                                               ; preds = %49, %12
   store i32 0, ptr %1, align 4
-  br label %44
+  br label %51
 
-44:                                               ; preds = %43, %37
-  %45 = load i32, ptr %1, align 4
-  ret i32 %45
+51:                                               ; preds = %50, %44
+  %52 = load i32, ptr %1, align 4
+  ret i32 %52
 }
 
 declare i32 @pmix_mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1

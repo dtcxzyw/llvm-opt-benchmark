@@ -12,23 +12,25 @@ define ptr @fmtbuf(i64 noundef %0) #0 {
   %4 = load i64, ptr %2, align 8
   %5 = load ptr, ptr @nxt, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = sub i64 ptrtoint (ptr getelementptr inbounds ([16384 x i8], ptr @buf, i64 1, i64 0) to i64), %6
-  %8 = icmp ugt i64 %4, %7
-  br i1 %8, label %9, label %10
+  %7 = getelementptr inbounds [16384 x i8], ptr @buf, i64 1, i64 0
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %8, %6
+  %10 = icmp ugt i64 %4, %9
+  br i1 %10, label %11, label %12
 
-9:                                                ; preds = %1
+11:                                               ; preds = %1
   store ptr @buf, ptr @nxt, align 8
-  br label %10
+  br label %12
 
-10:                                               ; preds = %9, %1
-  %11 = load ptr, ptr @nxt, align 8
-  store ptr %11, ptr %3, align 8
-  %12 = load i64, ptr %2, align 8
+12:                                               ; preds = %11, %1
   %13 = load ptr, ptr @nxt, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 %12
-  store ptr %14, ptr @nxt, align 8
-  %15 = load ptr, ptr %3, align 8
-  ret ptr %15
+  store ptr %13, ptr %3, align 8
+  %14 = load i64, ptr %2, align 8
+  %15 = load ptr, ptr @nxt, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 %14
+  store ptr %16, ptr @nxt, align 8
+  %17 = load ptr, ptr %3, align 8
+  ret ptr %17
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

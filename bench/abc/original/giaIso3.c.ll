@@ -108,38 +108,41 @@ define internal i32 @Gia_Iso3Node(ptr noundef %0) #0 {
   %14 = getelementptr inbounds [6 x i32], ptr @Iso_Nodes, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %2, align 4
-  br label %30
+  br label %33
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %3, align 8
   %18 = call i32 @Gia_ObjIsCi(ptr noundef %17)
   %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %22
+  br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @Iso_Nodes, i64 0, i64 3), align 4
-  store i32 %21, ptr %2, align 4
-  br label %30
+  %21 = getelementptr inbounds [6 x i32], ptr @Iso_Nodes, i64 0, i64 3
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %2, align 4
+  br label %33
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %3, align 8
-  %24 = call i32 @Gia_ObjIsCo(ptr noundef %23)
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %28
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %3, align 8
+  %25 = call i32 @Gia_ObjIsCo(ptr noundef %24)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @Iso_Nodes, i64 0, i64 4), align 16
-  store i32 %27, ptr %2, align 4
-  br label %30
-
-28:                                               ; preds = %22
-  %29 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @Iso_Nodes, i64 0, i64 5), align 4
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds [6 x i32], ptr @Iso_Nodes, i64 0, i64 4
+  %29 = load i32, ptr %28, align 16
   store i32 %29, ptr %2, align 4
-  br label %30
+  br label %33
 
-30:                                               ; preds = %28, %26, %20, %7
-  %31 = load i32, ptr %2, align 4
-  ret i32 %31
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds [6 x i32], ptr @Iso_Nodes, i64 0, i64 5
+  %32 = load i32, ptr %31, align 4
+  store i32 %32, ptr %2, align 4
+  br label %33
+
+33:                                               ; preds = %30, %27, %20, %7
+  %34 = load i32, ptr %2, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
@@ -317,13 +320,14 @@ define internal void @Gia_Iso3ComputeEdge(ptr noundef %0, ptr noundef %1, ptr no
   %34 = getelementptr inbounds [2 x i32], ptr @Iso_Compl, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %31, %35
-  %37 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @Iso_Fanio, i64 0, i64 1), align 4
-  %38 = add i32 %36, %37
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %39, i32 0, i32 1
-  %41 = load i32, ptr %40, align 4
-  %42 = add i32 %41, %38
-  store i32 %42, ptr %40, align 4
+  %37 = getelementptr inbounds [2 x i32], ptr @Iso_Fanio, i64 0, i64 1
+  %38 = load i32, ptr %37, align 4
+  %39 = add i32 %36, %38
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 4
+  %43 = add i32 %42, %39
+  store i32 %43, ptr %41, align 4
   ret void
 }
 
@@ -2204,7 +2208,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -2232,7 +2236,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -2243,9 +2247,6 @@ declare i32 @Abc_FrameIsBridgeMode(...) #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -2253,9 +2254,6 @@ declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @Vec_WecErase(ptr noundef %0) #0 {
@@ -2403,7 +2401,7 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #8
+declare ptr @realloc(ptr noundef, i64 noundef) #7
 
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
@@ -2485,6 +2483,12 @@ define internal i32 @Vec_IntSortCompare1(ptr noundef %0, ptr noundef %1) #0 {
   ret i32 %21
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2492,8 +2496,8 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind allocsize(0) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

@@ -16,7 +16,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tick_setup_hrtimer_broadcast() local_unnamed_addr #0 align 16 {
   tail call void @hrtimer_init(ptr noundef nonnull @bctimer, i32 noundef 1, i32 noundef 8) #2
-  store ptr @bc_handler, ptr getelementptr inbounds (%struct.hrtimer, ptr @bctimer, i64 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.hrtimer, ptr @bctimer, i64 0, i32 2
+  store ptr @bc_handler, ptr %1, align 8
   tail call void @clockevents_register_device(ptr noundef nonnull @ce_broadcast_hrtimer) #2
   ret void
 }
@@ -37,12 +38,13 @@ declare dso_local void @clockevents_register_device(ptr noundef) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @bc_set_next(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   tail call void @hrtimer_start_range_ns(ptr noundef nonnull @bctimer, i64 noundef %0, i64 noundef 0, i32 noundef 10) #2
-  %3 = load ptr, ptr getelementptr inbounds (%struct.hrtimer, ptr @bctimer, i64 0, i32 3), align 8
-  %4 = load ptr, ptr %3, align 64
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
-  %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 %6, ptr %7, align 8
+  %3 = getelementptr inbounds %struct.hrtimer, ptr @bctimer, i64 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %4, align 64
+  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 %7, ptr %8, align 8
   ret i32 0
 }
 

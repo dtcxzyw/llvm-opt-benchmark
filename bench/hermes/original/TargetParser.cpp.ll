@@ -10936,15 +10936,16 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
   %Result.i = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i254, i32 0, i32 1
   call void @_ZN4llvh8OptionalIjEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %Result.i)
   call void @_ZN4llvh13StringLiteralC2ILm5EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm5ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, ptr noundef nonnull align 1 dereferenceable(5) @.str.1)
-  %37 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or = or i32 %37, 1
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  store ptr %39, ptr %S.i1641, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %S.i1641, i32 0, i32 1
-  store i64 %41, ptr %42, align 8
+  %37 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 1, i32 7
+  %38 = load i32, ptr %37, align 4
+  %or = or i32 %38, 1
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  store ptr %40, ptr %S.i1641, align 8
+  %43 = getelementptr inbounds { ptr, i64 }, ptr %S.i1641, i32 0, i32 1
+  store i64 %42, ptr %43, align 8
   store ptr %ref.tmp, ptr %this.addr.i1642, align 8
   store i32 %or, ptr %Value.addr.i1643, align 4
   %this1.i1646 = load ptr, ptr %this.addr.i1642, align 8
@@ -10955,44 +10956,44 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
 land.lhs.true.i1649:                              ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1644, ptr align 8 %this1.i1646, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1645, ptr align 8 %S.i1641, i64 16, i1 false)
-  %43 = load ptr, ptr %agg.tmp.i1644, align 8
-  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1644, i32 0, i32 1
-  %45 = load i64, ptr %44, align 8
-  %46 = load ptr, ptr %agg.tmp2.i1645, align 8
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1645, i32 0, i32 1
-  %48 = load i64, ptr %47, align 8
-  store ptr %43, ptr %LHS.i.i1638, align 8
-  %49 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1638, i32 0, i32 1
-  store i64 %45, ptr %49, align 8
-  store ptr %46, ptr %RHS.i.i1639, align 8
-  %50 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1639, i32 0, i32 1
-  store i64 %48, ptr %50, align 8
+  %44 = load ptr, ptr %agg.tmp.i1644, align 8
+  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1644, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %47 = load ptr, ptr %agg.tmp2.i1645, align 8
+  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1645, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8
+  store ptr %44, ptr %LHS.i.i1638, align 8
+  %50 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1638, i32 0, i32 1
+  store i64 %46, ptr %50, align 8
+  store ptr %47, ptr %RHS.i.i1639, align 8
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1639, i32 0, i32 1
+  store i64 %49, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1640, ptr align 8 %RHS.i.i1639, i64 16, i1 false)
-  %51 = load ptr, ptr %agg.tmp.i.i1640, align 8
-  %52 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1640, i32 0, i32 1
-  %53 = load i64, ptr %52, align 8
-  store ptr %51, ptr %RHS.i1661, align 8
-  %54 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1661, i32 0, i32 1
-  store i64 %53, ptr %54, align 8
+  %52 = load ptr, ptr %agg.tmp.i.i1640, align 8
+  %53 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1640, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8
+  store ptr %52, ptr %RHS.i1661, align 8
+  %55 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1661, i32 0, i32 1
+  store i64 %54, ptr %55, align 8
   store ptr %LHS.i.i1638, ptr %this.addr.i1662, align 8
   %this1.i1663 = load ptr, ptr %this.addr.i1662, align 8
   %Length.i1664 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1663, i32 0, i32 1
-  %55 = load i64, ptr %Length.i1664, align 8
+  %56 = load i64, ptr %Length.i1664, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1661, i32 0, i32 1
-  %56 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %55, %56
+  %57 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %56, %57
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i1649
-  %57 = load ptr, ptr %this1.i1663, align 8
-  %58 = load ptr, ptr %RHS.i1661, align 8
+  %58 = load ptr, ptr %this1.i1663, align 8
+  %59 = load ptr, ptr %RHS.i1661, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1661, i32 0, i32 1
-  %59 = load i64, ptr %Length4.i, align 8
-  store ptr %57, ptr %Lhs.addr.i3322, align 8
-  store ptr %58, ptr %Rhs.addr.i3323, align 8
-  store i64 %59, ptr %Length.addr.i3324, align 8
-  %60 = load i64, ptr %Length.addr.i3324, align 8
-  %cmp.i3325 = icmp eq i64 %60, 0
+  %60 = load i64, ptr %Length4.i, align 8
+  store ptr %58, ptr %Lhs.addr.i3322, align 8
+  store ptr %59, ptr %Rhs.addr.i3323, align 8
+  store i64 %60, ptr %Length.addr.i3324, align 8
+  %61 = load i64, ptr %Length.addr.i3324, align 8
+  %cmp.i3325 = icmp eq i64 %61, 0
   br i1 %cmp.i3325, label %if.then.i3328, label %if.end.i3326
 
 if.then.i3328:                                    ; preds = %land.rhs.i
@@ -11000,21 +11001,21 @@ if.then.i3328:                                    ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329
 
 if.end.i3326:                                     ; preds = %land.rhs.i
-  %61 = load ptr, ptr %Lhs.addr.i3322, align 8
-  %62 = load ptr, ptr %Rhs.addr.i3323, align 8
-  %63 = load i64, ptr %Length.addr.i3324, align 8
-  %call.i3327 = call i32 @memcmp(ptr noundef %61, ptr noundef %62, i64 noundef %63) #10
+  %62 = load ptr, ptr %Lhs.addr.i3322, align 8
+  %63 = load ptr, ptr %Rhs.addr.i3323, align 8
+  %64 = load i64, ptr %Length.addr.i3324, align 8
+  %call.i3327 = call i32 @memcmp(ptr noundef %62, ptr noundef %63, i64 noundef %64) #10
   store i32 %call.i3327, ptr %retval.i3321, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329: ; preds = %if.end.i3326, %if.then.i3328
-  %64 = load i32, ptr %retval.i3321, align 4
-  %cmp5.i = icmp eq i32 %64, 0
+  %65 = load i32, ptr %retval.i3321, align 4
+  %cmp5.i = icmp eq i32 %65, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329, %land.lhs.true.i1649
-  %65 = phi i1 [ false, %land.lhs.true.i1649 ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329 ]
-  br i1 %65, label %if.then.i1651, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1654
+  %66 = phi i1 [ false, %land.lhs.true.i1649 ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3329 ]
+  br i1 %66, label %if.then.i1651, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1654
 
 if.then.i1651:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %Result4.i1652 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1646, i32 0, i32 1
@@ -11023,15 +11024,16 @@ if.then.i1651:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1654: ; preds = %if.then.i1651, %_ZNK4llvh9StringRef6equalsES0_.exit, %if.end
   call void @_ZN4llvh13StringLiteralC2ILm5EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm5ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 1 dereferenceable(5) @.str.2)
-  %66 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 2, i32 7), align 4
-  %or6 = or i32 %66, 1
-  %67 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 1
-  %70 = load i64, ptr %69, align 8
-  store ptr %68, ptr %S.i1624, align 8
-  %71 = getelementptr inbounds { ptr, i64 }, ptr %S.i1624, i32 0, i32 1
-  store i64 %70, ptr %71, align 8
+  %67 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 2, i32 7
+  %68 = load i32, ptr %67, align 4
+  %or6 = or i32 %68, 1
+  %69 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 1
+  %72 = load i64, ptr %71, align 8
+  store ptr %70, ptr %S.i1624, align 8
+  %73 = getelementptr inbounds { ptr, i64 }, ptr %S.i1624, i32 0, i32 1
+  store i64 %72, ptr %73, align 8
   store ptr %this1.i1646, ptr %this.addr.i1625, align 8
   store i32 %or6, ptr %Value.addr.i1626, align 4
   %this1.i1629 = load ptr, ptr %this.addr.i1625, align 8
@@ -11042,44 +11044,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1654: ; preds = %if.the
 land.lhs.true.i1632:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1654
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1627, ptr align 8 %this1.i1629, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1628, ptr align 8 %S.i1624, i64 16, i1 false)
-  %72 = load ptr, ptr %agg.tmp.i1627, align 8
-  %73 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1627, i32 0, i32 1
-  %74 = load i64, ptr %73, align 8
-  %75 = load ptr, ptr %agg.tmp2.i1628, align 8
-  %76 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1628, i32 0, i32 1
-  %77 = load i64, ptr %76, align 8
-  store ptr %72, ptr %LHS.i.i1621, align 8
-  %78 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1621, i32 0, i32 1
-  store i64 %74, ptr %78, align 8
-  store ptr %75, ptr %RHS.i.i1622, align 8
-  %79 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1622, i32 0, i32 1
-  store i64 %77, ptr %79, align 8
+  %74 = load ptr, ptr %agg.tmp.i1627, align 8
+  %75 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1627, i32 0, i32 1
+  %76 = load i64, ptr %75, align 8
+  %77 = load ptr, ptr %agg.tmp2.i1628, align 8
+  %78 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1628, i32 0, i32 1
+  %79 = load i64, ptr %78, align 8
+  store ptr %74, ptr %LHS.i.i1621, align 8
+  %80 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1621, i32 0, i32 1
+  store i64 %76, ptr %80, align 8
+  store ptr %77, ptr %RHS.i.i1622, align 8
+  %81 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1622, i32 0, i32 1
+  store i64 %79, ptr %81, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1623, ptr align 8 %RHS.i.i1622, i64 16, i1 false)
-  %80 = load ptr, ptr %agg.tmp.i.i1623, align 8
-  %81 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1623, i32 0, i32 1
-  %82 = load i64, ptr %81, align 8
-  store ptr %80, ptr %RHS.i1666, align 8
-  %83 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1666, i32 0, i32 1
-  store i64 %82, ptr %83, align 8
+  %82 = load ptr, ptr %agg.tmp.i.i1623, align 8
+  %83 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1623, i32 0, i32 1
+  %84 = load i64, ptr %83, align 8
+  store ptr %82, ptr %RHS.i1666, align 8
+  %85 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1666, i32 0, i32 1
+  store i64 %84, ptr %85, align 8
   store ptr %LHS.i.i1621, ptr %this.addr.i1667, align 8
   %this1.i1668 = load ptr, ptr %this.addr.i1667, align 8
   %Length.i1669 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1668, i32 0, i32 1
-  %84 = load i64, ptr %Length.i1669, align 8
+  %86 = load i64, ptr %Length.i1669, align 8
   %Length2.i1670 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1666, i32 0, i32 1
-  %85 = load i64, ptr %Length2.i1670, align 8
-  %cmp.i1671 = icmp eq i64 %84, %85
+  %87 = load i64, ptr %Length2.i1670, align 8
+  %cmp.i1671 = icmp eq i64 %86, %87
   br i1 %cmp.i1671, label %land.rhs.i1672, label %_ZNK4llvh9StringRef6equalsES0_.exit1676
 
 land.rhs.i1672:                                   ; preds = %land.lhs.true.i1632
-  %86 = load ptr, ptr %this1.i1668, align 8
-  %87 = load ptr, ptr %RHS.i1666, align 8
+  %88 = load ptr, ptr %this1.i1668, align 8
+  %89 = load ptr, ptr %RHS.i1666, align 8
   %Length4.i1673 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1666, i32 0, i32 1
-  %88 = load i64, ptr %Length4.i1673, align 8
-  store ptr %86, ptr %Lhs.addr.i3313, align 8
-  store ptr %87, ptr %Rhs.addr.i3314, align 8
-  store i64 %88, ptr %Length.addr.i3315, align 8
-  %89 = load i64, ptr %Length.addr.i3315, align 8
-  %cmp.i3316 = icmp eq i64 %89, 0
+  %90 = load i64, ptr %Length4.i1673, align 8
+  store ptr %88, ptr %Lhs.addr.i3313, align 8
+  store ptr %89, ptr %Rhs.addr.i3314, align 8
+  store i64 %90, ptr %Length.addr.i3315, align 8
+  %91 = load i64, ptr %Length.addr.i3315, align 8
+  %cmp.i3316 = icmp eq i64 %91, 0
   br i1 %cmp.i3316, label %if.then.i3319, label %if.end.i3317
 
 if.then.i3319:                                    ; preds = %land.rhs.i1672
@@ -11087,21 +11089,21 @@ if.then.i3319:                                    ; preds = %land.rhs.i1672
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320
 
 if.end.i3317:                                     ; preds = %land.rhs.i1672
-  %90 = load ptr, ptr %Lhs.addr.i3313, align 8
-  %91 = load ptr, ptr %Rhs.addr.i3314, align 8
-  %92 = load i64, ptr %Length.addr.i3315, align 8
-  %call.i3318 = call i32 @memcmp(ptr noundef %90, ptr noundef %91, i64 noundef %92) #10
+  %92 = load ptr, ptr %Lhs.addr.i3313, align 8
+  %93 = load ptr, ptr %Rhs.addr.i3314, align 8
+  %94 = load i64, ptr %Length.addr.i3315, align 8
+  %call.i3318 = call i32 @memcmp(ptr noundef %92, ptr noundef %93, i64 noundef %94) #10
   store i32 %call.i3318, ptr %retval.i3312, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320: ; preds = %if.end.i3317, %if.then.i3319
-  %93 = load i32, ptr %retval.i3312, align 4
-  %cmp5.i1675 = icmp eq i32 %93, 0
+  %95 = load i32, ptr %retval.i3312, align 4
+  %cmp5.i1675 = icmp eq i32 %95, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1676
 
 _ZNK4llvh9StringRef6equalsES0_.exit1676:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320, %land.lhs.true.i1632
-  %94 = phi i1 [ false, %land.lhs.true.i1632 ], [ %cmp5.i1675, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320 ]
-  br i1 %94, label %if.then.i1634, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1637
+  %96 = phi i1 [ false, %land.lhs.true.i1632 ], [ %cmp5.i1675, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3320 ]
+  br i1 %96, label %if.then.i1634, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1637
 
 if.then.i1634:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1676
   %Result4.i1635 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1629, i32 0, i32 1
@@ -11110,15 +11112,16 @@ if.then.i1634:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1637: ; preds = %if.then.i1634, %_ZNK4llvh9StringRef6equalsES0_.exit1676, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1654
   call void @_ZN4llvh13StringLiteralC2ILm5EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm5ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, ptr noundef nonnull align 1 dereferenceable(5) @.str.3)
-  %95 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 3, i32 7), align 4
-  %or9 = or i32 %95, 1
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 1
-  %99 = load i64, ptr %98, align 8
-  store ptr %97, ptr %S.i1607, align 8
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %S.i1607, i32 0, i32 1
-  store i64 %99, ptr %100, align 8
+  %97 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 3, i32 7
+  %98 = load i32, ptr %97, align 4
+  %or9 = or i32 %98, 1
+  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 1
+  %102 = load i64, ptr %101, align 8
+  store ptr %100, ptr %S.i1607, align 8
+  %103 = getelementptr inbounds { ptr, i64 }, ptr %S.i1607, i32 0, i32 1
+  store i64 %102, ptr %103, align 8
   store ptr %this1.i1629, ptr %this.addr.i1608, align 8
   store i32 %or9, ptr %Value.addr.i1609, align 4
   %this1.i1612 = load ptr, ptr %this.addr.i1608, align 8
@@ -11129,44 +11132,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1637: ; preds = %if.the
 land.lhs.true.i1615:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1637
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1610, ptr align 8 %this1.i1612, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1611, ptr align 8 %S.i1607, i64 16, i1 false)
-  %101 = load ptr, ptr %agg.tmp.i1610, align 8
-  %102 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1610, i32 0, i32 1
-  %103 = load i64, ptr %102, align 8
-  %104 = load ptr, ptr %agg.tmp2.i1611, align 8
-  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1611, i32 0, i32 1
+  %104 = load ptr, ptr %agg.tmp.i1610, align 8
+  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1610, i32 0, i32 1
   %106 = load i64, ptr %105, align 8
-  store ptr %101, ptr %LHS.i.i1604, align 8
-  %107 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1604, i32 0, i32 1
-  store i64 %103, ptr %107, align 8
-  store ptr %104, ptr %RHS.i.i1605, align 8
-  %108 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1605, i32 0, i32 1
-  store i64 %106, ptr %108, align 8
+  %107 = load ptr, ptr %agg.tmp2.i1611, align 8
+  %108 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1611, i32 0, i32 1
+  %109 = load i64, ptr %108, align 8
+  store ptr %104, ptr %LHS.i.i1604, align 8
+  %110 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1604, i32 0, i32 1
+  store i64 %106, ptr %110, align 8
+  store ptr %107, ptr %RHS.i.i1605, align 8
+  %111 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1605, i32 0, i32 1
+  store i64 %109, ptr %111, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1606, ptr align 8 %RHS.i.i1605, i64 16, i1 false)
-  %109 = load ptr, ptr %agg.tmp.i.i1606, align 8
-  %110 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1606, i32 0, i32 1
-  %111 = load i64, ptr %110, align 8
-  store ptr %109, ptr %RHS.i1677, align 8
-  %112 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1677, i32 0, i32 1
-  store i64 %111, ptr %112, align 8
+  %112 = load ptr, ptr %agg.tmp.i.i1606, align 8
+  %113 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1606, i32 0, i32 1
+  %114 = load i64, ptr %113, align 8
+  store ptr %112, ptr %RHS.i1677, align 8
+  %115 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1677, i32 0, i32 1
+  store i64 %114, ptr %115, align 8
   store ptr %LHS.i.i1604, ptr %this.addr.i1678, align 8
   %this1.i1679 = load ptr, ptr %this.addr.i1678, align 8
   %Length.i1680 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1679, i32 0, i32 1
-  %113 = load i64, ptr %Length.i1680, align 8
+  %116 = load i64, ptr %Length.i1680, align 8
   %Length2.i1681 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1677, i32 0, i32 1
-  %114 = load i64, ptr %Length2.i1681, align 8
-  %cmp.i1682 = icmp eq i64 %113, %114
+  %117 = load i64, ptr %Length2.i1681, align 8
+  %cmp.i1682 = icmp eq i64 %116, %117
   br i1 %cmp.i1682, label %land.rhs.i1683, label %_ZNK4llvh9StringRef6equalsES0_.exit1687
 
 land.rhs.i1683:                                   ; preds = %land.lhs.true.i1615
-  %115 = load ptr, ptr %this1.i1679, align 8
-  %116 = load ptr, ptr %RHS.i1677, align 8
+  %118 = load ptr, ptr %this1.i1679, align 8
+  %119 = load ptr, ptr %RHS.i1677, align 8
   %Length4.i1684 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1677, i32 0, i32 1
-  %117 = load i64, ptr %Length4.i1684, align 8
-  store ptr %115, ptr %Lhs.addr.i3304, align 8
-  store ptr %116, ptr %Rhs.addr.i3305, align 8
-  store i64 %117, ptr %Length.addr.i3306, align 8
-  %118 = load i64, ptr %Length.addr.i3306, align 8
-  %cmp.i3307 = icmp eq i64 %118, 0
+  %120 = load i64, ptr %Length4.i1684, align 8
+  store ptr %118, ptr %Lhs.addr.i3304, align 8
+  store ptr %119, ptr %Rhs.addr.i3305, align 8
+  store i64 %120, ptr %Length.addr.i3306, align 8
+  %121 = load i64, ptr %Length.addr.i3306, align 8
+  %cmp.i3307 = icmp eq i64 %121, 0
   br i1 %cmp.i3307, label %if.then.i3310, label %if.end.i3308
 
 if.then.i3310:                                    ; preds = %land.rhs.i1683
@@ -11174,21 +11177,21 @@ if.then.i3310:                                    ; preds = %land.rhs.i1683
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311
 
 if.end.i3308:                                     ; preds = %land.rhs.i1683
-  %119 = load ptr, ptr %Lhs.addr.i3304, align 8
-  %120 = load ptr, ptr %Rhs.addr.i3305, align 8
-  %121 = load i64, ptr %Length.addr.i3306, align 8
-  %call.i3309 = call i32 @memcmp(ptr noundef %119, ptr noundef %120, i64 noundef %121) #10
+  %122 = load ptr, ptr %Lhs.addr.i3304, align 8
+  %123 = load ptr, ptr %Rhs.addr.i3305, align 8
+  %124 = load i64, ptr %Length.addr.i3306, align 8
+  %call.i3309 = call i32 @memcmp(ptr noundef %122, ptr noundef %123, i64 noundef %124) #10
   store i32 %call.i3309, ptr %retval.i3303, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311: ; preds = %if.end.i3308, %if.then.i3310
-  %122 = load i32, ptr %retval.i3303, align 4
-  %cmp5.i1686 = icmp eq i32 %122, 0
+  %125 = load i32, ptr %retval.i3303, align 4
+  %cmp5.i1686 = icmp eq i32 %125, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1687
 
 _ZNK4llvh9StringRef6equalsES0_.exit1687:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311, %land.lhs.true.i1615
-  %123 = phi i1 [ false, %land.lhs.true.i1615 ], [ %cmp5.i1686, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311 ]
-  br i1 %123, label %if.then.i1617, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1620
+  %126 = phi i1 [ false, %land.lhs.true.i1615 ], [ %cmp5.i1686, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3311 ]
+  br i1 %126, label %if.then.i1617, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1620
 
 if.then.i1617:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1687
   %Result4.i1618 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1612, i32 0, i32 1
@@ -11197,15 +11200,16 @@ if.then.i1617:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1620: ; preds = %if.then.i1617, %_ZNK4llvh9StringRef6equalsES0_.exit1687, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1637
   call void @_ZN4llvh13StringLiteralC2ILm6EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm6ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, ptr noundef nonnull align 1 dereferenceable(6) @.str.4)
-  %124 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 4, i32 7), align 4
-  %or12 = or i32 %124, 1
-  %125 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 0
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 1
-  %128 = load i64, ptr %127, align 8
-  store ptr %126, ptr %S.i1590, align 8
-  %129 = getelementptr inbounds { ptr, i64 }, ptr %S.i1590, i32 0, i32 1
-  store i64 %128, ptr %129, align 8
+  %127 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 4, i32 7
+  %128 = load i32, ptr %127, align 4
+  %or12 = or i32 %128, 1
+  %129 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 1
+  %132 = load i64, ptr %131, align 8
+  store ptr %130, ptr %S.i1590, align 8
+  %133 = getelementptr inbounds { ptr, i64 }, ptr %S.i1590, i32 0, i32 1
+  store i64 %132, ptr %133, align 8
   store ptr %this1.i1612, ptr %this.addr.i1591, align 8
   store i32 %or12, ptr %Value.addr.i1592, align 4
   %this1.i1595 = load ptr, ptr %this.addr.i1591, align 8
@@ -11216,44 +11220,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1620: ; preds = %if.the
 land.lhs.true.i1598:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1620
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1593, ptr align 8 %this1.i1595, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1594, ptr align 8 %S.i1590, i64 16, i1 false)
-  %130 = load ptr, ptr %agg.tmp.i1593, align 8
-  %131 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1593, i32 0, i32 1
-  %132 = load i64, ptr %131, align 8
-  %133 = load ptr, ptr %agg.tmp2.i1594, align 8
-  %134 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1594, i32 0, i32 1
-  %135 = load i64, ptr %134, align 8
-  store ptr %130, ptr %LHS.i.i1587, align 8
-  %136 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1587, i32 0, i32 1
-  store i64 %132, ptr %136, align 8
-  store ptr %133, ptr %RHS.i.i1588, align 8
-  %137 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1588, i32 0, i32 1
-  store i64 %135, ptr %137, align 8
+  %134 = load ptr, ptr %agg.tmp.i1593, align 8
+  %135 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1593, i32 0, i32 1
+  %136 = load i64, ptr %135, align 8
+  %137 = load ptr, ptr %agg.tmp2.i1594, align 8
+  %138 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1594, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8
+  store ptr %134, ptr %LHS.i.i1587, align 8
+  %140 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1587, i32 0, i32 1
+  store i64 %136, ptr %140, align 8
+  store ptr %137, ptr %RHS.i.i1588, align 8
+  %141 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1588, i32 0, i32 1
+  store i64 %139, ptr %141, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1589, ptr align 8 %RHS.i.i1588, i64 16, i1 false)
-  %138 = load ptr, ptr %agg.tmp.i.i1589, align 8
-  %139 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1589, i32 0, i32 1
-  %140 = load i64, ptr %139, align 8
-  store ptr %138, ptr %RHS.i1688, align 8
-  %141 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1688, i32 0, i32 1
-  store i64 %140, ptr %141, align 8
+  %142 = load ptr, ptr %agg.tmp.i.i1589, align 8
+  %143 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1589, i32 0, i32 1
+  %144 = load i64, ptr %143, align 8
+  store ptr %142, ptr %RHS.i1688, align 8
+  %145 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1688, i32 0, i32 1
+  store i64 %144, ptr %145, align 8
   store ptr %LHS.i.i1587, ptr %this.addr.i1689, align 8
   %this1.i1690 = load ptr, ptr %this.addr.i1689, align 8
   %Length.i1691 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1690, i32 0, i32 1
-  %142 = load i64, ptr %Length.i1691, align 8
+  %146 = load i64, ptr %Length.i1691, align 8
   %Length2.i1692 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1688, i32 0, i32 1
-  %143 = load i64, ptr %Length2.i1692, align 8
-  %cmp.i1693 = icmp eq i64 %142, %143
+  %147 = load i64, ptr %Length2.i1692, align 8
+  %cmp.i1693 = icmp eq i64 %146, %147
   br i1 %cmp.i1693, label %land.rhs.i1694, label %_ZNK4llvh9StringRef6equalsES0_.exit1698
 
 land.rhs.i1694:                                   ; preds = %land.lhs.true.i1598
-  %144 = load ptr, ptr %this1.i1690, align 8
-  %145 = load ptr, ptr %RHS.i1688, align 8
+  %148 = load ptr, ptr %this1.i1690, align 8
+  %149 = load ptr, ptr %RHS.i1688, align 8
   %Length4.i1695 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1688, i32 0, i32 1
-  %146 = load i64, ptr %Length4.i1695, align 8
-  store ptr %144, ptr %Lhs.addr.i3295, align 8
-  store ptr %145, ptr %Rhs.addr.i3296, align 8
-  store i64 %146, ptr %Length.addr.i3297, align 8
-  %147 = load i64, ptr %Length.addr.i3297, align 8
-  %cmp.i3298 = icmp eq i64 %147, 0
+  %150 = load i64, ptr %Length4.i1695, align 8
+  store ptr %148, ptr %Lhs.addr.i3295, align 8
+  store ptr %149, ptr %Rhs.addr.i3296, align 8
+  store i64 %150, ptr %Length.addr.i3297, align 8
+  %151 = load i64, ptr %Length.addr.i3297, align 8
+  %cmp.i3298 = icmp eq i64 %151, 0
   br i1 %cmp.i3298, label %if.then.i3301, label %if.end.i3299
 
 if.then.i3301:                                    ; preds = %land.rhs.i1694
@@ -11261,21 +11265,21 @@ if.then.i3301:                                    ; preds = %land.rhs.i1694
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302
 
 if.end.i3299:                                     ; preds = %land.rhs.i1694
-  %148 = load ptr, ptr %Lhs.addr.i3295, align 8
-  %149 = load ptr, ptr %Rhs.addr.i3296, align 8
-  %150 = load i64, ptr %Length.addr.i3297, align 8
-  %call.i3300 = call i32 @memcmp(ptr noundef %148, ptr noundef %149, i64 noundef %150) #10
+  %152 = load ptr, ptr %Lhs.addr.i3295, align 8
+  %153 = load ptr, ptr %Rhs.addr.i3296, align 8
+  %154 = load i64, ptr %Length.addr.i3297, align 8
+  %call.i3300 = call i32 @memcmp(ptr noundef %152, ptr noundef %153, i64 noundef %154) #10
   store i32 %call.i3300, ptr %retval.i3294, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302: ; preds = %if.end.i3299, %if.then.i3301
-  %151 = load i32, ptr %retval.i3294, align 4
-  %cmp5.i1697 = icmp eq i32 %151, 0
+  %155 = load i32, ptr %retval.i3294, align 4
+  %cmp5.i1697 = icmp eq i32 %155, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1698
 
 _ZNK4llvh9StringRef6equalsES0_.exit1698:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302, %land.lhs.true.i1598
-  %152 = phi i1 [ false, %land.lhs.true.i1598 ], [ %cmp5.i1697, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302 ]
-  br i1 %152, label %if.then.i1600, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603
+  %156 = phi i1 [ false, %land.lhs.true.i1598 ], [ %cmp5.i1697, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3302 ]
+  br i1 %156, label %if.then.i1600, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603
 
 if.then.i1600:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1698
   %Result4.i1601 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1595, i32 0, i32 1
@@ -11284,15 +11288,16 @@ if.then.i1600:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603: ; preds = %if.then.i1600, %_ZNK4llvh9StringRef6equalsES0_.exit1698, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1620
   call void @_ZN4llvh13StringLiteralC2ILm5EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm5ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull align 1 dereferenceable(5) @.str.5)
-  %153 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7), align 4
-  %or15 = or i32 %153, 1
-  %154 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
-  %157 = load i64, ptr %156, align 8
-  store ptr %155, ptr %S.i1573, align 8
-  %158 = getelementptr inbounds { ptr, i64 }, ptr %S.i1573, i32 0, i32 1
-  store i64 %157, ptr %158, align 8
+  %157 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7
+  %158 = load i32, ptr %157, align 4
+  %or15 = or i32 %158, 1
+  %159 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
+  %162 = load i64, ptr %161, align 8
+  store ptr %160, ptr %S.i1573, align 8
+  %163 = getelementptr inbounds { ptr, i64 }, ptr %S.i1573, i32 0, i32 1
+  store i64 %162, ptr %163, align 8
   store ptr %this1.i1595, ptr %this.addr.i1574, align 8
   store i32 %or15, ptr %Value.addr.i1575, align 4
   %this1.i1578 = load ptr, ptr %this.addr.i1574, align 8
@@ -11303,44 +11308,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603: ; preds = %if.the
 land.lhs.true.i1581:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1576, ptr align 8 %this1.i1578, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1577, ptr align 8 %S.i1573, i64 16, i1 false)
-  %159 = load ptr, ptr %agg.tmp.i1576, align 8
-  %160 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1576, i32 0, i32 1
-  %161 = load i64, ptr %160, align 8
-  %162 = load ptr, ptr %agg.tmp2.i1577, align 8
-  %163 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1577, i32 0, i32 1
-  %164 = load i64, ptr %163, align 8
-  store ptr %159, ptr %LHS.i.i1570, align 8
-  %165 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1570, i32 0, i32 1
-  store i64 %161, ptr %165, align 8
-  store ptr %162, ptr %RHS.i.i1571, align 8
-  %166 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1571, i32 0, i32 1
-  store i64 %164, ptr %166, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1572, ptr align 8 %RHS.i.i1571, i64 16, i1 false)
-  %167 = load ptr, ptr %agg.tmp.i.i1572, align 8
-  %168 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1572, i32 0, i32 1
+  %164 = load ptr, ptr %agg.tmp.i1576, align 8
+  %165 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1576, i32 0, i32 1
+  %166 = load i64, ptr %165, align 8
+  %167 = load ptr, ptr %agg.tmp2.i1577, align 8
+  %168 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1577, i32 0, i32 1
   %169 = load i64, ptr %168, align 8
-  store ptr %167, ptr %RHS.i1699, align 8
-  %170 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1699, i32 0, i32 1
-  store i64 %169, ptr %170, align 8
+  store ptr %164, ptr %LHS.i.i1570, align 8
+  %170 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1570, i32 0, i32 1
+  store i64 %166, ptr %170, align 8
+  store ptr %167, ptr %RHS.i.i1571, align 8
+  %171 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1571, i32 0, i32 1
+  store i64 %169, ptr %171, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1572, ptr align 8 %RHS.i.i1571, i64 16, i1 false)
+  %172 = load ptr, ptr %agg.tmp.i.i1572, align 8
+  %173 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1572, i32 0, i32 1
+  %174 = load i64, ptr %173, align 8
+  store ptr %172, ptr %RHS.i1699, align 8
+  %175 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1699, i32 0, i32 1
+  store i64 %174, ptr %175, align 8
   store ptr %LHS.i.i1570, ptr %this.addr.i1700, align 8
   %this1.i1701 = load ptr, ptr %this.addr.i1700, align 8
   %Length.i1702 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1701, i32 0, i32 1
-  %171 = load i64, ptr %Length.i1702, align 8
+  %176 = load i64, ptr %Length.i1702, align 8
   %Length2.i1703 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1699, i32 0, i32 1
-  %172 = load i64, ptr %Length2.i1703, align 8
-  %cmp.i1704 = icmp eq i64 %171, %172
+  %177 = load i64, ptr %Length2.i1703, align 8
+  %cmp.i1704 = icmp eq i64 %176, %177
   br i1 %cmp.i1704, label %land.rhs.i1705, label %_ZNK4llvh9StringRef6equalsES0_.exit1709
 
 land.rhs.i1705:                                   ; preds = %land.lhs.true.i1581
-  %173 = load ptr, ptr %this1.i1701, align 8
-  %174 = load ptr, ptr %RHS.i1699, align 8
+  %178 = load ptr, ptr %this1.i1701, align 8
+  %179 = load ptr, ptr %RHS.i1699, align 8
   %Length4.i1706 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1699, i32 0, i32 1
-  %175 = load i64, ptr %Length4.i1706, align 8
-  store ptr %173, ptr %Lhs.addr.i3286, align 8
-  store ptr %174, ptr %Rhs.addr.i3287, align 8
-  store i64 %175, ptr %Length.addr.i3288, align 8
-  %176 = load i64, ptr %Length.addr.i3288, align 8
-  %cmp.i3289 = icmp eq i64 %176, 0
+  %180 = load i64, ptr %Length4.i1706, align 8
+  store ptr %178, ptr %Lhs.addr.i3286, align 8
+  store ptr %179, ptr %Rhs.addr.i3287, align 8
+  store i64 %180, ptr %Length.addr.i3288, align 8
+  %181 = load i64, ptr %Length.addr.i3288, align 8
+  %cmp.i3289 = icmp eq i64 %181, 0
   br i1 %cmp.i3289, label %if.then.i3292, label %if.end.i3290
 
 if.then.i3292:                                    ; preds = %land.rhs.i1705
@@ -11348,21 +11353,21 @@ if.then.i3292:                                    ; preds = %land.rhs.i1705
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3293
 
 if.end.i3290:                                     ; preds = %land.rhs.i1705
-  %177 = load ptr, ptr %Lhs.addr.i3286, align 8
-  %178 = load ptr, ptr %Rhs.addr.i3287, align 8
-  %179 = load i64, ptr %Length.addr.i3288, align 8
-  %call.i3291 = call i32 @memcmp(ptr noundef %177, ptr noundef %178, i64 noundef %179) #10
+  %182 = load ptr, ptr %Lhs.addr.i3286, align 8
+  %183 = load ptr, ptr %Rhs.addr.i3287, align 8
+  %184 = load i64, ptr %Length.addr.i3288, align 8
+  %call.i3291 = call i32 @memcmp(ptr noundef %182, ptr noundef %183, i64 noundef %184) #10
   store i32 %call.i3291, ptr %retval.i3285, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3293
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3293: ; preds = %if.end.i3290, %if.then.i3292
-  %180 = load i32, ptr %retval.i3285, align 4
-  %cmp5.i1708 = icmp eq i32 %180, 0
+  %185 = load i32, ptr %retval.i3285, align 4
+  %cmp5.i1708 = icmp eq i32 %185, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1709
 
 _ZNK4llvh9StringRef6equalsES0_.exit1709:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3293, %land.lhs.true.i1581
-  %181 = phi i1 [ false, %land.lhs.true.i1581 ], [ %cmp5.i1708, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3293 ]
-  br i1 %181, label %if.then.i1583, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1586
+  %186 = phi i1 [ false, %land.lhs.true.i1581 ], [ %cmp5.i1708, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3293 ]
+  br i1 %186, label %if.then.i1583, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1586
 
 if.then.i1583:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1709
   %Result4.i1584 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1578, i32 0, i32 1
@@ -11371,15 +11376,16 @@ if.then.i1583:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1586: ; preds = %if.then.i1583, %_ZNK4llvh9StringRef6equalsES0_.exit1709, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603
   call void @_ZN4llvh13StringLiteralC2ILm7EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm7ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, ptr noundef nonnull align 1 dereferenceable(7) @.str.6)
-  %182 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7), align 4
-  %or18 = or i32 %182, 1
-  %183 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 0
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 1
-  %186 = load i64, ptr %185, align 8
-  store ptr %184, ptr %S.i1556, align 8
-  %187 = getelementptr inbounds { ptr, i64 }, ptr %S.i1556, i32 0, i32 1
-  store i64 %186, ptr %187, align 8
+  %187 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7
+  %188 = load i32, ptr %187, align 4
+  %or18 = or i32 %188, 1
+  %189 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 0
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 1
+  %192 = load i64, ptr %191, align 8
+  store ptr %190, ptr %S.i1556, align 8
+  %193 = getelementptr inbounds { ptr, i64 }, ptr %S.i1556, i32 0, i32 1
+  store i64 %192, ptr %193, align 8
   store ptr %this1.i1578, ptr %this.addr.i1557, align 8
   store i32 %or18, ptr %Value.addr.i1558, align 4
   %this1.i1561 = load ptr, ptr %this.addr.i1557, align 8
@@ -11390,44 +11396,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1586: ; preds = %if.the
 land.lhs.true.i1564:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1586
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1559, ptr align 8 %this1.i1561, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1560, ptr align 8 %S.i1556, i64 16, i1 false)
-  %188 = load ptr, ptr %agg.tmp.i1559, align 8
-  %189 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1559, i32 0, i32 1
-  %190 = load i64, ptr %189, align 8
-  %191 = load ptr, ptr %agg.tmp2.i1560, align 8
-  %192 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1560, i32 0, i32 1
-  %193 = load i64, ptr %192, align 8
-  store ptr %188, ptr %LHS.i.i1553, align 8
-  %194 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1553, i32 0, i32 1
-  store i64 %190, ptr %194, align 8
-  store ptr %191, ptr %RHS.i.i1554, align 8
-  %195 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1554, i32 0, i32 1
-  store i64 %193, ptr %195, align 8
+  %194 = load ptr, ptr %agg.tmp.i1559, align 8
+  %195 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1559, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8
+  %197 = load ptr, ptr %agg.tmp2.i1560, align 8
+  %198 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1560, i32 0, i32 1
+  %199 = load i64, ptr %198, align 8
+  store ptr %194, ptr %LHS.i.i1553, align 8
+  %200 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1553, i32 0, i32 1
+  store i64 %196, ptr %200, align 8
+  store ptr %197, ptr %RHS.i.i1554, align 8
+  %201 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1554, i32 0, i32 1
+  store i64 %199, ptr %201, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1555, ptr align 8 %RHS.i.i1554, i64 16, i1 false)
-  %196 = load ptr, ptr %agg.tmp.i.i1555, align 8
-  %197 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1555, i32 0, i32 1
-  %198 = load i64, ptr %197, align 8
-  store ptr %196, ptr %RHS.i1710, align 8
-  %199 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1710, i32 0, i32 1
-  store i64 %198, ptr %199, align 8
+  %202 = load ptr, ptr %agg.tmp.i.i1555, align 8
+  %203 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1555, i32 0, i32 1
+  %204 = load i64, ptr %203, align 8
+  store ptr %202, ptr %RHS.i1710, align 8
+  %205 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1710, i32 0, i32 1
+  store i64 %204, ptr %205, align 8
   store ptr %LHS.i.i1553, ptr %this.addr.i1711, align 8
   %this1.i1712 = load ptr, ptr %this.addr.i1711, align 8
   %Length.i1713 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1712, i32 0, i32 1
-  %200 = load i64, ptr %Length.i1713, align 8
+  %206 = load i64, ptr %Length.i1713, align 8
   %Length2.i1714 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1710, i32 0, i32 1
-  %201 = load i64, ptr %Length2.i1714, align 8
-  %cmp.i1715 = icmp eq i64 %200, %201
+  %207 = load i64, ptr %Length2.i1714, align 8
+  %cmp.i1715 = icmp eq i64 %206, %207
   br i1 %cmp.i1715, label %land.rhs.i1716, label %_ZNK4llvh9StringRef6equalsES0_.exit1720
 
 land.rhs.i1716:                                   ; preds = %land.lhs.true.i1564
-  %202 = load ptr, ptr %this1.i1712, align 8
-  %203 = load ptr, ptr %RHS.i1710, align 8
+  %208 = load ptr, ptr %this1.i1712, align 8
+  %209 = load ptr, ptr %RHS.i1710, align 8
   %Length4.i1717 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1710, i32 0, i32 1
-  %204 = load i64, ptr %Length4.i1717, align 8
-  store ptr %202, ptr %Lhs.addr.i3277, align 8
-  store ptr %203, ptr %Rhs.addr.i3278, align 8
-  store i64 %204, ptr %Length.addr.i3279, align 8
-  %205 = load i64, ptr %Length.addr.i3279, align 8
-  %cmp.i3280 = icmp eq i64 %205, 0
+  %210 = load i64, ptr %Length4.i1717, align 8
+  store ptr %208, ptr %Lhs.addr.i3277, align 8
+  store ptr %209, ptr %Rhs.addr.i3278, align 8
+  store i64 %210, ptr %Length.addr.i3279, align 8
+  %211 = load i64, ptr %Length.addr.i3279, align 8
+  %cmp.i3280 = icmp eq i64 %211, 0
   br i1 %cmp.i3280, label %if.then.i3283, label %if.end.i3281
 
 if.then.i3283:                                    ; preds = %land.rhs.i1716
@@ -11435,21 +11441,21 @@ if.then.i3283:                                    ; preds = %land.rhs.i1716
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3284
 
 if.end.i3281:                                     ; preds = %land.rhs.i1716
-  %206 = load ptr, ptr %Lhs.addr.i3277, align 8
-  %207 = load ptr, ptr %Rhs.addr.i3278, align 8
-  %208 = load i64, ptr %Length.addr.i3279, align 8
-  %call.i3282 = call i32 @memcmp(ptr noundef %206, ptr noundef %207, i64 noundef %208) #10
+  %212 = load ptr, ptr %Lhs.addr.i3277, align 8
+  %213 = load ptr, ptr %Rhs.addr.i3278, align 8
+  %214 = load i64, ptr %Length.addr.i3279, align 8
+  %call.i3282 = call i32 @memcmp(ptr noundef %212, ptr noundef %213, i64 noundef %214) #10
   store i32 %call.i3282, ptr %retval.i3276, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3284
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3284: ; preds = %if.end.i3281, %if.then.i3283
-  %209 = load i32, ptr %retval.i3276, align 4
-  %cmp5.i1719 = icmp eq i32 %209, 0
+  %215 = load i32, ptr %retval.i3276, align 4
+  %cmp5.i1719 = icmp eq i32 %215, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1720
 
 _ZNK4llvh9StringRef6equalsES0_.exit1720:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3284, %land.lhs.true.i1564
-  %210 = phi i1 [ false, %land.lhs.true.i1564 ], [ %cmp5.i1719, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3284 ]
-  br i1 %210, label %if.then.i1566, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1569
+  %216 = phi i1 [ false, %land.lhs.true.i1564 ], [ %cmp5.i1719, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3284 ]
+  br i1 %216, label %if.then.i1566, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1569
 
 if.then.i1566:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1720
   %Result4.i1567 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1561, i32 0, i32 1
@@ -11458,15 +11464,16 @@ if.then.i1566:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1569: ; preds = %if.then.i1566, %_ZNK4llvh9StringRef6equalsES0_.exit1720, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1586
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 1 dereferenceable(10) @.str.7)
-  %211 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7), align 4
-  %or21 = or i32 %211, 1
-  %212 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
-  %215 = load i64, ptr %214, align 8
-  store ptr %213, ptr %S.i1539, align 8
-  %216 = getelementptr inbounds { ptr, i64 }, ptr %S.i1539, i32 0, i32 1
-  store i64 %215, ptr %216, align 8
+  %217 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7
+  %218 = load i32, ptr %217, align 4
+  %or21 = or i32 %218, 1
+  %219 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
+  %222 = load i64, ptr %221, align 8
+  store ptr %220, ptr %S.i1539, align 8
+  %223 = getelementptr inbounds { ptr, i64 }, ptr %S.i1539, i32 0, i32 1
+  store i64 %222, ptr %223, align 8
   store ptr %this1.i1561, ptr %this.addr.i1540, align 8
   store i32 %or21, ptr %Value.addr.i1541, align 4
   %this1.i1544 = load ptr, ptr %this.addr.i1540, align 8
@@ -11477,44 +11484,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1569: ; preds = %if.the
 land.lhs.true.i1547:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1569
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1542, ptr align 8 %this1.i1544, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1543, ptr align 8 %S.i1539, i64 16, i1 false)
-  %217 = load ptr, ptr %agg.tmp.i1542, align 8
-  %218 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1542, i32 0, i32 1
-  %219 = load i64, ptr %218, align 8
-  %220 = load ptr, ptr %agg.tmp2.i1543, align 8
-  %221 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1543, i32 0, i32 1
-  %222 = load i64, ptr %221, align 8
-  store ptr %217, ptr %LHS.i.i1536, align 8
-  %223 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1536, i32 0, i32 1
-  store i64 %219, ptr %223, align 8
-  store ptr %220, ptr %RHS.i.i1537, align 8
-  %224 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1537, i32 0, i32 1
-  store i64 %222, ptr %224, align 8
+  %224 = load ptr, ptr %agg.tmp.i1542, align 8
+  %225 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1542, i32 0, i32 1
+  %226 = load i64, ptr %225, align 8
+  %227 = load ptr, ptr %agg.tmp2.i1543, align 8
+  %228 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1543, i32 0, i32 1
+  %229 = load i64, ptr %228, align 8
+  store ptr %224, ptr %LHS.i.i1536, align 8
+  %230 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1536, i32 0, i32 1
+  store i64 %226, ptr %230, align 8
+  store ptr %227, ptr %RHS.i.i1537, align 8
+  %231 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1537, i32 0, i32 1
+  store i64 %229, ptr %231, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1538, ptr align 8 %RHS.i.i1537, i64 16, i1 false)
-  %225 = load ptr, ptr %agg.tmp.i.i1538, align 8
-  %226 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1538, i32 0, i32 1
-  %227 = load i64, ptr %226, align 8
-  store ptr %225, ptr %RHS.i1721, align 8
-  %228 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1721, i32 0, i32 1
-  store i64 %227, ptr %228, align 8
+  %232 = load ptr, ptr %agg.tmp.i.i1538, align 8
+  %233 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1538, i32 0, i32 1
+  %234 = load i64, ptr %233, align 8
+  store ptr %232, ptr %RHS.i1721, align 8
+  %235 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1721, i32 0, i32 1
+  store i64 %234, ptr %235, align 8
   store ptr %LHS.i.i1536, ptr %this.addr.i1722, align 8
   %this1.i1723 = load ptr, ptr %this.addr.i1722, align 8
   %Length.i1724 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1723, i32 0, i32 1
-  %229 = load i64, ptr %Length.i1724, align 8
+  %236 = load i64, ptr %Length.i1724, align 8
   %Length2.i1725 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1721, i32 0, i32 1
-  %230 = load i64, ptr %Length2.i1725, align 8
-  %cmp.i1726 = icmp eq i64 %229, %230
+  %237 = load i64, ptr %Length2.i1725, align 8
+  %cmp.i1726 = icmp eq i64 %236, %237
   br i1 %cmp.i1726, label %land.rhs.i1727, label %_ZNK4llvh9StringRef6equalsES0_.exit1731
 
 land.rhs.i1727:                                   ; preds = %land.lhs.true.i1547
-  %231 = load ptr, ptr %this1.i1723, align 8
-  %232 = load ptr, ptr %RHS.i1721, align 8
+  %238 = load ptr, ptr %this1.i1723, align 8
+  %239 = load ptr, ptr %RHS.i1721, align 8
   %Length4.i1728 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1721, i32 0, i32 1
-  %233 = load i64, ptr %Length4.i1728, align 8
-  store ptr %231, ptr %Lhs.addr.i3268, align 8
-  store ptr %232, ptr %Rhs.addr.i3269, align 8
-  store i64 %233, ptr %Length.addr.i3270, align 8
-  %234 = load i64, ptr %Length.addr.i3270, align 8
-  %cmp.i3271 = icmp eq i64 %234, 0
+  %240 = load i64, ptr %Length4.i1728, align 8
+  store ptr %238, ptr %Lhs.addr.i3268, align 8
+  store ptr %239, ptr %Rhs.addr.i3269, align 8
+  store i64 %240, ptr %Length.addr.i3270, align 8
+  %241 = load i64, ptr %Length.addr.i3270, align 8
+  %cmp.i3271 = icmp eq i64 %241, 0
   br i1 %cmp.i3271, label %if.then.i3274, label %if.end.i3272
 
 if.then.i3274:                                    ; preds = %land.rhs.i1727
@@ -11522,21 +11529,21 @@ if.then.i3274:                                    ; preds = %land.rhs.i1727
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3275
 
 if.end.i3272:                                     ; preds = %land.rhs.i1727
-  %235 = load ptr, ptr %Lhs.addr.i3268, align 8
-  %236 = load ptr, ptr %Rhs.addr.i3269, align 8
-  %237 = load i64, ptr %Length.addr.i3270, align 8
-  %call.i3273 = call i32 @memcmp(ptr noundef %235, ptr noundef %236, i64 noundef %237) #10
+  %242 = load ptr, ptr %Lhs.addr.i3268, align 8
+  %243 = load ptr, ptr %Rhs.addr.i3269, align 8
+  %244 = load i64, ptr %Length.addr.i3270, align 8
+  %call.i3273 = call i32 @memcmp(ptr noundef %242, ptr noundef %243, i64 noundef %244) #10
   store i32 %call.i3273, ptr %retval.i3267, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3275
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3275: ; preds = %if.end.i3272, %if.then.i3274
-  %238 = load i32, ptr %retval.i3267, align 4
-  %cmp5.i1730 = icmp eq i32 %238, 0
+  %245 = load i32, ptr %retval.i3267, align 4
+  %cmp5.i1730 = icmp eq i32 %245, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1731
 
 _ZNK4llvh9StringRef6equalsES0_.exit1731:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3275, %land.lhs.true.i1547
-  %239 = phi i1 [ false, %land.lhs.true.i1547 ], [ %cmp5.i1730, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3275 ]
-  br i1 %239, label %if.then.i1549, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1552
+  %246 = phi i1 [ false, %land.lhs.true.i1547 ], [ %cmp5.i1730, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3275 ]
+  br i1 %246, label %if.then.i1549, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1552
 
 if.then.i1549:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1731
   %Result4.i1550 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1544, i32 0, i32 1
@@ -11545,15 +11552,16 @@ if.then.i1549:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1552: ; preds = %if.then.i1549, %_ZNK4llvh9StringRef6equalsES0_.exit1731, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1569
   call void @_ZN4llvh13StringLiteralC2ILm13EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm13ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23, ptr noundef nonnull align 1 dereferenceable(13) @.str.8)
-  %240 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7), align 4
-  %or24 = or i32 %240, 1
-  %241 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 0
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 1
-  %244 = load i64, ptr %243, align 8
-  store ptr %242, ptr %S.i1522, align 8
-  %245 = getelementptr inbounds { ptr, i64 }, ptr %S.i1522, i32 0, i32 1
-  store i64 %244, ptr %245, align 8
+  %247 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7
+  %248 = load i32, ptr %247, align 4
+  %or24 = or i32 %248, 1
+  %249 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 0
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 1
+  %252 = load i64, ptr %251, align 8
+  store ptr %250, ptr %S.i1522, align 8
+  %253 = getelementptr inbounds { ptr, i64 }, ptr %S.i1522, i32 0, i32 1
+  store i64 %252, ptr %253, align 8
   store ptr %this1.i1544, ptr %this.addr.i1523, align 8
   store i32 %or24, ptr %Value.addr.i1524, align 4
   %this1.i1527 = load ptr, ptr %this.addr.i1523, align 8
@@ -11564,44 +11572,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1552: ; preds = %if.the
 land.lhs.true.i1530:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1552
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1525, ptr align 8 %this1.i1527, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1526, ptr align 8 %S.i1522, i64 16, i1 false)
-  %246 = load ptr, ptr %agg.tmp.i1525, align 8
-  %247 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1525, i32 0, i32 1
-  %248 = load i64, ptr %247, align 8
-  %249 = load ptr, ptr %agg.tmp2.i1526, align 8
-  %250 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1526, i32 0, i32 1
-  %251 = load i64, ptr %250, align 8
-  store ptr %246, ptr %LHS.i.i1519, align 8
-  %252 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1519, i32 0, i32 1
-  store i64 %248, ptr %252, align 8
-  store ptr %249, ptr %RHS.i.i1520, align 8
-  %253 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1520, i32 0, i32 1
-  store i64 %251, ptr %253, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1521, ptr align 8 %RHS.i.i1520, i64 16, i1 false)
-  %254 = load ptr, ptr %agg.tmp.i.i1521, align 8
-  %255 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1521, i32 0, i32 1
+  %254 = load ptr, ptr %agg.tmp.i1525, align 8
+  %255 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1525, i32 0, i32 1
   %256 = load i64, ptr %255, align 8
-  store ptr %254, ptr %RHS.i1732, align 8
-  %257 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1732, i32 0, i32 1
-  store i64 %256, ptr %257, align 8
+  %257 = load ptr, ptr %agg.tmp2.i1526, align 8
+  %258 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1526, i32 0, i32 1
+  %259 = load i64, ptr %258, align 8
+  store ptr %254, ptr %LHS.i.i1519, align 8
+  %260 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1519, i32 0, i32 1
+  store i64 %256, ptr %260, align 8
+  store ptr %257, ptr %RHS.i.i1520, align 8
+  %261 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1520, i32 0, i32 1
+  store i64 %259, ptr %261, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1521, ptr align 8 %RHS.i.i1520, i64 16, i1 false)
+  %262 = load ptr, ptr %agg.tmp.i.i1521, align 8
+  %263 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1521, i32 0, i32 1
+  %264 = load i64, ptr %263, align 8
+  store ptr %262, ptr %RHS.i1732, align 8
+  %265 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1732, i32 0, i32 1
+  store i64 %264, ptr %265, align 8
   store ptr %LHS.i.i1519, ptr %this.addr.i1733, align 8
   %this1.i1734 = load ptr, ptr %this.addr.i1733, align 8
   %Length.i1735 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1734, i32 0, i32 1
-  %258 = load i64, ptr %Length.i1735, align 8
+  %266 = load i64, ptr %Length.i1735, align 8
   %Length2.i1736 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1732, i32 0, i32 1
-  %259 = load i64, ptr %Length2.i1736, align 8
-  %cmp.i1737 = icmp eq i64 %258, %259
+  %267 = load i64, ptr %Length2.i1736, align 8
+  %cmp.i1737 = icmp eq i64 %266, %267
   br i1 %cmp.i1737, label %land.rhs.i1738, label %_ZNK4llvh9StringRef6equalsES0_.exit1742
 
 land.rhs.i1738:                                   ; preds = %land.lhs.true.i1530
-  %260 = load ptr, ptr %this1.i1734, align 8
-  %261 = load ptr, ptr %RHS.i1732, align 8
+  %268 = load ptr, ptr %this1.i1734, align 8
+  %269 = load ptr, ptr %RHS.i1732, align 8
   %Length4.i1739 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1732, i32 0, i32 1
-  %262 = load i64, ptr %Length4.i1739, align 8
-  store ptr %260, ptr %Lhs.addr.i3259, align 8
-  store ptr %261, ptr %Rhs.addr.i3260, align 8
-  store i64 %262, ptr %Length.addr.i3261, align 8
-  %263 = load i64, ptr %Length.addr.i3261, align 8
-  %cmp.i3262 = icmp eq i64 %263, 0
+  %270 = load i64, ptr %Length4.i1739, align 8
+  store ptr %268, ptr %Lhs.addr.i3259, align 8
+  store ptr %269, ptr %Rhs.addr.i3260, align 8
+  store i64 %270, ptr %Length.addr.i3261, align 8
+  %271 = load i64, ptr %Length.addr.i3261, align 8
+  %cmp.i3262 = icmp eq i64 %271, 0
   br i1 %cmp.i3262, label %if.then.i3265, label %if.end.i3263
 
 if.then.i3265:                                    ; preds = %land.rhs.i1738
@@ -11609,21 +11617,21 @@ if.then.i3265:                                    ; preds = %land.rhs.i1738
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3266
 
 if.end.i3263:                                     ; preds = %land.rhs.i1738
-  %264 = load ptr, ptr %Lhs.addr.i3259, align 8
-  %265 = load ptr, ptr %Rhs.addr.i3260, align 8
-  %266 = load i64, ptr %Length.addr.i3261, align 8
-  %call.i3264 = call i32 @memcmp(ptr noundef %264, ptr noundef %265, i64 noundef %266) #10
+  %272 = load ptr, ptr %Lhs.addr.i3259, align 8
+  %273 = load ptr, ptr %Rhs.addr.i3260, align 8
+  %274 = load i64, ptr %Length.addr.i3261, align 8
+  %call.i3264 = call i32 @memcmp(ptr noundef %272, ptr noundef %273, i64 noundef %274) #10
   store i32 %call.i3264, ptr %retval.i3258, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3266
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3266: ; preds = %if.end.i3263, %if.then.i3265
-  %267 = load i32, ptr %retval.i3258, align 4
-  %cmp5.i1741 = icmp eq i32 %267, 0
+  %275 = load i32, ptr %retval.i3258, align 4
+  %cmp5.i1741 = icmp eq i32 %275, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1742
 
 _ZNK4llvh9StringRef6equalsES0_.exit1742:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3266, %land.lhs.true.i1530
-  %268 = phi i1 [ false, %land.lhs.true.i1530 ], [ %cmp5.i1741, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3266 ]
-  br i1 %268, label %if.then.i1532, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1535
+  %276 = phi i1 [ false, %land.lhs.true.i1530 ], [ %cmp5.i1741, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3266 ]
+  br i1 %276, label %if.then.i1532, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1535
 
 if.then.i1532:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1742
   %Result4.i1533 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1527, i32 0, i32 1
@@ -11632,15 +11640,16 @@ if.then.i1532:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1535: ; preds = %if.then.i1532, %_ZNK4llvh9StringRef6equalsES0_.exit1742, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1552
   call void @_ZN4llvh13StringLiteralC2ILm14EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm14ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 1 dereferenceable(14) @.str.9)
-  %269 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7), align 4
-  %or27 = or i32 %269, 1
-  %270 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp26, i32 0, i32 0
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp26, i32 0, i32 1
-  %273 = load i64, ptr %272, align 8
-  store ptr %271, ptr %S.i1505, align 8
-  %274 = getelementptr inbounds { ptr, i64 }, ptr %S.i1505, i32 0, i32 1
-  store i64 %273, ptr %274, align 8
+  %277 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7
+  %278 = load i32, ptr %277, align 4
+  %or27 = or i32 %278, 1
+  %279 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp26, i32 0, i32 0
+  %280 = load ptr, ptr %279, align 8
+  %281 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp26, i32 0, i32 1
+  %282 = load i64, ptr %281, align 8
+  store ptr %280, ptr %S.i1505, align 8
+  %283 = getelementptr inbounds { ptr, i64 }, ptr %S.i1505, i32 0, i32 1
+  store i64 %282, ptr %283, align 8
   store ptr %this1.i1527, ptr %this.addr.i1506, align 8
   store i32 %or27, ptr %Value.addr.i1507, align 4
   %this1.i1510 = load ptr, ptr %this.addr.i1506, align 8
@@ -11651,44 +11660,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1535: ; preds = %if.the
 land.lhs.true.i1513:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1535
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1508, ptr align 8 %this1.i1510, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1509, ptr align 8 %S.i1505, i64 16, i1 false)
-  %275 = load ptr, ptr %agg.tmp.i1508, align 8
-  %276 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1508, i32 0, i32 1
-  %277 = load i64, ptr %276, align 8
-  %278 = load ptr, ptr %agg.tmp2.i1509, align 8
-  %279 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1509, i32 0, i32 1
-  %280 = load i64, ptr %279, align 8
-  store ptr %275, ptr %LHS.i.i1502, align 8
-  %281 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1502, i32 0, i32 1
-  store i64 %277, ptr %281, align 8
-  store ptr %278, ptr %RHS.i.i1503, align 8
-  %282 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1503, i32 0, i32 1
-  store i64 %280, ptr %282, align 8
+  %284 = load ptr, ptr %agg.tmp.i1508, align 8
+  %285 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1508, i32 0, i32 1
+  %286 = load i64, ptr %285, align 8
+  %287 = load ptr, ptr %agg.tmp2.i1509, align 8
+  %288 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1509, i32 0, i32 1
+  %289 = load i64, ptr %288, align 8
+  store ptr %284, ptr %LHS.i.i1502, align 8
+  %290 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1502, i32 0, i32 1
+  store i64 %286, ptr %290, align 8
+  store ptr %287, ptr %RHS.i.i1503, align 8
+  %291 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1503, i32 0, i32 1
+  store i64 %289, ptr %291, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1504, ptr align 8 %RHS.i.i1503, i64 16, i1 false)
-  %283 = load ptr, ptr %agg.tmp.i.i1504, align 8
-  %284 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1504, i32 0, i32 1
-  %285 = load i64, ptr %284, align 8
-  store ptr %283, ptr %RHS.i1743, align 8
-  %286 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1743, i32 0, i32 1
-  store i64 %285, ptr %286, align 8
+  %292 = load ptr, ptr %agg.tmp.i.i1504, align 8
+  %293 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1504, i32 0, i32 1
+  %294 = load i64, ptr %293, align 8
+  store ptr %292, ptr %RHS.i1743, align 8
+  %295 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1743, i32 0, i32 1
+  store i64 %294, ptr %295, align 8
   store ptr %LHS.i.i1502, ptr %this.addr.i1744, align 8
   %this1.i1745 = load ptr, ptr %this.addr.i1744, align 8
   %Length.i1746 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1745, i32 0, i32 1
-  %287 = load i64, ptr %Length.i1746, align 8
+  %296 = load i64, ptr %Length.i1746, align 8
   %Length2.i1747 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1743, i32 0, i32 1
-  %288 = load i64, ptr %Length2.i1747, align 8
-  %cmp.i1748 = icmp eq i64 %287, %288
+  %297 = load i64, ptr %Length2.i1747, align 8
+  %cmp.i1748 = icmp eq i64 %296, %297
   br i1 %cmp.i1748, label %land.rhs.i1749, label %_ZNK4llvh9StringRef6equalsES0_.exit1753
 
 land.rhs.i1749:                                   ; preds = %land.lhs.true.i1513
-  %289 = load ptr, ptr %this1.i1745, align 8
-  %290 = load ptr, ptr %RHS.i1743, align 8
+  %298 = load ptr, ptr %this1.i1745, align 8
+  %299 = load ptr, ptr %RHS.i1743, align 8
   %Length4.i1750 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1743, i32 0, i32 1
-  %291 = load i64, ptr %Length4.i1750, align 8
-  store ptr %289, ptr %Lhs.addr.i3250, align 8
-  store ptr %290, ptr %Rhs.addr.i3251, align 8
-  store i64 %291, ptr %Length.addr.i3252, align 8
-  %292 = load i64, ptr %Length.addr.i3252, align 8
-  %cmp.i3253 = icmp eq i64 %292, 0
+  %300 = load i64, ptr %Length4.i1750, align 8
+  store ptr %298, ptr %Lhs.addr.i3250, align 8
+  store ptr %299, ptr %Rhs.addr.i3251, align 8
+  store i64 %300, ptr %Length.addr.i3252, align 8
+  %301 = load i64, ptr %Length.addr.i3252, align 8
+  %cmp.i3253 = icmp eq i64 %301, 0
   br i1 %cmp.i3253, label %if.then.i3256, label %if.end.i3254
 
 if.then.i3256:                                    ; preds = %land.rhs.i1749
@@ -11696,21 +11705,21 @@ if.then.i3256:                                    ; preds = %land.rhs.i1749
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3257
 
 if.end.i3254:                                     ; preds = %land.rhs.i1749
-  %293 = load ptr, ptr %Lhs.addr.i3250, align 8
-  %294 = load ptr, ptr %Rhs.addr.i3251, align 8
-  %295 = load i64, ptr %Length.addr.i3252, align 8
-  %call.i3255 = call i32 @memcmp(ptr noundef %293, ptr noundef %294, i64 noundef %295) #10
+  %302 = load ptr, ptr %Lhs.addr.i3250, align 8
+  %303 = load ptr, ptr %Rhs.addr.i3251, align 8
+  %304 = load i64, ptr %Length.addr.i3252, align 8
+  %call.i3255 = call i32 @memcmp(ptr noundef %302, ptr noundef %303, i64 noundef %304) #10
   store i32 %call.i3255, ptr %retval.i3249, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3257
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3257: ; preds = %if.end.i3254, %if.then.i3256
-  %296 = load i32, ptr %retval.i3249, align 4
-  %cmp5.i1752 = icmp eq i32 %296, 0
+  %305 = load i32, ptr %retval.i3249, align 4
+  %cmp5.i1752 = icmp eq i32 %305, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1753
 
 _ZNK4llvh9StringRef6equalsES0_.exit1753:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3257, %land.lhs.true.i1513
-  %297 = phi i1 [ false, %land.lhs.true.i1513 ], [ %cmp5.i1752, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3257 ]
-  br i1 %297, label %if.then.i1515, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1518
+  %306 = phi i1 [ false, %land.lhs.true.i1513 ], [ %cmp5.i1752, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3257 ]
+  br i1 %306, label %if.then.i1515, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1518
 
 if.then.i1515:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1753
   %Result4.i1516 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1510, i32 0, i32 1
@@ -11719,15 +11728,16 @@ if.then.i1515:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1518: ; preds = %if.then.i1515, %_ZNK4llvh9StringRef6equalsES0_.exit1753, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1535
   call void @_ZN4llvh13StringLiteralC2ILm14EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm14ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp29, ptr noundef nonnull align 1 dereferenceable(14) @.str.10)
-  %298 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7), align 4
-  %or30 = or i32 %298, 1
-  %299 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 0
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 1
-  %302 = load i64, ptr %301, align 8
-  store ptr %300, ptr %S.i1488, align 8
-  %303 = getelementptr inbounds { ptr, i64 }, ptr %S.i1488, i32 0, i32 1
-  store i64 %302, ptr %303, align 8
+  %307 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 5, i32 7
+  %308 = load i32, ptr %307, align 4
+  %or30 = or i32 %308, 1
+  %309 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 0
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 1
+  %312 = load i64, ptr %311, align 8
+  store ptr %310, ptr %S.i1488, align 8
+  %313 = getelementptr inbounds { ptr, i64 }, ptr %S.i1488, i32 0, i32 1
+  store i64 %312, ptr %313, align 8
   store ptr %this1.i1510, ptr %this.addr.i1489, align 8
   store i32 %or30, ptr %Value.addr.i1490, align 4
   %this1.i1493 = load ptr, ptr %this.addr.i1489, align 8
@@ -11738,44 +11748,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1518: ; preds = %if.the
 land.lhs.true.i1496:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1518
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1491, ptr align 8 %this1.i1493, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1492, ptr align 8 %S.i1488, i64 16, i1 false)
-  %304 = load ptr, ptr %agg.tmp.i1491, align 8
-  %305 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1491, i32 0, i32 1
-  %306 = load i64, ptr %305, align 8
-  %307 = load ptr, ptr %agg.tmp2.i1492, align 8
-  %308 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1492, i32 0, i32 1
-  %309 = load i64, ptr %308, align 8
-  store ptr %304, ptr %LHS.i.i1485, align 8
-  %310 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1485, i32 0, i32 1
-  store i64 %306, ptr %310, align 8
-  store ptr %307, ptr %RHS.i.i1486, align 8
-  %311 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1486, i32 0, i32 1
-  store i64 %309, ptr %311, align 8
+  %314 = load ptr, ptr %agg.tmp.i1491, align 8
+  %315 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1491, i32 0, i32 1
+  %316 = load i64, ptr %315, align 8
+  %317 = load ptr, ptr %agg.tmp2.i1492, align 8
+  %318 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1492, i32 0, i32 1
+  %319 = load i64, ptr %318, align 8
+  store ptr %314, ptr %LHS.i.i1485, align 8
+  %320 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1485, i32 0, i32 1
+  store i64 %316, ptr %320, align 8
+  store ptr %317, ptr %RHS.i.i1486, align 8
+  %321 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1486, i32 0, i32 1
+  store i64 %319, ptr %321, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1487, ptr align 8 %RHS.i.i1486, i64 16, i1 false)
-  %312 = load ptr, ptr %agg.tmp.i.i1487, align 8
-  %313 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1487, i32 0, i32 1
-  %314 = load i64, ptr %313, align 8
-  store ptr %312, ptr %RHS.i1754, align 8
-  %315 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1754, i32 0, i32 1
-  store i64 %314, ptr %315, align 8
+  %322 = load ptr, ptr %agg.tmp.i.i1487, align 8
+  %323 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1487, i32 0, i32 1
+  %324 = load i64, ptr %323, align 8
+  store ptr %322, ptr %RHS.i1754, align 8
+  %325 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1754, i32 0, i32 1
+  store i64 %324, ptr %325, align 8
   store ptr %LHS.i.i1485, ptr %this.addr.i1755, align 8
   %this1.i1756 = load ptr, ptr %this.addr.i1755, align 8
   %Length.i1757 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1756, i32 0, i32 1
-  %316 = load i64, ptr %Length.i1757, align 8
+  %326 = load i64, ptr %Length.i1757, align 8
   %Length2.i1758 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1754, i32 0, i32 1
-  %317 = load i64, ptr %Length2.i1758, align 8
-  %cmp.i1759 = icmp eq i64 %316, %317
+  %327 = load i64, ptr %Length2.i1758, align 8
+  %cmp.i1759 = icmp eq i64 %326, %327
   br i1 %cmp.i1759, label %land.rhs.i1760, label %_ZNK4llvh9StringRef6equalsES0_.exit1764
 
 land.rhs.i1760:                                   ; preds = %land.lhs.true.i1496
-  %318 = load ptr, ptr %this1.i1756, align 8
-  %319 = load ptr, ptr %RHS.i1754, align 8
+  %328 = load ptr, ptr %this1.i1756, align 8
+  %329 = load ptr, ptr %RHS.i1754, align 8
   %Length4.i1761 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1754, i32 0, i32 1
-  %320 = load i64, ptr %Length4.i1761, align 8
-  store ptr %318, ptr %Lhs.addr.i3241, align 8
-  store ptr %319, ptr %Rhs.addr.i3242, align 8
-  store i64 %320, ptr %Length.addr.i3243, align 8
-  %321 = load i64, ptr %Length.addr.i3243, align 8
-  %cmp.i3244 = icmp eq i64 %321, 0
+  %330 = load i64, ptr %Length4.i1761, align 8
+  store ptr %328, ptr %Lhs.addr.i3241, align 8
+  store ptr %329, ptr %Rhs.addr.i3242, align 8
+  store i64 %330, ptr %Length.addr.i3243, align 8
+  %331 = load i64, ptr %Length.addr.i3243, align 8
+  %cmp.i3244 = icmp eq i64 %331, 0
   br i1 %cmp.i3244, label %if.then.i3247, label %if.end.i3245
 
 if.then.i3247:                                    ; preds = %land.rhs.i1760
@@ -11783,21 +11793,21 @@ if.then.i3247:                                    ; preds = %land.rhs.i1760
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3248
 
 if.end.i3245:                                     ; preds = %land.rhs.i1760
-  %322 = load ptr, ptr %Lhs.addr.i3241, align 8
-  %323 = load ptr, ptr %Rhs.addr.i3242, align 8
-  %324 = load i64, ptr %Length.addr.i3243, align 8
-  %call.i3246 = call i32 @memcmp(ptr noundef %322, ptr noundef %323, i64 noundef %324) #10
+  %332 = load ptr, ptr %Lhs.addr.i3241, align 8
+  %333 = load ptr, ptr %Rhs.addr.i3242, align 8
+  %334 = load i64, ptr %Length.addr.i3243, align 8
+  %call.i3246 = call i32 @memcmp(ptr noundef %332, ptr noundef %333, i64 noundef %334) #10
   store i32 %call.i3246, ptr %retval.i3240, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3248
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3248: ; preds = %if.end.i3245, %if.then.i3247
-  %325 = load i32, ptr %retval.i3240, align 4
-  %cmp5.i1763 = icmp eq i32 %325, 0
+  %335 = load i32, ptr %retval.i3240, align 4
+  %cmp5.i1763 = icmp eq i32 %335, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1764
 
 _ZNK4llvh9StringRef6equalsES0_.exit1764:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3248, %land.lhs.true.i1496
-  %326 = phi i1 [ false, %land.lhs.true.i1496 ], [ %cmp5.i1763, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3248 ]
-  br i1 %326, label %if.then.i1498, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1501
+  %336 = phi i1 [ false, %land.lhs.true.i1496 ], [ %cmp5.i1763, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3248 ]
+  br i1 %336, label %if.then.i1498, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1501
 
 if.then.i1498:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1764
   %Result4.i1499 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1493, i32 0, i32 1
@@ -11806,15 +11816,16 @@ if.then.i1498:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1501: ; preds = %if.then.i1498, %_ZNK4llvh9StringRef6equalsES0_.exit1764, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1518
   call void @_ZN4llvh13StringLiteralC2ILm9EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm9ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32, ptr noundef nonnull align 1 dereferenceable(9) @.str.11)
-  %327 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or33 = or i32 %327, 1
-  %328 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp32, i32 0, i32 0
-  %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp32, i32 0, i32 1
-  %331 = load i64, ptr %330, align 8
-  store ptr %329, ptr %S.i1471, align 8
-  %332 = getelementptr inbounds { ptr, i64 }, ptr %S.i1471, i32 0, i32 1
-  store i64 %331, ptr %332, align 8
+  %337 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %338 = load i32, ptr %337, align 4
+  %or33 = or i32 %338, 1
+  %339 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp32, i32 0, i32 0
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp32, i32 0, i32 1
+  %342 = load i64, ptr %341, align 8
+  store ptr %340, ptr %S.i1471, align 8
+  %343 = getelementptr inbounds { ptr, i64 }, ptr %S.i1471, i32 0, i32 1
+  store i64 %342, ptr %343, align 8
   store ptr %this1.i1493, ptr %this.addr.i1472, align 8
   store i32 %or33, ptr %Value.addr.i1473, align 4
   %this1.i1476 = load ptr, ptr %this.addr.i1472, align 8
@@ -11825,44 +11836,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1501: ; preds = %if.the
 land.lhs.true.i1479:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1501
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1474, ptr align 8 %this1.i1476, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1475, ptr align 8 %S.i1471, i64 16, i1 false)
-  %333 = load ptr, ptr %agg.tmp.i1474, align 8
-  %334 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1474, i32 0, i32 1
-  %335 = load i64, ptr %334, align 8
-  %336 = load ptr, ptr %agg.tmp2.i1475, align 8
-  %337 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1475, i32 0, i32 1
-  %338 = load i64, ptr %337, align 8
-  store ptr %333, ptr %LHS.i.i1468, align 8
-  %339 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1468, i32 0, i32 1
-  store i64 %335, ptr %339, align 8
-  store ptr %336, ptr %RHS.i.i1469, align 8
-  %340 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1469, i32 0, i32 1
-  store i64 %338, ptr %340, align 8
+  %344 = load ptr, ptr %agg.tmp.i1474, align 8
+  %345 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1474, i32 0, i32 1
+  %346 = load i64, ptr %345, align 8
+  %347 = load ptr, ptr %agg.tmp2.i1475, align 8
+  %348 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1475, i32 0, i32 1
+  %349 = load i64, ptr %348, align 8
+  store ptr %344, ptr %LHS.i.i1468, align 8
+  %350 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1468, i32 0, i32 1
+  store i64 %346, ptr %350, align 8
+  store ptr %347, ptr %RHS.i.i1469, align 8
+  %351 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1469, i32 0, i32 1
+  store i64 %349, ptr %351, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1470, ptr align 8 %RHS.i.i1469, i64 16, i1 false)
-  %341 = load ptr, ptr %agg.tmp.i.i1470, align 8
-  %342 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1470, i32 0, i32 1
-  %343 = load i64, ptr %342, align 8
-  store ptr %341, ptr %RHS.i1765, align 8
-  %344 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1765, i32 0, i32 1
-  store i64 %343, ptr %344, align 8
+  %352 = load ptr, ptr %agg.tmp.i.i1470, align 8
+  %353 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1470, i32 0, i32 1
+  %354 = load i64, ptr %353, align 8
+  store ptr %352, ptr %RHS.i1765, align 8
+  %355 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1765, i32 0, i32 1
+  store i64 %354, ptr %355, align 8
   store ptr %LHS.i.i1468, ptr %this.addr.i1766, align 8
   %this1.i1767 = load ptr, ptr %this.addr.i1766, align 8
   %Length.i1768 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1767, i32 0, i32 1
-  %345 = load i64, ptr %Length.i1768, align 8
+  %356 = load i64, ptr %Length.i1768, align 8
   %Length2.i1769 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1765, i32 0, i32 1
-  %346 = load i64, ptr %Length2.i1769, align 8
-  %cmp.i1770 = icmp eq i64 %345, %346
+  %357 = load i64, ptr %Length2.i1769, align 8
+  %cmp.i1770 = icmp eq i64 %356, %357
   br i1 %cmp.i1770, label %land.rhs.i1771, label %_ZNK4llvh9StringRef6equalsES0_.exit1775
 
 land.rhs.i1771:                                   ; preds = %land.lhs.true.i1479
-  %347 = load ptr, ptr %this1.i1767, align 8
-  %348 = load ptr, ptr %RHS.i1765, align 8
+  %358 = load ptr, ptr %this1.i1767, align 8
+  %359 = load ptr, ptr %RHS.i1765, align 8
   %Length4.i1772 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1765, i32 0, i32 1
-  %349 = load i64, ptr %Length4.i1772, align 8
-  store ptr %347, ptr %Lhs.addr.i3232, align 8
-  store ptr %348, ptr %Rhs.addr.i3233, align 8
-  store i64 %349, ptr %Length.addr.i3234, align 8
-  %350 = load i64, ptr %Length.addr.i3234, align 8
-  %cmp.i3235 = icmp eq i64 %350, 0
+  %360 = load i64, ptr %Length4.i1772, align 8
+  store ptr %358, ptr %Lhs.addr.i3232, align 8
+  store ptr %359, ptr %Rhs.addr.i3233, align 8
+  store i64 %360, ptr %Length.addr.i3234, align 8
+  %361 = load i64, ptr %Length.addr.i3234, align 8
+  %cmp.i3235 = icmp eq i64 %361, 0
   br i1 %cmp.i3235, label %if.then.i3238, label %if.end.i3236
 
 if.then.i3238:                                    ; preds = %land.rhs.i1771
@@ -11870,21 +11881,21 @@ if.then.i3238:                                    ; preds = %land.rhs.i1771
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3239
 
 if.end.i3236:                                     ; preds = %land.rhs.i1771
-  %351 = load ptr, ptr %Lhs.addr.i3232, align 8
-  %352 = load ptr, ptr %Rhs.addr.i3233, align 8
-  %353 = load i64, ptr %Length.addr.i3234, align 8
-  %call.i3237 = call i32 @memcmp(ptr noundef %351, ptr noundef %352, i64 noundef %353) #10
+  %362 = load ptr, ptr %Lhs.addr.i3232, align 8
+  %363 = load ptr, ptr %Rhs.addr.i3233, align 8
+  %364 = load i64, ptr %Length.addr.i3234, align 8
+  %call.i3237 = call i32 @memcmp(ptr noundef %362, ptr noundef %363, i64 noundef %364) #10
   store i32 %call.i3237, ptr %retval.i3231, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3239
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3239: ; preds = %if.end.i3236, %if.then.i3238
-  %354 = load i32, ptr %retval.i3231, align 4
-  %cmp5.i1774 = icmp eq i32 %354, 0
+  %365 = load i32, ptr %retval.i3231, align 4
+  %cmp5.i1774 = icmp eq i32 %365, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1775
 
 _ZNK4llvh9StringRef6equalsES0_.exit1775:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3239, %land.lhs.true.i1479
-  %355 = phi i1 [ false, %land.lhs.true.i1479 ], [ %cmp5.i1774, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3239 ]
-  br i1 %355, label %if.then.i1481, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1484
+  %366 = phi i1 [ false, %land.lhs.true.i1479 ], [ %cmp5.i1774, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3239 ]
+  br i1 %366, label %if.then.i1481, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1484
 
 if.then.i1481:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1775
   %Result4.i1482 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1476, i32 0, i32 1
@@ -11893,15 +11904,16 @@ if.then.i1481:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1484: ; preds = %if.then.i1481, %_ZNK4llvh9StringRef6equalsES0_.exit1775, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1501
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, ptr noundef nonnull align 1 dereferenceable(11) @.str.12)
-  %356 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or36 = or i32 %356, 1
-  %357 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp35, i32 0, i32 0
-  %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp35, i32 0, i32 1
-  %360 = load i64, ptr %359, align 8
-  store ptr %358, ptr %S.i1454, align 8
-  %361 = getelementptr inbounds { ptr, i64 }, ptr %S.i1454, i32 0, i32 1
-  store i64 %360, ptr %361, align 8
+  %367 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %368 = load i32, ptr %367, align 4
+  %or36 = or i32 %368, 1
+  %369 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp35, i32 0, i32 0
+  %370 = load ptr, ptr %369, align 8
+  %371 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp35, i32 0, i32 1
+  %372 = load i64, ptr %371, align 8
+  store ptr %370, ptr %S.i1454, align 8
+  %373 = getelementptr inbounds { ptr, i64 }, ptr %S.i1454, i32 0, i32 1
+  store i64 %372, ptr %373, align 8
   store ptr %this1.i1476, ptr %this.addr.i1455, align 8
   store i32 %or36, ptr %Value.addr.i1456, align 4
   %this1.i1459 = load ptr, ptr %this.addr.i1455, align 8
@@ -11912,44 +11924,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1484: ; preds = %if.the
 land.lhs.true.i1462:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1484
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1457, ptr align 8 %this1.i1459, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1458, ptr align 8 %S.i1454, i64 16, i1 false)
-  %362 = load ptr, ptr %agg.tmp.i1457, align 8
-  %363 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1457, i32 0, i32 1
-  %364 = load i64, ptr %363, align 8
-  %365 = load ptr, ptr %agg.tmp2.i1458, align 8
-  %366 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1458, i32 0, i32 1
-  %367 = load i64, ptr %366, align 8
-  store ptr %362, ptr %LHS.i.i1451, align 8
-  %368 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1451, i32 0, i32 1
-  store i64 %364, ptr %368, align 8
-  store ptr %365, ptr %RHS.i.i1452, align 8
-  %369 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1452, i32 0, i32 1
-  store i64 %367, ptr %369, align 8
+  %374 = load ptr, ptr %agg.tmp.i1457, align 8
+  %375 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1457, i32 0, i32 1
+  %376 = load i64, ptr %375, align 8
+  %377 = load ptr, ptr %agg.tmp2.i1458, align 8
+  %378 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1458, i32 0, i32 1
+  %379 = load i64, ptr %378, align 8
+  store ptr %374, ptr %LHS.i.i1451, align 8
+  %380 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1451, i32 0, i32 1
+  store i64 %376, ptr %380, align 8
+  store ptr %377, ptr %RHS.i.i1452, align 8
+  %381 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1452, i32 0, i32 1
+  store i64 %379, ptr %381, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1453, ptr align 8 %RHS.i.i1452, i64 16, i1 false)
-  %370 = load ptr, ptr %agg.tmp.i.i1453, align 8
-  %371 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1453, i32 0, i32 1
-  %372 = load i64, ptr %371, align 8
-  store ptr %370, ptr %RHS.i1776, align 8
-  %373 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1776, i32 0, i32 1
-  store i64 %372, ptr %373, align 8
+  %382 = load ptr, ptr %agg.tmp.i.i1453, align 8
+  %383 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1453, i32 0, i32 1
+  %384 = load i64, ptr %383, align 8
+  store ptr %382, ptr %RHS.i1776, align 8
+  %385 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1776, i32 0, i32 1
+  store i64 %384, ptr %385, align 8
   store ptr %LHS.i.i1451, ptr %this.addr.i1777, align 8
   %this1.i1778 = load ptr, ptr %this.addr.i1777, align 8
   %Length.i1779 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1778, i32 0, i32 1
-  %374 = load i64, ptr %Length.i1779, align 8
+  %386 = load i64, ptr %Length.i1779, align 8
   %Length2.i1780 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1776, i32 0, i32 1
-  %375 = load i64, ptr %Length2.i1780, align 8
-  %cmp.i1781 = icmp eq i64 %374, %375
+  %387 = load i64, ptr %Length2.i1780, align 8
+  %cmp.i1781 = icmp eq i64 %386, %387
   br i1 %cmp.i1781, label %land.rhs.i1782, label %_ZNK4llvh9StringRef6equalsES0_.exit1786
 
 land.rhs.i1782:                                   ; preds = %land.lhs.true.i1462
-  %376 = load ptr, ptr %this1.i1778, align 8
-  %377 = load ptr, ptr %RHS.i1776, align 8
+  %388 = load ptr, ptr %this1.i1778, align 8
+  %389 = load ptr, ptr %RHS.i1776, align 8
   %Length4.i1783 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1776, i32 0, i32 1
-  %378 = load i64, ptr %Length4.i1783, align 8
-  store ptr %376, ptr %Lhs.addr.i3223, align 8
-  store ptr %377, ptr %Rhs.addr.i3224, align 8
-  store i64 %378, ptr %Length.addr.i3225, align 8
-  %379 = load i64, ptr %Length.addr.i3225, align 8
-  %cmp.i3226 = icmp eq i64 %379, 0
+  %390 = load i64, ptr %Length4.i1783, align 8
+  store ptr %388, ptr %Lhs.addr.i3223, align 8
+  store ptr %389, ptr %Rhs.addr.i3224, align 8
+  store i64 %390, ptr %Length.addr.i3225, align 8
+  %391 = load i64, ptr %Length.addr.i3225, align 8
+  %cmp.i3226 = icmp eq i64 %391, 0
   br i1 %cmp.i3226, label %if.then.i3229, label %if.end.i3227
 
 if.then.i3229:                                    ; preds = %land.rhs.i1782
@@ -11957,21 +11969,21 @@ if.then.i3229:                                    ; preds = %land.rhs.i1782
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3230
 
 if.end.i3227:                                     ; preds = %land.rhs.i1782
-  %380 = load ptr, ptr %Lhs.addr.i3223, align 8
-  %381 = load ptr, ptr %Rhs.addr.i3224, align 8
-  %382 = load i64, ptr %Length.addr.i3225, align 8
-  %call.i3228 = call i32 @memcmp(ptr noundef %380, ptr noundef %381, i64 noundef %382) #10
+  %392 = load ptr, ptr %Lhs.addr.i3223, align 8
+  %393 = load ptr, ptr %Rhs.addr.i3224, align 8
+  %394 = load i64, ptr %Length.addr.i3225, align 8
+  %call.i3228 = call i32 @memcmp(ptr noundef %392, ptr noundef %393, i64 noundef %394) #10
   store i32 %call.i3228, ptr %retval.i3222, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3230
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3230: ; preds = %if.end.i3227, %if.then.i3229
-  %383 = load i32, ptr %retval.i3222, align 4
-  %cmp5.i1785 = icmp eq i32 %383, 0
+  %395 = load i32, ptr %retval.i3222, align 4
+  %cmp5.i1785 = icmp eq i32 %395, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1786
 
 _ZNK4llvh9StringRef6equalsES0_.exit1786:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3230, %land.lhs.true.i1462
-  %384 = phi i1 [ false, %land.lhs.true.i1462 ], [ %cmp5.i1785, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3230 ]
-  br i1 %384, label %if.then.i1464, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1467
+  %396 = phi i1 [ false, %land.lhs.true.i1462 ], [ %cmp5.i1785, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3230 ]
+  br i1 %396, label %if.then.i1464, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1467
 
 if.then.i1464:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1786
   %Result4.i1465 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1459, i32 0, i32 1
@@ -11980,15 +11992,16 @@ if.then.i1464:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1467: ; preds = %if.then.i1464, %_ZNK4llvh9StringRef6equalsES0_.exit1786, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1484
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp38, ptr noundef nonnull align 1 dereferenceable(8) @.str.13)
-  %385 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or39 = or i32 %385, 1
-  %386 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 0
-  %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 1
-  %389 = load i64, ptr %388, align 8
-  store ptr %387, ptr %S.i1437, align 8
-  %390 = getelementptr inbounds { ptr, i64 }, ptr %S.i1437, i32 0, i32 1
-  store i64 %389, ptr %390, align 8
+  %397 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %398 = load i32, ptr %397, align 4
+  %or39 = or i32 %398, 1
+  %399 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 0
+  %400 = load ptr, ptr %399, align 8
+  %401 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 1
+  %402 = load i64, ptr %401, align 8
+  store ptr %400, ptr %S.i1437, align 8
+  %403 = getelementptr inbounds { ptr, i64 }, ptr %S.i1437, i32 0, i32 1
+  store i64 %402, ptr %403, align 8
   store ptr %this1.i1459, ptr %this.addr.i1438, align 8
   store i32 %or39, ptr %Value.addr.i1439, align 4
   %this1.i1442 = load ptr, ptr %this.addr.i1438, align 8
@@ -11999,44 +12012,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1467: ; preds = %if.the
 land.lhs.true.i1445:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1467
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1440, ptr align 8 %this1.i1442, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1441, ptr align 8 %S.i1437, i64 16, i1 false)
-  %391 = load ptr, ptr %agg.tmp.i1440, align 8
-  %392 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1440, i32 0, i32 1
-  %393 = load i64, ptr %392, align 8
-  %394 = load ptr, ptr %agg.tmp2.i1441, align 8
-  %395 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1441, i32 0, i32 1
-  %396 = load i64, ptr %395, align 8
-  store ptr %391, ptr %LHS.i.i1434, align 8
-  %397 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1434, i32 0, i32 1
-  store i64 %393, ptr %397, align 8
-  store ptr %394, ptr %RHS.i.i1435, align 8
-  %398 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1435, i32 0, i32 1
-  store i64 %396, ptr %398, align 8
+  %404 = load ptr, ptr %agg.tmp.i1440, align 8
+  %405 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1440, i32 0, i32 1
+  %406 = load i64, ptr %405, align 8
+  %407 = load ptr, ptr %agg.tmp2.i1441, align 8
+  %408 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1441, i32 0, i32 1
+  %409 = load i64, ptr %408, align 8
+  store ptr %404, ptr %LHS.i.i1434, align 8
+  %410 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1434, i32 0, i32 1
+  store i64 %406, ptr %410, align 8
+  store ptr %407, ptr %RHS.i.i1435, align 8
+  %411 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1435, i32 0, i32 1
+  store i64 %409, ptr %411, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1436, ptr align 8 %RHS.i.i1435, i64 16, i1 false)
-  %399 = load ptr, ptr %agg.tmp.i.i1436, align 8
-  %400 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1436, i32 0, i32 1
-  %401 = load i64, ptr %400, align 8
-  store ptr %399, ptr %RHS.i1787, align 8
-  %402 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1787, i32 0, i32 1
-  store i64 %401, ptr %402, align 8
+  %412 = load ptr, ptr %agg.tmp.i.i1436, align 8
+  %413 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1436, i32 0, i32 1
+  %414 = load i64, ptr %413, align 8
+  store ptr %412, ptr %RHS.i1787, align 8
+  %415 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1787, i32 0, i32 1
+  store i64 %414, ptr %415, align 8
   store ptr %LHS.i.i1434, ptr %this.addr.i1788, align 8
   %this1.i1789 = load ptr, ptr %this.addr.i1788, align 8
   %Length.i1790 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1789, i32 0, i32 1
-  %403 = load i64, ptr %Length.i1790, align 8
+  %416 = load i64, ptr %Length.i1790, align 8
   %Length2.i1791 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1787, i32 0, i32 1
-  %404 = load i64, ptr %Length2.i1791, align 8
-  %cmp.i1792 = icmp eq i64 %403, %404
+  %417 = load i64, ptr %Length2.i1791, align 8
+  %cmp.i1792 = icmp eq i64 %416, %417
   br i1 %cmp.i1792, label %land.rhs.i1793, label %_ZNK4llvh9StringRef6equalsES0_.exit1797
 
 land.rhs.i1793:                                   ; preds = %land.lhs.true.i1445
-  %405 = load ptr, ptr %this1.i1789, align 8
-  %406 = load ptr, ptr %RHS.i1787, align 8
+  %418 = load ptr, ptr %this1.i1789, align 8
+  %419 = load ptr, ptr %RHS.i1787, align 8
   %Length4.i1794 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1787, i32 0, i32 1
-  %407 = load i64, ptr %Length4.i1794, align 8
-  store ptr %405, ptr %Lhs.addr.i3214, align 8
-  store ptr %406, ptr %Rhs.addr.i3215, align 8
-  store i64 %407, ptr %Length.addr.i3216, align 8
-  %408 = load i64, ptr %Length.addr.i3216, align 8
-  %cmp.i3217 = icmp eq i64 %408, 0
+  %420 = load i64, ptr %Length4.i1794, align 8
+  store ptr %418, ptr %Lhs.addr.i3214, align 8
+  store ptr %419, ptr %Rhs.addr.i3215, align 8
+  store i64 %420, ptr %Length.addr.i3216, align 8
+  %421 = load i64, ptr %Length.addr.i3216, align 8
+  %cmp.i3217 = icmp eq i64 %421, 0
   br i1 %cmp.i3217, label %if.then.i3220, label %if.end.i3218
 
 if.then.i3220:                                    ; preds = %land.rhs.i1793
@@ -12044,21 +12057,21 @@ if.then.i3220:                                    ; preds = %land.rhs.i1793
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3221
 
 if.end.i3218:                                     ; preds = %land.rhs.i1793
-  %409 = load ptr, ptr %Lhs.addr.i3214, align 8
-  %410 = load ptr, ptr %Rhs.addr.i3215, align 8
-  %411 = load i64, ptr %Length.addr.i3216, align 8
-  %call.i3219 = call i32 @memcmp(ptr noundef %409, ptr noundef %410, i64 noundef %411) #10
+  %422 = load ptr, ptr %Lhs.addr.i3214, align 8
+  %423 = load ptr, ptr %Rhs.addr.i3215, align 8
+  %424 = load i64, ptr %Length.addr.i3216, align 8
+  %call.i3219 = call i32 @memcmp(ptr noundef %422, ptr noundef %423, i64 noundef %424) #10
   store i32 %call.i3219, ptr %retval.i3213, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3221
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3221: ; preds = %if.end.i3218, %if.then.i3220
-  %412 = load i32, ptr %retval.i3213, align 4
-  %cmp5.i1796 = icmp eq i32 %412, 0
+  %425 = load i32, ptr %retval.i3213, align 4
+  %cmp5.i1796 = icmp eq i32 %425, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1797
 
 _ZNK4llvh9StringRef6equalsES0_.exit1797:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3221, %land.lhs.true.i1445
-  %413 = phi i1 [ false, %land.lhs.true.i1445 ], [ %cmp5.i1796, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3221 ]
-  br i1 %413, label %if.then.i1447, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1450
+  %426 = phi i1 [ false, %land.lhs.true.i1445 ], [ %cmp5.i1796, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3221 ]
+  br i1 %426, label %if.then.i1447, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1450
 
 if.then.i1447:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1797
   %Result4.i1448 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1442, i32 0, i32 1
@@ -12067,15 +12080,16 @@ if.then.i1447:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1450: ; preds = %if.then.i1447, %_ZNK4llvh9StringRef6equalsES0_.exit1797, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1467
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp41, ptr noundef nonnull align 1 dereferenceable(8) @.str.14)
-  %414 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or42 = or i32 %414, 1
-  %415 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 0
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 1
-  %418 = load i64, ptr %417, align 8
-  store ptr %416, ptr %S.i1420, align 8
-  %419 = getelementptr inbounds { ptr, i64 }, ptr %S.i1420, i32 0, i32 1
-  store i64 %418, ptr %419, align 8
+  %427 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %428 = load i32, ptr %427, align 4
+  %or42 = or i32 %428, 1
+  %429 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 0
+  %430 = load ptr, ptr %429, align 8
+  %431 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 1
+  %432 = load i64, ptr %431, align 8
+  store ptr %430, ptr %S.i1420, align 8
+  %433 = getelementptr inbounds { ptr, i64 }, ptr %S.i1420, i32 0, i32 1
+  store i64 %432, ptr %433, align 8
   store ptr %this1.i1442, ptr %this.addr.i1421, align 8
   store i32 %or42, ptr %Value.addr.i1422, align 4
   %this1.i1425 = load ptr, ptr %this.addr.i1421, align 8
@@ -12086,44 +12100,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1450: ; preds = %if.the
 land.lhs.true.i1428:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1450
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1423, ptr align 8 %this1.i1425, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1424, ptr align 8 %S.i1420, i64 16, i1 false)
-  %420 = load ptr, ptr %agg.tmp.i1423, align 8
-  %421 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1423, i32 0, i32 1
-  %422 = load i64, ptr %421, align 8
-  %423 = load ptr, ptr %agg.tmp2.i1424, align 8
-  %424 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1424, i32 0, i32 1
-  %425 = load i64, ptr %424, align 8
-  store ptr %420, ptr %LHS.i.i1417, align 8
-  %426 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1417, i32 0, i32 1
-  store i64 %422, ptr %426, align 8
-  store ptr %423, ptr %RHS.i.i1418, align 8
-  %427 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1418, i32 0, i32 1
-  store i64 %425, ptr %427, align 8
+  %434 = load ptr, ptr %agg.tmp.i1423, align 8
+  %435 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1423, i32 0, i32 1
+  %436 = load i64, ptr %435, align 8
+  %437 = load ptr, ptr %agg.tmp2.i1424, align 8
+  %438 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1424, i32 0, i32 1
+  %439 = load i64, ptr %438, align 8
+  store ptr %434, ptr %LHS.i.i1417, align 8
+  %440 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1417, i32 0, i32 1
+  store i64 %436, ptr %440, align 8
+  store ptr %437, ptr %RHS.i.i1418, align 8
+  %441 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1418, i32 0, i32 1
+  store i64 %439, ptr %441, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1419, ptr align 8 %RHS.i.i1418, i64 16, i1 false)
-  %428 = load ptr, ptr %agg.tmp.i.i1419, align 8
-  %429 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1419, i32 0, i32 1
-  %430 = load i64, ptr %429, align 8
-  store ptr %428, ptr %RHS.i1798, align 8
-  %431 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1798, i32 0, i32 1
-  store i64 %430, ptr %431, align 8
+  %442 = load ptr, ptr %agg.tmp.i.i1419, align 8
+  %443 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1419, i32 0, i32 1
+  %444 = load i64, ptr %443, align 8
+  store ptr %442, ptr %RHS.i1798, align 8
+  %445 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1798, i32 0, i32 1
+  store i64 %444, ptr %445, align 8
   store ptr %LHS.i.i1417, ptr %this.addr.i1799, align 8
   %this1.i1800 = load ptr, ptr %this.addr.i1799, align 8
   %Length.i1801 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1800, i32 0, i32 1
-  %432 = load i64, ptr %Length.i1801, align 8
+  %446 = load i64, ptr %Length.i1801, align 8
   %Length2.i1802 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1798, i32 0, i32 1
-  %433 = load i64, ptr %Length2.i1802, align 8
-  %cmp.i1803 = icmp eq i64 %432, %433
+  %447 = load i64, ptr %Length2.i1802, align 8
+  %cmp.i1803 = icmp eq i64 %446, %447
   br i1 %cmp.i1803, label %land.rhs.i1804, label %_ZNK4llvh9StringRef6equalsES0_.exit1808
 
 land.rhs.i1804:                                   ; preds = %land.lhs.true.i1428
-  %434 = load ptr, ptr %this1.i1800, align 8
-  %435 = load ptr, ptr %RHS.i1798, align 8
+  %448 = load ptr, ptr %this1.i1800, align 8
+  %449 = load ptr, ptr %RHS.i1798, align 8
   %Length4.i1805 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1798, i32 0, i32 1
-  %436 = load i64, ptr %Length4.i1805, align 8
-  store ptr %434, ptr %Lhs.addr.i3205, align 8
-  store ptr %435, ptr %Rhs.addr.i3206, align 8
-  store i64 %436, ptr %Length.addr.i3207, align 8
-  %437 = load i64, ptr %Length.addr.i3207, align 8
-  %cmp.i3208 = icmp eq i64 %437, 0
+  %450 = load i64, ptr %Length4.i1805, align 8
+  store ptr %448, ptr %Lhs.addr.i3205, align 8
+  store ptr %449, ptr %Rhs.addr.i3206, align 8
+  store i64 %450, ptr %Length.addr.i3207, align 8
+  %451 = load i64, ptr %Length.addr.i3207, align 8
+  %cmp.i3208 = icmp eq i64 %451, 0
   br i1 %cmp.i3208, label %if.then.i3211, label %if.end.i3209
 
 if.then.i3211:                                    ; preds = %land.rhs.i1804
@@ -12131,21 +12145,21 @@ if.then.i3211:                                    ; preds = %land.rhs.i1804
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3212
 
 if.end.i3209:                                     ; preds = %land.rhs.i1804
-  %438 = load ptr, ptr %Lhs.addr.i3205, align 8
-  %439 = load ptr, ptr %Rhs.addr.i3206, align 8
-  %440 = load i64, ptr %Length.addr.i3207, align 8
-  %call.i3210 = call i32 @memcmp(ptr noundef %438, ptr noundef %439, i64 noundef %440) #10
+  %452 = load ptr, ptr %Lhs.addr.i3205, align 8
+  %453 = load ptr, ptr %Rhs.addr.i3206, align 8
+  %454 = load i64, ptr %Length.addr.i3207, align 8
+  %call.i3210 = call i32 @memcmp(ptr noundef %452, ptr noundef %453, i64 noundef %454) #10
   store i32 %call.i3210, ptr %retval.i3204, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3212
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3212: ; preds = %if.end.i3209, %if.then.i3211
-  %441 = load i32, ptr %retval.i3204, align 4
-  %cmp5.i1807 = icmp eq i32 %441, 0
+  %455 = load i32, ptr %retval.i3204, align 4
+  %cmp5.i1807 = icmp eq i32 %455, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1808
 
 _ZNK4llvh9StringRef6equalsES0_.exit1808:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3212, %land.lhs.true.i1428
-  %442 = phi i1 [ false, %land.lhs.true.i1428 ], [ %cmp5.i1807, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3212 ]
-  br i1 %442, label %if.then.i1430, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1433
+  %456 = phi i1 [ false, %land.lhs.true.i1428 ], [ %cmp5.i1807, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3212 ]
+  br i1 %456, label %if.then.i1430, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1433
 
 if.then.i1430:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1808
   %Result4.i1431 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1425, i32 0, i32 1
@@ -12154,15 +12168,16 @@ if.then.i1430:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1433: ; preds = %if.then.i1430, %_ZNK4llvh9StringRef6equalsES0_.exit1808, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1450
   call void @_ZN4llvh13StringLiteralC2ILm5EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm5ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp44, ptr noundef nonnull align 1 dereferenceable(5) @.str.15)
-  %443 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or45 = or i32 %443, 1
-  %444 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 0
-  %445 = load ptr, ptr %444, align 8
-  %446 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 1
-  %447 = load i64, ptr %446, align 8
-  store ptr %445, ptr %S.i1403, align 8
-  %448 = getelementptr inbounds { ptr, i64 }, ptr %S.i1403, i32 0, i32 1
-  store i64 %447, ptr %448, align 8
+  %457 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %458 = load i32, ptr %457, align 4
+  %or45 = or i32 %458, 1
+  %459 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 0
+  %460 = load ptr, ptr %459, align 8
+  %461 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 1
+  %462 = load i64, ptr %461, align 8
+  store ptr %460, ptr %S.i1403, align 8
+  %463 = getelementptr inbounds { ptr, i64 }, ptr %S.i1403, i32 0, i32 1
+  store i64 %462, ptr %463, align 8
   store ptr %this1.i1425, ptr %this.addr.i1404, align 8
   store i32 %or45, ptr %Value.addr.i1405, align 4
   %this1.i1408 = load ptr, ptr %this.addr.i1404, align 8
@@ -12173,44 +12188,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1433: ; preds = %if.the
 land.lhs.true.i1411:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1433
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1406, ptr align 8 %this1.i1408, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1407, ptr align 8 %S.i1403, i64 16, i1 false)
-  %449 = load ptr, ptr %agg.tmp.i1406, align 8
-  %450 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1406, i32 0, i32 1
-  %451 = load i64, ptr %450, align 8
-  %452 = load ptr, ptr %agg.tmp2.i1407, align 8
-  %453 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1407, i32 0, i32 1
-  %454 = load i64, ptr %453, align 8
-  store ptr %449, ptr %LHS.i.i1400, align 8
-  %455 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1400, i32 0, i32 1
-  store i64 %451, ptr %455, align 8
-  store ptr %452, ptr %RHS.i.i1401, align 8
-  %456 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1401, i32 0, i32 1
-  store i64 %454, ptr %456, align 8
+  %464 = load ptr, ptr %agg.tmp.i1406, align 8
+  %465 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1406, i32 0, i32 1
+  %466 = load i64, ptr %465, align 8
+  %467 = load ptr, ptr %agg.tmp2.i1407, align 8
+  %468 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1407, i32 0, i32 1
+  %469 = load i64, ptr %468, align 8
+  store ptr %464, ptr %LHS.i.i1400, align 8
+  %470 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1400, i32 0, i32 1
+  store i64 %466, ptr %470, align 8
+  store ptr %467, ptr %RHS.i.i1401, align 8
+  %471 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1401, i32 0, i32 1
+  store i64 %469, ptr %471, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1402, ptr align 8 %RHS.i.i1401, i64 16, i1 false)
-  %457 = load ptr, ptr %agg.tmp.i.i1402, align 8
-  %458 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1402, i32 0, i32 1
-  %459 = load i64, ptr %458, align 8
-  store ptr %457, ptr %RHS.i1809, align 8
-  %460 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1809, i32 0, i32 1
-  store i64 %459, ptr %460, align 8
+  %472 = load ptr, ptr %agg.tmp.i.i1402, align 8
+  %473 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1402, i32 0, i32 1
+  %474 = load i64, ptr %473, align 8
+  store ptr %472, ptr %RHS.i1809, align 8
+  %475 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1809, i32 0, i32 1
+  store i64 %474, ptr %475, align 8
   store ptr %LHS.i.i1400, ptr %this.addr.i1810, align 8
   %this1.i1811 = load ptr, ptr %this.addr.i1810, align 8
   %Length.i1812 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1811, i32 0, i32 1
-  %461 = load i64, ptr %Length.i1812, align 8
+  %476 = load i64, ptr %Length.i1812, align 8
   %Length2.i1813 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1809, i32 0, i32 1
-  %462 = load i64, ptr %Length2.i1813, align 8
-  %cmp.i1814 = icmp eq i64 %461, %462
+  %477 = load i64, ptr %Length2.i1813, align 8
+  %cmp.i1814 = icmp eq i64 %476, %477
   br i1 %cmp.i1814, label %land.rhs.i1815, label %_ZNK4llvh9StringRef6equalsES0_.exit1819
 
 land.rhs.i1815:                                   ; preds = %land.lhs.true.i1411
-  %463 = load ptr, ptr %this1.i1811, align 8
-  %464 = load ptr, ptr %RHS.i1809, align 8
+  %478 = load ptr, ptr %this1.i1811, align 8
+  %479 = load ptr, ptr %RHS.i1809, align 8
   %Length4.i1816 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1809, i32 0, i32 1
-  %465 = load i64, ptr %Length4.i1816, align 8
-  store ptr %463, ptr %Lhs.addr.i3196, align 8
-  store ptr %464, ptr %Rhs.addr.i3197, align 8
-  store i64 %465, ptr %Length.addr.i3198, align 8
-  %466 = load i64, ptr %Length.addr.i3198, align 8
-  %cmp.i3199 = icmp eq i64 %466, 0
+  %480 = load i64, ptr %Length4.i1816, align 8
+  store ptr %478, ptr %Lhs.addr.i3196, align 8
+  store ptr %479, ptr %Rhs.addr.i3197, align 8
+  store i64 %480, ptr %Length.addr.i3198, align 8
+  %481 = load i64, ptr %Length.addr.i3198, align 8
+  %cmp.i3199 = icmp eq i64 %481, 0
   br i1 %cmp.i3199, label %if.then.i3202, label %if.end.i3200
 
 if.then.i3202:                                    ; preds = %land.rhs.i1815
@@ -12218,21 +12233,21 @@ if.then.i3202:                                    ; preds = %land.rhs.i1815
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3203
 
 if.end.i3200:                                     ; preds = %land.rhs.i1815
-  %467 = load ptr, ptr %Lhs.addr.i3196, align 8
-  %468 = load ptr, ptr %Rhs.addr.i3197, align 8
-  %469 = load i64, ptr %Length.addr.i3198, align 8
-  %call.i3201 = call i32 @memcmp(ptr noundef %467, ptr noundef %468, i64 noundef %469) #10
+  %482 = load ptr, ptr %Lhs.addr.i3196, align 8
+  %483 = load ptr, ptr %Rhs.addr.i3197, align 8
+  %484 = load i64, ptr %Length.addr.i3198, align 8
+  %call.i3201 = call i32 @memcmp(ptr noundef %482, ptr noundef %483, i64 noundef %484) #10
   store i32 %call.i3201, ptr %retval.i3195, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3203
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3203: ; preds = %if.end.i3200, %if.then.i3202
-  %470 = load i32, ptr %retval.i3195, align 4
-  %cmp5.i1818 = icmp eq i32 %470, 0
+  %485 = load i32, ptr %retval.i3195, align 4
+  %cmp5.i1818 = icmp eq i32 %485, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1819
 
 _ZNK4llvh9StringRef6equalsES0_.exit1819:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3203, %land.lhs.true.i1411
-  %471 = phi i1 [ false, %land.lhs.true.i1411 ], [ %cmp5.i1818, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3203 ]
-  br i1 %471, label %if.then.i1413, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1416
+  %486 = phi i1 [ false, %land.lhs.true.i1411 ], [ %cmp5.i1818, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3203 ]
+  br i1 %486, label %if.then.i1413, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1416
 
 if.then.i1413:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1819
   %Result4.i1414 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1408, i32 0, i32 1
@@ -12241,15 +12256,16 @@ if.then.i1413:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1416: ; preds = %if.then.i1413, %_ZNK4llvh9StringRef6equalsES0_.exit1819, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1433
   call void @_ZN4llvh13StringLiteralC2ILm9EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm9ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp47, ptr noundef nonnull align 1 dereferenceable(9) @.str.16)
-  %472 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or48 = or i32 %472, 1
-  %473 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 0
-  %474 = load ptr, ptr %473, align 8
-  %475 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 1
-  %476 = load i64, ptr %475, align 8
-  store ptr %474, ptr %S.i1386, align 8
-  %477 = getelementptr inbounds { ptr, i64 }, ptr %S.i1386, i32 0, i32 1
-  store i64 %476, ptr %477, align 8
+  %487 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %488 = load i32, ptr %487, align 4
+  %or48 = or i32 %488, 1
+  %489 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 0
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 1
+  %492 = load i64, ptr %491, align 8
+  store ptr %490, ptr %S.i1386, align 8
+  %493 = getelementptr inbounds { ptr, i64 }, ptr %S.i1386, i32 0, i32 1
+  store i64 %492, ptr %493, align 8
   store ptr %this1.i1408, ptr %this.addr.i1387, align 8
   store i32 %or48, ptr %Value.addr.i1388, align 4
   %this1.i1391 = load ptr, ptr %this.addr.i1387, align 8
@@ -12260,44 +12276,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1416: ; preds = %if.the
 land.lhs.true.i1394:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1416
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1389, ptr align 8 %this1.i1391, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1390, ptr align 8 %S.i1386, i64 16, i1 false)
-  %478 = load ptr, ptr %agg.tmp.i1389, align 8
-  %479 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1389, i32 0, i32 1
-  %480 = load i64, ptr %479, align 8
-  %481 = load ptr, ptr %agg.tmp2.i1390, align 8
-  %482 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1390, i32 0, i32 1
-  %483 = load i64, ptr %482, align 8
-  store ptr %478, ptr %LHS.i.i1383, align 8
-  %484 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1383, i32 0, i32 1
-  store i64 %480, ptr %484, align 8
-  store ptr %481, ptr %RHS.i.i1384, align 8
-  %485 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1384, i32 0, i32 1
-  store i64 %483, ptr %485, align 8
+  %494 = load ptr, ptr %agg.tmp.i1389, align 8
+  %495 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1389, i32 0, i32 1
+  %496 = load i64, ptr %495, align 8
+  %497 = load ptr, ptr %agg.tmp2.i1390, align 8
+  %498 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1390, i32 0, i32 1
+  %499 = load i64, ptr %498, align 8
+  store ptr %494, ptr %LHS.i.i1383, align 8
+  %500 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1383, i32 0, i32 1
+  store i64 %496, ptr %500, align 8
+  store ptr %497, ptr %RHS.i.i1384, align 8
+  %501 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1384, i32 0, i32 1
+  store i64 %499, ptr %501, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1385, ptr align 8 %RHS.i.i1384, i64 16, i1 false)
-  %486 = load ptr, ptr %agg.tmp.i.i1385, align 8
-  %487 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1385, i32 0, i32 1
-  %488 = load i64, ptr %487, align 8
-  store ptr %486, ptr %RHS.i1820, align 8
-  %489 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1820, i32 0, i32 1
-  store i64 %488, ptr %489, align 8
+  %502 = load ptr, ptr %agg.tmp.i.i1385, align 8
+  %503 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1385, i32 0, i32 1
+  %504 = load i64, ptr %503, align 8
+  store ptr %502, ptr %RHS.i1820, align 8
+  %505 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1820, i32 0, i32 1
+  store i64 %504, ptr %505, align 8
   store ptr %LHS.i.i1383, ptr %this.addr.i1821, align 8
   %this1.i1822 = load ptr, ptr %this.addr.i1821, align 8
   %Length.i1823 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1822, i32 0, i32 1
-  %490 = load i64, ptr %Length.i1823, align 8
+  %506 = load i64, ptr %Length.i1823, align 8
   %Length2.i1824 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1820, i32 0, i32 1
-  %491 = load i64, ptr %Length2.i1824, align 8
-  %cmp.i1825 = icmp eq i64 %490, %491
+  %507 = load i64, ptr %Length2.i1824, align 8
+  %cmp.i1825 = icmp eq i64 %506, %507
   br i1 %cmp.i1825, label %land.rhs.i1826, label %_ZNK4llvh9StringRef6equalsES0_.exit1830
 
 land.rhs.i1826:                                   ; preds = %land.lhs.true.i1394
-  %492 = load ptr, ptr %this1.i1822, align 8
-  %493 = load ptr, ptr %RHS.i1820, align 8
+  %508 = load ptr, ptr %this1.i1822, align 8
+  %509 = load ptr, ptr %RHS.i1820, align 8
   %Length4.i1827 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1820, i32 0, i32 1
-  %494 = load i64, ptr %Length4.i1827, align 8
-  store ptr %492, ptr %Lhs.addr.i3187, align 8
-  store ptr %493, ptr %Rhs.addr.i3188, align 8
-  store i64 %494, ptr %Length.addr.i3189, align 8
-  %495 = load i64, ptr %Length.addr.i3189, align 8
-  %cmp.i3190 = icmp eq i64 %495, 0
+  %510 = load i64, ptr %Length4.i1827, align 8
+  store ptr %508, ptr %Lhs.addr.i3187, align 8
+  store ptr %509, ptr %Rhs.addr.i3188, align 8
+  store i64 %510, ptr %Length.addr.i3189, align 8
+  %511 = load i64, ptr %Length.addr.i3189, align 8
+  %cmp.i3190 = icmp eq i64 %511, 0
   br i1 %cmp.i3190, label %if.then.i3193, label %if.end.i3191
 
 if.then.i3193:                                    ; preds = %land.rhs.i1826
@@ -12305,21 +12321,21 @@ if.then.i3193:                                    ; preds = %land.rhs.i1826
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3194
 
 if.end.i3191:                                     ; preds = %land.rhs.i1826
-  %496 = load ptr, ptr %Lhs.addr.i3187, align 8
-  %497 = load ptr, ptr %Rhs.addr.i3188, align 8
-  %498 = load i64, ptr %Length.addr.i3189, align 8
-  %call.i3192 = call i32 @memcmp(ptr noundef %496, ptr noundef %497, i64 noundef %498) #10
+  %512 = load ptr, ptr %Lhs.addr.i3187, align 8
+  %513 = load ptr, ptr %Rhs.addr.i3188, align 8
+  %514 = load i64, ptr %Length.addr.i3189, align 8
+  %call.i3192 = call i32 @memcmp(ptr noundef %512, ptr noundef %513, i64 noundef %514) #10
   store i32 %call.i3192, ptr %retval.i3186, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3194
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3194: ; preds = %if.end.i3191, %if.then.i3193
-  %499 = load i32, ptr %retval.i3186, align 4
-  %cmp5.i1829 = icmp eq i32 %499, 0
+  %515 = load i32, ptr %retval.i3186, align 4
+  %cmp5.i1829 = icmp eq i32 %515, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1830
 
 _ZNK4llvh9StringRef6equalsES0_.exit1830:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3194, %land.lhs.true.i1394
-  %500 = phi i1 [ false, %land.lhs.true.i1394 ], [ %cmp5.i1829, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3194 ]
-  br i1 %500, label %if.then.i1396, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1399
+  %516 = phi i1 [ false, %land.lhs.true.i1394 ], [ %cmp5.i1829, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3194 ]
+  br i1 %516, label %if.then.i1396, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1399
 
 if.then.i1396:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1830
   %Result4.i1397 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1391, i32 0, i32 1
@@ -12328,15 +12344,16 @@ if.then.i1396:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1399: ; preds = %if.then.i1396, %_ZNK4llvh9StringRef6equalsES0_.exit1830, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1416
   call void @_ZN4llvh13StringLiteralC2ILm7EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm7ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp50, ptr noundef nonnull align 1 dereferenceable(7) @.str.17)
-  %501 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or51 = or i32 %501, 1
-  %502 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i32 0, i32 0
-  %503 = load ptr, ptr %502, align 8
-  %504 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i32 0, i32 1
-  %505 = load i64, ptr %504, align 8
-  store ptr %503, ptr %S.i1369, align 8
-  %506 = getelementptr inbounds { ptr, i64 }, ptr %S.i1369, i32 0, i32 1
-  store i64 %505, ptr %506, align 8
+  %517 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %518 = load i32, ptr %517, align 4
+  %or51 = or i32 %518, 1
+  %519 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i32 0, i32 0
+  %520 = load ptr, ptr %519, align 8
+  %521 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i32 0, i32 1
+  %522 = load i64, ptr %521, align 8
+  store ptr %520, ptr %S.i1369, align 8
+  %523 = getelementptr inbounds { ptr, i64 }, ptr %S.i1369, i32 0, i32 1
+  store i64 %522, ptr %523, align 8
   store ptr %this1.i1391, ptr %this.addr.i1370, align 8
   store i32 %or51, ptr %Value.addr.i1371, align 4
   %this1.i1374 = load ptr, ptr %this.addr.i1370, align 8
@@ -12347,44 +12364,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1399: ; preds = %if.the
 land.lhs.true.i1377:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1399
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1372, ptr align 8 %this1.i1374, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1373, ptr align 8 %S.i1369, i64 16, i1 false)
-  %507 = load ptr, ptr %agg.tmp.i1372, align 8
-  %508 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1372, i32 0, i32 1
-  %509 = load i64, ptr %508, align 8
-  %510 = load ptr, ptr %agg.tmp2.i1373, align 8
-  %511 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1373, i32 0, i32 1
-  %512 = load i64, ptr %511, align 8
-  store ptr %507, ptr %LHS.i.i1366, align 8
-  %513 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1366, i32 0, i32 1
-  store i64 %509, ptr %513, align 8
-  store ptr %510, ptr %RHS.i.i1367, align 8
-  %514 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1367, i32 0, i32 1
-  store i64 %512, ptr %514, align 8
+  %524 = load ptr, ptr %agg.tmp.i1372, align 8
+  %525 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1372, i32 0, i32 1
+  %526 = load i64, ptr %525, align 8
+  %527 = load ptr, ptr %agg.tmp2.i1373, align 8
+  %528 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1373, i32 0, i32 1
+  %529 = load i64, ptr %528, align 8
+  store ptr %524, ptr %LHS.i.i1366, align 8
+  %530 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1366, i32 0, i32 1
+  store i64 %526, ptr %530, align 8
+  store ptr %527, ptr %RHS.i.i1367, align 8
+  %531 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1367, i32 0, i32 1
+  store i64 %529, ptr %531, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1368, ptr align 8 %RHS.i.i1367, i64 16, i1 false)
-  %515 = load ptr, ptr %agg.tmp.i.i1368, align 8
-  %516 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1368, i32 0, i32 1
-  %517 = load i64, ptr %516, align 8
-  store ptr %515, ptr %RHS.i1831, align 8
-  %518 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1831, i32 0, i32 1
-  store i64 %517, ptr %518, align 8
+  %532 = load ptr, ptr %agg.tmp.i.i1368, align 8
+  %533 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1368, i32 0, i32 1
+  %534 = load i64, ptr %533, align 8
+  store ptr %532, ptr %RHS.i1831, align 8
+  %535 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1831, i32 0, i32 1
+  store i64 %534, ptr %535, align 8
   store ptr %LHS.i.i1366, ptr %this.addr.i1832, align 8
   %this1.i1833 = load ptr, ptr %this.addr.i1832, align 8
   %Length.i1834 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1833, i32 0, i32 1
-  %519 = load i64, ptr %Length.i1834, align 8
+  %536 = load i64, ptr %Length.i1834, align 8
   %Length2.i1835 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1831, i32 0, i32 1
-  %520 = load i64, ptr %Length2.i1835, align 8
-  %cmp.i1836 = icmp eq i64 %519, %520
+  %537 = load i64, ptr %Length2.i1835, align 8
+  %cmp.i1836 = icmp eq i64 %536, %537
   br i1 %cmp.i1836, label %land.rhs.i1837, label %_ZNK4llvh9StringRef6equalsES0_.exit1841
 
 land.rhs.i1837:                                   ; preds = %land.lhs.true.i1377
-  %521 = load ptr, ptr %this1.i1833, align 8
-  %522 = load ptr, ptr %RHS.i1831, align 8
+  %538 = load ptr, ptr %this1.i1833, align 8
+  %539 = load ptr, ptr %RHS.i1831, align 8
   %Length4.i1838 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1831, i32 0, i32 1
-  %523 = load i64, ptr %Length4.i1838, align 8
-  store ptr %521, ptr %Lhs.addr.i3178, align 8
-  store ptr %522, ptr %Rhs.addr.i3179, align 8
-  store i64 %523, ptr %Length.addr.i3180, align 8
-  %524 = load i64, ptr %Length.addr.i3180, align 8
-  %cmp.i3181 = icmp eq i64 %524, 0
+  %540 = load i64, ptr %Length4.i1838, align 8
+  store ptr %538, ptr %Lhs.addr.i3178, align 8
+  store ptr %539, ptr %Rhs.addr.i3179, align 8
+  store i64 %540, ptr %Length.addr.i3180, align 8
+  %541 = load i64, ptr %Length.addr.i3180, align 8
+  %cmp.i3181 = icmp eq i64 %541, 0
   br i1 %cmp.i3181, label %if.then.i3184, label %if.end.i3182
 
 if.then.i3184:                                    ; preds = %land.rhs.i1837
@@ -12392,21 +12409,21 @@ if.then.i3184:                                    ; preds = %land.rhs.i1837
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3185
 
 if.end.i3182:                                     ; preds = %land.rhs.i1837
-  %525 = load ptr, ptr %Lhs.addr.i3178, align 8
-  %526 = load ptr, ptr %Rhs.addr.i3179, align 8
-  %527 = load i64, ptr %Length.addr.i3180, align 8
-  %call.i3183 = call i32 @memcmp(ptr noundef %525, ptr noundef %526, i64 noundef %527) #10
+  %542 = load ptr, ptr %Lhs.addr.i3178, align 8
+  %543 = load ptr, ptr %Rhs.addr.i3179, align 8
+  %544 = load i64, ptr %Length.addr.i3180, align 8
+  %call.i3183 = call i32 @memcmp(ptr noundef %542, ptr noundef %543, i64 noundef %544) #10
   store i32 %call.i3183, ptr %retval.i3177, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3185
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3185: ; preds = %if.end.i3182, %if.then.i3184
-  %528 = load i32, ptr %retval.i3177, align 4
-  %cmp5.i1840 = icmp eq i32 %528, 0
+  %545 = load i32, ptr %retval.i3177, align 4
+  %cmp5.i1840 = icmp eq i32 %545, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1841
 
 _ZNK4llvh9StringRef6equalsES0_.exit1841:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3185, %land.lhs.true.i1377
-  %529 = phi i1 [ false, %land.lhs.true.i1377 ], [ %cmp5.i1840, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3185 ]
-  br i1 %529, label %if.then.i1379, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1382
+  %546 = phi i1 [ false, %land.lhs.true.i1377 ], [ %cmp5.i1840, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3185 ]
+  br i1 %546, label %if.then.i1379, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1382
 
 if.then.i1379:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1841
   %Result4.i1380 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1374, i32 0, i32 1
@@ -12415,15 +12432,16 @@ if.then.i1379:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1382: ; preds = %if.then.i1379, %_ZNK4llvh9StringRef6equalsES0_.exit1841, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1399
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp53, ptr noundef nonnull align 1 dereferenceable(8) @.str.18)
-  %530 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or54 = or i32 %530, 1
-  %531 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 0
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 1
-  %534 = load i64, ptr %533, align 8
-  store ptr %532, ptr %S.i1352, align 8
-  %535 = getelementptr inbounds { ptr, i64 }, ptr %S.i1352, i32 0, i32 1
-  store i64 %534, ptr %535, align 8
+  %547 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %548 = load i32, ptr %547, align 4
+  %or54 = or i32 %548, 1
+  %549 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 0
+  %550 = load ptr, ptr %549, align 8
+  %551 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 1
+  %552 = load i64, ptr %551, align 8
+  store ptr %550, ptr %S.i1352, align 8
+  %553 = getelementptr inbounds { ptr, i64 }, ptr %S.i1352, i32 0, i32 1
+  store i64 %552, ptr %553, align 8
   store ptr %this1.i1374, ptr %this.addr.i1353, align 8
   store i32 %or54, ptr %Value.addr.i1354, align 4
   %this1.i1357 = load ptr, ptr %this.addr.i1353, align 8
@@ -12434,44 +12452,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1382: ; preds = %if.the
 land.lhs.true.i1360:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1382
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1355, ptr align 8 %this1.i1357, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1356, ptr align 8 %S.i1352, i64 16, i1 false)
-  %536 = load ptr, ptr %agg.tmp.i1355, align 8
-  %537 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1355, i32 0, i32 1
-  %538 = load i64, ptr %537, align 8
-  %539 = load ptr, ptr %agg.tmp2.i1356, align 8
-  %540 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1356, i32 0, i32 1
-  %541 = load i64, ptr %540, align 8
-  store ptr %536, ptr %LHS.i.i1349, align 8
-  %542 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1349, i32 0, i32 1
-  store i64 %538, ptr %542, align 8
-  store ptr %539, ptr %RHS.i.i1350, align 8
-  %543 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1350, i32 0, i32 1
-  store i64 %541, ptr %543, align 8
+  %554 = load ptr, ptr %agg.tmp.i1355, align 8
+  %555 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1355, i32 0, i32 1
+  %556 = load i64, ptr %555, align 8
+  %557 = load ptr, ptr %agg.tmp2.i1356, align 8
+  %558 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1356, i32 0, i32 1
+  %559 = load i64, ptr %558, align 8
+  store ptr %554, ptr %LHS.i.i1349, align 8
+  %560 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1349, i32 0, i32 1
+  store i64 %556, ptr %560, align 8
+  store ptr %557, ptr %RHS.i.i1350, align 8
+  %561 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1350, i32 0, i32 1
+  store i64 %559, ptr %561, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1351, ptr align 8 %RHS.i.i1350, i64 16, i1 false)
-  %544 = load ptr, ptr %agg.tmp.i.i1351, align 8
-  %545 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1351, i32 0, i32 1
-  %546 = load i64, ptr %545, align 8
-  store ptr %544, ptr %RHS.i1842, align 8
-  %547 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1842, i32 0, i32 1
-  store i64 %546, ptr %547, align 8
+  %562 = load ptr, ptr %agg.tmp.i.i1351, align 8
+  %563 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1351, i32 0, i32 1
+  %564 = load i64, ptr %563, align 8
+  store ptr %562, ptr %RHS.i1842, align 8
+  %565 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1842, i32 0, i32 1
+  store i64 %564, ptr %565, align 8
   store ptr %LHS.i.i1349, ptr %this.addr.i1843, align 8
   %this1.i1844 = load ptr, ptr %this.addr.i1843, align 8
   %Length.i1845 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1844, i32 0, i32 1
-  %548 = load i64, ptr %Length.i1845, align 8
+  %566 = load i64, ptr %Length.i1845, align 8
   %Length2.i1846 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1842, i32 0, i32 1
-  %549 = load i64, ptr %Length2.i1846, align 8
-  %cmp.i1847 = icmp eq i64 %548, %549
+  %567 = load i64, ptr %Length2.i1846, align 8
+  %cmp.i1847 = icmp eq i64 %566, %567
   br i1 %cmp.i1847, label %land.rhs.i1848, label %_ZNK4llvh9StringRef6equalsES0_.exit1852
 
 land.rhs.i1848:                                   ; preds = %land.lhs.true.i1360
-  %550 = load ptr, ptr %this1.i1844, align 8
-  %551 = load ptr, ptr %RHS.i1842, align 8
+  %568 = load ptr, ptr %this1.i1844, align 8
+  %569 = load ptr, ptr %RHS.i1842, align 8
   %Length4.i1849 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1842, i32 0, i32 1
-  %552 = load i64, ptr %Length4.i1849, align 8
-  store ptr %550, ptr %Lhs.addr.i3169, align 8
-  store ptr %551, ptr %Rhs.addr.i3170, align 8
-  store i64 %552, ptr %Length.addr.i3171, align 8
-  %553 = load i64, ptr %Length.addr.i3171, align 8
-  %cmp.i3172 = icmp eq i64 %553, 0
+  %570 = load i64, ptr %Length4.i1849, align 8
+  store ptr %568, ptr %Lhs.addr.i3169, align 8
+  store ptr %569, ptr %Rhs.addr.i3170, align 8
+  store i64 %570, ptr %Length.addr.i3171, align 8
+  %571 = load i64, ptr %Length.addr.i3171, align 8
+  %cmp.i3172 = icmp eq i64 %571, 0
   br i1 %cmp.i3172, label %if.then.i3175, label %if.end.i3173
 
 if.then.i3175:                                    ; preds = %land.rhs.i1848
@@ -12479,21 +12497,21 @@ if.then.i3175:                                    ; preds = %land.rhs.i1848
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3176
 
 if.end.i3173:                                     ; preds = %land.rhs.i1848
-  %554 = load ptr, ptr %Lhs.addr.i3169, align 8
-  %555 = load ptr, ptr %Rhs.addr.i3170, align 8
-  %556 = load i64, ptr %Length.addr.i3171, align 8
-  %call.i3174 = call i32 @memcmp(ptr noundef %554, ptr noundef %555, i64 noundef %556) #10
+  %572 = load ptr, ptr %Lhs.addr.i3169, align 8
+  %573 = load ptr, ptr %Rhs.addr.i3170, align 8
+  %574 = load i64, ptr %Length.addr.i3171, align 8
+  %call.i3174 = call i32 @memcmp(ptr noundef %572, ptr noundef %573, i64 noundef %574) #10
   store i32 %call.i3174, ptr %retval.i3168, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3176
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3176: ; preds = %if.end.i3173, %if.then.i3175
-  %557 = load i32, ptr %retval.i3168, align 4
-  %cmp5.i1851 = icmp eq i32 %557, 0
+  %575 = load i32, ptr %retval.i3168, align 4
+  %cmp5.i1851 = icmp eq i32 %575, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1852
 
 _ZNK4llvh9StringRef6equalsES0_.exit1852:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3176, %land.lhs.true.i1360
-  %558 = phi i1 [ false, %land.lhs.true.i1360 ], [ %cmp5.i1851, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3176 ]
-  br i1 %558, label %if.then.i1362, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1365
+  %576 = phi i1 [ false, %land.lhs.true.i1360 ], [ %cmp5.i1851, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3176 ]
+  br i1 %576, label %if.then.i1362, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1365
 
 if.then.i1362:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1852
   %Result4.i1363 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1357, i32 0, i32 1
@@ -12502,15 +12520,16 @@ if.then.i1362:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1365: ; preds = %if.then.i1362, %_ZNK4llvh9StringRef6equalsES0_.exit1852, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1382
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp56, ptr noundef nonnull align 1 dereferenceable(8) @.str.19)
-  %559 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or57 = or i32 %559, 1
-  %560 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 0
-  %561 = load ptr, ptr %560, align 8
-  %562 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 1
-  %563 = load i64, ptr %562, align 8
-  store ptr %561, ptr %S.i1335, align 8
-  %564 = getelementptr inbounds { ptr, i64 }, ptr %S.i1335, i32 0, i32 1
-  store i64 %563, ptr %564, align 8
+  %577 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %578 = load i32, ptr %577, align 4
+  %or57 = or i32 %578, 1
+  %579 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 0
+  %580 = load ptr, ptr %579, align 8
+  %581 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 1
+  %582 = load i64, ptr %581, align 8
+  store ptr %580, ptr %S.i1335, align 8
+  %583 = getelementptr inbounds { ptr, i64 }, ptr %S.i1335, i32 0, i32 1
+  store i64 %582, ptr %583, align 8
   store ptr %this1.i1357, ptr %this.addr.i1336, align 8
   store i32 %or57, ptr %Value.addr.i1337, align 4
   %this1.i1340 = load ptr, ptr %this.addr.i1336, align 8
@@ -12521,44 +12540,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1365: ; preds = %if.the
 land.lhs.true.i1343:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1365
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1338, ptr align 8 %this1.i1340, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1339, ptr align 8 %S.i1335, i64 16, i1 false)
-  %565 = load ptr, ptr %agg.tmp.i1338, align 8
-  %566 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1338, i32 0, i32 1
-  %567 = load i64, ptr %566, align 8
-  %568 = load ptr, ptr %agg.tmp2.i1339, align 8
-  %569 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1339, i32 0, i32 1
-  %570 = load i64, ptr %569, align 8
-  store ptr %565, ptr %LHS.i.i1332, align 8
-  %571 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1332, i32 0, i32 1
-  store i64 %567, ptr %571, align 8
-  store ptr %568, ptr %RHS.i.i1333, align 8
-  %572 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1333, i32 0, i32 1
-  store i64 %570, ptr %572, align 8
+  %584 = load ptr, ptr %agg.tmp.i1338, align 8
+  %585 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1338, i32 0, i32 1
+  %586 = load i64, ptr %585, align 8
+  %587 = load ptr, ptr %agg.tmp2.i1339, align 8
+  %588 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1339, i32 0, i32 1
+  %589 = load i64, ptr %588, align 8
+  store ptr %584, ptr %LHS.i.i1332, align 8
+  %590 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1332, i32 0, i32 1
+  store i64 %586, ptr %590, align 8
+  store ptr %587, ptr %RHS.i.i1333, align 8
+  %591 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1333, i32 0, i32 1
+  store i64 %589, ptr %591, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1334, ptr align 8 %RHS.i.i1333, i64 16, i1 false)
-  %573 = load ptr, ptr %agg.tmp.i.i1334, align 8
-  %574 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1334, i32 0, i32 1
-  %575 = load i64, ptr %574, align 8
-  store ptr %573, ptr %RHS.i1853, align 8
-  %576 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1853, i32 0, i32 1
-  store i64 %575, ptr %576, align 8
+  %592 = load ptr, ptr %agg.tmp.i.i1334, align 8
+  %593 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1334, i32 0, i32 1
+  %594 = load i64, ptr %593, align 8
+  store ptr %592, ptr %RHS.i1853, align 8
+  %595 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1853, i32 0, i32 1
+  store i64 %594, ptr %595, align 8
   store ptr %LHS.i.i1332, ptr %this.addr.i1854, align 8
   %this1.i1855 = load ptr, ptr %this.addr.i1854, align 8
   %Length.i1856 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1855, i32 0, i32 1
-  %577 = load i64, ptr %Length.i1856, align 8
+  %596 = load i64, ptr %Length.i1856, align 8
   %Length2.i1857 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1853, i32 0, i32 1
-  %578 = load i64, ptr %Length2.i1857, align 8
-  %cmp.i1858 = icmp eq i64 %577, %578
+  %597 = load i64, ptr %Length2.i1857, align 8
+  %cmp.i1858 = icmp eq i64 %596, %597
   br i1 %cmp.i1858, label %land.rhs.i1859, label %_ZNK4llvh9StringRef6equalsES0_.exit1863
 
 land.rhs.i1859:                                   ; preds = %land.lhs.true.i1343
-  %579 = load ptr, ptr %this1.i1855, align 8
-  %580 = load ptr, ptr %RHS.i1853, align 8
+  %598 = load ptr, ptr %this1.i1855, align 8
+  %599 = load ptr, ptr %RHS.i1853, align 8
   %Length4.i1860 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1853, i32 0, i32 1
-  %581 = load i64, ptr %Length4.i1860, align 8
-  store ptr %579, ptr %Lhs.addr.i3160, align 8
-  store ptr %580, ptr %Rhs.addr.i3161, align 8
-  store i64 %581, ptr %Length.addr.i3162, align 8
-  %582 = load i64, ptr %Length.addr.i3162, align 8
-  %cmp.i3163 = icmp eq i64 %582, 0
+  %600 = load i64, ptr %Length4.i1860, align 8
+  store ptr %598, ptr %Lhs.addr.i3160, align 8
+  store ptr %599, ptr %Rhs.addr.i3161, align 8
+  store i64 %600, ptr %Length.addr.i3162, align 8
+  %601 = load i64, ptr %Length.addr.i3162, align 8
+  %cmp.i3163 = icmp eq i64 %601, 0
   br i1 %cmp.i3163, label %if.then.i3166, label %if.end.i3164
 
 if.then.i3166:                                    ; preds = %land.rhs.i1859
@@ -12566,21 +12585,21 @@ if.then.i3166:                                    ; preds = %land.rhs.i1859
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3167
 
 if.end.i3164:                                     ; preds = %land.rhs.i1859
-  %583 = load ptr, ptr %Lhs.addr.i3160, align 8
-  %584 = load ptr, ptr %Rhs.addr.i3161, align 8
-  %585 = load i64, ptr %Length.addr.i3162, align 8
-  %call.i3165 = call i32 @memcmp(ptr noundef %583, ptr noundef %584, i64 noundef %585) #10
+  %602 = load ptr, ptr %Lhs.addr.i3160, align 8
+  %603 = load ptr, ptr %Rhs.addr.i3161, align 8
+  %604 = load i64, ptr %Length.addr.i3162, align 8
+  %call.i3165 = call i32 @memcmp(ptr noundef %602, ptr noundef %603, i64 noundef %604) #10
   store i32 %call.i3165, ptr %retval.i3159, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3167
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3167: ; preds = %if.end.i3164, %if.then.i3166
-  %586 = load i32, ptr %retval.i3159, align 4
-  %cmp5.i1862 = icmp eq i32 %586, 0
+  %605 = load i32, ptr %retval.i3159, align 4
+  %cmp5.i1862 = icmp eq i32 %605, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1863
 
 _ZNK4llvh9StringRef6equalsES0_.exit1863:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3167, %land.lhs.true.i1343
-  %587 = phi i1 [ false, %land.lhs.true.i1343 ], [ %cmp5.i1862, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3167 ]
-  br i1 %587, label %if.then.i1345, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1348
+  %606 = phi i1 [ false, %land.lhs.true.i1343 ], [ %cmp5.i1862, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3167 ]
+  br i1 %606, label %if.then.i1345, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1348
 
 if.then.i1345:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1863
   %Result4.i1346 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1340, i32 0, i32 1
@@ -12589,15 +12608,16 @@ if.then.i1345:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1348: ; preds = %if.then.i1345, %_ZNK4llvh9StringRef6equalsES0_.exit1863, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1365
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp59, ptr noundef nonnull align 1 dereferenceable(8) @.str.20)
-  %588 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or60 = or i32 %588, 1
-  %589 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp59, i32 0, i32 0
-  %590 = load ptr, ptr %589, align 8
-  %591 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp59, i32 0, i32 1
-  %592 = load i64, ptr %591, align 8
-  store ptr %590, ptr %S.i1318, align 8
-  %593 = getelementptr inbounds { ptr, i64 }, ptr %S.i1318, i32 0, i32 1
-  store i64 %592, ptr %593, align 8
+  %607 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %608 = load i32, ptr %607, align 4
+  %or60 = or i32 %608, 1
+  %609 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp59, i32 0, i32 0
+  %610 = load ptr, ptr %609, align 8
+  %611 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp59, i32 0, i32 1
+  %612 = load i64, ptr %611, align 8
+  store ptr %610, ptr %S.i1318, align 8
+  %613 = getelementptr inbounds { ptr, i64 }, ptr %S.i1318, i32 0, i32 1
+  store i64 %612, ptr %613, align 8
   store ptr %this1.i1340, ptr %this.addr.i1319, align 8
   store i32 %or60, ptr %Value.addr.i1320, align 4
   %this1.i1323 = load ptr, ptr %this.addr.i1319, align 8
@@ -12608,44 +12628,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1348: ; preds = %if.the
 land.lhs.true.i1326:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1348
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1321, ptr align 8 %this1.i1323, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1322, ptr align 8 %S.i1318, i64 16, i1 false)
-  %594 = load ptr, ptr %agg.tmp.i1321, align 8
-  %595 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1321, i32 0, i32 1
-  %596 = load i64, ptr %595, align 8
-  %597 = load ptr, ptr %agg.tmp2.i1322, align 8
-  %598 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1322, i32 0, i32 1
-  %599 = load i64, ptr %598, align 8
-  store ptr %594, ptr %LHS.i.i1315, align 8
-  %600 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1315, i32 0, i32 1
-  store i64 %596, ptr %600, align 8
-  store ptr %597, ptr %RHS.i.i1316, align 8
-  %601 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1316, i32 0, i32 1
-  store i64 %599, ptr %601, align 8
+  %614 = load ptr, ptr %agg.tmp.i1321, align 8
+  %615 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1321, i32 0, i32 1
+  %616 = load i64, ptr %615, align 8
+  %617 = load ptr, ptr %agg.tmp2.i1322, align 8
+  %618 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1322, i32 0, i32 1
+  %619 = load i64, ptr %618, align 8
+  store ptr %614, ptr %LHS.i.i1315, align 8
+  %620 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1315, i32 0, i32 1
+  store i64 %616, ptr %620, align 8
+  store ptr %617, ptr %RHS.i.i1316, align 8
+  %621 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1316, i32 0, i32 1
+  store i64 %619, ptr %621, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1317, ptr align 8 %RHS.i.i1316, i64 16, i1 false)
-  %602 = load ptr, ptr %agg.tmp.i.i1317, align 8
-  %603 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1317, i32 0, i32 1
-  %604 = load i64, ptr %603, align 8
-  store ptr %602, ptr %RHS.i1864, align 8
-  %605 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1864, i32 0, i32 1
-  store i64 %604, ptr %605, align 8
+  %622 = load ptr, ptr %agg.tmp.i.i1317, align 8
+  %623 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1317, i32 0, i32 1
+  %624 = load i64, ptr %623, align 8
+  store ptr %622, ptr %RHS.i1864, align 8
+  %625 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1864, i32 0, i32 1
+  store i64 %624, ptr %625, align 8
   store ptr %LHS.i.i1315, ptr %this.addr.i1865, align 8
   %this1.i1866 = load ptr, ptr %this.addr.i1865, align 8
   %Length.i1867 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1866, i32 0, i32 1
-  %606 = load i64, ptr %Length.i1867, align 8
+  %626 = load i64, ptr %Length.i1867, align 8
   %Length2.i1868 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1864, i32 0, i32 1
-  %607 = load i64, ptr %Length2.i1868, align 8
-  %cmp.i1869 = icmp eq i64 %606, %607
+  %627 = load i64, ptr %Length2.i1868, align 8
+  %cmp.i1869 = icmp eq i64 %626, %627
   br i1 %cmp.i1869, label %land.rhs.i1870, label %_ZNK4llvh9StringRef6equalsES0_.exit1874
 
 land.rhs.i1870:                                   ; preds = %land.lhs.true.i1326
-  %608 = load ptr, ptr %this1.i1866, align 8
-  %609 = load ptr, ptr %RHS.i1864, align 8
+  %628 = load ptr, ptr %this1.i1866, align 8
+  %629 = load ptr, ptr %RHS.i1864, align 8
   %Length4.i1871 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1864, i32 0, i32 1
-  %610 = load i64, ptr %Length4.i1871, align 8
-  store ptr %608, ptr %Lhs.addr.i3151, align 8
-  store ptr %609, ptr %Rhs.addr.i3152, align 8
-  store i64 %610, ptr %Length.addr.i3153, align 8
-  %611 = load i64, ptr %Length.addr.i3153, align 8
-  %cmp.i3154 = icmp eq i64 %611, 0
+  %630 = load i64, ptr %Length4.i1871, align 8
+  store ptr %628, ptr %Lhs.addr.i3151, align 8
+  store ptr %629, ptr %Rhs.addr.i3152, align 8
+  store i64 %630, ptr %Length.addr.i3153, align 8
+  %631 = load i64, ptr %Length.addr.i3153, align 8
+  %cmp.i3154 = icmp eq i64 %631, 0
   br i1 %cmp.i3154, label %if.then.i3157, label %if.end.i3155
 
 if.then.i3157:                                    ; preds = %land.rhs.i1870
@@ -12653,21 +12673,21 @@ if.then.i3157:                                    ; preds = %land.rhs.i1870
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3158
 
 if.end.i3155:                                     ; preds = %land.rhs.i1870
-  %612 = load ptr, ptr %Lhs.addr.i3151, align 8
-  %613 = load ptr, ptr %Rhs.addr.i3152, align 8
-  %614 = load i64, ptr %Length.addr.i3153, align 8
-  %call.i3156 = call i32 @memcmp(ptr noundef %612, ptr noundef %613, i64 noundef %614) #10
+  %632 = load ptr, ptr %Lhs.addr.i3151, align 8
+  %633 = load ptr, ptr %Rhs.addr.i3152, align 8
+  %634 = load i64, ptr %Length.addr.i3153, align 8
+  %call.i3156 = call i32 @memcmp(ptr noundef %632, ptr noundef %633, i64 noundef %634) #10
   store i32 %call.i3156, ptr %retval.i3150, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3158
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3158: ; preds = %if.end.i3155, %if.then.i3157
-  %615 = load i32, ptr %retval.i3150, align 4
-  %cmp5.i1873 = icmp eq i32 %615, 0
+  %635 = load i32, ptr %retval.i3150, align 4
+  %cmp5.i1873 = icmp eq i32 %635, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1874
 
 _ZNK4llvh9StringRef6equalsES0_.exit1874:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3158, %land.lhs.true.i1326
-  %616 = phi i1 [ false, %land.lhs.true.i1326 ], [ %cmp5.i1873, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3158 ]
-  br i1 %616, label %if.then.i1328, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1331
+  %636 = phi i1 [ false, %land.lhs.true.i1326 ], [ %cmp5.i1873, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3158 ]
+  br i1 %636, label %if.then.i1328, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1331
 
 if.then.i1328:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1874
   %Result4.i1329 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1323, i32 0, i32 1
@@ -12676,15 +12696,16 @@ if.then.i1328:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1331: ; preds = %if.then.i1328, %_ZNK4llvh9StringRef6equalsES0_.exit1874, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1348
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp62, ptr noundef nonnull align 1 dereferenceable(8) @.str.21)
-  %617 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or63 = or i32 %617, 1
-  %618 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp62, i32 0, i32 0
-  %619 = load ptr, ptr %618, align 8
-  %620 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp62, i32 0, i32 1
-  %621 = load i64, ptr %620, align 8
-  store ptr %619, ptr %S.i1301, align 8
-  %622 = getelementptr inbounds { ptr, i64 }, ptr %S.i1301, i32 0, i32 1
-  store i64 %621, ptr %622, align 8
+  %637 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %638 = load i32, ptr %637, align 4
+  %or63 = or i32 %638, 1
+  %639 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp62, i32 0, i32 0
+  %640 = load ptr, ptr %639, align 8
+  %641 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp62, i32 0, i32 1
+  %642 = load i64, ptr %641, align 8
+  store ptr %640, ptr %S.i1301, align 8
+  %643 = getelementptr inbounds { ptr, i64 }, ptr %S.i1301, i32 0, i32 1
+  store i64 %642, ptr %643, align 8
   store ptr %this1.i1323, ptr %this.addr.i1302, align 8
   store i32 %or63, ptr %Value.addr.i1303, align 4
   %this1.i1306 = load ptr, ptr %this.addr.i1302, align 8
@@ -12695,44 +12716,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1331: ; preds = %if.the
 land.lhs.true.i1309:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1331
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1304, ptr align 8 %this1.i1306, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1305, ptr align 8 %S.i1301, i64 16, i1 false)
-  %623 = load ptr, ptr %agg.tmp.i1304, align 8
-  %624 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1304, i32 0, i32 1
-  %625 = load i64, ptr %624, align 8
-  %626 = load ptr, ptr %agg.tmp2.i1305, align 8
-  %627 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1305, i32 0, i32 1
-  %628 = load i64, ptr %627, align 8
-  store ptr %623, ptr %LHS.i.i1298, align 8
-  %629 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1298, i32 0, i32 1
-  store i64 %625, ptr %629, align 8
-  store ptr %626, ptr %RHS.i.i1299, align 8
-  %630 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1299, i32 0, i32 1
-  store i64 %628, ptr %630, align 8
+  %644 = load ptr, ptr %agg.tmp.i1304, align 8
+  %645 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1304, i32 0, i32 1
+  %646 = load i64, ptr %645, align 8
+  %647 = load ptr, ptr %agg.tmp2.i1305, align 8
+  %648 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1305, i32 0, i32 1
+  %649 = load i64, ptr %648, align 8
+  store ptr %644, ptr %LHS.i.i1298, align 8
+  %650 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1298, i32 0, i32 1
+  store i64 %646, ptr %650, align 8
+  store ptr %647, ptr %RHS.i.i1299, align 8
+  %651 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1299, i32 0, i32 1
+  store i64 %649, ptr %651, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1300, ptr align 8 %RHS.i.i1299, i64 16, i1 false)
-  %631 = load ptr, ptr %agg.tmp.i.i1300, align 8
-  %632 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1300, i32 0, i32 1
-  %633 = load i64, ptr %632, align 8
-  store ptr %631, ptr %RHS.i1875, align 8
-  %634 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1875, i32 0, i32 1
-  store i64 %633, ptr %634, align 8
+  %652 = load ptr, ptr %agg.tmp.i.i1300, align 8
+  %653 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1300, i32 0, i32 1
+  %654 = load i64, ptr %653, align 8
+  store ptr %652, ptr %RHS.i1875, align 8
+  %655 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1875, i32 0, i32 1
+  store i64 %654, ptr %655, align 8
   store ptr %LHS.i.i1298, ptr %this.addr.i1876, align 8
   %this1.i1877 = load ptr, ptr %this.addr.i1876, align 8
   %Length.i1878 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1877, i32 0, i32 1
-  %635 = load i64, ptr %Length.i1878, align 8
+  %656 = load i64, ptr %Length.i1878, align 8
   %Length2.i1879 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1875, i32 0, i32 1
-  %636 = load i64, ptr %Length2.i1879, align 8
-  %cmp.i1880 = icmp eq i64 %635, %636
+  %657 = load i64, ptr %Length2.i1879, align 8
+  %cmp.i1880 = icmp eq i64 %656, %657
   br i1 %cmp.i1880, label %land.rhs.i1881, label %_ZNK4llvh9StringRef6equalsES0_.exit1885
 
 land.rhs.i1881:                                   ; preds = %land.lhs.true.i1309
-  %637 = load ptr, ptr %this1.i1877, align 8
-  %638 = load ptr, ptr %RHS.i1875, align 8
+  %658 = load ptr, ptr %this1.i1877, align 8
+  %659 = load ptr, ptr %RHS.i1875, align 8
   %Length4.i1882 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1875, i32 0, i32 1
-  %639 = load i64, ptr %Length4.i1882, align 8
-  store ptr %637, ptr %Lhs.addr.i3142, align 8
-  store ptr %638, ptr %Rhs.addr.i3143, align 8
-  store i64 %639, ptr %Length.addr.i3144, align 8
-  %640 = load i64, ptr %Length.addr.i3144, align 8
-  %cmp.i3145 = icmp eq i64 %640, 0
+  %660 = load i64, ptr %Length4.i1882, align 8
+  store ptr %658, ptr %Lhs.addr.i3142, align 8
+  store ptr %659, ptr %Rhs.addr.i3143, align 8
+  store i64 %660, ptr %Length.addr.i3144, align 8
+  %661 = load i64, ptr %Length.addr.i3144, align 8
+  %cmp.i3145 = icmp eq i64 %661, 0
   br i1 %cmp.i3145, label %if.then.i3148, label %if.end.i3146
 
 if.then.i3148:                                    ; preds = %land.rhs.i1881
@@ -12740,21 +12761,21 @@ if.then.i3148:                                    ; preds = %land.rhs.i1881
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3149
 
 if.end.i3146:                                     ; preds = %land.rhs.i1881
-  %641 = load ptr, ptr %Lhs.addr.i3142, align 8
-  %642 = load ptr, ptr %Rhs.addr.i3143, align 8
-  %643 = load i64, ptr %Length.addr.i3144, align 8
-  %call.i3147 = call i32 @memcmp(ptr noundef %641, ptr noundef %642, i64 noundef %643) #10
+  %662 = load ptr, ptr %Lhs.addr.i3142, align 8
+  %663 = load ptr, ptr %Rhs.addr.i3143, align 8
+  %664 = load i64, ptr %Length.addr.i3144, align 8
+  %call.i3147 = call i32 @memcmp(ptr noundef %662, ptr noundef %663, i64 noundef %664) #10
   store i32 %call.i3147, ptr %retval.i3141, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3149
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3149: ; preds = %if.end.i3146, %if.then.i3148
-  %644 = load i32, ptr %retval.i3141, align 4
-  %cmp5.i1884 = icmp eq i32 %644, 0
+  %665 = load i32, ptr %retval.i3141, align 4
+  %cmp5.i1884 = icmp eq i32 %665, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1885
 
 _ZNK4llvh9StringRef6equalsES0_.exit1885:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3149, %land.lhs.true.i1309
-  %645 = phi i1 [ false, %land.lhs.true.i1309 ], [ %cmp5.i1884, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3149 ]
-  br i1 %645, label %if.then.i1311, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1314
+  %666 = phi i1 [ false, %land.lhs.true.i1309 ], [ %cmp5.i1884, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3149 ]
+  br i1 %666, label %if.then.i1311, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1314
 
 if.then.i1311:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1885
   %Result4.i1312 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1306, i32 0, i32 1
@@ -12763,15 +12784,16 @@ if.then.i1311:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1314: ; preds = %if.then.i1311, %_ZNK4llvh9StringRef6equalsES0_.exit1885, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1331
   call void @_ZN4llvh13StringLiteralC2ILm7EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm7ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp65, ptr noundef nonnull align 1 dereferenceable(7) @.str.22)
-  %646 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7), align 4
-  %or66 = or i32 %646, 1
-  %647 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 0
-  %648 = load ptr, ptr %647, align 8
-  %649 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 1
-  %650 = load i64, ptr %649, align 8
-  store ptr %648, ptr %S.i1284, align 8
-  %651 = getelementptr inbounds { ptr, i64 }, ptr %S.i1284, i32 0, i32 1
-  store i64 %650, ptr %651, align 8
+  %667 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 6, i32 7
+  %668 = load i32, ptr %667, align 4
+  %or66 = or i32 %668, 1
+  %669 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 0
+  %670 = load ptr, ptr %669, align 8
+  %671 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 1
+  %672 = load i64, ptr %671, align 8
+  store ptr %670, ptr %S.i1284, align 8
+  %673 = getelementptr inbounds { ptr, i64 }, ptr %S.i1284, i32 0, i32 1
+  store i64 %672, ptr %673, align 8
   store ptr %this1.i1306, ptr %this.addr.i1285, align 8
   store i32 %or66, ptr %Value.addr.i1286, align 4
   %this1.i1289 = load ptr, ptr %this.addr.i1285, align 8
@@ -12782,44 +12804,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1314: ; preds = %if.the
 land.lhs.true.i1292:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1314
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1287, ptr align 8 %this1.i1289, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1288, ptr align 8 %S.i1284, i64 16, i1 false)
-  %652 = load ptr, ptr %agg.tmp.i1287, align 8
-  %653 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1287, i32 0, i32 1
-  %654 = load i64, ptr %653, align 8
-  %655 = load ptr, ptr %agg.tmp2.i1288, align 8
-  %656 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1288, i32 0, i32 1
-  %657 = load i64, ptr %656, align 8
-  store ptr %652, ptr %LHS.i.i1281, align 8
-  %658 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1281, i32 0, i32 1
-  store i64 %654, ptr %658, align 8
-  store ptr %655, ptr %RHS.i.i1282, align 8
-  %659 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1282, i32 0, i32 1
-  store i64 %657, ptr %659, align 8
+  %674 = load ptr, ptr %agg.tmp.i1287, align 8
+  %675 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1287, i32 0, i32 1
+  %676 = load i64, ptr %675, align 8
+  %677 = load ptr, ptr %agg.tmp2.i1288, align 8
+  %678 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1288, i32 0, i32 1
+  %679 = load i64, ptr %678, align 8
+  store ptr %674, ptr %LHS.i.i1281, align 8
+  %680 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1281, i32 0, i32 1
+  store i64 %676, ptr %680, align 8
+  store ptr %677, ptr %RHS.i.i1282, align 8
+  %681 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1282, i32 0, i32 1
+  store i64 %679, ptr %681, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1283, ptr align 8 %RHS.i.i1282, i64 16, i1 false)
-  %660 = load ptr, ptr %agg.tmp.i.i1283, align 8
-  %661 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1283, i32 0, i32 1
-  %662 = load i64, ptr %661, align 8
-  store ptr %660, ptr %RHS.i1886, align 8
-  %663 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1886, i32 0, i32 1
-  store i64 %662, ptr %663, align 8
+  %682 = load ptr, ptr %agg.tmp.i.i1283, align 8
+  %683 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1283, i32 0, i32 1
+  %684 = load i64, ptr %683, align 8
+  store ptr %682, ptr %RHS.i1886, align 8
+  %685 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1886, i32 0, i32 1
+  store i64 %684, ptr %685, align 8
   store ptr %LHS.i.i1281, ptr %this.addr.i1887, align 8
   %this1.i1888 = load ptr, ptr %this.addr.i1887, align 8
   %Length.i1889 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1888, i32 0, i32 1
-  %664 = load i64, ptr %Length.i1889, align 8
+  %686 = load i64, ptr %Length.i1889, align 8
   %Length2.i1890 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1886, i32 0, i32 1
-  %665 = load i64, ptr %Length2.i1890, align 8
-  %cmp.i1891 = icmp eq i64 %664, %665
+  %687 = load i64, ptr %Length2.i1890, align 8
+  %cmp.i1891 = icmp eq i64 %686, %687
   br i1 %cmp.i1891, label %land.rhs.i1892, label %_ZNK4llvh9StringRef6equalsES0_.exit1896
 
 land.rhs.i1892:                                   ; preds = %land.lhs.true.i1292
-  %666 = load ptr, ptr %this1.i1888, align 8
-  %667 = load ptr, ptr %RHS.i1886, align 8
+  %688 = load ptr, ptr %this1.i1888, align 8
+  %689 = load ptr, ptr %RHS.i1886, align 8
   %Length4.i1893 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1886, i32 0, i32 1
-  %668 = load i64, ptr %Length4.i1893, align 8
-  store ptr %666, ptr %Lhs.addr.i3133, align 8
-  store ptr %667, ptr %Rhs.addr.i3134, align 8
-  store i64 %668, ptr %Length.addr.i3135, align 8
-  %669 = load i64, ptr %Length.addr.i3135, align 8
-  %cmp.i3136 = icmp eq i64 %669, 0
+  %690 = load i64, ptr %Length4.i1893, align 8
+  store ptr %688, ptr %Lhs.addr.i3133, align 8
+  store ptr %689, ptr %Rhs.addr.i3134, align 8
+  store i64 %690, ptr %Length.addr.i3135, align 8
+  %691 = load i64, ptr %Length.addr.i3135, align 8
+  %cmp.i3136 = icmp eq i64 %691, 0
   br i1 %cmp.i3136, label %if.then.i3139, label %if.end.i3137
 
 if.then.i3139:                                    ; preds = %land.rhs.i1892
@@ -12827,21 +12849,21 @@ if.then.i3139:                                    ; preds = %land.rhs.i1892
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3140
 
 if.end.i3137:                                     ; preds = %land.rhs.i1892
-  %670 = load ptr, ptr %Lhs.addr.i3133, align 8
-  %671 = load ptr, ptr %Rhs.addr.i3134, align 8
-  %672 = load i64, ptr %Length.addr.i3135, align 8
-  %call.i3138 = call i32 @memcmp(ptr noundef %670, ptr noundef %671, i64 noundef %672) #10
+  %692 = load ptr, ptr %Lhs.addr.i3133, align 8
+  %693 = load ptr, ptr %Rhs.addr.i3134, align 8
+  %694 = load i64, ptr %Length.addr.i3135, align 8
+  %call.i3138 = call i32 @memcmp(ptr noundef %692, ptr noundef %693, i64 noundef %694) #10
   store i32 %call.i3138, ptr %retval.i3132, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3140
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3140: ; preds = %if.end.i3137, %if.then.i3139
-  %673 = load i32, ptr %retval.i3132, align 4
-  %cmp5.i1895 = icmp eq i32 %673, 0
+  %695 = load i32, ptr %retval.i3132, align 4
+  %cmp5.i1895 = icmp eq i32 %695, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1896
 
 _ZNK4llvh9StringRef6equalsES0_.exit1896:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3140, %land.lhs.true.i1292
-  %674 = phi i1 [ false, %land.lhs.true.i1292 ], [ %cmp5.i1895, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3140 ]
-  br i1 %674, label %if.then.i1294, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1297
+  %696 = phi i1 [ false, %land.lhs.true.i1292 ], [ %cmp5.i1895, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3140 ]
+  br i1 %696, label %if.then.i1294, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1297
 
 if.then.i1294:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1896
   %Result4.i1295 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1289, i32 0, i32 1
@@ -12850,15 +12872,16 @@ if.then.i1294:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1297: ; preds = %if.then.i1294, %_ZNK4llvh9StringRef6equalsES0_.exit1896, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1314
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp68, ptr noundef nonnull align 1 dereferenceable(10) @.str.23)
-  %675 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 7, i32 7), align 4
-  %or69 = or i32 %675, 1
-  %676 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp68, i32 0, i32 0
-  %677 = load ptr, ptr %676, align 8
-  %678 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp68, i32 0, i32 1
-  %679 = load i64, ptr %678, align 8
-  store ptr %677, ptr %S.i1267, align 8
-  %680 = getelementptr inbounds { ptr, i64 }, ptr %S.i1267, i32 0, i32 1
-  store i64 %679, ptr %680, align 8
+  %697 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 7, i32 7
+  %698 = load i32, ptr %697, align 4
+  %or69 = or i32 %698, 1
+  %699 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp68, i32 0, i32 0
+  %700 = load ptr, ptr %699, align 8
+  %701 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp68, i32 0, i32 1
+  %702 = load i64, ptr %701, align 8
+  store ptr %700, ptr %S.i1267, align 8
+  %703 = getelementptr inbounds { ptr, i64 }, ptr %S.i1267, i32 0, i32 1
+  store i64 %702, ptr %703, align 8
   store ptr %this1.i1289, ptr %this.addr.i1268, align 8
   store i32 %or69, ptr %Value.addr.i1269, align 4
   %this1.i1272 = load ptr, ptr %this.addr.i1268, align 8
@@ -12869,44 +12892,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1297: ; preds = %if.the
 land.lhs.true.i1275:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1297
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1270, ptr align 8 %this1.i1272, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1271, ptr align 8 %S.i1267, i64 16, i1 false)
-  %681 = load ptr, ptr %agg.tmp.i1270, align 8
-  %682 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1270, i32 0, i32 1
-  %683 = load i64, ptr %682, align 8
-  %684 = load ptr, ptr %agg.tmp2.i1271, align 8
-  %685 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1271, i32 0, i32 1
-  %686 = load i64, ptr %685, align 8
-  store ptr %681, ptr %LHS.i.i1264, align 8
-  %687 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1264, i32 0, i32 1
-  store i64 %683, ptr %687, align 8
-  store ptr %684, ptr %RHS.i.i1265, align 8
-  %688 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1265, i32 0, i32 1
-  store i64 %686, ptr %688, align 8
+  %704 = load ptr, ptr %agg.tmp.i1270, align 8
+  %705 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1270, i32 0, i32 1
+  %706 = load i64, ptr %705, align 8
+  %707 = load ptr, ptr %agg.tmp2.i1271, align 8
+  %708 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1271, i32 0, i32 1
+  %709 = load i64, ptr %708, align 8
+  store ptr %704, ptr %LHS.i.i1264, align 8
+  %710 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1264, i32 0, i32 1
+  store i64 %706, ptr %710, align 8
+  store ptr %707, ptr %RHS.i.i1265, align 8
+  %711 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1265, i32 0, i32 1
+  store i64 %709, ptr %711, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1266, ptr align 8 %RHS.i.i1265, i64 16, i1 false)
-  %689 = load ptr, ptr %agg.tmp.i.i1266, align 8
-  %690 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1266, i32 0, i32 1
-  %691 = load i64, ptr %690, align 8
-  store ptr %689, ptr %RHS.i1897, align 8
-  %692 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1897, i32 0, i32 1
-  store i64 %691, ptr %692, align 8
+  %712 = load ptr, ptr %agg.tmp.i.i1266, align 8
+  %713 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1266, i32 0, i32 1
+  %714 = load i64, ptr %713, align 8
+  store ptr %712, ptr %RHS.i1897, align 8
+  %715 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1897, i32 0, i32 1
+  store i64 %714, ptr %715, align 8
   store ptr %LHS.i.i1264, ptr %this.addr.i1898, align 8
   %this1.i1899 = load ptr, ptr %this.addr.i1898, align 8
   %Length.i1900 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1899, i32 0, i32 1
-  %693 = load i64, ptr %Length.i1900, align 8
+  %716 = load i64, ptr %Length.i1900, align 8
   %Length2.i1901 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1897, i32 0, i32 1
-  %694 = load i64, ptr %Length2.i1901, align 8
-  %cmp.i1902 = icmp eq i64 %693, %694
+  %717 = load i64, ptr %Length2.i1901, align 8
+  %cmp.i1902 = icmp eq i64 %716, %717
   br i1 %cmp.i1902, label %land.rhs.i1903, label %_ZNK4llvh9StringRef6equalsES0_.exit1907
 
 land.rhs.i1903:                                   ; preds = %land.lhs.true.i1275
-  %695 = load ptr, ptr %this1.i1899, align 8
-  %696 = load ptr, ptr %RHS.i1897, align 8
+  %718 = load ptr, ptr %this1.i1899, align 8
+  %719 = load ptr, ptr %RHS.i1897, align 8
   %Length4.i1904 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1897, i32 0, i32 1
-  %697 = load i64, ptr %Length4.i1904, align 8
-  store ptr %695, ptr %Lhs.addr.i3124, align 8
-  store ptr %696, ptr %Rhs.addr.i3125, align 8
-  store i64 %697, ptr %Length.addr.i3126, align 8
-  %698 = load i64, ptr %Length.addr.i3126, align 8
-  %cmp.i3127 = icmp eq i64 %698, 0
+  %720 = load i64, ptr %Length4.i1904, align 8
+  store ptr %718, ptr %Lhs.addr.i3124, align 8
+  store ptr %719, ptr %Rhs.addr.i3125, align 8
+  store i64 %720, ptr %Length.addr.i3126, align 8
+  %721 = load i64, ptr %Length.addr.i3126, align 8
+  %cmp.i3127 = icmp eq i64 %721, 0
   br i1 %cmp.i3127, label %if.then.i3130, label %if.end.i3128
 
 if.then.i3130:                                    ; preds = %land.rhs.i1903
@@ -12914,21 +12937,21 @@ if.then.i3130:                                    ; preds = %land.rhs.i1903
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3131
 
 if.end.i3128:                                     ; preds = %land.rhs.i1903
-  %699 = load ptr, ptr %Lhs.addr.i3124, align 8
-  %700 = load ptr, ptr %Rhs.addr.i3125, align 8
-  %701 = load i64, ptr %Length.addr.i3126, align 8
-  %call.i3129 = call i32 @memcmp(ptr noundef %699, ptr noundef %700, i64 noundef %701) #10
+  %722 = load ptr, ptr %Lhs.addr.i3124, align 8
+  %723 = load ptr, ptr %Rhs.addr.i3125, align 8
+  %724 = load i64, ptr %Length.addr.i3126, align 8
+  %call.i3129 = call i32 @memcmp(ptr noundef %722, ptr noundef %723, i64 noundef %724) #10
   store i32 %call.i3129, ptr %retval.i3123, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3131
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3131: ; preds = %if.end.i3128, %if.then.i3130
-  %702 = load i32, ptr %retval.i3123, align 4
-  %cmp5.i1906 = icmp eq i32 %702, 0
+  %725 = load i32, ptr %retval.i3123, align 4
+  %cmp5.i1906 = icmp eq i32 %725, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1907
 
 _ZNK4llvh9StringRef6equalsES0_.exit1907:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3131, %land.lhs.true.i1275
-  %703 = phi i1 [ false, %land.lhs.true.i1275 ], [ %cmp5.i1906, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3131 ]
-  br i1 %703, label %if.then.i1277, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1280
+  %726 = phi i1 [ false, %land.lhs.true.i1275 ], [ %cmp5.i1906, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3131 ]
+  br i1 %726, label %if.then.i1277, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1280
 
 if.then.i1277:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1907
   %Result4.i1278 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1272, i32 0, i32 1
@@ -12937,15 +12960,16 @@ if.then.i1277:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1280: ; preds = %if.then.i1277, %_ZNK4llvh9StringRef6equalsES0_.exit1907, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1297
   call void @_ZN4llvh13StringLiteralC2ILm9EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm9ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp71, ptr noundef nonnull align 1 dereferenceable(9) @.str.24)
-  %704 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 7, i32 7), align 4
-  %or72 = or i32 %704, 1
-  %705 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp71, i32 0, i32 0
-  %706 = load ptr, ptr %705, align 8
-  %707 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp71, i32 0, i32 1
-  %708 = load i64, ptr %707, align 8
-  store ptr %706, ptr %S.i1250, align 8
-  %709 = getelementptr inbounds { ptr, i64 }, ptr %S.i1250, i32 0, i32 1
-  store i64 %708, ptr %709, align 8
+  %727 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 7, i32 7
+  %728 = load i32, ptr %727, align 4
+  %or72 = or i32 %728, 1
+  %729 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp71, i32 0, i32 0
+  %730 = load ptr, ptr %729, align 8
+  %731 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp71, i32 0, i32 1
+  %732 = load i64, ptr %731, align 8
+  store ptr %730, ptr %S.i1250, align 8
+  %733 = getelementptr inbounds { ptr, i64 }, ptr %S.i1250, i32 0, i32 1
+  store i64 %732, ptr %733, align 8
   store ptr %this1.i1272, ptr %this.addr.i1251, align 8
   store i32 %or72, ptr %Value.addr.i1252, align 4
   %this1.i1255 = load ptr, ptr %this.addr.i1251, align 8
@@ -12956,44 +12980,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1280: ; preds = %if.the
 land.lhs.true.i1258:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1280
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1253, ptr align 8 %this1.i1255, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1254, ptr align 8 %S.i1250, i64 16, i1 false)
-  %710 = load ptr, ptr %agg.tmp.i1253, align 8
-  %711 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1253, i32 0, i32 1
-  %712 = load i64, ptr %711, align 8
-  %713 = load ptr, ptr %agg.tmp2.i1254, align 8
-  %714 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1254, i32 0, i32 1
-  %715 = load i64, ptr %714, align 8
-  store ptr %710, ptr %LHS.i.i1247, align 8
-  %716 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1247, i32 0, i32 1
-  store i64 %712, ptr %716, align 8
-  store ptr %713, ptr %RHS.i.i1248, align 8
-  %717 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1248, i32 0, i32 1
-  store i64 %715, ptr %717, align 8
+  %734 = load ptr, ptr %agg.tmp.i1253, align 8
+  %735 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1253, i32 0, i32 1
+  %736 = load i64, ptr %735, align 8
+  %737 = load ptr, ptr %agg.tmp2.i1254, align 8
+  %738 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1254, i32 0, i32 1
+  %739 = load i64, ptr %738, align 8
+  store ptr %734, ptr %LHS.i.i1247, align 8
+  %740 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1247, i32 0, i32 1
+  store i64 %736, ptr %740, align 8
+  store ptr %737, ptr %RHS.i.i1248, align 8
+  %741 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1248, i32 0, i32 1
+  store i64 %739, ptr %741, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1249, ptr align 8 %RHS.i.i1248, i64 16, i1 false)
-  %718 = load ptr, ptr %agg.tmp.i.i1249, align 8
-  %719 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1249, i32 0, i32 1
-  %720 = load i64, ptr %719, align 8
-  store ptr %718, ptr %RHS.i1908, align 8
-  %721 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1908, i32 0, i32 1
-  store i64 %720, ptr %721, align 8
+  %742 = load ptr, ptr %agg.tmp.i.i1249, align 8
+  %743 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1249, i32 0, i32 1
+  %744 = load i64, ptr %743, align 8
+  store ptr %742, ptr %RHS.i1908, align 8
+  %745 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1908, i32 0, i32 1
+  store i64 %744, ptr %745, align 8
   store ptr %LHS.i.i1247, ptr %this.addr.i1909, align 8
   %this1.i1910 = load ptr, ptr %this.addr.i1909, align 8
   %Length.i1911 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1910, i32 0, i32 1
-  %722 = load i64, ptr %Length.i1911, align 8
+  %746 = load i64, ptr %Length.i1911, align 8
   %Length2.i1912 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1908, i32 0, i32 1
-  %723 = load i64, ptr %Length2.i1912, align 8
-  %cmp.i1913 = icmp eq i64 %722, %723
+  %747 = load i64, ptr %Length2.i1912, align 8
+  %cmp.i1913 = icmp eq i64 %746, %747
   br i1 %cmp.i1913, label %land.rhs.i1914, label %_ZNK4llvh9StringRef6equalsES0_.exit1918
 
 land.rhs.i1914:                                   ; preds = %land.lhs.true.i1258
-  %724 = load ptr, ptr %this1.i1910, align 8
-  %725 = load ptr, ptr %RHS.i1908, align 8
+  %748 = load ptr, ptr %this1.i1910, align 8
+  %749 = load ptr, ptr %RHS.i1908, align 8
   %Length4.i1915 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1908, i32 0, i32 1
-  %726 = load i64, ptr %Length4.i1915, align 8
-  store ptr %724, ptr %Lhs.addr.i3115, align 8
-  store ptr %725, ptr %Rhs.addr.i3116, align 8
-  store i64 %726, ptr %Length.addr.i3117, align 8
-  %727 = load i64, ptr %Length.addr.i3117, align 8
-  %cmp.i3118 = icmp eq i64 %727, 0
+  %750 = load i64, ptr %Length4.i1915, align 8
+  store ptr %748, ptr %Lhs.addr.i3115, align 8
+  store ptr %749, ptr %Rhs.addr.i3116, align 8
+  store i64 %750, ptr %Length.addr.i3117, align 8
+  %751 = load i64, ptr %Length.addr.i3117, align 8
+  %cmp.i3118 = icmp eq i64 %751, 0
   br i1 %cmp.i3118, label %if.then.i3121, label %if.end.i3119
 
 if.then.i3121:                                    ; preds = %land.rhs.i1914
@@ -13001,21 +13025,21 @@ if.then.i3121:                                    ; preds = %land.rhs.i1914
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3122
 
 if.end.i3119:                                     ; preds = %land.rhs.i1914
-  %728 = load ptr, ptr %Lhs.addr.i3115, align 8
-  %729 = load ptr, ptr %Rhs.addr.i3116, align 8
-  %730 = load i64, ptr %Length.addr.i3117, align 8
-  %call.i3120 = call i32 @memcmp(ptr noundef %728, ptr noundef %729, i64 noundef %730) #10
+  %752 = load ptr, ptr %Lhs.addr.i3115, align 8
+  %753 = load ptr, ptr %Rhs.addr.i3116, align 8
+  %754 = load i64, ptr %Length.addr.i3117, align 8
+  %call.i3120 = call i32 @memcmp(ptr noundef %752, ptr noundef %753, i64 noundef %754) #10
   store i32 %call.i3120, ptr %retval.i3114, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3122
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3122: ; preds = %if.end.i3119, %if.then.i3121
-  %731 = load i32, ptr %retval.i3114, align 4
-  %cmp5.i1917 = icmp eq i32 %731, 0
+  %755 = load i32, ptr %retval.i3114, align 4
+  %cmp5.i1917 = icmp eq i32 %755, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1918
 
 _ZNK4llvh9StringRef6equalsES0_.exit1918:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3122, %land.lhs.true.i1258
-  %732 = phi i1 [ false, %land.lhs.true.i1258 ], [ %cmp5.i1917, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3122 ]
-  br i1 %732, label %if.then.i1260, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1263
+  %756 = phi i1 [ false, %land.lhs.true.i1258 ], [ %cmp5.i1917, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3122 ]
+  br i1 %756, label %if.then.i1260, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1263
 
 if.then.i1260:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1918
   %Result4.i1261 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1255, i32 0, i32 1
@@ -13024,15 +13048,16 @@ if.then.i1260:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1263: ; preds = %if.then.i1260, %_ZNK4llvh9StringRef6equalsES0_.exit1918, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1280
   call void @_ZN4llvh13StringLiteralC2ILm6EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm6ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp74, ptr noundef nonnull align 1 dereferenceable(6) @.str.25)
-  %733 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7), align 4
-  %or75 = or i32 %733, 1
-  %734 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 0
-  %735 = load ptr, ptr %734, align 8
-  %736 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 1
-  %737 = load i64, ptr %736, align 8
-  store ptr %735, ptr %S.i1233, align 8
-  %738 = getelementptr inbounds { ptr, i64 }, ptr %S.i1233, i32 0, i32 1
-  store i64 %737, ptr %738, align 8
+  %757 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7
+  %758 = load i32, ptr %757, align 4
+  %or75 = or i32 %758, 1
+  %759 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 0
+  %760 = load ptr, ptr %759, align 8
+  %761 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 1
+  %762 = load i64, ptr %761, align 8
+  store ptr %760, ptr %S.i1233, align 8
+  %763 = getelementptr inbounds { ptr, i64 }, ptr %S.i1233, i32 0, i32 1
+  store i64 %762, ptr %763, align 8
   store ptr %this1.i1255, ptr %this.addr.i1234, align 8
   store i32 %or75, ptr %Value.addr.i1235, align 4
   %this1.i1238 = load ptr, ptr %this.addr.i1234, align 8
@@ -13043,44 +13068,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1263: ; preds = %if.the
 land.lhs.true.i1241:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1263
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1236, ptr align 8 %this1.i1238, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1237, ptr align 8 %S.i1233, i64 16, i1 false)
-  %739 = load ptr, ptr %agg.tmp.i1236, align 8
-  %740 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1236, i32 0, i32 1
-  %741 = load i64, ptr %740, align 8
-  %742 = load ptr, ptr %agg.tmp2.i1237, align 8
-  %743 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1237, i32 0, i32 1
-  %744 = load i64, ptr %743, align 8
-  store ptr %739, ptr %LHS.i.i1230, align 8
-  %745 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1230, i32 0, i32 1
-  store i64 %741, ptr %745, align 8
-  store ptr %742, ptr %RHS.i.i1231, align 8
-  %746 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1231, i32 0, i32 1
-  store i64 %744, ptr %746, align 8
+  %764 = load ptr, ptr %agg.tmp.i1236, align 8
+  %765 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1236, i32 0, i32 1
+  %766 = load i64, ptr %765, align 8
+  %767 = load ptr, ptr %agg.tmp2.i1237, align 8
+  %768 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1237, i32 0, i32 1
+  %769 = load i64, ptr %768, align 8
+  store ptr %764, ptr %LHS.i.i1230, align 8
+  %770 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1230, i32 0, i32 1
+  store i64 %766, ptr %770, align 8
+  store ptr %767, ptr %RHS.i.i1231, align 8
+  %771 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1231, i32 0, i32 1
+  store i64 %769, ptr %771, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1232, ptr align 8 %RHS.i.i1231, i64 16, i1 false)
-  %747 = load ptr, ptr %agg.tmp.i.i1232, align 8
-  %748 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1232, i32 0, i32 1
-  %749 = load i64, ptr %748, align 8
-  store ptr %747, ptr %RHS.i1919, align 8
-  %750 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1919, i32 0, i32 1
-  store i64 %749, ptr %750, align 8
+  %772 = load ptr, ptr %agg.tmp.i.i1232, align 8
+  %773 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1232, i32 0, i32 1
+  %774 = load i64, ptr %773, align 8
+  store ptr %772, ptr %RHS.i1919, align 8
+  %775 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1919, i32 0, i32 1
+  store i64 %774, ptr %775, align 8
   store ptr %LHS.i.i1230, ptr %this.addr.i1920, align 8
   %this1.i1921 = load ptr, ptr %this.addr.i1920, align 8
   %Length.i1922 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1921, i32 0, i32 1
-  %751 = load i64, ptr %Length.i1922, align 8
+  %776 = load i64, ptr %Length.i1922, align 8
   %Length2.i1923 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1919, i32 0, i32 1
-  %752 = load i64, ptr %Length2.i1923, align 8
-  %cmp.i1924 = icmp eq i64 %751, %752
+  %777 = load i64, ptr %Length2.i1923, align 8
+  %cmp.i1924 = icmp eq i64 %776, %777
   br i1 %cmp.i1924, label %land.rhs.i1925, label %_ZNK4llvh9StringRef6equalsES0_.exit1929
 
 land.rhs.i1925:                                   ; preds = %land.lhs.true.i1241
-  %753 = load ptr, ptr %this1.i1921, align 8
-  %754 = load ptr, ptr %RHS.i1919, align 8
+  %778 = load ptr, ptr %this1.i1921, align 8
+  %779 = load ptr, ptr %RHS.i1919, align 8
   %Length4.i1926 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1919, i32 0, i32 1
-  %755 = load i64, ptr %Length4.i1926, align 8
-  store ptr %753, ptr %Lhs.addr.i3106, align 8
-  store ptr %754, ptr %Rhs.addr.i3107, align 8
-  store i64 %755, ptr %Length.addr.i3108, align 8
-  %756 = load i64, ptr %Length.addr.i3108, align 8
-  %cmp.i3109 = icmp eq i64 %756, 0
+  %780 = load i64, ptr %Length4.i1926, align 8
+  store ptr %778, ptr %Lhs.addr.i3106, align 8
+  store ptr %779, ptr %Rhs.addr.i3107, align 8
+  store i64 %780, ptr %Length.addr.i3108, align 8
+  %781 = load i64, ptr %Length.addr.i3108, align 8
+  %cmp.i3109 = icmp eq i64 %781, 0
   br i1 %cmp.i3109, label %if.then.i3112, label %if.end.i3110
 
 if.then.i3112:                                    ; preds = %land.rhs.i1925
@@ -13088,21 +13113,21 @@ if.then.i3112:                                    ; preds = %land.rhs.i1925
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3113
 
 if.end.i3110:                                     ; preds = %land.rhs.i1925
-  %757 = load ptr, ptr %Lhs.addr.i3106, align 8
-  %758 = load ptr, ptr %Rhs.addr.i3107, align 8
-  %759 = load i64, ptr %Length.addr.i3108, align 8
-  %call.i3111 = call i32 @memcmp(ptr noundef %757, ptr noundef %758, i64 noundef %759) #10
+  %782 = load ptr, ptr %Lhs.addr.i3106, align 8
+  %783 = load ptr, ptr %Rhs.addr.i3107, align 8
+  %784 = load i64, ptr %Length.addr.i3108, align 8
+  %call.i3111 = call i32 @memcmp(ptr noundef %782, ptr noundef %783, i64 noundef %784) #10
   store i32 %call.i3111, ptr %retval.i3105, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3113
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3113: ; preds = %if.end.i3110, %if.then.i3112
-  %760 = load i32, ptr %retval.i3105, align 4
-  %cmp5.i1928 = icmp eq i32 %760, 0
+  %785 = load i32, ptr %retval.i3105, align 4
+  %cmp5.i1928 = icmp eq i32 %785, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1929
 
 _ZNK4llvh9StringRef6equalsES0_.exit1929:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3113, %land.lhs.true.i1241
-  %761 = phi i1 [ false, %land.lhs.true.i1241 ], [ %cmp5.i1928, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3113 ]
-  br i1 %761, label %if.then.i1243, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1246
+  %786 = phi i1 [ false, %land.lhs.true.i1241 ], [ %cmp5.i1928, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3113 ]
+  br i1 %786, label %if.then.i1243, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1246
 
 if.then.i1243:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1929
   %Result4.i1244 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1238, i32 0, i32 1
@@ -13111,15 +13136,16 @@ if.then.i1243:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1246: ; preds = %if.then.i1243, %_ZNK4llvh9StringRef6equalsES0_.exit1929, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1263
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp77, ptr noundef nonnull align 1 dereferenceable(10) @.str.26)
-  %762 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7), align 4
-  %or78 = or i32 %762, 1
-  %763 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp77, i32 0, i32 0
-  %764 = load ptr, ptr %763, align 8
-  %765 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp77, i32 0, i32 1
-  %766 = load i64, ptr %765, align 8
-  store ptr %764, ptr %S.i1216, align 8
-  %767 = getelementptr inbounds { ptr, i64 }, ptr %S.i1216, i32 0, i32 1
-  store i64 %766, ptr %767, align 8
+  %787 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7
+  %788 = load i32, ptr %787, align 4
+  %or78 = or i32 %788, 1
+  %789 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp77, i32 0, i32 0
+  %790 = load ptr, ptr %789, align 8
+  %791 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp77, i32 0, i32 1
+  %792 = load i64, ptr %791, align 8
+  store ptr %790, ptr %S.i1216, align 8
+  %793 = getelementptr inbounds { ptr, i64 }, ptr %S.i1216, i32 0, i32 1
+  store i64 %792, ptr %793, align 8
   store ptr %this1.i1238, ptr %this.addr.i1217, align 8
   store i32 %or78, ptr %Value.addr.i1218, align 4
   %this1.i1221 = load ptr, ptr %this.addr.i1217, align 8
@@ -13130,44 +13156,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1246: ; preds = %if.the
 land.lhs.true.i1224:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1246
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1219, ptr align 8 %this1.i1221, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1220, ptr align 8 %S.i1216, i64 16, i1 false)
-  %768 = load ptr, ptr %agg.tmp.i1219, align 8
-  %769 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1219, i32 0, i32 1
-  %770 = load i64, ptr %769, align 8
-  %771 = load ptr, ptr %agg.tmp2.i1220, align 8
-  %772 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1220, i32 0, i32 1
-  %773 = load i64, ptr %772, align 8
-  store ptr %768, ptr %LHS.i.i1213, align 8
-  %774 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1213, i32 0, i32 1
-  store i64 %770, ptr %774, align 8
-  store ptr %771, ptr %RHS.i.i1214, align 8
-  %775 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1214, i32 0, i32 1
-  store i64 %773, ptr %775, align 8
+  %794 = load ptr, ptr %agg.tmp.i1219, align 8
+  %795 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1219, i32 0, i32 1
+  %796 = load i64, ptr %795, align 8
+  %797 = load ptr, ptr %agg.tmp2.i1220, align 8
+  %798 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1220, i32 0, i32 1
+  %799 = load i64, ptr %798, align 8
+  store ptr %794, ptr %LHS.i.i1213, align 8
+  %800 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1213, i32 0, i32 1
+  store i64 %796, ptr %800, align 8
+  store ptr %797, ptr %RHS.i.i1214, align 8
+  %801 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1214, i32 0, i32 1
+  store i64 %799, ptr %801, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1215, ptr align 8 %RHS.i.i1214, i64 16, i1 false)
-  %776 = load ptr, ptr %agg.tmp.i.i1215, align 8
-  %777 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1215, i32 0, i32 1
-  %778 = load i64, ptr %777, align 8
-  store ptr %776, ptr %RHS.i1930, align 8
-  %779 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1930, i32 0, i32 1
-  store i64 %778, ptr %779, align 8
+  %802 = load ptr, ptr %agg.tmp.i.i1215, align 8
+  %803 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1215, i32 0, i32 1
+  %804 = load i64, ptr %803, align 8
+  store ptr %802, ptr %RHS.i1930, align 8
+  %805 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1930, i32 0, i32 1
+  store i64 %804, ptr %805, align 8
   store ptr %LHS.i.i1213, ptr %this.addr.i1931, align 8
   %this1.i1932 = load ptr, ptr %this.addr.i1931, align 8
   %Length.i1933 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1932, i32 0, i32 1
-  %780 = load i64, ptr %Length.i1933, align 8
+  %806 = load i64, ptr %Length.i1933, align 8
   %Length2.i1934 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1930, i32 0, i32 1
-  %781 = load i64, ptr %Length2.i1934, align 8
-  %cmp.i1935 = icmp eq i64 %780, %781
+  %807 = load i64, ptr %Length2.i1934, align 8
+  %cmp.i1935 = icmp eq i64 %806, %807
   br i1 %cmp.i1935, label %land.rhs.i1936, label %_ZNK4llvh9StringRef6equalsES0_.exit1940
 
 land.rhs.i1936:                                   ; preds = %land.lhs.true.i1224
-  %782 = load ptr, ptr %this1.i1932, align 8
-  %783 = load ptr, ptr %RHS.i1930, align 8
+  %808 = load ptr, ptr %this1.i1932, align 8
+  %809 = load ptr, ptr %RHS.i1930, align 8
   %Length4.i1937 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1930, i32 0, i32 1
-  %784 = load i64, ptr %Length4.i1937, align 8
-  store ptr %782, ptr %Lhs.addr.i3097, align 8
-  store ptr %783, ptr %Rhs.addr.i3098, align 8
-  store i64 %784, ptr %Length.addr.i3099, align 8
-  %785 = load i64, ptr %Length.addr.i3099, align 8
-  %cmp.i3100 = icmp eq i64 %785, 0
+  %810 = load i64, ptr %Length4.i1937, align 8
+  store ptr %808, ptr %Lhs.addr.i3097, align 8
+  store ptr %809, ptr %Rhs.addr.i3098, align 8
+  store i64 %810, ptr %Length.addr.i3099, align 8
+  %811 = load i64, ptr %Length.addr.i3099, align 8
+  %cmp.i3100 = icmp eq i64 %811, 0
   br i1 %cmp.i3100, label %if.then.i3103, label %if.end.i3101
 
 if.then.i3103:                                    ; preds = %land.rhs.i1936
@@ -13175,21 +13201,21 @@ if.then.i3103:                                    ; preds = %land.rhs.i1936
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3104
 
 if.end.i3101:                                     ; preds = %land.rhs.i1936
-  %786 = load ptr, ptr %Lhs.addr.i3097, align 8
-  %787 = load ptr, ptr %Rhs.addr.i3098, align 8
-  %788 = load i64, ptr %Length.addr.i3099, align 8
-  %call.i3102 = call i32 @memcmp(ptr noundef %786, ptr noundef %787, i64 noundef %788) #10
+  %812 = load ptr, ptr %Lhs.addr.i3097, align 8
+  %813 = load ptr, ptr %Rhs.addr.i3098, align 8
+  %814 = load i64, ptr %Length.addr.i3099, align 8
+  %call.i3102 = call i32 @memcmp(ptr noundef %812, ptr noundef %813, i64 noundef %814) #10
   store i32 %call.i3102, ptr %retval.i3096, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3104
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3104: ; preds = %if.end.i3101, %if.then.i3103
-  %789 = load i32, ptr %retval.i3096, align 4
-  %cmp5.i1939 = icmp eq i32 %789, 0
+  %815 = load i32, ptr %retval.i3096, align 4
+  %cmp5.i1939 = icmp eq i32 %815, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1940
 
 _ZNK4llvh9StringRef6equalsES0_.exit1940:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3104, %land.lhs.true.i1224
-  %790 = phi i1 [ false, %land.lhs.true.i1224 ], [ %cmp5.i1939, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3104 ]
-  br i1 %790, label %if.then.i1226, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1229
+  %816 = phi i1 [ false, %land.lhs.true.i1224 ], [ %cmp5.i1939, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3104 ]
+  br i1 %816, label %if.then.i1226, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1229
 
 if.then.i1226:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1940
   %Result4.i1227 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1221, i32 0, i32 1
@@ -13198,15 +13224,16 @@ if.then.i1226:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1229: ; preds = %if.then.i1226, %_ZNK4llvh9StringRef6equalsES0_.exit1940, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1246
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp80, ptr noundef nonnull align 1 dereferenceable(10) @.str.27)
-  %791 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7), align 4
-  %or81 = or i32 %791, 1
-  %792 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp80, i32 0, i32 0
-  %793 = load ptr, ptr %792, align 8
-  %794 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp80, i32 0, i32 1
-  %795 = load i64, ptr %794, align 8
-  store ptr %793, ptr %S.i1199, align 8
-  %796 = getelementptr inbounds { ptr, i64 }, ptr %S.i1199, i32 0, i32 1
-  store i64 %795, ptr %796, align 8
+  %817 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7
+  %818 = load i32, ptr %817, align 4
+  %or81 = or i32 %818, 1
+  %819 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp80, i32 0, i32 0
+  %820 = load ptr, ptr %819, align 8
+  %821 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp80, i32 0, i32 1
+  %822 = load i64, ptr %821, align 8
+  store ptr %820, ptr %S.i1199, align 8
+  %823 = getelementptr inbounds { ptr, i64 }, ptr %S.i1199, i32 0, i32 1
+  store i64 %822, ptr %823, align 8
   store ptr %this1.i1221, ptr %this.addr.i1200, align 8
   store i32 %or81, ptr %Value.addr.i1201, align 4
   %this1.i1204 = load ptr, ptr %this.addr.i1200, align 8
@@ -13217,44 +13244,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1229: ; preds = %if.the
 land.lhs.true.i1207:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1229
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1202, ptr align 8 %this1.i1204, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1203, ptr align 8 %S.i1199, i64 16, i1 false)
-  %797 = load ptr, ptr %agg.tmp.i1202, align 8
-  %798 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1202, i32 0, i32 1
-  %799 = load i64, ptr %798, align 8
-  %800 = load ptr, ptr %agg.tmp2.i1203, align 8
-  %801 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1203, i32 0, i32 1
-  %802 = load i64, ptr %801, align 8
-  store ptr %797, ptr %LHS.i.i1196, align 8
-  %803 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1196, i32 0, i32 1
-  store i64 %799, ptr %803, align 8
-  store ptr %800, ptr %RHS.i.i1197, align 8
-  %804 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1197, i32 0, i32 1
-  store i64 %802, ptr %804, align 8
+  %824 = load ptr, ptr %agg.tmp.i1202, align 8
+  %825 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1202, i32 0, i32 1
+  %826 = load i64, ptr %825, align 8
+  %827 = load ptr, ptr %agg.tmp2.i1203, align 8
+  %828 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1203, i32 0, i32 1
+  %829 = load i64, ptr %828, align 8
+  store ptr %824, ptr %LHS.i.i1196, align 8
+  %830 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1196, i32 0, i32 1
+  store i64 %826, ptr %830, align 8
+  store ptr %827, ptr %RHS.i.i1197, align 8
+  %831 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1197, i32 0, i32 1
+  store i64 %829, ptr %831, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1198, ptr align 8 %RHS.i.i1197, i64 16, i1 false)
-  %805 = load ptr, ptr %agg.tmp.i.i1198, align 8
-  %806 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1198, i32 0, i32 1
-  %807 = load i64, ptr %806, align 8
-  store ptr %805, ptr %RHS.i1941, align 8
-  %808 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1941, i32 0, i32 1
-  store i64 %807, ptr %808, align 8
+  %832 = load ptr, ptr %agg.tmp.i.i1198, align 8
+  %833 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1198, i32 0, i32 1
+  %834 = load i64, ptr %833, align 8
+  store ptr %832, ptr %RHS.i1941, align 8
+  %835 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1941, i32 0, i32 1
+  store i64 %834, ptr %835, align 8
   store ptr %LHS.i.i1196, ptr %this.addr.i1942, align 8
   %this1.i1943 = load ptr, ptr %this.addr.i1942, align 8
   %Length.i1944 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1943, i32 0, i32 1
-  %809 = load i64, ptr %Length.i1944, align 8
+  %836 = load i64, ptr %Length.i1944, align 8
   %Length2.i1945 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1941, i32 0, i32 1
-  %810 = load i64, ptr %Length2.i1945, align 8
-  %cmp.i1946 = icmp eq i64 %809, %810
+  %837 = load i64, ptr %Length2.i1945, align 8
+  %cmp.i1946 = icmp eq i64 %836, %837
   br i1 %cmp.i1946, label %land.rhs.i1947, label %_ZNK4llvh9StringRef6equalsES0_.exit1951
 
 land.rhs.i1947:                                   ; preds = %land.lhs.true.i1207
-  %811 = load ptr, ptr %this1.i1943, align 8
-  %812 = load ptr, ptr %RHS.i1941, align 8
+  %838 = load ptr, ptr %this1.i1943, align 8
+  %839 = load ptr, ptr %RHS.i1941, align 8
   %Length4.i1948 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1941, i32 0, i32 1
-  %813 = load i64, ptr %Length4.i1948, align 8
-  store ptr %811, ptr %Lhs.addr.i3088, align 8
-  store ptr %812, ptr %Rhs.addr.i3089, align 8
-  store i64 %813, ptr %Length.addr.i3090, align 8
-  %814 = load i64, ptr %Length.addr.i3090, align 8
-  %cmp.i3091 = icmp eq i64 %814, 0
+  %840 = load i64, ptr %Length4.i1948, align 8
+  store ptr %838, ptr %Lhs.addr.i3088, align 8
+  store ptr %839, ptr %Rhs.addr.i3089, align 8
+  store i64 %840, ptr %Length.addr.i3090, align 8
+  %841 = load i64, ptr %Length.addr.i3090, align 8
+  %cmp.i3091 = icmp eq i64 %841, 0
   br i1 %cmp.i3091, label %if.then.i3094, label %if.end.i3092
 
 if.then.i3094:                                    ; preds = %land.rhs.i1947
@@ -13262,21 +13289,21 @@ if.then.i3094:                                    ; preds = %land.rhs.i1947
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3095
 
 if.end.i3092:                                     ; preds = %land.rhs.i1947
-  %815 = load ptr, ptr %Lhs.addr.i3088, align 8
-  %816 = load ptr, ptr %Rhs.addr.i3089, align 8
-  %817 = load i64, ptr %Length.addr.i3090, align 8
-  %call.i3093 = call i32 @memcmp(ptr noundef %815, ptr noundef %816, i64 noundef %817) #10
+  %842 = load ptr, ptr %Lhs.addr.i3088, align 8
+  %843 = load ptr, ptr %Rhs.addr.i3089, align 8
+  %844 = load i64, ptr %Length.addr.i3090, align 8
+  %call.i3093 = call i32 @memcmp(ptr noundef %842, ptr noundef %843, i64 noundef %844) #10
   store i32 %call.i3093, ptr %retval.i3087, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3095
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3095: ; preds = %if.end.i3092, %if.then.i3094
-  %818 = load i32, ptr %retval.i3087, align 4
-  %cmp5.i1950 = icmp eq i32 %818, 0
+  %845 = load i32, ptr %retval.i3087, align 4
+  %cmp5.i1950 = icmp eq i32 %845, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1951
 
 _ZNK4llvh9StringRef6equalsES0_.exit1951:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3095, %land.lhs.true.i1207
-  %819 = phi i1 [ false, %land.lhs.true.i1207 ], [ %cmp5.i1950, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3095 ]
-  br i1 %819, label %if.then.i1209, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1212
+  %846 = phi i1 [ false, %land.lhs.true.i1207 ], [ %cmp5.i1950, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3095 ]
+  br i1 %846, label %if.then.i1209, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1212
 
 if.then.i1209:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1951
   %Result4.i1210 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1204, i32 0, i32 1
@@ -13285,15 +13312,16 @@ if.then.i1209:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1212: ; preds = %if.then.i1209, %_ZNK4llvh9StringRef6equalsES0_.exit1951, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1229
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp83, ptr noundef nonnull align 1 dereferenceable(10) @.str.28)
-  %820 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7), align 4
-  %or84 = or i32 %820, 1
-  %821 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp83, i32 0, i32 0
-  %822 = load ptr, ptr %821, align 8
-  %823 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp83, i32 0, i32 1
-  %824 = load i64, ptr %823, align 8
-  store ptr %822, ptr %S.i1182, align 8
-  %825 = getelementptr inbounds { ptr, i64 }, ptr %S.i1182, i32 0, i32 1
-  store i64 %824, ptr %825, align 8
+  %847 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7
+  %848 = load i32, ptr %847, align 4
+  %or84 = or i32 %848, 1
+  %849 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp83, i32 0, i32 0
+  %850 = load ptr, ptr %849, align 8
+  %851 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp83, i32 0, i32 1
+  %852 = load i64, ptr %851, align 8
+  store ptr %850, ptr %S.i1182, align 8
+  %853 = getelementptr inbounds { ptr, i64 }, ptr %S.i1182, i32 0, i32 1
+  store i64 %852, ptr %853, align 8
   store ptr %this1.i1204, ptr %this.addr.i1183, align 8
   store i32 %or84, ptr %Value.addr.i1184, align 4
   %this1.i1187 = load ptr, ptr %this.addr.i1183, align 8
@@ -13304,44 +13332,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1212: ; preds = %if.the
 land.lhs.true.i1190:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1212
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1185, ptr align 8 %this1.i1187, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1186, ptr align 8 %S.i1182, i64 16, i1 false)
-  %826 = load ptr, ptr %agg.tmp.i1185, align 8
-  %827 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1185, i32 0, i32 1
-  %828 = load i64, ptr %827, align 8
-  %829 = load ptr, ptr %agg.tmp2.i1186, align 8
-  %830 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1186, i32 0, i32 1
-  %831 = load i64, ptr %830, align 8
-  store ptr %826, ptr %LHS.i.i1179, align 8
-  %832 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1179, i32 0, i32 1
-  store i64 %828, ptr %832, align 8
-  store ptr %829, ptr %RHS.i.i1180, align 8
-  %833 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1180, i32 0, i32 1
-  store i64 %831, ptr %833, align 8
+  %854 = load ptr, ptr %agg.tmp.i1185, align 8
+  %855 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1185, i32 0, i32 1
+  %856 = load i64, ptr %855, align 8
+  %857 = load ptr, ptr %agg.tmp2.i1186, align 8
+  %858 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1186, i32 0, i32 1
+  %859 = load i64, ptr %858, align 8
+  store ptr %854, ptr %LHS.i.i1179, align 8
+  %860 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1179, i32 0, i32 1
+  store i64 %856, ptr %860, align 8
+  store ptr %857, ptr %RHS.i.i1180, align 8
+  %861 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1180, i32 0, i32 1
+  store i64 %859, ptr %861, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1181, ptr align 8 %RHS.i.i1180, i64 16, i1 false)
-  %834 = load ptr, ptr %agg.tmp.i.i1181, align 8
-  %835 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1181, i32 0, i32 1
-  %836 = load i64, ptr %835, align 8
-  store ptr %834, ptr %RHS.i1952, align 8
-  %837 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1952, i32 0, i32 1
-  store i64 %836, ptr %837, align 8
+  %862 = load ptr, ptr %agg.tmp.i.i1181, align 8
+  %863 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1181, i32 0, i32 1
+  %864 = load i64, ptr %863, align 8
+  store ptr %862, ptr %RHS.i1952, align 8
+  %865 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1952, i32 0, i32 1
+  store i64 %864, ptr %865, align 8
   store ptr %LHS.i.i1179, ptr %this.addr.i1953, align 8
   %this1.i1954 = load ptr, ptr %this.addr.i1953, align 8
   %Length.i1955 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1954, i32 0, i32 1
-  %838 = load i64, ptr %Length.i1955, align 8
+  %866 = load i64, ptr %Length.i1955, align 8
   %Length2.i1956 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1952, i32 0, i32 1
-  %839 = load i64, ptr %Length2.i1956, align 8
-  %cmp.i1957 = icmp eq i64 %838, %839
+  %867 = load i64, ptr %Length2.i1956, align 8
+  %cmp.i1957 = icmp eq i64 %866, %867
   br i1 %cmp.i1957, label %land.rhs.i1958, label %_ZNK4llvh9StringRef6equalsES0_.exit1962
 
 land.rhs.i1958:                                   ; preds = %land.lhs.true.i1190
-  %840 = load ptr, ptr %this1.i1954, align 8
-  %841 = load ptr, ptr %RHS.i1952, align 8
+  %868 = load ptr, ptr %this1.i1954, align 8
+  %869 = load ptr, ptr %RHS.i1952, align 8
   %Length4.i1959 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1952, i32 0, i32 1
-  %842 = load i64, ptr %Length4.i1959, align 8
-  store ptr %840, ptr %Lhs.addr.i3079, align 8
-  store ptr %841, ptr %Rhs.addr.i3080, align 8
-  store i64 %842, ptr %Length.addr.i3081, align 8
-  %843 = load i64, ptr %Length.addr.i3081, align 8
-  %cmp.i3082 = icmp eq i64 %843, 0
+  %870 = load i64, ptr %Length4.i1959, align 8
+  store ptr %868, ptr %Lhs.addr.i3079, align 8
+  store ptr %869, ptr %Rhs.addr.i3080, align 8
+  store i64 %870, ptr %Length.addr.i3081, align 8
+  %871 = load i64, ptr %Length.addr.i3081, align 8
+  %cmp.i3082 = icmp eq i64 %871, 0
   br i1 %cmp.i3082, label %if.then.i3085, label %if.end.i3083
 
 if.then.i3085:                                    ; preds = %land.rhs.i1958
@@ -13349,21 +13377,21 @@ if.then.i3085:                                    ; preds = %land.rhs.i1958
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3086
 
 if.end.i3083:                                     ; preds = %land.rhs.i1958
-  %844 = load ptr, ptr %Lhs.addr.i3079, align 8
-  %845 = load ptr, ptr %Rhs.addr.i3080, align 8
-  %846 = load i64, ptr %Length.addr.i3081, align 8
-  %call.i3084 = call i32 @memcmp(ptr noundef %844, ptr noundef %845, i64 noundef %846) #10
+  %872 = load ptr, ptr %Lhs.addr.i3079, align 8
+  %873 = load ptr, ptr %Rhs.addr.i3080, align 8
+  %874 = load i64, ptr %Length.addr.i3081, align 8
+  %call.i3084 = call i32 @memcmp(ptr noundef %872, ptr noundef %873, i64 noundef %874) #10
   store i32 %call.i3084, ptr %retval.i3078, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3086
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3086: ; preds = %if.end.i3083, %if.then.i3085
-  %847 = load i32, ptr %retval.i3078, align 4
-  %cmp5.i1961 = icmp eq i32 %847, 0
+  %875 = load i32, ptr %retval.i3078, align 4
+  %cmp5.i1961 = icmp eq i32 %875, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1962
 
 _ZNK4llvh9StringRef6equalsES0_.exit1962:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3086, %land.lhs.true.i1190
-  %848 = phi i1 [ false, %land.lhs.true.i1190 ], [ %cmp5.i1961, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3086 ]
-  br i1 %848, label %if.then.i1192, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1195
+  %876 = phi i1 [ false, %land.lhs.true.i1190 ], [ %cmp5.i1961, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3086 ]
+  br i1 %876, label %if.then.i1192, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1195
 
 if.then.i1192:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1962
   %Result4.i1193 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1187, i32 0, i32 1
@@ -13372,15 +13400,16 @@ if.then.i1192:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1195: ; preds = %if.then.i1192, %_ZNK4llvh9StringRef6equalsES0_.exit1962, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1212
   call void @_ZN4llvh13StringLiteralC2ILm7EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm7ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp86, ptr noundef nonnull align 1 dereferenceable(7) @.str.29)
-  %849 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7), align 4
-  %or87 = or i32 %849, 1
-  %850 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp86, i32 0, i32 0
-  %851 = load ptr, ptr %850, align 8
-  %852 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp86, i32 0, i32 1
-  %853 = load i64, ptr %852, align 8
-  store ptr %851, ptr %S.i1165, align 8
-  %854 = getelementptr inbounds { ptr, i64 }, ptr %S.i1165, i32 0, i32 1
-  store i64 %853, ptr %854, align 8
+  %877 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7
+  %878 = load i32, ptr %877, align 4
+  %or87 = or i32 %878, 1
+  %879 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp86, i32 0, i32 0
+  %880 = load ptr, ptr %879, align 8
+  %881 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp86, i32 0, i32 1
+  %882 = load i64, ptr %881, align 8
+  store ptr %880, ptr %S.i1165, align 8
+  %883 = getelementptr inbounds { ptr, i64 }, ptr %S.i1165, i32 0, i32 1
+  store i64 %882, ptr %883, align 8
   store ptr %this1.i1187, ptr %this.addr.i1166, align 8
   store i32 %or87, ptr %Value.addr.i1167, align 4
   %this1.i1170 = load ptr, ptr %this.addr.i1166, align 8
@@ -13391,44 +13420,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1195: ; preds = %if.the
 land.lhs.true.i1173:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1195
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1168, ptr align 8 %this1.i1170, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1169, ptr align 8 %S.i1165, i64 16, i1 false)
-  %855 = load ptr, ptr %agg.tmp.i1168, align 8
-  %856 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1168, i32 0, i32 1
-  %857 = load i64, ptr %856, align 8
-  %858 = load ptr, ptr %agg.tmp2.i1169, align 8
-  %859 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1169, i32 0, i32 1
-  %860 = load i64, ptr %859, align 8
-  store ptr %855, ptr %LHS.i.i1162, align 8
-  %861 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1162, i32 0, i32 1
-  store i64 %857, ptr %861, align 8
-  store ptr %858, ptr %RHS.i.i1163, align 8
-  %862 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1163, i32 0, i32 1
-  store i64 %860, ptr %862, align 8
+  %884 = load ptr, ptr %agg.tmp.i1168, align 8
+  %885 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1168, i32 0, i32 1
+  %886 = load i64, ptr %885, align 8
+  %887 = load ptr, ptr %agg.tmp2.i1169, align 8
+  %888 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1169, i32 0, i32 1
+  %889 = load i64, ptr %888, align 8
+  store ptr %884, ptr %LHS.i.i1162, align 8
+  %890 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1162, i32 0, i32 1
+  store i64 %886, ptr %890, align 8
+  store ptr %887, ptr %RHS.i.i1163, align 8
+  %891 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1163, i32 0, i32 1
+  store i64 %889, ptr %891, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1164, ptr align 8 %RHS.i.i1163, i64 16, i1 false)
-  %863 = load ptr, ptr %agg.tmp.i.i1164, align 8
-  %864 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1164, i32 0, i32 1
-  %865 = load i64, ptr %864, align 8
-  store ptr %863, ptr %RHS.i1963, align 8
-  %866 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1963, i32 0, i32 1
-  store i64 %865, ptr %866, align 8
+  %892 = load ptr, ptr %agg.tmp.i.i1164, align 8
+  %893 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1164, i32 0, i32 1
+  %894 = load i64, ptr %893, align 8
+  store ptr %892, ptr %RHS.i1963, align 8
+  %895 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1963, i32 0, i32 1
+  store i64 %894, ptr %895, align 8
   store ptr %LHS.i.i1162, ptr %this.addr.i1964, align 8
   %this1.i1965 = load ptr, ptr %this.addr.i1964, align 8
   %Length.i1966 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1965, i32 0, i32 1
-  %867 = load i64, ptr %Length.i1966, align 8
+  %896 = load i64, ptr %Length.i1966, align 8
   %Length2.i1967 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1963, i32 0, i32 1
-  %868 = load i64, ptr %Length2.i1967, align 8
-  %cmp.i1968 = icmp eq i64 %867, %868
+  %897 = load i64, ptr %Length2.i1967, align 8
+  %cmp.i1968 = icmp eq i64 %896, %897
   br i1 %cmp.i1968, label %land.rhs.i1969, label %_ZNK4llvh9StringRef6equalsES0_.exit1973
 
 land.rhs.i1969:                                   ; preds = %land.lhs.true.i1173
-  %869 = load ptr, ptr %this1.i1965, align 8
-  %870 = load ptr, ptr %RHS.i1963, align 8
+  %898 = load ptr, ptr %this1.i1965, align 8
+  %899 = load ptr, ptr %RHS.i1963, align 8
   %Length4.i1970 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1963, i32 0, i32 1
-  %871 = load i64, ptr %Length4.i1970, align 8
-  store ptr %869, ptr %Lhs.addr.i3070, align 8
-  store ptr %870, ptr %Rhs.addr.i3071, align 8
-  store i64 %871, ptr %Length.addr.i3072, align 8
-  %872 = load i64, ptr %Length.addr.i3072, align 8
-  %cmp.i3073 = icmp eq i64 %872, 0
+  %900 = load i64, ptr %Length4.i1970, align 8
+  store ptr %898, ptr %Lhs.addr.i3070, align 8
+  store ptr %899, ptr %Rhs.addr.i3071, align 8
+  store i64 %900, ptr %Length.addr.i3072, align 8
+  %901 = load i64, ptr %Length.addr.i3072, align 8
+  %cmp.i3073 = icmp eq i64 %901, 0
   br i1 %cmp.i3073, label %if.then.i3076, label %if.end.i3074
 
 if.then.i3076:                                    ; preds = %land.rhs.i1969
@@ -13436,21 +13465,21 @@ if.then.i3076:                                    ; preds = %land.rhs.i1969
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3077
 
 if.end.i3074:                                     ; preds = %land.rhs.i1969
-  %873 = load ptr, ptr %Lhs.addr.i3070, align 8
-  %874 = load ptr, ptr %Rhs.addr.i3071, align 8
-  %875 = load i64, ptr %Length.addr.i3072, align 8
-  %call.i3075 = call i32 @memcmp(ptr noundef %873, ptr noundef %874, i64 noundef %875) #10
+  %902 = load ptr, ptr %Lhs.addr.i3070, align 8
+  %903 = load ptr, ptr %Rhs.addr.i3071, align 8
+  %904 = load i64, ptr %Length.addr.i3072, align 8
+  %call.i3075 = call i32 @memcmp(ptr noundef %902, ptr noundef %903, i64 noundef %904) #10
   store i32 %call.i3075, ptr %retval.i3069, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3077
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3077: ; preds = %if.end.i3074, %if.then.i3076
-  %876 = load i32, ptr %retval.i3069, align 4
-  %cmp5.i1972 = icmp eq i32 %876, 0
+  %905 = load i32, ptr %retval.i3069, align 4
+  %cmp5.i1972 = icmp eq i32 %905, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1973
 
 _ZNK4llvh9StringRef6equalsES0_.exit1973:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3077, %land.lhs.true.i1173
-  %877 = phi i1 [ false, %land.lhs.true.i1173 ], [ %cmp5.i1972, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3077 ]
-  br i1 %877, label %if.then.i1175, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1178
+  %906 = phi i1 [ false, %land.lhs.true.i1173 ], [ %cmp5.i1972, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3077 ]
+  br i1 %906, label %if.then.i1175, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1178
 
 if.then.i1175:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1973
   %Result4.i1176 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1170, i32 0, i32 1
@@ -13459,15 +13488,16 @@ if.then.i1175:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1178: ; preds = %if.then.i1175, %_ZNK4llvh9StringRef6equalsES0_.exit1973, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1195
   call void @_ZN4llvh13StringLiteralC2ILm9EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm9ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp89, ptr noundef nonnull align 1 dereferenceable(9) @.str.30)
-  %878 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7), align 4
-  %or90 = or i32 %878, 1
-  %879 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp89, i32 0, i32 0
-  %880 = load ptr, ptr %879, align 8
-  %881 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp89, i32 0, i32 1
-  %882 = load i64, ptr %881, align 8
-  store ptr %880, ptr %S.i1148, align 8
-  %883 = getelementptr inbounds { ptr, i64 }, ptr %S.i1148, i32 0, i32 1
-  store i64 %882, ptr %883, align 8
+  %907 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7
+  %908 = load i32, ptr %907, align 4
+  %or90 = or i32 %908, 1
+  %909 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp89, i32 0, i32 0
+  %910 = load ptr, ptr %909, align 8
+  %911 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp89, i32 0, i32 1
+  %912 = load i64, ptr %911, align 8
+  store ptr %910, ptr %S.i1148, align 8
+  %913 = getelementptr inbounds { ptr, i64 }, ptr %S.i1148, i32 0, i32 1
+  store i64 %912, ptr %913, align 8
   store ptr %this1.i1170, ptr %this.addr.i1149, align 8
   store i32 %or90, ptr %Value.addr.i1150, align 4
   %this1.i1153 = load ptr, ptr %this.addr.i1149, align 8
@@ -13478,44 +13508,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1178: ; preds = %if.the
 land.lhs.true.i1156:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1178
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1151, ptr align 8 %this1.i1153, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1152, ptr align 8 %S.i1148, i64 16, i1 false)
-  %884 = load ptr, ptr %agg.tmp.i1151, align 8
-  %885 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1151, i32 0, i32 1
-  %886 = load i64, ptr %885, align 8
-  %887 = load ptr, ptr %agg.tmp2.i1152, align 8
-  %888 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1152, i32 0, i32 1
-  %889 = load i64, ptr %888, align 8
-  store ptr %884, ptr %LHS.i.i1145, align 8
-  %890 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1145, i32 0, i32 1
-  store i64 %886, ptr %890, align 8
-  store ptr %887, ptr %RHS.i.i1146, align 8
-  %891 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1146, i32 0, i32 1
-  store i64 %889, ptr %891, align 8
+  %914 = load ptr, ptr %agg.tmp.i1151, align 8
+  %915 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1151, i32 0, i32 1
+  %916 = load i64, ptr %915, align 8
+  %917 = load ptr, ptr %agg.tmp2.i1152, align 8
+  %918 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1152, i32 0, i32 1
+  %919 = load i64, ptr %918, align 8
+  store ptr %914, ptr %LHS.i.i1145, align 8
+  %920 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1145, i32 0, i32 1
+  store i64 %916, ptr %920, align 8
+  store ptr %917, ptr %RHS.i.i1146, align 8
+  %921 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1146, i32 0, i32 1
+  store i64 %919, ptr %921, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1147, ptr align 8 %RHS.i.i1146, i64 16, i1 false)
-  %892 = load ptr, ptr %agg.tmp.i.i1147, align 8
-  %893 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1147, i32 0, i32 1
-  %894 = load i64, ptr %893, align 8
-  store ptr %892, ptr %RHS.i1974, align 8
-  %895 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1974, i32 0, i32 1
-  store i64 %894, ptr %895, align 8
+  %922 = load ptr, ptr %agg.tmp.i.i1147, align 8
+  %923 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1147, i32 0, i32 1
+  %924 = load i64, ptr %923, align 8
+  store ptr %922, ptr %RHS.i1974, align 8
+  %925 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1974, i32 0, i32 1
+  store i64 %924, ptr %925, align 8
   store ptr %LHS.i.i1145, ptr %this.addr.i1975, align 8
   %this1.i1976 = load ptr, ptr %this.addr.i1975, align 8
   %Length.i1977 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1976, i32 0, i32 1
-  %896 = load i64, ptr %Length.i1977, align 8
+  %926 = load i64, ptr %Length.i1977, align 8
   %Length2.i1978 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1974, i32 0, i32 1
-  %897 = load i64, ptr %Length2.i1978, align 8
-  %cmp.i1979 = icmp eq i64 %896, %897
+  %927 = load i64, ptr %Length2.i1978, align 8
+  %cmp.i1979 = icmp eq i64 %926, %927
   br i1 %cmp.i1979, label %land.rhs.i1980, label %_ZNK4llvh9StringRef6equalsES0_.exit1984
 
 land.rhs.i1980:                                   ; preds = %land.lhs.true.i1156
-  %898 = load ptr, ptr %this1.i1976, align 8
-  %899 = load ptr, ptr %RHS.i1974, align 8
+  %928 = load ptr, ptr %this1.i1976, align 8
+  %929 = load ptr, ptr %RHS.i1974, align 8
   %Length4.i1981 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1974, i32 0, i32 1
-  %900 = load i64, ptr %Length4.i1981, align 8
-  store ptr %898, ptr %Lhs.addr.i3061, align 8
-  store ptr %899, ptr %Rhs.addr.i3062, align 8
-  store i64 %900, ptr %Length.addr.i3063, align 8
-  %901 = load i64, ptr %Length.addr.i3063, align 8
-  %cmp.i3064 = icmp eq i64 %901, 0
+  %930 = load i64, ptr %Length4.i1981, align 8
+  store ptr %928, ptr %Lhs.addr.i3061, align 8
+  store ptr %929, ptr %Rhs.addr.i3062, align 8
+  store i64 %930, ptr %Length.addr.i3063, align 8
+  %931 = load i64, ptr %Length.addr.i3063, align 8
+  %cmp.i3064 = icmp eq i64 %931, 0
   br i1 %cmp.i3064, label %if.then.i3067, label %if.end.i3065
 
 if.then.i3067:                                    ; preds = %land.rhs.i1980
@@ -13523,21 +13553,21 @@ if.then.i3067:                                    ; preds = %land.rhs.i1980
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3068
 
 if.end.i3065:                                     ; preds = %land.rhs.i1980
-  %902 = load ptr, ptr %Lhs.addr.i3061, align 8
-  %903 = load ptr, ptr %Rhs.addr.i3062, align 8
-  %904 = load i64, ptr %Length.addr.i3063, align 8
-  %call.i3066 = call i32 @memcmp(ptr noundef %902, ptr noundef %903, i64 noundef %904) #10
+  %932 = load ptr, ptr %Lhs.addr.i3061, align 8
+  %933 = load ptr, ptr %Rhs.addr.i3062, align 8
+  %934 = load i64, ptr %Length.addr.i3063, align 8
+  %call.i3066 = call i32 @memcmp(ptr noundef %932, ptr noundef %933, i64 noundef %934) #10
   store i32 %call.i3066, ptr %retval.i3060, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3068
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3068: ; preds = %if.end.i3065, %if.then.i3067
-  %905 = load i32, ptr %retval.i3060, align 4
-  %cmp5.i1983 = icmp eq i32 %905, 0
+  %935 = load i32, ptr %retval.i3060, align 4
+  %cmp5.i1983 = icmp eq i32 %935, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1984
 
 _ZNK4llvh9StringRef6equalsES0_.exit1984:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3068, %land.lhs.true.i1156
-  %906 = phi i1 [ false, %land.lhs.true.i1156 ], [ %cmp5.i1983, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3068 ]
-  br i1 %906, label %if.then.i1158, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1161
+  %936 = phi i1 [ false, %land.lhs.true.i1156 ], [ %cmp5.i1983, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3068 ]
+  br i1 %936, label %if.then.i1158, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1161
 
 if.then.i1158:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1984
   %Result4.i1159 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1153, i32 0, i32 1
@@ -13546,15 +13576,16 @@ if.then.i1158:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1161: ; preds = %if.then.i1158, %_ZNK4llvh9StringRef6equalsES0_.exit1984, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1178
   call void @_ZN4llvh13StringLiteralC2ILm9EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm9ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp92, ptr noundef nonnull align 1 dereferenceable(9) @.str.31)
-  %907 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7), align 4
-  %or93 = or i32 %907, 1
-  %908 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp92, i32 0, i32 0
-  %909 = load ptr, ptr %908, align 8
-  %910 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp92, i32 0, i32 1
-  %911 = load i64, ptr %910, align 8
-  store ptr %909, ptr %S.i1131, align 8
-  %912 = getelementptr inbounds { ptr, i64 }, ptr %S.i1131, i32 0, i32 1
-  store i64 %911, ptr %912, align 8
+  %937 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 8, i32 7
+  %938 = load i32, ptr %937, align 4
+  %or93 = or i32 %938, 1
+  %939 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp92, i32 0, i32 0
+  %940 = load ptr, ptr %939, align 8
+  %941 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp92, i32 0, i32 1
+  %942 = load i64, ptr %941, align 8
+  store ptr %940, ptr %S.i1131, align 8
+  %943 = getelementptr inbounds { ptr, i64 }, ptr %S.i1131, i32 0, i32 1
+  store i64 %942, ptr %943, align 8
   store ptr %this1.i1153, ptr %this.addr.i1132, align 8
   store i32 %or93, ptr %Value.addr.i1133, align 4
   %this1.i1136 = load ptr, ptr %this.addr.i1132, align 8
@@ -13565,44 +13596,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1161: ; preds = %if.the
 land.lhs.true.i1139:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1161
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1134, ptr align 8 %this1.i1136, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1135, ptr align 8 %S.i1131, i64 16, i1 false)
-  %913 = load ptr, ptr %agg.tmp.i1134, align 8
-  %914 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1134, i32 0, i32 1
-  %915 = load i64, ptr %914, align 8
-  %916 = load ptr, ptr %agg.tmp2.i1135, align 8
-  %917 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1135, i32 0, i32 1
-  %918 = load i64, ptr %917, align 8
-  store ptr %913, ptr %LHS.i.i1128, align 8
-  %919 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1128, i32 0, i32 1
-  store i64 %915, ptr %919, align 8
-  store ptr %916, ptr %RHS.i.i1129, align 8
-  %920 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1129, i32 0, i32 1
-  store i64 %918, ptr %920, align 8
+  %944 = load ptr, ptr %agg.tmp.i1134, align 8
+  %945 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1134, i32 0, i32 1
+  %946 = load i64, ptr %945, align 8
+  %947 = load ptr, ptr %agg.tmp2.i1135, align 8
+  %948 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1135, i32 0, i32 1
+  %949 = load i64, ptr %948, align 8
+  store ptr %944, ptr %LHS.i.i1128, align 8
+  %950 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1128, i32 0, i32 1
+  store i64 %946, ptr %950, align 8
+  store ptr %947, ptr %RHS.i.i1129, align 8
+  %951 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1129, i32 0, i32 1
+  store i64 %949, ptr %951, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1130, ptr align 8 %RHS.i.i1129, i64 16, i1 false)
-  %921 = load ptr, ptr %agg.tmp.i.i1130, align 8
-  %922 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1130, i32 0, i32 1
-  %923 = load i64, ptr %922, align 8
-  store ptr %921, ptr %RHS.i1985, align 8
-  %924 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1985, i32 0, i32 1
-  store i64 %923, ptr %924, align 8
+  %952 = load ptr, ptr %agg.tmp.i.i1130, align 8
+  %953 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1130, i32 0, i32 1
+  %954 = load i64, ptr %953, align 8
+  store ptr %952, ptr %RHS.i1985, align 8
+  %955 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1985, i32 0, i32 1
+  store i64 %954, ptr %955, align 8
   store ptr %LHS.i.i1128, ptr %this.addr.i1986, align 8
   %this1.i1987 = load ptr, ptr %this.addr.i1986, align 8
   %Length.i1988 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1987, i32 0, i32 1
-  %925 = load i64, ptr %Length.i1988, align 8
+  %956 = load i64, ptr %Length.i1988, align 8
   %Length2.i1989 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1985, i32 0, i32 1
-  %926 = load i64, ptr %Length2.i1989, align 8
-  %cmp.i1990 = icmp eq i64 %925, %926
+  %957 = load i64, ptr %Length2.i1989, align 8
+  %cmp.i1990 = icmp eq i64 %956, %957
   br i1 %cmp.i1990, label %land.rhs.i1991, label %_ZNK4llvh9StringRef6equalsES0_.exit1995
 
 land.rhs.i1991:                                   ; preds = %land.lhs.true.i1139
-  %927 = load ptr, ptr %this1.i1987, align 8
-  %928 = load ptr, ptr %RHS.i1985, align 8
+  %958 = load ptr, ptr %this1.i1987, align 8
+  %959 = load ptr, ptr %RHS.i1985, align 8
   %Length4.i1992 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1985, i32 0, i32 1
-  %929 = load i64, ptr %Length4.i1992, align 8
-  store ptr %927, ptr %Lhs.addr.i3052, align 8
-  store ptr %928, ptr %Rhs.addr.i3053, align 8
-  store i64 %929, ptr %Length.addr.i3054, align 8
-  %930 = load i64, ptr %Length.addr.i3054, align 8
-  %cmp.i3055 = icmp eq i64 %930, 0
+  %960 = load i64, ptr %Length4.i1992, align 8
+  store ptr %958, ptr %Lhs.addr.i3052, align 8
+  store ptr %959, ptr %Rhs.addr.i3053, align 8
+  store i64 %960, ptr %Length.addr.i3054, align 8
+  %961 = load i64, ptr %Length.addr.i3054, align 8
+  %cmp.i3055 = icmp eq i64 %961, 0
   br i1 %cmp.i3055, label %if.then.i3058, label %if.end.i3056
 
 if.then.i3058:                                    ; preds = %land.rhs.i1991
@@ -13610,21 +13641,21 @@ if.then.i3058:                                    ; preds = %land.rhs.i1991
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3059
 
 if.end.i3056:                                     ; preds = %land.rhs.i1991
-  %931 = load ptr, ptr %Lhs.addr.i3052, align 8
-  %932 = load ptr, ptr %Rhs.addr.i3053, align 8
-  %933 = load i64, ptr %Length.addr.i3054, align 8
-  %call.i3057 = call i32 @memcmp(ptr noundef %931, ptr noundef %932, i64 noundef %933) #10
+  %962 = load ptr, ptr %Lhs.addr.i3052, align 8
+  %963 = load ptr, ptr %Rhs.addr.i3053, align 8
+  %964 = load i64, ptr %Length.addr.i3054, align 8
+  %call.i3057 = call i32 @memcmp(ptr noundef %962, ptr noundef %963, i64 noundef %964) #10
   store i32 %call.i3057, ptr %retval.i3051, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3059
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3059: ; preds = %if.end.i3056, %if.then.i3058
-  %934 = load i32, ptr %retval.i3051, align 4
-  %cmp5.i1994 = icmp eq i32 %934, 0
+  %965 = load i32, ptr %retval.i3051, align 4
+  %cmp5.i1994 = icmp eq i32 %965, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit1995
 
 _ZNK4llvh9StringRef6equalsES0_.exit1995:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3059, %land.lhs.true.i1139
-  %935 = phi i1 [ false, %land.lhs.true.i1139 ], [ %cmp5.i1994, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3059 ]
-  br i1 %935, label %if.then.i1141, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1144
+  %966 = phi i1 [ false, %land.lhs.true.i1139 ], [ %cmp5.i1994, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3059 ]
+  br i1 %966, label %if.then.i1141, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1144
 
 if.then.i1141:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit1995
   %Result4.i1142 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1136, i32 0, i32 1
@@ -13633,15 +13664,16 @@ if.then.i1141:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1144: ; preds = %if.then.i1141, %_ZNK4llvh9StringRef6equalsES0_.exit1995, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1161
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp95, ptr noundef nonnull align 1 dereferenceable(11) @.str.32)
-  %936 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 9, i32 7), align 4
-  %or96 = or i32 %936, 1
-  %937 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp95, i32 0, i32 0
-  %938 = load ptr, ptr %937, align 8
-  %939 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp95, i32 0, i32 1
-  %940 = load i64, ptr %939, align 8
-  store ptr %938, ptr %S.i1114, align 8
-  %941 = getelementptr inbounds { ptr, i64 }, ptr %S.i1114, i32 0, i32 1
-  store i64 %940, ptr %941, align 8
+  %967 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 9, i32 7
+  %968 = load i32, ptr %967, align 4
+  %or96 = or i32 %968, 1
+  %969 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp95, i32 0, i32 0
+  %970 = load ptr, ptr %969, align 8
+  %971 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp95, i32 0, i32 1
+  %972 = load i64, ptr %971, align 8
+  store ptr %970, ptr %S.i1114, align 8
+  %973 = getelementptr inbounds { ptr, i64 }, ptr %S.i1114, i32 0, i32 1
+  store i64 %972, ptr %973, align 8
   store ptr %this1.i1136, ptr %this.addr.i1115, align 8
   store i32 %or96, ptr %Value.addr.i1116, align 4
   %this1.i1119 = load ptr, ptr %this.addr.i1115, align 8
@@ -13652,44 +13684,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1144: ; preds = %if.the
 land.lhs.true.i1122:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1144
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1117, ptr align 8 %this1.i1119, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1118, ptr align 8 %S.i1114, i64 16, i1 false)
-  %942 = load ptr, ptr %agg.tmp.i1117, align 8
-  %943 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1117, i32 0, i32 1
-  %944 = load i64, ptr %943, align 8
-  %945 = load ptr, ptr %agg.tmp2.i1118, align 8
-  %946 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1118, i32 0, i32 1
-  %947 = load i64, ptr %946, align 8
-  store ptr %942, ptr %LHS.i.i1111, align 8
-  %948 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1111, i32 0, i32 1
-  store i64 %944, ptr %948, align 8
-  store ptr %945, ptr %RHS.i.i1112, align 8
-  %949 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1112, i32 0, i32 1
-  store i64 %947, ptr %949, align 8
+  %974 = load ptr, ptr %agg.tmp.i1117, align 8
+  %975 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1117, i32 0, i32 1
+  %976 = load i64, ptr %975, align 8
+  %977 = load ptr, ptr %agg.tmp2.i1118, align 8
+  %978 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1118, i32 0, i32 1
+  %979 = load i64, ptr %978, align 8
+  store ptr %974, ptr %LHS.i.i1111, align 8
+  %980 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1111, i32 0, i32 1
+  store i64 %976, ptr %980, align 8
+  store ptr %977, ptr %RHS.i.i1112, align 8
+  %981 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1112, i32 0, i32 1
+  store i64 %979, ptr %981, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1113, ptr align 8 %RHS.i.i1112, i64 16, i1 false)
-  %950 = load ptr, ptr %agg.tmp.i.i1113, align 8
-  %951 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1113, i32 0, i32 1
-  %952 = load i64, ptr %951, align 8
-  store ptr %950, ptr %RHS.i1996, align 8
-  %953 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1996, i32 0, i32 1
-  store i64 %952, ptr %953, align 8
+  %982 = load ptr, ptr %agg.tmp.i.i1113, align 8
+  %983 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1113, i32 0, i32 1
+  %984 = load i64, ptr %983, align 8
+  store ptr %982, ptr %RHS.i1996, align 8
+  %985 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i1996, i32 0, i32 1
+  store i64 %984, ptr %985, align 8
   store ptr %LHS.i.i1111, ptr %this.addr.i1997, align 8
   %this1.i1998 = load ptr, ptr %this.addr.i1997, align 8
   %Length.i1999 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i1998, i32 0, i32 1
-  %954 = load i64, ptr %Length.i1999, align 8
+  %986 = load i64, ptr %Length.i1999, align 8
   %Length2.i2000 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1996, i32 0, i32 1
-  %955 = load i64, ptr %Length2.i2000, align 8
-  %cmp.i2001 = icmp eq i64 %954, %955
+  %987 = load i64, ptr %Length2.i2000, align 8
+  %cmp.i2001 = icmp eq i64 %986, %987
   br i1 %cmp.i2001, label %land.rhs.i2002, label %_ZNK4llvh9StringRef6equalsES0_.exit2006
 
 land.rhs.i2002:                                   ; preds = %land.lhs.true.i1122
-  %956 = load ptr, ptr %this1.i1998, align 8
-  %957 = load ptr, ptr %RHS.i1996, align 8
+  %988 = load ptr, ptr %this1.i1998, align 8
+  %989 = load ptr, ptr %RHS.i1996, align 8
   %Length4.i2003 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i1996, i32 0, i32 1
-  %958 = load i64, ptr %Length4.i2003, align 8
-  store ptr %956, ptr %Lhs.addr.i3043, align 8
-  store ptr %957, ptr %Rhs.addr.i3044, align 8
-  store i64 %958, ptr %Length.addr.i3045, align 8
-  %959 = load i64, ptr %Length.addr.i3045, align 8
-  %cmp.i3046 = icmp eq i64 %959, 0
+  %990 = load i64, ptr %Length4.i2003, align 8
+  store ptr %988, ptr %Lhs.addr.i3043, align 8
+  store ptr %989, ptr %Rhs.addr.i3044, align 8
+  store i64 %990, ptr %Length.addr.i3045, align 8
+  %991 = load i64, ptr %Length.addr.i3045, align 8
+  %cmp.i3046 = icmp eq i64 %991, 0
   br i1 %cmp.i3046, label %if.then.i3049, label %if.end.i3047
 
 if.then.i3049:                                    ; preds = %land.rhs.i2002
@@ -13697,21 +13729,21 @@ if.then.i3049:                                    ; preds = %land.rhs.i2002
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3050
 
 if.end.i3047:                                     ; preds = %land.rhs.i2002
-  %960 = load ptr, ptr %Lhs.addr.i3043, align 8
-  %961 = load ptr, ptr %Rhs.addr.i3044, align 8
-  %962 = load i64, ptr %Length.addr.i3045, align 8
-  %call.i3048 = call i32 @memcmp(ptr noundef %960, ptr noundef %961, i64 noundef %962) #10
+  %992 = load ptr, ptr %Lhs.addr.i3043, align 8
+  %993 = load ptr, ptr %Rhs.addr.i3044, align 8
+  %994 = load i64, ptr %Length.addr.i3045, align 8
+  %call.i3048 = call i32 @memcmp(ptr noundef %992, ptr noundef %993, i64 noundef %994) #10
   store i32 %call.i3048, ptr %retval.i3042, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3050
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3050: ; preds = %if.end.i3047, %if.then.i3049
-  %963 = load i32, ptr %retval.i3042, align 4
-  %cmp5.i2005 = icmp eq i32 %963, 0
+  %995 = load i32, ptr %retval.i3042, align 4
+  %cmp5.i2005 = icmp eq i32 %995, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2006
 
 _ZNK4llvh9StringRef6equalsES0_.exit2006:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3050, %land.lhs.true.i1122
-  %964 = phi i1 [ false, %land.lhs.true.i1122 ], [ %cmp5.i2005, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3050 ]
-  br i1 %964, label %if.then.i1124, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1127
+  %996 = phi i1 [ false, %land.lhs.true.i1122 ], [ %cmp5.i2005, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3050 ]
+  br i1 %996, label %if.then.i1124, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1127
 
 if.then.i1124:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2006
   %Result4.i1125 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1119, i32 0, i32 1
@@ -13720,15 +13752,16 @@ if.then.i1124:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1127: ; preds = %if.then.i1124, %_ZNK4llvh9StringRef6equalsES0_.exit2006, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1144
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp98, ptr noundef nonnull align 1 dereferenceable(11) @.str.33)
-  %965 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 10, i32 7), align 4
-  %or99 = or i32 %965, 1
-  %966 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp98, i32 0, i32 0
-  %967 = load ptr, ptr %966, align 8
-  %968 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp98, i32 0, i32 1
-  %969 = load i64, ptr %968, align 8
-  store ptr %967, ptr %S.i1097, align 8
-  %970 = getelementptr inbounds { ptr, i64 }, ptr %S.i1097, i32 0, i32 1
-  store i64 %969, ptr %970, align 8
+  %997 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 10, i32 7
+  %998 = load i32, ptr %997, align 4
+  %or99 = or i32 %998, 1
+  %999 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp98, i32 0, i32 0
+  %1000 = load ptr, ptr %999, align 8
+  %1001 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp98, i32 0, i32 1
+  %1002 = load i64, ptr %1001, align 8
+  store ptr %1000, ptr %S.i1097, align 8
+  %1003 = getelementptr inbounds { ptr, i64 }, ptr %S.i1097, i32 0, i32 1
+  store i64 %1002, ptr %1003, align 8
   store ptr %this1.i1119, ptr %this.addr.i1098, align 8
   store i32 %or99, ptr %Value.addr.i1099, align 4
   %this1.i1102 = load ptr, ptr %this.addr.i1098, align 8
@@ -13739,44 +13772,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1127: ; preds = %if.the
 land.lhs.true.i1105:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1127
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1100, ptr align 8 %this1.i1102, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1101, ptr align 8 %S.i1097, i64 16, i1 false)
-  %971 = load ptr, ptr %agg.tmp.i1100, align 8
-  %972 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1100, i32 0, i32 1
-  %973 = load i64, ptr %972, align 8
-  %974 = load ptr, ptr %agg.tmp2.i1101, align 8
-  %975 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1101, i32 0, i32 1
-  %976 = load i64, ptr %975, align 8
-  store ptr %971, ptr %LHS.i.i1094, align 8
-  %977 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1094, i32 0, i32 1
-  store i64 %973, ptr %977, align 8
-  store ptr %974, ptr %RHS.i.i1095, align 8
-  %978 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1095, i32 0, i32 1
-  store i64 %976, ptr %978, align 8
+  %1004 = load ptr, ptr %agg.tmp.i1100, align 8
+  %1005 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1100, i32 0, i32 1
+  %1006 = load i64, ptr %1005, align 8
+  %1007 = load ptr, ptr %agg.tmp2.i1101, align 8
+  %1008 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1101, i32 0, i32 1
+  %1009 = load i64, ptr %1008, align 8
+  store ptr %1004, ptr %LHS.i.i1094, align 8
+  %1010 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1094, i32 0, i32 1
+  store i64 %1006, ptr %1010, align 8
+  store ptr %1007, ptr %RHS.i.i1095, align 8
+  %1011 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1095, i32 0, i32 1
+  store i64 %1009, ptr %1011, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1096, ptr align 8 %RHS.i.i1095, i64 16, i1 false)
-  %979 = load ptr, ptr %agg.tmp.i.i1096, align 8
-  %980 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1096, i32 0, i32 1
-  %981 = load i64, ptr %980, align 8
-  store ptr %979, ptr %RHS.i2007, align 8
-  %982 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2007, i32 0, i32 1
-  store i64 %981, ptr %982, align 8
+  %1012 = load ptr, ptr %agg.tmp.i.i1096, align 8
+  %1013 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1096, i32 0, i32 1
+  %1014 = load i64, ptr %1013, align 8
+  store ptr %1012, ptr %RHS.i2007, align 8
+  %1015 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2007, i32 0, i32 1
+  store i64 %1014, ptr %1015, align 8
   store ptr %LHS.i.i1094, ptr %this.addr.i2008, align 8
   %this1.i2009 = load ptr, ptr %this.addr.i2008, align 8
   %Length.i2010 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2009, i32 0, i32 1
-  %983 = load i64, ptr %Length.i2010, align 8
+  %1016 = load i64, ptr %Length.i2010, align 8
   %Length2.i2011 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2007, i32 0, i32 1
-  %984 = load i64, ptr %Length2.i2011, align 8
-  %cmp.i2012 = icmp eq i64 %983, %984
+  %1017 = load i64, ptr %Length2.i2011, align 8
+  %cmp.i2012 = icmp eq i64 %1016, %1017
   br i1 %cmp.i2012, label %land.rhs.i2013, label %_ZNK4llvh9StringRef6equalsES0_.exit2017
 
 land.rhs.i2013:                                   ; preds = %land.lhs.true.i1105
-  %985 = load ptr, ptr %this1.i2009, align 8
-  %986 = load ptr, ptr %RHS.i2007, align 8
+  %1018 = load ptr, ptr %this1.i2009, align 8
+  %1019 = load ptr, ptr %RHS.i2007, align 8
   %Length4.i2014 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2007, i32 0, i32 1
-  %987 = load i64, ptr %Length4.i2014, align 8
-  store ptr %985, ptr %Lhs.addr.i3034, align 8
-  store ptr %986, ptr %Rhs.addr.i3035, align 8
-  store i64 %987, ptr %Length.addr.i3036, align 8
-  %988 = load i64, ptr %Length.addr.i3036, align 8
-  %cmp.i3037 = icmp eq i64 %988, 0
+  %1020 = load i64, ptr %Length4.i2014, align 8
+  store ptr %1018, ptr %Lhs.addr.i3034, align 8
+  store ptr %1019, ptr %Rhs.addr.i3035, align 8
+  store i64 %1020, ptr %Length.addr.i3036, align 8
+  %1021 = load i64, ptr %Length.addr.i3036, align 8
+  %cmp.i3037 = icmp eq i64 %1021, 0
   br i1 %cmp.i3037, label %if.then.i3040, label %if.end.i3038
 
 if.then.i3040:                                    ; preds = %land.rhs.i2013
@@ -13784,21 +13817,21 @@ if.then.i3040:                                    ; preds = %land.rhs.i2013
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3041
 
 if.end.i3038:                                     ; preds = %land.rhs.i2013
-  %989 = load ptr, ptr %Lhs.addr.i3034, align 8
-  %990 = load ptr, ptr %Rhs.addr.i3035, align 8
-  %991 = load i64, ptr %Length.addr.i3036, align 8
-  %call.i3039 = call i32 @memcmp(ptr noundef %989, ptr noundef %990, i64 noundef %991) #10
+  %1022 = load ptr, ptr %Lhs.addr.i3034, align 8
+  %1023 = load ptr, ptr %Rhs.addr.i3035, align 8
+  %1024 = load i64, ptr %Length.addr.i3036, align 8
+  %call.i3039 = call i32 @memcmp(ptr noundef %1022, ptr noundef %1023, i64 noundef %1024) #10
   store i32 %call.i3039, ptr %retval.i3033, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3041
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3041: ; preds = %if.end.i3038, %if.then.i3040
-  %992 = load i32, ptr %retval.i3033, align 4
-  %cmp5.i2016 = icmp eq i32 %992, 0
+  %1025 = load i32, ptr %retval.i3033, align 4
+  %cmp5.i2016 = icmp eq i32 %1025, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2017
 
 _ZNK4llvh9StringRef6equalsES0_.exit2017:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3041, %land.lhs.true.i1105
-  %993 = phi i1 [ false, %land.lhs.true.i1105 ], [ %cmp5.i2016, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3041 ]
-  br i1 %993, label %if.then.i1107, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1110
+  %1026 = phi i1 [ false, %land.lhs.true.i1105 ], [ %cmp5.i2016, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3041 ]
+  br i1 %1026, label %if.then.i1107, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1110
 
 if.then.i1107:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2017
   %Result4.i1108 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1102, i32 0, i32 1
@@ -13807,15 +13840,16 @@ if.then.i1107:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1110: ; preds = %if.then.i1107, %_ZNK4llvh9StringRef6equalsES0_.exit2017, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1127
   call void @_ZN4llvh13StringLiteralC2ILm12EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm12ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp101, ptr noundef nonnull align 1 dereferenceable(12) @.str.34)
-  %994 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 10, i32 7), align 4
-  %or102 = or i32 %994, 1
-  %995 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 0
-  %996 = load ptr, ptr %995, align 8
-  %997 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 1
-  %998 = load i64, ptr %997, align 8
-  store ptr %996, ptr %S.i1080, align 8
-  %999 = getelementptr inbounds { ptr, i64 }, ptr %S.i1080, i32 0, i32 1
-  store i64 %998, ptr %999, align 8
+  %1027 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 10, i32 7
+  %1028 = load i32, ptr %1027, align 4
+  %or102 = or i32 %1028, 1
+  %1029 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 0
+  %1030 = load ptr, ptr %1029, align 8
+  %1031 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp101, i32 0, i32 1
+  %1032 = load i64, ptr %1031, align 8
+  store ptr %1030, ptr %S.i1080, align 8
+  %1033 = getelementptr inbounds { ptr, i64 }, ptr %S.i1080, i32 0, i32 1
+  store i64 %1032, ptr %1033, align 8
   store ptr %this1.i1102, ptr %this.addr.i1081, align 8
   store i32 %or102, ptr %Value.addr.i1082, align 4
   %this1.i1085 = load ptr, ptr %this.addr.i1081, align 8
@@ -13826,44 +13860,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1110: ; preds = %if.the
 land.lhs.true.i1088:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1110
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1083, ptr align 8 %this1.i1085, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1084, ptr align 8 %S.i1080, i64 16, i1 false)
-  %1000 = load ptr, ptr %agg.tmp.i1083, align 8
-  %1001 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1083, i32 0, i32 1
-  %1002 = load i64, ptr %1001, align 8
-  %1003 = load ptr, ptr %agg.tmp2.i1084, align 8
-  %1004 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1084, i32 0, i32 1
-  %1005 = load i64, ptr %1004, align 8
-  store ptr %1000, ptr %LHS.i.i1077, align 8
-  %1006 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1077, i32 0, i32 1
-  store i64 %1002, ptr %1006, align 8
-  store ptr %1003, ptr %RHS.i.i1078, align 8
-  %1007 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1078, i32 0, i32 1
-  store i64 %1005, ptr %1007, align 8
+  %1034 = load ptr, ptr %agg.tmp.i1083, align 8
+  %1035 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1083, i32 0, i32 1
+  %1036 = load i64, ptr %1035, align 8
+  %1037 = load ptr, ptr %agg.tmp2.i1084, align 8
+  %1038 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1084, i32 0, i32 1
+  %1039 = load i64, ptr %1038, align 8
+  store ptr %1034, ptr %LHS.i.i1077, align 8
+  %1040 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1077, i32 0, i32 1
+  store i64 %1036, ptr %1040, align 8
+  store ptr %1037, ptr %RHS.i.i1078, align 8
+  %1041 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1078, i32 0, i32 1
+  store i64 %1039, ptr %1041, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1079, ptr align 8 %RHS.i.i1078, i64 16, i1 false)
-  %1008 = load ptr, ptr %agg.tmp.i.i1079, align 8
-  %1009 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1079, i32 0, i32 1
-  %1010 = load i64, ptr %1009, align 8
-  store ptr %1008, ptr %RHS.i2018, align 8
-  %1011 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2018, i32 0, i32 1
-  store i64 %1010, ptr %1011, align 8
+  %1042 = load ptr, ptr %agg.tmp.i.i1079, align 8
+  %1043 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1079, i32 0, i32 1
+  %1044 = load i64, ptr %1043, align 8
+  store ptr %1042, ptr %RHS.i2018, align 8
+  %1045 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2018, i32 0, i32 1
+  store i64 %1044, ptr %1045, align 8
   store ptr %LHS.i.i1077, ptr %this.addr.i2019, align 8
   %this1.i2020 = load ptr, ptr %this.addr.i2019, align 8
   %Length.i2021 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2020, i32 0, i32 1
-  %1012 = load i64, ptr %Length.i2021, align 8
+  %1046 = load i64, ptr %Length.i2021, align 8
   %Length2.i2022 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2018, i32 0, i32 1
-  %1013 = load i64, ptr %Length2.i2022, align 8
-  %cmp.i2023 = icmp eq i64 %1012, %1013
+  %1047 = load i64, ptr %Length2.i2022, align 8
+  %cmp.i2023 = icmp eq i64 %1046, %1047
   br i1 %cmp.i2023, label %land.rhs.i2024, label %_ZNK4llvh9StringRef6equalsES0_.exit2028
 
 land.rhs.i2024:                                   ; preds = %land.lhs.true.i1088
-  %1014 = load ptr, ptr %this1.i2020, align 8
-  %1015 = load ptr, ptr %RHS.i2018, align 8
+  %1048 = load ptr, ptr %this1.i2020, align 8
+  %1049 = load ptr, ptr %RHS.i2018, align 8
   %Length4.i2025 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2018, i32 0, i32 1
-  %1016 = load i64, ptr %Length4.i2025, align 8
-  store ptr %1014, ptr %Lhs.addr.i3025, align 8
-  store ptr %1015, ptr %Rhs.addr.i3026, align 8
-  store i64 %1016, ptr %Length.addr.i3027, align 8
-  %1017 = load i64, ptr %Length.addr.i3027, align 8
-  %cmp.i3028 = icmp eq i64 %1017, 0
+  %1050 = load i64, ptr %Length4.i2025, align 8
+  store ptr %1048, ptr %Lhs.addr.i3025, align 8
+  store ptr %1049, ptr %Rhs.addr.i3026, align 8
+  store i64 %1050, ptr %Length.addr.i3027, align 8
+  %1051 = load i64, ptr %Length.addr.i3027, align 8
+  %cmp.i3028 = icmp eq i64 %1051, 0
   br i1 %cmp.i3028, label %if.then.i3031, label %if.end.i3029
 
 if.then.i3031:                                    ; preds = %land.rhs.i2024
@@ -13871,21 +13905,21 @@ if.then.i3031:                                    ; preds = %land.rhs.i2024
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3032
 
 if.end.i3029:                                     ; preds = %land.rhs.i2024
-  %1018 = load ptr, ptr %Lhs.addr.i3025, align 8
-  %1019 = load ptr, ptr %Rhs.addr.i3026, align 8
-  %1020 = load i64, ptr %Length.addr.i3027, align 8
-  %call.i3030 = call i32 @memcmp(ptr noundef %1018, ptr noundef %1019, i64 noundef %1020) #10
+  %1052 = load ptr, ptr %Lhs.addr.i3025, align 8
+  %1053 = load ptr, ptr %Rhs.addr.i3026, align 8
+  %1054 = load i64, ptr %Length.addr.i3027, align 8
+  %call.i3030 = call i32 @memcmp(ptr noundef %1052, ptr noundef %1053, i64 noundef %1054) #10
   store i32 %call.i3030, ptr %retval.i3024, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3032
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3032: ; preds = %if.end.i3029, %if.then.i3031
-  %1021 = load i32, ptr %retval.i3024, align 4
-  %cmp5.i2027 = icmp eq i32 %1021, 0
+  %1055 = load i32, ptr %retval.i3024, align 4
+  %cmp5.i2027 = icmp eq i32 %1055, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2028
 
 _ZNK4llvh9StringRef6equalsES0_.exit2028:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3032, %land.lhs.true.i1088
-  %1022 = phi i1 [ false, %land.lhs.true.i1088 ], [ %cmp5.i2027, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3032 ]
-  br i1 %1022, label %if.then.i1090, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1093
+  %1056 = phi i1 [ false, %land.lhs.true.i1088 ], [ %cmp5.i2027, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3032 ]
+  br i1 %1056, label %if.then.i1090, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1093
 
 if.then.i1090:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2028
   %Result4.i1091 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1085, i32 0, i32 1
@@ -13894,15 +13928,16 @@ if.then.i1090:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1093: ; preds = %if.then.i1090, %_ZNK4llvh9StringRef6equalsES0_.exit2028, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1110
   call void @_ZN4llvh13StringLiteralC2ILm12EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm12ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp104, ptr noundef nonnull align 1 dereferenceable(12) @.str.35)
-  %1023 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 10, i32 7), align 4
-  %or105 = or i32 %1023, 1
-  %1024 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp104, i32 0, i32 0
-  %1025 = load ptr, ptr %1024, align 8
-  %1026 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp104, i32 0, i32 1
-  %1027 = load i64, ptr %1026, align 8
-  store ptr %1025, ptr %S.i1063, align 8
-  %1028 = getelementptr inbounds { ptr, i64 }, ptr %S.i1063, i32 0, i32 1
-  store i64 %1027, ptr %1028, align 8
+  %1057 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 10, i32 7
+  %1058 = load i32, ptr %1057, align 4
+  %or105 = or i32 %1058, 1
+  %1059 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp104, i32 0, i32 0
+  %1060 = load ptr, ptr %1059, align 8
+  %1061 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp104, i32 0, i32 1
+  %1062 = load i64, ptr %1061, align 8
+  store ptr %1060, ptr %S.i1063, align 8
+  %1063 = getelementptr inbounds { ptr, i64 }, ptr %S.i1063, i32 0, i32 1
+  store i64 %1062, ptr %1063, align 8
   store ptr %this1.i1085, ptr %this.addr.i1064, align 8
   store i32 %or105, ptr %Value.addr.i1065, align 4
   %this1.i1068 = load ptr, ptr %this.addr.i1064, align 8
@@ -13913,44 +13948,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1093: ; preds = %if.the
 land.lhs.true.i1071:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1093
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1066, ptr align 8 %this1.i1068, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1067, ptr align 8 %S.i1063, i64 16, i1 false)
-  %1029 = load ptr, ptr %agg.tmp.i1066, align 8
-  %1030 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1066, i32 0, i32 1
-  %1031 = load i64, ptr %1030, align 8
-  %1032 = load ptr, ptr %agg.tmp2.i1067, align 8
-  %1033 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1067, i32 0, i32 1
-  %1034 = load i64, ptr %1033, align 8
-  store ptr %1029, ptr %LHS.i.i1060, align 8
-  %1035 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1060, i32 0, i32 1
-  store i64 %1031, ptr %1035, align 8
-  store ptr %1032, ptr %RHS.i.i1061, align 8
-  %1036 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1061, i32 0, i32 1
-  store i64 %1034, ptr %1036, align 8
+  %1064 = load ptr, ptr %agg.tmp.i1066, align 8
+  %1065 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1066, i32 0, i32 1
+  %1066 = load i64, ptr %1065, align 8
+  %1067 = load ptr, ptr %agg.tmp2.i1067, align 8
+  %1068 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1067, i32 0, i32 1
+  %1069 = load i64, ptr %1068, align 8
+  store ptr %1064, ptr %LHS.i.i1060, align 8
+  %1070 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1060, i32 0, i32 1
+  store i64 %1066, ptr %1070, align 8
+  store ptr %1067, ptr %RHS.i.i1061, align 8
+  %1071 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1061, i32 0, i32 1
+  store i64 %1069, ptr %1071, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1062, ptr align 8 %RHS.i.i1061, i64 16, i1 false)
-  %1037 = load ptr, ptr %agg.tmp.i.i1062, align 8
-  %1038 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1062, i32 0, i32 1
-  %1039 = load i64, ptr %1038, align 8
-  store ptr %1037, ptr %RHS.i2029, align 8
-  %1040 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2029, i32 0, i32 1
-  store i64 %1039, ptr %1040, align 8
+  %1072 = load ptr, ptr %agg.tmp.i.i1062, align 8
+  %1073 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1062, i32 0, i32 1
+  %1074 = load i64, ptr %1073, align 8
+  store ptr %1072, ptr %RHS.i2029, align 8
+  %1075 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2029, i32 0, i32 1
+  store i64 %1074, ptr %1075, align 8
   store ptr %LHS.i.i1060, ptr %this.addr.i2030, align 8
   %this1.i2031 = load ptr, ptr %this.addr.i2030, align 8
   %Length.i2032 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2031, i32 0, i32 1
-  %1041 = load i64, ptr %Length.i2032, align 8
+  %1076 = load i64, ptr %Length.i2032, align 8
   %Length2.i2033 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2029, i32 0, i32 1
-  %1042 = load i64, ptr %Length2.i2033, align 8
-  %cmp.i2034 = icmp eq i64 %1041, %1042
+  %1077 = load i64, ptr %Length2.i2033, align 8
+  %cmp.i2034 = icmp eq i64 %1076, %1077
   br i1 %cmp.i2034, label %land.rhs.i2035, label %_ZNK4llvh9StringRef6equalsES0_.exit2039
 
 land.rhs.i2035:                                   ; preds = %land.lhs.true.i1071
-  %1043 = load ptr, ptr %this1.i2031, align 8
-  %1044 = load ptr, ptr %RHS.i2029, align 8
+  %1078 = load ptr, ptr %this1.i2031, align 8
+  %1079 = load ptr, ptr %RHS.i2029, align 8
   %Length4.i2036 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2029, i32 0, i32 1
-  %1045 = load i64, ptr %Length4.i2036, align 8
-  store ptr %1043, ptr %Lhs.addr.i3016, align 8
-  store ptr %1044, ptr %Rhs.addr.i3017, align 8
-  store i64 %1045, ptr %Length.addr.i3018, align 8
-  %1046 = load i64, ptr %Length.addr.i3018, align 8
-  %cmp.i3019 = icmp eq i64 %1046, 0
+  %1080 = load i64, ptr %Length4.i2036, align 8
+  store ptr %1078, ptr %Lhs.addr.i3016, align 8
+  store ptr %1079, ptr %Rhs.addr.i3017, align 8
+  store i64 %1080, ptr %Length.addr.i3018, align 8
+  %1081 = load i64, ptr %Length.addr.i3018, align 8
+  %cmp.i3019 = icmp eq i64 %1081, 0
   br i1 %cmp.i3019, label %if.then.i3022, label %if.end.i3020
 
 if.then.i3022:                                    ; preds = %land.rhs.i2035
@@ -13958,21 +13993,21 @@ if.then.i3022:                                    ; preds = %land.rhs.i2035
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3023
 
 if.end.i3020:                                     ; preds = %land.rhs.i2035
-  %1047 = load ptr, ptr %Lhs.addr.i3016, align 8
-  %1048 = load ptr, ptr %Rhs.addr.i3017, align 8
-  %1049 = load i64, ptr %Length.addr.i3018, align 8
-  %call.i3021 = call i32 @memcmp(ptr noundef %1047, ptr noundef %1048, i64 noundef %1049) #10
+  %1082 = load ptr, ptr %Lhs.addr.i3016, align 8
+  %1083 = load ptr, ptr %Rhs.addr.i3017, align 8
+  %1084 = load i64, ptr %Length.addr.i3018, align 8
+  %call.i3021 = call i32 @memcmp(ptr noundef %1082, ptr noundef %1083, i64 noundef %1084) #10
   store i32 %call.i3021, ptr %retval.i3015, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3023
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3023: ; preds = %if.end.i3020, %if.then.i3022
-  %1050 = load i32, ptr %retval.i3015, align 4
-  %cmp5.i2038 = icmp eq i32 %1050, 0
+  %1085 = load i32, ptr %retval.i3015, align 4
+  %cmp5.i2038 = icmp eq i32 %1085, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2039
 
 _ZNK4llvh9StringRef6equalsES0_.exit2039:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3023, %land.lhs.true.i1071
-  %1051 = phi i1 [ false, %land.lhs.true.i1071 ], [ %cmp5.i2038, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3023 ]
-  br i1 %1051, label %if.then.i1073, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1076
+  %1086 = phi i1 [ false, %land.lhs.true.i1071 ], [ %cmp5.i2038, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3023 ]
+  br i1 %1086, label %if.then.i1073, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1076
 
 if.then.i1073:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2039
   %Result4.i1074 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1068, i32 0, i32 1
@@ -13981,15 +14016,16 @@ if.then.i1073:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1076: ; preds = %if.then.i1073, %_ZNK4llvh9StringRef6equalsES0_.exit2039, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1093
   call void @_ZN4llvh13StringLiteralC2ILm7EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm7ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp107, ptr noundef nonnull align 1 dereferenceable(7) @.str.36)
-  %1052 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 11, i32 7), align 4
-  %or108 = or i32 %1052, 1
-  %1053 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 0
-  %1054 = load ptr, ptr %1053, align 8
-  %1055 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 1
-  %1056 = load i64, ptr %1055, align 8
-  store ptr %1054, ptr %S.i1046, align 8
-  %1057 = getelementptr inbounds { ptr, i64 }, ptr %S.i1046, i32 0, i32 1
-  store i64 %1056, ptr %1057, align 8
+  %1087 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 11, i32 7
+  %1088 = load i32, ptr %1087, align 4
+  %or108 = or i32 %1088, 1
+  %1089 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 0
+  %1090 = load ptr, ptr %1089, align 8
+  %1091 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp107, i32 0, i32 1
+  %1092 = load i64, ptr %1091, align 8
+  store ptr %1090, ptr %S.i1046, align 8
+  %1093 = getelementptr inbounds { ptr, i64 }, ptr %S.i1046, i32 0, i32 1
+  store i64 %1092, ptr %1093, align 8
   store ptr %this1.i1068, ptr %this.addr.i1047, align 8
   store i32 %or108, ptr %Value.addr.i1048, align 4
   %this1.i1051 = load ptr, ptr %this.addr.i1047, align 8
@@ -14000,44 +14036,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1076: ; preds = %if.the
 land.lhs.true.i1054:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1076
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1049, ptr align 8 %this1.i1051, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1050, ptr align 8 %S.i1046, i64 16, i1 false)
-  %1058 = load ptr, ptr %agg.tmp.i1049, align 8
-  %1059 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1049, i32 0, i32 1
-  %1060 = load i64, ptr %1059, align 8
-  %1061 = load ptr, ptr %agg.tmp2.i1050, align 8
-  %1062 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1050, i32 0, i32 1
-  %1063 = load i64, ptr %1062, align 8
-  store ptr %1058, ptr %LHS.i.i1043, align 8
-  %1064 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1043, i32 0, i32 1
-  store i64 %1060, ptr %1064, align 8
-  store ptr %1061, ptr %RHS.i.i1044, align 8
-  %1065 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1044, i32 0, i32 1
-  store i64 %1063, ptr %1065, align 8
+  %1094 = load ptr, ptr %agg.tmp.i1049, align 8
+  %1095 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1049, i32 0, i32 1
+  %1096 = load i64, ptr %1095, align 8
+  %1097 = load ptr, ptr %agg.tmp2.i1050, align 8
+  %1098 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1050, i32 0, i32 1
+  %1099 = load i64, ptr %1098, align 8
+  store ptr %1094, ptr %LHS.i.i1043, align 8
+  %1100 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1043, i32 0, i32 1
+  store i64 %1096, ptr %1100, align 8
+  store ptr %1097, ptr %RHS.i.i1044, align 8
+  %1101 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1044, i32 0, i32 1
+  store i64 %1099, ptr %1101, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1045, ptr align 8 %RHS.i.i1044, i64 16, i1 false)
-  %1066 = load ptr, ptr %agg.tmp.i.i1045, align 8
-  %1067 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1045, i32 0, i32 1
-  %1068 = load i64, ptr %1067, align 8
-  store ptr %1066, ptr %RHS.i2040, align 8
-  %1069 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2040, i32 0, i32 1
-  store i64 %1068, ptr %1069, align 8
+  %1102 = load ptr, ptr %agg.tmp.i.i1045, align 8
+  %1103 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1045, i32 0, i32 1
+  %1104 = load i64, ptr %1103, align 8
+  store ptr %1102, ptr %RHS.i2040, align 8
+  %1105 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2040, i32 0, i32 1
+  store i64 %1104, ptr %1105, align 8
   store ptr %LHS.i.i1043, ptr %this.addr.i2041, align 8
   %this1.i2042 = load ptr, ptr %this.addr.i2041, align 8
   %Length.i2043 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2042, i32 0, i32 1
-  %1070 = load i64, ptr %Length.i2043, align 8
+  %1106 = load i64, ptr %Length.i2043, align 8
   %Length2.i2044 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2040, i32 0, i32 1
-  %1071 = load i64, ptr %Length2.i2044, align 8
-  %cmp.i2045 = icmp eq i64 %1070, %1071
+  %1107 = load i64, ptr %Length2.i2044, align 8
+  %cmp.i2045 = icmp eq i64 %1106, %1107
   br i1 %cmp.i2045, label %land.rhs.i2046, label %_ZNK4llvh9StringRef6equalsES0_.exit2050
 
 land.rhs.i2046:                                   ; preds = %land.lhs.true.i1054
-  %1072 = load ptr, ptr %this1.i2042, align 8
-  %1073 = load ptr, ptr %RHS.i2040, align 8
+  %1108 = load ptr, ptr %this1.i2042, align 8
+  %1109 = load ptr, ptr %RHS.i2040, align 8
   %Length4.i2047 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2040, i32 0, i32 1
-  %1074 = load i64, ptr %Length4.i2047, align 8
-  store ptr %1072, ptr %Lhs.addr.i3007, align 8
-  store ptr %1073, ptr %Rhs.addr.i3008, align 8
-  store i64 %1074, ptr %Length.addr.i3009, align 8
-  %1075 = load i64, ptr %Length.addr.i3009, align 8
-  %cmp.i3010 = icmp eq i64 %1075, 0
+  %1110 = load i64, ptr %Length4.i2047, align 8
+  store ptr %1108, ptr %Lhs.addr.i3007, align 8
+  store ptr %1109, ptr %Rhs.addr.i3008, align 8
+  store i64 %1110, ptr %Length.addr.i3009, align 8
+  %1111 = load i64, ptr %Length.addr.i3009, align 8
+  %cmp.i3010 = icmp eq i64 %1111, 0
   br i1 %cmp.i3010, label %if.then.i3013, label %if.end.i3011
 
 if.then.i3013:                                    ; preds = %land.rhs.i2046
@@ -14045,21 +14081,21 @@ if.then.i3013:                                    ; preds = %land.rhs.i2046
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3014
 
 if.end.i3011:                                     ; preds = %land.rhs.i2046
-  %1076 = load ptr, ptr %Lhs.addr.i3007, align 8
-  %1077 = load ptr, ptr %Rhs.addr.i3008, align 8
-  %1078 = load i64, ptr %Length.addr.i3009, align 8
-  %call.i3012 = call i32 @memcmp(ptr noundef %1076, ptr noundef %1077, i64 noundef %1078) #10
+  %1112 = load ptr, ptr %Lhs.addr.i3007, align 8
+  %1113 = load ptr, ptr %Rhs.addr.i3008, align 8
+  %1114 = load i64, ptr %Length.addr.i3009, align 8
+  %call.i3012 = call i32 @memcmp(ptr noundef %1112, ptr noundef %1113, i64 noundef %1114) #10
   store i32 %call.i3012, ptr %retval.i3006, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3014
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3014: ; preds = %if.end.i3011, %if.then.i3013
-  %1079 = load i32, ptr %retval.i3006, align 4
-  %cmp5.i2049 = icmp eq i32 %1079, 0
+  %1115 = load i32, ptr %retval.i3006, align 4
+  %cmp5.i2049 = icmp eq i32 %1115, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2050
 
 _ZNK4llvh9StringRef6equalsES0_.exit2050:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3014, %land.lhs.true.i1054
-  %1080 = phi i1 [ false, %land.lhs.true.i1054 ], [ %cmp5.i2049, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3014 ]
-  br i1 %1080, label %if.then.i1056, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1059
+  %1116 = phi i1 [ false, %land.lhs.true.i1054 ], [ %cmp5.i2049, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3014 ]
+  br i1 %1116, label %if.then.i1056, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1059
 
 if.then.i1056:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2050
   %Result4.i1057 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1051, i32 0, i32 1
@@ -14068,15 +14104,16 @@ if.then.i1056:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1059: ; preds = %if.then.i1056, %_ZNK4llvh9StringRef6equalsES0_.exit2050, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1076
   call void @_ZN4llvh13StringLiteralC2ILm12EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm12ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp110, ptr noundef nonnull align 1 dereferenceable(12) @.str.37)
-  %1081 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 11, i32 7), align 4
-  %or111 = or i32 %1081, 1
-  %1082 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp110, i32 0, i32 0
-  %1083 = load ptr, ptr %1082, align 8
-  %1084 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp110, i32 0, i32 1
-  %1085 = load i64, ptr %1084, align 8
-  store ptr %1083, ptr %S.i1029, align 8
-  %1086 = getelementptr inbounds { ptr, i64 }, ptr %S.i1029, i32 0, i32 1
-  store i64 %1085, ptr %1086, align 8
+  %1117 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 11, i32 7
+  %1118 = load i32, ptr %1117, align 4
+  %or111 = or i32 %1118, 1
+  %1119 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp110, i32 0, i32 0
+  %1120 = load ptr, ptr %1119, align 8
+  %1121 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp110, i32 0, i32 1
+  %1122 = load i64, ptr %1121, align 8
+  store ptr %1120, ptr %S.i1029, align 8
+  %1123 = getelementptr inbounds { ptr, i64 }, ptr %S.i1029, i32 0, i32 1
+  store i64 %1122, ptr %1123, align 8
   store ptr %this1.i1051, ptr %this.addr.i1030, align 8
   store i32 %or111, ptr %Value.addr.i1031, align 4
   %this1.i1034 = load ptr, ptr %this.addr.i1030, align 8
@@ -14087,44 +14124,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1059: ; preds = %if.the
 land.lhs.true.i1037:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1059
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1032, ptr align 8 %this1.i1034, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1033, ptr align 8 %S.i1029, i64 16, i1 false)
-  %1087 = load ptr, ptr %agg.tmp.i1032, align 8
-  %1088 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1032, i32 0, i32 1
-  %1089 = load i64, ptr %1088, align 8
-  %1090 = load ptr, ptr %agg.tmp2.i1033, align 8
-  %1091 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1033, i32 0, i32 1
-  %1092 = load i64, ptr %1091, align 8
-  store ptr %1087, ptr %LHS.i.i1026, align 8
-  %1093 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1026, i32 0, i32 1
-  store i64 %1089, ptr %1093, align 8
-  store ptr %1090, ptr %RHS.i.i1027, align 8
-  %1094 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1027, i32 0, i32 1
-  store i64 %1092, ptr %1094, align 8
+  %1124 = load ptr, ptr %agg.tmp.i1032, align 8
+  %1125 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1032, i32 0, i32 1
+  %1126 = load i64, ptr %1125, align 8
+  %1127 = load ptr, ptr %agg.tmp2.i1033, align 8
+  %1128 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1033, i32 0, i32 1
+  %1129 = load i64, ptr %1128, align 8
+  store ptr %1124, ptr %LHS.i.i1026, align 8
+  %1130 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1026, i32 0, i32 1
+  store i64 %1126, ptr %1130, align 8
+  store ptr %1127, ptr %RHS.i.i1027, align 8
+  %1131 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1027, i32 0, i32 1
+  store i64 %1129, ptr %1131, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1028, ptr align 8 %RHS.i.i1027, i64 16, i1 false)
-  %1095 = load ptr, ptr %agg.tmp.i.i1028, align 8
-  %1096 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1028, i32 0, i32 1
-  %1097 = load i64, ptr %1096, align 8
-  store ptr %1095, ptr %RHS.i2051, align 8
-  %1098 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2051, i32 0, i32 1
-  store i64 %1097, ptr %1098, align 8
+  %1132 = load ptr, ptr %agg.tmp.i.i1028, align 8
+  %1133 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1028, i32 0, i32 1
+  %1134 = load i64, ptr %1133, align 8
+  store ptr %1132, ptr %RHS.i2051, align 8
+  %1135 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2051, i32 0, i32 1
+  store i64 %1134, ptr %1135, align 8
   store ptr %LHS.i.i1026, ptr %this.addr.i2052, align 8
   %this1.i2053 = load ptr, ptr %this.addr.i2052, align 8
   %Length.i2054 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2053, i32 0, i32 1
-  %1099 = load i64, ptr %Length.i2054, align 8
+  %1136 = load i64, ptr %Length.i2054, align 8
   %Length2.i2055 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2051, i32 0, i32 1
-  %1100 = load i64, ptr %Length2.i2055, align 8
-  %cmp.i2056 = icmp eq i64 %1099, %1100
+  %1137 = load i64, ptr %Length2.i2055, align 8
+  %cmp.i2056 = icmp eq i64 %1136, %1137
   br i1 %cmp.i2056, label %land.rhs.i2057, label %_ZNK4llvh9StringRef6equalsES0_.exit2061
 
 land.rhs.i2057:                                   ; preds = %land.lhs.true.i1037
-  %1101 = load ptr, ptr %this1.i2053, align 8
-  %1102 = load ptr, ptr %RHS.i2051, align 8
+  %1138 = load ptr, ptr %this1.i2053, align 8
+  %1139 = load ptr, ptr %RHS.i2051, align 8
   %Length4.i2058 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2051, i32 0, i32 1
-  %1103 = load i64, ptr %Length4.i2058, align 8
-  store ptr %1101, ptr %Lhs.addr.i2998, align 8
-  store ptr %1102, ptr %Rhs.addr.i2999, align 8
-  store i64 %1103, ptr %Length.addr.i3000, align 8
-  %1104 = load i64, ptr %Length.addr.i3000, align 8
-  %cmp.i3001 = icmp eq i64 %1104, 0
+  %1140 = load i64, ptr %Length4.i2058, align 8
+  store ptr %1138, ptr %Lhs.addr.i2998, align 8
+  store ptr %1139, ptr %Rhs.addr.i2999, align 8
+  store i64 %1140, ptr %Length.addr.i3000, align 8
+  %1141 = load i64, ptr %Length.addr.i3000, align 8
+  %cmp.i3001 = icmp eq i64 %1141, 0
   br i1 %cmp.i3001, label %if.then.i3004, label %if.end.i3002
 
 if.then.i3004:                                    ; preds = %land.rhs.i2057
@@ -14132,21 +14169,21 @@ if.then.i3004:                                    ; preds = %land.rhs.i2057
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3005
 
 if.end.i3002:                                     ; preds = %land.rhs.i2057
-  %1105 = load ptr, ptr %Lhs.addr.i2998, align 8
-  %1106 = load ptr, ptr %Rhs.addr.i2999, align 8
-  %1107 = load i64, ptr %Length.addr.i3000, align 8
-  %call.i3003 = call i32 @memcmp(ptr noundef %1105, ptr noundef %1106, i64 noundef %1107) #10
+  %1142 = load ptr, ptr %Lhs.addr.i2998, align 8
+  %1143 = load ptr, ptr %Rhs.addr.i2999, align 8
+  %1144 = load i64, ptr %Length.addr.i3000, align 8
+  %call.i3003 = call i32 @memcmp(ptr noundef %1142, ptr noundef %1143, i64 noundef %1144) #10
   store i32 %call.i3003, ptr %retval.i2997, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3005
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3005: ; preds = %if.end.i3002, %if.then.i3004
-  %1108 = load i32, ptr %retval.i2997, align 4
-  %cmp5.i2060 = icmp eq i32 %1108, 0
+  %1145 = load i32, ptr %retval.i2997, align 4
+  %cmp5.i2060 = icmp eq i32 %1145, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2061
 
 _ZNK4llvh9StringRef6equalsES0_.exit2061:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3005, %land.lhs.true.i1037
-  %1109 = phi i1 [ false, %land.lhs.true.i1037 ], [ %cmp5.i2060, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3005 ]
-  br i1 %1109, label %if.then.i1039, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1042
+  %1146 = phi i1 [ false, %land.lhs.true.i1037 ], [ %cmp5.i2060, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit3005 ]
+  br i1 %1146, label %if.then.i1039, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1042
 
 if.then.i1039:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2061
   %Result4.i1040 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1034, i32 0, i32 1
@@ -14155,15 +14192,16 @@ if.then.i1039:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1042: ; preds = %if.then.i1039, %_ZNK4llvh9StringRef6equalsES0_.exit2061, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1059
   call void @_ZN4llvh13StringLiteralC2ILm12EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm12ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp113, ptr noundef nonnull align 1 dereferenceable(12) @.str.38)
-  %1110 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 13, i32 7), align 4
-  %or114 = or i32 %1110, 1
-  %1111 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 0
-  %1112 = load ptr, ptr %1111, align 8
-  %1113 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 1
-  %1114 = load i64, ptr %1113, align 8
-  store ptr %1112, ptr %S.i1012, align 8
-  %1115 = getelementptr inbounds { ptr, i64 }, ptr %S.i1012, i32 0, i32 1
-  store i64 %1114, ptr %1115, align 8
+  %1147 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 13, i32 7
+  %1148 = load i32, ptr %1147, align 4
+  %or114 = or i32 %1148, 1
+  %1149 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 0
+  %1150 = load ptr, ptr %1149, align 8
+  %1151 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp113, i32 0, i32 1
+  %1152 = load i64, ptr %1151, align 8
+  store ptr %1150, ptr %S.i1012, align 8
+  %1153 = getelementptr inbounds { ptr, i64 }, ptr %S.i1012, i32 0, i32 1
+  store i64 %1152, ptr %1153, align 8
   store ptr %this1.i1034, ptr %this.addr.i1013, align 8
   store i32 %or114, ptr %Value.addr.i1014, align 4
   %this1.i1017 = load ptr, ptr %this.addr.i1013, align 8
@@ -14174,44 +14212,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1042: ; preds = %if.the
 land.lhs.true.i1020:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1042
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i1015, ptr align 8 %this1.i1017, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i1016, ptr align 8 %S.i1012, i64 16, i1 false)
-  %1116 = load ptr, ptr %agg.tmp.i1015, align 8
-  %1117 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1015, i32 0, i32 1
-  %1118 = load i64, ptr %1117, align 8
-  %1119 = load ptr, ptr %agg.tmp2.i1016, align 8
-  %1120 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1016, i32 0, i32 1
-  %1121 = load i64, ptr %1120, align 8
-  store ptr %1116, ptr %LHS.i.i1009, align 8
-  %1122 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1009, i32 0, i32 1
-  store i64 %1118, ptr %1122, align 8
-  store ptr %1119, ptr %RHS.i.i1010, align 8
-  %1123 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1010, i32 0, i32 1
-  store i64 %1121, ptr %1123, align 8
+  %1154 = load ptr, ptr %agg.tmp.i1015, align 8
+  %1155 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i1015, i32 0, i32 1
+  %1156 = load i64, ptr %1155, align 8
+  %1157 = load ptr, ptr %agg.tmp2.i1016, align 8
+  %1158 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i1016, i32 0, i32 1
+  %1159 = load i64, ptr %1158, align 8
+  store ptr %1154, ptr %LHS.i.i1009, align 8
+  %1160 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i1009, i32 0, i32 1
+  store i64 %1156, ptr %1160, align 8
+  store ptr %1157, ptr %RHS.i.i1010, align 8
+  %1161 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i1010, i32 0, i32 1
+  store i64 %1159, ptr %1161, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i1011, ptr align 8 %RHS.i.i1010, i64 16, i1 false)
-  %1124 = load ptr, ptr %agg.tmp.i.i1011, align 8
-  %1125 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1011, i32 0, i32 1
-  %1126 = load i64, ptr %1125, align 8
-  store ptr %1124, ptr %RHS.i2062, align 8
-  %1127 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2062, i32 0, i32 1
-  store i64 %1126, ptr %1127, align 8
+  %1162 = load ptr, ptr %agg.tmp.i.i1011, align 8
+  %1163 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i1011, i32 0, i32 1
+  %1164 = load i64, ptr %1163, align 8
+  store ptr %1162, ptr %RHS.i2062, align 8
+  %1165 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2062, i32 0, i32 1
+  store i64 %1164, ptr %1165, align 8
   store ptr %LHS.i.i1009, ptr %this.addr.i2063, align 8
   %this1.i2064 = load ptr, ptr %this.addr.i2063, align 8
   %Length.i2065 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2064, i32 0, i32 1
-  %1128 = load i64, ptr %Length.i2065, align 8
+  %1166 = load i64, ptr %Length.i2065, align 8
   %Length2.i2066 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2062, i32 0, i32 1
-  %1129 = load i64, ptr %Length2.i2066, align 8
-  %cmp.i2067 = icmp eq i64 %1128, %1129
+  %1167 = load i64, ptr %Length2.i2066, align 8
+  %cmp.i2067 = icmp eq i64 %1166, %1167
   br i1 %cmp.i2067, label %land.rhs.i2068, label %_ZNK4llvh9StringRef6equalsES0_.exit2072
 
 land.rhs.i2068:                                   ; preds = %land.lhs.true.i1020
-  %1130 = load ptr, ptr %this1.i2064, align 8
-  %1131 = load ptr, ptr %RHS.i2062, align 8
+  %1168 = load ptr, ptr %this1.i2064, align 8
+  %1169 = load ptr, ptr %RHS.i2062, align 8
   %Length4.i2069 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2062, i32 0, i32 1
-  %1132 = load i64, ptr %Length4.i2069, align 8
-  store ptr %1130, ptr %Lhs.addr.i2989, align 8
-  store ptr %1131, ptr %Rhs.addr.i2990, align 8
-  store i64 %1132, ptr %Length.addr.i2991, align 8
-  %1133 = load i64, ptr %Length.addr.i2991, align 8
-  %cmp.i2992 = icmp eq i64 %1133, 0
+  %1170 = load i64, ptr %Length4.i2069, align 8
+  store ptr %1168, ptr %Lhs.addr.i2989, align 8
+  store ptr %1169, ptr %Rhs.addr.i2990, align 8
+  store i64 %1170, ptr %Length.addr.i2991, align 8
+  %1171 = load i64, ptr %Length.addr.i2991, align 8
+  %cmp.i2992 = icmp eq i64 %1171, 0
   br i1 %cmp.i2992, label %if.then.i2995, label %if.end.i2993
 
 if.then.i2995:                                    ; preds = %land.rhs.i2068
@@ -14219,21 +14257,21 @@ if.then.i2995:                                    ; preds = %land.rhs.i2068
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2996
 
 if.end.i2993:                                     ; preds = %land.rhs.i2068
-  %1134 = load ptr, ptr %Lhs.addr.i2989, align 8
-  %1135 = load ptr, ptr %Rhs.addr.i2990, align 8
-  %1136 = load i64, ptr %Length.addr.i2991, align 8
-  %call.i2994 = call i32 @memcmp(ptr noundef %1134, ptr noundef %1135, i64 noundef %1136) #10
+  %1172 = load ptr, ptr %Lhs.addr.i2989, align 8
+  %1173 = load ptr, ptr %Rhs.addr.i2990, align 8
+  %1174 = load i64, ptr %Length.addr.i2991, align 8
+  %call.i2994 = call i32 @memcmp(ptr noundef %1172, ptr noundef %1173, i64 noundef %1174) #10
   store i32 %call.i2994, ptr %retval.i2988, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2996
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2996: ; preds = %if.end.i2993, %if.then.i2995
-  %1137 = load i32, ptr %retval.i2988, align 4
-  %cmp5.i2071 = icmp eq i32 %1137, 0
+  %1175 = load i32, ptr %retval.i2988, align 4
+  %cmp5.i2071 = icmp eq i32 %1175, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2072
 
 _ZNK4llvh9StringRef6equalsES0_.exit2072:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2996, %land.lhs.true.i1020
-  %1138 = phi i1 [ false, %land.lhs.true.i1020 ], [ %cmp5.i2071, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2996 ]
-  br i1 %1138, label %if.then.i1022, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1025
+  %1176 = phi i1 [ false, %land.lhs.true.i1020 ], [ %cmp5.i2071, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2996 ]
+  br i1 %1176, label %if.then.i1022, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1025
 
 if.then.i1022:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2072
   %Result4.i1023 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1017, i32 0, i32 1
@@ -14242,15 +14280,16 @@ if.then.i1022:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1025: ; preds = %if.then.i1022, %_ZNK4llvh9StringRef6equalsES0_.exit2072, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1042
   call void @_ZN4llvh13StringLiteralC2ILm13EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm13ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp116, ptr noundef nonnull align 1 dereferenceable(13) @.str.39)
-  %1139 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 13, i32 7), align 4
-  %or117 = or i32 %1139, 1
-  %1140 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp116, i32 0, i32 0
-  %1141 = load ptr, ptr %1140, align 8
-  %1142 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp116, i32 0, i32 1
-  %1143 = load i64, ptr %1142, align 8
-  store ptr %1141, ptr %S.i995, align 8
-  %1144 = getelementptr inbounds { ptr, i64 }, ptr %S.i995, i32 0, i32 1
-  store i64 %1143, ptr %1144, align 8
+  %1177 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 13, i32 7
+  %1178 = load i32, ptr %1177, align 4
+  %or117 = or i32 %1178, 1
+  %1179 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp116, i32 0, i32 0
+  %1180 = load ptr, ptr %1179, align 8
+  %1181 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp116, i32 0, i32 1
+  %1182 = load i64, ptr %1181, align 8
+  store ptr %1180, ptr %S.i995, align 8
+  %1183 = getelementptr inbounds { ptr, i64 }, ptr %S.i995, i32 0, i32 1
+  store i64 %1182, ptr %1183, align 8
   store ptr %this1.i1017, ptr %this.addr.i996, align 8
   store i32 %or117, ptr %Value.addr.i997, align 4
   %this1.i1000 = load ptr, ptr %this.addr.i996, align 8
@@ -14261,44 +14300,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1025: ; preds = %if.the
 land.lhs.true.i1003:                              ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1025
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i998, ptr align 8 %this1.i1000, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i999, ptr align 8 %S.i995, i64 16, i1 false)
-  %1145 = load ptr, ptr %agg.tmp.i998, align 8
-  %1146 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i998, i32 0, i32 1
-  %1147 = load i64, ptr %1146, align 8
-  %1148 = load ptr, ptr %agg.tmp2.i999, align 8
-  %1149 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i999, i32 0, i32 1
-  %1150 = load i64, ptr %1149, align 8
-  store ptr %1145, ptr %LHS.i.i992, align 8
-  %1151 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i992, i32 0, i32 1
-  store i64 %1147, ptr %1151, align 8
-  store ptr %1148, ptr %RHS.i.i993, align 8
-  %1152 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i993, i32 0, i32 1
-  store i64 %1150, ptr %1152, align 8
+  %1184 = load ptr, ptr %agg.tmp.i998, align 8
+  %1185 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i998, i32 0, i32 1
+  %1186 = load i64, ptr %1185, align 8
+  %1187 = load ptr, ptr %agg.tmp2.i999, align 8
+  %1188 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i999, i32 0, i32 1
+  %1189 = load i64, ptr %1188, align 8
+  store ptr %1184, ptr %LHS.i.i992, align 8
+  %1190 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i992, i32 0, i32 1
+  store i64 %1186, ptr %1190, align 8
+  store ptr %1187, ptr %RHS.i.i993, align 8
+  %1191 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i993, i32 0, i32 1
+  store i64 %1189, ptr %1191, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i994, ptr align 8 %RHS.i.i993, i64 16, i1 false)
-  %1153 = load ptr, ptr %agg.tmp.i.i994, align 8
-  %1154 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i994, i32 0, i32 1
-  %1155 = load i64, ptr %1154, align 8
-  store ptr %1153, ptr %RHS.i2073, align 8
-  %1156 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2073, i32 0, i32 1
-  store i64 %1155, ptr %1156, align 8
+  %1192 = load ptr, ptr %agg.tmp.i.i994, align 8
+  %1193 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i994, i32 0, i32 1
+  %1194 = load i64, ptr %1193, align 8
+  store ptr %1192, ptr %RHS.i2073, align 8
+  %1195 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2073, i32 0, i32 1
+  store i64 %1194, ptr %1195, align 8
   store ptr %LHS.i.i992, ptr %this.addr.i2074, align 8
   %this1.i2075 = load ptr, ptr %this.addr.i2074, align 8
   %Length.i2076 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2075, i32 0, i32 1
-  %1157 = load i64, ptr %Length.i2076, align 8
+  %1196 = load i64, ptr %Length.i2076, align 8
   %Length2.i2077 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2073, i32 0, i32 1
-  %1158 = load i64, ptr %Length2.i2077, align 8
-  %cmp.i2078 = icmp eq i64 %1157, %1158
+  %1197 = load i64, ptr %Length2.i2077, align 8
+  %cmp.i2078 = icmp eq i64 %1196, %1197
   br i1 %cmp.i2078, label %land.rhs.i2079, label %_ZNK4llvh9StringRef6equalsES0_.exit2083
 
 land.rhs.i2079:                                   ; preds = %land.lhs.true.i1003
-  %1159 = load ptr, ptr %this1.i2075, align 8
-  %1160 = load ptr, ptr %RHS.i2073, align 8
+  %1198 = load ptr, ptr %this1.i2075, align 8
+  %1199 = load ptr, ptr %RHS.i2073, align 8
   %Length4.i2080 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2073, i32 0, i32 1
-  %1161 = load i64, ptr %Length4.i2080, align 8
-  store ptr %1159, ptr %Lhs.addr.i2980, align 8
-  store ptr %1160, ptr %Rhs.addr.i2981, align 8
-  store i64 %1161, ptr %Length.addr.i2982, align 8
-  %1162 = load i64, ptr %Length.addr.i2982, align 8
-  %cmp.i2983 = icmp eq i64 %1162, 0
+  %1200 = load i64, ptr %Length4.i2080, align 8
+  store ptr %1198, ptr %Lhs.addr.i2980, align 8
+  store ptr %1199, ptr %Rhs.addr.i2981, align 8
+  store i64 %1200, ptr %Length.addr.i2982, align 8
+  %1201 = load i64, ptr %Length.addr.i2982, align 8
+  %cmp.i2983 = icmp eq i64 %1201, 0
   br i1 %cmp.i2983, label %if.then.i2986, label %if.end.i2984
 
 if.then.i2986:                                    ; preds = %land.rhs.i2079
@@ -14306,21 +14345,21 @@ if.then.i2986:                                    ; preds = %land.rhs.i2079
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2987
 
 if.end.i2984:                                     ; preds = %land.rhs.i2079
-  %1163 = load ptr, ptr %Lhs.addr.i2980, align 8
-  %1164 = load ptr, ptr %Rhs.addr.i2981, align 8
-  %1165 = load i64, ptr %Length.addr.i2982, align 8
-  %call.i2985 = call i32 @memcmp(ptr noundef %1163, ptr noundef %1164, i64 noundef %1165) #10
+  %1202 = load ptr, ptr %Lhs.addr.i2980, align 8
+  %1203 = load ptr, ptr %Rhs.addr.i2981, align 8
+  %1204 = load i64, ptr %Length.addr.i2982, align 8
+  %call.i2985 = call i32 @memcmp(ptr noundef %1202, ptr noundef %1203, i64 noundef %1204) #10
   store i32 %call.i2985, ptr %retval.i2979, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2987
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2987: ; preds = %if.end.i2984, %if.then.i2986
-  %1166 = load i32, ptr %retval.i2979, align 4
-  %cmp5.i2082 = icmp eq i32 %1166, 0
+  %1205 = load i32, ptr %retval.i2979, align 4
+  %cmp5.i2082 = icmp eq i32 %1205, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2083
 
 _ZNK4llvh9StringRef6equalsES0_.exit2083:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2987, %land.lhs.true.i1003
-  %1167 = phi i1 [ false, %land.lhs.true.i1003 ], [ %cmp5.i2082, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2987 ]
-  br i1 %1167, label %if.then.i1005, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1008
+  %1206 = phi i1 [ false, %land.lhs.true.i1003 ], [ %cmp5.i2082, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2987 ]
+  br i1 %1206, label %if.then.i1005, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1008
 
 if.then.i1005:                                    ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2083
   %Result4.i1006 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1000, i32 0, i32 1
@@ -14329,15 +14368,16 @@ if.then.i1005:                                    ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1008: ; preds = %if.then.i1005, %_ZNK4llvh9StringRef6equalsES0_.exit2083, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1025
   call void @_ZN4llvh13StringLiteralC2ILm12EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm12ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp119, ptr noundef nonnull align 1 dereferenceable(12) @.str.40)
-  %1168 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 12, i32 7), align 4
-  %or120 = or i32 %1168, 1
-  %1169 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 0
-  %1170 = load ptr, ptr %1169, align 8
-  %1171 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 1
-  %1172 = load i64, ptr %1171, align 8
-  store ptr %1170, ptr %S.i978, align 8
-  %1173 = getelementptr inbounds { ptr, i64 }, ptr %S.i978, i32 0, i32 1
-  store i64 %1172, ptr %1173, align 8
+  %1207 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 12, i32 7
+  %1208 = load i32, ptr %1207, align 4
+  %or120 = or i32 %1208, 1
+  %1209 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 0
+  %1210 = load ptr, ptr %1209, align 8
+  %1211 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp119, i32 0, i32 1
+  %1212 = load i64, ptr %1211, align 8
+  store ptr %1210, ptr %S.i978, align 8
+  %1213 = getelementptr inbounds { ptr, i64 }, ptr %S.i978, i32 0, i32 1
+  store i64 %1212, ptr %1213, align 8
   store ptr %this1.i1000, ptr %this.addr.i979, align 8
   store i32 %or120, ptr %Value.addr.i980, align 4
   %this1.i983 = load ptr, ptr %this.addr.i979, align 8
@@ -14348,44 +14388,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1008: ; preds = %if.the
 land.lhs.true.i986:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1008
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i981, ptr align 8 %this1.i983, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i982, ptr align 8 %S.i978, i64 16, i1 false)
-  %1174 = load ptr, ptr %agg.tmp.i981, align 8
-  %1175 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i981, i32 0, i32 1
-  %1176 = load i64, ptr %1175, align 8
-  %1177 = load ptr, ptr %agg.tmp2.i982, align 8
-  %1178 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i982, i32 0, i32 1
-  %1179 = load i64, ptr %1178, align 8
-  store ptr %1174, ptr %LHS.i.i975, align 8
-  %1180 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i975, i32 0, i32 1
-  store i64 %1176, ptr %1180, align 8
-  store ptr %1177, ptr %RHS.i.i976, align 8
-  %1181 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i976, i32 0, i32 1
-  store i64 %1179, ptr %1181, align 8
+  %1214 = load ptr, ptr %agg.tmp.i981, align 8
+  %1215 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i981, i32 0, i32 1
+  %1216 = load i64, ptr %1215, align 8
+  %1217 = load ptr, ptr %agg.tmp2.i982, align 8
+  %1218 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i982, i32 0, i32 1
+  %1219 = load i64, ptr %1218, align 8
+  store ptr %1214, ptr %LHS.i.i975, align 8
+  %1220 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i975, i32 0, i32 1
+  store i64 %1216, ptr %1220, align 8
+  store ptr %1217, ptr %RHS.i.i976, align 8
+  %1221 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i976, i32 0, i32 1
+  store i64 %1219, ptr %1221, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i977, ptr align 8 %RHS.i.i976, i64 16, i1 false)
-  %1182 = load ptr, ptr %agg.tmp.i.i977, align 8
-  %1183 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i977, i32 0, i32 1
-  %1184 = load i64, ptr %1183, align 8
-  store ptr %1182, ptr %RHS.i2084, align 8
-  %1185 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2084, i32 0, i32 1
-  store i64 %1184, ptr %1185, align 8
+  %1222 = load ptr, ptr %agg.tmp.i.i977, align 8
+  %1223 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i977, i32 0, i32 1
+  %1224 = load i64, ptr %1223, align 8
+  store ptr %1222, ptr %RHS.i2084, align 8
+  %1225 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2084, i32 0, i32 1
+  store i64 %1224, ptr %1225, align 8
   store ptr %LHS.i.i975, ptr %this.addr.i2085, align 8
   %this1.i2086 = load ptr, ptr %this.addr.i2085, align 8
   %Length.i2087 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2086, i32 0, i32 1
-  %1186 = load i64, ptr %Length.i2087, align 8
+  %1226 = load i64, ptr %Length.i2087, align 8
   %Length2.i2088 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2084, i32 0, i32 1
-  %1187 = load i64, ptr %Length2.i2088, align 8
-  %cmp.i2089 = icmp eq i64 %1186, %1187
+  %1227 = load i64, ptr %Length2.i2088, align 8
+  %cmp.i2089 = icmp eq i64 %1226, %1227
   br i1 %cmp.i2089, label %land.rhs.i2090, label %_ZNK4llvh9StringRef6equalsES0_.exit2094
 
 land.rhs.i2090:                                   ; preds = %land.lhs.true.i986
-  %1188 = load ptr, ptr %this1.i2086, align 8
-  %1189 = load ptr, ptr %RHS.i2084, align 8
+  %1228 = load ptr, ptr %this1.i2086, align 8
+  %1229 = load ptr, ptr %RHS.i2084, align 8
   %Length4.i2091 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2084, i32 0, i32 1
-  %1190 = load i64, ptr %Length4.i2091, align 8
-  store ptr %1188, ptr %Lhs.addr.i2971, align 8
-  store ptr %1189, ptr %Rhs.addr.i2972, align 8
-  store i64 %1190, ptr %Length.addr.i2973, align 8
-  %1191 = load i64, ptr %Length.addr.i2973, align 8
-  %cmp.i2974 = icmp eq i64 %1191, 0
+  %1230 = load i64, ptr %Length4.i2091, align 8
+  store ptr %1228, ptr %Lhs.addr.i2971, align 8
+  store ptr %1229, ptr %Rhs.addr.i2972, align 8
+  store i64 %1230, ptr %Length.addr.i2973, align 8
+  %1231 = load i64, ptr %Length.addr.i2973, align 8
+  %cmp.i2974 = icmp eq i64 %1231, 0
   br i1 %cmp.i2974, label %if.then.i2977, label %if.end.i2975
 
 if.then.i2977:                                    ; preds = %land.rhs.i2090
@@ -14393,21 +14433,21 @@ if.then.i2977:                                    ; preds = %land.rhs.i2090
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2978
 
 if.end.i2975:                                     ; preds = %land.rhs.i2090
-  %1192 = load ptr, ptr %Lhs.addr.i2971, align 8
-  %1193 = load ptr, ptr %Rhs.addr.i2972, align 8
-  %1194 = load i64, ptr %Length.addr.i2973, align 8
-  %call.i2976 = call i32 @memcmp(ptr noundef %1192, ptr noundef %1193, i64 noundef %1194) #10
+  %1232 = load ptr, ptr %Lhs.addr.i2971, align 8
+  %1233 = load ptr, ptr %Rhs.addr.i2972, align 8
+  %1234 = load i64, ptr %Length.addr.i2973, align 8
+  %call.i2976 = call i32 @memcmp(ptr noundef %1232, ptr noundef %1233, i64 noundef %1234) #10
   store i32 %call.i2976, ptr %retval.i2970, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2978
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2978: ; preds = %if.end.i2975, %if.then.i2977
-  %1195 = load i32, ptr %retval.i2970, align 4
-  %cmp5.i2093 = icmp eq i32 %1195, 0
+  %1235 = load i32, ptr %retval.i2970, align 4
+  %cmp5.i2093 = icmp eq i32 %1235, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2094
 
 _ZNK4llvh9StringRef6equalsES0_.exit2094:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2978, %land.lhs.true.i986
-  %1196 = phi i1 [ false, %land.lhs.true.i986 ], [ %cmp5.i2093, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2978 ]
-  br i1 %1196, label %if.then.i988, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit991
+  %1236 = phi i1 [ false, %land.lhs.true.i986 ], [ %cmp5.i2093, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2978 ]
+  br i1 %1236, label %if.then.i988, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit991
 
 if.then.i988:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2094
   %Result4.i989 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i983, i32 0, i32 1
@@ -14416,15 +14456,16 @@ if.then.i988:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit991: ; preds = %if.then.i988, %_ZNK4llvh9StringRef6equalsES0_.exit2094, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1008
   call void @_ZN4llvh13StringLiteralC2ILm13EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm13ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp122, ptr noundef nonnull align 1 dereferenceable(13) @.str.41)
-  %1197 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 12, i32 7), align 4
-  %or123 = or i32 %1197, 1
-  %1198 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp122, i32 0, i32 0
-  %1199 = load ptr, ptr %1198, align 8
-  %1200 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp122, i32 0, i32 1
-  %1201 = load i64, ptr %1200, align 8
-  store ptr %1199, ptr %S.i961, align 8
-  %1202 = getelementptr inbounds { ptr, i64 }, ptr %S.i961, i32 0, i32 1
-  store i64 %1201, ptr %1202, align 8
+  %1237 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 12, i32 7
+  %1238 = load i32, ptr %1237, align 4
+  %or123 = or i32 %1238, 1
+  %1239 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp122, i32 0, i32 0
+  %1240 = load ptr, ptr %1239, align 8
+  %1241 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp122, i32 0, i32 1
+  %1242 = load i64, ptr %1241, align 8
+  store ptr %1240, ptr %S.i961, align 8
+  %1243 = getelementptr inbounds { ptr, i64 }, ptr %S.i961, i32 0, i32 1
+  store i64 %1242, ptr %1243, align 8
   store ptr %this1.i983, ptr %this.addr.i962, align 8
   store i32 %or123, ptr %Value.addr.i963, align 4
   %this1.i966 = load ptr, ptr %this.addr.i962, align 8
@@ -14435,44 +14476,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit991: ; preds = %if.then
 land.lhs.true.i969:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit991
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i964, ptr align 8 %this1.i966, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i965, ptr align 8 %S.i961, i64 16, i1 false)
-  %1203 = load ptr, ptr %agg.tmp.i964, align 8
-  %1204 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i964, i32 0, i32 1
-  %1205 = load i64, ptr %1204, align 8
-  %1206 = load ptr, ptr %agg.tmp2.i965, align 8
-  %1207 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i965, i32 0, i32 1
-  %1208 = load i64, ptr %1207, align 8
-  store ptr %1203, ptr %LHS.i.i958, align 8
-  %1209 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i958, i32 0, i32 1
-  store i64 %1205, ptr %1209, align 8
-  store ptr %1206, ptr %RHS.i.i959, align 8
-  %1210 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i959, i32 0, i32 1
-  store i64 %1208, ptr %1210, align 8
+  %1244 = load ptr, ptr %agg.tmp.i964, align 8
+  %1245 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i964, i32 0, i32 1
+  %1246 = load i64, ptr %1245, align 8
+  %1247 = load ptr, ptr %agg.tmp2.i965, align 8
+  %1248 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i965, i32 0, i32 1
+  %1249 = load i64, ptr %1248, align 8
+  store ptr %1244, ptr %LHS.i.i958, align 8
+  %1250 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i958, i32 0, i32 1
+  store i64 %1246, ptr %1250, align 8
+  store ptr %1247, ptr %RHS.i.i959, align 8
+  %1251 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i959, i32 0, i32 1
+  store i64 %1249, ptr %1251, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i960, ptr align 8 %RHS.i.i959, i64 16, i1 false)
-  %1211 = load ptr, ptr %agg.tmp.i.i960, align 8
-  %1212 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i960, i32 0, i32 1
-  %1213 = load i64, ptr %1212, align 8
-  store ptr %1211, ptr %RHS.i2095, align 8
-  %1214 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2095, i32 0, i32 1
-  store i64 %1213, ptr %1214, align 8
+  %1252 = load ptr, ptr %agg.tmp.i.i960, align 8
+  %1253 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i960, i32 0, i32 1
+  %1254 = load i64, ptr %1253, align 8
+  store ptr %1252, ptr %RHS.i2095, align 8
+  %1255 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2095, i32 0, i32 1
+  store i64 %1254, ptr %1255, align 8
   store ptr %LHS.i.i958, ptr %this.addr.i2096, align 8
   %this1.i2097 = load ptr, ptr %this.addr.i2096, align 8
   %Length.i2098 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2097, i32 0, i32 1
-  %1215 = load i64, ptr %Length.i2098, align 8
+  %1256 = load i64, ptr %Length.i2098, align 8
   %Length2.i2099 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2095, i32 0, i32 1
-  %1216 = load i64, ptr %Length2.i2099, align 8
-  %cmp.i2100 = icmp eq i64 %1215, %1216
+  %1257 = load i64, ptr %Length2.i2099, align 8
+  %cmp.i2100 = icmp eq i64 %1256, %1257
   br i1 %cmp.i2100, label %land.rhs.i2101, label %_ZNK4llvh9StringRef6equalsES0_.exit2105
 
 land.rhs.i2101:                                   ; preds = %land.lhs.true.i969
-  %1217 = load ptr, ptr %this1.i2097, align 8
-  %1218 = load ptr, ptr %RHS.i2095, align 8
+  %1258 = load ptr, ptr %this1.i2097, align 8
+  %1259 = load ptr, ptr %RHS.i2095, align 8
   %Length4.i2102 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2095, i32 0, i32 1
-  %1219 = load i64, ptr %Length4.i2102, align 8
-  store ptr %1217, ptr %Lhs.addr.i2962, align 8
-  store ptr %1218, ptr %Rhs.addr.i2963, align 8
-  store i64 %1219, ptr %Length.addr.i2964, align 8
-  %1220 = load i64, ptr %Length.addr.i2964, align 8
-  %cmp.i2965 = icmp eq i64 %1220, 0
+  %1260 = load i64, ptr %Length4.i2102, align 8
+  store ptr %1258, ptr %Lhs.addr.i2962, align 8
+  store ptr %1259, ptr %Rhs.addr.i2963, align 8
+  store i64 %1260, ptr %Length.addr.i2964, align 8
+  %1261 = load i64, ptr %Length.addr.i2964, align 8
+  %cmp.i2965 = icmp eq i64 %1261, 0
   br i1 %cmp.i2965, label %if.then.i2968, label %if.end.i2966
 
 if.then.i2968:                                    ; preds = %land.rhs.i2101
@@ -14480,21 +14521,21 @@ if.then.i2968:                                    ; preds = %land.rhs.i2101
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2969
 
 if.end.i2966:                                     ; preds = %land.rhs.i2101
-  %1221 = load ptr, ptr %Lhs.addr.i2962, align 8
-  %1222 = load ptr, ptr %Rhs.addr.i2963, align 8
-  %1223 = load i64, ptr %Length.addr.i2964, align 8
-  %call.i2967 = call i32 @memcmp(ptr noundef %1221, ptr noundef %1222, i64 noundef %1223) #10
+  %1262 = load ptr, ptr %Lhs.addr.i2962, align 8
+  %1263 = load ptr, ptr %Rhs.addr.i2963, align 8
+  %1264 = load i64, ptr %Length.addr.i2964, align 8
+  %call.i2967 = call i32 @memcmp(ptr noundef %1262, ptr noundef %1263, i64 noundef %1264) #10
   store i32 %call.i2967, ptr %retval.i2961, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2969
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2969: ; preds = %if.end.i2966, %if.then.i2968
-  %1224 = load i32, ptr %retval.i2961, align 4
-  %cmp5.i2104 = icmp eq i32 %1224, 0
+  %1265 = load i32, ptr %retval.i2961, align 4
+  %cmp5.i2104 = icmp eq i32 %1265, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2105
 
 _ZNK4llvh9StringRef6equalsES0_.exit2105:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2969, %land.lhs.true.i969
-  %1225 = phi i1 [ false, %land.lhs.true.i969 ], [ %cmp5.i2104, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2969 ]
-  br i1 %1225, label %if.then.i971, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit974
+  %1266 = phi i1 [ false, %land.lhs.true.i969 ], [ %cmp5.i2104, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2969 ]
+  br i1 %1266, label %if.then.i971, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit974
 
 if.then.i971:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2105
   %Result4.i972 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i966, i32 0, i32 1
@@ -14503,15 +14544,16 @@ if.then.i971:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit974: ; preds = %if.then.i971, %_ZNK4llvh9StringRef6equalsES0_.exit2105, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit991
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp125, ptr noundef nonnull align 1 dereferenceable(10) @.str.42)
-  %1226 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 14, i32 7), align 4
-  %or126 = or i32 %1226, 1
-  %1227 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp125, i32 0, i32 0
-  %1228 = load ptr, ptr %1227, align 8
-  %1229 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp125, i32 0, i32 1
-  %1230 = load i64, ptr %1229, align 8
-  store ptr %1228, ptr %S.i944, align 8
-  %1231 = getelementptr inbounds { ptr, i64 }, ptr %S.i944, i32 0, i32 1
-  store i64 %1230, ptr %1231, align 8
+  %1267 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 14, i32 7
+  %1268 = load i32, ptr %1267, align 4
+  %or126 = or i32 %1268, 1
+  %1269 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp125, i32 0, i32 0
+  %1270 = load ptr, ptr %1269, align 8
+  %1271 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp125, i32 0, i32 1
+  %1272 = load i64, ptr %1271, align 8
+  store ptr %1270, ptr %S.i944, align 8
+  %1273 = getelementptr inbounds { ptr, i64 }, ptr %S.i944, i32 0, i32 1
+  store i64 %1272, ptr %1273, align 8
   store ptr %this1.i966, ptr %this.addr.i945, align 8
   store i32 %or126, ptr %Value.addr.i946, align 4
   %this1.i949 = load ptr, ptr %this.addr.i945, align 8
@@ -14522,44 +14564,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit974: ; preds = %if.then
 land.lhs.true.i952:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit974
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i947, ptr align 8 %this1.i949, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i948, ptr align 8 %S.i944, i64 16, i1 false)
-  %1232 = load ptr, ptr %agg.tmp.i947, align 8
-  %1233 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i947, i32 0, i32 1
-  %1234 = load i64, ptr %1233, align 8
-  %1235 = load ptr, ptr %agg.tmp2.i948, align 8
-  %1236 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i948, i32 0, i32 1
-  %1237 = load i64, ptr %1236, align 8
-  store ptr %1232, ptr %LHS.i.i941, align 8
-  %1238 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i941, i32 0, i32 1
-  store i64 %1234, ptr %1238, align 8
-  store ptr %1235, ptr %RHS.i.i942, align 8
-  %1239 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i942, i32 0, i32 1
-  store i64 %1237, ptr %1239, align 8
+  %1274 = load ptr, ptr %agg.tmp.i947, align 8
+  %1275 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i947, i32 0, i32 1
+  %1276 = load i64, ptr %1275, align 8
+  %1277 = load ptr, ptr %agg.tmp2.i948, align 8
+  %1278 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i948, i32 0, i32 1
+  %1279 = load i64, ptr %1278, align 8
+  store ptr %1274, ptr %LHS.i.i941, align 8
+  %1280 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i941, i32 0, i32 1
+  store i64 %1276, ptr %1280, align 8
+  store ptr %1277, ptr %RHS.i.i942, align 8
+  %1281 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i942, i32 0, i32 1
+  store i64 %1279, ptr %1281, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i943, ptr align 8 %RHS.i.i942, i64 16, i1 false)
-  %1240 = load ptr, ptr %agg.tmp.i.i943, align 8
-  %1241 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i943, i32 0, i32 1
-  %1242 = load i64, ptr %1241, align 8
-  store ptr %1240, ptr %RHS.i2106, align 8
-  %1243 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2106, i32 0, i32 1
-  store i64 %1242, ptr %1243, align 8
+  %1282 = load ptr, ptr %agg.tmp.i.i943, align 8
+  %1283 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i943, i32 0, i32 1
+  %1284 = load i64, ptr %1283, align 8
+  store ptr %1282, ptr %RHS.i2106, align 8
+  %1285 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2106, i32 0, i32 1
+  store i64 %1284, ptr %1285, align 8
   store ptr %LHS.i.i941, ptr %this.addr.i2107, align 8
   %this1.i2108 = load ptr, ptr %this.addr.i2107, align 8
   %Length.i2109 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2108, i32 0, i32 1
-  %1244 = load i64, ptr %Length.i2109, align 8
+  %1286 = load i64, ptr %Length.i2109, align 8
   %Length2.i2110 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2106, i32 0, i32 1
-  %1245 = load i64, ptr %Length2.i2110, align 8
-  %cmp.i2111 = icmp eq i64 %1244, %1245
+  %1287 = load i64, ptr %Length2.i2110, align 8
+  %cmp.i2111 = icmp eq i64 %1286, %1287
   br i1 %cmp.i2111, label %land.rhs.i2112, label %_ZNK4llvh9StringRef6equalsES0_.exit2116
 
 land.rhs.i2112:                                   ; preds = %land.lhs.true.i952
-  %1246 = load ptr, ptr %this1.i2108, align 8
-  %1247 = load ptr, ptr %RHS.i2106, align 8
+  %1288 = load ptr, ptr %this1.i2108, align 8
+  %1289 = load ptr, ptr %RHS.i2106, align 8
   %Length4.i2113 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2106, i32 0, i32 1
-  %1248 = load i64, ptr %Length4.i2113, align 8
-  store ptr %1246, ptr %Lhs.addr.i2953, align 8
-  store ptr %1247, ptr %Rhs.addr.i2954, align 8
-  store i64 %1248, ptr %Length.addr.i2955, align 8
-  %1249 = load i64, ptr %Length.addr.i2955, align 8
-  %cmp.i2956 = icmp eq i64 %1249, 0
+  %1290 = load i64, ptr %Length4.i2113, align 8
+  store ptr %1288, ptr %Lhs.addr.i2953, align 8
+  store ptr %1289, ptr %Rhs.addr.i2954, align 8
+  store i64 %1290, ptr %Length.addr.i2955, align 8
+  %1291 = load i64, ptr %Length.addr.i2955, align 8
+  %cmp.i2956 = icmp eq i64 %1291, 0
   br i1 %cmp.i2956, label %if.then.i2959, label %if.end.i2957
 
 if.then.i2959:                                    ; preds = %land.rhs.i2112
@@ -14567,21 +14609,21 @@ if.then.i2959:                                    ; preds = %land.rhs.i2112
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2960
 
 if.end.i2957:                                     ; preds = %land.rhs.i2112
-  %1250 = load ptr, ptr %Lhs.addr.i2953, align 8
-  %1251 = load ptr, ptr %Rhs.addr.i2954, align 8
-  %1252 = load i64, ptr %Length.addr.i2955, align 8
-  %call.i2958 = call i32 @memcmp(ptr noundef %1250, ptr noundef %1251, i64 noundef %1252) #10
+  %1292 = load ptr, ptr %Lhs.addr.i2953, align 8
+  %1293 = load ptr, ptr %Rhs.addr.i2954, align 8
+  %1294 = load i64, ptr %Length.addr.i2955, align 8
+  %call.i2958 = call i32 @memcmp(ptr noundef %1292, ptr noundef %1293, i64 noundef %1294) #10
   store i32 %call.i2958, ptr %retval.i2952, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2960
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2960: ; preds = %if.end.i2957, %if.then.i2959
-  %1253 = load i32, ptr %retval.i2952, align 4
-  %cmp5.i2115 = icmp eq i32 %1253, 0
+  %1295 = load i32, ptr %retval.i2952, align 4
+  %cmp5.i2115 = icmp eq i32 %1295, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2116
 
 _ZNK4llvh9StringRef6equalsES0_.exit2116:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2960, %land.lhs.true.i952
-  %1254 = phi i1 [ false, %land.lhs.true.i952 ], [ %cmp5.i2115, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2960 ]
-  br i1 %1254, label %if.then.i954, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit957
+  %1296 = phi i1 [ false, %land.lhs.true.i952 ], [ %cmp5.i2115, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2960 ]
+  br i1 %1296, label %if.then.i954, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit957
 
 if.then.i954:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2116
   %Result4.i955 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i949, i32 0, i32 1
@@ -14590,15 +14632,16 @@ if.then.i954:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit957: ; preds = %if.then.i954, %_ZNK4llvh9StringRef6equalsES0_.exit2116, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit974
   call void @_ZN4llvh13StringLiteralC2ILm14EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm14ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp128, ptr noundef nonnull align 1 dereferenceable(14) @.str.43)
-  %1255 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 14, i32 7), align 4
-  %or129 = or i32 %1255, 1
-  %1256 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp128, i32 0, i32 0
-  %1257 = load ptr, ptr %1256, align 8
-  %1258 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp128, i32 0, i32 1
-  %1259 = load i64, ptr %1258, align 8
-  store ptr %1257, ptr %S.i927, align 8
-  %1260 = getelementptr inbounds { ptr, i64 }, ptr %S.i927, i32 0, i32 1
-  store i64 %1259, ptr %1260, align 8
+  %1297 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 14, i32 7
+  %1298 = load i32, ptr %1297, align 4
+  %or129 = or i32 %1298, 1
+  %1299 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp128, i32 0, i32 0
+  %1300 = load ptr, ptr %1299, align 8
+  %1301 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp128, i32 0, i32 1
+  %1302 = load i64, ptr %1301, align 8
+  store ptr %1300, ptr %S.i927, align 8
+  %1303 = getelementptr inbounds { ptr, i64 }, ptr %S.i927, i32 0, i32 1
+  store i64 %1302, ptr %1303, align 8
   store ptr %this1.i949, ptr %this.addr.i928, align 8
   store i32 %or129, ptr %Value.addr.i929, align 4
   %this1.i932 = load ptr, ptr %this.addr.i928, align 8
@@ -14609,44 +14652,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit957: ; preds = %if.then
 land.lhs.true.i935:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit957
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i930, ptr align 8 %this1.i932, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i931, ptr align 8 %S.i927, i64 16, i1 false)
-  %1261 = load ptr, ptr %agg.tmp.i930, align 8
-  %1262 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i930, i32 0, i32 1
-  %1263 = load i64, ptr %1262, align 8
-  %1264 = load ptr, ptr %agg.tmp2.i931, align 8
-  %1265 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i931, i32 0, i32 1
-  %1266 = load i64, ptr %1265, align 8
-  store ptr %1261, ptr %LHS.i.i924, align 8
-  %1267 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i924, i32 0, i32 1
-  store i64 %1263, ptr %1267, align 8
-  store ptr %1264, ptr %RHS.i.i925, align 8
-  %1268 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i925, i32 0, i32 1
-  store i64 %1266, ptr %1268, align 8
+  %1304 = load ptr, ptr %agg.tmp.i930, align 8
+  %1305 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i930, i32 0, i32 1
+  %1306 = load i64, ptr %1305, align 8
+  %1307 = load ptr, ptr %agg.tmp2.i931, align 8
+  %1308 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i931, i32 0, i32 1
+  %1309 = load i64, ptr %1308, align 8
+  store ptr %1304, ptr %LHS.i.i924, align 8
+  %1310 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i924, i32 0, i32 1
+  store i64 %1306, ptr %1310, align 8
+  store ptr %1307, ptr %RHS.i.i925, align 8
+  %1311 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i925, i32 0, i32 1
+  store i64 %1309, ptr %1311, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i926, ptr align 8 %RHS.i.i925, i64 16, i1 false)
-  %1269 = load ptr, ptr %agg.tmp.i.i926, align 8
-  %1270 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i926, i32 0, i32 1
-  %1271 = load i64, ptr %1270, align 8
-  store ptr %1269, ptr %RHS.i2117, align 8
-  %1272 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2117, i32 0, i32 1
-  store i64 %1271, ptr %1272, align 8
+  %1312 = load ptr, ptr %agg.tmp.i.i926, align 8
+  %1313 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i926, i32 0, i32 1
+  %1314 = load i64, ptr %1313, align 8
+  store ptr %1312, ptr %RHS.i2117, align 8
+  %1315 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2117, i32 0, i32 1
+  store i64 %1314, ptr %1315, align 8
   store ptr %LHS.i.i924, ptr %this.addr.i2118, align 8
   %this1.i2119 = load ptr, ptr %this.addr.i2118, align 8
   %Length.i2120 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2119, i32 0, i32 1
-  %1273 = load i64, ptr %Length.i2120, align 8
+  %1316 = load i64, ptr %Length.i2120, align 8
   %Length2.i2121 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2117, i32 0, i32 1
-  %1274 = load i64, ptr %Length2.i2121, align 8
-  %cmp.i2122 = icmp eq i64 %1273, %1274
+  %1317 = load i64, ptr %Length2.i2121, align 8
+  %cmp.i2122 = icmp eq i64 %1316, %1317
   br i1 %cmp.i2122, label %land.rhs.i2123, label %_ZNK4llvh9StringRef6equalsES0_.exit2127
 
 land.rhs.i2123:                                   ; preds = %land.lhs.true.i935
-  %1275 = load ptr, ptr %this1.i2119, align 8
-  %1276 = load ptr, ptr %RHS.i2117, align 8
+  %1318 = load ptr, ptr %this1.i2119, align 8
+  %1319 = load ptr, ptr %RHS.i2117, align 8
   %Length4.i2124 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2117, i32 0, i32 1
-  %1277 = load i64, ptr %Length4.i2124, align 8
-  store ptr %1275, ptr %Lhs.addr.i2944, align 8
-  store ptr %1276, ptr %Rhs.addr.i2945, align 8
-  store i64 %1277, ptr %Length.addr.i2946, align 8
-  %1278 = load i64, ptr %Length.addr.i2946, align 8
-  %cmp.i2947 = icmp eq i64 %1278, 0
+  %1320 = load i64, ptr %Length4.i2124, align 8
+  store ptr %1318, ptr %Lhs.addr.i2944, align 8
+  store ptr %1319, ptr %Rhs.addr.i2945, align 8
+  store i64 %1320, ptr %Length.addr.i2946, align 8
+  %1321 = load i64, ptr %Length.addr.i2946, align 8
+  %cmp.i2947 = icmp eq i64 %1321, 0
   br i1 %cmp.i2947, label %if.then.i2950, label %if.end.i2948
 
 if.then.i2950:                                    ; preds = %land.rhs.i2123
@@ -14654,21 +14697,21 @@ if.then.i2950:                                    ; preds = %land.rhs.i2123
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2951
 
 if.end.i2948:                                     ; preds = %land.rhs.i2123
-  %1279 = load ptr, ptr %Lhs.addr.i2944, align 8
-  %1280 = load ptr, ptr %Rhs.addr.i2945, align 8
-  %1281 = load i64, ptr %Length.addr.i2946, align 8
-  %call.i2949 = call i32 @memcmp(ptr noundef %1279, ptr noundef %1280, i64 noundef %1281) #10
+  %1322 = load ptr, ptr %Lhs.addr.i2944, align 8
+  %1323 = load ptr, ptr %Rhs.addr.i2945, align 8
+  %1324 = load i64, ptr %Length.addr.i2946, align 8
+  %call.i2949 = call i32 @memcmp(ptr noundef %1322, ptr noundef %1323, i64 noundef %1324) #10
   store i32 %call.i2949, ptr %retval.i2943, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2951
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2951: ; preds = %if.end.i2948, %if.then.i2950
-  %1282 = load i32, ptr %retval.i2943, align 4
-  %cmp5.i2126 = icmp eq i32 %1282, 0
+  %1325 = load i32, ptr %retval.i2943, align 4
+  %cmp5.i2126 = icmp eq i32 %1325, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2127
 
 _ZNK4llvh9StringRef6equalsES0_.exit2127:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2951, %land.lhs.true.i935
-  %1283 = phi i1 [ false, %land.lhs.true.i935 ], [ %cmp5.i2126, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2951 ]
-  br i1 %1283, label %if.then.i937, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit940
+  %1326 = phi i1 [ false, %land.lhs.true.i935 ], [ %cmp5.i2126, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2951 ]
+  br i1 %1326, label %if.then.i937, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit940
 
 if.then.i937:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2127
   %Result4.i938 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i932, i32 0, i32 1
@@ -14677,15 +14720,16 @@ if.then.i937:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit940: ; preds = %if.then.i937, %_ZNK4llvh9StringRef6equalsES0_.exit2127, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit957
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp131, ptr noundef nonnull align 1 dereferenceable(10) @.str.44)
-  %1284 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 14, i32 7), align 4
-  %or132 = or i32 %1284, 1
-  %1285 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp131, i32 0, i32 0
-  %1286 = load ptr, ptr %1285, align 8
-  %1287 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp131, i32 0, i32 1
-  %1288 = load i64, ptr %1287, align 8
-  store ptr %1286, ptr %S.i910, align 8
-  %1289 = getelementptr inbounds { ptr, i64 }, ptr %S.i910, i32 0, i32 1
-  store i64 %1288, ptr %1289, align 8
+  %1327 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 14, i32 7
+  %1328 = load i32, ptr %1327, align 4
+  %or132 = or i32 %1328, 1
+  %1329 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp131, i32 0, i32 0
+  %1330 = load ptr, ptr %1329, align 8
+  %1331 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp131, i32 0, i32 1
+  %1332 = load i64, ptr %1331, align 8
+  store ptr %1330, ptr %S.i910, align 8
+  %1333 = getelementptr inbounds { ptr, i64 }, ptr %S.i910, i32 0, i32 1
+  store i64 %1332, ptr %1333, align 8
   store ptr %this1.i932, ptr %this.addr.i911, align 8
   store i32 %or132, ptr %Value.addr.i912, align 4
   %this1.i915 = load ptr, ptr %this.addr.i911, align 8
@@ -14696,44 +14740,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit940: ; preds = %if.then
 land.lhs.true.i918:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit940
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i913, ptr align 8 %this1.i915, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i914, ptr align 8 %S.i910, i64 16, i1 false)
-  %1290 = load ptr, ptr %agg.tmp.i913, align 8
-  %1291 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i913, i32 0, i32 1
-  %1292 = load i64, ptr %1291, align 8
-  %1293 = load ptr, ptr %agg.tmp2.i914, align 8
-  %1294 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i914, i32 0, i32 1
-  %1295 = load i64, ptr %1294, align 8
-  store ptr %1290, ptr %LHS.i.i907, align 8
-  %1296 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i907, i32 0, i32 1
-  store i64 %1292, ptr %1296, align 8
-  store ptr %1293, ptr %RHS.i.i908, align 8
-  %1297 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i908, i32 0, i32 1
-  store i64 %1295, ptr %1297, align 8
+  %1334 = load ptr, ptr %agg.tmp.i913, align 8
+  %1335 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i913, i32 0, i32 1
+  %1336 = load i64, ptr %1335, align 8
+  %1337 = load ptr, ptr %agg.tmp2.i914, align 8
+  %1338 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i914, i32 0, i32 1
+  %1339 = load i64, ptr %1338, align 8
+  store ptr %1334, ptr %LHS.i.i907, align 8
+  %1340 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i907, i32 0, i32 1
+  store i64 %1336, ptr %1340, align 8
+  store ptr %1337, ptr %RHS.i.i908, align 8
+  %1341 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i908, i32 0, i32 1
+  store i64 %1339, ptr %1341, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i909, ptr align 8 %RHS.i.i908, i64 16, i1 false)
-  %1298 = load ptr, ptr %agg.tmp.i.i909, align 8
-  %1299 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i909, i32 0, i32 1
-  %1300 = load i64, ptr %1299, align 8
-  store ptr %1298, ptr %RHS.i2128, align 8
-  %1301 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2128, i32 0, i32 1
-  store i64 %1300, ptr %1301, align 8
+  %1342 = load ptr, ptr %agg.tmp.i.i909, align 8
+  %1343 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i909, i32 0, i32 1
+  %1344 = load i64, ptr %1343, align 8
+  store ptr %1342, ptr %RHS.i2128, align 8
+  %1345 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2128, i32 0, i32 1
+  store i64 %1344, ptr %1345, align 8
   store ptr %LHS.i.i907, ptr %this.addr.i2129, align 8
   %this1.i2130 = load ptr, ptr %this.addr.i2129, align 8
   %Length.i2131 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2130, i32 0, i32 1
-  %1302 = load i64, ptr %Length.i2131, align 8
+  %1346 = load i64, ptr %Length.i2131, align 8
   %Length2.i2132 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2128, i32 0, i32 1
-  %1303 = load i64, ptr %Length2.i2132, align 8
-  %cmp.i2133 = icmp eq i64 %1302, %1303
+  %1347 = load i64, ptr %Length2.i2132, align 8
+  %cmp.i2133 = icmp eq i64 %1346, %1347
   br i1 %cmp.i2133, label %land.rhs.i2134, label %_ZNK4llvh9StringRef6equalsES0_.exit2138
 
 land.rhs.i2134:                                   ; preds = %land.lhs.true.i918
-  %1304 = load ptr, ptr %this1.i2130, align 8
-  %1305 = load ptr, ptr %RHS.i2128, align 8
+  %1348 = load ptr, ptr %this1.i2130, align 8
+  %1349 = load ptr, ptr %RHS.i2128, align 8
   %Length4.i2135 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2128, i32 0, i32 1
-  %1306 = load i64, ptr %Length4.i2135, align 8
-  store ptr %1304, ptr %Lhs.addr.i2935, align 8
-  store ptr %1305, ptr %Rhs.addr.i2936, align 8
-  store i64 %1306, ptr %Length.addr.i2937, align 8
-  %1307 = load i64, ptr %Length.addr.i2937, align 8
-  %cmp.i2938 = icmp eq i64 %1307, 0
+  %1350 = load i64, ptr %Length4.i2135, align 8
+  store ptr %1348, ptr %Lhs.addr.i2935, align 8
+  store ptr %1349, ptr %Rhs.addr.i2936, align 8
+  store i64 %1350, ptr %Length.addr.i2937, align 8
+  %1351 = load i64, ptr %Length.addr.i2937, align 8
+  %cmp.i2938 = icmp eq i64 %1351, 0
   br i1 %cmp.i2938, label %if.then.i2941, label %if.end.i2939
 
 if.then.i2941:                                    ; preds = %land.rhs.i2134
@@ -14741,21 +14785,21 @@ if.then.i2941:                                    ; preds = %land.rhs.i2134
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2942
 
 if.end.i2939:                                     ; preds = %land.rhs.i2134
-  %1308 = load ptr, ptr %Lhs.addr.i2935, align 8
-  %1309 = load ptr, ptr %Rhs.addr.i2936, align 8
-  %1310 = load i64, ptr %Length.addr.i2937, align 8
-  %call.i2940 = call i32 @memcmp(ptr noundef %1308, ptr noundef %1309, i64 noundef %1310) #10
+  %1352 = load ptr, ptr %Lhs.addr.i2935, align 8
+  %1353 = load ptr, ptr %Rhs.addr.i2936, align 8
+  %1354 = load i64, ptr %Length.addr.i2937, align 8
+  %call.i2940 = call i32 @memcmp(ptr noundef %1352, ptr noundef %1353, i64 noundef %1354) #10
   store i32 %call.i2940, ptr %retval.i2934, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2942
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2942: ; preds = %if.end.i2939, %if.then.i2941
-  %1311 = load i32, ptr %retval.i2934, align 4
-  %cmp5.i2137 = icmp eq i32 %1311, 0
+  %1355 = load i32, ptr %retval.i2934, align 4
+  %cmp5.i2137 = icmp eq i32 %1355, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2138
 
 _ZNK4llvh9StringRef6equalsES0_.exit2138:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2942, %land.lhs.true.i918
-  %1312 = phi i1 [ false, %land.lhs.true.i918 ], [ %cmp5.i2137, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2942 ]
-  br i1 %1312, label %if.then.i920, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit923
+  %1356 = phi i1 [ false, %land.lhs.true.i918 ], [ %cmp5.i2137, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2942 ]
+  br i1 %1356, label %if.then.i920, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit923
 
 if.then.i920:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2138
   %Result4.i921 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i915, i32 0, i32 1
@@ -14764,15 +14808,16 @@ if.then.i920:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit923: ; preds = %if.then.i920, %_ZNK4llvh9StringRef6equalsES0_.exit2138, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit940
   call void @_ZN4llvh13StringLiteralC2ILm6EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm6ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp134, ptr noundef nonnull align 1 dereferenceable(6) @.str.45)
-  %1313 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 14, i32 7), align 4
-  %or135 = or i32 %1313, 1
-  %1314 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp134, i32 0, i32 0
-  %1315 = load ptr, ptr %1314, align 8
-  %1316 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp134, i32 0, i32 1
-  %1317 = load i64, ptr %1316, align 8
-  store ptr %1315, ptr %S.i893, align 8
-  %1318 = getelementptr inbounds { ptr, i64 }, ptr %S.i893, i32 0, i32 1
-  store i64 %1317, ptr %1318, align 8
+  %1357 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 14, i32 7
+  %1358 = load i32, ptr %1357, align 4
+  %or135 = or i32 %1358, 1
+  %1359 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp134, i32 0, i32 0
+  %1360 = load ptr, ptr %1359, align 8
+  %1361 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp134, i32 0, i32 1
+  %1362 = load i64, ptr %1361, align 8
+  store ptr %1360, ptr %S.i893, align 8
+  %1363 = getelementptr inbounds { ptr, i64 }, ptr %S.i893, i32 0, i32 1
+  store i64 %1362, ptr %1363, align 8
   store ptr %this1.i915, ptr %this.addr.i894, align 8
   store i32 %or135, ptr %Value.addr.i895, align 4
   %this1.i898 = load ptr, ptr %this.addr.i894, align 8
@@ -14783,44 +14828,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit923: ; preds = %if.then
 land.lhs.true.i901:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit923
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i896, ptr align 8 %this1.i898, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i897, ptr align 8 %S.i893, i64 16, i1 false)
-  %1319 = load ptr, ptr %agg.tmp.i896, align 8
-  %1320 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i896, i32 0, i32 1
-  %1321 = load i64, ptr %1320, align 8
-  %1322 = load ptr, ptr %agg.tmp2.i897, align 8
-  %1323 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i897, i32 0, i32 1
-  %1324 = load i64, ptr %1323, align 8
-  store ptr %1319, ptr %LHS.i.i890, align 8
-  %1325 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i890, i32 0, i32 1
-  store i64 %1321, ptr %1325, align 8
-  store ptr %1322, ptr %RHS.i.i891, align 8
-  %1326 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i891, i32 0, i32 1
-  store i64 %1324, ptr %1326, align 8
+  %1364 = load ptr, ptr %agg.tmp.i896, align 8
+  %1365 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i896, i32 0, i32 1
+  %1366 = load i64, ptr %1365, align 8
+  %1367 = load ptr, ptr %agg.tmp2.i897, align 8
+  %1368 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i897, i32 0, i32 1
+  %1369 = load i64, ptr %1368, align 8
+  store ptr %1364, ptr %LHS.i.i890, align 8
+  %1370 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i890, i32 0, i32 1
+  store i64 %1366, ptr %1370, align 8
+  store ptr %1367, ptr %RHS.i.i891, align 8
+  %1371 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i891, i32 0, i32 1
+  store i64 %1369, ptr %1371, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i892, ptr align 8 %RHS.i.i891, i64 16, i1 false)
-  %1327 = load ptr, ptr %agg.tmp.i.i892, align 8
-  %1328 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i892, i32 0, i32 1
-  %1329 = load i64, ptr %1328, align 8
-  store ptr %1327, ptr %RHS.i2139, align 8
-  %1330 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2139, i32 0, i32 1
-  store i64 %1329, ptr %1330, align 8
+  %1372 = load ptr, ptr %agg.tmp.i.i892, align 8
+  %1373 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i892, i32 0, i32 1
+  %1374 = load i64, ptr %1373, align 8
+  store ptr %1372, ptr %RHS.i2139, align 8
+  %1375 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2139, i32 0, i32 1
+  store i64 %1374, ptr %1375, align 8
   store ptr %LHS.i.i890, ptr %this.addr.i2140, align 8
   %this1.i2141 = load ptr, ptr %this.addr.i2140, align 8
   %Length.i2142 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2141, i32 0, i32 1
-  %1331 = load i64, ptr %Length.i2142, align 8
+  %1376 = load i64, ptr %Length.i2142, align 8
   %Length2.i2143 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2139, i32 0, i32 1
-  %1332 = load i64, ptr %Length2.i2143, align 8
-  %cmp.i2144 = icmp eq i64 %1331, %1332
+  %1377 = load i64, ptr %Length2.i2143, align 8
+  %cmp.i2144 = icmp eq i64 %1376, %1377
   br i1 %cmp.i2144, label %land.rhs.i2145, label %_ZNK4llvh9StringRef6equalsES0_.exit2149
 
 land.rhs.i2145:                                   ; preds = %land.lhs.true.i901
-  %1333 = load ptr, ptr %this1.i2141, align 8
-  %1334 = load ptr, ptr %RHS.i2139, align 8
+  %1378 = load ptr, ptr %this1.i2141, align 8
+  %1379 = load ptr, ptr %RHS.i2139, align 8
   %Length4.i2146 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2139, i32 0, i32 1
-  %1335 = load i64, ptr %Length4.i2146, align 8
-  store ptr %1333, ptr %Lhs.addr.i2926, align 8
-  store ptr %1334, ptr %Rhs.addr.i2927, align 8
-  store i64 %1335, ptr %Length.addr.i2928, align 8
-  %1336 = load i64, ptr %Length.addr.i2928, align 8
-  %cmp.i2929 = icmp eq i64 %1336, 0
+  %1380 = load i64, ptr %Length4.i2146, align 8
+  store ptr %1378, ptr %Lhs.addr.i2926, align 8
+  store ptr %1379, ptr %Rhs.addr.i2927, align 8
+  store i64 %1380, ptr %Length.addr.i2928, align 8
+  %1381 = load i64, ptr %Length.addr.i2928, align 8
+  %cmp.i2929 = icmp eq i64 %1381, 0
   br i1 %cmp.i2929, label %if.then.i2932, label %if.end.i2930
 
 if.then.i2932:                                    ; preds = %land.rhs.i2145
@@ -14828,21 +14873,21 @@ if.then.i2932:                                    ; preds = %land.rhs.i2145
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2933
 
 if.end.i2930:                                     ; preds = %land.rhs.i2145
-  %1337 = load ptr, ptr %Lhs.addr.i2926, align 8
-  %1338 = load ptr, ptr %Rhs.addr.i2927, align 8
-  %1339 = load i64, ptr %Length.addr.i2928, align 8
-  %call.i2931 = call i32 @memcmp(ptr noundef %1337, ptr noundef %1338, i64 noundef %1339) #10
+  %1382 = load ptr, ptr %Lhs.addr.i2926, align 8
+  %1383 = load ptr, ptr %Rhs.addr.i2927, align 8
+  %1384 = load i64, ptr %Length.addr.i2928, align 8
+  %call.i2931 = call i32 @memcmp(ptr noundef %1382, ptr noundef %1383, i64 noundef %1384) #10
   store i32 %call.i2931, ptr %retval.i2925, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2933
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2933: ; preds = %if.end.i2930, %if.then.i2932
-  %1340 = load i32, ptr %retval.i2925, align 4
-  %cmp5.i2148 = icmp eq i32 %1340, 0
+  %1385 = load i32, ptr %retval.i2925, align 4
+  %cmp5.i2148 = icmp eq i32 %1385, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2149
 
 _ZNK4llvh9StringRef6equalsES0_.exit2149:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2933, %land.lhs.true.i901
-  %1341 = phi i1 [ false, %land.lhs.true.i901 ], [ %cmp5.i2148, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2933 ]
-  br i1 %1341, label %if.then.i903, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit906
+  %1386 = phi i1 [ false, %land.lhs.true.i901 ], [ %cmp5.i2148, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2933 ]
+  br i1 %1386, label %if.then.i903, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit906
 
 if.then.i903:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2149
   %Result4.i904 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i898, i32 0, i32 1
@@ -14851,15 +14896,16 @@ if.then.i903:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit906: ; preds = %if.then.i903, %_ZNK4llvh9StringRef6equalsES0_.exit2149, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit923
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp137, ptr noundef nonnull align 1 dereferenceable(10) @.str.46)
-  %1342 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7), align 4
-  %or138 = or i32 %1342, 320
-  %1343 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp137, i32 0, i32 0
-  %1344 = load ptr, ptr %1343, align 8
-  %1345 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp137, i32 0, i32 1
-  %1346 = load i64, ptr %1345, align 8
-  store ptr %1344, ptr %S.i876, align 8
-  %1347 = getelementptr inbounds { ptr, i64 }, ptr %S.i876, i32 0, i32 1
-  store i64 %1346, ptr %1347, align 8
+  %1387 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7
+  %1388 = load i32, ptr %1387, align 4
+  %or138 = or i32 %1388, 320
+  %1389 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp137, i32 0, i32 0
+  %1390 = load ptr, ptr %1389, align 8
+  %1391 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp137, i32 0, i32 1
+  %1392 = load i64, ptr %1391, align 8
+  store ptr %1390, ptr %S.i876, align 8
+  %1393 = getelementptr inbounds { ptr, i64 }, ptr %S.i876, i32 0, i32 1
+  store i64 %1392, ptr %1393, align 8
   store ptr %this1.i898, ptr %this.addr.i877, align 8
   store i32 %or138, ptr %Value.addr.i878, align 4
   %this1.i881 = load ptr, ptr %this.addr.i877, align 8
@@ -14870,44 +14916,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit906: ; preds = %if.then
 land.lhs.true.i884:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit906
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i879, ptr align 8 %this1.i881, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i880, ptr align 8 %S.i876, i64 16, i1 false)
-  %1348 = load ptr, ptr %agg.tmp.i879, align 8
-  %1349 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i879, i32 0, i32 1
-  %1350 = load i64, ptr %1349, align 8
-  %1351 = load ptr, ptr %agg.tmp2.i880, align 8
-  %1352 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i880, i32 0, i32 1
-  %1353 = load i64, ptr %1352, align 8
-  store ptr %1348, ptr %LHS.i.i873, align 8
-  %1354 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i873, i32 0, i32 1
-  store i64 %1350, ptr %1354, align 8
-  store ptr %1351, ptr %RHS.i.i874, align 8
-  %1355 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i874, i32 0, i32 1
-  store i64 %1353, ptr %1355, align 8
+  %1394 = load ptr, ptr %agg.tmp.i879, align 8
+  %1395 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i879, i32 0, i32 1
+  %1396 = load i64, ptr %1395, align 8
+  %1397 = load ptr, ptr %agg.tmp2.i880, align 8
+  %1398 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i880, i32 0, i32 1
+  %1399 = load i64, ptr %1398, align 8
+  store ptr %1394, ptr %LHS.i.i873, align 8
+  %1400 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i873, i32 0, i32 1
+  store i64 %1396, ptr %1400, align 8
+  store ptr %1397, ptr %RHS.i.i874, align 8
+  %1401 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i874, i32 0, i32 1
+  store i64 %1399, ptr %1401, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i875, ptr align 8 %RHS.i.i874, i64 16, i1 false)
-  %1356 = load ptr, ptr %agg.tmp.i.i875, align 8
-  %1357 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i875, i32 0, i32 1
-  %1358 = load i64, ptr %1357, align 8
-  store ptr %1356, ptr %RHS.i2150, align 8
-  %1359 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2150, i32 0, i32 1
-  store i64 %1358, ptr %1359, align 8
+  %1402 = load ptr, ptr %agg.tmp.i.i875, align 8
+  %1403 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i875, i32 0, i32 1
+  %1404 = load i64, ptr %1403, align 8
+  store ptr %1402, ptr %RHS.i2150, align 8
+  %1405 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2150, i32 0, i32 1
+  store i64 %1404, ptr %1405, align 8
   store ptr %LHS.i.i873, ptr %this.addr.i2151, align 8
   %this1.i2152 = load ptr, ptr %this.addr.i2151, align 8
   %Length.i2153 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2152, i32 0, i32 1
-  %1360 = load i64, ptr %Length.i2153, align 8
+  %1406 = load i64, ptr %Length.i2153, align 8
   %Length2.i2154 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2150, i32 0, i32 1
-  %1361 = load i64, ptr %Length2.i2154, align 8
-  %cmp.i2155 = icmp eq i64 %1360, %1361
+  %1407 = load i64, ptr %Length2.i2154, align 8
+  %cmp.i2155 = icmp eq i64 %1406, %1407
   br i1 %cmp.i2155, label %land.rhs.i2156, label %_ZNK4llvh9StringRef6equalsES0_.exit2160
 
 land.rhs.i2156:                                   ; preds = %land.lhs.true.i884
-  %1362 = load ptr, ptr %this1.i2152, align 8
-  %1363 = load ptr, ptr %RHS.i2150, align 8
+  %1408 = load ptr, ptr %this1.i2152, align 8
+  %1409 = load ptr, ptr %RHS.i2150, align 8
   %Length4.i2157 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2150, i32 0, i32 1
-  %1364 = load i64, ptr %Length4.i2157, align 8
-  store ptr %1362, ptr %Lhs.addr.i2917, align 8
-  store ptr %1363, ptr %Rhs.addr.i2918, align 8
-  store i64 %1364, ptr %Length.addr.i2919, align 8
-  %1365 = load i64, ptr %Length.addr.i2919, align 8
-  %cmp.i2920 = icmp eq i64 %1365, 0
+  %1410 = load i64, ptr %Length4.i2157, align 8
+  store ptr %1408, ptr %Lhs.addr.i2917, align 8
+  store ptr %1409, ptr %Rhs.addr.i2918, align 8
+  store i64 %1410, ptr %Length.addr.i2919, align 8
+  %1411 = load i64, ptr %Length.addr.i2919, align 8
+  %cmp.i2920 = icmp eq i64 %1411, 0
   br i1 %cmp.i2920, label %if.then.i2923, label %if.end.i2921
 
 if.then.i2923:                                    ; preds = %land.rhs.i2156
@@ -14915,21 +14961,21 @@ if.then.i2923:                                    ; preds = %land.rhs.i2156
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2924
 
 if.end.i2921:                                     ; preds = %land.rhs.i2156
-  %1366 = load ptr, ptr %Lhs.addr.i2917, align 8
-  %1367 = load ptr, ptr %Rhs.addr.i2918, align 8
-  %1368 = load i64, ptr %Length.addr.i2919, align 8
-  %call.i2922 = call i32 @memcmp(ptr noundef %1366, ptr noundef %1367, i64 noundef %1368) #10
+  %1412 = load ptr, ptr %Lhs.addr.i2917, align 8
+  %1413 = load ptr, ptr %Rhs.addr.i2918, align 8
+  %1414 = load i64, ptr %Length.addr.i2919, align 8
+  %call.i2922 = call i32 @memcmp(ptr noundef %1412, ptr noundef %1413, i64 noundef %1414) #10
   store i32 %call.i2922, ptr %retval.i2916, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2924
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2924: ; preds = %if.end.i2921, %if.then.i2923
-  %1369 = load i32, ptr %retval.i2916, align 4
-  %cmp5.i2159 = icmp eq i32 %1369, 0
+  %1415 = load i32, ptr %retval.i2916, align 4
+  %cmp5.i2159 = icmp eq i32 %1415, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2160
 
 _ZNK4llvh9StringRef6equalsES0_.exit2160:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2924, %land.lhs.true.i884
-  %1370 = phi i1 [ false, %land.lhs.true.i884 ], [ %cmp5.i2159, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2924 ]
-  br i1 %1370, label %if.then.i886, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit889
+  %1416 = phi i1 [ false, %land.lhs.true.i884 ], [ %cmp5.i2159, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2924 ]
+  br i1 %1416, label %if.then.i886, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit889
 
 if.then.i886:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2160
   %Result4.i887 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i881, i32 0, i32 1
@@ -14938,15 +14984,16 @@ if.then.i886:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit889: ; preds = %if.then.i886, %_ZNK4llvh9StringRef6equalsES0_.exit2160, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit906
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp140, ptr noundef nonnull align 1 dereferenceable(10) @.str.47)
-  %1371 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7), align 4
-  %or141 = or i32 %1371, 880
-  %1372 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp140, i32 0, i32 0
-  %1373 = load ptr, ptr %1372, align 8
-  %1374 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp140, i32 0, i32 1
-  %1375 = load i64, ptr %1374, align 8
-  store ptr %1373, ptr %S.i859, align 8
-  %1376 = getelementptr inbounds { ptr, i64 }, ptr %S.i859, i32 0, i32 1
-  store i64 %1375, ptr %1376, align 8
+  %1417 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7
+  %1418 = load i32, ptr %1417, align 4
+  %or141 = or i32 %1418, 880
+  %1419 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp140, i32 0, i32 0
+  %1420 = load ptr, ptr %1419, align 8
+  %1421 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp140, i32 0, i32 1
+  %1422 = load i64, ptr %1421, align 8
+  store ptr %1420, ptr %S.i859, align 8
+  %1423 = getelementptr inbounds { ptr, i64 }, ptr %S.i859, i32 0, i32 1
+  store i64 %1422, ptr %1423, align 8
   store ptr %this1.i881, ptr %this.addr.i860, align 8
   store i32 %or141, ptr %Value.addr.i861, align 4
   %this1.i864 = load ptr, ptr %this.addr.i860, align 8
@@ -14957,44 +15004,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit889: ; preds = %if.then
 land.lhs.true.i867:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit889
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i862, ptr align 8 %this1.i864, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i863, ptr align 8 %S.i859, i64 16, i1 false)
-  %1377 = load ptr, ptr %agg.tmp.i862, align 8
-  %1378 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i862, i32 0, i32 1
-  %1379 = load i64, ptr %1378, align 8
-  %1380 = load ptr, ptr %agg.tmp2.i863, align 8
-  %1381 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i863, i32 0, i32 1
-  %1382 = load i64, ptr %1381, align 8
-  store ptr %1377, ptr %LHS.i.i856, align 8
-  %1383 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i856, i32 0, i32 1
-  store i64 %1379, ptr %1383, align 8
-  store ptr %1380, ptr %RHS.i.i857, align 8
-  %1384 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i857, i32 0, i32 1
-  store i64 %1382, ptr %1384, align 8
+  %1424 = load ptr, ptr %agg.tmp.i862, align 8
+  %1425 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i862, i32 0, i32 1
+  %1426 = load i64, ptr %1425, align 8
+  %1427 = load ptr, ptr %agg.tmp2.i863, align 8
+  %1428 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i863, i32 0, i32 1
+  %1429 = load i64, ptr %1428, align 8
+  store ptr %1424, ptr %LHS.i.i856, align 8
+  %1430 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i856, i32 0, i32 1
+  store i64 %1426, ptr %1430, align 8
+  store ptr %1427, ptr %RHS.i.i857, align 8
+  %1431 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i857, i32 0, i32 1
+  store i64 %1429, ptr %1431, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i858, ptr align 8 %RHS.i.i857, i64 16, i1 false)
-  %1385 = load ptr, ptr %agg.tmp.i.i858, align 8
-  %1386 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i858, i32 0, i32 1
-  %1387 = load i64, ptr %1386, align 8
-  store ptr %1385, ptr %RHS.i2161, align 8
-  %1388 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2161, i32 0, i32 1
-  store i64 %1387, ptr %1388, align 8
+  %1432 = load ptr, ptr %agg.tmp.i.i858, align 8
+  %1433 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i858, i32 0, i32 1
+  %1434 = load i64, ptr %1433, align 8
+  store ptr %1432, ptr %RHS.i2161, align 8
+  %1435 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2161, i32 0, i32 1
+  store i64 %1434, ptr %1435, align 8
   store ptr %LHS.i.i856, ptr %this.addr.i2162, align 8
   %this1.i2163 = load ptr, ptr %this.addr.i2162, align 8
   %Length.i2164 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2163, i32 0, i32 1
-  %1389 = load i64, ptr %Length.i2164, align 8
+  %1436 = load i64, ptr %Length.i2164, align 8
   %Length2.i2165 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2161, i32 0, i32 1
-  %1390 = load i64, ptr %Length2.i2165, align 8
-  %cmp.i2166 = icmp eq i64 %1389, %1390
+  %1437 = load i64, ptr %Length2.i2165, align 8
+  %cmp.i2166 = icmp eq i64 %1436, %1437
   br i1 %cmp.i2166, label %land.rhs.i2167, label %_ZNK4llvh9StringRef6equalsES0_.exit2171
 
 land.rhs.i2167:                                   ; preds = %land.lhs.true.i867
-  %1391 = load ptr, ptr %this1.i2163, align 8
-  %1392 = load ptr, ptr %RHS.i2161, align 8
+  %1438 = load ptr, ptr %this1.i2163, align 8
+  %1439 = load ptr, ptr %RHS.i2161, align 8
   %Length4.i2168 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2161, i32 0, i32 1
-  %1393 = load i64, ptr %Length4.i2168, align 8
-  store ptr %1391, ptr %Lhs.addr.i2908, align 8
-  store ptr %1392, ptr %Rhs.addr.i2909, align 8
-  store i64 %1393, ptr %Length.addr.i2910, align 8
-  %1394 = load i64, ptr %Length.addr.i2910, align 8
-  %cmp.i2911 = icmp eq i64 %1394, 0
+  %1440 = load i64, ptr %Length4.i2168, align 8
+  store ptr %1438, ptr %Lhs.addr.i2908, align 8
+  store ptr %1439, ptr %Rhs.addr.i2909, align 8
+  store i64 %1440, ptr %Length.addr.i2910, align 8
+  %1441 = load i64, ptr %Length.addr.i2910, align 8
+  %cmp.i2911 = icmp eq i64 %1441, 0
   br i1 %cmp.i2911, label %if.then.i2914, label %if.end.i2912
 
 if.then.i2914:                                    ; preds = %land.rhs.i2167
@@ -15002,21 +15049,21 @@ if.then.i2914:                                    ; preds = %land.rhs.i2167
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2915
 
 if.end.i2912:                                     ; preds = %land.rhs.i2167
-  %1395 = load ptr, ptr %Lhs.addr.i2908, align 8
-  %1396 = load ptr, ptr %Rhs.addr.i2909, align 8
-  %1397 = load i64, ptr %Length.addr.i2910, align 8
-  %call.i2913 = call i32 @memcmp(ptr noundef %1395, ptr noundef %1396, i64 noundef %1397) #10
+  %1442 = load ptr, ptr %Lhs.addr.i2908, align 8
+  %1443 = load ptr, ptr %Rhs.addr.i2909, align 8
+  %1444 = load i64, ptr %Length.addr.i2910, align 8
+  %call.i2913 = call i32 @memcmp(ptr noundef %1442, ptr noundef %1443, i64 noundef %1444) #10
   store i32 %call.i2913, ptr %retval.i2907, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2915
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2915: ; preds = %if.end.i2912, %if.then.i2914
-  %1398 = load i32, ptr %retval.i2907, align 4
-  %cmp5.i2170 = icmp eq i32 %1398, 0
+  %1445 = load i32, ptr %retval.i2907, align 4
+  %cmp5.i2170 = icmp eq i32 %1445, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2171
 
 _ZNK4llvh9StringRef6equalsES0_.exit2171:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2915, %land.lhs.true.i867
-  %1399 = phi i1 [ false, %land.lhs.true.i867 ], [ %cmp5.i2170, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2915 ]
-  br i1 %1399, label %if.then.i869, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit872
+  %1446 = phi i1 [ false, %land.lhs.true.i867 ], [ %cmp5.i2170, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2915 ]
+  br i1 %1446, label %if.then.i869, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit872
 
 if.then.i869:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2171
   %Result4.i870 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i864, i32 0, i32 1
@@ -15025,15 +15072,16 @@ if.then.i869:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit872: ; preds = %if.then.i869, %_ZNK4llvh9StringRef6equalsES0_.exit2171, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit889
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp143, ptr noundef nonnull align 1 dereferenceable(10) @.str.48)
-  %1400 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7), align 4
-  %or144 = or i32 %1400, 256
-  %1401 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp143, i32 0, i32 0
-  %1402 = load ptr, ptr %1401, align 8
-  %1403 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp143, i32 0, i32 1
-  %1404 = load i64, ptr %1403, align 8
-  store ptr %1402, ptr %S.i842, align 8
-  %1405 = getelementptr inbounds { ptr, i64 }, ptr %S.i842, i32 0, i32 1
-  store i64 %1404, ptr %1405, align 8
+  %1447 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7
+  %1448 = load i32, ptr %1447, align 4
+  %or144 = or i32 %1448, 256
+  %1449 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp143, i32 0, i32 0
+  %1450 = load ptr, ptr %1449, align 8
+  %1451 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp143, i32 0, i32 1
+  %1452 = load i64, ptr %1451, align 8
+  store ptr %1450, ptr %S.i842, align 8
+  %1453 = getelementptr inbounds { ptr, i64 }, ptr %S.i842, i32 0, i32 1
+  store i64 %1452, ptr %1453, align 8
   store ptr %this1.i864, ptr %this.addr.i843, align 8
   store i32 %or144, ptr %Value.addr.i844, align 4
   %this1.i847 = load ptr, ptr %this.addr.i843, align 8
@@ -15044,44 +15092,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit872: ; preds = %if.then
 land.lhs.true.i850:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit872
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i845, ptr align 8 %this1.i847, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i846, ptr align 8 %S.i842, i64 16, i1 false)
-  %1406 = load ptr, ptr %agg.tmp.i845, align 8
-  %1407 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i845, i32 0, i32 1
-  %1408 = load i64, ptr %1407, align 8
-  %1409 = load ptr, ptr %agg.tmp2.i846, align 8
-  %1410 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i846, i32 0, i32 1
-  %1411 = load i64, ptr %1410, align 8
-  store ptr %1406, ptr %LHS.i.i839, align 8
-  %1412 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i839, i32 0, i32 1
-  store i64 %1408, ptr %1412, align 8
-  store ptr %1409, ptr %RHS.i.i840, align 8
-  %1413 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i840, i32 0, i32 1
-  store i64 %1411, ptr %1413, align 8
+  %1454 = load ptr, ptr %agg.tmp.i845, align 8
+  %1455 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i845, i32 0, i32 1
+  %1456 = load i64, ptr %1455, align 8
+  %1457 = load ptr, ptr %agg.tmp2.i846, align 8
+  %1458 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i846, i32 0, i32 1
+  %1459 = load i64, ptr %1458, align 8
+  store ptr %1454, ptr %LHS.i.i839, align 8
+  %1460 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i839, i32 0, i32 1
+  store i64 %1456, ptr %1460, align 8
+  store ptr %1457, ptr %RHS.i.i840, align 8
+  %1461 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i840, i32 0, i32 1
+  store i64 %1459, ptr %1461, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i841, ptr align 8 %RHS.i.i840, i64 16, i1 false)
-  %1414 = load ptr, ptr %agg.tmp.i.i841, align 8
-  %1415 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i841, i32 0, i32 1
-  %1416 = load i64, ptr %1415, align 8
-  store ptr %1414, ptr %RHS.i2172, align 8
-  %1417 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2172, i32 0, i32 1
-  store i64 %1416, ptr %1417, align 8
+  %1462 = load ptr, ptr %agg.tmp.i.i841, align 8
+  %1463 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i841, i32 0, i32 1
+  %1464 = load i64, ptr %1463, align 8
+  store ptr %1462, ptr %RHS.i2172, align 8
+  %1465 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2172, i32 0, i32 1
+  store i64 %1464, ptr %1465, align 8
   store ptr %LHS.i.i839, ptr %this.addr.i2173, align 8
   %this1.i2174 = load ptr, ptr %this.addr.i2173, align 8
   %Length.i2175 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2174, i32 0, i32 1
-  %1418 = load i64, ptr %Length.i2175, align 8
+  %1466 = load i64, ptr %Length.i2175, align 8
   %Length2.i2176 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2172, i32 0, i32 1
-  %1419 = load i64, ptr %Length2.i2176, align 8
-  %cmp.i2177 = icmp eq i64 %1418, %1419
+  %1467 = load i64, ptr %Length2.i2176, align 8
+  %cmp.i2177 = icmp eq i64 %1466, %1467
   br i1 %cmp.i2177, label %land.rhs.i2178, label %_ZNK4llvh9StringRef6equalsES0_.exit2182
 
 land.rhs.i2178:                                   ; preds = %land.lhs.true.i850
-  %1420 = load ptr, ptr %this1.i2174, align 8
-  %1421 = load ptr, ptr %RHS.i2172, align 8
+  %1468 = load ptr, ptr %this1.i2174, align 8
+  %1469 = load ptr, ptr %RHS.i2172, align 8
   %Length4.i2179 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2172, i32 0, i32 1
-  %1422 = load i64, ptr %Length4.i2179, align 8
-  store ptr %1420, ptr %Lhs.addr.i2899, align 8
-  store ptr %1421, ptr %Rhs.addr.i2900, align 8
-  store i64 %1422, ptr %Length.addr.i2901, align 8
-  %1423 = load i64, ptr %Length.addr.i2901, align 8
-  %cmp.i2902 = icmp eq i64 %1423, 0
+  %1470 = load i64, ptr %Length4.i2179, align 8
+  store ptr %1468, ptr %Lhs.addr.i2899, align 8
+  store ptr %1469, ptr %Rhs.addr.i2900, align 8
+  store i64 %1470, ptr %Length.addr.i2901, align 8
+  %1471 = load i64, ptr %Length.addr.i2901, align 8
+  %cmp.i2902 = icmp eq i64 %1471, 0
   br i1 %cmp.i2902, label %if.then.i2905, label %if.end.i2903
 
 if.then.i2905:                                    ; preds = %land.rhs.i2178
@@ -15089,21 +15137,21 @@ if.then.i2905:                                    ; preds = %land.rhs.i2178
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2906
 
 if.end.i2903:                                     ; preds = %land.rhs.i2178
-  %1424 = load ptr, ptr %Lhs.addr.i2899, align 8
-  %1425 = load ptr, ptr %Rhs.addr.i2900, align 8
-  %1426 = load i64, ptr %Length.addr.i2901, align 8
-  %call.i2904 = call i32 @memcmp(ptr noundef %1424, ptr noundef %1425, i64 noundef %1426) #10
+  %1472 = load ptr, ptr %Lhs.addr.i2899, align 8
+  %1473 = load ptr, ptr %Rhs.addr.i2900, align 8
+  %1474 = load i64, ptr %Length.addr.i2901, align 8
+  %call.i2904 = call i32 @memcmp(ptr noundef %1472, ptr noundef %1473, i64 noundef %1474) #10
   store i32 %call.i2904, ptr %retval.i2898, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2906
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2906: ; preds = %if.end.i2903, %if.then.i2905
-  %1427 = load i32, ptr %retval.i2898, align 4
-  %cmp5.i2181 = icmp eq i32 %1427, 0
+  %1475 = load i32, ptr %retval.i2898, align 4
+  %cmp5.i2181 = icmp eq i32 %1475, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2182
 
 _ZNK4llvh9StringRef6equalsES0_.exit2182:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2906, %land.lhs.true.i850
-  %1428 = phi i1 [ false, %land.lhs.true.i850 ], [ %cmp5.i2181, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2906 ]
-  br i1 %1428, label %if.then.i852, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit855
+  %1476 = phi i1 [ false, %land.lhs.true.i850 ], [ %cmp5.i2181, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2906 ]
+  br i1 %1476, label %if.then.i852, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit855
 
 if.then.i852:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2182
   %Result4.i853 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i847, i32 0, i32 1
@@ -15112,15 +15160,16 @@ if.then.i852:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit855: ; preds = %if.then.i852, %_ZNK4llvh9StringRef6equalsES0_.exit2182, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit872
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp146, ptr noundef nonnull align 1 dereferenceable(10) @.str.49)
-  %1429 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7), align 4
-  %or147 = or i32 %1429, 320
-  %1430 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp146, i32 0, i32 0
-  %1431 = load ptr, ptr %1430, align 8
-  %1432 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp146, i32 0, i32 1
-  %1433 = load i64, ptr %1432, align 8
-  store ptr %1431, ptr %S.i825, align 8
-  %1434 = getelementptr inbounds { ptr, i64 }, ptr %S.i825, i32 0, i32 1
-  store i64 %1433, ptr %1434, align 8
+  %1477 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7
+  %1478 = load i32, ptr %1477, align 4
+  %or147 = or i32 %1478, 320
+  %1479 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp146, i32 0, i32 0
+  %1480 = load ptr, ptr %1479, align 8
+  %1481 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp146, i32 0, i32 1
+  %1482 = load i64, ptr %1481, align 8
+  store ptr %1480, ptr %S.i825, align 8
+  %1483 = getelementptr inbounds { ptr, i64 }, ptr %S.i825, i32 0, i32 1
+  store i64 %1482, ptr %1483, align 8
   store ptr %this1.i847, ptr %this.addr.i826, align 8
   store i32 %or147, ptr %Value.addr.i827, align 4
   %this1.i830 = load ptr, ptr %this.addr.i826, align 8
@@ -15131,44 +15180,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit855: ; preds = %if.then
 land.lhs.true.i833:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit855
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i828, ptr align 8 %this1.i830, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i829, ptr align 8 %S.i825, i64 16, i1 false)
-  %1435 = load ptr, ptr %agg.tmp.i828, align 8
-  %1436 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i828, i32 0, i32 1
-  %1437 = load i64, ptr %1436, align 8
-  %1438 = load ptr, ptr %agg.tmp2.i829, align 8
-  %1439 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i829, i32 0, i32 1
-  %1440 = load i64, ptr %1439, align 8
-  store ptr %1435, ptr %LHS.i.i822, align 8
-  %1441 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i822, i32 0, i32 1
-  store i64 %1437, ptr %1441, align 8
-  store ptr %1438, ptr %RHS.i.i823, align 8
-  %1442 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i823, i32 0, i32 1
-  store i64 %1440, ptr %1442, align 8
+  %1484 = load ptr, ptr %agg.tmp.i828, align 8
+  %1485 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i828, i32 0, i32 1
+  %1486 = load i64, ptr %1485, align 8
+  %1487 = load ptr, ptr %agg.tmp2.i829, align 8
+  %1488 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i829, i32 0, i32 1
+  %1489 = load i64, ptr %1488, align 8
+  store ptr %1484, ptr %LHS.i.i822, align 8
+  %1490 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i822, i32 0, i32 1
+  store i64 %1486, ptr %1490, align 8
+  store ptr %1487, ptr %RHS.i.i823, align 8
+  %1491 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i823, i32 0, i32 1
+  store i64 %1489, ptr %1491, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i824, ptr align 8 %RHS.i.i823, i64 16, i1 false)
-  %1443 = load ptr, ptr %agg.tmp.i.i824, align 8
-  %1444 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i824, i32 0, i32 1
-  %1445 = load i64, ptr %1444, align 8
-  store ptr %1443, ptr %RHS.i2183, align 8
-  %1446 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2183, i32 0, i32 1
-  store i64 %1445, ptr %1446, align 8
+  %1492 = load ptr, ptr %agg.tmp.i.i824, align 8
+  %1493 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i824, i32 0, i32 1
+  %1494 = load i64, ptr %1493, align 8
+  store ptr %1492, ptr %RHS.i2183, align 8
+  %1495 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2183, i32 0, i32 1
+  store i64 %1494, ptr %1495, align 8
   store ptr %LHS.i.i822, ptr %this.addr.i2184, align 8
   %this1.i2185 = load ptr, ptr %this.addr.i2184, align 8
   %Length.i2186 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2185, i32 0, i32 1
-  %1447 = load i64, ptr %Length.i2186, align 8
+  %1496 = load i64, ptr %Length.i2186, align 8
   %Length2.i2187 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2183, i32 0, i32 1
-  %1448 = load i64, ptr %Length2.i2187, align 8
-  %cmp.i2188 = icmp eq i64 %1447, %1448
+  %1497 = load i64, ptr %Length2.i2187, align 8
+  %cmp.i2188 = icmp eq i64 %1496, %1497
   br i1 %cmp.i2188, label %land.rhs.i2189, label %_ZNK4llvh9StringRef6equalsES0_.exit2193
 
 land.rhs.i2189:                                   ; preds = %land.lhs.true.i833
-  %1449 = load ptr, ptr %this1.i2185, align 8
-  %1450 = load ptr, ptr %RHS.i2183, align 8
+  %1498 = load ptr, ptr %this1.i2185, align 8
+  %1499 = load ptr, ptr %RHS.i2183, align 8
   %Length4.i2190 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2183, i32 0, i32 1
-  %1451 = load i64, ptr %Length4.i2190, align 8
-  store ptr %1449, ptr %Lhs.addr.i2890, align 8
-  store ptr %1450, ptr %Rhs.addr.i2891, align 8
-  store i64 %1451, ptr %Length.addr.i2892, align 8
-  %1452 = load i64, ptr %Length.addr.i2892, align 8
-  %cmp.i2893 = icmp eq i64 %1452, 0
+  %1500 = load i64, ptr %Length4.i2190, align 8
+  store ptr %1498, ptr %Lhs.addr.i2890, align 8
+  store ptr %1499, ptr %Rhs.addr.i2891, align 8
+  store i64 %1500, ptr %Length.addr.i2892, align 8
+  %1501 = load i64, ptr %Length.addr.i2892, align 8
+  %cmp.i2893 = icmp eq i64 %1501, 0
   br i1 %cmp.i2893, label %if.then.i2896, label %if.end.i2894
 
 if.then.i2896:                                    ; preds = %land.rhs.i2189
@@ -15176,21 +15225,21 @@ if.then.i2896:                                    ; preds = %land.rhs.i2189
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2897
 
 if.end.i2894:                                     ; preds = %land.rhs.i2189
-  %1453 = load ptr, ptr %Lhs.addr.i2890, align 8
-  %1454 = load ptr, ptr %Rhs.addr.i2891, align 8
-  %1455 = load i64, ptr %Length.addr.i2892, align 8
-  %call.i2895 = call i32 @memcmp(ptr noundef %1453, ptr noundef %1454, i64 noundef %1455) #10
+  %1502 = load ptr, ptr %Lhs.addr.i2890, align 8
+  %1503 = load ptr, ptr %Rhs.addr.i2891, align 8
+  %1504 = load i64, ptr %Length.addr.i2892, align 8
+  %call.i2895 = call i32 @memcmp(ptr noundef %1502, ptr noundef %1503, i64 noundef %1504) #10
   store i32 %call.i2895, ptr %retval.i2889, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2897
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2897: ; preds = %if.end.i2894, %if.then.i2896
-  %1456 = load i32, ptr %retval.i2889, align 4
-  %cmp5.i2192 = icmp eq i32 %1456, 0
+  %1505 = load i32, ptr %retval.i2889, align 4
+  %cmp5.i2192 = icmp eq i32 %1505, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2193
 
 _ZNK4llvh9StringRef6equalsES0_.exit2193:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2897, %land.lhs.true.i833
-  %1457 = phi i1 [ false, %land.lhs.true.i833 ], [ %cmp5.i2192, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2897 ]
-  br i1 %1457, label %if.then.i835, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit838
+  %1506 = phi i1 [ false, %land.lhs.true.i833 ], [ %cmp5.i2192, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2897 ]
+  br i1 %1506, label %if.then.i835, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit838
 
 if.then.i835:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2193
   %Result4.i836 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i830, i32 0, i32 1
@@ -15199,15 +15248,16 @@ if.then.i835:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit838: ; preds = %if.then.i835, %_ZNK4llvh9StringRef6equalsES0_.exit2193, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit855
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp149, ptr noundef nonnull align 1 dereferenceable(11) @.str.50)
-  %1458 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7), align 4
-  %or150 = or i32 %1458, 880
-  %1459 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp149, i32 0, i32 0
-  %1460 = load ptr, ptr %1459, align 8
-  %1461 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp149, i32 0, i32 1
-  %1462 = load i64, ptr %1461, align 8
-  store ptr %1460, ptr %S.i808, align 8
-  %1463 = getelementptr inbounds { ptr, i64 }, ptr %S.i808, i32 0, i32 1
-  store i64 %1462, ptr %1463, align 8
+  %1507 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7
+  %1508 = load i32, ptr %1507, align 4
+  %or150 = or i32 %1508, 880
+  %1509 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp149, i32 0, i32 0
+  %1510 = load ptr, ptr %1509, align 8
+  %1511 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp149, i32 0, i32 1
+  %1512 = load i64, ptr %1511, align 8
+  store ptr %1510, ptr %S.i808, align 8
+  %1513 = getelementptr inbounds { ptr, i64 }, ptr %S.i808, i32 0, i32 1
+  store i64 %1512, ptr %1513, align 8
   store ptr %this1.i830, ptr %this.addr.i809, align 8
   store i32 %or150, ptr %Value.addr.i810, align 4
   %this1.i813 = load ptr, ptr %this.addr.i809, align 8
@@ -15218,44 +15268,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit838: ; preds = %if.then
 land.lhs.true.i816:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit838
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i811, ptr align 8 %this1.i813, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i812, ptr align 8 %S.i808, i64 16, i1 false)
-  %1464 = load ptr, ptr %agg.tmp.i811, align 8
-  %1465 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i811, i32 0, i32 1
-  %1466 = load i64, ptr %1465, align 8
-  %1467 = load ptr, ptr %agg.tmp2.i812, align 8
-  %1468 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i812, i32 0, i32 1
-  %1469 = load i64, ptr %1468, align 8
-  store ptr %1464, ptr %LHS.i.i805, align 8
-  %1470 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i805, i32 0, i32 1
-  store i64 %1466, ptr %1470, align 8
-  store ptr %1467, ptr %RHS.i.i806, align 8
-  %1471 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i806, i32 0, i32 1
-  store i64 %1469, ptr %1471, align 8
+  %1514 = load ptr, ptr %agg.tmp.i811, align 8
+  %1515 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i811, i32 0, i32 1
+  %1516 = load i64, ptr %1515, align 8
+  %1517 = load ptr, ptr %agg.tmp2.i812, align 8
+  %1518 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i812, i32 0, i32 1
+  %1519 = load i64, ptr %1518, align 8
+  store ptr %1514, ptr %LHS.i.i805, align 8
+  %1520 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i805, i32 0, i32 1
+  store i64 %1516, ptr %1520, align 8
+  store ptr %1517, ptr %RHS.i.i806, align 8
+  %1521 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i806, i32 0, i32 1
+  store i64 %1519, ptr %1521, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i807, ptr align 8 %RHS.i.i806, i64 16, i1 false)
-  %1472 = load ptr, ptr %agg.tmp.i.i807, align 8
-  %1473 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i807, i32 0, i32 1
-  %1474 = load i64, ptr %1473, align 8
-  store ptr %1472, ptr %RHS.i2194, align 8
-  %1475 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2194, i32 0, i32 1
-  store i64 %1474, ptr %1475, align 8
+  %1522 = load ptr, ptr %agg.tmp.i.i807, align 8
+  %1523 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i807, i32 0, i32 1
+  %1524 = load i64, ptr %1523, align 8
+  store ptr %1522, ptr %RHS.i2194, align 8
+  %1525 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2194, i32 0, i32 1
+  store i64 %1524, ptr %1525, align 8
   store ptr %LHS.i.i805, ptr %this.addr.i2195, align 8
   %this1.i2196 = load ptr, ptr %this.addr.i2195, align 8
   %Length.i2197 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2196, i32 0, i32 1
-  %1476 = load i64, ptr %Length.i2197, align 8
+  %1526 = load i64, ptr %Length.i2197, align 8
   %Length2.i2198 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2194, i32 0, i32 1
-  %1477 = load i64, ptr %Length2.i2198, align 8
-  %cmp.i2199 = icmp eq i64 %1476, %1477
+  %1527 = load i64, ptr %Length2.i2198, align 8
+  %cmp.i2199 = icmp eq i64 %1526, %1527
   br i1 %cmp.i2199, label %land.rhs.i2200, label %_ZNK4llvh9StringRef6equalsES0_.exit2204
 
 land.rhs.i2200:                                   ; preds = %land.lhs.true.i816
-  %1478 = load ptr, ptr %this1.i2196, align 8
-  %1479 = load ptr, ptr %RHS.i2194, align 8
+  %1528 = load ptr, ptr %this1.i2196, align 8
+  %1529 = load ptr, ptr %RHS.i2194, align 8
   %Length4.i2201 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2194, i32 0, i32 1
-  %1480 = load i64, ptr %Length4.i2201, align 8
-  store ptr %1478, ptr %Lhs.addr.i2881, align 8
-  store ptr %1479, ptr %Rhs.addr.i2882, align 8
-  store i64 %1480, ptr %Length.addr.i2883, align 8
-  %1481 = load i64, ptr %Length.addr.i2883, align 8
-  %cmp.i2884 = icmp eq i64 %1481, 0
+  %1530 = load i64, ptr %Length4.i2201, align 8
+  store ptr %1528, ptr %Lhs.addr.i2881, align 8
+  store ptr %1529, ptr %Rhs.addr.i2882, align 8
+  store i64 %1530, ptr %Length.addr.i2883, align 8
+  %1531 = load i64, ptr %Length.addr.i2883, align 8
+  %cmp.i2884 = icmp eq i64 %1531, 0
   br i1 %cmp.i2884, label %if.then.i2887, label %if.end.i2885
 
 if.then.i2887:                                    ; preds = %land.rhs.i2200
@@ -15263,21 +15313,21 @@ if.then.i2887:                                    ; preds = %land.rhs.i2200
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2888
 
 if.end.i2885:                                     ; preds = %land.rhs.i2200
-  %1482 = load ptr, ptr %Lhs.addr.i2881, align 8
-  %1483 = load ptr, ptr %Rhs.addr.i2882, align 8
-  %1484 = load i64, ptr %Length.addr.i2883, align 8
-  %call.i2886 = call i32 @memcmp(ptr noundef %1482, ptr noundef %1483, i64 noundef %1484) #10
+  %1532 = load ptr, ptr %Lhs.addr.i2881, align 8
+  %1533 = load ptr, ptr %Rhs.addr.i2882, align 8
+  %1534 = load i64, ptr %Length.addr.i2883, align 8
+  %call.i2886 = call i32 @memcmp(ptr noundef %1532, ptr noundef %1533, i64 noundef %1534) #10
   store i32 %call.i2886, ptr %retval.i2880, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2888
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2888: ; preds = %if.end.i2885, %if.then.i2887
-  %1485 = load i32, ptr %retval.i2880, align 4
-  %cmp5.i2203 = icmp eq i32 %1485, 0
+  %1535 = load i32, ptr %retval.i2880, align 4
+  %cmp5.i2203 = icmp eq i32 %1535, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2204
 
 _ZNK4llvh9StringRef6equalsES0_.exit2204:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2888, %land.lhs.true.i816
-  %1486 = phi i1 [ false, %land.lhs.true.i816 ], [ %cmp5.i2203, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2888 ]
-  br i1 %1486, label %if.then.i818, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit821
+  %1536 = phi i1 [ false, %land.lhs.true.i816 ], [ %cmp5.i2203, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2888 ]
+  br i1 %1536, label %if.then.i818, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit821
 
 if.then.i818:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2204
   %Result4.i819 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i813, i32 0, i32 1
@@ -15286,15 +15336,16 @@ if.then.i818:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit821: ; preds = %if.then.i818, %_ZNK4llvh9StringRef6equalsES0_.exit2204, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit838
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp152, ptr noundef nonnull align 1 dereferenceable(11) @.str.51)
-  %1487 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7), align 4
-  %or153 = or i32 %1487, 880
-  %1488 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp152, i32 0, i32 0
-  %1489 = load ptr, ptr %1488, align 8
-  %1490 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp152, i32 0, i32 1
-  %1491 = load i64, ptr %1490, align 8
-  store ptr %1489, ptr %S.i791, align 8
-  %1492 = getelementptr inbounds { ptr, i64 }, ptr %S.i791, i32 0, i32 1
-  store i64 %1491, ptr %1492, align 8
+  %1537 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7
+  %1538 = load i32, ptr %1537, align 4
+  %or153 = or i32 %1538, 880
+  %1539 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp152, i32 0, i32 0
+  %1540 = load ptr, ptr %1539, align 8
+  %1541 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp152, i32 0, i32 1
+  %1542 = load i64, ptr %1541, align 8
+  store ptr %1540, ptr %S.i791, align 8
+  %1543 = getelementptr inbounds { ptr, i64 }, ptr %S.i791, i32 0, i32 1
+  store i64 %1542, ptr %1543, align 8
   store ptr %this1.i813, ptr %this.addr.i792, align 8
   store i32 %or153, ptr %Value.addr.i793, align 4
   %this1.i796 = load ptr, ptr %this.addr.i792, align 8
@@ -15305,44 +15356,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit821: ; preds = %if.then
 land.lhs.true.i799:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit821
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i794, ptr align 8 %this1.i796, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i795, ptr align 8 %S.i791, i64 16, i1 false)
-  %1493 = load ptr, ptr %agg.tmp.i794, align 8
-  %1494 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i794, i32 0, i32 1
-  %1495 = load i64, ptr %1494, align 8
-  %1496 = load ptr, ptr %agg.tmp2.i795, align 8
-  %1497 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i795, i32 0, i32 1
-  %1498 = load i64, ptr %1497, align 8
-  store ptr %1493, ptr %LHS.i.i788, align 8
-  %1499 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i788, i32 0, i32 1
-  store i64 %1495, ptr %1499, align 8
-  store ptr %1496, ptr %RHS.i.i789, align 8
-  %1500 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i789, i32 0, i32 1
-  store i64 %1498, ptr %1500, align 8
+  %1544 = load ptr, ptr %agg.tmp.i794, align 8
+  %1545 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i794, i32 0, i32 1
+  %1546 = load i64, ptr %1545, align 8
+  %1547 = load ptr, ptr %agg.tmp2.i795, align 8
+  %1548 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i795, i32 0, i32 1
+  %1549 = load i64, ptr %1548, align 8
+  store ptr %1544, ptr %LHS.i.i788, align 8
+  %1550 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i788, i32 0, i32 1
+  store i64 %1546, ptr %1550, align 8
+  store ptr %1547, ptr %RHS.i.i789, align 8
+  %1551 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i789, i32 0, i32 1
+  store i64 %1549, ptr %1551, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i790, ptr align 8 %RHS.i.i789, i64 16, i1 false)
-  %1501 = load ptr, ptr %agg.tmp.i.i790, align 8
-  %1502 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i790, i32 0, i32 1
-  %1503 = load i64, ptr %1502, align 8
-  store ptr %1501, ptr %RHS.i2205, align 8
-  %1504 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2205, i32 0, i32 1
-  store i64 %1503, ptr %1504, align 8
+  %1552 = load ptr, ptr %agg.tmp.i.i790, align 8
+  %1553 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i790, i32 0, i32 1
+  %1554 = load i64, ptr %1553, align 8
+  store ptr %1552, ptr %RHS.i2205, align 8
+  %1555 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2205, i32 0, i32 1
+  store i64 %1554, ptr %1555, align 8
   store ptr %LHS.i.i788, ptr %this.addr.i2206, align 8
   %this1.i2207 = load ptr, ptr %this.addr.i2206, align 8
   %Length.i2208 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2207, i32 0, i32 1
-  %1505 = load i64, ptr %Length.i2208, align 8
+  %1556 = load i64, ptr %Length.i2208, align 8
   %Length2.i2209 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2205, i32 0, i32 1
-  %1506 = load i64, ptr %Length2.i2209, align 8
-  %cmp.i2210 = icmp eq i64 %1505, %1506
+  %1557 = load i64, ptr %Length2.i2209, align 8
+  %cmp.i2210 = icmp eq i64 %1556, %1557
   br i1 %cmp.i2210, label %land.rhs.i2211, label %_ZNK4llvh9StringRef6equalsES0_.exit2215
 
 land.rhs.i2211:                                   ; preds = %land.lhs.true.i799
-  %1507 = load ptr, ptr %this1.i2207, align 8
-  %1508 = load ptr, ptr %RHS.i2205, align 8
+  %1558 = load ptr, ptr %this1.i2207, align 8
+  %1559 = load ptr, ptr %RHS.i2205, align 8
   %Length4.i2212 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2205, i32 0, i32 1
-  %1509 = load i64, ptr %Length4.i2212, align 8
-  store ptr %1507, ptr %Lhs.addr.i2872, align 8
-  store ptr %1508, ptr %Rhs.addr.i2873, align 8
-  store i64 %1509, ptr %Length.addr.i2874, align 8
-  %1510 = load i64, ptr %Length.addr.i2874, align 8
-  %cmp.i2875 = icmp eq i64 %1510, 0
+  %1560 = load i64, ptr %Length4.i2212, align 8
+  store ptr %1558, ptr %Lhs.addr.i2872, align 8
+  store ptr %1559, ptr %Rhs.addr.i2873, align 8
+  store i64 %1560, ptr %Length.addr.i2874, align 8
+  %1561 = load i64, ptr %Length.addr.i2874, align 8
+  %cmp.i2875 = icmp eq i64 %1561, 0
   br i1 %cmp.i2875, label %if.then.i2878, label %if.end.i2876
 
 if.then.i2878:                                    ; preds = %land.rhs.i2211
@@ -15350,21 +15401,21 @@ if.then.i2878:                                    ; preds = %land.rhs.i2211
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2879
 
 if.end.i2876:                                     ; preds = %land.rhs.i2211
-  %1511 = load ptr, ptr %Lhs.addr.i2872, align 8
-  %1512 = load ptr, ptr %Rhs.addr.i2873, align 8
-  %1513 = load i64, ptr %Length.addr.i2874, align 8
-  %call.i2877 = call i32 @memcmp(ptr noundef %1511, ptr noundef %1512, i64 noundef %1513) #10
+  %1562 = load ptr, ptr %Lhs.addr.i2872, align 8
+  %1563 = load ptr, ptr %Rhs.addr.i2873, align 8
+  %1564 = load i64, ptr %Length.addr.i2874, align 8
+  %call.i2877 = call i32 @memcmp(ptr noundef %1562, ptr noundef %1563, i64 noundef %1564) #10
   store i32 %call.i2877, ptr %retval.i2871, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2879
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2879: ; preds = %if.end.i2876, %if.then.i2878
-  %1514 = load i32, ptr %retval.i2871, align 4
-  %cmp5.i2214 = icmp eq i32 %1514, 0
+  %1565 = load i32, ptr %retval.i2871, align 4
+  %cmp5.i2214 = icmp eq i32 %1565, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2215
 
 _ZNK4llvh9StringRef6equalsES0_.exit2215:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2879, %land.lhs.true.i799
-  %1515 = phi i1 [ false, %land.lhs.true.i799 ], [ %cmp5.i2214, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2879 ]
-  br i1 %1515, label %if.then.i801, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit804
+  %1566 = phi i1 [ false, %land.lhs.true.i799 ], [ %cmp5.i2214, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2879 ]
+  br i1 %1566, label %if.then.i801, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit804
 
 if.then.i801:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2215
   %Result4.i802 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i796, i32 0, i32 1
@@ -15373,15 +15424,16 @@ if.then.i801:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit804: ; preds = %if.then.i801, %_ZNK4llvh9StringRef6equalsES0_.exit2215, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit821
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp155, ptr noundef nonnull align 1 dereferenceable(11) @.str.52)
-  %1516 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7), align 4
-  %or156 = or i32 %1516, 880
-  %1517 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp155, i32 0, i32 0
-  %1518 = load ptr, ptr %1517, align 8
-  %1519 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp155, i32 0, i32 1
-  %1520 = load i64, ptr %1519, align 8
-  store ptr %1518, ptr %S.i774, align 8
-  %1521 = getelementptr inbounds { ptr, i64 }, ptr %S.i774, i32 0, i32 1
-  store i64 %1520, ptr %1521, align 8
+  %1567 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7
+  %1568 = load i32, ptr %1567, align 4
+  %or156 = or i32 %1568, 880
+  %1569 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp155, i32 0, i32 0
+  %1570 = load ptr, ptr %1569, align 8
+  %1571 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp155, i32 0, i32 1
+  %1572 = load i64, ptr %1571, align 8
+  store ptr %1570, ptr %S.i774, align 8
+  %1573 = getelementptr inbounds { ptr, i64 }, ptr %S.i774, i32 0, i32 1
+  store i64 %1572, ptr %1573, align 8
   store ptr %this1.i796, ptr %this.addr.i775, align 8
   store i32 %or156, ptr %Value.addr.i776, align 4
   %this1.i779 = load ptr, ptr %this.addr.i775, align 8
@@ -15392,44 +15444,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit804: ; preds = %if.then
 land.lhs.true.i782:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit804
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i777, ptr align 8 %this1.i779, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i778, ptr align 8 %S.i774, i64 16, i1 false)
-  %1522 = load ptr, ptr %agg.tmp.i777, align 8
-  %1523 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i777, i32 0, i32 1
-  %1524 = load i64, ptr %1523, align 8
-  %1525 = load ptr, ptr %agg.tmp2.i778, align 8
-  %1526 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i778, i32 0, i32 1
-  %1527 = load i64, ptr %1526, align 8
-  store ptr %1522, ptr %LHS.i.i771, align 8
-  %1528 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i771, i32 0, i32 1
-  store i64 %1524, ptr %1528, align 8
-  store ptr %1525, ptr %RHS.i.i772, align 8
-  %1529 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i772, i32 0, i32 1
-  store i64 %1527, ptr %1529, align 8
+  %1574 = load ptr, ptr %agg.tmp.i777, align 8
+  %1575 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i777, i32 0, i32 1
+  %1576 = load i64, ptr %1575, align 8
+  %1577 = load ptr, ptr %agg.tmp2.i778, align 8
+  %1578 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i778, i32 0, i32 1
+  %1579 = load i64, ptr %1578, align 8
+  store ptr %1574, ptr %LHS.i.i771, align 8
+  %1580 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i771, i32 0, i32 1
+  store i64 %1576, ptr %1580, align 8
+  store ptr %1577, ptr %RHS.i.i772, align 8
+  %1581 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i772, i32 0, i32 1
+  store i64 %1579, ptr %1581, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i773, ptr align 8 %RHS.i.i772, i64 16, i1 false)
-  %1530 = load ptr, ptr %agg.tmp.i.i773, align 8
-  %1531 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i773, i32 0, i32 1
-  %1532 = load i64, ptr %1531, align 8
-  store ptr %1530, ptr %RHS.i2216, align 8
-  %1533 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2216, i32 0, i32 1
-  store i64 %1532, ptr %1533, align 8
+  %1582 = load ptr, ptr %agg.tmp.i.i773, align 8
+  %1583 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i773, i32 0, i32 1
+  %1584 = load i64, ptr %1583, align 8
+  store ptr %1582, ptr %RHS.i2216, align 8
+  %1585 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2216, i32 0, i32 1
+  store i64 %1584, ptr %1585, align 8
   store ptr %LHS.i.i771, ptr %this.addr.i2217, align 8
   %this1.i2218 = load ptr, ptr %this.addr.i2217, align 8
   %Length.i2219 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2218, i32 0, i32 1
-  %1534 = load i64, ptr %Length.i2219, align 8
+  %1586 = load i64, ptr %Length.i2219, align 8
   %Length2.i2220 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2216, i32 0, i32 1
-  %1535 = load i64, ptr %Length2.i2220, align 8
-  %cmp.i2221 = icmp eq i64 %1534, %1535
+  %1587 = load i64, ptr %Length2.i2220, align 8
+  %cmp.i2221 = icmp eq i64 %1586, %1587
   br i1 %cmp.i2221, label %land.rhs.i2222, label %_ZNK4llvh9StringRef6equalsES0_.exit2226
 
 land.rhs.i2222:                                   ; preds = %land.lhs.true.i782
-  %1536 = load ptr, ptr %this1.i2218, align 8
-  %1537 = load ptr, ptr %RHS.i2216, align 8
+  %1588 = load ptr, ptr %this1.i2218, align 8
+  %1589 = load ptr, ptr %RHS.i2216, align 8
   %Length4.i2223 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2216, i32 0, i32 1
-  %1538 = load i64, ptr %Length4.i2223, align 8
-  store ptr %1536, ptr %Lhs.addr.i2863, align 8
-  store ptr %1537, ptr %Rhs.addr.i2864, align 8
-  store i64 %1538, ptr %Length.addr.i2865, align 8
-  %1539 = load i64, ptr %Length.addr.i2865, align 8
-  %cmp.i2866 = icmp eq i64 %1539, 0
+  %1590 = load i64, ptr %Length4.i2223, align 8
+  store ptr %1588, ptr %Lhs.addr.i2863, align 8
+  store ptr %1589, ptr %Rhs.addr.i2864, align 8
+  store i64 %1590, ptr %Length.addr.i2865, align 8
+  %1591 = load i64, ptr %Length.addr.i2865, align 8
+  %cmp.i2866 = icmp eq i64 %1591, 0
   br i1 %cmp.i2866, label %if.then.i2869, label %if.end.i2867
 
 if.then.i2869:                                    ; preds = %land.rhs.i2222
@@ -15437,21 +15489,21 @@ if.then.i2869:                                    ; preds = %land.rhs.i2222
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2870
 
 if.end.i2867:                                     ; preds = %land.rhs.i2222
-  %1540 = load ptr, ptr %Lhs.addr.i2863, align 8
-  %1541 = load ptr, ptr %Rhs.addr.i2864, align 8
-  %1542 = load i64, ptr %Length.addr.i2865, align 8
-  %call.i2868 = call i32 @memcmp(ptr noundef %1540, ptr noundef %1541, i64 noundef %1542) #10
+  %1592 = load ptr, ptr %Lhs.addr.i2863, align 8
+  %1593 = load ptr, ptr %Rhs.addr.i2864, align 8
+  %1594 = load i64, ptr %Length.addr.i2865, align 8
+  %call.i2868 = call i32 @memcmp(ptr noundef %1592, ptr noundef %1593, i64 noundef %1594) #10
   store i32 %call.i2868, ptr %retval.i2862, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2870
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2870: ; preds = %if.end.i2867, %if.then.i2869
-  %1543 = load i32, ptr %retval.i2862, align 4
-  %cmp5.i2225 = icmp eq i32 %1543, 0
+  %1595 = load i32, ptr %retval.i2862, align 4
+  %cmp5.i2225 = icmp eq i32 %1595, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2226
 
 _ZNK4llvh9StringRef6equalsES0_.exit2226:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2870, %land.lhs.true.i782
-  %1544 = phi i1 [ false, %land.lhs.true.i782 ], [ %cmp5.i2225, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2870 ]
-  br i1 %1544, label %if.then.i784, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit787
+  %1596 = phi i1 [ false, %land.lhs.true.i782 ], [ %cmp5.i2225, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2870 ]
+  br i1 %1596, label %if.then.i784, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit787
 
 if.then.i784:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2226
   %Result4.i785 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i779, i32 0, i32 1
@@ -15460,15 +15512,16 @@ if.then.i784:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit787: ; preds = %if.then.i784, %_ZNK4llvh9StringRef6equalsES0_.exit2226, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit804
   call void @_ZN4llvh13StringLiteralC2ILm6EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm6ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp158, ptr noundef nonnull align 1 dereferenceable(6) @.str.53)
-  %1545 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7), align 4
-  %or159 = or i32 %1545, 48
-  %1546 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp158, i32 0, i32 0
-  %1547 = load ptr, ptr %1546, align 8
-  %1548 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp158, i32 0, i32 1
-  %1549 = load i64, ptr %1548, align 8
-  store ptr %1547, ptr %S.i757, align 8
-  %1550 = getelementptr inbounds { ptr, i64 }, ptr %S.i757, i32 0, i32 1
-  store i64 %1549, ptr %1550, align 8
+  %1597 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 15, i32 7
+  %1598 = load i32, ptr %1597, align 4
+  %or159 = or i32 %1598, 48
+  %1599 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp158, i32 0, i32 0
+  %1600 = load ptr, ptr %1599, align 8
+  %1601 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp158, i32 0, i32 1
+  %1602 = load i64, ptr %1601, align 8
+  store ptr %1600, ptr %S.i757, align 8
+  %1603 = getelementptr inbounds { ptr, i64 }, ptr %S.i757, i32 0, i32 1
+  store i64 %1602, ptr %1603, align 8
   store ptr %this1.i779, ptr %this.addr.i758, align 8
   store i32 %or159, ptr %Value.addr.i759, align 4
   %this1.i762 = load ptr, ptr %this.addr.i758, align 8
@@ -15479,44 +15532,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit787: ; preds = %if.then
 land.lhs.true.i765:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit787
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i760, ptr align 8 %this1.i762, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i761, ptr align 8 %S.i757, i64 16, i1 false)
-  %1551 = load ptr, ptr %agg.tmp.i760, align 8
-  %1552 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i760, i32 0, i32 1
-  %1553 = load i64, ptr %1552, align 8
-  %1554 = load ptr, ptr %agg.tmp2.i761, align 8
-  %1555 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i761, i32 0, i32 1
-  %1556 = load i64, ptr %1555, align 8
-  store ptr %1551, ptr %LHS.i.i754, align 8
-  %1557 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i754, i32 0, i32 1
-  store i64 %1553, ptr %1557, align 8
-  store ptr %1554, ptr %RHS.i.i755, align 8
-  %1558 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i755, i32 0, i32 1
-  store i64 %1556, ptr %1558, align 8
+  %1604 = load ptr, ptr %agg.tmp.i760, align 8
+  %1605 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i760, i32 0, i32 1
+  %1606 = load i64, ptr %1605, align 8
+  %1607 = load ptr, ptr %agg.tmp2.i761, align 8
+  %1608 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i761, i32 0, i32 1
+  %1609 = load i64, ptr %1608, align 8
+  store ptr %1604, ptr %LHS.i.i754, align 8
+  %1610 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i754, i32 0, i32 1
+  store i64 %1606, ptr %1610, align 8
+  store ptr %1607, ptr %RHS.i.i755, align 8
+  %1611 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i755, i32 0, i32 1
+  store i64 %1609, ptr %1611, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i756, ptr align 8 %RHS.i.i755, i64 16, i1 false)
-  %1559 = load ptr, ptr %agg.tmp.i.i756, align 8
-  %1560 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i756, i32 0, i32 1
-  %1561 = load i64, ptr %1560, align 8
-  store ptr %1559, ptr %RHS.i2227, align 8
-  %1562 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2227, i32 0, i32 1
-  store i64 %1561, ptr %1562, align 8
+  %1612 = load ptr, ptr %agg.tmp.i.i756, align 8
+  %1613 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i756, i32 0, i32 1
+  %1614 = load i64, ptr %1613, align 8
+  store ptr %1612, ptr %RHS.i2227, align 8
+  %1615 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2227, i32 0, i32 1
+  store i64 %1614, ptr %1615, align 8
   store ptr %LHS.i.i754, ptr %this.addr.i2228, align 8
   %this1.i2229 = load ptr, ptr %this.addr.i2228, align 8
   %Length.i2230 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2229, i32 0, i32 1
-  %1563 = load i64, ptr %Length.i2230, align 8
+  %1616 = load i64, ptr %Length.i2230, align 8
   %Length2.i2231 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2227, i32 0, i32 1
-  %1564 = load i64, ptr %Length2.i2231, align 8
-  %cmp.i2232 = icmp eq i64 %1563, %1564
+  %1617 = load i64, ptr %Length2.i2231, align 8
+  %cmp.i2232 = icmp eq i64 %1616, %1617
   br i1 %cmp.i2232, label %land.rhs.i2233, label %_ZNK4llvh9StringRef6equalsES0_.exit2237
 
 land.rhs.i2233:                                   ; preds = %land.lhs.true.i765
-  %1565 = load ptr, ptr %this1.i2229, align 8
-  %1566 = load ptr, ptr %RHS.i2227, align 8
+  %1618 = load ptr, ptr %this1.i2229, align 8
+  %1619 = load ptr, ptr %RHS.i2227, align 8
   %Length4.i2234 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2227, i32 0, i32 1
-  %1567 = load i64, ptr %Length4.i2234, align 8
-  store ptr %1565, ptr %Lhs.addr.i2854, align 8
-  store ptr %1566, ptr %Rhs.addr.i2855, align 8
-  store i64 %1567, ptr %Length.addr.i2856, align 8
-  %1568 = load i64, ptr %Length.addr.i2856, align 8
-  %cmp.i2857 = icmp eq i64 %1568, 0
+  %1620 = load i64, ptr %Length4.i2234, align 8
+  store ptr %1618, ptr %Lhs.addr.i2854, align 8
+  store ptr %1619, ptr %Rhs.addr.i2855, align 8
+  store i64 %1620, ptr %Length.addr.i2856, align 8
+  %1621 = load i64, ptr %Length.addr.i2856, align 8
+  %cmp.i2857 = icmp eq i64 %1621, 0
   br i1 %cmp.i2857, label %if.then.i2860, label %if.end.i2858
 
 if.then.i2860:                                    ; preds = %land.rhs.i2233
@@ -15524,21 +15577,21 @@ if.then.i2860:                                    ; preds = %land.rhs.i2233
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2861
 
 if.end.i2858:                                     ; preds = %land.rhs.i2233
-  %1569 = load ptr, ptr %Lhs.addr.i2854, align 8
-  %1570 = load ptr, ptr %Rhs.addr.i2855, align 8
-  %1571 = load i64, ptr %Length.addr.i2856, align 8
-  %call.i2859 = call i32 @memcmp(ptr noundef %1569, ptr noundef %1570, i64 noundef %1571) #10
+  %1622 = load ptr, ptr %Lhs.addr.i2854, align 8
+  %1623 = load ptr, ptr %Rhs.addr.i2855, align 8
+  %1624 = load i64, ptr %Length.addr.i2856, align 8
+  %call.i2859 = call i32 @memcmp(ptr noundef %1622, ptr noundef %1623, i64 noundef %1624) #10
   store i32 %call.i2859, ptr %retval.i2853, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2861
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2861: ; preds = %if.end.i2858, %if.then.i2860
-  %1572 = load i32, ptr %retval.i2853, align 4
-  %cmp5.i2236 = icmp eq i32 %1572, 0
+  %1625 = load i32, ptr %retval.i2853, align 4
+  %cmp5.i2236 = icmp eq i32 %1625, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2237
 
 _ZNK4llvh9StringRef6equalsES0_.exit2237:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2861, %land.lhs.true.i765
-  %1573 = phi i1 [ false, %land.lhs.true.i765 ], [ %cmp5.i2236, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2861 ]
-  br i1 %1573, label %if.then.i767, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit770
+  %1626 = phi i1 [ false, %land.lhs.true.i765 ], [ %cmp5.i2236, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2861 ]
+  br i1 %1626, label %if.then.i767, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit770
 
 if.then.i767:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2237
   %Result4.i768 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i762, i32 0, i32 1
@@ -15547,15 +15600,16 @@ if.then.i767:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit770: ; preds = %if.then.i767, %_ZNK4llvh9StringRef6equalsES0_.exit2237, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit787
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp161, ptr noundef nonnull align 1 dereferenceable(10) @.str.54)
-  %1574 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7), align 4
-  %or162 = or i32 %1574, 1
-  %1575 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp161, i32 0, i32 0
-  %1576 = load ptr, ptr %1575, align 8
-  %1577 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp161, i32 0, i32 1
-  %1578 = load i64, ptr %1577, align 8
-  store ptr %1576, ptr %S.i740, align 8
-  %1579 = getelementptr inbounds { ptr, i64 }, ptr %S.i740, i32 0, i32 1
-  store i64 %1578, ptr %1579, align 8
+  %1627 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7
+  %1628 = load i32, ptr %1627, align 4
+  %or162 = or i32 %1628, 1
+  %1629 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp161, i32 0, i32 0
+  %1630 = load ptr, ptr %1629, align 8
+  %1631 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp161, i32 0, i32 1
+  %1632 = load i64, ptr %1631, align 8
+  store ptr %1630, ptr %S.i740, align 8
+  %1633 = getelementptr inbounds { ptr, i64 }, ptr %S.i740, i32 0, i32 1
+  store i64 %1632, ptr %1633, align 8
   store ptr %this1.i762, ptr %this.addr.i741, align 8
   store i32 %or162, ptr %Value.addr.i742, align 4
   %this1.i745 = load ptr, ptr %this.addr.i741, align 8
@@ -15566,44 +15620,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit770: ; preds = %if.then
 land.lhs.true.i748:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit770
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i743, ptr align 8 %this1.i745, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i744, ptr align 8 %S.i740, i64 16, i1 false)
-  %1580 = load ptr, ptr %agg.tmp.i743, align 8
-  %1581 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i743, i32 0, i32 1
-  %1582 = load i64, ptr %1581, align 8
-  %1583 = load ptr, ptr %agg.tmp2.i744, align 8
-  %1584 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i744, i32 0, i32 1
-  %1585 = load i64, ptr %1584, align 8
-  store ptr %1580, ptr %LHS.i.i737, align 8
-  %1586 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i737, i32 0, i32 1
-  store i64 %1582, ptr %1586, align 8
-  store ptr %1583, ptr %RHS.i.i738, align 8
-  %1587 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i738, i32 0, i32 1
-  store i64 %1585, ptr %1587, align 8
+  %1634 = load ptr, ptr %agg.tmp.i743, align 8
+  %1635 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i743, i32 0, i32 1
+  %1636 = load i64, ptr %1635, align 8
+  %1637 = load ptr, ptr %agg.tmp2.i744, align 8
+  %1638 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i744, i32 0, i32 1
+  %1639 = load i64, ptr %1638, align 8
+  store ptr %1634, ptr %LHS.i.i737, align 8
+  %1640 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i737, i32 0, i32 1
+  store i64 %1636, ptr %1640, align 8
+  store ptr %1637, ptr %RHS.i.i738, align 8
+  %1641 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i738, i32 0, i32 1
+  store i64 %1639, ptr %1641, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i739, ptr align 8 %RHS.i.i738, i64 16, i1 false)
-  %1588 = load ptr, ptr %agg.tmp.i.i739, align 8
-  %1589 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i739, i32 0, i32 1
-  %1590 = load i64, ptr %1589, align 8
-  store ptr %1588, ptr %RHS.i2238, align 8
-  %1591 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2238, i32 0, i32 1
-  store i64 %1590, ptr %1591, align 8
+  %1642 = load ptr, ptr %agg.tmp.i.i739, align 8
+  %1643 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i739, i32 0, i32 1
+  %1644 = load i64, ptr %1643, align 8
+  store ptr %1642, ptr %RHS.i2238, align 8
+  %1645 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2238, i32 0, i32 1
+  store i64 %1644, ptr %1645, align 8
   store ptr %LHS.i.i737, ptr %this.addr.i2239, align 8
   %this1.i2240 = load ptr, ptr %this.addr.i2239, align 8
   %Length.i2241 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2240, i32 0, i32 1
-  %1592 = load i64, ptr %Length.i2241, align 8
+  %1646 = load i64, ptr %Length.i2241, align 8
   %Length2.i2242 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2238, i32 0, i32 1
-  %1593 = load i64, ptr %Length2.i2242, align 8
-  %cmp.i2243 = icmp eq i64 %1592, %1593
+  %1647 = load i64, ptr %Length2.i2242, align 8
+  %cmp.i2243 = icmp eq i64 %1646, %1647
   br i1 %cmp.i2243, label %land.rhs.i2244, label %_ZNK4llvh9StringRef6equalsES0_.exit2248
 
 land.rhs.i2244:                                   ; preds = %land.lhs.true.i748
-  %1594 = load ptr, ptr %this1.i2240, align 8
-  %1595 = load ptr, ptr %RHS.i2238, align 8
+  %1648 = load ptr, ptr %this1.i2240, align 8
+  %1649 = load ptr, ptr %RHS.i2238, align 8
   %Length4.i2245 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2238, i32 0, i32 1
-  %1596 = load i64, ptr %Length4.i2245, align 8
-  store ptr %1594, ptr %Lhs.addr.i2845, align 8
-  store ptr %1595, ptr %Rhs.addr.i2846, align 8
-  store i64 %1596, ptr %Length.addr.i2847, align 8
-  %1597 = load i64, ptr %Length.addr.i2847, align 8
-  %cmp.i2848 = icmp eq i64 %1597, 0
+  %1650 = load i64, ptr %Length4.i2245, align 8
+  store ptr %1648, ptr %Lhs.addr.i2845, align 8
+  store ptr %1649, ptr %Rhs.addr.i2846, align 8
+  store i64 %1650, ptr %Length.addr.i2847, align 8
+  %1651 = load i64, ptr %Length.addr.i2847, align 8
+  %cmp.i2848 = icmp eq i64 %1651, 0
   br i1 %cmp.i2848, label %if.then.i2851, label %if.end.i2849
 
 if.then.i2851:                                    ; preds = %land.rhs.i2244
@@ -15611,21 +15665,21 @@ if.then.i2851:                                    ; preds = %land.rhs.i2244
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2852
 
 if.end.i2849:                                     ; preds = %land.rhs.i2244
-  %1598 = load ptr, ptr %Lhs.addr.i2845, align 8
-  %1599 = load ptr, ptr %Rhs.addr.i2846, align 8
-  %1600 = load i64, ptr %Length.addr.i2847, align 8
-  %call.i2850 = call i32 @memcmp(ptr noundef %1598, ptr noundef %1599, i64 noundef %1600) #10
+  %1652 = load ptr, ptr %Lhs.addr.i2845, align 8
+  %1653 = load ptr, ptr %Rhs.addr.i2846, align 8
+  %1654 = load i64, ptr %Length.addr.i2847, align 8
+  %call.i2850 = call i32 @memcmp(ptr noundef %1652, ptr noundef %1653, i64 noundef %1654) #10
   store i32 %call.i2850, ptr %retval.i2844, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2852
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2852: ; preds = %if.end.i2849, %if.then.i2851
-  %1601 = load i32, ptr %retval.i2844, align 4
-  %cmp5.i2247 = icmp eq i32 %1601, 0
+  %1655 = load i32, ptr %retval.i2844, align 4
+  %cmp5.i2247 = icmp eq i32 %1655, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2248
 
 _ZNK4llvh9StringRef6equalsES0_.exit2248:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2852, %land.lhs.true.i748
-  %1602 = phi i1 [ false, %land.lhs.true.i748 ], [ %cmp5.i2247, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2852 ]
-  br i1 %1602, label %if.then.i750, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit753
+  %1656 = phi i1 [ false, %land.lhs.true.i748 ], [ %cmp5.i2247, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2852 ]
+  br i1 %1656, label %if.then.i750, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit753
 
 if.then.i750:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2248
   %Result4.i751 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i745, i32 0, i32 1
@@ -15634,15 +15688,16 @@ if.then.i750:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit753: ; preds = %if.then.i750, %_ZNK4llvh9StringRef6equalsES0_.exit2248, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit770
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp164, ptr noundef nonnull align 1 dereferenceable(11) @.str.55)
-  %1603 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7), align 4
-  %or165 = or i32 %1603, 1
-  %1604 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp164, i32 0, i32 0
-  %1605 = load ptr, ptr %1604, align 8
-  %1606 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp164, i32 0, i32 1
-  %1607 = load i64, ptr %1606, align 8
-  store ptr %1605, ptr %S.i723, align 8
-  %1608 = getelementptr inbounds { ptr, i64 }, ptr %S.i723, i32 0, i32 1
-  store i64 %1607, ptr %1608, align 8
+  %1657 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7
+  %1658 = load i32, ptr %1657, align 4
+  %or165 = or i32 %1658, 1
+  %1659 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp164, i32 0, i32 0
+  %1660 = load ptr, ptr %1659, align 8
+  %1661 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp164, i32 0, i32 1
+  %1662 = load i64, ptr %1661, align 8
+  store ptr %1660, ptr %S.i723, align 8
+  %1663 = getelementptr inbounds { ptr, i64 }, ptr %S.i723, i32 0, i32 1
+  store i64 %1662, ptr %1663, align 8
   store ptr %this1.i745, ptr %this.addr.i724, align 8
   store i32 %or165, ptr %Value.addr.i725, align 4
   %this1.i728 = load ptr, ptr %this.addr.i724, align 8
@@ -15653,44 +15708,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit753: ; preds = %if.then
 land.lhs.true.i731:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit753
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i726, ptr align 8 %this1.i728, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i727, ptr align 8 %S.i723, i64 16, i1 false)
-  %1609 = load ptr, ptr %agg.tmp.i726, align 8
-  %1610 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i726, i32 0, i32 1
-  %1611 = load i64, ptr %1610, align 8
-  %1612 = load ptr, ptr %agg.tmp2.i727, align 8
-  %1613 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i727, i32 0, i32 1
-  %1614 = load i64, ptr %1613, align 8
-  store ptr %1609, ptr %LHS.i.i720, align 8
-  %1615 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i720, i32 0, i32 1
-  store i64 %1611, ptr %1615, align 8
-  store ptr %1612, ptr %RHS.i.i721, align 8
-  %1616 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i721, i32 0, i32 1
-  store i64 %1614, ptr %1616, align 8
+  %1664 = load ptr, ptr %agg.tmp.i726, align 8
+  %1665 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i726, i32 0, i32 1
+  %1666 = load i64, ptr %1665, align 8
+  %1667 = load ptr, ptr %agg.tmp2.i727, align 8
+  %1668 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i727, i32 0, i32 1
+  %1669 = load i64, ptr %1668, align 8
+  store ptr %1664, ptr %LHS.i.i720, align 8
+  %1670 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i720, i32 0, i32 1
+  store i64 %1666, ptr %1670, align 8
+  store ptr %1667, ptr %RHS.i.i721, align 8
+  %1671 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i721, i32 0, i32 1
+  store i64 %1669, ptr %1671, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i722, ptr align 8 %RHS.i.i721, i64 16, i1 false)
-  %1617 = load ptr, ptr %agg.tmp.i.i722, align 8
-  %1618 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i722, i32 0, i32 1
-  %1619 = load i64, ptr %1618, align 8
-  store ptr %1617, ptr %RHS.i2249, align 8
-  %1620 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2249, i32 0, i32 1
-  store i64 %1619, ptr %1620, align 8
+  %1672 = load ptr, ptr %agg.tmp.i.i722, align 8
+  %1673 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i722, i32 0, i32 1
+  %1674 = load i64, ptr %1673, align 8
+  store ptr %1672, ptr %RHS.i2249, align 8
+  %1675 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2249, i32 0, i32 1
+  store i64 %1674, ptr %1675, align 8
   store ptr %LHS.i.i720, ptr %this.addr.i2250, align 8
   %this1.i2251 = load ptr, ptr %this.addr.i2250, align 8
   %Length.i2252 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2251, i32 0, i32 1
-  %1621 = load i64, ptr %Length.i2252, align 8
+  %1676 = load i64, ptr %Length.i2252, align 8
   %Length2.i2253 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2249, i32 0, i32 1
-  %1622 = load i64, ptr %Length2.i2253, align 8
-  %cmp.i2254 = icmp eq i64 %1621, %1622
+  %1677 = load i64, ptr %Length2.i2253, align 8
+  %cmp.i2254 = icmp eq i64 %1676, %1677
   br i1 %cmp.i2254, label %land.rhs.i2255, label %_ZNK4llvh9StringRef6equalsES0_.exit2259
 
 land.rhs.i2255:                                   ; preds = %land.lhs.true.i731
-  %1623 = load ptr, ptr %this1.i2251, align 8
-  %1624 = load ptr, ptr %RHS.i2249, align 8
+  %1678 = load ptr, ptr %this1.i2251, align 8
+  %1679 = load ptr, ptr %RHS.i2249, align 8
   %Length4.i2256 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2249, i32 0, i32 1
-  %1625 = load i64, ptr %Length4.i2256, align 8
-  store ptr %1623, ptr %Lhs.addr.i2836, align 8
-  store ptr %1624, ptr %Rhs.addr.i2837, align 8
-  store i64 %1625, ptr %Length.addr.i2838, align 8
-  %1626 = load i64, ptr %Length.addr.i2838, align 8
-  %cmp.i2839 = icmp eq i64 %1626, 0
+  %1680 = load i64, ptr %Length4.i2256, align 8
+  store ptr %1678, ptr %Lhs.addr.i2836, align 8
+  store ptr %1679, ptr %Rhs.addr.i2837, align 8
+  store i64 %1680, ptr %Length.addr.i2838, align 8
+  %1681 = load i64, ptr %Length.addr.i2838, align 8
+  %cmp.i2839 = icmp eq i64 %1681, 0
   br i1 %cmp.i2839, label %if.then.i2842, label %if.end.i2840
 
 if.then.i2842:                                    ; preds = %land.rhs.i2255
@@ -15698,21 +15753,21 @@ if.then.i2842:                                    ; preds = %land.rhs.i2255
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2843
 
 if.end.i2840:                                     ; preds = %land.rhs.i2255
-  %1627 = load ptr, ptr %Lhs.addr.i2836, align 8
-  %1628 = load ptr, ptr %Rhs.addr.i2837, align 8
-  %1629 = load i64, ptr %Length.addr.i2838, align 8
-  %call.i2841 = call i32 @memcmp(ptr noundef %1627, ptr noundef %1628, i64 noundef %1629) #10
+  %1682 = load ptr, ptr %Lhs.addr.i2836, align 8
+  %1683 = load ptr, ptr %Rhs.addr.i2837, align 8
+  %1684 = load i64, ptr %Length.addr.i2838, align 8
+  %call.i2841 = call i32 @memcmp(ptr noundef %1682, ptr noundef %1683, i64 noundef %1684) #10
   store i32 %call.i2841, ptr %retval.i2835, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2843
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2843: ; preds = %if.end.i2840, %if.then.i2842
-  %1630 = load i32, ptr %retval.i2835, align 4
-  %cmp5.i2258 = icmp eq i32 %1630, 0
+  %1685 = load i32, ptr %retval.i2835, align 4
+  %cmp5.i2258 = icmp eq i32 %1685, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2259
 
 _ZNK4llvh9StringRef6equalsES0_.exit2259:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2843, %land.lhs.true.i731
-  %1631 = phi i1 [ false, %land.lhs.true.i731 ], [ %cmp5.i2258, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2843 ]
-  br i1 %1631, label %if.then.i733, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit736
+  %1686 = phi i1 [ false, %land.lhs.true.i731 ], [ %cmp5.i2258, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2843 ]
+  br i1 %1686, label %if.then.i733, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit736
 
 if.then.i733:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2259
   %Result4.i734 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i728, i32 0, i32 1
@@ -15721,15 +15776,16 @@ if.then.i733:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit736: ; preds = %if.then.i733, %_ZNK4llvh9StringRef6equalsES0_.exit2259, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit753
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp167, ptr noundef nonnull align 1 dereferenceable(10) @.str.56)
-  %1632 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7), align 4
-  %or168 = or i32 %1632, 96
-  %1633 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp167, i32 0, i32 0
-  %1634 = load ptr, ptr %1633, align 8
-  %1635 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp167, i32 0, i32 1
-  %1636 = load i64, ptr %1635, align 8
-  store ptr %1634, ptr %S.i706, align 8
-  %1637 = getelementptr inbounds { ptr, i64 }, ptr %S.i706, i32 0, i32 1
-  store i64 %1636, ptr %1637, align 8
+  %1687 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7
+  %1688 = load i32, ptr %1687, align 4
+  %or168 = or i32 %1688, 96
+  %1689 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp167, i32 0, i32 0
+  %1690 = load ptr, ptr %1689, align 8
+  %1691 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp167, i32 0, i32 1
+  %1692 = load i64, ptr %1691, align 8
+  store ptr %1690, ptr %S.i706, align 8
+  %1693 = getelementptr inbounds { ptr, i64 }, ptr %S.i706, i32 0, i32 1
+  store i64 %1692, ptr %1693, align 8
   store ptr %this1.i728, ptr %this.addr.i707, align 8
   store i32 %or168, ptr %Value.addr.i708, align 4
   %this1.i711 = load ptr, ptr %this.addr.i707, align 8
@@ -15740,44 +15796,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit736: ; preds = %if.then
 land.lhs.true.i714:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit736
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i709, ptr align 8 %this1.i711, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i710, ptr align 8 %S.i706, i64 16, i1 false)
-  %1638 = load ptr, ptr %agg.tmp.i709, align 8
-  %1639 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i709, i32 0, i32 1
-  %1640 = load i64, ptr %1639, align 8
-  %1641 = load ptr, ptr %agg.tmp2.i710, align 8
-  %1642 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i710, i32 0, i32 1
-  %1643 = load i64, ptr %1642, align 8
-  store ptr %1638, ptr %LHS.i.i703, align 8
-  %1644 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i703, i32 0, i32 1
-  store i64 %1640, ptr %1644, align 8
-  store ptr %1641, ptr %RHS.i.i704, align 8
-  %1645 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i704, i32 0, i32 1
-  store i64 %1643, ptr %1645, align 8
+  %1694 = load ptr, ptr %agg.tmp.i709, align 8
+  %1695 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i709, i32 0, i32 1
+  %1696 = load i64, ptr %1695, align 8
+  %1697 = load ptr, ptr %agg.tmp2.i710, align 8
+  %1698 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i710, i32 0, i32 1
+  %1699 = load i64, ptr %1698, align 8
+  store ptr %1694, ptr %LHS.i.i703, align 8
+  %1700 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i703, i32 0, i32 1
+  store i64 %1696, ptr %1700, align 8
+  store ptr %1697, ptr %RHS.i.i704, align 8
+  %1701 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i704, i32 0, i32 1
+  store i64 %1699, ptr %1701, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i705, ptr align 8 %RHS.i.i704, i64 16, i1 false)
-  %1646 = load ptr, ptr %agg.tmp.i.i705, align 8
-  %1647 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i705, i32 0, i32 1
-  %1648 = load i64, ptr %1647, align 8
-  store ptr %1646, ptr %RHS.i2260, align 8
-  %1649 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2260, i32 0, i32 1
-  store i64 %1648, ptr %1649, align 8
+  %1702 = load ptr, ptr %agg.tmp.i.i705, align 8
+  %1703 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i705, i32 0, i32 1
+  %1704 = load i64, ptr %1703, align 8
+  store ptr %1702, ptr %RHS.i2260, align 8
+  %1705 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2260, i32 0, i32 1
+  store i64 %1704, ptr %1705, align 8
   store ptr %LHS.i.i703, ptr %this.addr.i2261, align 8
   %this1.i2262 = load ptr, ptr %this.addr.i2261, align 8
   %Length.i2263 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2262, i32 0, i32 1
-  %1650 = load i64, ptr %Length.i2263, align 8
+  %1706 = load i64, ptr %Length.i2263, align 8
   %Length2.i2264 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2260, i32 0, i32 1
-  %1651 = load i64, ptr %Length2.i2264, align 8
-  %cmp.i2265 = icmp eq i64 %1650, %1651
+  %1707 = load i64, ptr %Length2.i2264, align 8
+  %cmp.i2265 = icmp eq i64 %1706, %1707
   br i1 %cmp.i2265, label %land.rhs.i2266, label %_ZNK4llvh9StringRef6equalsES0_.exit2270
 
 land.rhs.i2266:                                   ; preds = %land.lhs.true.i714
-  %1652 = load ptr, ptr %this1.i2262, align 8
-  %1653 = load ptr, ptr %RHS.i2260, align 8
+  %1708 = load ptr, ptr %this1.i2262, align 8
+  %1709 = load ptr, ptr %RHS.i2260, align 8
   %Length4.i2267 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2260, i32 0, i32 1
-  %1654 = load i64, ptr %Length4.i2267, align 8
-  store ptr %1652, ptr %Lhs.addr.i2827, align 8
-  store ptr %1653, ptr %Rhs.addr.i2828, align 8
-  store i64 %1654, ptr %Length.addr.i2829, align 8
-  %1655 = load i64, ptr %Length.addr.i2829, align 8
-  %cmp.i2830 = icmp eq i64 %1655, 0
+  %1710 = load i64, ptr %Length4.i2267, align 8
+  store ptr %1708, ptr %Lhs.addr.i2827, align 8
+  store ptr %1709, ptr %Rhs.addr.i2828, align 8
+  store i64 %1710, ptr %Length.addr.i2829, align 8
+  %1711 = load i64, ptr %Length.addr.i2829, align 8
+  %cmp.i2830 = icmp eq i64 %1711, 0
   br i1 %cmp.i2830, label %if.then.i2833, label %if.end.i2831
 
 if.then.i2833:                                    ; preds = %land.rhs.i2266
@@ -15785,21 +15841,21 @@ if.then.i2833:                                    ; preds = %land.rhs.i2266
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2834
 
 if.end.i2831:                                     ; preds = %land.rhs.i2266
-  %1656 = load ptr, ptr %Lhs.addr.i2827, align 8
-  %1657 = load ptr, ptr %Rhs.addr.i2828, align 8
-  %1658 = load i64, ptr %Length.addr.i2829, align 8
-  %call.i2832 = call i32 @memcmp(ptr noundef %1656, ptr noundef %1657, i64 noundef %1658) #10
+  %1712 = load ptr, ptr %Lhs.addr.i2827, align 8
+  %1713 = load ptr, ptr %Rhs.addr.i2828, align 8
+  %1714 = load i64, ptr %Length.addr.i2829, align 8
+  %call.i2832 = call i32 @memcmp(ptr noundef %1712, ptr noundef %1713, i64 noundef %1714) #10
   store i32 %call.i2832, ptr %retval.i2826, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2834
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2834: ; preds = %if.end.i2831, %if.then.i2833
-  %1659 = load i32, ptr %retval.i2826, align 4
-  %cmp5.i2269 = icmp eq i32 %1659, 0
+  %1715 = load i32, ptr %retval.i2826, align 4
+  %cmp5.i2269 = icmp eq i32 %1715, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2270
 
 _ZNK4llvh9StringRef6equalsES0_.exit2270:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2834, %land.lhs.true.i714
-  %1660 = phi i1 [ false, %land.lhs.true.i714 ], [ %cmp5.i2269, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2834 ]
-  br i1 %1660, label %if.then.i716, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit719
+  %1716 = phi i1 [ false, %land.lhs.true.i714 ], [ %cmp5.i2269, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2834 ]
+  br i1 %1716, label %if.then.i716, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit719
 
 if.then.i716:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2270
   %Result4.i717 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i711, i32 0, i32 1
@@ -15808,15 +15864,16 @@ if.then.i716:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit719: ; preds = %if.then.i716, %_ZNK4llvh9StringRef6equalsES0_.exit2270, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit736
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp170, ptr noundef nonnull align 1 dereferenceable(10) @.str.57)
-  %1661 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7), align 4
-  %or171 = or i32 %1661, 96
-  %1662 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp170, i32 0, i32 0
-  %1663 = load ptr, ptr %1662, align 8
-  %1664 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp170, i32 0, i32 1
-  %1665 = load i64, ptr %1664, align 8
-  store ptr %1663, ptr %S.i689, align 8
-  %1666 = getelementptr inbounds { ptr, i64 }, ptr %S.i689, i32 0, i32 1
-  store i64 %1665, ptr %1666, align 8
+  %1717 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7
+  %1718 = load i32, ptr %1717, align 4
+  %or171 = or i32 %1718, 96
+  %1719 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp170, i32 0, i32 0
+  %1720 = load ptr, ptr %1719, align 8
+  %1721 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp170, i32 0, i32 1
+  %1722 = load i64, ptr %1721, align 8
+  store ptr %1720, ptr %S.i689, align 8
+  %1723 = getelementptr inbounds { ptr, i64 }, ptr %S.i689, i32 0, i32 1
+  store i64 %1722, ptr %1723, align 8
   store ptr %this1.i711, ptr %this.addr.i690, align 8
   store i32 %or171, ptr %Value.addr.i691, align 4
   %this1.i694 = load ptr, ptr %this.addr.i690, align 8
@@ -15827,44 +15884,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit719: ; preds = %if.then
 land.lhs.true.i697:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit719
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i692, ptr align 8 %this1.i694, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i693, ptr align 8 %S.i689, i64 16, i1 false)
-  %1667 = load ptr, ptr %agg.tmp.i692, align 8
-  %1668 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i692, i32 0, i32 1
-  %1669 = load i64, ptr %1668, align 8
-  %1670 = load ptr, ptr %agg.tmp2.i693, align 8
-  %1671 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i693, i32 0, i32 1
-  %1672 = load i64, ptr %1671, align 8
-  store ptr %1667, ptr %LHS.i.i686, align 8
-  %1673 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i686, i32 0, i32 1
-  store i64 %1669, ptr %1673, align 8
-  store ptr %1670, ptr %RHS.i.i687, align 8
-  %1674 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i687, i32 0, i32 1
-  store i64 %1672, ptr %1674, align 8
+  %1724 = load ptr, ptr %agg.tmp.i692, align 8
+  %1725 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i692, i32 0, i32 1
+  %1726 = load i64, ptr %1725, align 8
+  %1727 = load ptr, ptr %agg.tmp2.i693, align 8
+  %1728 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i693, i32 0, i32 1
+  %1729 = load i64, ptr %1728, align 8
+  store ptr %1724, ptr %LHS.i.i686, align 8
+  %1730 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i686, i32 0, i32 1
+  store i64 %1726, ptr %1730, align 8
+  store ptr %1727, ptr %RHS.i.i687, align 8
+  %1731 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i687, i32 0, i32 1
+  store i64 %1729, ptr %1731, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i688, ptr align 8 %RHS.i.i687, i64 16, i1 false)
-  %1675 = load ptr, ptr %agg.tmp.i.i688, align 8
-  %1676 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i688, i32 0, i32 1
-  %1677 = load i64, ptr %1676, align 8
-  store ptr %1675, ptr %RHS.i2271, align 8
-  %1678 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2271, i32 0, i32 1
-  store i64 %1677, ptr %1678, align 8
+  %1732 = load ptr, ptr %agg.tmp.i.i688, align 8
+  %1733 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i688, i32 0, i32 1
+  %1734 = load i64, ptr %1733, align 8
+  store ptr %1732, ptr %RHS.i2271, align 8
+  %1735 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2271, i32 0, i32 1
+  store i64 %1734, ptr %1735, align 8
   store ptr %LHS.i.i686, ptr %this.addr.i2272, align 8
   %this1.i2273 = load ptr, ptr %this.addr.i2272, align 8
   %Length.i2274 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2273, i32 0, i32 1
-  %1679 = load i64, ptr %Length.i2274, align 8
+  %1736 = load i64, ptr %Length.i2274, align 8
   %Length2.i2275 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2271, i32 0, i32 1
-  %1680 = load i64, ptr %Length2.i2275, align 8
-  %cmp.i2276 = icmp eq i64 %1679, %1680
+  %1737 = load i64, ptr %Length2.i2275, align 8
+  %cmp.i2276 = icmp eq i64 %1736, %1737
   br i1 %cmp.i2276, label %land.rhs.i2277, label %_ZNK4llvh9StringRef6equalsES0_.exit2281
 
 land.rhs.i2277:                                   ; preds = %land.lhs.true.i697
-  %1681 = load ptr, ptr %this1.i2273, align 8
-  %1682 = load ptr, ptr %RHS.i2271, align 8
+  %1738 = load ptr, ptr %this1.i2273, align 8
+  %1739 = load ptr, ptr %RHS.i2271, align 8
   %Length4.i2278 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2271, i32 0, i32 1
-  %1683 = load i64, ptr %Length4.i2278, align 8
-  store ptr %1681, ptr %Lhs.addr.i2818, align 8
-  store ptr %1682, ptr %Rhs.addr.i2819, align 8
-  store i64 %1683, ptr %Length.addr.i2820, align 8
-  %1684 = load i64, ptr %Length.addr.i2820, align 8
-  %cmp.i2821 = icmp eq i64 %1684, 0
+  %1740 = load i64, ptr %Length4.i2278, align 8
+  store ptr %1738, ptr %Lhs.addr.i2818, align 8
+  store ptr %1739, ptr %Rhs.addr.i2819, align 8
+  store i64 %1740, ptr %Length.addr.i2820, align 8
+  %1741 = load i64, ptr %Length.addr.i2820, align 8
+  %cmp.i2821 = icmp eq i64 %1741, 0
   br i1 %cmp.i2821, label %if.then.i2824, label %if.end.i2822
 
 if.then.i2824:                                    ; preds = %land.rhs.i2277
@@ -15872,21 +15929,21 @@ if.then.i2824:                                    ; preds = %land.rhs.i2277
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2825
 
 if.end.i2822:                                     ; preds = %land.rhs.i2277
-  %1685 = load ptr, ptr %Lhs.addr.i2818, align 8
-  %1686 = load ptr, ptr %Rhs.addr.i2819, align 8
-  %1687 = load i64, ptr %Length.addr.i2820, align 8
-  %call.i2823 = call i32 @memcmp(ptr noundef %1685, ptr noundef %1686, i64 noundef %1687) #10
+  %1742 = load ptr, ptr %Lhs.addr.i2818, align 8
+  %1743 = load ptr, ptr %Rhs.addr.i2819, align 8
+  %1744 = load i64, ptr %Length.addr.i2820, align 8
+  %call.i2823 = call i32 @memcmp(ptr noundef %1742, ptr noundef %1743, i64 noundef %1744) #10
   store i32 %call.i2823, ptr %retval.i2817, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2825
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2825: ; preds = %if.end.i2822, %if.then.i2824
-  %1688 = load i32, ptr %retval.i2817, align 4
-  %cmp5.i2280 = icmp eq i32 %1688, 0
+  %1745 = load i32, ptr %retval.i2817, align 4
+  %cmp5.i2280 = icmp eq i32 %1745, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2281
 
 _ZNK4llvh9StringRef6equalsES0_.exit2281:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2825, %land.lhs.true.i697
-  %1689 = phi i1 [ false, %land.lhs.true.i697 ], [ %cmp5.i2280, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2825 ]
-  br i1 %1689, label %if.then.i699, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit702
+  %1746 = phi i1 [ false, %land.lhs.true.i697 ], [ %cmp5.i2280, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2825 ]
+  br i1 %1746, label %if.then.i699, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit702
 
 if.then.i699:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2281
   %Result4.i700 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i694, i32 0, i32 1
@@ -15895,15 +15952,16 @@ if.then.i699:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit702: ; preds = %if.then.i699, %_ZNK4llvh9StringRef6equalsES0_.exit2281, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit719
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp173, ptr noundef nonnull align 1 dereferenceable(10) @.str.58)
-  %1690 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7), align 4
-  %or174 = or i32 %1690, 96
-  %1691 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp173, i32 0, i32 0
-  %1692 = load ptr, ptr %1691, align 8
-  %1693 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp173, i32 0, i32 1
-  %1694 = load i64, ptr %1693, align 8
-  store ptr %1692, ptr %S.i672, align 8
-  %1695 = getelementptr inbounds { ptr, i64 }, ptr %S.i672, i32 0, i32 1
-  store i64 %1694, ptr %1695, align 8
+  %1747 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 17, i32 7
+  %1748 = load i32, ptr %1747, align 4
+  %or174 = or i32 %1748, 96
+  %1749 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp173, i32 0, i32 0
+  %1750 = load ptr, ptr %1749, align 8
+  %1751 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp173, i32 0, i32 1
+  %1752 = load i64, ptr %1751, align 8
+  store ptr %1750, ptr %S.i672, align 8
+  %1753 = getelementptr inbounds { ptr, i64 }, ptr %S.i672, i32 0, i32 1
+  store i64 %1752, ptr %1753, align 8
   store ptr %this1.i694, ptr %this.addr.i673, align 8
   store i32 %or174, ptr %Value.addr.i674, align 4
   %this1.i677 = load ptr, ptr %this.addr.i673, align 8
@@ -15914,44 +15972,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit702: ; preds = %if.then
 land.lhs.true.i680:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit702
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i675, ptr align 8 %this1.i677, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i676, ptr align 8 %S.i672, i64 16, i1 false)
-  %1696 = load ptr, ptr %agg.tmp.i675, align 8
-  %1697 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i675, i32 0, i32 1
-  %1698 = load i64, ptr %1697, align 8
-  %1699 = load ptr, ptr %agg.tmp2.i676, align 8
-  %1700 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i676, i32 0, i32 1
-  %1701 = load i64, ptr %1700, align 8
-  store ptr %1696, ptr %LHS.i.i669, align 8
-  %1702 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i669, i32 0, i32 1
-  store i64 %1698, ptr %1702, align 8
-  store ptr %1699, ptr %RHS.i.i670, align 8
-  %1703 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i670, i32 0, i32 1
-  store i64 %1701, ptr %1703, align 8
+  %1754 = load ptr, ptr %agg.tmp.i675, align 8
+  %1755 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i675, i32 0, i32 1
+  %1756 = load i64, ptr %1755, align 8
+  %1757 = load ptr, ptr %agg.tmp2.i676, align 8
+  %1758 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i676, i32 0, i32 1
+  %1759 = load i64, ptr %1758, align 8
+  store ptr %1754, ptr %LHS.i.i669, align 8
+  %1760 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i669, i32 0, i32 1
+  store i64 %1756, ptr %1760, align 8
+  store ptr %1757, ptr %RHS.i.i670, align 8
+  %1761 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i670, i32 0, i32 1
+  store i64 %1759, ptr %1761, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i671, ptr align 8 %RHS.i.i670, i64 16, i1 false)
-  %1704 = load ptr, ptr %agg.tmp.i.i671, align 8
-  %1705 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i671, i32 0, i32 1
-  %1706 = load i64, ptr %1705, align 8
-  store ptr %1704, ptr %RHS.i2282, align 8
-  %1707 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2282, i32 0, i32 1
-  store i64 %1706, ptr %1707, align 8
+  %1762 = load ptr, ptr %agg.tmp.i.i671, align 8
+  %1763 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i671, i32 0, i32 1
+  %1764 = load i64, ptr %1763, align 8
+  store ptr %1762, ptr %RHS.i2282, align 8
+  %1765 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2282, i32 0, i32 1
+  store i64 %1764, ptr %1765, align 8
   store ptr %LHS.i.i669, ptr %this.addr.i2283, align 8
   %this1.i2284 = load ptr, ptr %this.addr.i2283, align 8
   %Length.i2285 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2284, i32 0, i32 1
-  %1708 = load i64, ptr %Length.i2285, align 8
+  %1766 = load i64, ptr %Length.i2285, align 8
   %Length2.i2286 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2282, i32 0, i32 1
-  %1709 = load i64, ptr %Length2.i2286, align 8
-  %cmp.i2287 = icmp eq i64 %1708, %1709
+  %1767 = load i64, ptr %Length2.i2286, align 8
+  %cmp.i2287 = icmp eq i64 %1766, %1767
   br i1 %cmp.i2287, label %land.rhs.i2288, label %_ZNK4llvh9StringRef6equalsES0_.exit2292
 
 land.rhs.i2288:                                   ; preds = %land.lhs.true.i680
-  %1710 = load ptr, ptr %this1.i2284, align 8
-  %1711 = load ptr, ptr %RHS.i2282, align 8
+  %1768 = load ptr, ptr %this1.i2284, align 8
+  %1769 = load ptr, ptr %RHS.i2282, align 8
   %Length4.i2289 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2282, i32 0, i32 1
-  %1712 = load i64, ptr %Length4.i2289, align 8
-  store ptr %1710, ptr %Lhs.addr.i2809, align 8
-  store ptr %1711, ptr %Rhs.addr.i2810, align 8
-  store i64 %1712, ptr %Length.addr.i2811, align 8
-  %1713 = load i64, ptr %Length.addr.i2811, align 8
-  %cmp.i2812 = icmp eq i64 %1713, 0
+  %1770 = load i64, ptr %Length4.i2289, align 8
+  store ptr %1768, ptr %Lhs.addr.i2809, align 8
+  store ptr %1769, ptr %Rhs.addr.i2810, align 8
+  store i64 %1770, ptr %Length.addr.i2811, align 8
+  %1771 = load i64, ptr %Length.addr.i2811, align 8
+  %cmp.i2812 = icmp eq i64 %1771, 0
   br i1 %cmp.i2812, label %if.then.i2815, label %if.end.i2813
 
 if.then.i2815:                                    ; preds = %land.rhs.i2288
@@ -15959,21 +16017,21 @@ if.then.i2815:                                    ; preds = %land.rhs.i2288
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2816
 
 if.end.i2813:                                     ; preds = %land.rhs.i2288
-  %1714 = load ptr, ptr %Lhs.addr.i2809, align 8
-  %1715 = load ptr, ptr %Rhs.addr.i2810, align 8
-  %1716 = load i64, ptr %Length.addr.i2811, align 8
-  %call.i2814 = call i32 @memcmp(ptr noundef %1714, ptr noundef %1715, i64 noundef %1716) #10
+  %1772 = load ptr, ptr %Lhs.addr.i2809, align 8
+  %1773 = load ptr, ptr %Rhs.addr.i2810, align 8
+  %1774 = load i64, ptr %Length.addr.i2811, align 8
+  %call.i2814 = call i32 @memcmp(ptr noundef %1772, ptr noundef %1773, i64 noundef %1774) #10
   store i32 %call.i2814, ptr %retval.i2808, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2816
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2816: ; preds = %if.end.i2813, %if.then.i2815
-  %1717 = load i32, ptr %retval.i2808, align 4
-  %cmp5.i2291 = icmp eq i32 %1717, 0
+  %1775 = load i32, ptr %retval.i2808, align 4
+  %cmp5.i2291 = icmp eq i32 %1775, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2292
 
 _ZNK4llvh9StringRef6equalsES0_.exit2292:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2816, %land.lhs.true.i680
-  %1718 = phi i1 [ false, %land.lhs.true.i680 ], [ %cmp5.i2291, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2816 ]
-  br i1 %1718, label %if.then.i682, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit685
+  %1776 = phi i1 [ false, %land.lhs.true.i680 ], [ %cmp5.i2291, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2816 ]
+  br i1 %1776, label %if.then.i682, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit685
 
 if.then.i682:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2292
   %Result4.i683 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i677, i32 0, i32 1
@@ -15982,15 +16040,16 @@ if.then.i682:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit685: ; preds = %if.then.i682, %_ZNK4llvh9StringRef6equalsES0_.exit2292, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit702
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp176, ptr noundef nonnull align 1 dereferenceable(11) @.str.59)
-  %1719 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 26, i32 7), align 4
-  %or177 = or i32 %1719, 1
-  %1720 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp176, i32 0, i32 0
-  %1721 = load ptr, ptr %1720, align 8
-  %1722 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp176, i32 0, i32 1
-  %1723 = load i64, ptr %1722, align 8
-  store ptr %1721, ptr %S.i655, align 8
-  %1724 = getelementptr inbounds { ptr, i64 }, ptr %S.i655, i32 0, i32 1
-  store i64 %1723, ptr %1724, align 8
+  %1777 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 26, i32 7
+  %1778 = load i32, ptr %1777, align 4
+  %or177 = or i32 %1778, 1
+  %1779 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp176, i32 0, i32 0
+  %1780 = load ptr, ptr %1779, align 8
+  %1781 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp176, i32 0, i32 1
+  %1782 = load i64, ptr %1781, align 8
+  store ptr %1780, ptr %S.i655, align 8
+  %1783 = getelementptr inbounds { ptr, i64 }, ptr %S.i655, i32 0, i32 1
+  store i64 %1782, ptr %1783, align 8
   store ptr %this1.i677, ptr %this.addr.i656, align 8
   store i32 %or177, ptr %Value.addr.i657, align 4
   %this1.i660 = load ptr, ptr %this.addr.i656, align 8
@@ -16001,44 +16060,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit685: ; preds = %if.then
 land.lhs.true.i663:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit685
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i658, ptr align 8 %this1.i660, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i659, ptr align 8 %S.i655, i64 16, i1 false)
-  %1725 = load ptr, ptr %agg.tmp.i658, align 8
-  %1726 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i658, i32 0, i32 1
-  %1727 = load i64, ptr %1726, align 8
-  %1728 = load ptr, ptr %agg.tmp2.i659, align 8
-  %1729 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i659, i32 0, i32 1
-  %1730 = load i64, ptr %1729, align 8
-  store ptr %1725, ptr %LHS.i.i652, align 8
-  %1731 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i652, i32 0, i32 1
-  store i64 %1727, ptr %1731, align 8
-  store ptr %1728, ptr %RHS.i.i653, align 8
-  %1732 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i653, i32 0, i32 1
-  store i64 %1730, ptr %1732, align 8
+  %1784 = load ptr, ptr %agg.tmp.i658, align 8
+  %1785 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i658, i32 0, i32 1
+  %1786 = load i64, ptr %1785, align 8
+  %1787 = load ptr, ptr %agg.tmp2.i659, align 8
+  %1788 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i659, i32 0, i32 1
+  %1789 = load i64, ptr %1788, align 8
+  store ptr %1784, ptr %LHS.i.i652, align 8
+  %1790 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i652, i32 0, i32 1
+  store i64 %1786, ptr %1790, align 8
+  store ptr %1787, ptr %RHS.i.i653, align 8
+  %1791 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i653, i32 0, i32 1
+  store i64 %1789, ptr %1791, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i654, ptr align 8 %RHS.i.i653, i64 16, i1 false)
-  %1733 = load ptr, ptr %agg.tmp.i.i654, align 8
-  %1734 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i654, i32 0, i32 1
-  %1735 = load i64, ptr %1734, align 8
-  store ptr %1733, ptr %RHS.i2293, align 8
-  %1736 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2293, i32 0, i32 1
-  store i64 %1735, ptr %1736, align 8
+  %1792 = load ptr, ptr %agg.tmp.i.i654, align 8
+  %1793 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i654, i32 0, i32 1
+  %1794 = load i64, ptr %1793, align 8
+  store ptr %1792, ptr %RHS.i2293, align 8
+  %1795 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2293, i32 0, i32 1
+  store i64 %1794, ptr %1795, align 8
   store ptr %LHS.i.i652, ptr %this.addr.i2294, align 8
   %this1.i2295 = load ptr, ptr %this.addr.i2294, align 8
   %Length.i2296 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2295, i32 0, i32 1
-  %1737 = load i64, ptr %Length.i2296, align 8
+  %1796 = load i64, ptr %Length.i2296, align 8
   %Length2.i2297 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2293, i32 0, i32 1
-  %1738 = load i64, ptr %Length2.i2297, align 8
-  %cmp.i2298 = icmp eq i64 %1737, %1738
+  %1797 = load i64, ptr %Length2.i2297, align 8
+  %cmp.i2298 = icmp eq i64 %1796, %1797
   br i1 %cmp.i2298, label %land.rhs.i2299, label %_ZNK4llvh9StringRef6equalsES0_.exit2303
 
 land.rhs.i2299:                                   ; preds = %land.lhs.true.i663
-  %1739 = load ptr, ptr %this1.i2295, align 8
-  %1740 = load ptr, ptr %RHS.i2293, align 8
+  %1798 = load ptr, ptr %this1.i2295, align 8
+  %1799 = load ptr, ptr %RHS.i2293, align 8
   %Length4.i2300 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2293, i32 0, i32 1
-  %1741 = load i64, ptr %Length4.i2300, align 8
-  store ptr %1739, ptr %Lhs.addr.i2800, align 8
-  store ptr %1740, ptr %Rhs.addr.i2801, align 8
-  store i64 %1741, ptr %Length.addr.i2802, align 8
-  %1742 = load i64, ptr %Length.addr.i2802, align 8
-  %cmp.i2803 = icmp eq i64 %1742, 0
+  %1800 = load i64, ptr %Length4.i2300, align 8
+  store ptr %1798, ptr %Lhs.addr.i2800, align 8
+  store ptr %1799, ptr %Rhs.addr.i2801, align 8
+  store i64 %1800, ptr %Length.addr.i2802, align 8
+  %1801 = load i64, ptr %Length.addr.i2802, align 8
+  %cmp.i2803 = icmp eq i64 %1801, 0
   br i1 %cmp.i2803, label %if.then.i2806, label %if.end.i2804
 
 if.then.i2806:                                    ; preds = %land.rhs.i2299
@@ -16046,21 +16105,21 @@ if.then.i2806:                                    ; preds = %land.rhs.i2299
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2807
 
 if.end.i2804:                                     ; preds = %land.rhs.i2299
-  %1743 = load ptr, ptr %Lhs.addr.i2800, align 8
-  %1744 = load ptr, ptr %Rhs.addr.i2801, align 8
-  %1745 = load i64, ptr %Length.addr.i2802, align 8
-  %call.i2805 = call i32 @memcmp(ptr noundef %1743, ptr noundef %1744, i64 noundef %1745) #10
+  %1802 = load ptr, ptr %Lhs.addr.i2800, align 8
+  %1803 = load ptr, ptr %Rhs.addr.i2801, align 8
+  %1804 = load i64, ptr %Length.addr.i2802, align 8
+  %call.i2805 = call i32 @memcmp(ptr noundef %1802, ptr noundef %1803, i64 noundef %1804) #10
   store i32 %call.i2805, ptr %retval.i2799, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2807
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2807: ; preds = %if.end.i2804, %if.then.i2806
-  %1746 = load i32, ptr %retval.i2799, align 4
-  %cmp5.i2302 = icmp eq i32 %1746, 0
+  %1805 = load i32, ptr %retval.i2799, align 4
+  %cmp5.i2302 = icmp eq i32 %1805, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2303
 
 _ZNK4llvh9StringRef6equalsES0_.exit2303:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2807, %land.lhs.true.i663
-  %1747 = phi i1 [ false, %land.lhs.true.i663 ], [ %cmp5.i2302, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2807 ]
-  br i1 %1747, label %if.then.i665, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit668
+  %1806 = phi i1 [ false, %land.lhs.true.i663 ], [ %cmp5.i2302, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2807 ]
+  br i1 %1806, label %if.then.i665, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit668
 
 if.then.i665:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2303
   %Result4.i666 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i660, i32 0, i32 1
@@ -16069,15 +16128,16 @@ if.then.i665:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit668: ; preds = %if.then.i665, %_ZNK4llvh9StringRef6equalsES0_.exit2303, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit685
   call void @_ZN4llvh13StringLiteralC2ILm6EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm6ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp179, ptr noundef nonnull align 1 dereferenceable(6) @.str.60)
-  %1748 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 18, i32 7), align 4
-  %or180 = or i32 %1748, 1
-  %1749 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp179, i32 0, i32 0
-  %1750 = load ptr, ptr %1749, align 8
-  %1751 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp179, i32 0, i32 1
-  %1752 = load i64, ptr %1751, align 8
-  store ptr %1750, ptr %S.i638, align 8
-  %1753 = getelementptr inbounds { ptr, i64 }, ptr %S.i638, i32 0, i32 1
-  store i64 %1752, ptr %1753, align 8
+  %1807 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 18, i32 7
+  %1808 = load i32, ptr %1807, align 4
+  %or180 = or i32 %1808, 1
+  %1809 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp179, i32 0, i32 0
+  %1810 = load ptr, ptr %1809, align 8
+  %1811 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp179, i32 0, i32 1
+  %1812 = load i64, ptr %1811, align 8
+  store ptr %1810, ptr %S.i638, align 8
+  %1813 = getelementptr inbounds { ptr, i64 }, ptr %S.i638, i32 0, i32 1
+  store i64 %1812, ptr %1813, align 8
   store ptr %this1.i660, ptr %this.addr.i639, align 8
   store i32 %or180, ptr %Value.addr.i640, align 4
   %this1.i643 = load ptr, ptr %this.addr.i639, align 8
@@ -16088,44 +16148,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit668: ; preds = %if.then
 land.lhs.true.i646:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit668
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i641, ptr align 8 %this1.i643, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i642, ptr align 8 %S.i638, i64 16, i1 false)
-  %1754 = load ptr, ptr %agg.tmp.i641, align 8
-  %1755 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i641, i32 0, i32 1
-  %1756 = load i64, ptr %1755, align 8
-  %1757 = load ptr, ptr %agg.tmp2.i642, align 8
-  %1758 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i642, i32 0, i32 1
-  %1759 = load i64, ptr %1758, align 8
-  store ptr %1754, ptr %LHS.i.i635, align 8
-  %1760 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i635, i32 0, i32 1
-  store i64 %1756, ptr %1760, align 8
-  store ptr %1757, ptr %RHS.i.i636, align 8
-  %1761 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i636, i32 0, i32 1
-  store i64 %1759, ptr %1761, align 8
+  %1814 = load ptr, ptr %agg.tmp.i641, align 8
+  %1815 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i641, i32 0, i32 1
+  %1816 = load i64, ptr %1815, align 8
+  %1817 = load ptr, ptr %agg.tmp2.i642, align 8
+  %1818 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i642, i32 0, i32 1
+  %1819 = load i64, ptr %1818, align 8
+  store ptr %1814, ptr %LHS.i.i635, align 8
+  %1820 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i635, i32 0, i32 1
+  store i64 %1816, ptr %1820, align 8
+  store ptr %1817, ptr %RHS.i.i636, align 8
+  %1821 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i636, i32 0, i32 1
+  store i64 %1819, ptr %1821, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i637, ptr align 8 %RHS.i.i636, i64 16, i1 false)
-  %1762 = load ptr, ptr %agg.tmp.i.i637, align 8
-  %1763 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i637, i32 0, i32 1
-  %1764 = load i64, ptr %1763, align 8
-  store ptr %1762, ptr %RHS.i2304, align 8
-  %1765 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2304, i32 0, i32 1
-  store i64 %1764, ptr %1765, align 8
+  %1822 = load ptr, ptr %agg.tmp.i.i637, align 8
+  %1823 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i637, i32 0, i32 1
+  %1824 = load i64, ptr %1823, align 8
+  store ptr %1822, ptr %RHS.i2304, align 8
+  %1825 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2304, i32 0, i32 1
+  store i64 %1824, ptr %1825, align 8
   store ptr %LHS.i.i635, ptr %this.addr.i2305, align 8
   %this1.i2306 = load ptr, ptr %this.addr.i2305, align 8
   %Length.i2307 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2306, i32 0, i32 1
-  %1766 = load i64, ptr %Length.i2307, align 8
+  %1826 = load i64, ptr %Length.i2307, align 8
   %Length2.i2308 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2304, i32 0, i32 1
-  %1767 = load i64, ptr %Length2.i2308, align 8
-  %cmp.i2309 = icmp eq i64 %1766, %1767
+  %1827 = load i64, ptr %Length2.i2308, align 8
+  %cmp.i2309 = icmp eq i64 %1826, %1827
   br i1 %cmp.i2309, label %land.rhs.i2310, label %_ZNK4llvh9StringRef6equalsES0_.exit2314
 
 land.rhs.i2310:                                   ; preds = %land.lhs.true.i646
-  %1768 = load ptr, ptr %this1.i2306, align 8
-  %1769 = load ptr, ptr %RHS.i2304, align 8
+  %1828 = load ptr, ptr %this1.i2306, align 8
+  %1829 = load ptr, ptr %RHS.i2304, align 8
   %Length4.i2311 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2304, i32 0, i32 1
-  %1770 = load i64, ptr %Length4.i2311, align 8
-  store ptr %1768, ptr %Lhs.addr.i2791, align 8
-  store ptr %1769, ptr %Rhs.addr.i2792, align 8
-  store i64 %1770, ptr %Length.addr.i2793, align 8
-  %1771 = load i64, ptr %Length.addr.i2793, align 8
-  %cmp.i2794 = icmp eq i64 %1771, 0
+  %1830 = load i64, ptr %Length4.i2311, align 8
+  store ptr %1828, ptr %Lhs.addr.i2791, align 8
+  store ptr %1829, ptr %Rhs.addr.i2792, align 8
+  store i64 %1830, ptr %Length.addr.i2793, align 8
+  %1831 = load i64, ptr %Length.addr.i2793, align 8
+  %cmp.i2794 = icmp eq i64 %1831, 0
   br i1 %cmp.i2794, label %if.then.i2797, label %if.end.i2795
 
 if.then.i2797:                                    ; preds = %land.rhs.i2310
@@ -16133,21 +16193,21 @@ if.then.i2797:                                    ; preds = %land.rhs.i2310
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2798
 
 if.end.i2795:                                     ; preds = %land.rhs.i2310
-  %1772 = load ptr, ptr %Lhs.addr.i2791, align 8
-  %1773 = load ptr, ptr %Rhs.addr.i2792, align 8
-  %1774 = load i64, ptr %Length.addr.i2793, align 8
-  %call.i2796 = call i32 @memcmp(ptr noundef %1772, ptr noundef %1773, i64 noundef %1774) #10
+  %1832 = load ptr, ptr %Lhs.addr.i2791, align 8
+  %1833 = load ptr, ptr %Rhs.addr.i2792, align 8
+  %1834 = load i64, ptr %Length.addr.i2793, align 8
+  %call.i2796 = call i32 @memcmp(ptr noundef %1832, ptr noundef %1833, i64 noundef %1834) #10
   store i32 %call.i2796, ptr %retval.i2790, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2798
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2798: ; preds = %if.end.i2795, %if.then.i2797
-  %1775 = load i32, ptr %retval.i2790, align 4
-  %cmp5.i2313 = icmp eq i32 %1775, 0
+  %1835 = load i32, ptr %retval.i2790, align 4
+  %cmp5.i2313 = icmp eq i32 %1835, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2314
 
 _ZNK4llvh9StringRef6equalsES0_.exit2314:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2798, %land.lhs.true.i646
-  %1776 = phi i1 [ false, %land.lhs.true.i646 ], [ %cmp5.i2313, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2798 ]
-  br i1 %1776, label %if.then.i648, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit651
+  %1836 = phi i1 [ false, %land.lhs.true.i646 ], [ %cmp5.i2313, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2798 ]
+  br i1 %1836, label %if.then.i648, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit651
 
 if.then.i648:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2314
   %Result4.i649 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i643, i32 0, i32 1
@@ -16156,15 +16216,16 @@ if.then.i648:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit651: ; preds = %if.then.i648, %_ZNK4llvh9StringRef6equalsES0_.exit2314, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit668
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp182, ptr noundef nonnull align 1 dereferenceable(10) @.str.61)
-  %1777 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 18, i32 7), align 4
-  %or183 = or i32 %1777, 1
-  %1778 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp182, i32 0, i32 0
-  %1779 = load ptr, ptr %1778, align 8
-  %1780 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp182, i32 0, i32 1
-  %1781 = load i64, ptr %1780, align 8
-  store ptr %1779, ptr %S.i621, align 8
-  %1782 = getelementptr inbounds { ptr, i64 }, ptr %S.i621, i32 0, i32 1
-  store i64 %1781, ptr %1782, align 8
+  %1837 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 18, i32 7
+  %1838 = load i32, ptr %1837, align 4
+  %or183 = or i32 %1838, 1
+  %1839 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp182, i32 0, i32 0
+  %1840 = load ptr, ptr %1839, align 8
+  %1841 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp182, i32 0, i32 1
+  %1842 = load i64, ptr %1841, align 8
+  store ptr %1840, ptr %S.i621, align 8
+  %1843 = getelementptr inbounds { ptr, i64 }, ptr %S.i621, i32 0, i32 1
+  store i64 %1842, ptr %1843, align 8
   store ptr %this1.i643, ptr %this.addr.i622, align 8
   store i32 %or183, ptr %Value.addr.i623, align 4
   %this1.i626 = load ptr, ptr %this.addr.i622, align 8
@@ -16175,44 +16236,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit651: ; preds = %if.then
 land.lhs.true.i629:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit651
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i624, ptr align 8 %this1.i626, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i625, ptr align 8 %S.i621, i64 16, i1 false)
-  %1783 = load ptr, ptr %agg.tmp.i624, align 8
-  %1784 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i624, i32 0, i32 1
-  %1785 = load i64, ptr %1784, align 8
-  %1786 = load ptr, ptr %agg.tmp2.i625, align 8
-  %1787 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i625, i32 0, i32 1
-  %1788 = load i64, ptr %1787, align 8
-  store ptr %1783, ptr %LHS.i.i618, align 8
-  %1789 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i618, i32 0, i32 1
-  store i64 %1785, ptr %1789, align 8
-  store ptr %1786, ptr %RHS.i.i619, align 8
-  %1790 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i619, i32 0, i32 1
-  store i64 %1788, ptr %1790, align 8
+  %1844 = load ptr, ptr %agg.tmp.i624, align 8
+  %1845 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i624, i32 0, i32 1
+  %1846 = load i64, ptr %1845, align 8
+  %1847 = load ptr, ptr %agg.tmp2.i625, align 8
+  %1848 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i625, i32 0, i32 1
+  %1849 = load i64, ptr %1848, align 8
+  store ptr %1844, ptr %LHS.i.i618, align 8
+  %1850 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i618, i32 0, i32 1
+  store i64 %1846, ptr %1850, align 8
+  store ptr %1847, ptr %RHS.i.i619, align 8
+  %1851 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i619, i32 0, i32 1
+  store i64 %1849, ptr %1851, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i620, ptr align 8 %RHS.i.i619, i64 16, i1 false)
-  %1791 = load ptr, ptr %agg.tmp.i.i620, align 8
-  %1792 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i620, i32 0, i32 1
-  %1793 = load i64, ptr %1792, align 8
-  store ptr %1791, ptr %RHS.i2315, align 8
-  %1794 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2315, i32 0, i32 1
-  store i64 %1793, ptr %1794, align 8
+  %1852 = load ptr, ptr %agg.tmp.i.i620, align 8
+  %1853 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i620, i32 0, i32 1
+  %1854 = load i64, ptr %1853, align 8
+  store ptr %1852, ptr %RHS.i2315, align 8
+  %1855 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2315, i32 0, i32 1
+  store i64 %1854, ptr %1855, align 8
   store ptr %LHS.i.i618, ptr %this.addr.i2316, align 8
   %this1.i2317 = load ptr, ptr %this.addr.i2316, align 8
   %Length.i2318 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2317, i32 0, i32 1
-  %1795 = load i64, ptr %Length.i2318, align 8
+  %1856 = load i64, ptr %Length.i2318, align 8
   %Length2.i2319 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2315, i32 0, i32 1
-  %1796 = load i64, ptr %Length2.i2319, align 8
-  %cmp.i2320 = icmp eq i64 %1795, %1796
+  %1857 = load i64, ptr %Length2.i2319, align 8
+  %cmp.i2320 = icmp eq i64 %1856, %1857
   br i1 %cmp.i2320, label %land.rhs.i2321, label %_ZNK4llvh9StringRef6equalsES0_.exit2325
 
 land.rhs.i2321:                                   ; preds = %land.lhs.true.i629
-  %1797 = load ptr, ptr %this1.i2317, align 8
-  %1798 = load ptr, ptr %RHS.i2315, align 8
+  %1858 = load ptr, ptr %this1.i2317, align 8
+  %1859 = load ptr, ptr %RHS.i2315, align 8
   %Length4.i2322 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2315, i32 0, i32 1
-  %1799 = load i64, ptr %Length4.i2322, align 8
-  store ptr %1797, ptr %Lhs.addr.i2782, align 8
-  store ptr %1798, ptr %Rhs.addr.i2783, align 8
-  store i64 %1799, ptr %Length.addr.i2784, align 8
-  %1800 = load i64, ptr %Length.addr.i2784, align 8
-  %cmp.i2785 = icmp eq i64 %1800, 0
+  %1860 = load i64, ptr %Length4.i2322, align 8
+  store ptr %1858, ptr %Lhs.addr.i2782, align 8
+  store ptr %1859, ptr %Rhs.addr.i2783, align 8
+  store i64 %1860, ptr %Length.addr.i2784, align 8
+  %1861 = load i64, ptr %Length.addr.i2784, align 8
+  %cmp.i2785 = icmp eq i64 %1861, 0
   br i1 %cmp.i2785, label %if.then.i2788, label %if.end.i2786
 
 if.then.i2788:                                    ; preds = %land.rhs.i2321
@@ -16220,21 +16281,21 @@ if.then.i2788:                                    ; preds = %land.rhs.i2321
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2789
 
 if.end.i2786:                                     ; preds = %land.rhs.i2321
-  %1801 = load ptr, ptr %Lhs.addr.i2782, align 8
-  %1802 = load ptr, ptr %Rhs.addr.i2783, align 8
-  %1803 = load i64, ptr %Length.addr.i2784, align 8
-  %call.i2787 = call i32 @memcmp(ptr noundef %1801, ptr noundef %1802, i64 noundef %1803) #10
+  %1862 = load ptr, ptr %Lhs.addr.i2782, align 8
+  %1863 = load ptr, ptr %Rhs.addr.i2783, align 8
+  %1864 = load i64, ptr %Length.addr.i2784, align 8
+  %call.i2787 = call i32 @memcmp(ptr noundef %1862, ptr noundef %1863, i64 noundef %1864) #10
   store i32 %call.i2787, ptr %retval.i2781, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2789
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2789: ; preds = %if.end.i2786, %if.then.i2788
-  %1804 = load i32, ptr %retval.i2781, align 4
-  %cmp5.i2324 = icmp eq i32 %1804, 0
+  %1865 = load i32, ptr %retval.i2781, align 4
+  %cmp5.i2324 = icmp eq i32 %1865, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2325
 
 _ZNK4llvh9StringRef6equalsES0_.exit2325:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2789, %land.lhs.true.i629
-  %1805 = phi i1 [ false, %land.lhs.true.i629 ], [ %cmp5.i2324, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2789 ]
-  br i1 %1805, label %if.then.i631, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit634
+  %1866 = phi i1 [ false, %land.lhs.true.i629 ], [ %cmp5.i2324, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2789 ]
+  br i1 %1866, label %if.then.i631, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit634
 
 if.then.i631:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2325
   %Result4.i632 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i626, i32 0, i32 1
@@ -16243,15 +16304,16 @@ if.then.i631:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit634: ; preds = %if.then.i631, %_ZNK4llvh9StringRef6equalsES0_.exit2325, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit651
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp185, ptr noundef nonnull align 1 dereferenceable(10) @.str.62)
-  %1806 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 19, i32 7), align 4
-  %or186 = or i32 %1806, 1
-  %1807 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp185, i32 0, i32 0
-  %1808 = load ptr, ptr %1807, align 8
-  %1809 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp185, i32 0, i32 1
-  %1810 = load i64, ptr %1809, align 8
-  store ptr %1808, ptr %S.i604, align 8
-  %1811 = getelementptr inbounds { ptr, i64 }, ptr %S.i604, i32 0, i32 1
-  store i64 %1810, ptr %1811, align 8
+  %1867 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 19, i32 7
+  %1868 = load i32, ptr %1867, align 4
+  %or186 = or i32 %1868, 1
+  %1869 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp185, i32 0, i32 0
+  %1870 = load ptr, ptr %1869, align 8
+  %1871 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp185, i32 0, i32 1
+  %1872 = load i64, ptr %1871, align 8
+  store ptr %1870, ptr %S.i604, align 8
+  %1873 = getelementptr inbounds { ptr, i64 }, ptr %S.i604, i32 0, i32 1
+  store i64 %1872, ptr %1873, align 8
   store ptr %this1.i626, ptr %this.addr.i605, align 8
   store i32 %or186, ptr %Value.addr.i606, align 4
   %this1.i609 = load ptr, ptr %this.addr.i605, align 8
@@ -16262,44 +16324,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit634: ; preds = %if.then
 land.lhs.true.i612:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit634
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i607, ptr align 8 %this1.i609, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i608, ptr align 8 %S.i604, i64 16, i1 false)
-  %1812 = load ptr, ptr %agg.tmp.i607, align 8
-  %1813 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i607, i32 0, i32 1
-  %1814 = load i64, ptr %1813, align 8
-  %1815 = load ptr, ptr %agg.tmp2.i608, align 8
-  %1816 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i608, i32 0, i32 1
-  %1817 = load i64, ptr %1816, align 8
-  store ptr %1812, ptr %LHS.i.i601, align 8
-  %1818 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i601, i32 0, i32 1
-  store i64 %1814, ptr %1818, align 8
-  store ptr %1815, ptr %RHS.i.i602, align 8
-  %1819 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i602, i32 0, i32 1
-  store i64 %1817, ptr %1819, align 8
+  %1874 = load ptr, ptr %agg.tmp.i607, align 8
+  %1875 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i607, i32 0, i32 1
+  %1876 = load i64, ptr %1875, align 8
+  %1877 = load ptr, ptr %agg.tmp2.i608, align 8
+  %1878 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i608, i32 0, i32 1
+  %1879 = load i64, ptr %1878, align 8
+  store ptr %1874, ptr %LHS.i.i601, align 8
+  %1880 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i601, i32 0, i32 1
+  store i64 %1876, ptr %1880, align 8
+  store ptr %1877, ptr %RHS.i.i602, align 8
+  %1881 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i602, i32 0, i32 1
+  store i64 %1879, ptr %1881, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i603, ptr align 8 %RHS.i.i602, i64 16, i1 false)
-  %1820 = load ptr, ptr %agg.tmp.i.i603, align 8
-  %1821 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i603, i32 0, i32 1
-  %1822 = load i64, ptr %1821, align 8
-  store ptr %1820, ptr %RHS.i2326, align 8
-  %1823 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2326, i32 0, i32 1
-  store i64 %1822, ptr %1823, align 8
+  %1882 = load ptr, ptr %agg.tmp.i.i603, align 8
+  %1883 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i603, i32 0, i32 1
+  %1884 = load i64, ptr %1883, align 8
+  store ptr %1882, ptr %RHS.i2326, align 8
+  %1885 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2326, i32 0, i32 1
+  store i64 %1884, ptr %1885, align 8
   store ptr %LHS.i.i601, ptr %this.addr.i2327, align 8
   %this1.i2328 = load ptr, ptr %this.addr.i2327, align 8
   %Length.i2329 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2328, i32 0, i32 1
-  %1824 = load i64, ptr %Length.i2329, align 8
+  %1886 = load i64, ptr %Length.i2329, align 8
   %Length2.i2330 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2326, i32 0, i32 1
-  %1825 = load i64, ptr %Length2.i2330, align 8
-  %cmp.i2331 = icmp eq i64 %1824, %1825
+  %1887 = load i64, ptr %Length2.i2330, align 8
+  %cmp.i2331 = icmp eq i64 %1886, %1887
   br i1 %cmp.i2331, label %land.rhs.i2332, label %_ZNK4llvh9StringRef6equalsES0_.exit2336
 
 land.rhs.i2332:                                   ; preds = %land.lhs.true.i612
-  %1826 = load ptr, ptr %this1.i2328, align 8
-  %1827 = load ptr, ptr %RHS.i2326, align 8
+  %1888 = load ptr, ptr %this1.i2328, align 8
+  %1889 = load ptr, ptr %RHS.i2326, align 8
   %Length4.i2333 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2326, i32 0, i32 1
-  %1828 = load i64, ptr %Length4.i2333, align 8
-  store ptr %1826, ptr %Lhs.addr.i2773, align 8
-  store ptr %1827, ptr %Rhs.addr.i2774, align 8
-  store i64 %1828, ptr %Length.addr.i2775, align 8
-  %1829 = load i64, ptr %Length.addr.i2775, align 8
-  %cmp.i2776 = icmp eq i64 %1829, 0
+  %1890 = load i64, ptr %Length4.i2333, align 8
+  store ptr %1888, ptr %Lhs.addr.i2773, align 8
+  store ptr %1889, ptr %Rhs.addr.i2774, align 8
+  store i64 %1890, ptr %Length.addr.i2775, align 8
+  %1891 = load i64, ptr %Length.addr.i2775, align 8
+  %cmp.i2776 = icmp eq i64 %1891, 0
   br i1 %cmp.i2776, label %if.then.i2779, label %if.end.i2777
 
 if.then.i2779:                                    ; preds = %land.rhs.i2332
@@ -16307,21 +16369,21 @@ if.then.i2779:                                    ; preds = %land.rhs.i2332
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2780
 
 if.end.i2777:                                     ; preds = %land.rhs.i2332
-  %1830 = load ptr, ptr %Lhs.addr.i2773, align 8
-  %1831 = load ptr, ptr %Rhs.addr.i2774, align 8
-  %1832 = load i64, ptr %Length.addr.i2775, align 8
-  %call.i2778 = call i32 @memcmp(ptr noundef %1830, ptr noundef %1831, i64 noundef %1832) #10
+  %1892 = load ptr, ptr %Lhs.addr.i2773, align 8
+  %1893 = load ptr, ptr %Rhs.addr.i2774, align 8
+  %1894 = load i64, ptr %Length.addr.i2775, align 8
+  %call.i2778 = call i32 @memcmp(ptr noundef %1892, ptr noundef %1893, i64 noundef %1894) #10
   store i32 %call.i2778, ptr %retval.i2772, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2780
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2780: ; preds = %if.end.i2777, %if.then.i2779
-  %1833 = load i32, ptr %retval.i2772, align 4
-  %cmp5.i2335 = icmp eq i32 %1833, 0
+  %1895 = load i32, ptr %retval.i2772, align 4
+  %cmp5.i2335 = icmp eq i32 %1895, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2336
 
 _ZNK4llvh9StringRef6equalsES0_.exit2336:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2780, %land.lhs.true.i612
-  %1834 = phi i1 [ false, %land.lhs.true.i612 ], [ %cmp5.i2335, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2780 ]
-  br i1 %1834, label %if.then.i614, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit617
+  %1896 = phi i1 [ false, %land.lhs.true.i612 ], [ %cmp5.i2335, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2780 ]
+  br i1 %1896, label %if.then.i614, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit617
 
 if.then.i614:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2336
   %Result4.i615 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i609, i32 0, i32 1
@@ -16330,15 +16392,16 @@ if.then.i614:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit617: ; preds = %if.then.i614, %_ZNK4llvh9StringRef6equalsES0_.exit2336, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit634
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp188, ptr noundef nonnull align 1 dereferenceable(10) @.str.63)
-  %1835 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 19, i32 7), align 4
-  %or189 = or i32 %1835, 1
-  %1836 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp188, i32 0, i32 0
-  %1837 = load ptr, ptr %1836, align 8
-  %1838 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp188, i32 0, i32 1
-  %1839 = load i64, ptr %1838, align 8
-  store ptr %1837, ptr %S.i587, align 8
-  %1840 = getelementptr inbounds { ptr, i64 }, ptr %S.i587, i32 0, i32 1
-  store i64 %1839, ptr %1840, align 8
+  %1897 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 19, i32 7
+  %1898 = load i32, ptr %1897, align 4
+  %or189 = or i32 %1898, 1
+  %1899 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp188, i32 0, i32 0
+  %1900 = load ptr, ptr %1899, align 8
+  %1901 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp188, i32 0, i32 1
+  %1902 = load i64, ptr %1901, align 8
+  store ptr %1900, ptr %S.i587, align 8
+  %1903 = getelementptr inbounds { ptr, i64 }, ptr %S.i587, i32 0, i32 1
+  store i64 %1902, ptr %1903, align 8
   store ptr %this1.i609, ptr %this.addr.i588, align 8
   store i32 %or189, ptr %Value.addr.i589, align 4
   %this1.i592 = load ptr, ptr %this.addr.i588, align 8
@@ -16349,44 +16412,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit617: ; preds = %if.then
 land.lhs.true.i595:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit617
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i590, ptr align 8 %this1.i592, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i591, ptr align 8 %S.i587, i64 16, i1 false)
-  %1841 = load ptr, ptr %agg.tmp.i590, align 8
-  %1842 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i590, i32 0, i32 1
-  %1843 = load i64, ptr %1842, align 8
-  %1844 = load ptr, ptr %agg.tmp2.i591, align 8
-  %1845 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i591, i32 0, i32 1
-  %1846 = load i64, ptr %1845, align 8
-  store ptr %1841, ptr %LHS.i.i584, align 8
-  %1847 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i584, i32 0, i32 1
-  store i64 %1843, ptr %1847, align 8
-  store ptr %1844, ptr %RHS.i.i585, align 8
-  %1848 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i585, i32 0, i32 1
-  store i64 %1846, ptr %1848, align 8
+  %1904 = load ptr, ptr %agg.tmp.i590, align 8
+  %1905 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i590, i32 0, i32 1
+  %1906 = load i64, ptr %1905, align 8
+  %1907 = load ptr, ptr %agg.tmp2.i591, align 8
+  %1908 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i591, i32 0, i32 1
+  %1909 = load i64, ptr %1908, align 8
+  store ptr %1904, ptr %LHS.i.i584, align 8
+  %1910 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i584, i32 0, i32 1
+  store i64 %1906, ptr %1910, align 8
+  store ptr %1907, ptr %RHS.i.i585, align 8
+  %1911 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i585, i32 0, i32 1
+  store i64 %1909, ptr %1911, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i586, ptr align 8 %RHS.i.i585, i64 16, i1 false)
-  %1849 = load ptr, ptr %agg.tmp.i.i586, align 8
-  %1850 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i586, i32 0, i32 1
-  %1851 = load i64, ptr %1850, align 8
-  store ptr %1849, ptr %RHS.i2337, align 8
-  %1852 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2337, i32 0, i32 1
-  store i64 %1851, ptr %1852, align 8
+  %1912 = load ptr, ptr %agg.tmp.i.i586, align 8
+  %1913 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i586, i32 0, i32 1
+  %1914 = load i64, ptr %1913, align 8
+  store ptr %1912, ptr %RHS.i2337, align 8
+  %1915 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2337, i32 0, i32 1
+  store i64 %1914, ptr %1915, align 8
   store ptr %LHS.i.i584, ptr %this.addr.i2338, align 8
   %this1.i2339 = load ptr, ptr %this.addr.i2338, align 8
   %Length.i2340 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2339, i32 0, i32 1
-  %1853 = load i64, ptr %Length.i2340, align 8
+  %1916 = load i64, ptr %Length.i2340, align 8
   %Length2.i2341 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2337, i32 0, i32 1
-  %1854 = load i64, ptr %Length2.i2341, align 8
-  %cmp.i2342 = icmp eq i64 %1853, %1854
+  %1917 = load i64, ptr %Length2.i2341, align 8
+  %cmp.i2342 = icmp eq i64 %1916, %1917
   br i1 %cmp.i2342, label %land.rhs.i2343, label %_ZNK4llvh9StringRef6equalsES0_.exit2347
 
 land.rhs.i2343:                                   ; preds = %land.lhs.true.i595
-  %1855 = load ptr, ptr %this1.i2339, align 8
-  %1856 = load ptr, ptr %RHS.i2337, align 8
+  %1918 = load ptr, ptr %this1.i2339, align 8
+  %1919 = load ptr, ptr %RHS.i2337, align 8
   %Length4.i2344 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2337, i32 0, i32 1
-  %1857 = load i64, ptr %Length4.i2344, align 8
-  store ptr %1855, ptr %Lhs.addr.i2764, align 8
-  store ptr %1856, ptr %Rhs.addr.i2765, align 8
-  store i64 %1857, ptr %Length.addr.i2766, align 8
-  %1858 = load i64, ptr %Length.addr.i2766, align 8
-  %cmp.i2767 = icmp eq i64 %1858, 0
+  %1920 = load i64, ptr %Length4.i2344, align 8
+  store ptr %1918, ptr %Lhs.addr.i2764, align 8
+  store ptr %1919, ptr %Rhs.addr.i2765, align 8
+  store i64 %1920, ptr %Length.addr.i2766, align 8
+  %1921 = load i64, ptr %Length.addr.i2766, align 8
+  %cmp.i2767 = icmp eq i64 %1921, 0
   br i1 %cmp.i2767, label %if.then.i2770, label %if.end.i2768
 
 if.then.i2770:                                    ; preds = %land.rhs.i2343
@@ -16394,21 +16457,21 @@ if.then.i2770:                                    ; preds = %land.rhs.i2343
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2771
 
 if.end.i2768:                                     ; preds = %land.rhs.i2343
-  %1859 = load ptr, ptr %Lhs.addr.i2764, align 8
-  %1860 = load ptr, ptr %Rhs.addr.i2765, align 8
-  %1861 = load i64, ptr %Length.addr.i2766, align 8
-  %call.i2769 = call i32 @memcmp(ptr noundef %1859, ptr noundef %1860, i64 noundef %1861) #10
+  %1922 = load ptr, ptr %Lhs.addr.i2764, align 8
+  %1923 = load ptr, ptr %Rhs.addr.i2765, align 8
+  %1924 = load i64, ptr %Length.addr.i2766, align 8
+  %call.i2769 = call i32 @memcmp(ptr noundef %1922, ptr noundef %1923, i64 noundef %1924) #10
   store i32 %call.i2769, ptr %retval.i2763, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2771
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2771: ; preds = %if.end.i2768, %if.then.i2770
-  %1862 = load i32, ptr %retval.i2763, align 4
-  %cmp5.i2346 = icmp eq i32 %1862, 0
+  %1925 = load i32, ptr %retval.i2763, align 4
+  %cmp5.i2346 = icmp eq i32 %1925, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2347
 
 _ZNK4llvh9StringRef6equalsES0_.exit2347:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2771, %land.lhs.true.i595
-  %1863 = phi i1 [ false, %land.lhs.true.i595 ], [ %cmp5.i2346, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2771 ]
-  br i1 %1863, label %if.then.i597, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit600
+  %1926 = phi i1 [ false, %land.lhs.true.i595 ], [ %cmp5.i2346, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2771 ]
+  br i1 %1926, label %if.then.i597, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit600
 
 if.then.i597:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2347
   %Result4.i598 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i592, i32 0, i32 1
@@ -16417,15 +16480,16 @@ if.then.i597:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit600: ; preds = %if.then.i597, %_ZNK4llvh9StringRef6equalsES0_.exit2347, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit617
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp191, ptr noundef nonnull align 1 dereferenceable(11) @.str.64)
-  %1864 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 27, i32 7), align 4
-  %or192 = or i32 %1864, 1
-  %1865 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp191, i32 0, i32 0
-  %1866 = load ptr, ptr %1865, align 8
-  %1867 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp191, i32 0, i32 1
-  %1868 = load i64, ptr %1867, align 8
-  store ptr %1866, ptr %S.i570, align 8
-  %1869 = getelementptr inbounds { ptr, i64 }, ptr %S.i570, i32 0, i32 1
-  store i64 %1868, ptr %1869, align 8
+  %1927 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 27, i32 7
+  %1928 = load i32, ptr %1927, align 4
+  %or192 = or i32 %1928, 1
+  %1929 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp191, i32 0, i32 0
+  %1930 = load ptr, ptr %1929, align 8
+  %1931 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp191, i32 0, i32 1
+  %1932 = load i64, ptr %1931, align 8
+  store ptr %1930, ptr %S.i570, align 8
+  %1933 = getelementptr inbounds { ptr, i64 }, ptr %S.i570, i32 0, i32 1
+  store i64 %1932, ptr %1933, align 8
   store ptr %this1.i592, ptr %this.addr.i571, align 8
   store i32 %or192, ptr %Value.addr.i572, align 4
   %this1.i575 = load ptr, ptr %this.addr.i571, align 8
@@ -16436,44 +16500,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit600: ; preds = %if.then
 land.lhs.true.i578:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit600
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i573, ptr align 8 %this1.i575, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i574, ptr align 8 %S.i570, i64 16, i1 false)
-  %1870 = load ptr, ptr %agg.tmp.i573, align 8
-  %1871 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i573, i32 0, i32 1
-  %1872 = load i64, ptr %1871, align 8
-  %1873 = load ptr, ptr %agg.tmp2.i574, align 8
-  %1874 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i574, i32 0, i32 1
-  %1875 = load i64, ptr %1874, align 8
-  store ptr %1870, ptr %LHS.i.i567, align 8
-  %1876 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i567, i32 0, i32 1
-  store i64 %1872, ptr %1876, align 8
-  store ptr %1873, ptr %RHS.i.i568, align 8
-  %1877 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i568, i32 0, i32 1
-  store i64 %1875, ptr %1877, align 8
+  %1934 = load ptr, ptr %agg.tmp.i573, align 8
+  %1935 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i573, i32 0, i32 1
+  %1936 = load i64, ptr %1935, align 8
+  %1937 = load ptr, ptr %agg.tmp2.i574, align 8
+  %1938 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i574, i32 0, i32 1
+  %1939 = load i64, ptr %1938, align 8
+  store ptr %1934, ptr %LHS.i.i567, align 8
+  %1940 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i567, i32 0, i32 1
+  store i64 %1936, ptr %1940, align 8
+  store ptr %1937, ptr %RHS.i.i568, align 8
+  %1941 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i568, i32 0, i32 1
+  store i64 %1939, ptr %1941, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i569, ptr align 8 %RHS.i.i568, i64 16, i1 false)
-  %1878 = load ptr, ptr %agg.tmp.i.i569, align 8
-  %1879 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i569, i32 0, i32 1
-  %1880 = load i64, ptr %1879, align 8
-  store ptr %1878, ptr %RHS.i2348, align 8
-  %1881 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2348, i32 0, i32 1
-  store i64 %1880, ptr %1881, align 8
+  %1942 = load ptr, ptr %agg.tmp.i.i569, align 8
+  %1943 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i569, i32 0, i32 1
+  %1944 = load i64, ptr %1943, align 8
+  store ptr %1942, ptr %RHS.i2348, align 8
+  %1945 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2348, i32 0, i32 1
+  store i64 %1944, ptr %1945, align 8
   store ptr %LHS.i.i567, ptr %this.addr.i2349, align 8
   %this1.i2350 = load ptr, ptr %this.addr.i2349, align 8
   %Length.i2351 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2350, i32 0, i32 1
-  %1882 = load i64, ptr %Length.i2351, align 8
+  %1946 = load i64, ptr %Length.i2351, align 8
   %Length2.i2352 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2348, i32 0, i32 1
-  %1883 = load i64, ptr %Length2.i2352, align 8
-  %cmp.i2353 = icmp eq i64 %1882, %1883
+  %1947 = load i64, ptr %Length2.i2352, align 8
+  %cmp.i2353 = icmp eq i64 %1946, %1947
   br i1 %cmp.i2353, label %land.rhs.i2354, label %_ZNK4llvh9StringRef6equalsES0_.exit2358
 
 land.rhs.i2354:                                   ; preds = %land.lhs.true.i578
-  %1884 = load ptr, ptr %this1.i2350, align 8
-  %1885 = load ptr, ptr %RHS.i2348, align 8
+  %1948 = load ptr, ptr %this1.i2350, align 8
+  %1949 = load ptr, ptr %RHS.i2348, align 8
   %Length4.i2355 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2348, i32 0, i32 1
-  %1886 = load i64, ptr %Length4.i2355, align 8
-  store ptr %1884, ptr %Lhs.addr.i2755, align 8
-  store ptr %1885, ptr %Rhs.addr.i2756, align 8
-  store i64 %1886, ptr %Length.addr.i2757, align 8
-  %1887 = load i64, ptr %Length.addr.i2757, align 8
-  %cmp.i2758 = icmp eq i64 %1887, 0
+  %1950 = load i64, ptr %Length4.i2355, align 8
+  store ptr %1948, ptr %Lhs.addr.i2755, align 8
+  store ptr %1949, ptr %Rhs.addr.i2756, align 8
+  store i64 %1950, ptr %Length.addr.i2757, align 8
+  %1951 = load i64, ptr %Length.addr.i2757, align 8
+  %cmp.i2758 = icmp eq i64 %1951, 0
   br i1 %cmp.i2758, label %if.then.i2761, label %if.end.i2759
 
 if.then.i2761:                                    ; preds = %land.rhs.i2354
@@ -16481,21 +16545,21 @@ if.then.i2761:                                    ; preds = %land.rhs.i2354
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2762
 
 if.end.i2759:                                     ; preds = %land.rhs.i2354
-  %1888 = load ptr, ptr %Lhs.addr.i2755, align 8
-  %1889 = load ptr, ptr %Rhs.addr.i2756, align 8
-  %1890 = load i64, ptr %Length.addr.i2757, align 8
-  %call.i2760 = call i32 @memcmp(ptr noundef %1888, ptr noundef %1889, i64 noundef %1890) #10
+  %1952 = load ptr, ptr %Lhs.addr.i2755, align 8
+  %1953 = load ptr, ptr %Rhs.addr.i2756, align 8
+  %1954 = load i64, ptr %Length.addr.i2757, align 8
+  %call.i2760 = call i32 @memcmp(ptr noundef %1952, ptr noundef %1953, i64 noundef %1954) #10
   store i32 %call.i2760, ptr %retval.i2754, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2762
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2762: ; preds = %if.end.i2759, %if.then.i2761
-  %1891 = load i32, ptr %retval.i2754, align 4
-  %cmp5.i2357 = icmp eq i32 %1891, 0
+  %1955 = load i32, ptr %retval.i2754, align 4
+  %cmp5.i2357 = icmp eq i32 %1955, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2358
 
 _ZNK4llvh9StringRef6equalsES0_.exit2358:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2762, %land.lhs.true.i578
-  %1892 = phi i1 [ false, %land.lhs.true.i578 ], [ %cmp5.i2357, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2762 ]
-  br i1 %1892, label %if.then.i580, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit583
+  %1956 = phi i1 [ false, %land.lhs.true.i578 ], [ %cmp5.i2357, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2762 ]
+  br i1 %1956, label %if.then.i580, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit583
 
 if.then.i580:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2358
   %Result4.i581 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i575, i32 0, i32 1
@@ -16504,15 +16568,16 @@ if.then.i580:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit583: ; preds = %if.then.i580, %_ZNK4llvh9StringRef6equalsES0_.exit2358, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit600
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp194, ptr noundef nonnull align 1 dereferenceable(11) @.str.65)
-  %1893 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 28, i32 7), align 4
-  %or195 = or i32 %1893, 1024
-  %1894 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp194, i32 0, i32 0
-  %1895 = load ptr, ptr %1894, align 8
-  %1896 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp194, i32 0, i32 1
-  %1897 = load i64, ptr %1896, align 8
-  store ptr %1895, ptr %S.i553, align 8
-  %1898 = getelementptr inbounds { ptr, i64 }, ptr %S.i553, i32 0, i32 1
-  store i64 %1897, ptr %1898, align 8
+  %1957 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 28, i32 7
+  %1958 = load i32, ptr %1957, align 4
+  %or195 = or i32 %1958, 1024
+  %1959 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp194, i32 0, i32 0
+  %1960 = load ptr, ptr %1959, align 8
+  %1961 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp194, i32 0, i32 1
+  %1962 = load i64, ptr %1961, align 8
+  store ptr %1960, ptr %S.i553, align 8
+  %1963 = getelementptr inbounds { ptr, i64 }, ptr %S.i553, i32 0, i32 1
+  store i64 %1962, ptr %1963, align 8
   store ptr %this1.i575, ptr %this.addr.i554, align 8
   store i32 %or195, ptr %Value.addr.i555, align 4
   %this1.i558 = load ptr, ptr %this.addr.i554, align 8
@@ -16523,44 +16588,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit583: ; preds = %if.then
 land.lhs.true.i561:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit583
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i556, ptr align 8 %this1.i558, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i557, ptr align 8 %S.i553, i64 16, i1 false)
-  %1899 = load ptr, ptr %agg.tmp.i556, align 8
-  %1900 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i556, i32 0, i32 1
-  %1901 = load i64, ptr %1900, align 8
-  %1902 = load ptr, ptr %agg.tmp2.i557, align 8
-  %1903 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i557, i32 0, i32 1
-  %1904 = load i64, ptr %1903, align 8
-  store ptr %1899, ptr %LHS.i.i550, align 8
-  %1905 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i550, i32 0, i32 1
-  store i64 %1901, ptr %1905, align 8
-  store ptr %1902, ptr %RHS.i.i551, align 8
-  %1906 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i551, i32 0, i32 1
-  store i64 %1904, ptr %1906, align 8
+  %1964 = load ptr, ptr %agg.tmp.i556, align 8
+  %1965 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i556, i32 0, i32 1
+  %1966 = load i64, ptr %1965, align 8
+  %1967 = load ptr, ptr %agg.tmp2.i557, align 8
+  %1968 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i557, i32 0, i32 1
+  %1969 = load i64, ptr %1968, align 8
+  store ptr %1964, ptr %LHS.i.i550, align 8
+  %1970 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i550, i32 0, i32 1
+  store i64 %1966, ptr %1970, align 8
+  store ptr %1967, ptr %RHS.i.i551, align 8
+  %1971 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i551, i32 0, i32 1
+  store i64 %1969, ptr %1971, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i552, ptr align 8 %RHS.i.i551, i64 16, i1 false)
-  %1907 = load ptr, ptr %agg.tmp.i.i552, align 8
-  %1908 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i552, i32 0, i32 1
-  %1909 = load i64, ptr %1908, align 8
-  store ptr %1907, ptr %RHS.i2359, align 8
-  %1910 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2359, i32 0, i32 1
-  store i64 %1909, ptr %1910, align 8
+  %1972 = load ptr, ptr %agg.tmp.i.i552, align 8
+  %1973 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i552, i32 0, i32 1
+  %1974 = load i64, ptr %1973, align 8
+  store ptr %1972, ptr %RHS.i2359, align 8
+  %1975 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2359, i32 0, i32 1
+  store i64 %1974, ptr %1975, align 8
   store ptr %LHS.i.i550, ptr %this.addr.i2360, align 8
   %this1.i2361 = load ptr, ptr %this.addr.i2360, align 8
   %Length.i2362 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2361, i32 0, i32 1
-  %1911 = load i64, ptr %Length.i2362, align 8
+  %1976 = load i64, ptr %Length.i2362, align 8
   %Length2.i2363 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2359, i32 0, i32 1
-  %1912 = load i64, ptr %Length2.i2363, align 8
-  %cmp.i2364 = icmp eq i64 %1911, %1912
+  %1977 = load i64, ptr %Length2.i2363, align 8
+  %cmp.i2364 = icmp eq i64 %1976, %1977
   br i1 %cmp.i2364, label %land.rhs.i2365, label %_ZNK4llvh9StringRef6equalsES0_.exit2369
 
 land.rhs.i2365:                                   ; preds = %land.lhs.true.i561
-  %1913 = load ptr, ptr %this1.i2361, align 8
-  %1914 = load ptr, ptr %RHS.i2359, align 8
+  %1978 = load ptr, ptr %this1.i2361, align 8
+  %1979 = load ptr, ptr %RHS.i2359, align 8
   %Length4.i2366 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2359, i32 0, i32 1
-  %1915 = load i64, ptr %Length4.i2366, align 8
-  store ptr %1913, ptr %Lhs.addr.i2746, align 8
-  store ptr %1914, ptr %Rhs.addr.i2747, align 8
-  store i64 %1915, ptr %Length.addr.i2748, align 8
-  %1916 = load i64, ptr %Length.addr.i2748, align 8
-  %cmp.i2749 = icmp eq i64 %1916, 0
+  %1980 = load i64, ptr %Length4.i2366, align 8
+  store ptr %1978, ptr %Lhs.addr.i2746, align 8
+  store ptr %1979, ptr %Rhs.addr.i2747, align 8
+  store i64 %1980, ptr %Length.addr.i2748, align 8
+  %1981 = load i64, ptr %Length.addr.i2748, align 8
+  %cmp.i2749 = icmp eq i64 %1981, 0
   br i1 %cmp.i2749, label %if.then.i2752, label %if.end.i2750
 
 if.then.i2752:                                    ; preds = %land.rhs.i2365
@@ -16568,21 +16633,21 @@ if.then.i2752:                                    ; preds = %land.rhs.i2365
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2753
 
 if.end.i2750:                                     ; preds = %land.rhs.i2365
-  %1917 = load ptr, ptr %Lhs.addr.i2746, align 8
-  %1918 = load ptr, ptr %Rhs.addr.i2747, align 8
-  %1919 = load i64, ptr %Length.addr.i2748, align 8
-  %call.i2751 = call i32 @memcmp(ptr noundef %1917, ptr noundef %1918, i64 noundef %1919) #10
+  %1982 = load ptr, ptr %Lhs.addr.i2746, align 8
+  %1983 = load ptr, ptr %Rhs.addr.i2747, align 8
+  %1984 = load i64, ptr %Length.addr.i2748, align 8
+  %call.i2751 = call i32 @memcmp(ptr noundef %1982, ptr noundef %1983, i64 noundef %1984) #10
   store i32 %call.i2751, ptr %retval.i2745, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2753
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2753: ; preds = %if.end.i2750, %if.then.i2752
-  %1920 = load i32, ptr %retval.i2745, align 4
-  %cmp5.i2368 = icmp eq i32 %1920, 0
+  %1985 = load i32, ptr %retval.i2745, align 4
+  %cmp5.i2368 = icmp eq i32 %1985, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2369
 
 _ZNK4llvh9StringRef6equalsES0_.exit2369:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2753, %land.lhs.true.i561
-  %1921 = phi i1 [ false, %land.lhs.true.i561 ], [ %cmp5.i2368, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2753 ]
-  br i1 %1921, label %if.then.i563, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit566
+  %1986 = phi i1 [ false, %land.lhs.true.i561 ], [ %cmp5.i2368, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2753 ]
+  br i1 %1986, label %if.then.i563, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit566
 
 if.then.i563:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2369
   %Result4.i564 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i558, i32 0, i32 1
@@ -16591,15 +16656,16 @@ if.then.i563:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit566: ; preds = %if.then.i563, %_ZNK4llvh9StringRef6equalsES0_.exit2369, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit583
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp197, ptr noundef nonnull align 1 dereferenceable(11) @.str.66)
-  %1922 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or198 = or i32 %1922, 2
-  %1923 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp197, i32 0, i32 0
-  %1924 = load ptr, ptr %1923, align 8
-  %1925 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp197, i32 0, i32 1
-  %1926 = load i64, ptr %1925, align 8
-  store ptr %1924, ptr %S.i536, align 8
-  %1927 = getelementptr inbounds { ptr, i64 }, ptr %S.i536, i32 0, i32 1
-  store i64 %1926, ptr %1927, align 8
+  %1987 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %1988 = load i32, ptr %1987, align 4
+  %or198 = or i32 %1988, 2
+  %1989 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp197, i32 0, i32 0
+  %1990 = load ptr, ptr %1989, align 8
+  %1991 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp197, i32 0, i32 1
+  %1992 = load i64, ptr %1991, align 8
+  store ptr %1990, ptr %S.i536, align 8
+  %1993 = getelementptr inbounds { ptr, i64 }, ptr %S.i536, i32 0, i32 1
+  store i64 %1992, ptr %1993, align 8
   store ptr %this1.i558, ptr %this.addr.i537, align 8
   store i32 %or198, ptr %Value.addr.i538, align 4
   %this1.i541 = load ptr, ptr %this.addr.i537, align 8
@@ -16610,44 +16676,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit566: ; preds = %if.then
 land.lhs.true.i544:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit566
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i539, ptr align 8 %this1.i541, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i540, ptr align 8 %S.i536, i64 16, i1 false)
-  %1928 = load ptr, ptr %agg.tmp.i539, align 8
-  %1929 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i539, i32 0, i32 1
-  %1930 = load i64, ptr %1929, align 8
-  %1931 = load ptr, ptr %agg.tmp2.i540, align 8
-  %1932 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i540, i32 0, i32 1
-  %1933 = load i64, ptr %1932, align 8
-  store ptr %1928, ptr %LHS.i.i533, align 8
-  %1934 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i533, i32 0, i32 1
-  store i64 %1930, ptr %1934, align 8
-  store ptr %1931, ptr %RHS.i.i534, align 8
-  %1935 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i534, i32 0, i32 1
-  store i64 %1933, ptr %1935, align 8
+  %1994 = load ptr, ptr %agg.tmp.i539, align 8
+  %1995 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i539, i32 0, i32 1
+  %1996 = load i64, ptr %1995, align 8
+  %1997 = load ptr, ptr %agg.tmp2.i540, align 8
+  %1998 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i540, i32 0, i32 1
+  %1999 = load i64, ptr %1998, align 8
+  store ptr %1994, ptr %LHS.i.i533, align 8
+  %2000 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i533, i32 0, i32 1
+  store i64 %1996, ptr %2000, align 8
+  store ptr %1997, ptr %RHS.i.i534, align 8
+  %2001 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i534, i32 0, i32 1
+  store i64 %1999, ptr %2001, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i535, ptr align 8 %RHS.i.i534, i64 16, i1 false)
-  %1936 = load ptr, ptr %agg.tmp.i.i535, align 8
-  %1937 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i535, i32 0, i32 1
-  %1938 = load i64, ptr %1937, align 8
-  store ptr %1936, ptr %RHS.i2370, align 8
-  %1939 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2370, i32 0, i32 1
-  store i64 %1938, ptr %1939, align 8
+  %2002 = load ptr, ptr %agg.tmp.i.i535, align 8
+  %2003 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i535, i32 0, i32 1
+  %2004 = load i64, ptr %2003, align 8
+  store ptr %2002, ptr %RHS.i2370, align 8
+  %2005 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2370, i32 0, i32 1
+  store i64 %2004, ptr %2005, align 8
   store ptr %LHS.i.i533, ptr %this.addr.i2371, align 8
   %this1.i2372 = load ptr, ptr %this.addr.i2371, align 8
   %Length.i2373 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2372, i32 0, i32 1
-  %1940 = load i64, ptr %Length.i2373, align 8
+  %2006 = load i64, ptr %Length.i2373, align 8
   %Length2.i2374 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2370, i32 0, i32 1
-  %1941 = load i64, ptr %Length2.i2374, align 8
-  %cmp.i2375 = icmp eq i64 %1940, %1941
+  %2007 = load i64, ptr %Length2.i2374, align 8
+  %cmp.i2375 = icmp eq i64 %2006, %2007
   br i1 %cmp.i2375, label %land.rhs.i2376, label %_ZNK4llvh9StringRef6equalsES0_.exit2380
 
 land.rhs.i2376:                                   ; preds = %land.lhs.true.i544
-  %1942 = load ptr, ptr %this1.i2372, align 8
-  %1943 = load ptr, ptr %RHS.i2370, align 8
+  %2008 = load ptr, ptr %this1.i2372, align 8
+  %2009 = load ptr, ptr %RHS.i2370, align 8
   %Length4.i2377 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2370, i32 0, i32 1
-  %1944 = load i64, ptr %Length4.i2377, align 8
-  store ptr %1942, ptr %Lhs.addr.i2737, align 8
-  store ptr %1943, ptr %Rhs.addr.i2738, align 8
-  store i64 %1944, ptr %Length.addr.i2739, align 8
-  %1945 = load i64, ptr %Length.addr.i2739, align 8
-  %cmp.i2740 = icmp eq i64 %1945, 0
+  %2010 = load i64, ptr %Length4.i2377, align 8
+  store ptr %2008, ptr %Lhs.addr.i2737, align 8
+  store ptr %2009, ptr %Rhs.addr.i2738, align 8
+  store i64 %2010, ptr %Length.addr.i2739, align 8
+  %2011 = load i64, ptr %Length.addr.i2739, align 8
+  %cmp.i2740 = icmp eq i64 %2011, 0
   br i1 %cmp.i2740, label %if.then.i2743, label %if.end.i2741
 
 if.then.i2743:                                    ; preds = %land.rhs.i2376
@@ -16655,21 +16721,21 @@ if.then.i2743:                                    ; preds = %land.rhs.i2376
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2744
 
 if.end.i2741:                                     ; preds = %land.rhs.i2376
-  %1946 = load ptr, ptr %Lhs.addr.i2737, align 8
-  %1947 = load ptr, ptr %Rhs.addr.i2738, align 8
-  %1948 = load i64, ptr %Length.addr.i2739, align 8
-  %call.i2742 = call i32 @memcmp(ptr noundef %1946, ptr noundef %1947, i64 noundef %1948) #10
+  %2012 = load ptr, ptr %Lhs.addr.i2737, align 8
+  %2013 = load ptr, ptr %Rhs.addr.i2738, align 8
+  %2014 = load i64, ptr %Length.addr.i2739, align 8
+  %call.i2742 = call i32 @memcmp(ptr noundef %2012, ptr noundef %2013, i64 noundef %2014) #10
   store i32 %call.i2742, ptr %retval.i2736, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2744
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2744: ; preds = %if.end.i2741, %if.then.i2743
-  %1949 = load i32, ptr %retval.i2736, align 4
-  %cmp5.i2379 = icmp eq i32 %1949, 0
+  %2015 = load i32, ptr %retval.i2736, align 4
+  %cmp5.i2379 = icmp eq i32 %2015, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2380
 
 _ZNK4llvh9StringRef6equalsES0_.exit2380:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2744, %land.lhs.true.i544
-  %1950 = phi i1 [ false, %land.lhs.true.i544 ], [ %cmp5.i2379, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2744 ]
-  br i1 %1950, label %if.then.i546, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit549
+  %2016 = phi i1 [ false, %land.lhs.true.i544 ], [ %cmp5.i2379, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2744 ]
+  br i1 %2016, label %if.then.i546, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit549
 
 if.then.i546:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2380
   %Result4.i547 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i541, i32 0, i32 1
@@ -16678,15 +16744,16 @@ if.then.i546:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit549: ; preds = %if.then.i546, %_ZNK4llvh9StringRef6equalsES0_.exit2380, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit566
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp200, ptr noundef nonnull align 1 dereferenceable(11) @.str.67)
-  %1951 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or201 = or i32 %1951, 2
-  %1952 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp200, i32 0, i32 0
-  %1953 = load ptr, ptr %1952, align 8
-  %1954 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp200, i32 0, i32 1
-  %1955 = load i64, ptr %1954, align 8
-  store ptr %1953, ptr %S.i519, align 8
-  %1956 = getelementptr inbounds { ptr, i64 }, ptr %S.i519, i32 0, i32 1
-  store i64 %1955, ptr %1956, align 8
+  %2017 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2018 = load i32, ptr %2017, align 4
+  %or201 = or i32 %2018, 2
+  %2019 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp200, i32 0, i32 0
+  %2020 = load ptr, ptr %2019, align 8
+  %2021 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp200, i32 0, i32 1
+  %2022 = load i64, ptr %2021, align 8
+  store ptr %2020, ptr %S.i519, align 8
+  %2023 = getelementptr inbounds { ptr, i64 }, ptr %S.i519, i32 0, i32 1
+  store i64 %2022, ptr %2023, align 8
   store ptr %this1.i541, ptr %this.addr.i520, align 8
   store i32 %or201, ptr %Value.addr.i521, align 4
   %this1.i524 = load ptr, ptr %this.addr.i520, align 8
@@ -16697,44 +16764,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit549: ; preds = %if.then
 land.lhs.true.i527:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit549
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i522, ptr align 8 %this1.i524, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i523, ptr align 8 %S.i519, i64 16, i1 false)
-  %1957 = load ptr, ptr %agg.tmp.i522, align 8
-  %1958 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i522, i32 0, i32 1
-  %1959 = load i64, ptr %1958, align 8
-  %1960 = load ptr, ptr %agg.tmp2.i523, align 8
-  %1961 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i523, i32 0, i32 1
-  %1962 = load i64, ptr %1961, align 8
-  store ptr %1957, ptr %LHS.i.i516, align 8
-  %1963 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i516, i32 0, i32 1
-  store i64 %1959, ptr %1963, align 8
-  store ptr %1960, ptr %RHS.i.i517, align 8
-  %1964 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i517, i32 0, i32 1
-  store i64 %1962, ptr %1964, align 8
+  %2024 = load ptr, ptr %agg.tmp.i522, align 8
+  %2025 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i522, i32 0, i32 1
+  %2026 = load i64, ptr %2025, align 8
+  %2027 = load ptr, ptr %agg.tmp2.i523, align 8
+  %2028 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i523, i32 0, i32 1
+  %2029 = load i64, ptr %2028, align 8
+  store ptr %2024, ptr %LHS.i.i516, align 8
+  %2030 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i516, i32 0, i32 1
+  store i64 %2026, ptr %2030, align 8
+  store ptr %2027, ptr %RHS.i.i517, align 8
+  %2031 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i517, i32 0, i32 1
+  store i64 %2029, ptr %2031, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i518, ptr align 8 %RHS.i.i517, i64 16, i1 false)
-  %1965 = load ptr, ptr %agg.tmp.i.i518, align 8
-  %1966 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i518, i32 0, i32 1
-  %1967 = load i64, ptr %1966, align 8
-  store ptr %1965, ptr %RHS.i2381, align 8
-  %1968 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2381, i32 0, i32 1
-  store i64 %1967, ptr %1968, align 8
+  %2032 = load ptr, ptr %agg.tmp.i.i518, align 8
+  %2033 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i518, i32 0, i32 1
+  %2034 = load i64, ptr %2033, align 8
+  store ptr %2032, ptr %RHS.i2381, align 8
+  %2035 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2381, i32 0, i32 1
+  store i64 %2034, ptr %2035, align 8
   store ptr %LHS.i.i516, ptr %this.addr.i2382, align 8
   %this1.i2383 = load ptr, ptr %this.addr.i2382, align 8
   %Length.i2384 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2383, i32 0, i32 1
-  %1969 = load i64, ptr %Length.i2384, align 8
+  %2036 = load i64, ptr %Length.i2384, align 8
   %Length2.i2385 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2381, i32 0, i32 1
-  %1970 = load i64, ptr %Length2.i2385, align 8
-  %cmp.i2386 = icmp eq i64 %1969, %1970
+  %2037 = load i64, ptr %Length2.i2385, align 8
+  %cmp.i2386 = icmp eq i64 %2036, %2037
   br i1 %cmp.i2386, label %land.rhs.i2387, label %_ZNK4llvh9StringRef6equalsES0_.exit2391
 
 land.rhs.i2387:                                   ; preds = %land.lhs.true.i527
-  %1971 = load ptr, ptr %this1.i2383, align 8
-  %1972 = load ptr, ptr %RHS.i2381, align 8
+  %2038 = load ptr, ptr %this1.i2383, align 8
+  %2039 = load ptr, ptr %RHS.i2381, align 8
   %Length4.i2388 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2381, i32 0, i32 1
-  %1973 = load i64, ptr %Length4.i2388, align 8
-  store ptr %1971, ptr %Lhs.addr.i2728, align 8
-  store ptr %1972, ptr %Rhs.addr.i2729, align 8
-  store i64 %1973, ptr %Length.addr.i2730, align 8
-  %1974 = load i64, ptr %Length.addr.i2730, align 8
-  %cmp.i2731 = icmp eq i64 %1974, 0
+  %2040 = load i64, ptr %Length4.i2388, align 8
+  store ptr %2038, ptr %Lhs.addr.i2728, align 8
+  store ptr %2039, ptr %Rhs.addr.i2729, align 8
+  store i64 %2040, ptr %Length.addr.i2730, align 8
+  %2041 = load i64, ptr %Length.addr.i2730, align 8
+  %cmp.i2731 = icmp eq i64 %2041, 0
   br i1 %cmp.i2731, label %if.then.i2734, label %if.end.i2732
 
 if.then.i2734:                                    ; preds = %land.rhs.i2387
@@ -16742,21 +16809,21 @@ if.then.i2734:                                    ; preds = %land.rhs.i2387
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2735
 
 if.end.i2732:                                     ; preds = %land.rhs.i2387
-  %1975 = load ptr, ptr %Lhs.addr.i2728, align 8
-  %1976 = load ptr, ptr %Rhs.addr.i2729, align 8
-  %1977 = load i64, ptr %Length.addr.i2730, align 8
-  %call.i2733 = call i32 @memcmp(ptr noundef %1975, ptr noundef %1976, i64 noundef %1977) #10
+  %2042 = load ptr, ptr %Lhs.addr.i2728, align 8
+  %2043 = load ptr, ptr %Rhs.addr.i2729, align 8
+  %2044 = load i64, ptr %Length.addr.i2730, align 8
+  %call.i2733 = call i32 @memcmp(ptr noundef %2042, ptr noundef %2043, i64 noundef %2044) #10
   store i32 %call.i2733, ptr %retval.i2727, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2735
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2735: ; preds = %if.end.i2732, %if.then.i2734
-  %1978 = load i32, ptr %retval.i2727, align 4
-  %cmp5.i2390 = icmp eq i32 %1978, 0
+  %2045 = load i32, ptr %retval.i2727, align 4
+  %cmp5.i2390 = icmp eq i32 %2045, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2391
 
 _ZNK4llvh9StringRef6equalsES0_.exit2391:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2735, %land.lhs.true.i527
-  %1979 = phi i1 [ false, %land.lhs.true.i527 ], [ %cmp5.i2390, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2735 ]
-  br i1 %1979, label %if.then.i529, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit532
+  %2046 = phi i1 [ false, %land.lhs.true.i527 ], [ %cmp5.i2390, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2735 ]
+  br i1 %2046, label %if.then.i529, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit532
 
 if.then.i529:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2391
   %Result4.i530 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i524, i32 0, i32 1
@@ -16765,15 +16832,16 @@ if.then.i529:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit532: ; preds = %if.then.i529, %_ZNK4llvh9StringRef6equalsES0_.exit2391, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit549
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp203, ptr noundef nonnull align 1 dereferenceable(11) @.str.68)
-  %1980 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or204 = or i32 %1980, 2
-  %1981 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp203, i32 0, i32 0
-  %1982 = load ptr, ptr %1981, align 8
-  %1983 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp203, i32 0, i32 1
-  %1984 = load i64, ptr %1983, align 8
-  store ptr %1982, ptr %S.i502, align 8
-  %1985 = getelementptr inbounds { ptr, i64 }, ptr %S.i502, i32 0, i32 1
-  store i64 %1984, ptr %1985, align 8
+  %2047 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2048 = load i32, ptr %2047, align 4
+  %or204 = or i32 %2048, 2
+  %2049 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp203, i32 0, i32 0
+  %2050 = load ptr, ptr %2049, align 8
+  %2051 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp203, i32 0, i32 1
+  %2052 = load i64, ptr %2051, align 8
+  store ptr %2050, ptr %S.i502, align 8
+  %2053 = getelementptr inbounds { ptr, i64 }, ptr %S.i502, i32 0, i32 1
+  store i64 %2052, ptr %2053, align 8
   store ptr %this1.i524, ptr %this.addr.i503, align 8
   store i32 %or204, ptr %Value.addr.i504, align 4
   %this1.i507 = load ptr, ptr %this.addr.i503, align 8
@@ -16784,44 +16852,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit532: ; preds = %if.then
 land.lhs.true.i510:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit532
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i505, ptr align 8 %this1.i507, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i506, ptr align 8 %S.i502, i64 16, i1 false)
-  %1986 = load ptr, ptr %agg.tmp.i505, align 8
-  %1987 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i505, i32 0, i32 1
-  %1988 = load i64, ptr %1987, align 8
-  %1989 = load ptr, ptr %agg.tmp2.i506, align 8
-  %1990 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i506, i32 0, i32 1
-  %1991 = load i64, ptr %1990, align 8
-  store ptr %1986, ptr %LHS.i.i499, align 8
-  %1992 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i499, i32 0, i32 1
-  store i64 %1988, ptr %1992, align 8
-  store ptr %1989, ptr %RHS.i.i500, align 8
-  %1993 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i500, i32 0, i32 1
-  store i64 %1991, ptr %1993, align 8
+  %2054 = load ptr, ptr %agg.tmp.i505, align 8
+  %2055 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i505, i32 0, i32 1
+  %2056 = load i64, ptr %2055, align 8
+  %2057 = load ptr, ptr %agg.tmp2.i506, align 8
+  %2058 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i506, i32 0, i32 1
+  %2059 = load i64, ptr %2058, align 8
+  store ptr %2054, ptr %LHS.i.i499, align 8
+  %2060 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i499, i32 0, i32 1
+  store i64 %2056, ptr %2060, align 8
+  store ptr %2057, ptr %RHS.i.i500, align 8
+  %2061 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i500, i32 0, i32 1
+  store i64 %2059, ptr %2061, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i501, ptr align 8 %RHS.i.i500, i64 16, i1 false)
-  %1994 = load ptr, ptr %agg.tmp.i.i501, align 8
-  %1995 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i501, i32 0, i32 1
-  %1996 = load i64, ptr %1995, align 8
-  store ptr %1994, ptr %RHS.i2392, align 8
-  %1997 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2392, i32 0, i32 1
-  store i64 %1996, ptr %1997, align 8
+  %2062 = load ptr, ptr %agg.tmp.i.i501, align 8
+  %2063 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i501, i32 0, i32 1
+  %2064 = load i64, ptr %2063, align 8
+  store ptr %2062, ptr %RHS.i2392, align 8
+  %2065 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2392, i32 0, i32 1
+  store i64 %2064, ptr %2065, align 8
   store ptr %LHS.i.i499, ptr %this.addr.i2393, align 8
   %this1.i2394 = load ptr, ptr %this.addr.i2393, align 8
   %Length.i2395 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2394, i32 0, i32 1
-  %1998 = load i64, ptr %Length.i2395, align 8
+  %2066 = load i64, ptr %Length.i2395, align 8
   %Length2.i2396 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2392, i32 0, i32 1
-  %1999 = load i64, ptr %Length2.i2396, align 8
-  %cmp.i2397 = icmp eq i64 %1998, %1999
+  %2067 = load i64, ptr %Length2.i2396, align 8
+  %cmp.i2397 = icmp eq i64 %2066, %2067
   br i1 %cmp.i2397, label %land.rhs.i2398, label %_ZNK4llvh9StringRef6equalsES0_.exit2402
 
 land.rhs.i2398:                                   ; preds = %land.lhs.true.i510
-  %2000 = load ptr, ptr %this1.i2394, align 8
-  %2001 = load ptr, ptr %RHS.i2392, align 8
+  %2068 = load ptr, ptr %this1.i2394, align 8
+  %2069 = load ptr, ptr %RHS.i2392, align 8
   %Length4.i2399 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2392, i32 0, i32 1
-  %2002 = load i64, ptr %Length4.i2399, align 8
-  store ptr %2000, ptr %Lhs.addr.i2719, align 8
-  store ptr %2001, ptr %Rhs.addr.i2720, align 8
-  store i64 %2002, ptr %Length.addr.i2721, align 8
-  %2003 = load i64, ptr %Length.addr.i2721, align 8
-  %cmp.i2722 = icmp eq i64 %2003, 0
+  %2070 = load i64, ptr %Length4.i2399, align 8
+  store ptr %2068, ptr %Lhs.addr.i2719, align 8
+  store ptr %2069, ptr %Rhs.addr.i2720, align 8
+  store i64 %2070, ptr %Length.addr.i2721, align 8
+  %2071 = load i64, ptr %Length.addr.i2721, align 8
+  %cmp.i2722 = icmp eq i64 %2071, 0
   br i1 %cmp.i2722, label %if.then.i2725, label %if.end.i2723
 
 if.then.i2725:                                    ; preds = %land.rhs.i2398
@@ -16829,21 +16897,21 @@ if.then.i2725:                                    ; preds = %land.rhs.i2398
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2726
 
 if.end.i2723:                                     ; preds = %land.rhs.i2398
-  %2004 = load ptr, ptr %Lhs.addr.i2719, align 8
-  %2005 = load ptr, ptr %Rhs.addr.i2720, align 8
-  %2006 = load i64, ptr %Length.addr.i2721, align 8
-  %call.i2724 = call i32 @memcmp(ptr noundef %2004, ptr noundef %2005, i64 noundef %2006) #10
+  %2072 = load ptr, ptr %Lhs.addr.i2719, align 8
+  %2073 = load ptr, ptr %Rhs.addr.i2720, align 8
+  %2074 = load i64, ptr %Length.addr.i2721, align 8
+  %call.i2724 = call i32 @memcmp(ptr noundef %2072, ptr noundef %2073, i64 noundef %2074) #10
   store i32 %call.i2724, ptr %retval.i2718, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2726
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2726: ; preds = %if.end.i2723, %if.then.i2725
-  %2007 = load i32, ptr %retval.i2718, align 4
-  %cmp5.i2401 = icmp eq i32 %2007, 0
+  %2075 = load i32, ptr %retval.i2718, align 4
+  %cmp5.i2401 = icmp eq i32 %2075, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2402
 
 _ZNK4llvh9StringRef6equalsES0_.exit2402:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2726, %land.lhs.true.i510
-  %2008 = phi i1 [ false, %land.lhs.true.i510 ], [ %cmp5.i2401, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2726 ]
-  br i1 %2008, label %if.then.i512, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit515
+  %2076 = phi i1 [ false, %land.lhs.true.i510 ], [ %cmp5.i2401, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2726 ]
+  br i1 %2076, label %if.then.i512, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit515
 
 if.then.i512:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2402
   %Result4.i513 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i507, i32 0, i32 1
@@ -16852,15 +16920,16 @@ if.then.i512:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit515: ; preds = %if.then.i512, %_ZNK4llvh9StringRef6equalsES0_.exit2402, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit532
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp206, ptr noundef nonnull align 1 dereferenceable(11) @.str.69)
-  %2009 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 22, i32 7), align 4
-  %or207 = or i32 %2009, 18432
-  %2010 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp206, i32 0, i32 0
-  %2011 = load ptr, ptr %2010, align 8
-  %2012 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp206, i32 0, i32 1
-  %2013 = load i64, ptr %2012, align 8
-  store ptr %2011, ptr %S.i485, align 8
-  %2014 = getelementptr inbounds { ptr, i64 }, ptr %S.i485, i32 0, i32 1
-  store i64 %2013, ptr %2014, align 8
+  %2077 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 22, i32 7
+  %2078 = load i32, ptr %2077, align 4
+  %or207 = or i32 %2078, 18432
+  %2079 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp206, i32 0, i32 0
+  %2080 = load ptr, ptr %2079, align 8
+  %2081 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp206, i32 0, i32 1
+  %2082 = load i64, ptr %2081, align 8
+  store ptr %2080, ptr %S.i485, align 8
+  %2083 = getelementptr inbounds { ptr, i64 }, ptr %S.i485, i32 0, i32 1
+  store i64 %2082, ptr %2083, align 8
   store ptr %this1.i507, ptr %this.addr.i486, align 8
   store i32 %or207, ptr %Value.addr.i487, align 4
   %this1.i490 = load ptr, ptr %this.addr.i486, align 8
@@ -16871,44 +16940,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit515: ; preds = %if.then
 land.lhs.true.i493:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit515
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i488, ptr align 8 %this1.i490, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i489, ptr align 8 %S.i485, i64 16, i1 false)
-  %2015 = load ptr, ptr %agg.tmp.i488, align 8
-  %2016 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i488, i32 0, i32 1
-  %2017 = load i64, ptr %2016, align 8
-  %2018 = load ptr, ptr %agg.tmp2.i489, align 8
-  %2019 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i489, i32 0, i32 1
-  %2020 = load i64, ptr %2019, align 8
-  store ptr %2015, ptr %LHS.i.i482, align 8
-  %2021 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i482, i32 0, i32 1
-  store i64 %2017, ptr %2021, align 8
-  store ptr %2018, ptr %RHS.i.i483, align 8
-  %2022 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i483, i32 0, i32 1
-  store i64 %2020, ptr %2022, align 8
+  %2084 = load ptr, ptr %agg.tmp.i488, align 8
+  %2085 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i488, i32 0, i32 1
+  %2086 = load i64, ptr %2085, align 8
+  %2087 = load ptr, ptr %agg.tmp2.i489, align 8
+  %2088 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i489, i32 0, i32 1
+  %2089 = load i64, ptr %2088, align 8
+  store ptr %2084, ptr %LHS.i.i482, align 8
+  %2090 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i482, i32 0, i32 1
+  store i64 %2086, ptr %2090, align 8
+  store ptr %2087, ptr %RHS.i.i483, align 8
+  %2091 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i483, i32 0, i32 1
+  store i64 %2089, ptr %2091, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i484, ptr align 8 %RHS.i.i483, i64 16, i1 false)
-  %2023 = load ptr, ptr %agg.tmp.i.i484, align 8
-  %2024 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i484, i32 0, i32 1
-  %2025 = load i64, ptr %2024, align 8
-  store ptr %2023, ptr %RHS.i2403, align 8
-  %2026 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2403, i32 0, i32 1
-  store i64 %2025, ptr %2026, align 8
+  %2092 = load ptr, ptr %agg.tmp.i.i484, align 8
+  %2093 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i484, i32 0, i32 1
+  %2094 = load i64, ptr %2093, align 8
+  store ptr %2092, ptr %RHS.i2403, align 8
+  %2095 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2403, i32 0, i32 1
+  store i64 %2094, ptr %2095, align 8
   store ptr %LHS.i.i482, ptr %this.addr.i2404, align 8
   %this1.i2405 = load ptr, ptr %this.addr.i2404, align 8
   %Length.i2406 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2405, i32 0, i32 1
-  %2027 = load i64, ptr %Length.i2406, align 8
+  %2096 = load i64, ptr %Length.i2406, align 8
   %Length2.i2407 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2403, i32 0, i32 1
-  %2028 = load i64, ptr %Length2.i2407, align 8
-  %cmp.i2408 = icmp eq i64 %2027, %2028
+  %2097 = load i64, ptr %Length2.i2407, align 8
+  %cmp.i2408 = icmp eq i64 %2096, %2097
   br i1 %cmp.i2408, label %land.rhs.i2409, label %_ZNK4llvh9StringRef6equalsES0_.exit2413
 
 land.rhs.i2409:                                   ; preds = %land.lhs.true.i493
-  %2029 = load ptr, ptr %this1.i2405, align 8
-  %2030 = load ptr, ptr %RHS.i2403, align 8
+  %2098 = load ptr, ptr %this1.i2405, align 8
+  %2099 = load ptr, ptr %RHS.i2403, align 8
   %Length4.i2410 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2403, i32 0, i32 1
-  %2031 = load i64, ptr %Length4.i2410, align 8
-  store ptr %2029, ptr %Lhs.addr.i2710, align 8
-  store ptr %2030, ptr %Rhs.addr.i2711, align 8
-  store i64 %2031, ptr %Length.addr.i2712, align 8
-  %2032 = load i64, ptr %Length.addr.i2712, align 8
-  %cmp.i2713 = icmp eq i64 %2032, 0
+  %2100 = load i64, ptr %Length4.i2410, align 8
+  store ptr %2098, ptr %Lhs.addr.i2710, align 8
+  store ptr %2099, ptr %Rhs.addr.i2711, align 8
+  store i64 %2100, ptr %Length.addr.i2712, align 8
+  %2101 = load i64, ptr %Length.addr.i2712, align 8
+  %cmp.i2713 = icmp eq i64 %2101, 0
   br i1 %cmp.i2713, label %if.then.i2716, label %if.end.i2714
 
 if.then.i2716:                                    ; preds = %land.rhs.i2409
@@ -16916,21 +16985,21 @@ if.then.i2716:                                    ; preds = %land.rhs.i2409
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2717
 
 if.end.i2714:                                     ; preds = %land.rhs.i2409
-  %2033 = load ptr, ptr %Lhs.addr.i2710, align 8
-  %2034 = load ptr, ptr %Rhs.addr.i2711, align 8
-  %2035 = load i64, ptr %Length.addr.i2712, align 8
-  %call.i2715 = call i32 @memcmp(ptr noundef %2033, ptr noundef %2034, i64 noundef %2035) #10
+  %2102 = load ptr, ptr %Lhs.addr.i2710, align 8
+  %2103 = load ptr, ptr %Rhs.addr.i2711, align 8
+  %2104 = load i64, ptr %Length.addr.i2712, align 8
+  %call.i2715 = call i32 @memcmp(ptr noundef %2102, ptr noundef %2103, i64 noundef %2104) #10
   store i32 %call.i2715, ptr %retval.i2709, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2717
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2717: ; preds = %if.end.i2714, %if.then.i2716
-  %2036 = load i32, ptr %retval.i2709, align 4
-  %cmp5.i2412 = icmp eq i32 %2036, 0
+  %2105 = load i32, ptr %retval.i2709, align 4
+  %cmp5.i2412 = icmp eq i32 %2105, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2413
 
 _ZNK4llvh9StringRef6equalsES0_.exit2413:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2717, %land.lhs.true.i493
-  %2037 = phi i1 [ false, %land.lhs.true.i493 ], [ %cmp5.i2412, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2717 ]
-  br i1 %2037, label %if.then.i495, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit498
+  %2106 = phi i1 [ false, %land.lhs.true.i493 ], [ %cmp5.i2412, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2717 ]
+  br i1 %2106, label %if.then.i495, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit498
 
 if.then.i495:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2413
   %Result4.i496 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i490, i32 0, i32 1
@@ -16939,15 +17008,16 @@ if.then.i495:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit498: ; preds = %if.then.i495, %_ZNK4llvh9StringRef6equalsES0_.exit2413, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit515
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp209, ptr noundef nonnull align 1 dereferenceable(11) @.str.70)
-  %2038 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or210 = or i32 %2038, 2
-  %2039 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp209, i32 0, i32 0
-  %2040 = load ptr, ptr %2039, align 8
-  %2041 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp209, i32 0, i32 1
-  %2042 = load i64, ptr %2041, align 8
-  store ptr %2040, ptr %S.i468, align 8
-  %2043 = getelementptr inbounds { ptr, i64 }, ptr %S.i468, i32 0, i32 1
-  store i64 %2042, ptr %2043, align 8
+  %2107 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2108 = load i32, ptr %2107, align 4
+  %or210 = or i32 %2108, 2
+  %2109 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp209, i32 0, i32 0
+  %2110 = load ptr, ptr %2109, align 8
+  %2111 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp209, i32 0, i32 1
+  %2112 = load i64, ptr %2111, align 8
+  store ptr %2110, ptr %S.i468, align 8
+  %2113 = getelementptr inbounds { ptr, i64 }, ptr %S.i468, i32 0, i32 1
+  store i64 %2112, ptr %2113, align 8
   store ptr %this1.i490, ptr %this.addr.i469, align 8
   store i32 %or210, ptr %Value.addr.i470, align 4
   %this1.i473 = load ptr, ptr %this.addr.i469, align 8
@@ -16958,44 +17028,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit498: ; preds = %if.then
 land.lhs.true.i476:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit498
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i471, ptr align 8 %this1.i473, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i472, ptr align 8 %S.i468, i64 16, i1 false)
-  %2044 = load ptr, ptr %agg.tmp.i471, align 8
-  %2045 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i471, i32 0, i32 1
-  %2046 = load i64, ptr %2045, align 8
-  %2047 = load ptr, ptr %agg.tmp2.i472, align 8
-  %2048 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i472, i32 0, i32 1
-  %2049 = load i64, ptr %2048, align 8
-  store ptr %2044, ptr %LHS.i.i465, align 8
-  %2050 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i465, i32 0, i32 1
-  store i64 %2046, ptr %2050, align 8
-  store ptr %2047, ptr %RHS.i.i466, align 8
-  %2051 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i466, i32 0, i32 1
-  store i64 %2049, ptr %2051, align 8
+  %2114 = load ptr, ptr %agg.tmp.i471, align 8
+  %2115 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i471, i32 0, i32 1
+  %2116 = load i64, ptr %2115, align 8
+  %2117 = load ptr, ptr %agg.tmp2.i472, align 8
+  %2118 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i472, i32 0, i32 1
+  %2119 = load i64, ptr %2118, align 8
+  store ptr %2114, ptr %LHS.i.i465, align 8
+  %2120 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i465, i32 0, i32 1
+  store i64 %2116, ptr %2120, align 8
+  store ptr %2117, ptr %RHS.i.i466, align 8
+  %2121 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i466, i32 0, i32 1
+  store i64 %2119, ptr %2121, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i467, ptr align 8 %RHS.i.i466, i64 16, i1 false)
-  %2052 = load ptr, ptr %agg.tmp.i.i467, align 8
-  %2053 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i467, i32 0, i32 1
-  %2054 = load i64, ptr %2053, align 8
-  store ptr %2052, ptr %RHS.i2414, align 8
-  %2055 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2414, i32 0, i32 1
-  store i64 %2054, ptr %2055, align 8
+  %2122 = load ptr, ptr %agg.tmp.i.i467, align 8
+  %2123 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i467, i32 0, i32 1
+  %2124 = load i64, ptr %2123, align 8
+  store ptr %2122, ptr %RHS.i2414, align 8
+  %2125 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2414, i32 0, i32 1
+  store i64 %2124, ptr %2125, align 8
   store ptr %LHS.i.i465, ptr %this.addr.i2415, align 8
   %this1.i2416 = load ptr, ptr %this.addr.i2415, align 8
   %Length.i2417 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2416, i32 0, i32 1
-  %2056 = load i64, ptr %Length.i2417, align 8
+  %2126 = load i64, ptr %Length.i2417, align 8
   %Length2.i2418 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2414, i32 0, i32 1
-  %2057 = load i64, ptr %Length2.i2418, align 8
-  %cmp.i2419 = icmp eq i64 %2056, %2057
+  %2127 = load i64, ptr %Length2.i2418, align 8
+  %cmp.i2419 = icmp eq i64 %2126, %2127
   br i1 %cmp.i2419, label %land.rhs.i2420, label %_ZNK4llvh9StringRef6equalsES0_.exit2424
 
 land.rhs.i2420:                                   ; preds = %land.lhs.true.i476
-  %2058 = load ptr, ptr %this1.i2416, align 8
-  %2059 = load ptr, ptr %RHS.i2414, align 8
+  %2128 = load ptr, ptr %this1.i2416, align 8
+  %2129 = load ptr, ptr %RHS.i2414, align 8
   %Length4.i2421 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2414, i32 0, i32 1
-  %2060 = load i64, ptr %Length4.i2421, align 8
-  store ptr %2058, ptr %Lhs.addr.i2701, align 8
-  store ptr %2059, ptr %Rhs.addr.i2702, align 8
-  store i64 %2060, ptr %Length.addr.i2703, align 8
-  %2061 = load i64, ptr %Length.addr.i2703, align 8
-  %cmp.i2704 = icmp eq i64 %2061, 0
+  %2130 = load i64, ptr %Length4.i2421, align 8
+  store ptr %2128, ptr %Lhs.addr.i2701, align 8
+  store ptr %2129, ptr %Rhs.addr.i2702, align 8
+  store i64 %2130, ptr %Length.addr.i2703, align 8
+  %2131 = load i64, ptr %Length.addr.i2703, align 8
+  %cmp.i2704 = icmp eq i64 %2131, 0
   br i1 %cmp.i2704, label %if.then.i2707, label %if.end.i2705
 
 if.then.i2707:                                    ; preds = %land.rhs.i2420
@@ -17003,21 +17073,21 @@ if.then.i2707:                                    ; preds = %land.rhs.i2420
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2708
 
 if.end.i2705:                                     ; preds = %land.rhs.i2420
-  %2062 = load ptr, ptr %Lhs.addr.i2701, align 8
-  %2063 = load ptr, ptr %Rhs.addr.i2702, align 8
-  %2064 = load i64, ptr %Length.addr.i2703, align 8
-  %call.i2706 = call i32 @memcmp(ptr noundef %2062, ptr noundef %2063, i64 noundef %2064) #10
+  %2132 = load ptr, ptr %Lhs.addr.i2701, align 8
+  %2133 = load ptr, ptr %Rhs.addr.i2702, align 8
+  %2134 = load i64, ptr %Length.addr.i2703, align 8
+  %call.i2706 = call i32 @memcmp(ptr noundef %2132, ptr noundef %2133, i64 noundef %2134) #10
   store i32 %call.i2706, ptr %retval.i2700, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2708
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2708: ; preds = %if.end.i2705, %if.then.i2707
-  %2065 = load i32, ptr %retval.i2700, align 4
-  %cmp5.i2423 = icmp eq i32 %2065, 0
+  %2135 = load i32, ptr %retval.i2700, align 4
+  %cmp5.i2423 = icmp eq i32 %2135, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2424
 
 _ZNK4llvh9StringRef6equalsES0_.exit2424:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2708, %land.lhs.true.i476
-  %2066 = phi i1 [ false, %land.lhs.true.i476 ], [ %cmp5.i2423, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2708 ]
-  br i1 %2066, label %if.then.i478, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit481
+  %2136 = phi i1 [ false, %land.lhs.true.i476 ], [ %cmp5.i2423, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2708 ]
+  br i1 %2136, label %if.then.i478, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit481
 
 if.then.i478:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2424
   %Result4.i479 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i473, i32 0, i32 1
@@ -17026,15 +17096,16 @@ if.then.i478:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit481: ; preds = %if.then.i478, %_ZNK4llvh9StringRef6equalsES0_.exit2424, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit498
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp212, ptr noundef nonnull align 1 dereferenceable(11) @.str.71)
-  %2067 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or213 = or i32 %2067, 2
-  %2068 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp212, i32 0, i32 0
-  %2069 = load ptr, ptr %2068, align 8
-  %2070 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp212, i32 0, i32 1
-  %2071 = load i64, ptr %2070, align 8
-  store ptr %2069, ptr %S.i451, align 8
-  %2072 = getelementptr inbounds { ptr, i64 }, ptr %S.i451, i32 0, i32 1
-  store i64 %2071, ptr %2072, align 8
+  %2137 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2138 = load i32, ptr %2137, align 4
+  %or213 = or i32 %2138, 2
+  %2139 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp212, i32 0, i32 0
+  %2140 = load ptr, ptr %2139, align 8
+  %2141 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp212, i32 0, i32 1
+  %2142 = load i64, ptr %2141, align 8
+  store ptr %2140, ptr %S.i451, align 8
+  %2143 = getelementptr inbounds { ptr, i64 }, ptr %S.i451, i32 0, i32 1
+  store i64 %2142, ptr %2143, align 8
   store ptr %this1.i473, ptr %this.addr.i452, align 8
   store i32 %or213, ptr %Value.addr.i453, align 4
   %this1.i456 = load ptr, ptr %this.addr.i452, align 8
@@ -17045,44 +17116,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit481: ; preds = %if.then
 land.lhs.true.i459:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit481
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i454, ptr align 8 %this1.i456, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i455, ptr align 8 %S.i451, i64 16, i1 false)
-  %2073 = load ptr, ptr %agg.tmp.i454, align 8
-  %2074 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i454, i32 0, i32 1
-  %2075 = load i64, ptr %2074, align 8
-  %2076 = load ptr, ptr %agg.tmp2.i455, align 8
-  %2077 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i455, i32 0, i32 1
-  %2078 = load i64, ptr %2077, align 8
-  store ptr %2073, ptr %LHS.i.i448, align 8
-  %2079 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i448, i32 0, i32 1
-  store i64 %2075, ptr %2079, align 8
-  store ptr %2076, ptr %RHS.i.i449, align 8
-  %2080 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i449, i32 0, i32 1
-  store i64 %2078, ptr %2080, align 8
+  %2144 = load ptr, ptr %agg.tmp.i454, align 8
+  %2145 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i454, i32 0, i32 1
+  %2146 = load i64, ptr %2145, align 8
+  %2147 = load ptr, ptr %agg.tmp2.i455, align 8
+  %2148 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i455, i32 0, i32 1
+  %2149 = load i64, ptr %2148, align 8
+  store ptr %2144, ptr %LHS.i.i448, align 8
+  %2150 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i448, i32 0, i32 1
+  store i64 %2146, ptr %2150, align 8
+  store ptr %2147, ptr %RHS.i.i449, align 8
+  %2151 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i449, i32 0, i32 1
+  store i64 %2149, ptr %2151, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i450, ptr align 8 %RHS.i.i449, i64 16, i1 false)
-  %2081 = load ptr, ptr %agg.tmp.i.i450, align 8
-  %2082 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i450, i32 0, i32 1
-  %2083 = load i64, ptr %2082, align 8
-  store ptr %2081, ptr %RHS.i2425, align 8
-  %2084 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2425, i32 0, i32 1
-  store i64 %2083, ptr %2084, align 8
+  %2152 = load ptr, ptr %agg.tmp.i.i450, align 8
+  %2153 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i450, i32 0, i32 1
+  %2154 = load i64, ptr %2153, align 8
+  store ptr %2152, ptr %RHS.i2425, align 8
+  %2155 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2425, i32 0, i32 1
+  store i64 %2154, ptr %2155, align 8
   store ptr %LHS.i.i448, ptr %this.addr.i2426, align 8
   %this1.i2427 = load ptr, ptr %this.addr.i2426, align 8
   %Length.i2428 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2427, i32 0, i32 1
-  %2085 = load i64, ptr %Length.i2428, align 8
+  %2156 = load i64, ptr %Length.i2428, align 8
   %Length2.i2429 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2425, i32 0, i32 1
-  %2086 = load i64, ptr %Length2.i2429, align 8
-  %cmp.i2430 = icmp eq i64 %2085, %2086
+  %2157 = load i64, ptr %Length2.i2429, align 8
+  %cmp.i2430 = icmp eq i64 %2156, %2157
   br i1 %cmp.i2430, label %land.rhs.i2431, label %_ZNK4llvh9StringRef6equalsES0_.exit2435
 
 land.rhs.i2431:                                   ; preds = %land.lhs.true.i459
-  %2087 = load ptr, ptr %this1.i2427, align 8
-  %2088 = load ptr, ptr %RHS.i2425, align 8
+  %2158 = load ptr, ptr %this1.i2427, align 8
+  %2159 = load ptr, ptr %RHS.i2425, align 8
   %Length4.i2432 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2425, i32 0, i32 1
-  %2089 = load i64, ptr %Length4.i2432, align 8
-  store ptr %2087, ptr %Lhs.addr.i2692, align 8
-  store ptr %2088, ptr %Rhs.addr.i2693, align 8
-  store i64 %2089, ptr %Length.addr.i2694, align 8
-  %2090 = load i64, ptr %Length.addr.i2694, align 8
-  %cmp.i2695 = icmp eq i64 %2090, 0
+  %2160 = load i64, ptr %Length4.i2432, align 8
+  store ptr %2158, ptr %Lhs.addr.i2692, align 8
+  store ptr %2159, ptr %Rhs.addr.i2693, align 8
+  store i64 %2160, ptr %Length.addr.i2694, align 8
+  %2161 = load i64, ptr %Length.addr.i2694, align 8
+  %cmp.i2695 = icmp eq i64 %2161, 0
   br i1 %cmp.i2695, label %if.then.i2698, label %if.end.i2696
 
 if.then.i2698:                                    ; preds = %land.rhs.i2431
@@ -17090,21 +17161,21 @@ if.then.i2698:                                    ; preds = %land.rhs.i2431
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2699
 
 if.end.i2696:                                     ; preds = %land.rhs.i2431
-  %2091 = load ptr, ptr %Lhs.addr.i2692, align 8
-  %2092 = load ptr, ptr %Rhs.addr.i2693, align 8
-  %2093 = load i64, ptr %Length.addr.i2694, align 8
-  %call.i2697 = call i32 @memcmp(ptr noundef %2091, ptr noundef %2092, i64 noundef %2093) #10
+  %2162 = load ptr, ptr %Lhs.addr.i2692, align 8
+  %2163 = load ptr, ptr %Rhs.addr.i2693, align 8
+  %2164 = load i64, ptr %Length.addr.i2694, align 8
+  %call.i2697 = call i32 @memcmp(ptr noundef %2162, ptr noundef %2163, i64 noundef %2164) #10
   store i32 %call.i2697, ptr %retval.i2691, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2699
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2699: ; preds = %if.end.i2696, %if.then.i2698
-  %2094 = load i32, ptr %retval.i2691, align 4
-  %cmp5.i2434 = icmp eq i32 %2094, 0
+  %2165 = load i32, ptr %retval.i2691, align 4
+  %cmp5.i2434 = icmp eq i32 %2165, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2435
 
 _ZNK4llvh9StringRef6equalsES0_.exit2435:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2699, %land.lhs.true.i459
-  %2095 = phi i1 [ false, %land.lhs.true.i459 ], [ %cmp5.i2434, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2699 ]
-  br i1 %2095, label %if.then.i461, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit464
+  %2166 = phi i1 [ false, %land.lhs.true.i459 ], [ %cmp5.i2434, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2699 ]
+  br i1 %2166, label %if.then.i461, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit464
 
 if.then.i461:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2435
   %Result4.i462 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i456, i32 0, i32 1
@@ -17113,15 +17184,16 @@ if.then.i461:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit464: ; preds = %if.then.i461, %_ZNK4llvh9StringRef6equalsES0_.exit2435, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit481
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp215, ptr noundef nonnull align 1 dereferenceable(11) @.str.72)
-  %2096 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or216 = or i32 %2096, 2
-  %2097 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp215, i32 0, i32 0
-  %2098 = load ptr, ptr %2097, align 8
-  %2099 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp215, i32 0, i32 1
-  %2100 = load i64, ptr %2099, align 8
-  store ptr %2098, ptr %S.i434, align 8
-  %2101 = getelementptr inbounds { ptr, i64 }, ptr %S.i434, i32 0, i32 1
-  store i64 %2100, ptr %2101, align 8
+  %2167 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2168 = load i32, ptr %2167, align 4
+  %or216 = or i32 %2168, 2
+  %2169 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp215, i32 0, i32 0
+  %2170 = load ptr, ptr %2169, align 8
+  %2171 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp215, i32 0, i32 1
+  %2172 = load i64, ptr %2171, align 8
+  store ptr %2170, ptr %S.i434, align 8
+  %2173 = getelementptr inbounds { ptr, i64 }, ptr %S.i434, i32 0, i32 1
+  store i64 %2172, ptr %2173, align 8
   store ptr %this1.i456, ptr %this.addr.i435, align 8
   store i32 %or216, ptr %Value.addr.i436, align 4
   %this1.i439 = load ptr, ptr %this.addr.i435, align 8
@@ -17132,44 +17204,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit464: ; preds = %if.then
 land.lhs.true.i442:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit464
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i437, ptr align 8 %this1.i439, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i438, ptr align 8 %S.i434, i64 16, i1 false)
-  %2102 = load ptr, ptr %agg.tmp.i437, align 8
-  %2103 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i437, i32 0, i32 1
-  %2104 = load i64, ptr %2103, align 8
-  %2105 = load ptr, ptr %agg.tmp2.i438, align 8
-  %2106 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i438, i32 0, i32 1
-  %2107 = load i64, ptr %2106, align 8
-  store ptr %2102, ptr %LHS.i.i431, align 8
-  %2108 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i431, i32 0, i32 1
-  store i64 %2104, ptr %2108, align 8
-  store ptr %2105, ptr %RHS.i.i432, align 8
-  %2109 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i432, i32 0, i32 1
-  store i64 %2107, ptr %2109, align 8
+  %2174 = load ptr, ptr %agg.tmp.i437, align 8
+  %2175 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i437, i32 0, i32 1
+  %2176 = load i64, ptr %2175, align 8
+  %2177 = load ptr, ptr %agg.tmp2.i438, align 8
+  %2178 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i438, i32 0, i32 1
+  %2179 = load i64, ptr %2178, align 8
+  store ptr %2174, ptr %LHS.i.i431, align 8
+  %2180 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i431, i32 0, i32 1
+  store i64 %2176, ptr %2180, align 8
+  store ptr %2177, ptr %RHS.i.i432, align 8
+  %2181 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i432, i32 0, i32 1
+  store i64 %2179, ptr %2181, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i433, ptr align 8 %RHS.i.i432, i64 16, i1 false)
-  %2110 = load ptr, ptr %agg.tmp.i.i433, align 8
-  %2111 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i433, i32 0, i32 1
-  %2112 = load i64, ptr %2111, align 8
-  store ptr %2110, ptr %RHS.i2436, align 8
-  %2113 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2436, i32 0, i32 1
-  store i64 %2112, ptr %2113, align 8
+  %2182 = load ptr, ptr %agg.tmp.i.i433, align 8
+  %2183 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i433, i32 0, i32 1
+  %2184 = load i64, ptr %2183, align 8
+  store ptr %2182, ptr %RHS.i2436, align 8
+  %2185 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2436, i32 0, i32 1
+  store i64 %2184, ptr %2185, align 8
   store ptr %LHS.i.i431, ptr %this.addr.i2437, align 8
   %this1.i2438 = load ptr, ptr %this.addr.i2437, align 8
   %Length.i2439 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2438, i32 0, i32 1
-  %2114 = load i64, ptr %Length.i2439, align 8
+  %2186 = load i64, ptr %Length.i2439, align 8
   %Length2.i2440 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2436, i32 0, i32 1
-  %2115 = load i64, ptr %Length2.i2440, align 8
-  %cmp.i2441 = icmp eq i64 %2114, %2115
+  %2187 = load i64, ptr %Length2.i2440, align 8
+  %cmp.i2441 = icmp eq i64 %2186, %2187
   br i1 %cmp.i2441, label %land.rhs.i2442, label %_ZNK4llvh9StringRef6equalsES0_.exit2446
 
 land.rhs.i2442:                                   ; preds = %land.lhs.true.i442
-  %2116 = load ptr, ptr %this1.i2438, align 8
-  %2117 = load ptr, ptr %RHS.i2436, align 8
+  %2188 = load ptr, ptr %this1.i2438, align 8
+  %2189 = load ptr, ptr %RHS.i2436, align 8
   %Length4.i2443 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2436, i32 0, i32 1
-  %2118 = load i64, ptr %Length4.i2443, align 8
-  store ptr %2116, ptr %Lhs.addr.i2683, align 8
-  store ptr %2117, ptr %Rhs.addr.i2684, align 8
-  store i64 %2118, ptr %Length.addr.i2685, align 8
-  %2119 = load i64, ptr %Length.addr.i2685, align 8
-  %cmp.i2686 = icmp eq i64 %2119, 0
+  %2190 = load i64, ptr %Length4.i2443, align 8
+  store ptr %2188, ptr %Lhs.addr.i2683, align 8
+  store ptr %2189, ptr %Rhs.addr.i2684, align 8
+  store i64 %2190, ptr %Length.addr.i2685, align 8
+  %2191 = load i64, ptr %Length.addr.i2685, align 8
+  %cmp.i2686 = icmp eq i64 %2191, 0
   br i1 %cmp.i2686, label %if.then.i2689, label %if.end.i2687
 
 if.then.i2689:                                    ; preds = %land.rhs.i2442
@@ -17177,21 +17249,21 @@ if.then.i2689:                                    ; preds = %land.rhs.i2442
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2690
 
 if.end.i2687:                                     ; preds = %land.rhs.i2442
-  %2120 = load ptr, ptr %Lhs.addr.i2683, align 8
-  %2121 = load ptr, ptr %Rhs.addr.i2684, align 8
-  %2122 = load i64, ptr %Length.addr.i2685, align 8
-  %call.i2688 = call i32 @memcmp(ptr noundef %2120, ptr noundef %2121, i64 noundef %2122) #10
+  %2192 = load ptr, ptr %Lhs.addr.i2683, align 8
+  %2193 = load ptr, ptr %Rhs.addr.i2684, align 8
+  %2194 = load i64, ptr %Length.addr.i2685, align 8
+  %call.i2688 = call i32 @memcmp(ptr noundef %2192, ptr noundef %2193, i64 noundef %2194) #10
   store i32 %call.i2688, ptr %retval.i2682, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2690
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2690: ; preds = %if.end.i2687, %if.then.i2689
-  %2123 = load i32, ptr %retval.i2682, align 4
-  %cmp5.i2445 = icmp eq i32 %2123, 0
+  %2195 = load i32, ptr %retval.i2682, align 4
+  %cmp5.i2445 = icmp eq i32 %2195, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2446
 
 _ZNK4llvh9StringRef6equalsES0_.exit2446:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2690, %land.lhs.true.i442
-  %2124 = phi i1 [ false, %land.lhs.true.i442 ], [ %cmp5.i2445, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2690 ]
-  br i1 %2124, label %if.then.i444, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit447
+  %2196 = phi i1 [ false, %land.lhs.true.i442 ], [ %cmp5.i2445, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2690 ]
+  br i1 %2196, label %if.then.i444, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit447
 
 if.then.i444:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2446
   %Result4.i445 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i439, i32 0, i32 1
@@ -17200,15 +17272,16 @@ if.then.i444:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit447: ; preds = %if.then.i444, %_ZNK4llvh9StringRef6equalsES0_.exit2446, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit464
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp218, ptr noundef nonnull align 1 dereferenceable(11) @.str.73)
-  %2125 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 22, i32 7), align 4
-  %or219 = or i32 %2125, 18432
-  %2126 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp218, i32 0, i32 0
-  %2127 = load ptr, ptr %2126, align 8
-  %2128 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp218, i32 0, i32 1
-  %2129 = load i64, ptr %2128, align 8
-  store ptr %2127, ptr %S.i417, align 8
-  %2130 = getelementptr inbounds { ptr, i64 }, ptr %S.i417, i32 0, i32 1
-  store i64 %2129, ptr %2130, align 8
+  %2197 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 22, i32 7
+  %2198 = load i32, ptr %2197, align 4
+  %or219 = or i32 %2198, 18432
+  %2199 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp218, i32 0, i32 0
+  %2200 = load ptr, ptr %2199, align 8
+  %2201 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp218, i32 0, i32 1
+  %2202 = load i64, ptr %2201, align 8
+  store ptr %2200, ptr %S.i417, align 8
+  %2203 = getelementptr inbounds { ptr, i64 }, ptr %S.i417, i32 0, i32 1
+  store i64 %2202, ptr %2203, align 8
   store ptr %this1.i439, ptr %this.addr.i418, align 8
   store i32 %or219, ptr %Value.addr.i419, align 4
   %this1.i422 = load ptr, ptr %this.addr.i418, align 8
@@ -17219,44 +17292,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit447: ; preds = %if.then
 land.lhs.true.i425:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit447
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i420, ptr align 8 %this1.i422, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i421, ptr align 8 %S.i417, i64 16, i1 false)
-  %2131 = load ptr, ptr %agg.tmp.i420, align 8
-  %2132 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i420, i32 0, i32 1
-  %2133 = load i64, ptr %2132, align 8
-  %2134 = load ptr, ptr %agg.tmp2.i421, align 8
-  %2135 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i421, i32 0, i32 1
-  %2136 = load i64, ptr %2135, align 8
-  store ptr %2131, ptr %LHS.i.i414, align 8
-  %2137 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i414, i32 0, i32 1
-  store i64 %2133, ptr %2137, align 8
-  store ptr %2134, ptr %RHS.i.i415, align 8
-  %2138 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i415, i32 0, i32 1
-  store i64 %2136, ptr %2138, align 8
+  %2204 = load ptr, ptr %agg.tmp.i420, align 8
+  %2205 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i420, i32 0, i32 1
+  %2206 = load i64, ptr %2205, align 8
+  %2207 = load ptr, ptr %agg.tmp2.i421, align 8
+  %2208 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i421, i32 0, i32 1
+  %2209 = load i64, ptr %2208, align 8
+  store ptr %2204, ptr %LHS.i.i414, align 8
+  %2210 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i414, i32 0, i32 1
+  store i64 %2206, ptr %2210, align 8
+  store ptr %2207, ptr %RHS.i.i415, align 8
+  %2211 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i415, i32 0, i32 1
+  store i64 %2209, ptr %2211, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i416, ptr align 8 %RHS.i.i415, i64 16, i1 false)
-  %2139 = load ptr, ptr %agg.tmp.i.i416, align 8
-  %2140 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i416, i32 0, i32 1
-  %2141 = load i64, ptr %2140, align 8
-  store ptr %2139, ptr %RHS.i2447, align 8
-  %2142 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2447, i32 0, i32 1
-  store i64 %2141, ptr %2142, align 8
+  %2212 = load ptr, ptr %agg.tmp.i.i416, align 8
+  %2213 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i416, i32 0, i32 1
+  %2214 = load i64, ptr %2213, align 8
+  store ptr %2212, ptr %RHS.i2447, align 8
+  %2215 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2447, i32 0, i32 1
+  store i64 %2214, ptr %2215, align 8
   store ptr %LHS.i.i414, ptr %this.addr.i2448, align 8
   %this1.i2449 = load ptr, ptr %this.addr.i2448, align 8
   %Length.i2450 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2449, i32 0, i32 1
-  %2143 = load i64, ptr %Length.i2450, align 8
+  %2216 = load i64, ptr %Length.i2450, align 8
   %Length2.i2451 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2447, i32 0, i32 1
-  %2144 = load i64, ptr %Length2.i2451, align 8
-  %cmp.i2452 = icmp eq i64 %2143, %2144
+  %2217 = load i64, ptr %Length2.i2451, align 8
+  %cmp.i2452 = icmp eq i64 %2216, %2217
   br i1 %cmp.i2452, label %land.rhs.i2453, label %_ZNK4llvh9StringRef6equalsES0_.exit2457
 
 land.rhs.i2453:                                   ; preds = %land.lhs.true.i425
-  %2145 = load ptr, ptr %this1.i2449, align 8
-  %2146 = load ptr, ptr %RHS.i2447, align 8
+  %2218 = load ptr, ptr %this1.i2449, align 8
+  %2219 = load ptr, ptr %RHS.i2447, align 8
   %Length4.i2454 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2447, i32 0, i32 1
-  %2147 = load i64, ptr %Length4.i2454, align 8
-  store ptr %2145, ptr %Lhs.addr.i2674, align 8
-  store ptr %2146, ptr %Rhs.addr.i2675, align 8
-  store i64 %2147, ptr %Length.addr.i2676, align 8
-  %2148 = load i64, ptr %Length.addr.i2676, align 8
-  %cmp.i2677 = icmp eq i64 %2148, 0
+  %2220 = load i64, ptr %Length4.i2454, align 8
+  store ptr %2218, ptr %Lhs.addr.i2674, align 8
+  store ptr %2219, ptr %Rhs.addr.i2675, align 8
+  store i64 %2220, ptr %Length.addr.i2676, align 8
+  %2221 = load i64, ptr %Length.addr.i2676, align 8
+  %cmp.i2677 = icmp eq i64 %2221, 0
   br i1 %cmp.i2677, label %if.then.i2680, label %if.end.i2678
 
 if.then.i2680:                                    ; preds = %land.rhs.i2453
@@ -17264,21 +17337,21 @@ if.then.i2680:                                    ; preds = %land.rhs.i2453
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2681
 
 if.end.i2678:                                     ; preds = %land.rhs.i2453
-  %2149 = load ptr, ptr %Lhs.addr.i2674, align 8
-  %2150 = load ptr, ptr %Rhs.addr.i2675, align 8
-  %2151 = load i64, ptr %Length.addr.i2676, align 8
-  %call.i2679 = call i32 @memcmp(ptr noundef %2149, ptr noundef %2150, i64 noundef %2151) #10
+  %2222 = load ptr, ptr %Lhs.addr.i2674, align 8
+  %2223 = load ptr, ptr %Rhs.addr.i2675, align 8
+  %2224 = load i64, ptr %Length.addr.i2676, align 8
+  %call.i2679 = call i32 @memcmp(ptr noundef %2222, ptr noundef %2223, i64 noundef %2224) #10
   store i32 %call.i2679, ptr %retval.i2673, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2681
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2681: ; preds = %if.end.i2678, %if.then.i2680
-  %2152 = load i32, ptr %retval.i2673, align 4
-  %cmp5.i2456 = icmp eq i32 %2152, 0
+  %2225 = load i32, ptr %retval.i2673, align 4
+  %cmp5.i2456 = icmp eq i32 %2225, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2457
 
 _ZNK4llvh9StringRef6equalsES0_.exit2457:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2681, %land.lhs.true.i425
-  %2153 = phi i1 [ false, %land.lhs.true.i425 ], [ %cmp5.i2456, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2681 ]
-  br i1 %2153, label %if.then.i427, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit430
+  %2226 = phi i1 [ false, %land.lhs.true.i425 ], [ %cmp5.i2456, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2681 ]
+  br i1 %2226, label %if.then.i427, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit430
 
 if.then.i427:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2457
   %Result4.i428 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i422, i32 0, i32 1
@@ -17287,15 +17360,16 @@ if.then.i427:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit430: ; preds = %if.then.i427, %_ZNK4llvh9StringRef6equalsES0_.exit2457, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit447
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp221, ptr noundef nonnull align 1 dereferenceable(8) @.str.74)
-  %2154 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or222 = or i32 %2154, 2
-  %2155 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp221, i32 0, i32 0
-  %2156 = load ptr, ptr %2155, align 8
-  %2157 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp221, i32 0, i32 1
-  %2158 = load i64, ptr %2157, align 8
-  store ptr %2156, ptr %S.i400, align 8
-  %2159 = getelementptr inbounds { ptr, i64 }, ptr %S.i400, i32 0, i32 1
-  store i64 %2158, ptr %2159, align 8
+  %2227 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2228 = load i32, ptr %2227, align 4
+  %or222 = or i32 %2228, 2
+  %2229 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp221, i32 0, i32 0
+  %2230 = load ptr, ptr %2229, align 8
+  %2231 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp221, i32 0, i32 1
+  %2232 = load i64, ptr %2231, align 8
+  store ptr %2230, ptr %S.i400, align 8
+  %2233 = getelementptr inbounds { ptr, i64 }, ptr %S.i400, i32 0, i32 1
+  store i64 %2232, ptr %2233, align 8
   store ptr %this1.i422, ptr %this.addr.i401, align 8
   store i32 %or222, ptr %Value.addr.i402, align 4
   %this1.i405 = load ptr, ptr %this.addr.i401, align 8
@@ -17306,44 +17380,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit430: ; preds = %if.then
 land.lhs.true.i408:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit430
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i403, ptr align 8 %this1.i405, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i404, ptr align 8 %S.i400, i64 16, i1 false)
-  %2160 = load ptr, ptr %agg.tmp.i403, align 8
-  %2161 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i403, i32 0, i32 1
-  %2162 = load i64, ptr %2161, align 8
-  %2163 = load ptr, ptr %agg.tmp2.i404, align 8
-  %2164 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i404, i32 0, i32 1
-  %2165 = load i64, ptr %2164, align 8
-  store ptr %2160, ptr %LHS.i.i397, align 8
-  %2166 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i397, i32 0, i32 1
-  store i64 %2162, ptr %2166, align 8
-  store ptr %2163, ptr %RHS.i.i398, align 8
-  %2167 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i398, i32 0, i32 1
-  store i64 %2165, ptr %2167, align 8
+  %2234 = load ptr, ptr %agg.tmp.i403, align 8
+  %2235 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i403, i32 0, i32 1
+  %2236 = load i64, ptr %2235, align 8
+  %2237 = load ptr, ptr %agg.tmp2.i404, align 8
+  %2238 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i404, i32 0, i32 1
+  %2239 = load i64, ptr %2238, align 8
+  store ptr %2234, ptr %LHS.i.i397, align 8
+  %2240 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i397, i32 0, i32 1
+  store i64 %2236, ptr %2240, align 8
+  store ptr %2237, ptr %RHS.i.i398, align 8
+  %2241 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i398, i32 0, i32 1
+  store i64 %2239, ptr %2241, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i399, ptr align 8 %RHS.i.i398, i64 16, i1 false)
-  %2168 = load ptr, ptr %agg.tmp.i.i399, align 8
-  %2169 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i399, i32 0, i32 1
-  %2170 = load i64, ptr %2169, align 8
-  store ptr %2168, ptr %RHS.i2458, align 8
-  %2171 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2458, i32 0, i32 1
-  store i64 %2170, ptr %2171, align 8
+  %2242 = load ptr, ptr %agg.tmp.i.i399, align 8
+  %2243 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i399, i32 0, i32 1
+  %2244 = load i64, ptr %2243, align 8
+  store ptr %2242, ptr %RHS.i2458, align 8
+  %2245 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2458, i32 0, i32 1
+  store i64 %2244, ptr %2245, align 8
   store ptr %LHS.i.i397, ptr %this.addr.i2459, align 8
   %this1.i2460 = load ptr, ptr %this.addr.i2459, align 8
   %Length.i2461 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2460, i32 0, i32 1
-  %2172 = load i64, ptr %Length.i2461, align 8
+  %2246 = load i64, ptr %Length.i2461, align 8
   %Length2.i2462 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2458, i32 0, i32 1
-  %2173 = load i64, ptr %Length2.i2462, align 8
-  %cmp.i2463 = icmp eq i64 %2172, %2173
+  %2247 = load i64, ptr %Length2.i2462, align 8
+  %cmp.i2463 = icmp eq i64 %2246, %2247
   br i1 %cmp.i2463, label %land.rhs.i2464, label %_ZNK4llvh9StringRef6equalsES0_.exit2468
 
 land.rhs.i2464:                                   ; preds = %land.lhs.true.i408
-  %2174 = load ptr, ptr %this1.i2460, align 8
-  %2175 = load ptr, ptr %RHS.i2458, align 8
+  %2248 = load ptr, ptr %this1.i2460, align 8
+  %2249 = load ptr, ptr %RHS.i2458, align 8
   %Length4.i2465 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2458, i32 0, i32 1
-  %2176 = load i64, ptr %Length4.i2465, align 8
-  store ptr %2174, ptr %Lhs.addr.i2665, align 8
-  store ptr %2175, ptr %Rhs.addr.i2666, align 8
-  store i64 %2176, ptr %Length.addr.i2667, align 8
-  %2177 = load i64, ptr %Length.addr.i2667, align 8
-  %cmp.i2668 = icmp eq i64 %2177, 0
+  %2250 = load i64, ptr %Length4.i2465, align 8
+  store ptr %2248, ptr %Lhs.addr.i2665, align 8
+  store ptr %2249, ptr %Rhs.addr.i2666, align 8
+  store i64 %2250, ptr %Length.addr.i2667, align 8
+  %2251 = load i64, ptr %Length.addr.i2667, align 8
+  %cmp.i2668 = icmp eq i64 %2251, 0
   br i1 %cmp.i2668, label %if.then.i2671, label %if.end.i2669
 
 if.then.i2671:                                    ; preds = %land.rhs.i2464
@@ -17351,21 +17425,21 @@ if.then.i2671:                                    ; preds = %land.rhs.i2464
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2672
 
 if.end.i2669:                                     ; preds = %land.rhs.i2464
-  %2178 = load ptr, ptr %Lhs.addr.i2665, align 8
-  %2179 = load ptr, ptr %Rhs.addr.i2666, align 8
-  %2180 = load i64, ptr %Length.addr.i2667, align 8
-  %call.i2670 = call i32 @memcmp(ptr noundef %2178, ptr noundef %2179, i64 noundef %2180) #10
+  %2252 = load ptr, ptr %Lhs.addr.i2665, align 8
+  %2253 = load ptr, ptr %Rhs.addr.i2666, align 8
+  %2254 = load i64, ptr %Length.addr.i2667, align 8
+  %call.i2670 = call i32 @memcmp(ptr noundef %2252, ptr noundef %2253, i64 noundef %2254) #10
   store i32 %call.i2670, ptr %retval.i2664, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2672
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2672: ; preds = %if.end.i2669, %if.then.i2671
-  %2181 = load i32, ptr %retval.i2664, align 4
-  %cmp5.i2467 = icmp eq i32 %2181, 0
+  %2255 = load i32, ptr %retval.i2664, align 4
+  %cmp5.i2467 = icmp eq i32 %2255, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2468
 
 _ZNK4llvh9StringRef6equalsES0_.exit2468:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2672, %land.lhs.true.i408
-  %2182 = phi i1 [ false, %land.lhs.true.i408 ], [ %cmp5.i2467, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2672 ]
-  br i1 %2182, label %if.then.i410, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit413
+  %2256 = phi i1 [ false, %land.lhs.true.i408 ], [ %cmp5.i2467, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2672 ]
+  br i1 %2256, label %if.then.i410, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit413
 
 if.then.i410:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2468
   %Result4.i411 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i405, i32 0, i32 1
@@ -17374,15 +17448,16 @@ if.then.i410:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit413: ; preds = %if.then.i410, %_ZNK4llvh9StringRef6equalsES0_.exit2468, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit430
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp224, ptr noundef nonnull align 1 dereferenceable(10) @.str.75)
-  %2183 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or225 = or i32 %2183, 2
-  %2184 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp224, i32 0, i32 0
-  %2185 = load ptr, ptr %2184, align 8
-  %2186 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp224, i32 0, i32 1
-  %2187 = load i64, ptr %2186, align 8
-  store ptr %2185, ptr %S.i383, align 8
-  %2188 = getelementptr inbounds { ptr, i64 }, ptr %S.i383, i32 0, i32 1
-  store i64 %2187, ptr %2188, align 8
+  %2257 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2258 = load i32, ptr %2257, align 4
+  %or225 = or i32 %2258, 2
+  %2259 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp224, i32 0, i32 0
+  %2260 = load ptr, ptr %2259, align 8
+  %2261 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp224, i32 0, i32 1
+  %2262 = load i64, ptr %2261, align 8
+  store ptr %2260, ptr %S.i383, align 8
+  %2263 = getelementptr inbounds { ptr, i64 }, ptr %S.i383, i32 0, i32 1
+  store i64 %2262, ptr %2263, align 8
   store ptr %this1.i405, ptr %this.addr.i384, align 8
   store i32 %or225, ptr %Value.addr.i385, align 4
   %this1.i388 = load ptr, ptr %this.addr.i384, align 8
@@ -17393,44 +17468,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit413: ; preds = %if.then
 land.lhs.true.i391:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit413
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i386, ptr align 8 %this1.i388, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i387, ptr align 8 %S.i383, i64 16, i1 false)
-  %2189 = load ptr, ptr %agg.tmp.i386, align 8
-  %2190 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i386, i32 0, i32 1
-  %2191 = load i64, ptr %2190, align 8
-  %2192 = load ptr, ptr %agg.tmp2.i387, align 8
-  %2193 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i387, i32 0, i32 1
-  %2194 = load i64, ptr %2193, align 8
-  store ptr %2189, ptr %LHS.i.i380, align 8
-  %2195 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i380, i32 0, i32 1
-  store i64 %2191, ptr %2195, align 8
-  store ptr %2192, ptr %RHS.i.i381, align 8
-  %2196 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i381, i32 0, i32 1
-  store i64 %2194, ptr %2196, align 8
+  %2264 = load ptr, ptr %agg.tmp.i386, align 8
+  %2265 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i386, i32 0, i32 1
+  %2266 = load i64, ptr %2265, align 8
+  %2267 = load ptr, ptr %agg.tmp2.i387, align 8
+  %2268 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i387, i32 0, i32 1
+  %2269 = load i64, ptr %2268, align 8
+  store ptr %2264, ptr %LHS.i.i380, align 8
+  %2270 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i380, i32 0, i32 1
+  store i64 %2266, ptr %2270, align 8
+  store ptr %2267, ptr %RHS.i.i381, align 8
+  %2271 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i381, i32 0, i32 1
+  store i64 %2269, ptr %2271, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i382, ptr align 8 %RHS.i.i381, i64 16, i1 false)
-  %2197 = load ptr, ptr %agg.tmp.i.i382, align 8
-  %2198 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i382, i32 0, i32 1
-  %2199 = load i64, ptr %2198, align 8
-  store ptr %2197, ptr %RHS.i2469, align 8
-  %2200 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2469, i32 0, i32 1
-  store i64 %2199, ptr %2200, align 8
+  %2272 = load ptr, ptr %agg.tmp.i.i382, align 8
+  %2273 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i382, i32 0, i32 1
+  %2274 = load i64, ptr %2273, align 8
+  store ptr %2272, ptr %RHS.i2469, align 8
+  %2275 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2469, i32 0, i32 1
+  store i64 %2274, ptr %2275, align 8
   store ptr %LHS.i.i380, ptr %this.addr.i2470, align 8
   %this1.i2471 = load ptr, ptr %this.addr.i2470, align 8
   %Length.i2472 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2471, i32 0, i32 1
-  %2201 = load i64, ptr %Length.i2472, align 8
+  %2276 = load i64, ptr %Length.i2472, align 8
   %Length2.i2473 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2469, i32 0, i32 1
-  %2202 = load i64, ptr %Length2.i2473, align 8
-  %cmp.i2474 = icmp eq i64 %2201, %2202
+  %2277 = load i64, ptr %Length2.i2473, align 8
+  %cmp.i2474 = icmp eq i64 %2276, %2277
   br i1 %cmp.i2474, label %land.rhs.i2475, label %_ZNK4llvh9StringRef6equalsES0_.exit2479
 
 land.rhs.i2475:                                   ; preds = %land.lhs.true.i391
-  %2203 = load ptr, ptr %this1.i2471, align 8
-  %2204 = load ptr, ptr %RHS.i2469, align 8
+  %2278 = load ptr, ptr %this1.i2471, align 8
+  %2279 = load ptr, ptr %RHS.i2469, align 8
   %Length4.i2476 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2469, i32 0, i32 1
-  %2205 = load i64, ptr %Length4.i2476, align 8
-  store ptr %2203, ptr %Lhs.addr.i2656, align 8
-  store ptr %2204, ptr %Rhs.addr.i2657, align 8
-  store i64 %2205, ptr %Length.addr.i2658, align 8
-  %2206 = load i64, ptr %Length.addr.i2658, align 8
-  %cmp.i2659 = icmp eq i64 %2206, 0
+  %2280 = load i64, ptr %Length4.i2476, align 8
+  store ptr %2278, ptr %Lhs.addr.i2656, align 8
+  store ptr %2279, ptr %Rhs.addr.i2657, align 8
+  store i64 %2280, ptr %Length.addr.i2658, align 8
+  %2281 = load i64, ptr %Length.addr.i2658, align 8
+  %cmp.i2659 = icmp eq i64 %2281, 0
   br i1 %cmp.i2659, label %if.then.i2662, label %if.end.i2660
 
 if.then.i2662:                                    ; preds = %land.rhs.i2475
@@ -17438,21 +17513,21 @@ if.then.i2662:                                    ; preds = %land.rhs.i2475
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2663
 
 if.end.i2660:                                     ; preds = %land.rhs.i2475
-  %2207 = load ptr, ptr %Lhs.addr.i2656, align 8
-  %2208 = load ptr, ptr %Rhs.addr.i2657, align 8
-  %2209 = load i64, ptr %Length.addr.i2658, align 8
-  %call.i2661 = call i32 @memcmp(ptr noundef %2207, ptr noundef %2208, i64 noundef %2209) #10
+  %2282 = load ptr, ptr %Lhs.addr.i2656, align 8
+  %2283 = load ptr, ptr %Rhs.addr.i2657, align 8
+  %2284 = load i64, ptr %Length.addr.i2658, align 8
+  %call.i2661 = call i32 @memcmp(ptr noundef %2282, ptr noundef %2283, i64 noundef %2284) #10
   store i32 %call.i2661, ptr %retval.i2655, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2663
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2663: ; preds = %if.end.i2660, %if.then.i2662
-  %2210 = load i32, ptr %retval.i2655, align 4
-  %cmp5.i2478 = icmp eq i32 %2210, 0
+  %2285 = load i32, ptr %retval.i2655, align 4
+  %cmp5.i2478 = icmp eq i32 %2285, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2479
 
 _ZNK4llvh9StringRef6equalsES0_.exit2479:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2663, %land.lhs.true.i391
-  %2211 = phi i1 [ false, %land.lhs.true.i391 ], [ %cmp5.i2478, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2663 ]
-  br i1 %2211, label %if.then.i393, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit396
+  %2286 = phi i1 [ false, %land.lhs.true.i391 ], [ %cmp5.i2478, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2663 ]
+  br i1 %2286, label %if.then.i393, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit396
 
 if.then.i393:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2479
   %Result4.i394 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i388, i32 0, i32 1
@@ -17461,15 +17536,16 @@ if.then.i393:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit396: ; preds = %if.then.i393, %_ZNK4llvh9StringRef6equalsES0_.exit2479, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit413
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp227, ptr noundef nonnull align 1 dereferenceable(10) @.str.76)
-  %2212 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or228 = or i32 %2212, 2
-  %2213 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp227, i32 0, i32 0
-  %2214 = load ptr, ptr %2213, align 8
-  %2215 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp227, i32 0, i32 1
-  %2216 = load i64, ptr %2215, align 8
-  store ptr %2214, ptr %S.i366, align 8
-  %2217 = getelementptr inbounds { ptr, i64 }, ptr %S.i366, i32 0, i32 1
-  store i64 %2216, ptr %2217, align 8
+  %2287 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2288 = load i32, ptr %2287, align 4
+  %or228 = or i32 %2288, 2
+  %2289 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp227, i32 0, i32 0
+  %2290 = load ptr, ptr %2289, align 8
+  %2291 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp227, i32 0, i32 1
+  %2292 = load i64, ptr %2291, align 8
+  store ptr %2290, ptr %S.i366, align 8
+  %2293 = getelementptr inbounds { ptr, i64 }, ptr %S.i366, i32 0, i32 1
+  store i64 %2292, ptr %2293, align 8
   store ptr %this1.i388, ptr %this.addr.i367, align 8
   store i32 %or228, ptr %Value.addr.i368, align 4
   %this1.i371 = load ptr, ptr %this.addr.i367, align 8
@@ -17480,44 +17556,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit396: ; preds = %if.then
 land.lhs.true.i374:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit396
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i369, ptr align 8 %this1.i371, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i370, ptr align 8 %S.i366, i64 16, i1 false)
-  %2218 = load ptr, ptr %agg.tmp.i369, align 8
-  %2219 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i369, i32 0, i32 1
-  %2220 = load i64, ptr %2219, align 8
-  %2221 = load ptr, ptr %agg.tmp2.i370, align 8
-  %2222 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i370, i32 0, i32 1
-  %2223 = load i64, ptr %2222, align 8
-  store ptr %2218, ptr %LHS.i.i363, align 8
-  %2224 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i363, i32 0, i32 1
-  store i64 %2220, ptr %2224, align 8
-  store ptr %2221, ptr %RHS.i.i364, align 8
-  %2225 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i364, i32 0, i32 1
-  store i64 %2223, ptr %2225, align 8
+  %2294 = load ptr, ptr %agg.tmp.i369, align 8
+  %2295 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i369, i32 0, i32 1
+  %2296 = load i64, ptr %2295, align 8
+  %2297 = load ptr, ptr %agg.tmp2.i370, align 8
+  %2298 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i370, i32 0, i32 1
+  %2299 = load i64, ptr %2298, align 8
+  store ptr %2294, ptr %LHS.i.i363, align 8
+  %2300 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i363, i32 0, i32 1
+  store i64 %2296, ptr %2300, align 8
+  store ptr %2297, ptr %RHS.i.i364, align 8
+  %2301 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i364, i32 0, i32 1
+  store i64 %2299, ptr %2301, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i365, ptr align 8 %RHS.i.i364, i64 16, i1 false)
-  %2226 = load ptr, ptr %agg.tmp.i.i365, align 8
-  %2227 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i365, i32 0, i32 1
-  %2228 = load i64, ptr %2227, align 8
-  store ptr %2226, ptr %RHS.i2480, align 8
-  %2229 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2480, i32 0, i32 1
-  store i64 %2228, ptr %2229, align 8
+  %2302 = load ptr, ptr %agg.tmp.i.i365, align 8
+  %2303 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i365, i32 0, i32 1
+  %2304 = load i64, ptr %2303, align 8
+  store ptr %2302, ptr %RHS.i2480, align 8
+  %2305 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2480, i32 0, i32 1
+  store i64 %2304, ptr %2305, align 8
   store ptr %LHS.i.i363, ptr %this.addr.i2481, align 8
   %this1.i2482 = load ptr, ptr %this.addr.i2481, align 8
   %Length.i2483 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2482, i32 0, i32 1
-  %2230 = load i64, ptr %Length.i2483, align 8
+  %2306 = load i64, ptr %Length.i2483, align 8
   %Length2.i2484 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2480, i32 0, i32 1
-  %2231 = load i64, ptr %Length2.i2484, align 8
-  %cmp.i2485 = icmp eq i64 %2230, %2231
+  %2307 = load i64, ptr %Length2.i2484, align 8
+  %cmp.i2485 = icmp eq i64 %2306, %2307
   br i1 %cmp.i2485, label %land.rhs.i2486, label %_ZNK4llvh9StringRef6equalsES0_.exit2490
 
 land.rhs.i2486:                                   ; preds = %land.lhs.true.i374
-  %2232 = load ptr, ptr %this1.i2482, align 8
-  %2233 = load ptr, ptr %RHS.i2480, align 8
+  %2308 = load ptr, ptr %this1.i2482, align 8
+  %2309 = load ptr, ptr %RHS.i2480, align 8
   %Length4.i2487 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2480, i32 0, i32 1
-  %2234 = load i64, ptr %Length4.i2487, align 8
-  store ptr %2232, ptr %Lhs.addr.i2647, align 8
-  store ptr %2233, ptr %Rhs.addr.i2648, align 8
-  store i64 %2234, ptr %Length.addr.i2649, align 8
-  %2235 = load i64, ptr %Length.addr.i2649, align 8
-  %cmp.i2650 = icmp eq i64 %2235, 0
+  %2310 = load i64, ptr %Length4.i2487, align 8
+  store ptr %2308, ptr %Lhs.addr.i2647, align 8
+  store ptr %2309, ptr %Rhs.addr.i2648, align 8
+  store i64 %2310, ptr %Length.addr.i2649, align 8
+  %2311 = load i64, ptr %Length.addr.i2649, align 8
+  %cmp.i2650 = icmp eq i64 %2311, 0
   br i1 %cmp.i2650, label %if.then.i2653, label %if.end.i2651
 
 if.then.i2653:                                    ; preds = %land.rhs.i2486
@@ -17525,21 +17601,21 @@ if.then.i2653:                                    ; preds = %land.rhs.i2486
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2654
 
 if.end.i2651:                                     ; preds = %land.rhs.i2486
-  %2236 = load ptr, ptr %Lhs.addr.i2647, align 8
-  %2237 = load ptr, ptr %Rhs.addr.i2648, align 8
-  %2238 = load i64, ptr %Length.addr.i2649, align 8
-  %call.i2652 = call i32 @memcmp(ptr noundef %2236, ptr noundef %2237, i64 noundef %2238) #10
+  %2312 = load ptr, ptr %Lhs.addr.i2647, align 8
+  %2313 = load ptr, ptr %Rhs.addr.i2648, align 8
+  %2314 = load i64, ptr %Length.addr.i2649, align 8
+  %call.i2652 = call i32 @memcmp(ptr noundef %2312, ptr noundef %2313, i64 noundef %2314) #10
   store i32 %call.i2652, ptr %retval.i2646, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2654
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2654: ; preds = %if.end.i2651, %if.then.i2653
-  %2239 = load i32, ptr %retval.i2646, align 4
-  %cmp5.i2489 = icmp eq i32 %2239, 0
+  %2315 = load i32, ptr %retval.i2646, align 4
+  %cmp5.i2489 = icmp eq i32 %2315, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2490
 
 _ZNK4llvh9StringRef6equalsES0_.exit2490:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2654, %land.lhs.true.i374
-  %2240 = phi i1 [ false, %land.lhs.true.i374 ], [ %cmp5.i2489, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2654 ]
-  br i1 %2240, label %if.then.i376, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit379
+  %2316 = phi i1 [ false, %land.lhs.true.i374 ], [ %cmp5.i2489, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2654 ]
+  br i1 %2316, label %if.then.i376, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit379
 
 if.then.i376:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2490
   %Result4.i377 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i371, i32 0, i32 1
@@ -17548,15 +17624,16 @@ if.then.i376:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit379: ; preds = %if.then.i376, %_ZNK4llvh9StringRef6equalsES0_.exit2490, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit396
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp230, ptr noundef nonnull align 1 dereferenceable(10) @.str.77)
-  %2241 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or231 = or i32 %2241, 2
-  %2242 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp230, i32 0, i32 0
-  %2243 = load ptr, ptr %2242, align 8
-  %2244 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp230, i32 0, i32 1
-  %2245 = load i64, ptr %2244, align 8
-  store ptr %2243, ptr %S.i349, align 8
-  %2246 = getelementptr inbounds { ptr, i64 }, ptr %S.i349, i32 0, i32 1
-  store i64 %2245, ptr %2246, align 8
+  %2317 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2318 = load i32, ptr %2317, align 4
+  %or231 = or i32 %2318, 2
+  %2319 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp230, i32 0, i32 0
+  %2320 = load ptr, ptr %2319, align 8
+  %2321 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp230, i32 0, i32 1
+  %2322 = load i64, ptr %2321, align 8
+  store ptr %2320, ptr %S.i349, align 8
+  %2323 = getelementptr inbounds { ptr, i64 }, ptr %S.i349, i32 0, i32 1
+  store i64 %2322, ptr %2323, align 8
   store ptr %this1.i371, ptr %this.addr.i350, align 8
   store i32 %or231, ptr %Value.addr.i351, align 4
   %this1.i354 = load ptr, ptr %this.addr.i350, align 8
@@ -17567,44 +17644,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit379: ; preds = %if.then
 land.lhs.true.i357:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit379
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i352, ptr align 8 %this1.i354, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i353, ptr align 8 %S.i349, i64 16, i1 false)
-  %2247 = load ptr, ptr %agg.tmp.i352, align 8
-  %2248 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i352, i32 0, i32 1
-  %2249 = load i64, ptr %2248, align 8
-  %2250 = load ptr, ptr %agg.tmp2.i353, align 8
-  %2251 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i353, i32 0, i32 1
-  %2252 = load i64, ptr %2251, align 8
-  store ptr %2247, ptr %LHS.i.i346, align 8
-  %2253 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i346, i32 0, i32 1
-  store i64 %2249, ptr %2253, align 8
-  store ptr %2250, ptr %RHS.i.i347, align 8
-  %2254 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i347, i32 0, i32 1
-  store i64 %2252, ptr %2254, align 8
+  %2324 = load ptr, ptr %agg.tmp.i352, align 8
+  %2325 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i352, i32 0, i32 1
+  %2326 = load i64, ptr %2325, align 8
+  %2327 = load ptr, ptr %agg.tmp2.i353, align 8
+  %2328 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i353, i32 0, i32 1
+  %2329 = load i64, ptr %2328, align 8
+  store ptr %2324, ptr %LHS.i.i346, align 8
+  %2330 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i346, i32 0, i32 1
+  store i64 %2326, ptr %2330, align 8
+  store ptr %2327, ptr %RHS.i.i347, align 8
+  %2331 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i347, i32 0, i32 1
+  store i64 %2329, ptr %2331, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i348, ptr align 8 %RHS.i.i347, i64 16, i1 false)
-  %2255 = load ptr, ptr %agg.tmp.i.i348, align 8
-  %2256 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i348, i32 0, i32 1
-  %2257 = load i64, ptr %2256, align 8
-  store ptr %2255, ptr %RHS.i2491, align 8
-  %2258 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2491, i32 0, i32 1
-  store i64 %2257, ptr %2258, align 8
+  %2332 = load ptr, ptr %agg.tmp.i.i348, align 8
+  %2333 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i348, i32 0, i32 1
+  %2334 = load i64, ptr %2333, align 8
+  store ptr %2332, ptr %RHS.i2491, align 8
+  %2335 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2491, i32 0, i32 1
+  store i64 %2334, ptr %2335, align 8
   store ptr %LHS.i.i346, ptr %this.addr.i2492, align 8
   %this1.i2493 = load ptr, ptr %this.addr.i2492, align 8
   %Length.i2494 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2493, i32 0, i32 1
-  %2259 = load i64, ptr %Length.i2494, align 8
+  %2336 = load i64, ptr %Length.i2494, align 8
   %Length2.i2495 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2491, i32 0, i32 1
-  %2260 = load i64, ptr %Length2.i2495, align 8
-  %cmp.i2496 = icmp eq i64 %2259, %2260
+  %2337 = load i64, ptr %Length2.i2495, align 8
+  %cmp.i2496 = icmp eq i64 %2336, %2337
   br i1 %cmp.i2496, label %land.rhs.i2497, label %_ZNK4llvh9StringRef6equalsES0_.exit2501
 
 land.rhs.i2497:                                   ; preds = %land.lhs.true.i357
-  %2261 = load ptr, ptr %this1.i2493, align 8
-  %2262 = load ptr, ptr %RHS.i2491, align 8
+  %2338 = load ptr, ptr %this1.i2493, align 8
+  %2339 = load ptr, ptr %RHS.i2491, align 8
   %Length4.i2498 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2491, i32 0, i32 1
-  %2263 = load i64, ptr %Length4.i2498, align 8
-  store ptr %2261, ptr %Lhs.addr.i2638, align 8
-  store ptr %2262, ptr %Rhs.addr.i2639, align 8
-  store i64 %2263, ptr %Length.addr.i2640, align 8
-  %2264 = load i64, ptr %Length.addr.i2640, align 8
-  %cmp.i2641 = icmp eq i64 %2264, 0
+  %2340 = load i64, ptr %Length4.i2498, align 8
+  store ptr %2338, ptr %Lhs.addr.i2638, align 8
+  store ptr %2339, ptr %Rhs.addr.i2639, align 8
+  store i64 %2340, ptr %Length.addr.i2640, align 8
+  %2341 = load i64, ptr %Length.addr.i2640, align 8
+  %cmp.i2641 = icmp eq i64 %2341, 0
   br i1 %cmp.i2641, label %if.then.i2644, label %if.end.i2642
 
 if.then.i2644:                                    ; preds = %land.rhs.i2497
@@ -17612,21 +17689,21 @@ if.then.i2644:                                    ; preds = %land.rhs.i2497
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2645
 
 if.end.i2642:                                     ; preds = %land.rhs.i2497
-  %2265 = load ptr, ptr %Lhs.addr.i2638, align 8
-  %2266 = load ptr, ptr %Rhs.addr.i2639, align 8
-  %2267 = load i64, ptr %Length.addr.i2640, align 8
-  %call.i2643 = call i32 @memcmp(ptr noundef %2265, ptr noundef %2266, i64 noundef %2267) #10
+  %2342 = load ptr, ptr %Lhs.addr.i2638, align 8
+  %2343 = load ptr, ptr %Rhs.addr.i2639, align 8
+  %2344 = load i64, ptr %Length.addr.i2640, align 8
+  %call.i2643 = call i32 @memcmp(ptr noundef %2342, ptr noundef %2343, i64 noundef %2344) #10
   store i32 %call.i2643, ptr %retval.i2637, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2645
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2645: ; preds = %if.end.i2642, %if.then.i2644
-  %2268 = load i32, ptr %retval.i2637, align 4
-  %cmp5.i2500 = icmp eq i32 %2268, 0
+  %2345 = load i32, ptr %retval.i2637, align 4
+  %cmp5.i2500 = icmp eq i32 %2345, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2501
 
 _ZNK4llvh9StringRef6equalsES0_.exit2501:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2645, %land.lhs.true.i357
-  %2269 = phi i1 [ false, %land.lhs.true.i357 ], [ %cmp5.i2500, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2645 ]
-  br i1 %2269, label %if.then.i359, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit362
+  %2346 = phi i1 [ false, %land.lhs.true.i357 ], [ %cmp5.i2500, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2645 ]
+  br i1 %2346, label %if.then.i359, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit362
 
 if.then.i359:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2501
   %Result4.i360 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i354, i32 0, i32 1
@@ -17635,15 +17712,16 @@ if.then.i359:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit362: ; preds = %if.then.i359, %_ZNK4llvh9StringRef6equalsES0_.exit2501, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit379
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp233, ptr noundef nonnull align 1 dereferenceable(10) @.str.78)
-  %2270 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or234 = or i32 %2270, 2
-  %2271 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp233, i32 0, i32 0
-  %2272 = load ptr, ptr %2271, align 8
-  %2273 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp233, i32 0, i32 1
-  %2274 = load i64, ptr %2273, align 8
-  store ptr %2272, ptr %S.i332, align 8
-  %2275 = getelementptr inbounds { ptr, i64 }, ptr %S.i332, i32 0, i32 1
-  store i64 %2274, ptr %2275, align 8
+  %2347 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2348 = load i32, ptr %2347, align 4
+  %or234 = or i32 %2348, 2
+  %2349 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp233, i32 0, i32 0
+  %2350 = load ptr, ptr %2349, align 8
+  %2351 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp233, i32 0, i32 1
+  %2352 = load i64, ptr %2351, align 8
+  store ptr %2350, ptr %S.i332, align 8
+  %2353 = getelementptr inbounds { ptr, i64 }, ptr %S.i332, i32 0, i32 1
+  store i64 %2352, ptr %2353, align 8
   store ptr %this1.i354, ptr %this.addr.i333, align 8
   store i32 %or234, ptr %Value.addr.i334, align 4
   %this1.i337 = load ptr, ptr %this.addr.i333, align 8
@@ -17654,44 +17732,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit362: ; preds = %if.then
 land.lhs.true.i340:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit362
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i335, ptr align 8 %this1.i337, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i336, ptr align 8 %S.i332, i64 16, i1 false)
-  %2276 = load ptr, ptr %agg.tmp.i335, align 8
-  %2277 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i335, i32 0, i32 1
-  %2278 = load i64, ptr %2277, align 8
-  %2279 = load ptr, ptr %agg.tmp2.i336, align 8
-  %2280 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i336, i32 0, i32 1
-  %2281 = load i64, ptr %2280, align 8
-  store ptr %2276, ptr %LHS.i.i329, align 8
-  %2282 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i329, i32 0, i32 1
-  store i64 %2278, ptr %2282, align 8
-  store ptr %2279, ptr %RHS.i.i330, align 8
-  %2283 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i330, i32 0, i32 1
-  store i64 %2281, ptr %2283, align 8
+  %2354 = load ptr, ptr %agg.tmp.i335, align 8
+  %2355 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i335, i32 0, i32 1
+  %2356 = load i64, ptr %2355, align 8
+  %2357 = load ptr, ptr %agg.tmp2.i336, align 8
+  %2358 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i336, i32 0, i32 1
+  %2359 = load i64, ptr %2358, align 8
+  store ptr %2354, ptr %LHS.i.i329, align 8
+  %2360 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i329, i32 0, i32 1
+  store i64 %2356, ptr %2360, align 8
+  store ptr %2357, ptr %RHS.i.i330, align 8
+  %2361 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i330, i32 0, i32 1
+  store i64 %2359, ptr %2361, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i331, ptr align 8 %RHS.i.i330, i64 16, i1 false)
-  %2284 = load ptr, ptr %agg.tmp.i.i331, align 8
-  %2285 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i331, i32 0, i32 1
-  %2286 = load i64, ptr %2285, align 8
-  store ptr %2284, ptr %RHS.i2502, align 8
-  %2287 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2502, i32 0, i32 1
-  store i64 %2286, ptr %2287, align 8
+  %2362 = load ptr, ptr %agg.tmp.i.i331, align 8
+  %2363 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i331, i32 0, i32 1
+  %2364 = load i64, ptr %2363, align 8
+  store ptr %2362, ptr %RHS.i2502, align 8
+  %2365 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2502, i32 0, i32 1
+  store i64 %2364, ptr %2365, align 8
   store ptr %LHS.i.i329, ptr %this.addr.i2503, align 8
   %this1.i2504 = load ptr, ptr %this.addr.i2503, align 8
   %Length.i2505 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2504, i32 0, i32 1
-  %2288 = load i64, ptr %Length.i2505, align 8
+  %2366 = load i64, ptr %Length.i2505, align 8
   %Length2.i2506 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2502, i32 0, i32 1
-  %2289 = load i64, ptr %Length2.i2506, align 8
-  %cmp.i2507 = icmp eq i64 %2288, %2289
+  %2367 = load i64, ptr %Length2.i2506, align 8
+  %cmp.i2507 = icmp eq i64 %2366, %2367
   br i1 %cmp.i2507, label %land.rhs.i2508, label %_ZNK4llvh9StringRef6equalsES0_.exit2512
 
 land.rhs.i2508:                                   ; preds = %land.lhs.true.i340
-  %2290 = load ptr, ptr %this1.i2504, align 8
-  %2291 = load ptr, ptr %RHS.i2502, align 8
+  %2368 = load ptr, ptr %this1.i2504, align 8
+  %2369 = load ptr, ptr %RHS.i2502, align 8
   %Length4.i2509 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2502, i32 0, i32 1
-  %2292 = load i64, ptr %Length4.i2509, align 8
-  store ptr %2290, ptr %Lhs.addr.i2629, align 8
-  store ptr %2291, ptr %Rhs.addr.i2630, align 8
-  store i64 %2292, ptr %Length.addr.i2631, align 8
-  %2293 = load i64, ptr %Length.addr.i2631, align 8
-  %cmp.i2632 = icmp eq i64 %2293, 0
+  %2370 = load i64, ptr %Length4.i2509, align 8
+  store ptr %2368, ptr %Lhs.addr.i2629, align 8
+  store ptr %2369, ptr %Rhs.addr.i2630, align 8
+  store i64 %2370, ptr %Length.addr.i2631, align 8
+  %2371 = load i64, ptr %Length.addr.i2631, align 8
+  %cmp.i2632 = icmp eq i64 %2371, 0
   br i1 %cmp.i2632, label %if.then.i2635, label %if.end.i2633
 
 if.then.i2635:                                    ; preds = %land.rhs.i2508
@@ -17699,21 +17777,21 @@ if.then.i2635:                                    ; preds = %land.rhs.i2508
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2636
 
 if.end.i2633:                                     ; preds = %land.rhs.i2508
-  %2294 = load ptr, ptr %Lhs.addr.i2629, align 8
-  %2295 = load ptr, ptr %Rhs.addr.i2630, align 8
-  %2296 = load i64, ptr %Length.addr.i2631, align 8
-  %call.i2634 = call i32 @memcmp(ptr noundef %2294, ptr noundef %2295, i64 noundef %2296) #10
+  %2372 = load ptr, ptr %Lhs.addr.i2629, align 8
+  %2373 = load ptr, ptr %Rhs.addr.i2630, align 8
+  %2374 = load i64, ptr %Length.addr.i2631, align 8
+  %call.i2634 = call i32 @memcmp(ptr noundef %2372, ptr noundef %2373, i64 noundef %2374) #10
   store i32 %call.i2634, ptr %retval.i2628, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2636
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2636: ; preds = %if.end.i2633, %if.then.i2635
-  %2297 = load i32, ptr %retval.i2628, align 4
-  %cmp5.i2511 = icmp eq i32 %2297, 0
+  %2375 = load i32, ptr %retval.i2628, align 4
+  %cmp5.i2511 = icmp eq i32 %2375, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2512
 
 _ZNK4llvh9StringRef6equalsES0_.exit2512:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2636, %land.lhs.true.i340
-  %2298 = phi i1 [ false, %land.lhs.true.i340 ], [ %cmp5.i2511, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2636 ]
-  br i1 %2298, label %if.then.i342, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit345
+  %2376 = phi i1 [ false, %land.lhs.true.i340 ], [ %cmp5.i2511, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2636 ]
+  br i1 %2376, label %if.then.i342, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit345
 
 if.then.i342:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2512
   %Result4.i343 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i337, i32 0, i32 1
@@ -17722,15 +17800,16 @@ if.then.i342:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit345: ; preds = %if.then.i342, %_ZNK4llvh9StringRef6equalsES0_.exit2512, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit362
   call void @_ZN4llvh13StringLiteralC2ILm5EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm5ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp236, ptr noundef nonnull align 1 dereferenceable(5) @.str.79)
-  %2299 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7), align 4
-  %or237 = or i32 %2299, 2
-  %2300 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp236, i32 0, i32 0
-  %2301 = load ptr, ptr %2300, align 8
-  %2302 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp236, i32 0, i32 1
-  %2303 = load i64, ptr %2302, align 8
-  store ptr %2301, ptr %S.i315, align 8
-  %2304 = getelementptr inbounds { ptr, i64 }, ptr %S.i315, i32 0, i32 1
-  store i64 %2303, ptr %2304, align 8
+  %2377 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 20, i32 7
+  %2378 = load i32, ptr %2377, align 4
+  %or237 = or i32 %2378, 2
+  %2379 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp236, i32 0, i32 0
+  %2380 = load ptr, ptr %2379, align 8
+  %2381 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp236, i32 0, i32 1
+  %2382 = load i64, ptr %2381, align 8
+  store ptr %2380, ptr %S.i315, align 8
+  %2383 = getelementptr inbounds { ptr, i64 }, ptr %S.i315, i32 0, i32 1
+  store i64 %2382, ptr %2383, align 8
   store ptr %this1.i337, ptr %this.addr.i316, align 8
   store i32 %or237, ptr %Value.addr.i317, align 4
   %this1.i320 = load ptr, ptr %this.addr.i316, align 8
@@ -17741,44 +17820,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit345: ; preds = %if.then
 land.lhs.true.i323:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit345
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i318, ptr align 8 %this1.i320, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i319, ptr align 8 %S.i315, i64 16, i1 false)
-  %2305 = load ptr, ptr %agg.tmp.i318, align 8
-  %2306 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i318, i32 0, i32 1
-  %2307 = load i64, ptr %2306, align 8
-  %2308 = load ptr, ptr %agg.tmp2.i319, align 8
-  %2309 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i319, i32 0, i32 1
-  %2310 = load i64, ptr %2309, align 8
-  store ptr %2305, ptr %LHS.i.i312, align 8
-  %2311 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i312, i32 0, i32 1
-  store i64 %2307, ptr %2311, align 8
-  store ptr %2308, ptr %RHS.i.i313, align 8
-  %2312 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i313, i32 0, i32 1
-  store i64 %2310, ptr %2312, align 8
+  %2384 = load ptr, ptr %agg.tmp.i318, align 8
+  %2385 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i318, i32 0, i32 1
+  %2386 = load i64, ptr %2385, align 8
+  %2387 = load ptr, ptr %agg.tmp2.i319, align 8
+  %2388 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i319, i32 0, i32 1
+  %2389 = load i64, ptr %2388, align 8
+  store ptr %2384, ptr %LHS.i.i312, align 8
+  %2390 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i312, i32 0, i32 1
+  store i64 %2386, ptr %2390, align 8
+  store ptr %2387, ptr %RHS.i.i313, align 8
+  %2391 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i313, i32 0, i32 1
+  store i64 %2389, ptr %2391, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i314, ptr align 8 %RHS.i.i313, i64 16, i1 false)
-  %2313 = load ptr, ptr %agg.tmp.i.i314, align 8
-  %2314 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i314, i32 0, i32 1
-  %2315 = load i64, ptr %2314, align 8
-  store ptr %2313, ptr %RHS.i2513, align 8
-  %2316 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2513, i32 0, i32 1
-  store i64 %2315, ptr %2316, align 8
+  %2392 = load ptr, ptr %agg.tmp.i.i314, align 8
+  %2393 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i314, i32 0, i32 1
+  %2394 = load i64, ptr %2393, align 8
+  store ptr %2392, ptr %RHS.i2513, align 8
+  %2395 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2513, i32 0, i32 1
+  store i64 %2394, ptr %2395, align 8
   store ptr %LHS.i.i312, ptr %this.addr.i2514, align 8
   %this1.i2515 = load ptr, ptr %this.addr.i2514, align 8
   %Length.i2516 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2515, i32 0, i32 1
-  %2317 = load i64, ptr %Length.i2516, align 8
+  %2396 = load i64, ptr %Length.i2516, align 8
   %Length2.i2517 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2513, i32 0, i32 1
-  %2318 = load i64, ptr %Length2.i2517, align 8
-  %cmp.i2518 = icmp eq i64 %2317, %2318
+  %2397 = load i64, ptr %Length2.i2517, align 8
+  %cmp.i2518 = icmp eq i64 %2396, %2397
   br i1 %cmp.i2518, label %land.rhs.i2519, label %_ZNK4llvh9StringRef6equalsES0_.exit2523
 
 land.rhs.i2519:                                   ; preds = %land.lhs.true.i323
-  %2319 = load ptr, ptr %this1.i2515, align 8
-  %2320 = load ptr, ptr %RHS.i2513, align 8
+  %2398 = load ptr, ptr %this1.i2515, align 8
+  %2399 = load ptr, ptr %RHS.i2513, align 8
   %Length4.i2520 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2513, i32 0, i32 1
-  %2321 = load i64, ptr %Length4.i2520, align 8
-  store ptr %2319, ptr %Lhs.addr.i2620, align 8
-  store ptr %2320, ptr %Rhs.addr.i2621, align 8
-  store i64 %2321, ptr %Length.addr.i2622, align 8
-  %2322 = load i64, ptr %Length.addr.i2622, align 8
-  %cmp.i2623 = icmp eq i64 %2322, 0
+  %2400 = load i64, ptr %Length4.i2520, align 8
+  store ptr %2398, ptr %Lhs.addr.i2620, align 8
+  store ptr %2399, ptr %Rhs.addr.i2621, align 8
+  store i64 %2400, ptr %Length.addr.i2622, align 8
+  %2401 = load i64, ptr %Length.addr.i2622, align 8
+  %cmp.i2623 = icmp eq i64 %2401, 0
   br i1 %cmp.i2623, label %if.then.i2626, label %if.end.i2624
 
 if.then.i2626:                                    ; preds = %land.rhs.i2519
@@ -17786,21 +17865,21 @@ if.then.i2626:                                    ; preds = %land.rhs.i2519
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2627
 
 if.end.i2624:                                     ; preds = %land.rhs.i2519
-  %2323 = load ptr, ptr %Lhs.addr.i2620, align 8
-  %2324 = load ptr, ptr %Rhs.addr.i2621, align 8
-  %2325 = load i64, ptr %Length.addr.i2622, align 8
-  %call.i2625 = call i32 @memcmp(ptr noundef %2323, ptr noundef %2324, i64 noundef %2325) #10
+  %2402 = load ptr, ptr %Lhs.addr.i2620, align 8
+  %2403 = load ptr, ptr %Rhs.addr.i2621, align 8
+  %2404 = load i64, ptr %Length.addr.i2622, align 8
+  %call.i2625 = call i32 @memcmp(ptr noundef %2402, ptr noundef %2403, i64 noundef %2404) #10
   store i32 %call.i2625, ptr %retval.i2619, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2627
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2627: ; preds = %if.end.i2624, %if.then.i2626
-  %2326 = load i32, ptr %retval.i2619, align 4
-  %cmp5.i2522 = icmp eq i32 %2326, 0
+  %2405 = load i32, ptr %retval.i2619, align 4
+  %cmp5.i2522 = icmp eq i32 %2405, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2523
 
 _ZNK4llvh9StringRef6equalsES0_.exit2523:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2627, %land.lhs.true.i323
-  %2327 = phi i1 [ false, %land.lhs.true.i323 ], [ %cmp5.i2522, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2627 ]
-  br i1 %2327, label %if.then.i325, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit328
+  %2406 = phi i1 [ false, %land.lhs.true.i323 ], [ %cmp5.i2522, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2627 ]
+  br i1 %2406, label %if.then.i325, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit328
 
 if.then.i325:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2523
   %Result4.i326 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i320, i32 0, i32 1
@@ -17809,15 +17888,16 @@ if.then.i325:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit328: ; preds = %if.then.i325, %_ZNK4llvh9StringRef6equalsES0_.exit2523, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit345
   call void @_ZN4llvh13StringLiteralC2ILm7EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm7ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp239, ptr noundef nonnull align 1 dereferenceable(7) @.str.80)
-  %2328 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 29, i32 7), align 4
-  %or240 = or i32 %2328, 1
-  %2329 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp239, i32 0, i32 0
-  %2330 = load ptr, ptr %2329, align 8
-  %2331 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp239, i32 0, i32 1
-  %2332 = load i64, ptr %2331, align 8
-  store ptr %2330, ptr %S.i298, align 8
-  %2333 = getelementptr inbounds { ptr, i64 }, ptr %S.i298, i32 0, i32 1
-  store i64 %2332, ptr %2333, align 8
+  %2407 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 29, i32 7
+  %2408 = load i32, ptr %2407, align 4
+  %or240 = or i32 %2408, 1
+  %2409 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp239, i32 0, i32 0
+  %2410 = load ptr, ptr %2409, align 8
+  %2411 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp239, i32 0, i32 1
+  %2412 = load i64, ptr %2411, align 8
+  store ptr %2410, ptr %S.i298, align 8
+  %2413 = getelementptr inbounds { ptr, i64 }, ptr %S.i298, i32 0, i32 1
+  store i64 %2412, ptr %2413, align 8
   store ptr %this1.i320, ptr %this.addr.i299, align 8
   store i32 %or240, ptr %Value.addr.i300, align 4
   %this1.i303 = load ptr, ptr %this.addr.i299, align 8
@@ -17828,44 +17908,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit328: ; preds = %if.then
 land.lhs.true.i306:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit328
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i301, ptr align 8 %this1.i303, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i302, ptr align 8 %S.i298, i64 16, i1 false)
-  %2334 = load ptr, ptr %agg.tmp.i301, align 8
-  %2335 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i301, i32 0, i32 1
-  %2336 = load i64, ptr %2335, align 8
-  %2337 = load ptr, ptr %agg.tmp2.i302, align 8
-  %2338 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i302, i32 0, i32 1
-  %2339 = load i64, ptr %2338, align 8
-  store ptr %2334, ptr %LHS.i.i295, align 8
-  %2340 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i295, i32 0, i32 1
-  store i64 %2336, ptr %2340, align 8
-  store ptr %2337, ptr %RHS.i.i296, align 8
-  %2341 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i296, i32 0, i32 1
-  store i64 %2339, ptr %2341, align 8
+  %2414 = load ptr, ptr %agg.tmp.i301, align 8
+  %2415 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i301, i32 0, i32 1
+  %2416 = load i64, ptr %2415, align 8
+  %2417 = load ptr, ptr %agg.tmp2.i302, align 8
+  %2418 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i302, i32 0, i32 1
+  %2419 = load i64, ptr %2418, align 8
+  store ptr %2414, ptr %LHS.i.i295, align 8
+  %2420 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i295, i32 0, i32 1
+  store i64 %2416, ptr %2420, align 8
+  store ptr %2417, ptr %RHS.i.i296, align 8
+  %2421 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i296, i32 0, i32 1
+  store i64 %2419, ptr %2421, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i297, ptr align 8 %RHS.i.i296, i64 16, i1 false)
-  %2342 = load ptr, ptr %agg.tmp.i.i297, align 8
-  %2343 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i297, i32 0, i32 1
-  %2344 = load i64, ptr %2343, align 8
-  store ptr %2342, ptr %RHS.i2524, align 8
-  %2345 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2524, i32 0, i32 1
-  store i64 %2344, ptr %2345, align 8
+  %2422 = load ptr, ptr %agg.tmp.i.i297, align 8
+  %2423 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i297, i32 0, i32 1
+  %2424 = load i64, ptr %2423, align 8
+  store ptr %2422, ptr %RHS.i2524, align 8
+  %2425 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2524, i32 0, i32 1
+  store i64 %2424, ptr %2425, align 8
   store ptr %LHS.i.i295, ptr %this.addr.i2525, align 8
   %this1.i2526 = load ptr, ptr %this.addr.i2525, align 8
   %Length.i2527 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2526, i32 0, i32 1
-  %2346 = load i64, ptr %Length.i2527, align 8
+  %2426 = load i64, ptr %Length.i2527, align 8
   %Length2.i2528 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2524, i32 0, i32 1
-  %2347 = load i64, ptr %Length2.i2528, align 8
-  %cmp.i2529 = icmp eq i64 %2346, %2347
+  %2427 = load i64, ptr %Length2.i2528, align 8
+  %cmp.i2529 = icmp eq i64 %2426, %2427
   br i1 %cmp.i2529, label %land.rhs.i2530, label %_ZNK4llvh9StringRef6equalsES0_.exit2534
 
 land.rhs.i2530:                                   ; preds = %land.lhs.true.i306
-  %2348 = load ptr, ptr %this1.i2526, align 8
-  %2349 = load ptr, ptr %RHS.i2524, align 8
+  %2428 = load ptr, ptr %this1.i2526, align 8
+  %2429 = load ptr, ptr %RHS.i2524, align 8
   %Length4.i2531 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2524, i32 0, i32 1
-  %2350 = load i64, ptr %Length4.i2531, align 8
-  store ptr %2348, ptr %Lhs.addr.i2611, align 8
-  store ptr %2349, ptr %Rhs.addr.i2612, align 8
-  store i64 %2350, ptr %Length.addr.i2613, align 8
-  %2351 = load i64, ptr %Length.addr.i2613, align 8
-  %cmp.i2614 = icmp eq i64 %2351, 0
+  %2430 = load i64, ptr %Length4.i2531, align 8
+  store ptr %2428, ptr %Lhs.addr.i2611, align 8
+  store ptr %2429, ptr %Rhs.addr.i2612, align 8
+  store i64 %2430, ptr %Length.addr.i2613, align 8
+  %2431 = load i64, ptr %Length.addr.i2613, align 8
+  %cmp.i2614 = icmp eq i64 %2431, 0
   br i1 %cmp.i2614, label %if.then.i2617, label %if.end.i2615
 
 if.then.i2617:                                    ; preds = %land.rhs.i2530
@@ -17873,21 +17953,21 @@ if.then.i2617:                                    ; preds = %land.rhs.i2530
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2618
 
 if.end.i2615:                                     ; preds = %land.rhs.i2530
-  %2352 = load ptr, ptr %Lhs.addr.i2611, align 8
-  %2353 = load ptr, ptr %Rhs.addr.i2612, align 8
-  %2354 = load i64, ptr %Length.addr.i2613, align 8
-  %call.i2616 = call i32 @memcmp(ptr noundef %2352, ptr noundef %2353, i64 noundef %2354) #10
+  %2432 = load ptr, ptr %Lhs.addr.i2611, align 8
+  %2433 = load ptr, ptr %Rhs.addr.i2612, align 8
+  %2434 = load i64, ptr %Length.addr.i2613, align 8
+  %call.i2616 = call i32 @memcmp(ptr noundef %2432, ptr noundef %2433, i64 noundef %2434) #10
   store i32 %call.i2616, ptr %retval.i2610, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2618
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2618: ; preds = %if.end.i2615, %if.then.i2617
-  %2355 = load i32, ptr %retval.i2610, align 4
-  %cmp5.i2533 = icmp eq i32 %2355, 0
+  %2435 = load i32, ptr %retval.i2610, align 4
+  %cmp5.i2533 = icmp eq i32 %2435, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2534
 
 _ZNK4llvh9StringRef6equalsES0_.exit2534:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2618, %land.lhs.true.i306
-  %2356 = phi i1 [ false, %land.lhs.true.i306 ], [ %cmp5.i2533, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2618 ]
-  br i1 %2356, label %if.then.i308, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit311
+  %2436 = phi i1 [ false, %land.lhs.true.i306 ], [ %cmp5.i2533, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2618 ]
+  br i1 %2436, label %if.then.i308, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit311
 
 if.then.i308:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2534
   %Result4.i309 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i303, i32 0, i32 1
@@ -17896,15 +17976,16 @@ if.then.i308:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit311: ; preds = %if.then.i308, %_ZNK4llvh9StringRef6equalsES0_.exit2534, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit328
   call void @_ZN4llvh13StringLiteralC2ILm7EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm7ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp242, ptr noundef nonnull align 1 dereferenceable(7) @.str.81)
-  %2357 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 31, i32 7), align 4
-  %or243 = or i32 %2357, 1
-  %2358 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp242, i32 0, i32 0
-  %2359 = load ptr, ptr %2358, align 8
-  %2360 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp242, i32 0, i32 1
-  %2361 = load i64, ptr %2360, align 8
-  store ptr %2359, ptr %S.i281, align 8
-  %2362 = getelementptr inbounds { ptr, i64 }, ptr %S.i281, i32 0, i32 1
-  store i64 %2361, ptr %2362, align 8
+  %2437 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 31, i32 7
+  %2438 = load i32, ptr %2437, align 4
+  %or243 = or i32 %2438, 1
+  %2439 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp242, i32 0, i32 0
+  %2440 = load ptr, ptr %2439, align 8
+  %2441 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp242, i32 0, i32 1
+  %2442 = load i64, ptr %2441, align 8
+  store ptr %2440, ptr %S.i281, align 8
+  %2443 = getelementptr inbounds { ptr, i64 }, ptr %S.i281, i32 0, i32 1
+  store i64 %2442, ptr %2443, align 8
   store ptr %this1.i303, ptr %this.addr.i282, align 8
   store i32 %or243, ptr %Value.addr.i283, align 4
   %this1.i286 = load ptr, ptr %this.addr.i282, align 8
@@ -17915,44 +17996,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit311: ; preds = %if.then
 land.lhs.true.i289:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit311
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i284, ptr align 8 %this1.i286, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i285, ptr align 8 %S.i281, i64 16, i1 false)
-  %2363 = load ptr, ptr %agg.tmp.i284, align 8
-  %2364 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i284, i32 0, i32 1
-  %2365 = load i64, ptr %2364, align 8
-  %2366 = load ptr, ptr %agg.tmp2.i285, align 8
-  %2367 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i285, i32 0, i32 1
-  %2368 = load i64, ptr %2367, align 8
-  store ptr %2363, ptr %LHS.i.i278, align 8
-  %2369 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i278, i32 0, i32 1
-  store i64 %2365, ptr %2369, align 8
-  store ptr %2366, ptr %RHS.i.i279, align 8
-  %2370 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i279, i32 0, i32 1
-  store i64 %2368, ptr %2370, align 8
+  %2444 = load ptr, ptr %agg.tmp.i284, align 8
+  %2445 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i284, i32 0, i32 1
+  %2446 = load i64, ptr %2445, align 8
+  %2447 = load ptr, ptr %agg.tmp2.i285, align 8
+  %2448 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i285, i32 0, i32 1
+  %2449 = load i64, ptr %2448, align 8
+  store ptr %2444, ptr %LHS.i.i278, align 8
+  %2450 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i278, i32 0, i32 1
+  store i64 %2446, ptr %2450, align 8
+  store ptr %2447, ptr %RHS.i.i279, align 8
+  %2451 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i279, i32 0, i32 1
+  store i64 %2449, ptr %2451, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i280, ptr align 8 %RHS.i.i279, i64 16, i1 false)
-  %2371 = load ptr, ptr %agg.tmp.i.i280, align 8
-  %2372 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i280, i32 0, i32 1
-  %2373 = load i64, ptr %2372, align 8
-  store ptr %2371, ptr %RHS.i2535, align 8
-  %2374 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2535, i32 0, i32 1
-  store i64 %2373, ptr %2374, align 8
+  %2452 = load ptr, ptr %agg.tmp.i.i280, align 8
+  %2453 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i280, i32 0, i32 1
+  %2454 = load i64, ptr %2453, align 8
+  store ptr %2452, ptr %RHS.i2535, align 8
+  %2455 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2535, i32 0, i32 1
+  store i64 %2454, ptr %2455, align 8
   store ptr %LHS.i.i278, ptr %this.addr.i2536, align 8
   %this1.i2537 = load ptr, ptr %this.addr.i2536, align 8
   %Length.i2538 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2537, i32 0, i32 1
-  %2375 = load i64, ptr %Length.i2538, align 8
+  %2456 = load i64, ptr %Length.i2538, align 8
   %Length2.i2539 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2535, i32 0, i32 1
-  %2376 = load i64, ptr %Length2.i2539, align 8
-  %cmp.i2540 = icmp eq i64 %2375, %2376
+  %2457 = load i64, ptr %Length2.i2539, align 8
+  %cmp.i2540 = icmp eq i64 %2456, %2457
   br i1 %cmp.i2540, label %land.rhs.i2541, label %_ZNK4llvh9StringRef6equalsES0_.exit2545
 
 land.rhs.i2541:                                   ; preds = %land.lhs.true.i289
-  %2377 = load ptr, ptr %this1.i2537, align 8
-  %2378 = load ptr, ptr %RHS.i2535, align 8
+  %2458 = load ptr, ptr %this1.i2537, align 8
+  %2459 = load ptr, ptr %RHS.i2535, align 8
   %Length4.i2542 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2535, i32 0, i32 1
-  %2379 = load i64, ptr %Length4.i2542, align 8
-  store ptr %2377, ptr %Lhs.addr.i2602, align 8
-  store ptr %2378, ptr %Rhs.addr.i2603, align 8
-  store i64 %2379, ptr %Length.addr.i2604, align 8
-  %2380 = load i64, ptr %Length.addr.i2604, align 8
-  %cmp.i2605 = icmp eq i64 %2380, 0
+  %2460 = load i64, ptr %Length4.i2542, align 8
+  store ptr %2458, ptr %Lhs.addr.i2602, align 8
+  store ptr %2459, ptr %Rhs.addr.i2603, align 8
+  store i64 %2460, ptr %Length.addr.i2604, align 8
+  %2461 = load i64, ptr %Length.addr.i2604, align 8
+  %cmp.i2605 = icmp eq i64 %2461, 0
   br i1 %cmp.i2605, label %if.then.i2608, label %if.end.i2606
 
 if.then.i2608:                                    ; preds = %land.rhs.i2541
@@ -17960,21 +18041,21 @@ if.then.i2608:                                    ; preds = %land.rhs.i2541
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2609
 
 if.end.i2606:                                     ; preds = %land.rhs.i2541
-  %2381 = load ptr, ptr %Lhs.addr.i2602, align 8
-  %2382 = load ptr, ptr %Rhs.addr.i2603, align 8
-  %2383 = load i64, ptr %Length.addr.i2604, align 8
-  %call.i2607 = call i32 @memcmp(ptr noundef %2381, ptr noundef %2382, i64 noundef %2383) #10
+  %2462 = load ptr, ptr %Lhs.addr.i2602, align 8
+  %2463 = load ptr, ptr %Rhs.addr.i2603, align 8
+  %2464 = load i64, ptr %Length.addr.i2604, align 8
+  %call.i2607 = call i32 @memcmp(ptr noundef %2462, ptr noundef %2463, i64 noundef %2464) #10
   store i32 %call.i2607, ptr %retval.i2601, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2609
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2609: ; preds = %if.end.i2606, %if.then.i2608
-  %2384 = load i32, ptr %retval.i2601, align 4
-  %cmp5.i2544 = icmp eq i32 %2384, 0
+  %2465 = load i32, ptr %retval.i2601, align 4
+  %cmp5.i2544 = icmp eq i32 %2465, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2545
 
 _ZNK4llvh9StringRef6equalsES0_.exit2545:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2609, %land.lhs.true.i289
-  %2385 = phi i1 [ false, %land.lhs.true.i289 ], [ %cmp5.i2544, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2609 ]
-  br i1 %2385, label %if.then.i291, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit294
+  %2466 = phi i1 [ false, %land.lhs.true.i289 ], [ %cmp5.i2544, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2609 ]
+  br i1 %2466, label %if.then.i291, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit294
 
 if.then.i291:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2545
   %Result4.i292 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i286, i32 0, i32 1
@@ -17983,15 +18064,16 @@ if.then.i291:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit294: ; preds = %if.then.i291, %_ZNK4llvh9StringRef6equalsES0_.exit2545, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit311
   call void @_ZN4llvh13StringLiteralC2ILm6EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm6ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp245, ptr noundef nonnull align 1 dereferenceable(6) @.str.82)
-  %2386 = load i32, ptr getelementptr inbounds ([34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 32, i32 7), align 4
-  %or246 = or i32 %2386, 48
-  %2387 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp245, i32 0, i32 0
-  %2388 = load ptr, ptr %2387, align 8
-  %2389 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp245, i32 0, i32 1
-  %2390 = load i64, ptr %2389, align 8
-  store ptr %2388, ptr %S.i264, align 8
-  %2391 = getelementptr inbounds { ptr, i64 }, ptr %S.i264, i32 0, i32 1
-  store i64 %2390, ptr %2391, align 8
+  %2467 = getelementptr inbounds [34 x %"struct.(anonymous namespace)::ArchNames"], ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 0, i64 32, i32 7
+  %2468 = load i32, ptr %2467, align 4
+  %or246 = or i32 %2468, 48
+  %2469 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp245, i32 0, i32 0
+  %2470 = load ptr, ptr %2469, align 8
+  %2471 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp245, i32 0, i32 1
+  %2472 = load i64, ptr %2471, align 8
+  store ptr %2470, ptr %S.i264, align 8
+  %2473 = getelementptr inbounds { ptr, i64 }, ptr %S.i264, i32 0, i32 1
+  store i64 %2472, ptr %2473, align 8
   store ptr %this1.i286, ptr %this.addr.i265, align 8
   store i32 %or246, ptr %Value.addr.i266, align 4
   %this1.i269 = load ptr, ptr %this.addr.i265, align 8
@@ -18002,44 +18084,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit294: ; preds = %if.then
 land.lhs.true.i272:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit294
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i267, ptr align 8 %this1.i269, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i268, ptr align 8 %S.i264, i64 16, i1 false)
-  %2392 = load ptr, ptr %agg.tmp.i267, align 8
-  %2393 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i267, i32 0, i32 1
-  %2394 = load i64, ptr %2393, align 8
-  %2395 = load ptr, ptr %agg.tmp2.i268, align 8
-  %2396 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i268, i32 0, i32 1
-  %2397 = load i64, ptr %2396, align 8
-  store ptr %2392, ptr %LHS.i.i261, align 8
-  %2398 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i261, i32 0, i32 1
-  store i64 %2394, ptr %2398, align 8
-  store ptr %2395, ptr %RHS.i.i262, align 8
-  %2399 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i262, i32 0, i32 1
-  store i64 %2397, ptr %2399, align 8
+  %2474 = load ptr, ptr %agg.tmp.i267, align 8
+  %2475 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i267, i32 0, i32 1
+  %2476 = load i64, ptr %2475, align 8
+  %2477 = load ptr, ptr %agg.tmp2.i268, align 8
+  %2478 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i268, i32 0, i32 1
+  %2479 = load i64, ptr %2478, align 8
+  store ptr %2474, ptr %LHS.i.i261, align 8
+  %2480 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i261, i32 0, i32 1
+  store i64 %2476, ptr %2480, align 8
+  store ptr %2477, ptr %RHS.i.i262, align 8
+  %2481 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i262, i32 0, i32 1
+  store i64 %2479, ptr %2481, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i263, ptr align 8 %RHS.i.i262, i64 16, i1 false)
-  %2400 = load ptr, ptr %agg.tmp.i.i263, align 8
-  %2401 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i263, i32 0, i32 1
-  %2402 = load i64, ptr %2401, align 8
-  store ptr %2400, ptr %RHS.i2546, align 8
-  %2403 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2546, i32 0, i32 1
-  store i64 %2402, ptr %2403, align 8
+  %2482 = load ptr, ptr %agg.tmp.i.i263, align 8
+  %2483 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i263, i32 0, i32 1
+  %2484 = load i64, ptr %2483, align 8
+  store ptr %2482, ptr %RHS.i2546, align 8
+  %2485 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2546, i32 0, i32 1
+  store i64 %2484, ptr %2485, align 8
   store ptr %LHS.i.i261, ptr %this.addr.i2547, align 8
   %this1.i2548 = load ptr, ptr %this.addr.i2547, align 8
   %Length.i2549 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2548, i32 0, i32 1
-  %2404 = load i64, ptr %Length.i2549, align 8
+  %2486 = load i64, ptr %Length.i2549, align 8
   %Length2.i2550 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2546, i32 0, i32 1
-  %2405 = load i64, ptr %Length2.i2550, align 8
-  %cmp.i2551 = icmp eq i64 %2404, %2405
+  %2487 = load i64, ptr %Length2.i2550, align 8
+  %cmp.i2551 = icmp eq i64 %2486, %2487
   br i1 %cmp.i2551, label %land.rhs.i2552, label %_ZNK4llvh9StringRef6equalsES0_.exit2556
 
 land.rhs.i2552:                                   ; preds = %land.lhs.true.i272
-  %2406 = load ptr, ptr %this1.i2548, align 8
-  %2407 = load ptr, ptr %RHS.i2546, align 8
+  %2488 = load ptr, ptr %this1.i2548, align 8
+  %2489 = load ptr, ptr %RHS.i2546, align 8
   %Length4.i2553 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2546, i32 0, i32 1
-  %2408 = load i64, ptr %Length4.i2553, align 8
-  store ptr %2406, ptr %Lhs.addr.i2593, align 8
-  store ptr %2407, ptr %Rhs.addr.i2594, align 8
-  store i64 %2408, ptr %Length.addr.i2595, align 8
-  %2409 = load i64, ptr %Length.addr.i2595, align 8
-  %cmp.i2596 = icmp eq i64 %2409, 0
+  %2490 = load i64, ptr %Length4.i2553, align 8
+  store ptr %2488, ptr %Lhs.addr.i2593, align 8
+  store ptr %2489, ptr %Rhs.addr.i2594, align 8
+  store i64 %2490, ptr %Length.addr.i2595, align 8
+  %2491 = load i64, ptr %Length.addr.i2595, align 8
+  %cmp.i2596 = icmp eq i64 %2491, 0
   br i1 %cmp.i2596, label %if.then.i2599, label %if.end.i2597
 
 if.then.i2599:                                    ; preds = %land.rhs.i2552
@@ -18047,21 +18129,21 @@ if.then.i2599:                                    ; preds = %land.rhs.i2552
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2600
 
 if.end.i2597:                                     ; preds = %land.rhs.i2552
-  %2410 = load ptr, ptr %Lhs.addr.i2593, align 8
-  %2411 = load ptr, ptr %Rhs.addr.i2594, align 8
-  %2412 = load i64, ptr %Length.addr.i2595, align 8
-  %call.i2598 = call i32 @memcmp(ptr noundef %2410, ptr noundef %2411, i64 noundef %2412) #10
+  %2492 = load ptr, ptr %Lhs.addr.i2593, align 8
+  %2493 = load ptr, ptr %Rhs.addr.i2594, align 8
+  %2494 = load i64, ptr %Length.addr.i2595, align 8
+  %call.i2598 = call i32 @memcmp(ptr noundef %2492, ptr noundef %2493, i64 noundef %2494) #10
   store i32 %call.i2598, ptr %retval.i2592, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2600
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2600: ; preds = %if.end.i2597, %if.then.i2599
-  %2413 = load i32, ptr %retval.i2592, align 4
-  %cmp5.i2555 = icmp eq i32 %2413, 0
+  %2495 = load i32, ptr %retval.i2592, align 4
+  %cmp5.i2555 = icmp eq i32 %2495, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2556
 
 _ZNK4llvh9StringRef6equalsES0_.exit2556:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2600, %land.lhs.true.i272
-  %2414 = phi i1 [ false, %land.lhs.true.i272 ], [ %cmp5.i2555, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2600 ]
-  br i1 %2414, label %if.then.i274, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit277
+  %2496 = phi i1 [ false, %land.lhs.true.i272 ], [ %cmp5.i2555, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2600 ]
+  br i1 %2496, label %if.then.i274, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit277
 
 if.then.i274:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2556
   %Result4.i275 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i269, i32 0, i32 1
@@ -18070,15 +18152,16 @@ if.then.i274:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit277: ; preds = %if.then.i274, %_ZNK4llvh9StringRef6equalsES0_.exit2556, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit294
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp248, ptr noundef nonnull align 1 dereferenceable(8) @.str.83)
-  %2415 = load i32, ptr getelementptr inbounds (%"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i32 0, i32 7), align 4
-  %or249 = or i32 %2415, 0
-  %2416 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp248, i32 0, i32 0
-  %2417 = load ptr, ptr %2416, align 8
-  %2418 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp248, i32 0, i32 1
-  %2419 = load i64, ptr %2418, align 8
-  store ptr %2417, ptr %S.i255, align 8
-  %2420 = getelementptr inbounds { ptr, i64 }, ptr %S.i255, i32 0, i32 1
-  store i64 %2419, ptr %2420, align 8
+  %2497 = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i32 0, i32 7
+  %2498 = load i32, ptr %2497, align 4
+  %or249 = or i32 %2498, 0
+  %2499 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp248, i32 0, i32 0
+  %2500 = load ptr, ptr %2499, align 8
+  %2501 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp248, i32 0, i32 1
+  %2502 = load i64, ptr %2501, align 8
+  store ptr %2500, ptr %S.i255, align 8
+  %2503 = getelementptr inbounds { ptr, i64 }, ptr %S.i255, i32 0, i32 1
+  store i64 %2502, ptr %2503, align 8
   store ptr %this1.i269, ptr %this.addr.i256, align 8
   store i32 %or249, ptr %Value.addr.i, align 4
   %this1.i258 = load ptr, ptr %this.addr.i256, align 8
@@ -18089,44 +18172,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit277: ; preds = %if.then
 land.lhs.true.i:                                  ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit277
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i257, ptr align 8 %this1.i258, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i, ptr align 8 %S.i255, i64 16, i1 false)
-  %2421 = load ptr, ptr %agg.tmp.i257, align 8
-  %2422 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i257, i32 0, i32 1
-  %2423 = load i64, ptr %2422, align 8
-  %2424 = load ptr, ptr %agg.tmp2.i, align 8
-  %2425 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i, i32 0, i32 1
-  %2426 = load i64, ptr %2425, align 8
-  store ptr %2421, ptr %LHS.i.i, align 8
-  %2427 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i, i32 0, i32 1
-  store i64 %2423, ptr %2427, align 8
-  store ptr %2424, ptr %RHS.i.i, align 8
-  %2428 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i, i32 0, i32 1
-  store i64 %2426, ptr %2428, align 8
+  %2504 = load ptr, ptr %agg.tmp.i257, align 8
+  %2505 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i257, i32 0, i32 1
+  %2506 = load i64, ptr %2505, align 8
+  %2507 = load ptr, ptr %agg.tmp2.i, align 8
+  %2508 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i, i32 0, i32 1
+  %2509 = load i64, ptr %2508, align 8
+  store ptr %2504, ptr %LHS.i.i, align 8
+  %2510 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i, i32 0, i32 1
+  store i64 %2506, ptr %2510, align 8
+  store ptr %2507, ptr %RHS.i.i, align 8
+  %2511 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i, i32 0, i32 1
+  store i64 %2509, ptr %2511, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i, ptr align 8 %RHS.i.i, i64 16, i1 false)
-  %2429 = load ptr, ptr %agg.tmp.i.i, align 8
-  %2430 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i, i32 0, i32 1
-  %2431 = load i64, ptr %2430, align 8
-  store ptr %2429, ptr %RHS.i2557, align 8
-  %2432 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2557, i32 0, i32 1
-  store i64 %2431, ptr %2432, align 8
+  %2512 = load ptr, ptr %agg.tmp.i.i, align 8
+  %2513 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i, i32 0, i32 1
+  %2514 = load i64, ptr %2513, align 8
+  store ptr %2512, ptr %RHS.i2557, align 8
+  %2515 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2557, i32 0, i32 1
+  store i64 %2514, ptr %2515, align 8
   store ptr %LHS.i.i, ptr %this.addr.i2558, align 8
   %this1.i2559 = load ptr, ptr %this.addr.i2558, align 8
   %Length.i2560 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i2559, i32 0, i32 1
-  %2433 = load i64, ptr %Length.i2560, align 8
+  %2516 = load i64, ptr %Length.i2560, align 8
   %Length2.i2561 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2557, i32 0, i32 1
-  %2434 = load i64, ptr %Length2.i2561, align 8
-  %cmp.i2562 = icmp eq i64 %2433, %2434
+  %2517 = load i64, ptr %Length2.i2561, align 8
+  %cmp.i2562 = icmp eq i64 %2516, %2517
   br i1 %cmp.i2562, label %land.rhs.i2563, label %_ZNK4llvh9StringRef6equalsES0_.exit2567
 
 land.rhs.i2563:                                   ; preds = %land.lhs.true.i
-  %2435 = load ptr, ptr %this1.i2559, align 8
-  %2436 = load ptr, ptr %RHS.i2557, align 8
+  %2518 = load ptr, ptr %this1.i2559, align 8
+  %2519 = load ptr, ptr %RHS.i2557, align 8
   %Length4.i2564 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2557, i32 0, i32 1
-  %2437 = load i64, ptr %Length4.i2564, align 8
-  store ptr %2435, ptr %Lhs.addr.i2584, align 8
-  store ptr %2436, ptr %Rhs.addr.i2585, align 8
-  store i64 %2437, ptr %Length.addr.i2586, align 8
-  %2438 = load i64, ptr %Length.addr.i2586, align 8
-  %cmp.i2587 = icmp eq i64 %2438, 0
+  %2520 = load i64, ptr %Length4.i2564, align 8
+  store ptr %2518, ptr %Lhs.addr.i2584, align 8
+  store ptr %2519, ptr %Rhs.addr.i2585, align 8
+  store i64 %2520, ptr %Length.addr.i2586, align 8
+  %2521 = load i64, ptr %Length.addr.i2586, align 8
+  %cmp.i2587 = icmp eq i64 %2521, 0
   br i1 %cmp.i2587, label %if.then.i2590, label %if.end.i2588
 
 if.then.i2590:                                    ; preds = %land.rhs.i2563
@@ -18134,21 +18217,21 @@ if.then.i2590:                                    ; preds = %land.rhs.i2563
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2591
 
 if.end.i2588:                                     ; preds = %land.rhs.i2563
-  %2439 = load ptr, ptr %Lhs.addr.i2584, align 8
-  %2440 = load ptr, ptr %Rhs.addr.i2585, align 8
-  %2441 = load i64, ptr %Length.addr.i2586, align 8
-  %call.i2589 = call i32 @memcmp(ptr noundef %2439, ptr noundef %2440, i64 noundef %2441) #10
+  %2522 = load ptr, ptr %Lhs.addr.i2584, align 8
+  %2523 = load ptr, ptr %Rhs.addr.i2585, align 8
+  %2524 = load i64, ptr %Length.addr.i2586, align 8
+  %call.i2589 = call i32 @memcmp(ptr noundef %2522, ptr noundef %2523, i64 noundef %2524) #10
   store i32 %call.i2589, ptr %retval.i2583, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2591
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2591: ; preds = %if.end.i2588, %if.then.i2590
-  %2442 = load i32, ptr %retval.i2583, align 4
-  %cmp5.i2566 = icmp eq i32 %2442, 0
+  %2525 = load i32, ptr %retval.i2583, align 4
+  %cmp5.i2566 = icmp eq i32 %2525, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit2567
 
 _ZNK4llvh9StringRef6equalsES0_.exit2567:          ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2591, %land.lhs.true.i
-  %2443 = phi i1 [ false, %land.lhs.true.i ], [ %cmp5.i2566, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2591 ]
-  br i1 %2443, label %if.then.i, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
+  %2526 = phi i1 [ false, %land.lhs.true.i ], [ %cmp5.i2566, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit2591 ]
+  br i1 %2526, label %if.then.i, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
 
 if.then.i:                                        ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit2567
   %Result4.i = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i258, i32 0, i32 1
@@ -18166,23 +18249,23 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit: ; preds = %if.then.i,
 if.then.i1660:                                    ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
   %Result2.i = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i1657, i32 0, i32 1
   %call3.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNR4llvh8OptionalIjEdeEv(ptr noundef nonnull align 4 dereferenceable(8) %Result2.i)
-  %2444 = load i32, ptr %call3.i, align 4
-  store i32 %2444, ptr %retval.i, align 4
+  %2527 = load i32, ptr %call3.i, align 4
+  store i32 %2527, ptr %retval.i, align 4
   br label %_ZN4llvh12StringSwitchIjjE7DefaultEj.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
-  %2445 = load i32, ptr %Value.addr.i1656, align 4
-  store i32 %2445, ptr %retval.i, align 4
+  %2528 = load i32, ptr %Value.addr.i1656, align 4
+  store i32 %2528, ptr %retval.i, align 4
   br label %_ZN4llvh12StringSwitchIjjE7DefaultEj.exit
 
 _ZN4llvh12StringSwitchIjjE7DefaultEj.exit:        ; preds = %if.end.i, %if.then.i1660
-  %2446 = load i32, ptr %retval.i, align 4
-  store i32 %2446, ptr %retval, align 4
+  %2529 = load i32, ptr %retval.i, align 4
+  store i32 %2529, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %_ZN4llvh12StringSwitchIjjE7DefaultEj.exit, %if.then
-  %2447 = load i32, ptr %retval, align 4
-  ret i32 %2447
+  %2530 = load i32, ptr %retval, align 4
+  ret i32 %2530
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19828,40 +19911,41 @@ entry:
   store i32 %ArchExtKind, ptr %ArchExtKind.addr, align 4
   store ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 22), ptr %__end1, align 8
+  %0 = getelementptr inbounds %struct.anon.0, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 22
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %AE, ptr align 8 %2, i64 40, i1 false)
-  %3 = load i32, ptr %ArchExtKind.addr, align 4
+  %3 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %AE, ptr align 8 %3, i64 40, i1 false)
+  %4 = load i32, ptr %ArchExtKind.addr, align 4
   %ID = getelementptr inbounds %struct.anon.0, ptr %AE, i32 0, i32 2
-  %4 = load i32, ptr %ID, align 8
-  %cmp1 = icmp eq i32 %3, %4
+  %5 = load i32, ptr %ID, align 8
+  %cmp1 = icmp eq i32 %4, %5
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   %call = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %AE)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
-  %6 = extractvalue { ptr, i64 } %call, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
-  %8 = extractvalue { ptr, i64 } %call, 1
-  store i64 %8, ptr %7, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
+  %7 = extractvalue { ptr, i64 } %call, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
+  %9 = extractvalue { ptr, i64 } %call, 1
+  store i64 %9, ptr %8, align 8
   br label %return
 
 if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %9 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %9, i32 1
+  %10 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %10, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -19871,8 +19955,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %10 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %10
+  %11 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20070,72 +20154,73 @@ if.then:                                          ; preds = %_ZNK4llvh9StringRef
   store i64 %33, ptr %32, align 8
   store ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, ptr %__range2, align 8
   store ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 22), ptr %__end2, align 8
+  %34 = getelementptr inbounds %struct.anon.0, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 22
+  store ptr %34, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %34 = load ptr, ptr %__begin2, align 8
-  %35 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %34, %35
+  %35 = load ptr, ptr %__begin2, align 8
+  %36 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %35, %36
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %36 = load ptr, ptr %__begin2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %AE, ptr align 8 %36, i64 40, i1 false)
+  %37 = load ptr, ptr %__begin2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %AE, ptr align 8 %37, i64 40, i1 false)
   %NegFeature = getelementptr inbounds %struct.anon.0, ptr %AE, i32 0, i32 4
-  %37 = load ptr, ptr %NegFeature, align 8
-  %tobool = icmp ne ptr %37, null
+  %38 = load ptr, ptr %NegFeature, align 8
+  %tobool = icmp ne ptr %38, null
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %ArchExtBase, i64 16, i1 false)
   %call4 = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %AE)
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
-  %39 = extractvalue { ptr, i64 } %call4, 0
-  store ptr %39, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
-  %41 = extractvalue { ptr, i64 } %call4, 1
-  store i64 %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
-  %49 = load i64, ptr %48, align 8
-  store ptr %43, ptr %LHS.i25, align 8
-  %50 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i25, i32 0, i32 1
-  store i64 %45, ptr %50, align 8
-  store ptr %47, ptr %RHS.i26, align 8
-  %51 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i26, i32 0, i32 1
-  store i64 %49, ptr %51, align 8
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
+  %40 = extractvalue { ptr, i64 } %call4, 0
+  store ptr %40, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
+  %42 = extractvalue { ptr, i64 } %call4, 1
+  store i64 %42, ptr %41, align 8
+  %43 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8
+  store ptr %44, ptr %LHS.i25, align 8
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i25, i32 0, i32 1
+  store i64 %46, ptr %51, align 8
+  store ptr %48, ptr %RHS.i26, align 8
+  %52 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i26, i32 0, i32 1
+  store i64 %50, ptr %52, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i27, ptr align 8 %RHS.i26, i64 16, i1 false)
-  %52 = load ptr, ptr %agg.tmp.i27, align 8
-  %53 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i27, i32 0, i32 1
-  %54 = load i64, ptr %53, align 8
-  store ptr %52, ptr %RHS.i62, align 8
-  %55 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i62, i32 0, i32 1
-  store i64 %54, ptr %55, align 8
+  %53 = load ptr, ptr %agg.tmp.i27, align 8
+  %54 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i27, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8
+  store ptr %53, ptr %RHS.i62, align 8
+  %56 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i62, i32 0, i32 1
+  store i64 %55, ptr %56, align 8
   store ptr %LHS.i25, ptr %this.addr.i63, align 8
   %this1.i64 = load ptr, ptr %this.addr.i63, align 8
   %Length.i65 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i64, i32 0, i32 1
-  %56 = load i64, ptr %Length.i65, align 8
+  %57 = load i64, ptr %Length.i65, align 8
   %Length2.i66 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i62, i32 0, i32 1
-  %57 = load i64, ptr %Length2.i66, align 8
-  %cmp.i67 = icmp eq i64 %56, %57
+  %58 = load i64, ptr %Length2.i66, align 8
+  %cmp.i67 = icmp eq i64 %57, %58
   br i1 %cmp.i67, label %land.rhs.i68, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i68:                                     ; preds = %land.lhs.true
-  %58 = load ptr, ptr %this1.i64, align 8
-  %59 = load ptr, ptr %RHS.i62, align 8
+  %59 = load ptr, ptr %this1.i64, align 8
+  %60 = load ptr, ptr %RHS.i62, align 8
   %Length4.i69 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i62, i32 0, i32 1
-  %60 = load i64, ptr %Length4.i69, align 8
-  store ptr %58, ptr %Lhs.addr.i86, align 8
-  store ptr %59, ptr %Rhs.addr.i87, align 8
-  store i64 %60, ptr %Length.addr.i88, align 8
-  %61 = load i64, ptr %Length.addr.i88, align 8
-  %cmp.i89 = icmp eq i64 %61, 0
+  %61 = load i64, ptr %Length4.i69, align 8
+  store ptr %59, ptr %Lhs.addr.i86, align 8
+  store ptr %60, ptr %Rhs.addr.i87, align 8
+  store i64 %61, ptr %Length.addr.i88, align 8
+  %62 = load i64, ptr %Length.addr.i88, align 8
+  %cmp.i89 = icmp eq i64 %62, 0
   br i1 %cmp.i89, label %if.then.i92, label %if.end.i90
 
 if.then.i92:                                      ; preds = %land.rhs.i68
@@ -20143,38 +20228,38 @@ if.then.i92:                                      ; preds = %land.rhs.i68
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93
 
 if.end.i90:                                       ; preds = %land.rhs.i68
-  %62 = load ptr, ptr %Lhs.addr.i86, align 8
-  %63 = load ptr, ptr %Rhs.addr.i87, align 8
-  %64 = load i64, ptr %Length.addr.i88, align 8
-  %call.i91 = call i32 @memcmp(ptr noundef %62, ptr noundef %63, i64 noundef %64) #10
+  %63 = load ptr, ptr %Lhs.addr.i86, align 8
+  %64 = load ptr, ptr %Rhs.addr.i87, align 8
+  %65 = load i64, ptr %Length.addr.i88, align 8
+  %call.i91 = call i32 @memcmp(ptr noundef %63, ptr noundef %64, i64 noundef %65) #10
   store i32 %call.i91, ptr %retval.i85, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93: ; preds = %if.end.i90, %if.then.i92
-  %65 = load i32, ptr %retval.i85, align 4
-  %cmp5.i71 = icmp eq i32 %65, 0
+  %66 = load i32, ptr %retval.i85, align 4
+  %cmp5.i71 = icmp eq i32 %66, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93, %land.lhs.true
-  %66 = phi i1 [ false, %land.lhs.true ], [ %cmp5.i71, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93 ]
-  br i1 %66, label %if.then6, label %if.end
+  %67 = phi i1 [ false, %land.lhs.true ], [ %cmp5.i71, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93 ]
+  br i1 %67, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %NegFeature7 = getelementptr inbounds %struct.anon.0, ptr %AE, i32 0, i32 4
-  %67 = load ptr, ptr %NegFeature7, align 8
+  %68 = load ptr, ptr %NegFeature7, align 8
   store ptr %retval, ptr %this.addr.i30, align 8
-  store ptr %67, ptr %Str.addr.i31, align 8
+  store ptr %68, ptr %Str.addr.i31, align 8
   %this1.i32 = load ptr, ptr %this.addr.i30, align 8
-  %68 = load ptr, ptr %Str.addr.i31, align 8
-  store ptr %68, ptr %this1.i32, align 8
-  %Length.i33 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i32, i32 0, i32 1
   %69 = load ptr, ptr %Str.addr.i31, align 8
-  %tobool.i34 = icmp ne ptr %69, null
+  store ptr %69, ptr %this1.i32, align 8
+  %Length.i33 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i32, i32 0, i32 1
+  %70 = load ptr, ptr %Str.addr.i31, align 8
+  %tobool.i34 = icmp ne ptr %70, null
   br i1 %tobool.i34, label %cond.true.i37, label %cond.false.i35
 
 cond.true.i37:                                    ; preds = %if.then6
-  %70 = load ptr, ptr %Str.addr.i31, align 8
-  %call.i38 = call i64 @strlen(ptr noundef %70) #10
+  %71 = load ptr, ptr %Str.addr.i31, align 8
+  %call.i38 = call i64 @strlen(ptr noundef %71) #10
   br label %_ZN4llvh9StringRefC2EPKc.exit39
 
 cond.false.i35:                                   ; preds = %if.then6
@@ -20189,8 +20274,8 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %71 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %71, i32 1
+  %72 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %72, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -20200,72 +20285,73 @@ for.end:                                          ; preds = %for.cond
 if.end8:                                          ; preds = %for.end, %_ZNK4llvh9StringRef10startswithES0_.exit
   store ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 22), ptr %__end1, align 8
+  %73 = getelementptr inbounds %struct.anon.0, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 22
+  store ptr %73, ptr %__end1, align 8
   br label %for.cond9
 
 for.cond9:                                        ; preds = %for.inc22, %if.end8
-  %72 = load ptr, ptr %__begin1, align 8
-  %73 = load ptr, ptr %__end1, align 8
-  %cmp10 = icmp ne ptr %72, %73
+  %74 = load ptr, ptr %__begin1, align 8
+  %75 = load ptr, ptr %__end1, align 8
+  %cmp10 = icmp ne ptr %74, %75
   br i1 %cmp10, label %for.body11, label %for.end24
 
 for.body11:                                       ; preds = %for.cond9
-  %74 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %AE12, ptr align 8 %74, i64 40, i1 false)
+  %76 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %AE12, ptr align 8 %76, i64 40, i1 false)
   %Feature = getelementptr inbounds %struct.anon.0, ptr %AE12, i32 0, i32 3
-  %75 = load ptr, ptr %Feature, align 8
-  %tobool13 = icmp ne ptr %75, null
+  %77 = load ptr, ptr %Feature, align 8
+  %tobool13 = icmp ne ptr %77, null
   br i1 %tobool13, label %land.lhs.true14, label %if.end21
 
 land.lhs.true14:                                  ; preds = %for.body11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp15, ptr align 8 %ArchExt, i64 16, i1 false)
   %call17 = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %AE12)
-  %76 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
-  %77 = extractvalue { ptr, i64 } %call17, 0
-  store ptr %77, ptr %76, align 8
-  %78 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
-  %79 = extractvalue { ptr, i64 } %call17, 1
-  store i64 %79, ptr %78, align 8
-  %80 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 0
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 1
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
-  %87 = load i64, ptr %86, align 8
-  store ptr %81, ptr %LHS.i, align 8
-  %88 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %83, ptr %88, align 8
-  store ptr %85, ptr %RHS.i, align 8
-  %89 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %87, ptr %89, align 8
+  %78 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
+  %79 = extractvalue { ptr, i64 } %call17, 0
+  store ptr %79, ptr %78, align 8
+  %80 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
+  %81 = extractvalue { ptr, i64 } %call17, 1
+  store i64 %81, ptr %80, align 8
+  %82 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 1
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
+  %89 = load i64, ptr %88, align 8
+  store ptr %83, ptr %LHS.i, align 8
+  %90 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %85, ptr %90, align 8
+  store ptr %87, ptr %RHS.i, align 8
+  %91 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %89, ptr %91, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %90 = load ptr, ptr %agg.tmp.i, align 8
-  %91 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %92 = load i64, ptr %91, align 8
-  store ptr %90, ptr %RHS.i72, align 8
-  %93 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i72, i32 0, i32 1
-  store i64 %92, ptr %93, align 8
+  %92 = load ptr, ptr %agg.tmp.i, align 8
+  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  store ptr %92, ptr %RHS.i72, align 8
+  %95 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i72, i32 0, i32 1
+  store i64 %94, ptr %95, align 8
   store ptr %LHS.i, ptr %this.addr.i73, align 8
   %this1.i74 = load ptr, ptr %this.addr.i73, align 8
   %Length.i75 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i74, i32 0, i32 1
-  %94 = load i64, ptr %Length.i75, align 8
+  %96 = load i64, ptr %Length.i75, align 8
   %Length2.i76 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i72, i32 0, i32 1
-  %95 = load i64, ptr %Length2.i76, align 8
-  %cmp.i77 = icmp eq i64 %94, %95
+  %97 = load i64, ptr %Length2.i76, align 8
+  %cmp.i77 = icmp eq i64 %96, %97
   br i1 %cmp.i77, label %land.rhs.i78, label %_ZNK4llvh9StringRef6equalsES0_.exit82
 
 land.rhs.i78:                                     ; preds = %land.lhs.true14
-  %96 = load ptr, ptr %this1.i74, align 8
-  %97 = load ptr, ptr %RHS.i72, align 8
+  %98 = load ptr, ptr %this1.i74, align 8
+  %99 = load ptr, ptr %RHS.i72, align 8
   %Length4.i79 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i72, i32 0, i32 1
-  %98 = load i64, ptr %Length4.i79, align 8
-  store ptr %96, ptr %Lhs.addr.i, align 8
-  store ptr %97, ptr %Rhs.addr.i, align 8
-  store i64 %98, ptr %Length.addr.i, align 8
-  %99 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i84 = icmp eq i64 %99, 0
+  %100 = load i64, ptr %Length4.i79, align 8
+  store ptr %98, ptr %Lhs.addr.i, align 8
+  store ptr %99, ptr %Rhs.addr.i, align 8
+  store i64 %100, ptr %Length.addr.i, align 8
+  %101 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i84 = icmp eq i64 %101, 0
   br i1 %cmp.i84, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i78
@@ -20273,38 +20359,38 @@ if.then.i:                                        ; preds = %land.rhs.i78
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i78
-  %100 = load ptr, ptr %Lhs.addr.i, align 8
-  %101 = load ptr, ptr %Rhs.addr.i, align 8
-  %102 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %100, ptr noundef %101, i64 noundef %102) #10
+  %102 = load ptr, ptr %Lhs.addr.i, align 8
+  %103 = load ptr, ptr %Rhs.addr.i, align 8
+  %104 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %102, ptr noundef %103, i64 noundef %104) #10
   store i32 %call.i, ptr %retval.i83, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %103 = load i32, ptr %retval.i83, align 4
-  %cmp5.i81 = icmp eq i32 %103, 0
+  %105 = load i32, ptr %retval.i83, align 4
+  %cmp5.i81 = icmp eq i32 %105, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit82
 
 _ZNK4llvh9StringRef6equalsES0_.exit82:            ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %land.lhs.true14
-  %104 = phi i1 [ false, %land.lhs.true14 ], [ %cmp5.i81, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %104, label %if.then19, label %if.end21
+  %106 = phi i1 [ false, %land.lhs.true14 ], [ %cmp5.i81, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %106, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit82
   %Feature20 = getelementptr inbounds %struct.anon.0, ptr %AE12, i32 0, i32 3
-  %105 = load ptr, ptr %Feature20, align 8
+  %107 = load ptr, ptr %Feature20, align 8
   store ptr %retval, ptr %this.addr.i40, align 8
-  store ptr %105, ptr %Str.addr.i41, align 8
+  store ptr %107, ptr %Str.addr.i41, align 8
   %this1.i42 = load ptr, ptr %this.addr.i40, align 8
-  %106 = load ptr, ptr %Str.addr.i41, align 8
-  store ptr %106, ptr %this1.i42, align 8
+  %108 = load ptr, ptr %Str.addr.i41, align 8
+  store ptr %108, ptr %this1.i42, align 8
   %Length.i43 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i42, i32 0, i32 1
-  %107 = load ptr, ptr %Str.addr.i41, align 8
-  %tobool.i44 = icmp ne ptr %107, null
+  %109 = load ptr, ptr %Str.addr.i41, align 8
+  %tobool.i44 = icmp ne ptr %109, null
   br i1 %tobool.i44, label %cond.true.i47, label %cond.false.i45
 
 cond.true.i47:                                    ; preds = %if.then19
-  %108 = load ptr, ptr %Str.addr.i41, align 8
-  %call.i48 = call i64 @strlen(ptr noundef %108) #10
+  %110 = load ptr, ptr %Str.addr.i41, align 8
+  %call.i48 = call i64 @strlen(ptr noundef %110) #10
   br label %_ZN4llvh9StringRefC2EPKc.exit49
 
 cond.false.i45:                                   ; preds = %if.then19
@@ -20319,8 +20405,8 @@ if.end21:                                         ; preds = %_ZNK4llvh9StringRef
   br label %for.inc22
 
 for.inc22:                                        ; preds = %if.end21
-  %109 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr23 = getelementptr inbounds %struct.anon.0, ptr %109, i32 1
+  %111 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr23 = getelementptr inbounds %struct.anon.0, ptr %111, i32 1
   store ptr %incdec.ptr23, ptr %__begin1, align 8
   br label %for.cond9
 
@@ -20330,8 +20416,8 @@ for.end24:                                        ; preds = %for.cond9
   br label %return
 
 return:                                           ; preds = %for.end24, %_ZN4llvh9StringRefC2EPKc.exit49, %_ZN4llvh9StringRefC2EPKc.exit39
-  %110 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %110
+  %112 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20346,40 +20432,41 @@ entry:
   store i32 %HWDivKind, ptr %HWDivKind.addr, align 4
   store ptr @_ZN12_GLOBAL__N_110HWDivNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_110HWDivNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.1, ptr @_ZN12_GLOBAL__N_110HWDivNamesE, i64 5), ptr %__end1, align 8
+  %0 = getelementptr inbounds %struct.anon.1, ptr @_ZN12_GLOBAL__N_110HWDivNamesE, i64 5
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %D, ptr align 8 %2, i64 24, i1 false)
-  %3 = load i32, ptr %HWDivKind.addr, align 4
+  %3 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %D, ptr align 8 %3, i64 24, i1 false)
+  %4 = load i32, ptr %HWDivKind.addr, align 4
   %ID = getelementptr inbounds %struct.anon.1, ptr %D, i32 0, i32 2
-  %4 = load i32, ptr %ID, align 8
-  %cmp1 = icmp eq i32 %3, %4
+  %5 = load i32, ptr %ID, align 8
+  %cmp1 = icmp eq i32 %4, %5
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   %call = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_27getNameEv"(ptr noundef nonnull align 8 dereferenceable(24) %D)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
-  %6 = extractvalue { ptr, i64 } %call, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
-  %8 = extractvalue { ptr, i64 } %call, 1
-  store i64 %8, ptr %7, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
+  %7 = extractvalue { ptr, i64 } %call, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
+  %9 = extractvalue { ptr, i64 } %call, 1
+  store i64 %9, ptr %8, align 8
   br label %return
 
 if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %9 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.1, ptr %9, i32 1
+  %10 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.1, ptr %10, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -20389,8 +20476,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %10 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %10
+  %11 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20456,46 +20543,47 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store ptr @_ZN12_GLOBAL__N_18CPUNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_18CPUNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::CpuNames", ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 83), ptr %__end1, align 8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 83
+  store ptr %7, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load ptr, ptr %__begin1, align 8
-  %8 = load ptr, ptr %__end1, align 8
-  %cmp1 = icmp ne ptr %7, %8
+  %8 = load ptr, ptr %__begin1, align 8
+  %9 = load ptr, ptr %__end1, align 8
+  %cmp1 = icmp ne ptr %8, %9
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %CPU, ptr align 8 %9, i64 32, i1 false)
+  %10 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %CPU, ptr align 8 %10, i64 32, i1 false)
   %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %CPU, i32 0, i32 2
-  %10 = load i32, ptr %ArchID, align 8
-  %11 = load i32, ptr %AK, align 4
-  %cmp2 = icmp eq i32 %10, %11
+  %11 = load i32, ptr %ArchID, align 8
+  %12 = load i32, ptr %AK, align 4
+  %cmp2 = icmp eq i32 %11, %12
   br i1 %cmp2, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %for.body
   %Default = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %CPU, i32 0, i32 3
-  %12 = load i8, ptr %Default, align 4
-  %tobool = trunc i8 %12 to i1
+  %13 = load i8, ptr %Default, align 4
+  %tobool = trunc i8 %13 to i1
   br i1 %tobool, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %land.lhs.true
   %call4 = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh3ARM8ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %CPU)
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
-  %14 = extractvalue { ptr, i64 } %call4, 0
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
-  %16 = extractvalue { ptr, i64 } %call4, 1
-  store i64 %16, ptr %15, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
+  %15 = extractvalue { ptr, i64 } %call4, 0
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
+  %17 = extractvalue { ptr, i64 } %call4, 1
+  store i64 %17, ptr %16, align 8
   br label %return
 
 if.end5:                                          ; preds = %land.lhs.true, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end5
-  %17 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %17, i32 1
+  %18 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %18, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -20503,16 +20591,16 @@ for.end:                                          ; preds = %for.cond
   store ptr %retval, ptr %this.addr.i, align 8
   store ptr @.str, ptr %Str.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %18 = load ptr, ptr %Str.addr.i, align 8
-  store ptr %18, ptr %this1.i, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
   %19 = load ptr, ptr %Str.addr.i, align 8
-  %tobool.i = icmp ne ptr %19, null
+  store ptr %19, ptr %this1.i, align 8
+  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
+  %20 = load ptr, ptr %Str.addr.i, align 8
+  %tobool.i = icmp ne ptr %20, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.end
-  %20 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %20) #10
+  %21 = load ptr, ptr %Str.addr.i, align 8
+  %call.i = call i64 @strlen(ptr noundef %21) #10
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %for.end
@@ -20524,8 +20612,8 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   br label %return
 
 return:                                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit, %if.then3, %if.then
-  %21 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %21
+  %22 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20580,56 +20668,57 @@ entry:
   store i64 %17, ptr %16, align 8
   store ptr @_ZN12_GLOBAL__N_19ARCHNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_19ARCHNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 34), ptr %__end1, align 8
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 34
+  store ptr %18, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %18 = load ptr, ptr %__begin1, align 8
-  %19 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %18, %19
+  %19 = load ptr, ptr %__begin1, align 8
+  %20 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %19, %20
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %20 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %A, ptr align 8 %20, i64 64, i1 false)
+  %21 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %A, ptr align 8 %21, i64 64, i1 false)
   %call4 = call { ptr, i64 } @_ZNK12_GLOBAL__N_19ArchNamesIN4llvh3ARM8ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(64) %A)
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp3, i32 0, i32 0
-  %22 = extractvalue { ptr, i64 } %call4, 0
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp3, i32 0, i32 1
-  %24 = extractvalue { ptr, i64 } %call4, 1
-  store i64 %24, ptr %23, align 8
+  %22 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp3, i32 0, i32 0
+  %23 = extractvalue { ptr, i64 } %call4, 0
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp3, i32 0, i32 1
+  %25 = extractvalue { ptr, i64 } %call4, 1
+  store i64 %25, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp5, ptr align 8 %Syn, i64 16, i1 false)
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 1
-  %28 = load i64, ptr %27, align 8
-  store ptr %26, ptr %Suffix.i, align 8
-  %29 = getelementptr inbounds { ptr, i64 }, ptr %Suffix.i, i32 0, i32 1
-  store i64 %28, ptr %29, align 8
+  %26 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  store ptr %27, ptr %Suffix.i, align 8
+  %30 = getelementptr inbounds { ptr, i64 }, ptr %Suffix.i, i32 0, i32 1
+  store i64 %29, ptr %30, align 8
   store ptr %ref.tmp3, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %30 = load i64, ptr %Length.i, align 8
+  %31 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Suffix.i, i32 0, i32 1
-  %31 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp uge i64 %30, %31
+  %32 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp uge i64 %31, %32
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef8endswithES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
   %call.i = call noundef ptr @_ZNK4llvh9StringRef3endEv(ptr noundef nonnull align 8 dereferenceable(16) %this1.i)
   %Length3.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Suffix.i, i32 0, i32 1
-  %32 = load i64, ptr %Length3.i, align 8
-  %idx.neg.i = sub i64 0, %32
+  %33 = load i64, ptr %Length3.i, align 8
+  %idx.neg.i = sub i64 0, %33
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %idx.neg.i
-  %33 = load ptr, ptr %Suffix.i, align 8
+  %34 = load ptr, ptr %Suffix.i, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Suffix.i, i32 0, i32 1
-  %34 = load i64, ptr %Length4.i, align 8
+  %35 = load i64, ptr %Length4.i, align 8
   store ptr %add.ptr.i, ptr %Lhs.addr.i, align 8
-  store ptr %33, ptr %Rhs.addr.i, align 8
-  store i64 %34, ptr %Length.addr.i, align 8
-  %35 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i7 = icmp eq i64 %35, 0
+  store ptr %34, ptr %Rhs.addr.i, align 8
+  store i64 %35, ptr %Length.addr.i, align 8
+  %36 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i7 = icmp eq i64 %36, 0
   br i1 %cmp.i7, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -20637,34 +20726,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %36 = load ptr, ptr %Lhs.addr.i, align 8
-  %37 = load ptr, ptr %Rhs.addr.i, align 8
-  %38 = load i64, ptr %Length.addr.i, align 8
-  %call.i8 = call i32 @memcmp(ptr noundef %36, ptr noundef %37, i64 noundef %38) #10
+  %37 = load ptr, ptr %Lhs.addr.i, align 8
+  %38 = load ptr, ptr %Rhs.addr.i, align 8
+  %39 = load i64, ptr %Length.addr.i, align 8
+  %call.i8 = call i32 @memcmp(ptr noundef %37, ptr noundef %38, i64 noundef %39) #10
   store i32 %call.i8, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %39 = load i32, ptr %retval.i, align 4
-  %cmp6.i = icmp eq i32 %39, 0
+  %40 = load i32, ptr %retval.i, align 4
+  %cmp6.i = icmp eq i32 %40, 0
   br label %_ZNK4llvh9StringRef8endswithES0_.exit
 
 _ZNK4llvh9StringRef8endswithES0_.exit:            ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %40 = phi i1 [ false, %for.body ], [ %cmp6.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %40, label %if.then, label %if.end
+  %41 = phi i1 [ false, %for.body ], [ %cmp6.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %41, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef8endswithES0_.exit
   %ID = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames", ptr %A, i32 0, i32 8
-  %41 = load i32, ptr %ID, align 8
-  store i32 %41, ptr %retval, align 4
+  %42 = load i32, ptr %ID, align 8
+  store i32 %42, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef8endswithES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %42 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames", ptr %42, i32 1
+  %43 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames", ptr %43, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -20673,8 +20762,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
+  %44 = load i32, ptr %retval, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23475,15 +23564,16 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
   %Result.i = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i68, i32 0, i32 1
   call void @_ZN4llvh8OptionalIjEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %Result.i)
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, ptr noundef nonnull align 1 dereferenceable(11) @.str.67)
-  %37 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or = or i32 %37, 2
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  store ptr %39, ptr %S.i401, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %S.i401, i32 0, i32 1
-  store i64 %41, ptr %42, align 8
+  %37 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %38 = load i32, ptr %37, align 4
+  %or = or i32 %38, 2
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  store ptr %40, ptr %S.i401, align 8
+  %43 = getelementptr inbounds { ptr, i64 }, ptr %S.i401, i32 0, i32 1
+  store i64 %42, ptr %43, align 8
   store ptr %ref.tmp, ptr %this.addr.i402, align 8
   store i32 %or, ptr %Value.addr.i403, align 4
   %this1.i406 = load ptr, ptr %this.addr.i402, align 8
@@ -23494,44 +23584,44 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
 land.lhs.true.i409:                               ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i404, ptr align 8 %this1.i406, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i405, ptr align 8 %S.i401, i64 16, i1 false)
-  %43 = load ptr, ptr %agg.tmp.i404, align 8
-  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i404, i32 0, i32 1
-  %45 = load i64, ptr %44, align 8
-  %46 = load ptr, ptr %agg.tmp2.i405, align 8
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i405, i32 0, i32 1
-  %48 = load i64, ptr %47, align 8
-  store ptr %43, ptr %LHS.i.i398, align 8
-  %49 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i398, i32 0, i32 1
-  store i64 %45, ptr %49, align 8
-  store ptr %46, ptr %RHS.i.i399, align 8
-  %50 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i399, i32 0, i32 1
-  store i64 %48, ptr %50, align 8
+  %44 = load ptr, ptr %agg.tmp.i404, align 8
+  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i404, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %47 = load ptr, ptr %agg.tmp2.i405, align 8
+  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i405, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8
+  store ptr %44, ptr %LHS.i.i398, align 8
+  %50 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i398, i32 0, i32 1
+  store i64 %46, ptr %50, align 8
+  store ptr %47, ptr %RHS.i.i399, align 8
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i399, i32 0, i32 1
+  store i64 %49, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i400, ptr align 8 %RHS.i.i399, i64 16, i1 false)
-  %51 = load ptr, ptr %agg.tmp.i.i400, align 8
-  %52 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i400, i32 0, i32 1
-  %53 = load i64, ptr %52, align 8
-  store ptr %51, ptr %RHS.i421, align 8
-  %54 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i421, i32 0, i32 1
-  store i64 %53, ptr %54, align 8
+  %52 = load ptr, ptr %agg.tmp.i.i400, align 8
+  %53 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i400, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8
+  store ptr %52, ptr %RHS.i421, align 8
+  %55 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i421, i32 0, i32 1
+  store i64 %54, ptr %55, align 8
   store ptr %LHS.i.i398, ptr %this.addr.i422, align 8
   %this1.i423 = load ptr, ptr %this.addr.i422, align 8
   %Length.i424 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i423, i32 0, i32 1
-  %55 = load i64, ptr %Length.i424, align 8
+  %56 = load i64, ptr %Length.i424, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i421, i32 0, i32 1
-  %56 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %55, %56
+  %57 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %56, %57
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i409
-  %57 = load ptr, ptr %this1.i423, align 8
-  %58 = load ptr, ptr %RHS.i421, align 8
+  %58 = load ptr, ptr %this1.i423, align 8
+  %59 = load ptr, ptr %RHS.i421, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i421, i32 0, i32 1
-  %59 = load i64, ptr %Length4.i, align 8
-  store ptr %57, ptr %Lhs.addr.i842, align 8
-  store ptr %58, ptr %Rhs.addr.i843, align 8
-  store i64 %59, ptr %Length.addr.i844, align 8
-  %60 = load i64, ptr %Length.addr.i844, align 8
-  %cmp.i845 = icmp eq i64 %60, 0
+  %60 = load i64, ptr %Length4.i, align 8
+  store ptr %58, ptr %Lhs.addr.i842, align 8
+  store ptr %59, ptr %Rhs.addr.i843, align 8
+  store i64 %60, ptr %Length.addr.i844, align 8
+  %61 = load i64, ptr %Length.addr.i844, align 8
+  %cmp.i845 = icmp eq i64 %61, 0
   br i1 %cmp.i845, label %if.then.i848, label %if.end.i846
 
 if.then.i848:                                     ; preds = %land.rhs.i
@@ -23539,21 +23629,21 @@ if.then.i848:                                     ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit849
 
 if.end.i846:                                      ; preds = %land.rhs.i
-  %61 = load ptr, ptr %Lhs.addr.i842, align 8
-  %62 = load ptr, ptr %Rhs.addr.i843, align 8
-  %63 = load i64, ptr %Length.addr.i844, align 8
-  %call.i847 = call i32 @memcmp(ptr noundef %61, ptr noundef %62, i64 noundef %63) #10
+  %62 = load ptr, ptr %Lhs.addr.i842, align 8
+  %63 = load ptr, ptr %Rhs.addr.i843, align 8
+  %64 = load i64, ptr %Length.addr.i844, align 8
+  %call.i847 = call i32 @memcmp(ptr noundef %62, ptr noundef %63, i64 noundef %64) #10
   store i32 %call.i847, ptr %retval.i841, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit849
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit849: ; preds = %if.end.i846, %if.then.i848
-  %64 = load i32, ptr %retval.i841, align 4
-  %cmp5.i = icmp eq i32 %64, 0
+  %65 = load i32, ptr %retval.i841, align 4
+  %cmp5.i = icmp eq i32 %65, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit849, %land.lhs.true.i409
-  %65 = phi i1 [ false, %land.lhs.true.i409 ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit849 ]
-  br i1 %65, label %if.then.i411, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit414
+  %66 = phi i1 [ false, %land.lhs.true.i409 ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit849 ]
+  br i1 %66, label %if.then.i411, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit414
 
 if.then.i411:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %Result4.i412 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i406, i32 0, i32 1
@@ -23562,15 +23652,16 @@ if.then.i411:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit414: ; preds = %if.then.i411, %_ZNK4llvh9StringRef6equalsES0_.exit, %if.end
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 1 dereferenceable(11) @.str.68)
-  %66 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or6 = or i32 %66, 2
-  %67 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 1
-  %70 = load i64, ptr %69, align 8
-  store ptr %68, ptr %S.i384, align 8
-  %71 = getelementptr inbounds { ptr, i64 }, ptr %S.i384, i32 0, i32 1
-  store i64 %70, ptr %71, align 8
+  %67 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %68 = load i32, ptr %67, align 4
+  %or6 = or i32 %68, 2
+  %69 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 1
+  %72 = load i64, ptr %71, align 8
+  store ptr %70, ptr %S.i384, align 8
+  %73 = getelementptr inbounds { ptr, i64 }, ptr %S.i384, i32 0, i32 1
+  store i64 %72, ptr %73, align 8
   store ptr %this1.i406, ptr %this.addr.i385, align 8
   store i32 %or6, ptr %Value.addr.i386, align 4
   %this1.i389 = load ptr, ptr %this.addr.i385, align 8
@@ -23581,44 +23672,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit414: ; preds = %if.then
 land.lhs.true.i392:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit414
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i387, ptr align 8 %this1.i389, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i388, ptr align 8 %S.i384, i64 16, i1 false)
-  %72 = load ptr, ptr %agg.tmp.i387, align 8
-  %73 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i387, i32 0, i32 1
-  %74 = load i64, ptr %73, align 8
-  %75 = load ptr, ptr %agg.tmp2.i388, align 8
-  %76 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i388, i32 0, i32 1
-  %77 = load i64, ptr %76, align 8
-  store ptr %72, ptr %LHS.i.i381, align 8
-  %78 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i381, i32 0, i32 1
-  store i64 %74, ptr %78, align 8
-  store ptr %75, ptr %RHS.i.i382, align 8
-  %79 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i382, i32 0, i32 1
-  store i64 %77, ptr %79, align 8
+  %74 = load ptr, ptr %agg.tmp.i387, align 8
+  %75 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i387, i32 0, i32 1
+  %76 = load i64, ptr %75, align 8
+  %77 = load ptr, ptr %agg.tmp2.i388, align 8
+  %78 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i388, i32 0, i32 1
+  %79 = load i64, ptr %78, align 8
+  store ptr %74, ptr %LHS.i.i381, align 8
+  %80 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i381, i32 0, i32 1
+  store i64 %76, ptr %80, align 8
+  store ptr %77, ptr %RHS.i.i382, align 8
+  %81 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i382, i32 0, i32 1
+  store i64 %79, ptr %81, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i383, ptr align 8 %RHS.i.i382, i64 16, i1 false)
-  %80 = load ptr, ptr %agg.tmp.i.i383, align 8
-  %81 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i383, i32 0, i32 1
-  %82 = load i64, ptr %81, align 8
-  store ptr %80, ptr %RHS.i426, align 8
-  %83 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i426, i32 0, i32 1
-  store i64 %82, ptr %83, align 8
+  %82 = load ptr, ptr %agg.tmp.i.i383, align 8
+  %83 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i383, i32 0, i32 1
+  %84 = load i64, ptr %83, align 8
+  store ptr %82, ptr %RHS.i426, align 8
+  %85 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i426, i32 0, i32 1
+  store i64 %84, ptr %85, align 8
   store ptr %LHS.i.i381, ptr %this.addr.i427, align 8
   %this1.i428 = load ptr, ptr %this.addr.i427, align 8
   %Length.i429 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i428, i32 0, i32 1
-  %84 = load i64, ptr %Length.i429, align 8
+  %86 = load i64, ptr %Length.i429, align 8
   %Length2.i430 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i426, i32 0, i32 1
-  %85 = load i64, ptr %Length2.i430, align 8
-  %cmp.i431 = icmp eq i64 %84, %85
+  %87 = load i64, ptr %Length2.i430, align 8
+  %cmp.i431 = icmp eq i64 %86, %87
   br i1 %cmp.i431, label %land.rhs.i432, label %_ZNK4llvh9StringRef6equalsES0_.exit436
 
 land.rhs.i432:                                    ; preds = %land.lhs.true.i392
-  %86 = load ptr, ptr %this1.i428, align 8
-  %87 = load ptr, ptr %RHS.i426, align 8
+  %88 = load ptr, ptr %this1.i428, align 8
+  %89 = load ptr, ptr %RHS.i426, align 8
   %Length4.i433 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i426, i32 0, i32 1
-  %88 = load i64, ptr %Length4.i433, align 8
-  store ptr %86, ptr %Lhs.addr.i833, align 8
-  store ptr %87, ptr %Rhs.addr.i834, align 8
-  store i64 %88, ptr %Length.addr.i835, align 8
-  %89 = load i64, ptr %Length.addr.i835, align 8
-  %cmp.i836 = icmp eq i64 %89, 0
+  %90 = load i64, ptr %Length4.i433, align 8
+  store ptr %88, ptr %Lhs.addr.i833, align 8
+  store ptr %89, ptr %Rhs.addr.i834, align 8
+  store i64 %90, ptr %Length.addr.i835, align 8
+  %91 = load i64, ptr %Length.addr.i835, align 8
+  %cmp.i836 = icmp eq i64 %91, 0
   br i1 %cmp.i836, label %if.then.i839, label %if.end.i837
 
 if.then.i839:                                     ; preds = %land.rhs.i432
@@ -23626,21 +23717,21 @@ if.then.i839:                                     ; preds = %land.rhs.i432
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit840
 
 if.end.i837:                                      ; preds = %land.rhs.i432
-  %90 = load ptr, ptr %Lhs.addr.i833, align 8
-  %91 = load ptr, ptr %Rhs.addr.i834, align 8
-  %92 = load i64, ptr %Length.addr.i835, align 8
-  %call.i838 = call i32 @memcmp(ptr noundef %90, ptr noundef %91, i64 noundef %92) #10
+  %92 = load ptr, ptr %Lhs.addr.i833, align 8
+  %93 = load ptr, ptr %Rhs.addr.i834, align 8
+  %94 = load i64, ptr %Length.addr.i835, align 8
+  %call.i838 = call i32 @memcmp(ptr noundef %92, ptr noundef %93, i64 noundef %94) #10
   store i32 %call.i838, ptr %retval.i832, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit840
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit840: ; preds = %if.end.i837, %if.then.i839
-  %93 = load i32, ptr %retval.i832, align 4
-  %cmp5.i435 = icmp eq i32 %93, 0
+  %95 = load i32, ptr %retval.i832, align 4
+  %cmp5.i435 = icmp eq i32 %95, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit436
 
 _ZNK4llvh9StringRef6equalsES0_.exit436:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit840, %land.lhs.true.i392
-  %94 = phi i1 [ false, %land.lhs.true.i392 ], [ %cmp5.i435, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit840 ]
-  br i1 %94, label %if.then.i394, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit397
+  %96 = phi i1 [ false, %land.lhs.true.i392 ], [ %cmp5.i435, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit840 ]
+  br i1 %96, label %if.then.i394, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit397
 
 if.then.i394:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit436
   %Result4.i395 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i389, i32 0, i32 1
@@ -23649,15 +23740,16 @@ if.then.i394:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit397: ; preds = %if.then.i394, %_ZNK4llvh9StringRef6equalsES0_.exit436, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit414
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, ptr noundef nonnull align 1 dereferenceable(11) @.str.69)
-  %95 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 3, i32 7), align 4
-  %or9 = or i32 %95, 3104
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 1
-  %99 = load i64, ptr %98, align 8
-  store ptr %97, ptr %S.i367, align 8
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %S.i367, i32 0, i32 1
-  store i64 %99, ptr %100, align 8
+  %97 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 3, i32 7
+  %98 = load i32, ptr %97, align 4
+  %or9 = or i32 %98, 3104
+  %99 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 1
+  %102 = load i64, ptr %101, align 8
+  store ptr %100, ptr %S.i367, align 8
+  %103 = getelementptr inbounds { ptr, i64 }, ptr %S.i367, i32 0, i32 1
+  store i64 %102, ptr %103, align 8
   store ptr %this1.i389, ptr %this.addr.i368, align 8
   store i32 %or9, ptr %Value.addr.i369, align 4
   %this1.i372 = load ptr, ptr %this.addr.i368, align 8
@@ -23668,44 +23760,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit397: ; preds = %if.then
 land.lhs.true.i375:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit397
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i370, ptr align 8 %this1.i372, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i371, ptr align 8 %S.i367, i64 16, i1 false)
-  %101 = load ptr, ptr %agg.tmp.i370, align 8
-  %102 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i370, i32 0, i32 1
-  %103 = load i64, ptr %102, align 8
-  %104 = load ptr, ptr %agg.tmp2.i371, align 8
-  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i371, i32 0, i32 1
+  %104 = load ptr, ptr %agg.tmp.i370, align 8
+  %105 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i370, i32 0, i32 1
   %106 = load i64, ptr %105, align 8
-  store ptr %101, ptr %LHS.i.i364, align 8
-  %107 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i364, i32 0, i32 1
-  store i64 %103, ptr %107, align 8
-  store ptr %104, ptr %RHS.i.i365, align 8
-  %108 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i365, i32 0, i32 1
-  store i64 %106, ptr %108, align 8
+  %107 = load ptr, ptr %agg.tmp2.i371, align 8
+  %108 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i371, i32 0, i32 1
+  %109 = load i64, ptr %108, align 8
+  store ptr %104, ptr %LHS.i.i364, align 8
+  %110 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i364, i32 0, i32 1
+  store i64 %106, ptr %110, align 8
+  store ptr %107, ptr %RHS.i.i365, align 8
+  %111 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i365, i32 0, i32 1
+  store i64 %109, ptr %111, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i366, ptr align 8 %RHS.i.i365, i64 16, i1 false)
-  %109 = load ptr, ptr %agg.tmp.i.i366, align 8
-  %110 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i366, i32 0, i32 1
-  %111 = load i64, ptr %110, align 8
-  store ptr %109, ptr %RHS.i437, align 8
-  %112 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i437, i32 0, i32 1
-  store i64 %111, ptr %112, align 8
+  %112 = load ptr, ptr %agg.tmp.i.i366, align 8
+  %113 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i366, i32 0, i32 1
+  %114 = load i64, ptr %113, align 8
+  store ptr %112, ptr %RHS.i437, align 8
+  %115 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i437, i32 0, i32 1
+  store i64 %114, ptr %115, align 8
   store ptr %LHS.i.i364, ptr %this.addr.i438, align 8
   %this1.i439 = load ptr, ptr %this.addr.i438, align 8
   %Length.i440 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i439, i32 0, i32 1
-  %113 = load i64, ptr %Length.i440, align 8
+  %116 = load i64, ptr %Length.i440, align 8
   %Length2.i441 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i437, i32 0, i32 1
-  %114 = load i64, ptr %Length2.i441, align 8
-  %cmp.i442 = icmp eq i64 %113, %114
+  %117 = load i64, ptr %Length2.i441, align 8
+  %cmp.i442 = icmp eq i64 %116, %117
   br i1 %cmp.i442, label %land.rhs.i443, label %_ZNK4llvh9StringRef6equalsES0_.exit447
 
 land.rhs.i443:                                    ; preds = %land.lhs.true.i375
-  %115 = load ptr, ptr %this1.i439, align 8
-  %116 = load ptr, ptr %RHS.i437, align 8
+  %118 = load ptr, ptr %this1.i439, align 8
+  %119 = load ptr, ptr %RHS.i437, align 8
   %Length4.i444 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i437, i32 0, i32 1
-  %117 = load i64, ptr %Length4.i444, align 8
-  store ptr %115, ptr %Lhs.addr.i824, align 8
-  store ptr %116, ptr %Rhs.addr.i825, align 8
-  store i64 %117, ptr %Length.addr.i826, align 8
-  %118 = load i64, ptr %Length.addr.i826, align 8
-  %cmp.i827 = icmp eq i64 %118, 0
+  %120 = load i64, ptr %Length4.i444, align 8
+  store ptr %118, ptr %Lhs.addr.i824, align 8
+  store ptr %119, ptr %Rhs.addr.i825, align 8
+  store i64 %120, ptr %Length.addr.i826, align 8
+  %121 = load i64, ptr %Length.addr.i826, align 8
+  %cmp.i827 = icmp eq i64 %121, 0
   br i1 %cmp.i827, label %if.then.i830, label %if.end.i828
 
 if.then.i830:                                     ; preds = %land.rhs.i443
@@ -23713,21 +23805,21 @@ if.then.i830:                                     ; preds = %land.rhs.i443
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit831
 
 if.end.i828:                                      ; preds = %land.rhs.i443
-  %119 = load ptr, ptr %Lhs.addr.i824, align 8
-  %120 = load ptr, ptr %Rhs.addr.i825, align 8
-  %121 = load i64, ptr %Length.addr.i826, align 8
-  %call.i829 = call i32 @memcmp(ptr noundef %119, ptr noundef %120, i64 noundef %121) #10
+  %122 = load ptr, ptr %Lhs.addr.i824, align 8
+  %123 = load ptr, ptr %Rhs.addr.i825, align 8
+  %124 = load i64, ptr %Length.addr.i826, align 8
+  %call.i829 = call i32 @memcmp(ptr noundef %122, ptr noundef %123, i64 noundef %124) #10
   store i32 %call.i829, ptr %retval.i823, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit831
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit831: ; preds = %if.end.i828, %if.then.i830
-  %122 = load i32, ptr %retval.i823, align 4
-  %cmp5.i446 = icmp eq i32 %122, 0
+  %125 = load i32, ptr %retval.i823, align 4
+  %cmp5.i446 = icmp eq i32 %125, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit447
 
 _ZNK4llvh9StringRef6equalsES0_.exit447:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit831, %land.lhs.true.i375
-  %123 = phi i1 [ false, %land.lhs.true.i375 ], [ %cmp5.i446, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit831 ]
-  br i1 %123, label %if.then.i377, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit380
+  %126 = phi i1 [ false, %land.lhs.true.i375 ], [ %cmp5.i446, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit831 ]
+  br i1 %126, label %if.then.i377, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit380
 
 if.then.i377:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit447
   %Result4.i378 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i372, i32 0, i32 1
@@ -23736,15 +23828,16 @@ if.then.i377:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit380: ; preds = %if.then.i377, %_ZNK4llvh9StringRef6equalsES0_.exit447, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit397
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, ptr noundef nonnull align 1 dereferenceable(11) @.str.70)
-  %124 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or12 = or i32 %124, 2
-  %125 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 0
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 1
-  %128 = load i64, ptr %127, align 8
-  store ptr %126, ptr %S.i350, align 8
-  %129 = getelementptr inbounds { ptr, i64 }, ptr %S.i350, i32 0, i32 1
-  store i64 %128, ptr %129, align 8
+  %127 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %128 = load i32, ptr %127, align 4
+  %or12 = or i32 %128, 2
+  %129 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 1
+  %132 = load i64, ptr %131, align 8
+  store ptr %130, ptr %S.i350, align 8
+  %133 = getelementptr inbounds { ptr, i64 }, ptr %S.i350, i32 0, i32 1
+  store i64 %132, ptr %133, align 8
   store ptr %this1.i372, ptr %this.addr.i351, align 8
   store i32 %or12, ptr %Value.addr.i352, align 4
   %this1.i355 = load ptr, ptr %this.addr.i351, align 8
@@ -23755,44 +23848,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit380: ; preds = %if.then
 land.lhs.true.i358:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit380
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i353, ptr align 8 %this1.i355, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i354, ptr align 8 %S.i350, i64 16, i1 false)
-  %130 = load ptr, ptr %agg.tmp.i353, align 8
-  %131 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i353, i32 0, i32 1
-  %132 = load i64, ptr %131, align 8
-  %133 = load ptr, ptr %agg.tmp2.i354, align 8
-  %134 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i354, i32 0, i32 1
-  %135 = load i64, ptr %134, align 8
-  store ptr %130, ptr %LHS.i.i347, align 8
-  %136 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i347, i32 0, i32 1
-  store i64 %132, ptr %136, align 8
-  store ptr %133, ptr %RHS.i.i348, align 8
-  %137 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i348, i32 0, i32 1
-  store i64 %135, ptr %137, align 8
+  %134 = load ptr, ptr %agg.tmp.i353, align 8
+  %135 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i353, i32 0, i32 1
+  %136 = load i64, ptr %135, align 8
+  %137 = load ptr, ptr %agg.tmp2.i354, align 8
+  %138 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i354, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8
+  store ptr %134, ptr %LHS.i.i347, align 8
+  %140 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i347, i32 0, i32 1
+  store i64 %136, ptr %140, align 8
+  store ptr %137, ptr %RHS.i.i348, align 8
+  %141 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i348, i32 0, i32 1
+  store i64 %139, ptr %141, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i349, ptr align 8 %RHS.i.i348, i64 16, i1 false)
-  %138 = load ptr, ptr %agg.tmp.i.i349, align 8
-  %139 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i349, i32 0, i32 1
-  %140 = load i64, ptr %139, align 8
-  store ptr %138, ptr %RHS.i448, align 8
-  %141 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i448, i32 0, i32 1
-  store i64 %140, ptr %141, align 8
+  %142 = load ptr, ptr %agg.tmp.i.i349, align 8
+  %143 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i349, i32 0, i32 1
+  %144 = load i64, ptr %143, align 8
+  store ptr %142, ptr %RHS.i448, align 8
+  %145 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i448, i32 0, i32 1
+  store i64 %144, ptr %145, align 8
   store ptr %LHS.i.i347, ptr %this.addr.i449, align 8
   %this1.i450 = load ptr, ptr %this.addr.i449, align 8
   %Length.i451 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i450, i32 0, i32 1
-  %142 = load i64, ptr %Length.i451, align 8
+  %146 = load i64, ptr %Length.i451, align 8
   %Length2.i452 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i448, i32 0, i32 1
-  %143 = load i64, ptr %Length2.i452, align 8
-  %cmp.i453 = icmp eq i64 %142, %143
+  %147 = load i64, ptr %Length2.i452, align 8
+  %cmp.i453 = icmp eq i64 %146, %147
   br i1 %cmp.i453, label %land.rhs.i454, label %_ZNK4llvh9StringRef6equalsES0_.exit458
 
 land.rhs.i454:                                    ; preds = %land.lhs.true.i358
-  %144 = load ptr, ptr %this1.i450, align 8
-  %145 = load ptr, ptr %RHS.i448, align 8
+  %148 = load ptr, ptr %this1.i450, align 8
+  %149 = load ptr, ptr %RHS.i448, align 8
   %Length4.i455 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i448, i32 0, i32 1
-  %146 = load i64, ptr %Length4.i455, align 8
-  store ptr %144, ptr %Lhs.addr.i815, align 8
-  store ptr %145, ptr %Rhs.addr.i816, align 8
-  store i64 %146, ptr %Length.addr.i817, align 8
-  %147 = load i64, ptr %Length.addr.i817, align 8
-  %cmp.i818 = icmp eq i64 %147, 0
+  %150 = load i64, ptr %Length4.i455, align 8
+  store ptr %148, ptr %Lhs.addr.i815, align 8
+  store ptr %149, ptr %Rhs.addr.i816, align 8
+  store i64 %150, ptr %Length.addr.i817, align 8
+  %151 = load i64, ptr %Length.addr.i817, align 8
+  %cmp.i818 = icmp eq i64 %151, 0
   br i1 %cmp.i818, label %if.then.i821, label %if.end.i819
 
 if.then.i821:                                     ; preds = %land.rhs.i454
@@ -23800,21 +23893,21 @@ if.then.i821:                                     ; preds = %land.rhs.i454
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit822
 
 if.end.i819:                                      ; preds = %land.rhs.i454
-  %148 = load ptr, ptr %Lhs.addr.i815, align 8
-  %149 = load ptr, ptr %Rhs.addr.i816, align 8
-  %150 = load i64, ptr %Length.addr.i817, align 8
-  %call.i820 = call i32 @memcmp(ptr noundef %148, ptr noundef %149, i64 noundef %150) #10
+  %152 = load ptr, ptr %Lhs.addr.i815, align 8
+  %153 = load ptr, ptr %Rhs.addr.i816, align 8
+  %154 = load i64, ptr %Length.addr.i817, align 8
+  %call.i820 = call i32 @memcmp(ptr noundef %152, ptr noundef %153, i64 noundef %154) #10
   store i32 %call.i820, ptr %retval.i814, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit822
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit822: ; preds = %if.end.i819, %if.then.i821
-  %151 = load i32, ptr %retval.i814, align 4
-  %cmp5.i457 = icmp eq i32 %151, 0
+  %155 = load i32, ptr %retval.i814, align 4
+  %cmp5.i457 = icmp eq i32 %155, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit458
 
 _ZNK4llvh9StringRef6equalsES0_.exit458:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit822, %land.lhs.true.i358
-  %152 = phi i1 [ false, %land.lhs.true.i358 ], [ %cmp5.i457, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit822 ]
-  br i1 %152, label %if.then.i360, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit363
+  %156 = phi i1 [ false, %land.lhs.true.i358 ], [ %cmp5.i457, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit822 ]
+  br i1 %156, label %if.then.i360, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit363
 
 if.then.i360:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit458
   %Result4.i361 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i355, i32 0, i32 1
@@ -23823,15 +23916,16 @@ if.then.i360:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit363: ; preds = %if.then.i360, %_ZNK4llvh9StringRef6equalsES0_.exit458, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit380
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull align 1 dereferenceable(11) @.str.71)
-  %153 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or15 = or i32 %153, 2
-  %154 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
-  %157 = load i64, ptr %156, align 8
-  store ptr %155, ptr %S.i333, align 8
-  %158 = getelementptr inbounds { ptr, i64 }, ptr %S.i333, i32 0, i32 1
-  store i64 %157, ptr %158, align 8
+  %157 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %158 = load i32, ptr %157, align 4
+  %or15 = or i32 %158, 2
+  %159 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
+  %162 = load i64, ptr %161, align 8
+  store ptr %160, ptr %S.i333, align 8
+  %163 = getelementptr inbounds { ptr, i64 }, ptr %S.i333, i32 0, i32 1
+  store i64 %162, ptr %163, align 8
   store ptr %this1.i355, ptr %this.addr.i334, align 8
   store i32 %or15, ptr %Value.addr.i335, align 4
   %this1.i338 = load ptr, ptr %this.addr.i334, align 8
@@ -23842,44 +23936,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit363: ; preds = %if.then
 land.lhs.true.i341:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit363
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i336, ptr align 8 %this1.i338, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i337, ptr align 8 %S.i333, i64 16, i1 false)
-  %159 = load ptr, ptr %agg.tmp.i336, align 8
-  %160 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i336, i32 0, i32 1
-  %161 = load i64, ptr %160, align 8
-  %162 = load ptr, ptr %agg.tmp2.i337, align 8
-  %163 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i337, i32 0, i32 1
-  %164 = load i64, ptr %163, align 8
-  store ptr %159, ptr %LHS.i.i330, align 8
-  %165 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i330, i32 0, i32 1
-  store i64 %161, ptr %165, align 8
-  store ptr %162, ptr %RHS.i.i331, align 8
-  %166 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i331, i32 0, i32 1
-  store i64 %164, ptr %166, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i332, ptr align 8 %RHS.i.i331, i64 16, i1 false)
-  %167 = load ptr, ptr %agg.tmp.i.i332, align 8
-  %168 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i332, i32 0, i32 1
+  %164 = load ptr, ptr %agg.tmp.i336, align 8
+  %165 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i336, i32 0, i32 1
+  %166 = load i64, ptr %165, align 8
+  %167 = load ptr, ptr %agg.tmp2.i337, align 8
+  %168 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i337, i32 0, i32 1
   %169 = load i64, ptr %168, align 8
-  store ptr %167, ptr %RHS.i459, align 8
-  %170 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i459, i32 0, i32 1
-  store i64 %169, ptr %170, align 8
+  store ptr %164, ptr %LHS.i.i330, align 8
+  %170 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i330, i32 0, i32 1
+  store i64 %166, ptr %170, align 8
+  store ptr %167, ptr %RHS.i.i331, align 8
+  %171 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i331, i32 0, i32 1
+  store i64 %169, ptr %171, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i332, ptr align 8 %RHS.i.i331, i64 16, i1 false)
+  %172 = load ptr, ptr %agg.tmp.i.i332, align 8
+  %173 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i332, i32 0, i32 1
+  %174 = load i64, ptr %173, align 8
+  store ptr %172, ptr %RHS.i459, align 8
+  %175 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i459, i32 0, i32 1
+  store i64 %174, ptr %175, align 8
   store ptr %LHS.i.i330, ptr %this.addr.i460, align 8
   %this1.i461 = load ptr, ptr %this.addr.i460, align 8
   %Length.i462 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i461, i32 0, i32 1
-  %171 = load i64, ptr %Length.i462, align 8
+  %176 = load i64, ptr %Length.i462, align 8
   %Length2.i463 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i459, i32 0, i32 1
-  %172 = load i64, ptr %Length2.i463, align 8
-  %cmp.i464 = icmp eq i64 %171, %172
+  %177 = load i64, ptr %Length2.i463, align 8
+  %cmp.i464 = icmp eq i64 %176, %177
   br i1 %cmp.i464, label %land.rhs.i465, label %_ZNK4llvh9StringRef6equalsES0_.exit469
 
 land.rhs.i465:                                    ; preds = %land.lhs.true.i341
-  %173 = load ptr, ptr %this1.i461, align 8
-  %174 = load ptr, ptr %RHS.i459, align 8
+  %178 = load ptr, ptr %this1.i461, align 8
+  %179 = load ptr, ptr %RHS.i459, align 8
   %Length4.i466 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i459, i32 0, i32 1
-  %175 = load i64, ptr %Length4.i466, align 8
-  store ptr %173, ptr %Lhs.addr.i806, align 8
-  store ptr %174, ptr %Rhs.addr.i807, align 8
-  store i64 %175, ptr %Length.addr.i808, align 8
-  %176 = load i64, ptr %Length.addr.i808, align 8
-  %cmp.i809 = icmp eq i64 %176, 0
+  %180 = load i64, ptr %Length4.i466, align 8
+  store ptr %178, ptr %Lhs.addr.i806, align 8
+  store ptr %179, ptr %Rhs.addr.i807, align 8
+  store i64 %180, ptr %Length.addr.i808, align 8
+  %181 = load i64, ptr %Length.addr.i808, align 8
+  %cmp.i809 = icmp eq i64 %181, 0
   br i1 %cmp.i809, label %if.then.i812, label %if.end.i810
 
 if.then.i812:                                     ; preds = %land.rhs.i465
@@ -23887,21 +23981,21 @@ if.then.i812:                                     ; preds = %land.rhs.i465
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit813
 
 if.end.i810:                                      ; preds = %land.rhs.i465
-  %177 = load ptr, ptr %Lhs.addr.i806, align 8
-  %178 = load ptr, ptr %Rhs.addr.i807, align 8
-  %179 = load i64, ptr %Length.addr.i808, align 8
-  %call.i811 = call i32 @memcmp(ptr noundef %177, ptr noundef %178, i64 noundef %179) #10
+  %182 = load ptr, ptr %Lhs.addr.i806, align 8
+  %183 = load ptr, ptr %Rhs.addr.i807, align 8
+  %184 = load i64, ptr %Length.addr.i808, align 8
+  %call.i811 = call i32 @memcmp(ptr noundef %182, ptr noundef %183, i64 noundef %184) #10
   store i32 %call.i811, ptr %retval.i805, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit813
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit813: ; preds = %if.end.i810, %if.then.i812
-  %180 = load i32, ptr %retval.i805, align 4
-  %cmp5.i468 = icmp eq i32 %180, 0
+  %185 = load i32, ptr %retval.i805, align 4
+  %cmp5.i468 = icmp eq i32 %185, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit469
 
 _ZNK4llvh9StringRef6equalsES0_.exit469:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit813, %land.lhs.true.i341
-  %181 = phi i1 [ false, %land.lhs.true.i341 ], [ %cmp5.i468, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit813 ]
-  br i1 %181, label %if.then.i343, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit346
+  %186 = phi i1 [ false, %land.lhs.true.i341 ], [ %cmp5.i468, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit813 ]
+  br i1 %186, label %if.then.i343, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit346
 
 if.then.i343:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit469
   %Result4.i344 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i338, i32 0, i32 1
@@ -23910,15 +24004,16 @@ if.then.i343:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit346: ; preds = %if.then.i343, %_ZNK4llvh9StringRef6equalsES0_.exit469, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit363
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, ptr noundef nonnull align 1 dereferenceable(11) @.str.72)
-  %182 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or18 = or i32 %182, 2
-  %183 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 0
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 1
-  %186 = load i64, ptr %185, align 8
-  store ptr %184, ptr %S.i316, align 8
-  %187 = getelementptr inbounds { ptr, i64 }, ptr %S.i316, i32 0, i32 1
-  store i64 %186, ptr %187, align 8
+  %187 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %188 = load i32, ptr %187, align 4
+  %or18 = or i32 %188, 2
+  %189 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 0
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp17, i32 0, i32 1
+  %192 = load i64, ptr %191, align 8
+  store ptr %190, ptr %S.i316, align 8
+  %193 = getelementptr inbounds { ptr, i64 }, ptr %S.i316, i32 0, i32 1
+  store i64 %192, ptr %193, align 8
   store ptr %this1.i338, ptr %this.addr.i317, align 8
   store i32 %or18, ptr %Value.addr.i318, align 4
   %this1.i321 = load ptr, ptr %this.addr.i317, align 8
@@ -23929,44 +24024,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit346: ; preds = %if.then
 land.lhs.true.i324:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit346
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i319, ptr align 8 %this1.i321, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i320, ptr align 8 %S.i316, i64 16, i1 false)
-  %188 = load ptr, ptr %agg.tmp.i319, align 8
-  %189 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i319, i32 0, i32 1
-  %190 = load i64, ptr %189, align 8
-  %191 = load ptr, ptr %agg.tmp2.i320, align 8
-  %192 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i320, i32 0, i32 1
-  %193 = load i64, ptr %192, align 8
-  store ptr %188, ptr %LHS.i.i313, align 8
-  %194 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i313, i32 0, i32 1
-  store i64 %190, ptr %194, align 8
-  store ptr %191, ptr %RHS.i.i314, align 8
-  %195 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i314, i32 0, i32 1
-  store i64 %193, ptr %195, align 8
+  %194 = load ptr, ptr %agg.tmp.i319, align 8
+  %195 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i319, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8
+  %197 = load ptr, ptr %agg.tmp2.i320, align 8
+  %198 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i320, i32 0, i32 1
+  %199 = load i64, ptr %198, align 8
+  store ptr %194, ptr %LHS.i.i313, align 8
+  %200 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i313, i32 0, i32 1
+  store i64 %196, ptr %200, align 8
+  store ptr %197, ptr %RHS.i.i314, align 8
+  %201 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i314, i32 0, i32 1
+  store i64 %199, ptr %201, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i315, ptr align 8 %RHS.i.i314, i64 16, i1 false)
-  %196 = load ptr, ptr %agg.tmp.i.i315, align 8
-  %197 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i315, i32 0, i32 1
-  %198 = load i64, ptr %197, align 8
-  store ptr %196, ptr %RHS.i470, align 8
-  %199 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i470, i32 0, i32 1
-  store i64 %198, ptr %199, align 8
+  %202 = load ptr, ptr %agg.tmp.i.i315, align 8
+  %203 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i315, i32 0, i32 1
+  %204 = load i64, ptr %203, align 8
+  store ptr %202, ptr %RHS.i470, align 8
+  %205 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i470, i32 0, i32 1
+  store i64 %204, ptr %205, align 8
   store ptr %LHS.i.i313, ptr %this.addr.i471, align 8
   %this1.i472 = load ptr, ptr %this.addr.i471, align 8
   %Length.i473 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i472, i32 0, i32 1
-  %200 = load i64, ptr %Length.i473, align 8
+  %206 = load i64, ptr %Length.i473, align 8
   %Length2.i474 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i470, i32 0, i32 1
-  %201 = load i64, ptr %Length2.i474, align 8
-  %cmp.i475 = icmp eq i64 %200, %201
+  %207 = load i64, ptr %Length2.i474, align 8
+  %cmp.i475 = icmp eq i64 %206, %207
   br i1 %cmp.i475, label %land.rhs.i476, label %_ZNK4llvh9StringRef6equalsES0_.exit480
 
 land.rhs.i476:                                    ; preds = %land.lhs.true.i324
-  %202 = load ptr, ptr %this1.i472, align 8
-  %203 = load ptr, ptr %RHS.i470, align 8
+  %208 = load ptr, ptr %this1.i472, align 8
+  %209 = load ptr, ptr %RHS.i470, align 8
   %Length4.i477 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i470, i32 0, i32 1
-  %204 = load i64, ptr %Length4.i477, align 8
-  store ptr %202, ptr %Lhs.addr.i797, align 8
-  store ptr %203, ptr %Rhs.addr.i798, align 8
-  store i64 %204, ptr %Length.addr.i799, align 8
-  %205 = load i64, ptr %Length.addr.i799, align 8
-  %cmp.i800 = icmp eq i64 %205, 0
+  %210 = load i64, ptr %Length4.i477, align 8
+  store ptr %208, ptr %Lhs.addr.i797, align 8
+  store ptr %209, ptr %Rhs.addr.i798, align 8
+  store i64 %210, ptr %Length.addr.i799, align 8
+  %211 = load i64, ptr %Length.addr.i799, align 8
+  %cmp.i800 = icmp eq i64 %211, 0
   br i1 %cmp.i800, label %if.then.i803, label %if.end.i801
 
 if.then.i803:                                     ; preds = %land.rhs.i476
@@ -23974,21 +24069,21 @@ if.then.i803:                                     ; preds = %land.rhs.i476
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit804
 
 if.end.i801:                                      ; preds = %land.rhs.i476
-  %206 = load ptr, ptr %Lhs.addr.i797, align 8
-  %207 = load ptr, ptr %Rhs.addr.i798, align 8
-  %208 = load i64, ptr %Length.addr.i799, align 8
-  %call.i802 = call i32 @memcmp(ptr noundef %206, ptr noundef %207, i64 noundef %208) #10
+  %212 = load ptr, ptr %Lhs.addr.i797, align 8
+  %213 = load ptr, ptr %Rhs.addr.i798, align 8
+  %214 = load i64, ptr %Length.addr.i799, align 8
+  %call.i802 = call i32 @memcmp(ptr noundef %212, ptr noundef %213, i64 noundef %214) #10
   store i32 %call.i802, ptr %retval.i796, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit804
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit804: ; preds = %if.end.i801, %if.then.i803
-  %209 = load i32, ptr %retval.i796, align 4
-  %cmp5.i479 = icmp eq i32 %209, 0
+  %215 = load i32, ptr %retval.i796, align 4
+  %cmp5.i479 = icmp eq i32 %215, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit480
 
 _ZNK4llvh9StringRef6equalsES0_.exit480:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit804, %land.lhs.true.i324
-  %210 = phi i1 [ false, %land.lhs.true.i324 ], [ %cmp5.i479, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit804 ]
-  br i1 %210, label %if.then.i326, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit329
+  %216 = phi i1 [ false, %land.lhs.true.i324 ], [ %cmp5.i479, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit804 ]
+  br i1 %216, label %if.then.i326, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit329
 
 if.then.i326:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit480
   %Result4.i327 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i321, i32 0, i32 1
@@ -23997,15 +24092,16 @@ if.then.i326:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit329: ; preds = %if.then.i326, %_ZNK4llvh9StringRef6equalsES0_.exit480, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit346
   call void @_ZN4llvh13StringLiteralC2ILm11EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm11ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 1 dereferenceable(11) @.str.73)
-  %211 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 3, i32 7), align 4
-  %or21 = or i32 %211, 3104
-  %212 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
-  %215 = load i64, ptr %214, align 8
-  store ptr %213, ptr %S.i299, align 8
-  %216 = getelementptr inbounds { ptr, i64 }, ptr %S.i299, i32 0, i32 1
-  store i64 %215, ptr %216, align 8
+  %217 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 3, i32 7
+  %218 = load i32, ptr %217, align 4
+  %or21 = or i32 %218, 3104
+  %219 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
+  %222 = load i64, ptr %221, align 8
+  store ptr %220, ptr %S.i299, align 8
+  %223 = getelementptr inbounds { ptr, i64 }, ptr %S.i299, i32 0, i32 1
+  store i64 %222, ptr %223, align 8
   store ptr %this1.i321, ptr %this.addr.i300, align 8
   store i32 %or21, ptr %Value.addr.i301, align 4
   %this1.i304 = load ptr, ptr %this.addr.i300, align 8
@@ -24016,44 +24112,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit329: ; preds = %if.then
 land.lhs.true.i307:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit329
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i302, ptr align 8 %this1.i304, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i303, ptr align 8 %S.i299, i64 16, i1 false)
-  %217 = load ptr, ptr %agg.tmp.i302, align 8
-  %218 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i302, i32 0, i32 1
-  %219 = load i64, ptr %218, align 8
-  %220 = load ptr, ptr %agg.tmp2.i303, align 8
-  %221 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i303, i32 0, i32 1
-  %222 = load i64, ptr %221, align 8
-  store ptr %217, ptr %LHS.i.i296, align 8
-  %223 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i296, i32 0, i32 1
-  store i64 %219, ptr %223, align 8
-  store ptr %220, ptr %RHS.i.i297, align 8
-  %224 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i297, i32 0, i32 1
-  store i64 %222, ptr %224, align 8
+  %224 = load ptr, ptr %agg.tmp.i302, align 8
+  %225 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i302, i32 0, i32 1
+  %226 = load i64, ptr %225, align 8
+  %227 = load ptr, ptr %agg.tmp2.i303, align 8
+  %228 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i303, i32 0, i32 1
+  %229 = load i64, ptr %228, align 8
+  store ptr %224, ptr %LHS.i.i296, align 8
+  %230 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i296, i32 0, i32 1
+  store i64 %226, ptr %230, align 8
+  store ptr %227, ptr %RHS.i.i297, align 8
+  %231 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i297, i32 0, i32 1
+  store i64 %229, ptr %231, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i298, ptr align 8 %RHS.i.i297, i64 16, i1 false)
-  %225 = load ptr, ptr %agg.tmp.i.i298, align 8
-  %226 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i298, i32 0, i32 1
-  %227 = load i64, ptr %226, align 8
-  store ptr %225, ptr %RHS.i481, align 8
-  %228 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i481, i32 0, i32 1
-  store i64 %227, ptr %228, align 8
+  %232 = load ptr, ptr %agg.tmp.i.i298, align 8
+  %233 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i298, i32 0, i32 1
+  %234 = load i64, ptr %233, align 8
+  store ptr %232, ptr %RHS.i481, align 8
+  %235 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i481, i32 0, i32 1
+  store i64 %234, ptr %235, align 8
   store ptr %LHS.i.i296, ptr %this.addr.i482, align 8
   %this1.i483 = load ptr, ptr %this.addr.i482, align 8
   %Length.i484 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i483, i32 0, i32 1
-  %229 = load i64, ptr %Length.i484, align 8
+  %236 = load i64, ptr %Length.i484, align 8
   %Length2.i485 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i481, i32 0, i32 1
-  %230 = load i64, ptr %Length2.i485, align 8
-  %cmp.i486 = icmp eq i64 %229, %230
+  %237 = load i64, ptr %Length2.i485, align 8
+  %cmp.i486 = icmp eq i64 %236, %237
   br i1 %cmp.i486, label %land.rhs.i487, label %_ZNK4llvh9StringRef6equalsES0_.exit491
 
 land.rhs.i487:                                    ; preds = %land.lhs.true.i307
-  %231 = load ptr, ptr %this1.i483, align 8
-  %232 = load ptr, ptr %RHS.i481, align 8
+  %238 = load ptr, ptr %this1.i483, align 8
+  %239 = load ptr, ptr %RHS.i481, align 8
   %Length4.i488 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i481, i32 0, i32 1
-  %233 = load i64, ptr %Length4.i488, align 8
-  store ptr %231, ptr %Lhs.addr.i788, align 8
-  store ptr %232, ptr %Rhs.addr.i789, align 8
-  store i64 %233, ptr %Length.addr.i790, align 8
-  %234 = load i64, ptr %Length.addr.i790, align 8
-  %cmp.i791 = icmp eq i64 %234, 0
+  %240 = load i64, ptr %Length4.i488, align 8
+  store ptr %238, ptr %Lhs.addr.i788, align 8
+  store ptr %239, ptr %Rhs.addr.i789, align 8
+  store i64 %240, ptr %Length.addr.i790, align 8
+  %241 = load i64, ptr %Length.addr.i790, align 8
+  %cmp.i791 = icmp eq i64 %241, 0
   br i1 %cmp.i791, label %if.then.i794, label %if.end.i792
 
 if.then.i794:                                     ; preds = %land.rhs.i487
@@ -24061,21 +24157,21 @@ if.then.i794:                                     ; preds = %land.rhs.i487
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit795
 
 if.end.i792:                                      ; preds = %land.rhs.i487
-  %235 = load ptr, ptr %Lhs.addr.i788, align 8
-  %236 = load ptr, ptr %Rhs.addr.i789, align 8
-  %237 = load i64, ptr %Length.addr.i790, align 8
-  %call.i793 = call i32 @memcmp(ptr noundef %235, ptr noundef %236, i64 noundef %237) #10
+  %242 = load ptr, ptr %Lhs.addr.i788, align 8
+  %243 = load ptr, ptr %Rhs.addr.i789, align 8
+  %244 = load i64, ptr %Length.addr.i790, align 8
+  %call.i793 = call i32 @memcmp(ptr noundef %242, ptr noundef %243, i64 noundef %244) #10
   store i32 %call.i793, ptr %retval.i787, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit795
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit795: ; preds = %if.end.i792, %if.then.i794
-  %238 = load i32, ptr %retval.i787, align 4
-  %cmp5.i490 = icmp eq i32 %238, 0
+  %245 = load i32, ptr %retval.i787, align 4
+  %cmp5.i490 = icmp eq i32 %245, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit491
 
 _ZNK4llvh9StringRef6equalsES0_.exit491:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit795, %land.lhs.true.i307
-  %239 = phi i1 [ false, %land.lhs.true.i307 ], [ %cmp5.i490, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit795 ]
-  br i1 %239, label %if.then.i309, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit312
+  %246 = phi i1 [ false, %land.lhs.true.i307 ], [ %cmp5.i490, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit795 ]
+  br i1 %246, label %if.then.i309, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit312
 
 if.then.i309:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit491
   %Result4.i310 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i304, i32 0, i32 1
@@ -24084,15 +24180,16 @@ if.then.i309:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit312: ; preds = %if.then.i309, %_ZNK4llvh9StringRef6equalsES0_.exit491, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit329
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23, ptr noundef nonnull align 1 dereferenceable(8) @.str.74)
-  %240 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or24 = or i32 %240, 1
-  %241 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 0
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 1
-  %244 = load i64, ptr %243, align 8
-  store ptr %242, ptr %S.i282, align 8
-  %245 = getelementptr inbounds { ptr, i64 }, ptr %S.i282, i32 0, i32 1
-  store i64 %244, ptr %245, align 8
+  %247 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %248 = load i32, ptr %247, align 4
+  %or24 = or i32 %248, 1
+  %249 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 0
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp23, i32 0, i32 1
+  %252 = load i64, ptr %251, align 8
+  store ptr %250, ptr %S.i282, align 8
+  %253 = getelementptr inbounds { ptr, i64 }, ptr %S.i282, i32 0, i32 1
+  store i64 %252, ptr %253, align 8
   store ptr %this1.i304, ptr %this.addr.i283, align 8
   store i32 %or24, ptr %Value.addr.i284, align 4
   %this1.i287 = load ptr, ptr %this.addr.i283, align 8
@@ -24103,44 +24200,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit312: ; preds = %if.then
 land.lhs.true.i290:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit312
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i285, ptr align 8 %this1.i287, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i286, ptr align 8 %S.i282, i64 16, i1 false)
-  %246 = load ptr, ptr %agg.tmp.i285, align 8
-  %247 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i285, i32 0, i32 1
-  %248 = load i64, ptr %247, align 8
-  %249 = load ptr, ptr %agg.tmp2.i286, align 8
-  %250 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i286, i32 0, i32 1
-  %251 = load i64, ptr %250, align 8
-  store ptr %246, ptr %LHS.i.i279, align 8
-  %252 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i279, i32 0, i32 1
-  store i64 %248, ptr %252, align 8
-  store ptr %249, ptr %RHS.i.i280, align 8
-  %253 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i280, i32 0, i32 1
-  store i64 %251, ptr %253, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i281, ptr align 8 %RHS.i.i280, i64 16, i1 false)
-  %254 = load ptr, ptr %agg.tmp.i.i281, align 8
-  %255 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i281, i32 0, i32 1
+  %254 = load ptr, ptr %agg.tmp.i285, align 8
+  %255 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i285, i32 0, i32 1
   %256 = load i64, ptr %255, align 8
-  store ptr %254, ptr %RHS.i492, align 8
-  %257 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i492, i32 0, i32 1
-  store i64 %256, ptr %257, align 8
+  %257 = load ptr, ptr %agg.tmp2.i286, align 8
+  %258 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i286, i32 0, i32 1
+  %259 = load i64, ptr %258, align 8
+  store ptr %254, ptr %LHS.i.i279, align 8
+  %260 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i279, i32 0, i32 1
+  store i64 %256, ptr %260, align 8
+  store ptr %257, ptr %RHS.i.i280, align 8
+  %261 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i280, i32 0, i32 1
+  store i64 %259, ptr %261, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i281, ptr align 8 %RHS.i.i280, i64 16, i1 false)
+  %262 = load ptr, ptr %agg.tmp.i.i281, align 8
+  %263 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i281, i32 0, i32 1
+  %264 = load i64, ptr %263, align 8
+  store ptr %262, ptr %RHS.i492, align 8
+  %265 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i492, i32 0, i32 1
+  store i64 %264, ptr %265, align 8
   store ptr %LHS.i.i279, ptr %this.addr.i493, align 8
   %this1.i494 = load ptr, ptr %this.addr.i493, align 8
   %Length.i495 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i494, i32 0, i32 1
-  %258 = load i64, ptr %Length.i495, align 8
+  %266 = load i64, ptr %Length.i495, align 8
   %Length2.i496 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i492, i32 0, i32 1
-  %259 = load i64, ptr %Length2.i496, align 8
-  %cmp.i497 = icmp eq i64 %258, %259
+  %267 = load i64, ptr %Length2.i496, align 8
+  %cmp.i497 = icmp eq i64 %266, %267
   br i1 %cmp.i497, label %land.rhs.i498, label %_ZNK4llvh9StringRef6equalsES0_.exit502
 
 land.rhs.i498:                                    ; preds = %land.lhs.true.i290
-  %260 = load ptr, ptr %this1.i494, align 8
-  %261 = load ptr, ptr %RHS.i492, align 8
+  %268 = load ptr, ptr %this1.i494, align 8
+  %269 = load ptr, ptr %RHS.i492, align 8
   %Length4.i499 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i492, i32 0, i32 1
-  %262 = load i64, ptr %Length4.i499, align 8
-  store ptr %260, ptr %Lhs.addr.i779, align 8
-  store ptr %261, ptr %Rhs.addr.i780, align 8
-  store i64 %262, ptr %Length.addr.i781, align 8
-  %263 = load i64, ptr %Length.addr.i781, align 8
-  %cmp.i782 = icmp eq i64 %263, 0
+  %270 = load i64, ptr %Length4.i499, align 8
+  store ptr %268, ptr %Lhs.addr.i779, align 8
+  store ptr %269, ptr %Rhs.addr.i780, align 8
+  store i64 %270, ptr %Length.addr.i781, align 8
+  %271 = load i64, ptr %Length.addr.i781, align 8
+  %cmp.i782 = icmp eq i64 %271, 0
   br i1 %cmp.i782, label %if.then.i785, label %if.end.i783
 
 if.then.i785:                                     ; preds = %land.rhs.i498
@@ -24148,21 +24245,21 @@ if.then.i785:                                     ; preds = %land.rhs.i498
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit786
 
 if.end.i783:                                      ; preds = %land.rhs.i498
-  %264 = load ptr, ptr %Lhs.addr.i779, align 8
-  %265 = load ptr, ptr %Rhs.addr.i780, align 8
-  %266 = load i64, ptr %Length.addr.i781, align 8
-  %call.i784 = call i32 @memcmp(ptr noundef %264, ptr noundef %265, i64 noundef %266) #10
+  %272 = load ptr, ptr %Lhs.addr.i779, align 8
+  %273 = load ptr, ptr %Rhs.addr.i780, align 8
+  %274 = load i64, ptr %Length.addr.i781, align 8
+  %call.i784 = call i32 @memcmp(ptr noundef %272, ptr noundef %273, i64 noundef %274) #10
   store i32 %call.i784, ptr %retval.i778, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit786
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit786: ; preds = %if.end.i783, %if.then.i785
-  %267 = load i32, ptr %retval.i778, align 4
-  %cmp5.i501 = icmp eq i32 %267, 0
+  %275 = load i32, ptr %retval.i778, align 4
+  %cmp5.i501 = icmp eq i32 %275, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit502
 
 _ZNK4llvh9StringRef6equalsES0_.exit502:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit786, %land.lhs.true.i290
-  %268 = phi i1 [ false, %land.lhs.true.i290 ], [ %cmp5.i501, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit786 ]
-  br i1 %268, label %if.then.i292, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit295
+  %276 = phi i1 [ false, %land.lhs.true.i290 ], [ %cmp5.i501, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit786 ]
+  br i1 %276, label %if.then.i292, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit295
 
 if.then.i292:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit502
   %Result4.i293 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i287, i32 0, i32 1
@@ -24171,15 +24268,16 @@ if.then.i292:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit295: ; preds = %if.then.i292, %_ZNK4llvh9StringRef6equalsES0_.exit502, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit312
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 1 dereferenceable(10) @.str.75)
-  %269 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or27 = or i32 %269, 2
-  %270 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp26, i32 0, i32 0
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp26, i32 0, i32 1
-  %273 = load i64, ptr %272, align 8
-  store ptr %271, ptr %S.i265, align 8
-  %274 = getelementptr inbounds { ptr, i64 }, ptr %S.i265, i32 0, i32 1
-  store i64 %273, ptr %274, align 8
+  %277 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %278 = load i32, ptr %277, align 4
+  %or27 = or i32 %278, 2
+  %279 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp26, i32 0, i32 0
+  %280 = load ptr, ptr %279, align 8
+  %281 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp26, i32 0, i32 1
+  %282 = load i64, ptr %281, align 8
+  store ptr %280, ptr %S.i265, align 8
+  %283 = getelementptr inbounds { ptr, i64 }, ptr %S.i265, i32 0, i32 1
+  store i64 %282, ptr %283, align 8
   store ptr %this1.i287, ptr %this.addr.i266, align 8
   store i32 %or27, ptr %Value.addr.i267, align 4
   %this1.i270 = load ptr, ptr %this.addr.i266, align 8
@@ -24190,44 +24288,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit295: ; preds = %if.then
 land.lhs.true.i273:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit295
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i268, ptr align 8 %this1.i270, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i269, ptr align 8 %S.i265, i64 16, i1 false)
-  %275 = load ptr, ptr %agg.tmp.i268, align 8
-  %276 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i268, i32 0, i32 1
-  %277 = load i64, ptr %276, align 8
-  %278 = load ptr, ptr %agg.tmp2.i269, align 8
-  %279 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i269, i32 0, i32 1
-  %280 = load i64, ptr %279, align 8
-  store ptr %275, ptr %LHS.i.i262, align 8
-  %281 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i262, i32 0, i32 1
-  store i64 %277, ptr %281, align 8
-  store ptr %278, ptr %RHS.i.i263, align 8
-  %282 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i263, i32 0, i32 1
-  store i64 %280, ptr %282, align 8
+  %284 = load ptr, ptr %agg.tmp.i268, align 8
+  %285 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i268, i32 0, i32 1
+  %286 = load i64, ptr %285, align 8
+  %287 = load ptr, ptr %agg.tmp2.i269, align 8
+  %288 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i269, i32 0, i32 1
+  %289 = load i64, ptr %288, align 8
+  store ptr %284, ptr %LHS.i.i262, align 8
+  %290 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i262, i32 0, i32 1
+  store i64 %286, ptr %290, align 8
+  store ptr %287, ptr %RHS.i.i263, align 8
+  %291 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i263, i32 0, i32 1
+  store i64 %289, ptr %291, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i264, ptr align 8 %RHS.i.i263, i64 16, i1 false)
-  %283 = load ptr, ptr %agg.tmp.i.i264, align 8
-  %284 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i264, i32 0, i32 1
-  %285 = load i64, ptr %284, align 8
-  store ptr %283, ptr %RHS.i503, align 8
-  %286 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i503, i32 0, i32 1
-  store i64 %285, ptr %286, align 8
+  %292 = load ptr, ptr %agg.tmp.i.i264, align 8
+  %293 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i264, i32 0, i32 1
+  %294 = load i64, ptr %293, align 8
+  store ptr %292, ptr %RHS.i503, align 8
+  %295 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i503, i32 0, i32 1
+  store i64 %294, ptr %295, align 8
   store ptr %LHS.i.i262, ptr %this.addr.i504, align 8
   %this1.i505 = load ptr, ptr %this.addr.i504, align 8
   %Length.i506 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i505, i32 0, i32 1
-  %287 = load i64, ptr %Length.i506, align 8
+  %296 = load i64, ptr %Length.i506, align 8
   %Length2.i507 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i503, i32 0, i32 1
-  %288 = load i64, ptr %Length2.i507, align 8
-  %cmp.i508 = icmp eq i64 %287, %288
+  %297 = load i64, ptr %Length2.i507, align 8
+  %cmp.i508 = icmp eq i64 %296, %297
   br i1 %cmp.i508, label %land.rhs.i509, label %_ZNK4llvh9StringRef6equalsES0_.exit513
 
 land.rhs.i509:                                    ; preds = %land.lhs.true.i273
-  %289 = load ptr, ptr %this1.i505, align 8
-  %290 = load ptr, ptr %RHS.i503, align 8
+  %298 = load ptr, ptr %this1.i505, align 8
+  %299 = load ptr, ptr %RHS.i503, align 8
   %Length4.i510 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i503, i32 0, i32 1
-  %291 = load i64, ptr %Length4.i510, align 8
-  store ptr %289, ptr %Lhs.addr.i770, align 8
-  store ptr %290, ptr %Rhs.addr.i771, align 8
-  store i64 %291, ptr %Length.addr.i772, align 8
-  %292 = load i64, ptr %Length.addr.i772, align 8
-  %cmp.i773 = icmp eq i64 %292, 0
+  %300 = load i64, ptr %Length4.i510, align 8
+  store ptr %298, ptr %Lhs.addr.i770, align 8
+  store ptr %299, ptr %Rhs.addr.i771, align 8
+  store i64 %300, ptr %Length.addr.i772, align 8
+  %301 = load i64, ptr %Length.addr.i772, align 8
+  %cmp.i773 = icmp eq i64 %301, 0
   br i1 %cmp.i773, label %if.then.i776, label %if.end.i774
 
 if.then.i776:                                     ; preds = %land.rhs.i509
@@ -24235,21 +24333,21 @@ if.then.i776:                                     ; preds = %land.rhs.i509
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit777
 
 if.end.i774:                                      ; preds = %land.rhs.i509
-  %293 = load ptr, ptr %Lhs.addr.i770, align 8
-  %294 = load ptr, ptr %Rhs.addr.i771, align 8
-  %295 = load i64, ptr %Length.addr.i772, align 8
-  %call.i775 = call i32 @memcmp(ptr noundef %293, ptr noundef %294, i64 noundef %295) #10
+  %302 = load ptr, ptr %Lhs.addr.i770, align 8
+  %303 = load ptr, ptr %Rhs.addr.i771, align 8
+  %304 = load i64, ptr %Length.addr.i772, align 8
+  %call.i775 = call i32 @memcmp(ptr noundef %302, ptr noundef %303, i64 noundef %304) #10
   store i32 %call.i775, ptr %retval.i769, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit777
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit777: ; preds = %if.end.i774, %if.then.i776
-  %296 = load i32, ptr %retval.i769, align 4
-  %cmp5.i512 = icmp eq i32 %296, 0
+  %305 = load i32, ptr %retval.i769, align 4
+  %cmp5.i512 = icmp eq i32 %305, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit513
 
 _ZNK4llvh9StringRef6equalsES0_.exit513:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit777, %land.lhs.true.i273
-  %297 = phi i1 [ false, %land.lhs.true.i273 ], [ %cmp5.i512, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit777 ]
-  br i1 %297, label %if.then.i275, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit278
+  %306 = phi i1 [ false, %land.lhs.true.i273 ], [ %cmp5.i512, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit777 ]
+  br i1 %306, label %if.then.i275, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit278
 
 if.then.i275:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit513
   %Result4.i276 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i270, i32 0, i32 1
@@ -24258,15 +24356,16 @@ if.then.i275:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit278: ; preds = %if.then.i275, %_ZNK4llvh9StringRef6equalsES0_.exit513, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit295
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp29, ptr noundef nonnull align 1 dereferenceable(10) @.str.76)
-  %298 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or30 = or i32 %298, 2
-  %299 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 0
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 1
-  %302 = load i64, ptr %301, align 8
-  store ptr %300, ptr %S.i248, align 8
-  %303 = getelementptr inbounds { ptr, i64 }, ptr %S.i248, i32 0, i32 1
-  store i64 %302, ptr %303, align 8
+  %307 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %308 = load i32, ptr %307, align 4
+  %or30 = or i32 %308, 2
+  %309 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 0
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 1
+  %312 = load i64, ptr %311, align 8
+  store ptr %310, ptr %S.i248, align 8
+  %313 = getelementptr inbounds { ptr, i64 }, ptr %S.i248, i32 0, i32 1
+  store i64 %312, ptr %313, align 8
   store ptr %this1.i270, ptr %this.addr.i249, align 8
   store i32 %or30, ptr %Value.addr.i250, align 4
   %this1.i253 = load ptr, ptr %this.addr.i249, align 8
@@ -24277,44 +24376,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit278: ; preds = %if.then
 land.lhs.true.i256:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit278
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i251, ptr align 8 %this1.i253, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i252, ptr align 8 %S.i248, i64 16, i1 false)
-  %304 = load ptr, ptr %agg.tmp.i251, align 8
-  %305 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i251, i32 0, i32 1
-  %306 = load i64, ptr %305, align 8
-  %307 = load ptr, ptr %agg.tmp2.i252, align 8
-  %308 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i252, i32 0, i32 1
-  %309 = load i64, ptr %308, align 8
-  store ptr %304, ptr %LHS.i.i245, align 8
-  %310 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i245, i32 0, i32 1
-  store i64 %306, ptr %310, align 8
-  store ptr %307, ptr %RHS.i.i246, align 8
-  %311 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i246, i32 0, i32 1
-  store i64 %309, ptr %311, align 8
+  %314 = load ptr, ptr %agg.tmp.i251, align 8
+  %315 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i251, i32 0, i32 1
+  %316 = load i64, ptr %315, align 8
+  %317 = load ptr, ptr %agg.tmp2.i252, align 8
+  %318 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i252, i32 0, i32 1
+  %319 = load i64, ptr %318, align 8
+  store ptr %314, ptr %LHS.i.i245, align 8
+  %320 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i245, i32 0, i32 1
+  store i64 %316, ptr %320, align 8
+  store ptr %317, ptr %RHS.i.i246, align 8
+  %321 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i246, i32 0, i32 1
+  store i64 %319, ptr %321, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i247, ptr align 8 %RHS.i.i246, i64 16, i1 false)
-  %312 = load ptr, ptr %agg.tmp.i.i247, align 8
-  %313 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i247, i32 0, i32 1
-  %314 = load i64, ptr %313, align 8
-  store ptr %312, ptr %RHS.i514, align 8
-  %315 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i514, i32 0, i32 1
-  store i64 %314, ptr %315, align 8
+  %322 = load ptr, ptr %agg.tmp.i.i247, align 8
+  %323 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i247, i32 0, i32 1
+  %324 = load i64, ptr %323, align 8
+  store ptr %322, ptr %RHS.i514, align 8
+  %325 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i514, i32 0, i32 1
+  store i64 %324, ptr %325, align 8
   store ptr %LHS.i.i245, ptr %this.addr.i515, align 8
   %this1.i516 = load ptr, ptr %this.addr.i515, align 8
   %Length.i517 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i516, i32 0, i32 1
-  %316 = load i64, ptr %Length.i517, align 8
+  %326 = load i64, ptr %Length.i517, align 8
   %Length2.i518 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i514, i32 0, i32 1
-  %317 = load i64, ptr %Length2.i518, align 8
-  %cmp.i519 = icmp eq i64 %316, %317
+  %327 = load i64, ptr %Length2.i518, align 8
+  %cmp.i519 = icmp eq i64 %326, %327
   br i1 %cmp.i519, label %land.rhs.i520, label %_ZNK4llvh9StringRef6equalsES0_.exit524
 
 land.rhs.i520:                                    ; preds = %land.lhs.true.i256
-  %318 = load ptr, ptr %this1.i516, align 8
-  %319 = load ptr, ptr %RHS.i514, align 8
+  %328 = load ptr, ptr %this1.i516, align 8
+  %329 = load ptr, ptr %RHS.i514, align 8
   %Length4.i521 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i514, i32 0, i32 1
-  %320 = load i64, ptr %Length4.i521, align 8
-  store ptr %318, ptr %Lhs.addr.i761, align 8
-  store ptr %319, ptr %Rhs.addr.i762, align 8
-  store i64 %320, ptr %Length.addr.i763, align 8
-  %321 = load i64, ptr %Length.addr.i763, align 8
-  %cmp.i764 = icmp eq i64 %321, 0
+  %330 = load i64, ptr %Length4.i521, align 8
+  store ptr %328, ptr %Lhs.addr.i761, align 8
+  store ptr %329, ptr %Rhs.addr.i762, align 8
+  store i64 %330, ptr %Length.addr.i763, align 8
+  %331 = load i64, ptr %Length.addr.i763, align 8
+  %cmp.i764 = icmp eq i64 %331, 0
   br i1 %cmp.i764, label %if.then.i767, label %if.end.i765
 
 if.then.i767:                                     ; preds = %land.rhs.i520
@@ -24322,21 +24421,21 @@ if.then.i767:                                     ; preds = %land.rhs.i520
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit768
 
 if.end.i765:                                      ; preds = %land.rhs.i520
-  %322 = load ptr, ptr %Lhs.addr.i761, align 8
-  %323 = load ptr, ptr %Rhs.addr.i762, align 8
-  %324 = load i64, ptr %Length.addr.i763, align 8
-  %call.i766 = call i32 @memcmp(ptr noundef %322, ptr noundef %323, i64 noundef %324) #10
+  %332 = load ptr, ptr %Lhs.addr.i761, align 8
+  %333 = load ptr, ptr %Rhs.addr.i762, align 8
+  %334 = load i64, ptr %Length.addr.i763, align 8
+  %call.i766 = call i32 @memcmp(ptr noundef %332, ptr noundef %333, i64 noundef %334) #10
   store i32 %call.i766, ptr %retval.i760, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit768
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit768: ; preds = %if.end.i765, %if.then.i767
-  %325 = load i32, ptr %retval.i760, align 4
-  %cmp5.i523 = icmp eq i32 %325, 0
+  %335 = load i32, ptr %retval.i760, align 4
+  %cmp5.i523 = icmp eq i32 %335, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit524
 
 _ZNK4llvh9StringRef6equalsES0_.exit524:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit768, %land.lhs.true.i256
-  %326 = phi i1 [ false, %land.lhs.true.i256 ], [ %cmp5.i523, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit768 ]
-  br i1 %326, label %if.then.i258, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit261
+  %336 = phi i1 [ false, %land.lhs.true.i256 ], [ %cmp5.i523, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit768 ]
+  br i1 %336, label %if.then.i258, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit261
 
 if.then.i258:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit524
   %Result4.i259 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i253, i32 0, i32 1
@@ -24345,15 +24444,16 @@ if.then.i258:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit261: ; preds = %if.then.i258, %_ZNK4llvh9StringRef6equalsES0_.exit524, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit278
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32, ptr noundef nonnull align 1 dereferenceable(10) @.str.77)
-  %327 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or33 = or i32 %327, 2
-  %328 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp32, i32 0, i32 0
-  %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp32, i32 0, i32 1
-  %331 = load i64, ptr %330, align 8
-  store ptr %329, ptr %S.i231, align 8
-  %332 = getelementptr inbounds { ptr, i64 }, ptr %S.i231, i32 0, i32 1
-  store i64 %331, ptr %332, align 8
+  %337 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %338 = load i32, ptr %337, align 4
+  %or33 = or i32 %338, 2
+  %339 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp32, i32 0, i32 0
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp32, i32 0, i32 1
+  %342 = load i64, ptr %341, align 8
+  store ptr %340, ptr %S.i231, align 8
+  %343 = getelementptr inbounds { ptr, i64 }, ptr %S.i231, i32 0, i32 1
+  store i64 %342, ptr %343, align 8
   store ptr %this1.i253, ptr %this.addr.i232, align 8
   store i32 %or33, ptr %Value.addr.i233, align 4
   %this1.i236 = load ptr, ptr %this.addr.i232, align 8
@@ -24364,44 +24464,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit261: ; preds = %if.then
 land.lhs.true.i239:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit261
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i234, ptr align 8 %this1.i236, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i235, ptr align 8 %S.i231, i64 16, i1 false)
-  %333 = load ptr, ptr %agg.tmp.i234, align 8
-  %334 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i234, i32 0, i32 1
-  %335 = load i64, ptr %334, align 8
-  %336 = load ptr, ptr %agg.tmp2.i235, align 8
-  %337 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i235, i32 0, i32 1
-  %338 = load i64, ptr %337, align 8
-  store ptr %333, ptr %LHS.i.i228, align 8
-  %339 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i228, i32 0, i32 1
-  store i64 %335, ptr %339, align 8
-  store ptr %336, ptr %RHS.i.i229, align 8
-  %340 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i229, i32 0, i32 1
-  store i64 %338, ptr %340, align 8
+  %344 = load ptr, ptr %agg.tmp.i234, align 8
+  %345 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i234, i32 0, i32 1
+  %346 = load i64, ptr %345, align 8
+  %347 = load ptr, ptr %agg.tmp2.i235, align 8
+  %348 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i235, i32 0, i32 1
+  %349 = load i64, ptr %348, align 8
+  store ptr %344, ptr %LHS.i.i228, align 8
+  %350 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i228, i32 0, i32 1
+  store i64 %346, ptr %350, align 8
+  store ptr %347, ptr %RHS.i.i229, align 8
+  %351 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i229, i32 0, i32 1
+  store i64 %349, ptr %351, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i230, ptr align 8 %RHS.i.i229, i64 16, i1 false)
-  %341 = load ptr, ptr %agg.tmp.i.i230, align 8
-  %342 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i230, i32 0, i32 1
-  %343 = load i64, ptr %342, align 8
-  store ptr %341, ptr %RHS.i525, align 8
-  %344 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i525, i32 0, i32 1
-  store i64 %343, ptr %344, align 8
+  %352 = load ptr, ptr %agg.tmp.i.i230, align 8
+  %353 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i230, i32 0, i32 1
+  %354 = load i64, ptr %353, align 8
+  store ptr %352, ptr %RHS.i525, align 8
+  %355 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i525, i32 0, i32 1
+  store i64 %354, ptr %355, align 8
   store ptr %LHS.i.i228, ptr %this.addr.i526, align 8
   %this1.i527 = load ptr, ptr %this.addr.i526, align 8
   %Length.i528 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i527, i32 0, i32 1
-  %345 = load i64, ptr %Length.i528, align 8
+  %356 = load i64, ptr %Length.i528, align 8
   %Length2.i529 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i525, i32 0, i32 1
-  %346 = load i64, ptr %Length2.i529, align 8
-  %cmp.i530 = icmp eq i64 %345, %346
+  %357 = load i64, ptr %Length2.i529, align 8
+  %cmp.i530 = icmp eq i64 %356, %357
   br i1 %cmp.i530, label %land.rhs.i531, label %_ZNK4llvh9StringRef6equalsES0_.exit535
 
 land.rhs.i531:                                    ; preds = %land.lhs.true.i239
-  %347 = load ptr, ptr %this1.i527, align 8
-  %348 = load ptr, ptr %RHS.i525, align 8
+  %358 = load ptr, ptr %this1.i527, align 8
+  %359 = load ptr, ptr %RHS.i525, align 8
   %Length4.i532 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i525, i32 0, i32 1
-  %349 = load i64, ptr %Length4.i532, align 8
-  store ptr %347, ptr %Lhs.addr.i752, align 8
-  store ptr %348, ptr %Rhs.addr.i753, align 8
-  store i64 %349, ptr %Length.addr.i754, align 8
-  %350 = load i64, ptr %Length.addr.i754, align 8
-  %cmp.i755 = icmp eq i64 %350, 0
+  %360 = load i64, ptr %Length4.i532, align 8
+  store ptr %358, ptr %Lhs.addr.i752, align 8
+  store ptr %359, ptr %Rhs.addr.i753, align 8
+  store i64 %360, ptr %Length.addr.i754, align 8
+  %361 = load i64, ptr %Length.addr.i754, align 8
+  %cmp.i755 = icmp eq i64 %361, 0
   br i1 %cmp.i755, label %if.then.i758, label %if.end.i756
 
 if.then.i758:                                     ; preds = %land.rhs.i531
@@ -24409,21 +24509,21 @@ if.then.i758:                                     ; preds = %land.rhs.i531
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit759
 
 if.end.i756:                                      ; preds = %land.rhs.i531
-  %351 = load ptr, ptr %Lhs.addr.i752, align 8
-  %352 = load ptr, ptr %Rhs.addr.i753, align 8
-  %353 = load i64, ptr %Length.addr.i754, align 8
-  %call.i757 = call i32 @memcmp(ptr noundef %351, ptr noundef %352, i64 noundef %353) #10
+  %362 = load ptr, ptr %Lhs.addr.i752, align 8
+  %363 = load ptr, ptr %Rhs.addr.i753, align 8
+  %364 = load i64, ptr %Length.addr.i754, align 8
+  %call.i757 = call i32 @memcmp(ptr noundef %362, ptr noundef %363, i64 noundef %364) #10
   store i32 %call.i757, ptr %retval.i751, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit759
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit759: ; preds = %if.end.i756, %if.then.i758
-  %354 = load i32, ptr %retval.i751, align 4
-  %cmp5.i534 = icmp eq i32 %354, 0
+  %365 = load i32, ptr %retval.i751, align 4
+  %cmp5.i534 = icmp eq i32 %365, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit535
 
 _ZNK4llvh9StringRef6equalsES0_.exit535:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit759, %land.lhs.true.i239
-  %355 = phi i1 [ false, %land.lhs.true.i239 ], [ %cmp5.i534, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit759 ]
-  br i1 %355, label %if.then.i241, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit244
+  %366 = phi i1 [ false, %land.lhs.true.i239 ], [ %cmp5.i534, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit759 ]
+  br i1 %366, label %if.then.i241, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit244
 
 if.then.i241:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit535
   %Result4.i242 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i236, i32 0, i32 1
@@ -24432,15 +24532,16 @@ if.then.i241:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit244: ; preds = %if.then.i241, %_ZNK4llvh9StringRef6equalsES0_.exit535, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit261
   call void @_ZN4llvh13StringLiteralC2ILm10EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm10ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, ptr noundef nonnull align 1 dereferenceable(10) @.str.78)
-  %356 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or36 = or i32 %356, 2
-  %357 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp35, i32 0, i32 0
-  %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp35, i32 0, i32 1
-  %360 = load i64, ptr %359, align 8
-  store ptr %358, ptr %S.i214, align 8
-  %361 = getelementptr inbounds { ptr, i64 }, ptr %S.i214, i32 0, i32 1
-  store i64 %360, ptr %361, align 8
+  %367 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %368 = load i32, ptr %367, align 4
+  %or36 = or i32 %368, 2
+  %369 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp35, i32 0, i32 0
+  %370 = load ptr, ptr %369, align 8
+  %371 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp35, i32 0, i32 1
+  %372 = load i64, ptr %371, align 8
+  store ptr %370, ptr %S.i214, align 8
+  %373 = getelementptr inbounds { ptr, i64 }, ptr %S.i214, i32 0, i32 1
+  store i64 %372, ptr %373, align 8
   store ptr %this1.i236, ptr %this.addr.i215, align 8
   store i32 %or36, ptr %Value.addr.i216, align 4
   %this1.i219 = load ptr, ptr %this.addr.i215, align 8
@@ -24451,44 +24552,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit244: ; preds = %if.then
 land.lhs.true.i222:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit244
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i217, ptr align 8 %this1.i219, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i218, ptr align 8 %S.i214, i64 16, i1 false)
-  %362 = load ptr, ptr %agg.tmp.i217, align 8
-  %363 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i217, i32 0, i32 1
-  %364 = load i64, ptr %363, align 8
-  %365 = load ptr, ptr %agg.tmp2.i218, align 8
-  %366 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i218, i32 0, i32 1
-  %367 = load i64, ptr %366, align 8
-  store ptr %362, ptr %LHS.i.i211, align 8
-  %368 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i211, i32 0, i32 1
-  store i64 %364, ptr %368, align 8
-  store ptr %365, ptr %RHS.i.i212, align 8
-  %369 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i212, i32 0, i32 1
-  store i64 %367, ptr %369, align 8
+  %374 = load ptr, ptr %agg.tmp.i217, align 8
+  %375 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i217, i32 0, i32 1
+  %376 = load i64, ptr %375, align 8
+  %377 = load ptr, ptr %agg.tmp2.i218, align 8
+  %378 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i218, i32 0, i32 1
+  %379 = load i64, ptr %378, align 8
+  store ptr %374, ptr %LHS.i.i211, align 8
+  %380 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i211, i32 0, i32 1
+  store i64 %376, ptr %380, align 8
+  store ptr %377, ptr %RHS.i.i212, align 8
+  %381 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i212, i32 0, i32 1
+  store i64 %379, ptr %381, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i213, ptr align 8 %RHS.i.i212, i64 16, i1 false)
-  %370 = load ptr, ptr %agg.tmp.i.i213, align 8
-  %371 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i213, i32 0, i32 1
-  %372 = load i64, ptr %371, align 8
-  store ptr %370, ptr %RHS.i536, align 8
-  %373 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i536, i32 0, i32 1
-  store i64 %372, ptr %373, align 8
+  %382 = load ptr, ptr %agg.tmp.i.i213, align 8
+  %383 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i213, i32 0, i32 1
+  %384 = load i64, ptr %383, align 8
+  store ptr %382, ptr %RHS.i536, align 8
+  %385 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i536, i32 0, i32 1
+  store i64 %384, ptr %385, align 8
   store ptr %LHS.i.i211, ptr %this.addr.i537, align 8
   %this1.i538 = load ptr, ptr %this.addr.i537, align 8
   %Length.i539 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i538, i32 0, i32 1
-  %374 = load i64, ptr %Length.i539, align 8
+  %386 = load i64, ptr %Length.i539, align 8
   %Length2.i540 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i536, i32 0, i32 1
-  %375 = load i64, ptr %Length2.i540, align 8
-  %cmp.i541 = icmp eq i64 %374, %375
+  %387 = load i64, ptr %Length2.i540, align 8
+  %cmp.i541 = icmp eq i64 %386, %387
   br i1 %cmp.i541, label %land.rhs.i542, label %_ZNK4llvh9StringRef6equalsES0_.exit546
 
 land.rhs.i542:                                    ; preds = %land.lhs.true.i222
-  %376 = load ptr, ptr %this1.i538, align 8
-  %377 = load ptr, ptr %RHS.i536, align 8
+  %388 = load ptr, ptr %this1.i538, align 8
+  %389 = load ptr, ptr %RHS.i536, align 8
   %Length4.i543 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i536, i32 0, i32 1
-  %378 = load i64, ptr %Length4.i543, align 8
-  store ptr %376, ptr %Lhs.addr.i743, align 8
-  store ptr %377, ptr %Rhs.addr.i744, align 8
-  store i64 %378, ptr %Length.addr.i745, align 8
-  %379 = load i64, ptr %Length.addr.i745, align 8
-  %cmp.i746 = icmp eq i64 %379, 0
+  %390 = load i64, ptr %Length4.i543, align 8
+  store ptr %388, ptr %Lhs.addr.i743, align 8
+  store ptr %389, ptr %Rhs.addr.i744, align 8
+  store i64 %390, ptr %Length.addr.i745, align 8
+  %391 = load i64, ptr %Length.addr.i745, align 8
+  %cmp.i746 = icmp eq i64 %391, 0
   br i1 %cmp.i746, label %if.then.i749, label %if.end.i747
 
 if.then.i749:                                     ; preds = %land.rhs.i542
@@ -24496,21 +24597,21 @@ if.then.i749:                                     ; preds = %land.rhs.i542
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit750
 
 if.end.i747:                                      ; preds = %land.rhs.i542
-  %380 = load ptr, ptr %Lhs.addr.i743, align 8
-  %381 = load ptr, ptr %Rhs.addr.i744, align 8
-  %382 = load i64, ptr %Length.addr.i745, align 8
-  %call.i748 = call i32 @memcmp(ptr noundef %380, ptr noundef %381, i64 noundef %382) #10
+  %392 = load ptr, ptr %Lhs.addr.i743, align 8
+  %393 = load ptr, ptr %Rhs.addr.i744, align 8
+  %394 = load i64, ptr %Length.addr.i745, align 8
+  %call.i748 = call i32 @memcmp(ptr noundef %392, ptr noundef %393, i64 noundef %394) #10
   store i32 %call.i748, ptr %retval.i742, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit750
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit750: ; preds = %if.end.i747, %if.then.i749
-  %383 = load i32, ptr %retval.i742, align 4
-  %cmp5.i545 = icmp eq i32 %383, 0
+  %395 = load i32, ptr %retval.i742, align 4
+  %cmp5.i545 = icmp eq i32 %395, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit546
 
 _ZNK4llvh9StringRef6equalsES0_.exit546:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit750, %land.lhs.true.i222
-  %384 = phi i1 [ false, %land.lhs.true.i222 ], [ %cmp5.i545, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit750 ]
-  br i1 %384, label %if.then.i224, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit227
+  %396 = phi i1 [ false, %land.lhs.true.i222 ], [ %cmp5.i545, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit750 ]
+  br i1 %396, label %if.then.i224, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit227
 
 if.then.i224:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit546
   %Result4.i225 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i219, i32 0, i32 1
@@ -24519,15 +24620,16 @@ if.then.i224:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit227: ; preds = %if.then.i224, %_ZNK4llvh9StringRef6equalsES0_.exit546, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit244
   call void @_ZN4llvh13StringLiteralC2ILm7EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm7ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp38, ptr noundef nonnull align 1 dereferenceable(7) @.str.117)
-  %385 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or39 = or i32 %385, 4098
-  %386 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 0
-  %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 1
-  %389 = load i64, ptr %388, align 8
-  store ptr %387, ptr %S.i197, align 8
-  %390 = getelementptr inbounds { ptr, i64 }, ptr %S.i197, i32 0, i32 1
-  store i64 %389, ptr %390, align 8
+  %397 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %398 = load i32, ptr %397, align 4
+  %or39 = or i32 %398, 4098
+  %399 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 0
+  %400 = load ptr, ptr %399, align 8
+  %401 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 1
+  %402 = load i64, ptr %401, align 8
+  store ptr %400, ptr %S.i197, align 8
+  %403 = getelementptr inbounds { ptr, i64 }, ptr %S.i197, i32 0, i32 1
+  store i64 %402, ptr %403, align 8
   store ptr %this1.i219, ptr %this.addr.i198, align 8
   store i32 %or39, ptr %Value.addr.i199, align 4
   %this1.i202 = load ptr, ptr %this.addr.i198, align 8
@@ -24538,44 +24640,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit227: ; preds = %if.then
 land.lhs.true.i205:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit227
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i200, ptr align 8 %this1.i202, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i201, ptr align 8 %S.i197, i64 16, i1 false)
-  %391 = load ptr, ptr %agg.tmp.i200, align 8
-  %392 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i200, i32 0, i32 1
-  %393 = load i64, ptr %392, align 8
-  %394 = load ptr, ptr %agg.tmp2.i201, align 8
-  %395 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i201, i32 0, i32 1
-  %396 = load i64, ptr %395, align 8
-  store ptr %391, ptr %LHS.i.i194, align 8
-  %397 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i194, i32 0, i32 1
-  store i64 %393, ptr %397, align 8
-  store ptr %394, ptr %RHS.i.i195, align 8
-  %398 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i195, i32 0, i32 1
-  store i64 %396, ptr %398, align 8
+  %404 = load ptr, ptr %agg.tmp.i200, align 8
+  %405 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i200, i32 0, i32 1
+  %406 = load i64, ptr %405, align 8
+  %407 = load ptr, ptr %agg.tmp2.i201, align 8
+  %408 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i201, i32 0, i32 1
+  %409 = load i64, ptr %408, align 8
+  store ptr %404, ptr %LHS.i.i194, align 8
+  %410 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i194, i32 0, i32 1
+  store i64 %406, ptr %410, align 8
+  store ptr %407, ptr %RHS.i.i195, align 8
+  %411 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i195, i32 0, i32 1
+  store i64 %409, ptr %411, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i196, ptr align 8 %RHS.i.i195, i64 16, i1 false)
-  %399 = load ptr, ptr %agg.tmp.i.i196, align 8
-  %400 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i196, i32 0, i32 1
-  %401 = load i64, ptr %400, align 8
-  store ptr %399, ptr %RHS.i547, align 8
-  %402 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i547, i32 0, i32 1
-  store i64 %401, ptr %402, align 8
+  %412 = load ptr, ptr %agg.tmp.i.i196, align 8
+  %413 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i196, i32 0, i32 1
+  %414 = load i64, ptr %413, align 8
+  store ptr %412, ptr %RHS.i547, align 8
+  %415 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i547, i32 0, i32 1
+  store i64 %414, ptr %415, align 8
   store ptr %LHS.i.i194, ptr %this.addr.i548, align 8
   %this1.i549 = load ptr, ptr %this.addr.i548, align 8
   %Length.i550 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i549, i32 0, i32 1
-  %403 = load i64, ptr %Length.i550, align 8
+  %416 = load i64, ptr %Length.i550, align 8
   %Length2.i551 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i547, i32 0, i32 1
-  %404 = load i64, ptr %Length2.i551, align 8
-  %cmp.i552 = icmp eq i64 %403, %404
+  %417 = load i64, ptr %Length2.i551, align 8
+  %cmp.i552 = icmp eq i64 %416, %417
   br i1 %cmp.i552, label %land.rhs.i553, label %_ZNK4llvh9StringRef6equalsES0_.exit557
 
 land.rhs.i553:                                    ; preds = %land.lhs.true.i205
-  %405 = load ptr, ptr %this1.i549, align 8
-  %406 = load ptr, ptr %RHS.i547, align 8
+  %418 = load ptr, ptr %this1.i549, align 8
+  %419 = load ptr, ptr %RHS.i547, align 8
   %Length4.i554 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i547, i32 0, i32 1
-  %407 = load i64, ptr %Length4.i554, align 8
-  store ptr %405, ptr %Lhs.addr.i734, align 8
-  store ptr %406, ptr %Rhs.addr.i735, align 8
-  store i64 %407, ptr %Length.addr.i736, align 8
-  %408 = load i64, ptr %Length.addr.i736, align 8
-  %cmp.i737 = icmp eq i64 %408, 0
+  %420 = load i64, ptr %Length4.i554, align 8
+  store ptr %418, ptr %Lhs.addr.i734, align 8
+  store ptr %419, ptr %Rhs.addr.i735, align 8
+  store i64 %420, ptr %Length.addr.i736, align 8
+  %421 = load i64, ptr %Length.addr.i736, align 8
+  %cmp.i737 = icmp eq i64 %421, 0
   br i1 %cmp.i737, label %if.then.i740, label %if.end.i738
 
 if.then.i740:                                     ; preds = %land.rhs.i553
@@ -24583,21 +24685,21 @@ if.then.i740:                                     ; preds = %land.rhs.i553
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit741
 
 if.end.i738:                                      ; preds = %land.rhs.i553
-  %409 = load ptr, ptr %Lhs.addr.i734, align 8
-  %410 = load ptr, ptr %Rhs.addr.i735, align 8
-  %411 = load i64, ptr %Length.addr.i736, align 8
-  %call.i739 = call i32 @memcmp(ptr noundef %409, ptr noundef %410, i64 noundef %411) #10
+  %422 = load ptr, ptr %Lhs.addr.i734, align 8
+  %423 = load ptr, ptr %Rhs.addr.i735, align 8
+  %424 = load i64, ptr %Length.addr.i736, align 8
+  %call.i739 = call i32 @memcmp(ptr noundef %422, ptr noundef %423, i64 noundef %424) #10
   store i32 %call.i739, ptr %retval.i733, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit741
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit741: ; preds = %if.end.i738, %if.then.i740
-  %412 = load i32, ptr %retval.i733, align 4
-  %cmp5.i556 = icmp eq i32 %412, 0
+  %425 = load i32, ptr %retval.i733, align 4
+  %cmp5.i556 = icmp eq i32 %425, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit557
 
 _ZNK4llvh9StringRef6equalsES0_.exit557:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit741, %land.lhs.true.i205
-  %413 = phi i1 [ false, %land.lhs.true.i205 ], [ %cmp5.i556, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit741 ]
-  br i1 %413, label %if.then.i207, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit210
+  %426 = phi i1 [ false, %land.lhs.true.i205 ], [ %cmp5.i556, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit741 ]
+  br i1 %426, label %if.then.i207, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit210
 
 if.then.i207:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit557
   %Result4.i208 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i202, i32 0, i32 1
@@ -24606,15 +24708,16 @@ if.then.i207:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit210: ; preds = %if.then.i207, %_ZNK4llvh9StringRef6equalsES0_.exit557, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit227
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp41, ptr noundef nonnull align 1 dereferenceable(8) @.str.118)
-  %414 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 4, i32 7), align 4
-  %or42 = or i32 %414, 64
-  %415 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 0
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 1
-  %418 = load i64, ptr %417, align 8
-  store ptr %416, ptr %S.i180, align 8
-  %419 = getelementptr inbounds { ptr, i64 }, ptr %S.i180, i32 0, i32 1
-  store i64 %418, ptr %419, align 8
+  %427 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 4, i32 7
+  %428 = load i32, ptr %427, align 4
+  %or42 = or i32 %428, 64
+  %429 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 0
+  %430 = load ptr, ptr %429, align 8
+  %431 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp41, i32 0, i32 1
+  %432 = load i64, ptr %431, align 8
+  store ptr %430, ptr %S.i180, align 8
+  %433 = getelementptr inbounds { ptr, i64 }, ptr %S.i180, i32 0, i32 1
+  store i64 %432, ptr %433, align 8
   store ptr %this1.i202, ptr %this.addr.i181, align 8
   store i32 %or42, ptr %Value.addr.i182, align 4
   %this1.i185 = load ptr, ptr %this.addr.i181, align 8
@@ -24625,44 +24728,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit210: ; preds = %if.then
 land.lhs.true.i188:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit210
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i183, ptr align 8 %this1.i185, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i184, ptr align 8 %S.i180, i64 16, i1 false)
-  %420 = load ptr, ptr %agg.tmp.i183, align 8
-  %421 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i183, i32 0, i32 1
-  %422 = load i64, ptr %421, align 8
-  %423 = load ptr, ptr %agg.tmp2.i184, align 8
-  %424 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i184, i32 0, i32 1
-  %425 = load i64, ptr %424, align 8
-  store ptr %420, ptr %LHS.i.i177, align 8
-  %426 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i177, i32 0, i32 1
-  store i64 %422, ptr %426, align 8
-  store ptr %423, ptr %RHS.i.i178, align 8
-  %427 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i178, i32 0, i32 1
-  store i64 %425, ptr %427, align 8
+  %434 = load ptr, ptr %agg.tmp.i183, align 8
+  %435 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i183, i32 0, i32 1
+  %436 = load i64, ptr %435, align 8
+  %437 = load ptr, ptr %agg.tmp2.i184, align 8
+  %438 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i184, i32 0, i32 1
+  %439 = load i64, ptr %438, align 8
+  store ptr %434, ptr %LHS.i.i177, align 8
+  %440 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i177, i32 0, i32 1
+  store i64 %436, ptr %440, align 8
+  store ptr %437, ptr %RHS.i.i178, align 8
+  %441 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i178, i32 0, i32 1
+  store i64 %439, ptr %441, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i179, ptr align 8 %RHS.i.i178, i64 16, i1 false)
-  %428 = load ptr, ptr %agg.tmp.i.i179, align 8
-  %429 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i179, i32 0, i32 1
-  %430 = load i64, ptr %429, align 8
-  store ptr %428, ptr %RHS.i558, align 8
-  %431 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i558, i32 0, i32 1
-  store i64 %430, ptr %431, align 8
+  %442 = load ptr, ptr %agg.tmp.i.i179, align 8
+  %443 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i179, i32 0, i32 1
+  %444 = load i64, ptr %443, align 8
+  store ptr %442, ptr %RHS.i558, align 8
+  %445 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i558, i32 0, i32 1
+  store i64 %444, ptr %445, align 8
   store ptr %LHS.i.i177, ptr %this.addr.i559, align 8
   %this1.i560 = load ptr, ptr %this.addr.i559, align 8
   %Length.i561 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i560, i32 0, i32 1
-  %432 = load i64, ptr %Length.i561, align 8
+  %446 = load i64, ptr %Length.i561, align 8
   %Length2.i562 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i558, i32 0, i32 1
-  %433 = load i64, ptr %Length2.i562, align 8
-  %cmp.i563 = icmp eq i64 %432, %433
+  %447 = load i64, ptr %Length2.i562, align 8
+  %cmp.i563 = icmp eq i64 %446, %447
   br i1 %cmp.i563, label %land.rhs.i564, label %_ZNK4llvh9StringRef6equalsES0_.exit568
 
 land.rhs.i564:                                    ; preds = %land.lhs.true.i188
-  %434 = load ptr, ptr %this1.i560, align 8
-  %435 = load ptr, ptr %RHS.i558, align 8
+  %448 = load ptr, ptr %this1.i560, align 8
+  %449 = load ptr, ptr %RHS.i558, align 8
   %Length4.i565 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i558, i32 0, i32 1
-  %436 = load i64, ptr %Length4.i565, align 8
-  store ptr %434, ptr %Lhs.addr.i725, align 8
-  store ptr %435, ptr %Rhs.addr.i726, align 8
-  store i64 %436, ptr %Length.addr.i727, align 8
-  %437 = load i64, ptr %Length.addr.i727, align 8
-  %cmp.i728 = icmp eq i64 %437, 0
+  %450 = load i64, ptr %Length4.i565, align 8
+  store ptr %448, ptr %Lhs.addr.i725, align 8
+  store ptr %449, ptr %Rhs.addr.i726, align 8
+  store i64 %450, ptr %Length.addr.i727, align 8
+  %451 = load i64, ptr %Length.addr.i727, align 8
+  %cmp.i728 = icmp eq i64 %451, 0
   br i1 %cmp.i728, label %if.then.i731, label %if.end.i729
 
 if.then.i731:                                     ; preds = %land.rhs.i564
@@ -24670,21 +24773,21 @@ if.then.i731:                                     ; preds = %land.rhs.i564
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit732
 
 if.end.i729:                                      ; preds = %land.rhs.i564
-  %438 = load ptr, ptr %Lhs.addr.i725, align 8
-  %439 = load ptr, ptr %Rhs.addr.i726, align 8
-  %440 = load i64, ptr %Length.addr.i727, align 8
-  %call.i730 = call i32 @memcmp(ptr noundef %438, ptr noundef %439, i64 noundef %440) #10
+  %452 = load ptr, ptr %Lhs.addr.i725, align 8
+  %453 = load ptr, ptr %Rhs.addr.i726, align 8
+  %454 = load i64, ptr %Length.addr.i727, align 8
+  %call.i730 = call i32 @memcmp(ptr noundef %452, ptr noundef %453, i64 noundef %454) #10
   store i32 %call.i730, ptr %retval.i724, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit732
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit732: ; preds = %if.end.i729, %if.then.i731
-  %441 = load i32, ptr %retval.i724, align 4
-  %cmp5.i567 = icmp eq i32 %441, 0
+  %455 = load i32, ptr %retval.i724, align 4
+  %cmp5.i567 = icmp eq i32 %455, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit568
 
 _ZNK4llvh9StringRef6equalsES0_.exit568:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit732, %land.lhs.true.i188
-  %442 = phi i1 [ false, %land.lhs.true.i188 ], [ %cmp5.i567, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit732 ]
-  br i1 %442, label %if.then.i190, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit193
+  %456 = phi i1 [ false, %land.lhs.true.i188 ], [ %cmp5.i567, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit732 ]
+  br i1 %456, label %if.then.i190, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit193
 
 if.then.i190:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit568
   %Result4.i191 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i185, i32 0, i32 1
@@ -24693,15 +24796,16 @@ if.then.i190:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit193: ; preds = %if.then.i190, %_ZNK4llvh9StringRef6equalsES0_.exit568, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit210
   call void @_ZN4llvh13StringLiteralC2ILm5EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm5ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp44, ptr noundef nonnull align 1 dereferenceable(5) @.str.79)
-  %443 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or45 = or i32 %443, 2
-  %444 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 0
-  %445 = load ptr, ptr %444, align 8
-  %446 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 1
-  %447 = load i64, ptr %446, align 8
-  store ptr %445, ptr %S.i163, align 8
-  %448 = getelementptr inbounds { ptr, i64 }, ptr %S.i163, i32 0, i32 1
-  store i64 %447, ptr %448, align 8
+  %457 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %458 = load i32, ptr %457, align 4
+  %or45 = or i32 %458, 2
+  %459 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 0
+  %460 = load ptr, ptr %459, align 8
+  %461 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp44, i32 0, i32 1
+  %462 = load i64, ptr %461, align 8
+  store ptr %460, ptr %S.i163, align 8
+  %463 = getelementptr inbounds { ptr, i64 }, ptr %S.i163, i32 0, i32 1
+  store i64 %462, ptr %463, align 8
   store ptr %this1.i185, ptr %this.addr.i164, align 8
   store i32 %or45, ptr %Value.addr.i165, align 4
   %this1.i168 = load ptr, ptr %this.addr.i164, align 8
@@ -24712,44 +24816,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit193: ; preds = %if.then
 land.lhs.true.i171:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit193
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i166, ptr align 8 %this1.i168, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i167, ptr align 8 %S.i163, i64 16, i1 false)
-  %449 = load ptr, ptr %agg.tmp.i166, align 8
-  %450 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i166, i32 0, i32 1
-  %451 = load i64, ptr %450, align 8
-  %452 = load ptr, ptr %agg.tmp2.i167, align 8
-  %453 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i167, i32 0, i32 1
-  %454 = load i64, ptr %453, align 8
-  store ptr %449, ptr %LHS.i.i160, align 8
-  %455 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i160, i32 0, i32 1
-  store i64 %451, ptr %455, align 8
-  store ptr %452, ptr %RHS.i.i161, align 8
-  %456 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i161, i32 0, i32 1
-  store i64 %454, ptr %456, align 8
+  %464 = load ptr, ptr %agg.tmp.i166, align 8
+  %465 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i166, i32 0, i32 1
+  %466 = load i64, ptr %465, align 8
+  %467 = load ptr, ptr %agg.tmp2.i167, align 8
+  %468 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i167, i32 0, i32 1
+  %469 = load i64, ptr %468, align 8
+  store ptr %464, ptr %LHS.i.i160, align 8
+  %470 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i160, i32 0, i32 1
+  store i64 %466, ptr %470, align 8
+  store ptr %467, ptr %RHS.i.i161, align 8
+  %471 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i161, i32 0, i32 1
+  store i64 %469, ptr %471, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i162, ptr align 8 %RHS.i.i161, i64 16, i1 false)
-  %457 = load ptr, ptr %agg.tmp.i.i162, align 8
-  %458 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i162, i32 0, i32 1
-  %459 = load i64, ptr %458, align 8
-  store ptr %457, ptr %RHS.i569, align 8
-  %460 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i569, i32 0, i32 1
-  store i64 %459, ptr %460, align 8
+  %472 = load ptr, ptr %agg.tmp.i.i162, align 8
+  %473 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i162, i32 0, i32 1
+  %474 = load i64, ptr %473, align 8
+  store ptr %472, ptr %RHS.i569, align 8
+  %475 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i569, i32 0, i32 1
+  store i64 %474, ptr %475, align 8
   store ptr %LHS.i.i160, ptr %this.addr.i570, align 8
   %this1.i571 = load ptr, ptr %this.addr.i570, align 8
   %Length.i572 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i571, i32 0, i32 1
-  %461 = load i64, ptr %Length.i572, align 8
+  %476 = load i64, ptr %Length.i572, align 8
   %Length2.i573 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i569, i32 0, i32 1
-  %462 = load i64, ptr %Length2.i573, align 8
-  %cmp.i574 = icmp eq i64 %461, %462
+  %477 = load i64, ptr %Length2.i573, align 8
+  %cmp.i574 = icmp eq i64 %476, %477
   br i1 %cmp.i574, label %land.rhs.i575, label %_ZNK4llvh9StringRef6equalsES0_.exit579
 
 land.rhs.i575:                                    ; preds = %land.lhs.true.i171
-  %463 = load ptr, ptr %this1.i571, align 8
-  %464 = load ptr, ptr %RHS.i569, align 8
+  %478 = load ptr, ptr %this1.i571, align 8
+  %479 = load ptr, ptr %RHS.i569, align 8
   %Length4.i576 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i569, i32 0, i32 1
-  %465 = load i64, ptr %Length4.i576, align 8
-  store ptr %463, ptr %Lhs.addr.i716, align 8
-  store ptr %464, ptr %Rhs.addr.i717, align 8
-  store i64 %465, ptr %Length.addr.i718, align 8
-  %466 = load i64, ptr %Length.addr.i718, align 8
-  %cmp.i719 = icmp eq i64 %466, 0
+  %480 = load i64, ptr %Length4.i576, align 8
+  store ptr %478, ptr %Lhs.addr.i716, align 8
+  store ptr %479, ptr %Rhs.addr.i717, align 8
+  store i64 %480, ptr %Length.addr.i718, align 8
+  %481 = load i64, ptr %Length.addr.i718, align 8
+  %cmp.i719 = icmp eq i64 %481, 0
   br i1 %cmp.i719, label %if.then.i722, label %if.end.i720
 
 if.then.i722:                                     ; preds = %land.rhs.i575
@@ -24757,21 +24861,21 @@ if.then.i722:                                     ; preds = %land.rhs.i575
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit723
 
 if.end.i720:                                      ; preds = %land.rhs.i575
-  %467 = load ptr, ptr %Lhs.addr.i716, align 8
-  %468 = load ptr, ptr %Rhs.addr.i717, align 8
-  %469 = load i64, ptr %Length.addr.i718, align 8
-  %call.i721 = call i32 @memcmp(ptr noundef %467, ptr noundef %468, i64 noundef %469) #10
+  %482 = load ptr, ptr %Lhs.addr.i716, align 8
+  %483 = load ptr, ptr %Rhs.addr.i717, align 8
+  %484 = load i64, ptr %Length.addr.i718, align 8
+  %call.i721 = call i32 @memcmp(ptr noundef %482, ptr noundef %483, i64 noundef %484) #10
   store i32 %call.i721, ptr %retval.i715, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit723
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit723: ; preds = %if.end.i720, %if.then.i722
-  %470 = load i32, ptr %retval.i715, align 4
-  %cmp5.i578 = icmp eq i32 %470, 0
+  %485 = load i32, ptr %retval.i715, align 4
+  %cmp5.i578 = icmp eq i32 %485, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit579
 
 _ZNK4llvh9StringRef6equalsES0_.exit579:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit723, %land.lhs.true.i171
-  %471 = phi i1 [ false, %land.lhs.true.i171 ], [ %cmp5.i578, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit723 ]
-  br i1 %471, label %if.then.i173, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit176
+  %486 = phi i1 [ false, %land.lhs.true.i171 ], [ %cmp5.i578, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit723 ]
+  br i1 %486, label %if.then.i173, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit176
 
 if.then.i173:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit579
   %Result4.i174 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i168, i32 0, i32 1
@@ -24780,15 +24884,16 @@ if.then.i173:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit176: ; preds = %if.then.i173, %_ZNK4llvh9StringRef6equalsES0_.exit579, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit193
   call void @_ZN4llvh13StringLiteralC2ILm13EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm13ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp47, ptr noundef nonnull align 1 dereferenceable(13) @.str.119)
-  %472 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 2, i32 7), align 4
-  %or48 = or i32 %472, 1
-  %473 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 0
-  %474 = load ptr, ptr %473, align 8
-  %475 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 1
-  %476 = load i64, ptr %475, align 8
-  store ptr %474, ptr %S.i146, align 8
-  %477 = getelementptr inbounds { ptr, i64 }, ptr %S.i146, i32 0, i32 1
-  store i64 %476, ptr %477, align 8
+  %487 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 2, i32 7
+  %488 = load i32, ptr %487, align 4
+  %or48 = or i32 %488, 1
+  %489 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 0
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 1
+  %492 = load i64, ptr %491, align 8
+  store ptr %490, ptr %S.i146, align 8
+  %493 = getelementptr inbounds { ptr, i64 }, ptr %S.i146, i32 0, i32 1
+  store i64 %492, ptr %493, align 8
   store ptr %this1.i168, ptr %this.addr.i147, align 8
   store i32 %or48, ptr %Value.addr.i148, align 4
   %this1.i151 = load ptr, ptr %this.addr.i147, align 8
@@ -24799,44 +24904,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit176: ; preds = %if.then
 land.lhs.true.i154:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit176
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i149, ptr align 8 %this1.i151, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i150, ptr align 8 %S.i146, i64 16, i1 false)
-  %478 = load ptr, ptr %agg.tmp.i149, align 8
-  %479 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i149, i32 0, i32 1
-  %480 = load i64, ptr %479, align 8
-  %481 = load ptr, ptr %agg.tmp2.i150, align 8
-  %482 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i150, i32 0, i32 1
-  %483 = load i64, ptr %482, align 8
-  store ptr %478, ptr %LHS.i.i143, align 8
-  %484 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i143, i32 0, i32 1
-  store i64 %480, ptr %484, align 8
-  store ptr %481, ptr %RHS.i.i144, align 8
-  %485 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i144, i32 0, i32 1
-  store i64 %483, ptr %485, align 8
+  %494 = load ptr, ptr %agg.tmp.i149, align 8
+  %495 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i149, i32 0, i32 1
+  %496 = load i64, ptr %495, align 8
+  %497 = load ptr, ptr %agg.tmp2.i150, align 8
+  %498 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i150, i32 0, i32 1
+  %499 = load i64, ptr %498, align 8
+  store ptr %494, ptr %LHS.i.i143, align 8
+  %500 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i143, i32 0, i32 1
+  store i64 %496, ptr %500, align 8
+  store ptr %497, ptr %RHS.i.i144, align 8
+  %501 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i144, i32 0, i32 1
+  store i64 %499, ptr %501, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i145, ptr align 8 %RHS.i.i144, i64 16, i1 false)
-  %486 = load ptr, ptr %agg.tmp.i.i145, align 8
-  %487 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i145, i32 0, i32 1
-  %488 = load i64, ptr %487, align 8
-  store ptr %486, ptr %RHS.i580, align 8
-  %489 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i580, i32 0, i32 1
-  store i64 %488, ptr %489, align 8
+  %502 = load ptr, ptr %agg.tmp.i.i145, align 8
+  %503 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i145, i32 0, i32 1
+  %504 = load i64, ptr %503, align 8
+  store ptr %502, ptr %RHS.i580, align 8
+  %505 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i580, i32 0, i32 1
+  store i64 %504, ptr %505, align 8
   store ptr %LHS.i.i143, ptr %this.addr.i581, align 8
   %this1.i582 = load ptr, ptr %this.addr.i581, align 8
   %Length.i583 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i582, i32 0, i32 1
-  %490 = load i64, ptr %Length.i583, align 8
+  %506 = load i64, ptr %Length.i583, align 8
   %Length2.i584 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i580, i32 0, i32 1
-  %491 = load i64, ptr %Length2.i584, align 8
-  %cmp.i585 = icmp eq i64 %490, %491
+  %507 = load i64, ptr %Length2.i584, align 8
+  %cmp.i585 = icmp eq i64 %506, %507
   br i1 %cmp.i585, label %land.rhs.i586, label %_ZNK4llvh9StringRef6equalsES0_.exit590
 
 land.rhs.i586:                                    ; preds = %land.lhs.true.i154
-  %492 = load ptr, ptr %this1.i582, align 8
-  %493 = load ptr, ptr %RHS.i580, align 8
+  %508 = load ptr, ptr %this1.i582, align 8
+  %509 = load ptr, ptr %RHS.i580, align 8
   %Length4.i587 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i580, i32 0, i32 1
-  %494 = load i64, ptr %Length4.i587, align 8
-  store ptr %492, ptr %Lhs.addr.i707, align 8
-  store ptr %493, ptr %Rhs.addr.i708, align 8
-  store i64 %494, ptr %Length.addr.i709, align 8
-  %495 = load i64, ptr %Length.addr.i709, align 8
-  %cmp.i710 = icmp eq i64 %495, 0
+  %510 = load i64, ptr %Length4.i587, align 8
+  store ptr %508, ptr %Lhs.addr.i707, align 8
+  store ptr %509, ptr %Rhs.addr.i708, align 8
+  store i64 %510, ptr %Length.addr.i709, align 8
+  %511 = load i64, ptr %Length.addr.i709, align 8
+  %cmp.i710 = icmp eq i64 %511, 0
   br i1 %cmp.i710, label %if.then.i713, label %if.end.i711
 
 if.then.i713:                                     ; preds = %land.rhs.i586
@@ -24844,21 +24949,21 @@ if.then.i713:                                     ; preds = %land.rhs.i586
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit714
 
 if.end.i711:                                      ; preds = %land.rhs.i586
-  %496 = load ptr, ptr %Lhs.addr.i707, align 8
-  %497 = load ptr, ptr %Rhs.addr.i708, align 8
-  %498 = load i64, ptr %Length.addr.i709, align 8
-  %call.i712 = call i32 @memcmp(ptr noundef %496, ptr noundef %497, i64 noundef %498) #10
+  %512 = load ptr, ptr %Lhs.addr.i707, align 8
+  %513 = load ptr, ptr %Rhs.addr.i708, align 8
+  %514 = load i64, ptr %Length.addr.i709, align 8
+  %call.i712 = call i32 @memcmp(ptr noundef %512, ptr noundef %513, i64 noundef %514) #10
   store i32 %call.i712, ptr %retval.i706, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit714
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit714: ; preds = %if.end.i711, %if.then.i713
-  %499 = load i32, ptr %retval.i706, align 4
-  %cmp5.i589 = icmp eq i32 %499, 0
+  %515 = load i32, ptr %retval.i706, align 4
+  %cmp5.i589 = icmp eq i32 %515, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit590
 
 _ZNK4llvh9StringRef6equalsES0_.exit590:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit714, %land.lhs.true.i154
-  %500 = phi i1 [ false, %land.lhs.true.i154 ], [ %cmp5.i589, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit714 ]
-  br i1 %500, label %if.then.i156, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit159
+  %516 = phi i1 [ false, %land.lhs.true.i154 ], [ %cmp5.i589, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit714 ]
+  br i1 %516, label %if.then.i156, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit159
 
 if.then.i156:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit590
   %Result4.i157 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i151, i32 0, i32 1
@@ -24867,15 +24972,16 @@ if.then.i156:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit159: ; preds = %if.then.i156, %_ZNK4llvh9StringRef6equalsES0_.exit590, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit176
   call void @_ZN4llvh13StringLiteralC2ILm9EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm9ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp50, ptr noundef nonnull align 1 dereferenceable(9) @.str.120)
-  %501 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or51 = or i32 %501, 66
-  %502 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i32 0, i32 0
-  %503 = load ptr, ptr %502, align 8
-  %504 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i32 0, i32 1
-  %505 = load i64, ptr %504, align 8
-  store ptr %503, ptr %S.i129, align 8
-  %506 = getelementptr inbounds { ptr, i64 }, ptr %S.i129, i32 0, i32 1
-  store i64 %505, ptr %506, align 8
+  %517 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %518 = load i32, ptr %517, align 4
+  %or51 = or i32 %518, 66
+  %519 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i32 0, i32 0
+  %520 = load ptr, ptr %519, align 8
+  %521 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp50, i32 0, i32 1
+  %522 = load i64, ptr %521, align 8
+  store ptr %520, ptr %S.i129, align 8
+  %523 = getelementptr inbounds { ptr, i64 }, ptr %S.i129, i32 0, i32 1
+  store i64 %522, ptr %523, align 8
   store ptr %this1.i151, ptr %this.addr.i130, align 8
   store i32 %or51, ptr %Value.addr.i131, align 4
   %this1.i134 = load ptr, ptr %this.addr.i130, align 8
@@ -24886,44 +24992,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit159: ; preds = %if.then
 land.lhs.true.i137:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit159
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i132, ptr align 8 %this1.i134, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i133, ptr align 8 %S.i129, i64 16, i1 false)
-  %507 = load ptr, ptr %agg.tmp.i132, align 8
-  %508 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i132, i32 0, i32 1
-  %509 = load i64, ptr %508, align 8
-  %510 = load ptr, ptr %agg.tmp2.i133, align 8
-  %511 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i133, i32 0, i32 1
-  %512 = load i64, ptr %511, align 8
-  store ptr %507, ptr %LHS.i.i126, align 8
-  %513 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i126, i32 0, i32 1
-  store i64 %509, ptr %513, align 8
-  store ptr %510, ptr %RHS.i.i127, align 8
-  %514 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i127, i32 0, i32 1
-  store i64 %512, ptr %514, align 8
+  %524 = load ptr, ptr %agg.tmp.i132, align 8
+  %525 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i132, i32 0, i32 1
+  %526 = load i64, ptr %525, align 8
+  %527 = load ptr, ptr %agg.tmp2.i133, align 8
+  %528 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i133, i32 0, i32 1
+  %529 = load i64, ptr %528, align 8
+  store ptr %524, ptr %LHS.i.i126, align 8
+  %530 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i126, i32 0, i32 1
+  store i64 %526, ptr %530, align 8
+  store ptr %527, ptr %RHS.i.i127, align 8
+  %531 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i127, i32 0, i32 1
+  store i64 %529, ptr %531, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i128, ptr align 8 %RHS.i.i127, i64 16, i1 false)
-  %515 = load ptr, ptr %agg.tmp.i.i128, align 8
-  %516 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i128, i32 0, i32 1
-  %517 = load i64, ptr %516, align 8
-  store ptr %515, ptr %RHS.i591, align 8
-  %518 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i591, i32 0, i32 1
-  store i64 %517, ptr %518, align 8
+  %532 = load ptr, ptr %agg.tmp.i.i128, align 8
+  %533 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i128, i32 0, i32 1
+  %534 = load i64, ptr %533, align 8
+  store ptr %532, ptr %RHS.i591, align 8
+  %535 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i591, i32 0, i32 1
+  store i64 %534, ptr %535, align 8
   store ptr %LHS.i.i126, ptr %this.addr.i592, align 8
   %this1.i593 = load ptr, ptr %this.addr.i592, align 8
   %Length.i594 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i593, i32 0, i32 1
-  %519 = load i64, ptr %Length.i594, align 8
+  %536 = load i64, ptr %Length.i594, align 8
   %Length2.i595 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i591, i32 0, i32 1
-  %520 = load i64, ptr %Length2.i595, align 8
-  %cmp.i596 = icmp eq i64 %519, %520
+  %537 = load i64, ptr %Length2.i595, align 8
+  %cmp.i596 = icmp eq i64 %536, %537
   br i1 %cmp.i596, label %land.rhs.i597, label %_ZNK4llvh9StringRef6equalsES0_.exit601
 
 land.rhs.i597:                                    ; preds = %land.lhs.true.i137
-  %521 = load ptr, ptr %this1.i593, align 8
-  %522 = load ptr, ptr %RHS.i591, align 8
+  %538 = load ptr, ptr %this1.i593, align 8
+  %539 = load ptr, ptr %RHS.i591, align 8
   %Length4.i598 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i591, i32 0, i32 1
-  %523 = load i64, ptr %Length4.i598, align 8
-  store ptr %521, ptr %Lhs.addr.i698, align 8
-  store ptr %522, ptr %Rhs.addr.i699, align 8
-  store i64 %523, ptr %Length.addr.i700, align 8
-  %524 = load i64, ptr %Length.addr.i700, align 8
-  %cmp.i701 = icmp eq i64 %524, 0
+  %540 = load i64, ptr %Length4.i598, align 8
+  store ptr %538, ptr %Lhs.addr.i698, align 8
+  store ptr %539, ptr %Rhs.addr.i699, align 8
+  store i64 %540, ptr %Length.addr.i700, align 8
+  %541 = load i64, ptr %Length.addr.i700, align 8
+  %cmp.i701 = icmp eq i64 %541, 0
   br i1 %cmp.i701, label %if.then.i704, label %if.end.i702
 
 if.then.i704:                                     ; preds = %land.rhs.i597
@@ -24931,21 +25037,21 @@ if.then.i704:                                     ; preds = %land.rhs.i597
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit705
 
 if.end.i702:                                      ; preds = %land.rhs.i597
-  %525 = load ptr, ptr %Lhs.addr.i698, align 8
-  %526 = load ptr, ptr %Rhs.addr.i699, align 8
-  %527 = load i64, ptr %Length.addr.i700, align 8
-  %call.i703 = call i32 @memcmp(ptr noundef %525, ptr noundef %526, i64 noundef %527) #10
+  %542 = load ptr, ptr %Lhs.addr.i698, align 8
+  %543 = load ptr, ptr %Rhs.addr.i699, align 8
+  %544 = load i64, ptr %Length.addr.i700, align 8
+  %call.i703 = call i32 @memcmp(ptr noundef %542, ptr noundef %543, i64 noundef %544) #10
   store i32 %call.i703, ptr %retval.i697, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit705
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit705: ; preds = %if.end.i702, %if.then.i704
-  %528 = load i32, ptr %retval.i697, align 4
-  %cmp5.i600 = icmp eq i32 %528, 0
+  %545 = load i32, ptr %retval.i697, align 4
+  %cmp5.i600 = icmp eq i32 %545, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit601
 
 _ZNK4llvh9StringRef6equalsES0_.exit601:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit705, %land.lhs.true.i137
-  %529 = phi i1 [ false, %land.lhs.true.i137 ], [ %cmp5.i600, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit705 ]
-  br i1 %529, label %if.then.i139, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit142
+  %546 = phi i1 [ false, %land.lhs.true.i137 ], [ %cmp5.i600, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit705 ]
+  br i1 %546, label %if.then.i139, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit142
 
 if.then.i139:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit601
   %Result4.i140 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i134, i32 0, i32 1
@@ -24954,15 +25060,16 @@ if.then.i139:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit142: ; preds = %if.then.i139, %_ZNK4llvh9StringRef6equalsES0_.exit601, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit159
   call void @_ZN4llvh13StringLiteralC2ILm12EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm12ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp53, ptr noundef nonnull align 1 dereferenceable(12) @.str.121)
-  %530 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or54 = or i32 %530, 66
-  %531 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 0
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 1
-  %534 = load i64, ptr %533, align 8
-  store ptr %532, ptr %S.i112, align 8
-  %535 = getelementptr inbounds { ptr, i64 }, ptr %S.i112, i32 0, i32 1
-  store i64 %534, ptr %535, align 8
+  %547 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %548 = load i32, ptr %547, align 4
+  %or54 = or i32 %548, 66
+  %549 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 0
+  %550 = load ptr, ptr %549, align 8
+  %551 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp53, i32 0, i32 1
+  %552 = load i64, ptr %551, align 8
+  store ptr %550, ptr %S.i112, align 8
+  %553 = getelementptr inbounds { ptr, i64 }, ptr %S.i112, i32 0, i32 1
+  store i64 %552, ptr %553, align 8
   store ptr %this1.i134, ptr %this.addr.i113, align 8
   store i32 %or54, ptr %Value.addr.i114, align 4
   %this1.i117 = load ptr, ptr %this.addr.i113, align 8
@@ -24973,44 +25080,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit142: ; preds = %if.then
 land.lhs.true.i120:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit142
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i115, ptr align 8 %this1.i117, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i116, ptr align 8 %S.i112, i64 16, i1 false)
-  %536 = load ptr, ptr %agg.tmp.i115, align 8
-  %537 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i115, i32 0, i32 1
-  %538 = load i64, ptr %537, align 8
-  %539 = load ptr, ptr %agg.tmp2.i116, align 8
-  %540 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i116, i32 0, i32 1
-  %541 = load i64, ptr %540, align 8
-  store ptr %536, ptr %LHS.i.i109, align 8
-  %542 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i109, i32 0, i32 1
-  store i64 %538, ptr %542, align 8
-  store ptr %539, ptr %RHS.i.i110, align 8
-  %543 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i110, i32 0, i32 1
-  store i64 %541, ptr %543, align 8
+  %554 = load ptr, ptr %agg.tmp.i115, align 8
+  %555 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i115, i32 0, i32 1
+  %556 = load i64, ptr %555, align 8
+  %557 = load ptr, ptr %agg.tmp2.i116, align 8
+  %558 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i116, i32 0, i32 1
+  %559 = load i64, ptr %558, align 8
+  store ptr %554, ptr %LHS.i.i109, align 8
+  %560 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i109, i32 0, i32 1
+  store i64 %556, ptr %560, align 8
+  store ptr %557, ptr %RHS.i.i110, align 8
+  %561 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i110, i32 0, i32 1
+  store i64 %559, ptr %561, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i111, ptr align 8 %RHS.i.i110, i64 16, i1 false)
-  %544 = load ptr, ptr %agg.tmp.i.i111, align 8
-  %545 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i111, i32 0, i32 1
-  %546 = load i64, ptr %545, align 8
-  store ptr %544, ptr %RHS.i602, align 8
-  %547 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i602, i32 0, i32 1
-  store i64 %546, ptr %547, align 8
+  %562 = load ptr, ptr %agg.tmp.i.i111, align 8
+  %563 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i111, i32 0, i32 1
+  %564 = load i64, ptr %563, align 8
+  store ptr %562, ptr %RHS.i602, align 8
+  %565 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i602, i32 0, i32 1
+  store i64 %564, ptr %565, align 8
   store ptr %LHS.i.i109, ptr %this.addr.i603, align 8
   %this1.i604 = load ptr, ptr %this.addr.i603, align 8
   %Length.i605 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i604, i32 0, i32 1
-  %548 = load i64, ptr %Length.i605, align 8
+  %566 = load i64, ptr %Length.i605, align 8
   %Length2.i606 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i602, i32 0, i32 1
-  %549 = load i64, ptr %Length2.i606, align 8
-  %cmp.i607 = icmp eq i64 %548, %549
+  %567 = load i64, ptr %Length2.i606, align 8
+  %cmp.i607 = icmp eq i64 %566, %567
   br i1 %cmp.i607, label %land.rhs.i608, label %_ZNK4llvh9StringRef6equalsES0_.exit612
 
 land.rhs.i608:                                    ; preds = %land.lhs.true.i120
-  %550 = load ptr, ptr %this1.i604, align 8
-  %551 = load ptr, ptr %RHS.i602, align 8
+  %568 = load ptr, ptr %this1.i604, align 8
+  %569 = load ptr, ptr %RHS.i602, align 8
   %Length4.i609 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i602, i32 0, i32 1
-  %552 = load i64, ptr %Length4.i609, align 8
-  store ptr %550, ptr %Lhs.addr.i689, align 8
-  store ptr %551, ptr %Rhs.addr.i690, align 8
-  store i64 %552, ptr %Length.addr.i691, align 8
-  %553 = load i64, ptr %Length.addr.i691, align 8
-  %cmp.i692 = icmp eq i64 %553, 0
+  %570 = load i64, ptr %Length4.i609, align 8
+  store ptr %568, ptr %Lhs.addr.i689, align 8
+  store ptr %569, ptr %Rhs.addr.i690, align 8
+  store i64 %570, ptr %Length.addr.i691, align 8
+  %571 = load i64, ptr %Length.addr.i691, align 8
+  %cmp.i692 = icmp eq i64 %571, 0
   br i1 %cmp.i692, label %if.then.i695, label %if.end.i693
 
 if.then.i695:                                     ; preds = %land.rhs.i608
@@ -25018,21 +25125,21 @@ if.then.i695:                                     ; preds = %land.rhs.i608
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit696
 
 if.end.i693:                                      ; preds = %land.rhs.i608
-  %554 = load ptr, ptr %Lhs.addr.i689, align 8
-  %555 = load ptr, ptr %Rhs.addr.i690, align 8
-  %556 = load i64, ptr %Length.addr.i691, align 8
-  %call.i694 = call i32 @memcmp(ptr noundef %554, ptr noundef %555, i64 noundef %556) #10
+  %572 = load ptr, ptr %Lhs.addr.i689, align 8
+  %573 = load ptr, ptr %Rhs.addr.i690, align 8
+  %574 = load i64, ptr %Length.addr.i691, align 8
+  %call.i694 = call i32 @memcmp(ptr noundef %572, ptr noundef %573, i64 noundef %574) #10
   store i32 %call.i694, ptr %retval.i688, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit696
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit696: ; preds = %if.end.i693, %if.then.i695
-  %557 = load i32, ptr %retval.i688, align 4
-  %cmp5.i611 = icmp eq i32 %557, 0
+  %575 = load i32, ptr %retval.i688, align 4
+  %cmp5.i611 = icmp eq i32 %575, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit612
 
 _ZNK4llvh9StringRef6equalsES0_.exit612:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit696, %land.lhs.true.i120
-  %558 = phi i1 [ false, %land.lhs.true.i120 ], [ %cmp5.i611, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit696 ]
-  br i1 %558, label %if.then.i122, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit125
+  %576 = phi i1 [ false, %land.lhs.true.i120 ], [ %cmp5.i611, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit696 ]
+  br i1 %576, label %if.then.i122, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit125
 
 if.then.i122:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit612
   %Result4.i123 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i117, i32 0, i32 1
@@ -25041,15 +25148,16 @@ if.then.i122:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit125: ; preds = %if.then.i122, %_ZNK4llvh9StringRef6equalsES0_.exit612, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit142
   call void @_ZN4llvh13StringLiteralC2ILm12EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm12ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp56, ptr noundef nonnull align 1 dereferenceable(12) @.str.122)
-  %559 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or57 = or i32 %559, 66
-  %560 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 0
-  %561 = load ptr, ptr %560, align 8
-  %562 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 1
-  %563 = load i64, ptr %562, align 8
-  store ptr %561, ptr %S.i95, align 8
-  %564 = getelementptr inbounds { ptr, i64 }, ptr %S.i95, i32 0, i32 1
-  store i64 %563, ptr %564, align 8
+  %577 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %578 = load i32, ptr %577, align 4
+  %or57 = or i32 %578, 66
+  %579 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 0
+  %580 = load ptr, ptr %579, align 8
+  %581 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 1
+  %582 = load i64, ptr %581, align 8
+  store ptr %580, ptr %S.i95, align 8
+  %583 = getelementptr inbounds { ptr, i64 }, ptr %S.i95, i32 0, i32 1
+  store i64 %582, ptr %583, align 8
   store ptr %this1.i117, ptr %this.addr.i96, align 8
   store i32 %or57, ptr %Value.addr.i97, align 4
   %this1.i100 = load ptr, ptr %this.addr.i96, align 8
@@ -25060,44 +25168,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit125: ; preds = %if.then
 land.lhs.true.i103:                               ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit125
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i98, ptr align 8 %this1.i100, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i99, ptr align 8 %S.i95, i64 16, i1 false)
-  %565 = load ptr, ptr %agg.tmp.i98, align 8
-  %566 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i98, i32 0, i32 1
-  %567 = load i64, ptr %566, align 8
-  %568 = load ptr, ptr %agg.tmp2.i99, align 8
-  %569 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i99, i32 0, i32 1
-  %570 = load i64, ptr %569, align 8
-  store ptr %565, ptr %LHS.i.i92, align 8
-  %571 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i92, i32 0, i32 1
-  store i64 %567, ptr %571, align 8
-  store ptr %568, ptr %RHS.i.i93, align 8
-  %572 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i93, i32 0, i32 1
-  store i64 %570, ptr %572, align 8
+  %584 = load ptr, ptr %agg.tmp.i98, align 8
+  %585 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i98, i32 0, i32 1
+  %586 = load i64, ptr %585, align 8
+  %587 = load ptr, ptr %agg.tmp2.i99, align 8
+  %588 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i99, i32 0, i32 1
+  %589 = load i64, ptr %588, align 8
+  store ptr %584, ptr %LHS.i.i92, align 8
+  %590 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i92, i32 0, i32 1
+  store i64 %586, ptr %590, align 8
+  store ptr %587, ptr %RHS.i.i93, align 8
+  %591 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i93, i32 0, i32 1
+  store i64 %589, ptr %591, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i94, ptr align 8 %RHS.i.i93, i64 16, i1 false)
-  %573 = load ptr, ptr %agg.tmp.i.i94, align 8
-  %574 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i94, i32 0, i32 1
-  %575 = load i64, ptr %574, align 8
-  store ptr %573, ptr %RHS.i613, align 8
-  %576 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i613, i32 0, i32 1
-  store i64 %575, ptr %576, align 8
+  %592 = load ptr, ptr %agg.tmp.i.i94, align 8
+  %593 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i94, i32 0, i32 1
+  %594 = load i64, ptr %593, align 8
+  store ptr %592, ptr %RHS.i613, align 8
+  %595 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i613, i32 0, i32 1
+  store i64 %594, ptr %595, align 8
   store ptr %LHS.i.i92, ptr %this.addr.i614, align 8
   %this1.i615 = load ptr, ptr %this.addr.i614, align 8
   %Length.i616 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i615, i32 0, i32 1
-  %577 = load i64, ptr %Length.i616, align 8
+  %596 = load i64, ptr %Length.i616, align 8
   %Length2.i617 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i613, i32 0, i32 1
-  %578 = load i64, ptr %Length2.i617, align 8
-  %cmp.i618 = icmp eq i64 %577, %578
+  %597 = load i64, ptr %Length2.i617, align 8
+  %cmp.i618 = icmp eq i64 %596, %597
   br i1 %cmp.i618, label %land.rhs.i619, label %_ZNK4llvh9StringRef6equalsES0_.exit623
 
 land.rhs.i619:                                    ; preds = %land.lhs.true.i103
-  %579 = load ptr, ptr %this1.i615, align 8
-  %580 = load ptr, ptr %RHS.i613, align 8
+  %598 = load ptr, ptr %this1.i615, align 8
+  %599 = load ptr, ptr %RHS.i613, align 8
   %Length4.i620 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i613, i32 0, i32 1
-  %581 = load i64, ptr %Length4.i620, align 8
-  store ptr %579, ptr %Lhs.addr.i680, align 8
-  store ptr %580, ptr %Rhs.addr.i681, align 8
-  store i64 %581, ptr %Length.addr.i682, align 8
-  %582 = load i64, ptr %Length.addr.i682, align 8
-  %cmp.i683 = icmp eq i64 %582, 0
+  %600 = load i64, ptr %Length4.i620, align 8
+  store ptr %598, ptr %Lhs.addr.i680, align 8
+  store ptr %599, ptr %Rhs.addr.i681, align 8
+  store i64 %600, ptr %Length.addr.i682, align 8
+  %601 = load i64, ptr %Length.addr.i682, align 8
+  %cmp.i683 = icmp eq i64 %601, 0
   br i1 %cmp.i683, label %if.then.i686, label %if.end.i684
 
 if.then.i686:                                     ; preds = %land.rhs.i619
@@ -25105,21 +25213,21 @@ if.then.i686:                                     ; preds = %land.rhs.i619
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit687
 
 if.end.i684:                                      ; preds = %land.rhs.i619
-  %583 = load ptr, ptr %Lhs.addr.i680, align 8
-  %584 = load ptr, ptr %Rhs.addr.i681, align 8
-  %585 = load i64, ptr %Length.addr.i682, align 8
-  %call.i685 = call i32 @memcmp(ptr noundef %583, ptr noundef %584, i64 noundef %585) #10
+  %602 = load ptr, ptr %Lhs.addr.i680, align 8
+  %603 = load ptr, ptr %Rhs.addr.i681, align 8
+  %604 = load i64, ptr %Length.addr.i682, align 8
+  %call.i685 = call i32 @memcmp(ptr noundef %602, ptr noundef %603, i64 noundef %604) #10
   store i32 %call.i685, ptr %retval.i679, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit687
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit687: ; preds = %if.end.i684, %if.then.i686
-  %586 = load i32, ptr %retval.i679, align 4
-  %cmp5.i622 = icmp eq i32 %586, 0
+  %605 = load i32, ptr %retval.i679, align 4
+  %cmp5.i622 = icmp eq i32 %605, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit623
 
 _ZNK4llvh9StringRef6equalsES0_.exit623:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit687, %land.lhs.true.i103
-  %587 = phi i1 [ false, %land.lhs.true.i103 ], [ %cmp5.i622, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit687 ]
-  br i1 %587, label %if.then.i105, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit108
+  %606 = phi i1 [ false, %land.lhs.true.i103 ], [ %cmp5.i622, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit687 ]
+  br i1 %606, label %if.then.i105, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit108
 
 if.then.i105:                                     ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit623
   %Result4.i106 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i100, i32 0, i32 1
@@ -25128,15 +25236,16 @@ if.then.i105:                                     ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit108: ; preds = %if.then.i105, %_ZNK4llvh9StringRef6equalsES0_.exit623, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit125
   call void @_ZN4llvh13StringLiteralC2ILm12EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm12ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp59, ptr noundef nonnull align 1 dereferenceable(12) @.str.123)
-  %588 = load i32, ptr getelementptr inbounds ([7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7), align 4
-  %or60 = or i32 %588, 66
-  %589 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp59, i32 0, i32 0
-  %590 = load ptr, ptr %589, align 8
-  %591 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp59, i32 0, i32 1
-  %592 = load i64, ptr %591, align 8
-  store ptr %590, ptr %S.i78, align 8
-  %593 = getelementptr inbounds { ptr, i64 }, ptr %S.i78, i32 0, i32 1
-  store i64 %592, ptr %593, align 8
+  %607 = getelementptr inbounds [7 x %"struct.(anonymous namespace)::ArchNames.2"], ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 0, i64 1, i32 7
+  %608 = load i32, ptr %607, align 4
+  %or60 = or i32 %608, 66
+  %609 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp59, i32 0, i32 0
+  %610 = load ptr, ptr %609, align 8
+  %611 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp59, i32 0, i32 1
+  %612 = load i64, ptr %611, align 8
+  store ptr %610, ptr %S.i78, align 8
+  %613 = getelementptr inbounds { ptr, i64 }, ptr %S.i78, i32 0, i32 1
+  store i64 %612, ptr %613, align 8
   store ptr %this1.i100, ptr %this.addr.i79, align 8
   store i32 %or60, ptr %Value.addr.i80, align 4
   %this1.i83 = load ptr, ptr %this.addr.i79, align 8
@@ -25147,44 +25256,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit108: ; preds = %if.then
 land.lhs.true.i86:                                ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit108
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i81, ptr align 8 %this1.i83, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i82, ptr align 8 %S.i78, i64 16, i1 false)
-  %594 = load ptr, ptr %agg.tmp.i81, align 8
-  %595 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i81, i32 0, i32 1
-  %596 = load i64, ptr %595, align 8
-  %597 = load ptr, ptr %agg.tmp2.i82, align 8
-  %598 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i82, i32 0, i32 1
-  %599 = load i64, ptr %598, align 8
-  store ptr %594, ptr %LHS.i.i75, align 8
-  %600 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i75, i32 0, i32 1
-  store i64 %596, ptr %600, align 8
-  store ptr %597, ptr %RHS.i.i76, align 8
-  %601 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i76, i32 0, i32 1
-  store i64 %599, ptr %601, align 8
+  %614 = load ptr, ptr %agg.tmp.i81, align 8
+  %615 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i81, i32 0, i32 1
+  %616 = load i64, ptr %615, align 8
+  %617 = load ptr, ptr %agg.tmp2.i82, align 8
+  %618 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i82, i32 0, i32 1
+  %619 = load i64, ptr %618, align 8
+  store ptr %614, ptr %LHS.i.i75, align 8
+  %620 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i75, i32 0, i32 1
+  store i64 %616, ptr %620, align 8
+  store ptr %617, ptr %RHS.i.i76, align 8
+  %621 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i76, i32 0, i32 1
+  store i64 %619, ptr %621, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i77, ptr align 8 %RHS.i.i76, i64 16, i1 false)
-  %602 = load ptr, ptr %agg.tmp.i.i77, align 8
-  %603 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i77, i32 0, i32 1
-  %604 = load i64, ptr %603, align 8
-  store ptr %602, ptr %RHS.i624, align 8
-  %605 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i624, i32 0, i32 1
-  store i64 %604, ptr %605, align 8
+  %622 = load ptr, ptr %agg.tmp.i.i77, align 8
+  %623 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i77, i32 0, i32 1
+  %624 = load i64, ptr %623, align 8
+  store ptr %622, ptr %RHS.i624, align 8
+  %625 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i624, i32 0, i32 1
+  store i64 %624, ptr %625, align 8
   store ptr %LHS.i.i75, ptr %this.addr.i625, align 8
   %this1.i626 = load ptr, ptr %this.addr.i625, align 8
   %Length.i627 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i626, i32 0, i32 1
-  %606 = load i64, ptr %Length.i627, align 8
+  %626 = load i64, ptr %Length.i627, align 8
   %Length2.i628 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i624, i32 0, i32 1
-  %607 = load i64, ptr %Length2.i628, align 8
-  %cmp.i629 = icmp eq i64 %606, %607
+  %627 = load i64, ptr %Length2.i628, align 8
+  %cmp.i629 = icmp eq i64 %626, %627
   br i1 %cmp.i629, label %land.rhs.i630, label %_ZNK4llvh9StringRef6equalsES0_.exit634
 
 land.rhs.i630:                                    ; preds = %land.lhs.true.i86
-  %608 = load ptr, ptr %this1.i626, align 8
-  %609 = load ptr, ptr %RHS.i624, align 8
+  %628 = load ptr, ptr %this1.i626, align 8
+  %629 = load ptr, ptr %RHS.i624, align 8
   %Length4.i631 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i624, i32 0, i32 1
-  %610 = load i64, ptr %Length4.i631, align 8
-  store ptr %608, ptr %Lhs.addr.i671, align 8
-  store ptr %609, ptr %Rhs.addr.i672, align 8
-  store i64 %610, ptr %Length.addr.i673, align 8
-  %611 = load i64, ptr %Length.addr.i673, align 8
-  %cmp.i674 = icmp eq i64 %611, 0
+  %630 = load i64, ptr %Length4.i631, align 8
+  store ptr %628, ptr %Lhs.addr.i671, align 8
+  store ptr %629, ptr %Rhs.addr.i672, align 8
+  store i64 %630, ptr %Length.addr.i673, align 8
+  %631 = load i64, ptr %Length.addr.i673, align 8
+  %cmp.i674 = icmp eq i64 %631, 0
   br i1 %cmp.i674, label %if.then.i677, label %if.end.i675
 
 if.then.i677:                                     ; preds = %land.rhs.i630
@@ -25192,21 +25301,21 @@ if.then.i677:                                     ; preds = %land.rhs.i630
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit678
 
 if.end.i675:                                      ; preds = %land.rhs.i630
-  %612 = load ptr, ptr %Lhs.addr.i671, align 8
-  %613 = load ptr, ptr %Rhs.addr.i672, align 8
-  %614 = load i64, ptr %Length.addr.i673, align 8
-  %call.i676 = call i32 @memcmp(ptr noundef %612, ptr noundef %613, i64 noundef %614) #10
+  %632 = load ptr, ptr %Lhs.addr.i671, align 8
+  %633 = load ptr, ptr %Rhs.addr.i672, align 8
+  %634 = load i64, ptr %Length.addr.i673, align 8
+  %call.i676 = call i32 @memcmp(ptr noundef %632, ptr noundef %633, i64 noundef %634) #10
   store i32 %call.i676, ptr %retval.i670, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit678
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit678: ; preds = %if.end.i675, %if.then.i677
-  %615 = load i32, ptr %retval.i670, align 4
-  %cmp5.i633 = icmp eq i32 %615, 0
+  %635 = load i32, ptr %retval.i670, align 4
+  %cmp5.i633 = icmp eq i32 %635, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit634
 
 _ZNK4llvh9StringRef6equalsES0_.exit634:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit678, %land.lhs.true.i86
-  %616 = phi i1 [ false, %land.lhs.true.i86 ], [ %cmp5.i633, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit678 ]
-  br i1 %616, label %if.then.i88, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit91
+  %636 = phi i1 [ false, %land.lhs.true.i86 ], [ %cmp5.i633, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit678 ]
+  br i1 %636, label %if.then.i88, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit91
 
 if.then.i88:                                      ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit634
   %Result4.i89 = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i83, i32 0, i32 1
@@ -25215,15 +25324,16 @@ if.then.i88:                                      ; preds = %_ZNK4llvh9StringRef
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit91: ; preds = %if.then.i88, %_ZNK4llvh9StringRef6equalsES0_.exit634, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit108
   call void @_ZN4llvh13StringLiteralC2ILm8EEEUa9enable_ifIXeqclL_Z16__builtin_strlenEfL0p_EmiLm8ELi1EEERAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp62, ptr noundef nonnull align 1 dereferenceable(8) @.str.83)
-  %617 = load i32, ptr getelementptr inbounds (%"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i32 0, i32 7), align 4
-  %or63 = or i32 %617, 0
-  %618 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp62, i32 0, i32 0
-  %619 = load ptr, ptr %618, align 8
-  %620 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp62, i32 0, i32 1
-  %621 = load i64, ptr %620, align 8
-  store ptr %619, ptr %S.i69, align 8
-  %622 = getelementptr inbounds { ptr, i64 }, ptr %S.i69, i32 0, i32 1
-  store i64 %621, ptr %622, align 8
+  %637 = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i32 0, i32 7
+  %638 = load i32, ptr %637, align 4
+  %or63 = or i32 %638, 0
+  %639 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp62, i32 0, i32 0
+  %640 = load ptr, ptr %639, align 8
+  %641 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp62, i32 0, i32 1
+  %642 = load i64, ptr %641, align 8
+  store ptr %640, ptr %S.i69, align 8
+  %643 = getelementptr inbounds { ptr, i64 }, ptr %S.i69, i32 0, i32 1
+  store i64 %642, ptr %643, align 8
   store ptr %this1.i83, ptr %this.addr.i70, align 8
   store i32 %or63, ptr %Value.addr.i, align 4
   %this1.i72 = load ptr, ptr %this.addr.i70, align 8
@@ -25234,44 +25344,44 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit91: ; preds = %if.then.
 land.lhs.true.i:                                  ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit91
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i71, ptr align 8 %this1.i72, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2.i, ptr align 8 %S.i69, i64 16, i1 false)
-  %623 = load ptr, ptr %agg.tmp.i71, align 8
-  %624 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i71, i32 0, i32 1
-  %625 = load i64, ptr %624, align 8
-  %626 = load ptr, ptr %agg.tmp2.i, align 8
-  %627 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i, i32 0, i32 1
-  %628 = load i64, ptr %627, align 8
-  store ptr %623, ptr %LHS.i.i, align 8
-  %629 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i, i32 0, i32 1
-  store i64 %625, ptr %629, align 8
-  store ptr %626, ptr %RHS.i.i, align 8
-  %630 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i, i32 0, i32 1
-  store i64 %628, ptr %630, align 8
+  %644 = load ptr, ptr %agg.tmp.i71, align 8
+  %645 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i71, i32 0, i32 1
+  %646 = load i64, ptr %645, align 8
+  %647 = load ptr, ptr %agg.tmp2.i, align 8
+  %648 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2.i, i32 0, i32 1
+  %649 = load i64, ptr %648, align 8
+  store ptr %644, ptr %LHS.i.i, align 8
+  %650 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i.i, i32 0, i32 1
+  store i64 %646, ptr %650, align 8
+  store ptr %647, ptr %RHS.i.i, align 8
+  %651 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i.i, i32 0, i32 1
+  store i64 %649, ptr %651, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i.i, ptr align 8 %RHS.i.i, i64 16, i1 false)
-  %631 = load ptr, ptr %agg.tmp.i.i, align 8
-  %632 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i, i32 0, i32 1
-  %633 = load i64, ptr %632, align 8
-  store ptr %631, ptr %RHS.i635, align 8
-  %634 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i635, i32 0, i32 1
-  store i64 %633, ptr %634, align 8
+  %652 = load ptr, ptr %agg.tmp.i.i, align 8
+  %653 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i.i, i32 0, i32 1
+  %654 = load i64, ptr %653, align 8
+  store ptr %652, ptr %RHS.i635, align 8
+  %655 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i635, i32 0, i32 1
+  store i64 %654, ptr %655, align 8
   store ptr %LHS.i.i, ptr %this.addr.i636, align 8
   %this1.i637 = load ptr, ptr %this.addr.i636, align 8
   %Length.i638 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i637, i32 0, i32 1
-  %635 = load i64, ptr %Length.i638, align 8
+  %656 = load i64, ptr %Length.i638, align 8
   %Length2.i639 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i635, i32 0, i32 1
-  %636 = load i64, ptr %Length2.i639, align 8
-  %cmp.i640 = icmp eq i64 %635, %636
+  %657 = load i64, ptr %Length2.i639, align 8
+  %cmp.i640 = icmp eq i64 %656, %657
   br i1 %cmp.i640, label %land.rhs.i641, label %_ZNK4llvh9StringRef6equalsES0_.exit645
 
 land.rhs.i641:                                    ; preds = %land.lhs.true.i
-  %637 = load ptr, ptr %this1.i637, align 8
-  %638 = load ptr, ptr %RHS.i635, align 8
+  %658 = load ptr, ptr %this1.i637, align 8
+  %659 = load ptr, ptr %RHS.i635, align 8
   %Length4.i642 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i635, i32 0, i32 1
-  %639 = load i64, ptr %Length4.i642, align 8
-  store ptr %637, ptr %Lhs.addr.i662, align 8
-  store ptr %638, ptr %Rhs.addr.i663, align 8
-  store i64 %639, ptr %Length.addr.i664, align 8
-  %640 = load i64, ptr %Length.addr.i664, align 8
-  %cmp.i665 = icmp eq i64 %640, 0
+  %660 = load i64, ptr %Length4.i642, align 8
+  store ptr %658, ptr %Lhs.addr.i662, align 8
+  store ptr %659, ptr %Rhs.addr.i663, align 8
+  store i64 %660, ptr %Length.addr.i664, align 8
+  %661 = load i64, ptr %Length.addr.i664, align 8
+  %cmp.i665 = icmp eq i64 %661, 0
   br i1 %cmp.i665, label %if.then.i668, label %if.end.i666
 
 if.then.i668:                                     ; preds = %land.rhs.i641
@@ -25279,21 +25389,21 @@ if.then.i668:                                     ; preds = %land.rhs.i641
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit669
 
 if.end.i666:                                      ; preds = %land.rhs.i641
-  %641 = load ptr, ptr %Lhs.addr.i662, align 8
-  %642 = load ptr, ptr %Rhs.addr.i663, align 8
-  %643 = load i64, ptr %Length.addr.i664, align 8
-  %call.i667 = call i32 @memcmp(ptr noundef %641, ptr noundef %642, i64 noundef %643) #10
+  %662 = load ptr, ptr %Lhs.addr.i662, align 8
+  %663 = load ptr, ptr %Rhs.addr.i663, align 8
+  %664 = load i64, ptr %Length.addr.i664, align 8
+  %call.i667 = call i32 @memcmp(ptr noundef %662, ptr noundef %663, i64 noundef %664) #10
   store i32 %call.i667, ptr %retval.i661, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit669
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit669: ; preds = %if.end.i666, %if.then.i668
-  %644 = load i32, ptr %retval.i661, align 4
-  %cmp5.i644 = icmp eq i32 %644, 0
+  %665 = load i32, ptr %retval.i661, align 4
+  %cmp5.i644 = icmp eq i32 %665, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit645
 
 _ZNK4llvh9StringRef6equalsES0_.exit645:           ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit669, %land.lhs.true.i
-  %645 = phi i1 [ false, %land.lhs.true.i ], [ %cmp5.i644, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit669 ]
-  br i1 %645, label %if.then.i, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
+  %666 = phi i1 [ false, %land.lhs.true.i ], [ %cmp5.i644, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit669 ]
+  br i1 %666, label %if.then.i, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
 
 if.then.i:                                        ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit645
   %Result4.i = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i72, i32 0, i32 1
@@ -25311,23 +25421,23 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit: ; preds = %if.then.i,
 if.then.i420:                                     ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
   %Result2.i = getelementptr inbounds %"class.llvh::StringSwitch", ptr %this1.i417, i32 0, i32 1
   %call3.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNR4llvh8OptionalIjEdeEv(ptr noundef nonnull align 4 dereferenceable(8) %Result2.i)
-  %646 = load i32, ptr %call3.i, align 4
-  store i32 %646, ptr %retval.i, align 4
+  %667 = load i32, ptr %call3.i, align 4
+  store i32 %667, ptr %retval.i, align 4
   br label %_ZN4llvh12StringSwitchIjjE7DefaultEj.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit
-  %647 = load i32, ptr %Value.addr.i416, align 4
-  store i32 %647, ptr %retval.i, align 4
+  %668 = load i32, ptr %Value.addr.i416, align 4
+  store i32 %668, ptr %retval.i, align 4
   br label %_ZN4llvh12StringSwitchIjjE7DefaultEj.exit
 
 _ZN4llvh12StringSwitchIjjE7DefaultEj.exit:        ; preds = %if.end.i, %if.then.i420
-  %648 = load i32, ptr %retval.i, align 4
-  store i32 %648, ptr %retval, align 4
+  %669 = load i32, ptr %retval.i, align 4
+  store i32 %669, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %_ZN4llvh12StringSwitchIjjE7DefaultEj.exit, %if.then
-  %649 = load i32, ptr %retval, align 4
-  ret i32 %649
+  %670 = load i32, ptr %retval, align 4
+  ret i32 %670
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28432,42 +28542,43 @@ entry:
   store i32 %ArchExtKind, ptr %ArchExtKind.addr, align 4
   store ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 21), ptr %__end1, align 8
+  %0 = getelementptr inbounds %struct.anon.0, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 21
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %AE, align 8
-  %3 = load i32, ptr %ArchExtKind.addr, align 4
-  %4 = load ptr, ptr %AE, align 8
-  %ID = getelementptr inbounds %struct.anon.0, ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %ID, align 8
-  %cmp1 = icmp eq i32 %3, %5
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %AE, align 8
+  %4 = load i32, ptr %ArchExtKind.addr, align 4
+  %5 = load ptr, ptr %AE, align 8
+  %ID = getelementptr inbounds %struct.anon.0, ptr %5, i32 0, i32 2
+  %6 = load i32, ptr %ID, align 8
+  %cmp1 = icmp eq i32 %4, %6
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %AE, align 8
-  %call = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %6)
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
-  %8 = extractvalue { ptr, i64 } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
-  %10 = extractvalue { ptr, i64 } %call, 1
-  store i64 %10, ptr %9, align 8
+  %7 = load ptr, ptr %AE, align 8
+  %call = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %7)
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
+  %9 = extractvalue { ptr, i64 } %call, 0
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
+  %11 = extractvalue { ptr, i64 } %call, 1
+  store i64 %11, ptr %10, align 8
   br label %return
 
 if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %11 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %11, i32 1
+  %12 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %12, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -28477,8 +28588,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %12 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %12
+  %13 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28649,74 +28760,75 @@ if.then:                                          ; preds = %_ZNK4llvh9StringRef
   store i64 %33, ptr %32, align 8
   store ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, ptr %__range2, align 8
   store ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 21), ptr %__end2, align 8
+  %34 = getelementptr inbounds %struct.anon.0, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 21
+  store ptr %34, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %34 = load ptr, ptr %__begin2, align 8
-  %35 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %34, %35
+  %35 = load ptr, ptr %__begin2, align 8
+  %36 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %35, %36
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %36 = load ptr, ptr %__begin2, align 8
-  store ptr %36, ptr %AE, align 8
-  %37 = load ptr, ptr %AE, align 8
-  %NegFeature = getelementptr inbounds %struct.anon.0, ptr %37, i32 0, i32 4
-  %38 = load ptr, ptr %NegFeature, align 8
-  %tobool = icmp ne ptr %38, null
+  %37 = load ptr, ptr %__begin2, align 8
+  store ptr %37, ptr %AE, align 8
+  %38 = load ptr, ptr %AE, align 8
+  %NegFeature = getelementptr inbounds %struct.anon.0, ptr %38, i32 0, i32 4
+  %39 = load ptr, ptr %NegFeature, align 8
+  %tobool = icmp ne ptr %39, null
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %ArchExtBase, i64 16, i1 false)
-  %39 = load ptr, ptr %AE, align 8
-  %call4 = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %39)
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
-  %41 = extractvalue { ptr, i64 } %call4, 0
-  store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
-  %43 = extractvalue { ptr, i64 } %call4, 1
-  store i64 %43, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
-  %51 = load i64, ptr %50, align 8
-  store ptr %45, ptr %LHS.i25, align 8
-  %52 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i25, i32 0, i32 1
-  store i64 %47, ptr %52, align 8
-  store ptr %49, ptr %RHS.i26, align 8
-  %53 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i26, i32 0, i32 1
-  store i64 %51, ptr %53, align 8
+  %40 = load ptr, ptr %AE, align 8
+  %call4 = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %40)
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
+  %42 = extractvalue { ptr, i64 } %call4, 0
+  store ptr %42, ptr %41, align 8
+  %43 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
+  %44 = extractvalue { ptr, i64 } %call4, 1
+  store i64 %44, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp3, i32 0, i32 1
+  %52 = load i64, ptr %51, align 8
+  store ptr %46, ptr %LHS.i25, align 8
+  %53 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i25, i32 0, i32 1
+  store i64 %48, ptr %53, align 8
+  store ptr %50, ptr %RHS.i26, align 8
+  %54 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i26, i32 0, i32 1
+  store i64 %52, ptr %54, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i27, ptr align 8 %RHS.i26, i64 16, i1 false)
-  %54 = load ptr, ptr %agg.tmp.i27, align 8
-  %55 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i27, i32 0, i32 1
-  %56 = load i64, ptr %55, align 8
-  store ptr %54, ptr %RHS.i62, align 8
-  %57 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i62, i32 0, i32 1
-  store i64 %56, ptr %57, align 8
+  %55 = load ptr, ptr %agg.tmp.i27, align 8
+  %56 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i27, i32 0, i32 1
+  %57 = load i64, ptr %56, align 8
+  store ptr %55, ptr %RHS.i62, align 8
+  %58 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i62, i32 0, i32 1
+  store i64 %57, ptr %58, align 8
   store ptr %LHS.i25, ptr %this.addr.i63, align 8
   %this1.i64 = load ptr, ptr %this.addr.i63, align 8
   %Length.i65 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i64, i32 0, i32 1
-  %58 = load i64, ptr %Length.i65, align 8
+  %59 = load i64, ptr %Length.i65, align 8
   %Length2.i66 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i62, i32 0, i32 1
-  %59 = load i64, ptr %Length2.i66, align 8
-  %cmp.i67 = icmp eq i64 %58, %59
+  %60 = load i64, ptr %Length2.i66, align 8
+  %cmp.i67 = icmp eq i64 %59, %60
   br i1 %cmp.i67, label %land.rhs.i68, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i68:                                     ; preds = %land.lhs.true
-  %60 = load ptr, ptr %this1.i64, align 8
-  %61 = load ptr, ptr %RHS.i62, align 8
+  %61 = load ptr, ptr %this1.i64, align 8
+  %62 = load ptr, ptr %RHS.i62, align 8
   %Length4.i69 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i62, i32 0, i32 1
-  %62 = load i64, ptr %Length4.i69, align 8
-  store ptr %60, ptr %Lhs.addr.i86, align 8
-  store ptr %61, ptr %Rhs.addr.i87, align 8
-  store i64 %62, ptr %Length.addr.i88, align 8
-  %63 = load i64, ptr %Length.addr.i88, align 8
-  %cmp.i89 = icmp eq i64 %63, 0
+  %63 = load i64, ptr %Length4.i69, align 8
+  store ptr %61, ptr %Lhs.addr.i86, align 8
+  store ptr %62, ptr %Rhs.addr.i87, align 8
+  store i64 %63, ptr %Length.addr.i88, align 8
+  %64 = load i64, ptr %Length.addr.i88, align 8
+  %cmp.i89 = icmp eq i64 %64, 0
   br i1 %cmp.i89, label %if.then.i92, label %if.end.i90
 
 if.then.i92:                                      ; preds = %land.rhs.i68
@@ -28724,39 +28836,39 @@ if.then.i92:                                      ; preds = %land.rhs.i68
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93
 
 if.end.i90:                                       ; preds = %land.rhs.i68
-  %64 = load ptr, ptr %Lhs.addr.i86, align 8
-  %65 = load ptr, ptr %Rhs.addr.i87, align 8
-  %66 = load i64, ptr %Length.addr.i88, align 8
-  %call.i91 = call i32 @memcmp(ptr noundef %64, ptr noundef %65, i64 noundef %66) #10
+  %65 = load ptr, ptr %Lhs.addr.i86, align 8
+  %66 = load ptr, ptr %Rhs.addr.i87, align 8
+  %67 = load i64, ptr %Length.addr.i88, align 8
+  %call.i91 = call i32 @memcmp(ptr noundef %65, ptr noundef %66, i64 noundef %67) #10
   store i32 %call.i91, ptr %retval.i85, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93: ; preds = %if.end.i90, %if.then.i92
-  %67 = load i32, ptr %retval.i85, align 4
-  %cmp5.i71 = icmp eq i32 %67, 0
+  %68 = load i32, ptr %retval.i85, align 4
+  %cmp5.i71 = icmp eq i32 %68, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93, %land.lhs.true
-  %68 = phi i1 [ false, %land.lhs.true ], [ %cmp5.i71, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93 ]
-  br i1 %68, label %if.then6, label %if.end
+  %69 = phi i1 [ false, %land.lhs.true ], [ %cmp5.i71, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93 ]
+  br i1 %69, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
-  %69 = load ptr, ptr %AE, align 8
-  %NegFeature7 = getelementptr inbounds %struct.anon.0, ptr %69, i32 0, i32 4
-  %70 = load ptr, ptr %NegFeature7, align 8
+  %70 = load ptr, ptr %AE, align 8
+  %NegFeature7 = getelementptr inbounds %struct.anon.0, ptr %70, i32 0, i32 4
+  %71 = load ptr, ptr %NegFeature7, align 8
   store ptr %retval, ptr %this.addr.i30, align 8
-  store ptr %70, ptr %Str.addr.i31, align 8
+  store ptr %71, ptr %Str.addr.i31, align 8
   %this1.i32 = load ptr, ptr %this.addr.i30, align 8
-  %71 = load ptr, ptr %Str.addr.i31, align 8
-  store ptr %71, ptr %this1.i32, align 8
-  %Length.i33 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i32, i32 0, i32 1
   %72 = load ptr, ptr %Str.addr.i31, align 8
-  %tobool.i34 = icmp ne ptr %72, null
+  store ptr %72, ptr %this1.i32, align 8
+  %Length.i33 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i32, i32 0, i32 1
+  %73 = load ptr, ptr %Str.addr.i31, align 8
+  %tobool.i34 = icmp ne ptr %73, null
   br i1 %tobool.i34, label %cond.true.i37, label %cond.false.i35
 
 cond.true.i37:                                    ; preds = %if.then6
-  %73 = load ptr, ptr %Str.addr.i31, align 8
-  %call.i38 = call i64 @strlen(ptr noundef %73) #10
+  %74 = load ptr, ptr %Str.addr.i31, align 8
+  %call.i38 = call i64 @strlen(ptr noundef %74) #10
   br label %_ZN4llvh9StringRefC2EPKc.exit39
 
 cond.false.i35:                                   ; preds = %if.then6
@@ -28771,8 +28883,8 @@ if.end:                                           ; preds = %_ZNK4llvh9StringRef
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %74 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %74, i32 1
+  %75 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %75, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -28782,74 +28894,75 @@ for.end:                                          ; preds = %for.cond
 if.end8:                                          ; preds = %for.end, %_ZNK4llvh9StringRef10startswithES0_.exit
   store ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 21), ptr %__end1, align 8
+  %76 = getelementptr inbounds %struct.anon.0, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 21
+  store ptr %76, ptr %__end1, align 8
   br label %for.cond9
 
 for.cond9:                                        ; preds = %for.inc22, %if.end8
-  %75 = load ptr, ptr %__begin1, align 8
-  %76 = load ptr, ptr %__end1, align 8
-  %cmp10 = icmp ne ptr %75, %76
+  %77 = load ptr, ptr %__begin1, align 8
+  %78 = load ptr, ptr %__end1, align 8
+  %cmp10 = icmp ne ptr %77, %78
   br i1 %cmp10, label %for.body11, label %for.end24
 
 for.body11:                                       ; preds = %for.cond9
-  %77 = load ptr, ptr %__begin1, align 8
-  store ptr %77, ptr %AE12, align 8
-  %78 = load ptr, ptr %AE12, align 8
-  %Feature = getelementptr inbounds %struct.anon.0, ptr %78, i32 0, i32 3
-  %79 = load ptr, ptr %Feature, align 8
-  %tobool13 = icmp ne ptr %79, null
+  %79 = load ptr, ptr %__begin1, align 8
+  store ptr %79, ptr %AE12, align 8
+  %80 = load ptr, ptr %AE12, align 8
+  %Feature = getelementptr inbounds %struct.anon.0, ptr %80, i32 0, i32 3
+  %81 = load ptr, ptr %Feature, align 8
+  %tobool13 = icmp ne ptr %81, null
   br i1 %tobool13, label %land.lhs.true14, label %if.end21
 
 land.lhs.true14:                                  ; preds = %for.body11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp15, ptr align 8 %ArchExt, i64 16, i1 false)
-  %80 = load ptr, ptr %AE12, align 8
-  %call17 = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %80)
-  %81 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
-  %82 = extractvalue { ptr, i64 } %call17, 0
-  store ptr %82, ptr %81, align 8
-  %83 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
-  %84 = extractvalue { ptr, i64 } %call17, 1
-  store i64 %84, ptr %83, align 8
-  %85 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 1
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
-  %92 = load i64, ptr %91, align 8
-  store ptr %86, ptr %LHS.i, align 8
-  %93 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %88, ptr %93, align 8
-  store ptr %90, ptr %RHS.i, align 8
-  %94 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %92, ptr %94, align 8
+  %82 = load ptr, ptr %AE12, align 8
+  %call17 = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %82)
+  %83 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
+  %84 = extractvalue { ptr, i64 } %call17, 0
+  store ptr %84, ptr %83, align 8
+  %85 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
+  %86 = extractvalue { ptr, i64 } %call17, 1
+  store i64 %86, ptr %85, align 8
+  %87 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp15, i32 0, i32 1
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp16, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  store ptr %88, ptr %LHS.i, align 8
+  %95 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %90, ptr %95, align 8
+  store ptr %92, ptr %RHS.i, align 8
+  %96 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %94, ptr %96, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %95 = load ptr, ptr %agg.tmp.i, align 8
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %97 = load i64, ptr %96, align 8
-  store ptr %95, ptr %RHS.i72, align 8
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i72, i32 0, i32 1
-  store i64 %97, ptr %98, align 8
+  %97 = load ptr, ptr %agg.tmp.i, align 8
+  %98 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  store ptr %97, ptr %RHS.i72, align 8
+  %100 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i72, i32 0, i32 1
+  store i64 %99, ptr %100, align 8
   store ptr %LHS.i, ptr %this.addr.i73, align 8
   %this1.i74 = load ptr, ptr %this.addr.i73, align 8
   %Length.i75 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i74, i32 0, i32 1
-  %99 = load i64, ptr %Length.i75, align 8
+  %101 = load i64, ptr %Length.i75, align 8
   %Length2.i76 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i72, i32 0, i32 1
-  %100 = load i64, ptr %Length2.i76, align 8
-  %cmp.i77 = icmp eq i64 %99, %100
+  %102 = load i64, ptr %Length2.i76, align 8
+  %cmp.i77 = icmp eq i64 %101, %102
   br i1 %cmp.i77, label %land.rhs.i78, label %_ZNK4llvh9StringRef6equalsES0_.exit82
 
 land.rhs.i78:                                     ; preds = %land.lhs.true14
-  %101 = load ptr, ptr %this1.i74, align 8
-  %102 = load ptr, ptr %RHS.i72, align 8
+  %103 = load ptr, ptr %this1.i74, align 8
+  %104 = load ptr, ptr %RHS.i72, align 8
   %Length4.i79 = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i72, i32 0, i32 1
-  %103 = load i64, ptr %Length4.i79, align 8
-  store ptr %101, ptr %Lhs.addr.i, align 8
-  store ptr %102, ptr %Rhs.addr.i, align 8
-  store i64 %103, ptr %Length.addr.i, align 8
-  %104 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i84 = icmp eq i64 %104, 0
+  %105 = load i64, ptr %Length4.i79, align 8
+  store ptr %103, ptr %Lhs.addr.i, align 8
+  store ptr %104, ptr %Rhs.addr.i, align 8
+  store i64 %105, ptr %Length.addr.i, align 8
+  %106 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i84 = icmp eq i64 %106, 0
   br i1 %cmp.i84, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i78
@@ -28857,39 +28970,39 @@ if.then.i:                                        ; preds = %land.rhs.i78
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i78
-  %105 = load ptr, ptr %Lhs.addr.i, align 8
-  %106 = load ptr, ptr %Rhs.addr.i, align 8
-  %107 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %105, ptr noundef %106, i64 noundef %107) #10
+  %107 = load ptr, ptr %Lhs.addr.i, align 8
+  %108 = load ptr, ptr %Rhs.addr.i, align 8
+  %109 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %107, ptr noundef %108, i64 noundef %109) #10
   store i32 %call.i, ptr %retval.i83, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %108 = load i32, ptr %retval.i83, align 4
-  %cmp5.i81 = icmp eq i32 %108, 0
+  %110 = load i32, ptr %retval.i83, align 4
+  %cmp5.i81 = icmp eq i32 %110, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit82
 
 _ZNK4llvh9StringRef6equalsES0_.exit82:            ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %land.lhs.true14
-  %109 = phi i1 [ false, %land.lhs.true14 ], [ %cmp5.i81, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %109, label %if.then19, label %if.end21
+  %111 = phi i1 [ false, %land.lhs.true14 ], [ %cmp5.i81, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %111, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit82
-  %110 = load ptr, ptr %AE12, align 8
-  %Feature20 = getelementptr inbounds %struct.anon.0, ptr %110, i32 0, i32 3
-  %111 = load ptr, ptr %Feature20, align 8
+  %112 = load ptr, ptr %AE12, align 8
+  %Feature20 = getelementptr inbounds %struct.anon.0, ptr %112, i32 0, i32 3
+  %113 = load ptr, ptr %Feature20, align 8
   store ptr %retval, ptr %this.addr.i40, align 8
-  store ptr %111, ptr %Str.addr.i41, align 8
+  store ptr %113, ptr %Str.addr.i41, align 8
   %this1.i42 = load ptr, ptr %this.addr.i40, align 8
-  %112 = load ptr, ptr %Str.addr.i41, align 8
-  store ptr %112, ptr %this1.i42, align 8
+  %114 = load ptr, ptr %Str.addr.i41, align 8
+  store ptr %114, ptr %this1.i42, align 8
   %Length.i43 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i42, i32 0, i32 1
-  %113 = load ptr, ptr %Str.addr.i41, align 8
-  %tobool.i44 = icmp ne ptr %113, null
+  %115 = load ptr, ptr %Str.addr.i41, align 8
+  %tobool.i44 = icmp ne ptr %115, null
   br i1 %tobool.i44, label %cond.true.i47, label %cond.false.i45
 
 cond.true.i47:                                    ; preds = %if.then19
-  %114 = load ptr, ptr %Str.addr.i41, align 8
-  %call.i48 = call i64 @strlen(ptr noundef %114) #10
+  %116 = load ptr, ptr %Str.addr.i41, align 8
+  %call.i48 = call i64 @strlen(ptr noundef %116) #10
   br label %_ZN4llvh9StringRefC2EPKc.exit49
 
 cond.false.i45:                                   ; preds = %if.then19
@@ -28904,8 +29017,8 @@ if.end21:                                         ; preds = %_ZNK4llvh9StringRef
   br label %for.inc22
 
 for.inc22:                                        ; preds = %if.end21
-  %115 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr23 = getelementptr inbounds %struct.anon.0, ptr %115, i32 1
+  %117 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr23 = getelementptr inbounds %struct.anon.0, ptr %117, i32 1
   store ptr %incdec.ptr23, ptr %__begin1, align 8
   br label %for.cond9
 
@@ -28915,8 +29028,8 @@ for.end24:                                        ; preds = %for.cond9
   br label %return
 
 return:                                           ; preds = %for.end24, %_ZN4llvh9StringRefC2EPKc.exit49, %_ZN4llvh9StringRefC2EPKc.exit39
-  %116 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %116
+  %118 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %118
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28955,49 +29068,50 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::CpuNames.8", ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 21), ptr %__end1, align 8
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 21
+  store ptr %7, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load ptr, ptr %__begin1, align 8
-  %8 = load ptr, ptr %__end1, align 8
-  %cmp1 = icmp ne ptr %7, %8
+  %8 = load ptr, ptr %__begin1, align 8
+  %9 = load ptr, ptr %__end1, align 8
+  %cmp1 = icmp ne ptr %8, %9
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %__begin1, align 8
-  store ptr %9, ptr %CPU, align 8
-  %10 = load ptr, ptr %CPU, align 8
-  %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %ArchID, align 8
-  %12 = load i32, ptr %AK, align 4
-  %cmp2 = icmp eq i32 %11, %12
+  %10 = load ptr, ptr %__begin1, align 8
+  store ptr %10, ptr %CPU, align 8
+  %11 = load ptr, ptr %CPU, align 8
+  %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %11, i32 0, i32 2
+  %12 = load i32, ptr %ArchID, align 8
+  %13 = load i32, ptr %AK, align 4
+  %cmp2 = icmp eq i32 %12, %13
   br i1 %cmp2, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %for.body
-  %13 = load ptr, ptr %CPU, align 8
-  %Default = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %13, i32 0, i32 3
-  %14 = load i8, ptr %Default, align 4
-  %tobool = trunc i8 %14 to i1
+  %14 = load ptr, ptr %CPU, align 8
+  %Default = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %14, i32 0, i32 3
+  %15 = load i8, ptr %Default, align 4
+  %tobool = trunc i8 %15 to i1
   br i1 %tobool, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %land.lhs.true
-  %15 = load ptr, ptr %CPU, align 8
-  %call4 = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh7AArch648ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
-  %17 = extractvalue { ptr, i64 } %call4, 0
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
-  %19 = extractvalue { ptr, i64 } %call4, 1
-  store i64 %19, ptr %18, align 8
+  %16 = load ptr, ptr %CPU, align 8
+  %call4 = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh7AArch648ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 0
+  %18 = extractvalue { ptr, i64 } %call4, 0
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %retval, i32 0, i32 1
+  %20 = extractvalue { ptr, i64 } %call4, 1
+  store i64 %20, ptr %19, align 8
   br label %return
 
 if.end5:                                          ; preds = %land.lhs.true, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end5
-  %20 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %20, i32 1
+  %21 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %21, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -29005,16 +29119,16 @@ for.end:                                          ; preds = %for.cond
   store ptr %retval, ptr %this.addr.i, align 8
   store ptr @.str, ptr %Str.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %21 = load ptr, ptr %Str.addr.i, align 8
-  store ptr %21, ptr %this1.i, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
   %22 = load ptr, ptr %Str.addr.i, align 8
-  %tobool.i = icmp ne ptr %22, null
+  store ptr %22, ptr %this1.i, align 8
+  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
+  %23 = load ptr, ptr %Str.addr.i, align 8
+  %tobool.i = icmp ne ptr %23, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.end
-  %23 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %23) #10
+  %24 = load ptr, ptr %Str.addr.i, align 8
+  %call.i = call i64 @strlen(ptr noundef %24) #10
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %for.end
@@ -29026,8 +29140,8 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   br label %return
 
 return:                                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit, %if.then3, %if.then
-  %24 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %24
+  %25 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -29097,56 +29211,57 @@ if.end:                                           ; preds = %entry
   store i64 %21, ptr %20, align 8
   store ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 7), ptr %__end1, align 8
+  %22 = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 7
+  store ptr %22, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %22 = load ptr, ptr %__begin1, align 8
-  %23 = load ptr, ptr %__end1, align 8
-  %cmp5 = icmp ne ptr %22, %23
+  %23 = load ptr, ptr %__begin1, align 8
+  %24 = load ptr, ptr %__end1, align 8
+  %cmp5 = icmp ne ptr %23, %24
   br i1 %cmp5, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %24 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %A, ptr align 8 %24, i64 64, i1 false)
+  %25 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %A, ptr align 8 %25, i64 64, i1 false)
   %call7 = call { ptr, i64 } @_ZNK12_GLOBAL__N_19ArchNamesIN4llvh7AArch648ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(64) %A)
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp6, i32 0, i32 0
-  %26 = extractvalue { ptr, i64 } %call7, 0
-  store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp6, i32 0, i32 1
-  %28 = extractvalue { ptr, i64 } %call7, 1
-  store i64 %28, ptr %27, align 8
+  %26 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp6, i32 0, i32 0
+  %27 = extractvalue { ptr, i64 } %call7, 0
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp6, i32 0, i32 1
+  %29 = extractvalue { ptr, i64 } %call7, 1
+  store i64 %29, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp8, ptr align 8 %Syn, i64 16, i1 false)
-  %29 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 1
-  %32 = load i64, ptr %31, align 8
-  store ptr %30, ptr %Suffix.i, align 8
-  %33 = getelementptr inbounds { ptr, i64 }, ptr %Suffix.i, i32 0, i32 1
-  store i64 %32, ptr %33, align 8
+  %30 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp8, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  store ptr %31, ptr %Suffix.i, align 8
+  %34 = getelementptr inbounds { ptr, i64 }, ptr %Suffix.i, i32 0, i32 1
+  store i64 %33, ptr %34, align 8
   store ptr %ref.tmp6, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %34 = load i64, ptr %Length.i, align 8
+  %35 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Suffix.i, i32 0, i32 1
-  %35 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp uge i64 %34, %35
+  %36 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp uge i64 %35, %36
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef8endswithES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
   %call.i = call noundef ptr @_ZNK4llvh9StringRef3endEv(ptr noundef nonnull align 8 dereferenceable(16) %this1.i)
   %Length3.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Suffix.i, i32 0, i32 1
-  %36 = load i64, ptr %Length3.i, align 8
-  %idx.neg.i = sub i64 0, %36
+  %37 = load i64, ptr %Length3.i, align 8
+  %idx.neg.i = sub i64 0, %37
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %idx.neg.i
-  %37 = load ptr, ptr %Suffix.i, align 8
+  %38 = load ptr, ptr %Suffix.i, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Suffix.i, i32 0, i32 1
-  %38 = load i64, ptr %Length4.i, align 8
+  %39 = load i64, ptr %Length4.i, align 8
   store ptr %add.ptr.i, ptr %Lhs.addr.i, align 8
-  store ptr %37, ptr %Rhs.addr.i, align 8
-  store i64 %38, ptr %Length.addr.i, align 8
-  %39 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i12 = icmp eq i64 %39, 0
+  store ptr %38, ptr %Rhs.addr.i, align 8
+  store i64 %39, ptr %Length.addr.i, align 8
+  %40 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i12 = icmp eq i64 %40, 0
   br i1 %cmp.i12, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -29154,34 +29269,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %40 = load ptr, ptr %Lhs.addr.i, align 8
-  %41 = load ptr, ptr %Rhs.addr.i, align 8
-  %42 = load i64, ptr %Length.addr.i, align 8
-  %call.i13 = call i32 @memcmp(ptr noundef %40, ptr noundef %41, i64 noundef %42) #10
+  %41 = load ptr, ptr %Lhs.addr.i, align 8
+  %42 = load ptr, ptr %Rhs.addr.i, align 8
+  %43 = load i64, ptr %Length.addr.i, align 8
+  %call.i13 = call i32 @memcmp(ptr noundef %41, ptr noundef %42, i64 noundef %43) #10
   store i32 %call.i13, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %43 = load i32, ptr %retval.i, align 4
-  %cmp6.i = icmp eq i32 %43, 0
+  %44 = load i32, ptr %retval.i, align 4
+  %cmp6.i = icmp eq i32 %44, 0
   br label %_ZNK4llvh9StringRef8endswithES0_.exit
 
 _ZNK4llvh9StringRef8endswithES0_.exit:            ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %44 = phi i1 [ false, %for.body ], [ %cmp6.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %44, label %if.then10, label %if.end11
+  %45 = phi i1 [ false, %for.body ], [ %cmp6.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %45, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %_ZNK4llvh9StringRef8endswithES0_.exit
   %ID = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames.2", ptr %A, i32 0, i32 8
-  %45 = load i32, ptr %ID, align 8
-  store i32 %45, ptr %retval, align 4
+  %46 = load i32, ptr %ID, align 8
+  store i32 %46, ptr %retval, align 4
   br label %return
 
 if.end11:                                         ; preds = %_ZNK4llvh9StringRef8endswithES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end11
-  %46 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames.2", ptr %46, i32 1
+  %47 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::ArchNames.2", ptr %47, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -29190,8 +29305,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then10, %if.then
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+  %48 = load i32, ptr %retval, align 4
+  ret i32 %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30331,66 +30446,67 @@ entry:
   store i64 %9, ptr %8, align 8
   store ptr @_ZN12_GLOBAL__N_110HWDivNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_110HWDivNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.1, ptr @_ZN12_GLOBAL__N_110HWDivNamesE, i64 5), ptr %__end1, align 8
+  %10 = getelementptr inbounds %struct.anon.1, ptr @_ZN12_GLOBAL__N_110HWDivNamesE, i64 5
+  store ptr %10, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %10 = load ptr, ptr %__begin1, align 8
-  %11 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %10, %11
+  %11 = load ptr, ptr %__begin1, align 8
+  %12 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %11, %12
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %D, ptr align 8 %12, i64 24, i1 false)
+  %13 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %D, ptr align 8 %13, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %Syn, i64 16, i1 false)
   %call3 = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_27getNameEv"(ptr noundef nonnull align 8 dereferenceable(24) %D)
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %14 = extractvalue { ptr, i64 } %call3, 0
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %16 = extractvalue { ptr, i64 } %call3, 1
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %24 = load i64, ptr %23, align 8
-  store ptr %18, ptr %LHS.i, align 8
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %20, ptr %25, align 8
-  store ptr %22, ptr %RHS.i, align 8
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %24, ptr %26, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
+  %15 = extractvalue { ptr, i64 } %call3, 0
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
+  %17 = extractvalue { ptr, i64 } %call3, 1
+  store i64 %17, ptr %16, align 8
+  %18 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8
+  store ptr %19, ptr %LHS.i, align 8
+  %26 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %21, ptr %26, align 8
+  store ptr %23, ptr %RHS.i, align 8
+  %27 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %25, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %27 = load ptr, ptr %agg.tmp.i, align 8
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %29 = load i64, ptr %28, align 8
-  store ptr %27, ptr %RHS.i5, align 8
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i5, i32 0, i32 1
-  store i64 %29, ptr %30, align 8
+  %28 = load ptr, ptr %agg.tmp.i, align 8
+  %29 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8
+  store ptr %28, ptr %RHS.i5, align 8
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i5, i32 0, i32 1
+  store i64 %30, ptr %31, align 8
   store ptr %LHS.i, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %31 = load i64, ptr %Length.i, align 8
+  %32 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i5, i32 0, i32 1
-  %32 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %31, %32
+  %33 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %32, %33
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
-  %33 = load ptr, ptr %this1.i, align 8
-  %34 = load ptr, ptr %RHS.i5, align 8
+  %34 = load ptr, ptr %this1.i, align 8
+  %35 = load ptr, ptr %RHS.i5, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i5, i32 0, i32 1
-  %35 = load i64, ptr %Length4.i, align 8
-  store ptr %33, ptr %Lhs.addr.i, align 8
-  store ptr %34, ptr %Rhs.addr.i, align 8
-  store i64 %35, ptr %Length.addr.i, align 8
-  %36 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i7 = icmp eq i64 %36, 0
+  %36 = load i64, ptr %Length4.i, align 8
+  store ptr %34, ptr %Lhs.addr.i, align 8
+  store ptr %35, ptr %Rhs.addr.i, align 8
+  store i64 %36, ptr %Length.addr.i, align 8
+  %37 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i7 = icmp eq i64 %37, 0
   br i1 %cmp.i7, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -30398,34 +30514,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %37 = load ptr, ptr %Lhs.addr.i, align 8
-  %38 = load ptr, ptr %Rhs.addr.i, align 8
-  %39 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %37, ptr noundef %38, i64 noundef %39) #10
+  %38 = load ptr, ptr %Lhs.addr.i, align 8
+  %39 = load ptr, ptr %Rhs.addr.i, align 8
+  %40 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %38, ptr noundef %39, i64 noundef %40) #10
   store i32 %call.i, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %40 = load i32, ptr %retval.i, align 4
-  %cmp5.i = icmp eq i32 %40, 0
+  %41 = load i32, ptr %retval.i, align 4
+  %cmp5.i = icmp eq i32 %41, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %41 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %41, label %if.then, label %if.end
+  %42 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %42, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %ID = getelementptr inbounds %struct.anon.1, ptr %D, i32 0, i32 2
-  %42 = load i32, ptr %ID, align 8
-  store i32 %42, ptr %retval, align 4
+  %43 = load i32, ptr %ID, align 8
+  store i32 %43, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %43 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.1, ptr %43, i32 1
+  %44 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.1, ptr %44, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -30434,8 +30550,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %44 = load i32, ptr %retval, align 4
-  ret i32 %44
+  %45 = load i32, ptr %retval, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30674,66 +30790,67 @@ entry:
   store i64 %9, ptr %8, align 8
   store ptr @_ZN12_GLOBAL__N_18FPUNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_18FPUNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 22), ptr %__end1, align 8
+  %10 = getelementptr inbounds %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 22
+  store ptr %10, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %10 = load ptr, ptr %__begin1, align 8
-  %11 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %10, %11
+  %11 = load ptr, ptr %__begin1, align 8
+  %12 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %11, %12
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %F, ptr align 8 %12, i64 32, i1 false)
+  %13 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %F, ptr align 8 %13, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %Syn, i64 16, i1 false)
   %call3 = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_07getNameEv"(ptr noundef nonnull align 8 dereferenceable(32) %F)
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %14 = extractvalue { ptr, i64 } %call3, 0
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %16 = extractvalue { ptr, i64 } %call3, 1
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %24 = load i64, ptr %23, align 8
-  store ptr %18, ptr %LHS.i, align 8
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %20, ptr %25, align 8
-  store ptr %22, ptr %RHS.i, align 8
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %24, ptr %26, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
+  %15 = extractvalue { ptr, i64 } %call3, 0
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
+  %17 = extractvalue { ptr, i64 } %call3, 1
+  store i64 %17, ptr %16, align 8
+  %18 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8
+  store ptr %19, ptr %LHS.i, align 8
+  %26 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %21, ptr %26, align 8
+  store ptr %23, ptr %RHS.i, align 8
+  %27 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %25, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %27 = load ptr, ptr %agg.tmp.i, align 8
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %29 = load i64, ptr %28, align 8
-  store ptr %27, ptr %RHS.i5, align 8
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i5, i32 0, i32 1
-  store i64 %29, ptr %30, align 8
+  %28 = load ptr, ptr %agg.tmp.i, align 8
+  %29 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8
+  store ptr %28, ptr %RHS.i5, align 8
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i5, i32 0, i32 1
+  store i64 %30, ptr %31, align 8
   store ptr %LHS.i, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %31 = load i64, ptr %Length.i, align 8
+  %32 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i5, i32 0, i32 1
-  %32 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %31, %32
+  %33 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %32, %33
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
-  %33 = load ptr, ptr %this1.i, align 8
-  %34 = load ptr, ptr %RHS.i5, align 8
+  %34 = load ptr, ptr %this1.i, align 8
+  %35 = load ptr, ptr %RHS.i5, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i5, i32 0, i32 1
-  %35 = load i64, ptr %Length4.i, align 8
-  store ptr %33, ptr %Lhs.addr.i, align 8
-  store ptr %34, ptr %Rhs.addr.i, align 8
-  store i64 %35, ptr %Length.addr.i, align 8
-  %36 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i7 = icmp eq i64 %36, 0
+  %36 = load i64, ptr %Length4.i, align 8
+  store ptr %34, ptr %Lhs.addr.i, align 8
+  store ptr %35, ptr %Rhs.addr.i, align 8
+  store i64 %36, ptr %Length.addr.i, align 8
+  %37 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i7 = icmp eq i64 %37, 0
   br i1 %cmp.i7, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -30741,34 +30858,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %37 = load ptr, ptr %Lhs.addr.i, align 8
-  %38 = load ptr, ptr %Rhs.addr.i, align 8
-  %39 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %37, ptr noundef %38, i64 noundef %39) #10
+  %38 = load ptr, ptr %Lhs.addr.i, align 8
+  %39 = load ptr, ptr %Rhs.addr.i, align 8
+  %40 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %38, ptr noundef %39, i64 noundef %40) #10
   store i32 %call.i, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %40 = load i32, ptr %retval.i, align 4
-  %cmp5.i = icmp eq i32 %40, 0
+  %41 = load i32, ptr %retval.i, align 4
+  %cmp5.i = icmp eq i32 %41, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %41 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %41, label %if.then, label %if.end
+  %42 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %42, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %ID = getelementptr inbounds %struct.anon, ptr %F, i32 0, i32 2
-  %42 = load i32, ptr %ID, align 8
-  store i32 %42, ptr %retval, align 4
+  %43 = load i32, ptr %ID, align 8
+  store i32 %43, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %43 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %43, i32 1
+  %44 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %44, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -30777,8 +30894,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %44 = load i32, ptr %retval, align 4
-  ret i32 %44
+  %45 = load i32, ptr %retval, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -36987,66 +37104,67 @@ entry:
   store i64 %ArchExt.coerce1, ptr %1, align 8
   store ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 22), ptr %__end1, align 8
+  %2 = getelementptr inbounds %struct.anon.0, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 22
+  store ptr %2, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %__begin1, align 8
+  %4 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %A, ptr align 8 %4, i64 40, i1 false)
+  %5 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %A, ptr align 8 %5, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %ArchExt, i64 16, i1 false)
   %call = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %A)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %6 = extractvalue { ptr, i64 } %call, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %8 = extractvalue { ptr, i64 } %call, 1
-  store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %16 = load i64, ptr %15, align 8
-  store ptr %10, ptr %LHS.i, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %12, ptr %17, align 8
-  store ptr %14, ptr %RHS.i, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %16, ptr %18, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %7 = extractvalue { ptr, i64 } %call, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %9 = extractvalue { ptr, i64 } %call, 1
+  store i64 %9, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  store ptr %11, ptr %LHS.i, align 8
+  %18 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %13, ptr %18, align 8
+  store ptr %15, ptr %RHS.i, align 8
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %17, ptr %19, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %19 = load ptr, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  store ptr %19, ptr %RHS.i3, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i3, i32 0, i32 1
-  store i64 %21, ptr %22, align 8
+  %20 = load ptr, ptr %agg.tmp.i, align 8
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  store ptr %20, ptr %RHS.i3, align 8
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i3, i32 0, i32 1
+  store i64 %22, ptr %23, align 8
   store ptr %LHS.i, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %23 = load i64, ptr %Length.i, align 8
+  %24 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i3, i32 0, i32 1
-  %24 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %23, %24
+  %25 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %24, %25
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
-  %25 = load ptr, ptr %this1.i, align 8
-  %26 = load ptr, ptr %RHS.i3, align 8
+  %26 = load ptr, ptr %this1.i, align 8
+  %27 = load ptr, ptr %RHS.i3, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i3, i32 0, i32 1
-  %27 = load i64, ptr %Length4.i, align 8
-  store ptr %25, ptr %Lhs.addr.i, align 8
-  store ptr %26, ptr %Rhs.addr.i, align 8
-  store i64 %27, ptr %Length.addr.i, align 8
-  %28 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i5 = icmp eq i64 %28, 0
+  %28 = load i64, ptr %Length4.i, align 8
+  store ptr %26, ptr %Lhs.addr.i, align 8
+  store ptr %27, ptr %Rhs.addr.i, align 8
+  store i64 %28, ptr %Length.addr.i, align 8
+  %29 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i5 = icmp eq i64 %29, 0
   br i1 %cmp.i5, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -37054,34 +37172,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %29 = load ptr, ptr %Lhs.addr.i, align 8
-  %30 = load ptr, ptr %Rhs.addr.i, align 8
-  %31 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %29, ptr noundef %30, i64 noundef %31) #10
+  %30 = load ptr, ptr %Lhs.addr.i, align 8
+  %31 = load ptr, ptr %Rhs.addr.i, align 8
+  %32 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %30, ptr noundef %31, i64 noundef %32) #10
   store i32 %call.i, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %32 = load i32, ptr %retval.i, align 4
-  %cmp5.i = icmp eq i32 %32, 0
+  %33 = load i32, ptr %retval.i, align 4
+  %cmp5.i = icmp eq i32 %33, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %33 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %33, label %if.then, label %if.end
+  %34 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %34, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %ID = getelementptr inbounds %struct.anon.0, ptr %A, i32 0, i32 2
-  %34 = load i32, ptr %ID, align 8
-  store i32 %34, ptr %retval, align 4
+  %35 = load i32, ptr %ID, align 8
+  store i32 %35, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %35 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %35, i32 1
+  %36 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %36, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -37090,8 +37208,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -37120,66 +37238,67 @@ entry:
   store i64 %CPU.coerce1, ptr %1, align 8
   store ptr @_ZN12_GLOBAL__N_18CPUNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_18CPUNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::CpuNames", ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 83), ptr %__end1, align 8
+  %2 = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 83
+  store ptr %2, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %__begin1, align 8
+  %4 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %4, i64 32, i1 false)
+  %5 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %5, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %CPU, i64 16, i1 false)
   %call = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh3ARM8ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %C)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %6 = extractvalue { ptr, i64 } %call, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %8 = extractvalue { ptr, i64 } %call, 1
-  store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %16 = load i64, ptr %15, align 8
-  store ptr %10, ptr %LHS.i, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %12, ptr %17, align 8
-  store ptr %14, ptr %RHS.i, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %16, ptr %18, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %7 = extractvalue { ptr, i64 } %call, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %9 = extractvalue { ptr, i64 } %call, 1
+  store i64 %9, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  store ptr %11, ptr %LHS.i, align 8
+  %18 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %13, ptr %18, align 8
+  store ptr %15, ptr %RHS.i, align 8
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %17, ptr %19, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %19 = load ptr, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  store ptr %19, ptr %RHS.i3, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i3, i32 0, i32 1
-  store i64 %21, ptr %22, align 8
+  %20 = load ptr, ptr %agg.tmp.i, align 8
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  store ptr %20, ptr %RHS.i3, align 8
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i3, i32 0, i32 1
+  store i64 %22, ptr %23, align 8
   store ptr %LHS.i, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %23 = load i64, ptr %Length.i, align 8
+  %24 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i3, i32 0, i32 1
-  %24 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %23, %24
+  %25 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %24, %25
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
-  %25 = load ptr, ptr %this1.i, align 8
-  %26 = load ptr, ptr %RHS.i3, align 8
+  %26 = load ptr, ptr %this1.i, align 8
+  %27 = load ptr, ptr %RHS.i3, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i3, i32 0, i32 1
-  %27 = load i64, ptr %Length4.i, align 8
-  store ptr %25, ptr %Lhs.addr.i, align 8
-  store ptr %26, ptr %Rhs.addr.i, align 8
-  store i64 %27, ptr %Length.addr.i, align 8
-  %28 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i5 = icmp eq i64 %28, 0
+  %28 = load i64, ptr %Length4.i, align 8
+  store ptr %26, ptr %Lhs.addr.i, align 8
+  store ptr %27, ptr %Rhs.addr.i, align 8
+  store i64 %28, ptr %Length.addr.i, align 8
+  %29 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i5 = icmp eq i64 %29, 0
   br i1 %cmp.i5, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -37187,34 +37306,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %29 = load ptr, ptr %Lhs.addr.i, align 8
-  %30 = load ptr, ptr %Rhs.addr.i, align 8
-  %31 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %29, ptr noundef %30, i64 noundef %31) #10
+  %30 = load ptr, ptr %Lhs.addr.i, align 8
+  %31 = load ptr, ptr %Rhs.addr.i, align 8
+  %32 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %30, ptr noundef %31, i64 noundef %32) #10
   store i32 %call.i, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %32 = load i32, ptr %retval.i, align 4
-  %cmp5.i = icmp eq i32 %32, 0
+  %33 = load i32, ptr %retval.i, align 4
+  %cmp5.i = icmp eq i32 %33, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %33 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %33, label %if.then, label %if.end
+  %34 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %34, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %C, i32 0, i32 2
-  %34 = load i32, ptr %ArchID, align 8
-  store i32 %34, ptr %retval, align 4
+  %35 = load i32, ptr %ArchID, align 8
+  store i32 %35, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %35 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %35, i32 1
+  %36 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %36, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -37223,8 +37342,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -37239,43 +37358,44 @@ entry:
   store ptr %Values, ptr %Values.addr, align 8
   store ptr @_ZN12_GLOBAL__N_18CPUNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_18CPUNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::CpuNames", ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 83), ptr %__end1, align 8
+  %0 = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 83
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %Arch, align 8
-  %3 = load ptr, ptr %Arch, align 8
-  %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %ArchID, align 8
-  %cmp1 = icmp ne i32 %4, 0
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %Arch, align 8
+  %4 = load ptr, ptr %Arch, align 8
+  %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %ArchID, align 8
+  %cmp1 = icmp ne i32 %5, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %5 = load ptr, ptr %Values.addr, align 8
-  %6 = load ptr, ptr %Arch, align 8
-  %call = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh3ARM8ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %8 = extractvalue { ptr, i64 } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %10 = extractvalue { ptr, i64 } %call, 1
-  store i64 %10, ptr %9, align 8
-  call void @_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  %6 = load ptr, ptr %Values.addr, align 8
+  %7 = load ptr, ptr %Arch, align 8
+  %call = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh3ARM8ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %9 = extractvalue { ptr, i64 } %call, 0
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %11 = extractvalue { ptr, i64 } %call, 1
+  store i64 %11, ptr %10, align 8
+  call void @_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %11 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %11, i32 1
+  %12 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames", ptr %12, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -37330,43 +37450,44 @@ entry:
   store ptr %Values, ptr %Values.addr, align 8
   store ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::CpuNames.8", ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 21), ptr %__end1, align 8
+  %0 = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 21
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %Arch, align 8
-  %3 = load ptr, ptr %Arch, align 8
-  %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %ArchID, align 8
-  %cmp1 = icmp ne i32 %4, 0
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %Arch, align 8
+  %4 = load ptr, ptr %Arch, align 8
+  %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %ArchID, align 8
+  %cmp1 = icmp ne i32 %5, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %5 = load ptr, ptr %Values.addr, align 8
-  %6 = load ptr, ptr %Arch, align 8
-  %call = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh7AArch648ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %8 = extractvalue { ptr, i64 } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %10 = extractvalue { ptr, i64 } %call, 1
-  store i64 %10, ptr %9, align 8
-  call void @_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  %6 = load ptr, ptr %Values.addr, align 8
+  %7 = load ptr, ptr %Arch, align 8
+  %call = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh7AArch648ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %9 = extractvalue { ptr, i64 } %call, 0
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %11 = extractvalue { ptr, i64 } %call, 1
+  store i64 %11, ptr %10, align 8
+  call void @_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %11 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %11, i32 1
+  %12 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %12, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -39076,66 +39197,67 @@ entry:
   store i64 %ArchExt.coerce1, ptr %1, align 8
   store ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.0, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 21), ptr %__end1, align 8
+  %2 = getelementptr inbounds %struct.anon.0, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 21
+  store ptr %2, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %__begin1, align 8
+  %4 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %A, ptr align 8 %4, i64 40, i1 false)
+  %5 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %A, ptr align 8 %5, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %ArchExt, i64 16, i1 false)
   %call = call { ptr, i64 } @"_ZNK12_GLOBAL__N_13$_17getNameEv"(ptr noundef nonnull align 8 dereferenceable(40) %A)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %6 = extractvalue { ptr, i64 } %call, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %8 = extractvalue { ptr, i64 } %call, 1
-  store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %16 = load i64, ptr %15, align 8
-  store ptr %10, ptr %LHS.i, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %12, ptr %17, align 8
-  store ptr %14, ptr %RHS.i, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %16, ptr %18, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %7 = extractvalue { ptr, i64 } %call, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %9 = extractvalue { ptr, i64 } %call, 1
+  store i64 %9, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  store ptr %11, ptr %LHS.i, align 8
+  %18 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %13, ptr %18, align 8
+  store ptr %15, ptr %RHS.i, align 8
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %17, ptr %19, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %19 = load ptr, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  store ptr %19, ptr %RHS.i3, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i3, i32 0, i32 1
-  store i64 %21, ptr %22, align 8
+  %20 = load ptr, ptr %agg.tmp.i, align 8
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  store ptr %20, ptr %RHS.i3, align 8
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i3, i32 0, i32 1
+  store i64 %22, ptr %23, align 8
   store ptr %LHS.i, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %23 = load i64, ptr %Length.i, align 8
+  %24 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i3, i32 0, i32 1
-  %24 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %23, %24
+  %25 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %24, %25
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
-  %25 = load ptr, ptr %this1.i, align 8
-  %26 = load ptr, ptr %RHS.i3, align 8
+  %26 = load ptr, ptr %this1.i, align 8
+  %27 = load ptr, ptr %RHS.i3, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i3, i32 0, i32 1
-  %27 = load i64, ptr %Length4.i, align 8
-  store ptr %25, ptr %Lhs.addr.i, align 8
-  store ptr %26, ptr %Rhs.addr.i, align 8
-  store i64 %27, ptr %Length.addr.i, align 8
-  %28 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i5 = icmp eq i64 %28, 0
+  %28 = load i64, ptr %Length4.i, align 8
+  store ptr %26, ptr %Lhs.addr.i, align 8
+  store ptr %27, ptr %Rhs.addr.i, align 8
+  store i64 %28, ptr %Length.addr.i, align 8
+  %29 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i5 = icmp eq i64 %29, 0
   br i1 %cmp.i5, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -39143,34 +39265,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %29 = load ptr, ptr %Lhs.addr.i, align 8
-  %30 = load ptr, ptr %Rhs.addr.i, align 8
-  %31 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %29, ptr noundef %30, i64 noundef %31) #10
+  %30 = load ptr, ptr %Lhs.addr.i, align 8
+  %31 = load ptr, ptr %Rhs.addr.i, align 8
+  %32 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %30, ptr noundef %31, i64 noundef %32) #10
   store i32 %call.i, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %32 = load i32, ptr %retval.i, align 4
-  %cmp5.i = icmp eq i32 %32, 0
+  %33 = load i32, ptr %retval.i, align 4
+  %cmp5.i = icmp eq i32 %33, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %33 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %33, label %if.then, label %if.end
+  %34 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %34, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %ID = getelementptr inbounds %struct.anon.0, ptr %A, i32 0, i32 2
-  %34 = load i32, ptr %ID, align 8
-  store i32 %34, ptr %retval, align 4
+  %35 = load i32, ptr %ID, align 8
+  store i32 %35, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %35 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %35, i32 1
+  %36 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.0, ptr %36, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -39179,8 +39301,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39209,66 +39331,67 @@ entry:
   store i64 %CPU.coerce1, ptr %1, align 8
   store ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::CpuNames.8", ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 21), ptr %__end1, align 8
+  %2 = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 21
+  store ptr %2, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %__begin1, align 8
+  %4 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %4, i64 32, i1 false)
+  %5 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %5, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %CPU, i64 16, i1 false)
   %call = call { ptr, i64 } @_ZNK12_GLOBAL__N_18CpuNamesIN4llvh7AArch648ArchKindEE7getNameEv(ptr noundef nonnull align 8 dereferenceable(32) %C)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %6 = extractvalue { ptr, i64 } %call, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %8 = extractvalue { ptr, i64 } %call, 1
-  store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %16 = load i64, ptr %15, align 8
-  store ptr %10, ptr %LHS.i, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %12, ptr %17, align 8
-  store ptr %14, ptr %RHS.i, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %16, ptr %18, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %7 = extractvalue { ptr, i64 } %call, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %9 = extractvalue { ptr, i64 } %call, 1
+  store i64 %9, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  store ptr %11, ptr %LHS.i, align 8
+  %18 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %13, ptr %18, align 8
+  store ptr %15, ptr %RHS.i, align 8
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %17, ptr %19, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %19 = load ptr, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  store ptr %19, ptr %RHS.i3, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i3, i32 0, i32 1
-  store i64 %21, ptr %22, align 8
+  %20 = load ptr, ptr %agg.tmp.i, align 8
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  store ptr %20, ptr %RHS.i3, align 8
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i3, i32 0, i32 1
+  store i64 %22, ptr %23, align 8
   store ptr %LHS.i, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %23 = load i64, ptr %Length.i, align 8
+  %24 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i3, i32 0, i32 1
-  %24 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %23, %24
+  %25 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %24, %25
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
-  %25 = load ptr, ptr %this1.i, align 8
-  %26 = load ptr, ptr %RHS.i3, align 8
+  %26 = load ptr, ptr %this1.i, align 8
+  %27 = load ptr, ptr %RHS.i3, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i3, i32 0, i32 1
-  %27 = load i64, ptr %Length4.i, align 8
-  store ptr %25, ptr %Lhs.addr.i, align 8
-  store ptr %26, ptr %Rhs.addr.i, align 8
-  store i64 %27, ptr %Length.addr.i, align 8
-  %28 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i5 = icmp eq i64 %28, 0
+  %28 = load i64, ptr %Length4.i, align 8
+  store ptr %26, ptr %Lhs.addr.i, align 8
+  store ptr %27, ptr %Rhs.addr.i, align 8
+  store i64 %28, ptr %Length.addr.i, align 8
+  %29 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i5 = icmp eq i64 %29, 0
   br i1 %cmp.i5, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -39276,34 +39399,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %29 = load ptr, ptr %Lhs.addr.i, align 8
-  %30 = load ptr, ptr %Rhs.addr.i, align 8
-  %31 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %29, ptr noundef %30, i64 noundef %31) #10
+  %30 = load ptr, ptr %Lhs.addr.i, align 8
+  %31 = load ptr, ptr %Rhs.addr.i, align 8
+  %32 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %30, ptr noundef %31, i64 noundef %32) #10
   store i32 %call.i, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %32 = load i32, ptr %retval.i, align 4
-  %cmp5.i = icmp eq i32 %32, 0
+  %33 = load i32, ptr %retval.i, align 4
+  %cmp5.i = icmp eq i32 %33, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %33 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %33, label %if.then, label %if.end
+  %34 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %34, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %ArchID = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %C, i32 0, i32 2
-  %34 = load i32, ptr %ArchID, align 8
-  store i32 %34, ptr %retval, align 4
+  %35 = load i32, ptr %ArchID, align 8
+  store i32 %35, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %35 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %35, i32 1
+  %36 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::CpuNames.8", ptr %36, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -39312,8 +39435,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+  %37 = load i32, ptr %retval, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39680,61 +39803,62 @@ entry:
   store i64 %CPU.coerce1, ptr %1, align 8
   store ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::GPUInfo", ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 32), ptr %__end1, align 8
+  %2 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 32
+  store ptr %2, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %__begin1, align 8
+  %4 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %4, i64 40, i1 false)
+  %5 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %5, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %CPU, i64 16, i1 false)
   %Name = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %C, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %Name, i64 16, i1 false)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  store ptr %6, ptr %LHS.i, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %8, ptr %13, align 8
-  store ptr %10, ptr %RHS.i, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %12, ptr %14, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  store ptr %7, ptr %LHS.i, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %9, ptr %14, align 8
+  store ptr %11, ptr %RHS.i, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %13, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %15 = load ptr, ptr %agg.tmp.i, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8
-  store ptr %15, ptr %RHS.i2, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2, i32 0, i32 1
-  store i64 %17, ptr %18, align 8
+  %16 = load ptr, ptr %agg.tmp.i, align 8
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  store ptr %16, ptr %RHS.i2, align 8
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2, i32 0, i32 1
+  store i64 %18, ptr %19, align 8
   store ptr %LHS.i, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %19 = load i64, ptr %Length.i, align 8
+  %20 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2, i32 0, i32 1
-  %20 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %19, %20
+  %21 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %20, %21
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
-  %21 = load ptr, ptr %this1.i, align 8
-  %22 = load ptr, ptr %RHS.i2, align 8
+  %22 = load ptr, ptr %this1.i, align 8
+  %23 = load ptr, ptr %RHS.i2, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2, i32 0, i32 1
-  %23 = load i64, ptr %Length4.i, align 8
-  store ptr %21, ptr %Lhs.addr.i, align 8
-  store ptr %22, ptr %Rhs.addr.i, align 8
-  store i64 %23, ptr %Length.addr.i, align 8
-  %24 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i4 = icmp eq i64 %24, 0
+  %24 = load i64, ptr %Length4.i, align 8
+  store ptr %22, ptr %Lhs.addr.i, align 8
+  store ptr %23, ptr %Rhs.addr.i, align 8
+  store i64 %24, ptr %Length.addr.i, align 8
+  %25 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i4 = icmp eq i64 %25, 0
   br i1 %cmp.i4, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -39742,34 +39866,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %25 = load ptr, ptr %Lhs.addr.i, align 8
-  %26 = load ptr, ptr %Rhs.addr.i, align 8
-  %27 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %25, ptr noundef %26, i64 noundef %27) #10
+  %26 = load ptr, ptr %Lhs.addr.i, align 8
+  %27 = load ptr, ptr %Rhs.addr.i, align 8
+  %28 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %26, ptr noundef %27, i64 noundef %28) #10
   store i32 %call.i, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %28 = load i32, ptr %retval.i, align 4
-  %cmp5.i = icmp eq i32 %28, 0
+  %29 = load i32, ptr %retval.i, align 4
+  %cmp5.i = icmp eq i32 %29, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %29 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %29, label %if.then, label %if.end
+  %30 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %30, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %Kind = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %C, i32 0, i32 2
-  %30 = load i32, ptr %Kind, align 8
-  store i32 %30, ptr %retval, align 4
+  %31 = load i32, ptr %Kind, align 8
+  store i32 %31, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %31 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %31, i32 1
+  %32 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %32, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -39778,8 +39902,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
+  %33 = load i32, ptr %retval, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39808,61 +39932,62 @@ entry:
   store i64 %CPU.coerce1, ptr %1, align 8
   store ptr @_ZN12_GLOBAL__N_18R600GPUsE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_18R600GPUsE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::GPUInfo", ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 26), ptr %__end1, align 8
+  %2 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 26
+  store ptr %2, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %__begin1, align 8
+  %4 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %4, i64 40, i1 false)
+  %5 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %5, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %CPU, i64 16, i1 false)
   %Name = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %C, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %Name, i64 16, i1 false)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  store ptr %6, ptr %LHS.i, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
-  store i64 %8, ptr %13, align 8
-  store ptr %10, ptr %RHS.i, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
-  store i64 %12, ptr %14, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  store ptr %7, ptr %LHS.i, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %LHS.i, i32 0, i32 1
+  store i64 %9, ptr %14, align 8
+  store ptr %11, ptr %RHS.i, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i, i32 0, i32 1
+  store i64 %13, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.i, ptr align 8 %RHS.i, i64 16, i1 false)
-  %15 = load ptr, ptr %agg.tmp.i, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8
-  store ptr %15, ptr %RHS.i2, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2, i32 0, i32 1
-  store i64 %17, ptr %18, align 8
+  %16 = load ptr, ptr %agg.tmp.i, align 8
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  store ptr %16, ptr %RHS.i2, align 8
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %RHS.i2, i32 0, i32 1
+  store i64 %18, ptr %19, align 8
   store ptr %LHS.i, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
-  %19 = load i64, ptr %Length.i, align 8
+  %20 = load i64, ptr %Length.i, align 8
   %Length2.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2, i32 0, i32 1
-  %20 = load i64, ptr %Length2.i, align 8
-  %cmp.i = icmp eq i64 %19, %20
+  %21 = load i64, ptr %Length2.i, align 8
+  %cmp.i = icmp eq i64 %20, %21
   br i1 %cmp.i, label %land.rhs.i, label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 land.rhs.i:                                       ; preds = %for.body
-  %21 = load ptr, ptr %this1.i, align 8
-  %22 = load ptr, ptr %RHS.i2, align 8
+  %22 = load ptr, ptr %this1.i, align 8
+  %23 = load ptr, ptr %RHS.i2, align 8
   %Length4.i = getelementptr inbounds %"class.llvh::StringRef", ptr %RHS.i2, i32 0, i32 1
-  %23 = load i64, ptr %Length4.i, align 8
-  store ptr %21, ptr %Lhs.addr.i, align 8
-  store ptr %22, ptr %Rhs.addr.i, align 8
-  store i64 %23, ptr %Length.addr.i, align 8
-  %24 = load i64, ptr %Length.addr.i, align 8
-  %cmp.i4 = icmp eq i64 %24, 0
+  %24 = load i64, ptr %Length4.i, align 8
+  store ptr %22, ptr %Lhs.addr.i, align 8
+  store ptr %23, ptr %Rhs.addr.i, align 8
+  store i64 %24, ptr %Length.addr.i, align 8
+  %25 = load i64, ptr %Length.addr.i, align 8
+  %cmp.i4 = icmp eq i64 %25, 0
   br i1 %cmp.i4, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -39870,34 +39995,34 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %25 = load ptr, ptr %Lhs.addr.i, align 8
-  %26 = load ptr, ptr %Rhs.addr.i, align 8
-  %27 = load i64, ptr %Length.addr.i, align 8
-  %call.i = call i32 @memcmp(ptr noundef %25, ptr noundef %26, i64 noundef %27) #10
+  %26 = load ptr, ptr %Lhs.addr.i, align 8
+  %27 = load ptr, ptr %Rhs.addr.i, align 8
+  %28 = load i64, ptr %Length.addr.i, align 8
+  %call.i = call i32 @memcmp(ptr noundef %26, ptr noundef %27, i64 noundef %28) #10
   store i32 %call.i, ptr %retval.i, align 4
   br label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %if.end.i, %if.then.i
-  %28 = load i32, ptr %retval.i, align 4
-  %cmp5.i = icmp eq i32 %28, 0
+  %29 = load i32, ptr %retval.i, align 4
+  %cmp5.i = icmp eq i32 %29, 0
   br label %_ZNK4llvh9StringRef6equalsES0_.exit
 
 _ZNK4llvh9StringRef6equalsES0_.exit:              ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %for.body
-  %29 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
-  br i1 %29, label %if.then, label %if.end
+  %30 = phi i1 [ false, %for.body ], [ %cmp5.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  br i1 %30, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   %Kind = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %C, i32 0, i32 2
-  %30 = load i32, ptr %Kind, align 8
-  store i32 %30, ptr %retval, align 4
+  %31 = load i32, ptr %Kind, align 8
+  store i32 %31, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %_ZNK4llvh9StringRef6equalsES0_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %31 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %31, i32 1
+  %32 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %32, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -39906,8 +40031,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
+  %33 = load i32, ptr %retval, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39993,26 +40118,27 @@ entry:
   store ptr %Values, ptr %Values.addr, align 8
   store ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::GPUInfo", ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 32), ptr %__end1, align 8
+  %0 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 32
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %2, i64 40, i1 false)
-  %3 = load ptr, ptr %Values.addr, align 8
+  %3 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %3, i64 40, i1 false)
+  %4 = load ptr, ptr %Values.addr, align 8
   %Name = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %C, i32 0, i32 0
-  call void @_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %Name)
+  call void @_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %Name)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %4 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %4, i32 1
+  %5 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %5, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -40031,26 +40157,27 @@ entry:
   store ptr %Values, ptr %Values.addr, align 8
   store ptr @_ZN12_GLOBAL__N_18R600GPUsE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_18R600GPUsE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.(anonymous namespace)::GPUInfo", ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 26), ptr %__end1, align 8
+  %0 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 26
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %2, i64 40, i1 false)
-  %3 = load ptr, ptr %Values.addr, align 8
+  %3 = load ptr, ptr %__begin1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %C, ptr align 8 %3, i64 40, i1 false)
+  %4 = load ptr, ptr %Values.addr, align 8
   %Name = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %C, i32 0, i32 0
-  call void @_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %Name)
+  call void @_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %Name)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %4 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %4, i32 1
+  %5 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %5, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 

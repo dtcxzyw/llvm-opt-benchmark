@@ -1351,52 +1351,54 @@ define void @_ZN3gmx25AnalysisDataAverageModuleC2Ev(ptr noundef nonnull align 8 
   call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %5)
   %6 = getelementptr inbounds i8, ptr %5, i64 96
   call void @_ZN3gmx24AnalysisDataModuleSerialC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 96
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.gmx::AnalysisDataAverageModule", ptr %5, i32 0, i32 2
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #15
-          to label %10 unwind label %12
-
-10:                                               ; preds = %1
-  invoke void @_ZN3gmx25AnalysisDataAverageModule4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9)
-          to label %11 unwind label %16
-
-11:                                               ; preds = %10
-  call void @_ZNSt10unique_ptrIN3gmx25AnalysisDataAverageModule4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9) #13
-  ret void
+  %7 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.gmx::AnalysisDataAverageModule", ptr %5, i32 0, i32 2
+  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #15
+          to label %12 unwind label %14
 
 12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  br label %20
+  invoke void @_ZN3gmx25AnalysisDataAverageModule4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11)
+          to label %13 unwind label %18
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %9) #14
-  br label %20
+13:                                               ; preds = %12
+  call void @_ZNSt10unique_ptrIN3gmx25AnalysisDataAverageModule4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11) #13
+  ret void
 
-20:                                               ; preds = %16, %12
-  %21 = getelementptr inbounds i8, ptr %5, i64 96
-  call void @_ZN3gmx24AnalysisDataModuleSerialD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #13
-  call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %5) #13
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
   br label %22
 
-22:                                               ; preds = %20
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i32, ptr %4, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+18:                                               ; preds = %12
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %11) #14
+  br label %22
+
+22:                                               ; preds = %18, %14
+  %23 = getelementptr inbounds i8, ptr %5, i64 96
+  call void @_ZN3gmx24AnalysisDataModuleSerialD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
+  call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %5) #13
+  br label %24
+
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %3, align 8
+  %26 = load i32, ptr %4, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 declare void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94)) unnamed_addr #1
@@ -1407,7 +1409,8 @@ define linkonce_odr void @_ZN3gmx24AnalysisDataModuleSerialC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx19IAnalysisDataModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [12 x ptr] }, ptr @_ZTVN3gmx24AnalysisDataModuleSerialE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3gmx24AnalysisDataModuleSerialE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1471,7 +1474,8 @@ define linkonce_odr void @_ZN3gmx19IAnalysisDataModuleC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [12 x ptr] }, ptr @_ZTVN3gmx19IAnalysisDataModuleE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3gmx19IAnalysisDataModuleE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1698,13 +1702,15 @@ define void @_ZN3gmx25AnalysisDataAverageModuleD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.gmx::AnalysisDataAverageModule", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN3gmx25AnalysisDataAverageModule4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  %6 = getelementptr inbounds i8, ptr %3, i64 96
-  call void @_ZN3gmx24AnalysisDataModuleSerialD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %4 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 96
+  %6 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::AnalysisDataAverageModule", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN3gmx25AnalysisDataAverageModule4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  %8 = getelementptr inbounds i8, ptr %3, i64 96
+  call void @_ZN3gmx24AnalysisDataModuleSerialD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %3) #13
   ret void
 }
@@ -4049,53 +4055,55 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModuleC2Ev(ptr noundef nonnull ali
   call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN3gmx24AnalysisDataModuleSerialC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i32 0, i32 1, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.gmx::AnalysisDataFrameAverageModule", ptr %5, i32 0, i32 2
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #15
-          to label %10 unwind label %12
-
-10:                                               ; preds = %1
-  call void @llvm.memset.p0.i64(ptr align 16 %9, i8 0, i64 32, i1 false)
-  invoke void @_ZN3gmx30AnalysisDataFrameAverageModule4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %11 unwind label %16
-
-11:                                               ; preds = %10
-  call void @_ZNSt10unique_ptrIN3gmx30AnalysisDataFrameAverageModule4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9) #13
-  ret void
+  %7 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.gmx::AnalysisDataFrameAverageModule", ptr %5, i32 0, i32 2
+  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #15
+          to label %12 unwind label %14
 
 12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  br label %20
+  call void @llvm.memset.p0.i64(ptr align 16 %11, i8 0, i64 32, i1 false)
+  invoke void @_ZN3gmx30AnalysisDataFrameAverageModule4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %13 unwind label %18
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %9) #14
-  br label %20
+13:                                               ; preds = %12
+  call void @_ZNSt10unique_ptrIN3gmx30AnalysisDataFrameAverageModule4ImplESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11) #13
+  ret void
 
-20:                                               ; preds = %16, %12
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN3gmx24AnalysisDataModuleSerialD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #13
-  call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
   br label %22
 
-22:                                               ; preds = %20
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i32, ptr %4, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+18:                                               ; preds = %12
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %11) #14
+  br label %22
+
+22:                                               ; preds = %18, %14
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @_ZN3gmx24AnalysisDataModuleSerialD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
+  call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  br label %24
+
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %3, align 8
+  %26 = load i32, ptr %4, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 declare void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -4335,13 +4343,15 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModuleD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.gmx::AnalysisDataFrameAverageModule", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN3gmx30AnalysisDataFrameAverageModule4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN3gmx24AnalysisDataModuleSerialD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %4 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::AnalysisDataFrameAverageModule", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN3gmx30AnalysisDataFrameAverageModule4ImplESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @_ZN3gmx24AnalysisDataModuleSerialD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   ret void
 }

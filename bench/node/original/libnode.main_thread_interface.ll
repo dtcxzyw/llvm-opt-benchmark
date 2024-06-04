@@ -3240,7 +3240,8 @@ entry:
   store i8 %frombool, ptr %prevent_shutdown.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector16InspectorSessionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CrossThreadInspectorSession", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %thread) #3
   call void @_ZSt4bindIRFSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS4_EEPNS2_19MainThreadInterfaceEbEJRKSt12_PlaceholderILi1EERbEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESI_JDpT0_EE4typeEOSI_DpOSJ_(ptr sret(%"class.std::_Bind") align 8 %agg.tmp2, ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState6CreateEPNS0_19MainThreadInterfaceEb, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E, ptr noundef nonnull align 1 dereferenceable(1) %prevent_shutdown.addr)
@@ -3249,11 +3250,11 @@ entry:
   %state_3 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CrossThreadInspectorSession", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(8) %delegate) #3
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState7ConnectESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS4_EE to i64), i64 0 }, ptr %coerce, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %3 = load i64, ptr %2, align 8
-  call void @_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadSessionStateEE4CallISt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEEEvMS3_FvT_ESB_(ptr noundef nonnull align 8 dereferenceable(20) %state_3, i64 %1, i64 %3, ptr noundef %agg.tmp4)
+  %1 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
+  %2 = load i64, ptr %1, align 8
+  %3 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  call void @_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadSessionStateEE4CallISt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEEEvMS3_FvT_ESB_(ptr noundef nonnull align 8 dereferenceable(20) %state_3, i64 %2, i64 %4, ptr noundef %agg.tmp4)
   call void @_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp4) #3
   ret void
 }
@@ -3458,13 +3459,14 @@ entry:
   store i32 %object_id, ptr %object_id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector24InspectorSessionDelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %thread_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::ThreadSafeDelegate", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %thread_, ptr noundef nonnull align 8 dereferenceable(16) %thread) #3
   %delegate_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::ThreadSafeDelegate", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %thread) #3
-  %0 = load i32, ptr %object_id.addr, align 4
-  call void @_ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEEC2ESt10shared_ptrINS0_16MainThreadHandleEEi(ptr noundef nonnull align 8 dereferenceable(20) %delegate_, ptr noundef %agg.tmp, i32 noundef %0)
+  %1 = load i32, ptr %object_id.addr, align 4
+  call void @_ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEEC2ESt10shared_ptrINS0_16MainThreadHandleEEi(ptr noundef nonnull align 8 dereferenceable(20) %delegate_, ptr noundef %agg.tmp, i32 noundef %1)
   call void @_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #3
   ret void
 }
@@ -5518,7 +5520,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector16InspectorSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector16InspectorSessionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5650,7 +5653,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CrossThreadInspectorSession", ptr %this1, i32 0, i32 1
   call void @_ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadSessionStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %state_) #3
   call void @_ZN4node9inspector16InspectorSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -6149,10 +6153,11 @@ entry:
   store ptr %factory, ptr %factory.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_119CreateObjectRequestISt5_BindIFPFSt10unique_ptrINS1_22MainThreadSessionStateESt14default_deleteIS5_EEPNS0_19MainThreadInterfaceEbESt12_PlaceholderILi1EEbEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_119CreateObjectRequestISt5_BindIFPFSt10unique_ptrINS1_22MainThreadSessionStateESt14default_deleteIS5_EEPNS0_19MainThreadInterfaceEbESt12_PlaceholderILi1EEbEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %object_id_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CreateObjectRequest", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %object_id.addr, align 4
-  store i32 %0, ptr %object_id_, align 8
+  %1 = load i32, ptr %object_id.addr, align 4
+  store i32 %1, ptr %object_id_, align 8
   %factory_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CreateObjectRequest", ptr %this1, i32 0, i32 3
   call void @_ZNSt5_BindIFPFSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS4_EEPNS2_19MainThreadInterfaceEbESt12_PlaceholderILi1EEbEEC2EOSF_(ptr noundef nonnull align 8 dereferenceable(9) %factory_, ptr noundef nonnull align 8 dereferenceable(9) %factory) #3
   ret void
@@ -6178,7 +6183,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector7RequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector7RequestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6330,7 +6336,8 @@ entry:
   store ptr %object, ptr %object.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector9DeletableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::DeletableWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %object_, ptr noundef nonnull align 8 dereferenceable(8) %object) #3
   ret void
@@ -6470,7 +6477,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector9DeletableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node9inspector9DeletableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6480,7 +6488,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::DeletableWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %object_) #3
   call void @_ZN4node9inspector9DeletableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -7647,10 +7656,11 @@ entry:
   store ptr %fn, ptr %fn.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id.addr, align 4
-  store i32 %0, ptr %id_, align 8
+  %1 = load i32, ptr %id.addr, align 4
+  store i32 %1, ptr %id_, align 8
   %fn_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest", ptr %this1, i32 0, i32 2
   call void @_ZNSt5_BindIFPFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt10unique_ptrINS1_24InspectorSessionDelegateESt14default_deleteIS6_EEERS9_ESt12_PlaceholderILi1EESB_S9_EEC2EOSI_(ptr noundef nonnull align 8 dereferenceable(32) %fn_, ptr noundef nonnull align 8 dereferenceable(32) %fn) #3
   ret void
@@ -7811,7 +7821,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fn_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest", ptr %this1, i32 0, i32 2
   call void @_ZNSt5_BindIFPFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt10unique_ptrINS1_24InspectorSessionDelegateESt14default_deleteIS6_EEERS9_ESt12_PlaceholderILi1EESB_S9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %fn_) #3
   call void @_ZN4node9inspector7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -8966,10 +8977,11 @@ entry:
   store i32 %object_id, ptr %object_id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_113DeleteRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_113DeleteRequestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %object_id_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::DeleteRequest", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %object_id.addr, align 4
-  store i32 %0, ptr %object_id_, align 8
+  %1 = load i32, ptr %object_id.addr, align 4
+  store i32 %1, ptr %object_id_, align 8
   ret void
 }
 
@@ -9575,10 +9587,11 @@ entry:
   store ptr %fn, ptr %fn.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest.435", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id.addr, align 4
-  store i32 %0, ptr %id_, align 8
+  %1 = load i32, ptr %id.addr, align 4
+  store i32 %1, ptr %id_, align 8
   %fn_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest.435", ptr %this1, i32 0, i32 2
   call void @_ZNSt5_BindIFPFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEC2EOSJ_(ptr noundef nonnull align 8 dereferenceable(32) %fn_, ptr noundef nonnull align 8 dereferenceable(32) %fn) #3
   ret void
@@ -9874,7 +9887,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fn_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest.435", ptr %this1, i32 0, i32 2
   call void @_ZNSt5_BindIFPFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %fn_) #3
   call void @_ZN4node9inspector7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -10958,7 +10972,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector24InspectorSessionDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector24InspectorSessionDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10986,7 +11001,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %delegate_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::ThreadSafeDelegate", ptr %this1, i32 0, i32 2
   call void @_ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %delegate_) #3
   %thread_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::ThreadSafeDelegate", ptr %this1, i32 0, i32 1
@@ -11128,10 +11144,11 @@ entry:
   store ptr %fn, ptr %fn.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest.451", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id.addr, align 4
-  store i32 %0, ptr %id_, align 8
+  %1 = load i32, ptr %id.addr, align 4
+  store i32 %1, ptr %id_, align 8
   %fn_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest.451", ptr %this1, i32 0, i32 2
   call void @_ZZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEENUlPNS0_24InspectorSessionDelegateEE_C2EOS9_(ptr noundef nonnull align 8 dereferenceable(8) %fn_, ptr noundef nonnull align 8 dereferenceable(8) %fn) #3
   ret void
@@ -11219,7 +11236,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fn_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::CallRequest.451", ptr %this1, i32 0, i32 2
   call void @_ZZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEENUlPNS0_24InspectorSessionDelegateEE_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %fn_) #3
   call void @_ZN4node9inspector7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -13485,10 +13503,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0C2EOS7_"(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @"_ZZN4node9inspector19MainThreadInterface4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EEEN3$_0C2EOS7_"(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2) #3
   ret void
 }
 
@@ -13514,10 +13533,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %flags, ptr %flags.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %flags.addr, align 4
-  store i32 %0, ptr %flags_, align 8
+  %1 = load i32, ptr %flags.addr, align 4
+  store i32 %1, ptr %flags_, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -13593,7 +13613,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -15276,12 +15297,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9inspector16MainThreadHandleESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9inspector16MainThreadHandleESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node9inspector16MainThreadHandleESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(72) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node9inspector16MainThreadHandleESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node9inspector16MainThreadHandleEJPNS4_19MainThreadInterfaceEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node9inspector16MainThreadHandleEJPNS4_19MainThreadInterfaceEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -15441,7 +15463,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -18486,7 +18509,8 @@ entry:
   store ptr %object, ptr %object.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector9DeletableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::DeletableWrapper.452", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %object_, ptr noundef nonnull align 8 dereferenceable(8) %object) #3
   ret void
@@ -18557,7 +18581,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::DeletableWrapper.452", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %object_) #3
   call void @_ZN4node9inspector9DeletableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

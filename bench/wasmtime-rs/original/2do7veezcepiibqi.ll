@@ -229,7 +229,7 @@ define internal i64 @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$cl
   %13 = select i1 %12, i64 0, i64 1
   switch i64 %13, label %14 [
     i64 0, label %15
-    i64 1, label %23
+    i64 1, label %24
   ]
 
 14:                                               ; preds = %1
@@ -241,28 +241,29 @@ define internal i64 @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$cl
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %16, align 8
   %17 = load ptr, ptr @anon.656e88d7e8c1120084a33d958f3cdc43.4, align 8, !align !6, !noundef !4
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @anon.656e88d7e8c1120084a33d958f3cdc43.4, i64 8), align 8
-  %19 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %4, i32 0, i32 2
-  store ptr %17, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 %18, ptr %20, align 8
-  %21 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %4, i32 0, i32 1
-  store ptr @anon.656e88d7e8c1120084a33d958f3cdc43.3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  store i64 0, ptr %22, align 8
+  %18 = getelementptr inbounds i8, ptr @anon.656e88d7e8c1120084a33d958f3cdc43.4, i64 8
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %4, i32 0, i32 2
+  store ptr %17, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 %19, ptr %21, align 8
+  %22 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %4, i32 0, i32 1
+  store ptr @anon.656e88d7e8c1120084a33d958f3cdc43.3, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  store i64 0, ptr %23, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.656e88d7e8c1120084a33d958f3cdc43.6) #7
   unreachable
 
-23:                                               ; preds = %1
-  %24 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %25 = call i64 @_ZN4core3ops8function6FnOnce9call_once17h089b650bc38fd7b4E(ptr noundef nonnull %24)
+24:                                               ; preds = %1
+  %25 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %26 = call i64 @_ZN4core3ops8function6FnOnce9call_once17h089b650bc38fd7b4E(ptr noundef nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr %2)
-  store i64 %25, ptr %2, align 8
+  store i64 %26, ptr %2, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 8 %2, i64 8, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr %5)
-  %26 = load i64, ptr %6, align 4
-  ret i64 %26
+  %27 = load i64, ptr %6, align 4
+  ret i64 %27
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

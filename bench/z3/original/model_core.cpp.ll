@@ -377,31 +377,32 @@ entry:
   %kv24 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10model_core, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV10model_core, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_interp = getelementptr inbounds %class.model_core, ptr %this1, i32 0, i32 4
   store ptr %m_interp, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  %call = invoke { ptr, ptr } @_ZNK7obj_mapI9func_declSt4pairIjP4exprEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %1 = load ptr, ptr %__range1, align 8
+  %call = invoke { ptr, ptr } @_ZNK7obj_mapI9func_declSt4pairIjP4exprEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %__begin1, i32 0, i32 0
-  %2 = extractvalue { ptr, ptr } %call, 0
-  store ptr %2, ptr %1, align 8
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %__begin1, i32 0, i32 1
-  %4 = extractvalue { ptr, ptr } %call, 1
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %__range1, align 8
-  %call3 = invoke { ptr, ptr } @_ZNK7obj_mapI9func_declSt4pairIjP4exprEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %2 = getelementptr inbounds { ptr, ptr }, ptr %__begin1, i32 0, i32 0
+  %3 = extractvalue { ptr, ptr } %call, 0
+  store ptr %3, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, ptr }, ptr %__begin1, i32 0, i32 1
+  %5 = extractvalue { ptr, ptr } %call, 1
+  store ptr %5, ptr %4, align 8
+  %6 = load ptr, ptr %__range1, align 8
+  %call3 = invoke { ptr, ptr } @_ZNK7obj_mapI9func_declSt4pairIjP4exprEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %__end1, i32 0, i32 0
-  %7 = extractvalue { ptr, ptr } %call3, 0
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %__end1, i32 0, i32 1
-  %9 = extractvalue { ptr, ptr } %call3, 1
-  store ptr %9, ptr %8, align 8
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %__end1, i32 0, i32 0
+  %8 = extractvalue { ptr, ptr } %call3, 0
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %__end1, i32 0, i32 1
+  %10 = extractvalue { ptr, ptr } %call3, 1
+  store ptr %10, ptr %9, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont11, %invoke.cont2
@@ -418,21 +419,21 @@ for.body:                                         ; preds = %invoke.cont4
 invoke.cont6:                                     ; preds = %for.body
   store ptr %call7, ptr %kv, align 8
   %m = getelementptr inbounds %class.model_core, ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %m, align 8
-  %11 = load ptr, ptr %kv, align 8
-  %m_key = getelementptr inbounds %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data", ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %m_key, align 8
-  invoke void @_ZN11ast_manager7dec_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef %12)
+  %11 = load ptr, ptr %m, align 8
+  %12 = load ptr, ptr %kv, align 8
+  %m_key = getelementptr inbounds %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data", ptr %12, i32 0, i32 0
+  %13 = load ptr, ptr %m_key, align 8
+  invoke void @_ZN11ast_manager7dec_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %11, ptr noundef %13)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %m9 = getelementptr inbounds %class.model_core, ptr %this1, i32 0, i32 1
-  %13 = load ptr, ptr %m9, align 8
-  %14 = load ptr, ptr %kv, align 8
-  %m_value = getelementptr inbounds %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data", ptr %14, i32 0, i32 1
+  %14 = load ptr, ptr %m9, align 8
+  %15 = load ptr, ptr %kv, align 8
+  %m_value = getelementptr inbounds %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data", ptr %15, i32 0, i32 1
   %second = getelementptr inbounds %"struct.std::pair", ptr %m_value, i32 0, i32 1
-  %15 = load ptr, ptr %second, align 8
-  invoke void @_ZN11ast_manager7dec_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef %15)
+  %16 = load ptr, ptr %second, align 8
+  invoke void @_ZN11ast_manager7dec_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %14, ptr noundef %16)
           to label %invoke.cont10 unwind label %terminate.lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -448,28 +449,28 @@ invoke.cont11:                                    ; preds = %for.inc
 for.end:                                          ; preds = %invoke.cont4
   %m_finterp = getelementptr inbounds %class.model_core, ptr %this1, i32 0, i32 5
   store ptr %m_finterp, ptr %__range113, align 8
-  %16 = load ptr, ptr %__range113, align 8
-  %call16 = invoke { ptr, ptr } @_ZNK7obj_mapI9func_declP11func_interpE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
+  %17 = load ptr, ptr %__range113, align 8
+  %call16 = invoke { ptr, ptr } @_ZNK7obj_mapI9func_declP11func_interpE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %invoke.cont15 unwind label %terminate.lpad
 
 invoke.cont15:                                    ; preds = %for.end
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %__begin114, i32 0, i32 0
-  %18 = extractvalue { ptr, ptr } %call16, 0
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %__begin114, i32 0, i32 1
-  %20 = extractvalue { ptr, ptr } %call16, 1
-  store ptr %20, ptr %19, align 8
-  %21 = load ptr, ptr %__range113, align 8
-  %call19 = invoke { ptr, ptr } @_ZNK7obj_mapI9func_declP11func_interpE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
+  %18 = getelementptr inbounds { ptr, ptr }, ptr %__begin114, i32 0, i32 0
+  %19 = extractvalue { ptr, ptr } %call16, 0
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds { ptr, ptr }, ptr %__begin114, i32 0, i32 1
+  %21 = extractvalue { ptr, ptr } %call16, 1
+  store ptr %21, ptr %20, align 8
+  %22 = load ptr, ptr %__range113, align 8
+  %call19 = invoke { ptr, ptr } @_ZNK7obj_mapI9func_declP11func_interpE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %invoke.cont18 unwind label %terminate.lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %__end117, i32 0, i32 0
-  %23 = extractvalue { ptr, ptr } %call19, 0
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %__end117, i32 0, i32 1
-  %25 = extractvalue { ptr, ptr } %call19, 1
-  store ptr %25, ptr %24, align 8
+  %23 = getelementptr inbounds { ptr, ptr }, ptr %__end117, i32 0, i32 0
+  %24 = extractvalue { ptr, ptr } %call19, 0
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds { ptr, ptr }, ptr %__end117, i32 0, i32 1
+  %26 = extractvalue { ptr, ptr } %call19, 1
+  store ptr %26, ptr %25, align 8
   br label %for.cond20
 
 for.cond20:                                       ; preds = %invoke.cont33, %invoke.cont18
@@ -486,18 +487,18 @@ for.body23:                                       ; preds = %invoke.cont21
 invoke.cont25:                                    ; preds = %for.body23
   store ptr %call26, ptr %kv24, align 8
   %m27 = getelementptr inbounds %class.model_core, ptr %this1, i32 0, i32 1
-  %26 = load ptr, ptr %m27, align 8
-  %27 = load ptr, ptr %kv24, align 8
-  %m_key28 = getelementptr inbounds %"struct.obj_map<func_decl, func_interp *>::key_data", ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %m_key28, align 8
-  invoke void @_ZN11ast_manager7dec_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %26, ptr noundef %28)
+  %27 = load ptr, ptr %m27, align 8
+  %28 = load ptr, ptr %kv24, align 8
+  %m_key28 = getelementptr inbounds %"struct.obj_map<func_decl, func_interp *>::key_data", ptr %28, i32 0, i32 0
+  %29 = load ptr, ptr %m_key28, align 8
+  invoke void @_ZN11ast_manager7dec_refEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %27, ptr noundef %29)
           to label %invoke.cont29 unwind label %terminate.lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont25
-  %29 = load ptr, ptr %kv24, align 8
-  %m_value30 = getelementptr inbounds %"struct.obj_map<func_decl, func_interp *>::key_data", ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %m_value30, align 8
-  invoke void @_Z7deallocI11func_interpEvPT_(ptr noundef %30)
+  %30 = load ptr, ptr %kv24, align 8
+  %m_value30 = getelementptr inbounds %"struct.obj_map<func_decl, func_interp *>::key_data", ptr %30, i32 0, i32 1
+  %31 = load ptr, ptr %m_value30, align 8
+  invoke void @_Z7deallocI11func_interpEvPT_(ptr noundef %31)
           to label %invoke.cont31 unwind label %terminate.lpad
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -524,10 +525,10 @@ for.end35:                                        ; preds = %invoke.cont21
   ret void
 
 terminate.lpad:                                   ; preds = %for.inc32, %invoke.cont29, %invoke.cont25, %for.body23, %for.cond20, %invoke.cont15, %for.end, %for.inc, %invoke.cont8, %invoke.cont6, %for.body, %for.cond, %invoke.cont, %entry
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #12
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #12
   unreachable
 }
 
@@ -2208,12 +2209,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2334,12 +2336,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<func_decl, func_interp *>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3395,10 +3398,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -3408,7 +3412,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3646,7 +3651,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4818,7 +4824,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key = getelementptr inbounds %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key, align 8
   ret void
 }
 
@@ -5622,7 +5629,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key = getelementptr inbounds %"struct.obj_map<func_decl, func_interp *>::key_data", ptr %m_data, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_key, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_key, align 8
   ret void
 }
 

@@ -6978,10 +6978,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.51", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  call void @_ZNSt5tupleIJcEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKcEEEbE4typeELb1EEES4_(ptr noundef nonnull align 1 dereferenceable(1) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %1) #10
+  %2 = load ptr, ptr %vals.addr, align 8
+  call void @_ZNSt5tupleIJcEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKcEEEbE4typeELb1EEES4_(ptr noundef nonnull align 1 dereferenceable(1) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %2) #10
   call void @_ZN4llvh26validate_format_parametersIJcEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -6994,10 +6995,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Fmt = getelementptr inbounds %"class.llvh::format_object_base", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fmt.addr, align 8
-  store ptr %0, ptr %Fmt, align 8
+  %1 = load ptr, ptr %fmt.addr, align 8
+  store ptr %1, ptr %Fmt, align 8
   ret void
 }
 
@@ -7292,14 +7294,15 @@ entry:
   %this9 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this9, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjhEEE, i32 0, i32 0, i32 2), ptr %this9, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjhEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this9, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.58", ptr %this9, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  %4 = load ptr, ptr %vals.addr6, align 8
-  %5 = load ptr, ptr %vals.addr8, align 8
-  call void @_ZNSt5tupleIJjPKcjjhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKjRKS1_S6_S6_RKhEEEbE4typeELb1EEES6_S8_S6_S6_SA_(ptr noundef nonnull align 8 dereferenceable(28) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #10
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  %5 = load ptr, ptr %vals.addr6, align 8
+  %6 = load ptr, ptr %vals.addr8, align 8
+  call void @_ZNSt5tupleIJjPKcjjhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKjRKS1_S6_S6_RKhEEEbE4typeELb1EEES6_S8_S6_S6_SA_(ptr noundef nonnull align 8 dereferenceable(28) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #10
   call void @_ZN4llvh26validate_format_parametersIJjPKcjjhEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -7838,10 +7841,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.89", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  call void @_ZNSt5tupleIJhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKhEEEbE4typeELb1EEES4_(ptr noundef nonnull align 1 dereferenceable(1) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %1) #10
+  %2 = load ptr, ptr %vals.addr, align 8
+  call void @_ZNSt5tupleIJhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKhEEEbE4typeELb1EEES4_(ptr noundef nonnull align 1 dereferenceable(1) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %2) #10
   call void @_ZN4llvh26validate_format_parametersIJhEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -8009,13 +8013,14 @@ entry:
   %this7 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this7, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjEEE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this7, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.95", ptr %this7, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  %4 = load ptr, ptr %vals.addr6, align 8
-  call void @_ZNSt5tupleIJjPKcjjEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKjRKS1_S6_S6_EEEbE4typeELb1EEES6_S8_S6_S6_(ptr noundef nonnull align 8 dereferenceable(20) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #10
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  %5 = load ptr, ptr %vals.addr6, align 8
+  call void @_ZNSt5tupleIJjPKcjjEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKjRKS1_S6_S6_EEEbE4typeELb1EEES6_S8_S6_S6_(ptr noundef nonnull align 8 dereferenceable(20) %Vals, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) #10
   call void @_ZN4llvh26validate_format_parametersIJjPKcjjEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -11987,13 +11992,14 @@ entry:
   %this7 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this7, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJtthhEEE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJtthhEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this7, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object", ptr %this7, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  %2 = load ptr, ptr %vals.addr2, align 8
-  %3 = load ptr, ptr %vals.addr4, align 8
-  %4 = load ptr, ptr %vals.addr6, align 8
-  call void @_ZNSt5tupleIJtthhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKtS4_RKhS6_EEEbE4typeELb1EEES4_S4_S6_S6_(ptr noundef nonnull align 2 dereferenceable(6) %Vals, ptr noundef nonnull align 2 dereferenceable(2) %1, ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #10
+  %2 = load ptr, ptr %vals.addr, align 8
+  %3 = load ptr, ptr %vals.addr2, align 8
+  %4 = load ptr, ptr %vals.addr4, align 8
+  %5 = load ptr, ptr %vals.addr6, align 8
+  call void @_ZNSt5tupleIJtthhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKtS4_RKhS6_EEEbE4typeELb1EEES4_S4_S6_S6_(ptr noundef nonnull align 2 dereferenceable(6) %Vals, ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 2 dereferenceable(2) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   call void @_ZN4llvh26validate_format_parametersIJtthhEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -13140,9 +13146,10 @@ entry:
 define linkonce_odr hidden { ptr, i64 } @_ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE11getEmptyKeyEv() #0 comdat align 2 {
 entry:
   %retval = alloca %"class.llvh::ArrayRef.35", align 8
-  call void @_ZN4llvh8ArrayRefIDsEC2EPKDsm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef inttoptr (i64 -1 to ptr), i64 noundef 0)
-  %0 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %0
+  %0 = inttoptr i64 -1 to ptr
+  call void @_ZN4llvh8ArrayRefIDsEC2EPKDsm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %0, i64 noundef 0)
+  %1 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13865,9 +13872,10 @@ entry:
 define linkonce_odr hidden { ptr, i64 } @_ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE15getTombstoneKeyEv() #0 comdat align 2 {
 entry:
   %retval = alloca %"class.llvh::ArrayRef.35", align 8
-  call void @_ZN4llvh8ArrayRefIDsEC2EPKDsm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef inttoptr (i64 -2 to ptr), i64 noundef 0)
-  %0 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %0
+  %0 = inttoptr i64 -2 to ptr
+  call void @_ZN4llvh8ArrayRefIDsEC2EPKDsm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %0, i64 noundef 0)
+  %1 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17510,7 +17518,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19116,7 +19125,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes5regex4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20771,7 +20781,8 @@ entry:
   store ptr %chars, ptr %chars.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes5regex4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh11SmallVectorIjLj5EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(36) %chars_, ptr noundef nonnull align 8 dereferenceable(36) %chars)
   %icase_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this1, i32 0, i32 2

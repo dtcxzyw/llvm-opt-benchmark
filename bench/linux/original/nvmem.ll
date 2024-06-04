@@ -12,7 +12,7 @@ define dso_local i32 @devm_rtc_nvmem_register(ptr nocapture noundef readonly %0,
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %18, label %6
+  br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
   store ptr %4, ptr %1, align 8
@@ -23,22 +23,23 @@ define dso_local i32 @devm_rtc_nvmem_register(ptr nocapture noundef readonly %0,
   %10 = getelementptr inbounds i8, ptr %1, i64 44
   store i8 1, ptr %10, align 4
   %11 = tail call ptr @devm_nvmem_register(ptr noundef %4, ptr noundef nonnull %1) #3
-  %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
-  br i1 %12, label %13, label %14
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %11, %12
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %6
+14:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %4, ptr noundef nonnull @.str) #4
-  br label %14
+  br label %15
 
-14:                                               ; preds = %13, %6
-  %15 = ptrtoint ptr %11 to i64
-  %16 = trunc i64 %15 to i32
-  %17 = select i1 %12, i32 %16, i32 0
-  br label %18
+15:                                               ; preds = %14, %6
+  %16 = ptrtoint ptr %11 to i64
+  %17 = trunc i64 %16 to i32
+  %18 = select i1 %13, i32 %17, i32 0
+  br label %19
 
-18:                                               ; preds = %14, %2
-  %19 = phi i32 [ %17, %14 ], [ -19, %2 ]
-  ret i32 %19
+19:                                               ; preds = %15, %2
+  %20 = phi i32 [ %18, %15 ], [ -19, %2 ]
+  ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid

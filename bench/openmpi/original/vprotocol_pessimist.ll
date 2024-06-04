@@ -55,11 +55,12 @@ define i32 @mca_vprotocol_pessimist_dump(ptr noundef %0, i32 noundef %1) #1 {
   %6 = load ptr, ptr %3, align 8
   %7 = call ptr @ompi_comm_print_cid(ptr noundef %6)
   call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef %5, ptr noundef @.str, ptr noundef %7)
-  %8 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 20), align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = call i32 %8(ptr noundef %9, i32 noundef %10)
-  ret i32 %11
+  %8 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 20
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = load i32, ptr %4, align 4
+  %12 = call i32 %9(ptr noundef %10, i32 noundef %11)
+  ret i32 %12
 }
 
 declare i32 @mca_vprotocol_pessimist_test(ptr noundef, ptr noundef, ptr noundef) #0

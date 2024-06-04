@@ -78,20 +78,21 @@ define dso_local void @_ZN19DFSProgramGeneratorC2EiPPcm(ptr noundef nonnull alig
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN19AbsProgramGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19DFSProgramGenerator, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %6, align 4
-  store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 4
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 5
-  store ptr null, ptr %17, align 8
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV19DFSProgramGenerator, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 1
+  %12 = load i32, ptr %6, align 4
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 4
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %class.DFSProgramGenerator, ptr %9, i32 0, i32 5
+  store ptr null, ptr %18, align 8
   ret void
 }
 
@@ -102,32 +103,33 @@ define dso_local void @_ZN19DFSProgramGeneratorD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19DFSProgramGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV19DFSProgramGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN12Finalization14doFinalizationEv()
-          to label %4 unwind label %13
+          to label %5 unwind label %14
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %class.DFSProgramGenerator, ptr %3, i32 0, i32 5
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %12, label %8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %class.DFSProgramGenerator, ptr %3, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 1
-  %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  br label %12
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds ptr, ptr %10, i64 1
+  %12 = load ptr, ptr %11, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %13
 
-12:                                               ; preds = %8, %4
+13:                                               ; preds = %9, %5
   call void @_ZN19AbsProgramGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #9
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #9
   unreachable
 }
 

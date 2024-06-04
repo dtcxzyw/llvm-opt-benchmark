@@ -53,17 +53,21 @@ define ptr @cert_store_get_int() #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @cert_store_unload_int() #0 {
-  %1 = load i8, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 1), align 8
-  %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %4
+  %1 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 1
+  %2 = load i8, ptr %1, align 8
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %8
 
-3:                                                ; preds = %0
-  call void @cert_store_free_cert_list_int(ptr noundef getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 2))
-  call void @cert_store_free_cert_list_int(ptr noundef getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3))
-  store i8 0, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 1), align 8
-  br label %4
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 2
+  call void @cert_store_free_cert_list_int(ptr noundef %5)
+  %6 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3
+  call void @cert_store_free_cert_list_int(ptr noundef %6)
+  %7 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 1
+  store i8 0, ptr %7, align 8
+  br label %8
 
-4:                                                ; preds = %3, %0
+8:                                                ; preds = %4, %0
   ret void
 }
 
@@ -344,7 +348,7 @@ define i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 21:                                               ; preds = %18, %3
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.4)
-  br label %138
+  br label %145
 
 22:                                               ; preds = %18
   %23 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 358401) #13
@@ -357,7 +361,7 @@ define i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 28:                                               ; preds = %22
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.5)
-  br label %138
+  br label %145
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %5, align 8
@@ -377,231 +381,238 @@ define i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 37:                                               ; preds = %34, %29
   store i8 1, ptr %10, align 1
-  %38 = load i8, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 1), align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %41, label %40
-
-40:                                               ; preds = %37
-  br label %138
+  %38 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 1
+  %39 = load i8, ptr %38, align 8
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %42, label %41
 
 41:                                               ; preds = %37
+  br label %145
+
+42:                                               ; preds = %37
   store i32 0, ptr %8, align 4
-  br label %42
+  br label %43
 
-42:                                               ; preds = %77, %41
-  %43 = load i32, ptr %8, align 4
-  %44 = zext i32 %43 to i64
-  %45 = load i64, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 2, i32 1), align 8
-  %46 = icmp ult i64 %44, %45
-  br i1 %46, label %47, label %80
+43:                                               ; preds = %81, %42
+  %44 = load i32, ptr %8, align 4
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 2, i32 1
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp ult i64 %45, %47
+  br i1 %48, label %49, label %84
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 2), align 8
-  %49 = load i32, ptr %8, align 4
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %4, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = call i32 @_x509_to_pem_append(ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %12)
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %58
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %8, align 4
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr inbounds ptr, ptr %51, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %4, align 8
+  %57 = load ptr, ptr %5, align 8
+  %58 = call i32 @_x509_to_pem_append(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %12)
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %61
 
-57:                                               ; preds = %47
-  br label %138
+60:                                               ; preds = %49
+  br label %145
 
-58:                                               ; preds = %47
-  %59 = load ptr, ptr %6, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %76
+61:                                               ; preds = %49
+  %62 = load ptr, ptr %6, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %80
 
-61:                                               ; preds = %58
+64:                                               ; preds = %61
   store i32 0, ptr %14, align 4
-  %62 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 2), align 8
-  %63 = load i32, ptr %8, align 4
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 2
   %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %6, align 8
-  %68 = call i32 @x509_cert_name_cmp(ptr noundef %66, ptr noundef %67, ptr noundef %14)
-  %69 = icmp eq i32 0, %68
-  br i1 %69, label %70, label %75
+  %67 = load i32, ptr %8, align 4
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %6, align 8
+  %72 = call i32 @x509_cert_name_cmp(ptr noundef %70, ptr noundef %71, ptr noundef %14)
+  %73 = icmp eq i32 0, %72
+  br i1 %73, label %74, label %79
 
-70:                                               ; preds = %61
-  %71 = load i32, ptr %14, align 4
-  %72 = icmp eq i32 0, %71
-  br i1 %72, label %73, label %74
+74:                                               ; preds = %64
+  %75 = load i32, ptr %14, align 4
+  %76 = icmp eq i32 0, %75
+  br i1 %76, label %77, label %78
 
-73:                                               ; preds = %70
+77:                                               ; preds = %74
   store i8 0, ptr %13, align 1
-  br label %74
+  br label %78
 
-74:                                               ; preds = %73, %70
-  br label %75
+78:                                               ; preds = %77, %74
+  br label %79
 
-75:                                               ; preds = %74, %61
-  br label %76
+79:                                               ; preds = %78, %64
+  br label %80
 
-76:                                               ; preds = %75, %58
-  br label %77
-
-77:                                               ; preds = %76
-  %78 = load i32, ptr %8, align 4
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %8, align 4
-  br label %42
-
-80:                                               ; preds = %42
-  store i32 0, ptr %8, align 4
+80:                                               ; preds = %79, %61
   br label %81
 
-81:                                               ; preds = %116, %80
+81:                                               ; preds = %80
   %82 = load i32, ptr %8, align 4
-  %83 = zext i32 %82 to i64
-  %84 = load i64, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3, i32 1), align 8
-  %85 = icmp ult i64 %83, %84
-  br i1 %85, label %86, label %119
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %8, align 4
+  br label %43
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3), align 8
-  %88 = load i32, ptr %8, align 4
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds ptr, ptr %87, i64 %89
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %4, align 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = call i32 @_x509_to_pem_append(ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %12)
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %97
+84:                                               ; preds = %43
+  store i32 0, ptr %8, align 4
+  br label %85
 
-96:                                               ; preds = %86
-  br label %138
+85:                                               ; preds = %123, %84
+  %86 = load i32, ptr %8, align 4
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3, i32 1
+  %89 = load i64, ptr %88, align 8
+  %90 = icmp ult i64 %87, %89
+  br i1 %90, label %91, label %126
 
-97:                                               ; preds = %86
-  %98 = load ptr, ptr %6, align 8
-  %99 = icmp ne ptr %98, null
-  br i1 %99, label %100, label %115
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i32, ptr %8, align 4
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds ptr, ptr %93, i64 %95
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %4, align 8
+  %99 = load ptr, ptr %5, align 8
+  %100 = call i32 @_x509_to_pem_append(ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %12)
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %102, label %103
 
-100:                                              ; preds = %97
+102:                                              ; preds = %91
+  br label %145
+
+103:                                              ; preds = %91
+  %104 = load ptr, ptr %6, align 8
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %122
+
+106:                                              ; preds = %103
   store i32 0, ptr %15, align 4
-  %101 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3), align 8
-  %102 = load i32, ptr %8, align 4
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr %101, i64 %103
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %6, align 8
-  %107 = call i32 @x509_cert_name_cmp(ptr noundef %105, ptr noundef %106, ptr noundef %15)
-  %108 = icmp eq i32 0, %107
-  br i1 %108, label %109, label %114
+  %107 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3
+  %108 = load ptr, ptr %107, align 8
+  %109 = load i32, ptr %8, align 4
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds ptr, ptr %108, i64 %110
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %6, align 8
+  %114 = call i32 @x509_cert_name_cmp(ptr noundef %112, ptr noundef %113, ptr noundef %15)
+  %115 = icmp eq i32 0, %114
+  br i1 %115, label %116, label %121
 
-109:                                              ; preds = %100
-  %110 = load i32, ptr %15, align 4
-  %111 = icmp eq i32 0, %110
-  br i1 %111, label %112, label %113
+116:                                              ; preds = %106
+  %117 = load i32, ptr %15, align 4
+  %118 = icmp eq i32 0, %117
+  br i1 %118, label %119, label %120
 
-112:                                              ; preds = %109
+119:                                              ; preds = %116
   store i8 0, ptr %13, align 1
-  br label %113
+  br label %120
 
-113:                                              ; preds = %112, %109
-  br label %114
+120:                                              ; preds = %119, %116
+  br label %121
 
-114:                                              ; preds = %113, %100
-  br label %115
+121:                                              ; preds = %120, %106
+  br label %122
 
-115:                                              ; preds = %114, %97
-  br label %116
+122:                                              ; preds = %121, %103
+  br label %123
 
-116:                                              ; preds = %115
-  %117 = load i32, ptr %8, align 4
-  %118 = add i32 %117, 1
-  store i32 %118, ptr %8, align 4
-  br label %81
+123:                                              ; preds = %122
+  %124 = load i32, ptr %8, align 4
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %8, align 4
+  br label %85
 
-119:                                              ; preds = %81
-  %120 = load ptr, ptr %6, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %122, label %137
-
-122:                                              ; preds = %119
-  %123 = load i8, ptr %13, align 1
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %125, label %137
-
-125:                                              ; preds = %122
-  %126 = load ptr, ptr %4, align 8
-  %127 = load ptr, ptr %126, align 8
+126:                                              ; preds = %85
+  %127 = load ptr, ptr %6, align 8
   %128 = icmp ne ptr %127, null
-  br i1 %128, label %129, label %137
+  br i1 %128, label %129, label %144
 
-129:                                              ; preds = %125
-  %130 = load ptr, ptr %6, align 8
-  %131 = load ptr, ptr %4, align 8
-  %132 = load ptr, ptr %5, align 8
-  %133 = call i32 @_x509_to_pem_append(ptr noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef %12)
-  %134 = icmp ne i32 %133, 0
-  br i1 %134, label %135, label %136
+129:                                              ; preds = %126
+  %130 = load i8, ptr %13, align 1
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %132, label %144
 
-135:                                              ; preds = %129
-  br label %138
+132:                                              ; preds = %129
+  %133 = load ptr, ptr %4, align 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %144
 
-136:                                              ; preds = %129
-  br label %137
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %6, align 8
+  %138 = load ptr, ptr %4, align 8
+  %139 = load ptr, ptr %5, align 8
+  %140 = call i32 @_x509_to_pem_append(ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %12)
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %142, label %143
 
-137:                                              ; preds = %136, %125, %122, %119
+142:                                              ; preds = %136
+  br label %145
+
+143:                                              ; preds = %136
+  br label %144
+
+144:                                              ; preds = %143, %132, %129, %126
   store i32 0, ptr %9, align 4
-  br label %138
+  br label %145
 
-138:                                              ; preds = %137, %135, %96, %57, %40, %28, %21
-  %139 = load i8, ptr %10, align 1
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %141, label %149
+145:                                              ; preds = %144, %142, %102, %60, %41, %28, %21
+  %146 = load i8, ptr %10, align 1
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %148, label %156
 
-141:                                              ; preds = %138
-  %142 = call i32 @pthread_mutex_unlock(ptr noundef @_cert_store) #10
-  store i32 %142, ptr %11, align 4
-  %143 = load i32, ptr %11, align 4
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %148
-
-145:                                              ; preds = %141
-  %146 = load i32, ptr %11, align 4
-  %147 = call ptr @__errno_location() #11
-  store i32 %146, ptr %147, align 4
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.1)
-  br label %148
-
-148:                                              ; preds = %145, %141
-  store i8 0, ptr %10, align 1
-  br label %149
-
-149:                                              ; preds = %148, %138
-  %150 = load i32, ptr %9, align 4
+148:                                              ; preds = %145
+  %149 = call i32 @pthread_mutex_unlock(ptr noundef @_cert_store) #10
+  store i32 %149, ptr %11, align 4
+  %150 = load i32, ptr %11, align 4
   %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %163
+  br i1 %151, label %152, label %155
 
-152:                                              ; preds = %149
-  %153 = load ptr, ptr %4, align 8
-  %154 = icmp ne ptr %153, null
-  br i1 %154, label %155, label %163
+152:                                              ; preds = %148
+  %153 = load i32, ptr %11, align 4
+  %154 = call ptr @__errno_location() #11
+  store i32 %153, ptr %154, align 4
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.1)
+  br label %155
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr %4, align 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = icmp ne ptr %157, null
-  br i1 %158, label %159, label %163
+155:                                              ; preds = %152, %148
+  store i8 0, ptr %10, align 1
+  br label %156
 
-159:                                              ; preds = %155
+156:                                              ; preds = %155, %145
+  %157 = load i32, ptr %9, align 4
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %159, label %170
+
+159:                                              ; preds = %156
   %160 = load ptr, ptr %4, align 8
-  %161 = load ptr, ptr %160, align 8
-  call void @free(ptr noundef %161) #10
-  %162 = load ptr, ptr %4, align 8
-  store ptr null, ptr %162, align 8
-  br label %163
+  %161 = icmp ne ptr %160, null
+  br i1 %161, label %162, label %170
 
-163:                                              ; preds = %159, %155, %152, %149
-  %164 = load i32, ptr %9, align 4
-  ret i32 %164
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %4, align 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = icmp ne ptr %164, null
+  br i1 %165, label %166, label %170
+
+166:                                              ; preds = %162
+  %167 = load ptr, ptr %4, align 8
+  %168 = load ptr, ptr %167, align 8
+  call void @free(ptr noundef %168) #10
+  %169 = load ptr, ptr %4, align 8
+  store ptr null, ptr %169, align 8
+  br label %170
+
+170:                                              ; preds = %166, %162, %159, %156
+  %171 = load i32, ptr %9, align 4
+  ret i32 %171
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
@@ -908,7 +919,7 @@ define i32 @cert_store_set_trusted_int(ptr noundef %0, i64 noundef %1) #0 {
 
 16:                                               ; preds = %13, %10
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.6)
-  br label %89
+  br label %94
 
 17:                                               ; preds = %13
   %18 = load i64, ptr %4, align 8
@@ -922,120 +933,125 @@ define i32 @cert_store_set_trusted_int(ptr noundef %0, i64 noundef %1) #0 {
 
 24:                                               ; preds = %17
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.7)
-  br label %89
+  br label %94
 
 25:                                               ; preds = %17
   store i64 0, ptr %6, align 8
   br label %26
 
-26:                                               ; preds = %79, %25
+26:                                               ; preds = %81, %25
   %27 = load i64, ptr %6, align 8
   %28 = load i64, ptr %4, align 8
   %29 = icmp ult i64 %27, %28
-  br i1 %29, label %30, label %82
+  br i1 %29, label %30, label %84
 
 30:                                               ; preds = %26
   store i8 0, ptr %9, align 1
   store i64 0, ptr %7, align 8
   br label %31
 
-31:                                               ; preds = %48, %30
+31:                                               ; preds = %50, %30
   %32 = load i64, ptr %7, align 8
-  %33 = load i64, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 2, i32 1), align 8
-  %34 = icmp ult i64 %32, %33
-  br i1 %34, label %35, label %51
+  %33 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 2, i32 1
+  %34 = load i64, ptr %33, align 8
+  %35 = icmp ult i64 %32, %34
+  br i1 %35, label %36, label %53
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %3, align 8
-  %37 = load i64, ptr %6, align 8
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 2), align 8
-  %41 = load i64, ptr %7, align 8
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = call i32 @X509_cmp(ptr noundef %39, ptr noundef %43)
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %47
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %3, align 8
+  %38 = load i64, ptr %6, align 8
+  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i64, ptr %7, align 8
+  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 @X509_cmp(ptr noundef %40, ptr noundef %45)
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %49
 
-46:                                               ; preds = %35
+48:                                               ; preds = %36
   store i8 1, ptr %9, align 1
-  br label %47
+  br label %49
 
-47:                                               ; preds = %46, %35
-  br label %48
+49:                                               ; preds = %48, %36
+  br label %50
 
-48:                                               ; preds = %47
-  %49 = load i64, ptr %7, align 8
-  %50 = add i64 %49, 1
-  store i64 %50, ptr %7, align 8
+50:                                               ; preds = %49
+  %51 = load i64, ptr %7, align 8
+  %52 = add i64 %51, 1
+  store i64 %52, ptr %7, align 8
   br label %31
 
-51:                                               ; preds = %31
-  %52 = load i8, ptr %9, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %55
+53:                                               ; preds = %31
+  %54 = load i8, ptr %9, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %57
 
-54:                                               ; preds = %51
-  br label %79
+56:                                               ; preds = %53
+  br label %81
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %3, align 8
-  %57 = load i64, ptr %6, align 8
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
-  %59 = load ptr, ptr %58, align 8
-  %60 = call ptr @X509_dup(ptr noundef %59)
-  %61 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
-  store ptr %60, ptr %65, align 8
-  %66 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %75, label %73
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %3, align 8
+  %59 = load i64, ptr %6, align 8
+  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr @X509_dup(ptr noundef %61)
+  %63 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
+  %66 = load i64, ptr %65, align 8
+  %67 = getelementptr inbounds ptr, ptr %64, i64 %66
+  store ptr %62, ptr %67, align 8
+  %68 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %77, label %75
 
-73:                                               ; preds = %55
-  %74 = load i64, ptr %6, align 8
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.8, i64 noundef %74)
-  br label %79
+75:                                               ; preds = %57
+  %76 = load i64, ptr %6, align 8
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.8, i64 noundef %76)
+  br label %81
 
-75:                                               ; preds = %55
-  %76 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
-  %77 = load i64, ptr %76, align 8
-  %78 = add i64 %77, 1
-  store i64 %78, ptr %76, align 8
-  br label %79
+77:                                               ; preds = %57
+  %78 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
+  %79 = load i64, ptr %78, align 8
+  %80 = add i64 %79, 1
+  store i64 %80, ptr %78, align 8
+  br label %81
 
-79:                                               ; preds = %75, %73, %54
-  %80 = load i64, ptr %6, align 8
-  %81 = add i64 %80, 1
-  store i64 %81, ptr %6, align 8
+81:                                               ; preds = %77, %75, %56
+  %82 = load i64, ptr %6, align 8
+  %83 = add i64 %82, 1
+  store i64 %83, ptr %6, align 8
   br label %26
 
-82:                                               ; preds = %26
-  call void @cert_store_free_cert_list_int(ptr noundef getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3))
-  %83 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 0
-  %84 = load ptr, ptr %83, align 8
-  store ptr %84, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3), align 8
-  %85 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
-  %86 = load i64, ptr %85, align 8
-  store i64 %86, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3, i32 1), align 8
-  %87 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 0
-  store ptr null, ptr %87, align 8
-  %88 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
-  store i64 0, ptr %88, align 8
+84:                                               ; preds = %26
+  %85 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3
+  call void @cert_store_free_cert_list_int(ptr noundef %85)
+  %86 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3
+  store ptr %87, ptr %88, align 8
+  %89 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3, i32 1
+  store i64 %90, ptr %91, align 8
+  %92 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 0
+  store ptr null, ptr %92, align 8
+  %93 = getelementptr inbounds %struct.cert_list_t, ptr %8, i32 0, i32 1
+  store i64 0, ptr %93, align 8
   store i32 0, ptr %5, align 4
-  br label %89
+  br label %94
 
-89:                                               ; preds = %82, %24, %16
-  %90 = load i32, ptr %5, align 4
-  ret i32 %90
+94:                                               ; preds = %84, %24, %16
+  %95 = load i32, ptr %5, align 4
+  ret i32 %95
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1068,34 +1084,35 @@ define i32 @cert_store_set_trusted(ptr noundef %0, i64 noundef %1) #0 {
   br label %13
 
 13:                                               ; preds = %10, %2
-  %14 = load i8, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 1), align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %20
+  %14 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 1
+  %15 = load i8, ptr %14, align 8
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %21
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i64, ptr %4, align 8
-  %19 = call i32 @cert_store_set_trusted_int(ptr noundef %17, i64 noundef %18)
-  store i32 %19, ptr %5, align 4
-  br label %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i64, ptr %4, align 8
+  %20 = call i32 @cert_store_set_trusted_int(ptr noundef %18, i64 noundef %19)
+  store i32 %20, ptr %5, align 4
+  br label %21
 
-20:                                               ; preds = %16, %13
-  %21 = call i32 @pthread_mutex_unlock(ptr noundef @_cert_store) #10
-  store i32 %21, ptr %6, align 4
-  %22 = load i32, ptr %6, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %27
+21:                                               ; preds = %17, %13
+  %22 = call i32 @pthread_mutex_unlock(ptr noundef @_cert_store) #10
+  store i32 %22, ptr %6, align 4
+  %23 = load i32, ptr %6, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr %6, align 4
-  %26 = call ptr @__errno_location() #11
-  store i32 %25, ptr %26, align 4
+25:                                               ; preds = %21
+  %26 = load i32, ptr %6, align 4
+  %27 = call ptr @__errno_location() #11
+  store i32 %26, ptr %27, align 4
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.1)
-  br label %27
+  br label %28
 
-27:                                               ; preds = %24, %20
-  %28 = load i32, ptr %5, align 4
-  ret i32 %28
+28:                                               ; preds = %25, %21
+  %29 = load i32, ptr %5, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1117,33 +1134,36 @@ define i64 @cert_store_remove_trusted() #0 {
   br label %9
 
 9:                                                ; preds = %6, %0
-  %10 = load i8, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 1), align 8
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %14
+  %10 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 1
+  %11 = load i8, ptr %10, align 8
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %17
 
-12:                                               ; preds = %9
-  %13 = load i64, ptr getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3, i32 1), align 8
-  store i64 %13, ptr %1, align 8
-  call void @cert_store_free_cert_list_int(ptr noundef getelementptr inbounds (%struct.cert_store_t, ptr @_cert_store, i32 0, i32 3))
-  br label %14
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3, i32 1
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %1, align 8
+  %16 = getelementptr inbounds %struct.cert_store_t, ptr @_cert_store, i32 0, i32 3
+  call void @cert_store_free_cert_list_int(ptr noundef %16)
+  br label %17
 
-14:                                               ; preds = %12, %9
-  %15 = call i32 @pthread_mutex_unlock(ptr noundef @_cert_store) #10
-  store i32 %15, ptr %2, align 4
-  %16 = load i32, ptr %2, align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %21
-
-18:                                               ; preds = %14
+17:                                               ; preds = %13, %9
+  %18 = call i32 @pthread_mutex_unlock(ptr noundef @_cert_store) #10
+  store i32 %18, ptr %2, align 4
   %19 = load i32, ptr %2, align 4
-  %20 = call ptr @__errno_location() #11
-  store i32 %19, ptr %20, align 4
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.1)
-  br label %21
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %24
 
-21:                                               ; preds = %18, %14
-  %22 = load i64, ptr %1, align 8
-  ret i64 %22
+21:                                               ; preds = %17
+  %22 = load i32, ptr %2, align 4
+  %23 = call ptr @__errno_location() #11
+  store i32 %22, ptr %23, align 4
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef @.str.1)
+  br label %24
+
+24:                                               ; preds = %21, %17
+  %25 = load i64, ptr %1, align 8
+  ret i64 %25
 }
 
 ; Function Attrs: nounwind uwtable

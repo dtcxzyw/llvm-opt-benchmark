@@ -4129,19 +4129,21 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 
 do.body:                                          ; preds = %if.end
   store ptr null, ptr @diff_queued_diff, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
+  %10 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 1
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  store i32 0, ptr %11, align 4
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %10 = load ptr, ptr %parent_tree_oid, align 8
-  %11 = load ptr, ptr %tree_oid, align 8
-  %12 = load ptr, ptr %opt.addr, align 8
-  call void @diff_tree_oid(ptr noundef %10, ptr noundef %11, ptr noundef @.str.9, ptr noundef %12)
-  %13 = load ptr, ptr %opt.addr, align 8
-  %detect_rename7 = getelementptr inbounds %struct.diff_options, ptr %13, i32 0, i32 21
-  %14 = load i32, ptr %detect_rename7, align 4
-  %tobool8 = icmp ne i32 %14, 0
+  %12 = load ptr, ptr %parent_tree_oid, align 8
+  %13 = load ptr, ptr %tree_oid, align 8
+  %14 = load ptr, ptr %opt.addr, align 8
+  call void @diff_tree_oid(ptr noundef %12, ptr noundef %13, ptr noundef @.str.9, ptr noundef %14)
+  %15 = load ptr, ptr %opt.addr, align 8
+  %detect_rename7 = getelementptr inbounds %struct.diff_options, ptr %15, i32 0, i32 21
+  %16 = load i32, ptr %detect_rename7, align 4
+  %tobool8 = icmp ne i32 %16, 0
   br i1 %tobool8, label %land.lhs.true9, label %if.end16
 
 land.lhs.true9:                                   ; preds = %do.end
@@ -4150,33 +4152,35 @@ land.lhs.true9:                                   ; preds = %do.end
   br i1 %tobool11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %land.lhs.true9
-  %15 = load ptr, ptr %opt.addr, align 8
-  %pathspec13 = getelementptr inbounds %struct.diff_options, ptr %15, i32 0, i32 59
+  %17 = load ptr, ptr %opt.addr, align 8
+  %pathspec13 = getelementptr inbounds %struct.diff_options, ptr %17, i32 0, i32 59
   call void @clear_pathspec(ptr noundef %pathspec13)
   br label %do.body14
 
 do.body14:                                        ; preds = %if.then12
   store ptr null, ptr @diff_queued_diff, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
+  %18 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 1
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  store i32 0, ptr %19, align 4
   br label %do.end15
 
 do.end15:                                         ; preds = %do.body14
-  %16 = load ptr, ptr %parent_tree_oid, align 8
-  %17 = load ptr, ptr %tree_oid, align 8
-  %18 = load ptr, ptr %opt.addr, align 8
-  call void @diff_tree_oid(ptr noundef %16, ptr noundef %17, ptr noundef @.str.9, ptr noundef %18)
-  %19 = load ptr, ptr %range.addr, align 8
-  call void @filter_diffs_for_paths(ptr noundef %19, i32 noundef 1)
-  %20 = load ptr, ptr %opt.addr, align 8
-  call void @diffcore_std(ptr noundef %20)
-  %21 = load ptr, ptr %range.addr, align 8
-  call void @filter_diffs_for_paths(ptr noundef %21, i32 noundef 0)
+  %20 = load ptr, ptr %parent_tree_oid, align 8
+  %21 = load ptr, ptr %tree_oid, align 8
+  %22 = load ptr, ptr %opt.addr, align 8
+  call void @diff_tree_oid(ptr noundef %20, ptr noundef %21, ptr noundef @.str.9, ptr noundef %22)
+  %23 = load ptr, ptr %range.addr, align 8
+  call void @filter_diffs_for_paths(ptr noundef %23, i32 noundef 1)
+  %24 = load ptr, ptr %opt.addr, align 8
+  call void @diffcore_std(ptr noundef %24)
+  %25 = load ptr, ptr %range.addr, align 8
+  call void @filter_diffs_for_paths(ptr noundef %25, i32 noundef 0)
   br label %if.end16
 
 if.end16:                                         ; preds = %do.end15, %land.lhs.true9, %do.end
-  %22 = load ptr, ptr %queue.addr, align 8
-  call void @move_diff_queue(ptr noundef %22, ptr noundef @diff_queued_diff)
+  %26 = load ptr, ptr %queue.addr, align 8
+  call void @move_diff_queue(ptr noundef %26, ptr noundef @diff_queued_diff)
   ret void
 }
 
@@ -4410,21 +4414,22 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %cmp = icmp slt i32 %0, %1
+  %1 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %2 = load i32, ptr %1, align 4
+  %cmp = icmp slt i32 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @diff_queued_diff, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  %one = getelementptr inbounds %struct.diff_filepair, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %one, align 8
-  %mode = getelementptr inbounds %struct.diff_filespec, ptr %5, i32 0, i32 7
-  %6 = load i16, ptr %mode, align 8
-  %conv = zext i16 %6 to i32
+  %3 = load ptr, ptr @diff_queued_diff, align 8
+  %4 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr %arrayidx, align 8
+  %one = getelementptr inbounds %struct.diff_filepair, ptr %5, i32 0, i32 0
+  %6 = load ptr, ptr %one, align 8
+  %mode = getelementptr inbounds %struct.diff_filespec, ptr %6, i32 0, i32 7
+  %7 = load i16, ptr %mode, align 8
+  %conv = zext i16 %7 to i32
   %cmp1 = icmp ne i32 %conv, 0
   br i1 %cmp1, label %if.end, label %if.then
 
@@ -4436,8 +4441,8 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
+  %8 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !37
 
@@ -4446,8 +4451,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %9 = load i32, ptr %retval, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4478,65 +4483,66 @@ do.end:                                           ; preds = %do.body
 
 for.cond:                                         ; preds = %for.inc17, %do.end
   %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %cmp = icmp slt i32 %0, %1
+  %1 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %2 = load i32, ptr %1, align 4
+  %cmp = icmp slt i32 %0, %2
   br i1 %cmp, label %for.body, label %for.end18
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr @diff_queued_diff, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %p, align 8
+  %3 = load ptr, ptr @diff_queued_diff, align 8
+  %4 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr %arrayidx, align 8
+  store ptr %5, ptr %p, align 8
   store ptr null, ptr %rg, align 8
-  %5 = load ptr, ptr %p, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %two, align 8
-  %mode = getelementptr inbounds %struct.diff_filespec, ptr %6, i32 0, i32 7
-  %7 = load i16, ptr %mode, align 8
-  %conv = zext i16 %7 to i32
+  %6 = load ptr, ptr %p, align 8
+  %two = getelementptr inbounds %struct.diff_filepair, ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %two, align 8
+  %mode = getelementptr inbounds %struct.diff_filespec, ptr %7, i32 0, i32 7
+  %8 = load i16, ptr %mode, align 8
+  %conv = zext i16 %8 to i32
   %cmp1 = icmp ne i32 %conv, 0
   br i1 %cmp1, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %8 = load i32, ptr %keep_deletions.addr, align 4
-  %tobool = icmp ne i32 %8, 0
+  %9 = load i32, ptr %keep_deletions.addr, align 4
+  %tobool = icmp ne i32 %9, 0
   br i1 %tobool, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %9 = load ptr, ptr %p, align 8
-  call void @diff_q(ptr noundef %outq, ptr noundef %9)
+  %10 = load ptr, ptr %p, align 8
+  call void @diff_q(ptr noundef %outq, ptr noundef %10)
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %10 = load ptr, ptr %p, align 8
-  call void @diff_free_filepair(ptr noundef %10)
+  %11 = load ptr, ptr %p, align 8
+  call void @diff_free_filepair(ptr noundef %11)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then3
   br label %for.inc17
 
 if.end4:                                          ; preds = %for.body
-  %11 = load ptr, ptr %range.addr, align 8
-  store ptr %11, ptr %rg, align 8
+  %12 = load ptr, ptr %range.addr, align 8
+  store ptr %12, ptr %rg, align 8
   br label %for.cond5
 
 for.cond5:                                        ; preds = %for.inc, %if.end4
-  %12 = load ptr, ptr %rg, align 8
-  %tobool6 = icmp ne ptr %12, null
+  %13 = load ptr, ptr %rg, align 8
+  %tobool6 = icmp ne ptr %13, null
   br i1 %tobool6, label %for.body7, label %for.end
 
 for.body7:                                        ; preds = %for.cond5
-  %13 = load ptr, ptr %rg, align 8
-  %path = getelementptr inbounds %struct.line_log_data, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %path, align 8
-  %15 = load ptr, ptr %p, align 8
-  %two8 = getelementptr inbounds %struct.diff_filepair, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %two8, align 8
-  %path9 = getelementptr inbounds %struct.diff_filespec, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %path9, align 8
-  %call = call i32 @strcmp(ptr noundef %14, ptr noundef %17) #9
+  %14 = load ptr, ptr %rg, align 8
+  %path = getelementptr inbounds %struct.line_log_data, ptr %14, i32 0, i32 1
+  %15 = load ptr, ptr %path, align 8
+  %16 = load ptr, ptr %p, align 8
+  %two8 = getelementptr inbounds %struct.diff_filepair, ptr %16, i32 0, i32 1
+  %17 = load ptr, ptr %two8, align 8
+  %path9 = getelementptr inbounds %struct.diff_filespec, ptr %17, i32 0, i32 1
+  %18 = load ptr, ptr %path9, align 8
+  %call = call i32 @strcmp(ptr noundef %15, ptr noundef %18) #9
   %tobool10 = icmp ne i32 %call, 0
   br i1 %tobool10, label %if.end12, label %if.then11
 
@@ -4547,39 +4553,39 @@ if.end12:                                         ; preds = %for.body7
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12
-  %18 = load ptr, ptr %rg, align 8
-  %next = getelementptr inbounds %struct.line_log_data, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %next, align 8
-  store ptr %19, ptr %rg, align 8
+  %19 = load ptr, ptr %rg, align 8
+  %next = getelementptr inbounds %struct.line_log_data, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %next, align 8
+  store ptr %20, ptr %rg, align 8
   br label %for.cond5, !llvm.loop !38
 
 for.end:                                          ; preds = %if.then11, %for.cond5
-  %20 = load ptr, ptr %rg, align 8
-  %tobool13 = icmp ne ptr %20, null
+  %21 = load ptr, ptr %rg, align 8
+  %tobool13 = icmp ne ptr %21, null
   br i1 %tobool13, label %if.then14, label %if.else15
 
 if.then14:                                        ; preds = %for.end
-  %21 = load ptr, ptr %p, align 8
-  call void @diff_q(ptr noundef %outq, ptr noundef %21)
+  %22 = load ptr, ptr %p, align 8
+  call void @diff_q(ptr noundef %outq, ptr noundef %22)
   br label %if.end16
 
 if.else15:                                        ; preds = %for.end
-  %22 = load ptr, ptr %p, align 8
-  call void @diff_free_filepair(ptr noundef %22)
+  %23 = load ptr, ptr %p, align 8
+  call void @diff_free_filepair(ptr noundef %23)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else15, %if.then14
   br label %for.inc17
 
 for.inc17:                                        ; preds = %if.end16, %if.end
-  %23 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %23, 1
+  %24 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %24, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !39
 
 for.end18:                                        ; preds = %for.cond
-  %24 = load ptr, ptr @diff_queued_diff, align 8
-  call void @free(ptr noundef %24) #7
+  %25 = load ptr, ptr @diff_queued_diff, align 8
+  call void @free(ptr noundef %25) #7
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @diff_queued_diff, ptr align 8 %outq, i64 16, i1 false)
   ret void
 }

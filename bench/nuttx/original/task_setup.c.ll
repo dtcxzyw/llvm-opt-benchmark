@@ -75,7 +75,7 @@ define internal i32 @nxthread_setup_scheduler(ptr noundef %0, i32 noundef %1, pt
   store i32 %16, ptr %12, align 4
   %17 = load i32, ptr %12, align 4
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %100
+  br i1 %18, label %19, label %101
 
 19:                                               ; preds = %5
   %20 = load i32, ptr %7, align 4
@@ -164,37 +164,38 @@ define internal i32 @nxthread_setup_scheduler(ptr noundef %0, i32 noundef %1, pt
   store ptr %82, ptr %84, align 8
   %85 = load ptr, ptr @g_inactivetasks, align 8
   %86 = icmp ne ptr %85, null
-  br i1 %86, label %90, label %87
+  br i1 %86, label %91, label %87
 
 87:                                               ; preds = %78
   %88 = load ptr, ptr %13, align 8
   store ptr %88, ptr @g_inactivetasks, align 8
   %89 = load ptr, ptr %13, align 8
-  store ptr %89, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_inactivetasks, i32 0, i32 1), align 8
-  br label %95
-
-90:                                               ; preds = %78
-  %91 = load ptr, ptr %13, align 8
-  %92 = load ptr, ptr @g_inactivetasks, align 8
-  %93 = getelementptr inbounds %struct.dq_entry_s, ptr %92, i32 0, i32 1
-  store ptr %91, ptr %93, align 8
-  %94 = load ptr, ptr %13, align 8
-  store ptr %94, ptr @g_inactivetasks, align 8
-  br label %95
-
-95:                                               ; preds = %90, %87
+  %90 = getelementptr inbounds %struct.dq_queue_s, ptr @g_inactivetasks, i32 0, i32 1
+  store ptr %89, ptr %90, align 8
   br label %96
 
-96:                                               ; preds = %95
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct.tcb_s, ptr %97, i32 0, i32 8
-  store i8 4, ptr %98, align 16
-  %99 = call i32 @sched_unlock()
-  br label %100
+91:                                               ; preds = %78
+  %92 = load ptr, ptr %13, align 8
+  %93 = load ptr, ptr @g_inactivetasks, align 8
+  %94 = getelementptr inbounds %struct.dq_entry_s, ptr %93, i32 0, i32 1
+  store ptr %92, ptr %94, align 8
+  %95 = load ptr, ptr %13, align 8
+  store ptr %95, ptr @g_inactivetasks, align 8
+  br label %96
 
-100:                                              ; preds = %96, %5
-  %101 = load i32, ptr %12, align 4
-  ret i32 %101
+96:                                               ; preds = %91, %87
+  br label %97
+
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %6, align 8
+  %99 = getelementptr inbounds %struct.tcb_s, ptr %98, i32 0, i32 8
+  store i8 4, ptr %99, align 16
+  %100 = call i32 @sched_unlock()
+  br label %101
+
+101:                                              ; preds = %97, %5
+  %102 = load i32, ptr %12, align 4
+  ret i32 %102
 }
 
 ; Function Attrs: nounwind uwtable

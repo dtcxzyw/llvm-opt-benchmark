@@ -336,32 +336,34 @@ declare dso_local ptr @__pskb_pull_tail(ptr noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @seg6_net_init(ptr nocapture noundef writeonly %0) #2 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 40) #12
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %13, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 40) #12
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %15, label %6
 
-5:                                                ; preds = %1
-  tail call void @__mutex_init(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef nonnull @seg6_net_init.__key) #10
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %7 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 16) #12
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %7, ptr %8, align 8
-  %9 = icmp eq ptr %7, null
-  br i1 %9, label %10, label %11
+6:                                                ; preds = %1
+  tail call void @__mutex_init(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull @seg6_net_init.__key) #10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 16) #12
+  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %9, ptr %10, align 8
+  %11 = icmp eq ptr %9, null
+  br i1 %11, label %12, label %13
 
-10:                                               ; preds = %5
-  tail call void @kfree(ptr noundef nonnull %3) #10
-  br label %13
+12:                                               ; preds = %6
+  tail call void @kfree(ptr noundef nonnull %4) #10
+  br label %15
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 2152
-  store ptr %3, ptr %12, align 8
-  br label %13
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  store ptr %4, ptr %14, align 8
+  br label %15
 
-13:                                               ; preds = %11, %10, %1
-  %14 = phi i32 [ 0, %11 ], [ -12, %10 ], [ -12, %1 ]
-  ret i32 %14
+15:                                               ; preds = %13, %12, %1
+  %16 = phi i32 [ 0, %13 ], [ -12, %12 ], [ -12, %1 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

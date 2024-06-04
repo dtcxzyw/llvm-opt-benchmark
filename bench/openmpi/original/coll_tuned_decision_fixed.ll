@@ -709,794 +709,795 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   %22 = call i32 @ompi_comm_size(ptr noundef %21)
   store i32 %22, ptr %17, align 4
   %23 = load ptr, ptr %9, align 8
-  %24 = icmp ne ptr inttoptr (i64 1 to ptr), %23
-  br i1 %24, label %25, label %28
+  %24 = inttoptr i64 1 to ptr
+  %25 = icmp ne ptr %24, %23
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %8
-  %26 = load ptr, ptr %11, align 8
-  %27 = call i32 @ompi_datatype_type_size(ptr noundef %26, ptr noundef %19)
-  br label %31
+26:                                               ; preds = %8
+  %27 = load ptr, ptr %11, align 8
+  %28 = call i32 @ompi_datatype_type_size(ptr noundef %27, ptr noundef %19)
+  br label %32
 
-28:                                               ; preds = %8
-  %29 = load ptr, ptr %14, align 8
-  %30 = call i32 @ompi_datatype_type_size(ptr noundef %29, ptr noundef %19)
-  br label %31
+29:                                               ; preds = %8
+  %30 = load ptr, ptr %14, align 8
+  %31 = call i32 @ompi_datatype_type_size(ptr noundef %30, ptr noundef %19)
+  br label %32
 
-31:                                               ; preds = %28, %25
-  %32 = load i64, ptr %19, align 8
-  %33 = load i32, ptr %10, align 4
-  %34 = sext i32 %33 to i64
-  %35 = mul i64 %32, %34
-  store i64 %35, ptr %20, align 8
-  %36 = load i32, ptr %17, align 4
-  %37 = icmp eq i32 %36, 2
-  br i1 %37, label %38, label %84
+32:                                               ; preds = %29, %26
+  %33 = load i64, ptr %19, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = sext i32 %34 to i64
+  %36 = mul i64 %33, %35
+  store i64 %36, ptr %20, align 8
+  %37 = load i32, ptr %17, align 4
+  %38 = icmp eq i32 %37, 2
+  br i1 %38, label %39, label %85
 
-38:                                               ; preds = %31
-  %39 = load i64, ptr %20, align 8
-  %40 = icmp ult i64 %39, 2
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %32
+  %40 = load i64, ptr %20, align 8
+  %41 = icmp ult i64 %40, 2
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   store i32 2, ptr %18, align 4
+  br label %84
+
+43:                                               ; preds = %39
+  %44 = load i64, ptr %20, align 8
+  %45 = icmp ult i64 %44, 4
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %43
+  store i32 5, ptr %18, align 4
   br label %83
 
-42:                                               ; preds = %38
-  %43 = load i64, ptr %20, align 8
-  %44 = icmp ult i64 %43, 4
-  br i1 %44, label %45, label %46
+47:                                               ; preds = %43
+  %48 = load i64, ptr %20, align 8
+  %49 = icmp ult i64 %48, 16
+  br i1 %49, label %50, label %51
 
-45:                                               ; preds = %42
-  store i32 5, ptr %18, align 4
+50:                                               ; preds = %47
+  store i32 2, ptr %18, align 4
   br label %82
 
-46:                                               ; preds = %42
-  %47 = load i64, ptr %20, align 8
-  %48 = icmp ult i64 %47, 16
-  br i1 %48, label %49, label %50
+51:                                               ; preds = %47
+  %52 = load i64, ptr %20, align 8
+  %53 = icmp ult i64 %52, 64
+  br i1 %53, label %54, label %55
 
-49:                                               ; preds = %46
-  store i32 2, ptr %18, align 4
+54:                                               ; preds = %51
+  store i32 5, ptr %18, align 4
   br label %81
 
-50:                                               ; preds = %46
-  %51 = load i64, ptr %20, align 8
-  %52 = icmp ult i64 %51, 64
-  br i1 %52, label %53, label %54
+55:                                               ; preds = %51
+  %56 = load i64, ptr %20, align 8
+  %57 = icmp ult i64 %56, 256
+  br i1 %57, label %58, label %59
 
-53:                                               ; preds = %50
-  store i32 5, ptr %18, align 4
+58:                                               ; preds = %55
+  store i32 2, ptr %18, align 4
   br label %80
 
-54:                                               ; preds = %50
-  %55 = load i64, ptr %20, align 8
-  %56 = icmp ult i64 %55, 256
-  br i1 %56, label %57, label %58
+59:                                               ; preds = %55
+  %60 = load i64, ptr %20, align 8
+  %61 = icmp ult i64 %60, 4096
+  br i1 %61, label %62, label %63
 
-57:                                               ; preds = %54
-  store i32 2, ptr %18, align 4
+62:                                               ; preds = %59
+  store i32 5, ptr %18, align 4
   br label %79
 
-58:                                               ; preds = %54
-  %59 = load i64, ptr %20, align 8
-  %60 = icmp ult i64 %59, 4096
-  br i1 %60, label %61, label %62
+63:                                               ; preds = %59
+  %64 = load i64, ptr %20, align 8
+  %65 = icmp ult i64 %64, 32768
+  br i1 %65, label %66, label %67
 
-61:                                               ; preds = %58
-  store i32 5, ptr %18, align 4
+66:                                               ; preds = %63
+  store i32 2, ptr %18, align 4
   br label %78
 
-62:                                               ; preds = %58
-  %63 = load i64, ptr %20, align 8
-  %64 = icmp ult i64 %63, 32768
-  br i1 %64, label %65, label %66
+67:                                               ; preds = %63
+  %68 = load i64, ptr %20, align 8
+  %69 = icmp ult i64 %68, 262144
+  br i1 %69, label %70, label %71
 
-65:                                               ; preds = %62
-  store i32 2, ptr %18, align 4
-  br label %77
-
-66:                                               ; preds = %62
-  %67 = load i64, ptr %20, align 8
-  %68 = icmp ult i64 %67, 262144
-  br i1 %68, label %69, label %70
-
-69:                                               ; preds = %66
+70:                                               ; preds = %67
   store i32 4, ptr %18, align 4
-  br label %76
-
-70:                                               ; preds = %66
-  %71 = load i64, ptr %20, align 8
-  %72 = icmp ult i64 %71, 1048576
-  br i1 %72, label %73, label %74
-
-73:                                               ; preds = %70
-  store i32 5, ptr %18, align 4
-  br label %75
-
-74:                                               ; preds = %70
-  store i32 2, ptr %18, align 4
-  br label %75
-
-75:                                               ; preds = %74, %73
-  br label %76
-
-76:                                               ; preds = %75, %69
   br label %77
 
-77:                                               ; preds = %76, %65
+71:                                               ; preds = %67
+  %72 = load i64, ptr %20, align 8
+  %73 = icmp ult i64 %72, 1048576
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %71
+  store i32 5, ptr %18, align 4
+  br label %76
+
+75:                                               ; preds = %71
+  store i32 2, ptr %18, align 4
+  br label %76
+
+76:                                               ; preds = %75, %74
+  br label %77
+
+77:                                               ; preds = %76, %70
   br label %78
 
-78:                                               ; preds = %77, %61
+78:                                               ; preds = %77, %66
   br label %79
 
-79:                                               ; preds = %78, %57
+79:                                               ; preds = %78, %62
   br label %80
 
-80:                                               ; preds = %79, %53
+80:                                               ; preds = %79, %58
   br label %81
 
-81:                                               ; preds = %80, %49
+81:                                               ; preds = %80, %54
   br label %82
 
-82:                                               ; preds = %81, %45
+82:                                               ; preds = %81, %50
   br label %83
 
-83:                                               ; preds = %82, %41
-  br label %350
+83:                                               ; preds = %82, %46
+  br label %84
 
-84:                                               ; preds = %31
-  %85 = load i32, ptr %17, align 4
-  %86 = icmp slt i32 %85, 8
-  br i1 %86, label %87, label %113
+84:                                               ; preds = %83, %42
+  br label %351
 
-87:                                               ; preds = %84
-  %88 = load i64, ptr %20, align 8
-  %89 = icmp ult i64 %88, 8192
-  br i1 %89, label %90, label %91
+85:                                               ; preds = %32
+  %86 = load i32, ptr %17, align 4
+  %87 = icmp slt i32 %86, 8
+  br i1 %87, label %88, label %114
 
-90:                                               ; preds = %87
+88:                                               ; preds = %85
+  %89 = load i64, ptr %20, align 8
+  %90 = icmp ult i64 %89, 8192
+  br i1 %90, label %91, label %92
+
+91:                                               ; preds = %88
   store i32 4, ptr %18, align 4
+  br label %113
+
+92:                                               ; preds = %88
+  %93 = load i64, ptr %20, align 8
+  %94 = icmp ult i64 %93, 16384
+  br i1 %94, label %95, label %96
+
+95:                                               ; preds = %92
+  store i32 1, ptr %18, align 4
   br label %112
 
-91:                                               ; preds = %87
-  %92 = load i64, ptr %20, align 8
-  %93 = icmp ult i64 %92, 16384
-  br i1 %93, label %94, label %95
+96:                                               ; preds = %92
+  %97 = load i64, ptr %20, align 8
+  %98 = icmp ult i64 %97, 65536
+  br i1 %98, label %99, label %100
 
-94:                                               ; preds = %91
-  store i32 1, ptr %18, align 4
+99:                                               ; preds = %96
+  store i32 4, ptr %18, align 4
   br label %111
 
-95:                                               ; preds = %91
-  %96 = load i64, ptr %20, align 8
-  %97 = icmp ult i64 %96, 65536
-  br i1 %97, label %98, label %99
+100:                                              ; preds = %96
+  %101 = load i64, ptr %20, align 8
+  %102 = icmp ult i64 %101, 524288
+  br i1 %102, label %103, label %104
 
-98:                                               ; preds = %95
-  store i32 4, ptr %18, align 4
+103:                                              ; preds = %100
+  store i32 1, ptr %18, align 4
   br label %110
 
-99:                                               ; preds = %95
-  %100 = load i64, ptr %20, align 8
-  %101 = icmp ult i64 %100, 524288
-  br i1 %101, label %102, label %103
+104:                                              ; preds = %100
+  %105 = load i64, ptr %20, align 8
+  %106 = icmp ult i64 %105, 1048576
+  br i1 %106, label %107, label %108
 
-102:                                              ; preds = %99
+107:                                              ; preds = %104
+  store i32 2, ptr %18, align 4
+  br label %109
+
+108:                                              ; preds = %104
   store i32 1, ptr %18, align 4
   br label %109
 
-103:                                              ; preds = %99
-  %104 = load i64, ptr %20, align 8
-  %105 = icmp ult i64 %104, 1048576
-  br i1 %105, label %106, label %107
-
-106:                                              ; preds = %103
-  store i32 2, ptr %18, align 4
-  br label %108
-
-107:                                              ; preds = %103
-  store i32 1, ptr %18, align 4
-  br label %108
-
-108:                                              ; preds = %107, %106
-  br label %109
-
-109:                                              ; preds = %108, %102
+109:                                              ; preds = %108, %107
   br label %110
 
-110:                                              ; preds = %109, %98
+110:                                              ; preds = %109, %103
   br label %111
 
-111:                                              ; preds = %110, %94
+111:                                              ; preds = %110, %99
   br label %112
 
-112:                                              ; preds = %111, %90
-  br label %349
+112:                                              ; preds = %111, %95
+  br label %113
 
-113:                                              ; preds = %84
-  %114 = load i32, ptr %17, align 4
-  %115 = icmp slt i32 %114, 16
-  br i1 %115, label %116, label %122
-
-116:                                              ; preds = %113
-  %117 = load i64, ptr %20, align 8
-  %118 = icmp ult i64 %117, 262144
-  br i1 %118, label %119, label %120
-
-119:                                              ; preds = %116
-  store i32 4, ptr %18, align 4
-  br label %121
-
-120:                                              ; preds = %116
-  store i32 1, ptr %18, align 4
-  br label %121
-
-121:                                              ; preds = %120, %119
-  br label %348
-
-122:                                              ; preds = %113
-  %123 = load i32, ptr %17, align 4
-  %124 = icmp slt i32 %123, 32
-  br i1 %124, label %125, label %156
-
-125:                                              ; preds = %122
-  %126 = load i64, ptr %20, align 8
-  %127 = icmp ult i64 %126, 4
-  br i1 %127, label %128, label %129
-
-128:                                              ; preds = %125
-  store i32 4, ptr %18, align 4
-  br label %155
-
-129:                                              ; preds = %125
-  %130 = load i64, ptr %20, align 8
-  %131 = icmp ult i64 %130, 512
-  br i1 %131, label %132, label %133
-
-132:                                              ; preds = %129
-  store i32 3, ptr %18, align 4
-  br label %154
-
-133:                                              ; preds = %129
-  %134 = load i64, ptr %20, align 8
-  %135 = icmp ult i64 %134, 8192
-  br i1 %135, label %136, label %137
-
-136:                                              ; preds = %133
-  store i32 4, ptr %18, align 4
-  br label %153
-
-137:                                              ; preds = %133
-  %138 = load i64, ptr %20, align 8
-  %139 = icmp ult i64 %138, 32768
-  br i1 %139, label %140, label %141
-
-140:                                              ; preds = %137
-  store i32 1, ptr %18, align 4
-  br label %152
-
-141:                                              ; preds = %137
-  %142 = load i64, ptr %20, align 8
-  %143 = icmp ult i64 %142, 262144
-  br i1 %143, label %144, label %145
-
-144:                                              ; preds = %141
-  store i32 4, ptr %18, align 4
-  br label %151
-
-145:                                              ; preds = %141
-  %146 = load i64, ptr %20, align 8
-  %147 = icmp ult i64 %146, 524288
-  br i1 %147, label %148, label %149
-
-148:                                              ; preds = %145
-  store i32 1, ptr %18, align 4
-  br label %150
-
-149:                                              ; preds = %145
-  store i32 4, ptr %18, align 4
-  br label %150
-
-150:                                              ; preds = %149, %148
-  br label %151
-
-151:                                              ; preds = %150, %144
-  br label %152
-
-152:                                              ; preds = %151, %140
-  br label %153
-
-153:                                              ; preds = %152, %136
-  br label %154
-
-154:                                              ; preds = %153, %132
-  br label %155
-
-155:                                              ; preds = %154, %128
-  br label %347
-
-156:                                              ; preds = %122
-  %157 = load i32, ptr %17, align 4
-  %158 = icmp slt i32 %157, 64
-  br i1 %158, label %159, label %170
-
-159:                                              ; preds = %156
-  %160 = load i64, ptr %20, align 8
-  %161 = icmp ult i64 %160, 512
-  br i1 %161, label %162, label %163
-
-162:                                              ; preds = %159
-  store i32 3, ptr %18, align 4
-  br label %169
-
-163:                                              ; preds = %159
-  %164 = load i64, ptr %20, align 8
-  %165 = icmp ult i64 %164, 524288
-  br i1 %165, label %166, label %167
-
-166:                                              ; preds = %163
-  store i32 1, ptr %18, align 4
-  br label %168
-
-167:                                              ; preds = %163
-  store i32 4, ptr %18, align 4
-  br label %168
-
-168:                                              ; preds = %167, %166
-  br label %169
-
-169:                                              ; preds = %168, %162
-  br label %346
-
-170:                                              ; preds = %156
-  %171 = load i32, ptr %17, align 4
-  %172 = icmp slt i32 %171, 128
-  br i1 %172, label %173, label %194
-
-173:                                              ; preds = %170
-  %174 = load i64, ptr %20, align 8
-  %175 = icmp ult i64 %174, 1024
-  br i1 %175, label %176, label %177
-
-176:                                              ; preds = %173
-  store i32 3, ptr %18, align 4
-  br label %193
-
-177:                                              ; preds = %173
-  %178 = load i64, ptr %20, align 8
-  %179 = icmp ult i64 %178, 2048
-  br i1 %179, label %180, label %181
-
-180:                                              ; preds = %177
-  store i32 1, ptr %18, align 4
-  br label %192
-
-181:                                              ; preds = %177
-  %182 = load i64, ptr %20, align 8
-  %183 = icmp ult i64 %182, 4096
-  br i1 %183, label %184, label %185
-
-184:                                              ; preds = %181
-  store i32 4, ptr %18, align 4
-  br label %191
-
-185:                                              ; preds = %181
-  %186 = load i64, ptr %20, align 8
-  %187 = icmp ult i64 %186, 262144
-  br i1 %187, label %188, label %189
-
-188:                                              ; preds = %185
-  store i32 1, ptr %18, align 4
-  br label %190
-
-189:                                              ; preds = %185
-  store i32 2, ptr %18, align 4
-  br label %190
-
-190:                                              ; preds = %189, %188
-  br label %191
-
-191:                                              ; preds = %190, %184
-  br label %192
-
-192:                                              ; preds = %191, %180
-  br label %193
-
-193:                                              ; preds = %192, %176
-  br label %345
-
-194:                                              ; preds = %170
-  %195 = load i32, ptr %17, align 4
-  %196 = icmp slt i32 %195, 256
-  br i1 %196, label %197, label %213
-
-197:                                              ; preds = %194
-  %198 = load i64, ptr %20, align 8
-  %199 = icmp ult i64 %198, 1024
-  br i1 %199, label %200, label %201
-
-200:                                              ; preds = %197
-  store i32 3, ptr %18, align 4
-  br label %212
-
-201:                                              ; preds = %197
-  %202 = load i64, ptr %20, align 8
-  %203 = icmp ult i64 %202, 2048
-  br i1 %203, label %204, label %205
-
-204:                                              ; preds = %201
-  store i32 4, ptr %18, align 4
-  br label %211
-
-205:                                              ; preds = %201
-  %206 = load i64, ptr %20, align 8
-  %207 = icmp ult i64 %206, 262144
-  br i1 %207, label %208, label %209
-
-208:                                              ; preds = %205
-  store i32 1, ptr %18, align 4
-  br label %210
-
-209:                                              ; preds = %205
-  store i32 2, ptr %18, align 4
-  br label %210
-
-210:                                              ; preds = %209, %208
-  br label %211
-
-211:                                              ; preds = %210, %204
-  br label %212
-
-212:                                              ; preds = %211, %200
-  br label %344
-
-213:                                              ; preds = %194
-  %214 = load i32, ptr %17, align 4
-  %215 = icmp slt i32 %214, 512
-  br i1 %215, label %216, label %232
-
-216:                                              ; preds = %213
-  %217 = load i64, ptr %20, align 8
-  %218 = icmp ult i64 %217, 1024
-  br i1 %218, label %219, label %220
-
-219:                                              ; preds = %216
-  store i32 3, ptr %18, align 4
-  br label %231
-
-220:                                              ; preds = %216
-  %221 = load i64, ptr %20, align 8
-  %222 = icmp ult i64 %221, 8192
-  br i1 %222, label %223, label %224
-
-223:                                              ; preds = %220
-  store i32 4, ptr %18, align 4
-  br label %230
-
-224:                                              ; preds = %220
-  %225 = load i64, ptr %20, align 8
-  %226 = icmp ult i64 %225, 32768
-  br i1 %226, label %227, label %228
-
-227:                                              ; preds = %224
-  store i32 1, ptr %18, align 4
-  br label %229
-
-228:                                              ; preds = %224
-  store i32 2, ptr %18, align 4
-  br label %229
-
-229:                                              ; preds = %228, %227
-  br label %230
-
-230:                                              ; preds = %229, %223
-  br label %231
-
-231:                                              ; preds = %230, %219
-  br label %343
-
-232:                                              ; preds = %213
-  %233 = load i32, ptr %17, align 4
-  %234 = icmp slt i32 %233, 1024
-  br i1 %234, label %235, label %261
-
-235:                                              ; preds = %232
-  %236 = load i64, ptr %20, align 8
-  %237 = icmp ult i64 %236, 512
-  br i1 %237, label %238, label %239
-
-238:                                              ; preds = %235
-  store i32 3, ptr %18, align 4
-  br label %260
-
-239:                                              ; preds = %235
-  %240 = load i64, ptr %20, align 8
-  %241 = icmp ult i64 %240, 8192
-  br i1 %241, label %242, label %243
-
-242:                                              ; preds = %239
-  store i32 4, ptr %18, align 4
-  br label %259
-
-243:                                              ; preds = %239
-  %244 = load i64, ptr %20, align 8
-  %245 = icmp ult i64 %244, 16384
-  br i1 %245, label %246, label %247
-
-246:                                              ; preds = %243
-  store i32 1, ptr %18, align 4
-  br label %258
-
-247:                                              ; preds = %243
-  %248 = load i64, ptr %20, align 8
-  %249 = icmp ult i64 %248, 131072
-  br i1 %249, label %250, label %251
-
-250:                                              ; preds = %247
-  store i32 4, ptr %18, align 4
-  br label %257
-
-251:                                              ; preds = %247
-  %252 = load i64, ptr %20, align 8
-  %253 = icmp ult i64 %252, 262144
-  br i1 %253, label %254, label %255
-
-254:                                              ; preds = %251
-  store i32 1, ptr %18, align 4
-  br label %256
-
-255:                                              ; preds = %251
-  store i32 2, ptr %18, align 4
-  br label %256
-
-256:                                              ; preds = %255, %254
-  br label %257
-
-257:                                              ; preds = %256, %250
-  br label %258
-
-258:                                              ; preds = %257, %246
-  br label %259
-
-259:                                              ; preds = %258, %242
-  br label %260
-
-260:                                              ; preds = %259, %238
-  br label %342
-
-261:                                              ; preds = %232
-  %262 = load i32, ptr %17, align 4
-  %263 = icmp slt i32 %262, 2048
-  br i1 %263, label %264, label %290
-
-264:                                              ; preds = %261
-  %265 = load i64, ptr %20, align 8
-  %266 = icmp ult i64 %265, 512
-  br i1 %266, label %267, label %268
-
-267:                                              ; preds = %264
-  store i32 3, ptr %18, align 4
-  br label %289
-
-268:                                              ; preds = %264
-  %269 = load i64, ptr %20, align 8
-  %270 = icmp ult i64 %269, 1024
-  br i1 %270, label %271, label %272
-
-271:                                              ; preds = %268
-  store i32 4, ptr %18, align 4
-  br label %288
-
-272:                                              ; preds = %268
-  %273 = load i64, ptr %20, align 8
-  %274 = icmp ult i64 %273, 2048
-  br i1 %274, label %275, label %276
-
-275:                                              ; preds = %272
-  store i32 1, ptr %18, align 4
-  br label %287
-
-276:                                              ; preds = %272
-  %277 = load i64, ptr %20, align 8
-  %278 = icmp ult i64 %277, 16384
-  br i1 %278, label %279, label %280
-
-279:                                              ; preds = %276
-  store i32 4, ptr %18, align 4
-  br label %286
-
-280:                                              ; preds = %276
-  %281 = load i64, ptr %20, align 8
-  %282 = icmp ult i64 %281, 262144
-  br i1 %282, label %283, label %284
-
-283:                                              ; preds = %280
-  store i32 1, ptr %18, align 4
-  br label %285
-
-284:                                              ; preds = %280
-  store i32 4, ptr %18, align 4
-  br label %285
-
-285:                                              ; preds = %284, %283
-  br label %286
-
-286:                                              ; preds = %285, %279
-  br label %287
-
-287:                                              ; preds = %286, %275
-  br label %288
-
-288:                                              ; preds = %287, %271
-  br label %289
-
-289:                                              ; preds = %288, %267
-  br label %341
-
-290:                                              ; preds = %261
-  %291 = load i32, ptr %17, align 4
-  %292 = icmp slt i32 %291, 4096
-  br i1 %292, label %293, label %314
-
-293:                                              ; preds = %290
-  %294 = load i64, ptr %20, align 8
-  %295 = icmp ult i64 %294, 1024
-  br i1 %295, label %296, label %297
-
-296:                                              ; preds = %293
-  store i32 3, ptr %18, align 4
-  br label %313
-
-297:                                              ; preds = %293
-  %298 = load i64, ptr %20, align 8
-  %299 = icmp ult i64 %298, 4096
-  br i1 %299, label %300, label %301
-
-300:                                              ; preds = %297
-  store i32 4, ptr %18, align 4
-  br label %312
-
-301:                                              ; preds = %297
-  %302 = load i64, ptr %20, align 8
-  %303 = icmp ult i64 %302, 8192
-  br i1 %303, label %304, label %305
-
-304:                                              ; preds = %301
-  store i32 1, ptr %18, align 4
-  br label %311
-
-305:                                              ; preds = %301
-  %306 = load i64, ptr %20, align 8
-  %307 = icmp ult i64 %306, 131072
-  br i1 %307, label %308, label %309
-
-308:                                              ; preds = %305
-  store i32 4, ptr %18, align 4
-  br label %310
-
-309:                                              ; preds = %305
-  store i32 1, ptr %18, align 4
-  br label %310
-
-310:                                              ; preds = %309, %308
-  br label %311
-
-311:                                              ; preds = %310, %304
-  br label %312
-
-312:                                              ; preds = %311, %300
-  br label %313
-
-313:                                              ; preds = %312, %296
-  br label %340
-
-314:                                              ; preds = %290
-  %315 = load i64, ptr %20, align 8
-  %316 = icmp ult i64 %315, 2048
-  br i1 %316, label %317, label %318
-
-317:                                              ; preds = %314
-  store i32 3, ptr %18, align 4
-  br label %339
-
-318:                                              ; preds = %314
-  %319 = load i64, ptr %20, align 8
-  %320 = icmp ult i64 %319, 8192
-  br i1 %320, label %321, label %322
-
-321:                                              ; preds = %318
-  store i32 4, ptr %18, align 4
-  br label %338
-
-322:                                              ; preds = %318
-  %323 = load i64, ptr %20, align 8
-  %324 = icmp ult i64 %323, 16384
-  br i1 %324, label %325, label %326
-
-325:                                              ; preds = %322
-  store i32 1, ptr %18, align 4
-  br label %337
-
-326:                                              ; preds = %322
-  %327 = load i64, ptr %20, align 8
-  %328 = icmp ult i64 %327, 32768
-  br i1 %328, label %329, label %330
-
-329:                                              ; preds = %326
-  store i32 4, ptr %18, align 4
-  br label %336
-
-330:                                              ; preds = %326
-  %331 = load i64, ptr %20, align 8
-  %332 = icmp ult i64 %331, 65536
-  br i1 %332, label %333, label %334
-
-333:                                              ; preds = %330
-  store i32 1, ptr %18, align 4
-  br label %335
-
-334:                                              ; preds = %330
-  store i32 4, ptr %18, align 4
-  br label %335
-
-335:                                              ; preds = %334, %333
-  br label %336
-
-336:                                              ; preds = %335, %329
-  br label %337
-
-337:                                              ; preds = %336, %325
-  br label %338
-
-338:                                              ; preds = %337, %321
-  br label %339
-
-339:                                              ; preds = %338, %317
-  br label %340
-
-340:                                              ; preds = %339, %313
-  br label %341
-
-341:                                              ; preds = %340, %289
-  br label %342
-
-342:                                              ; preds = %341, %260
-  br label %343
-
-343:                                              ; preds = %342, %231
-  br label %344
-
-344:                                              ; preds = %343, %212
-  br label %345
-
-345:                                              ; preds = %344, %193
-  br label %346
-
-346:                                              ; preds = %345, %169
-  br label %347
-
-347:                                              ; preds = %346, %155
-  br label %348
-
-348:                                              ; preds = %347, %121
-  br label %349
-
-349:                                              ; preds = %348, %112
+113:                                              ; preds = %112, %91
   br label %350
 
-350:                                              ; preds = %349, %83
-  %351 = load ptr, ptr %9, align 8
-  %352 = load i32, ptr %10, align 4
-  %353 = load ptr, ptr %11, align 8
-  %354 = load ptr, ptr %12, align 8
-  %355 = load i32, ptr %13, align 4
-  %356 = load ptr, ptr %14, align 8
-  %357 = load ptr, ptr %15, align 8
-  %358 = load ptr, ptr %16, align 8
-  %359 = load i32, ptr %18, align 4
-  %360 = load i32, ptr @ompi_coll_tuned_alltoall_max_requests, align 4
-  %361 = call i32 @ompi_coll_tuned_alltoall_intra_do_this(ptr noundef %351, i32 noundef %352, ptr noundef %353, ptr noundef %354, i32 noundef %355, ptr noundef %356, ptr noundef %357, ptr noundef %358, i32 noundef %359, i32 noundef 0, i32 noundef 0, i32 noundef %360)
-  ret i32 %361
+114:                                              ; preds = %85
+  %115 = load i32, ptr %17, align 4
+  %116 = icmp slt i32 %115, 16
+  br i1 %116, label %117, label %123
+
+117:                                              ; preds = %114
+  %118 = load i64, ptr %20, align 8
+  %119 = icmp ult i64 %118, 262144
+  br i1 %119, label %120, label %121
+
+120:                                              ; preds = %117
+  store i32 4, ptr %18, align 4
+  br label %122
+
+121:                                              ; preds = %117
+  store i32 1, ptr %18, align 4
+  br label %122
+
+122:                                              ; preds = %121, %120
+  br label %349
+
+123:                                              ; preds = %114
+  %124 = load i32, ptr %17, align 4
+  %125 = icmp slt i32 %124, 32
+  br i1 %125, label %126, label %157
+
+126:                                              ; preds = %123
+  %127 = load i64, ptr %20, align 8
+  %128 = icmp ult i64 %127, 4
+  br i1 %128, label %129, label %130
+
+129:                                              ; preds = %126
+  store i32 4, ptr %18, align 4
+  br label %156
+
+130:                                              ; preds = %126
+  %131 = load i64, ptr %20, align 8
+  %132 = icmp ult i64 %131, 512
+  br i1 %132, label %133, label %134
+
+133:                                              ; preds = %130
+  store i32 3, ptr %18, align 4
+  br label %155
+
+134:                                              ; preds = %130
+  %135 = load i64, ptr %20, align 8
+  %136 = icmp ult i64 %135, 8192
+  br i1 %136, label %137, label %138
+
+137:                                              ; preds = %134
+  store i32 4, ptr %18, align 4
+  br label %154
+
+138:                                              ; preds = %134
+  %139 = load i64, ptr %20, align 8
+  %140 = icmp ult i64 %139, 32768
+  br i1 %140, label %141, label %142
+
+141:                                              ; preds = %138
+  store i32 1, ptr %18, align 4
+  br label %153
+
+142:                                              ; preds = %138
+  %143 = load i64, ptr %20, align 8
+  %144 = icmp ult i64 %143, 262144
+  br i1 %144, label %145, label %146
+
+145:                                              ; preds = %142
+  store i32 4, ptr %18, align 4
+  br label %152
+
+146:                                              ; preds = %142
+  %147 = load i64, ptr %20, align 8
+  %148 = icmp ult i64 %147, 524288
+  br i1 %148, label %149, label %150
+
+149:                                              ; preds = %146
+  store i32 1, ptr %18, align 4
+  br label %151
+
+150:                                              ; preds = %146
+  store i32 4, ptr %18, align 4
+  br label %151
+
+151:                                              ; preds = %150, %149
+  br label %152
+
+152:                                              ; preds = %151, %145
+  br label %153
+
+153:                                              ; preds = %152, %141
+  br label %154
+
+154:                                              ; preds = %153, %137
+  br label %155
+
+155:                                              ; preds = %154, %133
+  br label %156
+
+156:                                              ; preds = %155, %129
+  br label %348
+
+157:                                              ; preds = %123
+  %158 = load i32, ptr %17, align 4
+  %159 = icmp slt i32 %158, 64
+  br i1 %159, label %160, label %171
+
+160:                                              ; preds = %157
+  %161 = load i64, ptr %20, align 8
+  %162 = icmp ult i64 %161, 512
+  br i1 %162, label %163, label %164
+
+163:                                              ; preds = %160
+  store i32 3, ptr %18, align 4
+  br label %170
+
+164:                                              ; preds = %160
+  %165 = load i64, ptr %20, align 8
+  %166 = icmp ult i64 %165, 524288
+  br i1 %166, label %167, label %168
+
+167:                                              ; preds = %164
+  store i32 1, ptr %18, align 4
+  br label %169
+
+168:                                              ; preds = %164
+  store i32 4, ptr %18, align 4
+  br label %169
+
+169:                                              ; preds = %168, %167
+  br label %170
+
+170:                                              ; preds = %169, %163
+  br label %347
+
+171:                                              ; preds = %157
+  %172 = load i32, ptr %17, align 4
+  %173 = icmp slt i32 %172, 128
+  br i1 %173, label %174, label %195
+
+174:                                              ; preds = %171
+  %175 = load i64, ptr %20, align 8
+  %176 = icmp ult i64 %175, 1024
+  br i1 %176, label %177, label %178
+
+177:                                              ; preds = %174
+  store i32 3, ptr %18, align 4
+  br label %194
+
+178:                                              ; preds = %174
+  %179 = load i64, ptr %20, align 8
+  %180 = icmp ult i64 %179, 2048
+  br i1 %180, label %181, label %182
+
+181:                                              ; preds = %178
+  store i32 1, ptr %18, align 4
+  br label %193
+
+182:                                              ; preds = %178
+  %183 = load i64, ptr %20, align 8
+  %184 = icmp ult i64 %183, 4096
+  br i1 %184, label %185, label %186
+
+185:                                              ; preds = %182
+  store i32 4, ptr %18, align 4
+  br label %192
+
+186:                                              ; preds = %182
+  %187 = load i64, ptr %20, align 8
+  %188 = icmp ult i64 %187, 262144
+  br i1 %188, label %189, label %190
+
+189:                                              ; preds = %186
+  store i32 1, ptr %18, align 4
+  br label %191
+
+190:                                              ; preds = %186
+  store i32 2, ptr %18, align 4
+  br label %191
+
+191:                                              ; preds = %190, %189
+  br label %192
+
+192:                                              ; preds = %191, %185
+  br label %193
+
+193:                                              ; preds = %192, %181
+  br label %194
+
+194:                                              ; preds = %193, %177
+  br label %346
+
+195:                                              ; preds = %171
+  %196 = load i32, ptr %17, align 4
+  %197 = icmp slt i32 %196, 256
+  br i1 %197, label %198, label %214
+
+198:                                              ; preds = %195
+  %199 = load i64, ptr %20, align 8
+  %200 = icmp ult i64 %199, 1024
+  br i1 %200, label %201, label %202
+
+201:                                              ; preds = %198
+  store i32 3, ptr %18, align 4
+  br label %213
+
+202:                                              ; preds = %198
+  %203 = load i64, ptr %20, align 8
+  %204 = icmp ult i64 %203, 2048
+  br i1 %204, label %205, label %206
+
+205:                                              ; preds = %202
+  store i32 4, ptr %18, align 4
+  br label %212
+
+206:                                              ; preds = %202
+  %207 = load i64, ptr %20, align 8
+  %208 = icmp ult i64 %207, 262144
+  br i1 %208, label %209, label %210
+
+209:                                              ; preds = %206
+  store i32 1, ptr %18, align 4
+  br label %211
+
+210:                                              ; preds = %206
+  store i32 2, ptr %18, align 4
+  br label %211
+
+211:                                              ; preds = %210, %209
+  br label %212
+
+212:                                              ; preds = %211, %205
+  br label %213
+
+213:                                              ; preds = %212, %201
+  br label %345
+
+214:                                              ; preds = %195
+  %215 = load i32, ptr %17, align 4
+  %216 = icmp slt i32 %215, 512
+  br i1 %216, label %217, label %233
+
+217:                                              ; preds = %214
+  %218 = load i64, ptr %20, align 8
+  %219 = icmp ult i64 %218, 1024
+  br i1 %219, label %220, label %221
+
+220:                                              ; preds = %217
+  store i32 3, ptr %18, align 4
+  br label %232
+
+221:                                              ; preds = %217
+  %222 = load i64, ptr %20, align 8
+  %223 = icmp ult i64 %222, 8192
+  br i1 %223, label %224, label %225
+
+224:                                              ; preds = %221
+  store i32 4, ptr %18, align 4
+  br label %231
+
+225:                                              ; preds = %221
+  %226 = load i64, ptr %20, align 8
+  %227 = icmp ult i64 %226, 32768
+  br i1 %227, label %228, label %229
+
+228:                                              ; preds = %225
+  store i32 1, ptr %18, align 4
+  br label %230
+
+229:                                              ; preds = %225
+  store i32 2, ptr %18, align 4
+  br label %230
+
+230:                                              ; preds = %229, %228
+  br label %231
+
+231:                                              ; preds = %230, %224
+  br label %232
+
+232:                                              ; preds = %231, %220
+  br label %344
+
+233:                                              ; preds = %214
+  %234 = load i32, ptr %17, align 4
+  %235 = icmp slt i32 %234, 1024
+  br i1 %235, label %236, label %262
+
+236:                                              ; preds = %233
+  %237 = load i64, ptr %20, align 8
+  %238 = icmp ult i64 %237, 512
+  br i1 %238, label %239, label %240
+
+239:                                              ; preds = %236
+  store i32 3, ptr %18, align 4
+  br label %261
+
+240:                                              ; preds = %236
+  %241 = load i64, ptr %20, align 8
+  %242 = icmp ult i64 %241, 8192
+  br i1 %242, label %243, label %244
+
+243:                                              ; preds = %240
+  store i32 4, ptr %18, align 4
+  br label %260
+
+244:                                              ; preds = %240
+  %245 = load i64, ptr %20, align 8
+  %246 = icmp ult i64 %245, 16384
+  br i1 %246, label %247, label %248
+
+247:                                              ; preds = %244
+  store i32 1, ptr %18, align 4
+  br label %259
+
+248:                                              ; preds = %244
+  %249 = load i64, ptr %20, align 8
+  %250 = icmp ult i64 %249, 131072
+  br i1 %250, label %251, label %252
+
+251:                                              ; preds = %248
+  store i32 4, ptr %18, align 4
+  br label %258
+
+252:                                              ; preds = %248
+  %253 = load i64, ptr %20, align 8
+  %254 = icmp ult i64 %253, 262144
+  br i1 %254, label %255, label %256
+
+255:                                              ; preds = %252
+  store i32 1, ptr %18, align 4
+  br label %257
+
+256:                                              ; preds = %252
+  store i32 2, ptr %18, align 4
+  br label %257
+
+257:                                              ; preds = %256, %255
+  br label %258
+
+258:                                              ; preds = %257, %251
+  br label %259
+
+259:                                              ; preds = %258, %247
+  br label %260
+
+260:                                              ; preds = %259, %243
+  br label %261
+
+261:                                              ; preds = %260, %239
+  br label %343
+
+262:                                              ; preds = %233
+  %263 = load i32, ptr %17, align 4
+  %264 = icmp slt i32 %263, 2048
+  br i1 %264, label %265, label %291
+
+265:                                              ; preds = %262
+  %266 = load i64, ptr %20, align 8
+  %267 = icmp ult i64 %266, 512
+  br i1 %267, label %268, label %269
+
+268:                                              ; preds = %265
+  store i32 3, ptr %18, align 4
+  br label %290
+
+269:                                              ; preds = %265
+  %270 = load i64, ptr %20, align 8
+  %271 = icmp ult i64 %270, 1024
+  br i1 %271, label %272, label %273
+
+272:                                              ; preds = %269
+  store i32 4, ptr %18, align 4
+  br label %289
+
+273:                                              ; preds = %269
+  %274 = load i64, ptr %20, align 8
+  %275 = icmp ult i64 %274, 2048
+  br i1 %275, label %276, label %277
+
+276:                                              ; preds = %273
+  store i32 1, ptr %18, align 4
+  br label %288
+
+277:                                              ; preds = %273
+  %278 = load i64, ptr %20, align 8
+  %279 = icmp ult i64 %278, 16384
+  br i1 %279, label %280, label %281
+
+280:                                              ; preds = %277
+  store i32 4, ptr %18, align 4
+  br label %287
+
+281:                                              ; preds = %277
+  %282 = load i64, ptr %20, align 8
+  %283 = icmp ult i64 %282, 262144
+  br i1 %283, label %284, label %285
+
+284:                                              ; preds = %281
+  store i32 1, ptr %18, align 4
+  br label %286
+
+285:                                              ; preds = %281
+  store i32 4, ptr %18, align 4
+  br label %286
+
+286:                                              ; preds = %285, %284
+  br label %287
+
+287:                                              ; preds = %286, %280
+  br label %288
+
+288:                                              ; preds = %287, %276
+  br label %289
+
+289:                                              ; preds = %288, %272
+  br label %290
+
+290:                                              ; preds = %289, %268
+  br label %342
+
+291:                                              ; preds = %262
+  %292 = load i32, ptr %17, align 4
+  %293 = icmp slt i32 %292, 4096
+  br i1 %293, label %294, label %315
+
+294:                                              ; preds = %291
+  %295 = load i64, ptr %20, align 8
+  %296 = icmp ult i64 %295, 1024
+  br i1 %296, label %297, label %298
+
+297:                                              ; preds = %294
+  store i32 3, ptr %18, align 4
+  br label %314
+
+298:                                              ; preds = %294
+  %299 = load i64, ptr %20, align 8
+  %300 = icmp ult i64 %299, 4096
+  br i1 %300, label %301, label %302
+
+301:                                              ; preds = %298
+  store i32 4, ptr %18, align 4
+  br label %313
+
+302:                                              ; preds = %298
+  %303 = load i64, ptr %20, align 8
+  %304 = icmp ult i64 %303, 8192
+  br i1 %304, label %305, label %306
+
+305:                                              ; preds = %302
+  store i32 1, ptr %18, align 4
+  br label %312
+
+306:                                              ; preds = %302
+  %307 = load i64, ptr %20, align 8
+  %308 = icmp ult i64 %307, 131072
+  br i1 %308, label %309, label %310
+
+309:                                              ; preds = %306
+  store i32 4, ptr %18, align 4
+  br label %311
+
+310:                                              ; preds = %306
+  store i32 1, ptr %18, align 4
+  br label %311
+
+311:                                              ; preds = %310, %309
+  br label %312
+
+312:                                              ; preds = %311, %305
+  br label %313
+
+313:                                              ; preds = %312, %301
+  br label %314
+
+314:                                              ; preds = %313, %297
+  br label %341
+
+315:                                              ; preds = %291
+  %316 = load i64, ptr %20, align 8
+  %317 = icmp ult i64 %316, 2048
+  br i1 %317, label %318, label %319
+
+318:                                              ; preds = %315
+  store i32 3, ptr %18, align 4
+  br label %340
+
+319:                                              ; preds = %315
+  %320 = load i64, ptr %20, align 8
+  %321 = icmp ult i64 %320, 8192
+  br i1 %321, label %322, label %323
+
+322:                                              ; preds = %319
+  store i32 4, ptr %18, align 4
+  br label %339
+
+323:                                              ; preds = %319
+  %324 = load i64, ptr %20, align 8
+  %325 = icmp ult i64 %324, 16384
+  br i1 %325, label %326, label %327
+
+326:                                              ; preds = %323
+  store i32 1, ptr %18, align 4
+  br label %338
+
+327:                                              ; preds = %323
+  %328 = load i64, ptr %20, align 8
+  %329 = icmp ult i64 %328, 32768
+  br i1 %329, label %330, label %331
+
+330:                                              ; preds = %327
+  store i32 4, ptr %18, align 4
+  br label %337
+
+331:                                              ; preds = %327
+  %332 = load i64, ptr %20, align 8
+  %333 = icmp ult i64 %332, 65536
+  br i1 %333, label %334, label %335
+
+334:                                              ; preds = %331
+  store i32 1, ptr %18, align 4
+  br label %336
+
+335:                                              ; preds = %331
+  store i32 4, ptr %18, align 4
+  br label %336
+
+336:                                              ; preds = %335, %334
+  br label %337
+
+337:                                              ; preds = %336, %330
+  br label %338
+
+338:                                              ; preds = %337, %326
+  br label %339
+
+339:                                              ; preds = %338, %322
+  br label %340
+
+340:                                              ; preds = %339, %318
+  br label %341
+
+341:                                              ; preds = %340, %314
+  br label %342
+
+342:                                              ; preds = %341, %290
+  br label %343
+
+343:                                              ; preds = %342, %261
+  br label %344
+
+344:                                              ; preds = %343, %232
+  br label %345
+
+345:                                              ; preds = %344, %213
+  br label %346
+
+346:                                              ; preds = %345, %194
+  br label %347
+
+347:                                              ; preds = %346, %170
+  br label %348
+
+348:                                              ; preds = %347, %156
+  br label %349
+
+349:                                              ; preds = %348, %122
+  br label %350
+
+350:                                              ; preds = %349, %113
+  br label %351
+
+351:                                              ; preds = %350, %84
+  %352 = load ptr, ptr %9, align 8
+  %353 = load i32, ptr %10, align 4
+  %354 = load ptr, ptr %11, align 8
+  %355 = load ptr, ptr %12, align 8
+  %356 = load i32, ptr %13, align 4
+  %357 = load ptr, ptr %14, align 8
+  %358 = load ptr, ptr %15, align 8
+  %359 = load ptr, ptr %16, align 8
+  %360 = load i32, ptr %18, align 4
+  %361 = load i32, ptr @ompi_coll_tuned_alltoall_max_requests, align 4
+  %362 = call i32 @ompi_coll_tuned_alltoall_intra_do_this(ptr noundef %352, i32 noundef %353, ptr noundef %354, ptr noundef %355, i32 noundef %356, ptr noundef %357, ptr noundef %358, ptr noundef %359, i32 noundef %360, i32 noundef 0, i32 noundef 0, i32 noundef %361)
+  ret i32 %362
 }
 
 declare i32 @ompi_coll_tuned_alltoall_intra_do_this(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
@@ -3863,544 +3864,545 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef %0, i32 nounde
   store ptr %6, ptr %15, align 8
   store ptr %7, ptr %16, align 8
   %21 = load ptr, ptr %9, align 8
-  %22 = icmp ne ptr inttoptr (i64 1 to ptr), %21
-  br i1 %22, label %23, label %26
+  %22 = inttoptr i64 1 to ptr
+  %23 = icmp ne ptr %22, %21
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %8
-  %24 = load ptr, ptr %11, align 8
-  %25 = call i32 @ompi_datatype_type_size(ptr noundef %24, ptr noundef %19)
-  br label %29
+24:                                               ; preds = %8
+  %25 = load ptr, ptr %11, align 8
+  %26 = call i32 @ompi_datatype_type_size(ptr noundef %25, ptr noundef %19)
+  br label %30
 
-26:                                               ; preds = %8
-  %27 = load ptr, ptr %14, align 8
-  %28 = call i32 @ompi_datatype_type_size(ptr noundef %27, ptr noundef %19)
-  br label %29
+27:                                               ; preds = %8
+  %28 = load ptr, ptr %14, align 8
+  %29 = call i32 @ompi_datatype_type_size(ptr noundef %28, ptr noundef %19)
+  br label %30
 
-29:                                               ; preds = %26, %23
-  %30 = load i64, ptr %19, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = sext i32 %31 to i64
-  %33 = mul i64 %30, %32
-  store i64 %33, ptr %20, align 8
-  %34 = load ptr, ptr %15, align 8
-  %35 = call i32 @ompi_comm_size(ptr noundef %34)
-  store i32 %35, ptr %17, align 4
-  %36 = load i32, ptr %17, align 4
-  %37 = icmp eq i32 %36, 2
-  br i1 %37, label %38, label %39
+30:                                               ; preds = %27, %24
+  %31 = load i64, ptr %19, align 8
+  %32 = load i32, ptr %10, align 4
+  %33 = sext i32 %32 to i64
+  %34 = mul i64 %31, %33
+  store i64 %34, ptr %20, align 8
+  %35 = load ptr, ptr %15, align 8
+  %36 = call i32 @ompi_comm_size(ptr noundef %35)
+  store i32 %36, ptr %17, align 4
+  %37 = load i32, ptr %17, align 4
+  %38 = icmp eq i32 %37, 2
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %29
+39:                                               ; preds = %30
   store i32 6, ptr %18, align 4
+  br label %246
+
+40:                                               ; preds = %30
+  %41 = load i32, ptr %17, align 4
+  %42 = icmp slt i32 %41, 32
+  br i1 %42, label %43, label %44
+
+43:                                               ; preds = %40
+  store i32 3, ptr %18, align 4
   br label %245
 
-39:                                               ; preds = %29
-  %40 = load i32, ptr %17, align 4
-  %41 = icmp slt i32 %40, 32
-  br i1 %41, label %42, label %43
+44:                                               ; preds = %40
+  %45 = load i32, ptr %17, align 4
+  %46 = icmp slt i32 %45, 64
+  br i1 %46, label %47, label %58
 
-42:                                               ; preds = %39
+47:                                               ; preds = %44
+  %48 = load i64, ptr %20, align 8
+  %49 = icmp ult i64 %48, 1024
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %47
   store i32 3, ptr %18, align 4
+  br label %57
+
+51:                                               ; preds = %47
+  %52 = load i64, ptr %20, align 8
+  %53 = icmp ult i64 %52, 65536
+  br i1 %53, label %54, label %55
+
+54:                                               ; preds = %51
+  store i32 5, ptr %18, align 4
+  br label %56
+
+55:                                               ; preds = %51
+  store i32 4, ptr %18, align 4
+  br label %56
+
+56:                                               ; preds = %55, %54
+  br label %57
+
+57:                                               ; preds = %56, %50
   br label %244
 
-43:                                               ; preds = %39
-  %44 = load i32, ptr %17, align 4
-  %45 = icmp slt i32 %44, 64
-  br i1 %45, label %46, label %57
+58:                                               ; preds = %44
+  %59 = load i32, ptr %17, align 4
+  %60 = icmp slt i32 %59, 128
+  br i1 %60, label %61, label %72
 
-46:                                               ; preds = %43
-  %47 = load i64, ptr %20, align 8
-  %48 = icmp ult i64 %47, 1024
-  br i1 %48, label %49, label %50
+61:                                               ; preds = %58
+  %62 = load i64, ptr %20, align 8
+  %63 = icmp ult i64 %62, 512
+  br i1 %63, label %64, label %65
 
-49:                                               ; preds = %46
+64:                                               ; preds = %61
   store i32 3, ptr %18, align 4
-  br label %56
+  br label %71
 
-50:                                               ; preds = %46
-  %51 = load i64, ptr %20, align 8
-  %52 = icmp ult i64 %51, 65536
-  br i1 %52, label %53, label %54
+65:                                               ; preds = %61
+  %66 = load i64, ptr %20, align 8
+  %67 = icmp ult i64 %66, 65536
+  br i1 %67, label %68, label %69
 
-53:                                               ; preds = %50
+68:                                               ; preds = %65
   store i32 5, ptr %18, align 4
-  br label %55
+  br label %70
 
-54:                                               ; preds = %50
+69:                                               ; preds = %65
   store i32 4, ptr %18, align 4
-  br label %55
+  br label %70
 
-55:                                               ; preds = %54, %53
-  br label %56
+70:                                               ; preds = %69, %68
+  br label %71
 
-56:                                               ; preds = %55, %49
+71:                                               ; preds = %70, %64
   br label %243
 
-57:                                               ; preds = %43
-  %58 = load i32, ptr %17, align 4
-  %59 = icmp slt i32 %58, 128
-  br i1 %59, label %60, label %71
+72:                                               ; preds = %58
+  %73 = load i32, ptr %17, align 4
+  %74 = icmp slt i32 %73, 256
+  br i1 %74, label %75, label %96
 
-60:                                               ; preds = %57
-  %61 = load i64, ptr %20, align 8
-  %62 = icmp ult i64 %61, 512
-  br i1 %62, label %63, label %64
+75:                                               ; preds = %72
+  %76 = load i64, ptr %20, align 8
+  %77 = icmp ult i64 %76, 512
+  br i1 %77, label %78, label %79
 
-63:                                               ; preds = %60
+78:                                               ; preds = %75
   store i32 3, ptr %18, align 4
-  br label %70
+  br label %95
 
-64:                                               ; preds = %60
-  %65 = load i64, ptr %20, align 8
-  %66 = icmp ult i64 %65, 65536
-  br i1 %66, label %67, label %68
+79:                                               ; preds = %75
+  %80 = load i64, ptr %20, align 8
+  %81 = icmp ult i64 %80, 131072
+  br i1 %81, label %82, label %83
 
-67:                                               ; preds = %64
+82:                                               ; preds = %79
   store i32 5, ptr %18, align 4
-  br label %69
-
-68:                                               ; preds = %64
-  store i32 4, ptr %18, align 4
-  br label %69
-
-69:                                               ; preds = %68, %67
-  br label %70
-
-70:                                               ; preds = %69, %63
-  br label %242
-
-71:                                               ; preds = %57
-  %72 = load i32, ptr %17, align 4
-  %73 = icmp slt i32 %72, 256
-  br i1 %73, label %74, label %95
-
-74:                                               ; preds = %71
-  %75 = load i64, ptr %20, align 8
-  %76 = icmp ult i64 %75, 512
-  br i1 %76, label %77, label %78
-
-77:                                               ; preds = %74
-  store i32 3, ptr %18, align 4
   br label %94
 
-78:                                               ; preds = %74
-  %79 = load i64, ptr %20, align 8
-  %80 = icmp ult i64 %79, 131072
-  br i1 %80, label %81, label %82
+83:                                               ; preds = %79
+  %84 = load i64, ptr %20, align 8
+  %85 = icmp ult i64 %84, 524288
+  br i1 %85, label %86, label %87
 
-81:                                               ; preds = %78
-  store i32 5, ptr %18, align 4
+86:                                               ; preds = %83
+  store i32 4, ptr %18, align 4
   br label %93
 
-82:                                               ; preds = %78
-  %83 = load i64, ptr %20, align 8
-  %84 = icmp ult i64 %83, 524288
-  br i1 %84, label %85, label %86
+87:                                               ; preds = %83
+  %88 = load i64, ptr %20, align 8
+  %89 = icmp ult i64 %88, 1048576
+  br i1 %89, label %90, label %91
 
-85:                                               ; preds = %82
+90:                                               ; preds = %87
+  store i32 5, ptr %18, align 4
+  br label %92
+
+91:                                               ; preds = %87
   store i32 4, ptr %18, align 4
   br label %92
 
-86:                                               ; preds = %82
-  %87 = load i64, ptr %20, align 8
-  %88 = icmp ult i64 %87, 1048576
-  br i1 %88, label %89, label %90
-
-89:                                               ; preds = %86
-  store i32 5, ptr %18, align 4
-  br label %91
-
-90:                                               ; preds = %86
-  store i32 4, ptr %18, align 4
-  br label %91
-
-91:                                               ; preds = %90, %89
-  br label %92
-
-92:                                               ; preds = %91, %85
+92:                                               ; preds = %91, %90
   br label %93
 
-93:                                               ; preds = %92, %81
+93:                                               ; preds = %92, %86
   br label %94
 
-94:                                               ; preds = %93, %77
-  br label %241
+94:                                               ; preds = %93, %82
+  br label %95
 
-95:                                               ; preds = %71
-  %96 = load i32, ptr %17, align 4
-  %97 = icmp slt i32 %96, 512
-  br i1 %97, label %98, label %129
-
-98:                                               ; preds = %95
-  %99 = load i64, ptr %20, align 8
-  %100 = icmp ult i64 %99, 32
-  br i1 %100, label %101, label %102
-
-101:                                              ; preds = %98
-  store i32 3, ptr %18, align 4
-  br label %128
-
-102:                                              ; preds = %98
-  %103 = load i64, ptr %20, align 8
-  %104 = icmp ult i64 %103, 128
-  br i1 %104, label %105, label %106
-
-105:                                              ; preds = %102
-  store i32 2, ptr %18, align 4
-  br label %127
-
-106:                                              ; preds = %102
-  %107 = load i64, ptr %20, align 8
-  %108 = icmp ult i64 %107, 1024
-  br i1 %108, label %109, label %110
-
-109:                                              ; preds = %106
-  store i32 3, ptr %18, align 4
-  br label %126
-
-110:                                              ; preds = %106
-  %111 = load i64, ptr %20, align 8
-  %112 = icmp ult i64 %111, 131072
-  br i1 %112, label %113, label %114
-
-113:                                              ; preds = %110
-  store i32 5, ptr %18, align 4
-  br label %125
-
-114:                                              ; preds = %110
-  %115 = load i64, ptr %20, align 8
-  %116 = icmp ult i64 %115, 524288
-  br i1 %116, label %117, label %118
-
-117:                                              ; preds = %114
-  store i32 4, ptr %18, align 4
-  br label %124
-
-118:                                              ; preds = %114
-  %119 = load i64, ptr %20, align 8
-  %120 = icmp ult i64 %119, 1048576
-  br i1 %120, label %121, label %122
-
-121:                                              ; preds = %118
-  store i32 5, ptr %18, align 4
-  br label %123
-
-122:                                              ; preds = %118
-  store i32 4, ptr %18, align 4
-  br label %123
-
-123:                                              ; preds = %122, %121
-  br label %124
-
-124:                                              ; preds = %123, %117
-  br label %125
-
-125:                                              ; preds = %124, %113
-  br label %126
-
-126:                                              ; preds = %125, %109
-  br label %127
-
-127:                                              ; preds = %126, %105
-  br label %128
-
-128:                                              ; preds = %127, %101
-  br label %240
-
-129:                                              ; preds = %95
-  %130 = load i32, ptr %17, align 4
-  %131 = icmp slt i32 %130, 1024
-  br i1 %131, label %132, label %148
-
-132:                                              ; preds = %129
-  %133 = load i64, ptr %20, align 8
-  %134 = icmp ult i64 %133, 64
-  br i1 %134, label %135, label %136
-
-135:                                              ; preds = %132
-  store i32 3, ptr %18, align 4
-  br label %147
-
-136:                                              ; preds = %132
-  %137 = load i64, ptr %20, align 8
-  %138 = icmp ult i64 %137, 256
-  br i1 %138, label %139, label %140
-
-139:                                              ; preds = %136
-  store i32 2, ptr %18, align 4
-  br label %146
-
-140:                                              ; preds = %136
-  %141 = load i64, ptr %20, align 8
-  %142 = icmp ult i64 %141, 2048
-  br i1 %142, label %143, label %144
-
-143:                                              ; preds = %140
-  store i32 3, ptr %18, align 4
-  br label %145
-
-144:                                              ; preds = %140
-  store i32 5, ptr %18, align 4
-  br label %145
-
-145:                                              ; preds = %144, %143
-  br label %146
-
-146:                                              ; preds = %145, %139
-  br label %147
-
-147:                                              ; preds = %146, %135
-  br label %239
-
-148:                                              ; preds = %129
-  %149 = load i32, ptr %17, align 4
-  %150 = icmp slt i32 %149, 2048
-  br i1 %150, label %151, label %187
-
-151:                                              ; preds = %148
-  %152 = load i64, ptr %20, align 8
-  %153 = icmp ult i64 %152, 4
-  br i1 %153, label %154, label %155
-
-154:                                              ; preds = %151
-  store i32 3, ptr %18, align 4
-  br label %186
-
-155:                                              ; preds = %151
-  %156 = load i64, ptr %20, align 8
-  %157 = icmp ult i64 %156, 8
-  br i1 %157, label %158, label %159
-
-158:                                              ; preds = %155
-  store i32 2, ptr %18, align 4
-  br label %185
-
-159:                                              ; preds = %155
-  %160 = load i64, ptr %20, align 8
-  %161 = icmp ult i64 %160, 16
-  br i1 %161, label %162, label %163
-
-162:                                              ; preds = %159
-  store i32 3, ptr %18, align 4
-  br label %184
-
-163:                                              ; preds = %159
-  %164 = load i64, ptr %20, align 8
-  %165 = icmp ult i64 %164, 32
-  br i1 %165, label %166, label %167
-
-166:                                              ; preds = %163
-  store i32 2, ptr %18, align 4
-  br label %183
-
-167:                                              ; preds = %163
-  %168 = load i64, ptr %20, align 8
-  %169 = icmp ult i64 %168, 256
-  br i1 %169, label %170, label %171
-
-170:                                              ; preds = %167
-  store i32 3, ptr %18, align 4
-  br label %182
-
-171:                                              ; preds = %167
-  %172 = load i64, ptr %20, align 8
-  %173 = icmp ult i64 %172, 512
-  br i1 %173, label %174, label %175
-
-174:                                              ; preds = %171
-  store i32 2, ptr %18, align 4
-  br label %181
-
-175:                                              ; preds = %171
-  %176 = load i64, ptr %20, align 8
-  %177 = icmp ult i64 %176, 4096
-  br i1 %177, label %178, label %179
-
-178:                                              ; preds = %175
-  store i32 3, ptr %18, align 4
-  br label %180
-
-179:                                              ; preds = %175
-  store i32 5, ptr %18, align 4
-  br label %180
-
-180:                                              ; preds = %179, %178
-  br label %181
-
-181:                                              ; preds = %180, %174
-  br label %182
-
-182:                                              ; preds = %181, %170
-  br label %183
-
-183:                                              ; preds = %182, %166
-  br label %184
-
-184:                                              ; preds = %183, %162
-  br label %185
-
-185:                                              ; preds = %184, %158
-  br label %186
-
-186:                                              ; preds = %185, %154
-  br label %238
-
-187:                                              ; preds = %148
-  %188 = load i32, ptr %17, align 4
-  %189 = icmp slt i32 %188, 4096
-  br i1 %189, label %190, label %211
-
-190:                                              ; preds = %187
-  %191 = load i64, ptr %20, align 8
-  %192 = icmp ult i64 %191, 32
-  br i1 %192, label %193, label %194
-
-193:                                              ; preds = %190
-  store i32 2, ptr %18, align 4
-  br label %210
-
-194:                                              ; preds = %190
-  %195 = load i64, ptr %20, align 8
-  %196 = icmp ult i64 %195, 128
-  br i1 %196, label %197, label %198
-
-197:                                              ; preds = %194
-  store i32 3, ptr %18, align 4
-  br label %209
-
-198:                                              ; preds = %194
-  %199 = load i64, ptr %20, align 8
-  %200 = icmp ult i64 %199, 512
-  br i1 %200, label %201, label %202
-
-201:                                              ; preds = %198
-  store i32 2, ptr %18, align 4
-  br label %208
-
-202:                                              ; preds = %198
-  %203 = load i64, ptr %20, align 8
-  %204 = icmp ult i64 %203, 4096
-  br i1 %204, label %205, label %206
-
-205:                                              ; preds = %202
-  store i32 3, ptr %18, align 4
-  br label %207
-
-206:                                              ; preds = %202
-  store i32 5, ptr %18, align 4
-  br label %207
-
-207:                                              ; preds = %206, %205
-  br label %208
-
-208:                                              ; preds = %207, %201
-  br label %209
-
-209:                                              ; preds = %208, %197
-  br label %210
-
-210:                                              ; preds = %209, %193
-  br label %237
-
-211:                                              ; preds = %187
-  %212 = load i64, ptr %20, align 8
-  %213 = icmp ult i64 %212, 2
-  br i1 %213, label %214, label %215
-
-214:                                              ; preds = %211
-  store i32 3, ptr %18, align 4
-  br label %236
-
-215:                                              ; preds = %211
-  %216 = load i64, ptr %20, align 8
-  %217 = icmp ult i64 %216, 8
-  br i1 %217, label %218, label %219
-
-218:                                              ; preds = %215
-  store i32 2, ptr %18, align 4
-  br label %235
-
-219:                                              ; preds = %215
-  %220 = load i64, ptr %20, align 8
-  %221 = icmp ult i64 %220, 16
-  br i1 %221, label %222, label %223
-
-222:                                              ; preds = %219
-  store i32 3, ptr %18, align 4
-  br label %234
-
-223:                                              ; preds = %219
-  %224 = load i64, ptr %20, align 8
-  %225 = icmp ult i64 %224, 512
-  br i1 %225, label %226, label %227
-
-226:                                              ; preds = %223
-  store i32 2, ptr %18, align 4
-  br label %233
-
-227:                                              ; preds = %223
-  %228 = load i64, ptr %20, align 8
-  %229 = icmp ult i64 %228, 4096
-  br i1 %229, label %230, label %231
-
-230:                                              ; preds = %227
-  store i32 3, ptr %18, align 4
-  br label %232
-
-231:                                              ; preds = %227
-  store i32 5, ptr %18, align 4
-  br label %232
-
-232:                                              ; preds = %231, %230
-  br label %233
-
-233:                                              ; preds = %232, %226
-  br label %234
-
-234:                                              ; preds = %233, %222
-  br label %235
-
-235:                                              ; preds = %234, %218
-  br label %236
-
-236:                                              ; preds = %235, %214
-  br label %237
-
-237:                                              ; preds = %236, %210
-  br label %238
-
-238:                                              ; preds = %237, %186
-  br label %239
-
-239:                                              ; preds = %238, %147
-  br label %240
-
-240:                                              ; preds = %239, %128
-  br label %241
-
-241:                                              ; preds = %240, %94
+95:                                               ; preds = %94, %78
   br label %242
 
-242:                                              ; preds = %241, %70
+96:                                               ; preds = %72
+  %97 = load i32, ptr %17, align 4
+  %98 = icmp slt i32 %97, 512
+  br i1 %98, label %99, label %130
+
+99:                                               ; preds = %96
+  %100 = load i64, ptr %20, align 8
+  %101 = icmp ult i64 %100, 32
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %99
+  store i32 3, ptr %18, align 4
+  br label %129
+
+103:                                              ; preds = %99
+  %104 = load i64, ptr %20, align 8
+  %105 = icmp ult i64 %104, 128
+  br i1 %105, label %106, label %107
+
+106:                                              ; preds = %103
+  store i32 2, ptr %18, align 4
+  br label %128
+
+107:                                              ; preds = %103
+  %108 = load i64, ptr %20, align 8
+  %109 = icmp ult i64 %108, 1024
+  br i1 %109, label %110, label %111
+
+110:                                              ; preds = %107
+  store i32 3, ptr %18, align 4
+  br label %127
+
+111:                                              ; preds = %107
+  %112 = load i64, ptr %20, align 8
+  %113 = icmp ult i64 %112, 131072
+  br i1 %113, label %114, label %115
+
+114:                                              ; preds = %111
+  store i32 5, ptr %18, align 4
+  br label %126
+
+115:                                              ; preds = %111
+  %116 = load i64, ptr %20, align 8
+  %117 = icmp ult i64 %116, 524288
+  br i1 %117, label %118, label %119
+
+118:                                              ; preds = %115
+  store i32 4, ptr %18, align 4
+  br label %125
+
+119:                                              ; preds = %115
+  %120 = load i64, ptr %20, align 8
+  %121 = icmp ult i64 %120, 1048576
+  br i1 %121, label %122, label %123
+
+122:                                              ; preds = %119
+  store i32 5, ptr %18, align 4
+  br label %124
+
+123:                                              ; preds = %119
+  store i32 4, ptr %18, align 4
+  br label %124
+
+124:                                              ; preds = %123, %122
+  br label %125
+
+125:                                              ; preds = %124, %118
+  br label %126
+
+126:                                              ; preds = %125, %114
+  br label %127
+
+127:                                              ; preds = %126, %110
+  br label %128
+
+128:                                              ; preds = %127, %106
+  br label %129
+
+129:                                              ; preds = %128, %102
+  br label %241
+
+130:                                              ; preds = %96
+  %131 = load i32, ptr %17, align 4
+  %132 = icmp slt i32 %131, 1024
+  br i1 %132, label %133, label %149
+
+133:                                              ; preds = %130
+  %134 = load i64, ptr %20, align 8
+  %135 = icmp ult i64 %134, 64
+  br i1 %135, label %136, label %137
+
+136:                                              ; preds = %133
+  store i32 3, ptr %18, align 4
+  br label %148
+
+137:                                              ; preds = %133
+  %138 = load i64, ptr %20, align 8
+  %139 = icmp ult i64 %138, 256
+  br i1 %139, label %140, label %141
+
+140:                                              ; preds = %137
+  store i32 2, ptr %18, align 4
+  br label %147
+
+141:                                              ; preds = %137
+  %142 = load i64, ptr %20, align 8
+  %143 = icmp ult i64 %142, 2048
+  br i1 %143, label %144, label %145
+
+144:                                              ; preds = %141
+  store i32 3, ptr %18, align 4
+  br label %146
+
+145:                                              ; preds = %141
+  store i32 5, ptr %18, align 4
+  br label %146
+
+146:                                              ; preds = %145, %144
+  br label %147
+
+147:                                              ; preds = %146, %140
+  br label %148
+
+148:                                              ; preds = %147, %136
+  br label %240
+
+149:                                              ; preds = %130
+  %150 = load i32, ptr %17, align 4
+  %151 = icmp slt i32 %150, 2048
+  br i1 %151, label %152, label %188
+
+152:                                              ; preds = %149
+  %153 = load i64, ptr %20, align 8
+  %154 = icmp ult i64 %153, 4
+  br i1 %154, label %155, label %156
+
+155:                                              ; preds = %152
+  store i32 3, ptr %18, align 4
+  br label %187
+
+156:                                              ; preds = %152
+  %157 = load i64, ptr %20, align 8
+  %158 = icmp ult i64 %157, 8
+  br i1 %158, label %159, label %160
+
+159:                                              ; preds = %156
+  store i32 2, ptr %18, align 4
+  br label %186
+
+160:                                              ; preds = %156
+  %161 = load i64, ptr %20, align 8
+  %162 = icmp ult i64 %161, 16
+  br i1 %162, label %163, label %164
+
+163:                                              ; preds = %160
+  store i32 3, ptr %18, align 4
+  br label %185
+
+164:                                              ; preds = %160
+  %165 = load i64, ptr %20, align 8
+  %166 = icmp ult i64 %165, 32
+  br i1 %166, label %167, label %168
+
+167:                                              ; preds = %164
+  store i32 2, ptr %18, align 4
+  br label %184
+
+168:                                              ; preds = %164
+  %169 = load i64, ptr %20, align 8
+  %170 = icmp ult i64 %169, 256
+  br i1 %170, label %171, label %172
+
+171:                                              ; preds = %168
+  store i32 3, ptr %18, align 4
+  br label %183
+
+172:                                              ; preds = %168
+  %173 = load i64, ptr %20, align 8
+  %174 = icmp ult i64 %173, 512
+  br i1 %174, label %175, label %176
+
+175:                                              ; preds = %172
+  store i32 2, ptr %18, align 4
+  br label %182
+
+176:                                              ; preds = %172
+  %177 = load i64, ptr %20, align 8
+  %178 = icmp ult i64 %177, 4096
+  br i1 %178, label %179, label %180
+
+179:                                              ; preds = %176
+  store i32 3, ptr %18, align 4
+  br label %181
+
+180:                                              ; preds = %176
+  store i32 5, ptr %18, align 4
+  br label %181
+
+181:                                              ; preds = %180, %179
+  br label %182
+
+182:                                              ; preds = %181, %175
+  br label %183
+
+183:                                              ; preds = %182, %171
+  br label %184
+
+184:                                              ; preds = %183, %167
+  br label %185
+
+185:                                              ; preds = %184, %163
+  br label %186
+
+186:                                              ; preds = %185, %159
+  br label %187
+
+187:                                              ; preds = %186, %155
+  br label %239
+
+188:                                              ; preds = %149
+  %189 = load i32, ptr %17, align 4
+  %190 = icmp slt i32 %189, 4096
+  br i1 %190, label %191, label %212
+
+191:                                              ; preds = %188
+  %192 = load i64, ptr %20, align 8
+  %193 = icmp ult i64 %192, 32
+  br i1 %193, label %194, label %195
+
+194:                                              ; preds = %191
+  store i32 2, ptr %18, align 4
+  br label %211
+
+195:                                              ; preds = %191
+  %196 = load i64, ptr %20, align 8
+  %197 = icmp ult i64 %196, 128
+  br i1 %197, label %198, label %199
+
+198:                                              ; preds = %195
+  store i32 3, ptr %18, align 4
+  br label %210
+
+199:                                              ; preds = %195
+  %200 = load i64, ptr %20, align 8
+  %201 = icmp ult i64 %200, 512
+  br i1 %201, label %202, label %203
+
+202:                                              ; preds = %199
+  store i32 2, ptr %18, align 4
+  br label %209
+
+203:                                              ; preds = %199
+  %204 = load i64, ptr %20, align 8
+  %205 = icmp ult i64 %204, 4096
+  br i1 %205, label %206, label %207
+
+206:                                              ; preds = %203
+  store i32 3, ptr %18, align 4
+  br label %208
+
+207:                                              ; preds = %203
+  store i32 5, ptr %18, align 4
+  br label %208
+
+208:                                              ; preds = %207, %206
+  br label %209
+
+209:                                              ; preds = %208, %202
+  br label %210
+
+210:                                              ; preds = %209, %198
+  br label %211
+
+211:                                              ; preds = %210, %194
+  br label %238
+
+212:                                              ; preds = %188
+  %213 = load i64, ptr %20, align 8
+  %214 = icmp ult i64 %213, 2
+  br i1 %214, label %215, label %216
+
+215:                                              ; preds = %212
+  store i32 3, ptr %18, align 4
+  br label %237
+
+216:                                              ; preds = %212
+  %217 = load i64, ptr %20, align 8
+  %218 = icmp ult i64 %217, 8
+  br i1 %218, label %219, label %220
+
+219:                                              ; preds = %216
+  store i32 2, ptr %18, align 4
+  br label %236
+
+220:                                              ; preds = %216
+  %221 = load i64, ptr %20, align 8
+  %222 = icmp ult i64 %221, 16
+  br i1 %222, label %223, label %224
+
+223:                                              ; preds = %220
+  store i32 3, ptr %18, align 4
+  br label %235
+
+224:                                              ; preds = %220
+  %225 = load i64, ptr %20, align 8
+  %226 = icmp ult i64 %225, 512
+  br i1 %226, label %227, label %228
+
+227:                                              ; preds = %224
+  store i32 2, ptr %18, align 4
+  br label %234
+
+228:                                              ; preds = %224
+  %229 = load i64, ptr %20, align 8
+  %230 = icmp ult i64 %229, 4096
+  br i1 %230, label %231, label %232
+
+231:                                              ; preds = %228
+  store i32 3, ptr %18, align 4
+  br label %233
+
+232:                                              ; preds = %228
+  store i32 5, ptr %18, align 4
+  br label %233
+
+233:                                              ; preds = %232, %231
+  br label %234
+
+234:                                              ; preds = %233, %227
+  br label %235
+
+235:                                              ; preds = %234, %223
+  br label %236
+
+236:                                              ; preds = %235, %219
+  br label %237
+
+237:                                              ; preds = %236, %215
+  br label %238
+
+238:                                              ; preds = %237, %211
+  br label %239
+
+239:                                              ; preds = %238, %187
+  br label %240
+
+240:                                              ; preds = %239, %148
+  br label %241
+
+241:                                              ; preds = %240, %129
+  br label %242
+
+242:                                              ; preds = %241, %95
   br label %243
 
-243:                                              ; preds = %242, %56
+243:                                              ; preds = %242, %71
   br label %244
 
-244:                                              ; preds = %243, %42
+244:                                              ; preds = %243, %57
   br label %245
 
-245:                                              ; preds = %244, %38
-  %246 = load ptr, ptr %9, align 8
-  %247 = load i32, ptr %10, align 4
-  %248 = load ptr, ptr %11, align 8
-  %249 = load ptr, ptr %12, align 8
-  %250 = load i32, ptr %13, align 4
-  %251 = load ptr, ptr %14, align 8
-  %252 = load ptr, ptr %15, align 8
-  %253 = load ptr, ptr %16, align 8
-  %254 = load i32, ptr %18, align 4
-  %255 = call i32 @ompi_coll_tuned_allgather_intra_do_this(ptr noundef %246, i32 noundef %247, ptr noundef %248, ptr noundef %249, i32 noundef %250, ptr noundef %251, ptr noundef %252, ptr noundef %253, i32 noundef %254, i32 noundef 0, i32 noundef 0)
-  ret i32 %255
+245:                                              ; preds = %244, %43
+  br label %246
+
+246:                                              ; preds = %245, %39
+  %247 = load ptr, ptr %9, align 8
+  %248 = load i32, ptr %10, align 4
+  %249 = load ptr, ptr %11, align 8
+  %250 = load ptr, ptr %12, align 8
+  %251 = load i32, ptr %13, align 4
+  %252 = load ptr, ptr %14, align 8
+  %253 = load ptr, ptr %15, align 8
+  %254 = load ptr, ptr %16, align 8
+  %255 = load i32, ptr %18, align 4
+  %256 = call i32 @ompi_coll_tuned_allgather_intra_do_this(ptr noundef %247, i32 noundef %248, ptr noundef %249, ptr noundef %250, i32 noundef %251, ptr noundef %252, ptr noundef %253, ptr noundef %254, i32 noundef %255, i32 noundef 0, i32 noundef 0)
+  ret i32 %256
 }
 
 declare i32 @ompi_coll_tuned_allgather_intra_do_this(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
@@ -4435,453 +4437,454 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   %26 = call i32 @ompi_comm_size(ptr noundef %25)
   store i32 %26, ptr %19, align 4
   %27 = load ptr, ptr %10, align 8
-  %28 = icmp ne ptr inttoptr (i64 1 to ptr), %27
-  br i1 %28, label %29, label %32
+  %28 = inttoptr i64 1 to ptr
+  %29 = icmp ne ptr %28, %27
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %9
-  %30 = load ptr, ptr %12, align 8
-  %31 = call i32 @ompi_datatype_type_size(ptr noundef %30, ptr noundef %22)
-  br label %35
-
-32:                                               ; preds = %9
-  %33 = load ptr, ptr %16, align 8
-  %34 = call i32 @ompi_datatype_type_size(ptr noundef %33, ptr noundef %22)
-  br label %35
-
-35:                                               ; preds = %32, %29
-  store i64 0, ptr %23, align 8
-  store i32 0, ptr %21, align 4
+30:                                               ; preds = %9
+  %31 = load ptr, ptr %12, align 8
+  %32 = call i32 @ompi_datatype_type_size(ptr noundef %31, ptr noundef %22)
   br label %36
 
-36:                                               ; preds = %51, %35
-  %37 = load i32, ptr %21, align 4
-  %38 = load i32, ptr %19, align 4
-  %39 = icmp slt i32 %37, %38
-  br i1 %39, label %40, label %54
+33:                                               ; preds = %9
+  %34 = load ptr, ptr %16, align 8
+  %35 = call i32 @ompi_datatype_type_size(ptr noundef %34, ptr noundef %22)
+  br label %36
 
-40:                                               ; preds = %36
-  %41 = load i64, ptr %22, align 8
-  %42 = load ptr, ptr %14, align 8
-  %43 = load i32, ptr %21, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %42, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = sext i32 %46 to i64
-  %48 = mul i64 %41, %47
-  %49 = load i64, ptr %23, align 8
-  %50 = add i64 %49, %48
-  store i64 %50, ptr %23, align 8
-  br label %51
+36:                                               ; preds = %33, %30
+  store i64 0, ptr %23, align 8
+  store i32 0, ptr %21, align 4
+  br label %37
 
-51:                                               ; preds = %40
-  %52 = load i32, ptr %21, align 4
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %21, align 4
-  br label %36, !llvm.loop !6
+37:                                               ; preds = %52, %36
+  %38 = load i32, ptr %21, align 4
+  %39 = load i32, ptr %19, align 4
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %41, label %55
 
-54:                                               ; preds = %36
-  %55 = load i64, ptr %23, align 8
-  %56 = load i32, ptr %19, align 4
-  %57 = sext i32 %56 to i64
-  %58 = udiv i64 %55, %57
-  store i64 %58, ptr %24, align 8
-  %59 = load i32, ptr %19, align 4
-  %60 = icmp eq i32 %59, 2
-  br i1 %60, label %61, label %77
+41:                                               ; preds = %37
+  %42 = load i64, ptr %22, align 8
+  %43 = load ptr, ptr %14, align 8
+  %44 = load i32, ptr %21, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i32, ptr %43, i64 %45
+  %47 = load i32, ptr %46, align 4
+  %48 = sext i32 %47 to i64
+  %49 = mul i64 %42, %48
+  %50 = load i64, ptr %23, align 8
+  %51 = add i64 %50, %49
+  store i64 %51, ptr %23, align 8
+  br label %52
 
-61:                                               ; preds = %54
-  %62 = load i64, ptr %24, align 8
-  %63 = icmp ult i64 %62, 2048
-  br i1 %63, label %64, label %65
+52:                                               ; preds = %41
+  %53 = load i32, ptr %21, align 4
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %21, align 4
+  br label %37, !llvm.loop !6
 
-64:                                               ; preds = %61
+55:                                               ; preds = %37
+  %56 = load i64, ptr %23, align 8
+  %57 = load i32, ptr %19, align 4
+  %58 = sext i32 %57 to i64
+  %59 = udiv i64 %56, %58
+  store i64 %59, ptr %24, align 8
+  %60 = load i32, ptr %19, align 4
+  %61 = icmp eq i32 %60, 2
+  br i1 %61, label %62, label %78
+
+62:                                               ; preds = %55
+  %63 = load i64, ptr %24, align 8
+  %64 = icmp ult i64 %63, 2048
+  br i1 %64, label %65, label %66
+
+65:                                               ; preds = %62
   store i32 3, ptr %20, align 4
+  br label %77
+
+66:                                               ; preds = %62
+  %67 = load i64, ptr %24, align 8
+  %68 = icmp ult i64 %67, 4096
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %66
+  store i32 5, ptr %20, align 4
   br label %76
 
-65:                                               ; preds = %61
-  %66 = load i64, ptr %24, align 8
-  %67 = icmp ult i64 %66, 4096
-  br i1 %67, label %68, label %69
+70:                                               ; preds = %66
+  %71 = load i64, ptr %24, align 8
+  %72 = icmp ult i64 %71, 8192
+  br i1 %72, label %73, label %74
 
-68:                                               ; preds = %65
+73:                                               ; preds = %70
+  store i32 3, ptr %20, align 4
+  br label %75
+
+74:                                               ; preds = %70
   store i32 5, ptr %20, align 4
   br label %75
 
-69:                                               ; preds = %65
-  %70 = load i64, ptr %24, align 8
-  %71 = icmp ult i64 %70, 8192
-  br i1 %71, label %72, label %73
-
-72:                                               ; preds = %69
-  store i32 3, ptr %20, align 4
-  br label %74
-
-73:                                               ; preds = %69
-  store i32 5, ptr %20, align 4
-  br label %74
-
-74:                                               ; preds = %73, %72
-  br label %75
-
-75:                                               ; preds = %74, %68
+75:                                               ; preds = %74, %73
   br label %76
 
-76:                                               ; preds = %75, %64
-  br label %218
+76:                                               ; preds = %75, %69
+  br label %77
 
-77:                                               ; preds = %54
-  %78 = load i32, ptr %19, align 4
-  %79 = icmp slt i32 %78, 8
-  br i1 %79, label %80, label %106
+77:                                               ; preds = %76, %65
+  br label %219
 
-80:                                               ; preds = %77
-  %81 = load i64, ptr %24, align 8
-  %82 = icmp ult i64 %81, 256
-  br i1 %82, label %83, label %84
+78:                                               ; preds = %55
+  %79 = load i32, ptr %19, align 4
+  %80 = icmp slt i32 %79, 8
+  br i1 %80, label %81, label %107
 
-83:                                               ; preds = %80
+81:                                               ; preds = %78
+  %82 = load i64, ptr %24, align 8
+  %83 = icmp ult i64 %82, 256
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %81
   store i32 1, ptr %20, align 4
+  br label %106
+
+85:                                               ; preds = %81
+  %86 = load i64, ptr %24, align 8
+  %87 = icmp ult i64 %86, 4096
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %85
+  store i32 4, ptr %20, align 4
   br label %105
 
-84:                                               ; preds = %80
-  %85 = load i64, ptr %24, align 8
-  %86 = icmp ult i64 %85, 4096
-  br i1 %86, label %87, label %88
+89:                                               ; preds = %85
+  %90 = load i64, ptr %24, align 8
+  %91 = icmp ult i64 %90, 8192
+  br i1 %91, label %92, label %93
 
-87:                                               ; preds = %84
-  store i32 4, ptr %20, align 4
+92:                                               ; preds = %89
+  store i32 3, ptr %20, align 4
   br label %104
 
-88:                                               ; preds = %84
-  %89 = load i64, ptr %24, align 8
-  %90 = icmp ult i64 %89, 8192
-  br i1 %90, label %91, label %92
+93:                                               ; preds = %89
+  %94 = load i64, ptr %24, align 8
+  %95 = icmp ult i64 %94, 16384
+  br i1 %95, label %96, label %97
 
-91:                                               ; preds = %88
-  store i32 3, ptr %20, align 4
+96:                                               ; preds = %93
+  store i32 4, ptr %20, align 4
   br label %103
 
-92:                                               ; preds = %88
-  %93 = load i64, ptr %24, align 8
-  %94 = icmp ult i64 %93, 16384
-  br i1 %94, label %95, label %96
+97:                                               ; preds = %93
+  %98 = load i64, ptr %24, align 8
+  %99 = icmp ult i64 %98, 262144
+  br i1 %99, label %100, label %101
 
-95:                                               ; preds = %92
+100:                                              ; preds = %97
+  store i32 2, ptr %20, align 4
+  br label %102
+
+101:                                              ; preds = %97
   store i32 4, ptr %20, align 4
   br label %102
 
-96:                                               ; preds = %92
-  %97 = load i64, ptr %24, align 8
-  %98 = icmp ult i64 %97, 262144
-  br i1 %98, label %99, label %100
-
-99:                                               ; preds = %96
-  store i32 2, ptr %20, align 4
-  br label %101
-
-100:                                              ; preds = %96
-  store i32 4, ptr %20, align 4
-  br label %101
-
-101:                                              ; preds = %100, %99
-  br label %102
-
-102:                                              ; preds = %101, %95
+102:                                              ; preds = %101, %100
   br label %103
 
-103:                                              ; preds = %102, %91
+103:                                              ; preds = %102, %96
   br label %104
 
-104:                                              ; preds = %103, %87
+104:                                              ; preds = %103, %92
   br label %105
 
-105:                                              ; preds = %104, %83
-  br label %217
+105:                                              ; preds = %104, %88
+  br label %106
 
-106:                                              ; preds = %77
-  %107 = load i32, ptr %19, align 4
-  %108 = icmp slt i32 %107, 16
-  br i1 %108, label %109, label %115
-
-109:                                              ; preds = %106
-  %110 = load i64, ptr %24, align 8
-  %111 = icmp ult i64 %110, 1024
-  br i1 %111, label %112, label %113
-
-112:                                              ; preds = %109
-  store i32 1, ptr %20, align 4
-  br label %114
-
-113:                                              ; preds = %109
-  store i32 2, ptr %20, align 4
-  br label %114
-
-114:                                              ; preds = %113, %112
-  br label %216
-
-115:                                              ; preds = %106
-  %116 = load i32, ptr %19, align 4
-  %117 = icmp slt i32 %116, 32
-  br i1 %117, label %118, label %129
-
-118:                                              ; preds = %115
-  %119 = load i64, ptr %24, align 8
-  %120 = icmp ult i64 %119, 128
-  br i1 %120, label %121, label %122
-
-121:                                              ; preds = %118
-  store i32 1, ptr %20, align 4
-  br label %128
-
-122:                                              ; preds = %118
-  %123 = load i64, ptr %24, align 8
-  %124 = icmp ult i64 %123, 262144
-  br i1 %124, label %125, label %126
-
-125:                                              ; preds = %122
-  store i32 2, ptr %20, align 4
-  br label %127
-
-126:                                              ; preds = %122
-  store i32 3, ptr %20, align 4
-  br label %127
-
-127:                                              ; preds = %126, %125
-  br label %128
-
-128:                                              ; preds = %127, %121
-  br label %215
-
-129:                                              ; preds = %115
-  %130 = load i32, ptr %19, align 4
-  %131 = icmp slt i32 %130, 64
-  br i1 %131, label %132, label %143
-
-132:                                              ; preds = %129
-  %133 = load i64, ptr %24, align 8
-  %134 = icmp ult i64 %133, 256
-  br i1 %134, label %135, label %136
-
-135:                                              ; preds = %132
-  store i32 1, ptr %20, align 4
-  br label %142
-
-136:                                              ; preds = %132
-  %137 = load i64, ptr %24, align 8
-  %138 = icmp ult i64 %137, 8192
-  br i1 %138, label %139, label %140
-
-139:                                              ; preds = %136
-  store i32 2, ptr %20, align 4
-  br label %141
-
-140:                                              ; preds = %136
-  store i32 3, ptr %20, align 4
-  br label %141
-
-141:                                              ; preds = %140, %139
-  br label %142
-
-142:                                              ; preds = %141, %135
-  br label %214
-
-143:                                              ; preds = %129
-  %144 = load i32, ptr %19, align 4
-  %145 = icmp slt i32 %144, 128
-  br i1 %145, label %146, label %157
-
-146:                                              ; preds = %143
-  %147 = load i64, ptr %24, align 8
-  %148 = icmp ult i64 %147, 256
-  br i1 %148, label %149, label %150
-
-149:                                              ; preds = %146
-  store i32 1, ptr %20, align 4
-  br label %156
-
-150:                                              ; preds = %146
-  %151 = load i64, ptr %24, align 8
-  %152 = icmp ult i64 %151, 4096
-  br i1 %152, label %153, label %154
-
-153:                                              ; preds = %150
-  store i32 2, ptr %20, align 4
-  br label %155
-
-154:                                              ; preds = %150
-  store i32 3, ptr %20, align 4
-  br label %155
-
-155:                                              ; preds = %154, %153
-  br label %156
-
-156:                                              ; preds = %155, %149
-  br label %213
-
-157:                                              ; preds = %143
-  %158 = load i32, ptr %19, align 4
-  %159 = icmp slt i32 %158, 256
-  br i1 %159, label %160, label %171
-
-160:                                              ; preds = %157
-  %161 = load i64, ptr %24, align 8
-  %162 = icmp ult i64 %161, 1024
-  br i1 %162, label %163, label %164
-
-163:                                              ; preds = %160
-  store i32 2, ptr %20, align 4
-  br label %170
-
-164:                                              ; preds = %160
-  %165 = load i64, ptr %24, align 8
-  %166 = icmp ult i64 %165, 65536
-  br i1 %166, label %167, label %168
-
-167:                                              ; preds = %164
-  store i32 4, ptr %20, align 4
-  br label %169
-
-168:                                              ; preds = %164
-  store i32 3, ptr %20, align 4
-  br label %169
-
-169:                                              ; preds = %168, %167
-  br label %170
-
-170:                                              ; preds = %169, %163
-  br label %212
-
-171:                                              ; preds = %157
-  %172 = load i32, ptr %19, align 4
-  %173 = icmp slt i32 %172, 512
-  br i1 %173, label %174, label %180
-
-174:                                              ; preds = %171
-  %175 = load i64, ptr %24, align 8
-  %176 = icmp ult i64 %175, 1024
-  br i1 %176, label %177, label %178
-
-177:                                              ; preds = %174
-  store i32 2, ptr %20, align 4
-  br label %179
-
-178:                                              ; preds = %174
-  store i32 3, ptr %20, align 4
-  br label %179
-
-179:                                              ; preds = %178, %177
-  br label %211
-
-180:                                              ; preds = %171
-  %181 = load i32, ptr %19, align 4
-  %182 = icmp slt i32 %181, 1024
-  br i1 %182, label %183, label %204
-
-183:                                              ; preds = %180
-  %184 = load i64, ptr %24, align 8
-  %185 = icmp ult i64 %184, 512
-  br i1 %185, label %186, label %187
-
-186:                                              ; preds = %183
-  store i32 2, ptr %20, align 4
-  br label %203
-
-187:                                              ; preds = %183
-  %188 = load i64, ptr %24, align 8
-  %189 = icmp ult i64 %188, 1024
-  br i1 %189, label %190, label %191
-
-190:                                              ; preds = %187
-  store i32 1, ptr %20, align 4
-  br label %202
-
-191:                                              ; preds = %187
-  %192 = load i64, ptr %24, align 8
-  %193 = icmp ult i64 %192, 4096
-  br i1 %193, label %194, label %195
-
-194:                                              ; preds = %191
-  store i32 2, ptr %20, align 4
-  br label %201
-
-195:                                              ; preds = %191
-  %196 = load i64, ptr %24, align 8
-  %197 = icmp ult i64 %196, 1048576
-  br i1 %197, label %198, label %199
-
-198:                                              ; preds = %195
-  store i32 4, ptr %20, align 4
-  br label %200
-
-199:                                              ; preds = %195
-  store i32 3, ptr %20, align 4
-  br label %200
-
-200:                                              ; preds = %199, %198
-  br label %201
-
-201:                                              ; preds = %200, %194
-  br label %202
-
-202:                                              ; preds = %201, %190
-  br label %203
-
-203:                                              ; preds = %202, %186
-  br label %210
-
-204:                                              ; preds = %180
-  %205 = load i64, ptr %24, align 8
-  %206 = icmp ult i64 %205, 4096
-  br i1 %206, label %207, label %208
-
-207:                                              ; preds = %204
-  store i32 2, ptr %20, align 4
-  br label %209
-
-208:                                              ; preds = %204
-  store i32 4, ptr %20, align 4
-  br label %209
-
-209:                                              ; preds = %208, %207
-  br label %210
-
-210:                                              ; preds = %209, %203
-  br label %211
-
-211:                                              ; preds = %210, %179
-  br label %212
-
-212:                                              ; preds = %211, %170
-  br label %213
-
-213:                                              ; preds = %212, %156
-  br label %214
-
-214:                                              ; preds = %213, %142
-  br label %215
-
-215:                                              ; preds = %214, %128
-  br label %216
-
-216:                                              ; preds = %215, %114
-  br label %217
-
-217:                                              ; preds = %216, %105
+106:                                              ; preds = %105, %84
   br label %218
 
-218:                                              ; preds = %217, %76
-  %219 = load ptr, ptr %10, align 8
-  %220 = load i32, ptr %11, align 4
-  %221 = load ptr, ptr %12, align 8
-  %222 = load ptr, ptr %13, align 8
-  %223 = load ptr, ptr %14, align 8
-  %224 = load ptr, ptr %15, align 8
-  %225 = load ptr, ptr %16, align 8
-  %226 = load ptr, ptr %17, align 8
-  %227 = load ptr, ptr %18, align 8
-  %228 = load i32, ptr %20, align 4
-  %229 = call i32 @ompi_coll_tuned_allgatherv_intra_do_this(ptr noundef %219, i32 noundef %220, ptr noundef %221, ptr noundef %222, ptr noundef %223, ptr noundef %224, ptr noundef %225, ptr noundef %226, ptr noundef %227, i32 noundef %228, i32 noundef 0, i32 noundef 0)
-  ret i32 %229
+107:                                              ; preds = %78
+  %108 = load i32, ptr %19, align 4
+  %109 = icmp slt i32 %108, 16
+  br i1 %109, label %110, label %116
+
+110:                                              ; preds = %107
+  %111 = load i64, ptr %24, align 8
+  %112 = icmp ult i64 %111, 1024
+  br i1 %112, label %113, label %114
+
+113:                                              ; preds = %110
+  store i32 1, ptr %20, align 4
+  br label %115
+
+114:                                              ; preds = %110
+  store i32 2, ptr %20, align 4
+  br label %115
+
+115:                                              ; preds = %114, %113
+  br label %217
+
+116:                                              ; preds = %107
+  %117 = load i32, ptr %19, align 4
+  %118 = icmp slt i32 %117, 32
+  br i1 %118, label %119, label %130
+
+119:                                              ; preds = %116
+  %120 = load i64, ptr %24, align 8
+  %121 = icmp ult i64 %120, 128
+  br i1 %121, label %122, label %123
+
+122:                                              ; preds = %119
+  store i32 1, ptr %20, align 4
+  br label %129
+
+123:                                              ; preds = %119
+  %124 = load i64, ptr %24, align 8
+  %125 = icmp ult i64 %124, 262144
+  br i1 %125, label %126, label %127
+
+126:                                              ; preds = %123
+  store i32 2, ptr %20, align 4
+  br label %128
+
+127:                                              ; preds = %123
+  store i32 3, ptr %20, align 4
+  br label %128
+
+128:                                              ; preds = %127, %126
+  br label %129
+
+129:                                              ; preds = %128, %122
+  br label %216
+
+130:                                              ; preds = %116
+  %131 = load i32, ptr %19, align 4
+  %132 = icmp slt i32 %131, 64
+  br i1 %132, label %133, label %144
+
+133:                                              ; preds = %130
+  %134 = load i64, ptr %24, align 8
+  %135 = icmp ult i64 %134, 256
+  br i1 %135, label %136, label %137
+
+136:                                              ; preds = %133
+  store i32 1, ptr %20, align 4
+  br label %143
+
+137:                                              ; preds = %133
+  %138 = load i64, ptr %24, align 8
+  %139 = icmp ult i64 %138, 8192
+  br i1 %139, label %140, label %141
+
+140:                                              ; preds = %137
+  store i32 2, ptr %20, align 4
+  br label %142
+
+141:                                              ; preds = %137
+  store i32 3, ptr %20, align 4
+  br label %142
+
+142:                                              ; preds = %141, %140
+  br label %143
+
+143:                                              ; preds = %142, %136
+  br label %215
+
+144:                                              ; preds = %130
+  %145 = load i32, ptr %19, align 4
+  %146 = icmp slt i32 %145, 128
+  br i1 %146, label %147, label %158
+
+147:                                              ; preds = %144
+  %148 = load i64, ptr %24, align 8
+  %149 = icmp ult i64 %148, 256
+  br i1 %149, label %150, label %151
+
+150:                                              ; preds = %147
+  store i32 1, ptr %20, align 4
+  br label %157
+
+151:                                              ; preds = %147
+  %152 = load i64, ptr %24, align 8
+  %153 = icmp ult i64 %152, 4096
+  br i1 %153, label %154, label %155
+
+154:                                              ; preds = %151
+  store i32 2, ptr %20, align 4
+  br label %156
+
+155:                                              ; preds = %151
+  store i32 3, ptr %20, align 4
+  br label %156
+
+156:                                              ; preds = %155, %154
+  br label %157
+
+157:                                              ; preds = %156, %150
+  br label %214
+
+158:                                              ; preds = %144
+  %159 = load i32, ptr %19, align 4
+  %160 = icmp slt i32 %159, 256
+  br i1 %160, label %161, label %172
+
+161:                                              ; preds = %158
+  %162 = load i64, ptr %24, align 8
+  %163 = icmp ult i64 %162, 1024
+  br i1 %163, label %164, label %165
+
+164:                                              ; preds = %161
+  store i32 2, ptr %20, align 4
+  br label %171
+
+165:                                              ; preds = %161
+  %166 = load i64, ptr %24, align 8
+  %167 = icmp ult i64 %166, 65536
+  br i1 %167, label %168, label %169
+
+168:                                              ; preds = %165
+  store i32 4, ptr %20, align 4
+  br label %170
+
+169:                                              ; preds = %165
+  store i32 3, ptr %20, align 4
+  br label %170
+
+170:                                              ; preds = %169, %168
+  br label %171
+
+171:                                              ; preds = %170, %164
+  br label %213
+
+172:                                              ; preds = %158
+  %173 = load i32, ptr %19, align 4
+  %174 = icmp slt i32 %173, 512
+  br i1 %174, label %175, label %181
+
+175:                                              ; preds = %172
+  %176 = load i64, ptr %24, align 8
+  %177 = icmp ult i64 %176, 1024
+  br i1 %177, label %178, label %179
+
+178:                                              ; preds = %175
+  store i32 2, ptr %20, align 4
+  br label %180
+
+179:                                              ; preds = %175
+  store i32 3, ptr %20, align 4
+  br label %180
+
+180:                                              ; preds = %179, %178
+  br label %212
+
+181:                                              ; preds = %172
+  %182 = load i32, ptr %19, align 4
+  %183 = icmp slt i32 %182, 1024
+  br i1 %183, label %184, label %205
+
+184:                                              ; preds = %181
+  %185 = load i64, ptr %24, align 8
+  %186 = icmp ult i64 %185, 512
+  br i1 %186, label %187, label %188
+
+187:                                              ; preds = %184
+  store i32 2, ptr %20, align 4
+  br label %204
+
+188:                                              ; preds = %184
+  %189 = load i64, ptr %24, align 8
+  %190 = icmp ult i64 %189, 1024
+  br i1 %190, label %191, label %192
+
+191:                                              ; preds = %188
+  store i32 1, ptr %20, align 4
+  br label %203
+
+192:                                              ; preds = %188
+  %193 = load i64, ptr %24, align 8
+  %194 = icmp ult i64 %193, 4096
+  br i1 %194, label %195, label %196
+
+195:                                              ; preds = %192
+  store i32 2, ptr %20, align 4
+  br label %202
+
+196:                                              ; preds = %192
+  %197 = load i64, ptr %24, align 8
+  %198 = icmp ult i64 %197, 1048576
+  br i1 %198, label %199, label %200
+
+199:                                              ; preds = %196
+  store i32 4, ptr %20, align 4
+  br label %201
+
+200:                                              ; preds = %196
+  store i32 3, ptr %20, align 4
+  br label %201
+
+201:                                              ; preds = %200, %199
+  br label %202
+
+202:                                              ; preds = %201, %195
+  br label %203
+
+203:                                              ; preds = %202, %191
+  br label %204
+
+204:                                              ; preds = %203, %187
+  br label %211
+
+205:                                              ; preds = %181
+  %206 = load i64, ptr %24, align 8
+  %207 = icmp ult i64 %206, 4096
+  br i1 %207, label %208, label %209
+
+208:                                              ; preds = %205
+  store i32 2, ptr %20, align 4
+  br label %210
+
+209:                                              ; preds = %205
+  store i32 4, ptr %20, align 4
+  br label %210
+
+210:                                              ; preds = %209, %208
+  br label %211
+
+211:                                              ; preds = %210, %204
+  br label %212
+
+212:                                              ; preds = %211, %180
+  br label %213
+
+213:                                              ; preds = %212, %171
+  br label %214
+
+214:                                              ; preds = %213, %157
+  br label %215
+
+215:                                              ; preds = %214, %143
+  br label %216
+
+216:                                              ; preds = %215, %129
+  br label %217
+
+217:                                              ; preds = %216, %115
+  br label %218
+
+218:                                              ; preds = %217, %106
+  br label %219
+
+219:                                              ; preds = %218, %77
+  %220 = load ptr, ptr %10, align 8
+  %221 = load i32, ptr %11, align 4
+  %222 = load ptr, ptr %12, align 8
+  %223 = load ptr, ptr %13, align 8
+  %224 = load ptr, ptr %14, align 8
+  %225 = load ptr, ptr %15, align 8
+  %226 = load ptr, ptr %16, align 8
+  %227 = load ptr, ptr %17, align 8
+  %228 = load ptr, ptr %18, align 8
+  %229 = load i32, ptr %20, align 4
+  %230 = call i32 @ompi_coll_tuned_allgatherv_intra_do_this(ptr noundef %220, i32 noundef %221, ptr noundef %222, ptr noundef %223, ptr noundef %224, ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef %228, i32 noundef %229, i32 noundef 0, i32 noundef 0)
+  ret i32 %230
 }
 
 declare i32 @ompi_coll_tuned_allgatherv_intra_do_this(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
@@ -4920,227 +4923,228 @@ define i32 @ompi_coll_tuned_gather_intra_dec_fixed(ptr noundef %0, i32 noundef %
   %28 = load i32, ptr %21, align 4
   %29 = load i32, ptr %16, align 4
   %30 = icmp eq i32 %28, %29
-  br i1 %30, label %34, label %31
+  br i1 %30, label %35, label %31
 
 31:                                               ; preds = %9
   %32 = load ptr, ptr %10, align 8
-  %33 = icmp eq ptr inttoptr (i64 1 to ptr), %32
-  br i1 %33, label %34, label %41
+  %33 = inttoptr i64 1 to ptr
+  %34 = icmp eq ptr %33, %32
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %31, %9
-  %35 = load ptr, ptr %15, align 8
-  %36 = call i32 @ompi_datatype_type_size(ptr noundef %35, ptr noundef %22)
-  %37 = load i64, ptr %22, align 8
-  %38 = load i32, ptr %14, align 4
-  %39 = sext i32 %38 to i64
-  %40 = mul i64 %37, %39
-  store i64 %40, ptr %23, align 8
-  br label %48
+35:                                               ; preds = %31, %9
+  %36 = load ptr, ptr %15, align 8
+  %37 = call i32 @ompi_datatype_type_size(ptr noundef %36, ptr noundef %22)
+  %38 = load i64, ptr %22, align 8
+  %39 = load i32, ptr %14, align 4
+  %40 = sext i32 %39 to i64
+  %41 = mul i64 %38, %40
+  store i64 %41, ptr %23, align 8
+  br label %49
 
-41:                                               ; preds = %31
-  %42 = load ptr, ptr %12, align 8
-  %43 = call i32 @ompi_datatype_type_size(ptr noundef %42, ptr noundef %22)
-  %44 = load i64, ptr %22, align 8
-  %45 = load i32, ptr %11, align 4
-  %46 = sext i32 %45 to i64
-  %47 = mul i64 %44, %46
-  store i64 %47, ptr %23, align 8
-  br label %48
+42:                                               ; preds = %31
+  %43 = load ptr, ptr %12, align 8
+  %44 = call i32 @ompi_datatype_type_size(ptr noundef %43, ptr noundef %22)
+  %45 = load i64, ptr %22, align 8
+  %46 = load i32, ptr %11, align 4
+  %47 = sext i32 %46 to i64
+  %48 = mul i64 %45, %47
+  store i64 %48, ptr %23, align 8
+  br label %49
 
-48:                                               ; preds = %41, %34
-  %49 = load i32, ptr %19, align 4
-  %50 = icmp slt i32 %49, 4
-  br i1 %50, label %51, label %77
+49:                                               ; preds = %42, %35
+  %50 = load i32, ptr %19, align 4
+  %51 = icmp slt i32 %50, 4
+  br i1 %51, label %52, label %78
 
-51:                                               ; preds = %48
-  %52 = load i64, ptr %23, align 8
-  %53 = icmp ult i64 %52, 2
-  br i1 %53, label %54, label %55
+52:                                               ; preds = %49
+  %53 = load i64, ptr %23, align 8
+  %54 = icmp ult i64 %53, 2
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %51
+55:                                               ; preds = %52
   store i32 3, ptr %20, align 4
+  br label %77
+
+56:                                               ; preds = %52
+  %57 = load i64, ptr %23, align 8
+  %58 = icmp ult i64 %57, 4
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %56
+  store i32 1, ptr %20, align 4
   br label %76
 
-55:                                               ; preds = %51
-  %56 = load i64, ptr %23, align 8
-  %57 = icmp ult i64 %56, 4
-  br i1 %57, label %58, label %59
+60:                                               ; preds = %56
+  %61 = load i64, ptr %23, align 8
+  %62 = icmp ult i64 %61, 32768
+  br i1 %62, label %63, label %64
 
-58:                                               ; preds = %55
-  store i32 1, ptr %20, align 4
+63:                                               ; preds = %60
+  store i32 2, ptr %20, align 4
   br label %75
 
-59:                                               ; preds = %55
-  %60 = load i64, ptr %23, align 8
-  %61 = icmp ult i64 %60, 32768
-  br i1 %61, label %62, label %63
+64:                                               ; preds = %60
+  %65 = load i64, ptr %23, align 8
+  %66 = icmp ult i64 %65, 65536
+  br i1 %66, label %67, label %68
 
-62:                                               ; preds = %59
-  store i32 2, ptr %20, align 4
+67:                                               ; preds = %64
+  store i32 1, ptr %20, align 4
   br label %74
 
-63:                                               ; preds = %59
-  %64 = load i64, ptr %23, align 8
-  %65 = icmp ult i64 %64, 65536
-  br i1 %65, label %66, label %67
+68:                                               ; preds = %64
+  %69 = load i64, ptr %23, align 8
+  %70 = icmp ult i64 %69, 131072
+  br i1 %70, label %71, label %72
 
-66:                                               ; preds = %63
-  store i32 1, ptr %20, align 4
+71:                                               ; preds = %68
+  store i32 2, ptr %20, align 4
   br label %73
 
-67:                                               ; preds = %63
-  %68 = load i64, ptr %23, align 8
-  %69 = icmp ult i64 %68, 131072
-  br i1 %69, label %70, label %71
-
-70:                                               ; preds = %67
-  store i32 2, ptr %20, align 4
-  br label %72
-
-71:                                               ; preds = %67
+72:                                               ; preds = %68
   store i32 3, ptr %20, align 4
-  br label %72
-
-72:                                               ; preds = %71, %70
   br label %73
 
-73:                                               ; preds = %72, %66
+73:                                               ; preds = %72, %71
   br label %74
 
-74:                                               ; preds = %73, %62
+74:                                               ; preds = %73, %67
   br label %75
 
-75:                                               ; preds = %74, %58
+75:                                               ; preds = %74, %63
   br label %76
 
-76:                                               ; preds = %75, %54
+76:                                               ; preds = %75, %59
+  br label %77
+
+77:                                               ; preds = %76, %55
+  br label %124
+
+78:                                               ; preds = %49
+  %79 = load i32, ptr %19, align 4
+  %80 = icmp slt i32 %79, 8
+  br i1 %80, label %81, label %102
+
+81:                                               ; preds = %78
+  %82 = load i64, ptr %23, align 8
+  %83 = icmp ult i64 %82, 1024
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %81
+  store i32 2, ptr %20, align 4
+  br label %101
+
+85:                                               ; preds = %81
+  %86 = load i64, ptr %23, align 8
+  %87 = icmp ult i64 %86, 8192
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %85
+  store i32 1, ptr %20, align 4
+  br label %100
+
+89:                                               ; preds = %85
+  %90 = load i64, ptr %23, align 8
+  %91 = icmp ult i64 %90, 32768
+  br i1 %91, label %92, label %93
+
+92:                                               ; preds = %89
+  store i32 2, ptr %20, align 4
+  br label %99
+
+93:                                               ; preds = %89
+  %94 = load i64, ptr %23, align 8
+  %95 = icmp ult i64 %94, 262144
+  br i1 %95, label %96, label %97
+
+96:                                               ; preds = %93
+  store i32 1, ptr %20, align 4
+  br label %98
+
+97:                                               ; preds = %93
+  store i32 3, ptr %20, align 4
+  br label %98
+
+98:                                               ; preds = %97, %96
+  br label %99
+
+99:                                               ; preds = %98, %92
+  br label %100
+
+100:                                              ; preds = %99, %88
+  br label %101
+
+101:                                              ; preds = %100, %84
   br label %123
 
-77:                                               ; preds = %48
-  %78 = load i32, ptr %19, align 4
-  %79 = icmp slt i32 %78, 8
-  br i1 %79, label %80, label %101
+102:                                              ; preds = %78
+  %103 = load i32, ptr %19, align 4
+  %104 = icmp slt i32 %103, 256
+  br i1 %104, label %105, label %106
 
-80:                                               ; preds = %77
-  %81 = load i64, ptr %23, align 8
-  %82 = icmp ult i64 %81, 1024
-  br i1 %82, label %83, label %84
-
-83:                                               ; preds = %80
+105:                                              ; preds = %102
   store i32 2, ptr %20, align 4
-  br label %100
-
-84:                                               ; preds = %80
-  %85 = load i64, ptr %23, align 8
-  %86 = icmp ult i64 %85, 8192
-  br i1 %86, label %87, label %88
-
-87:                                               ; preds = %84
-  store i32 1, ptr %20, align 4
-  br label %99
-
-88:                                               ; preds = %84
-  %89 = load i64, ptr %23, align 8
-  %90 = icmp ult i64 %89, 32768
-  br i1 %90, label %91, label %92
-
-91:                                               ; preds = %88
-  store i32 2, ptr %20, align 4
-  br label %98
-
-92:                                               ; preds = %88
-  %93 = load i64, ptr %23, align 8
-  %94 = icmp ult i64 %93, 262144
-  br i1 %94, label %95, label %96
-
-95:                                               ; preds = %92
-  store i32 1, ptr %20, align 4
-  br label %97
-
-96:                                               ; preds = %92
-  store i32 3, ptr %20, align 4
-  br label %97
-
-97:                                               ; preds = %96, %95
-  br label %98
-
-98:                                               ; preds = %97, %91
-  br label %99
-
-99:                                               ; preds = %98, %87
-  br label %100
-
-100:                                              ; preds = %99, %83
   br label %122
 
-101:                                              ; preds = %77
-  %102 = load i32, ptr %19, align 4
-  %103 = icmp slt i32 %102, 256
-  br i1 %103, label %104, label %105
+106:                                              ; preds = %102
+  %107 = load i32, ptr %19, align 4
+  %108 = icmp slt i32 %107, 512
+  br i1 %108, label %109, label %120
 
-104:                                              ; preds = %101
+109:                                              ; preds = %106
+  %110 = load i64, ptr %23, align 8
+  %111 = icmp ult i64 %110, 2048
+  br i1 %111, label %112, label %113
+
+112:                                              ; preds = %109
   store i32 2, ptr %20, align 4
-  br label %121
+  br label %119
 
-105:                                              ; preds = %101
-  %106 = load i32, ptr %19, align 4
-  %107 = icmp slt i32 %106, 512
-  br i1 %107, label %108, label %119
+113:                                              ; preds = %109
+  %114 = load i64, ptr %23, align 8
+  %115 = icmp ult i64 %114, 8192
+  br i1 %115, label %116, label %117
 
-108:                                              ; preds = %105
-  %109 = load i64, ptr %23, align 8
-  %110 = icmp ult i64 %109, 2048
-  br i1 %110, label %111, label %112
+116:                                              ; preds = %113
+  store i32 1, ptr %20, align 4
+  br label %118
 
-111:                                              ; preds = %108
+117:                                              ; preds = %113
   store i32 2, ptr %20, align 4
   br label %118
 
-112:                                              ; preds = %108
-  %113 = load i64, ptr %23, align 8
-  %114 = icmp ult i64 %113, 8192
-  br i1 %114, label %115, label %116
+118:                                              ; preds = %117, %116
+  br label %119
 
-115:                                              ; preds = %112
-  store i32 1, ptr %20, align 4
-  br label %117
-
-116:                                              ; preds = %112
-  store i32 2, ptr %20, align 4
-  br label %117
-
-117:                                              ; preds = %116, %115
-  br label %118
-
-118:                                              ; preds = %117, %111
-  br label %120
-
-119:                                              ; preds = %105
-  store i32 2, ptr %20, align 4
-  br label %120
-
-120:                                              ; preds = %119, %118
+119:                                              ; preds = %118, %112
   br label %121
 
-121:                                              ; preds = %120, %104
+120:                                              ; preds = %106
+  store i32 2, ptr %20, align 4
+  br label %121
+
+121:                                              ; preds = %120, %119
   br label %122
 
-122:                                              ; preds = %121, %100
+122:                                              ; preds = %121, %105
   br label %123
 
-123:                                              ; preds = %122, %76
-  %124 = load ptr, ptr %10, align 8
-  %125 = load i32, ptr %11, align 4
-  %126 = load ptr, ptr %12, align 8
-  %127 = load ptr, ptr %13, align 8
-  %128 = load i32, ptr %14, align 4
-  %129 = load ptr, ptr %15, align 8
-  %130 = load i32, ptr %16, align 4
-  %131 = load ptr, ptr %17, align 8
-  %132 = load ptr, ptr %18, align 8
-  %133 = load i32, ptr %20, align 4
-  %134 = call i32 @ompi_coll_tuned_gather_intra_do_this(ptr noundef %124, i32 noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %130, ptr noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef 0, i32 noundef 0)
-  ret i32 %134
+123:                                              ; preds = %122, %101
+  br label %124
+
+124:                                              ; preds = %123, %77
+  %125 = load ptr, ptr %10, align 8
+  %126 = load i32, ptr %11, align 4
+  %127 = load ptr, ptr %12, align 8
+  %128 = load ptr, ptr %13, align 8
+  %129 = load i32, ptr %14, align 4
+  %130 = load ptr, ptr %15, align 8
+  %131 = load i32, ptr %16, align 4
+  %132 = load ptr, ptr %17, align 8
+  %133 = load ptr, ptr %18, align 8
+  %134 = load i32, ptr %20, align 4
+  %135 = call i32 @ompi_coll_tuned_gather_intra_do_this(ptr noundef %125, i32 noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %129, ptr noundef %130, i32 noundef %131, ptr noundef %132, ptr noundef %133, i32 noundef %134, i32 noundef 0, i32 noundef 0)
+  ret i32 %135
 }
 
 ; Function Attrs: nounwind uwtable

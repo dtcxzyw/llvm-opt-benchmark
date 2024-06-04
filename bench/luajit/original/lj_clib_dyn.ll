@@ -796,30 +796,32 @@ land.lhs.true:                                    ; preds = %if.end
   %arrayidx7 = getelementptr inbounds i8, ptr %9, i64 1
   %10 = load i8, ptr %arrayidx7, align 1
   %conv8 = sext i8 %10 to i32
-  %11 = load i8, ptr getelementptr inbounds ([4 x i8], ptr @.str.3, i64 0, i64 1), align 1
-  %conv9 = sext i8 %11 to i32
+  %11 = getelementptr inbounds [4 x i8], ptr @.str.3, i64 0, i64 1
+  %12 = load i8, ptr %11, align 1
+  %conv9 = sext i8 %12 to i32
   %cmp10 = icmp eq i32 %conv8, %conv9
   br i1 %cmp10, label %land.lhs.true12, label %if.then18
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
-  %12 = load ptr, ptr %name.addr, align 8
-  %arrayidx13 = getelementptr inbounds i8, ptr %12, i64 2
-  %13 = load i8, ptr %arrayidx13, align 1
-  %conv14 = sext i8 %13 to i32
-  %14 = load i8, ptr getelementptr inbounds ([4 x i8], ptr @.str.3, i64 0, i64 2), align 1
-  %conv15 = sext i8 %14 to i32
+  %13 = load ptr, ptr %name.addr, align 8
+  %arrayidx13 = getelementptr inbounds i8, ptr %13, i64 2
+  %14 = load i8, ptr %arrayidx13, align 1
+  %conv14 = sext i8 %14 to i32
+  %15 = getelementptr inbounds [4 x i8], ptr @.str.3, i64 0, i64 2
+  %16 = load i8, ptr %15, align 1
+  %conv15 = sext i8 %16 to i32
   %cmp16 = icmp eq i32 %conv14, %conv15
   br i1 %cmp16, label %if.end22, label %if.then18
 
 if.then18:                                        ; preds = %land.lhs.true12, %land.lhs.true, %if.end
-  %15 = load ptr, ptr %L.addr, align 8
-  %16 = load ptr, ptr %name.addr, align 8
-  %call19 = call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %15, ptr noundef @.str.4, ptr noundef %16)
-  store ptr %call19, ptr %name.addr, align 8
   %17 = load ptr, ptr %L.addr, align 8
-  %top20 = getelementptr inbounds %struct.lua_State, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %top20, align 8
-  %incdec.ptr21 = getelementptr inbounds %union.TValue, ptr %18, i32 -1
+  %18 = load ptr, ptr %name.addr, align 8
+  %call19 = call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %17, ptr noundef @.str.4, ptr noundef %18)
+  store ptr %call19, ptr %name.addr, align 8
+  %19 = load ptr, ptr %L.addr, align 8
+  %top20 = getelementptr inbounds %struct.lua_State, ptr %19, i32 0, i32 8
+  %20 = load ptr, ptr %top20, align 8
+  %incdec.ptr21 = getelementptr inbounds %union.TValue, ptr %20, i32 -1
   store ptr %incdec.ptr21, ptr %top20, align 8
   br label %if.end22
 
@@ -827,8 +829,8 @@ if.end22:                                         ; preds = %if.then18, %land.lh
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end22, %entry
-  %19 = load ptr, ptr %name.addr, align 8
-  ret ptr %19
+  %21 = load ptr, ptr %name.addr, align 8
+  ret ptr %21
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

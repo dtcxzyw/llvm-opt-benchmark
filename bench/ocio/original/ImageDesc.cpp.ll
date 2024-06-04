@@ -485,7 +485,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev9ImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev9ImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -727,7 +728,8 @@ entry:
   store i64 %numChannels, ptr %numChannels.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev9ImageDescC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::PackedImageDesc", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #16
           to label %invoke.cont unwind label %lpad
@@ -735,42 +737,42 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDesc4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(98) %call) #3
   store ptr %call, ptr %m_impl, align 8
-  %0 = load ptr, ptr %data.addr, align 8
+  %1 = load ptr, ptr %data.addr, align 8
   %call3 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_data = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call3, i32 0, i32 0
-  store ptr %0, ptr %m_data, align 8
-  %1 = load i64, ptr %width.addr, align 8
+  store ptr %1, ptr %m_data, align 8
+  %2 = load i64, ptr %width.addr, align 8
   %call5 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call5, i32 0, i32 7
-  store i64 %1, ptr %m_width, align 8
-  %2 = load i64, ptr %height.addr, align 8
+  store i64 %2, ptr %m_width, align 8
+  %3 = load i64, ptr %height.addr, align 8
   %call7 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call7, i32 0, i32 8
-  store i64 %2, ptr %m_height, align 8
-  %3 = load i64, ptr %numChannels.addr, align 8
+  store i64 %3, ptr %m_height, align 8
+  %4 = load i64, ptr %numChannels.addr, align 8
   %call9 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %m_numChannels = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call9, i32 0, i32 9
-  store i64 %3, ptr %m_numChannels, align 8
+  store i64 %4, ptr %m_numChannels, align 8
   %call11 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %m_bitDepth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call11, i32 0, i32 6
   store i32 8, ptr %m_bitDepth, align 4
-  %4 = load i64, ptr %numChannels.addr, align 8
-  %cmp = icmp eq i64 %4, 4
+  %5 = load i64, ptr %numChannels.addr, align 8
+  %cmp = icmp eq i64 %5, 4
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont10
@@ -783,17 +785,17 @@ invoke.cont12:                                    ; preds = %if.then
   br label %if.end22
 
 lpad:                                             ; preds = %invoke.cont55, %invoke.cont52, %invoke.cont50, %invoke.cont48, %invoke.cont46, %invoke.cont44, %invoke.cont42, %invoke.cont41, %invoke.cont39, %invoke.cont37, %invoke.cont33, %invoke.cont31, %invoke.cont28, %invoke.cont25, %invoke.cont23, %if.end22, %invoke.cont21, %if.then15, %if.then, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont10
-  %8 = load i64, ptr %numChannels.addr, align 8
-  %cmp14 = icmp eq i64 %8, 3
+  %9 = load i64, ptr %numChannels.addr, align 8
+  %cmp14 = icmp eq i64 %9, 3
   br i1 %cmp14, label %if.then15, label %if.else19
 
 if.then15:                                        ; preds = %if.else
@@ -815,12 +817,12 @@ invoke.cont21:                                    ; preds = %if.else19
           to label %unreachable unwind label %lpad
 
 lpad20:                                           ; preds = %if.else19
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception) #3
   br label %ehcleanup
 
@@ -840,14 +842,14 @@ invoke.cont23:                                    ; preds = %if.end22
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   %m_chanStrideBytes27 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call26, i32 0, i32 10
-  %12 = load i64, ptr %m_chanStrideBytes27, align 8
+  %13 = load i64, ptr %m_chanStrideBytes27, align 8
   %call29 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont25
   %m_numChannels30 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call29, i32 0, i32 9
-  %13 = load i64, ptr %m_numChannels30, align 8
-  %mul = mul nsw i64 %12, %13
+  %14 = load i64, ptr %m_numChannels30, align 8
+  %mul = mul nsw i64 %13, %14
   %call32 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont31 unwind label %lpad
 
@@ -859,9 +861,9 @@ invoke.cont31:                                    ; preds = %invoke.cont28
 
 invoke.cont33:                                    ; preds = %invoke.cont31
   %m_xStrideBytes35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call34, i32 0, i32 11
-  %14 = load i64, ptr %m_xStrideBytes35, align 8
-  %15 = load i64, ptr %width.addr, align 8
-  %mul36 = mul nsw i64 %14, %15
+  %15 = load i64, ptr %m_xStrideBytes35, align 8
+  %16 = load i64, ptr %width.addr, align 8
+  %mul36 = mul nsw i64 %15, %16
   %call38 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont37 unwind label %lpad
 
@@ -1773,7 +1775,8 @@ entry:
   store i32 %chanOrder, ptr %chanOrder.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev9ImageDescC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::PackedImageDesc", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #16
           to label %invoke.cont unwind label %lpad
@@ -1781,52 +1784,52 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDesc4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(98) %call) #3
   store ptr %call, ptr %m_impl, align 8
-  %0 = load ptr, ptr %data.addr, align 8
+  %1 = load ptr, ptr %data.addr, align 8
   %call3 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_data = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call3, i32 0, i32 0
-  store ptr %0, ptr %m_data, align 8
-  %1 = load i64, ptr %width.addr, align 8
+  store ptr %1, ptr %m_data, align 8
+  %2 = load i64, ptr %width.addr, align 8
   %call5 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call5, i32 0, i32 7
-  store i64 %1, ptr %m_width, align 8
-  %2 = load i64, ptr %height.addr, align 8
+  store i64 %2, ptr %m_width, align 8
+  %3 = load i64, ptr %height.addr, align 8
   %call7 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call7, i32 0, i32 8
-  store i64 %2, ptr %m_height, align 8
-  %3 = load i32, ptr %chanOrder.addr, align 4
+  store i64 %3, ptr %m_height, align 8
+  %4 = load i32, ptr %chanOrder.addr, align 4
   %call9 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %m_chanOrder = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call9, i32 0, i32 5
-  store i32 %3, ptr %m_chanOrder, align 8
+  store i32 %4, ptr %m_chanOrder, align 8
   %call11 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %m_bitDepth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call11, i32 0, i32 6
   store i32 8, ptr %m_bitDepth, align 4
-  %4 = load i32, ptr %chanOrder.addr, align 4
-  %cmp = icmp eq i32 %4, 0
+  %5 = load i32, ptr %chanOrder.addr, align 4
+  %cmp = icmp eq i32 %5, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont10
-  %5 = load i32, ptr %chanOrder.addr, align 4
-  %cmp12 = icmp eq i32 %5, 1
+  %6 = load i32, ptr %chanOrder.addr, align 4
+  %cmp12 = icmp eq i32 %6, 1
   br i1 %cmp12, label %if.then, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false
-  %6 = load i32, ptr %chanOrder.addr, align 4
-  %cmp14 = icmp eq i32 %6, 2
+  %7 = load i32, ptr %chanOrder.addr, align 4
+  %cmp14 = icmp eq i32 %7, 2
   br i1 %cmp14, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false13, %lor.lhs.false, %invoke.cont10
@@ -1839,22 +1842,22 @@ invoke.cont15:                                    ; preds = %if.then
   br label %if.end27
 
 lpad:                                             ; preds = %invoke.cont60, %invoke.cont57, %invoke.cont55, %invoke.cont53, %invoke.cont51, %invoke.cont49, %invoke.cont47, %invoke.cont46, %invoke.cont44, %invoke.cont42, %invoke.cont38, %invoke.cont36, %invoke.cont33, %invoke.cont30, %invoke.cont28, %if.end27, %invoke.cont26, %if.then20, %if.then, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %lor.lhs.false13
-  %10 = load i32, ptr %chanOrder.addr, align 4
-  %cmp17 = icmp eq i32 %10, 3
+  %11 = load i32, ptr %chanOrder.addr, align 4
+  %cmp17 = icmp eq i32 %11, 3
   br i1 %cmp17, label %if.then20, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.else
-  %11 = load i32, ptr %chanOrder.addr, align 4
-  %cmp19 = icmp eq i32 %11, 4
+  %12 = load i32, ptr %chanOrder.addr, align 4
+  %cmp19 = icmp eq i32 %12, 4
   br i1 %cmp19, label %if.then20, label %if.else24
 
 if.then20:                                        ; preds = %lor.lhs.false18, %if.else
@@ -1876,12 +1879,12 @@ invoke.cont26:                                    ; preds = %if.else24
           to label %unreachable unwind label %lpad
 
 lpad25:                                           ; preds = %if.else24
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception) #3
   br label %ehcleanup
 
@@ -1901,14 +1904,14 @@ invoke.cont28:                                    ; preds = %if.end27
 
 invoke.cont30:                                    ; preds = %invoke.cont28
   %m_chanStrideBytes32 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call31, i32 0, i32 10
-  %15 = load i64, ptr %m_chanStrideBytes32, align 8
+  %16 = load i64, ptr %m_chanStrideBytes32, align 8
   %call34 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont30
   %m_numChannels35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call34, i32 0, i32 9
-  %16 = load i64, ptr %m_numChannels35, align 8
-  %mul = mul nsw i64 %15, %16
+  %17 = load i64, ptr %m_numChannels35, align 8
+  %mul = mul nsw i64 %16, %17
   %call37 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont36 unwind label %lpad
 
@@ -1920,9 +1923,9 @@ invoke.cont36:                                    ; preds = %invoke.cont33
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   %m_xStrideBytes40 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call39, i32 0, i32 11
-  %17 = load i64, ptr %m_xStrideBytes40, align 8
-  %18 = load i64, ptr %width.addr, align 8
-  %mul41 = mul nsw i64 %17, %18
+  %18 = load i64, ptr %m_xStrideBytes40, align 8
+  %19 = load i64, ptr %width.addr, align 8
+  %mul41 = mul nsw i64 %18, %19
   %call43 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont42 unwind label %lpad
 
@@ -2018,7 +2021,8 @@ entry:
   store i64 %yStrideBytes, ptr %yStrideBytes.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev9ImageDescC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::PackedImageDesc", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #16
           to label %invoke.cont unwind label %lpad
@@ -2026,53 +2030,53 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDesc4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(98) %call) #3
   store ptr %call, ptr %m_impl, align 8
-  %0 = load ptr, ptr %data.addr, align 8
+  %1 = load ptr, ptr %data.addr, align 8
   %call3 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_data = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call3, i32 0, i32 0
-  store ptr %0, ptr %m_data, align 8
-  %1 = load i64, ptr %width.addr, align 8
+  store ptr %1, ptr %m_data, align 8
+  %2 = load i64, ptr %width.addr, align 8
   %call5 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call5, i32 0, i32 7
-  store i64 %1, ptr %m_width, align 8
-  %2 = load i64, ptr %height.addr, align 8
+  store i64 %2, ptr %m_width, align 8
+  %3 = load i64, ptr %height.addr, align 8
   %call7 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call7, i32 0, i32 8
-  store i64 %2, ptr %m_height, align 8
-  %3 = load i32, ptr %chanOrder.addr, align 4
+  store i64 %3, ptr %m_height, align 8
+  %4 = load i32, ptr %chanOrder.addr, align 4
   %call9 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %m_chanOrder = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call9, i32 0, i32 5
-  store i32 %3, ptr %m_chanOrder, align 8
-  %4 = load i32, ptr %bitDepth.addr, align 4
+  store i32 %4, ptr %m_chanOrder, align 8
+  %5 = load i32, ptr %bitDepth.addr, align 4
   %call11 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %m_bitDepth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call11, i32 0, i32 6
-  store i32 %4, ptr %m_bitDepth, align 4
-  %5 = load i32, ptr %chanOrder.addr, align 4
-  %cmp = icmp eq i32 %5, 0
+  store i32 %5, ptr %m_bitDepth, align 4
+  %6 = load i32, ptr %chanOrder.addr, align 4
+  %cmp = icmp eq i32 %6, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont10
-  %6 = load i32, ptr %chanOrder.addr, align 4
-  %cmp12 = icmp eq i32 %6, 1
+  %7 = load i32, ptr %chanOrder.addr, align 4
+  %cmp12 = icmp eq i32 %7, 1
   br i1 %cmp12, label %if.then, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false
-  %7 = load i32, ptr %chanOrder.addr, align 4
-  %cmp14 = icmp eq i32 %7, 2
+  %8 = load i32, ptr %chanOrder.addr, align 4
+  %cmp14 = icmp eq i32 %8, 2
   br i1 %cmp14, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false13, %lor.lhs.false, %invoke.cont10
@@ -2085,22 +2089,22 @@ invoke.cont15:                                    ; preds = %if.then
   br label %if.end27
 
 lpad:                                             ; preds = %invoke.cont73, %invoke.cont70, %invoke.cont68, %invoke.cont66, %invoke.cont64, %invoke.cont62, %invoke.cont60, %invoke.cont59, %invoke.cont57, %invoke.cont55, %cond.end53, %cond.true47, %cond.end42, %invoke.cont35, %cond.true34, %cond.end, %if.end27, %invoke.cont26, %if.then20, %if.then, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %lor.lhs.false13
-  %11 = load i32, ptr %chanOrder.addr, align 4
-  %cmp17 = icmp eq i32 %11, 3
+  %12 = load i32, ptr %chanOrder.addr, align 4
+  %cmp17 = icmp eq i32 %12, 3
   br i1 %cmp17, label %if.then20, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.else
-  %12 = load i32, ptr %chanOrder.addr, align 4
-  %cmp19 = icmp eq i32 %12, 4
+  %13 = load i32, ptr %chanOrder.addr, align 4
+  %cmp19 = icmp eq i32 %13, 4
   br i1 %cmp19, label %if.then20, label %if.else24
 
 if.then20:                                        ; preds = %lor.lhs.false18, %if.else
@@ -2122,12 +2126,12 @@ invoke.cont26:                                    ; preds = %if.else24
           to label %unreachable unwind label %lpad
 
 lpad25:                                           ; preds = %if.else24
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception) #3
   br label %ehcleanup
 
@@ -2135,35 +2139,35 @@ if.end:                                           ; preds = %invoke.cont21
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end, %invoke.cont15
-  %16 = load i32, ptr %bitDepth.addr, align 4
-  %call29 = invoke noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %16)
+  %17 = load i32, ptr %bitDepth.addr, align 4
+  %call29 = invoke noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %17)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %if.end27
   store i32 %call29, ptr %oneChannelInBytes, align 4
-  %17 = load i64, ptr %chanStrideBytes.addr, align 8
-  %cmp30 = icmp eq i64 %17, -9223372036854775808
+  %18 = load i64, ptr %chanStrideBytes.addr, align 8
+  %cmp30 = icmp eq i64 %18, -9223372036854775808
   br i1 %cmp30, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont28
-  %18 = load i32, ptr %oneChannelInBytes, align 4
-  %conv = zext i32 %18 to i64
+  %19 = load i32, ptr %oneChannelInBytes, align 4
+  %conv = zext i32 %19 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont28
-  %19 = load i64, ptr %chanStrideBytes.addr, align 8
+  %20 = load i64, ptr %chanStrideBytes.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %conv, %cond.true ], [ %19, %cond.false ]
+  %cond = phi i64 [ %conv, %cond.true ], [ %20, %cond.false ]
   %call32 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %cond.end
   %m_chanStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call32, i32 0, i32 10
   store i64 %cond, ptr %m_chanStrideBytes, align 8
-  %20 = load i64, ptr %xStrideBytes.addr, align 8
-  %cmp33 = icmp eq i64 %20, -9223372036854775808
+  %21 = load i64, ptr %xStrideBytes.addr, align 8
+  %cmp33 = icmp eq i64 %21, -9223372036854775808
   br i1 %cmp33, label %cond.true34, label %cond.false41
 
 cond.true34:                                      ; preds = %invoke.cont31
@@ -2172,30 +2176,30 @@ cond.true34:                                      ; preds = %invoke.cont31
 
 invoke.cont35:                                    ; preds = %cond.true34
   %m_chanStrideBytes37 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call36, i32 0, i32 10
-  %21 = load i64, ptr %m_chanStrideBytes37, align 8
+  %22 = load i64, ptr %m_chanStrideBytes37, align 8
   %call39 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %invoke.cont35
   %m_numChannels40 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call39, i32 0, i32 9
-  %22 = load i64, ptr %m_numChannels40, align 8
-  %mul = mul nsw i64 %21, %22
+  %23 = load i64, ptr %m_numChannels40, align 8
+  %mul = mul nsw i64 %22, %23
   br label %cond.end42
 
 cond.false41:                                     ; preds = %invoke.cont31
-  %23 = load i64, ptr %xStrideBytes.addr, align 8
+  %24 = load i64, ptr %xStrideBytes.addr, align 8
   br label %cond.end42
 
 cond.end42:                                       ; preds = %cond.false41, %invoke.cont38
-  %cond43 = phi i64 [ %mul, %invoke.cont38 ], [ %23, %cond.false41 ]
+  %cond43 = phi i64 [ %mul, %invoke.cont38 ], [ %24, %cond.false41 ]
   %call45 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %cond.end42
   %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call45, i32 0, i32 11
   store i64 %cond43, ptr %m_xStrideBytes, align 8
-  %24 = load i64, ptr %yStrideBytes.addr, align 8
-  %cmp46 = icmp eq i64 %24, -9223372036854775808
+  %25 = load i64, ptr %yStrideBytes.addr, align 8
+  %cmp46 = icmp eq i64 %25, -9223372036854775808
   br i1 %cmp46, label %cond.true47, label %cond.false52
 
 cond.true47:                                      ; preds = %invoke.cont44
@@ -2204,17 +2208,17 @@ cond.true47:                                      ; preds = %invoke.cont44
 
 invoke.cont48:                                    ; preds = %cond.true47
   %m_xStrideBytes50 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call49, i32 0, i32 11
-  %25 = load i64, ptr %m_xStrideBytes50, align 8
-  %26 = load i64, ptr %width.addr, align 8
-  %mul51 = mul nsw i64 %25, %26
+  %26 = load i64, ptr %m_xStrideBytes50, align 8
+  %27 = load i64, ptr %width.addr, align 8
+  %mul51 = mul nsw i64 %26, %27
   br label %cond.end53
 
 cond.false52:                                     ; preds = %invoke.cont44
-  %27 = load i64, ptr %yStrideBytes.addr, align 8
+  %28 = load i64, ptr %yStrideBytes.addr, align 8
   br label %cond.end53
 
 cond.end53:                                       ; preds = %cond.false52, %invoke.cont48
-  %cond54 = phi i64 [ %mul51, %invoke.cont48 ], [ %27, %cond.false52 ]
+  %cond54 = phi i64 [ %mul51, %invoke.cont48 ], [ %28, %cond.false52 ]
   %call56 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont55 unwind label %lpad
 
@@ -2312,7 +2316,8 @@ entry:
   store i64 %yStrideBytes, ptr %yStrideBytes.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev9ImageDescC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::PackedImageDesc", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #16
           to label %invoke.cont unwind label %lpad
@@ -2320,43 +2325,43 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDesc4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(98) %call) #3
   store ptr %call, ptr %m_impl, align 8
-  %0 = load ptr, ptr %data.addr, align 8
+  %1 = load ptr, ptr %data.addr, align 8
   %call3 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_data = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call3, i32 0, i32 0
-  store ptr %0, ptr %m_data, align 8
-  %1 = load i64, ptr %width.addr, align 8
+  store ptr %1, ptr %m_data, align 8
+  %2 = load i64, ptr %width.addr, align 8
   %call5 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call5, i32 0, i32 7
-  store i64 %1, ptr %m_width, align 8
-  %2 = load i64, ptr %height.addr, align 8
+  store i64 %2, ptr %m_width, align 8
+  %3 = load i64, ptr %height.addr, align 8
   %call7 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call7, i32 0, i32 8
-  store i64 %2, ptr %m_height, align 8
-  %3 = load i64, ptr %numChannels.addr, align 8
+  store i64 %3, ptr %m_height, align 8
+  %4 = load i64, ptr %numChannels.addr, align 8
   %call9 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %m_numChannels = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call9, i32 0, i32 9
-  store i64 %3, ptr %m_numChannels, align 8
-  %4 = load i32, ptr %bitDepth.addr, align 4
+  store i64 %4, ptr %m_numChannels, align 8
+  %5 = load i32, ptr %bitDepth.addr, align 4
   %call11 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %m_bitDepth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call11, i32 0, i32 6
-  store i32 %4, ptr %m_bitDepth, align 4
-  %5 = load i64, ptr %numChannels.addr, align 8
-  %cmp = icmp eq i64 %5, 4
+  store i32 %5, ptr %m_bitDepth, align 4
+  %6 = load i64, ptr %numChannels.addr, align 8
+  %cmp = icmp eq i64 %6, 4
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont10
@@ -2369,17 +2374,17 @@ invoke.cont12:                                    ; preds = %if.then
   br label %if.end22
 
 lpad:                                             ; preds = %invoke.cont68, %invoke.cont65, %invoke.cont63, %invoke.cont61, %invoke.cont59, %invoke.cont57, %invoke.cont55, %invoke.cont54, %invoke.cont52, %invoke.cont50, %cond.end48, %cond.true42, %cond.end37, %invoke.cont30, %cond.true29, %cond.end, %if.end22, %invoke.cont21, %if.then15, %if.then, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont10
-  %9 = load i64, ptr %numChannels.addr, align 8
-  %cmp14 = icmp eq i64 %9, 3
+  %10 = load i64, ptr %numChannels.addr, align 8
+  %cmp14 = icmp eq i64 %10, 3
   br i1 %cmp14, label %if.then15, label %if.else19
 
 if.then15:                                        ; preds = %if.else
@@ -2401,12 +2406,12 @@ invoke.cont21:                                    ; preds = %if.else19
           to label %unreachable unwind label %lpad
 
 lpad20:                                           ; preds = %if.else19
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception) #3
   br label %ehcleanup
 
@@ -2414,35 +2419,35 @@ if.end:                                           ; preds = %invoke.cont16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end, %invoke.cont12
-  %13 = load i32, ptr %bitDepth.addr, align 4
-  %call24 = invoke noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %13)
+  %14 = load i32, ptr %bitDepth.addr, align 4
+  %call24 = invoke noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %14)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.end22
   store i32 %call24, ptr %oneChannelInBytes, align 4
-  %14 = load i64, ptr %chanStrideBytes.addr, align 8
-  %cmp25 = icmp eq i64 %14, -9223372036854775808
+  %15 = load i64, ptr %chanStrideBytes.addr, align 8
+  %cmp25 = icmp eq i64 %15, -9223372036854775808
   br i1 %cmp25, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont23
-  %15 = load i32, ptr %oneChannelInBytes, align 4
-  %conv = zext i32 %15 to i64
+  %16 = load i32, ptr %oneChannelInBytes, align 4
+  %conv = zext i32 %16 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont23
-  %16 = load i64, ptr %chanStrideBytes.addr, align 8
+  %17 = load i64, ptr %chanStrideBytes.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %conv, %cond.true ], [ %16, %cond.false ]
+  %cond = phi i64 [ %conv, %cond.true ], [ %17, %cond.false ]
   %call27 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %cond.end
   %m_chanStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call27, i32 0, i32 10
   store i64 %cond, ptr %m_chanStrideBytes, align 8
-  %17 = load i64, ptr %xStrideBytes.addr, align 8
-  %cmp28 = icmp eq i64 %17, -9223372036854775808
+  %18 = load i64, ptr %xStrideBytes.addr, align 8
+  %cmp28 = icmp eq i64 %18, -9223372036854775808
   br i1 %cmp28, label %cond.true29, label %cond.false36
 
 cond.true29:                                      ; preds = %invoke.cont26
@@ -2451,30 +2456,30 @@ cond.true29:                                      ; preds = %invoke.cont26
 
 invoke.cont30:                                    ; preds = %cond.true29
   %m_chanStrideBytes32 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call31, i32 0, i32 10
-  %18 = load i64, ptr %m_chanStrideBytes32, align 8
+  %19 = load i64, ptr %m_chanStrideBytes32, align 8
   %call34 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont30
   %m_numChannels35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call34, i32 0, i32 9
-  %19 = load i64, ptr %m_numChannels35, align 8
-  %mul = mul nsw i64 %18, %19
+  %20 = load i64, ptr %m_numChannels35, align 8
+  %mul = mul nsw i64 %19, %20
   br label %cond.end37
 
 cond.false36:                                     ; preds = %invoke.cont26
-  %20 = load i64, ptr %xStrideBytes.addr, align 8
+  %21 = load i64, ptr %xStrideBytes.addr, align 8
   br label %cond.end37
 
 cond.end37:                                       ; preds = %cond.false36, %invoke.cont33
-  %cond38 = phi i64 [ %mul, %invoke.cont33 ], [ %20, %cond.false36 ]
+  %cond38 = phi i64 [ %mul, %invoke.cont33 ], [ %21, %cond.false36 ]
   %call40 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %cond.end37
   %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call40, i32 0, i32 11
   store i64 %cond38, ptr %m_xStrideBytes, align 8
-  %21 = load i64, ptr %yStrideBytes.addr, align 8
-  %cmp41 = icmp eq i64 %21, -9223372036854775808
+  %22 = load i64, ptr %yStrideBytes.addr, align 8
+  %cmp41 = icmp eq i64 %22, -9223372036854775808
   br i1 %cmp41, label %cond.true42, label %cond.false47
 
 cond.true42:                                      ; preds = %invoke.cont39
@@ -2483,17 +2488,17 @@ cond.true42:                                      ; preds = %invoke.cont39
 
 invoke.cont43:                                    ; preds = %cond.true42
   %m_xStrideBytes45 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PackedImageDesc::Impl", ptr %call44, i32 0, i32 11
-  %22 = load i64, ptr %m_xStrideBytes45, align 8
-  %23 = load i64, ptr %width.addr, align 8
-  %mul46 = mul nsw i64 %22, %23
+  %23 = load i64, ptr %m_xStrideBytes45, align 8
+  %24 = load i64, ptr %width.addr, align 8
+  %mul46 = mul nsw i64 %23, %24
   br label %cond.end48
 
 cond.false47:                                     ; preds = %invoke.cont39
-  %24 = load i64, ptr %yStrideBytes.addr, align 8
+  %25 = load i64, ptr %yStrideBytes.addr, align 8
   br label %cond.end48
 
 cond.end48:                                       ; preds = %cond.false47, %invoke.cont43
-  %cond49 = phi i64 [ %mul46, %invoke.cont43 ], [ %24, %cond.false47 ]
+  %cond49 = phi i64 [ %mul46, %invoke.cont43 ], [ %25, %cond.false47 ]
   %call51 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PackedImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont50 unwind label %lpad
 
@@ -2569,14 +2574,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::PackedImageDesc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_impl, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_impl, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %1) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -2766,7 +2772,8 @@ entry:
   store i64 %height, ptr %height.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev9ImageDescC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::PlanarImageDesc", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #16
           to label %invoke.cont unwind label %lpad
@@ -2775,18 +2782,18 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 80, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %call) #3
   store ptr %call, ptr %m_impl, align 8
-  %0 = load ptr, ptr %rData.addr, align 8
-  %cmp = icmp eq ptr %0, null
+  %1 = load ptr, ptr %rData.addr, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont
-  %1 = load ptr, ptr %gData.addr, align 8
-  %cmp2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %gData.addr, align 8
+  %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %bData.addr, align 8
-  %cmp4 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %bData.addr, align 8
+  %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false3, %lor.lhs.false, %invoke.cont
@@ -2799,32 +2806,32 @@ invoke.cont6:                                     ; preds = %if.then
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont42, %invoke.cont40, %invoke.cont38, %invoke.cont36, %invoke.cont34, %invoke.cont31, %invoke.cont29, %invoke.cont27, %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont17, %invoke.cont15, %if.end14, %invoke.cont13, %invoke.cont6, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception) #3
   br label %ehcleanup
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %9 = load i64, ptr %width.addr, align 8
-  %cmp7 = icmp sle i64 %9, 0
+  %10 = load i64, ptr %width.addr, align 8
+  %cmp7 = icmp sle i64 %10, 0
   br i1 %cmp7, label %if.then10, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.end
-  %10 = load i64, ptr %height.addr, align 8
-  %cmp9 = icmp sle i64 %10, 0
+  %11 = load i64, ptr %height.addr, align 8
+  %cmp9 = icmp sle i64 %11, 0
   br i1 %cmp9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %lor.lhs.false8, %if.end
@@ -2837,12 +2844,12 @@ invoke.cont13:                                    ; preds = %if.then10
           to label %unreachable unwind label %lpad
 
 lpad12:                                           ; preds = %if.then10
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception11) #3
   br label %ehcleanup
 
@@ -2853,48 +2860,48 @@ if.end14:                                         ; preds = %lor.lhs.false8
 invoke.cont15:                                    ; preds = %if.end14
   %m_bitDepth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call16, i32 0, i32 4
   store i32 8, ptr %m_bitDepth, align 8
-  %14 = load ptr, ptr %rData.addr, align 8
+  %15 = load ptr, ptr %rData.addr, align 8
   %call18 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call18, i32 0, i32 0
-  store ptr %14, ptr %m_rData, align 8
-  %15 = load ptr, ptr %gData.addr, align 8
+  store ptr %15, ptr %m_rData, align 8
+  %16 = load ptr, ptr %gData.addr, align 8
   %call20 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call20, i32 0, i32 1
-  store ptr %15, ptr %m_gData, align 8
-  %16 = load ptr, ptr %bData.addr, align 8
+  store ptr %16, ptr %m_gData, align 8
+  %17 = load ptr, ptr %bData.addr, align 8
   %call22 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
   %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call22, i32 0, i32 2
-  store ptr %16, ptr %m_bData, align 8
-  %17 = load ptr, ptr %aData.addr, align 8
+  store ptr %17, ptr %m_bData, align 8
+  %18 = load ptr, ptr %aData.addr, align 8
   %call24 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call24, i32 0, i32 3
-  store ptr %17, ptr %m_aData, align 8
-  %18 = load i64, ptr %width.addr, align 8
+  store ptr %18, ptr %m_aData, align 8
+  %19 = load i64, ptr %width.addr, align 8
   %call26 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call26, i32 0, i32 6
-  store i64 %18, ptr %m_width, align 8
-  %19 = load i64, ptr %height.addr, align 8
+  store i64 %19, ptr %m_width, align 8
+  %20 = load i64, ptr %height.addr, align 8
   %call28 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call28, i32 0, i32 7
-  store i64 %19, ptr %m_height, align 8
+  store i64 %20, ptr %m_height, align 8
   %call30 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont29 unwind label %lpad
 
@@ -2906,9 +2913,9 @@ invoke.cont29:                                    ; preds = %invoke.cont27
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   %m_xStrideBytes33 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call32, i32 0, i32 8
-  %20 = load i64, ptr %m_xStrideBytes33, align 8
-  %21 = load i64, ptr %width.addr, align 8
-  %mul = mul nsw i64 %20, %21
+  %21 = load i64, ptr %m_xStrideBytes33, align 8
+  %22 = load i64, ptr %width.addr, align 8
+  %mul = mul nsw i64 %21, %22
   %call35 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont34 unwind label %lpad
 
@@ -3173,7 +3180,8 @@ entry:
   store i64 %yStrideBytes, ptr %yStrideBytes.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev9ImageDescC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::PlanarImageDesc", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #16
           to label %invoke.cont unwind label %lpad
@@ -3182,18 +3190,18 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 80, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %call) #3
   store ptr %call, ptr %m_impl, align 8
-  %0 = load ptr, ptr %rData.addr, align 8
-  %cmp = icmp eq ptr %0, null
+  %1 = load ptr, ptr %rData.addr, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont
-  %1 = load ptr, ptr %gData.addr, align 8
-  %cmp2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %gData.addr, align 8
+  %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %bData.addr, align 8
-  %cmp4 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %bData.addr, align 8
+  %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false3, %lor.lhs.false, %invoke.cont
@@ -3206,32 +3214,32 @@ invoke.cont6:                                     ; preds = %if.then
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont50, %invoke.cont48, %invoke.cont46, %invoke.cont44, %invoke.cont42, %cond.end40, %cond.true35, %cond.end, %invoke.cont27, %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont17, %invoke.cont15, %if.end14, %invoke.cont13, %invoke.cont6, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception) #3
   br label %ehcleanup
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %9 = load i64, ptr %width.addr, align 8
-  %cmp7 = icmp sle i64 %9, 0
+  %10 = load i64, ptr %width.addr, align 8
+  %cmp7 = icmp sle i64 %10, 0
   br i1 %cmp7, label %if.then10, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.end
-  %10 = load i64, ptr %height.addr, align 8
-  %cmp9 = icmp sle i64 %10, 0
+  %11 = load i64, ptr %height.addr, align 8
+  %cmp9 = icmp sle i64 %11, 0
   br i1 %cmp9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %lor.lhs.false8, %if.end
@@ -3244,94 +3252,94 @@ invoke.cont13:                                    ; preds = %if.then10
           to label %unreachable unwind label %lpad
 
 lpad12:                                           ; preds = %if.then10
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @__cxa_free_exception(ptr %exception11) #3
   br label %ehcleanup
 
 if.end14:                                         ; preds = %lor.lhs.false8
-  %14 = load i32, ptr %bitDepth.addr, align 4
+  %15 = load i32, ptr %bitDepth.addr, align 4
   %call16 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %if.end14
   %m_bitDepth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call16, i32 0, i32 4
-  store i32 %14, ptr %m_bitDepth, align 8
-  %15 = load ptr, ptr %rData.addr, align 8
+  store i32 %15, ptr %m_bitDepth, align 8
+  %16 = load ptr, ptr %rData.addr, align 8
   %call18 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call18, i32 0, i32 0
-  store ptr %15, ptr %m_rData, align 8
-  %16 = load ptr, ptr %gData.addr, align 8
+  store ptr %16, ptr %m_rData, align 8
+  %17 = load ptr, ptr %gData.addr, align 8
   %call20 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call20, i32 0, i32 1
-  store ptr %16, ptr %m_gData, align 8
-  %17 = load ptr, ptr %bData.addr, align 8
+  store ptr %17, ptr %m_gData, align 8
+  %18 = load ptr, ptr %bData.addr, align 8
   %call22 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
   %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call22, i32 0, i32 2
-  store ptr %17, ptr %m_bData, align 8
-  %18 = load ptr, ptr %aData.addr, align 8
+  store ptr %18, ptr %m_bData, align 8
+  %19 = load ptr, ptr %aData.addr, align 8
   %call24 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call24, i32 0, i32 3
-  store ptr %18, ptr %m_aData, align 8
-  %19 = load i64, ptr %width.addr, align 8
+  store ptr %19, ptr %m_aData, align 8
+  %20 = load i64, ptr %width.addr, align 8
   %call26 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call26, i32 0, i32 6
-  store i64 %19, ptr %m_width, align 8
-  %20 = load i64, ptr %height.addr, align 8
+  store i64 %20, ptr %m_width, align 8
+  %21 = load i64, ptr %height.addr, align 8
   %call28 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call28, i32 0, i32 7
-  store i64 %20, ptr %m_height, align 8
-  %21 = load i32, ptr %bitDepth.addr, align 4
-  %call30 = invoke noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %21)
+  store i64 %21, ptr %m_height, align 8
+  %22 = load i32, ptr %bitDepth.addr, align 4
+  %call30 = invoke noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDepthE(i32 noundef %22)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   store i32 %call30, ptr %oneChannelInBytes, align 4
-  %22 = load i64, ptr %xStrideBytes.addr, align 8
-  %cmp31 = icmp eq i64 %22, -9223372036854775808
+  %23 = load i64, ptr %xStrideBytes.addr, align 8
+  %cmp31 = icmp eq i64 %23, -9223372036854775808
   br i1 %cmp31, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont29
-  %23 = load i32, ptr %oneChannelInBytes, align 4
-  %conv = zext i32 %23 to i64
+  %24 = load i32, ptr %oneChannelInBytes, align 4
+  %conv = zext i32 %24 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont29
-  %24 = load i64, ptr %xStrideBytes.addr, align 8
+  %25 = load i64, ptr %xStrideBytes.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %conv, %cond.true ], [ %24, %cond.false ]
+  %cond = phi i64 [ %conv, %cond.true ], [ %25, %cond.false ]
   %call33 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %cond.end
   %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call33, i32 0, i32 8
   store i64 %cond, ptr %m_xStrideBytes, align 8
-  %25 = load i64, ptr %yStrideBytes.addr, align 8
-  %cmp34 = icmp eq i64 %25, -9223372036854775808
+  %26 = load i64, ptr %yStrideBytes.addr, align 8
+  %cmp34 = icmp eq i64 %26, -9223372036854775808
   br i1 %cmp34, label %cond.true35, label %cond.false39
 
 cond.true35:                                      ; preds = %invoke.cont32
@@ -3340,17 +3348,17 @@ cond.true35:                                      ; preds = %invoke.cont32
 
 invoke.cont36:                                    ; preds = %cond.true35
   %m_xStrideBytes38 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::PlanarImageDesc::Impl", ptr %call37, i32 0, i32 8
-  %26 = load i64, ptr %m_xStrideBytes38, align 8
-  %27 = load i64, ptr %width.addr, align 8
-  %mul = mul nsw i64 %26, %27
+  %27 = load i64, ptr %m_xStrideBytes38, align 8
+  %28 = load i64, ptr %width.addr, align 8
+  %mul = mul nsw i64 %27, %28
   br label %cond.end40
 
 cond.false39:                                     ; preds = %invoke.cont32
-  %28 = load i64, ptr %yStrideBytes.addr, align 8
+  %29 = load i64, ptr %yStrideBytes.addr, align 8
   br label %cond.end40
 
 cond.end40:                                       ; preds = %cond.false39, %invoke.cont36
-  %cond41 = phi i64 [ %mul, %invoke.cont36 ], [ %28, %cond.false39 ]
+  %cond41 = phi i64 [ %mul, %invoke.cont36 ], [ %29, %cond.false39 ]
   %call43 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev15PlanarImageDesc7getImplEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont42 unwind label %lpad
 
@@ -3403,14 +3411,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::PlanarImageDesc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_impl, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_impl, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %1) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry

@@ -122,7 +122,8 @@ entry:
   %2 = load ptr, ptr %fixtureB.addr, align 8
   %3 = load i32, ptr %indexB.addr, align 4
   call void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr noundef nonnull align 8 dereferenceable(208) %this1, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24b2ChainAndPolygonContact, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV24b2ChainAndPolygonContact, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   ret void
 }
 
@@ -208,7 +209,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7b2ShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #5
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11b2EdgeShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV11b2EdgeShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_type = getelementptr inbounds %class.b2Shape, ptr %this1, i32 0, i32 1
   store i32 1, ptr %m_type, align 8
   %m_radius = getelementptr inbounds %class.b2Shape, ptr %this1, i32 0, i32 2
@@ -273,7 +275,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7b2Shape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV7b2Shape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

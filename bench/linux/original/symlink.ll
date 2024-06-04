@@ -13,38 +13,43 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal nonnull ptr @ext4_encrypted_get_link(ptr noundef readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %18, label %5
+  %5 = inttoptr i64 -10 to ptr
+  br i1 %4, label %23, label %6
 
-5:                                                ; preds = %3
-  %6 = tail call i32 @ext4_inode_is_fast_symlink(ptr noundef %1) #4
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %14
+6:                                                ; preds = %3
+  %7 = tail call i32 @ext4_inode_is_fast_symlink(ptr noundef %1) #4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %17
 
-8:                                                ; preds = %5
-  %9 = tail call ptr @ext4_bread(ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0) #4
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %18, label %11
+9:                                                ; preds = %6
+  %10 = tail call ptr @ext4_bread(ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0) #4
+  %11 = inttoptr i64 -4096 to ptr
+  %12 = icmp ugt ptr %10, %11
+  br i1 %12, label %23, label %13
 
-11:                                               ; preds = %8
-  %12 = icmp eq ptr %9, null
-  br i1 %12, label %13, label %14
+13:                                               ; preds = %9
+  %14 = icmp eq ptr %10, null
+  br i1 %14, label %15, label %17
 
-13:                                               ; preds = %11
+15:                                               ; preds = %13
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %1, ptr noundef nonnull @__func__.ext4_encrypted_get_link, i32 noundef 46, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str) #4
-  br label %18
+  %16 = inttoptr i64 -117 to ptr
+  br label %23
 
-14:                                               ; preds = %11, %5
-  %15 = phi ptr [ null, %5 ], [ %9, %11 ]
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %18, label %17
+17:                                               ; preds = %13, %6
+  %18 = phi ptr [ null, %6 ], [ %10, %13 ]
+  %19 = icmp eq ptr %18, null
+  %20 = inttoptr i64 -95 to ptr
+  br i1 %19, label %23, label %21
 
-17:                                               ; preds = %14
-  tail call void @__brelse(ptr noundef nonnull %15) #4
-  br label %18
+21:                                               ; preds = %17
+  tail call void @__brelse(ptr noundef nonnull %18) #4
+  %22 = inttoptr i64 -95 to ptr
+  br label %23
 
-18:                                               ; preds = %17, %14, %13, %8, %3
-  %19 = phi ptr [ inttoptr (i64 -117 to ptr), %13 ], [ inttoptr (i64 -10 to ptr), %3 ], [ %9, %8 ], [ inttoptr (i64 -95 to ptr), %14 ], [ inttoptr (i64 -95 to ptr), %17 ]
-  ret ptr %19
+23:                                               ; preds = %21, %17, %15, %9, %3
+  %24 = phi ptr [ %16, %15 ], [ %5, %3 ], [ %10, %9 ], [ %20, %17 ], [ %22, %21 ]
+  ret ptr %24
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -65,103 +70,110 @@ define internal ptr @ext4_get_link(ptr noundef readnone %0, ptr noundef %1, ptr 
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 268435456
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %19, label %8
+  br i1 %7, label %21, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %1, i64 730
   %10 = load i16, ptr %9, align 2
   %11 = icmp eq i16 %10, 0
-  br i1 %11, label %19, label %12
+  br i1 %11, label %21, label %12
 
 12:                                               ; preds = %8
   %13 = icmp eq ptr %0, null
-  br i1 %13, label %61, label %14
+  %14 = inttoptr i64 -10 to ptr
+  br i1 %13, label %68, label %15
 
-14:                                               ; preds = %12
-  %15 = tail call ptr @ext4_read_inline_link(ptr noundef %1) #4
-  %16 = icmp ugt ptr %15, inttoptr (i64 -4096 to ptr)
-  br i1 %16, label %61, label %17
+15:                                               ; preds = %12
+  %16 = tail call ptr @ext4_read_inline_link(ptr noundef %1) #4
+  %17 = inttoptr i64 -4096 to ptr
+  %18 = icmp ugt ptr %16, %17
+  br i1 %18, label %68, label %19
 
-17:                                               ; preds = %14
+19:                                               ; preds = %15
   store ptr @kfree_link, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %15, ptr %18, align 8
-  br label %61
+  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %16, ptr %20, align 8
+  br label %68
 
-19:                                               ; preds = %8, %3
-  %20 = icmp eq ptr %0, null
-  br i1 %20, label %21, label %40
+21:                                               ; preds = %8, %3
+  %22 = icmp eq ptr %0, null
+  br i1 %22, label %23, label %45
 
-21:                                               ; preds = %19
-  %22 = tail call ptr @ext4_getblk(ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 2048) #4
-  %23 = icmp ugt ptr %22, inttoptr (i64 -4096 to ptr)
-  %24 = icmp eq ptr %22, null
-  %25 = or i1 %24, %23
-  br i1 %25, label %61, label %26
+23:                                               ; preds = %21
+  %24 = tail call ptr @ext4_getblk(ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 2048) #4
+  %25 = inttoptr i64 -4096 to ptr
+  %26 = icmp ugt ptr %24, %25
+  %27 = icmp eq ptr %24, null
+  %28 = or i1 %27, %26
+  %29 = inttoptr i64 -10 to ptr
+  br i1 %28, label %68, label %30
 
-26:                                               ; preds = %21
-  %27 = load volatile i64, ptr %22, align 8
-  %28 = and i64 %27, 1024
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %35, label %30
-
-30:                                               ; preds = %26
-  %31 = load volatile i64, ptr %22, align 8
-  %32 = and i64 %31, 1
+30:                                               ; preds = %23
+  %31 = load volatile i64, ptr %24, align 8
+  %32 = and i64 %31, 1024
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %35
+  br i1 %33, label %39, label %34
 
 34:                                               ; preds = %30
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i32 1, ptr elementtype(i8) %22) #4, !srcloc !5
-  br label %35
+  %35 = load volatile i64, ptr %24, align 8
+  %36 = and i64 %35, 1
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %39
 
-35:                                               ; preds = %34, %30, %26
-  %36 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i32 1) #4, !srcloc !6
-  %37 = icmp ult i8 %36, 2
-  tail call void @llvm.assume(i1 %37)
-  %38 = icmp eq i8 %36, 0
-  br i1 %38, label %39, label %46
+38:                                               ; preds = %34
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %24, i32 1, ptr elementtype(i8) %24) #4, !srcloc !5
+  br label %39
 
-39:                                               ; preds = %35
-  tail call void @__brelse(ptr noundef nonnull %22) #4
-  br label %61
+39:                                               ; preds = %38, %34, %30
+  %40 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %24, i32 1) #4, !srcloc !6
+  %41 = icmp ult i8 %40, 2
+  tail call void @llvm.assume(i1 %41)
+  %42 = icmp eq i8 %40, 0
+  br i1 %42, label %43, label %53
 
-40:                                               ; preds = %19
-  %41 = tail call ptr @ext4_bread(ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0) #4
-  %42 = icmp ugt ptr %41, inttoptr (i64 -4096 to ptr)
-  br i1 %42, label %61, label %43
+43:                                               ; preds = %39
+  tail call void @__brelse(ptr noundef nonnull %24) #4
+  %44 = inttoptr i64 -10 to ptr
+  br label %68
 
-43:                                               ; preds = %40
-  %44 = icmp eq ptr %41, null
-  br i1 %44, label %45, label %46
+45:                                               ; preds = %21
+  %46 = tail call ptr @ext4_bread(ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0) #4
+  %47 = inttoptr i64 -4096 to ptr
+  %48 = icmp ugt ptr %46, %47
+  br i1 %48, label %68, label %49
 
-45:                                               ; preds = %43
+49:                                               ; preds = %45
+  %50 = icmp eq ptr %46, null
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %49
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %1, ptr noundef nonnull @__func__.ext4_get_link, i32 noundef 106, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str) #4
-  br label %61
+  %52 = inttoptr i64 -117 to ptr
+  br label %68
 
-46:                                               ; preds = %43, %35
-  %47 = phi ptr [ %41, %43 ], [ %22, %35 ]
+53:                                               ; preds = %49, %39
+  %54 = phi ptr [ %46, %49 ], [ %24, %39 ]
   store ptr @ext4_free_link, ptr %2, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 40
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 80
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 40
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
-  %56 = load i64, ptr %55, align 8
-  %57 = add i64 %56, -1
-  %58 = tail call i64 @llvm.umin.i64(i64 %52, i64 %57)
-  %59 = getelementptr i8, ptr %50, i64 %58
-  store i8 0, ptr %59, align 1
-  %60 = load ptr, ptr %49, align 8
-  br label %61
+  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %54, i64 40
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %1, i64 80
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %1, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %63 = load i64, ptr %62, align 8
+  %64 = add i64 %63, -1
+  %65 = tail call i64 @llvm.umin.i64(i64 %59, i64 %64)
+  %66 = getelementptr i8, ptr %57, i64 %65
+  store i8 0, ptr %66, align 1
+  %67 = load ptr, ptr %56, align 8
+  br label %68
 
-61:                                               ; preds = %46, %45, %40, %39, %21, %17, %14, %12
-  %62 = phi ptr [ %60, %46 ], [ inttoptr (i64 -117 to ptr), %45 ], [ inttoptr (i64 -10 to ptr), %39 ], [ %15, %17 ], [ %15, %14 ], [ inttoptr (i64 -10 to ptr), %12 ], [ inttoptr (i64 -10 to ptr), %21 ], [ %41, %40 ]
-  ret ptr %62
+68:                                               ; preds = %53, %51, %45, %43, %23, %19, %15, %12
+  %69 = phi ptr [ %67, %53 ], [ %52, %51 ], [ %44, %43 ], [ %16, %19 ], [ %16, %15 ], [ %14, %12 ], [ %29, %23 ], [ %46, %45 ]
+  ret ptr %69
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -29,11 +29,12 @@ define internal i32 @add_pcspkr() #0 section ".init.text" align 16 {
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = call ptr @platform_device_register_full(ptr noundef nonnull %1) #4
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1) #4
-  %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
-  %9 = ptrtoint ptr %7 to i64
-  %10 = trunc i64 %9 to i32
-  %11 = select i1 %8, i32 %10, i32 0
-  ret i32 %11
+  %8 = inttoptr i64 -4096 to ptr
+  %9 = icmp ugt ptr %7, %8
+  %10 = ptrtoint ptr %7 to i64
+  %11 = trunc i64 %10 to i32
+  %12 = select i1 %9, i32 %11, i32 0
+  ret i32 %12
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

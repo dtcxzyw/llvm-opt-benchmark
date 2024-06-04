@@ -10,7 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1012ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1012ErrorHandlerE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1012ErrorHandlerE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %0, align 8, !tbaa !3
   ret void
 }
 

@@ -198,27 +198,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %id.addr, align 4
   call void @_ZN4cvc58internal6theory15TheoryInferenceC2ENS1_11InferenceIdE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_node = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_node, ptr noundef nonnull align 8 dereferenceable(8) %n)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_property = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %p.addr, align 4
-  store i32 %1, ptr %d_property, align 8
+  %2 = load i32, ptr %p.addr, align 4
+  store i32 %2, ptr %d_property, align 8
   %d_pg = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %pg.addr, align 8
-  store ptr %2, ptr %d_pg, align 8
+  %3 = load ptr, ptr %pg.addr, align 8
+  store ptr %3, ptr %d_pg, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory15TheoryInferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3
   br label %eh.resume
 
@@ -238,10 +239,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %id, ptr %id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory15TheoryInferenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory15TheoryInferenceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_id = getelementptr inbounds %"class.cvc5::internal::theory::TheoryInference", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id.addr, align 4
-  store i32 %0, ptr %d_id, align 8
+  %1 = load i32, ptr %id.addr, align 4
+  store i32 %1, ptr %d_id, align 8
   ret void
 }
 
@@ -354,7 +356,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %id.addr, align 4
   call void @_ZN4cvc58internal6theory15TheoryInferenceC2ENS1_11InferenceIdE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_conc = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_conc, ptr noundef nonnull align 8 dereferenceable(8) %conc)
           to label %invoke.cont unwind label %lpad
@@ -366,26 +369,26 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %d_pg = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %pg.addr, align 8
-  store ptr %1, ptr %d_pg, align 8
+  %2 = load ptr, ptr %pg.addr, align 8
+  store ptr %2, ptr %d_pg, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_conc) #3
   br label %ehcleanup
 
@@ -477,7 +480,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory17SimpleTheoryLemmaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_node = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryLemma", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_node) #3
   call void @_ZN4cvc58internal6theory15TheoryInferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3
@@ -516,7 +520,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24SimpleTheoryInternalFactE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_exp = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this1, i32 0, i32 2
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_exp) #3
   %d_conc = getelementptr inbounds %"class.cvc5::internal::theory::SimpleTheoryInternalFact", ptr %this1, i32 0, i32 1

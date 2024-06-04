@@ -36,7 +36,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
 
 15:                                               ; preds = %5
   store ptr null, ptr %6, align 8
-  br label %62
+  br label %63
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %7, align 8
@@ -54,57 +54,58 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %27 = trunc i8 %26 to i1
   %28 = call ptr @pm_strpbrk_utf8(ptr noundef %22, ptr noundef %23, ptr noundef %24, i64 noundef %25, i1 noundef zeroext %27)
   store ptr %28, ptr %6, align 8
-  br label %62
+  br label %63
 
 29:                                               ; preds = %16
   %30 = load ptr, ptr %7, align 8
   %31 = getelementptr inbounds %struct.pm_parser, ptr %30, i32 0, i32 20
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, getelementptr inbounds ([90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 1)
-  br i1 %33, label %34, label %39
+  %33 = getelementptr inbounds [90 x %struct.pm_encoding_t], ptr @pm_encodings, i64 0, i64 1
+  %34 = icmp eq ptr %32, %33
+  br i1 %34, label %35, label %40
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %8, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = load i64, ptr %10, align 8
-  %38 = call ptr @pm_strpbrk_ascii_8bit(ptr noundef %35, ptr noundef %36, i64 noundef %37)
-  store ptr %38, ptr %6, align 8
-  br label %62
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %8, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i64, ptr %10, align 8
+  %39 = call ptr @pm_strpbrk_ascii_8bit(ptr noundef %36, ptr noundef %37, i64 noundef %38)
+  store ptr %39, ptr %6, align 8
+  br label %63
 
-39:                                               ; preds = %29
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.pm_parser, ptr %40, i32 0, i32 20
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.pm_encoding_t, ptr %42, i32 0, i32 5
-  %44 = load i8, ptr %43, align 8
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %54
+40:                                               ; preds = %29
+  %41 = load ptr, ptr %7, align 8
+  %42 = getelementptr inbounds %struct.pm_parser, ptr %41, i32 0, i32 20
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct.pm_encoding_t, ptr %43, i32 0, i32 5
+  %45 = load i8, ptr %44, align 8
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %55
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %7, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = load i64, ptr %10, align 8
-  %51 = load i8, ptr %11, align 1
-  %52 = trunc i8 %51 to i1
-  %53 = call ptr @pm_strpbrk_multi_byte(ptr noundef %47, ptr noundef %48, ptr noundef %49, i64 noundef %50, i1 noundef zeroext %52)
-  store ptr %53, ptr %6, align 8
-  br label %62
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load i64, ptr %10, align 8
+  %52 = load i8, ptr %11, align 1
+  %53 = trunc i8 %52 to i1
+  %54 = call ptr @pm_strpbrk_multi_byte(ptr noundef %48, ptr noundef %49, ptr noundef %50, i64 noundef %51, i1 noundef zeroext %53)
+  store ptr %54, ptr %6, align 8
+  br label %63
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr %7, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = load i64, ptr %10, align 8
-  %59 = load i8, ptr %11, align 1
-  %60 = trunc i8 %59 to i1
-  %61 = call ptr @pm_strpbrk_single_byte(ptr noundef %55, ptr noundef %56, ptr noundef %57, i64 noundef %58, i1 noundef zeroext %60)
-  store ptr %61, ptr %6, align 8
-  br label %62
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %7, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i64, ptr %10, align 8
+  %60 = load i8, ptr %11, align 1
+  %61 = trunc i8 %60 to i1
+  %62 = call ptr @pm_strpbrk_single_byte(ptr noundef %56, ptr noundef %57, ptr noundef %58, i64 noundef %59, i1 noundef zeroext %61)
+  store ptr %62, ptr %6, align 8
+  br label %63
 
-62:                                               ; preds = %54, %46, %34, %21, %15
-  %63 = load ptr, ptr %6, align 8
-  ret ptr %63
+63:                                               ; preds = %55, %47, %35, %21, %15
+  %64 = load ptr, ptr %6, align 8
+  ret ptr %64
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

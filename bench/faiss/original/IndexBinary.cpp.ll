@@ -893,101 +893,102 @@ define void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull alig
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %11 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss11IndexBinaryE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 1
-  %13 = load i64, ptr %5, align 8
-  %14 = trunc i64 %13 to i32
-  store i32 %14, ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 2
-  %16 = load i64, ptr %5, align 8
-  %17 = sdiv i64 %16, 8
-  %18 = trunc i64 %17 to i32
-  store i32 %18, ptr %15, align 4
-  %19 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 3
-  store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 4
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 5
-  store i8 1, ptr %21, align 1
-  %22 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 6
-  %23 = load i32, ptr %6, align 4
-  store i32 %23, ptr %22, align 4
-  br label %24
+  %12 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss11IndexBinaryE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 1
+  %14 = load i64, ptr %5, align 8
+  %15 = trunc i64 %14 to i32
+  store i32 %15, ptr %13, align 8
+  %16 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 2
+  %17 = load i64, ptr %5, align 8
+  %18 = sdiv i64 %17, 8
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %16, align 4
+  %20 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 3
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 4
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 5
+  store i8 1, ptr %22, align 1
+  %23 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %11, i32 0, i32 6
+  %24 = load i32, ptr %6, align 4
+  store i32 %24, ptr %23, align 4
+  br label %25
 
-24:                                               ; preds = %3
-  %25 = load i64, ptr %5, align 8
-  %26 = srem i64 %25, 8
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %51, label %28
+25:                                               ; preds = %3
+  %26 = load i64, ptr %5, align 8
+  %27 = srem i64 %26, 8
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %52, label %29
 
-28:                                               ; preds = %24
-  br label %29
+29:                                               ; preds = %25
+  br label %30
 
-29:                                               ; preds = %28
+30:                                               ; preds = %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.1) #11
-  store i32 %30, ptr %8, align 4
-  %31 = load i32, ptr %8, align 4
-  %32 = add nsw i32 %31, 1
-  %33 = sext i32 %32 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %33)
-          to label %34 unwind label %41
+  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.1) #11
+  store i32 %31, ptr %8, align 4
+  %32 = load i32, ptr %8, align 4
+  %33 = add nsw i32 %32, 1
+  %34 = sext i32 %33 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %34)
+          to label %35 unwind label %42
 
-34:                                               ; preds = %29
-  %35 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
-          to label %36 unwind label %41
+35:                                               ; preds = %30
+  %36 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
+          to label %37 unwind label %42
 
-36:                                               ; preds = %34
-  %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %35, i64 noundef %37, ptr noundef @.str, ptr noundef @.str.1) #11
-  %39 = call ptr @__cxa_allocate_exception(i64 40) #11
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE, ptr noundef @.str.2, i32 noundef 20)
-          to label %40 unwind label %45
+37:                                               ; preds = %35
+  %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %36, i64 noundef %38, ptr noundef @.str, ptr noundef @.str.1) #11
+  %40 = call ptr @__cxa_allocate_exception(i64 40) #11
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE, ptr noundef @.str.2, i32 noundef 20)
+          to label %41 unwind label %46
 
-40:                                               ; preds = %36
-  invoke void @__cxa_throw(ptr %39, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #12
-          to label %58 unwind label %41
+41:                                               ; preds = %37
+  invoke void @__cxa_throw(ptr %40, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #12
+          to label %59 unwind label %42
 
-41:                                               ; preds = %40, %34, %29
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %41, %35, %30
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %9, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %10, align 4
-  br label %49
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %9, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %10, align 4
+  br label %50
 
-45:                                               ; preds = %36
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %37
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %9, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %10, align 4
-  call void @__cxa_free_exception(ptr %39) #11
-  br label %49
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %9, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %10, align 4
+  call void @__cxa_free_exception(ptr %40) #11
+  br label %50
 
-49:                                               ; preds = %45, %41
+50:                                               ; preds = %46, %42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  br label %53
+  br label %54
 
-50:                                               ; No predecessors!
-  br label %51
-
-51:                                               ; preds = %50, %24
+51:                                               ; No predecessors!
   br label %52
 
-52:                                               ; preds = %51
+52:                                               ; preds = %51, %25
+  br label %53
+
+53:                                               ; preds = %52
   ret void
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %9, align 8
-  %55 = load i32, ptr %10, align 4
-  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
-  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
-  resume { ptr, i32 } %57
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %9, align 8
+  %56 = load i32, ptr %10, align 4
+  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
+  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
+  resume { ptr, i32 } %58
 
-58:                                               ; preds = %40
+59:                                               ; preds = %41
   unreachable
 }
 
@@ -1017,9 +1018,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }

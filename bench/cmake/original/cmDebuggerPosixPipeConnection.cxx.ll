@@ -781,45 +781,46 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC2ENSt7__c
   %23 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 3
-  invoke void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
-          to label %26 unwind label %33
+  %25 = getelementptr inbounds { [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 3
+  invoke void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %27 unwind label %34
 
-26:                                               ; preds = %3
-  %27 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  %28 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 6
-  store i32 -1, ptr %28, align 8
-  %29 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 7
-  store i32 -1, ptr %29, align 4
-  %30 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 5
-  %31 = getelementptr inbounds %struct.sockaddr_un, ptr %30, i32 0, i32 1
-  %32 = getelementptr inbounds [108 x i8], ptr %31, i64 0, i64 0
-  store i8 0, ptr %32, align 2
+27:                                               ; preds = %3
+  %28 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
+  %29 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 6
+  store i32 -1, ptr %29, align 8
+  %30 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 7
+  store i32 -1, ptr %30, align 4
+  %31 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 5
+  %32 = getelementptr inbounds %struct.sockaddr_un, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds [108 x i8], ptr %32, i64 0, i64 0
+  store i8 0, ptr %33, align 2
   ret void
 
-33:                                               ; preds = %3
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %3
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %7, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %8, align 4
-  %37 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #16
-  %38 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN10cmDebugger20cmDebuggerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #16
-  %39 = getelementptr inbounds ptr, ptr %10, i64 1
-  call void @_ZN3dap12ReaderWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %39) #16
-  br label %40
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %7, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %8, align 4
+  %38 = getelementptr inbounds i8, ptr %9, i64 24
+  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
+  %39 = getelementptr inbounds i8, ptr %9, i64 16
+  call void @_ZN10cmDebugger20cmDebuggerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #16
+  %40 = getelementptr inbounds ptr, ptr %10, i64 1
+  call void @_ZN3dap12ReaderWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %40) #16
+  br label %41
 
-40:                                               ; preds = %33
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr %8, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -856,7 +857,8 @@ define linkonce_odr dso_local void @_ZN10cmDebugger20cmDebuggerConnectionC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10cmDebugger20cmDebuggerConnectionE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN10cmDebugger20cmDebuggerConnectionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -964,55 +966,61 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC1ENSt7__c
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
-  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i64 0, i64 1)) #16
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN10cmDebugger20cmDebuggerConnectionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 0, i32 6), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 0, i32 6), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 1, i32 6), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 3
-  invoke void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %13 unwind label %20
+  %8 = getelementptr inbounds [10 x ptr], ptr @_ZTTN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i64 0, i64 1
+  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8) #16
+  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @_ZN10cmDebugger20cmDebuggerConnectionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
+  %11 = getelementptr inbounds { [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 0, i32 6
+  store ptr %11, ptr %7, align 8
+  %12 = getelementptr inbounds { [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 0, i32 6
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds { [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 1, i32 6
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds { [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 3
+  invoke void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %18 unwind label %25
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %15 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 6
-  store i32 -1, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 7
-  store i32 -1, ptr %16, align 4
-  %17 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 5
-  %18 = getelementptr inbounds %struct.sockaddr_un, ptr %17, i32 0, i32 1
-  %19 = getelementptr inbounds [108 x i8], ptr %18, i64 0, i64 0
-  store i8 0, ptr %19, align 2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  %20 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 6
+  store i32 -1, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 7
+  store i32 -1, ptr %21, align 4
+  %22 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 5
+  %23 = getelementptr inbounds %struct.sockaddr_un, ptr %22, i32 0, i32 1
+  %24 = getelementptr inbounds [108 x i8], ptr %23, i64 0, i64 0
+  store i8 0, ptr %24, align 2
   ret void
 
-20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
+25:                                               ; preds = %2
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN10cmDebugger20cmDebuggerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #16
-  call void @_ZN3dap12ReaderWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i64 0, i64 1)) #16
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
+  %29 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
+  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @_ZN10cmDebugger20cmDebuggerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #16
+  %31 = getelementptr inbounds [10 x ptr], ptr @_ZTTN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i64 0, i64 1
+  call void @_ZN3dap12ReaderWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %31) #16
   call void @_ZN3dap8ClosableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
-  br label %26
+  br label %32
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1020,7 +1028,8 @@ define linkonce_odr dso_local void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dap8ClosableE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3dap8ClosableE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1046,44 +1055,45 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD2Ev(ptr n
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2), ptr %17, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(216) %5)
-          to label %22 unwind label %34
+  %18 = getelementptr inbounds { [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(216) %5)
+          to label %23 unwind label %35
 
-22:                                               ; preds = %2
-  br i1 %21, label %23, label %28
+23:                                               ; preds = %2
+  br i1 %22, label %24, label %29
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 3
-  %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(216) %5)
-          to label %27 unwind label %34
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 3
+  %27 = load ptr, ptr %26, align 8
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(216) %5)
+          to label %28 unwind label %35
 
-27:                                               ; preds = %23
-  br label %28
+28:                                               ; preds = %24
+  br label %29
 
-28:                                               ; preds = %27, %22
-  %29 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %5, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #16
-  %30 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %5, i32 0, i32 3
-  call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #16
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #16
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN10cmDebugger20cmDebuggerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #16
-  %33 = getelementptr inbounds ptr, ptr %6, i64 1
-  call void @_ZN3dap12ReaderWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %33) #16
+29:                                               ; preds = %28, %23
+  %30 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %5, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #16
+  %31 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %5, i32 0, i32 3
+  call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #16
+  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #16
+  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @_ZN10cmDebugger20cmDebuggerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #16
+  %34 = getelementptr inbounds ptr, ptr %6, i64 1
+  call void @_ZN3dap12ReaderWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %34) #16
   ret void
 
-34:                                               ; preds = %23, %2
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %24, %2
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #19
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #19
   unreachable
 }
 
@@ -1816,17 +1826,21 @@ define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXC1ENSt7__cxx11
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 0, i64 1)) #16
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger26cmDebuggerPipeClient_POSIXEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 0, i32 6), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 0, i32 6), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 1, i32 6), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeClient_POSIX", ptr %5, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %9 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeClient_POSIX", ptr %5, i32 0, i32 3
-  store i32 -1, ptr %9, align 8
+  %6 = getelementptr inbounds [10 x ptr], ptr @_ZTTN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 0, i64 1
+  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6) #16
+  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @_ZNSt23enable_shared_from_thisIN10cmDebugger26cmDebuggerPipeClient_POSIXEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
+  %8 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 0, i32 6
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 0, i32 6
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 1, i32 6
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeClient_POSIX", ptr %5, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  %13 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeClient_POSIX", ptr %5, i32 0, i32 3
+  store i32 -1, ptr %13, align 8
   ret void
 }
 
@@ -2616,7 +2630,8 @@ define linkonce_odr dso_local void @_ZNSt13__future_base7_ResultIvEC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2822,11 +2837,12 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
-  call void @_ZNSt16allocator_traitsISaIvEE9constructINSt13__future_base13_State_baseV2EJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %6) #16
+  %5 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
+  %7 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
+  call void @_ZNSt16allocator_traitsISaIvEE9constructINSt13__future_base13_State_baseV2EJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %7) #16
   ret void
 }
 
@@ -2991,11 +3007,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -3180,25 +3197,26 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2C2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
-  %5 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 2
-  invoke void @_ZNSt23__atomic_futex_unsignedILj2147483648EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
-          to label %6 unwind label %9
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %6 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 2
+  invoke void @_ZNSt23__atomic_futex_unsignedILj2147483648EEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 0)
+          to label %7 unwind label %10
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 3
-  call void @_ZNSt11atomic_flagC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %7, i1 noundef zeroext false) #16
-  %8 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 5
-  call void @_ZNSt9once_flagC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #16
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 3
+  call void @_ZNSt11atomic_flagC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %8, i1 noundef zeroext false) #16
+  %9 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 5
+  call void @_ZNSt9once_flagC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #16
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #19
   unreachable
 }
 
@@ -3268,9 +3286,10 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   ret void
 }
 
@@ -4641,11 +4660,12 @@ define linkonce_odr dso_local void @_ZNSt12future_errorC2ERKS_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.std::future_error", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.std::future_error", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.std::future_error", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::future_error", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -4683,49 +4703,50 @@ define linkonce_odr dso_local void @_ZNSt12future_errorC2ESt10error_code(ptr nou
   %12 = load ptr, ptr %5, align 8
   call void @_ZNKSt10error_code7messageB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %4)
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %13 unwind label %16
+          to label %13 unwind label %17
 
 13:                                               ; preds = %3
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %14 unwind label %20
+          to label %14 unwind label %21
 
 14:                                               ; preds = %13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"class.std::future_error", ptr %12, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %4, i64 16, i1 false)
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"class.std::future_error", ptr %12, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %4, i64 16, i1 false)
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  br label %24
-
-20:                                               ; preds = %13
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %8, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr %9, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i32, ptr %9, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
@@ -6310,7 +6331,8 @@ define linkonce_odr dso_local void @_ZNSt12bad_weak_ptrC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6322,7 +6344,8 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

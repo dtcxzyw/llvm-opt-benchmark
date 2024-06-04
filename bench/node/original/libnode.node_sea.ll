@@ -3967,7 +3967,8 @@ init:                                             ; preds = %init.check
   %2 = extractvalue { i64, ptr } %call5, 0
   store i64 %2, ptr @_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result, align 8
   %3 = extractvalue { i64, ptr } %call5, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result) #3
   br label %init.end
 
@@ -3980,42 +3981,42 @@ init.end:                                         ; preds = %init, %init.check, 
   store ptr @.str.8, ptr %format.addr.i, align 8
   store ptr %ref.tmp6, ptr %args.addr.i, align 8
   store ptr %ref.tmp8, ptr %args.addr2.i, align 8
-  %4 = load i32, ptr %cat.addr.i, align 4
-  %5 = load ptr, ptr %format.addr.i, align 8
-  %6 = load ptr, ptr %args.addr.i, align 8
-  %7 = load ptr, ptr %args.addr2.i, align 8
+  %5 = load i32, ptr %cat.addr.i, align 4
+  %6 = load ptr, ptr %format.addr.i, align 8
+  %7 = load ptr, ptr %args.addr.i, align 8
+  %8 = load ptr, ptr %args.addr2.i, align 8
   store ptr @_ZN4node11per_process18enabled_debug_listE, ptr %list.addr.i, align 8
-  store i32 %4, ptr %cat.addr.i10, align 4
-  store ptr %5, ptr %format.addr.i11, align 8
-  store ptr %6, ptr %args.addr.i12, align 8
-  store ptr %7, ptr %args.addr2.i13, align 8
-  %8 = load ptr, ptr %list.addr.i, align 8
-  %9 = load i32, ptr %cat.addr.i10, align 4
-  store ptr %8, ptr %this.addr.i, align 8
-  store i32 %9, ptr %category.addr.i, align 4
+  store i32 %5, ptr %cat.addr.i10, align 4
+  store ptr %6, ptr %format.addr.i11, align 8
+  store ptr %7, ptr %args.addr.i12, align 8
+  store ptr %8, ptr %args.addr2.i13, align 8
+  %9 = load ptr, ptr %list.addr.i, align 8
+  %10 = load i32, ptr %cat.addr.i10, align 4
+  store ptr %9, ptr %this.addr.i, align 8
+  store i32 %10, ptr %category.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %10 = load i32, ptr %category.addr.i, align 4
-  %idxprom.i = zext i32 %10 to i64
+  %11 = load i32, ptr %category.addr.i, align 4
+  %idxprom.i = zext i32 %11 to i64
   %arrayidx.i = getelementptr inbounds [75 x i8], ptr %this1.i, i64 0, i64 %idxprom.i
-  %11 = load i8, ptr %arrayidx.i, align 1
-  %tobool.i = trunc i8 %11 to i1
+  %12 = load i8, ptr %arrayidx.i, align 1
+  %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %init.end
   br label %_ZN4node5DebugIJPKcmEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
 
 if.end.i:                                         ; preds = %init.end
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load ptr, ptr %format.addr.i11, align 8
-  %14 = load ptr, ptr %args.addr.i12, align 8
-  %15 = load ptr, ptr %args.addr2.i13, align 8
-  call void @_ZN4node7FPrintFIJPKcmEEEvP8_IO_FILES2_DpOT_(ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #16
+  %13 = load ptr, ptr @stderr, align 8
+  %14 = load ptr, ptr %format.addr.i11, align 8
+  %15 = load ptr, ptr %args.addr.i12, align 8
+  %16 = load ptr, ptr %args.addr2.i13, align 8
+  call void @_ZN4node7FPrintFIJPKcmEEEvP8_IO_FILES2_DpOT_(ptr noundef %13, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #16
   br label %_ZN4node5DebugIJPKcmEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
 
 _ZN4node5DebugIJPKcmEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit: ; preds = %if.end.i, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 @_ZZN4node3sea12_GLOBAL__N_124FindSingleExecutableBlobEvE6result, i64 16, i1 false)
-  %16 = load { i64, ptr }, ptr %retval, align 8
-  ret { i64, ptr } %16
+  %17 = load { i64, ptr }, ptr %retval, align 8
+  ret { i64, ptr } %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20391,10 +20392,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
 }
 
@@ -20404,7 +20406,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

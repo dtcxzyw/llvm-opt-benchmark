@@ -3,7 +3,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull ptr @"_ZN12tokio_stream10stream_ext7timeout121_$LT$impl$u20$core..convert..From$LT$tokio_stream..stream_ext..timeout..Elapsed$GT$$u20$for$u20$std..io..error..Error$GT$4from17h46d7a3d344a4a742E"() unnamed_addr #0 {
-  ret ptr inttoptr (i64 94489280515 to ptr)
+  %1 = inttoptr i64 94489280515 to ptr
+  ret ptr %1
 }
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

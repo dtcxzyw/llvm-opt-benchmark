@@ -53,53 +53,55 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [5 x i64], align 16
-  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #7, !srcloc !5
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
-  %10 = load i64, ptr %9, align 8
-  %11 = add i64 %10, ptrtoint (ptr @cpu_loops_per_jiffy to i64)
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load i64, ptr %12, align 8
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %19, label %15
+  %7 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7) #7, !srcloc !5
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %11 = load i64, ptr %10, align 8
+  %12 = ptrtoint ptr @cpu_loops_per_jiffy to i64
+  %13 = add i64 %11, %12
+  %14 = inttoptr i64 %13 to ptr
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %21, label %17
 
-15:                                               ; preds = %0
-  %16 = load i1, ptr @calibrate_delay.printed, align 1
-  br i1 %16, label %206, label %17
+17:                                               ; preds = %0
+  %18 = load i1, ptr @calibrate_delay.printed, align 1
+  br i1 %18, label %208, label %19
 
-17:                                               ; preds = %15
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #8
-  br label %206
+19:                                               ; preds = %17
+  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #8
+  br label %208
 
-19:                                               ; preds = %0
-  %20 = load i64, ptr @preset_lpj, align 8
-  %21 = icmp eq i64 %20, 0
-  %22 = load i1, ptr @calibrate_delay.printed, align 1
-  br i1 %21, label %26, label %23
+21:                                               ; preds = %0
+  %22 = load i64, ptr @preset_lpj, align 8
+  %23 = icmp eq i64 %22, 0
+  %24 = load i1, ptr @calibrate_delay.printed, align 1
+  br i1 %23, label %28, label %25
 
-23:                                               ; preds = %19
-  br i1 %22, label %206, label %24
+25:                                               ; preds = %21
+  br i1 %24, label %208, label %26
 
-24:                                               ; preds = %23
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #8
-  br label %206
+26:                                               ; preds = %25
+  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #8
+  br label %208
 
-26:                                               ; preds = %19
-  %27 = load i64, ptr @lpj_fine, align 8
-  %28 = icmp eq i64 %27, 0
-  %29 = select i1 %22, i1 true, i1 %28
-  br i1 %29, label %32, label %30
+28:                                               ; preds = %21
+  %29 = load i64, ptr @lpj_fine, align 8
+  %30 = icmp eq i64 %29, 0
+  %31 = select i1 %24, i1 true, i1 %30
+  br i1 %31, label %34, label %32
 
-30:                                               ; preds = %26
-  %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #8
-  br label %206
+32:                                               ; preds = %28
+  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #8
+  br label %208
 
-32:                                               ; preds = %26
-  %33 = tail call i64 @calibrate_delay_is_known()
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %206
+34:                                               ; preds = %28
+  %35 = tail call i64 @calibrate_delay_is_known()
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %208
 
-35:                                               ; preds = %32
+37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
   store i64 0, ptr %1, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
@@ -112,274 +114,275 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
   store i64 0, ptr %5, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !6
-  %36 = call i32 @read_current_timer(ptr noundef nonnull %1) #6
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %194, label %38
+  %38 = call i32 @read_current_timer(ptr noundef nonnull %1) #6
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %196, label %40
 
-38:                                               ; preds = %120, %35
-  %39 = phi i64 [ %125, %120 ], [ 0, %35 ]
-  %40 = phi i32 [ %124, %120 ], [ -1, %35 ]
-  %41 = phi i32 [ %123, %120 ], [ -1, %35 ]
-  %42 = phi i64 [ %122, %120 ], [ 0, %35 ]
-  %43 = phi i64 [ %121, %120 ], [ 0, %35 ]
+40:                                               ; preds = %122, %37
+  %41 = phi i64 [ %127, %122 ], [ 0, %37 ]
+  %42 = phi i32 [ %126, %122 ], [ -1, %37 ]
+  %43 = phi i32 [ %125, %122 ], [ -1, %37 ]
+  %44 = phi i64 [ %124, %122 ], [ 0, %37 ]
+  %45 = phi i64 [ %123, %122 ], [ 0, %37 ]
   store i64 0, ptr %1, align 8
-  %44 = call i32 @read_current_timer(ptr noundef nonnull %2) #6
-  %45 = load volatile i64, ptr @jiffies, align 64
-  %46 = add i64 %45, 1
+  %46 = call i32 @read_current_timer(ptr noundef nonnull %2) #6
   %47 = load volatile i64, ptr @jiffies, align 64
-  %48 = sub i64 %46, %47
-  %49 = icmp sgt i64 %48, -1
-  br i1 %49, label %50, label %56
+  %48 = add i64 %47, 1
+  %49 = load volatile i64, ptr @jiffies, align 64
+  %50 = sub i64 %48, %49
+  %51 = icmp sgt i64 %50, -1
+  br i1 %51, label %52, label %58
 
-50:                                               ; preds = %50, %38
-  %51 = load i64, ptr %2, align 8
-  store i64 %51, ptr %1, align 8
-  %52 = call i32 @read_current_timer(ptr noundef nonnull %2) #6
-  %53 = load volatile i64, ptr @jiffies, align 64
-  %54 = sub i64 %46, %53
-  %55 = icmp sgt i64 %54, -1
-  br i1 %55, label %50, label %56, !llvm.loop !7
+52:                                               ; preds = %52, %40
+  %53 = load i64, ptr %2, align 8
+  store i64 %53, ptr %1, align 8
+  %54 = call i32 @read_current_timer(ptr noundef nonnull %2) #6
+  %55 = load volatile i64, ptr @jiffies, align 64
+  %56 = sub i64 %48, %55
+  %57 = icmp sgt i64 %56, -1
+  br i1 %57, label %52, label %58, !llvm.loop !7
 
-56:                                               ; preds = %50, %38
-  %57 = call i32 @read_current_timer(ptr noundef nonnull %3) #6
-  %58 = load i64, ptr %3, align 8
-  store i64 %58, ptr %4, align 8
-  %59 = add i64 %45, 11
-  %60 = load volatile i64, ptr @jiffies, align 64
-  %61 = sub i64 %59, %60
-  %62 = icmp sgt i64 %61, -1
-  br i1 %62, label %63, label %69
+58:                                               ; preds = %52, %40
+  %59 = call i32 @read_current_timer(ptr noundef nonnull %3) #6
+  %60 = load i64, ptr %3, align 8
+  store i64 %60, ptr %4, align 8
+  %61 = add i64 %47, 11
+  %62 = load volatile i64, ptr @jiffies, align 64
+  %63 = sub i64 %61, %62
+  %64 = icmp sgt i64 %63, -1
+  br i1 %64, label %65, label %71
 
-63:                                               ; preds = %63, %56
-  %64 = load i64, ptr %4, align 8
-  %65 = call i32 @read_current_timer(ptr noundef nonnull %4) #6
-  %66 = load volatile i64, ptr @jiffies, align 64
-  %67 = sub i64 %59, %66
-  %68 = icmp sgt i64 %67, -1
-  br i1 %68, label %63, label %69, !llvm.loop !10
+65:                                               ; preds = %65, %58
+  %66 = load i64, ptr %4, align 8
+  %67 = call i32 @read_current_timer(ptr noundef nonnull %4) #6
+  %68 = load volatile i64, ptr @jiffies, align 64
+  %69 = sub i64 %61, %68
+  %70 = icmp sgt i64 %69, -1
+  br i1 %70, label %65, label %71, !llvm.loop !10
 
-69:                                               ; preds = %63, %56
-  %70 = phi i64 [ 0, %56 ], [ %64, %63 ]
-  %71 = call i32 @read_current_timer(ptr noundef nonnull %5) #6
-  %72 = load i64, ptr %5, align 8
-  %73 = load i64, ptr %1, align 8
-  %74 = sub i64 %72, %73
-  %75 = udiv i64 %74, 10
-  %76 = load i64, ptr %3, align 8
-  %77 = sub i64 %70, %76
-  %78 = udiv i64 %77, 10
-  %79 = load i64, ptr %2, align 8
-  %80 = icmp ult i64 %79, %72
-  br i1 %80, label %83, label %81
+71:                                               ; preds = %65, %58
+  %72 = phi i64 [ 0, %58 ], [ %66, %65 ]
+  %73 = call i32 @read_current_timer(ptr noundef nonnull %5) #6
+  %74 = load i64, ptr %5, align 8
+  %75 = load i64, ptr %1, align 8
+  %76 = sub i64 %74, %75
+  %77 = udiv i64 %76, 10
+  %78 = load i64, ptr %3, align 8
+  %79 = sub i64 %72, %78
+  %80 = udiv i64 %79, 10
+  %81 = load i64, ptr %2, align 8
+  %82 = icmp ult i64 %81, %74
+  br i1 %82, label %85, label %83
 
-81:                                               ; preds = %69
-  %82 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i64 noundef %79, i64 noundef %72) #8
-  br label %83
+83:                                               ; preds = %71
+  %84 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i64 noundef %81, i64 noundef %74) #8
+  br label %85
 
-83:                                               ; preds = %81, %69
-  %84 = load i64, ptr %2, align 8
-  %85 = load i64, ptr %5, align 8
-  %86 = icmp ult i64 %84, %85
-  %87 = load i64, ptr %1, align 8
-  %88 = icmp ne i64 %87, 0
-  %89 = select i1 %86, i1 %88, i1 false
-  %90 = icmp ne i64 %70, 0
-  %91 = select i1 %89, i1 %90, i1 false
-  br i1 %91, label %92, label %118
+85:                                               ; preds = %83, %71
+  %86 = load i64, ptr %2, align 8
+  %87 = load i64, ptr %5, align 8
+  %88 = icmp ult i64 %86, %87
+  %89 = load i64, ptr %1, align 8
+  %90 = icmp ne i64 %89, 0
+  %91 = select i1 %88, i1 %90, i1 false
+  %92 = icmp ne i64 %72, 0
+  %93 = select i1 %91, i1 %92, i1 false
+  br i1 %93, label %94, label %120
 
-92:                                               ; preds = %83
-  %93 = sub nsw i64 %75, %78
-  %94 = lshr i64 %75, 3
-  %95 = icmp ult i64 %93, %94
-  br i1 %95, label %96, label %118
+94:                                               ; preds = %85
+  %95 = sub nsw i64 %77, %80
+  %96 = lshr i64 %77, 3
+  %97 = icmp ult i64 %95, %96
+  br i1 %97, label %98, label %120
 
-96:                                               ; preds = %92
-  %97 = add i64 %42, 1
-  %98 = add i64 %75, %43
-  %99 = getelementptr [5 x i64], ptr %6, i64 0, i64 %39
-  store i64 %75, ptr %99, align 8
-  %100 = icmp slt i32 %41, 0
-  br i1 %100, label %106, label %101
+98:                                               ; preds = %94
+  %99 = add i64 %44, 1
+  %100 = add i64 %77, %45
+  %101 = getelementptr [5 x i64], ptr %6, i64 0, i64 %41
+  store i64 %77, ptr %101, align 8
+  %102 = icmp slt i32 %43, 0
+  br i1 %102, label %108, label %103
 
-101:                                              ; preds = %96
-  %102 = zext nneg i32 %41 to i64
-  %103 = getelementptr [5 x i64], ptr %6, i64 0, i64 %102
-  %104 = load i64, ptr %103, align 8
-  %105 = icmp ugt i64 %75, %104
-  br i1 %105, label %106, label %108
+103:                                              ; preds = %98
+  %104 = zext nneg i32 %43 to i64
+  %105 = getelementptr [5 x i64], ptr %6, i64 0, i64 %104
+  %106 = load i64, ptr %105, align 8
+  %107 = icmp ugt i64 %77, %106
+  br i1 %107, label %108, label %110
 
-106:                                              ; preds = %101, %96
-  %107 = trunc i64 %39 to i32
-  br label %108
+108:                                              ; preds = %103, %98
+  %109 = trunc i64 %41 to i32
+  br label %110
 
-108:                                              ; preds = %106, %101
-  %109 = phi i32 [ %107, %106 ], [ %41, %101 ]
-  %110 = icmp slt i32 %40, 0
-  br i1 %110, label %116, label %111
+110:                                              ; preds = %108, %103
+  %111 = phi i32 [ %109, %108 ], [ %43, %103 ]
+  %112 = icmp slt i32 %42, 0
+  br i1 %112, label %118, label %113
 
-111:                                              ; preds = %108
-  %112 = zext nneg i32 %40 to i64
-  %113 = getelementptr [5 x i64], ptr %6, i64 0, i64 %112
-  %114 = load i64, ptr %113, align 8
-  %115 = icmp ult i64 %75, %114
-  br i1 %115, label %116, label %120
+113:                                              ; preds = %110
+  %114 = zext nneg i32 %42 to i64
+  %115 = getelementptr [5 x i64], ptr %6, i64 0, i64 %114
+  %116 = load i64, ptr %115, align 8
+  %117 = icmp ult i64 %77, %116
+  br i1 %117, label %118, label %122
 
-116:                                              ; preds = %111, %108
-  %117 = trunc i64 %39 to i32
-  br label %120
+118:                                              ; preds = %113, %110
+  %119 = trunc i64 %41 to i32
+  br label %122
 
-118:                                              ; preds = %92, %83
-  %119 = getelementptr [5 x i64], ptr %6, i64 0, i64 %39
-  store i64 0, ptr %119, align 8
-  br label %120
+120:                                              ; preds = %94, %85
+  %121 = getelementptr [5 x i64], ptr %6, i64 0, i64 %41
+  store i64 0, ptr %121, align 8
+  br label %122
 
-120:                                              ; preds = %118, %116, %111
-  %121 = phi i64 [ %98, %116 ], [ %98, %111 ], [ %43, %118 ]
-  %122 = phi i64 [ %97, %116 ], [ %97, %111 ], [ %42, %118 ]
-  %123 = phi i32 [ %109, %116 ], [ %109, %111 ], [ %41, %118 ]
-  %124 = phi i32 [ %117, %116 ], [ %40, %111 ], [ %40, %118 ]
-  %125 = add nuw nsw i64 %39, 1
-  %126 = icmp eq i64 %125, 5
-  br i1 %126, label %127, label %38, !llvm.loop !11
+122:                                              ; preds = %120, %118, %113
+  %123 = phi i64 [ %100, %118 ], [ %100, %113 ], [ %45, %120 ]
+  %124 = phi i64 [ %99, %118 ], [ %99, %113 ], [ %44, %120 ]
+  %125 = phi i32 [ %111, %118 ], [ %111, %113 ], [ %43, %120 ]
+  %126 = phi i32 [ %119, %118 ], [ %42, %113 ], [ %42, %120 ]
+  %127 = add nuw nsw i64 %41, 1
+  %128 = icmp eq i64 %127, 5
+  br i1 %128, label %129, label %40, !llvm.loop !11
 
-127:                                              ; preds = %186, %120
-  %128 = phi i64 [ %187, %186 ], [ %121, %120 ]
-  %129 = phi i64 [ %188, %186 ], [ %122, %120 ]
-  %130 = phi i32 [ %189, %186 ], [ %123, %120 ]
-  %131 = phi i32 [ %190, %186 ], [ %124, %120 ]
-  %132 = phi i64 [ %191, %186 ], [ undef, %120 ]
-  %133 = icmp ugt i64 %129, 1
-  br i1 %133, label %134, label %192
+129:                                              ; preds = %188, %122
+  %130 = phi i64 [ %189, %188 ], [ %123, %122 ]
+  %131 = phi i64 [ %190, %188 ], [ %124, %122 ]
+  %132 = phi i32 [ %191, %188 ], [ %125, %122 ]
+  %133 = phi i32 [ %192, %188 ], [ %126, %122 ]
+  %134 = phi i64 [ %193, %188 ], [ undef, %122 ]
+  %135 = icmp ugt i64 %131, 1
+  br i1 %135, label %136, label %194
 
-134:                                              ; preds = %127
-  %135 = udiv i64 %128, %129
-  %136 = lshr i64 %135, 3
-  %137 = sext i32 %130 to i64
-  %138 = getelementptr [5 x i64], ptr %6, i64 0, i64 %137
-  %139 = load i64, ptr %138, align 8
-  %140 = sext i32 %131 to i64
-  %141 = getelementptr [5 x i64], ptr %6, i64 0, i64 %140
-  %142 = load i64, ptr %141, align 8
-  %143 = sub i64 %139, %142
-  %144 = icmp ult i64 %143, %136
-  br i1 %144, label %186, label %145
+136:                                              ; preds = %129
+  %137 = udiv i64 %130, %131
+  %138 = lshr i64 %137, 3
+  %139 = sext i32 %132 to i64
+  %140 = getelementptr [5 x i64], ptr %6, i64 0, i64 %139
+  %141 = load i64, ptr %140, align 8
+  %142 = sext i32 %133 to i64
+  %143 = getelementptr [5 x i64], ptr %6, i64 0, i64 %142
+  %144 = load i64, ptr %143, align 8
+  %145 = sub i64 %141, %144
+  %146 = icmp ult i64 %145, %138
+  br i1 %146, label %188, label %147
 
-145:                                              ; preds = %134
-  %146 = sub i64 %139, %135
-  %147 = sub i64 %135, %142
-  %148 = icmp ult i64 %146, %147
-  br i1 %148, label %149, label %151
+147:                                              ; preds = %136
+  %148 = sub i64 %141, %137
+  %149 = sub i64 %137, %144
+  %150 = icmp ult i64 %148, %149
+  br i1 %150, label %151, label %153
 
-149:                                              ; preds = %145
-  %150 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %131, i64 noundef %142) #8
-  br label %153
+151:                                              ; preds = %147
+  %152 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %133, i64 noundef %144) #8
+  br label %155
 
-151:                                              ; preds = %145
-  %152 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %130, i64 noundef %139) #8
-  br label %153
+153:                                              ; preds = %147
+  %154 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %132, i64 noundef %141) #8
+  br label %155
 
-153:                                              ; preds = %151, %149
-  %154 = phi ptr [ %138, %151 ], [ %141, %149 ]
-  %155 = phi i32 [ %131, %151 ], [ %130, %149 ]
-  store i64 0, ptr %154, align 8
-  br label %156
+155:                                              ; preds = %153, %151
+  %156 = phi ptr [ %140, %153 ], [ %143, %151 ]
+  %157 = phi i32 [ %133, %153 ], [ %132, %151 ]
+  store i64 0, ptr %156, align 8
+  br label %158
 
-156:                                              ; preds = %179, %153
-  %157 = phi i64 [ 0, %153 ], [ %184, %179 ]
-  %158 = phi i32 [ %155, %153 ], [ %183, %179 ]
-  %159 = phi i32 [ %155, %153 ], [ %182, %179 ]
-  %160 = phi i64 [ 0, %153 ], [ %181, %179 ]
-  %161 = phi i64 [ 0, %153 ], [ %180, %179 ]
-  %162 = getelementptr [5 x i64], ptr %6, i64 0, i64 %157
-  %163 = load i64, ptr %162, align 8
-  %164 = icmp eq i64 %163, 0
-  br i1 %164, label %179, label %165
+158:                                              ; preds = %181, %155
+  %159 = phi i64 [ 0, %155 ], [ %186, %181 ]
+  %160 = phi i32 [ %157, %155 ], [ %185, %181 ]
+  %161 = phi i32 [ %157, %155 ], [ %184, %181 ]
+  %162 = phi i64 [ 0, %155 ], [ %183, %181 ]
+  %163 = phi i64 [ 0, %155 ], [ %182, %181 ]
+  %164 = getelementptr [5 x i64], ptr %6, i64 0, i64 %159
+  %165 = load i64, ptr %164, align 8
+  %166 = icmp eq i64 %165, 0
+  br i1 %166, label %181, label %167
 
-165:                                              ; preds = %156
-  %166 = add i64 %160, 1
-  %167 = add i64 %163, %161
-  %168 = sext i32 %158 to i64
-  %169 = getelementptr [5 x i64], ptr %6, i64 0, i64 %168
-  %170 = load i64, ptr %169, align 8
-  %171 = icmp ult i64 %163, %170
-  %172 = trunc i64 %157 to i32
-  %173 = select i1 %171, i32 %172, i32 %158
-  %174 = sext i32 %159 to i64
-  %175 = getelementptr [5 x i64], ptr %6, i64 0, i64 %174
-  %176 = load i64, ptr %175, align 8
-  %177 = icmp ugt i64 %163, %176
-  %178 = select i1 %177, i32 %172, i32 %159
-  br label %179
+167:                                              ; preds = %158
+  %168 = add i64 %162, 1
+  %169 = add i64 %165, %163
+  %170 = sext i32 %160 to i64
+  %171 = getelementptr [5 x i64], ptr %6, i64 0, i64 %170
+  %172 = load i64, ptr %171, align 8
+  %173 = icmp ult i64 %165, %172
+  %174 = trunc i64 %159 to i32
+  %175 = select i1 %173, i32 %174, i32 %160
+  %176 = sext i32 %161 to i64
+  %177 = getelementptr [5 x i64], ptr %6, i64 0, i64 %176
+  %178 = load i64, ptr %177, align 8
+  %179 = icmp ugt i64 %165, %178
+  %180 = select i1 %179, i32 %174, i32 %161
+  br label %181
 
-179:                                              ; preds = %165, %156
-  %180 = phi i64 [ %161, %156 ], [ %167, %165 ]
-  %181 = phi i64 [ %160, %156 ], [ %166, %165 ]
-  %182 = phi i32 [ %159, %156 ], [ %178, %165 ]
-  %183 = phi i32 [ %158, %156 ], [ %173, %165 ]
-  %184 = add nuw nsw i64 %157, 1
-  %185 = icmp eq i64 %184, 5
-  br i1 %185, label %186, label %156, !llvm.loop !12
+181:                                              ; preds = %167, %158
+  %182 = phi i64 [ %163, %158 ], [ %169, %167 ]
+  %183 = phi i64 [ %162, %158 ], [ %168, %167 ]
+  %184 = phi i32 [ %161, %158 ], [ %180, %167 ]
+  %185 = phi i32 [ %160, %158 ], [ %175, %167 ]
+  %186 = add nuw nsw i64 %159, 1
+  %187 = icmp eq i64 %186, 5
+  br i1 %187, label %188, label %158, !llvm.loop !12
 
-186:                                              ; preds = %179, %134
-  %187 = phi i64 [ %128, %134 ], [ %180, %179 ]
-  %188 = phi i64 [ %129, %134 ], [ %181, %179 ]
-  %189 = phi i32 [ %130, %134 ], [ %182, %179 ]
-  %190 = phi i32 [ %131, %134 ], [ %183, %179 ]
-  %191 = phi i64 [ %135, %134 ], [ %132, %179 ]
-  br i1 %144, label %194, label %127, !llvm.loop !13
+188:                                              ; preds = %181, %136
+  %189 = phi i64 [ %130, %136 ], [ %182, %181 ]
+  %190 = phi i64 [ %131, %136 ], [ %183, %181 ]
+  %191 = phi i32 [ %132, %136 ], [ %184, %181 ]
+  %192 = phi i32 [ %133, %136 ], [ %185, %181 ]
+  %193 = phi i64 [ %137, %136 ], [ %134, %181 ]
+  br i1 %146, label %196, label %129, !llvm.loop !13
 
-192:                                              ; preds = %127
-  %193 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #8
-  br label %194
+194:                                              ; preds = %129
+  %195 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #8
+  br label %196
 
-194:                                              ; preds = %192, %186, %35
-  %195 = phi i64 [ 0, %192 ], [ 0, %35 ], [ %191, %186 ]
+196:                                              ; preds = %194, %188, %37
+  %197 = phi i64 [ 0, %194 ], [ 0, %37 ], [ %193, %188 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
-  %196 = icmp eq i64 %195, 0
-  %197 = load i1, ptr @calibrate_delay.printed, align 1
-  br i1 %196, label %201, label %198
+  %198 = icmp eq i64 %197, 0
+  %199 = load i1, ptr @calibrate_delay.printed, align 1
+  br i1 %198, label %203, label %200
 
-198:                                              ; preds = %194
-  br i1 %197, label %206, label %199
+200:                                              ; preds = %196
+  br i1 %199, label %208, label %201
 
-199:                                              ; preds = %198
-  %200 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #8
+201:                                              ; preds = %200
+  %202 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #8
+  br label %208
+
+203:                                              ; preds = %196
+  br i1 %199, label %206, label %204
+
+204:                                              ; preds = %203
+  %205 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #8
   br label %206
 
-201:                                              ; preds = %194
-  br i1 %197, label %204, label %202
+206:                                              ; preds = %204, %203
+  %207 = call fastcc i64 @calibrate_delay_converge()
+  br label %208
 
-202:                                              ; preds = %201
-  %203 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #8
-  br label %204
+208:                                              ; preds = %206, %201, %200, %34, %32, %26, %25, %19, %17
+  %209 = phi i64 [ %15, %17 ], [ %15, %19 ], [ %22, %25 ], [ %22, %26 ], [ %29, %32 ], [ %35, %34 ], [ %197, %200 ], [ %197, %201 ], [ %207, %206 ]
+  %210 = load i64, ptr %10, align 8
+  %211 = ptrtoint ptr @cpu_loops_per_jiffy to i64
+  %212 = add i64 %210, %211
+  %213 = inttoptr i64 %212 to ptr
+  store i64 %209, ptr %213, align 8
+  %214 = load i1, ptr @calibrate_delay.printed, align 1
+  br i1 %214, label %220, label %215
 
-204:                                              ; preds = %202, %201
-  %205 = call fastcc i64 @calibrate_delay_converge()
-  br label %206
+215:                                              ; preds = %208
+  %216 = udiv i64 %209, 500
+  %217 = udiv i64 %209, 5
+  %218 = urem i64 %217, 100
+  %219 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i64 noundef %216, i64 noundef %218, i64 noundef %209) #8
+  br label %220
 
-206:                                              ; preds = %204, %199, %198, %32, %30, %24, %23, %17, %15
-  %207 = phi i64 [ %13, %15 ], [ %13, %17 ], [ %20, %23 ], [ %20, %24 ], [ %27, %30 ], [ %33, %32 ], [ %195, %198 ], [ %195, %199 ], [ %205, %204 ]
-  %208 = load i64, ptr %9, align 8
-  %209 = add i64 %208, ptrtoint (ptr @cpu_loops_per_jiffy to i64)
-  %210 = inttoptr i64 %209 to ptr
-  store i64 %207, ptr %210, align 8
-  %211 = load i1, ptr @calibrate_delay.printed, align 1
-  br i1 %211, label %217, label %212
-
-212:                                              ; preds = %206
-  %213 = udiv i64 %207, 500
-  %214 = udiv i64 %207, 5
-  %215 = urem i64 %214, 100
-  %216 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i64 noundef %213, i64 noundef %215, i64 noundef %207) #8
-  br label %217
-
-217:                                              ; preds = %212, %206
-  store i64 %207, ptr @loops_per_jiffy, align 8
+220:                                              ; preds = %215, %208
+  store i64 %209, ptr @loops_per_jiffy, align 8
   store i1 true, ptr @calibrate_delay.printed, align 1
   call void @calibration_delay_done()
   ret void

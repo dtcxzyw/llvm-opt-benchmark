@@ -181,7 +181,8 @@ entry:
   %1 = load ptr, ptr %aLocale.addr, align 8
   %2 = load ptr, ptr %success.addr, align 8
   call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 1
   store i8 0, ptr %hasLeapMonthBetweenWinterSolstices, align 2
   %fEpochYear = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 2
@@ -196,20 +197,20 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %3 = load ptr, ptr %success.addr, align 8
-  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, double noundef %call4, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %success.addr, align 8
+  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, double noundef %call4, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_758CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618) %this1) #7
   br label %eh.resume
 
@@ -263,33 +264,34 @@ entry:
   %1 = load ptr, ptr %aLocale.addr, align 8
   %2 = load ptr, ptr %success.addr, align 8
   call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 1
   store i8 0, ptr %hasLeapMonthBetweenWinterSolstices, align 2
   %fEpochYear = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 2
-  %3 = load i32, ptr %epochYear.addr, align 4
-  store i32 %3, ptr %fEpochYear, align 4
+  %4 = load i32, ptr %epochYear.addr, align 4
+  store i32 %4, ptr %fEpochYear, align 4
   %fZoneAstroCalc = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %zoneAstroCalc.addr, align 8
-  store ptr %4, ptr %fZoneAstroCalc, align 8
+  %5 = load ptr, ptr %zoneAstroCalc.addr, align 8
+  store ptr %5, ptr %fZoneAstroCalc, align 8
   %call2 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %5 = load ptr, ptr %success.addr, align 8
-  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, double noundef %call2, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %6 = load ptr, ptr %success.addr, align 8
+  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, double noundef %call2, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_758CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618) %this1) #7
   br label %eh.resume
 
@@ -311,22 +313,23 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef nonnull align 8 dereferenceable(618) %0)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %other.addr, align 8
-  %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %1, i32 0, i32 1
-  %2 = load i8, ptr %hasLeapMonthBetweenWinterSolstices, align 2
+  %1 = getelementptr inbounds { [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %2, i32 0, i32 1
+  %3 = load i8, ptr %hasLeapMonthBetweenWinterSolstices, align 2
   %hasLeapMonthBetweenWinterSolstices2 = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 1
-  store i8 %2, ptr %hasLeapMonthBetweenWinterSolstices2, align 2
-  %3 = load ptr, ptr %other.addr, align 8
-  %fEpochYear = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %fEpochYear, align 4
+  store i8 %3, ptr %hasLeapMonthBetweenWinterSolstices2, align 2
+  %4 = load ptr, ptr %other.addr, align 8
+  %fEpochYear = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %fEpochYear, align 4
   %fEpochYear3 = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 2
-  store i32 %4, ptr %fEpochYear3, align 4
-  %5 = load ptr, ptr %other.addr, align 8
-  %fZoneAstroCalc = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %fZoneAstroCalc, align 8
+  store i32 %5, ptr %fEpochYear3, align 4
+  %6 = load ptr, ptr %other.addr, align 8
+  %fZoneAstroCalc = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %fZoneAstroCalc, align 8
   %fZoneAstroCalc4 = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 3
-  store ptr %6, ptr %fZoneAstroCalc4, align 8
+  store ptr %7, ptr %fZoneAstroCalc4, align 8
   ret void
 }
 

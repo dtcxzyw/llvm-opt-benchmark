@@ -2125,9 +2125,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %d_solver = getelementptr inbounds %"class.cvc5::internal::prop::CadicalSolver", ptr %this1, i32 0, i32 2
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #17
           to label %invoke.cont3 unwind label %lpad2
@@ -2153,49 +2155,49 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %d_inSatMode = getelementptr inbounds %"class.cvc5::internal::prop::CadicalSolver", ptr %this1, i32 0, i32 9
   store i8 0, ptr %d_inSatMode, align 4
   %d_statistics = getelementptr inbounds %"class.cvc5::internal::prop::CadicalSolver", ptr %this1, i32 0, i32 12
-  %2 = load ptr, ptr %registry.addr, align 8
-  %3 = load ptr, ptr %name.addr, align 8
-  invoke void @_ZN4cvc58internal4prop13CadicalSolver10StatisticsC1ERNS0_18StatisticsRegistryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %d_statistics, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = load ptr, ptr %registry.addr, align 8
+  %5 = load ptr, ptr %name.addr, align 8
+  invoke void @_ZN4cvc58internal4prop13CadicalSolver10StatisticsC1ERNS0_18StatisticsRegistryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %d_statistics, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup8
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #18
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_assumptions) #3
   call void @_ZNSt10unique_ptrIN4cvc58internal4prop17CadicalPropagatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_propagator) #3
   call void @_ZNSt10unique_ptrIN7CaDiCaL10TerminatorESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_terminator) #3
@@ -2203,8 +2205,8 @@ lpad6:                                            ; preds = %invoke.cont5
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad4, %lpad2
-  %16 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  %18 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
   br label %ehcleanup8
 
 ehcleanup8:                                       ; preds = %ehcleanup, %lpad
@@ -2226,7 +2228,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal4prop9SatSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN4cvc58internal4prop14CDCLTSatSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN4cvc58internal4prop14CDCLTSatSolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2549,9 +2552,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [31 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %d_assumptions = getelementptr inbounds %"class.cvc5::internal::prop::CadicalSolver", ptr %this1, i32 0, i32 7
   call void @_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_assumptions) #3
   %d_propagator = getelementptr inbounds %"class.cvc5::internal::prop::CadicalSolver", ptr %this1, i32 0, i32 6
@@ -2560,8 +2565,8 @@ entry:
   call void @_ZNSt10unique_ptrIN7CaDiCaL10TerminatorESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_terminator) #3
   %d_solver = getelementptr inbounds %"class.cvc5::internal::prop::CadicalSolver", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN7CaDiCaL6SolverESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_solver) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #3
   call void @_ZN4cvc58internal4prop14CDCLTSatSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -2665,10 +2670,11 @@ entry:
   store ptr %resmgr, ptr %resmgr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7CaDiCaL10TerminatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal4prop23ResourceLimitTerminatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal4prop23ResourceLimitTerminatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_resmgr = getelementptr inbounds %"class.cvc5::internal::prop::ResourceLimitTerminator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %resmgr.addr, align 8
-  store ptr %0, ptr %d_resmgr, align 8
+  %1 = load ptr, ptr %resmgr.addr, align 8
+  store ptr %1, ptr %d_resmgr, align 8
   ret void
 }
 
@@ -5787,16 +5793,17 @@ entry:
   store ptr %solver, ptr %solver.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7CaDiCaL18ExternalPropagatorC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal4prop17CadicalPropagatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4cvc58internal4prop17CadicalPropagatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_proxy = getelementptr inbounds %"class.cvc5::internal::prop::CadicalPropagator", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %proxy.addr, align 8
-  store ptr %0, ptr %d_proxy, align 8
+  %1 = load ptr, ptr %proxy.addr, align 8
+  store ptr %1, ptr %d_proxy, align 8
   %d_context = getelementptr inbounds %"class.cvc5::internal::prop::CadicalPropagator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %context.addr, align 8
-  store ptr %1, ptr %d_context, align 8
+  %2 = load ptr, ptr %context.addr, align 8
+  store ptr %2, ptr %d_context, align 8
   %d_solver = getelementptr inbounds %"class.cvc5::internal::prop::CadicalPropagator", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %solver.addr, align 8
-  store ptr %2, ptr %d_solver, align 8
+  %3 = load ptr, ptr %solver.addr, align 8
+  store ptr %3, ptr %d_solver, align 8
   %d_var_info = getelementptr inbounds %"class.cvc5::internal::prop::CadicalPropagator", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorIN4cvc58internal4prop17CadicalPropagator7VarInfoESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_var_info) #3
   %d_active_vars = getelementptr inbounds %"class.cvc5::internal::prop::CadicalPropagator", ptr %this1, i32 0, i32 6
@@ -5842,39 +5849,39 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup9
 
 lpad4:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont5
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %d_reason) #3
   br label %ehcleanup
 
@@ -6965,7 +6972,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4cvc58internal4prop9SatSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4cvc58internal4prop9SatSolverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7346,7 +7354,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7CaDiCaL10TerminatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7CaDiCaL10TerminatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15852,7 +15861,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7CaDiCaL18ExternalPropagatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7CaDiCaL18ExternalPropagatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %is_lazy = getelementptr inbounds %"class.CaDiCaL::ExternalPropagator", ptr %this1, i32 0, i32 1
   store i8 0, ptr %is_lazy, align 8
   ret void
@@ -16012,7 +16022,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal4prop17CadicalPropagatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4cvc58internal4prop17CadicalPropagatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_reason = getelementptr inbounds %"class.cvc5::internal::prop::CadicalPropagator", ptr %this1, i32 0, i32 17
   call void @_ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %d_reason) #3
   %d_new_clauses = getelementptr inbounds %"class.cvc5::internal::prop::CadicalPropagator", ptr %this1, i32 0, i32 14

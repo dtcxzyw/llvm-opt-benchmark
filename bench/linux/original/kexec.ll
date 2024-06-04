@@ -63,42 +63,44 @@ define internal fastcc i64 @__se_sys_kexec_load(i64 noundef %0, i64 noundef %1, 
 
 24:                                               ; preds = %21
   %25 = sext i32 %22 to i64
-  br label %41
+  br label %43
 
 26:                                               ; preds = %21
   %27 = and i32 %6, -65536
-  switch i32 %27, label %41 [
+  switch i32 %27, label %43 [
     i32 4063232, label %28
     i32 0, label %28
   ]
 
 28:                                               ; preds = %26, %26
   %29 = icmp ugt i64 %1, 576460752303423487
-  br i1 %29, label %33, label %30
+  %30 = inttoptr i64 -75 to ptr
+  br i1 %29, label %34, label %31
 
-30:                                               ; preds = %28
-  %31 = shl nuw i64 %1, 5
-  %32 = tail call ptr @memdup_user(ptr noundef %5, i64 noundef %31) #8
-  br label %33
+31:                                               ; preds = %28
+  %32 = shl nuw i64 %1, 5
+  %33 = tail call ptr @memdup_user(ptr noundef %5, i64 noundef %32) #8
+  br label %34
 
-33:                                               ; preds = %30, %28
-  %34 = phi ptr [ %32, %30 ], [ inttoptr (i64 -75 to ptr), %28 ]
-  %35 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
-  br i1 %35, label %36, label %38
+34:                                               ; preds = %31, %28
+  %35 = phi ptr [ %33, %31 ], [ %30, %28 ]
+  %36 = inttoptr i64 -4096 to ptr
+  %37 = icmp ugt ptr %35, %36
+  br i1 %37, label %38, label %40
 
-36:                                               ; preds = %33
-  %37 = ptrtoint ptr %34 to i64
-  br label %41
+38:                                               ; preds = %34
+  %39 = ptrtoint ptr %35 to i64
+  br label %43
 
-38:                                               ; preds = %33
-  %39 = tail call fastcc i32 @do_kexec_load(i64 noundef %0, i64 noundef %1, ptr noundef %34, i64 noundef %3)
-  %40 = sext i32 %39 to i64
-  tail call void @kfree(ptr noundef %34) #8
-  br label %41
+40:                                               ; preds = %34
+  %41 = tail call fastcc i32 @do_kexec_load(i64 noundef %0, i64 noundef %1, ptr noundef %35, i64 noundef %3)
+  %42 = sext i32 %41 to i64
+  tail call void @kfree(ptr noundef %35) #8
+  br label %43
 
-41:                                               ; preds = %38, %36, %26, %24
-  %42 = phi i64 [ %25, %24 ], [ %37, %36 ], [ %40, %38 ], [ -22, %26 ]
-  ret i64 %42
+43:                                               ; preds = %40, %38, %26, %24
+  %44 = phi i64 [ %25, %24 ], [ %39, %38 ], [ %42, %40 ], [ -22, %26 ]
+  ret i64 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -247,7 +249,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define internal fastcc i32 @do_kexec_load(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @__kexec_lock, i32 1, i32 0, ptr nonnull elementtype(i32) @__kexec_lock) #8, !srcloc !9
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %112
+  br i1 %6, label %7, label %113
 
 7:                                                ; preds = %4
   %8 = and i64 %3, 1
@@ -270,7 +272,7 @@ define internal fastcc i32 @do_kexec_load(i64 noundef %0, i64 noundef %1, ptr no
 
 17:                                               ; preds = %14
   %18 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %15, ptr null, ptr nonnull elementtype(ptr) %15) #8, !srcloc !10
-  br label %107
+  br label %108
 
 19:                                               ; preds = %14
   br i1 %9, label %20, label %22
@@ -282,167 +284,168 @@ define internal fastcc i32 @do_kexec_load(i64 noundef %0, i64 noundef %1, ptr no
 
 22:                                               ; preds = %20, %19
   %23 = icmp eq i64 %8, 0
-  br i1 %23, label %30, label %24
+  br i1 %23, label %31, label %24
 
 24:                                               ; preds = %22
   %25 = load i64, ptr @crashk_res, align 8
   %26 = icmp ugt i64 %25, %0
-  %27 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_res, i64 0, i32 1), align 8
-  %28 = icmp ult i64 %27, %0
-  %29 = select i1 %26, i1 true, i1 %28
-  br i1 %29, label %63, label %30
+  %27 = getelementptr inbounds %struct.resource, ptr @crashk_res, i64 0, i32 1
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp ult i64 %28, %0
+  %30 = select i1 %26, i1 true, i1 %29
+  br i1 %30, label %64, label %31
 
-30:                                               ; preds = %24, %22
-  %31 = tail call ptr @do_kimage_alloc_init() #8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %63, label %33
+31:                                               ; preds = %24, %22
+  %32 = tail call ptr @do_kimage_alloc_init() #8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %64, label %34
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
-  store i64 %0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 56
-  store i64 %1, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 64
-  %37 = shl i64 %1, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %2, i64 %37, i1 false)
-  br i1 %23, label %44, label %38
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  store i64 %0, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %32, i64 56
+  store i64 %1, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %32, i64 64
+  %38 = shl i64 %1, 5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %2, i64 %38, i1 false)
+  br i1 %23, label %45, label %39
 
-38:                                               ; preds = %33
-  %39 = load i64, ptr @crashk_res, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 624
-  store i64 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %31, i64 632
-  %42 = load i8, ptr %41, align 8
-  %43 = or i8 %42, 1
-  store i8 %43, ptr %41, align 8
-  br label %44
+39:                                               ; preds = %34
+  %40 = load i64, ptr @crashk_res, align 8
+  %41 = getelementptr inbounds i8, ptr %32, i64 624
+  store i64 %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %32, i64 632
+  %43 = load i8, ptr %42, align 8
+  %44 = or i8 %43, 1
+  store i8 %44, ptr %42, align 8
+  br label %45
 
-44:                                               ; preds = %38, %33
-  %45 = tail call i32 @sanity_check_segment_list(ptr noundef nonnull %31) #8
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %61
+45:                                               ; preds = %39, %34
+  %46 = tail call i32 @sanity_check_segment_list(ptr noundef nonnull %32) #8
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %62
 
-47:                                               ; preds = %44
-  %48 = tail call ptr @kimage_alloc_control_pages(ptr noundef nonnull %31, i32 noundef 1) #8
-  %49 = getelementptr inbounds i8, ptr %31, i64 32
-  store ptr %48, ptr %49, align 8
-  %50 = icmp eq ptr %48, null
-  br i1 %50, label %51, label %53
+48:                                               ; preds = %45
+  %49 = tail call ptr @kimage_alloc_control_pages(ptr noundef nonnull %32, i32 noundef 1) #8
+  %50 = getelementptr inbounds i8, ptr %32, i64 32
+  store ptr %49, ptr %50, align 8
+  %51 = icmp eq ptr %49, null
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %47
-  %52 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #10
-  br label %61
+52:                                               ; preds = %48
+  %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #10
+  br label %62
 
-53:                                               ; preds = %47
-  br i1 %23, label %54, label %63
+54:                                               ; preds = %48
+  br i1 %23, label %55, label %64
 
-54:                                               ; preds = %53
-  %55 = tail call ptr @kimage_alloc_control_pages(ptr noundef nonnull %31, i32 noundef 0) #8
-  %56 = getelementptr inbounds i8, ptr %31, i64 40
-  store ptr %55, ptr %56, align 8
-  %57 = icmp eq ptr %55, null
-  br i1 %57, label %58, label %63
+55:                                               ; preds = %54
+  %56 = tail call ptr @kimage_alloc_control_pages(ptr noundef nonnull %32, i32 noundef 0) #8
+  %57 = getelementptr inbounds i8, ptr %32, i64 40
+  store ptr %56, ptr %57, align 8
+  %58 = icmp eq ptr %56, null
+  br i1 %58, label %59, label %64
 
-58:                                               ; preds = %54
-  %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
-  %60 = getelementptr inbounds i8, ptr %31, i64 576
-  tail call void @kimage_free_page_list(ptr noundef %60) #8
-  br label %61
+59:                                               ; preds = %55
+  %60 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
+  %61 = getelementptr inbounds i8, ptr %32, i64 576
+  tail call void @kimage_free_page_list(ptr noundef %61) #8
+  br label %62
 
-61:                                               ; preds = %58, %51, %44
-  %62 = phi i32 [ %45, %44 ], [ -12, %58 ], [ -12, %51 ]
-  tail call void @kfree(ptr noundef nonnull %31) #8
-  br label %63
+62:                                               ; preds = %59, %52, %45
+  %63 = phi i32 [ %46, %45 ], [ -12, %59 ], [ -12, %52 ]
+  tail call void @kfree(ptr noundef nonnull %32) #8
+  br label %64
 
-63:                                               ; preds = %61, %54, %53, %30, %24
-  %64 = phi ptr [ null, %30 ], [ null, %61 ], [ null, %24 ], [ %31, %54 ], [ %31, %53 ]
-  %65 = phi i32 [ -12, %30 ], [ %62, %61 ], [ -99, %24 ], [ 0, %54 ], [ 0, %53 ]
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %110
+64:                                               ; preds = %62, %55, %54, %31, %24
+  %65 = phi ptr [ null, %31 ], [ null, %62 ], [ null, %24 ], [ %32, %55 ], [ %32, %54 ]
+  %66 = phi i32 [ -12, %31 ], [ %63, %62 ], [ -99, %24 ], [ 0, %55 ], [ 0, %54 ]
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %111
 
-67:                                               ; preds = %63
-  %68 = and i64 %3, 2
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %74, label %70
+68:                                               ; preds = %64
+  %69 = and i64 %3, 2
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %75, label %71
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %64, i64 632
-  %72 = load i8, ptr %71, align 8
-  %73 = or i8 %72, 2
-  store i8 %73, ptr %71, align 8
-  br label %74
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %65, i64 632
+  %73 = load i8, ptr %72, align 8
+  %74 = or i8 %73, 2
+  store i8 %74, ptr %72, align 8
+  br label %75
 
-74:                                               ; preds = %70, %67
-  %75 = and i64 %3, 4
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %81, label %77
+75:                                               ; preds = %71, %68
+  %76 = and i64 %3, 4
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %82, label %78
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %64, i64 632
-  %79 = load i8, ptr %78, align 8
-  %80 = or i8 %79, 8
-  store i8 %80, ptr %78, align 8
-  br label %81
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds i8, ptr %65, i64 632
+  %80 = load i8, ptr %79, align 8
+  %81 = or i8 %80, 8
+  store i8 %81, ptr %79, align 8
+  br label %82
 
-81:                                               ; preds = %77, %74
-  %82 = tail call i32 @machine_kexec_prepare(ptr noundef %64) #8
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %100
+82:                                               ; preds = %78, %75
+  %83 = tail call i32 @machine_kexec_prepare(ptr noundef %65) #8
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %101
 
-84:                                               ; preds = %81
-  %85 = tail call i32 @kimage_crash_copy_vmcoreinfo(ptr noundef %64) #8
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %100
+85:                                               ; preds = %82
+  %86 = tail call i32 @kimage_crash_copy_vmcoreinfo(ptr noundef %65) #8
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %101
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %64, i64 64
-  %89 = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
-  br label %93
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds i8, ptr %65, i64 64
+  %90 = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
+  br label %94
 
-90:                                               ; preds = %93
-  %91 = add nuw i64 %94, 1
-  %92 = icmp eq i64 %91, %89
-  br i1 %92, label %98, label %93, !llvm.loop !12
+91:                                               ; preds = %94
+  %92 = add nuw i64 %95, 1
+  %93 = icmp eq i64 %92, %90
+  br i1 %93, label %99, label %94, !llvm.loop !12
 
-93:                                               ; preds = %90, %87
-  %94 = phi i64 [ 0, %87 ], [ %91, %90 ]
-  %95 = getelementptr [16 x %struct.kexec_segment], ptr %88, i64 0, i64 %94
-  %96 = tail call i32 @kimage_load_segment(ptr noundef %64, ptr noundef %95) #8
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %90, label %100
+94:                                               ; preds = %91, %88
+  %95 = phi i64 [ 0, %88 ], [ %92, %91 ]
+  %96 = getelementptr [16 x %struct.kexec_segment], ptr %89, i64 0, i64 %95
+  %97 = tail call i32 @kimage_load_segment(ptr noundef %65, ptr noundef %96) #8
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %91, label %101
 
-98:                                               ; preds = %90
-  tail call void @kimage_terminate(ptr noundef %64) #8
-  %99 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %15, ptr %64, ptr nonnull elementtype(ptr) %15) #8, !srcloc !13
-  br label %100
+99:                                               ; preds = %91
+  tail call void @kimage_terminate(ptr noundef %65) #8
+  %100 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %15, ptr %65, ptr nonnull elementtype(ptr) %15) #8, !srcloc !13
+  br label %101
 
-100:                                              ; preds = %98, %93, %84, %81
-  %101 = phi ptr [ %99, %98 ], [ %64, %84 ], [ %64, %81 ], [ %64, %93 ]
-  %102 = phi i32 [ 0, %98 ], [ %85, %84 ], [ %82, %81 ], [ %96, %93 ]
-  %103 = load ptr, ptr @kexec_crash_image, align 8
-  %104 = icmp ne ptr %103, null
-  %105 = select i1 %9, i1 %104, i1 false
-  br i1 %105, label %106, label %107
+101:                                              ; preds = %99, %94, %85, %82
+  %102 = phi ptr [ %100, %99 ], [ %65, %85 ], [ %65, %82 ], [ %65, %94 ]
+  %103 = phi i32 [ 0, %99 ], [ %86, %85 ], [ %83, %82 ], [ %97, %94 ]
+  %104 = load ptr, ptr @kexec_crash_image, align 8
+  %105 = icmp ne ptr %104, null
+  %106 = select i1 %9, i1 %105, i1 false
+  br i1 %106, label %107, label %108
 
-106:                                              ; preds = %100
+107:                                              ; preds = %101
   tail call void @arch_kexec_protect_crashkres() #8
-  br label %107
+  br label %108
 
-107:                                              ; preds = %106, %100, %17
-  %108 = phi ptr [ %18, %17 ], [ %101, %106 ], [ %101, %100 ]
-  %109 = phi i32 [ 0, %17 ], [ %102, %106 ], [ %102, %100 ]
-  tail call void @kimage_free(ptr noundef %108) #8
-  br label %110
+108:                                              ; preds = %107, %101, %17
+  %109 = phi ptr [ %18, %17 ], [ %102, %107 ], [ %102, %101 ]
+  %110 = phi i32 [ 0, %17 ], [ %103, %107 ], [ %103, %101 ]
+  tail call void @kimage_free(ptr noundef %109) #8
+  br label %111
 
-110:                                              ; preds = %107, %63
-  %111 = phi i32 [ %65, %63 ], [ %109, %107 ]
+111:                                              ; preds = %108, %64
+  %112 = phi i32 [ %66, %64 ], [ %110, %108 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
   store volatile i32 0, ptr @__kexec_lock, align 4
-  br label %112
+  br label %113
 
-112:                                              ; preds = %110, %4
-  %113 = phi i32 [ %111, %110 ], [ -16, %4 ]
-  ret i32 %113
+113:                                              ; preds = %111, %4
+  %114 = phi i32 [ %112, %111 ], [ -16, %4 ]
+  ret i32 %114
 }
 
 ; Function Attrs: null_pointer_is_valid

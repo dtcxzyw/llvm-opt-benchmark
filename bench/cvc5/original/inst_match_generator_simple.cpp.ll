@@ -1127,7 +1127,8 @@ entry:
   %0 = load ptr, ptr %env.addr, align 8
   %1 = load ptr, ptr %tparent.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers4inst11IMGeneratorC2ERNS0_3EnvEPNS3_7TriggerE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %d_quant = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_quant, ptr noundef nonnull align 8 dereferenceable(8) %q)
           to label %invoke.cont unwind label %lpad
@@ -1177,57 +1178,57 @@ invoke.cont15:                                    ; preds = %invoke.cont12
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup123
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup122
 
 lpad4:                                            ; preds = %invoke.cont3
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup121
 
 lpad6:                                            ; preds = %invoke.cont5
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup119
 
 lpad9:                                            ; preds = %invoke.cont103, %for.end, %if.end90, %if.else85, %if.then71, %lor.rhs, %if.then49, %for.body, %if.end37, %invoke.cont28, %if.then22, %if.end, %if.then, %invoke.cont7
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup117
 
 lpad14:                                           ; preds = %invoke.cont12
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup117
 
@@ -1271,22 +1272,22 @@ invoke.cont35:                                    ; preds = %invoke.cont32
   br label %if.end37
 
 lpad27:                                           ; preds = %invoke.cont25
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23) #3
   br label %ehcleanup117
 
 lpad34:                                           ; preds = %invoke.cont32
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30) #3
   br label %ehcleanup117
 
@@ -1301,15 +1302,15 @@ invoke.cont39:                                    ; preds = %if.end37
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont39
-  %26 = load i64, ptr %i, align 8
-  %27 = load i64, ptr %nchild, align 8
-  %cmp41 = icmp ult i64 %26, %27
+  %27 = load i64, ptr %i, align 8
+  %28 = load i64, ptr %nchild, align 8
+  %cmp41 = icmp ult i64 %27, %28
   br i1 %cmp41, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %d_match_pattern43 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 2
-  %28 = load i64, ptr %i, align 8
-  %conv = trunc i64 %28 to i32
+  %29 = load i64, ptr %i, align 8
+  %conv = trunc i64 %29 to i32
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EEixEi(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(8) %d_match_pattern43, i32 noundef %conv)
           to label %invoke.cont44 unwind label %lpad9
 
@@ -1330,16 +1331,16 @@ if.then49:                                        ; preds = %invoke.cont46
 
 invoke.cont50:                                    ; preds = %if.then49
   %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call51, i32 0, i32 41
-  %29 = load ptr, ptr %quantifiers, align 8
-  %cegqi = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %29, i32 0, i32 19
-  %30 = load i8, ptr %cegqi, align 1
-  %tobool = trunc i8 %30 to i1
+  %30 = load ptr, ptr %quantifiers, align 8
+  %cegqi = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %30, i32 0, i32 19
+  %31 = load i8, ptr %cegqi, align 1
+  %tobool = trunc i8 %31 to i1
   br i1 %tobool, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %invoke.cont50
   %d_match_pattern53 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 2
-  %31 = load i64, ptr %i, align 8
-  %conv54 = trunc i64 %31 to i32
+  %32 = load i64, ptr %i, align 8
+  %conv54 = trunc i64 %32 to i32
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EEixEi(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %d_match_pattern53, i32 noundef %conv54)
           to label %invoke.cont55 unwind label %lpad9
 
@@ -1357,7 +1358,7 @@ invoke.cont60:                                    ; preds = %invoke.cont57
   br label %lor.end
 
 lor.end:                                          ; preds = %invoke.cont60, %invoke.cont50
-  %32 = phi i1 [ true, %invoke.cont50 ], [ %call61, %invoke.cont60 ]
+  %33 = phi i1 [ true, %invoke.cont50 ], [ %call61, %invoke.cont60 ]
   %cleanup.is_active = load i1, ptr %cleanup.cond58, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
@@ -1374,12 +1375,12 @@ cleanup.action66:                                 ; preds = %cleanup.done
   br label %cleanup.done67
 
 cleanup.done67:                                   ; preds = %cleanup.action66, %cleanup.done
-  br i1 %32, label %if.then71, label %if.else85
+  br i1 %33, label %if.then71, label %if.else85
 
 if.then71:                                        ; preds = %cleanup.done67
   %d_match_pattern73 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 2
-  %33 = load i64, ptr %i, align 8
-  %conv74 = trunc i64 %33 to i32
+  %34 = load i64, ptr %i, align 8
+  %conv74 = trunc i64 %34 to i32
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EEixEi(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(8) %d_match_pattern73, i32 noundef %conv74)
           to label %invoke.cont75 unwind label %lpad9
 
@@ -1399,31 +1400,31 @@ invoke.cont82:                                    ; preds = %invoke.cont78
   br label %if.end89
 
 lpad45:                                           ; preds = %invoke.cont44
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp42) #3
   br label %ehcleanup117
 
 lpad56:                                           ; preds = %invoke.cont55
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad59:                                           ; preds = %invoke.cont57
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   %cleanup.is_active62 = load i1, ptr %cleanup.cond58, align 1
   br i1 %cleanup.is_active62, label %cleanup.action63, label %cleanup.done64
 
@@ -1446,12 +1447,12 @@ cleanup.done70:                                   ; preds = %cleanup.action69, %
   br label %ehcleanup117
 
 lpad77:                                           ; preds = %invoke.cont78, %invoke.cont75
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp72) #3
   br label %ehcleanup117
 
@@ -1470,8 +1471,8 @@ if.end89:                                         ; preds = %invoke.cont87, %inv
 if.end90:                                         ; preds = %if.end89, %invoke.cont46
   %d_match_pattern_arg_types91 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 5
   %d_match_pattern94 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 2
-  %46 = load i64, ptr %i, align 8
-  %conv95 = trunc i64 %46 to i32
+  %47 = load i64, ptr %i, align 8
+  %conv95 = trunc i64 %47 to i32
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EEixEi(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(8) %d_match_pattern94, i32 noundef %conv95)
           to label %invoke.cont96 unwind label %lpad9
 
@@ -1489,27 +1490,27 @@ invoke.cont100:                                   ; preds = %invoke.cont98
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont100
-  %47 = load i64, ptr %i, align 8
-  %inc = add i64 %47, 1
+  %48 = load i64, ptr %i, align 8
+  %inc = add i64 %48, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !4
 
 lpad97:                                           ; preds = %invoke.cont96
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %exn.slot, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %ehselector.slot, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %exn.slot, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %ehselector.slot, align 4
   br label %ehcleanup102
 
 lpad99:                                           ; preds = %invoke.cont98
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %exn.slot, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %ehselector.slot, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %exn.slot, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp92) #3
   br label %ehcleanup102
 
@@ -1519,19 +1520,19 @@ ehcleanup102:                                     ; preds = %lpad99, %lpad97
 
 for.end:                                          ; preds = %for.cond
   %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this1, i32 0, i32 3
-  %54 = load ptr, ptr %d_treg, align 8
-  %call104 = invoke noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry15getTermDatabaseEv(ptr noundef nonnull align 8 dereferenceable(208) %54)
+  %55 = load ptr, ptr %d_treg, align 8
+  %call104 = invoke noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry15getTermDatabaseEv(ptr noundef nonnull align 8 dereferenceable(208) %55)
           to label %invoke.cont103 unwind label %lpad9
 
 invoke.cont103:                                   ; preds = %for.end
   store ptr %call104, ptr %tdb, align 8
-  %55 = load ptr, ptr %tdb, align 8
+  %56 = load ptr, ptr %tdb, align 8
   %d_match_pattern107 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 2
   invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKNS1_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp106, ptr noundef nonnull align 8 dereferenceable(8) %d_match_pattern107)
           to label %invoke.cont108 unwind label %lpad9
 
 invoke.cont108:                                   ; preds = %invoke.cont103
-  invoke void @_ZN4cvc58internal6theory11quantifiers6TermDb16getMatchOperatorENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp105, ptr noundef nonnull align 8 dereferenceable(1072) %55, ptr noundef %agg.tmp106)
+  invoke void @_ZN4cvc58internal6theory11quantifiers6TermDb16getMatchOperatorENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp105, ptr noundef nonnull align 8 dereferenceable(1072) %56, ptr noundef %agg.tmp106)
           to label %invoke.cont110 unwind label %lpad109
 
 invoke.cont110:                                   ; preds = %invoke.cont108
@@ -1545,21 +1546,21 @@ invoke.cont113:                                   ; preds = %invoke.cont110
   ret void
 
 lpad109:                                          ; preds = %invoke.cont108
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %exn.slot, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %ehselector.slot, align 4
   br label %ehcleanup116
 
 lpad112:                                          ; preds = %invoke.cont110
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp105) #3
   br label %ehcleanup116
 
@@ -5034,7 +5035,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_var_num = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 7
   call void @_ZNSt3mapImiSt4lessImESaISt4pairIKmiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_var_num) #3
   %d_op = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::InstMatchGeneratorSimple", ptr %this1, i32 0, i32 6

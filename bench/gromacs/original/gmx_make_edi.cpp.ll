@@ -501,854 +501,881 @@ define noundef i32 @_Z12gmx_make_ediiPPc(i32 noundef %0, ptr noundef %1) #0 pers
   %83 = getelementptr inbounds %struct.t_filenm, ptr %78, i32 0, i32 4
   call void @llvm.memset.p0.i64(ptr align 8 %83, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %83) #10
-  store i32 100, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 4), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 10), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 5), align 8
-  %84 = load ptr, ptr %5, align 8
-  %85 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %86 unwind label %96
+  %84 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 4
+  store i32 100, ptr %84, align 4
+  %85 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 10
+  store float 0.000000e+00, ptr %85, align 8
+  %86 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 5
+  store i32 0, ptr %86, align 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %89 unwind label %99
 
-86:                                               ; preds = %2
-  %87 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %88 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
-          to label %89 unwind label %96
-
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
-  %91 = invoke noundef i32 @_Z5asizeIPKcLi100EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(800) @_ZZ12gmx_make_ediiPPcE4desc)
-          to label %92 unwind label %96
+89:                                               ; preds = %2
+  %90 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %91 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
+          to label %92 unwind label %99
 
 92:                                               ; preds = %89
-  %93 = invoke noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef %4, ptr noundef %84, i64 noundef 0, i32 noundef %85, ptr noundef %87, i32 noundef %88, ptr noundef %90, i32 noundef %91, ptr noundef @_ZZ12gmx_make_ediiPPcE4desc, i32 noundef 0, ptr noundef null, ptr noundef %28)
-          to label %94 unwind label %96
+  %93 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
+  %94 = invoke noundef i32 @_Z5asizeIPKcLi100EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(800) @_ZZ12gmx_make_ediiPPcE4desc)
+          to label %95 unwind label %99
 
-94:                                               ; preds = %92
-  br i1 %93, label %100, label %95
+95:                                               ; preds = %92
+  %96 = invoke noundef zeroext i1 @_Z17parse_common_argsPiPPcmiP8t_filenmiP7t_pargsiPPKciS8_PP16gmx_output_env_t(ptr noundef %4, ptr noundef %87, i64 noundef 0, i32 noundef %88, ptr noundef %90, i32 noundef %91, ptr noundef %93, i32 noundef %94, ptr noundef @_ZZ12gmx_make_ediiPPcE4desc, i32 noundef 0, ptr noundef null, ptr noundef %28)
+          to label %97 unwind label %99
 
-95:                                               ; preds = %94
+97:                                               ; preds = %95
+  br i1 %96, label %103, label %98
+
+98:                                               ; preds = %97
   store i32 0, ptr %3, align 4
   store i32 1, ptr %38, align 4
-  br label %531
+  br label %558
 
-96:                                               ; preds = %526, %523, %514, %510, %508, %505, %496, %484, %482, %478, %470, %464, %457, %437, %434, %431, %421, %419, %396, %388, %385, %382, %379, %377, %374, %372, %364, %351, %344, %340, %336, %333, %331, %329, %326, %324, %318, %306, %289, %268, %256, %253, %251, %247, %245, %239, %212, %185, %174, %171, %165, %161, %155, %146, %143, %134, %130, %124, %117, %115, %112, %110, %107, %105, %102, %100, %92, %89, %86, %2
-  %97 = landingpad { ptr, i32 }
+99:                                               ; preds = %553, %549, %539, %535, %533, %529, %519, %506, %504, %499, %489, %481, %472, %445, %442, %438, %426, %424, %401, %393, %390, %387, %384, %382, %379, %377, %369, %356, %349, %345, %341, %338, %336, %332, %329, %327, %321, %309, %292, %271, %259, %256, %254, %250, %248, %242, %215, %188, %177, %174, %168, %164, %158, %149, %146, %137, %133, %127, %120, %118, %115, %113, %110, %108, %105, %103, %95, %92, %89, %2
+  %100 = landingpad { ptr, i32 }
           cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %36, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %37, align 4
-  br label %540
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %36, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %37, align 4
+  br label %567
 
-100:                                              ; preds = %94
-  %101 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %102 unwind label %96
+103:                                              ; preds = %97
+  %104 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %105 unwind label %99
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %104 = invoke noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef 22, i32 noundef %101, ptr noundef %103)
-          to label %105 unwind label %96
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %107 = invoke noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef 22, i32 noundef %104, ptr noundef %106)
+          to label %108 unwind label %99
 
-105:                                              ; preds = %102
-  store ptr %104, ptr %16, align 8
-  %106 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %107 unwind label %96
+108:                                              ; preds = %105
+  store ptr %107, ptr %16, align 8
+  %109 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %110 unwind label %99
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %109 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 38, i32 noundef %106, ptr noundef %108)
-          to label %110 unwind label %96
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %112 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 38, i32 noundef %109, ptr noundef %111)
+          to label %113 unwind label %99
 
-110:                                              ; preds = %107
-  store ptr %109, ptr %24, align 8
-  %111 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %112 unwind label %96
+113:                                              ; preds = %110
+  store ptr %112, ptr %24, align 8
+  %114 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %115 unwind label %99
 
-112:                                              ; preds = %110
-  %113 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %114 = invoke noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef @.str.149, i32 noundef %111, ptr noundef %113)
-          to label %115 unwind label %96
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %117 = invoke noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef @.str.149, i32 noundef %114, ptr noundef %116)
+          to label %118 unwind label %99
 
-115:                                              ; preds = %112
-  store ptr %114, ptr %25, align 8
-  %116 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %117 unwind label %96
+118:                                              ; preds = %115
+  store ptr %117, ptr %25, align 8
+  %119 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %120 unwind label %99
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %119 = invoke noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef @.str.151, i32 noundef %116, ptr noundef %118)
-          to label %120 unwind label %96
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %122 = invoke noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef @.str.151, i32 noundef %119, ptr noundef %121)
+          to label %123 unwind label %99
 
-120:                                              ; preds = %117
-  store ptr %119, ptr %26, align 8
+123:                                              ; preds = %120
+  store ptr %122, ptr %26, align 8
   store i32 0, ptr %21, align 4
-  br label %121
+  br label %124
 
-121:                                              ; preds = %282, %120
-  %122 = load i32, ptr %21, align 4
-  %123 = icmp slt i32 %122, 7
-  br i1 %123, label %124, label %285
-
-124:                                              ; preds = %121
+124:                                              ; preds = %285, %123
   %125 = load i32, ptr %21, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %126
-  %128 = load ptr, ptr %127, align 8
-  %129 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
-          to label %130 unwind label %96
+  %126 = icmp slt i32 %125, 7
+  br i1 %126, label %127, label %288
 
-130:                                              ; preds = %124
-  %131 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
-  %132 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef %128, i32 noundef %129, ptr noundef %131)
-          to label %133 unwind label %96
+127:                                              ; preds = %124
+  %128 = load i32, ptr %21, align 4
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %129
+  %131 = load ptr, ptr %130, align 8
+  %132 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
+          to label %133 unwind label %99
 
-133:                                              ; preds = %130
-  br i1 %132, label %134, label %268
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
+  %135 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef %131, i32 noundef %132, ptr noundef %134)
+          to label %136 unwind label %99
 
-134:                                              ; preds = %133
-  %135 = load i32, ptr %21, align 4
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %136
+136:                                              ; preds = %133
+  br i1 %135, label %137, label %271
+
+137:                                              ; preds = %136
   %138 = load i32, ptr %21, align 4
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %139
-  %141 = load ptr, ptr %140, align 8
-  %142 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
-          to label %143 unwind label %96
+  %140 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %139
+  %141 = load i32, ptr %21, align 4
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %142
+  %144 = load ptr, ptr %143, align 8
+  %145 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
+          to label %146 unwind label %99
 
-143:                                              ; preds = %134
-  %144 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
-  %145 = invoke noundef ptr @_Z12opt2parg_strPKciP7t_pargs(ptr noundef %141, i32 noundef %142, ptr noundef %144)
-          to label %146 unwind label %96
+146:                                              ; preds = %137
+  %147 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
+  %148 = invoke noundef ptr @_Z12opt2parg_strPKciP7t_pargs(ptr noundef %144, i32 noundef %145, ptr noundef %147)
+          to label %149 unwind label %99
 
-146:                                              ; preds = %143
-  %147 = load i32, ptr %21, align 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %148
-  %150 = load ptr, ptr %149, align 8
-  %151 = invoke noundef i32 @_ZL10sscan_listPPiPKcS2_(ptr noundef %137, ptr noundef %145, ptr noundef %150)
-          to label %152 unwind label %96
+149:                                              ; preds = %146
+  %150 = load i32, ptr %21, align 4
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %151
+  %153 = load ptr, ptr %152, align 8
+  %154 = invoke noundef i32 @_ZL10sscan_listPPiPKcS2_(ptr noundef %140, ptr noundef %148, ptr noundef %153)
+          to label %155 unwind label %99
 
-152:                                              ; preds = %146
-  store i32 %151, ptr %22, align 4
-  %153 = load i32, ptr %21, align 4
-  %154 = icmp slt i32 %153, 2
-  br i1 %154, label %155, label %209
-
-155:                                              ; preds = %152
+155:                                              ; preds = %149
+  store i32 %154, ptr %22, align 4
   %156 = load i32, ptr %21, align 4
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE13evStepOptions, i64 0, i64 %157
-  %159 = load ptr, ptr %158, align 8
-  %160 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
-          to label %161 unwind label %96
+  %157 = icmp slt i32 %156, 2
+  br i1 %157, label %158, label %212
 
-161:                                              ; preds = %155
-  %162 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
-  %163 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef %159, i32 noundef %160, ptr noundef %162)
-          to label %164 unwind label %96
+158:                                              ; preds = %155
+  %159 = load i32, ptr %21, align 4
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE13evStepOptions, i64 0, i64 %160
+  %162 = load ptr, ptr %161, align 8
+  %163 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
+          to label %164 unwind label %99
 
-164:                                              ; preds = %161
-  br i1 %163, label %165, label %185
+164:                                              ; preds = %158
+  %165 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
+  %166 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef %162, i32 noundef %163, ptr noundef %165)
+          to label %167 unwind label %99
 
-165:                                              ; preds = %164
-  %166 = load i32, ptr %21, align 4
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE13evStepOptions, i64 0, i64 %167
-  %169 = load ptr, ptr %168, align 8
-  %170 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
-          to label %171 unwind label %96
+167:                                              ; preds = %164
+  br i1 %166, label %168, label %188
 
-171:                                              ; preds = %165
-  %172 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
-  %173 = invoke noundef ptr @_Z12opt2parg_strPKciP7t_pargs(ptr noundef %169, i32 noundef %170, ptr noundef %172)
-          to label %174 unwind label %96
+168:                                              ; preds = %167
+  %169 = load i32, ptr %21, align 4
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE13evStepOptions, i64 0, i64 %170
+  %172 = load ptr, ptr %171, align 8
+  %173 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
+          to label %174 unwind label %99
 
-174:                                              ; preds = %171
-  %175 = load i32, ptr %21, align 4
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE13evStepOptions, i64 0, i64 %176
-  %178 = load ptr, ptr %177, align 8
-  %179 = load i32, ptr %22, align 4
-  %180 = invoke noundef ptr @_ZL14scan_vecparamsPKcS0_i(ptr noundef %173, ptr noundef %178, i32 noundef %179)
-          to label %181 unwind label %96
+174:                                              ; preds = %168
+  %175 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
+  %176 = invoke noundef ptr @_Z12opt2parg_strPKciP7t_pargs(ptr noundef %172, i32 noundef %173, ptr noundef %175)
+          to label %177 unwind label %99
 
-181:                                              ; preds = %174
-  %182 = load i32, ptr %21, align 4
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %183
-  store ptr %180, ptr %184, align 8
-  br label %208
+177:                                              ; preds = %174
+  %178 = load i32, ptr %21, align 4
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE13evStepOptions, i64 0, i64 %179
+  %181 = load ptr, ptr %180, align 8
+  %182 = load i32, ptr %22, align 4
+  %183 = invoke noundef ptr @_ZL14scan_vecparamsPKcS0_i(ptr noundef %176, ptr noundef %181, i32 noundef %182)
+          to label %184 unwind label %99
 
-185:                                              ; preds = %164
-  %186 = load i32, ptr %21, align 4
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %187
-  %189 = load i32, ptr %22, align 4
+184:                                              ; preds = %177
+  %185 = load i32, ptr %21, align 4
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %186
+  store ptr %183, ptr %187, align 8
+  br label %211
+
+188:                                              ; preds = %167
+  %189 = load i32, ptr %21, align 4
   %190 = sext i32 %189 to i64
-  invoke void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 958, ptr noundef nonnull align 8 dereferenceable(8) %188, i64 noundef %190)
-          to label %191 unwind label %96
+  %191 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %190
+  %192 = load i32, ptr %22, align 4
+  %193 = sext i32 %192 to i64
+  invoke void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 958, ptr noundef nonnull align 8 dereferenceable(8) %191, i64 noundef %193)
+          to label %194 unwind label %99
 
-191:                                              ; preds = %185
+194:                                              ; preds = %188
   store i32 0, ptr %17, align 4
-  br label %192
+  br label %195
 
-192:                                              ; preds = %204, %191
-  %193 = load i32, ptr %17, align 4
-  %194 = load i32, ptr %22, align 4
-  %195 = icmp slt i32 %193, %194
-  br i1 %195, label %196, label %207
+195:                                              ; preds = %207, %194
+  %196 = load i32, ptr %17, align 4
+  %197 = load i32, ptr %22, align 4
+  %198 = icmp slt i32 %196, %197
+  br i1 %198, label %199, label %210
 
-196:                                              ; preds = %192
-  %197 = load i32, ptr %21, align 4
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %198
-  %200 = load ptr, ptr %199, align 8
-  %201 = load i32, ptr %17, align 4
-  %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds float, ptr %200, i64 %202
-  store float 0.000000e+00, ptr %203, align 4
-  br label %204
+199:                                              ; preds = %195
+  %200 = load i32, ptr %21, align 4
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %201
+  %203 = load ptr, ptr %202, align 8
+  %204 = load i32, ptr %17, align 4
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds float, ptr %203, i64 %205
+  store float 0.000000e+00, ptr %206, align 4
+  br label %207
 
-204:                                              ; preds = %196
-  %205 = load i32, ptr %17, align 4
-  %206 = add nsw i32 %205, 1
-  store i32 %206, ptr %17, align 4
-  br label %192, !llvm.loop !5
+207:                                              ; preds = %199
+  %208 = load i32, ptr %17, align 4
+  %209 = add nsw i32 %208, 1
+  store i32 %209, ptr %17, align 4
+  br label %195, !llvm.loop !5
 
-207:                                              ; preds = %192
-  br label %208
+210:                                              ; preds = %195
+  br label %211
 
-208:                                              ; preds = %207, %181
-  br label %267
+211:                                              ; preds = %210, %184
+  br label %270
 
-209:                                              ; preds = %152
-  %210 = load i32, ptr %21, align 4
-  %211 = icmp eq i32 %210, 3
-  br i1 %211, label %212, label %236
-
-212:                                              ; preds = %209
+212:                                              ; preds = %155
   %213 = load i32, ptr %21, align 4
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %214
-  %216 = load i32, ptr %22, align 4
+  %214 = icmp eq i32 %213, 3
+  br i1 %214, label %215, label %239
+
+215:                                              ; preds = %212
+  %216 = load i32, ptr %21, align 4
   %217 = sext i32 %216 to i64
-  invoke void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 967, ptr noundef nonnull align 8 dereferenceable(8) %215, i64 noundef %217)
-          to label %218 unwind label %96
+  %218 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %217
+  %219 = load i32, ptr %22, align 4
+  %220 = sext i32 %219 to i64
+  invoke void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 967, ptr noundef nonnull align 8 dereferenceable(8) %218, i64 noundef %220)
+          to label %221 unwind label %99
 
-218:                                              ; preds = %212
+221:                                              ; preds = %215
   store i32 0, ptr %17, align 4
-  br label %219
+  br label %222
 
-219:                                              ; preds = %232, %218
-  %220 = load i32, ptr %17, align 4
-  %221 = load i32, ptr %22, align 4
-  %222 = icmp slt i32 %220, %221
-  br i1 %222, label %223, label %235
+222:                                              ; preds = %235, %221
+  %223 = load i32, ptr %17, align 4
+  %224 = load i32, ptr %22, align 4
+  %225 = icmp slt i32 %223, %224
+  br i1 %225, label %226, label %238
 
-223:                                              ; preds = %219
-  %224 = load float, ptr @_ZZ12gmx_make_ediiPPcE7radstep, align 4
-  %225 = load i32, ptr %21, align 4
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %226
-  %228 = load ptr, ptr %227, align 8
-  %229 = load i32, ptr %17, align 4
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds float, ptr %228, i64 %230
-  store float %224, ptr %231, align 4
-  br label %232
+226:                                              ; preds = %222
+  %227 = load float, ptr @_ZZ12gmx_make_ediiPPcE7radstep, align 4
+  %228 = load i32, ptr %21, align 4
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %229
+  %231 = load ptr, ptr %230, align 8
+  %232 = load i32, ptr %17, align 4
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds float, ptr %231, i64 %233
+  store float %227, ptr %234, align 4
+  br label %235
 
-232:                                              ; preds = %223
-  %233 = load i32, ptr %17, align 4
-  %234 = add nsw i32 %233, 1
-  store i32 %234, ptr %17, align 4
-  br label %219, !llvm.loop !7
+235:                                              ; preds = %226
+  %236 = load i32, ptr %17, align 4
+  %237 = add nsw i32 %236, 1
+  store i32 %237, ptr %17, align 4
+  br label %222, !llvm.loop !7
 
-235:                                              ; preds = %219
-  br label %266
+238:                                              ; preds = %222
+  br label %269
 
-236:                                              ; preds = %209
-  %237 = load i32, ptr %21, align 4
-  %238 = icmp eq i32 %237, 2
-  br i1 %238, label %239, label %264
-
-239:                                              ; preds = %236
+239:                                              ; preds = %212
   %240 = load i32, ptr %21, align 4
-  %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %241
-  %243 = load i32, ptr %22, align 4
+  %241 = icmp eq i32 %240, 2
+  br i1 %241, label %242, label %267
+
+242:                                              ; preds = %239
+  %243 = load i32, ptr %21, align 4
   %244 = sext i32 %243 to i64
-  invoke void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 975, ptr noundef nonnull align 8 dereferenceable(8) %242, i64 noundef %244)
-          to label %245 unwind label %96
+  %245 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %244
+  %246 = load i32, ptr %22, align 4
+  %247 = sext i32 %246 to i64
+  invoke void @_ZL13gmx_snew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 975, ptr noundef nonnull align 8 dereferenceable(8) %245, i64 noundef %247)
+          to label %248 unwind label %99
 
-245:                                              ; preds = %239
-  %246 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
-          to label %247 unwind label %96
+248:                                              ; preds = %242
+  %249 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
+          to label %250 unwind label %99
 
-247:                                              ; preds = %245
-  %248 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
-  %249 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.143, i32 noundef %246, ptr noundef %248)
-          to label %250 unwind label %96
+250:                                              ; preds = %248
+  %251 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
+  %252 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.143, i32 noundef %249, ptr noundef %251)
+          to label %253 unwind label %99
 
-250:                                              ; preds = %247
-  br i1 %249, label %251, label %263
+253:                                              ; preds = %250
+  br i1 %252, label %254, label %266
 
-251:                                              ; preds = %250
-  %252 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
-          to label %253 unwind label %96
+254:                                              ; preds = %253
+  %255 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
+          to label %256 unwind label %99
 
-253:                                              ; preds = %251
-  %254 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
-  %255 = invoke noundef ptr @_Z12opt2parg_strPKciP7t_pargs(ptr noundef @.str.143, i32 noundef %252, ptr noundef %254)
-          to label %256 unwind label %96
-
-256:                                              ; preds = %253
-  %257 = load i32, ptr %22, align 4
-  %258 = invoke noundef ptr @_ZL14scan_vecparamsPKcS0_i(ptr noundef %255, ptr noundef @.str.143, i32 noundef %257)
-          to label %259 unwind label %96
+256:                                              ; preds = %254
+  %257 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
+  %258 = invoke noundef ptr @_Z12opt2parg_strPKciP7t_pargs(ptr noundef @.str.143, i32 noundef %255, ptr noundef %257)
+          to label %259 unwind label %99
 
 259:                                              ; preds = %256
-  %260 = load i32, ptr %21, align 4
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %261
-  store ptr %258, ptr %262, align 8
-  br label %263
+  %260 = load i32, ptr %22, align 4
+  %261 = invoke noundef ptr @_ZL14scan_vecparamsPKcS0_i(ptr noundef %258, ptr noundef @.str.143, i32 noundef %260)
+          to label %262 unwind label %99
 
-263:                                              ; preds = %259, %250
-  br label %265
-
-264:                                              ; preds = %236
-  br label %265
-
-265:                                              ; preds = %264, %263
+262:                                              ; preds = %259
+  %263 = load i32, ptr %21, align 4
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %264
+  store ptr %261, ptr %265, align 8
   br label %266
 
-266:                                              ; preds = %265, %235
-  br label %267
+266:                                              ; preds = %262, %253
+  br label %268
 
-267:                                              ; preds = %266, %208
-  br label %281
+267:                                              ; preds = %239
+  br label %268
 
-268:                                              ; preds = %133
-  %269 = load i32, ptr %21, align 4
-  %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %270
-  store ptr null, ptr %271, align 8
+268:                                              ; preds = %267, %266
+  br label %269
+
+269:                                              ; preds = %268, %238
+  br label %270
+
+270:                                              ; preds = %269, %211
+  br label %284
+
+271:                                              ; preds = %136
   %272 = load i32, ptr %21, align 4
   %273 = sext i32 %272 to i64
   %274 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %273
-  invoke void @_ZL13gmx_snew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.157, ptr noundef @.str.156, i32 noundef 992, ptr noundef nonnull align 8 dereferenceable(8) %274, i64 noundef 1)
-          to label %275 unwind label %96
+  store ptr null, ptr %274, align 8
+  %275 = load i32, ptr %21, align 4
+  %276 = sext i32 %275 to i64
+  %277 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %276
+  invoke void @_ZL13gmx_snew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.157, ptr noundef @.str.156, i32 noundef 992, ptr noundef nonnull align 8 dereferenceable(8) %277, i64 noundef 1)
+          to label %278 unwind label %99
 
-275:                                              ; preds = %268
-  %276 = load i32, ptr %21, align 4
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %277
-  %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i32, ptr %279, i64 0
-  store i32 0, ptr %280, align 4
-  br label %281
+278:                                              ; preds = %271
+  %279 = load i32, ptr %21, align 4
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %280
+  %282 = load ptr, ptr %281, align 8
+  %283 = getelementptr inbounds i32, ptr %282, i64 0
+  store i32 0, ptr %283, align 4
+  br label %284
 
-281:                                              ; preds = %275, %267
-  br label %282
+284:                                              ; preds = %278, %270
+  br label %285
 
-282:                                              ; preds = %281
-  %283 = load i32, ptr %21, align 4
-  %284 = add nsw i32 %283, 1
-  store i32 %284, ptr %21, align 4
-  br label %121, !llvm.loop !8
+285:                                              ; preds = %284
+  %286 = load i32, ptr %21, align 4
+  %287 = add nsw i32 %286, 1
+  store i32 %287, ptr %21, align 4
+  br label %124, !llvm.loop !8
 
-285:                                              ; preds = %121
+288:                                              ; preds = %124
   store i32 0, ptr %21, align 4
-  br label %286
+  br label %289
 
-286:                                              ; preds = %321, %285
-  %287 = load i32, ptr %21, align 4
-  %288 = icmp slt i32 %287, 7
-  br i1 %288, label %289, label %324
-
-289:                                              ; preds = %286
+289:                                              ; preds = %324, %288
   %290 = load i32, ptr %21, align 4
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %291
-  %293 = load ptr, ptr %292, align 8
-  %294 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.158, ptr noundef %293)
-          to label %295 unwind label %96
+  %291 = icmp slt i32 %290, 7
+  br i1 %291, label %292, label %327
 
-295:                                              ; preds = %289
+292:                                              ; preds = %289
+  %293 = load i32, ptr %21, align 4
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %294
+  %296 = load ptr, ptr %295, align 8
+  %297 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.158, ptr noundef %296)
+          to label %298 unwind label %99
+
+298:                                              ; preds = %292
   store i32 0, ptr %17, align 4
-  br label %296
+  br label %299
 
-296:                                              ; preds = %317, %295
-  %297 = load i32, ptr %21, align 4
-  %298 = sext i32 %297 to i64
-  %299 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %298
-  %300 = load ptr, ptr %299, align 8
-  %301 = load i32, ptr %17, align 4
-  %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds i32, ptr %300, i64 %302
-  %304 = load i32, ptr %303, align 4
-  %305 = icmp ne i32 %304, 0
-  br i1 %305, label %306, label %318
+299:                                              ; preds = %320, %298
+  %300 = load i32, ptr %21, align 4
+  %301 = sext i32 %300 to i64
+  %302 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %301
+  %303 = load ptr, ptr %302, align 8
+  %304 = load i32, ptr %17, align 4
+  %305 = sext i32 %304 to i64
+  %306 = getelementptr inbounds i32, ptr %303, i64 %305
+  %307 = load i32, ptr %306, align 4
+  %308 = icmp ne i32 %307, 0
+  br i1 %308, label %309, label %321
 
-306:                                              ; preds = %296
-  %307 = load i32, ptr %21, align 4
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %308
-  %310 = load ptr, ptr %309, align 8
-  %311 = load i32, ptr %17, align 4
-  %312 = add nsw i32 %311, 1
-  store i32 %312, ptr %17, align 4
-  %313 = sext i32 %311 to i64
-  %314 = getelementptr inbounds i32, ptr %310, i64 %313
-  %315 = load i32, ptr %314, align 4
-  %316 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.159, i32 noundef %315)
-          to label %317 unwind label %96
+309:                                              ; preds = %299
+  %310 = load i32, ptr %21, align 4
+  %311 = sext i32 %310 to i64
+  %312 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %311
+  %313 = load ptr, ptr %312, align 8
+  %314 = load i32, ptr %17, align 4
+  %315 = add nsw i32 %314, 1
+  store i32 %315, ptr %17, align 4
+  %316 = sext i32 %314 to i64
+  %317 = getelementptr inbounds i32, ptr %313, i64 %316
+  %318 = load i32, ptr %317, align 4
+  %319 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.159, i32 noundef %318)
+          to label %320 unwind label %99
 
-317:                                              ; preds = %306
-  br label %296, !llvm.loop !9
+320:                                              ; preds = %309
+  br label %299, !llvm.loop !9
 
-318:                                              ; preds = %296
-  %319 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.160)
-          to label %320 unwind label %96
+321:                                              ; preds = %299
+  %322 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.160)
+          to label %323 unwind label %99
 
-320:                                              ; preds = %318
-  br label %321
+323:                                              ; preds = %321
+  br label %324
 
-321:                                              ; preds = %320
-  %322 = load i32, ptr %21, align 4
-  %323 = add nsw i32 %322, 1
-  store i32 %323, ptr %21, align 4
-  br label %286, !llvm.loop !10
+324:                                              ; preds = %323
+  %325 = load i32, ptr %21, align 4
+  %326 = add nsw i32 %325, 1
+  store i32 %326, ptr %21, align 4
+  br label %289, !llvm.loop !10
 
-324:                                              ; preds = %286
-  %325 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %326 unwind label %96
+327:                                              ; preds = %289
+  %328 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %329 unwind label %99
 
-326:                                              ; preds = %324
-  %327 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %328 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.145, i32 noundef %325, ptr noundef %327)
-          to label %329 unwind label %96
+329:                                              ; preds = %327
+  %330 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %331 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.145, i32 noundef %328, ptr noundef %330)
+          to label %332 unwind label %99
 
-329:                                              ; preds = %326
-  store ptr %328, ptr %27, align 8
-  %330 = load ptr, ptr %27, align 8
-  invoke void @_Z17read_eigenvectorsPKcPiPbPPA3_fS2_S5_S2_S1_PS1_PS5_PPf(ptr noundef %330, ptr noundef %14, ptr noundef %33, ptr noundef %8, ptr noundef getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 1), ptr noundef %11, ptr noundef getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 2), ptr noundef %9, ptr noundef %10, ptr noundef %12, ptr noundef %23)
-          to label %331 unwind label %96
+332:                                              ; preds = %329
+  store ptr %331, ptr %27, align 8
+  %333 = load ptr, ptr %27, align 8
+  %334 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 1
+  %335 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 2
+  invoke void @_Z17read_eigenvectorsPKcPiPbPPA3_fS2_S5_S2_S1_PS1_PS5_PPf(ptr noundef %333, ptr noundef %14, ptr noundef %33, ptr noundef %8, ptr noundef %334, ptr noundef %11, ptr noundef %335, ptr noundef %9, ptr noundef %10, ptr noundef %12, ptr noundef %23)
+          to label %336 unwind label %99
 
-331:                                              ; preds = %329
-  %332 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %333 unwind label %96
+336:                                              ; preds = %332
+  %337 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %338 unwind label %99
 
-333:                                              ; preds = %331
-  %334 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %335 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 25, i32 noundef %332, ptr noundef %334)
-          to label %336 unwind label %96
+338:                                              ; preds = %336
+  %339 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %340 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 25, i32 noundef %337, ptr noundef %339)
+          to label %341 unwind label %99
 
-336:                                              ; preds = %333
-  store ptr %335, ptr %40, align 8
+341:                                              ; preds = %338
+  store ptr %340, ptr %40, align 8
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(8) %40, i8 noundef zeroext 2)
-          to label %337 unwind label %96
+          to label %342 unwind label %99
 
-337:                                              ; preds = %336
-  %338 = getelementptr inbounds [3 x [3 x float]], ptr %31, i64 0, i64 0
-  %339 = invoke noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_topologyP7PbcTypePPA3_fSA_S9_b(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %29, ptr noundef %30, ptr noundef %32, ptr noundef null, ptr noundef %338, i1 noundef zeroext false)
-          to label %340 unwind label %356
+342:                                              ; preds = %341
+  %343 = getelementptr inbounds [3 x [3 x float]], ptr %31, i64 0, i64 0
+  %344 = invoke noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_topologyP7PbcTypePPA3_fSA_S9_b(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %29, ptr noundef %30, ptr noundef %32, ptr noundef null, ptr noundef %343, i1 noundef zeroext false)
+          to label %345 unwind label %361
 
-340:                                              ; preds = %337
+345:                                              ; preds = %342
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #10
-  %341 = getelementptr inbounds %struct.t_topology, ptr %29, i32 0, i32 2
-  store ptr %341, ptr %13, align 8
-  %342 = load i32, ptr %14, align 4
-  %343 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.161, i32 noundef %342)
-          to label %344 unwind label %96
+  %346 = getelementptr inbounds %struct.t_topology, ptr %29, i32 0, i32 2
+  store ptr %346, ptr %13, align 8
+  %347 = load i32, ptr %14, align 4
+  %348 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.161, i32 noundef %347)
+          to label %349 unwind label %99
 
-344:                                              ; preds = %340
-  %345 = load ptr, ptr %13, align 8
-  %346 = load ptr, ptr %16, align 8
-  invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef %345, ptr noundef %346, i32 noundef 1, ptr noundef %17, ptr noundef %18, ptr noundef %15)
-          to label %347 unwind label %96
+349:                                              ; preds = %345
+  %350 = load ptr, ptr %13, align 8
+  %351 = load ptr, ptr %16, align 8
+  invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef %350, ptr noundef %351, i32 noundef 1, ptr noundef %17, ptr noundef %18, ptr noundef %15)
+          to label %352 unwind label %99
 
-347:                                              ; preds = %344
-  %348 = load i32, ptr %17, align 4
-  %349 = load i32, ptr %14, align 4
-  %350 = icmp ne i32 %348, %349
-  br i1 %350, label %351, label %364
-
-351:                                              ; preds = %347
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 1 dereferenceable(129) @.str.156, i8 noundef zeroext 2)
-          to label %352 unwind label %96
-
-352:                                              ; preds = %351
+352:                                              ; preds = %349
   %353 = load i32, ptr %17, align 4
   %354 = load i32, ptr %14, align 4
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %41, i32 noundef 1023, ptr noundef @.str.162, i32 noundef %353, i32 noundef %354) #11
-          to label %355 unwind label %360
+  %355 = icmp ne i32 %353, %354
+  br i1 %355, label %356, label %369
 
-355:                                              ; preds = %352
+356:                                              ; preds = %352
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 1 dereferenceable(129) @.str.156, i8 noundef zeroext 2)
+          to label %357 unwind label %99
+
+357:                                              ; preds = %356
+  %358 = load i32, ptr %17, align 4
+  %359 = load i32, ptr %14, align 4
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %41, i32 noundef 1023, ptr noundef @.str.162, i32 noundef %358, i32 noundef %359) #11
+          to label %360 unwind label %365
+
+360:                                              ; preds = %357
   unreachable
 
-356:                                              ; preds = %337
-  %357 = landingpad { ptr, i32 }
+361:                                              ; preds = %342
+  %362 = landingpad { ptr, i32 }
           cleanup
-  %358 = extractvalue { ptr, i32 } %357, 0
-  store ptr %358, ptr %36, align 8
-  %359 = extractvalue { ptr, i32 } %357, 1
-  store i32 %359, ptr %37, align 4
+  %363 = extractvalue { ptr, i32 } %362, 0
+  store ptr %363, ptr %36, align 8
+  %364 = extractvalue { ptr, i32 } %362, 1
+  store i32 %364, ptr %37, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #10
-  br label %540
+  br label %567
 
-360:                                              ; preds = %352
-  %361 = landingpad { ptr, i32 }
+365:                                              ; preds = %357
+  %366 = landingpad { ptr, i32 }
           cleanup
-  %362 = extractvalue { ptr, i32 } %361, 0
-  store ptr %362, ptr %36, align 8
-  %363 = extractvalue { ptr, i32 } %361, 1
-  store i32 %363, ptr %37, align 4
+  %367 = extractvalue { ptr, i32 } %366, 0
+  store ptr %367, ptr %36, align 8
+  %368 = extractvalue { ptr, i32 } %366, 1
+  store i32 %368, ptr %37, align 4
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #10
-  br label %540
+  br label %567
 
-364:                                              ; preds = %347
-  %365 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.160)
-          to label %366 unwind label %96
+369:                                              ; preds = %352
+  %370 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.160)
+          to label %371 unwind label %99
 
-366:                                              ; preds = %364
-  %367 = load ptr, ptr %8, align 8
-  %368 = icmp eq ptr %367, null
-  br i1 %368, label %369, label %416
+371:                                              ; preds = %369
+  %372 = load ptr, ptr %8, align 8
+  %373 = icmp eq ptr %372, null
+  br i1 %373, label %374, label %421
 
-369:                                              ; preds = %366
-  %370 = load i8, ptr %33, align 1
-  %371 = trunc i8 %370 to i1
-  br i1 %371, label %372, label %382
-
-372:                                              ; preds = %369
-  %373 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %374 unwind label %96
-
-374:                                              ; preds = %372
-  %375 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %376 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 25, i32 noundef %373, ptr noundef %375)
-          to label %377 unwind label %96
+374:                                              ; preds = %371
+  %375 = load i8, ptr %33, align 1
+  %376 = trunc i8 %375 to i1
+  br i1 %376, label %377, label %387
 
 377:                                              ; preds = %374
-  %378 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.163, ptr noundef %376)
-          to label %379 unwind label %96
+  %378 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %379 unwind label %99
 
 379:                                              ; preds = %377
-  %380 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.164)
-          to label %381 unwind label %96
+  %380 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %381 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 25, i32 noundef %378, ptr noundef %380)
+          to label %382 unwind label %99
 
-381:                                              ; preds = %379
-  br label %385
-
-382:                                              ; preds = %369
-  %383 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.165)
-          to label %384 unwind label %96
+382:                                              ; preds = %379
+  %383 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.163, ptr noundef %381)
+          to label %384 unwind label %99
 
 384:                                              ; preds = %382
-  br label %385
+  %385 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.164)
+          to label %386 unwind label %99
 
-385:                                              ; preds = %384, %381
-  %386 = load ptr, ptr %13, align 8
-  %387 = load ptr, ptr %16, align 8
-  invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef %386, ptr noundef %387, i32 noundef 1, ptr noundef %20, ptr noundef %19, ptr noundef %15)
-          to label %388 unwind label %96
+386:                                              ; preds = %384
+  br label %390
 
-388:                                              ; preds = %385
-  %389 = load i32, ptr %20, align 4
-  %390 = sext i32 %389 to i64
-  invoke void @_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m(ptr noundef @.str.166, ptr noundef @.str.156, i32 noundef 1044, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %390)
-          to label %391 unwind label %96
+387:                                              ; preds = %374
+  %388 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.165)
+          to label %389 unwind label %99
 
-391:                                              ; preds = %388
-  store i32 0, ptr %17, align 4
-  br label %392
+389:                                              ; preds = %387
+  br label %390
 
-392:                                              ; preds = %412, %391
-  %393 = load i32, ptr %17, align 4
+390:                                              ; preds = %389, %386
+  %391 = load ptr, ptr %13, align 8
+  %392 = load ptr, ptr %16, align 8
+  invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef %391, ptr noundef %392, i32 noundef 1, ptr noundef %20, ptr noundef %19, ptr noundef %15)
+          to label %393 unwind label %99
+
+393:                                              ; preds = %390
   %394 = load i32, ptr %20, align 4
-  %395 = icmp slt i32 %393, %394
-  br i1 %395, label %396, label %415
+  %395 = sext i32 %394 to i64
+  invoke void @_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m(ptr noundef @.str.166, ptr noundef @.str.156, i32 noundef 1044, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %395)
+          to label %396 unwind label %99
 
-396:                                              ; preds = %392
-  %397 = load ptr, ptr %32, align 8
-  %398 = load ptr, ptr %19, align 8
-  %399 = load i32, ptr %17, align 4
-  %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds i32, ptr %398, i64 %400
-  %402 = load i32, ptr %401, align 4
-  %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds [3 x float], ptr %397, i64 %403
-  %405 = getelementptr inbounds [3 x float], ptr %404, i64 0, i64 0
-  %406 = load ptr, ptr %8, align 8
-  %407 = load i32, ptr %17, align 4
+396:                                              ; preds = %393
+  store i32 0, ptr %17, align 4
+  br label %397
+
+397:                                              ; preds = %417, %396
+  %398 = load i32, ptr %17, align 4
+  %399 = load i32, ptr %20, align 4
+  %400 = icmp slt i32 %398, %399
+  br i1 %400, label %401, label %420
+
+401:                                              ; preds = %397
+  %402 = load ptr, ptr %32, align 8
+  %403 = load ptr, ptr %19, align 8
+  %404 = load i32, ptr %17, align 4
+  %405 = sext i32 %404 to i64
+  %406 = getelementptr inbounds i32, ptr %403, i64 %405
+  %407 = load i32, ptr %406, align 4
   %408 = sext i32 %407 to i64
-  %409 = getelementptr inbounds [3 x float], ptr %406, i64 %408
+  %409 = getelementptr inbounds [3 x float], ptr %402, i64 %408
   %410 = getelementptr inbounds [3 x float], ptr %409, i64 0, i64 0
-  invoke void @_ZL9copy_rvecPKfPf(ptr noundef %405, ptr noundef %410)
-          to label %411 unwind label %96
+  %411 = load ptr, ptr %8, align 8
+  %412 = load i32, ptr %17, align 4
+  %413 = sext i32 %412 to i64
+  %414 = getelementptr inbounds [3 x float], ptr %411, i64 %413
+  %415 = getelementptr inbounds [3 x float], ptr %414, i64 0, i64 0
+  invoke void @_ZL9copy_rvecPKfPf(ptr noundef %410, ptr noundef %415)
+          to label %416 unwind label %99
 
-411:                                              ; preds = %396
-  br label %412
+416:                                              ; preds = %401
+  br label %417
 
-412:                                              ; preds = %411
-  %413 = load i32, ptr %17, align 4
-  %414 = add nsw i32 %413, 1
-  store i32 %414, ptr %17, align 4
-  br label %392, !llvm.loop !11
+417:                                              ; preds = %416
+  %418 = load i32, ptr %17, align 4
+  %419 = add nsw i32 %418, 1
+  store i32 %419, ptr %17, align 4
+  br label %397, !llvm.loop !11
 
-415:                                              ; preds = %392
-  br label %419
+420:                                              ; preds = %397
+  br label %424
 
-416:                                              ; preds = %366
-  %417 = load i32, ptr %14, align 4
-  store i32 %417, ptr %20, align 4
-  %418 = load ptr, ptr %18, align 8
-  store ptr %418, ptr %19, align 8
-  br label %419
+421:                                              ; preds = %371
+  %422 = load i32, ptr %14, align 4
+  store i32 %422, ptr %20, align 4
+  %423 = load ptr, ptr %18, align 8
+  store ptr %423, ptr %19, align 8
+  br label %424
 
-419:                                              ; preds = %416, %415
-  %420 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
-          to label %421 unwind label %96
-
-421:                                              ; preds = %419
-  %422 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
-  %423 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.143, i32 noundef %420, ptr noundef %422)
-          to label %424 unwind label %96
-
-424:                                              ; preds = %421
-  br i1 %423, label %425, label %426
-
-425:                                              ; preds = %424
-  store i8 1, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 2), align 1
-  br label %470
+424:                                              ; preds = %421, %420
+  %425 = invoke noundef i32 @_Z5asizeI7t_pargsLi24EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(768) %7)
+          to label %426 unwind label %99
 
 426:                                              ; preds = %424
-  %427 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2), align 16
-  %428 = getelementptr inbounds i32, ptr %427, i64 0
-  %429 = load i32, ptr %428, align 4
-  %430 = icmp ne i32 %429, 0
-  br i1 %430, label %431, label %445
+  %427 = getelementptr inbounds [24 x %struct.t_pargs], ptr %7, i64 0, i64 0
+  %428 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef @.str.143, i32 noundef %425, ptr noundef %427)
+          to label %429 unwind label %99
 
-431:                                              ; preds = %426
-  %432 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2), align 16
-  %433 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %434 unwind label %96
+429:                                              ; preds = %426
+  br i1 %428, label %430, label %432
 
-434:                                              ; preds = %431
-  %435 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %436 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.147, i32 noundef %433, ptr noundef %435)
-          to label %437 unwind label %96
+430:                                              ; preds = %429
+  %431 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 2
+  store i8 1, ptr %431, align 1
+  br label %489
 
-437:                                              ; preds = %434
-  %438 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 2), align 16
-  %439 = load i8, ptr @_ZZ12gmx_make_ediiPPcE6bHesse, align 1
-  %440 = trunc i8 %439 to i1
-  %441 = load float, ptr @_ZZ12gmx_make_ediiPPcE1T, align 4
-  %442 = fmul float 0x3F81111120000000, %441
-  %443 = load i32, ptr %14, align 4
-  invoke void @_ZL16read_eigenvaluesPKiPKcPfbfi(ptr noundef %432, ptr noundef %436, ptr noundef %438, i1 noundef zeroext %440, float noundef %442, i32 noundef %443)
-          to label %444 unwind label %96
+432:                                              ; preds = %429
+  %433 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2
+  %434 = load ptr, ptr %433, align 16
+  %435 = getelementptr inbounds i32, ptr %434, i64 0
+  %436 = load i32, ptr %435, align 4
+  %437 = icmp ne i32 %436, 0
+  br i1 %437, label %438, label %454
 
-444:                                              ; preds = %437
-  br label %445
+438:                                              ; preds = %432
+  %439 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2
+  %440 = load ptr, ptr %439, align 16
+  %441 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %442 unwind label %99
 
-445:                                              ; preds = %444, %426
-  %446 = load float, ptr @_ZZ12gmx_make_ediiPPcE3tau, align 4
-  store float %446, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 3), align 8
-  %447 = load float, ptr @_ZZ12gmx_make_ediiPPcE7deltaF0, align 4
-  store float %447, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12), align 8
-  %448 = load float, ptr @_ZZ12gmx_make_ediiPPcE6deltaF, align 4
-  store float %448, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 4), align 4
-  %449 = load i32, ptr @_ZZ12gmx_make_ediiPPcE7eqSteps, align 4
-  store i32 %449, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 3), align 8
+442:                                              ; preds = %438
+  %443 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %444 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef @.str.147, i32 noundef %441, ptr noundef %443)
+          to label %445 unwind label %99
+
+445:                                              ; preds = %442
+  %446 = getelementptr inbounds [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 2
+  %447 = load ptr, ptr %446, align 16
+  %448 = load i8, ptr @_ZZ12gmx_make_ediiPPcE6bHesse, align 1
+  %449 = trunc i8 %448 to i1
   %450 = load float, ptr @_ZZ12gmx_make_ediiPPcE1T, align 4
   %451 = fmul float 0x3F81111120000000, %450
-  store float %451, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 5), align 8
-  %452 = load i8, ptr @_ZZ12gmx_make_ediiPPcE9bHarmonic, align 1
-  %453 = trunc i8 %452 to i1
-  %454 = zext i1 %453 to i8
-  store i8 %454, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 1), align 4
-  %455 = load i8, ptr @_ZZ12gmx_make_ediiPPcE9bRestrain, align 1
-  %456 = trunc i8 %455 to i1
-  br i1 %456, label %457, label %464
+  %452 = load i32, ptr %14, align 4
+  invoke void @_ZL16read_eigenvaluesPKiPKcPfbfi(ptr noundef %440, ptr noundef %444, ptr noundef %447, i1 noundef zeroext %449, float noundef %451, i32 noundef %452)
+          to label %453 unwind label %99
 
-457:                                              ; preds = %445
-  %458 = load float, ptr @_ZZ12gmx_make_ediiPPcE8constEfl, align 4
-  %459 = fneg float %458
-  store float %459, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 6), align 4
-  %460 = load float, ptr @_ZZ12gmx_make_ediiPPcE5alpha, align 4
-  %461 = invoke noundef float @_ZN3gmx6squareIfEET_S1_(float noundef %460)
-          to label %462 unwind label %96
+453:                                              ; preds = %445
+  br label %454
 
-462:                                              ; preds = %457
-  %463 = fneg float %461
-  store float %463, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 7), align 8
-  br label %469
+454:                                              ; preds = %453, %432
+  %455 = load float, ptr @_ZZ12gmx_make_ediiPPcE3tau, align 4
+  %456 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 3
+  store float %455, ptr %456, align 8
+  %457 = load float, ptr @_ZZ12gmx_make_ediiPPcE7deltaF0, align 4
+  %458 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12
+  store float %457, ptr %458, align 8
+  %459 = load float, ptr @_ZZ12gmx_make_ediiPPcE6deltaF, align 4
+  %460 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 4
+  store float %459, ptr %460, align 4
+  %461 = load i32, ptr @_ZZ12gmx_make_ediiPPcE7eqSteps, align 4
+  %462 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 3
+  store i32 %461, ptr %462, align 8
+  %463 = load float, ptr @_ZZ12gmx_make_ediiPPcE1T, align 4
+  %464 = fmul float 0x3F81111120000000, %463
+  %465 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 5
+  store float %464, ptr %465, align 8
+  %466 = load i8, ptr @_ZZ12gmx_make_ediiPPcE9bHarmonic, align 1
+  %467 = trunc i8 %466 to i1
+  %468 = zext i1 %467 to i8
+  %469 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 1
+  store i8 %468, ptr %469, align 4
+  %470 = load i8, ptr @_ZZ12gmx_make_ediiPPcE9bRestrain, align 1
+  %471 = trunc i8 %470 to i1
+  br i1 %471, label %472, label %481
 
-464:                                              ; preds = %445
-  %465 = load float, ptr @_ZZ12gmx_make_ediiPPcE8constEfl, align 4
-  store float %465, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 6), align 4
-  %466 = load float, ptr @_ZZ12gmx_make_ediiPPcE5alpha, align 4
-  %467 = invoke noundef float @_ZN3gmx6squareIfEET_S1_(float noundef %466)
-          to label %468 unwind label %96
+472:                                              ; preds = %454
+  %473 = load float, ptr @_ZZ12gmx_make_ediiPPcE8constEfl, align 4
+  %474 = fneg float %473
+  %475 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 6
+  store float %474, ptr %475, align 4
+  %476 = load float, ptr @_ZZ12gmx_make_ediiPPcE5alpha, align 4
+  %477 = invoke noundef float @_ZN3gmx6squareIfEET_S1_(float noundef %476)
+          to label %478 unwind label %99
 
-468:                                              ; preds = %464
-  store float %467, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 7), align 8
-  br label %469
+478:                                              ; preds = %472
+  %479 = fneg float %477
+  %480 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 7
+  store float %479, ptr %480, align 8
+  br label %488
 
-469:                                              ; preds = %468, %462
-  br label %470
+481:                                              ; preds = %454
+  %482 = load float, ptr @_ZZ12gmx_make_ediiPPcE8constEfl, align 4
+  %483 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 6
+  store float %482, ptr %483, align 4
+  %484 = load float, ptr @_ZZ12gmx_make_ediiPPcE5alpha, align 4
+  %485 = invoke noundef float @_ZN3gmx6squareIfEET_S1_(float noundef %484)
+          to label %486 unwind label %99
 
-470:                                              ; preds = %469, %425
-  %471 = load i32, ptr %14, align 4
-  store i32 %471, ptr getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 11), align 4
-  %472 = load ptr, ptr %13, align 8
-  %473 = getelementptr inbounds %struct.t_atoms, ptr %472, i32 0, i32 0
-  %474 = load i32, ptr %473, align 8
-  store i32 %474, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, align 8
-  %475 = load i32, ptr %20, align 4
-  %476 = load ptr, ptr %8, align 8
-  %477 = load ptr, ptr %19, align 8
-  invoke void @_ZL10make_t_edxP4edixiPA3_fPi(ptr noundef getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 6), i32 noundef %475, ptr noundef %476, ptr noundef %477)
-          to label %478 unwind label %96
+486:                                              ; preds = %481
+  %487 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 12, i32 7
+  store float %485, ptr %487, align 8
+  br label %488
 
-478:                                              ; preds = %470
-  %479 = load i32, ptr %14, align 4
-  %480 = load ptr, ptr %11, align 8
-  %481 = load ptr, ptr %18, align 8
-  invoke void @_ZL10make_t_edxP4edixiPA3_fPi(ptr noundef getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 7), i32 noundef %479, ptr noundef %480, ptr noundef %481)
-          to label %482 unwind label %96
+488:                                              ; preds = %486, %478
+  br label %489
 
-482:                                              ; preds = %478
-  %483 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %484 unwind label %96
+489:                                              ; preds = %488, %430
+  %490 = load i32, ptr %14, align 4
+  %491 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 11
+  store i32 %490, ptr %491, align 4
+  %492 = load ptr, ptr %13, align 8
+  %493 = getelementptr inbounds %struct.t_atoms, ptr %492, i32 0, i32 0
+  %494 = load i32, ptr %493, align 8
+  store i32 %494, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, align 8
+  %495 = load i32, ptr %20, align 4
+  %496 = load ptr, ptr %8, align 8
+  %497 = load ptr, ptr %19, align 8
+  %498 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 6
+  invoke void @_ZL10make_t_edxP4edixiPA3_fPi(ptr noundef %498, i32 noundef %495, ptr noundef %496, ptr noundef %497)
+          to label %499 unwind label %99
 
-484:                                              ; preds = %482
-  %485 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %486 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.149, i32 noundef %483, ptr noundef %485)
-          to label %487 unwind label %96
+499:                                              ; preds = %489
+  %500 = load i32, ptr %14, align 4
+  %501 = load ptr, ptr %11, align 8
+  %502 = load ptr, ptr %18, align 8
+  %503 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 7
+  invoke void @_ZL10make_t_edxP4edixiPA3_fPi(ptr noundef %503, i32 noundef %500, ptr noundef %501, ptr noundef %502)
+          to label %504 unwind label %99
 
-487:                                              ; preds = %484
-  br i1 %486, label %488, label %505
+504:                                              ; preds = %499
+  %505 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %506 unwind label %99
 
-488:                                              ; preds = %487
-  %489 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2), align 16
-  %490 = getelementptr inbounds i32, ptr %489, i64 0
-  %491 = load i32, ptr %490, align 4
-  %492 = icmp ne i32 0, %491
-  br i1 %492, label %493, label %496
+506:                                              ; preds = %504
+  %507 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %508 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.149, i32 noundef %505, ptr noundef %507)
+          to label %509 unwind label %99
 
-493:                                              ; preds = %488
-  %494 = load ptr, ptr @stderr, align 8
-  %495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %494, ptr noundef @.str.167) #10
-  br label %496
+509:                                              ; preds = %506
+  br i1 %508, label %510, label %529
 
-496:                                              ; preds = %493, %488
-  %497 = load ptr, ptr %13, align 8
-  %498 = load ptr, ptr %16, align 8
-  %499 = load ptr, ptr %25, align 8
-  %500 = load i32, ptr %20, align 4
-  %501 = load ptr, ptr %19, align 8
-  %502 = load i32, ptr %14, align 4
-  %503 = load ptr, ptr %18, align 8
-  invoke void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef %497, ptr noundef %498, ptr noundef %499, ptr noundef getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 8), i32 noundef %500, ptr noundef %501, i32 noundef %502, ptr noundef %503)
-          to label %504 unwind label %96
+510:                                              ; preds = %509
+  %511 = getelementptr inbounds [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 2
+  %512 = load ptr, ptr %511, align 16
+  %513 = getelementptr inbounds i32, ptr %512, i64 0
+  %514 = load i32, ptr %513, align 4
+  %515 = icmp ne i32 0, %514
+  br i1 %515, label %516, label %519
 
-504:                                              ; preds = %496
-  br label %508
+516:                                              ; preds = %510
+  %517 = load ptr, ptr @stderr, align 8
+  %518 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %517, ptr noundef @.str.167) #10
+  br label %519
 
-505:                                              ; preds = %487
-  %506 = load ptr, ptr %18, align 8
-  invoke void @_ZL10make_t_edxP4edixiPA3_fPi(ptr noundef getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 8), i32 noundef 0, ptr noundef null, ptr noundef %506)
-          to label %507 unwind label %96
+519:                                              ; preds = %516, %510
+  %520 = load ptr, ptr %13, align 8
+  %521 = load ptr, ptr %16, align 8
+  %522 = load ptr, ptr %25, align 8
+  %523 = load i32, ptr %20, align 4
+  %524 = load ptr, ptr %19, align 8
+  %525 = load i32, ptr %14, align 4
+  %526 = load ptr, ptr %18, align 8
+  %527 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 8
+  invoke void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef %520, ptr noundef %521, ptr noundef %522, ptr noundef %527, i32 noundef %523, ptr noundef %524, i32 noundef %525, ptr noundef %526)
+          to label %528 unwind label %99
 
-507:                                              ; preds = %505
-  br label %508
+528:                                              ; preds = %519
+  br label %533
 
-508:                                              ; preds = %507, %504
-  %509 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
-          to label %510 unwind label %96
+529:                                              ; preds = %509
+  %530 = load ptr, ptr %18, align 8
+  %531 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 8
+  invoke void @_ZL10make_t_edxP4edixiPA3_fPi(ptr noundef %531, i32 noundef 0, ptr noundef null, ptr noundef %530)
+          to label %532 unwind label %99
 
-510:                                              ; preds = %508
-  %511 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
-  %512 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.151, i32 noundef %509, ptr noundef %511)
-          to label %513 unwind label %96
+532:                                              ; preds = %529
+  br label %533
 
-513:                                              ; preds = %510
-  br i1 %512, label %514, label %523
+533:                                              ; preds = %532, %528
+  %534 = invoke noundef i32 @_Z5asizeI8t_filenmLi7EEiRAT0__T_(ptr noundef nonnull align 8 dereferenceable(392) %34)
+          to label %535 unwind label %99
 
-514:                                              ; preds = %513
-  %515 = load ptr, ptr %13, align 8
-  %516 = load ptr, ptr %16, align 8
-  %517 = load ptr, ptr %26, align 8
-  %518 = load i32, ptr %20, align 4
-  %519 = load ptr, ptr %19, align 8
-  %520 = load i32, ptr %14, align 4
-  %521 = load ptr, ptr %18, align 8
-  invoke void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef %515, ptr noundef %516, ptr noundef %517, ptr noundef getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 9), i32 noundef %518, ptr noundef %519, i32 noundef %520, ptr noundef %521)
-          to label %522 unwind label %96
+535:                                              ; preds = %533
+  %536 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i64 0, i64 0
+  %537 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef @.str.151, i32 noundef %534, ptr noundef %536)
+          to label %538 unwind label %99
 
-522:                                              ; preds = %514
-  br label %526
+538:                                              ; preds = %535
+  br i1 %537, label %539, label %549
 
-523:                                              ; preds = %513
-  %524 = load ptr, ptr %18, align 8
-  invoke void @_ZL10make_t_edxP4edixiPA3_fPi(ptr noundef getelementptr inbounds (%struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 9), i32 noundef 0, ptr noundef null, ptr noundef %524)
-          to label %525 unwind label %96
+539:                                              ; preds = %538
+  %540 = load ptr, ptr %13, align 8
+  %541 = load ptr, ptr %16, align 8
+  %542 = load ptr, ptr %26, align 8
+  %543 = load i32, ptr %20, align 4
+  %544 = load ptr, ptr %19, align 8
+  %545 = load i32, ptr %14, align 4
+  %546 = load ptr, ptr %18, align 8
+  %547 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 9
+  invoke void @_ZL13get_structurePK7t_atomsPKcS3_P4edixiPiiS6_(ptr noundef %540, ptr noundef %541, ptr noundef %542, ptr noundef %547, i32 noundef %543, ptr noundef %544, i32 noundef %545, ptr noundef %546)
+          to label %548 unwind label %99
 
-525:                                              ; preds = %523
-  br label %526
+548:                                              ; preds = %539
+  br label %553
 
-526:                                              ; preds = %525, %522
-  %527 = load ptr, ptr %24, align 8
-  %528 = load ptr, ptr %12, align 8
-  %529 = load i32, ptr %9, align 4
-  invoke void @_ZL21write_the_whole_thingPKcP6ediparPPA3_fiPPiPPf(ptr noundef %527, ptr noundef @_ZZ12gmx_make_ediiPPcE10edi_params, ptr noundef %528, i32 noundef %529, ptr noundef @_ZZ12gmx_make_ediiPPcE6listen, ptr noundef @_ZZ12gmx_make_ediiPPcE10evStepList)
-          to label %530 unwind label %96
+549:                                              ; preds = %538
+  %550 = load ptr, ptr %18, align 8
+  %551 = getelementptr inbounds %struct.edipar, ptr @_ZZ12gmx_make_ediiPPcE10edi_params, i32 0, i32 9
+  invoke void @_ZL10make_t_edxP4edixiPA3_fPi(ptr noundef %551, i32 noundef 0, ptr noundef null, ptr noundef %550)
+          to label %552 unwind label %99
 
-530:                                              ; preds = %526
+552:                                              ; preds = %549
+  br label %553
+
+553:                                              ; preds = %552, %548
+  %554 = load ptr, ptr %24, align 8
+  %555 = load ptr, ptr %12, align 8
+  %556 = load i32, ptr %9, align 4
+  invoke void @_ZL21write_the_whole_thingPKcP6ediparPPA3_fiPPiPPf(ptr noundef %554, ptr noundef @_ZZ12gmx_make_ediiPPcE10edi_params, ptr noundef %555, i32 noundef %556, ptr noundef @_ZZ12gmx_make_ediiPPcE6listen, ptr noundef @_ZZ12gmx_make_ediiPPcE10evStepList)
+          to label %557 unwind label %99
+
+557:                                              ; preds = %553
   store i32 0, ptr %3, align 4
   store i32 1, ptr %38, align 4
-  br label %531
+  br label %558
 
-531:                                              ; preds = %530, %95
-  %532 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i32 0, i32 0
-  %533 = getelementptr inbounds %struct.t_filenm, ptr %532, i64 7
-  br label %534
+558:                                              ; preds = %557, %98
+  %559 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i32 0, i32 0
+  %560 = getelementptr inbounds %struct.t_filenm, ptr %559, i64 7
+  br label %561
 
-534:                                              ; preds = %534, %531
-  %535 = phi ptr [ %533, %531 ], [ %536, %534 ]
-  %536 = getelementptr inbounds %struct.t_filenm, ptr %535, i64 -1
-  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %536) #10
-  %537 = icmp eq ptr %536, %532
-  br i1 %537, label %538, label %534
+561:                                              ; preds = %561, %558
+  %562 = phi ptr [ %560, %558 ], [ %563, %561 ]
+  %563 = getelementptr inbounds %struct.t_filenm, ptr %562, i64 -1
+  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %563) #10
+  %564 = icmp eq ptr %563, %559
+  br i1 %564, label %565, label %561
 
-538:                                              ; preds = %534
-  %539 = load i32, ptr %3, align 4
-  ret i32 %539
+565:                                              ; preds = %561
+  %566 = load i32, ptr %3, align 4
+  ret i32 %566
 
-540:                                              ; preds = %360, %356, %96
-  %541 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i32 0, i32 0
-  %542 = getelementptr inbounds %struct.t_filenm, ptr %541, i64 7
-  br label %543
+567:                                              ; preds = %365, %361, %99
+  %568 = getelementptr inbounds [7 x %struct.t_filenm], ptr %34, i32 0, i32 0
+  %569 = getelementptr inbounds %struct.t_filenm, ptr %568, i64 7
+  br label %570
 
-543:                                              ; preds = %543, %540
-  %544 = phi ptr [ %542, %540 ], [ %545, %543 ]
-  %545 = getelementptr inbounds %struct.t_filenm, ptr %544, i64 -1
-  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %545) #10
-  %546 = icmp eq ptr %545, %541
-  br i1 %546, label %547, label %543
+570:                                              ; preds = %570, %567
+  %571 = phi ptr [ %569, %567 ], [ %572, %570 ]
+  %572 = getelementptr inbounds %struct.t_filenm, ptr %571, i64 -1
+  call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %572) #10
+  %573 = icmp eq ptr %572, %568
+  br i1 %573, label %574, label %570
 
-547:                                              ; preds = %543
-  br label %548
+574:                                              ; preds = %570
+  br label %575
 
-548:                                              ; preds = %547
-  %549 = load ptr, ptr %36, align 8
-  %550 = load i32, ptr %37, align 4
-  %551 = insertvalue { ptr, i32 } poison, ptr %549, 0
-  %552 = insertvalue { ptr, i32 } %551, i32 %550, 1
-  resume { ptr, i32 } %552
+575:                                              ; preds = %574
+  %576 = load ptr, ptr %36, align 8
+  %577 = load i32, ptr %37, align 4
+  %578 = insertvalue { ptr, i32 } poison, ptr %576, 0
+  %579 = insertvalue { ptr, i32 } %578, i32 %577, 1
+  resume { ptr, i32 } %579
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -10342,13 +10342,14 @@ define hidden void @_ZN5ceres8internal20RefinedDenseCholeskyC2ESt10unique_ptrINS
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal13DenseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5ceres8internal20RefinedDenseCholeskyE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.ceres::internal::RefinedDenseCholesky", ptr %7, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5ceres8internal13DenseCholeskyESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %1) #14
-  %9 = getelementptr inbounds %"class.ceres::internal::RefinedDenseCholesky", ptr %7, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5ceres8internal21DenseIterativeRefinerESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
-  %10 = getelementptr inbounds %"class.ceres::internal::RefinedDenseCholesky", ptr %7, i32 0, i32 3
-  store ptr null, ptr %10, align 8
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ceres8internal20RefinedDenseCholeskyE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.ceres::internal::RefinedDenseCholesky", ptr %7, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5ceres8internal13DenseCholeskyESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %1) #14
+  %10 = getelementptr inbounds %"class.ceres::internal::RefinedDenseCholesky", ptr %7, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5ceres8internal21DenseIterativeRefinerESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
+  %11 = getelementptr inbounds %"class.ceres::internal::RefinedDenseCholesky", ptr %7, i32 0, i32 3
+  store ptr null, ptr %11, align 8
   ret void
 }
 
@@ -10357,7 +10358,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal13DenseCholeskyC2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5ceres8internal13DenseCholeskyE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ceres8internal13DenseCholeskyE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10625,95 +10627,96 @@ define hidden void @_ZN5ceres8internal17CUDADenseCholeskyC2EPNS0_11ContextImplE(
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal13DenseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5ceres8internal17CUDADenseCholeskyE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 2
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 3
-  %12 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12)
-          to label %13 unwind label %24
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ceres8internal17CUDADenseCholeskyE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 2
+  store i64 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 3
+  %13 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %13)
+          to label %14 unwind label %25
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 4
-  %15 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %15)
-          to label %16 unwind label %28
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 4
+  %16 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %16)
+          to label %17 unwind label %29
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 5
-  %18 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %18)
-          to label %19 unwind label %32
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 5
+  %19 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef %19)
+          to label %20 unwind label %33
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 6
-  %21 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %21, i32 noundef 1)
-          to label %22 unwind label %36
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 6
+  %22 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef %22, i32 noundef 1)
+          to label %23 unwind label %37
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 7
-  store i32 3, ptr %23, align 8
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholesky", ptr %7, i32 0, i32 7
+  store i32 3, ptr %24, align 8
   ret void
 
-24:                                               ; preds = %2
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %2
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %5, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %6, align 4
-  br label %42
-
-28:                                               ; preds = %13
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  br label %41
-
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %5, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %6, align 4
-  br label %40
-
-36:                                               ; preds = %19
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %5, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %6, align 4
-  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
-  br label %40
-
-40:                                               ; preds = %36, %32
-  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
-  br label %41
-
-41:                                               ; preds = %40, %28
-  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
-  br label %42
-
-42:                                               ; preds = %41, %24
-  call void @_ZN5ceres8internal13DenseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+29:                                               ; preds = %14
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  br label %42
+
+33:                                               ; preds = %17
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  br label %41
+
+37:                                               ; preds = %20
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
+  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  br label %41
+
+41:                                               ; preds = %37, %33
+  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  br label %42
+
+42:                                               ; preds = %41, %29
+  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  br label %43
+
+43:                                               ; preds = %42, %25
+  call void @_ZN5ceres8internal13DenseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %6, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12413,193 +12416,194 @@ define hidden void @_ZN5ceres8internal31CUDADenseCholeskyMixedPrecisionC2EPNS0_1
   store i32 %2, ptr %6, align 4
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal13DenseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5ceres8internal31CUDADenseCholeskyMixedPrecisionE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 2
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 3
-  %14 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %14)
-          to label %15 unwind label %43
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ceres8internal31CUDADenseCholeskyMixedPrecisionE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 2
+  store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 3
+  %15 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %15)
+          to label %16 unwind label %44
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 4
-  %17 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %17)
-          to label %18 unwind label %47
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 4
+  %18 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %18)
+          to label %19 unwind label %48
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 5
-  %20 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIfEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %20)
-          to label %21 unwind label %51
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 5
+  %21 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIfEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %21)
+          to label %22 unwind label %52
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 6
-  %23 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIfEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef %23)
-          to label %24 unwind label %55
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 6
+  %24 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIfEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %24)
+          to label %25 unwind label %56
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 7
-  %26 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef %26, i32 noundef 1)
-          to label %27 unwind label %59
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 7
+  %27 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef %27, i32 noundef 1)
+          to label %28 unwind label %60
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 8
-  %29 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef %29)
-          to label %30 unwind label %63
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 8
+  %30 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef %30)
+          to label %31 unwind label %64
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 9
-  %32 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIfEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef %32)
-          to label %33 unwind label %67
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 9
+  %33 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIfEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %33)
+          to label %34 unwind label %68
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 10
-  %35 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIfEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef %35)
-          to label %36 unwind label %71
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 10
+  %36 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIfEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef %36)
+          to label %37 unwind label %72
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 11
-  %38 = load ptr, ptr %5, align 8
-  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef %38)
-          to label %39 unwind label %75
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 11
+  %39 = load ptr, ptr %5, align 8
+  invoke void @_ZN5ceres8internal10CudaBufferIdEC2EPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef %39)
+          to label %40 unwind label %76
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 12
-  %41 = load i32, ptr %6, align 4
-  store i32 %41, ptr %40, align 8
-  %42 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 13
-  store i32 3, ptr %42, align 4
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 12
+  %42 = load i32, ptr %6, align 4
+  store i32 %42, ptr %41, align 8
+  %43 = getelementptr inbounds %"class.ceres::internal::CUDADenseCholeskyMixedPrecision", ptr %9, i32 0, i32 13
+  store i32 3, ptr %43, align 4
   ret void
 
-43:                                               ; preds = %3
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %3
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %7, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %8, align 4
-  br label %86
-
-47:                                               ; preds = %15
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %7, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %8, align 4
-  br label %85
-
-51:                                               ; preds = %18
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %7, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %8, align 4
-  br label %84
-
-55:                                               ; preds = %21
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %7, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %8, align 4
-  br label %83
-
-59:                                               ; preds = %24
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %7, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %8, align 4
-  br label %82
-
-63:                                               ; preds = %27
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %7, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %8, align 4
-  br label %81
-
-67:                                               ; preds = %30
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %7, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %8, align 4
-  br label %80
-
-71:                                               ; preds = %33
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %7, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %8, align 4
-  br label %79
-
-75:                                               ; preds = %36
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %7, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %8, align 4
-  call void @_ZN5ceres8internal10CudaBufferIfED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
-  br label %79
-
-79:                                               ; preds = %75, %71
-  call void @_ZN5ceres8internal10CudaBufferIfED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #14
-  br label %80
-
-80:                                               ; preds = %79, %67
-  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #14
-  br label %81
-
-81:                                               ; preds = %80, %63
-  call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
-  br label %82
-
-82:                                               ; preds = %81, %59
-  call void @_ZN5ceres8internal10CudaBufferIfED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #14
-  br label %83
-
-83:                                               ; preds = %82, %55
-  call void @_ZN5ceres8internal10CudaBufferIfED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
-  br label %84
-
-84:                                               ; preds = %83, %51
-  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
-  br label %85
-
-85:                                               ; preds = %84, %47
-  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  br label %86
-
-86:                                               ; preds = %85, %43
-  call void @_ZN5ceres8internal13DenseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #14
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %7, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %8, align 4
   br label %87
 
-87:                                               ; preds = %86
-  %88 = load ptr, ptr %7, align 8
-  %89 = load i32, ptr %8, align 4
-  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
-  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
-  resume { ptr, i32 } %91
+48:                                               ; preds = %16
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %7, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %8, align 4
+  br label %86
+
+52:                                               ; preds = %19
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %7, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %8, align 4
+  br label %85
+
+56:                                               ; preds = %22
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %7, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %8, align 4
+  br label %84
+
+60:                                               ; preds = %25
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %7, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %8, align 4
+  br label %83
+
+64:                                               ; preds = %28
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %7, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %8, align 4
+  br label %82
+
+68:                                               ; preds = %31
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %7, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %8, align 4
+  br label %81
+
+72:                                               ; preds = %34
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %7, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %8, align 4
+  br label %80
+
+76:                                               ; preds = %37
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %7, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %8, align 4
+  call void @_ZN5ceres8internal10CudaBufferIfED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #14
+  br label %80
+
+80:                                               ; preds = %76, %72
+  call void @_ZN5ceres8internal10CudaBufferIfED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #14
+  br label %81
+
+81:                                               ; preds = %80, %68
+  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
+  br label %82
+
+82:                                               ; preds = %81, %64
+  call void @_ZN5ceres8internal10CudaBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
+  br label %83
+
+83:                                               ; preds = %82, %60
+  call void @_ZN5ceres8internal10CudaBufferIfED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #14
+  br label %84
+
+84:                                               ; preds = %83, %56
+  call void @_ZN5ceres8internal10CudaBufferIfED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #14
+  br label %85
+
+85:                                               ; preds = %84, %52
+  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
+  br label %86
+
+86:                                               ; preds = %85, %48
+  call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
+  br label %87
+
+87:                                               ; preds = %86, %44
+  call void @_ZN5ceres8internal13DenseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #14
+  br label %88
+
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %7, align 8
+  %90 = load i32, ptr %8, align 4
+  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
+  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
+  resume { ptr, i32 } %92
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14443,68 +14447,69 @@ define linkonce_odr hidden void @_ZN5ceres8internal23FloatEigenDenseCholeskyC2Ev
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal13DenseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5ceres8internal23FloatEigenDenseCholeskyE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::FloatEigenDenseCholesky", ptr %5, i32 0, i32 1
-  invoke void @_ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %7 unwind label %13
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ceres8internal23FloatEigenDenseCholeskyE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::FloatEigenDenseCholesky", ptr %5, i32 0, i32 1
+  invoke void @_ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %8 unwind label %14
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.ceres::internal::FloatEigenDenseCholesky", ptr %5, i32 0, i32 2
-  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %9 unwind label %17
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.ceres::internal::FloatEigenDenseCholesky", ptr %5, i32 0, i32 2
+  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %10 unwind label %18
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds %"class.ceres::internal::FloatEigenDenseCholesky", ptr %5, i32 0, i32 3
-  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %11 unwind label %21
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds %"class.ceres::internal::FloatEigenDenseCholesky", ptr %5, i32 0, i32 3
+  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %12 unwind label %22
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds %"class.ceres::internal::FloatEigenDenseCholesky", ptr %5, i32 0, i32 4
-  call void @_ZNSt10unique_ptrIN5Eigen3LLTINS0_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1EEESt14default_deleteIS4_EEC2IS6_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %"class.ceres::internal::FloatEigenDenseCholesky", ptr %5, i32 0, i32 4
+  call void @_ZNSt10unique_ptrIN5Eigen3LLTINS0_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1EEESt14default_deleteIS4_EEC2IS6_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #14
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  br label %26
-
-17:                                               ; preds = %7
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  br label %25
-
-21:                                               ; preds = %9
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %3, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %4, align 4
-  call void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  br label %26
-
-26:                                               ; preds = %25, %13
-  call void @_ZN5ceres8internal13DenseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
   br label %27
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i32, ptr %4, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+18:                                               ; preds = %8
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %26
+
+22:                                               ; preds = %10
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  call void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  br label %27
+
+27:                                               ; preds = %26, %14
+  call void @_ZN5ceres8internal13DenseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %3, align 8
+  %30 = load i32, ptr %4, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15052,9 +15057,10 @@ define linkonce_odr hidden void @_ZN5ceres8internal18EigenDenseCholeskyC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal13DenseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5ceres8internal18EigenDenseCholeskyE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::EigenDenseCholesky", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5Eigen3LLTINS0_3RefINS0_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS0_11OuterStrideILin1EEEEELi1EEESt14default_deleteIS8_EEC2ISA_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ceres8internal18EigenDenseCholeskyE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::EigenDenseCholesky", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5Eigen3LLTINS0_3RefINS0_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS0_11OuterStrideILin1EEEEELi1EEESt14default_deleteIS8_EEC2ISA_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   ret void
 }
 
@@ -15410,52 +15416,53 @@ define linkonce_odr hidden void @_ZN5ceres8internal24FloatLAPACKDenseCholeskyC2E
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal13DenseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5ceres8internal24FloatLAPACKDenseCholeskyE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::FloatLAPACKDenseCholesky", ptr %5, i32 0, i32 1
-  invoke void @_ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %7 unwind label %12
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ceres8internal24FloatLAPACKDenseCholeskyE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::FloatLAPACKDenseCholesky", ptr %5, i32 0, i32 1
+  invoke void @_ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %8 unwind label %13
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.ceres::internal::FloatLAPACKDenseCholesky", ptr %5, i32 0, i32 2
-  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %9 unwind label %16
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.ceres::internal::FloatLAPACKDenseCholesky", ptr %5, i32 0, i32 2
+  invoke void @_ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %10 unwind label %17
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds %"class.ceres::internal::FloatLAPACKDenseCholesky", ptr %5, i32 0, i32 3
-  store i32 -1, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.ceres::internal::FloatLAPACKDenseCholesky", ptr %5, i32 0, i32 4
-  store i32 3, ptr %11, align 4
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds %"class.ceres::internal::FloatLAPACKDenseCholesky", ptr %5, i32 0, i32 3
+  store i32 -1, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.ceres::internal::FloatLAPACKDenseCholesky", ptr %5, i32 0, i32 4
+  store i32 3, ptr %12, align 4
   ret void
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  br label %20
-
-16:                                               ; preds = %7
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  call void @_ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  br label %20
-
-20:                                               ; preds = %16, %12
-  call void @_ZN5ceres8internal13DenseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
   br label %21
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %3, align 8
-  %23 = load i32, ptr %4, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+17:                                               ; preds = %8
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %3, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %4, align 4
+  call void @_ZN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  br label %21
+
+21:                                               ; preds = %17, %13
+  call void @_ZN5ceres8internal13DenseCholeskyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15723,13 +15730,14 @@ define linkonce_odr hidden void @_ZN5ceres8internal19LAPACKDenseCholeskyC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal13DenseCholeskyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5ceres8internal19LAPACKDenseCholeskyE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::LAPACKDenseCholesky", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.ceres::internal::LAPACKDenseCholesky", ptr %3, i32 0, i32 2
-  store i32 -1, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::LAPACKDenseCholesky", ptr %3, i32 0, i32 3
-  store i32 3, ptr %6, align 4
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ceres8internal19LAPACKDenseCholeskyE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::LAPACKDenseCholesky", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.ceres::internal::LAPACKDenseCholesky", ptr %3, i32 0, i32 2
+  store i32 -1, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::LAPACKDenseCholesky", ptr %3, i32 0, i32 3
+  store i32 3, ptr %7, align 4
   ret void
 }
 
@@ -34665,7 +34673,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20manage_caching_sizesENS_6Ac
 
 16:                                               ; preds = %13
   invoke void @_ZN5Eigen8internal10CacheSizesC2Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes)
-          to label %17 unwind label %28
+          to label %17 unwind label %30
 
 17:                                               ; preds = %16
   call void @__cxa_guard_release(ptr @_ZGVZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes) #14
@@ -34674,7 +34682,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20manage_caching_sizesENS_6Ac
 18:                                               ; preds = %17, %13, %4
   %19 = load i32, ptr %5, align 4
   %20 = icmp eq i32 %19, 1
-  br i1 %20, label %21, label %32
+  br i1 %20, label %21, label %34
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %6, align 8
@@ -34682,54 +34690,58 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20manage_caching_sizesENS_6Ac
   store i64 %23, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, align 8
   %24 = load ptr, ptr %7, align 8
   %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 1), align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i64, ptr %26, align 8
-  store i64 %27, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 2), align 8
-  br label %44
+  %26 = getelementptr inbounds %"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 1
+  store i64 %25, ptr %26, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds %"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 2
+  store i64 %28, ptr %29, align 8
+  br label %48
 
-28:                                               ; preds = %16
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %16
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %9, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %10, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes) #14
-  br label %45
+  br label %49
 
-32:                                               ; preds = %18
-  %33 = load i32, ptr %5, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %42
+34:                                               ; preds = %18
+  %35 = load i32, ptr %5, align 4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %46
 
-35:                                               ; preds = %32
-  %36 = load i64, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, align 8
-  %37 = load ptr, ptr %6, align 8
-  store i64 %36, ptr %37, align 8
-  %38 = load i64, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 1), align 8
-  %39 = load ptr, ptr %7, align 8
+37:                                               ; preds = %34
+  %38 = load i64, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, align 8
+  %39 = load ptr, ptr %6, align 8
   store i64 %38, ptr %39, align 8
-  %40 = load i64, ptr getelementptr inbounds (%"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 2), align 8
-  %41 = load ptr, ptr %8, align 8
-  store i64 %40, ptr %41, align 8
-  br label %43
+  %40 = getelementptr inbounds %"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 1
+  %41 = load i64, ptr %40, align 8
+  %42 = load ptr, ptr %7, align 8
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds %"struct.Eigen::internal::CacheSizes", ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i32 0, i32 2
+  %44 = load i64, ptr %43, align 8
+  %45 = load ptr, ptr %8, align 8
+  store i64 %44, ptr %45, align 8
+  br label %47
 
-42:                                               ; preds = %32
-  br label %43
+46:                                               ; preds = %34
+  br label %47
 
-43:                                               ; preds = %42, %35
-  br label %44
+47:                                               ; preds = %46, %37
+  br label %48
 
-44:                                               ; preds = %43, %21
+48:                                               ; preds = %47, %21
   ret void
 
-45:                                               ; preds = %28
-  %46 = load ptr, ptr %9, align 8
-  %47 = load i32, ptr %10, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+49:                                               ; preds = %30
+  %50 = load ptr, ptr %9, align 8
+  %51 = load i32, ptr %10, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -38594,7 +38606,8 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -38608,7 +38621,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -3170,68 +3170,72 @@ define void @_ZN22colvarbias_reweightaMDC1EPKc(ptr noundef nonnull align 8 deref
   call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %8)
   %9 = getelementptr inbounds i8, ptr %7, i64 872
   invoke void @_ZN10colvardepsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %9)
-          to label %10 unwind label %23
+          to label %10 unwind label %27
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN20colvarbias_histogramC2EPKc(ptr noundef nonnull align 8 dereferenceable(440) %7, ptr noundef getelementptr inbounds ([9 x ptr], ptr @_ZTT22colvarbias_reweightaMD, i64 0, i64 1), ptr noundef %11)
-          to label %12 unwind label %27
+  %12 = getelementptr inbounds [9 x ptr], ptr @_ZTT22colvarbias_reweightaMD, i64 0, i64 1
+  invoke void @_ZN20colvarbias_histogramC2EPKc(ptr noundef nonnull align 8 dereferenceable(440) %7, ptr noundef %12, ptr noundef %11)
+          to label %13 unwind label %31
 
-12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-32, 288) ({ [40 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV22colvarbias_reweightaMD, i32 0, i32 0, i32 4), ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 552
-  store ptr getelementptr inbounds inrange(-72, 64) ({ [40 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV22colvarbias_reweightaMD, i32 0, i32 1, i32 9), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 872
-  store ptr getelementptr inbounds inrange(-56, 48) ({ [40 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV22colvarbias_reweightaMD, i32 0, i32 2, i32 7), ptr %14, align 8
-  %15 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
-  %16 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 4
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 5
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 6
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 10
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 11
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds { [40 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV22colvarbias_reweightaMD, i32 0, i32 0, i32 4
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 552
+  %16 = getelementptr inbounds { [40 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV22colvarbias_reweightaMD, i32 0, i32 1, i32 9
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 872
+  %18 = getelementptr inbounds { [40 x ptr], [17 x ptr], [13 x ptr] }, ptr @_ZTV22colvarbias_reweightaMD, i32 0, i32 2, i32 7
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+  %20 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 4
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 12
+  %21 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 5
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 13
+  %22 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 6
   store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 10
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 11
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 12
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds %class.colvarbias_reweightaMD, ptr %7, i32 0, i32 13
+  store ptr null, ptr %26, align 8
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %32
-
-27:                                               ; preds = %10
+27:                                               ; preds = %2
   %28 = landingpad { ptr, i32 }
           cleanup
   %29 = extractvalue { ptr, i32 } %28, 0
   store ptr %29, ptr %5, align 8
   %30 = extractvalue { ptr, i32 } %28, 1
   store i32 %30, ptr %6, align 4
-  %31 = getelementptr inbounds i8, ptr %7, i64 872
-  call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %31) #13
-  br label %32
+  br label %36
 
-32:                                               ; preds = %27, %23
-  %33 = getelementptr inbounds i8, ptr %7, i64 552
-  call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %33) #13
-  br label %34
+31:                                               ; preds = %10
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  %35 = getelementptr inbounds i8, ptr %7, i64 872
+  call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %35) #13
+  br label %36
 
-34:                                               ; preds = %32
-  %35 = load ptr, ptr %5, align 8
-  %36 = load i32, ptr %6, align 4
-  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
-  resume { ptr, i32 } %38
+36:                                               ; preds = %31, %27
+  %37 = getelementptr inbounds i8, ptr %7, i64 552
+  call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %37) #13
+  br label %38
+
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 declare void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #0

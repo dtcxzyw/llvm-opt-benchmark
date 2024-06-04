@@ -537,64 +537,67 @@ define internal ptr @pg_load_tz(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %36
+  br label %39
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
   %10 = call i32 @strcmp(ptr noundef %9, ptr noundef @.str.3) #5
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %17
+  br i1 %11, label %12, label %18
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %3, align 8
-  %14 = call zeroext i1 @tzparse(ptr noundef %13, ptr noundef getelementptr inbounds (%struct.pg_tz, ptr @pg_load_tz.tz, i32 0, i32 1), i1 noundef zeroext true)
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %12
-  store ptr null, ptr %2, align 8
-  br label %36
+  %14 = getelementptr inbounds %struct.pg_tz, ptr @pg_load_tz.tz, i32 0, i32 1
+  %15 = call zeroext i1 @tzparse(ptr noundef %13, ptr noundef %14, i1 noundef zeroext true)
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %12
-  br label %33
-
-17:                                               ; preds = %8
-  %18 = load ptr, ptr %3, align 8
-  %19 = call i32 @tzload(ptr noundef %18, ptr noundef null, ptr noundef getelementptr inbounds (%struct.pg_tz, ptr @pg_load_tz.tz, i32 0, i32 1), i1 noundef zeroext true)
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %32
-
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr i8, ptr %22, i64 0
-  %24 = load i8, ptr %23, align 1
-  %25 = sext i8 %24 to i32
-  %26 = icmp eq i32 %25, 58
-  br i1 %26, label %30, label %27
-
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %3, align 8
-  %29 = call zeroext i1 @tzparse(ptr noundef %28, ptr noundef getelementptr inbounds (%struct.pg_tz, ptr @pg_load_tz.tz, i32 0, i32 1), i1 noundef zeroext false)
-  br i1 %29, label %31, label %30
-
-30:                                               ; preds = %27, %21
   store ptr null, ptr %2, align 8
+  br label %39
+
+17:                                               ; preds = %12
   br label %36
 
-31:                                               ; preds = %27
-  br label %32
+18:                                               ; preds = %8
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds %struct.pg_tz, ptr @pg_load_tz.tz, i32 0, i32 1
+  %21 = call i32 @tzload(ptr noundef %19, ptr noundef null, ptr noundef %20, i1 noundef zeroext true)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %35
 
-32:                                               ; preds = %31, %17
-  br label %33
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr i8, ptr %24, i64 0
+  %26 = load i8, ptr %25, align 1
+  %27 = sext i8 %26 to i32
+  %28 = icmp eq i32 %27, 58
+  br i1 %28, label %33, label %29
 
-33:                                               ; preds = %32, %16
-  %34 = load ptr, ptr %3, align 8
-  %35 = call ptr @strcpy(ptr noundef @pg_load_tz.tz, ptr noundef %34) #6
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct.pg_tz, ptr @pg_load_tz.tz, i32 0, i32 1
+  %32 = call zeroext i1 @tzparse(ptr noundef %30, ptr noundef %31, i1 noundef zeroext false)
+  br i1 %32, label %34, label %33
+
+33:                                               ; preds = %29, %23
+  store ptr null, ptr %2, align 8
+  br label %39
+
+34:                                               ; preds = %29
+  br label %35
+
+35:                                               ; preds = %34, %18
+  br label %36
+
+36:                                               ; preds = %35, %17
+  %37 = load ptr, ptr %3, align 8
+  %38 = call ptr @strcpy(ptr noundef @pg_load_tz.tz, ptr noundef %37) #6
   store ptr @pg_load_tz.tz, ptr %2, align 8
-  br label %36
+  br label %39
 
-36:                                               ; preds = %33, %30, %15, %7
-  %37 = load ptr, ptr %2, align 8
-  ret ptr %37
+39:                                               ; preds = %36, %33, %16, %7
+  %40 = load ptr, ptr %2, align 8
+  ret ptr %40
 }
 
 declare zeroext i1 @pg_tz_acceptable(ptr noundef) #1

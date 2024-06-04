@@ -14835,7 +14835,7 @@ define internal i32 @dissect_gsm_map(ptr noundef %0, ptr noundef %1, ptr noundef
   %41 = call ptr @try_val_to_str_idx(i32 noundef %40, ptr noundef @gsm_map_opr_code_strings, ptr noundef %11)
   %42 = load i32, ptr %11, align 4
   %43 = icmp ne i32 %42, -1
-  br i1 %43, label %44, label %54
+  br i1 %43, label %44, label %56
 
 44:                                               ; preds = %4
   %45 = load i8, ptr @gsmmap_pdu_type, align 1
@@ -14844,19 +14844,21 @@ define internal i32 @dissect_gsm_map(ptr noundef %0, ptr noundef %1, ptr noundef
   %48 = select i1 %47, i32 1, i32 0
   store i32 %48, ptr @dissect_gsm_map.tap_rec, align 4
   %49 = load i32, ptr @opcode, align 4
-  store i32 %49, ptr getelementptr inbounds (%struct._gsm_map_tap_rec_t, ptr @dissect_gsm_map.tap_rec, i32 0, i32 1), align 4
-  %50 = load i8, ptr @gsm_map_pdu_size, align 1
-  %51 = zext i8 %50 to i16
-  store i16 %51, ptr getelementptr inbounds (%struct._gsm_map_tap_rec_t, ptr @dissect_gsm_map.tap_rec, i32 0, i32 2), align 4
-  %52 = load i32, ptr @gsm_map_tap, align 4
-  %53 = load ptr, ptr %6, align 8
-  call void @tap_queue_packet(i32 noundef %52, ptr noundef %53, ptr noundef @dissect_gsm_map.tap_rec)
-  br label %54
+  %50 = getelementptr inbounds %struct._gsm_map_tap_rec_t, ptr @dissect_gsm_map.tap_rec, i32 0, i32 1
+  store i32 %49, ptr %50, align 4
+  %51 = load i8, ptr @gsm_map_pdu_size, align 1
+  %52 = zext i8 %51 to i16
+  %53 = getelementptr inbounds %struct._gsm_map_tap_rec_t, ptr @dissect_gsm_map.tap_rec, i32 0, i32 2
+  store i16 %52, ptr %53, align 4
+  %54 = load i32, ptr @gsm_map_tap, align 4
+  %55 = load ptr, ptr %6, align 8
+  call void @tap_queue_packet(i32 noundef %54, ptr noundef %55, ptr noundef @dissect_gsm_map.tap_rec)
+  br label %56
 
-54:                                               ; preds = %44, %4
-  %55 = load ptr, ptr %5, align 8
-  %56 = call i32 @tvb_captured_length(ptr noundef %55)
-  ret i32 %56
+56:                                               ; preds = %44, %4
+  %57 = load ptr, ptr %5, align 8
+  %58 = call i32 @tvb_captured_length(ptr noundef %57)
+  ret i32 %58
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14914,7 +14916,7 @@ define internal i32 @dissect_gsm_map_sccp(ptr noundef %0, ptr noundef %1, ptr no
   %41 = call ptr @try_val_to_str_idx(i32 noundef %40, ptr noundef @gsm_map_opr_code_strings, ptr noundef %11)
   %42 = load i32, ptr %11, align 4
   %43 = icmp ne i32 %42, -1
-  br i1 %43, label %44, label %54
+  br i1 %43, label %44, label %56
 
 44:                                               ; preds = %4
   %45 = load i8, ptr @gsmmap_pdu_type, align 1
@@ -14923,19 +14925,21 @@ define internal i32 @dissect_gsm_map_sccp(ptr noundef %0, ptr noundef %1, ptr no
   %48 = select i1 %47, i32 1, i32 0
   store i32 %48, ptr @dissect_gsm_map_sccp.tap_rec, align 4
   %49 = load i32, ptr @opcode, align 4
-  store i32 %49, ptr getelementptr inbounds (%struct._gsm_map_tap_rec_t, ptr @dissect_gsm_map_sccp.tap_rec, i32 0, i32 1), align 4
-  %50 = load i8, ptr @gsm_map_pdu_size, align 1
-  %51 = zext i8 %50 to i16
-  store i16 %51, ptr getelementptr inbounds (%struct._gsm_map_tap_rec_t, ptr @dissect_gsm_map_sccp.tap_rec, i32 0, i32 2), align 4
-  %52 = load i32, ptr @gsm_map_tap, align 4
-  %53 = load ptr, ptr %6, align 8
-  call void @tap_queue_packet(i32 noundef %52, ptr noundef %53, ptr noundef @dissect_gsm_map_sccp.tap_rec)
-  br label %54
+  %50 = getelementptr inbounds %struct._gsm_map_tap_rec_t, ptr @dissect_gsm_map_sccp.tap_rec, i32 0, i32 1
+  store i32 %49, ptr %50, align 4
+  %51 = load i8, ptr @gsm_map_pdu_size, align 1
+  %52 = zext i8 %51 to i16
+  %53 = getelementptr inbounds %struct._gsm_map_tap_rec_t, ptr @dissect_gsm_map_sccp.tap_rec, i32 0, i32 2
+  store i16 %52, ptr %53, align 4
+  %54 = load i32, ptr @gsm_map_tap, align 4
+  %55 = load ptr, ptr %6, align 8
+  call void @tap_queue_packet(i32 noundef %54, ptr noundef %55, ptr noundef @dissect_gsm_map_sccp.tap_rec)
+  br label %56
 
-54:                                               ; preds = %44, %4
-  %55 = load ptr, ptr %5, align 8
-  %56 = call i32 @tvb_captured_length(ptr noundef %55)
-  ret i32 %56
+56:                                               ; preds = %44, %4
+  %57 = load ptr, ptr %5, align 8
+  %58 = call i32 @tvb_captured_length(ptr noundef %57)
+  ret i32 %58
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1

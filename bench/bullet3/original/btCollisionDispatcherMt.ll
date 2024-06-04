@@ -233,7 +233,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %config.addr, align 8
   call void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(20816) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_batchManifoldsPtr = getelementptr inbounds %class.btCollisionDispatcherMt, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_batchManifoldsPtr)
           to label %invoke.cont unwind label %lpad
@@ -251,8 +252,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 invoke.cont6:                                     ; preds = %invoke.cont3
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %1 = load ptr, ptr %vfn, align 8
-  %call8 = invoke noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(21) %call)
+  %2 = load ptr, ptr %vfn, align 8
+  %call8 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(21) %call)
           to label %invoke.cont7 unwind label %lpad5
 
 invoke.cont7:                                     ; preds = %invoke.cont6
@@ -272,8 +273,8 @@ invoke.cont11:                                    ; preds = %invoke.cont9
 invoke.cont13:                                    ; preds = %invoke.cont11
   %vtable15 = load ptr, ptr %call14, align 8
   %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 3
-  %2 = load ptr, ptr %vfn16, align 8
-  %call18 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(21) %call14)
+  %3 = load ptr, ptr %vfn16, align 8
+  %call18 = invoke noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(21) %call14)
           to label %invoke.cont17 unwind label %lpad5
 
 invoke.cont17:                                    ; preds = %invoke.cont13
@@ -288,55 +289,55 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp19) #8
   %m_batchUpdating = getelementptr inbounds %class.btCollisionDispatcherMt, ptr %this1, i32 0, i32 3
   store i8 0, ptr %m_batchUpdating, align 8
-  %3 = load i32, ptr %grainSize.addr, align 4
+  %4 = load i32, ptr %grainSize.addr, align 4
   %m_grainSize = getelementptr inbounds %class.btCollisionDispatcherMt, ptr %this1, i32 0, i32 4
-  store i32 %3, ptr %m_grainSize, align 4
+  store i32 %4, ptr %m_grainSize, align 4
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup24
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup23
 
 lpad5:                                            ; preds = %invoke.cont17, %invoke.cont13, %invoke.cont11, %invoke.cont7, %invoke.cont6, %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont9
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp) #8
   br label %ehcleanup
 
 lpad21:                                           ; preds = %invoke.cont20
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp19) #8
   br label %ehcleanup
 
@@ -1414,7 +1415,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26CollisionDispatcherUpdater, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV26CollisionDispatcherUpdater, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mPairArray = getelementptr inbounds %struct.CollisionDispatcherUpdater, ptr %this1, i32 0, i32 1
   store ptr null, ptr %mPairArray, align 8
   %mCallback = getelementptr inbounds %struct.CollisionDispatcherUpdater, ptr %this1, i32 0, i32 2
@@ -1491,7 +1493,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_batchReleasePtr = getelementptr inbounds %class.btCollisionDispatcherMt, ptr %this1, i32 0, i32 2
   call void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_batchReleasePtr) #8
   %m_batchManifoldsPtr = getelementptr inbounds %class.btCollisionDispatcherMt, ptr %this1, i32 0, i32 1
@@ -1686,7 +1689,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

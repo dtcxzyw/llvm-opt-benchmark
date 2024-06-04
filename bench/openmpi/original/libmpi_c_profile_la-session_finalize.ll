@@ -68,7 +68,7 @@ define i32 @PMPI_Session_finalize(ptr noundef %0) #0 {
 
 30:                                               ; preds = %26, %22, %19
   store i32 13, ptr %2, align 4
-  br label %51
+  br label %53
 
 31:                                               ; preds = %26
   br label %32
@@ -84,27 +84,29 @@ define i32 @PMPI_Session_finalize(ptr noundef %0) #0 {
   %39 = zext i1 %38 to i32
   %40 = sext i32 %39 to i64
   %41 = icmp ne i64 %40, 0
-  br i1 %41, label %42, label %50
+  br i1 %41, label %42, label %52
 
 42:                                               ; preds = %32
   %43 = load i32, ptr %4, align 4
   %44 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %43)
   store i32 %44, ptr %5, align 4
-  %45 = load ptr, ptr getelementptr inbounds (%struct.ompi_instance_t, ptr @ompi_mpi_instance_null, i32 0, i32 7), align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct.ompi_instance_t, ptr @ompi_mpi_instance_null, i32 0, i32 8), align 8
-  %47 = load i32, ptr %5, align 4
-  %48 = call i32 @ompi_errhandler_invoke(ptr noundef %45, ptr noundef @ompi_mpi_instance_null, i32 noundef %46, i32 noundef %47, ptr noundef @FUNC_NAME)
+  %45 = getelementptr inbounds %struct.ompi_instance_t, ptr @ompi_mpi_instance_null, i32 0, i32 7
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct.ompi_instance_t, ptr @ompi_mpi_instance_null, i32 0, i32 8
+  %48 = load i32, ptr %47, align 8
   %49 = load i32, ptr %5, align 4
-  store i32 %49, ptr %2, align 4
-  br label %51
+  %50 = call i32 @ompi_errhandler_invoke(ptr noundef %46, ptr noundef @ompi_mpi_instance_null, i32 noundef %48, i32 noundef %49, ptr noundef @FUNC_NAME)
+  %51 = load i32, ptr %5, align 4
+  store i32 %51, ptr %2, align 4
+  br label %53
 
-50:                                               ; preds = %32
+52:                                               ; preds = %32
   store i32 0, ptr %2, align 4
-  br label %51
+  br label %53
 
-51:                                               ; preds = %50, %42, %30
-  %52 = load i32, ptr %2, align 4
-  ret i32 %52
+53:                                               ; preds = %52, %42, %30
+  %54 = load i32, ptr %2, align 4
+  ret i32 %54
 }
 
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1

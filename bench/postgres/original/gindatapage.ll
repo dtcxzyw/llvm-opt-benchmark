@@ -5816,7 +5816,7 @@ define internal void @dataExecPlaceToPageInternal(ptr noundef %0, i32 noundef %1
   %44 = load i8, ptr %43, align 2
   %45 = sext i8 %44 to i32
   %46 = icmp eq i32 %45, 112
-  br i1 %46, label %47, label %73
+  br i1 %46, label %47, label %74
 
 47:                                               ; preds = %6
   %48 = load i32, ptr @wal_level, align 4
@@ -5830,7 +5830,7 @@ define internal void @dataExecPlaceToPageInternal(ptr noundef %0, i32 noundef %1
   %54 = getelementptr inbounds %struct.RelationData, ptr %53, i32 0, i32 9
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %73
+  br i1 %56, label %57, label %74
 
 57:                                               ; preds = %50
   %58 = load ptr, ptr %7, align 8
@@ -5839,26 +5839,27 @@ define internal void @dataExecPlaceToPageInternal(ptr noundef %0, i32 noundef %1
   %61 = getelementptr inbounds %struct.RelationData, ptr %60, i32 0, i32 11
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %73
+  br i1 %63, label %64, label %74
 
 64:                                               ; preds = %57, %47
   %65 = load ptr, ptr %7, align 8
   %66 = getelementptr inbounds %struct.GinBtreeData, ptr %65, i32 0, i32 14
   %67 = load i8, ptr %66, align 1
   %68 = trunc i8 %67 to i1
-  br i1 %68, label %73, label %69
+  br i1 %68, label %74, label %69
 
 69:                                               ; preds = %64
   %70 = load i16, ptr %14, align 2
   store i16 %70, ptr @dataExecPlaceToPageInternal.data, align 2
   %71 = load ptr, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 getelementptr inbounds (%struct.ginxlogInsertDataInternal, ptr @dataExecPlaceToPageInternal.data, i32 0, i32 1), ptr align 2 %71, i64 10, i1 false)
-  %72 = load i32, ptr %8, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %72, i8 noundef zeroext 8)
+  %72 = getelementptr inbounds %struct.ginxlogInsertDataInternal, ptr @dataExecPlaceToPageInternal.data, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %72, ptr align 2 %71, i64 10, i1 false)
+  %73 = load i32, ptr %8, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %73, i8 noundef zeroext 8)
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef @dataExecPlaceToPageInternal.data, i32 noundef 12)
-  br label %73
+  br label %74
 
-73:                                               ; preds = %69, %64, %57, %50, %6
+74:                                               ; preds = %69, %64, %57, %50, %6
   ret void
 }
 

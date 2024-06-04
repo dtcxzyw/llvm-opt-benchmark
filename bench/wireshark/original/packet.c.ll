@@ -3157,7 +3157,7 @@ define internal i32 @call_dissector_work(ptr noundef %0, ptr noundef %1, ptr nou
 
 45:                                               ; preds = %39
   store i32 0, ptr %7, align 4
-  br label %192
+  br label %193
 
 46:                                               ; preds = %39, %30
   %47 = load ptr, ptr %10, align 8
@@ -3174,209 +3174,210 @@ define internal i32 @call_dissector_work(ptr noundef %0, ptr noundef %1, ptr nou
   %56 = call i32 @wmem_list_count(ptr noundef %55)
   store i32 %56, ptr %17, align 4
   %57 = load i32, ptr %17, align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 42), align 4
-  %59 = icmp ult i32 %57, %58
-  br i1 %59, label %60, label %61
-
-60:                                               ; preds = %46
-  br label %63
+  %58 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 42
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp ult i32 %57, %59
+  br i1 %60, label %61, label %62
 
 61:                                               ; preds = %46
+  br label %64
+
+62:                                               ; preds = %46
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.36, ptr noundef @.str.15, i32 noundef 907, ptr noundef @.str.37) #12
   unreachable
 
-62:                                               ; No predecessors!
-  br label %63
+63:                                               ; No predecessors!
+  br label %64
 
-63:                                               ; preds = %62, %60
-  %64 = load i16, ptr %15, align 2
-  %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds %struct._packet_info, ptr %65, i32 0, i32 31
-  store i16 %64, ptr %66, align 2
-  %67 = load i16, ptr %15, align 2
-  %68 = zext i16 %67 to i32
-  %69 = load i16, ptr %15, align 2
-  %70 = zext i16 %69 to i32
-  %71 = icmp sgt i32 %70, 0
-  %72 = zext i1 %71 to i32
-  %73 = sub i32 %68, %72
-  %74 = trunc i32 %73 to i16
-  %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds %struct._packet_info, ptr %75, i32 0, i32 30
-  store i16 %74, ptr %76, align 8
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds %struct.dissector_handle, ptr %77, i32 0, i32 5
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %103
+64:                                               ; preds = %63, %61
+  %65 = load i16, ptr %15, align 2
+  %66 = load ptr, ptr %10, align 8
+  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 31
+  store i16 %65, ptr %67, align 2
+  %68 = load i16, ptr %15, align 2
+  %69 = zext i16 %68 to i32
+  %70 = load i16, ptr %15, align 2
+  %71 = zext i16 %70 to i32
+  %72 = icmp sgt i32 %71, 0
+  %73 = zext i1 %72 to i32
+  %74 = sub i32 %69, %73
+  %75 = trunc i32 %74 to i16
+  %76 = load ptr, ptr %10, align 8
+  %77 = getelementptr inbounds %struct._packet_info, ptr %76, i32 0, i32 30
+  store i16 %75, ptr %77, align 8
+  %78 = load ptr, ptr %8, align 8
+  %79 = getelementptr inbounds %struct.dissector_handle, ptr %78, i32 0, i32 5
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %104
 
-81:                                               ; preds = %63
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds %struct.dissector_handle, ptr %82, i32 0, i32 5
-  %84 = load ptr, ptr %83, align 8
-  %85 = call i32 @proto_is_pino(ptr noundef %84)
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %103, label %87
+82:                                               ; preds = %64
+  %83 = load ptr, ptr %8, align 8
+  %84 = getelementptr inbounds %struct.dissector_handle, ptr %83, i32 0, i32 5
+  %85 = load ptr, ptr %84, align 8
+  %86 = call i32 @proto_is_pino(ptr noundef %85)
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %104, label %88
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds %struct.dissector_handle, ptr %88, i32 0, i32 5
-  %90 = load ptr, ptr %89, align 8
-  %91 = call ptr @proto_get_protocol_short_name(ptr noundef %90)
-  %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds %struct._packet_info, ptr %92, i32 0, i32 0
-  store ptr %91, ptr %93, align 8
-  %94 = load i32, ptr %12, align 4
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %102
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds %struct.dissector_handle, ptr %89, i32 0, i32 5
+  %91 = load ptr, ptr %90, align 8
+  %92 = call ptr @proto_get_protocol_short_name(ptr noundef %91)
+  %93 = load ptr, ptr %10, align 8
+  %94 = getelementptr inbounds %struct._packet_info, ptr %93, i32 0, i32 0
+  store ptr %92, ptr %94, align 8
+  %95 = load i32, ptr %12, align 4
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %103
 
-96:                                               ; preds = %87
-  %97 = load ptr, ptr %10, align 8
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds %struct.dissector_handle, ptr %98, i32 0, i32 5
-  %100 = load ptr, ptr %99, align 8
-  %101 = call i32 @proto_get_id(ptr noundef %100)
-  call void @add_layer(ptr noundef %97, i32 noundef %101)
-  br label %102
-
-102:                                              ; preds = %96, %87
+97:                                               ; preds = %88
+  %98 = load ptr, ptr %10, align 8
+  %99 = load ptr, ptr %8, align 8
+  %100 = getelementptr inbounds %struct.dissector_handle, ptr %99, i32 0, i32 5
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 @proto_get_id(ptr noundef %101)
+  call void @add_layer(ptr noundef %98, i32 noundef %102)
   br label %103
 
-103:                                              ; preds = %102, %81, %63
-  %104 = load ptr, ptr %10, align 8
-  %105 = getelementptr inbounds %struct._packet_info, ptr %104, i32 0, i32 21
-  %106 = load i8, ptr %105, align 4
-  %107 = and i8 %106, 1
-  %108 = zext i8 %107 to i32
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %110, label %117
+103:                                              ; preds = %97, %88
+  br label %104
 
-110:                                              ; preds = %103
-  %111 = load ptr, ptr %8, align 8
-  %112 = load ptr, ptr %9, align 8
-  %113 = load ptr, ptr %10, align 8
-  %114 = load ptr, ptr %11, align 8
-  %115 = load ptr, ptr %13, align 8
-  %116 = call i32 @call_dissector_work_error(ptr noundef %111, ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef %115)
-  store i32 %116, ptr %16, align 4
-  br label %124
+104:                                              ; preds = %103, %82, %64
+  %105 = load ptr, ptr %10, align 8
+  %106 = getelementptr inbounds %struct._packet_info, ptr %105, i32 0, i32 21
+  %107 = load i8, ptr %106, align 4
+  %108 = and i8 %107, 1
+  %109 = zext i8 %108 to i32
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %111, label %118
 
-117:                                              ; preds = %103
-  %118 = load ptr, ptr %8, align 8
-  %119 = load ptr, ptr %9, align 8
-  %120 = load ptr, ptr %10, align 8
-  %121 = load ptr, ptr %11, align 8
-  %122 = load ptr, ptr %13, align 8
-  %123 = call i32 @call_dissector_through_handle(ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122)
-  store i32 %123, ptr %16, align 4
-  br label %124
+111:                                              ; preds = %104
+  %112 = load ptr, ptr %8, align 8
+  %113 = load ptr, ptr %9, align 8
+  %114 = load ptr, ptr %10, align 8
+  %115 = load ptr, ptr %11, align 8
+  %116 = load ptr, ptr %13, align 8
+  %117 = call i32 @call_dissector_work_error(ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %116)
+  store i32 %117, ptr %16, align 4
+  br label %125
 
-124:                                              ; preds = %117, %110
-  %125 = load i32, ptr %16, align 4
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %140, label %127
+118:                                              ; preds = %104
+  %119 = load ptr, ptr %8, align 8
+  %120 = load ptr, ptr %9, align 8
+  %121 = load ptr, ptr %10, align 8
+  %122 = load ptr, ptr %11, align 8
+  %123 = load ptr, ptr %13, align 8
+  %124 = call i32 @call_dissector_through_handle(ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123)
+  store i32 %124, ptr %16, align 4
+  br label %125
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %10, align 8
-  %129 = getelementptr inbounds %struct._packet_info, ptr %128, i32 0, i32 33
-  %130 = load i32, ptr %129, align 8
-  %131 = load i32, ptr %19, align 4
-  %132 = icmp ne i32 %130, %131
-  br i1 %132, label %133, label %138
+125:                                              ; preds = %118, %111
+  %126 = load i32, ptr %16, align 4
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %141, label %128
 
-133:                                              ; preds = %127
-  %134 = load ptr, ptr %10, align 8
-  %135 = getelementptr inbounds %struct._packet_info, ptr %134, i32 0, i32 32
-  %136 = load i32, ptr %135, align 4
-  %137 = icmp eq i32 %136, 0
-  br label %138
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %10, align 8
+  %130 = getelementptr inbounds %struct._packet_info, ptr %129, i32 0, i32 33
+  %131 = load i32, ptr %130, align 8
+  %132 = load i32, ptr %19, align 4
+  %133 = icmp ne i32 %131, %132
+  br i1 %133, label %134, label %139
 
-138:                                              ; preds = %133, %127
-  %139 = phi i1 [ false, %127 ], [ %137, %133 ]
-  br label %140
+134:                                              ; preds = %128
+  %135 = load ptr, ptr %10, align 8
+  %136 = getelementptr inbounds %struct._packet_info, ptr %135, i32 0, i32 32
+  %137 = load i32, ptr %136, align 4
+  %138 = icmp eq i32 %137, 0
+  br label %139
 
-140:                                              ; preds = %138, %124
-  %141 = phi i1 [ true, %124 ], [ %139, %138 ]
-  %142 = zext i1 %141 to i8
-  store i8 %142, ptr %20, align 1
-  %143 = load ptr, ptr %8, align 8
-  %144 = getelementptr inbounds %struct.dissector_handle, ptr %143, i32 0, i32 5
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp ne ptr %145, null
-  br i1 %146, label %147, label %184
+139:                                              ; preds = %134, %128
+  %140 = phi i1 [ false, %128 ], [ %138, %134 ]
+  br label %141
 
-147:                                              ; preds = %140
-  %148 = load ptr, ptr %8, align 8
-  %149 = getelementptr inbounds %struct.dissector_handle, ptr %148, i32 0, i32 5
-  %150 = load ptr, ptr %149, align 8
-  %151 = call i32 @proto_is_pino(ptr noundef %150)
-  %152 = icmp ne i32 %151, 0
-  br i1 %152, label %184, label %153
+141:                                              ; preds = %139, %125
+  %142 = phi i1 [ true, %125 ], [ %140, %139 ]
+  %143 = zext i1 %142 to i8
+  store i8 %143, ptr %20, align 1
+  %144 = load ptr, ptr %8, align 8
+  %145 = getelementptr inbounds %struct.dissector_handle, ptr %144, i32 0, i32 5
+  %146 = load ptr, ptr %145, align 8
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %185
 
-153:                                              ; preds = %147
-  %154 = load i32, ptr %12, align 4
-  %155 = icmp ne i32 %154, 0
-  br i1 %155, label %156, label %184
+148:                                              ; preds = %141
+  %149 = load ptr, ptr %8, align 8
+  %150 = getelementptr inbounds %struct.dissector_handle, ptr %149, i32 0, i32 5
+  %151 = load ptr, ptr %150, align 8
+  %152 = call i32 @proto_is_pino(ptr noundef %151)
+  %153 = icmp ne i32 %152, 0
+  br i1 %153, label %185, label %154
 
-156:                                              ; preds = %153
-  %157 = load i8, ptr %20, align 1
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %170, label %159
+154:                                              ; preds = %148
+  %155 = load i32, ptr %12, align 4
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %157, label %185
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr %11, align 8
-  %161 = icmp ne ptr %160, null
-  br i1 %161, label %162, label %184
+157:                                              ; preds = %154
+  %158 = load i8, ptr %20, align 1
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %171, label %160
 
-162:                                              ; preds = %159
-  %163 = load i32, ptr %18, align 4
-  %164 = load ptr, ptr %11, align 8
-  %165 = getelementptr inbounds %struct._proto_node, ptr %164, i32 0, i32 5
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %struct.tree_data_t, ptr %166, i32 0, i32 3
-  %168 = load i32, ptr %167, align 8
-  %169 = icmp eq i32 %163, %168
-  br i1 %169, label %170, label %184
+160:                                              ; preds = %157
+  %161 = load ptr, ptr %11, align 8
+  %162 = icmp ne ptr %161, null
+  br i1 %162, label %163, label %185
 
-170:                                              ; preds = %162, %156
-  br label %171
+163:                                              ; preds = %160
+  %164 = load i32, ptr %18, align 4
+  %165 = load ptr, ptr %11, align 8
+  %166 = getelementptr inbounds %struct._proto_node, ptr %165, i32 0, i32 5
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds %struct.tree_data_t, ptr %167, i32 0, i32 3
+  %169 = load i32, ptr %168, align 8
+  %170 = icmp eq i32 %164, %169
+  br i1 %170, label %171, label %185
 
-171:                                              ; preds = %178, %170
-  %172 = load ptr, ptr %10, align 8
-  %173 = getelementptr inbounds %struct._packet_info, ptr %172, i32 0, i32 38
-  %174 = load ptr, ptr %173, align 8
-  %175 = call i32 @wmem_list_count(ptr noundef %174)
-  %176 = load i32, ptr %17, align 4
-  %177 = icmp ugt i32 %175, %176
-  br i1 %177, label %178, label %183
+171:                                              ; preds = %163, %157
+  br label %172
 
-178:                                              ; preds = %171
-  %179 = load ptr, ptr %10, align 8
-  %180 = load i8, ptr %20, align 1
-  %181 = trunc i8 %180 to i1
-  %182 = zext i1 %181 to i32
-  call void @remove_last_layer(ptr noundef %179, i32 noundef %182)
-  br label %171, !llvm.loop !12
+172:                                              ; preds = %179, %171
+  %173 = load ptr, ptr %10, align 8
+  %174 = getelementptr inbounds %struct._packet_info, ptr %173, i32 0, i32 38
+  %175 = load ptr, ptr %174, align 8
+  %176 = call i32 @wmem_list_count(ptr noundef %175)
+  %177 = load i32, ptr %17, align 4
+  %178 = icmp ugt i32 %176, %177
+  br i1 %178, label %179, label %184
 
-183:                                              ; preds = %171
-  br label %184
+179:                                              ; preds = %172
+  %180 = load ptr, ptr %10, align 8
+  %181 = load i8, ptr %20, align 1
+  %182 = trunc i8 %181 to i1
+  %183 = zext i1 %182 to i32
+  call void @remove_last_layer(ptr noundef %180, i32 noundef %183)
+  br label %172, !llvm.loop !12
 
-184:                                              ; preds = %183, %162, %159, %153, %147, %140
-  %185 = load ptr, ptr %14, align 8
-  %186 = load ptr, ptr %10, align 8
-  %187 = getelementptr inbounds %struct._packet_info, ptr %186, i32 0, i32 0
-  store ptr %185, ptr %187, align 8
-  %188 = load i16, ptr %15, align 2
-  %189 = load ptr, ptr %10, align 8
-  %190 = getelementptr inbounds %struct._packet_info, ptr %189, i32 0, i32 30
-  store i16 %188, ptr %190, align 8
-  %191 = load i32, ptr %16, align 4
-  store i32 %191, ptr %7, align 4
-  br label %192
+184:                                              ; preds = %172
+  br label %185
 
-192:                                              ; preds = %184, %45
-  %193 = load i32, ptr %7, align 4
-  ret i32 %193
+185:                                              ; preds = %184, %163, %160, %154, %148, %141
+  %186 = load ptr, ptr %14, align 8
+  %187 = load ptr, ptr %10, align 8
+  %188 = getelementptr inbounds %struct._packet_info, ptr %187, i32 0, i32 0
+  store ptr %186, ptr %188, align 8
+  %189 = load i16, ptr %15, align 2
+  %190 = load ptr, ptr %10, align 8
+  %191 = getelementptr inbounds %struct._packet_info, ptr %190, i32 0, i32 30
+  store i16 %189, ptr %191, align 8
+  %192 = load i32, ptr %16, align 4
+  store i32 %192, ptr %7, align 4
+  br label %193
+
+193:                                              ; preds = %185, %45
+  %194 = load i32, ptr %7, align 4
+  ret i32 %194
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6282,281 +6283,282 @@ define i32 @dissector_try_heuristic(ptr noundef %0, ptr noundef %1, ptr noundef 
   %63 = load ptr, ptr %11, align 8
   store ptr null, ptr %63, align 8
   %64 = load i32, ptr %19, align 4
-  %65 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 42), align 4
-  %66 = icmp ult i32 %64, %65
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %35
-  br label %70
+  %65 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 42
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp ult i32 %64, %66
+  br i1 %67, label %68, label %69
 
 68:                                               ; preds = %35
+  br label %71
+
+69:                                               ; preds = %35
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.36, ptr noundef @.str.15, i32 noundef 3005, ptr noundef @.str.37) #12
   unreachable
 
-69:                                               ; No predecessors!
-  br label %70
+70:                                               ; No predecessors!
+  br label %71
 
-70:                                               ; preds = %69, %67
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct.heur_dissector_list, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %16, align 8
-  br label %74
+71:                                               ; preds = %70, %68
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds %struct.heur_dissector_list, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %16, align 8
+  br label %75
 
-74:                                               ; preds = %231, %70
-  %75 = load ptr, ptr %16, align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %77, label %233
+75:                                               ; preds = %232, %71
+  %76 = load ptr, ptr %16, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %234
 
-77:                                               ; preds = %74
-  %78 = load i16, ptr %18, align 2
-  %79 = zext i16 %78 to i32
-  %80 = load i16, ptr %18, align 2
-  %81 = zext i16 %80 to i32
-  %82 = icmp sgt i32 %81, 0
-  %83 = zext i1 %82 to i32
-  %84 = sub i32 %79, %83
-  %85 = trunc i32 %84 to i16
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %struct._packet_info, ptr %86, i32 0, i32 30
-  store i16 %85, ptr %87, align 8
-  %88 = load ptr, ptr %16, align 8
-  %89 = getelementptr inbounds %struct._GSList, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %20, align 8
-  %91 = load ptr, ptr %20, align 8
-  %92 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %91, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %95, label %107
+78:                                               ; preds = %75
+  %79 = load i16, ptr %18, align 2
+  %80 = zext i16 %79 to i32
+  %81 = load i16, ptr %18, align 2
+  %82 = zext i16 %81 to i32
+  %83 = icmp sgt i32 %82, 0
+  %84 = zext i1 %83 to i32
+  %85 = sub i32 %80, %84
+  %86 = trunc i32 %85 to i16
+  %87 = load ptr, ptr %9, align 8
+  %88 = getelementptr inbounds %struct._packet_info, ptr %87, i32 0, i32 30
+  store i16 %86, ptr %88, align 8
+  %89 = load ptr, ptr %16, align 8
+  %90 = getelementptr inbounds %struct._GSList, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr %20, align 8
+  %92 = load ptr, ptr %20, align 8
+  %93 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %108
 
-95:                                               ; preds = %77
-  %96 = load ptr, ptr %20, align 8
-  %97 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = call i32 @proto_is_protocol_enabled(ptr noundef %98)
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %101, label %106
+96:                                               ; preds = %78
+  %97 = load ptr, ptr %20, align 8
+  %98 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8
+  %100 = call i32 @proto_is_protocol_enabled(ptr noundef %99)
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %102, label %107
 
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %20, align 8
-  %103 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %102, i32 0, i32 5
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %107
+102:                                              ; preds = %96
+  %103 = load ptr, ptr %20, align 8
+  %104 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %103, i32 0, i32 5
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %108
 
-106:                                              ; preds = %101, %95
-  br label %223
+107:                                              ; preds = %102, %96
+  br label %224
 
-107:                                              ; preds = %101, %77
-  %108 = load ptr, ptr %20, align 8
-  %109 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %108, i32 0, i32 1
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp ne ptr %110, null
-  br i1 %111, label %112, label %125
+108:                                              ; preds = %102, %78
+  %109 = load ptr, ptr %20, align 8
+  %110 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %109, i32 0, i32 1
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %126
 
-112:                                              ; preds = %107
-  %113 = load ptr, ptr %20, align 8
-  %114 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %113, i32 0, i32 1
-  %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @proto_get_id(ptr noundef %115)
-  store i32 %116, ptr %21, align 4
-  %117 = load ptr, ptr %20, align 8
-  %118 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %117, i32 0, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = call ptr @proto_get_protocol_short_name(ptr noundef %119)
-  %121 = load ptr, ptr %9, align 8
-  %122 = getelementptr inbounds %struct._packet_info, ptr %121, i32 0, i32 0
-  store ptr %120, ptr %122, align 8
-  %123 = load ptr, ptr %9, align 8
-  %124 = load i32, ptr %21, align 4
-  call void @add_layer(ptr noundef %123, i32 noundef %124)
-  br label %125
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %20, align 8
+  %115 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %114, i32 0, i32 1
+  %116 = load ptr, ptr %115, align 8
+  %117 = call i32 @proto_get_id(ptr noundef %116)
+  store i32 %117, ptr %21, align 4
+  %118 = load ptr, ptr %20, align 8
+  %119 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %118, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8
+  %121 = call ptr @proto_get_protocol_short_name(ptr noundef %120)
+  %122 = load ptr, ptr %9, align 8
+  %123 = getelementptr inbounds %struct._packet_info, ptr %122, i32 0, i32 0
+  store ptr %121, ptr %123, align 8
+  %124 = load ptr, ptr %9, align 8
+  %125 = load i32, ptr %21, align 4
+  call void @add_layer(ptr noundef %124, i32 noundef %125)
+  br label %126
 
-125:                                              ; preds = %112, %107
-  %126 = load ptr, ptr %20, align 8
-  %127 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %126, i32 0, i32 2
-  %128 = load ptr, ptr %127, align 8
-  %129 = load ptr, ptr %9, align 8
-  %130 = getelementptr inbounds %struct._packet_info, ptr %129, i32 0, i32 52
-  store ptr %128, ptr %130, align 8
-  %131 = load ptr, ptr %9, align 8
-  %132 = getelementptr inbounds %struct._packet_info, ptr %131, i32 0, i32 33
-  %133 = load i32, ptr %132, align 8
-  store i32 %133, ptr %24, align 4
-  %134 = load ptr, ptr %20, align 8
-  %135 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %134, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %8, align 8
-  %138 = load ptr, ptr %9, align 8
-  %139 = load ptr, ptr %10, align 8
-  %140 = load ptr, ptr %12, align 8
-  %141 = call i32 %136(ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %140)
-  store i32 %141, ptr %22, align 4
-  %142 = load i32, ptr %22, align 4
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %157, label %144
+126:                                              ; preds = %113, %108
+  %127 = load ptr, ptr %20, align 8
+  %128 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %127, i32 0, i32 2
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %9, align 8
+  %131 = getelementptr inbounds %struct._packet_info, ptr %130, i32 0, i32 52
+  store ptr %129, ptr %131, align 8
+  %132 = load ptr, ptr %9, align 8
+  %133 = getelementptr inbounds %struct._packet_info, ptr %132, i32 0, i32 33
+  %134 = load i32, ptr %133, align 8
+  store i32 %134, ptr %24, align 4
+  %135 = load ptr, ptr %20, align 8
+  %136 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %135, i32 0, i32 0
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr %8, align 8
+  %139 = load ptr, ptr %9, align 8
+  %140 = load ptr, ptr %10, align 8
+  %141 = load ptr, ptr %12, align 8
+  %142 = call i32 %137(ptr noundef %138, ptr noundef %139, ptr noundef %140, ptr noundef %141)
+  store i32 %142, ptr %22, align 4
+  %143 = load i32, ptr %22, align 4
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %158, label %145
 
-144:                                              ; preds = %125
-  %145 = load ptr, ptr %9, align 8
-  %146 = getelementptr inbounds %struct._packet_info, ptr %145, i32 0, i32 33
-  %147 = load i32, ptr %146, align 8
-  %148 = load i32, ptr %24, align 4
-  %149 = icmp ne i32 %147, %148
-  br i1 %149, label %150, label %155
+145:                                              ; preds = %126
+  %146 = load ptr, ptr %9, align 8
+  %147 = getelementptr inbounds %struct._packet_info, ptr %146, i32 0, i32 33
+  %148 = load i32, ptr %147, align 8
+  %149 = load i32, ptr %24, align 4
+  %150 = icmp ne i32 %148, %149
+  br i1 %150, label %151, label %156
 
-150:                                              ; preds = %144
-  %151 = load ptr, ptr %9, align 8
-  %152 = getelementptr inbounds %struct._packet_info, ptr %151, i32 0, i32 32
-  %153 = load i32, ptr %152, align 4
-  %154 = icmp eq i32 %153, 0
-  br label %155
+151:                                              ; preds = %145
+  %152 = load ptr, ptr %9, align 8
+  %153 = getelementptr inbounds %struct._packet_info, ptr %152, i32 0, i32 32
+  %154 = load i32, ptr %153, align 4
+  %155 = icmp eq i32 %154, 0
+  br label %156
 
-155:                                              ; preds = %150, %144
-  %156 = phi i1 [ false, %144 ], [ %154, %150 ]
-  br label %157
+156:                                              ; preds = %151, %145
+  %157 = phi i1 [ false, %145 ], [ %155, %151 ]
+  br label %158
 
-157:                                              ; preds = %155, %125
-  %158 = phi i1 [ true, %125 ], [ %156, %155 ]
-  %159 = zext i1 %158 to i8
-  store i8 %159, ptr %23, align 1
-  %160 = load ptr, ptr %20, align 8
-  %161 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %160, i32 0, i32 1
-  %162 = load ptr, ptr %161, align 8
-  %163 = icmp ne ptr %162, null
-  br i1 %163, label %164, label %192
+158:                                              ; preds = %156, %126
+  %159 = phi i1 [ true, %126 ], [ %157, %156 ]
+  %160 = zext i1 %159 to i8
+  store i8 %160, ptr %23, align 1
+  %161 = load ptr, ptr %20, align 8
+  %162 = getelementptr inbounds %struct.heur_dtbl_entry, ptr %161, i32 0, i32 1
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp ne ptr %163, null
+  br i1 %164, label %165, label %193
 
-164:                                              ; preds = %157
-  %165 = load i8, ptr %23, align 1
-  %166 = trunc i8 %165 to i1
-  br i1 %166, label %178, label %167
+165:                                              ; preds = %158
+  %166 = load i8, ptr %23, align 1
+  %167 = trunc i8 %166 to i1
+  br i1 %167, label %179, label %168
 
-167:                                              ; preds = %164
-  %168 = load ptr, ptr %10, align 8
-  %169 = icmp ne ptr %168, null
-  br i1 %169, label %170, label %192
+168:                                              ; preds = %165
+  %169 = load ptr, ptr %10, align 8
+  %170 = icmp ne ptr %169, null
+  br i1 %170, label %171, label %193
 
-170:                                              ; preds = %167
-  %171 = load i32, ptr %25, align 4
-  %172 = load ptr, ptr %10, align 8
-  %173 = getelementptr inbounds %struct._proto_node, ptr %172, i32 0, i32 5
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds %struct.tree_data_t, ptr %174, i32 0, i32 3
-  %176 = load i32, ptr %175, align 8
-  %177 = icmp eq i32 %171, %176
-  br i1 %177, label %178, label %192
+171:                                              ; preds = %168
+  %172 = load i32, ptr %25, align 4
+  %173 = load ptr, ptr %10, align 8
+  %174 = getelementptr inbounds %struct._proto_node, ptr %173, i32 0, i32 5
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds %struct.tree_data_t, ptr %175, i32 0, i32 3
+  %177 = load i32, ptr %176, align 8
+  %178 = icmp eq i32 %172, %177
+  br i1 %178, label %179, label %193
 
-178:                                              ; preds = %170, %164
-  br label %179
+179:                                              ; preds = %171, %165
+  br label %180
 
-179:                                              ; preds = %186, %178
-  %180 = load ptr, ptr %9, align 8
-  %181 = getelementptr inbounds %struct._packet_info, ptr %180, i32 0, i32 38
-  %182 = load ptr, ptr %181, align 8
-  %183 = call i32 @wmem_list_count(ptr noundef %182)
-  %184 = load i32, ptr %19, align 4
-  %185 = icmp ugt i32 %183, %184
-  br i1 %185, label %186, label %191
+180:                                              ; preds = %187, %179
+  %181 = load ptr, ptr %9, align 8
+  %182 = getelementptr inbounds %struct._packet_info, ptr %181, i32 0, i32 38
+  %183 = load ptr, ptr %182, align 8
+  %184 = call i32 @wmem_list_count(ptr noundef %183)
+  %185 = load i32, ptr %19, align 4
+  %186 = icmp ugt i32 %184, %185
+  br i1 %186, label %187, label %192
 
-186:                                              ; preds = %179
-  %187 = load ptr, ptr %9, align 8
-  %188 = load i8, ptr %23, align 1
-  %189 = trunc i8 %188 to i1
-  %190 = zext i1 %189 to i32
-  call void @remove_last_layer(ptr noundef %187, i32 noundef %190)
-  br label %179, !llvm.loop !17
+187:                                              ; preds = %180
+  %188 = load ptr, ptr %9, align 8
+  %189 = load i8, ptr %23, align 1
+  %190 = trunc i8 %189 to i1
+  %191 = zext i1 %190 to i32
+  call void @remove_last_layer(ptr noundef %188, i32 noundef %191)
+  br label %180, !llvm.loop !17
 
-191:                                              ; preds = %179
-  br label %192
+192:                                              ; preds = %180
+  br label %193
 
-192:                                              ; preds = %191, %170, %167, %157
-  %193 = load i32, ptr %22, align 4
-  %194 = icmp ne i32 %193, 0
-  br i1 %194, label %195, label %221
+193:                                              ; preds = %192, %171, %168, %158
+  %194 = load i32, ptr %22, align 4
+  %195 = icmp ne i32 %194, 0
+  br i1 %195, label %196, label %222
 
-195:                                              ; preds = %192
-  %196 = call zeroext i1 @ws_log_msg_is_active(ptr noundef @.str.14, i32 noundef 2)
-  br i1 %196, label %197, label %200
+196:                                              ; preds = %193
+  %197 = call zeroext i1 @ws_log_msg_is_active(ptr noundef @.str.14, i32 noundef 2)
+  br i1 %197, label %198, label %201
 
-197:                                              ; preds = %195
-  br label %198
-
-198:                                              ; preds = %197
+198:                                              ; preds = %196
   br label %199
 
 199:                                              ; preds = %198
   br label %200
 
-200:                                              ; preds = %199, %195
-  %201 = load ptr, ptr %20, align 8
-  %202 = load ptr, ptr %11, align 8
-  store ptr %201, ptr %202, align 8
-  %203 = load ptr, ptr %17, align 8
-  %204 = icmp ne ptr %203, null
-  br i1 %204, label %205, label %220
+200:                                              ; preds = %199
+  br label %201
 
-205:                                              ; preds = %200
-  %206 = load ptr, ptr %7, align 8
-  %207 = getelementptr inbounds %struct.heur_dissector_list, ptr %206, i32 0, i32 2
-  %208 = load ptr, ptr %207, align 8
-  %209 = load ptr, ptr %16, align 8
-  %210 = call ptr @g_slist_remove_link(ptr noundef %208, ptr noundef %209)
-  %211 = load ptr, ptr %7, align 8
-  %212 = getelementptr inbounds %struct.heur_dissector_list, ptr %211, i32 0, i32 2
-  store ptr %210, ptr %212, align 8
-  %213 = load ptr, ptr %16, align 8
-  %214 = load ptr, ptr %7, align 8
-  %215 = getelementptr inbounds %struct.heur_dissector_list, ptr %214, i32 0, i32 2
-  %216 = load ptr, ptr %215, align 8
-  %217 = call ptr @g_slist_concat(ptr noundef %213, ptr noundef %216)
-  %218 = load ptr, ptr %7, align 8
-  %219 = getelementptr inbounds %struct.heur_dissector_list, ptr %218, i32 0, i32 2
-  store ptr %217, ptr %219, align 8
-  br label %220
+201:                                              ; preds = %200, %196
+  %202 = load ptr, ptr %20, align 8
+  %203 = load ptr, ptr %11, align 8
+  store ptr %202, ptr %203, align 8
+  %204 = load ptr, ptr %17, align 8
+  %205 = icmp ne ptr %204, null
+  br i1 %205, label %206, label %221
 
-220:                                              ; preds = %205, %200
+206:                                              ; preds = %201
+  %207 = load ptr, ptr %7, align 8
+  %208 = getelementptr inbounds %struct.heur_dissector_list, ptr %207, i32 0, i32 2
+  %209 = load ptr, ptr %208, align 8
+  %210 = load ptr, ptr %16, align 8
+  %211 = call ptr @g_slist_remove_link(ptr noundef %209, ptr noundef %210)
+  %212 = load ptr, ptr %7, align 8
+  %213 = getelementptr inbounds %struct.heur_dissector_list, ptr %212, i32 0, i32 2
+  store ptr %211, ptr %213, align 8
+  %214 = load ptr, ptr %16, align 8
+  %215 = load ptr, ptr %7, align 8
+  %216 = getelementptr inbounds %struct.heur_dissector_list, ptr %215, i32 0, i32 2
+  %217 = load ptr, ptr %216, align 8
+  %218 = call ptr @g_slist_concat(ptr noundef %214, ptr noundef %217)
+  %219 = load ptr, ptr %7, align 8
+  %220 = getelementptr inbounds %struct.heur_dissector_list, ptr %219, i32 0, i32 2
+  store ptr %218, ptr %220, align 8
+  br label %221
+
+221:                                              ; preds = %206, %201
   store i32 1, ptr %13, align 4
-  br label %233
+  br label %234
 
-221:                                              ; preds = %192
-  %222 = load ptr, ptr %16, align 8
-  store ptr %222, ptr %17, align 8
-  br label %223
+222:                                              ; preds = %193
+  %223 = load ptr, ptr %16, align 8
+  store ptr %223, ptr %17, align 8
+  br label %224
 
-223:                                              ; preds = %221, %106
-  %224 = load ptr, ptr %16, align 8
-  %225 = icmp ne ptr %224, null
-  br i1 %225, label %226, label %230
+224:                                              ; preds = %222, %107
+  %225 = load ptr, ptr %16, align 8
+  %226 = icmp ne ptr %225, null
+  br i1 %226, label %227, label %231
 
-226:                                              ; preds = %223
-  %227 = load ptr, ptr %16, align 8
-  %228 = getelementptr inbounds %struct._GSList, ptr %227, i32 0, i32 1
-  %229 = load ptr, ptr %228, align 8
-  br label %231
+227:                                              ; preds = %224
+  %228 = load ptr, ptr %16, align 8
+  %229 = getelementptr inbounds %struct._GSList, ptr %228, i32 0, i32 1
+  %230 = load ptr, ptr %229, align 8
+  br label %232
 
-230:                                              ; preds = %223
-  br label %231
+231:                                              ; preds = %224
+  br label %232
 
-231:                                              ; preds = %230, %226
-  %232 = phi ptr [ %229, %226 ], [ null, %230 ]
-  store ptr %232, ptr %16, align 8
-  br label %74, !llvm.loop !18
+232:                                              ; preds = %231, %227
+  %233 = phi ptr [ %230, %227 ], [ null, %231 ]
+  store ptr %233, ptr %16, align 8
+  br label %75, !llvm.loop !18
 
-233:                                              ; preds = %220, %74
-  %234 = load ptr, ptr %14, align 8
-  %235 = load ptr, ptr %9, align 8
-  %236 = getelementptr inbounds %struct._packet_info, ptr %235, i32 0, i32 0
-  store ptr %234, ptr %236, align 8
-  %237 = load ptr, ptr %15, align 8
-  %238 = load ptr, ptr %9, align 8
-  %239 = getelementptr inbounds %struct._packet_info, ptr %238, i32 0, i32 52
-  store ptr %237, ptr %239, align 8
-  %240 = load i16, ptr %18, align 2
-  %241 = load ptr, ptr %9, align 8
-  %242 = getelementptr inbounds %struct._packet_info, ptr %241, i32 0, i32 30
-  store i16 %240, ptr %242, align 8
-  %243 = load i32, ptr %13, align 4
-  ret i32 %243
+234:                                              ; preds = %221, %75
+  %235 = load ptr, ptr %14, align 8
+  %236 = load ptr, ptr %9, align 8
+  %237 = getelementptr inbounds %struct._packet_info, ptr %236, i32 0, i32 0
+  store ptr %235, ptr %237, align 8
+  %238 = load ptr, ptr %15, align 8
+  %239 = load ptr, ptr %9, align 8
+  %240 = getelementptr inbounds %struct._packet_info, ptr %239, i32 0, i32 52
+  store ptr %238, ptr %240, align 8
+  %241 = load i16, ptr %18, align 2
+  %242 = load ptr, ptr %9, align 8
+  %243 = getelementptr inbounds %struct._packet_info, ptr %242, i32 0, i32 30
+  store i16 %241, ptr %243, align 8
+  %244 = load i32, ptr %13, align 4
+  ret i32 %244
 }
 
 declare i32 @wmem_list_count(ptr noundef) #1
@@ -8776,21 +8778,22 @@ define void @increment_dissection_depth(ptr noundef %0) #0 {
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds %struct._packet_info, ptr %7, i32 0, i32 53
   %9 = load i32, ptr %8, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 42), align 4
-  %11 = icmp slt i32 %9, %10
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %1
-  br label %15
+  %10 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 42
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp slt i32 %9, %11
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %1
+  br label %16
+
+14:                                               ; preds = %1
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.36, ptr noundef @.str.15, i32 noundef 4036, ptr noundef @.str.43) #12
   unreachable
 
-14:                                               ; No predecessors!
-  br label %15
+15:                                               ; No predecessors!
+  br label %16
 
-15:                                               ; preds = %14, %12
+16:                                               ; preds = %15, %13
   ret void
 }
 

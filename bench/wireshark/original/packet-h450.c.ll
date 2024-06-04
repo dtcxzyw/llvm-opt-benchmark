@@ -1467,22 +1467,28 @@ define hidden void @proto_register_h450() #0 {
   store ptr %14, ptr @h450_err_handle, align 8
   %15 = load i32, ptr @proto_h450, align 4
   %16 = call ptr @register_dissector_table(ptr noundef @.str.555, ptr noundef @.str.556, i32 noundef %15, i32 noundef 26, i32 noundef 0)
-  store ptr %16, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 1), align 8
-  %17 = load i32, ptr @proto_h450, align 4
-  %18 = call ptr @register_dissector_table(ptr noundef @.str.557, ptr noundef @.str.558, i32 noundef %17, i32 noundef 26, i32 noundef 0)
-  store ptr %18, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 3), align 8
-  %19 = load i32, ptr @proto_h450, align 4
-  %20 = call ptr @register_dissector_table(ptr noundef @.str.559, ptr noundef @.str.560, i32 noundef %19, i32 noundef 7, i32 noundef 2)
-  store ptr %20, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 2), align 8
+  %17 = getelementptr inbounds %struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 1
+  store ptr %16, ptr %17, align 8
+  %18 = load i32, ptr @proto_h450, align 4
+  %19 = call ptr @register_dissector_table(ptr noundef @.str.557, ptr noundef @.str.558, i32 noundef %18, i32 noundef 26, i32 noundef 0)
+  %20 = getelementptr inbounds %struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 3
+  store ptr %19, ptr %20, align 8
   %21 = load i32, ptr @proto_h450, align 4
-  %22 = call ptr @register_dissector_table(ptr noundef @.str.561, ptr noundef @.str.562, i32 noundef %21, i32 noundef 7, i32 noundef 2)
-  store ptr %22, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 4), align 8
-  %23 = load i32, ptr @proto_h450, align 4
-  %24 = call ptr @register_dissector_table(ptr noundef @.str.563, ptr noundef @.str.564, i32 noundef %23, i32 noundef 26, i32 noundef 0)
-  store ptr %24, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 5), align 8
-  %25 = load i32, ptr @proto_h450, align 4
-  %26 = call ptr @register_dissector_table(ptr noundef @.str.565, ptr noundef @.str.566, i32 noundef %25, i32 noundef 7, i32 noundef 2)
-  store ptr %26, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 6), align 8
+  %22 = call ptr @register_dissector_table(ptr noundef @.str.559, ptr noundef @.str.560, i32 noundef %21, i32 noundef 7, i32 noundef 2)
+  %23 = getelementptr inbounds %struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 2
+  store ptr %22, ptr %23, align 8
+  %24 = load i32, ptr @proto_h450, align 4
+  %25 = call ptr @register_dissector_table(ptr noundef @.str.561, ptr noundef @.str.562, i32 noundef %24, i32 noundef 7, i32 noundef 2)
+  %26 = getelementptr inbounds %struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 4
+  store ptr %25, ptr %26, align 8
+  %27 = load i32, ptr @proto_h450, align 4
+  %28 = call ptr @register_dissector_table(ptr noundef @.str.563, ptr noundef @.str.564, i32 noundef %27, i32 noundef 26, i32 noundef 0)
+  %29 = getelementptr inbounds %struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 5
+  store ptr %28, ptr %29, align 8
+  %30 = load i32, ptr @proto_h450, align 4
+  %31 = call ptr @register_dissector_table(ptr noundef @.str.565, ptr noundef @.str.566, i32 noundef %30, i32 noundef 7, i32 noundef 2)
+  %32 = getelementptr inbounds %struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 6
+  store ptr %31, ptr %32, align 8
   ret void
 }
 
@@ -2435,19 +2441,20 @@ define internal i32 @dissect_h450_T_rosApdus_item(ptr noundef %0, i32 noundef %1
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
-  store i32 1, ptr getelementptr inbounds (%struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 7), align 8
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds %struct._asn1_ctx_t, ptr %11, i32 0, i32 11
-  store ptr @h450_rose_ctx, ptr %12, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load i32, ptr %7, align 4
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = load i32, ptr %10, align 4
-  %18 = call i32 @dissect_h450_ros_ROS(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17)
-  store i32 %18, ptr %7, align 4
-  %19 = load i32, ptr %7, align 4
-  ret i32 %19
+  %11 = getelementptr inbounds %struct._rose_ctx_t, ptr @h450_rose_ctx, i32 0, i32 7
+  store i32 1, ptr %11, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = getelementptr inbounds %struct._asn1_ctx_t, ptr %12, i32 0, i32 11
+  store ptr @h450_rose_ctx, ptr %13, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = load i32, ptr %7, align 4
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load i32, ptr %10, align 4
+  %19 = call i32 @dissect_h450_ros_ROS(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %18)
+  store i32 %19, ptr %7, align 4
+  %20 = load i32, ptr %7, align 4
+  ret i32 %20
 }
 
 declare i32 @dissect_h450_ros_ROS(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1

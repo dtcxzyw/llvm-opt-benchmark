@@ -259,983 +259,988 @@ define dso_local i32 @proc_req(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   unreachable
 
 27:                                               ; preds = %3
-  %28 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %29 = and i64 %28, 67108864
-  %30 = icmp ne i64 %29, 0
-  br i1 %30, label %31, label %89
+  %28 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %29 = load i64, ptr %28, align 8
+  %30 = and i64 %29, 67108864
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %90
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.persist_msg_t, ptr %32, i32 0, i32 2
-  %34 = load i16, ptr %33, align 8
-  %35 = zext i16 %34 to i32
-  %36 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %35, i32 noundef 1)
-  store ptr %36, ptr %15, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %39, i32 0, i32 6
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %68
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %struct.persist_msg_t, ptr %33, i32 0, i32 2
+  %35 = load i16, ptr %34, align 8
+  %36 = zext i16 %35 to i32
+  %37 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %36, i32 noundef 1)
+  store ptr %37, ptr %15, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %40, i32 0, i32 6
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %69
 
-43:                                               ; preds = %31
-  br label %44
-
-44:                                               ; preds = %43
+44:                                               ; preds = %32
   br label %45
 
 45:                                               ; preds = %44
-  %46 = call i32 @get_log_level()
-  %47 = icmp sge i32 %46, 3
-  br i1 %47, label %48, label %65
+  br label %46
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %15, align 8
-  %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %52, i32 0, i32 6
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %57, i32 0, i32 14
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %62, i32 0, i32 1
-  %64 = load i32, ptr %63, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.1, ptr noundef @__func__.proc_req, ptr noundef %49, ptr noundef %54, ptr noundef %59, i32 noundef %64)
-  br label %65
+46:                                               ; preds = %45
+  %47 = call i32 @get_log_level()
+  %48 = icmp sge i32 %47, 3
+  br i1 %48, label %49, label %66
 
-65:                                               ; preds = %48, %45
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %15, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %53, i32 0, i32 6
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %58, i32 0, i32 14
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %7, align 8
+  %62 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %63, i32 0, i32 1
+  %65 = load i32, ptr %64, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.1, ptr noundef @__func__.proc_req, ptr noundef %50, ptr noundef %55, ptr noundef %60, i32 noundef %65)
   br label %66
 
-66:                                               ; preds = %65
+66:                                               ; preds = %49, %46
   br label %67
 
 67:                                               ; preds = %66
-  br label %88
+  br label %68
 
-68:                                               ; preds = %31
-  br label %69
+68:                                               ; preds = %67
+  br label %89
 
-69:                                               ; preds = %68
+69:                                               ; preds = %32
   br label %70
 
 70:                                               ; preds = %69
-  %71 = call i32 @get_log_level()
-  %72 = icmp sge i32 %71, 3
-  br i1 %72, label %73, label %85
+  br label %71
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %15, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %77, i32 0, i32 14
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %80, i32 0, i32 0
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %82, i32 0, i32 1
-  %84 = load i32, ptr %83, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.2, ptr noundef @__func__.proc_req, ptr noundef %74, ptr noundef %79, i32 noundef %84)
-  br label %85
+71:                                               ; preds = %70
+  %72 = call i32 @get_log_level()
+  %73 = icmp sge i32 %72, 3
+  br i1 %73, label %74, label %86
 
-85:                                               ; preds = %73, %70
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %15, align 8
+  %76 = load ptr, ptr %7, align 8
+  %77 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %78, i32 0, i32 14
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %83, i32 0, i32 1
+  %85 = load i32, ptr %84, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef @.str.2, ptr noundef @__func__.proc_req, ptr noundef %75, ptr noundef %80, i32 noundef %85)
   br label %86
 
-86:                                               ; preds = %85
+86:                                               ; preds = %74, %71
   br label %87
 
 87:                                               ; preds = %86
   br label %88
 
-88:                                               ; preds = %87, %67
+88:                                               ; preds = %87
   br label %89
 
-89:                                               ; preds = %88, %27
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.persist_msg_t, ptr %90, i32 0, i32 2
-  %92 = load i16, ptr %91, align 8
-  %93 = zext i16 %92 to i32
-  switch i32 %93, label %462 [
-    i32 6500, label %94
-    i32 1402, label %99
-    i32 1501, label %104
-    i32 1403, label %109
-    i32 1485, label %114
-    i32 1404, label %119
-    i32 1405, label %124
-    i32 1493, label %129
-    i32 1447, label %134
-    i32 1477, label %139
-    i32 1406, label %144
-    i32 1502, label %149
-    i32 1452, label %154
-    i32 1461, label %159
-    i32 1459, label %164
-    i32 1460, label %169
-    i32 1407, label %174
-    i32 1409, label %179
-    i32 1486, label %184
-    i32 1410, label %189
-    i32 1411, label %194
-    i32 1457, label %194
-    i32 1413, label %194
-    i32 1412, label %199
-    i32 1494, label %204
-    i32 1466, label %209
-    i32 1470, label %214
-    i32 1503, label %219
-    i32 1444, label %224
-    i32 1468, label %229
-    i32 1448, label %234
-    i32 1478, label %239
-    i32 1445, label %244
-    i32 1453, label %249
-    i32 1464, label %254
-    i32 1415, label %259
-    i32 1408, label %264
-    i32 1401, label %269
-    i32 1424, label %274
-    i32 1425, label %279
-    i32 1498, label %284
-    i32 1427, label %289
-    i32 1428, label %294
-    i32 1429, label %299
-    i32 1430, label %304
-    i32 1496, label %309
-    i32 1476, label %314
-    i32 1451, label %319
-    i32 1481, label %324
-    i32 1431, label %329
-    i32 1456, label %334
-    i32 1463, label %339
-    i32 1432, label %344
-    i32 1414, label %349
-    i32 1434, label %354
-    i32 1435, label %367
-    i32 1436, label %372
-    i32 1437, label %377
-    i32 1438, label %382
-    i32 1497, label %387
-    i32 1450, label %392
-    i32 1480, label %397
-    i32 1439, label %402
-    i32 1455, label %407
-    i32 1462, label %412
-    i32 1440, label %417
-    i32 1472, label %422
-    i32 1474, label %427
-    i32 1441, label %432
-    i32 1442, label %437
-    i32 1488, label %442
-    i32 1489, label %447
-    i32 1491, label %452
-    i32 1492, label %457
+89:                                               ; preds = %88, %68
+  br label %90
+
+90:                                               ; preds = %89, %27
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds %struct.persist_msg_t, ptr %91, i32 0, i32 2
+  %93 = load i16, ptr %92, align 8
+  %94 = zext i16 %93 to i32
+  switch i32 %94, label %463 [
+    i32 6500, label %95
+    i32 1402, label %100
+    i32 1501, label %105
+    i32 1403, label %110
+    i32 1485, label %115
+    i32 1404, label %120
+    i32 1405, label %125
+    i32 1493, label %130
+    i32 1447, label %135
+    i32 1477, label %140
+    i32 1406, label %145
+    i32 1502, label %150
+    i32 1452, label %155
+    i32 1461, label %160
+    i32 1459, label %165
+    i32 1460, label %170
+    i32 1407, label %175
+    i32 1409, label %180
+    i32 1486, label %185
+    i32 1410, label %190
+    i32 1411, label %195
+    i32 1457, label %195
+    i32 1413, label %195
+    i32 1412, label %200
+    i32 1494, label %205
+    i32 1466, label %210
+    i32 1470, label %215
+    i32 1503, label %220
+    i32 1444, label %225
+    i32 1468, label %230
+    i32 1448, label %235
+    i32 1478, label %240
+    i32 1445, label %245
+    i32 1453, label %250
+    i32 1464, label %255
+    i32 1415, label %260
+    i32 1408, label %265
+    i32 1401, label %270
+    i32 1424, label %275
+    i32 1425, label %280
+    i32 1498, label %285
+    i32 1427, label %290
+    i32 1428, label %295
+    i32 1429, label %300
+    i32 1430, label %305
+    i32 1496, label %310
+    i32 1476, label %315
+    i32 1451, label %320
+    i32 1481, label %325
+    i32 1431, label %330
+    i32 1456, label %335
+    i32 1463, label %340
+    i32 1432, label %345
+    i32 1414, label %350
+    i32 1434, label %355
+    i32 1435, label %368
+    i32 1436, label %373
+    i32 1437, label %378
+    i32 1438, label %383
+    i32 1497, label %388
+    i32 1450, label %393
+    i32 1480, label %398
+    i32 1439, label %403
+    i32 1455, label %408
+    i32 1462, label %413
+    i32 1440, label %418
+    i32 1472, label %423
+    i32 1474, label %428
+    i32 1441, label %433
+    i32 1442, label %438
+    i32 1488, label %443
+    i32 1489, label %448
+    i32 1491, label %453
+    i32 1492, label %458
   ]
 
-94:                                               ; preds = %89
-  %95 = load ptr, ptr %7, align 8
-  %96 = load ptr, ptr %5, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = call i32 @_unpack_persist_init(ptr noundef %95, ptr noundef %96, ptr noundef %97)
-  store i32 %98, ptr %8, align 4
-  br label %481
-
-99:                                               ; preds = %89
-  %100 = load ptr, ptr %7, align 8
-  %101 = load ptr, ptr %5, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = call i32 @_add_accounts(ptr noundef %100, ptr noundef %101, ptr noundef %102)
-  store i32 %103, ptr %8, align 4
-  br label %481
-
-104:                                              ; preds = %89
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %5, align 8
-  %107 = load ptr, ptr %6, align 8
-  %108 = call i32 @_add_accounts_cond(ptr noundef %105, ptr noundef %106, ptr noundef %107)
-  store i32 %108, ptr %8, align 4
-  br label %481
-
-109:                                              ; preds = %89
-  %110 = load ptr, ptr %7, align 8
-  %111 = load ptr, ptr %5, align 8
-  %112 = load ptr, ptr %6, align 8
-  %113 = call i32 @_add_account_coords(ptr noundef %110, ptr noundef %111, ptr noundef %112)
-  store i32 %113, ptr %8, align 4
-  br label %481
-
-114:                                              ; preds = %89
-  %115 = load ptr, ptr %7, align 8
-  %116 = load ptr, ptr %5, align 8
-  %117 = load ptr, ptr %6, align 8
-  %118 = call i32 @_add_tres(ptr noundef %115, ptr noundef %116, ptr noundef %117)
-  store i32 %118, ptr %8, align 4
-  br label %481
-
-119:                                              ; preds = %89
-  %120 = load ptr, ptr %7, align 8
-  %121 = load ptr, ptr %5, align 8
-  %122 = load ptr, ptr %6, align 8
-  %123 = call i32 @_add_assocs(ptr noundef %120, ptr noundef %121, ptr noundef %122)
-  store i32 %123, ptr %8, align 4
-  br label %481
-
-124:                                              ; preds = %89
-  %125 = load ptr, ptr %7, align 8
-  %126 = load ptr, ptr %5, align 8
-  %127 = load ptr, ptr %6, align 8
-  %128 = call i32 @_add_clusters(ptr noundef %125, ptr noundef %126, ptr noundef %127)
-  store i32 %128, ptr %8, align 4
-  br label %481
-
-129:                                              ; preds = %89
-  %130 = load ptr, ptr %7, align 8
-  %131 = load ptr, ptr %5, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = call i32 @_add_federations(ptr noundef %130, ptr noundef %131, ptr noundef %132)
-  store i32 %133, ptr %8, align 4
-  br label %481
-
-134:                                              ; preds = %89
-  %135 = load ptr, ptr %7, align 8
-  %136 = load ptr, ptr %5, align 8
-  %137 = load ptr, ptr %6, align 8
-  %138 = call i32 @_add_qos(ptr noundef %135, ptr noundef %136, ptr noundef %137)
-  store i32 %138, ptr %8, align 4
-  br label %481
-
-139:                                              ; preds = %89
-  %140 = load ptr, ptr %7, align 8
-  %141 = load ptr, ptr %5, align 8
-  %142 = load ptr, ptr %6, align 8
-  %143 = call i32 @_add_res(ptr noundef %140, ptr noundef %141, ptr noundef %142)
-  store i32 %143, ptr %8, align 4
-  br label %481
-
-144:                                              ; preds = %89
-  %145 = load ptr, ptr %7, align 8
-  %146 = load ptr, ptr %5, align 8
-  %147 = load ptr, ptr %6, align 8
-  %148 = call i32 @_add_users(ptr noundef %145, ptr noundef %146, ptr noundef %147)
-  store i32 %148, ptr %8, align 4
-  br label %481
-
-149:                                              ; preds = %89
-  %150 = load ptr, ptr %7, align 8
-  %151 = load ptr, ptr %5, align 8
-  %152 = load ptr, ptr %6, align 8
-  %153 = call i32 @_add_users_cond(ptr noundef %150, ptr noundef %151, ptr noundef %152)
-  store i32 %153, ptr %8, align 4
-  br label %481
-
-154:                                              ; preds = %89
-  %155 = load ptr, ptr %7, align 8
-  %156 = load ptr, ptr %5, align 8
-  %157 = load ptr, ptr %6, align 8
-  %158 = call i32 @_add_wckeys(ptr noundef %155, ptr noundef %156, ptr noundef %157)
-  store i32 %158, ptr %8, align 4
-  br label %481
-
-159:                                              ; preds = %89
-  %160 = load ptr, ptr %7, align 8
-  %161 = load ptr, ptr %5, align 8
-  %162 = load ptr, ptr %6, align 8
-  %163 = call i32 @_add_reservation(ptr noundef %160, ptr noundef %161, ptr noundef %162)
-  store i32 %163, ptr %8, align 4
-  br label %481
-
-164:                                              ; preds = %89
-  %165 = load ptr, ptr %7, align 8
-  %166 = load ptr, ptr %5, align 8
-  %167 = load ptr, ptr %6, align 8
-  %168 = call i32 @_archive_dump(ptr noundef %165, ptr noundef %166, ptr noundef %167)
-  store i32 %168, ptr %8, align 4
-  br label %481
-
-169:                                              ; preds = %89
-  %170 = load ptr, ptr %7, align 8
-  %171 = load ptr, ptr %5, align 8
-  %172 = load ptr, ptr %6, align 8
-  %173 = call i32 @_archive_load(ptr noundef %170, ptr noundef %171, ptr noundef %172)
-  store i32 %173, ptr %8, align 4
-  br label %481
-
-174:                                              ; preds = %89
-  %175 = load ptr, ptr %7, align 8
-  %176 = load ptr, ptr %5, align 8
-  %177 = load ptr, ptr %6, align 8
-  %178 = call i32 @_cluster_tres(ptr noundef %175, ptr noundef %176, ptr noundef %177)
-  store i32 %178, ptr %8, align 4
-  br label %481
-
-179:                                              ; preds = %89
-  %180 = load ptr, ptr %7, align 8
-  %181 = load ptr, ptr %5, align 8
-  %182 = load ptr, ptr %6, align 8
-  %183 = call i32 @_get_accounts(ptr noundef %180, ptr noundef %181, ptr noundef %182)
-  store i32 %183, ptr %8, align 4
-  br label %481
-
-184:                                              ; preds = %89
-  %185 = load ptr, ptr %7, align 8
-  %186 = load ptr, ptr %5, align 8
-  %187 = load ptr, ptr %6, align 8
-  %188 = call i32 @_get_tres(ptr noundef %185, ptr noundef %186, ptr noundef %187)
-  store i32 %188, ptr %8, align 4
-  br label %481
-
-189:                                              ; preds = %89
-  %190 = load ptr, ptr %7, align 8
-  %191 = load ptr, ptr %5, align 8
-  %192 = load ptr, ptr %6, align 8
-  %193 = call i32 @_get_assocs(ptr noundef %190, ptr noundef %191, ptr noundef %192)
-  store i32 %193, ptr %8, align 4
-  br label %481
-
-194:                                              ; preds = %89, %89, %89
-  %195 = load ptr, ptr %7, align 8
-  %196 = load ptr, ptr %5, align 8
-  %197 = load ptr, ptr %6, align 8
-  %198 = call i32 @_get_usage(ptr noundef %195, ptr noundef %196, ptr noundef %197)
-  store i32 %198, ptr %8, align 4
-  br label %481
-
-199:                                              ; preds = %89
-  %200 = load ptr, ptr %7, align 8
-  %201 = load ptr, ptr %5, align 8
-  %202 = load ptr, ptr %6, align 8
-  %203 = call i32 @_get_clusters(ptr noundef %200, ptr noundef %201, ptr noundef %202)
-  store i32 %203, ptr %8, align 4
-  br label %481
-
-204:                                              ; preds = %89
-  %205 = load ptr, ptr %7, align 8
-  %206 = load ptr, ptr %5, align 8
-  %207 = load ptr, ptr %6, align 8
-  %208 = call i32 @_get_federations(ptr noundef %205, ptr noundef %206, ptr noundef %207)
-  store i32 %208, ptr %8, align 4
-  br label %481
-
-209:                                              ; preds = %89
-  %210 = load ptr, ptr %7, align 8
-  %211 = load ptr, ptr %5, align 8
-  %212 = load ptr, ptr %6, align 8
-  %213 = call i32 @_get_config(ptr noundef %210, ptr noundef %211, ptr noundef %212)
-  store i32 %213, ptr %8, align 4
-  br label %481
-
-214:                                              ; preds = %89
-  %215 = load ptr, ptr %7, align 8
-  %216 = load ptr, ptr %5, align 8
-  %217 = load ptr, ptr %6, align 8
-  %218 = call i32 @_get_events(ptr noundef %215, ptr noundef %216, ptr noundef %217)
-  store i32 %218, ptr %8, align 4
-  br label %481
-
-219:                                              ; preds = %89
-  %220 = load ptr, ptr %7, align 8
-  %221 = load ptr, ptr %5, align 8
-  %222 = load ptr, ptr %6, align 8
-  %223 = call i32 @_get_instances(ptr noundef %220, ptr noundef %221, ptr noundef %222)
-  store i32 %223, ptr %8, align 4
-  br label %481
-
-224:                                              ; preds = %89
-  %225 = load ptr, ptr %7, align 8
-  %226 = load ptr, ptr %5, align 8
-  %227 = load ptr, ptr %6, align 8
-  %228 = call i32 @_get_jobs_cond(ptr noundef %225, ptr noundef %226, ptr noundef %227)
-  store i32 %228, ptr %8, align 4
-  br label %481
-
-229:                                              ; preds = %89
-  %230 = load ptr, ptr %7, align 8
-  %231 = load ptr, ptr %5, align 8
-  %232 = load ptr, ptr %6, align 8
-  %233 = call i32 @_get_probs(ptr noundef %230, ptr noundef %231, ptr noundef %232)
-  store i32 %233, ptr %8, align 4
-  br label %481
-
-234:                                              ; preds = %89
-  %235 = load ptr, ptr %7, align 8
-  %236 = load ptr, ptr %5, align 8
-  %237 = load ptr, ptr %6, align 8
-  %238 = call i32 @_get_qos(ptr noundef %235, ptr noundef %236, ptr noundef %237)
-  store i32 %238, ptr %8, align 4
-  br label %481
-
-239:                                              ; preds = %89
-  %240 = load ptr, ptr %7, align 8
-  %241 = load ptr, ptr %5, align 8
-  %242 = load ptr, ptr %6, align 8
-  %243 = call i32 @_get_res(ptr noundef %240, ptr noundef %241, ptr noundef %242)
-  store i32 %243, ptr %8, align 4
-  br label %481
-
-244:                                              ; preds = %89
-  %245 = load ptr, ptr %7, align 8
-  %246 = load ptr, ptr %5, align 8
-  %247 = load ptr, ptr %6, align 8
-  %248 = call i32 @_get_txn(ptr noundef %245, ptr noundef %246, ptr noundef %247)
-  store i32 %248, ptr %8, align 4
-  br label %481
-
-249:                                              ; preds = %89
-  %250 = load ptr, ptr %7, align 8
-  %251 = load ptr, ptr %5, align 8
-  %252 = load ptr, ptr %6, align 8
-  %253 = call i32 @_get_wckeys(ptr noundef %250, ptr noundef %251, ptr noundef %252)
-  store i32 %253, ptr %8, align 4
-  br label %481
-
-254:                                              ; preds = %89
-  %255 = load ptr, ptr %7, align 8
-  %256 = load ptr, ptr %5, align 8
-  %257 = load ptr, ptr %6, align 8
-  %258 = call i32 @_get_reservations(ptr noundef %255, ptr noundef %256, ptr noundef %257)
-  store i32 %258, ptr %8, align 4
-  br label %481
-
-259:                                              ; preds = %89
-  %260 = load ptr, ptr %7, align 8
-  %261 = load ptr, ptr %5, align 8
-  %262 = load ptr, ptr %6, align 8
-  %263 = call i32 @_get_users(ptr noundef %260, ptr noundef %261, ptr noundef %262)
-  store i32 %263, ptr %8, align 4
-  br label %481
-
-264:                                              ; preds = %89
-  %265 = load ptr, ptr %7, align 8
-  %266 = load ptr, ptr %5, align 8
-  %267 = load ptr, ptr %6, align 8
-  %268 = call i32 @_flush_jobs(ptr noundef %265, ptr noundef %266, ptr noundef %267)
-  store i32 %268, ptr %8, align 4
-  br label %481
-
-269:                                              ; preds = %89
-  %270 = load ptr, ptr %7, align 8
-  %271 = load ptr, ptr %5, align 8
-  %272 = load ptr, ptr %6, align 8
-  %273 = call i32 @_fini_conn(ptr noundef %270, ptr noundef %271, ptr noundef %272)
-  store i32 %273, ptr %8, align 4
-  br label %481
-
-274:                                              ; preds = %89
-  %275 = load ptr, ptr %7, align 8
-  %276 = load ptr, ptr %5, align 8
-  %277 = load ptr, ptr %6, align 8
-  %278 = call i32 @_job_complete(ptr noundef %275, ptr noundef %276, ptr noundef %277)
-  store i32 %278, ptr %8, align 4
-  br label %481
-
-279:                                              ; preds = %89
-  %280 = load ptr, ptr %7, align 8
-  %281 = load ptr, ptr %5, align 8
-  %282 = load ptr, ptr %6, align 8
-  %283 = call i32 @_job_start(ptr noundef %280, ptr noundef %281, ptr noundef %282)
-  store i32 %283, ptr %8, align 4
-  br label %481
-
-284:                                              ; preds = %89
-  %285 = load ptr, ptr %7, align 8
-  %286 = load ptr, ptr %5, align 8
-  %287 = load ptr, ptr %6, align 8
-  %288 = call i32 @_job_heavy(ptr noundef %285, ptr noundef %286, ptr noundef %287)
-  store i32 %288, ptr %8, align 4
-  br label %481
-
-289:                                              ; preds = %89
-  %290 = load ptr, ptr %7, align 8
-  %291 = load ptr, ptr %5, align 8
-  %292 = load ptr, ptr %6, align 8
-  %293 = call i32 @_job_suspend(ptr noundef %290, ptr noundef %291, ptr noundef %292)
-  store i32 %293, ptr %8, align 4
-  br label %481
-
-294:                                              ; preds = %89
-  %295 = load ptr, ptr %7, align 8
-  %296 = load ptr, ptr %5, align 8
-  %297 = load ptr, ptr %6, align 8
-  %298 = call i32 @_modify_accounts(ptr noundef %295, ptr noundef %296, ptr noundef %297)
-  store i32 %298, ptr %8, align 4
-  br label %481
-
-299:                                              ; preds = %89
-  %300 = load ptr, ptr %7, align 8
-  %301 = load ptr, ptr %5, align 8
-  %302 = load ptr, ptr %6, align 8
-  %303 = call i32 @_modify_assocs(ptr noundef %300, ptr noundef %301, ptr noundef %302)
-  store i32 %303, ptr %8, align 4
-  br label %481
-
-304:                                              ; preds = %89
-  %305 = load ptr, ptr %7, align 8
-  %306 = load ptr, ptr %5, align 8
-  %307 = load ptr, ptr %6, align 8
-  %308 = call i32 @_modify_clusters(ptr noundef %305, ptr noundef %306, ptr noundef %307)
-  store i32 %308, ptr %8, align 4
-  br label %481
-
-309:                                              ; preds = %89
-  %310 = load ptr, ptr %7, align 8
-  %311 = load ptr, ptr %5, align 8
-  %312 = load ptr, ptr %6, align 8
-  %313 = call i32 @_modify_federations(ptr noundef %310, ptr noundef %311, ptr noundef %312)
-  store i32 %313, ptr %8, align 4
-  br label %481
-
-314:                                              ; preds = %89
-  %315 = load ptr, ptr %7, align 8
-  %316 = load ptr, ptr %5, align 8
-  %317 = load ptr, ptr %6, align 8
-  %318 = call i32 @_modify_job(ptr noundef %315, ptr noundef %316, ptr noundef %317)
-  store i32 %318, ptr %8, align 4
-  br label %481
-
-319:                                              ; preds = %89
-  %320 = load ptr, ptr %7, align 8
-  %321 = load ptr, ptr %5, align 8
-  %322 = load ptr, ptr %6, align 8
-  %323 = call i32 @_modify_qos(ptr noundef %320, ptr noundef %321, ptr noundef %322)
-  store i32 %323, ptr %8, align 4
-  br label %481
-
-324:                                              ; preds = %89
-  %325 = load ptr, ptr %7, align 8
-  %326 = load ptr, ptr %5, align 8
-  %327 = load ptr, ptr %6, align 8
-  %328 = call i32 @_modify_res(ptr noundef %325, ptr noundef %326, ptr noundef %327)
-  store i32 %328, ptr %8, align 4
-  br label %481
-
-329:                                              ; preds = %89
-  %330 = load ptr, ptr %7, align 8
-  %331 = load ptr, ptr %5, align 8
-  %332 = load ptr, ptr %6, align 8
-  %333 = call i32 @_modify_users(ptr noundef %330, ptr noundef %331, ptr noundef %332)
-  store i32 %333, ptr %8, align 4
-  br label %481
-
-334:                                              ; preds = %89
-  %335 = load ptr, ptr %7, align 8
-  %336 = load ptr, ptr %5, align 8
-  %337 = load ptr, ptr %6, align 8
-  %338 = call i32 @_modify_wckeys(ptr noundef %335, ptr noundef %336, ptr noundef %337)
-  store i32 %338, ptr %8, align 4
-  br label %481
-
-339:                                              ; preds = %89
-  %340 = load ptr, ptr %7, align 8
-  %341 = load ptr, ptr %5, align 8
-  %342 = load ptr, ptr %6, align 8
-  %343 = call i32 @_modify_reservation(ptr noundef %340, ptr noundef %341, ptr noundef %342)
-  store i32 %343, ptr %8, align 4
-  br label %481
-
-344:                                              ; preds = %89
-  %345 = load ptr, ptr %7, align 8
-  %346 = load ptr, ptr %5, align 8
-  %347 = load ptr, ptr %6, align 8
-  %348 = call i32 @_node_state(ptr noundef %345, ptr noundef %346, ptr noundef %347)
-  store i32 %348, ptr %8, align 4
-  br label %481
-
-349:                                              ; preds = %89
-  %350 = load ptr, ptr %7, align 8
-  %351 = load ptr, ptr %5, align 8
-  %352 = load ptr, ptr %6, align 8
-  %353 = call i32 @_reconfig(ptr noundef %350, ptr noundef %351, ptr noundef %352)
-  store i32 %353, ptr %8, align 4
-  br label %481
-
-354:                                              ; preds = %89
-  %355 = load ptr, ptr %7, align 8
-  %356 = load ptr, ptr %5, align 8
-  %357 = load ptr, ptr %6, align 8
-  %358 = call i32 @_register_ctld(ptr noundef %355, ptr noundef %356, ptr noundef %357)
-  store i32 %358, ptr %8, align 4
-  %359 = load ptr, ptr %7, align 8
-  %360 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %359, i32 0, i32 0
-  %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %361, i32 0, i32 10
-  %363 = load i16, ptr %362, align 8
-  %364 = zext i16 %363 to i64
-  %365 = or i64 %364, 64
-  %366 = trunc i64 %365 to i16
-  store i16 %366, ptr %362, align 8
-  br label %481
-
-367:                                              ; preds = %89
-  %368 = load ptr, ptr %7, align 8
-  %369 = load ptr, ptr %5, align 8
-  %370 = load ptr, ptr %6, align 8
-  %371 = call i32 @_remove_accounts(ptr noundef %368, ptr noundef %369, ptr noundef %370)
-  store i32 %371, ptr %8, align 4
-  br label %481
-
-372:                                              ; preds = %89
-  %373 = load ptr, ptr %7, align 8
-  %374 = load ptr, ptr %5, align 8
-  %375 = load ptr, ptr %6, align 8
-  %376 = call i32 @_remove_account_coords(ptr noundef %373, ptr noundef %374, ptr noundef %375)
-  store i32 %376, ptr %8, align 4
-  br label %481
-
-377:                                              ; preds = %89
-  %378 = load ptr, ptr %7, align 8
-  %379 = load ptr, ptr %5, align 8
-  %380 = load ptr, ptr %6, align 8
-  %381 = call i32 @_remove_assocs(ptr noundef %378, ptr noundef %379, ptr noundef %380)
-  store i32 %381, ptr %8, align 4
-  br label %481
-
-382:                                              ; preds = %89
-  %383 = load ptr, ptr %7, align 8
-  %384 = load ptr, ptr %5, align 8
-  %385 = load ptr, ptr %6, align 8
-  %386 = call i32 @_remove_clusters(ptr noundef %383, ptr noundef %384, ptr noundef %385)
-  store i32 %386, ptr %8, align 4
-  br label %481
-
-387:                                              ; preds = %89
-  %388 = load ptr, ptr %7, align 8
-  %389 = load ptr, ptr %5, align 8
-  %390 = load ptr, ptr %6, align 8
-  %391 = call i32 @_remove_federations(ptr noundef %388, ptr noundef %389, ptr noundef %390)
-  store i32 %391, ptr %8, align 4
-  br label %481
-
-392:                                              ; preds = %89
-  %393 = load ptr, ptr %7, align 8
-  %394 = load ptr, ptr %5, align 8
-  %395 = load ptr, ptr %6, align 8
-  %396 = call i32 @_remove_qos(ptr noundef %393, ptr noundef %394, ptr noundef %395)
-  store i32 %396, ptr %8, align 4
-  br label %481
-
-397:                                              ; preds = %89
-  %398 = load ptr, ptr %7, align 8
-  %399 = load ptr, ptr %5, align 8
-  %400 = load ptr, ptr %6, align 8
-  %401 = call i32 @_remove_res(ptr noundef %398, ptr noundef %399, ptr noundef %400)
-  store i32 %401, ptr %8, align 4
-  br label %481
-
-402:                                              ; preds = %89
-  %403 = load ptr, ptr %7, align 8
-  %404 = load ptr, ptr %5, align 8
-  %405 = load ptr, ptr %6, align 8
-  %406 = call i32 @_remove_users(ptr noundef %403, ptr noundef %404, ptr noundef %405)
-  store i32 %406, ptr %8, align 4
-  br label %481
-
-407:                                              ; preds = %89
-  %408 = load ptr, ptr %7, align 8
-  %409 = load ptr, ptr %5, align 8
-  %410 = load ptr, ptr %6, align 8
-  %411 = call i32 @_remove_wckeys(ptr noundef %408, ptr noundef %409, ptr noundef %410)
-  store i32 %411, ptr %8, align 4
-  br label %481
-
-412:                                              ; preds = %89
-  %413 = load ptr, ptr %7, align 8
-  %414 = load ptr, ptr %5, align 8
-  %415 = load ptr, ptr %6, align 8
-  %416 = call i32 @_remove_reservation(ptr noundef %413, ptr noundef %414, ptr noundef %415)
-  store i32 %416, ptr %8, align 4
-  br label %481
-
-417:                                              ; preds = %89
-  %418 = load ptr, ptr %7, align 8
-  %419 = load ptr, ptr %5, align 8
-  %420 = load ptr, ptr %6, align 8
-  %421 = call i32 @_roll_usage(ptr noundef %418, ptr noundef %419, ptr noundef %420)
-  store i32 %421, ptr %8, align 4
-  br label %481
-
-422:                                              ; preds = %89
-  %423 = load ptr, ptr %7, align 8
-  %424 = load ptr, ptr %5, align 8
-  %425 = load ptr, ptr %6, align 8
-  %426 = call i32 @_send_mult_job_start(ptr noundef %423, ptr noundef %424, ptr noundef %425)
-  store i32 %426, ptr %8, align 4
-  br label %481
-
-427:                                              ; preds = %89
-  %428 = load ptr, ptr %7, align 8
-  %429 = load ptr, ptr %5, align 8
-  %430 = load ptr, ptr %6, align 8
-  %431 = call i32 @_send_mult_msg(ptr noundef %428, ptr noundef %429, ptr noundef %430)
-  store i32 %431, ptr %8, align 4
-  br label %481
-
-432:                                              ; preds = %89
-  %433 = load ptr, ptr %7, align 8
-  %434 = load ptr, ptr %5, align 8
-  %435 = load ptr, ptr %6, align 8
-  %436 = call i32 @_step_complete(ptr noundef %433, ptr noundef %434, ptr noundef %435)
-  store i32 %436, ptr %8, align 4
-  br label %481
-
-437:                                              ; preds = %89
-  %438 = load ptr, ptr %7, align 8
-  %439 = load ptr, ptr %5, align 8
-  %440 = load ptr, ptr %6, align 8
-  %441 = call i32 @_step_start(ptr noundef %438, ptr noundef %439, ptr noundef %440)
-  store i32 %441, ptr %8, align 4
-  br label %481
-
-442:                                              ; preds = %89
-  %443 = load ptr, ptr %7, align 8
-  %444 = load ptr, ptr %5, align 8
-  %445 = load ptr, ptr %6, align 8
-  %446 = call i32 @_fix_runaway_jobs(ptr noundef %443, ptr noundef %444, ptr noundef %445)
-  store i32 %446, ptr %8, align 4
-  br label %481
-
-447:                                              ; preds = %89
-  %448 = load ptr, ptr %7, align 8
-  %449 = load ptr, ptr %5, align 8
-  %450 = load ptr, ptr %6, align 8
-  %451 = call i32 @_get_stats(ptr noundef %448, ptr noundef %449, ptr noundef %450)
-  store i32 %451, ptr %8, align 4
-  br label %481
-
-452:                                              ; preds = %89
-  %453 = load ptr, ptr %7, align 8
-  %454 = load ptr, ptr %5, align 8
-  %455 = load ptr, ptr %6, align 8
-  %456 = call i32 @_clear_stats(ptr noundef %453, ptr noundef %454, ptr noundef %455)
-  store i32 %456, ptr %8, align 4
-  br label %481
-
-457:                                              ; preds = %89
-  %458 = load ptr, ptr %7, align 8
-  %459 = load ptr, ptr %5, align 8
-  %460 = load ptr, ptr %6, align 8
-  %461 = call i32 @_shutdown(ptr noundef %458, ptr noundef %459, ptr noundef %460)
-  store i32 %461, ptr %8, align 4
-  br label %481
-
-462:                                              ; preds = %89
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %7, align 8
+  %97 = load ptr, ptr %5, align 8
+  %98 = load ptr, ptr %6, align 8
+  %99 = call i32 @_unpack_persist_init(ptr noundef %96, ptr noundef %97, ptr noundef %98)
+  store i32 %99, ptr %8, align 4
+  br label %482
+
+100:                                              ; preds = %90
+  %101 = load ptr, ptr %7, align 8
+  %102 = load ptr, ptr %5, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = call i32 @_add_accounts(ptr noundef %101, ptr noundef %102, ptr noundef %103)
+  store i32 %104, ptr %8, align 4
+  br label %482
+
+105:                                              ; preds = %90
+  %106 = load ptr, ptr %7, align 8
+  %107 = load ptr, ptr %5, align 8
+  %108 = load ptr, ptr %6, align 8
+  %109 = call i32 @_add_accounts_cond(ptr noundef %106, ptr noundef %107, ptr noundef %108)
+  store i32 %109, ptr %8, align 4
+  br label %482
+
+110:                                              ; preds = %90
+  %111 = load ptr, ptr %7, align 8
+  %112 = load ptr, ptr %5, align 8
+  %113 = load ptr, ptr %6, align 8
+  %114 = call i32 @_add_account_coords(ptr noundef %111, ptr noundef %112, ptr noundef %113)
+  store i32 %114, ptr %8, align 4
+  br label %482
+
+115:                                              ; preds = %90
+  %116 = load ptr, ptr %7, align 8
+  %117 = load ptr, ptr %5, align 8
+  %118 = load ptr, ptr %6, align 8
+  %119 = call i32 @_add_tres(ptr noundef %116, ptr noundef %117, ptr noundef %118)
+  store i32 %119, ptr %8, align 4
+  br label %482
+
+120:                                              ; preds = %90
+  %121 = load ptr, ptr %7, align 8
+  %122 = load ptr, ptr %5, align 8
+  %123 = load ptr, ptr %6, align 8
+  %124 = call i32 @_add_assocs(ptr noundef %121, ptr noundef %122, ptr noundef %123)
+  store i32 %124, ptr %8, align 4
+  br label %482
+
+125:                                              ; preds = %90
+  %126 = load ptr, ptr %7, align 8
+  %127 = load ptr, ptr %5, align 8
+  %128 = load ptr, ptr %6, align 8
+  %129 = call i32 @_add_clusters(ptr noundef %126, ptr noundef %127, ptr noundef %128)
+  store i32 %129, ptr %8, align 4
+  br label %482
+
+130:                                              ; preds = %90
+  %131 = load ptr, ptr %7, align 8
+  %132 = load ptr, ptr %5, align 8
+  %133 = load ptr, ptr %6, align 8
+  %134 = call i32 @_add_federations(ptr noundef %131, ptr noundef %132, ptr noundef %133)
+  store i32 %134, ptr %8, align 4
+  br label %482
+
+135:                                              ; preds = %90
+  %136 = load ptr, ptr %7, align 8
+  %137 = load ptr, ptr %5, align 8
+  %138 = load ptr, ptr %6, align 8
+  %139 = call i32 @_add_qos(ptr noundef %136, ptr noundef %137, ptr noundef %138)
+  store i32 %139, ptr %8, align 4
+  br label %482
+
+140:                                              ; preds = %90
+  %141 = load ptr, ptr %7, align 8
+  %142 = load ptr, ptr %5, align 8
+  %143 = load ptr, ptr %6, align 8
+  %144 = call i32 @_add_res(ptr noundef %141, ptr noundef %142, ptr noundef %143)
+  store i32 %144, ptr %8, align 4
+  br label %482
+
+145:                                              ; preds = %90
+  %146 = load ptr, ptr %7, align 8
+  %147 = load ptr, ptr %5, align 8
+  %148 = load ptr, ptr %6, align 8
+  %149 = call i32 @_add_users(ptr noundef %146, ptr noundef %147, ptr noundef %148)
+  store i32 %149, ptr %8, align 4
+  br label %482
+
+150:                                              ; preds = %90
+  %151 = load ptr, ptr %7, align 8
+  %152 = load ptr, ptr %5, align 8
+  %153 = load ptr, ptr %6, align 8
+  %154 = call i32 @_add_users_cond(ptr noundef %151, ptr noundef %152, ptr noundef %153)
+  store i32 %154, ptr %8, align 4
+  br label %482
+
+155:                                              ; preds = %90
+  %156 = load ptr, ptr %7, align 8
+  %157 = load ptr, ptr %5, align 8
+  %158 = load ptr, ptr %6, align 8
+  %159 = call i32 @_add_wckeys(ptr noundef %156, ptr noundef %157, ptr noundef %158)
+  store i32 %159, ptr %8, align 4
+  br label %482
+
+160:                                              ; preds = %90
+  %161 = load ptr, ptr %7, align 8
+  %162 = load ptr, ptr %5, align 8
+  %163 = load ptr, ptr %6, align 8
+  %164 = call i32 @_add_reservation(ptr noundef %161, ptr noundef %162, ptr noundef %163)
+  store i32 %164, ptr %8, align 4
+  br label %482
+
+165:                                              ; preds = %90
+  %166 = load ptr, ptr %7, align 8
+  %167 = load ptr, ptr %5, align 8
+  %168 = load ptr, ptr %6, align 8
+  %169 = call i32 @_archive_dump(ptr noundef %166, ptr noundef %167, ptr noundef %168)
+  store i32 %169, ptr %8, align 4
+  br label %482
+
+170:                                              ; preds = %90
+  %171 = load ptr, ptr %7, align 8
+  %172 = load ptr, ptr %5, align 8
+  %173 = load ptr, ptr %6, align 8
+  %174 = call i32 @_archive_load(ptr noundef %171, ptr noundef %172, ptr noundef %173)
+  store i32 %174, ptr %8, align 4
+  br label %482
+
+175:                                              ; preds = %90
+  %176 = load ptr, ptr %7, align 8
+  %177 = load ptr, ptr %5, align 8
+  %178 = load ptr, ptr %6, align 8
+  %179 = call i32 @_cluster_tres(ptr noundef %176, ptr noundef %177, ptr noundef %178)
+  store i32 %179, ptr %8, align 4
+  br label %482
+
+180:                                              ; preds = %90
+  %181 = load ptr, ptr %7, align 8
+  %182 = load ptr, ptr %5, align 8
+  %183 = load ptr, ptr %6, align 8
+  %184 = call i32 @_get_accounts(ptr noundef %181, ptr noundef %182, ptr noundef %183)
+  store i32 %184, ptr %8, align 4
+  br label %482
+
+185:                                              ; preds = %90
+  %186 = load ptr, ptr %7, align 8
+  %187 = load ptr, ptr %5, align 8
+  %188 = load ptr, ptr %6, align 8
+  %189 = call i32 @_get_tres(ptr noundef %186, ptr noundef %187, ptr noundef %188)
+  store i32 %189, ptr %8, align 4
+  br label %482
+
+190:                                              ; preds = %90
+  %191 = load ptr, ptr %7, align 8
+  %192 = load ptr, ptr %5, align 8
+  %193 = load ptr, ptr %6, align 8
+  %194 = call i32 @_get_assocs(ptr noundef %191, ptr noundef %192, ptr noundef %193)
+  store i32 %194, ptr %8, align 4
+  br label %482
+
+195:                                              ; preds = %90, %90, %90
+  %196 = load ptr, ptr %7, align 8
+  %197 = load ptr, ptr %5, align 8
+  %198 = load ptr, ptr %6, align 8
+  %199 = call i32 @_get_usage(ptr noundef %196, ptr noundef %197, ptr noundef %198)
+  store i32 %199, ptr %8, align 4
+  br label %482
+
+200:                                              ; preds = %90
+  %201 = load ptr, ptr %7, align 8
+  %202 = load ptr, ptr %5, align 8
+  %203 = load ptr, ptr %6, align 8
+  %204 = call i32 @_get_clusters(ptr noundef %201, ptr noundef %202, ptr noundef %203)
+  store i32 %204, ptr %8, align 4
+  br label %482
+
+205:                                              ; preds = %90
+  %206 = load ptr, ptr %7, align 8
+  %207 = load ptr, ptr %5, align 8
+  %208 = load ptr, ptr %6, align 8
+  %209 = call i32 @_get_federations(ptr noundef %206, ptr noundef %207, ptr noundef %208)
+  store i32 %209, ptr %8, align 4
+  br label %482
+
+210:                                              ; preds = %90
+  %211 = load ptr, ptr %7, align 8
+  %212 = load ptr, ptr %5, align 8
+  %213 = load ptr, ptr %6, align 8
+  %214 = call i32 @_get_config(ptr noundef %211, ptr noundef %212, ptr noundef %213)
+  store i32 %214, ptr %8, align 4
+  br label %482
+
+215:                                              ; preds = %90
+  %216 = load ptr, ptr %7, align 8
+  %217 = load ptr, ptr %5, align 8
+  %218 = load ptr, ptr %6, align 8
+  %219 = call i32 @_get_events(ptr noundef %216, ptr noundef %217, ptr noundef %218)
+  store i32 %219, ptr %8, align 4
+  br label %482
+
+220:                                              ; preds = %90
+  %221 = load ptr, ptr %7, align 8
+  %222 = load ptr, ptr %5, align 8
+  %223 = load ptr, ptr %6, align 8
+  %224 = call i32 @_get_instances(ptr noundef %221, ptr noundef %222, ptr noundef %223)
+  store i32 %224, ptr %8, align 4
+  br label %482
+
+225:                                              ; preds = %90
+  %226 = load ptr, ptr %7, align 8
+  %227 = load ptr, ptr %5, align 8
+  %228 = load ptr, ptr %6, align 8
+  %229 = call i32 @_get_jobs_cond(ptr noundef %226, ptr noundef %227, ptr noundef %228)
+  store i32 %229, ptr %8, align 4
+  br label %482
+
+230:                                              ; preds = %90
+  %231 = load ptr, ptr %7, align 8
+  %232 = load ptr, ptr %5, align 8
+  %233 = load ptr, ptr %6, align 8
+  %234 = call i32 @_get_probs(ptr noundef %231, ptr noundef %232, ptr noundef %233)
+  store i32 %234, ptr %8, align 4
+  br label %482
+
+235:                                              ; preds = %90
+  %236 = load ptr, ptr %7, align 8
+  %237 = load ptr, ptr %5, align 8
+  %238 = load ptr, ptr %6, align 8
+  %239 = call i32 @_get_qos(ptr noundef %236, ptr noundef %237, ptr noundef %238)
+  store i32 %239, ptr %8, align 4
+  br label %482
+
+240:                                              ; preds = %90
+  %241 = load ptr, ptr %7, align 8
+  %242 = load ptr, ptr %5, align 8
+  %243 = load ptr, ptr %6, align 8
+  %244 = call i32 @_get_res(ptr noundef %241, ptr noundef %242, ptr noundef %243)
+  store i32 %244, ptr %8, align 4
+  br label %482
+
+245:                                              ; preds = %90
+  %246 = load ptr, ptr %7, align 8
+  %247 = load ptr, ptr %5, align 8
+  %248 = load ptr, ptr %6, align 8
+  %249 = call i32 @_get_txn(ptr noundef %246, ptr noundef %247, ptr noundef %248)
+  store i32 %249, ptr %8, align 4
+  br label %482
+
+250:                                              ; preds = %90
+  %251 = load ptr, ptr %7, align 8
+  %252 = load ptr, ptr %5, align 8
+  %253 = load ptr, ptr %6, align 8
+  %254 = call i32 @_get_wckeys(ptr noundef %251, ptr noundef %252, ptr noundef %253)
+  store i32 %254, ptr %8, align 4
+  br label %482
+
+255:                                              ; preds = %90
+  %256 = load ptr, ptr %7, align 8
+  %257 = load ptr, ptr %5, align 8
+  %258 = load ptr, ptr %6, align 8
+  %259 = call i32 @_get_reservations(ptr noundef %256, ptr noundef %257, ptr noundef %258)
+  store i32 %259, ptr %8, align 4
+  br label %482
+
+260:                                              ; preds = %90
+  %261 = load ptr, ptr %7, align 8
+  %262 = load ptr, ptr %5, align 8
+  %263 = load ptr, ptr %6, align 8
+  %264 = call i32 @_get_users(ptr noundef %261, ptr noundef %262, ptr noundef %263)
+  store i32 %264, ptr %8, align 4
+  br label %482
+
+265:                                              ; preds = %90
+  %266 = load ptr, ptr %7, align 8
+  %267 = load ptr, ptr %5, align 8
+  %268 = load ptr, ptr %6, align 8
+  %269 = call i32 @_flush_jobs(ptr noundef %266, ptr noundef %267, ptr noundef %268)
+  store i32 %269, ptr %8, align 4
+  br label %482
+
+270:                                              ; preds = %90
+  %271 = load ptr, ptr %7, align 8
+  %272 = load ptr, ptr %5, align 8
+  %273 = load ptr, ptr %6, align 8
+  %274 = call i32 @_fini_conn(ptr noundef %271, ptr noundef %272, ptr noundef %273)
+  store i32 %274, ptr %8, align 4
+  br label %482
+
+275:                                              ; preds = %90
+  %276 = load ptr, ptr %7, align 8
+  %277 = load ptr, ptr %5, align 8
+  %278 = load ptr, ptr %6, align 8
+  %279 = call i32 @_job_complete(ptr noundef %276, ptr noundef %277, ptr noundef %278)
+  store i32 %279, ptr %8, align 4
+  br label %482
+
+280:                                              ; preds = %90
+  %281 = load ptr, ptr %7, align 8
+  %282 = load ptr, ptr %5, align 8
+  %283 = load ptr, ptr %6, align 8
+  %284 = call i32 @_job_start(ptr noundef %281, ptr noundef %282, ptr noundef %283)
+  store i32 %284, ptr %8, align 4
+  br label %482
+
+285:                                              ; preds = %90
+  %286 = load ptr, ptr %7, align 8
+  %287 = load ptr, ptr %5, align 8
+  %288 = load ptr, ptr %6, align 8
+  %289 = call i32 @_job_heavy(ptr noundef %286, ptr noundef %287, ptr noundef %288)
+  store i32 %289, ptr %8, align 4
+  br label %482
+
+290:                                              ; preds = %90
+  %291 = load ptr, ptr %7, align 8
+  %292 = load ptr, ptr %5, align 8
+  %293 = load ptr, ptr %6, align 8
+  %294 = call i32 @_job_suspend(ptr noundef %291, ptr noundef %292, ptr noundef %293)
+  store i32 %294, ptr %8, align 4
+  br label %482
+
+295:                                              ; preds = %90
+  %296 = load ptr, ptr %7, align 8
+  %297 = load ptr, ptr %5, align 8
+  %298 = load ptr, ptr %6, align 8
+  %299 = call i32 @_modify_accounts(ptr noundef %296, ptr noundef %297, ptr noundef %298)
+  store i32 %299, ptr %8, align 4
+  br label %482
+
+300:                                              ; preds = %90
+  %301 = load ptr, ptr %7, align 8
+  %302 = load ptr, ptr %5, align 8
+  %303 = load ptr, ptr %6, align 8
+  %304 = call i32 @_modify_assocs(ptr noundef %301, ptr noundef %302, ptr noundef %303)
+  store i32 %304, ptr %8, align 4
+  br label %482
+
+305:                                              ; preds = %90
+  %306 = load ptr, ptr %7, align 8
+  %307 = load ptr, ptr %5, align 8
+  %308 = load ptr, ptr %6, align 8
+  %309 = call i32 @_modify_clusters(ptr noundef %306, ptr noundef %307, ptr noundef %308)
+  store i32 %309, ptr %8, align 4
+  br label %482
+
+310:                                              ; preds = %90
+  %311 = load ptr, ptr %7, align 8
+  %312 = load ptr, ptr %5, align 8
+  %313 = load ptr, ptr %6, align 8
+  %314 = call i32 @_modify_federations(ptr noundef %311, ptr noundef %312, ptr noundef %313)
+  store i32 %314, ptr %8, align 4
+  br label %482
+
+315:                                              ; preds = %90
+  %316 = load ptr, ptr %7, align 8
+  %317 = load ptr, ptr %5, align 8
+  %318 = load ptr, ptr %6, align 8
+  %319 = call i32 @_modify_job(ptr noundef %316, ptr noundef %317, ptr noundef %318)
+  store i32 %319, ptr %8, align 4
+  br label %482
+
+320:                                              ; preds = %90
+  %321 = load ptr, ptr %7, align 8
+  %322 = load ptr, ptr %5, align 8
+  %323 = load ptr, ptr %6, align 8
+  %324 = call i32 @_modify_qos(ptr noundef %321, ptr noundef %322, ptr noundef %323)
+  store i32 %324, ptr %8, align 4
+  br label %482
+
+325:                                              ; preds = %90
+  %326 = load ptr, ptr %7, align 8
+  %327 = load ptr, ptr %5, align 8
+  %328 = load ptr, ptr %6, align 8
+  %329 = call i32 @_modify_res(ptr noundef %326, ptr noundef %327, ptr noundef %328)
+  store i32 %329, ptr %8, align 4
+  br label %482
+
+330:                                              ; preds = %90
+  %331 = load ptr, ptr %7, align 8
+  %332 = load ptr, ptr %5, align 8
+  %333 = load ptr, ptr %6, align 8
+  %334 = call i32 @_modify_users(ptr noundef %331, ptr noundef %332, ptr noundef %333)
+  store i32 %334, ptr %8, align 4
+  br label %482
+
+335:                                              ; preds = %90
+  %336 = load ptr, ptr %7, align 8
+  %337 = load ptr, ptr %5, align 8
+  %338 = load ptr, ptr %6, align 8
+  %339 = call i32 @_modify_wckeys(ptr noundef %336, ptr noundef %337, ptr noundef %338)
+  store i32 %339, ptr %8, align 4
+  br label %482
+
+340:                                              ; preds = %90
+  %341 = load ptr, ptr %7, align 8
+  %342 = load ptr, ptr %5, align 8
+  %343 = load ptr, ptr %6, align 8
+  %344 = call i32 @_modify_reservation(ptr noundef %341, ptr noundef %342, ptr noundef %343)
+  store i32 %344, ptr %8, align 4
+  br label %482
+
+345:                                              ; preds = %90
+  %346 = load ptr, ptr %7, align 8
+  %347 = load ptr, ptr %5, align 8
+  %348 = load ptr, ptr %6, align 8
+  %349 = call i32 @_node_state(ptr noundef %346, ptr noundef %347, ptr noundef %348)
+  store i32 %349, ptr %8, align 4
+  br label %482
+
+350:                                              ; preds = %90
+  %351 = load ptr, ptr %7, align 8
+  %352 = load ptr, ptr %5, align 8
+  %353 = load ptr, ptr %6, align 8
+  %354 = call i32 @_reconfig(ptr noundef %351, ptr noundef %352, ptr noundef %353)
+  store i32 %354, ptr %8, align 4
+  br label %482
+
+355:                                              ; preds = %90
+  %356 = load ptr, ptr %7, align 8
+  %357 = load ptr, ptr %5, align 8
+  %358 = load ptr, ptr %6, align 8
+  %359 = call i32 @_register_ctld(ptr noundef %356, ptr noundef %357, ptr noundef %358)
+  store i32 %359, ptr %8, align 4
+  %360 = load ptr, ptr %7, align 8
+  %361 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %360, i32 0, i32 0
+  %362 = load ptr, ptr %361, align 8
+  %363 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %362, i32 0, i32 10
+  %364 = load i16, ptr %363, align 8
+  %365 = zext i16 %364 to i64
+  %366 = or i64 %365, 64
+  %367 = trunc i64 %366 to i16
+  store i16 %367, ptr %363, align 8
+  br label %482
+
+368:                                              ; preds = %90
+  %369 = load ptr, ptr %7, align 8
+  %370 = load ptr, ptr %5, align 8
+  %371 = load ptr, ptr %6, align 8
+  %372 = call i32 @_remove_accounts(ptr noundef %369, ptr noundef %370, ptr noundef %371)
+  store i32 %372, ptr %8, align 4
+  br label %482
+
+373:                                              ; preds = %90
+  %374 = load ptr, ptr %7, align 8
+  %375 = load ptr, ptr %5, align 8
+  %376 = load ptr, ptr %6, align 8
+  %377 = call i32 @_remove_account_coords(ptr noundef %374, ptr noundef %375, ptr noundef %376)
+  store i32 %377, ptr %8, align 4
+  br label %482
+
+378:                                              ; preds = %90
+  %379 = load ptr, ptr %7, align 8
+  %380 = load ptr, ptr %5, align 8
+  %381 = load ptr, ptr %6, align 8
+  %382 = call i32 @_remove_assocs(ptr noundef %379, ptr noundef %380, ptr noundef %381)
+  store i32 %382, ptr %8, align 4
+  br label %482
+
+383:                                              ; preds = %90
+  %384 = load ptr, ptr %7, align 8
+  %385 = load ptr, ptr %5, align 8
+  %386 = load ptr, ptr %6, align 8
+  %387 = call i32 @_remove_clusters(ptr noundef %384, ptr noundef %385, ptr noundef %386)
+  store i32 %387, ptr %8, align 4
+  br label %482
+
+388:                                              ; preds = %90
+  %389 = load ptr, ptr %7, align 8
+  %390 = load ptr, ptr %5, align 8
+  %391 = load ptr, ptr %6, align 8
+  %392 = call i32 @_remove_federations(ptr noundef %389, ptr noundef %390, ptr noundef %391)
+  store i32 %392, ptr %8, align 4
+  br label %482
+
+393:                                              ; preds = %90
+  %394 = load ptr, ptr %7, align 8
+  %395 = load ptr, ptr %5, align 8
+  %396 = load ptr, ptr %6, align 8
+  %397 = call i32 @_remove_qos(ptr noundef %394, ptr noundef %395, ptr noundef %396)
+  store i32 %397, ptr %8, align 4
+  br label %482
+
+398:                                              ; preds = %90
+  %399 = load ptr, ptr %7, align 8
+  %400 = load ptr, ptr %5, align 8
+  %401 = load ptr, ptr %6, align 8
+  %402 = call i32 @_remove_res(ptr noundef %399, ptr noundef %400, ptr noundef %401)
+  store i32 %402, ptr %8, align 4
+  br label %482
+
+403:                                              ; preds = %90
+  %404 = load ptr, ptr %7, align 8
+  %405 = load ptr, ptr %5, align 8
+  %406 = load ptr, ptr %6, align 8
+  %407 = call i32 @_remove_users(ptr noundef %404, ptr noundef %405, ptr noundef %406)
+  store i32 %407, ptr %8, align 4
+  br label %482
+
+408:                                              ; preds = %90
+  %409 = load ptr, ptr %7, align 8
+  %410 = load ptr, ptr %5, align 8
+  %411 = load ptr, ptr %6, align 8
+  %412 = call i32 @_remove_wckeys(ptr noundef %409, ptr noundef %410, ptr noundef %411)
+  store i32 %412, ptr %8, align 4
+  br label %482
+
+413:                                              ; preds = %90
+  %414 = load ptr, ptr %7, align 8
+  %415 = load ptr, ptr %5, align 8
+  %416 = load ptr, ptr %6, align 8
+  %417 = call i32 @_remove_reservation(ptr noundef %414, ptr noundef %415, ptr noundef %416)
+  store i32 %417, ptr %8, align 4
+  br label %482
+
+418:                                              ; preds = %90
+  %419 = load ptr, ptr %7, align 8
+  %420 = load ptr, ptr %5, align 8
+  %421 = load ptr, ptr %6, align 8
+  %422 = call i32 @_roll_usage(ptr noundef %419, ptr noundef %420, ptr noundef %421)
+  store i32 %422, ptr %8, align 4
+  br label %482
+
+423:                                              ; preds = %90
+  %424 = load ptr, ptr %7, align 8
+  %425 = load ptr, ptr %5, align 8
+  %426 = load ptr, ptr %6, align 8
+  %427 = call i32 @_send_mult_job_start(ptr noundef %424, ptr noundef %425, ptr noundef %426)
+  store i32 %427, ptr %8, align 4
+  br label %482
+
+428:                                              ; preds = %90
+  %429 = load ptr, ptr %7, align 8
+  %430 = load ptr, ptr %5, align 8
+  %431 = load ptr, ptr %6, align 8
+  %432 = call i32 @_send_mult_msg(ptr noundef %429, ptr noundef %430, ptr noundef %431)
+  store i32 %432, ptr %8, align 4
+  br label %482
+
+433:                                              ; preds = %90
+  %434 = load ptr, ptr %7, align 8
+  %435 = load ptr, ptr %5, align 8
+  %436 = load ptr, ptr %6, align 8
+  %437 = call i32 @_step_complete(ptr noundef %434, ptr noundef %435, ptr noundef %436)
+  store i32 %437, ptr %8, align 4
+  br label %482
+
+438:                                              ; preds = %90
+  %439 = load ptr, ptr %7, align 8
+  %440 = load ptr, ptr %5, align 8
+  %441 = load ptr, ptr %6, align 8
+  %442 = call i32 @_step_start(ptr noundef %439, ptr noundef %440, ptr noundef %441)
+  store i32 %442, ptr %8, align 4
+  br label %482
+
+443:                                              ; preds = %90
+  %444 = load ptr, ptr %7, align 8
+  %445 = load ptr, ptr %5, align 8
+  %446 = load ptr, ptr %6, align 8
+  %447 = call i32 @_fix_runaway_jobs(ptr noundef %444, ptr noundef %445, ptr noundef %446)
+  store i32 %447, ptr %8, align 4
+  br label %482
+
+448:                                              ; preds = %90
+  %449 = load ptr, ptr %7, align 8
+  %450 = load ptr, ptr %5, align 8
+  %451 = load ptr, ptr %6, align 8
+  %452 = call i32 @_get_stats(ptr noundef %449, ptr noundef %450, ptr noundef %451)
+  store i32 %452, ptr %8, align 4
+  br label %482
+
+453:                                              ; preds = %90
+  %454 = load ptr, ptr %7, align 8
+  %455 = load ptr, ptr %5, align 8
+  %456 = load ptr, ptr %6, align 8
+  %457 = call i32 @_clear_stats(ptr noundef %454, ptr noundef %455, ptr noundef %456)
+  store i32 %457, ptr %8, align 4
+  br label %482
+
+458:                                              ; preds = %90
+  %459 = load ptr, ptr %7, align 8
+  %460 = load ptr, ptr %5, align 8
+  %461 = load ptr, ptr %6, align 8
+  %462 = call i32 @_shutdown(ptr noundef %459, ptr noundef %460, ptr noundef %461)
+  store i32 %462, ptr %8, align 4
+  br label %482
+
+463:                                              ; preds = %90
   store ptr @.str.3, ptr %9, align 8
-  %463 = load ptr, ptr %7, align 8
-  %464 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %463, i32 0, i32 0
-  %465 = load ptr, ptr %464, align 8
-  %466 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %465, i32 0, i32 9
-  %467 = load i32, ptr %466, align 4
-  %468 = load ptr, ptr %9, align 8
-  %469 = load ptr, ptr %5, align 8
-  %470 = getelementptr inbounds %struct.persist_msg_t, ptr %469, i32 0, i32 2
-  %471 = load i16, ptr %470, align 8
-  %472 = call ptr @rpc_num2string(i16 noundef zeroext %471)
-  %473 = call i32 (ptr, ...) @error(ptr noundef @.str.4, i32 noundef %467, ptr noundef %468, ptr noundef %472)
+  %464 = load ptr, ptr %7, align 8
+  %465 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %464, i32 0, i32 0
+  %466 = load ptr, ptr %465, align 8
+  %467 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %466, i32 0, i32 9
+  %468 = load i32, ptr %467, align 4
+  %469 = load ptr, ptr %9, align 8
+  %470 = load ptr, ptr %5, align 8
+  %471 = getelementptr inbounds %struct.persist_msg_t, ptr %470, i32 0, i32 2
+  %472 = load i16, ptr %471, align 8
+  %473 = call ptr @rpc_num2string(i16 noundef zeroext %472)
+  %474 = call i32 (ptr, ...) @error(ptr noundef @.str.4, i32 noundef %468, ptr noundef %469, ptr noundef %473)
   store i32 22, ptr %8, align 4
-  %474 = load ptr, ptr %7, align 8
-  %475 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %474, i32 0, i32 0
-  %476 = load ptr, ptr %475, align 8
-  %477 = load i32, ptr %8, align 4
-  %478 = load ptr, ptr %9, align 8
-  %479 = call ptr @slurm_persist_make_rc_msg(ptr noundef %476, i32 noundef %477, ptr noundef %478, i16 noundef zeroext 0)
-  %480 = load ptr, ptr %6, align 8
-  store ptr %479, ptr %480, align 8
-  br label %481
+  %475 = load ptr, ptr %7, align 8
+  %476 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %475, i32 0, i32 0
+  %477 = load ptr, ptr %476, align 8
+  %478 = load i32, ptr %8, align 4
+  %479 = load ptr, ptr %9, align 8
+  %480 = call ptr @slurm_persist_make_rc_msg(ptr noundef %477, i32 noundef %478, ptr noundef %479, i16 noundef zeroext 0)
+  %481 = load ptr, ptr %6, align 8
+  store ptr %480, ptr %481, align 8
+  br label %482
 
-481:                                              ; preds = %462, %457, %452, %447, %442, %437, %432, %427, %422, %417, %412, %407, %402, %397, %392, %387, %382, %377, %372, %367, %354, %349, %344, %339, %334, %329, %324, %319, %314, %309, %304, %299, %294, %289, %284, %279, %274, %269, %264, %259, %254, %249, %244, %239, %234, %229, %224, %219, %214, %209, %204, %199, %194, %189, %184, %179, %174, %169, %164, %159, %154, %149, %144, %139, %134, %129, %124, %119, %114, %109, %104, %99, %94
-  %482 = load i32, ptr %8, align 4
-  %483 = icmp eq i32 %482, 2002
-  br i1 %483, label %484, label %496
+482:                                              ; preds = %463, %458, %453, %448, %443, %438, %433, %428, %423, %418, %413, %408, %403, %398, %393, %388, %383, %378, %373, %368, %355, %350, %345, %340, %335, %330, %325, %320, %315, %310, %305, %300, %295, %290, %285, %280, %275, %270, %265, %260, %255, %250, %245, %240, %235, %230, %225, %220, %215, %210, %205, %200, %195, %190, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95
+  %483 = load i32, ptr %8, align 4
+  %484 = icmp eq i32 %483, 2002
+  br i1 %484, label %485, label %497
 
-484:                                              ; preds = %481
-  %485 = load ptr, ptr %7, align 8
-  %486 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %485, i32 0, i32 0
-  %487 = load ptr, ptr %486, align 8
-  %488 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %487, i32 0, i32 9
-  %489 = load i32, ptr %488, align 4
-  %490 = load ptr, ptr %5, align 8
-  %491 = getelementptr inbounds %struct.persist_msg_t, ptr %490, i32 0, i32 2
-  %492 = load i16, ptr %491, align 8
-  %493 = zext i16 %492 to i32
-  %494 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %493, i32 noundef 1)
-  %495 = call i32 (ptr, ...) @error(ptr noundef @.str.5, i32 noundef %489, ptr noundef %494)
+485:                                              ; preds = %482
+  %486 = load ptr, ptr %7, align 8
+  %487 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %486, i32 0, i32 0
+  %488 = load ptr, ptr %487, align 8
+  %489 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %488, i32 0, i32 9
+  %490 = load i32, ptr %489, align 4
+  %491 = load ptr, ptr %5, align 8
+  %492 = getelementptr inbounds %struct.persist_msg_t, ptr %491, i32 0, i32 2
+  %493 = load i16, ptr %492, align 8
+  %494 = zext i16 %493 to i32
+  %495 = call ptr @slurmdbd_msg_type_2_str(i32 noundef %494, i32 noundef 1)
+  %496 = call i32 (ptr, ...) @error(ptr noundef @.str.5, i32 noundef %490, ptr noundef %495)
+  br label %522
+
+497:                                              ; preds = %482
+  %498 = load ptr, ptr %7, align 8
+  %499 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %498, i32 0, i32 0
+  %500 = load ptr, ptr %499, align 8
+  %501 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %500, i32 0, i32 15
+  %502 = load i16, ptr %501, align 8
+  %503 = zext i16 %502 to i32
+  %504 = icmp ne i32 %503, 0
+  br i1 %504, label %505, label %521
+
+505:                                              ; preds = %497
+  %506 = load ptr, ptr @slurmdbd_conf, align 8
+  %507 = getelementptr inbounds %struct.slurmdbd_conf_t, ptr %506, i32 0, i32 2
+  %508 = load i16, ptr %507, align 8
+  %509 = icmp ne i16 %508, 0
+  br i1 %509, label %510, label %516
+
+510:                                              ; preds = %505
+  %511 = load ptr, ptr %5, align 8
+  %512 = getelementptr inbounds %struct.persist_msg_t, ptr %511, i32 0, i32 2
+  %513 = load i16, ptr %512, align 8
+  %514 = zext i16 %513 to i32
+  %515 = icmp eq i32 %514, 1434
+  br i1 %515, label %516, label %521
+
+516:                                              ; preds = %510, %505
+  %517 = load ptr, ptr %7, align 8
+  %518 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %517, i32 0, i32 2
+  %519 = load ptr, ptr %518, align 8
+  %520 = call i32 @acct_storage_g_commit(ptr noundef %519, i1 noundef zeroext true)
   br label %521
 
-496:                                              ; preds = %481
-  %497 = load ptr, ptr %7, align 8
-  %498 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %497, i32 0, i32 0
-  %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %499, i32 0, i32 15
-  %501 = load i16, ptr %500, align 8
-  %502 = zext i16 %501 to i32
-  %503 = icmp ne i32 %502, 0
-  br i1 %503, label %504, label %520
+521:                                              ; preds = %516, %510, %497
+  br label %522
 
-504:                                              ; preds = %496
-  %505 = load ptr, ptr @slurmdbd_conf, align 8
-  %506 = getelementptr inbounds %struct.slurmdbd_conf_t, ptr %505, i32 0, i32 2
-  %507 = load i16, ptr %506, align 8
-  %508 = icmp ne i16 %507, 0
-  br i1 %508, label %509, label %515
+522:                                              ; preds = %521, %485
+  %523 = load ptr, ptr %7, align 8
+  %524 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %523, i32 0, i32 0
+  %525 = load ptr, ptr %524, align 8
+  %526 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %525, i32 0, i32 10
+  %527 = load i16, ptr %526, align 8
+  %528 = zext i16 %527 to i64
+  %529 = and i64 %528, -65
+  %530 = trunc i64 %529 to i16
+  store i16 %530, ptr %526, align 8
+  br label %531
 
-509:                                              ; preds = %504
-  %510 = load ptr, ptr %5, align 8
-  %511 = getelementptr inbounds %struct.persist_msg_t, ptr %510, i32 0, i32 2
-  %512 = load i16, ptr %511, align 8
-  %513 = zext i16 %512 to i32
-  %514 = icmp eq i32 %513, 1434
-  br i1 %514, label %515, label %520
-
-515:                                              ; preds = %509, %504
-  %516 = load ptr, ptr %7, align 8
-  %517 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %516, i32 0, i32 2
-  %518 = load ptr, ptr %517, align 8
-  %519 = call i32 @acct_storage_g_commit(ptr noundef %518, i1 noundef zeroext true)
-  br label %520
-
-520:                                              ; preds = %515, %509, %496
-  br label %521
-
-521:                                              ; preds = %520, %484
-  %522 = load ptr, ptr %7, align 8
-  %523 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %522, i32 0, i32 0
-  %524 = load ptr, ptr %523, align 8
-  %525 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %524, i32 0, i32 10
-  %526 = load i16, ptr %525, align 8
-  %527 = zext i16 %526 to i64
-  %528 = and i64 %527, -65
-  %529 = trunc i64 %528 to i16
-  store i16 %529, ptr %525, align 8
-  br label %530
-
-530:                                              ; preds = %521
-  %531 = call i32 @gettimeofday(ptr noundef %12, ptr noundef null) #7
-  %532 = getelementptr inbounds [20 x i8], ptr %13, i64 0, i64 0
-  call void @slurm_diff_tv_str(ptr noundef %11, ptr noundef %12, ptr noundef %532, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef %14)
-  br label %533
-
-533:                                              ; preds = %530
+531:                                              ; preds = %522
+  %532 = call i32 @gettimeofday(ptr noundef %12, ptr noundef null) #7
+  %533 = getelementptr inbounds [20 x i8], ptr %13, i64 0, i64 0
+  call void @slurm_diff_tv_str(ptr noundef %11, ptr noundef %12, ptr noundef %533, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef %14)
   br label %534
 
-534:                                              ; preds = %533
-  %535 = call i32 @pthread_mutex_lock(ptr noundef @rpc_mutex) #7
-  store i32 %535, ptr %16, align 4
-  %536 = load i32, ptr %16, align 4
-  %537 = icmp ne i32 %536, 0
-  br i1 %537, label %538, label %541
+534:                                              ; preds = %531
+  br label %535
 
-538:                                              ; preds = %534
-  %539 = load i32, ptr %16, align 4
-  %540 = call ptr @__errno_location() #9
-  store i32 %539, ptr %540, align 4
+535:                                              ; preds = %534
+  %536 = call i32 @pthread_mutex_lock(ptr noundef @rpc_mutex) #7
+  store i32 %536, ptr %16, align 4
+  %537 = load i32, ptr %16, align 4
+  %538 = icmp ne i32 %537, 0
+  br i1 %538, label %539, label %542
+
+539:                                              ; preds = %535
+  %540 = load i32, ptr %16, align 4
+  %541 = call ptr @__errno_location() #9
+  store i32 %540, ptr %541, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 3740, ptr noundef @__func__.proc_req) #8
   unreachable
 
-541:                                              ; preds = %534
-  br label %542
+542:                                              ; preds = %535
+  br label %543
 
-542:                                              ; preds = %541
-  %543 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i32 0, i32 2), align 8
-  %544 = load ptr, ptr %5, align 8
-  %545 = getelementptr inbounds %struct.persist_msg_t, ptr %544, i32 0, i32 2
-  %546 = call ptr @list_find_first(ptr noundef %543, ptr noundef @_find_rpc_obj_in_list, ptr noundef %545)
-  store ptr %546, ptr %10, align 8
-  %547 = icmp ne ptr %546, null
-  br i1 %547, label %558, label %548
+543:                                              ; preds = %542
+  %544 = getelementptr inbounds %struct.slurmdb_stats_rec_t, ptr @rpc_stats, i32 0, i32 2
+  %545 = load ptr, ptr %544, align 8
+  %546 = load ptr, ptr %5, align 8
+  %547 = getelementptr inbounds %struct.persist_msg_t, ptr %546, i32 0, i32 2
+  %548 = call ptr @list_find_first(ptr noundef %545, ptr noundef @_find_rpc_obj_in_list, ptr noundef %547)
+  store ptr %548, ptr %10, align 8
+  %549 = icmp ne ptr %548, null
+  br i1 %549, label %561, label %550
 
-548:                                              ; preds = %542
-  %549 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.7, i32 noundef 3745, ptr noundef @__func__.proc_req)
-  store ptr %549, ptr %10, align 8
-  %550 = load ptr, ptr %5, align 8
-  %551 = getelementptr inbounds %struct.persist_msg_t, ptr %550, i32 0, i32 2
-  %552 = load i16, ptr %551, align 8
-  %553 = zext i16 %552 to i32
-  %554 = load ptr, ptr %10, align 8
-  %555 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %554, i32 0, i32 1
-  store i32 %553, ptr %555, align 4
-  %556 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i32 0, i32 2), align 8
-  %557 = load ptr, ptr %10, align 8
-  call void @list_append(ptr noundef %556, ptr noundef %557)
-  br label %558
+550:                                              ; preds = %543
+  %551 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.7, i32 noundef 3745, ptr noundef @__func__.proc_req)
+  store ptr %551, ptr %10, align 8
+  %552 = load ptr, ptr %5, align 8
+  %553 = getelementptr inbounds %struct.persist_msg_t, ptr %552, i32 0, i32 2
+  %554 = load i16, ptr %553, align 8
+  %555 = zext i16 %554 to i32
+  %556 = load ptr, ptr %10, align 8
+  %557 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %556, i32 0, i32 1
+  store i32 %555, ptr %557, align 4
+  %558 = getelementptr inbounds %struct.slurmdb_stats_rec_t, ptr @rpc_stats, i32 0, i32 2
+  %559 = load ptr, ptr %558, align 8
+  %560 = load ptr, ptr %10, align 8
+  call void @list_append(ptr noundef %559, ptr noundef %560)
+  br label %561
 
-558:                                              ; preds = %548, %542
-  %559 = load ptr, ptr %10, align 8
-  %560 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %559, i32 0, i32 0
-  %561 = load i32, ptr %560, align 8
-  %562 = add i32 %561, 1
-  store i32 %562, ptr %560, align 8
-  %563 = load i64, ptr %14, align 8
-  %564 = load ptr, ptr %10, align 8
-  %565 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %564, i32 0, i32 2
-  %566 = load i64, ptr %565, align 8
-  %567 = add i64 %566, %563
-  store i64 %567, ptr %565, align 8
-  %568 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i32 0, i32 4), align 8
-  %569 = load ptr, ptr %7, align 8
-  %570 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %569, i32 0, i32 0
-  %571 = load ptr, ptr %570, align 8
-  %572 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %571, i32 0, i32 1
-  %573 = call ptr @list_find_first(ptr noundef %568, ptr noundef @_find_rpc_obj_in_list, ptr noundef %572)
-  store ptr %573, ptr %10, align 8
-  %574 = icmp ne ptr %573, null
-  br i1 %574, label %586, label %575
+561:                                              ; preds = %550, %543
+  %562 = load ptr, ptr %10, align 8
+  %563 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %562, i32 0, i32 0
+  %564 = load i32, ptr %563, align 8
+  %565 = add i32 %564, 1
+  store i32 %565, ptr %563, align 8
+  %566 = load i64, ptr %14, align 8
+  %567 = load ptr, ptr %10, align 8
+  %568 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %567, i32 0, i32 2
+  %569 = load i64, ptr %568, align 8
+  %570 = add i64 %569, %566
+  store i64 %570, ptr %568, align 8
+  %571 = getelementptr inbounds %struct.slurmdb_stats_rec_t, ptr @rpc_stats, i32 0, i32 4
+  %572 = load ptr, ptr %571, align 8
+  %573 = load ptr, ptr %7, align 8
+  %574 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %573, i32 0, i32 0
+  %575 = load ptr, ptr %574, align 8
+  %576 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %575, i32 0, i32 1
+  %577 = call ptr @list_find_first(ptr noundef %572, ptr noundef @_find_rpc_obj_in_list, ptr noundef %576)
+  store ptr %577, ptr %10, align 8
+  %578 = icmp ne ptr %577, null
+  br i1 %578, label %591, label %579
 
-575:                                              ; preds = %558
-  %576 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.7, i32 noundef 3755, ptr noundef @__func__.proc_req)
-  store ptr %576, ptr %10, align 8
-  %577 = load ptr, ptr %7, align 8
-  %578 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %577, i32 0, i32 0
-  %579 = load ptr, ptr %578, align 8
-  %580 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %579, i32 0, i32 1
-  %581 = load i32, ptr %580, align 8
-  %582 = load ptr, ptr %10, align 8
-  %583 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %582, i32 0, i32 1
-  store i32 %581, ptr %583, align 4
-  %584 = load ptr, ptr getelementptr inbounds (%struct.slurmdb_stats_rec_t, ptr @rpc_stats, i32 0, i32 4), align 8
-  %585 = load ptr, ptr %10, align 8
-  call void @list_append(ptr noundef %584, ptr noundef %585)
-  br label %586
+579:                                              ; preds = %561
+  %580 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.7, i32 noundef 3755, ptr noundef @__func__.proc_req)
+  store ptr %580, ptr %10, align 8
+  %581 = load ptr, ptr %7, align 8
+  %582 = getelementptr inbounds %struct.slurmdbd_conn_t, ptr %581, i32 0, i32 0
+  %583 = load ptr, ptr %582, align 8
+  %584 = getelementptr inbounds %struct.slurm_persist_conn_t, ptr %583, i32 0, i32 1
+  %585 = load i32, ptr %584, align 8
+  %586 = load ptr, ptr %10, align 8
+  %587 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %586, i32 0, i32 1
+  store i32 %585, ptr %587, align 4
+  %588 = getelementptr inbounds %struct.slurmdb_stats_rec_t, ptr @rpc_stats, i32 0, i32 4
+  %589 = load ptr, ptr %588, align 8
+  %590 = load ptr, ptr %10, align 8
+  call void @list_append(ptr noundef %589, ptr noundef %590)
+  br label %591
 
-586:                                              ; preds = %575, %558
-  %587 = load ptr, ptr %10, align 8
-  %588 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %587, i32 0, i32 0
-  %589 = load i32, ptr %588, align 8
-  %590 = add i32 %589, 1
-  store i32 %590, ptr %588, align 8
-  %591 = load i64, ptr %14, align 8
+591:                                              ; preds = %579, %561
   %592 = load ptr, ptr %10, align 8
-  %593 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %592, i32 0, i32 2
-  %594 = load i64, ptr %593, align 8
-  %595 = add i64 %594, %591
-  store i64 %595, ptr %593, align 8
-  br label %596
+  %593 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %592, i32 0, i32 0
+  %594 = load i32, ptr %593, align 8
+  %595 = add i32 %594, 1
+  store i32 %595, ptr %593, align 8
+  %596 = load i64, ptr %14, align 8
+  %597 = load ptr, ptr %10, align 8
+  %598 = getelementptr inbounds %struct.slurmdb_rpc_obj_t, ptr %597, i32 0, i32 2
+  %599 = load i64, ptr %598, align 8
+  %600 = add i64 %599, %596
+  store i64 %600, ptr %598, align 8
+  br label %601
 
-596:                                              ; preds = %586
-  %597 = call i32 @pthread_mutex_unlock(ptr noundef @rpc_mutex) #7
-  store i32 %597, ptr %17, align 4
-  %598 = load i32, ptr %17, align 4
-  %599 = icmp ne i32 %598, 0
-  br i1 %599, label %600, label %603
+601:                                              ; preds = %591
+  %602 = call i32 @pthread_mutex_unlock(ptr noundef @rpc_mutex) #7
+  store i32 %602, ptr %17, align 4
+  %603 = load i32, ptr %17, align 4
+  %604 = icmp ne i32 %603, 0
+  br i1 %604, label %605, label %608
 
-600:                                              ; preds = %596
-  %601 = load i32, ptr %17, align 4
-  %602 = call ptr @__errno_location() #9
-  store i32 %601, ptr %602, align 4
+605:                                              ; preds = %601
+  %606 = load i32, ptr %17, align 4
+  %607 = call ptr @__errno_location() #9
+  store i32 %606, ptr %607, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.8, ptr noundef @.str.7, i32 noundef 3762, ptr noundef @__func__.proc_req) #8
   unreachable
 
-603:                                              ; preds = %596
-  br label %604
+608:                                              ; preds = %601
+  br label %609
 
-604:                                              ; preds = %603
-  %605 = load i32, ptr %8, align 4
-  ret i32 %605
+609:                                              ; preds = %608
+  %610 = load i32, ptr %8, align 4
+  ret i32 %610
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -13277,32 +13282,33 @@ define internal zeroext i1 @_validate_operator(ptr noundef %0) #0 {
   store i32 %9, ptr %4, align 4
   %10 = load i32, ptr %4, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %21, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %1
   %13 = load i32, ptr %4, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %15 = icmp eq i32 %13, %14
-  br i1 %15, label %21, label %16
+  %14 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %13, %15
+  br i1 %16, label %22, label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = call i32 @assoc_mgr_get_admin_level(ptr noundef %17, i32 noundef %18)
-  %20 = icmp uge i32 %19, 2
-  br i1 %20, label %21, label %22
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = call i32 @assoc_mgr_get_admin_level(ptr noundef %18, i32 noundef %19)
+  %21 = icmp uge i32 %20, 2
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %16, %12, %1
+22:                                               ; preds = %17, %12, %1
   store i1 true, ptr %2, align 1
-  br label %23
+  br label %24
 
-22:                                               ; preds = %16
+23:                                               ; preds = %17
   store i1 false, ptr %2, align 1
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %21
-  %24 = load i1, ptr %2, align 1
-  ret i1 %24
+24:                                               ; preds = %23, %22
+  %25 = load i1, ptr %2, align 1
+  ret i1 %25
 }
 
 declare i32 @assoc_mgr_fill_in_user(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) #4
@@ -13351,25 +13357,26 @@ define internal zeroext i1 @_validate_slurm_user(ptr noundef %0) #0 {
   store i32 %9, ptr %4, align 4
   %10 = load i32, ptr %4, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %16, label %12
+  br i1 %11, label %17, label %12
 
 12:                                               ; preds = %1
   %13 = load i32, ptr %4, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %15 = icmp eq i32 %13, %14
-  br i1 %15, label %16, label %17
+  %14 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %13, %15
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %12, %1
+17:                                               ; preds = %12, %1
   store i1 true, ptr %2, align 1
-  br label %18
+  br label %19
 
-17:                                               ; preds = %12
+18:                                               ; preds = %12
   store i1 false, ptr %2, align 1
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %16
-  %19 = load i1, ptr %2, align 1
-  ret i1 %19
+19:                                               ; preds = %18, %17
+  %20 = load i1, ptr %2, align 1
+  ret i1 %20
 }
 
 declare i32 @acct_storage_g_add_reservation(ptr noundef, ptr noundef) #4
@@ -13388,32 +13395,33 @@ define internal zeroext i1 @_validate_super_user(ptr noundef %0) #0 {
   store i32 %9, ptr %4, align 4
   %10 = load i32, ptr %4, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %21, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %1
   %13 = load i32, ptr %4, align 4
-  %14 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %15 = icmp eq i32 %13, %14
-  br i1 %15, label %21, label %16
+  %14 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %13, %15
+  br i1 %16, label %22, label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = call i32 @assoc_mgr_get_admin_level(ptr noundef %17, i32 noundef %18)
-  %20 = icmp uge i32 %19, 3
-  br i1 %20, label %21, label %22
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = call i32 @assoc_mgr_get_admin_level(ptr noundef %18, i32 noundef %19)
+  %21 = icmp uge i32 %20, 3
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %16, %12, %1
+22:                                               ; preds = %17, %12, %1
   store i1 true, ptr %2, align 1
-  br label %23
+  br label %24
 
-22:                                               ; preds = %16
+23:                                               ; preds = %17
   store i1 false, ptr %2, align 1
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %21
-  %24 = load i1, ptr %2, align 1
-  ret i1 %24
+24:                                               ; preds = %23, %22
+  %25 = load i1, ptr %2, align 1
+  ret i1 %25
 }
 
 declare i32 @jobacct_storage_g_archive(ptr noundef, ptr noundef) #4

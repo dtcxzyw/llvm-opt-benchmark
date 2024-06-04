@@ -71,15 +71,15 @@ define internal noundef i32 @show_softirqs(ptr noundef %0, ptr nocapture readnon
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #3
   br label %21
 
-21:                                               ; preds = %50, %20
-  %22 = phi i64 [ 0, %20 ], [ %51, %50 ]
+21:                                               ; preds = %51, %20
+  %22 = phi i64 [ 0, %20 ], [ %52, %51 ]
   %23 = getelementptr [10 x ptr], ptr @softirq_to_name, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %24) #3
   br label %25
 
 25:                                               ; preds = %40, %21
-  %26 = phi i64 [ 0, %21 ], [ %49, %40 ]
+  %26 = phi i64 [ 0, %21 ], [ %50, %40 ]
   %27 = and i64 %26, 4294967295
   %28 = icmp ugt i64 %27, 63
   br i1 %28, label %36, label %29, !prof !5
@@ -99,28 +99,29 @@ define internal noundef i32 @show_softirqs(ptr noundef %0, ptr nocapture readnon
   %37 = phi i64 [ 64, %25 ], [ %35, %34 ], [ 64, %29 ]
   %38 = and i64 %37, 4294967232
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %50
+  br i1 %39, label %40, label %51
 
 40:                                               ; preds = %36
   %41 = and i64 %37, 63
   %42 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %41
   %43 = load i64, ptr %42, align 8
-  %44 = add i64 %43, ptrtoint (ptr @kstat to i64)
-  %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = getelementptr [10 x i32], ptr %46, i64 0, i64 %22
-  %48 = load i32, ptr %47, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %48) #3
-  %49 = add nuw nsw i64 %37, 1
+  %44 = ptrtoint ptr @kstat to i64
+  %45 = add i64 %43, %44
+  %46 = inttoptr i64 %45 to ptr
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr [10 x i32], ptr %47, i64 0, i64 %22
+  %49 = load i32, ptr %48, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %49) #3
+  %50 = add nuw nsw i64 %37, 1
   br label %25, !llvm.loop !10
 
-50:                                               ; preds = %36
+51:                                               ; preds = %36
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #3
-  %51 = add nuw nsw i64 %22, 1
-  %52 = icmp eq i64 %51, 10
-  br i1 %52, label %53, label %21, !llvm.loop !11
+  %52 = add nuw nsw i64 %22, 1
+  %53 = icmp eq i64 %52, 10
+  br i1 %53, label %54, label %21, !llvm.loop !11
 
-53:                                               ; preds = %50
+54:                                               ; preds = %51
   ret i32 0
 }
 

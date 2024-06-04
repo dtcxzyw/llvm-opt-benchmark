@@ -42,119 +42,120 @@ define { i32, i32 } @_ZN4core3str11validations23next_code_point_reverse17hd650b0
   %25 = load ptr, ptr %7, align 8, !nonnull !3, !align !4, !noundef !3
   %26 = load i8, ptr %25, align 1, !noundef !3
   %27 = icmp ult i8 %26, -128
-  br i1 %27, label %44, label %32
+  br i1 %27, label %45, label %33
 
 28:                                               ; preds = %18
   %29 = load i32, ptr @anon.0c4e26064ed6041b286b41a2c0e2d91f.0, align 4, !range !5, !noundef !3
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @anon.0c4e26064ed6041b286b41a2c0e2d91f.0, i64 4), align 4
+  %30 = getelementptr inbounds i8, ptr @anon.0c4e26064ed6041b286b41a2c0e2d91f.0, i64 4
+  %31 = load i32, ptr %30, align 4
   store i32 %29, ptr %8, align 4
-  %31 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %30, ptr %31, align 4
-  br label %97
+  %32 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %31, ptr %32, align 4
+  br label %98
 
-32:                                               ; preds = %24
-  %33 = call align 1 ptr @"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha3cb2efefba69382E"(ptr align 8 %0)
-  store ptr %33, ptr %4, align 8
-  %34 = load ptr, ptr %4, align 8, !noundef !3
-  %35 = ptrtoint ptr %34 to i64
-  %36 = icmp eq i64 %35, 0
-  %37 = select i1 %36, i64 0, i64 1
-  %38 = icmp eq i64 %37, 1
-  call void @llvm.assume(i1 %38)
-  %39 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
-  %40 = load i8, ptr %39, align 1, !noundef !3
-  %41 = and i8 %40, 31
-  %42 = zext i8 %41 to i32
-  store i32 %42, ptr %5, align 4
-  %43 = icmp slt i8 %40, -64
-  br i1 %43, label %48, label %47
+33:                                               ; preds = %24
+  %34 = call align 1 ptr @"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha3cb2efefba69382E"(ptr align 8 %0)
+  store ptr %34, ptr %4, align 8
+  %35 = load ptr, ptr %4, align 8, !noundef !3
+  %36 = ptrtoint ptr %35 to i64
+  %37 = icmp eq i64 %36, 0
+  %38 = select i1 %37, i64 0, i64 1
+  %39 = icmp eq i64 %38, 1
+  call void @llvm.assume(i1 %39)
+  %40 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  %41 = load i8, ptr %40, align 1, !noundef !3
+  %42 = and i8 %41, 31
+  %43 = zext i8 %42 to i32
+  store i32 %43, ptr %5, align 4
+  %44 = icmp slt i8 %41, -64
+  br i1 %44, label %49, label %48
 
-44:                                               ; preds = %24
-  %45 = zext i8 %26 to i32
-  %46 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %45, ptr %46, align 4
+45:                                               ; preds = %24
+  %46 = zext i8 %26 to i32
+  %47 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %46, ptr %47, align 4
   store i32 1, ptr %8, align 4
-  br label %97
+  br label %98
 
-47:                                               ; preds = %32
-  br label %60
+48:                                               ; preds = %33
+  br label %61
 
-48:                                               ; preds = %32
-  %49 = call align 1 ptr @"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha3cb2efefba69382E"(ptr align 8 %0)
-  store ptr %49, ptr %3, align 8
-  %50 = load ptr, ptr %3, align 8, !noundef !3
-  %51 = ptrtoint ptr %50 to i64
-  %52 = icmp eq i64 %51, 0
-  %53 = select i1 %52, i64 0, i64 1
-  %54 = icmp eq i64 %53, 1
-  call void @llvm.assume(i1 %54)
-  %55 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
-  %56 = load i8, ptr %55, align 1, !noundef !3
-  %57 = and i8 %56, 15
-  %58 = zext i8 %57 to i32
-  store i32 %58, ptr %5, align 4
-  %59 = icmp slt i8 %56, -64
-  br i1 %59, label %69, label %68
+49:                                               ; preds = %33
+  %50 = call align 1 ptr @"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha3cb2efefba69382E"(ptr align 8 %0)
+  store ptr %50, ptr %3, align 8
+  %51 = load ptr, ptr %3, align 8, !noundef !3
+  %52 = ptrtoint ptr %51 to i64
+  %53 = icmp eq i64 %52, 0
+  %54 = select i1 %53, i64 0, i64 1
+  %55 = icmp eq i64 %54, 1
+  call void @llvm.assume(i1 %55)
+  %56 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
+  %57 = load i8, ptr %56, align 1, !noundef !3
+  %58 = and i8 %57, 15
+  %59 = zext i8 %58 to i32
+  store i32 %59, ptr %5, align 4
+  %60 = icmp slt i8 %57, -64
+  br i1 %60, label %70, label %69
 
-60:                                               ; preds = %85, %47
-  %61 = load i32, ptr %5, align 4, !noundef !3
-  %62 = shl i32 %61, 6
-  %63 = and i8 %26, 63
-  %64 = zext i8 %63 to i32
-  %65 = or i32 %62, %64
-  store i32 %65, ptr %5, align 4
-  %66 = load i32, ptr %5, align 4, !noundef !3
-  %67 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %66, ptr %67, align 4
+61:                                               ; preds = %86, %48
+  %62 = load i32, ptr %5, align 4, !noundef !3
+  %63 = shl i32 %62, 6
+  %64 = and i8 %26, 63
+  %65 = zext i8 %64 to i32
+  %66 = or i32 %63, %65
+  store i32 %66, ptr %5, align 4
+  %67 = load i32, ptr %5, align 4, !noundef !3
+  %68 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %67, ptr %68, align 4
   store i32 1, ptr %8, align 4
-  br label %91
+  br label %92
 
-68:                                               ; preds = %48
-  br label %85
+69:                                               ; preds = %49
+  br label %86
 
-69:                                               ; preds = %48
-  %70 = call align 1 ptr @"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha3cb2efefba69382E"(ptr align 8 %0)
-  store ptr %70, ptr %2, align 8
-  %71 = load ptr, ptr %2, align 8, !noundef !3
-  %72 = ptrtoint ptr %71 to i64
-  %73 = icmp eq i64 %72, 0
-  %74 = select i1 %73, i64 0, i64 1
-  %75 = icmp eq i64 %74, 1
-  call void @llvm.assume(i1 %75)
-  %76 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %77 = load i8, ptr %76, align 1, !noundef !3
-  %78 = and i8 %77, 7
-  %79 = zext i8 %78 to i32
-  store i32 %79, ptr %5, align 4
-  %80 = load i32, ptr %5, align 4, !noundef !3
-  %81 = shl i32 %80, 6
-  %82 = and i8 %56, 63
-  %83 = zext i8 %82 to i32
-  %84 = or i32 %81, %83
-  store i32 %84, ptr %5, align 4
-  br label %85
+70:                                               ; preds = %49
+  %71 = call align 1 ptr @"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha3cb2efefba69382E"(ptr align 8 %0)
+  store ptr %71, ptr %2, align 8
+  %72 = load ptr, ptr %2, align 8, !noundef !3
+  %73 = ptrtoint ptr %72 to i64
+  %74 = icmp eq i64 %73, 0
+  %75 = select i1 %74, i64 0, i64 1
+  %76 = icmp eq i64 %75, 1
+  call void @llvm.assume(i1 %76)
+  %77 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %78 = load i8, ptr %77, align 1, !noundef !3
+  %79 = and i8 %78, 7
+  %80 = zext i8 %79 to i32
+  store i32 %80, ptr %5, align 4
+  %81 = load i32, ptr %5, align 4, !noundef !3
+  %82 = shl i32 %81, 6
+  %83 = and i8 %57, 63
+  %84 = zext i8 %83 to i32
+  %85 = or i32 %82, %84
+  store i32 %85, ptr %5, align 4
+  br label %86
 
-85:                                               ; preds = %69, %68
-  %86 = load i32, ptr %5, align 4, !noundef !3
-  %87 = shl i32 %86, 6
-  %88 = and i8 %40, 63
-  %89 = zext i8 %88 to i32
-  %90 = or i32 %87, %89
-  store i32 %90, ptr %5, align 4
-  br label %60
+86:                                               ; preds = %70, %69
+  %87 = load i32, ptr %5, align 4, !noundef !3
+  %88 = shl i32 %87, 6
+  %89 = and i8 %41, 63
+  %90 = zext i8 %89 to i32
+  %91 = or i32 %88, %90
+  store i32 %91, ptr %5, align 4
+  br label %61
 
-91:                                               ; preds = %97, %60
-  %92 = load i32, ptr %8, align 4, !range !5, !noundef !3
-  %93 = getelementptr inbounds i8, ptr %8, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = insertvalue { i32, i32 } poison, i32 %92, 0
-  %96 = insertvalue { i32, i32 } %95, i32 %94, 1
-  ret { i32, i32 } %96
+92:                                               ; preds = %98, %61
+  %93 = load i32, ptr %8, align 4, !range !5, !noundef !3
+  %94 = getelementptr inbounds i8, ptr %8, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = insertvalue { i32, i32 } poison, i32 %93, 0
+  %97 = insertvalue { i32, i32 } %96, i32 %95, 1
+  ret { i32, i32 } %97
 
-97:                                               ; preds = %44, %28
-  br label %91
+98:                                               ; preds = %45, %28
+  br label %92
 
-98:                                               ; No predecessors!
+99:                                               ; No predecessors!
   unreachable
 }
 

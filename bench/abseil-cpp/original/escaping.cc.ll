@@ -471,9 +471,11 @@ sw.default:                                       ; preds = %if.end24
   br label %do.body
 
 do.body:                                          ; preds = %sw.default
-  store ptr getelementptr (i8, ptr @.str, i64 121), ptr %absl_raw_log_internal_basename, align 8
-  %106 = load i64, ptr %szsrc.addr, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 121), i32 noundef 198, ptr noundef @.str.1, i64 noundef %106)
+  %106 = getelementptr i8, ptr @.str, i64 121
+  store ptr %106, ptr %absl_raw_log_internal_basename, align 8
+  %107 = load i64, ptr %szsrc.addr, align 8
+  %108 = getelementptr i8, ptr @.str, i64 121
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %108, i32 noundef 198, ptr noundef @.str.1, i64 noundef %107)
   br label %do.body115
 
 do.body115:                                       ; preds = %do.body
@@ -486,17 +488,17 @@ do.end116:                                        ; preds = %do.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.end116, %if.end87, %if.end83, %if.end51, %sw.bb
-  %107 = load ptr, ptr %cur_dest, align 8
-  %108 = load ptr, ptr %dest.addr, align 8
-  %sub.ptr.lhs.cast117 = ptrtoint ptr %107 to i64
-  %sub.ptr.rhs.cast118 = ptrtoint ptr %108 to i64
+  %109 = load ptr, ptr %cur_dest, align 8
+  %110 = load ptr, ptr %dest.addr, align 8
+  %sub.ptr.lhs.cast117 = ptrtoint ptr %109 to i64
+  %sub.ptr.rhs.cast118 = ptrtoint ptr %110 to i64
   %sub.ptr.sub119 = sub i64 %sub.ptr.lhs.cast117, %sub.ptr.rhs.cast118
   store i64 %sub.ptr.sub119, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then86, %if.then78, %if.then54, %if.then45, %if.then30, %if.then
-  %109 = load i64, ptr %retval, align 8
-  ret i64 %109
+  %111 = load i64, ptr %retval, align 8
+  ret i64 %111
 }
 
 ; Function Attrs: mustprogress uwtable

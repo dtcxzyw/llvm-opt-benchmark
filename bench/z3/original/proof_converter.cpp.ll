@@ -326,7 +326,8 @@ entry:
   %0 = load ptr, ptr %pc1.addr, align 8
   %1 = load ptr, ptr %pc2.addr, align 8
   call void @_ZN16concat_converterI15proof_converterEC2EPS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22concat_proof_converter, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV22concat_proof_converter, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -372,23 +373,24 @@ entry:
   store ptr %pr, ptr %pr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN15proof_converterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8proof2pc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8proof2pc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pr = getelementptr inbounds %class.proof2pc, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pr.addr, align 8
-  %1 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_pr, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(976) %1)
+  %1 = load ptr, ptr %pr.addr, align 8
+  %2 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_pr, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(976) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN15proof_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3
   br label %eh.resume
 
@@ -749,37 +751,38 @@ entry:
   store ptr %c2, ptr %c2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN15proof_converterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16concat_converterI15proof_converterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV16concat_converterI15proof_converterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_c1 = getelementptr inbounds %class.concat_converter, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %c1.addr, align 8
-  invoke void @_ZN3refI15proof_converterEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_c1, ptr noundef %0)
+  %1 = load ptr, ptr %c1.addr, align 8
+  invoke void @_ZN3refI15proof_converterEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_c1, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_c2 = getelementptr inbounds %class.concat_converter, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %c2.addr, align 8
-  invoke void @_ZN3refI15proof_converterEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_c2, ptr noundef %1)
+  %2 = load ptr, ptr %c2.addr, align 8
+  invoke void @_ZN3refI15proof_converterEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_c2, ptr noundef %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN3refI15proof_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_c1) #3
   br label %ehcleanup
 
@@ -961,7 +964,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9converterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15proof_converter, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV15proof_converter, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1006,7 +1010,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16concat_converterI15proof_converterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV16concat_converterI15proof_converterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_c2 = getelementptr inbounds %class.concat_converter, ptr %this1, i32 0, i32 2
   call void @_ZN3refI15proof_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_c2) #3
   %m_c1 = getelementptr inbounds %class.concat_converter, ptr %this1, i32 0, i32 1
@@ -1032,7 +1037,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9converter, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV9converter, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ref_count = getelementptr inbounds %class.converter, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_ref_count, align 8
   ret void
@@ -1275,7 +1281,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8proof2pc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8proof2pc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pr = getelementptr inbounds %class.proof2pc, ptr %this1, i32 0, i32 1
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_pr) #3
   call void @_ZN15proof_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3

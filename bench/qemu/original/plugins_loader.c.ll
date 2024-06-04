@@ -110,14 +110,15 @@ entry:
   store i32 %call, ptr %hash, align 4
   %2 = load ptr, ptr %arr.addr, align 8
   %3 = load i32, ptr %hash, align 4
-  %call1 = call zeroext i1 @qht_insert(ptr noundef getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 6), ptr noundef %2, i32 noundef %3, ptr noundef null)
+  %4 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 6
+  %call1 = call zeroext i1 @qht_insert(ptr noundef %4, ptr noundef %2, i32 noundef %3, ptr noundef null)
   %frombool = zext i1 %call1 to i8
   store i8 %frombool, ptr %inserted, align 1
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %4 = load i8, ptr %inserted, align 1
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %inserted, align 1
+  %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %do.body
@@ -713,29 +714,31 @@ while.end:                                        ; preds = %while.cond
   %41 = load ptr, ptr %tmp, align 8
   store ptr %41, ptr %_f, align 8
   %42 = load ptr, ptr %_f, align 8
-  call void %42(ptr noundef getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5), ptr noundef @.str.3, i32 noundef 225)
-  %43 = load ptr, ptr %ctx, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %45 = load ptr, ptr %ctx, align 8
-  %id = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %45, i32 0, i32 1
-  store i64 %44, ptr %id, align 8
+  %43 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5
+  call void %42(ptr noundef %43, ptr noundef @.str.3, i32 noundef 225)
+  %44 = load ptr, ptr %ctx, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = load ptr, ptr %ctx, align 8
+  %id = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %46, i32 0, i32 1
+  store i64 %45, ptr %id, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end57, %while.end
-  %46 = load ptr, ptr %ctx, align 8
-  %id36 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %46, i32 0, i32 1
-  %47 = load i64, ptr %id36, align 8
-  %call37 = call i64 @xorshift64star(i64 noundef %47)
-  %48 = load ptr, ptr %ctx, align 8
-  %id38 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %48, i32 0, i32 1
+  %47 = load ptr, ptr %ctx, align 8
+  %id36 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %47, i32 0, i32 1
+  %48 = load i64, ptr %id36, align 8
+  %call37 = call i64 @xorshift64star(i64 noundef %48)
+  %49 = load ptr, ptr %ctx, align 8
+  %id38 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %49, i32 0, i32 1
   store i64 %call37, ptr %id38, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 2), align 8
-  %50 = load ptr, ptr %ctx, align 8
-  %id39 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %50, i32 0, i32 1
-  %call40 = call ptr @g_hash_table_lookup(ptr noundef %49, ptr noundef %id39)
+  %50 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %ctx, align 8
+  %id39 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %52, i32 0, i32 1
+  %call40 = call ptr @g_hash_table_lookup(ptr noundef %51, ptr noundef %id39)
   store ptr %call40, ptr %existing, align 8
-  %51 = load ptr, ptr %existing, align 8
-  %cmp41 = icmp eq ptr %51, null
+  %53 = load ptr, ptr %existing, align 8
+  %cmp41 = icmp eq ptr %53, null
   %lnot = xor i1 %cmp41, true
   %lnot43 = xor i1 %lnot, true
   %lnot.ext = zext i1 %lnot43 to i32
@@ -744,20 +747,21 @@ for.cond:                                         ; preds = %if.end57, %while.en
   br i1 %tobool45, label %if.then46, label %if.end57
 
 if.then46:                                        ; preds = %for.cond
-  %52 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 2), align 8
-  %53 = load ptr, ptr %ctx, align 8
-  %id47 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %53, i32 0, i32 1
-  %54 = load ptr, ptr %ctx, align 8
-  %id48 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %54, i32 0, i32 1
-  %call49 = call i32 @g_hash_table_insert(ptr noundef %52, ptr noundef %id47, ptr noundef %id48)
+  %54 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %ctx, align 8
+  %id47 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %56, i32 0, i32 1
+  %57 = load ptr, ptr %ctx, align 8
+  %id48 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %57, i32 0, i32 1
+  %call49 = call i32 @g_hash_table_insert(ptr noundef %55, ptr noundef %id47, ptr noundef %id48)
   %tobool50 = icmp ne i32 %call49, 0
   %frombool = zext i1 %tobool50 to i8
   store i8 %frombool, ptr %success, align 1
   br label %do.body51
 
 do.body51:                                        ; preds = %if.then46
-  %55 = load i8, ptr %success, align 1
-  %tobool52 = trunc i8 %55 to i1
+  %58 = load i8, ptr %success, align 1
+  %tobool52 = trunc i8 %58 to i1
   br i1 %tobool52, label %if.then53, label %if.else54
 
 if.then53:                                        ; preds = %do.body51
@@ -780,92 +784,96 @@ for.end:                                          ; preds = %do.end56
   br label %do.body58
 
 do.body58:                                        ; preds = %for.end
-  %56 = load ptr, ptr %ctx, align 8
-  %entry59 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %56, i32 0, i32 3
-  store ptr null, ptr %entry59, align 8
-  %57 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @plugin, i32 0, i32 1), align 8
-  %58 = load ptr, ptr %ctx, align 8
-  %entry60 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %58, i32 0, i32 3
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry60, i32 0, i32 1
-  store ptr %57, ptr %tql_prev, align 8
   %59 = load ptr, ptr %ctx, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @plugin, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %60, i32 0, i32 0
-  store ptr %59, ptr %tql_next, align 8
-  %61 = load ptr, ptr %ctx, align 8
-  %entry61 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %61, i32 0, i32 3
-  store ptr %entry61, ptr getelementptr inbounds (%struct.QTailQLink, ptr @plugin, i32 0, i32 1), align 8
+  %entry59 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %59, i32 0, i32 3
+  store ptr null, ptr %entry59, align 8
+  %60 = getelementptr inbounds %struct.QTailQLink, ptr @plugin, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %ctx, align 8
+  %entry60 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %62, i32 0, i32 3
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry60, i32 0, i32 1
+  store ptr %61, ptr %tql_prev, align 8
+  %63 = load ptr, ptr %ctx, align 8
+  %64 = getelementptr inbounds %struct.QTailQLink, ptr @plugin, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %65, i32 0, i32 0
+  store ptr %63, ptr %tql_next, align 8
+  %66 = load ptr, ptr %ctx, align 8
+  %entry61 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %66, i32 0, i32 3
+  %67 = getelementptr inbounds %struct.QTailQLink, ptr @plugin, i32 0, i32 1
+  store ptr %entry61, ptr %67, align 8
   br label %do.end62
 
 do.end62:                                         ; preds = %do.body58
-  %62 = load ptr, ptr %ctx, align 8
-  %installing = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %62, i32 0, i32 5
+  %68 = load ptr, ptr %ctx, align 8
+  %installing = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %68, i32 0, i32 5
   store i8 1, ptr %installing, align 8
-  %63 = load ptr, ptr %install, align 8
-  %64 = load ptr, ptr %ctx, align 8
-  %id63 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %64, i32 0, i32 1
-  %65 = load i64, ptr %id63, align 8
-  %66 = load ptr, ptr %info.addr, align 8
-  %67 = load ptr, ptr %desc.addr, align 8
-  %argc = getelementptr inbounds %struct.qemu_plugin_desc, ptr %67, i32 0, i32 3
-  %68 = load i32, ptr %argc, align 8
-  %69 = load ptr, ptr %desc.addr, align 8
-  %argv = getelementptr inbounds %struct.qemu_plugin_desc, ptr %69, i32 0, i32 1
-  %70 = load ptr, ptr %argv, align 8
-  %call64 = call i32 %63(i64 noundef %65, ptr noundef %66, i32 noundef %68, ptr noundef %70)
+  %69 = load ptr, ptr %install, align 8
+  %70 = load ptr, ptr %ctx, align 8
+  %id63 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %70, i32 0, i32 1
+  %71 = load i64, ptr %id63, align 8
+  %72 = load ptr, ptr %info.addr, align 8
+  %73 = load ptr, ptr %desc.addr, align 8
+  %argc = getelementptr inbounds %struct.qemu_plugin_desc, ptr %73, i32 0, i32 3
+  %74 = load i32, ptr %argc, align 8
+  %75 = load ptr, ptr %desc.addr, align 8
+  %argv = getelementptr inbounds %struct.qemu_plugin_desc, ptr %75, i32 0, i32 1
+  %76 = load ptr, ptr %argv, align 8
+  %call64 = call i32 %69(i64 noundef %71, ptr noundef %72, i32 noundef %74, ptr noundef %76)
   store i32 %call64, ptr %rc, align 4
-  %71 = load ptr, ptr %ctx, align 8
-  %installing65 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %71, i32 0, i32 5
+  %77 = load ptr, ptr %ctx, align 8
+  %installing65 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %77, i32 0, i32 5
   store i8 0, ptr %installing65, align 8
-  %72 = load i32, ptr %rc, align 4
-  %tobool66 = icmp ne i32 %72, 0
+  %78 = load i32, ptr %rc, align 4
+  %tobool66 = icmp ne i32 %78, 0
   br i1 %tobool66, label %if.then67, label %if.end73
 
 if.then67:                                        ; preds = %do.end62
-  %73 = load ptr, ptr %errp.addr, align 8
-  %74 = load ptr, ptr %desc.addr, align 8
-  %path68 = getelementptr inbounds %struct.qemu_plugin_desc, ptr %74, i32 0, i32 0
-  %75 = load ptr, ptr %path68, align 8
-  %76 = load i32, ptr %rc, align 4
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %73, ptr noundef @.str.3, i32 noundef 248, ptr noundef @__func__.plugin_load, ptr noundef @.str.23, ptr noundef %75, i32 noundef %76)
-  %77 = load ptr, ptr %ctx, align 8
-  %uninstalling = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %77, i32 0, i32 6
-  %78 = load i8, ptr %uninstalling, align 1
-  %tobool69 = trunc i8 %78 to i1
+  %79 = load ptr, ptr %errp.addr, align 8
+  %80 = load ptr, ptr %desc.addr, align 8
+  %path68 = getelementptr inbounds %struct.qemu_plugin_desc, ptr %80, i32 0, i32 0
+  %81 = load ptr, ptr %path68, align 8
+  %82 = load i32, ptr %rc, align 4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %79, ptr noundef @.str.3, i32 noundef 248, ptr noundef @__func__.plugin_load, ptr noundef @.str.23, ptr noundef %81, i32 noundef %82)
+  %83 = load ptr, ptr %ctx, align 8
+  %uninstalling = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %83, i32 0, i32 6
+  %84 = load i8, ptr %uninstalling, align 1
+  %tobool69 = trunc i8 %84 to i1
   br i1 %tobool69, label %if.end72, label %if.then70
 
 if.then70:                                        ; preds = %if.then67
-  %79 = load ptr, ptr %ctx, align 8
-  %id71 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %79, i32 0, i32 1
-  %80 = load i64, ptr %id71, align 8
-  call void @plugin_reset_uninstall(i64 noundef %80, ptr noundef null, i1 noundef zeroext false)
+  %85 = load ptr, ptr %ctx, align 8
+  %id71 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %85, i32 0, i32 1
+  %86 = load i64, ptr %id71, align 8
+  call void @plugin_reset_uninstall(i64 noundef %86, ptr noundef null, i1 noundef zeroext false)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then70, %if.then67
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end72, %do.end62
-  call void @qemu_rec_mutex_unlock_impl(ptr noundef getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5), ptr noundef @.str.3, i32 noundef 258)
-  %81 = load i32, ptr %rc, align 4
-  store i32 %81, ptr %retval, align 4
+  %87 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5
+  call void @qemu_rec_mutex_unlock_impl(ptr noundef %87, ptr noundef @.str.3, i32 noundef 258)
+  %88 = load i32, ptr %rc, align 4
+  store i32 %88, ptr %retval, align 4
   br label %return
 
 err_symbol:                                       ; preds = %if.then31, %if.then26, %if.then21, %if.then15, %if.then9
-  %82 = load ptr, ptr %ctx, align 8
-  %handle74 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %82, i32 0, i32 0
-  %83 = load ptr, ptr %handle74, align 8
-  %call75 = call i32 @g_module_close(ptr noundef %83)
+  %89 = load ptr, ptr %ctx, align 8
+  %handle74 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %89, i32 0, i32 0
+  %90 = load ptr, ptr %handle74, align 8
+  %call75 = call i32 @g_module_close(ptr noundef %90)
   br label %err_dlopen
 
 err_dlopen:                                       ; preds = %err_symbol, %if.then
-  %84 = load ptr, ptr %ctx, align 8
-  call void @qemu_vfree(ptr noundef %84)
+  %91 = load ptr, ptr %ctx, align 8
+  call void @qemu_vfree(ptr noundef %91)
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %err_dlopen, %if.end73
-  %85 = load i32, ptr %retval, align 4
-  ret i32 %85
+  %92 = load i32, ptr %retval, align 4
+  ret i32 %92
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -885,7 +893,8 @@ entry:
   %frombool = zext i1 %reset to i8
   store i8 %frombool, ptr %reset.addr, align 1
   %object = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 0
-  store ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5), ptr %object, align 8
+  %0 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5
+  store ptr %0, ptr %object, align 8
   %lock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 1
   store ptr @qemu_rec_mutex_lock, ptr %lock, align 8
   %unlock = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral, i32 0, i32 2
@@ -895,8 +904,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %qemu_lockable_auto0, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %qemu_lockable_auto0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %for.body, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.cond
@@ -904,25 +913,25 @@ for.cond.cleanup:                                 ; preds = %for.cond
   br label %cleanup
 
 for.body:                                         ; preds = %for.cond
-  %1 = load i64, ptr %id.addr, align 8
-  %call1 = call ptr @plugin_id_to_ctx_locked(i64 noundef %1)
+  %2 = load i64, ptr %id.addr, align 8
+  %call1 = call ptr @plugin_id_to_ctx_locked(i64 noundef %2)
   store ptr %call1, ptr %ctx, align 8
-  %2 = load ptr, ptr %ctx, align 8
-  %uninstalling = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %2, i32 0, i32 6
-  %3 = load i8, ptr %uninstalling, align 1
-  %tobool2 = trunc i8 %3 to i1
+  %3 = load ptr, ptr %ctx, align 8
+  %uninstalling = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %3, i32 0, i32 6
+  %4 = load i8, ptr %uninstalling, align 1
+  %tobool2 = trunc i8 %4 to i1
   br i1 %tobool2, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %4 = load i8, ptr %reset.addr, align 1
-  %tobool3 = trunc i8 %4 to i1
+  %5 = load i8, ptr %reset.addr, align 1
+  %tobool3 = trunc i8 %5 to i1
   br i1 %tobool3, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %ctx, align 8
-  %resetting = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %5, i32 0, i32 7
-  %6 = load i8, ptr %resetting, align 2
-  %tobool4 = trunc i8 %6 to i1
+  %6 = load ptr, ptr %ctx, align 8
+  %resetting = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %6, i32 0, i32 7
+  %7 = load i8, ptr %resetting, align 2
+  %tobool4 = trunc i8 %7 to i1
   br i1 %tobool4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true, %for.body
@@ -930,24 +939,24 @@ if.then:                                          ; preds = %land.lhs.true, %for
   br label %cleanup
 
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  %7 = load i8, ptr %reset.addr, align 1
-  %tobool5 = trunc i8 %7 to i1
-  %8 = load ptr, ptr %ctx, align 8
-  %resetting6 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %8, i32 0, i32 7
+  %8 = load i8, ptr %reset.addr, align 1
+  %tobool5 = trunc i8 %8 to i1
+  %9 = load ptr, ptr %ctx, align 8
+  %resetting6 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %9, i32 0, i32 7
   %frombool7 = zext i1 %tobool5 to i8
   store i8 %frombool7, ptr %resetting6, align 2
-  %9 = load i8, ptr %reset.addr, align 1
-  %tobool8 = trunc i8 %9 to i1
+  %10 = load i8, ptr %reset.addr, align 1
+  %tobool8 = trunc i8 %10 to i1
   %lnot = xor i1 %tobool8, true
-  %10 = load ptr, ptr %ctx, align 8
-  %uninstalling9 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %10, i32 0, i32 6
+  %11 = load ptr, ptr %ctx, align 8
+  %uninstalling9 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %11, i32 0, i32 6
   %frombool10 = zext i1 %lnot to i8
   store i8 %frombool10, ptr %uninstalling9, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %11 = load ptr, ptr %qemu_lockable_auto0, align 8
-  call void @qemu_lockable_auto_unlock(ptr noundef %11)
+  %12 = load ptr, ptr %qemu_lockable_auto0, align 8
+  call void @qemu_lockable_auto_unlock(ptr noundef %12)
   store ptr null, ptr %qemu_lockable_auto0, align 8
   br label %for.cond, !llvm.loop !7
 
@@ -962,38 +971,38 @@ cleanup:                                          ; preds = %if.then, %for.cond.
 for.end:                                          ; preds = %cleanup
   %call11 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #11
   store ptr %call11, ptr %data, align 8
-  %12 = load ptr, ptr %ctx, align 8
-  %13 = load ptr, ptr %data, align 8
-  %ctx12 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %13, i32 0, i32 0
-  store ptr %12, ptr %ctx12, align 8
-  %14 = load ptr, ptr %cb.addr, align 8
-  %15 = load ptr, ptr %data, align 8
-  %cb13 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %15, i32 0, i32 1
-  store ptr %14, ptr %cb13, align 8
-  %16 = load i8, ptr %reset.addr, align 1
-  %tobool14 = trunc i8 %16 to i1
-  %17 = load ptr, ptr %data, align 8
-  %reset15 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %17, i32 0, i32 2
+  %13 = load ptr, ptr %ctx, align 8
+  %14 = load ptr, ptr %data, align 8
+  %ctx12 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %14, i32 0, i32 0
+  store ptr %13, ptr %ctx12, align 8
+  %15 = load ptr, ptr %cb.addr, align 8
+  %16 = load ptr, ptr %data, align 8
+  %cb13 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %16, i32 0, i32 1
+  store ptr %15, ptr %cb13, align 8
+  %17 = load i8, ptr %reset.addr, align 1
+  %tobool14 = trunc i8 %17 to i1
+  %18 = load ptr, ptr %data, align 8
+  %reset15 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %18, i32 0, i32 2
   %frombool16 = zext i1 %tobool14 to i8
   store i8 %frombool16, ptr %reset15, align 8
-  %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
-  %19 = load ptr, ptr %18, align 8
-  %tobool17 = icmp ne ptr %19, null
+  %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
+  %20 = load ptr, ptr %19, align 8
+  %tobool17 = icmp ne ptr %20, null
   br i1 %tobool17, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %for.end
-  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %data, align 8
-  store ptr %22, ptr %.compoundliteral19, align 8
+  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %data, align 8
+  store ptr %23, ptr %.compoundliteral19, align 8
   %coerce.dive = getelementptr inbounds %union.run_on_cpu_data, ptr %.compoundliteral19, i32 0, i32 0
-  %23 = load i64, ptr %coerce.dive, align 8
-  call void @async_safe_run_on_cpu(ptr noundef %21, ptr noundef @plugin_flush_destroy, i64 %23)
+  %24 = load i64, ptr %coerce.dive, align 8
+  call void @async_safe_run_on_cpu(ptr noundef %22, ptr noundef @plugin_flush_destroy, i64 %24)
   br label %if.end20
 
 if.else:                                          ; preds = %for.end
-  %24 = load ptr, ptr %data, align 8
-  call void @plugin_reset_destroy(ptr noundef %24)
+  %25 = load ptr, ptr %data, align 8
+  call void @plugin_reset_destroy(ptr noundef %25)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then18, %cleanup
@@ -1169,9 +1178,10 @@ while.end:                                        ; preds = %while.cond
   %2 = load ptr, ptr %tmp, align 8
   store ptr %2, ptr %_f, align 8
   %3 = load ptr, ptr %_f, align 8
-  call void %3(ptr noundef getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5), ptr noundef @.str.3, i32 noundef 375)
-  %4 = load ptr, ptr %data.addr, align 8
-  call void @plugin_reset_destroy__locked(ptr noundef %4)
+  %4 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5
+  call void %3(ptr noundef %4, ptr noundef @.str.3, i32 noundef 375)
+  %5 = load ptr, ptr %data.addr, align 8
+  call void @plugin_reset_destroy__locked(ptr noundef %5)
   br label %while.cond2
 
 while.cond2:                                      ; preds = %do.end5, %while.end
@@ -1188,14 +1198,15 @@ do.end5:                                          ; No predecessors!
   br label %while.cond2
 
 while.end6:                                       ; preds = %while.cond2
-  %5 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
-  store i64 %5, ptr %atomic-temp8, align 8
-  %6 = load ptr, ptr %atomic-temp8, align 8
-  store ptr %6, ptr %tmp7, align 8
-  %7 = load ptr, ptr %tmp7, align 8
-  store ptr %7, ptr %_f1, align 8
-  %8 = load ptr, ptr %_f1, align 8
-  call void %8(ptr noundef getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5), ptr noundef @.str.3, i32 noundef 377)
+  %6 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
+  store i64 %6, ptr %atomic-temp8, align 8
+  %7 = load ptr, ptr %atomic-temp8, align 8
+  store ptr %7, ptr %tmp7, align 8
+  %8 = load ptr, ptr %tmp7, align 8
+  store ptr %8, ptr %_f1, align 8
+  %9 = load ptr, ptr %_f1, align 8
+  %10 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 5
+  call void %9(ptr noundef %10, ptr noundef @.str.3, i32 noundef 377)
   ret void
 }
 
@@ -1689,18 +1700,19 @@ if.then17:                                        ; preds = %do.end15
   unreachable
 
 if.end18:                                         ; preds = %do.end15
-  %22 = load ptr, ptr getelementptr inbounds (%struct.qemu_plugin_state, ptr @plugin, i32 0, i32 2), align 8
-  %23 = load ptr, ptr %ctx, align 8
-  %id19 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %23, i32 0, i32 1
-  %call = call i32 @g_hash_table_remove(ptr noundef %22, ptr noundef %id19)
+  %22 = getelementptr inbounds %struct.qemu_plugin_state, ptr @plugin, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %ctx, align 8
+  %id19 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %24, i32 0, i32 1
+  %call = call i32 @g_hash_table_remove(ptr noundef %23, ptr noundef %id19)
   %tobool20 = icmp ne i32 %call, 0
   %frombool = zext i1 %tobool20 to i8
   store i8 %frombool, ptr %success, align 1
   br label %do.body21
 
 do.body21:                                        ; preds = %if.end18
-  %24 = load i8, ptr %success, align 1
-  %tobool22 = trunc i8 %24 to i1
+  %25 = load i8, ptr %success, align 1
+  %tobool22 = trunc i8 %25 to i1
   br i1 %tobool22, label %if.then23, label %if.else24
 
 if.then23:                                        ; preds = %do.body21
@@ -1717,78 +1729,79 @@ do.end26:                                         ; preds = %if.end25
   br label %do.body27
 
 do.body27:                                        ; preds = %do.end26
-  %25 = load ptr, ptr %ctx, align 8
-  %entry28 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %25, i32 0, i32 3
-  %26 = load ptr, ptr %entry28, align 8
-  %cmp29 = icmp ne ptr %26, null
+  %26 = load ptr, ptr %ctx, align 8
+  %entry28 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %26, i32 0, i32 3
+  %27 = load ptr, ptr %entry28, align 8
+  %cmp29 = icmp ne ptr %27, null
   br i1 %cmp29, label %if.then30, label %if.else35
 
 if.then30:                                        ; preds = %do.body27
-  %27 = load ptr, ptr %ctx, align 8
-  %entry31 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %27, i32 0, i32 3
+  %28 = load ptr, ptr %ctx, align 8
+  %entry31 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %28, i32 0, i32 3
   %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry31, i32 0, i32 1
-  %28 = load ptr, ptr %tql_prev, align 8
-  %29 = load ptr, ptr %ctx, align 8
-  %entry32 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %29, i32 0, i32 3
-  %30 = load ptr, ptr %entry32, align 8
-  %entry33 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %30, i32 0, i32 3
+  %29 = load ptr, ptr %tql_prev, align 8
+  %30 = load ptr, ptr %ctx, align 8
+  %entry32 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %30, i32 0, i32 3
+  %31 = load ptr, ptr %entry32, align 8
+  %entry33 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %31, i32 0, i32 3
   %tql_prev34 = getelementptr inbounds %struct.QTailQLink, ptr %entry33, i32 0, i32 1
-  store ptr %28, ptr %tql_prev34, align 8
+  store ptr %29, ptr %tql_prev34, align 8
   br label %if.end38
 
 if.else35:                                        ; preds = %do.body27
-  %31 = load ptr, ptr %ctx, align 8
-  %entry36 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %31, i32 0, i32 3
+  %32 = load ptr, ptr %ctx, align 8
+  %entry36 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %32, i32 0, i32 3
   %tql_prev37 = getelementptr inbounds %struct.QTailQLink, ptr %entry36, i32 0, i32 1
-  %32 = load ptr, ptr %tql_prev37, align 8
-  store ptr %32, ptr getelementptr inbounds (%struct.QTailQLink, ptr @plugin, i32 0, i32 1), align 8
+  %33 = load ptr, ptr %tql_prev37, align 8
+  %34 = getelementptr inbounds %struct.QTailQLink, ptr @plugin, i32 0, i32 1
+  store ptr %33, ptr %34, align 8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else35, %if.then30
-  %33 = load ptr, ptr %ctx, align 8
-  %entry39 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %33, i32 0, i32 3
-  %34 = load ptr, ptr %entry39, align 8
   %35 = load ptr, ptr %ctx, align 8
-  %entry40 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %35, i32 0, i32 3
-  %tql_prev41 = getelementptr inbounds %struct.QTailQLink, ptr %entry40, i32 0, i32 1
-  %36 = load ptr, ptr %tql_prev41, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %36, i32 0, i32 0
-  store ptr %34, ptr %tql_next, align 8
+  %entry39 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %35, i32 0, i32 3
+  %36 = load ptr, ptr %entry39, align 8
   %37 = load ptr, ptr %ctx, align 8
-  %entry42 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %37, i32 0, i32 3
+  %entry40 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %37, i32 0, i32 3
+  %tql_prev41 = getelementptr inbounds %struct.QTailQLink, ptr %entry40, i32 0, i32 1
+  %38 = load ptr, ptr %tql_prev41, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %38, i32 0, i32 0
+  store ptr %36, ptr %tql_next, align 8
+  %39 = load ptr, ptr %ctx, align 8
+  %entry42 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %39, i32 0, i32 3
   %tql_prev43 = getelementptr inbounds %struct.QTailQLink, ptr %entry42, i32 0, i32 1
   store ptr null, ptr %tql_prev43, align 8
-  %38 = load ptr, ptr %ctx, align 8
-  %entry44 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %38, i32 0, i32 3
+  %40 = load ptr, ptr %ctx, align 8
+  %entry44 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %40, i32 0, i32 3
   %tql_next45 = getelementptr inbounds %struct.QTailQLink, ptr %entry44, i32 0, i32 0
   store ptr null, ptr %tql_next45, align 8
-  %39 = load ptr, ptr %ctx, align 8
-  %entry46 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %ctx, align 8
+  %entry46 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %41, i32 0, i32 3
   store ptr null, ptr %entry46, align 8
   br label %do.end47
 
 do.end47:                                         ; preds = %if.end38
-  %40 = load ptr, ptr %data.addr, align 8
-  %cb48 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %40, i32 0, i32 1
-  %41 = load ptr, ptr %cb48, align 8
-  %tobool49 = icmp ne ptr %41, null
+  %42 = load ptr, ptr %data.addr, align 8
+  %cb48 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %42, i32 0, i32 1
+  %43 = load ptr, ptr %cb48, align 8
+  %tobool49 = icmp ne ptr %43, null
   br i1 %tobool49, label %if.then50, label %if.end53
 
 if.then50:                                        ; preds = %do.end47
-  %42 = load ptr, ptr %data.addr, align 8
-  %cb51 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %42, i32 0, i32 1
-  %43 = load ptr, ptr %cb51, align 8
-  %44 = load ptr, ptr %ctx, align 8
-  %id52 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %44, i32 0, i32 1
-  %45 = load i64, ptr %id52, align 8
-  call void %43(i64 noundef %45)
+  %44 = load ptr, ptr %data.addr, align 8
+  %cb51 = getelementptr inbounds %struct.qemu_plugin_reset_data, ptr %44, i32 0, i32 1
+  %45 = load ptr, ptr %cb51, align 8
+  %46 = load ptr, ptr %ctx, align 8
+  %id52 = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %46, i32 0, i32 1
+  %47 = load i64, ptr %id52, align 8
+  call void %45(i64 noundef %47)
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then50, %do.end47
-  %46 = load ptr, ptr %ctx, align 8
-  %handle = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %46, i32 0, i32 0
-  %47 = load ptr, ptr %handle, align 8
-  %call54 = call i32 @g_module_close(ptr noundef %47)
+  %48 = load ptr, ptr %ctx, align 8
+  %handle = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %48, i32 0, i32 0
+  %49 = load ptr, ptr %handle, align 8
+  %call54 = call i32 @g_module_close(ptr noundef %49)
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %if.end58, label %if.then56
 
@@ -1798,14 +1811,14 @@ if.then56:                                        ; preds = %if.end53
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then56, %if.end53
-  %48 = load ptr, ptr %ctx, align 8
-  %desc = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %48, i32 0, i32 4
-  %49 = load ptr, ptr %desc, align 8
-  call void @plugin_desc_free(ptr noundef %49)
   %50 = load ptr, ptr %ctx, align 8
-  call void @qemu_vfree(ptr noundef %50)
-  %51 = load ptr, ptr %data.addr, align 8
-  call void @g_free(ptr noundef %51)
+  %desc = getelementptr inbounds %struct.qemu_plugin_ctx, ptr %50, i32 0, i32 4
+  %51 = load ptr, ptr %desc, align 8
+  call void @plugin_desc_free(ptr noundef %51)
+  %52 = load ptr, ptr %ctx, align 8
+  call void @qemu_vfree(ptr noundef %52)
+  %53 = load ptr, ptr %data.addr, align 8
+  call void @g_free(ptr noundef %53)
   br label %return
 
 return:                                           ; preds = %if.end58, %if.end7

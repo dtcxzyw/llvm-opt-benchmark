@@ -165,8 +165,9 @@ if.else:                                          ; preds = %if.then
   %3 = load ptr, ptr %string, align 8
   call void @free(ptr noundef %3) #6
   %4 = load ptr, ptr @graph_init.custom_colors, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.strvec, ptr @graph_init.custom_colors, i32 0, i32 1), align 8
-  %sub = sub i64 %5, 1
+  %5 = getelementptr inbounds %struct.strvec, ptr @graph_init.custom_colors, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
+  %sub = sub i64 %6, 1
   %conv4 = trunc i64 %sub to i16
   call void @graph_set_column_colors(ptr noundef %4, i16 noundef zeroext %conv4)
   br label %if.end
@@ -175,108 +176,108 @@ if.end:                                           ; preds = %if.else, %if.then3
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %6 = load ptr, ptr %graph, align 8
-  %commit = getelementptr inbounds %struct.git_graph, ptr %6, i32 0, i32 0
+  %7 = load ptr, ptr %graph, align 8
+  %commit = getelementptr inbounds %struct.git_graph, ptr %7, i32 0, i32 0
   store ptr null, ptr %commit, align 8
-  %7 = load ptr, ptr %opt.addr, align 8
-  %8 = load ptr, ptr %graph, align 8
-  %revs = getelementptr inbounds %struct.git_graph, ptr %8, i32 0, i32 1
-  store ptr %7, ptr %revs, align 8
+  %8 = load ptr, ptr %opt.addr, align 8
   %9 = load ptr, ptr %graph, align 8
-  %num_parents = getelementptr inbounds %struct.git_graph, ptr %9, i32 0, i32 2
-  store i32 0, ptr %num_parents, align 8
+  %revs = getelementptr inbounds %struct.git_graph, ptr %9, i32 0, i32 1
+  store ptr %8, ptr %revs, align 8
   %10 = load ptr, ptr %graph, align 8
-  %expansion_row = getelementptr inbounds %struct.git_graph, ptr %10, i32 0, i32 4
-  store i32 0, ptr %expansion_row, align 8
+  %num_parents = getelementptr inbounds %struct.git_graph, ptr %10, i32 0, i32 2
+  store i32 0, ptr %num_parents, align 8
   %11 = load ptr, ptr %graph, align 8
-  %state = getelementptr inbounds %struct.git_graph, ptr %11, i32 0, i32 5
-  store i32 0, ptr %state, align 4
+  %expansion_row = getelementptr inbounds %struct.git_graph, ptr %11, i32 0, i32 4
+  store i32 0, ptr %expansion_row, align 8
   %12 = load ptr, ptr %graph, align 8
-  %prev_state = getelementptr inbounds %struct.git_graph, ptr %12, i32 0, i32 6
-  store i32 0, ptr %prev_state, align 8
+  %state = getelementptr inbounds %struct.git_graph, ptr %12, i32 0, i32 5
+  store i32 0, ptr %state, align 4
   %13 = load ptr, ptr %graph, align 8
-  %commit_index = getelementptr inbounds %struct.git_graph, ptr %13, i32 0, i32 7
-  store i32 0, ptr %commit_index, align 4
+  %prev_state = getelementptr inbounds %struct.git_graph, ptr %13, i32 0, i32 6
+  store i32 0, ptr %prev_state, align 8
   %14 = load ptr, ptr %graph, align 8
-  %prev_commit_index = getelementptr inbounds %struct.git_graph, ptr %14, i32 0, i32 8
-  store i32 0, ptr %prev_commit_index, align 8
+  %commit_index = getelementptr inbounds %struct.git_graph, ptr %14, i32 0, i32 7
+  store i32 0, ptr %commit_index, align 4
   %15 = load ptr, ptr %graph, align 8
-  %merge_layout = getelementptr inbounds %struct.git_graph, ptr %15, i32 0, i32 9
-  store i32 0, ptr %merge_layout, align 4
+  %prev_commit_index = getelementptr inbounds %struct.git_graph, ptr %15, i32 0, i32 8
+  store i32 0, ptr %prev_commit_index, align 8
   %16 = load ptr, ptr %graph, align 8
-  %edges_added = getelementptr inbounds %struct.git_graph, ptr %16, i32 0, i32 10
-  store i32 0, ptr %edges_added, align 8
+  %merge_layout = getelementptr inbounds %struct.git_graph, ptr %16, i32 0, i32 9
+  store i32 0, ptr %merge_layout, align 4
   %17 = load ptr, ptr %graph, align 8
-  %prev_edges_added = getelementptr inbounds %struct.git_graph, ptr %17, i32 0, i32 11
-  store i32 0, ptr %prev_edges_added, align 4
+  %edges_added = getelementptr inbounds %struct.git_graph, ptr %17, i32 0, i32 10
+  store i32 0, ptr %edges_added, align 8
   %18 = load ptr, ptr %graph, align 8
-  %num_columns = getelementptr inbounds %struct.git_graph, ptr %18, i32 0, i32 13
-  store i32 0, ptr %num_columns, align 4
+  %prev_edges_added = getelementptr inbounds %struct.git_graph, ptr %18, i32 0, i32 11
+  store i32 0, ptr %prev_edges_added, align 4
   %19 = load ptr, ptr %graph, align 8
-  %num_new_columns = getelementptr inbounds %struct.git_graph, ptr %19, i32 0, i32 14
-  store i32 0, ptr %num_new_columns, align 8
+  %num_columns = getelementptr inbounds %struct.git_graph, ptr %19, i32 0, i32 13
+  store i32 0, ptr %num_columns, align 4
   %20 = load ptr, ptr %graph, align 8
-  %mapping_size = getelementptr inbounds %struct.git_graph, ptr %20, i32 0, i32 15
+  %num_new_columns = getelementptr inbounds %struct.git_graph, ptr %20, i32 0, i32 14
+  store i32 0, ptr %num_new_columns, align 8
+  %21 = load ptr, ptr %graph, align 8
+  %mapping_size = getelementptr inbounds %struct.git_graph, ptr %21, i32 0, i32 15
   store i32 0, ptr %mapping_size, align 4
-  %21 = load i16, ptr @column_colors_max, align 2
-  %conv6 = zext i16 %21 to i32
+  %22 = load i16, ptr @column_colors_max, align 2
+  %conv6 = zext i16 %22 to i32
   %sub7 = sub nsw i32 %conv6, 1
   %conv8 = trunc i32 %sub7 to i16
-  %22 = load ptr, ptr %graph, align 8
-  %default_column_color = getelementptr inbounds %struct.git_graph, ptr %22, i32 0, i32 20
-  store i16 %conv8, ptr %default_column_color, align 8
   %23 = load ptr, ptr %graph, align 8
-  %column_capacity = getelementptr inbounds %struct.git_graph, ptr %23, i32 0, i32 12
-  store i32 30, ptr %column_capacity, align 8
+  %default_column_color = getelementptr inbounds %struct.git_graph, ptr %23, i32 0, i32 20
+  store i16 %conv8, ptr %default_column_color, align 8
   %24 = load ptr, ptr %graph, align 8
-  %column_capacity9 = getelementptr inbounds %struct.git_graph, ptr %24, i32 0, i32 12
-  %25 = load i32, ptr %column_capacity9, align 8
-  %conv10 = sext i32 %25 to i64
+  %column_capacity = getelementptr inbounds %struct.git_graph, ptr %24, i32 0, i32 12
+  store i32 30, ptr %column_capacity, align 8
+  %25 = load ptr, ptr %graph, align 8
+  %column_capacity9 = getelementptr inbounds %struct.git_graph, ptr %25, i32 0, i32 12
+  %26 = load i32, ptr %column_capacity9, align 8
+  %conv10 = sext i32 %26 to i64
   %call11 = call i64 @st_mult(i64 noundef 16, i64 noundef %conv10)
   %call12 = call ptr @xmalloc(i64 noundef %call11)
-  %26 = load ptr, ptr %graph, align 8
-  %columns = getelementptr inbounds %struct.git_graph, ptr %26, i32 0, i32 16
-  store ptr %call12, ptr %columns, align 8
   %27 = load ptr, ptr %graph, align 8
-  %column_capacity13 = getelementptr inbounds %struct.git_graph, ptr %27, i32 0, i32 12
-  %28 = load i32, ptr %column_capacity13, align 8
-  %conv14 = sext i32 %28 to i64
+  %columns = getelementptr inbounds %struct.git_graph, ptr %27, i32 0, i32 16
+  store ptr %call12, ptr %columns, align 8
+  %28 = load ptr, ptr %graph, align 8
+  %column_capacity13 = getelementptr inbounds %struct.git_graph, ptr %28, i32 0, i32 12
+  %29 = load i32, ptr %column_capacity13, align 8
+  %conv14 = sext i32 %29 to i64
   %call15 = call i64 @st_mult(i64 noundef 16, i64 noundef %conv14)
   %call16 = call ptr @xmalloc(i64 noundef %call15)
-  %29 = load ptr, ptr %graph, align 8
-  %new_columns = getelementptr inbounds %struct.git_graph, ptr %29, i32 0, i32 17
-  store ptr %call16, ptr %new_columns, align 8
   %30 = load ptr, ptr %graph, align 8
-  %column_capacity17 = getelementptr inbounds %struct.git_graph, ptr %30, i32 0, i32 12
-  %31 = load i32, ptr %column_capacity17, align 8
-  %mul = mul nsw i32 2, %31
+  %new_columns = getelementptr inbounds %struct.git_graph, ptr %30, i32 0, i32 17
+  store ptr %call16, ptr %new_columns, align 8
+  %31 = load ptr, ptr %graph, align 8
+  %column_capacity17 = getelementptr inbounds %struct.git_graph, ptr %31, i32 0, i32 12
+  %32 = load i32, ptr %column_capacity17, align 8
+  %mul = mul nsw i32 2, %32
   %conv18 = sext i32 %mul to i64
   %call19 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv18)
   %call20 = call ptr @xmalloc(i64 noundef %call19)
-  %32 = load ptr, ptr %graph, align 8
-  %mapping = getelementptr inbounds %struct.git_graph, ptr %32, i32 0, i32 18
-  store ptr %call20, ptr %mapping, align 8
   %33 = load ptr, ptr %graph, align 8
-  %column_capacity21 = getelementptr inbounds %struct.git_graph, ptr %33, i32 0, i32 12
-  %34 = load i32, ptr %column_capacity21, align 8
-  %mul22 = mul nsw i32 2, %34
+  %mapping = getelementptr inbounds %struct.git_graph, ptr %33, i32 0, i32 18
+  store ptr %call20, ptr %mapping, align 8
+  %34 = load ptr, ptr %graph, align 8
+  %column_capacity21 = getelementptr inbounds %struct.git_graph, ptr %34, i32 0, i32 12
+  %35 = load i32, ptr %column_capacity21, align 8
+  %mul22 = mul nsw i32 2, %35
   %conv23 = sext i32 %mul22 to i64
   %call24 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv23)
   %call25 = call ptr @xmalloc(i64 noundef %call24)
-  %35 = load ptr, ptr %graph, align 8
-  %old_mapping = getelementptr inbounds %struct.git_graph, ptr %35, i32 0, i32 19
+  %36 = load ptr, ptr %graph, align 8
+  %old_mapping = getelementptr inbounds %struct.git_graph, ptr %36, i32 0, i32 19
   store ptr %call25, ptr %old_mapping, align 8
-  %36 = load ptr, ptr %opt.addr, align 8
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %36, i32 0, i32 52
+  %37 = load ptr, ptr %opt.addr, align 8
+  %diffopt = getelementptr inbounds %struct.rev_info, ptr %37, i32 0, i32 52
   %output_prefix = getelementptr inbounds %struct.diff_options, ptr %diffopt, i32 0, i32 66
   store ptr @diff_output_prefix_callback, ptr %output_prefix, align 8
-  %37 = load ptr, ptr %graph, align 8
-  %38 = load ptr, ptr %opt.addr, align 8
-  %diffopt26 = getelementptr inbounds %struct.rev_info, ptr %38, i32 0, i32 52
+  %38 = load ptr, ptr %graph, align 8
+  %39 = load ptr, ptr %opt.addr, align 8
+  %diffopt26 = getelementptr inbounds %struct.rev_info, ptr %39, i32 0, i32 52
   %output_prefix_data = getelementptr inbounds %struct.diff_options, ptr %diffopt26, i32 0, i32 67
-  store ptr %37, ptr %output_prefix_data, align 8
-  %39 = load ptr, ptr %graph, align 8
-  ret ptr %39
+  store ptr %38, ptr %output_prefix_data, align 8
+  %40 = load ptr, ptr %graph, align 8
+  ret ptr %40
 }
 
 declare ptr @xmalloc(i64 noundef) #1

@@ -259,25 +259,26 @@ entry:
   %err = alloca i32, align 4
   store ptr %self, ptr %self.addr, align 8
   store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
-  %call = call i64 @channel_create(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1))
+  %0 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call = call i64 @channel_create(ptr noundef %0)
   store i64 %call, ptr %cid, align 8
-  %0 = load i64, ptr %cid, align 8
-  %cmp = icmp slt i64 %0, 0
+  %1 = load i64, ptr %cid, align 8
+  %cmp = icmp slt i64 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %self.addr, align 8
-  %2 = load i64, ptr %cid, align 8
-  %call1 = call i32 @handle_channel_error(i32 noundef -1, ptr noundef %1, i64 noundef %2)
+  %2 = load ptr, ptr %self.addr, align 8
+  %3 = load i64, ptr %cid, align 8
+  %call1 = call i32 @handle_channel_error(i32 noundef -1, ptr noundef %2, i64 noundef %3)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %self.addr, align 8
-  %call2 = call ptr @get_module_state(ptr noundef %3)
+  %4 = load ptr, ptr %self.addr, align 8
+  %call2 = call ptr @get_module_state(ptr noundef %4)
   store ptr %call2, ptr %state, align 8
-  %4 = load ptr, ptr %state, align 8
-  %cmp3 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %state, align 8
+  %cmp3 = icmp eq ptr %5, null
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
@@ -286,27 +287,29 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   store ptr null, ptr %cidobj, align 8
-  %5 = load ptr, ptr %state, align 8
-  %ChannelIDType = getelementptr inbounds %struct.module_state, ptr %5, i32 0, i32 4
-  %6 = load ptr, ptr %ChannelIDType, align 8
-  %7 = load i64, ptr %cid, align 8
-  %call6 = call i32 @newchannelid(ptr noundef %6, i64 noundef %7, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
+  %6 = load ptr, ptr %state, align 8
+  %ChannelIDType = getelementptr inbounds %struct.module_state, ptr %6, i32 0, i32 4
+  %7 = load ptr, ptr %ChannelIDType, align 8
+  %8 = load i64, ptr %cid, align 8
+  %9 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call6 = call i32 @newchannelid(ptr noundef %7, i64 noundef %8, i32 noundef 0, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
   store i32 %call6, ptr %err, align 4
-  %8 = load i32, ptr %err, align 4
-  %9 = load ptr, ptr %self.addr, align 8
-  %10 = load i64, ptr %cid, align 8
-  %call7 = call i32 @handle_channel_error(i32 noundef %8, ptr noundef %9, i64 noundef %10)
+  %10 = load i32, ptr %err, align 4
+  %11 = load ptr, ptr %self.addr, align 8
+  %12 = load i64, ptr %cid, align 8
+  %call7 = call i32 @handle_channel_error(i32 noundef %10, ptr noundef %11, i64 noundef %12)
   %tobool = icmp ne i32 %call7, 0
   br i1 %tobool, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %if.end5
-  %11 = load i64, ptr %cid, align 8
-  %call9 = call i32 @channel_destroy(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %11)
+  %13 = load i64, ptr %cid, align 8
+  %14 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call9 = call i32 @channel_destroy(ptr noundef %14, i64 noundef %13)
   store i32 %call9, ptr %err, align 4
-  %12 = load i32, ptr %err, align 4
-  %13 = load ptr, ptr %self.addr, align 8
-  %14 = load i64, ptr %cid, align 8
-  %call10 = call i32 @handle_channel_error(i32 noundef %12, ptr noundef %13, i64 noundef %14)
+  %15 = load i32, ptr %err, align 4
+  %16 = load ptr, ptr %self.addr, align 8
+  %17 = load i64, ptr %cid, align 8
+  %call10 = call i32 @handle_channel_error(i32 noundef %15, ptr noundef %16, i64 noundef %17)
   %tobool11 = icmp ne i32 %call10, 0
   br i1 %tobool11, label %if.then12, label %if.end13
 
@@ -318,13 +321,13 @@ if.end13:                                         ; preds = %if.then12, %if.then
   br label %return
 
 if.end14:                                         ; preds = %if.end5
-  %15 = load ptr, ptr %cidobj, align 8
-  store ptr %15, ptr %retval, align 8
+  %18 = load ptr, ptr %cidobj, align 8
+  store ptr %18, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end14, %if.end13, %if.then4, %if.then
-  %16 = load ptr, ptr %retval, align 8
-  ret ptr %16
+  %19 = load ptr, ptr %retval, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -362,12 +365,13 @@ if.end:                                           ; preds = %entry
   %3 = load i64, ptr %cid2, align 8
   store i64 %3, ptr %cid, align 8
   %4 = load i64, ptr %cid, align 8
-  %call3 = call i32 @channel_destroy(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %4)
+  %5 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call3 = call i32 @channel_destroy(ptr noundef %5, i64 noundef %4)
   store i32 %call3, ptr %err, align 4
-  %5 = load i32, ptr %err, align 4
-  %6 = load ptr, ptr %self.addr, align 8
-  %7 = load i64, ptr %cid, align 8
-  %call4 = call i32 @handle_channel_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
+  %6 = load i32, ptr %err, align 4
+  %7 = load ptr, ptr %self.addr, align 8
+  %8 = load i64, ptr %cid, align 8
+  %call4 = call i32 @handle_channel_error(i32 noundef %6, ptr noundef %7, i64 noundef %8)
   %tobool5 = icmp ne i32 %call4, 0
   br i1 %tobool5, label %if.then6, label %if.end7
 
@@ -380,8 +384,8 @@ if.end7:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then6, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -407,15 +411,16 @@ entry:
   store ptr %self, ptr %self.addr, align 8
   store ptr %_unused_ignored, ptr %_unused_ignored.addr, align 8
   store i64 0, ptr %count, align 8
-  %call = call ptr @_channels_list_all(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), ptr noundef %count)
+  %0 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call = call ptr @_channels_list_all(ptr noundef %0, ptr noundef %count)
   store ptr %call, ptr %cids, align 8
-  %0 = load ptr, ptr %cids, align 8
-  %cmp = icmp eq ptr %0, null
+  %1 = load ptr, ptr %cids, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %count, align 8
-  %cmp1 = icmp eq i64 %1, 0
+  %2 = load i64, ptr %count, align 8
+  %cmp1 = icmp eq i64 %2, 0
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
@@ -428,32 +433,32 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %2 = load i64, ptr %count, align 8
-  %call5 = call ptr @PyList_New(i64 noundef %2)
+  %3 = load i64, ptr %count, align 8
+  %call5 = call ptr @PyList_New(i64 noundef %3)
   store ptr %call5, ptr %ids, align 8
-  %3 = load ptr, ptr %ids, align 8
-  %cmp6 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %ids, align 8
+  %cmp6 = icmp eq ptr %4, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
   br label %finally
 
 if.end8:                                          ; preds = %if.end4
-  %4 = load ptr, ptr %self.addr, align 8
-  %call9 = call ptr @get_module_state(ptr noundef %4)
+  %5 = load ptr, ptr %self.addr, align 8
+  %call9 = call ptr @get_module_state(ptr noundef %5)
   store ptr %call9, ptr %state, align 8
-  %5 = load ptr, ptr %state, align 8
-  %cmp10 = icmp eq ptr %5, null
+  %6 = load ptr, ptr %state, align 8
+  %cmp10 = icmp eq ptr %6, null
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end8
-  %6 = load ptr, ptr %ids, align 8
-  store ptr %6, ptr %op.addr.i18, align 8
-  %7 = load ptr, ptr %op.addr.i18, align 8
-  store ptr %7, ptr %op.addr.i27, align 8
-  %8 = load ptr, ptr %op.addr.i27, align 8
-  %9 = load i64, ptr %8, align 8
-  %conv.i = trunc i64 %9 to i32
+  %7 = load ptr, ptr %ids, align 8
+  store ptr %7, ptr %op.addr.i18, align 8
+  %8 = load ptr, ptr %op.addr.i18, align 8
+  store ptr %8, ptr %op.addr.i27, align 8
+  %9 = load ptr, ptr %op.addr.i27, align 8
+  %10 = load i64, ptr %9, align 8
+  %conv.i = trunc i64 %10 to i32
   %cmp.i28 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i28 to i32
   %tobool.i20 = icmp ne i32 %conv1.i, 0
@@ -463,16 +468,16 @@ if.then.i25:                                      ; preds = %if.then11
   br label %Py_DECREF.exit26
 
 if.end.i21:                                       ; preds = %if.then11
-  %10 = load ptr, ptr %op.addr.i18, align 8
-  %11 = load i64, ptr %10, align 8
-  %dec.i22 = add i64 %11, -1
-  store i64 %dec.i22, ptr %10, align 8
+  %11 = load ptr, ptr %op.addr.i18, align 8
+  %12 = load i64, ptr %11, align 8
+  %dec.i22 = add i64 %12, -1
+  store i64 %dec.i22, ptr %11, align 8
   %cmp.i23 = icmp eq i64 %dec.i22, 0
   br i1 %cmp.i23, label %if.then1.i24, label %Py_DECREF.exit26
 
 if.then1.i24:                                     ; preds = %if.end.i21
-  %12 = load ptr, ptr %op.addr.i18, align 8
-  call void @_Py_Dealloc(ptr noundef %12) #5
+  %13 = load ptr, ptr %op.addr.i18, align 8
+  call void @_Py_Dealloc(ptr noundef %13) #5
   br label %Py_DECREF.exit26
 
 Py_DECREF.exit26:                                 ; preds = %if.then1.i24, %if.end.i21, %if.then.i25
@@ -480,31 +485,32 @@ Py_DECREF.exit26:                                 ; preds = %if.then1.i24, %if.e
   br label %finally
 
 if.end12:                                         ; preds = %if.end8
-  %13 = load ptr, ptr %cids, align 8
-  store ptr %13, ptr %cur, align 8
+  %14 = load ptr, ptr %cids, align 8
+  store ptr %14, ptr %cur, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end12
-  %14 = load i64, ptr %i, align 8
-  %15 = load i64, ptr %count, align 8
-  %cmp13 = icmp slt i64 %14, %15
+  %15 = load i64, ptr %i, align 8
+  %16 = load i64, ptr %count, align 8
+  %cmp13 = icmp slt i64 %15, %16
   br i1 %cmp13, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   store ptr null, ptr %cidobj, align 8
-  %16 = load ptr, ptr %state, align 8
-  %ChannelIDType = getelementptr inbounds %struct.module_state, ptr %16, i32 0, i32 4
-  %17 = load ptr, ptr %ChannelIDType, align 8
-  %18 = load ptr, ptr %cur, align 8
-  %19 = load i64, ptr %18, align 8
-  %call14 = call i32 @newchannelid(ptr noundef %17, i64 noundef %19, i32 noundef 0, ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
+  %17 = load ptr, ptr %state, align 8
+  %ChannelIDType = getelementptr inbounds %struct.module_state, ptr %17, i32 0, i32 4
+  %18 = load ptr, ptr %ChannelIDType, align 8
+  %19 = load ptr, ptr %cur, align 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call14 = call i32 @newchannelid(ptr noundef %18, i64 noundef %20, i32 noundef 0, ptr noundef %21, i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
   store i32 %call14, ptr %err, align 4
-  %20 = load i32, ptr %err, align 4
-  %21 = load ptr, ptr %self.addr, align 8
-  %22 = load ptr, ptr %cur, align 8
-  %23 = load i64, ptr %22, align 8
-  %call15 = call i32 @handle_channel_error(i32 noundef %20, ptr noundef %21, i64 noundef %23)
+  %22 = load i32, ptr %err, align 4
+  %23 = load ptr, ptr %self.addr, align 8
+  %24 = load ptr, ptr %cur, align 8
+  %25 = load i64, ptr %24, align 8
+  %call15 = call i32 @handle_channel_error(i32 noundef %22, ptr noundef %23, i64 noundef %25)
   %tobool = icmp ne i32 %call15, 0
   br i1 %tobool, label %if.then16, label %if.end17
 
@@ -513,18 +519,18 @@ if.then16:                                        ; preds = %for.body
 
 do.body:                                          ; preds = %if.then16
   store ptr %ids, ptr %_tmp_dst_ptr, align 8
-  %24 = load ptr, ptr %_tmp_dst_ptr, align 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %_tmp_old_dst, align 8
   %26 = load ptr, ptr %_tmp_dst_ptr, align 8
-  store ptr null, ptr %26, align 8
-  %27 = load ptr, ptr %_tmp_old_dst, align 8
-  store ptr %27, ptr %op.addr.i, align 8
-  %28 = load ptr, ptr %op.addr.i, align 8
-  store ptr %28, ptr %op.addr.i29, align 8
-  %29 = load ptr, ptr %op.addr.i29, align 8
-  %30 = load i64, ptr %29, align 8
-  %conv.i30 = trunc i64 %30 to i32
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %_tmp_old_dst, align 8
+  %28 = load ptr, ptr %_tmp_dst_ptr, align 8
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %_tmp_old_dst, align 8
+  store ptr %29, ptr %op.addr.i, align 8
+  %30 = load ptr, ptr %op.addr.i, align 8
+  store ptr %30, ptr %op.addr.i29, align 8
+  %31 = load ptr, ptr %op.addr.i29, align 8
+  %32 = load i64, ptr %31, align 8
+  %conv.i30 = trunc i64 %32 to i32
   %cmp.i31 = icmp slt i32 %conv.i30, 0
   %conv1.i32 = zext i1 %cmp.i31 to i32
   %tobool.i = icmp ne i32 %conv1.i32, 0
@@ -534,16 +540,16 @@ if.then.i:                                        ; preds = %do.body
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %do.body
-  %31 = load ptr, ptr %op.addr.i, align 8
-  %32 = load i64, ptr %31, align 8
-  %dec.i = add i64 %32, -1
-  store i64 %dec.i, ptr %31, align 8
+  %33 = load ptr, ptr %op.addr.i, align 8
+  %34 = load i64, ptr %33, align 8
+  %dec.i = add i64 %34, -1
+  store i64 %dec.i, ptr %33, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %33 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %33) #5
+  %35 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %35) #5
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -553,18 +559,18 @@ do.end:                                           ; preds = %Py_DECREF.exit
   br label %for.end
 
 if.end17:                                         ; preds = %for.body
-  %34 = load ptr, ptr %ids, align 8
-  %35 = load i64, ptr %i, align 8
-  %36 = load ptr, ptr %cidobj, align 8
-  call void @PyList_SET_ITEM(ptr noundef %34, i64 noundef %35, ptr noundef %36)
+  %36 = load ptr, ptr %ids, align 8
+  %37 = load i64, ptr %i, align 8
+  %38 = load ptr, ptr %cidobj, align 8
+  call void @PyList_SET_ITEM(ptr noundef %36, i64 noundef %37, ptr noundef %38)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end17
-  %37 = load ptr, ptr %cur, align 8
-  %incdec.ptr = getelementptr i64, ptr %37, i32 1
+  %39 = load ptr, ptr %cur, align 8
+  %incdec.ptr = getelementptr i64, ptr %39, i32 1
   store ptr %incdec.ptr, ptr %cur, align 8
-  %38 = load i64, ptr %i, align 8
-  %inc = add i64 %38, 1
+  %40 = load i64, ptr %i, align 8
+  %inc = add i64 %40, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !4
 
@@ -572,15 +578,15 @@ for.end:                                          ; preds = %do.end, %for.cond
   br label %finally
 
 finally:                                          ; preds = %for.end, %Py_DECREF.exit26, %if.then7
-  %39 = load ptr, ptr %cids, align 8
-  call void @PyMem_Free(ptr noundef %39)
-  %40 = load ptr, ptr %ids, align 8
-  store ptr %40, ptr %retval, align 8
+  %41 = load ptr, ptr %cids, align 8
+  call void @PyMem_Free(ptr noundef %41)
+  %42 = load ptr, ptr %ids, align 8
+  store ptr %42, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %finally, %if.end, %if.then2
-  %41 = load ptr, ptr %retval, align 8
-  ret ptr %41
+  %43 = load ptr, ptr %retval, align 8
+  ret ptr %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -655,47 +661,48 @@ while.body:                                       ; preds = %while.cond
   %7 = load i64, ptr %cid, align 8
   %8 = load i64, ptr %interpid, align 8
   %9 = load i32, ptr %send, align 4
-  %call9 = call i32 @channel_is_associated(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %7, i64 noundef %8, i32 noundef %9)
+  %10 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call9 = call i32 @channel_is_associated(ptr noundef %10, i64 noundef %7, i64 noundef %8, i32 noundef %9)
   store i32 %call9, ptr %res, align 4
-  %10 = load i32, ptr %res, align 4
-  %cmp10 = icmp slt i32 %10, 0
+  %11 = load i32, ptr %res, align 4
+  %cmp10 = icmp slt i32 %11, 0
   br i1 %cmp10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %while.body
-  %11 = load i32, ptr %res, align 4
-  %12 = load ptr, ptr %self.addr, align 8
-  %13 = load i64, ptr %cid, align 8
-  %call12 = call i32 @handle_channel_error(i32 noundef %11, ptr noundef %12, i64 noundef %13)
+  %12 = load i32, ptr %res, align 4
+  %13 = load ptr, ptr %self.addr, align 8
+  %14 = load i64, ptr %cid, align 8
+  %call12 = call i32 @handle_channel_error(i32 noundef %12, ptr noundef %13, i64 noundef %14)
   br label %except
 
 if.end13:                                         ; preds = %while.body
-  %14 = load i32, ptr %res, align 4
-  %tobool14 = icmp ne i32 %14, 0
+  %15 = load i32, ptr %res, align 4
+  %tobool14 = icmp ne i32 %15, 0
   br i1 %tobool14, label %if.then15, label %if.end24
 
 if.then15:                                        ; preds = %if.end13
-  %15 = load ptr, ptr %interp, align 8
-  %call16 = call ptr @PyInterpreterState_GetIDObject(ptr noundef %15)
+  %16 = load ptr, ptr %interp, align 8
+  %call16 = call ptr @PyInterpreterState_GetIDObject(ptr noundef %16)
   store ptr %call16, ptr %interpid_obj, align 8
-  %16 = load ptr, ptr %interpid_obj, align 8
-  %cmp17 = icmp eq ptr %16, null
+  %17 = load ptr, ptr %interpid_obj, align 8
+  %cmp17 = icmp eq ptr %17, null
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.then15
   br label %except
 
 if.end19:                                         ; preds = %if.then15
-  %17 = load ptr, ptr %ids, align 8
-  %18 = load ptr, ptr %interpid_obj, align 8
-  %call20 = call i32 @PyList_Insert(ptr noundef %17, i64 noundef 0, ptr noundef %18)
-  store i32 %call20, ptr %res, align 4
+  %18 = load ptr, ptr %ids, align 8
   %19 = load ptr, ptr %interpid_obj, align 8
-  store ptr %19, ptr %op.addr.i29, align 8
-  %20 = load ptr, ptr %op.addr.i29, align 8
-  store ptr %20, ptr %op.addr.i38, align 8
-  %21 = load ptr, ptr %op.addr.i38, align 8
-  %22 = load i64, ptr %21, align 8
-  %conv.i = trunc i64 %22 to i32
+  %call20 = call i32 @PyList_Insert(ptr noundef %18, i64 noundef 0, ptr noundef %19)
+  store i32 %call20, ptr %res, align 4
+  %20 = load ptr, ptr %interpid_obj, align 8
+  store ptr %20, ptr %op.addr.i29, align 8
+  %21 = load ptr, ptr %op.addr.i29, align 8
+  store ptr %21, ptr %op.addr.i38, align 8
+  %22 = load ptr, ptr %op.addr.i38, align 8
+  %23 = load i64, ptr %22, align 8
+  %conv.i = trunc i64 %23 to i32
   %cmp.i39 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i39 to i32
   %tobool.i31 = icmp ne i32 %conv1.i, 0
@@ -705,21 +712,21 @@ if.then.i36:                                      ; preds = %if.end19
   br label %Py_DECREF.exit37
 
 if.end.i32:                                       ; preds = %if.end19
-  %23 = load ptr, ptr %op.addr.i29, align 8
-  %24 = load i64, ptr %23, align 8
-  %dec.i33 = add i64 %24, -1
-  store i64 %dec.i33, ptr %23, align 8
+  %24 = load ptr, ptr %op.addr.i29, align 8
+  %25 = load i64, ptr %24, align 8
+  %dec.i33 = add i64 %25, -1
+  store i64 %dec.i33, ptr %24, align 8
   %cmp.i34 = icmp eq i64 %dec.i33, 0
   br i1 %cmp.i34, label %if.then1.i35, label %Py_DECREF.exit37
 
 if.then1.i35:                                     ; preds = %if.end.i32
-  %25 = load ptr, ptr %op.addr.i29, align 8
-  call void @_Py_Dealloc(ptr noundef %25) #5
+  %26 = load ptr, ptr %op.addr.i29, align 8
+  call void @_Py_Dealloc(ptr noundef %26) #5
   br label %Py_DECREF.exit37
 
 Py_DECREF.exit37:                                 ; preds = %if.then1.i35, %if.end.i32, %if.then.i36
-  %26 = load i32, ptr %res, align 4
-  %cmp21 = icmp slt i32 %26, 0
+  %27 = load i32, ptr %res, align 4
+  %cmp21 = icmp slt i32 %27, 0
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %Py_DECREF.exit37
@@ -729,8 +736,8 @@ if.end23:                                         ; preds = %Py_DECREF.exit37
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end23, %if.end13
-  %27 = load ptr, ptr %interp, align 8
-  %call25 = call ptr @PyInterpreterState_Next(ptr noundef %27)
+  %28 = load ptr, ptr %interp, align 8
+  %call25 = call ptr @PyInterpreterState_Next(ptr noundef %28)
   store ptr %call25, ptr %interp, align 8
   br label %while.cond, !llvm.loop !6
 
@@ -742,23 +749,23 @@ except:                                           ; preds = %if.then22, %if.then
 
 do.body:                                          ; preds = %except
   store ptr %ids, ptr %_tmp_op_ptr, align 8
-  %28 = load ptr, ptr %_tmp_op_ptr, align 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %_tmp_old_op, align 8
-  %30 = load ptr, ptr %_tmp_old_op, align 8
-  %cmp26 = icmp ne ptr %30, null
+  %29 = load ptr, ptr %_tmp_op_ptr, align 8
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %_tmp_old_op, align 8
+  %31 = load ptr, ptr %_tmp_old_op, align 8
+  %cmp26 = icmp ne ptr %31, null
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %do.body
-  %31 = load ptr, ptr %_tmp_op_ptr, align 8
-  store ptr null, ptr %31, align 8
-  %32 = load ptr, ptr %_tmp_old_op, align 8
-  store ptr %32, ptr %op.addr.i, align 8
-  %33 = load ptr, ptr %op.addr.i, align 8
-  store ptr %33, ptr %op.addr.i40, align 8
-  %34 = load ptr, ptr %op.addr.i40, align 8
-  %35 = load i64, ptr %34, align 8
-  %conv.i41 = trunc i64 %35 to i32
+  %32 = load ptr, ptr %_tmp_op_ptr, align 8
+  store ptr null, ptr %32, align 8
+  %33 = load ptr, ptr %_tmp_old_op, align 8
+  store ptr %33, ptr %op.addr.i, align 8
+  %34 = load ptr, ptr %op.addr.i, align 8
+  store ptr %34, ptr %op.addr.i40, align 8
+  %35 = load ptr, ptr %op.addr.i40, align 8
+  %36 = load i64, ptr %35, align 8
+  %conv.i41 = trunc i64 %36 to i32
   %cmp.i42 = icmp slt i32 %conv.i41, 0
   %conv1.i43 = zext i1 %cmp.i42 to i32
   %tobool.i = icmp ne i32 %conv1.i43, 0
@@ -768,16 +775,16 @@ if.then.i:                                        ; preds = %if.then27
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.then27
-  %36 = load ptr, ptr %op.addr.i, align 8
-  %37 = load i64, ptr %36, align 8
-  %dec.i = add i64 %37, -1
-  store i64 %dec.i, ptr %36, align 8
+  %37 = load ptr, ptr %op.addr.i, align 8
+  %38 = load i64, ptr %37, align 8
+  %dec.i = add i64 %38, -1
+  store i64 %dec.i, ptr %37, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %38 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %38) #5
+  %39 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %39) #5
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -790,13 +797,13 @@ do.end:                                           ; preds = %if.end28
   br label %finally
 
 finally:                                          ; preds = %do.end, %while.end
-  %39 = load ptr, ptr %ids, align 8
-  store ptr %39, ptr %retval, align 8
+  %40 = load ptr, ptr %ids, align 8
+  store ptr %40, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %finally, %if.then
-  %40 = load ptr, ptr %retval, align 8
-  ret ptr %40
+  %41 = load ptr, ptr %retval, align 8
+  ret ptr %41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -859,22 +866,24 @@ if.then7:                                         ; preds = %if.end5
   %7 = load i64, ptr %cid1, align 8
   %8 = load ptr, ptr %obj, align 8
   %9 = load i64, ptr %timeout, align 8
-  %call8 = call i32 @channel_send_wait(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %7, ptr noundef %8, i64 noundef %9)
+  %10 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call8 = call i32 @channel_send_wait(ptr noundef %10, i64 noundef %7, ptr noundef %8, i64 noundef %9)
   store i32 %call8, ptr %err, align 4
   br label %if.end10
 
 if.else:                                          ; preds = %if.end5
-  %10 = load i64, ptr %cid1, align 8
-  %11 = load ptr, ptr %obj, align 8
-  %call9 = call i32 @channel_send(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %10, ptr noundef %11, ptr noundef null)
+  %11 = load i64, ptr %cid1, align 8
+  %12 = load ptr, ptr %obj, align 8
+  %13 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call9 = call i32 @channel_send(ptr noundef %13, i64 noundef %11, ptr noundef %12, ptr noundef null)
   store i32 %call9, ptr %err, align 4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then7
-  %12 = load i32, ptr %err, align 4
-  %13 = load ptr, ptr %self.addr, align 8
-  %14 = load i64, ptr %cid1, align 8
-  %call11 = call i32 @handle_channel_error(i32 noundef %12, ptr noundef %13, i64 noundef %14)
+  %14 = load i32, ptr %err, align 4
+  %15 = load ptr, ptr %self.addr, align 8
+  %16 = load i64, ptr %cid1, align 8
+  %call11 = call i32 @handle_channel_error(i32 noundef %14, ptr noundef %15, i64 noundef %16)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %if.then13, label %if.end14
 
@@ -887,8 +896,8 @@ if.end14:                                         ; preds = %if.end10
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then13, %if.then4, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+  %17 = load ptr, ptr %retval, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -966,25 +975,27 @@ if.then11:                                        ; preds = %if.end9
   %9 = load i64, ptr %cid1, align 8
   %10 = load ptr, ptr %tempobj, align 8
   %11 = load i64, ptr %timeout, align 8
-  %call12 = call i32 @channel_send_wait(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %9, ptr noundef %10, i64 noundef %11)
+  %12 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call12 = call i32 @channel_send_wait(ptr noundef %12, i64 noundef %9, ptr noundef %10, i64 noundef %11)
   store i32 %call12, ptr %err, align 4
   br label %if.end14
 
 if.else:                                          ; preds = %if.end9
-  %12 = load i64, ptr %cid1, align 8
-  %13 = load ptr, ptr %tempobj, align 8
-  %call13 = call i32 @channel_send(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %12, ptr noundef %13, ptr noundef null)
+  %13 = load i64, ptr %cid1, align 8
+  %14 = load ptr, ptr %tempobj, align 8
+  %15 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call13 = call i32 @channel_send(ptr noundef %15, i64 noundef %13, ptr noundef %14, ptr noundef null)
   store i32 %call13, ptr %err, align 4
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then11
-  %14 = load ptr, ptr %tempobj, align 8
-  store ptr %14, ptr %op.addr.i, align 8
-  %15 = load ptr, ptr %op.addr.i, align 8
-  store ptr %15, ptr %op.addr.i19, align 8
-  %16 = load ptr, ptr %op.addr.i19, align 8
-  %17 = load i64, ptr %16, align 8
-  %conv.i = trunc i64 %17 to i32
+  %16 = load ptr, ptr %tempobj, align 8
+  store ptr %16, ptr %op.addr.i, align 8
+  %17 = load ptr, ptr %op.addr.i, align 8
+  store ptr %17, ptr %op.addr.i19, align 8
+  %18 = load ptr, ptr %op.addr.i19, align 8
+  %19 = load i64, ptr %18, align 8
+  %conv.i = trunc i64 %19 to i32
   %cmp.i20 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i20 to i32
   %tobool.i = icmp ne i32 %conv1.i, 0
@@ -994,23 +1005,23 @@ if.then.i:                                        ; preds = %if.end14
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.end14
-  %18 = load ptr, ptr %op.addr.i, align 8
-  %19 = load i64, ptr %18, align 8
-  %dec.i = add i64 %19, -1
-  store i64 %dec.i, ptr %18, align 8
+  %20 = load ptr, ptr %op.addr.i, align 8
+  %21 = load i64, ptr %20, align 8
+  %dec.i = add i64 %21, -1
+  store i64 %dec.i, ptr %20, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %20 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %20) #5
+  %22 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %22) #5
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
-  %21 = load i32, ptr %err, align 4
-  %22 = load ptr, ptr %self.addr, align 8
-  %23 = load i64, ptr %cid1, align 8
-  %call15 = call i32 @handle_channel_error(i32 noundef %21, ptr noundef %22, i64 noundef %23)
+  %23 = load i32, ptr %err, align 4
+  %24 = load ptr, ptr %self.addr, align 8
+  %25 = load i64, ptr %cid1, align 8
+  %call15 = call i32 @handle_channel_error(i32 noundef %23, ptr noundef %24, i64 noundef %25)
   %tobool16 = icmp ne i32 %call15, 0
   br i1 %tobool16, label %if.then17, label %if.end18
 
@@ -1023,8 +1034,8 @@ if.end18:                                         ; preds = %Py_DECREF.exit
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then17, %if.then8, %if.then4, %if.then
-  %24 = load ptr, ptr %retval, align 8
-  ret ptr %24
+  %26 = load ptr, ptr %retval, align 8
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1066,12 +1077,13 @@ if.end:                                           ; preds = %entry
   store i64 %3, ptr %cid, align 8
   store ptr null, ptr %obj, align 8
   %4 = load i64, ptr %cid, align 8
-  %call3 = call i32 @channel_recv(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %4, ptr noundef %obj)
+  %5 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call3 = call i32 @channel_recv(ptr noundef %5, i64 noundef %4, ptr noundef %obj)
   store i32 %call3, ptr %err, align 4
-  %5 = load i32, ptr %err, align 4
-  %6 = load ptr, ptr %self.addr, align 8
-  %7 = load i64, ptr %cid, align 8
-  %call4 = call i32 @handle_channel_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
+  %6 = load i32, ptr %err, align 4
+  %7 = load ptr, ptr %self.addr, align 8
+  %8 = load i64, ptr %cid, align 8
+  %call4 = call i32 @handle_channel_error(i32 noundef %6, ptr noundef %7, i64 noundef %8)
   %tobool5 = icmp ne i32 %call4, 0
   br i1 %tobool5, label %if.then6, label %if.end7
 
@@ -1080,40 +1092,40 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %8 = load ptr, ptr %dflt, align 8
-  call void @Py_XINCREF(ptr noundef %8)
-  %9 = load ptr, ptr %obj, align 8
-  %cmp = icmp eq ptr %9, null
+  %9 = load ptr, ptr %dflt, align 8
+  call void @Py_XINCREF(ptr noundef %9)
+  %10 = load ptr, ptr %obj, align 8
+  %cmp = icmp eq ptr %10, null
   br i1 %cmp, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %if.end7
-  %10 = load ptr, ptr %dflt, align 8
-  %cmp9 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %dflt, align 8
+  %cmp9 = icmp eq ptr %11, null
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.then8
-  %11 = load ptr, ptr %self.addr, align 8
-  %12 = load i64, ptr %cid, align 8
-  %call11 = call i32 @handle_channel_error(i32 noundef -5, ptr noundef %11, i64 noundef %12)
+  %12 = load ptr, ptr %self.addr, align 8
+  %13 = load i64, ptr %cid, align 8
+  %call11 = call i32 @handle_channel_error(i32 noundef -5, ptr noundef %12, i64 noundef %13)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end12:                                         ; preds = %if.then8
-  %13 = load ptr, ptr %dflt, align 8
-  %call13 = call ptr @_Py_NewRef(ptr noundef %13)
+  %14 = load ptr, ptr %dflt, align 8
+  %call13 = call ptr @_Py_NewRef(ptr noundef %14)
   store ptr %call13, ptr %obj, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end12, %if.end7
-  %14 = load ptr, ptr %dflt, align 8
-  call void @Py_XDECREF(ptr noundef %14)
-  %15 = load ptr, ptr %obj, align 8
-  store ptr %15, ptr %retval, align 8
+  %15 = load ptr, ptr %dflt, align 8
+  call void @Py_XDECREF(ptr noundef %15)
+  %16 = load ptr, ptr %obj, align 8
+  store ptr %16, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then10, %if.then6, %if.then
-  %16 = load ptr, ptr %retval, align 8
-  ret ptr %16
+  %17 = load ptr, ptr %retval, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1161,12 +1173,13 @@ if.end:                                           ; preds = %entry
   %6 = load i32, ptr %recv, align 4
   %sub = sub i32 %5, %6
   %7 = load i32, ptr %force, align 4
-  %call3 = call i32 @channel_close(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %4, i32 noundef %sub, i32 noundef %7)
+  %8 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call3 = call i32 @channel_close(ptr noundef %8, i64 noundef %4, i32 noundef %sub, i32 noundef %7)
   store i32 %call3, ptr %err, align 4
-  %8 = load i32, ptr %err, align 4
-  %9 = load ptr, ptr %self.addr, align 8
-  %10 = load i64, ptr %cid, align 8
-  %call4 = call i32 @handle_channel_error(i32 noundef %8, ptr noundef %9, i64 noundef %10)
+  %9 = load i32, ptr %err, align 4
+  %10 = load ptr, ptr %self.addr, align 8
+  %11 = load i64, ptr %cid, align 8
+  %call4 = call i32 @handle_channel_error(i32 noundef %9, ptr noundef %10, i64 noundef %11)
   %tobool5 = icmp ne i32 %call4, 0
   br i1 %tobool5, label %if.then6, label %if.end7
 
@@ -1179,8 +1192,8 @@ if.end7:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then6, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+  %12 = load ptr, ptr %retval, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1241,12 +1254,13 @@ if.end5:                                          ; preds = %if.then4, %land.lhs
   %6 = load i64, ptr %cid, align 8
   %7 = load i32, ptr %send, align 4
   %8 = load i32, ptr %recv, align 4
-  %call6 = call i32 @channel_release(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %6, i32 noundef %7, i32 noundef %8)
+  %9 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call6 = call i32 @channel_release(ptr noundef %9, i64 noundef %6, i32 noundef %7, i32 noundef %8)
   store i32 %call6, ptr %err, align 4
-  %9 = load i32, ptr %err, align 4
-  %10 = load ptr, ptr %self.addr, align 8
-  %11 = load i64, ptr %cid, align 8
-  %call7 = call i32 @handle_channel_error(i32 noundef %9, ptr noundef %10, i64 noundef %11)
+  %10 = load i32, ptr %err, align 4
+  %11 = load ptr, ptr %self.addr, align 8
+  %12 = load i64, ptr %cid, align 8
+  %call7 = call i32 @handle_channel_error(i32 noundef %10, ptr noundef %11, i64 noundef %12)
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %if.then9, label %if.end10
 
@@ -1259,8 +1273,8 @@ if.end10:                                         ; preds = %if.end5
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then9, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %13 = load ptr, ptr %retval, align 8
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1299,12 +1313,13 @@ if.end:                                           ; preds = %entry
   %3 = load i64, ptr %cid2, align 8
   store i64 %3, ptr %cid1, align 8
   %4 = load i64, ptr %cid1, align 8
-  %call3 = call i32 @_channel_get_info(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %4, ptr noundef %info)
+  %5 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  %call3 = call i32 @_channel_get_info(ptr noundef %5, i64 noundef %4, ptr noundef %info)
   store i32 %call3, ptr %err, align 4
-  %5 = load i32, ptr %err, align 4
-  %6 = load ptr, ptr %self.addr, align 8
-  %7 = load i64, ptr %cid1, align 8
-  %call4 = call i32 @handle_channel_error(i32 noundef %5, ptr noundef %6, i64 noundef %7)
+  %6 = load i32, ptr %err, align 4
+  %7 = load ptr, ptr %self.addr, align 8
+  %8 = load i64, ptr %cid1, align 8
+  %call4 = call i32 @handle_channel_error(i32 noundef %6, ptr noundef %7, i64 noundef %8)
   %tobool5 = icmp ne i32 %call4, 0
   br i1 %tobool5, label %if.then6, label %if.end7
 
@@ -1313,14 +1328,14 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %8 = load ptr, ptr %self.addr, align 8
-  %call8 = call ptr @new_channel_info(ptr noundef %8, ptr noundef %info)
+  %9 = load ptr, ptr %self.addr, align 8
+  %call8 = call ptr @new_channel_info(ptr noundef %9, ptr noundef %info)
   store ptr %call8, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then6, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7302,7 +7317,8 @@ declare ptr @PyImport_GetModule(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_global_channels() #0 {
 entry:
-  ret ptr getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1)
+  %0 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8303,13 +8319,14 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %3 = load ptr, ptr %mutex, align 8
-  call void @_channels_init(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), ptr noundef %3)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  call void @_channels_init(ptr noundef %4, ptr noundef %3)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8617,7 +8634,8 @@ if.end:                                           ; preds = %entry
   %call = call i64 @PyInterpreterState_GetID(ptr noundef %2)
   store i64 %call, ptr %interpid, align 8
   %3 = load i64, ptr %interpid, align 8
-  call void @_channels_clear_interpreter(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1), i64 noundef %3)
+  %4 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  call void @_channels_clear_interpreter(ptr noundef %4, i64 noundef %3)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -8676,7 +8694,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @_channels_fini(ptr noundef getelementptr inbounds (%struct.globals, ptr @_globals, i32 0, i32 1))
+  %2 = getelementptr inbounds %struct.globals, ptr @_globals, i32 0, i32 1
+  call void @_channels_fini(ptr noundef %2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

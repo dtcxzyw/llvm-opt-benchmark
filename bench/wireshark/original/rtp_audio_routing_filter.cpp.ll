@@ -46,49 +46,50 @@ define void @_ZN18AudioRoutingFilterC2EP9QIODeviceb12AudioRouting(ptr noundef no
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN9QIODeviceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV18AudioRoutingFilter, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 1
-  %16 = load ptr, ptr %7, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 2
-  %18 = load i8, ptr %8, align 1
-  %19 = trunc i8 %18 to i1
-  %20 = zext i1 %19 to i8
-  store i8 %20, ptr %17, align 8
-  %21 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %5, i64 8, i1 false)
-  %22 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = invoke i32 @_ZNK9QIODevice8openModeEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
-          to label %25 unwind label %31
+  %15 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTV18AudioRoutingFilter, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 1
+  %17 = load ptr, ptr %7, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 2
+  %19 = load i8, ptr %8, align 1
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i8
+  store i8 %21, ptr %18, align 8
+  %22 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %5, i64 8, i1 false)
+  %23 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = invoke i32 @_ZNK9QIODevice8openModeEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %26 unwind label %32
 
-25:                                               ; preds = %4
-  %26 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
-  store i32 %24, ptr %26, align 4
+26:                                               ; preds = %4
   %27 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
-  %28 = load i32, ptr %27, align 4
-  %29 = invoke noundef zeroext i1 @_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 %28)
-          to label %30 unwind label %31
+  store i32 %25, ptr %27, align 4
+  %28 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
+  %29 = load i32, ptr %28, align 4
+  %30 = invoke noundef zeroext i1 @_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 %29)
+          to label %31 unwind label %32
 
-30:                                               ; preds = %25
+31:                                               ; preds = %26
   ret void
 
-31:                                               ; preds = %25, %4
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %26, %4
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %10, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %11, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %10, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %11, align 4
   call void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #6
-  br label %35
+  br label %36
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %10, align 8
-  %37 = load i32, ptr %11, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %10, align 8
+  %38 = load i32, ptr %11, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 declare void @_ZN9QIODeviceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1

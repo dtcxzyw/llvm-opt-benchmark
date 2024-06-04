@@ -22,8 +22,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_128_cbc_hmac_sha256() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %land.rhs, label %land.end
 
@@ -33,8 +34,8 @@ land.rhs:                                         ; preds = %entry
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %1 = phi i1 [ false, %entry ], [ %tobool1, %land.rhs ]
-  %cond = select i1 %1, ptr @aesni_128_cbc_hmac_sha256_cipher, ptr null
+  %2 = phi i1 [ false, %entry ], [ %tobool1, %land.rhs ]
+  %cond = select i1 %2, ptr @aesni_128_cbc_hmac_sha256_cipher, ptr null
   ret ptr %cond
 }
 
@@ -43,8 +44,9 @@ declare i32 @aesni_cbc_sha256_enc(ptr noundef, ptr noundef, i64 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_aes_256_cbc_hmac_sha256() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 33554432
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 33554432
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %land.rhs, label %land.end
 
@@ -54,8 +56,8 @@ land.rhs:                                         ; preds = %entry
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %1 = phi i1 [ false, %entry ], [ %tobool1, %land.rhs ]
-  %cond = select i1 %1, ptr @aesni_256_cbc_hmac_sha256_cipher, ptr null
+  %2 = phi i1 [ false, %entry ], [ %tobool1, %land.rhs ]
+  %cond = select i1 %2, ptr @aesni_256_cbc_hmac_sha256_cipher, ptr null
   ret ptr %cond
 }
 
@@ -254,116 +256,119 @@ if.end16:                                         ; preds = %if.end15
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end16, %if.then6
-  %14 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
-  %and18 = and i32 %14, 536870912
+  %14 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2
+  %15 = load i32, ptr %14, align 4
+  %and18 = and i32 %15, 536870912
   %tobool19 = icmp ne i32 %and18, 0
   br i1 %tobool19, label %land.lhs.true25, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %15 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and20 = and i32 %15, 268435456
+  %16 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %17 = load i32, ptr %16, align 4
+  %and20 = and i32 %17, 268435456
   %tobool21 = icmp ne i32 %and20, 0
   br i1 %tobool21, label %land.lhs.true, label %if.else59
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %16 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and22 = and i32 %16, 2048
-  %17 = load i32, ptr @OPENSSL_ia32cap_P, align 4
-  %and23 = and i32 %17, 1073741824
+  %18 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %19 = load i32, ptr %18, align 4
+  %and22 = and i32 %19, 2048
+  %20 = load i32, ptr @OPENSSL_ia32cap_P, align 4
+  %and23 = and i32 %20, 1073741824
   %or = or i32 %and22, %and23
   %tobool24 = icmp ne i32 %or, 0
   br i1 %tobool24, label %land.lhs.true25, label %if.else59
 
 land.lhs.true25:                                  ; preds = %land.lhs.true, %if.end17
-  %18 = load i64, ptr %plen, align 8
-  %19 = load i64, ptr %sha_off, align 8
-  %20 = load i64, ptr %iv, align 8
-  %add26 = add i64 %19, %20
-  %cmp27 = icmp ugt i64 %18, %add26
-  br i1 %cmp27, label %land.lhs.true29, label %if.else59
-
-land.lhs.true29:                                  ; preds = %land.lhs.true25
   %21 = load i64, ptr %plen, align 8
   %22 = load i64, ptr %sha_off, align 8
   %23 = load i64, ptr %iv, align 8
-  %add30 = add i64 %22, %23
-  %sub31 = sub i64 %21, %add30
+  %add26 = add i64 %22, %23
+  %cmp27 = icmp ugt i64 %21, %add26
+  br i1 %cmp27, label %land.lhs.true29, label %if.else59
+
+land.lhs.true29:                                  ; preds = %land.lhs.true25
+  %24 = load i64, ptr %plen, align 8
+  %25 = load i64, ptr %sha_off, align 8
+  %26 = load i64, ptr %iv, align 8
+  %add30 = add i64 %25, %26
+  %sub31 = sub i64 %24, %add30
   %div = udiv i64 %sub31, 64
   store i64 %div, ptr %blocks, align 8
   %tobool32 = icmp ne i64 %div, 0
   br i1 %tobool32, label %if.then33, label %if.else59
 
 if.then33:                                        ; preds = %land.lhs.true29
-  %24 = load ptr, ptr %key, align 8
-  %md34 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %24, i32 0, i32 3
-  %25 = load ptr, ptr %in.addr, align 8
-  %26 = load i64, ptr %iv, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %25, i64 %26
-  %27 = load i64, ptr %sha_off, align 8
-  call void @sha256_update(ptr noundef %md34, ptr noundef %add.ptr, i64 noundef %27)
+  %27 = load ptr, ptr %key, align 8
+  %md34 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %27, i32 0, i32 3
   %28 = load ptr, ptr %in.addr, align 8
-  %29 = load ptr, ptr %out.addr, align 8
-  %30 = load i64, ptr %blocks, align 8
-  %31 = load ptr, ptr %key, align 8
-  %ks = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %ctx.addr, align 8
-  %iv35 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %32, i32 0, i32 5
+  %29 = load i64, ptr %iv, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %29
+  %30 = load i64, ptr %sha_off, align 8
+  call void @sha256_update(ptr noundef %md34, ptr noundef %add.ptr, i64 noundef %30)
+  %31 = load ptr, ptr %in.addr, align 8
+  %32 = load ptr, ptr %out.addr, align 8
+  %33 = load i64, ptr %blocks, align 8
+  %34 = load ptr, ptr %key, align 8
+  %ks = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %34, i32 0, i32 0
+  %35 = load ptr, ptr %ctx.addr, align 8
+  %iv35 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %35, i32 0, i32 5
   %arraydecay = getelementptr inbounds [16 x i8], ptr %iv35, i64 0, i64 0
-  %33 = load ptr, ptr %key, align 8
-  %md36 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %33, i32 0, i32 3
-  %34 = load ptr, ptr %in.addr, align 8
-  %35 = load i64, ptr %iv, align 8
-  %add.ptr37 = getelementptr inbounds i8, ptr %34, i64 %35
-  %36 = load i64, ptr %sha_off, align 8
-  %add.ptr38 = getelementptr inbounds i8, ptr %add.ptr37, i64 %36
-  %call39 = call i32 @aesni_cbc_sha256_enc(ptr noundef %28, ptr noundef %29, i64 noundef %30, ptr noundef %ks, ptr noundef %arraydecay, ptr noundef %md36, ptr noundef %add.ptr38)
-  %37 = load i64, ptr %blocks, align 8
-  %mul = mul i64 %37, 64
-  store i64 %mul, ptr %blocks, align 8
-  %38 = load i64, ptr %blocks, align 8
-  %39 = load i64, ptr %aes_off, align 8
-  %add40 = add i64 %39, %38
-  store i64 %add40, ptr %aes_off, align 8
+  %36 = load ptr, ptr %key, align 8
+  %md36 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %36, i32 0, i32 3
+  %37 = load ptr, ptr %in.addr, align 8
+  %38 = load i64, ptr %iv, align 8
+  %add.ptr37 = getelementptr inbounds i8, ptr %37, i64 %38
+  %39 = load i64, ptr %sha_off, align 8
+  %add.ptr38 = getelementptr inbounds i8, ptr %add.ptr37, i64 %39
+  %call39 = call i32 @aesni_cbc_sha256_enc(ptr noundef %31, ptr noundef %32, i64 noundef %33, ptr noundef %ks, ptr noundef %arraydecay, ptr noundef %md36, ptr noundef %add.ptr38)
   %40 = load i64, ptr %blocks, align 8
-  %41 = load i64, ptr %sha_off, align 8
-  %add41 = add i64 %41, %40
+  %mul = mul i64 %40, 64
+  store i64 %mul, ptr %blocks, align 8
+  %41 = load i64, ptr %blocks, align 8
+  %42 = load i64, ptr %aes_off, align 8
+  %add40 = add i64 %42, %41
+  store i64 %add40, ptr %aes_off, align 8
+  %43 = load i64, ptr %blocks, align 8
+  %44 = load i64, ptr %sha_off, align 8
+  %add41 = add i64 %44, %43
   store i64 %add41, ptr %sha_off, align 8
-  %42 = load i64, ptr %blocks, align 8
-  %shr = lshr i64 %42, 29
-  %43 = load ptr, ptr %key, align 8
-  %md42 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %43, i32 0, i32 3
+  %45 = load i64, ptr %blocks, align 8
+  %shr = lshr i64 %45, 29
+  %46 = load ptr, ptr %key, align 8
+  %md42 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %46, i32 0, i32 3
   %Nh = getelementptr inbounds %struct.SHA256state_st, ptr %md42, i32 0, i32 2
-  %44 = load i32, ptr %Nh, align 4
-  %conv43 = zext i32 %44 to i64
+  %47 = load i32, ptr %Nh, align 4
+  %conv43 = zext i32 %47 to i64
   %add44 = add i64 %conv43, %shr
   %conv45 = trunc i64 %add44 to i32
   store i32 %conv45, ptr %Nh, align 4
-  %45 = load i64, ptr %blocks, align 8
-  %shl = shl i64 %45, 3
+  %48 = load i64, ptr %blocks, align 8
+  %shl = shl i64 %48, 3
   store i64 %shl, ptr %blocks, align 8
-  %46 = load ptr, ptr %key, align 8
-  %md46 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %46, i32 0, i32 3
+  %49 = load ptr, ptr %key, align 8
+  %md46 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %49, i32 0, i32 3
   %Nl = getelementptr inbounds %struct.SHA256state_st, ptr %md46, i32 0, i32 1
-  %47 = load i32, ptr %Nl, align 4
-  %conv47 = zext i32 %47 to i64
+  %50 = load i32, ptr %Nl, align 4
+  %conv47 = zext i32 %50 to i64
   %add48 = add i64 %conv47, %shl
   %conv49 = trunc i64 %add48 to i32
   store i32 %conv49, ptr %Nl, align 4
-  %48 = load ptr, ptr %key, align 8
-  %md50 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %48, i32 0, i32 3
+  %51 = load ptr, ptr %key, align 8
+  %md50 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %51, i32 0, i32 3
   %Nl51 = getelementptr inbounds %struct.SHA256state_st, ptr %md50, i32 0, i32 1
-  %49 = load i32, ptr %Nl51, align 4
-  %50 = load i64, ptr %blocks, align 8
-  %conv52 = trunc i64 %50 to i32
-  %cmp53 = icmp ult i32 %49, %conv52
+  %52 = load i32, ptr %Nl51, align 4
+  %53 = load i64, ptr %blocks, align 8
+  %conv52 = trunc i64 %53 to i32
+  %cmp53 = icmp ult i32 %52, %conv52
   br i1 %cmp53, label %if.then55, label %if.end58
 
 if.then55:                                        ; preds = %if.then33
-  %51 = load ptr, ptr %key, align 8
-  %md56 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %51, i32 0, i32 3
+  %54 = load ptr, ptr %key, align 8
+  %md56 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %54, i32 0, i32 3
   %Nh57 = getelementptr inbounds %struct.SHA256state_st, ptr %md56, i32 0, i32 2
-  %52 = load i32, ptr %Nh57, align 4
-  %inc = add i32 %52, 1
+  %55 = load i32, ptr %Nh57, align 4
+  %inc = add i32 %55, 1
   store i32 %inc, ptr %Nh57, align 4
   br label %if.end58
 
@@ -375,131 +380,131 @@ if.else59:                                        ; preds = %land.lhs.true29, %l
   br label %if.end60
 
 if.end60:                                         ; preds = %if.else59, %if.end58
-  %53 = load i64, ptr %iv, align 8
-  %54 = load i64, ptr %sha_off, align 8
-  %add61 = add i64 %54, %53
-  store i64 %add61, ptr %sha_off, align 8
-  %55 = load ptr, ptr %key, align 8
-  %md62 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %55, i32 0, i32 3
-  %56 = load ptr, ptr %in.addr, align 8
+  %56 = load i64, ptr %iv, align 8
   %57 = load i64, ptr %sha_off, align 8
-  %add.ptr63 = getelementptr inbounds i8, ptr %56, i64 %57
-  %58 = load i64, ptr %plen, align 8
-  %59 = load i64, ptr %sha_off, align 8
-  %sub64 = sub i64 %58, %59
+  %add61 = add i64 %57, %56
+  store i64 %add61, ptr %sha_off, align 8
+  %58 = load ptr, ptr %key, align 8
+  %md62 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %58, i32 0, i32 3
+  %59 = load ptr, ptr %in.addr, align 8
+  %60 = load i64, ptr %sha_off, align 8
+  %add.ptr63 = getelementptr inbounds i8, ptr %59, i64 %60
+  %61 = load i64, ptr %plen, align 8
+  %62 = load i64, ptr %sha_off, align 8
+  %sub64 = sub i64 %61, %62
   call void @sha256_update(ptr noundef %md62, ptr noundef %add.ptr63, i64 noundef %sub64)
-  %60 = load i64, ptr %plen, align 8
-  %61 = load i64, ptr %len.addr, align 8
-  %cmp65 = icmp ne i64 %60, %61
+  %63 = load i64, ptr %plen, align 8
+  %64 = load i64, ptr %len.addr, align 8
+  %cmp65 = icmp ne i64 %63, %64
   br i1 %cmp65, label %if.then67, label %if.else98
 
 if.then67:                                        ; preds = %if.end60
-  %62 = load ptr, ptr %in.addr, align 8
-  %63 = load ptr, ptr %out.addr, align 8
-  %cmp68 = icmp ne ptr %62, %63
+  %65 = load ptr, ptr %in.addr, align 8
+  %66 = load ptr, ptr %out.addr, align 8
+  %cmp68 = icmp ne ptr %65, %66
   br i1 %cmp68, label %if.then70, label %if.end74
 
 if.then70:                                        ; preds = %if.then67
-  %64 = load ptr, ptr %out.addr, align 8
-  %65 = load i64, ptr %aes_off, align 8
-  %add.ptr71 = getelementptr inbounds i8, ptr %64, i64 %65
-  %66 = load ptr, ptr %in.addr, align 8
-  %67 = load i64, ptr %aes_off, align 8
-  %add.ptr72 = getelementptr inbounds i8, ptr %66, i64 %67
-  %68 = load i64, ptr %plen, align 8
-  %69 = load i64, ptr %aes_off, align 8
-  %sub73 = sub i64 %68, %69
+  %67 = load ptr, ptr %out.addr, align 8
+  %68 = load i64, ptr %aes_off, align 8
+  %add.ptr71 = getelementptr inbounds i8, ptr %67, i64 %68
+  %69 = load ptr, ptr %in.addr, align 8
+  %70 = load i64, ptr %aes_off, align 8
+  %add.ptr72 = getelementptr inbounds i8, ptr %69, i64 %70
+  %71 = load i64, ptr %plen, align 8
+  %72 = load i64, ptr %aes_off, align 8
+  %sub73 = sub i64 %71, %72
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr71, ptr align 1 %add.ptr72, i64 %sub73, i1 false)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then70, %if.then67
-  %70 = load ptr, ptr %out.addr, align 8
-  %71 = load i64, ptr %plen, align 8
-  %add.ptr75 = getelementptr inbounds i8, ptr %70, i64 %71
-  %72 = load ptr, ptr %key, align 8
-  %md76 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %72, i32 0, i32 3
-  %call77 = call i32 @SHA256_Final(ptr noundef %add.ptr75, ptr noundef %md76)
-  %73 = load ptr, ptr %key, align 8
-  %md78 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %73, i32 0, i32 3
-  %74 = load ptr, ptr %key, align 8
-  %tail = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %74, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md78, ptr align 4 %tail, i64 112, i1 false)
+  %73 = load ptr, ptr %out.addr, align 8
+  %74 = load i64, ptr %plen, align 8
+  %add.ptr75 = getelementptr inbounds i8, ptr %73, i64 %74
   %75 = load ptr, ptr %key, align 8
-  %md79 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %75, i32 0, i32 3
-  %76 = load ptr, ptr %out.addr, align 8
-  %77 = load i64, ptr %plen, align 8
-  %add.ptr80 = getelementptr inbounds i8, ptr %76, i64 %77
+  %md76 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %75, i32 0, i32 3
+  %call77 = call i32 @SHA256_Final(ptr noundef %add.ptr75, ptr noundef %md76)
+  %76 = load ptr, ptr %key, align 8
+  %md78 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %76, i32 0, i32 3
+  %77 = load ptr, ptr %key, align 8
+  %tail = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %77, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md78, ptr align 4 %tail, i64 112, i1 false)
+  %78 = load ptr, ptr %key, align 8
+  %md79 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %78, i32 0, i32 3
+  %79 = load ptr, ptr %out.addr, align 8
+  %80 = load i64, ptr %plen, align 8
+  %add.ptr80 = getelementptr inbounds i8, ptr %79, i64 %80
   call void @sha256_update(ptr noundef %md79, ptr noundef %add.ptr80, i64 noundef 32)
-  %78 = load ptr, ptr %out.addr, align 8
-  %79 = load i64, ptr %plen, align 8
-  %add.ptr81 = getelementptr inbounds i8, ptr %78, i64 %79
-  %80 = load ptr, ptr %key, align 8
-  %md82 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %80, i32 0, i32 3
+  %81 = load ptr, ptr %out.addr, align 8
+  %82 = load i64, ptr %plen, align 8
+  %add.ptr81 = getelementptr inbounds i8, ptr %81, i64 %82
+  %83 = load ptr, ptr %key, align 8
+  %md82 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %83, i32 0, i32 3
   %call83 = call i32 @SHA256_Final(ptr noundef %add.ptr81, ptr noundef %md82)
-  %81 = load i64, ptr %plen, align 8
-  %add84 = add i64 %81, 32
+  %84 = load i64, ptr %plen, align 8
+  %add84 = add i64 %84, 32
   store i64 %add84, ptr %plen, align 8
-  %82 = load i64, ptr %len.addr, align 8
-  %83 = load i64, ptr %plen, align 8
-  %sub85 = sub i64 %82, %83
+  %85 = load i64, ptr %len.addr, align 8
+  %86 = load i64, ptr %plen, align 8
+  %sub85 = sub i64 %85, %86
   %sub86 = sub i64 %sub85, 1
   %conv87 = trunc i64 %sub86 to i32
   store i32 %conv87, ptr %l, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end74
-  %84 = load i64, ptr %plen, align 8
-  %85 = load i64, ptr %len.addr, align 8
-  %cmp88 = icmp ult i64 %84, %85
+  %87 = load i64, ptr %plen, align 8
+  %88 = load i64, ptr %len.addr, align 8
+  %cmp88 = icmp ult i64 %87, %88
   br i1 %cmp88, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %86 = load i32, ptr %l, align 4
-  %conv90 = trunc i32 %86 to i8
-  %87 = load ptr, ptr %out.addr, align 8
-  %88 = load i64, ptr %plen, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %87, i64 %88
+  %89 = load i32, ptr %l, align 4
+  %conv90 = trunc i32 %89 to i8
+  %90 = load ptr, ptr %out.addr, align 8
+  %91 = load i64, ptr %plen, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %90, i64 %91
   store i8 %conv90, ptr %arrayidx, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %89 = load i64, ptr %plen, align 8
-  %inc91 = add i64 %89, 1
+  %92 = load i64, ptr %plen, align 8
+  %inc91 = add i64 %92, 1
   store i64 %inc91, ptr %plen, align 8
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %90 = load ptr, ptr %out.addr, align 8
-  %91 = load i64, ptr %aes_off, align 8
-  %add.ptr92 = getelementptr inbounds i8, ptr %90, i64 %91
-  %92 = load ptr, ptr %out.addr, align 8
-  %93 = load i64, ptr %aes_off, align 8
-  %add.ptr93 = getelementptr inbounds i8, ptr %92, i64 %93
-  %94 = load i64, ptr %len.addr, align 8
-  %95 = load i64, ptr %aes_off, align 8
-  %sub94 = sub i64 %94, %95
-  %96 = load ptr, ptr %key, align 8
-  %ks95 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %96, i32 0, i32 0
-  %97 = load ptr, ptr %ctx.addr, align 8
-  %iv96 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %97, i32 0, i32 5
+  %93 = load ptr, ptr %out.addr, align 8
+  %94 = load i64, ptr %aes_off, align 8
+  %add.ptr92 = getelementptr inbounds i8, ptr %93, i64 %94
+  %95 = load ptr, ptr %out.addr, align 8
+  %96 = load i64, ptr %aes_off, align 8
+  %add.ptr93 = getelementptr inbounds i8, ptr %95, i64 %96
+  %97 = load i64, ptr %len.addr, align 8
+  %98 = load i64, ptr %aes_off, align 8
+  %sub94 = sub i64 %97, %98
+  %99 = load ptr, ptr %key, align 8
+  %ks95 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %99, i32 0, i32 0
+  %100 = load ptr, ptr %ctx.addr, align 8
+  %iv96 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %100, i32 0, i32 5
   %arraydecay97 = getelementptr inbounds [16 x i8], ptr %iv96, i64 0, i64 0
   call void @aesni_cbc_encrypt(ptr noundef %add.ptr92, ptr noundef %add.ptr93, i64 noundef %sub94, ptr noundef %ks95, ptr noundef %arraydecay97, i32 noundef 1)
   br label %if.end105
 
 if.else98:                                        ; preds = %if.end60
-  %98 = load ptr, ptr %in.addr, align 8
-  %99 = load i64, ptr %aes_off, align 8
-  %add.ptr99 = getelementptr inbounds i8, ptr %98, i64 %99
-  %100 = load ptr, ptr %out.addr, align 8
-  %101 = load i64, ptr %aes_off, align 8
-  %add.ptr100 = getelementptr inbounds i8, ptr %100, i64 %101
-  %102 = load i64, ptr %len.addr, align 8
-  %103 = load i64, ptr %aes_off, align 8
-  %sub101 = sub i64 %102, %103
-  %104 = load ptr, ptr %key, align 8
-  %ks102 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %104, i32 0, i32 0
-  %105 = load ptr, ptr %ctx.addr, align 8
-  %iv103 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %105, i32 0, i32 5
+  %101 = load ptr, ptr %in.addr, align 8
+  %102 = load i64, ptr %aes_off, align 8
+  %add.ptr99 = getelementptr inbounds i8, ptr %101, i64 %102
+  %103 = load ptr, ptr %out.addr, align 8
+  %104 = load i64, ptr %aes_off, align 8
+  %add.ptr100 = getelementptr inbounds i8, ptr %103, i64 %104
+  %105 = load i64, ptr %len.addr, align 8
+  %106 = load i64, ptr %aes_off, align 8
+  %sub101 = sub i64 %105, %106
+  %107 = load ptr, ptr %key, align 8
+  %ks102 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %107, i32 0, i32 0
+  %108 = load ptr, ptr %ctx.addr, align 8
+  %iv103 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %108, i32 0, i32 5
   %arraydecay104 = getelementptr inbounds [16 x i8], ptr %iv103, i64 0, i64 0
   call void @aesni_cbc_encrypt(ptr noundef %add.ptr99, ptr noundef %add.ptr100, i64 noundef %sub101, ptr noundef %ks102, ptr noundef %arraydecay104, i32 noundef 1)
   br label %if.end105
@@ -509,46 +514,46 @@ if.end105:                                        ; preds = %if.else98, %for.end
 
 if.else106:                                       ; preds = %if.end
   %arraydecay107 = getelementptr inbounds [96 x i8], ptr %mac, i64 0, i64 0
-  %106 = ptrtoint ptr %arraydecay107 to i64
-  %add108 = add i64 %106, 63
+  %109 = ptrtoint ptr %arraydecay107 to i64
+  %add108 = add i64 %109, 63
   %and109 = and i64 %add108, -64
-  %107 = inttoptr i64 %and109 to ptr
-  store ptr %107, ptr %pmac, align 8
-  %108 = load ptr, ptr %in.addr, align 8
-  %109 = load ptr, ptr %out.addr, align 8
-  %110 = load i64, ptr %len.addr, align 8
-  %111 = load ptr, ptr %key, align 8
-  %ks110 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %111, i32 0, i32 0
-  %112 = load ptr, ptr %ctx.addr, align 8
-  %iv111 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %112, i32 0, i32 5
+  %110 = inttoptr i64 %and109 to ptr
+  store ptr %110, ptr %pmac, align 8
+  %111 = load ptr, ptr %in.addr, align 8
+  %112 = load ptr, ptr %out.addr, align 8
+  %113 = load i64, ptr %len.addr, align 8
+  %114 = load ptr, ptr %key, align 8
+  %ks110 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %114, i32 0, i32 0
+  %115 = load ptr, ptr %ctx.addr, align 8
+  %iv111 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %115, i32 0, i32 5
   %arraydecay112 = getelementptr inbounds [16 x i8], ptr %iv111, i64 0, i64 0
-  call void @aesni_cbc_encrypt(ptr noundef %108, ptr noundef %109, i64 noundef %110, ptr noundef %ks110, ptr noundef %arraydecay112, i32 noundef 0)
-  %113 = load i64, ptr %plen, align 8
-  %cmp113 = icmp ne i64 %113, -1
+  call void @aesni_cbc_encrypt(ptr noundef %111, ptr noundef %112, i64 noundef %113, ptr noundef %ks110, ptr noundef %arraydecay112, i32 noundef 0)
+  %116 = load i64, ptr %plen, align 8
+  %cmp113 = icmp ne i64 %116, -1
   br i1 %cmp113, label %if.then115, label %if.else582
 
 if.then115:                                       ; preds = %if.else106
   store i32 1, ptr %ret, align 4
-  %114 = load ptr, ptr %key, align 8
-  %md116 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %114, i32 0, i32 3
+  %117 = load ptr, ptr %key, align 8
+  %md116 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %117, i32 0, i32 3
   %data117 = getelementptr inbounds %struct.SHA256state_st, ptr %md116, i32 0, i32 3
   %arraydecay118 = getelementptr inbounds [16 x i32], ptr %data117, i64 0, i64 0
   store ptr %arraydecay118, ptr %data, align 8
-  %115 = load ptr, ptr %key, align 8
-  %aux119 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %115, i32 0, i32 5
-  %116 = load i64, ptr %plen, align 8
-  %sub120 = sub i64 %116, 4
-  %arrayidx121 = getelementptr inbounds [16 x i8], ptr %aux119, i64 0, i64 %sub120
-  %117 = load i8, ptr %arrayidx121, align 1
-  %conv122 = zext i8 %117 to i32
-  %shl123 = shl i32 %conv122, 8
   %118 = load ptr, ptr %key, align 8
-  %aux124 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %118, i32 0, i32 5
+  %aux119 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %118, i32 0, i32 5
   %119 = load i64, ptr %plen, align 8
-  %sub125 = sub i64 %119, 3
+  %sub120 = sub i64 %119, 4
+  %arrayidx121 = getelementptr inbounds [16 x i8], ptr %aux119, i64 0, i64 %sub120
+  %120 = load i8, ptr %arrayidx121, align 1
+  %conv122 = zext i8 %120 to i32
+  %shl123 = shl i32 %conv122, 8
+  %121 = load ptr, ptr %key, align 8
+  %aux124 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %121, i32 0, i32 5
+  %122 = load i64, ptr %plen, align 8
+  %sub125 = sub i64 %122, 3
   %arrayidx126 = getelementptr inbounds [16 x i8], ptr %aux124, i64 0, i64 %sub125
-  %120 = load i8, ptr %arrayidx126, align 1
-  %conv127 = zext i8 %120 to i32
+  %123 = load i8, ptr %arrayidx126, align 1
+  %conv127 = zext i8 %123 to i32
   %or128 = or i32 %shl123, %conv127
   %cmp129 = icmp sge i32 %or128, 770
   br i1 %cmp129, label %if.then131, label %if.end132
@@ -558,11 +563,11 @@ if.then131:                                       ; preds = %if.then115
   br label %if.end132
 
 if.end132:                                        ; preds = %if.then131, %if.then115
-  %121 = load i64, ptr %len.addr, align 8
-  %122 = load i64, ptr %iv, align 8
-  %add133 = add i64 %122, 32
+  %124 = load i64, ptr %len.addr, align 8
+  %125 = load i64, ptr %iv, align 8
+  %add133 = add i64 %125, 32
   %add134 = add i64 %add133, 1
-  %cmp135 = icmp ult i64 %121, %add134
+  %cmp135 = icmp ult i64 %124, %add134
   br i1 %cmp135, label %if.then137, label %if.end138
 
 if.then137:                                       ; preds = %if.end132
@@ -570,378 +575,378 @@ if.then137:                                       ; preds = %if.end132
   br label %return
 
 if.end138:                                        ; preds = %if.end132
-  %123 = load i64, ptr %iv, align 8
-  %124 = load ptr, ptr %out.addr, align 8
-  %add.ptr139 = getelementptr inbounds i8, ptr %124, i64 %123
-  store ptr %add.ptr139, ptr %out.addr, align 8
-  %125 = load i64, ptr %iv, align 8
-  %126 = load i64, ptr %len.addr, align 8
-  %sub140 = sub i64 %126, %125
-  store i64 %sub140, ptr %len.addr, align 8
+  %126 = load i64, ptr %iv, align 8
   %127 = load ptr, ptr %out.addr, align 8
-  %128 = load i64, ptr %len.addr, align 8
-  %sub141 = sub i64 %128, 1
-  %arrayidx142 = getelementptr inbounds i8, ptr %127, i64 %sub141
-  %129 = load i8, ptr %arrayidx142, align 1
-  %conv143 = zext i8 %129 to i32
+  %add.ptr139 = getelementptr inbounds i8, ptr %127, i64 %126
+  store ptr %add.ptr139, ptr %out.addr, align 8
+  %128 = load i64, ptr %iv, align 8
+  %129 = load i64, ptr %len.addr, align 8
+  %sub140 = sub i64 %129, %128
+  store i64 %sub140, ptr %len.addr, align 8
+  %130 = load ptr, ptr %out.addr, align 8
+  %131 = load i64, ptr %len.addr, align 8
+  %sub141 = sub i64 %131, 1
+  %arrayidx142 = getelementptr inbounds i8, ptr %130, i64 %sub141
+  %132 = load i8, ptr %arrayidx142, align 1
+  %conv143 = zext i8 %132 to i32
   store i32 %conv143, ptr %pad, align 4
-  %130 = load i64, ptr %len.addr, align 8
-  %sub144 = sub i64 %130, 33
+  %133 = load i64, ptr %len.addr, align 8
+  %sub144 = sub i64 %133, 33
   %conv145 = trunc i64 %sub144 to i32
   store i32 %conv145, ptr %maxpad, align 4
-  %131 = load i32, ptr %maxpad, align 4
-  %sub146 = sub i32 255, %131
-  %shr147 = lshr i32 %sub146, 24
-  %132 = load i32, ptr %maxpad, align 4
-  %or148 = or i32 %132, %shr147
-  store i32 %or148, ptr %maxpad, align 4
-  %133 = load i32, ptr %maxpad, align 4
-  %and149 = and i32 %133, 255
-  store i32 %and149, ptr %maxpad, align 4
   %134 = load i32, ptr %maxpad, align 4
-  %135 = load i32, ptr %pad, align 4
-  %call150 = call i32 @constant_time_ge(i32 noundef %134, i32 noundef %135)
+  %sub146 = sub i32 255, %134
+  %shr147 = lshr i32 %sub146, 24
+  %135 = load i32, ptr %maxpad, align 4
+  %or148 = or i32 %135, %shr147
+  store i32 %or148, ptr %maxpad, align 4
+  %136 = load i32, ptr %maxpad, align 4
+  %and149 = and i32 %136, 255
+  store i32 %and149, ptr %maxpad, align 4
+  %137 = load i32, ptr %maxpad, align 4
+  %138 = load i32, ptr %pad, align 4
+  %call150 = call i32 @constant_time_ge(i32 noundef %137, i32 noundef %138)
   %conv151 = zext i32 %call150 to i64
   store i64 %conv151, ptr %mask, align 8
-  %136 = load i64, ptr %mask, align 8
-  %137 = load i32, ptr %ret, align 4
-  %conv152 = sext i32 %137 to i64
-  %and153 = and i64 %conv152, %136
+  %139 = load i64, ptr %mask, align 8
+  %140 = load i32, ptr %ret, align 4
+  %conv152 = sext i32 %140 to i64
+  %and153 = and i64 %conv152, %139
   %conv154 = trunc i64 %and153 to i32
   store i32 %conv154, ptr %ret, align 4
-  %138 = load i64, ptr %mask, align 8
-  %conv155 = trunc i64 %138 to i32
-  %139 = load i32, ptr %pad, align 4
-  %140 = load i32, ptr %maxpad, align 4
-  %call156 = call i32 @constant_time_select(i32 noundef %conv155, i32 noundef %139, i32 noundef %140)
-  store i32 %call156, ptr %pad, align 4
-  %141 = load i64, ptr %len.addr, align 8
+  %141 = load i64, ptr %mask, align 8
+  %conv155 = trunc i64 %141 to i32
   %142 = load i32, ptr %pad, align 4
-  %add157 = add i32 32, %142
+  %143 = load i32, ptr %maxpad, align 4
+  %call156 = call i32 @constant_time_select(i32 noundef %conv155, i32 noundef %142, i32 noundef %143)
+  store i32 %call156, ptr %pad, align 4
+  %144 = load i64, ptr %len.addr, align 8
+  %145 = load i32, ptr %pad, align 4
+  %add157 = add i32 32, %145
   %add158 = add i32 %add157, 1
   %conv159 = zext i32 %add158 to i64
-  %sub160 = sub i64 %141, %conv159
+  %sub160 = sub i64 %144, %conv159
   store i64 %sub160, ptr %inp_len, align 8
-  %143 = load i64, ptr %inp_len, align 8
-  %shr161 = lshr i64 %143, 8
+  %146 = load i64, ptr %inp_len, align 8
+  %shr161 = lshr i64 %146, 8
   %conv162 = trunc i64 %shr161 to i8
-  %144 = load ptr, ptr %key, align 8
-  %aux163 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %144, i32 0, i32 5
-  %145 = load i64, ptr %plen, align 8
-  %sub164 = sub i64 %145, 2
+  %147 = load ptr, ptr %key, align 8
+  %aux163 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %147, i32 0, i32 5
+  %148 = load i64, ptr %plen, align 8
+  %sub164 = sub i64 %148, 2
   %arrayidx165 = getelementptr inbounds [16 x i8], ptr %aux163, i64 0, i64 %sub164
   store i8 %conv162, ptr %arrayidx165, align 1
-  %146 = load i64, ptr %inp_len, align 8
-  %conv166 = trunc i64 %146 to i8
-  %147 = load ptr, ptr %key, align 8
-  %aux167 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %147, i32 0, i32 5
-  %148 = load i64, ptr %plen, align 8
-  %sub168 = sub i64 %148, 1
+  %149 = load i64, ptr %inp_len, align 8
+  %conv166 = trunc i64 %149 to i8
+  %150 = load ptr, ptr %key, align 8
+  %aux167 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %150, i32 0, i32 5
+  %151 = load i64, ptr %plen, align 8
+  %sub168 = sub i64 %151, 1
   %arrayidx169 = getelementptr inbounds [16 x i8], ptr %aux167, i64 0, i64 %sub168
   store i8 %conv166, ptr %arrayidx169, align 1
-  %149 = load ptr, ptr %key, align 8
-  %md170 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %149, i32 0, i32 3
-  %150 = load ptr, ptr %key, align 8
-  %head = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %150, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md170, ptr align 4 %head, i64 112, i1 false)
-  %151 = load ptr, ptr %key, align 8
-  %md171 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %151, i32 0, i32 3
   %152 = load ptr, ptr %key, align 8
-  %aux172 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %152, i32 0, i32 5
+  %md170 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %152, i32 0, i32 3
+  %153 = load ptr, ptr %key, align 8
+  %head = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %153, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md170, ptr align 4 %head, i64 112, i1 false)
+  %154 = load ptr, ptr %key, align 8
+  %md171 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %154, i32 0, i32 3
+  %155 = load ptr, ptr %key, align 8
+  %aux172 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %155, i32 0, i32 5
   %arraydecay173 = getelementptr inbounds [16 x i8], ptr %aux172, i64 0, i64 0
-  %153 = load i64, ptr %plen, align 8
-  call void @sha256_update(ptr noundef %md171, ptr noundef %arraydecay173, i64 noundef %153)
-  %154 = load i64, ptr %len.addr, align 8
-  %sub174 = sub i64 %154, 32
+  %156 = load i64, ptr %plen, align 8
+  call void @sha256_update(ptr noundef %md171, ptr noundef %arraydecay173, i64 noundef %156)
+  %157 = load i64, ptr %len.addr, align 8
+  %sub174 = sub i64 %157, 32
   store i64 %sub174, ptr %len.addr, align 8
-  %155 = load i64, ptr %len.addr, align 8
-  %cmp175 = icmp uge i64 %155, 320
+  %158 = load i64, ptr %len.addr, align 8
+  %cmp175 = icmp uge i64 %158, 320
   br i1 %cmp175, label %if.then177, label %if.end189
 
 if.then177:                                       ; preds = %if.end138
-  %156 = load i64, ptr %len.addr, align 8
-  %sub178 = sub i64 %156, 320
+  %159 = load i64, ptr %len.addr, align 8
+  %sub178 = sub i64 %159, 320
   %and179 = and i64 %sub178, -64
   store i64 %and179, ptr %j, align 8
-  %157 = load ptr, ptr %key, align 8
-  %md180 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %157, i32 0, i32 3
-  %num181 = getelementptr inbounds %struct.SHA256state_st, ptr %md180, i32 0, i32 4
-  %158 = load i32, ptr %num181, align 4
-  %sub182 = sub i32 64, %158
-  %conv183 = zext i32 %sub182 to i64
-  %159 = load i64, ptr %j, align 8
-  %add184 = add i64 %159, %conv183
-  store i64 %add184, ptr %j, align 8
   %160 = load ptr, ptr %key, align 8
-  %md185 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %160, i32 0, i32 3
-  %161 = load ptr, ptr %out.addr, align 8
+  %md180 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %160, i32 0, i32 3
+  %num181 = getelementptr inbounds %struct.SHA256state_st, ptr %md180, i32 0, i32 4
+  %161 = load i32, ptr %num181, align 4
+  %sub182 = sub i32 64, %161
+  %conv183 = zext i32 %sub182 to i64
   %162 = load i64, ptr %j, align 8
-  call void @sha256_update(ptr noundef %md185, ptr noundef %161, i64 noundef %162)
-  %163 = load i64, ptr %j, align 8
+  %add184 = add i64 %162, %conv183
+  store i64 %add184, ptr %j, align 8
+  %163 = load ptr, ptr %key, align 8
+  %md185 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %163, i32 0, i32 3
   %164 = load ptr, ptr %out.addr, align 8
-  %add.ptr186 = getelementptr inbounds i8, ptr %164, i64 %163
-  store ptr %add.ptr186, ptr %out.addr, align 8
   %165 = load i64, ptr %j, align 8
-  %166 = load i64, ptr %len.addr, align 8
-  %sub187 = sub i64 %166, %165
+  call void @sha256_update(ptr noundef %md185, ptr noundef %164, i64 noundef %165)
+  %166 = load i64, ptr %j, align 8
+  %167 = load ptr, ptr %out.addr, align 8
+  %add.ptr186 = getelementptr inbounds i8, ptr %167, i64 %166
+  store ptr %add.ptr186, ptr %out.addr, align 8
+  %168 = load i64, ptr %j, align 8
+  %169 = load i64, ptr %len.addr, align 8
+  %sub187 = sub i64 %169, %168
   store i64 %sub187, ptr %len.addr, align 8
-  %167 = load i64, ptr %j, align 8
-  %168 = load i64, ptr %inp_len, align 8
-  %sub188 = sub i64 %168, %167
+  %170 = load i64, ptr %j, align 8
+  %171 = load i64, ptr %inp_len, align 8
+  %sub188 = sub i64 %171, %170
   store i64 %sub188, ptr %inp_len, align 8
   br label %if.end189
 
 if.end189:                                        ; preds = %if.then177, %if.end138
-  %169 = load ptr, ptr %key, align 8
-  %md190 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %169, i32 0, i32 3
+  %172 = load ptr, ptr %key, align 8
+  %md190 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %172, i32 0, i32 3
   %Nl191 = getelementptr inbounds %struct.SHA256state_st, ptr %md190, i32 0, i32 1
-  %170 = load i32, ptr %Nl191, align 4
-  %conv192 = zext i32 %170 to i64
-  %171 = load i64, ptr %inp_len, align 8
-  %shl193 = shl i64 %171, 3
+  %173 = load i32, ptr %Nl191, align 4
+  %conv192 = zext i32 %173 to i64
+  %174 = load i64, ptr %inp_len, align 8
+  %shl193 = shl i64 %174, 3
   %add194 = add i64 %conv192, %shl193
   %conv195 = trunc i64 %add194 to i32
   store i32 %conv195, ptr %bitlen, align 4
-  %172 = load i32, ptr %bitlen, align 4
-  store i32 %172, ptr %ret_, align 4
-  %173 = load i32, ptr %ret_, align 4
-  %174 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %173) #4, !srcloc !6
-  store i32 %174, ptr %ret_, align 4
-  %175 = load i32, ptr %ret_, align 4
-  store i32 %175, ptr %tmp, align 4
-  %176 = load i32, ptr %tmp, align 4
-  store i32 %176, ptr %bitlen, align 4
-  %177 = load ptr, ptr %pmac, align 8
-  %arrayidx196 = getelementptr inbounds [8 x i32], ptr %177, i64 0, i64 0
-  store i32 0, ptr %arrayidx196, align 4
-  %178 = load ptr, ptr %pmac, align 8
-  %arrayidx197 = getelementptr inbounds [8 x i32], ptr %178, i64 0, i64 1
-  store i32 0, ptr %arrayidx197, align 4
-  %179 = load ptr, ptr %pmac, align 8
-  %arrayidx198 = getelementptr inbounds [8 x i32], ptr %179, i64 0, i64 2
-  store i32 0, ptr %arrayidx198, align 4
+  %175 = load i32, ptr %bitlen, align 4
+  store i32 %175, ptr %ret_, align 4
+  %176 = load i32, ptr %ret_, align 4
+  %177 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %176) #4, !srcloc !6
+  store i32 %177, ptr %ret_, align 4
+  %178 = load i32, ptr %ret_, align 4
+  store i32 %178, ptr %tmp, align 4
+  %179 = load i32, ptr %tmp, align 4
+  store i32 %179, ptr %bitlen, align 4
   %180 = load ptr, ptr %pmac, align 8
-  %arrayidx199 = getelementptr inbounds [8 x i32], ptr %180, i64 0, i64 3
-  store i32 0, ptr %arrayidx199, align 4
+  %arrayidx196 = getelementptr inbounds [8 x i32], ptr %180, i64 0, i64 0
+  store i32 0, ptr %arrayidx196, align 4
   %181 = load ptr, ptr %pmac, align 8
-  %arrayidx200 = getelementptr inbounds [8 x i32], ptr %181, i64 0, i64 4
-  store i32 0, ptr %arrayidx200, align 4
+  %arrayidx197 = getelementptr inbounds [8 x i32], ptr %181, i64 0, i64 1
+  store i32 0, ptr %arrayidx197, align 4
   %182 = load ptr, ptr %pmac, align 8
-  %arrayidx201 = getelementptr inbounds [8 x i32], ptr %182, i64 0, i64 5
-  store i32 0, ptr %arrayidx201, align 4
+  %arrayidx198 = getelementptr inbounds [8 x i32], ptr %182, i64 0, i64 2
+  store i32 0, ptr %arrayidx198, align 4
   %183 = load ptr, ptr %pmac, align 8
-  %arrayidx202 = getelementptr inbounds [8 x i32], ptr %183, i64 0, i64 6
-  store i32 0, ptr %arrayidx202, align 4
+  %arrayidx199 = getelementptr inbounds [8 x i32], ptr %183, i64 0, i64 3
+  store i32 0, ptr %arrayidx199, align 4
   %184 = load ptr, ptr %pmac, align 8
-  %arrayidx203 = getelementptr inbounds [8 x i32], ptr %184, i64 0, i64 7
+  %arrayidx200 = getelementptr inbounds [8 x i32], ptr %184, i64 0, i64 4
+  store i32 0, ptr %arrayidx200, align 4
+  %185 = load ptr, ptr %pmac, align 8
+  %arrayidx201 = getelementptr inbounds [8 x i32], ptr %185, i64 0, i64 5
+  store i32 0, ptr %arrayidx201, align 4
+  %186 = load ptr, ptr %pmac, align 8
+  %arrayidx202 = getelementptr inbounds [8 x i32], ptr %186, i64 0, i64 6
+  store i32 0, ptr %arrayidx202, align 4
+  %187 = load ptr, ptr %pmac, align 8
+  %arrayidx203 = getelementptr inbounds [8 x i32], ptr %187, i64 0, i64 7
   store i32 0, ptr %arrayidx203, align 4
-  %185 = load ptr, ptr %key, align 8
-  %md204 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %185, i32 0, i32 3
+  %188 = load ptr, ptr %key, align 8
+  %md204 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %188, i32 0, i32 3
   %num205 = getelementptr inbounds %struct.SHA256state_st, ptr %md204, i32 0, i32 4
-  %186 = load i32, ptr %num205, align 4
-  store i32 %186, ptr %res, align 4
+  %189 = load i32, ptr %num205, align 4
+  store i32 %189, ptr %res, align 4
   store i64 0, ptr %j, align 8
   br label %for.cond206
 
 for.cond206:                                      ; preds = %for.inc315, %if.end189
-  %187 = load i64, ptr %j, align 8
-  %188 = load i64, ptr %len.addr, align 8
-  %cmp207 = icmp ult i64 %187, %188
+  %190 = load i64, ptr %j, align 8
+  %191 = load i64, ptr %len.addr, align 8
+  %cmp207 = icmp ult i64 %190, %191
   br i1 %cmp207, label %for.body209, label %for.end317
 
 for.body209:                                      ; preds = %for.cond206
-  %189 = load ptr, ptr %out.addr, align 8
-  %190 = load i64, ptr %j, align 8
-  %arrayidx210 = getelementptr inbounds i8, ptr %189, i64 %190
-  %191 = load i8, ptr %arrayidx210, align 1
-  %conv211 = zext i8 %191 to i64
+  %192 = load ptr, ptr %out.addr, align 8
+  %193 = load i64, ptr %j, align 8
+  %arrayidx210 = getelementptr inbounds i8, ptr %192, i64 %193
+  %194 = load i8, ptr %arrayidx210, align 1
+  %conv211 = zext i8 %194 to i64
   store i64 %conv211, ptr %c, align 8
-  %192 = load i64, ptr %j, align 8
-  %193 = load i64, ptr %inp_len, align 8
-  %sub212 = sub i64 %192, %193
+  %195 = load i64, ptr %j, align 8
+  %196 = load i64, ptr %inp_len, align 8
+  %sub212 = sub i64 %195, %196
   %shr213 = lshr i64 %sub212, 56
   store i64 %shr213, ptr %mask, align 8
-  %194 = load i64, ptr %mask, align 8
-  %195 = load i64, ptr %c, align 8
-  %and214 = and i64 %195, %194
+  %197 = load i64, ptr %mask, align 8
+  %198 = load i64, ptr %c, align 8
+  %and214 = and i64 %198, %197
   store i64 %and214, ptr %c, align 8
-  %196 = load i64, ptr %mask, align 8
-  %not = xor i64 %196, -1
+  %199 = load i64, ptr %mask, align 8
+  %not = xor i64 %199, -1
   %and215 = and i64 128, %not
-  %197 = load i64, ptr %inp_len, align 8
-  %198 = load i64, ptr %j, align 8
-  %sub216 = sub i64 %197, %198
+  %200 = load i64, ptr %inp_len, align 8
+  %201 = load i64, ptr %j, align 8
+  %sub216 = sub i64 %200, %201
   %shr217 = lshr i64 %sub216, 56
   %not218 = xor i64 %shr217, -1
   %and219 = and i64 %and215, %not218
-  %199 = load i64, ptr %c, align 8
-  %or220 = or i64 %199, %and219
+  %202 = load i64, ptr %c, align 8
+  %or220 = or i64 %202, %and219
   store i64 %or220, ptr %c, align 8
-  %200 = load i64, ptr %c, align 8
-  %conv221 = trunc i64 %200 to i8
-  %201 = load ptr, ptr %data, align 8
-  %202 = load i32, ptr %res, align 4
-  %inc222 = add i32 %202, 1
+  %203 = load i64, ptr %c, align 8
+  %conv221 = trunc i64 %203 to i8
+  %204 = load ptr, ptr %data, align 8
+  %205 = load i32, ptr %res, align 4
+  %inc222 = add i32 %205, 1
   store i32 %inc222, ptr %res, align 4
-  %idxprom = zext i32 %202 to i64
-  %arrayidx223 = getelementptr inbounds [64 x i8], ptr %201, i64 0, i64 %idxprom
+  %idxprom = zext i32 %205 to i64
+  %arrayidx223 = getelementptr inbounds [64 x i8], ptr %204, i64 0, i64 %idxprom
   store i8 %conv221, ptr %arrayidx223, align 1
-  %203 = load i32, ptr %res, align 4
-  %cmp224 = icmp ne i32 %203, 64
+  %206 = load i32, ptr %res, align 4
+  %cmp224 = icmp ne i32 %206, 64
   br i1 %cmp224, label %if.then226, label %if.end227
 
 if.then226:                                       ; preds = %for.body209
   br label %for.inc315
 
 if.end227:                                        ; preds = %for.body209
-  %204 = load i64, ptr %inp_len, align 8
-  %add228 = add i64 %204, 7
-  %205 = load i64, ptr %j, align 8
-  %sub229 = sub i64 %add228, %205
+  %207 = load i64, ptr %inp_len, align 8
+  %add228 = add i64 %207, 7
+  %208 = load i64, ptr %j, align 8
+  %sub229 = sub i64 %add228, %208
   %shr230 = lshr i64 %sub229, 63
   %sub231 = sub i64 0, %shr230
   store i64 %sub231, ptr %mask, align 8
-  %206 = load i32, ptr %bitlen, align 4
-  %conv232 = zext i32 %206 to i64
-  %207 = load i64, ptr %mask, align 8
-  %and233 = and i64 %conv232, %207
-  %208 = load ptr, ptr %data, align 8
-  %arrayidx234 = getelementptr inbounds [16 x i32], ptr %208, i64 0, i64 15
-  %209 = load i32, ptr %arrayidx234, align 4
-  %conv235 = zext i32 %209 to i64
+  %209 = load i32, ptr %bitlen, align 4
+  %conv232 = zext i32 %209 to i64
+  %210 = load i64, ptr %mask, align 8
+  %and233 = and i64 %conv232, %210
+  %211 = load ptr, ptr %data, align 8
+  %arrayidx234 = getelementptr inbounds [16 x i32], ptr %211, i64 0, i64 15
+  %212 = load i32, ptr %arrayidx234, align 4
+  %conv235 = zext i32 %212 to i64
   %or236 = or i64 %conv235, %and233
   %conv237 = trunc i64 %or236 to i32
   store i32 %conv237, ptr %arrayidx234, align 4
-  %210 = load ptr, ptr %key, align 8
-  %md238 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %210, i32 0, i32 3
-  %211 = load ptr, ptr %data, align 8
-  call void @sha256_block_data_order(ptr noundef %md238, ptr noundef %211, i64 noundef 1)
-  %212 = load i64, ptr %j, align 8
-  %213 = load i64, ptr %inp_len, align 8
-  %sub239 = sub i64 %212, %213
+  %213 = load ptr, ptr %key, align 8
+  %md238 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %213, i32 0, i32 3
+  %214 = load ptr, ptr %data, align 8
+  call void @sha256_block_data_order(ptr noundef %md238, ptr noundef %214, i64 noundef 1)
+  %215 = load i64, ptr %j, align 8
+  %216 = load i64, ptr %inp_len, align 8
+  %sub239 = sub i64 %215, %216
   %sub240 = sub i64 %sub239, 72
   %shr241 = lshr i64 %sub240, 63
   %sub242 = sub i64 0, %shr241
-  %214 = load i64, ptr %mask, align 8
-  %and243 = and i64 %214, %sub242
+  %217 = load i64, ptr %mask, align 8
+  %and243 = and i64 %217, %sub242
   store i64 %and243, ptr %mask, align 8
-  %215 = load ptr, ptr %key, align 8
-  %md244 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %215, i32 0, i32 3
+  %218 = load ptr, ptr %key, align 8
+  %md244 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %218, i32 0, i32 3
   %h = getelementptr inbounds %struct.SHA256state_st, ptr %md244, i32 0, i32 0
   %arrayidx245 = getelementptr inbounds [8 x i32], ptr %h, i64 0, i64 0
-  %216 = load i32, ptr %arrayidx245, align 4
-  %conv246 = zext i32 %216 to i64
-  %217 = load i64, ptr %mask, align 8
-  %and247 = and i64 %conv246, %217
-  %218 = load ptr, ptr %pmac, align 8
-  %arrayidx248 = getelementptr inbounds [8 x i32], ptr %218, i64 0, i64 0
-  %219 = load i32, ptr %arrayidx248, align 4
-  %conv249 = zext i32 %219 to i64
+  %219 = load i32, ptr %arrayidx245, align 4
+  %conv246 = zext i32 %219 to i64
+  %220 = load i64, ptr %mask, align 8
+  %and247 = and i64 %conv246, %220
+  %221 = load ptr, ptr %pmac, align 8
+  %arrayidx248 = getelementptr inbounds [8 x i32], ptr %221, i64 0, i64 0
+  %222 = load i32, ptr %arrayidx248, align 4
+  %conv249 = zext i32 %222 to i64
   %or250 = or i64 %conv249, %and247
   %conv251 = trunc i64 %or250 to i32
   store i32 %conv251, ptr %arrayidx248, align 4
-  %220 = load ptr, ptr %key, align 8
-  %md252 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %220, i32 0, i32 3
+  %223 = load ptr, ptr %key, align 8
+  %md252 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %223, i32 0, i32 3
   %h253 = getelementptr inbounds %struct.SHA256state_st, ptr %md252, i32 0, i32 0
   %arrayidx254 = getelementptr inbounds [8 x i32], ptr %h253, i64 0, i64 1
-  %221 = load i32, ptr %arrayidx254, align 4
-  %conv255 = zext i32 %221 to i64
-  %222 = load i64, ptr %mask, align 8
-  %and256 = and i64 %conv255, %222
-  %223 = load ptr, ptr %pmac, align 8
-  %arrayidx257 = getelementptr inbounds [8 x i32], ptr %223, i64 0, i64 1
-  %224 = load i32, ptr %arrayidx257, align 4
-  %conv258 = zext i32 %224 to i64
+  %224 = load i32, ptr %arrayidx254, align 4
+  %conv255 = zext i32 %224 to i64
+  %225 = load i64, ptr %mask, align 8
+  %and256 = and i64 %conv255, %225
+  %226 = load ptr, ptr %pmac, align 8
+  %arrayidx257 = getelementptr inbounds [8 x i32], ptr %226, i64 0, i64 1
+  %227 = load i32, ptr %arrayidx257, align 4
+  %conv258 = zext i32 %227 to i64
   %or259 = or i64 %conv258, %and256
   %conv260 = trunc i64 %or259 to i32
   store i32 %conv260, ptr %arrayidx257, align 4
-  %225 = load ptr, ptr %key, align 8
-  %md261 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %225, i32 0, i32 3
+  %228 = load ptr, ptr %key, align 8
+  %md261 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %228, i32 0, i32 3
   %h262 = getelementptr inbounds %struct.SHA256state_st, ptr %md261, i32 0, i32 0
   %arrayidx263 = getelementptr inbounds [8 x i32], ptr %h262, i64 0, i64 2
-  %226 = load i32, ptr %arrayidx263, align 4
-  %conv264 = zext i32 %226 to i64
-  %227 = load i64, ptr %mask, align 8
-  %and265 = and i64 %conv264, %227
-  %228 = load ptr, ptr %pmac, align 8
-  %arrayidx266 = getelementptr inbounds [8 x i32], ptr %228, i64 0, i64 2
-  %229 = load i32, ptr %arrayidx266, align 4
-  %conv267 = zext i32 %229 to i64
+  %229 = load i32, ptr %arrayidx263, align 4
+  %conv264 = zext i32 %229 to i64
+  %230 = load i64, ptr %mask, align 8
+  %and265 = and i64 %conv264, %230
+  %231 = load ptr, ptr %pmac, align 8
+  %arrayidx266 = getelementptr inbounds [8 x i32], ptr %231, i64 0, i64 2
+  %232 = load i32, ptr %arrayidx266, align 4
+  %conv267 = zext i32 %232 to i64
   %or268 = or i64 %conv267, %and265
   %conv269 = trunc i64 %or268 to i32
   store i32 %conv269, ptr %arrayidx266, align 4
-  %230 = load ptr, ptr %key, align 8
-  %md270 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %230, i32 0, i32 3
+  %233 = load ptr, ptr %key, align 8
+  %md270 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %233, i32 0, i32 3
   %h271 = getelementptr inbounds %struct.SHA256state_st, ptr %md270, i32 0, i32 0
   %arrayidx272 = getelementptr inbounds [8 x i32], ptr %h271, i64 0, i64 3
-  %231 = load i32, ptr %arrayidx272, align 4
-  %conv273 = zext i32 %231 to i64
-  %232 = load i64, ptr %mask, align 8
-  %and274 = and i64 %conv273, %232
-  %233 = load ptr, ptr %pmac, align 8
-  %arrayidx275 = getelementptr inbounds [8 x i32], ptr %233, i64 0, i64 3
-  %234 = load i32, ptr %arrayidx275, align 4
-  %conv276 = zext i32 %234 to i64
+  %234 = load i32, ptr %arrayidx272, align 4
+  %conv273 = zext i32 %234 to i64
+  %235 = load i64, ptr %mask, align 8
+  %and274 = and i64 %conv273, %235
+  %236 = load ptr, ptr %pmac, align 8
+  %arrayidx275 = getelementptr inbounds [8 x i32], ptr %236, i64 0, i64 3
+  %237 = load i32, ptr %arrayidx275, align 4
+  %conv276 = zext i32 %237 to i64
   %or277 = or i64 %conv276, %and274
   %conv278 = trunc i64 %or277 to i32
   store i32 %conv278, ptr %arrayidx275, align 4
-  %235 = load ptr, ptr %key, align 8
-  %md279 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %235, i32 0, i32 3
+  %238 = load ptr, ptr %key, align 8
+  %md279 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %238, i32 0, i32 3
   %h280 = getelementptr inbounds %struct.SHA256state_st, ptr %md279, i32 0, i32 0
   %arrayidx281 = getelementptr inbounds [8 x i32], ptr %h280, i64 0, i64 4
-  %236 = load i32, ptr %arrayidx281, align 4
-  %conv282 = zext i32 %236 to i64
-  %237 = load i64, ptr %mask, align 8
-  %and283 = and i64 %conv282, %237
-  %238 = load ptr, ptr %pmac, align 8
-  %arrayidx284 = getelementptr inbounds [8 x i32], ptr %238, i64 0, i64 4
-  %239 = load i32, ptr %arrayidx284, align 4
-  %conv285 = zext i32 %239 to i64
+  %239 = load i32, ptr %arrayidx281, align 4
+  %conv282 = zext i32 %239 to i64
+  %240 = load i64, ptr %mask, align 8
+  %and283 = and i64 %conv282, %240
+  %241 = load ptr, ptr %pmac, align 8
+  %arrayidx284 = getelementptr inbounds [8 x i32], ptr %241, i64 0, i64 4
+  %242 = load i32, ptr %arrayidx284, align 4
+  %conv285 = zext i32 %242 to i64
   %or286 = or i64 %conv285, %and283
   %conv287 = trunc i64 %or286 to i32
   store i32 %conv287, ptr %arrayidx284, align 4
-  %240 = load ptr, ptr %key, align 8
-  %md288 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %240, i32 0, i32 3
+  %243 = load ptr, ptr %key, align 8
+  %md288 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %243, i32 0, i32 3
   %h289 = getelementptr inbounds %struct.SHA256state_st, ptr %md288, i32 0, i32 0
   %arrayidx290 = getelementptr inbounds [8 x i32], ptr %h289, i64 0, i64 5
-  %241 = load i32, ptr %arrayidx290, align 4
-  %conv291 = zext i32 %241 to i64
-  %242 = load i64, ptr %mask, align 8
-  %and292 = and i64 %conv291, %242
-  %243 = load ptr, ptr %pmac, align 8
-  %arrayidx293 = getelementptr inbounds [8 x i32], ptr %243, i64 0, i64 5
-  %244 = load i32, ptr %arrayidx293, align 4
-  %conv294 = zext i32 %244 to i64
+  %244 = load i32, ptr %arrayidx290, align 4
+  %conv291 = zext i32 %244 to i64
+  %245 = load i64, ptr %mask, align 8
+  %and292 = and i64 %conv291, %245
+  %246 = load ptr, ptr %pmac, align 8
+  %arrayidx293 = getelementptr inbounds [8 x i32], ptr %246, i64 0, i64 5
+  %247 = load i32, ptr %arrayidx293, align 4
+  %conv294 = zext i32 %247 to i64
   %or295 = or i64 %conv294, %and292
   %conv296 = trunc i64 %or295 to i32
   store i32 %conv296, ptr %arrayidx293, align 4
-  %245 = load ptr, ptr %key, align 8
-  %md297 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %245, i32 0, i32 3
+  %248 = load ptr, ptr %key, align 8
+  %md297 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %248, i32 0, i32 3
   %h298 = getelementptr inbounds %struct.SHA256state_st, ptr %md297, i32 0, i32 0
   %arrayidx299 = getelementptr inbounds [8 x i32], ptr %h298, i64 0, i64 6
-  %246 = load i32, ptr %arrayidx299, align 4
-  %conv300 = zext i32 %246 to i64
-  %247 = load i64, ptr %mask, align 8
-  %and301 = and i64 %conv300, %247
-  %248 = load ptr, ptr %pmac, align 8
-  %arrayidx302 = getelementptr inbounds [8 x i32], ptr %248, i64 0, i64 6
-  %249 = load i32, ptr %arrayidx302, align 4
-  %conv303 = zext i32 %249 to i64
+  %249 = load i32, ptr %arrayidx299, align 4
+  %conv300 = zext i32 %249 to i64
+  %250 = load i64, ptr %mask, align 8
+  %and301 = and i64 %conv300, %250
+  %251 = load ptr, ptr %pmac, align 8
+  %arrayidx302 = getelementptr inbounds [8 x i32], ptr %251, i64 0, i64 6
+  %252 = load i32, ptr %arrayidx302, align 4
+  %conv303 = zext i32 %252 to i64
   %or304 = or i64 %conv303, %and301
   %conv305 = trunc i64 %or304 to i32
   store i32 %conv305, ptr %arrayidx302, align 4
-  %250 = load ptr, ptr %key, align 8
-  %md306 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %250, i32 0, i32 3
+  %253 = load ptr, ptr %key, align 8
+  %md306 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %253, i32 0, i32 3
   %h307 = getelementptr inbounds %struct.SHA256state_st, ptr %md306, i32 0, i32 0
   %arrayidx308 = getelementptr inbounds [8 x i32], ptr %h307, i64 0, i64 7
-  %251 = load i32, ptr %arrayidx308, align 4
-  %conv309 = zext i32 %251 to i64
-  %252 = load i64, ptr %mask, align 8
-  %and310 = and i64 %conv309, %252
-  %253 = load ptr, ptr %pmac, align 8
-  %arrayidx311 = getelementptr inbounds [8 x i32], ptr %253, i64 0, i64 7
-  %254 = load i32, ptr %arrayidx311, align 4
-  %conv312 = zext i32 %254 to i64
+  %254 = load i32, ptr %arrayidx308, align 4
+  %conv309 = zext i32 %254 to i64
+  %255 = load i64, ptr %mask, align 8
+  %and310 = and i64 %conv309, %255
+  %256 = load ptr, ptr %pmac, align 8
+  %arrayidx311 = getelementptr inbounds [8 x i32], ptr %256, i64 0, i64 7
+  %257 = load i32, ptr %arrayidx311, align 4
+  %conv312 = zext i32 %257 to i64
   %or313 = or i64 %conv312, %and310
   %conv314 = trunc i64 %or313 to i32
   store i32 %conv314, ptr %arrayidx311, align 4
@@ -949,482 +954,482 @@ if.end227:                                        ; preds = %for.body209
   br label %for.inc315
 
 for.inc315:                                       ; preds = %if.end227, %if.then226
-  %255 = load i64, ptr %j, align 8
-  %inc316 = add i64 %255, 1
+  %258 = load i64, ptr %j, align 8
+  %inc316 = add i64 %258, 1
   store i64 %inc316, ptr %j, align 8
   br label %for.cond206, !llvm.loop !7
 
 for.end317:                                       ; preds = %for.cond206
-  %256 = load i32, ptr %res, align 4
-  %conv318 = zext i32 %256 to i64
+  %259 = load i32, ptr %res, align 4
+  %conv318 = zext i32 %259 to i64
   store i64 %conv318, ptr %i, align 8
   br label %for.cond319
 
 for.cond319:                                      ; preds = %for.inc324, %for.end317
-  %257 = load i64, ptr %i, align 8
-  %cmp320 = icmp ult i64 %257, 64
+  %260 = load i64, ptr %i, align 8
+  %cmp320 = icmp ult i64 %260, 64
   br i1 %cmp320, label %for.body322, label %for.end327
 
 for.body322:                                      ; preds = %for.cond319
-  %258 = load ptr, ptr %data, align 8
-  %259 = load i64, ptr %i, align 8
-  %arrayidx323 = getelementptr inbounds [64 x i8], ptr %258, i64 0, i64 %259
+  %261 = load ptr, ptr %data, align 8
+  %262 = load i64, ptr %i, align 8
+  %arrayidx323 = getelementptr inbounds [64 x i8], ptr %261, i64 0, i64 %262
   store i8 0, ptr %arrayidx323, align 1
   br label %for.inc324
 
 for.inc324:                                       ; preds = %for.body322
-  %260 = load i64, ptr %i, align 8
-  %inc325 = add i64 %260, 1
+  %263 = load i64, ptr %i, align 8
+  %inc325 = add i64 %263, 1
   store i64 %inc325, ptr %i, align 8
-  %261 = load i64, ptr %j, align 8
-  %inc326 = add i64 %261, 1
+  %264 = load i64, ptr %j, align 8
+  %inc326 = add i64 %264, 1
   store i64 %inc326, ptr %j, align 8
   br label %for.cond319, !llvm.loop !8
 
 for.end327:                                       ; preds = %for.cond319
-  %262 = load i32, ptr %res, align 4
-  %cmp328 = icmp ugt i32 %262, 56
+  %265 = load i32, ptr %res, align 4
+  %cmp328 = icmp ugt i32 %265, 56
   br i1 %cmp328, label %if.then330, label %if.end420
 
 if.then330:                                       ; preds = %for.end327
-  %263 = load i64, ptr %inp_len, align 8
-  %add331 = add i64 %263, 8
-  %264 = load i64, ptr %j, align 8
-  %sub332 = sub i64 %add331, %264
+  %266 = load i64, ptr %inp_len, align 8
+  %add331 = add i64 %266, 8
+  %267 = load i64, ptr %j, align 8
+  %sub332 = sub i64 %add331, %267
   %shr333 = lshr i64 %sub332, 63
   %sub334 = sub i64 0, %shr333
   store i64 %sub334, ptr %mask, align 8
-  %265 = load i32, ptr %bitlen, align 4
-  %conv335 = zext i32 %265 to i64
-  %266 = load i64, ptr %mask, align 8
-  %and336 = and i64 %conv335, %266
-  %267 = load ptr, ptr %data, align 8
-  %arrayidx337 = getelementptr inbounds [16 x i32], ptr %267, i64 0, i64 15
-  %268 = load i32, ptr %arrayidx337, align 4
-  %conv338 = zext i32 %268 to i64
+  %268 = load i32, ptr %bitlen, align 4
+  %conv335 = zext i32 %268 to i64
+  %269 = load i64, ptr %mask, align 8
+  %and336 = and i64 %conv335, %269
+  %270 = load ptr, ptr %data, align 8
+  %arrayidx337 = getelementptr inbounds [16 x i32], ptr %270, i64 0, i64 15
+  %271 = load i32, ptr %arrayidx337, align 4
+  %conv338 = zext i32 %271 to i64
   %or339 = or i64 %conv338, %and336
   %conv340 = trunc i64 %or339 to i32
   store i32 %conv340, ptr %arrayidx337, align 4
-  %269 = load ptr, ptr %key, align 8
-  %md341 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %269, i32 0, i32 3
-  %270 = load ptr, ptr %data, align 8
-  call void @sha256_block_data_order(ptr noundef %md341, ptr noundef %270, i64 noundef 1)
-  %271 = load i64, ptr %j, align 8
-  %272 = load i64, ptr %inp_len, align 8
-  %sub342 = sub i64 %271, %272
+  %272 = load ptr, ptr %key, align 8
+  %md341 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %272, i32 0, i32 3
+  %273 = load ptr, ptr %data, align 8
+  call void @sha256_block_data_order(ptr noundef %md341, ptr noundef %273, i64 noundef 1)
+  %274 = load i64, ptr %j, align 8
+  %275 = load i64, ptr %inp_len, align 8
+  %sub342 = sub i64 %274, %275
   %sub343 = sub i64 %sub342, 73
   %shr344 = lshr i64 %sub343, 63
   %sub345 = sub i64 0, %shr344
-  %273 = load i64, ptr %mask, align 8
-  %and346 = and i64 %273, %sub345
+  %276 = load i64, ptr %mask, align 8
+  %and346 = and i64 %276, %sub345
   store i64 %and346, ptr %mask, align 8
-  %274 = load ptr, ptr %key, align 8
-  %md347 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %274, i32 0, i32 3
+  %277 = load ptr, ptr %key, align 8
+  %md347 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %277, i32 0, i32 3
   %h348 = getelementptr inbounds %struct.SHA256state_st, ptr %md347, i32 0, i32 0
   %arrayidx349 = getelementptr inbounds [8 x i32], ptr %h348, i64 0, i64 0
-  %275 = load i32, ptr %arrayidx349, align 4
-  %conv350 = zext i32 %275 to i64
-  %276 = load i64, ptr %mask, align 8
-  %and351 = and i64 %conv350, %276
-  %277 = load ptr, ptr %pmac, align 8
-  %arrayidx352 = getelementptr inbounds [8 x i32], ptr %277, i64 0, i64 0
-  %278 = load i32, ptr %arrayidx352, align 4
-  %conv353 = zext i32 %278 to i64
+  %278 = load i32, ptr %arrayidx349, align 4
+  %conv350 = zext i32 %278 to i64
+  %279 = load i64, ptr %mask, align 8
+  %and351 = and i64 %conv350, %279
+  %280 = load ptr, ptr %pmac, align 8
+  %arrayidx352 = getelementptr inbounds [8 x i32], ptr %280, i64 0, i64 0
+  %281 = load i32, ptr %arrayidx352, align 4
+  %conv353 = zext i32 %281 to i64
   %or354 = or i64 %conv353, %and351
   %conv355 = trunc i64 %or354 to i32
   store i32 %conv355, ptr %arrayidx352, align 4
-  %279 = load ptr, ptr %key, align 8
-  %md356 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %279, i32 0, i32 3
+  %282 = load ptr, ptr %key, align 8
+  %md356 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %282, i32 0, i32 3
   %h357 = getelementptr inbounds %struct.SHA256state_st, ptr %md356, i32 0, i32 0
   %arrayidx358 = getelementptr inbounds [8 x i32], ptr %h357, i64 0, i64 1
-  %280 = load i32, ptr %arrayidx358, align 4
-  %conv359 = zext i32 %280 to i64
-  %281 = load i64, ptr %mask, align 8
-  %and360 = and i64 %conv359, %281
-  %282 = load ptr, ptr %pmac, align 8
-  %arrayidx361 = getelementptr inbounds [8 x i32], ptr %282, i64 0, i64 1
-  %283 = load i32, ptr %arrayidx361, align 4
-  %conv362 = zext i32 %283 to i64
+  %283 = load i32, ptr %arrayidx358, align 4
+  %conv359 = zext i32 %283 to i64
+  %284 = load i64, ptr %mask, align 8
+  %and360 = and i64 %conv359, %284
+  %285 = load ptr, ptr %pmac, align 8
+  %arrayidx361 = getelementptr inbounds [8 x i32], ptr %285, i64 0, i64 1
+  %286 = load i32, ptr %arrayidx361, align 4
+  %conv362 = zext i32 %286 to i64
   %or363 = or i64 %conv362, %and360
   %conv364 = trunc i64 %or363 to i32
   store i32 %conv364, ptr %arrayidx361, align 4
-  %284 = load ptr, ptr %key, align 8
-  %md365 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %284, i32 0, i32 3
+  %287 = load ptr, ptr %key, align 8
+  %md365 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %287, i32 0, i32 3
   %h366 = getelementptr inbounds %struct.SHA256state_st, ptr %md365, i32 0, i32 0
   %arrayidx367 = getelementptr inbounds [8 x i32], ptr %h366, i64 0, i64 2
-  %285 = load i32, ptr %arrayidx367, align 4
-  %conv368 = zext i32 %285 to i64
-  %286 = load i64, ptr %mask, align 8
-  %and369 = and i64 %conv368, %286
-  %287 = load ptr, ptr %pmac, align 8
-  %arrayidx370 = getelementptr inbounds [8 x i32], ptr %287, i64 0, i64 2
-  %288 = load i32, ptr %arrayidx370, align 4
-  %conv371 = zext i32 %288 to i64
+  %288 = load i32, ptr %arrayidx367, align 4
+  %conv368 = zext i32 %288 to i64
+  %289 = load i64, ptr %mask, align 8
+  %and369 = and i64 %conv368, %289
+  %290 = load ptr, ptr %pmac, align 8
+  %arrayidx370 = getelementptr inbounds [8 x i32], ptr %290, i64 0, i64 2
+  %291 = load i32, ptr %arrayidx370, align 4
+  %conv371 = zext i32 %291 to i64
   %or372 = or i64 %conv371, %and369
   %conv373 = trunc i64 %or372 to i32
   store i32 %conv373, ptr %arrayidx370, align 4
-  %289 = load ptr, ptr %key, align 8
-  %md374 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %289, i32 0, i32 3
+  %292 = load ptr, ptr %key, align 8
+  %md374 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %292, i32 0, i32 3
   %h375 = getelementptr inbounds %struct.SHA256state_st, ptr %md374, i32 0, i32 0
   %arrayidx376 = getelementptr inbounds [8 x i32], ptr %h375, i64 0, i64 3
-  %290 = load i32, ptr %arrayidx376, align 4
-  %conv377 = zext i32 %290 to i64
-  %291 = load i64, ptr %mask, align 8
-  %and378 = and i64 %conv377, %291
-  %292 = load ptr, ptr %pmac, align 8
-  %arrayidx379 = getelementptr inbounds [8 x i32], ptr %292, i64 0, i64 3
-  %293 = load i32, ptr %arrayidx379, align 4
-  %conv380 = zext i32 %293 to i64
+  %293 = load i32, ptr %arrayidx376, align 4
+  %conv377 = zext i32 %293 to i64
+  %294 = load i64, ptr %mask, align 8
+  %and378 = and i64 %conv377, %294
+  %295 = load ptr, ptr %pmac, align 8
+  %arrayidx379 = getelementptr inbounds [8 x i32], ptr %295, i64 0, i64 3
+  %296 = load i32, ptr %arrayidx379, align 4
+  %conv380 = zext i32 %296 to i64
   %or381 = or i64 %conv380, %and378
   %conv382 = trunc i64 %or381 to i32
   store i32 %conv382, ptr %arrayidx379, align 4
-  %294 = load ptr, ptr %key, align 8
-  %md383 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %294, i32 0, i32 3
+  %297 = load ptr, ptr %key, align 8
+  %md383 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %297, i32 0, i32 3
   %h384 = getelementptr inbounds %struct.SHA256state_st, ptr %md383, i32 0, i32 0
   %arrayidx385 = getelementptr inbounds [8 x i32], ptr %h384, i64 0, i64 4
-  %295 = load i32, ptr %arrayidx385, align 4
-  %conv386 = zext i32 %295 to i64
-  %296 = load i64, ptr %mask, align 8
-  %and387 = and i64 %conv386, %296
-  %297 = load ptr, ptr %pmac, align 8
-  %arrayidx388 = getelementptr inbounds [8 x i32], ptr %297, i64 0, i64 4
-  %298 = load i32, ptr %arrayidx388, align 4
-  %conv389 = zext i32 %298 to i64
+  %298 = load i32, ptr %arrayidx385, align 4
+  %conv386 = zext i32 %298 to i64
+  %299 = load i64, ptr %mask, align 8
+  %and387 = and i64 %conv386, %299
+  %300 = load ptr, ptr %pmac, align 8
+  %arrayidx388 = getelementptr inbounds [8 x i32], ptr %300, i64 0, i64 4
+  %301 = load i32, ptr %arrayidx388, align 4
+  %conv389 = zext i32 %301 to i64
   %or390 = or i64 %conv389, %and387
   %conv391 = trunc i64 %or390 to i32
   store i32 %conv391, ptr %arrayidx388, align 4
-  %299 = load ptr, ptr %key, align 8
-  %md392 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %299, i32 0, i32 3
+  %302 = load ptr, ptr %key, align 8
+  %md392 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %302, i32 0, i32 3
   %h393 = getelementptr inbounds %struct.SHA256state_st, ptr %md392, i32 0, i32 0
   %arrayidx394 = getelementptr inbounds [8 x i32], ptr %h393, i64 0, i64 5
-  %300 = load i32, ptr %arrayidx394, align 4
-  %conv395 = zext i32 %300 to i64
-  %301 = load i64, ptr %mask, align 8
-  %and396 = and i64 %conv395, %301
-  %302 = load ptr, ptr %pmac, align 8
-  %arrayidx397 = getelementptr inbounds [8 x i32], ptr %302, i64 0, i64 5
-  %303 = load i32, ptr %arrayidx397, align 4
-  %conv398 = zext i32 %303 to i64
+  %303 = load i32, ptr %arrayidx394, align 4
+  %conv395 = zext i32 %303 to i64
+  %304 = load i64, ptr %mask, align 8
+  %and396 = and i64 %conv395, %304
+  %305 = load ptr, ptr %pmac, align 8
+  %arrayidx397 = getelementptr inbounds [8 x i32], ptr %305, i64 0, i64 5
+  %306 = load i32, ptr %arrayidx397, align 4
+  %conv398 = zext i32 %306 to i64
   %or399 = or i64 %conv398, %and396
   %conv400 = trunc i64 %or399 to i32
   store i32 %conv400, ptr %arrayidx397, align 4
-  %304 = load ptr, ptr %key, align 8
-  %md401 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %304, i32 0, i32 3
+  %307 = load ptr, ptr %key, align 8
+  %md401 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %307, i32 0, i32 3
   %h402 = getelementptr inbounds %struct.SHA256state_st, ptr %md401, i32 0, i32 0
   %arrayidx403 = getelementptr inbounds [8 x i32], ptr %h402, i64 0, i64 6
-  %305 = load i32, ptr %arrayidx403, align 4
-  %conv404 = zext i32 %305 to i64
-  %306 = load i64, ptr %mask, align 8
-  %and405 = and i64 %conv404, %306
-  %307 = load ptr, ptr %pmac, align 8
-  %arrayidx406 = getelementptr inbounds [8 x i32], ptr %307, i64 0, i64 6
-  %308 = load i32, ptr %arrayidx406, align 4
-  %conv407 = zext i32 %308 to i64
+  %308 = load i32, ptr %arrayidx403, align 4
+  %conv404 = zext i32 %308 to i64
+  %309 = load i64, ptr %mask, align 8
+  %and405 = and i64 %conv404, %309
+  %310 = load ptr, ptr %pmac, align 8
+  %arrayidx406 = getelementptr inbounds [8 x i32], ptr %310, i64 0, i64 6
+  %311 = load i32, ptr %arrayidx406, align 4
+  %conv407 = zext i32 %311 to i64
   %or408 = or i64 %conv407, %and405
   %conv409 = trunc i64 %or408 to i32
   store i32 %conv409, ptr %arrayidx406, align 4
-  %309 = load ptr, ptr %key, align 8
-  %md410 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %309, i32 0, i32 3
+  %312 = load ptr, ptr %key, align 8
+  %md410 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %312, i32 0, i32 3
   %h411 = getelementptr inbounds %struct.SHA256state_st, ptr %md410, i32 0, i32 0
   %arrayidx412 = getelementptr inbounds [8 x i32], ptr %h411, i64 0, i64 7
-  %310 = load i32, ptr %arrayidx412, align 4
-  %conv413 = zext i32 %310 to i64
-  %311 = load i64, ptr %mask, align 8
-  %and414 = and i64 %conv413, %311
-  %312 = load ptr, ptr %pmac, align 8
-  %arrayidx415 = getelementptr inbounds [8 x i32], ptr %312, i64 0, i64 7
-  %313 = load i32, ptr %arrayidx415, align 4
-  %conv416 = zext i32 %313 to i64
+  %313 = load i32, ptr %arrayidx412, align 4
+  %conv413 = zext i32 %313 to i64
+  %314 = load i64, ptr %mask, align 8
+  %and414 = and i64 %conv413, %314
+  %315 = load ptr, ptr %pmac, align 8
+  %arrayidx415 = getelementptr inbounds [8 x i32], ptr %315, i64 0, i64 7
+  %316 = load i32, ptr %arrayidx415, align 4
+  %conv416 = zext i32 %316 to i64
   %or417 = or i64 %conv416, %and414
   %conv418 = trunc i64 %or417 to i32
   store i32 %conv418, ptr %arrayidx415, align 4
-  %314 = load ptr, ptr %data, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %314, i8 0, i64 64, i1 false)
-  %315 = load i64, ptr %j, align 8
-  %add419 = add i64 %315, 64
+  %317 = load ptr, ptr %data, align 8
+  call void @llvm.memset.p0.i64(ptr align 4 %317, i8 0, i64 64, i1 false)
+  %318 = load i64, ptr %j, align 8
+  %add419 = add i64 %318, 64
   store i64 %add419, ptr %j, align 8
   br label %if.end420
 
 if.end420:                                        ; preds = %if.then330, %for.end327
-  %316 = load i32, ptr %bitlen, align 4
-  %317 = load ptr, ptr %data, align 8
-  %arrayidx421 = getelementptr inbounds [16 x i32], ptr %317, i64 0, i64 15
-  store i32 %316, ptr %arrayidx421, align 4
-  %318 = load ptr, ptr %key, align 8
-  %md422 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %318, i32 0, i32 3
-  %319 = load ptr, ptr %data, align 8
-  call void @sha256_block_data_order(ptr noundef %md422, ptr noundef %319, i64 noundef 1)
-  %320 = load i64, ptr %j, align 8
-  %321 = load i64, ptr %inp_len, align 8
-  %sub423 = sub i64 %320, %321
+  %319 = load i32, ptr %bitlen, align 4
+  %320 = load ptr, ptr %data, align 8
+  %arrayidx421 = getelementptr inbounds [16 x i32], ptr %320, i64 0, i64 15
+  store i32 %319, ptr %arrayidx421, align 4
+  %321 = load ptr, ptr %key, align 8
+  %md422 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %321, i32 0, i32 3
+  %322 = load ptr, ptr %data, align 8
+  call void @sha256_block_data_order(ptr noundef %md422, ptr noundef %322, i64 noundef 1)
+  %323 = load i64, ptr %j, align 8
+  %324 = load i64, ptr %inp_len, align 8
+  %sub423 = sub i64 %323, %324
   %sub424 = sub i64 %sub423, 73
   %shr425 = lshr i64 %sub424, 63
   %sub426 = sub i64 0, %shr425
   store i64 %sub426, ptr %mask, align 8
-  %322 = load ptr, ptr %key, align 8
-  %md427 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %322, i32 0, i32 3
+  %325 = load ptr, ptr %key, align 8
+  %md427 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %325, i32 0, i32 3
   %h428 = getelementptr inbounds %struct.SHA256state_st, ptr %md427, i32 0, i32 0
   %arrayidx429 = getelementptr inbounds [8 x i32], ptr %h428, i64 0, i64 0
-  %323 = load i32, ptr %arrayidx429, align 4
-  %conv430 = zext i32 %323 to i64
-  %324 = load i64, ptr %mask, align 8
-  %and431 = and i64 %conv430, %324
-  %325 = load ptr, ptr %pmac, align 8
-  %arrayidx432 = getelementptr inbounds [8 x i32], ptr %325, i64 0, i64 0
-  %326 = load i32, ptr %arrayidx432, align 4
-  %conv433 = zext i32 %326 to i64
+  %326 = load i32, ptr %arrayidx429, align 4
+  %conv430 = zext i32 %326 to i64
+  %327 = load i64, ptr %mask, align 8
+  %and431 = and i64 %conv430, %327
+  %328 = load ptr, ptr %pmac, align 8
+  %arrayidx432 = getelementptr inbounds [8 x i32], ptr %328, i64 0, i64 0
+  %329 = load i32, ptr %arrayidx432, align 4
+  %conv433 = zext i32 %329 to i64
   %or434 = or i64 %conv433, %and431
   %conv435 = trunc i64 %or434 to i32
   store i32 %conv435, ptr %arrayidx432, align 4
-  %327 = load ptr, ptr %key, align 8
-  %md436 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %327, i32 0, i32 3
+  %330 = load ptr, ptr %key, align 8
+  %md436 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %330, i32 0, i32 3
   %h437 = getelementptr inbounds %struct.SHA256state_st, ptr %md436, i32 0, i32 0
   %arrayidx438 = getelementptr inbounds [8 x i32], ptr %h437, i64 0, i64 1
-  %328 = load i32, ptr %arrayidx438, align 4
-  %conv439 = zext i32 %328 to i64
-  %329 = load i64, ptr %mask, align 8
-  %and440 = and i64 %conv439, %329
-  %330 = load ptr, ptr %pmac, align 8
-  %arrayidx441 = getelementptr inbounds [8 x i32], ptr %330, i64 0, i64 1
-  %331 = load i32, ptr %arrayidx441, align 4
-  %conv442 = zext i32 %331 to i64
+  %331 = load i32, ptr %arrayidx438, align 4
+  %conv439 = zext i32 %331 to i64
+  %332 = load i64, ptr %mask, align 8
+  %and440 = and i64 %conv439, %332
+  %333 = load ptr, ptr %pmac, align 8
+  %arrayidx441 = getelementptr inbounds [8 x i32], ptr %333, i64 0, i64 1
+  %334 = load i32, ptr %arrayidx441, align 4
+  %conv442 = zext i32 %334 to i64
   %or443 = or i64 %conv442, %and440
   %conv444 = trunc i64 %or443 to i32
   store i32 %conv444, ptr %arrayidx441, align 4
-  %332 = load ptr, ptr %key, align 8
-  %md445 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %332, i32 0, i32 3
+  %335 = load ptr, ptr %key, align 8
+  %md445 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %335, i32 0, i32 3
   %h446 = getelementptr inbounds %struct.SHA256state_st, ptr %md445, i32 0, i32 0
   %arrayidx447 = getelementptr inbounds [8 x i32], ptr %h446, i64 0, i64 2
-  %333 = load i32, ptr %arrayidx447, align 4
-  %conv448 = zext i32 %333 to i64
-  %334 = load i64, ptr %mask, align 8
-  %and449 = and i64 %conv448, %334
-  %335 = load ptr, ptr %pmac, align 8
-  %arrayidx450 = getelementptr inbounds [8 x i32], ptr %335, i64 0, i64 2
-  %336 = load i32, ptr %arrayidx450, align 4
-  %conv451 = zext i32 %336 to i64
+  %336 = load i32, ptr %arrayidx447, align 4
+  %conv448 = zext i32 %336 to i64
+  %337 = load i64, ptr %mask, align 8
+  %and449 = and i64 %conv448, %337
+  %338 = load ptr, ptr %pmac, align 8
+  %arrayidx450 = getelementptr inbounds [8 x i32], ptr %338, i64 0, i64 2
+  %339 = load i32, ptr %arrayidx450, align 4
+  %conv451 = zext i32 %339 to i64
   %or452 = or i64 %conv451, %and449
   %conv453 = trunc i64 %or452 to i32
   store i32 %conv453, ptr %arrayidx450, align 4
-  %337 = load ptr, ptr %key, align 8
-  %md454 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %337, i32 0, i32 3
+  %340 = load ptr, ptr %key, align 8
+  %md454 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %340, i32 0, i32 3
   %h455 = getelementptr inbounds %struct.SHA256state_st, ptr %md454, i32 0, i32 0
   %arrayidx456 = getelementptr inbounds [8 x i32], ptr %h455, i64 0, i64 3
-  %338 = load i32, ptr %arrayidx456, align 4
-  %conv457 = zext i32 %338 to i64
-  %339 = load i64, ptr %mask, align 8
-  %and458 = and i64 %conv457, %339
-  %340 = load ptr, ptr %pmac, align 8
-  %arrayidx459 = getelementptr inbounds [8 x i32], ptr %340, i64 0, i64 3
-  %341 = load i32, ptr %arrayidx459, align 4
-  %conv460 = zext i32 %341 to i64
+  %341 = load i32, ptr %arrayidx456, align 4
+  %conv457 = zext i32 %341 to i64
+  %342 = load i64, ptr %mask, align 8
+  %and458 = and i64 %conv457, %342
+  %343 = load ptr, ptr %pmac, align 8
+  %arrayidx459 = getelementptr inbounds [8 x i32], ptr %343, i64 0, i64 3
+  %344 = load i32, ptr %arrayidx459, align 4
+  %conv460 = zext i32 %344 to i64
   %or461 = or i64 %conv460, %and458
   %conv462 = trunc i64 %or461 to i32
   store i32 %conv462, ptr %arrayidx459, align 4
-  %342 = load ptr, ptr %key, align 8
-  %md463 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %342, i32 0, i32 3
+  %345 = load ptr, ptr %key, align 8
+  %md463 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %345, i32 0, i32 3
   %h464 = getelementptr inbounds %struct.SHA256state_st, ptr %md463, i32 0, i32 0
   %arrayidx465 = getelementptr inbounds [8 x i32], ptr %h464, i64 0, i64 4
-  %343 = load i32, ptr %arrayidx465, align 4
-  %conv466 = zext i32 %343 to i64
-  %344 = load i64, ptr %mask, align 8
-  %and467 = and i64 %conv466, %344
-  %345 = load ptr, ptr %pmac, align 8
-  %arrayidx468 = getelementptr inbounds [8 x i32], ptr %345, i64 0, i64 4
-  %346 = load i32, ptr %arrayidx468, align 4
-  %conv469 = zext i32 %346 to i64
+  %346 = load i32, ptr %arrayidx465, align 4
+  %conv466 = zext i32 %346 to i64
+  %347 = load i64, ptr %mask, align 8
+  %and467 = and i64 %conv466, %347
+  %348 = load ptr, ptr %pmac, align 8
+  %arrayidx468 = getelementptr inbounds [8 x i32], ptr %348, i64 0, i64 4
+  %349 = load i32, ptr %arrayidx468, align 4
+  %conv469 = zext i32 %349 to i64
   %or470 = or i64 %conv469, %and467
   %conv471 = trunc i64 %or470 to i32
   store i32 %conv471, ptr %arrayidx468, align 4
-  %347 = load ptr, ptr %key, align 8
-  %md472 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %347, i32 0, i32 3
+  %350 = load ptr, ptr %key, align 8
+  %md472 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %350, i32 0, i32 3
   %h473 = getelementptr inbounds %struct.SHA256state_st, ptr %md472, i32 0, i32 0
   %arrayidx474 = getelementptr inbounds [8 x i32], ptr %h473, i64 0, i64 5
-  %348 = load i32, ptr %arrayidx474, align 4
-  %conv475 = zext i32 %348 to i64
-  %349 = load i64, ptr %mask, align 8
-  %and476 = and i64 %conv475, %349
-  %350 = load ptr, ptr %pmac, align 8
-  %arrayidx477 = getelementptr inbounds [8 x i32], ptr %350, i64 0, i64 5
-  %351 = load i32, ptr %arrayidx477, align 4
-  %conv478 = zext i32 %351 to i64
+  %351 = load i32, ptr %arrayidx474, align 4
+  %conv475 = zext i32 %351 to i64
+  %352 = load i64, ptr %mask, align 8
+  %and476 = and i64 %conv475, %352
+  %353 = load ptr, ptr %pmac, align 8
+  %arrayidx477 = getelementptr inbounds [8 x i32], ptr %353, i64 0, i64 5
+  %354 = load i32, ptr %arrayidx477, align 4
+  %conv478 = zext i32 %354 to i64
   %or479 = or i64 %conv478, %and476
   %conv480 = trunc i64 %or479 to i32
   store i32 %conv480, ptr %arrayidx477, align 4
-  %352 = load ptr, ptr %key, align 8
-  %md481 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %352, i32 0, i32 3
+  %355 = load ptr, ptr %key, align 8
+  %md481 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %355, i32 0, i32 3
   %h482 = getelementptr inbounds %struct.SHA256state_st, ptr %md481, i32 0, i32 0
   %arrayidx483 = getelementptr inbounds [8 x i32], ptr %h482, i64 0, i64 6
-  %353 = load i32, ptr %arrayidx483, align 4
-  %conv484 = zext i32 %353 to i64
-  %354 = load i64, ptr %mask, align 8
-  %and485 = and i64 %conv484, %354
-  %355 = load ptr, ptr %pmac, align 8
-  %arrayidx486 = getelementptr inbounds [8 x i32], ptr %355, i64 0, i64 6
-  %356 = load i32, ptr %arrayidx486, align 4
-  %conv487 = zext i32 %356 to i64
+  %356 = load i32, ptr %arrayidx483, align 4
+  %conv484 = zext i32 %356 to i64
+  %357 = load i64, ptr %mask, align 8
+  %and485 = and i64 %conv484, %357
+  %358 = load ptr, ptr %pmac, align 8
+  %arrayidx486 = getelementptr inbounds [8 x i32], ptr %358, i64 0, i64 6
+  %359 = load i32, ptr %arrayidx486, align 4
+  %conv487 = zext i32 %359 to i64
   %or488 = or i64 %conv487, %and485
   %conv489 = trunc i64 %or488 to i32
   store i32 %conv489, ptr %arrayidx486, align 4
-  %357 = load ptr, ptr %key, align 8
-  %md490 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %357, i32 0, i32 3
+  %360 = load ptr, ptr %key, align 8
+  %md490 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %360, i32 0, i32 3
   %h491 = getelementptr inbounds %struct.SHA256state_st, ptr %md490, i32 0, i32 0
   %arrayidx492 = getelementptr inbounds [8 x i32], ptr %h491, i64 0, i64 7
-  %358 = load i32, ptr %arrayidx492, align 4
-  %conv493 = zext i32 %358 to i64
-  %359 = load i64, ptr %mask, align 8
-  %and494 = and i64 %conv493, %359
-  %360 = load ptr, ptr %pmac, align 8
-  %arrayidx495 = getelementptr inbounds [8 x i32], ptr %360, i64 0, i64 7
-  %361 = load i32, ptr %arrayidx495, align 4
-  %conv496 = zext i32 %361 to i64
+  %361 = load i32, ptr %arrayidx492, align 4
+  %conv493 = zext i32 %361 to i64
+  %362 = load i64, ptr %mask, align 8
+  %and494 = and i64 %conv493, %362
+  %363 = load ptr, ptr %pmac, align 8
+  %arrayidx495 = getelementptr inbounds [8 x i32], ptr %363, i64 0, i64 7
+  %364 = load i32, ptr %arrayidx495, align 4
+  %conv496 = zext i32 %364 to i64
   %or497 = or i64 %conv496, %and494
   %conv498 = trunc i64 %or497 to i32
   store i32 %conv498, ptr %arrayidx495, align 4
-  %362 = load ptr, ptr %pmac, align 8
-  %arrayidx500 = getelementptr inbounds [8 x i32], ptr %362, i64 0, i64 0
-  %363 = load i32, ptr %arrayidx500, align 4
-  store i32 %363, ptr %ret_499, align 4
-  %364 = load i32, ptr %ret_499, align 4
-  %365 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %364) #4, !srcloc !9
-  store i32 %365, ptr %ret_499, align 4
-  %366 = load i32, ptr %ret_499, align 4
-  store i32 %366, ptr %tmp501, align 4
-  %367 = load i32, ptr %tmp501, align 4
-  %368 = load ptr, ptr %pmac, align 8
-  %arrayidx502 = getelementptr inbounds [8 x i32], ptr %368, i64 0, i64 0
-  store i32 %367, ptr %arrayidx502, align 4
-  %369 = load ptr, ptr %pmac, align 8
-  %arrayidx504 = getelementptr inbounds [8 x i32], ptr %369, i64 0, i64 1
-  %370 = load i32, ptr %arrayidx504, align 4
-  store i32 %370, ptr %ret_503, align 4
-  %371 = load i32, ptr %ret_503, align 4
-  %372 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %371) #4, !srcloc !10
-  store i32 %372, ptr %ret_503, align 4
-  %373 = load i32, ptr %ret_503, align 4
-  store i32 %373, ptr %tmp505, align 4
-  %374 = load i32, ptr %tmp505, align 4
-  %375 = load ptr, ptr %pmac, align 8
-  %arrayidx506 = getelementptr inbounds [8 x i32], ptr %375, i64 0, i64 1
-  store i32 %374, ptr %arrayidx506, align 4
-  %376 = load ptr, ptr %pmac, align 8
-  %arrayidx508 = getelementptr inbounds [8 x i32], ptr %376, i64 0, i64 2
-  %377 = load i32, ptr %arrayidx508, align 4
-  store i32 %377, ptr %ret_507, align 4
-  %378 = load i32, ptr %ret_507, align 4
-  %379 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %378) #4, !srcloc !11
-  store i32 %379, ptr %ret_507, align 4
-  %380 = load i32, ptr %ret_507, align 4
-  store i32 %380, ptr %tmp509, align 4
-  %381 = load i32, ptr %tmp509, align 4
-  %382 = load ptr, ptr %pmac, align 8
-  %arrayidx510 = getelementptr inbounds [8 x i32], ptr %382, i64 0, i64 2
-  store i32 %381, ptr %arrayidx510, align 4
-  %383 = load ptr, ptr %pmac, align 8
-  %arrayidx512 = getelementptr inbounds [8 x i32], ptr %383, i64 0, i64 3
-  %384 = load i32, ptr %arrayidx512, align 4
-  store i32 %384, ptr %ret_511, align 4
-  %385 = load i32, ptr %ret_511, align 4
-  %386 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %385) #4, !srcloc !12
-  store i32 %386, ptr %ret_511, align 4
-  %387 = load i32, ptr %ret_511, align 4
-  store i32 %387, ptr %tmp513, align 4
-  %388 = load i32, ptr %tmp513, align 4
-  %389 = load ptr, ptr %pmac, align 8
-  %arrayidx514 = getelementptr inbounds [8 x i32], ptr %389, i64 0, i64 3
-  store i32 %388, ptr %arrayidx514, align 4
-  %390 = load ptr, ptr %pmac, align 8
-  %arrayidx516 = getelementptr inbounds [8 x i32], ptr %390, i64 0, i64 4
-  %391 = load i32, ptr %arrayidx516, align 4
-  store i32 %391, ptr %ret_515, align 4
-  %392 = load i32, ptr %ret_515, align 4
-  %393 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %392) #4, !srcloc !13
-  store i32 %393, ptr %ret_515, align 4
-  %394 = load i32, ptr %ret_515, align 4
-  store i32 %394, ptr %tmp517, align 4
-  %395 = load i32, ptr %tmp517, align 4
-  %396 = load ptr, ptr %pmac, align 8
-  %arrayidx518 = getelementptr inbounds [8 x i32], ptr %396, i64 0, i64 4
-  store i32 %395, ptr %arrayidx518, align 4
-  %397 = load ptr, ptr %pmac, align 8
-  %arrayidx520 = getelementptr inbounds [8 x i32], ptr %397, i64 0, i64 5
-  %398 = load i32, ptr %arrayidx520, align 4
-  store i32 %398, ptr %ret_519, align 4
-  %399 = load i32, ptr %ret_519, align 4
-  %400 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %399) #4, !srcloc !14
-  store i32 %400, ptr %ret_519, align 4
-  %401 = load i32, ptr %ret_519, align 4
-  store i32 %401, ptr %tmp521, align 4
-  %402 = load i32, ptr %tmp521, align 4
-  %403 = load ptr, ptr %pmac, align 8
-  %arrayidx522 = getelementptr inbounds [8 x i32], ptr %403, i64 0, i64 5
-  store i32 %402, ptr %arrayidx522, align 4
-  %404 = load ptr, ptr %pmac, align 8
-  %arrayidx524 = getelementptr inbounds [8 x i32], ptr %404, i64 0, i64 6
-  %405 = load i32, ptr %arrayidx524, align 4
-  store i32 %405, ptr %ret_523, align 4
-  %406 = load i32, ptr %ret_523, align 4
-  %407 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %406) #4, !srcloc !15
-  store i32 %407, ptr %ret_523, align 4
-  %408 = load i32, ptr %ret_523, align 4
-  store i32 %408, ptr %tmp525, align 4
-  %409 = load i32, ptr %tmp525, align 4
-  %410 = load ptr, ptr %pmac, align 8
-  %arrayidx526 = getelementptr inbounds [8 x i32], ptr %410, i64 0, i64 6
-  store i32 %409, ptr %arrayidx526, align 4
-  %411 = load ptr, ptr %pmac, align 8
-  %arrayidx528 = getelementptr inbounds [8 x i32], ptr %411, i64 0, i64 7
-  %412 = load i32, ptr %arrayidx528, align 4
-  store i32 %412, ptr %ret_527, align 4
-  %413 = load i32, ptr %ret_527, align 4
-  %414 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %413) #4, !srcloc !16
-  store i32 %414, ptr %ret_527, align 4
-  %415 = load i32, ptr %ret_527, align 4
-  store i32 %415, ptr %tmp529, align 4
-  %416 = load i32, ptr %tmp529, align 4
-  %417 = load ptr, ptr %pmac, align 8
-  %arrayidx530 = getelementptr inbounds [8 x i32], ptr %417, i64 0, i64 7
-  store i32 %416, ptr %arrayidx530, align 4
-  %418 = load i64, ptr %len.addr, align 8
-  %add531 = add i64 %418, 32
+  %365 = load ptr, ptr %pmac, align 8
+  %arrayidx500 = getelementptr inbounds [8 x i32], ptr %365, i64 0, i64 0
+  %366 = load i32, ptr %arrayidx500, align 4
+  store i32 %366, ptr %ret_499, align 4
+  %367 = load i32, ptr %ret_499, align 4
+  %368 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %367) #4, !srcloc !9
+  store i32 %368, ptr %ret_499, align 4
+  %369 = load i32, ptr %ret_499, align 4
+  store i32 %369, ptr %tmp501, align 4
+  %370 = load i32, ptr %tmp501, align 4
+  %371 = load ptr, ptr %pmac, align 8
+  %arrayidx502 = getelementptr inbounds [8 x i32], ptr %371, i64 0, i64 0
+  store i32 %370, ptr %arrayidx502, align 4
+  %372 = load ptr, ptr %pmac, align 8
+  %arrayidx504 = getelementptr inbounds [8 x i32], ptr %372, i64 0, i64 1
+  %373 = load i32, ptr %arrayidx504, align 4
+  store i32 %373, ptr %ret_503, align 4
+  %374 = load i32, ptr %ret_503, align 4
+  %375 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %374) #4, !srcloc !10
+  store i32 %375, ptr %ret_503, align 4
+  %376 = load i32, ptr %ret_503, align 4
+  store i32 %376, ptr %tmp505, align 4
+  %377 = load i32, ptr %tmp505, align 4
+  %378 = load ptr, ptr %pmac, align 8
+  %arrayidx506 = getelementptr inbounds [8 x i32], ptr %378, i64 0, i64 1
+  store i32 %377, ptr %arrayidx506, align 4
+  %379 = load ptr, ptr %pmac, align 8
+  %arrayidx508 = getelementptr inbounds [8 x i32], ptr %379, i64 0, i64 2
+  %380 = load i32, ptr %arrayidx508, align 4
+  store i32 %380, ptr %ret_507, align 4
+  %381 = load i32, ptr %ret_507, align 4
+  %382 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %381) #4, !srcloc !11
+  store i32 %382, ptr %ret_507, align 4
+  %383 = load i32, ptr %ret_507, align 4
+  store i32 %383, ptr %tmp509, align 4
+  %384 = load i32, ptr %tmp509, align 4
+  %385 = load ptr, ptr %pmac, align 8
+  %arrayidx510 = getelementptr inbounds [8 x i32], ptr %385, i64 0, i64 2
+  store i32 %384, ptr %arrayidx510, align 4
+  %386 = load ptr, ptr %pmac, align 8
+  %arrayidx512 = getelementptr inbounds [8 x i32], ptr %386, i64 0, i64 3
+  %387 = load i32, ptr %arrayidx512, align 4
+  store i32 %387, ptr %ret_511, align 4
+  %388 = load i32, ptr %ret_511, align 4
+  %389 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %388) #4, !srcloc !12
+  store i32 %389, ptr %ret_511, align 4
+  %390 = load i32, ptr %ret_511, align 4
+  store i32 %390, ptr %tmp513, align 4
+  %391 = load i32, ptr %tmp513, align 4
+  %392 = load ptr, ptr %pmac, align 8
+  %arrayidx514 = getelementptr inbounds [8 x i32], ptr %392, i64 0, i64 3
+  store i32 %391, ptr %arrayidx514, align 4
+  %393 = load ptr, ptr %pmac, align 8
+  %arrayidx516 = getelementptr inbounds [8 x i32], ptr %393, i64 0, i64 4
+  %394 = load i32, ptr %arrayidx516, align 4
+  store i32 %394, ptr %ret_515, align 4
+  %395 = load i32, ptr %ret_515, align 4
+  %396 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %395) #4, !srcloc !13
+  store i32 %396, ptr %ret_515, align 4
+  %397 = load i32, ptr %ret_515, align 4
+  store i32 %397, ptr %tmp517, align 4
+  %398 = load i32, ptr %tmp517, align 4
+  %399 = load ptr, ptr %pmac, align 8
+  %arrayidx518 = getelementptr inbounds [8 x i32], ptr %399, i64 0, i64 4
+  store i32 %398, ptr %arrayidx518, align 4
+  %400 = load ptr, ptr %pmac, align 8
+  %arrayidx520 = getelementptr inbounds [8 x i32], ptr %400, i64 0, i64 5
+  %401 = load i32, ptr %arrayidx520, align 4
+  store i32 %401, ptr %ret_519, align 4
+  %402 = load i32, ptr %ret_519, align 4
+  %403 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %402) #4, !srcloc !14
+  store i32 %403, ptr %ret_519, align 4
+  %404 = load i32, ptr %ret_519, align 4
+  store i32 %404, ptr %tmp521, align 4
+  %405 = load i32, ptr %tmp521, align 4
+  %406 = load ptr, ptr %pmac, align 8
+  %arrayidx522 = getelementptr inbounds [8 x i32], ptr %406, i64 0, i64 5
+  store i32 %405, ptr %arrayidx522, align 4
+  %407 = load ptr, ptr %pmac, align 8
+  %arrayidx524 = getelementptr inbounds [8 x i32], ptr %407, i64 0, i64 6
+  %408 = load i32, ptr %arrayidx524, align 4
+  store i32 %408, ptr %ret_523, align 4
+  %409 = load i32, ptr %ret_523, align 4
+  %410 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %409) #4, !srcloc !15
+  store i32 %410, ptr %ret_523, align 4
+  %411 = load i32, ptr %ret_523, align 4
+  store i32 %411, ptr %tmp525, align 4
+  %412 = load i32, ptr %tmp525, align 4
+  %413 = load ptr, ptr %pmac, align 8
+  %arrayidx526 = getelementptr inbounds [8 x i32], ptr %413, i64 0, i64 6
+  store i32 %412, ptr %arrayidx526, align 4
+  %414 = load ptr, ptr %pmac, align 8
+  %arrayidx528 = getelementptr inbounds [8 x i32], ptr %414, i64 0, i64 7
+  %415 = load i32, ptr %arrayidx528, align 4
+  store i32 %415, ptr %ret_527, align 4
+  %416 = load i32, ptr %ret_527, align 4
+  %417 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %416) #4, !srcloc !16
+  store i32 %417, ptr %ret_527, align 4
+  %418 = load i32, ptr %ret_527, align 4
+  store i32 %418, ptr %tmp529, align 4
+  %419 = load i32, ptr %tmp529, align 4
+  %420 = load ptr, ptr %pmac, align 8
+  %arrayidx530 = getelementptr inbounds [8 x i32], ptr %420, i64 0, i64 7
+  store i32 %419, ptr %arrayidx530, align 4
+  %421 = load i64, ptr %len.addr, align 8
+  %add531 = add i64 %421, 32
   store i64 %add531, ptr %len.addr, align 8
-  %419 = load ptr, ptr %key, align 8
-  %md532 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %419, i32 0, i32 3
-  %420 = load ptr, ptr %key, align 8
-  %tail533 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %420, i32 0, i32 2
+  %422 = load ptr, ptr %key, align 8
+  %md532 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %422, i32 0, i32 3
+  %423 = load ptr, ptr %key, align 8
+  %tail533 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %423, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md532, ptr align 4 %tail533, i64 112, i1 false)
-  %421 = load ptr, ptr %key, align 8
-  %md534 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %421, i32 0, i32 3
-  %422 = load ptr, ptr %pmac, align 8
-  %arraydecay535 = getelementptr inbounds [96 x i8], ptr %422, i64 0, i64 0
-  call void @sha256_update(ptr noundef %md534, ptr noundef %arraydecay535, i64 noundef 32)
-  %423 = load ptr, ptr %pmac, align 8
-  %arraydecay536 = getelementptr inbounds [96 x i8], ptr %423, i64 0, i64 0
   %424 = load ptr, ptr %key, align 8
-  %md537 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %424, i32 0, i32 3
+  %md534 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %424, i32 0, i32 3
+  %425 = load ptr, ptr %pmac, align 8
+  %arraydecay535 = getelementptr inbounds [96 x i8], ptr %425, i64 0, i64 0
+  call void @sha256_update(ptr noundef %md534, ptr noundef %arraydecay535, i64 noundef 32)
+  %426 = load ptr, ptr %pmac, align 8
+  %arraydecay536 = getelementptr inbounds [96 x i8], ptr %426, i64 0, i64 0
+  %427 = load ptr, ptr %key, align 8
+  %md537 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %427, i32 0, i32 3
   %call538 = call i32 @SHA256_Final(ptr noundef %arraydecay536, ptr noundef %md537)
-  %425 = load i64, ptr %inp_len, align 8
-  %426 = load ptr, ptr %out.addr, align 8
-  %add.ptr539 = getelementptr inbounds i8, ptr %426, i64 %425
-  store ptr %add.ptr539, ptr %out.addr, align 8
-  %427 = load i64, ptr %inp_len, align 8
-  %428 = load i64, ptr %len.addr, align 8
-  %sub540 = sub i64 %428, %427
-  store i64 %sub540, ptr %len.addr, align 8
+  %428 = load i64, ptr %inp_len, align 8
   %429 = load ptr, ptr %out.addr, align 8
-  %430 = load i64, ptr %len.addr, align 8
-  %add.ptr541 = getelementptr inbounds i8, ptr %429, i64 %430
+  %add.ptr539 = getelementptr inbounds i8, ptr %429, i64 %428
+  store ptr %add.ptr539, ptr %out.addr, align 8
+  %430 = load i64, ptr %inp_len, align 8
+  %431 = load i64, ptr %len.addr, align 8
+  %sub540 = sub i64 %431, %430
+  store i64 %sub540, ptr %len.addr, align 8
+  %432 = load ptr, ptr %out.addr, align 8
+  %433 = load i64, ptr %len.addr, align 8
+  %add.ptr541 = getelementptr inbounds i8, ptr %432, i64 %433
   %add.ptr542 = getelementptr inbounds i8, ptr %add.ptr541, i64 -1
-  %431 = load i32, ptr %maxpad, align 4
-  %idx.ext = zext i32 %431 to i64
+  %434 = load i32, ptr %maxpad, align 4
+  %idx.ext = zext i32 %434 to i64
   %idx.neg = sub i64 0, %idx.ext
   %add.ptr543 = getelementptr inbounds i8, ptr %add.ptr542, i64 %idx.neg
   %add.ptr544 = getelementptr inbounds i8, ptr %add.ptr543, i64 -32
   store ptr %add.ptr544, ptr %p, align 8
-  %432 = load ptr, ptr %out.addr, align 8
-  %433 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %432 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %433 to i64
+  %435 = load ptr, ptr %out.addr, align 8
+  %436 = load ptr, ptr %p, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %435 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %436 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %off, align 8
   store i32 0, ptr %res, align 4
@@ -1433,92 +1438,92 @@ if.end420:                                        ; preds = %if.then330, %for.en
   br label %for.cond546
 
 for.cond546:                                      ; preds = %for.inc574, %if.end420
-  %434 = load i64, ptr %j, align 8
-  %435 = load i32, ptr %maxpad, align 4
-  %add547 = add i32 %435, 32
+  %437 = load i64, ptr %j, align 8
+  %438 = load i32, ptr %maxpad, align 4
+  %add547 = add i32 %438, 32
   %conv548 = zext i32 %add547 to i64
-  %cmp549 = icmp ult i64 %434, %conv548
+  %cmp549 = icmp ult i64 %437, %conv548
   br i1 %cmp549, label %for.body551, label %for.end576
 
 for.body551:                                      ; preds = %for.cond546
-  %436 = load ptr, ptr %p, align 8
-  %437 = load i64, ptr %j, align 8
-  %arrayidx552 = getelementptr inbounds i8, ptr %436, i64 %437
-  %438 = load i8, ptr %arrayidx552, align 1
-  %conv553 = zext i8 %438 to i32
+  %439 = load ptr, ptr %p, align 8
+  %440 = load i64, ptr %j, align 8
+  %arrayidx552 = getelementptr inbounds i8, ptr %439, i64 %440
+  %441 = load i8, ptr %arrayidx552, align 1
+  %conv553 = zext i8 %441 to i32
   store i32 %conv553, ptr %c545, align 4
-  %439 = load i64, ptr %j, align 8
-  %440 = load i64, ptr %off, align 8
-  %sub554 = sub i64 %439, %440
+  %442 = load i64, ptr %j, align 8
+  %443 = load i64, ptr %off, align 8
+  %sub554 = sub i64 %442, %443
   %sub555 = sub i64 %sub554, 32
   %conv556 = trunc i64 %sub555 to i32
   %shr557 = ashr i32 %conv556, 31
   store i32 %shr557, ptr %cmask, align 4
-  %441 = load i32, ptr %c545, align 4
-  %442 = load i32, ptr %pad, align 4
-  %xor = xor i32 %441, %442
-  %443 = load i32, ptr %cmask, align 4
-  %not558 = xor i32 %443, -1
+  %444 = load i32, ptr %c545, align 4
+  %445 = load i32, ptr %pad, align 4
+  %xor = xor i32 %444, %445
+  %446 = load i32, ptr %cmask, align 4
+  %not558 = xor i32 %446, -1
   %and559 = and i32 %xor, %not558
-  %444 = load i32, ptr %res, align 4
-  %or560 = or i32 %444, %and559
+  %447 = load i32, ptr %res, align 4
+  %or560 = or i32 %447, %and559
   store i32 %or560, ptr %res, align 4
-  %445 = load i64, ptr %off, align 8
-  %sub561 = sub i64 %445, 1
-  %446 = load i64, ptr %j, align 8
-  %sub562 = sub i64 %sub561, %446
+  %448 = load i64, ptr %off, align 8
+  %sub561 = sub i64 %448, 1
+  %449 = load i64, ptr %j, align 8
+  %sub562 = sub i64 %sub561, %449
   %conv563 = trunc i64 %sub562 to i32
   %shr564 = ashr i32 %conv563, 31
-  %447 = load i32, ptr %cmask, align 4
-  %and565 = and i32 %447, %shr564
+  %450 = load i32, ptr %cmask, align 4
+  %and565 = and i32 %450, %shr564
   store i32 %and565, ptr %cmask, align 4
-  %448 = load i32, ptr %c545, align 4
-  %449 = load ptr, ptr %pmac, align 8
-  %450 = load i64, ptr %i, align 8
-  %arrayidx566 = getelementptr inbounds [96 x i8], ptr %449, i64 0, i64 %450
-  %451 = load i8, ptr %arrayidx566, align 1
-  %conv567 = zext i8 %451 to i32
-  %xor568 = xor i32 %448, %conv567
-  %452 = load i32, ptr %cmask, align 4
-  %and569 = and i32 %xor568, %452
-  %453 = load i32, ptr %res, align 4
-  %or570 = or i32 %453, %and569
+  %451 = load i32, ptr %c545, align 4
+  %452 = load ptr, ptr %pmac, align 8
+  %453 = load i64, ptr %i, align 8
+  %arrayidx566 = getelementptr inbounds [96 x i8], ptr %452, i64 0, i64 %453
+  %454 = load i8, ptr %arrayidx566, align 1
+  %conv567 = zext i8 %454 to i32
+  %xor568 = xor i32 %451, %conv567
+  %455 = load i32, ptr %cmask, align 4
+  %and569 = and i32 %xor568, %455
+  %456 = load i32, ptr %res, align 4
+  %or570 = or i32 %456, %and569
   store i32 %or570, ptr %res, align 4
-  %454 = load i32, ptr %cmask, align 4
-  %and571 = and i32 1, %454
+  %457 = load i32, ptr %cmask, align 4
+  %and571 = and i32 1, %457
   %conv572 = zext i32 %and571 to i64
-  %455 = load i64, ptr %i, align 8
-  %add573 = add i64 %455, %conv572
+  %458 = load i64, ptr %i, align 8
+  %add573 = add i64 %458, %conv572
   store i64 %add573, ptr %i, align 8
   br label %for.inc574
 
 for.inc574:                                       ; preds = %for.body551
-  %456 = load i64, ptr %j, align 8
-  %inc575 = add i64 %456, 1
+  %459 = load i64, ptr %j, align 8
+  %inc575 = add i64 %459, 1
   store i64 %inc575, ptr %j, align 8
   br label %for.cond546, !llvm.loop !17
 
 for.end576:                                       ; preds = %for.cond546
-  %457 = load i32, ptr %res, align 4
-  %sub577 = sub i32 0, %457
+  %460 = load i32, ptr %res, align 4
+  %sub577 = sub i32 0, %460
   %shr578 = lshr i32 %sub577, 31
   %sub579 = sub i32 0, %shr578
   store i32 %sub579, ptr %res, align 4
-  %458 = load i32, ptr %res, align 4
-  %not580 = xor i32 %458, -1
-  %459 = load i32, ptr %ret, align 4
-  %and581 = and i32 %459, %not580
+  %461 = load i32, ptr %res, align 4
+  %not580 = xor i32 %461, -1
+  %462 = load i32, ptr %ret, align 4
+  %and581 = and i32 %462, %not580
   store i32 %and581, ptr %ret, align 4
-  %460 = load i32, ptr %ret, align 4
-  store i32 %460, ptr %retval, align 4
+  %463 = load i32, ptr %ret, align 4
+  store i32 %463, ptr %retval, align 4
   br label %return
 
 if.else582:                                       ; preds = %if.else106
-  %461 = load ptr, ptr %key, align 8
-  %md583 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %461, i32 0, i32 3
-  %462 = load ptr, ptr %out.addr, align 8
-  %463 = load i64, ptr %len.addr, align 8
-  call void @sha256_update(ptr noundef %md583, ptr noundef %462, i64 noundef %463)
+  %464 = load ptr, ptr %key, align 8
+  %md583 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %464, i32 0, i32 3
+  %465 = load ptr, ptr %out.addr, align 8
+  %466 = load i64, ptr %len.addr, align 8
+  call void @sha256_update(ptr noundef %md583, ptr noundef %465, i64 noundef %466)
   br label %if.end584
 
 if.end584:                                        ; preds = %if.else582
@@ -1529,8 +1534,8 @@ if.end585:                                        ; preds = %if.end584, %if.end1
   br label %return
 
 return:                                           ; preds = %if.end585, %for.end576, %if.then137, %if.then10, %if.then
-  %464 = load i32, ptr %retval, align 4
-  ret i32 %464
+  %467 = load i32, ptr %retval, align 4
+  ret i32 %467
 }
 
 declare i32 @EVP_CIPHER_set_asn1_iv(ptr noundef, ptr noundef) #1
@@ -1918,8 +1923,9 @@ if.end134:                                        ; preds = %if.then130
   br i1 %cmp135, label %land.lhs.true, label %if.end140
 
 land.lhs.true:                                    ; preds = %if.end134
-  %82 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2), align 4
-  %and137 = and i32 %82, 32
+  %82 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 2
+  %83 = load i32, ptr %82, align 4
+  %and137 = and i32 %83, 32
   %tobool138 = icmp ne i32 %and137, 0
   br i1 %tobool138, label %if.then139, label %if.end140
 
@@ -1931,24 +1937,24 @@ if.end140:                                        ; preds = %if.then139, %land.l
   br label %if.end151
 
 if.else141:                                       ; preds = %if.end128
-  %83 = load ptr, ptr %param, align 8
-  %interleave = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %83, i32 0, i32 3
-  %84 = load i32, ptr %interleave, align 8
-  %div = udiv i32 %84, 4
+  %84 = load ptr, ptr %param, align 8
+  %interleave = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %84, i32 0, i32 3
+  %85 = load i32, ptr %interleave, align 8
+  %div = udiv i32 %85, 4
   store i32 %div, ptr %n4x, align 4
   %tobool142 = icmp ne i32 %div, 0
   br i1 %tobool142, label %land.lhs.true143, label %if.else149
 
 land.lhs.true143:                                 ; preds = %if.else141
-  %85 = load i32, ptr %n4x, align 4
-  %cmp144 = icmp ule i32 %85, 2
+  %86 = load i32, ptr %n4x, align 4
+  %cmp144 = icmp ule i32 %86, 2
   br i1 %cmp144, label %if.then146, label %if.else149
 
 if.then146:                                       ; preds = %land.lhs.true143
-  %86 = load ptr, ptr %param, align 8
-  %len147 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %86, i32 0, i32 2
-  %87 = load i64, ptr %len147, align 8
-  %conv148 = trunc i64 %87 to i32
+  %87 = load ptr, ptr %param, align 8
+  %len147 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %87, i32 0, i32 2
+  %88 = load i64, ptr %len147, align 8
+  %conv148 = trunc i64 %88 to i32
   store i32 %conv148, ptr %inp_len, align 4
   br label %if.end150
 
@@ -1960,88 +1966,88 @@ if.end150:                                        ; preds = %if.then146
   br label %if.end151
 
 if.end151:                                        ; preds = %if.end150, %if.end140
-  %88 = load ptr, ptr %key, align 8
-  %md152 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %88, i32 0, i32 3
   %89 = load ptr, ptr %key, align 8
-  %head153 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %89, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md152, ptr align 4 %head153, i64 112, i1 false)
+  %md152 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %89, i32 0, i32 3
   %90 = load ptr, ptr %key, align 8
-  %md154 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %90, i32 0, i32 3
-  %91 = load ptr, ptr %param, align 8
-  %inp155 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %91, i32 0, i32 1
-  %92 = load ptr, ptr %inp155, align 8
-  call void @sha256_update(ptr noundef %md154, ptr noundef %92, i64 noundef 13)
-  %93 = load i32, ptr %n4x, align 4
-  %mul = mul i32 4, %93
-  store i32 %mul, ptr %x4, align 4
+  %head153 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %90, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %md152, ptr align 4 %head153, i64 112, i1 false)
+  %91 = load ptr, ptr %key, align 8
+  %md154 = getelementptr inbounds %struct.EVP_AES_HMAC_SHA256, ptr %91, i32 0, i32 3
+  %92 = load ptr, ptr %param, align 8
+  %inp155 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %92, i32 0, i32 1
+  %93 = load ptr, ptr %inp155, align 8
+  call void @sha256_update(ptr noundef %md154, ptr noundef %93, i64 noundef 13)
   %94 = load i32, ptr %n4x, align 4
-  %add156 = add i32 %94, 1
+  %mul = mul i32 4, %94
+  store i32 %mul, ptr %x4, align 4
+  %95 = load i32, ptr %n4x, align 4
+  %add156 = add i32 %95, 1
   store i32 %add156, ptr %n4x, align 4
-  %95 = load i32, ptr %inp_len, align 4
-  %96 = load i32, ptr %n4x, align 4
-  %shr157 = lshr i32 %95, %96
+  %96 = load i32, ptr %inp_len, align 4
+  %97 = load i32, ptr %n4x, align 4
+  %shr157 = lshr i32 %96, %97
   store i32 %shr157, ptr %frag, align 4
-  %97 = load i32, ptr %inp_len, align 4
-  %98 = load i32, ptr %frag, align 4
-  %add158 = add i32 %97, %98
+  %98 = load i32, ptr %inp_len, align 4
   %99 = load i32, ptr %frag, align 4
-  %100 = load i32, ptr %n4x, align 4
-  %shl159 = shl i32 %99, %100
+  %add158 = add i32 %98, %99
+  %100 = load i32, ptr %frag, align 4
+  %101 = load i32, ptr %n4x, align 4
+  %shl159 = shl i32 %100, %101
   %sub160 = sub i32 %add158, %shl159
   store i32 %sub160, ptr %last, align 4
-  %101 = load i32, ptr %last, align 4
-  %102 = load i32, ptr %frag, align 4
-  %cmp161 = icmp ugt i32 %101, %102
+  %102 = load i32, ptr %last, align 4
+  %103 = load i32, ptr %frag, align 4
+  %cmp161 = icmp ugt i32 %102, %103
   br i1 %cmp161, label %land.lhs.true163, label %if.end173
 
 land.lhs.true163:                                 ; preds = %if.end151
-  %103 = load i32, ptr %last, align 4
-  %add164 = add i32 %103, 13
+  %104 = load i32, ptr %last, align 4
+  %add164 = add i32 %104, 13
   %add165 = add i32 %add164, 9
   %rem = urem i32 %add165, 64
-  %104 = load i32, ptr %x4, align 4
-  %sub166 = sub i32 %104, 1
+  %105 = load i32, ptr %x4, align 4
+  %sub166 = sub i32 %105, 1
   %cmp167 = icmp ult i32 %rem, %sub166
   br i1 %cmp167, label %if.then169, label %if.end173
 
 if.then169:                                       ; preds = %land.lhs.true163
-  %105 = load i32, ptr %frag, align 4
-  %inc170 = add i32 %105, 1
+  %106 = load i32, ptr %frag, align 4
+  %inc170 = add i32 %106, 1
   store i32 %inc170, ptr %frag, align 4
-  %106 = load i32, ptr %x4, align 4
-  %sub171 = sub i32 %106, 1
-  %107 = load i32, ptr %last, align 4
-  %sub172 = sub i32 %107, %sub171
+  %107 = load i32, ptr %x4, align 4
+  %sub171 = sub i32 %107, 1
+  %108 = load i32, ptr %last, align 4
+  %sub172 = sub i32 %108, %sub171
   store i32 %sub172, ptr %last, align 4
   br label %if.end173
 
 if.end173:                                        ; preds = %if.then169, %land.lhs.true163, %if.end151
-  %108 = load i32, ptr %frag, align 4
-  %add174 = add i32 %108, 32
+  %109 = load i32, ptr %frag, align 4
+  %add174 = add i32 %109, 32
   %add175 = add i32 %add174, 16
   %and176 = and i32 %add175, -16
   %add177 = add i32 21, %and176
   store i32 %add177, ptr %packlen, align 4
-  %109 = load i32, ptr %packlen, align 4
-  %110 = load i32, ptr %n4x, align 4
-  %shl178 = shl i32 %109, %110
-  %111 = load i32, ptr %packlen, align 4
-  %sub179 = sub i32 %shl178, %111
+  %110 = load i32, ptr %packlen, align 4
+  %111 = load i32, ptr %n4x, align 4
+  %shl178 = shl i32 %110, %111
+  %112 = load i32, ptr %packlen, align 4
+  %sub179 = sub i32 %shl178, %112
   store i32 %sub179, ptr %packlen, align 4
-  %112 = load i32, ptr %last, align 4
-  %add180 = add i32 %112, 32
+  %113 = load i32, ptr %last, align 4
+  %add180 = add i32 %113, 32
   %add181 = add i32 %add180, 16
   %and182 = and i32 %add181, -16
   %add183 = add i32 21, %and182
-  %113 = load i32, ptr %packlen, align 4
-  %add184 = add i32 %113, %add183
+  %114 = load i32, ptr %packlen, align 4
+  %add184 = add i32 %114, %add183
   store i32 %add184, ptr %packlen, align 4
-  %114 = load i32, ptr %x4, align 4
-  %115 = load ptr, ptr %param, align 8
-  %interleave185 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %115, i32 0, i32 3
-  store i32 %114, ptr %interleave185, align 8
-  %116 = load i32, ptr %packlen, align 4
-  store i32 %116, ptr %retval, align 4
+  %115 = load i32, ptr %x4, align 4
+  %116 = load ptr, ptr %param, align 8
+  %interleave185 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %116, i32 0, i32 3
+  store i32 %115, ptr %interleave185, align 8
+  %117 = load i32, ptr %packlen, align 4
+  store i32 %117, ptr %retval, align 4
   br label %return
 
 if.else186:                                       ; preds = %if.end106
@@ -2049,23 +2055,23 @@ if.else186:                                       ; preds = %if.end106
   br label %return
 
 sw.bb187:                                         ; preds = %entry
-  %117 = load ptr, ptr %ptr.addr, align 8
-  store ptr %117, ptr %param188, align 8
-  %118 = load ptr, ptr %key, align 8
-  %119 = load ptr, ptr %param188, align 8
-  %out = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %119, i32 0, i32 0
-  %120 = load ptr, ptr %out, align 8
-  %121 = load ptr, ptr %param188, align 8
-  %inp189 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %121, i32 0, i32 1
-  %122 = load ptr, ptr %inp189, align 8
-  %123 = load ptr, ptr %param188, align 8
-  %len190 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %123, i32 0, i32 2
-  %124 = load i64, ptr %len190, align 8
-  %125 = load ptr, ptr %param188, align 8
-  %interleave191 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %125, i32 0, i32 3
-  %126 = load i32, ptr %interleave191, align 8
-  %div192 = udiv i32 %126, 4
-  %call193 = call i64 @tls1_1_multi_block_encrypt(ptr noundef %118, ptr noundef %120, ptr noundef %122, i64 noundef %124, i32 noundef %div192)
+  %118 = load ptr, ptr %ptr.addr, align 8
+  store ptr %118, ptr %param188, align 8
+  %119 = load ptr, ptr %key, align 8
+  %120 = load ptr, ptr %param188, align 8
+  %out = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %120, i32 0, i32 0
+  %121 = load ptr, ptr %out, align 8
+  %122 = load ptr, ptr %param188, align 8
+  %inp189 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %122, i32 0, i32 1
+  %123 = load ptr, ptr %inp189, align 8
+  %124 = load ptr, ptr %param188, align 8
+  %len190 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %124, i32 0, i32 2
+  %125 = load i64, ptr %len190, align 8
+  %126 = load ptr, ptr %param188, align 8
+  %interleave191 = getelementptr inbounds %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, ptr %126, i32 0, i32 3
+  %127 = load i32, ptr %interleave191, align 8
+  %div192 = udiv i32 %127, 4
+  %call193 = call i64 @tls1_1_multi_block_encrypt(ptr noundef %119, ptr noundef %121, ptr noundef %123, i64 noundef %125, i32 noundef %div192)
   %conv194 = trunc i64 %call193 to i32
   store i32 %conv194, ptr %retval, align 4
   br label %return
@@ -2078,8 +2084,8 @@ sw.default:                                       ; preds = %sw.bb195, %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb187, %if.else186, %if.end173, %if.else149, %if.then133, %if.then127, %if.then105, %if.then100, %sw.bb92, %if.else86, %if.end80, %if.then69, %if.then42, %for.end34, %if.then
-  %127 = load i32, ptr %retval, align 4
-  ret i32 %127
+  %128 = load i32, ptr %retval, align 4
+  ret i32 %128
 }
 
 declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) #1

@@ -259,8 +259,9 @@ entry:
   %p = alloca ptr, align 8
   %len = alloca i32, align 4
   %q = alloca ptr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @msg_id_info, i32 0, i32 1), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.anon, ptr @msg_id_info, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -271,151 +272,151 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %1 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %1, 58
+  %2 = load i32, ptr %i, align 4
+  %cmp = icmp slt i32 %2, 58
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
+  %3 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %idxprom
   %id_string = getelementptr inbounds %struct.anon, ptr %arrayidx, i32 0, i32 0
-  %3 = load ptr, ptr %id_string, align 16
-  store ptr %3, ptr %p, align 8
-  %4 = load ptr, ptr %p, align 8
-  %call = call i64 @strlen(ptr noundef %4) #9
+  %4 = load ptr, ptr %id_string, align 16
+  store ptr %4, ptr %p, align 8
+  %5 = load ptr, ptr %p, align 8
+  %call = call i64 @strlen(ptr noundef %5) #9
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %len, align 4
-  %5 = load i32, ptr %len, align 4
-  %conv1 = sext i32 %5 to i64
+  %6 = load i32, ptr %len, align 4
+  %conv1 = sext i32 %6 to i64
   %call2 = call ptr @xmalloc(i64 noundef %conv1)
   store ptr %call2, ptr %q, align 8
-  %6 = load ptr, ptr %q, align 8
-  %7 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %7 to i64
+  %7 = load ptr, ptr %q, align 8
+  %8 = load i32, ptr %i, align 4
+  %idxprom3 = sext i32 %8 to i64
   %arrayidx4 = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %idxprom3
   %downcased = getelementptr inbounds %struct.anon, ptr %arrayidx4, i32 0, i32 1
-  store ptr %6, ptr %downcased, align 8
+  store ptr %7, ptr %downcased, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end15, %for.body
-  %8 = load ptr, ptr %p, align 8
-  %9 = load i8, ptr %8, align 1
-  %tobool5 = icmp ne i8 %9, 0
+  %9 = load ptr, ptr %p, align 8
+  %10 = load i8, ptr %9, align 1
+  %tobool5 = icmp ne i8 %10, 0
   br i1 %tobool5, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %10 = load ptr, ptr %p, align 8
-  %11 = load i8, ptr %10, align 1
-  %conv6 = sext i8 %11 to i32
+  %11 = load ptr, ptr %p, align 8
+  %12 = load i8, ptr %11, align 1
+  %conv6 = sext i8 %12 to i32
   %cmp7 = icmp eq i32 %conv6, 95
   br i1 %cmp7, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %while.body
-  %12 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %12, i32 1
+  %13 = load ptr, ptr %p, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %13, i32 1
   store ptr %incdec.ptr, ptr %p, align 8
   br label %if.end15
 
 if.else:                                          ; preds = %while.body
-  %13 = load ptr, ptr %p, align 8
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %13, i32 1
+  %14 = load ptr, ptr %p, align 8
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %14, i32 1
   store ptr %incdec.ptr10, ptr %p, align 8
-  %14 = load i8, ptr %13, align 1
-  %conv11 = zext i8 %14 to i32
+  %15 = load i8, ptr %14, align 1
+  %conv11 = zext i8 %15 to i32
   %call12 = call i32 @sane_case(i32 noundef %conv11, i32 noundef 32)
   %conv13 = trunc i32 %call12 to i8
-  %15 = load ptr, ptr %q, align 8
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %15, i32 1
+  %16 = load ptr, ptr %q, align 8
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %16, i32 1
   store ptr %incdec.ptr14, ptr %q, align 8
-  store i8 %conv13, ptr %15, align 1
+  store i8 %conv13, ptr %16, align 1
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then9
   br label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %16 = load ptr, ptr %q, align 8
-  store i8 0, ptr %16, align 1
-  %17 = load i32, ptr %i, align 4
-  %idxprom16 = sext i32 %17 to i64
+  %17 = load ptr, ptr %q, align 8
+  store i8 0, ptr %17, align 1
+  %18 = load i32, ptr %i, align 4
+  %idxprom16 = sext i32 %18 to i64
   %arrayidx17 = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %idxprom16
   %id_string18 = getelementptr inbounds %struct.anon, ptr %arrayidx17, i32 0, i32 0
-  %18 = load ptr, ptr %id_string18, align 16
-  store ptr %18, ptr %p, align 8
-  %19 = load i32, ptr %len, align 4
-  %conv19 = sext i32 %19 to i64
+  %19 = load ptr, ptr %id_string18, align 16
+  store ptr %19, ptr %p, align 8
+  %20 = load i32, ptr %len, align 4
+  %conv19 = sext i32 %20 to i64
   %call20 = call ptr @xmalloc(i64 noundef %conv19)
   store ptr %call20, ptr %q, align 8
-  %20 = load ptr, ptr %q, align 8
-  %21 = load i32, ptr %i, align 4
-  %idxprom21 = sext i32 %21 to i64
+  %21 = load ptr, ptr %q, align 8
+  %22 = load i32, ptr %i, align 4
+  %idxprom21 = sext i32 %22 to i64
   %arrayidx22 = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %idxprom21
   %camelcased = getelementptr inbounds %struct.anon, ptr %arrayidx22, i32 0, i32 2
-  store ptr %20, ptr %camelcased, align 16
+  store ptr %21, ptr %camelcased, align 16
   br label %while.cond23
 
 while.cond23:                                     ; preds = %if.end42, %while.end
-  %22 = load ptr, ptr %p, align 8
-  %23 = load i8, ptr %22, align 1
-  %tobool24 = icmp ne i8 %23, 0
+  %23 = load ptr, ptr %p, align 8
+  %24 = load i8, ptr %23, align 1
+  %tobool24 = icmp ne i8 %24, 0
   br i1 %tobool24, label %while.body25, label %while.end43
 
 while.body25:                                     ; preds = %while.cond23
-  %24 = load ptr, ptr %p, align 8
-  %25 = load i8, ptr %24, align 1
-  %conv26 = sext i8 %25 to i32
+  %25 = load ptr, ptr %p, align 8
+  %26 = load i8, ptr %25, align 1
+  %conv26 = sext i8 %26 to i32
   %cmp27 = icmp eq i32 %conv26, 95
   br i1 %cmp27, label %if.then29, label %if.else36
 
 if.then29:                                        ; preds = %while.body25
-  %26 = load ptr, ptr %p, align 8
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %26, i32 1
-  store ptr %incdec.ptr30, ptr %p, align 8
   %27 = load ptr, ptr %p, align 8
-  %28 = load i8, ptr %27, align 1
-  %tobool31 = icmp ne i8 %28, 0
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %27, i32 1
+  store ptr %incdec.ptr30, ptr %p, align 8
+  %28 = load ptr, ptr %p, align 8
+  %29 = load i8, ptr %28, align 1
+  %tobool31 = icmp ne i8 %29, 0
   br i1 %tobool31, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %if.then29
-  %29 = load ptr, ptr %p, align 8
-  %incdec.ptr33 = getelementptr inbounds i8, ptr %29, i32 1
+  %30 = load ptr, ptr %p, align 8
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %30, i32 1
   store ptr %incdec.ptr33, ptr %p, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = load ptr, ptr %q, align 8
-  %incdec.ptr34 = getelementptr inbounds i8, ptr %31, i32 1
+  %31 = load i8, ptr %30, align 1
+  %32 = load ptr, ptr %q, align 8
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %32, i32 1
   store ptr %incdec.ptr34, ptr %q, align 8
-  store i8 %30, ptr %31, align 1
+  store i8 %31, ptr %32, align 1
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then32, %if.then29
   br label %if.end42
 
 if.else36:                                        ; preds = %while.body25
-  %32 = load ptr, ptr %p, align 8
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %32, i32 1
+  %33 = load ptr, ptr %p, align 8
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %33, i32 1
   store ptr %incdec.ptr37, ptr %p, align 8
-  %33 = load i8, ptr %32, align 1
-  %conv38 = zext i8 %33 to i32
+  %34 = load i8, ptr %33, align 1
+  %conv38 = zext i8 %34 to i32
   %call39 = call i32 @sane_case(i32 noundef %conv38, i32 noundef 32)
   %conv40 = trunc i32 %call39 to i8
-  %34 = load ptr, ptr %q, align 8
-  %incdec.ptr41 = getelementptr inbounds i8, ptr %34, i32 1
+  %35 = load ptr, ptr %q, align 8
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %35, i32 1
   store ptr %incdec.ptr41, ptr %q, align 8
-  store i8 %conv40, ptr %34, align 1
+  store i8 %conv40, ptr %35, align 1
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else36, %if.end35
   br label %while.cond23, !llvm.loop !8
 
 while.end43:                                      ; preds = %while.cond23
-  %35 = load ptr, ptr %q, align 8
-  store i8 0, ptr %35, align 1
+  %36 = load ptr, ptr %q, align 8
+  store i8 0, ptr %36, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %while.end43
-  %36 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %36, 1
+  %37 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %37, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
@@ -1345,7 +1346,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %6 = load ptr, ptr %fmt.addr, align 8
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %buf, ptr noundef %6, ptr noundef %arraydecay5)
@@ -1360,7 +1361,7 @@ if.end4:                                          ; preds = %if.end
   %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
   store ptr %call6, ptr %arrayidx, align 8
   %arraydecay8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay8)
+  call void @llvm.va_end.p0(ptr %arraydecay8)
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3, %if.then
@@ -1737,15 +1738,9 @@ if.end128:                                        ; preds = %if.end127, %if.then
   ret i32 %102
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #1
 
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fsck_describe_object(ptr noundef %options, ptr noundef %oid) #0 {
@@ -3091,7 +3086,7 @@ if.end9:                                          ; preds = %if.end8, %if.then5
   %8 = load ptr, ptr %camelcased, align 16
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef @.str.108, ptr noundef %8)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %9 = load ptr, ptr %fmt.addr, align 8
   %arraydecay10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %sb, ptr noundef %9, ptr noundef %arraydecay10)
@@ -3109,7 +3104,7 @@ if.end9:                                          ; preds = %if.end8, %if.then5
   store i32 %call11, ptr %result, align 4
   call void @strbuf_release(ptr noundef %sb)
   %arraydecay12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay12)
+  call void @llvm.va_end.p0(ptr %arraydecay12)
   %18 = load i32, ptr %result, align 4
   store i32 %18, ptr %retval, align 4
   br label %return
@@ -5573,10 +5568,10 @@ if.end161:                                        ; preds = %if.end152, %if.end3
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) #1
 
@@ -6712,15 +6707,21 @@ declare i32 @is_promisor_object(ptr noundef) #1
 
 declare void @oidset_clear(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { noreturn }
 attributes #11 = { nounwind }

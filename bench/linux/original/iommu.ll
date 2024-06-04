@@ -111,12 +111,12 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @amd_iommu_pc_init() #0 section ".init.text" align 16 {
   %1 = tail call zeroext i1 @amd_iommu_pc_supported() #12
-  br i1 %1, label %2, label %23
+  br i1 %1, label %2, label %24
 
 2:                                                ; preds = %0
   %3 = tail call fastcc i32 @_init_events_attrs() #13, !range !5
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %23
+  br i1 %4, label %5, label %24
 
 5:                                                ; preds = %2
   %6 = tail call i32 @amd_iommu_get_num_iommus() #12
@@ -137,20 +137,21 @@ define internal noundef i32 @amd_iommu_pc_init() #0 section ".init.text" align 1
 
 18:                                               ; preds = %8
   %19 = icmp eq i32 %14, 0
-  br i1 %19, label %20, label %22
+  br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18, %5
-  %21 = load ptr, ptr getelementptr inbounds (%struct.attribute_group, ptr @amd_iommu_events_group, i64 0, i32 3), align 8
-  tail call void @kfree(ptr noundef %21) #12
-  br label %23
+  %21 = getelementptr inbounds %struct.attribute_group, ptr @amd_iommu_events_group, i64 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  tail call void @kfree(ptr noundef %22) #12
+  br label %24
 
-22:                                               ; preds = %18
+23:                                               ; preds = %18
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @iommu_cpumask, i32 1, ptr nonnull elementtype(i8) @iommu_cpumask) #12, !srcloc !9
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %20, %2, %0
-  %24 = phi i32 [ 0, %22 ], [ -19, %20 ], [ -19, %0 ], [ %3, %2 ]
-  ret i32 %24
+24:                                               ; preds = %23, %20, %2, %0
+  %25 = phi i32 [ 0, %23 ], [ -19, %20 ], [ -19, %0 ], [ %3, %2 ]
+  ret i32 %25
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -186,7 +187,7 @@ define internal fastcc noundef i32 @_init_events_attrs() unnamed_addr #0 section
 15:                                               ; preds = %11, %8
   %16 = phi ptr [ %14, %11 ], [ null, %8 ]
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %29, label %18
+  br i1 %17, label %30, label %18
 
 18:                                               ; preds = %15
   %19 = icmp sgt i32 %2, 0
@@ -206,12 +207,13 @@ define internal fastcc noundef i32 @_init_events_attrs() unnamed_addr #0 section
   br i1 %27, label %28, label %22, !llvm.loop !12
 
 28:                                               ; preds = %22, %18
-  store ptr %16, ptr getelementptr inbounds (%struct.attribute_group, ptr @amd_iommu_events_group, i64 0, i32 3), align 8
-  br label %29
+  %29 = getelementptr inbounds %struct.attribute_group, ptr @amd_iommu_events_group, i64 0, i32 3
+  store ptr %16, ptr %29, align 8
+  br label %30
 
-29:                                               ; preds = %28, %15
-  %30 = phi i32 [ 0, %28 ], [ -12, %15 ]
-  ret i32 %30
+30:                                               ; preds = %28, %15
+  %31 = phi i32 [ 0, %28 ], [ -12, %15 ]
+  ret i32 %31
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -219,69 +221,72 @@ declare dso_local i32 @amd_iommu_get_num_iommus() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @init_one_iommu(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 368) #15
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %37, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(368) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 368) #15
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %40, label %6
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 360
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(304) %7, ptr noundef nonnull align 8 dereferenceable(304) @iommu_pmu, i64 304, i1 false)
-  %8 = tail call ptr @get_amd_iommu(i32 noundef %0) #12
-  %9 = getelementptr inbounds i8, ptr %3, i64 320
-  store ptr %8, ptr %9, align 8
-  %10 = tail call zeroext i8 @amd_iommu_pc_get_max_banks(i32 noundef %0) #12
-  %11 = getelementptr inbounds i8, ptr %3, i64 344
-  store i8 %10, ptr %11, align 8
-  %12 = tail call zeroext i8 @amd_iommu_pc_get_max_counters(i32 noundef %0) #12
-  %13 = getelementptr inbounds i8, ptr %3, i64 345
-  store i8 %12, ptr %13, align 1
-  %14 = load ptr, ptr %9, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %21, label %16
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %4, i64 360
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(304) %8, ptr noundef nonnull align 8 dereferenceable(304) @iommu_pmu, i64 304, i1 false)
+  %9 = tail call ptr @get_amd_iommu(i32 noundef %0) #12
+  %10 = getelementptr inbounds i8, ptr %4, i64 320
+  store ptr %9, ptr %10, align 8
+  %11 = tail call zeroext i8 @amd_iommu_pc_get_max_banks(i32 noundef %0) #12
+  %12 = getelementptr inbounds i8, ptr %4, i64 344
+  store i8 %11, ptr %12, align 8
+  %13 = tail call zeroext i8 @amd_iommu_pc_get_max_counters(i32 noundef %0) #12
+  %14 = getelementptr inbounds i8, ptr %4, i64 345
+  store i8 %13, ptr %14, align 1
+  %15 = load ptr, ptr %10, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %22, label %17
 
-16:                                               ; preds = %5
-  %17 = load i8, ptr %11, align 8
-  %18 = icmp eq i8 %17, 0
-  %19 = icmp eq i8 %12, 0
-  %20 = select i1 %18, i1 true, i1 %19
-  br i1 %20, label %21, label %22
+17:                                               ; preds = %6
+  %18 = load i8, ptr %12, align 8
+  %19 = icmp eq i8 %18, 0
+  %20 = icmp eq i8 %13, 0
+  %21 = select i1 %19, i1 true, i1 %20
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %16, %5
-  tail call void @kfree(ptr noundef nonnull %3) #12
-  br label %37
+22:                                               ; preds = %17, %6
+  tail call void @kfree(ptr noundef nonnull %4) #12
+  br label %40
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %3, i64 328
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef 16, ptr noundef nonnull @.str.50, i32 noundef %0) #12
-  %25 = tail call i32 @perf_pmu_register(ptr noundef %7, ptr noundef %23, i32 noundef -1) #12
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %35
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %4, i64 328
+  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %24, i64 noundef 16, ptr noundef nonnull @.str.50, i32 noundef %0) #12
+  %26 = tail call i32 @perf_pmu_register(ptr noundef %8, ptr noundef %24, i32 noundef -1) #12
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %38
 
-27:                                               ; preds = %22
-  %28 = load i8, ptr %11, align 8
-  %29 = zext i8 %28 to i32
-  %30 = load i8, ptr %13, align 1
-  %31 = zext i8 %30 to i32
-  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, i32 noundef %0, i32 noundef %29, i32 noundef %31) #16
-  %33 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @perf_amd_iommu_list, i64 0, i32 1), align 8
-  store ptr %3, ptr getelementptr inbounds (%struct.list_head, ptr @perf_amd_iommu_list, i64 0, i32 1), align 8
-  store ptr @perf_amd_iommu_list, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %33, ptr %34, align 8
-  store volatile ptr %3, ptr %33, align 8
-  br label %37
+28:                                               ; preds = %23
+  %29 = load i8, ptr %12, align 8
+  %30 = zext i8 %29 to i32
+  %31 = load i8, ptr %14, align 1
+  %32 = zext i8 %31 to i32
+  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, i32 noundef %0, i32 noundef %30, i32 noundef %32) #16
+  %34 = getelementptr inbounds %struct.list_head, ptr @perf_amd_iommu_list, i64 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %struct.list_head, ptr @perf_amd_iommu_list, i64 0, i32 1
+  store ptr %4, ptr %36, align 8
+  store ptr @perf_amd_iommu_list, ptr %4, align 8
+  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %35, ptr %37, align 8
+  store volatile ptr %4, ptr %35, align 8
+  br label %40
 
-35:                                               ; preds = %22
-  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, i32 noundef %0) #16
-  tail call void @kfree(ptr noundef nonnull %3) #12
-  br label %37
+38:                                               ; preds = %23
+  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, i32 noundef %0) #16
+  tail call void @kfree(ptr noundef nonnull %4) #12
+  br label %40
 
-37:                                               ; preds = %35, %27, %21, %1
-  %38 = phi i32 [ -22, %21 ], [ -12, %1 ], [ %25, %35 ], [ %25, %27 ]
-  ret i32 %38
+40:                                               ; preds = %38, %28, %22, %1
+  %41 = phi i32 [ -22, %22 ], [ -12, %1 ], [ %26, %38 ], [ %26, %28 ]
+  ret i32 %41
 }
 
 ; Function Attrs: null_pointer_is_valid

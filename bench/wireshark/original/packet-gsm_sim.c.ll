@@ -1859,7 +1859,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef @.str.854, ptr noundef %29)
   %30 = load i8, ptr %11, align 1
   %31 = zext i8 %30 to i32
-  switch i32 %31, label %996 [
+  switch i32 %31, label %997 [
     i32 164, label %32
     i32 242, label %125
     i32 176, label %126
@@ -1877,13 +1877,13 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
     i32 16, label %357
     i32 18, label %871
     i32 20, label %899
-    i32 112, label %911
-    i32 120, label %959
-    i32 192, label %959
-    i32 202, label %959
-    i32 194, label %978
-    i32 4, label %995
-    i32 68, label %995
+    i32 112, label %912
+    i32 120, label %960
+    i32 192, label %960
+    i32 202, label %960
+    i32 194, label %979
+    i32 4, label %996
+    i32 68, label %996
   ]
 
 32:                                               ; preds = %9
@@ -1893,7 +1893,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32
-  br label %997
+  br label %998
 
 37:                                               ; preds = %32
   %38 = load i8, ptr %12, align 1
@@ -2019,10 +2019,10 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br label %124
 
 124:                                              ; preds = %103, %99, %44, %40
-  br label %997
+  br label %998
 
 125:                                              ; preds = %9
-  br label %997
+  br label %998
 
 126:                                              ; preds = %9
   %127 = load i8, ptr %12, align 1
@@ -2094,7 +2094,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br label %183
 
 183:                                              ; preds = %174, %165
-  br label %997
+  br label %998
 
 184:                                              ; preds = %9
   %185 = load i8, ptr %12, align 1
@@ -2152,7 +2152,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   %229 = load i8, ptr %14, align 1
   %230 = zext i8 %229 to i32
   %231 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %225, ptr noundef %226, i32 noundef %228, i32 noundef %230, i32 noundef 0)
-  br label %997
+  br label %998
 
 232:                                              ; preds = %9
   %233 = load ptr, ptr %17, align 8
@@ -2189,7 +2189,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br label %261
 
 261:                                              ; preds = %252, %232
-  br label %997
+  br label %998
 
 262:                                              ; preds = %9
   %263 = load ptr, ptr %17, align 8
@@ -2212,7 +2212,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   %279 = load i8, ptr %14, align 1
   %280 = zext i8 %279 to i32
   %281 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %275, ptr noundef %276, i32 noundef %278, i32 noundef %280, i32 noundef 0)
-  br label %997
+  br label %998
 
 282:                                              ; preds = %9
   %283 = load ptr, ptr %18, align 8
@@ -2259,10 +2259,10 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br label %319
 
 319:                                              ; preds = %312, %282
-  br label %997
+  br label %998
 
 320:                                              ; preds = %9
-  br label %997
+  br label %998
 
 321:                                              ; preds = %9, %9, %9, %9, %9
   %322 = load ptr, ptr %17, align 8
@@ -2274,7 +2274,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   %327 = load i32, ptr %16, align 4
   %328 = add i32 %327, 3
   store i32 %328, ptr %16, align 4
-  br label %997
+  br label %998
 
 329:                                              ; preds = %9
   %330 = load i32, ptr %16, align 4
@@ -2312,7 +2312,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br label %356
 
 356:                                              ; preds = %341, %329
-  br label %997
+  br label %998
 
 357:                                              ; preds = %9
   %358 = load i32, ptr %16, align 4
@@ -2329,7 +2329,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %366, label %367, label %368
 
 367:                                              ; preds = %357
-  br label %997
+  br label %998
 
 368:                                              ; preds = %357
   %369 = load ptr, ptr %18, align 8
@@ -2349,7 +2349,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %381, label %382, label %383
 
 382:                                              ; preds = %368
-  br label %997
+  br label %998
 
 383:                                              ; preds = %368
   %384 = load ptr, ptr %18, align 8
@@ -2369,7 +2369,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %396, label %397, label %398
 
 397:                                              ; preds = %383
-  br label %997
+  br label %998
 
 398:                                              ; preds = %383
   %399 = load ptr, ptr %18, align 8
@@ -2389,7 +2389,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %411, label %412, label %413
 
 412:                                              ; preds = %398
-  br label %997
+  br label %998
 
 413:                                              ; preds = %398
   %414 = load ptr, ptr %18, align 8
@@ -2409,7 +2409,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %426, label %427, label %428
 
 427:                                              ; preds = %413
-  br label %997
+  br label %998
 
 428:                                              ; preds = %413
   %429 = load ptr, ptr %18, align 8
@@ -2429,7 +2429,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %441, label %442, label %443
 
 442:                                              ; preds = %428
-  br label %997
+  br label %998
 
 443:                                              ; preds = %428
   %444 = load ptr, ptr %18, align 8
@@ -2449,7 +2449,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %456, label %457, label %458
 
 457:                                              ; preds = %443
-  br label %997
+  br label %998
 
 458:                                              ; preds = %443
   %459 = load ptr, ptr %18, align 8
@@ -2469,7 +2469,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %471, label %472, label %473
 
 472:                                              ; preds = %458
-  br label %997
+  br label %998
 
 473:                                              ; preds = %458
   %474 = load ptr, ptr %18, align 8
@@ -2489,7 +2489,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %486, label %487, label %488
 
 487:                                              ; preds = %473
-  br label %997
+  br label %998
 
 488:                                              ; preds = %473
   %489 = load ptr, ptr %18, align 8
@@ -2509,7 +2509,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %501, label %502, label %503
 
 502:                                              ; preds = %488
-  br label %997
+  br label %998
 
 503:                                              ; preds = %488
   %504 = load ptr, ptr %18, align 8
@@ -2529,7 +2529,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %516, label %517, label %518
 
 517:                                              ; preds = %503
-  br label %997
+  br label %998
 
 518:                                              ; preds = %503
   %519 = load ptr, ptr %18, align 8
@@ -2549,7 +2549,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %531, label %532, label %533
 
 532:                                              ; preds = %518
-  br label %997
+  br label %998
 
 533:                                              ; preds = %518
   %534 = load ptr, ptr %18, align 8
@@ -2569,7 +2569,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %546, label %547, label %548
 
 547:                                              ; preds = %533
-  br label %997
+  br label %998
 
 548:                                              ; preds = %533
   %549 = load ptr, ptr %18, align 8
@@ -2589,7 +2589,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %561, label %562, label %563
 
 562:                                              ; preds = %548
-  br label %997
+  br label %998
 
 563:                                              ; preds = %548
   %564 = load ptr, ptr %18, align 8
@@ -2609,7 +2609,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %576, label %577, label %578
 
 577:                                              ; preds = %563
-  br label %997
+  br label %998
 
 578:                                              ; preds = %563
   %579 = load ptr, ptr %18, align 8
@@ -2629,7 +2629,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %591, label %592, label %593
 
 592:                                              ; preds = %578
-  br label %997
+  br label %998
 
 593:                                              ; preds = %578
   %594 = load ptr, ptr %18, align 8
@@ -2649,7 +2649,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %606, label %607, label %608
 
 607:                                              ; preds = %593
-  br label %997
+  br label %998
 
 608:                                              ; preds = %593
   %609 = load ptr, ptr %18, align 8
@@ -2669,7 +2669,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %621, label %622, label %623
 
 622:                                              ; preds = %608
-  br label %997
+  br label %998
 
 623:                                              ; preds = %608
   %624 = load ptr, ptr %18, align 8
@@ -2689,7 +2689,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %636, label %637, label %638
 
 637:                                              ; preds = %623
-  br label %997
+  br label %998
 
 638:                                              ; preds = %623
   %639 = load ptr, ptr %18, align 8
@@ -2709,7 +2709,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %651, label %652, label %653
 
 652:                                              ; preds = %638
-  br label %997
+  br label %998
 
 653:                                              ; preds = %638
   %654 = load ptr, ptr %18, align 8
@@ -2729,7 +2729,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %666, label %667, label %668
 
 667:                                              ; preds = %653
-  br label %997
+  br label %998
 
 668:                                              ; preds = %653
   %669 = load ptr, ptr %18, align 8
@@ -2749,7 +2749,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %681, label %682, label %683
 
 682:                                              ; preds = %668
-  br label %997
+  br label %998
 
 683:                                              ; preds = %668
   %684 = load ptr, ptr %18, align 8
@@ -2769,7 +2769,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %696, label %697, label %698
 
 697:                                              ; preds = %683
-  br label %997
+  br label %998
 
 698:                                              ; preds = %683
   %699 = load ptr, ptr %18, align 8
@@ -2789,7 +2789,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %711, label %712, label %713
 
 712:                                              ; preds = %698
-  br label %997
+  br label %998
 
 713:                                              ; preds = %698
   %714 = load ptr, ptr %18, align 8
@@ -2809,7 +2809,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %726, label %727, label %728
 
 727:                                              ; preds = %713
-  br label %997
+  br label %998
 
 728:                                              ; preds = %713
   %729 = load ptr, ptr %18, align 8
@@ -2829,7 +2829,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %741, label %742, label %743
 
 742:                                              ; preds = %728
-  br label %997
+  br label %998
 
 743:                                              ; preds = %728
   %744 = load ptr, ptr %18, align 8
@@ -2849,7 +2849,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %756, label %757, label %758
 
 757:                                              ; preds = %743
-  br label %997
+  br label %998
 
 758:                                              ; preds = %743
   %759 = load ptr, ptr %18, align 8
@@ -2869,7 +2869,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %771, label %772, label %773
 
 772:                                              ; preds = %758
-  br label %997
+  br label %998
 
 773:                                              ; preds = %758
   %774 = load ptr, ptr %18, align 8
@@ -2889,7 +2889,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %786, label %787, label %788
 
 787:                                              ; preds = %773
-  br label %997
+  br label %998
 
 788:                                              ; preds = %773
   %789 = load ptr, ptr %18, align 8
@@ -2909,7 +2909,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %801, label %802, label %803
 
 802:                                              ; preds = %788
-  br label %997
+  br label %998
 
 803:                                              ; preds = %788
   %804 = load ptr, ptr %18, align 8
@@ -2929,7 +2929,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %816, label %817, label %818
 
 817:                                              ; preds = %803
-  br label %997
+  br label %998
 
 818:                                              ; preds = %803
   %819 = load ptr, ptr %18, align 8
@@ -2949,7 +2949,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %831, label %832, label %833
 
 832:                                              ; preds = %818
-  br label %997
+  br label %998
 
 833:                                              ; preds = %818
   %834 = load ptr, ptr %18, align 8
@@ -2969,7 +2969,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br i1 %846, label %847, label %848
 
 847:                                              ; preds = %833
-  br label %997
+  br label %998
 
 848:                                              ; preds = %833
   %849 = load ptr, ptr %18, align 8
@@ -3002,7 +3002,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br label %856, !llvm.loop !7
 
 870:                                              ; preds = %856
-  br label %997
+  br label %998
 
 871:                                              ; preds = %9
   %872 = load ptr, ptr %18, align 8
@@ -3043,7 +3043,7 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   br label %898
 
 898:                                              ; preds = %891, %871
-  br label %997
+  br label %998
 
 899:                                              ; preds = %9
   %900 = load ptr, ptr %15, align 8
@@ -3057,134 +3057,135 @@ define internal i32 @dissect_gsm_apdu(i8 noundef zeroext %0, i8 noundef zeroext 
   %907 = load ptr, ptr %21, align 8
   %908 = load ptr, ptr %17, align 8
   %909 = load ptr, ptr %18, align 8
-  %910 = call i32 @call_dissector_with_data(ptr noundef %906, ptr noundef %907, ptr noundef %908, ptr noundef %909, ptr noundef inttoptr (i64 20 to ptr))
+  %910 = inttoptr i64 20 to ptr
+  %911 = call i32 @call_dissector_with_data(ptr noundef %906, ptr noundef %907, ptr noundef %908, ptr noundef %909, ptr noundef %910)
+  br label %998
+
+912:                                              ; preds = %9
+  %913 = load ptr, ptr %18, align 8
+  %914 = load i32, ptr @hf_chan_op, align 4
+  %915 = load ptr, ptr %15, align 8
+  %916 = load i32, ptr %16, align 4
+  %917 = add i32 %916, 0
+  %918 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %914, ptr noundef %915, i32 noundef %917, i32 noundef 1, i32 noundef 0)
+  %919 = load ptr, ptr %17, align 8
+  %920 = getelementptr inbounds %struct._packet_info, ptr %919, i32 0, i32 1
+  %921 = load ptr, ptr %920, align 8
+  %922 = load i8, ptr %12, align 1
+  %923 = zext i8 %922 to i32
+  %924 = call ptr @val_to_str(i32 noundef %923, ptr noundef @chan_op_vals, ptr noundef @.str.856)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %921, i32 noundef 25, ptr noundef @.str.867, ptr noundef %924)
+  %925 = load ptr, ptr %18, align 8
+  %926 = load i32, ptr @hf_chan_nr, align 4
+  %927 = load ptr, ptr %15, align 8
+  %928 = load i32, ptr %16, align 4
+  %929 = add i32 %928, 1
+  %930 = call ptr @proto_tree_add_item(ptr noundef %925, i32 noundef %926, ptr noundef %927, i32 noundef %929, i32 noundef 1, i32 noundef 0)
+  %931 = load i8, ptr %12, align 1
+  %932 = zext i8 %931 to i32
+  %933 = icmp eq i32 %932, 0
+  br i1 %933, label %934, label %941
+
+934:                                              ; preds = %912
+  %935 = load ptr, ptr %18, align 8
+  %936 = load i32, ptr @hf_le, align 4
+  %937 = load ptr, ptr %15, align 8
+  %938 = load i32, ptr %16, align 4
+  %939 = add i32 %938, 2
+  %940 = call ptr @proto_tree_add_item(ptr noundef %935, i32 noundef %936, ptr noundef %937, i32 noundef %939, i32 noundef 1, i32 noundef 0)
+  br label %941
+
+941:                                              ; preds = %934, %912
+  %942 = load i8, ptr %12, align 1
+  %943 = zext i8 %942 to i32
+  %944 = icmp eq i32 %943, 0
+  br i1 %944, label %945, label %953
+
+945:                                              ; preds = %941
+  %946 = load i8, ptr %13, align 1
+  %947 = zext i8 %946 to i32
+  %948 = icmp eq i32 %947, 0
+  br i1 %948, label %949, label %953
+
+949:                                              ; preds = %945
+  %950 = load ptr, ptr %17, align 8
+  %951 = getelementptr inbounds %struct._packet_info, ptr %950, i32 0, i32 1
+  %952 = load ptr, ptr %951, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %952, i32 noundef 25, ptr noundef @.str.868)
+  br label %959
+
+953:                                              ; preds = %945, %941
+  %954 = load ptr, ptr %17, align 8
+  %955 = getelementptr inbounds %struct._packet_info, ptr %954, i32 0, i32 1
+  %956 = load ptr, ptr %955, align 8
+  %957 = load i8, ptr %13, align 1
+  %958 = zext i8 %957 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %956, i32 noundef 25, ptr noundef @.str.869, i32 noundef %958)
+  br label %959
+
+959:                                              ; preds = %953, %949
+  br label %998
+
+960:                                              ; preds = %9, %9, %9
+  %961 = load ptr, ptr %18, align 8
+  %962 = load i32, ptr @hf_le, align 4
+  %963 = load ptr, ptr %15, align 8
+  %964 = load i32, ptr %16, align 4
+  %965 = add i32 %964, 2
+  %966 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %962, ptr noundef %963, i32 noundef %965, i32 noundef 1, i32 noundef 0)
+  %967 = load i32, ptr %19, align 4
+  %968 = icmp ne i32 %967, 0
+  br i1 %968, label %969, label %978
+
+969:                                              ; preds = %960
+  %970 = load ptr, ptr %18, align 8
+  %971 = load i32, ptr @hf_apdu_data, align 4
+  %972 = load ptr, ptr %15, align 8
+  %973 = load i32, ptr %16, align 4
+  %974 = add i32 %973, 3
+  %975 = load i8, ptr %14, align 1
+  %976 = zext i8 %975 to i32
+  %977 = call ptr @proto_tree_add_item(ptr noundef %970, i32 noundef %971, ptr noundef %972, i32 noundef %974, i32 noundef %976, i32 noundef 0)
+  br label %978
+
+978:                                              ; preds = %969, %960
+  br label %998
+
+979:                                              ; preds = %9
+  %980 = load ptr, ptr %18, align 8
+  %981 = load i32, ptr @hf_le, align 4
+  %982 = load ptr, ptr %15, align 8
+  %983 = load i32, ptr %16, align 4
+  %984 = add i32 %983, 2
+  %985 = call ptr @proto_tree_add_item(ptr noundef %980, i32 noundef %981, ptr noundef %982, i32 noundef %984, i32 noundef 1, i32 noundef 0)
+  %986 = load ptr, ptr %15, align 8
+  %987 = load i32, ptr %16, align 4
+  %988 = add i32 %987, 3
+  %989 = load i8, ptr %14, align 1
+  %990 = zext i8 %989 to i32
+  %991 = call ptr @tvb_new_subset_length(ptr noundef %986, i32 noundef %988, i32 noundef %990)
+  store ptr %991, ptr %21, align 8
+  %992 = load ptr, ptr %21, align 8
+  %993 = load ptr, ptr %17, align 8
+  %994 = load ptr, ptr %18, align 8
+  %995 = call i32 @dissect_bertlv(ptr noundef %992, ptr noundef %993, ptr noundef %994, ptr noundef null)
+  br label %998
+
+996:                                              ; preds = %9, %9
   br label %997
 
-911:                                              ; preds = %9
-  %912 = load ptr, ptr %18, align 8
-  %913 = load i32, ptr @hf_chan_op, align 4
-  %914 = load ptr, ptr %15, align 8
-  %915 = load i32, ptr %16, align 4
-  %916 = add i32 %915, 0
-  %917 = call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %913, ptr noundef %914, i32 noundef %916, i32 noundef 1, i32 noundef 0)
-  %918 = load ptr, ptr %17, align 8
-  %919 = getelementptr inbounds %struct._packet_info, ptr %918, i32 0, i32 1
-  %920 = load ptr, ptr %919, align 8
-  %921 = load i8, ptr %12, align 1
-  %922 = zext i8 %921 to i32
-  %923 = call ptr @val_to_str(i32 noundef %922, ptr noundef @chan_op_vals, ptr noundef @.str.856)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %920, i32 noundef 25, ptr noundef @.str.867, ptr noundef %923)
-  %924 = load ptr, ptr %18, align 8
-  %925 = load i32, ptr @hf_chan_nr, align 4
-  %926 = load ptr, ptr %15, align 8
-  %927 = load i32, ptr %16, align 4
-  %928 = add i32 %927, 1
-  %929 = call ptr @proto_tree_add_item(ptr noundef %924, i32 noundef %925, ptr noundef %926, i32 noundef %928, i32 noundef 1, i32 noundef 0)
-  %930 = load i8, ptr %12, align 1
-  %931 = zext i8 %930 to i32
-  %932 = icmp eq i32 %931, 0
-  br i1 %932, label %933, label %940
-
-933:                                              ; preds = %911
-  %934 = load ptr, ptr %18, align 8
-  %935 = load i32, ptr @hf_le, align 4
-  %936 = load ptr, ptr %15, align 8
-  %937 = load i32, ptr %16, align 4
-  %938 = add i32 %937, 2
-  %939 = call ptr @proto_tree_add_item(ptr noundef %934, i32 noundef %935, ptr noundef %936, i32 noundef %938, i32 noundef 1, i32 noundef 0)
-  br label %940
-
-940:                                              ; preds = %933, %911
-  %941 = load i8, ptr %12, align 1
-  %942 = zext i8 %941 to i32
-  %943 = icmp eq i32 %942, 0
-  br i1 %943, label %944, label %952
-
-944:                                              ; preds = %940
-  %945 = load i8, ptr %13, align 1
-  %946 = zext i8 %945 to i32
-  %947 = icmp eq i32 %946, 0
-  br i1 %947, label %948, label %952
-
-948:                                              ; preds = %944
-  %949 = load ptr, ptr %17, align 8
-  %950 = getelementptr inbounds %struct._packet_info, ptr %949, i32 0, i32 1
-  %951 = load ptr, ptr %950, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %951, i32 noundef 25, ptr noundef @.str.868)
-  br label %958
-
-952:                                              ; preds = %944, %940
-  %953 = load ptr, ptr %17, align 8
-  %954 = getelementptr inbounds %struct._packet_info, ptr %953, i32 0, i32 1
-  %955 = load ptr, ptr %954, align 8
-  %956 = load i8, ptr %13, align 1
-  %957 = zext i8 %956 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %955, i32 noundef 25, ptr noundef @.str.869, i32 noundef %957)
-  br label %958
-
-958:                                              ; preds = %952, %948
-  br label %997
-
-959:                                              ; preds = %9, %9, %9
-  %960 = load ptr, ptr %18, align 8
-  %961 = load i32, ptr @hf_le, align 4
-  %962 = load ptr, ptr %15, align 8
-  %963 = load i32, ptr %16, align 4
-  %964 = add i32 %963, 2
-  %965 = call ptr @proto_tree_add_item(ptr noundef %960, i32 noundef %961, ptr noundef %962, i32 noundef %964, i32 noundef 1, i32 noundef 0)
-  %966 = load i32, ptr %19, align 4
-  %967 = icmp ne i32 %966, 0
-  br i1 %967, label %968, label %977
-
-968:                                              ; preds = %959
-  %969 = load ptr, ptr %18, align 8
-  %970 = load i32, ptr @hf_apdu_data, align 4
-  %971 = load ptr, ptr %15, align 8
-  %972 = load i32, ptr %16, align 4
-  %973 = add i32 %972, 3
-  %974 = load i8, ptr %14, align 1
-  %975 = zext i8 %974 to i32
-  %976 = call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %970, ptr noundef %971, i32 noundef %973, i32 noundef %975, i32 noundef 0)
-  br label %977
-
-977:                                              ; preds = %968, %959
-  br label %997
-
-978:                                              ; preds = %9
-  %979 = load ptr, ptr %18, align 8
-  %980 = load i32, ptr @hf_le, align 4
-  %981 = load ptr, ptr %15, align 8
-  %982 = load i32, ptr %16, align 4
-  %983 = add i32 %982, 2
-  %984 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %980, ptr noundef %981, i32 noundef %983, i32 noundef 1, i32 noundef 0)
-  %985 = load ptr, ptr %15, align 8
-  %986 = load i32, ptr %16, align 4
-  %987 = add i32 %986, 3
-  %988 = load i8, ptr %14, align 1
-  %989 = zext i8 %988 to i32
-  %990 = call ptr @tvb_new_subset_length(ptr noundef %985, i32 noundef %987, i32 noundef %989)
-  store ptr %990, ptr %21, align 8
-  %991 = load ptr, ptr %21, align 8
-  %992 = load ptr, ptr %17, align 8
-  %993 = load ptr, ptr %18, align 8
-  %994 = call i32 @dissect_bertlv(ptr noundef %991, ptr noundef %992, ptr noundef %993, ptr noundef null)
-  br label %997
-
-995:                                              ; preds = %9, %9
-  br label %996
-
-996:                                              ; preds = %995, %9
+997:                                              ; preds = %996, %9
   store i32 -1, ptr %10, align 4
-  br label %999
+  br label %1000
 
-997:                                              ; preds = %978, %977, %958, %899, %898, %870, %847, %832, %817, %802, %787, %772, %757, %742, %727, %712, %697, %682, %667, %652, %637, %622, %607, %592, %577, %562, %547, %532, %517, %502, %487, %472, %457, %442, %427, %412, %397, %382, %367, %356, %321, %320, %319, %262, %261, %223, %183, %125, %124, %36
-  %998 = load i32, ptr %16, align 4
-  store i32 %998, ptr %10, align 4
-  br label %999
+998:                                              ; preds = %979, %978, %959, %899, %898, %870, %847, %832, %817, %802, %787, %772, %757, %742, %727, %712, %697, %682, %667, %652, %637, %622, %607, %592, %577, %562, %547, %532, %517, %502, %487, %472, %457, %442, %427, %412, %397, %382, %367, %356, %321, %320, %319, %262, %261, %223, %183, %125, %124, %36
+  %999 = load i32, ptr %16, align 4
+  store i32 %999, ptr %10, align 4
+  br label %1000
 
-999:                                              ; preds = %997, %996
-  %1000 = load i32, ptr %10, align 4
-  ret i32 %1000
+1000:                                             ; preds = %998, %997
+  %1001 = load i32, ptr %10, align 4
+  ret i32 %1001
 }
 
 ; Function Attrs: nounwind uwtable

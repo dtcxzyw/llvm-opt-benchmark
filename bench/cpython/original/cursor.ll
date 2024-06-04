@@ -3238,13 +3238,14 @@ if.end64:                                         ; preds = %if.end61
   %31 = load ptr, ptr %string, align 8
   %32 = load i64, ptr %buflen, align 8
   %conv = trunc i64 %32 to i32
-  %call66 = call i32 @sqlite3_bind_text(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %conv, ptr noundef inttoptr (i64 -1 to ptr))
+  %33 = inttoptr i64 -1 to ptr
+  %call66 = call i32 @sqlite3_bind_text(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %conv, ptr noundef %33)
   store i32 %call66, ptr %rc, align 4
   br label %sw.epilog
 
 sw.bb67:                                          ; preds = %if.end35
-  %33 = load ptr, ptr %parameter.addr, align 8
-  %call68 = call i32 @PyObject_GetBuffer(ptr noundef %33, ptr noundef %view, i32 noundef 0)
+  %34 = load ptr, ptr %parameter.addr, align 8
+  %call68 = call i32 @PyObject_GetBuffer(ptr noundef %34, ptr noundef %view, i32 noundef 0)
   %cmp69 = icmp ne i32 %call68, 0
   br i1 %cmp69, label %if.then71, label %if.end72
 
@@ -3254,42 +3255,43 @@ if.then71:                                        ; preds = %sw.bb67
 
 if.end72:                                         ; preds = %sw.bb67
   %len = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 2
-  %34 = load i64, ptr %len, align 8
-  %cmp73 = icmp sgt i64 %34, 2147483647
+  %35 = load i64, ptr %len, align 8
+  %cmp73 = icmp sgt i64 %35, 2147483647
   br i1 %cmp73, label %if.then75, label %if.end76
 
 if.then75:                                        ; preds = %if.end72
-  %35 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %35, ptr noundef @.str.11)
+  %36 = load ptr, ptr @PyExc_OverflowError, align 8
+  call void @PyErr_SetString(ptr noundef %36, ptr noundef @.str.11)
   call void @PyBuffer_Release(ptr noundef %view)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end76:                                         ; preds = %if.end72
-  %36 = load ptr, ptr %self.addr, align 8
-  %st77 = getelementptr inbounds %struct.pysqlite_Statement, ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %st77, align 8
-  %38 = load i32, ptr %pos.addr, align 4
+  %37 = load ptr, ptr %self.addr, align 8
+  %st77 = getelementptr inbounds %struct.pysqlite_Statement, ptr %37, i32 0, i32 1
+  %38 = load ptr, ptr %st77, align 8
+  %39 = load i32, ptr %pos.addr, align 4
   %buf = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 0
-  %39 = load ptr, ptr %buf, align 8
+  %40 = load ptr, ptr %buf, align 8
   %len78 = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 2
-  %40 = load i64, ptr %len78, align 8
-  %conv79 = trunc i64 %40 to i32
-  %call80 = call i32 @sqlite3_bind_blob(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %conv79, ptr noundef inttoptr (i64 -1 to ptr))
+  %41 = load i64, ptr %len78, align 8
+  %conv79 = trunc i64 %41 to i32
+  %42 = inttoptr i64 -1 to ptr
+  %call80 = call i32 @sqlite3_bind_blob(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %conv79, ptr noundef %42)
   store i32 %call80, ptr %rc, align 4
   call void @PyBuffer_Release(ptr noundef %view)
   br label %sw.epilog
 
 sw.bb81:                                          ; preds = %if.end35
-  %41 = load ptr, ptr %state.addr, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %41, i32 0, i32 8
-  %42 = load ptr, ptr %ProgrammingError, align 8
-  %43 = load i32, ptr %pos.addr, align 4
-  %44 = load ptr, ptr %parameter.addr, align 8
-  %call82 = call ptr @Py_TYPE(ptr noundef %44)
+  %43 = load ptr, ptr %state.addr, align 8
+  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %43, i32 0, i32 8
+  %44 = load ptr, ptr %ProgrammingError, align 8
+  %45 = load i32, ptr %pos.addr, align 4
+  %46 = load ptr, ptr %parameter.addr, align 8
+  %call82 = call ptr @Py_TYPE(ptr noundef %46)
   %tp_name = getelementptr inbounds %struct._typeobject, ptr %call82, i32 0, i32 1
-  %45 = load ptr, ptr %tp_name, align 8
-  %call83 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %42, ptr noundef @.str.12, i32 noundef %43, ptr noundef %45)
+  %47 = load ptr, ptr %tp_name, align 8
+  %call83 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %44, ptr noundef @.str.12, i32 noundef %45, ptr noundef %47)
   store i32 -1, ptr %rc, align 4
   br label %sw.epilog
 
@@ -3297,13 +3299,13 @@ sw.epilog:                                        ; preds = %sw.bb81, %if.end76,
   br label %final
 
 final:                                            ; preds = %sw.epilog, %if.then
-  %46 = load i32, ptr %rc, align 4
-  store i32 %46, ptr %retval, align 4
+  %48 = load i32, ptr %rc, align 4
+  store i32 %48, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %final, %if.then75, %if.then71, %if.then63, %if.then60
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+  %49 = load i32, ptr %retval, align 4
+  ret i32 %49
 }
 
 declare ptr @PyErr_GetRaisedException() #1

@@ -1188,13 +1188,14 @@ define linkonce_odr dso_local void @_ZN5vcpkg21PathsPortFileProviderD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
-  %5 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5vcpkg30IFullVersionedPortfileProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  %6 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5vcpkg17IBaselineProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  %6 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5vcpkg30IFullVersionedPortfileProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %7 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5vcpkg17IBaselineProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
   call void @_ZN5vcpkg16PortFileProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }

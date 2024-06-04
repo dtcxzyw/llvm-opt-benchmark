@@ -2346,37 +2346,38 @@ define dso_local void @_ZN21cmExportFileGeneratorC2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21cmExportFileGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 6
+  %4 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTV21cmExportFileGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 7
+  %8 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 8
+  %9 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 11
-  call void @_ZNSt3setIP17cmGeneratorTargetSt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
-  %11 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 13
-  call void @_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %13 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 14
-  store i32 2, ptr %13, align 8
-  %14 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 15
-  store i32 8, ptr %14, align 4
-  %15 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 16
-  store i32 3, ptr %15, align 8
-  %16 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 17
-  store i8 0, ptr %16, align 4
-  %17 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 9
-  store i8 0, ptr %17, align 8
-  %18 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 2
+  %10 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  %11 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 11
+  call void @_ZNSt3setIP17cmGeneratorTargetSt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
+  %12 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 13
+  call void @_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  %14 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 14
+  store i32 2, ptr %14, align 8
+  %15 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 15
+  store i32 8, ptr %15, align 4
+  %16 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 16
+  store i32 3, ptr %16, align 8
+  %17 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 17
+  store i8 0, ptr %17, align 4
+  %18 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 9
   store i8 0, ptr %18, align 8
+  %19 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 2
+  store i8 0, ptr %19, align 8
   ret void
 }
 
@@ -3828,193 +3829,197 @@ define dso_local noundef zeroext i1 @_ZN21cmExportFileGenerator38PopulateInterfa
 
 27:                                               ; preds = %4
   store i1 false, ptr %5, align 1
-  br label %102
+  br label %106
 
 28:                                               ; preds = %4
   %29 = load atomic i8, ptr @_ZGVZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11 acquire, align 8
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %39, !prof !5
+  br i1 %30, label %31, label %43, !prof !5
 
 31:                                               ; preds = %28
   %32 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11) #3
   %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %39
+  br i1 %33, label %34, label %43
 
 34:                                               ; preds = %31
   store i1 true, ptr %16, align 1
   store ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, ptr %10, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %35 unwind label %66
+          to label %35 unwind label %70
 
 35:                                               ; preds = %34
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 1), ptr %10, align 8
+  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 1
+  store ptr %36, ptr %10, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 1), ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %36 unwind label %70
+  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %14)
+          to label %38 unwind label %74
 
-36:                                               ; preds = %35
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 2), ptr %10, align 8
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 2
+  store ptr %39, ptr %10, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 2), ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %15)
-          to label %37 unwind label %74
+  %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %41 unwind label %78
 
-37:                                               ; preds = %36
+41:                                               ; preds = %38
   store i1 false, ptr %16, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  %38 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EED2Ev, ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, ptr @__dso_handle) #3
+  %42 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EED2Ev, ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, ptr @__dso_handle) #3
   call void @__cxa_guard_release(ptr @_ZGVZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11) #3
-  br label %39
+  br label %43
 
-39:                                               ; preds = %37, %31, %28
+43:                                               ; preds = %41, %31, %28
   store i8 0, ptr %17, align 1
   store ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, ptr %18, align 8
-  %40 = call noundef ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE5beginEv(ptr noundef nonnull align 8 dereferenceable(96) @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11) #3
-  store ptr %40, ptr %19, align 8
-  %41 = call noundef ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE3endEv(ptr noundef nonnull align 8 dereferenceable(96) @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11) #3
-  store ptr %41, ptr %20, align 8
-  br label %42
+  %44 = call noundef ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE5beginEv(ptr noundef nonnull align 8 dereferenceable(96) @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11) #3
+  store ptr %44, ptr %19, align 8
+  %45 = call noundef ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EE3endEv(ptr noundef nonnull align 8 dereferenceable(96) @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11) #3
+  store ptr %45, ptr %20, align 8
+  br label %46
 
-42:                                               ; preds = %96, %39
-  %43 = load ptr, ptr %19, align 8
-  %44 = load ptr, ptr %20, align 8
-  %45 = icmp ne ptr %43, %44
-  br i1 %45, label %46, label %99
-
-46:                                               ; preds = %42
+46:                                               ; preds = %100, %43
   %47 = load ptr, ptr %19, align 8
-  store ptr %47, ptr %21, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %21, align 8
-  %50 = call ptr @_ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2728) %48, ptr noundef nonnull align 8 dereferenceable(32) %49)
-  %51 = getelementptr inbounds %class.cmValue, ptr %22, i32 0, i32 0
-  store ptr %50, ptr %51, align 8
-  %52 = call noundef zeroext i1 @_ZNK7cmValuecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
-  br i1 %52, label %53, label %95
+  %48 = load ptr, ptr %20, align 8
+  %49 = icmp ne ptr %47, %48
+  br i1 %49, label %50, label %103
 
-53:                                               ; preds = %46
-  %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7cmValuedeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
-  %55 = load i32, ptr %8, align 4
-  call void @_ZN21cmGeneratorExpression10PreprocessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17PreprocessContextEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %54, i32 noundef %55, i1 noundef zeroext false)
-  %56 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
-  br i1 %56, label %94, label %57
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %19, align 8
+  store ptr %51, ptr %21, align 8
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %21, align 8
+  %54 = call ptr @_ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2728) %52, ptr noundef nonnull align 8 dereferenceable(32) %53)
+  %55 = getelementptr inbounds %class.cmValue, ptr %22, i32 0, i32 0
+  store ptr %54, ptr %55, align 8
+  %56 = call noundef zeroext i1 @_ZNK7cmValuecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
+  br i1 %56, label %57, label %99
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %7, align 8
-  invoke void @_ZN21cmExportFileGenerator36ResolveTargetsInGeneratorExpressionsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK17cmGeneratorTargetNS_18FreeTargetsReplaceE(ptr noundef nonnull align 8 dereferenceable(341) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %58, i32 noundef 0)
-          to label %59 unwind label %90
+57:                                               ; preds = %50
+  %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7cmValuedeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
+  %59 = load i32, ptr %8, align 4
+  call void @_ZN21cmGeneratorExpression10PreprocessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17PreprocessContextEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %58, i32 noundef %59, i1 noundef zeroext false)
+  %60 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
+  br i1 %60, label %98, label %61
 
-59:                                               ; preds = %57
-  %60 = load ptr, ptr %9, align 8
-  %61 = load ptr, ptr %21, align 8
-  %62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(32) %61)
-          to label %63 unwind label %90
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %7, align 8
+  invoke void @_ZN21cmExportFileGenerator36ResolveTargetsInGeneratorExpressionsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK17cmGeneratorTargetNS_18FreeTargetsReplaceE(ptr noundef nonnull align 8 dereferenceable(341) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %62, i32 noundef 0)
+          to label %63 unwind label %94
 
-63:                                               ; preds = %59
-  %64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %23)
-          to label %65 unwind label %90
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %21, align 8
+  %66 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(32) %65)
+          to label %67 unwind label %94
 
-65:                                               ; preds = %63
+67:                                               ; preds = %63
+  %68 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %69 unwind label %94
+
+69:                                               ; preds = %67
   store i8 1, ptr %17, align 1
-  br label %94
+  br label %98
 
-66:                                               ; preds = %34
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %12, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %13, align 4
-  br label %79
-
-70:                                               ; preds = %35
+70:                                               ; preds = %34
   %71 = landingpad { ptr, i32 }
           cleanup
   %72 = extractvalue { ptr, i32 } %71, 0
   store ptr %72, ptr %12, align 8
   %73 = extractvalue { ptr, i32 } %71, 1
   store i32 %73, ptr %13, align 4
-  br label %78
+  br label %83
 
-74:                                               ; preds = %36
+74:                                               ; preds = %35
   %75 = landingpad { ptr, i32 }
           cleanup
   %76 = extractvalue { ptr, i32 } %75, 0
   store ptr %76, ptr %12, align 8
   %77 = extractvalue { ptr, i32 } %75, 1
   store i32 %77, ptr %13, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #3
-  br label %78
+  br label %82
 
-78:                                               ; preds = %74, %70
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
-  br label %79
-
-79:                                               ; preds = %78, %66
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  %80 = load i1, ptr %16, align 1
-  br i1 %80, label %81, label %89
-
-81:                                               ; preds = %79
-  %82 = load ptr, ptr %10, align 8
-  %83 = icmp eq ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, %82
-  br i1 %83, label %88, label %84
-
-84:                                               ; preds = %84, %81
-  %85 = phi ptr [ %82, %81 ], [ %86, %84 ]
-  %86 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %85, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #3
-  %87 = icmp eq ptr %86, @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11
-  br i1 %87, label %88, label %84
-
-88:                                               ; preds = %84, %81
-  br label %89
-
-89:                                               ; preds = %88, %79
-  call void @__cxa_guard_abort(ptr @_ZGVZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11) #3
-  br label %104
-
-90:                                               ; preds = %63, %59, %57
-  %91 = landingpad { ptr, i32 }
+78:                                               ; preds = %38
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %12, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %13, align 4
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %12, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %13, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #3
+  br label %82
+
+82:                                               ; preds = %78, %74
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #3
+  br label %83
+
+83:                                               ; preds = %82, %70
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  %84 = load i1, ptr %16, align 1
+  br i1 %84, label %85, label %93
+
+85:                                               ; preds = %83
+  %86 = load ptr, ptr %10, align 8
+  %87 = icmp eq ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, %86
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %88, %85
+  %89 = phi ptr [ %86, %85 ], [ %90, %88 ]
+  %90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %89, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #3
+  %91 = icmp eq ptr %90, @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11
+  br i1 %91, label %92, label %88
+
+92:                                               ; preds = %88, %85
+  br label %93
+
+93:                                               ; preds = %92, %83
+  call void @__cxa_guard_abort(ptr @_ZGVZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11) #3
+  br label %108
+
+94:                                               ; preds = %67, %63, %61
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %12, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %13, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
-  br label %104
+  br label %108
 
-94:                                               ; preds = %65, %53
+98:                                               ; preds = %69, %57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
-  br label %95
+  br label %99
 
-95:                                               ; preds = %94, %46
-  br label %96
+99:                                               ; preds = %98, %50
+  br label %100
 
-96:                                               ; preds = %95
-  %97 = load ptr, ptr %19, align 8
-  %98 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %97, i32 1
-  store ptr %98, ptr %19, align 8
-  br label %42
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %19, align 8
+  %102 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %101, i32 1
+  store ptr %102, ptr %19, align 8
+  br label %46
 
-99:                                               ; preds = %42
-  %100 = load i8, ptr %17, align 1
-  %101 = trunc i8 %100 to i1
-  store i1 %101, ptr %5, align 1
-  br label %102
+103:                                              ; preds = %46
+  %104 = load i8, ptr %17, align 1
+  %105 = trunc i8 %104 to i1
+  store i1 %105, ptr %5, align 1
+  br label %106
 
-102:                                              ; preds = %99, %27
-  %103 = load i1, ptr %5, align 1
-  ret i1 %103
+106:                                              ; preds = %103, %27
+  %107 = load i1, ptr %5, align 1
+  ret i1 %107
 
-104:                                              ; preds = %90, %89
-  %105 = load ptr, ptr %12, align 8
-  %106 = load i32, ptr %13, align 4
-  %107 = insertvalue { ptr, i32 } poison, ptr %105, 0
-  %108 = insertvalue { ptr, i32 } %107, i32 %106, 1
-  resume { ptr, i32 } %108
+108:                                              ; preds = %94, %93
+  %109 = load ptr, ptr %12, align 8
+  %110 = load i32, ptr %13, align 4
+  %111 = insertvalue { ptr, i32 } poison, ptr %109, 0
+  %112 = insertvalue { ptr, i32 } %111, i32 %110, 1
+  resume { ptr, i32 } %112
 }
 
 declare noundef zeroext i1 @_ZNK17cmGeneratorTarget10IsLinkableEv(ptr noundef nonnull align 8 dereferenceable(2728)) #1
@@ -15297,25 +15302,26 @@ define linkonce_odr dso_local void @_ZN21cmExportFileGeneratorD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21cmExportFileGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 13
-  call void @_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 11
-  call void @_ZNSt3setIP17cmGeneratorTargetSt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTV21cmExportFileGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 13
+  call void @_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 11
+  call void @_ZNSt3setIP17cmGeneratorTargetSt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 6
+  %9 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 5
+  %10 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  %11 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  %12 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
   ret void
 }
 

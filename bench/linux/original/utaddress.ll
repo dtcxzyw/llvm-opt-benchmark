@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef i32 @acpi_ut_add_address_range(i8 noundef zeroext %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = icmp ugt i8 %0, 1
-  br i1 %6, label %25, label %7
+  br i1 %6, label %26, label %7
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
@@ -21,31 +21,32 @@ define dso_local noundef i32 @acpi_ut_add_address_range(i8 noundef zeroext %0, i
   %9 = and i64 %8, 512
   %10 = icmp eq i64 %9, 0
   %11 = select i1 %10, i32 2080, i32 3264
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %13 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %11, i64 noundef 32) #5
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %25, label %15
+  %12 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %13 = load ptr, ptr %12, align 8
+  %14 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %13, i32 noundef %11, i64 noundef 32) #5
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %26, label %16
 
-15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
-  store i64 %1, ptr %16, align 8
-  %17 = zext i32 %2 to i64
-  %18 = add i64 %1, -1
-  %19 = add i64 %18, %17
-  %20 = getelementptr inbounds i8, ptr %13, i64 24
-  store i64 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %3, ptr %21, align 8
-  %22 = zext nneg i8 %0 to i64
-  %23 = getelementptr [2 x ptr], ptr @acpi_gbl_address_range_list, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %13, align 8
-  store ptr %13, ptr %23, align 8
-  br label %25
+16:                                               ; preds = %7
+  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  store i64 %1, ptr %17, align 8
+  %18 = zext i32 %2 to i64
+  %19 = add i64 %1, -1
+  %20 = add i64 %19, %18
+  %21 = getelementptr inbounds i8, ptr %14, i64 24
+  store i64 %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %3, ptr %22, align 8
+  %23 = zext nneg i8 %0 to i64
+  %24 = getelementptr [2 x ptr], ptr @acpi_gbl_address_range_list, i64 0, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %14, align 8
+  store ptr %14, ptr %24, align 8
+  br label %26
 
-25:                                               ; preds = %15, %7, %4
-  %26 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 4, %7 ]
-  ret i32 %26
+26:                                               ; preds = %16, %7, %4
+  %27 = phi i32 [ 0, %16 ], [ 0, %4 ], [ 4, %7 ]
+  ret i32 %27
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

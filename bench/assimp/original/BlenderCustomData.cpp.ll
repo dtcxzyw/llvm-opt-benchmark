@@ -1086,7 +1086,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flag = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %this1, i32 0, i32 3
   store i8 0, ptr %flag, align 8
   %mat_nr = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %this1, i32 0, i32 5
@@ -1393,7 +1394,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1691,7 +1693,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1989,7 +1992,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flag = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 2
   store i8 0, ptr %flag, align 8
   %mode = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 3
@@ -2295,7 +2299,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2593,7 +2598,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2891,7 +2897,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3189,7 +3196,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3487,7 +3495,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3551,47 +3560,88 @@ delete.end2:                                      ; preds = %arraydestroy.done1,
 define internal void @__cxx_global_var_init() #8 section ".text.startup" {
 entry:
   call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, ptr noundef @_ZN6Assimp7Blender9readMVertEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMVertEm, ptr noundef @_ZN6Assimp7Blender12destroyMVertEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 1), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 2), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 3), ptr noundef @_ZN6Assimp7Blender9readMEdgeEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMEdgeEm, ptr noundef @_ZN6Assimp7Blender12destroyMEdgeEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 4), ptr noundef @_ZN6Assimp7Blender9readMFaceEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMFaceEm, ptr noundef @_ZN6Assimp7Blender12destroyMFaceEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 5), ptr noundef @_ZN6Assimp7Blender10readMTFaceEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender12createMTFaceEm, ptr noundef @_ZN6Assimp7Blender13destroyMTFaceEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 6), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 7), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 8), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 9), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 10), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 11), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 12), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 13), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 14), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 15), ptr noundef @_ZN6Assimp7Blender12readMTexPolyEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender14createMTexPolyEm, ptr noundef @_ZN6Assimp7Blender15destroyMTexPolyEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 16), ptr noundef @_ZN6Assimp7Blender11readMLoopUVEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender13createMLoopUVEm, ptr noundef @_ZN6Assimp7Blender14destroyMLoopUVEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 17), ptr noundef @_ZN6Assimp7Blender12readMLoopColEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender14createMLoopColEm, ptr noundef @_ZN6Assimp7Blender15destroyMLoopColEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 18), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 19), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 20), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 21), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 22), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 23), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 24), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 25), ptr noundef @_ZN6Assimp7Blender9readMPolyEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMPolyEm, ptr noundef @_ZN6Assimp7Blender12destroyMPolyEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 26), ptr noundef @_ZN6Assimp7Blender9readMLoopEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMLoopEm, ptr noundef @_ZN6Assimp7Blender12destroyMLoopEPNS0_8ElemBaseE)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 27), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 28), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 29), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 30), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 31), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 32), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 33), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 34), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 35), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 36), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 37), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 38), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 39), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 40), ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 41), ptr noundef null, ptr noundef null, ptr noundef null)
+  %0 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 1
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %1 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 2
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef null, ptr noundef null, ptr noundef null)
+  %2 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 3
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef @_ZN6Assimp7Blender9readMEdgeEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMEdgeEm, ptr noundef @_ZN6Assimp7Blender12destroyMEdgeEPNS0_8ElemBaseE)
+  %3 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 4
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef @_ZN6Assimp7Blender9readMFaceEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMFaceEm, ptr noundef @_ZN6Assimp7Blender12destroyMFaceEPNS0_8ElemBaseE)
+  %4 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 5
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef @_ZN6Assimp7Blender10readMTFaceEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender12createMTFaceEm, ptr noundef @_ZN6Assimp7Blender13destroyMTFaceEPNS0_8ElemBaseE)
+  %5 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 6
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef null, ptr noundef null, ptr noundef null)
+  %6 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 7
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null, ptr noundef null, ptr noundef null)
+  %7 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 8
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef null, ptr noundef null, ptr noundef null)
+  %8 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 9
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef null, ptr noundef null, ptr noundef null)
+  %9 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 10
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef null, ptr noundef null, ptr noundef null)
+  %10 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 11
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef null, ptr noundef null, ptr noundef null)
+  %11 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 12
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef null, ptr noundef null, ptr noundef null)
+  %12 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 13
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef null, ptr noundef null, ptr noundef null)
+  %13 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 14
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef null, ptr noundef null, ptr noundef null)
+  %14 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 15
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef @_ZN6Assimp7Blender12readMTexPolyEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender14createMTexPolyEm, ptr noundef @_ZN6Assimp7Blender15destroyMTexPolyEPNS0_8ElemBaseE)
+  %15 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 16
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef @_ZN6Assimp7Blender11readMLoopUVEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender13createMLoopUVEm, ptr noundef @_ZN6Assimp7Blender14destroyMLoopUVEPNS0_8ElemBaseE)
+  %16 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 17
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef @_ZN6Assimp7Blender12readMLoopColEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender14createMLoopColEm, ptr noundef @_ZN6Assimp7Blender15destroyMLoopColEPNS0_8ElemBaseE)
+  %17 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 18
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef null, ptr noundef null, ptr noundef null)
+  %18 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 19
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef null, ptr noundef null, ptr noundef null)
+  %19 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 20
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef null, ptr noundef null, ptr noundef null)
+  %20 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 21
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef null, ptr noundef null, ptr noundef null)
+  %21 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 22
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef null, ptr noundef null, ptr noundef null)
+  %22 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 23
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef null, ptr noundef null, ptr noundef null)
+  %23 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 24
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef null, ptr noundef null, ptr noundef null)
+  %24 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 25
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef @_ZN6Assimp7Blender9readMPolyEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMPolyEm, ptr noundef @_ZN6Assimp7Blender12destroyMPolyEPNS0_8ElemBaseE)
+  %25 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 26
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef @_ZN6Assimp7Blender9readMLoopEPNS0_8ElemBaseEmRKNS0_12FileDatabaseE, ptr noundef @_ZN6Assimp7Blender11createMLoopEm, ptr noundef @_ZN6Assimp7Blender12destroyMLoopEPNS0_8ElemBaseE)
+  %26 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 27
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef null, ptr noundef null, ptr noundef null)
+  %27 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 28
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef null, ptr noundef null, ptr noundef null)
+  %28 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 29
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef null, ptr noundef null, ptr noundef null)
+  %29 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 30
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef null, ptr noundef null, ptr noundef null)
+  %30 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 31
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef null, ptr noundef null, ptr noundef null)
+  %31 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 32
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef null, ptr noundef null, ptr noundef null)
+  %32 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 33
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef null, ptr noundef null, ptr noundef null)
+  %33 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 34
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef null, ptr noundef null, ptr noundef null)
+  %34 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 35
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef null, ptr noundef null, ptr noundef null)
+  %35 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 36
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef null, ptr noundef null, ptr noundef null)
+  %36 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 37
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef null, ptr noundef null, ptr noundef null)
+  %37 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 38
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef null, ptr noundef null, ptr noundef null)
+  %38 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 39
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef null, ptr noundef null, ptr noundef null)
+  %39 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 40
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef null, ptr noundef null, ptr noundef null)
+  %40 = getelementptr inbounds %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 41
+  call void @_ZN6Assimp7Blender25CustomDataTypeDescriptionC2EPFbPNS0_8ElemBaseEmRKNS0_12FileDatabaseEEPFS3_mEPFvS3_E(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 
@@ -3756,7 +3806,8 @@ entry:
   %1 = load ptr, ptr %args.addr2, align 8
   %2 = load ptr, ptr %args.addr4, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA17_KcRKiRA14_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this5, ptr noundef nonnull align 1 dereferenceable(17) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(14) %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 }
 
@@ -4202,7 +4253,8 @@ entry:
   %1 = load ptr, ptr %args.addr2, align 8
   %2 = load ptr, ptr %args.addr4, align 8
   call void @_ZN17DeadlyImportErrorC2IJRA43_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this5, ptr noundef nonnull align 1 dereferenceable(43) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(2) %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 }
 
@@ -4556,16 +4608,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
   br label %eh.resume
 
@@ -4915,7 +4968,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dna_type = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %dna_type, align 8
   ret void
@@ -5865,16 +5919,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %3 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #14
   br label %eh.resume
 
@@ -6303,12 +6358,13 @@ entry:
   store ptr %__a, ptr %__a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__d.addr, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #14
+  %1 = load ptr, ptr %__p.addr, align 8
+  %2 = load ptr, ptr %__d.addr, align 8
+  %3 = load ptr, ptr %__a.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
   ret void
 }
 
@@ -6479,7 +6535,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

@@ -6088,47 +6088,50 @@ for.body884:                                      ; preds = %for.cond880
   %273 = load i32, ptr %arrayidx886, align 4
   %274 = load i32, ptr %mode, align 4
   %idxprom887 = sext i32 %274 to i64
-  %arrayidx888 = getelementptr inbounds [14 x i8], ptr getelementptr inbounds ([4 x [14 x i8]], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 1), i64 0, i64 %idxprom887
-  %275 = load i8, ptr %arrayidx888, align 1
-  %conv889 = sext i8 %275 to i32
+  %275 = getelementptr inbounds [4 x [14 x i8]], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 1
+  %arrayidx888 = getelementptr inbounds [14 x i8], ptr %275, i64 0, i64 %idxprom887
+  %276 = load i8, ptr %arrayidx888, align 1
+  %conv889 = sext i8 %276 to i32
   %call890 = call noundef i32 @_Z18bcdec__extend_signii(i32 noundef %273, i32 noundef %conv889)
-  %276 = load i32, ptr %i, align 4
-  %idxprom891 = sext i32 %276 to i64
+  %277 = load i32, ptr %i, align 4
+  %idxprom891 = sext i32 %277 to i64
   %arrayidx892 = getelementptr inbounds [4 x i32], ptr %r, i64 0, i64 %idxprom891
   store i32 %call890, ptr %arrayidx892, align 4
-  %277 = load i32, ptr %i, align 4
-  %idxprom893 = sext i32 %277 to i64
+  %278 = load i32, ptr %i, align 4
+  %idxprom893 = sext i32 %278 to i64
   %arrayidx894 = getelementptr inbounds [4 x i32], ptr %g, i64 0, i64 %idxprom893
-  %278 = load i32, ptr %arrayidx894, align 4
-  %279 = load i32, ptr %mode, align 4
-  %idxprom895 = sext i32 %279 to i64
-  %arrayidx896 = getelementptr inbounds [14 x i8], ptr getelementptr inbounds ([4 x [14 x i8]], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 2), i64 0, i64 %idxprom895
-  %280 = load i8, ptr %arrayidx896, align 1
-  %conv897 = sext i8 %280 to i32
-  %call898 = call noundef i32 @_Z18bcdec__extend_signii(i32 noundef %278, i32 noundef %conv897)
-  %281 = load i32, ptr %i, align 4
-  %idxprom899 = sext i32 %281 to i64
+  %279 = load i32, ptr %arrayidx894, align 4
+  %280 = load i32, ptr %mode, align 4
+  %idxprom895 = sext i32 %280 to i64
+  %281 = getelementptr inbounds [4 x [14 x i8]], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 2
+  %arrayidx896 = getelementptr inbounds [14 x i8], ptr %281, i64 0, i64 %idxprom895
+  %282 = load i8, ptr %arrayidx896, align 1
+  %conv897 = sext i8 %282 to i32
+  %call898 = call noundef i32 @_Z18bcdec__extend_signii(i32 noundef %279, i32 noundef %conv897)
+  %283 = load i32, ptr %i, align 4
+  %idxprom899 = sext i32 %283 to i64
   %arrayidx900 = getelementptr inbounds [4 x i32], ptr %g, i64 0, i64 %idxprom899
   store i32 %call898, ptr %arrayidx900, align 4
-  %282 = load i32, ptr %i, align 4
-  %idxprom901 = sext i32 %282 to i64
+  %284 = load i32, ptr %i, align 4
+  %idxprom901 = sext i32 %284 to i64
   %arrayidx902 = getelementptr inbounds [4 x i32], ptr %b, i64 0, i64 %idxprom901
-  %283 = load i32, ptr %arrayidx902, align 4
-  %284 = load i32, ptr %mode, align 4
-  %idxprom903 = sext i32 %284 to i64
-  %arrayidx904 = getelementptr inbounds [14 x i8], ptr getelementptr inbounds ([4 x [14 x i8]], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 3), i64 0, i64 %idxprom903
-  %285 = load i8, ptr %arrayidx904, align 1
-  %conv905 = sext i8 %285 to i32
-  %call906 = call noundef i32 @_Z18bcdec__extend_signii(i32 noundef %283, i32 noundef %conv905)
-  %286 = load i32, ptr %i, align 4
-  %idxprom907 = sext i32 %286 to i64
+  %285 = load i32, ptr %arrayidx902, align 4
+  %286 = load i32, ptr %mode, align 4
+  %idxprom903 = sext i32 %286 to i64
+  %287 = getelementptr inbounds [4 x [14 x i8]], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 3
+  %arrayidx904 = getelementptr inbounds [14 x i8], ptr %287, i64 0, i64 %idxprom903
+  %288 = load i8, ptr %arrayidx904, align 1
+  %conv905 = sext i8 %288 to i32
+  %call906 = call noundef i32 @_Z18bcdec__extend_signii(i32 noundef %285, i32 noundef %conv905)
+  %289 = load i32, ptr %i, align 4
+  %idxprom907 = sext i32 %289 to i64
   %arrayidx908 = getelementptr inbounds [4 x i32], ptr %b, i64 0, i64 %idxprom907
   store i32 %call906, ptr %arrayidx908, align 4
   br label %for.inc909
 
 for.inc909:                                       ; preds = %for.body884
-  %287 = load i32, ptr %i, align 4
-  %inc910 = add nsw i32 %287, 1
+  %290 = load i32, ptr %i, align 4
+  %inc910 = add nsw i32 %290, 1
   store i32 %inc910, ptr %i, align 4
   br label %for.cond880, !llvm.loop !14
 
@@ -6136,13 +6139,13 @@ for.end911:                                       ; preds = %for.cond880
   br label %if.end912
 
 if.end912:                                        ; preds = %for.end911, %lor.lhs.false
-  %288 = load i32, ptr %mode, align 4
-  %cmp913 = icmp ne i32 %288, 9
+  %291 = load i32, ptr %mode, align 4
+  %cmp913 = icmp ne i32 %291, 9
   br i1 %cmp913, label %land.lhs.true914, label %if.end952
 
 land.lhs.true914:                                 ; preds = %if.end912
-  %289 = load i32, ptr %mode, align 4
-  %cmp915 = icmp ne i32 %289, 10
+  %292 = load i32, ptr %mode, align 4
+  %cmp915 = icmp ne i32 %292, 10
   br i1 %cmp915, label %if.then916, label %if.end952
 
 if.then916:                                       ; preds = %land.lhs.true914
@@ -6150,70 +6153,70 @@ if.then916:                                       ; preds = %land.lhs.true914
   br label %for.cond917
 
 for.cond917:                                      ; preds = %for.inc949, %if.then916
-  %290 = load i32, ptr %i, align 4
-  %291 = load i32, ptr %numPartitions, align 4
-  %add918 = add nsw i32 %291, 1
+  %293 = load i32, ptr %i, align 4
+  %294 = load i32, ptr %numPartitions, align 4
+  %add918 = add nsw i32 %294, 1
   %mul919 = mul nsw i32 %add918, 2
-  %cmp920 = icmp slt i32 %290, %mul919
+  %cmp920 = icmp slt i32 %293, %mul919
   br i1 %cmp920, label %for.body921, label %for.end951
 
 for.body921:                                      ; preds = %for.cond917
-  %292 = load i32, ptr %i, align 4
-  %idxprom922 = sext i32 %292 to i64
+  %295 = load i32, ptr %i, align 4
+  %idxprom922 = sext i32 %295 to i64
   %arrayidx923 = getelementptr inbounds [4 x i32], ptr %r, i64 0, i64 %idxprom922
-  %293 = load i32, ptr %arrayidx923, align 4
+  %296 = load i32, ptr %arrayidx923, align 4
   %arrayidx924 = getelementptr inbounds [4 x i32], ptr %r, i64 0, i64 0
-  %294 = load i32, ptr %arrayidx924, align 16
-  %295 = load i32, ptr %mode, align 4
-  %idxprom925 = sext i32 %295 to i64
+  %297 = load i32, ptr %arrayidx924, align 16
+  %298 = load i32, ptr %mode, align 4
+  %idxprom925 = sext i32 %298 to i64
   %arrayidx926 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom925
-  %296 = load i8, ptr %arrayidx926, align 1
-  %conv927 = sext i8 %296 to i32
-  %297 = load i32, ptr %isSigned.addr, align 4
-  %call928 = call noundef i32 @_Z24bcdec__transform_inverseiiii(i32 noundef %293, i32 noundef %294, i32 noundef %conv927, i32 noundef %297)
-  %298 = load i32, ptr %i, align 4
-  %idxprom929 = sext i32 %298 to i64
+  %299 = load i8, ptr %arrayidx926, align 1
+  %conv927 = sext i8 %299 to i32
+  %300 = load i32, ptr %isSigned.addr, align 4
+  %call928 = call noundef i32 @_Z24bcdec__transform_inverseiiii(i32 noundef %296, i32 noundef %297, i32 noundef %conv927, i32 noundef %300)
+  %301 = load i32, ptr %i, align 4
+  %idxprom929 = sext i32 %301 to i64
   %arrayidx930 = getelementptr inbounds [4 x i32], ptr %r, i64 0, i64 %idxprom929
   store i32 %call928, ptr %arrayidx930, align 4
-  %299 = load i32, ptr %i, align 4
-  %idxprom931 = sext i32 %299 to i64
+  %302 = load i32, ptr %i, align 4
+  %idxprom931 = sext i32 %302 to i64
   %arrayidx932 = getelementptr inbounds [4 x i32], ptr %g, i64 0, i64 %idxprom931
-  %300 = load i32, ptr %arrayidx932, align 4
+  %303 = load i32, ptr %arrayidx932, align 4
   %arrayidx933 = getelementptr inbounds [4 x i32], ptr %g, i64 0, i64 0
-  %301 = load i32, ptr %arrayidx933, align 16
-  %302 = load i32, ptr %mode, align 4
-  %idxprom934 = sext i32 %302 to i64
+  %304 = load i32, ptr %arrayidx933, align 16
+  %305 = load i32, ptr %mode, align 4
+  %idxprom934 = sext i32 %305 to i64
   %arrayidx935 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom934
-  %303 = load i8, ptr %arrayidx935, align 1
-  %conv936 = sext i8 %303 to i32
-  %304 = load i32, ptr %isSigned.addr, align 4
-  %call937 = call noundef i32 @_Z24bcdec__transform_inverseiiii(i32 noundef %300, i32 noundef %301, i32 noundef %conv936, i32 noundef %304)
-  %305 = load i32, ptr %i, align 4
-  %idxprom938 = sext i32 %305 to i64
+  %306 = load i8, ptr %arrayidx935, align 1
+  %conv936 = sext i8 %306 to i32
+  %307 = load i32, ptr %isSigned.addr, align 4
+  %call937 = call noundef i32 @_Z24bcdec__transform_inverseiiii(i32 noundef %303, i32 noundef %304, i32 noundef %conv936, i32 noundef %307)
+  %308 = load i32, ptr %i, align 4
+  %idxprom938 = sext i32 %308 to i64
   %arrayidx939 = getelementptr inbounds [4 x i32], ptr %g, i64 0, i64 %idxprom938
   store i32 %call937, ptr %arrayidx939, align 4
-  %306 = load i32, ptr %i, align 4
-  %idxprom940 = sext i32 %306 to i64
+  %309 = load i32, ptr %i, align 4
+  %idxprom940 = sext i32 %309 to i64
   %arrayidx941 = getelementptr inbounds [4 x i32], ptr %b, i64 0, i64 %idxprom940
-  %307 = load i32, ptr %arrayidx941, align 4
+  %310 = load i32, ptr %arrayidx941, align 4
   %arrayidx942 = getelementptr inbounds [4 x i32], ptr %b, i64 0, i64 0
-  %308 = load i32, ptr %arrayidx942, align 16
-  %309 = load i32, ptr %mode, align 4
-  %idxprom943 = sext i32 %309 to i64
+  %311 = load i32, ptr %arrayidx942, align 16
+  %312 = load i32, ptr %mode, align 4
+  %idxprom943 = sext i32 %312 to i64
   %arrayidx944 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom943
-  %310 = load i8, ptr %arrayidx944, align 1
-  %conv945 = sext i8 %310 to i32
-  %311 = load i32, ptr %isSigned.addr, align 4
-  %call946 = call noundef i32 @_Z24bcdec__transform_inverseiiii(i32 noundef %307, i32 noundef %308, i32 noundef %conv945, i32 noundef %311)
-  %312 = load i32, ptr %i, align 4
-  %idxprom947 = sext i32 %312 to i64
+  %313 = load i8, ptr %arrayidx944, align 1
+  %conv945 = sext i8 %313 to i32
+  %314 = load i32, ptr %isSigned.addr, align 4
+  %call946 = call noundef i32 @_Z24bcdec__transform_inverseiiii(i32 noundef %310, i32 noundef %311, i32 noundef %conv945, i32 noundef %314)
+  %315 = load i32, ptr %i, align 4
+  %idxprom947 = sext i32 %315 to i64
   %arrayidx948 = getelementptr inbounds [4 x i32], ptr %b, i64 0, i64 %idxprom947
   store i32 %call946, ptr %arrayidx948, align 4
   br label %for.inc949
 
 for.inc949:                                       ; preds = %for.body921
-  %313 = load i32, ptr %i, align 4
-  %inc950 = add nsw i32 %313, 1
+  %316 = load i32, ptr %i, align 4
+  %inc950 = add nsw i32 %316, 1
   store i32 %inc950, ptr %i, align 4
   br label %for.cond917, !llvm.loop !15
 
@@ -6225,8 +6228,8 @@ if.end952:                                        ; preds = %for.end951, %land.l
   br label %for.cond953
 
 for.cond953:                                      ; preds = %for.inc1066, %if.end952
-  %314 = load i32, ptr %i, align 4
-  %cmp954 = icmp slt i32 %314, 4
+  %317 = load i32, ptr %i, align 4
+  %cmp954 = icmp slt i32 %317, 4
   br i1 %cmp954, label %for.body955, label %for.end1068
 
 for.body955:                                      ; preds = %for.cond953
@@ -6234,225 +6237,225 @@ for.body955:                                      ; preds = %for.cond953
   br label %for.cond956
 
 for.cond956:                                      ; preds = %for.inc1061, %for.body955
-  %315 = load i32, ptr %j, align 4
-  %cmp957 = icmp slt i32 %315, 4
+  %318 = load i32, ptr %j, align 4
+  %cmp957 = icmp slt i32 %318, 4
   br i1 %cmp957, label %for.body958, label %for.end1063
 
 for.body958:                                      ; preds = %for.cond956
-  %316 = load i32, ptr %mode, align 4
-  %cmp959 = icmp sge i32 %316, 10
+  %319 = load i32, ptr %mode, align 4
+  %cmp959 = icmp sge i32 %319, 10
   br i1 %cmp959, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.body958
-  %317 = load i32, ptr %i, align 4
-  %318 = load i32, ptr %j, align 4
-  %or960 = or i32 %317, %318
+  %320 = load i32, ptr %i, align 4
+  %321 = load i32, ptr %j, align 4
+  %or960 = or i32 %320, %321
   %tobool961 = icmp ne i32 %or960, 0
   %cond = select i1 %tobool961, i32 0, i32 128
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body958
-  %319 = load i32, ptr %partition, align 4
-  %idxprom962 = sext i32 %319 to i64
+  %322 = load i32, ptr %partition, align 4
+  %idxprom962 = sext i32 %322 to i64
   %arrayidx963 = getelementptr inbounds [32 x [4 x [4 x i8]]], ptr @_ZZ15bcdec_bc6h_halfE14partition_sets, i64 0, i64 %idxprom962
-  %320 = load i32, ptr %i, align 4
-  %idxprom964 = sext i32 %320 to i64
+  %323 = load i32, ptr %i, align 4
+  %idxprom964 = sext i32 %323 to i64
   %arrayidx965 = getelementptr inbounds [4 x [4 x i8]], ptr %arrayidx963, i64 0, i64 %idxprom964
-  %321 = load i32, ptr %j, align 4
-  %idxprom966 = sext i32 %321 to i64
+  %324 = load i32, ptr %j, align 4
+  %idxprom966 = sext i32 %324 to i64
   %arrayidx967 = getelementptr inbounds [4 x i8], ptr %arrayidx965, i64 0, i64 %idxprom966
-  %322 = load i8, ptr %arrayidx967, align 1
-  %conv968 = zext i8 %322 to i32
+  %325 = load i8, ptr %arrayidx967, align 1
+  %conv968 = zext i8 %325 to i32
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond969 = phi i32 [ %cond, %cond.true ], [ %conv968, %cond.false ]
   store i32 %cond969, ptr %partitionSet, align 4
-  %323 = load i32, ptr %mode, align 4
-  %cmp970 = icmp sge i32 %323, 10
+  %326 = load i32, ptr %mode, align 4
+  %cmp970 = icmp sge i32 %326, 10
   %cond971 = select i1 %cmp970, i32 4, i32 3
   store i32 %cond971, ptr %indexBits, align 4
-  %324 = load i32, ptr %partitionSet, align 4
-  %and = and i32 %324, 128
+  %327 = load i32, ptr %partitionSet, align 4
+  %and = and i32 %327, 128
   %tobool972 = icmp ne i32 %and, 0
   br i1 %tobool972, label %if.then973, label %if.end974
 
 if.then973:                                       ; preds = %cond.end
-  %325 = load i32, ptr %indexBits, align 4
-  %dec = add nsw i32 %325, -1
+  %328 = load i32, ptr %indexBits, align 4
+  %dec = add nsw i32 %328, -1
   store i32 %dec, ptr %indexBits, align 4
   br label %if.end974
 
 if.end974:                                        ; preds = %if.then973, %cond.end
-  %326 = load i32, ptr %partitionSet, align 4
-  %and975 = and i32 %326, 1
+  %329 = load i32, ptr %partitionSet, align 4
+  %and975 = and i32 %329, 1
   store i32 %and975, ptr %partitionSet, align 4
-  %327 = load i32, ptr %indexBits, align 4
-  %call976 = call noundef i32 @_Z26bcdec__bitstream_read_bitsP16bcdec__bitstreami(ptr noundef %bstream, i32 noundef %327)
+  %330 = load i32, ptr %indexBits, align 4
+  %call976 = call noundef i32 @_Z26bcdec__bitstream_read_bitsP16bcdec__bitstreami(ptr noundef %bstream, i32 noundef %330)
   store i32 %call976, ptr %index, align 4
-  %328 = load i32, ptr %partitionSet, align 4
-  %mul977 = mul nsw i32 %328, 2
+  %331 = load i32, ptr %partitionSet, align 4
+  %mul977 = mul nsw i32 %331, 2
   %add978 = add nsw i32 %mul977, 0
   %idxprom979 = sext i32 %add978 to i64
   %arrayidx980 = getelementptr inbounds [4 x i32], ptr %r, i64 0, i64 %idxprom979
-  %329 = load i32, ptr %arrayidx980, align 4
-  %330 = load i32, ptr %mode, align 4
-  %idxprom981 = sext i32 %330 to i64
+  %332 = load i32, ptr %arrayidx980, align 4
+  %333 = load i32, ptr %mode, align 4
+  %idxprom981 = sext i32 %333 to i64
   %arrayidx982 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom981
-  %331 = load i8, ptr %arrayidx982, align 1
-  %conv983 = sext i8 %331 to i32
-  %332 = load i32, ptr %isSigned.addr, align 4
-  %call984 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %329, i32 noundef %conv983, i32 noundef %332)
+  %334 = load i8, ptr %arrayidx982, align 1
+  %conv983 = sext i8 %334 to i32
+  %335 = load i32, ptr %isSigned.addr, align 4
+  %call984 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %332, i32 noundef %conv983, i32 noundef %335)
   %arrayidx985 = getelementptr inbounds [2 x i32], ptr %epR, i64 0, i64 0
   store i32 %call984, ptr %arrayidx985, align 4
-  %333 = load i32, ptr %partitionSet, align 4
-  %mul986 = mul nsw i32 %333, 2
+  %336 = load i32, ptr %partitionSet, align 4
+  %mul986 = mul nsw i32 %336, 2
   %add987 = add nsw i32 %mul986, 0
   %idxprom988 = sext i32 %add987 to i64
   %arrayidx989 = getelementptr inbounds [4 x i32], ptr %g, i64 0, i64 %idxprom988
-  %334 = load i32, ptr %arrayidx989, align 4
-  %335 = load i32, ptr %mode, align 4
-  %idxprom990 = sext i32 %335 to i64
+  %337 = load i32, ptr %arrayidx989, align 4
+  %338 = load i32, ptr %mode, align 4
+  %idxprom990 = sext i32 %338 to i64
   %arrayidx991 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom990
-  %336 = load i8, ptr %arrayidx991, align 1
-  %conv992 = sext i8 %336 to i32
-  %337 = load i32, ptr %isSigned.addr, align 4
-  %call993 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %334, i32 noundef %conv992, i32 noundef %337)
+  %339 = load i8, ptr %arrayidx991, align 1
+  %conv992 = sext i8 %339 to i32
+  %340 = load i32, ptr %isSigned.addr, align 4
+  %call993 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %337, i32 noundef %conv992, i32 noundef %340)
   %arrayidx994 = getelementptr inbounds [2 x i32], ptr %epG, i64 0, i64 0
   store i32 %call993, ptr %arrayidx994, align 4
-  %338 = load i32, ptr %partitionSet, align 4
-  %mul995 = mul nsw i32 %338, 2
+  %341 = load i32, ptr %partitionSet, align 4
+  %mul995 = mul nsw i32 %341, 2
   %add996 = add nsw i32 %mul995, 0
   %idxprom997 = sext i32 %add996 to i64
   %arrayidx998 = getelementptr inbounds [4 x i32], ptr %b, i64 0, i64 %idxprom997
-  %339 = load i32, ptr %arrayidx998, align 4
-  %340 = load i32, ptr %mode, align 4
-  %idxprom999 = sext i32 %340 to i64
+  %342 = load i32, ptr %arrayidx998, align 4
+  %343 = load i32, ptr %mode, align 4
+  %idxprom999 = sext i32 %343 to i64
   %arrayidx1000 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom999
-  %341 = load i8, ptr %arrayidx1000, align 1
-  %conv1001 = sext i8 %341 to i32
-  %342 = load i32, ptr %isSigned.addr, align 4
-  %call1002 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %339, i32 noundef %conv1001, i32 noundef %342)
+  %344 = load i8, ptr %arrayidx1000, align 1
+  %conv1001 = sext i8 %344 to i32
+  %345 = load i32, ptr %isSigned.addr, align 4
+  %call1002 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %342, i32 noundef %conv1001, i32 noundef %345)
   %arrayidx1003 = getelementptr inbounds [2 x i32], ptr %epB, i64 0, i64 0
   store i32 %call1002, ptr %arrayidx1003, align 4
-  %343 = load i32, ptr %partitionSet, align 4
-  %mul1004 = mul nsw i32 %343, 2
+  %346 = load i32, ptr %partitionSet, align 4
+  %mul1004 = mul nsw i32 %346, 2
   %add1005 = add nsw i32 %mul1004, 1
   %idxprom1006 = sext i32 %add1005 to i64
   %arrayidx1007 = getelementptr inbounds [4 x i32], ptr %r, i64 0, i64 %idxprom1006
-  %344 = load i32, ptr %arrayidx1007, align 4
-  %345 = load i32, ptr %mode, align 4
-  %idxprom1008 = sext i32 %345 to i64
+  %347 = load i32, ptr %arrayidx1007, align 4
+  %348 = load i32, ptr %mode, align 4
+  %idxprom1008 = sext i32 %348 to i64
   %arrayidx1009 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom1008
-  %346 = load i8, ptr %arrayidx1009, align 1
-  %conv1010 = sext i8 %346 to i32
-  %347 = load i32, ptr %isSigned.addr, align 4
-  %call1011 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %344, i32 noundef %conv1010, i32 noundef %347)
+  %349 = load i8, ptr %arrayidx1009, align 1
+  %conv1010 = sext i8 %349 to i32
+  %350 = load i32, ptr %isSigned.addr, align 4
+  %call1011 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %347, i32 noundef %conv1010, i32 noundef %350)
   %arrayidx1012 = getelementptr inbounds [2 x i32], ptr %epR, i64 0, i64 1
   store i32 %call1011, ptr %arrayidx1012, align 4
-  %348 = load i32, ptr %partitionSet, align 4
-  %mul1013 = mul nsw i32 %348, 2
+  %351 = load i32, ptr %partitionSet, align 4
+  %mul1013 = mul nsw i32 %351, 2
   %add1014 = add nsw i32 %mul1013, 1
   %idxprom1015 = sext i32 %add1014 to i64
   %arrayidx1016 = getelementptr inbounds [4 x i32], ptr %g, i64 0, i64 %idxprom1015
-  %349 = load i32, ptr %arrayidx1016, align 4
-  %350 = load i32, ptr %mode, align 4
-  %idxprom1017 = sext i32 %350 to i64
+  %352 = load i32, ptr %arrayidx1016, align 4
+  %353 = load i32, ptr %mode, align 4
+  %idxprom1017 = sext i32 %353 to i64
   %arrayidx1018 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom1017
-  %351 = load i8, ptr %arrayidx1018, align 1
-  %conv1019 = sext i8 %351 to i32
-  %352 = load i32, ptr %isSigned.addr, align 4
-  %call1020 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %349, i32 noundef %conv1019, i32 noundef %352)
+  %354 = load i8, ptr %arrayidx1018, align 1
+  %conv1019 = sext i8 %354 to i32
+  %355 = load i32, ptr %isSigned.addr, align 4
+  %call1020 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %352, i32 noundef %conv1019, i32 noundef %355)
   %arrayidx1021 = getelementptr inbounds [2 x i32], ptr %epG, i64 0, i64 1
   store i32 %call1020, ptr %arrayidx1021, align 4
-  %353 = load i32, ptr %partitionSet, align 4
-  %mul1022 = mul nsw i32 %353, 2
+  %356 = load i32, ptr %partitionSet, align 4
+  %mul1022 = mul nsw i32 %356, 2
   %add1023 = add nsw i32 %mul1022, 1
   %idxprom1024 = sext i32 %add1023 to i64
   %arrayidx1025 = getelementptr inbounds [4 x i32], ptr %b, i64 0, i64 %idxprom1024
-  %354 = load i32, ptr %arrayidx1025, align 4
-  %355 = load i32, ptr %mode, align 4
-  %idxprom1026 = sext i32 %355 to i64
+  %357 = load i32, ptr %arrayidx1025, align 4
+  %358 = load i32, ptr %mode, align 4
+  %idxprom1026 = sext i32 %358 to i64
   %arrayidx1027 = getelementptr inbounds [14 x i8], ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 0, i64 %idxprom1026
-  %356 = load i8, ptr %arrayidx1027, align 1
-  %conv1028 = sext i8 %356 to i32
-  %357 = load i32, ptr %isSigned.addr, align 4
-  %call1029 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %354, i32 noundef %conv1028, i32 noundef %357)
+  %359 = load i8, ptr %arrayidx1027, align 1
+  %conv1028 = sext i8 %359 to i32
+  %360 = load i32, ptr %isSigned.addr, align 4
+  %call1029 = call noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %357, i32 noundef %conv1028, i32 noundef %360)
   %arrayidx1030 = getelementptr inbounds [2 x i32], ptr %epB, i64 0, i64 1
   store i32 %call1029, ptr %arrayidx1030, align 4
   %arrayidx1031 = getelementptr inbounds [2 x i32], ptr %epR, i64 0, i64 0
-  %358 = load i32, ptr %arrayidx1031, align 4
+  %361 = load i32, ptr %arrayidx1031, align 4
   %arrayidx1032 = getelementptr inbounds [2 x i32], ptr %epR, i64 0, i64 1
-  %359 = load i32, ptr %arrayidx1032, align 4
-  %360 = load i32, ptr %mode, align 4
-  %cmp1033 = icmp sge i32 %360, 10
+  %362 = load i32, ptr %arrayidx1032, align 4
+  %363 = load i32, ptr %mode, align 4
+  %cmp1033 = icmp sge i32 %363, 10
   %cond1034 = select i1 %cmp1033, ptr @_ZZ15bcdec_bc6h_halfE8aWeight4, ptr @_ZZ15bcdec_bc6h_halfE8aWeight3
-  %361 = load i32, ptr %index, align 4
-  %call1035 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %358, i32 noundef %359, ptr noundef %cond1034, i32 noundef %361)
-  %362 = load i32, ptr %isSigned.addr, align 4
-  %call1036 = call noundef zeroext i16 @_Z24bcdec__finish_unquantizeii(i32 noundef %call1035, i32 noundef %362)
-  %363 = load ptr, ptr %decompressed, align 8
-  %364 = load i32, ptr %j, align 4
-  %mul1037 = mul nsw i32 %364, 3
+  %364 = load i32, ptr %index, align 4
+  %call1035 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %361, i32 noundef %362, ptr noundef %cond1034, i32 noundef %364)
+  %365 = load i32, ptr %isSigned.addr, align 4
+  %call1036 = call noundef zeroext i16 @_Z24bcdec__finish_unquantizeii(i32 noundef %call1035, i32 noundef %365)
+  %366 = load ptr, ptr %decompressed, align 8
+  %367 = load i32, ptr %j, align 4
+  %mul1037 = mul nsw i32 %367, 3
   %add1038 = add nsw i32 %mul1037, 0
   %idxprom1039 = sext i32 %add1038 to i64
-  %arrayidx1040 = getelementptr inbounds i16, ptr %363, i64 %idxprom1039
+  %arrayidx1040 = getelementptr inbounds i16, ptr %366, i64 %idxprom1039
   store i16 %call1036, ptr %arrayidx1040, align 2
   %arrayidx1041 = getelementptr inbounds [2 x i32], ptr %epG, i64 0, i64 0
-  %365 = load i32, ptr %arrayidx1041, align 4
+  %368 = load i32, ptr %arrayidx1041, align 4
   %arrayidx1042 = getelementptr inbounds [2 x i32], ptr %epG, i64 0, i64 1
-  %366 = load i32, ptr %arrayidx1042, align 4
-  %367 = load i32, ptr %mode, align 4
-  %cmp1043 = icmp sge i32 %367, 10
+  %369 = load i32, ptr %arrayidx1042, align 4
+  %370 = load i32, ptr %mode, align 4
+  %cmp1043 = icmp sge i32 %370, 10
   %cond1044 = select i1 %cmp1043, ptr @_ZZ15bcdec_bc6h_halfE8aWeight4, ptr @_ZZ15bcdec_bc6h_halfE8aWeight3
-  %368 = load i32, ptr %index, align 4
-  %call1045 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %365, i32 noundef %366, ptr noundef %cond1044, i32 noundef %368)
-  %369 = load i32, ptr %isSigned.addr, align 4
-  %call1046 = call noundef zeroext i16 @_Z24bcdec__finish_unquantizeii(i32 noundef %call1045, i32 noundef %369)
-  %370 = load ptr, ptr %decompressed, align 8
-  %371 = load i32, ptr %j, align 4
-  %mul1047 = mul nsw i32 %371, 3
+  %371 = load i32, ptr %index, align 4
+  %call1045 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %368, i32 noundef %369, ptr noundef %cond1044, i32 noundef %371)
+  %372 = load i32, ptr %isSigned.addr, align 4
+  %call1046 = call noundef zeroext i16 @_Z24bcdec__finish_unquantizeii(i32 noundef %call1045, i32 noundef %372)
+  %373 = load ptr, ptr %decompressed, align 8
+  %374 = load i32, ptr %j, align 4
+  %mul1047 = mul nsw i32 %374, 3
   %add1048 = add nsw i32 %mul1047, 1
   %idxprom1049 = sext i32 %add1048 to i64
-  %arrayidx1050 = getelementptr inbounds i16, ptr %370, i64 %idxprom1049
+  %arrayidx1050 = getelementptr inbounds i16, ptr %373, i64 %idxprom1049
   store i16 %call1046, ptr %arrayidx1050, align 2
   %arrayidx1051 = getelementptr inbounds [2 x i32], ptr %epB, i64 0, i64 0
-  %372 = load i32, ptr %arrayidx1051, align 4
+  %375 = load i32, ptr %arrayidx1051, align 4
   %arrayidx1052 = getelementptr inbounds [2 x i32], ptr %epB, i64 0, i64 1
-  %373 = load i32, ptr %arrayidx1052, align 4
-  %374 = load i32, ptr %mode, align 4
-  %cmp1053 = icmp sge i32 %374, 10
+  %376 = load i32, ptr %arrayidx1052, align 4
+  %377 = load i32, ptr %mode, align 4
+  %cmp1053 = icmp sge i32 %377, 10
   %cond1054 = select i1 %cmp1053, ptr @_ZZ15bcdec_bc6h_halfE8aWeight4, ptr @_ZZ15bcdec_bc6h_halfE8aWeight3
-  %375 = load i32, ptr %index, align 4
-  %call1055 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %372, i32 noundef %373, ptr noundef %cond1054, i32 noundef %375)
-  %376 = load i32, ptr %isSigned.addr, align 4
-  %call1056 = call noundef zeroext i16 @_Z24bcdec__finish_unquantizeii(i32 noundef %call1055, i32 noundef %376)
-  %377 = load ptr, ptr %decompressed, align 8
-  %378 = load i32, ptr %j, align 4
-  %mul1057 = mul nsw i32 %378, 3
+  %378 = load i32, ptr %index, align 4
+  %call1055 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %375, i32 noundef %376, ptr noundef %cond1054, i32 noundef %378)
+  %379 = load i32, ptr %isSigned.addr, align 4
+  %call1056 = call noundef zeroext i16 @_Z24bcdec__finish_unquantizeii(i32 noundef %call1055, i32 noundef %379)
+  %380 = load ptr, ptr %decompressed, align 8
+  %381 = load i32, ptr %j, align 4
+  %mul1057 = mul nsw i32 %381, 3
   %add1058 = add nsw i32 %mul1057, 2
   %idxprom1059 = sext i32 %add1058 to i64
-  %arrayidx1060 = getelementptr inbounds i16, ptr %377, i64 %idxprom1059
+  %arrayidx1060 = getelementptr inbounds i16, ptr %380, i64 %idxprom1059
   store i16 %call1056, ptr %arrayidx1060, align 2
   br label %for.inc1061
 
 for.inc1061:                                      ; preds = %if.end974
-  %379 = load i32, ptr %j, align 4
-  %inc1062 = add nsw i32 %379, 1
+  %382 = load i32, ptr %j, align 4
+  %inc1062 = add nsw i32 %382, 1
   store i32 %inc1062, ptr %j, align 4
   br label %for.cond956, !llvm.loop !16
 
 for.end1063:                                      ; preds = %for.cond956
-  %380 = load i32, ptr %destinationPitch.addr, align 4
-  %381 = load ptr, ptr %decompressed, align 8
-  %idx.ext1064 = sext i32 %380 to i64
-  %add.ptr1065 = getelementptr inbounds i16, ptr %381, i64 %idx.ext1064
+  %383 = load i32, ptr %destinationPitch.addr, align 4
+  %384 = load ptr, ptr %decompressed, align 8
+  %idx.ext1064 = sext i32 %383 to i64
+  %add.ptr1065 = getelementptr inbounds i16, ptr %384, i64 %idx.ext1064
   store ptr %add.ptr1065, ptr %decompressed, align 8
   br label %for.inc1066
 
 for.inc1066:                                      ; preds = %for.end1063
-  %382 = load i32, ptr %i, align 4
-  %inc1067 = add nsw i32 %382, 1
+  %385 = load i32, ptr %i, align 4
+  %inc1067 = add nsw i32 %385, 1
   store i32 %inc1067, ptr %i, align 4
   br label %for.cond953, !llvm.loop !17
 
@@ -6877,9 +6880,10 @@ for.inc71:                                        ; preds = %for.end70
 for.end73:                                        ; preds = %for.cond55
   %45 = load i32, ptr %mode, align 4
   %idxprom74 = sext i32 %45 to i64
-  %arrayidx75 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([2 x [8 x i8]], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 1), i64 0, i64 %idxprom74
-  %46 = load i8, ptr %arrayidx75, align 1
-  %conv76 = sext i8 %46 to i32
+  %46 = getelementptr inbounds [2 x [8 x i8]], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 1
+  %arrayidx75 = getelementptr inbounds [8 x i8], ptr %46, i64 0, i64 %idxprom74
+  %47 = load i8, ptr %arrayidx75, align 1
+  %conv76 = sext i8 %47 to i32
   %cmp77 = icmp sgt i32 %conv76, 0
   br i1 %cmp77, label %if.then78, label %if.end92
 
@@ -6888,28 +6892,29 @@ if.then78:                                        ; preds = %for.end73
   br label %for.cond79
 
 for.cond79:                                       ; preds = %for.inc89, %if.then78
-  %47 = load i32, ptr %j, align 4
-  %48 = load i32, ptr %numEndpoints, align 4
-  %cmp80 = icmp slt i32 %47, %48
+  %48 = load i32, ptr %j, align 4
+  %49 = load i32, ptr %numEndpoints, align 4
+  %cmp80 = icmp slt i32 %48, %49
   br i1 %cmp80, label %for.body81, label %for.end91
 
 for.body81:                                       ; preds = %for.cond79
-  %49 = load i32, ptr %mode, align 4
-  %idxprom82 = sext i32 %49 to i64
-  %arrayidx83 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([2 x [8 x i8]], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 1), i64 0, i64 %idxprom82
-  %50 = load i8, ptr %arrayidx83, align 1
-  %conv84 = sext i8 %50 to i32
+  %50 = load i32, ptr %mode, align 4
+  %idxprom82 = sext i32 %50 to i64
+  %51 = getelementptr inbounds [2 x [8 x i8]], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 1
+  %arrayidx83 = getelementptr inbounds [8 x i8], ptr %51, i64 0, i64 %idxprom82
+  %52 = load i8, ptr %arrayidx83, align 1
+  %conv84 = sext i8 %52 to i32
   %call85 = call noundef i32 @_Z26bcdec__bitstream_read_bitsP16bcdec__bitstreami(ptr noundef %bstream, i32 noundef %conv84)
-  %51 = load i32, ptr %j, align 4
-  %idxprom86 = sext i32 %51 to i64
+  %53 = load i32, ptr %j, align 4
+  %idxprom86 = sext i32 %53 to i64
   %arrayidx87 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom86
   %arrayidx88 = getelementptr inbounds [4 x i32], ptr %arrayidx87, i64 0, i64 3
   store i32 %call85, ptr %arrayidx88, align 4
   br label %for.inc89
 
 for.inc89:                                        ; preds = %for.body81
-  %52 = load i32, ptr %j, align 4
-  %inc90 = add nsw i32 %52, 1
+  %54 = load i32, ptr %j, align 4
+  %inc90 = add nsw i32 %54, 1
   store i32 %inc90, ptr %j, align 4
   br label %for.cond79, !llvm.loop !25
 
@@ -6917,28 +6922,28 @@ for.end91:                                        ; preds = %for.cond79
   br label %if.end92
 
 if.end92:                                         ; preds = %for.end91, %for.end73
-  %53 = load i32, ptr %mode, align 4
-  %cmp93 = icmp eq i32 %53, 0
+  %55 = load i32, ptr %mode, align 4
+  %cmp93 = icmp eq i32 %55, 0
   br i1 %cmp93, label %if.then102, label %lor.lhs.false94
 
 lor.lhs.false94:                                  ; preds = %if.end92
-  %54 = load i32, ptr %mode, align 4
-  %cmp95 = icmp eq i32 %54, 1
+  %56 = load i32, ptr %mode, align 4
+  %cmp95 = icmp eq i32 %56, 1
   br i1 %cmp95, label %if.then102, label %lor.lhs.false96
 
 lor.lhs.false96:                                  ; preds = %lor.lhs.false94
-  %55 = load i32, ptr %mode, align 4
-  %cmp97 = icmp eq i32 %55, 3
+  %57 = load i32, ptr %mode, align 4
+  %cmp97 = icmp eq i32 %57, 3
   br i1 %cmp97, label %if.then102, label %lor.lhs.false98
 
 lor.lhs.false98:                                  ; preds = %lor.lhs.false96
-  %56 = load i32, ptr %mode, align 4
-  %cmp99 = icmp eq i32 %56, 6
+  %58 = load i32, ptr %mode, align 4
+  %cmp99 = icmp eq i32 %58, 6
   br i1 %cmp99, label %if.then102, label %lor.lhs.false100
 
 lor.lhs.false100:                                 ; preds = %lor.lhs.false98
-  %57 = load i32, ptr %mode, align 4
-  %cmp101 = icmp eq i32 %57, 7
+  %59 = load i32, ptr %mode, align 4
+  %cmp101 = icmp eq i32 %59, 7
   br i1 %cmp101, label %if.then102, label %if.end167
 
 if.then102:                                       ; preds = %lor.lhs.false100, %lor.lhs.false98, %lor.lhs.false96, %lor.lhs.false94, %if.end92
@@ -6946,9 +6951,9 @@ if.then102:                                       ; preds = %lor.lhs.false100, %
   br label %for.cond103
 
 for.cond103:                                      ; preds = %for.inc116, %if.then102
-  %58 = load i32, ptr %i, align 4
-  %59 = load i32, ptr %numEndpoints, align 4
-  %cmp104 = icmp slt i32 %58, %59
+  %60 = load i32, ptr %i, align 4
+  %61 = load i32, ptr %numEndpoints, align 4
+  %cmp104 = icmp slt i32 %60, %61
   br i1 %cmp104, label %for.body105, label %for.end118
 
 for.body105:                                      ; preds = %for.cond103
@@ -6956,25 +6961,25 @@ for.body105:                                      ; preds = %for.cond103
   br label %for.cond106
 
 for.cond106:                                      ; preds = %for.inc113, %for.body105
-  %60 = load i32, ptr %j, align 4
-  %cmp107 = icmp slt i32 %60, 4
+  %62 = load i32, ptr %j, align 4
+  %cmp107 = icmp slt i32 %62, 4
   br i1 %cmp107, label %for.body108, label %for.end115
 
 for.body108:                                      ; preds = %for.cond106
-  %61 = load i32, ptr %i, align 4
-  %idxprom109 = sext i32 %61 to i64
+  %63 = load i32, ptr %i, align 4
+  %idxprom109 = sext i32 %63 to i64
   %arrayidx110 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom109
-  %62 = load i32, ptr %j, align 4
-  %idxprom111 = sext i32 %62 to i64
+  %64 = load i32, ptr %j, align 4
+  %idxprom111 = sext i32 %64 to i64
   %arrayidx112 = getelementptr inbounds [4 x i32], ptr %arrayidx110, i64 0, i64 %idxprom111
-  %63 = load i32, ptr %arrayidx112, align 4
-  %shl = shl i32 %63, 1
+  %65 = load i32, ptr %arrayidx112, align 4
+  %shl = shl i32 %65, 1
   store i32 %shl, ptr %arrayidx112, align 4
   br label %for.inc113
 
 for.inc113:                                       ; preds = %for.body108
-  %64 = load i32, ptr %j, align 4
-  %inc114 = add nsw i32 %64, 1
+  %66 = load i32, ptr %j, align 4
+  %inc114 = add nsw i32 %66, 1
   store i32 %inc114, ptr %j, align 4
   br label %for.cond106, !llvm.loop !26
 
@@ -6982,14 +6987,14 @@ for.end115:                                       ; preds = %for.cond106
   br label %for.inc116
 
 for.inc116:                                       ; preds = %for.end115
-  %65 = load i32, ptr %i, align 4
-  %inc117 = add nsw i32 %65, 1
+  %67 = load i32, ptr %i, align 4
+  %inc117 = add nsw i32 %67, 1
   store i32 %inc117, ptr %i, align 4
   br label %for.cond103, !llvm.loop !27
 
 for.end118:                                       ; preds = %for.cond103
-  %66 = load i32, ptr %mode, align 4
-  %cmp119 = icmp eq i32 %66, 1
+  %68 = load i32, ptr %mode, align 4
+  %cmp119 = icmp eq i32 %68, 1
   br i1 %cmp119, label %if.then120, label %if.else
 
 if.then120:                                       ; preds = %for.end118
@@ -7001,48 +7006,48 @@ if.then120:                                       ; preds = %for.end118
   br label %for.cond123
 
 for.cond123:                                      ; preds = %for.inc141, %if.then120
-  %67 = load i32, ptr %k, align 4
-  %cmp124 = icmp slt i32 %67, 3
+  %69 = load i32, ptr %k, align 4
+  %cmp124 = icmp slt i32 %69, 3
   br i1 %cmp124, label %for.body125, label %for.end143
 
 for.body125:                                      ; preds = %for.cond123
-  %68 = load i32, ptr %i, align 4
+  %70 = load i32, ptr %i, align 4
   %arrayidx126 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 0
-  %69 = load i32, ptr %k, align 4
-  %idxprom127 = sext i32 %69 to i64
+  %71 = load i32, ptr %k, align 4
+  %idxprom127 = sext i32 %71 to i64
   %arrayidx128 = getelementptr inbounds [4 x i32], ptr %arrayidx126, i64 0, i64 %idxprom127
-  %70 = load i32, ptr %arrayidx128, align 4
-  %or = or i32 %70, %68
+  %72 = load i32, ptr %arrayidx128, align 4
+  %or = or i32 %72, %70
   store i32 %or, ptr %arrayidx128, align 4
-  %71 = load i32, ptr %i, align 4
+  %73 = load i32, ptr %i, align 4
   %arrayidx129 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 1
-  %72 = load i32, ptr %k, align 4
-  %idxprom130 = sext i32 %72 to i64
+  %74 = load i32, ptr %k, align 4
+  %idxprom130 = sext i32 %74 to i64
   %arrayidx131 = getelementptr inbounds [4 x i32], ptr %arrayidx129, i64 0, i64 %idxprom130
-  %73 = load i32, ptr %arrayidx131, align 4
-  %or132 = or i32 %73, %71
+  %75 = load i32, ptr %arrayidx131, align 4
+  %or132 = or i32 %75, %73
   store i32 %or132, ptr %arrayidx131, align 4
-  %74 = load i32, ptr %j, align 4
+  %76 = load i32, ptr %j, align 4
   %arrayidx133 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 2
-  %75 = load i32, ptr %k, align 4
-  %idxprom134 = sext i32 %75 to i64
+  %77 = load i32, ptr %k, align 4
+  %idxprom134 = sext i32 %77 to i64
   %arrayidx135 = getelementptr inbounds [4 x i32], ptr %arrayidx133, i64 0, i64 %idxprom134
-  %76 = load i32, ptr %arrayidx135, align 4
-  %or136 = or i32 %76, %74
+  %78 = load i32, ptr %arrayidx135, align 4
+  %or136 = or i32 %78, %76
   store i32 %or136, ptr %arrayidx135, align 4
-  %77 = load i32, ptr %j, align 4
+  %79 = load i32, ptr %j, align 4
   %arrayidx137 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 3
-  %78 = load i32, ptr %k, align 4
-  %idxprom138 = sext i32 %78 to i64
+  %80 = load i32, ptr %k, align 4
+  %idxprom138 = sext i32 %80 to i64
   %arrayidx139 = getelementptr inbounds [4 x i32], ptr %arrayidx137, i64 0, i64 %idxprom138
-  %79 = load i32, ptr %arrayidx139, align 4
-  %or140 = or i32 %79, %77
+  %81 = load i32, ptr %arrayidx139, align 4
+  %or140 = or i32 %81, %79
   store i32 %or140, ptr %arrayidx139, align 4
   br label %for.inc141
 
 for.inc141:                                       ; preds = %for.body125
-  %80 = load i32, ptr %k, align 4
-  %inc142 = add nsw i32 %80, 1
+  %82 = load i32, ptr %k, align 4
+  %inc142 = add nsw i32 %82, 1
   store i32 %inc142, ptr %k, align 4
   br label %for.cond123, !llvm.loop !28
 
@@ -7050,10 +7055,10 @@ for.end143:                                       ; preds = %for.cond123
   br label %if.end166
 
 if.else:                                          ; preds = %for.end118
-  %81 = load i8, ptr @_ZZ9bcdec_bc7E13sModeHasPBits, align 1
-  %conv144 = zext i8 %81 to i32
-  %82 = load i32, ptr %mode, align 4
-  %shl145 = shl i32 1, %82
+  %83 = load i8, ptr @_ZZ9bcdec_bc7E13sModeHasPBits, align 1
+  %conv144 = zext i8 %83 to i32
+  %84 = load i32, ptr %mode, align 4
+  %shl145 = shl i32 1, %84
   %and = and i32 %conv144, %shl145
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then146, label %if.end165
@@ -7063,9 +7068,9 @@ if.then146:                                       ; preds = %if.else
   br label %for.cond147
 
 for.cond147:                                      ; preds = %for.inc162, %if.then146
-  %83 = load i32, ptr %i, align 4
-  %84 = load i32, ptr %numEndpoints, align 4
-  %cmp148 = icmp slt i32 %83, %84
+  %85 = load i32, ptr %i, align 4
+  %86 = load i32, ptr %numEndpoints, align 4
+  %cmp148 = icmp slt i32 %85, %86
   br i1 %cmp148, label %for.body149, label %for.end164
 
 for.body149:                                      ; preds = %for.cond147
@@ -7075,26 +7080,26 @@ for.body149:                                      ; preds = %for.cond147
   br label %for.cond151
 
 for.cond151:                                      ; preds = %for.inc159, %for.body149
-  %85 = load i32, ptr %k, align 4
-  %cmp152 = icmp slt i32 %85, 4
+  %87 = load i32, ptr %k, align 4
+  %cmp152 = icmp slt i32 %87, 4
   br i1 %cmp152, label %for.body153, label %for.end161
 
 for.body153:                                      ; preds = %for.cond151
-  %86 = load i32, ptr %j, align 4
-  %87 = load i32, ptr %i, align 4
-  %idxprom154 = sext i32 %87 to i64
+  %88 = load i32, ptr %j, align 4
+  %89 = load i32, ptr %i, align 4
+  %idxprom154 = sext i32 %89 to i64
   %arrayidx155 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom154
-  %88 = load i32, ptr %k, align 4
-  %idxprom156 = sext i32 %88 to i64
+  %90 = load i32, ptr %k, align 4
+  %idxprom156 = sext i32 %90 to i64
   %arrayidx157 = getelementptr inbounds [4 x i32], ptr %arrayidx155, i64 0, i64 %idxprom156
-  %89 = load i32, ptr %arrayidx157, align 4
-  %or158 = or i32 %89, %86
+  %91 = load i32, ptr %arrayidx157, align 4
+  %or158 = or i32 %91, %88
   store i32 %or158, ptr %arrayidx157, align 4
   br label %for.inc159
 
 for.inc159:                                       ; preds = %for.body153
-  %90 = load i32, ptr %k, align 4
-  %inc160 = add nsw i32 %90, 1
+  %92 = load i32, ptr %k, align 4
+  %inc160 = add nsw i32 %92, 1
   store i32 %inc160, ptr %k, align 4
   br label %for.cond151, !llvm.loop !29
 
@@ -7102,8 +7107,8 @@ for.end161:                                       ; preds = %for.cond151
   br label %for.inc162
 
 for.inc162:                                       ; preds = %for.end161
-  %91 = load i32, ptr %i, align 4
-  %inc163 = add nsw i32 %91, 1
+  %93 = load i32, ptr %i, align 4
+  %inc163 = add nsw i32 %93, 1
   store i32 %inc163, ptr %i, align 4
   br label %for.cond147, !llvm.loop !30
 
@@ -7121,21 +7126,21 @@ if.end167:                                        ; preds = %if.end166, %lor.lhs
   br label %for.cond168
 
 for.cond168:                                      ; preds = %for.inc232, %if.end167
-  %92 = load i32, ptr %i, align 4
-  %93 = load i32, ptr %numEndpoints, align 4
-  %cmp169 = icmp slt i32 %92, %93
+  %94 = load i32, ptr %i, align 4
+  %95 = load i32, ptr %numEndpoints, align 4
+  %cmp169 = icmp slt i32 %94, %95
   br i1 %cmp169, label %for.body170, label %for.end234
 
 for.body170:                                      ; preds = %for.cond168
-  %94 = load i32, ptr %mode, align 4
-  %idxprom171 = sext i32 %94 to i64
+  %96 = load i32, ptr %mode, align 4
+  %idxprom171 = sext i32 %96 to i64
   %arrayidx172 = getelementptr inbounds [8 x i8], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 %idxprom171
-  %95 = load i8, ptr %arrayidx172, align 1
-  %conv173 = sext i8 %95 to i32
-  %96 = load i8, ptr @_ZZ9bcdec_bc7E13sModeHasPBits, align 1
-  %conv174 = zext i8 %96 to i32
-  %97 = load i32, ptr %mode, align 4
-  %shr = ashr i32 %conv174, %97
+  %97 = load i8, ptr %arrayidx172, align 1
+  %conv173 = sext i8 %97 to i32
+  %98 = load i8, ptr @_ZZ9bcdec_bc7E13sModeHasPBits, align 1
+  %conv174 = zext i8 %98 to i32
+  %99 = load i32, ptr %mode, align 4
+  %shr = ashr i32 %conv174, %99
   %and175 = and i32 %shr, 1
   %add176 = add nsw i32 %conv173, %and175
   store i32 %add176, ptr %j, align 4
@@ -7143,118 +7148,120 @@ for.body170:                                      ; preds = %for.cond168
   br label %for.cond177
 
 for.cond177:                                      ; preds = %for.inc203, %for.body170
-  %98 = load i32, ptr %k, align 4
-  %cmp178 = icmp slt i32 %98, 3
+  %100 = load i32, ptr %k, align 4
+  %cmp178 = icmp slt i32 %100, 3
   br i1 %cmp178, label %for.body179, label %for.end205
 
 for.body179:                                      ; preds = %for.cond177
-  %99 = load i32, ptr %i, align 4
-  %idxprom180 = sext i32 %99 to i64
+  %101 = load i32, ptr %i, align 4
+  %idxprom180 = sext i32 %101 to i64
   %arrayidx181 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom180
-  %100 = load i32, ptr %k, align 4
-  %idxprom182 = sext i32 %100 to i64
+  %102 = load i32, ptr %k, align 4
+  %idxprom182 = sext i32 %102 to i64
   %arrayidx183 = getelementptr inbounds [4 x i32], ptr %arrayidx181, i64 0, i64 %idxprom182
-  %101 = load i32, ptr %arrayidx183, align 4
-  %102 = load i32, ptr %j, align 4
-  %sub = sub nsw i32 8, %102
-  %shl184 = shl i32 %101, %sub
-  %103 = load i32, ptr %i, align 4
-  %idxprom185 = sext i32 %103 to i64
+  %103 = load i32, ptr %arrayidx183, align 4
+  %104 = load i32, ptr %j, align 4
+  %sub = sub nsw i32 8, %104
+  %shl184 = shl i32 %103, %sub
+  %105 = load i32, ptr %i, align 4
+  %idxprom185 = sext i32 %105 to i64
   %arrayidx186 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom185
-  %104 = load i32, ptr %k, align 4
-  %idxprom187 = sext i32 %104 to i64
+  %106 = load i32, ptr %k, align 4
+  %idxprom187 = sext i32 %106 to i64
   %arrayidx188 = getelementptr inbounds [4 x i32], ptr %arrayidx186, i64 0, i64 %idxprom187
   store i32 %shl184, ptr %arrayidx188, align 4
-  %105 = load i32, ptr %i, align 4
-  %idxprom189 = sext i32 %105 to i64
+  %107 = load i32, ptr %i, align 4
+  %idxprom189 = sext i32 %107 to i64
   %arrayidx190 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom189
-  %106 = load i32, ptr %k, align 4
-  %idxprom191 = sext i32 %106 to i64
+  %108 = load i32, ptr %k, align 4
+  %idxprom191 = sext i32 %108 to i64
   %arrayidx192 = getelementptr inbounds [4 x i32], ptr %arrayidx190, i64 0, i64 %idxprom191
-  %107 = load i32, ptr %arrayidx192, align 4
-  %108 = load i32, ptr %i, align 4
-  %idxprom193 = sext i32 %108 to i64
+  %109 = load i32, ptr %arrayidx192, align 4
+  %110 = load i32, ptr %i, align 4
+  %idxprom193 = sext i32 %110 to i64
   %arrayidx194 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom193
-  %109 = load i32, ptr %k, align 4
-  %idxprom195 = sext i32 %109 to i64
+  %111 = load i32, ptr %k, align 4
+  %idxprom195 = sext i32 %111 to i64
   %arrayidx196 = getelementptr inbounds [4 x i32], ptr %arrayidx194, i64 0, i64 %idxprom195
-  %110 = load i32, ptr %arrayidx196, align 4
-  %111 = load i32, ptr %j, align 4
-  %shr197 = ashr i32 %110, %111
-  %or198 = or i32 %107, %shr197
-  %112 = load i32, ptr %i, align 4
-  %idxprom199 = sext i32 %112 to i64
+  %112 = load i32, ptr %arrayidx196, align 4
+  %113 = load i32, ptr %j, align 4
+  %shr197 = ashr i32 %112, %113
+  %or198 = or i32 %109, %shr197
+  %114 = load i32, ptr %i, align 4
+  %idxprom199 = sext i32 %114 to i64
   %arrayidx200 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom199
-  %113 = load i32, ptr %k, align 4
-  %idxprom201 = sext i32 %113 to i64
+  %115 = load i32, ptr %k, align 4
+  %idxprom201 = sext i32 %115 to i64
   %arrayidx202 = getelementptr inbounds [4 x i32], ptr %arrayidx200, i64 0, i64 %idxprom201
   store i32 %or198, ptr %arrayidx202, align 4
   br label %for.inc203
 
 for.inc203:                                       ; preds = %for.body179
-  %114 = load i32, ptr %k, align 4
-  %inc204 = add nsw i32 %114, 1
+  %116 = load i32, ptr %k, align 4
+  %inc204 = add nsw i32 %116, 1
   store i32 %inc204, ptr %k, align 4
   br label %for.cond177, !llvm.loop !31
 
 for.end205:                                       ; preds = %for.cond177
-  %115 = load i32, ptr %mode, align 4
-  %idxprom206 = sext i32 %115 to i64
-  %arrayidx207 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([2 x [8 x i8]], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 1), i64 0, i64 %idxprom206
-  %116 = load i8, ptr %arrayidx207, align 1
-  %conv208 = sext i8 %116 to i32
-  %117 = load i8, ptr @_ZZ9bcdec_bc7E13sModeHasPBits, align 1
-  %conv209 = zext i8 %117 to i32
-  %118 = load i32, ptr %mode, align 4
-  %shr210 = ashr i32 %conv209, %118
+  %117 = load i32, ptr %mode, align 4
+  %idxprom206 = sext i32 %117 to i64
+  %118 = getelementptr inbounds [2 x [8 x i8]], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 1
+  %arrayidx207 = getelementptr inbounds [8 x i8], ptr %118, i64 0, i64 %idxprom206
+  %119 = load i8, ptr %arrayidx207, align 1
+  %conv208 = sext i8 %119 to i32
+  %120 = load i8, ptr @_ZZ9bcdec_bc7E13sModeHasPBits, align 1
+  %conv209 = zext i8 %120 to i32
+  %121 = load i32, ptr %mode, align 4
+  %shr210 = ashr i32 %conv209, %121
   %and211 = and i32 %shr210, 1
   %add212 = add nsw i32 %conv208, %and211
   store i32 %add212, ptr %j, align 4
-  %119 = load i32, ptr %i, align 4
-  %idxprom213 = sext i32 %119 to i64
+  %122 = load i32, ptr %i, align 4
+  %idxprom213 = sext i32 %122 to i64
   %arrayidx214 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom213
   %arrayidx215 = getelementptr inbounds [4 x i32], ptr %arrayidx214, i64 0, i64 3
-  %120 = load i32, ptr %arrayidx215, align 4
-  %121 = load i32, ptr %j, align 4
-  %sub216 = sub nsw i32 8, %121
-  %shl217 = shl i32 %120, %sub216
-  %122 = load i32, ptr %i, align 4
-  %idxprom218 = sext i32 %122 to i64
+  %123 = load i32, ptr %arrayidx215, align 4
+  %124 = load i32, ptr %j, align 4
+  %sub216 = sub nsw i32 8, %124
+  %shl217 = shl i32 %123, %sub216
+  %125 = load i32, ptr %i, align 4
+  %idxprom218 = sext i32 %125 to i64
   %arrayidx219 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom218
   %arrayidx220 = getelementptr inbounds [4 x i32], ptr %arrayidx219, i64 0, i64 3
   store i32 %shl217, ptr %arrayidx220, align 4
-  %123 = load i32, ptr %i, align 4
-  %idxprom221 = sext i32 %123 to i64
+  %126 = load i32, ptr %i, align 4
+  %idxprom221 = sext i32 %126 to i64
   %arrayidx222 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom221
   %arrayidx223 = getelementptr inbounds [4 x i32], ptr %arrayidx222, i64 0, i64 3
-  %124 = load i32, ptr %arrayidx223, align 4
-  %125 = load i32, ptr %i, align 4
-  %idxprom224 = sext i32 %125 to i64
+  %127 = load i32, ptr %arrayidx223, align 4
+  %128 = load i32, ptr %i, align 4
+  %idxprom224 = sext i32 %128 to i64
   %arrayidx225 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom224
   %arrayidx226 = getelementptr inbounds [4 x i32], ptr %arrayidx225, i64 0, i64 3
-  %126 = load i32, ptr %arrayidx226, align 4
-  %127 = load i32, ptr %j, align 4
-  %shr227 = ashr i32 %126, %127
-  %or228 = or i32 %124, %shr227
-  %128 = load i32, ptr %i, align 4
-  %idxprom229 = sext i32 %128 to i64
+  %129 = load i32, ptr %arrayidx226, align 4
+  %130 = load i32, ptr %j, align 4
+  %shr227 = ashr i32 %129, %130
+  %or228 = or i32 %127, %shr227
+  %131 = load i32, ptr %i, align 4
+  %idxprom229 = sext i32 %131 to i64
   %arrayidx230 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom229
   %arrayidx231 = getelementptr inbounds [4 x i32], ptr %arrayidx230, i64 0, i64 3
   store i32 %or228, ptr %arrayidx231, align 4
   br label %for.inc232
 
 for.inc232:                                       ; preds = %for.end205
-  %129 = load i32, ptr %i, align 4
-  %inc233 = add nsw i32 %129, 1
+  %132 = load i32, ptr %i, align 4
+  %inc233 = add nsw i32 %132, 1
   store i32 %inc233, ptr %i, align 4
   br label %for.cond168, !llvm.loop !32
 
 for.end234:                                       ; preds = %for.cond168
-  %130 = load i32, ptr %mode, align 4
-  %idxprom235 = sext i32 %130 to i64
-  %arrayidx236 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([2 x [8 x i8]], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 1), i64 0, i64 %idxprom235
-  %131 = load i8, ptr %arrayidx236, align 1
-  %tobool237 = icmp ne i8 %131, 0
+  %133 = load i32, ptr %mode, align 4
+  %idxprom235 = sext i32 %133 to i64
+  %134 = getelementptr inbounds [2 x [8 x i8]], ptr @_ZZ9bcdec_bc7E17actual_bits_count, i64 0, i64 1
+  %arrayidx236 = getelementptr inbounds [8 x i8], ptr %134, i64 0, i64 %idxprom235
+  %135 = load i8, ptr %arrayidx236, align 1
+  %tobool237 = icmp ne i8 %135, 0
   br i1 %tobool237, label %if.end248, label %if.then238
 
 if.then238:                                       ; preds = %for.end234
@@ -7262,22 +7269,22 @@ if.then238:                                       ; preds = %for.end234
   br label %for.cond239
 
 for.cond239:                                      ; preds = %for.inc245, %if.then238
-  %132 = load i32, ptr %j, align 4
-  %133 = load i32, ptr %numEndpoints, align 4
-  %cmp240 = icmp slt i32 %132, %133
+  %136 = load i32, ptr %j, align 4
+  %137 = load i32, ptr %numEndpoints, align 4
+  %cmp240 = icmp slt i32 %136, %137
   br i1 %cmp240, label %for.body241, label %for.end247
 
 for.body241:                                      ; preds = %for.cond239
-  %134 = load i32, ptr %j, align 4
-  %idxprom242 = sext i32 %134 to i64
+  %138 = load i32, ptr %j, align 4
+  %idxprom242 = sext i32 %138 to i64
   %arrayidx243 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom242
   %arrayidx244 = getelementptr inbounds [4 x i32], ptr %arrayidx243, i64 0, i64 3
   store i32 255, ptr %arrayidx244, align 4
   br label %for.inc245
 
 for.inc245:                                       ; preds = %for.body241
-  %135 = load i32, ptr %j, align 4
-  %inc246 = add nsw i32 %135, 1
+  %139 = load i32, ptr %j, align 4
+  %inc246 = add nsw i32 %139, 1
   store i32 %inc246, ptr %j, align 4
   br label %for.cond239, !llvm.loop !33
 
@@ -7285,69 +7292,69 @@ for.end247:                                       ; preds = %for.cond239
   br label %if.end248
 
 if.end248:                                        ; preds = %for.end247, %for.end234
-  %136 = load i32, ptr %mode, align 4
-  %cmp249 = icmp eq i32 %136, 0
+  %140 = load i32, ptr %mode, align 4
+  %cmp249 = icmp eq i32 %140, 0
   br i1 %cmp249, label %cond.true, label %lor.lhs.false250
 
 lor.lhs.false250:                                 ; preds = %if.end248
-  %137 = load i32, ptr %mode, align 4
-  %cmp251 = icmp eq i32 %137, 1
+  %141 = load i32, ptr %mode, align 4
+  %cmp251 = icmp eq i32 %141, 1
   br i1 %cmp251, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false250, %if.end248
   br label %cond.end
 
 cond.false:                                       ; preds = %lor.lhs.false250
-  %138 = load i32, ptr %mode, align 4
-  %cmp252 = icmp eq i32 %138, 6
+  %142 = load i32, ptr %mode, align 4
+  %cmp252 = icmp eq i32 %142, 6
   %cond253 = select i1 %cmp252, i32 4, i32 2
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond254 = phi i32 [ 3, %cond.true ], [ %cond253, %cond.false ]
   store i32 %cond254, ptr %indexBits, align 4
-  %139 = load i32, ptr %mode, align 4
-  %cmp255 = icmp eq i32 %139, 4
+  %143 = load i32, ptr %mode, align 4
+  %cmp255 = icmp eq i32 %143, 4
   br i1 %cmp255, label %cond.true256, label %cond.false257
 
 cond.true256:                                     ; preds = %cond.end
   br label %cond.end260
 
 cond.false257:                                    ; preds = %cond.end
-  %140 = load i32, ptr %mode, align 4
-  %cmp258 = icmp eq i32 %140, 5
+  %144 = load i32, ptr %mode, align 4
+  %cmp258 = icmp eq i32 %144, 5
   %cond259 = select i1 %cmp258, i32 2, i32 0
   br label %cond.end260
 
 cond.end260:                                      ; preds = %cond.false257, %cond.true256
   %cond261 = phi i32 [ 3, %cond.true256 ], [ %cond259, %cond.false257 ]
   store i32 %cond261, ptr %indexBits2, align 4
-  %141 = load i32, ptr %indexBits, align 4
-  %cmp262 = icmp eq i32 %141, 2
+  %145 = load i32, ptr %indexBits, align 4
+  %cmp262 = icmp eq i32 %145, 2
   br i1 %cmp262, label %cond.true263, label %cond.false264
 
 cond.true263:                                     ; preds = %cond.end260
   br label %cond.end267
 
 cond.false264:                                    ; preds = %cond.end260
-  %142 = load i32, ptr %indexBits, align 4
-  %cmp265 = icmp eq i32 %142, 3
+  %146 = load i32, ptr %indexBits, align 4
+  %cmp265 = icmp eq i32 %146, 3
   %cond266 = select i1 %cmp265, ptr @_ZZ9bcdec_bc7E8aWeight3, ptr @_ZZ9bcdec_bc7E8aWeight4
   br label %cond.end267
 
 cond.end267:                                      ; preds = %cond.false264, %cond.true263
   %cond268 = phi ptr [ @_ZZ9bcdec_bc7E8aWeight2, %cond.true263 ], [ %cond266, %cond.false264 ]
   store ptr %cond268, ptr %weights, align 8
-  %143 = load i32, ptr %indexBits2, align 4
-  %cmp269 = icmp eq i32 %143, 2
+  %147 = load i32, ptr %indexBits2, align 4
+  %cmp269 = icmp eq i32 %147, 2
   %cond270 = select i1 %cmp269, ptr @_ZZ9bcdec_bc7E8aWeight2, ptr @_ZZ9bcdec_bc7E8aWeight3
   store ptr %cond270, ptr %weights2, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond271
 
 for.cond271:                                      ; preds = %for.inc317, %cond.end267
-  %144 = load i32, ptr %i, align 4
-  %cmp272 = icmp slt i32 %144, 4
+  %148 = load i32, ptr %i, align 4
+  %cmp272 = icmp slt i32 %148, 4
   br i1 %cmp272, label %for.body273, label %for.end319
 
 for.body273:                                      ; preds = %for.cond271
@@ -7355,92 +7362,92 @@ for.body273:                                      ; preds = %for.cond271
   br label %for.cond274
 
 for.cond274:                                      ; preds = %for.inc314, %for.body273
-  %145 = load i32, ptr %j, align 4
-  %cmp275 = icmp slt i32 %145, 4
+  %149 = load i32, ptr %j, align 4
+  %cmp275 = icmp slt i32 %149, 4
   br i1 %cmp275, label %for.body276, label %for.end316
 
 for.body276:                                      ; preds = %for.cond274
-  %146 = load i32, ptr %numPartitions, align 4
-  %cmp277 = icmp eq i32 %146, 1
+  %150 = load i32, ptr %numPartitions, align 4
+  %cmp277 = icmp eq i32 %150, 1
   br i1 %cmp277, label %cond.true278, label %cond.false282
 
 cond.true278:                                     ; preds = %for.body276
-  %147 = load i32, ptr %i, align 4
-  %148 = load i32, ptr %j, align 4
-  %or279 = or i32 %147, %148
+  %151 = load i32, ptr %i, align 4
+  %152 = load i32, ptr %j, align 4
+  %or279 = or i32 %151, %152
   %tobool280 = icmp ne i32 %or279, 0
   %cond281 = select i1 %tobool280, i32 0, i32 128
   br label %cond.end293
 
 cond.false282:                                    ; preds = %for.body276
-  %149 = load i32, ptr %numPartitions, align 4
-  %sub283 = sub nsw i32 %149, 2
+  %153 = load i32, ptr %numPartitions, align 4
+  %sub283 = sub nsw i32 %153, 2
   %idxprom284 = sext i32 %sub283 to i64
   %arrayidx285 = getelementptr inbounds [2 x [64 x [4 x [4 x i8]]]], ptr @_ZZ9bcdec_bc7E14partition_sets, i64 0, i64 %idxprom284
-  %150 = load i32, ptr %partition, align 4
-  %idxprom286 = sext i32 %150 to i64
+  %154 = load i32, ptr %partition, align 4
+  %idxprom286 = sext i32 %154 to i64
   %arrayidx287 = getelementptr inbounds [64 x [4 x [4 x i8]]], ptr %arrayidx285, i64 0, i64 %idxprom286
-  %151 = load i32, ptr %i, align 4
-  %idxprom288 = sext i32 %151 to i64
+  %155 = load i32, ptr %i, align 4
+  %idxprom288 = sext i32 %155 to i64
   %arrayidx289 = getelementptr inbounds [4 x [4 x i8]], ptr %arrayidx287, i64 0, i64 %idxprom288
-  %152 = load i32, ptr %j, align 4
-  %idxprom290 = sext i32 %152 to i64
+  %156 = load i32, ptr %j, align 4
+  %idxprom290 = sext i32 %156 to i64
   %arrayidx291 = getelementptr inbounds [4 x i8], ptr %arrayidx289, i64 0, i64 %idxprom290
-  %153 = load i8, ptr %arrayidx291, align 1
-  %conv292 = zext i8 %153 to i32
+  %157 = load i8, ptr %arrayidx291, align 1
+  %conv292 = zext i8 %157 to i32
   br label %cond.end293
 
 cond.end293:                                      ; preds = %cond.false282, %cond.true278
   %cond294 = phi i32 [ %cond281, %cond.true278 ], [ %conv292, %cond.false282 ]
   store i32 %cond294, ptr %partitionSet, align 4
-  %154 = load i32, ptr %mode, align 4
-  %cmp295 = icmp eq i32 %154, 0
+  %158 = load i32, ptr %mode, align 4
+  %cmp295 = icmp eq i32 %158, 0
   br i1 %cmp295, label %cond.true298, label %lor.lhs.false296
 
 lor.lhs.false296:                                 ; preds = %cond.end293
-  %155 = load i32, ptr %mode, align 4
-  %cmp297 = icmp eq i32 %155, 1
+  %159 = load i32, ptr %mode, align 4
+  %cmp297 = icmp eq i32 %159, 1
   br i1 %cmp297, label %cond.true298, label %cond.false299
 
 cond.true298:                                     ; preds = %lor.lhs.false296, %cond.end293
   br label %cond.end302
 
 cond.false299:                                    ; preds = %lor.lhs.false296
-  %156 = load i32, ptr %mode, align 4
-  %cmp300 = icmp eq i32 %156, 6
+  %160 = load i32, ptr %mode, align 4
+  %cmp300 = icmp eq i32 %160, 6
   %cond301 = select i1 %cmp300, i32 4, i32 2
   br label %cond.end302
 
 cond.end302:                                      ; preds = %cond.false299, %cond.true298
   %cond303 = phi i32 [ 3, %cond.true298 ], [ %cond301, %cond.false299 ]
   store i32 %cond303, ptr %indexBits, align 4
-  %157 = load i32, ptr %partitionSet, align 4
-  %and304 = and i32 %157, 128
+  %161 = load i32, ptr %partitionSet, align 4
+  %and304 = and i32 %161, 128
   %tobool305 = icmp ne i32 %and304, 0
   br i1 %tobool305, label %if.then306, label %if.end307
 
 if.then306:                                       ; preds = %cond.end302
-  %158 = load i32, ptr %indexBits, align 4
-  %dec = add nsw i32 %158, -1
+  %162 = load i32, ptr %indexBits, align 4
+  %dec = add nsw i32 %162, -1
   store i32 %dec, ptr %indexBits, align 4
   br label %if.end307
 
 if.end307:                                        ; preds = %if.then306, %cond.end302
-  %159 = load i32, ptr %indexBits, align 4
-  %call308 = call noundef i32 @_Z26bcdec__bitstream_read_bitsP16bcdec__bitstreami(ptr noundef %bstream, i32 noundef %159)
+  %163 = load i32, ptr %indexBits, align 4
+  %call308 = call noundef i32 @_Z26bcdec__bitstream_read_bitsP16bcdec__bitstreami(ptr noundef %bstream, i32 noundef %163)
   %conv309 = trunc i32 %call308 to i8
-  %160 = load i32, ptr %i, align 4
-  %idxprom310 = sext i32 %160 to i64
+  %164 = load i32, ptr %i, align 4
+  %idxprom310 = sext i32 %164 to i64
   %arrayidx311 = getelementptr inbounds [4 x [4 x i8]], ptr %indices, i64 0, i64 %idxprom310
-  %161 = load i32, ptr %j, align 4
-  %idxprom312 = sext i32 %161 to i64
+  %165 = load i32, ptr %j, align 4
+  %idxprom312 = sext i32 %165 to i64
   %arrayidx313 = getelementptr inbounds [4 x i8], ptr %arrayidx311, i64 0, i64 %idxprom312
   store i8 %conv309, ptr %arrayidx313, align 1
   br label %for.inc314
 
 for.inc314:                                       ; preds = %if.end307
-  %162 = load i32, ptr %j, align 4
-  %inc315 = add nsw i32 %162, 1
+  %166 = load i32, ptr %j, align 4
+  %inc315 = add nsw i32 %166, 1
   store i32 %inc315, ptr %j, align 4
   br label %for.cond274, !llvm.loop !34
 
@@ -7448,8 +7455,8 @@ for.end316:                                       ; preds = %for.cond274
   br label %for.inc317
 
 for.inc317:                                       ; preds = %for.end316
-  %163 = load i32, ptr %i, align 4
-  %inc318 = add nsw i32 %163, 1
+  %167 = load i32, ptr %i, align 4
+  %inc318 = add nsw i32 %167, 1
   store i32 %inc318, ptr %i, align 4
   br label %for.cond271, !llvm.loop !35
 
@@ -7458,8 +7465,8 @@ for.end319:                                       ; preds = %for.cond271
   br label %for.cond320
 
 for.cond320:                                      ; preds = %for.inc513, %for.end319
-  %164 = load i32, ptr %i, align 4
-  %cmp321 = icmp slt i32 %164, 4
+  %168 = load i32, ptr %i, align 4
+  %cmp321 = icmp slt i32 %168, 4
   br i1 %cmp321, label %for.body322, label %for.end515
 
 for.body322:                                      ; preds = %for.cond320
@@ -7467,294 +7474,294 @@ for.body322:                                      ; preds = %for.cond320
   br label %for.cond323
 
 for.cond323:                                      ; preds = %for.inc508, %for.body322
-  %165 = load i32, ptr %j, align 4
-  %cmp324 = icmp slt i32 %165, 4
+  %169 = load i32, ptr %j, align 4
+  %cmp324 = icmp slt i32 %169, 4
   br i1 %cmp324, label %for.body325, label %for.end510
 
 for.body325:                                      ; preds = %for.cond323
-  %166 = load i32, ptr %numPartitions, align 4
-  %cmp326 = icmp eq i32 %166, 1
+  %170 = load i32, ptr %numPartitions, align 4
+  %cmp326 = icmp eq i32 %170, 1
   br i1 %cmp326, label %cond.true327, label %cond.false331
 
 cond.true327:                                     ; preds = %for.body325
-  %167 = load i32, ptr %i, align 4
-  %168 = load i32, ptr %j, align 4
-  %or328 = or i32 %167, %168
+  %171 = load i32, ptr %i, align 4
+  %172 = load i32, ptr %j, align 4
+  %or328 = or i32 %171, %172
   %tobool329 = icmp ne i32 %or328, 0
   %cond330 = select i1 %tobool329, i32 0, i32 128
   br label %cond.end342
 
 cond.false331:                                    ; preds = %for.body325
-  %169 = load i32, ptr %numPartitions, align 4
-  %sub332 = sub nsw i32 %169, 2
+  %173 = load i32, ptr %numPartitions, align 4
+  %sub332 = sub nsw i32 %173, 2
   %idxprom333 = sext i32 %sub332 to i64
   %arrayidx334 = getelementptr inbounds [2 x [64 x [4 x [4 x i8]]]], ptr @_ZZ9bcdec_bc7E14partition_sets, i64 0, i64 %idxprom333
-  %170 = load i32, ptr %partition, align 4
-  %idxprom335 = sext i32 %170 to i64
+  %174 = load i32, ptr %partition, align 4
+  %idxprom335 = sext i32 %174 to i64
   %arrayidx336 = getelementptr inbounds [64 x [4 x [4 x i8]]], ptr %arrayidx334, i64 0, i64 %idxprom335
-  %171 = load i32, ptr %i, align 4
-  %idxprom337 = sext i32 %171 to i64
+  %175 = load i32, ptr %i, align 4
+  %idxprom337 = sext i32 %175 to i64
   %arrayidx338 = getelementptr inbounds [4 x [4 x i8]], ptr %arrayidx336, i64 0, i64 %idxprom337
-  %172 = load i32, ptr %j, align 4
-  %idxprom339 = sext i32 %172 to i64
+  %176 = load i32, ptr %j, align 4
+  %idxprom339 = sext i32 %176 to i64
   %arrayidx340 = getelementptr inbounds [4 x i8], ptr %arrayidx338, i64 0, i64 %idxprom339
-  %173 = load i8, ptr %arrayidx340, align 1
-  %conv341 = zext i8 %173 to i32
+  %177 = load i8, ptr %arrayidx340, align 1
+  %conv341 = zext i8 %177 to i32
   br label %cond.end342
 
 cond.end342:                                      ; preds = %cond.false331, %cond.true327
   %cond343 = phi i32 [ %cond330, %cond.true327 ], [ %conv341, %cond.false331 ]
   store i32 %cond343, ptr %partitionSet, align 4
-  %174 = load i32, ptr %partitionSet, align 4
-  %and344 = and i32 %174, 3
+  %178 = load i32, ptr %partitionSet, align 4
+  %and344 = and i32 %178, 3
   store i32 %and344, ptr %partitionSet, align 4
-  %175 = load i32, ptr %i, align 4
-  %idxprom345 = sext i32 %175 to i64
+  %179 = load i32, ptr %i, align 4
+  %idxprom345 = sext i32 %179 to i64
   %arrayidx346 = getelementptr inbounds [4 x [4 x i8]], ptr %indices, i64 0, i64 %idxprom345
-  %176 = load i32, ptr %j, align 4
-  %idxprom347 = sext i32 %176 to i64
+  %180 = load i32, ptr %j, align 4
+  %idxprom347 = sext i32 %180 to i64
   %arrayidx348 = getelementptr inbounds [4 x i8], ptr %arrayidx346, i64 0, i64 %idxprom347
-  %177 = load i8, ptr %arrayidx348, align 1
-  %conv349 = sext i8 %177 to i32
+  %181 = load i8, ptr %arrayidx348, align 1
+  %conv349 = sext i8 %181 to i32
   store i32 %conv349, ptr %index, align 4
-  %178 = load i32, ptr %indexBits2, align 4
-  %tobool350 = icmp ne i32 %178, 0
+  %182 = load i32, ptr %indexBits2, align 4
+  %tobool350 = icmp ne i32 %182, 0
   br i1 %tobool350, label %if.else392, label %if.then351
 
 if.then351:                                       ; preds = %cond.end342
-  %179 = load i32, ptr %partitionSet, align 4
-  %mul352 = mul nsw i32 %179, 2
+  %183 = load i32, ptr %partitionSet, align 4
+  %mul352 = mul nsw i32 %183, 2
   %idxprom353 = sext i32 %mul352 to i64
   %arrayidx354 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom353
   %arrayidx355 = getelementptr inbounds [4 x i32], ptr %arrayidx354, i64 0, i64 0
-  %180 = load i32, ptr %arrayidx355, align 16
-  %181 = load i32, ptr %partitionSet, align 4
-  %mul356 = mul nsw i32 %181, 2
+  %184 = load i32, ptr %arrayidx355, align 16
+  %185 = load i32, ptr %partitionSet, align 4
+  %mul356 = mul nsw i32 %185, 2
   %add357 = add nsw i32 %mul356, 1
   %idxprom358 = sext i32 %add357 to i64
   %arrayidx359 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom358
   %arrayidx360 = getelementptr inbounds [4 x i32], ptr %arrayidx359, i64 0, i64 0
-  %182 = load i32, ptr %arrayidx360, align 16
-  %183 = load ptr, ptr %weights, align 8
-  %184 = load i32, ptr %index, align 4
-  %call361 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %180, i32 noundef %182, ptr noundef %183, i32 noundef %184)
+  %186 = load i32, ptr %arrayidx360, align 16
+  %187 = load ptr, ptr %weights, align 8
+  %188 = load i32, ptr %index, align 4
+  %call361 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %184, i32 noundef %186, ptr noundef %187, i32 noundef %188)
   store i32 %call361, ptr %r, align 4
-  %185 = load i32, ptr %partitionSet, align 4
-  %mul362 = mul nsw i32 %185, 2
+  %189 = load i32, ptr %partitionSet, align 4
+  %mul362 = mul nsw i32 %189, 2
   %idxprom363 = sext i32 %mul362 to i64
   %arrayidx364 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom363
   %arrayidx365 = getelementptr inbounds [4 x i32], ptr %arrayidx364, i64 0, i64 1
-  %186 = load i32, ptr %arrayidx365, align 4
-  %187 = load i32, ptr %partitionSet, align 4
-  %mul366 = mul nsw i32 %187, 2
+  %190 = load i32, ptr %arrayidx365, align 4
+  %191 = load i32, ptr %partitionSet, align 4
+  %mul366 = mul nsw i32 %191, 2
   %add367 = add nsw i32 %mul366, 1
   %idxprom368 = sext i32 %add367 to i64
   %arrayidx369 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom368
   %arrayidx370 = getelementptr inbounds [4 x i32], ptr %arrayidx369, i64 0, i64 1
-  %188 = load i32, ptr %arrayidx370, align 4
-  %189 = load ptr, ptr %weights, align 8
-  %190 = load i32, ptr %index, align 4
-  %call371 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %186, i32 noundef %188, ptr noundef %189, i32 noundef %190)
+  %192 = load i32, ptr %arrayidx370, align 4
+  %193 = load ptr, ptr %weights, align 8
+  %194 = load i32, ptr %index, align 4
+  %call371 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %190, i32 noundef %192, ptr noundef %193, i32 noundef %194)
   store i32 %call371, ptr %g, align 4
-  %191 = load i32, ptr %partitionSet, align 4
-  %mul372 = mul nsw i32 %191, 2
+  %195 = load i32, ptr %partitionSet, align 4
+  %mul372 = mul nsw i32 %195, 2
   %idxprom373 = sext i32 %mul372 to i64
   %arrayidx374 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom373
   %arrayidx375 = getelementptr inbounds [4 x i32], ptr %arrayidx374, i64 0, i64 2
-  %192 = load i32, ptr %arrayidx375, align 8
-  %193 = load i32, ptr %partitionSet, align 4
-  %mul376 = mul nsw i32 %193, 2
+  %196 = load i32, ptr %arrayidx375, align 8
+  %197 = load i32, ptr %partitionSet, align 4
+  %mul376 = mul nsw i32 %197, 2
   %add377 = add nsw i32 %mul376, 1
   %idxprom378 = sext i32 %add377 to i64
   %arrayidx379 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom378
   %arrayidx380 = getelementptr inbounds [4 x i32], ptr %arrayidx379, i64 0, i64 2
-  %194 = load i32, ptr %arrayidx380, align 8
-  %195 = load ptr, ptr %weights, align 8
-  %196 = load i32, ptr %index, align 4
-  %call381 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %192, i32 noundef %194, ptr noundef %195, i32 noundef %196)
+  %198 = load i32, ptr %arrayidx380, align 8
+  %199 = load ptr, ptr %weights, align 8
+  %200 = load i32, ptr %index, align 4
+  %call381 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %196, i32 noundef %198, ptr noundef %199, i32 noundef %200)
   store i32 %call381, ptr %b, align 4
-  %197 = load i32, ptr %partitionSet, align 4
-  %mul382 = mul nsw i32 %197, 2
+  %201 = load i32, ptr %partitionSet, align 4
+  %mul382 = mul nsw i32 %201, 2
   %idxprom383 = sext i32 %mul382 to i64
   %arrayidx384 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom383
   %arrayidx385 = getelementptr inbounds [4 x i32], ptr %arrayidx384, i64 0, i64 3
-  %198 = load i32, ptr %arrayidx385, align 4
-  %199 = load i32, ptr %partitionSet, align 4
-  %mul386 = mul nsw i32 %199, 2
+  %202 = load i32, ptr %arrayidx385, align 4
+  %203 = load i32, ptr %partitionSet, align 4
+  %mul386 = mul nsw i32 %203, 2
   %add387 = add nsw i32 %mul386, 1
   %idxprom388 = sext i32 %add387 to i64
   %arrayidx389 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom388
   %arrayidx390 = getelementptr inbounds [4 x i32], ptr %arrayidx389, i64 0, i64 3
-  %200 = load i32, ptr %arrayidx390, align 4
-  %201 = load ptr, ptr %weights, align 8
-  %202 = load i32, ptr %index, align 4
-  %call391 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %198, i32 noundef %200, ptr noundef %201, i32 noundef %202)
+  %204 = load i32, ptr %arrayidx390, align 4
+  %205 = load ptr, ptr %weights, align 8
+  %206 = load i32, ptr %index, align 4
+  %call391 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %202, i32 noundef %204, ptr noundef %205, i32 noundef %206)
   store i32 %call391, ptr %a, align 4
   br label %if.end485
 
 if.else392:                                       ; preds = %cond.end342
-  %203 = load i32, ptr %i, align 4
-  %204 = load i32, ptr %j, align 4
-  %or393 = or i32 %203, %204
+  %207 = load i32, ptr %i, align 4
+  %208 = load i32, ptr %j, align 4
+  %or393 = or i32 %207, %208
   %tobool394 = icmp ne i32 %or393, 0
   br i1 %tobool394, label %cond.true395, label %cond.false396
 
 cond.true395:                                     ; preds = %if.else392
-  %205 = load i32, ptr %indexBits2, align 4
+  %209 = load i32, ptr %indexBits2, align 4
   br label %cond.end398
 
 cond.false396:                                    ; preds = %if.else392
-  %206 = load i32, ptr %indexBits2, align 4
-  %sub397 = sub nsw i32 %206, 1
+  %210 = load i32, ptr %indexBits2, align 4
+  %sub397 = sub nsw i32 %210, 1
   br label %cond.end398
 
 cond.end398:                                      ; preds = %cond.false396, %cond.true395
-  %cond399 = phi i32 [ %205, %cond.true395 ], [ %sub397, %cond.false396 ]
+  %cond399 = phi i32 [ %209, %cond.true395 ], [ %sub397, %cond.false396 ]
   %call400 = call noundef i32 @_Z26bcdec__bitstream_read_bitsP16bcdec__bitstreami(ptr noundef %bstream, i32 noundef %cond399)
   store i32 %call400, ptr %index2, align 4
-  %207 = load i32, ptr %indexSelectionBit, align 4
-  %tobool401 = icmp ne i32 %207, 0
+  %211 = load i32, ptr %indexSelectionBit, align 4
+  %tobool401 = icmp ne i32 %211, 0
   br i1 %tobool401, label %if.else443, label %if.then402
 
 if.then402:                                       ; preds = %cond.end398
-  %208 = load i32, ptr %partitionSet, align 4
-  %mul403 = mul nsw i32 %208, 2
+  %212 = load i32, ptr %partitionSet, align 4
+  %mul403 = mul nsw i32 %212, 2
   %idxprom404 = sext i32 %mul403 to i64
   %arrayidx405 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom404
   %arrayidx406 = getelementptr inbounds [4 x i32], ptr %arrayidx405, i64 0, i64 0
-  %209 = load i32, ptr %arrayidx406, align 16
-  %210 = load i32, ptr %partitionSet, align 4
-  %mul407 = mul nsw i32 %210, 2
+  %213 = load i32, ptr %arrayidx406, align 16
+  %214 = load i32, ptr %partitionSet, align 4
+  %mul407 = mul nsw i32 %214, 2
   %add408 = add nsw i32 %mul407, 1
   %idxprom409 = sext i32 %add408 to i64
   %arrayidx410 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom409
   %arrayidx411 = getelementptr inbounds [4 x i32], ptr %arrayidx410, i64 0, i64 0
-  %211 = load i32, ptr %arrayidx411, align 16
-  %212 = load ptr, ptr %weights, align 8
-  %213 = load i32, ptr %index, align 4
-  %call412 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %209, i32 noundef %211, ptr noundef %212, i32 noundef %213)
+  %215 = load i32, ptr %arrayidx411, align 16
+  %216 = load ptr, ptr %weights, align 8
+  %217 = load i32, ptr %index, align 4
+  %call412 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %213, i32 noundef %215, ptr noundef %216, i32 noundef %217)
   store i32 %call412, ptr %r, align 4
-  %214 = load i32, ptr %partitionSet, align 4
-  %mul413 = mul nsw i32 %214, 2
+  %218 = load i32, ptr %partitionSet, align 4
+  %mul413 = mul nsw i32 %218, 2
   %idxprom414 = sext i32 %mul413 to i64
   %arrayidx415 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom414
   %arrayidx416 = getelementptr inbounds [4 x i32], ptr %arrayidx415, i64 0, i64 1
-  %215 = load i32, ptr %arrayidx416, align 4
-  %216 = load i32, ptr %partitionSet, align 4
-  %mul417 = mul nsw i32 %216, 2
+  %219 = load i32, ptr %arrayidx416, align 4
+  %220 = load i32, ptr %partitionSet, align 4
+  %mul417 = mul nsw i32 %220, 2
   %add418 = add nsw i32 %mul417, 1
   %idxprom419 = sext i32 %add418 to i64
   %arrayidx420 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom419
   %arrayidx421 = getelementptr inbounds [4 x i32], ptr %arrayidx420, i64 0, i64 1
-  %217 = load i32, ptr %arrayidx421, align 4
-  %218 = load ptr, ptr %weights, align 8
-  %219 = load i32, ptr %index, align 4
-  %call422 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %215, i32 noundef %217, ptr noundef %218, i32 noundef %219)
+  %221 = load i32, ptr %arrayidx421, align 4
+  %222 = load ptr, ptr %weights, align 8
+  %223 = load i32, ptr %index, align 4
+  %call422 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %219, i32 noundef %221, ptr noundef %222, i32 noundef %223)
   store i32 %call422, ptr %g, align 4
-  %220 = load i32, ptr %partitionSet, align 4
-  %mul423 = mul nsw i32 %220, 2
+  %224 = load i32, ptr %partitionSet, align 4
+  %mul423 = mul nsw i32 %224, 2
   %idxprom424 = sext i32 %mul423 to i64
   %arrayidx425 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom424
   %arrayidx426 = getelementptr inbounds [4 x i32], ptr %arrayidx425, i64 0, i64 2
-  %221 = load i32, ptr %arrayidx426, align 8
-  %222 = load i32, ptr %partitionSet, align 4
-  %mul427 = mul nsw i32 %222, 2
+  %225 = load i32, ptr %arrayidx426, align 8
+  %226 = load i32, ptr %partitionSet, align 4
+  %mul427 = mul nsw i32 %226, 2
   %add428 = add nsw i32 %mul427, 1
   %idxprom429 = sext i32 %add428 to i64
   %arrayidx430 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom429
   %arrayidx431 = getelementptr inbounds [4 x i32], ptr %arrayidx430, i64 0, i64 2
-  %223 = load i32, ptr %arrayidx431, align 8
-  %224 = load ptr, ptr %weights, align 8
-  %225 = load i32, ptr %index, align 4
-  %call432 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %221, i32 noundef %223, ptr noundef %224, i32 noundef %225)
+  %227 = load i32, ptr %arrayidx431, align 8
+  %228 = load ptr, ptr %weights, align 8
+  %229 = load i32, ptr %index, align 4
+  %call432 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %225, i32 noundef %227, ptr noundef %228, i32 noundef %229)
   store i32 %call432, ptr %b, align 4
-  %226 = load i32, ptr %partitionSet, align 4
-  %mul433 = mul nsw i32 %226, 2
+  %230 = load i32, ptr %partitionSet, align 4
+  %mul433 = mul nsw i32 %230, 2
   %idxprom434 = sext i32 %mul433 to i64
   %arrayidx435 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom434
   %arrayidx436 = getelementptr inbounds [4 x i32], ptr %arrayidx435, i64 0, i64 3
-  %227 = load i32, ptr %arrayidx436, align 4
-  %228 = load i32, ptr %partitionSet, align 4
-  %mul437 = mul nsw i32 %228, 2
+  %231 = load i32, ptr %arrayidx436, align 4
+  %232 = load i32, ptr %partitionSet, align 4
+  %mul437 = mul nsw i32 %232, 2
   %add438 = add nsw i32 %mul437, 1
   %idxprom439 = sext i32 %add438 to i64
   %arrayidx440 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom439
   %arrayidx441 = getelementptr inbounds [4 x i32], ptr %arrayidx440, i64 0, i64 3
-  %229 = load i32, ptr %arrayidx441, align 4
-  %230 = load ptr, ptr %weights2, align 8
-  %231 = load i32, ptr %index2, align 4
-  %call442 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %227, i32 noundef %229, ptr noundef %230, i32 noundef %231)
+  %233 = load i32, ptr %arrayidx441, align 4
+  %234 = load ptr, ptr %weights2, align 8
+  %235 = load i32, ptr %index2, align 4
+  %call442 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %231, i32 noundef %233, ptr noundef %234, i32 noundef %235)
   store i32 %call442, ptr %a, align 4
   br label %if.end484
 
 if.else443:                                       ; preds = %cond.end398
-  %232 = load i32, ptr %partitionSet, align 4
-  %mul444 = mul nsw i32 %232, 2
+  %236 = load i32, ptr %partitionSet, align 4
+  %mul444 = mul nsw i32 %236, 2
   %idxprom445 = sext i32 %mul444 to i64
   %arrayidx446 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom445
   %arrayidx447 = getelementptr inbounds [4 x i32], ptr %arrayidx446, i64 0, i64 0
-  %233 = load i32, ptr %arrayidx447, align 16
-  %234 = load i32, ptr %partitionSet, align 4
-  %mul448 = mul nsw i32 %234, 2
+  %237 = load i32, ptr %arrayidx447, align 16
+  %238 = load i32, ptr %partitionSet, align 4
+  %mul448 = mul nsw i32 %238, 2
   %add449 = add nsw i32 %mul448, 1
   %idxprom450 = sext i32 %add449 to i64
   %arrayidx451 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom450
   %arrayidx452 = getelementptr inbounds [4 x i32], ptr %arrayidx451, i64 0, i64 0
-  %235 = load i32, ptr %arrayidx452, align 16
-  %236 = load ptr, ptr %weights2, align 8
-  %237 = load i32, ptr %index2, align 4
-  %call453 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %233, i32 noundef %235, ptr noundef %236, i32 noundef %237)
+  %239 = load i32, ptr %arrayidx452, align 16
+  %240 = load ptr, ptr %weights2, align 8
+  %241 = load i32, ptr %index2, align 4
+  %call453 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %237, i32 noundef %239, ptr noundef %240, i32 noundef %241)
   store i32 %call453, ptr %r, align 4
-  %238 = load i32, ptr %partitionSet, align 4
-  %mul454 = mul nsw i32 %238, 2
+  %242 = load i32, ptr %partitionSet, align 4
+  %mul454 = mul nsw i32 %242, 2
   %idxprom455 = sext i32 %mul454 to i64
   %arrayidx456 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom455
   %arrayidx457 = getelementptr inbounds [4 x i32], ptr %arrayidx456, i64 0, i64 1
-  %239 = load i32, ptr %arrayidx457, align 4
-  %240 = load i32, ptr %partitionSet, align 4
-  %mul458 = mul nsw i32 %240, 2
+  %243 = load i32, ptr %arrayidx457, align 4
+  %244 = load i32, ptr %partitionSet, align 4
+  %mul458 = mul nsw i32 %244, 2
   %add459 = add nsw i32 %mul458, 1
   %idxprom460 = sext i32 %add459 to i64
   %arrayidx461 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom460
   %arrayidx462 = getelementptr inbounds [4 x i32], ptr %arrayidx461, i64 0, i64 1
-  %241 = load i32, ptr %arrayidx462, align 4
-  %242 = load ptr, ptr %weights2, align 8
-  %243 = load i32, ptr %index2, align 4
-  %call463 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %239, i32 noundef %241, ptr noundef %242, i32 noundef %243)
+  %245 = load i32, ptr %arrayidx462, align 4
+  %246 = load ptr, ptr %weights2, align 8
+  %247 = load i32, ptr %index2, align 4
+  %call463 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %243, i32 noundef %245, ptr noundef %246, i32 noundef %247)
   store i32 %call463, ptr %g, align 4
-  %244 = load i32, ptr %partitionSet, align 4
-  %mul464 = mul nsw i32 %244, 2
+  %248 = load i32, ptr %partitionSet, align 4
+  %mul464 = mul nsw i32 %248, 2
   %idxprom465 = sext i32 %mul464 to i64
   %arrayidx466 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom465
   %arrayidx467 = getelementptr inbounds [4 x i32], ptr %arrayidx466, i64 0, i64 2
-  %245 = load i32, ptr %arrayidx467, align 8
-  %246 = load i32, ptr %partitionSet, align 4
-  %mul468 = mul nsw i32 %246, 2
+  %249 = load i32, ptr %arrayidx467, align 8
+  %250 = load i32, ptr %partitionSet, align 4
+  %mul468 = mul nsw i32 %250, 2
   %add469 = add nsw i32 %mul468, 1
   %idxprom470 = sext i32 %add469 to i64
   %arrayidx471 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom470
   %arrayidx472 = getelementptr inbounds [4 x i32], ptr %arrayidx471, i64 0, i64 2
-  %247 = load i32, ptr %arrayidx472, align 8
-  %248 = load ptr, ptr %weights2, align 8
-  %249 = load i32, ptr %index2, align 4
-  %call473 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %245, i32 noundef %247, ptr noundef %248, i32 noundef %249)
+  %251 = load i32, ptr %arrayidx472, align 8
+  %252 = load ptr, ptr %weights2, align 8
+  %253 = load i32, ptr %index2, align 4
+  %call473 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %249, i32 noundef %251, ptr noundef %252, i32 noundef %253)
   store i32 %call473, ptr %b, align 4
-  %250 = load i32, ptr %partitionSet, align 4
-  %mul474 = mul nsw i32 %250, 2
+  %254 = load i32, ptr %partitionSet, align 4
+  %mul474 = mul nsw i32 %254, 2
   %idxprom475 = sext i32 %mul474 to i64
   %arrayidx476 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom475
   %arrayidx477 = getelementptr inbounds [4 x i32], ptr %arrayidx476, i64 0, i64 3
-  %251 = load i32, ptr %arrayidx477, align 4
-  %252 = load i32, ptr %partitionSet, align 4
-  %mul478 = mul nsw i32 %252, 2
+  %255 = load i32, ptr %arrayidx477, align 4
+  %256 = load i32, ptr %partitionSet, align 4
+  %mul478 = mul nsw i32 %256, 2
   %add479 = add nsw i32 %mul478, 1
   %idxprom480 = sext i32 %add479 to i64
   %arrayidx481 = getelementptr inbounds [6 x [4 x i32]], ptr %endpoints, i64 0, i64 %idxprom480
   %arrayidx482 = getelementptr inbounds [4 x i32], ptr %arrayidx481, i64 0, i64 3
-  %253 = load i32, ptr %arrayidx482, align 4
-  %254 = load ptr, ptr %weights, align 8
-  %255 = load i32, ptr %index, align 4
-  %call483 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %251, i32 noundef %253, ptr noundef %254, i32 noundef %255)
+  %257 = load i32, ptr %arrayidx482, align 4
+  %258 = load ptr, ptr %weights, align 8
+  %259 = load i32, ptr %index, align 4
+  %call483 = call noundef i32 @_Z18bcdec__interpolateiiPii(i32 noundef %255, i32 noundef %257, ptr noundef %258, i32 noundef %259)
   store i32 %call483, ptr %a, align 4
   br label %if.end484
 
@@ -7762,8 +7769,8 @@ if.end484:                                        ; preds = %if.else443, %if.the
   br label %if.end485
 
 if.end485:                                        ; preds = %if.end484, %if.then351
-  %256 = load i32, ptr %rotation, align 4
-  switch i32 %256, label %sw.epilog [
+  %260 = load i32, ptr %rotation, align 4
+  switch i32 %260, label %sw.epilog [
     i32 1, label %sw.bb
     i32 2, label %sw.bb486
     i32 3, label %sw.bb487
@@ -7782,61 +7789,61 @@ sw.bb487:                                         ; preds = %if.end485
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb487, %sw.bb486, %sw.bb, %if.end485
-  %257 = load i32, ptr %r, align 4
-  %conv488 = trunc i32 %257 to i8
-  %258 = load ptr, ptr %decompressed, align 8
-  %259 = load i32, ptr %j, align 4
-  %mul489 = mul nsw i32 %259, 4
+  %261 = load i32, ptr %r, align 4
+  %conv488 = trunc i32 %261 to i8
+  %262 = load ptr, ptr %decompressed, align 8
+  %263 = load i32, ptr %j, align 4
+  %mul489 = mul nsw i32 %263, 4
   %add490 = add nsw i32 %mul489, 0
   %idxprom491 = sext i32 %add490 to i64
-  %arrayidx492 = getelementptr inbounds i8, ptr %258, i64 %idxprom491
+  %arrayidx492 = getelementptr inbounds i8, ptr %262, i64 %idxprom491
   store i8 %conv488, ptr %arrayidx492, align 1
-  %260 = load i32, ptr %g, align 4
-  %conv493 = trunc i32 %260 to i8
-  %261 = load ptr, ptr %decompressed, align 8
-  %262 = load i32, ptr %j, align 4
-  %mul494 = mul nsw i32 %262, 4
+  %264 = load i32, ptr %g, align 4
+  %conv493 = trunc i32 %264 to i8
+  %265 = load ptr, ptr %decompressed, align 8
+  %266 = load i32, ptr %j, align 4
+  %mul494 = mul nsw i32 %266, 4
   %add495 = add nsw i32 %mul494, 1
   %idxprom496 = sext i32 %add495 to i64
-  %arrayidx497 = getelementptr inbounds i8, ptr %261, i64 %idxprom496
+  %arrayidx497 = getelementptr inbounds i8, ptr %265, i64 %idxprom496
   store i8 %conv493, ptr %arrayidx497, align 1
-  %263 = load i32, ptr %b, align 4
-  %conv498 = trunc i32 %263 to i8
-  %264 = load ptr, ptr %decompressed, align 8
-  %265 = load i32, ptr %j, align 4
-  %mul499 = mul nsw i32 %265, 4
+  %267 = load i32, ptr %b, align 4
+  %conv498 = trunc i32 %267 to i8
+  %268 = load ptr, ptr %decompressed, align 8
+  %269 = load i32, ptr %j, align 4
+  %mul499 = mul nsw i32 %269, 4
   %add500 = add nsw i32 %mul499, 2
   %idxprom501 = sext i32 %add500 to i64
-  %arrayidx502 = getelementptr inbounds i8, ptr %264, i64 %idxprom501
+  %arrayidx502 = getelementptr inbounds i8, ptr %268, i64 %idxprom501
   store i8 %conv498, ptr %arrayidx502, align 1
-  %266 = load i32, ptr %a, align 4
-  %conv503 = trunc i32 %266 to i8
-  %267 = load ptr, ptr %decompressed, align 8
-  %268 = load i32, ptr %j, align 4
-  %mul504 = mul nsw i32 %268, 4
+  %270 = load i32, ptr %a, align 4
+  %conv503 = trunc i32 %270 to i8
+  %271 = load ptr, ptr %decompressed, align 8
+  %272 = load i32, ptr %j, align 4
+  %mul504 = mul nsw i32 %272, 4
   %add505 = add nsw i32 %mul504, 3
   %idxprom506 = sext i32 %add505 to i64
-  %arrayidx507 = getelementptr inbounds i8, ptr %267, i64 %idxprom506
+  %arrayidx507 = getelementptr inbounds i8, ptr %271, i64 %idxprom506
   store i8 %conv503, ptr %arrayidx507, align 1
   br label %for.inc508
 
 for.inc508:                                       ; preds = %sw.epilog
-  %269 = load i32, ptr %j, align 4
-  %inc509 = add nsw i32 %269, 1
+  %273 = load i32, ptr %j, align 4
+  %inc509 = add nsw i32 %273, 1
   store i32 %inc509, ptr %j, align 4
   br label %for.cond323, !llvm.loop !36
 
 for.end510:                                       ; preds = %for.cond323
-  %270 = load i32, ptr %destinationPitch.addr, align 4
-  %271 = load ptr, ptr %decompressed, align 8
-  %idx.ext511 = sext i32 %270 to i64
-  %add.ptr512 = getelementptr inbounds i8, ptr %271, i64 %idx.ext511
+  %274 = load i32, ptr %destinationPitch.addr, align 4
+  %275 = load ptr, ptr %decompressed, align 8
+  %idx.ext511 = sext i32 %274 to i64
+  %add.ptr512 = getelementptr inbounds i8, ptr %275, i64 %idx.ext511
   store ptr %add.ptr512, ptr %decompressed, align 8
   br label %for.inc513
 
 for.inc513:                                       ; preds = %for.end510
-  %272 = load i32, ptr %i, align 4
-  %inc514 = add nsw i32 %272, 1
+  %276 = load i32, ptr %i, align 4
+  %inc514 = add nsw i32 %276, 1
   store i32 %inc514, ptr %i, align 4
   br label %for.cond320, !llvm.loop !37
 
@@ -7885,7 +7892,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_010ImageInputC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this1)
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08DDSInputE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [36 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08DDSInputE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_filename = getelementptr inbounds %"class.OpenImageIO_v2_6_0::DDSInput", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_filename) #3
   %m_buf = getelementptr inbounds %"class.OpenImageIO_v2_6_0::DDSInput", ptr %this1, i32 0, i32 2
@@ -7899,12 +7907,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_buf) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_filename) #3
   call void @_ZN18OpenImageIO_v2_6_010ImageInputD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this1) #3
@@ -19715,10 +19723,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i8], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #3
@@ -21580,16 +21589,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -24350,7 +24360,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %message.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -35063,10 +35074,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.56", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.56", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #3
@@ -35204,16 +35216,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.57", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.57", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.57", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -52480,10 +52493,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.119", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.119", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [32 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 32) #3
@@ -52520,16 +52534,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.120", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.120", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.120", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -53314,21 +53329,22 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.119", ptr %this1, i32 0, i32 2
   call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_) #3
-  %0 = load ptr, ptr %other.addr, align 8
-  invoke void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %0)
+  %1 = load ptr, ptr %other.addr, align 8
+  invoke void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #17
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #17
   unreachable
 }
 

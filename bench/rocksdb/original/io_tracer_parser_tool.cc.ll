@@ -347,8 +347,10 @@ define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
 entry:
   %0 = load ptr, ptr @_ZN3fLSL21FLAGS_noio_trace_fileB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN3fLSL21FLAGS_noio_trace_fileB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL15s_io_trace_fileE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL15o_io_trace_fileE, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef %0, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL15s_io_trace_fileE, i64 0, i64 1))
+  %2 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL15s_io_trace_fileE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL15s_io_trace_fileE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL15o_io_trace_fileE, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef %0, ptr noundef %3)
   ret void
 }
 
@@ -359,8 +361,9 @@ declare void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_t
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.5() #0 section ".text.startup" {
 entry:
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL15d_io_trace_fileE, ptr noundef @_ZN3fLSL15s_io_trace_fileE, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL15s_io_trace_fileE, i64 0, i64 1))
-  %0 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL15d_io_trace_fileE, ptr @__dso_handle) #4
+  %0 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL15s_io_trace_fileE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL15d_io_trace_fileE, ptr noundef @_ZN3fLSL15s_io_trace_fileE, ptr noundef %0)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL15d_io_trace_fileE, ptr @__dso_handle) #4
   ret void
 }
 

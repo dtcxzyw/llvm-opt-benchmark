@@ -2421,12 +2421,13 @@ define internal i32 @netlogon_auth_equal(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_dcerpc_netlogon() #0 {
   store i32 0, ptr @seen, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._seen_packet, ptr @seen, i32 0, i32 1), align 4
-  %1 = load i32, ptr @proto_dcerpc_netlogon, align 4
-  %2 = load i32, ptr @ett_dcerpc_netlogon, align 4
-  %3 = load i16, ptr @ver_dcerpc_netlogon, align 2
-  %4 = load i32, ptr @hf_netlogon_opnum, align 4
-  call void @dcerpc_init_uuid(i32 noundef %1, i32 noundef %2, ptr noundef @uuid_dcerpc_netlogon, i16 noundef zeroext %3, ptr noundef @dcerpc_netlogon_dissectors, i32 noundef %4)
+  %1 = getelementptr inbounds %struct._seen_packet, ptr @seen, i32 0, i32 1
+  store i32 0, ptr %1, align 4
+  %2 = load i32, ptr @proto_dcerpc_netlogon, align 4
+  %3 = load i32, ptr @ett_dcerpc_netlogon, align 4
+  %4 = load i16, ptr @ver_dcerpc_netlogon, align 2
+  %5 = load i32, ptr @hf_netlogon_opnum, align 4
+  call void @dcerpc_init_uuid(i32 noundef %2, i32 noundef %3, ptr noundef @uuid_dcerpc_netlogon, i16 noundef zeroext %4, ptr noundef @dcerpc_netlogon_dissectors, i32 noundef %5)
   call void @register_dcerpc_auth_subdissector(i8 noundef zeroext 5, i8 noundef zeroext 68, ptr noundef @secchan_auth_fns)
   call void @register_dcerpc_auth_subdissector(i8 noundef zeroext 6, i8 noundef zeroext 68, ptr noundef @secchan_auth_fns)
   ret void
@@ -3309,147 +3310,148 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_rqst(ptr noundef %0
   %33 = load ptr, ptr %11, align 8
   %34 = load ptr, ptr %12, align 8
   %35 = load i32, ptr @hf_netlogon_computer_name, align 4
-  %36 = call i32 @dissect_ndr_pointer_cb(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef @dissect_ndr_wchar_cvstring, i32 noundef 1, ptr noundef @.str.242, i32 noundef %35, ptr noundef @cb_wstr_postprocess, ptr noundef inttoptr (i64 805306369 to ptr))
-  store i32 %36, ptr %8, align 4
-  %37 = call ptr @wmem_file_scope()
-  %38 = call noalias ptr @wmem_alloc0(ptr noundef %37, i64 noundef 400)
-  store ptr %38, ptr %13, align 8
-  %39 = call ptr @wmem_file_scope()
-  %40 = load ptr, ptr %17, align 8
-  %41 = getelementptr inbounds %struct._dcerpc_call_value, ptr %40, i32 0, i32 9
-  %42 = load ptr, ptr %41, align 8
-  %43 = call noalias ptr @wmem_strdup(ptr noundef %39, ptr noundef %42)
-  %44 = load ptr, ptr %13, align 8
-  %45 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %44, i32 0, i32 12
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i32, ptr %8, align 4
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %12, align 8
-  %51 = load i32, ptr @hf_client_challenge, align 4
-  %52 = load ptr, ptr %13, align 8
-  %53 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %52, i32 0, i32 0
-  %54 = call i32 @dissect_dcerpc_8bytes(ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, i32 noundef %51, ptr noundef %53)
-  store i32 %54, ptr %8, align 4
-  %55 = getelementptr inbounds [8 x i8], ptr %16, i64 0, i64 0
-  %56 = load ptr, ptr %13, align 8
-  %57 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %56, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 8 %57, i64 8, i1 false)
-  %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 3
-  %60 = load i32, ptr %59, align 4
-  %61 = load ptr, ptr %13, align 8
-  %62 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %61, i32 0, i32 13
-  store i32 %60, ptr %62, align 8
-  %63 = load ptr, ptr %13, align 8
-  %64 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %63, i32 0, i32 14
-  store i32 -1, ptr %64, align 4
-  %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %65, i32 0, i32 15
-  store ptr null, ptr %66, align 8
-  %67 = load ptr, ptr %9, align 8
-  call void @generate_hash_key(ptr noundef %67, i8 noundef zeroext 0, ptr noundef %15)
-  %68 = load ptr, ptr @netlogon_auths, align 8
-  %69 = call ptr @wmem_map_lookup(ptr noundef %68, ptr noundef %15)
-  store ptr %69, ptr %14, align 8
-  %70 = load ptr, ptr %14, align 8
-  %71 = icmp ne ptr %70, null
-  br i1 %71, label %87, label %72
+  %36 = inttoptr i64 805306369 to ptr
+  %37 = call i32 @dissect_ndr_pointer_cb(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef @dissect_ndr_wchar_cvstring, i32 noundef 1, ptr noundef @.str.242, i32 noundef %35, ptr noundef @cb_wstr_postprocess, ptr noundef %36)
+  store i32 %37, ptr %8, align 4
+  %38 = call ptr @wmem_file_scope()
+  %39 = call noalias ptr @wmem_alloc0(ptr noundef %38, i64 noundef 400)
+  store ptr %39, ptr %13, align 8
+  %40 = call ptr @wmem_file_scope()
+  %41 = load ptr, ptr %17, align 8
+  %42 = getelementptr inbounds %struct._dcerpc_call_value, ptr %41, i32 0, i32 9
+  %43 = load ptr, ptr %42, align 8
+  %44 = call noalias ptr @wmem_strdup(ptr noundef %40, ptr noundef %43)
+  %45 = load ptr, ptr %13, align 8
+  %46 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %45, i32 0, i32 12
+  store ptr %44, ptr %46, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %10, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = load i32, ptr @hf_client_challenge, align 4
+  %53 = load ptr, ptr %13, align 8
+  %54 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %53, i32 0, i32 0
+  %55 = call i32 @dissect_dcerpc_8bytes(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, i32 noundef %52, ptr noundef %54)
+  store i32 %55, ptr %8, align 4
+  %56 = getelementptr inbounds [8 x i8], ptr %16, i64 0, i64 0
+  %57 = load ptr, ptr %13, align 8
+  %58 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %57, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 8 %58, i64 8, i1 false)
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr inbounds %struct._packet_info, ptr %59, i32 0, i32 3
+  %61 = load i32, ptr %60, align 4
+  %62 = load ptr, ptr %13, align 8
+  %63 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %62, i32 0, i32 13
+  store i32 %61, ptr %63, align 8
+  %64 = load ptr, ptr %13, align 8
+  %65 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %64, i32 0, i32 14
+  store i32 -1, ptr %65, align 4
+  %66 = load ptr, ptr %13, align 8
+  %67 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %66, i32 0, i32 15
+  store ptr null, ptr %67, align 8
+  %68 = load ptr, ptr %9, align 8
+  call void @generate_hash_key(ptr noundef %68, i8 noundef zeroext 0, ptr noundef %15)
+  %69 = load ptr, ptr @netlogon_auths, align 8
+  %70 = call ptr @wmem_map_lookup(ptr noundef %69, ptr noundef %15)
+  store ptr %70, ptr %14, align 8
+  %71 = load ptr, ptr %14, align 8
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %88, label %73
 
-72:                                               ; preds = %6
-  %73 = call ptr @wmem_file_scope()
-  %74 = call noalias ptr @wmem_memdup(ptr noundef %73, ptr noundef %15, i64 noundef 48)
-  store ptr %74, ptr %18, align 8
-  %75 = call ptr @wmem_file_scope()
-  %76 = load ptr, ptr %18, align 8
-  %77 = getelementptr inbounds %struct._netlogon_auth_key, ptr %76, i32 0, i32 0
-  %78 = getelementptr inbounds %struct._netlogon_auth_key, ptr %15, i32 0, i32 0
-  call void @copy_address_wmem(ptr noundef %75, ptr noundef %77, ptr noundef %78)
-  %79 = call ptr @wmem_file_scope()
-  %80 = load ptr, ptr %18, align 8
-  %81 = getelementptr inbounds %struct._netlogon_auth_key, ptr %80, i32 0, i32 1
-  %82 = getelementptr inbounds %struct._netlogon_auth_key, ptr %15, i32 0, i32 1
-  call void @copy_address_wmem(ptr noundef %79, ptr noundef %81, ptr noundef %82)
-  %83 = load ptr, ptr @netlogon_auths, align 8
-  %84 = load ptr, ptr %18, align 8
-  %85 = load ptr, ptr %13, align 8
-  %86 = call ptr @wmem_map_insert(ptr noundef %83, ptr noundef %84, ptr noundef %85)
+73:                                               ; preds = %6
+  %74 = call ptr @wmem_file_scope()
+  %75 = call noalias ptr @wmem_memdup(ptr noundef %74, ptr noundef %15, i64 noundef 48)
+  store ptr %75, ptr %18, align 8
+  %76 = call ptr @wmem_file_scope()
+  %77 = load ptr, ptr %18, align 8
+  %78 = getelementptr inbounds %struct._netlogon_auth_key, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds %struct._netlogon_auth_key, ptr %15, i32 0, i32 0
+  call void @copy_address_wmem(ptr noundef %76, ptr noundef %78, ptr noundef %79)
+  %80 = call ptr @wmem_file_scope()
+  %81 = load ptr, ptr %18, align 8
+  %82 = getelementptr inbounds %struct._netlogon_auth_key, ptr %81, i32 0, i32 1
+  %83 = getelementptr inbounds %struct._netlogon_auth_key, ptr %15, i32 0, i32 1
+  call void @copy_address_wmem(ptr noundef %80, ptr noundef %82, ptr noundef %83)
+  %84 = load ptr, ptr @netlogon_auths, align 8
+  %85 = load ptr, ptr %18, align 8
+  %86 = load ptr, ptr %13, align 8
+  %87 = call ptr @wmem_map_insert(ptr noundef %84, ptr noundef %85, ptr noundef %86)
+  br label %134
+
+88:                                               ; preds = %6
+  br label %89
+
+89:                                               ; preds = %104, %88
+  %90 = load ptr, ptr %14, align 8
+  %91 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %90, i32 0, i32 15
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %94, label %102
+
+94:                                               ; preds = %89
+  %95 = load ptr, ptr %14, align 8
+  %96 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %95, i32 0, i32 13
+  %97 = load i32, ptr %96, align 8
+  %98 = load ptr, ptr %13, align 8
+  %99 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %98, i32 0, i32 13
+  %100 = load i32, ptr %99, align 8
+  %101 = icmp slt i32 %97, %100
+  br label %102
+
+102:                                              ; preds = %94, %89
+  %103 = phi i1 [ false, %89 ], [ %101, %94 ]
+  br i1 %103, label %104, label %108
+
+104:                                              ; preds = %102
+  %105 = load ptr, ptr %14, align 8
+  %106 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %105, i32 0, i32 15
+  %107 = load ptr, ptr %106, align 8
+  store ptr %107, ptr %14, align 8
+  br label %89, !llvm.loop !6
+
+108:                                              ; preds = %102
+  %109 = load ptr, ptr %14, align 8
+  %110 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %109, i32 0, i32 15
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %121, label %113
+
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %14, align 8
+  %115 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %114, i32 0, i32 13
+  %116 = load i32, ptr %115, align 8
+  %117 = load ptr, ptr %13, align 8
+  %118 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %117, i32 0, i32 13
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp eq i32 %116, %119
+  br i1 %120, label %121, label %124
+
+121:                                              ; preds = %113, %108
+  %122 = call ptr @wmem_file_scope()
+  %123 = load ptr, ptr %13, align 8
+  call void @wmem_free(ptr noundef %122, ptr noundef %123)
   br label %133
 
-87:                                               ; preds = %6
-  br label %88
-
-88:                                               ; preds = %103, %87
-  %89 = load ptr, ptr %14, align 8
-  %90 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %89, i32 0, i32 15
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %93, label %101
-
-93:                                               ; preds = %88
-  %94 = load ptr, ptr %14, align 8
-  %95 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %94, i32 0, i32 13
-  %96 = load i32, ptr %95, align 8
-  %97 = load ptr, ptr %13, align 8
-  %98 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %97, i32 0, i32 13
-  %99 = load i32, ptr %98, align 8
-  %100 = icmp slt i32 %96, %99
-  br label %101
-
-101:                                              ; preds = %93, %88
-  %102 = phi i1 [ false, %88 ], [ %100, %93 ]
-  br i1 %102, label %103, label %107
-
-103:                                              ; preds = %101
-  %104 = load ptr, ptr %14, align 8
-  %105 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %104, i32 0, i32 15
-  %106 = load ptr, ptr %105, align 8
-  store ptr %106, ptr %14, align 8
-  br label %88, !llvm.loop !6
-
-107:                                              ; preds = %101
-  %108 = load ptr, ptr %14, align 8
-  %109 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %108, i32 0, i32 15
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp ne ptr %110, null
-  br i1 %111, label %120, label %112
-
-112:                                              ; preds = %107
-  %113 = load ptr, ptr %14, align 8
-  %114 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %113, i32 0, i32 13
-  %115 = load i32, ptr %114, align 8
-  %116 = load ptr, ptr %13, align 8
-  %117 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %116, i32 0, i32 13
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp eq i32 %115, %118
-  br i1 %119, label %120, label %123
-
-120:                                              ; preds = %112, %107
-  %121 = call ptr @wmem_file_scope()
-  %122 = load ptr, ptr %13, align 8
-  call void @wmem_free(ptr noundef %121, ptr noundef %122)
-  br label %132
-
-123:                                              ; preds = %112
-  %124 = load ptr, ptr %9, align 8
-  %125 = getelementptr inbounds %struct._packet_info, ptr %124, i32 0, i32 3
-  %126 = load i32, ptr %125, align 4
-  %127 = load ptr, ptr %14, align 8
-  %128 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %127, i32 0, i32 14
-  store i32 %126, ptr %128, align 4
-  %129 = load ptr, ptr %13, align 8
-  %130 = load ptr, ptr %14, align 8
-  %131 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %130, i32 0, i32 15
-  store ptr %129, ptr %131, align 8
-  br label %132
-
-132:                                              ; preds = %123, %120
+124:                                              ; preds = %113
+  %125 = load ptr, ptr %9, align 8
+  %126 = getelementptr inbounds %struct._packet_info, ptr %125, i32 0, i32 3
+  %127 = load i32, ptr %126, align 4
+  %128 = load ptr, ptr %14, align 8
+  %129 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %128, i32 0, i32 14
+  store i32 %127, ptr %129, align 4
+  %130 = load ptr, ptr %13, align 8
+  %131 = load ptr, ptr %14, align 8
+  %132 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %131, i32 0, i32 15
+  store ptr %130, ptr %132, align 8
   br label %133
 
-133:                                              ; preds = %132, %72
-  %134 = load i32, ptr %8, align 4
-  ret i32 %134
+133:                                              ; preds = %124, %121
+  br label %134
+
+134:                                              ; preds = %133, %73
+  %135 = load i32, ptr %8, align 4
+  ret i32 %135
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5876,12 +5878,13 @@ define internal i32 @netlogon_dissect_netrserverauthenticate3_rqst(ptr noundef %
   %185 = load i32, ptr %8, align 4
   %186 = call i32 @netlogon_dissect_neg_options(ptr noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef %185)
   store i32 0, ptr @seen, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._seen_packet, ptr @seen, i32 0, i32 1), align 4
-  %187 = load i32, ptr %8, align 4
-  %188 = add i32 %187, 4
-  store i32 %188, ptr %8, align 4
-  %189 = load i32, ptr %8, align 4
-  ret i32 %189
+  %187 = getelementptr inbounds %struct._seen_packet, ptr @seen, i32 0, i32 1
+  store i32 0, ptr %187, align 4
+  %188 = load i32, ptr %8, align 4
+  %189 = add i32 %188, 4
+  store i32 %189, ptr %8, align 4
+  %190 = load i32, ptr %8, align 4
+  ret i32 %190
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6050,19 +6053,20 @@ define internal i32 @netlogon_dissect_dsrgetsitename_reply(ptr noundef %0, i32 n
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_netlogon_site_name, align 4
-  %20 = call i32 @dissect_ndr_pointer_cb(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dissect_ndr_wchar_cvstring, i32 noundef 2, ptr noundef @.str.244, i32 noundef %19, ptr noundef @cb_wstr_postprocess, ptr noundef inttoptr (i64 268435457 to ptr))
-  store i32 %20, ptr %8, align 4
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = load ptr, ptr %9, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = load ptr, ptr %12, align 8
-  %27 = load i32, ptr @hf_netlogon_dos_rc, align 4
-  %28 = call i32 @dissect_ntstatus(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
-  store i32 %28, ptr %8, align 4
-  %29 = load i32, ptr %8, align 4
-  ret i32 %29
+  %20 = inttoptr i64 268435457 to ptr
+  %21 = call i32 @dissect_ndr_pointer_cb(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dissect_ndr_wchar_cvstring, i32 noundef 2, ptr noundef @.str.244, i32 noundef %19, ptr noundef @cb_wstr_postprocess, ptr noundef %20)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_netlogon_dos_rc, align 4
+  %29 = call i32 @dissect_ntstatus(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef null)
+  store i32 %29, ptr %8, align 4
+  %30 = load i32, ptr %8, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17376,10 +17380,11 @@ define internal i32 @netlogon_dissect_site_name_item(ptr noundef %0, i32 noundef
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_netlogon_site_name, align 4
-  %20 = call i32 @dissect_ndr_counted_string_cb(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef @cb_wstr_postprocess, ptr noundef inttoptr (i64 268435457 to ptr))
-  store i32 %20, ptr %8, align 4
-  %21 = load i32, ptr %8, align 4
-  ret i32 %21
+  %20 = inttoptr i64 268435457 to ptr
+  %21 = call i32 @dissect_ndr_counted_string_cb(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef @cb_wstr_postprocess, ptr noundef %20)
+  store i32 %21, ptr %8, align 4
+  %22 = load i32, ptr %8, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17765,247 +17770,249 @@ define internal i32 @dissect_secchan_verf(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %25, ptr %14, align 8
   %26 = load i32, ptr @seen, align 4
   %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %34
+  br i1 %27, label %28, label %35
 
 28:                                               ; preds = %6
-  %29 = load i32, ptr getelementptr inbounds (%struct._seen_packet, ptr @seen, i32 0, i32 1), align 4
-  %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 3
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %29, %32
-  br i1 %33, label %89, label %34
+  %29 = getelementptr inbounds %struct._seen_packet, ptr @seen, i32 0, i32 1
+  %30 = load i32, ptr %29, align 4
+  %31 = load ptr, ptr %10, align 8
+  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 3
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %30, %33
+  br i1 %34, label %90, label %35
 
-34:                                               ; preds = %28, %6
-  %35 = load ptr, ptr %11, align 8
-  %36 = load i32, ptr @hf_netlogon_secchan_verf, align 4
-  %37 = load ptr, ptr %8, align 8
-  %38 = load i32, ptr %9, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef -1, i32 noundef 0)
-  store ptr %39, ptr %16, align 8
-  %40 = load ptr, ptr %16, align 8
-  %41 = load i32, ptr @ett_secchan_verf, align 4
-  %42 = call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41)
-  store ptr %42, ptr %17, align 8
-  %43 = load ptr, ptr %17, align 8
-  %44 = load i32, ptr @hf_netlogon_secchan_verf_signalg, align 4
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i32, ptr %9, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef 2, i32 noundef -2147483648)
-  %48 = load ptr, ptr %17, align 8
-  %49 = load i32, ptr @hf_netlogon_secchan_verf_sealalg, align 4
-  %50 = load ptr, ptr %8, align 8
-  %51 = load i32, ptr %9, align 4
-  %52 = add i32 %51, 2
-  %53 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %52, i32 noundef 2, i32 noundef -2147483648)
-  %54 = load ptr, ptr %17, align 8
-  %55 = load i32, ptr @hf_netlogon_secchan_verf_flag, align 4
-  %56 = load ptr, ptr %8, align 8
-  %57 = load i32, ptr %9, align 4
-  %58 = add i32 %57, 6
-  %59 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %58, i32 noundef 2, i32 noundef 0)
-  %60 = load i32, ptr %9, align 4
-  %61 = add i32 %60, 8
-  store i32 %61, ptr %9, align 4
-  %62 = load ptr, ptr %8, align 8
-  %63 = load i32, ptr %9, align 4
-  %64 = load ptr, ptr %10, align 8
-  %65 = load ptr, ptr %17, align 8
-  %66 = load ptr, ptr %12, align 8
-  %67 = load i32, ptr @hf_netlogon_secchan_verf_seq, align 4
-  %68 = call i32 @dissect_dcerpc_8bytes(ptr noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %67, ptr noundef %18)
-  store i32 %68, ptr %9, align 4
-  %69 = load ptr, ptr %8, align 8
-  %70 = load i32, ptr %9, align 4
-  %71 = load ptr, ptr %10, align 8
-  %72 = load ptr, ptr %17, align 8
-  %73 = load ptr, ptr %12, align 8
-  %74 = load i32, ptr @hf_netlogon_secchan_verf_digest, align 4
-  %75 = call i32 @dissect_dcerpc_8bytes(ptr noundef %69, i32 noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, i32 noundef %74, ptr noundef %19)
-  store i32 %75, ptr %9, align 4
-  %76 = load ptr, ptr %8, align 8
-  %77 = load i32, ptr %9, align 4
-  %78 = call i32 @tvb_bytes_exist(ptr noundef %76, i32 noundef %77, i32 noundef 8)
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %88
+35:                                               ; preds = %28, %6
+  %36 = load ptr, ptr %11, align 8
+  %37 = load i32, ptr @hf_netlogon_secchan_verf, align 4
+  %38 = load ptr, ptr %8, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef -1, i32 noundef 0)
+  store ptr %40, ptr %16, align 8
+  %41 = load ptr, ptr %16, align 8
+  %42 = load i32, ptr @ett_secchan_verf, align 4
+  %43 = call ptr @proto_item_add_subtree(ptr noundef %41, i32 noundef %42)
+  store ptr %43, ptr %17, align 8
+  %44 = load ptr, ptr %17, align 8
+  %45 = load i32, ptr @hf_netlogon_secchan_verf_signalg, align 4
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i32, ptr %9, align 4
+  %48 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef 2, i32 noundef -2147483648)
+  %49 = load ptr, ptr %17, align 8
+  %50 = load i32, ptr @hf_netlogon_secchan_verf_sealalg, align 4
+  %51 = load ptr, ptr %8, align 8
+  %52 = load i32, ptr %9, align 4
+  %53 = add i32 %52, 2
+  %54 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %53, i32 noundef 2, i32 noundef -2147483648)
+  %55 = load ptr, ptr %17, align 8
+  %56 = load i32, ptr @hf_netlogon_secchan_verf_flag, align 4
+  %57 = load ptr, ptr %8, align 8
+  %58 = load i32, ptr %9, align 4
+  %59 = add i32 %58, 6
+  %60 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %59, i32 noundef 2, i32 noundef 0)
+  %61 = load i32, ptr %9, align 4
+  %62 = add i32 %61, 8
+  store i32 %62, ptr %9, align 4
+  %63 = load ptr, ptr %8, align 8
+  %64 = load i32, ptr %9, align 4
+  %65 = load ptr, ptr %10, align 8
+  %66 = load ptr, ptr %17, align 8
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr @hf_netlogon_secchan_verf_seq, align 4
+  %69 = call i32 @dissect_dcerpc_8bytes(ptr noundef %63, i32 noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, i32 noundef %68, ptr noundef %18)
+  store i32 %69, ptr %9, align 4
+  %70 = load ptr, ptr %8, align 8
+  %71 = load i32, ptr %9, align 4
+  %72 = load ptr, ptr %10, align 8
+  %73 = load ptr, ptr %17, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = load i32, ptr @hf_netlogon_secchan_verf_digest, align 4
+  %76 = call i32 @dissect_dcerpc_8bytes(ptr noundef %70, i32 noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef %19)
+  store i32 %76, ptr %9, align 4
+  %77 = load ptr, ptr %8, align 8
+  %78 = load i32, ptr %9, align 4
+  %79 = call i32 @tvb_bytes_exist(ptr noundef %77, i32 noundef %78, i32 noundef 8)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %89
 
-80:                                               ; preds = %34
-  %81 = load ptr, ptr %8, align 8
-  %82 = load i32, ptr %9, align 4
-  %83 = load ptr, ptr %10, align 8
-  %84 = load ptr, ptr %17, align 8
-  %85 = load ptr, ptr %12, align 8
-  %86 = load i32, ptr @hf_netlogon_secchan_verf_nonce, align 4
-  %87 = call i32 @dissect_dcerpc_8bytes(ptr noundef %81, i32 noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %86, ptr noundef %20)
-  store i32 %87, ptr %9, align 4
-  br label %88
-
-88:                                               ; preds = %80, %34
-  store i32 1, ptr %21, align 4
+81:                                               ; preds = %35
+  %82 = load ptr, ptr %8, align 8
+  %83 = load i32, ptr %9, align 4
+  %84 = load ptr, ptr %10, align 8
+  %85 = load ptr, ptr %17, align 8
+  %86 = load ptr, ptr %12, align 8
+  %87 = load i32, ptr @hf_netlogon_secchan_verf_nonce, align 4
+  %88 = call i32 @dissect_dcerpc_8bytes(ptr noundef %82, i32 noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, i32 noundef %87, ptr noundef %20)
+  store i32 %88, ptr %9, align 4
   br label %89
 
-89:                                               ; preds = %88, %28
-  %90 = load ptr, ptr %14, align 8
-  %91 = icmp ne ptr %90, null
-  br i1 %91, label %92, label %195
+89:                                               ; preds = %81, %35
+  store i32 1, ptr %21, align 4
+  br label %90
 
-92:                                               ; preds = %89
-  br label %93
+90:                                               ; preds = %89, %28
+  %91 = load ptr, ptr %14, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %196
 
-93:                                               ; preds = %111, %92
-  %94 = load ptr, ptr %14, align 8
-  %95 = icmp ne ptr %94, null
-  br i1 %95, label %96, label %109
+93:                                               ; preds = %90
+  br label %94
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %14, align 8
-  %98 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %97, i32 0, i32 14
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp ne i32 %99, -1
-  br i1 %100, label %101, label %109
+94:                                               ; preds = %112, %93
+  %95 = load ptr, ptr %14, align 8
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %97, label %110
 
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %14, align 8
-  %103 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %102, i32 0, i32 14
-  %104 = load i32, ptr %103, align 4
-  %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds %struct._packet_info, ptr %105, i32 0, i32 3
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp slt i32 %104, %107
-  br label %109
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %14, align 8
+  %99 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %98, i32 0, i32 14
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp ne i32 %100, -1
+  br i1 %101, label %102, label %110
 
-109:                                              ; preds = %101, %96, %93
-  %110 = phi i1 [ false, %96 ], [ false, %93 ], [ %108, %101 ]
-  br i1 %110, label %111, label %115
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %14, align 8
+  %104 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %103, i32 0, i32 14
+  %105 = load i32, ptr %104, align 4
+  %106 = load ptr, ptr %10, align 8
+  %107 = getelementptr inbounds %struct._packet_info, ptr %106, i32 0, i32 3
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp slt i32 %105, %108
+  br label %110
 
-111:                                              ; preds = %109
-  %112 = load ptr, ptr %14, align 8
-  %113 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %112, i32 0, i32 15
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %14, align 8
-  br label %93, !llvm.loop !14
+110:                                              ; preds = %102, %97, %94
+  %111 = phi i1 [ false, %97 ], [ false, %94 ], [ %109, %102 ]
+  br i1 %111, label %112, label %116
 
-115:                                              ; preds = %109
-  %116 = load ptr, ptr %14, align 8
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %118, label %120
+112:                                              ; preds = %110
+  %113 = load ptr, ptr %14, align 8
+  %114 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %113, i32 0, i32 15
+  %115 = load ptr, ptr %114, align 8
+  store ptr %115, ptr %14, align 8
+  br label %94, !llvm.loop !14
 
-118:                                              ; preds = %115
-  %119 = load i32, ptr %9, align 4
-  store i32 %119, ptr %7, align 4
-  br label %201
+116:                                              ; preds = %110
+  %117 = load ptr, ptr %14, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %119, label %121
 
-120:                                              ; preds = %115
-  %121 = load i32, ptr %21, align 4
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %123, label %139
+119:                                              ; preds = %116
+  %120 = load i32, ptr %9, align 4
+  store i32 %120, ptr %7, align 4
+  br label %203
 
-123:                                              ; preds = %120
-  %124 = load i64, ptr %20, align 8
-  %125 = load ptr, ptr %14, align 8
-  %126 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %125, i32 0, i32 9
-  store i64 %124, ptr %126, align 8
-  %127 = load ptr, ptr %14, align 8
-  %128 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %127, i32 0, i32 7
-  %129 = load i32, ptr %128, align 8
-  %130 = load ptr, ptr %14, align 8
-  %131 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %130, i32 0, i32 4
-  %132 = getelementptr inbounds [16 x i8], ptr %131, i64 0, i64 0
-  %133 = load i64, ptr %19, align 8
-  %134 = load i64, ptr %18, align 8
-  %135 = load i8, ptr %13, align 1
-  %136 = call i64 @uncrypt_sequence(i32 noundef %129, ptr noundef %132, i64 noundef %133, i64 noundef %134, i8 noundef zeroext %135)
-  %137 = load ptr, ptr %14, align 8
-  %138 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %137, i32 0, i32 8
-  store i64 %136, ptr %138, align 8
-  br label %139
+121:                                              ; preds = %116
+  %122 = load i32, ptr %21, align 4
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %140
 
-139:                                              ; preds = %123, %120
-  %140 = load ptr, ptr %14, align 8
-  %141 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %140, i32 0, i32 4
-  %142 = getelementptr inbounds [16 x i8], ptr %141, i64 0, i64 0
-  %143 = load ptr, ptr %14, align 8
-  %144 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %143, i32 0, i32 5
-  %145 = getelementptr inbounds [16 x i8], ptr %144, i64 0, i64 0
-  %146 = call i32 @get_seal_key(ptr noundef %142, i32 noundef 16, ptr noundef %145)
-  %147 = icmp ne i32 %146, 0
-  br i1 %147, label %148, label %151
+124:                                              ; preds = %121
+  %125 = load i64, ptr %20, align 8
+  %126 = load ptr, ptr %14, align 8
+  %127 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %126, i32 0, i32 9
+  store i64 %125, ptr %127, align 8
+  %128 = load ptr, ptr %14, align 8
+  %129 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %128, i32 0, i32 7
+  %130 = load i32, ptr %129, align 8
+  %131 = load ptr, ptr %14, align 8
+  %132 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %131, i32 0, i32 4
+  %133 = getelementptr inbounds [16 x i8], ptr %132, i64 0, i64 0
+  %134 = load i64, ptr %19, align 8
+  %135 = load i64, ptr %18, align 8
+  %136 = load i8, ptr %13, align 1
+  %137 = call i64 @uncrypt_sequence(i32 noundef %130, ptr noundef %133, i64 noundef %134, i64 noundef %135, i8 noundef zeroext %136)
+  %138 = load ptr, ptr %14, align 8
+  %139 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %138, i32 0, i32 8
+  store i64 %137, ptr %139, align 8
+  br label %140
 
-148:                                              ; preds = %139
-  %149 = load ptr, ptr %14, align 8
-  %150 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %149, i32 0, i32 11
-  store i32 1, ptr %150, align 4
-  br label %152
+140:                                              ; preds = %124, %121
+  %141 = load ptr, ptr %14, align 8
+  %142 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %141, i32 0, i32 4
+  %143 = getelementptr inbounds [16 x i8], ptr %142, i64 0, i64 0
+  %144 = load ptr, ptr %14, align 8
+  %145 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %144, i32 0, i32 5
+  %146 = getelementptr inbounds [16 x i8], ptr %145, i64 0, i64 0
+  %147 = call i32 @get_seal_key(ptr noundef %143, i32 noundef 16, ptr noundef %146)
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %149, label %152
 
-151:                                              ; preds = %139
-  br label %152
+149:                                              ; preds = %140
+  %150 = load ptr, ptr %14, align 8
+  %151 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %150, i32 0, i32 11
+  store i32 1, ptr %151, align 4
+  br label %153
 
-152:                                              ; preds = %151, %148
-  %153 = load ptr, ptr %14, align 8
-  %154 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %153, i32 0, i32 11
-  %155 = load i32, ptr %154, align 4
-  %156 = icmp ne i32 %155, 0
-  br i1 %156, label %157, label %193
+152:                                              ; preds = %140
+  br label %153
 
-157:                                              ; preds = %152
-  %158 = load ptr, ptr %10, align 8
-  %159 = load ptr, ptr %17, align 8
-  %160 = call ptr @proto_tree_get_parent(ptr noundef %159)
-  %161 = load ptr, ptr %14, align 8
-  %162 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %161, i32 0, i32 3
-  %163 = load i32, ptr %162, align 4
-  %164 = load ptr, ptr %14, align 8
-  %165 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %164, i32 0, i32 4
-  %166 = getelementptr [16 x i8], ptr %165, i64 0, i64 0
-  %167 = load i8, ptr %166, align 8
-  %168 = zext i8 %167 to i32
-  %169 = and i32 %168, 255
-  %170 = load ptr, ptr %14, align 8
-  %171 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %170, i32 0, i32 4
-  %172 = getelementptr [16 x i8], ptr %171, i64 0, i64 1
-  %173 = load i8, ptr %172, align 1
-  %174 = zext i8 %173 to i32
-  %175 = and i32 %174, 255
-  %176 = load ptr, ptr %14, align 8
-  %177 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %176, i32 0, i32 4
-  %178 = getelementptr [16 x i8], ptr %177, i64 0, i64 2
-  %179 = load i8, ptr %178, align 2
-  %180 = zext i8 %179 to i32
-  %181 = and i32 %180, 255
-  %182 = load ptr, ptr %14, align 8
-  %183 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %182, i32 0, i32 4
-  %184 = getelementptr [16 x i8], ptr %183, i64 0, i64 3
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %187 = and i32 %186, 255
-  %188 = load ptr, ptr %14, align 8
-  %189 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %188, i32 0, i32 2
-  %190 = getelementptr inbounds %struct._md4_pass, ptr %189, i32 0, i32 1
-  %191 = getelementptr inbounds [257 x i8], ptr %190, i64 0, i64 0
-  %192 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %158, ptr noundef %160, ptr noundef @ei_netlogon_session_key, ptr noundef @.str.1128, i32 noundef %163, i32 noundef %169, i32 noundef %175, i32 noundef %181, i32 noundef %187, ptr noundef %191)
-  br label %193
+153:                                              ; preds = %152, %149
+  %154 = load ptr, ptr %14, align 8
+  %155 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %154, i32 0, i32 11
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %194
 
-193:                                              ; preds = %157, %152
+158:                                              ; preds = %153
+  %159 = load ptr, ptr %10, align 8
+  %160 = load ptr, ptr %17, align 8
+  %161 = call ptr @proto_tree_get_parent(ptr noundef %160)
+  %162 = load ptr, ptr %14, align 8
+  %163 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %162, i32 0, i32 3
+  %164 = load i32, ptr %163, align 4
+  %165 = load ptr, ptr %14, align 8
+  %166 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %165, i32 0, i32 4
+  %167 = getelementptr [16 x i8], ptr %166, i64 0, i64 0
+  %168 = load i8, ptr %167, align 8
+  %169 = zext i8 %168 to i32
+  %170 = and i32 %169, 255
+  %171 = load ptr, ptr %14, align 8
+  %172 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %171, i32 0, i32 4
+  %173 = getelementptr [16 x i8], ptr %172, i64 0, i64 1
+  %174 = load i8, ptr %173, align 1
+  %175 = zext i8 %174 to i32
+  %176 = and i32 %175, 255
+  %177 = load ptr, ptr %14, align 8
+  %178 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %177, i32 0, i32 4
+  %179 = getelementptr [16 x i8], ptr %178, i64 0, i64 2
+  %180 = load i8, ptr %179, align 2
+  %181 = zext i8 %180 to i32
+  %182 = and i32 %181, 255
+  %183 = load ptr, ptr %14, align 8
+  %184 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %183, i32 0, i32 4
+  %185 = getelementptr [16 x i8], ptr %184, i64 0, i64 3
+  %186 = load i8, ptr %185, align 1
+  %187 = zext i8 %186 to i32
+  %188 = and i32 %187, 255
+  %189 = load ptr, ptr %14, align 8
+  %190 = getelementptr inbounds %struct._netlogon_auth_vars, ptr %189, i32 0, i32 2
+  %191 = getelementptr inbounds %struct._md4_pass, ptr %190, i32 0, i32 1
+  %192 = getelementptr inbounds [257 x i8], ptr %191, i64 0, i64 0
+  %193 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %159, ptr noundef %161, ptr noundef @ei_netlogon_session_key, ptr noundef @.str.1128, i32 noundef %164, i32 noundef %170, i32 noundef %176, i32 noundef %182, i32 noundef %188, ptr noundef %192)
   br label %194
 
-194:                                              ; preds = %193
-  br label %196
+194:                                              ; preds = %158, %153
+  br label %195
 
-195:                                              ; preds = %89
-  br label %196
+195:                                              ; preds = %194
+  br label %197
 
-196:                                              ; preds = %195, %194
+196:                                              ; preds = %90
+  br label %197
+
+197:                                              ; preds = %196, %195
   store i32 1, ptr @seen, align 4
-  %197 = load ptr, ptr %10, align 8
-  %198 = getelementptr inbounds %struct._packet_info, ptr %197, i32 0, i32 3
-  %199 = load i32, ptr %198, align 4
-  store i32 %199, ptr getelementptr inbounds (%struct._seen_packet, ptr @seen, i32 0, i32 1), align 4
-  %200 = load i32, ptr %9, align 4
-  store i32 %200, ptr %7, align 4
-  br label %201
+  %198 = load ptr, ptr %10, align 8
+  %199 = getelementptr inbounds %struct._packet_info, ptr %198, i32 0, i32 3
+  %200 = load i32, ptr %199, align 4
+  %201 = getelementptr inbounds %struct._seen_packet, ptr @seen, i32 0, i32 1
+  store i32 %200, ptr %201, align 4
+  %202 = load i32, ptr %9, align 4
+  store i32 %202, ptr %7, align 4
+  br label %203
 
-201:                                              ; preds = %196, %118
-  %202 = load i32, ptr %7, align 4
-  ret i32 %202
+203:                                              ; preds = %197, %119
+  %204 = load i32, ptr %7, align 4
+  ret i32 %204
 }
 
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1

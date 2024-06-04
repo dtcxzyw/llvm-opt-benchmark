@@ -2415,137 +2415,138 @@ define internal void @_ZN12_GLOBAL__N_115DffLegalizePassC2Ev(ptr noundef nonnull
   %9 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %10 unwind label %21
+          to label %10 unwind label %22
 
 10:                                               ; preds = %1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %11 unwind label %25
+          to label %11 unwind label %26
 
 11:                                               ; preds = %10
   invoke void @_ZN5Yosys4PassC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef %3, ptr noundef %7)
-          to label %12 unwind label %29
+          to label %12 unwind label %30
 
 12:                                               ; preds = %11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %13 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 19
-  invoke void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13)
-          to label %14 unwind label %35
+  %13 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
+  %14 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 19
+  invoke void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %14)
+          to label %15 unwind label %36
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 20
-  invoke void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %15)
-          to label %16 unwind label %39
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 20
+  invoke void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %16)
+          to label %17 unwind label %40
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 21
-  invoke void @_ZN5Yosys6SigMapC2EPNS_5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef null)
-          to label %18 unwind label %43
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 21
+  invoke void @_ZN5Yosys6SigMapC2EPNS_5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef null)
+          to label %19 unwind label %44
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 22
-  invoke void @_ZN5Yosys10FfInitValsC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %19)
-          to label %20 unwind label %47
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 22
+  invoke void @_ZN5Yosys10FfInitValsC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20)
+          to label %21 unwind label %48
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   ret void
 
-21:                                               ; preds = %1
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %1
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %35
+
+26:                                               ; preds = %10
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
   br label %34
 
-25:                                               ; preds = %10
-  %26 = landingpad { ptr, i32 }
+30:                                               ; preds = %11
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %5, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %6, align 4
-  br label %33
-
-29:                                               ; preds = %11
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %5, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %6, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29, %25
+34:                                               ; preds = %30, %26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %21
+35:                                               ; preds = %34, %22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  br label %55
+
+36:                                               ; preds = %12
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
   br label %54
 
-35:                                               ; preds = %12
-  %36 = landingpad { ptr, i32 }
+40:                                               ; preds = %15
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %5, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %6, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
   br label %53
 
-39:                                               ; preds = %14
-  %40 = landingpad { ptr, i32 }
+44:                                               ; preds = %17
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %5, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %6, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
   br label %52
 
-43:                                               ; preds = %16
-  %44 = landingpad { ptr, i32 }
+48:                                               ; preds = %19
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %5, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %6, align 4
-  br label %51
-
-47:                                               ; preds = %18
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %5, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %6, align 4
-  call void @_ZN5Yosys6SigMapD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %17) #3
-  br label %51
-
-51:                                               ; preds = %47, %43
-  call void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %15) #3
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %5, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %6, align 4
+  call void @_ZN5Yosys6SigMapD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %18) #3
   br label %52
 
-52:                                               ; preds = %51, %39
-  call void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13) #3
+52:                                               ; preds = %48, %44
+  call void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %16) #3
   br label %53
 
-53:                                               ; preds = %52, %35
+53:                                               ; preds = %52, %40
+  call void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %14) #3
+  br label %54
+
+54:                                               ; preds = %53, %36
   call void @_ZN5Yosys4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %9) #3
-  br label %54
+  br label %55
 
-54:                                               ; preds = %53, %34
-  %55 = load ptr, ptr %5, align 8
-  %56 = load i32, ptr %6, align 4
-  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
-  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
-  resume { ptr, i32 } %58
+55:                                               ; preds = %54, %35
+  %56 = load ptr, ptr %5, align 8
+  %57 = load i32, ptr %6, align 4
+  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
+  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
+  resume { ptr, i32 } %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2553,15 +2554,16 @@ define internal void @_ZN12_GLOBAL__N_115DffLegalizePassD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 22
-  call void @_ZN5Yosys10FfInitValsD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #3
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 21
-  call void @_ZN5Yosys6SigMapD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #3
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 20
-  call void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6) #3
-  %7 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 19
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 22
+  call void @_ZN5Yosys10FfInitValsD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #3
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 21
+  call void @_ZN5Yosys6SigMapD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #3
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 20
   call void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %7) #3
+  %8 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 19
+  call void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %8) #3
   call void @_ZN5Yosys4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #3
   ret void
 }

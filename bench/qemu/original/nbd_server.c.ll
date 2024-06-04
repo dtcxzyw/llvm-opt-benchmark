@@ -1217,18 +1217,21 @@ do.body142:                                       ; preds = %for.end138
   %129 = load ptr, ptr %exp, align 8
   %next143 = getelementptr inbounds %struct.NBDExport, ptr %129, i32 0, i32 6
   store ptr null, ptr %next143, align 8
-  %130 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @exports, i32 0, i32 1), align 8
-  %131 = load ptr, ptr %exp, align 8
-  %next144 = getelementptr inbounds %struct.NBDExport, ptr %131, i32 0, i32 6
-  %tql_prev145 = getelementptr inbounds %struct.QTailQLink, ptr %next144, i32 0, i32 1
-  store ptr %130, ptr %tql_prev145, align 8
+  %130 = getelementptr inbounds %struct.QTailQLink, ptr @exports, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %exp, align 8
-  %133 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @exports, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %133, i32 0, i32 0
-  store ptr %132, ptr %tql_next, align 8
-  %134 = load ptr, ptr %exp, align 8
-  %next146 = getelementptr inbounds %struct.NBDExport, ptr %134, i32 0, i32 6
-  store ptr %next146, ptr getelementptr inbounds (%struct.QTailQLink, ptr @exports, i32 0, i32 1), align 8
+  %next144 = getelementptr inbounds %struct.NBDExport, ptr %132, i32 0, i32 6
+  %tql_prev145 = getelementptr inbounds %struct.QTailQLink, ptr %next144, i32 0, i32 1
+  store ptr %131, ptr %tql_prev145, align 8
+  %133 = load ptr, ptr %exp, align 8
+  %134 = getelementptr inbounds %struct.QTailQLink, ptr @exports, i32 0, i32 1
+  %135 = load ptr, ptr %134, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %135, i32 0, i32 0
+  store ptr %133, ptr %tql_next, align 8
+  %136 = load ptr, ptr %exp, align 8
+  %next146 = getelementptr inbounds %struct.NBDExport, ptr %136, i32 0, i32 6
+  %137 = getelementptr inbounds %struct.QTailQLink, ptr @exports, i32 0, i32 1
+  store ptr %next146, ptr %137, align 8
   br label %do.end147
 
 do.end147:                                        ; preds = %do.body142
@@ -1238,25 +1241,25 @@ do.end147:                                        ; preds = %do.body142
 
 fail:                                             ; preds = %if.then116, %if.then108, %if.then98, %if.then86
   call void @bdrv_graph_rdunlock_main_loop()
-  %135 = load ptr, ptr %exp, align 8
-  %export_bitmaps148 = getelementptr inbounds %struct.NBDExport, ptr %135, i32 0, i32 10
-  %136 = load ptr, ptr %export_bitmaps148, align 8
-  call void @g_free(ptr noundef %136)
-  %137 = load ptr, ptr %exp, align 8
-  %name149 = getelementptr inbounds %struct.NBDExport, ptr %137, i32 0, i32 1
-  %138 = load ptr, ptr %name149, align 8
-  call void @g_free(ptr noundef %138)
-  %139 = load ptr, ptr %exp, align 8
-  %description150 = getelementptr inbounds %struct.NBDExport, ptr %139, i32 0, i32 2
-  %140 = load ptr, ptr %description150, align 8
-  call void @g_free(ptr noundef %140)
-  %141 = load i32, ptr %ret, align 4
-  store i32 %141, ptr %retval, align 4
+  %138 = load ptr, ptr %exp, align 8
+  %export_bitmaps148 = getelementptr inbounds %struct.NBDExport, ptr %138, i32 0, i32 10
+  %139 = load ptr, ptr %export_bitmaps148, align 8
+  call void @g_free(ptr noundef %139)
+  %140 = load ptr, ptr %exp, align 8
+  %name149 = getelementptr inbounds %struct.NBDExport, ptr %140, i32 0, i32 1
+  %141 = load ptr, ptr %name149, align 8
+  call void @g_free(ptr noundef %141)
+  %142 = load ptr, ptr %exp, align 8
+  %description150 = getelementptr inbounds %struct.NBDExport, ptr %142, i32 0, i32 2
+  %143 = load ptr, ptr %description150, align 8
+  call void @g_free(ptr noundef %143)
+  %144 = load i32, ptr %ret, align 4
+  store i32 %144, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %fail, %do.end147, %if.then33, %if.then27, %if.then23, %if.then18, %if.then12, %if.then8
-  %142 = load i32, ptr %retval, align 4
-  ret i32 %142
+  %145 = load i32, ptr %retval, align 4
+  ret i32 %145
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1463,29 +1466,30 @@ if.else:                                          ; preds = %do.body
   %next11 = getelementptr inbounds %struct.NBDExport, ptr %23, i32 0, i32 6
   %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %next11, i32 0, i32 1
   %24 = load ptr, ptr %tql_prev12, align 8
-  store ptr %24, ptr getelementptr inbounds (%struct.QTailQLink, ptr @exports, i32 0, i32 1), align 8
+  %25 = getelementptr inbounds %struct.QTailQLink, ptr @exports, i32 0, i32 1
+  store ptr %24, ptr %25, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then6
-  %25 = load ptr, ptr %exp, align 8
-  %next13 = getelementptr inbounds %struct.NBDExport, ptr %25, i32 0, i32 6
-  %26 = load ptr, ptr %next13, align 8
-  %27 = load ptr, ptr %exp, align 8
-  %next14 = getelementptr inbounds %struct.NBDExport, ptr %27, i32 0, i32 6
+  %26 = load ptr, ptr %exp, align 8
+  %next13 = getelementptr inbounds %struct.NBDExport, ptr %26, i32 0, i32 6
+  %27 = load ptr, ptr %next13, align 8
+  %28 = load ptr, ptr %exp, align 8
+  %next14 = getelementptr inbounds %struct.NBDExport, ptr %28, i32 0, i32 6
   %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %next14, i32 0, i32 1
-  %28 = load ptr, ptr %tql_prev15, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %28, i32 0, i32 0
-  store ptr %26, ptr %tql_next, align 8
-  %29 = load ptr, ptr %exp, align 8
-  %next16 = getelementptr inbounds %struct.NBDExport, ptr %29, i32 0, i32 6
+  %29 = load ptr, ptr %tql_prev15, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %29, i32 0, i32 0
+  store ptr %27, ptr %tql_next, align 8
+  %30 = load ptr, ptr %exp, align 8
+  %next16 = getelementptr inbounds %struct.NBDExport, ptr %30, i32 0, i32 6
   %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %next16, i32 0, i32 1
   store ptr null, ptr %tql_prev17, align 8
-  %30 = load ptr, ptr %exp, align 8
-  %next18 = getelementptr inbounds %struct.NBDExport, ptr %30, i32 0, i32 6
+  %31 = load ptr, ptr %exp, align 8
+  %next18 = getelementptr inbounds %struct.NBDExport, ptr %31, i32 0, i32 6
   %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %next18, i32 0, i32 0
   store ptr null, ptr %tql_next19, align 8
-  %31 = load ptr, ptr %exp, align 8
-  %next20 = getelementptr inbounds %struct.NBDExport, ptr %31, i32 0, i32 6
+  %32 = load ptr, ptr %exp, align 8
+  %next20 = getelementptr inbounds %struct.NBDExport, ptr %32, i32 0, i32 6
   store ptr null, ptr %next20, align 8
   br label %do.end
 
@@ -1493,8 +1497,8 @@ do.end:                                           ; preds = %if.end
   br label %if.end21
 
 if.end21:                                         ; preds = %do.end, %for.end
-  %32 = load ptr, ptr %exp, align 8
-  %common22 = getelementptr inbounds %struct.NBDExport, ptr %32, i32 0, i32 0
+  %33 = load ptr, ptr %exp, align 8
+  %common22 = getelementptr inbounds %struct.NBDExport, ptr %33, i32 0, i32 0
   call void @blk_exp_unref(ptr noundef %common22)
   ret void
 }
@@ -9015,7 +9019,7 @@ entry:
   store ptr %errp, ptr %errp.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %client.addr, align 8
   %1 = load i32, ptr %type.addr, align 4
   %2 = load ptr, ptr %errp.addr, align 8
@@ -9024,7 +9028,7 @@ entry:
   %call = call i32 @nbd_opt_vdrop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   store i32 %call, ptr %ret, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %4 = load i32, ptr %ret, align 4
   ret i32 %4
 }
@@ -9979,7 +9983,7 @@ entry:
   store ptr %errp, ptr %errp.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %client.addr, align 8
   %1 = load i32, ptr %type.addr, align 4
   %2 = load ptr, ptr %errp.addr, align 8
@@ -9988,7 +9992,7 @@ entry:
   %call = call i32 @nbd_negotiate_send_rep_verr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   store i32 %call, ptr %ret, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %4 = load i32, ptr %ret, align 4
   ret i32 %4
 }
@@ -10606,7 +10610,7 @@ entry:
   store ptr %errp, ptr %errp.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %client.addr, align 8
   %1 = load ptr, ptr %errp.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
@@ -10614,13 +10618,10 @@ entry:
   %call = call i32 @nbd_opt_vdrop(ptr noundef %0, i32 noundef -2147483645, ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   store i32 %call, ptr %ret, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %3 = load i32, ptr %ret, align 4
   ret i32 %3
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @nbd_opt_vdrop(ptr noundef %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef %va) #0 {
@@ -10667,9 +10668,6 @@ if.end:                                           ; preds = %if.then, %entry
   %12 = load i32, ptr %ret, align 4
   ret i32 %12
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @nbd_negotiate_send_rep_verr(ptr noundef %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef %va) #0 {
@@ -13166,6 +13164,12 @@ if.end:                                           ; preds = %if.else, %if.then8
 if.end11:                                         ; preds = %if.end, %land.lhs.true5, %land.lhs.true, %entry
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

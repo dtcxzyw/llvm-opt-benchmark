@@ -1212,165 +1212,183 @@ define internal void @__cxx_global_var_init() #0 section ".text.startup" persona
   %42 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
   %43 = load i64, ptr %42, align 8
   invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, ptr %41, i64 %43, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %44 unwind label %125
+          to label %44 unwind label %143
 
 44:                                               ; preds = %0
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 1), ptr %1, align 8
-  %45 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 0
-  store i32 1, ptr %45, align 4
-  %46 = getelementptr inbounds i32, ptr %45, i64 1
-  store i32 -2, ptr %46, align 4
+  %45 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 1
+  store ptr %45, ptr %1, align 8
+  %46 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 0
+  store i32 1, ptr %46, align 4
   %47 = getelementptr inbounds i32, ptr %46, i64 1
-  store i32 2, ptr %47, align 4
-  %48 = getelementptr inbounds %"class.std::initializer_list", ptr %7, i32 0, i32 0
-  %49 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 0
-  store ptr %49, ptr %48, align 8
-  %50 = getelementptr inbounds %"class.std::initializer_list", ptr %7, i32 0, i32 1
-  store i64 3, ptr %50, align 8
+  store i32 -2, ptr %47, align 4
+  %48 = getelementptr inbounds i32, ptr %47, i64 1
+  store i32 2, ptr %48, align 4
+  %49 = getelementptr inbounds %"class.std::initializer_list", ptr %7, i32 0, i32 0
+  %50 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 0
+  store ptr %50, ptr %49, align 8
+  %51 = getelementptr inbounds %"class.std::initializer_list", ptr %7, i32 0, i32 1
+  store i64 3, ptr %51, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #4
-  %51 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
-  %54 = load i64, ptr %53, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 1), ptr %52, i64 %54, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %55 unwind label %129
+  %52 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 1
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr %53, i64 %55, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %57 unwind label %147
 
-55:                                               ; preds = %44
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 2), ptr %1, align 8
-  %56 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
-  store i32 1, ptr %56, align 4
-  %57 = getelementptr inbounds i32, ptr %56, i64 1
-  store i32 -3, ptr %57, align 4
-  %58 = getelementptr inbounds i32, ptr %57, i64 1
-  store i32 2, ptr %58, align 4
-  %59 = getelementptr inbounds i32, ptr %58, i64 1
-  store i32 -4, ptr %59, align 4
-  %60 = getelementptr inbounds %"class.std::initializer_list", ptr %10, i32 0, i32 0
-  %61 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
-  store ptr %61, ptr %60, align 8
-  %62 = getelementptr inbounds %"class.std::initializer_list", ptr %10, i32 0, i32 1
-  store i64 4, ptr %62, align 8
+57:                                               ; preds = %44
+  %58 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 2
+  store ptr %58, ptr %1, align 8
+  %59 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
+  store i32 1, ptr %59, align 4
+  %60 = getelementptr inbounds i32, ptr %59, i64 1
+  store i32 -3, ptr %60, align 4
+  %61 = getelementptr inbounds i32, ptr %60, i64 1
+  store i32 2, ptr %61, align 4
+  %62 = getelementptr inbounds i32, ptr %61, i64 1
+  store i32 -4, ptr %62, align 4
+  %63 = getelementptr inbounds %"class.std::initializer_list", ptr %10, i32 0, i32 0
+  %64 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
+  store ptr %64, ptr %63, align 8
+  %65 = getelementptr inbounds %"class.std::initializer_list", ptr %10, i32 0, i32 1
+  store i64 4, ptr %65, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #4
-  %63 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 2), ptr %64, i64 %66, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %67 unwind label %133
+  %66 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 2
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %67, i64 %69, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %71 unwind label %151
 
-67:                                               ; preds = %55
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 3), ptr %1, align 8
+71:                                               ; preds = %57
+  %72 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 3
+  store ptr %72, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 4 @constinit, i64 20, i1 false)
-  %68 = getelementptr inbounds %"class.std::initializer_list", ptr %13, i32 0, i32 0
-  %69 = getelementptr inbounds [5 x i32], ptr %14, i64 0, i64 0
-  store ptr %69, ptr %68, align 8
-  %70 = getelementptr inbounds %"class.std::initializer_list", ptr %13, i32 0, i32 1
-  store i64 5, ptr %70, align 8
+  %73 = getelementptr inbounds %"class.std::initializer_list", ptr %13, i32 0, i32 0
+  %74 = getelementptr inbounds [5 x i32], ptr %14, i64 0, i64 0
+  store ptr %74, ptr %73, align 8
+  %75 = getelementptr inbounds %"class.std::initializer_list", ptr %13, i32 0, i32 1
+  store i64 5, ptr %75, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #4
-  %71 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 1
-  %74 = load i64, ptr %73, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 3), ptr %72, i64 %74, ptr noundef nonnull align 1 dereferenceable(1) %15)
-          to label %75 unwind label %137
+  %76 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 1
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 3
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr %77, i64 %79, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %81 unwind label %155
 
-75:                                               ; preds = %67
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 4), ptr %1, align 8
+81:                                               ; preds = %71
+  %82 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 4
+  store ptr %82, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 @constinit.1, i64 24, i1 false)
-  %76 = getelementptr inbounds %"class.std::initializer_list", ptr %16, i32 0, i32 0
-  %77 = getelementptr inbounds [6 x i32], ptr %17, i64 0, i64 0
-  store ptr %77, ptr %76, align 8
-  %78 = getelementptr inbounds %"class.std::initializer_list", ptr %16, i32 0, i32 1
-  store i64 6, ptr %78, align 8
+  %83 = getelementptr inbounds %"class.std::initializer_list", ptr %16, i32 0, i32 0
+  %84 = getelementptr inbounds [6 x i32], ptr %17, i64 0, i64 0
+  store ptr %84, ptr %83, align 8
+  %85 = getelementptr inbounds %"class.std::initializer_list", ptr %16, i32 0, i32 1
+  store i64 6, ptr %85, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #4
-  %79 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 0
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 1
-  %82 = load i64, ptr %81, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 4), ptr %80, i64 %82, ptr noundef nonnull align 1 dereferenceable(1) %18)
-          to label %83 unwind label %141
+  %86 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds { ptr, i64 }, ptr %16, i32 0, i32 1
+  %89 = load i64, ptr %88, align 8
+  %90 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 4
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr %87, i64 %89, ptr noundef nonnull align 1 dereferenceable(1) %18)
+          to label %91 unwind label %159
 
-83:                                               ; preds = %75
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 5), ptr %1, align 8
+91:                                               ; preds = %81
+  %92 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 5
+  store ptr %92, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 @constinit.2, i64 28, i1 false)
-  %84 = getelementptr inbounds %"class.std::initializer_list", ptr %19, i32 0, i32 0
-  %85 = getelementptr inbounds [7 x i32], ptr %20, i64 0, i64 0
-  store ptr %85, ptr %84, align 8
-  %86 = getelementptr inbounds %"class.std::initializer_list", ptr %19, i32 0, i32 1
-  store i64 7, ptr %86, align 8
+  %93 = getelementptr inbounds %"class.std::initializer_list", ptr %19, i32 0, i32 0
+  %94 = getelementptr inbounds [7 x i32], ptr %20, i64 0, i64 0
+  store ptr %94, ptr %93, align 8
+  %95 = getelementptr inbounds %"class.std::initializer_list", ptr %19, i32 0, i32 1
+  store i64 7, ptr %95, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #4
-  %87 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 1
-  %90 = load i64, ptr %89, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 5), ptr %88, i64 %90, ptr noundef nonnull align 1 dereferenceable(1) %21)
-          to label %91 unwind label %145
+  %96 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 0
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds { ptr, i64 }, ptr %19, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %100 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 5
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr %97, i64 %99, ptr noundef nonnull align 1 dereferenceable(1) %21)
+          to label %101 unwind label %163
 
-91:                                               ; preds = %83
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 6), ptr %1, align 8
+101:                                              ; preds = %91
+  %102 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 6
+  store ptr %102, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 @constinit.3, i64 32, i1 false)
-  %92 = getelementptr inbounds %"class.std::initializer_list", ptr %22, i32 0, i32 0
-  %93 = getelementptr inbounds [8 x i32], ptr %23, i64 0, i64 0
-  store ptr %93, ptr %92, align 8
-  %94 = getelementptr inbounds %"class.std::initializer_list", ptr %22, i32 0, i32 1
-  store i64 8, ptr %94, align 8
+  %103 = getelementptr inbounds %"class.std::initializer_list", ptr %22, i32 0, i32 0
+  %104 = getelementptr inbounds [8 x i32], ptr %23, i64 0, i64 0
+  store ptr %104, ptr %103, align 8
+  %105 = getelementptr inbounds %"class.std::initializer_list", ptr %22, i32 0, i32 1
+  store i64 8, ptr %105, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #4
-  %95 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 1
-  %98 = load i64, ptr %97, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 6), ptr %96, i64 %98, ptr noundef nonnull align 1 dereferenceable(1) %24)
-          to label %99 unwind label %149
+  %106 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds { ptr, i64 }, ptr %22, i32 0, i32 1
+  %109 = load i64, ptr %108, align 8
+  %110 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 6
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr %107, i64 %109, ptr noundef nonnull align 1 dereferenceable(1) %24)
+          to label %111 unwind label %167
 
-99:                                               ; preds = %91
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 7), ptr %1, align 8
+111:                                              ; preds = %101
+  %112 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 7
+  store ptr %112, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 @constinit.4, i64 36, i1 false)
-  %100 = getelementptr inbounds %"class.std::initializer_list", ptr %25, i32 0, i32 0
-  %101 = getelementptr inbounds [9 x i32], ptr %26, i64 0, i64 0
-  store ptr %101, ptr %100, align 8
-  %102 = getelementptr inbounds %"class.std::initializer_list", ptr %25, i32 0, i32 1
-  store i64 9, ptr %102, align 8
+  %113 = getelementptr inbounds %"class.std::initializer_list", ptr %25, i32 0, i32 0
+  %114 = getelementptr inbounds [9 x i32], ptr %26, i64 0, i64 0
+  store ptr %114, ptr %113, align 8
+  %115 = getelementptr inbounds %"class.std::initializer_list", ptr %25, i32 0, i32 1
+  store i64 9, ptr %115, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #4
-  %103 = getelementptr inbounds { ptr, i64 }, ptr %25, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds { ptr, i64 }, ptr %25, i32 0, i32 1
-  %106 = load i64, ptr %105, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 7), ptr %104, i64 %106, ptr noundef nonnull align 1 dereferenceable(1) %27)
-          to label %107 unwind label %153
+  %116 = getelementptr inbounds { ptr, i64 }, ptr %25, i32 0, i32 0
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds { ptr, i64 }, ptr %25, i32 0, i32 1
+  %119 = load i64, ptr %118, align 8
+  %120 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 7
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr %117, i64 %119, ptr noundef nonnull align 1 dereferenceable(1) %27)
+          to label %121 unwind label %171
 
-107:                                              ; preds = %99
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 8), ptr %1, align 8
+121:                                              ; preds = %111
+  %122 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 8
+  store ptr %122, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr align 4 @constinit.5, i64 40, i1 false)
-  %108 = getelementptr inbounds %"class.std::initializer_list", ptr %28, i32 0, i32 0
-  %109 = getelementptr inbounds [10 x i32], ptr %29, i64 0, i64 0
-  store ptr %109, ptr %108, align 8
-  %110 = getelementptr inbounds %"class.std::initializer_list", ptr %28, i32 0, i32 1
-  store i64 10, ptr %110, align 8
+  %123 = getelementptr inbounds %"class.std::initializer_list", ptr %28, i32 0, i32 0
+  %124 = getelementptr inbounds [10 x i32], ptr %29, i64 0, i64 0
+  store ptr %124, ptr %123, align 8
+  %125 = getelementptr inbounds %"class.std::initializer_list", ptr %28, i32 0, i32 1
+  store i64 10, ptr %125, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #4
-  %111 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 0
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 1
-  %114 = load i64, ptr %113, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 8), ptr %112, i64 %114, ptr noundef nonnull align 1 dereferenceable(1) %30)
-          to label %115 unwind label %157
+  %126 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 0
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 1
+  %129 = load i64, ptr %128, align 8
+  %130 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 8
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr %127, i64 %129, ptr noundef nonnull align 1 dereferenceable(1) %30)
+          to label %131 unwind label %175
 
-115:                                              ; preds = %107
-  store ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 9), ptr %1, align 8
+131:                                              ; preds = %121
+  %132 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 9
+  store ptr %132, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %32, ptr align 4 @constinit.6, i64 44, i1 false)
-  %116 = getelementptr inbounds %"class.std::initializer_list", ptr %31, i32 0, i32 0
-  %117 = getelementptr inbounds [11 x i32], ptr %32, i64 0, i64 0
-  store ptr %117, ptr %116, align 8
-  %118 = getelementptr inbounds %"class.std::initializer_list", ptr %31, i32 0, i32 1
-  store i64 11, ptr %118, align 8
+  %133 = getelementptr inbounds %"class.std::initializer_list", ptr %31, i32 0, i32 0
+  %134 = getelementptr inbounds [11 x i32], ptr %32, i64 0, i64 0
+  store ptr %134, ptr %133, align 8
+  %135 = getelementptr inbounds %"class.std::initializer_list", ptr %31, i32 0, i32 1
+  store i64 11, ptr %135, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #4
-  %119 = getelementptr inbounds { ptr, i64 }, ptr %31, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds { ptr, i64 }, ptr %31, i32 0, i32 1
-  %122 = load i64, ptr %121, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 9), ptr %120, i64 %122, ptr noundef nonnull align 1 dereferenceable(1) %33)
-          to label %123 unwind label %161
+  %136 = getelementptr inbounds { ptr, i64 }, ptr %31, i32 0, i32 0
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds { ptr, i64 }, ptr %31, i32 0, i32 1
+  %139 = load i64, ptr %138, align 8
+  %140 = getelementptr inbounds %"class.std::vector", ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 9
+  invoke void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr %137, i64 %139, ptr noundef nonnull align 1 dereferenceable(1) %33)
+          to label %141 unwind label %179
 
-123:                                              ; preds = %115
+141:                                              ; preds = %131
   store i1 false, ptr %34, align 1
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #4
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #4
@@ -1382,161 +1400,161 @@ define internal void @__cxx_global_var_init() #0 section ".text.startup" persona
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #4
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #4
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #4
-  %124 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayISt6vectorIiSaIiEELm10EED2Ev, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, ptr @__dso_handle) #4
+  %142 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayISt6vectorIiSaIiEELm10EED2Ev, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, ptr @__dso_handle) #4
   ret void
 
-125:                                              ; preds = %0
-  %126 = landingpad { ptr, i32 }
+143:                                              ; preds = %0
+  %144 = landingpad { ptr, i32 }
           cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  store ptr %127, ptr %5, align 8
-  %128 = extractvalue { ptr, i32 } %126, 1
-  store i32 %128, ptr %6, align 4
-  br label %173
+  %145 = extractvalue { ptr, i32 } %144, 0
+  store ptr %145, ptr %5, align 8
+  %146 = extractvalue { ptr, i32 } %144, 1
+  store i32 %146, ptr %6, align 4
+  br label %191
 
-129:                                              ; preds = %44
-  %130 = landingpad { ptr, i32 }
+147:                                              ; preds = %44
+  %148 = landingpad { ptr, i32 }
           cleanup
-  %131 = extractvalue { ptr, i32 } %130, 0
-  store ptr %131, ptr %5, align 8
-  %132 = extractvalue { ptr, i32 } %130, 1
-  store i32 %132, ptr %6, align 4
-  br label %172
+  %149 = extractvalue { ptr, i32 } %148, 0
+  store ptr %149, ptr %5, align 8
+  %150 = extractvalue { ptr, i32 } %148, 1
+  store i32 %150, ptr %6, align 4
+  br label %190
 
-133:                                              ; preds = %55
-  %134 = landingpad { ptr, i32 }
+151:                                              ; preds = %57
+  %152 = landingpad { ptr, i32 }
           cleanup
-  %135 = extractvalue { ptr, i32 } %134, 0
-  store ptr %135, ptr %5, align 8
-  %136 = extractvalue { ptr, i32 } %134, 1
-  store i32 %136, ptr %6, align 4
-  br label %171
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %5, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %6, align 4
+  br label %189
 
-137:                                              ; preds = %67
-  %138 = landingpad { ptr, i32 }
+155:                                              ; preds = %71
+  %156 = landingpad { ptr, i32 }
           cleanup
-  %139 = extractvalue { ptr, i32 } %138, 0
-  store ptr %139, ptr %5, align 8
-  %140 = extractvalue { ptr, i32 } %138, 1
-  store i32 %140, ptr %6, align 4
-  br label %170
+  %157 = extractvalue { ptr, i32 } %156, 0
+  store ptr %157, ptr %5, align 8
+  %158 = extractvalue { ptr, i32 } %156, 1
+  store i32 %158, ptr %6, align 4
+  br label %188
 
-141:                                              ; preds = %75
-  %142 = landingpad { ptr, i32 }
+159:                                              ; preds = %81
+  %160 = landingpad { ptr, i32 }
           cleanup
-  %143 = extractvalue { ptr, i32 } %142, 0
-  store ptr %143, ptr %5, align 8
-  %144 = extractvalue { ptr, i32 } %142, 1
-  store i32 %144, ptr %6, align 4
-  br label %169
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %5, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %6, align 4
+  br label %187
 
-145:                                              ; preds = %83
-  %146 = landingpad { ptr, i32 }
+163:                                              ; preds = %91
+  %164 = landingpad { ptr, i32 }
           cleanup
-  %147 = extractvalue { ptr, i32 } %146, 0
-  store ptr %147, ptr %5, align 8
-  %148 = extractvalue { ptr, i32 } %146, 1
-  store i32 %148, ptr %6, align 4
-  br label %168
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %5, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %6, align 4
+  br label %186
 
-149:                                              ; preds = %91
-  %150 = landingpad { ptr, i32 }
+167:                                              ; preds = %101
+  %168 = landingpad { ptr, i32 }
           cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %5, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %6, align 4
-  br label %167
+  %169 = extractvalue { ptr, i32 } %168, 0
+  store ptr %169, ptr %5, align 8
+  %170 = extractvalue { ptr, i32 } %168, 1
+  store i32 %170, ptr %6, align 4
+  br label %185
 
-153:                                              ; preds = %99
-  %154 = landingpad { ptr, i32 }
+171:                                              ; preds = %111
+  %172 = landingpad { ptr, i32 }
           cleanup
-  %155 = extractvalue { ptr, i32 } %154, 0
-  store ptr %155, ptr %5, align 8
-  %156 = extractvalue { ptr, i32 } %154, 1
-  store i32 %156, ptr %6, align 4
-  br label %166
-
-157:                                              ; preds = %107
-  %158 = landingpad { ptr, i32 }
-          cleanup
-  %159 = extractvalue { ptr, i32 } %158, 0
-  store ptr %159, ptr %5, align 8
-  %160 = extractvalue { ptr, i32 } %158, 1
-  store i32 %160, ptr %6, align 4
-  br label %165
-
-161:                                              ; preds = %115
-  %162 = landingpad { ptr, i32 }
-          cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %5, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %6, align 4
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #4
-  br label %165
-
-165:                                              ; preds = %161, %157
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #4
-  br label %166
-
-166:                                              ; preds = %165, %153
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #4
-  br label %167
-
-167:                                              ; preds = %166, %149
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #4
-  br label %168
-
-168:                                              ; preds = %167, %145
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #4
-  br label %169
-
-169:                                              ; preds = %168, %141
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #4
-  br label %170
-
-170:                                              ; preds = %169, %137
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #4
-  br label %171
-
-171:                                              ; preds = %170, %133
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #4
-  br label %172
-
-172:                                              ; preds = %171, %129
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #4
-  br label %173
-
-173:                                              ; preds = %172, %125
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #4
-  %174 = load i1, ptr %34, align 1
-  br i1 %174, label %175, label %183
-
-175:                                              ; preds = %173
-  %176 = load ptr, ptr %1, align 8
-  %177 = icmp eq ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, %176
-  br i1 %177, label %182, label %178
-
-178:                                              ; preds = %178, %175
-  %179 = phi ptr [ %176, %175 ], [ %180, %178 ]
-  %180 = getelementptr inbounds %"class.std::vector", ptr %179, i64 -1
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %180) #4
-  %181 = icmp eq ptr %180, @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE
-  br i1 %181, label %182, label %178
-
-182:                                              ; preds = %178, %175
-  br label %183
-
-183:                                              ; preds = %182, %173
+  %173 = extractvalue { ptr, i32 } %172, 0
+  store ptr %173, ptr %5, align 8
+  %174 = extractvalue { ptr, i32 } %172, 1
+  store i32 %174, ptr %6, align 4
   br label %184
 
-184:                                              ; preds = %183
-  %185 = load ptr, ptr %5, align 8
-  %186 = load i32, ptr %6, align 4
-  %187 = insertvalue { ptr, i32 } poison, ptr %185, 0
-  %188 = insertvalue { ptr, i32 } %187, i32 %186, 1
-  resume { ptr, i32 } %188
+175:                                              ; preds = %121
+  %176 = landingpad { ptr, i32 }
+          cleanup
+  %177 = extractvalue { ptr, i32 } %176, 0
+  store ptr %177, ptr %5, align 8
+  %178 = extractvalue { ptr, i32 } %176, 1
+  store i32 %178, ptr %6, align 4
+  br label %183
+
+179:                                              ; preds = %131
+  %180 = landingpad { ptr, i32 }
+          cleanup
+  %181 = extractvalue { ptr, i32 } %180, 0
+  store ptr %181, ptr %5, align 8
+  %182 = extractvalue { ptr, i32 } %180, 1
+  store i32 %182, ptr %6, align 4
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #4
+  br label %183
+
+183:                                              ; preds = %179, %175
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #4
+  br label %184
+
+184:                                              ; preds = %183, %171
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #4
+  br label %185
+
+185:                                              ; preds = %184, %167
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #4
+  br label %186
+
+186:                                              ; preds = %185, %163
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #4
+  br label %187
+
+187:                                              ; preds = %186, %159
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #4
+  br label %188
+
+188:                                              ; preds = %187, %155
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #4
+  br label %189
+
+189:                                              ; preds = %188, %151
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #4
+  br label %190
+
+190:                                              ; preds = %189, %147
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #4
+  br label %191
+
+191:                                              ; preds = %190, %143
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #4
+  %192 = load i1, ptr %34, align 1
+  br i1 %192, label %193, label %201
+
+193:                                              ; preds = %191
+  %194 = load ptr, ptr %1, align 8
+  %195 = icmp eq ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, %194
+  br i1 %195, label %200, label %196
+
+196:                                              ; preds = %196, %193
+  %197 = phi ptr [ %194, %193 ], [ %198, %196 ]
+  %198 = getelementptr inbounds %"class.std::vector", ptr %197, i64 -1
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %198) #4
+  %199 = icmp eq ptr %198, @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE
+  br i1 %199, label %200, label %196
+
+200:                                              ; preds = %196, %193
+  br label %201
+
+201:                                              ; preds = %200, %191
+  br label %202
+
+202:                                              ; preds = %201
+  %203 = load ptr, ptr %5, align 8
+  %204 = load i32, ptr %6, align 4
+  %205 = insertvalue { ptr, i32 } poison, ptr %203, 0
+  %206 = insertvalue { ptr, i32 } %205, i32 %204, 1
+  resume { ptr, i32 } %206
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1975,9 +1993,10 @@ define linkonce_odr void @_ZN5ZXing4OneD9DBERStateC2Ev(ptr noundef nonnull align
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ZXing4OneD9RowReader13DecodingStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5ZXing4OneD9DBERStateE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.ZXing::OneD::DBERState", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapIiSt6vectorIN5ZXing4OneD7DataBar4PairESaIS4_EESt4lessIiESaISt4pairIKiS6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #4
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5ZXing4OneD9DBERStateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.ZXing::OneD::DBERState", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapIiSt6vectorIN5ZXing4OneD7DataBar4PairESaIS4_EESt4lessIiESaISt4pairIKiS6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #4
   ret void
 }
 
@@ -3057,7 +3076,8 @@ define linkonce_odr void @_ZN5ZXing4OneD9RowReader13DecodingStateC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5ZXing4OneD9RowReader13DecodingStateE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5ZXing4OneD9RowReader13DecodingStateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3076,9 +3096,10 @@ define linkonce_odr void @_ZN5ZXing4OneD9DBERStateD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5ZXing4OneD9DBERStateE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.ZXing::OneD::DBERState", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapIiSt6vectorIN5ZXing4OneD7DataBar4PairESaIS4_EESt4lessIiESaISt4pairIKiS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #4
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5ZXing4OneD9DBERStateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.ZXing::OneD::DBERState", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapIiSt6vectorIN5ZXing4OneD7DataBar4PairESaIS4_EESt4lessIiESaISt4pairIKiS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #4
   call void @_ZN5ZXing4OneD9RowReader13DecodingStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   ret void
 }

@@ -129,8 +129,8 @@ define dso_local i32 @blk_mq_hw_queue_to_node(ptr nocapture noundef readonly %0,
   %3 = load i64, ptr @__cpu_possible_mask, align 8
   br label %4
 
-4:                                                ; preds = %31, %2
-  %5 = phi i64 [ 0, %2 ], [ %32, %31 ]
+4:                                                ; preds = %32, %2
+  %5 = phi i64 [ 0, %2 ], [ %33, %32 ]
   %6 = and i64 %5, 4294967295
   %7 = icmp ugt i64 %6, 63
   br i1 %7, label %14, label %8, !prof !5
@@ -149,7 +149,7 @@ define dso_local i32 @blk_mq_hw_queue_to_node(ptr nocapture noundef readonly %0,
   %15 = phi i64 [ 64, %4 ], [ %13, %12 ], [ 64, %8 ]
   %16 = and i64 %15, 4294967232
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %33
+  br i1 %17, label %18, label %34
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %0, align 8
@@ -157,24 +157,25 @@ define dso_local i32 @blk_mq_hw_queue_to_node(ptr nocapture noundef readonly %0,
   %21 = getelementptr i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
-  br i1 %23, label %24, label %31
+  br i1 %23, label %24, label %32
 
 24:                                               ; preds = %18
   %25 = and i64 %15, 63
   %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, ptrtoint (ptr @numa_node to i64)
-  %29 = inttoptr i64 %28 to ptr
-  %30 = load i32, ptr %29, align 4
-  br label %33
+  %28 = ptrtoint ptr @numa_node to i64
+  %29 = add i64 %27, %28
+  %30 = inttoptr i64 %29 to ptr
+  %31 = load i32, ptr %30, align 4
+  br label %34
 
-31:                                               ; preds = %18
-  %32 = add nuw nsw i64 %15, 1
+32:                                               ; preds = %18
+  %33 = add nuw nsw i64 %15, 1
   br label %4, !llvm.loop !12
 
-33:                                               ; preds = %24, %14
-  %34 = phi i32 [ %30, %24 ], [ -1, %14 ]
-  ret i32 %34
+34:                                               ; preds = %24, %14
+  %35 = phi i32 [ %31, %24 ], [ -1, %14 ]
+  ret i32 %35
 }
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

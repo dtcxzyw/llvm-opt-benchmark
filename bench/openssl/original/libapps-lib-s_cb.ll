@@ -372,66 +372,68 @@ entry:
   %2 = load ptr, ptr %ctx.addr, align 8
   %call2 = call i32 @X509_STORE_CTX_get_error_depth(ptr noundef %2)
   store i32 %call2, ptr %depth, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 1), align 4
-  %tobool = icmp ne i32 %3, 0
+  %3 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 1
+  %4 = load i32, ptr %3, align 4
+  %tobool = icmp ne i32 %4, 0
   br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %4 = load i32, ptr %ok.addr, align 4
-  %tobool3 = icmp ne i32 %4, 0
+  %5 = load i32, ptr %ok.addr, align 4
+  %tobool3 = icmp ne i32 %5, 0
   br i1 %tobool3, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %5 = load ptr, ptr @bio_err, align 8
-  %6 = load i32, ptr %depth, align 4
-  %call4 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef @.str, i32 noundef %6)
-  %7 = load ptr, ptr %err_cert, align 8
-  %cmp = icmp ne ptr %7, null
+  %6 = load ptr, ptr @bio_err, align 8
+  %7 = load i32, ptr %depth, align 4
+  %call4 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef @.str, i32 noundef %7)
+  %8 = load ptr, ptr %err_cert, align 8
+  %cmp = icmp ne ptr %8, null
   br i1 %cmp, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then
-  %8 = load ptr, ptr @bio_err, align 8
-  %9 = load ptr, ptr %err_cert, align 8
-  %call6 = call ptr @X509_get_subject_name(ptr noundef %9)
+  %9 = load ptr, ptr @bio_err, align 8
+  %10 = load ptr, ptr %err_cert, align 8
+  %call6 = call ptr @X509_get_subject_name(ptr noundef %10)
   %call7 = call i64 @get_nameopt()
-  %call8 = call i32 @X509_NAME_print_ex(ptr noundef %8, ptr noundef %call6, i32 noundef 0, i64 noundef %call7)
-  %10 = load ptr, ptr @bio_err, align 8
-  %call9 = call i32 @BIO_puts(ptr noundef %10, ptr noundef @.str.1)
+  %call8 = call i32 @X509_NAME_print_ex(ptr noundef %9, ptr noundef %call6, i32 noundef 0, i64 noundef %call7)
+  %11 = load ptr, ptr @bio_err, align 8
+  %call9 = call i32 @BIO_puts(ptr noundef %11, ptr noundef @.str.1)
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %11 = load ptr, ptr @bio_err, align 8
-  %call10 = call i32 @BIO_puts(ptr noundef %11, ptr noundef @.str.2)
+  %12 = load ptr, ptr @bio_err, align 8
+  %call10 = call i32 @BIO_puts(ptr noundef %12, ptr noundef @.str.2)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end, %lor.lhs.false
-  %12 = load i32, ptr %ok.addr, align 4
-  %tobool12 = icmp ne i32 %12, 0
+  %13 = load i32, ptr %ok.addr, align 4
+  %tobool12 = icmp ne i32 %13, 0
   br i1 %tobool12, label %if.end27, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %13 = load ptr, ptr @bio_err, align 8
-  %14 = load i32, ptr %err, align 4
+  %14 = load ptr, ptr @bio_err, align 8
   %15 = load i32, ptr %err, align 4
-  %conv = sext i32 %15 to i64
+  %16 = load i32, ptr %err, align 4
+  %conv = sext i32 %16 to i64
   %call14 = call ptr @X509_verify_cert_error_string(i64 noundef %conv)
-  %call15 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef @.str.3, i32 noundef %14, ptr noundef %call14)
-  %16 = load i32, ptr @verify_args, align 4
-  %cmp16 = icmp slt i32 %16, 0
+  %call15 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef @.str.3, i32 noundef %15, ptr noundef %call14)
+  %17 = load i32, ptr @verify_args, align 4
+  %cmp16 = icmp slt i32 %17, 0
   br i1 %cmp16, label %if.then21, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.then13
-  %17 = load i32, ptr @verify_args, align 4
-  %18 = load i32, ptr %depth, align 4
-  %cmp19 = icmp sge i32 %17, %18
+  %18 = load i32, ptr @verify_args, align 4
+  %19 = load i32, ptr %depth, align 4
+  %cmp19 = icmp sge i32 %18, %19
   br i1 %cmp19, label %if.then21, label %if.else25
 
 if.then21:                                        ; preds = %lor.lhs.false18, %if.then13
-  %19 = load i32, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 3), align 4
-  %tobool22 = icmp ne i32 %19, 0
+  %20 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4
+  %tobool22 = icmp ne i32 %21, 0
   br i1 %tobool22, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.then21
@@ -439,21 +441,23 @@ if.then23:                                        ; preds = %if.then21
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %if.then21
-  %20 = load i32, ptr %err, align 4
-  store i32 %20, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 2), align 4
+  %22 = load i32, ptr %err, align 4
+  %23 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 2
+  store i32 %22, ptr %23, align 4
   br label %if.end26
 
 if.else25:                                        ; preds = %lor.lhs.false18
   store i32 0, ptr %ok.addr, align 4
-  store i32 22, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 2), align 4
+  %24 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 2
+  store i32 22, ptr %24, align 4
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else25, %if.end24
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end26, %if.end11
-  %21 = load i32, ptr %err, align 4
-  switch i32 %21, label %sw.epilog [
+  %25 = load i32, ptr %err, align 4
+  switch i32 %25, label %sw.epilog [
     i32 2, label %sw.bb
     i32 9, label %sw.bb37
     i32 13, label %sw.bb37
@@ -463,115 +467,118 @@ if.end27:                                         ; preds = %if.end26, %if.end11
   ]
 
 sw.bb:                                            ; preds = %if.end27
-  %22 = load ptr, ptr %err_cert, align 8
-  %cmp28 = icmp ne ptr %22, null
+  %26 = load ptr, ptr %err_cert, align 8
+  %cmp28 = icmp ne ptr %26, null
   br i1 %cmp28, label %if.then30, label %if.end36
 
 if.then30:                                        ; preds = %sw.bb
-  %23 = load ptr, ptr @bio_err, align 8
-  %call31 = call i32 @BIO_puts(ptr noundef %23, ptr noundef @.str.4)
-  %24 = load ptr, ptr @bio_err, align 8
-  %25 = load ptr, ptr %err_cert, align 8
-  %call32 = call ptr @X509_get_issuer_name(ptr noundef %25)
+  %27 = load ptr, ptr @bio_err, align 8
+  %call31 = call i32 @BIO_puts(ptr noundef %27, ptr noundef @.str.4)
+  %28 = load ptr, ptr @bio_err, align 8
+  %29 = load ptr, ptr %err_cert, align 8
+  %call32 = call ptr @X509_get_issuer_name(ptr noundef %29)
   %call33 = call i64 @get_nameopt()
-  %call34 = call i32 @X509_NAME_print_ex(ptr noundef %24, ptr noundef %call32, i32 noundef 0, i64 noundef %call33)
-  %26 = load ptr, ptr @bio_err, align 8
-  %call35 = call i32 @BIO_puts(ptr noundef %26, ptr noundef @.str.1)
+  %call34 = call i32 @X509_NAME_print_ex(ptr noundef %28, ptr noundef %call32, i32 noundef 0, i64 noundef %call33)
+  %30 = load ptr, ptr @bio_err, align 8
+  %call35 = call i32 @BIO_puts(ptr noundef %30, ptr noundef @.str.1)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then30, %sw.bb
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %if.end27, %if.end27
-  %27 = load ptr, ptr %err_cert, align 8
-  %cmp38 = icmp ne ptr %27, null
+  %31 = load ptr, ptr %err_cert, align 8
+  %cmp38 = icmp ne ptr %31, null
   br i1 %cmp38, label %if.then40, label %if.end45
 
 if.then40:                                        ; preds = %sw.bb37
-  %28 = load ptr, ptr @bio_err, align 8
-  %call41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef @.str.5)
-  %29 = load ptr, ptr @bio_err, align 8
-  %30 = load ptr, ptr %err_cert, align 8
-  %call42 = call ptr @X509_get0_notBefore(ptr noundef %30)
-  %call43 = call i32 @ASN1_TIME_print(ptr noundef %29, ptr noundef %call42)
-  %31 = load ptr, ptr @bio_err, align 8
-  %call44 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %31, ptr noundef @.str.1)
+  %32 = load ptr, ptr @bio_err, align 8
+  %call41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef @.str.5)
+  %33 = load ptr, ptr @bio_err, align 8
+  %34 = load ptr, ptr %err_cert, align 8
+  %call42 = call ptr @X509_get0_notBefore(ptr noundef %34)
+  %call43 = call i32 @ASN1_TIME_print(ptr noundef %33, ptr noundef %call42)
+  %35 = load ptr, ptr @bio_err, align 8
+  %call44 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef @.str.1)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then40, %sw.bb37
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %if.end27, %if.end27
-  %32 = load ptr, ptr %err_cert, align 8
-  %cmp47 = icmp ne ptr %32, null
+  %36 = load ptr, ptr %err_cert, align 8
+  %cmp47 = icmp ne ptr %36, null
   br i1 %cmp47, label %if.then49, label %if.end54
 
 if.then49:                                        ; preds = %sw.bb46
-  %33 = load ptr, ptr @bio_err, align 8
-  %call50 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef @.str.6)
-  %34 = load ptr, ptr @bio_err, align 8
-  %35 = load ptr, ptr %err_cert, align 8
-  %call51 = call ptr @X509_get0_notAfter(ptr noundef %35)
-  %call52 = call i32 @ASN1_TIME_print(ptr noundef %34, ptr noundef %call51)
-  %36 = load ptr, ptr @bio_err, align 8
-  %call53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %36, ptr noundef @.str.1)
+  %37 = load ptr, ptr @bio_err, align 8
+  %call50 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef @.str.6)
+  %38 = load ptr, ptr @bio_err, align 8
+  %39 = load ptr, ptr %err_cert, align 8
+  %call51 = call ptr @X509_get0_notAfter(ptr noundef %39)
+  %call52 = call i32 @ASN1_TIME_print(ptr noundef %38, ptr noundef %call51)
+  %40 = load ptr, ptr @bio_err, align 8
+  %call53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %40, ptr noundef @.str.1)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then49, %sw.bb46
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %if.end27
-  %37 = load i32, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 1), align 4
-  %tobool56 = icmp ne i32 %37, 0
+  %41 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 1
+  %42 = load i32, ptr %41, align 4
+  %tobool56 = icmp ne i32 %42, 0
   br i1 %tobool56, label %if.end58, label %if.then57
 
 if.then57:                                        ; preds = %sw.bb55
-  %38 = load ptr, ptr %ctx.addr, align 8
-  call void @policies_print(ptr noundef %38)
+  %43 = load ptr, ptr %ctx.addr, align 8
+  call void @policies_print(ptr noundef %43)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then57, %sw.bb55
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end58, %if.end54, %if.end45, %if.end36, %if.end27
-  %39 = load i32, ptr %err, align 4
-  %cmp59 = icmp eq i32 %39, 0
+  %44 = load i32, ptr %err, align 4
+  %cmp59 = icmp eq i32 %44, 0
   br i1 %cmp59, label %land.lhs.true, label %if.end66
 
 land.lhs.true:                                    ; preds = %sw.epilog
-  %40 = load i32, ptr %ok.addr, align 4
-  %cmp61 = icmp eq i32 %40, 2
+  %45 = load i32, ptr %ok.addr, align 4
+  %cmp61 = icmp eq i32 %45, 2
   br i1 %cmp61, label %land.lhs.true63, label %if.end66
 
 land.lhs.true63:                                  ; preds = %land.lhs.true
-  %41 = load i32, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 1), align 4
-  %tobool64 = icmp ne i32 %41, 0
+  %46 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 1
+  %47 = load i32, ptr %46, align 4
+  %tobool64 = icmp ne i32 %47, 0
   br i1 %tobool64, label %if.end66, label %if.then65
 
 if.then65:                                        ; preds = %land.lhs.true63
-  %42 = load ptr, ptr %ctx.addr, align 8
-  call void @policies_print(ptr noundef %42)
+  %48 = load ptr, ptr %ctx.addr, align 8
+  call void @policies_print(ptr noundef %48)
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then65, %land.lhs.true63, %land.lhs.true, %sw.epilog
-  %43 = load i32, ptr %ok.addr, align 4
-  %tobool67 = icmp ne i32 %43, 0
+  %49 = load i32, ptr %ok.addr, align 4
+  %tobool67 = icmp ne i32 %49, 0
   br i1 %tobool67, label %land.lhs.true68, label %if.end72
 
 land.lhs.true68:                                  ; preds = %if.end66
-  %44 = load i32, ptr getelementptr inbounds (%struct.verify_options_st, ptr @verify_args, i32 0, i32 1), align 4
-  %tobool69 = icmp ne i32 %44, 0
+  %50 = getelementptr inbounds %struct.verify_options_st, ptr @verify_args, i32 0, i32 1
+  %51 = load i32, ptr %50, align 4
+  %tobool69 = icmp ne i32 %51, 0
   br i1 %tobool69, label %if.end72, label %if.then70
 
 if.then70:                                        ; preds = %land.lhs.true68
-  %45 = load ptr, ptr @bio_err, align 8
-  %46 = load i32, ptr %ok.addr, align 4
-  %call71 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %45, ptr noundef @.str.7, i32 noundef %46)
+  %52 = load ptr, ptr @bio_err, align 8
+  %53 = load i32, ptr %ok.addr, align 4
+  %call71 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %52, ptr noundef @.str.7, i32 noundef %53)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then70, %land.lhs.true68, %if.end66
-  %47 = load i32, ptr %ok.addr, align 4
-  ret i32 %47
+  %54 = load i32, ptr %ok.addr, align 4
+  ret i32 %54
 }
 
 declare ptr @X509_STORE_CTX_get_current_cert(ptr noundef) #1
@@ -4289,14 +4296,16 @@ entry:
   %0 = load ptr, ptr @bio_err, align 8
   store ptr %0, ptr @ssl_ctx_security_debug.sdb, align 8
   %1 = load i32, ptr %verbose.addr, align 4
-  store i32 %1, ptr getelementptr inbounds (%struct.security_debug_ex, ptr @ssl_ctx_security_debug.sdb, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = call ptr @SSL_CTX_get_security_callback(ptr noundef %2)
-  store ptr %call, ptr getelementptr inbounds (%struct.security_debug_ex, ptr @ssl_ctx_security_debug.sdb, i32 0, i32 2), align 8
+  %2 = getelementptr inbounds %struct.security_debug_ex, ptr @ssl_ctx_security_debug.sdb, i32 0, i32 1
+  store i32 %1, ptr %2, align 8
   %3 = load ptr, ptr %ctx.addr, align 8
-  call void @SSL_CTX_set_security_callback(ptr noundef %3, ptr noundef @security_callback_debug)
-  %4 = load ptr, ptr %ctx.addr, align 8
-  call void @SSL_CTX_set0_security_ex_data(ptr noundef %4, ptr noundef @ssl_ctx_security_debug.sdb)
+  %call = call ptr @SSL_CTX_get_security_callback(ptr noundef %3)
+  %4 = getelementptr inbounds %struct.security_debug_ex, ptr @ssl_ctx_security_debug.sdb, i32 0, i32 2
+  store ptr %call, ptr %4, align 8
+  %5 = load ptr, ptr %ctx.addr, align 8
+  call void @SSL_CTX_set_security_callback(ptr noundef %5, ptr noundef @security_callback_debug)
+  %6 = load ptr, ptr %ctx.addr, align 8
+  call void @SSL_CTX_set0_security_ex_data(ptr noundef %6, ptr noundef @ssl_ctx_security_debug.sdb)
   ret void
 }
 

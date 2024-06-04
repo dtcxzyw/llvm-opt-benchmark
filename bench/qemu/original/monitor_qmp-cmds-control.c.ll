@@ -452,24 +452,25 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   call void @qobject_unref_impl(ptr noundef %8)
   %9 = load ptr, ptr %v, align 8
   call void @visit_free(ptr noundef %9)
-  %10 = load i32, ptr getelementptr inbounds (%struct.CompatPolicy, ptr @compat_policy, i32 0, i32 3), align 4
-  %cmp = icmp eq i32 %10, 1
+  %10 = getelementptr inbounds %struct.CompatPolicy, ptr @compat_policy, i32 0, i32 3
+  %11 = load i32, ptr %10, align 4
+  %cmp = icmp eq i32 %11, 1
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %cond.end
-  %11 = load ptr, ptr %schema, align 8
-  %call6 = call ptr @zap_deprecated(ptr noundef %11)
+  %12 = load ptr, ptr %schema, align 8
+  %call6 = call ptr @zap_deprecated(ptr noundef %12)
   store ptr %call6, ptr %retval, align 8
   br label %return
 
 if.end7:                                          ; preds = %cond.end
-  %12 = load ptr, ptr %schema, align 8
-  store ptr %12, ptr %retval, align 8
+  %13 = load ptr, ptr %schema, align 8
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then5
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
+  %14 = load ptr, ptr %retval, align 8
+  ret ptr %14
 }
 
 declare ptr @qobject_from_qlit(ptr noundef) #1

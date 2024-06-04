@@ -174,9 +174,10 @@ define dso_local void @_ZN13KleeExtensionC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12AbsExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13KleeExtension, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.KleeExtension, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13KleeExtension, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.KleeExtension, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   ret void
 }
 
@@ -196,11 +197,12 @@ define dso_local void @_ZN13KleeExtensionD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13KleeExtension, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.KleeExtension, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13KleeExtension, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds %class.KleeExtension, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.KleeExtension, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN12AbsExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

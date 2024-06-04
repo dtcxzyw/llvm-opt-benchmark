@@ -639,7 +639,7 @@ define dso_local ptr @scsi_host_alloc(ptr noundef %0, i32 noundef %1) #2 align 1
   %4 = add nsw i64 %3, 2064
   %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3520) #14
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %153, label %7
+  br i1 %6, label %154, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 48
@@ -677,7 +677,7 @@ define dso_local ptr @scsi_host_alloc(ptr noundef %0, i32 noundef %1) #2 align 1
 
 24:                                               ; preds = %7
   tail call void @kfree(ptr noundef nonnull %5) #12
-  br label %153
+  br label %154
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %5, i64 404
@@ -833,49 +833,50 @@ define dso_local ptr @scsi_host_alloc(ptr noundef %0, i32 noundef %1) #2 align 1
   store ptr %131, ptr %132, align 8
   %133 = load i32, ptr %26, align 4
   %134 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @scsi_error_handler, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull @.str.13, i32 noundef %133) #12
-  %135 = icmp ugt ptr %134, inttoptr (i64 -4096 to ptr)
-  br i1 %135, label %138, label %136
+  %135 = inttoptr i64 -4096 to ptr
+  %136 = icmp ugt ptr %134, %135
+  br i1 %136, label %139, label %137
 
-136:                                              ; preds = %119
-  %137 = tail call i32 @wake_up_process(ptr noundef %134) #12
-  br label %138
+137:                                              ; preds = %119
+  %138 = tail call i32 @wake_up_process(ptr noundef %134) #12
+  br label %139
 
-138:                                              ; preds = %136, %119
-  %139 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr %134, ptr %139, align 8
-  br i1 %135, label %140, label %142
+139:                                              ; preds = %137, %119
+  %140 = getelementptr inbounds i8, ptr %5, i64 128
+  store ptr %134, ptr %140, align 8
+  br i1 %136, label %141, label %143
 
-140:                                              ; preds = %138
-  %141 = ptrtoint ptr %134 to i64
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %120, ptr noundef nonnull @.str.14, i64 noundef %141) #13
-  store ptr null, ptr %139, align 8
-  br label %152
-
-142:                                              ; preds = %138
-  %143 = load i32, ptr %26, align 4
-  %144 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.15, i32 noundef 74, i32 noundef 1, i32 noundef %143) #12
-  %145 = getelementptr inbounds i8, ptr %5, i64 536
-  store ptr %144, ptr %145, align 8
-  %146 = icmp eq ptr %144, null
-  br i1 %146, label %147, label %148
-
-147:                                              ; preds = %142
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %120, ptr noundef nonnull @.str.16) #13
-  br label %152
-
-148:                                              ; preds = %142
-  %149 = load ptr, ptr %33, align 8
-  %150 = tail call i32 @scsi_proc_hostdir_add(ptr noundef %149) #12
-  %151 = icmp slt i32 %150, 0
-  br i1 %151, label %152, label %153
-
-152:                                              ; preds = %148, %147, %140
-  tail call void @put_device(ptr noundef %120) #12
+141:                                              ; preds = %139
+  %142 = ptrtoint ptr %134 to i64
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %120, ptr noundef nonnull @.str.14, i64 noundef %142) #13
+  store ptr null, ptr %140, align 8
   br label %153
 
-153:                                              ; preds = %152, %148, %24, %2
-  %154 = phi ptr [ null, %24 ], [ null, %152 ], [ null, %2 ], [ %5, %148 ]
-  ret ptr %154
+143:                                              ; preds = %139
+  %144 = load i32, ptr %26, align 4
+  %145 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.15, i32 noundef 74, i32 noundef 1, i32 noundef %144) #12
+  %146 = getelementptr inbounds i8, ptr %5, i64 536
+  store ptr %145, ptr %146, align 8
+  %147 = icmp eq ptr %145, null
+  br i1 %147, label %148, label %149
+
+148:                                              ; preds = %143
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %120, ptr noundef nonnull @.str.16) #13
+  br label %153
+
+149:                                              ; preds = %143
+  %150 = load ptr, ptr %33, align 8
+  %151 = tail call i32 @scsi_proc_hostdir_add(ptr noundef %150) #12
+  %152 = icmp slt i32 %151, 0
+  br i1 %152, label %153, label %154
+
+153:                                              ; preds = %149, %148, %141
+  tail call void @put_device(ptr noundef %120) #12
+  br label %154
+
+154:                                              ; preds = %153, %149, %24, %2
+  %155 = phi ptr [ null, %24 ], [ null, %153 ], [ null, %2 ], [ %5, %149 ]
+  ret ptr %155
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -691,16 +691,17 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %t.addr, align 8
   %5 = load i64, ptr @Curl_splaygetbest.tv_zero, align 8
-  %6 = load i32, ptr getelementptr inbounds ({ i64, i32 }, ptr @Curl_splaygetbest.tv_zero, i32 0, i32 1), align 8
-  %call = call ptr @Curl_splay(i64 %5, i32 %6, ptr noundef %4)
+  %6 = getelementptr inbounds { i64, i32 }, ptr @Curl_splaygetbest.tv_zero, i32 0, i32 1
+  %7 = load i32, ptr %6, align 8
+  %call = call ptr @Curl_splay(i64 %5, i32 %7, ptr noundef %4)
   store ptr %call, ptr %t.addr, align 8
   %tv_sec = getelementptr inbounds %struct.curltime, ptr %i, i32 0, i32 0
-  %7 = load i64, ptr %tv_sec, align 8
-  %8 = load ptr, ptr %t.addr, align 8
-  %key = getelementptr inbounds %struct.Curl_tree, ptr %8, i32 0, i32 4
+  %8 = load i64, ptr %tv_sec, align 8
+  %9 = load ptr, ptr %t.addr, align 8
+  %key = getelementptr inbounds %struct.Curl_tree, ptr %9, i32 0, i32 4
   %tv_sec1 = getelementptr inbounds %struct.curltime, ptr %key, i32 0, i32 0
-  %9 = load i64, ptr %tv_sec1, align 8
-  %cmp = icmp slt i64 %7, %9
+  %10 = load i64, ptr %tv_sec1, align 8
+  %cmp = icmp slt i64 %8, %10
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
@@ -708,12 +709,12 @@ cond.true:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.end
   %tv_sec2 = getelementptr inbounds %struct.curltime, ptr %i, i32 0, i32 0
-  %10 = load i64, ptr %tv_sec2, align 8
-  %11 = load ptr, ptr %t.addr, align 8
-  %key3 = getelementptr inbounds %struct.Curl_tree, ptr %11, i32 0, i32 4
+  %11 = load i64, ptr %tv_sec2, align 8
+  %12 = load ptr, ptr %t.addr, align 8
+  %key3 = getelementptr inbounds %struct.Curl_tree, ptr %12, i32 0, i32 4
   %tv_sec4 = getelementptr inbounds %struct.curltime, ptr %key3, i32 0, i32 0
-  %12 = load i64, ptr %tv_sec4, align 8
-  %cmp5 = icmp sgt i64 %10, %12
+  %13 = load i64, ptr %tv_sec4, align 8
+  %cmp5 = icmp sgt i64 %11, %13
   br i1 %cmp5, label %cond.true6, label %cond.false7
 
 cond.true6:                                       ; preds = %cond.false
@@ -721,12 +722,12 @@ cond.true6:                                       ; preds = %cond.false
 
 cond.false7:                                      ; preds = %cond.false
   %tv_usec = getelementptr inbounds %struct.curltime, ptr %i, i32 0, i32 1
-  %13 = load i32, ptr %tv_usec, align 8
-  %14 = load ptr, ptr %t.addr, align 8
-  %key8 = getelementptr inbounds %struct.Curl_tree, ptr %14, i32 0, i32 4
+  %14 = load i32, ptr %tv_usec, align 8
+  %15 = load ptr, ptr %t.addr, align 8
+  %key8 = getelementptr inbounds %struct.Curl_tree, ptr %15, i32 0, i32 4
   %tv_usec9 = getelementptr inbounds %struct.curltime, ptr %key8, i32 0, i32 1
-  %15 = load i32, ptr %tv_usec9, align 8
-  %cmp10 = icmp slt i32 %13, %15
+  %16 = load i32, ptr %tv_usec9, align 8
+  %cmp10 = icmp slt i32 %14, %16
   br i1 %cmp10, label %cond.true11, label %cond.false12
 
 cond.true11:                                      ; preds = %cond.false7
@@ -734,12 +735,12 @@ cond.true11:                                      ; preds = %cond.false7
 
 cond.false12:                                     ; preds = %cond.false7
   %tv_usec13 = getelementptr inbounds %struct.curltime, ptr %i, i32 0, i32 1
-  %16 = load i32, ptr %tv_usec13, align 8
-  %17 = load ptr, ptr %t.addr, align 8
-  %key14 = getelementptr inbounds %struct.Curl_tree, ptr %17, i32 0, i32 4
+  %17 = load i32, ptr %tv_usec13, align 8
+  %18 = load ptr, ptr %t.addr, align 8
+  %key14 = getelementptr inbounds %struct.Curl_tree, ptr %18, i32 0, i32 4
   %tv_usec15 = getelementptr inbounds %struct.curltime, ptr %key14, i32 0, i32 1
-  %18 = load i32, ptr %tv_usec15, align 8
-  %cmp16 = icmp sgt i32 %16, %18
+  %19 = load i32, ptr %tv_usec15, align 8
+  %cmp16 = icmp sgt i32 %17, %19
   %cond = select i1 %cmp16, i32 1, i32 0
   br label %cond.end
 
@@ -757,74 +758,74 @@ cond.end20:                                       ; preds = %cond.end18, %cond.t
   br i1 %cmp22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %cond.end20
-  %19 = load ptr, ptr %removed.addr, align 8
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %t.addr, align 8
-  store ptr %20, ptr %retval, align 8
+  %20 = load ptr, ptr %removed.addr, align 8
+  store ptr null, ptr %20, align 8
+  %21 = load ptr, ptr %t.addr, align 8
+  store ptr %21, ptr %retval, align 8
   br label %return
 
 if.end24:                                         ; preds = %cond.end20
-  %21 = load ptr, ptr %t.addr, align 8
-  %samen = getelementptr inbounds %struct.Curl_tree, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %samen, align 8
-  store ptr %22, ptr %x, align 8
-  %23 = load ptr, ptr %x, align 8
-  %24 = load ptr, ptr %t.addr, align 8
-  %cmp25 = icmp ne ptr %23, %24
+  %22 = load ptr, ptr %t.addr, align 8
+  %samen = getelementptr inbounds %struct.Curl_tree, ptr %22, i32 0, i32 2
+  %23 = load ptr, ptr %samen, align 8
+  store ptr %23, ptr %x, align 8
+  %24 = load ptr, ptr %x, align 8
+  %25 = load ptr, ptr %t.addr, align 8
+  %cmp25 = icmp ne ptr %24, %25
   br i1 %cmp25, label %if.then26, label %if.end34
 
 if.then26:                                        ; preds = %if.end24
-  %25 = load ptr, ptr %x, align 8
-  %key27 = getelementptr inbounds %struct.Curl_tree, ptr %25, i32 0, i32 4
-  %26 = load ptr, ptr %t.addr, align 8
-  %key28 = getelementptr inbounds %struct.Curl_tree, ptr %26, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %key27, ptr align 8 %key28, i64 16, i1 false)
+  %26 = load ptr, ptr %x, align 8
+  %key27 = getelementptr inbounds %struct.Curl_tree, ptr %26, i32 0, i32 4
   %27 = load ptr, ptr %t.addr, align 8
-  %larger = getelementptr inbounds %struct.Curl_tree, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %larger, align 8
-  %29 = load ptr, ptr %x, align 8
-  %larger29 = getelementptr inbounds %struct.Curl_tree, ptr %29, i32 0, i32 1
-  store ptr %28, ptr %larger29, align 8
-  %30 = load ptr, ptr %t.addr, align 8
-  %smaller = getelementptr inbounds %struct.Curl_tree, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %smaller, align 8
-  %32 = load ptr, ptr %x, align 8
-  %smaller30 = getelementptr inbounds %struct.Curl_tree, ptr %32, i32 0, i32 0
-  store ptr %31, ptr %smaller30, align 8
-  %33 = load ptr, ptr %t.addr, align 8
-  %samep = getelementptr inbounds %struct.Curl_tree, ptr %33, i32 0, i32 3
-  %34 = load ptr, ptr %samep, align 8
-  %35 = load ptr, ptr %x, align 8
-  %samep31 = getelementptr inbounds %struct.Curl_tree, ptr %35, i32 0, i32 3
-  store ptr %34, ptr %samep31, align 8
+  %key28 = getelementptr inbounds %struct.Curl_tree, ptr %27, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %key27, ptr align 8 %key28, i64 16, i1 false)
+  %28 = load ptr, ptr %t.addr, align 8
+  %larger = getelementptr inbounds %struct.Curl_tree, ptr %28, i32 0, i32 1
+  %29 = load ptr, ptr %larger, align 8
+  %30 = load ptr, ptr %x, align 8
+  %larger29 = getelementptr inbounds %struct.Curl_tree, ptr %30, i32 0, i32 1
+  store ptr %29, ptr %larger29, align 8
+  %31 = load ptr, ptr %t.addr, align 8
+  %smaller = getelementptr inbounds %struct.Curl_tree, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %smaller, align 8
+  %33 = load ptr, ptr %x, align 8
+  %smaller30 = getelementptr inbounds %struct.Curl_tree, ptr %33, i32 0, i32 0
+  store ptr %32, ptr %smaller30, align 8
+  %34 = load ptr, ptr %t.addr, align 8
+  %samep = getelementptr inbounds %struct.Curl_tree, ptr %34, i32 0, i32 3
+  %35 = load ptr, ptr %samep, align 8
   %36 = load ptr, ptr %x, align 8
-  %37 = load ptr, ptr %t.addr, align 8
-  %samep32 = getelementptr inbounds %struct.Curl_tree, ptr %37, i32 0, i32 3
-  %38 = load ptr, ptr %samep32, align 8
-  %samen33 = getelementptr inbounds %struct.Curl_tree, ptr %38, i32 0, i32 2
-  store ptr %36, ptr %samen33, align 8
-  %39 = load ptr, ptr %t.addr, align 8
-  %40 = load ptr, ptr %removed.addr, align 8
-  store ptr %39, ptr %40, align 8
-  %41 = load ptr, ptr %x, align 8
-  store ptr %41, ptr %retval, align 8
+  %samep31 = getelementptr inbounds %struct.Curl_tree, ptr %36, i32 0, i32 3
+  store ptr %35, ptr %samep31, align 8
+  %37 = load ptr, ptr %x, align 8
+  %38 = load ptr, ptr %t.addr, align 8
+  %samep32 = getelementptr inbounds %struct.Curl_tree, ptr %38, i32 0, i32 3
+  %39 = load ptr, ptr %samep32, align 8
+  %samen33 = getelementptr inbounds %struct.Curl_tree, ptr %39, i32 0, i32 2
+  store ptr %37, ptr %samen33, align 8
+  %40 = load ptr, ptr %t.addr, align 8
+  %41 = load ptr, ptr %removed.addr, align 8
+  store ptr %40, ptr %41, align 8
+  %42 = load ptr, ptr %x, align 8
+  store ptr %42, ptr %retval, align 8
   br label %return
 
 if.end34:                                         ; preds = %if.end24
-  %42 = load ptr, ptr %t.addr, align 8
-  %larger35 = getelementptr inbounds %struct.Curl_tree, ptr %42, i32 0, i32 1
-  %43 = load ptr, ptr %larger35, align 8
-  store ptr %43, ptr %x, align 8
-  %44 = load ptr, ptr %t.addr, align 8
-  %45 = load ptr, ptr %removed.addr, align 8
-  store ptr %44, ptr %45, align 8
-  %46 = load ptr, ptr %x, align 8
-  store ptr %46, ptr %retval, align 8
+  %43 = load ptr, ptr %t.addr, align 8
+  %larger35 = getelementptr inbounds %struct.Curl_tree, ptr %43, i32 0, i32 1
+  %44 = load ptr, ptr %larger35, align 8
+  store ptr %44, ptr %x, align 8
+  %45 = load ptr, ptr %t.addr, align 8
+  %46 = load ptr, ptr %removed.addr, align 8
+  store ptr %45, ptr %46, align 8
+  %47 = load ptr, ptr %x, align 8
+  store ptr %47, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then26, %if.then23, %if.then
-  %47 = load ptr, ptr %retval, align 8
-  ret ptr %47
+  %48 = load ptr, ptr %retval, align 8
+  ret ptr %48
 }
 
 ; Function Attrs: nounwind uwtable

@@ -893,34 +893,35 @@ entry:
   store ptr %base, ptr %base.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21ThreadActivityTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4base5debug21ThreadActivityTrackerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %header_, align 8
-  %stack_ = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %base.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 88
+  store ptr %1, ptr %header_, align 8
+  %stack_ = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %base.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %add.ptr, ptr %stack_, align 8
   %stack_slots_ = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %size.addr, align 8
-  %sub = sub i64 %2, 88
+  %3 = load i64, ptr %size.addr, align 8
+  %sub = sub i64 %3, 88
   %div = udiv i64 %sub, 112
   %conv = trunc i64 %div to i32
   store i32 %conv, ptr %stack_slots_, align 8
   %valid_ = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 4
   store i8 0, ptr %valid_, align 4
-  %3 = load ptr, ptr %base.addr, align 8
-  %tobool = icmp ne ptr %3, null
+  %4 = load ptr, ptr %base.addr, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %4 = load i64, ptr %size.addr, align 8
-  %cmp = icmp ult i64 %4, 312
+  %5 = load i64, ptr %size.addr, align 8
+  %cmp = icmp ult i64 %5, 312
   br i1 %cmp, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %5 = load i64, ptr %size.addr, align 8
-  %sub3 = sub i64 %5, 88
+  %6 = load i64, ptr %size.addr, align 8
+  %sub3 = sub i64 %6, 88
   %div4 = udiv i64 %sub3, 112
   %call = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #12
   %conv5 = zext i32 %call to i64
@@ -932,39 +933,39 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
 
 if.end:                                           ; preds = %lor.lhs.false2
   %header_7 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %header_7, align 8
-  %cookie = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %6, i32 0, i32 0
+  %7 = load ptr, ptr %header_7, align 8
+  %cookie = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %7, i32 0, i32 0
   store ptr %cookie, ptr %this.addr.i, align 8
   store i32 0, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %7 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %7, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
   %8 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %8, label %monotonic.i [
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+  store i32 %call.i, ptr %__b.i, align 4
+  %9 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %9, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %if.end
-  %9 = load atomic i32, ptr %this1.i monotonic, align 4
-  store i32 %9, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %if.end, %if.end
-  %10 = load atomic i32, ptr %this1.i acquire, align 4
+  %10 = load atomic i32, ptr %this1.i monotonic, align 4
   store i32 %10, ptr %atomic-temp.i, align 4
   br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
 
-seqcst.i:                                         ; preds = %if.end
-  %11 = load atomic i32, ptr %this1.i seq_cst, align 4
+acquire.i:                                        ; preds = %if.end, %if.end
+  %11 = load atomic i32, ptr %this1.i acquire, align 4
   store i32 %11, ptr %atomic-temp.i, align 4
   br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
 
+seqcst.i:                                         ; preds = %if.end
+  %12 = load atomic i32, ptr %this1.i seq_cst, align 4
+  store i32 %12, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+
 _ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %12 = load i32, ptr %atomic-temp.i, align 4
-  %cmp9 = icmp eq i32 %12, 0
+  %13 = load i32, ptr %atomic-temp.i, align 4
+  %cmp9 = icmp eq i32 %13, 0
   br i1 %cmp9, label %if.then10, label %if.else143
 
 if.then10:                                        ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
@@ -986,12 +987,12 @@ invoke.cont:                                      ; preds = %if.else
   br label %if.end15
 
 lpad:                                             ; preds = %if.else
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #12
   br label %eh.resume
 
@@ -1014,12 +1015,12 @@ invoke.cont23:                                    ; preds = %if.else19
   br label %if.end25
 
 lpad22:                                           ; preds = %if.else19
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp20) #12
   br label %eh.resume
 
@@ -1042,12 +1043,12 @@ invoke.cont33:                                    ; preds = %if.else29
   br label %if.end35
 
 lpad32:                                           ; preds = %if.else29
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp30) #12
   br label %eh.resume
 
@@ -1070,12 +1071,12 @@ invoke.cont43:                                    ; preds = %if.else39
   br label %if.end45
 
 lpad42:                                           ; preds = %if.else39
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp40) #12
   br label %eh.resume
 
@@ -1098,12 +1099,12 @@ invoke.cont53:                                    ; preds = %if.else49
   br label %if.end55
 
 lpad52:                                           ; preds = %if.else49
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp50) #12
   br label %eh.resume
 
@@ -1126,12 +1127,12 @@ invoke.cont63:                                    ; preds = %if.else59
   br label %if.end65
 
 lpad62:                                           ; preds = %if.else59
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp60) #12
   br label %eh.resume
 
@@ -1154,12 +1155,12 @@ invoke.cont73:                                    ; preds = %if.else69
   br label %if.end75
 
 lpad72:                                           ; preds = %if.else69
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp70) #12
   br label %eh.resume
 
@@ -1182,12 +1183,12 @@ invoke.cont83:                                    ; preds = %if.else79
   br label %if.end85
 
 lpad82:                                           ; preds = %if.else79
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp80) #12
   br label %eh.resume
 
@@ -1210,12 +1211,12 @@ invoke.cont93:                                    ; preds = %if.else89
   br label %if.end95
 
 lpad92:                                           ; preds = %if.else89
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp90) #12
   br label %eh.resume
 
@@ -1238,12 +1239,12 @@ invoke.cont103:                                   ; preds = %if.else99
   br label %if.end105
 
 lpad102:                                          ; preds = %if.else99
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp100) #12
   br label %eh.resume
 
@@ -1266,12 +1267,12 @@ invoke.cont113:                                   ; preds = %if.else109
   br label %if.end115
 
 lpad112:                                          ; preds = %if.else109
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp110) #12
   br label %eh.resume
 
@@ -1281,42 +1282,42 @@ if.end115:                                        ; preds = %invoke.cont113, %if
   store i64 %call117, ptr %coerce.dive, align 8
   %call118 = call noundef i64 @_ZNK4base20PlatformThreadHandle15platform_handleEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp116)
   %header_119 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %46 = load ptr, ptr %header_119, align 8
-  %thread_ref = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %46, i32 0, i32 3
+  %47 = load ptr, ptr %header_119, align 8
+  %thread_ref = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %47, i32 0, i32 3
   store i64 %call118, ptr %thread_ref, align 8
   %header_120 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %47 = load ptr, ptr %header_120, align 8
-  %process_id = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %47, i32 0, i32 2
+  %48 = load ptr, ptr %header_120, align 8
+  %process_id = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %48, i32 0, i32 2
   %call121 = call noundef i32 @_ZN4base16GetCurrentProcIdEv()
   %conv122 = sext i32 %call121 to i64
   store ptr %process_id, ptr %this.addr.i149, align 8
   store i64 %conv122, ptr %__i.addr.i, align 8
   store i32 0, ptr %__m.addr.i150, align 4
   %this1.i152 = load ptr, ptr %this.addr.i149, align 8
-  %48 = load i32, ptr %__m.addr.i150, align 4
-  %call.i153 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %48, i32 noundef 65535)
-  store i32 %call.i153, ptr %__b.i151, align 4
   %49 = load i32, ptr %__m.addr.i150, align 4
-  %50 = load i64, ptr %__i.addr.i, align 8
-  store i64 %50, ptr %.atomictmp.i, align 8
-  switch i32 %49, label %monotonic.i155 [
+  %call.i153 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %49, i32 noundef 65535)
+  store i32 %call.i153, ptr %__b.i151, align 4
+  %50 = load i32, ptr %__m.addr.i150, align 4
+  %51 = load i64, ptr %__i.addr.i, align 8
+  store i64 %51, ptr %.atomictmp.i, align 8
+  switch i32 %50, label %monotonic.i155 [
     i32 3, label %release.i
     i32 5, label %seqcst.i154
   ]
 
 monotonic.i155:                                   ; preds = %if.end115
-  %51 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %51, ptr %this1.i152 monotonic, align 8
+  %52 = load i64, ptr %.atomictmp.i, align 8
+  store atomic i64 %52, ptr %this1.i152 monotonic, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 release.i:                                        ; preds = %if.end115
-  %52 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %52, ptr %this1.i152 release, align 8
+  %53 = load i64, ptr %.atomictmp.i, align 8
+  store atomic i64 %53, ptr %this1.i152 release, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 seqcst.i154:                                      ; preds = %if.end115
-  %53 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %53, ptr %this1.i152 seq_cst, align 8
+  %54 = load i64, ptr %.atomictmp.i, align 8
+  store atomic i64 %54, ptr %this1.i152 seq_cst, align 8
   br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
 
 _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit: ; preds = %seqcst.i154, %release.i, %monotonic.i155
@@ -1326,8 +1327,8 @@ _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit: ; preds = %seqcst.i154, %r
   store i64 %call124, ptr %coerce.dive126, align 8
   %call127 = call noundef i64 @_ZNK4base13time_internal8TimeBaseINS_4TimeEE15ToInternalValueEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp123)
   %header_128 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %54 = load ptr, ptr %header_128, align 8
-  %start_time = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %54, i32 0, i32 4
+  %55 = load ptr, ptr %header_128, align 8
+  %start_time = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %55, i32 0, i32 4
   store i64 %call127, ptr %start_time, align 8
   %call130 = call i64 @_ZN4base9TimeTicks3NowEv()
   %coerce.dive131 = getelementptr inbounds %"class.base::TimeTicks", ptr %ref.tmp129, i32 0, i32 0
@@ -1335,52 +1336,52 @@ _ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit: ; preds = %seqcst.i154, %r
   store i64 %call130, ptr %coerce.dive132, align 8
   %call133 = call noundef i64 @_ZNK4base13time_internal8TimeBaseINS_9TimeTicksEE15ToInternalValueEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp129)
   %header_134 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %55 = load ptr, ptr %header_134, align 8
-  %start_ticks = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %55, i32 0, i32 5
+  %56 = load ptr, ptr %header_134, align 8
+  %start_ticks = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %56, i32 0, i32 5
   store i64 %call133, ptr %start_ticks, align 8
   %stack_slots_135 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 3
-  %56 = load i32, ptr %stack_slots_135, align 8
+  %57 = load i32, ptr %stack_slots_135, align 8
   %header_136 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %57 = load ptr, ptr %header_136, align 8
-  %stack_slots = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %57, i32 0, i32 6
-  store i32 %56, ptr %stack_slots, align 8
+  %58 = load ptr, ptr %header_136, align 8
+  %stack_slots = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %58, i32 0, i32 6
+  store i32 %57, ptr %stack_slots, align 8
   %header_137 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %58 = load ptr, ptr %header_137, align 8
-  %thread_name = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %58, i32 0, i32 9
+  %59 = load ptr, ptr %header_137, align 8
+  %thread_name = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %59, i32 0, i32 9
   %arraydecay = getelementptr inbounds [32 x i8], ptr %thread_name, i64 0, i64 0
   %call138 = call noundef ptr @_ZN4base14PlatformThread7GetNameEv()
   %call139 = call noundef i64 @_ZN4base7strlcpyEPcPKcm(ptr noundef %arraydecay, ptr noundef %call138, i64 noundef 32)
   %header_140 = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
-  %59 = load ptr, ptr %header_140, align 8
-  %cookie141 = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %59, i32 0, i32 0
+  %60 = load ptr, ptr %header_140, align 8
+  %cookie141 = getelementptr inbounds %"struct.base::debug::ThreadActivityTracker::Header", ptr %60, i32 0, i32 0
   store ptr %cookie141, ptr %this.addr.i156, align 8
   store i32 -1073571034, ptr %__i.addr.i157, align 4
   store i32 3, ptr %__m.addr.i158, align 4
   %this1.i161 = load ptr, ptr %this.addr.i156, align 8
-  %60 = load i32, ptr %__m.addr.i158, align 4
-  %call.i162 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %60, i32 noundef 65535)
-  store i32 %call.i162, ptr %__b.i159, align 4
   %61 = load i32, ptr %__m.addr.i158, align 4
-  %62 = load i32, ptr %__i.addr.i157, align 4
-  store i32 %62, ptr %.atomictmp.i160, align 4
-  switch i32 %61, label %monotonic.i165 [
+  %call.i162 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %61, i32 noundef 65535)
+  store i32 %call.i162, ptr %__b.i159, align 4
+  %62 = load i32, ptr %__m.addr.i158, align 4
+  %63 = load i32, ptr %__i.addr.i157, align 4
+  store i32 %63, ptr %.atomictmp.i160, align 4
+  switch i32 %62, label %monotonic.i165 [
     i32 3, label %release.i164
     i32 5, label %seqcst.i163
   ]
 
 monotonic.i165:                                   ; preds = %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
-  %63 = load i32, ptr %.atomictmp.i160, align 4
-  store atomic i32 %63, ptr %this1.i161 monotonic, align 4
+  %64 = load i32, ptr %.atomictmp.i160, align 4
+  store atomic i32 %64, ptr %this1.i161 monotonic, align 4
   br label %_ZNSt13__atomic_baseIjE5storeEjSt12memory_order.exit
 
 release.i164:                                     ; preds = %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
-  %64 = load i32, ptr %.atomictmp.i160, align 4
-  store atomic i32 %64, ptr %this1.i161 release, align 4
+  %65 = load i32, ptr %.atomictmp.i160, align 4
+  store atomic i32 %65, ptr %this1.i161 release, align 4
   br label %_ZNSt13__atomic_baseIjE5storeEjSt12memory_order.exit
 
 seqcst.i163:                                      ; preds = %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
-  %65 = load i32, ptr %.atomictmp.i160, align 4
-  store atomic i32 %65, ptr %this1.i161 seq_cst, align 4
+  %66 = load i32, ptr %.atomictmp.i160, align 4
+  store atomic i32 %66, ptr %this1.i161 seq_cst, align 4
   br label %_ZNSt13__atomic_baseIjE5storeEjSt12memory_order.exit
 
 _ZNSt13__atomic_baseIjE5storeEjSt12memory_order.exit: ; preds = %seqcst.i163, %release.i164, %monotonic.i165
@@ -2893,13 +2894,14 @@ entry:
   %0 = load ptr, ptr %base.addr, align 8
   %1 = load i64, ptr %size.addr, align 8
   call void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(30) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %mem_reference_ = getelementptr inbounds %"class.base::debug::GlobalActivityTracker::ManagedActivityTracker", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %mem_reference.addr, align 4
-  store i32 %2, ptr %mem_reference_, align 8
+  %3 = load i32, ptr %mem_reference.addr, align 4
+  store i32 %3, ptr %mem_reference_, align 8
   %mem_base_ = getelementptr inbounds %"class.base::debug::GlobalActivityTracker::ManagedActivityTracker", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %base.addr, align 8
-  store ptr %3, ptr %mem_base_, align 8
+  %4 = load ptr, ptr %base.addr, align 8
+  store ptr %4, ptr %mem_base_, align 8
   ret void
 }
 
@@ -2909,9 +2911,10 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
-  invoke void @_ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22ManagedActivityTrackerE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %this1)
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
+  invoke void @_ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22ManagedActivityTrackerE(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2919,10 +2922,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #13
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #13
   unreachable
 }
 

@@ -142,7 +142,8 @@ entry:
   store ptr %shapeB, ptr %shapeB.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV19btMinkowskiSumShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV19btMinkowskiSumShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_transA = getelementptr inbounds %class.btMinkowskiSumShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_transA)
           to label %invoke.cont unwind label %lpad
@@ -154,11 +155,11 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_shapeA = getelementptr inbounds %class.btMinkowskiSumShape, ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %shapeA.addr, align 8
-  store ptr %0, ptr %m_shapeA, align 8
+  %1 = load ptr, ptr %shapeA.addr, align 8
+  store ptr %1, ptr %m_shapeA, align 8
   %m_shapeB = getelementptr inbounds %class.btMinkowskiSumShape, ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %shapeB.addr, align 8
-  store ptr %1, ptr %m_shapeB, align 8
+  %2 = load ptr, ptr %shapeB.addr, align 8
+  store ptr %2, ptr %m_shapeB, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 16, ptr %m_shapeType, align 8
   %m_transA3 = getelementptr inbounds %class.btMinkowskiSumShape, ptr %this1, i32 0, i32 1
@@ -174,12 +175,12 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN21btConvexInternalShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
   br label %eh.resume
 

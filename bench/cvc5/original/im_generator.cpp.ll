@@ -79,20 +79,21 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst11IMGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst11IMGeneratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_tparent = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %tparent.addr, align 8
-  store ptr %1, ptr %d_tparent, align 8
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this1, i32 0, i32 2
   %2 = load ptr, ptr %tparent.addr, align 8
-  %d_qstate2 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::Trigger", ptr %2, i32 0, i32 4
-  %3 = load ptr, ptr %d_qstate2, align 8
-  store ptr %3, ptr %d_qstate, align 8
+  store ptr %2, ptr %d_tparent, align 8
+  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this1, i32 0, i32 2
+  %3 = load ptr, ptr %tparent.addr, align 8
+  %d_qstate2 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::Trigger", ptr %3, i32 0, i32 4
+  %4 = load ptr, ptr %d_qstate2, align 8
+  store ptr %4, ptr %d_qstate, align 8
   %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %tparent.addr, align 8
-  %d_treg3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::Trigger", ptr %4, i32 0, i32 7
-  %5 = load ptr, ptr %d_treg3, align 8
-  store ptr %5, ptr %d_treg, align 8
+  %5 = load ptr, ptr %tparent.addr, align 8
+  %d_treg3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::Trigger", ptr %5, i32 0, i32 7
+  %6 = load ptr, ptr %d_treg3, align 8
+  store ptr %6, ptr %d_treg, align 8
   ret void
 }
 

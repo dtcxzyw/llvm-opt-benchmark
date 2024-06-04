@@ -2566,13 +2566,13 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  br label %37
+  br label %39
 
 8:                                                ; preds = %1
   store i32 0, ptr %4, align 4
   br label %9
 
-9:                                                ; preds = %34, %8
+9:                                                ; preds = %36, %8
   %10 = load i32, ptr %4, align 4
   %11 = load ptr, ptr %2, align 8
   %12 = call i32 @Vec_PtrSize(ptr noundef %11)
@@ -2588,45 +2588,47 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
 
 18:                                               ; preds = %14, %9
   %19 = phi i1 [ false, %9 ], [ true, %14 ]
-  br i1 %19, label %20, label %37
+  br i1 %19, label %20, label %39
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %3, align 8
-  %22 = icmp ne ptr %21, inttoptr (i64 1 to ptr)
-  br i1 %22, label %23, label %33
+  %22 = inttoptr i64 1 to ptr
+  %23 = icmp ne ptr %21, %22
+  br i1 %23, label %24, label %35
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp ne ptr %24, inttoptr (i64 2 to ptr)
-  br i1 %25, label %26, label %33
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8
+  %26 = inttoptr i64 2 to ptr
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %35
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %33
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %30) #8
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %32) #8
   store ptr null, ptr %3, align 8
-  br label %32
-
-31:                                               ; preds = %26
-  br label %32
-
-32:                                               ; preds = %31, %29
-  br label %33
-
-33:                                               ; preds = %32, %23, %20
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load i32, ptr %4, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %4, align 4
+33:                                               ; preds = %28
+  br label %34
+
+34:                                               ; preds = %33, %31
+  br label %35
+
+35:                                               ; preds = %34, %24, %20
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i32, ptr %4, align 4
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %4, align 4
   br label %9, !llvm.loop !34
 
-37:                                               ; preds = %18, %7
+39:                                               ; preds = %18, %7
   ret void
 }
 
@@ -4323,130 +4325,131 @@ define i64 @Abc_SopToTruth(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %11, ptr %9, align 4
   br label %12
 
-12:                                               ; preds = %76, %2
-  %13 = load i64, ptr getelementptr inbounds ([8 x i64], ptr @Abc_SopToTruth.Truth, i64 0, i64 7), align 8
-  store i64 %13, ptr %5, align 8
+12:                                               ; preds = %77, %2
+  %13 = getelementptr inbounds [8 x i64], ptr @Abc_SopToTruth.Truth, i64 0, i64 7
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %5, align 8
   store i32 0, ptr %7, align 4
-  br label %14
+  br label %15
 
-14:                                               ; preds = %61, %12
-  %15 = load i32, ptr %7, align 4
-  %16 = load i32, ptr %9, align 4
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %18, label %66
+15:                                               ; preds = %62, %12
+  %16 = load i32, ptr %7, align 4
+  %17 = load i32, ptr %9, align 4
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %19, label %67
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %3, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %19, i64 %21
-  %23 = load i8, ptr %22, align 1
-  %24 = sext i8 %23 to i32
-  %25 = icmp eq i32 %24, 49
-  br i1 %25, label %26, label %33
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %3, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i8, ptr %20, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %25 = sext i8 %24 to i32
+  %26 = icmp eq i32 %25, 49
+  br i1 %26, label %27, label %34
 
-26:                                               ; preds = %18
-  %27 = load i32, ptr %7, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [8 x i64], ptr @Abc_SopToTruth.Truth, i64 0, i64 %28
-  %30 = load i64, ptr %29, align 8
-  %31 = load i64, ptr %5, align 8
-  %32 = and i64 %31, %30
-  store i64 %32, ptr %5, align 8
-  br label %60
-
-33:                                               ; preds = %18
-  %34 = load ptr, ptr %3, align 8
-  %35 = load i32, ptr %8, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %34, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = sext i8 %38 to i32
-  %40 = icmp eq i32 %39, 48
-  br i1 %40, label %41, label %49
-
-41:                                               ; preds = %33
-  %42 = load i32, ptr %7, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [8 x i64], ptr @Abc_SopToTruth.Truth, i64 0, i64 %43
-  %45 = load i64, ptr %44, align 8
-  %46 = xor i64 %45, -1
-  %47 = load i64, ptr %5, align 8
-  %48 = and i64 %47, %46
-  store i64 %48, ptr %5, align 8
-  br label %59
-
-49:                                               ; preds = %33
-  %50 = load ptr, ptr %3, align 8
-  %51 = load i32, ptr %8, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %50, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = sext i8 %54 to i32
-  %56 = icmp ne i32 %55, 45
-  br i1 %56, label %57, label %58
-
-57:                                               ; preds = %49
-  br label %58
-
-58:                                               ; preds = %57, %49
-  br label %59
-
-59:                                               ; preds = %58, %41
-  br label %60
-
-60:                                               ; preds = %59, %26
+27:                                               ; preds = %19
+  %28 = load i32, ptr %7, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [8 x i64], ptr @Abc_SopToTruth.Truth, i64 0, i64 %29
+  %31 = load i64, ptr %30, align 8
+  %32 = load i64, ptr %5, align 8
+  %33 = and i64 %32, %31
+  store i64 %33, ptr %5, align 8
   br label %61
 
-61:                                               ; preds = %60
-  %62 = load i32, ptr %7, align 4
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %7, align 4
-  %64 = load i32, ptr %8, align 4
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %8, align 4
-  br label %14, !llvm.loop !53
+34:                                               ; preds = %19
+  %35 = load ptr, ptr %3, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %35, i64 %37
+  %39 = load i8, ptr %38, align 1
+  %40 = sext i8 %39 to i32
+  %41 = icmp eq i32 %40, 48
+  br i1 %41, label %42, label %50
 
-66:                                               ; preds = %14
-  %67 = load i64, ptr %5, align 8
-  %68 = load i64, ptr %6, align 8
-  %69 = or i64 %68, %67
-  store i64 %69, ptr %6, align 8
-  %70 = load i32, ptr %8, align 4
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %8, align 4
-  %72 = load i32, ptr %8, align 4
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %8, align 4
-  %74 = load i32, ptr %8, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %8, align 4
-  br label %76
+42:                                               ; preds = %34
+  %43 = load i32, ptr %7, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds [8 x i64], ptr @Abc_SopToTruth.Truth, i64 0, i64 %44
+  %46 = load i64, ptr %45, align 8
+  %47 = xor i64 %46, -1
+  %48 = load i64, ptr %5, align 8
+  %49 = and i64 %48, %47
+  store i64 %49, ptr %5, align 8
+  br label %60
 
-76:                                               ; preds = %66
-  %77 = load ptr, ptr %3, align 8
-  %78 = load i32, ptr %8, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %77, i64 %79
-  %81 = load i8, ptr %80, align 1
-  %82 = icmp ne i8 %81, 0
-  br i1 %82, label %12, label %83, !llvm.loop !54
+50:                                               ; preds = %34
+  %51 = load ptr, ptr %3, align 8
+  %52 = load i32, ptr %8, align 4
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %51, i64 %53
+  %55 = load i8, ptr %54, align 1
+  %56 = sext i8 %55 to i32
+  %57 = icmp ne i32 %56, 45
+  br i1 %57, label %58, label %59
 
-83:                                               ; preds = %76
-  %84 = load ptr, ptr %3, align 8
-  %85 = call i32 @Abc_SopIsComplement(ptr noundef %84)
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %90
+58:                                               ; preds = %50
+  br label %59
 
-87:                                               ; preds = %83
-  %88 = load i64, ptr %6, align 8
-  %89 = xor i64 %88, -1
-  store i64 %89, ptr %6, align 8
-  br label %90
+59:                                               ; preds = %58, %50
+  br label %60
 
-90:                                               ; preds = %87, %83
-  %91 = load i64, ptr %6, align 8
-  ret i64 %91
+60:                                               ; preds = %59, %42
+  br label %61
+
+61:                                               ; preds = %60, %27
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load i32, ptr %7, align 4
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %7, align 4
+  %65 = load i32, ptr %8, align 4
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %8, align 4
+  br label %15, !llvm.loop !53
+
+67:                                               ; preds = %15
+  %68 = load i64, ptr %5, align 8
+  %69 = load i64, ptr %6, align 8
+  %70 = or i64 %69, %68
+  store i64 %70, ptr %6, align 8
+  %71 = load i32, ptr %8, align 4
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %8, align 4
+  %73 = load i32, ptr %8, align 4
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %8, align 4
+  %75 = load i32, ptr %8, align 4
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %8, align 4
+  br label %77
+
+77:                                               ; preds = %67
+  %78 = load ptr, ptr %3, align 8
+  %79 = load i32, ptr %8, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i8, ptr %78, i64 %80
+  %82 = load i8, ptr %81, align 1
+  %83 = icmp ne i8 %82, 0
+  br i1 %83, label %12, label %84, !llvm.loop !54
+
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %3, align 8
+  %86 = call i32 @Abc_SopIsComplement(ptr noundef %85)
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %91
+
+88:                                               ; preds = %84
+  %89 = load i64, ptr %6, align 8
+  %90 = xor i64 %89, -1
+  store i64 %90, ptr %6, align 8
+  br label %91
+
+91:                                               ; preds = %88, %84
+  %92 = load i64, ptr %6, align 8
+  ret i64 %92
 }
 
 ; Function Attrs: nounwind uwtable

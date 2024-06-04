@@ -267,16 +267,17 @@ define void @_ZN4LIEF3ELF24SymbolVersionRequirementC2ERKNS0_7details13Elf64_Vern
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF24SymbolVersionRequirementE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
-  %7 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 2
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf64_Verneed", ptr %8, i32 0, i32 0
-  %10 = load i16, ptr %9, align 1
-  store i16 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #9
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF24SymbolVersionRequirementE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
+  %8 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 2
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf64_Verneed", ptr %9, i32 0, i32 0
+  %11 = load i16, ptr %10, align 1
+  store i16 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #9
   ret void
 }
 
@@ -302,16 +303,17 @@ define void @_ZN4LIEF3ELF24SymbolVersionRequirementC2ERKNS0_7details13Elf32_Vern
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF24SymbolVersionRequirementE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
-  %7 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 2
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf32_Verneed", ptr %8, i32 0, i32 0
-  %10 = load i16, ptr %9, align 1
-  store i16 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #9
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF24SymbolVersionRequirementE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
+  %8 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 2
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.LIEF::ELF::details::Elf32_Verneed", ptr %9, i32 0, i32 0
+  %11 = load i16, ptr %10, align 1
+  store i16 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %5, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #9
   ret void
 }
 
@@ -331,113 +333,114 @@ define void @_ZN4LIEF3ELF24SymbolVersionRequirementC2ERKS1_(ptr noundef nonnull 
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF24SymbolVersionRequirementE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %14 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #9
-  %15 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 2
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %16, i32 0, i32 2
-  %18 = load i16, ptr %17, align 8
-  store i16 %18, ptr %15, align 8
-  %19 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 3
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %20, i32 0, i32 3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %22 unwind label %47
+  %14 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF24SymbolVersionRequirementE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %12, align 8
+  %15 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
+  %16 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 2
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %17, i32 0, i32 2
+  %19 = load i16, ptr %18, align 8
+  store i16 %19, ptr %16, align 8
+  %20 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 3
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %21, i32 0, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %23 unwind label %48
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 1
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %24, i32 0, i32 1
-  %26 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #9
-  invoke void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %26)
-          to label %27 unwind label %51
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 1
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %25, i32 0, i32 1
+  %27 = call noundef i64 @_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #9
+  invoke void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %27)
+          to label %28 unwind label %52
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %28, i32 0, i32 1
-  store ptr %29, ptr %7, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #9
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
-  store ptr %31, ptr %32, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
-  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
-  store ptr %34, ptr %35, align 8
-  br label %36
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %29, i32 0, i32 1
+  store ptr %30, ptr %7, align 8
+  %31 = load ptr, ptr %7, align 8
+  %32 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #9
+  %33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %32, ptr %33, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #9
+  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  store ptr %35, ptr %36, align 8
+  br label %37
 
-36:                                               ; preds = %45, %27
-  %37 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  br i1 %37, label %38, label %59
+37:                                               ; preds = %46, %28
+  %38 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #9
+  br i1 %38, label %39, label %60
 
-38:                                               ; preds = %36
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  store ptr %39, ptr %10, align 8
-  %40 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 1
-  %41 = load ptr, ptr %10, align 8
-  %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS2_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %41) #9
-  invoke void @_ZSt11make_uniqueIN4LIEF3ELF27SymbolVersionAuxRequirementEJRS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %42)
-          to label %43 unwind label %51
+39:                                               ; preds = %37
+  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
+  store ptr %40, ptr %10, align 8
+  %41 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %12, i32 0, i32 1
+  %42 = load ptr, ptr %10, align 8
+  %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS2_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #9
+  invoke void @_ZSt11make_uniqueIN4LIEF3ELF27SymbolVersionAuxRequirementEJRS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %43)
+          to label %44 unwind label %52
 
-43:                                               ; preds = %38
-  invoke void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %44 unwind label %55
-
-44:                                               ; preds = %43
-  call void @_ZNSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
-  br label %45
+44:                                               ; preds = %39
+  invoke void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %45 unwind label %56
 
 45:                                               ; preds = %44
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
-  br label %36
-
-47:                                               ; preds = %2
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %5, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %6, align 4
-  br label %61
-
-51:                                               ; preds = %38, %22
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %5, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %6, align 4
-  br label %60
-
-55:                                               ; preds = %43
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %5, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %6, align 4
   call void @_ZNSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
-  br label %60
+  br label %46
 
-59:                                               ; preds = %36
-  ret void
+46:                                               ; preds = %45
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #9
+  br label %37
 
-60:                                               ; preds = %55, %51
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #9
-  br label %61
-
-61:                                               ; preds = %60, %47
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #9
-  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
+48:                                               ; preds = %2
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %5, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %6, align 4
   br label %62
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr %5, align 8
-  %64 = load i32, ptr %6, align 4
-  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
-  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
-  resume { ptr, i32 } %66
+52:                                               ; preds = %39, %23
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %5, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %6, align 4
+  br label %61
+
+56:                                               ; preds = %44
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %5, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %6, align 4
+  call void @_ZNSt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
+  br label %61
+
+60:                                               ; preds = %37
+  ret void
+
+61:                                               ; preds = %56, %52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
+  br label %62
+
+62:                                               ; preds = %61, %48
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #9
+  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %5, align 8
+  %65 = load i32, ptr %6, align 4
+  %66 = insertvalue { ptr, i32 } poison, ptr %64, 0
+  %67 = insertvalue { ptr, i32 } %66, i32 %65, 1
+  resume { ptr, i32 } %67
 }
 
 declare void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -950,11 +953,12 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF24SymbolVersionRequirementD2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF24SymbolVersionRequirementE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
-  %5 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF24SymbolVersionRequirementE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
+  %6 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionRequirement", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF27SymbolVersionAuxRequirementESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }
@@ -1777,11 +1781,12 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF27SymbolVersionAuxRequirementC2ERKS
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF3ELF16SymbolVersionAuxC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF27SymbolVersionAuxRequirementE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 8, i1 false)
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF27SymbolVersionAuxRequirementE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAuxRequirement", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 8, i1 false)
   ret void
 }
 
@@ -1819,32 +1824,33 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF16SymbolVersionAuxC2ERKS1_(ptr noun
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAux", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAux", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAux", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::ELF::SymbolVersionAux", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable

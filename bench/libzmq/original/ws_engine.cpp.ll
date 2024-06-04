@@ -128,17 +128,19 @@ entry:
   %1 = load ptr, ptr %options_.addr, align 8
   %2 = load ptr, ptr %endpoint_uri_pair_.addr, align 8
   call void @_ZN3zmq20stream_engine_base_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tEb(ptr noundef nonnull align 8 dereferenceable(1689) %this1, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(1336) %1, ptr noundef nonnull align 8 dereferenceable(68) %2, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %_client = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 1
-  %3 = load i8, ptr %client_.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %5 = load i8, ptr %client_.addr, align 1
+  %tobool = trunc i8 %5 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %_client, align 1
   %_address = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %address_.addr, align 8
-  invoke void @_ZN3zmq12ws_address_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %_address, ptr noundef nonnull align 8 dereferenceable(96) %4)
+  %6 = load ptr, ptr %address_.addr, align 8
+  invoke void @_ZN3zmq12ws_address_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %_address, ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -176,45 +178,45 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont7:                                     ; preds = %invoke.cont
   %_options = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
   %heartbeat_interval = getelementptr inbounds %"struct.zmq::options_t", ptr %_options, i32 0, i32 60
-  %5 = load i32, ptr %heartbeat_interval, align 4
-  %cmp = icmp sgt i32 %5, 0
+  %7 = load i32, ptr %heartbeat_interval, align 4
+  %cmp = icmp sgt i32 %7, 0
   br i1 %cmp, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %invoke.cont7
   %_options8 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
   %heartbeat_timeout = getelementptr inbounds %"struct.zmq::options_t", ptr %_options8, i32 0, i32 61
-  %6 = load i32, ptr %heartbeat_timeout, align 8
+  %8 = load i32, ptr %heartbeat_timeout, align 8
   %_heartbeat_timeout9 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  store i32 %6, ptr %_heartbeat_timeout9, align 4
+  store i32 %8, ptr %_heartbeat_timeout9, align 4
   %_heartbeat_timeout10 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  %7 = load i32, ptr %_heartbeat_timeout10, align 4
-  %cmp11 = icmp eq i32 %7, -1
+  %9 = load i32, ptr %_heartbeat_timeout10, align 4
+  %cmp11 = icmp eq i32 %9, -1
   br i1 %cmp11, label %if.then12, label %if.end
 
 if.then12:                                        ; preds = %if.then
   %_options13 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
   %heartbeat_interval14 = getelementptr inbounds %"struct.zmq::options_t", ptr %_options13, i32 0, i32 60
-  %8 = load i32, ptr %heartbeat_interval14, align 4
+  %10 = load i32, ptr %heartbeat_interval14, align 4
   %_heartbeat_timeout15 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  store i32 %8, ptr %_heartbeat_timeout15, align 4
+  store i32 %10, ptr %_heartbeat_timeout15, align 4
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN3zmq12ws_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %_address) #13
   br label %ehcleanup
 
@@ -316,9 +318,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %_close_msg = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 17
   %call = invoke noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %_close_msg)
           to label %invoke.cont unwind label %terminate.lpad
@@ -330,10 +334,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #14
   unreachable
 }
 

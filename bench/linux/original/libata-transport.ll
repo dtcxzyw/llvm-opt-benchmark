@@ -492,140 +492,141 @@ define internal void @ata_tlink_release(ptr nocapture readnone %0) #4 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @ata_attach_transport() local_unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %2 = tail call noalias noundef align 8 dereferenceable_or_null(1184) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 1184) #16
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %69, label %4
+  %1 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %2 = load ptr, ptr %1, align 8
+  %3 = tail call noalias noundef align 8 dereferenceable_or_null(1184) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1184) #16
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %70, label %5
 
-4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 344
-  store ptr @ata_scsi_error, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 312
-  store ptr @ata_scsi_user_scan, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1072
-  %8 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 56
-  store ptr @ata_port_class, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr @ata_tport_match, ptr %10, align 8
-  %11 = tail call i32 @attribute_container_register(ptr noundef nonnull %2) #14
-  %12 = getelementptr inbounds i8, ptr %2, i64 832
-  %13 = getelementptr inbounds i8, ptr %2, i64 888
-  store ptr @ata_link_class, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 1040
-  %15 = getelementptr inbounds i8, ptr %2, i64 904
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 912
-  store ptr @ata_tlink_match, ptr %16, align 8
-  %17 = tail call i32 @attribute_container_register(ptr noundef %12) #14
-  %18 = getelementptr inbounds i8, ptr %2, i64 936
-  %19 = getelementptr inbounds i8, ptr %2, i64 992
-  store ptr @ata_dev_class, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 1104
-  %21 = getelementptr inbounds i8, ptr %2, i64 1008
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 1016
-  store ptr @ata_tdev_match, ptr %22, align 8
-  %23 = tail call i32 @attribute_container_register(ptr noundef %18) #14
-  %24 = getelementptr inbounds i8, ptr %2, i64 352
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_nr_pmp_links, i64 32, i1 false)
-  %25 = getelementptr inbounds i8, ptr %2, i64 360
-  store i16 292, ptr %25, align 8
-  store ptr %24, ptr %7, align 8
-  %26 = getelementptr i8, ptr %2, i64 384
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_idle_irq, i64 32, i1 false)
-  %27 = getelementptr i8, ptr %2, i64 392
-  store i16 292, ptr %27, align 8
-  %28 = getelementptr i8, ptr %2, i64 1080
-  store ptr %26, ptr %28, align 8
-  %29 = getelementptr i8, ptr %2, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_port_no, i64 32, i1 false)
-  %30 = getelementptr i8, ptr %2, i64 424
-  store i16 292, ptr %30, align 8
-  %31 = getelementptr i8, ptr %2, i64 1088
-  store ptr %29, ptr %31, align 8
-  %32 = getelementptr i8, ptr %2, i64 1096
-  store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 448
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_hw_sata_spd_limit, i64 32, i1 false)
-  %34 = getelementptr inbounds i8, ptr %2, i64 456
-  store i16 292, ptr %34, align 8
-  store ptr %33, ptr %14, align 8
-  %35 = getelementptr i8, ptr %2, i64 480
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_sata_spd_limit, i64 32, i1 false)
-  %36 = getelementptr i8, ptr %2, i64 488
-  store i16 292, ptr %36, align 8
-  %37 = getelementptr i8, ptr %2, i64 1048
-  store ptr %35, ptr %37, align 8
-  %38 = getelementptr i8, ptr %2, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_sata_spd, i64 32, i1 false)
-  %39 = getelementptr i8, ptr %2, i64 520
-  store i16 292, ptr %39, align 8
-  %40 = getelementptr i8, ptr %2, i64 1056
-  store ptr %38, ptr %40, align 8
-  %41 = getelementptr i8, ptr %2, i64 1064
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 544
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_class, i64 32, i1 false)
-  %43 = getelementptr inbounds i8, ptr %2, i64 552
-  store i16 292, ptr %43, align 8
-  store ptr %42, ptr %20, align 8
-  %44 = getelementptr i8, ptr %2, i64 576
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_pio_mode, i64 32, i1 false)
-  %45 = getelementptr i8, ptr %2, i64 584
-  store i16 292, ptr %45, align 8
-  %46 = getelementptr i8, ptr %2, i64 1112
-  store ptr %44, ptr %46, align 8
-  %47 = getelementptr i8, ptr %2, i64 608
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_dma_mode, i64 32, i1 false)
-  %48 = getelementptr i8, ptr %2, i64 616
-  store i16 292, ptr %48, align 8
-  %49 = getelementptr i8, ptr %2, i64 1120
-  store ptr %47, ptr %49, align 8
-  %50 = getelementptr i8, ptr %2, i64 640
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_xfer_mode, i64 32, i1 false)
-  %51 = getelementptr i8, ptr %2, i64 648
-  store i16 292, ptr %51, align 8
-  %52 = getelementptr i8, ptr %2, i64 1128
-  store ptr %50, ptr %52, align 8
-  %53 = getelementptr i8, ptr %2, i64 672
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_spdn_cnt, i64 32, i1 false)
-  %54 = getelementptr i8, ptr %2, i64 680
-  store i16 292, ptr %54, align 8
-  %55 = getelementptr i8, ptr %2, i64 1136
-  store ptr %53, ptr %55, align 8
-  %56 = getelementptr i8, ptr %2, i64 704
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_ering, i64 32, i1 false)
-  %57 = getelementptr i8, ptr %2, i64 712
-  store i16 292, ptr %57, align 8
-  %58 = getelementptr i8, ptr %2, i64 1144
-  store ptr %56, ptr %58, align 8
-  %59 = getelementptr i8, ptr %2, i64 736
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_id, i64 32, i1 false)
-  %60 = getelementptr i8, ptr %2, i64 744
-  store i16 292, ptr %60, align 8
-  %61 = getelementptr i8, ptr %2, i64 1152
-  store ptr %59, ptr %61, align 8
-  %62 = getelementptr i8, ptr %2, i64 768
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_gscr, i64 32, i1 false)
-  %63 = getelementptr i8, ptr %2, i64 776
-  store i16 292, ptr %63, align 8
-  %64 = getelementptr i8, ptr %2, i64 1160
-  store ptr %62, ptr %64, align 8
-  %65 = getelementptr i8, ptr %2, i64 800
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_trim, i64 32, i1 false)
-  %66 = getelementptr i8, ptr %2, i64 808
-  store i16 292, ptr %66, align 8
-  %67 = getelementptr i8, ptr %2, i64 1168
-  store ptr %65, ptr %67, align 8
-  %68 = getelementptr i8, ptr %2, i64 1176
-  store ptr null, ptr %68, align 8
-  br label %69
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds i8, ptr %3, i64 344
+  store ptr @ata_scsi_error, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 312
+  store ptr @ata_scsi_user_scan, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1072
+  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr @ata_port_class, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr @ata_tport_match, ptr %11, align 8
+  %12 = tail call i32 @attribute_container_register(ptr noundef nonnull %3) #14
+  %13 = getelementptr inbounds i8, ptr %3, i64 832
+  %14 = getelementptr inbounds i8, ptr %3, i64 888
+  store ptr @ata_link_class, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 1040
+  %16 = getelementptr inbounds i8, ptr %3, i64 904
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 912
+  store ptr @ata_tlink_match, ptr %17, align 8
+  %18 = tail call i32 @attribute_container_register(ptr noundef %13) #14
+  %19 = getelementptr inbounds i8, ptr %3, i64 936
+  %20 = getelementptr inbounds i8, ptr %3, i64 992
+  store ptr @ata_dev_class, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 1104
+  %22 = getelementptr inbounds i8, ptr %3, i64 1008
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 1016
+  store ptr @ata_tdev_match, ptr %23, align 8
+  %24 = tail call i32 @attribute_container_register(ptr noundef %19) #14
+  %25 = getelementptr inbounds i8, ptr %3, i64 352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_nr_pmp_links, i64 32, i1 false)
+  %26 = getelementptr inbounds i8, ptr %3, i64 360
+  store i16 292, ptr %26, align 8
+  store ptr %25, ptr %8, align 8
+  %27 = getelementptr i8, ptr %3, i64 384
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_idle_irq, i64 32, i1 false)
+  %28 = getelementptr i8, ptr %3, i64 392
+  store i16 292, ptr %28, align 8
+  %29 = getelementptr i8, ptr %3, i64 1080
+  store ptr %27, ptr %29, align 8
+  %30 = getelementptr i8, ptr %3, i64 416
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_port_no, i64 32, i1 false)
+  %31 = getelementptr i8, ptr %3, i64 424
+  store i16 292, ptr %31, align 8
+  %32 = getelementptr i8, ptr %3, i64 1088
+  store ptr %30, ptr %32, align 8
+  %33 = getelementptr i8, ptr %3, i64 1096
+  store ptr null, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 448
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_hw_sata_spd_limit, i64 32, i1 false)
+  %35 = getelementptr inbounds i8, ptr %3, i64 456
+  store i16 292, ptr %35, align 8
+  store ptr %34, ptr %15, align 8
+  %36 = getelementptr i8, ptr %3, i64 480
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_sata_spd_limit, i64 32, i1 false)
+  %37 = getelementptr i8, ptr %3, i64 488
+  store i16 292, ptr %37, align 8
+  %38 = getelementptr i8, ptr %3, i64 1048
+  store ptr %36, ptr %38, align 8
+  %39 = getelementptr i8, ptr %3, i64 512
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_sata_spd, i64 32, i1 false)
+  %40 = getelementptr i8, ptr %3, i64 520
+  store i16 292, ptr %40, align 8
+  %41 = getelementptr i8, ptr %3, i64 1056
+  store ptr %39, ptr %41, align 8
+  %42 = getelementptr i8, ptr %3, i64 1064
+  store ptr null, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 544
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_class, i64 32, i1 false)
+  %44 = getelementptr inbounds i8, ptr %3, i64 552
+  store i16 292, ptr %44, align 8
+  store ptr %43, ptr %21, align 8
+  %45 = getelementptr i8, ptr %3, i64 576
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_pio_mode, i64 32, i1 false)
+  %46 = getelementptr i8, ptr %3, i64 584
+  store i16 292, ptr %46, align 8
+  %47 = getelementptr i8, ptr %3, i64 1112
+  store ptr %45, ptr %47, align 8
+  %48 = getelementptr i8, ptr %3, i64 608
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_dma_mode, i64 32, i1 false)
+  %49 = getelementptr i8, ptr %3, i64 616
+  store i16 292, ptr %49, align 8
+  %50 = getelementptr i8, ptr %3, i64 1120
+  store ptr %48, ptr %50, align 8
+  %51 = getelementptr i8, ptr %3, i64 640
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_xfer_mode, i64 32, i1 false)
+  %52 = getelementptr i8, ptr %3, i64 648
+  store i16 292, ptr %52, align 8
+  %53 = getelementptr i8, ptr %3, i64 1128
+  store ptr %51, ptr %53, align 8
+  %54 = getelementptr i8, ptr %3, i64 672
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_spdn_cnt, i64 32, i1 false)
+  %55 = getelementptr i8, ptr %3, i64 680
+  store i16 292, ptr %55, align 8
+  %56 = getelementptr i8, ptr %3, i64 1136
+  store ptr %54, ptr %56, align 8
+  %57 = getelementptr i8, ptr %3, i64 704
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_ering, i64 32, i1 false)
+  %58 = getelementptr i8, ptr %3, i64 712
+  store i16 292, ptr %58, align 8
+  %59 = getelementptr i8, ptr %3, i64 1144
+  store ptr %57, ptr %59, align 8
+  %60 = getelementptr i8, ptr %3, i64 736
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_id, i64 32, i1 false)
+  %61 = getelementptr i8, ptr %3, i64 744
+  store i16 292, ptr %61, align 8
+  %62 = getelementptr i8, ptr %3, i64 1152
+  store ptr %60, ptr %62, align 8
+  %63 = getelementptr i8, ptr %3, i64 768
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_gscr, i64 32, i1 false)
+  %64 = getelementptr i8, ptr %3, i64 776
+  store i16 292, ptr %64, align 8
+  %65 = getelementptr i8, ptr %3, i64 1160
+  store ptr %63, ptr %65, align 8
+  %66 = getelementptr i8, ptr %3, i64 800
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) @dev_attr_trim, i64 32, i1 false)
+  %67 = getelementptr i8, ptr %3, i64 808
+  store i16 292, ptr %67, align 8
+  %68 = getelementptr i8, ptr %3, i64 1168
+  store ptr %66, ptr %68, align 8
+  %69 = getelementptr i8, ptr %3, i64 1176
+  store ptr null, ptr %69, align 8
+  br label %70
 
-69:                                               ; preds = %4, %0
-  %70 = phi ptr [ %2, %4 ], [ null, %0 ]
-  ret ptr %70
+70:                                               ; preds = %5, %0
+  %71 = phi ptr [ %3, %5 ], [ null, %0 ]
+  ret ptr %71
 }
 
 ; Function Attrs: null_pointer_is_valid

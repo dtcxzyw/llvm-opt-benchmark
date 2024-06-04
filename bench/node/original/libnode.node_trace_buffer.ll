@@ -1027,10 +1027,11 @@ entry:
   store ptr %tracing_loop, ptr %tracing_loop.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v88platform7tracing11TraceBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracing_loop_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %tracing_loop.addr, align 8
-  store ptr %0, ptr %tracing_loop_, align 8
+  %1 = load ptr, ptr %tracing_loop.addr, align 8
+  store ptr %1, ptr %tracing_loop_, align 8
   %exited_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 4
   store i8 0, ptr %exited_, align 8
   %exit_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 5
@@ -1038,13 +1039,13 @@ entry:
   %exit_cond_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 6
   call void @_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_)
   %buffer1_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 8
-  %1 = load i64, ptr %max_chunks.addr, align 8
-  %2 = load ptr, ptr %agent.addr, align 8
-  call void @_ZN4node7tracing19InternalTraceBufferC1EmjPNS0_5AgentE(ptr noundef nonnull align 8 dereferenceable(104) %buffer1_, i64 noundef %1, i32 noundef 0, ptr noundef %2)
+  %2 = load i64, ptr %max_chunks.addr, align 8
+  %3 = load ptr, ptr %agent.addr, align 8
+  call void @_ZN4node7tracing19InternalTraceBufferC1EmjPNS0_5AgentE(ptr noundef nonnull align 8 dereferenceable(104) %buffer1_, i64 noundef %2, i32 noundef 0, ptr noundef %3)
   %buffer2_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 9
-  %3 = load i64, ptr %max_chunks.addr, align 8
-  %4 = load ptr, ptr %agent.addr, align 8
-  call void @_ZN4node7tracing19InternalTraceBufferC1EmjPNS0_5AgentE(ptr noundef nonnull align 8 dereferenceable(104) %buffer2_, i64 noundef %3, i32 noundef 1, ptr noundef %4)
+  %4 = load i64, ptr %max_chunks.addr, align 8
+  %5 = load ptr, ptr %agent.addr, align 8
+  call void @_ZN4node7tracing19InternalTraceBufferC1EmjPNS0_5AgentE(ptr noundef nonnull align 8 dereferenceable(104) %buffer2_, i64 noundef %4, i32 noundef 1, ptr noundef %5)
   %current_buf_2 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 7
   %buffer1_3 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 8
   call void @_ZNSt6atomicIPN4node7tracing19InternalTraceBufferEE5storeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %current_buf_2, ptr noundef %buffer1_3, i32 noundef 5) #10
@@ -1052,15 +1053,15 @@ entry:
   %data = getelementptr inbounds %struct.uv_async_s, ptr %flush_signal_4, i32 0, i32 0
   store ptr %this1, ptr %data, align 8
   %tracing_loop_5 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %tracing_loop_5, align 8
+  %6 = load ptr, ptr %tracing_loop_5, align 8
   %flush_signal_6 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 2
-  %call = call i32 @uv_async_init(ptr noundef %5, ptr noundef %flush_signal_6, ptr noundef @_ZN4node7tracing15NodeTraceBuffer24NonBlockingFlushSignalCbEP10uv_async_s)
+  %call = call i32 @uv_async_init(ptr noundef %6, ptr noundef %flush_signal_6, ptr noundef @_ZN4node7tracing15NodeTraceBuffer24NonBlockingFlushSignalCbEP10uv_async_s)
   store i32 %call, ptr %err, align 4
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %6 = load i32, ptr %err, align 4
-  %cmp = icmp eq i32 %6, 0
+  %7 = load i32, ptr %err, align 4
+  %cmp = icmp eq i32 %7, 0
   %lnot = xor i1 %cmp, true
   %lnot7 = xor i1 %lnot, true
   %lnot8 = xor i1 %lnot7, true
@@ -1085,15 +1086,15 @@ do.end10:                                         ; preds = %if.end
   %data12 = getelementptr inbounds %struct.uv_async_s, ptr %exit_signal_11, i32 0, i32 0
   store ptr %this1, ptr %data12, align 8
   %tracing_loop_13 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %tracing_loop_13, align 8
+  %8 = load ptr, ptr %tracing_loop_13, align 8
   %exit_signal_14 = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 3
-  %call15 = call i32 @uv_async_init(ptr noundef %7, ptr noundef %exit_signal_14, ptr noundef @_ZN4node7tracing15NodeTraceBuffer12ExitSignalCbEP10uv_async_s)
+  %call15 = call i32 @uv_async_init(ptr noundef %8, ptr noundef %exit_signal_14, ptr noundef @_ZN4node7tracing15NodeTraceBuffer12ExitSignalCbEP10uv_async_s)
   store i32 %call15, ptr %err, align 4
   br label %do.body16
 
 do.body16:                                        ; preds = %do.end10
-  %8 = load i32, ptr %err, align 4
-  %cmp17 = icmp eq i32 %8, 0
+  %9 = load i32, ptr %err, align 4
+  %cmp17 = icmp eq i32 %9, 0
   %lnot18 = xor i1 %cmp17, true
   %lnot19 = xor i1 %lnot18, true
   %lnot20 = xor i1 %lnot19, true
@@ -1123,7 +1124,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2v88platform7tracing11TraceBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN2v88platform7tracing11TraceBufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1298,7 +1300,8 @@ entry:
   %scoped_lock = alloca %"class.node::MutexBase<node::LibuvMutexTraits>::ScopedLock", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %exit_signal_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 3
   %call = call i32 @uv_async_send(ptr noundef %exit_signal_)
   %exit_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 5
@@ -1307,8 +1310,8 @@ entry:
 
 while.cond:                                       ; preds = %while.body, %entry
   %exited_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %exited_, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %exited_, align 8
+  %tobool = trunc i8 %1 to i1
   %lnot = xor i1 %tobool, true
   br i1 %lnot, label %while.body, label %while.end
 

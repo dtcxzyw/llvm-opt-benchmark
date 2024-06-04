@@ -825,7 +825,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756number4impl8ModifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl18ScientificModifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6icu_756number4impl18ScientificModifierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fExponent = getelementptr inbounds %"class.icu_75::number::impl::ScientificModifier", ptr %this1, i32 0, i32 1
   store i32 0, ptr %fExponent, align 8
   %fHandler = getelementptr inbounds %"class.icu_75::number::impl::ScientificModifier", ptr %this1, i32 0, i32 2
@@ -839,7 +840,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl8ModifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6icu_756number4impl8ModifierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1341,19 +1343,21 @@ entry:
   call void @_ZN6icu_756number4impl19MicroPropsGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_756number4impl18MultiplierProducerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl17ScientificHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl17ScientificHandlerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl17ScientificHandlerE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl17ScientificHandlerE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %fSettings = getelementptr inbounds %"class.icu_75::number::impl::ScientificHandler", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %notation.addr, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Notation", ptr %1, i32 0, i32 1
+  %3 = load ptr, ptr %notation.addr, align 8
+  %fUnion = getelementptr inbounds %"class.icu_75::number::Notation", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %fSettings, ptr align 4 %fUnion, i64 8, i1 false)
   %fSymbols = getelementptr inbounds %"class.icu_75::number::impl::ScientificHandler", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %symbols.addr, align 8
-  store ptr %2, ptr %fSymbols, align 8
+  %4 = load ptr, ptr %symbols.addr, align 8
+  store ptr %4, ptr %fSymbols, align 8
   %fParent = getelementptr inbounds %"class.icu_75::number::impl::ScientificHandler", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %parent.addr, align 8
-  store ptr %3, ptr %fParent, align 8
+  %5 = load ptr, ptr %parent.addr, align 8
+  store ptr %5, ptr %fParent, align 8
   ret void
 }
 
@@ -1363,7 +1367,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl19MicroPropsGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl19MicroPropsGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1373,7 +1378,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756number4impl18MultiplierProducerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756number4impl18MultiplierProducerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

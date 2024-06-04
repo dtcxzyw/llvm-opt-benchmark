@@ -39,13 +39,13 @@ define dso_local i32 @fils_encrypt_assoc_req(ptr noundef %0, ptr noundef %1) loc
   %25 = call ptr @cfg80211_find_elem_match(i8 noundef zeroext -1, ptr noundef %15, i32 noundef %24, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %114, label %27
+  br i1 %26, label %116, label %27
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds i8, ptr %25, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 9
-  br i1 %30, label %31, label %114
+  br i1 %30, label %31, label %116
 
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %25, i64 11
@@ -96,108 +96,110 @@ define dso_local i32 @fils_encrypt_assoc_req(ptr noundef %0, ptr noundef %1) loc
   %60 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 %53, ptr %60, align 8
   %61 = call ptr @crypto_alloc_shash(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0) #9
-  %62 = icmp ugt ptr %61, inttoptr (i64 -4096 to ptr)
-  br i1 %62, label %63, label %66
+  %62 = inttoptr i64 -4096 to ptr
+  %63 = icmp ugt ptr %61, %62
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %31
-  %64 = ptrtoint ptr %61 to i64
-  %65 = trunc i64 %64 to i32
-  br label %112
+64:                                               ; preds = %31
+  %65 = ptrtoint ptr %61 to i64
+  %66 = trunc i64 %65 to i32
+  br label %114
 
-66:                                               ; preds = %31
-  %67 = trunc i64 %58 to i32
-  %68 = call i32 @crypto_shash_setkey(ptr noundef %61, ptr noundef %55, i32 noundef %67) #9
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %71
+67:                                               ; preds = %31
+  %68 = trunc i64 %58 to i32
+  %69 = call i32 @crypto_shash_setkey(ptr noundef %61, ptr noundef %55, i32 noundef %68) #9
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %66
+71:                                               ; preds = %67
   call fastcc void @aes_s2v(ptr noundef %61, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %3)
-  br label %71
+  br label %72
 
-71:                                               ; preds = %70, %66
-  %72 = phi i32 [ %68, %66 ], [ 0, %70 ]
-  %73 = getelementptr inbounds i8, ptr %61, i64 8
-  call void @crypto_destroy_tfm(ptr noundef %61, ptr noundef %73) #9
-  %74 = icmp eq i32 %72, 0
-  br i1 %74, label %75, label %112
+72:                                               ; preds = %71, %67
+  %73 = phi i32 [ %69, %67 ], [ 0, %71 ]
+  %74 = getelementptr inbounds i8, ptr %61, i64 8
+  call void @crypto_destroy_tfm(ptr noundef %61, ptr noundef %74) #9
+  %75 = icmp eq i32 %73, 0
+  br i1 %75, label %76, label %114
 
-75:                                               ; preds = %71
-  %76 = call ptr @kmemdup(ptr noundef %32, i64 noundef %53, i32 noundef 3264) #10
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %112, label %78
+76:                                               ; preds = %72
+  %77 = call ptr @kmemdup(ptr noundef %32, i64 noundef %53, i32 noundef 3264) #10
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %114, label %79
 
-78:                                               ; preds = %75
+79:                                               ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %32, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
-  %80 = load i8, ptr %79, align 8
-  %81 = and i8 %80, 127
-  store i8 %81, ptr %79, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 12
-  %83 = load i8, ptr %82, align 4
-  %84 = and i8 %83, 127
-  store i8 %84, ptr %82, align 4
-  %85 = call ptr @crypto_alloc_skcipher(ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 128) #9
-  %86 = icmp ugt ptr %85, inttoptr (i64 -4096 to ptr)
-  br i1 %86, label %87, label %90
+  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = load i8, ptr %80, align 8
+  %82 = and i8 %81, 127
+  store i8 %82, ptr %80, align 8
+  %83 = getelementptr inbounds i8, ptr %3, i64 12
+  %84 = load i8, ptr %83, align 4
+  %85 = and i8 %84, 127
+  store i8 %85, ptr %83, align 4
+  %86 = call ptr @crypto_alloc_skcipher(ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 128) #9
+  %87 = inttoptr i64 -4096 to ptr
+  %88 = icmp ugt ptr %86, %87
+  br i1 %88, label %89, label %92
 
-87:                                               ; preds = %78
-  call void @kfree(ptr noundef nonnull %76) #9
-  %88 = ptrtoint ptr %85 to i64
-  %89 = trunc i64 %88 to i32
-  br label %112
+89:                                               ; preds = %79
+  call void @kfree(ptr noundef nonnull %77) #9
+  %90 = ptrtoint ptr %86 to i64
+  %91 = trunc i64 %90 to i32
+  br label %114
 
-90:                                               ; preds = %78
-  %91 = getelementptr i8, ptr %55, i64 %58
-  %92 = call i32 @crypto_skcipher_setkey(ptr noundef %85, ptr noundef %91, i32 noundef %67) #9
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %109
+92:                                               ; preds = %79
+  %93 = getelementptr i8, ptr %55, i64 %58
+  %94 = call i32 @crypto_skcipher_setkey(ptr noundef %86, ptr noundef %93, i32 noundef %68) #9
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %111
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %85, align 8
-  %96 = zext i32 %95 to i64
-  %97 = add nuw nsw i64 %96, 80
-  %98 = call noalias align 8 ptr @__kmalloc(i64 noundef %97, i32 noundef 3264) #11
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %109, label %100, !prof !6
+96:                                               ; preds = %92
+  %97 = load i32, ptr %86, align 8
+  %98 = zext i32 %97 to i64
+  %99 = add nuw nsw i64 %98, 80
+  %100 = call noalias align 8 ptr @__kmalloc(i64 noundef %99, i32 noundef 3264) #11
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %111, label %102, !prof !6
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds i8, ptr %85, i64 8
-  %102 = getelementptr inbounds i8, ptr %98, i64 64
-  store ptr %101, ptr %102, align 8
-  %103 = trunc i64 %53 to i32
-  call void @sg_init_one(ptr noundef nonnull %4, ptr noundef nonnull %76, i32 noundef %103) #9
-  %104 = getelementptr i8, ptr %25, i64 27
-  call void @sg_init_one(ptr noundef nonnull %5, ptr noundef %104, i32 noundef %103) #9
-  %105 = getelementptr inbounds i8, ptr %98, i64 16
-  store ptr %4, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %98, i64 24
-  store ptr %5, ptr %106, align 8
-  store i32 %103, ptr %98, align 8
-  %107 = getelementptr inbounds i8, ptr %98, i64 8
-  store ptr %3, ptr %107, align 8
-  %108 = call i32 @crypto_skcipher_encrypt(ptr noundef nonnull %98) #9
-  call void @kfree_sensitive(ptr noundef nonnull %98) #9
-  br label %109
+102:                                              ; preds = %96
+  %103 = getelementptr inbounds i8, ptr %86, i64 8
+  %104 = getelementptr inbounds i8, ptr %100, i64 64
+  store ptr %103, ptr %104, align 8
+  %105 = trunc i64 %53 to i32
+  call void @sg_init_one(ptr noundef nonnull %4, ptr noundef nonnull %77, i32 noundef %105) #9
+  %106 = getelementptr i8, ptr %25, i64 27
+  call void @sg_init_one(ptr noundef nonnull %5, ptr noundef %106, i32 noundef %105) #9
+  %107 = getelementptr inbounds i8, ptr %100, i64 16
+  store ptr %4, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %100, i64 24
+  store ptr %5, ptr %108, align 8
+  store i32 %105, ptr %100, align 8
+  %109 = getelementptr inbounds i8, ptr %100, i64 8
+  store ptr %3, ptr %109, align 8
+  %110 = call i32 @crypto_skcipher_encrypt(ptr noundef nonnull %100) #9
+  call void @kfree_sensitive(ptr noundef nonnull %100) #9
+  br label %111
 
-109:                                              ; preds = %100, %94, %90
-  %110 = phi i32 [ %92, %90 ], [ %108, %100 ], [ -12, %94 ]
-  call void @kfree(ptr noundef nonnull %76) #9
-  %111 = getelementptr inbounds i8, ptr %85, i64 8
-  call void @crypto_destroy_tfm(ptr noundef %85, ptr noundef %111) #9
-  br label %112
+111:                                              ; preds = %102, %96, %92
+  %112 = phi i32 [ %94, %92 ], [ %110, %102 ], [ -12, %96 ]
+  call void @kfree(ptr noundef nonnull %77) #9
+  %113 = getelementptr inbounds i8, ptr %86, i64 8
+  call void @crypto_destroy_tfm(ptr noundef %86, ptr noundef %113) #9
+  br label %114
 
-112:                                              ; preds = %109, %87, %75, %71, %63
-  %113 = phi i32 [ %65, %63 ], [ %89, %87 ], [ %110, %109 ], [ %72, %71 ], [ -12, %75 ]
+114:                                              ; preds = %111, %89, %76, %72, %64
+  %115 = phi i32 [ %66, %64 ], [ %91, %89 ], [ %112, %111 ], [ %73, %72 ], [ -12, %76 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  br label %114
+  br label %116
 
-114:                                              ; preds = %112, %27, %2
-  %115 = phi i32 [ %113, %112 ], [ -22, %27 ], [ -22, %2 ]
+116:                                              ; preds = %114, %27, %2
+  %117 = phi i32 [ %115, %114 ], [ -22, %27 ], [ -22, %2 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
-  ret i32 %115
+  ret i32 %117
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -228,7 +230,7 @@ define dso_local i32 @fils_decrypt_assoc_resp(ptr nocapture noundef readnone %0,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %12, i8 0, i64 48, i1 false), !annotation !5
   %13 = load i64, ptr %2, align 8
   %14 = icmp ult i64 %13, 30
-  br i1 %14, label %115, label %15
+  br i1 %14, label %117, label %15
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %1, i64 24
@@ -240,13 +242,13 @@ define dso_local i32 @fils_decrypt_assoc_resp(ptr nocapture noundef readnone %0,
   %20 = call ptr @cfg80211_find_elem_match(i8 noundef zeroext -1, ptr noundef %17, i32 noundef %19, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %115, label %22
+  br i1 %21, label %117, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %20, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 9
-  br i1 %25, label %26, label %115
+  br i1 %25, label %26, label %117
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %20, i64 11
@@ -280,7 +282,7 @@ define dso_local i32 @fils_decrypt_assoc_resp(ptr nocapture noundef readnone %0,
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %45, %39
   %47 = icmp ult i64 %46, 16
-  br i1 %47, label %115, label %48
+  br i1 %47, label %117, label %48
 
 48:                                               ; preds = %26
   %49 = getelementptr inbounds i8, ptr %3, i64 960
@@ -310,113 +312,115 @@ define dso_local i32 @fils_decrypt_assoc_resp(ptr nocapture noundef readnone %0,
   %60 = and i8 %59, 127
   store i8 %60, ptr %58, align 4
   %61 = call ptr @crypto_alloc_skcipher(ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 128) #9
-  %62 = icmp ugt ptr %61, inttoptr (i64 -4096 to ptr)
-  br i1 %62, label %63, label %66
+  %62 = inttoptr i64 -4096 to ptr
+  %63 = icmp ugt ptr %61, %62
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %48
-  %64 = ptrtoint ptr %61 to i64
-  %65 = trunc i64 %64 to i32
-  br label %109
+64:                                               ; preds = %48
+  %65 = ptrtoint ptr %61 to i64
+  %66 = trunc i64 %65 to i32
+  br label %111
 
-66:                                               ; preds = %48
-  %67 = lshr i64 %51, 1
-  %68 = getelementptr i8, ptr %49, i64 %67
-  %69 = trunc i64 %67 to i32
-  %70 = call i32 @crypto_skcipher_setkey(ptr noundef %61, ptr noundef %68, i32 noundef %69) #9
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %74, label %72
+67:                                               ; preds = %48
+  %68 = lshr i64 %51, 1
+  %69 = getelementptr i8, ptr %49, i64 %68
+  %70 = trunc i64 %68 to i32
+  %71 = call i32 @crypto_skcipher_setkey(ptr noundef %61, ptr noundef %69, i32 noundef %70) #9
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %75, label %73
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %61, i64 8
-  call void @crypto_destroy_tfm(ptr noundef %61, ptr noundef %73) #9
-  br label %109
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds i8, ptr %61, i64 8
+  call void @crypto_destroy_tfm(ptr noundef %61, ptr noundef %74) #9
+  br label %111
 
-74:                                               ; preds = %66
-  %75 = load i32, ptr %61, align 8
-  %76 = zext i32 %75 to i64
-  %77 = add nuw nsw i64 %76, 80
-  %78 = call noalias align 8 ptr @__kmalloc(i64 noundef %77, i32 noundef 3264) #11
-  %79 = icmp eq ptr %78, null
-  %80 = getelementptr inbounds i8, ptr %61, i64 8
-  br i1 %79, label %90, label %81, !prof !6
+75:                                               ; preds = %67
+  %76 = load i32, ptr %61, align 8
+  %77 = zext i32 %76 to i64
+  %78 = add nuw nsw i64 %77, 80
+  %79 = call noalias align 8 ptr @__kmalloc(i64 noundef %78, i32 noundef 3264) #11
+  %80 = icmp eq ptr %79, null
+  %81 = getelementptr inbounds i8, ptr %61, i64 8
+  br i1 %80, label %91, label %82, !prof !6
 
-81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %78, i64 64
-  store ptr %80, ptr %82, align 8
-  %83 = getelementptr i8, ptr %20, i64 27
-  %84 = trunc i64 %52 to i32
-  call void @sg_init_one(ptr noundef nonnull %5, ptr noundef %83, i32 noundef %84) #9
-  call void @sg_init_one(ptr noundef nonnull %6, ptr noundef %27, i32 noundef %84) #9
-  %85 = getelementptr inbounds i8, ptr %78, i64 16
-  store ptr %5, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %78, i64 24
-  store ptr %6, ptr %86, align 8
-  store i32 %84, ptr %78, align 8
-  %87 = getelementptr inbounds i8, ptr %78, i64 8
-  store ptr %8, ptr %87, align 8
-  %88 = call i32 @crypto_skcipher_decrypt(ptr noundef nonnull %78) #9
-  call void @kfree_sensitive(ptr noundef nonnull %78) #9
-  call void @crypto_destroy_tfm(ptr noundef %61, ptr noundef %80) #9
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %91, label %109
+82:                                               ; preds = %75
+  %83 = getelementptr inbounds i8, ptr %79, i64 64
+  store ptr %81, ptr %83, align 8
+  %84 = getelementptr i8, ptr %20, i64 27
+  %85 = trunc i64 %52 to i32
+  call void @sg_init_one(ptr noundef nonnull %5, ptr noundef %84, i32 noundef %85) #9
+  call void @sg_init_one(ptr noundef nonnull %6, ptr noundef %27, i32 noundef %85) #9
+  %86 = getelementptr inbounds i8, ptr %79, i64 16
+  store ptr %5, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %79, i64 24
+  store ptr %6, ptr %87, align 8
+  store i32 %85, ptr %79, align 8
+  %88 = getelementptr inbounds i8, ptr %79, i64 8
+  store ptr %8, ptr %88, align 8
+  %89 = call i32 @crypto_skcipher_decrypt(ptr noundef nonnull %79) #9
+  call void @kfree_sensitive(ptr noundef nonnull %79) #9
+  call void @crypto_destroy_tfm(ptr noundef %61, ptr noundef %81) #9
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %92, label %111
 
-90:                                               ; preds = %74
-  call void @crypto_destroy_tfm(ptr noundef %61, ptr noundef %80) #9
-  br label %109
+91:                                               ; preds = %75
+  call void @crypto_destroy_tfm(ptr noundef %61, ptr noundef %81) #9
+  br label %111
 
-91:                                               ; preds = %81
-  %92 = call ptr @crypto_alloc_shash(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0) #9
-  %93 = icmp ugt ptr %92, inttoptr (i64 -4096 to ptr)
-  br i1 %93, label %94, label %97
+92:                                               ; preds = %82
+  %93 = call ptr @crypto_alloc_shash(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0) #9
+  %94 = inttoptr i64 -4096 to ptr
+  %95 = icmp ugt ptr %93, %94
+  br i1 %95, label %96, label %99
 
-94:                                               ; preds = %91
-  %95 = ptrtoint ptr %92 to i64
-  %96 = trunc i64 %95 to i32
-  br label %109
+96:                                               ; preds = %92
+  %97 = ptrtoint ptr %93 to i64
+  %98 = trunc i64 %97 to i32
+  br label %111
 
-97:                                               ; preds = %91
-  %98 = call i32 @crypto_shash_setkey(ptr noundef %92, ptr noundef %49, i32 noundef %69) #9
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %101
+99:                                               ; preds = %92
+  %100 = call i32 @crypto_shash_setkey(ptr noundef %93, ptr noundef %49, i32 noundef %70) #9
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %103
 
-100:                                              ; preds = %97
-  call fastcc void @aes_s2v(ptr noundef %92, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %9)
-  br label %101
+102:                                              ; preds = %99
+  call fastcc void @aes_s2v(ptr noundef %93, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %9)
+  br label %103
 
-101:                                              ; preds = %100, %97
-  %102 = phi i32 [ %98, %97 ], [ 0, %100 ]
-  %103 = getelementptr inbounds i8, ptr %92, i64 8
-  call void @crypto_destroy_tfm(ptr noundef %92, ptr noundef %103) #9
-  %104 = icmp eq i32 %102, 0
-  br i1 %104, label %105, label %109
+103:                                              ; preds = %102, %99
+  %104 = phi i32 [ %100, %99 ], [ 0, %102 ]
+  %105 = getelementptr inbounds i8, ptr %93, i64 8
+  call void @crypto_destroy_tfm(ptr noundef %93, ptr noundef %105) #9
+  %106 = icmp eq i32 %104, 0
+  br i1 %106, label %107, label %111
 
-105:                                              ; preds = %101
-  %106 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %9, ptr noundef nonnull dereferenceable(16) %7, i64 16)
-  %107 = icmp eq i32 %106, 0
-  %108 = select i1 %107, i32 0, i32 -22
-  br label %109
+107:                                              ; preds = %103
+  %108 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %9, ptr noundef nonnull dereferenceable(16) %7, i64 16)
+  %109 = icmp eq i32 %108, 0
+  %110 = select i1 %109, i32 0, i32 -22
+  br label %111
 
-109:                                              ; preds = %105, %101, %94, %90, %81, %72, %63
-  %110 = phi i32 [ %65, %63 ], [ %70, %72 ], [ %96, %94 ], [ -12, %90 ], [ %88, %81 ], [ %102, %101 ], [ %108, %105 ]
+111:                                              ; preds = %107, %103, %96, %91, %82, %73, %64
+  %112 = phi i32 [ %66, %64 ], [ %71, %73 ], [ %98, %96 ], [ -12, %91 ], [ %89, %82 ], [ %104, %103 ], [ %110, %107 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %115
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %117
 
-112:                                              ; preds = %109
-  %113 = load i64, ptr %2, align 8
-  %114 = add i64 %113, -16
-  store i64 %114, ptr %2, align 8
-  br label %115
+114:                                              ; preds = %111
+  %115 = load i64, ptr %2, align 8
+  %116 = add i64 %115, -16
+  store i64 %116, ptr %2, align 8
+  br label %117
 
-115:                                              ; preds = %112, %109, %26, %22, %15, %4
-  %116 = phi i32 [ 0, %112 ], [ -22, %4 ], [ -22, %15 ], [ -22, %22 ], [ -22, %26 ], [ %110, %109 ]
+117:                                              ; preds = %114, %111, %26, %22, %15, %4
+  %118 = phi i32 [ 0, %114 ], [ -22, %4 ], [ -22, %15 ], [ -22, %22 ], [ -22, %26 ], [ %112, %111 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #9
-  ret i32 %116
+  ret i32 %118
 }
 
 ; Function Attrs: null_pointer_is_valid

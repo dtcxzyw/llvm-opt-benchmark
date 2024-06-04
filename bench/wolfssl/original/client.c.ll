@@ -5176,14 +5176,17 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 if.end14:                                         ; preds = %if.then11
   %7 = load ptr, ptr %sockfd.addr, align 8
   %8 = load i32, ptr %7, align 4
-  %9 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 1), align 8
-  %10 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 1), align 8
-  %call15 = call i64 @strlen(ptr noundef %10) #10
+  %9 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 1
+  %12 = load ptr, ptr %11, align 8
+  %call15 = call i64 @strlen(ptr noundef %12) #10
   %conv16 = trunc i64 %call15 to i32
   %conv17 = sext i32 %conv16 to i64
-  %call18 = call i64 @send(i32 noundef %8, ptr noundef %9, i64 noundef %conv17, i32 noundef 0)
-  %11 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 1), align 8
-  %call19 = call i64 @strlen(ptr noundef %11) #10
+  %call18 = call i64 @send(i32 noundef %8, ptr noundef %10, i64 noundef %conv17, i32 noundef 0)
+  %13 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 1
+  %14 = load ptr, ptr %13, align 8
+  %call19 = call i64 @strlen(ptr noundef %14) #10
   %conv20 = trunc i64 %call19 to i32
   %conv21 = sext i32 %conv20 to i64
   %cmp22 = icmp ne i64 %call18, %conv21
@@ -5196,10 +5199,10 @@ if.then24:                                        ; preds = %if.end14
 if.end25:                                         ; preds = %if.end14
   %arraydecay26 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 16 %arraydecay26, i8 0, i64 512, i1 false)
-  %12 = load ptr, ptr %sockfd.addr, align 8
-  %13 = load i32, ptr %12, align 4
+  %15 = load ptr, ptr %sockfd.addr, align 8
+  %16 = load i32, ptr %15, align 4
   %arraydecay27 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 0
-  %call28 = call i64 @recv(i32 noundef %13, ptr noundef %arraydecay27, i64 noundef 511, i32 noundef 0)
+  %call28 = call i64 @recv(i32 noundef %16, ptr noundef %arraydecay27, i64 noundef 511, i32 noundef 0)
   %cmp29 = icmp slt i64 %call28, 0
   br i1 %cmp29, label %if.then31, label %if.end32
 
@@ -5209,19 +5212,22 @@ if.then31:                                        ; preds = %if.end25
 
 if.end32:                                         ; preds = %if.end25
   %arraydecay33 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 0
-  %14 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 2), align 16
-  %15 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 2), align 16
-  %call34 = call i64 @strlen(ptr noundef %15) #10
-  %call35 = call i32 @strncmp(ptr noundef %arraydecay33, ptr noundef %14, i64 noundef %call34) #10
+  %17 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 2
+  %18 = load ptr, ptr %17, align 16
+  %19 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 2
+  %20 = load ptr, ptr %19, align 16
+  %call34 = call i64 @strlen(ptr noundef %20) #10
+  %call35 = call i32 @strncmp(ptr noundef %arraydecay33, ptr noundef %18, i64 noundef %call34) #10
   %tobool36 = icmp ne i32 %call35, 0
   br i1 %tobool36, label %if.else46, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %if.end32
-  %16 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 2), align 16
-  %call38 = call i64 @strlen(ptr noundef %16) #10
+  %21 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 2
+  %22 = load ptr, ptr %21, align 16
+  %call38 = call i64 @strlen(ptr noundef %22) #10
   %arrayidx39 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 %call38
-  %17 = load i8, ptr %arrayidx39, align 1
-  %conv40 = sext i8 %17 to i32
+  %23 = load i8, ptr %arrayidx39, align 1
+  %conv40 = sext i8 %23 to i32
   %cmp41 = icmp eq i32 %conv40, 45
   br i1 %cmp41, label %if.then43, label %if.else46
 
@@ -5235,16 +5241,19 @@ if.else46:                                        ; preds = %land.lhs.true37, %i
   unreachable
 
 if.end47:                                         ; preds = %if.then43
-  %18 = load ptr, ptr %sockfd.addr, align 8
-  %19 = load i32, ptr %18, align 4
-  %20 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 3), align 8
-  %21 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 3), align 8
-  %call48 = call i64 @strlen(ptr noundef %21) #10
+  %24 = load ptr, ptr %sockfd.addr, align 8
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 3
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 3
+  %29 = load ptr, ptr %28, align 8
+  %call48 = call i64 @strlen(ptr noundef %29) #10
   %conv49 = trunc i64 %call48 to i32
   %conv50 = sext i32 %conv49 to i64
-  %call51 = call i64 @send(i32 noundef %19, ptr noundef %20, i64 noundef %conv50, i32 noundef 0)
-  %22 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 3), align 8
-  %call52 = call i64 @strlen(ptr noundef %22) #10
+  %call51 = call i64 @send(i32 noundef %25, ptr noundef %27, i64 noundef %conv50, i32 noundef 0)
+  %30 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 3
+  %31 = load ptr, ptr %30, align 8
+  %call52 = call i64 @strlen(ptr noundef %31) #10
   %conv53 = trunc i64 %call52 to i32
   %conv54 = sext i32 %conv53 to i64
   %cmp55 = icmp ne i64 %call51, %conv54
@@ -5257,10 +5266,10 @@ if.then57:                                        ; preds = %if.end47
 if.end58:                                         ; preds = %if.end47
   %arraydecay59 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 16 %arraydecay59, i8 0, i64 512, i1 false)
-  %23 = load ptr, ptr %sockfd.addr, align 8
-  %24 = load i32, ptr %23, align 4
+  %32 = load ptr, ptr %sockfd.addr, align 8
+  %33 = load i32, ptr %32, align 4
   %arraydecay60 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 0
-  %call61 = call i64 @recv(i32 noundef %24, ptr noundef %arraydecay60, i64 noundef 511, i32 noundef 0)
+  %call61 = call i64 @recv(i32 noundef %33, ptr noundef %arraydecay60, i64 noundef 511, i32 noundef 0)
   %cmp62 = icmp slt i64 %call61, 0
   br i1 %cmp62, label %if.then64, label %if.end65
 
@@ -5272,19 +5281,22 @@ if.end65:                                         ; preds = %if.end58
   %arrayidx66 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 511
   store i8 0, ptr %arrayidx66, align 1
   %arraydecay67 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 0
-  %25 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 4), align 16
-  %26 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 4), align 16
-  %call68 = call i64 @strlen(ptr noundef %26) #10
-  %call69 = call i32 @strncmp(ptr noundef %arraydecay67, ptr noundef %25, i64 noundef %call68) #10
+  %34 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 4
+  %35 = load ptr, ptr %34, align 16
+  %36 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 4
+  %37 = load ptr, ptr %36, align 16
+  %call68 = call i64 @strlen(ptr noundef %37) #10
+  %call69 = call i32 @strncmp(ptr noundef %arraydecay67, ptr noundef %35, i64 noundef %call68) #10
   %tobool70 = icmp ne i32 %call69, 0
   br i1 %tobool70, label %if.else80, label %land.lhs.true71
 
 land.lhs.true71:                                  ; preds = %if.end65
-  %27 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 4), align 16
-  %call72 = call i64 @strlen(ptr noundef %27) #10
+  %38 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 4
+  %39 = load ptr, ptr %38, align 16
+  %call72 = call i64 @strlen(ptr noundef %39) #10
   %arrayidx73 = getelementptr inbounds [512 x i8], ptr %tmpBuf, i64 0, i64 %call72
-  %28 = load i8, ptr %arrayidx73, align 1
-  %conv74 = sext i8 %28 to i32
+  %40 = load i8, ptr %arrayidx73, align 1
+  %conv74 = sext i8 %40 to i32
   %cmp75 = icmp eq i32 %conv74, 32
   br i1 %cmp75, label %if.then77, label %if.else80
 
@@ -5302,8 +5314,8 @@ if.end81:                                         ; preds = %if.then77
   br label %return
 
 return:                                           ; preds = %if.end81, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+  %41 = load i32, ptr %retval, align 4
+  ret i32 %41
 }
 
 declare i32 @wolfSSL_check_domain_name(ptr noundef, ptr noundef) #4
@@ -5637,19 +5649,21 @@ if.end:                                           ; preds = %entry
 
 do.body:                                          ; preds = %do.cond, %if.end
   %1 = load ptr, ptr %ssl.addr, align 8
-  %2 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 5), align 8
-  %3 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 5), align 8
-  %call1 = call i64 @strlen(ptr noundef %3) #10
+  %2 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 5
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 5
+  %5 = load ptr, ptr %4, align 8
+  %call1 = call i64 @strlen(ptr noundef %5) #10
   %conv = trunc i64 %call1 to i32
-  %call2 = call i32 @wolfSSL_write(ptr noundef %1, ptr noundef %2, i32 noundef %conv)
+  %call2 = call i32 @wolfSSL_write(ptr noundef %1, ptr noundef %3, i32 noundef %conv)
   store i32 %call2, ptr %ret, align 4
-  %4 = load i32, ptr %ret, align 4
-  %cmp3 = icmp slt i32 %4, 0
+  %6 = load i32, ptr %ret, align 4
+  %cmp3 = icmp slt i32 %6, 0
   br i1 %cmp3, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %do.body
-  %5 = load ptr, ptr %ssl.addr, align 8
-  %call6 = call i32 @wolfSSL_get_error(ptr noundef %5, i32 noundef 0)
+  %7 = load ptr, ptr %ssl.addr, align 8
+  %call6 = call i32 @wolfSSL_get_error(ptr noundef %7, i32 noundef 0)
   store i32 %call6, ptr %err, align 4
   br label %if.end7
 
@@ -5657,16 +5671,17 @@ if.end7:                                          ; preds = %if.then5, %do.body
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end7
-  %6 = load i32, ptr %err, align 4
-  %cmp8 = icmp eq i32 %6, -108
+  %8 = load i32, ptr %err, align 4
+  %cmp8 = icmp eq i32 %8, -108
   br i1 %cmp8, label %do.body, label %do.end, !llvm.loop !22
 
 do.end:                                           ; preds = %do.cond
-  %7 = load i32, ptr %ret, align 4
-  %8 = load ptr, ptr getelementptr inbounds ([6 x ptr], ptr @starttlsCmd, i64 0, i64 5), align 8
-  %call10 = call i64 @strlen(ptr noundef %8) #10
+  %9 = load i32, ptr %ret, align 4
+  %10 = getelementptr inbounds [6 x ptr], ptr @starttlsCmd, i64 0, i64 5
+  %11 = load ptr, ptr %10, align 8
+  %call10 = call i64 @strlen(ptr noundef %11) #10
   %conv11 = trunc i64 %call10 to i32
-  %cmp12 = icmp ne i32 %7, %conv11
+  %cmp12 = icmp ne i32 %9, %conv11
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %do.end
@@ -5677,17 +5692,17 @@ if.end15:                                         ; preds = %do.end
   br label %do.body16
 
 do.body16:                                        ; preds = %do.cond24, %if.end15
-  %9 = load ptr, ptr %ssl.addr, align 8
+  %12 = load ptr, ptr %ssl.addr, align 8
   %arraydecay17 = getelementptr inbounds [256 x i8], ptr %tmpBuf, i64 0, i64 0
-  %call18 = call i32 @wolfSSL_read(ptr noundef %9, ptr noundef %arraydecay17, i32 noundef 255)
+  %call18 = call i32 @wolfSSL_read(ptr noundef %12, ptr noundef %arraydecay17, i32 noundef 255)
   store i32 %call18, ptr %ret, align 4
-  %10 = load i32, ptr %ret, align 4
-  %cmp19 = icmp slt i32 %10, 0
+  %13 = load i32, ptr %ret, align 4
+  %cmp19 = icmp slt i32 %13, 0
   br i1 %cmp19, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %do.body16
-  %11 = load ptr, ptr %ssl.addr, align 8
-  %call22 = call i32 @wolfSSL_get_error(ptr noundef %11, i32 noundef 0)
+  %14 = load ptr, ptr %ssl.addr, align 8
+  %call22 = call i32 @wolfSSL_get_error(ptr noundef %14, i32 noundef 0)
   store i32 %call22, ptr %err, align 4
   br label %if.end23
 
@@ -5695,13 +5710,13 @@ if.end23:                                         ; preds = %if.then21, %do.body
   br label %do.cond24
 
 do.cond24:                                        ; preds = %if.end23
-  %12 = load i32, ptr %err, align 4
-  %cmp25 = icmp eq i32 %12, -108
+  %15 = load i32, ptr %err, align 4
+  %cmp25 = icmp eq i32 %15, -108
   br i1 %cmp25, label %do.body16, label %do.end27, !llvm.loop !23
 
 do.end27:                                         ; preds = %do.cond24
-  %13 = load i32, ptr %ret, align 4
-  %cmp28 = icmp slt i32 %13, 0
+  %16 = load i32, ptr %ret, align 4
+  %cmp28 = icmp slt i32 %16, 0
   br i1 %cmp28, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %do.end27
@@ -5709,37 +5724,37 @@ if.then30:                                        ; preds = %do.end27
   unreachable
 
 if.end31:                                         ; preds = %do.end27
-  %14 = load i32, ptr %ret, align 4
-  %idxprom = sext i32 %14 to i64
+  %17 = load i32, ptr %ret, align 4
+  %idxprom = sext i32 %17 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr %tmpBuf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %arraydecay32 = getelementptr inbounds [256 x i8], ptr %tmpBuf, i64 0, i64 0
   %call33 = call i32 (ptr, ...) @printf(ptr noundef @.str.171, ptr noundef %arraydecay32)
-  %15 = load ptr, ptr %ssl.addr, align 8
-  %call34 = call i32 @wolfSSL_shutdown(ptr noundef %15)
+  %18 = load ptr, ptr %ssl.addr, align 8
+  %call34 = call i32 @wolfSSL_shutdown(ptr noundef %18)
   store i32 %call34, ptr %ret, align 4
-  %16 = load i32, ptr %wc_shutdown.addr, align 4
-  %tobool = icmp ne i32 %16, 0
+  %19 = load i32, ptr %wc_shutdown.addr, align 4
+  %tobool = icmp ne i32 %19, 0
   br i1 %tobool, label %land.lhs.true, label %if.end61
 
 land.lhs.true:                                    ; preds = %if.end31
-  %17 = load i32, ptr %ret, align 4
-  %cmp35 = icmp eq i32 %17, 2
+  %20 = load i32, ptr %ret, align 4
+  %cmp35 = icmp eq i32 %20, 2
   br i1 %cmp35, label %if.then37, label %if.end61
 
 if.then37:                                        ; preds = %land.lhs.true
-  %18 = load ptr, ptr %ssl.addr, align 8
-  %call38 = call i32 @wolfSSL_get_fd(ptr noundef %18)
+  %21 = load ptr, ptr %ssl.addr, align 8
+  %call38 = call i32 @wolfSSL_get_fd(ptr noundef %21)
   %call39 = call i32 @tcp_select(i32 noundef %call38, i32 noundef 2)
   %cmp40 = icmp eq i32 %call39, 2
   br i1 %cmp40, label %if.then42, label %if.end49
 
 if.then42:                                        ; preds = %if.then37
-  %19 = load ptr, ptr %ssl.addr, align 8
-  %call43 = call i32 @wolfSSL_shutdown(ptr noundef %19)
+  %22 = load ptr, ptr %ssl.addr, align 8
+  %call43 = call i32 @wolfSSL_shutdown(ptr noundef %22)
   store i32 %call43, ptr %ret, align 4
-  %20 = load i32, ptr %ret, align 4
-  %cmp44 = icmp eq i32 %20, 1
+  %23 = load i32, ptr %ret, align 4
+  %cmp44 = icmp eq i32 %23, 1
   br i1 %cmp44, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %if.then42
@@ -5750,21 +5765,21 @@ if.end48:                                         ; preds = %if.then46, %if.then
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end48, %if.then37
-  %21 = load i32, ptr %ret, align 4
-  %cmp50 = icmp ne i32 %21, 1
+  %24 = load i32, ptr %ret, align 4
+  %cmp50 = icmp ne i32 %24, 1
   br i1 %cmp50, label %if.then52, label %if.end60
 
 if.then52:                                        ; preds = %if.end49
   br label %do.body53
 
 do.body53:                                        ; preds = %if.then52
-  %22 = load i32, ptr @quieter, align 4
-  %tobool54 = icmp ne i32 %22, 0
+  %25 = load i32, ptr @quieter, align 4
+  %tobool54 = icmp ne i32 %25, 0
   br i1 %tobool54, label %if.end57, label %if.then55
 
 if.then55:                                        ; preds = %do.body53
-  %23 = load ptr, ptr @stderr, align 8
-  %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.69)
+  %26 = load ptr, ptr @stderr, align 8
+  %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.69)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then55, %do.body53
@@ -5781,8 +5796,8 @@ if.end61:                                         ; preds = %if.end60, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end61, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %27 = load i32, ptr %retval, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -6375,26 +6390,27 @@ if.then2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call ptr @signal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr)) #14
-  %5 = load i32, ptr %udp.addr, align 4
-  %tobool5 = icmp ne i32 %5, 0
+  %5 = inttoptr i64 1 to ptr
+  %call4 = call ptr @signal(i32 noundef 13, ptr noundef %5) #14
+  %6 = load i32, ptr %udp.addr, align 4
+  %tobool5 = icmp ne i32 %6, 0
   br i1 %tobool5, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %6 = load i32, ptr %sctp.addr, align 4
-  %tobool6 = icmp ne i32 %6, 0
+  %7 = load i32, ptr %sctp.addr, align 4
+  %tobool6 = icmp ne i32 %7, 0
   br i1 %tobool6, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
   store i32 1, ptr %on, align 4
   store i32 4, ptr %len, align 4
-  %7 = load ptr, ptr %sockfd.addr, align 8
-  %8 = load i32, ptr %7, align 4
-  %9 = load i32, ptr %len, align 4
-  %call8 = call i32 @setsockopt(i32 noundef %8, i32 noundef 6, i32 noundef 1, ptr noundef %on, i32 noundef %9) #14
+  %8 = load ptr, ptr %sockfd.addr, align 8
+  %9 = load i32, ptr %8, align 4
+  %10 = load i32, ptr %len, align 4
+  %call8 = call i32 @setsockopt(i32 noundef %9, i32 noundef 6, i32 noundef 1, ptr noundef %on, i32 noundef %10) #14
   store i32 %call8, ptr %res, align 4
-  %10 = load i32, ptr %res, align 4
-  %cmp9 = icmp slt i32 %10, 0
+  %11 = load i32, ptr %res, align 4
+  %cmp9 = icmp slt i32 %11, 0
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then7

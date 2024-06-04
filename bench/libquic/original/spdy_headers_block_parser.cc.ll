@@ -68,7 +68,8 @@ entry:
   store i32 %spdy_version, ptr %spdy_version.addr, align 4
   store ptr %handler, ptr %handler.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 1
   store i32 0, ptr %state_, align 8
   %max_headers_in_block_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 3
@@ -79,8 +80,8 @@ entry:
   %remaining_key_value_pairs_for_frame_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 5
   store i32 0, ptr %remaining_key_value_pairs_for_frame_, align 8
   %handler_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %handler.addr, align 8
-  store ptr %0, ptr %handler_, align 8
+  %1 = load ptr, ptr %handler.addr, align 8
+  store ptr %1, ptr %handler_, align 8
   %headers_block_prefix_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 8
   call void @_ZN3net23SpdyPinnableBufferPieceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %headers_block_prefix_)
   %key_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 9
@@ -93,17 +94,17 @@ invoke.cont:                                      ; preds = %entry
   %error_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 11
   store i32 0, ptr %error_, align 4
   %spdy_version_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 12
-  %1 = load i32, ptr %spdy_version.addr, align 4
-  store i32 %1, ptr %spdy_version_, align 8
+  %2 = load i32, ptr %spdy_version.addr, align 4
+  store i32 %2, ptr %spdy_version_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %headers_block_prefix_) #7
   br label %eh.resume
 
@@ -138,7 +139,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 9
   call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_) #7
   %headers_block_prefix_ = getelementptr inbounds %"class.net::SpdyHeadersBlockParser", ptr %this1, i32 0, i32 8

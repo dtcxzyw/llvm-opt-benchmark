@@ -509,7 +509,7 @@ define internal ptr @udp6_ufo_fragment(ptr noundef %0, i64 noundef %1) #0 align 
 
 20:                                               ; preds = %9
   %21 = tail call ptr @skb_udp_tunnel_segment(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true) #5
-  br label %169
+  br label %176
 
 22:                                               ; preds = %9, %2
   %23 = getelementptr inbounds i8, ptr %0, i64 192
@@ -522,191 +522,198 @@ define internal ptr @udp6_ufo_fragment(ptr noundef %0, i64 noundef %1) #0 align 
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 196608
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %164, label %33
+  %33 = inttoptr i64 -22 to ptr
+  br i1 %32, label %171, label %34
 
-33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 116
-  %37 = load i32, ptr %36, align 4
-  %38 = sub i32 %35, %37
-  %39 = icmp ult i32 %38, 8
-  br i1 %39, label %40, label %46, !prof !5
+34:                                               ; preds = %22
+  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 116
+  %38 = load i32, ptr %37, align 4
+  %39 = sub i32 %36, %38
+  %40 = icmp ult i32 %39, 8
+  br i1 %40, label %41, label %49, !prof !5
 
-40:                                               ; preds = %33
-  %41 = icmp ult i32 %35, 8
-  br i1 %41, label %164, label %42, !prof !5
+41:                                               ; preds = %34
+  %42 = icmp ult i32 %36, 8
+  %43 = inttoptr i64 -22 to ptr
+  br i1 %42, label %171, label %44, !prof !5
 
-42:                                               ; preds = %40
-  %43 = sub nuw nsw i32 8, %38
-  %44 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %43) #5
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %164, label %46
+44:                                               ; preds = %41
+  %45 = sub nuw nsw i32 8, %39
+  %46 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %45) #5
+  %47 = icmp eq ptr %46, null
+  %48 = inttoptr i64 -22 to ptr
+  br i1 %47, label %171, label %49
 
-46:                                               ; preds = %42, %33
-  %47 = load ptr, ptr %23, align 8
-  %48 = load i32, ptr %25, align 4
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr i8, ptr %47, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
-  %52 = load i32, ptr %51, align 8
-  %53 = and i32 %52, 131072
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %57, label %55
+49:                                               ; preds = %44, %34
+  %50 = load ptr, ptr %23, align 8
+  %51 = load i32, ptr %25, align 4
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr i8, ptr %50, i64 %52
+  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %55 = load i32, ptr %54, align 8
+  %56 = and i32 %55, 131072
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %61, label %58
 
-55:                                               ; preds = %46
-  %56 = tail call ptr @__udp_gso_segment(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true) #5
-  br label %164
+58:                                               ; preds = %49
+  %59 = tail call ptr @__udp_gso_segment(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true) #5
+  %60 = inttoptr i64 -22 to ptr
+  br label %171
 
-57:                                               ; preds = %46
-  %58 = getelementptr inbounds i8, ptr %50, i64 4
-  %59 = load i16, ptr %58, align 4
-  %60 = zext i16 %59 to i32
-  %61 = load i32, ptr %34, align 8
-  %62 = icmp ugt i32 %61, %60
-  br i1 %62, label %63, label %164, !prof !10
+61:                                               ; preds = %49
+  %62 = getelementptr inbounds i8, ptr %53, i64 4
+  %63 = load i16, ptr %62, align 4
+  %64 = zext i16 %63 to i32
+  %65 = load i32, ptr %35, align 8
+  %66 = icmp ugt i32 %65, %64
+  %67 = inttoptr i64 -22 to ptr
+  br i1 %66, label %68, label %171, !prof !10
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %0, i64 178
-  %65 = load i16, ptr %64, align 2
-  %66 = zext i16 %65 to i64
-  %67 = getelementptr i8, ptr %47, i64 %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 180
-  %69 = load i16, ptr %68, align 4
-  %70 = zext i16 %69 to i64
-  %71 = getelementptr i8, ptr %47, i64 %70
-  %72 = getelementptr inbounds i8, ptr %67, i64 6
-  store i16 0, ptr %72, align 2
-  %73 = load i32, ptr %34, align 8
-  %74 = tail call i32 @skb_checksum(ptr noundef %0, i32 noundef 0, i32 noundef %73, i32 noundef 0) #5
-  %75 = load i32, ptr %34, align 8
-  %76 = getelementptr inbounds i8, ptr %71, i64 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 24
-  %78 = tail call zeroext i16 @csum_ipv6_magic(ptr noundef %76, ptr noundef %77, i32 noundef %75, i8 noundef zeroext 17, i32 noundef %74) #5
-  %79 = icmp eq i16 %78, 0
-  %80 = select i1 %79, i16 -1, i16 %78
-  store i16 %80, ptr %72, align 2
-  %81 = load i8, ptr %4, align 8
-  %82 = and i8 %81, -97
-  %83 = or disjoint i8 %82, 32
-  store i8 %83, ptr %4, align 8
-  %84 = load i24, ptr %5, align 1
-  %85 = and i24 %84, 16384
-  %86 = icmp eq i24 %85, 0
-  %87 = or i64 %1, 8
-  %88 = select i1 %86, i64 %87, i64 %1
-  %89 = load ptr, ptr %23, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 182
-  %91 = load i16, ptr %90, align 2
-  %92 = zext i16 %91 to i64
-  %93 = getelementptr i8, ptr %89, i64 %92
-  %94 = ptrtoint ptr %93 to i64
-  %95 = ptrtoint ptr %89 to i64
-  %96 = getelementptr i8, ptr %0, i64 72
-  %97 = load i32, ptr %96, align 4
-  %98 = zext i32 %97 to i64
-  %99 = add i64 %98, %95
-  %100 = sub i64 %94, %99
-  %101 = trunc i64 %100 to i32
-  %102 = zext i16 %91 to i32
-  %103 = add i32 %101, 8
-  %104 = icmp sgt i32 %103, %102
-  br i1 %104, label %105, label %123
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds i8, ptr %0, i64 178
+  %70 = load i16, ptr %69, align 2
+  %71 = zext i16 %70 to i64
+  %72 = getelementptr i8, ptr %50, i64 %71
+  %73 = getelementptr inbounds i8, ptr %0, i64 180
+  %74 = load i16, ptr %73, align 4
+  %75 = zext i16 %74 to i64
+  %76 = getelementptr i8, ptr %50, i64 %75
+  %77 = getelementptr inbounds i8, ptr %72, i64 6
+  store i16 0, ptr %77, align 2
+  %78 = load i32, ptr %35, align 8
+  %79 = tail call i32 @skb_checksum(ptr noundef %0, i32 noundef 0, i32 noundef %78, i32 noundef 0) #5
+  %80 = load i32, ptr %35, align 8
+  %81 = getelementptr inbounds i8, ptr %76, i64 8
+  %82 = getelementptr inbounds i8, ptr %76, i64 24
+  %83 = tail call zeroext i16 @csum_ipv6_magic(ptr noundef %81, ptr noundef %82, i32 noundef %80, i8 noundef zeroext 17, i32 noundef %79) #5
+  %84 = icmp eq i16 %83, 0
+  %85 = select i1 %84, i16 -1, i16 %83
+  store i16 %85, ptr %77, align 2
+  %86 = load i8, ptr %4, align 8
+  %87 = and i8 %86, -97
+  %88 = or disjoint i8 %87, 32
+  store i8 %88, ptr %4, align 8
+  %89 = load i24, ptr %5, align 1
+  %90 = and i24 %89, 16384
+  %91 = icmp eq i24 %90, 0
+  %92 = or i64 %1, 8
+  %93 = select i1 %91, i64 %92, i64 %1
+  %94 = load ptr, ptr %23, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 182
+  %96 = load i16, ptr %95, align 2
+  %97 = zext i16 %96 to i64
+  %98 = getelementptr i8, ptr %94, i64 %97
+  %99 = ptrtoint ptr %98 to i64
+  %100 = ptrtoint ptr %94 to i64
+  %101 = getelementptr i8, ptr %0, i64 72
+  %102 = load i32, ptr %101, align 4
+  %103 = zext i32 %102 to i64
+  %104 = add i64 %103, %100
+  %105 = sub i64 %99, %104
+  %106 = trunc i64 %105 to i32
+  %107 = zext i16 %96 to i32
+  %108 = add i32 %106, 8
+  %109 = icmp sgt i32 %108, %107
+  br i1 %109, label %110, label %129
 
-105:                                              ; preds = %63
-  %106 = getelementptr inbounds i8, ptr %0, i64 200
-  %107 = load ptr, ptr %106, align 8
-  %108 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef %103, i32 noundef 0, i32 noundef 2080) #5
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %164
+110:                                              ; preds = %68
+  %111 = getelementptr inbounds i8, ptr %0, i64 200
+  %112 = load ptr, ptr %111, align 8
+  %113 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef %108, i32 noundef 0, i32 noundef 2080) #5
+  %114 = icmp eq i32 %113, 0
+  %115 = inttoptr i64 -22 to ptr
+  br i1 %114, label %116, label %171
 
-110:                                              ; preds = %105
-  %111 = ptrtoint ptr %107 to i64
-  %112 = sub i64 %95, %111
-  %113 = trunc i64 %112 to i32
-  %114 = load ptr, ptr %106, align 8
-  %115 = load ptr, ptr %23, align 8
-  %116 = ptrtoint ptr %114 to i64
-  %117 = ptrtoint ptr %115 to i64
-  %118 = sub i64 %116, %117
+116:                                              ; preds = %110
+  %117 = ptrtoint ptr %112 to i64
+  %118 = sub i64 %100, %117
   %119 = trunc i64 %118 to i32
-  %120 = load i32, ptr %96, align 4
-  %121 = add i32 %120, %113
-  %122 = add i32 %121, %119
-  store i32 %122, ptr %96, align 4
-  br label %123
+  %120 = load ptr, ptr %111, align 8
+  %121 = load ptr, ptr %23, align 8
+  %122 = ptrtoint ptr %120 to i64
+  %123 = ptrtoint ptr %121 to i64
+  %124 = sub i64 %122, %123
+  %125 = trunc i64 %124 to i32
+  %126 = load i32, ptr %101, align 4
+  %127 = add i32 %126, %119
+  %128 = add i32 %127, %125
+  store i32 %128, ptr %101, align 4
+  br label %129
 
-123:                                              ; preds = %110, %63
-  %124 = call i32 @ip6_find_1stfragopt(ptr noundef %0, ptr noundef nonnull %3) #5
-  %125 = icmp slt i32 %124, 0
-  br i1 %125, label %126, label %129
+129:                                              ; preds = %116, %68
+  %130 = call i32 @ip6_find_1stfragopt(ptr noundef %0, ptr noundef nonnull %3) #5
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %132, label %136
 
-126:                                              ; preds = %123
-  %127 = sext i32 %124 to i64
-  %128 = inttoptr i64 %127 to ptr
-  br label %164
+132:                                              ; preds = %129
+  %133 = sext i32 %130 to i64
+  %134 = inttoptr i64 %133 to ptr
+  %135 = inttoptr i64 -22 to ptr
+  br label %171
 
-129:                                              ; preds = %123
-  %130 = load ptr, ptr %3, align 8
-  %131 = load i8, ptr %130, align 1
-  store i8 44, ptr %130, align 1
-  %132 = load ptr, ptr %23, align 8
-  %133 = load i16, ptr %68, align 4
-  %134 = zext i16 %133 to i32
-  %135 = load i16, ptr %90, align 2
-  %136 = zext i16 %135 to i32
-  %137 = zext nneg i32 %124 to i64
-  %138 = add i32 %124, %101
-  %139 = add i32 %138, %134
-  %140 = sub i32 %139, %136
-  %141 = load i32, ptr %96, align 4
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr i8, ptr %132, i64 %142
-  %144 = getelementptr i8, ptr %143, i64 -8
-  %145 = zext i32 %140 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %144, ptr align 1 %143, i64 %145, i1 false)
-  %146 = load i32, ptr %96, align 4
-  %147 = add i32 %146, -8
-  store i32 %147, ptr %96, align 4
-  %148 = load i16, ptr %90, align 2
-  %149 = add i16 %148, -8
-  store i16 %149, ptr %90, align 2
-  %150 = load i16, ptr %68, align 4
-  %151 = add i16 %150, -8
-  store i16 %151, ptr %68, align 4
-  %152 = load ptr, ptr %23, align 8
-  %153 = zext i16 %151 to i64
-  %154 = getelementptr i8, ptr %152, i64 %153
-  %155 = getelementptr i8, ptr %154, i64 %137
-  store i8 %131, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %155, i64 1
-  store i8 0, ptr %156, align 1
-  %157 = getelementptr inbounds i8, ptr %0, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 272
-  %160 = load ptr, ptr %159, align 8
-  %161 = call i32 @ipv6_proxy_select_ident(ptr noundef %160, ptr noundef %0) #5
-  %162 = getelementptr inbounds i8, ptr %155, i64 4
-  store i32 %161, ptr %162, align 4
-  %163 = call ptr @skb_segment(ptr noundef %0, i64 noundef %88) #5
-  br label %164
+136:                                              ; preds = %129
+  %137 = load ptr, ptr %3, align 8
+  %138 = load i8, ptr %137, align 1
+  store i8 44, ptr %137, align 1
+  %139 = load ptr, ptr %23, align 8
+  %140 = load i16, ptr %73, align 4
+  %141 = zext i16 %140 to i32
+  %142 = load i16, ptr %95, align 2
+  %143 = zext i16 %142 to i32
+  %144 = zext nneg i32 %130 to i64
+  %145 = add i32 %130, %106
+  %146 = add i32 %145, %141
+  %147 = sub i32 %146, %143
+  %148 = load i32, ptr %101, align 4
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr i8, ptr %139, i64 %149
+  %151 = getelementptr i8, ptr %150, i64 -8
+  %152 = zext i32 %147 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %151, ptr align 1 %150, i64 %152, i1 false)
+  %153 = load i32, ptr %101, align 4
+  %154 = add i32 %153, -8
+  store i32 %154, ptr %101, align 4
+  %155 = load i16, ptr %95, align 2
+  %156 = add i16 %155, -8
+  store i16 %156, ptr %95, align 2
+  %157 = load i16, ptr %73, align 4
+  %158 = add i16 %157, -8
+  store i16 %158, ptr %73, align 4
+  %159 = load ptr, ptr %23, align 8
+  %160 = zext i16 %158 to i64
+  %161 = getelementptr i8, ptr %159, i64 %160
+  %162 = getelementptr i8, ptr %161, i64 %144
+  store i8 %138, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %162, i64 1
+  store i8 0, ptr %163, align 1
+  %164 = getelementptr inbounds i8, ptr %0, i64 16
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 272
+  %167 = load ptr, ptr %166, align 8
+  %168 = call i32 @ipv6_proxy_select_ident(ptr noundef %167, ptr noundef %0) #5
+  %169 = getelementptr inbounds i8, ptr %162, i64 4
+  store i32 %168, ptr %169, align 4
+  %170 = call ptr @skb_segment(ptr noundef %0, i64 noundef %93) #5
+  br label %171
 
-164:                                              ; preds = %129, %126, %105, %57, %55, %42, %40, %22
-  %165 = phi ptr [ %56, %55 ], [ %128, %126 ], [ undef, %129 ], [ undef, %22 ], [ undef, %42 ], [ undef, %57 ], [ undef, %40 ], [ undef, %105 ]
-  %166 = phi ptr [ inttoptr (i64 -22 to ptr), %55 ], [ inttoptr (i64 -22 to ptr), %126 ], [ %163, %129 ], [ inttoptr (i64 -22 to ptr), %22 ], [ inttoptr (i64 -22 to ptr), %42 ], [ inttoptr (i64 -22 to ptr), %57 ], [ inttoptr (i64 -22 to ptr), %40 ], [ inttoptr (i64 -22 to ptr), %105 ]
-  %167 = phi i32 [ 1, %55 ], [ 1, %126 ], [ 0, %129 ], [ 2, %22 ], [ 2, %42 ], [ 2, %57 ], [ 2, %40 ], [ 2, %105 ]
-  switch i32 %167, label %169 [
-    i32 0, label %168
-    i32 2, label %168
+171:                                              ; preds = %136, %132, %110, %61, %58, %44, %41, %22
+  %172 = phi ptr [ %59, %58 ], [ %134, %132 ], [ undef, %136 ], [ undef, %22 ], [ undef, %44 ], [ undef, %61 ], [ undef, %41 ], [ undef, %110 ]
+  %173 = phi ptr [ %60, %58 ], [ %135, %132 ], [ %170, %136 ], [ %33, %22 ], [ %48, %44 ], [ %67, %61 ], [ %43, %41 ], [ %115, %110 ]
+  %174 = phi i32 [ 1, %58 ], [ 1, %132 ], [ 0, %136 ], [ 2, %22 ], [ 2, %44 ], [ 2, %61 ], [ 2, %41 ], [ 2, %110 ]
+  switch i32 %174, label %176 [
+    i32 0, label %175
+    i32 2, label %175
   ]
 
-168:                                              ; preds = %164, %164
-  br label %169
+175:                                              ; preds = %171, %171
+  br label %176
 
-169:                                              ; preds = %168, %164, %20
-  %170 = phi ptr [ %165, %164 ], [ %21, %20 ], [ %166, %168 ]
+176:                                              ; preds = %175, %171, %20
+  %177 = phi ptr [ %172, %171 ], [ %21, %20 ], [ %173, %175 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  ret ptr %170
+  ret ptr %177
 }
 
 ; Function Attrs: null_pointer_is_valid

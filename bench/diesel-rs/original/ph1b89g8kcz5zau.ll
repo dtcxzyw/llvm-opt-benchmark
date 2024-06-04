@@ -11,26 +11,27 @@ define { ptr, ptr } @"_ZN4core5array98_$LT$impl$u20$core..iter..traits..collect.
 5:                                                ; preds = %1
   %6 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 5
   store ptr %6, ptr %3, align 8
-  br label %8
+  br label %9
 
 7:                                                ; preds = %1
-  store ptr inttoptr (i64 5 to ptr), ptr %3, align 8
-  br label %8
+  %8 = inttoptr i64 5 to ptr
+  store ptr %8, ptr %3, align 8
+  br label %9
 
-8:                                                ; preds = %7, %5
+9:                                                ; preds = %7, %5
   store ptr %0, ptr %2, align 8
-  %9 = load ptr, ptr %3, align 8, !noundef !3
-  %10 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  store ptr %10, ptr %4, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
-  store ptr %9, ptr %11, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = insertvalue { ptr, ptr } poison, ptr %13, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  %10 = load ptr, ptr %3, align 8, !noundef !3
+  %11 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  store ptr %11, ptr %4, align 8
+  %12 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  store ptr %10, ptr %12, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !noundef !3
+  %17 = insertvalue { ptr, ptr } poison, ptr %14, 0
+  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
+  ret { ptr, ptr } %18
 }
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

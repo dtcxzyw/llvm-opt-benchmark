@@ -79,7 +79,7 @@ define i32 @mca_common_ompio_buffer_alloc_init() #0 {
 
 5:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %75
+  br label %77
 
 6:                                                ; preds = %0
   br label %7
@@ -89,138 +89,140 @@ define i32 @mca_common_ompio_buffer_alloc_init() #0 {
 
 8:                                                ; preds = %7
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %11 = icmp ne i32 %9, %10
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %9, %11
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %13
-
-13:                                               ; preds = %12, %8
-  store ptr @opal_mutex_t_class, ptr @mca_common_ompio_buffer_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_common_ompio_buffer_mutex, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_common_ompio_buffer_mutex)
   br label %14
 
-14:                                               ; preds = %13
-  br label %15
-
-15:                                               ; preds = %14
+14:                                               ; preds = %13, %8
+  store ptr @opal_mutex_t_class, ptr @mca_common_ompio_buffer_mutex, align 8
+  %15 = getelementptr inbounds %struct.opal_object_t, ptr @mca_common_ompio_buffer_mutex, i32 0, i32 1
+  store volatile i32 1, ptr %15, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_common_ompio_buffer_mutex)
   br label %16
 
-16:                                               ; preds = %15
-  %17 = load i8, ptr @opal_uses_threads, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = xor i1 %18, true
-  %20 = xor i1 %19, true
-  %21 = zext i1 %20 to i32
-  %22 = sext i32 %21 to i64
-  %23 = icmp ne i64 %22, 0
-  br i1 %23, label %24, label %25
+16:                                               ; preds = %14
+  br label %17
 
-24:                                               ; preds = %16
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  %19 = load i8, ptr @opal_uses_threads, align 1
+  %20 = trunc i8 %19 to i1
+  %21 = xor i1 %20, true
+  %22 = xor i1 %21, true
+  %23 = zext i1 %22 to i32
+  %24 = sext i32 %23 to i64
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %18
   call void @opal_mutex_lock(ptr noundef @mca_common_ompio_buffer_mutex)
-  br label %25
+  br label %27
 
-25:                                               ; preds = %24, %16
-  br label %26
+27:                                               ; preds = %26, %18
+  br label %28
 
-26:                                               ; preds = %25
-  %27 = call ptr @mca_allocator_component_lookup(ptr noundef @.str)
-  store ptr %27, ptr @mca_common_ompio_allocator_component, align 8
-  %28 = icmp eq ptr null, %27
-  br i1 %28, label %29, label %41
+28:                                               ; preds = %27
+  %29 = call ptr @mca_allocator_component_lookup(ptr noundef @.str)
+  store ptr %29, ptr @mca_common_ompio_allocator_component, align 8
+  %30 = icmp eq ptr null, %29
+  br i1 %30, label %31, label %43
 
-29:                                               ; preds = %26
-  br label %30
+31:                                               ; preds = %28
+  br label %32
 
-30:                                               ; preds = %29
-  %31 = load i8, ptr @opal_uses_threads, align 1
-  %32 = trunc i8 %31 to i1
-  %33 = xor i1 %32, true
-  %34 = xor i1 %33, true
-  %35 = zext i1 %34 to i32
-  %36 = sext i32 %35 to i64
-  %37 = icmp ne i64 %36, 0
-  br i1 %37, label %38, label %39
+32:                                               ; preds = %31
+  %33 = load i8, ptr @opal_uses_threads, align 1
+  %34 = trunc i8 %33 to i1
+  %35 = xor i1 %34, true
+  %36 = xor i1 %35, true
+  %37 = zext i1 %36 to i32
+  %38 = sext i32 %37 to i64
+  %39 = icmp ne i64 %38, 0
+  br i1 %39, label %40, label %41
 
-38:                                               ; preds = %30
+40:                                               ; preds = %32
   call void @opal_mutex_unlock(ptr noundef @mca_common_ompio_buffer_mutex)
-  br label %39
+  br label %41
 
-39:                                               ; preds = %38, %30
-  br label %40
+41:                                               ; preds = %40, %32
+  br label %42
 
-40:                                               ; preds = %39
+42:                                               ; preds = %41
   store i32 -30, ptr %1, align 4
+  br label %77
+
+43:                                               ; preds = %28
+  %44 = load ptr, ptr @mca_common_ompio_allocator_component, align 8
+  %45 = getelementptr inbounds %struct.mca_allocator_base_component_2_0_0_t, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i8, ptr %2, align 1
+  %48 = trunc i8 %47 to i1
+  %49 = call ptr %46(i1 noundef zeroext %48, ptr noundef @mca_common_ompio_buffer_alloc_seg, ptr noundef @mca_common_ompio_buffer_free_seg, ptr noundef null)
+  store ptr %49, ptr @mca_common_ompio_allocator, align 8
+  %50 = load ptr, ptr @mca_common_ompio_allocator, align 8
+  %51 = icmp eq ptr null, %50
+  br i1 %51, label %52, label %64
+
+52:                                               ; preds = %43
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load i8, ptr @opal_uses_threads, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = xor i1 %55, true
+  %57 = xor i1 %56, true
+  %58 = zext i1 %57 to i32
+  %59 = sext i32 %58 to i64
+  %60 = icmp ne i64 %59, 0
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %53
+  call void @opal_mutex_unlock(ptr noundef @mca_common_ompio_buffer_mutex)
+  br label %62
+
+62:                                               ; preds = %61, %53
+  br label %63
+
+63:                                               ; preds = %62
+  store i32 -30, ptr %1, align 4
+  br label %77
+
+64:                                               ; preds = %43
+  %65 = call i32 @opal_getpagesize()
+  store i32 %65, ptr @mca_common_ompio_pagesize, align 4
+  br label %66
+
+66:                                               ; preds = %64
+  %67 = load i8, ptr @opal_uses_threads, align 1
+  %68 = trunc i8 %67 to i1
+  %69 = xor i1 %68, true
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i32
+  %72 = sext i32 %71 to i64
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %66
+  call void @opal_mutex_unlock(ptr noundef @mca_common_ompio_buffer_mutex)
   br label %75
 
-41:                                               ; preds = %26
-  %42 = load ptr, ptr @mca_common_ompio_allocator_component, align 8
-  %43 = getelementptr inbounds %struct.mca_allocator_base_component_2_0_0_t, ptr %42, i32 0, i32 2
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i8, ptr %2, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = call ptr %44(i1 noundef zeroext %46, ptr noundef @mca_common_ompio_buffer_alloc_seg, ptr noundef @mca_common_ompio_buffer_free_seg, ptr noundef null)
-  store ptr %47, ptr @mca_common_ompio_allocator, align 8
-  %48 = load ptr, ptr @mca_common_ompio_allocator, align 8
-  %49 = icmp eq ptr null, %48
-  br i1 %49, label %50, label %62
+75:                                               ; preds = %74, %66
+  br label %76
 
-50:                                               ; preds = %41
-  br label %51
-
-51:                                               ; preds = %50
-  %52 = load i8, ptr @opal_uses_threads, align 1
-  %53 = trunc i8 %52 to i1
-  %54 = xor i1 %53, true
-  %55 = xor i1 %54, true
-  %56 = zext i1 %55 to i32
-  %57 = sext i32 %56 to i64
-  %58 = icmp ne i64 %57, 0
-  br i1 %58, label %59, label %60
-
-59:                                               ; preds = %51
-  call void @opal_mutex_unlock(ptr noundef @mca_common_ompio_buffer_mutex)
-  br label %60
-
-60:                                               ; preds = %59, %51
-  br label %61
-
-61:                                               ; preds = %60
-  store i32 -30, ptr %1, align 4
-  br label %75
-
-62:                                               ; preds = %41
-  %63 = call i32 @opal_getpagesize()
-  store i32 %63, ptr @mca_common_ompio_pagesize, align 4
-  br label %64
-
-64:                                               ; preds = %62
-  %65 = load i8, ptr @opal_uses_threads, align 1
-  %66 = trunc i8 %65 to i1
-  %67 = xor i1 %66, true
-  %68 = xor i1 %67, true
-  %69 = zext i1 %68 to i32
-  %70 = sext i32 %69 to i64
-  %71 = icmp ne i64 %70, 0
-  br i1 %71, label %72, label %73
-
-72:                                               ; preds = %64
-  call void @opal_mutex_unlock(ptr noundef @mca_common_ompio_buffer_mutex)
-  br label %73
-
-73:                                               ; preds = %72, %64
-  br label %74
-
-74:                                               ; preds = %73
+76:                                               ; preds = %75
   store i32 0, ptr %1, align 4
-  br label %75
+  br label %77
 
-75:                                               ; preds = %74, %61, %40, %5
-  %76 = load i32, ptr %1, align 4
-  ret i32 %76
+77:                                               ; preds = %76, %63, %42, %5
+  %78 = load i32, ptr %1, align 4
+  ret i32 %78
 }
 
 ; Function Attrs: nounwind uwtable
@@ -353,29 +355,30 @@ define internal ptr @mca_common_ompio_buffer_alloc_seg(ptr noundef %0, ptr nound
   store ptr %24, ptr %5, align 8
   %25 = load ptr, ptr %5, align 8
   %26 = icmp ne ptr null, %25
-  br i1 %26, label %27, label %38
+  br i1 %26, label %27, label %39
 
 27:                                               ; preds = %2
   %28 = load ptr, ptr @opal_accelerator, align 8
   %29 = load ptr, ptr %5, align 8
   %30 = call i32 %28(ptr noundef %29, ptr noundef %9, ptr noundef %8)
   %31 = icmp eq i32 0, %30
-  br i1 %31, label %32, label %38
+  br i1 %31, label %32, label %39
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 20), align 8
-  %34 = load i32, ptr %9, align 4
-  %35 = load ptr, ptr %5, align 8
-  %36 = load i64, ptr %6, align 8
-  %37 = call i32 %33(i32 noundef %34, ptr noundef %35, i64 noundef %36)
-  br label %38
+  %33 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 20
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i32, ptr %9, align 4
+  %36 = load ptr, ptr %5, align 8
+  %37 = load i64, ptr %6, align 8
+  %38 = call i32 %34(i32 noundef %35, ptr noundef %36, i64 noundef %37)
+  br label %39
 
-38:                                               ; preds = %32, %27, %2
-  %39 = load i64, ptr %6, align 8
-  %40 = load ptr, ptr %4, align 8
-  store i64 %39, ptr %40, align 8
-  %41 = load ptr, ptr %5, align 8
-  ret ptr %41
+39:                                               ; preds = %32, %27, %2
+  %40 = load i64, ptr %6, align 8
+  %41 = load ptr, ptr %4, align 8
+  store i64 %40, ptr %41, align 8
+  %42 = load ptr, ptr %5, align 8
+  ret ptr %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -389,28 +392,29 @@ define internal void @mca_common_ompio_buffer_free_seg(ptr noundef %0, ptr nound
   store i64 0, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = icmp ne ptr null, %7
-  br i1 %8, label %9, label %21
+  br i1 %8, label %9, label %22
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr @opal_accelerator, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = call i32 %10(ptr noundef %11, ptr noundef %6, ptr noundef %5)
   %13 = icmp eq i32 0, %12
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 21), align 8
-  %16 = load i32, ptr %6, align 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = call i32 %15(i32 noundef %16, ptr noundef %17)
-  br label %19
+  %15 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 21
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = load ptr, ptr %4, align 8
+  %19 = call i32 %16(i32 noundef %17, ptr noundef %18)
+  br label %20
 
-19:                                               ; preds = %14, %9
-  %20 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %20) #5
-  br label %21
+20:                                               ; preds = %14, %9
+  %21 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %21) #5
+  br label %22
 
-21:                                               ; preds = %19, %2
+22:                                               ; preds = %20, %2
   ret void
 }
 

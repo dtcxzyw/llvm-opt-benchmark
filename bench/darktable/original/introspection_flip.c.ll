@@ -1574,51 +1574,53 @@ define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture nound
 define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.dt_iop_flip_params_t, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #24
-  %3 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !85
-  tail call void @dt_database_start_transaction(ptr noundef %3) #24
+  %3 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %4 = load ptr, ptr %3, align 8, !tbaa !85
+  tail call void @dt_database_start_transaction(ptr noundef %4) #24
   store i32 -1, ptr %2, align 4, !tbaa !39
-  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #24
-  %5 = getelementptr inbounds i8, ptr %0, i64 504
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !92
-  %8 = tail call i32 (...) %7() #24
-  call void @dt_gui_presets_add_generic(ptr noundef %4, ptr noundef nonnull %5, i32 noundef %8, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
-  %9 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #24
-  %10 = load ptr, ptr %6, align 8, !tbaa !92
-  %11 = call i32 (...) %10() #24
-  call void @dt_gui_presets_update_autoapply(ptr noundef %9, ptr noundef nonnull %5, i32 noundef %11, i32 noundef 1) #24
+  %5 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #24
+  %6 = getelementptr inbounds i8, ptr %0, i64 504
+  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !92
+  %9 = tail call i32 (...) %8() #24
+  call void @dt_gui_presets_add_generic(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %9, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
+  %10 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #24
+  %11 = load ptr, ptr %7, align 8, !tbaa !92
+  %12 = call i32 (...) %11() #24
+  call void @dt_gui_presets_update_autoapply(ptr noundef %10, ptr noundef nonnull %6, i32 noundef %12, i32 noundef 1) #24
   store i32 0, ptr %2, align 4, !tbaa !39
-  %12 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #24
-  %13 = load ptr, ptr %6, align 8, !tbaa !92
-  %14 = call i32 (...) %13() #24
-  call void @dt_gui_presets_add_generic(ptr noundef %12, ptr noundef nonnull %5, i32 noundef %14, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
+  %13 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #24
+  %14 = load ptr, ptr %7, align 8, !tbaa !92
+  %15 = call i32 (...) %14() #24
+  call void @dt_gui_presets_add_generic(ptr noundef %13, ptr noundef nonnull %6, i32 noundef %15, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
   store i32 2, ptr %2, align 4, !tbaa !39
-  %15 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #24
-  %16 = load ptr, ptr %6, align 8, !tbaa !92
-  %17 = call i32 (...) %16() #24
-  call void @dt_gui_presets_add_generic(ptr noundef %15, ptr noundef nonnull %5, i32 noundef %17, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
+  %16 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #24
+  %17 = load ptr, ptr %7, align 8, !tbaa !92
+  %18 = call i32 (...) %17() #24
+  call void @dt_gui_presets_add_generic(ptr noundef %16, ptr noundef nonnull %6, i32 noundef %18, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
   store i32 1, ptr %2, align 4, !tbaa !39
-  %18 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #24
-  %19 = load ptr, ptr %6, align 8, !tbaa !92
-  %20 = call i32 (...) %19() #24
-  call void @dt_gui_presets_add_generic(ptr noundef %18, ptr noundef nonnull %5, i32 noundef %20, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
+  %19 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #24
+  %20 = load ptr, ptr %7, align 8, !tbaa !92
+  %21 = call i32 (...) %20() #24
+  call void @dt_gui_presets_add_generic(ptr noundef %19, ptr noundef nonnull %6, i32 noundef %21, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
   store i32 5, ptr %2, align 4, !tbaa !39
-  %21 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #24
-  %22 = load ptr, ptr %6, align 8, !tbaa !92
-  %23 = call i32 (...) %22() #24
-  call void @dt_gui_presets_add_generic(ptr noundef %21, ptr noundef nonnull %5, i32 noundef %23, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
+  %22 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #24
+  %23 = load ptr, ptr %7, align 8, !tbaa !92
+  %24 = call i32 (...) %23() #24
+  call void @dt_gui_presets_add_generic(ptr noundef %22, ptr noundef nonnull %6, i32 noundef %24, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
   store i32 6, ptr %2, align 4, !tbaa !39
-  %24 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #24
-  %25 = load ptr, ptr %6, align 8, !tbaa !92
-  %26 = call i32 (...) %25() #24
-  call void @dt_gui_presets_add_generic(ptr noundef %24, ptr noundef nonnull %5, i32 noundef %26, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
+  %25 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #24
+  %26 = load ptr, ptr %7, align 8, !tbaa !92
+  %27 = call i32 (...) %26() #24
+  call void @dt_gui_presets_add_generic(ptr noundef %25, ptr noundef nonnull %6, i32 noundef %27, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
   store i32 3, ptr %2, align 4, !tbaa !39
-  %27 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #24
-  %28 = load ptr, ptr %6, align 8, !tbaa !92
-  %29 = call i32 (...) %28() #24
-  call void @dt_gui_presets_add_generic(ptr noundef %27, ptr noundef nonnull %5, i32 noundef %29, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
-  %30 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !85
-  call void @dt_database_release_transaction(ptr noundef %30) #24
+  %28 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #24
+  %29 = load ptr, ptr %7, align 8, !tbaa !92
+  %30 = call i32 (...) %29() #24
+  call void @dt_gui_presets_add_generic(ptr noundef %28, ptr noundef nonnull %6, i32 noundef %30, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #24
+  %31 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %32 = load ptr, ptr %31, align 8, !tbaa !85
+  call void @dt_database_release_transaction(ptr noundef %32) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #24
   ret void
 }
@@ -1645,97 +1647,101 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 16777216
   %11 = icmp ult i32 %10, 33554432
-  br i1 %11, label %74, label %12
+  br i1 %11, label %78, label %12
 
 12:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %13 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !95
-  %14 = and i32 %13, 256
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %17, label %16
+  %13 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %14 = load i32, ptr %13, align 8, !tbaa !95
+  %15 = and i32 %14, 256
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %12
+17:                                               ; preds = %12
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 516, ptr noundef nonnull @__FUNCTION__.reload_defaults, ptr noundef nonnull @.str.16) #24
-  br label %17
+  br label %18
 
-17:                                               ; preds = %16, %12
-  %18 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !85
-  %19 = tail call ptr @dt_database_get(ptr noundef %18) #24
-  %20 = call i32 @sqlite3_prepare_v2(ptr noundef %19, ptr noundef nonnull @.str.16, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #24
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %28, label %22
+18:                                               ; preds = %17, %12
+  %19 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %20 = load ptr, ptr %19, align 8, !tbaa !85
+  %21 = tail call ptr @dt_database_get(ptr noundef %20) #24
+  %22 = call i32 @sqlite3_prepare_v2(ptr noundef %21, ptr noundef nonnull @.str.16, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #24
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %31, label %24
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %24 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !85
-  %25 = call ptr @dt_database_get(ptr noundef %24) #24
-  %26 = call ptr @sqlite3_errmsg(ptr noundef %25) #24
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15, i32 noundef 516, ptr noundef nonnull @__FUNCTION__.reload_defaults, ptr noundef nonnull @.str.16, ptr noundef %26) #26
-  br label %28
+24:                                               ; preds = %18
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %26 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %27 = load ptr, ptr %26, align 8, !tbaa !85
+  %28 = call ptr @dt_database_get(ptr noundef %27) #24
+  %29 = call ptr @sqlite3_errmsg(ptr noundef %28) #24
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15, i32 noundef 516, ptr noundef nonnull @__FUNCTION__.reload_defaults, ptr noundef nonnull @.str.16, ptr noundef %29) #26
+  br label %31
 
-28:                                               ; preds = %22, %17
-  %29 = load ptr, ptr %2, align 8, !tbaa !33
-  %30 = load ptr, ptr %6, align 8, !tbaa !6
-  %31 = getelementptr inbounds i8, ptr %30, i64 1544
-  %32 = load i32, ptr %31, align 8, !tbaa !96
-  %33 = call i32 @sqlite3_bind_int(ptr noundef %29, i32 noundef 1, i32 noundef %32) #24
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %41, label %35
+31:                                               ; preds = %24, %18
+  %32 = load ptr, ptr %2, align 8, !tbaa !33
+  %33 = load ptr, ptr %6, align 8, !tbaa !6
+  %34 = getelementptr inbounds i8, ptr %33, i64 1544
+  %35 = load i32, ptr %34, align 8, !tbaa !96
+  %36 = call i32 @sqlite3_bind_int(ptr noundef %32, i32 noundef 1, i32 noundef %35) #24
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %45, label %38
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %37 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 18), align 8, !tbaa !85
-  %38 = call ptr @dt_database_get(ptr noundef %37) #24
-  %39 = call ptr @sqlite3_errmsg(ptr noundef %38) #24
-  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.15, i32 noundef 517, ptr noundef nonnull @__FUNCTION__.reload_defaults, ptr noundef %39) #26
-  br label %41
+38:                                               ; preds = %31
+  %39 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %40 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 18
+  %41 = load ptr, ptr %40, align 8, !tbaa !85
+  %42 = call ptr @dt_database_get(ptr noundef %41) #24
+  %43 = call ptr @sqlite3_errmsg(ptr noundef %42) #24
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.15, i32 noundef 517, ptr noundef nonnull @__FUNCTION__.reload_defaults, ptr noundef %43) #26
+  br label %45
 
-41:                                               ; preds = %35, %28
-  %42 = load ptr, ptr %2, align 8, !tbaa !33
-  %43 = call i32 @sqlite3_step(ptr noundef %42) #24
-  %44 = icmp eq i32 %43, 100
-  br i1 %44, label %71, label %45
+45:                                               ; preds = %38, %31
+  %46 = load ptr, ptr %2, align 8, !tbaa !33
+  %47 = call i32 @sqlite3_step(ptr noundef %46) #24
+  %48 = icmp eq i32 %47, 100
+  br i1 %48, label %75, label %49
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %6, align 8, !tbaa !6
-  %47 = getelementptr i8, ptr %46, i64 116
-  %48 = load i32, ptr %47, align 4, !tbaa !18
-  %49 = icmp eq i32 %48, -1
-  %50 = select i1 %49, i32 0, i32 %48
-  %51 = getelementptr inbounds i8, ptr %46, i64 1784
-  %52 = load i32, ptr %51, align 8
-  %53 = lshr i32 %52, 24
-  %54 = and i32 %52, 67108864
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %68, label %56
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %6, align 8, !tbaa !6
+  %51 = getelementptr i8, ptr %50, i64 116
+  %52 = load i32, ptr %51, align 4, !tbaa !18
+  %53 = icmp eq i32 %52, -1
+  %54 = select i1 %53, i32 0, i32 %52
+  %55 = getelementptr inbounds i8, ptr %50, i64 1784
+  %56 = load i32, ptr %55, align 8
+  %57 = lshr i32 %56, 24
+  %58 = and i32 %56, 67108864
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %72, label %60
 
-56:                                               ; preds = %45
-  %57 = and i32 %50, 1
-  %58 = icmp eq i32 %57, 0
-  %59 = or i32 %50, 2
-  %60 = and i32 %50, -4
-  %61 = select i1 %58, i32 %60, i32 %59
-  %62 = and i32 %61, -2
-  %63 = lshr i32 %50, 1
-  %64 = and i32 %63, 1
-  %65 = and i32 %50, 4
-  %66 = or disjoint i32 %64, %65
-  %67 = or i32 %66, %62
-  br label %68
+60:                                               ; preds = %49
+  %61 = and i32 %54, 1
+  %62 = icmp eq i32 %61, 0
+  %63 = or i32 %54, 2
+  %64 = and i32 %54, -4
+  %65 = select i1 %62, i32 %64, i32 %63
+  %66 = and i32 %65, -2
+  %67 = lshr i32 %54, 1
+  %68 = and i32 %67, 1
+  %69 = and i32 %54, 4
+  %70 = or disjoint i32 %68, %69
+  %71 = or i32 %70, %66
+  br label %72
 
-68:                                               ; preds = %56, %45
-  %69 = phi i32 [ %50, %45 ], [ %67, %56 ]
-  %70 = xor i32 %69, %53
-  store i32 %70, ptr %4, align 4, !tbaa !39
-  br label %71
+72:                                               ; preds = %60, %49
+  %73 = phi i32 [ %54, %49 ], [ %71, %60 ]
+  %74 = xor i32 %73, %57
+  store i32 %74, ptr %4, align 4, !tbaa !39
+  br label %75
 
-71:                                               ; preds = %68, %41
-  %72 = load ptr, ptr %2, align 8, !tbaa !33
-  %73 = call i32 @sqlite3_finalize(ptr noundef %72) #24
+75:                                               ; preds = %72, %45
+  %76 = load ptr, ptr %2, align 8, !tbaa !33
+  %77 = call i32 @sqlite3_finalize(ptr noundef %76) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
-  br label %74
+  br label %78
 
-74:                                               ; preds = %71, %1
+78:                                               ; preds = %75, %1
   ret void
 }
 
@@ -1820,8 +1826,9 @@ define internal void @rotate_ccw(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %19 = xor i32 %15, %18
   %20 = xor i32 %19, 4
   store i32 %20, ptr %4, align 4, !tbaa !39
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !111
-  tail call void @dt_dev_add_history_item(ptr noundef %21, ptr noundef nonnull %1, i32 noundef 1) #24
+  %21 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %22 = load ptr, ptr %21, align 8, !tbaa !111
+  tail call void @dt_dev_add_history_item(ptr noundef %22, ptr noundef nonnull %1, i32 noundef 1) #24
   ret void
 }
 
@@ -1852,8 +1859,9 @@ define internal void @rotate_cw(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %19 = xor i32 %15, %18
   %20 = xor i32 %19, 4
   store i32 %20, ptr %4, align 4, !tbaa !39
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !111
-  tail call void @dt_dev_add_history_item(ptr noundef %21, ptr noundef nonnull %1, i32 noundef 1) #24
+  %21 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %22 = load ptr, ptr %21, align 8, !tbaa !111
+  tail call void @dt_dev_add_history_item(ptr noundef %22, ptr noundef nonnull %1, i32 noundef 1) #24
   ret void
 }
 
@@ -1881,8 +1889,9 @@ define internal void @_flip_h(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %18 = select i1 %17, i32 2, i32 1
   %19 = xor i32 %18, %15
   store i32 %19, ptr %4, align 4, !tbaa !39
-  %20 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !111
-  tail call void @dt_dev_add_history_item(ptr noundef %20, ptr noundef nonnull %1, i32 noundef 1) #24
+  %20 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %21 = load ptr, ptr %20, align 8, !tbaa !111
+  tail call void @dt_dev_add_history_item(ptr noundef %21, ptr noundef nonnull %1, i32 noundef 1) #24
   ret void
 }
 
@@ -1912,8 +1921,9 @@ define internal void @_flip_v(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %18 = select i1 %17, i32 1, i32 2
   %19 = xor i32 %18, %15
   store i32 %19, ptr %4, align 4, !tbaa !39
-  %20 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !111
-  tail call void @dt_dev_add_history_item(ptr noundef %20, ptr noundef nonnull %1, i32 noundef 1) #24
+  %20 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 9
+  %21 = load ptr, ptr %20, align 8, !tbaa !111
+  tail call void @dt_dev_add_history_item(ptr noundef %21, ptr noundef nonnull %1, i32 noundef 1) #24
   ret void
 }
 
@@ -1940,18 +1950,22 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %6 = or i1 %5, %4
-  br i1 %6, label %8, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_opaque_t, [24 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7), align 8, !tbaa !114
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_opaque_t, [24 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7), align 16, !tbaa !114
-  store ptr %0, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_opaque_t, [24 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 7), align 8, !tbaa !114
-  store ptr @introspection_init.f1, ptr getelementptr inbounds (<{ { %struct.dt_introspection_type_opaque_t, [24 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 2), align 16, !tbaa !114
-  br label %8
+  %8 = getelementptr inbounds <{ { %struct.dt_introspection_type_opaque_t, [24 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 0, i32 0, i32 0, i32 7
+  store ptr %0, ptr %8, align 8, !tbaa !114
+  %9 = getelementptr inbounds <{ { %struct.dt_introspection_type_opaque_t, [24 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 0, i32 7
+  store ptr %0, ptr %9, align 16, !tbaa !114
+  %10 = getelementptr inbounds <{ { %struct.dt_introspection_type_opaque_t, [24 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 2, i32 0, i32 7
+  store ptr %0, ptr %10, align 8, !tbaa !114
+  %11 = getelementptr inbounds <{ { %struct.dt_introspection_type_opaque_t, [24 x i8] }, { %struct.dt_introspection_type_struct_t, [8 x i8] }, { %struct.dt_introspection_type_header_t, [24 x i8] } }>, ptr @introspection_linear, i64 0, i32 1, i32 0, i32 2
+  store ptr @introspection_init.f1, ptr %11, align 16, !tbaa !114
+  br label %12
 
-8:                                                ; preds = %7, %2
-  %9 = phi i32 [ 0, %7 ], [ 1, %2 ]
-  ret i32 %9
+12:                                               ; preds = %7, %2
+  %13 = phi i32 [ 0, %7 ], [ 1, %2 ]
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable

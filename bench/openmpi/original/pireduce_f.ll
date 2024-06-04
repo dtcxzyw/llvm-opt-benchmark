@@ -56,80 +56,81 @@ define void @ompi_ireduce_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   store ptr %32, ptr %23, align 8
   %33 = load ptr, ptr %10, align 8
   %34 = icmp eq ptr %33, @mpi_fortran_in_place_
-  br i1 %34, label %35, label %36
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %9
-  br label %38
+  %36 = inttoptr i64 1 to ptr
+  br label %39
 
-36:                                               ; preds = %9
-  %37 = load ptr, ptr %10, align 8
-  br label %38
+37:                                               ; preds = %9
+  %38 = load ptr, ptr %10, align 8
+  br label %39
 
-38:                                               ; preds = %36, %35
-  %39 = phi ptr [ inttoptr (i64 1 to ptr), %35 ], [ %37, %36 ]
-  store ptr %39, ptr %10, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = icmp eq ptr %40, @mpi_fortran_bottom_
-  br i1 %41, label %42, label %43
+39:                                               ; preds = %37, %35
+  %40 = phi ptr [ %36, %35 ], [ %38, %37 ]
+  store ptr %40, ptr %10, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = icmp eq ptr %41, @mpi_fortran_bottom_
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %38
-  br label %45
+43:                                               ; preds = %39
+  br label %46
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %10, align 8
-  br label %45
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %10, align 8
+  br label %46
 
-45:                                               ; preds = %43, %42
-  %46 = phi ptr [ null, %42 ], [ %44, %43 ]
-  store ptr %46, ptr %10, align 8
-  %47 = load ptr, ptr %11, align 8
-  %48 = icmp eq ptr %47, @mpi_fortran_bottom_
-  br i1 %48, label %49, label %50
+46:                                               ; preds = %44, %43
+  %47 = phi ptr [ null, %43 ], [ %45, %44 ]
+  store ptr %47, ptr %10, align 8
+  %48 = load ptr, ptr %11, align 8
+  %49 = icmp eq ptr %48, @mpi_fortran_bottom_
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %45
-  br label %52
+50:                                               ; preds = %46
+  br label %53
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %11, align 8
-  br label %52
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %11, align 8
+  br label %53
 
-52:                                               ; preds = %50, %49
-  %53 = phi ptr [ null, %49 ], [ %51, %50 ]
-  store ptr %53, ptr %11, align 8
-  %54 = load ptr, ptr %10, align 8
-  %55 = load ptr, ptr %11, align 8
-  %56 = load ptr, ptr %12, align 8
-  %57 = load i32, ptr %56, align 4
-  %58 = load ptr, ptr %20, align 8
-  %59 = load ptr, ptr %22, align 8
-  %60 = load ptr, ptr %15, align 8
-  %61 = load i32, ptr %60, align 4
-  %62 = load ptr, ptr %23, align 8
-  %63 = call i32 @PMPI_Ireduce(ptr noundef %54, ptr noundef %55, i32 noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %61, ptr noundef %62, ptr noundef %21)
-  store i32 %63, ptr %19, align 4
-  %64 = load ptr, ptr %18, align 8
-  %65 = icmp ne ptr null, %64
-  br i1 %65, label %66, label %69
+53:                                               ; preds = %51, %50
+  %54 = phi ptr [ null, %50 ], [ %52, %51 ]
+  store ptr %54, ptr %11, align 8
+  %55 = load ptr, ptr %10, align 8
+  %56 = load ptr, ptr %11, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = load i32, ptr %57, align 4
+  %59 = load ptr, ptr %20, align 8
+  %60 = load ptr, ptr %22, align 8
+  %61 = load ptr, ptr %15, align 8
+  %62 = load i32, ptr %61, align 4
+  %63 = load ptr, ptr %23, align 8
+  %64 = call i32 @PMPI_Ireduce(ptr noundef %55, ptr noundef %56, i32 noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %62, ptr noundef %63, ptr noundef %21)
+  store i32 %64, ptr %19, align 4
+  %65 = load ptr, ptr %18, align 8
+  %66 = icmp ne ptr null, %65
+  br i1 %66, label %67, label %70
 
-66:                                               ; preds = %52
-  %67 = load i32, ptr %19, align 4
-  %68 = load ptr, ptr %18, align 8
-  store i32 %67, ptr %68, align 4
-  br label %69
+67:                                               ; preds = %53
+  %68 = load i32, ptr %19, align 4
+  %69 = load ptr, ptr %18, align 8
+  store i32 %68, ptr %69, align 4
+  br label %70
 
-69:                                               ; preds = %66, %52
-  %70 = load i32, ptr %19, align 4
-  %71 = icmp eq i32 0, %70
-  br i1 %71, label %72, label %76
+70:                                               ; preds = %67, %53
+  %71 = load i32, ptr %19, align 4
+  %72 = icmp eq i32 0, %71
+  br i1 %72, label %73, label %77
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %21, align 8
-  %74 = call i32 @PMPI_Request_c2f(ptr noundef %73)
-  %75 = load ptr, ptr %17, align 8
-  store i32 %74, ptr %75, align 4
-  br label %76
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %21, align 8
+  %75 = call i32 @PMPI_Request_c2f(ptr noundef %74)
+  %76 = load ptr, ptr %17, align 8
+  store i32 %75, ptr %76, align 4
+  br label %77
 
-76:                                               ; preds = %72, %69
+77:                                               ; preds = %73, %70
   ret void
 }
 

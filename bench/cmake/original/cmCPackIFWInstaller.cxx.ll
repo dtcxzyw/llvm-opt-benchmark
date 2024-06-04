@@ -7361,49 +7361,50 @@ define linkonce_odr dso_local void @_ZN25cmCPackIFWResourcesParserC2EP19cmCPackI
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV25cmCPackIFWResourcesParser, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 2
-  store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 3
-  store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 4
-  store i8 0, ptr %13, align 2
-  %14 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  %15 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 6
+  %9 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV25cmCPackIFWResourcesParser, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 2
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 3
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 4
+  store i8 0, ptr %14, align 2
+  %15 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %class.cmCPackIFWInstaller, ptr %16, i32 0, i32 35
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @.str.109)
-          to label %18 unwind label %21
+  %16 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %class.cmCPackIFWInstaller, ptr %17, i32 0, i32 35
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef @.str.109)
+          to label %19 unwind label %22
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 5
-  %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %8, i32 0, i32 5
+  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 
-21:                                               ; preds = %2
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %6, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %7, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %6, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %7, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
   call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %6, align 8
+  %28 = load i32, ptr %7, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7673,11 +7674,12 @@ define linkonce_odr dso_local void @_ZN25cmCPackIFWResourcesParserD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV25cmCPackIFWResourcesParser, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %3, i32 0, i32 6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV25cmCPackIFWResourcesParser, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %3, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %class.cmCPackIFWResourcesParser, ptr %3, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
   ret void
 }

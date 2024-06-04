@@ -561,35 +561,37 @@ define dso_local i32 @propagate_mnt(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 179:                                              ; preds = %176, %95, %90, %13
   %180 = phi i32 [ 0, %90 ], [ %97, %95 ], [ 0, %176 ], [ %14, %13 ]
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @mount_lock, i64 0, i32 1)) #5
-  %181 = load ptr, ptr %3, align 8
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %198, label %183
+  %181 = getelementptr inbounds %struct.seqlock_t, ptr @mount_lock, i64 0, i32 1
+  tail call void @_raw_spin_lock(ptr noundef nonnull %181) #5
+  %182 = load ptr, ptr %3, align 8
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %199, label %184
 
-183:                                              ; preds = %195, %179
-  %184 = phi ptr [ %196, %195 ], [ %181, %179 ]
-  %185 = getelementptr inbounds i8, ptr %184, i64 16
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 232
-  %188 = load ptr, ptr %187, align 8
-  %189 = load ptr, ptr %5, align 8
-  %190 = icmp eq ptr %188, %189
-  br i1 %190, label %195, label %191
+184:                                              ; preds = %196, %179
+  %185 = phi ptr [ %197, %196 ], [ %182, %179 ]
+  %186 = getelementptr inbounds i8, ptr %185, i64 16
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 232
+  %189 = load ptr, ptr %188, align 8
+  %190 = load ptr, ptr %5, align 8
+  %191 = icmp eq ptr %189, %190
+  br i1 %191, label %196, label %192
 
-191:                                              ; preds = %183
-  %192 = getelementptr inbounds i8, ptr %188, i64 48
-  %193 = load i32, ptr %192, align 8
-  %194 = and i32 %193, -67108865
-  store i32 %194, ptr %192, align 8
-  br label %195
+192:                                              ; preds = %184
+  %193 = getelementptr inbounds i8, ptr %189, i64 48
+  %194 = load i32, ptr %193, align 8
+  %195 = and i32 %194, -67108865
+  store i32 %195, ptr %193, align 8
+  br label %196
 
-195:                                              ; preds = %191, %183
-  %196 = load ptr, ptr %184, align 8
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %198, label %183, !llvm.loop !17
+196:                                              ; preds = %192, %184
+  %197 = load ptr, ptr %185, align 8
+  %198 = icmp eq ptr %197, null
+  br i1 %198, label %199, label %184, !llvm.loop !17
 
-198:                                              ; preds = %195, %179
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @mount_lock, i64 0, i32 1)) #5
+199:                                              ; preds = %196, %179
+  %200 = getelementptr inbounds %struct.seqlock_t, ptr @mount_lock, i64 0, i32 1
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %200) #5
   ret i32 %180
 }
 
@@ -598,13 +600,13 @@ define internal fastcc i32 @propagate_one(ptr noundef %0, ptr noundef %1) unname
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %110, label %6
+  br i1 %5, label %113, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %110, label %10
+  br i1 %9, label %113, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -612,7 +614,7 @@ define internal fastcc i32 @propagate_one(ptr noundef %0, ptr noundef %1) unname
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @is_subdir(ptr noundef %12, ptr noundef %14) #5
-  br i1 %15, label %16, label %110
+  br i1 %15, label %16, label %113
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr @last_dest, align 8
@@ -708,56 +710,59 @@ define internal fastcc i32 @propagate_one(ptr noundef %0, ptr noundef %1) unname
   %84 = getelementptr inbounds i8, ptr %83, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = tail call ptr @copy_tree(ptr noundef %83, ptr noundef %85, i32 noundef %82) #5
-  %87 = icmp ugt ptr %86, inttoptr (i64 -4096 to ptr)
-  br i1 %87, label %88, label %91
+  %87 = inttoptr i64 -4096 to ptr
+  %88 = icmp ugt ptr %86, %87
+  br i1 %88, label %89, label %92
 
-88:                                               ; preds = %81
-  %89 = ptrtoint ptr %86 to i64
-  %90 = trunc i64 %89 to i32
-  br label %110
+89:                                               ; preds = %81
+  %90 = ptrtoint ptr %86 to i64
+  %91 = trunc i64 %90 to i32
+  br label %113
 
-91:                                               ; preds = %81
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @mount_lock, i64 0, i32 1)) #5
+92:                                               ; preds = %81
+  %93 = getelementptr inbounds %struct.seqlock_t, ptr @mount_lock, i64 0, i32 1
+  tail call void @_raw_spin_lock(ptr noundef nonnull %93) #5
   tail call void @mnt_set_mountpoint(ptr noundef %0, ptr noundef %1, ptr noundef %86) #5
-  %92 = getelementptr inbounds i8, ptr %0, i64 232
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr @dest_master, align 8
-  %95 = icmp eq ptr %93, %94
-  br i1 %95, label %100, label %96
+  %94 = getelementptr inbounds i8, ptr %0, i64 232
+  %95 = load ptr, ptr %94, align 8
+  %96 = load ptr, ptr @dest_master, align 8
+  %97 = icmp eq ptr %95, %96
+  br i1 %97, label %102, label %98
 
-96:                                               ; preds = %91
-  %97 = getelementptr inbounds i8, ptr %93, i64 48
-  %98 = load i32, ptr %97, align 8
-  %99 = or i32 %98, 67108864
-  store i32 %99, ptr %97, align 8
-  br label %100
+98:                                               ; preds = %92
+  %99 = getelementptr inbounds i8, ptr %95, i64 48
+  %100 = load i32, ptr %99, align 8
+  %101 = or i32 %100, 67108864
+  store i32 %101, ptr %99, align 8
+  br label %102
 
-100:                                              ; preds = %96, %91
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (%struct.seqlock_t, ptr @mount_lock, i64 0, i32 1)) #5
+102:                                              ; preds = %98, %92
+  %103 = getelementptr inbounds %struct.seqlock_t, ptr @mount_lock, i64 0, i32 1
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %103) #5
   store ptr %0, ptr @last_dest, align 8
   store ptr %86, ptr @last_source, align 8
-  %101 = load ptr, ptr @list, align 8
-  %102 = load ptr, ptr %101, align 8
-  store volatile ptr %102, ptr %86, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %106, label %104
+  %104 = load ptr, ptr @list, align 8
+  %105 = load ptr, ptr %104, align 8
+  store volatile ptr %105, ptr %86, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %109, label %107
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %102, i64 8
-  store volatile ptr %86, ptr %105, align 8
-  br label %106
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds i8, ptr %105, i64 8
+  store volatile ptr %86, ptr %108, align 8
+  br label %109
 
-106:                                              ; preds = %104, %100
-  store volatile ptr %86, ptr %101, align 8
-  %107 = getelementptr inbounds i8, ptr %86, i64 8
-  store volatile ptr %101, ptr %107, align 8
-  %108 = load ptr, ptr %3, align 8
-  %109 = tail call i32 @count_mounts(ptr noundef %108, ptr noundef %86) #5
-  br label %110
+109:                                              ; preds = %107, %102
+  store volatile ptr %86, ptr %104, align 8
+  %110 = getelementptr inbounds i8, ptr %86, i64 8
+  store volatile ptr %104, ptr %110, align 8
+  %111 = load ptr, ptr %3, align 8
+  %112 = tail call i32 @count_mounts(ptr noundef %111, ptr noundef %86) #5
+  br label %113
 
-110:                                              ; preds = %106, %88, %10, %6, %2
-  %111 = phi i32 [ %90, %88 ], [ %109, %106 ], [ 0, %6 ], [ 0, %2 ], [ 0, %10 ]
-  ret i32 %111
+113:                                              ; preds = %109, %89, %10, %6, %2
+  %114 = phi i32 [ %91, %89 ], [ %112, %109 ], [ 0, %6 ], [ 0, %2 ], [ 0, %10 ]
+  ret i32 %114
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)

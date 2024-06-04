@@ -29,27 +29,27 @@ define dso_local i32 @pkcs7_validate_trust(ptr nocapture noundef readonly %0, pt
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %120, label %14
+  br i1 %13, label %125, label %14
 
-14:                                               ; preds = %116, %10
-  %15 = phi ptr [ %118, %116 ], [ %12, %10 ]
-  %16 = phi i32 [ %117, %116 ], [ -126, %10 ]
+14:                                               ; preds = %121, %10
+  %15 = phi ptr [ %123, %121 ], [ %12, %10 ]
+  %16 = phi i32 [ %122, %121 ], [ -126, %10 ]
   %17 = getelementptr inbounds i8, ptr %15, i64 64
   %18 = getelementptr inbounds i8, ptr %15, i64 20
   %19 = load i8, ptr %18, align 4, !range !8, !noundef !9
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %110
+  br i1 %20, label %21, label %115
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %15, i64 8
   %23 = load ptr, ptr %17, align 8
   %24 = load ptr, ptr %22, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %55, label %26
+  br i1 %25, label %57, label %26
 
-26:                                               ; preds = %49, %21
-  %27 = phi ptr [ %53, %49 ], [ %24, %21 ]
-  %28 = phi ptr [ %52, %49 ], [ %23, %21 ]
+26:                                               ; preds = %51, %21
+  %27 = phi ptr [ %55, %51 ], [ %24, %21 ]
+  %28 = phi ptr [ %54, %51 ], [ %23, %21 ]
   %29 = getelementptr inbounds i8, ptr %27, i64 156
   %30 = load i8, ptr %29, align 4, !range !8, !noundef !9
   %31 = icmp eq i8 %30, 0
@@ -59,7 +59,7 @@ define dso_local i32 @pkcs7_validate_trust(ptr nocapture noundef readonly %0, pt
   %33 = getelementptr inbounds i8, ptr %27, i64 157
   %34 = load i8, ptr %33, align 1, !range !8, !noundef !9
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %110, label %97
+  br i1 %35, label %115, label %102
 
 36:                                               ; preds = %26
   store i8 1, ptr %29, align 4
@@ -68,138 +68,143 @@ define dso_local i32 @pkcs7_validate_trust(ptr nocapture noundef readonly %0, pt
   %39 = getelementptr inbounds i8, ptr %27, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @find_asymmetric_key(ptr noundef %1, ptr noundef %38, ptr noundef %40, ptr noundef null, i1 noundef zeroext false) #2
-  %42 = icmp ugt ptr %41, inttoptr (i64 -4096 to ptr)
-  br i1 %42, label %43, label %88
+  %42 = inttoptr i64 -4096 to ptr
+  %43 = icmp ugt ptr %41, %42
+  br i1 %43, label %44, label %93
 
-43:                                               ; preds = %36
-  %44 = icmp eq ptr %41, inttoptr (i64 -12 to ptr)
-  br i1 %44, label %110, label %45
+44:                                               ; preds = %36
+  %45 = inttoptr i64 -12 to ptr
+  %46 = icmp eq ptr %41, %45
+  br i1 %46, label %115, label %47
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %27, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, %27
-  br i1 %48, label %110, label %49
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %27, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, %27
+  br i1 %50, label %115, label %51
 
-49:                                               ; preds = %45
-  %50 = tail call i32 @__SCT__might_resched() #2
-  %51 = getelementptr inbounds i8, ptr %27, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %46, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %26, !llvm.loop !10
+51:                                               ; preds = %47
+  %52 = tail call i32 @__SCT__might_resched() #2
+  %53 = getelementptr inbounds i8, ptr %27, i64 24
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %48, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %26, !llvm.loop !10
 
-55:                                               ; preds = %49, %21
-  %56 = phi ptr [ null, %21 ], [ %27, %49 ]
-  %57 = phi ptr [ %23, %21 ], [ %52, %49 ]
-  %58 = icmp eq ptr %56, null
-  br i1 %58, label %78, label %59
+57:                                               ; preds = %51, %21
+  %58 = phi ptr [ null, %21 ], [ %27, %51 ]
+  %59 = phi ptr [ %23, %21 ], [ %54, %51 ]
+  %60 = icmp eq ptr %58, null
+  br i1 %60, label %82, label %61
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %56, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %68
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds i8, ptr %58, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %66, label %70
 
-64:                                               ; preds = %59
-  %65 = getelementptr i8, ptr %61, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %78, label %68
+66:                                               ; preds = %61
+  %67 = getelementptr i8, ptr %63, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %82, label %70
 
-68:                                               ; preds = %64, %59
-  %69 = getelementptr i8, ptr %61, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call ptr @find_asymmetric_key(ptr noundef %1, ptr noundef %62, ptr noundef %70, ptr noundef null, i1 noundef zeroext false) #2
-  %72 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
-  br i1 %72, label %73, label %88
+70:                                               ; preds = %66, %61
+  %71 = getelementptr i8, ptr %63, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call ptr @find_asymmetric_key(ptr noundef %1, ptr noundef %64, ptr noundef %72, ptr noundef null, i1 noundef zeroext false) #2
+  %74 = inttoptr i64 -4096 to ptr
+  %75 = icmp ugt ptr %73, %74
+  br i1 %75, label %76, label %93
 
-73:                                               ; preds = %68
-  %74 = icmp eq ptr %71, inttoptr (i64 -126 to ptr)
-  br i1 %74, label %78, label %75
+76:                                               ; preds = %70
+  %77 = inttoptr i64 -126 to ptr
+  %78 = icmp eq ptr %73, %77
+  br i1 %78, label %82, label %79
 
-75:                                               ; preds = %73
-  %76 = ptrtoint ptr %71 to i64
-  %77 = trunc i64 %76 to i32
-  br label %110
+79:                                               ; preds = %76
+  %80 = ptrtoint ptr %73 to i64
+  %81 = trunc i64 %80 to i32
+  br label %115
 
-78:                                               ; preds = %73, %64, %55
-  %79 = load ptr, ptr %17, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call ptr @find_asymmetric_key(ptr noundef %1, ptr noundef %80, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #2
-  %82 = icmp ugt ptr %81, inttoptr (i64 -4096 to ptr)
-  br i1 %82, label %85, label %83
+82:                                               ; preds = %76, %66, %57
+  %83 = load ptr, ptr %17, align 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call ptr @find_asymmetric_key(ptr noundef %1, ptr noundef %84, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #2
+  %86 = inttoptr i64 -4096 to ptr
+  %87 = icmp ugt ptr %85, %86
+  br i1 %87, label %90, label %88
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %17, align 8
-  br label %88
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %17, align 8
+  br label %93
 
-85:                                               ; preds = %78
-  %86 = ptrtoint ptr %81 to i64
-  %87 = trunc i64 %86 to i32
-  br label %110
+90:                                               ; preds = %82
+  %91 = ptrtoint ptr %85 to i64
+  %92 = trunc i64 %91 to i32
+  br label %115
 
-88:                                               ; preds = %83, %68, %36
-  %89 = phi ptr [ %81, %83 ], [ %71, %68 ], [ %41, %36 ]
-  %90 = phi ptr [ null, %83 ], [ %56, %68 ], [ %27, %36 ]
-  %91 = phi ptr [ %84, %83 ], [ %57, %68 ], [ %28, %36 ]
-  %92 = tail call i32 @verify_signature(ptr noundef %89, ptr noundef %91) #2
-  tail call void @key_put(ptr noundef %89) #2
-  %93 = icmp slt i32 %92, 0
-  br i1 %93, label %94, label %97
+93:                                               ; preds = %88, %70, %36
+  %94 = phi ptr [ %85, %88 ], [ %73, %70 ], [ %41, %36 ]
+  %95 = phi ptr [ null, %88 ], [ %58, %70 ], [ %27, %36 ]
+  %96 = phi ptr [ %89, %88 ], [ %59, %70 ], [ %28, %36 ]
+  %97 = tail call i32 @verify_signature(ptr noundef %94, ptr noundef %96) #2
+  tail call void @key_put(ptr noundef %94) #2
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %99, label %102
 
-94:                                               ; preds = %88
-  %95 = icmp eq i32 %92, -12
-  %96 = select i1 %95, i32 -12, i32 -129
-  br label %110
+99:                                               ; preds = %93
+  %100 = icmp eq i32 %97, -12
+  %101 = select i1 %100, i32 -12, i32 -129
+  br label %115
 
-97:                                               ; preds = %88, %32
-  %98 = phi ptr [ %27, %32 ], [ %90, %88 ]
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %110, label %100
+102:                                              ; preds = %93, %32
+  %103 = phi ptr [ %27, %32 ], [ %95, %93 ]
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %115, label %105
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %98, i64 157
-  store i8 1, ptr %101, align 1
-  %102 = load ptr, ptr %22, align 8
-  %103 = icmp eq ptr %102, %98
-  br i1 %103, label %110, label %104
-
-104:                                              ; preds = %104, %100
-  %105 = phi ptr [ %108, %104 ], [ %102, %100 ]
-  %106 = getelementptr inbounds i8, ptr %105, i64 157
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds i8, ptr %103, i64 157
   store i8 1, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %105, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, %98
-  br i1 %109, label %110, label %104, !llvm.loop !11
+  %107 = load ptr, ptr %22, align 8
+  %108 = icmp eq ptr %107, %103
+  br i1 %108, label %115, label %109
 
-110:                                              ; preds = %104, %100, %97, %94, %85, %75, %45, %43, %32, %14
-  %111 = phi i32 [ %77, %75 ], [ -65, %14 ], [ -126, %32 ], [ %96, %94 ], [ 0, %97 ], [ %87, %85 ], [ 0, %100 ], [ 0, %104 ], [ -12, %43 ], [ -126, %45 ]
-  switch i32 %111, label %120 [
-    i32 -126, label %116
-    i32 -65, label %112
-    i32 0, label %115
+109:                                              ; preds = %109, %105
+  %110 = phi ptr [ %113, %109 ], [ %107, %105 ]
+  %111 = getelementptr inbounds i8, ptr %110, i64 157
+  store i8 1, ptr %111, align 1
+  %112 = getelementptr inbounds i8, ptr %110, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp eq ptr %113, %103
+  br i1 %114, label %115, label %109, !llvm.loop !11
+
+115:                                              ; preds = %109, %105, %102, %99, %90, %79, %47, %44, %32, %14
+  %116 = phi i32 [ %81, %79 ], [ -65, %14 ], [ -126, %32 ], [ %101, %99 ], [ 0, %102 ], [ %92, %90 ], [ 0, %105 ], [ 0, %109 ], [ -12, %44 ], [ -126, %47 ]
+  switch i32 %116, label %125 [
+    i32 -126, label %121
+    i32 -65, label %117
+    i32 0, label %120
   ]
 
-112:                                              ; preds = %110
-  %113 = icmp eq i32 %16, -126
-  %114 = select i1 %113, i32 -65, i32 %16
-  br label %116
+117:                                              ; preds = %115
+  %118 = icmp eq i32 %16, -126
+  %119 = select i1 %118, i32 -65, i32 %16
+  br label %121
 
-115:                                              ; preds = %110
-  br label %116
+120:                                              ; preds = %115
+  br label %121
 
-116:                                              ; preds = %115, %112, %110
-  %117 = phi i32 [ 0, %115 ], [ %114, %112 ], [ %16, %110 ]
-  %118 = load ptr, ptr %15, align 8
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %120, label %14, !llvm.loop !12
+121:                                              ; preds = %120, %117, %115
+  %122 = phi i32 [ 0, %120 ], [ %119, %117 ], [ %16, %115 ]
+  %123 = load ptr, ptr %15, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %125, label %14, !llvm.loop !12
 
-120:                                              ; preds = %116, %110, %10
-  %121 = phi i32 [ -126, %10 ], [ %111, %110 ], [ %117, %116 ]
-  ret i32 %121
+125:                                              ; preds = %121, %115, %10
+  %126 = phi i32 [ -126, %10 ], [ %116, %115 ], [ %122, %121 ]
+  ret i32 %126
 }
 
 ; Function Attrs: null_pointer_is_valid

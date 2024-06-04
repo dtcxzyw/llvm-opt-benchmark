@@ -32,54 +32,55 @@ define internal i32 @container_device_attach(ptr noundef %0, ptr nocapture readn
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 256
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %32
+  br i1 %6, label %7, label %33
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %9 = tail call noalias noundef align 8 dereferenceable_or_null(736) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 736) #5
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %32, label %11
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %9 = load ptr, ptr %8, align 16
+  %10 = tail call noalias noundef align 8 dereferenceable_or_null(736) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 736) #5
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %33, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 728
-  store ptr @acpi_container_offline, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 96
-  store ptr @container_subsys, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 696
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %20
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %10, i64 728
+  store ptr @acpi_container_offline, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %10, i64 96
+  store ptr @container_subsys, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 696
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %21
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 616
-  %19 = load ptr, ptr %18, align 8
-  br label %20
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %0, i64 616
+  %20 = load ptr, ptr %19, align 8
+  br label %21
 
-20:                                               ; preds = %17, %11
-  %21 = phi ptr [ %19, %17 ], [ %15, %11 ]
-  %22 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %9, ptr noundef nonnull @.str, ptr noundef %21) #4
-  %23 = icmp eq ptr %0, null
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = select i1 %23, ptr null, ptr %24
-  tail call void @set_primary_fwnode(ptr noundef nonnull %9, ptr noundef %25) #4
-  %26 = getelementptr inbounds i8, ptr %9, i64 688
-  store ptr @acpi_container_release, ptr %26, align 8
-  %27 = tail call i32 @device_register(ptr noundef nonnull %9) #4
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %30, label %29
+21:                                               ; preds = %18, %12
+  %22 = phi ptr [ %20, %18 ], [ %16, %12 ]
+  %23 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %10, ptr noundef nonnull @.str, ptr noundef %22) #4
+  %24 = icmp eq ptr %0, null
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = select i1 %24, ptr null, ptr %25
+  tail call void @set_primary_fwnode(ptr noundef nonnull %10, ptr noundef %26) #4
+  %27 = getelementptr inbounds i8, ptr %10, i64 688
+  store ptr @acpi_container_release, ptr %27, align 8
+  %28 = tail call i32 @device_register(ptr noundef nonnull %10) #4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %31, label %30
 
-29:                                               ; preds = %20
-  tail call void @put_device(ptr noundef nonnull %9) #4
-  br label %32
+30:                                               ; preds = %21
+  tail call void @put_device(ptr noundef nonnull %10) #4
+  br label %33
 
-30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %0, i64 608
-  store ptr %9, ptr %31, align 8
-  br label %32
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds i8, ptr %0, i64 608
+  store ptr %10, ptr %32, align 8
+  br label %33
 
-32:                                               ; preds = %30, %29, %7, %2
-  %33 = phi i32 [ %27, %29 ], [ 1, %30 ], [ 0, %2 ], [ -12, %7 ]
-  ret i32 %33
+33:                                               ; preds = %31, %30, %7, %2
+  %34 = phi i32 [ %28, %30 ], [ 1, %31 ], [ 0, %2 ], [ -12, %7 ]
+  ret i32 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

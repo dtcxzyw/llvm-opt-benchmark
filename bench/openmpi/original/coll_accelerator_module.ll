@@ -330,125 +330,129 @@ define ptr @mca_coll_accelerator_comm_query(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %7 = call i32 @strcmp(ptr noundef getelementptr inbounds (%struct.mca_base_component_2_1_0_t, ptr @opal_accelerator_base_selected_component, i32 0, i32 11), ptr noundef @.str.1) #7
-  %8 = icmp eq i32 0, %7
-  br i1 %8, label %9, label %17
+  %7 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr @opal_accelerator_base_selected_component, i32 0, i32 11
+  %8 = call i32 @strcmp(ptr noundef %7, ptr noundef @.str.1) #7
+  %9 = icmp eq i32 0, %8
+  br i1 %9, label %10, label %20
 
-9:                                                ; preds = %2
-  br label %10
+10:                                               ; preds = %2
+  br label %11
 
-10:                                               ; preds = %9
-  %11 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i32 0, i32 11), align 4
-  %12 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %11)
-  br i1 %12, label %13, label %15
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i32 0, i32 11
+  %13 = load i32, ptr %12, align 4
+  %14 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %13)
+  br i1 %14, label %15, label %18
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i32 0, i32 11), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %14, ptr noundef @.str.2)
-  br label %15
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i32 0, i32 11
+  %17 = load i32, ptr %16, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %17, ptr noundef @.str.2)
+  br label %18
 
-15:                                               ; preds = %13, %10
-  br label %16
+18:                                               ; preds = %15, %11
+  br label %19
 
-16:                                               ; preds = %15
+19:                                               ; preds = %18
   store ptr null, ptr %3, align 8
-  br label %81
+  br label %85
 
-17:                                               ; preds = %2
-  %18 = call ptr @opal_obj_new(ptr noundef @mca_coll_accelerator_module_t_class)
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = icmp eq ptr null, %19
-  br i1 %20, label %21, label %22
+20:                                               ; preds = %2
+  %21 = call ptr @opal_obj_new(ptr noundef @mca_coll_accelerator_module_t_class)
+  store ptr %21, ptr %6, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = icmp eq ptr null, %22
+  br i1 %23, label %24, label %25
 
-21:                                               ; preds = %17
+24:                                               ; preds = %20
   store ptr null, ptr %3, align 8
-  br label %81
+  br label %85
 
-22:                                               ; preds = %17
-  %23 = load i32, ptr getelementptr inbounds (%struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i32 0, i32 1), align 8
-  %24 = load ptr, ptr %5, align 8
-  store i32 %23, ptr %24, align 4
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %26, i32 0, i32 1
-  store ptr @mca_coll_accelerator_module_enable, ptr %27, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %29, i32 0, i32 2
-  store ptr null, ptr %30, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %31, i32 0, i32 0
-  %33 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %32, i32 0, i32 3
-  store ptr null, ptr %33, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %35, i32 0, i32 4
-  store ptr @mca_coll_accelerator_allreduce, ptr %36, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %37, i32 0, i32 0
-  %39 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %38, i32 0, i32 5
-  store ptr null, ptr %39, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %40, i32 0, i32 0
-  %42 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %41, i32 0, i32 6
-  store ptr null, ptr %42, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %43, i32 0, i32 0
-  %45 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %44, i32 0, i32 7
-  store ptr null, ptr %45, align 8
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %46, i32 0, i32 0
-  %48 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %47, i32 0, i32 8
-  store ptr null, ptr %48, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %49, i32 0, i32 0
-  %51 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %50, i32 0, i32 9
-  store ptr null, ptr %51, align 8
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %52, i32 0, i32 0
-  %54 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %53, i32 0, i32 10
-  store ptr @mca_coll_accelerator_exscan, ptr %54, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %55, i32 0, i32 0
-  %57 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %56, i32 0, i32 11
-  store ptr null, ptr %57, align 8
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %58, i32 0, i32 0
-  %60 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %59, i32 0, i32 12
-  store ptr null, ptr %60, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %61, i32 0, i32 0
-  %63 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %62, i32 0, i32 13
-  store ptr @mca_coll_accelerator_reduce, ptr %63, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %64, i32 0, i32 0
-  %66 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %65, i32 0, i32 14
-  store ptr null, ptr %66, align 8
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %67, i32 0, i32 0
-  %69 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %68, i32 0, i32 15
-  store ptr @mca_coll_accelerator_reduce_scatter_block, ptr %69, align 8
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %70, i32 0, i32 0
-  %72 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %71, i32 0, i32 16
-  store ptr @mca_coll_accelerator_scan, ptr %72, align 8
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %73, i32 0, i32 0
-  %75 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %74, i32 0, i32 17
-  store ptr null, ptr %75, align 8
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %76, i32 0, i32 0
-  %78 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %77, i32 0, i32 18
-  store ptr null, ptr %78, align 8
-  %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %79, i32 0, i32 0
-  store ptr %80, ptr %3, align 8
-  br label %81
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds %struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i32 0, i32 1
+  %27 = load i32, ptr %26, align 8
+  %28 = load ptr, ptr %5, align 8
+  store i32 %27, ptr %28, align 4
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %30, i32 0, i32 1
+  store ptr @mca_coll_accelerator_module_enable, ptr %31, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %33, i32 0, i32 2
+  store ptr null, ptr %34, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %36, i32 0, i32 3
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %39, i32 0, i32 4
+  store ptr @mca_coll_accelerator_allreduce, ptr %40, align 8
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %42, i32 0, i32 5
+  store ptr null, ptr %43, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %44, i32 0, i32 0
+  %46 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %45, i32 0, i32 6
+  store ptr null, ptr %46, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %48, i32 0, i32 7
+  store ptr null, ptr %49, align 8
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %51, i32 0, i32 8
+  store ptr null, ptr %52, align 8
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %54, i32 0, i32 9
+  store ptr null, ptr %55, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %57, i32 0, i32 10
+  store ptr @mca_coll_accelerator_exscan, ptr %58, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %59, i32 0, i32 0
+  %61 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %60, i32 0, i32 11
+  store ptr null, ptr %61, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %63, i32 0, i32 12
+  store ptr null, ptr %64, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %65, i32 0, i32 0
+  %67 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %66, i32 0, i32 13
+  store ptr @mca_coll_accelerator_reduce, ptr %67, align 8
+  %68 = load ptr, ptr %6, align 8
+  %69 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %69, i32 0, i32 14
+  store ptr null, ptr %70, align 8
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %71, i32 0, i32 0
+  %73 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %72, i32 0, i32 15
+  store ptr @mca_coll_accelerator_reduce_scatter_block, ptr %73, align 8
+  %74 = load ptr, ptr %6, align 8
+  %75 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %74, i32 0, i32 0
+  %76 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %75, i32 0, i32 16
+  store ptr @mca_coll_accelerator_scan, ptr %76, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %78, i32 0, i32 17
+  store ptr null, ptr %79, align 8
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %80, i32 0, i32 0
+  %82 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %81, i32 0, i32 18
+  store ptr null, ptr %82, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %83, i32 0, i32 0
+  store ptr %84, ptr %3, align 8
+  br label %85
 
-81:                                               ; preds = %22, %21, %16
-  %82 = load ptr, ptr %3, align 8
-  ret ptr %82
+85:                                               ; preds = %25, %24, %19
+  %86 = load ptr, ptr %3, align 8
+  ret ptr %86
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -869,20 +873,22 @@ define i32 @mca_coll_accelerator_module_enable(ptr noundef %0, ptr noundef %1) #
 
 259:                                              ; preds = %256
   store i32 0, ptr %15, align 4
-  br label %266
+  br label %268
 
 260:                                              ; preds = %256
   %261 = load ptr, ptr @opal_show_help, align 8
-  %262 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %263 = load i32, ptr getelementptr inbounds (%struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i32 0, i32 1), align 8
-  %264 = load ptr, ptr %19, align 8
-  %265 = call i32 (ptr, ptr, i32, ...) %261(ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 1, ptr noundef %262, i32 noundef %263, ptr noundef %264)
+  %262 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %263 = load ptr, ptr %262, align 8
+  %264 = getelementptr inbounds %struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i32 0, i32 1
+  %265 = load i32, ptr %264, align 8
+  %266 = load ptr, ptr %19, align 8
+  %267 = call i32 (ptr, ptr, i32, ...) %261(ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 1, ptr noundef %263, i32 noundef %265, ptr noundef %266)
   store i32 -13, ptr %15, align 4
-  br label %266
+  br label %268
 
-266:                                              ; preds = %260, %259
-  %267 = load i32, ptr %15, align 4
-  ret i32 %267
+268:                                              ; preds = %260, %259
+  %269 = load i32, ptr %15, align 4
+  ret i32 %269
 }
 
 declare i32 @mca_coll_accelerator_allreduce(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2

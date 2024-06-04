@@ -51,36 +51,40 @@ define dso_local ptr @mtrr_attrib_to_str(i32 noundef %0) local_unnamed_addr #0 a
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @mtrr_if_init() #1 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
-  %2 = and i64 %1, 4096
-  %3 = icmp eq i64 %2, 0
-  br i1 %3, label %4, label %16
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11
+  %2 = load volatile i64, ptr %1, align 8
+  %3 = and i64 %2, 4096
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %5, label %20
 
-4:                                                ; preds = %0
-  %5 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0), align 8
-  %6 = and i64 %5, 8589934592
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %16
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0
+  %7 = load volatile i64, ptr %6, align 8
+  %8 = and i64 %7, 8589934592
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %20
 
-8:                                                ; preds = %4
-  %9 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0), align 8
-  %10 = and i64 %9, 17179869184
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %16
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0
+  %12 = load volatile i64, ptr %11, align 8
+  %13 = and i64 %12, 17179869184
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %20
 
-12:                                               ; preds = %8
-  %13 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0), align 8
-  %14 = and i64 %13, 34359738368
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0
+  %17 = load volatile i64, ptr %16, align 8
+  %18 = and i64 %17, 34359738368
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %22, label %20
 
-16:                                               ; preds = %12, %8, %4, %0
-  %17 = tail call ptr @proc_create(ptr noundef nonnull @.str.6, i16 noundef zeroext 420, ptr noundef null, ptr noundef nonnull @mtrr_proc_ops) #12
-  br label %18
+20:                                               ; preds = %15, %10, %5, %0
+  %21 = tail call ptr @proc_create(ptr noundef nonnull @.str.6, i16 noundef zeroext 420, ptr noundef null, ptr noundef nonnull @mtrr_proc_ops) #12
+  br label %22
 
-18:                                               ; preds = %16, %12
-  %19 = phi i32 [ 0, %16 ], [ -19, %12 ]
-  ret i32 %19
+22:                                               ; preds = %20, %15
+  %23 = phi i32 [ 0, %20 ], [ -19, %15 ]
+  ret i32 %23
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

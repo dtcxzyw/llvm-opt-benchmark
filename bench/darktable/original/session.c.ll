@@ -170,10 +170,11 @@ define internal void @create_callback(ptr nocapture readnone %0, ptr nocapture n
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = tail call ptr @gtk_entry_get_text(ptr noundef %6) #8
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.4, ptr noundef %7) #8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !20
-  %9 = load ptr, ptr %5, align 8, !tbaa !18
-  %10 = tail call ptr @gtk_entry_get_text(ptr noundef %9) #8
-  tail call void @dt_view_tethering_set_job_code(ptr noundef %8, ptr noundef %10) #8
+  %8 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 11
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %10 = load ptr, ptr %5, align 8, !tbaa !18
+  %11 = tail call ptr @gtk_entry_get_text(ptr noundef %10) #8
+  tail call void @dt_view_tethering_set_job_code(ptr noundef %9, ptr noundef %11) #8
   ret void
 }
 

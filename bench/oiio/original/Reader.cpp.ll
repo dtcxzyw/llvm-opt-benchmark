@@ -118,7 +118,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6cineon6ReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6cineon6ReaderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header = getelementptr inbounds %"class.cineon::Reader", ptr %this1, i32 0, i32 1
   call void @_ZN6cineon6HeaderC1Ev(ptr noundef nonnull align 4 dereferenceable(2048) %header)
   %fd = getelementptr inbounds %"class.cineon::Reader", ptr %this1, i32 0, i32 2
@@ -138,31 +139,32 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6cineon6ReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6cineon6ReaderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN6cineon6Reader5ResetEv(ptr noundef nonnull align 8 dereferenceable(2080) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %rio = getelementptr inbounds %"class.cineon::Reader", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %rio, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %rio, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(16) %1) #5
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
   unreachable
 }
 

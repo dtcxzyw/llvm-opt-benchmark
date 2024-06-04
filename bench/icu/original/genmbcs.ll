@@ -59,18 +59,22 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @MBCSGetDummy() #0 {
 entry:
   call void @llvm.memset.p0.i64(ptr align 8 @_ZL6gDummy, i8 0, i64 456528, i1 false)
-  store i8 1, ptr getelementptr inbounds (%struct.MBCSData, ptr @_ZL6gDummy, i32 0, i32 13), align 2
-  %0 = load i8, ptr @SMALL, align 1
-  %tobool = icmp ne i8 %0, 0
+  %0 = getelementptr inbounds %struct.MBCSData, ptr @_ZL6gDummy, i32 0, i32 13
+  store i8 1, ptr %0, align 2
+  %1 = load i8, ptr @SMALL, align 1
+  %tobool = icmp ne i8 %1, 0
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store i16 -1, ptr getelementptr inbounds (%struct.MBCSData, ptr @_ZL6gDummy, i32 0, i32 12), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.MBCSData, ptr @_ZL6gDummy, i32 0, i32 14), align 1
+  %2 = getelementptr inbounds %struct.MBCSData, ptr @_ZL6gDummy, i32 0, i32 12
+  store i16 -1, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.MBCSData, ptr @_ZL6gDummy, i32 0, i32 14
+  store i8 1, ptr %3, align 1
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store i16 -10241, ptr getelementptr inbounds (%struct.MBCSData, ptr @_ZL6gDummy, i32 0, i32 12), align 8
+  %4 = getelementptr inbounds %struct.MBCSData, ptr @_ZL6gDummy, i32 0, i32 12
+  store i16 -10241, ptr %4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

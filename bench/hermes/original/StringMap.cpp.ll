@@ -126,7 +126,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %5 = load i32, ptr %NumBuckets3, align 8
   %idxprom = zext i32 %5 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  store ptr inttoptr (i64 2 to ptr), ptr %arrayidx, align 8
+  %6 = inttoptr i64 2 to ptr
+  store ptr %6, ptr %arrayidx, align 8
   ret void
 }
 
@@ -940,84 +941,85 @@ if.end14:                                         ; preds = %if.end, %if.then
   %16 = load i32, ptr %NewSize, align 4
   %idxprom = zext i32 %16 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %15, i64 %idxprom
-  store ptr inttoptr (i64 2 to ptr), ptr %arrayidx, align 8
+  %17 = inttoptr i64 2 to ptr
+  store ptr %17, ptr %arrayidx, align 8
   store i32 0, ptr %I, align 4
   %NumBuckets19 = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this1, i32 0, i32 1
-  %17 = load i32, ptr %NumBuckets19, align 8
-  store i32 %17, ptr %E, align 4
+  %18 = load i32, ptr %NumBuckets19, align 8
+  store i32 %18, ptr %E, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end14
-  %18 = load i32, ptr %I, align 4
-  %19 = load i32, ptr %E, align 4
-  %cmp20 = icmp ne i32 %18, %19
+  %19 = load i32, ptr %I, align 4
+  %20 = load i32, ptr %E, align 4
+  %cmp20 = icmp ne i32 %19, %20
   br i1 %cmp20, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %TheTable21 = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this1, i32 0, i32 0
-  %20 = load ptr, ptr %TheTable21, align 8
-  %21 = load i32, ptr %I, align 4
-  %idxprom22 = zext i32 %21 to i64
-  %arrayidx23 = getelementptr inbounds ptr, ptr %20, i64 %idxprom22
-  %22 = load ptr, ptr %arrayidx23, align 8
-  store ptr %22, ptr %Bucket, align 8
-  %23 = load ptr, ptr %Bucket, align 8
-  %tobool = icmp ne ptr %23, null
+  %21 = load ptr, ptr %TheTable21, align 8
+  %22 = load i32, ptr %I, align 4
+  %idxprom22 = zext i32 %22 to i64
+  %arrayidx23 = getelementptr inbounds ptr, ptr %21, i64 %idxprom22
+  %23 = load ptr, ptr %arrayidx23, align 8
+  store ptr %23, ptr %Bucket, align 8
+  %24 = load ptr, ptr %Bucket, align 8
+  %tobool = icmp ne ptr %24, null
   br i1 %tobool, label %land.lhs.true, label %if.end59
 
 land.lhs.true:                                    ; preds = %for.body
-  %24 = load ptr, ptr %Bucket, align 8
+  %25 = load ptr, ptr %Bucket, align 8
   %call24 = call noundef ptr @_ZN4llvh13StringMapImpl15getTombstoneValEv()
-  %cmp25 = icmp ne ptr %24, %call24
+  %cmp25 = icmp ne ptr %25, %call24
   br i1 %cmp25, label %if.then26, label %if.end59
 
 if.then26:                                        ; preds = %land.lhs.true
-  %25 = load ptr, ptr %HashTable, align 8
-  %26 = load i32, ptr %I, align 4
-  %idxprom27 = zext i32 %26 to i64
-  %arrayidx28 = getelementptr inbounds i32, ptr %25, i64 %idxprom27
-  %27 = load i32, ptr %arrayidx28, align 4
-  store i32 %27, ptr %FullHash, align 4
-  %28 = load i32, ptr %FullHash, align 4
-  %29 = load i32, ptr %NewSize, align 4
-  %sub29 = sub i32 %29, 1
-  %and = and i32 %28, %sub29
+  %26 = load ptr, ptr %HashTable, align 8
+  %27 = load i32, ptr %I, align 4
+  %idxprom27 = zext i32 %27 to i64
+  %arrayidx28 = getelementptr inbounds i32, ptr %26, i64 %idxprom27
+  %28 = load i32, ptr %arrayidx28, align 4
+  store i32 %28, ptr %FullHash, align 4
+  %29 = load i32, ptr %FullHash, align 4
+  %30 = load i32, ptr %NewSize, align 4
+  %sub29 = sub i32 %30, 1
+  %and = and i32 %29, %sub29
   store i32 %and, ptr %NewBucket, align 4
-  %30 = load ptr, ptr %NewTableArray, align 8
-  %31 = load i32, ptr %NewBucket, align 4
-  %idxprom30 = zext i32 %31 to i64
-  %arrayidx31 = getelementptr inbounds ptr, ptr %30, i64 %idxprom30
-  %32 = load ptr, ptr %arrayidx31, align 8
-  %tobool32 = icmp ne ptr %32, null
+  %31 = load ptr, ptr %NewTableArray, align 8
+  %32 = load i32, ptr %NewBucket, align 4
+  %idxprom30 = zext i32 %32 to i64
+  %arrayidx31 = getelementptr inbounds ptr, ptr %31, i64 %idxprom30
+  %33 = load ptr, ptr %arrayidx31, align 8
+  %tobool32 = icmp ne ptr %33, null
   br i1 %tobool32, label %if.end45, label %if.then33
 
 if.then33:                                        ; preds = %if.then26
-  %33 = load ptr, ptr %Bucket, align 8
-  %34 = load ptr, ptr %NewTableArray, align 8
-  %35 = load i32, ptr %FullHash, align 4
-  %36 = load i32, ptr %NewSize, align 4
-  %sub34 = sub i32 %36, 1
-  %and35 = and i32 %35, %sub34
+  %34 = load ptr, ptr %Bucket, align 8
+  %35 = load ptr, ptr %NewTableArray, align 8
+  %36 = load i32, ptr %FullHash, align 4
+  %37 = load i32, ptr %NewSize, align 4
+  %sub34 = sub i32 %37, 1
+  %and35 = and i32 %36, %sub34
   %idxprom36 = zext i32 %and35 to i64
-  %arrayidx37 = getelementptr inbounds ptr, ptr %34, i64 %idxprom36
-  store ptr %33, ptr %arrayidx37, align 8
-  %37 = load i32, ptr %FullHash, align 4
-  %38 = load ptr, ptr %NewHashArray, align 8
-  %39 = load i32, ptr %FullHash, align 4
-  %40 = load i32, ptr %NewSize, align 4
-  %sub38 = sub i32 %40, 1
-  %and39 = and i32 %39, %sub38
+  %arrayidx37 = getelementptr inbounds ptr, ptr %35, i64 %idxprom36
+  store ptr %34, ptr %arrayidx37, align 8
+  %38 = load i32, ptr %FullHash, align 4
+  %39 = load ptr, ptr %NewHashArray, align 8
+  %40 = load i32, ptr %FullHash, align 4
+  %41 = load i32, ptr %NewSize, align 4
+  %sub38 = sub i32 %41, 1
+  %and39 = and i32 %40, %sub38
   %idxprom40 = zext i32 %and39 to i64
-  %arrayidx41 = getelementptr inbounds i32, ptr %38, i64 %idxprom40
-  store i32 %37, ptr %arrayidx41, align 4
-  %41 = load i32, ptr %I, align 4
-  %42 = load i32, ptr %BucketNo.addr, align 4
-  %cmp42 = icmp eq i32 %41, %42
+  %arrayidx41 = getelementptr inbounds i32, ptr %39, i64 %idxprom40
+  store i32 %38, ptr %arrayidx41, align 4
+  %42 = load i32, ptr %I, align 4
+  %43 = load i32, ptr %BucketNo.addr, align 4
+  %cmp42 = icmp eq i32 %42, %43
   br i1 %cmp42, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.then33
-  %43 = load i32, ptr %NewBucket, align 4
-  store i32 %43, ptr %NewBucketNo, align 4
+  %44 = load i32, ptr %NewBucket, align 4
+  store i32 %44, ptr %NewBucketNo, align 4
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.then33
@@ -1028,47 +1030,47 @@ if.end45:                                         ; preds = %if.then26
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end45
-  %44 = load i32, ptr %NewBucket, align 4
-  %45 = load i32, ptr %ProbeSize, align 4
-  %inc = add i32 %45, 1
+  %45 = load i32, ptr %NewBucket, align 4
+  %46 = load i32, ptr %ProbeSize, align 4
+  %inc = add i32 %46, 1
   store i32 %inc, ptr %ProbeSize, align 4
-  %add46 = add i32 %44, %45
-  %46 = load i32, ptr %NewSize, align 4
-  %sub47 = sub i32 %46, 1
+  %add46 = add i32 %45, %46
+  %47 = load i32, ptr %NewSize, align 4
+  %sub47 = sub i32 %47, 1
   %and48 = and i32 %add46, %sub47
   store i32 %and48, ptr %NewBucket, align 4
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %47 = load ptr, ptr %NewTableArray, align 8
-  %48 = load i32, ptr %NewBucket, align 4
-  %idxprom49 = zext i32 %48 to i64
-  %arrayidx50 = getelementptr inbounds ptr, ptr %47, i64 %idxprom49
-  %49 = load ptr, ptr %arrayidx50, align 8
-  %tobool51 = icmp ne ptr %49, null
+  %48 = load ptr, ptr %NewTableArray, align 8
+  %49 = load i32, ptr %NewBucket, align 4
+  %idxprom49 = zext i32 %49 to i64
+  %arrayidx50 = getelementptr inbounds ptr, ptr %48, i64 %idxprom49
+  %50 = load ptr, ptr %arrayidx50, align 8
+  %tobool51 = icmp ne ptr %50, null
   br i1 %tobool51, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %do.cond
-  %50 = load ptr, ptr %Bucket, align 8
-  %51 = load ptr, ptr %NewTableArray, align 8
-  %52 = load i32, ptr %NewBucket, align 4
-  %idxprom52 = zext i32 %52 to i64
-  %arrayidx53 = getelementptr inbounds ptr, ptr %51, i64 %idxprom52
-  store ptr %50, ptr %arrayidx53, align 8
-  %53 = load i32, ptr %FullHash, align 4
-  %54 = load ptr, ptr %NewHashArray, align 8
-  %55 = load i32, ptr %NewBucket, align 4
-  %idxprom54 = zext i32 %55 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %54, i64 %idxprom54
-  store i32 %53, ptr %arrayidx55, align 4
-  %56 = load i32, ptr %I, align 4
-  %57 = load i32, ptr %BucketNo.addr, align 4
-  %cmp56 = icmp eq i32 %56, %57
+  %51 = load ptr, ptr %Bucket, align 8
+  %52 = load ptr, ptr %NewTableArray, align 8
+  %53 = load i32, ptr %NewBucket, align 4
+  %idxprom52 = zext i32 %53 to i64
+  %arrayidx53 = getelementptr inbounds ptr, ptr %52, i64 %idxprom52
+  store ptr %51, ptr %arrayidx53, align 8
+  %54 = load i32, ptr %FullHash, align 4
+  %55 = load ptr, ptr %NewHashArray, align 8
+  %56 = load i32, ptr %NewBucket, align 4
+  %idxprom54 = zext i32 %56 to i64
+  %arrayidx55 = getelementptr inbounds i32, ptr %55, i64 %idxprom54
+  store i32 %54, ptr %arrayidx55, align 4
+  %57 = load i32, ptr %I, align 4
+  %58 = load i32, ptr %BucketNo.addr, align 4
+  %cmp56 = icmp eq i32 %57, %58
   br i1 %cmp56, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %do.end
-  %58 = load i32, ptr %NewBucket, align 4
-  store i32 %58, ptr %NewBucketNo, align 4
+  %59 = load i32, ptr %NewBucket, align 4
+  store i32 %59, ptr %NewBucketNo, align 4
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then57, %do.end
@@ -1078,30 +1080,30 @@ if.end59:                                         ; preds = %if.end58, %land.lhs
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end59, %if.end44
-  %59 = load i32, ptr %I, align 4
-  %inc60 = add i32 %59, 1
+  %60 = load i32, ptr %I, align 4
+  %inc60 = add i32 %60, 1
   store i32 %inc60, ptr %I, align 4
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
   %TheTable61 = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this1, i32 0, i32 0
-  %60 = load ptr, ptr %TheTable61, align 8
-  call void @free(ptr noundef %60) #8
-  %61 = load ptr, ptr %NewTableArray, align 8
+  %61 = load ptr, ptr %TheTable61, align 8
+  call void @free(ptr noundef %61) #8
+  %62 = load ptr, ptr %NewTableArray, align 8
   %TheTable62 = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this1, i32 0, i32 0
-  store ptr %61, ptr %TheTable62, align 8
-  %62 = load i32, ptr %NewSize, align 4
+  store ptr %62, ptr %TheTable62, align 8
+  %63 = load i32, ptr %NewSize, align 4
   %NumBuckets63 = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this1, i32 0, i32 1
-  store i32 %62, ptr %NumBuckets63, align 8
+  store i32 %63, ptr %NumBuckets63, align 8
   %NumTombstones64 = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this1, i32 0, i32 3
   store i32 0, ptr %NumTombstones64, align 8
-  %63 = load i32, ptr %NewBucketNo, align 4
-  store i32 %63, ptr %retval, align 4
+  %64 = load i32, ptr %NewBucketNo, align 4
+  store i32 %64, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %for.end, %if.else13
-  %64 = load i32, ptr %retval, align 4
-  ret i32 %64
+  %65 = load i32, ptr %retval, align 4
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind

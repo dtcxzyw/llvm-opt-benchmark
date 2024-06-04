@@ -185,32 +185,33 @@ entry:
   store i8 %frombool, ptr %isUnilateral.addr, align 1
   store i32 %type, ptr %type.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV21btMultiBodyConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV21btMultiBodyConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_bodyA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %bodyA.addr, align 8
-  store ptr %0, ptr %m_bodyA, align 8
+  %1 = load ptr, ptr %bodyA.addr, align 8
+  store ptr %1, ptr %m_bodyA, align 8
   %m_bodyB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %bodyB.addr, align 8
-  store ptr %1, ptr %m_bodyB, align 8
+  %2 = load ptr, ptr %bodyB.addr, align 8
+  store ptr %2, ptr %m_bodyB, align 8
   %m_linkA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %linkA.addr, align 4
-  store i32 %2, ptr %m_linkA, align 8
+  %3 = load i32, ptr %linkA.addr, align 4
+  store i32 %3, ptr %m_linkA, align 8
   %m_linkB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 4
-  %3 = load i32, ptr %linkB.addr, align 4
-  store i32 %3, ptr %m_linkB, align 4
+  %4 = load i32, ptr %linkB.addr, align 4
+  store i32 %4, ptr %m_linkB, align 4
   %m_type = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 5
-  %4 = load i32, ptr %type.addr, align 4
-  store i32 %4, ptr %m_type, align 8
+  %5 = load i32, ptr %type.addr, align 4
+  store i32 %5, ptr %m_type, align 8
   %m_numRows = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 6
-  %5 = load i32, ptr %numRows.addr, align 4
-  store i32 %5, ptr %m_numRows, align 4
+  %6 = load i32, ptr %numRows.addr, align 4
+  store i32 %6, ptr %m_numRows, align 4
   %m_jacSizeA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 7
   store i32 0, ptr %m_jacSizeA, align 8
   %m_jacSizeBoth = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 8
   store i32 0, ptr %m_jacSizeBoth, align 4
   %m_isUnilateral = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 10
-  %6 = load i8, ptr %isUnilateral.addr, align 1
-  %tobool = trunc i8 %6 to i1
+  %7 = load i8, ptr %isUnilateral.addr, align 1
+  %tobool = trunc i8 %7 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %m_isUnilateral, align 4
   %m_numDofsFinalized = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 11
@@ -420,7 +421,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV21btMultiBodyConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV21btMultiBodyConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_data = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this1, i32 0, i32 13
   call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_data) #9
   ret void

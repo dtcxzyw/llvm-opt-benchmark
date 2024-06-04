@@ -87,7 +87,7 @@ declare dso_local void @rpc_sysfs_xprt_setup(ptr noundef, ptr noundef, i32 nound
 define dso_local void @rpc_xprt_switch_remove_xprt(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef %0) #10
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %28, label %5, !prof !5
+  br i1 %4, label %29, label %5, !prof !5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 1032
@@ -126,10 +126,11 @@ define dso_local void @rpc_xprt_switch_remove_xprt(ptr noundef %0, ptr noundef %
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %25, ptr %27, align 8
   store volatile ptr %26, ptr %25, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %24, align 8
-  br label %28
+  %28 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %28, ptr %24, align 8
+  br label %29
 
-28:                                               ; preds = %22, %3
+29:                                               ; preds = %22, %3
   tail call void @_raw_spin_unlock(ptr noundef %0) #10
   tail call void @xprt_put(ptr noundef %1) #10
   ret void
@@ -299,7 +300,7 @@ define dso_local noundef ptr @xprt_switch_get(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xprt_switch_put(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %49, label %3
+  br i1 %2, label %50, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -320,14 +321,14 @@ define dso_local void @xprt_switch_put(ptr noundef %0) local_unnamed_addr #0 ali
   br label %11
 
 11:                                               ; preds = %10, %8, %7
-  br i1 %6, label %12, label %49
+  br i1 %6, label %12, label %50
 
 12:                                               ; preds = %11
   tail call void @_raw_spin_lock(ptr noundef nonnull %0) #10
   %13 = getelementptr i8, ptr %0, i64 32
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
-  br i1 %15, label %45, label %16
+  br i1 %15, label %46, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %0, i64 16
@@ -335,11 +336,11 @@ define dso_local void @xprt_switch_put(ptr noundef %0) local_unnamed_addr #0 ali
   %19 = getelementptr i8, ptr %0, i64 48
   br label %20
 
-20:                                               ; preds = %42, %16
-  %21 = phi ptr [ %14, %16 ], [ %43, %42 ]
+20:                                               ; preds = %43, %16
+  %21 = phi ptr [ %14, %16 ], [ %44, %43 ]
   %22 = getelementptr i8, ptr %21, i64 -1056
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %42, label %24, !prof !5
+  br i1 %23, label %43, label %24, !prof !5
 
 24:                                               ; preds = %20
   %25 = getelementptr i8, ptr %21, i64 -24
@@ -373,28 +374,29 @@ define dso_local void @xprt_switch_put(ptr noundef %0) local_unnamed_addr #0 ali
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   store ptr %39, ptr %41, align 8
   store volatile ptr %40, ptr %39, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %38, align 8
-  br label %42
+  %42 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %42, ptr %38, align 8
+  br label %43
 
-42:                                               ; preds = %37, %20
+43:                                               ; preds = %37, %20
   tail call void @_raw_spin_unlock(ptr noundef nonnull %0) #10
   tail call void @xprt_put(ptr noundef %22) #10
   tail call void @_raw_spin_lock(ptr noundef nonnull %0) #10
-  %43 = load volatile ptr, ptr %13, align 8
-  %44 = icmp eq ptr %43, %13
-  br i1 %44, label %45, label %20, !llvm.loop !16
+  %44 = load volatile ptr, ptr %13, align 8
+  %45 = icmp eq ptr %44, %13
+  br i1 %45, label %46, label %20, !llvm.loop !16
 
-45:                                               ; preds = %42, %12
+46:                                               ; preds = %43, %12
   tail call void @_raw_spin_unlock(ptr noundef nonnull %0) #10
   tail call void @rpc_sysfs_xprt_switch_destroy(ptr noundef nonnull %0) #10
-  %46 = getelementptr i8, ptr %0, i64 8
-  %47 = load i32, ptr %46, align 8
-  tail call void @ida_free(ptr noundef nonnull @rpc_xprtswitch_ids, i32 noundef %47) #10
-  %48 = getelementptr i8, ptr %0, i64 72
-  tail call void @kvfree_call_rcu(ptr noundef %48, ptr noundef nonnull %0) #10
-  br label %49
+  %47 = getelementptr i8, ptr %0, i64 8
+  %48 = load i32, ptr %47, align 8
+  tail call void @ida_free(ptr noundef nonnull @rpc_xprtswitch_ids, i32 noundef %48) #10
+  %49 = getelementptr i8, ptr %0, i64 72
+  tail call void @kvfree_call_rcu(ptr noundef %49, ptr noundef nonnull %0) #10
+  br label %50
 
-49:                                               ; preds = %45, %11, %1
+50:                                               ; preds = %46, %11, %1
   ret void
 }
 

@@ -463,31 +463,32 @@ entry:
   store i64 %zlib_decompressor_buffer_minsize, ptr %zlib_decompressor_buffer_minsize.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen18StreamDecompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.proxygen::ZlibStreamDecompressor", ptr %this1, i32 0, i32 1
   store i32 0, ptr %type_, align 8
   %decompressor_buffer_growth_ = getelementptr inbounds %"class.proxygen::ZlibStreamDecompressor", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %zlib_decompressor_buffer_growth.addr, align 8
-  store i64 %0, ptr %decompressor_buffer_growth_, align 8
+  %1 = load i64, ptr %zlib_decompressor_buffer_growth.addr, align 8
+  store i64 %1, ptr %decompressor_buffer_growth_, align 8
   %decompressor_buffer_minsize_ = getelementptr inbounds %"class.proxygen::ZlibStreamDecompressor", ptr %this1, i32 0, i32 4
-  %1 = load i64, ptr %zlib_decompressor_buffer_minsize.addr, align 8
-  store i64 %1, ptr %decompressor_buffer_minsize_, align 8
+  %2 = load i64, ptr %zlib_decompressor_buffer_minsize.addr, align 8
+  store i64 %2, ptr %decompressor_buffer_minsize_, align 8
   %status_ = getelementptr inbounds %"class.proxygen::ZlibStreamDecompressor", ptr %this1, i32 0, i32 6
   store i32 0, ptr %status_, align 8
-  %2 = load i32, ptr %type.addr, align 4
-  invoke void @_ZN8proxygen22ZlibStreamDecompressor4initENS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(148) %this1, i32 noundef %2)
+  %3 = load i32, ptr %type.addr, align 4
+  invoke void @_ZN8proxygen22ZlibStreamDecompressor4initENS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(148) %this1, i32 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN8proxygen18StreamDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
   br label %eh.resume
 
@@ -505,7 +506,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18StreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen18StreamDecompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -515,10 +517,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.proxygen::ZlibStreamDecompressor", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %type_, align 8
-  %cmp = icmp ne i32 %0, 0
+  %1 = load i32, ptr %type_, align 8
+  %cmp = icmp ne i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -536,10 +539,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -1612,7 +1615,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 

@@ -537,23 +537,24 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @intel_atomic_state_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(1408) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1408) #9
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(1408) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 1408) #9
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %9, label %6
 
-5:                                                ; preds = %1
-  %6 = tail call i32 @drm_atomic_state_init(ptr noundef %0, ptr noundef nonnull %3) #7
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %9
+6:                                                ; preds = %1
+  %7 = tail call i32 @drm_atomic_state_init(ptr noundef %0, ptr noundef nonnull %4) #7
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %5, %1
-  tail call void @kfree(ptr noundef %3) #7
-  br label %9
+9:                                                ; preds = %6, %1
+  tail call void @kfree(ptr noundef %4) #7
+  br label %10
 
-9:                                                ; preds = %8, %5
-  %10 = phi ptr [ null, %8 ], [ %3, %5 ]
-  ret ptr %10
+10:                                               ; preds = %9, %6
+  %11 = phi ptr [ null, %9 ], [ %4, %6 ]
+  ret ptr %11
 }
 
 ; Function Attrs: null_pointer_is_valid

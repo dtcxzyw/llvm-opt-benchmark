@@ -165,14 +165,15 @@ entry:
   store i8 %frombool, ptr %root_is_array.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v824ConvertableToTraceFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #9
   %first_item_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this1, i32 0, i32 2
   store i8 1, ptr %first_item_, align 8
   %root_is_array_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %root_is_array.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %root_is_array.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %root_is_array_, align 1
   ret void
@@ -184,7 +185,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2v824ConvertableToTraceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN2v824ConvertableToTraceFormatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -987,7 +989,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #9
   call void @_ZN2v824ConvertableToTraceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9

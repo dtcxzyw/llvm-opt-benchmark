@@ -728,10 +728,11 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing6passes7BVToIntE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing6passes7BVToIntE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_intBlaster = getelementptr inbounds %"class.cvc5::internal::preprocessing::passes::BVToInt", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %preprocContext.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(576) ptr @_ZN4cvc58internal13preprocessing24PreprocessingPassContext6getEnvEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+  %2 = load ptr, ptr %preprocContext.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(576) ptr @_ZN4cvc58internal13preprocessing24PreprocessingPassContext6getEnvEv(ptr noundef nonnull align 8 dereferenceable(168) %2)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -740,39 +741,39 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 invoke.cont7:                                     ; preds = %invoke.cont6
   %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call8, i32 0, i32 44
-  %2 = load ptr, ptr %smt, align 8
-  %solveBVAsInt = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %2, i32 0, i32 95
-  %3 = load i32, ptr %solveBVAsInt, align 4
+  %3 = load ptr, ptr %smt, align 8
+  %solveBVAsInt = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %3, i32 0, i32 95
+  %4 = load i32, ptr %solveBVAsInt, align 4
   %call10 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont9 unwind label %lpad5
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %smt11 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call10, i32 0, i32 44
-  %4 = load ptr, ptr %smt11, align 8
-  %BVAndIntegerGranularity = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %4, i32 0, i32 7
-  %5 = load i64, ptr %BVAndIntegerGranularity, align 8
-  invoke void @_ZN4cvc58internal10IntBlasterC1ERNS0_3EnvENS0_7options16SolveBVAsIntModeEm(ptr noundef nonnull align 8 dereferenceable(468) %d_intBlaster, ptr noundef nonnull align 8 dereferenceable(576) %call, i32 noundef %3, i64 noundef %5)
+  %5 = load ptr, ptr %smt11, align 8
+  %BVAndIntegerGranularity = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %5, i32 0, i32 7
+  %6 = load i64, ptr %BVAndIntegerGranularity, align 8
+  invoke void @_ZN4cvc58internal10IntBlasterC1ERNS0_3EnvENS0_7options16SolveBVAsIntModeEm(ptr noundef nonnull align 8 dereferenceable(468) %d_intBlaster, ptr noundef nonnull align 8 dereferenceable(576) %call, i32 noundef %4, i64 noundef %6)
           to label %invoke.cont12 unwind label %lpad5
 
 invoke.cont12:                                    ; preds = %invoke.cont9
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -781,12 +782,12 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
   br label %eh.resume
 
 lpad5:                                            ; preds = %invoke.cont9, %invoke.cont7, %invoke.cont6, %invoke.cont4
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal13preprocessing17PreprocessingPassD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3
   br label %eh.resume
 
@@ -2988,7 +2989,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing6passes7BVToIntE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing6passes7BVToIntE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_intBlaster = getelementptr inbounds %"class.cvc5::internal::preprocessing::passes::BVToInt", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal10IntBlasterD1Ev(ptr noundef nonnull align 8 dereferenceable(468) %d_intBlaster) #3
   call void @_ZN4cvc58internal13preprocessing17PreprocessingPassD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3

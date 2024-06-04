@@ -1572,14 +1572,14 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   %45 = phi i32 [ %39, %35 ], [ %43, %40 ]
   store i32 %45, ptr %21, align 4
   %46 = load i32, ptr %16, align 4
-  switch i32 %46, label %317 [
+  switch i32 %46, label %318 [
     i32 1, label %47
     i32 3, label %74
     i32 6, label %107
     i32 9, label %126
-    i32 14, label %240
-    i32 10, label %257
-    i32 11, label %276
+    i32 14, label %241
+    i32 10, label %258
+    i32 11, label %277
   ]
 
 47:                                               ; preds = %44
@@ -1589,7 +1589,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
 
 50:                                               ; preds = %47
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
 51:                                               ; preds = %47
   %52 = load i32, ptr %21, align 4
@@ -1625,12 +1625,12 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
 
 71:                                               ; preds = %66
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
 72:                                               ; preds = %66
   %73 = load i32, ptr %23, align 4
   store i32 %73, ptr %14, align 4
-  br label %318
+  br label %319
 
 74:                                               ; preds = %44
   %75 = load ptr, ptr %19, align 8
@@ -1641,7 +1641,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
 
 79:                                               ; preds = %74
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %18, align 8
@@ -1672,7 +1672,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   %92 = load ptr, ptr %91, align 8
   %93 = call i32 @setvbuf(ptr noundef %92, ptr noundef null, i32 noundef 2, i64 noundef 0) #12
   store i32 %93, ptr %14, align 4
-  br label %318
+  br label %319
 
 94:                                               ; preds = %87
   %95 = load ptr, ptr %19, align 8
@@ -1681,7 +1681,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   %98 = load i64, ptr %20, align 8
   %99 = call i32 @setvbuf(ptr noundef %97, ptr noundef null, i32 noundef 1, i64 noundef %98) #12
   store i32 %99, ptr %14, align 4
-  br label %318
+  br label %319
 
 100:                                              ; preds = %87
   %101 = load ptr, ptr %19, align 8
@@ -1690,11 +1690,11 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   %104 = load i64, ptr %20, align 8
   %105 = call i32 @setvbuf(ptr noundef %103, ptr noundef null, i32 noundef 0, i64 noundef %104) #12
   store i32 %105, ptr %14, align 4
-  br label %318
+  br label %319
 
 106:                                              ; preds = %87
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
 107:                                              ; preds = %44
   %108 = load i32, ptr %21, align 4
@@ -1703,7 +1703,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
 
 110:                                              ; preds = %107
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %18, align 8
@@ -1713,7 +1713,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
 
 115:                                              ; preds = %111
   store i32 0, ptr %14, align 4
-  br label %318
+  br label %319
 
 116:                                              ; preds = %111
   %117 = load i32, ptr %21, align 4
@@ -1728,20 +1728,20 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   %124 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %123, i32 0, i32 3
   store i32 %122, ptr %124, align 8
   store i32 0, ptr %14, align 4
-  br label %318
+  br label %319
 
 125:                                              ; preds = %116
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
 126:                                              ; preds = %44
   %127 = load ptr, ptr %18, align 8
   store ptr %127, ptr %24, align 8
   %128 = load i32, ptr %17, align 4
-  switch i32 %128, label %239 [
+  switch i32 %128, label %240 [
     i32 0, label %129
     i32 1, label %133
-    i32 2, label %223
+    i32 2, label %224
   ]
 
 129:                                              ; preds = %126
@@ -1749,7 +1749,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   %131 = icmp eq i32 %130, -1
   %132 = select i1 %131, i32 -1, i32 0
   store i32 %132, ptr %14, align 4
-  br label %318
+  br label %319
 
 133:                                              ; preds = %126
   %134 = load ptr, ptr %19, align 8
@@ -1759,7 +1759,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
 
 137:                                              ; preds = %133
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
 138:                                              ; preds = %133
   %139 = load ptr, ptr %24, align 8
@@ -1851,7 +1851,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
 
 191:                                              ; preds = %183
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
 192:                                              ; preds = %190, %189, %188, %187
   %193 = load ptr, ptr %24, align 8
@@ -1870,204 +1870,205 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   %205 = load ptr, ptr %24, align 8
   %206 = getelementptr inbounds %struct.php_stream_mmap_range, ptr %205, i32 0, i32 3
   %207 = load ptr, ptr %206, align 8
-  %208 = icmp eq ptr %207, inttoptr (i64 -1 to ptr)
-  br i1 %208, label %209, label %212
+  %208 = inttoptr i64 -1 to ptr
+  %209 = icmp eq ptr %207, %208
+  br i1 %209, label %210, label %213
 
-209:                                              ; preds = %192
-  %210 = load ptr, ptr %24, align 8
-  %211 = getelementptr inbounds %struct.php_stream_mmap_range, ptr %210, i32 0, i32 3
-  store ptr null, ptr %211, align 8
+210:                                              ; preds = %192
+  %211 = load ptr, ptr %24, align 8
+  %212 = getelementptr inbounds %struct.php_stream_mmap_range, ptr %211, i32 0, i32 3
+  store ptr null, ptr %212, align 8
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
-212:                                              ; preds = %192
-  %213 = load ptr, ptr %24, align 8
-  %214 = getelementptr inbounds %struct.php_stream_mmap_range, ptr %213, i32 0, i32 3
-  %215 = load ptr, ptr %214, align 8
-  %216 = load ptr, ptr %19, align 8
-  %217 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %216, i32 0, i32 5
-  store ptr %215, ptr %217, align 8
-  %218 = load ptr, ptr %24, align 8
-  %219 = getelementptr inbounds %struct.php_stream_mmap_range, ptr %218, i32 0, i32 1
-  %220 = load i64, ptr %219, align 8
-  %221 = load ptr, ptr %19, align 8
-  %222 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %221, i32 0, i32 6
-  store i64 %220, ptr %222, align 8
+213:                                              ; preds = %192
+  %214 = load ptr, ptr %24, align 8
+  %215 = getelementptr inbounds %struct.php_stream_mmap_range, ptr %214, i32 0, i32 3
+  %216 = load ptr, ptr %215, align 8
+  %217 = load ptr, ptr %19, align 8
+  %218 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %217, i32 0, i32 5
+  store ptr %216, ptr %218, align 8
+  %219 = load ptr, ptr %24, align 8
+  %220 = getelementptr inbounds %struct.php_stream_mmap_range, ptr %219, i32 0, i32 1
+  %221 = load i64, ptr %220, align 8
+  %222 = load ptr, ptr %19, align 8
+  %223 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %222, i32 0, i32 6
+  store i64 %221, ptr %223, align 8
   store i32 0, ptr %14, align 4
-  br label %318
+  br label %319
 
-223:                                              ; preds = %126
-  %224 = load ptr, ptr %19, align 8
-  %225 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %224, i32 0, i32 5
-  %226 = load ptr, ptr %225, align 8
-  %227 = icmp ne ptr %226, null
-  br i1 %227, label %228, label %238
+224:                                              ; preds = %126
+  %225 = load ptr, ptr %19, align 8
+  %226 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %225, i32 0, i32 5
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp ne ptr %227, null
+  br i1 %228, label %229, label %239
 
-228:                                              ; preds = %223
-  %229 = load ptr, ptr %19, align 8
-  %230 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %229, i32 0, i32 5
-  %231 = load ptr, ptr %230, align 8
-  %232 = load ptr, ptr %19, align 8
-  %233 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %232, i32 0, i32 6
-  %234 = load i64, ptr %233, align 8
-  %235 = call i32 @munmap(ptr noundef %231, i64 noundef %234) #12
-  %236 = load ptr, ptr %19, align 8
-  %237 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %236, i32 0, i32 5
-  store ptr null, ptr %237, align 8
+229:                                              ; preds = %224
+  %230 = load ptr, ptr %19, align 8
+  %231 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %230, i32 0, i32 5
+  %232 = load ptr, ptr %231, align 8
+  %233 = load ptr, ptr %19, align 8
+  %234 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %233, i32 0, i32 6
+  %235 = load i64, ptr %234, align 8
+  %236 = call i32 @munmap(ptr noundef %232, i64 noundef %235) #12
+  %237 = load ptr, ptr %19, align 8
+  %238 = getelementptr inbounds %struct.php_stdio_stream_data, ptr %237, i32 0, i32 5
+  store ptr null, ptr %238, align 8
   store i32 0, ptr %14, align 4
-  br label %318
+  br label %319
 
-238:                                              ; preds = %223
+239:                                              ; preds = %224
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
-239:                                              ; preds = %126
+240:                                              ; preds = %126
   store i32 -2, ptr %14, align 4
-  br label %318
+  br label %319
 
-240:                                              ; preds = %44
-  %241 = load i32, ptr %17, align 4
-  switch i32 %241, label %256 [
-    i32 0, label %242
-    i32 1, label %246
-    i32 2, label %251
+241:                                              ; preds = %44
+  %242 = load i32, ptr %17, align 4
+  switch i32 %242, label %257 [
+    i32 0, label %243
+    i32 1, label %247
+    i32 2, label %252
   ]
 
-242:                                              ; preds = %240
-  %243 = load i32, ptr %21, align 4
-  %244 = icmp eq i32 %243, -1
-  %245 = select i1 %244, i32 -1, i32 0
-  store i32 %245, ptr %14, align 4
-  br label %318
+243:                                              ; preds = %241
+  %244 = load i32, ptr %21, align 4
+  %245 = icmp eq i32 %244, -1
+  %246 = select i1 %245, i32 -1, i32 0
+  store i32 %246, ptr %14, align 4
+  br label %319
 
-246:                                              ; preds = %240
-  %247 = load ptr, ptr %15, align 8
-  %248 = call i32 @php_stdiop_sync(ptr noundef %247, i1 noundef zeroext false)
-  %249 = icmp eq i32 %248, 0
-  %250 = select i1 %249, i32 0, i32 -1
-  store i32 %250, ptr %14, align 4
-  br label %318
+247:                                              ; preds = %241
+  %248 = load ptr, ptr %15, align 8
+  %249 = call i32 @php_stdiop_sync(ptr noundef %248, i1 noundef zeroext false)
+  %250 = icmp eq i32 %249, 0
+  %251 = select i1 %250, i32 0, i32 -1
+  store i32 %251, ptr %14, align 4
+  br label %319
 
-251:                                              ; preds = %240
-  %252 = load ptr, ptr %15, align 8
-  %253 = call i32 @php_stdiop_sync(ptr noundef %252, i1 noundef zeroext true)
-  %254 = icmp eq i32 %253, 0
-  %255 = select i1 %254, i32 0, i32 -1
-  store i32 %255, ptr %14, align 4
-  br label %318
+252:                                              ; preds = %241
+  %253 = load ptr, ptr %15, align 8
+  %254 = call i32 @php_stdiop_sync(ptr noundef %253, i1 noundef zeroext true)
+  %255 = icmp eq i32 %254, 0
+  %256 = select i1 %255, i32 0, i32 -1
+  store i32 %256, ptr %14, align 4
+  br label %319
 
-256:                                              ; preds = %240
+257:                                              ; preds = %241
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
-257:                                              ; preds = %44
-  %258 = load i32, ptr %17, align 4
-  switch i32 %258, label %275 [
-    i32 0, label %259
-    i32 1, label %263
+258:                                              ; preds = %44
+  %259 = load i32, ptr %17, align 4
+  switch i32 %259, label %276 [
+    i32 0, label %260
+    i32 1, label %264
   ]
 
-259:                                              ; preds = %257
-  %260 = load i32, ptr %21, align 4
-  %261 = icmp eq i32 %260, -1
-  %262 = select i1 %261, i32 -1, i32 0
-  store i32 %262, ptr %14, align 4
-  br label %318
+260:                                              ; preds = %258
+  %261 = load i32, ptr %21, align 4
+  %262 = icmp eq i32 %261, -1
+  %263 = select i1 %262, i32 -1, i32 0
+  store i32 %263, ptr %14, align 4
+  br label %319
 
-263:                                              ; preds = %257
-  %264 = load ptr, ptr %18, align 8
-  %265 = load i64, ptr %264, align 8
-  store i64 %265, ptr %27, align 8
-  %266 = load i64, ptr %27, align 8
-  %267 = icmp slt i64 %266, 0
-  br i1 %267, label %268, label %269
+264:                                              ; preds = %258
+  %265 = load ptr, ptr %18, align 8
+  %266 = load i64, ptr %265, align 8
+  store i64 %266, ptr %27, align 8
+  %267 = load i64, ptr %27, align 8
+  %268 = icmp slt i64 %267, 0
+  br i1 %268, label %269, label %270
 
-268:                                              ; preds = %263
+269:                                              ; preds = %264
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
-269:                                              ; preds = %263
-  %270 = load i32, ptr %21, align 4
-  %271 = load i64, ptr %27, align 8
-  %272 = call i32 @ftruncate(i32 noundef %270, i64 noundef %271) #12
-  %273 = icmp eq i32 %272, 0
-  %274 = select i1 %273, i32 0, i32 -1
-  store i32 %274, ptr %14, align 4
-  br label %318
+270:                                              ; preds = %264
+  %271 = load i32, ptr %21, align 4
+  %272 = load i64, ptr %27, align 8
+  %273 = call i32 @ftruncate(i32 noundef %271, i64 noundef %272) #12
+  %274 = icmp eq i32 %273, 0
+  %275 = select i1 %274, i32 0, i32 -1
+  store i32 %275, ptr %14, align 4
+  br label %319
 
-275:                                              ; preds = %257
+276:                                              ; preds = %258
   store i32 -2, ptr %14, align 4
-  br label %318
+  br label %319
 
-276:                                              ; preds = %44
-  %277 = load i32, ptr %21, align 4
-  %278 = icmp eq i32 %277, -1
-  br i1 %278, label %279, label %280
+277:                                              ; preds = %44
+  %278 = load i32, ptr %21, align 4
+  %279 = icmp eq i32 %278, -1
+  br i1 %279, label %280, label %281
 
-279:                                              ; preds = %276
+280:                                              ; preds = %277
   store i32 -1, ptr %14, align 4
-  br label %318
+  br label %319
 
-280:                                              ; preds = %276
-  %281 = load i32, ptr %21, align 4
-  %282 = call i32 (i32, i32, ...) @fcntl(i32 noundef %281, i32 noundef 3, i32 noundef 0)
-  store i32 %282, ptr %22, align 4
-  %283 = load ptr, ptr %18, align 8
-  store ptr %283, ptr %5, align 8
+281:                                              ; preds = %277
+  %282 = load i32, ptr %21, align 4
+  %283 = call i32 (i32, i32, ...) @fcntl(i32 noundef %282, i32 noundef 3, i32 noundef 0)
+  store i32 %283, ptr %22, align 4
+  %284 = load ptr, ptr %18, align 8
+  store ptr %284, ptr %5, align 8
   store ptr @.str.11, ptr %6, align 8
   store i8 0, ptr %7, align 1
-  %284 = load ptr, ptr %5, align 8
-  %285 = load ptr, ptr %6, align 8
+  %285 = load ptr, ptr %5, align 8
   %286 = load ptr, ptr %6, align 8
-  %287 = call i64 @strlen(ptr noundef %286) #10
-  %288 = load i8, ptr %7, align 1
-  %289 = trunc i8 %288 to i1
-  call void @add_assoc_bool_ex(ptr noundef %284, ptr noundef %285, i64 noundef %287, i1 noundef zeroext %289) #12
-  %290 = load ptr, ptr %18, align 8
-  %291 = load i32, ptr %22, align 4
-  %292 = and i32 %291, 2048
-  %293 = icmp ne i32 %292, 0
-  %294 = select i1 %293, i32 0, i32 1
-  %295 = icmp ne i32 %294, 0
-  store ptr %290, ptr %8, align 8
+  %287 = load ptr, ptr %6, align 8
+  %288 = call i64 @strlen(ptr noundef %287) #10
+  %289 = load i8, ptr %7, align 1
+  %290 = trunc i8 %289 to i1
+  call void @add_assoc_bool_ex(ptr noundef %285, ptr noundef %286, i64 noundef %288, i1 noundef zeroext %290) #12
+  %291 = load ptr, ptr %18, align 8
+  %292 = load i32, ptr %22, align 4
+  %293 = and i32 %292, 2048
+  %294 = icmp ne i32 %293, 0
+  %295 = select i1 %294, i32 0, i32 1
+  %296 = icmp ne i32 %295, 0
+  store ptr %291, ptr %8, align 8
   store ptr @.str.12, ptr %9, align 8
-  %296 = zext i1 %295 to i8
-  store i8 %296, ptr %10, align 1
-  %297 = load ptr, ptr %8, align 8
-  %298 = load ptr, ptr %9, align 8
+  %297 = zext i1 %296 to i8
+  store i8 %297, ptr %10, align 1
+  %298 = load ptr, ptr %8, align 8
   %299 = load ptr, ptr %9, align 8
-  %300 = call i64 @strlen(ptr noundef %299) #10
-  %301 = load i8, ptr %10, align 1
-  %302 = trunc i8 %301 to i1
-  call void @add_assoc_bool_ex(ptr noundef %297, ptr noundef %298, i64 noundef %300, i1 noundef zeroext %302) #12
-  %303 = load ptr, ptr %18, align 8
-  %304 = load ptr, ptr %15, align 8
-  %305 = getelementptr inbounds %struct._php_stream, ptr %304, i32 0, i32 7
-  %306 = load i16, ptr %305, align 8
-  %307 = lshr i16 %306, 3
-  %308 = and i16 %307, 1
-  %309 = icmp ne i16 %308, 0
-  store ptr %303, ptr %11, align 8
+  %300 = load ptr, ptr %9, align 8
+  %301 = call i64 @strlen(ptr noundef %300) #10
+  %302 = load i8, ptr %10, align 1
+  %303 = trunc i8 %302 to i1
+  call void @add_assoc_bool_ex(ptr noundef %298, ptr noundef %299, i64 noundef %301, i1 noundef zeroext %303) #12
+  %304 = load ptr, ptr %18, align 8
+  %305 = load ptr, ptr %15, align 8
+  %306 = getelementptr inbounds %struct._php_stream, ptr %305, i32 0, i32 7
+  %307 = load i16, ptr %306, align 8
+  %308 = lshr i16 %307, 3
+  %309 = and i16 %308, 1
+  %310 = icmp ne i16 %309, 0
+  store ptr %304, ptr %11, align 8
   store ptr @.str.13, ptr %12, align 8
-  %310 = zext i1 %309 to i8
-  store i8 %310, ptr %13, align 1
-  %311 = load ptr, ptr %11, align 8
-  %312 = load ptr, ptr %12, align 8
+  %311 = zext i1 %310 to i8
+  store i8 %311, ptr %13, align 1
+  %312 = load ptr, ptr %11, align 8
   %313 = load ptr, ptr %12, align 8
-  %314 = call i64 @strlen(ptr noundef %313) #10
-  %315 = load i8, ptr %13, align 1
-  %316 = trunc i8 %315 to i1
-  call void @add_assoc_bool_ex(ptr noundef %311, ptr noundef %312, i64 noundef %314, i1 noundef zeroext %316) #12
+  %314 = load ptr, ptr %12, align 8
+  %315 = call i64 @strlen(ptr noundef %314) #10
+  %316 = load i8, ptr %13, align 1
+  %317 = trunc i8 %316 to i1
+  call void @add_assoc_bool_ex(ptr noundef %312, ptr noundef %313, i64 noundef %315, i1 noundef zeroext %317) #12
   store i32 0, ptr %14, align 4
-  br label %318
+  br label %319
 
-317:                                              ; preds = %44
+318:                                              ; preds = %44
   store i32 -2, ptr %14, align 4
-  br label %318
+  br label %319
 
-318:                                              ; preds = %317, %280, %279, %275, %269, %268, %259, %256, %251, %246, %242, %239, %238, %228, %212, %209, %191, %137, %129, %125, %121, %115, %110, %106, %100, %94, %89, %79, %72, %71, %50
-  %319 = load i32, ptr %14, align 4
-  ret i32 %319
+319:                                              ; preds = %318, %281, %280, %276, %270, %269, %260, %257, %252, %247, %243, %240, %239, %229, %213, %210, %191, %137, %129, %125, %121, %115, %110, %106, %100, %94, %89, %79, %72, %71, %50
+  %320 = load i32, ptr %14, align 4
+  ret i32 %320
 }
 
 ; Function Attrs: nounwind uwtable

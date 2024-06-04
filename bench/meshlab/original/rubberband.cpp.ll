@@ -220,15 +220,16 @@ define void @_ZN3vcg10RubberbandC2ENS_6Color4IhEE(ptr noundef nonnull align 8 de
   store i32 %1, ptr %6, align 1
   store ptr %0, ptr %4, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg10RubberbandE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.vcg::Rubberband", ptr %7, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 1 %3, i64 4, i1 false)
-  %9 = getelementptr inbounds %"class.vcg::Rubberband", ptr %7, i32 0, i32 3
-  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %9)
-  %10 = getelementptr inbounds %"class.vcg::Rubberband", ptr %7, i32 0, i32 4
-  call void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %11 = getelementptr inbounds %"class.vcg::Rubberband", ptr %7, i32 0, i32 5
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3vcg10RubberbandE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.vcg::Rubberband", ptr %7, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 1 %3, i64 4, i1 false)
+  %10 = getelementptr inbounds %"class.vcg::Rubberband", ptr %7, i32 0, i32 3
+  call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %11 = getelementptr inbounds %"class.vcg::Rubberband", ptr %7, i32 0, i32 4
   call void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %11)
+  %12 = getelementptr inbounds %"class.vcg::Rubberband", ptr %7, i32 0, i32 5
+  call void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %12)
   call void @_ZN3vcg10Rubberband5ResetEv(ptr noundef nonnull align 8 dereferenceable(49) %7)
   ret void
 }

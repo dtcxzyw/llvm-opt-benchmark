@@ -97,17 +97,14 @@ entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %advice, ptr %advice.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %advice.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
   call void @vadvise(ptr noundef %0, i32 noundef 0, ptr noundef @.str, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @vadvise(ptr noundef %advice, i32 noundef %display_instructions, ptr noundef %key, ptr noundef %params) #0 {
@@ -188,9 +185,6 @@ for.end:                                          ; preds = %for.cond
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @advice_enabled(i32 noundef %type) #0 {
 entry:
@@ -203,33 +197,35 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds ([39 x %struct.anon], ptr @advice_setting, i64 0, i64 23, i32 1), align 8
-  %tobool = icmp ne i32 %1, 0
+  %1 = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 23, i32 1
+  %2 = load i32, ptr %1, align 8
+  %tobool = icmp ne i32 %2, 0
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %sw.bb
-  %2 = load i32, ptr getelementptr inbounds ([39 x %struct.anon], ptr @advice_setting, i64 0, i64 22, i32 1), align 8
-  %tobool1 = icmp ne i32 %2, 0
+  %3 = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 22, i32 1
+  %4 = load i32, ptr %3, align 8
+  %tobool1 = icmp ne i32 %4, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %sw.bb
-  %3 = phi i1 [ false, %sw.bb ], [ %tobool1, %land.rhs ]
-  %land.ext = zext i1 %3 to i32
+  %5 = phi i1 [ false, %sw.bb ], [ %tobool1, %land.rhs ]
+  %land.ext = zext i1 %5 to i32
   store i32 %land.ext, ptr %retval, align 4
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %4 = load i32, ptr %type.addr, align 4
-  %idxprom = zext i32 %4 to i64
+  %6 = load i32, ptr %type.addr, align 4
+  %idxprom = zext i32 %6 to i64
   %arrayidx = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom
   %enabled = getelementptr inbounds %struct.anon, ptr %arrayidx, i32 0, i32 1
-  %5 = load i32, ptr %enabled, align 8
-  store i32 %5, ptr %retval, align 4
+  %7 = load i32, ptr %enabled, align 8
+  store i32 %7, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %sw.default, %land.end
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+  %8 = load i32, ptr %retval, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -250,7 +246,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load ptr, ptr %advice.addr, align 8
   %2 = load i32, ptr %type.addr, align 4
   %idxprom = zext i32 %2 to i64
@@ -260,7 +256,7 @@ if.end:                                           ; preds = %entry
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
   call void @vadvise(ptr noundef %1, i32 noundef 1, ptr noundef %3, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %params, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -392,9 +388,9 @@ return:                                           ; preds = %for.end, %if.end24,
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #1
 
-declare i32 @git_config_colorbool(ptr noundef, ptr noundef) #3
+declare i32 @git_config_colorbool(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @skip_prefix(ptr noundef %str, ptr noundef %prefix, ptr noundef %out) #0 {
@@ -481,7 +477,7 @@ return:                                           ; preds = %if.end4, %if.then3,
   ret i32 %2
 }
 
-declare i32 @config_error_nonbool(ptr noundef) #3
+declare i32 @config_error_nonbool(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @const_error() #0 {
@@ -489,12 +485,12 @@ entry:
   ret i32 -1
 }
 
-declare i32 @color_parse(ptr noundef, ptr noundef) #3
+declare i32 @color_parse(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef, ptr noundef) #2
+declare i32 @strcasecmp(ptr noundef, ptr noundef) #1
 
-declare i32 @git_config_bool(ptr noundef, ptr noundef) #3
+declare i32 @git_config_bool(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @list_config_advices(ptr noundef %list, ptr noundef %prefix) #0 {
@@ -661,7 +657,7 @@ if.end48:                                         ; preds = %if.then46, %if.end4
   ret i32 -1
 }
 
-declare i32 @error(ptr noundef, ...) #3
+declare i32 @error(ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_(ptr noundef %msgid) #0 {
@@ -700,10 +696,10 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #4
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @die_resolve_conflict(ptr noundef %me) #5 {
+define dso_local void @die_resolve_conflict(ptr noundef %me) #4 {
 entry:
   %me.addr = alloca ptr, align 8
   store ptr %me, ptr %me.addr, align 8
@@ -715,10 +711,10 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #4
+declare void @die(ptr noundef, ...) #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @die_conclude_merge() #5 {
+define dso_local void @die_conclude_merge() #4 {
 entry:
   %call = call ptr @_(ptr noundef @.str.20)
   %call1 = call i32 (ptr, ...) @error(ptr noundef %call)
@@ -739,7 +735,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @die_ff_impossible() #5 {
+define dso_local void @die_ff_impossible() #4 {
 entry:
   %call = call ptr @_(ptr noundef @.str.23)
   call void (i32, ptr, ...) @advise_if_enabled(i32 noundef 8, ptr noundef %call)
@@ -817,7 +813,7 @@ return:                                           ; preds = %for.end, %if.then
   ret void
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @detach_advice(ptr noundef %new_name) #0 {
@@ -904,14 +900,14 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
-declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @strbuf_addf(ptr noundef, ptr noundef, ...) #3
+declare void @strbuf_addf(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchrnul(ptr noundef, i32 noundef) #2
+declare ptr @strchrnul(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @advise_get_color(i32 noundef %ix) #0 {
@@ -941,25 +937,31 @@ return:                                           ; preds = %if.end, %if.then
   ret ptr %2
 }
 
-declare void @strbuf_release(ptr noundef) #3
+declare void @strbuf_release(ptr noundef) #2
 
-declare i32 @want_color_fd(i32 noundef, i32 noundef) #3
+declare i32 @want_color_fd(i32 noundef, i32 noundef) #2
 
-declare ptr @string_list_append_nodup(ptr noundef, ptr noundef) #3
+declare ptr @string_list_append_nodup(ptr noundef, ptr noundef) #2
 
-declare ptr @xstrfmt(ptr noundef, ...) #3
+declare ptr @xstrfmt(ptr noundef, ...) #2
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) #7
+declare ptr @gettext(ptr noundef) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { noreturn }
 attributes #10 = { nounwind }

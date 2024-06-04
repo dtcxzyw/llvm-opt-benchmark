@@ -340,62 +340,63 @@ define void @_ZN3gmx14TopologyHolderC2ESt6vectorIPNS_21ITopologyHolderClientESaI
   store ptr %9, ptr %20, align 8
   %23 = load ptr, ptr %11, align 8
   call void @_ZN3gmx19IDomDecHelperClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #11
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx14TopologyHolderE, i32 0, i32 0, i32 2), ptr %23, align 8
-  %24 = getelementptr inbounds %"class.gmx::TopologyHolder", ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %13, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds %"class.gmx::TopologyHolder", ptr %23, i32 0, i32 2
-  %27 = load ptr, ptr %14, align 8
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.gmx::TopologyHolder", ptr %23, i32 0, i32 3
-  call void @_ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %1) #11
-  %29 = load ptr, ptr %15, align 8
-  %30 = invoke noundef zeroext i1 @_ZL18haveDDAtomOrderingRK9t_commrec(ptr noundef nonnull align 8 dereferenceable(108) %29)
-          to label %31 unwind label %43
+  %24 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx14TopologyHolderE, i32 0, i32 0, i32 2
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.gmx::TopologyHolder", ptr %23, i32 0, i32 1
+  %26 = load ptr, ptr %13, align 8
+  store ptr %26, ptr %25, align 8
+  %27 = getelementptr inbounds %"class.gmx::TopologyHolder", ptr %23, i32 0, i32 2
+  %28 = load ptr, ptr %14, align 8
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds %"class.gmx::TopologyHolder", ptr %23, i32 0, i32 3
+  call void @_ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %1) #11
+  %30 = load ptr, ptr %15, align 8
+  %31 = invoke noundef zeroext i1 @_ZL18haveDDAtomOrderingRK9t_commrec(ptr noundef nonnull align 8 dereferenceable(108) %30)
+          to label %32 unwind label %44
 
-31:                                               ; preds = %10
-  br i1 %30, label %47, label %32
+32:                                               ; preds = %10
+  br i1 %31, label %48, label %33
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %15, align 8
-  %34 = load ptr, ptr %16, align 8
-  %35 = load ptr, ptr %13, align 8
-  %36 = getelementptr inbounds %"class.gmx::TopologyHolder", ptr %23, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %17, align 8
-  %39 = load ptr, ptr %18, align 8
-  %40 = load ptr, ptr %19, align 8
-  %41 = load ptr, ptr %20, align 8
-  invoke void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gmx_mtop_tP14gmx_localtop_tP10t_forcerecPNS_12ForceBuffersEPNS_7MDAtomsEPNS_11ConstraintsEPNS_19VirtualSitesHandlerEP13gmx_shellfc_t(ptr noundef %33, ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 dereferenceable(768) %35, ptr noundef %37, ptr noundef %38, ptr noundef null, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef null)
-          to label %42 unwind label %43
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %15, align 8
+  %35 = load ptr, ptr %16, align 8
+  %36 = load ptr, ptr %13, align 8
+  %37 = getelementptr inbounds %"class.gmx::TopologyHolder", ptr %23, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %17, align 8
+  %40 = load ptr, ptr %18, align 8
+  %41 = load ptr, ptr %19, align 8
+  %42 = load ptr, ptr %20, align 8
+  invoke void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gmx_mtop_tP14gmx_localtop_tP10t_forcerecPNS_12ForceBuffersEPNS_7MDAtomsEPNS_11ConstraintsEPNS_19VirtualSitesHandlerEP13gmx_shellfc_t(ptr noundef %34, ptr noundef nonnull align 1 %35, ptr noundef nonnull align 8 dereferenceable(768) %36, ptr noundef %38, ptr noundef %39, ptr noundef null, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef null)
+          to label %43 unwind label %44
 
-42:                                               ; preds = %32
-  br label %47
+43:                                               ; preds = %33
+  br label %48
 
-43:                                               ; preds = %47, %32, %10
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %48, %33, %10
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %21, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %22, align 4
-  call void @_ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #11
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %21, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %22, align 4
+  call void @_ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #11
   call void @_ZN3gmx19IDomDecHelperClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #11
-  br label %49
+  br label %50
 
-47:                                               ; preds = %42, %31
+48:                                               ; preds = %43, %32
   invoke void @_ZN3gmx14TopologyHolder19updateLocalTopologyEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
-          to label %48 unwind label %43
+          to label %49 unwind label %44
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   ret void
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %21, align 8
-  %51 = load i32, ptr %22, align 4
-  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
-  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
-  resume { ptr, i32 } %53
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %21, align 8
+  %52 = load i32, ptr %22, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -403,7 +404,8 @@ define linkonce_odr void @_ZN3gmx19IDomDecHelperClientC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx19IDomDecHelperClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx19IDomDecHelperClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1338,7 +1340,8 @@ define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorC2ERKNS_20Except
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -1754,7 +1757,8 @@ define linkonce_odr void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionIniti
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -1789,9 +1793,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }

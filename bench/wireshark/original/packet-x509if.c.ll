@@ -2155,7 +2155,8 @@ define hidden void @proto_register_x509if() #0 {
   call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_x509if.hf, i32 noundef 156)
   call void @proto_register_subtree_array(ptr noundef @proto_register_x509if.ett, i32 noundef 73)
   store i32 0, ptr @fmt_vals, align 16
-  store ptr null, ptr getelementptr inbounds (%struct._value_string, ptr @fmt_vals, i32 0, i32 1), align 8
+  %3 = getelementptr inbounds %struct._value_string, ptr @fmt_vals, i32 0, i32 1
+  store ptr null, ptr %3, align 8
   ret void
 }
 

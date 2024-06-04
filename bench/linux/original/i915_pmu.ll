@@ -227,7 +227,7 @@ define internal noundef i32 @i915_pmu_cpu_offline(i32 noundef %0, ptr noundef %1
   %3 = getelementptr inbounds i8, ptr %1, i64 328
   %4 = load i8, ptr %3, align 8, !range !5, !noundef !6
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %50
+  br i1 %5, label %6, label %51
 
 6:                                                ; preds = %2
   %7 = load i32, ptr @i915_pmu_target_cpu, align 4
@@ -236,71 +236,72 @@ define internal noundef i32 @i915_pmu_cpu_offline(i32 noundef %0, ptr noundef %1
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i8 %9, 0
-  br i1 %11, label %40, label %12
+  br i1 %11, label %41, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
   %14 = load i64, ptr %13, align 8
-  %15 = add i64 %14, ptrtoint (ptr @cpu_sibling_map to i64)
-  %16 = inttoptr i64 %15 to ptr
-  br label %17
+  %15 = ptrtoint ptr @cpu_sibling_map to i64
+  %16 = add i64 %14, %15
+  %17 = inttoptr i64 %16 to ptr
+  br label %18
 
-17:                                               ; preds = %28, %12
-  %18 = phi i64 [ 0, %12 ], [ %34, %28 ]
-  %19 = and i64 %18, 4294967295
-  %20 = icmp ugt i64 %19, 63
-  br i1 %20, label %28, label %21, !prof !9
+18:                                               ; preds = %29, %12
+  %19 = phi i64 [ 0, %12 ], [ %35, %29 ]
+  %20 = and i64 %19, 4294967295
+  %21 = icmp ugt i64 %20, 63
+  br i1 %21, label %29, label %22, !prof !9
 
-21:                                               ; preds = %17
-  %22 = load i64, ptr %16, align 8
-  %23 = shl nsw i64 -1, %19
-  %24 = and i64 %22, %23
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %28, label %26
+22:                                               ; preds = %18
+  %23 = load i64, ptr %17, align 8
+  %24 = shl nsw i64 -1, %20
+  %25 = and i64 %23, %24
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %29, label %27
 
-26:                                               ; preds = %21
-  %27 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %24) #14, !srcloc !10
-  br label %28
+27:                                               ; preds = %22
+  %28 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %25) #14, !srcloc !10
+  br label %29
 
-28:                                               ; preds = %26, %21, %17
-  %29 = phi i64 [ 64, %17 ], [ %27, %26 ], [ 64, %21 ]
-  %30 = trunc i64 %29 to i32
-  %31 = icmp ult i32 %30, 64
-  %32 = icmp eq i32 %30, %0
-  %33 = and i1 %31, %32
-  %34 = add i64 %29, 1
-  br i1 %33, label %17, label %35, !llvm.loop !11
+29:                                               ; preds = %27, %22, %18
+  %30 = phi i64 [ 64, %18 ], [ %28, %27 ], [ 64, %22 ]
+  %31 = trunc i64 %30 to i32
+  %32 = icmp ult i32 %31, 64
+  %33 = icmp eq i32 %31, %0
+  %34 = and i1 %32, %33
+  %35 = add i64 %30, 1
+  br i1 %34, label %18, label %36, !llvm.loop !11
 
-35:                                               ; preds = %28
-  %36 = load i32, ptr @nr_cpu_ids, align 4
-  %37 = icmp ugt i32 %36, %30
-  br i1 %37, label %38, label %40
+36:                                               ; preds = %29
+  %37 = load i32, ptr @nr_cpu_ids, align 4
+  %38 = icmp ugt i32 %37, %31
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %35
-  %39 = and i64 %29, 4294967295
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @i915_pmu_cpumask, i64 %39) #12, !srcloc !7
-  store i32 %30, ptr @i915_pmu_target_cpu, align 4
-  br label %40
+39:                                               ; preds = %36
+  %40 = and i64 %30, 4294967295
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @i915_pmu_cpumask, i64 %40) #12, !srcloc !7
+  store i32 %31, ptr @i915_pmu_target_cpu, align 4
+  br label %41
 
-40:                                               ; preds = %38, %35, %6
-  %41 = phi i32 [ %30, %38 ], [ %30, %35 ], [ %7, %6 ]
-  %42 = load i32, ptr @nr_cpu_ids, align 4
-  %43 = icmp ult i32 %41, %42
-  br i1 %43, label %44, label %50
+41:                                               ; preds = %39, %36, %6
+  %42 = phi i32 [ %31, %39 ], [ %31, %36 ], [ %7, %6 ]
+  %43 = load i32, ptr @nr_cpu_ids, align 4
+  %44 = icmp ult i32 %42, %43
+  br i1 %44, label %45, label %51
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %41, %46
-  br i1 %47, label %50, label %48
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp eq i32 %42, %47
+  br i1 %48, label %51, label %49
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @perf_pmu_migrate_context(ptr noundef %49, i32 noundef %0, i32 noundef %41) #12
-  store i32 %41, ptr %45, align 8
-  br label %50
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void @perf_pmu_migrate_context(ptr noundef %50, i32 noundef %0, i32 noundef %42) #12
+  store i32 %42, ptr %46, align 8
+  br label %51
 
-50:                                               ; preds = %48, %44, %40, %2
+51:                                               ; preds = %49, %45, %41, %2
   ret i32 0
 }
 

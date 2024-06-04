@@ -113,11 +113,12 @@ entry:
   store ptr %typeName, ptr %typeName.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_typeName = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %typeName.addr, align 8
+  %1 = load ptr, ptr %typeName.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %_typeName, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %_typeName, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -132,22 +133,22 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_typeName) #3
   br label %ehcleanup
 
@@ -266,32 +267,33 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_typeName = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %_typeName2 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %other.addr, align 8
+  %_typeName2 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %1, i32 0, i32 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_typeName, ptr noundef nonnull align 8 dereferenceable(32) %_typeName2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %_dataSize = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %other.addr, align 8
-  %_dataSize3 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %1, i32 0, i32 2
-  %2 = load i64, ptr %_dataSize3, align 8
-  store i64 %2, ptr %_dataSize, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %_dataSize3 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %2, i32 0, i32 2
+  %3 = load i64, ptr %_dataSize3, align 8
+  store i64 %3, ptr %_dataSize, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %other.addr, align 8
-  %_dataSize4 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %3, i32 0, i32 2
-  %4 = load i64, ptr %_dataSize4, align 8
-  invoke void @_ZN7Imf_3_25ArrayIcEC2El(ptr noundef nonnull align 8 dereferenceable(16) %_data, i64 noundef %4)
+  %4 = load ptr, ptr %other.addr, align 8
+  %_dataSize4 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %4, i32 0, i32 2
+  %5 = load i64, ptr %_dataSize4, align 8
+  invoke void @_ZN7Imf_3_25ArrayIcEC2El(ptr noundef nonnull align 8 dereferenceable(16) %_data, i64 noundef %5)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %_data7 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %other.addr, align 8
-  %_dataSize8 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %5, i32 0, i32 2
-  %6 = load i64, ptr %_dataSize8, align 8
-  invoke void @_ZN7Imf_3_25ArrayIcE11resizeEraseEl(ptr noundef nonnull align 8 dereferenceable(16) %_data7, i64 noundef %6)
+  %6 = load ptr, ptr %other.addr, align 8
+  %_dataSize8 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %6, i32 0, i32 2
+  %7 = load i64, ptr %_dataSize8, align 8
+  invoke void @_ZN7Imf_3_25ArrayIcE11resizeEraseEl(ptr noundef nonnull align 8 dereferenceable(16) %_data7, i64 noundef %7)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
@@ -300,43 +302,43 @@ invoke.cont10:                                    ; preds = %invoke.cont6
           to label %invoke.cont12 unwind label %lpad9
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %7 = load ptr, ptr %other.addr, align 8
-  %_data13 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %7, i32 0, i32 3
+  %8 = load ptr, ptr %other.addr, align 8
+  %_data13 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %8, i32 0, i32 3
   %call15 = invoke noundef ptr @_ZNK7Imf_3_25ArrayIcEcvPKcEv(ptr noundef nonnull align 8 dereferenceable(16) %_data13)
           to label %invoke.cont14 unwind label %lpad9
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %8 = load ptr, ptr %other.addr, align 8
-  %_dataSize16 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %_dataSize16, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %call15, i64 %9, i1 false)
+  %9 = load ptr, ptr %other.addr, align 8
+  %_dataSize16 = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %9, i32 0, i32 2
+  %10 = load i64, ptr %_dataSize16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %call15, i64 %10, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad5:                                            ; preds = %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont12, %invoke.cont10, %invoke.cont6
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_25ArrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_data) #3
   br label %ehcleanup
 
@@ -457,7 +459,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %this1, i32 0, i32 3
   call void @_ZN7Imf_3_25ArrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_data) #3
   %_typeName = getelementptr inbounds %"class.Imf_3_2::OpaqueAttribute", ptr %this1, i32 0, i32 1

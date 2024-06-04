@@ -802,7 +802,7 @@ define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) #0 {
   %22 = load i32, ptr %10, align 4
   %23 = and i32 %22, 15
   %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %35
+  br i1 %24, label %25, label %36
 
 25:                                               ; preds = %2
   %26 = load i32, ptr %10, align 4
@@ -812,329 +812,331 @@ define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) #0 {
   %30 = xor i1 %29, true
   %31 = zext i1 %30 to i32
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [2 x i32], ptr getelementptr inbounds ([6 x [2 x i32]], ptr @s_Masks, i64 0, i64 5), i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4
-  store i32 %34, ptr %3, align 4
-  br label %236
+  %33 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 5
+  %34 = getelementptr inbounds [2 x i32], ptr %33, i64 0, i64 %32
+  %35 = load i32, ptr %34, align 4
+  store i32 %35, ptr %3, align 4
+  br label %238
 
-35:                                               ; preds = %2
-  %36 = load i32, ptr %10, align 4
-  %37 = and i32 %36, 15
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %52
+36:                                               ; preds = %2
+  %37 = load i32, ptr %10, align 4
+  %38 = and i32 %37, 15
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %53
 
-39:                                               ; preds = %35
-  %40 = load i32, ptr %4, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %41
-  %43 = load i32, ptr %10, align 4
-  %44 = lshr i32 %43, 4
-  %45 = and i32 %44, 1
-  %46 = icmp ne i32 %45, 0
-  %47 = xor i1 %46, true
-  %48 = zext i1 %47 to i32
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [2 x i32], ptr %42, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4
-  store i32 %51, ptr %3, align 4
-  br label %236
+40:                                               ; preds = %36
+  %41 = load i32, ptr %4, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %42
+  %44 = load i32, ptr %10, align 4
+  %45 = lshr i32 %44, 4
+  %46 = and i32 %45, 1
+  %47 = icmp ne i32 %46, 0
+  %48 = xor i1 %47, true
+  %49 = zext i1 %48 to i32
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [2 x i32], ptr %43, i64 0, i64 %50
+  %52 = load i32, ptr %51, align 4
+  store i32 %52, ptr %3, align 4
+  br label %238
 
-52:                                               ; preds = %35
-  %53 = load i32, ptr %10, align 4
-  %54 = and i32 %53, 15
-  %55 = icmp eq i32 %54, 2
-  br i1 %55, label %56, label %74
+53:                                               ; preds = %36
+  %54 = load i32, ptr %10, align 4
+  %55 = and i32 %54, 15
+  %56 = icmp eq i32 %55, 2
+  br i1 %56, label %57, label %75
 
-56:                                               ; preds = %52
-  %57 = load i32, ptr %10, align 4
-  %58 = lshr i32 %57, 8
-  %59 = and i32 %58, 15
-  %60 = ashr i32 %59, 1
-  %61 = load ptr, ptr %5, align 8
-  %62 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %60, ptr noundef %61)
-  store i32 %62, ptr %7, align 4
-  %63 = load i32, ptr %10, align 4
-  %64 = lshr i32 %63, 4
-  %65 = and i32 %64, 1
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %70
+57:                                               ; preds = %53
+  %58 = load i32, ptr %10, align 4
+  %59 = lshr i32 %58, 8
+  %60 = and i32 %59, 15
+  %61 = ashr i32 %60, 1
+  %62 = load ptr, ptr %5, align 8
+  %63 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %61, ptr noundef %62)
+  store i32 %63, ptr %7, align 4
+  %64 = load i32, ptr %10, align 4
+  %65 = lshr i32 %64, 4
+  %66 = and i32 %65, 1
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %71
 
-67:                                               ; preds = %56
-  %68 = load i32, ptr %7, align 4
-  %69 = xor i32 %68, -1
-  br label %72
+68:                                               ; preds = %57
+  %69 = load i32, ptr %7, align 4
+  %70 = xor i32 %69, -1
+  br label %73
 
-70:                                               ; preds = %56
-  %71 = load i32, ptr %7, align 4
-  br label %72
+71:                                               ; preds = %57
+  %72 = load i32, ptr %7, align 4
+  br label %73
 
-72:                                               ; preds = %70, %67
-  %73 = phi i32 [ %69, %67 ], [ %71, %70 ]
-  store i32 %73, ptr %3, align 4
-  br label %236
+73:                                               ; preds = %71, %68
+  %74 = phi i32 [ %70, %68 ], [ %72, %71 ]
+  store i32 %74, ptr %3, align 4
+  br label %238
 
-74:                                               ; preds = %52
-  %75 = load i32, ptr %10, align 4
-  %76 = and i32 %75, 15
-  %77 = icmp eq i32 %76, 3
-  br i1 %77, label %78, label %122
+75:                                               ; preds = %53
+  %76 = load i32, ptr %10, align 4
+  %77 = and i32 %76, 15
+  %78 = icmp eq i32 %77, 3
+  br i1 %78, label %79, label %124
 
-78:                                               ; preds = %74
-  %79 = load i32, ptr getelementptr inbounds ([6 x [2 x i32]], ptr @s_Masks, i64 0, i64 5, i64 1), align 4
-  store i32 %79, ptr %7, align 4
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 5, i64 1
+  %81 = load i32, ptr %80, align 4
+  store i32 %81, ptr %7, align 4
   store i32 0, ptr %9, align 4
-  br label %80
+  br label %82
 
-80:                                               ; preds = %107, %78
-  %81 = load i32, ptr %9, align 4
-  %82 = load i32, ptr %10, align 4
-  %83 = lshr i32 %82, 5
-  %84 = and i32 %83, 7
-  %85 = icmp slt i32 %81, %84
-  br i1 %85, label %86, label %110
+82:                                               ; preds = %109, %79
+  %83 = load i32, ptr %9, align 4
+  %84 = load i32, ptr %10, align 4
+  %85 = lshr i32 %84, 5
+  %86 = and i32 %85, 7
+  %87 = icmp slt i32 %83, %86
+  br i1 %87, label %88, label %112
 
-86:                                               ; preds = %80
-  %87 = load i32, ptr %9, align 4
-  %88 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef %87)
-  store i32 %88, ptr %8, align 4
-  %89 = load i32, ptr %8, align 4
-  %90 = ashr i32 %89, 1
-  %91 = load ptr, ptr %5, align 8
-  %92 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %90, ptr noundef %91)
-  store i32 %92, ptr %6, align 4
-  %93 = load i32, ptr %8, align 4
-  %94 = and i32 %93, 1
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %101
+88:                                               ; preds = %82
+  %89 = load i32, ptr %9, align 4
+  %90 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef %89)
+  store i32 %90, ptr %8, align 4
+  %91 = load i32, ptr %8, align 4
+  %92 = ashr i32 %91, 1
+  %93 = load ptr, ptr %5, align 8
+  %94 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %92, ptr noundef %93)
+  store i32 %94, ptr %6, align 4
+  %95 = load i32, ptr %8, align 4
+  %96 = and i32 %95, 1
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %103
 
-96:                                               ; preds = %86
-  %97 = load i32, ptr %7, align 4
-  %98 = load i32, ptr %6, align 4
-  %99 = xor i32 %98, -1
-  %100 = and i32 %97, %99
-  br label %105
-
-101:                                              ; preds = %86
-  %102 = load i32, ptr %7, align 4
-  %103 = load i32, ptr %6, align 4
-  %104 = and i32 %102, %103
-  br label %105
-
-105:                                              ; preds = %101, %96
-  %106 = phi i32 [ %100, %96 ], [ %104, %101 ]
-  store i32 %106, ptr %7, align 4
+98:                                               ; preds = %88
+  %99 = load i32, ptr %7, align 4
+  %100 = load i32, ptr %6, align 4
+  %101 = xor i32 %100, -1
+  %102 = and i32 %99, %101
   br label %107
 
-107:                                              ; preds = %105
-  %108 = load i32, ptr %9, align 4
-  %109 = add nsw i32 %108, 1
-  store i32 %109, ptr %9, align 4
-  br label %80, !llvm.loop !8
+103:                                              ; preds = %88
+  %104 = load i32, ptr %7, align 4
+  %105 = load i32, ptr %6, align 4
+  %106 = and i32 %104, %105
+  br label %107
 
-110:                                              ; preds = %80
-  %111 = load i32, ptr %10, align 4
-  %112 = lshr i32 %111, 4
-  %113 = and i32 %112, 1
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %118
+107:                                              ; preds = %103, %98
+  %108 = phi i32 [ %102, %98 ], [ %106, %103 ]
+  store i32 %108, ptr %7, align 4
+  br label %109
 
-115:                                              ; preds = %110
-  %116 = load i32, ptr %7, align 4
-  %117 = xor i32 %116, -1
-  br label %120
+109:                                              ; preds = %107
+  %110 = load i32, ptr %9, align 4
+  %111 = add nsw i32 %110, 1
+  store i32 %111, ptr %9, align 4
+  br label %82, !llvm.loop !8
 
-118:                                              ; preds = %110
-  %119 = load i32, ptr %7, align 4
-  br label %120
+112:                                              ; preds = %82
+  %113 = load i32, ptr %10, align 4
+  %114 = lshr i32 %113, 4
+  %115 = and i32 %114, 1
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %120
 
-120:                                              ; preds = %118, %115
-  %121 = phi i32 [ %117, %115 ], [ %119, %118 ]
-  store i32 %121, ptr %3, align 4
-  br label %236
+117:                                              ; preds = %112
+  %118 = load i32, ptr %7, align 4
+  %119 = xor i32 %118, -1
+  br label %122
 
-122:                                              ; preds = %74
-  %123 = load i32, ptr %10, align 4
-  %124 = and i32 %123, 15
-  %125 = icmp eq i32 %124, 4
-  br i1 %125, label %126, label %157
+120:                                              ; preds = %112
+  %121 = load i32, ptr %7, align 4
+  br label %122
 
-126:                                              ; preds = %122
+122:                                              ; preds = %120, %117
+  %123 = phi i32 [ %119, %117 ], [ %121, %120 ]
+  store i32 %123, ptr %3, align 4
+  br label %238
+
+124:                                              ; preds = %75
+  %125 = load i32, ptr %10, align 4
+  %126 = and i32 %125, 15
+  %127 = icmp eq i32 %126, 4
+  br i1 %127, label %128, label %159
+
+128:                                              ; preds = %124
   store i32 0, ptr %7, align 4
   store i32 0, ptr %9, align 4
-  br label %127
+  br label %129
 
-127:                                              ; preds = %142, %126
-  %128 = load i32, ptr %9, align 4
-  %129 = load i32, ptr %10, align 4
-  %130 = lshr i32 %129, 5
-  %131 = and i32 %130, 7
-  %132 = icmp slt i32 %128, %131
-  br i1 %132, label %133, label %145
+129:                                              ; preds = %144, %128
+  %130 = load i32, ptr %9, align 4
+  %131 = load i32, ptr %10, align 4
+  %132 = lshr i32 %131, 5
+  %133 = and i32 %132, 7
+  %134 = icmp slt i32 %130, %133
+  br i1 %134, label %135, label %147
 
-133:                                              ; preds = %127
-  %134 = load i32, ptr %9, align 4
-  %135 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef %134)
-  store i32 %135, ptr %8, align 4
-  %136 = load i32, ptr %8, align 4
-  %137 = ashr i32 %136, 1
-  %138 = load ptr, ptr %5, align 8
-  %139 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %137, ptr noundef %138)
-  %140 = load i32, ptr %7, align 4
-  %141 = xor i32 %140, %139
-  store i32 %141, ptr %7, align 4
-  br label %142
+135:                                              ; preds = %129
+  %136 = load i32, ptr %9, align 4
+  %137 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef %136)
+  store i32 %137, ptr %8, align 4
+  %138 = load i32, ptr %8, align 4
+  %139 = ashr i32 %138, 1
+  %140 = load ptr, ptr %5, align 8
+  %141 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %139, ptr noundef %140)
+  %142 = load i32, ptr %7, align 4
+  %143 = xor i32 %142, %141
+  store i32 %143, ptr %7, align 4
+  br label %144
 
-142:                                              ; preds = %133
-  %143 = load i32, ptr %9, align 4
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %9, align 4
-  br label %127, !llvm.loop !9
+144:                                              ; preds = %135
+  %145 = load i32, ptr %9, align 4
+  %146 = add nsw i32 %145, 1
+  store i32 %146, ptr %9, align 4
+  br label %129, !llvm.loop !9
 
-145:                                              ; preds = %127
-  %146 = load i32, ptr %10, align 4
-  %147 = lshr i32 %146, 4
-  %148 = and i32 %147, 1
-  %149 = icmp ne i32 %148, 0
-  br i1 %149, label %150, label %153
+147:                                              ; preds = %129
+  %148 = load i32, ptr %10, align 4
+  %149 = lshr i32 %148, 4
+  %150 = and i32 %149, 1
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %155
 
-150:                                              ; preds = %145
-  %151 = load i32, ptr %7, align 4
-  %152 = xor i32 %151, -1
-  br label %155
+152:                                              ; preds = %147
+  %153 = load i32, ptr %7, align 4
+  %154 = xor i32 %153, -1
+  br label %157
 
-153:                                              ; preds = %145
-  %154 = load i32, ptr %7, align 4
-  br label %155
+155:                                              ; preds = %147
+  %156 = load i32, ptr %7, align 4
+  br label %157
 
-155:                                              ; preds = %153, %150
-  %156 = phi i32 [ %152, %150 ], [ %154, %153 ]
-  store i32 %156, ptr %3, align 4
-  br label %236
+157:                                              ; preds = %155, %152
+  %158 = phi i32 [ %154, %152 ], [ %156, %155 ]
+  store i32 %158, ptr %3, align 4
+  br label %238
 
-157:                                              ; preds = %122
-  %158 = load i32, ptr %10, align 4
-  %159 = and i32 %158, 15
-  %160 = icmp eq i32 %159, 5
-  br i1 %160, label %165, label %161
+159:                                              ; preds = %124
+  %160 = load i32, ptr %10, align 4
+  %161 = and i32 %160, 15
+  %162 = icmp eq i32 %161, 5
+  br i1 %162, label %167, label %163
 
-161:                                              ; preds = %157
-  %162 = load i32, ptr %10, align 4
-  %163 = and i32 %162, 15
-  %164 = icmp eq i32 %163, 6
-  br i1 %164, label %165, label %235
+163:                                              ; preds = %159
+  %164 = load i32, ptr %10, align 4
+  %165 = and i32 %164, 15
+  %166 = icmp eq i32 %165, 6
+  br i1 %166, label %167, label %237
 
-165:                                              ; preds = %161, %157
-  %166 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 0)
-  store i32 %166, ptr %14, align 4
-  %167 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 1)
-  store i32 %167, ptr %15, align 4
-  %168 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 2)
-  store i32 %168, ptr %16, align 4
-  %169 = load i32, ptr %14, align 4
-  %170 = ashr i32 %169, 1
-  %171 = load ptr, ptr %5, align 8
-  %172 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %170, ptr noundef %171)
-  store i32 %172, ptr %11, align 4
-  %173 = load i32, ptr %15, align 4
-  %174 = ashr i32 %173, 1
-  %175 = load ptr, ptr %5, align 8
-  %176 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %174, ptr noundef %175)
-  store i32 %176, ptr %12, align 4
-  %177 = load i32, ptr %16, align 4
-  %178 = ashr i32 %177, 1
-  %179 = load ptr, ptr %5, align 8
-  %180 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %178, ptr noundef %179)
-  store i32 %180, ptr %13, align 4
-  %181 = load i32, ptr %14, align 4
-  %182 = and i32 %181, 1
-  %183 = icmp ne i32 %182, 0
-  br i1 %183, label %184, label %187
+167:                                              ; preds = %163, %159
+  %168 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 0)
+  store i32 %168, ptr %14, align 4
+  %169 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 1)
+  store i32 %169, ptr %15, align 4
+  %170 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 2)
+  store i32 %170, ptr %16, align 4
+  %171 = load i32, ptr %14, align 4
+  %172 = ashr i32 %171, 1
+  %173 = load ptr, ptr %5, align 8
+  %174 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %172, ptr noundef %173)
+  store i32 %174, ptr %11, align 4
+  %175 = load i32, ptr %15, align 4
+  %176 = ashr i32 %175, 1
+  %177 = load ptr, ptr %5, align 8
+  %178 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %176, ptr noundef %177)
+  store i32 %178, ptr %12, align 4
+  %179 = load i32, ptr %16, align 4
+  %180 = ashr i32 %179, 1
+  %181 = load ptr, ptr %5, align 8
+  %182 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %180, ptr noundef %181)
+  store i32 %182, ptr %13, align 4
+  %183 = load i32, ptr %14, align 4
+  %184 = and i32 %183, 1
+  %185 = icmp ne i32 %184, 0
+  br i1 %185, label %186, label %189
 
-184:                                              ; preds = %165
-  %185 = load i32, ptr %11, align 4
-  %186 = xor i32 %185, -1
-  br label %189
+186:                                              ; preds = %167
+  %187 = load i32, ptr %11, align 4
+  %188 = xor i32 %187, -1
+  br label %191
 
-187:                                              ; preds = %165
-  %188 = load i32, ptr %11, align 4
-  br label %189
+189:                                              ; preds = %167
+  %190 = load i32, ptr %11, align 4
+  br label %191
 
-189:                                              ; preds = %187, %184
-  %190 = phi i32 [ %186, %184 ], [ %188, %187 ]
-  store i32 %190, ptr %11, align 4
-  %191 = load i32, ptr %15, align 4
-  %192 = and i32 %191, 1
-  %193 = icmp ne i32 %192, 0
-  br i1 %193, label %194, label %197
+191:                                              ; preds = %189, %186
+  %192 = phi i32 [ %188, %186 ], [ %190, %189 ]
+  store i32 %192, ptr %11, align 4
+  %193 = load i32, ptr %15, align 4
+  %194 = and i32 %193, 1
+  %195 = icmp ne i32 %194, 0
+  br i1 %195, label %196, label %199
 
-194:                                              ; preds = %189
-  %195 = load i32, ptr %12, align 4
-  %196 = xor i32 %195, -1
-  br label %199
+196:                                              ; preds = %191
+  %197 = load i32, ptr %12, align 4
+  %198 = xor i32 %197, -1
+  br label %201
 
-197:                                              ; preds = %189
-  %198 = load i32, ptr %12, align 4
-  br label %199
+199:                                              ; preds = %191
+  %200 = load i32, ptr %12, align 4
+  br label %201
 
-199:                                              ; preds = %197, %194
-  %200 = phi i32 [ %196, %194 ], [ %198, %197 ]
-  store i32 %200, ptr %12, align 4
-  %201 = load i32, ptr %16, align 4
-  %202 = and i32 %201, 1
-  %203 = icmp ne i32 %202, 0
-  br i1 %203, label %204, label %207
+201:                                              ; preds = %199, %196
+  %202 = phi i32 [ %198, %196 ], [ %200, %199 ]
+  store i32 %202, ptr %12, align 4
+  %203 = load i32, ptr %16, align 4
+  %204 = and i32 %203, 1
+  %205 = icmp ne i32 %204, 0
+  br i1 %205, label %206, label %209
 
-204:                                              ; preds = %199
-  %205 = load i32, ptr %13, align 4
-  %206 = xor i32 %205, -1
-  br label %209
+206:                                              ; preds = %201
+  %207 = load i32, ptr %13, align 4
+  %208 = xor i32 %207, -1
+  br label %211
 
-207:                                              ; preds = %199
-  %208 = load i32, ptr %13, align 4
-  br label %209
+209:                                              ; preds = %201
+  %210 = load i32, ptr %13, align 4
+  br label %211
 
-209:                                              ; preds = %207, %204
-  %210 = phi i32 [ %206, %204 ], [ %208, %207 ]
-  store i32 %210, ptr %13, align 4
-  %211 = load i32, ptr %10, align 4
-  %212 = and i32 %211, 15
-  %213 = icmp eq i32 %212, 5
-  br i1 %213, label %214, label %223
+211:                                              ; preds = %209, %206
+  %212 = phi i32 [ %208, %206 ], [ %210, %209 ]
+  store i32 %212, ptr %13, align 4
+  %213 = load i32, ptr %10, align 4
+  %214 = and i32 %213, 15
+  %215 = icmp eq i32 %214, 5
+  br i1 %215, label %216, label %225
 
-214:                                              ; preds = %209
-  %215 = load i32, ptr %11, align 4
-  %216 = load i32, ptr %12, align 4
-  %217 = and i32 %215, %216
-  %218 = load i32, ptr %11, align 4
-  %219 = xor i32 %218, -1
-  %220 = load i32, ptr %13, align 4
-  %221 = and i32 %219, %220
-  %222 = or i32 %217, %221
-  store i32 %222, ptr %3, align 4
-  br label %236
+216:                                              ; preds = %211
+  %217 = load i32, ptr %11, align 4
+  %218 = load i32, ptr %12, align 4
+  %219 = and i32 %217, %218
+  %220 = load i32, ptr %11, align 4
+  %221 = xor i32 %220, -1
+  %222 = load i32, ptr %13, align 4
+  %223 = and i32 %221, %222
+  %224 = or i32 %219, %223
+  store i32 %224, ptr %3, align 4
+  br label %238
 
-223:                                              ; preds = %209
-  %224 = load i32, ptr %11, align 4
-  %225 = load i32, ptr %12, align 4
-  %226 = and i32 %224, %225
-  %227 = load i32, ptr %11, align 4
-  %228 = load i32, ptr %13, align 4
-  %229 = and i32 %227, %228
-  %230 = or i32 %226, %229
-  %231 = load i32, ptr %12, align 4
-  %232 = load i32, ptr %13, align 4
-  %233 = and i32 %231, %232
-  %234 = or i32 %230, %233
-  store i32 %234, ptr %3, align 4
-  br label %236
+225:                                              ; preds = %211
+  %226 = load i32, ptr %11, align 4
+  %227 = load i32, ptr %12, align 4
+  %228 = and i32 %226, %227
+  %229 = load i32, ptr %11, align 4
+  %230 = load i32, ptr %13, align 4
+  %231 = and i32 %229, %230
+  %232 = or i32 %228, %231
+  %233 = load i32, ptr %12, align 4
+  %234 = load i32, ptr %13, align 4
+  %235 = and i32 %233, %234
+  %236 = or i32 %232, %235
+  store i32 %236, ptr %3, align 4
+  br label %238
 
-235:                                              ; preds = %161
+237:                                              ; preds = %163
   store i32 0, ptr %3, align 4
-  br label %236
+  br label %238
 
-236:                                              ; preds = %235, %223, %214, %155, %120, %72, %39, %25
-  %237 = load i32, ptr %3, align 4
-  ret i32 %237
+238:                                              ; preds = %237, %225, %216, %157, %122, %73, %40, %25
+  %239 = load i32, ptr %3, align 4
+  ret i32 %239
 }
 
 ; Function Attrs: nounwind uwtable

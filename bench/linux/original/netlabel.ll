@@ -742,58 +742,59 @@ define dso_local noundef i32 @selinux_netlbl_socket_post_create(ptr noundef %0, 
   %4 = load ptr, ptr %3, align 8
   %5 = and i16 %1, -9
   %6 = icmp eq i16 %5, 2
-  br i1 %6, label %7, label %30
+  br i1 %6, label %7, label %31
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %22
+  br i1 %10, label %11, label %23
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %13 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 2336, i64 noundef 48) #11
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %22, label %15
+  %12 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %13 = load ptr, ptr %12, align 16
+  %14 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 2336, i64 noundef 48) #11
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %23, label %16
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = load i32, ptr %16, align 8
-  %18 = tail call i32 @security_netlbl_sid_to_secattr(i32 noundef %17, ptr noundef nonnull %13) #10
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %21, label %20
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = load i32, ptr %17, align 8
+  %19 = tail call i32 @security_netlbl_sid_to_secattr(i32 noundef %18, ptr noundef nonnull %14) #10
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %22, label %21
 
-20:                                               ; preds = %15
-  tail call fastcc void @netlbl_secattr_free(ptr noundef nonnull %13)
-  br label %22
+21:                                               ; preds = %16
+  tail call fastcc void @netlbl_secattr_free(ptr noundef nonnull %14)
+  br label %23
 
-21:                                               ; preds = %15
-  store ptr %13, ptr %8, align 8
-  br label %22
+22:                                               ; preds = %16
+  store ptr %14, ptr %8, align 8
+  br label %23
 
-22:                                               ; preds = %21, %20, %11, %7
-  %23 = phi ptr [ null, %20 ], [ %13, %21 ], [ %9, %7 ], [ null, %11 ]
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %30, label %25
+23:                                               ; preds = %22, %21, %11, %7
+  %24 = phi ptr [ null, %21 ], [ %14, %22 ], [ %9, %7 ], [ null, %11 ]
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %31, label %26
 
-25:                                               ; preds = %22
-  %26 = tail call i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %23) #10
-  switch i32 %26, label %30 [
-    i32 0, label %28
-    i32 -89, label %27
+26:                                               ; preds = %23
+  %27 = tail call i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %24) #10
+  switch i32 %27, label %31 [
+    i32 0, label %29
+    i32 -89, label %28
   ]
 
-27:                                               ; preds = %25
-  br label %28
+28:                                               ; preds = %26
+  br label %29
 
-28:                                               ; preds = %27, %25
-  %29 = phi i32 [ 3, %27 ], [ 2, %25 ]
-  store i32 %29, ptr %4, align 8
-  br label %30
+29:                                               ; preds = %28, %26
+  %30 = phi i32 [ 3, %28 ], [ 2, %26 ]
+  store i32 %30, ptr %4, align 8
+  br label %31
 
-30:                                               ; preds = %28, %25, %22, %2
-  %31 = phi i32 [ 0, %2 ], [ -12, %22 ], [ %26, %25 ], [ 0, %28 ]
-  ret i32 %31
+31:                                               ; preds = %29, %26, %23, %2
+  %32 = phi i32 [ 0, %2 ], [ -12, %23 ], [ %27, %26 ], [ 0, %29 ]
+  ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1076,7 +1077,7 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
   %7 = icmp ult i32 %6, 2
-  br i1 %7, label %8, label %36
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %2
   %9 = load i16, ptr %1, align 2
@@ -1085,54 +1086,55 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
 
 11:                                               ; preds = %8
   tail call void @netlbl_sock_delattr(ptr noundef %0) #10
-  br label %33
+  br label %34
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %27
+  br i1 %15, label %16, label %28
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %18 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 2336, i64 noundef 48) #11
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %27, label %20
+  %17 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %18 = load ptr, ptr %17, align 16
+  %19 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 2336, i64 noundef 48) #11
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %28, label %21
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  %22 = load i32, ptr %21, align 8
-  %23 = tail call i32 @security_netlbl_sid_to_secattr(i32 noundef %22, ptr noundef nonnull %18) #10
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %26, label %25
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = load i32, ptr %22, align 8
+  %24 = tail call i32 @security_netlbl_sid_to_secattr(i32 noundef %23, ptr noundef nonnull %19) #10
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %27, label %26
 
-25:                                               ; preds = %20
-  tail call fastcc void @netlbl_secattr_free(ptr noundef nonnull %18)
-  br label %27
+26:                                               ; preds = %21
+  tail call fastcc void @netlbl_secattr_free(ptr noundef nonnull %19)
+  br label %28
 
-26:                                               ; preds = %20
-  store ptr %18, ptr %13, align 8
-  br label %27
+27:                                               ; preds = %21
+  store ptr %19, ptr %13, align 8
+  br label %28
 
-27:                                               ; preds = %26, %25, %16, %12
-  %28 = phi ptr [ null, %25 ], [ %18, %26 ], [ %14, %12 ], [ null, %16 ]
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %36, label %30
+28:                                               ; preds = %27, %26, %16, %12
+  %29 = phi ptr [ null, %26 ], [ %19, %27 ], [ %14, %12 ], [ null, %16 ]
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %37, label %31
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @netlbl_conn_setattr(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %28) #10
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %36
+31:                                               ; preds = %28
+  %32 = tail call i32 @netlbl_conn_setattr(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %29) #10
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %30, %11
-  %34 = phi i32 [ 3, %11 ], [ 4, %30 ]
-  %35 = phi i32 [ 0, %11 ], [ %31, %30 ]
-  store i32 %34, ptr %4, align 8
-  br label %36
+34:                                               ; preds = %31, %11
+  %35 = phi i32 [ 3, %11 ], [ 4, %31 ]
+  %36 = phi i32 [ 0, %11 ], [ %32, %31 ]
+  store i32 %35, ptr %4, align 8
+  br label %37
 
-36:                                               ; preds = %33, %30, %27, %2
-  %37 = phi i32 [ 0, %2 ], [ -12, %27 ], [ %31, %30 ], [ %35, %33 ]
-  ret i32 %37
+37:                                               ; preds = %34, %31, %28, %2
+  %38 = phi i32 [ 0, %2 ], [ -12, %28 ], [ %32, %31 ], [ %36, %34 ]
+  ret i32 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

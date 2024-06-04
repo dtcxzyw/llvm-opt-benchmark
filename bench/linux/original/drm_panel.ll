@@ -83,12 +83,14 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 define dso_local void @drm_panel_add(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @panel_lock) #4
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @panel_list, i64 0, i32 1), align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.list_head, ptr @panel_list, i64 0, i32 1), align 8
+  %3 = getelementptr inbounds %struct.list_head, ptr @panel_list, i64 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.list_head, ptr @panel_list, i64 0, i32 1
+  store ptr %2, ptr %5, align 8
   store ptr @panel_list, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %3, ptr %4, align 8
-  store volatile ptr %2, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %4, ptr %6, align 8
+  store volatile ptr %2, ptr %4, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @panel_lock) #4
   ret void
 }
@@ -539,31 +541,32 @@ define dso_local noundef i32 @devm_drm_panel_add_follower(ptr nocapture readnone
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_panel_of_backlight(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %14, label %3
+  br i1 %2, label %15, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %14, label %6
+  br i1 %5, label %15, label %6
 
 6:                                                ; preds = %3
   %7 = tail call ptr @devm_of_find_backlight(ptr noundef nonnull %4) #4
-  %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
-  br i1 %8, label %9, label %12
+  %8 = inttoptr i64 -4096 to ptr
+  %9 = icmp ugt ptr %7, %8
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %6
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  br label %14
+10:                                               ; preds = %6
+  %11 = ptrtoint ptr %7 to i64
+  %12 = trunc i64 %11 to i32
+  br label %15
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %13, align 8
-  br label %14
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %14, align 8
+  br label %15
 
-14:                                               ; preds = %12, %9, %3, %1
-  %15 = phi i32 [ %11, %9 ], [ 0, %12 ], [ -22, %3 ], [ -22, %1 ]
-  ret i32 %15
+15:                                               ; preds = %13, %10, %3, %1
+  %16 = phi i32 [ %12, %10 ], [ 0, %13 ], [ -22, %3 ], [ -22, %1 ]
+  ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid

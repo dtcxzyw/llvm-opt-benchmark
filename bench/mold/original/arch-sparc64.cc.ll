@@ -1178,53 +1178,60 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i32 noundef 50331648)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 1), i32 noundef 812122112)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 2), i32 noundef 16777216)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 3), i32 noundef 16777216)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 4), i32 noundef 16777216)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 5), i32 noundef 16777216)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 6), i32 noundef 16777216)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 7), i32 noundef 16777216)
+  %2 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 1
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %2, i32 noundef 812122112)
+  %3 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 2
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %3, i32 noundef 16777216)
+  %4 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 3
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %4, i32 noundef 16777216)
+  %5 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 4
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %5, i32 noundef 16777216)
+  %6 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 5
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %6, i32 noundef 16777216)
+  %7 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 6
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %7, i32 noundef 16777216)
+  %8 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 7
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %8, i32 noundef 16777216)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn) #3
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %plt = getelementptr inbounds %"struct.mold::elf::Context", ptr %2, i32 0, i32 59
-  %3 = load ptr, ptr %plt, align 8
-  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %3, i32 0, i32 2
+  %9 = load ptr, ptr %ctx.addr, align 8
+  %plt = getelementptr inbounds %"struct.mold::elf::Context", ptr %9, i32 0, i32 59
+  %10 = load ptr, ptr %plt, align 8
+  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %10, i32 0, i32 2
   %sh_addr = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr, i32 0, i32 3
   %call = call noundef i64 @_ZNK4mold9BigEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_addr)
   store i64 %call, ptr %plt0, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %plt2 = getelementptr inbounds %"struct.mold::elf::Context", ptr %4, i32 0, i32 59
-  %5 = load ptr, ptr %plt2, align 8
-  %shdr3 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %5, i32 0, i32 2
+  %11 = load ptr, ptr %ctx.addr, align 8
+  %plt2 = getelementptr inbounds %"struct.mold::elf::Context", ptr %11, i32 0, i32 59
+  %12 = load ptr, ptr %plt2, align 8
+  %shdr3 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %12, i32 0, i32 2
   %sh_addr4 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr3, i32 0, i32 3
   %call5 = call noundef i64 @_ZNK4mold9BigEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_addr4)
   %add = add i64 %call5, 32
   store i64 %add, ptr %plt1, align 8
-  %6 = load ptr, ptr %sym.addr, align 8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %call7 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7SPARC64EE12get_plt_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(51) %6, ptr noundef nonnull align 8 dereferenceable(4584) %7)
+  %13 = load ptr, ptr %sym.addr, align 8
+  %14 = load ptr, ptr %ctx.addr, align 8
+  %call7 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7SPARC64EE12get_plt_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(51) %13, ptr noundef nonnull align 8 dereferenceable(4584) %14)
   store i64 %call7, ptr %entry6, align 8
-  %8 = load ptr, ptr %buf.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 16 @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 32, i1 false)
-  %9 = load i64, ptr %entry6, align 8
-  %10 = load i64, ptr %plt0, align 8
-  %sub = sub i64 %9, %10
+  %15 = load ptr, ptr %buf.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 16 @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 32, i1 false)
+  %16 = load i64, ptr %entry6, align 8
+  %17 = load i64, ptr %plt0, align 8
+  %sub = sub i64 %16, %17
   %call8 = call noundef i64 @_ZN4mold4bitsEmmm(i64 noundef %sub, i64 noundef 21, i64 noundef 0)
   %conv = trunc i64 %call8 to i32
-  %11 = load ptr, ptr %buf.addr, align 8
-  %call9 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold9BigEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %11, i32 noundef %conv)
-  %12 = load i64, ptr %plt1, align 8
-  %13 = load i64, ptr %entry6, align 8
-  %sub10 = sub i64 %12, %13
+  %18 = load ptr, ptr %buf.addr, align 8
+  %call9 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold9BigEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %18, i32 noundef %conv)
+  %19 = load i64, ptr %plt1, align 8
+  %20 = load i64, ptr %entry6, align 8
+  %sub10 = sub i64 %19, %20
   %sub11 = sub i64 %sub10, 4
   %call12 = call noundef i64 @_ZN4mold4bitsEmmm(i64 noundef %sub11, i64 noundef 20, i64 noundef 2)
   %conv13 = trunc i64 %call12 to i32
-  %14 = load ptr, ptr %buf.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %14, i64 4
+  %21 = load ptr, ptr %buf.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %21, i64 4
   %call14 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold9BigEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %add.ptr, i32 noundef %conv13)
   ret void
 }
@@ -1369,29 +1376,36 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i32 noundef -1978662897)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 1), i32 noundef 1073741826)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 2), i32 noundef -1034166252)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 3), i32 noundef -1034174463)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 4), i32 noundef -2118107136)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 5), i32 noundef -1643118587)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 6), i32 noundef 0)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 7), i32 noundef 0)
+  %2 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 1
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %2, i32 noundef 1073741826)
+  %3 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 2
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %3, i32 noundef -1034166252)
+  %4 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 3
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %4, i32 noundef -1034174463)
+  %5 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 4
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %5, i32 noundef -2118107136)
+  %6 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 5
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %6, i32 noundef -1643118587)
+  %7 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 6
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %7, i32 noundef 0)
+  %8 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 7
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %8, i32 noundef 0)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry) #3
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %2 = load ptr, ptr %buf.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 16 @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 32, i1 false)
-  %3 = load ptr, ptr %sym.addr, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %call = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7SPARC64EE19get_got_pltgot_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(51) %3, ptr noundef nonnull align 8 dereferenceable(4584) %4)
-  %5 = load ptr, ptr %sym.addr, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %call1 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7SPARC64EE12get_plt_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(51) %5, ptr noundef nonnull align 8 dereferenceable(4584) %6)
+  %9 = load ptr, ptr %buf.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 16 @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 32, i1 false)
+  %10 = load ptr, ptr %sym.addr, align 8
+  %11 = load ptr, ptr %ctx.addr, align 8
+  %call = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7SPARC64EE19get_got_pltgot_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(51) %10, ptr noundef nonnull align 8 dereferenceable(4584) %11)
+  %12 = load ptr, ptr %sym.addr, align 8
+  %13 = load ptr, ptr %ctx.addr, align 8
+  %call1 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_7SPARC64EE12get_plt_addrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(51) %12, ptr noundef nonnull align 8 dereferenceable(4584) %13)
   %sub = sub i64 %call, %call1
   %sub2 = sub i64 %sub, 4
-  %7 = load ptr, ptr %buf.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = load ptr, ptr %buf.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %14, i64 24
   %call3 = call noundef nonnull align 1 dereferenceable(8) ptr @_ZN4mold9BigEndianImLi8EEaSEm(ptr noundef nonnull align 1 dereferenceable(8) %add.ptr, i64 noundef %sub2)
   ret void
 }
@@ -4737,40 +4751,45 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i32 noundef 50331648)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 1), i32 noundef -2112856064)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 2), i32 noundef -2111717375)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 3), i32 noundef -799399928)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 4), i32 noundef -2117869560)
-  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 5), i32 noundef -1879031800)
+  %4 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 1
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %4, i32 noundef -2112856064)
+  %5 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 2
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %5, i32 noundef -2111717375)
+  %6 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 3
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %6, i32 noundef -799399928)
+  %7 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 4
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %7, i32 noundef -2117869560)
+  %8 = getelementptr inbounds %"class.mold::BigEndian", ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 5
+  call void @_ZN4mold9BigEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %8, i32 noundef -1879031800)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn) #3
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %4 = load ptr, ptr %buf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 16 @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 24, i1 false)
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %tp_addr = getelementptr inbounds %"struct.mold::elf::Context", ptr %5, i32 0, i32 84
-  %6 = load i64, ptr %tp_addr, align 8
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %tls_begin = getelementptr inbounds %"struct.mold::elf::Context", ptr %7, i32 0, i32 83
-  %8 = load i64, ptr %tls_begin, align 8
-  %sub = sub i64 %6, %8
+  %9 = load ptr, ptr %buf, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 16 @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 24, i1 false)
+  %10 = load ptr, ptr %ctx.addr, align 8
+  %tp_addr = getelementptr inbounds %"struct.mold::elf::Context", ptr %10, i32 0, i32 84
+  %11 = load i64, ptr %tp_addr, align 8
+  %12 = load ptr, ptr %ctx.addr, align 8
+  %tls_begin = getelementptr inbounds %"struct.mold::elf::Context", ptr %12, i32 0, i32 83
+  %13 = load i64, ptr %tls_begin, align 8
+  %sub = sub i64 %11, %13
   %call3 = call noundef i64 @_ZN4mold4bitsEmmm(i64 noundef %sub, i64 noundef 31, i64 noundef 10)
   %conv = trunc i64 %call3 to i32
-  %9 = load ptr, ptr %buf, align 8
-  %arrayidx = getelementptr inbounds %"class.mold::BigEndian", ptr %9, i64 0
+  %14 = load ptr, ptr %buf, align 8
+  %arrayidx = getelementptr inbounds %"class.mold::BigEndian", ptr %14, i64 0
   %call4 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold9BigEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %arrayidx, i32 noundef %conv)
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %tp_addr5 = getelementptr inbounds %"struct.mold::elf::Context", ptr %10, i32 0, i32 84
-  %11 = load i64, ptr %tp_addr5, align 8
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %tls_begin6 = getelementptr inbounds %"struct.mold::elf::Context", ptr %12, i32 0, i32 83
-  %13 = load i64, ptr %tls_begin6, align 8
-  %sub7 = sub i64 %11, %13
+  %15 = load ptr, ptr %ctx.addr, align 8
+  %tp_addr5 = getelementptr inbounds %"struct.mold::elf::Context", ptr %15, i32 0, i32 84
+  %16 = load i64, ptr %tp_addr5, align 8
+  %17 = load ptr, ptr %ctx.addr, align 8
+  %tls_begin6 = getelementptr inbounds %"struct.mold::elf::Context", ptr %17, i32 0, i32 83
+  %18 = load i64, ptr %tls_begin6, align 8
+  %sub7 = sub i64 %16, %18
   %call8 = call noundef i64 @_ZN4mold4bitsEmmm(i64 noundef %sub7, i64 noundef 9, i64 noundef 0)
   %conv9 = trunc i64 %call8 to i32
-  %14 = load ptr, ptr %buf, align 8
-  %arrayidx10 = getelementptr inbounds %"class.mold::BigEndian", ptr %14, i64 1
+  %19 = load ptr, ptr %buf, align 8
+  %arrayidx10 = getelementptr inbounds %"class.mold::BigEndian", ptr %19, i64 1
   %call11 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4mold9BigEndianIjLi4EEoREj(ptr noundef nonnull align 1 dereferenceable(4) %arrayidx10, i32 noundef %conv9)
   ret void
 }
@@ -6094,7 +6113,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %relr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %this1, i32 0, i32 13
   call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %relr) #3
   %uncompressed_data = getelementptr inbounds %"class.mold::elf::Chunk", ptr %this1, i32 0, i32 6

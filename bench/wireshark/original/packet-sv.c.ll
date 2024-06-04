@@ -763,9 +763,10 @@ define internal i32 @dissect_sv_T_smpSynch(i1 noundef zeroext %0, ptr noundef %1
   store i32 %22, ptr %9, align 4
   %23 = load i32, ptr %13, align 4
   %24 = trunc i32 %23 to i8
-  store i8 %24, ptr getelementptr inbounds (%struct._sv_frame_data, ptr @sv_data, i32 0, i32 1), align 2
-  %25 = load i32, ptr %9, align 4
-  ret i32 %25
+  %25 = getelementptr inbounds %struct._sv_frame_data, ptr @sv_data, i32 0, i32 1
+  store i8 %24, ptr %25, align 2
+  %26 = load i32, ptr %9, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -845,9 +846,10 @@ define internal i32 @dissect_sv_T_smpMod(i1 noundef zeroext %0, ptr noundef %1, 
   store i32 %22, ptr %9, align 4
   %23 = load i32, ptr %13, align 4
   %24 = trunc i32 %23 to i16
-  store i16 %24, ptr getelementptr inbounds (%struct._sv_frame_data, ptr @sv_data, i32 0, i32 4), align 4
-  %25 = load i32, ptr %9, align 4
-  ret i32 %25
+  %25 = getelementptr inbounds %struct._sv_frame_data, ptr @sv_data, i32 0, i32 4
+  store i16 %24, ptr %25, align 4
+  %26 = load i32, ptr %9, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1019,89 +1021,94 @@ define internal i32 @dissect_PhsMeas1(i1 noundef zeroext %0, ptr noundef %1, ptr
   %44 = load i32, ptr @ett_phsmeas, align 4
   %45 = call ptr @proto_tree_add_subtree(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef null, ptr noundef @.str.104)
   store ptr %45, ptr %17, align 8
-  store i8 0, ptr getelementptr inbounds (%struct._sv_frame_data, ptr @sv_data, i32 0, i32 2), align 1
+  %46 = getelementptr inbounds %struct._sv_frame_data, ptr @sv_data, i32 0, i32 2
+  store i8 0, ptr %46, align 1
   store i32 0, ptr %20, align 4
-  br label %46
+  br label %47
 
-46:                                               ; preds = %96, %39
-  %47 = load i32, ptr %20, align 4
-  %48 = load i32, ptr %16, align 4
-  %49 = udiv i32 %48, 8
-  %50 = icmp ult i32 %47, %49
-  br i1 %50, label %51, label %99
+47:                                               ; preds = %101, %39
+  %48 = load i32, ptr %20, align 4
+  %49 = load i32, ptr %16, align 4
+  %50 = udiv i32 %49, 8
+  %51 = icmp ult i32 %48, %50
+  br i1 %51, label %52, label %104
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %9, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %93
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %9, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %98
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %17, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %93
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %17, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %98
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %10, align 8
-  %59 = load i32, ptr %11, align 4
-  %60 = call i32 @tvb_get_ntohl(ptr noundef %58, i32 noundef %59)
-  store i32 %60, ptr %18, align 4
-  %61 = load ptr, ptr %10, align 8
-  %62 = load i32, ptr %11, align 4
-  %63 = add i32 %62, 4
-  %64 = call i32 @tvb_get_ntohl(ptr noundef %61, i32 noundef %63)
-  store i32 %64, ptr %19, align 4
-  %65 = load ptr, ptr %17, align 8
-  %66 = load i32, ptr @hf_sv_phmeas_instmag_i, align 4
-  %67 = load ptr, ptr %10, align 8
-  %68 = load i32, ptr %11, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 4, i32 noundef 0)
-  %70 = load ptr, ptr %17, align 8
-  %71 = load ptr, ptr %10, align 8
-  %72 = load i32, ptr %11, align 4
-  %73 = add i32 %72, 4
-  %74 = load i32, ptr @hf_sv_phsmeas_q, align 4
-  %75 = load i32, ptr @ett_phsmeas_q, align 4
-  %76 = call ptr @proto_tree_add_bitmask(ptr noundef %70, ptr noundef %71, i32 noundef %73, i32 noundef %74, i32 noundef %75, ptr noundef @dissect_PhsMeas1.q_flags, i32 noundef 0)
-  %77 = load i32, ptr %20, align 4
-  %78 = icmp ult i32 %77, 20
-  br i1 %78, label %79, label %92
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %10, align 8
+  %60 = load i32, ptr %11, align 4
+  %61 = call i32 @tvb_get_ntohl(ptr noundef %59, i32 noundef %60)
+  store i32 %61, ptr %18, align 4
+  %62 = load ptr, ptr %10, align 8
+  %63 = load i32, ptr %11, align 4
+  %64 = add i32 %63, 4
+  %65 = call i32 @tvb_get_ntohl(ptr noundef %62, i32 noundef %64)
+  store i32 %65, ptr %19, align 4
+  %66 = load ptr, ptr %17, align 8
+  %67 = load i32, ptr @hf_sv_phmeas_instmag_i, align 4
+  %68 = load ptr, ptr %10, align 8
+  %69 = load i32, ptr %11, align 4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 4, i32 noundef 0)
+  %71 = load ptr, ptr %17, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = load i32, ptr %11, align 4
+  %74 = add i32 %73, 4
+  %75 = load i32, ptr @hf_sv_phsmeas_q, align 4
+  %76 = load i32, ptr @ett_phsmeas_q, align 4
+  %77 = call ptr @proto_tree_add_bitmask(ptr noundef %71, ptr noundef %72, i32 noundef %74, i32 noundef %75, i32 noundef %76, ptr noundef @dissect_PhsMeas1.q_flags, i32 noundef 0)
+  %78 = load i32, ptr %20, align 4
+  %79 = icmp ult i32 %78, 20
+  br i1 %79, label %80, label %97
 
-79:                                               ; preds = %57
-  %80 = load i32, ptr %18, align 4
-  %81 = load i32, ptr %20, align 4
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr [20 x %struct._sv_phs_meas], ptr getelementptr inbounds (%struct._sv_frame_data, ptr @sv_data, i32 0, i32 3), i64 0, i64 %82
-  %84 = getelementptr inbounds %struct._sv_phs_meas, ptr %83, i32 0, i32 0
-  store i32 %80, ptr %84, align 4
-  %85 = load i32, ptr %19, align 4
-  %86 = load i32, ptr %20, align 4
-  %87 = zext i32 %86 to i64
-  %88 = getelementptr [20 x %struct._sv_phs_meas], ptr getelementptr inbounds (%struct._sv_frame_data, ptr @sv_data, i32 0, i32 3), i64 0, i64 %87
-  %89 = getelementptr inbounds %struct._sv_phs_meas, ptr %88, i32 0, i32 1
-  store i32 %85, ptr %89, align 4
-  %90 = load i8, ptr getelementptr inbounds (%struct._sv_frame_data, ptr @sv_data, i32 0, i32 2), align 1
-  %91 = add i8 %90, 1
-  store i8 %91, ptr getelementptr inbounds (%struct._sv_frame_data, ptr @sv_data, i32 0, i32 2), align 1
-  br label %92
+80:                                               ; preds = %58
+  %81 = load i32, ptr %18, align 4
+  %82 = load i32, ptr %20, align 4
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds %struct._sv_frame_data, ptr @sv_data, i32 0, i32 3
+  %85 = getelementptr [20 x %struct._sv_phs_meas], ptr %84, i64 0, i64 %83
+  %86 = getelementptr inbounds %struct._sv_phs_meas, ptr %85, i32 0, i32 0
+  store i32 %81, ptr %86, align 4
+  %87 = load i32, ptr %19, align 4
+  %88 = load i32, ptr %20, align 4
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds %struct._sv_frame_data, ptr @sv_data, i32 0, i32 3
+  %91 = getelementptr [20 x %struct._sv_phs_meas], ptr %90, i64 0, i64 %89
+  %92 = getelementptr inbounds %struct._sv_phs_meas, ptr %91, i32 0, i32 1
+  store i32 %87, ptr %92, align 4
+  %93 = getelementptr inbounds %struct._sv_frame_data, ptr @sv_data, i32 0, i32 2
+  %94 = load i8, ptr %93, align 1
+  %95 = add i8 %94, 1
+  %96 = getelementptr inbounds %struct._sv_frame_data, ptr @sv_data, i32 0, i32 2
+  store i8 %95, ptr %96, align 1
+  br label %97
 
-92:                                               ; preds = %79, %57
-  br label %93
+97:                                               ; preds = %80, %58
+  br label %98
 
-93:                                               ; preds = %92, %54, %51
-  %94 = load i32, ptr %11, align 4
-  %95 = add i32 %94, 8
-  store i32 %95, ptr %11, align 4
-  br label %96
+98:                                               ; preds = %97, %55, %52
+  %99 = load i32, ptr %11, align 4
+  %100 = add i32 %99, 8
+  store i32 %100, ptr %11, align 4
+  br label %101
 
-96:                                               ; preds = %93
-  %97 = load i32, ptr %20, align 4
-  %98 = add i32 %97, 1
-  store i32 %98, ptr %20, align 4
-  br label %46, !llvm.loop !6
+101:                                              ; preds = %98
+  %102 = load i32, ptr %20, align 4
+  %103 = add i32 %102, 1
+  store i32 %103, ptr %20, align 4
+  br label %47, !llvm.loop !6
 
-99:                                               ; preds = %46
-  %100 = load i32, ptr %11, align 4
-  ret i32 %100
+104:                                              ; preds = %47
+  %105 = load i32, ptr %11, align 4
+  ret i32 %105
 }
 
 declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1

@@ -37,89 +37,90 @@ define i32 @ompi_pml_v_output_open(ptr noundef %0, i32 noundef %1) #0 {
 
 8:                                                ; preds = %7
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i32 0, i32 4), align 8
-  %11 = icmp ne i32 %9, %10
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds %struct.opal_class_t, ptr @opal_output_stream_t_class, i32 0, i32 4
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %9, %11
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   call void @opal_class_initialize(ptr noundef @opal_output_stream_t_class)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds %struct.opal_object_t, ptr %5, i32 0, i32 0
-  store ptr @opal_output_stream_t_class, ptr %14, align 8
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %5, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
+14:                                               ; preds = %13, %8
+  %15 = getelementptr inbounds %struct.opal_object_t, ptr %5, i32 0, i32 0
+  store ptr @opal_output_stream_t_class, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %5, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
   call void @opal_obj_run_constructors(ptr noundef %5)
-  br label %16
-
-16:                                               ; preds = %13
   br label %17
 
-17:                                               ; preds = %16
-  %18 = load ptr, ptr %3, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %21, label %20
+17:                                               ; preds = %14
+  br label %18
 
-20:                                               ; preds = %17
+18:                                               ; preds = %17
+  %19 = load ptr, ptr %3, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
+
+21:                                               ; preds = %18
   store i32 0, ptr @mca_pml_v, align 8
-  br label %50
+  br label %51
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %3, align 8
-  %23 = call i32 @strcmp(ptr noundef %22, ptr noundef @.str) #4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %27, label %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %3, align 8
+  %24 = call i32 @strcmp(ptr noundef %23, ptr noundef @.str) #4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %28, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 8
-  store i8 1, ptr %26, align 2
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 8
+  store i8 1, ptr %27, align 2
+  br label %39
+
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %3, align 8
+  %30 = call i32 @strcmp(ptr noundef %29, ptr noundef @.str.1) #4
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %34, label %32
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 9
+  store i8 1, ptr %33, align 1
   br label %38
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %3, align 8
-  %29 = call i32 @strcmp(ptr noundef %28, ptr noundef @.str.1) #4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %33, label %31
-
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 9
-  store i8 1, ptr %32, align 1
-  br label %37
-
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 10
-  store i8 1, ptr %34, align 4
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 12
-  store ptr %35, ptr %36, align 8
-  br label %37
-
-37:                                               ; preds = %33, %31
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 10
+  store i8 1, ptr %35, align 4
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 12
+  store ptr %36, ptr %37, align 8
   br label %38
 
-38:                                               ; preds = %37, %25
-  %39 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 6
-  store i8 1, ptr %39, align 8
-  %40 = call ptr @opal_gethostname()
-  store ptr %40, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 4
-  %42 = load ptr, ptr %6, align 8
-  %43 = call i32 @getpid() #5
-  %44 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %41, ptr noundef @.str.2, ptr noundef %42, i32 noundef %43)
-  %45 = load i32, ptr %4, align 4
-  %46 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 1
-  store i32 %45, ptr %46, align 8
-  %47 = call i32 @opal_output_open(ptr noundef %5)
-  store i32 %47, ptr @mca_pml_v, align 8
-  %48 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 4
-  %49 = load ptr, ptr %48, align 8
-  call void @free(ptr noundef %49) #5
-  br label %50
+38:                                               ; preds = %34, %32
+  br label %39
 
-50:                                               ; preds = %38, %20
-  %51 = load i32, ptr @mca_pml_v, align 8
-  ret i32 %51
+39:                                               ; preds = %38, %26
+  %40 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 6
+  store i8 1, ptr %40, align 8
+  %41 = call ptr @opal_gethostname()
+  store ptr %41, ptr %6, align 8
+  %42 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 4
+  %43 = load ptr, ptr %6, align 8
+  %44 = call i32 @getpid() #5
+  %45 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %42, ptr noundef @.str.2, ptr noundef %43, i32 noundef %44)
+  %46 = load i32, ptr %4, align 4
+  %47 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 1
+  store i32 %46, ptr %47, align 8
+  %48 = call i32 @opal_output_open(ptr noundef %5)
+  store i32 %48, ptr @mca_pml_v, align 8
+  %49 = getelementptr inbounds %struct.opal_output_stream_t, ptr %5, i32 0, i32 4
+  %50 = load ptr, ptr %49, align 8
+  call void @free(ptr noundef %50) #5
+  br label %51
+
+51:                                               ; preds = %39, %21
+  %52 = load i32, ptr @mca_pml_v, align 8
+  ret i32 %52
 }
 
 declare void @opal_class_initialize(ptr noundef) #1
@@ -162,17 +163,19 @@ declare i32 @strcmp(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @opal_gethostname() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %2 = icmp eq ptr null, %1
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp eq ptr null, %2
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
-  %4 = call i32 @opal_init_gethostname()
-  br label %5
+4:                                                ; preds = %0
+  %5 = call i32 @opal_init_gethostname()
+  br label %6
 
-5:                                                ; preds = %3, %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  ret ptr %6
+6:                                                ; preds = %4, %0
+  %7 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) #1

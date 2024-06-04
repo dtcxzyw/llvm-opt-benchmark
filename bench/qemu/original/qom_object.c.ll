@@ -628,42 +628,45 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %frombool = zext i1 %optional to i8
   store i8 %frombool, ptr %optional.addr, align 1
-  %0 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 2), align 16
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds [3 x ptr], ptr @object_compat_props, i64 0, i64 2
+  %1 = load ptr, ptr %0, align 16
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = call ptr @g_ptr_array_new()
-  store ptr %call, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 2), align 16
+  %2 = getelementptr inbounds [3 x ptr], ptr @object_compat_props, i64 0, i64 2
+  store ptr %call, ptr %2, align 16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %call1 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #13
   store ptr %call1, ptr %g, align 8
-  %1 = load ptr, ptr %driver.addr, align 8
-  %call2 = call noalias ptr @g_strdup(ptr noundef %1)
-  %2 = load ptr, ptr %g, align 8
-  %driver3 = getelementptr inbounds %struct.GlobalProperty, ptr %2, i32 0, i32 0
-  store ptr %call2, ptr %driver3, align 8
-  %3 = load ptr, ptr %prop.addr, align 8
-  %call4 = call noalias ptr @g_strdup(ptr noundef %3)
+  %3 = load ptr, ptr %driver.addr, align 8
+  %call2 = call noalias ptr @g_strdup(ptr noundef %3)
   %4 = load ptr, ptr %g, align 8
-  %property = getelementptr inbounds %struct.GlobalProperty, ptr %4, i32 0, i32 1
-  store ptr %call4, ptr %property, align 8
-  %5 = load ptr, ptr %value.addr, align 8
-  %call5 = call noalias ptr @g_strdup(ptr noundef %5)
+  %driver3 = getelementptr inbounds %struct.GlobalProperty, ptr %4, i32 0, i32 0
+  store ptr %call2, ptr %driver3, align 8
+  %5 = load ptr, ptr %prop.addr, align 8
+  %call4 = call noalias ptr @g_strdup(ptr noundef %5)
   %6 = load ptr, ptr %g, align 8
-  %value6 = getelementptr inbounds %struct.GlobalProperty, ptr %6, i32 0, i32 2
-  store ptr %call5, ptr %value6, align 8
-  %7 = load i8, ptr %optional.addr, align 1
-  %tobool7 = trunc i8 %7 to i1
+  %property = getelementptr inbounds %struct.GlobalProperty, ptr %6, i32 0, i32 1
+  store ptr %call4, ptr %property, align 8
+  %7 = load ptr, ptr %value.addr, align 8
+  %call5 = call noalias ptr @g_strdup(ptr noundef %7)
   %8 = load ptr, ptr %g, align 8
-  %optional8 = getelementptr inbounds %struct.GlobalProperty, ptr %8, i32 0, i32 4
+  %value6 = getelementptr inbounds %struct.GlobalProperty, ptr %8, i32 0, i32 2
+  store ptr %call5, ptr %value6, align 8
+  %9 = load i8, ptr %optional.addr, align 1
+  %tobool7 = trunc i8 %9 to i1
+  %10 = load ptr, ptr %g, align 8
+  %optional8 = getelementptr inbounds %struct.GlobalProperty, ptr %10, i32 0, i32 4
   %frombool9 = zext i1 %tobool7 to i8
   store i8 %frombool9, ptr %optional8, align 1
-  %9 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 2), align 16
-  %10 = load ptr, ptr %g, align 8
-  call void @g_ptr_array_add(ptr noundef %9, ptr noundef %10)
+  %11 = getelementptr inbounds [3 x ptr], ptr @object_compat_props, i64 0, i64 2
+  %12 = load ptr, ptr %11, align 16
+  %13 = load ptr, ptr %g, align 8
+  call void @g_ptr_array_add(ptr noundef %12, ptr noundef %13)
   ret void
 }
 
@@ -681,8 +684,9 @@ define dso_local void @object_set_machine_compat_props(ptr noundef %compat_props
 entry:
   %compat_props.addr = alloca ptr, align 8
   store ptr %compat_props, ptr %compat_props.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 1), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds [3 x ptr], ptr @object_compat_props, i64 0, i64 1
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -693,8 +697,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %1 = load ptr, ptr %compat_props.addr, align 8
-  store ptr %1, ptr getelementptr inbounds ([3 x ptr], ptr @object_compat_props, i64 0, i64 1), align 8
+  %2 = load ptr, ptr %compat_props.addr, align 8
+  %3 = getelementptr inbounds [3 x ptr], ptr @object_compat_props, i64 0, i64 1
+  store ptr %2, ptr %3, align 8
   ret void
 }
 
@@ -913,7 +918,7 @@ entry:
   store ptr %type, ptr %type.addr, align 8
   store ptr %errp, ptr %errp.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %parentobj.addr, align 8
   %1 = load ptr, ptr %propname.addr, align 8
   %2 = load ptr, ptr %childobj.addr, align 8
@@ -925,14 +930,11 @@ entry:
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ok, align 1
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %6 = load i8, ptr %ok, align 1
   %tobool = trunc i8 %6 to i1
   ret i1 %tobool
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @object_initialize_child_with_propsv(ptr noundef %parentobj, ptr noundef %propname, ptr noundef %childobj, i64 noundef %size, ptr noundef %type, ptr noundef %errp, ptr noundef %vargs) #0 {
@@ -1007,9 +1009,6 @@ out:                                              ; preds = %if.end7, %if.then5,
   %tobool8 = trunc i8 %16 to i1
   ret i1 %tobool8
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @object_set_propv(ptr noundef %obj, ptr noundef %errp, ptr noundef %vargs) #0 {
@@ -1486,7 +1485,7 @@ entry:
   store ptr %id, ptr %id.addr, align 8
   store ptr %errp, ptr %errp.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %typename.addr, align 8
   %1 = load ptr, ptr %parent.addr, align 8
   %2 = load ptr, ptr %id.addr, align 8
@@ -1495,7 +1494,7 @@ entry:
   %call = call ptr @object_new_with_propv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
   store ptr %call, ptr %obj, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %4 = load ptr, ptr %obj, align 8
   ret ptr %4
 }
@@ -1676,7 +1675,7 @@ entry:
   store ptr %obj, ptr %obj.addr, align 8
   store ptr %errp, ptr %errp.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %obj.addr, align 8
   %1 = load ptr, ptr %errp.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
@@ -1684,7 +1683,7 @@ entry:
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 1
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load i8, ptr %ret, align 1
   %tobool = trunc i8 %2 to i1
   ret i1 %tobool
@@ -3662,17 +3661,17 @@ return:                                           ; preds = %if.end17, %if.then1
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
 
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) #3
 
 declare void @g_free(ptr noundef) #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) #7
+declare noalias ptr @g_malloc0(i64 noundef) #6
 
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) #3
 
@@ -6443,7 +6442,7 @@ if.end14:                                         ; preds = %if.else11, %if.end1
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #6
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @object_resolve_partial_path(ptr noundef %parent, ptr noundef %parts, ptr noundef %typename, ptr noundef %ambiguous) #0 {
@@ -7045,7 +7044,7 @@ entry:
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #7
+declare noalias ptr @g_malloc(i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @property_get_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef %opaque, ptr noundef %errp) #0 {
@@ -8516,7 +8515,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @object_class_property_init_all(ptr noundef %obj) #0 {
@@ -8793,7 +8792,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare i32 @gettimeofday(ptr noundef, ptr noundef) #9
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #8
 
 declare void @qemu_log(ptr noundef, ...) #3
 
@@ -8949,7 +8948,7 @@ return:                                           ; preds = %if.end5, %if.then2,
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @type_initialize_interface(ptr noundef %ti, ptr noundef %interface_type, ptr noundef %parent_type) #0 {
@@ -9027,7 +9026,7 @@ declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #3
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef, ptr noundef) #6
+declare i32 @strcasecmp(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @object_property_del_all(ptr noundef %obj) #0 {
@@ -9463,17 +9462,23 @@ entry:
   ret ptr %call1
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { noreturn }
 attributes #13 = { allocsize(0,1) }

@@ -1625,41 +1625,42 @@ define internal i32 @data_init(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14), align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %5, ptr noundef @.str.65, ptr noundef %6, ptr noundef @.str.66, ptr noundef %7)
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr null, %9
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %1
-  store i32 -3, ptr %2, align 4
-  br label %24
+  %6 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %5, ptr noundef @.str.65, ptr noundef %7, ptr noundef @.str.66, ptr noundef %8)
+  %10 = load ptr, ptr %5, align 8
+  %11 = icmp eq ptr null, %10
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %5, align 8
-  %14 = call i32 @opal_util_keyval_parse(ptr noundef %13, ptr noundef @data_callback)
-  store i32 %14, ptr %4, align 4
-  %15 = load i32, ptr %4, align 4
-  %16 = icmp ne i32 0, %15
-  br i1 %16, label %17, label %21
+  store i32 -3, ptr %2, align 4
+  br label %25
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.67, ptr noundef %19) #8
-  br label %21
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %5, align 8
+  %15 = call i32 @opal_util_keyval_parse(ptr noundef %14, ptr noundef @data_callback)
+  store i32 %15, ptr %4, align 4
+  %16 = load i32, ptr %4, align 4
+  %17 = icmp ne i32 0, %16
+  br i1 %17, label %18, label %22
 
-21:                                               ; preds = %17, %12
-  %22 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %22) #8
-  %23 = load i32, ptr %4, align 4
-  store i32 %23, ptr %2, align 4
-  br label %24
+18:                                               ; preds = %13
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.67, ptr noundef %20) #8
+  br label %22
 
-24:                                               ; preds = %21, %11
-  %25 = load i32, ptr %2, align 4
-  ret i32 %25
+22:                                               ; preds = %18, %13
+  %23 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %23) #8
+  %24 = load i32, ptr %4, align 4
+  store i32 %24, ptr %2, align 4
+  br label %25
+
+25:                                               ; preds = %22, %12
+  %26 = load i32, ptr %2, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind

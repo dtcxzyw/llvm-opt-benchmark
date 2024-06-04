@@ -6,18 +6,19 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @snd_seq_prioq_new() local_unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %2 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 24) #6
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %5, label %4
+  %1 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %2 = load ptr, ptr %1, align 8
+  %3 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 24) #6
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-4:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  br label %5
+5:                                                ; preds = %0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  br label %6
 
-5:                                                ; preds = %4, %0
-  %6 = phi ptr [ %2, %4 ], [ null, %0 ]
-  ret ptr %6
+6:                                                ; preds = %5, %0
+  %7 = phi ptr [ %3, %5 ], [ null, %0 ]
+  ret ptr %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

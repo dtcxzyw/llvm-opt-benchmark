@@ -359,125 +359,128 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr nocapture noundef %0) #4 align 16 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.snd_pcm_hw_constraint_list, ptr @snd_pcm_known_rates, i64 0, i32 1), align 8
-  %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %4, label %21
+  %2 = getelementptr inbounds %struct.snd_pcm_hw_constraint_list, ptr @snd_pcm_known_rates, i64 0, i32 1
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %5, label %22
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4
-  br label %7
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = load i32, ptr %6, align 4
+  br label %8
 
-7:                                                ; preds = %18, %4
-  %8 = phi i32 [ 0, %4 ], [ %19, %18 ]
-  %9 = shl nuw i32 1, %8
-  %10 = and i32 %6, %9
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %18, label %12
+8:                                                ; preds = %19, %5
+  %9 = phi i32 [ 0, %5 ], [ %20, %19 ]
+  %10 = shl nuw i32 1, %9
+  %11 = and i32 %7, %10
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %19, label %13
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr @snd_pcm_known_rates, align 8
-  %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr i32, ptr %13, i64 %14
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %16, ptr %17, align 8
-  br label %21
+13:                                               ; preds = %8
+  %14 = load ptr, ptr @snd_pcm_known_rates, align 8
+  %15 = zext nneg i32 %9 to i64
+  %16 = getelementptr i32, ptr %14, i64 %15
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %17, ptr %18, align 8
+  br label %22
 
-18:                                               ; preds = %7
-  %19 = add nuw nsw i32 %8, 1
-  %20 = icmp eq i32 %19, %2
-  br i1 %20, label %21, label %7, !llvm.loop !11
+19:                                               ; preds = %8
+  %20 = add nuw nsw i32 %9, 1
+  %21 = icmp eq i32 %20, %3
+  br i1 %21, label %22, label %8, !llvm.loop !11
 
-21:                                               ; preds = %18, %12, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
-  br label %23
+22:                                               ; preds = %19, %13, %1
+  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  br label %24
 
-23:                                               ; preds = %27, %21
-  %24 = phi i32 [ %2, %21 ], [ %25, %27 ]
-  %25 = add i32 %24, -1
-  %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %27, label %38
+24:                                               ; preds = %28, %22
+  %25 = phi i32 [ %3, %22 ], [ %26, %28 ]
+  %26 = add i32 %25, -1
+  %27 = icmp sgt i32 %26, -1
+  br i1 %27, label %28, label %39
 
-27:                                               ; preds = %23
-  %28 = load i32, ptr %22, align 4
-  %29 = shl nuw i32 1, %25
-  %30 = and i32 %28, %29
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %23, label %32, !llvm.loop !12
+28:                                               ; preds = %24
+  %29 = load i32, ptr %23, align 4
+  %30 = shl nuw i32 1, %26
+  %31 = and i32 %29, %30
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %24, label %33, !llvm.loop !12
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr @snd_pcm_known_rates, align 8
-  %34 = zext nneg i32 %25 to i64
-  %35 = getelementptr i32, ptr %33, i64 %34
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %36, ptr %37, align 4
-  br label %38
+33:                                               ; preds = %28
+  %34 = load ptr, ptr @snd_pcm_known_rates, align 8
+  %35 = zext nneg i32 %26 to i64
+  %36 = getelementptr i32, ptr %34, i64 %35
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %37, ptr %38, align 4
+  br label %39
 
-38:                                               ; preds = %32, %23
+39:                                               ; preds = %33, %24
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @snd_pcm_rate_to_rate_bit(i32 noundef %0) #5 align 16 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.snd_pcm_hw_constraint_list, ptr @snd_pcm_known_rates, i64 0, i32 1), align 8
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %17, label %4
+  %2 = getelementptr inbounds %struct.snd_pcm_hw_constraint_list, ptr @snd_pcm_known_rates, i64 0, i32 1
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %18, label %5
 
-4:                                                ; preds = %1
-  %5 = load ptr, ptr @snd_pcm_known_rates, align 8
-  br label %6
+5:                                                ; preds = %1
+  %6 = load ptr, ptr @snd_pcm_known_rates, align 8
+  br label %7
 
-6:                                                ; preds = %14, %4
-  %7 = phi i32 [ 0, %4 ], [ %15, %14 ]
-  %8 = zext i32 %7 to i64
-  %9 = getelementptr i32, ptr %5, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, %0
-  br i1 %11, label %12, label %14
+7:                                                ; preds = %15, %5
+  %8 = phi i32 [ 0, %5 ], [ %16, %15 ]
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr i32, ptr %6, i64 %9
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, %0
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %6
-  %13 = shl nuw i32 1, %7
-  br label %17
+13:                                               ; preds = %7
+  %14 = shl nuw i32 1, %8
+  br label %18
 
-14:                                               ; preds = %6
-  %15 = add nuw i32 %7, 1
-  %16 = icmp eq i32 %15, %2
-  br i1 %16, label %17, label %6, !llvm.loop !13
+15:                                               ; preds = %7
+  %16 = add nuw i32 %8, 1
+  %17 = icmp eq i32 %16, %3
+  br i1 %17, label %18, label %7, !llvm.loop !13
 
-17:                                               ; preds = %14, %12, %1
-  %18 = phi i32 [ %13, %12 ], [ -2147483648, %1 ], [ -2147483648, %14 ]
-  ret i32 %18
+18:                                               ; preds = %15, %13, %1
+  %19 = phi i32 [ %14, %13 ], [ -2147483648, %1 ], [ -2147483648, %15 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @snd_pcm_rate_bit_to_rate(i32 noundef %0) #5 align 16 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.snd_pcm_hw_constraint_list, ptr @snd_pcm_known_rates, i64 0, i32 1), align 8
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %16, label %4
+  %2 = getelementptr inbounds %struct.snd_pcm_hw_constraint_list, ptr @snd_pcm_known_rates, i64 0, i32 1
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %17, label %5
 
-4:                                                ; preds = %13, %1
-  %5 = phi i32 [ %14, %13 ], [ 0, %1 ]
-  %6 = shl nuw i32 1, %5
-  %7 = icmp eq i32 %6, %0
-  br i1 %7, label %8, label %13
+5:                                                ; preds = %14, %1
+  %6 = phi i32 [ %15, %14 ], [ 0, %1 ]
+  %7 = shl nuw i32 1, %6
+  %8 = icmp eq i32 %7, %0
+  br i1 %8, label %9, label %14
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr @snd_pcm_known_rates, align 8
-  %10 = zext i32 %5 to i64
-  %11 = getelementptr i32, ptr %9, i64 %10
-  %12 = load i32, ptr %11, align 4
-  br label %16
+9:                                                ; preds = %5
+  %10 = load ptr, ptr @snd_pcm_known_rates, align 8
+  %11 = zext i32 %6 to i64
+  %12 = getelementptr i32, ptr %10, i64 %11
+  %13 = load i32, ptr %12, align 4
+  br label %17
 
-13:                                               ; preds = %4
-  %14 = add nuw i32 %5, 1
-  %15 = icmp eq i32 %14, %2
-  br i1 %15, label %16, label %4, !llvm.loop !14
+14:                                               ; preds = %5
+  %15 = add nuw i32 %6, 1
+  %16 = icmp eq i32 %15, %3
+  br i1 %16, label %17, label %5, !llvm.loop !14
 
-16:                                               ; preds = %13, %8, %1
-  %17 = phi i32 [ %12, %8 ], [ 0, %1 ], [ 0, %13 ]
-  ret i32 %17
+17:                                               ; preds = %14, %9, %1
+  %18 = phi i32 [ %13, %9 ], [ 0, %1 ], [ 0, %14 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -515,35 +518,36 @@ define dso_local i32 @snd_pcm_rate_mask_intersect(i32 noundef %0, i32 noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @snd_pcm_rate_range_to_bits(i32 noundef %0, i32 noundef %1) #5 align 16 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.snd_pcm_hw_constraint_list, ptr @snd_pcm_known_rates, i64 0, i32 1), align 8
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %21, label %5
+  %3 = getelementptr inbounds %struct.snd_pcm_hw_constraint_list, ptr @snd_pcm_known_rates, i64 0, i32 1
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %22, label %6
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr @snd_pcm_known_rates, align 8
-  br label %7
+6:                                                ; preds = %2
+  %7 = load ptr, ptr @snd_pcm_known_rates, align 8
+  br label %8
 
-7:                                                ; preds = %7, %5
-  %8 = phi i32 [ 0, %5 ], [ %19, %7 ]
-  %9 = phi i32 [ 0, %5 ], [ %18, %7 ]
-  %10 = sext i32 %8 to i64
-  %11 = getelementptr i32, ptr %6, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp ult i32 %12, %0
-  %14 = icmp ugt i32 %12, %1
-  %15 = or i1 %13, %14
-  %16 = shl nuw i32 1, %8
-  %17 = select i1 %15, i32 0, i32 %16
-  %18 = or i32 %17, %9
-  %19 = add nuw i32 %8, 1
-  %20 = icmp eq i32 %19, %3
-  br i1 %20, label %21, label %7, !llvm.loop !15
+8:                                                ; preds = %8, %6
+  %9 = phi i32 [ 0, %6 ], [ %20, %8 ]
+  %10 = phi i32 [ 0, %6 ], [ %19, %8 ]
+  %11 = sext i32 %9 to i64
+  %12 = getelementptr i32, ptr %7, i64 %11
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ult i32 %13, %0
+  %15 = icmp ugt i32 %13, %1
+  %16 = or i1 %14, %15
+  %17 = shl nuw i32 1, %9
+  %18 = select i1 %16, i32 0, i32 %17
+  %19 = or i32 %18, %10
+  %20 = add nuw i32 %9, 1
+  %21 = icmp eq i32 %20, %4
+  br i1 %21, label %22, label %8, !llvm.loop !15
 
-21:                                               ; preds = %7, %2
-  %22 = phi i32 [ 0, %2 ], [ %18, %7 ]
-  %23 = icmp eq i32 %22, 0
-  %24 = select i1 %23, i32 -2147483648, i32 %22
-  ret i32 %24
+22:                                               ; preds = %8, %2
+  %23 = phi i32 [ 0, %2 ], [ %19, %8 ]
+  %24 = icmp eq i32 %23, 0
+  %25 = select i1 %24, i32 -2147483648, i32 %23
+  ret i32 %25
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

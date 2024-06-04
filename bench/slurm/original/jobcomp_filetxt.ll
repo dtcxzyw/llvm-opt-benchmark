@@ -70,90 +70,93 @@ define i32 @jobcomp_p_set_location() #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 0, ptr %1, align 4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 69), align 8
-  %5 = icmp ne ptr %4, null
-  br i1 %5, label %8, label %6
+  %4 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 69
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %10, label %7
 
-6:                                                ; preds = %0
-  %7 = call ptr @slurm_xstrdup(ptr noundef @default_job_comp_loc)
-  store ptr %7, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 69), align 8
-  br label %8
+7:                                                ; preds = %0
+  %8 = call ptr @slurm_xstrdup(ptr noundef @default_job_comp_loc)
+  %9 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 69
+  store ptr %8, ptr %9, align 8
+  br label %10
 
-8:                                                ; preds = %6, %0
+10:                                               ; preds = %7, %0
   call void @slurm_xfree(ptr noundef @log_name)
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 69), align 8
-  %10 = call ptr @slurm_xstrdup(ptr noundef %9)
-  store ptr %10, ptr @log_name, align 8
-  br label %11
+  %11 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 69
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @slurm_xstrdup(ptr noundef %12)
+  store ptr %13, ptr @log_name, align 8
+  br label %14
 
-11:                                               ; preds = %8
-  %12 = call i32 @pthread_mutex_lock(ptr noundef @file_lock) #6
-  store i32 %12, ptr %2, align 4
-  %13 = load i32, ptr %2, align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %18
-
-15:                                               ; preds = %11
+14:                                               ; preds = %10
+  %15 = call i32 @pthread_mutex_lock(ptr noundef @file_lock) #6
+  store i32 %15, ptr %2, align 4
   %16 = load i32, ptr %2, align 4
-  %17 = call ptr @__errno_location() #7
-  store i32 %16, ptr %17, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %14
+  %19 = load i32, ptr %2, align 4
+  %20 = call ptr @__errno_location() #7
+  store i32 %19, ptr %20, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 129, ptr noundef @__func__.jobcomp_p_set_location) #8
   unreachable
 
-18:                                               ; preds = %11
-  br label %19
+21:                                               ; preds = %14
+  br label %22
 
-19:                                               ; preds = %18
-  %20 = load i32, ptr @job_comp_fd, align 4
-  %21 = icmp sge i32 %20, 0
-  br i1 %21, label %22, label %25
-
-22:                                               ; preds = %19
+22:                                               ; preds = %21
   %23 = load i32, ptr @job_comp_fd, align 4
-  %24 = call i32 @close(i32 noundef %23)
-  br label %25
+  %24 = icmp sge i32 %23, 0
+  br i1 %24, label %25, label %28
 
-25:                                               ; preds = %22, %19
-  %26 = load ptr, ptr @log_name, align 8
-  %27 = call i32 (ptr, i32, ...) @open(ptr noundef %26, i32 noundef 1089, i32 noundef 420)
-  store i32 %27, ptr @job_comp_fd, align 4
-  %28 = load i32, ptr @job_comp_fd, align 4
-  %29 = icmp eq i32 %28, -1
-  br i1 %29, label %30, label %32
+25:                                               ; preds = %22
+  %26 = load i32, ptr @job_comp_fd, align 4
+  %27 = call i32 @close(i32 noundef %26)
+  br label %28
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr @log_name, align 8
-  call void (ptr, ...) @slurm_fatal(ptr noundef @.str.2, ptr noundef %31) #8
+28:                                               ; preds = %25, %22
+  %29 = load ptr, ptr @log_name, align 8
+  %30 = call i32 (ptr, i32, ...) @open(ptr noundef %29, i32 noundef 1089, i32 noundef 420)
+  store i32 %30, ptr @job_comp_fd, align 4
+  %31 = load i32, ptr @job_comp_fd, align 4
+  %32 = icmp eq i32 %31, -1
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %28
+  %34 = load ptr, ptr @log_name, align 8
+  call void (ptr, ...) @slurm_fatal(ptr noundef @.str.2, ptr noundef %34) #8
   unreachable
 
-32:                                               ; preds = %25
-  %33 = load i32, ptr @job_comp_fd, align 4
-  %34 = call i32 @fchmod(i32 noundef %33, i32 noundef 420) #6
-  br label %35
+35:                                               ; preds = %28
+  %36 = load i32, ptr @job_comp_fd, align 4
+  %37 = call i32 @fchmod(i32 noundef %36, i32 noundef 420) #6
+  br label %38
 
-35:                                               ; preds = %32
-  br label %36
+38:                                               ; preds = %35
+  br label %39
 
-36:                                               ; preds = %35
-  %37 = call i32 @pthread_mutex_unlock(ptr noundef @file_lock) #6
-  store i32 %37, ptr %3, align 4
-  %38 = load i32, ptr %3, align 4
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %43
-
-40:                                               ; preds = %36
+39:                                               ; preds = %38
+  %40 = call i32 @pthread_mutex_unlock(ptr noundef @file_lock) #6
+  store i32 %40, ptr %3, align 4
   %41 = load i32, ptr %3, align 4
-  %42 = call ptr @__errno_location() #7
-  store i32 %41, ptr %42, align 4
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %46
+
+43:                                               ; preds = %39
+  %44 = load i32, ptr %3, align 4
+  %45 = call ptr @__errno_location() #7
+  store i32 %44, ptr %45, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 138, ptr noundef @__func__.jobcomp_p_set_location) #8
   unreachable
 
-43:                                               ; preds = %36
-  br label %44
+46:                                               ; preds = %39
+  br label %47
 
-44:                                               ; preds = %43
-  %45 = load i32, ptr %1, align 4
-  ret i32 %45
+47:                                               ; preds = %46
+  %48 = load i32, ptr %1, align 4
+  ret i32 %48
 }
 
 declare ptr @slurm_xstrdup(ptr noundef) #1

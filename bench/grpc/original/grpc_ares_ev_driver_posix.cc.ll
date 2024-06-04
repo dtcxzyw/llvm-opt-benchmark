@@ -678,7 +678,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -688,7 +689,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -704,7 +706,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19GrpcPolledFdFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kSockFuncs = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this1, i32 0, i32 1
   %asocket = getelementptr inbounds %struct.ares_socket_functions, ptr %kSockFuncs, i32 0, i32 0
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix6SocketEiiiPv, ptr %asocket, align 8
@@ -751,7 +754,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19GrpcPolledFdFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core19GrpcPolledFdFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -900,16 +904,17 @@ entry:
   %fd = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %owned_fds_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this1, i32 0, i32 2
   store ptr %owned_fds_, ptr %__range2, align 8
-  %0 = load ptr, ptr %__range2, align 8
-  %call = call ptr @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
+  %1 = load ptr, ptr %__range2, align 8
+  %call = call ptr @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
   %coerce.dive = getelementptr inbounds %"struct.std::__detail::_Node_iterator", ptr %__begin2, i32 0, i32 0
   %coerce.dive2 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive, i32 0, i32 0
   store ptr %call, ptr %coerce.dive2, align 8
-  %1 = load ptr, ptr %__range2, align 8
-  %call3 = call ptr @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
+  %2 = load ptr, ptr %__range2, align 8
+  %call3 = call ptr @_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #3
   %coerce.dive4 = getelementptr inbounds %"struct.std::__detail::_Node_iterator", ptr %__end2, i32 0, i32 0
   %coerce.dive5 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive4, i32 0, i32 0
   store ptr %call3, ptr %coerce.dive5, align 8
@@ -922,9 +927,9 @@ for.cond:                                         ; preds = %for.inc, %entry
 for.body:                                         ; preds = %for.cond
   %call7 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt8__detail14_Node_iteratorIiLb1ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #3
   store ptr %call7, ptr %fd, align 8
-  %2 = load ptr, ptr %fd, align 8
-  %3 = load i32, ptr %2, align 4
-  %call8 = invoke i32 @close(i32 noundef %3)
+  %3 = load ptr, ptr %fd, align 8
+  %4 = load i32, ptr %3, align 4
+  %call8 = invoke i32 @close(i32 noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -941,10 +946,10 @@ for.end:                                          ; preds = %for.cond
   ret void
 
 terminate.lpad:                                   ; preds = %for.body
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #14
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #14
   unreachable
 }
 
@@ -2451,14 +2456,15 @@ entry:
   store ptr %driver_pollset_set, ptr %driver_pollset_set.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core12GrpcPolledFdC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308028AlphaNumC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef @.str.3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load i32, ptr %as.addr, align 4
-  invoke void @_ZN4absl12lts_202308028AlphaNumC2Ei(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2, i32 noundef %0)
+  %1 = load i32, ptr %as.addr, align 4
+  invoke void @_ZN4absl12lts_202308028AlphaNumC2Ei(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2, i32 noundef %1)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -2467,46 +2473,46 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   %as_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %as.addr, align 4
-  store i32 %1, ptr %as_, align 8
   %2 = load i32, ptr %as.addr, align 4
+  store i32 %2, ptr %as_, align 8
+  %3 = load i32, ptr %as.addr, align 4
   %name_5 = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name_5) #3
-  %call8 = invoke noundef ptr @_Z14grpc_fd_createiPKcb(i32 noundef %2, ptr noundef %call, i1 noundef zeroext false)
+  %call8 = invoke noundef ptr @_Z14grpc_fd_createiPKcb(i32 noundef %3, ptr noundef %call, i1 noundef zeroext false)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 3
   store ptr %call8, ptr %fd_, align 8
-  %3 = load ptr, ptr %driver_pollset_set.addr, align 8
+  %4 = load ptr, ptr %driver_pollset_set.addr, align 8
   %driver_pollset_set_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 4
-  store ptr %3, ptr %driver_pollset_set_, align 8
+  store ptr %4, ptr %driver_pollset_set_, align 8
   %driver_pollset_set_9 = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %driver_pollset_set_9, align 8
+  %5 = load ptr, ptr %driver_pollset_set_9, align 8
   %fd_10 = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %fd_10, align 8
-  invoke void @_Z23grpc_pollset_set_add_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %4, ptr noundef %5)
+  %6 = load ptr, ptr %fd_10, align 8
+  invoke void @_Z23grpc_pollset_set_add_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %5, ptr noundef %6)
           to label %invoke.cont11 unwind label %lpad6
 
 invoke.cont11:                                    ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #3
   br label %ehcleanup
 
@@ -3819,7 +3825,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12GrpcPolledFdE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core12GrpcPolledFdE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3886,18 +3893,19 @@ entry:
   %phony_release_fd = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %driver_pollset_set_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %driver_pollset_set_, align 8
+  %1 = load ptr, ptr %driver_pollset_set_, align 8
   %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fd_, align 8
-  invoke void @_Z23grpc_pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %0, ptr noundef %1)
+  %2 = load ptr, ptr %fd_, align 8
+  invoke void @_Z23grpc_pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %fd_2 = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %fd_2, align 8
-  invoke void @_Z14grpc_fd_orphanP7grpc_fdP12grpc_closurePiPKc(ptr noundef %2, ptr noundef null, ptr noundef %phony_release_fd, ptr noundef @.str.4)
+  %3 = load ptr, ptr %fd_2, align 8
+  invoke void @_Z14grpc_fd_orphanP7grpc_fdP12grpc_closurePiPKc(ptr noundef %3, ptr noundef null, ptr noundef %phony_release_fd, ptr noundef @.str.4)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -3907,10 +3915,10 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #14
   unreachable
 }
 

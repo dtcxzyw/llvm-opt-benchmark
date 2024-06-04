@@ -1753,27 +1753,29 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %queue_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %queue_, align 8
+  %3 = load ptr, ptr %queue.addr, align 8
+  store ptr %3, ptr %queue_, align 8
   %parent_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %inParent.addr, align 8
-  store ptr %2, ptr %parent_, align 8
+  %4 = load ptr, ptr %inParent.addr, align 8
+  store ptr %4, ptr %parent_, align 8
   %id_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 4
-  %3 = load i64, ptr %id.addr, align 8
-  store i64 %3, ptr %id_, align 8
+  %5 = load i64, ptr %id.addr, align 8
+  store i64 %5, ptr %id_, align 8
   %weight_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 5
-  %4 = load i8, ptr %weight.addr, align 1
-  %conv = zext i8 %4 to i32
+  %6 = load i8, ptr %weight.addr, align 1
+  %conv = zext i8 %6 to i32
   %add = add nsw i32 %conv, 1
   %conv2 = trunc i32 %add to i16
   store i16 %conv2, ptr %weight_, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %txn.addr, align 8
-  store ptr %5, ptr %txn_, align 8
+  %7 = load ptr, ptr %txn.addr, align 8
+  store ptr %7, ptr %txn_, align 8
   %isPermanent_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 7
   store i8 0, ptr %isPermanent_, align 8
   %enqueued_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 8
@@ -1799,8 +1801,8 @@ _ZN5boost9intrusive4listIN8proxygen18HTTP2PriorityQueue4NodeEJNS0_11member_hookI
 
 invoke.cont4:                                     ; preds = %_ZN5boost9intrusive4listIN8proxygen18HTTP2PriorityQueue4NodeEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_13enqueuedHook_EEEEENS0_18constant_time_sizeILb0EEEEEC2Ev.exit
   %queue_5 = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %queue_5, align 8
-  %nodes_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %queue_5, align 8
+  %nodes_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %8, i32 0, i32 1
   %id_6 = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 4
   store ptr %this1, ptr %ref.tmp, align 8
   invoke void @_ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE7emplaceIJRmS7_EEESt4pairINS1_22ValueContainerIteratorIPSC_IKmS7_EEEbEDpOT_(ptr sret(%"struct.std::pair") align 8 %result, ptr noundef nonnull align 8 dereferenceable(24) %nodes_, ptr noundef nonnull align 8 dereferenceable(8) %id_6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -1814,8 +1816,8 @@ while.cond:                                       ; preds = %cleanup.done, %invo
 
 while.body:                                       ; preds = %while.cond
   %second = getelementptr inbounds %"struct.std::pair", ptr %result, i32 0, i32 1
-  %7 = load i8, ptr %second, align 8
-  %tobool = trunc i8 %7 to i1
+  %9 = load i8, ptr %second, align 8
+  %tobool = trunc i8 %9 to i1
   %lnot = xor i1 %tobool, true
   store i1 false, ptr %cleanup.cond, align 1
   br i1 %lnot, label %cond.false, label %cond.true
@@ -1856,56 +1858,56 @@ cleanup.action:                                   ; preds = %cond.end
   unreachable
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup25
 
 lpad3:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup22
 
 lpad7:                                            ; preds = %invoke.cont11, %cond.false, %invoke.cont4
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad14:                                           ; preds = %invoke.cont16, %invoke.cont15, %invoke.cont13
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   %cleanup.is_active19 = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active19, label %cleanup.action20, label %cleanup.done21
 
-20:                                               ; No predecessors!
+22:                                               ; No predecessors!
   br label %cleanup.done
 
-cleanup.done:                                     ; preds = %20, %cond.end
+cleanup.done:                                     ; preds = %22, %cond.end
   br label %while.cond, !llvm.loop !4
 
 cleanup.action20:                                 ; preds = %lpad14
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp12) #26
   unreachable
 
-21:                                               ; No predecessors!
+23:                                               ; No predecessors!
   br label %cleanup.done21
 
-cleanup.done21:                                   ; preds = %21, %lpad14
+cleanup.done21:                                   ; preds = %23, %lpad14
   br label %ehcleanup
 
 while.end:                                        ; preds = %while.cond
@@ -1918,8 +1920,8 @@ ehcleanup:                                        ; preds = %cleanup.done21, %lp
 ehcleanup22:                                      ; preds = %ehcleanup, %lpad3
   call void @_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_) #3
   call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #3
-  %22 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %22) #3
+  %24 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %24) #3
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %ehcleanup22, %lpad
@@ -1940,7 +1942,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen22HTTP2PriorityQueueBase8BaseNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen22HTTP2PriorityQueueBase8BaseNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2158,27 +2161,29 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [7 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %txn_, align 8
-  %tobool = icmp ne ptr %0, null
+  %2 = load ptr, ptr %txn_, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %queue_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %queue_, align 8
-  %numVirtualNodes_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %1, i32 0, i32 6
-  %2 = load i32, ptr %numVirtualNodes_, align 4
-  %dec = add i32 %2, -1
+  %3 = load ptr, ptr %queue_, align 8
+  %numVirtualNodes_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %3, i32 0, i32 6
+  %4 = load i32, ptr %numVirtualNodes_, align 4
+  %dec = add i32 %4, -1
   store i32 %dec, ptr %numVirtualNodes_, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %queue_2 = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %queue_2, align 8
-  %nodes_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %queue_2, align 8
+  %nodes_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %5, i32 0, i32 1
   %id_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 4
   %call = invoke noundef i64 @_ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE5eraseERKm(ptr noundef nonnull align 8 dereferenceable(24) %nodes_, ptr noundef nonnull align 8 dereferenceable(8) %id_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2190,16 +2195,16 @@ invoke.cont:                                      ; preds = %if.end
   call void @_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_) #3
   %children_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this1, i32 0, i32 11
   call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #3
-  %4 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #3
+  %6 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #3
   call void @_ZN8proxygen22HTTP2PriorityQueueBase8BaseNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 
 terminate.lpad:                                   ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #26
   unreachable
 }
 
@@ -7195,44 +7200,46 @@ if.then118:                                       ; preds = %cleanup.done111
   %63 = load i64, ptr %rootNodeId_122, align 8
   store i64 %63, ptr %streamDependency121, align 8
   %exclusive = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %agg.tmp120, i32 0, i32 1
-  %64 = load i8, ptr getelementptr inbounds (%"struct.proxygen::http2::PriorityUpdate", ptr @_ZN8proxygen5http215DefaultPriorityE, i32 0, i32 1), align 8
-  %tobool123 = trunc i8 %64 to i1
+  %64 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr @_ZN8proxygen5http215DefaultPriorityE, i32 0, i32 1
+  %65 = load i8, ptr %64, align 8
+  %tobool123 = trunc i8 %65 to i1
   %frombool124 = zext i1 %tobool123 to i8
   store i8 %frombool124, ptr %exclusive, align 8
   %weight = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %agg.tmp120, i32 0, i32 2
-  %65 = load i8, ptr getelementptr inbounds (%"struct.proxygen::http2::PriorityUpdate", ptr @_ZN8proxygen5http215DefaultPriorityE, i32 0, i32 2), align 1
-  store i8 %65, ptr %weight, align 1
-  %66 = load i8, ptr %permanent.addr, align 1
-  %tobool125 = trunc i8 %66 to i1
-  %67 = load ptr, ptr %depth.addr, align 8
-  %68 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp120, i32 0, i32 0
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp120, i32 0, i32 1
+  %66 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr @_ZN8proxygen5http215DefaultPriorityE, i32 0, i32 2
+  %67 = load i8, ptr %66, align 1
+  store i8 %67, ptr %weight, align 1
+  %68 = load i8, ptr %permanent.addr, align 1
+  %tobool125 = trunc i8 %68 to i1
+  %69 = load ptr, ptr %depth.addr, align 8
+  %70 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp120, i32 0, i32 0
   %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp120, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8
   %vtable126 = load ptr, ptr %this1, align 8
   %vfn127 = getelementptr inbounds ptr, ptr %vtable126, i64 3
-  %72 = load ptr, ptr %vfn127, align 8
-  %call128 = call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(312) %this1, i64 noundef %62, i64 %69, i64 %71, ptr noundef null, i1 noundef zeroext %tobool125, ptr noundef %67)
+  %74 = load ptr, ptr %vfn127, align 8
+  %call128 = call noundef ptr %74(ptr noundef nonnull align 8 dereferenceable(312) %this1, i64 noundef %62, i64 %71, i64 %73, ptr noundef null, i1 noundef zeroext %tobool125, ptr noundef %69)
   %call129 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue16nodeFromBaseNodeEPNS_22HTTP2PriorityQueueBase8BaseNodeE(ptr noundef %call128)
   store ptr %call129, ptr %parent, align 8
-  %73 = load ptr, ptr %depth.addr, align 8
-  %tobool130 = icmp ne ptr %73, null
+  %75 = load ptr, ptr %depth.addr, align 8
+  %tobool130 = icmp ne ptr %75, null
   br i1 %tobool130, label %if.then131, label %if.end132
 
 if.then131:                                       ; preds = %if.then118
-  %74 = load ptr, ptr %depth.addr, align 8
-  %75 = load i64, ptr %74, align 8
-  %add = add i64 %75, 1
-  store i64 %add, ptr %74, align 8
+  %76 = load ptr, ptr %depth.addr, align 8
+  %77 = load i64, ptr %76, align 8
+  %add = add i64 %77, 1
+  store i64 %add, ptr %76, align 8
   br label %if.end132
 
 lpad100:                                          ; preds = %invoke.cont105, %invoke.cont103, %invoke.cont101, %cond.false96
-  %76 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %exn.slot, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %ehselector.slot, align 4
   %cleanup.is_active112 = load i1, ptr %cleanup.cond99, align 1
   br i1 %cleanup.is_active112, label %cleanup.action113, label %cleanup.done114
 
@@ -7248,29 +7255,29 @@ if.end132:                                        ; preds = %if.then131, %if.the
 
 if.else133:                                       ; preds = %cleanup.done111
   store i32 4, ptr %verbose_level__134, align 4
-  %79 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___0, align 8
-  %cmp136 = icmp eq ptr %79, null
+  %81 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___0, align 8
+  %cmp136 = icmp eq ptr %81, null
   store i1 false, ptr %cleanup.cond149, align 1
   br i1 %cmp136, label %cond.true137, label %cond.false139
 
 cond.true137:                                     ; preds = %if.else133
-  %80 = load i32, ptr %verbose_level__134, align 4
-  %call138 = call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___0, ptr noundef @_ZN3fLI7FLAGS_vE, ptr noundef @.str, i32 noundef %80)
+  %82 = load i32, ptr %verbose_level__134, align 4
+  %call138 = call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___0, ptr noundef @_ZN3fLI7FLAGS_vE, ptr noundef @.str, i32 noundef %82)
   br label %cond.end141
 
 cond.false139:                                    ; preds = %if.else133
-  %81 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___0, align 8
-  %82 = load i32, ptr %81, align 4
-  %83 = load i32, ptr %verbose_level__134, align 4
-  %cmp140 = icmp sge i32 %82, %83
+  %83 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___0, align 8
+  %84 = load i32, ptr %83, align 4
+  %85 = load i32, ptr %verbose_level__134, align 4
+  %cmp140 = icmp sge i32 %84, %85
   br label %cond.end141
 
 cond.end141:                                      ; preds = %cond.false139, %cond.true137
   %cond142 = phi i1 [ %call138, %cond.true137 ], [ %cmp140, %cond.false139 ]
   %frombool143 = zext i1 %cond142 to i8
   store i8 %frombool143, ptr %tmp135, align 1
-  %84 = load i8, ptr %tmp135, align 1
-  %tobool144 = trunc i8 %84 to i1
+  %86 = load i8, ptr %tmp135, align 1
+  %tobool144 = trunc i8 %86 to i1
   br i1 %tobool144, label %cond.false146, label %cond.true145
 
 cond.true145:                                     ; preds = %cond.end141
@@ -7289,8 +7296,8 @@ invoke.cont151:                                   ; preds = %cond.false146
 
 invoke.cont153:                                   ; preds = %invoke.cont151
   %streamDependency155 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %pri, i32 0, i32 0
-  %85 = load i64, ptr %streamDependency155, align 8
-  %call157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call154, i64 noundef %85)
+  %87 = load i64, ptr %streamDependency155, align 8
+  %call157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call154, i64 noundef %87)
           to label %invoke.cont156 unwind label %lpad150
 
 invoke.cont156:                                   ; preds = %invoke.cont153
@@ -7298,8 +7305,8 @@ invoke.cont156:                                   ; preds = %invoke.cont153
           to label %invoke.cont158 unwind label %lpad150
 
 invoke.cont158:                                   ; preds = %invoke.cont156
-  %86 = load i64, ptr %id.addr, align 8
-  %call161 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call159, i64 noundef %86)
+  %88 = load i64, ptr %id.addr, align 8
+  %call161 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call159, i64 noundef %88)
           to label %invoke.cont160 unwind label %lpad150
 
 invoke.cont160:                                   ; preds = %invoke.cont158
@@ -7321,12 +7328,12 @@ cleanup.done166:                                  ; preds = %cleanup.action165, 
   br label %if.end170
 
 lpad150:                                          ; preds = %invoke.cont160, %invoke.cont158, %invoke.cont156, %invoke.cont153, %invoke.cont151, %cond.false146
-  %87 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %exn.slot, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %ehselector.slot, align 4
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %exn.slot, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %ehselector.slot, align 4
   %cleanup.is_active167 = load i1, ptr %cleanup.cond149, align 1
   br i1 %cleanup.is_active167, label %cleanup.action168, label %cleanup.done169
 
@@ -7341,17 +7348,17 @@ if.end170:                                        ; preds = %cleanup.done166, %i
   br label %if.end176
 
 if.else171:                                       ; preds = %if.then82
-  %90 = load ptr, ptr %dep, align 8
-  store ptr %90, ptr %parent, align 8
-  %91 = load ptr, ptr %depth.addr, align 8
-  %tobool172 = icmp ne ptr %91, null
+  %92 = load ptr, ptr %dep, align 8
+  store ptr %92, ptr %parent, align 8
+  %93 = load ptr, ptr %depth.addr, align 8
+  %tobool172 = icmp ne ptr %93, null
   br i1 %tobool172, label %if.then173, label %if.end175
 
 if.then173:                                       ; preds = %if.else171
-  %92 = load ptr, ptr %depth.addr, align 8
-  %93 = load i64, ptr %92, align 8
-  %add174 = add i64 %93, 1
-  store i64 %add174, ptr %92, align 8
+  %94 = load ptr, ptr %depth.addr, align 8
+  %95 = load i64, ptr %94, align 8
+  %add174 = add i64 %95, 1
+  store i64 %add174, ptr %94, align 8
   br label %if.end175
 
 if.end175:                                        ; preds = %if.then173, %if.else171
@@ -7362,29 +7369,29 @@ if.end176:                                        ; preds = %if.end175, %if.end1
 
 if.end177:                                        ; preds = %if.end176, %if.end78
   store i32 4, ptr %verbose_level__178, align 4
-  %94 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___1, align 8
-  %cmp180 = icmp eq ptr %94, null
+  %96 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___1, align 8
+  %cmp180 = icmp eq ptr %96, null
   store i1 false, ptr %cleanup.cond193, align 1
   br i1 %cmp180, label %cond.true181, label %cond.false183
 
 cond.true181:                                     ; preds = %if.end177
-  %95 = load i32, ptr %verbose_level__178, align 4
-  %call182 = call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___1, ptr noundef @_ZN3fLI7FLAGS_vE, ptr noundef @.str, i32 noundef %95)
+  %97 = load i32, ptr %verbose_level__178, align 4
+  %call182 = call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___1, ptr noundef @_ZN3fLI7FLAGS_vE, ptr noundef @.str, i32 noundef %97)
   br label %cond.end185
 
 cond.false183:                                    ; preds = %if.end177
-  %96 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___1, align 8
-  %97 = load i32, ptr %96, align 4
-  %98 = load i32, ptr %verbose_level__178, align 4
-  %cmp184 = icmp sge i32 %97, %98
+  %98 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14addTransactionEmNS_5http214PriorityUpdateEPNS_15HTTPTransactionEbPmE8vlocal___1, align 8
+  %99 = load i32, ptr %98, align 4
+  %100 = load i32, ptr %verbose_level__178, align 4
+  %cmp184 = icmp sge i32 %99, %100
   br label %cond.end185
 
 cond.end185:                                      ; preds = %cond.false183, %cond.true181
   %cond186 = phi i1 [ %call182, %cond.true181 ], [ %cmp184, %cond.false183 ]
   %frombool187 = zext i1 %cond186 to i8
   store i8 %frombool187, ptr %tmp179, align 1
-  %99 = load i8, ptr %tmp179, align 1
-  %tobool188 = trunc i8 %99 to i1
+  %101 = load i8, ptr %tmp179, align 1
+  %tobool188 = trunc i8 %101 to i1
   br i1 %tobool188, label %cond.false190, label %cond.true189
 
 cond.true189:                                     ; preds = %cond.end185
@@ -7402,8 +7409,8 @@ invoke.cont195:                                   ; preds = %cond.false190
           to label %invoke.cont197 unwind label %lpad194
 
 invoke.cont197:                                   ; preds = %invoke.cont195
-  %100 = load i64, ptr %id.addr, align 8
-  %call200 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call198, i64 noundef %100)
+  %102 = load i64, ptr %id.addr, align 8
+  %call200 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call198, i64 noundef %102)
           to label %invoke.cont199 unwind label %lpad194
 
 invoke.cont199:                                   ; preds = %invoke.cont197
@@ -7411,8 +7418,8 @@ invoke.cont199:                                   ; preds = %invoke.cont197
           to label %invoke.cont201 unwind label %lpad194
 
 invoke.cont201:                                   ; preds = %invoke.cont199
-  %101 = load ptr, ptr %parent, align 8
-  %call204 = invoke noundef i64 @_ZNK8proxygen18HTTP2PriorityQueue4Node5getIDEv(ptr noundef nonnull align 8 dereferenceable(200) %101)
+  %103 = load ptr, ptr %parent, align 8
+  %call204 = invoke noundef i64 @_ZNK8proxygen18HTTP2PriorityQueue4Node5getIDEv(ptr noundef nonnull align 8 dereferenceable(200) %103)
           to label %invoke.cont203 unwind label %lpad194
 
 invoke.cont203:                                   ; preds = %invoke.cont201
@@ -7425,8 +7432,8 @@ invoke.cont205:                                   ; preds = %invoke.cont203
 
 invoke.cont207:                                   ; preds = %invoke.cont205
   %weight209 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %pri, i32 0, i32 2
-  %102 = load i8, ptr %weight209, align 1
-  %conv = zext i8 %102 to i16
+  %104 = load i8, ptr %weight209, align 1
+  %conv = zext i8 %104 to i16
   %conv210 = zext i16 %conv to i32
   %add211 = add nsw i32 %conv210, 1
   %call213 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call208, i32 noundef %add211)
@@ -7450,8 +7457,8 @@ cleanup.action217:                                ; preds = %cond.end215
 cleanup.done218:                                  ; preds = %cleanup.action217, %cond.end215
   %weight222 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %pri, i32 0, i32 2
   call void @_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr") align 8 %node, ptr noundef nonnull align 8 dereferenceable(312) %this1, ptr noundef nonnull align 8 dereferenceable(8) %parent, ptr noundef nonnull align 8 dereferenceable(8) %id.addr, ptr noundef nonnull align 1 dereferenceable(1) %weight222, ptr noundef nonnull align 8 dereferenceable(8) %txn.addr)
-  %103 = load i8, ptr %permanent.addr, align 1
-  %tobool223 = trunc i8 %103 to i1
+  %105 = load i8, ptr %permanent.addr, align 1
+  %tobool223 = trunc i8 %105 to i1
   br i1 %tobool223, label %if.then224, label %if.else228
 
 if.then224:                                       ; preds = %cleanup.done218
@@ -7463,12 +7470,12 @@ invoke.cont227:                                   ; preds = %if.then224
   br label %if.end234
 
 lpad194:                                          ; preds = %invoke.cont212, %invoke.cont207, %invoke.cont205, %invoke.cont203, %invoke.cont201, %invoke.cont199, %invoke.cont197, %invoke.cont195, %cond.false190
-  %104 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  store ptr %105, ptr %exn.slot, align 8
-  %106 = extractvalue { ptr, i32 } %104, 1
-  store i32 %106, ptr %ehselector.slot, align 4
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %exn.slot, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %ehselector.slot, align 4
   %cleanup.is_active219 = load i1, ptr %cleanup.cond193, align 1
   br i1 %cleanup.is_active219, label %cleanup.action220, label %cleanup.done221
 
@@ -7480,17 +7487,17 @@ cleanup.done221:                                  ; preds = %cleanup.action220, 
   br label %eh.resume
 
 lpad226:                                          ; preds = %if.then230, %if.then224
-  %107 = landingpad { ptr, i32 }
+  %109 = landingpad { ptr, i32 }
           cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %exn.slot, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %ehselector.slot, align 4
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %exn.slot, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.else228:                                       ; preds = %cleanup.done218
-  %110 = load ptr, ptr %txn.addr, align 8
-  %tobool229 = icmp ne ptr %110, null
+  %112 = load ptr, ptr %txn.addr, align 8
+  %tobool229 = icmp ne ptr %112, null
   br i1 %tobool229, label %if.end233, label %if.then230
 
 if.then230:                                       ; preds = %if.else228
@@ -7505,12 +7512,12 @@ if.end233:                                        ; preds = %invoke.cont232, %if
   br label %if.end234
 
 if.end234:                                        ; preds = %if.end233, %invoke.cont227
-  %111 = load ptr, ptr %parent, align 8
+  %113 = load ptr, ptr %parent, align 8
   call void @_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp235, ptr noundef nonnull align 8 dereferenceable(8) %node) #3
   %exclusive236 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %pri, i32 0, i32 1
-  %112 = load i8, ptr %exclusive236, align 8
-  %tobool237 = trunc i8 %112 to i1
-  %call240 = invoke noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node11emplaceNodeESt10unique_ptrIS1_St14default_deleteIS1_EEb(ptr noundef nonnull align 8 dereferenceable(200) %111, ptr noundef %agg.tmp235, i1 noundef zeroext %tobool237)
+  %114 = load i8, ptr %exclusive236, align 8
+  %tobool237 = trunc i8 %114 to i1
+  %call240 = invoke noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node11emplaceNodeESt10unique_ptrIS1_St14default_deleteIS1_EEb(ptr noundef nonnull align 8 dereferenceable(200) %113, ptr noundef %agg.tmp235, i1 noundef zeroext %tobool237)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %if.end234
@@ -7518,18 +7525,18 @@ invoke.cont239:                                   ; preds = %if.end234
   store ptr %call240, ptr %result, align 8
   %pendingWeightChange_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %this1, i32 0, i32 8
   store i8 1, ptr %pendingWeightChange_, align 8
-  %113 = load ptr, ptr %result, align 8
-  store ptr %113, ptr %retval, align 8
+  %115 = load ptr, ptr %result, align 8
+  store ptr %115, ptr %retval, align 8
   call void @_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %node) #3
   br label %return
 
 lpad238:                                          ; preds = %if.end234
-  %114 = landingpad { ptr, i32 }
+  %116 = landingpad { ptr, i32 }
           cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %exn.slot, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %ehselector.slot, align 4
+  %117 = extractvalue { ptr, i32 } %116, 0
+  store ptr %117, ptr %exn.slot, align 8
+  %118 = extractvalue { ptr, i32 } %116, 1
+  store i32 %118, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp235) #3
   br label %ehcleanup
 
@@ -7538,8 +7545,8 @@ ehcleanup:                                        ; preds = %lpad238, %lpad226
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont239, %if.then72, %cleanup.done60
-  %117 = load ptr, ptr %retval, align 8
-  ret ptr %117
+  %119 = load ptr, ptr %retval, align 8
+  ret ptr %119
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.done221, %cleanup.done169, %cleanup.done114, %cleanup.done63, %cleanup.done36, %13, %7
   %exn = load ptr, ptr %exn.slot, align 8
@@ -8005,47 +8012,49 @@ if.else:                                          ; preds = %lor.lhs.false
   %38 = load i64, ptr %rootNodeId_61, align 8
   store i64 %38, ptr %streamDependency60, align 8
   %exclusive62 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %agg.tmp, i32 0, i32 1
-  %39 = load i8, ptr getelementptr inbounds (%"struct.proxygen::http2::PriorityUpdate", ptr @_ZN8proxygen5http215DefaultPriorityE, i32 0, i32 1), align 8
-  %tobool63 = trunc i8 %39 to i1
+  %39 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr @_ZN8proxygen5http215DefaultPriorityE, i32 0, i32 1
+  %40 = load i8, ptr %39, align 8
+  %tobool63 = trunc i8 %40 to i1
   %frombool64 = zext i1 %tobool63 to i8
   store i8 %frombool64, ptr %exclusive62, align 8
   %weight65 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %agg.tmp, i32 0, i32 2
-  %40 = load i8, ptr getelementptr inbounds (%"struct.proxygen::http2::PriorityUpdate", ptr @_ZN8proxygen5http215DefaultPriorityE, i32 0, i32 2), align 1
-  store i8 %40, ptr %weight65, align 1
-  %41 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %41 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr @_ZN8proxygen5http215DefaultPriorityE, i32 0, i32 2
+  %42 = load i8, ptr %41, align 1
+  store i8 %42, ptr %weight65, align 1
+  %43 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
   %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
   %vtable66 = load ptr, ptr %this1, align 8
   %vfn67 = getelementptr inbounds ptr, ptr %vtable66, i64 3
-  %45 = load ptr, ptr %vfn67, align 8
-  %call68 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(312) %this1, i64 noundef %37, i64 %42, i64 %44, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  %47 = load ptr, ptr %vfn67, align 8
+  %call68 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(312) %this1, i64 noundef %37, i64 %44, i64 %46, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %call69 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue16nodeFromBaseNodeEPNS_22HTTP2PriorityQueueBase8BaseNodeE(ptr noundef %call68)
   store ptr %call69, ptr %newParent, align 8
   store i32 4, ptr %verbose_level__70, align 4
-  %46 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPmE8vlocal___0, align 8
-  %cmp72 = icmp eq ptr %46, null
+  %48 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPmE8vlocal___0, align 8
+  %cmp72 = icmp eq ptr %48, null
   store i1 false, ptr %cleanup.cond85, align 1
   br i1 %cmp72, label %cond.true73, label %cond.false75
 
 cond.true73:                                      ; preds = %if.else
-  %47 = load i32, ptr %verbose_level__70, align 4
-  %call74 = call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef @_ZZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPmE8vlocal___0, ptr noundef @_ZN3fLI7FLAGS_vE, ptr noundef @.str, i32 noundef %47)
+  %49 = load i32, ptr %verbose_level__70, align 4
+  %call74 = call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef @_ZZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPmE8vlocal___0, ptr noundef @_ZN3fLI7FLAGS_vE, ptr noundef @.str, i32 noundef %49)
   br label %cond.end77
 
 cond.false75:                                     ; preds = %if.else
-  %48 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPmE8vlocal___0, align 8
-  %49 = load i32, ptr %48, align 4
-  %50 = load i32, ptr %verbose_level__70, align 4
-  %cmp76 = icmp sge i32 %49, %50
+  %50 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPmE8vlocal___0, align 8
+  %51 = load i32, ptr %50, align 4
+  %52 = load i32, ptr %verbose_level__70, align 4
+  %cmp76 = icmp sge i32 %51, %52
   br label %cond.end77
 
 cond.end77:                                       ; preds = %cond.false75, %cond.true73
   %cond78 = phi i1 [ %call74, %cond.true73 ], [ %cmp76, %cond.false75 ]
   %frombool79 = zext i1 %cond78 to i8
   store i8 %frombool79, ptr %tmp71, align 1
-  %51 = load i8, ptr %tmp71, align 1
-  %tobool80 = trunc i8 %51 to i1
+  %53 = load i8, ptr %tmp71, align 1
+  %tobool80 = trunc i8 %53 to i1
   br i1 %tobool80, label %cond.false82, label %cond.true81
 
 cond.true81:                                      ; preds = %cond.end77
@@ -8063,8 +8072,8 @@ invoke.cont87:                                    ; preds = %cond.false82
           to label %invoke.cont89 unwind label %lpad86
 
 invoke.cont89:                                    ; preds = %invoke.cont87
-  %52 = load ptr, ptr %newParent, align 8
-  %call92 = invoke noundef i64 @_ZNK8proxygen18HTTP2PriorityQueue4Node5getIDEv(ptr noundef nonnull align 8 dereferenceable(200) %52)
+  %54 = load ptr, ptr %newParent, align 8
+  %call92 = invoke noundef i64 @_ZNK8proxygen18HTTP2PriorityQueue4Node5getIDEv(ptr noundef nonnull align 8 dereferenceable(200) %54)
           to label %invoke.cont91 unwind label %lpad86
 
 invoke.cont91:                                    ; preds = %invoke.cont89
@@ -8076,8 +8085,8 @@ invoke.cont93:                                    ; preds = %invoke.cont91
           to label %invoke.cont95 unwind label %lpad86
 
 invoke.cont95:                                    ; preds = %invoke.cont93
-  %53 = load ptr, ptr %node, align 8
-  %call98 = invoke noundef i64 @_ZNK8proxygen18HTTP2PriorityQueue4Node5getIDEv(ptr noundef nonnull align 8 dereferenceable(200) %53)
+  %55 = load ptr, ptr %node, align 8
+  %call98 = invoke noundef i64 @_ZNK8proxygen18HTTP2PriorityQueue4Node5getIDEv(ptr noundef nonnull align 8 dereferenceable(200) %55)
           to label %invoke.cont97 unwind label %lpad86
 
 invoke.cont97:                                    ; preds = %invoke.cont95
@@ -8103,12 +8112,12 @@ cleanup.done105:                                  ; preds = %cleanup.action104, 
   br label %if.end109
 
 lpad86:                                           ; preds = %invoke.cont99, %invoke.cont97, %invoke.cont95, %invoke.cont93, %invoke.cont91, %invoke.cont89, %invoke.cont87, %cond.false82
-  %54 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %exn.slot, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %ehselector.slot, align 4
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
   %cleanup.is_active106 = load i1, ptr %cleanup.cond85, align 1
   br i1 %cleanup.is_active106, label %cleanup.action107, label %cleanup.done108
 
@@ -8123,49 +8132,49 @@ if.end109:                                        ; preds = %cleanup.done105, %i
   br label %if.end110
 
 if.end110:                                        ; preds = %if.end109, %if.end50
-  %57 = load ptr, ptr %newParent, align 8
-  %58 = load ptr, ptr %node, align 8
-  %call111 = call noundef zeroext i1 @_ZNK8proxygen18HTTP2PriorityQueue4Node14isDescendantOfEPS1_(ptr noundef nonnull align 8 dereferenceable(200) %57, ptr noundef %58)
+  %59 = load ptr, ptr %newParent, align 8
+  %60 = load ptr, ptr %node, align 8
+  %call111 = call noundef zeroext i1 @_ZNK8proxygen18HTTP2PriorityQueue4Node14isDescendantOfEPS1_(ptr noundef nonnull align 8 dereferenceable(200) %59, ptr noundef %60)
   br i1 %call111, label %if.then112, label %if.end115
 
 if.then112:                                       ; preds = %if.end110
-  %59 = load ptr, ptr %newParent, align 8
-  %60 = load ptr, ptr %node, align 8
-  %call113 = call noundef ptr @_ZNK8proxygen18HTTP2PriorityQueue4Node9getParentEv(ptr noundef nonnull align 8 dereferenceable(200) %60)
-  %call114 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %59, ptr noundef %call113, i1 noundef zeroext false)
+  %61 = load ptr, ptr %newParent, align 8
+  %62 = load ptr, ptr %node, align 8
+  %call113 = call noundef ptr @_ZNK8proxygen18HTTP2PriorityQueue4Node9getParentEv(ptr noundef nonnull align 8 dereferenceable(200) %62)
+  %call114 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %61, ptr noundef %call113, i1 noundef zeroext false)
   store ptr %call114, ptr %newParent, align 8
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then112, %if.end110
-  %61 = load ptr, ptr %node, align 8
-  %62 = load ptr, ptr %newParent, align 8
+  %63 = load ptr, ptr %node, align 8
+  %64 = load ptr, ptr %newParent, align 8
   %exclusive116 = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %pri, i32 0, i32 1
-  %63 = load i8, ptr %exclusive116, align 8
-  %tobool117 = trunc i8 %63 to i1
-  %call118 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %61, ptr noundef %62, i1 noundef zeroext %tobool117)
+  %65 = load i8, ptr %exclusive116, align 8
+  %tobool117 = trunc i8 %65 to i1
+  %call118 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %63, ptr noundef %64, i1 noundef zeroext %tobool117)
   store ptr %call118, ptr %node, align 8
-  %64 = load ptr, ptr %depth.addr, align 8
-  %tobool119 = icmp ne ptr %64, null
+  %66 = load ptr, ptr %depth.addr, align 8
+  %tobool119 = icmp ne ptr %66, null
   br i1 %tobool119, label %if.then120, label %if.end124
 
 if.then120:                                       ; preds = %if.end115
-  %65 = load ptr, ptr %node, align 8
-  %vtable121 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %node, align 8
+  %vtable121 = load ptr, ptr %67, align 8
   %vfn122 = getelementptr inbounds ptr, ptr %vtable121, i64 3
-  %66 = load ptr, ptr %vfn122, align 8
-  %call123 = call noundef i64 %66(ptr noundef nonnull align 8 dereferenceable(200) %65, i1 noundef zeroext true)
-  %67 = load ptr, ptr %depth.addr, align 8
-  store i64 %call123, ptr %67, align 8
+  %68 = load ptr, ptr %vfn122, align 8
+  %call123 = call noundef i64 %68(ptr noundef nonnull align 8 dereferenceable(200) %67, i1 noundef zeroext true)
+  %69 = load ptr, ptr %depth.addr, align 8
+  store i64 %call123, ptr %69, align 8
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then120, %if.end115
-  %68 = load ptr, ptr %node, align 8
-  store ptr %68, ptr %retval, align 8
+  %70 = load ptr, ptr %node, align 8
+  store ptr %70, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end124, %if.end
-  %69 = load ptr, ptr %retval, align 8
-  ret ptr %69
+  %71 = load ptr, ptr %retval, align 8
+  ret ptr %71
 
 eh.resume:                                        ; preds = %cleanup.done108, %22, %cleanup.done27
   %exn = load ptr, ptr %exn.slot, align 8
@@ -9935,7 +9944,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %root_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %this1, i32 0, i32 2
   call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_) #3
   %nodes_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %this1, i32 0, i32 1
@@ -11374,7 +11384,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.40)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11400,7 +11411,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -15998,7 +16010,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16015,7 +16028,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -16027,7 +16041,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16037,7 +16052,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17274,25 +17290,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.60", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #26
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #26
   unreachable
 }
 
@@ -17388,25 +17405,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #3
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #3
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #26
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #26
   unreachable
 }
 

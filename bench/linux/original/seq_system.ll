@@ -100,85 +100,86 @@ define dso_local i32 @snd_seq_system_client_init() local_unnamed_addr #4 section
   %1 = alloca %struct.snd_seq_port_callback, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false), !annotation !5
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 168) #8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %36, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 168) #8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %37, label %6
 
-5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
-  store ptr @event_input_timer, ptr %6, align 8
-  %7 = tail call i32 (ptr, i32, ptr, ...) @snd_seq_create_kernel_client(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str) #7
-  store i32 %7, ptr @sysclient, align 4
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %11
+  store ptr @event_input_timer, ptr %7, align 8
+  %8 = tail call i32 (ptr, i32, ptr, ...) @snd_seq_create_kernel_client(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str) #7
+  store i32 %8, ptr @sysclient, align 4
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %5
-  tail call void @kfree(ptr noundef nonnull %3) #7
-  %10 = load i32, ptr @sysclient, align 4
-  br label %36
+10:                                               ; preds = %6
+  tail call void @kfree(ptr noundef nonnull %4) #7
+  %11 = load i32, ptr @sysclient, align 4
+  br label %37
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %3, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %12, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #7
-  %13 = getelementptr inbounds i8, ptr %3, i64 68
-  store i32 35, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 72
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 104
-  store i32 1, ptr %16, align 8
-  %17 = trunc i32 %7 to i8
-  store i8 %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 0, ptr %18, align 1
-  %19 = call i32 @snd_seq_kernel_client_ctl(i32 noundef %7, i32 noundef -1062710496, ptr noundef nonnull %3) #7
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %29, label %21
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds i8, ptr %4, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %13, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #7
+  %14 = getelementptr inbounds i8, ptr %4, i64 68
+  store i32 35, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %4, i64 96
+  store ptr %1, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 72
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %4, i64 104
+  store i32 1, ptr %17, align 8
+  %18 = trunc i32 %8 to i8
+  store i8 %18, ptr %4, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 0, ptr %19, align 1
+  %20 = call i32 @snd_seq_kernel_client_ctl(i32 noundef %8, i32 noundef -1062710496, ptr noundef nonnull %4) #7
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %30, label %22
 
-21:                                               ; preds = %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(9) %12, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #7
-  store i32 33, ptr %13, align 4
-  store ptr null, ptr %14, align 8
-  store i32 0, ptr %15, align 8
-  store i32 1, ptr %16, align 8
-  %22 = load i32, ptr @sysclient, align 4
-  %23 = trunc i32 %22 to i8
-  store i8 %23, ptr %3, align 8
-  store i8 1, ptr %18, align 1
-  %24 = call i32 @snd_seq_kernel_client_ctl(i32 noundef %22, i32 noundef -1062710496, ptr noundef nonnull %3) #7
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %29, label %26
+22:                                               ; preds = %12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(9) %13, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #7
+  store i32 33, ptr %14, align 4
+  store ptr null, ptr %15, align 8
+  store i32 0, ptr %16, align 8
+  store i32 1, ptr %17, align 8
+  %23 = load i32, ptr @sysclient, align 4
+  %24 = trunc i32 %23 to i8
+  store i8 %24, ptr %4, align 8
+  store i8 1, ptr %19, align 1
+  %25 = call i32 @snd_seq_kernel_client_ctl(i32 noundef %23, i32 noundef -1062710496, ptr noundef nonnull %4) #7
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %30, label %27
 
-26:                                               ; preds = %21
-  %27 = load i8, ptr %18, align 1
-  %28 = zext i8 %27 to i32
-  store i32 %28, ptr @announce_port, align 4
-  call void @kfree(ptr noundef nonnull %3) #7
-  br label %36
+27:                                               ; preds = %22
+  %28 = load i8, ptr %19, align 1
+  %29 = zext i8 %28 to i32
+  store i32 %29, ptr @announce_port, align 4
+  call void @kfree(ptr noundef nonnull %4) #7
+  br label %37
 
-29:                                               ; preds = %21, %11
-  %30 = phi i32 [ %19, %11 ], [ %24, %21 ]
-  %31 = load i32, ptr @sysclient, align 4
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %33, label %35
+30:                                               ; preds = %22, %12
+  %31 = phi i32 [ %20, %12 ], [ %25, %22 ]
+  %32 = load i32, ptr @sysclient, align 4
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   store i32 -1, ptr @sysclient, align 4
   store i32 -1, ptr @announce_port, align 4
-  %34 = call i32 @snd_seq_delete_kernel_client(i32 noundef %31) #7
-  br label %35
-
-35:                                               ; preds = %33, %29
-  call void @kfree(ptr noundef nonnull %3) #7
+  %35 = call i32 @snd_seq_delete_kernel_client(i32 noundef %32) #7
   br label %36
 
-36:                                               ; preds = %35, %26, %9, %0
-  %37 = phi i32 [ %10, %9 ], [ %30, %35 ], [ 0, %26 ], [ -12, %0 ]
+36:                                               ; preds = %34, %30
+  call void @kfree(ptr noundef nonnull %4) #7
+  br label %37
+
+37:                                               ; preds = %36, %27, %10, %0
+  %38 = phi i32 [ %11, %10 ], [ %31, %36 ], [ 0, %27 ], [ -12, %0 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #7
-  ret i32 %37
+  ret i32 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

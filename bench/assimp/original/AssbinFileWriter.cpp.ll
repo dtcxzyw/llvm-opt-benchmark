@@ -1079,7 +1079,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #13
   ret void
@@ -1490,22 +1491,23 @@ entry:
   store i64 %initial, ptr %initial.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp8IOStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buffer, align 8
   %magic2 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %magic.addr, align 4
-  store i32 %0, ptr %magic2, align 8
+  %1 = load i32, ptr %magic.addr, align 4
+  store i32 %1, ptr %magic2, align 8
   %container3 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %container.addr, align 8
-  store ptr %1, ptr %container3, align 8
+  %2 = load ptr, ptr %container.addr, align 8
+  store ptr %2, ptr %container3, align 8
   %cur_size = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 4
   store i64 0, ptr %cur_size, align 8
   %cursor = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 5
   store i64 0, ptr %cursor, align 8
   %initial4 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 6
-  %2 = load i64, ptr %initial.addr, align 8
-  store i64 %2, ptr %initial4, align 8
+  %3 = load i64, ptr %initial.addr, align 8
+  store i64 %3, ptr %initial4, align 8
   ret void
 }
 
@@ -1860,16 +1862,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #13
   br label %eh.resume
 
@@ -1897,43 +1900,44 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %container = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %container, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %container, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %container2 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %container2, align 8
+  %2 = load ptr, ptr %container2, align 8
   %magic = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 2
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %2 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %magic, i64 noundef 4, i64 noundef 1)
+  %3 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %magic, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
   %container3 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %container3, align 8
+  %4 = load ptr, ptr %container3, align 8
   %cursor = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 5
-  %vtable4 = load ptr, ptr %3, align 8
+  %vtable4 = load ptr, ptr %4, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 3
-  %4 = load ptr, ptr %vfn5, align 8
-  %call7 = invoke noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %cursor, i64 noundef 4, i64 noundef 1)
+  %5 = load ptr, ptr %vfn5, align 8
+  %call7 = invoke noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %cursor, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %container8 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %container8, align 8
+  %6 = load ptr, ptr %container8, align 8
   %buffer = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %buffer, align 8
+  %7 = load ptr, ptr %buffer, align 8
   %cursor9 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 5
-  %7 = load i64, ptr %cursor9, align 8
-  %vtable10 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %cursor9, align 8
+  %vtable10 = load ptr, ptr %6, align 8
   %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 3
-  %8 = load ptr, ptr %vfn11, align 8
-  %call13 = invoke noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, i64 noundef 1, i64 noundef %7)
+  %9 = load ptr, ptr %vfn11, align 8
+  %call13 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, i64 noundef 1, i64 noundef %8)
           to label %invoke.cont12 unwind label %terminate.lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont6
@@ -1941,18 +1945,18 @@ invoke.cont12:                                    ; preds = %invoke.cont6
 
 if.end:                                           ; preds = %invoke.cont12, %entry
   %buffer14 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %buffer14, align 8
-  %tobool15 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %buffer14, align 8
+  %tobool15 = icmp ne ptr %10, null
   br i1 %tobool15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end
   %buffer17 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %buffer17, align 8
-  %isnull = icmp eq ptr %10, null
+  %11 = load ptr, ptr %buffer17, align 8
+  %isnull = icmp eq ptr %11, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then16
-  call void @_ZdaPv(ptr noundef %10) #17
+  call void @_ZdaPv(ptr noundef %11) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then16
@@ -1963,10 +1967,10 @@ if.end18:                                         ; preds = %delete.end, %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont6, %invoke.cont, %if.then
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #14
   unreachable
 }
 
@@ -2255,16 +2259,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #13
   br label %eh.resume
 
@@ -2460,7 +2465,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp8IOStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6Assimp8IOStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

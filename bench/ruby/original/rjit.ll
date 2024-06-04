@@ -716,7 +716,7 @@ define internal void @rjit_cme_invalidate(ptr noundef %0) #0 {
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15, %12, %1
-  br label %89
+  br label %92
 
 19:                                               ; preds = %15
   br label %20
@@ -732,108 +732,111 @@ define internal void @rjit_cme_invalidate(ptr noundef %0) #0 {
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr @rb_rjit_global_events, align 4
   store ptr null, ptr %5, align 8
-  %27 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %39
+  %27 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %28 = load i8, ptr %27, align 2
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %40
 
-29:                                               ; preds = %20
-  %30 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %31 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %5, align 8
-  %35 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %36 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %37, i32 0, i32 0
-  store ptr null, ptr %38, align 8
-  br label %42
+30:                                               ; preds = %20
+  %31 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %32 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %5, align 8
+  %36 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %37 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %38, i32 0, i32 0
+  store ptr null, ptr %39, align 8
+  br label %43
 
-39:                                               ; preds = %20
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %40, i32 0, i32 1
-  store i32 0, ptr %41, align 8
-  br label %42
+40:                                               ; preds = %20
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %41, i32 0, i32 1
+  store i32 0, ptr %42, align 8
+  br label %43
 
-42:                                               ; preds = %39, %29
-  %43 = load i8, ptr @rb_rjit_call_p, align 1
-  %44 = trunc i8 %43 to i1
-  %45 = zext i1 %44 to i8
-  store i8 %45, ptr %6, align 1
+43:                                               ; preds = %40, %30
+  %44 = load i8, ptr @rb_rjit_call_p, align 1
+  %45 = trunc i8 %44 to i1
+  %46 = zext i1 %45 to i8
+  store i8 %46, ptr %6, align 1
   store i8 0, ptr @rb_rjit_call_p, align 1
   store i8 0, ptr @rjit_stats_p, align 1
-  %46 = load i64, ptr @rb_vm_insns_count, align 8
-  store i64 %46, ptr %7, align 8
-  %47 = call i64 @rb_errinfo()
-  store i64 %47, ptr %8, align 8
-  %48 = load i64, ptr @rb_mRJITHooks, align 8
-  %49 = call i64 @rbimpl_intern_const(ptr noundef @rjit_cme_invalidate.rbimpl_id, ptr noundef @.str.56) #14
-  store i64 %49, ptr %9, align 8
-  %50 = load i64, ptr %9, align 8
-  %51 = load ptr, ptr %2, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = call i64 @rb_ull2num_inline(i64 noundef %52)
-  %54 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %48, i64 noundef %50, i32 noundef 1, i64 noundef %53)
-  %55 = load i64, ptr %8, align 8
-  call void @rb_set_errinfo(i64 noundef %55)
-  %56 = load i64, ptr %7, align 8
-  store i64 %56, ptr @rb_vm_insns_count, align 8
-  %57 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %58 = trunc i8 %57 to i1
-  %59 = zext i1 %58 to i8
-  store i8 %59, ptr @rjit_stats_p, align 1
-  %60 = load i8, ptr @rjit_cancel_p, align 1
-  %61 = trunc i8 %60 to i1
-  br i1 %61, label %62, label %63
+  %47 = load i64, ptr @rb_vm_insns_count, align 8
+  store i64 %47, ptr %7, align 8
+  %48 = call i64 @rb_errinfo()
+  store i64 %48, ptr %8, align 8
+  %49 = load i64, ptr @rb_mRJITHooks, align 8
+  %50 = call i64 @rbimpl_intern_const(ptr noundef @rjit_cme_invalidate.rbimpl_id, ptr noundef @.str.56) #14
+  store i64 %50, ptr %9, align 8
+  %51 = load i64, ptr %9, align 8
+  %52 = load ptr, ptr %2, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = call i64 @rb_ull2num_inline(i64 noundef %53)
+  %55 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %49, i64 noundef %51, i32 noundef 1, i64 noundef %54)
+  %56 = load i64, ptr %8, align 8
+  call void @rb_set_errinfo(i64 noundef %56)
+  %57 = load i64, ptr %7, align 8
+  store i64 %57, ptr @rb_vm_insns_count, align 8
+  %58 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %59 = load i8, ptr %58, align 4
+  %60 = trunc i8 %59 to i1
+  %61 = zext i1 %60 to i8
+  store i8 %61, ptr @rjit_stats_p, align 1
+  %62 = load i8, ptr @rjit_cancel_p, align 1
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %65
 
-62:                                               ; preds = %42
-  br label %67
+64:                                               ; preds = %43
+  br label %69
 
-63:                                               ; preds = %42
-  %64 = load i8, ptr %6, align 1
-  %65 = trunc i8 %64 to i1
-  %66 = zext i1 %65 to i32
-  br label %67
+65:                                               ; preds = %43
+  %66 = load i8, ptr %6, align 1
+  %67 = trunc i8 %66 to i1
+  %68 = zext i1 %67 to i32
+  br label %69
 
-67:                                               ; preds = %63, %62
-  %68 = phi i32 [ 0, %62 ], [ %66, %63 ]
-  %69 = icmp ne i32 %68, 0
-  %70 = zext i1 %69 to i8
-  store i8 %70, ptr @rb_rjit_call_p, align 1
-  %71 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %79
+69:                                               ; preds = %65, %64
+  %70 = phi i32 [ 0, %64 ], [ %68, %65 ]
+  %71 = icmp ne i32 %70, 0
+  %72 = zext i1 %71 to i8
+  store i8 %72, ptr @rb_rjit_call_p, align 1
+  %73 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %74 = load i8, ptr %73, align 2
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %82
 
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %5, align 8
-  %75 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %76 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %75, i32 0, i32 2
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %77, i32 0, i32 0
-  store ptr %74, ptr %78, align 8
-  br label %83
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %5, align 8
+  %78 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %79 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %80, i32 0, i32 0
+  store ptr %77, ptr %81, align 8
+  br label %86
 
-79:                                               ; preds = %67
-  %80 = load i32, ptr @rb_rjit_global_events, align 4
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %81, i32 0, i32 1
-  store i32 %80, ptr %82, align 8
-  br label %83
+82:                                               ; preds = %69
+  %83 = load i32, ptr @rb_rjit_global_events, align 4
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %84, i32 0, i32 1
+  store i32 %83, ptr %85, align 8
+  br label %86
 
-83:                                               ; preds = %79, %73
-  %84 = load i64, ptr %3, align 8
-  %85 = icmp ne i64 %84, 0
-  br i1 %85, label %88, label %86
+86:                                               ; preds = %82, %76
+  %87 = load i64, ptr %3, align 8
+  %88 = icmp ne i64 %87, 0
+  br i1 %88, label %91, label %89
 
-86:                                               ; preds = %83
-  %87 = call i64 @rb_gc_enable()
-  br label %88
+89:                                               ; preds = %86
+  %90 = call i64 @rb_gc_enable()
+  br label %91
 
-88:                                               ; preds = %86, %83
-  br label %89
+91:                                               ; preds = %89, %86
+  br label %92
 
-89:                                               ; preds = %88, %18
+92:                                               ; preds = %91, %18
   ret void
 }
 
@@ -912,7 +915,7 @@ define internal void @rjit_constant_state_changed(ptr noundef %0) #0 {
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %16, %13, %1
-  br label %91
+  br label %94
 
 20:                                               ; preds = %16
   call void @rb_vm_lock_enter(ptr noundef %3, ptr noundef @.str.23, i32 noundef 260)
@@ -930,112 +933,115 @@ define internal void @rjit_constant_state_changed(ptr noundef %0) #0 {
   %27 = load i32, ptr %26, align 8
   store i32 %27, ptr @rb_rjit_global_events, align 4
   store ptr null, ptr %6, align 8
-  %28 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %40
+  %28 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %29 = load i8, ptr %28, align 2
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %41
 
-30:                                               ; preds = %21
-  %31 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %32 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %31, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %6, align 8
-  %36 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %37 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %38, i32 0, i32 0
-  store ptr null, ptr %39, align 8
-  br label %43
+31:                                               ; preds = %21
+  %32 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %33 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %6, align 8
+  %37 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %38 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %39, i32 0, i32 0
+  store ptr null, ptr %40, align 8
+  br label %44
 
-40:                                               ; preds = %21
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %41, i32 0, i32 1
-  store i32 0, ptr %42, align 8
-  br label %43
+41:                                               ; preds = %21
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %42, i32 0, i32 1
+  store i32 0, ptr %43, align 8
+  br label %44
 
-43:                                               ; preds = %40, %30
-  %44 = load i8, ptr @rb_rjit_call_p, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = zext i1 %45 to i8
-  store i8 %46, ptr %7, align 1
+44:                                               ; preds = %41, %31
+  %45 = load i8, ptr @rb_rjit_call_p, align 1
+  %46 = trunc i8 %45 to i1
+  %47 = zext i1 %46 to i8
+  store i8 %47, ptr %7, align 1
   store i8 0, ptr @rb_rjit_call_p, align 1
   store i8 0, ptr @rjit_stats_p, align 1
-  %47 = load i64, ptr @rb_vm_insns_count, align 8
-  store i64 %47, ptr %8, align 8
-  %48 = call i64 @rb_errinfo()
-  store i64 %48, ptr %9, align 8
-  %49 = load i64, ptr @rb_mRJITHooks, align 8
-  %50 = call i64 @rbimpl_intern_const(ptr noundef @rjit_constant_state_changed.rbimpl_id, ptr noundef @.str.57) #14
-  store i64 %50, ptr %10, align 8
-  %51 = load i64, ptr %10, align 8
-  %52 = load ptr, ptr %2, align 8
-  %53 = ptrtoint ptr %52 to i64
-  %54 = call i64 @rb_ull2num_inline(i64 noundef %53)
-  %55 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %49, i64 noundef %51, i32 noundef 1, i64 noundef %54)
-  %56 = load i64, ptr %9, align 8
-  call void @rb_set_errinfo(i64 noundef %56)
-  %57 = load i64, ptr %8, align 8
-  store i64 %57, ptr @rb_vm_insns_count, align 8
-  %58 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %59 = trunc i8 %58 to i1
-  %60 = zext i1 %59 to i8
-  store i8 %60, ptr @rjit_stats_p, align 1
-  %61 = load i8, ptr @rjit_cancel_p, align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %64
+  %48 = load i64, ptr @rb_vm_insns_count, align 8
+  store i64 %48, ptr %8, align 8
+  %49 = call i64 @rb_errinfo()
+  store i64 %49, ptr %9, align 8
+  %50 = load i64, ptr @rb_mRJITHooks, align 8
+  %51 = call i64 @rbimpl_intern_const(ptr noundef @rjit_constant_state_changed.rbimpl_id, ptr noundef @.str.57) #14
+  store i64 %51, ptr %10, align 8
+  %52 = load i64, ptr %10, align 8
+  %53 = load ptr, ptr %2, align 8
+  %54 = ptrtoint ptr %53 to i64
+  %55 = call i64 @rb_ull2num_inline(i64 noundef %54)
+  %56 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %50, i64 noundef %52, i32 noundef 1, i64 noundef %55)
+  %57 = load i64, ptr %9, align 8
+  call void @rb_set_errinfo(i64 noundef %57)
+  %58 = load i64, ptr %8, align 8
+  store i64 %58, ptr @rb_vm_insns_count, align 8
+  %59 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %60 = load i8, ptr %59, align 4
+  %61 = trunc i8 %60 to i1
+  %62 = zext i1 %61 to i8
+  store i8 %62, ptr @rjit_stats_p, align 1
+  %63 = load i8, ptr @rjit_cancel_p, align 1
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %66
 
-63:                                               ; preds = %43
-  br label %68
+65:                                               ; preds = %44
+  br label %70
 
-64:                                               ; preds = %43
-  %65 = load i8, ptr %7, align 1
-  %66 = trunc i8 %65 to i1
-  %67 = zext i1 %66 to i32
-  br label %68
+66:                                               ; preds = %44
+  %67 = load i8, ptr %7, align 1
+  %68 = trunc i8 %67 to i1
+  %69 = zext i1 %68 to i32
+  br label %70
 
-68:                                               ; preds = %64, %63
-  %69 = phi i32 [ 0, %63 ], [ %67, %64 ]
-  %70 = icmp ne i32 %69, 0
-  %71 = zext i1 %70 to i8
-  store i8 %71, ptr @rb_rjit_call_p, align 1
-  %72 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %80
+70:                                               ; preds = %66, %65
+  %71 = phi i32 [ 0, %65 ], [ %69, %66 ]
+  %72 = icmp ne i32 %71, 0
+  %73 = zext i1 %72 to i8
+  store i8 %73, ptr @rb_rjit_call_p, align 1
+  %74 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %75 = load i8, ptr %74, align 2
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %83
 
-74:                                               ; preds = %68
-  %75 = load ptr, ptr %6, align 8
-  %76 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %77 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %76, i32 0, i32 2
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %78, i32 0, i32 0
-  store ptr %75, ptr %79, align 8
-  br label %84
+77:                                               ; preds = %70
+  %78 = load ptr, ptr %6, align 8
+  %79 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %80 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %79, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %81, i32 0, i32 0
+  store ptr %78, ptr %82, align 8
+  br label %87
 
-80:                                               ; preds = %68
-  %81 = load i32, ptr @rb_rjit_global_events, align 4
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %82, i32 0, i32 1
-  store i32 %81, ptr %83, align 8
-  br label %84
+83:                                               ; preds = %70
+  %84 = load i32, ptr @rb_rjit_global_events, align 4
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %85, i32 0, i32 1
+  store i32 %84, ptr %86, align 8
+  br label %87
 
-84:                                               ; preds = %80, %74
-  %85 = load i64, ptr %4, align 8
-  %86 = icmp ne i64 %85, 0
-  br i1 %86, label %89, label %87
+87:                                               ; preds = %83, %77
+  %88 = load i64, ptr %4, align 8
+  %89 = icmp ne i64 %88, 0
+  br i1 %89, label %92, label %90
 
-87:                                               ; preds = %84
-  %88 = call i64 @rb_gc_enable()
-  br label %89
+90:                                               ; preds = %87
+  %91 = call i64 @rb_gc_enable()
+  br label %92
 
-89:                                               ; preds = %87, %84
-  br label %90
+92:                                               ; preds = %90, %87
+  br label %93
 
-90:                                               ; preds = %89
+93:                                               ; preds = %92
   call void @rb_vm_lock_leave(ptr noundef %3, ptr noundef @.str.23, i32 noundef 267)
-  br label %91
+  br label %94
 
-91:                                               ; preds = %90, %19
+94:                                               ; preds = %93, %19
   ret void
 }
 
@@ -1070,7 +1076,7 @@ define hidden void @rb_rjit_constant_ic_update(ptr noundef %0, ptr noundef %1, i
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %20, %17, %3
-  br label %100
+  br label %103
 
 24:                                               ; preds = %20
   call void @rb_vm_lock_enter(ptr noundef %7, ptr noundef @.str.23, i32 noundef 283)
@@ -1088,117 +1094,120 @@ define hidden void @rb_rjit_constant_ic_update(ptr noundef %0, ptr noundef %1, i
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr @rb_rjit_global_events, align 4
   store ptr null, ptr %10, align 8
-  %32 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %44
+  %32 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %33 = load i8, ptr %32, align 2
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %45
 
-34:                                               ; preds = %25
-  %35 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %36 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %10, align 8
-  %40 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %41 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %42, i32 0, i32 0
-  store ptr null, ptr %43, align 8
-  br label %47
+35:                                               ; preds = %25
+  %36 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %37 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %10, align 8
+  %41 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %42 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %43, i32 0, i32 0
+  store ptr null, ptr %44, align 8
+  br label %48
 
-44:                                               ; preds = %25
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %45, i32 0, i32 1
-  store i32 0, ptr %46, align 8
-  br label %47
+45:                                               ; preds = %25
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %46, i32 0, i32 1
+  store i32 0, ptr %47, align 8
+  br label %48
 
-47:                                               ; preds = %44, %34
-  %48 = load i8, ptr @rb_rjit_call_p, align 1
-  %49 = trunc i8 %48 to i1
-  %50 = zext i1 %49 to i8
-  store i8 %50, ptr %11, align 1
+48:                                               ; preds = %45, %35
+  %49 = load i8, ptr @rb_rjit_call_p, align 1
+  %50 = trunc i8 %49 to i1
+  %51 = zext i1 %50 to i8
+  store i8 %51, ptr %11, align 1
   store i8 0, ptr @rb_rjit_call_p, align 1
   store i8 0, ptr @rjit_stats_p, align 1
-  %51 = load i64, ptr @rb_vm_insns_count, align 8
-  store i64 %51, ptr %12, align 8
-  %52 = call i64 @rb_errinfo()
-  store i64 %52, ptr %13, align 8
-  %53 = load i64, ptr @rb_mRJITHooks, align 8
-  %54 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_constant_ic_update.rbimpl_id, ptr noundef @.str.24) #14
-  store i64 %54, ptr %14, align 8
-  %55 = load i64, ptr %14, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = ptrtoint ptr %56 to i64
-  %58 = call i64 @rb_ull2num_inline(i64 noundef %57)
-  %59 = load ptr, ptr %5, align 8
-  %60 = ptrtoint ptr %59 to i64
-  %61 = call i64 @rb_ull2num_inline(i64 noundef %60)
-  %62 = load i32, ptr %6, align 4
-  %63 = call i64 @rb_uint2num_inline(i32 noundef %62)
-  %64 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %53, i64 noundef %55, i32 noundef 3, i64 noundef %58, i64 noundef %61, i64 noundef %63)
-  %65 = load i64, ptr %13, align 8
-  call void @rb_set_errinfo(i64 noundef %65)
-  %66 = load i64, ptr %12, align 8
-  store i64 %66, ptr @rb_vm_insns_count, align 8
-  %67 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %68 = trunc i8 %67 to i1
-  %69 = zext i1 %68 to i8
-  store i8 %69, ptr @rjit_stats_p, align 1
-  %70 = load i8, ptr @rjit_cancel_p, align 1
-  %71 = trunc i8 %70 to i1
-  br i1 %71, label %72, label %73
+  %52 = load i64, ptr @rb_vm_insns_count, align 8
+  store i64 %52, ptr %12, align 8
+  %53 = call i64 @rb_errinfo()
+  store i64 %53, ptr %13, align 8
+  %54 = load i64, ptr @rb_mRJITHooks, align 8
+  %55 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_constant_ic_update.rbimpl_id, ptr noundef @.str.24) #14
+  store i64 %55, ptr %14, align 8
+  %56 = load i64, ptr %14, align 8
+  %57 = load ptr, ptr %4, align 8
+  %58 = ptrtoint ptr %57 to i64
+  %59 = call i64 @rb_ull2num_inline(i64 noundef %58)
+  %60 = load ptr, ptr %5, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %62 = call i64 @rb_ull2num_inline(i64 noundef %61)
+  %63 = load i32, ptr %6, align 4
+  %64 = call i64 @rb_uint2num_inline(i32 noundef %63)
+  %65 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %54, i64 noundef %56, i32 noundef 3, i64 noundef %59, i64 noundef %62, i64 noundef %64)
+  %66 = load i64, ptr %13, align 8
+  call void @rb_set_errinfo(i64 noundef %66)
+  %67 = load i64, ptr %12, align 8
+  store i64 %67, ptr @rb_vm_insns_count, align 8
+  %68 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %69 = load i8, ptr %68, align 4
+  %70 = trunc i8 %69 to i1
+  %71 = zext i1 %70 to i8
+  store i8 %71, ptr @rjit_stats_p, align 1
+  %72 = load i8, ptr @rjit_cancel_p, align 1
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %75
 
-72:                                               ; preds = %47
-  br label %77
+74:                                               ; preds = %48
+  br label %79
 
-73:                                               ; preds = %47
-  %74 = load i8, ptr %11, align 1
-  %75 = trunc i8 %74 to i1
-  %76 = zext i1 %75 to i32
-  br label %77
+75:                                               ; preds = %48
+  %76 = load i8, ptr %11, align 1
+  %77 = trunc i8 %76 to i1
+  %78 = zext i1 %77 to i32
+  br label %79
 
-77:                                               ; preds = %73, %72
-  %78 = phi i32 [ 0, %72 ], [ %76, %73 ]
-  %79 = icmp ne i32 %78, 0
-  %80 = zext i1 %79 to i8
-  store i8 %80, ptr @rb_rjit_call_p, align 1
-  %81 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %89
+79:                                               ; preds = %75, %74
+  %80 = phi i32 [ 0, %74 ], [ %78, %75 ]
+  %81 = icmp ne i32 %80, 0
+  %82 = zext i1 %81 to i8
+  store i8 %82, ptr @rb_rjit_call_p, align 1
+  %83 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %84 = load i8, ptr %83, align 2
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %92
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %10, align 8
-  %85 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %86 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %85, i32 0, i32 2
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %87, i32 0, i32 0
-  store ptr %84, ptr %88, align 8
-  br label %93
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %10, align 8
+  %88 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %89 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %88, i32 0, i32 2
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %90, i32 0, i32 0
+  store ptr %87, ptr %91, align 8
+  br label %96
 
-89:                                               ; preds = %77
-  %90 = load i32, ptr @rb_rjit_global_events, align 4
-  %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %91, i32 0, i32 1
-  store i32 %90, ptr %92, align 8
-  br label %93
+92:                                               ; preds = %79
+  %93 = load i32, ptr @rb_rjit_global_events, align 4
+  %94 = load ptr, ptr %9, align 8
+  %95 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %94, i32 0, i32 1
+  store i32 %93, ptr %95, align 8
+  br label %96
 
-93:                                               ; preds = %89, %83
-  %94 = load i64, ptr %8, align 8
-  %95 = icmp ne i64 %94, 0
-  br i1 %95, label %98, label %96
+96:                                               ; preds = %92, %86
+  %97 = load i64, ptr %8, align 8
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %101, label %99
 
-96:                                               ; preds = %93
-  %97 = call i64 @rb_gc_enable()
-  br label %98
+99:                                               ; preds = %96
+  %100 = call i64 @rb_gc_enable()
+  br label %101
 
-98:                                               ; preds = %96, %93
-  br label %99
+101:                                              ; preds = %99, %96
+  br label %102
 
-99:                                               ; preds = %98
+102:                                              ; preds = %101
   call void @rb_vm_lock_leave(ptr noundef %7, ptr noundef @.str.23, i32 noundef 291)
-  br label %100
+  br label %103
 
-100:                                              ; preds = %99, %23
+103:                                              ; preds = %102, %23
   ret void
 }
 
@@ -1389,7 +1398,7 @@ define hidden void @rb_rjit_tracing_invalidate_all(i32 noundef %0) #0 {
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15, %12, %1
-  br label %88
+  br label %91
 
 19:                                               ; preds = %15
   br label %20
@@ -1405,107 +1414,110 @@ define hidden void @rb_rjit_tracing_invalidate_all(i32 noundef %0) #0 {
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr @rb_rjit_global_events, align 4
   store ptr null, ptr %5, align 8
-  %27 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %39
+  %27 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %28 = load i8, ptr %27, align 2
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %40
 
-29:                                               ; preds = %20
-  %30 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %31 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %5, align 8
-  %35 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %36 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %37, i32 0, i32 0
-  store ptr null, ptr %38, align 8
-  br label %42
+30:                                               ; preds = %20
+  %31 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %32 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %5, align 8
+  %36 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %37 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %38, i32 0, i32 0
+  store ptr null, ptr %39, align 8
+  br label %43
 
-39:                                               ; preds = %20
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %40, i32 0, i32 1
-  store i32 0, ptr %41, align 8
-  br label %42
+40:                                               ; preds = %20
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %41, i32 0, i32 1
+  store i32 0, ptr %42, align 8
+  br label %43
 
-42:                                               ; preds = %39, %29
-  %43 = load i8, ptr @rb_rjit_call_p, align 1
-  %44 = trunc i8 %43 to i1
-  %45 = zext i1 %44 to i8
-  store i8 %45, ptr %6, align 1
+43:                                               ; preds = %40, %30
+  %44 = load i8, ptr @rb_rjit_call_p, align 1
+  %45 = trunc i8 %44 to i1
+  %46 = zext i1 %45 to i8
+  store i8 %46, ptr %6, align 1
   store i8 0, ptr @rb_rjit_call_p, align 1
   store i8 0, ptr @rjit_stats_p, align 1
-  %46 = load i64, ptr @rb_vm_insns_count, align 8
-  store i64 %46, ptr %7, align 8
-  %47 = call i64 @rb_errinfo()
-  store i64 %47, ptr %8, align 8
-  %48 = load i64, ptr @rb_mRJITHooks, align 8
-  %49 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_tracing_invalidate_all.rbimpl_id, ptr noundef @.str.25) #14
-  store i64 %49, ptr %9, align 8
-  %50 = load i64, ptr %9, align 8
-  %51 = load i32, ptr %2, align 4
-  %52 = call i64 @rb_uint2num_inline(i32 noundef %51)
-  %53 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %48, i64 noundef %50, i32 noundef 1, i64 noundef %52)
-  %54 = load i64, ptr %8, align 8
-  call void @rb_set_errinfo(i64 noundef %54)
-  %55 = load i64, ptr %7, align 8
-  store i64 %55, ptr @rb_vm_insns_count, align 8
-  %56 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %57 = trunc i8 %56 to i1
-  %58 = zext i1 %57 to i8
-  store i8 %58, ptr @rjit_stats_p, align 1
-  %59 = load i8, ptr @rjit_cancel_p, align 1
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %61, label %62
+  %47 = load i64, ptr @rb_vm_insns_count, align 8
+  store i64 %47, ptr %7, align 8
+  %48 = call i64 @rb_errinfo()
+  store i64 %48, ptr %8, align 8
+  %49 = load i64, ptr @rb_mRJITHooks, align 8
+  %50 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_tracing_invalidate_all.rbimpl_id, ptr noundef @.str.25) #14
+  store i64 %50, ptr %9, align 8
+  %51 = load i64, ptr %9, align 8
+  %52 = load i32, ptr %2, align 4
+  %53 = call i64 @rb_uint2num_inline(i32 noundef %52)
+  %54 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %49, i64 noundef %51, i32 noundef 1, i64 noundef %53)
+  %55 = load i64, ptr %8, align 8
+  call void @rb_set_errinfo(i64 noundef %55)
+  %56 = load i64, ptr %7, align 8
+  store i64 %56, ptr @rb_vm_insns_count, align 8
+  %57 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %58 = load i8, ptr %57, align 4
+  %59 = trunc i8 %58 to i1
+  %60 = zext i1 %59 to i8
+  store i8 %60, ptr @rjit_stats_p, align 1
+  %61 = load i8, ptr @rjit_cancel_p, align 1
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %64
 
-61:                                               ; preds = %42
-  br label %66
+63:                                               ; preds = %43
+  br label %68
 
-62:                                               ; preds = %42
-  %63 = load i8, ptr %6, align 1
-  %64 = trunc i8 %63 to i1
-  %65 = zext i1 %64 to i32
-  br label %66
+64:                                               ; preds = %43
+  %65 = load i8, ptr %6, align 1
+  %66 = trunc i8 %65 to i1
+  %67 = zext i1 %66 to i32
+  br label %68
 
-66:                                               ; preds = %62, %61
-  %67 = phi i32 [ 0, %61 ], [ %65, %62 ]
-  %68 = icmp ne i32 %67, 0
-  %69 = zext i1 %68 to i8
-  store i8 %69, ptr @rb_rjit_call_p, align 1
-  %70 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %71 = trunc i8 %70 to i1
-  br i1 %71, label %72, label %78
+68:                                               ; preds = %64, %63
+  %69 = phi i32 [ 0, %63 ], [ %67, %64 ]
+  %70 = icmp ne i32 %69, 0
+  %71 = zext i1 %70 to i8
+  store i8 %71, ptr @rb_rjit_call_p, align 1
+  %72 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %73 = load i8, ptr %72, align 2
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %81
 
-72:                                               ; preds = %66
-  %73 = load ptr, ptr %5, align 8
-  %74 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %75 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %76, i32 0, i32 0
-  store ptr %73, ptr %77, align 8
-  br label %82
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %5, align 8
+  %77 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %78 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %79, i32 0, i32 0
+  store ptr %76, ptr %80, align 8
+  br label %85
 
-78:                                               ; preds = %66
-  %79 = load i32, ptr @rb_rjit_global_events, align 4
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %80, i32 0, i32 1
-  store i32 %79, ptr %81, align 8
-  br label %82
+81:                                               ; preds = %68
+  %82 = load i32, ptr @rb_rjit_global_events, align 4
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %83, i32 0, i32 1
+  store i32 %82, ptr %84, align 8
+  br label %85
 
-82:                                               ; preds = %78, %72
-  %83 = load i64, ptr %3, align 8
-  %84 = icmp ne i64 %83, 0
-  br i1 %84, label %87, label %85
+85:                                               ; preds = %81, %75
+  %86 = load i64, ptr %3, align 8
+  %87 = icmp ne i64 %86, 0
+  br i1 %87, label %90, label %88
 
-85:                                               ; preds = %82
-  %86 = call i64 @rb_gc_enable()
-  br label %87
+88:                                               ; preds = %85
+  %89 = call i64 @rb_gc_enable()
+  br label %90
 
-87:                                               ; preds = %85, %82
-  br label %88
+90:                                               ; preds = %88, %85
+  br label %91
 
-88:                                               ; preds = %87, %18
+91:                                               ; preds = %90, %18
   ret void
 }
 
@@ -1661,122 +1673,125 @@ define dso_local void @rb_rjit_compile(ptr noundef %0) #0 {
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr @rb_rjit_global_events, align 4
   store ptr null, ptr %6, align 8
-  %22 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %30
+  %22 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %23 = load i8, ptr %22, align 2
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %31
 
-24:                                               ; preds = %15
-  %25 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %26 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %25, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %6, align 8
-  br label %33
+25:                                               ; preds = %15
+  %26 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %27 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %6, align 8
+  br label %34
 
-30:                                               ; preds = %15
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %31, i32 0, i32 1
-  store i32 0, ptr %32, align 8
-  br label %33
+31:                                               ; preds = %15
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %32, i32 0, i32 1
+  store i32 0, ptr %33, align 8
+  br label %34
 
-33:                                               ; preds = %30, %24
-  %34 = load i8, ptr @rb_rjit_call_p, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = zext i1 %35 to i8
-  store i8 %36, ptr %7, align 1
+34:                                               ; preds = %31, %25
+  %35 = load i8, ptr @rb_rjit_call_p, align 1
+  %36 = trunc i8 %35 to i1
+  %37 = zext i1 %36 to i8
+  store i8 %37, ptr %7, align 1
   store i8 0, ptr @rb_rjit_call_p, align 1
   store i8 0, ptr @rjit_stats_p, align 1
-  %37 = load i64, ptr @rb_vm_insns_count, align 8
-  store i64 %37, ptr %8, align 8
-  %38 = call i64 @rb_errinfo()
-  store i64 %38, ptr %9, align 8
-  %39 = load i64, ptr @rb_cRJITIseqPtr, align 8
-  %40 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_compile.rbimpl_id, ptr noundef @.str.26) #14
-  store i64 %40, ptr %11, align 8
-  %41 = load i64, ptr %11, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = call i64 @rb_ull2num_inline(i64 noundef %43)
-  %45 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %39, i64 noundef %41, i32 noundef 1, i64 noundef %44)
-  store i64 %45, ptr %10, align 8
-  %46 = load i64, ptr @rb_cRJITCfpPtr, align 8
-  %47 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_compile.rbimpl_id.27, ptr noundef @.str.26) #14
-  store i64 %47, ptr %13, align 8
-  %48 = load i64, ptr %13, align 8
-  %49 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %50 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = call i64 @rb_ull2num_inline(i64 noundef %52)
-  %54 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %46, i64 noundef %48, i32 noundef 1, i64 noundef %53)
-  store i64 %54, ptr %12, align 8
-  %55 = load i64, ptr @rb_RJITCompiler, align 8
-  %56 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_compile.rbimpl_id.28, ptr noundef @.str.29) #14
-  store i64 %56, ptr %14, align 8
-  %57 = load i64, ptr %14, align 8
-  %58 = load i64, ptr %10, align 8
-  %59 = load i64, ptr %12, align 8
-  %60 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %55, i64 noundef %57, i32 noundef 2, i64 noundef %58, i64 noundef %59)
-  %61 = load i64, ptr %9, align 8
-  call void @rb_set_errinfo(i64 noundef %61)
-  %62 = load i64, ptr %8, align 8
-  store i64 %62, ptr @rb_vm_insns_count, align 8
-  %63 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %64 = trunc i8 %63 to i1
-  %65 = zext i1 %64 to i8
-  store i8 %65, ptr @rjit_stats_p, align 1
-  %66 = load i8, ptr @rjit_cancel_p, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %69
+  %38 = load i64, ptr @rb_vm_insns_count, align 8
+  store i64 %38, ptr %8, align 8
+  %39 = call i64 @rb_errinfo()
+  store i64 %39, ptr %9, align 8
+  %40 = load i64, ptr @rb_cRJITIseqPtr, align 8
+  %41 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_compile.rbimpl_id, ptr noundef @.str.26) #14
+  store i64 %41, ptr %11, align 8
+  %42 = load i64, ptr %11, align 8
+  %43 = load ptr, ptr %2, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = call i64 @rb_ull2num_inline(i64 noundef %44)
+  %46 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %40, i64 noundef %42, i32 noundef 1, i64 noundef %45)
+  store i64 %46, ptr %10, align 8
+  %47 = load i64, ptr @rb_cRJITCfpPtr, align 8
+  %48 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_compile.rbimpl_id.27, ptr noundef @.str.26) #14
+  store i64 %48, ptr %13, align 8
+  %49 = load i64, ptr %13, align 8
+  %50 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %51 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = call i64 @rb_ull2num_inline(i64 noundef %53)
+  %55 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %47, i64 noundef %49, i32 noundef 1, i64 noundef %54)
+  store i64 %55, ptr %12, align 8
+  %56 = load i64, ptr @rb_RJITCompiler, align 8
+  %57 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_compile.rbimpl_id.28, ptr noundef @.str.29) #14
+  store i64 %57, ptr %14, align 8
+  %58 = load i64, ptr %14, align 8
+  %59 = load i64, ptr %10, align 8
+  %60 = load i64, ptr %12, align 8
+  %61 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %56, i64 noundef %58, i32 noundef 2, i64 noundef %59, i64 noundef %60)
+  %62 = load i64, ptr %9, align 8
+  call void @rb_set_errinfo(i64 noundef %62)
+  %63 = load i64, ptr %8, align 8
+  store i64 %63, ptr @rb_vm_insns_count, align 8
+  %64 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %65 = load i8, ptr %64, align 4
+  %66 = trunc i8 %65 to i1
+  %67 = zext i1 %66 to i8
+  store i8 %67, ptr @rjit_stats_p, align 1
+  %68 = load i8, ptr @rjit_cancel_p, align 1
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %71
 
-68:                                               ; preds = %33
-  br label %73
+70:                                               ; preds = %34
+  br label %75
 
-69:                                               ; preds = %33
-  %70 = load i8, ptr %7, align 1
-  %71 = trunc i8 %70 to i1
-  %72 = zext i1 %71 to i32
-  br label %73
+71:                                               ; preds = %34
+  %72 = load i8, ptr %7, align 1
+  %73 = trunc i8 %72 to i1
+  %74 = zext i1 %73 to i32
+  br label %75
 
-73:                                               ; preds = %69, %68
-  %74 = phi i32 [ 0, %68 ], [ %72, %69 ]
-  %75 = icmp ne i32 %74, 0
-  %76 = zext i1 %75 to i8
-  store i8 %76, ptr @rb_rjit_call_p, align 1
-  %77 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %85
+75:                                               ; preds = %71, %70
+  %76 = phi i32 [ 0, %70 ], [ %74, %71 ]
+  %77 = icmp ne i32 %76, 0
+  %78 = zext i1 %77 to i8
+  store i8 %78, ptr @rb_rjit_call_p, align 1
+  %79 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %80 = load i8, ptr %79, align 2
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %88
 
-79:                                               ; preds = %73
-  %80 = load ptr, ptr %6, align 8
-  %81 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %82 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %81, i32 0, i32 2
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %83, i32 0, i32 0
-  store ptr %80, ptr %84, align 8
-  br label %89
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %6, align 8
+  %84 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %85 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %86, i32 0, i32 0
+  store ptr %83, ptr %87, align 8
+  br label %92
 
-85:                                               ; preds = %73
-  %86 = load i32, ptr @rb_rjit_global_events, align 4
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %87, i32 0, i32 1
-  store i32 %86, ptr %88, align 8
-  br label %89
+88:                                               ; preds = %75
+  %89 = load i32, ptr @rb_rjit_global_events, align 4
+  %90 = load ptr, ptr %5, align 8
+  %91 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %90, i32 0, i32 1
+  store i32 %89, ptr %91, align 8
+  br label %92
 
-89:                                               ; preds = %85, %79
-  %90 = load i64, ptr %4, align 8
-  %91 = icmp ne i64 %90, 0
-  br i1 %91, label %94, label %92
+92:                                               ; preds = %88, %82
+  %93 = load i64, ptr %4, align 8
+  %94 = icmp ne i64 %93, 0
+  br i1 %94, label %97, label %95
 
-92:                                               ; preds = %89
-  %93 = call i64 @rb_gc_enable()
-  br label %94
+95:                                               ; preds = %92
+  %96 = call i64 @rb_gc_enable()
+  br label %97
 
-94:                                               ; preds = %92, %89
-  br label %95
+97:                                               ; preds = %95, %92
+  br label %98
 
-95:                                               ; preds = %94
+98:                                               ; preds = %97
   call void @rb_vm_lock_leave(ptr noundef %3, ptr noundef @.str.23, i32 noundef 383)
   ret void
 }
@@ -1816,117 +1831,120 @@ define hidden ptr @rb_rjit_entry_stub_hit(i64 noundef %0) #0 {
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr @rb_rjit_global_events, align 4
   store ptr null, ptr %8, align 8
-  %25 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %33
+  %25 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %34
 
-27:                                               ; preds = %18
-  %28 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %29 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %8, align 8
-  br label %36
+28:                                               ; preds = %18
+  %29 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %30 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr %8, align 8
+  br label %37
 
-33:                                               ; preds = %18
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %34, i32 0, i32 1
-  store i32 0, ptr %35, align 8
-  br label %36
+34:                                               ; preds = %18
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %35, i32 0, i32 1
+  store i32 0, ptr %36, align 8
+  br label %37
 
-36:                                               ; preds = %33, %27
-  %37 = load i8, ptr @rb_rjit_call_p, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = zext i1 %38 to i8
-  store i8 %39, ptr %9, align 1
+37:                                               ; preds = %34, %28
+  %38 = load i8, ptr @rb_rjit_call_p, align 1
+  %39 = trunc i8 %38 to i1
+  %40 = zext i1 %39 to i8
+  store i8 %40, ptr %9, align 1
   store i8 0, ptr @rb_rjit_call_p, align 1
   store i8 0, ptr @rjit_stats_p, align 1
-  %40 = load i64, ptr @rb_vm_insns_count, align 8
-  store i64 %40, ptr %10, align 8
-  %41 = call i64 @rb_errinfo()
-  store i64 %41, ptr %11, align 8
-  %42 = load i64, ptr @rb_cRJITCfpPtr, align 8
-  %43 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_entry_stub_hit.rbimpl_id, ptr noundef @.str.26) #14
-  store i64 %43, ptr %13, align 8
-  %44 = load i64, ptr %13, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = call i64 @rb_ull2num_inline(i64 noundef %46)
-  %48 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %42, i64 noundef %44, i32 noundef 1, i64 noundef %47)
-  store i64 %48, ptr %12, align 8
-  %49 = load i64, ptr @rb_RJITCompiler, align 8
-  %50 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_entry_stub_hit.rbimpl_id.30, ptr noundef @.str.31) #14
-  store i64 %50, ptr %14, align 8
-  %51 = load i64, ptr %14, align 8
-  %52 = load i64, ptr %2, align 8
-  %53 = load i64, ptr %12, align 8
-  %54 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %49, i64 noundef %51, i32 noundef 2, i64 noundef %52, i64 noundef %53)
-  store i64 %54, ptr %3, align 8
-  %55 = load i64, ptr %11, align 8
-  call void @rb_set_errinfo(i64 noundef %55)
-  %56 = load i64, ptr %10, align 8
-  store i64 %56, ptr @rb_vm_insns_count, align 8
-  %57 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %58 = trunc i8 %57 to i1
-  %59 = zext i1 %58 to i8
-  store i8 %59, ptr @rjit_stats_p, align 1
-  %60 = load i8, ptr @rjit_cancel_p, align 1
-  %61 = trunc i8 %60 to i1
-  br i1 %61, label %62, label %63
+  %41 = load i64, ptr @rb_vm_insns_count, align 8
+  store i64 %41, ptr %10, align 8
+  %42 = call i64 @rb_errinfo()
+  store i64 %42, ptr %11, align 8
+  %43 = load i64, ptr @rb_cRJITCfpPtr, align 8
+  %44 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_entry_stub_hit.rbimpl_id, ptr noundef @.str.26) #14
+  store i64 %44, ptr %13, align 8
+  %45 = load i64, ptr %13, align 8
+  %46 = load ptr, ptr %5, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %48 = call i64 @rb_ull2num_inline(i64 noundef %47)
+  %49 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %43, i64 noundef %45, i32 noundef 1, i64 noundef %48)
+  store i64 %49, ptr %12, align 8
+  %50 = load i64, ptr @rb_RJITCompiler, align 8
+  %51 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_entry_stub_hit.rbimpl_id.30, ptr noundef @.str.31) #14
+  store i64 %51, ptr %14, align 8
+  %52 = load i64, ptr %14, align 8
+  %53 = load i64, ptr %2, align 8
+  %54 = load i64, ptr %12, align 8
+  %55 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %50, i64 noundef %52, i32 noundef 2, i64 noundef %53, i64 noundef %54)
+  store i64 %55, ptr %3, align 8
+  %56 = load i64, ptr %11, align 8
+  call void @rb_set_errinfo(i64 noundef %56)
+  %57 = load i64, ptr %10, align 8
+  store i64 %57, ptr @rb_vm_insns_count, align 8
+  %58 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %59 = load i8, ptr %58, align 4
+  %60 = trunc i8 %59 to i1
+  %61 = zext i1 %60 to i8
+  store i8 %61, ptr @rjit_stats_p, align 1
+  %62 = load i8, ptr @rjit_cancel_p, align 1
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %65
 
-62:                                               ; preds = %36
-  br label %67
+64:                                               ; preds = %37
+  br label %69
 
-63:                                               ; preds = %36
-  %64 = load i8, ptr %9, align 1
-  %65 = trunc i8 %64 to i1
-  %66 = zext i1 %65 to i32
-  br label %67
+65:                                               ; preds = %37
+  %66 = load i8, ptr %9, align 1
+  %67 = trunc i8 %66 to i1
+  %68 = zext i1 %67 to i32
+  br label %69
 
-67:                                               ; preds = %63, %62
-  %68 = phi i32 [ 0, %62 ], [ %66, %63 ]
-  %69 = icmp ne i32 %68, 0
-  %70 = zext i1 %69 to i8
-  store i8 %70, ptr @rb_rjit_call_p, align 1
-  %71 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %79
+69:                                               ; preds = %65, %64
+  %70 = phi i32 [ 0, %64 ], [ %68, %65 ]
+  %71 = icmp ne i32 %70, 0
+  %72 = zext i1 %71 to i8
+  store i8 %72, ptr @rb_rjit_call_p, align 1
+  %73 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %74 = load i8, ptr %73, align 2
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %82
 
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %8, align 8
-  %75 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %76 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %75, i32 0, i32 2
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %77, i32 0, i32 0
-  store ptr %74, ptr %78, align 8
-  br label %83
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %8, align 8
+  %78 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %79 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %80, i32 0, i32 0
+  store ptr %77, ptr %81, align 8
+  br label %86
 
-79:                                               ; preds = %67
-  %80 = load i32, ptr @rb_rjit_global_events, align 4
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %81, i32 0, i32 1
-  store i32 %80, ptr %82, align 8
-  br label %83
+82:                                               ; preds = %69
+  %83 = load i32, ptr @rb_rjit_global_events, align 4
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %84, i32 0, i32 1
+  store i32 %83, ptr %85, align 8
+  br label %86
 
-83:                                               ; preds = %79, %73
-  %84 = load i64, ptr %6, align 8
-  %85 = icmp ne i64 %84, 0
-  br i1 %85, label %88, label %86
+86:                                               ; preds = %82, %76
+  %87 = load i64, ptr %6, align 8
+  %88 = icmp ne i64 %87, 0
+  br i1 %88, label %91, label %89
 
-86:                                               ; preds = %83
-  %87 = call i64 @rb_gc_enable()
-  br label %88
+89:                                               ; preds = %86
+  %90 = call i64 @rb_gc_enable()
+  br label %91
 
-88:                                               ; preds = %86, %83
-  br label %89
+91:                                               ; preds = %89, %86
+  br label %92
 
-89:                                               ; preds = %88
+92:                                               ; preds = %91
   call void @rb_vm_lock_leave(ptr noundef %4, ptr noundef @.str.23, i32 noundef 401)
-  %90 = load i64, ptr %3, align 8
-  %91 = call i64 @rb_num2ull_inline(i64 noundef %90)
-  %92 = inttoptr i64 %91 to ptr
-  ret ptr %92
+  %93 = load i64, ptr %3, align 8
+  %94 = call i64 @rb_num2ull_inline(i64 noundef %93)
+  %95 = inttoptr i64 %94 to ptr
+  ret ptr %95
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2001,133 +2019,136 @@ define hidden ptr @rb_rjit_branch_stub_hit(i64 noundef %0, i32 noundef %1, i32 n
   %34 = load i32, ptr %33, align 8
   store i32 %34, ptr @rb_rjit_global_events, align 4
   store ptr null, ptr %12, align 8
-  %35 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %47
+  %35 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %36 = load i8, ptr %35, align 2
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %48
 
-37:                                               ; preds = %28
-  %38 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %39 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %12, align 8
-  %43 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %44 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %43, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %45, i32 0, i32 0
-  store ptr null, ptr %46, align 8
-  br label %50
+38:                                               ; preds = %28
+  %39 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %40 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %12, align 8
+  %44 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %45 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %46, i32 0, i32 0
+  store ptr null, ptr %47, align 8
+  br label %51
 
-47:                                               ; preds = %28
-  %48 = load ptr, ptr %11, align 8
-  %49 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %48, i32 0, i32 1
-  store i32 0, ptr %49, align 8
-  br label %50
+48:                                               ; preds = %28
+  %49 = load ptr, ptr %11, align 8
+  %50 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %49, i32 0, i32 1
+  store i32 0, ptr %50, align 8
+  br label %51
 
-50:                                               ; preds = %47, %37
-  %51 = load i8, ptr @rb_rjit_call_p, align 1
-  %52 = trunc i8 %51 to i1
-  %53 = zext i1 %52 to i8
-  store i8 %53, ptr %13, align 1
+51:                                               ; preds = %48, %38
+  %52 = load i8, ptr @rb_rjit_call_p, align 1
+  %53 = trunc i8 %52 to i1
+  %54 = zext i1 %53 to i8
+  store i8 %54, ptr %13, align 1
   store i8 0, ptr @rb_rjit_call_p, align 1
   store i8 0, ptr @rjit_stats_p, align 1
-  %54 = load i64, ptr @rb_vm_insns_count, align 8
-  store i64 %54, ptr %14, align 8
-  %55 = call i64 @rb_errinfo()
-  store i64 %55, ptr %15, align 8
-  %56 = load i64, ptr @rb_cRJITCfpPtr, align 8
-  %57 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_branch_stub_hit.rbimpl_id, ptr noundef @.str.26) #14
-  store i64 %57, ptr %17, align 8
-  %58 = load i64, ptr %17, align 8
-  %59 = load ptr, ptr %9, align 8
-  %60 = ptrtoint ptr %59 to i64
-  %61 = call i64 @rb_ull2num_inline(i64 noundef %60)
-  %62 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %56, i64 noundef %58, i32 noundef 1, i64 noundef %61)
-  store i64 %62, ptr %16, align 8
-  %63 = load i64, ptr @rb_RJITCompiler, align 8
-  %64 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_branch_stub_hit.rbimpl_id.32, ptr noundef @.str.33) #14
-  store i64 %64, ptr %18, align 8
-  %65 = load i64, ptr %18, align 8
-  %66 = load i64, ptr %4, align 8
-  %67 = load i64, ptr %16, align 8
-  %68 = load i32, ptr %6, align 4
-  %69 = icmp ne i32 %68, 0
-  %70 = select i1 %69, i64 20, i64 0
-  %71 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %63, i64 noundef %65, i32 noundef 3, i64 noundef %66, i64 noundef %67, i64 noundef %70)
-  store i64 %71, ptr %7, align 8
-  %72 = load i64, ptr %15, align 8
-  call void @rb_set_errinfo(i64 noundef %72)
-  %73 = load i64, ptr %14, align 8
-  store i64 %73, ptr @rb_vm_insns_count, align 8
-  %74 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %75 = trunc i8 %74 to i1
-  %76 = zext i1 %75 to i8
-  store i8 %76, ptr @rjit_stats_p, align 1
-  %77 = load i8, ptr @rjit_cancel_p, align 1
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %80
+  %55 = load i64, ptr @rb_vm_insns_count, align 8
+  store i64 %55, ptr %14, align 8
+  %56 = call i64 @rb_errinfo()
+  store i64 %56, ptr %15, align 8
+  %57 = load i64, ptr @rb_cRJITCfpPtr, align 8
+  %58 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_branch_stub_hit.rbimpl_id, ptr noundef @.str.26) #14
+  store i64 %58, ptr %17, align 8
+  %59 = load i64, ptr %17, align 8
+  %60 = load ptr, ptr %9, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %62 = call i64 @rb_ull2num_inline(i64 noundef %61)
+  %63 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %57, i64 noundef %59, i32 noundef 1, i64 noundef %62)
+  store i64 %63, ptr %16, align 8
+  %64 = load i64, ptr @rb_RJITCompiler, align 8
+  %65 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_branch_stub_hit.rbimpl_id.32, ptr noundef @.str.33) #14
+  store i64 %65, ptr %18, align 8
+  %66 = load i64, ptr %18, align 8
+  %67 = load i64, ptr %4, align 8
+  %68 = load i64, ptr %16, align 8
+  %69 = load i32, ptr %6, align 4
+  %70 = icmp ne i32 %69, 0
+  %71 = select i1 %70, i64 20, i64 0
+  %72 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %64, i64 noundef %66, i32 noundef 3, i64 noundef %67, i64 noundef %68, i64 noundef %71)
+  store i64 %72, ptr %7, align 8
+  %73 = load i64, ptr %15, align 8
+  call void @rb_set_errinfo(i64 noundef %73)
+  %74 = load i64, ptr %14, align 8
+  store i64 %74, ptr @rb_vm_insns_count, align 8
+  %75 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %76 = load i8, ptr %75, align 4
+  %77 = trunc i8 %76 to i1
+  %78 = zext i1 %77 to i8
+  store i8 %78, ptr @rjit_stats_p, align 1
+  %79 = load i8, ptr @rjit_cancel_p, align 1
+  %80 = trunc i8 %79 to i1
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %50
-  br label %84
+81:                                               ; preds = %51
+  br label %86
 
-80:                                               ; preds = %50
-  %81 = load i8, ptr %13, align 1
-  %82 = trunc i8 %81 to i1
-  %83 = zext i1 %82 to i32
-  br label %84
+82:                                               ; preds = %51
+  %83 = load i8, ptr %13, align 1
+  %84 = trunc i8 %83 to i1
+  %85 = zext i1 %84 to i32
+  br label %86
 
-84:                                               ; preds = %80, %79
-  %85 = phi i32 [ 0, %79 ], [ %83, %80 ]
-  %86 = icmp ne i32 %85, 0
-  %87 = zext i1 %86 to i8
-  store i8 %87, ptr @rb_rjit_call_p, align 1
-  %88 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %96
+86:                                               ; preds = %82, %81
+  %87 = phi i32 [ 0, %81 ], [ %85, %82 ]
+  %88 = icmp ne i32 %87, 0
+  %89 = zext i1 %88 to i8
+  store i8 %89, ptr @rb_rjit_call_p, align 1
+  %90 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %91 = load i8, ptr %90, align 2
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %99
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %12, align 8
-  %92 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %93 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %92, i32 0, i32 2
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %94, i32 0, i32 0
-  store ptr %91, ptr %95, align 8
-  br label %100
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %12, align 8
+  %95 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %96 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %95, i32 0, i32 2
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %97, i32 0, i32 0
+  store ptr %94, ptr %98, align 8
+  br label %103
 
-96:                                               ; preds = %84
-  %97 = load i32, ptr @rb_rjit_global_events, align 4
-  %98 = load ptr, ptr %11, align 8
-  %99 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %98, i32 0, i32 1
-  store i32 %97, ptr %99, align 8
-  br label %100
+99:                                               ; preds = %86
+  %100 = load i32, ptr @rb_rjit_global_events, align 4
+  %101 = load ptr, ptr %11, align 8
+  %102 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %101, i32 0, i32 1
+  store i32 %100, ptr %102, align 8
+  br label %103
 
-100:                                              ; preds = %96, %90
-  %101 = load i64, ptr %10, align 8
-  %102 = icmp ne i64 %101, 0
-  br i1 %102, label %105, label %103
+103:                                              ; preds = %99, %93
+  %104 = load i64, ptr %10, align 8
+  %105 = icmp ne i64 %104, 0
+  br i1 %105, label %108, label %106
 
-103:                                              ; preds = %100
-  %104 = call i64 @rb_gc_enable()
-  br label %105
+106:                                              ; preds = %103
+  %107 = call i64 @rb_gc_enable()
+  br label %108
 
-105:                                              ; preds = %103, %100
-  br label %106
+108:                                              ; preds = %106, %103
+  br label %109
 
-106:                                              ; preds = %105
-  %107 = load i32, ptr %5, align 4
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %108, i32 0, i32 1
-  %110 = load ptr, ptr %109, align 8
-  %111 = sext i32 %107 to i64
-  %112 = sub i64 0, %111
-  %113 = getelementptr i64, ptr %110, i64 %112
-  store ptr %113, ptr %109, align 8
+109:                                              ; preds = %108
+  %110 = load i32, ptr %5, align 4
+  %111 = load ptr, ptr %9, align 8
+  %112 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8
+  %114 = sext i32 %110 to i64
+  %115 = sub i64 0, %114
+  %116 = getelementptr i64, ptr %113, i64 %115
+  store ptr %116, ptr %112, align 8
   call void @rb_vm_lock_leave(ptr noundef %8, ptr noundef @.str.23, i32 noundef 424)
-  %114 = load i64, ptr %7, align 8
-  %115 = call i64 @rb_num2ull_inline(i64 noundef %114)
-  %116 = inttoptr i64 %115 to ptr
-  ret ptr %116
+  %117 = load i64, ptr %7, align 8
+  %118 = call i64 @rb_num2ull_inline(i64 noundef %117)
+  %119 = inttoptr i64 %118 to ptr
+  ret ptr %119
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2145,124 +2166,132 @@ define hidden void @rb_rjit_init(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %12 = load ptr, ptr %2, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 @rb_rjit_opts, ptr align 4 %12, i64 20, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 1), align 4
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %16
+  %13 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %1
-  store i32 64, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 1), align 4
-  br label %16
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 1
+  store i32 64, ptr %17, align 4
+  br label %18
 
-16:                                               ; preds = %15, %1
-  %17 = load i32, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 2), align 4
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %20
+18:                                               ; preds = %16, %1
+  %19 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 2
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
 
-19:                                               ; preds = %16
-  store i32 10, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 2), align 4
-  br label %20
-
-20:                                               ; preds = %19, %16
-  %21 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 7), align 4
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %20
-  call void (ptr, ...) @rb_warn(ptr noundef @.str.34) #13
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 2
+  store i32 10, ptr %23, align 4
   br label %24
 
-24:                                               ; preds = %23, %20
-  %25 = load i64, ptr @rb_cRubyVM, align 8
-  %26 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id, ptr noundef @.str.35) #14
-  store i64 %26, ptr %3, align 8
-  %27 = load i64, ptr %3, align 8
-  %28 = call i64 @rb_const_get(i64 noundef %25, i64 noundef %27)
-  store i64 %28, ptr @rb_mRJIT, align 8
-  %29 = load i64, ptr @rb_mRJIT, align 8
-  %30 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.36, ptr noundef @.str.37) #14
-  store i64 %30, ptr %4, align 8
-  %31 = load i64, ptr %4, align 8
-  %32 = call i32 @rb_const_defined(i64 noundef %29, i64 noundef %31)
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %35, label %34
+24:                                               ; preds = %22, %18
+  %25 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 7
+  %26 = load i8, ptr %25, align 4
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %29
 
-34:                                               ; preds = %24
+28:                                               ; preds = %24
+  call void (ptr, ...) @rb_warn(ptr noundef @.str.34) #13
+  br label %29
+
+29:                                               ; preds = %28, %24
+  %30 = load i64, ptr @rb_cRubyVM, align 8
+  %31 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id, ptr noundef @.str.35) #14
+  store i64 %31, ptr %3, align 8
+  %32 = load i64, ptr %3, align 8
+  %33 = call i64 @rb_const_get(i64 noundef %30, i64 noundef %32)
+  store i64 %33, ptr @rb_mRJIT, align 8
+  %34 = load i64, ptr @rb_mRJIT, align 8
+  %35 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.36, ptr noundef @.str.37) #14
+  store i64 %35, ptr %4, align 8
+  %36 = load i64, ptr %4, align 8
+  %37 = call i32 @rb_const_defined(i64 noundef %34, i64 noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %29
   call void (ptr, ...) @rb_warn(ptr noundef @.str.38) #13
   store i8 0, ptr @rb_rjit_enabled, align 1
-  br label %78
+  br label %86
 
-35:                                               ; preds = %24
-  %36 = call i32 @rb_postponed_job_preregister(i32 noundef 0, ptr noundef @rjit_iseq_update_references, ptr noundef null)
-  store i32 %36, ptr @rjit_iseq_update_references_pjob, align 4
-  %37 = load i32, ptr @rjit_iseq_update_references_pjob, align 4
-  %38 = icmp eq i32 %37, -1
-  br i1 %38, label %39, label %40
+40:                                               ; preds = %29
+  %41 = call i32 @rb_postponed_job_preregister(i32 noundef 0, ptr noundef @rjit_iseq_update_references, ptr noundef null)
+  store i32 %41, ptr @rjit_iseq_update_references_pjob, align 4
+  %42 = load i32, ptr @rjit_iseq_update_references_pjob, align 4
+  %43 = icmp eq i32 %42, -1
+  br i1 %43, label %44, label %45
 
-39:                                               ; preds = %35
+44:                                               ; preds = %40
   call void (ptr, ...) @rb_bug(ptr noundef @.str.39) #16
   unreachable
 
-40:                                               ; preds = %35
-  %41 = load i64, ptr @rb_mRJIT, align 8
-  %42 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.40, ptr noundef @.str.41) #14
-  store i64 %42, ptr %5, align 8
-  %43 = load i64, ptr %5, align 8
-  %44 = call i64 @rb_const_get(i64 noundef %41, i64 noundef %43)
-  store i64 %44, ptr @rb_mRJITC, align 8
-  %45 = load i64, ptr @rb_mRJIT, align 8
-  %46 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.42, ptr noundef @.str.37) #14
-  store i64 %46, ptr %7, align 8
-  %47 = load i64, ptr %7, align 8
-  %48 = call i64 @rb_const_get(i64 noundef %45, i64 noundef %47)
-  store i64 %48, ptr %6, align 8
-  %49 = load i64, ptr %6, align 8
-  %50 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.43, ptr noundef @.str.26) #14
-  store i64 %50, ptr %8, align 8
-  %51 = load i64, ptr %8, align 8
-  %52 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %49, i64 noundef %51, i32 noundef 0)
-  store i64 %52, ptr @rb_RJITCompiler, align 8
-  %53 = load i64, ptr @rb_mRJITC, align 8
-  %54 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.44, ptr noundef @.str.45) #14
-  store i64 %54, ptr %9, align 8
-  %55 = load i64, ptr %9, align 8
-  %56 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %53, i64 noundef %55, i32 noundef 0)
-  store i64 %56, ptr @rb_cRJITIseqPtr, align 8
-  %57 = load i64, ptr @rb_mRJITC, align 8
-  %58 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.46, ptr noundef @.str.47) #14
-  store i64 %58, ptr %10, align 8
-  %59 = load i64, ptr %10, align 8
-  %60 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %57, i64 noundef %59, i32 noundef 0)
-  store i64 %60, ptr @rb_cRJITCfpPtr, align 8
-  %61 = load i64, ptr @rb_mRJIT, align 8
-  %62 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.48, ptr noundef @.str.49) #14
-  store i64 %62, ptr %11, align 8
-  %63 = load i64, ptr %11, align 8
-  %64 = call i64 @rb_const_get(i64 noundef %61, i64 noundef %63)
-  store i64 %64, ptr @rb_mRJITHooks, align 8
-  %65 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 6), align 1
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %70
-
-67:                                               ; preds = %40
-  %68 = call i64 @rb_ary_new()
-  store i64 %68, ptr @rb_rjit_raw_samples, align 8
-  %69 = call i64 @rb_ary_new()
-  store i64 %69, ptr @rb_rjit_line_samples, align 8
-  br label %70
-
-70:                                               ; preds = %67, %40
-  %71 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 4), align 1
+45:                                               ; preds = %40
+  %46 = load i64, ptr @rb_mRJIT, align 8
+  %47 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.40, ptr noundef @.str.41) #14
+  store i64 %47, ptr %5, align 8
+  %48 = load i64, ptr %5, align 8
+  %49 = call i64 @rb_const_get(i64 noundef %46, i64 noundef %48)
+  store i64 %49, ptr @rb_mRJITC, align 8
+  %50 = load i64, ptr @rb_mRJIT, align 8
+  %51 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.42, ptr noundef @.str.37) #14
+  store i64 %51, ptr %7, align 8
+  %52 = load i64, ptr %7, align 8
+  %53 = call i64 @rb_const_get(i64 noundef %50, i64 noundef %52)
+  store i64 %53, ptr %6, align 8
+  %54 = load i64, ptr %6, align 8
+  %55 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.43, ptr noundef @.str.26) #14
+  store i64 %55, ptr %8, align 8
+  %56 = load i64, ptr %8, align 8
+  %57 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %54, i64 noundef %56, i32 noundef 0)
+  store i64 %57, ptr @rb_RJITCompiler, align 8
+  %58 = load i64, ptr @rb_mRJITC, align 8
+  %59 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.44, ptr noundef @.str.45) #14
+  store i64 %59, ptr %9, align 8
+  %60 = load i64, ptr %9, align 8
+  %61 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %58, i64 noundef %60, i32 noundef 0)
+  store i64 %61, ptr @rb_cRJITIseqPtr, align 8
+  %62 = load i64, ptr @rb_mRJITC, align 8
+  %63 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.46, ptr noundef @.str.47) #14
+  store i64 %63, ptr %10, align 8
+  %64 = load i64, ptr %10, align 8
+  %65 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %62, i64 noundef %64, i32 noundef 0)
+  store i64 %65, ptr @rb_cRJITCfpPtr, align 8
+  %66 = load i64, ptr @rb_mRJIT, align 8
+  %67 = call i64 @rbimpl_intern_const(ptr noundef @rb_rjit_init.rbimpl_id.48, ptr noundef @.str.49) #14
+  store i64 %67, ptr %11, align 8
+  %68 = load i64, ptr %11, align 8
+  %69 = call i64 @rb_const_get(i64 noundef %66, i64 noundef %68)
+  store i64 %69, ptr @rb_mRJITHooks, align 8
+  %70 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 6
+  %71 = load i8, ptr %70, align 1
   %72 = trunc i8 %71 to i1
-  %73 = xor i1 %72, true
-  %74 = zext i1 %73 to i8
-  store i8 %74, ptr @rb_rjit_call_p, align 1
-  %75 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %76 = trunc i8 %75 to i1
-  %77 = zext i1 %76 to i8
-  store i8 %77, ptr @rjit_stats_p, align 1
-  br label %78
+  br i1 %72, label %73, label %76
 
-78:                                               ; preds = %70, %34
+73:                                               ; preds = %45
+  %74 = call i64 @rb_ary_new()
+  store i64 %74, ptr @rb_rjit_raw_samples, align 8
+  %75 = call i64 @rb_ary_new()
+  store i64 %75, ptr @rb_rjit_line_samples, align 8
+  br label %76
+
+76:                                               ; preds = %73, %45
+  %77 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 4
+  %78 = load i8, ptr %77, align 1
+  %79 = trunc i8 %78 to i1
+  %80 = xor i1 %79, true
+  %81 = zext i1 %80 to i8
+  store i8 %81, ptr @rb_rjit_call_p, align 1
+  %82 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %83 = load i8, ptr %82, align 4
+  %84 = trunc i8 %83 to i1
+  %85 = zext i1 %84 to i8
+  store i8 %85, ptr @rjit_stats_p, align 1
+  br label %86
+
+86:                                               ; preds = %76, %39
   ret void
 }
 
@@ -2301,7 +2330,7 @@ define internal void @rjit_iseq_update_references(ptr noundef %0) #0 {
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15, %12, %1
-  br label %86
+  br label %89
 
 19:                                               ; preds = %15
   br label %20
@@ -2317,105 +2346,108 @@ define internal void @rjit_iseq_update_references(ptr noundef %0) #0 {
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr @rb_rjit_global_events, align 4
   store ptr null, ptr %5, align 8
-  %27 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %39
+  %27 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %28 = load i8, ptr %27, align 2
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %40
 
-29:                                               ; preds = %20
-  %30 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %31 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %5, align 8
-  %35 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %36 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %37, i32 0, i32 0
-  store ptr null, ptr %38, align 8
-  br label %42
+30:                                               ; preds = %20
+  %31 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %32 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %5, align 8
+  %36 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %37 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %38, i32 0, i32 0
+  store ptr null, ptr %39, align 8
+  br label %43
 
-39:                                               ; preds = %20
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %40, i32 0, i32 1
-  store i32 0, ptr %41, align 8
-  br label %42
+40:                                               ; preds = %20
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %41, i32 0, i32 1
+  store i32 0, ptr %42, align 8
+  br label %43
 
-42:                                               ; preds = %39, %29
-  %43 = load i8, ptr @rb_rjit_call_p, align 1
-  %44 = trunc i8 %43 to i1
-  %45 = zext i1 %44 to i8
-  store i8 %45, ptr %6, align 1
+43:                                               ; preds = %40, %30
+  %44 = load i8, ptr @rb_rjit_call_p, align 1
+  %45 = trunc i8 %44 to i1
+  %46 = zext i1 %45 to i8
+  store i8 %46, ptr %6, align 1
   store i8 0, ptr @rb_rjit_call_p, align 1
   store i8 0, ptr @rjit_stats_p, align 1
-  %46 = load i64, ptr @rb_vm_insns_count, align 8
-  store i64 %46, ptr %7, align 8
-  %47 = call i64 @rb_errinfo()
-  store i64 %47, ptr %8, align 8
-  %48 = load i64, ptr @rb_mRJITHooks, align 8
-  %49 = call i64 @rbimpl_intern_const(ptr noundef @rjit_iseq_update_references.rbimpl_id, ptr noundef @.str.58) #14
-  store i64 %49, ptr %9, align 8
-  %50 = load i64, ptr %9, align 8
-  %51 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %48, i64 noundef %50, i32 noundef 0)
-  %52 = load i64, ptr %8, align 8
-  call void @rb_set_errinfo(i64 noundef %52)
-  %53 = load i64, ptr %7, align 8
-  store i64 %53, ptr @rb_vm_insns_count, align 8
-  %54 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3), align 4
-  %55 = trunc i8 %54 to i1
-  %56 = zext i1 %55 to i8
-  store i8 %56, ptr @rjit_stats_p, align 1
-  %57 = load i8, ptr @rjit_cancel_p, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %60
+  %47 = load i64, ptr @rb_vm_insns_count, align 8
+  store i64 %47, ptr %7, align 8
+  %48 = call i64 @rb_errinfo()
+  store i64 %48, ptr %8, align 8
+  %49 = load i64, ptr @rb_mRJITHooks, align 8
+  %50 = call i64 @rbimpl_intern_const(ptr noundef @rjit_iseq_update_references.rbimpl_id, ptr noundef @.str.58) #14
+  store i64 %50, ptr %9, align 8
+  %51 = load i64, ptr %9, align 8
+  %52 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %49, i64 noundef %51, i32 noundef 0)
+  %53 = load i64, ptr %8, align 8
+  call void @rb_set_errinfo(i64 noundef %53)
+  %54 = load i64, ptr %7, align 8
+  store i64 %54, ptr @rb_vm_insns_count, align 8
+  %55 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 3
+  %56 = load i8, ptr %55, align 4
+  %57 = trunc i8 %56 to i1
+  %58 = zext i1 %57 to i8
+  store i8 %58, ptr @rjit_stats_p, align 1
+  %59 = load i8, ptr @rjit_cancel_p, align 1
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %62
 
-59:                                               ; preds = %42
-  br label %64
+61:                                               ; preds = %43
+  br label %66
 
-60:                                               ; preds = %42
-  %61 = load i8, ptr %6, align 1
-  %62 = trunc i8 %61 to i1
-  %63 = zext i1 %62 to i32
-  br label %64
+62:                                               ; preds = %43
+  %63 = load i8, ptr %6, align 1
+  %64 = trunc i8 %63 to i1
+  %65 = zext i1 %64 to i32
+  br label %66
 
-64:                                               ; preds = %60, %59
-  %65 = phi i32 [ 0, %59 ], [ %63, %60 ]
-  %66 = icmp ne i32 %65, 0
-  %67 = zext i1 %66 to i8
-  store i8 %67, ptr @rb_rjit_call_p, align 1
-  %68 = load i8, ptr getelementptr inbounds (%struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5), align 2
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %76
+66:                                               ; preds = %62, %61
+  %67 = phi i32 [ 0, %61 ], [ %65, %62 ]
+  %68 = icmp ne i32 %67, 0
+  %69 = zext i1 %68 to i8
+  store i8 %69, ptr @rb_rjit_call_p, align 1
+  %70 = getelementptr inbounds %struct.rb_rjit_options, ptr @rb_rjit_opts, i32 0, i32 5
+  %71 = load i8, ptr %70, align 2
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %79
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %5, align 8
-  %72 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %73 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %72, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %74, i32 0, i32 0
-  store ptr %71, ptr %75, align 8
-  br label %80
+73:                                               ; preds = %66
+  %74 = load ptr, ptr %5, align 8
+  %75 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %76 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds %struct.rb_control_frame_struct, ptr %77, i32 0, i32 0
+  store ptr %74, ptr %78, align 8
+  br label %83
 
-76:                                               ; preds = %64
-  %77 = load i32, ptr @rb_rjit_global_events, align 4
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %78, i32 0, i32 1
-  store i32 %77, ptr %79, align 8
-  br label %80
+79:                                               ; preds = %66
+  %80 = load i32, ptr @rb_rjit_global_events, align 4
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.rb_hook_list_struct, ptr %81, i32 0, i32 1
+  store i32 %80, ptr %82, align 8
+  br label %83
 
-80:                                               ; preds = %76, %70
-  %81 = load i64, ptr %3, align 8
-  %82 = icmp ne i64 %81, 0
-  br i1 %82, label %85, label %83
+83:                                               ; preds = %79, %73
+  %84 = load i64, ptr %3, align 8
+  %85 = icmp ne i64 %84, 0
+  br i1 %85, label %88, label %86
 
-83:                                               ; preds = %80
-  %84 = call i64 @rb_gc_enable()
-  br label %85
+86:                                               ; preds = %83
+  %87 = call i64 @rb_gc_enable()
+  br label %88
 
-85:                                               ; preds = %83, %80
-  br label %86
+88:                                               ; preds = %86, %83
+  br label %89
 
-86:                                               ; preds = %85, %18
+89:                                               ; preds = %88, %18
   ret void
 }
 

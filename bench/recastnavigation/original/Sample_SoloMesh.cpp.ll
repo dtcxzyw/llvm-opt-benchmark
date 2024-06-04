@@ -158,68 +158,69 @@ define dso_local void @_ZN15Sample_SoloMeshC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 1
-  store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 3
-  store float 0.000000e+00, ptr %7, align 4
-  %8 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 4
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 5
+  %6 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 1
+  store i8 1, ptr %7, align 8
+  %8 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 3
+  store float 0.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 4
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 6
+  %10 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 5
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 7
+  %11 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 6
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 8
+  %12 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 7
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 11
+  %13 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 8
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 12
-  store i32 0, ptr %14, align 8
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 33408) #9
-          to label %16 unwind label %19
+  %14 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 11
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 12
+  store i32 0, ptr %15, align 8
+  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 33408) #9
+          to label %17 unwind label %20
 
-16:                                               ; preds = %1
-  invoke void @_ZN17NavMeshTesterToolC1Ev(ptr noundef nonnull align 8 dereferenceable(33408) %15)
-          to label %17 unwind label %23
-
-17:                                               ; preds = %16
-  invoke void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef %15)
-          to label %18 unwind label %19
+17:                                               ; preds = %1
+  invoke void @_ZN17NavMeshTesterToolC1Ev(ptr noundef nonnull align 8 dereferenceable(33408) %16)
+          to label %18 unwind label %24
 
 18:                                               ; preds = %17
+  invoke void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef %16)
+          to label %19 unwind label %20
+
+19:                                               ; preds = %18
   ret void
 
-19:                                               ; preds = %17, %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %18, %1
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
-  br label %27
-
-23:                                               ; preds = %16
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %15) #10
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #11
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %3, align 8
-  %30 = load i32, ptr %4, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+24:                                               ; preds = %17
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %16) #10
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5) #11
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 declare void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
@@ -244,19 +245,20 @@ define dso_local void @_ZN15Sample_SoloMeshD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN15Sample_SoloMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(356) %3)
-          to label %4 unwind label %5
+          to label %5 unwind label %6
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #11
   ret void
 
-5:                                                ; preds = %1
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #12
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #12
   unreachable
 }
 

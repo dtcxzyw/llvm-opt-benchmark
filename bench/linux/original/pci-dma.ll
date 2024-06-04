@@ -263,22 +263,23 @@ define internal noundef i32 @iommu_setup(ptr noundef readonly %0) #0 section ".i
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @pci_iommu_init() #0 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 6), align 8
-  %2 = tail call i32 %1() #6
-  %3 = load i8, ptr @x86_swiotlb_enable, align 1, !range !5, !noundef !6
-  %4 = icmp eq i8 %3, 0
-  br i1 %4, label %7, label %5
+  %1 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 6
+  %2 = load ptr, ptr %1, align 8
+  %3 = tail call i32 %2() #6
+  %4 = load i8, ptr @x86_swiotlb_enable, align 1, !range !5, !noundef !6
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %8, label %6
 
-5:                                                ; preds = %0
-  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #7
+6:                                                ; preds = %0
+  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #7
   tail call void @swiotlb_print_info() #6
-  br label %8
+  br label %9
 
-7:                                                ; preds = %0
+8:                                                ; preds = %0
   tail call void @swiotlb_exit() #7
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %5
+9:                                                ; preds = %8, %6
   ret i32 0
 }
 

@@ -3495,7 +3495,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 4 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 4 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -3509,17 +3510,17 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %temp, align 4
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %temp, align 4
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -3527,35 +3528,35 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %23 = load i32, ptr %temp, align 4
-  %24 = load ptr, ptr %v2.addr, align 8
-  store i32 %23, ptr %24, align 4
+  %24 = load i32, ptr %temp, align 4
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  store i32 %24, ptr %25, align 4
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -3563,8 +3564,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -3709,7 +3710,8 @@ sw.bb7:                                           ; preds = %entry
   br label %return
 
 sw.bb8:                                           ; preds = %entry
-  store ptr inttoptr (i64 32 to ptr), ptr %retval, align 8
+  %14 = inttoptr i64 32 to ptr
+  store ptr %14, ptr %retval, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
@@ -3723,16 +3725,16 @@ sw.bb11:                                          ; preds = %entry
   br label %return
 
 sw.bb13:                                          ; preds = %entry
-  %14 = load ptr, ptr %v2.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  %15 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %15, i64 16, i1 false)
-  %16 = load ptr, ptr %v3.addr, align 8
-  %17 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %call16 = invoke noundef zeroext i1 @_ZN4absl9ParseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbSt17basic_string_viewIcS4_EPT_PS6_(i64 %18, ptr %20, ptr noundef %temp, ptr noundef %16)
+  %15 = load ptr, ptr %v2.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  %16 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %16, i64 16, i1 false)
+  %17 = load ptr, ptr %v3.addr, align 8
+  %18 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %call16 = invoke noundef zeroext i1 @_ZN4absl9ParseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbSt17basic_string_viewIcS4_EPT_PS6_(i64 %19, ptr %21, ptr noundef %temp, ptr noundef %17)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %sw.bb13
@@ -3744,20 +3746,20 @@ if.then:                                          ; preds = %invoke.cont15
   br label %cleanup
 
 lpad14:                                           ; preds = %sw.bb13
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %temp) #3
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont15
-  %24 = load ptr, ptr %v2.addr, align 8
-  %call17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %temp) #3
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  %call17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %temp) #3
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
@@ -3766,27 +3768,27 @@ cleanup:                                          ; preds = %if.end, %if.then
   br label %return
 
 sw.bb18:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb20:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -3794,8 +3796,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb20, %sw.bb18, %cleanup, %sw.bb11, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad14, %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -4325,7 +4327,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4460,7 +4463,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4564,7 +4568,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 1 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb10:                                          ; preds = %entry
@@ -4578,19 +4583,19 @@ sw.bb12:                                          ; preds = %entry
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load i8, ptr %15, align 1
-  %tobool15 = trunc i8 %16 to i1
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load i8, ptr %16, align 1
+  %tobool15 = trunc i8 %17 to i1
   %frombool16 = zext i1 %tobool15 to i8
   store i8 %frombool16, ptr %temp, align 1
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call17 = call noundef zeroext i1 @_ZN4absl9ParseFlagIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call17 = call noundef zeroext i1 @_ZN4absl9ParseFlagIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call17, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb14
@@ -4598,37 +4603,37 @@ if.then:                                          ; preds = %sw.bb14
   br label %return
 
 if.end:                                           ; preds = %sw.bb14
-  %23 = load i8, ptr %temp, align 1
-  %tobool18 = trunc i8 %23 to i1
-  %24 = load ptr, ptr %v2.addr, align 8
-  %frombool19 = zext i1 %tobool18 to i8
-  store i8 %frombool19, ptr %24, align 1
+  %24 = load i8, ptr %temp, align 1
+  %tobool18 = trunc i8 %24 to i1
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  %frombool19 = zext i1 %tobool18 to i8
+  store i8 %frombool19, ptr %25, align 1
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb20:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb22:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -4636,8 +4641,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb22, %sw.bb20, %if.end, %if.then, %sw.bb12, %sw.bb10, %sw.bb9, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -4790,7 +4795,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 2 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 2 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -4804,17 +4810,17 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load i16, ptr %15, align 2
-  store i16 %16, ptr %temp, align 2
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIsEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load i16, ptr %16, align 2
+  store i16 %17, ptr %temp, align 2
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIsEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -4822,35 +4828,35 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %23 = load i16, ptr %temp, align 2
-  %24 = load ptr, ptr %v2.addr, align 8
-  store i16 %23, ptr %24, align 2
+  %24 = load i16, ptr %temp, align 2
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  store i16 %24, ptr %25, align 2
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 2 dereferenceable(2) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 2 dereferenceable(2) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -4858,8 +4864,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -5003,7 +5009,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 2 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 2 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -5017,17 +5024,17 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load i16, ptr %15, align 2
-  store i16 %16, ptr %temp, align 2
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagItEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load i16, ptr %16, align 2
+  store i16 %17, ptr %temp, align 2
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagItEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -5035,35 +5042,35 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %23 = load i16, ptr %temp, align 2
-  %24 = load ptr, ptr %v2.addr, align 8
-  store i16 %23, ptr %24, align 2
+  %24 = load i16, ptr %temp, align 2
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  store i16 %24, ptr %25, align 2
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 2 dereferenceable(2) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 2 dereferenceable(2) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -5071,8 +5078,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -5225,7 +5232,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 4 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 4 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -5239,17 +5247,17 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %temp, align 4
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %temp, align 4
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -5257,35 +5265,35 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %23 = load i32, ptr %temp, align 4
-  %24 = load ptr, ptr %v2.addr, align 8
-  store i32 %23, ptr %24, align 4
+  %24 = load i32, ptr %temp, align 4
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  store i32 %24, ptr %25, align 4
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -5293,8 +5301,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -5438,7 +5446,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 8 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 8 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -5452,17 +5461,17 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load i64, ptr %15, align 8
-  store i64 %16, ptr %temp, align 8
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr %temp, align 8
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -5470,35 +5479,35 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %23 = load i64, ptr %temp, align 8
-  %24 = load ptr, ptr %v2.addr, align 8
-  store i64 %23, ptr %24, align 8
+  %24 = load i64, ptr %temp, align 8
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  store i64 %24, ptr %25, align 8
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -5506,8 +5515,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -5651,7 +5660,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 8 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 8 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -5665,17 +5675,17 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load i64, ptr %15, align 8
-  store i64 %16, ptr %temp, align 8
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr %temp, align 8
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -5683,35 +5693,35 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %23 = load i64, ptr %temp, align 8
-  %24 = load ptr, ptr %v2.addr, align 8
-  store i64 %23, ptr %24, align 8
+  %24 = load i64, ptr %temp, align 8
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  store i64 %24, ptr %25, align 8
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -5719,8 +5729,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -5864,7 +5874,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 8 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 8 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -5878,17 +5889,17 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load double, ptr %15, align 8
-  store double %16, ptr %temp, align 8
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIdEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load double, ptr %16, align 8
+  store double %17, ptr %temp, align 8
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIdEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -5896,35 +5907,35 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %23 = load double, ptr %temp, align 8
-  %24 = load ptr, ptr %v2.addr, align 8
-  store double %23, ptr %24, align 8
+  %24 = load double, ptr %temp, align 8
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  store double %24, ptr %25, align 8
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -5932,8 +5943,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -6093,7 +6104,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 4 to ptr), ptr %retval, align 8
+  %15 = inttoptr i64 4 to ptr
+  store ptr %15, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -6107,17 +6119,17 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %15 = load ptr, ptr %v2.addr, align 8
-  %16 = load float, ptr %15, align 4
-  store float %16, ptr %temp, align 4
-  %17 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %v3.addr, align 8
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIfEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %20, ptr %22, ptr noundef %temp, ptr noundef %18)
+  %16 = load ptr, ptr %v2.addr, align 8
+  %17 = load float, ptr %16, align 4
+  store float %17, ptr %temp, align 4
+  %18 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %18, i64 16, i1 false)
+  %19 = load ptr, ptr %v3.addr, align 8
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIfEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %21, ptr %23, ptr noundef %temp, ptr noundef %19)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -6125,35 +6137,35 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %23 = load float, ptr %temp, align 4
-  %24 = load ptr, ptr %v2.addr, align 8
-  store float %23, ptr %24, align 4
+  %24 = load float, ptr %temp, align 4
   %25 = load ptr, ptr %v2.addr, align 8
-  store ptr %25, ptr %retval, align 8
+  store float %24, ptr %25, align 4
+  %26 = load ptr, ptr %v2.addr, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %26 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %26)
-  %27 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %27 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %27)
+  %28 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %28 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %28
-  %sub = sub i64 %add, 1
   %29 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %29
+  %add = add i64 80, %29
+  %sub = sub i64 %add, 1
   %30 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %30
+  %div = udiv i64 %sub, %30
+  %31 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %31
   store i64 %mul, ptr %offset, align 8
-  %31 = load i64, ptr %offset, align 8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %retval, align 8
+  %32 = load i64, ptr %offset, align 8
+  %33 = inttoptr i64 %32 to ptr
+  store ptr %33, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -6161,8 +6173,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %34 = load ptr, ptr %retval, align 8
+  ret ptr %34
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -6372,7 +6384,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 12 to ptr), ptr %retval, align 8
+  %13 = inttoptr i64 12 to ptr
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -6386,16 +6399,16 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %13 = load ptr, ptr %v2.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %temp, ptr align 4 %13, i64 12, i1 false)
-  %14 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %14, i64 16, i1 false)
-  %15 = load ptr, ptr %v3.addr, align 8
-  %16 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagINS_8DurationEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS4_SaIcEEE(i64 %17, ptr %19, ptr noundef %temp, ptr noundef %15)
+  %14 = load ptr, ptr %v2.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %temp, ptr align 4 %14, i64 12, i1 false)
+  %15 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %15, i64 16, i1 false)
+  %16 = load ptr, ptr %v3.addr, align 8
+  %17 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagINS_8DurationEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS4_SaIcEEE(i64 %18, ptr %20, ptr noundef %temp, ptr noundef %16)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -6403,34 +6416,34 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %20 = load ptr, ptr %v2.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %temp, i64 12, i1 false)
   %21 = load ptr, ptr %v2.addr, align 8
-  store ptr %21, ptr %retval, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %temp, i64 12, i1 false)
+  %22 = load ptr, ptr %v2.addr, align 8
+  store ptr %22, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %22 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagINS_8DurationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %22)
-  %23 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %23 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagINS_8DurationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %23)
+  %24 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %24 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %24
-  %sub = sub i64 %add, 1
   %25 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %25
+  %add = add i64 80, %25
+  %sub = sub i64 %add, 1
   %26 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %26
+  %div = udiv i64 %sub, %26
+  %27 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %27
   store i64 %mul, ptr %offset, align 8
-  %27 = load i64, ptr %offset, align 8
-  %28 = inttoptr i64 %27 to ptr
-  store ptr %28, ptr %retval, align 8
+  %28 = load i64, ptr %offset, align 8
+  %29 = inttoptr i64 %28 to ptr
+  store ptr %29, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -6438,8 +6451,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %29 = load ptr, ptr %retval, align 8
-  ret ptr %29
+  %30 = load ptr, ptr %retval, align 8
+  ret ptr %30
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -6707,7 +6720,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6822,7 +6836,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6937,7 +6952,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6974,7 +6990,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7060,7 +7077,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_114ReflectionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7071,7 +7089,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flag_saver_ = getelementptr inbounds %"class.(anonymous namespace)::ReflectionTest", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4absl9FlagSaverESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %flag_saver_) #3
   ret void
@@ -7497,7 +7516,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114ReflectionTestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flag_saver_ = getelementptr inbounds %"class.(anonymous namespace)::ReflectionTest", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4absl9FlagSaverESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %flag_saver_) #3
   call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -9875,7 +9895,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_114ReflectionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13117,7 +13138,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -16322,10 +16344,11 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ss_ = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
-  %0 = icmp eq ptr %ss_, null
-  br i1 %0, label %cast.end, label %cast.notnull
+  %1 = icmp eq ptr %ss_, null
+  br i1 %1, label %cast.end, label %cast.notnull
 
 cast.notnull:                                     ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %ss_, i64 16
@@ -16334,7 +16357,8 @@ cast.notnull:                                     ; preds = %entry
 cast.end:                                         ; preds = %cast.notnull, %entry
   %cast.result = phi ptr [ %add.ptr, %cast.notnull ], [ null, %entry ]
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cast.result)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %ss_2 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_2)
           to label %invoke.cont unwind label %lpad
@@ -16343,12 +16367,12 @@ invoke.cont:                                      ; preds = %cast.end
   ret void
 
 lpad:                                             ; preds = %cast.end
-  %1 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7testing19MatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -16530,7 +16554,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ss_ = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_) #3
   call void @_ZN7testing19MatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -16664,7 +16689,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl", ptr %this2, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   br label %for.cond
@@ -16692,42 +16718,42 @@ for.inc:                                          ; preds = %invoke.cont8
   br label %for.cond, !llvm.loop !12
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup29
 
 lpad5:                                            ; preds = %invoke.cont22, %invoke.cont19, %for.body17, %for.body
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont6
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %matchers_10 = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl", ptr %this2, i32 0, i32 2
   store ptr %matchers_10, ptr %__range3, align 8
-  %11 = load ptr, ptr %__range3, align 8
-  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEESaIS8_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = load ptr, ptr %__range3, align 8
+  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEESaIS8_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
   %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.113", ptr %__begin0, i32 0, i32 0
   store ptr %call11, ptr %coerce.dive12, align 8
-  %12 = load ptr, ptr %__range3, align 8
-  %call13 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEESaIS8_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = load ptr, ptr %__range3, align 8
+  %call13 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEESaIS8_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   %coerce.dive14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.113", ptr %__end0, i32 0, i32 0
   store ptr %call13, ptr %coerce.dive14, align 8
   br label %for.cond15
@@ -16744,8 +16770,8 @@ for.body17:                                       ; preds = %for.cond15
           to label %invoke.cont19 unwind label %lpad5
 
 invoke.cont19:                                    ; preds = %for.body17
-  %13 = load ptr, ptr %m, align 8
-  %call23 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = load ptr, ptr %m, align 8
+  %call23 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %invoke.cont22 unwind label %lpad5
 
 invoke.cont22:                                    ; preds = %invoke.cont19
@@ -16765,8 +16791,8 @@ for.end27:                                        ; preds = %for.cond15
 
 ehcleanup:                                        ; preds = %lpad7, %lpad5
   call void @_ZNSt6vectorIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %14 = getelementptr inbounds i8, ptr %this2, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %15 = getelementptr inbounds i8, ptr %this2, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup, %lpad
@@ -16791,7 +16817,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEC2ISA_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16802,7 +16829,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17036,11 +17064,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   call void @_ZN7testing16MatcherInterfaceIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -17182,7 +17211,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17649,7 +17679,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -17662,18 +17693,19 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %2, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %3 = load ptr, ptr %other.addr, align 8
-  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %3, i32 0, i32 1
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %3, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
+  %4 = load ptr, ptr %other.addr, align 8
+  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %4, i32 0, i32 1
   store ptr null, ptr %vtable_4, align 8
   ret void
 }
@@ -17812,7 +17844,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -17821,10 +17854,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #25
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #25
   unreachable
 }
 
@@ -18497,7 +18530,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -18512,35 +18546,36 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %other.addr, align 8
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %call = call noundef zeroext i1 @_ZNK7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %buffer_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.112", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %buffer_4, align 8
-  invoke void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %buffer_4, align 8
+  invoke void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -20014,7 +20049,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20537,10 +20573,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %os, ptr %os.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.testing::MatchResultListener", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %os.addr, align 8
-  store ptr %0, ptr %stream_, align 8
+  %1 = load ptr, ptr %os.addr, align 8
+  store ptr %1, ptr %stream_, align 8
   ret void
 }
 
@@ -22630,7 +22667,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
@@ -22642,12 +22680,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -22750,7 +22788,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -22759,10 +22798,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #25
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #25
   unreachable
 }
 
@@ -25423,7 +25462,8 @@ sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  store ptr inttoptr (i64 8 to ptr), ptr %retval, align 8
+  %13 = inttoptr i64 8 to ptr
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -25437,16 +25477,16 @@ sw.bb10:                                          ; preds = %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %13 = load ptr, ptr %v2.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %temp, ptr align 4 %13, i64 8, i1 false)
-  %14 = load ptr, ptr %v1.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %14, i64 16, i1 false)
-  %15 = load ptr, ptr %v3.addr, align 8
-  %16 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIN12_GLOBAL__N_19CustomUDTEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS5_SaIcEEE(i64 %17, ptr %19, ptr noundef %temp, ptr noundef %15)
+  %14 = load ptr, ptr %v2.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %temp, ptr align 4 %14, i64 8, i1 false)
+  %15 = load ptr, ptr %v1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %15, i64 16, i1 false)
+  %16 = load ptr, ptr %v3.addr, align 8
+  %17 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %call13 = call noundef zeroext i1 @_ZN4absl9ParseFlagIN12_GLOBAL__N_19CustomUDTEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_PNSt7__cxx1112basic_stringIcS5_SaIcEEE(i64 %18, ptr %20, ptr noundef %temp, ptr noundef %16)
   br i1 %call13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb12
@@ -25454,34 +25494,34 @@ if.then:                                          ; preds = %sw.bb12
   br label %return
 
 if.end:                                           ; preds = %sw.bb12
-  %20 = load ptr, ptr %v2.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %temp, i64 8, i1 false)
   %21 = load ptr, ptr %v2.addr, align 8
-  store ptr %21, ptr %retval, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %temp, i64 8, i1 false)
+  %22 = load ptr, ptr %v2.addr, align 8
+  store ptr %22, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %22 = load ptr, ptr %v1.addr, align 8
-  call void @_ZN4absl11UnparseFlagIN12_GLOBAL__N_19CustomUDTEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(8) %22)
-  %23 = load ptr, ptr %v2.addr, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  %23 = load ptr, ptr %v1.addr, align 8
+  call void @_ZN4absl11UnparseFlagIN12_GLOBAL__N_19CustomUDTEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = load ptr, ptr %v2.addr, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   store ptr null, ptr %retval, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   store i64 8, ptr %round_to, align 8
-  %24 = load i64, ptr %round_to, align 8
-  %add = add i64 80, %24
-  %sub = sub i64 %add, 1
   %25 = load i64, ptr %round_to, align 8
-  %div = udiv i64 %sub, %25
+  %add = add i64 80, %25
+  %sub = sub i64 %add, 1
   %26 = load i64, ptr %round_to, align 8
-  %mul = mul i64 %div, %26
+  %div = udiv i64 %sub, %26
+  %27 = load i64, ptr %round_to, align 8
+  %mul = mul i64 %div, %27
   store i64 %mul, ptr %offset, align 8
-  %27 = load i64, ptr %offset, align 8
-  %28 = inttoptr i64 %27 to ptr
-  store ptr %28, ptr %retval, align 8
+  %28 = load i64, ptr %offset, align 8
+  %29 = inttoptr i64 %28 to ptr
+  store ptr %29, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -25489,8 +25529,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb16, %sw.bb14, %if.end, %if.then, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %invoke.cont4, %invoke.cont
-  %29 = load ptr, ptr %retval, align 8
-  ret ptr %29
+  %30 = load ptr, ptr %retval, align 8
+  ret ptr %30
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -28984,7 +29024,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_114ReflectionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -36825,7 +36866,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_114ReflectionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -39733,7 +39775,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_114ReflectionTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

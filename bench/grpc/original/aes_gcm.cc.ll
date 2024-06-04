@@ -509,7 +509,8 @@ entry:
   store i8 %frombool, ptr %is_rekey.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core23GsecKeyFactoryInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.grpc_core::GsecKeyFactory", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNK4absl12lts_202308024SpanIKhE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %key) #12
   %call2 = call noundef ptr @_ZNK4absl12lts_202308024SpanIKhE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %key) #12
@@ -520,19 +521,19 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %is_rekey_ = getelementptr inbounds %"class.grpc_core::GsecKeyFactory", ptr %this1, i32 0, i32 2
-  %2 = load i8, ptr %is_rekey.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %is_rekey.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %is_rekey_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   call void @_ZN9grpc_core23GsecKeyFactoryInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
   br label %eh.resume
@@ -551,7 +552,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GsecKeyFactoryInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core23GsecKeyFactoryInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -792,10 +794,11 @@ entry:
   store i8 %frombool, ptr %is_rekey.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core16GsecKeyInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core7GsecKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core7GsecKeyE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %is_rekey_ = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 1
-  %2 = load i8, ptr %is_rekey.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %is_rekey.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %is_rekey_, align 8
   %key_ = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 2
@@ -809,8 +812,8 @@ entry:
   %kdf_counter_ = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 6
   call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %kdf_counter_) #12
   %is_rekey_3 = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 1
-  %3 = load i8, ptr %is_rekey_3, align 8
-  %tobool4 = trunc i8 %3 to i1
+  %4 = load i8, ptr %is_rekey_3, align 8
+  %tobool4 = trunc i8 %4 to i1
   br i1 %tobool4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -843,12 +846,12 @@ invoke.cont13:                                    ; preds = %invoke.cont9
   br label %if.end
 
 lpad:                                             ; preds = %cond.end, %invoke.cont9, %invoke.cont7, %invoke.cont, %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %kdf_counter_) #12
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nonce_mask_) #12
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %kdf_buffer_) #12
@@ -860,8 +863,8 @@ lpad:                                             ; preds = %cond.end, %invoke.c
 if.end:                                           ; preds = %invoke.cont13, %entry
   %key_14 = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 2
   %is_rekey_15 = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 1
-  %7 = load i8, ptr %is_rekey_15, align 8
-  %tobool16 = trunc i8 %7 to i1
+  %8 = load i8, ptr %is_rekey_15, align 8
+  %tobool16 = trunc i8 %8 to i1
   br i1 %tobool16, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
@@ -899,7 +902,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core16GsecKeyInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core16GsecKeyInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1792,7 +1796,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.grpc_core::GsecKeyFactory", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_) #12
   call void @_ZN9grpc_core23GsecKeyFactoryInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
@@ -1816,7 +1821,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core7GsecKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core7GsecKeyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kdf_counter_ = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 6
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %kdf_counter_) #12
   %nonce_mask_ = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 5

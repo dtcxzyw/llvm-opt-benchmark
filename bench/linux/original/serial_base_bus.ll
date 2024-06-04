@@ -69,69 +69,71 @@ declare dso_local void @put_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @serial_base_ctrl_add(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %4 = tail call noalias align 8 dereferenceable_or_null(744) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 744) #6
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %38, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %4 = load ptr, ptr %3, align 16
+  %5 = tail call noalias align 8 dereferenceable_or_null(744) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 744) #6
+  %6 = icmp eq ptr %5, null
+  %7 = inttoptr i64 -12 to ptr
+  br i1 %6, label %40, label %8
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 728
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 732
-  store i32 67108869, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 736
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
-  %11 = load i32, ptr %10, align 8
-  tail call void @device_initialize(ptr noundef nonnull %4) #5
-  %12 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr @serial_ctrl_type, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 96
-  store ptr @serial_base_bus_type, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 688
-  store ptr @serial_base_ctrl_release, ptr %15, align 8
-  %16 = load i1, ptr @serial_base_initialized, align 1
-  br i1 %16, label %17, label %28
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %5, i64 728
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 732
+  store i32 67108869, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %5, i64 736
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 160
+  %13 = load i32, ptr %12, align 8
+  tail call void @device_initialize(ptr noundef nonnull %5) #5
+  %14 = getelementptr inbounds i8, ptr %5, i64 88
+  store ptr @serial_ctrl_type, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 64
+  store ptr %1, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 96
+  store ptr @serial_base_bus_type, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 688
+  store ptr @serial_base_ctrl_release, ptr %17, align 8
+  %18 = load i1, ptr @serial_base_initialized, align 1
+  br i1 %18, label %19, label %30
 
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 344
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
+19:                                               ; preds = %8
+  %20 = getelementptr inbounds i8, ptr %0, i64 344
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %25
+  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %27
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %19, align 8
-  br label %25
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %21, align 8
+  br label %27
 
-25:                                               ; preds = %23, %17
-  %26 = phi ptr [ %24, %23 ], [ %21, %17 ]
-  %27 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef %26, i32 noundef %11) #5
-  br label %28
+27:                                               ; preds = %25, %19
+  %28 = phi ptr [ %26, %25 ], [ %23, %19 ]
+  %29 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, ptr noundef %28, i32 noundef %13) #5
+  br label %30
 
-28:                                               ; preds = %25, %6
-  %29 = phi i32 [ %27, %25 ], [ -517, %6 ]
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %34
+30:                                               ; preds = %27, %8
+  %31 = phi i32 [ %29, %27 ], [ -517, %8 ]
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %28
-  %32 = tail call i32 @device_add(ptr noundef nonnull %4) #5
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %38, label %34
+33:                                               ; preds = %30
+  %34 = tail call i32 @device_add(ptr noundef nonnull %5) #5
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %40, label %36
 
-34:                                               ; preds = %31, %28
-  %35 = phi i32 [ %29, %28 ], [ %32, %31 ]
-  tail call void @put_device(ptr noundef nonnull %4) #5
-  %36 = sext i32 %35 to i64
-  %37 = inttoptr i64 %36 to ptr
-  br label %38
+36:                                               ; preds = %33, %30
+  %37 = phi i32 [ %31, %30 ], [ %34, %33 ]
+  tail call void @put_device(ptr noundef nonnull %5) #5
+  %38 = sext i32 %37 to i64
+  %39 = inttoptr i64 %38 to ptr
+  br label %40
 
-38:                                               ; preds = %34, %31, %2
-  %39 = phi ptr [ %37, %34 ], [ %4, %31 ], [ inttoptr (i64 -12 to ptr), %2 ]
-  ret ptr %39
+40:                                               ; preds = %36, %33, %2
+  %41 = phi ptr [ %39, %36 ], [ %5, %33 ], [ %7, %2 ]
+  ret ptr %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -145,84 +147,86 @@ declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @serial_base_port_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %4 = tail call noalias align 8 dereferenceable_or_null(736) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 736) #6
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %48, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %4 = load ptr, ptr %3, align 16
+  %5 = tail call noalias align 8 dereferenceable_or_null(736) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 736) #6
+  %6 = icmp eq ptr %5, null
+  %7 = inttoptr i64 -12 to ptr
+  br i1 %6, label %50, label %8
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 164
-  %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, 0
-  %10 = select i1 %9, i32 -1, i32 %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 728
-  %12 = tail call i32 @ida_alloc_range(ptr noundef %11, i32 noundef %8, i32 noundef %10, i32 noundef 3264) #5
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %17
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %0, i64 164
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, 0
+  %12 = select i1 %11, i32 -1, i32 %10
+  %13 = getelementptr inbounds i8, ptr %1, i64 728
+  %14 = tail call i32 @ida_alloc_range(ptr noundef %13, i32 noundef %10, i32 noundef %12, i32 noundef 3264) #5
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %19
 
-14:                                               ; preds = %6
-  tail call void @kfree(ptr noundef nonnull %4) #5
-  %15 = sext i32 %12 to i64
-  %16 = inttoptr i64 %15 to ptr
-  br label %48
+16:                                               ; preds = %8
+  tail call void @kfree(ptr noundef nonnull %5) #5
+  %17 = sext i32 %14 to i64
+  %18 = inttoptr i64 %17 to ptr
+  br label %50
 
-17:                                               ; preds = %6
-  store i32 %12, ptr %7, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 160
-  %19 = load i32, ptr %18, align 8
-  tail call void @device_initialize(ptr noundef nonnull %4) #5
-  %20 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr @serial_port_type, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 96
-  store ptr @serial_base_bus_type, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 688
-  store ptr @serial_base_port_release, ptr %23, align 8
-  %24 = load i1, ptr @serial_base_initialized, align 1
-  br i1 %24, label %25, label %36
+19:                                               ; preds = %8
+  store i32 %14, ptr %9, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %21 = load i32, ptr %20, align 8
+  tail call void @device_initialize(ptr noundef nonnull %5) #5
+  %22 = getelementptr inbounds i8, ptr %5, i64 88
+  store ptr @serial_port_type, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 64
+  store ptr %1, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 96
+  store ptr @serial_base_bus_type, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 688
+  store ptr @serial_base_port_release, ptr %25, align 8
+  %26 = load i1, ptr @serial_base_initialized, align 1
+  br i1 %26, label %27, label %38
 
-25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 344
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 80
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds i8, ptr %0, i64 344
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %33
+  %30 = getelementptr inbounds i8, ptr %29, i64 80
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %35
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %27, align 8
-  br label %33
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %29, align 8
+  br label %35
 
-33:                                               ; preds = %31, %25
-  %34 = phi ptr [ %32, %31 ], [ %29, %25 ]
-  %35 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef %34, i32 noundef %19, i32 noundef %12) #5
-  br label %36
+35:                                               ; preds = %33, %27
+  %36 = phi ptr [ %34, %33 ], [ %31, %27 ]
+  %37 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %5, ptr noundef nonnull @.str.3, ptr noundef %36, i32 noundef %21, i32 noundef %14) #5
+  br label %38
 
-36:                                               ; preds = %33, %17
-  %37 = phi i32 [ %35, %33 ], [ -517, %17 ]
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %43
+38:                                               ; preds = %35, %19
+  %39 = phi i32 [ %37, %35 ], [ -517, %19 ]
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %45
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %4, i64 728
-  store ptr %0, ptr %40, align 8
-  %41 = tail call i32 @device_add(ptr noundef nonnull %4) #5
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %48, label %43
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds i8, ptr %5, i64 728
+  store ptr %0, ptr %42, align 8
+  %43 = tail call i32 @device_add(ptr noundef nonnull %5) #5
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %50, label %45
 
-43:                                               ; preds = %39, %36
-  %44 = phi i32 [ %37, %36 ], [ %41, %39 ]
-  tail call void @put_device(ptr noundef nonnull %4) #5
-  %45 = load i32, ptr %7, align 4
-  tail call void @ida_free(ptr noundef %11, i32 noundef %45) #5
-  %46 = sext i32 %44 to i64
-  %47 = inttoptr i64 %46 to ptr
-  br label %48
+45:                                               ; preds = %41, %38
+  %46 = phi i32 [ %39, %38 ], [ %43, %41 ]
+  tail call void @put_device(ptr noundef nonnull %5) #5
+  %47 = load i32, ptr %9, align 4
+  tail call void @ida_free(ptr noundef %13, i32 noundef %47) #5
+  %48 = sext i32 %46 to i64
+  %49 = inttoptr i64 %48 to ptr
+  br label %50
 
-48:                                               ; preds = %43, %39, %14, %2
-  %49 = phi ptr [ %16, %14 ], [ %47, %43 ], [ %4, %39 ], [ inttoptr (i64 -12 to ptr), %2 ]
-  ret ptr %49
+50:                                               ; preds = %45, %41, %16, %2
+  %51 = phi ptr [ %18, %16 ], [ %49, %45 ], [ %5, %41 ], [ %7, %2 ]
+  ret ptr %51
 }
 
 ; Function Attrs: null_pointer_is_valid

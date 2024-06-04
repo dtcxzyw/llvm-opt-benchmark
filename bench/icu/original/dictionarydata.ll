@@ -96,10 +96,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file = getelementptr inbounds %"class.icu_75::UCharsDictionaryMatcher", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %file, align 8
-  invoke void @udata_close_75(ptr noundef %0)
+  %1 = load ptr, ptr %file, align 8
+  invoke void @udata_close_75(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -107,10 +108,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #7
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #7
   unreachable
 }
 
@@ -515,10 +516,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file = getelementptr inbounds %"class.icu_75::BytesDictionaryMatcher", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %file, align 8
-  invoke void @udata_close_75(ptr noundef %0)
+  %1 = load ptr, ptr %file, align 8
+  invoke void @udata_close_75(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -526,10 +528,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #7
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #7
   unreachable
 }
 

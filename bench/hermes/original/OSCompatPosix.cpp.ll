@@ -657,19 +657,20 @@ entry:
   %call = call ptr @mmap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef -1, i64 noundef 0) #12
   store ptr %call, ptr %result, align 8
   %4 = load ptr, ptr %result, align 8
-  %cmp = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
+  %5 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %4, %5
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = call ptr @__errno_location() #11
-  %5 = load i32, ptr %call1, align 4
+  %6 = load i32, ptr %call1, align 4
   %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #11
-  call void @_ZNSt10error_codeC2EiRKNSt3_V214error_categoryE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %call2) #12
-  %6 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  call void @_ZN4llvh7ErrorOrIPvEC2ESt10error_code(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, i32 %7, ptr %9)
+  call void @_ZNSt10error_codeC2EiRKNSt3_V214error_categoryE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(8) %call2) #12
+  %7 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  call void @_ZN4llvh7ErrorOrIPvEC2ESt10error_code(ptr noundef nonnull align 8 dereferenceable(17) %agg.result, i32 %8, ptr %10)
   br label %return
 
 if.end:                                           ; preds = %entry

@@ -1489,7 +1489,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8625,805 +8626,806 @@ define void @_ZN6Unpack8Unpack29Eb(ptr noundef nonnull align 8 dereferenceable(5
   %30 = zext i1 %1 to i8
   store i8 %30, ptr %4, align 1
   %31 = load ptr, ptr %3, align 8
-  %32 = load i32, ptr getelementptr inbounds ([64 x i32], ptr @_ZZN6Unpack8Unpack29EbE7DDecode, i64 0, i64 1), align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %73
+  %32 = getelementptr inbounds [64 x i32], ptr @_ZZN6Unpack8Unpack29EbE7DDecode, i64 0, i64 1
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %74
 
-34:                                               ; preds = %2
+35:                                               ; preds = %2
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
-  br label %35
+  br label %36
 
-35:                                               ; preds = %67, %34
-  %36 = load i32, ptr %9, align 4
-  %37 = sext i32 %36 to i64
-  %38 = icmp ult i64 %37, 19
-  br i1 %38, label %39, label %72
+36:                                               ; preds = %68, %35
+  %37 = load i32, ptr %9, align 4
+  %38 = sext i32 %37 to i64
+  %39 = icmp ult i64 %38, 19
+  br i1 %39, label %40, label %73
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   store i32 0, ptr %10, align 4
-  br label %40
+  br label %41
 
-40:                                               ; preds = %57, %39
-  %41 = load i32, ptr %10, align 4
-  %42 = load i32, ptr %9, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [19 x i32], ptr @_ZZN6Unpack8Unpack29EbE16DBitLengthCounts, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp slt i32 %41, %45
-  br i1 %46, label %47, label %66
+41:                                               ; preds = %58, %40
+  %42 = load i32, ptr %10, align 4
+  %43 = load i32, ptr %9, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds [19 x i32], ptr @_ZZN6Unpack8Unpack29EbE16DBitLengthCounts, i64 0, i64 %44
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp slt i32 %42, %46
+  br i1 %47, label %48, label %67
 
-47:                                               ; preds = %40
-  %48 = load i32, ptr %6, align 4
-  %49 = load i32, ptr %8, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [64 x i32], ptr @_ZZN6Unpack8Unpack29EbE7DDecode, i64 0, i64 %50
-  store i32 %48, ptr %51, align 4
-  %52 = load i32, ptr %7, align 4
-  %53 = trunc i32 %52 to i8
-  %54 = load i32, ptr %8, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [64 x i8], ptr @_ZZN6Unpack8Unpack29EbE5DBits, i64 0, i64 %55
-  store i8 %53, ptr %56, align 1
-  br label %57
+48:                                               ; preds = %41
+  %49 = load i32, ptr %6, align 4
+  %50 = load i32, ptr %8, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds [64 x i32], ptr @_ZZN6Unpack8Unpack29EbE7DDecode, i64 0, i64 %51
+  store i32 %49, ptr %52, align 4
+  %53 = load i32, ptr %7, align 4
+  %54 = trunc i32 %53 to i8
+  %55 = load i32, ptr %8, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds [64 x i8], ptr @_ZZN6Unpack8Unpack29EbE5DBits, i64 0, i64 %56
+  store i8 %54, ptr %57, align 1
+  br label %58
 
-57:                                               ; preds = %47
-  %58 = load i32, ptr %10, align 4
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %10, align 4
-  %60 = load i32, ptr %8, align 4
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %8, align 4
-  %62 = load i32, ptr %7, align 4
-  %63 = shl i32 1, %62
-  %64 = load i32, ptr %6, align 4
-  %65 = add nsw i32 %64, %63
-  store i32 %65, ptr %6, align 4
-  br label %40, !llvm.loop !71
+58:                                               ; preds = %48
+  %59 = load i32, ptr %10, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %10, align 4
+  %61 = load i32, ptr %8, align 4
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %8, align 4
+  %63 = load i32, ptr %7, align 4
+  %64 = shl i32 1, %63
+  %65 = load i32, ptr %6, align 4
+  %66 = add nsw i32 %65, %64
+  store i32 %66, ptr %6, align 4
+  br label %41, !llvm.loop !71
 
-66:                                               ; preds = %40
-  br label %67
+67:                                               ; preds = %41
+  br label %68
 
-67:                                               ; preds = %66
-  %68 = load i32, ptr %9, align 4
-  %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %9, align 4
-  %70 = load i32, ptr %7, align 4
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %7, align 4
-  br label %35, !llvm.loop !72
+68:                                               ; preds = %67
+  %69 = load i32, ptr %9, align 4
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %9, align 4
+  %71 = load i32, ptr %7, align 4
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %7, align 4
+  br label %36, !llvm.loop !72
 
-72:                                               ; preds = %35
-  br label %73
+73:                                               ; preds = %36
+  br label %74
 
-73:                                               ; preds = %72, %2
-  %74 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 24
-  store i8 1, ptr %74, align 8
-  %75 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 20
-  %76 = load i8, ptr %75, align 8
-  %77 = trunc i8 %76 to i1
-  br i1 %77, label %94, label %78
+74:                                               ; preds = %73, %2
+  %75 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 24
+  store i8 1, ptr %75, align 8
+  %76 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 20
+  %77 = load i8, ptr %76, align 8
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %95, label %79
 
-78:                                               ; preds = %73
-  %79 = load i8, ptr %4, align 1
-  %80 = trunc i8 %79 to i1
-  call void @_ZN6Unpack11UnpInitDataEb(ptr noundef nonnull align 8 dereferenceable(59688) %31, i1 noundef zeroext %80)
-  %81 = call noundef zeroext i1 @_ZN6Unpack12UnpReadBuf30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  br i1 %81, label %83, label %82
+79:                                               ; preds = %74
+  %80 = load i8, ptr %4, align 1
+  %81 = trunc i8 %80 to i1
+  call void @_ZN6Unpack11UnpInitDataEb(ptr noundef nonnull align 8 dereferenceable(59688) %31, i1 noundef zeroext %81)
+  %82 = call noundef zeroext i1 @_ZN6Unpack12UnpReadBuf30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  br i1 %82, label %84, label %83
 
-82:                                               ; preds = %78
-  br label %512
+83:                                               ; preds = %79
+  br label %513
 
-83:                                               ; preds = %78
-  %84 = load i8, ptr %4, align 1
-  %85 = trunc i8 %84 to i1
-  br i1 %85, label %86, label %90
+84:                                               ; preds = %79
+  %85 = load i8, ptr %4, align 1
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %91
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 60
-  %88 = load i8, ptr %87, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %93, label %90
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 60
+  %89 = load i8, ptr %88, align 1
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %94, label %91
 
-90:                                               ; preds = %86, %83
-  %91 = call noundef zeroext i1 @_ZN6Unpack12ReadTables30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  br i1 %91, label %93, label %92
+91:                                               ; preds = %87, %84
+  %92 = call noundef zeroext i1 @_ZN6Unpack12ReadTables30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  br i1 %92, label %94, label %93
 
-92:                                               ; preds = %90
-  br label %512
+93:                                               ; preds = %91
+  br label %513
 
-93:                                               ; preds = %90, %86
-  br label %94
-
-94:                                               ; preds = %93, %73
+94:                                               ; preds = %91, %87
   br label %95
 
-95:                                               ; preds = %510, %506, %474, %414, %400, %393, %381, %255, %239, %235, %222, %180, %165, %94
-  %96 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 69
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
-  %99 = load i64, ptr %98, align 8
-  %100 = and i64 %99, %97
-  store i64 %100, ptr %98, align 8
-  %101 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %102 = getelementptr inbounds %class.BitInput, ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 12
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp sgt i32 %103, %105
-  br i1 %106, label %107, label %111
+95:                                               ; preds = %94, %74
+  br label %96
 
-107:                                              ; preds = %95
-  %108 = call noundef zeroext i1 @_ZN6Unpack12UnpReadBuf30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  br i1 %108, label %110, label %109
+96:                                               ; preds = %511, %507, %475, %415, %401, %394, %382, %256, %240, %236, %223, %181, %166, %95
+  %97 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 69
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
+  %100 = load i64, ptr %99, align 8
+  %101 = and i64 %100, %98
+  store i64 %101, ptr %99, align 8
+  %102 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %103 = getelementptr inbounds %class.BitInput, ptr %102, i32 0, i32 0
+  %104 = load i32, ptr %103, align 8
+  %105 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 12
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp sgt i32 %104, %106
+  br i1 %107, label %108, label %112
 
-109:                                              ; preds = %107
-  br label %511
+108:                                              ; preds = %96
+  %109 = call noundef zeroext i1 @_ZN6Unpack12UnpReadBuf30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  br i1 %109, label %111, label %110
 
-110:                                              ; preds = %107
-  br label %111
+110:                                              ; preds = %108
+  br label %512
 
-111:                                              ; preds = %110, %95
-  %112 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 10
-  %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
-  %115 = load i64, ptr %114, align 8
-  %116 = sub i64 %113, %115
-  %117 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 69
-  %118 = load i64, ptr %117, align 8
-  %119 = and i64 %116, %118
-  %120 = icmp ule i64 %119, 260
-  br i1 %120, label %121, label %141
+111:                                              ; preds = %108
+  br label %112
 
-121:                                              ; preds = %111
-  %122 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 10
-  %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
-  %125 = load i64, ptr %124, align 8
-  %126 = icmp ne i64 %123, %125
-  br i1 %126, label %127, label %141
+112:                                              ; preds = %111, %96
+  %113 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 10
+  %114 = load i64, ptr %113, align 8
+  %115 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
+  %116 = load i64, ptr %115, align 8
+  %117 = sub i64 %114, %116
+  %118 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 69
+  %119 = load i64, ptr %118, align 8
+  %120 = and i64 %117, %119
+  %121 = icmp ule i64 %120, 260
+  br i1 %121, label %122, label %142
 
-127:                                              ; preds = %121
+122:                                              ; preds = %112
+  %123 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 10
+  %124 = load i64, ptr %123, align 8
+  %125 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
+  %126 = load i64, ptr %125, align 8
+  %127 = icmp ne i64 %124, %126
+  br i1 %127, label %128, label %142
+
+128:                                              ; preds = %122
   call void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  %128 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 23
-  %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 19
-  %131 = load i64, ptr %130, align 8
-  %132 = icmp sgt i64 %129, %131
-  br i1 %132, label %133, label %134
+  %129 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 23
+  %130 = load i64, ptr %129, align 8
+  %131 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 19
+  %132 = load i64, ptr %131, align 8
+  %133 = icmp sgt i64 %130, %132
+  br i1 %133, label %134, label %135
 
-133:                                              ; preds = %127
+134:                                              ; preds = %128
+  br label %513
+
+135:                                              ; preds = %128
+  %136 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 20
+  %137 = load i8, ptr %136, align 8
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %139, label %141
+
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 24
+  store i8 0, ptr %140, align 8
+  br label %513
+
+141:                                              ; preds = %135
+  br label %142
+
+142:                                              ; preds = %141, %122, %112
+  %143 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 58
+  %144 = load i32, ptr %143, align 8
+  %145 = icmp eq i32 %144, 1
+  br i1 %145, label %146, label %249
+
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 55
+  %148 = call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %147)
+  store i32 %148, ptr %11, align 4
+  %149 = load i32, ptr %11, align 4
+  %150 = icmp eq i32 %149, -1
+  br i1 %150, label %151, label %154
+
+151:                                              ; preds = %146
+  %152 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 55
+  call void @_ZN8ModelPPM7CleanUpEv(ptr noundef nonnull align 8 dereferenceable(19648) %152)
+  %153 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 58
+  store i32 0, ptr %153, align 8
   br label %512
 
-134:                                              ; preds = %127
-  %135 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 20
-  %136 = load i8, ptr %135, align 8
-  %137 = trunc i8 %136 to i1
-  br i1 %137, label %138, label %140
+154:                                              ; preds = %146
+  %155 = load i32, ptr %11, align 4
+  %156 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 56
+  %157 = load i32, ptr %156, align 8
+  %158 = icmp eq i32 %155, %157
+  br i1 %158, label %159, label %240
 
-138:                                              ; preds = %134
-  %139 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 24
-  store i8 0, ptr %139, align 8
+159:                                              ; preds = %154
+  %160 = call noundef i32 @_ZN6Unpack17SafePPMDecodeCharEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  store i32 %160, ptr %12, align 4
+  %161 = load i32, ptr %12, align 4
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %167
+
+163:                                              ; preds = %159
+  %164 = call noundef zeroext i1 @_ZN6Unpack12ReadTables30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  br i1 %164, label %166, label %165
+
+165:                                              ; preds = %163
   br label %512
 
-140:                                              ; preds = %134
-  br label %141
+166:                                              ; preds = %163
+  br label %96, !llvm.loop !73
 
-141:                                              ; preds = %140, %121, %111
-  %142 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 58
-  %143 = load i32, ptr %142, align 8
-  %144 = icmp eq i32 %143, 1
-  br i1 %144, label %145, label %248
+167:                                              ; preds = %159
+  %168 = load i32, ptr %12, align 4
+  %169 = icmp eq i32 %168, -1
+  br i1 %169, label %170, label %171
 
-145:                                              ; preds = %141
-  %146 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 55
-  %147 = call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %146)
-  store i32 %147, ptr %11, align 4
-  %148 = load i32, ptr %11, align 4
-  %149 = icmp eq i32 %148, -1
-  br i1 %149, label %150, label %153
+170:                                              ; preds = %167
+  br label %512
 
-150:                                              ; preds = %145
-  %151 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 55
-  call void @_ZN8ModelPPM7CleanUpEv(ptr noundef nonnull align 8 dereferenceable(19648) %151)
-  %152 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 58
-  store i32 0, ptr %152, align 8
-  br label %511
+171:                                              ; preds = %167
+  %172 = load i32, ptr %12, align 4
+  %173 = icmp eq i32 %172, 2
+  br i1 %173, label %174, label %175
 
-153:                                              ; preds = %145
-  %154 = load i32, ptr %11, align 4
-  %155 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 56
-  %156 = load i32, ptr %155, align 8
-  %157 = icmp eq i32 %154, %156
-  br i1 %157, label %158, label %239
+174:                                              ; preds = %171
+  br label %512
 
-158:                                              ; preds = %153
-  %159 = call noundef i32 @_ZN6Unpack17SafePPMDecodeCharEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  store i32 %159, ptr %12, align 4
-  %160 = load i32, ptr %12, align 4
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %166
+175:                                              ; preds = %171
+  %176 = load i32, ptr %12, align 4
+  %177 = icmp eq i32 %176, 3
+  br i1 %177, label %178, label %182
 
-162:                                              ; preds = %158
-  %163 = call noundef zeroext i1 @_ZN6Unpack12ReadTables30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  br i1 %163, label %165, label %164
+178:                                              ; preds = %175
+  %179 = call noundef zeroext i1 @_ZN6Unpack13ReadVMCodePPMEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  br i1 %179, label %181, label %180
 
-164:                                              ; preds = %162
-  br label %511
+180:                                              ; preds = %178
+  br label %512
 
-165:                                              ; preds = %162
-  br label %95, !llvm.loop !73
+181:                                              ; preds = %178
+  br label %96, !llvm.loop !73
 
-166:                                              ; preds = %158
-  %167 = load i32, ptr %12, align 4
-  %168 = icmp eq i32 %167, -1
-  br i1 %168, label %169, label %170
+182:                                              ; preds = %175
+  %183 = load i32, ptr %12, align 4
+  %184 = icmp eq i32 %183, 4
+  br i1 %184, label %185, label %228
 
-169:                                              ; preds = %166
-  br label %511
-
-170:                                              ; preds = %166
-  %171 = load i32, ptr %12, align 4
-  %172 = icmp eq i32 %171, 2
-  br i1 %172, label %173, label %174
-
-173:                                              ; preds = %170
-  br label %511
-
-174:                                              ; preds = %170
-  %175 = load i32, ptr %12, align 4
-  %176 = icmp eq i32 %175, 3
-  br i1 %176, label %177, label %181
-
-177:                                              ; preds = %174
-  %178 = call noundef zeroext i1 @_ZN6Unpack13ReadVMCodePPMEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  br i1 %178, label %180, label %179
-
-179:                                              ; preds = %177
-  br label %511
-
-180:                                              ; preds = %177
-  br label %95, !llvm.loop !73
-
-181:                                              ; preds = %174
-  %182 = load i32, ptr %12, align 4
-  %183 = icmp eq i32 %182, 4
-  br i1 %183, label %184, label %227
-
-184:                                              ; preds = %181
+185:                                              ; preds = %182
   store i32 0, ptr %13, align 4
   store i8 0, ptr %15, align 1
   store i32 0, ptr %16, align 4
-  br label %185
+  br label %186
 
-185:                                              ; preds = %215, %184
-  %186 = load i32, ptr %16, align 4
-  %187 = icmp slt i32 %186, 4
-  br i1 %187, label %188, label %192
+186:                                              ; preds = %216, %185
+  %187 = load i32, ptr %16, align 4
+  %188 = icmp slt i32 %187, 4
+  br i1 %188, label %189, label %193
 
-188:                                              ; preds = %185
-  %189 = load i8, ptr %15, align 1
-  %190 = trunc i8 %189 to i1
-  %191 = xor i1 %190, true
-  br label %192
+189:                                              ; preds = %186
+  %190 = load i8, ptr %15, align 1
+  %191 = trunc i8 %190 to i1
+  %192 = xor i1 %191, true
+  br label %193
 
-192:                                              ; preds = %188, %185
-  %193 = phi i1 [ false, %185 ], [ %191, %188 ]
-  br i1 %193, label %194, label %218
+193:                                              ; preds = %189, %186
+  %194 = phi i1 [ false, %186 ], [ %192, %189 ]
+  br i1 %194, label %195, label %219
 
-194:                                              ; preds = %192
-  %195 = call noundef i32 @_ZN6Unpack17SafePPMDecodeCharEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  store i32 %195, ptr %17, align 4
-  %196 = load i32, ptr %17, align 4
-  %197 = icmp eq i32 %196, -1
-  br i1 %197, label %198, label %199
+195:                                              ; preds = %193
+  %196 = call noundef i32 @_ZN6Unpack17SafePPMDecodeCharEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  store i32 %196, ptr %17, align 4
+  %197 = load i32, ptr %17, align 4
+  %198 = icmp eq i32 %197, -1
+  br i1 %198, label %199, label %200
 
-198:                                              ; preds = %194
+199:                                              ; preds = %195
   store i8 1, ptr %15, align 1
-  br label %214
-
-199:                                              ; preds = %194
-  %200 = load i32, ptr %16, align 4
-  %201 = icmp eq i32 %200, 3
-  br i1 %201, label %202, label %206
-
-202:                                              ; preds = %199
-  %203 = load i32, ptr %17, align 4
-  %204 = trunc i32 %203 to i8
-  %205 = zext i8 %204 to i32
-  store i32 %205, ptr %14, align 4
-  br label %213
-
-206:                                              ; preds = %199
-  %207 = load i32, ptr %13, align 4
-  %208 = shl i32 %207, 8
-  %209 = load i32, ptr %17, align 4
-  %210 = trunc i32 %209 to i8
-  %211 = zext i8 %210 to i32
-  %212 = add i32 %208, %211
-  store i32 %212, ptr %13, align 4
-  br label %213
-
-213:                                              ; preds = %206, %202
-  br label %214
-
-214:                                              ; preds = %213, %198
   br label %215
 
-215:                                              ; preds = %214
-  %216 = load i32, ptr %16, align 4
-  %217 = add nsw i32 %216, 1
-  store i32 %217, ptr %16, align 4
-  br label %185, !llvm.loop !74
+200:                                              ; preds = %195
+  %201 = load i32, ptr %16, align 4
+  %202 = icmp eq i32 %201, 3
+  br i1 %202, label %203, label %207
 
-218:                                              ; preds = %192
-  %219 = load i8, ptr %15, align 1
-  %220 = trunc i8 %219 to i1
-  br i1 %220, label %221, label %222
+203:                                              ; preds = %200
+  %204 = load i32, ptr %17, align 4
+  %205 = trunc i32 %204 to i8
+  %206 = zext i8 %205 to i32
+  store i32 %206, ptr %14, align 4
+  br label %214
 
-221:                                              ; preds = %218
-  br label %511
+207:                                              ; preds = %200
+  %208 = load i32, ptr %13, align 4
+  %209 = shl i32 %208, 8
+  %210 = load i32, ptr %17, align 4
+  %211 = trunc i32 %210 to i8
+  %212 = zext i8 %211 to i32
+  %213 = add i32 %209, %212
+  store i32 %213, ptr %13, align 4
+  br label %214
 
-222:                                              ; preds = %218
-  %223 = load i32, ptr %14, align 4
-  %224 = add i32 %223, 32
-  %225 = load i32, ptr %13, align 4
-  %226 = add i32 %225, 2
-  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %224, i32 noundef %226)
-  br label %95, !llvm.loop !73
+214:                                              ; preds = %207, %203
+  br label %215
 
-227:                                              ; preds = %181
-  %228 = load i32, ptr %12, align 4
-  %229 = icmp eq i32 %228, 5
-  br i1 %229, label %230, label %238
+215:                                              ; preds = %214, %199
+  br label %216
 
-230:                                              ; preds = %227
-  %231 = call noundef i32 @_ZN6Unpack17SafePPMDecodeCharEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  store i32 %231, ptr %18, align 4
-  %232 = load i32, ptr %18, align 4
-  %233 = icmp eq i32 %232, -1
-  br i1 %233, label %234, label %235
+216:                                              ; preds = %215
+  %217 = load i32, ptr %16, align 4
+  %218 = add nsw i32 %217, 1
+  store i32 %218, ptr %16, align 4
+  br label %186, !llvm.loop !74
 
-234:                                              ; preds = %230
-  br label %511
+219:                                              ; preds = %193
+  %220 = load i8, ptr %15, align 1
+  %221 = trunc i8 %220 to i1
+  br i1 %221, label %222, label %223
 
-235:                                              ; preds = %230
-  %236 = load i32, ptr %18, align 4
-  %237 = add nsw i32 %236, 4
-  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %237, i32 noundef 1)
-  br label %95, !llvm.loop !73
-
-238:                                              ; preds = %227
-  br label %239
-
-239:                                              ; preds = %238, %153
-  %240 = load i32, ptr %11, align 4
-  %241 = trunc i32 %240 to i8
-  %242 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 16
-  %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
-  %245 = load i64, ptr %244, align 8
-  %246 = add i64 %245, 1
-  store i64 %246, ptr %244, align 8
-  %247 = getelementptr inbounds i8, ptr %243, i64 %245
-  store i8 %241, ptr %247, align 1
-  br label %95, !llvm.loop !73
-
-248:                                              ; preds = %141
-  %249 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %250 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 14
-  %251 = getelementptr inbounds %struct.UnpackBlockTables, ptr %250, i32 0, i32 0
-  %252 = call noundef i32 @_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable(ptr noundef nonnull align 8 dereferenceable(59688) %31, ptr noundef nonnull align 8 dereferenceable(24) %249, ptr noundef %251)
-  store i32 %252, ptr %19, align 4
-  %253 = load i32, ptr %19, align 4
-  %254 = icmp ult i32 %253, 256
-  br i1 %254, label %255, label %264
-
-255:                                              ; preds = %248
-  %256 = load i32, ptr %19, align 4
-  %257 = trunc i32 %256 to i8
-  %258 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 16
-  %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
-  %261 = load i64, ptr %260, align 8
-  %262 = add i64 %261, 1
-  store i64 %262, ptr %260, align 8
-  %263 = getelementptr inbounds i8, ptr %259, i64 %261
-  store i8 %257, ptr %263, align 1
-  br label %95, !llvm.loop !73
-
-264:                                              ; preds = %248
-  %265 = load i32, ptr %19, align 4
-  %266 = icmp uge i32 %265, 271
-  br i1 %266, label %267, label %387
-
-267:                                              ; preds = %264
-  %268 = load i32, ptr %19, align 4
-  %269 = sub i32 %268, 271
-  store i32 %269, ptr %19, align 4
-  %270 = zext i32 %269 to i64
-  %271 = getelementptr inbounds [28 x i8], ptr @_ZZN6Unpack8Unpack29EbE7LDecode, i64 0, i64 %270
-  %272 = load i8, ptr %271, align 1
-  %273 = zext i8 %272 to i32
-  %274 = add nsw i32 %273, 3
-  store i32 %274, ptr %20, align 4
-  %275 = load i32, ptr %19, align 4
-  %276 = zext i32 %275 to i64
-  %277 = getelementptr inbounds [28 x i8], ptr @_ZZN6Unpack8Unpack29EbE5LBits, i64 0, i64 %276
-  %278 = load i8, ptr %277, align 1
-  %279 = zext i8 %278 to i32
-  store i32 %279, ptr %5, align 4
-  %280 = icmp ugt i32 %279, 0
-  br i1 %280, label %281, label %291
-
-281:                                              ; preds = %267
-  %282 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %283 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %282)
-  %284 = load i32, ptr %5, align 4
-  %285 = sub i32 16, %284
-  %286 = lshr i32 %283, %285
-  %287 = load i32, ptr %20, align 4
-  %288 = add i32 %287, %286
-  store i32 %288, ptr %20, align 4
-  %289 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %290 = load i32, ptr %5, align 4
-  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %289, i32 noundef %290)
-  br label %291
-
-291:                                              ; preds = %281, %267
-  %292 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %293 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 14
-  %294 = getelementptr inbounds %struct.UnpackBlockTables, ptr %293, i32 0, i32 1
-  %295 = call noundef i32 @_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable(ptr noundef nonnull align 8 dereferenceable(59688) %31, ptr noundef nonnull align 8 dereferenceable(24) %292, ptr noundef %294)
-  store i32 %295, ptr %21, align 4
-  %296 = load i32, ptr %21, align 4
-  %297 = zext i32 %296 to i64
-  %298 = getelementptr inbounds [64 x i32], ptr @_ZZN6Unpack8Unpack29EbE7DDecode, i64 0, i64 %297
-  %299 = load i32, ptr %298, align 4
-  %300 = add nsw i32 %299, 1
-  store i32 %300, ptr %22, align 4
-  %301 = load i32, ptr %21, align 4
-  %302 = zext i32 %301 to i64
-  %303 = getelementptr inbounds [64 x i8], ptr @_ZZN6Unpack8Unpack29EbE5DBits, i64 0, i64 %302
-  %304 = load i8, ptr %303, align 1
-  %305 = zext i8 %304 to i32
-  store i32 %305, ptr %5, align 4
-  %306 = icmp ugt i32 %305, 0
-  br i1 %306, label %307, label %369
-
-307:                                              ; preds = %291
-  %308 = load i32, ptr %21, align 4
-  %309 = icmp ugt i32 %308, 9
-  br i1 %309, label %310, label %358
-
-310:                                              ; preds = %307
-  %311 = load i32, ptr %5, align 4
-  %312 = icmp ugt i32 %311, 4
-  br i1 %312, label %313, label %325
-
-313:                                              ; preds = %310
-  %314 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %315 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %314)
-  %316 = load i32, ptr %5, align 4
-  %317 = sub i32 20, %316
-  %318 = lshr i32 %315, %317
-  %319 = shl i32 %318, 4
-  %320 = load i32, ptr %22, align 4
-  %321 = add i32 %320, %319
-  store i32 %321, ptr %22, align 4
-  %322 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %323 = load i32, ptr %5, align 4
-  %324 = sub i32 %323, 4
-  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %322, i32 noundef %324)
-  br label %325
-
-325:                                              ; preds = %313, %310
-  %326 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 54
-  %327 = load i32, ptr %326, align 4
-  %328 = icmp sgt i32 %327, 0
-  br i1 %328, label %329, label %337
-
-329:                                              ; preds = %325
-  %330 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 54
-  %331 = load i32, ptr %330, align 4
-  %332 = add nsw i32 %331, -1
-  store i32 %332, ptr %330, align 4
-  %333 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 53
-  %334 = load i32, ptr %333, align 8
-  %335 = load i32, ptr %22, align 4
-  %336 = add i32 %335, %334
-  store i32 %336, ptr %22, align 4
-  br label %357
-
-337:                                              ; preds = %325
-  %338 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %339 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 14
-  %340 = getelementptr inbounds %struct.UnpackBlockTables, ptr %339, i32 0, i32 2
-  %341 = call noundef i32 @_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable(ptr noundef nonnull align 8 dereferenceable(59688) %31, ptr noundef nonnull align 8 dereferenceable(24) %338, ptr noundef %340)
-  store i32 %341, ptr %23, align 4
-  %342 = load i32, ptr %23, align 4
-  %343 = icmp eq i32 %342, 16
-  br i1 %343, label %344, label %350
-
-344:                                              ; preds = %337
-  %345 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 54
-  store i32 15, ptr %345, align 4
-  %346 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 53
-  %347 = load i32, ptr %346, align 8
-  %348 = load i32, ptr %22, align 4
-  %349 = add i32 %348, %347
-  store i32 %349, ptr %22, align 4
-  br label %356
-
-350:                                              ; preds = %337
-  %351 = load i32, ptr %23, align 4
-  %352 = load i32, ptr %22, align 4
-  %353 = add i32 %352, %351
-  store i32 %353, ptr %22, align 4
-  %354 = load i32, ptr %23, align 4
-  %355 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 53
-  store i32 %354, ptr %355, align 8
-  br label %356
-
-356:                                              ; preds = %350, %344
-  br label %357
-
-357:                                              ; preds = %356, %329
-  br label %368
-
-358:                                              ; preds = %307
-  %359 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %360 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %359)
-  %361 = load i32, ptr %5, align 4
-  %362 = sub i32 16, %361
-  %363 = lshr i32 %360, %362
-  %364 = load i32, ptr %22, align 4
-  %365 = add i32 %364, %363
-  store i32 %365, ptr %22, align 4
-  %366 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %367 = load i32, ptr %5, align 4
-  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %366, i32 noundef %367)
-  br label %368
-
-368:                                              ; preds = %358, %357
-  br label %369
-
-369:                                              ; preds = %368, %291
-  %370 = load i32, ptr %22, align 4
-  %371 = icmp uge i32 %370, 8192
-  br i1 %371, label %372, label %381
-
-372:                                              ; preds = %369
-  %373 = load i32, ptr %20, align 4
-  %374 = add i32 %373, 1
-  store i32 %374, ptr %20, align 4
-  %375 = load i32, ptr %22, align 4
-  %376 = icmp uge i32 %375, 262144
-  br i1 %376, label %377, label %380
-
-377:                                              ; preds = %372
-  %378 = load i32, ptr %20, align 4
-  %379 = add i32 %378, 1
-  store i32 %379, ptr %20, align 4
-  br label %380
-
-380:                                              ; preds = %377, %372
-  br label %381
-
-381:                                              ; preds = %380, %369
-  %382 = load i32, ptr %22, align 4
-  call void @_ZN6Unpack13InsertOldDistEj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %382)
-  %383 = load i32, ptr %20, align 4
-  %384 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
-  store i32 %383, ptr %384, align 4
-  %385 = load i32, ptr %20, align 4
-  %386 = load i32, ptr %22, align 4
-  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %385, i32 noundef %386)
-  br label %95, !llvm.loop !73
-
-387:                                              ; preds = %264
-  %388 = load i32, ptr %19, align 4
-  %389 = icmp eq i32 %388, 256
-  br i1 %389, label %390, label %394
-
-390:                                              ; preds = %387
-  %391 = call noundef zeroext i1 @_ZN6Unpack14ReadEndOfBlockEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  br i1 %391, label %393, label %392
-
-392:                                              ; preds = %390
-  br label %511
-
-393:                                              ; preds = %390
-  br label %95, !llvm.loop !73
-
-394:                                              ; preds = %387
-  %395 = load i32, ptr %19, align 4
-  %396 = icmp eq i32 %395, 257
-  br i1 %396, label %397, label %401
-
-397:                                              ; preds = %394
-  %398 = call noundef zeroext i1 @_ZN6Unpack10ReadVMCodeEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
-  br i1 %398, label %400, label %399
-
-399:                                              ; preds = %397
-  br label %511
-
-400:                                              ; preds = %397
-  br label %95, !llvm.loop !73
-
-401:                                              ; preds = %394
-  %402 = load i32, ptr %19, align 4
-  %403 = icmp eq i32 %402, 258
-  br i1 %403, label %404, label %415
-
-404:                                              ; preds = %401
-  %405 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
-  %406 = load i32, ptr %405, align 4
-  %407 = icmp ne i32 %406, 0
-  br i1 %407, label %408, label %414
-
-408:                                              ; preds = %404
-  %409 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
-  %410 = load i32, ptr %409, align 4
-  %411 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
-  %412 = getelementptr inbounds [4 x i32], ptr %411, i64 0, i64 0
-  %413 = load i32, ptr %412, align 8
-  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %410, i32 noundef %413)
-  br label %414
-
-414:                                              ; preds = %408, %404
-  br label %95, !llvm.loop !73
-
-415:                                              ; preds = %401
-  %416 = load i32, ptr %19, align 4
-  %417 = icmp ult i32 %416, 263
-  br i1 %417, label %418, label %479
-
-418:                                              ; preds = %415
-  %419 = load i32, ptr %19, align 4
-  %420 = sub i32 %419, 259
-  store i32 %420, ptr %24, align 4
-  %421 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
-  %422 = load i32, ptr %24, align 4
-  %423 = zext i32 %422 to i64
-  %424 = getelementptr inbounds [4 x i32], ptr %421, i64 0, i64 %423
-  %425 = load i32, ptr %424, align 4
-  store i32 %425, ptr %25, align 4
-  %426 = load i32, ptr %24, align 4
-  store i32 %426, ptr %26, align 4
-  br label %427
-
-427:                                              ; preds = %441, %418
-  %428 = load i32, ptr %26, align 4
-  %429 = icmp ugt i32 %428, 0
-  br i1 %429, label %430, label %444
-
-430:                                              ; preds = %427
-  %431 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
-  %432 = load i32, ptr %26, align 4
-  %433 = sub i32 %432, 1
-  %434 = zext i32 %433 to i64
-  %435 = getelementptr inbounds [4 x i32], ptr %431, i64 0, i64 %434
-  %436 = load i32, ptr %435, align 4
-  %437 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
-  %438 = load i32, ptr %26, align 4
-  %439 = zext i32 %438 to i64
-  %440 = getelementptr inbounds [4 x i32], ptr %437, i64 0, i64 %439
-  store i32 %436, ptr %440, align 4
-  br label %441
-
-441:                                              ; preds = %430
-  %442 = load i32, ptr %26, align 4
-  %443 = add i32 %442, -1
-  store i32 %443, ptr %26, align 4
-  br label %427, !llvm.loop !75
-
-444:                                              ; preds = %427
-  %445 = load i32, ptr %25, align 4
-  %446 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
-  %447 = getelementptr inbounds [4 x i32], ptr %446, i64 0, i64 0
-  store i32 %445, ptr %447, align 8
-  %448 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %449 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 14
-  %450 = getelementptr inbounds %struct.UnpackBlockTables, ptr %449, i32 0, i32 3
-  %451 = call noundef i32 @_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable(ptr noundef nonnull align 8 dereferenceable(59688) %31, ptr noundef nonnull align 8 dereferenceable(24) %448, ptr noundef %450)
-  store i32 %451, ptr %27, align 4
-  %452 = load i32, ptr %27, align 4
-  %453 = zext i32 %452 to i64
-  %454 = getelementptr inbounds [28 x i8], ptr @_ZZN6Unpack8Unpack29EbE7LDecode, i64 0, i64 %453
-  %455 = load i8, ptr %454, align 1
-  %456 = zext i8 %455 to i32
-  %457 = add nsw i32 %456, 2
-  store i32 %457, ptr %28, align 4
-  %458 = load i32, ptr %27, align 4
-  %459 = zext i32 %458 to i64
-  %460 = getelementptr inbounds [28 x i8], ptr @_ZZN6Unpack8Unpack29EbE5LBits, i64 0, i64 %459
-  %461 = load i8, ptr %460, align 1
-  %462 = zext i8 %461 to i32
-  store i32 %462, ptr %5, align 4
-  %463 = icmp ugt i32 %462, 0
-  br i1 %463, label %464, label %474
-
-464:                                              ; preds = %444
-  %465 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %466 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %465)
-  %467 = load i32, ptr %5, align 4
-  %468 = sub i32 16, %467
-  %469 = lshr i32 %466, %468
-  %470 = load i32, ptr %28, align 4
-  %471 = add i32 %470, %469
-  store i32 %471, ptr %28, align 4
-  %472 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %473 = load i32, ptr %5, align 4
-  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %472, i32 noundef %473)
-  br label %474
-
-474:                                              ; preds = %464, %444
-  %475 = load i32, ptr %28, align 4
-  %476 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
-  store i32 %475, ptr %476, align 4
-  %477 = load i32, ptr %28, align 4
-  %478 = load i32, ptr %25, align 4
-  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %477, i32 noundef %478)
-  br label %95, !llvm.loop !73
-
-479:                                              ; preds = %415
-  %480 = load i32, ptr %19, align 4
-  %481 = icmp ult i32 %480, 272
-  br i1 %481, label %482, label %510
-
-482:                                              ; preds = %479
-  %483 = load i32, ptr %19, align 4
-  %484 = sub i32 %483, 263
-  store i32 %484, ptr %19, align 4
-  %485 = zext i32 %484 to i64
-  %486 = getelementptr inbounds [8 x i8], ptr @_ZZN6Unpack8Unpack29EbE8SDDecode, i64 0, i64 %485
-  %487 = load i8, ptr %486, align 1
-  %488 = zext i8 %487 to i32
-  %489 = add nsw i32 %488, 1
-  store i32 %489, ptr %29, align 4
-  %490 = load i32, ptr %19, align 4
-  %491 = zext i32 %490 to i64
-  %492 = getelementptr inbounds [8 x i8], ptr @_ZZN6Unpack8Unpack29EbE6SDBits, i64 0, i64 %491
-  %493 = load i8, ptr %492, align 1
-  %494 = zext i8 %493 to i32
-  store i32 %494, ptr %5, align 4
-  %495 = icmp ugt i32 %494, 0
-  br i1 %495, label %496, label %506
-
-496:                                              ; preds = %482
-  %497 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %498 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %497)
-  %499 = load i32, ptr %5, align 4
-  %500 = sub i32 16, %499
-  %501 = lshr i32 %498, %500
-  %502 = load i32, ptr %29, align 4
-  %503 = add i32 %502, %501
-  store i32 %503, ptr %29, align 4
-  %504 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
-  %505 = load i32, ptr %5, align 4
-  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %504, i32 noundef %505)
-  br label %506
-
-506:                                              ; preds = %496, %482
-  %507 = load i32, ptr %29, align 4
-  call void @_ZN6Unpack13InsertOldDistEj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %507)
-  %508 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
-  store i32 2, ptr %508, align 4
-  %509 = load i32, ptr %29, align 4
-  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef 2, i32 noundef %509)
-  br label %95, !llvm.loop !73
-
-510:                                              ; preds = %479
-  br label %95, !llvm.loop !73
-
-511:                                              ; preds = %399, %392, %234, %221, %179, %173, %169, %164, %150, %109
-  call void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+222:                                              ; preds = %219
   br label %512
 
-512:                                              ; preds = %511, %138, %133, %92, %82
+223:                                              ; preds = %219
+  %224 = load i32, ptr %14, align 4
+  %225 = add i32 %224, 32
+  %226 = load i32, ptr %13, align 4
+  %227 = add i32 %226, 2
+  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %225, i32 noundef %227)
+  br label %96, !llvm.loop !73
+
+228:                                              ; preds = %182
+  %229 = load i32, ptr %12, align 4
+  %230 = icmp eq i32 %229, 5
+  br i1 %230, label %231, label %239
+
+231:                                              ; preds = %228
+  %232 = call noundef i32 @_ZN6Unpack17SafePPMDecodeCharEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  store i32 %232, ptr %18, align 4
+  %233 = load i32, ptr %18, align 4
+  %234 = icmp eq i32 %233, -1
+  br i1 %234, label %235, label %236
+
+235:                                              ; preds = %231
+  br label %512
+
+236:                                              ; preds = %231
+  %237 = load i32, ptr %18, align 4
+  %238 = add nsw i32 %237, 4
+  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %238, i32 noundef 1)
+  br label %96, !llvm.loop !73
+
+239:                                              ; preds = %228
+  br label %240
+
+240:                                              ; preds = %239, %154
+  %241 = load i32, ptr %11, align 4
+  %242 = trunc i32 %241 to i8
+  %243 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 16
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
+  %246 = load i64, ptr %245, align 8
+  %247 = add i64 %246, 1
+  store i64 %247, ptr %245, align 8
+  %248 = getelementptr inbounds i8, ptr %244, i64 %246
+  store i8 %242, ptr %248, align 1
+  br label %96, !llvm.loop !73
+
+249:                                              ; preds = %142
+  %250 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %251 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 14
+  %252 = getelementptr inbounds %struct.UnpackBlockTables, ptr %251, i32 0, i32 0
+  %253 = call noundef i32 @_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable(ptr noundef nonnull align 8 dereferenceable(59688) %31, ptr noundef nonnull align 8 dereferenceable(24) %250, ptr noundef %252)
+  store i32 %253, ptr %19, align 4
+  %254 = load i32, ptr %19, align 4
+  %255 = icmp ult i32 %254, 256
+  br i1 %255, label %256, label %265
+
+256:                                              ; preds = %249
+  %257 = load i32, ptr %19, align 4
+  %258 = trunc i32 %257 to i8
+  %259 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 16
+  %260 = load ptr, ptr %259, align 8
+  %261 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 9
+  %262 = load i64, ptr %261, align 8
+  %263 = add i64 %262, 1
+  store i64 %263, ptr %261, align 8
+  %264 = getelementptr inbounds i8, ptr %260, i64 %262
+  store i8 %258, ptr %264, align 1
+  br label %96, !llvm.loop !73
+
+265:                                              ; preds = %249
+  %266 = load i32, ptr %19, align 4
+  %267 = icmp uge i32 %266, 271
+  br i1 %267, label %268, label %388
+
+268:                                              ; preds = %265
+  %269 = load i32, ptr %19, align 4
+  %270 = sub i32 %269, 271
+  store i32 %270, ptr %19, align 4
+  %271 = zext i32 %270 to i64
+  %272 = getelementptr inbounds [28 x i8], ptr @_ZZN6Unpack8Unpack29EbE7LDecode, i64 0, i64 %271
+  %273 = load i8, ptr %272, align 1
+  %274 = zext i8 %273 to i32
+  %275 = add nsw i32 %274, 3
+  store i32 %275, ptr %20, align 4
+  %276 = load i32, ptr %19, align 4
+  %277 = zext i32 %276 to i64
+  %278 = getelementptr inbounds [28 x i8], ptr @_ZZN6Unpack8Unpack29EbE5LBits, i64 0, i64 %277
+  %279 = load i8, ptr %278, align 1
+  %280 = zext i8 %279 to i32
+  store i32 %280, ptr %5, align 4
+  %281 = icmp ugt i32 %280, 0
+  br i1 %281, label %282, label %292
+
+282:                                              ; preds = %268
+  %283 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %284 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %283)
+  %285 = load i32, ptr %5, align 4
+  %286 = sub i32 16, %285
+  %287 = lshr i32 %284, %286
+  %288 = load i32, ptr %20, align 4
+  %289 = add i32 %288, %287
+  store i32 %289, ptr %20, align 4
+  %290 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %291 = load i32, ptr %5, align 4
+  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %290, i32 noundef %291)
+  br label %292
+
+292:                                              ; preds = %282, %268
+  %293 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %294 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 14
+  %295 = getelementptr inbounds %struct.UnpackBlockTables, ptr %294, i32 0, i32 1
+  %296 = call noundef i32 @_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable(ptr noundef nonnull align 8 dereferenceable(59688) %31, ptr noundef nonnull align 8 dereferenceable(24) %293, ptr noundef %295)
+  store i32 %296, ptr %21, align 4
+  %297 = load i32, ptr %21, align 4
+  %298 = zext i32 %297 to i64
+  %299 = getelementptr inbounds [64 x i32], ptr @_ZZN6Unpack8Unpack29EbE7DDecode, i64 0, i64 %298
+  %300 = load i32, ptr %299, align 4
+  %301 = add nsw i32 %300, 1
+  store i32 %301, ptr %22, align 4
+  %302 = load i32, ptr %21, align 4
+  %303 = zext i32 %302 to i64
+  %304 = getelementptr inbounds [64 x i8], ptr @_ZZN6Unpack8Unpack29EbE5DBits, i64 0, i64 %303
+  %305 = load i8, ptr %304, align 1
+  %306 = zext i8 %305 to i32
+  store i32 %306, ptr %5, align 4
+  %307 = icmp ugt i32 %306, 0
+  br i1 %307, label %308, label %370
+
+308:                                              ; preds = %292
+  %309 = load i32, ptr %21, align 4
+  %310 = icmp ugt i32 %309, 9
+  br i1 %310, label %311, label %359
+
+311:                                              ; preds = %308
+  %312 = load i32, ptr %5, align 4
+  %313 = icmp ugt i32 %312, 4
+  br i1 %313, label %314, label %326
+
+314:                                              ; preds = %311
+  %315 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %316 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %315)
+  %317 = load i32, ptr %5, align 4
+  %318 = sub i32 20, %317
+  %319 = lshr i32 %316, %318
+  %320 = shl i32 %319, 4
+  %321 = load i32, ptr %22, align 4
+  %322 = add i32 %321, %320
+  store i32 %322, ptr %22, align 4
+  %323 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %324 = load i32, ptr %5, align 4
+  %325 = sub i32 %324, 4
+  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %323, i32 noundef %325)
+  br label %326
+
+326:                                              ; preds = %314, %311
+  %327 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 54
+  %328 = load i32, ptr %327, align 4
+  %329 = icmp sgt i32 %328, 0
+  br i1 %329, label %330, label %338
+
+330:                                              ; preds = %326
+  %331 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 54
+  %332 = load i32, ptr %331, align 4
+  %333 = add nsw i32 %332, -1
+  store i32 %333, ptr %331, align 4
+  %334 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 53
+  %335 = load i32, ptr %334, align 8
+  %336 = load i32, ptr %22, align 4
+  %337 = add i32 %336, %335
+  store i32 %337, ptr %22, align 4
+  br label %358
+
+338:                                              ; preds = %326
+  %339 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %340 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 14
+  %341 = getelementptr inbounds %struct.UnpackBlockTables, ptr %340, i32 0, i32 2
+  %342 = call noundef i32 @_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable(ptr noundef nonnull align 8 dereferenceable(59688) %31, ptr noundef nonnull align 8 dereferenceable(24) %339, ptr noundef %341)
+  store i32 %342, ptr %23, align 4
+  %343 = load i32, ptr %23, align 4
+  %344 = icmp eq i32 %343, 16
+  br i1 %344, label %345, label %351
+
+345:                                              ; preds = %338
+  %346 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 54
+  store i32 15, ptr %346, align 4
+  %347 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 53
+  %348 = load i32, ptr %347, align 8
+  %349 = load i32, ptr %22, align 4
+  %350 = add i32 %349, %348
+  store i32 %350, ptr %22, align 4
+  br label %357
+
+351:                                              ; preds = %338
+  %352 = load i32, ptr %23, align 4
+  %353 = load i32, ptr %22, align 4
+  %354 = add i32 %353, %352
+  store i32 %354, ptr %22, align 4
+  %355 = load i32, ptr %23, align 4
+  %356 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 53
+  store i32 %355, ptr %356, align 8
+  br label %357
+
+357:                                              ; preds = %351, %345
+  br label %358
+
+358:                                              ; preds = %357, %330
+  br label %369
+
+359:                                              ; preds = %308
+  %360 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %361 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %360)
+  %362 = load i32, ptr %5, align 4
+  %363 = sub i32 16, %362
+  %364 = lshr i32 %361, %363
+  %365 = load i32, ptr %22, align 4
+  %366 = add i32 %365, %364
+  store i32 %366, ptr %22, align 4
+  %367 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %368 = load i32, ptr %5, align 4
+  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %367, i32 noundef %368)
+  br label %369
+
+369:                                              ; preds = %359, %358
+  br label %370
+
+370:                                              ; preds = %369, %292
+  %371 = load i32, ptr %22, align 4
+  %372 = icmp uge i32 %371, 8192
+  br i1 %372, label %373, label %382
+
+373:                                              ; preds = %370
+  %374 = load i32, ptr %20, align 4
+  %375 = add i32 %374, 1
+  store i32 %375, ptr %20, align 4
+  %376 = load i32, ptr %22, align 4
+  %377 = icmp uge i32 %376, 262144
+  br i1 %377, label %378, label %381
+
+378:                                              ; preds = %373
+  %379 = load i32, ptr %20, align 4
+  %380 = add i32 %379, 1
+  store i32 %380, ptr %20, align 4
+  br label %381
+
+381:                                              ; preds = %378, %373
+  br label %382
+
+382:                                              ; preds = %381, %370
+  %383 = load i32, ptr %22, align 4
+  call void @_ZN6Unpack13InsertOldDistEj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %383)
+  %384 = load i32, ptr %20, align 4
+  %385 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
+  store i32 %384, ptr %385, align 4
+  %386 = load i32, ptr %20, align 4
+  %387 = load i32, ptr %22, align 4
+  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %386, i32 noundef %387)
+  br label %96, !llvm.loop !73
+
+388:                                              ; preds = %265
+  %389 = load i32, ptr %19, align 4
+  %390 = icmp eq i32 %389, 256
+  br i1 %390, label %391, label %395
+
+391:                                              ; preds = %388
+  %392 = call noundef zeroext i1 @_ZN6Unpack14ReadEndOfBlockEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  br i1 %392, label %394, label %393
+
+393:                                              ; preds = %391
+  br label %512
+
+394:                                              ; preds = %391
+  br label %96, !llvm.loop !73
+
+395:                                              ; preds = %388
+  %396 = load i32, ptr %19, align 4
+  %397 = icmp eq i32 %396, 257
+  br i1 %397, label %398, label %402
+
+398:                                              ; preds = %395
+  %399 = call noundef zeroext i1 @_ZN6Unpack10ReadVMCodeEv(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  br i1 %399, label %401, label %400
+
+400:                                              ; preds = %398
+  br label %512
+
+401:                                              ; preds = %398
+  br label %96, !llvm.loop !73
+
+402:                                              ; preds = %395
+  %403 = load i32, ptr %19, align 4
+  %404 = icmp eq i32 %403, 258
+  br i1 %404, label %405, label %416
+
+405:                                              ; preds = %402
+  %406 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
+  %407 = load i32, ptr %406, align 4
+  %408 = icmp ne i32 %407, 0
+  br i1 %408, label %409, label %415
+
+409:                                              ; preds = %405
+  %410 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
+  %411 = load i32, ptr %410, align 4
+  %412 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
+  %413 = getelementptr inbounds [4 x i32], ptr %412, i64 0, i64 0
+  %414 = load i32, ptr %413, align 8
+  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %411, i32 noundef %414)
+  br label %415
+
+415:                                              ; preds = %409, %405
+  br label %96, !llvm.loop !73
+
+416:                                              ; preds = %402
+  %417 = load i32, ptr %19, align 4
+  %418 = icmp ult i32 %417, 263
+  br i1 %418, label %419, label %480
+
+419:                                              ; preds = %416
+  %420 = load i32, ptr %19, align 4
+  %421 = sub i32 %420, 259
+  store i32 %421, ptr %24, align 4
+  %422 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
+  %423 = load i32, ptr %24, align 4
+  %424 = zext i32 %423 to i64
+  %425 = getelementptr inbounds [4 x i32], ptr %422, i64 0, i64 %424
+  %426 = load i32, ptr %425, align 4
+  store i32 %426, ptr %25, align 4
+  %427 = load i32, ptr %24, align 4
+  store i32 %427, ptr %26, align 4
+  br label %428
+
+428:                                              ; preds = %442, %419
+  %429 = load i32, ptr %26, align 4
+  %430 = icmp ugt i32 %429, 0
+  br i1 %430, label %431, label %445
+
+431:                                              ; preds = %428
+  %432 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
+  %433 = load i32, ptr %26, align 4
+  %434 = sub i32 %433, 1
+  %435 = zext i32 %434 to i64
+  %436 = getelementptr inbounds [4 x i32], ptr %432, i64 0, i64 %435
+  %437 = load i32, ptr %436, align 4
+  %438 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
+  %439 = load i32, ptr %26, align 4
+  %440 = zext i32 %439 to i64
+  %441 = getelementptr inbounds [4 x i32], ptr %438, i64 0, i64 %440
+  store i32 %437, ptr %441, align 4
+  br label %442
+
+442:                                              ; preds = %431
+  %443 = load i32, ptr %26, align 4
+  %444 = add i32 %443, -1
+  store i32 %444, ptr %26, align 4
+  br label %428, !llvm.loop !75
+
+445:                                              ; preds = %428
+  %446 = load i32, ptr %25, align 4
+  %447 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 5
+  %448 = getelementptr inbounds [4 x i32], ptr %447, i64 0, i64 0
+  store i32 %446, ptr %448, align 8
+  %449 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %450 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 14
+  %451 = getelementptr inbounds %struct.UnpackBlockTables, ptr %450, i32 0, i32 3
+  %452 = call noundef i32 @_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable(ptr noundef nonnull align 8 dereferenceable(59688) %31, ptr noundef nonnull align 8 dereferenceable(24) %449, ptr noundef %451)
+  store i32 %452, ptr %27, align 4
+  %453 = load i32, ptr %27, align 4
+  %454 = zext i32 %453 to i64
+  %455 = getelementptr inbounds [28 x i8], ptr @_ZZN6Unpack8Unpack29EbE7LDecode, i64 0, i64 %454
+  %456 = load i8, ptr %455, align 1
+  %457 = zext i8 %456 to i32
+  %458 = add nsw i32 %457, 2
+  store i32 %458, ptr %28, align 4
+  %459 = load i32, ptr %27, align 4
+  %460 = zext i32 %459 to i64
+  %461 = getelementptr inbounds [28 x i8], ptr @_ZZN6Unpack8Unpack29EbE5LBits, i64 0, i64 %460
+  %462 = load i8, ptr %461, align 1
+  %463 = zext i8 %462 to i32
+  store i32 %463, ptr %5, align 4
+  %464 = icmp ugt i32 %463, 0
+  br i1 %464, label %465, label %475
+
+465:                                              ; preds = %445
+  %466 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %467 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %466)
+  %468 = load i32, ptr %5, align 4
+  %469 = sub i32 16, %468
+  %470 = lshr i32 %467, %469
+  %471 = load i32, ptr %28, align 4
+  %472 = add i32 %471, %470
+  store i32 %472, ptr %28, align 4
+  %473 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %474 = load i32, ptr %5, align 4
+  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %473, i32 noundef %474)
+  br label %475
+
+475:                                              ; preds = %465, %445
+  %476 = load i32, ptr %28, align 4
+  %477 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
+  store i32 %476, ptr %477, align 4
+  %478 = load i32, ptr %28, align 4
+  %479 = load i32, ptr %25, align 4
+  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %478, i32 noundef %479)
+  br label %96, !llvm.loop !73
+
+480:                                              ; preds = %416
+  %481 = load i32, ptr %19, align 4
+  %482 = icmp ult i32 %481, 272
+  br i1 %482, label %483, label %511
+
+483:                                              ; preds = %480
+  %484 = load i32, ptr %19, align 4
+  %485 = sub i32 %484, 263
+  store i32 %485, ptr %19, align 4
+  %486 = zext i32 %485 to i64
+  %487 = getelementptr inbounds [8 x i8], ptr @_ZZN6Unpack8Unpack29EbE8SDDecode, i64 0, i64 %486
+  %488 = load i8, ptr %487, align 1
+  %489 = zext i8 %488 to i32
+  %490 = add nsw i32 %489, 1
+  store i32 %490, ptr %29, align 4
+  %491 = load i32, ptr %19, align 4
+  %492 = zext i32 %491 to i64
+  %493 = getelementptr inbounds [8 x i8], ptr @_ZZN6Unpack8Unpack29EbE6SDBits, i64 0, i64 %492
+  %494 = load i8, ptr %493, align 1
+  %495 = zext i8 %494 to i32
+  store i32 %495, ptr %5, align 4
+  %496 = icmp ugt i32 %495, 0
+  br i1 %496, label %497, label %507
+
+497:                                              ; preds = %483
+  %498 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %499 = call noundef i32 @_ZN8BitInput7getbitsEv(ptr noundef nonnull align 8 dereferenceable(24) %498)
+  %500 = load i32, ptr %5, align 4
+  %501 = sub i32 16, %500
+  %502 = lshr i32 %499, %501
+  %503 = load i32, ptr %29, align 4
+  %504 = add i32 %503, %502
+  store i32 %504, ptr %29, align 4
+  %505 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 1
+  %506 = load i32, ptr %5, align 4
+  call void @_ZN8BitInput7addbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %505, i32 noundef %506)
+  br label %507
+
+507:                                              ; preds = %497, %483
+  %508 = load i32, ptr %29, align 4
+  call void @_ZN6Unpack13InsertOldDistEj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef %508)
+  %509 = getelementptr inbounds %class.Unpack, ptr %31, i32 0, i32 7
+  store i32 2, ptr %509, align 4
+  %510 = load i32, ptr %29, align 4
+  call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %31, i32 noundef 2, i32 noundef %510)
+  br label %96, !llvm.loop !73
+
+511:                                              ; preds = %480
+  br label %96, !llvm.loop !73
+
+512:                                              ; preds = %400, %393, %235, %222, %180, %174, %170, %165, %151, %110
+  call void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereferenceable(59688) %31)
+  br label %513
+
+513:                                              ; preds = %512, %139, %134, %93, %83
   ret void
 }
 
@@ -16006,7 +16008,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

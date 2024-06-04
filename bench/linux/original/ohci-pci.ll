@@ -45,18 +45,20 @@ module asm ".previous\09\09\09\09\09"
 define internal i32 @ohci_pci_init() #0 section ".init.text" align 16 {
   %1 = tail call i32 @usb_disabled() #7
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %5
+  br i1 %2, label %3, label %7
 
 3:                                                ; preds = %0
   tail call void @ohci_init_driver(ptr noundef nonnull @ohci_pci_hc_driver, ptr noundef nonnull @pci_overrides) #7
-  store ptr @ohci_suspend, ptr getelementptr inbounds (%struct.hc_driver, ptr @ohci_pci_hc_driver, i64 0, i32 7), align 8
-  store ptr @ohci_pci_resume, ptr getelementptr inbounds (%struct.hc_driver, ptr @ohci_pci_hc_driver, i64 0, i32 8), align 8
-  %4 = tail call i32 @__pci_register_driver(ptr noundef nonnull @ohci_pci_driver, ptr noundef null, ptr noundef nonnull @.str) #7
-  br label %5
+  %4 = getelementptr inbounds %struct.hc_driver, ptr @ohci_pci_hc_driver, i64 0, i32 7
+  store ptr @ohci_suspend, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.hc_driver, ptr @ohci_pci_hc_driver, i64 0, i32 8
+  store ptr @ohci_pci_resume, ptr %5, align 8
+  %6 = tail call i32 @__pci_register_driver(ptr noundef nonnull @ohci_pci_driver, ptr noundef null, ptr noundef nonnull @.str) #7
+  br label %7
 
-5:                                                ; preds = %3, %0
-  %6 = phi i32 [ %4, %3 ], [ -19, %0 ]
-  ret i32 %6
+7:                                                ; preds = %3, %0
+  %8 = phi i32 [ %6, %3 ], [ -19, %0 ]
+  ret i32 %8
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

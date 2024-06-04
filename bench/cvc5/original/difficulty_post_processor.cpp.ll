@@ -558,7 +558,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal24ProofNodeUpdaterCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal3smt29DifficultyPostprocessCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal3smt29DifficultyPostprocessCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_currDifficulty = getelementptr inbounds %"class.cvc5::internal::smt::DifficultyPostprocessCallback", ptr %this1, i32 0, i32 1
   store i64 0, ptr %d_currDifficulty, align 8
   %d_accMap = getelementptr inbounds %"class.cvc5::internal::smt::DifficultyPostprocessCallback", ptr %this1, i32 0, i32 2
@@ -1884,7 +1885,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal3smt29DifficultyPostprocessCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal3smt29DifficultyPostprocessCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_accMap = getelementptr inbounds %"class.cvc5::internal::smt::DifficultyPostprocessCallback", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEmSt4lessIS3_ESaISt4pairIKS3_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_accMap) #3
   call void @_ZN4cvc58internal24ProofNodeUpdaterCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

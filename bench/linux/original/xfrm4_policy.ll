@@ -151,20 +151,21 @@ define internal noundef i32 @xfrm4_get_saddr(ptr noundef %0, i32 %1, ptr nocaptu
   %11 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %4, ptr %11, align 4
   %12 = call ptr @ip_route_output_key_hash(ptr noundef %0, ptr noundef nonnull %6, ptr noundef null) #7
-  %13 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
-  br i1 %13, label %17, label %14
+  %13 = inttoptr i64 -4096 to ptr
+  %14 = icmp ugt ptr %12, %13
+  br i1 %14, label %18, label %15
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %2, align 4
+15:                                               ; preds = %5
+  %16 = getelementptr inbounds i8, ptr %6, i64 40
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %2, align 4
   call void @dst_release(ptr noundef %12) #7
-  br label %17
+  br label %18
 
-17:                                               ; preds = %14, %5
-  %18 = phi i32 [ 0, %14 ], [ -113, %5 ]
+18:                                               ; preds = %15, %5
+  %19 = phi i32 [ 0, %15 ], [ -113, %5 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #7
-  ret i32 %18
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

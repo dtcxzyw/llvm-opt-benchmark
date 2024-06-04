@@ -1183,53 +1183,54 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6icu_7517CollationIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %trie = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %trie2 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %trie2, align 8
-  store ptr %2, ptr %trie, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %trie2 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %trie2, align 8
+  store ptr %3, ptr %trie, align 8
   %data = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %other.addr, align 8
-  %data3 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %data3, align 8
-  store ptr %4, ptr %data, align 8
+  %4 = load ptr, ptr %other.addr, align 8
+  %data3 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %data3, align 8
+  store ptr %5, ptr %data, align 8
   %ceBuffer = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 3
   invoke void @_ZN6icu_7517CollationIterator8CEBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %cesIndex = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %other.addr, align 8
-  %cesIndex4 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %5, i32 0, i32 4
-  %6 = load i32, ptr %cesIndex4, align 8
-  store i32 %6, ptr %cesIndex, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %cesIndex4 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %6, i32 0, i32 4
+  %7 = load i32, ptr %cesIndex4, align 8
+  store i32 %7, ptr %cesIndex, align 8
   %skipped = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 6
   store ptr null, ptr %skipped, align 8
   %numCpFwd = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 7
-  %7 = load ptr, ptr %other.addr, align 8
-  %numCpFwd5 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %7, i32 0, i32 7
-  %8 = load i32, ptr %numCpFwd5, align 8
-  store i32 %8, ptr %numCpFwd, align 8
+  %8 = load ptr, ptr %other.addr, align 8
+  %numCpFwd5 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %8, i32 0, i32 7
+  %9 = load i32, ptr %numCpFwd5, align 8
+  store i32 %9, ptr %numCpFwd, align 8
   %isNumeric = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 8
-  %9 = load ptr, ptr %other.addr, align 8
-  %isNumeric6 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %9, i32 0, i32 8
-  %10 = load i8, ptr %isNumeric6, align 4
-  store i8 %10, ptr %isNumeric, align 4
+  %10 = load ptr, ptr %other.addr, align 8
+  %isNumeric6 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %10, i32 0, i32 8
+  %11 = load i8, ptr %isNumeric6, align 4
+  store i8 %11, ptr %isNumeric, align 4
   store i32 0, ptr %errorCode, align 4
-  %11 = load ptr, ptr %other.addr, align 8
-  %ceBuffer7 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %11, i32 0, i32 3
+  %12 = load ptr, ptr %other.addr, align 8
+  %ceBuffer7 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %12, i32 0, i32 3
   %length8 = getelementptr inbounds %"class.icu_75::CollationIterator::CEBuffer", ptr %ceBuffer7, i32 0, i32 0
-  %12 = load i32, ptr %length8, align 8
-  store i32 %12, ptr %length, align 4
-  %13 = load i32, ptr %length, align 4
-  %cmp = icmp sgt i32 %13, 0
+  %13 = load i32, ptr %length8, align 8
+  store i32 %13, ptr %length, align 4
+  %14 = load i32, ptr %length, align 4
+  %cmp = icmp sgt i32 %14, 0
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont
   %ceBuffer9 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 3
-  %14 = load i32, ptr %length, align 4
-  %call = invoke noundef signext i8 @_ZN6icu_7517CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer9, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %15 = load i32, ptr %length, align 4
+  %call = invoke noundef signext i8 @_ZN6icu_7517CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer9, i32 noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %land.lhs.true
@@ -1241,57 +1242,57 @@ if.then:                                          ; preds = %invoke.cont11
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %15 = load i32, ptr %i, align 4
-  %16 = load i32, ptr %length, align 4
-  %cmp12 = icmp slt i32 %15, %16
+  %16 = load i32, ptr %i, align 4
+  %17 = load i32, ptr %length, align 4
+  %cmp12 = icmp slt i32 %16, %17
   br i1 %cmp12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %ceBuffer13 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 3
-  %17 = load i32, ptr %i, align 4
-  %18 = load ptr, ptr %other.addr, align 8
-  %ceBuffer14 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %i, align 4
-  %call16 = invoke noundef i64 @_ZNK6icu_7517CollationIterator8CEBuffer3getEi(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer14, i32 noundef %19)
+  %18 = load i32, ptr %i, align 4
+  %19 = load ptr, ptr %other.addr, align 8
+  %ceBuffer14 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %19, i32 0, i32 3
+  %20 = load i32, ptr %i, align 4
+  %call16 = invoke noundef i64 @_ZNK6icu_7517CollationIterator8CEBuffer3getEi(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer14, i32 noundef %20)
           to label %invoke.cont15 unwind label %lpad10
 
 invoke.cont15:                                    ; preds = %for.body
-  %call18 = invoke noundef i64 @_ZN6icu_7517CollationIterator8CEBuffer3setEil(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer13, i32 noundef %17, i64 noundef %call16)
+  %call18 = invoke noundef i64 @_ZN6icu_7517CollationIterator8CEBuffer3setEil(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer13, i32 noundef %18, i64 noundef %call16)
           to label %invoke.cont17 unwind label %lpad10
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont17
-  %20 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %20, 1
+  %21 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %21, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !6
 
 lpad:                                             ; preds = %entry
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont15, %for.body, %land.lhs.true
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517CollationIterator8CEBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %ceBuffer) #8
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
-  %27 = load i32, ptr %length, align 4
+  %28 = load i32, ptr %length, align 4
   %ceBuffer19 = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 3
   %length20 = getelementptr inbounds %"class.icu_75::CollationIterator::CEBuffer", ptr %ceBuffer19, i32 0, i32 0
-  store i32 %27, ptr %length20, align 8
+  store i32 %28, ptr %length20, align 8
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont11, %invoke.cont
@@ -1322,7 +1323,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1383,15 +1385,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6icu_7517CollationIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %skipped = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %skipped, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %skipped, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN6icu_7512SkippedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %0) #8
+  call void @_ZN6icu_7512SkippedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %1) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %1) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -6532,7 +6535,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -6557,7 +6561,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6567,7 +6572,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

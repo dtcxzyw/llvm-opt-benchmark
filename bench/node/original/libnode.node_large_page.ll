@@ -375,7 +375,8 @@ entry:
   %ref.tmp37 = alloca i64, align 8
   call void @_ZN4node12_GLOBAL__N_111text_regionC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %agg.result) #3
   call void @_ZN4node12_GLOBAL__N_117dl_iterate_paramsC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %dl_params) #3
-  store i64 ptrtoint (ptr @__start_lpstub to i64), ptr %lpstub_start, align 8
+  %0 = ptrtoint ptr @__start_lpstub to i64
+  store i64 %0, ptr %lpstub_start, align 8
   %call = call i32 @dl_iterate_phdr(ptr noundef @_ZN4node12_GLOBAL__N_111FindMappingEP12dl_phdr_infomPv, ptr noundef %dl_params)
   %cmp = icmp eq i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end34
@@ -384,101 +385,101 @@ if.then:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %start = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 0
-  %0 = load i64, ptr %start, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %ref.tmp1, align 8
+  %1 = load i64, ptr %start, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %ref.tmp1, align 8
   %reference_sym = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 2
-  %2 = load i64, ptr %reference_sym, align 8
-  %3 = inttoptr i64 %2 to ptr
-  store ptr %3, ptr %ref.tmp2, align 8
+  %3 = load i64, ptr %reference_sym, align 8
+  %4 = inttoptr i64 %3 to ptr
+  store ptr %4, ptr %ref.tmp2, align 8
   %end = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 1
-  %4 = load i64, ptr %end, align 8
-  %5 = inttoptr i64 %4 to ptr
-  store ptr %5, ptr %ref.tmp3, align 8
+  %5 = load i64, ptr %end, align 8
+  %6 = inttoptr i64 %5 to ptr
+  store ptr %6, ptr %ref.tmp3, align 8
   call void @_ZN4node12_GLOBAL__N_15DebugIJPvS2_S2_EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   %reference_sym4 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 2
-  %6 = load i64, ptr %reference_sym4, align 8
+  %7 = load i64, ptr %reference_sym4, align 8
   %start5 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 0
-  store i64 %6, ptr %start5, align 8
-  %7 = load i64, ptr %lpstub_start, align 8
+  store i64 %7, ptr %start5, align 8
+  %8 = load i64, ptr %lpstub_start, align 8
   %start6 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 0
-  %8 = load i64, ptr %start6, align 8
-  %cmp7 = icmp ugt i64 %7, %8
+  %9 = load i64, ptr %start6, align 8
+  %cmp7 = icmp ugt i64 %8, %9
   br i1 %cmp7, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %9 = load i64, ptr %lpstub_start, align 8
+  %10 = load i64, ptr %lpstub_start, align 8
   %end8 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 1
-  %10 = load i64, ptr %end8, align 8
-  %cmp9 = icmp ule i64 %9, %10
+  %11 = load i64, ptr %end8, align 8
+  %cmp9 = icmp ule i64 %10, %11
   br i1 %cmp9, label %if.then10, label %if.end
 
 if.then10:                                        ; preds = %land.lhs.true
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
-  %11 = load i64, ptr %lpstub_start, align 8
-  %12 = inttoptr i64 %11 to ptr
-  store ptr %12, ptr %ref.tmp13, align 8
+  %12 = load i64, ptr %lpstub_start, align 8
+  %13 = inttoptr i64 %12 to ptr
+  store ptr %13, ptr %ref.tmp13, align 8
   call void @_ZN4node12_GLOBAL__N_15DebugIJPvEEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr noundef %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #3
-  %13 = load i64, ptr %lpstub_start, align 8
+  %14 = load i64, ptr %lpstub_start, align 8
   %end14 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 1
-  store i64 %13, ptr %end14, align 8
+  store i64 %14, ptr %end14, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then10, %land.lhs.true, %if.then
   %start15 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 0
-  %14 = load i64, ptr %start15, align 8
+  %15 = load i64, ptr %start15, align 8
   %end16 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 1
-  %15 = load i64, ptr %end16, align 8
-  %cmp17 = icmp ult i64 %14, %15
+  %16 = load i64, ptr %end16, align 8
+  %cmp17 = icmp ult i64 %15, %16
   br i1 %cmp17, label %if.then18, label %if.end33
 
 if.then18:                                        ; preds = %if.end
   %start19 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 0
-  %16 = load i64, ptr %start19, align 8
-  %call20 = call noundef i64 @_ZN4node12_GLOBAL__N_117hugepage_align_upEm(i64 noundef %16)
-  %17 = inttoptr i64 %call20 to ptr
-  store ptr %17, ptr %from, align 8
+  %17 = load i64, ptr %start19, align 8
+  %call20 = call noundef i64 @_ZN4node12_GLOBAL__N_117hugepage_align_upEm(i64 noundef %17)
+  %18 = inttoptr i64 %call20 to ptr
+  store ptr %18, ptr %from, align 8
   %end21 = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %dl_params, i32 0, i32 1
-  %18 = load i64, ptr %end21, align 8
-  %call22 = call noundef i64 @_ZN4node12_GLOBAL__N_119hugepage_align_downEm(i64 noundef %18)
-  %19 = inttoptr i64 %call22 to ptr
-  store ptr %19, ptr %to, align 8
+  %19 = load i64, ptr %end21, align 8
+  %call22 = call noundef i64 @_ZN4node12_GLOBAL__N_119hugepage_align_downEm(i64 noundef %19)
+  %20 = inttoptr i64 %call22 to ptr
+  store ptr %20, ptr %to, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23, ptr noundef @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24)
   call void @_ZN4node12_GLOBAL__N_15DebugIJRPcS3_EEEvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr noundef %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(8) %from, ptr noundef nonnull align 8 dereferenceable(8) %to)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #3
-  %20 = load ptr, ptr %from, align 8
-  %21 = load ptr, ptr %to, align 8
-  %cmp25 = icmp ult ptr %20, %21
+  %21 = load ptr, ptr %from, align 8
+  %22 = load ptr, ptr %to, align 8
+  %cmp25 = icmp ult ptr %21, %22
   br i1 %cmp25, label %if.then26, label %if.end32
 
 if.then26:                                        ; preds = %if.then18
-  %22 = load ptr, ptr %to, align 8
-  %23 = load ptr, ptr %from, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
+  %23 = load ptr, ptr %to, align 8
+  %24 = load ptr, ptr %from, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %24 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %div = udiv i64 %sub.ptr.sub, 2097152
   store i64 %div, ptr %pagecount, align 8
-  %24 = load i64, ptr %pagecount, align 8
-  %cmp27 = icmp ugt i64 %24, 0
+  %25 = load i64, ptr %pagecount, align 8
+  %cmp27 = icmp ugt i64 %25, 0
   br i1 %cmp27, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.then26
   %found_text_region = getelementptr inbounds %"struct.node::(anonymous namespace)::text_region", ptr %agg.result, i32 0, i32 2
   store i8 1, ptr %found_text_region, align 8
-  %25 = load ptr, ptr %from, align 8
+  %26 = load ptr, ptr %from, align 8
   %from29 = getelementptr inbounds %"struct.node::(anonymous namespace)::text_region", ptr %agg.result, i32 0, i32 0
-  store ptr %25, ptr %from29, align 8
-  %26 = load ptr, ptr %to, align 8
+  store ptr %26, ptr %from29, align 8
+  %27 = load ptr, ptr %to, align 8
   %to30 = getelementptr inbounds %"struct.node::(anonymous namespace)::text_region", ptr %agg.result, i32 0, i32 1
-  store ptr %26, ptr %to30, align 8
+  store ptr %27, ptr %to30, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.then26
@@ -494,11 +495,11 @@ if.end34:                                         ; preds = %if.end33, %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp35, ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
   %to38 = getelementptr inbounds %"struct.node::(anonymous namespace)::text_region", ptr %agg.result, i32 0, i32 1
-  %27 = load ptr, ptr %to38, align 8
+  %28 = load ptr, ptr %to38, align 8
   %from39 = getelementptr inbounds %"struct.node::(anonymous namespace)::text_region", ptr %agg.result, i32 0, i32 0
-  %28 = load ptr, ptr %from39, align 8
-  %sub.ptr.lhs.cast40 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast41 = ptrtoint ptr %28 to i64
+  %29 = load ptr, ptr %from39, align 8
+  %sub.ptr.lhs.cast40 = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast41 = ptrtoint ptr %29 to i64
   %sub.ptr.sub42 = sub i64 %sub.ptr.lhs.cast40, %sub.ptr.rhs.cast41
   %div43 = udiv i64 %sub.ptr.sub42, 2097152
   store i64 %div43, ptr %ref.tmp37, align 8
@@ -592,7 +593,8 @@ entry:
   %this1.i49 = load ptr, ptr %this.addr.i48, align 8
   %mem_.i50 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i49, i32 0, i32 1
   %14 = load ptr, ptr %mem_.i50, align 8
-  %cmp = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
+  %15 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %14, %15
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -602,38 +604,39 @@ if.end:                                           ; preds = %entry
   store ptr %nmem, ptr %this.addr.i45, align 8
   %this1.i46 = load ptr, ptr %this.addr.i45, align 8
   %mem_.i47 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i46, i32 0, i32 1
-  %15 = load ptr, ptr %mem_.i47, align 8
-  %16 = load ptr, ptr %r.addr, align 8
-  %from3 = getelementptr inbounds %"struct.node::(anonymous namespace)::text_region", ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %from3, align 8
-  %18 = load i64, ptr %size, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %17, i64 %18, i1 false)
-  %19 = load ptr, ptr %start, align 8
-  %20 = load i64, ptr %size, align 8
+  %16 = load ptr, ptr %mem_.i47, align 8
+  %17 = load ptr, ptr %r.addr, align 8
+  %from3 = getelementptr inbounds %"struct.node::(anonymous namespace)::text_region", ptr %17, i32 0, i32 0
+  %18 = load ptr, ptr %from3, align 8
+  %19 = load i64, ptr %size, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %18, i64 %19, i1 false)
+  %20 = load ptr, ptr %start, align 8
+  %21 = load i64, ptr %size, align 8
   store ptr %tmem, ptr %this.addr.i23, align 8
-  store ptr %19, ptr %start.addr.i, align 8
-  store i64 %20, ptr %size.addr.i, align 8
+  store ptr %20, ptr %start.addr.i, align 8
+  store i64 %21, ptr %size.addr.i, align 8
   store i32 7, ptr %prot.addr.i, align 4
   store i32 50, ptr %flags.addr.i, align 4
   store i32 -1, ptr %fd.addr.i, align 4
   store i64 0, ptr %offset.addr.i, align 8
   %this1.i24 = load ptr, ptr %this.addr.i23, align 8
-  %21 = load ptr, ptr %start.addr.i, align 8
-  %22 = load i64, ptr %size.addr.i, align 8
-  %23 = load i32, ptr %prot.addr.i, align 4
-  %24 = load i32, ptr %flags.addr.i, align 4
-  %25 = load i32, ptr %fd.addr.i, align 4
-  %26 = load i64, ptr %offset.addr.i, align 8
-  %call.i = call ptr @mmap64(ptr noundef %21, i64 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, i64 noundef %26) #3
+  %22 = load ptr, ptr %start.addr.i, align 8
+  %23 = load i64, ptr %size.addr.i, align 8
+  %24 = load i32, ptr %prot.addr.i, align 4
+  %25 = load i32, ptr %flags.addr.i, align 4
+  %26 = load i32, ptr %fd.addr.i, align 4
+  %27 = load i64, ptr %offset.addr.i, align 8
+  %call.i = call ptr @mmap64(ptr noundef %22, i64 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i64 noundef %27) #3
   %mem_.i25 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i24, i32 0, i32 1
   store ptr %call.i, ptr %mem_.i25, align 8
-  %27 = load i64, ptr %size.addr.i, align 8
-  store i64 %27, ptr %this1.i24, align 8
+  %28 = load i64, ptr %size.addr.i, align 8
+  store i64 %28, ptr %this1.i24, align 8
   store ptr %tmem, ptr %this.addr.i42, align 8
   %this1.i43 = load ptr, ptr %this.addr.i42, align 8
   %mem_.i44 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i43, i32 0, i32 1
-  %28 = load ptr, ptr %mem_.i44, align 8
-  %cmp5 = icmp eq ptr %28, inttoptr (i64 -1 to ptr)
+  %29 = load ptr, ptr %mem_.i44, align 8
+  %30 = inttoptr i64 -1 to ptr
+  %cmp5 = icmp eq ptr %29, %30
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
@@ -643,9 +646,9 @@ if.end7:                                          ; preds = %if.end
   store ptr %tmem, ptr %this.addr.i39, align 8
   %this1.i40 = load ptr, ptr %this.addr.i39, align 8
   %mem_.i41 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i40, i32 0, i32 1
-  %29 = load ptr, ptr %mem_.i41, align 8
-  %30 = load i64, ptr %size, align 8
-  %call9 = call i32 @madvise(ptr noundef %29, i64 noundef %30, i32 noundef 14) #3
+  %31 = load ptr, ptr %mem_.i41, align 8
+  %32 = load i64, ptr %size, align 8
+  %call9 = call i32 @madvise(ptr noundef %31, i64 noundef %32, i32 noundef 14) #3
   %cmp10 = icmp eq i32 %call9, -1
   br i1 %cmp10, label %if.then11, label %if.end12
 
@@ -653,16 +656,16 @@ if.then11:                                        ; preds = %if.end7
   br label %fail
 
 if.end12:                                         ; preds = %if.end7
-  %31 = load ptr, ptr %start, align 8
+  %33 = load ptr, ptr %start, align 8
   store ptr %nmem, ptr %this.addr.i36, align 8
   %this1.i37 = load ptr, ptr %this.addr.i36, align 8
   %mem_.i38 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i37, i32 0, i32 1
-  %32 = load ptr, ptr %mem_.i38, align 8
-  %33 = load i64, ptr %size, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %32, i64 %33, i1 false)
-  %34 = load ptr, ptr %start, align 8
+  %34 = load ptr, ptr %mem_.i38, align 8
   %35 = load i64, ptr %size, align 8
-  %call14 = call i32 @mprotect(ptr noundef %34, i64 noundef %35, i32 noundef 5) #3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %35, i1 false)
+  %36 = load ptr, ptr %start, align 8
+  %37 = load i64, ptr %size, align 8
+  %call14 = call i32 @mprotect(ptr noundef %36, i64 noundef %37, i32 noundef 5) #3
   %cmp15 = icmp eq i32 %call14, -1
   br i1 %cmp15, label %if.then16, label %if.end17
 
@@ -670,9 +673,9 @@ if.then16:                                        ; preds = %if.end12
   br label %fail
 
 if.end17:                                         ; preds = %if.end12
-  %36 = load ptr, ptr %start, align 8
-  %37 = load i64, ptr %size, align 8
-  call void @_ZN4node12_GLOBAL__N_116MemoryMapPointer7SetNameEPvmPKc(ptr noundef %36, i64 noundef %37, ptr noundef @.str.38)
+  %38 = load ptr, ptr %start, align 8
+  %39 = load i64, ptr %size, align 8
+  call void @_ZN4node12_GLOBAL__N_116MemoryMapPointer7SetNameEPvmPKc(ptr noundef %38, i64 noundef %39, ptr noundef @.str.38)
   store ptr %tmem, ptr %this.addr.i51, align 8
   %this1.i52 = load ptr, ptr %this.addr.i51, align 8
   %mem_.i53 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i52, i32 0, i32 1
@@ -684,8 +687,8 @@ if.end17:                                         ; preds = %if.end12
 
 fail:                                             ; preds = %if.then16, %if.then11, %if.then6, %if.then
   %call18 = call ptr @__errno_location() #11
-  %38 = load i32, ptr %call18, align 4
-  call void @_ZN4node12_GLOBAL__N_116PrintSystemErrorEi(i32 noundef %38)
+  %40 = load i32, ptr %call18, align 4
+  call void @_ZN4node12_GLOBAL__N_116PrintSystemErrorEi(i32 noundef %40)
   store i32 -1, ptr %retval, align 4
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -694,8 +697,8 @@ cleanup:                                          ; preds = %fail, %if.end17
   store ptr %tmem, ptr %this.addr.i54, align 8
   %this1.i55 = load ptr, ptr %this.addr.i54, align 8
   %mem_.i56 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i55, i32 0, i32 1
-  %39 = load ptr, ptr %mem_.i56, align 8
-  %cmp.i = icmp eq ptr %39, null
+  %41 = load ptr, ptr %mem_.i56, align 8
+  %cmp.i = icmp eq ptr %41, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cleanup
@@ -703,8 +706,9 @@ if.then.i:                                        ; preds = %cleanup
 
 if.end.i:                                         ; preds = %cleanup
   %mem_2.i = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i55, i32 0, i32 1
-  %40 = load ptr, ptr %mem_2.i, align 8
-  %cmp3.i = icmp eq ptr %40, inttoptr (i64 -1 to ptr)
+  %42 = load ptr, ptr %mem_2.i, align 8
+  %43 = inttoptr i64 -1 to ptr
+  %cmp3.i = icmp eq ptr %42, %43
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -712,9 +716,9 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %mem_6.i = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i55, i32 0, i32 1
-  %41 = load ptr, ptr %mem_6.i, align 8
-  %42 = load i64, ptr %this1.i55, align 8
-  %call.i57 = call i32 @munmap(ptr noundef %41, i64 noundef %42) #3
+  %44 = load ptr, ptr %mem_6.i, align 8
+  %45 = load i64, ptr %this1.i55, align 8
+  %call.i57 = call i32 @munmap(ptr noundef %44, i64 noundef %45) #3
   %cmp7.i = icmp eq i32 %call.i57, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.end9.i
 
@@ -723,16 +727,16 @@ if.then8.i:                                       ; preds = %if.end5.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %call10.i = call ptr @__errno_location() #11
-  %43 = load i32, ptr %call10.i, align 4
-  call void @_ZN4node12_GLOBAL__N_116PrintSystemErrorEi(i32 noundef %43)
+  %46 = load i32, ptr %call10.i, align 4
+  call void @_ZN4node12_GLOBAL__N_116PrintSystemErrorEi(i32 noundef %46)
   br label %_ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit
 
 _ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit: ; preds = %if.end9.i, %if.then8.i, %if.then4.i, %if.then.i
   store ptr %nmem, ptr %this.addr.i58, align 8
   %this1.i59 = load ptr, ptr %this.addr.i58, align 8
   %mem_.i60 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i59, i32 0, i32 1
-  %44 = load ptr, ptr %mem_.i60, align 8
-  %cmp.i61 = icmp eq ptr %44, null
+  %47 = load ptr, ptr %mem_.i60, align 8
+  %cmp.i61 = icmp eq ptr %47, null
   br i1 %cmp.i61, label %if.then.i73, label %if.end.i62
 
 if.then.i73:                                      ; preds = %_ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit
@@ -740,8 +744,9 @@ if.then.i73:                                      ; preds = %_ZN4node12_GLOBAL__
 
 if.end.i62:                                       ; preds = %_ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit
   %mem_2.i63 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i59, i32 0, i32 1
-  %45 = load ptr, ptr %mem_2.i63, align 8
-  %cmp3.i64 = icmp eq ptr %45, inttoptr (i64 -1 to ptr)
+  %48 = load ptr, ptr %mem_2.i63, align 8
+  %49 = inttoptr i64 -1 to ptr
+  %cmp3.i64 = icmp eq ptr %48, %49
   br i1 %cmp3.i64, label %if.then4.i72, label %if.end5.i65
 
 if.then4.i72:                                     ; preds = %if.end.i62
@@ -749,9 +754,9 @@ if.then4.i72:                                     ; preds = %if.end.i62
 
 if.end5.i65:                                      ; preds = %if.end.i62
   %mem_6.i66 = getelementptr inbounds %"class.node::(anonymous namespace)::MemoryMapPointer", ptr %this1.i59, i32 0, i32 1
-  %46 = load ptr, ptr %mem_6.i66, align 8
-  %47 = load i64, ptr %this1.i59, align 8
-  %call.i67 = call i32 @munmap(ptr noundef %46, i64 noundef %47) #3
+  %50 = load ptr, ptr %mem_6.i66, align 8
+  %51 = load i64, ptr %this1.i59, align 8
+  %call.i67 = call i32 @munmap(ptr noundef %50, i64 noundef %51) #3
   %cmp7.i68 = icmp eq i32 %call.i67, 0
   br i1 %cmp7.i68, label %if.then8.i71, label %if.end9.i69
 
@@ -760,13 +765,13 @@ if.then8.i71:                                     ; preds = %if.end5.i65
 
 if.end9.i69:                                      ; preds = %if.end5.i65
   %call10.i70 = call ptr @__errno_location() #11
-  %48 = load i32, ptr %call10.i70, align 4
-  call void @_ZN4node12_GLOBAL__N_116PrintSystemErrorEi(i32 noundef %48)
+  %52 = load i32, ptr %call10.i70, align 4
+  call void @_ZN4node12_GLOBAL__N_116PrintSystemErrorEi(i32 noundef %52)
   br label %_ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit74
 
 _ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit74: ; preds = %if.end9.i69, %if.then8.i71, %if.then4.i72, %if.then.i73
-  %49 = load i32, ptr %retval, align 4
-  ret i32 %49
+  %53 = load i32, ptr %retval, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -884,7 +889,8 @@ entry:
   %end = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %this1, i32 0, i32 1
   store i64 0, ptr %end, align 8
   %reference_sym = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %this1, i32 0, i32 2
-  store i64 ptrtoint (ptr @__node_text_start to i64), ptr %reference_sym, align 8
+  %0 = ptrtoint ptr @__node_text_start to i64
+  store i64 %0, ptr %reference_sym, align 8
   %exename = getelementptr inbounds %"struct.node::(anonymous namespace)::dl_iterate_params", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %exename) #3
   ret void
@@ -3928,21 +3934,22 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %mem.addr, align 8
-  %cmp = icmp ne ptr %0, inttoptr (i64 -1 to ptr)
+  %1 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %0, %1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %mem.addr, align 8
-  %cmp1 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %mem.addr, align 8
+  %cmp1 = icmp ne ptr %2, null
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %mem.addr, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %4 = load i64, ptr %size.addr, align 8
-  %5 = load ptr, ptr %name.addr, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %call = call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %3, i64 noundef %4, i64 noundef %6) #3
+  %3 = load ptr, ptr %mem.addr, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = load i64, ptr %size.addr, align 8
+  %6 = load ptr, ptr %name.addr, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %call = call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %4, i64 noundef %5, i64 noundef %7) #3
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry

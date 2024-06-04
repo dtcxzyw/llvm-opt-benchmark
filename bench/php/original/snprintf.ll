@@ -633,7 +633,7 @@ define i32 @ap_php_slprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...)
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %9)
+  call void @llvm.va_start.p0(ptr %9)
   %10 = load ptr, ptr %4, align 8
   %11 = load i64, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
@@ -641,7 +641,7 @@ define i32 @ap_php_slprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...)
   %14 = call i64 @strx_printv(ptr noundef %10, i64 noundef %11, ptr noundef %12, ptr noundef %13)
   store i64 %14, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %15)
+  call void @llvm.va_end.p0(ptr %15)
   %16 = load i64, ptr %7, align 8
   %17 = load i64, ptr %5, align 8
   %18 = icmp uge i64 %16, %17
@@ -663,9 +663,6 @@ define i32 @ap_php_slprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...)
   ret i32 %27
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: nounwind uwtable
 define internal i64 @strx_printv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
@@ -680,57 +677,56 @@ define internal i64 @strx_printv(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   store ptr %3, ptr %8, align 8
   %11 = load i64, ptr %6, align 8
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %16
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 0
-  store ptr inttoptr (i64 -1 to ptr), ptr %14, align 8
-  %15 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 1
-  store ptr inttoptr (i64 -1 to ptr), ptr %15, align 8
-  br label %24
+  %15 = inttoptr i64 -1 to ptr
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 1
+  %17 = inttoptr i64 -1 to ptr
+  store ptr %17, ptr %16, align 8
+  br label %26
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i64, ptr %6, align 8
-  %19 = sub i64 %18, 1
-  %20 = getelementptr inbounds i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 0
-  store ptr %20, ptr %21, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 1
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i64, ptr %6, align 8
+  %21 = sub i64 %20, 1
+  %22 = getelementptr inbounds i8, ptr %19, i64 %21
+  %23 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 0
   store ptr %22, ptr %23, align 8
-  br label %24
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 1
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-24:                                               ; preds = %16, %13
-  %25 = load ptr, ptr %7, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = call i64 @format_converter(ptr noundef %9, ptr noundef %25, ptr noundef %26)
-  store i64 %27, ptr %10, align 8
-  %28 = load i64, ptr %6, align 8
-  %29 = icmp ne i64 %28, 0
-  br i1 %29, label %30, label %39
+26:                                               ; preds = %18, %13
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = call i64 @format_converter(ptr noundef %9, ptr noundef %27, ptr noundef %28)
+  store i64 %29, ptr %10, align 8
+  %30 = load i64, ptr %6, align 8
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %41
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 0
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 1
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp ule ptr %32, %34
-  br i1 %35, label %36, label %39
+  %35 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ule ptr %34, %36
+  br i1 %37, label %38, label %41
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  store i8 0, ptr %38, align 1
-  br label %39
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds %struct.buf_area, ptr %9, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  store i8 0, ptr %40, align 1
+  br label %41
 
-39:                                               ; preds = %36, %30, %24
-  %40 = load i64, ptr %10, align 8
-  ret i64 %40
+41:                                               ; preds = %38, %32, %26
+  %42 = load i64, ptr %10, align 8
+  ret i64 %42
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @ap_php_vslprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -781,7 +777,7 @@ define i32 @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...)
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %9)
+  call void @llvm.va_start.p0(ptr %9)
   %10 = load ptr, ptr %4, align 8
   %11 = load i64, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
@@ -789,7 +785,7 @@ define i32 @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...)
   %14 = call i64 @strx_printv(ptr noundef %10, i64 noundef %11, ptr noundef %12, ptr noundef %13)
   store i64 %14, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %15)
+  call void @llvm.va_end.p0(ptr %15)
   %16 = load i64, ptr %7, align 8
   %17 = trunc i64 %16 to i32
   ret i32 %17
@@ -829,13 +825,13 @@ define i32 @ap_php_vasprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %10 = load ptr, ptr %6, align 8
-  call void @llvm.va_copy(ptr %9, ptr %10)
+  call void @llvm.va_copy.p0(ptr %9, ptr %10)
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %13 = call i32 @ap_php_vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %11, ptr noundef %12)
   store i32 %13, ptr %8, align 4
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %14)
+  call void @llvm.va_end.p0(ptr %14)
   %15 = load ptr, ptr %4, align 8
   store ptr null, ptr %15, align 8
   %16 = load i32, ptr %8, align 4
@@ -884,11 +880,8 @@ define i32 @ap_php_vasprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   ret i32 %41
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #5
-
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #6
+declare noalias ptr @malloc(i64 noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @ap_php_asprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
@@ -899,14 +892,14 @@ define i32 @ap_php_asprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %11 = call i32 @vasprintf(ptr noundef %8, ptr noundef %9, ptr noundef %10) #13
   store i32 %11, ptr %5, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i32, ptr %5, align 4
   ret i32 %13
 }
@@ -1133,14 +1126,14 @@ define internal ptr @__cvt(double noundef %0, i32 noundef %1, ptr noundef %2, pt
   ret ptr %133
 }
 
-declare ptr @zend_dtoa(double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare ptr @zend_dtoa(double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @zend_freedtoa(ptr noundef) #7
+declare void @zend_freedtoa(ptr noundef) #6
 
 ; Function Attrs: nounwind
 declare noalias ptr @strdup(ptr noundef) #4
 
-declare i64 @php_strlcpy(ptr noundef, ptr noundef, i64 noundef) #7
+declare i64 @php_strlcpy(ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @format_converter(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -3715,45 +3708,54 @@ define internal i64 @format_converter(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: noreturn
-declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) #8
+declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare ptr @llvm.ptrmask.p0.i64(ptr, i64) #9
+declare ptr @llvm.ptrmask.p0.i64(ptr, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #9
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() #4
 
-declare ptr @zend_gcvt(double noundef, i32 noundef, i8 noundef signext, i8 noundef signext, ptr noundef) #7
+declare ptr @zend_gcvt(double noundef, i32 noundef, i8 noundef signext, i8 noundef signext, ptr noundef) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare ptr @strchr(ptr noundef, i32 noundef) #2
 
-declare void @zend_error(i32 noundef, ptr noundef, ...) #7
+declare void @zend_error(i32 noundef, ptr noundef, ...) #6
 
-declare ptr @zval_get_string_func(ptr noundef) #7
+declare ptr @zval_get_string_func(ptr noundef) #6
 
-declare void @_efree(ptr noundef) #7
+declare void @_efree(ptr noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind willreturn memory(none) }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind }

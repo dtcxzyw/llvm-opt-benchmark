@@ -1279,26 +1279,27 @@ lpad:                                             ; preds = %if.else
 if.end:                                           ; preds = %invoke.cont, %if.then
   store ptr @_ZZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEEE19kReservedIPv4Ranges, ptr %__range1, align 8
   store ptr @_ZZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEEE19kReservedIPv4Ranges, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEEE19kReservedIPv4Ranges, i64 13), ptr %__end1, align 8
+  %3 = getelementptr inbounds %struct.anon, ptr @_ZZN12_GLOBAL__N_114IsReservedIPv4ERKSt6vectorIhSaIhEEE19kReservedIPv4Ranges, i64 13
+  store ptr %3, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %3 = load ptr, ptr %__begin1, align 8
-  %4 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %3, %4
+  %4 = load ptr, ptr %__begin1, align 8
+  %5 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %4, %5
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %__begin1, align 8
-  store ptr %5, ptr %range, align 8
-  %6 = load ptr, ptr %ip_address.addr, align 8
-  %7 = load ptr, ptr %range, align 8
-  %address = getelementptr inbounds %struct.anon, ptr %7, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [4 x i8], ptr %address, i64 0, i64 0
+  %6 = load ptr, ptr %__begin1, align 8
+  store ptr %6, ptr %range, align 8
+  %7 = load ptr, ptr %ip_address.addr, align 8
   %8 = load ptr, ptr %range, align 8
-  %prefix_length_in_bits = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 1
-  %9 = load i64, ptr %prefix_length_in_bits, align 8
-  %call3 = call noundef zeroext i1 @_ZN12_GLOBAL__N_120IPAddressPrefixCheckERKSt6vectorIhSaIhEEPKhm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %arraydecay, i64 noundef %9)
+  %address = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 0
+  %arraydecay = getelementptr inbounds [4 x i8], ptr %address, i64 0, i64 0
+  %9 = load ptr, ptr %range, align 8
+  %prefix_length_in_bits = getelementptr inbounds %struct.anon, ptr %9, i32 0, i32 1
+  %10 = load i64, ptr %prefix_length_in_bits, align 8
+  %call3 = call noundef zeroext i1 @_ZN12_GLOBAL__N_120IPAddressPrefixCheckERKSt6vectorIhSaIhEEPKhm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %arraydecay, i64 noundef %10)
   br i1 %call3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %for.body
@@ -1309,8 +1310,8 @@ if.end5:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end5
-  %10 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %10, i32 1
+  %11 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %11, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -1319,8 +1320,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then4
-  %11 = load i1, ptr %retval, align 1
-  ret i1 %11
+  %12 = load i1, ptr %retval, align 1
+  ret i1 %12
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -1374,26 +1375,27 @@ lpad:                                             ; preds = %if.else
 if.end:                                           ; preds = %invoke.cont, %if.then
   store ptr @_ZZN12_GLOBAL__N_114IsReservedIPv6ERKSt6vectorIhSaIhEEE17kPublicIPv6Ranges, ptr %__range1, align 8
   store ptr @_ZZN12_GLOBAL__N_114IsReservedIPv6ERKSt6vectorIhSaIhEEE17kPublicIPv6Ranges, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.anon.9, ptr @_ZZN12_GLOBAL__N_114IsReservedIPv6ERKSt6vectorIhSaIhEEE17kPublicIPv6Ranges, i64 2), ptr %__end1, align 8
+  %3 = getelementptr inbounds %struct.anon.9, ptr @_ZZN12_GLOBAL__N_114IsReservedIPv6ERKSt6vectorIhSaIhEEE17kPublicIPv6Ranges, i64 2
+  store ptr %3, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %3 = load ptr, ptr %__begin1, align 8
-  %4 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %3, %4
+  %4 = load ptr, ptr %__begin1, align 8
+  %5 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %4, %5
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %__begin1, align 8
-  store ptr %5, ptr %range, align 8
-  %6 = load ptr, ptr %ip_address.addr, align 8
-  %7 = load ptr, ptr %range, align 8
-  %address_prefix = getelementptr inbounds %struct.anon.9, ptr %7, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [2 x i8], ptr %address_prefix, i64 0, i64 0
+  %6 = load ptr, ptr %__begin1, align 8
+  store ptr %6, ptr %range, align 8
+  %7 = load ptr, ptr %ip_address.addr, align 8
   %8 = load ptr, ptr %range, align 8
-  %prefix_length_in_bits = getelementptr inbounds %struct.anon.9, ptr %8, i32 0, i32 1
-  %9 = load i64, ptr %prefix_length_in_bits, align 8
-  %call3 = call noundef zeroext i1 @_ZN12_GLOBAL__N_120IPAddressPrefixCheckERKSt6vectorIhSaIhEEPKhm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %arraydecay, i64 noundef %9)
+  %address_prefix = getelementptr inbounds %struct.anon.9, ptr %8, i32 0, i32 0
+  %arraydecay = getelementptr inbounds [2 x i8], ptr %address_prefix, i64 0, i64 0
+  %9 = load ptr, ptr %range, align 8
+  %prefix_length_in_bits = getelementptr inbounds %struct.anon.9, ptr %9, i32 0, i32 1
+  %10 = load i64, ptr %prefix_length_in_bits, align 8
+  %call3 = call noundef zeroext i1 @_ZN12_GLOBAL__N_120IPAddressPrefixCheckERKSt6vectorIhSaIhEEPKhm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %arraydecay, i64 noundef %10)
   br i1 %call3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %for.body
@@ -1404,8 +1406,8 @@ if.end5:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end5
-  %10 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.anon.9, ptr %10, i32 1
+  %11 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.anon.9, ptr %11, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -1414,8 +1416,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then4
-  %11 = load i1, ptr %retval, align 1
-  ret i1 %11
+  %12 = load i1, ptr %retval, align 1
+  ret i1 %12
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

@@ -458,7 +458,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   store i32 %4, ptr %10, align 4
   %14 = load i8, ptr @track_io_timing, align 1
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %94
+  br i1 %15, label %16, label %103
 
 16:                                               ; preds = %5
   %17 = call i64 @pg_clock_gettime_ns()
@@ -478,7 +478,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
 26:                                               ; preds = %16
   %27 = load i32, ptr %9, align 4
   %28 = icmp eq i32 %27, 1
-  br i1 %28, label %29, label %52
+  br i1 %28, label %29, label %56
 
 29:                                               ; preds = %26, %16
   %30 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
@@ -489,112 +489,122 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   store i64 %34, ptr @pgStatBlockWriteTime, align 8
   %35 = load i32, ptr %7, align 4
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %42
+  br i1 %36, label %37, label %44
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
   %39 = load i64, ptr %38, align 8
-  %40 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 11), align 8
-  %41 = add i64 %40, %39
-  store i64 %41, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 11), align 8
-  br label %51
+  %40 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 11
+  %41 = load i64, ptr %40, align 8
+  %42 = add i64 %41, %39
+  %43 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 11
+  store i64 %42, ptr %43, align 8
+  br label %55
 
-42:                                               ; preds = %29
-  %43 = load i32, ptr %7, align 4
-  %44 = icmp eq i32 %43, 1
-  br i1 %44, label %45, label %50
+44:                                               ; preds = %29
+  %45 = load i32, ptr %7, align 4
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %54
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
-  %47 = load i64, ptr %46, align 8
-  %48 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 13), align 8
-  %49 = add i64 %48, %47
-  store i64 %49, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 13), align 8
-  br label %50
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 13
+  %51 = load i64, ptr %50, align 8
+  %52 = add i64 %51, %49
+  %53 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 13
+  store i64 %52, ptr %53, align 8
+  br label %54
 
-50:                                               ; preds = %45, %42
-  br label %51
+54:                                               ; preds = %47, %44
+  br label %55
 
-51:                                               ; preds = %50, %37
-  br label %79
+55:                                               ; preds = %54, %37
+  br label %87
 
-52:                                               ; preds = %26
-  %53 = load i32, ptr %9, align 4
-  %54 = icmp eq i32 %53, 4
-  br i1 %54, label %55, label %78
+56:                                               ; preds = %26
+  %57 = load i32, ptr %9, align 4
+  %58 = icmp eq i32 %57, 4
+  br i1 %58, label %59, label %86
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
-  %57 = load i64, ptr %56, align 8
-  %58 = sdiv i64 %57, 1000
-  %59 = load i64, ptr @pgStatBlockReadTime, align 8
-  %60 = add i64 %59, %58
-  store i64 %60, ptr @pgStatBlockReadTime, align 8
-  %61 = load i32, ptr %7, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %68
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8
+  %62 = sdiv i64 %61, 1000
+  %63 = load i64, ptr @pgStatBlockReadTime, align 8
+  %64 = add i64 %63, %62
+  store i64 %64, ptr @pgStatBlockReadTime, align 8
+  %65 = load i32, ptr %7, align 4
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %74
 
-63:                                               ; preds = %55
-  %64 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
-  %65 = load i64, ptr %64, align 8
-  %66 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 10), align 8
-  %67 = add i64 %66, %65
-  store i64 %67, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 10), align 8
-  br label %77
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 10
+  %71 = load i64, ptr %70, align 8
+  %72 = add i64 %71, %69
+  %73 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 10
+  store i64 %72, ptr %73, align 8
+  br label %85
 
-68:                                               ; preds = %55
-  %69 = load i32, ptr %7, align 4
-  %70 = icmp eq i32 %69, 1
-  br i1 %70, label %71, label %76
+74:                                               ; preds = %59
+  %75 = load i32, ptr %7, align 4
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %77, label %84
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
-  %73 = load i64, ptr %72, align 8
-  %74 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 12), align 8
-  %75 = add i64 %74, %73
-  store i64 %75, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 12), align 8
-  br label %76
-
-76:                                               ; preds = %71, %68
-  br label %77
-
-77:                                               ; preds = %76, %63
-  br label %78
-
-78:                                               ; preds = %77, %52
-  br label %79
-
-79:                                               ; preds = %78, %51
-  %80 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 12
   %81 = load i64, ptr %80, align 8
-  %82 = load i32, ptr %7, align 4
-  %83 = zext i32 %82 to i64
-  %84 = getelementptr [2 x [4 x [8 x %struct.instr_time]]], ptr getelementptr inbounds (%struct.PgStat_PendingIO, ptr @PendingIOStats, i32 0, i32 1), i64 0, i64 %83
-  %85 = load i32, ptr %8, align 4
-  %86 = zext i32 %85 to i64
-  %87 = getelementptr [4 x [8 x %struct.instr_time]], ptr %84, i64 0, i64 %86
-  %88 = load i32, ptr %9, align 4
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr [8 x %struct.instr_time], ptr %87, i64 0, i64 %89
-  %91 = getelementptr inbounds %struct.instr_time, ptr %90, i32 0, i32 0
-  %92 = load i64, ptr %91, align 8
-  %93 = add i64 %92, %81
-  store i64 %93, ptr %91, align 8
-  br label %94
+  %82 = add i64 %81, %79
+  %83 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 12
+  store i64 %82, ptr %83, align 8
+  br label %84
 
-94:                                               ; preds = %79, %5
-  %95 = load i32, ptr %7, align 4
-  %96 = load i32, ptr %8, align 4
+84:                                               ; preds = %77, %74
+  br label %85
+
+85:                                               ; preds = %84, %67
+  br label %86
+
+86:                                               ; preds = %85, %56
+  br label %87
+
+87:                                               ; preds = %86, %55
+  %88 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
+  %89 = load i64, ptr %88, align 8
+  %90 = load i32, ptr %7, align 4
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds %struct.PgStat_PendingIO, ptr @PendingIOStats, i32 0, i32 1
+  %93 = getelementptr [2 x [4 x [8 x %struct.instr_time]]], ptr %92, i64 0, i64 %91
+  %94 = load i32, ptr %8, align 4
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr [4 x [8 x %struct.instr_time]], ptr %93, i64 0, i64 %95
   %97 = load i32, ptr %9, align 4
-  %98 = load i32, ptr %10, align 4
-  call void @pgstat_count_io_op_n(i32 noundef %95, i32 noundef %96, i32 noundef %97, i32 noundef %98)
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr [8 x %struct.instr_time], ptr %96, i64 0, i64 %98
+  %100 = getelementptr inbounds %struct.instr_time, ptr %99, i32 0, i32 0
+  %101 = load i64, ptr %100, align 8
+  %102 = add i64 %101, %89
+  store i64 %102, ptr %100, align 8
+  br label %103
+
+103:                                              ; preds = %87, %5
+  %104 = load i32, ptr %7, align 4
+  %105 = load i32, ptr %8, align 4
+  %106 = load i32, ptr %9, align 4
+  %107 = load i32, ptr %10, align 4
+  call void @pgstat_count_io_op_n(i32 noundef %104, i32 noundef %105, i32 noundef %106, i32 noundef %107)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pgstat_fetch_stat_io() #0 {
   call void @pgstat_snapshot_fixed(i32 noundef 9)
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 6)
+  %1 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 6
+  ret ptr %1
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) #2
@@ -617,7 +627,7 @@ define dso_local zeroext i1 @pgstat_flush_io(i1 noundef zeroext %0) #0 {
 
 13:                                               ; preds = %1
   store i1 false, ptr %2, align 1
-  br label %112
+  br label %113
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr @pgStatLocal, align 8
@@ -651,7 +661,7 @@ define dso_local zeroext i1 @pgstat_flush_io(i1 noundef zeroext %0) #0 {
 
 36:                                               ; preds = %33
   store i1 true, ptr %2, align 1
-  br label %112
+  br label %113
 
 37:                                               ; preds = %33
   br label %38
@@ -660,28 +670,28 @@ define dso_local zeroext i1 @pgstat_flush_io(i1 noundef zeroext %0) #0 {
   store i32 0, ptr %6, align 4
   br label %39
 
-39:                                               ; preds = %107, %38
+39:                                               ; preds = %108, %38
   %40 = load i32, ptr %6, align 4
   %41 = icmp slt i32 %40, 2
-  br i1 %41, label %42, label %110
+  br i1 %41, label %42, label %111
 
 42:                                               ; preds = %39
   store i32 0, ptr %7, align 4
   br label %43
 
-43:                                               ; preds = %103, %42
+43:                                               ; preds = %104, %42
   %44 = load i32, ptr %7, align 4
   %45 = icmp slt i32 %44, 4
-  br i1 %45, label %46, label %106
+  br i1 %45, label %46, label %107
 
 46:                                               ; preds = %43
   store i32 0, ptr %8, align 4
   br label %47
 
-47:                                               ; preds = %99, %46
+47:                                               ; preds = %100, %46
   %48 = load i32, ptr %8, align 4
   %49 = icmp slt i32 %48, 8
-  br i1 %49, label %50, label %102
+  br i1 %49, label %50, label %103
 
 50:                                               ; preds = %47
   %51 = load i32, ptr %6, align 4
@@ -710,68 +720,69 @@ define dso_local zeroext i1 @pgstat_flush_io(i1 noundef zeroext %0) #0 {
   store i64 %73, ptr %71, align 8
   %74 = load i32, ptr %6, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [2 x [4 x [8 x %struct.instr_time]]], ptr getelementptr inbounds (%struct.PgStat_PendingIO, ptr @PendingIOStats, i32 0, i32 1), i64 0, i64 %75
-  %77 = load i32, ptr %7, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr [4 x [8 x %struct.instr_time]], ptr %76, i64 0, i64 %78
-  %80 = load i32, ptr %8, align 4
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr [8 x %struct.instr_time], ptr %79, i64 0, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %82, i64 8, i1 false)
-  %83 = getelementptr inbounds %struct.instr_time, ptr %9, i32 0, i32 0
-  %84 = load i64, ptr %83, align 8
-  %85 = sdiv i64 %84, 1000
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.PgStat_BktypeIO, ptr %86, i32 0, i32 1
-  %88 = load i32, ptr %6, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr [2 x [4 x [8 x i64]]], ptr %87, i64 0, i64 %89
-  %91 = load i32, ptr %7, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr [4 x [8 x i64]], ptr %90, i64 0, i64 %92
-  %94 = load i32, ptr %8, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr [8 x i64], ptr %93, i64 0, i64 %95
-  %97 = load i64, ptr %96, align 8
-  %98 = add i64 %97, %85
-  store i64 %98, ptr %96, align 8
-  br label %99
+  %76 = getelementptr inbounds %struct.PgStat_PendingIO, ptr @PendingIOStats, i32 0, i32 1
+  %77 = getelementptr [2 x [4 x [8 x %struct.instr_time]]], ptr %76, i64 0, i64 %75
+  %78 = load i32, ptr %7, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr [4 x [8 x %struct.instr_time]], ptr %77, i64 0, i64 %79
+  %81 = load i32, ptr %8, align 4
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr [8 x %struct.instr_time], ptr %80, i64 0, i64 %82
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %83, i64 8, i1 false)
+  %84 = getelementptr inbounds %struct.instr_time, ptr %9, i32 0, i32 0
+  %85 = load i64, ptr %84, align 8
+  %86 = sdiv i64 %85, 1000
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds %struct.PgStat_BktypeIO, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %6, align 4
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr [2 x [4 x [8 x i64]]], ptr %88, i64 0, i64 %90
+  %92 = load i32, ptr %7, align 4
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr [4 x [8 x i64]], ptr %91, i64 0, i64 %93
+  %95 = load i32, ptr %8, align 4
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr [8 x i64], ptr %94, i64 0, i64 %96
+  %98 = load i64, ptr %97, align 8
+  %99 = add i64 %98, %86
+  store i64 %99, ptr %97, align 8
+  br label %100
 
-99:                                               ; preds = %50
-  %100 = load i32, ptr %8, align 4
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %8, align 4
+100:                                              ; preds = %50
+  %101 = load i32, ptr %8, align 4
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %8, align 4
   br label %47, !llvm.loop !9
 
-102:                                              ; preds = %47
-  br label %103
+103:                                              ; preds = %47
+  br label %104
 
-103:                                              ; preds = %102
-  %104 = load i32, ptr %7, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %7, align 4
+104:                                              ; preds = %103
+  %105 = load i32, ptr %7, align 4
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %7, align 4
   br label %43, !llvm.loop !10
 
-106:                                              ; preds = %43
-  br label %107
+107:                                              ; preds = %43
+  br label %108
 
-107:                                              ; preds = %106
-  %108 = load i32, ptr %6, align 4
-  %109 = add i32 %108, 1
-  store i32 %109, ptr %6, align 4
+108:                                              ; preds = %107
+  %109 = load i32, ptr %6, align 4
+  %110 = add i32 %109, 1
+  store i32 %110, ptr %6, align 4
   br label %39, !llvm.loop !11
 
-110:                                              ; preds = %39
-  %111 = load ptr, ptr %4, align 8
-  call void @LWLockRelease(ptr noundef %111)
+111:                                              ; preds = %39
+  %112 = load ptr, ptr %4, align 8
+  call void @LWLockRelease(ptr noundef %112)
   call void @llvm.memset.p0.i64(ptr align 8 @PendingIOStats, i8 0, i64 1024, i1 false)
   store i8 0, ptr @have_iostats, align 1
   store i1 false, ptr %2, align 1
-  br label %112
+  br label %113
 
-112:                                              ; preds = %110, %36, %13
-  %113 = load i1, ptr %2, align 1
-  ret i1 %113
+113:                                              ; preds = %111, %36, %13
+  %114 = load i1, ptr %2, align 1
+  ret i1 %114
 }
 
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) #2
@@ -974,10 +985,10 @@ define dso_local void @pgstat_io_snapshot_cb() #0 {
   store i32 0, ptr %1, align 4
   br label %5
 
-5:                                                ; preds = %39, %0
+5:                                                ; preds = %41, %0
   %6 = load i32, ptr %1, align 4
   %7 = icmp slt i32 %6, 16
-  br i1 %7, label %8, label %42
+  br i1 %7, label %8, label %44
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @pgStatLocal, align 8
@@ -997,38 +1008,40 @@ define dso_local void @pgstat_io_snapshot_cb() #0 {
   store ptr %21, ptr %3, align 8
   %22 = load i32, ptr %1, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 6, i32 1), i64 0, i64 %23
-  store ptr %24, ptr %4, align 8
-  %25 = load ptr, ptr %2, align 8
-  %26 = call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 1)
-  %27 = load i32, ptr %1, align 4
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %35
+  %24 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 6, i32 1
+  %25 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr %24, i64 0, i64 %23
+  store ptr %25, ptr %4, align 8
+  %26 = load ptr, ptr %2, align 8
+  %27 = call zeroext i1 @LWLockAcquire(ptr noundef %26, i32 noundef 1)
+  %28 = load i32, ptr %1, align 4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %37
 
-29:                                               ; preds = %8
-  %30 = load ptr, ptr @pgStatLocal, align 8
-  %31 = getelementptr inbounds %struct.PgStat_ShmemControl, ptr %30, i32 0, i32 7
-  %32 = getelementptr inbounds %struct.PgStatShared_IO, ptr %31, i32 0, i32 1
-  %33 = getelementptr inbounds %struct.PgStat_IO, ptr %32, i32 0, i32 0
-  %34 = load i64, ptr %33, align 8
-  store i64 %34, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 6), align 8
-  br label %35
+30:                                               ; preds = %8
+  %31 = load ptr, ptr @pgStatLocal, align 8
+  %32 = getelementptr inbounds %struct.PgStat_ShmemControl, ptr %31, i32 0, i32 7
+  %33 = getelementptr inbounds %struct.PgStatShared_IO, ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds %struct.PgStat_IO, ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 6
+  store i64 %35, ptr %36, align 8
+  br label %37
 
-35:                                               ; preds = %29, %8
-  %36 = load ptr, ptr %4, align 8
-  %37 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %37, i64 1024, i1 false)
-  %38 = load ptr, ptr %2, align 8
-  call void @LWLockRelease(ptr noundef %38)
-  br label %39
+37:                                               ; preds = %30, %8
+  %38 = load ptr, ptr %4, align 8
+  %39 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %39, i64 1024, i1 false)
+  %40 = load ptr, ptr %2, align 8
+  call void @LWLockRelease(ptr noundef %40)
+  br label %41
 
-39:                                               ; preds = %35
-  %40 = load i32, ptr %1, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %1, align 4
+41:                                               ; preds = %37
+  %42 = load i32, ptr %1, align 4
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %1, align 4
   br label %5, !llvm.loop !13
 
-42:                                               ; preds = %5
+44:                                               ; preds = %5
   ret void
 }
 

@@ -85,21 +85,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr getelementptr inbounds ([66 x ptr], ptr @_ZN12_GLOBAL__N_112errorStringsE, i64 0, i64 65), align 8
-  store ptr %2, ptr %retval, align 8
+  %2 = getelementptr inbounds [66 x ptr], ptr @_ZN12_GLOBAL__N_112errorStringsE, i64 0, i64 65
+  %3 = load ptr, ptr %2, align 8
+  store ptr %3, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %3 = load i32, ptr %error.addr, align 4
-  %idxprom = zext i32 %3 to i64
+  %4 = load i32, ptr %error.addr, align 4
+  %idxprom = zext i32 %4 to i64
   %arrayidx = getelementptr inbounds [66 x ptr], ptr @_ZN12_GLOBAL__N_112errorStringsE, i64 0, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %retval, align 8
+  %5 = load ptr, ptr %arrayidx, align 8
+  store ptr %5, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+  %6 = load ptr, ptr %retval, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

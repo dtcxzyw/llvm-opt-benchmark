@@ -856,41 +856,43 @@ define void @oids_init() #0 {
 define internal void @prepopulate_oids() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct._oid_info_t, ptr @oid_root, i32 0, i32 3), align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %18, label %5
+  %3 = getelementptr inbounds %struct._oid_info_t, ptr @oid_root, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %20, label %6
 
-5:                                                ; preds = %0
-  %6 = call ptr @getenv(ptr noundef @.str.25) #5
-  store ptr %6, ptr %1, align 8
-  %7 = load ptr, ptr %1, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %13
+6:                                                ; preds = %0
+  %7 = call ptr @getenv(ptr noundef @.str.25) #5
+  store ptr %7, ptr %1, align 8
+  %8 = load ptr, ptr %1, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8
-  %11 = call i64 @strtoul(ptr noundef %10, ptr noundef null, i32 noundef 10) #5
-  %12 = trunc i64 %11 to i32
-  br label %14
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %1, align 8
+  %12 = call i64 @strtoul(ptr noundef %11, ptr noundef null, i32 noundef 10) #5
+  %13 = trunc i64 %12 to i32
+  br label %15
 
-13:                                               ; preds = %5
-  br label %14
+14:                                               ; preds = %6
+  br label %15
 
-14:                                               ; preds = %13, %9
-  %15 = phi i32 [ %12, %9 ], [ 0, %13 ]
-  store i32 %15, ptr @debuglevel, align 4
-  %16 = call ptr @wmem_epan_scope()
-  %17 = call noalias ptr @wmem_tree_new(ptr noundef %16)
-  store ptr %17, ptr getelementptr inbounds (%struct._oid_info_t, ptr @oid_root, i32 0, i32 3), align 8
+15:                                               ; preds = %14, %10
+  %16 = phi i32 [ %13, %10 ], [ 0, %14 ]
+  store i32 %16, ptr @debuglevel, align 4
+  %17 = call ptr @wmem_epan_scope()
+  %18 = call noalias ptr @wmem_tree_new(ptr noundef %17)
+  %19 = getelementptr inbounds %struct._oid_info_t, ptr @oid_root, i32 0, i32 3
+  store ptr %18, ptr %19, align 8
   store i32 0, ptr %2, align 4
   call void @oid_add(ptr noundef @.str.26, i32 noundef 1, ptr noundef %2)
   store i32 1, ptr %2, align 4
   call void @oid_add(ptr noundef @.str.27, i32 noundef 1, ptr noundef %2)
   store i32 2, ptr %2, align 4
   call void @oid_add(ptr noundef @.str.28, i32 noundef 1, ptr noundef %2)
-  br label %18
+  br label %20
 
-18:                                               ; preds = %14, %0
+20:                                               ; preds = %15, %0
   ret void
 }
 

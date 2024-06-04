@@ -9,10 +9,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @redisLrand48() #0 {
 entry:
   call void @next()
-  %0 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 2), align 4
-  %shl = shl i32 %0, 15
-  %1 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 1), align 4
-  %shr = lshr i32 %1, 1
+  %0 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 2
+  %1 = load i32, ptr %0, align 4
+  %shl = shl i32 %1, 15
+  %2 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 1
+  %3 = load i32, ptr %2, align 4
+  %shr = lshr i32 %3, 1
   %add = add i32 %shl, %shr
   ret i32 %add
 }
@@ -78,97 +80,105 @@ entry:
   store i32 %and21, ptr %arrayidx22, align 4
   %12 = load i32, ptr @a, align 4
   %conv24 = zext i32 %12 to i64
-  %13 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 1), align 4
-  %conv25 = zext i32 %13 to i64
+  %13 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 1
+  %14 = load i32, ptr %13, align 4
+  %conv25 = zext i32 %14 to i64
   %mul26 = mul nsw i64 %conv24, %conv25
   %conv27 = trunc i64 %mul26 to i32
   store i32 %conv27, ptr %l23, align 4
-  %14 = load i32, ptr %l23, align 4
-  %and28 = and i32 %14, 65535
+  %15 = load i32, ptr %l23, align 4
+  %and28 = and i32 %15, 65535
   %arrayidx29 = getelementptr inbounds [2 x i32], ptr %q, i64 0, i64 0
   store i32 %and28, ptr %arrayidx29, align 4
-  %15 = load i32, ptr %l23, align 4
-  %shr30 = ashr i32 %15, 16
+  %16 = load i32, ptr %l23, align 4
+  %shr30 = ashr i32 %16, 16
   %and31 = and i32 %shr30, 65535
   %arrayidx32 = getelementptr inbounds [2 x i32], ptr %q, i64 0, i64 1
   store i32 %and31, ptr %arrayidx32, align 4
   %arrayidx33 = getelementptr inbounds [2 x i32], ptr %p, i64 0, i64 1
-  %16 = load i32, ptr %arrayidx33, align 4
-  %conv34 = sext i32 %16 to i64
+  %17 = load i32, ptr %arrayidx33, align 4
+  %conv34 = sext i32 %17 to i64
   %arrayidx35 = getelementptr inbounds [2 x i32], ptr %q, i64 0, i64 0
-  %17 = load i32, ptr %arrayidx35, align 4
-  %conv36 = zext i32 %17 to i64
+  %18 = load i32, ptr %arrayidx35, align 4
+  %conv36 = zext i32 %18 to i64
   %add37 = add nsw i64 %conv34, %conv36
   %cmp38 = icmp sgt i64 %add37, 65535
   %conv39 = zext i1 %cmp38 to i32
   store i32 %conv39, ptr %carry0, align 4
   %arrayidx40 = getelementptr inbounds [2 x i32], ptr %p, i64 0, i64 1
-  %18 = load i32, ptr %arrayidx40, align 4
+  %19 = load i32, ptr %arrayidx40, align 4
   %arrayidx41 = getelementptr inbounds [2 x i32], ptr %q, i64 0, i64 0
-  %19 = load i32, ptr %arrayidx41, align 4
-  %add42 = add i32 %18, %19
+  %20 = load i32, ptr %arrayidx41, align 4
+  %add42 = add i32 %19, %20
   %and43 = and i32 %add42, 65535
   %arrayidx44 = getelementptr inbounds [2 x i32], ptr %p, i64 0, i64 1
   store i32 %and43, ptr %arrayidx44, align 4
-  %20 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @a, i64 0, i64 1), align 4
-  %conv46 = zext i32 %20 to i64
-  %21 = load i32, ptr @x, align 4
-  %conv47 = zext i32 %21 to i64
+  %21 = getelementptr inbounds [3 x i32], ptr @a, i64 0, i64 1
+  %22 = load i32, ptr %21, align 4
+  %conv46 = zext i32 %22 to i64
+  %23 = load i32, ptr @x, align 4
+  %conv47 = zext i32 %23 to i64
   %mul48 = mul nsw i64 %conv46, %conv47
   %conv49 = trunc i64 %mul48 to i32
   store i32 %conv49, ptr %l45, align 4
-  %22 = load i32, ptr %l45, align 4
-  %and50 = and i32 %22, 65535
+  %24 = load i32, ptr %l45, align 4
+  %and50 = and i32 %24, 65535
   %arrayidx51 = getelementptr inbounds [2 x i32], ptr %r, i64 0, i64 0
   store i32 %and50, ptr %arrayidx51, align 4
-  %23 = load i32, ptr %l45, align 4
-  %shr52 = ashr i32 %23, 16
+  %25 = load i32, ptr %l45, align 4
+  %shr52 = ashr i32 %25, 16
   %and53 = and i32 %shr52, 65535
   %arrayidx54 = getelementptr inbounds [2 x i32], ptr %r, i64 0, i64 1
   store i32 %and53, ptr %arrayidx54, align 4
-  %24 = load i32, ptr %carry0, align 4
-  %25 = load i32, ptr %carry1, align 4
-  %add55 = add i32 %24, %25
+  %26 = load i32, ptr %carry0, align 4
+  %27 = load i32, ptr %carry1, align 4
+  %add55 = add i32 %26, %27
   %arrayidx56 = getelementptr inbounds [2 x i32], ptr %p, i64 0, i64 1
-  %26 = load i32, ptr %arrayidx56, align 4
-  %conv57 = sext i32 %26 to i64
+  %28 = load i32, ptr %arrayidx56, align 4
+  %conv57 = sext i32 %28 to i64
   %arrayidx58 = getelementptr inbounds [2 x i32], ptr %r, i64 0, i64 0
-  %27 = load i32, ptr %arrayidx58, align 4
-  %conv59 = zext i32 %27 to i64
+  %29 = load i32, ptr %arrayidx58, align 4
+  %conv59 = zext i32 %29 to i64
   %add60 = add nsw i64 %conv57, %conv59
   %cmp61 = icmp sgt i64 %add60, 65535
   %conv62 = zext i1 %cmp61 to i32
   %add63 = add i32 %add55, %conv62
   %arrayidx64 = getelementptr inbounds [2 x i32], ptr %q, i64 0, i64 1
-  %28 = load i32, ptr %arrayidx64, align 4
-  %add65 = add i32 %add63, %28
+  %30 = load i32, ptr %arrayidx64, align 4
+  %add65 = add i32 %add63, %30
   %arrayidx66 = getelementptr inbounds [2 x i32], ptr %r, i64 0, i64 1
-  %29 = load i32, ptr %arrayidx66, align 4
-  %add67 = add i32 %add65, %29
-  %30 = load i32, ptr @a, align 4
-  %31 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 2), align 4
-  %mul68 = mul i32 %30, %31
+  %31 = load i32, ptr %arrayidx66, align 4
+  %add67 = add i32 %add65, %31
+  %32 = load i32, ptr @a, align 4
+  %33 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 2
+  %34 = load i32, ptr %33, align 4
+  %mul68 = mul i32 %32, %34
   %add69 = add i32 %add67, %mul68
-  %32 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @a, i64 0, i64 1), align 4
-  %33 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 1), align 4
-  %mul70 = mul i32 %32, %33
+  %35 = getelementptr inbounds [3 x i32], ptr @a, i64 0, i64 1
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 1
+  %38 = load i32, ptr %37, align 4
+  %mul70 = mul i32 %36, %38
   %add71 = add i32 %add69, %mul70
-  %34 = load i32, ptr getelementptr inbounds ([3 x i32], ptr @a, i64 0, i64 2), align 4
-  %35 = load i32, ptr @x, align 4
-  %mul72 = mul i32 %34, %35
+  %39 = getelementptr inbounds [3 x i32], ptr @a, i64 0, i64 2
+  %40 = load i32, ptr %39, align 4
+  %41 = load i32, ptr @x, align 4
+  %mul72 = mul i32 %40, %41
   %add73 = add i32 %add71, %mul72
   %and74 = and i32 %add73, 65535
-  store i32 %and74, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 2), align 4
+  %42 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 2
+  store i32 %and74, ptr %42, align 4
   %arrayidx75 = getelementptr inbounds [2 x i32], ptr %p, i64 0, i64 1
-  %36 = load i32, ptr %arrayidx75, align 4
+  %43 = load i32, ptr %arrayidx75, align 4
   %arrayidx76 = getelementptr inbounds [2 x i32], ptr %r, i64 0, i64 0
-  %37 = load i32, ptr %arrayidx76, align 4
-  %add77 = add i32 %36, %37
+  %44 = load i32, ptr %arrayidx76, align 4
+  %add77 = add i32 %43, %44
   %and78 = and i32 %add77, 65535
-  store i32 %and78, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 1), align 4
+  %45 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 1
+  store i32 %and78, ptr %45, align 4
   %arrayidx79 = getelementptr inbounds [2 x i32], ptr %p, i64 0, i64 0
-  %38 = load i32, ptr %arrayidx79, align 4
-  %and80 = and i32 %38, 65535
+  %46 = load i32, ptr %arrayidx79, align 4
+  %and80 = and i32 %46, 65535
   store i32 %and80, ptr @x, align 4
   ret void
 }
@@ -181,14 +191,18 @@ entry:
   store i32 13070, ptr @x, align 4
   %0 = load i32, ptr %seedval.addr, align 4
   %and = and i32 %0, 65535
-  store i32 %and, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 1), align 4
-  %1 = load i32, ptr %seedval.addr, align 4
-  %shr = ashr i32 %1, 16
+  %1 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 1
+  store i32 %and, ptr %1, align 4
+  %2 = load i32, ptr %seedval.addr, align 4
+  %shr = ashr i32 %2, 16
   %and1 = and i32 %shr, 65535
-  store i32 %and1, ptr getelementptr inbounds ([3 x i32], ptr @x, i64 0, i64 2), align 4
+  %3 = getelementptr inbounds [3 x i32], ptr @x, i64 0, i64 2
+  store i32 %and1, ptr %3, align 4
   store i32 58989, ptr @a, align 4
-  store i32 57068, ptr getelementptr inbounds ([3 x i32], ptr @a, i64 0, i64 1), align 4
-  store i32 5, ptr getelementptr inbounds ([3 x i32], ptr @a, i64 0, i64 2), align 4
+  %4 = getelementptr inbounds [3 x i32], ptr @a, i64 0, i64 1
+  store i32 57068, ptr %4, align 4
+  %5 = getelementptr inbounds [3 x i32], ptr @a, i64 0, i64 2
+  store i32 5, ptr %5, align 4
   store i32 11, ptr @c, align 4
   ret void
 }

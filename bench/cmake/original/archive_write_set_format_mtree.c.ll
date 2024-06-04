@@ -2327,176 +2327,181 @@ define internal void @sum_init(ptr noundef %0) #0 {
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 8192
   %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %65
+  br i1 %47, label %48, label %66
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 3), align 8
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.mtree_writer, ptr %50, i32 0, i32 17
-  %52 = call i32 %49(ptr noundef %51)
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %59
+  %49 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %2, align 8
+  %52 = getelementptr inbounds %struct.mtree_writer, ptr %51, i32 0, i32 17
+  %53 = call i32 %50(ptr noundef %52)
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %60
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.mtree_writer, ptr %55, i32 0, i32 13
-  %57 = load i32, ptr %56, align 8
-  %58 = or i32 %57, 8192
-  store i32 %58, ptr %56, align 8
-  br label %64
-
-59:                                               ; preds = %48
-  %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds %struct.mtree_writer, ptr %60, i32 0, i32 22
-  %62 = load i32, ptr %61, align 8
-  %63 = and i32 %62, -8193
-  store i32 %63, ptr %61, align 8
-  br label %64
-
-64:                                               ; preds = %59, %54
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds %struct.mtree_writer, ptr %56, i32 0, i32 13
+  %58 = load i32, ptr %57, align 8
+  %59 = or i32 %58, 8192
+  store i32 %59, ptr %57, align 8
   br label %65
 
-65:                                               ; preds = %64, %42
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.mtree_writer, ptr %66, i32 0, i32 22
-  %68 = load i32, ptr %67, align 8
-  %69 = and i32 %68, 16384
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %88
+60:                                               ; preds = %48
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds %struct.mtree_writer, ptr %61, i32 0, i32 22
+  %63 = load i32, ptr %62, align 8
+  %64 = and i32 %63, -8193
+  store i32 %64, ptr %62, align 8
+  br label %65
 
-71:                                               ; preds = %65
-  %72 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 6), align 8
-  %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds %struct.mtree_writer, ptr %73, i32 0, i32 18
-  %75 = call i32 %72(ptr noundef %74)
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %82
+65:                                               ; preds = %60, %55
+  br label %66
 
-77:                                               ; preds = %71
-  %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds %struct.mtree_writer, ptr %78, i32 0, i32 13
-  %80 = load i32, ptr %79, align 8
-  %81 = or i32 %80, 16384
-  store i32 %81, ptr %79, align 8
-  br label %87
+66:                                               ; preds = %65, %42
+  %67 = load ptr, ptr %2, align 8
+  %68 = getelementptr inbounds %struct.mtree_writer, ptr %67, i32 0, i32 22
+  %69 = load i32, ptr %68, align 8
+  %70 = and i32 %69, 16384
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %90
 
-82:                                               ; preds = %71
-  %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr inbounds %struct.mtree_writer, ptr %83, i32 0, i32 22
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, -16385
-  store i32 %86, ptr %84, align 8
-  br label %87
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 6
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %2, align 8
+  %76 = getelementptr inbounds %struct.mtree_writer, ptr %75, i32 0, i32 18
+  %77 = call i32 %74(ptr noundef %76)
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %84
 
-87:                                               ; preds = %82, %77
-  br label %88
+79:                                               ; preds = %72
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds %struct.mtree_writer, ptr %80, i32 0, i32 13
+  %82 = load i32, ptr %81, align 8
+  %83 = or i32 %82, 16384
+  store i32 %83, ptr %81, align 8
+  br label %89
 
-88:                                               ; preds = %87, %65
-  %89 = load ptr, ptr %2, align 8
-  %90 = getelementptr inbounds %struct.mtree_writer, ptr %89, i32 0, i32 22
-  %91 = load i32, ptr %90, align 8
-  %92 = and i32 %91, 8388608
-  %93 = icmp ne i32 %92, 0
-  br i1 %93, label %94, label %111
+84:                                               ; preds = %72
+  %85 = load ptr, ptr %2, align 8
+  %86 = getelementptr inbounds %struct.mtree_writer, ptr %85, i32 0, i32 22
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, -16385
+  store i32 %88, ptr %86, align 8
+  br label %89
 
-94:                                               ; preds = %88
-  %95 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 9), align 8
-  %96 = load ptr, ptr %2, align 8
-  %97 = getelementptr inbounds %struct.mtree_writer, ptr %96, i32 0, i32 19
-  %98 = call i32 %95(ptr noundef %97)
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %105
+89:                                               ; preds = %84, %79
+  br label %90
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %2, align 8
-  %102 = getelementptr inbounds %struct.mtree_writer, ptr %101, i32 0, i32 13
-  %103 = load i32, ptr %102, align 8
-  %104 = or i32 %103, 8388608
-  store i32 %104, ptr %102, align 8
-  br label %110
+90:                                               ; preds = %89, %66
+  %91 = load ptr, ptr %2, align 8
+  %92 = getelementptr inbounds %struct.mtree_writer, ptr %91, i32 0, i32 22
+  %93 = load i32, ptr %92, align 8
+  %94 = and i32 %93, 8388608
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %114
 
-105:                                              ; preds = %94
-  %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds %struct.mtree_writer, ptr %106, i32 0, i32 22
-  %108 = load i32, ptr %107, align 8
-  %109 = and i32 %108, -8388609
-  store i32 %109, ptr %107, align 8
-  br label %110
+96:                                               ; preds = %90
+  %97 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 9
+  %98 = load ptr, ptr %97, align 8
+  %99 = load ptr, ptr %2, align 8
+  %100 = getelementptr inbounds %struct.mtree_writer, ptr %99, i32 0, i32 19
+  %101 = call i32 %98(ptr noundef %100)
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %108
 
-110:                                              ; preds = %105, %100
-  br label %111
+103:                                              ; preds = %96
+  %104 = load ptr, ptr %2, align 8
+  %105 = getelementptr inbounds %struct.mtree_writer, ptr %104, i32 0, i32 13
+  %106 = load i32, ptr %105, align 8
+  %107 = or i32 %106, 8388608
+  store i32 %107, ptr %105, align 8
+  br label %113
 
-111:                                              ; preds = %110, %88
-  %112 = load ptr, ptr %2, align 8
-  %113 = getelementptr inbounds %struct.mtree_writer, ptr %112, i32 0, i32 22
-  %114 = load i32, ptr %113, align 8
-  %115 = and i32 %114, 16777216
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %134
+108:                                              ; preds = %96
+  %109 = load ptr, ptr %2, align 8
+  %110 = getelementptr inbounds %struct.mtree_writer, ptr %109, i32 0, i32 22
+  %111 = load i32, ptr %110, align 8
+  %112 = and i32 %111, -8388609
+  store i32 %112, ptr %110, align 8
+  br label %113
 
-117:                                              ; preds = %111
-  %118 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 12), align 8
-  %119 = load ptr, ptr %2, align 8
-  %120 = getelementptr inbounds %struct.mtree_writer, ptr %119, i32 0, i32 20
-  %121 = call i32 %118(ptr noundef %120)
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %128
+113:                                              ; preds = %108, %103
+  br label %114
 
-123:                                              ; preds = %117
-  %124 = load ptr, ptr %2, align 8
-  %125 = getelementptr inbounds %struct.mtree_writer, ptr %124, i32 0, i32 13
-  %126 = load i32, ptr %125, align 8
-  %127 = or i32 %126, 16777216
-  store i32 %127, ptr %125, align 8
-  br label %133
+114:                                              ; preds = %113, %90
+  %115 = load ptr, ptr %2, align 8
+  %116 = getelementptr inbounds %struct.mtree_writer, ptr %115, i32 0, i32 22
+  %117 = load i32, ptr %116, align 8
+  %118 = and i32 %117, 16777216
+  %119 = icmp ne i32 %118, 0
+  br i1 %119, label %120, label %138
 
-128:                                              ; preds = %117
-  %129 = load ptr, ptr %2, align 8
-  %130 = getelementptr inbounds %struct.mtree_writer, ptr %129, i32 0, i32 22
-  %131 = load i32, ptr %130, align 8
-  %132 = and i32 %131, -16777217
-  store i32 %132, ptr %130, align 8
-  br label %133
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 12
+  %122 = load ptr, ptr %121, align 8
+  %123 = load ptr, ptr %2, align 8
+  %124 = getelementptr inbounds %struct.mtree_writer, ptr %123, i32 0, i32 20
+  %125 = call i32 %122(ptr noundef %124)
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %132
 
-133:                                              ; preds = %128, %123
-  br label %134
+127:                                              ; preds = %120
+  %128 = load ptr, ptr %2, align 8
+  %129 = getelementptr inbounds %struct.mtree_writer, ptr %128, i32 0, i32 13
+  %130 = load i32, ptr %129, align 8
+  %131 = or i32 %130, 16777216
+  store i32 %131, ptr %129, align 8
+  br label %137
 
-134:                                              ; preds = %133, %111
-  %135 = load ptr, ptr %2, align 8
-  %136 = getelementptr inbounds %struct.mtree_writer, ptr %135, i32 0, i32 22
-  %137 = load i32, ptr %136, align 8
-  %138 = and i32 %137, 33554432
-  %139 = icmp ne i32 %138, 0
-  br i1 %139, label %140, label %157
+132:                                              ; preds = %120
+  %133 = load ptr, ptr %2, align 8
+  %134 = getelementptr inbounds %struct.mtree_writer, ptr %133, i32 0, i32 22
+  %135 = load i32, ptr %134, align 8
+  %136 = and i32 %135, -16777217
+  store i32 %136, ptr %134, align 8
+  br label %137
 
-140:                                              ; preds = %134
-  %141 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 15), align 8
-  %142 = load ptr, ptr %2, align 8
-  %143 = getelementptr inbounds %struct.mtree_writer, ptr %142, i32 0, i32 21
-  %144 = call i32 %141(ptr noundef %143)
-  %145 = icmp eq i32 %144, 0
-  br i1 %145, label %146, label %151
+137:                                              ; preds = %132, %127
+  br label %138
 
-146:                                              ; preds = %140
+138:                                              ; preds = %137, %114
+  %139 = load ptr, ptr %2, align 8
+  %140 = getelementptr inbounds %struct.mtree_writer, ptr %139, i32 0, i32 22
+  %141 = load i32, ptr %140, align 8
+  %142 = and i32 %141, 33554432
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %162
+
+144:                                              ; preds = %138
+  %145 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 15
+  %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %2, align 8
-  %148 = getelementptr inbounds %struct.mtree_writer, ptr %147, i32 0, i32 13
-  %149 = load i32, ptr %148, align 8
-  %150 = or i32 %149, 33554432
-  store i32 %150, ptr %148, align 8
-  br label %156
+  %148 = getelementptr inbounds %struct.mtree_writer, ptr %147, i32 0, i32 21
+  %149 = call i32 %146(ptr noundef %148)
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %156
 
-151:                                              ; preds = %140
+151:                                              ; preds = %144
   %152 = load ptr, ptr %2, align 8
-  %153 = getelementptr inbounds %struct.mtree_writer, ptr %152, i32 0, i32 22
+  %153 = getelementptr inbounds %struct.mtree_writer, ptr %152, i32 0, i32 13
   %154 = load i32, ptr %153, align 8
-  %155 = and i32 %154, -33554433
+  %155 = or i32 %154, 33554432
   store i32 %155, ptr %153, align 8
-  br label %156
+  br label %161
 
-156:                                              ; preds = %151, %146
-  br label %157
+156:                                              ; preds = %144
+  %157 = load ptr, ptr %2, align 8
+  %158 = getelementptr inbounds %struct.mtree_writer, ptr %157, i32 0, i32 22
+  %159 = load i32, ptr %158, align 8
+  %160 = and i32 %159, -33554433
+  store i32 %160, ptr %158, align 8
+  br label %161
 
-157:                                              ; preds = %156, %134
+161:                                              ; preds = %156, %151
+  br label %162
+
+162:                                              ; preds = %161, %138
   ret void
 }
 
@@ -7135,103 +7140,109 @@ define internal void @sum_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 256
   %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %62
+  br i1 %54, label %55, label %63
 
 55:                                               ; preds = %49
-  %56 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 1), align 8
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.mtree_writer, ptr %57, i32 0, i32 16
-  %59 = load ptr, ptr %5, align 8
-  %60 = load i64, ptr %6, align 8
-  %61 = call i32 %56(ptr noundef %58, ptr noundef %59, i64 noundef %60)
-  br label %62
+  %56 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %4, align 8
+  %59 = getelementptr inbounds %struct.mtree_writer, ptr %58, i32 0, i32 16
+  %60 = load ptr, ptr %5, align 8
+  %61 = load i64, ptr %6, align 8
+  %62 = call i32 %57(ptr noundef %59, ptr noundef %60, i64 noundef %61)
+  br label %63
 
-62:                                               ; preds = %55, %49
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.mtree_writer, ptr %63, i32 0, i32 13
-  %65 = load i32, ptr %64, align 8
-  %66 = and i32 %65, 8192
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %75
+63:                                               ; preds = %55, %49
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds %struct.mtree_writer, ptr %64, i32 0, i32 13
+  %66 = load i32, ptr %65, align 8
+  %67 = and i32 %66, 8192
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %77
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 4), align 8
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.mtree_writer, ptr %70, i32 0, i32 17
-  %72 = load ptr, ptr %5, align 8
-  %73 = load i64, ptr %6, align 8
-  %74 = call i32 %69(ptr noundef %71, ptr noundef %72, i64 noundef %73)
-  br label %75
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 4
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds %struct.mtree_writer, ptr %72, i32 0, i32 17
+  %74 = load ptr, ptr %5, align 8
+  %75 = load i64, ptr %6, align 8
+  %76 = call i32 %71(ptr noundef %73, ptr noundef %74, i64 noundef %75)
+  br label %77
 
-75:                                               ; preds = %68, %62
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.mtree_writer, ptr %76, i32 0, i32 13
-  %78 = load i32, ptr %77, align 8
-  %79 = and i32 %78, 16384
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %88
+77:                                               ; preds = %69, %63
+  %78 = load ptr, ptr %4, align 8
+  %79 = getelementptr inbounds %struct.mtree_writer, ptr %78, i32 0, i32 13
+  %80 = load i32, ptr %79, align 8
+  %81 = and i32 %80, 16384
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %91
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 7), align 8
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.mtree_writer, ptr %83, i32 0, i32 18
-  %85 = load ptr, ptr %5, align 8
-  %86 = load i64, ptr %6, align 8
-  %87 = call i32 %82(ptr noundef %84, ptr noundef %85, i64 noundef %86)
-  br label %88
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 7
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %4, align 8
+  %87 = getelementptr inbounds %struct.mtree_writer, ptr %86, i32 0, i32 18
+  %88 = load ptr, ptr %5, align 8
+  %89 = load i64, ptr %6, align 8
+  %90 = call i32 %85(ptr noundef %87, ptr noundef %88, i64 noundef %89)
+  br label %91
 
-88:                                               ; preds = %81, %75
-  %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds %struct.mtree_writer, ptr %89, i32 0, i32 13
-  %91 = load i32, ptr %90, align 8
-  %92 = and i32 %91, 8388608
-  %93 = icmp ne i32 %92, 0
-  br i1 %93, label %94, label %101
+91:                                               ; preds = %83, %77
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds %struct.mtree_writer, ptr %92, i32 0, i32 13
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, 8388608
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %105
 
-94:                                               ; preds = %88
-  %95 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 10), align 8
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.mtree_writer, ptr %96, i32 0, i32 19
-  %98 = load ptr, ptr %5, align 8
-  %99 = load i64, ptr %6, align 8
-  %100 = call i32 %95(ptr noundef %97, ptr noundef %98, i64 noundef %99)
-  br label %101
+97:                                               ; preds = %91
+  %98 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 10
+  %99 = load ptr, ptr %98, align 8
+  %100 = load ptr, ptr %4, align 8
+  %101 = getelementptr inbounds %struct.mtree_writer, ptr %100, i32 0, i32 19
+  %102 = load ptr, ptr %5, align 8
+  %103 = load i64, ptr %6, align 8
+  %104 = call i32 %99(ptr noundef %101, ptr noundef %102, i64 noundef %103)
+  br label %105
 
-101:                                              ; preds = %94, %88
-  %102 = load ptr, ptr %4, align 8
-  %103 = getelementptr inbounds %struct.mtree_writer, ptr %102, i32 0, i32 13
-  %104 = load i32, ptr %103, align 8
-  %105 = and i32 %104, 16777216
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %114
+105:                                              ; preds = %97, %91
+  %106 = load ptr, ptr %4, align 8
+  %107 = getelementptr inbounds %struct.mtree_writer, ptr %106, i32 0, i32 13
+  %108 = load i32, ptr %107, align 8
+  %109 = and i32 %108, 16777216
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %111, label %119
 
-107:                                              ; preds = %101
-  %108 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 13), align 8
-  %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds %struct.mtree_writer, ptr %109, i32 0, i32 20
-  %111 = load ptr, ptr %5, align 8
-  %112 = load i64, ptr %6, align 8
-  %113 = call i32 %108(ptr noundef %110, ptr noundef %111, i64 noundef %112)
-  br label %114
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 13
+  %113 = load ptr, ptr %112, align 8
+  %114 = load ptr, ptr %4, align 8
+  %115 = getelementptr inbounds %struct.mtree_writer, ptr %114, i32 0, i32 20
+  %116 = load ptr, ptr %5, align 8
+  %117 = load i64, ptr %6, align 8
+  %118 = call i32 %113(ptr noundef %115, ptr noundef %116, i64 noundef %117)
+  br label %119
 
-114:                                              ; preds = %107, %101
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds %struct.mtree_writer, ptr %115, i32 0, i32 13
-  %117 = load i32, ptr %116, align 8
-  %118 = and i32 %117, 33554432
-  %119 = icmp ne i32 %118, 0
-  br i1 %119, label %120, label %127
+119:                                              ; preds = %111, %105
+  %120 = load ptr, ptr %4, align 8
+  %121 = getelementptr inbounds %struct.mtree_writer, ptr %120, i32 0, i32 13
+  %122 = load i32, ptr %121, align 8
+  %123 = and i32 %122, 33554432
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %125, label %133
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 16), align 8
-  %122 = load ptr, ptr %4, align 8
-  %123 = getelementptr inbounds %struct.mtree_writer, ptr %122, i32 0, i32 21
-  %124 = load ptr, ptr %5, align 8
-  %125 = load i64, ptr %6, align 8
-  %126 = call i32 %121(ptr noundef %123, ptr noundef %124, i64 noundef %125)
-  br label %127
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 16
+  %127 = load ptr, ptr %126, align 8
+  %128 = load ptr, ptr %4, align 8
+  %129 = getelementptr inbounds %struct.mtree_writer, ptr %128, i32 0, i32 21
+  %130 = load ptr, ptr %5, align 8
+  %131 = load i64, ptr %6, align 8
+  %132 = call i32 %127(ptr noundef %129, ptr noundef %130, i64 noundef %131)
+  br label %133
 
-127:                                              ; preds = %120, %114
+133:                                              ; preds = %125, %119
   ret void
 }
 
@@ -7304,121 +7315,127 @@ define internal void @sum_final(ptr noundef %0, ptr noundef %1) #0 {
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 256
   %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %61
+  br i1 %51, label %52, label %62
 
 52:                                               ; preds = %46
-  %53 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 2), align 8
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.mtree_writer, ptr %54, i32 0, i32 16
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.reg_info, ptr %56, i32 0, i32 2
-  %58 = getelementptr inbounds %struct.ae_digest, ptr %57, i32 0, i32 0
-  %59 = getelementptr inbounds [16 x i8], ptr %58, i64 0, i64 0
-  %60 = call i32 %53(ptr noundef %55, ptr noundef %59)
-  br label %61
+  %53 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds %struct.mtree_writer, ptr %55, i32 0, i32 16
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds %struct.reg_info, ptr %57, i32 0, i32 2
+  %59 = getelementptr inbounds %struct.ae_digest, ptr %58, i32 0, i32 0
+  %60 = getelementptr inbounds [16 x i8], ptr %59, i64 0, i64 0
+  %61 = call i32 %54(ptr noundef %56, ptr noundef %60)
+  br label %62
 
-61:                                               ; preds = %52, %46
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.mtree_writer, ptr %62, i32 0, i32 13
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, 8192
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %76
+62:                                               ; preds = %52, %46
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds %struct.mtree_writer, ptr %63, i32 0, i32 13
+  %65 = load i32, ptr %64, align 8
+  %66 = and i32 %65, 8192
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %78
 
-67:                                               ; preds = %61
-  %68 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 5), align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.mtree_writer, ptr %69, i32 0, i32 17
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.reg_info, ptr %71, i32 0, i32 2
-  %73 = getelementptr inbounds %struct.ae_digest, ptr %72, i32 0, i32 1
-  %74 = getelementptr inbounds [20 x i8], ptr %73, i64 0, i64 0
-  %75 = call i32 %68(ptr noundef %70, ptr noundef %74)
-  br label %76
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 5
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds %struct.mtree_writer, ptr %71, i32 0, i32 17
+  %73 = load ptr, ptr %4, align 8
+  %74 = getelementptr inbounds %struct.reg_info, ptr %73, i32 0, i32 2
+  %75 = getelementptr inbounds %struct.ae_digest, ptr %74, i32 0, i32 1
+  %76 = getelementptr inbounds [20 x i8], ptr %75, i64 0, i64 0
+  %77 = call i32 %70(ptr noundef %72, ptr noundef %76)
+  br label %78
 
-76:                                               ; preds = %67, %61
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.mtree_writer, ptr %77, i32 0, i32 13
-  %79 = load i32, ptr %78, align 8
-  %80 = and i32 %79, 16384
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %91
+78:                                               ; preds = %68, %62
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds %struct.mtree_writer, ptr %79, i32 0, i32 13
+  %81 = load i32, ptr %80, align 8
+  %82 = and i32 %81, 16384
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %94
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 8), align 8
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.mtree_writer, ptr %84, i32 0, i32 18
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.reg_info, ptr %86, i32 0, i32 2
-  %88 = getelementptr inbounds %struct.ae_digest, ptr %87, i32 0, i32 2
-  %89 = getelementptr inbounds [20 x i8], ptr %88, i64 0, i64 0
-  %90 = call i32 %83(ptr noundef %85, ptr noundef %89)
-  br label %91
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct.mtree_writer, ptr %87, i32 0, i32 18
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds %struct.reg_info, ptr %89, i32 0, i32 2
+  %91 = getelementptr inbounds %struct.ae_digest, ptr %90, i32 0, i32 2
+  %92 = getelementptr inbounds [20 x i8], ptr %91, i64 0, i64 0
+  %93 = call i32 %86(ptr noundef %88, ptr noundef %92)
+  br label %94
 
-91:                                               ; preds = %82, %76
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct.mtree_writer, ptr %92, i32 0, i32 13
-  %94 = load i32, ptr %93, align 8
-  %95 = and i32 %94, 8388608
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %106
+94:                                               ; preds = %84, %78
+  %95 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds %struct.mtree_writer, ptr %95, i32 0, i32 13
+  %97 = load i32, ptr %96, align 8
+  %98 = and i32 %97, 8388608
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %110
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 11), align 8
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.mtree_writer, ptr %99, i32 0, i32 19
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.reg_info, ptr %101, i32 0, i32 2
-  %103 = getelementptr inbounds %struct.ae_digest, ptr %102, i32 0, i32 3
-  %104 = getelementptr inbounds [32 x i8], ptr %103, i64 0, i64 0
-  %105 = call i32 %98(ptr noundef %100, ptr noundef %104)
-  br label %106
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 11
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %3, align 8
+  %104 = getelementptr inbounds %struct.mtree_writer, ptr %103, i32 0, i32 19
+  %105 = load ptr, ptr %4, align 8
+  %106 = getelementptr inbounds %struct.reg_info, ptr %105, i32 0, i32 2
+  %107 = getelementptr inbounds %struct.ae_digest, ptr %106, i32 0, i32 3
+  %108 = getelementptr inbounds [32 x i8], ptr %107, i64 0, i64 0
+  %109 = call i32 %102(ptr noundef %104, ptr noundef %108)
+  br label %110
 
-106:                                              ; preds = %97, %91
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.mtree_writer, ptr %107, i32 0, i32 13
-  %109 = load i32, ptr %108, align 8
-  %110 = and i32 %109, 16777216
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %121
+110:                                              ; preds = %100, %94
+  %111 = load ptr, ptr %3, align 8
+  %112 = getelementptr inbounds %struct.mtree_writer, ptr %111, i32 0, i32 13
+  %113 = load i32, ptr %112, align 8
+  %114 = and i32 %113, 16777216
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %126
 
-112:                                              ; preds = %106
-  %113 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 14), align 8
-  %114 = load ptr, ptr %3, align 8
-  %115 = getelementptr inbounds %struct.mtree_writer, ptr %114, i32 0, i32 20
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds %struct.reg_info, ptr %116, i32 0, i32 2
-  %118 = getelementptr inbounds %struct.ae_digest, ptr %117, i32 0, i32 4
-  %119 = getelementptr inbounds [48 x i8], ptr %118, i64 0, i64 0
-  %120 = call i32 %113(ptr noundef %115, ptr noundef %119)
-  br label %121
+116:                                              ; preds = %110
+  %117 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 14
+  %118 = load ptr, ptr %117, align 8
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds %struct.mtree_writer, ptr %119, i32 0, i32 20
+  %121 = load ptr, ptr %4, align 8
+  %122 = getelementptr inbounds %struct.reg_info, ptr %121, i32 0, i32 2
+  %123 = getelementptr inbounds %struct.ae_digest, ptr %122, i32 0, i32 4
+  %124 = getelementptr inbounds [48 x i8], ptr %123, i64 0, i64 0
+  %125 = call i32 %118(ptr noundef %120, ptr noundef %124)
+  br label %126
 
-121:                                              ; preds = %112, %106
-  %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds %struct.mtree_writer, ptr %122, i32 0, i32 13
-  %124 = load i32, ptr %123, align 8
-  %125 = and i32 %124, 33554432
-  %126 = icmp ne i32 %125, 0
-  br i1 %126, label %127, label %136
+126:                                              ; preds = %116, %110
+  %127 = load ptr, ptr %3, align 8
+  %128 = getelementptr inbounds %struct.mtree_writer, ptr %127, i32 0, i32 13
+  %129 = load i32, ptr %128, align 8
+  %130 = and i32 %129, 33554432
+  %131 = icmp ne i32 %130, 0
+  br i1 %131, label %132, label %142
 
-127:                                              ; preds = %121
-  %128 = load ptr, ptr getelementptr inbounds (%struct.archive_digest, ptr @__archive_digest, i32 0, i32 17), align 8
-  %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds %struct.mtree_writer, ptr %129, i32 0, i32 21
-  %131 = load ptr, ptr %4, align 8
-  %132 = getelementptr inbounds %struct.reg_info, ptr %131, i32 0, i32 2
-  %133 = getelementptr inbounds %struct.ae_digest, ptr %132, i32 0, i32 5
-  %134 = getelementptr inbounds [64 x i8], ptr %133, i64 0, i64 0
-  %135 = call i32 %128(ptr noundef %130, ptr noundef %134)
-  br label %136
+132:                                              ; preds = %126
+  %133 = getelementptr inbounds %struct.archive_digest, ptr @__archive_digest, i32 0, i32 17
+  %134 = load ptr, ptr %133, align 8
+  %135 = load ptr, ptr %3, align 8
+  %136 = getelementptr inbounds %struct.mtree_writer, ptr %135, i32 0, i32 21
+  %137 = load ptr, ptr %4, align 8
+  %138 = getelementptr inbounds %struct.reg_info, ptr %137, i32 0, i32 2
+  %139 = getelementptr inbounds %struct.ae_digest, ptr %138, i32 0, i32 5
+  %140 = getelementptr inbounds [64 x i8], ptr %139, i64 0, i64 0
+  %141 = call i32 %134(ptr noundef %136, ptr noundef %140)
+  br label %142
 
-136:                                              ; preds = %127, %121
-  %137 = load ptr, ptr %3, align 8
-  %138 = getelementptr inbounds %struct.mtree_writer, ptr %137, i32 0, i32 13
-  %139 = load i32, ptr %138, align 8
-  %140 = load ptr, ptr %4, align 8
-  %141 = getelementptr inbounds %struct.reg_info, ptr %140, i32 0, i32 0
-  store i32 %139, ptr %141, align 4
+142:                                              ; preds = %132, %126
+  %143 = load ptr, ptr %3, align 8
+  %144 = getelementptr inbounds %struct.mtree_writer, ptr %143, i32 0, i32 13
+  %145 = load i32, ptr %144, align 8
+  %146 = load ptr, ptr %4, align 8
+  %147 = getelementptr inbounds %struct.reg_info, ptr %146, i32 0, i32 0
+  store i32 %145, ptr %147, align 4
   ret void
 }
 

@@ -693,51 +693,56 @@ define internal void @__cxx_global_var_init() #0 section ".text.startup" persona
   %2 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr align 8 @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i8 0, i64 32, i1 false)
   call void @_ZN3dap8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE) #4
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA9_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 1), ptr noundef nonnull align 1 dereferenceable(9) @.str)
-          to label %3 unwind label %7
-
-3:                                                ; preds = %0
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 2), i8 0, i64 2, i1 false)
-  invoke void @_ZN3dap8optionalINS_7booleanEEC2Ev(ptr noundef nonnull align 1 dereferenceable(2) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 2))
+  %3 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 1
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA9_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str)
           to label %4 unwind label %11
 
-4:                                                ; preds = %3
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 4), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
-          to label %5 unwind label %11
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 2, i1 false)
+  %6 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 2
+  invoke void @_ZN3dap8optionalINS_7booleanEEC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %6)
+          to label %7 unwind label %15
 
-5:                                                ; preds = %4
-  %6 = call i32 @__cxa_atexit(ptr @_ZN3dap24VariablePresentationHintD2Ev, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, ptr @__dso_handle) #4
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 4
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %7
+  %10 = call i32 @__cxa_atexit(ptr @_ZN3dap24VariablePresentationHintD2Ev, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, ptr @__dso_handle) #4
   ret void
 
-7:                                                ; preds = %0
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %1, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %2, align 4
-  br label %15
-
-11:                                               ; preds = %4, %3
+11:                                               ; preds = %0
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = extractvalue { ptr, i32 } %12, 0
   store ptr %13, ptr %1, align 8
   %14 = extractvalue { ptr, i32 } %12, 1
   store i32 %14, ptr %2, align 4
-  call void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 1)) #4
-  br label %15
+  br label %20
 
-15:                                               ; preds = %11, %7
+15:                                               ; preds = %7, %4
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %1, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %2, align 4
+  %19 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i32 0, i32 1
+  call void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %19) #4
+  br label %20
+
+20:                                               ; preds = %15, %11
   call void @_ZN3dap8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE) #4
-  br label %16
+  br label %21
 
-16:                                               ; preds = %15
-  %17 = load ptr, ptr %1, align 8
-  %18 = load i32, ptr %2, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %1, align 8
+  %23 = load i32, ptr %2, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -895,51 +900,56 @@ define internal void @__cxx_global_var_init.2() #0 section ".text.startup" perso
   %2 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr align 8 @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i8 0, i64 32, i1 false)
   call void @_ZN3dap8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE) #4
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA5_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 1), ptr noundef nonnull align 1 dereferenceable(5) @.str.3)
-          to label %3 unwind label %7
-
-3:                                                ; preds = %0
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 2), i8 0, i64 2, i1 false)
-  invoke void @_ZN3dap8optionalINS_7booleanEEC2Ev(ptr noundef nonnull align 1 dereferenceable(2) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 2))
+  %3 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 1
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA5_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull align 1 dereferenceable(5) @.str.3)
           to label %4 unwind label %11
 
-4:                                                ; preds = %3
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 4), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
-          to label %5 unwind label %11
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 2, i1 false)
+  %6 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 2
+  invoke void @_ZN3dap8optionalINS_7booleanEEC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %6)
+          to label %7 unwind label %15
 
-5:                                                ; preds = %4
-  %6 = call i32 @__cxa_atexit(ptr @_ZN3dap24VariablePresentationHintD2Ev, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, ptr @__dso_handle) #4
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 4
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %7
+  %10 = call i32 @__cxa_atexit(ptr @_ZN3dap24VariablePresentationHintD2Ev, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, ptr @__dso_handle) #4
   ret void
 
-7:                                                ; preds = %0
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %1, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %2, align 4
-  br label %15
-
-11:                                               ; preds = %4, %3
+11:                                               ; preds = %0
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = extractvalue { ptr, i32 } %12, 0
   store ptr %13, ptr %1, align 8
   %14 = extractvalue { ptr, i32 } %12, 1
   store i32 %14, ptr %2, align 4
-  call void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (%"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 1)) #4
-  br label %15
+  br label %20
 
-15:                                               ; preds = %11, %7
+15:                                               ; preds = %7, %4
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %1, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %2, align 4
+  %19 = getelementptr inbounds %"struct.dap::VariablePresentationHint", ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i32 0, i32 1
+  call void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %19) #4
+  br label %20
+
+20:                                               ; preds = %15, %11
   call void @_ZN3dap8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE) #4
-  br label %16
+  br label %21
 
-16:                                               ; preds = %15
-  %17 = load ptr, ptr %1, align 8
-  %18 = load i32, ptr %2, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %1, align 8
+  %23 = load i32, ptr %2, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1004,110 +1014,111 @@ define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_
   %18 = zext i1 %3 to i8
   store i8 %18, ptr %13, align 1
   %19 = load ptr, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 1
   store ptr @_ZN10cmDebugger19cmDebuggerVariables6NextIdE, ptr %5, align 8
   store i64 1, ptr %6, align 8
   store i32 5, ptr %7, align 4
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %7, align 4
-  %23 = load i64, ptr %6, align 8
-  store i64 %23, ptr %8, align 8
-  switch i32 %22, label %24 [
-    i32 1, label %27
-    i32 2, label %27
-    i32 3, label %30
-    i32 4, label %33
-    i32 5, label %36
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %7, align 4
+  %24 = load i64, ptr %6, align 8
+  store i64 %24, ptr %8, align 8
+  switch i32 %23, label %25 [
+    i32 1, label %28
+    i32 2, label %28
+    i32 3, label %31
+    i32 4, label %34
+    i32 5, label %37
   ]
 
-24:                                               ; preds = %4
-  %25 = load i64, ptr %8, align 8
-  %26 = atomicrmw add ptr %21, i64 %25 monotonic, align 8
-  store i64 %26, ptr %9, align 8
-  br label %39
+25:                                               ; preds = %4
+  %26 = load i64, ptr %8, align 8
+  %27 = atomicrmw add ptr %22, i64 %26 monotonic, align 8
+  store i64 %27, ptr %9, align 8
+  br label %40
 
-27:                                               ; preds = %4, %4
-  %28 = load i64, ptr %8, align 8
-  %29 = atomicrmw add ptr %21, i64 %28 acquire, align 8
-  store i64 %29, ptr %9, align 8
-  br label %39
+28:                                               ; preds = %4, %4
+  %29 = load i64, ptr %8, align 8
+  %30 = atomicrmw add ptr %22, i64 %29 acquire, align 8
+  store i64 %30, ptr %9, align 8
+  br label %40
 
-30:                                               ; preds = %4
-  %31 = load i64, ptr %8, align 8
-  %32 = atomicrmw add ptr %21, i64 %31 release, align 8
-  store i64 %32, ptr %9, align 8
-  br label %39
+31:                                               ; preds = %4
+  %32 = load i64, ptr %8, align 8
+  %33 = atomicrmw add ptr %22, i64 %32 release, align 8
+  store i64 %33, ptr %9, align 8
+  br label %40
 
-33:                                               ; preds = %4
-  %34 = load i64, ptr %8, align 8
-  %35 = atomicrmw add ptr %21, i64 %34 acq_rel, align 8
-  store i64 %35, ptr %9, align 8
-  br label %39
+34:                                               ; preds = %4
+  %35 = load i64, ptr %8, align 8
+  %36 = atomicrmw add ptr %22, i64 %35 acq_rel, align 8
+  store i64 %36, ptr %9, align 8
+  br label %40
 
-36:                                               ; preds = %4
-  %37 = load i64, ptr %8, align 8
-  %38 = atomicrmw add ptr %21, i64 %37 seq_cst, align 8
-  store i64 %38, ptr %9, align 8
-  br label %39
+37:                                               ; preds = %4
+  %38 = load i64, ptr %8, align 8
+  %39 = atomicrmw add ptr %22, i64 %38 seq_cst, align 8
+  store i64 %39, ptr %9, align 8
+  br label %40
 
-39:                                               ; preds = %36, %33, %30, %27, %24
-  %40 = load i64, ptr %9, align 8
-  store i64 %40, ptr %20, align 8
-  %41 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #4
-  %42 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #4
-  %43 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 4
-  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #4
-  %44 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 5
-  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #4
-  %45 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 6
-  store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 7
-  store i8 1, ptr %46, align 1
-  %47 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 8
-  %48 = load i8, ptr %13, align 1
-  %49 = trunc i8 %48 to i1
-  %50 = zext i1 %49 to i8
-  store i8 %50, ptr %47, align 2
-  %51 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 9
-  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %1) #4
+40:                                               ; preds = %37, %34, %31, %28, %25
+  %41 = load i64, ptr %9, align 8
+  store i64 %41, ptr %21, align 8
+  %42 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %2) #4
+  %43 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #4
+  %44 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 4
+  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #4
+  %45 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 5
+  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #4
+  %46 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 6
+  store i8 0, ptr %46, align 8
+  %47 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 7
+  store i8 1, ptr %47, align 1
+  %48 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 8
+  %49 = load i8, ptr %13, align 1
+  %50 = trunc i8 %49 to i1
+  %51 = zext i1 %50 to i8
+  store i8 %51, ptr %48, align 2
   %52 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 9
-  %53 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN10cmDebugger26cmDebuggerVariablesManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %52) #4
-  %54 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 1
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds %class.anon, ptr %15, i32 0, i32 0
-  store ptr %19, ptr %56, align 8
+  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %1) #4
+  %53 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 9
+  %54 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN10cmDebugger26cmDebuggerVariablesManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %53) #4
+  %55 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 1
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds %class.anon, ptr %15, i32 0, i32 0
+  store ptr %19, ptr %57, align 8
   call void @"_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEEC2IZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINSB_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #4
-  invoke void @_ZN10cmDebugger26cmDebuggerVariablesManager15RegisterHandlerElSt8functionIFSt6vectorIN3dap8VariableESaIS4_EERKNS3_16VariablesRequestEEE(ptr noundef nonnull align 8 dereferenceable(56) %53, i64 noundef %55, ptr noundef %14)
-          to label %57 unwind label %58
+  invoke void @_ZN10cmDebugger26cmDebuggerVariablesManager15RegisterHandlerElSt8functionIFSt6vectorIN3dap8VariableESaIS4_EERKNS3_16VariablesRequestEEE(ptr noundef nonnull align 8 dereferenceable(56) %54, i64 noundef %56, ptr noundef %14)
+          to label %58 unwind label %59
 
-57:                                               ; preds = %39
+58:                                               ; preds = %40
   call void @_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #4
   ret void
 
-58:                                               ; preds = %39
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %40
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %16, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %17, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %16, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %17, align 4
   call void @_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #4
-  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %51) #4
-  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #4
-  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #4
+  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #4
+  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #4
+  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #4
-  br label %62
+  br label %63
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %16, align 8
-  %64 = load i32, ptr %17, align 4
-  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
-  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
-  resume { ptr, i32 } %66
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %16, align 8
+  %65 = load i32, ptr %17, align 4
+  %66 = insertvalue { ptr, i32 } poison, ptr %64, 0
+  %67 = insertvalue { ptr, i32 } %66, i32 %65, 1
+  resume { ptr, i32 } %67
 }
 
 ; Function Attrs: nounwind
@@ -1271,110 +1282,111 @@ define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_
   store i8 %20, ptr %14, align 1
   store ptr %4, ptr %15, align 8
   %21 = load ptr, ptr %11, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 1
   store ptr @_ZN10cmDebugger19cmDebuggerVariables6NextIdE, ptr %6, align 8
   store i64 1, ptr %7, align 8
   store i32 5, ptr %8, align 4
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %8, align 4
-  %25 = load i64, ptr %7, align 8
-  store i64 %25, ptr %9, align 8
-  switch i32 %24, label %26 [
-    i32 1, label %29
-    i32 2, label %29
-    i32 3, label %32
-    i32 4, label %35
-    i32 5, label %38
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %8, align 4
+  %26 = load i64, ptr %7, align 8
+  store i64 %26, ptr %9, align 8
+  switch i32 %25, label %27 [
+    i32 1, label %30
+    i32 2, label %30
+    i32 3, label %33
+    i32 4, label %36
+    i32 5, label %39
   ]
 
-26:                                               ; preds = %5
-  %27 = load i64, ptr %9, align 8
-  %28 = atomicrmw add ptr %23, i64 %27 monotonic, align 8
-  store i64 %28, ptr %10, align 8
-  br label %41
+27:                                               ; preds = %5
+  %28 = load i64, ptr %9, align 8
+  %29 = atomicrmw add ptr %24, i64 %28 monotonic, align 8
+  store i64 %29, ptr %10, align 8
+  br label %42
 
-29:                                               ; preds = %5, %5
-  %30 = load i64, ptr %9, align 8
-  %31 = atomicrmw add ptr %23, i64 %30 acquire, align 8
-  store i64 %31, ptr %10, align 8
-  br label %41
+30:                                               ; preds = %5, %5
+  %31 = load i64, ptr %9, align 8
+  %32 = atomicrmw add ptr %24, i64 %31 acquire, align 8
+  store i64 %32, ptr %10, align 8
+  br label %42
 
-32:                                               ; preds = %5
-  %33 = load i64, ptr %9, align 8
-  %34 = atomicrmw add ptr %23, i64 %33 release, align 8
-  store i64 %34, ptr %10, align 8
-  br label %41
+33:                                               ; preds = %5
+  %34 = load i64, ptr %9, align 8
+  %35 = atomicrmw add ptr %24, i64 %34 release, align 8
+  store i64 %35, ptr %10, align 8
+  br label %42
 
-35:                                               ; preds = %5
-  %36 = load i64, ptr %9, align 8
-  %37 = atomicrmw add ptr %23, i64 %36 acq_rel, align 8
-  store i64 %37, ptr %10, align 8
-  br label %41
+36:                                               ; preds = %5
+  %37 = load i64, ptr %9, align 8
+  %38 = atomicrmw add ptr %24, i64 %37 acq_rel, align 8
+  store i64 %38, ptr %10, align 8
+  br label %42
 
-38:                                               ; preds = %5
-  %39 = load i64, ptr %9, align 8
-  %40 = atomicrmw add ptr %23, i64 %39 seq_cst, align 8
-  store i64 %40, ptr %10, align 8
-  br label %41
+39:                                               ; preds = %5
+  %40 = load i64, ptr %9, align 8
+  %41 = atomicrmw add ptr %24, i64 %40 seq_cst, align 8
+  store i64 %41, ptr %10, align 8
+  br label %42
 
-41:                                               ; preds = %38, %35, %32, %29, %26
-  %42 = load i64, ptr %10, align 8
-  store i64 %42, ptr %22, align 8
-  %43 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %2) #4
-  %44 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #4
-  %45 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 4
-  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %4) #4
-  %46 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 5
-  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #4
-  %47 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 6
-  store i8 0, ptr %47, align 8
-  %48 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 7
-  store i8 1, ptr %48, align 1
-  %49 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 8
-  %50 = load i8, ptr %14, align 1
-  %51 = trunc i8 %50 to i1
-  %52 = zext i1 %51 to i8
-  store i8 %52, ptr %49, align 2
-  %53 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 9
-  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %1) #4
+42:                                               ; preds = %39, %36, %33, %30, %27
+  %43 = load i64, ptr %10, align 8
+  store i64 %43, ptr %23, align 8
+  %44 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %2) #4
+  %45 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #4
+  %46 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 4
+  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %4) #4
+  %47 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 5
+  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #4
+  %48 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 6
+  store i8 0, ptr %48, align 8
+  %49 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 7
+  store i8 1, ptr %49, align 1
+  %50 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 8
+  %51 = load i8, ptr %14, align 1
+  %52 = trunc i8 %51 to i1
+  %53 = zext i1 %52 to i8
+  store i8 %53, ptr %50, align 2
   %54 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 9
-  %55 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN10cmDebugger26cmDebuggerVariablesManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %54) #4
-  %56 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 1
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds %class.anon.18, ptr %17, i32 0, i32 0
-  store ptr %21, ptr %58, align 8
+  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %1) #4
+  %55 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 9
+  %56 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN10cmDebugger26cmDebuggerVariablesManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %55) #4
+  %57 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 1
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr inbounds %class.anon.18, ptr %17, i32 0, i32 0
+  store ptr %21, ptr %59, align 8
   call void @"_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEEC2IZN10cmDebugger19cmDebuggerVariablesC1ESt10shared_ptrINSB_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS_IFS0_INSB_23cmDebuggerVariableEntryESaISM_EEvEEE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %17) #4
-  invoke void @_ZN10cmDebugger26cmDebuggerVariablesManager15RegisterHandlerElSt8functionIFSt6vectorIN3dap8VariableESaIS4_EERKNS3_16VariablesRequestEEE(ptr noundef nonnull align 8 dereferenceable(56) %55, i64 noundef %57, ptr noundef %16)
-          to label %59 unwind label %60
+  invoke void @_ZN10cmDebugger26cmDebuggerVariablesManager15RegisterHandlerElSt8functionIFSt6vectorIN3dap8VariableESaIS4_EERKNS3_16VariablesRequestEEE(ptr noundef nonnull align 8 dereferenceable(56) %56, i64 noundef %58, ptr noundef %16)
+          to label %60 unwind label %61
 
-59:                                               ; preds = %41
+60:                                               ; preds = %42
   call void @_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   ret void
 
-60:                                               ; preds = %41
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %42
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %18, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %19, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %18, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %19, align 4
   call void @_ZNSt8functionIFSt6vectorIN3dap8VariableESaIS2_EERKNS1_16VariablesRequestEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
-  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %53) #4
-  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #4
-  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #4
+  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %54) #4
+  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #4
+  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #4
-  br label %64
+  br label %65
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %18, align 8
-  %66 = load i32, ptr %19, align 4
-  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
-  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
-  resume { ptr, i32 } %68
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %18, align 8
+  %67 = load i32, ptr %19, align 4
+  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
+  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
+  resume { ptr, i32 } %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2597,33 +2609,34 @@ define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   call void @_ZN10cmDebugger19cmDebuggerVariables17ClearSubVariablesEv(ptr noundef nonnull align 8 dereferenceable(160) %3)
-  %4 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 9
-  %5 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN10cmDebugger26cmDebuggerVariablesManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #4
-  %6 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  invoke void @_ZN10cmDebugger26cmDebuggerVariablesManager17UnregisterHandlerEl(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %7)
-          to label %8 unwind label %14
+  %5 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 9
+  %6 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN10cmDebugger26cmDebuggerVariablesManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #4
+  %7 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  invoke void @_ZN10cmDebugger26cmDebuggerVariablesManager17UnregisterHandlerEl(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %8)
+          to label %9 unwind label %15
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 9
-  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #4
-  %10 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %11 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 4
-  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #4
-  %12 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #4
-  %13 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 2
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 9
+  call void @_ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #4
+  %11 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  %12 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 4
+  call void @_ZNSt8functionIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #4
+  %13 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %14 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #4
   ret void
 
-14:                                               ; preds = %1
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %1
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #14
   unreachable
 }
 

@@ -98,35 +98,39 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 102), align 8
-  %inc = add nsw i64 %1, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 102), align 8
+  %1 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 102
+  %2 = load i64, ptr %1, align 8
+  %inc = add nsw i64 %2, 1
+  %3 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 102
+  store i64 %inc, ptr %3, align 8
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ptr.addr, align 8
-  %call1 = call i64 @je_malloc_usable_size(ptr noundef %2) #7
+  %4 = load ptr, ptr %ptr.addr, align 8
+  %call1 = call i64 @je_malloc_usable_size(ptr noundef %4) #7
   store i64 %call1, ptr %size, align 8
-  %3 = load i64, ptr %size, align 8
-  %call2 = call noalias ptr @zmalloc_no_tcache(i64 noundef %3)
+  %5 = load i64, ptr %size, align 8
+  %call2 = call noalias ptr @zmalloc_no_tcache(i64 noundef %5)
   store ptr %call2, ptr %newptr, align 8
-  %4 = load ptr, ptr %newptr, align 8
-  %5 = load ptr, ptr %ptr.addr, align 8
-  %6 = load i64, ptr %size, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %5, i64 %6, i1 false)
+  %6 = load ptr, ptr %newptr, align 8
   %7 = load ptr, ptr %ptr.addr, align 8
-  call void @zfree_no_tcache(ptr noundef %7)
-  %8 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  %inc3 = add nsw i64 %8, 1
-  store i64 %inc3, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  %9 = load ptr, ptr %newptr, align 8
-  store ptr %9, ptr %retval, align 8
+  %8 = load i64, ptr %size, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %8, i1 false)
+  %9 = load ptr, ptr %ptr.addr, align 8
+  call void @zfree_no_tcache(ptr noundef %9)
+  %10 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %11 = load i64, ptr %10, align 8
+  %inc3 = add nsw i64 %11, 1
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  store i64 %inc3, ptr %12, align 8
+  %13 = load ptr, ptr %newptr, align 8
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %10 = load ptr, ptr %retval, align 8
-  ret ptr %10
+  %14 = load ptr, ptr %retval, align 8
+  ret ptr %14
 }
 
 declare i32 @je_get_defrag_hint(ptr noundef) #1
@@ -1425,29 +1429,31 @@ while.cond:                                       ; preds = %if.end25, %if.end8
 while.body:                                       ; preds = %while.cond
   %16 = load ptr, ptr %ql, align 8
   call void @activeDefragQuickListNode(ptr noundef %16, ptr noundef %node)
-  %17 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %inc10 = add nsw i64 %17, 1
-  store i64 %inc10, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %18 = load i64, ptr %iterations, align 8
-  %inc11 = add nsw i64 %18, 1
+  %17 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %18 = load i64, ptr %17, align 8
+  %inc10 = add nsw i64 %18, 1
+  %19 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  store i64 %inc10, ptr %19, align 8
+  %20 = load i64, ptr %iterations, align 8
+  %inc11 = add nsw i64 %20, 1
   store i64 %inc11, ptr %iterations, align 8
   %cmp12 = icmp sgt i64 %inc11, 128
   br i1 %cmp12, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %while.body
-  %19 = load i32, ptr %bookmark_failed, align 4
-  %tobool13 = icmp ne i32 %19, 0
+  %21 = load i32, ptr %bookmark_failed, align 4
+  %tobool13 = icmp ne i32 %21, 0
   br i1 %tobool13, label %if.end25, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
   %call15 = call i64 @ustime()
-  %20 = load i64, ptr %endtime.addr, align 8
-  %cmp16 = icmp sgt i64 %call15, %20
+  %22 = load i64, ptr %endtime.addr, align 8
+  %cmp16 = icmp sgt i64 %call15, %22
   br i1 %cmp16, label %if.then17, label %if.end24
 
 if.then17:                                        ; preds = %if.then14
-  %21 = load ptr, ptr %node, align 8
-  %call18 = call i32 @quicklistBookmarkCreate(ptr noundef %ql, ptr noundef @.str.6, ptr noundef %21)
+  %23 = load ptr, ptr %node, align 8
+  %call18 = call i32 @quicklistBookmarkCreate(ptr noundef %ql, ptr noundef @.str.6, ptr noundef %23)
   %tobool19 = icmp ne i32 %call18, 0
   br i1 %tobool19, label %if.else21, label %if.then20
 
@@ -1456,10 +1462,10 @@ if.then20:                                        ; preds = %if.then17
   br label %if.end23
 
 if.else21:                                        ; preds = %if.then17
-  %22 = load ptr, ptr %ql, align 8
-  %23 = load ptr, ptr %ob.addr, align 8
-  %ptr22 = getelementptr inbounds %struct.redisObject, ptr %23, i32 0, i32 2
-  store ptr %22, ptr %ptr22, align 8
+  %24 = load ptr, ptr %ql, align 8
+  %25 = load ptr, ptr %ob.addr, align 8
+  %ptr22 = getelementptr inbounds %struct.redisObject, ptr %25, i32 0, i32 2
+  store ptr %24, ptr %ptr22, align 8
   store i64 1, ptr %retval, align 8
   br label %return
 
@@ -1471,27 +1477,27 @@ if.end24:                                         ; preds = %if.end23, %if.then1
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end24, %land.lhs.true, %while.body
-  %24 = load ptr, ptr %node, align 8
-  %next26 = getelementptr inbounds %struct.quicklistNode, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %next26, align 8
-  store ptr %25, ptr %node, align 8
+  %26 = load ptr, ptr %node, align 8
+  %next26 = getelementptr inbounds %struct.quicklistNode, ptr %26, i32 0, i32 1
+  %27 = load ptr, ptr %next26, align 8
+  store ptr %27, ptr %node, align 8
   br label %while.cond, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond
-  %26 = load ptr, ptr %ql, align 8
-  %call27 = call i32 @quicklistBookmarkDelete(ptr noundef %26, ptr noundef @.str.6)
-  %27 = load ptr, ptr %cursor.addr, align 8
-  store i64 0, ptr %27, align 8
-  %28 = load i32, ptr %bookmark_failed, align 4
-  %tobool28 = icmp ne i32 %28, 0
+  %28 = load ptr, ptr %ql, align 8
+  %call27 = call i32 @quicklistBookmarkDelete(ptr noundef %28, ptr noundef @.str.6)
+  %29 = load ptr, ptr %cursor.addr, align 8
+  store i64 0, ptr %29, align 8
+  %30 = load i32, ptr %bookmark_failed, align 4
+  %tobool28 = icmp ne i32 %30, 0
   %cond = select i1 %tobool28, i32 1, i32 0
   %conv = sext i32 %cond to i64
   store i64 %conv, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.else21, %if.then6, %if.then
-  %29 = load i64, ptr %retval, align 8
-  ret i64 %29
+  %31 = load i64, ptr %retval, align 8
+  ret i64 %31
 }
 
 declare ptr @quicklistBookmarkFind(ptr noundef, ptr noundef) #1
@@ -1520,9 +1526,11 @@ entry:
   %3 = load ptr, ptr %zs, align 8
   %4 = load ptr, ptr %de, align 8
   call void @activeDefragZsetEntry(ptr noundef %3, ptr noundef %4)
-  %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %inc = add nsw i64 %5, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %6 = load i64, ptr %5, align 8
+  %inc = add nsw i64 %6, 1
+  %7 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  store i64 %inc, ptr %7, align 8
   ret void
 }
 
@@ -1586,9 +1594,11 @@ entry:
   %de.addr = alloca ptr, align 8
   store ptr %privdata, ptr %privdata.addr, align 8
   store ptr %de, ptr %de.addr, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %inc = add nsw i64 %0, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %1 = load i64, ptr %0, align 8
+  %inc = add nsw i64 %1, 1
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  store i64 %inc, ptr %2, align 8
   ret void
 }
 
@@ -1750,19 +1760,20 @@ if.end:                                           ; preds = %if.then, %cond.end
   %10 = load ptr, ptr %ql, align 8
   %len = getelementptr inbounds %struct.quicklist, ptr %10, i32 0, i32 3
   %11 = load i64, ptr %len, align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 171), align 8
-  %cmp8 = icmp ugt i64 %11, %12
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 171
+  %13 = load i64, ptr %12, align 8
+  %cmp8 = icmp ugt i64 %11, %13
   br i1 %cmp8, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end
-  %13 = load ptr, ptr %db.addr, align 8
-  %14 = load ptr, ptr %kde.addr, align 8
-  call void @defragLater(ptr noundef %13, ptr noundef %14)
+  %14 = load ptr, ptr %db.addr, align 8
+  %15 = load ptr, ptr %kde.addr, align 8
+  call void @defragLater(ptr noundef %14, ptr noundef %15)
   br label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %15 = load ptr, ptr %ql, align 8
-  call void @activeDefragQuickListNodes(ptr noundef %15)
+  %16 = load ptr, ptr %ql, align 8
+  call void @activeDefragQuickListNodes(ptr noundef %16)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then10
@@ -1890,63 +1901,64 @@ if.end19:                                         ; preds = %if.then16, %if.end1
   %arrayidx22 = getelementptr inbounds [2 x i64], ptr %ht_used21, i64 0, i64 1
   %25 = load i64, ptr %arrayidx22, align 8
   %add = add i64 %22, %25
-  %26 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 171), align 8
-  %cmp23 = icmp ugt i64 %add, %26
+  %26 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 171
+  %27 = load i64, ptr %26, align 8
+  %cmp23 = icmp ugt i64 %add, %27
   br i1 %cmp23, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end19
-  %27 = load ptr, ptr %db.addr, align 8
-  %28 = load ptr, ptr %kde.addr, align 8
-  call void @defragLater(ptr noundef %27, ptr noundef %28)
+  %28 = load ptr, ptr %db.addr, align 8
+  %29 = load ptr, ptr %kde.addr, align 8
+  call void @defragLater(ptr noundef %28, ptr noundef %29)
   br label %if.end31
 
 if.else:                                          ; preds = %if.end19
-  %29 = load ptr, ptr %zs, align 8
-  %dict26 = getelementptr inbounds %struct.zset, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %dict26, align 8
-  %call27 = call ptr @dictGetIterator(ptr noundef %30)
+  %30 = load ptr, ptr %zs, align 8
+  %dict26 = getelementptr inbounds %struct.zset, ptr %30, i32 0, i32 0
+  %31 = load ptr, ptr %dict26, align 8
+  %call27 = call ptr @dictGetIterator(ptr noundef %31)
   store ptr %call27, ptr %di, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.else
-  %31 = load ptr, ptr %di, align 8
-  %call28 = call ptr @dictNext(ptr noundef %31)
+  %32 = load ptr, ptr %di, align 8
+  %call28 = call ptr @dictNext(ptr noundef %32)
   store ptr %call28, ptr %de, align 8
   %cmp29 = icmp ne ptr %call28, null
   br i1 %cmp29, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %32 = load ptr, ptr %zs, align 8
-  %33 = load ptr, ptr %de, align 8
-  call void @activeDefragZsetEntry(ptr noundef %32, ptr noundef %33)
+  %33 = load ptr, ptr %zs, align 8
+  %34 = load ptr, ptr %de, align 8
+  call void @activeDefragZsetEntry(ptr noundef %33, ptr noundef %34)
   br label %while.cond, !llvm.loop !13
 
 while.end:                                        ; preds = %while.cond
-  %34 = load ptr, ptr %di, align 8
-  call void @dictReleaseIterator(ptr noundef %34)
+  %35 = load ptr, ptr %di, align 8
+  call void @dictReleaseIterator(ptr noundef %35)
   br label %if.end31
 
 if.end31:                                         ; preds = %while.end, %if.then25
-  %35 = load ptr, ptr %zs, align 8
-  %dict32 = getelementptr inbounds %struct.zset, ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %dict32, align 8
-  %call33 = call ptr @activeDefragAlloc(ptr noundef %36)
+  %36 = load ptr, ptr %zs, align 8
+  %dict32 = getelementptr inbounds %struct.zset, ptr %36, i32 0, i32 0
+  %37 = load ptr, ptr %dict32, align 8
+  %call33 = call ptr @activeDefragAlloc(ptr noundef %37)
   store ptr %call33, ptr %newdict, align 8
   %tobool34 = icmp ne ptr %call33, null
   br i1 %tobool34, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %if.end31
-  %37 = load ptr, ptr %newdict, align 8
-  %38 = load ptr, ptr %zs, align 8
-  %dict36 = getelementptr inbounds %struct.zset, ptr %38, i32 0, i32 0
-  store ptr %37, ptr %dict36, align 8
+  %38 = load ptr, ptr %newdict, align 8
+  %39 = load ptr, ptr %zs, align 8
+  %dict36 = getelementptr inbounds %struct.zset, ptr %39, i32 0, i32 0
+  store ptr %38, ptr %dict36, align 8
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then35, %if.end31
-  %39 = load ptr, ptr %zs, align 8
-  %dict38 = getelementptr inbounds %struct.zset, ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %dict38, align 8
-  call void @dictDefragTables(ptr noundef %40)
+  %40 = load ptr, ptr %zs, align 8
+  %dict38 = getelementptr inbounds %struct.zset, ptr %40, i32 0, i32 0
+  %41 = load ptr, ptr %dict38, align 8
+  call void @dictDefragTables(ptr noundef %41)
   ret void
 }
 
@@ -2017,42 +2029,43 @@ cond.end:                                         ; preds = %4, %cond.true
   %arrayidx6 = getelementptr inbounds [2 x i64], ptr %ht_used5, i64 0, i64 1
   %10 = load i64, ptr %arrayidx6, align 8
   %add = add i64 %8, %10
-  %11 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 171), align 8
-  %cmp7 = icmp ugt i64 %add, %11
+  %11 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 171
+  %12 = load i64, ptr %11, align 8
+  %cmp7 = icmp ugt i64 %add, %12
   br i1 %cmp7, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end
-  %12 = load ptr, ptr %db.addr, align 8
-  %13 = load ptr, ptr %kde.addr, align 8
-  call void @defragLater(ptr noundef %12, ptr noundef %13)
+  %13 = load ptr, ptr %db.addr, align 8
+  %14 = load ptr, ptr %kde.addr, align 8
+  call void @defragLater(ptr noundef %13, ptr noundef %14)
   br label %if.end
 
 if.else:                                          ; preds = %cond.end
-  %14 = load ptr, ptr %d, align 8
-  call void @activeDefragSdsDict(ptr noundef %14, i32 noundef 1)
+  %15 = load ptr, ptr %d, align 8
+  call void @activeDefragSdsDict(ptr noundef %15, i32 noundef 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %15 = load ptr, ptr %ob, align 8
-  %ptr9 = getelementptr inbounds %struct.redisObject, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %ptr9, align 8
-  %call10 = call ptr @activeDefragAlloc(ptr noundef %16)
+  %16 = load ptr, ptr %ob, align 8
+  %ptr9 = getelementptr inbounds %struct.redisObject, ptr %16, i32 0, i32 2
+  %17 = load ptr, ptr %ptr9, align 8
+  %call10 = call ptr @activeDefragAlloc(ptr noundef %17)
   store ptr %call10, ptr %newd, align 8
   %tobool11 = icmp ne ptr %call10, null
   br i1 %tobool11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end
-  %17 = load ptr, ptr %newd, align 8
-  %18 = load ptr, ptr %ob, align 8
-  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %18, i32 0, i32 2
-  store ptr %17, ptr %ptr13, align 8
+  %18 = load ptr, ptr %newd, align 8
+  %19 = load ptr, ptr %ob, align 8
+  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %19, i32 0, i32 2
+  store ptr %18, ptr %ptr13, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end
-  %19 = load ptr, ptr %ob, align 8
-  %ptr15 = getelementptr inbounds %struct.redisObject, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %ptr15, align 8
-  call void @dictDefragTables(ptr noundef %20)
+  %20 = load ptr, ptr %ob, align 8
+  %ptr15 = getelementptr inbounds %struct.redisObject, ptr %20, i32 0, i32 2
+  %21 = load ptr, ptr %ptr15, align 8
+  call void @dictDefragTables(ptr noundef %21)
   ret void
 }
 
@@ -2117,42 +2130,43 @@ cond.end:                                         ; preds = %4, %cond.true
   %arrayidx6 = getelementptr inbounds [2 x i64], ptr %ht_used5, i64 0, i64 1
   %10 = load i64, ptr %arrayidx6, align 8
   %add = add i64 %8, %10
-  %11 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 171), align 8
-  %cmp7 = icmp ugt i64 %add, %11
+  %11 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 171
+  %12 = load i64, ptr %11, align 8
+  %cmp7 = icmp ugt i64 %add, %12
   br i1 %cmp7, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end
-  %12 = load ptr, ptr %db.addr, align 8
-  %13 = load ptr, ptr %kde.addr, align 8
-  call void @defragLater(ptr noundef %12, ptr noundef %13)
+  %13 = load ptr, ptr %db.addr, align 8
+  %14 = load ptr, ptr %kde.addr, align 8
+  call void @defragLater(ptr noundef %13, ptr noundef %14)
   br label %if.end
 
 if.else:                                          ; preds = %cond.end
-  %14 = load ptr, ptr %d, align 8
-  call void @activeDefragSdsDict(ptr noundef %14, i32 noundef 0)
+  %15 = load ptr, ptr %d, align 8
+  call void @activeDefragSdsDict(ptr noundef %15, i32 noundef 0)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %15 = load ptr, ptr %ob, align 8
-  %ptr9 = getelementptr inbounds %struct.redisObject, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %ptr9, align 8
-  %call10 = call ptr @activeDefragAlloc(ptr noundef %16)
+  %16 = load ptr, ptr %ob, align 8
+  %ptr9 = getelementptr inbounds %struct.redisObject, ptr %16, i32 0, i32 2
+  %17 = load ptr, ptr %ptr9, align 8
+  %call10 = call ptr @activeDefragAlloc(ptr noundef %17)
   store ptr %call10, ptr %newd, align 8
   %tobool11 = icmp ne ptr %call10, null
   br i1 %tobool11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end
-  %17 = load ptr, ptr %newd, align 8
-  %18 = load ptr, ptr %ob, align 8
-  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %18, i32 0, i32 2
-  store ptr %17, ptr %ptr13, align 8
+  %18 = load ptr, ptr %newd, align 8
+  %19 = load ptr, ptr %ob, align 8
+  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %19, i32 0, i32 2
+  store ptr %18, ptr %ptr13, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end
-  %19 = load ptr, ptr %ob, align 8
-  %ptr15 = getelementptr inbounds %struct.redisObject, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %ptr15, align 8
-  call void @dictDefragTables(ptr noundef %20)
+  %20 = load ptr, ptr %ob, align 8
+  %ptr15 = getelementptr inbounds %struct.redisObject, ptr %20, i32 0, i32 2
+  %21 = load ptr, ptr %ptr15, align 8
+  call void @dictDefragTables(ptr noundef %21)
   ret void
 }
 
@@ -2295,25 +2309,27 @@ if.then17:                                        ; preds = %while.body
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %while.body
-  %18 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %inc20 = add nsw i64 %18, 1
-  store i64 %inc20, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %19 = load i64, ptr %iterations, align 8
-  %inc21 = add nsw i64 %19, 1
+  %18 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %19 = load i64, ptr %18, align 8
+  %inc20 = add nsw i64 %19, 1
+  %20 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  store i64 %inc20, ptr %20, align 8
+  %21 = load i64, ptr %iterations, align 8
+  %inc21 = add nsw i64 %21, 1
   store i64 %inc21, ptr %iterations, align 8
   %cmp22 = icmp sgt i64 %inc21, 128
   br i1 %cmp22, label %if.then23, label %if.end32
 
 if.then23:                                        ; preds = %if.end19
   %call24 = call i64 @ustime()
-  %20 = load i64, ptr %endtime.addr, align 8
-  %cmp25 = icmp sgt i64 %call24, %20
+  %22 = load i64, ptr %endtime.addr, align 8
+  %cmp25 = icmp sgt i64 %call24, %22
   br i1 %cmp25, label %if.then26, label %if.end31
 
 if.then26:                                        ; preds = %if.then23
   %key_len = getelementptr inbounds %struct.raxIterator, ptr %ri, i32 0, i32 4
-  %21 = load i64, ptr %key_len, align 8
-  %cmp27 = icmp eq i64 %21, 16
+  %23 = load i64, ptr %key_len, align 8
+  %cmp27 = icmp eq i64 %23, 16
   %lnot = xor i1 %cmp27, true
   %lnot28 = xor i1 %lnot, true
   %lnot.ext = zext i1 %lnot28 to i32
@@ -2329,15 +2345,15 @@ cond.false:                                       ; preds = %if.then26
   call void @abort() #8
   unreachable
 
-22:                                               ; No predecessors!
+24:                                               ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %22, %cond.true
+cond.end:                                         ; preds = %24, %cond.true
   %key = getelementptr inbounds %struct.raxIterator, ptr %ri, i32 0, i32 2
-  %23 = load ptr, ptr %key, align 8
+  %25 = load ptr, ptr %key, align 8
   %key_len30 = getelementptr inbounds %struct.raxIterator, ptr %ri, i32 0, i32 4
-  %24 = load i64, ptr %key_len30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 @scanLaterStreamListpacks.last, ptr align 1 %23, i64 %24, i1 false)
+  %26 = load i64, ptr %key_len30, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 @scanLaterStreamListpacks.last, ptr align 1 %25, i64 %26, i1 false)
   call void @raxStop(ptr noundef %ri)
   store i32 1, ptr %retval, align 4
   br label %return
@@ -2351,14 +2367,14 @@ if.end32:                                         ; preds = %if.end31, %if.end19
 
 while.end:                                        ; preds = %while.cond
   call void @raxStop(ptr noundef %ri)
-  %25 = load ptr, ptr %cursor.addr, align 8
-  store i64 0, ptr %25, align 8
+  %27 = load ptr, ptr %cursor.addr, align 8
+  store i64 0, ptr %27, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %while.end, %cond.end, %if.then9, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+  %28 = load i32, ptr %retval, align 4
+  ret i32 %28
 }
 
 declare void @raxStart(ptr noundef, ptr noundef) #1
@@ -2729,49 +2745,50 @@ if.end:                                           ; preds = %if.then, %cond.end
   %rax = getelementptr inbounds %struct.stream, ptr %10, i32 0, i32 0
   %11 = load ptr, ptr %rax, align 8
   %call8 = call i64 @raxSize(ptr noundef %11)
-  %12 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 171), align 8
-  %cmp9 = icmp ugt i64 %call8, %12
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 171
+  %13 = load i64, ptr %12, align 8
+  %cmp9 = icmp ugt i64 %call8, %13
   br i1 %cmp9, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end
-  %13 = load ptr, ptr %s, align 8
-  %rax12 = getelementptr inbounds %struct.stream, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %rax12, align 8
-  %call13 = call ptr @activeDefragAlloc(ptr noundef %14)
+  %14 = load ptr, ptr %s, align 8
+  %rax12 = getelementptr inbounds %struct.stream, ptr %14, i32 0, i32 0
+  %15 = load ptr, ptr %rax12, align 8
+  %call13 = call ptr @activeDefragAlloc(ptr noundef %15)
   store ptr %call13, ptr %newrax, align 8
-  %15 = load ptr, ptr %newrax, align 8
-  %tobool14 = icmp ne ptr %15, null
+  %16 = load ptr, ptr %newrax, align 8
+  %tobool14 = icmp ne ptr %16, null
   br i1 %tobool14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.then11
-  %16 = load ptr, ptr %newrax, align 8
-  %17 = load ptr, ptr %s, align 8
-  %rax16 = getelementptr inbounds %struct.stream, ptr %17, i32 0, i32 0
-  store ptr %16, ptr %rax16, align 8
+  %17 = load ptr, ptr %newrax, align 8
+  %18 = load ptr, ptr %s, align 8
+  %rax16 = getelementptr inbounds %struct.stream, ptr %18, i32 0, i32 0
+  store ptr %17, ptr %rax16, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.then11
-  %18 = load ptr, ptr %db.addr, align 8
-  %19 = load ptr, ptr %kde.addr, align 8
-  call void @defragLater(ptr noundef %18, ptr noundef %19)
+  %19 = load ptr, ptr %db.addr, align 8
+  %20 = load ptr, ptr %kde.addr, align 8
+  call void @defragLater(ptr noundef %19, ptr noundef %20)
   br label %if.end19
 
 if.else:                                          ; preds = %if.end
-  %20 = load ptr, ptr %s, align 8
-  %rax18 = getelementptr inbounds %struct.stream, ptr %20, i32 0, i32 0
+  %21 = load ptr, ptr %s, align 8
+  %rax18 = getelementptr inbounds %struct.stream, ptr %21, i32 0, i32 0
   call void @defragRadixTree(ptr noundef %rax18, i32 noundef 1, ptr noundef null, ptr noundef null)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end17
-  %21 = load ptr, ptr %s, align 8
-  %cgroups = getelementptr inbounds %struct.stream, ptr %21, i32 0, i32 6
-  %22 = load ptr, ptr %cgroups, align 8
-  %tobool20 = icmp ne ptr %22, null
+  %22 = load ptr, ptr %s, align 8
+  %cgroups = getelementptr inbounds %struct.stream, ptr %22, i32 0, i32 6
+  %23 = load ptr, ptr %cgroups, align 8
+  %tobool20 = icmp ne ptr %23, null
   br i1 %tobool20, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.end19
-  %23 = load ptr, ptr %s, align 8
-  %cgroups22 = getelementptr inbounds %struct.stream, ptr %23, i32 0, i32 6
+  %24 = load ptr, ptr %s, align 8
+  %cgroups22 = getelementptr inbounds %struct.stream, ptr %24, i32 0, i32 6
   call void @defragRadixTree(ptr noundef %cgroups22, i32 noundef 1, ptr noundef @defragStreamConsumerGroup, ptr noundef null)
   br label %if.end23
 
@@ -3282,32 +3299,40 @@ entry:
   %hits_before = alloca i64, align 8
   store ptr %privdata, ptr %privdata.addr, align 8
   store ptr %de, ptr %de.addr, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  store i64 %0, ptr %hits_before, align 8
-  %1 = load ptr, ptr %privdata.addr, align 8
-  %2 = load ptr, ptr %de.addr, align 8
-  call void @defragKey(ptr noundef %1, ptr noundef %2)
-  %3 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  %4 = load i64, ptr %hits_before, align 8
-  %cmp = icmp ne i64 %3, %4
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %1 = load i64, ptr %0, align 8
+  store i64 %1, ptr %hits_before, align 8
+  %2 = load ptr, ptr %privdata.addr, align 8
+  %3 = load ptr, ptr %de.addr, align 8
+  call void @defragKey(ptr noundef %2, ptr noundef %3)
+  %4 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %5 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %hits_before, align 8
+  %cmp = icmp ne i64 %5, %6
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 103), align 8
-  %inc = add nsw i64 %5, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 103), align 8
+  %7 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 103
+  %8 = load i64, ptr %7, align 8
+  %inc = add nsw i64 %8, 1
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 103
+  store i64 %inc, ptr %9, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %6 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 104), align 8
-  %inc1 = add nsw i64 %6, 1
-  store i64 %inc1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 104), align 8
+  %10 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 104
+  %11 = load i64, ptr %10, align 8
+  %inc1 = add nsw i64 %11, 1
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 104
+  store i64 %inc1, ptr %12, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %7 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %inc2 = add nsw i64 %7, 1
-  store i64 %inc2, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
+  %13 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %14 = load i64, ptr %13, align 8
+  %inc2 = add nsw i64 %14, 1
+  %15 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  store i64 %inc2, ptr %15, align 8
   ret void
 }
 
@@ -3360,29 +3385,30 @@ if.end:                                           ; preds = %if.then, %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %13 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp = icmp slt i32 0, %13
+  %13 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %14 = load i32, ptr %13, align 8
+  %cmp = icmp slt i32 0, %14
   br i1 %cmp, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %do.body
   br label %do.end
 
 if.end8:                                          ; preds = %do.body
-  %14 = load i64, ptr %allocated, align 8
-  %15 = load i64, ptr %active, align 8
-  %16 = load i64, ptr %resident, align 8
-  %17 = load float, ptr %frag_pct, align 4
-  %conv9 = fpext float %17 to double
-  %18 = load float, ptr %rss_pct, align 4
-  %conv10 = fpext float %18 to double
-  %19 = load i64, ptr %frag_bytes, align 8
-  %20 = load i64, ptr %rss_bytes, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef @.str.22, i64 noundef %14, i64 noundef %15, i64 noundef %16, double noundef %conv9, double noundef %conv10, i64 noundef %19, i64 noundef %20)
+  %15 = load i64, ptr %allocated, align 8
+  %16 = load i64, ptr %active, align 8
+  %17 = load i64, ptr %resident, align 8
+  %18 = load float, ptr %frag_pct, align 4
+  %conv9 = fpext float %18 to double
+  %19 = load float, ptr %rss_pct, align 4
+  %conv10 = fpext float %19 to double
+  %20 = load i64, ptr %frag_bytes, align 8
+  %21 = load i64, ptr %rss_bytes, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef @.str.22, i64 noundef %15, i64 noundef %16, i64 noundef %17, double noundef %conv9, double noundef %conv10, i64 noundef %20, i64 noundef %21)
   br label %do.end
 
 do.end:                                           ; preds = %if.end8, %if.then7
-  %21 = load float, ptr %frag_pct, align 4
-  ret float %21
+  %22 = load float, ptr %frag_pct, align 4
+  ret float %22
 }
 
 declare i32 @zmalloc_get_allocator_info(ptr noundef, ptr noundef, ptr noundef) #1
@@ -3570,34 +3596,36 @@ entry:
   store i32 %slot, ptr %slot.addr, align 4
   store i64 %endtime, ptr %endtime.addr, align 8
   store i32 0, ptr %iterations, align 4
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  store i64 %0, ptr %prev_defragged, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  store i64 %1, ptr %prev_scanned, align 8
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %1 = load i64, ptr %0, align 8
+  store i64 %1, ptr %prev_defragged, align 8
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %prev_scanned, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond52, %entry
-  %2 = load i64, ptr @defrag_later_cursor, align 8
-  %tobool = icmp ne i64 %2, 0
+  %4 = load i64, ptr @defrag_later_cursor, align 8
+  %tobool = icmp ne i64 %4, 0
   br i1 %tobool, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %do.body
-  %3 = load ptr, ptr %db.addr, align 8
-  %defrag_later = getelementptr inbounds %struct.redisDb, ptr %3, i32 0, i32 9
-  %4 = load ptr, ptr %defrag_later, align 8
-  %head1 = getelementptr inbounds %struct.list, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %head1, align 8
-  store ptr %5, ptr %head, align 8
-  %6 = load ptr, ptr @defrag_later_current_key, align 8
-  %tobool2 = icmp ne ptr %6, null
+  %5 = load ptr, ptr %db.addr, align 8
+  %defrag_later = getelementptr inbounds %struct.redisDb, ptr %5, i32 0, i32 9
+  %6 = load ptr, ptr %defrag_later, align 8
+  %head1 = getelementptr inbounds %struct.list, ptr %6, i32 0, i32 0
+  %7 = load ptr, ptr %head1, align 8
+  store ptr %7, ptr %head, align 8
+  %8 = load ptr, ptr @defrag_later_current_key, align 8
+  %tobool2 = icmp ne ptr %8, null
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %7 = load ptr, ptr @defrag_later_current_key, align 8
-  %8 = load ptr, ptr %head, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %value, align 8
-  %cmp = icmp eq ptr %7, %9
+  %9 = load ptr, ptr @defrag_later_current_key, align 8
+  %10 = load ptr, ptr %head, align 8
+  %value = getelementptr inbounds %struct.listNode, ptr %10, i32 0, i32 2
+  %11 = load ptr, ptr %value, align 8
+  %cmp = icmp eq ptr %9, %11
   %lnot = xor i1 %cmp, true
   %lnot4 = xor i1 %lnot, true
   %lnot.ext = zext i1 %lnot4 to i32
@@ -3613,28 +3641,28 @@ cond.false:                                       ; preds = %if.then3
   call void @abort() #8
   unreachable
 
-10:                                               ; No predecessors!
+12:                                               ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %10, %cond.true
-  %11 = load ptr, ptr %db.addr, align 8
-  %defrag_later6 = getelementptr inbounds %struct.redisDb, ptr %11, i32 0, i32 9
-  %12 = load ptr, ptr %defrag_later6, align 8
-  %13 = load ptr, ptr %head, align 8
-  call void @listDelNode(ptr noundef %12, ptr noundef %13)
+cond.end:                                         ; preds = %12, %cond.true
+  %13 = load ptr, ptr %db.addr, align 8
+  %defrag_later6 = getelementptr inbounds %struct.redisDb, ptr %13, i32 0, i32 9
+  %14 = load ptr, ptr %defrag_later6, align 8
+  %15 = load ptr, ptr %head, align 8
+  call void @listDelNode(ptr noundef %14, ptr noundef %15)
   store i64 0, ptr @defrag_later_cursor, align 8
   store ptr null, ptr @defrag_later_current_key, align 8
   br label %if.end
 
 if.end:                                           ; preds = %cond.end, %if.then
-  %14 = load ptr, ptr %db.addr, align 8
-  %defrag_later7 = getelementptr inbounds %struct.redisDb, ptr %14, i32 0, i32 9
-  %15 = load ptr, ptr %defrag_later7, align 8
-  %head8 = getelementptr inbounds %struct.list, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %head8, align 8
-  store ptr %16, ptr %head, align 8
-  %17 = load ptr, ptr %head, align 8
-  %tobool9 = icmp ne ptr %17, null
+  %16 = load ptr, ptr %db.addr, align 8
+  %defrag_later7 = getelementptr inbounds %struct.redisDb, ptr %16, i32 0, i32 9
+  %17 = load ptr, ptr %defrag_later7, align 8
+  %head8 = getelementptr inbounds %struct.list, ptr %17, i32 0, i32 0
+  %18 = load ptr, ptr %head8, align 8
+  store ptr %18, ptr %head, align 8
+  %19 = load ptr, ptr %head, align 8
+  %tobool9 = icmp ne ptr %19, null
   br i1 %tobool9, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end
@@ -3642,36 +3670,37 @@ if.then10:                                        ; preds = %if.end
   br label %do.end53
 
 if.end11:                                         ; preds = %if.end
-  %18 = load ptr, ptr %head, align 8
-  %value12 = getelementptr inbounds %struct.listNode, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %value12, align 8
-  store ptr %19, ptr @defrag_later_current_key, align 8
+  %20 = load ptr, ptr %head, align 8
+  %value12 = getelementptr inbounds %struct.listNode, ptr %20, i32 0, i32 2
+  %21 = load ptr, ptr %value12, align 8
+  store ptr %21, ptr @defrag_later_current_key, align 8
   store i64 0, ptr @defrag_later_cursor, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end11, %do.body
-  %20 = load ptr, ptr %db.addr, align 8
-  %dict = getelementptr inbounds %struct.redisDb, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %dict, align 8
-  %22 = load i32, ptr %slot.addr, align 4
-  %idxprom = sext i32 %22 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %21, i64 %idxprom
-  %23 = load ptr, ptr %arrayidx, align 8
-  %24 = load ptr, ptr @defrag_later_current_key, align 8
-  %call = call ptr @dictFind(ptr noundef %23, ptr noundef %24)
+  %22 = load ptr, ptr %db.addr, align 8
+  %dict = getelementptr inbounds %struct.redisDb, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %dict, align 8
+  %24 = load i32, ptr %slot.addr, align 4
+  %idxprom = sext i32 %24 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %23, i64 %idxprom
+  %25 = load ptr, ptr %arrayidx, align 8
+  %26 = load ptr, ptr @defrag_later_current_key, align 8
+  %call = call ptr @dictFind(ptr noundef %25, ptr noundef %26)
   store ptr %call, ptr %de, align 8
-  %25 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  store i64 %25, ptr %key_defragged, align 8
+  %27 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %28 = load i64, ptr %27, align 8
+  store i64 %28, ptr %key_defragged, align 8
   br label %do.body14
 
 do.body14:                                        ; preds = %do.cond, %if.end13
   store i32 0, ptr %quit, align 4
-  %26 = load ptr, ptr %de, align 8
-  %27 = load i64, ptr %endtime.addr, align 8
-  %28 = load ptr, ptr %db.addr, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %28, i32 0, i32 6
-  %29 = load i32, ptr %id, align 8
-  %call15 = call i32 @defragLaterItem(ptr noundef %26, ptr noundef @defrag_later_cursor, i64 noundef %27, i32 noundef %29)
+  %29 = load ptr, ptr %de, align 8
+  %30 = load i64, ptr %endtime.addr, align 8
+  %31 = load ptr, ptr %db.addr, align 8
+  %id = getelementptr inbounds %struct.redisDb, ptr %31, i32 0, i32 6
+  %32 = load i32, ptr %id, align 8
+  %call15 = call i32 @defragLaterItem(ptr noundef %29, ptr noundef @defrag_later_cursor, i64 noundef %30, i32 noundef %32)
   %tobool16 = icmp ne i32 %call15, 0
   br i1 %tobool16, label %if.then17, label %if.end18
 
@@ -3680,58 +3709,65 @@ if.then17:                                        ; preds = %do.body14
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %do.body14
-  %30 = load i32, ptr %quit, align 4
-  %tobool19 = icmp ne i32 %30, 0
+  %33 = load i32, ptr %quit, align 4
+  %tobool19 = icmp ne i32 %33, 0
   br i1 %tobool19, label %if.then29, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end18
-  %31 = load i32, ptr %iterations, align 4
-  %inc = add i32 %31, 1
+  %34 = load i32, ptr %iterations, align 4
+  %inc = add i32 %34, 1
   store i32 %inc, ptr %iterations, align 4
   %cmp20 = icmp ugt i32 %inc, 16
   br i1 %cmp20, label %if.then29, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false
-  %32 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  %33 = load i64, ptr %prev_defragged, align 8
-  %sub = sub i64 %32, %33
+  %35 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %36 = load i64, ptr %35, align 8
+  %37 = load i64, ptr %prev_defragged, align 8
+  %sub = sub i64 %36, %37
   %cmp23 = icmp ugt i64 %sub, 512
   br i1 %cmp23, label %if.then29, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %34 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %35 = load i64, ptr %prev_scanned, align 8
-  %sub26 = sub i64 %34, %35
+  %38 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %39 = load i64, ptr %38, align 8
+  %40 = load i64, ptr %prev_scanned, align 8
+  %sub26 = sub i64 %39, %40
   %cmp27 = icmp ugt i64 %sub26, 64
   br i1 %cmp27, label %if.then29, label %if.end43
 
 if.then29:                                        ; preds = %lor.lhs.false25, %lor.lhs.false22, %lor.lhs.false, %if.end18
-  %36 = load i32, ptr %quit, align 4
-  %tobool30 = icmp ne i32 %36, 0
+  %41 = load i32, ptr %quit, align 4
+  %tobool30 = icmp ne i32 %41, 0
   br i1 %tobool30, label %if.then35, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %if.then29
   %call32 = call i64 @ustime()
-  %37 = load i64, ptr %endtime.addr, align 8
-  %cmp33 = icmp sgt i64 %call32, %37
+  %42 = load i64, ptr %endtime.addr, align 8
+  %cmp33 = icmp sgt i64 %call32, %42
   br i1 %cmp33, label %if.then35, label %if.end42
 
 if.then35:                                        ; preds = %lor.lhs.false31, %if.then29
-  %38 = load i64, ptr %key_defragged, align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  %cmp36 = icmp ne i64 %38, %39
+  %43 = load i64, ptr %key_defragged, align 8
+  %44 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %45 = load i64, ptr %44, align 8
+  %cmp36 = icmp ne i64 %43, %45
   br i1 %cmp36, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.then35
-  %40 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 103), align 8
-  %inc39 = add nsw i64 %40, 1
-  store i64 %inc39, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 103), align 8
+  %46 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 103
+  %47 = load i64, ptr %46, align 8
+  %inc39 = add nsw i64 %47, 1
+  %48 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 103
+  store i64 %inc39, ptr %48, align 8
   br label %if.end41
 
 if.else:                                          ; preds = %if.then35
-  %41 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 104), align 8
-  %inc40 = add nsw i64 %41, 1
-  store i64 %inc40, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 104), align 8
+  %49 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 104
+  %50 = load i64, ptr %49, align 8
+  %inc40 = add nsw i64 %50, 1
+  %51 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 104
+  store i64 %inc40, ptr %51, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else, %if.then38
@@ -3740,36 +3776,43 @@ if.end41:                                         ; preds = %if.else, %if.then38
 
 if.end42:                                         ; preds = %lor.lhs.false31
   store i32 0, ptr %iterations, align 4
-  %42 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  store i64 %42, ptr %prev_defragged, align 8
-  %43 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  store i64 %43, ptr %prev_scanned, align 8
+  %52 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %53 = load i64, ptr %52, align 8
+  store i64 %53, ptr %prev_defragged, align 8
+  %54 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %55 = load i64, ptr %54, align 8
+  store i64 %55, ptr %prev_scanned, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end42, %lor.lhs.false25
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end43
-  %44 = load i64, ptr @defrag_later_cursor, align 8
-  %tobool44 = icmp ne i64 %44, 0
+  %56 = load i64, ptr @defrag_later_cursor, align 8
+  %tobool44 = icmp ne i64 %56, 0
   br i1 %tobool44, label %do.body14, label %do.end, !llvm.loop !16
 
 do.end:                                           ; preds = %do.cond
-  %45 = load i64, ptr %key_defragged, align 8
-  %46 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  %cmp45 = icmp ne i64 %45, %46
+  %57 = load i64, ptr %key_defragged, align 8
+  %58 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %59 = load i64, ptr %58, align 8
+  %cmp45 = icmp ne i64 %57, %59
   br i1 %cmp45, label %if.then47, label %if.else49
 
 if.then47:                                        ; preds = %do.end
-  %47 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 103), align 8
-  %inc48 = add nsw i64 %47, 1
-  store i64 %inc48, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 103), align 8
+  %60 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 103
+  %61 = load i64, ptr %60, align 8
+  %inc48 = add nsw i64 %61, 1
+  %62 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 103
+  store i64 %inc48, ptr %62, align 8
   br label %if.end51
 
 if.else49:                                        ; preds = %do.end
-  %48 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 104), align 8
-  %inc50 = add nsw i64 %48, 1
-  store i64 %inc50, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 104), align 8
+  %63 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 104
+  %64 = load i64, ptr %63, align 8
+  %inc50 = add nsw i64 %64, 1
+  %65 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 104
+  store i64 %inc50, ptr %65, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %if.else49, %if.then47
@@ -3779,8 +3822,8 @@ do.cond52:                                        ; preds = %if.end51
   br i1 true, label %do.body, label %do.end53
 
 do.end53:                                         ; preds = %do.cond52, %if.end41, %if.then10
-  %49 = load i32, ptr %retval, align 4
-  ret i32 %49
+  %66 = load i32, ptr %retval, align 4
+  ret i32 %66
 }
 
 declare void @listDelNode(ptr noundef, ptr noundef) #1
@@ -3795,21 +3838,24 @@ entry:
   %cpu_pct = alloca i32, align 4
   %call = call float @getAllocatorFragmentation(ptr noundef %frag_bytes)
   store float %call, ptr %frag_pct, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  %1 = load i32, ptr %0, align 4
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load float, ptr %frag_pct, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 167), align 8
-  %conv = sitofp i32 %2 to float
-  %cmp = fcmp olt float %1, %conv
+  %2 = load float, ptr %frag_pct, align 4
+  %3 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 167
+  %4 = load i32, ptr %3, align 8
+  %conv = sitofp i32 %4 to float
+  %cmp = fcmp olt float %2, %conv
   br i1 %cmp, label %if.then4, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %3 = load i64, ptr %frag_bytes, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 166), align 8
-  %cmp2 = icmp ult i64 %3, %4
+  %5 = load i64, ptr %frag_bytes, align 8
+  %6 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 166
+  %7 = load i64, ptr %6, align 8
+  %cmp2 = icmp ult i64 %5, %7
   br i1 %cmp2, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.then
@@ -3819,79 +3865,92 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 169), align 8
-  %conv6 = sitofp i32 %5 to float
-  %6 = load float, ptr %frag_pct, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 167), align 8
-  %conv7 = sitofp i32 %7 to float
-  %sub = fsub float %6, %conv7
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 170), align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 169), align 8
-  %sub8 = sub nsw i32 %8, %9
+  %8 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 169
+  %9 = load i32, ptr %8, align 8
+  %conv6 = sitofp i32 %9 to float
+  %10 = load float, ptr %frag_pct, align 4
+  %11 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 167
+  %12 = load i32, ptr %11, align 8
+  %conv7 = sitofp i32 %12 to float
+  %sub = fsub float %10, %conv7
+  %13 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 170
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 169
+  %16 = load i32, ptr %15, align 8
+  %sub8 = sub nsw i32 %14, %16
   %conv9 = sitofp i32 %sub8 to float
   %mul = fmul float %sub, %conv9
-  %10 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 168), align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 167), align 8
-  %sub10 = sub nsw i32 %10, %11
+  %17 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 168
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 167
+  %20 = load i32, ptr %19, align 8
+  %sub10 = sub nsw i32 %18, %20
   %conv11 = sitofp i32 %sub10 to float
   %div = fdiv float %mul, %conv11
   %add = fadd float %conv6, %div
   %conv12 = fptosi float %add to i32
   store i32 %conv12, ptr %cpu_pct, align 4
-  %12 = load i32, ptr %cpu_pct, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 169), align 8
-  %cmp13 = icmp slt i32 %12, %13
+  %21 = load i32, ptr %cpu_pct, align 4
+  %22 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 169
+  %23 = load i32, ptr %22, align 8
+  %cmp13 = icmp slt i32 %21, %23
   br i1 %cmp13, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end5
-  %14 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 169), align 8
+  %24 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 169
+  %25 = load i32, ptr %24, align 8
   br label %cond.end19
 
 cond.false:                                       ; preds = %if.end5
-  %15 = load i32, ptr %cpu_pct, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 170), align 4
-  %cmp15 = icmp sgt i32 %15, %16
+  %26 = load i32, ptr %cpu_pct, align 4
+  %27 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 170
+  %28 = load i32, ptr %27, align 4
+  %cmp15 = icmp sgt i32 %26, %28
   br i1 %cmp15, label %cond.true17, label %cond.false18
 
 cond.true17:                                      ; preds = %cond.false
-  %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 170), align 4
+  %29 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 170
+  %30 = load i32, ptr %29, align 4
   br label %cond.end
 
 cond.false18:                                     ; preds = %cond.false
-  %18 = load i32, ptr %cpu_pct, align 4
+  %31 = load i32, ptr %cpu_pct, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false18, %cond.true17
-  %cond = phi i32 [ %17, %cond.true17 ], [ %18, %cond.false18 ]
+  %cond = phi i32 [ %30, %cond.true17 ], [ %31, %cond.false18 ]
   br label %cond.end19
 
 cond.end19:                                       ; preds = %cond.end, %cond.true
-  %cond20 = phi i32 [ %14, %cond.true ], [ %cond, %cond.end ]
+  %cond20 = phi i32 [ %25, %cond.true ], [ %cond, %cond.end ]
   store i32 %cond20, ptr %cpu_pct, align 4
-  %19 = load i32, ptr %cpu_pct, align 4
-  %20 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
-  %cmp21 = icmp sgt i32 %19, %20
+  %32 = load i32, ptr %cpu_pct, align 4
+  %33 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  %34 = load i32, ptr %33, align 4
+  %cmp21 = icmp sgt i32 %32, %34
   br i1 %cmp21, label %if.then23, label %if.end29
 
 if.then23:                                        ; preds = %cond.end19
-  %21 = load i32, ptr %cpu_pct, align 4
-  store i32 %21, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
+  %35 = load i32, ptr %cpu_pct, align 4
+  %36 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  store i32 %35, ptr %36, align 4
   br label %do.body
 
 do.body:                                          ; preds = %if.then23
-  %22 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp24 = icmp slt i32 1, %22
+  %37 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %38 = load i32, ptr %37, align 8
+  %cmp24 = icmp slt i32 1, %38
   br i1 %cmp24, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %do.body
   br label %do.end
 
 if.end27:                                         ; preds = %do.body
-  %23 = load float, ptr %frag_pct, align 4
-  %conv28 = fpext float %23 to double
-  %24 = load i64, ptr %frag_bytes, align 8
-  %25 = load i32, ptr %cpu_pct, align 4
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.24, double noundef %conv28, i64 noundef %24, i32 noundef %25)
+  %39 = load float, ptr %frag_pct, align 4
+  %conv28 = fpext float %39 to double
+  %40 = load i64, ptr %frag_bytes, align 8
+  %41 = load i32, ptr %cpu_pct, align 4
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.24, double noundef %conv28, i64 noundef %40, i32 noundef %41)
   br label %do.end
 
 do.end:                                           ; preds = %if.end27, %if.then26
@@ -3918,31 +3977,36 @@ entry:
   %frag_pct = alloca float, align 4
   %d = alloca ptr, align 8
   store i32 0, ptr %iterations, align 4
-  %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  store i64 %0, ptr %prev_defragged, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  store i64 %1, ptr %prev_scanned, align 8
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %1 = load i64, ptr %0, align 8
+  store i64 %1, ptr %prev_defragged, align 8
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %3 = load i64, ptr %2, align 8
+  store i64 %3, ptr %prev_scanned, align 8
   store i32 0, ptr %quit, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 162), align 8
-  %tobool = icmp ne i32 %2, 0
+  %4 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 162
+  %5 = load i32, ptr %4, align 8
+  %tobool = icmp ne i32 %5, 0
   br i1 %tobool, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
-  %tobool1 = icmp ne i32 %3, 0
+  %6 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  %7 = load i32, ptr %6, align 4
+  %tobool1 = icmp ne i32 %7, 0
   br i1 %tobool1, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.then
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
-  %4 = load ptr, ptr @activeDefragCycle.db, align 8
-  %tobool3 = icmp ne ptr %4, null
+  %8 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  store i32 0, ptr %8, align 4
+  %9 = load ptr, ptr @activeDefragCycle.db, align 8
+  %tobool3 = icmp ne ptr %9, null
   br i1 %tobool3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then2
-  %5 = load ptr, ptr @activeDefragCycle.db, align 8
-  %defrag_later = getelementptr inbounds %struct.redisDb, ptr %5, i32 0, i32 9
-  %6 = load ptr, ptr %defrag_later, align 8
-  call void @listEmpty(ptr noundef %6)
+  %10 = load ptr, ptr @activeDefragCycle.db, align 8
+  %defrag_later = getelementptr inbounds %struct.redisDb, ptr %10, i32 0, i32 9
+  %11 = load ptr, ptr %defrag_later, align 8
+  call void @listEmpty(ptr noundef %11)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then2
@@ -3968,17 +4032,20 @@ if.then8:                                         ; preds = %if.end6
   br label %if.end168
 
 if.end9:                                          ; preds = %if.end6
-  %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 8), align 4
-  %div = sdiv i32 1000, %7
+  %12 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 8
+  %13 = load i32, ptr %12, align 4
+  %div = sdiv i32 1000, %13
   %cmp = icmp sle i32 1000, %div
   br i1 %cmp, label %if.then13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end9
-  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 25), align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 8), align 4
-  %div10 = sdiv i32 1000, %9
+  %14 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 25
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 8
+  %17 = load i32, ptr %16, align 4
+  %div10 = sdiv i32 1000, %17
   %div11 = sdiv i32 1000, %div10
-  %rem = srem i32 %8, %div11
+  %rem = srem i32 %15, %div11
   %tobool12 = icmp ne i32 %rem, 0
   br i1 %tobool12, label %if.end14, label %if.then13
 
@@ -3987,8 +4054,9 @@ if.then13:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %lor.lhs.false
-  %10 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
-  %tobool15 = icmp ne i32 %10, 0
+  %18 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  %19 = load i32, ptr %18, align 4
+  %tobool15 = icmp ne i32 %19, 0
   br i1 %tobool15, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
@@ -3997,15 +4065,17 @@ if.then16:                                        ; preds = %if.end14
 if.end17:                                         ; preds = %if.end14
   %call18 = call i64 @ustime()
   store i64 %call18, ptr %start, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
-  %mul = mul nsw i32 1000000, %11
-  %12 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 8), align 4
-  %div19 = sdiv i32 %mul, %12
+  %20 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  %21 = load i32, ptr %20, align 4
+  %mul = mul nsw i32 1000000, %21
+  %22 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 8
+  %23 = load i32, ptr %22, align 4
+  %div19 = sdiv i32 %mul, %23
   %div20 = sdiv i32 %div19, 100
   %conv = sext i32 %div20 to i64
   store i64 %conv, ptr %timelimit, align 8
-  %13 = load i64, ptr %timelimit, align 8
-  %cmp21 = icmp sle i64 %13, 0
+  %24 = load i64, ptr %timelimit, align 8
+  %cmp21 = icmp sle i64 %24, 0
   br i1 %cmp21, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.end17
@@ -4013,12 +4083,13 @@ if.then23:                                        ; preds = %if.end17
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %if.end17
-  %14 = load i64, ptr %start, align 8
-  %15 = load i64, ptr %timelimit, align 8
-  %add = add nsw i64 %14, %15
+  %25 = load i64, ptr %start, align 8
+  %26 = load i64, ptr %timelimit, align 8
+  %add = add nsw i64 %25, %26
   store i64 %add, ptr %endtime, align 8
-  %16 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 393), align 8
-  %tobool25 = icmp ne i64 %16, 0
+  %27 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 393
+  %28 = load i64, ptr %27, align 8
+  %tobool25 = icmp ne i64 %28, 0
   br i1 %tobool25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %if.end24
@@ -4035,30 +4106,30 @@ if.end28:                                         ; preds = %if.else, %if.then26
   br label %do.body
 
 do.body:                                          ; preds = %do.cond139, %if.end28
-  %17 = load i64, ptr @activeDefragCycle.cursor, align 8
-  %tobool29 = icmp ne i64 %17, 0
+  %29 = load i64, ptr @activeDefragCycle.cursor, align 8
+  %tobool29 = icmp ne i64 %29, 0
   br i1 %tobool29, label %if.end72, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %18 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
-  %tobool30 = icmp ne i64 %18, 0
+  %30 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
+  %tobool30 = icmp ne i64 %30, 0
   br i1 %tobool30, label %if.end72, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %land.lhs.true
-  %19 = load i32, ptr @activeDefragCycle.slot, align 4
-  %cmp32 = icmp slt i32 %19, 0
+  %31 = load i32, ptr @activeDefragCycle.slot, align 4
+  %cmp32 = icmp slt i32 %31, 0
   br i1 %cmp32, label %if.then34, label %if.end72
 
 if.then34:                                        ; preds = %land.lhs.true31
-  %20 = load ptr, ptr @activeDefragCycle.db, align 8
-  %tobool35 = icmp ne ptr %20, null
+  %32 = load ptr, ptr @activeDefragCycle.db, align 8
+  %tobool35 = icmp ne ptr %32, null
   br i1 %tobool35, label %land.lhs.true36, label %if.end40
 
 land.lhs.true36:                                  ; preds = %if.then34
-  %21 = load ptr, ptr @activeDefragCycle.db, align 8
-  %22 = load i32, ptr @activeDefragCycle.slot, align 4
-  %23 = load i64, ptr %endtime, align 8
-  %call37 = call i32 @defragLaterStep(ptr noundef %21, i32 noundef %22, i64 noundef %23)
+  %33 = load ptr, ptr @activeDefragCycle.db, align 8
+  %34 = load i32, ptr @activeDefragCycle.slot, align 4
+  %35 = load i64, ptr %endtime, align 8
+  %call37 = call i32 @defragLaterStep(ptr noundef %33, i32 noundef %34, i64 noundef %35)
   %tobool38 = icmp ne i32 %call37, 0
   br i1 %tobool38, label %if.then39, label %if.end40
 
@@ -4067,11 +4138,12 @@ if.then39:                                        ; preds = %land.lhs.true36
   br label %do.end142
 
 if.end40:                                         ; preds = %land.lhs.true36, %if.then34
-  %24 = load i32, ptr @activeDefragCycle.current_db, align 4
-  %inc = add nsw i32 %24, 1
+  %36 = load i32, ptr @activeDefragCycle.current_db, align 4
+  %inc = add nsw i32 %36, 1
   store i32 %inc, ptr @activeDefragCycle.current_db, align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 173), align 8
-  %cmp41 = icmp sge i32 %inc, %25
+  %37 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 173
+  %38 = load i32, ptr %37, align 8
+  %cmp41 = icmp sge i32 %inc, %38
   br i1 %cmp41, label %if.then43, label %if.else64
 
 if.then43:                                        ; preds = %if.end40
@@ -4083,32 +4155,34 @@ if.then43:                                        ; preds = %if.end40
   br label %do.body46
 
 do.body46:                                        ; preds = %if.then43
-  %26 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp47 = icmp slt i32 1, %26
+  %39 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %40 = load i32, ptr %39, align 8
+  %cmp47 = icmp slt i32 1, %40
   br i1 %cmp47, label %if.then49, label %if.end50
 
 if.then49:                                        ; preds = %do.body46
   br label %do.end
 
 if.end50:                                         ; preds = %do.body46
-  %27 = load i64, ptr %now, align 8
-  %28 = load i64, ptr @activeDefragCycle.start_scan, align 8
-  %sub = sub nsw i64 %27, %28
+  %41 = load i64, ptr %now, align 8
+  %42 = load i64, ptr @activeDefragCycle.start_scan, align 8
+  %sub = sub nsw i64 %41, %42
   %div51 = sdiv i64 %sub, 1000
   %conv52 = trunc i64 %div51 to i32
-  %29 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  %30 = load i64, ptr @activeDefragCycle.start_stat, align 8
-  %sub53 = sub nsw i64 %29, %30
+  %43 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %44 = load i64, ptr %43, align 8
+  %45 = load i64, ptr @activeDefragCycle.start_stat, align 8
+  %sub53 = sub nsw i64 %44, %45
   %conv54 = trunc i64 %sub53 to i32
-  %31 = load float, ptr %frag_pct, align 4
-  %conv55 = fpext float %31 to double
-  %32 = load i64, ptr %frag_bytes, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.25, i32 noundef %conv52, i32 noundef %conv54, double noundef %conv55, i64 noundef %32)
+  %46 = load float, ptr %frag_pct, align 4
+  %conv55 = fpext float %46 to double
+  %47 = load i64, ptr %frag_bytes, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.25, i32 noundef %conv52, i32 noundef %conv54, double noundef %conv55, i64 noundef %47)
   br label %do.end
 
 do.end:                                           ; preds = %if.end50, %if.then49
-  %33 = load i64, ptr %now, align 8
-  store i64 %33, ptr @activeDefragCycle.start_scan, align 8
+  %48 = load i64, ptr %now, align 8
+  store i64 %48, ptr @activeDefragCycle.start_scan, align 8
   store i32 -1, ptr @activeDefragCycle.current_db, align 4
   store i64 0, ptr @activeDefragCycle.cursor, align 8
   store i64 0, ptr @activeDefragCycle.expires_cursor, align 8
@@ -4116,16 +4190,18 @@ do.end:                                           ; preds = %if.end50, %if.then4
   store i32 0, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
   store ptr null, ptr @activeDefragCycle.db, align 8
   call void @llvm.memset.p0.i64(ptr align 8 @activeDefragCycle.ctx, i8 -1, i64 16, i1 false)
-  store i32 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
+  %49 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  store i32 0, ptr %49, align 4
   call void @computeDefragCycles()
-  %34 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
-  %cmp56 = icmp ne i32 %34, 0
+  %50 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  %51 = load i32, ptr %50, align 4
+  %cmp56 = icmp ne i32 %51, 0
   br i1 %cmp56, label %land.lhs.true58, label %if.end63
 
 land.lhs.true58:                                  ; preds = %do.end
   %call59 = call i64 @ustime()
-  %35 = load i64, ptr %endtime, align 8
-  %cmp60 = icmp slt i64 %call59, %35
+  %52 = load i64, ptr %endtime, align 8
+  %cmp60 = icmp slt i64 %call59, %52
   br i1 %cmp60, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %land.lhs.true58
@@ -4135,54 +4211,57 @@ if.end63:                                         ; preds = %land.lhs.true58, %d
   br label %do.end142
 
 if.else64:                                        ; preds = %if.end40
-  %36 = load i32, ptr @activeDefragCycle.current_db, align 4
-  %cmp65 = icmp eq i32 %36, 0
+  %53 = load i32, ptr @activeDefragCycle.current_db, align 4
+  %cmp65 = icmp eq i32 %53, 0
   br i1 %cmp65, label %if.then67, label %if.end69
 
 if.then67:                                        ; preds = %if.else64
   %call68 = call i64 @ustime()
   store i64 %call68, ptr @activeDefragCycle.start_scan, align 8
-  %37 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  store i64 %37, ptr @activeDefragCycle.start_stat, align 8
+  %54 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %55 = load i64, ptr %54, align 8
+  store i64 %55, ptr @activeDefragCycle.start_stat, align 8
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then67, %if.else64
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end69
-  %38 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 10), align 8
-  %39 = load i32, ptr @activeDefragCycle.current_db, align 4
-  %idxprom = sext i32 %39 to i64
-  %arrayidx = getelementptr inbounds %struct.redisDb, ptr %38, i64 %idxprom
+  %56 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 10
+  %57 = load ptr, ptr %56, align 8
+  %58 = load i32, ptr @activeDefragCycle.current_db, align 4
+  %idxprom = sext i32 %58 to i64
+  %arrayidx = getelementptr inbounds %struct.redisDb, ptr %57, i64 %idxprom
   store ptr %arrayidx, ptr @activeDefragCycle.db, align 8
   store i64 0, ptr @activeDefragCycle.cursor, align 8
   store i64 0, ptr @activeDefragCycle.expires_cursor, align 8
-  %40 = load ptr, ptr @activeDefragCycle.db, align 8
-  %call71 = call i32 @findSlotByKeyIndex(ptr noundef %40, i64 noundef 1, i32 noundef 0)
+  %59 = load ptr, ptr @activeDefragCycle.db, align 8
+  %call71 = call i32 @findSlotByKeyIndex(ptr noundef %59, i64 noundef 1, i32 noundef 0)
   store i32 %call71, ptr @activeDefragCycle.slot, align 4
   store i32 0, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  %41 = load ptr, ptr @activeDefragCycle.db, align 8
-  store ptr %41, ptr @activeDefragCycle.ctx, align 8
-  %42 = load i32, ptr @activeDefragCycle.slot, align 4
-  store i32 %42, ptr getelementptr inbounds (%struct.defragCtx, ptr @activeDefragCycle.ctx, i32 0, i32 1), align 8
+  %60 = load ptr, ptr @activeDefragCycle.db, align 8
+  store ptr %60, ptr @activeDefragCycle.ctx, align 8
+  %61 = load i32, ptr @activeDefragCycle.slot, align 4
+  %62 = getelementptr inbounds %struct.defragCtx, ptr @activeDefragCycle.ctx, i32 0, i32 1
+  store i32 %61, ptr %62, align 8
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end70, %land.lhs.true31, %land.lhs.true, %do.body
   br label %do.body73
 
 do.body73:                                        ; preds = %land.end, %if.end72
-  %43 = load ptr, ptr @activeDefragCycle.db, align 8
-  %dict = getelementptr inbounds %struct.redisDb, ptr %43, i32 0, i32 0
-  %44 = load ptr, ptr %dict, align 8
-  %45 = load i32, ptr @activeDefragCycle.slot, align 4
-  %idxprom74 = sext i32 %45 to i64
-  %arrayidx75 = getelementptr inbounds ptr, ptr %44, i64 %idxprom74
-  %46 = load ptr, ptr %arrayidx75, align 8
-  store ptr %46, ptr %d, align 8
-  %47 = load ptr, ptr @activeDefragCycle.db, align 8
-  %48 = load i32, ptr @activeDefragCycle.slot, align 4
-  %49 = load i64, ptr %endtime, align 8
-  %call76 = call i32 @defragLaterStep(ptr noundef %47, i32 noundef %48, i64 noundef %49)
+  %63 = load ptr, ptr @activeDefragCycle.db, align 8
+  %dict = getelementptr inbounds %struct.redisDb, ptr %63, i32 0, i32 0
+  %64 = load ptr, ptr %dict, align 8
+  %65 = load i32, ptr @activeDefragCycle.slot, align 4
+  %idxprom74 = sext i32 %65 to i64
+  %arrayidx75 = getelementptr inbounds ptr, ptr %64, i64 %idxprom74
+  %66 = load ptr, ptr %arrayidx75, align 8
+  store ptr %66, ptr %d, align 8
+  %67 = load ptr, ptr @activeDefragCycle.db, align 8
+  %68 = load i32, ptr @activeDefragCycle.slot, align 4
+  %69 = load i64, ptr %endtime, align 8
+  %call76 = call i32 @defragLaterStep(ptr noundef %67, i32 noundef %68, i64 noundef %69)
   %tobool77 = icmp ne i32 %call76, 0
   br i1 %tobool77, label %if.then78, label %if.end79
 
@@ -4191,37 +4270,37 @@ if.then78:                                        ; preds = %do.body73
   br label %do.end138
 
 if.end79:                                         ; preds = %do.body73
-  %50 = load i32, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  %tobool80 = icmp ne i32 %50, 0
+  %70 = load i32, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
+  %tobool80 = icmp ne i32 %70, 0
   br i1 %tobool80, label %if.end92, label %if.then81
 
 if.then81:                                        ; preds = %if.end79
-  %51 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
-  %tobool82 = icmp ne i64 %51, 0
+  %71 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
+  %tobool82 = icmp ne i64 %71, 0
   br i1 %tobool82, label %if.end85, label %if.then83
 
 if.then83:                                        ; preds = %if.then81
-  %52 = load ptr, ptr %d, align 8
-  %53 = load i64, ptr @activeDefragCycle.cursor, align 8
-  %call84 = call i64 @dictScanDefrag(ptr noundef %52, i64 noundef %53, ptr noundef @defragScanCallback, ptr noundef %defragfns, ptr noundef @activeDefragCycle.ctx)
+  %72 = load ptr, ptr %d, align 8
+  %73 = load i64, ptr @activeDefragCycle.cursor, align 8
+  %call84 = call i64 @dictScanDefrag(ptr noundef %72, i64 noundef %73, ptr noundef @defragScanCallback, ptr noundef %defragfns, ptr noundef @activeDefragCycle.ctx)
   store i64 %call84, ptr @activeDefragCycle.cursor, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then83, %if.then81
-  %54 = load i64, ptr @activeDefragCycle.cursor, align 8
-  %tobool86 = icmp ne i64 %54, 0
+  %74 = load i64, ptr @activeDefragCycle.cursor, align 8
+  %tobool86 = icmp ne i64 %74, 0
   br i1 %tobool86, label %if.end91, label %if.then87
 
 if.then87:                                        ; preds = %if.end85
-  %55 = load ptr, ptr @activeDefragCycle.db, align 8
-  %expires = getelementptr inbounds %struct.redisDb, ptr %55, i32 0, i32 1
-  %56 = load ptr, ptr %expires, align 8
-  %57 = load i32, ptr @activeDefragCycle.slot, align 4
-  %idxprom88 = sext i32 %57 to i64
-  %arrayidx89 = getelementptr inbounds ptr, ptr %56, i64 %idxprom88
-  %58 = load ptr, ptr %arrayidx89, align 8
-  %59 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
-  %call90 = call i64 @dictScanDefrag(ptr noundef %58, i64 noundef %59, ptr noundef @scanCallbackCountScanned, ptr noundef %defragfns, ptr noundef null)
+  %75 = load ptr, ptr @activeDefragCycle.db, align 8
+  %expires = getelementptr inbounds %struct.redisDb, ptr %75, i32 0, i32 1
+  %76 = load ptr, ptr %expires, align 8
+  %77 = load i32, ptr @activeDefragCycle.slot, align 4
+  %idxprom88 = sext i32 %77 to i64
+  %arrayidx89 = getelementptr inbounds ptr, ptr %76, i64 %idxprom88
+  %78 = load ptr, ptr %arrayidx89, align 8
+  %79 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
+  %call90 = call i64 @dictScanDefrag(ptr noundef %78, i64 noundef %79, ptr noundef @scanCallbackCountScanned, ptr noundef %defragfns, ptr noundef null)
   store i64 %call90, ptr @activeDefragCycle.expires_cursor, align 8
   br label %if.end91
 
@@ -4229,22 +4308,22 @@ if.end91:                                         ; preds = %if.then87, %if.end8
   br label %if.end92
 
 if.end92:                                         ; preds = %if.end91, %if.end79
-  %60 = load i64, ptr @activeDefragCycle.cursor, align 8
-  %tobool93 = icmp ne i64 %60, 0
+  %80 = load i64, ptr @activeDefragCycle.cursor, align 8
+  %tobool93 = icmp ne i64 %80, 0
   br i1 %tobool93, label %if.end103, label %lor.lhs.false94
 
 lor.lhs.false94:                                  ; preds = %if.end92
-  %61 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
-  %tobool95 = icmp ne i64 %61, 0
+  %81 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
+  %tobool95 = icmp ne i64 %81, 0
   br i1 %tobool95, label %if.end103, label %if.then96
 
 if.then96:                                        ; preds = %lor.lhs.false94
-  %62 = load ptr, ptr @activeDefragCycle.db, align 8
-  %defrag_later97 = getelementptr inbounds %struct.redisDb, ptr %62, i32 0, i32 9
-  %63 = load ptr, ptr %defrag_later97, align 8
-  %len = getelementptr inbounds %struct.list, ptr %63, i32 0, i32 5
-  %64 = load i64, ptr %len, align 8
-  %cmp98 = icmp ugt i64 %64, 0
+  %82 = load ptr, ptr @activeDefragCycle.db, align 8
+  %defrag_later97 = getelementptr inbounds %struct.redisDb, ptr %82, i32 0, i32 9
+  %83 = load ptr, ptr %defrag_later97, align 8
+  %len = getelementptr inbounds %struct.list, ptr %83, i32 0, i32 5
+  %84 = load i64, ptr %len, align 8
+  %cmp98 = icmp ugt i64 %84, 0
   br i1 %cmp98, label %if.then100, label %if.end101
 
 if.then100:                                       ; preds = %if.then96
@@ -4252,60 +4331,63 @@ if.then100:                                       ; preds = %if.then96
   br label %do.cond
 
 if.end101:                                        ; preds = %if.then96
-  %65 = load ptr, ptr @activeDefragCycle.db, align 8
-  %66 = load i32, ptr @activeDefragCycle.slot, align 4
-  %call102 = call i32 @dbGetNextNonEmptySlot(ptr noundef %65, i32 noundef %66, i32 noundef 0)
+  %85 = load ptr, ptr @activeDefragCycle.db, align 8
+  %86 = load i32, ptr @activeDefragCycle.slot, align 4
+  %call102 = call i32 @dbGetNextNonEmptySlot(ptr noundef %85, i32 noundef %86, i32 noundef 0)
   store i32 %call102, ptr @activeDefragCycle.slot, align 4
   store i32 0, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  %67 = load i32, ptr @activeDefragCycle.slot, align 4
-  store i32 %67, ptr getelementptr inbounds (%struct.defragCtx, ptr @activeDefragCycle.ctx, i32 0, i32 1), align 8
+  %87 = load i32, ptr @activeDefragCycle.slot, align 4
+  %88 = getelementptr inbounds %struct.defragCtx, ptr @activeDefragCycle.ctx, i32 0, i32 1
+  store i32 %87, ptr %88, align 8
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end101, %lor.lhs.false94, %if.end92
-  %68 = load i64, ptr @activeDefragCycle.cursor, align 8
-  %tobool104 = icmp ne i64 %68, 0
+  %89 = load i64, ptr @activeDefragCycle.cursor, align 8
+  %tobool104 = icmp ne i64 %89, 0
   br i1 %tobool104, label %lor.lhs.false110, label %lor.lhs.false105
 
 lor.lhs.false105:                                 ; preds = %if.end103
-  %69 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
-  %tobool106 = icmp ne i64 %69, 0
+  %90 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
+  %tobool106 = icmp ne i64 %90, 0
   br i1 %tobool106, label %lor.lhs.false110, label %land.lhs.true107
 
 land.lhs.true107:                                 ; preds = %lor.lhs.false105
-  %70 = load i32, ptr @activeDefragCycle.slot, align 4
-  %cmp108 = icmp eq i32 %70, -1
+  %91 = load i32, ptr @activeDefragCycle.slot, align 4
+  %cmp108 = icmp eq i32 %91, -1
   br i1 %cmp108, label %if.then122, label %lor.lhs.false110
 
 lor.lhs.false110:                                 ; preds = %land.lhs.true107, %lor.lhs.false105, %if.end103
-  %71 = load i32, ptr %iterations, align 4
-  %inc111 = add i32 %71, 1
+  %92 = load i32, ptr %iterations, align 4
+  %inc111 = add i32 %92, 1
   store i32 %inc111, ptr %iterations, align 4
   %cmp112 = icmp ugt i32 %inc111, 16
   br i1 %cmp112, label %if.then122, label %lor.lhs.false114
 
 lor.lhs.false114:                                 ; preds = %lor.lhs.false110
-  %72 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  %73 = load i64, ptr %prev_defragged, align 8
-  %sub115 = sub i64 %72, %73
+  %93 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %94 = load i64, ptr %93, align 8
+  %95 = load i64, ptr %prev_defragged, align 8
+  %sub115 = sub i64 %94, %95
   %cmp116 = icmp ugt i64 %sub115, 512
   br i1 %cmp116, label %if.then122, label %lor.lhs.false118
 
 lor.lhs.false118:                                 ; preds = %lor.lhs.false114
-  %74 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  %75 = load i64, ptr %prev_scanned, align 8
-  %sub119 = sub i64 %74, %75
+  %96 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %97 = load i64, ptr %96, align 8
+  %98 = load i64, ptr %prev_scanned, align 8
+  %sub119 = sub i64 %97, %98
   %cmp120 = icmp ugt i64 %sub119, 64
   br i1 %cmp120, label %if.then122, label %if.end130
 
 if.then122:                                       ; preds = %lor.lhs.false118, %lor.lhs.false114, %lor.lhs.false110, %land.lhs.true107
-  %76 = load i64, ptr @activeDefragCycle.cursor, align 8
-  %tobool123 = icmp ne i64 %76, 0
+  %99 = load i64, ptr @activeDefragCycle.cursor, align 8
+  %tobool123 = icmp ne i64 %99, 0
   br i1 %tobool123, label %lor.lhs.false124, label %if.then128
 
 lor.lhs.false124:                                 ; preds = %if.then122
   %call125 = call i64 @ustime()
-  %77 = load i64, ptr %endtime, align 8
-  %cmp126 = icmp sgt i64 %call125, %77
+  %100 = load i64, ptr %endtime, align 8
+  %cmp126 = icmp sgt i64 %call125, %100
   br i1 %cmp126, label %if.then128, label %if.end129
 
 if.then128:                                       ; preds = %lor.lhs.false124, %if.then122
@@ -4314,109 +4396,122 @@ if.then128:                                       ; preds = %lor.lhs.false124, %
 
 if.end129:                                        ; preds = %lor.lhs.false124
   store i32 0, ptr %iterations, align 4
-  %78 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 101), align 8
-  store i64 %78, ptr %prev_defragged, align 8
-  %79 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 105), align 8
-  store i64 %79, ptr %prev_scanned, align 8
+  %101 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 101
+  %102 = load i64, ptr %101, align 8
+  store i64 %102, ptr %prev_defragged, align 8
+  %103 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 105
+  %104 = load i64, ptr %103, align 8
+  store i64 %104, ptr %prev_scanned, align 8
   br label %if.end130
 
 if.end130:                                        ; preds = %if.end129, %lor.lhs.false118
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end130, %if.then100
-  %80 = load i64, ptr @activeDefragCycle.cursor, align 8
-  %tobool131 = icmp ne i64 %80, 0
+  %105 = load i64, ptr @activeDefragCycle.cursor, align 8
+  %tobool131 = icmp ne i64 %105, 0
   br i1 %tobool131, label %land.rhs, label %lor.lhs.false132
 
 lor.lhs.false132:                                 ; preds = %do.cond
-  %81 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
-  %tobool133 = icmp ne i64 %81, 0
+  %106 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
+  %tobool133 = icmp ne i64 %106, 0
   br i1 %tobool133, label %land.rhs, label %lor.lhs.false134
 
 lor.lhs.false134:                                 ; preds = %lor.lhs.false132
-  %82 = load i32, ptr @activeDefragCycle.slot, align 4
-  %cmp135 = icmp sgt i32 %82, 0
+  %107 = load i32, ptr @activeDefragCycle.slot, align 4
+  %cmp135 = icmp sgt i32 %107, 0
   br i1 %cmp135, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %lor.lhs.false134, %lor.lhs.false132, %do.cond
-  %83 = load i32, ptr %quit, align 4
-  %tobool137 = icmp ne i32 %83, 0
+  %108 = load i32, ptr %quit, align 4
+  %tobool137 = icmp ne i32 %108, 0
   %lnot = xor i1 %tobool137, true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %lor.lhs.false134
-  %84 = phi i1 [ false, %lor.lhs.false134 ], [ %lnot, %land.rhs ]
-  br i1 %84, label %do.body73, label %do.end138, !llvm.loop !17
+  %109 = phi i1 [ false, %lor.lhs.false134 ], [ %lnot, %land.rhs ]
+  br i1 %109, label %do.body73, label %do.end138, !llvm.loop !17
 
 do.end138:                                        ; preds = %land.end, %if.then128, %if.then78
   br label %do.cond139
 
 do.cond139:                                       ; preds = %do.end138, %if.then62
-  %85 = load i32, ptr %quit, align 4
-  %tobool140 = icmp ne i32 %85, 0
+  %110 = load i32, ptr %quit, align 4
+  %tobool140 = icmp ne i32 %110, 0
   %lnot141 = xor i1 %tobool140, true
   br i1 %lnot141, label %do.body, label %do.end142, !llvm.loop !18
 
 do.end142:                                        ; preds = %do.cond139, %if.end63, %if.then39
-  %86 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 393), align 8
-  %tobool143 = icmp ne i64 %86, 0
+  %111 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 393
+  %112 = load i64, ptr %111, align 8
+  %tobool143 = icmp ne i64 %112, 0
   br i1 %tobool143, label %if.then144, label %if.end147
 
 if.then144:                                       ; preds = %do.end142
   %call145 = call i64 @mstime()
-  %87 = load i64, ptr %latency, align 8
-  %sub146 = sub nsw i64 %call145, %87
+  %113 = load i64, ptr %latency, align 8
+  %sub146 = sub nsw i64 %call145, %113
   store i64 %sub146, ptr %latency, align 8
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then144, %do.end142
-  %88 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 393), align 8
-  %tobool148 = icmp ne i64 %88, 0
+  %114 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 393
+  %115 = load i64, ptr %114, align 8
+  %tobool148 = icmp ne i64 %115, 0
   br i1 %tobool148, label %land.lhs.true149, label %if.end153
 
 land.lhs.true149:                                 ; preds = %if.end147
-  %89 = load i64, ptr %latency, align 8
-  %90 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 393), align 8
-  %cmp150 = icmp sge i64 %89, %90
+  %116 = load i64, ptr %latency, align 8
+  %117 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 393
+  %118 = load i64, ptr %117, align 8
+  %cmp150 = icmp sge i64 %116, %118
   br i1 %cmp150, label %if.then152, label %if.end153
 
 if.then152:                                       ; preds = %land.lhs.true149
-  %91 = load i64, ptr %latency, align 8
-  call void @latencyAddSample(ptr noundef @.str.26, i64 noundef %91)
+  %119 = load i64, ptr %latency, align 8
+  call void @latencyAddSample(ptr noundef @.str.26, i64 noundef %119)
   br label %if.end153
 
 if.end153:                                        ; preds = %if.then152, %land.lhs.true149, %if.end147
   br label %update_metrics
 
 update_metrics:                                   ; preds = %if.end153, %if.end
-  %92 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 22), align 4
-  %cmp154 = icmp sgt i32 %92, 0
+  %120 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 22
+  %121 = load i32, ptr %120, align 4
+  %cmp154 = icmp sgt i32 %121, 0
   br i1 %cmp154, label %if.then156, label %if.else161
 
 if.then156:                                       ; preds = %update_metrics
-  %93 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 107), align 8
-  %cmp157 = icmp eq i64 %93, 0
+  %122 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 107
+  %123 = load i64, ptr %122, align 8
+  %cmp157 = icmp eq i64 %123, 0
   br i1 %cmp157, label %if.then159, label %if.end160
 
 if.then159:                                       ; preds = %if.then156
-  call void @elapsedStart(ptr noundef getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 107))
+  %124 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 107
+  call void @elapsedStart(ptr noundef %124)
   br label %if.end160
 
 if.end160:                                        ; preds = %if.then159, %if.then156
   br label %if.end168
 
 if.else161:                                       ; preds = %update_metrics
-  %94 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 107), align 8
-  %cmp162 = icmp ne i64 %94, 0
+  %125 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 107
+  %126 = load i64, ptr %125, align 8
+  %cmp162 = icmp ne i64 %126, 0
   br i1 %cmp162, label %if.then164, label %if.end167
 
 if.then164:                                       ; preds = %if.else161
-  %95 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 107), align 8
-  %call165 = call i64 @elapsedUs(i64 noundef %95)
-  %96 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 106), align 8
-  %add166 = add i64 %96, %call165
-  store i64 %add166, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 106), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 107), align 8
+  %127 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 107
+  %128 = load i64, ptr %127, align 8
+  %call165 = call i64 @elapsedUs(i64 noundef %128)
+  %129 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 106
+  %130 = load i64, ptr %129, align 8
+  %add166 = add i64 %130, %call165
+  %131 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 106
+  store i64 %add166, ptr %131, align 8
+  %132 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 107
+  store i64 0, ptr %132, align 8
   br label %if.end167
 
 if.end167:                                        ; preds = %if.then164, %if.else161

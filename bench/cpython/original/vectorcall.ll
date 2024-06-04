@@ -116,23 +116,24 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %arg.addr, align 8
-  call void @_PyArg_BadArgument(ptr noundef @.str.2, ptr noundef @.str.4, ptr noundef %1, ptr noundef %2)
+  %1 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %arg.addr, align 8
+  call void @_PyArg_BadArgument(ptr noundef @.str.2, ptr noundef @.str.4, ptr noundef %2, ptr noundef %3)
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %arg.addr, align 8
-  store ptr %3, ptr %type, align 8
-  %4 = load ptr, ptr %self.addr, align 8
-  %5 = load ptr, ptr %type, align 8
-  %call1 = call ptr @_testcapi_VectorCallClass_set_vectorcall_impl(ptr noundef %4, ptr noundef %5)
+  %4 = load ptr, ptr %arg.addr, align 8
+  store ptr %4, ptr %type, align 8
+  %5 = load ptr, ptr %self.addr, align 8
+  %6 = load ptr, ptr %type, align 8
+  %call1 = call ptr @_testcapi_VectorCallClass_set_vectorcall_impl(ptr noundef %5, ptr noundef %6)
   store ptr %call1, ptr %return_value, align 8
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %return_value, align 8
-  ret ptr %6
+  %7 = load ptr, ptr %return_value, align 8
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -170,7 +171,8 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.end8:                                          ; preds = %if.end4
-  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @MethodDescriptorDerived_Type, i32 0, i32 30), align 8
+  %2 = getelementptr inbounds %struct._typeobject, ptr @MethodDescriptorDerived_Type, i32 0, i32 30
+  store ptr @MethodDescriptorBase_Type, ptr %2, align 8
   %call9 = call i32 @PyType_Ready(ptr noundef @MethodDescriptorDerived_Type)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -180,8 +182,8 @@ if.then11:                                        ; preds = %if.end8
   br label %return
 
 if.end12:                                         ; preds = %if.end8
-  %2 = load ptr, ptr %m.addr, align 8
-  %call13 = call i32 @PyModule_AddType(ptr noundef %2, ptr noundef @MethodDescriptorDerived_Type)
+  %3 = load ptr, ptr %m.addr, align 8
+  %call13 = call i32 @PyModule_AddType(ptr noundef %3, ptr noundef @MethodDescriptorDerived_Type)
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.end16
 
@@ -190,7 +192,8 @@ if.then15:                                        ; preds = %if.end12
   br label %return
 
 if.end16:                                         ; preds = %if.end12
-  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @MethodDescriptorNopGet_Type, i32 0, i32 30), align 8
+  %4 = getelementptr inbounds %struct._typeobject, ptr @MethodDescriptorNopGet_Type, i32 0, i32 30
+  store ptr @MethodDescriptorBase_Type, ptr %4, align 8
   %call17 = call i32 @PyType_Ready(ptr noundef @MethodDescriptorNopGet_Type)
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %if.then19, label %if.end20
@@ -200,8 +203,8 @@ if.then19:                                        ; preds = %if.end16
   br label %return
 
 if.end20:                                         ; preds = %if.end16
-  %3 = load ptr, ptr %m.addr, align 8
-  %call21 = call i32 @PyModule_AddType(ptr noundef %3, ptr noundef @MethodDescriptorNopGet_Type)
+  %5 = load ptr, ptr %m.addr, align 8
+  %call21 = call i32 @PyModule_AddType(ptr noundef %5, ptr noundef @MethodDescriptorNopGet_Type)
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %if.then23, label %if.end24
 
@@ -210,7 +213,8 @@ if.then23:                                        ; preds = %if.end20
   br label %return
 
 if.end24:                                         ; preds = %if.end20
-  store ptr @MethodDescriptorBase_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @MethodDescriptor2_Type, i32 0, i32 30), align 8
+  %6 = getelementptr inbounds %struct._typeobject, ptr @MethodDescriptor2_Type, i32 0, i32 30
+  store ptr @MethodDescriptorBase_Type, ptr %6, align 8
   %call25 = call i32 @PyType_Ready(ptr noundef @MethodDescriptor2_Type)
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %if.then27, label %if.end28
@@ -220,8 +224,8 @@ if.then27:                                        ; preds = %if.end24
   br label %return
 
 if.end28:                                         ; preds = %if.end24
-  %4 = load ptr, ptr %m.addr, align 8
-  %call29 = call i32 @PyModule_AddType(ptr noundef %4, ptr noundef @MethodDescriptor2_Type)
+  %7 = load ptr, ptr %m.addr, align 8
+  %call29 = call i32 @PyModule_AddType(ptr noundef %7, ptr noundef @MethodDescriptor2_Type)
   %cmp30 = icmp slt i32 %call29, 0
   br i1 %cmp30, label %if.then31, label %if.end32
 
@@ -234,8 +238,8 @@ if.end32:                                         ; preds = %if.end28
   br label %return
 
 return:                                           ; preds = %if.end32, %if.then31, %if.then27, %if.then23, %if.then19, %if.then15, %if.then11, %if.then7, %if.then3, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+  %8 = load i32, ptr %retval, align 4
+  ret i32 %8
 }
 
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) #1
@@ -621,30 +625,31 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool6, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %6 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 1), align 8
-  %7 = load ptr, ptr %args.addr, align 8
-  %arrayidx8 = getelementptr ptr, ptr %7, i64 0
-  %8 = load ptr, ptr %arrayidx8, align 8
-  call void @_PyArg_BadArgument(ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %6, ptr noundef %8)
+  %6 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %args.addr, align 8
+  %arrayidx8 = getelementptr ptr, ptr %8, i64 0
+  %9 = load ptr, ptr %arrayidx8, align 8
+  call void @_PyArg_BadArgument(ptr noundef @.str.11, ptr noundef @.str.26, ptr noundef %7, ptr noundef %9)
   br label %exit
 
 if.end9:                                          ; preds = %if.end4
-  %9 = load ptr, ptr %args.addr, align 8
-  %arrayidx10 = getelementptr ptr, ptr %9, i64 0
-  %10 = load ptr, ptr %arrayidx10, align 8
-  store ptr %10, ptr %base, align 8
+  %10 = load ptr, ptr %args.addr, align 8
+  %arrayidx10 = getelementptr ptr, ptr %10, i64 0
+  %11 = load ptr, ptr %arrayidx10, align 8
+  store ptr %11, ptr %base, align 8
   br label %skip_optional
 
 skip_optional:                                    ; preds = %if.end9, %if.then3
-  %11 = load ptr, ptr %module.addr, align 8
-  %12 = load ptr, ptr %base, align 8
-  %call11 = call ptr @_testcapi_make_vectorcall_class_impl(ptr noundef %11, ptr noundef %12)
+  %12 = load ptr, ptr %module.addr, align 8
+  %13 = load ptr, ptr %base, align 8
+  %call11 = call ptr @_testcapi_make_vectorcall_class_impl(ptr noundef %12, ptr noundef %13)
   store ptr %call11, ptr %return_value, align 8
   br label %exit
 
 exit:                                             ; preds = %skip_optional, %if.then7, %if.then
-  %13 = load ptr, ptr %return_value, align 8
-  ret ptr %13
+  %14 = load ptr, ptr %return_value, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -664,20 +669,21 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyType_Type, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %arg.addr, align 8
-  call void @_PyArg_BadArgument(ptr noundef @.str.12, ptr noundef @.str.4, ptr noundef %1, ptr noundef %2)
+  %1 = getelementptr inbounds %struct._typeobject, ptr @PyType_Type, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %arg.addr, align 8
+  call void @_PyArg_BadArgument(ptr noundef @.str.12, ptr noundef @.str.4, ptr noundef %2, ptr noundef %3)
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %arg.addr, align 8
-  store ptr %3, ptr %type, align 8
-  %4 = load ptr, ptr %module.addr, align 8
-  %5 = load ptr, ptr %type, align 8
-  %call1 = call i32 @_testcapi_has_vectorcall_flag_impl(ptr noundef %4, ptr noundef %5)
+  %4 = load ptr, ptr %arg.addr, align 8
+  store ptr %4, ptr %type, align 8
+  %5 = load ptr, ptr %module.addr, align 8
+  %6 = load ptr, ptr %type, align 8
+  %call1 = call i32 @_testcapi_has_vectorcall_flag_impl(ptr noundef %5, ptr noundef %6)
   store i32 %call1, ptr %_return_value, align 4
-  %6 = load i32, ptr %_return_value, align 4
-  %cmp = icmp eq i32 %6, -1
+  %7 = load i32, ptr %_return_value, align 4
+  %cmp = icmp eq i32 %7, -1
   br i1 %cmp, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %if.end
@@ -689,15 +695,15 @@ if.then4:                                         ; preds = %land.lhs.true
   br label %exit
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %7 = load i32, ptr %_return_value, align 4
-  %conv = sext i32 %7 to i64
+  %8 = load i32, ptr %_return_value, align 4
+  %conv = sext i32 %8 to i64
   %call6 = call ptr @PyBool_FromLong(i64 noundef %conv)
   store ptr %call6, ptr %return_value, align 8
   br label %exit
 
 exit:                                             ; preds = %if.end5, %if.then4, %if.then
-  %8 = load ptr, ptr %return_value, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %return_value, align 8
+  ret ptr %9
 }
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #1
@@ -1108,14 +1114,15 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = load ptr, ptr %base.addr, align 8
   %tp_basicsize = getelementptr inbounds %struct._typeobject, ptr %1, i32 0, i32 2
   %2 = load i64, ptr %tp_basicsize, align 8
-  store i64 %2, ptr getelementptr inbounds (%struct.PyMemberDef, ptr @VectorCallClass_members, i32 0, i32 2), align 16
+  %3 = getelementptr inbounds %struct.PyMemberDef, ptr @VectorCallClass_members, i32 0, i32 2
+  store i64 %2, ptr %3, align 16
   %name = getelementptr inbounds %struct.PyType_Spec, ptr %spec, i32 0, i32 0
   store ptr @.str.27, ptr %name, align 8
   %basicsize = getelementptr inbounds %struct.PyType_Spec, ptr %spec, i32 0, i32 1
-  %3 = load ptr, ptr %base.addr, align 8
-  %tp_basicsize1 = getelementptr inbounds %struct._typeobject, ptr %3, i32 0, i32 2
-  %4 = load i64, ptr %tp_basicsize1, align 8
-  %add = add i64 %4, 8
+  %4 = load ptr, ptr %base.addr, align 8
+  %tp_basicsize1 = getelementptr inbounds %struct._typeobject, ptr %4, i32 0, i32 2
+  %5 = load i64, ptr %tp_basicsize1, align 8
+  %add = add i64 %5, 8
   %conv = trunc i64 %add to i32
   store i32 %conv, ptr %basicsize, align 8
   %itemsize = getelementptr inbounds %struct.PyType_Spec, ptr %spec, i32 0, i32 2
@@ -1124,8 +1131,8 @@ if.end:                                           ; preds = %if.then, %entry
   store i32 3072, ptr %flags, align 8
   %slots = getelementptr inbounds %struct.PyType_Spec, ptr %spec, i32 0, i32 4
   store ptr @VectorCallClass_slots, ptr %slots, align 8
-  %5 = load ptr, ptr %base.addr, align 8
-  %call = call ptr @PyType_FromSpecWithBases(ptr noundef %spec, ptr noundef %5)
+  %6 = load ptr, ptr %base.addr, align 8
+  %call = call ptr @PyType_FromSpecWithBases(ptr noundef %spec, ptr noundef %6)
   ret ptr %call
 }
 

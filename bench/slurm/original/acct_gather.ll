@@ -1487,89 +1487,90 @@ define i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr noundef %1) #0 
   store ptr %1, ptr %5, align 8
   %8 = load i32, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
   %9 = icmp eq i32 %8, -2
-  br i1 %9, label %10, label %19
+  br i1 %9, label %10, label %20
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 64), align 8
-  %12 = call i32 @acct_gather_parse_freq(i32 noundef 1, ptr noundef %11)
-  store i32 %12, ptr %7, align 4
-  %13 = load i32, ptr %7, align 4
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %10
-  store i32 65534, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
-  br label %18
+  %11 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 64
+  %12 = load ptr, ptr %11, align 8
+  %13 = call i32 @acct_gather_parse_freq(i32 noundef 1, ptr noundef %12)
+  store i32 %13, ptr %7, align 4
+  %14 = load i32, ptr %7, align 4
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %10
-  %17 = load i32, ptr %7, align 4
-  store i32 %17, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
-  br label %18
-
-18:                                               ; preds = %16, %15
+  store i32 65534, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
   br label %19
 
-19:                                               ; preds = %18, %2
-  %20 = load i64, ptr %4, align 8
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %25
+17:                                               ; preds = %10
+  %18 = load i32, ptr %7, align 4
+  store i32 %18, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
+  br label %19
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %26, label %25
+19:                                               ; preds = %17, %16
+  br label %20
 
-25:                                               ; preds = %22, %19
+20:                                               ; preds = %19, %2
+  %21 = load i64, ptr %4, align 8
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %20
+  %24 = load i32, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %23, %20
   store i32 0, ptr %3, align 4
-  br label %47
+  br label %48
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = call i32 @acct_gather_parse_freq(i32 noundef 1, ptr noundef %27)
-  store i32 %28, ptr %6, align 4
-  %29 = load i32, ptr %6, align 4
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %31, label %32
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %5, align 8
+  %29 = call i32 @acct_gather_parse_freq(i32 noundef 1, ptr noundef %28)
+  store i32 %29, ptr %6, align 4
+  %30 = load i32, ptr %6, align 4
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %26
+32:                                               ; preds = %27
   store i32 0, ptr %3, align 4
-  br label %47
+  br label %48
 
-32:                                               ; preds = %26
-  %33 = load i32, ptr %6, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %37
+33:                                               ; preds = %27
+  %34 = load i32, ptr %6, align 4
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %38
 
-35:                                               ; preds = %32
-  %36 = call i32 (ptr, ...) @error(ptr noundef @.str.19)
+36:                                               ; preds = %33
+  %37 = call i32 (ptr, ...) @error(ptr noundef @.str.19)
   call void @slurm_seterrno(i32 noundef 4003)
   store i32 1, ptr %3, align 4
-  br label %47
+  br label %48
 
-37:                                               ; preds = %32
-  %38 = load i32, ptr %6, align 4
-  %39 = load i32, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
-  %40 = icmp ugt i32 %38, %39
-  br i1 %40, label %41, label %45
+38:                                               ; preds = %33
+  %39 = load i32, ptr %6, align 4
+  %40 = load i32, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
+  %41 = icmp ugt i32 %39, %40
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %37
-  %42 = load i32, ptr %6, align 4
-  %43 = load i32, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
-  %44 = call i32 (ptr, ...) @error(ptr noundef @.str.20, i32 noundef %42, i32 noundef %43)
+42:                                               ; preds = %38
+  %43 = load i32, ptr %6, align 4
+  %44 = load i32, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
+  %45 = call i32 (ptr, ...) @error(ptr noundef @.str.20, i32 noundef %43, i32 noundef %44)
   call void @slurm_seterrno(i32 noundef 4003)
   store i32 1, ptr %3, align 4
+  br label %48
+
+46:                                               ; preds = %38
   br label %47
 
-45:                                               ; preds = %37
-  br label %46
-
-46:                                               ; preds = %45
+47:                                               ; preds = %46
   store i32 0, ptr %3, align 4
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %41, %35, %31, %25
-  %48 = load i32, ptr %3, align 4
-  ret i32 %48
+48:                                               ; preds = %47, %42, %36, %32, %26
+  %49 = load i32, ptr %3, align 4
+  ret i32 %49
 }
 
 declare i32 @error(ptr noundef, ...) #1

@@ -420,7 +420,7 @@ define dso_local void @tcp_time_wait(ptr noundef %0, i32 noundef %1, i32 noundef
   %6 = getelementptr inbounds i8, ptr %5, i64 768
   %7 = tail call ptr @inet_twsk_alloc(ptr noundef %0, ptr noundef %6, i32 noundef %1) #8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %137, label %9
+  br i1 %8, label %139, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 1144
@@ -596,23 +596,25 @@ define dso_local void @tcp_time_wait(ptr noundef %0, i32 noundef %1, i32 noundef
   %132 = icmp eq i32 %1, 6
   %133 = select i1 %132, i32 60000, i32 %131
   %134 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #8, !srcloc !13
+  %135 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %136 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %135, i32 512, ptr nonnull elementtype(i32) %136) #8, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
   tail call void @__inet_twsk_schedule(ptr noundef %7, i32 noundef %133, i1 noundef zeroext false) #8
-  %135 = getelementptr inbounds i8, ptr %5, i64 832
-  %136 = load ptr, ptr %135, align 64
-  tail call void @inet_twsk_hashdance(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %136) #8
+  %137 = getelementptr inbounds i8, ptr %5, i64 832
+  %138 = load ptr, ptr %137, align 64
+  tail call void @inet_twsk_hashdance(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %138) #8
   tail call void @__local_bh_enable_ip(i64 noundef %134, i32 noundef 512) #8
-  br label %141
+  br label %143
 
-137:                                              ; preds = %3
-  %138 = getelementptr inbounds i8, ptr %5, i64 432
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr i8, ptr %139, i64 584
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %140, ptr elementtype(i64) %140) #8, !srcloc !15
-  br label %141
+139:                                              ; preds = %3
+  %140 = getelementptr inbounds i8, ptr %5, i64 432
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr i8, ptr %141, i64 584
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %142, ptr elementtype(i64) %142) #8, !srcloc !15
+  br label %143
 
-141:                                              ; preds = %137, %130
+143:                                              ; preds = %139, %130
   tail call void @tcp_update_metrics(ptr noundef %0) #8
   tail call void @tcp_done(ptr noundef %0) #8
   ret void
@@ -663,8 +665,10 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal void @tcp_md5_twsk_free_rcu(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -120
   tail call void @kfree(ptr noundef %2) #8
-  %3 = load i64, ptr getelementptr inbounds (%struct.static_key_false_deferred, ptr @tcp_md5_needed, i64 0, i32 1), align 8
-  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @tcp_md5_needed, ptr noundef nonnull getelementptr inbounds (%struct.static_key_false_deferred, ptr @tcp_md5_needed, i64 0, i32 2), i64 noundef %3) #8
+  %3 = getelementptr inbounds %struct.static_key_false_deferred, ptr @tcp_md5_needed, i64 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.static_key_false_deferred, ptr @tcp_md5_needed, i64 0, i32 2
+  tail call void @__static_key_slow_dec_deferred(ptr noundef nonnull @tcp_md5_needed, ptr noundef nonnull %5, i64 noundef %4) #8
   tail call void @tcp_md5_release_sigpool() #8
   ret void
 }

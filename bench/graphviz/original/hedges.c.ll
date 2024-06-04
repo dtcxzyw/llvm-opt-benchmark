@@ -1066,7 +1066,7 @@ define internal ptr @ELgethash(i32 noundef %0) #0 {
 
 11:                                               ; preds = %7, %1
   store ptr null, ptr %2, align 8
-  br label %40
+  br label %41
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr @ELhash, align 8
@@ -1077,46 +1077,47 @@ define internal ptr @ELgethash(i32 noundef %0) #0 {
   store ptr %17, ptr %4, align 8
   %18 = load ptr, ptr %4, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %25, label %20
+  br i1 %19, label %26, label %20
 
 20:                                               ; preds = %12
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds %struct.Halfedge, ptr %21, i32 0, i32 2
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp ne ptr %23, inttoptr (i64 -2 to ptr)
-  br i1 %24, label %25, label %27
+  %24 = inttoptr i64 -2 to ptr
+  %25 = icmp ne ptr %23, %24
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %20, %12
-  %26 = load ptr, ptr %4, align 8
-  store ptr %26, ptr %2, align 8
+26:                                               ; preds = %20, %12
+  %27 = load ptr, ptr %4, align 8
+  store ptr %27, ptr %2, align 8
+  br label %41
+
+28:                                               ; preds = %20
+  %29 = load ptr, ptr @ELhash, align 8
+  %30 = load i32, ptr %3, align 4
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
+  store ptr null, ptr %32, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %struct.Halfedge, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 8
+  %36 = add nsw i32 %35, -1
+  store i32 %36, ptr %34, align 8
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %4, align 8
+  call void @makefree(ptr noundef %39, ptr noundef @hfl)
   br label %40
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr @ELhash, align 8
-  %29 = load i32, ptr %3, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
-  store ptr null, ptr %31, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.Halfedge, ptr %32, i32 0, i32 3
-  %34 = load i32, ptr %33, align 8
-  %35 = add nsw i32 %34, -1
-  store i32 %35, ptr %33, align 8
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %39
-
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %4, align 8
-  call void @makefree(ptr noundef %38, ptr noundef @hfl)
-  br label %39
-
-39:                                               ; preds = %37, %27
+40:                                               ; preds = %38, %28
   store ptr null, ptr %2, align 8
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %25, %11
-  %41 = load ptr, ptr %2, align 8
-  ret ptr %41
+41:                                               ; preds = %40, %26, %11
+  %42 = load ptr, ptr %2, align 8
+  ret ptr %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1141,7 +1142,8 @@ define void @ELdelete(ptr noundef %0) #0 {
   store ptr %12, ptr %16, align 8
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds %struct.Halfedge, ptr %17, i32 0, i32 2
-  store ptr inttoptr (i64 -2 to ptr), ptr %18, align 8
+  %19 = inttoptr i64 -2 to ptr
+  store ptr %19, ptr %18, align 8
   ret void
 }
 

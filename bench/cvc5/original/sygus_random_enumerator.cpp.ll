@@ -5438,7 +5438,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_size = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this1, i32 0, i32 8
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_size) #3
   %d_minSygus = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this1, i32 0, i32 7

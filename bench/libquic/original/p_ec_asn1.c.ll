@@ -154,13 +154,14 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool7, label %lor.lhs.false8, label %if.then
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false5
-  %call9 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef getelementptr inbounds (%struct.evp_pkey_asn1_method_st, ptr @ec_asn1_meth, i32 0, i32 1), i64 noundef 7)
+  %5 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr @ec_asn1_meth, i32 0, i32 1
+  %call9 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef %5, i64 noundef 7)
   %tobool10 = icmp ne i32 %call9, 0
   br i1 %tobool10, label %lor.lhs.false11, label %if.then
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false8
-  %5 = load ptr, ptr %group, align 8
-  %call12 = call i32 @EC_KEY_marshal_curve_name(ptr noundef %algorithm, ptr noundef %5)
+  %6 = load ptr, ptr %group, align 8
+  %call12 = call i32 @EC_KEY_marshal_curve_name(ptr noundef %algorithm, ptr noundef %6)
   %tobool13 = icmp ne i32 %call12, 0
   br i1 %tobool13, label %lor.lhs.false14, label %if.then
 
@@ -175,15 +176,15 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false14
   br i1 %tobool19, label %lor.lhs.false20, label %if.then
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false17
-  %6 = load ptr, ptr %group, align 8
-  %7 = load ptr, ptr %public_key, align 8
-  %call21 = call i32 @EC_POINT_point2cbb(ptr noundef %key_bitstring, ptr noundef %6, ptr noundef %7, i32 noundef 4, ptr noundef null)
+  %7 = load ptr, ptr %group, align 8
+  %8 = load ptr, ptr %public_key, align 8
+  %call21 = call i32 @EC_POINT_point2cbb(ptr noundef %key_bitstring, ptr noundef %7, ptr noundef %8, i32 noundef 4, ptr noundef null)
   %tobool22 = icmp ne i32 %call21, 0
   br i1 %tobool22, label %lor.lhs.false23, label %if.then
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false20
-  %8 = load ptr, ptr %out.addr, align 8
-  %call24 = call i32 @CBB_flush(ptr noundef %8)
+  %9 = load ptr, ptr %out.addr, align 8
+  %call24 = call i32 @CBB_flush(ptr noundef %9)
   %tobool25 = icmp ne i32 %call24, 0
   br i1 %tobool25, label %if.end, label %if.then
 
@@ -197,8 +198,8 @@ if.end:                                           ; preds = %lor.lhs.false23
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+  %10 = load i32, ptr %retval, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -370,13 +371,14 @@ lor.lhs.false7:                                   ; preds = %lor.lhs.false4
   br i1 %tobool9, label %lor.lhs.false10, label %if.then
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
-  %call11 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef getelementptr inbounds (%struct.evp_pkey_asn1_method_st, ptr @ec_asn1_meth, i32 0, i32 1), i64 noundef 7)
+  %4 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr @ec_asn1_meth, i32 0, i32 1
+  %call11 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef %4, i64 noundef 7)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %lor.lhs.false13, label %if.then
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %4 = load ptr, ptr %ec_key, align 8
-  %call14 = call ptr @EC_KEY_get0_group(ptr noundef %4)
+  %5 = load ptr, ptr %ec_key, align 8
+  %call14 = call ptr @EC_KEY_get0_group(ptr noundef %5)
   %call15 = call i32 @EC_KEY_marshal_curve_name(ptr noundef %algorithm, ptr noundef %call14)
   %tobool16 = icmp ne i32 %call15, 0
   br i1 %tobool16, label %lor.lhs.false17, label %if.then
@@ -387,15 +389,15 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false13
   br i1 %tobool19, label %lor.lhs.false20, label %if.then
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false17
-  %5 = load ptr, ptr %ec_key, align 8
-  %6 = load i32, ptr %enc_flags, align 4
-  %call21 = call i32 @EC_KEY_marshal_private_key(ptr noundef %private_key, ptr noundef %5, i32 noundef %6)
+  %6 = load ptr, ptr %ec_key, align 8
+  %7 = load i32, ptr %enc_flags, align 4
+  %call21 = call i32 @EC_KEY_marshal_private_key(ptr noundef %private_key, ptr noundef %6, i32 noundef %7)
   %tobool22 = icmp ne i32 %call21, 0
   br i1 %tobool22, label %lor.lhs.false23, label %if.then
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false20
-  %7 = load ptr, ptr %out.addr, align 8
-  %call24 = call i32 @CBB_flush(ptr noundef %7)
+  %8 = load ptr, ptr %out.addr, align 8
+  %call24 = call i32 @CBB_flush(ptr noundef %8)
   %tobool25 = icmp ne i32 %call24, 0
   br i1 %tobool25, label %if.end, label %if.then
 
@@ -409,8 +411,8 @@ if.end:                                           ; preds = %lor.lhs.false23
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %9 = load i32, ptr %retval, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable

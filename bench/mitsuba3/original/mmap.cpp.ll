@@ -680,75 +680,76 @@ define void @_ZN7mitsuba16MemoryMappedFileC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
   call void @_ZN7mitsuba6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %7, i32 0, i32 1
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #17
-          to label %10 unwind label %13
+  %8 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %7, i32 0, i32 1
+  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #17
+          to label %11 unwind label %14
 
-10:                                               ; preds = %1
+11:                                               ; preds = %1
   store i1 true, ptr %6, align 1
   invoke void @_ZN7mitsuba10filesystem4pathC2EPKc(ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef @.str)
-          to label %11 unwind label %17
-
-11:                                               ; preds = %10
-  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateC2ERKNS_10filesystem4pathEm(ptr noundef nonnull align 8 dereferenceable(50) %9, ptr noundef nonnull align 8 dereferenceable(25) %5, i64 noundef 0)
-          to label %12 unwind label %21
+          to label %12 unwind label %18
 
 12:                                               ; preds = %11
+  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateC2ERKNS_10filesystem4pathEm(ptr noundef nonnull align 8 dereferenceable(50) %10, ptr noundef nonnull align 8 dereferenceable(25) %5, i64 noundef 0)
+          to label %13 unwind label %22
+
+13:                                               ; preds = %12
   store i1 false, ptr %6, align 1
-  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEC2B8ne190000ILb1EvEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9) #18
+  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEC2B8ne190000ILb1EvEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10) #18
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #18
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  br label %29
-
-17:                                               ; preds = %10
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  br label %25
-
-21:                                               ; preds = %11
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %3, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %4, align 4
-  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #18
-  br label %25
-
-25:                                               ; preds = %21, %17
-  %26 = load i1, ptr %6, align 1
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %25
-  call void @_ZdlPv(ptr noundef %9) #19
-  br label %28
-
-28:                                               ; preds = %27, %25
-  br label %29
-
-29:                                               ; preds = %28, %13
-  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #18
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
   br label %30
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %3, align 8
-  %32 = load i32, ptr %4, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+18:                                               ; preds = %11
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %26
+
+22:                                               ; preds = %12
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #18
+  br label %26
+
+26:                                               ; preds = %22, %18
+  %27 = load i1, ptr %6, align 1
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %26
+  call void @_ZdlPv(ptr noundef %10) #19
+  br label %29
+
+29:                                               ; preds = %28, %26
+  br label %30
+
+30:                                               ; preds = %29, %14
+  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #18
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %3, align 8
+  %33 = load i32, ptr %4, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -756,9 +757,10 @@ define linkonce_odr void @_ZN7mitsuba6ObjectC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.mitsuba::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__16atomicIiEC2B8ne190000Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #18
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.mitsuba::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__16atomicIiEC2B8ne190000Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #18
   ret void
 }
 
@@ -911,204 +913,205 @@ define void @_ZN7mitsuba16MemoryMappedFileC2ERKNS_10filesystem4pathEm(ptr nounde
   store i64 %2, ptr %17, align 8
   %23 = load ptr, ptr %15, align 8
   call void @_ZN7mitsuba6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %23)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i32 0, i32 0, i32 2), ptr %23, align 8
-  %24 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %23, i32 0, i32 1
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #17
-          to label %26 unwind label %77
+  %24 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i32 0, i32 0, i32 2
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %23, i32 0, i32 1
+  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #17
+          to label %27 unwind label %78
 
-26:                                               ; preds = %3
-  %27 = load ptr, ptr %16, align 8
-  %28 = load i64, ptr %17, align 8
-  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateC2ERKNS_10filesystem4pathEm(ptr noundef nonnull align 8 dereferenceable(50) %25, ptr noundef nonnull align 8 dereferenceable(25) %27, i64 noundef %28)
-          to label %29 unwind label %81
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %16, align 8
+  %29 = load i64, ptr %17, align 8
+  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateC2ERKNS_10filesystem4pathEm(ptr noundef nonnull align 8 dereferenceable(50) %26, ptr noundef nonnull align 8 dereferenceable(25) %28, i64 noundef %29)
+          to label %30 unwind label %82
 
-29:                                               ; preds = %26
-  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEC2B8ne190000ILb1EvEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %25) #18
-  br label %30
+30:                                               ; preds = %27
+  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEC2B8ne190000ILb1EvEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26) #18
+  br label %31
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
-  %32 = load ptr, ptr %16, align 8
-  invoke void @_ZNK7mitsuba10filesystem4path8filenameEv(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %21, ptr noundef nonnull align 8 dereferenceable(25) %32)
-          to label %33 unwind label %85
+31:                                               ; preds = %30
+  %32 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+  %33 = load ptr, ptr %16, align 8
+  invoke void @_ZNK7mitsuba10filesystem4path8filenameEv(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %21, ptr noundef nonnull align 8 dereferenceable(25) %33)
+          to label %34 unwind label %86
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   invoke void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(25) %21)
-          to label %34 unwind label %89
+          to label %35 unwind label %90
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %23, i32 0, i32 1
-  %36 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #18
-  %37 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %36, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
-  invoke void @_ZN7mitsuba4util10mem_stringEmb(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %22, i64 noundef %38, i1 noundef zeroext false)
-          to label %39 unwind label %93
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %23, i32 0, i32 1
+  %37 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #18
+  %38 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %37, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8
+  invoke void @_ZN7mitsuba4util10mem_stringEmb(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %22, i64 noundef %39, i1 noundef zeroext false)
+          to label %40 unwind label %94
 
-39:                                               ; preds = %34
+40:                                               ; preds = %35
   store i32 0, ptr %4, align 4
-  store ptr %31, ptr %5, align 8
+  store ptr %32, ptr %5, align 8
   store ptr @.str.1, ptr %6, align 8
   store i32 217, ptr %7, align 4
   store ptr @.str.2, ptr %8, align 8
   store ptr %20, ptr %9, align 8
   store ptr %22, ptr %10, align 8
-  %40 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
-          to label %41 unwind label %97
+  %41 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
+          to label %42 unwind label %98
 
-41:                                               ; preds = %39
-  %42 = invoke noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %40)
-          to label %43 unwind label %97
+42:                                               ; preds = %40
+  %43 = invoke noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %41)
+          to label %44 unwind label %98
 
-43:                                               ; preds = %41
-  store ptr %42, ptr %11, align 8
-  %44 = load ptr, ptr %11, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %70
+44:                                               ; preds = %42
+  store ptr %43, ptr %11, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %71
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr %4, align 4
-  %48 = load ptr, ptr %11, align 8
-  %49 = call noundef i32 @_ZNK7mitsuba6Logger9log_levelEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
-  %50 = icmp sge i32 %47, %49
-  br i1 %50, label %51, label %70
+47:                                               ; preds = %44
+  %48 = load i32, ptr %4, align 4
+  %49 = load ptr, ptr %11, align 8
+  %50 = call noundef i32 @_ZNK7mitsuba6Logger9log_levelEv(ptr noundef nonnull align 8 dereferenceable(24) %49)
+  %51 = icmp sge i32 %48, %50
+  br i1 %51, label %52, label %71
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %11, align 8
-  %53 = load i32, ptr %4, align 4
-  %54 = load ptr, ptr %5, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = load i32, ptr %7, align 4
-  %57 = load ptr, ptr %8, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = load ptr, ptr %10, align 8
-  invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES7_EEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %12, ptr noundef %57, ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %59)
-          to label %60 unwind label %97
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %11, align 8
+  %54 = load i32, ptr %4, align 4
+  %55 = load ptr, ptr %5, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = load i32, ptr %7, align 4
+  %58 = load ptr, ptr %8, align 8
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %10, align 8
+  invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES7_EEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %12, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %60)
+          to label %61 unwind label %98
 
-60:                                               ; preds = %51
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %52, i32 noundef %53, ptr noundef %54, ptr noundef %55, i32 noundef %56, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %61 unwind label %62
+61:                                               ; preds = %52
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %53, i32 noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %62 unwind label %63
 
-61:                                               ; preds = %60
+62:                                               ; preds = %61
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  br label %70
-
-62:                                               ; preds = %60
-  %63 = landingpad { ptr, i32 }
-          cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %13, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %14, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  %66 = load ptr, ptr %13, align 8
-  %67 = load i32, ptr %14, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  br label %99
-
-70:                                               ; preds = %61, %46, %43
   br label %71
 
-71:                                               ; preds = %70
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
-  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #18
+63:                                               ; preds = %61
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %13, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %14, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  %67 = load ptr, ptr %13, align 8
+  %68 = load i32, ptr %14, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  br label %100
+
+71:                                               ; preds = %62, %47, %44
   br label %72
 
 72:                                               ; preds = %71
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
+  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #18
   br label %73
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %23, i32 0, i32 1
-  %75 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #18
-  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate6createEv(ptr noundef nonnull align 8 dereferenceable(50) %75)
-          to label %76 unwind label %85
+  br label %74
 
-76:                                               ; preds = %73
+74:                                               ; preds = %73
+  %75 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %23, i32 0, i32 1
+  %76 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #18
+  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate6createEv(ptr noundef nonnull align 8 dereferenceable(50) %76)
+          to label %77 unwind label %86
+
+77:                                               ; preds = %74
   ret void
 
-77:                                               ; preds = %3
-  %78 = landingpad { ptr, i32 }
+78:                                               ; preds = %3
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %18, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %19, align 4
-  br label %106
-
-81:                                               ; preds = %26
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %18, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %19, align 4
-  call void @_ZdlPv(ptr noundef %25) #19
-  br label %106
-
-85:                                               ; preds = %73, %30
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %18, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %19, align 4
-  br label %105
-
-89:                                               ; preds = %33
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %18, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %19, align 4
-  br label %104
-
-93:                                               ; preds = %34
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %18, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %19, align 4
-  br label %103
-
-97:                                               ; preds = %51, %41, %39
-  %98 = landingpad { ptr, i32 }
-          cleanup
-  br label %99
-
-99:                                               ; preds = %97, %62
-  %100 = phi { ptr, i32 } [ %98, %97 ], [ %69, %62 ]
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %18, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %19, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
-  br label %103
-
-103:                                              ; preds = %99, %93
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
-  br label %104
-
-104:                                              ; preds = %103, %89
-  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #18
-  br label %105
-
-105:                                              ; preds = %104, %85
-  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #18
-  br label %106
-
-106:                                              ; preds = %105, %81, %77
-  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %23) #18
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %18, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %19, align 4
   br label %107
 
-107:                                              ; preds = %106
-  %108 = load ptr, ptr %18, align 8
-  %109 = load i32, ptr %19, align 4
-  %110 = insertvalue { ptr, i32 } poison, ptr %108, 0
-  %111 = insertvalue { ptr, i32 } %110, i32 %109, 1
-  resume { ptr, i32 } %111
+82:                                               ; preds = %27
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %18, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %19, align 4
+  call void @_ZdlPv(ptr noundef %26) #19
+  br label %107
+
+86:                                               ; preds = %74, %31
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %18, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %19, align 4
+  br label %106
+
+90:                                               ; preds = %34
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %18, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %19, align 4
+  br label %105
+
+94:                                               ; preds = %35
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %18, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %19, align 4
+  br label %104
+
+98:                                               ; preds = %52, %42, %40
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  br label %100
+
+100:                                              ; preds = %98, %63
+  %101 = phi { ptr, i32 } [ %99, %98 ], [ %70, %63 ]
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %18, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %19, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
+  br label %104
+
+104:                                              ; preds = %100, %94
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
+  br label %105
+
+105:                                              ; preds = %104, %90
+  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #18
+  br label %106
+
+106:                                              ; preds = %105, %86
+  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #18
+  br label %107
+
+107:                                              ; preds = %106, %82, %78
+  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %23) #18
+  br label %108
+
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %18, align 8
+  %110 = load i32, ptr %19, align 4
+  %111 = insertvalue { ptr, i32 } poison, ptr %109, 0
+  %112 = insertvalue { ptr, i32 } %111, i32 %110, 1
+  resume { ptr, i32 } %112
 }
 
 declare void @_ZNK7mitsuba10filesystem4path8filenameEv(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8, ptr noundef nonnull align 8 dereferenceable(25)) #5
@@ -1188,7 +1191,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   %33 = extractvalue { ptr, i32 } %31, 1
   store i32 %33, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  br label %132
+  br label %133
 
 34:                                               ; preds = %25
   %35 = landingpad { ptr, i32 }
@@ -1211,7 +1214,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 
 42:                                               ; preds = %38, %34
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  br label %132
+  br label %133
 
 43:                                               ; No predecessors!
   br label %44
@@ -1266,7 +1269,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 
 67:                                               ; preds = %63, %59
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
-  br label %132
+  br label %133
 
 68:                                               ; No predecessors!
   br label %69
@@ -1318,7 +1321,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 
 89:                                               ; preds = %85, %81
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  br label %132
+  br label %133
 
 90:                                               ; No predecessors!
   br label %91
@@ -1332,96 +1335,97 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %17, i32 0, i32 2
   %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, inttoptr (i64 -1 to ptr)
-  br i1 %99, label %100, label %117
+  %99 = inttoptr i64 -1 to ptr
+  %100 = icmp eq ptr %98, %99
+  br i1 %100, label %101, label %118
 
-100:                                              ; preds = %91
-  %101 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %17, i32 0, i32 2
-  store ptr null, ptr %101, align 8
-  br label %102
+101:                                              ; preds = %91
+  %102 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %17, i32 0, i32 2
+  store ptr null, ptr %102, align 8
+  br label %103
 
-102:                                              ; preds = %100
-  %103 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
-  %104 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %17, i32 0, i32 0
-  call void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(25) %104)
+103:                                              ; preds = %101
+  %104 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+  %105 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %17, i32 0, i32 0
+  call void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(25) %105)
   invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %14, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %105 unwind label %107
+          to label %106 unwind label %108
 
-105:                                              ; preds = %102
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %103, ptr noundef @.str.1, i32 noundef 44, ptr noundef nonnull align 8 dereferenceable(24) %14) #21
-          to label %106 unwind label %111
+106:                                              ; preds = %103
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %104, ptr noundef @.str.1, i32 noundef 44, ptr noundef nonnull align 8 dereferenceable(24) %14) #21
+          to label %107 unwind label %112
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   unreachable
 
-107:                                              ; preds = %102
-  %108 = landingpad { ptr, i32 }
+108:                                              ; preds = %103
+  %109 = landingpad { ptr, i32 }
           cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %5, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %6, align 4
-  br label %115
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %5, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %6, align 4
+  br label %116
 
-111:                                              ; preds = %105
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %106
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %5, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %6, align 4
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %5, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  br label %115
+  br label %116
 
-115:                                              ; preds = %111, %107
+116:                                              ; preds = %112, %108
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
-  br label %132
+  br label %133
 
-116:                                              ; No predecessors!
-  br label %117
+117:                                              ; No predecessors!
+  br label %118
 
-117:                                              ; preds = %116, %91
-  %118 = load i32, ptr %3, align 4
-  %119 = call i32 @close(i32 noundef %118)
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %130
+118:                                              ; preds = %117, %91
+  %119 = load i32, ptr %3, align 4
+  %120 = call i32 @close(i32 noundef %119)
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %131
 
-121:                                              ; preds = %117
-  br label %122
+122:                                              ; preds = %118
+  br label %123
 
-122:                                              ; preds = %121
-  %123 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+123:                                              ; preds = %122
+  %124 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
   call void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %16, ptr noundef @.str.19)
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %123, ptr noundef @.str.1, i32 noundef 47, ptr noundef nonnull align 8 dereferenceable(24) %16) #21
-          to label %124 unwind label %125
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %124, ptr noundef @.str.1, i32 noundef 47, ptr noundef nonnull align 8 dereferenceable(24) %16) #21
+          to label %125 unwind label %126
 
-124:                                              ; preds = %122
+125:                                              ; preds = %123
   unreachable
 
-125:                                              ; preds = %122
-  %126 = landingpad { ptr, i32 }
+126:                                              ; preds = %123
+  %127 = landingpad { ptr, i32 }
           cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  store ptr %127, ptr %5, align 8
-  %128 = extractvalue { ptr, i32 } %126, 1
-  store i32 %128, ptr %6, align 4
+  %128 = extractvalue { ptr, i32 } %127, 0
+  store ptr %128, ptr %5, align 8
+  %129 = extractvalue { ptr, i32 } %127, 1
+  store i32 %129, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  br label %132
+  br label %133
 
-129:                                              ; No predecessors!
-  br label %130
+130:                                              ; No predecessors!
+  br label %131
 
-130:                                              ; preds = %129, %117
-  %131 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %17, i32 0, i32 3
-  store i8 1, ptr %131, align 8
+131:                                              ; preds = %130, %118
+  %132 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %17, i32 0, i32 3
+  store i8 1, ptr %132, align 8
   ret void
 
-132:                                              ; preds = %125, %115, %89, %67, %42, %30
-  %133 = load ptr, ptr %5, align 8
-  %134 = load i32, ptr %6, align 4
-  %135 = insertvalue { ptr, i32 } poison, ptr %133, 0
-  %136 = insertvalue { ptr, i32 } %135, i32 %134, 1
-  resume { ptr, i32 } %136
+133:                                              ; preds = %126, %116, %89, %67, %42, %30
+  %134 = load ptr, ptr %5, align 8
+  %135 = load i32, ptr %6, align 4
+  %136 = insertvalue { ptr, i32 } poison, ptr %134, 0
+  %137 = insertvalue { ptr, i32 } %136, i32 %135, 1
+  resume { ptr, i32 } %137
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1460,210 +1464,211 @@ define void @_ZN7mitsuba16MemoryMappedFileC2ERKNS_10filesystem4pathEb(ptr nounde
   store i8 %23, ptr %17, align 1
   %24 = load ptr, ptr %15, align 8
   call void @_ZN7mitsuba6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %24)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i32 0, i32 0, i32 2), ptr %24, align 8
-  %25 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %24, i32 0, i32 1
-  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #17
-          to label %27 unwind label %83
+  %25 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i32 0, i32 0, i32 2
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %24, i32 0, i32 1
+  %27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #17
+          to label %28 unwind label %84
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr %16, align 8
-  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateC2ERKNS_10filesystem4pathEm(ptr noundef nonnull align 8 dereferenceable(50) %26, ptr noundef nonnull align 8 dereferenceable(25) %28, i64 noundef 0)
-          to label %29 unwind label %87
+28:                                               ; preds = %3
+  %29 = load ptr, ptr %16, align 8
+  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateC2ERKNS_10filesystem4pathEm(ptr noundef nonnull align 8 dereferenceable(50) %27, ptr noundef nonnull align 8 dereferenceable(25) %29, i64 noundef 0)
+          to label %30 unwind label %88
 
-29:                                               ; preds = %27
-  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEC2B8ne190000ILb1EvEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26) #18
-  %30 = load i8, ptr %17, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %24, i32 0, i32 1
-  %33 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #18
-  %34 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %33, i32 0, i32 3
-  %35 = zext i1 %31 to i8
-  store i8 %35, ptr %34, align 8
-  %36 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %24, i32 0, i32 1
-  %37 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #18
-  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate3mapEv(ptr noundef nonnull align 8 dereferenceable(50) %37)
-          to label %38 unwind label %91
+30:                                               ; preds = %28
+  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEC2B8ne190000ILb1EvEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %27) #18
+  %31 = load i8, ptr %17, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %24, i32 0, i32 1
+  %34 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #18
+  %35 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %34, i32 0, i32 3
+  %36 = zext i1 %32 to i8
+  store i8 %36, ptr %35, align 8
+  %37 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %24, i32 0, i32 1
+  %38 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #18
+  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate3mapEv(ptr noundef nonnull align 8 dereferenceable(50) %38)
+          to label %39 unwind label %92
 
-38:                                               ; preds = %29
-  br label %39
+39:                                               ; preds = %30
+  br label %40
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
-  %41 = load ptr, ptr %16, align 8
-  invoke void @_ZNK7mitsuba10filesystem4path8filenameEv(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %21, ptr noundef nonnull align 8 dereferenceable(25) %41)
-          to label %42 unwind label %91
+40:                                               ; preds = %39
+  %41 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+  %42 = load ptr, ptr %16, align 8
+  invoke void @_ZNK7mitsuba10filesystem4path8filenameEv(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %21, ptr noundef nonnull align 8 dereferenceable(25) %42)
+          to label %43 unwind label %92
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   invoke void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(25) %21)
-          to label %43 unwind label %95
+          to label %44 unwind label %96
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %24, i32 0, i32 1
-  %45 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #18
-  %46 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %45, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  invoke void @_ZN7mitsuba4util10mem_stringEmb(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %22, i64 noundef %47, i1 noundef zeroext false)
-          to label %48 unwind label %99
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %24, i32 0, i32 1
+  %46 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #18
+  %47 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %46, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8
+  invoke void @_ZN7mitsuba4util10mem_stringEmb(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %22, i64 noundef %48, i1 noundef zeroext false)
+          to label %49 unwind label %100
 
-48:                                               ; preds = %43
+49:                                               ; preds = %44
   store i32 0, ptr %4, align 4
-  store ptr %40, ptr %5, align 8
+  store ptr %41, ptr %5, align 8
   store ptr @.str.1, ptr %6, align 8
   store i32 226, ptr %7, align 4
   store ptr @.str.3, ptr %8, align 8
   store ptr %20, ptr %9, align 8
   store ptr %22, ptr %10, align 8
-  %49 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
-          to label %50 unwind label %103
+  %50 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
+          to label %51 unwind label %104
 
-50:                                               ; preds = %48
-  %51 = invoke noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %49)
-          to label %52 unwind label %103
+51:                                               ; preds = %49
+  %52 = invoke noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %50)
+          to label %53 unwind label %104
 
-52:                                               ; preds = %50
-  store ptr %51, ptr %11, align 8
-  %53 = load ptr, ptr %11, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %79
+53:                                               ; preds = %51
+  store ptr %52, ptr %11, align 8
+  %54 = load ptr, ptr %11, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %80
 
-55:                                               ; preds = %52
-  %56 = load i32, ptr %4, align 4
-  %57 = load ptr, ptr %11, align 8
-  %58 = call noundef i32 @_ZNK7mitsuba6Logger9log_levelEv(ptr noundef nonnull align 8 dereferenceable(24) %57)
-  %59 = icmp sge i32 %56, %58
-  br i1 %59, label %60, label %79
+56:                                               ; preds = %53
+  %57 = load i32, ptr %4, align 4
+  %58 = load ptr, ptr %11, align 8
+  %59 = call noundef i32 @_ZNK7mitsuba6Logger9log_levelEv(ptr noundef nonnull align 8 dereferenceable(24) %58)
+  %60 = icmp sge i32 %57, %59
+  br i1 %60, label %61, label %80
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %11, align 8
-  %62 = load i32, ptr %4, align 4
-  %63 = load ptr, ptr %5, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i32, ptr %7, align 4
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %9, align 8
-  %68 = load ptr, ptr %10, align 8
-  invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES7_EEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %12, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %68)
-          to label %69 unwind label %103
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %11, align 8
+  %63 = load i32, ptr %4, align 4
+  %64 = load ptr, ptr %5, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = load i32, ptr %7, align 4
+  %67 = load ptr, ptr %8, align 8
+  %68 = load ptr, ptr %9, align 8
+  %69 = load ptr, ptr %10, align 8
+  invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES7_EEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %12, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69)
+          to label %70 unwind label %104
 
-69:                                               ; preds = %60
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, i32 noundef %65, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %70 unwind label %71
+70:                                               ; preds = %61
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %71 unwind label %72
 
-70:                                               ; preds = %69
+71:                                               ; preds = %70
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  br label %79
-
-71:                                               ; preds = %69
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %13, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %14, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  %75 = load ptr, ptr %13, align 8
-  %76 = load i32, ptr %14, align 4
-  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
-  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
-  br label %105
-
-79:                                               ; preds = %70, %55, %52
   br label %80
 
-80:                                               ; preds = %79
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
-  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #18
+72:                                               ; preds = %70
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %13, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %14, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  %76 = load ptr, ptr %13, align 8
+  %77 = load i32, ptr %14, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  br label %106
+
+80:                                               ; preds = %71, %56, %53
   br label %81
 
 81:                                               ; preds = %80
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
+  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #18
   br label %82
 
 82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82
   ret void
 
-83:                                               ; preds = %3
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %3
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %18, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %19, align 4
-  br label %112
-
-87:                                               ; preds = %27
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %18, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %19, align 4
-  call void @_ZdlPv(ptr noundef %26) #19
-  br label %112
-
-91:                                               ; preds = %39, %29
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %18, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %19, align 4
-  br label %111
-
-95:                                               ; preds = %42
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %18, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %19, align 4
-  br label %110
-
-99:                                               ; preds = %43
-  %100 = landingpad { ptr, i32 }
-          cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %18, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %19, align 4
-  br label %109
-
-103:                                              ; preds = %60, %50, %48
-  %104 = landingpad { ptr, i32 }
-          cleanup
-  br label %105
-
-105:                                              ; preds = %103, %71
-  %106 = phi { ptr, i32 } [ %104, %103 ], [ %78, %71 ]
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %18, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %19, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
-  br label %109
-
-109:                                              ; preds = %105, %99
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
-  br label %110
-
-110:                                              ; preds = %109, %95
-  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #18
-  br label %111
-
-111:                                              ; preds = %110, %91
-  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #18
-  br label %112
-
-112:                                              ; preds = %111, %87, %83
-  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %24) #18
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %18, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %19, align 4
   br label %113
 
-113:                                              ; preds = %112
-  %114 = load ptr, ptr %18, align 8
-  %115 = load i32, ptr %19, align 4
-  %116 = insertvalue { ptr, i32 } poison, ptr %114, 0
-  %117 = insertvalue { ptr, i32 } %116, i32 %115, 1
-  resume { ptr, i32 } %117
+88:                                               ; preds = %28
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %18, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %19, align 4
+  call void @_ZdlPv(ptr noundef %27) #19
+  br label %113
+
+92:                                               ; preds = %40, %30
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %18, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %19, align 4
+  br label %112
+
+96:                                               ; preds = %43
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %18, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %19, align 4
+  br label %111
+
+100:                                              ; preds = %44
+  %101 = landingpad { ptr, i32 }
+          cleanup
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %18, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %19, align 4
+  br label %110
+
+104:                                              ; preds = %61, %51, %49
+  %105 = landingpad { ptr, i32 }
+          cleanup
+  br label %106
+
+106:                                              ; preds = %104, %72
+  %107 = phi { ptr, i32 } [ %105, %104 ], [ %79, %72 ]
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %18, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %19, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
+  br label %110
+
+110:                                              ; preds = %106, %100
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
+  br label %111
+
+111:                                              ; preds = %110, %96
+  call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #18
+  br label %112
+
+112:                                              ; preds = %111, %92
+  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #18
+  br label %113
+
+113:                                              ; preds = %112, %88, %84
+  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %24) #18
+  br label %114
+
+114:                                              ; preds = %113
+  %115 = load ptr, ptr %18, align 8
+  %116 = load i32, ptr %19, align 4
+  %117 = insertvalue { ptr, i32 } poison, ptr %115, 0
+  %118 = insertvalue { ptr, i32 } %117, i32 %116, 1
+  resume { ptr, i32 } %118
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1726,7 +1731,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 
 33:                                               ; preds = %29, %25
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  br label %133
+  br label %134
 
 34:                                               ; No predecessors!
   br label %35
@@ -1774,7 +1779,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 
 52:                                               ; preds = %48, %44
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  br label %133
+  br label %134
 
 53:                                               ; No predecessors!
   br label %54
@@ -1826,7 +1831,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   %77 = extractvalue { ptr, i32 } %75, 1
   store i32 %77, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  br label %133
+  br label %134
 
 78:                                               ; preds = %69
   %79 = landingpad { ptr, i32 }
@@ -1849,7 +1854,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 
 86:                                               ; preds = %82, %78
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  br label %133
+  br label %134
 
 87:                                               ; No predecessors!
   br label %88
@@ -1868,94 +1873,95 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %16, i32 0, i32 2
   %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, inttoptr (i64 -1 to ptr)
-  br i1 %101, label %102, label %119
+  %101 = inttoptr i64 -1 to ptr
+  %102 = icmp eq ptr %100, %101
+  br i1 %102, label %103, label %120
 
-102:                                              ; preds = %88
-  %103 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %16, i32 0, i32 2
-  store ptr null, ptr %103, align 8
-  br label %104
+103:                                              ; preds = %88
+  %104 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %16, i32 0, i32 2
+  store ptr null, ptr %104, align 8
+  br label %105
 
-104:                                              ; preds = %102
-  %105 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
-  %106 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %16, i32 0, i32 0
-  call void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(25) %106)
+105:                                              ; preds = %103
+  %106 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+  %107 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %16, i32 0, i32 0
+  call void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(25) %107)
   invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %13, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %107 unwind label %109
+          to label %108 unwind label %110
 
-107:                                              ; preds = %104
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %105, ptr noundef @.str.1, i32 noundef 148, ptr noundef nonnull align 8 dereferenceable(24) %13) #21
-          to label %108 unwind label %113
+108:                                              ; preds = %105
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %106, ptr noundef @.str.1, i32 noundef 148, ptr noundef nonnull align 8 dereferenceable(24) %13) #21
+          to label %109 unwind label %114
 
-108:                                              ; preds = %107
+109:                                              ; preds = %108
   unreachable
 
-109:                                              ; preds = %104
-  %110 = landingpad { ptr, i32 }
+110:                                              ; preds = %105
+  %111 = landingpad { ptr, i32 }
           cleanup
-  %111 = extractvalue { ptr, i32 } %110, 0
-  store ptr %111, ptr %5, align 8
-  %112 = extractvalue { ptr, i32 } %110, 1
-  store i32 %112, ptr %6, align 4
-  br label %117
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %5, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %6, align 4
+  br label %118
 
-113:                                              ; preds = %107
-  %114 = landingpad { ptr, i32 }
+114:                                              ; preds = %108
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %5, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %6, align 4
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %5, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  br label %117
+  br label %118
 
-117:                                              ; preds = %113, %109
+118:                                              ; preds = %114, %110
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  br label %133
+  br label %134
 
-118:                                              ; No predecessors!
-  br label %119
+119:                                              ; No predecessors!
+  br label %120
 
-119:                                              ; preds = %118, %88
-  %120 = load i32, ptr %9, align 4
-  %121 = call i32 @close(i32 noundef %120)
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %123, label %132
+120:                                              ; preds = %119, %88
+  %121 = load i32, ptr %9, align 4
+  %122 = call i32 @close(i32 noundef %121)
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %133
 
-123:                                              ; preds = %119
-  br label %124
+124:                                              ; preds = %120
+  br label %125
 
-124:                                              ; preds = %123
-  %125 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+125:                                              ; preds = %124
+  %126 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
   call void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef @.str.19)
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %125, ptr noundef @.str.1, i32 noundef 152, ptr noundef nonnull align 8 dereferenceable(24) %15) #21
-          to label %126 unwind label %127
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %126, ptr noundef @.str.1, i32 noundef 152, ptr noundef nonnull align 8 dereferenceable(24) %15) #21
+          to label %127 unwind label %128
 
-126:                                              ; preds = %124
+127:                                              ; preds = %125
   unreachable
 
-127:                                              ; preds = %124
-  %128 = landingpad { ptr, i32 }
+128:                                              ; preds = %125
+  %129 = landingpad { ptr, i32 }
           cleanup
-  %129 = extractvalue { ptr, i32 } %128, 0
-  store ptr %129, ptr %5, align 8
-  %130 = extractvalue { ptr, i32 } %128, 1
-  store i32 %130, ptr %6, align 4
+  %130 = extractvalue { ptr, i32 } %129, 0
+  store ptr %130, ptr %5, align 8
+  %131 = extractvalue { ptr, i32 } %129, 1
+  store i32 %131, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  br label %134
+
+132:                                              ; No predecessors!
   br label %133
 
-131:                                              ; No predecessors!
-  br label %132
-
-132:                                              ; preds = %131, %119
+133:                                              ; preds = %132, %120
   ret void
 
-133:                                              ; preds = %127, %117, %86, %74, %52, %33
-  %134 = load ptr, ptr %5, align 8
-  %135 = load i32, ptr %6, align 4
-  %136 = insertvalue { ptr, i32 } poison, ptr %134, 0
-  %137 = insertvalue { ptr, i32 } %136, i32 %135, 1
-  resume { ptr, i32 } %137
+134:                                              ; preds = %128, %118, %86, %74, %52, %33
+  %135 = load ptr, ptr %5, align 8
+  %136 = load i32, ptr %6, align 4
+  %137 = insertvalue { ptr, i32 } poison, ptr %135, 0
+  %138 = insertvalue { ptr, i32 } %137, i32 %136, 1
+  resume { ptr, i32 } %138
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1977,152 +1983,153 @@ define void @_ZN7mitsuba16MemoryMappedFileD2Ev(ptr noundef nonnull align 8 deref
   %16 = alloca ptr, align 8
   store ptr %0, ptr %12, align 8
   %17 = load ptr, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %17, i32 0, i32 1
-  %19 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #18
-  %20 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %80
+  %18 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %17, i32 0, i32 1
+  %20 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #18
+  %21 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %20, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %81
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %17, i32 0, i32 1
-  %25 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #18
-  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate5unmapEv(ptr noundef nonnull align 8 dereferenceable(50) %25)
-          to label %26 unwind label %27
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %17, i32 0, i32 1
+  %26 = call noundef ptr @_ZNKSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEEptB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #18
+  invoke void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate5unmapEv(ptr noundef nonnull align 8 dereferenceable(50) %26)
+          to label %27 unwind label %28
 
-26:                                               ; preds = %23
-  br label %79
+27:                                               ; preds = %24
+  br label %80
 
-27:                                               ; preds = %23
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %24
+  %29 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %13, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %14, align 4
-  br label %31
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %13, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %14, align 4
+  br label %32
 
-31:                                               ; preds = %27
-  %32 = load i32, ptr %14, align 4
-  %33 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #18
-  %34 = icmp eq i32 %32, %33
-  br i1 %34, label %35, label %87
+32:                                               ; preds = %28
+  %33 = load i32, ptr %14, align 4
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #18
+  %35 = icmp eq i32 %33, %34
+  br i1 %35, label %36, label %88
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %13, align 8
-  %37 = call ptr @__cxa_begin_catch(ptr %36) #18
-  store ptr %37, ptr %15, align 8
-  br label %38
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %13, align 8
+  %38 = call ptr @__cxa_begin_catch(ptr %37) #18
+  store ptr %38, ptr %15, align 8
+  br label %39
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
-  %40 = load ptr, ptr %15, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 2
-  %43 = load ptr, ptr %42, align 8
-  %44 = call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #18
-  store ptr %44, ptr %16, align 8
+39:                                               ; preds = %36
+  %40 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+  %41 = load ptr, ptr %15, align 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds ptr, ptr %42, i64 2
+  %44 = load ptr, ptr %43, align 8
+  %45 = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %41) #18
+  store ptr %45, ptr %16, align 8
   store i32 300, ptr %2, align 4
-  store ptr %39, ptr %3, align 8
+  store ptr %40, ptr %3, align 8
   store ptr @.str.1, ptr %4, align 8
   store i32 235, ptr %5, align 4
   store ptr @.str.4, ptr %6, align 8
   store ptr %16, ptr %7, align 8
-  %45 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
-          to label %46 unwind label %82
+  %46 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
+          to label %47 unwind label %83
 
-46:                                               ; preds = %38
-  %47 = invoke noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %45)
-          to label %48 unwind label %82
+47:                                               ; preds = %39
+  %48 = invoke noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %46)
+          to label %49 unwind label %83
 
-48:                                               ; preds = %46
-  store ptr %47, ptr %8, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %74
+49:                                               ; preds = %47
+  store ptr %48, ptr %8, align 8
+  %50 = load ptr, ptr %8, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %75
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %2, align 4
-  %53 = load ptr, ptr %8, align 8
-  %54 = call noundef i32 @_ZNK7mitsuba6Logger9log_levelEv(ptr noundef nonnull align 8 dereferenceable(24) %53)
-  %55 = icmp sge i32 %52, %54
-  br i1 %55, label %56, label %74
+52:                                               ; preds = %49
+  %53 = load i32, ptr %2, align 4
+  %54 = load ptr, ptr %8, align 8
+  %55 = call noundef i32 @_ZNK7mitsuba6Logger9log_levelEv(ptr noundef nonnull align 8 dereferenceable(24) %54)
+  %56 = icmp sge i32 %53, %55
+  br i1 %56, label %57, label %75
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %8, align 8
-  %58 = load i32, ptr %2, align 4
-  %59 = load ptr, ptr %3, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = load i32, ptr %5, align 4
-  %62 = load ptr, ptr %6, align 8
-  %63 = load ptr, ptr %7, align 8
-  invoke void @_ZN10tinyformat6formatIJPKcEEENSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEES2_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %9, ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(8) %63)
-          to label %64 unwind label %82
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %8, align 8
+  %59 = load i32, ptr %2, align 4
+  %60 = load ptr, ptr %3, align 8
+  %61 = load ptr, ptr %4, align 8
+  %62 = load i32, ptr %5, align 4
+  %63 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %7, align 8
+  invoke void @_ZN10tinyformat6formatIJPKcEEENSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEES2_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %9, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(8) %64)
+          to label %65 unwind label %83
 
-64:                                               ; preds = %56
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %57, i32 noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %65 unwind label %66
+65:                                               ; preds = %57
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %58, i32 noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %66 unwind label %67
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
-  br label %74
-
-66:                                               ; preds = %64
-  %67 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %10, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %11, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i32, ptr %11, align 4
-  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
-  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
-  br label %84
-
-74:                                               ; preds = %65, %51, %48
   br label %75
 
-75:                                               ; preds = %74
+67:                                               ; preds = %65
+  %68 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr null
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %10, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %11, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %71 = load ptr, ptr %10, align 8
+  %72 = load i32, ptr %11, align 4
+  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
+  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
+  br label %85
+
+75:                                               ; preds = %66, %52, %49
   br label %76
 
 76:                                               ; preds = %75
   br label %77
 
 77:                                               ; preds = %76
-  invoke void @__cxa_end_catch()
-          to label %78 unwind label %82
+  br label %78
 
 78:                                               ; preds = %77
-  br label %79
+  invoke void @__cxa_end_catch()
+          to label %79 unwind label %83
 
-79:                                               ; preds = %78, %26
+79:                                               ; preds = %78
   br label %80
 
-80:                                               ; preds = %79, %1
-  %81 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %17, i32 0, i32 1
-  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #18
+80:                                               ; preds = %79, %27
+  br label %81
+
+81:                                               ; preds = %80, %1
+  %82 = getelementptr inbounds %"class.mitsuba::MemoryMappedFile", ptr %17, i32 0, i32 1
+  call void @_ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14default_deleteIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #18
   call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #18
   ret void
 
-82:                                               ; preds = %77, %56, %46, %38
-  %83 = landingpad { ptr, i32 }
+83:                                               ; preds = %78, %57, %47, %39
+  %84 = landingpad { ptr, i32 }
           catch ptr null
-  br label %84
+  br label %85
 
-84:                                               ; preds = %82, %66
-  %85 = phi { ptr, i32 } [ %83, %82 ], [ %73, %66 ]
-  %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #20
+85:                                               ; preds = %83, %67
+  %86 = phi { ptr, i32 } [ %84, %83 ], [ %74, %67 ]
+  %87 = extractvalue { ptr, i32 } %86, 0
+  call void @__clang_call_terminate(ptr %87) #20
   unreachable
 
-87:                                               ; preds = %31
-  %88 = load ptr, ptr %13, align 8
-  call void @__clang_call_terminate(ptr %88) #20
+88:                                               ; preds = %32
+  %89 = load ptr, ptr %13, align 8
+  call void @__clang_call_terminate(ptr %89) #20
   unreachable
 }
 
@@ -2499,11 +2506,8 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   unreachable
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #18
   call void @_ZSt9terminatev() #20
   unreachable
@@ -2614,7 +2618,7 @@ define void @_ZN7mitsuba16MemoryMappedFile6resizeEm(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) #8
+declare void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef %1) #0 comdat personality ptr @__gxx_personality_v0 {
@@ -2906,14 +2910,14 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 47:                                               ; preds = %46
   unreachable
 
-48:                                               ; preds = %154, %148, %131, %103, %95, %74, %58, %41, %32, %29
+48:                                               ; preds = %155, %149, %132, %103, %95, %74, %58, %41, %32, %29
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = extractvalue { ptr, i32 } %49, 0
   store ptr %50, ptr %5, align 8
   %51 = extractvalue { ptr, i32 } %49, 1
   store i32 %51, ptr %6, align 4
-  br label %165
+  br label %166
 
 52:                                               ; preds = %46
   %53 = landingpad { ptr, i32 }
@@ -2923,7 +2927,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
-  br label %165
+  br label %166
 
 56:                                               ; No predecessors!
   br label %57
@@ -2984,7 +2988,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   %83 = extractvalue { ptr, i32 } %81, 1
   store i32 %83, ptr %6, align 4
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #18
-  br label %165
+  br label %166
 
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
@@ -3007,7 +3011,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 
 92:                                               ; preds = %88, %84
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  br label %165
+  br label %166
 
 93:                                               ; No predecessors!
   br label %94
@@ -3068,7 +3072,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 
 117:                                              ; preds = %113, %109
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  br label %165
+  br label %166
 
 118:                                              ; No predecessors!
   br label %119
@@ -3085,114 +3089,115 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   store ptr %124, ptr %125, align 8
   %126 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %20, i32 0, i32 2
   %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %127, inttoptr (i64 -1 to ptr)
-  br i1 %128, label %129, label %148
+  %128 = inttoptr i64 -1 to ptr
+  %129 = icmp eq ptr %127, %128
+  br i1 %129, label %130, label %149
 
-129:                                              ; preds = %120
-  %130 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %20, i32 0, i32 2
-  store ptr null, ptr %130, align 8
-  br label %131
+130:                                              ; preds = %120
+  %131 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %20, i32 0, i32 2
+  store ptr null, ptr %131, align 8
+  br label %132
 
-131:                                              ; preds = %129
-  %132 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
-  %133 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %20, i32 0, i32 0
-  invoke void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(25) %133)
-          to label %134 unwind label %48
+132:                                              ; preds = %130
+  %133 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+  %134 = getelementptr inbounds %"struct.mitsuba::MemoryMappedFile::MemoryMappedFilePrivate", ptr %20, i32 0, i32 0
+  invoke void @_ZNK7mitsuba10filesystem4path6stringEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(25) %134)
+          to label %135 unwind label %48
 
-134:                                              ; preds = %131
+135:                                              ; preds = %132
   invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %17, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %135 unwind label %137
-
-135:                                              ; preds = %134
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %132, ptr noundef @.str.1, i32 noundef 95, ptr noundef nonnull align 8 dereferenceable(24) %17) #21
-          to label %136 unwind label %141
+          to label %136 unwind label %138
 
 136:                                              ; preds = %135
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %133, ptr noundef @.str.1, i32 noundef 95, ptr noundef nonnull align 8 dereferenceable(24) %17) #21
+          to label %137 unwind label %142
+
+137:                                              ; preds = %136
   unreachable
 
-137:                                              ; preds = %134
-  %138 = landingpad { ptr, i32 }
+138:                                              ; preds = %135
+  %139 = landingpad { ptr, i32 }
           cleanup
-  %139 = extractvalue { ptr, i32 } %138, 0
-  store ptr %139, ptr %5, align 8
-  %140 = extractvalue { ptr, i32 } %138, 1
-  store i32 %140, ptr %6, align 4
-  br label %145
+  %140 = extractvalue { ptr, i32 } %139, 0
+  store ptr %140, ptr %5, align 8
+  %141 = extractvalue { ptr, i32 } %139, 1
+  store i32 %141, ptr %6, align 4
+  br label %146
 
-141:                                              ; preds = %135
-  %142 = landingpad { ptr, i32 }
+142:                                              ; preds = %136
+  %143 = landingpad { ptr, i32 }
           cleanup
-  %143 = extractvalue { ptr, i32 } %142, 0
-  store ptr %143, ptr %5, align 8
-  %144 = extractvalue { ptr, i32 } %142, 1
-  store i32 %144, ptr %6, align 4
+  %144 = extractvalue { ptr, i32 } %143, 0
+  store ptr %144, ptr %5, align 8
+  %145 = extractvalue { ptr, i32 } %143, 1
+  store i32 %145, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
-  br label %145
+  br label %146
 
-145:                                              ; preds = %141, %137
+146:                                              ; preds = %142, %138
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
-  br label %165
+  br label %166
 
-146:                                              ; No predecessors!
-  br label %147
-
-147:                                              ; preds = %146
+147:                                              ; No predecessors!
   br label %148
 
-148:                                              ; preds = %147, %120
-  %149 = load i32, ptr %8, align 4
-  %150 = invoke i32 @close(i32 noundef %149)
-          to label %151 unwind label %48
+148:                                              ; preds = %147
+  br label %149
 
-151:                                              ; preds = %148
-  %152 = icmp ne i32 %150, 0
-  br i1 %152, label %153, label %164
+149:                                              ; preds = %148, %120
+  %150 = load i32, ptr %8, align 4
+  %151 = invoke i32 @close(i32 noundef %150)
+          to label %152 unwind label %48
 
-153:                                              ; preds = %151
-  br label %154
+152:                                              ; preds = %149
+  %153 = icmp ne i32 %151, 0
+  br i1 %153, label %154, label %165
 
-154:                                              ; preds = %153
-  %155 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
+154:                                              ; preds = %152
+  br label %155
+
+155:                                              ; preds = %154
+  %156 = load ptr, ptr @_ZN7mitsuba16MemoryMappedFile7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %19, ptr noundef @.str.19)
-          to label %156 unwind label %48
+          to label %157 unwind label %48
 
-156:                                              ; preds = %154
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %155, ptr noundef @.str.1, i32 noundef 99, ptr noundef nonnull align 8 dereferenceable(24) %19) #21
-          to label %157 unwind label %158
+157:                                              ; preds = %155
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %156, ptr noundef @.str.1, i32 noundef 99, ptr noundef nonnull align 8 dereferenceable(24) %19) #21
+          to label %158 unwind label %159
 
-157:                                              ; preds = %156
+158:                                              ; preds = %157
   unreachable
 
-158:                                              ; preds = %156
-  %159 = landingpad { ptr, i32 }
+159:                                              ; preds = %157
+  %160 = landingpad { ptr, i32 }
           cleanup
-  %160 = extractvalue { ptr, i32 } %159, 0
-  store ptr %160, ptr %5, align 8
-  %161 = extractvalue { ptr, i32 } %159, 1
-  store i32 %161, ptr %6, align 4
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %5, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %6, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
-  br label %165
+  br label %166
 
-162:                                              ; No predecessors!
-  br label %163
-
-163:                                              ; preds = %162
+163:                                              ; No predecessors!
   br label %164
 
-164:                                              ; preds = %163, %151
+164:                                              ; preds = %163
+  br label %165
+
+165:                                              ; preds = %164, %152
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 
-165:                                              ; preds = %158, %145, %117, %92, %80, %52, %48
+166:                                              ; preds = %159, %146, %117, %92, %80, %52, %48
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  br label %166
+  br label %167
 
-166:                                              ; preds = %165
-  %167 = load ptr, ptr %5, align 8
-  %168 = load i32, ptr %6, align 4
-  %169 = insertvalue { ptr, i32 } poison, ptr %167, 0
-  %170 = insertvalue { ptr, i32 } %169, i32 %168, 1
-  resume { ptr, i32 } %170
+167:                                              ; preds = %166
+  %168 = load ptr, ptr %5, align 8
+  %169 = load i32, ptr %6, align 4
+  %170 = insertvalue { ptr, i32 } poison, ptr %168, 0
+  %171 = insertvalue { ptr, i32 } %170, i32 %169, 1
+  resume { ptr, i32 } %171
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3349,54 +3354,60 @@ define linkonce_odr hidden void @_ZNSt3__119basic_ostringstreamIcNS_11char_trait
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
   call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(148) %6)
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1), ptr noundef %8)
-          to label %9 unwind label %13
+  %7 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 112
+  %9 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEEC2B8ne190000EPNS_15basic_streambufIcS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef %10)
+          to label %12 unwind label %18
 
-9:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
-  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %11, i32 noundef 16)
-          to label %12 unwind label %17
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 3
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 112
+  %15 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 1, i32 3
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.std::__1::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ej(ptr noundef nonnull align 8 dereferenceable(100) %16, i32 noundef 16)
+          to label %17 unwind label %22
 
-12:                                               ; preds = %9
+17:                                               ; preds = %12
   ret void
 
-13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  br label %21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %27
 
-17:                                               ; preds = %9
-  %18 = landingpad { ptr, i32 }
+22:                                               ; preds = %12
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1)) #18
-  br label %21
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  %26 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 0, i64 1
+  call void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %26) #18
+  br label %27
 
-21:                                               ; preds = %17, %13
-  %22 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %22) #18
-  br label %23
+27:                                               ; preds = %22, %18
+  %28 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148) %28) #18
+  br label %29
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %3, align 8
-  %25 = load i32, ptr %4, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3482,7 +3493,7 @@ define linkonce_odr void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS
 }
 
 ; Function Attrs: uwtable
-define internal void @__cxx_global_var_init() #9 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_var_init() #8 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__1::basic_string", align 8
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
@@ -4547,7 +4558,7 @@ define linkonce_odr hidden void @_ZNSt3__128__exception_guard_exceptionsINS_6vec
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS5_IS7_EEE16__destroy_vectorEEC2B8ne190000ESA_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr %1) unnamed_addr #1 comdat align 2 {
@@ -4592,7 +4603,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__16vectorINS_12basic_stringIcNS_
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11 comdat align 2 {
+define linkonce_odr hidden void @_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef @.str.14) #21
@@ -4718,7 +4729,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt3__123__libcpp_numeric_limitsIlLb1E
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef %0) #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef %0) #10 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -4761,7 +4772,8 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -4798,7 +4810,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__19allocatorINS_12basic_stringIcN
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #11 comdat {
+define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #10 comdat {
   %1 = call ptr @__cxa_allocate_exception(i64 8) #18
   call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #18
   call void @__cxa_throw(ptr %1, ptr @_ZTISt20bad_array_new_length, ptr @_ZNSt20bad_array_new_lengthD1Ev) #21
@@ -4869,7 +4881,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__121__libcpp_operator_newB8ne1900
 declare noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__117__compressed_pairIPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
@@ -7147,7 +7159,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trai
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #13
+declare i1 @llvm.is.constant.i64(i64) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__fits_in_ssoB8ne190000Em(i64 noundef %0) #1 comdat align 2 {
@@ -7603,7 +7615,7 @@ define linkonce_odr hidden void @_ZN10tinyformat6formatIJPcEEENSt3__112basic_str
 declare ptr @strerror(i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #14
+declare ptr @__errno_location() #13
 
 ; Function Attrs: nounwind
 declare i32 @munmap(ptr noundef, i64 noundef) #4
@@ -7931,7 +7943,7 @@ define linkonce_odr void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS
 declare void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(148)) unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_NSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_NSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7948,9 +7960,10 @@ define linkonce_odr void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #18
   ret void
 }
@@ -8046,7 +8059,8 @@ define linkonce_odr hidden void @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEEC2B8n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(136) %3)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8086,14 +8100,15 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
-  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 1
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  %8 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.std::__1::basic_stringbuf", ptr %5, i32 0, i32 3
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
   ret void
 }
 
@@ -8102,9 +8117,10 @@ define linkonce_odr hidden void @_ZNSt3__18ios_baseC2B8ne190000Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 7
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVNSt3__18ios_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__1::ios_base", ptr %3, i32 0, i32 7
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -8186,7 +8202,7 @@ define linkonce_odr hidden void @_ZNSt3__122__compressed_pair_elemINS_12basic_st
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 declare void @_ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(100)) #5
 
@@ -9511,10 +9527,13 @@ define linkonce_odr hidden void @_ZNSt3__110__function12__value_funcIFPN7mitsuba
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_mmap.cpp() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_mmap.cpp() #8 section ".text.startup" {
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -9522,17 +9541,17 @@ attributes #2 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #6 = { nounwind memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #14 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { builtin allocsize(0) }
 attributes #18 = { nounwind }
 attributes #19 = { builtin nounwind }

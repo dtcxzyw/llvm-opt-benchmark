@@ -289,7 +289,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %id.addr, align 8
   call void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base9SampleMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4base9SampleMapE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %sample_counts_ = getelementptr inbounds %"class.base::SampleMap", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %sample_counts_) #10
   ret void
@@ -314,7 +315,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base9SampleMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4base9SampleMapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %sample_counts_ = getelementptr inbounds %"class.base::SampleMap", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %sample_counts_) #10
   call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #10
@@ -721,15 +723,16 @@ entry:
   store ptr %sample_counts, ptr %sample_counts.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base19SampleCountIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_117SampleMapIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_117SampleMapIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %iter_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleMapIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %sample_counts.addr, align 8
-  %call = call ptr @_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
+  %1 = load ptr, ptr %sample_counts.addr, align 8
+  %call = call ptr @_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #10
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %iter_, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
   %end_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleMapIterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %sample_counts.addr, align 8
-  %call2 = call ptr @_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #10
+  %2 = load ptr, ptr %sample_counts.addr, align 8
+  %call2 = call ptr @_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
   %coerce.dive3 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %end_, i32 0, i32 0
   store ptr %call2, ptr %coerce.dive3, align 8
   invoke void @_ZN4base12_GLOBAL__N_117SampleMapIterator16SkipEmptyBucketsEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
@@ -739,12 +742,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 
@@ -1312,7 +1315,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -145,11 +145,13 @@ define dso_local void @battery_hook_unregister(ptr noundef %0) #0 align 16 {
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   store volatile ptr %22, ptr %21, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %19, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %20, align 8
+  %24 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %24, ptr %19, align 8
+  %25 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %25, ptr %20, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
-  %24 = load ptr, ptr %0, align 8
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %24) #13
+  %26 = load ptr, ptr %0, align 8
+  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %26) #13
   ret void
 }
 
@@ -198,17 +200,19 @@ define internal fastcc void @__battery_hook_unregister(ptr noundef %0, i32 nound
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %25, ptr %27, align 8
   store volatile ptr %26, ptr %25, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %23, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %24, align 8
-  br i1 %3, label %29, label %28
+  %28 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %28, ptr %23, align 8
+  %29 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %29, ptr %24, align 8
+  br i1 %3, label %31, label %30
 
-28:                                               ; preds = %22
+30:                                               ; preds = %22
   tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %22
-  %30 = load ptr, ptr %0, align 8
-  %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %30) #13
+31:                                               ; preds = %30, %22
+  %32 = load ptr, ptr %0, align 8
+  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %32) #13
   ret void
 }
 
@@ -227,20 +231,20 @@ define dso_local void @battery_hook_register(ptr noundef %0) #0 align 16 {
   store volatile ptr %2, ptr @battery_hook_list, align 8
   %6 = load ptr, ptr @acpi_battery_list, align 8
   %7 = icmp eq ptr %6, @acpi_battery_list
-  br i1 %7, label %45, label %8
+  br i1 %7, label %47, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   br label %10
 
-10:                                               ; preds = %41, %8
-  %11 = phi ptr [ %6, %8 ], [ %43, %41 ]
+10:                                               ; preds = %43, %8
+  %11 = phi ptr [ %6, %8 ], [ %45, %43 ]
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr i8, ptr %11, i64 -136
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %12(ptr noundef %14, ptr noundef %0) #12
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %41, label %17
+  br i1 %16, label %43, label %17
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %0, align 8
@@ -279,21 +283,23 @@ define dso_local void @battery_hook_register(ptr noundef %0) #0 align 16 {
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %38, ptr %40, align 8
   store volatile ptr %39, ptr %38, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %37, align 8
-  br label %45
+  %41 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %41, ptr %2, align 8
+  %42 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %42, ptr %37, align 8
+  br label %47
 
-41:                                               ; preds = %10
-  %42 = load ptr, ptr %13, align 8
-  tail call void @power_supply_changed(ptr noundef %42) #12
-  %43 = load ptr, ptr %11, align 8
-  %44 = icmp eq ptr %43, @acpi_battery_list
-  br i1 %44, label %45, label %10, !llvm.loop !8
+43:                                               ; preds = %10
+  %44 = load ptr, ptr %13, align 8
+  tail call void @power_supply_changed(ptr noundef %44) #12
+  %45 = load ptr, ptr %11, align 8
+  %46 = icmp eq ptr %45, @acpi_battery_list
+  br i1 %46, label %47, label %10, !llvm.loop !8
 
-45:                                               ; preds = %41, %36, %1
-  %46 = phi ptr [ @.str.2, %36 ], [ @.str.1, %1 ], [ @.str.1, %41 ]
-  %47 = load ptr, ptr %0, align 8
-  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %46, ptr noundef %47) #13
+47:                                               ; preds = %43, %36, %1
+  %48 = phi ptr [ @.str.2, %36 ], [ @.str.1, %1 ], [ @.str.1, %43 ]
+  %49 = load ptr, ptr %0, align 8
+  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %48, ptr noundef %49) #13
   tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
   ret void
 }
@@ -386,96 +392,97 @@ define internal noundef i32 @acpi_battery_init() #4 section ".init.text" align 1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @acpi_battery_add(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %53, label %3
+  br i1 %2, label %54, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 1348
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %54
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %9 = tail call noalias noundef align 8 dereferenceable_or_null(576) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 576) #14
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %53, label %11
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %9 = load ptr, ptr %8, align 16
+  %10 = tail call noalias noundef align 8 dereferenceable_or_null(576) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 576) #14
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %54, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 168
-  store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
-  %14 = getelementptr inbounds i8, ptr %0, i64 168
-  store i64 34184252253036866, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 34184252253036898, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 608
-  store ptr %9, ptr %16, align 8
-  tail call void @__mutex_init(ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @acpi_battery_add.__key) #12
-  %17 = getelementptr inbounds i8, ptr %9, i64 32
-  tail call void @__mutex_init(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull @acpi_battery_add.__key.6) #12
-  %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call zeroext i1 @acpi_has_method(ptr noundef %20, ptr noundef nonnull @.str.8) #12
-  br i1 %21, label %22, label %24
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %10, i64 168
+  store ptr %0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds i8, ptr %0, i64 168
+  store i64 34184252253036866, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 34184252253036898, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 608
+  store ptr %10, ptr %17, align 8
+  tail call void @__mutex_init(ptr noundef nonnull %10, ptr noundef nonnull @.str.5, ptr noundef nonnull @acpi_battery_add.__key) #12
+  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  tail call void @__mutex_init(ptr noundef %18, ptr noundef nonnull @.str.7, ptr noundef nonnull @acpi_battery_add.__key.6) #12
+  %19 = load ptr, ptr %13, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call zeroext i1 @acpi_has_method(ptr noundef %21, ptr noundef nonnull @.str.8) #12
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %9, i64 568
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23, i32 2, ptr elementtype(i8) %23) #12, !srcloc !12
-  br label %24
-
-24:                                               ; preds = %22, %11
+23:                                               ; preds = %12
+  %24 = getelementptr inbounds i8, ptr %10, i64 568
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %24, i32 2, ptr elementtype(i8) %24) #12, !srcloc !12
   br label %25
 
-25:                                               ; preds = %29, %24
-  %26 = phi i32 [ %30, %29 ], [ 5, %24 ]
-  %27 = tail call fastcc i32 @acpi_battery_update(ptr noundef nonnull %9, i1 noundef zeroext false)
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %32, label %29
+25:                                               ; preds = %23, %12
+  br label %26
 
-29:                                               ; preds = %25
+26:                                               ; preds = %30, %25
+  %27 = phi i32 [ %31, %30 ], [ 5, %25 ]
+  %28 = tail call fastcc i32 @acpi_battery_update(ptr noundef nonnull %10, i1 noundef zeroext false)
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %33, label %30
+
+30:                                               ; preds = %26
   tail call void @msleep(i32 noundef 20) #12
-  %30 = add nsw i32 %26, -1
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %25, !llvm.loop !13
+  %31 = add nsw i32 %27, -1
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %26, !llvm.loop !13
 
-32:                                               ; preds = %29, %25
-  %33 = phi i32 [ 0, %25 ], [ %27, %29 ]
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %51
+33:                                               ; preds = %30, %26
+  %34 = phi i32 [ 0, %26 ], [ %28, %30 ]
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %52
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
-  %37 = load i32, ptr %36, align 8
-  %38 = and i32 %37, 16
-  %39 = icmp eq i32 %38, 0
-  %40 = select i1 %39, ptr @.str.11, ptr @.str.10
-  %41 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %13, ptr noundef nonnull %40) #13
-  %42 = getelementptr inbounds i8, ptr %9, i64 176
-  store ptr @battery_notify, ptr %42, align 8
-  %43 = tail call i32 @register_pm_notifier(ptr noundef %42) #12
-  %44 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_set_wakeup_capable(ptr noundef %44, i1 noundef zeroext true) #12
-  %45 = tail call i32 @device_wakeup_enable(ptr noundef %44) #12
-  %46 = tail call i32 @acpi_dev_install_notify_handler(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @acpi_battery_notify, ptr noundef nonnull %0) #12
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %53, label %48
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %0, i64 112
+  %38 = load i32, ptr %37, align 8
+  %39 = and i32 %38, 16
+  %40 = icmp eq i32 %39, 0
+  %41 = select i1 %40, ptr @.str.11, ptr @.str.10
+  %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %14, ptr noundef nonnull %41) #13
+  %43 = getelementptr inbounds i8, ptr %10, i64 176
+  store ptr @battery_notify, ptr %43, align 8
+  %44 = tail call i32 @register_pm_notifier(ptr noundef %43) #12
+  %45 = getelementptr inbounds i8, ptr %0, i64 616
+  tail call void @device_set_wakeup_capable(ptr noundef %45, i1 noundef zeroext true) #12
+  %46 = tail call i32 @device_wakeup_enable(ptr noundef %45) #12
+  %47 = tail call i32 @acpi_dev_install_notify_handler(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @acpi_battery_notify, ptr noundef nonnull %0) #12
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %54, label %49
 
-48:                                               ; preds = %35
-  %49 = tail call i32 @device_wakeup_disable(ptr noundef %44) #12
-  tail call void @device_set_wakeup_capable(ptr noundef %44, i1 noundef zeroext false) #12
-  %50 = tail call i32 @unregister_pm_notifier(ptr noundef %42) #12
-  br label %51
+49:                                               ; preds = %36
+  %50 = tail call i32 @device_wakeup_disable(ptr noundef %45) #12
+  tail call void @device_set_wakeup_capable(ptr noundef %45, i1 noundef zeroext false) #12
+  %51 = tail call i32 @unregister_pm_notifier(ptr noundef %43) #12
+  br label %52
 
-51:                                               ; preds = %48, %32
-  %52 = phi i32 [ %33, %32 ], [ %46, %48 ]
-  tail call fastcc void @sysfs_remove_battery(ptr noundef nonnull %9)
-  tail call void @kfree(ptr noundef nonnull %9) #12
-  br label %53
+52:                                               ; preds = %49, %33
+  %53 = phi i32 [ %34, %33 ], [ %47, %49 ]
+  tail call fastcc void @sysfs_remove_battery(ptr noundef nonnull %10)
+  tail call void @kfree(ptr noundef nonnull %10) #12
+  br label %54
 
-53:                                               ; preds = %51, %35, %7, %3, %1
-  %54 = phi i32 [ %52, %51 ], [ -22, %1 ], [ -517, %3 ], [ -12, %7 ], [ 0, %35 ]
-  ret i32 %54
+54:                                               ; preds = %52, %36, %7, %3, %1
+  %55 = phi i32 [ %53, %52 ], [ -22, %1 ], [ -517, %3 ], [ -12, %7 ], [ 0, %36 ]
+  ret i32 %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -672,7 +679,7 @@ define internal fastcc void @sysfs_remove_battery(ptr noundef %0) unnamed_addr #
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %27, label %6
+  br i1 %5, label %29, label %6
 
 6:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #12
@@ -699,18 +706,20 @@ define internal fastcc void @sysfs_remove_battery(ptr noundef %0) unnamed_addr #
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   store volatile ptr %22, ptr %21, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %19, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %20, align 8
+  %24 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %24, ptr %19, align 8
+  %25 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %25, ptr %20, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
-  tail call void @device_remove_file(ptr noundef %25, ptr noundef nonnull @alarm_attr) #12
   %26 = load ptr, ptr %3, align 8
-  tail call void @power_supply_unregister(ptr noundef %26) #12
+  %27 = getelementptr inbounds i8, ptr %26, i64 56
+  tail call void @device_remove_file(ptr noundef %27, ptr noundef nonnull @alarm_attr) #12
+  %28 = load ptr, ptr %3, align 8
+  tail call void @power_supply_unregister(ptr noundef %28) #12
   store ptr null, ptr %3, align 8
-  br label %27
+  br label %29
 
-27:                                               ; preds = %18, %1
+29:                                               ; preds = %18, %1
   tail call void @mutex_unlock(ptr noundef %2) #12
   ret void
 }
@@ -971,7 +980,7 @@ define internal fastcc i32 @acpi_battery_get_info(ptr noundef %0) unnamed_addr #
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %103, label %13
+  br i1 %12, label %104, label %13
 
 13:                                               ; preds = %1
   %14 = lshr exact i64 %5, 1
@@ -988,9 +997,9 @@ define internal fastcc i32 @acpi_battery_get_info(ptr noundef %0) unnamed_addr #
   %25 = getelementptr inbounds i8, ptr %0, i64 244
   br label %26
 
-26:                                               ; preds = %93, %13
-  %27 = phi i32 [ -19, %13 ], [ %92, %93 ]
-  %28 = phi i32 [ %15, %13 ], [ %94, %93 ]
+26:                                               ; preds = %94, %13
+  %27 = phi i32 [ -19, %13 ], [ %93, %94 ]
+  %28 = phi i32 [ %15, %13 ], [ %95, %94 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   store i64 -1, ptr %2, align 8
   store ptr null, ptr %16, align 8
@@ -1011,118 +1020,119 @@ define internal fastcc i32 @acpi_battery_get_info(ptr noundef %0) unnamed_addr #
   %39 = load ptr, ptr %38, align 8
   %40 = call ptr @acpi_format_exception(i32 noundef %34) #12
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef nonnull @.str.16, ptr noundef nonnull %33, ptr noundef %40) #12
-  br label %91
+  br label %92
 
 41:                                               ; preds = %26
   %42 = icmp ne i32 %28, 0
   %43 = load i1, ptr @battery_bix_broken_package, align 4
   %44 = select i1 %42, i1 %43, i1 false
   %45 = load ptr, ptr %16, align 8
-  br i1 %44, label %46, label %48
+  br i1 %44, label %46, label %49
 
 46:                                               ; preds = %41
-  %47 = call fastcc i32 @extract_package(ptr noundef %0, ptr noundef %45, ptr noundef nonnull getelementptr inbounds ([20 x %struct.acpi_offsets], ptr @extended_info_offsets, i64 0, i64 1), i32 noundef 19), !range !16
-  br label %53
+  %47 = getelementptr inbounds [20 x %struct.acpi_offsets], ptr @extended_info_offsets, i64 0, i64 1
+  %48 = call fastcc i32 @extract_package(ptr noundef %0, ptr noundef %45, ptr noundef nonnull %47, i32 noundef 19), !range !16
+  br label %54
 
-48:                                               ; preds = %41
-  br i1 %42, label %49, label %51
+49:                                               ; preds = %41
+  br i1 %42, label %50, label %52
 
-49:                                               ; preds = %48
-  %50 = call fastcc i32 @extract_package(ptr noundef %0, ptr noundef %45, ptr noundef nonnull @extended_info_offsets, i32 noundef 20), !range !16
-  br label %53
+50:                                               ; preds = %49
+  %51 = call fastcc i32 @extract_package(ptr noundef %0, ptr noundef %45, ptr noundef nonnull @extended_info_offsets, i32 noundef 20), !range !16
+  br label %54
 
-51:                                               ; preds = %48
-  %52 = call fastcc i32 @extract_package(ptr noundef %0, ptr noundef %45, ptr noundef nonnull @info_offsets, i32 noundef 13), !range !16
-  br label %53
+52:                                               ; preds = %49
+  %53 = call fastcc i32 @extract_package(ptr noundef %0, ptr noundef %45, ptr noundef nonnull @info_offsets, i32 noundef 13), !range !16
+  br label %54
 
-53:                                               ; preds = %51, %49, %46
-  %54 = phi i32 [ %47, %46 ], [ %50, %49 ], [ %52, %51 ]
-  %55 = load volatile i64, ptr %3, align 8
-  %56 = and i64 %55, 4
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %60, label %58
+54:                                               ; preds = %52, %50, %46
+  %55 = phi i32 [ %48, %46 ], [ %51, %50 ], [ %53, %52 ]
+  %56 = load volatile i64, ptr %3, align 8
+  %57 = and i64 %56, 4
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %61, label %59
 
-58:                                               ; preds = %53
-  %59 = load i32, ptr %17, align 8
-  store i32 %59, ptr %18, align 4
-  br label %60
+59:                                               ; preds = %54
+  %60 = load i32, ptr %17, align 8
+  store i32 %60, ptr %18, align 4
+  br label %61
 
-60:                                               ; preds = %58, %53
-  %61 = load volatile i64, ptr %3, align 8
-  %62 = and i64 %61, 8
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %80, label %64
+61:                                               ; preds = %59, %54
+  %62 = load volatile i64, ptr %3, align 8
+  %63 = and i64 %62, 8
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %81, label %65
 
-64:                                               ; preds = %60
-  %65 = load i32, ptr %19, align 8
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %80, label %67
+65:                                               ; preds = %61
+  %66 = load i32, ptr %19, align 8
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %81, label %68
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %20, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %80, label %70
+68:                                               ; preds = %65
+  %69 = load i32, ptr %20, align 4
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %81, label %71
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr %21, align 8
-  %72 = mul i32 %71, 10000
-  %73 = sdiv i32 %72, %68
-  store i32 %73, ptr %21, align 8
-  %74 = load i32, ptr %22, align 4
-  %75 = mul i32 %74, 10000
-  %76 = sdiv i32 %75, %68
-  store i32 %76, ptr %22, align 4
-  %77 = load i32, ptr %23, align 8
-  %78 = mul i32 %77, 10000
-  %79 = sdiv i32 %78, %68
-  store i32 %79, ptr %23, align 8
-  br label %80
+71:                                               ; preds = %68
+  %72 = load i32, ptr %21, align 8
+  %73 = mul i32 %72, 10000
+  %74 = sdiv i32 %73, %69
+  store i32 %74, ptr %21, align 8
+  %75 = load i32, ptr %22, align 4
+  %76 = mul i32 %75, 10000
+  %77 = sdiv i32 %76, %69
+  store i32 %77, ptr %22, align 4
+  %78 = load i32, ptr %23, align 8
+  %79 = mul i32 %78, 10000
+  %80 = sdiv i32 %79, %69
+  store i32 %80, ptr %23, align 8
+  br label %81
 
-80:                                               ; preds = %70, %67, %64, %60
-  %81 = load volatile i64, ptr %3, align 8
-  %82 = and i64 %81, 16
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %89, label %84
+81:                                               ; preds = %71, %68, %65, %61
+  %82 = load volatile i64, ptr %3, align 8
+  %83 = and i64 %82, 16
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %90, label %85
 
-84:                                               ; preds = %80
-  %85 = load i32, ptr %24, align 8
-  %86 = load i32, ptr %25, align 4
-  %87 = icmp sgt i32 %85, %86
-  br i1 %87, label %88, label %89
+85:                                               ; preds = %81
+  %86 = load i32, ptr %24, align 8
+  %87 = load i32, ptr %25, align 4
+  %88 = icmp sgt i32 %86, %87
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %84
-  store i32 %86, ptr %24, align 8
-  br label %89
+89:                                               ; preds = %85
+  store i32 %87, ptr %24, align 8
+  br label %90
 
-89:                                               ; preds = %88, %84, %80
-  %90 = load ptr, ptr %16, align 8
-  call void @kfree(ptr noundef %90) #12
-  br label %91
+90:                                               ; preds = %89, %85, %81
+  %91 = load ptr, ptr %16, align 8
+  call void @kfree(ptr noundef %91) #12
+  br label %92
 
-91:                                               ; preds = %89, %36
-  %92 = phi i32 [ %27, %36 ], [ %54, %89 ]
+92:                                               ; preds = %90, %36
+  %93 = phi i32 [ %27, %36 ], [ %55, %90 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
-  br i1 %35, label %96, label %93
+  br i1 %35, label %97, label %94
 
-93:                                               ; preds = %91
-  %94 = add nsw i32 %28, -1
-  %95 = icmp sgt i32 %28, 0
-  br i1 %95, label %26, label %96, !llvm.loop !17
+94:                                               ; preds = %92
+  %95 = add nsw i32 %28, -1
+  %96 = icmp sgt i32 %28, 0
+  br i1 %96, label %26, label %97, !llvm.loop !17
 
-96:                                               ; preds = %93, %91
-  %97 = phi i32 [ -1, %93 ], [ %28, %91 ]
-  %98 = or i32 %92, %97
-  %99 = icmp eq i32 %98, 0
-  %100 = select i1 %99, i1 %6, i1 false
-  br i1 %100, label %101, label %103
+97:                                               ; preds = %94, %92
+  %98 = phi i32 [ -1, %94 ], [ %28, %92 ]
+  %99 = or i32 %93, %98
+  %100 = icmp eq i32 %99, 0
+  %101 = select i1 %100, i1 %6, i1 false
+  br i1 %101, label %102, label %104
 
-101:                                              ; preds = %96
-  %102 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #13
-  br label %103
+102:                                              ; preds = %97
+  %103 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #13
+  br label %104
 
-103:                                              ; preds = %101, %96, %1
-  %104 = phi i32 [ 0, %1 ], [ %92, %101 ], [ %92, %96 ]
-  ret i32 %104
+104:                                              ; preds = %102, %97, %1
+  %105 = phi i32 [ 0, %1 ], [ %93, %102 ], [ %93, %97 ]
+  ret i32 %105
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1381,100 +1391,103 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   %29 = call ptr @power_supply_register_no_ws(ptr noundef %28, ptr noundef %25, ptr noundef nonnull %2) #12
   %30 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %29, ptr %30, align 8
-  %31 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
-  br i1 %31, label %32, label %35
+  %31 = inttoptr i64 -4096 to ptr
+  %32 = icmp ugt ptr %29, %31
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %11
-  %33 = ptrtoint ptr %29 to i64
-  %34 = trunc i64 %33 to i32
+33:                                               ; preds = %11
+  %34 = ptrtoint ptr %29 to i64
+  %35 = trunc i64 %34 to i32
   store ptr null, ptr %30, align 8
-  br label %83
+  br label %86
 
-35:                                               ; preds = %11
+36:                                               ; preds = %11
   call void @mutex_lock(ptr noundef nonnull @hook_mutex) #12
-  %36 = getelementptr inbounds i8, ptr %0, i64 200
-  store volatile ptr %36, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 208
-  store volatile ptr %36, ptr %37, align 8
-  %38 = load ptr, ptr @acpi_battery_list, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %36, ptr %39, align 8
-  store ptr %38, ptr %36, align 8
-  store ptr @acpi_battery_list, ptr %37, align 8
-  store volatile ptr %36, ptr @acpi_battery_list, align 8
-  %40 = load ptr, ptr @battery_hook_list, align 8
-  %41 = icmp eq ptr %40, @battery_hook_list
-  br i1 %41, label %79, label %42
+  %37 = getelementptr inbounds i8, ptr %0, i64 200
+  store volatile ptr %37, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 208
+  store volatile ptr %37, ptr %38, align 8
+  %39 = load ptr, ptr @acpi_battery_list, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %37, ptr %40, align 8
+  store ptr %39, ptr %37, align 8
+  store ptr @acpi_battery_list, ptr %38, align 8
+  store volatile ptr %37, ptr @acpi_battery_list, align 8
+  %41 = load ptr, ptr @battery_hook_list, align 8
+  %42 = icmp eq ptr %41, @battery_hook_list
+  br i1 %42, label %82, label %43
 
-42:                                               ; preds = %77, %35
-  %43 = phi ptr [ %45, %77 ], [ %40, %35 ]
-  %44 = getelementptr i8, ptr %43, i64 -24
-  %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr i8, ptr %43, i64 -16
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %30, align 8
-  %49 = call i32 %47(ptr noundef %48, ptr noundef %44) #12
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %77, label %51
+43:                                               ; preds = %80, %36
+  %44 = phi ptr [ %46, %80 ], [ %41, %36 ]
+  %45 = getelementptr i8, ptr %44, i64 -24
+  %46 = load ptr, ptr %44, align 8
+  %47 = getelementptr i8, ptr %44, i64 -16
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %30, align 8
+  %50 = call i32 %48(ptr noundef %49, ptr noundef %45) #12
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %80, label %52
 
-51:                                               ; preds = %42
-  %52 = load ptr, ptr %44, align 8
-  %53 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, ptr noundef %52) #13
-  %54 = load ptr, ptr @acpi_battery_list, align 8
-  %55 = icmp eq ptr %54, @acpi_battery_list
-  br i1 %55, label %70, label %56
+52:                                               ; preds = %43
+  %53 = load ptr, ptr %45, align 8
+  %54 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, ptr noundef %53) #13
+  %55 = load ptr, ptr @acpi_battery_list, align 8
+  %56 = icmp eq ptr %55, @acpi_battery_list
+  br i1 %56, label %71, label %57
 
-56:                                               ; preds = %51
-  %57 = getelementptr i8, ptr %43, i64 -8
-  br label %58
+57:                                               ; preds = %52
+  %58 = getelementptr i8, ptr %44, i64 -8
+  br label %59
 
-58:                                               ; preds = %67, %56
-  %59 = phi ptr [ %54, %56 ], [ %68, %67 ]
-  %60 = load ptr, ptr %57, align 8
-  %61 = getelementptr i8, ptr %59, i64 -136
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i32 %60(ptr noundef %62, ptr noundef %44) #12
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %67
+59:                                               ; preds = %68, %57
+  %60 = phi ptr [ %55, %57 ], [ %69, %68 ]
+  %61 = load ptr, ptr %58, align 8
+  %62 = getelementptr i8, ptr %60, i64 -136
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 %61(ptr noundef %63, ptr noundef %45) #12
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %58
-  %66 = load ptr, ptr %61, align 8
-  call void @power_supply_changed(ptr noundef %66) #12
-  br label %67
+66:                                               ; preds = %59
+  %67 = load ptr, ptr %62, align 8
+  call void @power_supply_changed(ptr noundef %67) #12
+  br label %68
 
-67:                                               ; preds = %65, %58
-  %68 = load ptr, ptr %59, align 8
-  %69 = icmp eq ptr %68, @acpi_battery_list
-  br i1 %69, label %70, label %58, !llvm.loop !5
+68:                                               ; preds = %66, %59
+  %69 = load ptr, ptr %60, align 8
+  %70 = icmp eq ptr %69, @acpi_battery_list
+  br i1 %70, label %71, label %59, !llvm.loop !5
 
-70:                                               ; preds = %67, %51
-  %71 = getelementptr i8, ptr %43, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %43, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  store ptr %72, ptr %74, align 8
-  store volatile ptr %73, ptr %72, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %43, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %71, align 8
-  %75 = load ptr, ptr %44, align 8
-  %76 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %75) #13
-  br label %77
+71:                                               ; preds = %68, %52
+  %72 = getelementptr i8, ptr %44, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %44, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  store ptr %73, ptr %75, align 8
+  store volatile ptr %74, ptr %73, align 8
+  %76 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %76, ptr %44, align 8
+  %77 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %77, ptr %72, align 8
+  %78 = load ptr, ptr %45, align 8
+  %79 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %78) #13
+  br label %80
 
-77:                                               ; preds = %70, %42
-  %78 = icmp eq ptr %45, @battery_hook_list
-  br i1 %78, label %79, label %42, !llvm.loop !20
+80:                                               ; preds = %71, %43
+  %81 = icmp eq ptr %46, @battery_hook_list
+  br i1 %81, label %82, label %43, !llvm.loop !20
 
-79:                                               ; preds = %77, %35
+82:                                               ; preds = %80, %36
   call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
-  %80 = load ptr, ptr %30, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 56
-  %82 = call i32 @device_create_file(ptr noundef %81, ptr noundef nonnull @alarm_attr) #12
-  br label %83
+  %83 = load ptr, ptr %30, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 56
+  %85 = call i32 @device_create_file(ptr noundef %84, ptr noundef nonnull @alarm_attr) #12
+  br label %86
 
-83:                                               ; preds = %79, %32
-  %84 = phi i32 [ %34, %32 ], [ %82, %79 ]
+86:                                               ; preds = %82, %33
+  %87 = phi i32 [ %35, %33 ], [ %85, %82 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #12
-  ret i32 %84
+  ret i32 %87
 }
 
 ; Function Attrs: null_pointer_is_valid

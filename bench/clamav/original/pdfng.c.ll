@@ -59,7 +59,7 @@ define ptr @pdf_convert_utf(ptr noundef %0, i64 noundef %1) #0 {
 
 22:                                               ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %86
+  br label %87
 
 23:                                               ; preds = %2
   %24 = load ptr, ptr %7, align 8
@@ -81,18 +81,18 @@ define ptr @pdf_convert_utf(ptr noundef %0, i64 noundef %1) #0 {
   %34 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %34) #7
   store ptr null, ptr %3, align 8
-  br label %86
+  br label %87
 
 35:                                               ; preds = %23
   store i64 0, ptr %13, align 8
   br label %36
 
-36:                                               ; preds = %79, %35
+36:                                               ; preds = %80, %35
   %37 = load i64, ptr %13, align 8
   %38 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %82
+  br i1 %40, label %41, label %83
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %7, align 8
@@ -108,66 +108,67 @@ define ptr @pdf_convert_utf(ptr noundef %0, i64 noundef %1) #0 {
   %48 = call ptr @iconv_open(ptr noundef @.str.1, ptr noundef %47)
   store ptr %48, ptr %15, align 8
   %49 = load ptr, ptr %15, align 8
-  %50 = icmp eq ptr %49, inttoptr (i64 -1 to ptr)
-  br i1 %50, label %51, label %60
+  %50 = inttoptr i64 -1 to ptr
+  %51 = icmp eq ptr %49, %50
+  br i1 %51, label %52, label %61
 
-51:                                               ; preds = %41
-  %52 = call ptr @__errno_location() #8
-  %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 0
-  %55 = call ptr @cli_strerror(i32 noundef %53, ptr noundef %54, i64 noundef 128)
-  %56 = load i64, ptr %13, align 8
-  %57 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 0
-  call void (ptr, ...) @cli_errmsg(ptr noundef @.str.2, ptr noundef %58, ptr noundef %59)
-  br label %79
+52:                                               ; preds = %41
+  %53 = call ptr @__errno_location() #8
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 0
+  %56 = call ptr @cli_strerror(i32 noundef %54, ptr noundef %55, i64 noundef 128)
+  %57 = load i64, ptr %13, align 8
+  %58 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 0
+  call void (ptr, ...) @cli_errmsg(ptr noundef @.str.2, ptr noundef %59, ptr noundef %60)
+  br label %80
 
-60:                                               ; preds = %41
-  %61 = load ptr, ptr %15, align 8
-  %62 = call i64 @iconv(ptr noundef %61, ptr noundef %9, ptr noundef %11, ptr noundef %10, ptr noundef %12)
-  %63 = load i64, ptr %12, align 8
-  %64 = load i64, ptr %5, align 8
-  %65 = icmp eq i64 %63, %64
-  br i1 %65, label %66, label %69
+61:                                               ; preds = %41
+  %62 = load ptr, ptr %15, align 8
+  %63 = call i64 @iconv(ptr noundef %62, ptr noundef %9, ptr noundef %11, ptr noundef %10, ptr noundef %12)
+  %64 = load i64, ptr %12, align 8
+  %65 = load i64, ptr %5, align 8
+  %66 = icmp eq i64 %64, %65
+  br i1 %66, label %67, label %70
 
-66:                                               ; preds = %60
-  %67 = load ptr, ptr %15, align 8
-  %68 = call i32 @iconv_close(ptr noundef %67)
-  br label %79
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %15, align 8
+  %69 = call i32 @iconv_close(ptr noundef %68)
+  br label %80
 
-69:                                               ; preds = %60
-  %70 = load ptr, ptr %8, align 8
-  %71 = load i64, ptr %5, align 8
-  %72 = load i64, ptr %12, align 8
-  %73 = sub i64 %71, %72
-  %74 = getelementptr inbounds i8, ptr %70, i64 %73
-  store i8 0, ptr %74, align 1
-  %75 = load ptr, ptr %8, align 8
-  %76 = call noalias ptr @strdup(ptr noundef %75) #7
-  store ptr %76, ptr %6, align 8
-  %77 = load ptr, ptr %15, align 8
-  %78 = call i32 @iconv_close(ptr noundef %77)
-  br label %82
+70:                                               ; preds = %61
+  %71 = load ptr, ptr %8, align 8
+  %72 = load i64, ptr %5, align 8
+  %73 = load i64, ptr %12, align 8
+  %74 = sub i64 %72, %73
+  %75 = getelementptr inbounds i8, ptr %71, i64 %74
+  store i8 0, ptr %75, align 1
+  %76 = load ptr, ptr %8, align 8
+  %77 = call noalias ptr @strdup(ptr noundef %76) #7
+  store ptr %77, ptr %6, align 8
+  %78 = load ptr, ptr %15, align 8
+  %79 = call i32 @iconv_close(ptr noundef %78)
+  br label %83
 
-79:                                               ; preds = %66, %51
-  %80 = load i64, ptr %13, align 8
-  %81 = add i64 %80, 1
-  store i64 %81, ptr %13, align 8
+80:                                               ; preds = %67, %52
+  %81 = load i64, ptr %13, align 8
+  %82 = add i64 %81, 1
+  store i64 %82, ptr %13, align 8
   br label %36
 
-82:                                               ; preds = %69, %36
-  %83 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %83) #7
-  %84 = load ptr, ptr %8, align 8
+83:                                               ; preds = %70, %36
+  %84 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %84) #7
-  %85 = load ptr, ptr %6, align 8
-  store ptr %85, ptr %3, align 8
-  br label %86
+  %85 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %85) #7
+  %86 = load ptr, ptr %6, align 8
+  store ptr %86, ptr %3, align 8
+  br label %87
 
-86:                                               ; preds = %82, %33, %22
-  %87 = load ptr, ptr %3, align 8
-  ret ptr %87
+87:                                               ; preds = %83, %33, %22
+  %88 = load ptr, ptr %3, align 8
+  ret ptr %88
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

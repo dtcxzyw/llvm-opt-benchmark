@@ -1272,67 +1272,68 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue28NGHolderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3ue28NGHolderE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %kind = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %k.addr, align 4
-  store i32 %1, ptr %kind, align 8
+  %2 = load i32, ptr %k.addr, align 4
+  store i32 %2, ptr %kind, align 8
   %start = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 3
   %call = invoke { ptr, i64 } @_ZN3ue2L16addSpecialVertexERNS_8NGHolderENS_12SpecialNodesE(ptr noundef nonnull align 8 dereferenceable(136) %this1, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %start, i32 0, i32 0
-  %3 = extractvalue { ptr, i64 } %call, 0
-  store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %start, i32 0, i32 1
-  %5 = extractvalue { ptr, i64 } %call, 1
-  store i64 %5, ptr %4, align 8
+  %3 = getelementptr inbounds { ptr, i64 }, ptr %start, i32 0, i32 0
+  %4 = extractvalue { ptr, i64 } %call, 0
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds { ptr, i64 }, ptr %start, i32 0, i32 1
+  %6 = extractvalue { ptr, i64 } %call, 1
+  store i64 %6, ptr %5, align 8
   %startDs = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 4
   %call3 = invoke { ptr, i64 } @_ZN3ue2L16addSpecialVertexERNS_8NGHolderENS_12SpecialNodesE(ptr noundef nonnull align 8 dereferenceable(136) %this1, i32 noundef 1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %startDs, i32 0, i32 0
-  %7 = extractvalue { ptr, i64 } %call3, 0
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %startDs, i32 0, i32 1
-  %9 = extractvalue { ptr, i64 } %call3, 1
-  store i64 %9, ptr %8, align 8
+  %7 = getelementptr inbounds { ptr, i64 }, ptr %startDs, i32 0, i32 0
+  %8 = extractvalue { ptr, i64 } %call3, 0
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds { ptr, i64 }, ptr %startDs, i32 0, i32 1
+  %10 = extractvalue { ptr, i64 } %call3, 1
+  store i64 %10, ptr %9, align 8
   %accept = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 5
   %call5 = invoke { ptr, i64 } @_ZN3ue2L16addSpecialVertexERNS_8NGHolderENS_12SpecialNodesE(ptr noundef nonnull align 8 dereferenceable(136) %this1, i32 noundef 2)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %accept, i32 0, i32 0
-  %11 = extractvalue { ptr, i64 } %call5, 0
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %accept, i32 0, i32 1
-  %13 = extractvalue { ptr, i64 } %call5, 1
-  store i64 %13, ptr %12, align 8
+  %11 = getelementptr inbounds { ptr, i64 }, ptr %accept, i32 0, i32 0
+  %12 = extractvalue { ptr, i64 } %call5, 0
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, i64 }, ptr %accept, i32 0, i32 1
+  %14 = extractvalue { ptr, i64 } %call5, 1
+  store i64 %14, ptr %13, align 8
   %acceptEod = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 6
   %call7 = invoke { ptr, i64 } @_ZN3ue2L16addSpecialVertexERNS_8NGHolderENS_12SpecialNodesE(ptr noundef nonnull align 8 dereferenceable(136) %this1, i32 noundef 3)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %acceptEod, i32 0, i32 0
-  %15 = extractvalue { ptr, i64 } %call7, 0
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %acceptEod, i32 0, i32 1
-  %17 = extractvalue { ptr, i64 } %call7, 1
-  store i64 %17, ptr %16, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %acceptEod, i32 0, i32 0
+  %16 = extractvalue { ptr, i64 } %call7, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %acceptEod, i32 0, i32 1
+  %18 = extractvalue { ptr, i64 } %call7, 1
+  store i64 %18, ptr %17, align 8
   %start8 = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %start8, i64 16, i1 false)
   %startDs10 = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp9, ptr align 8 %startDs10, i64 16, i1 false)
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp9, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp9, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  invoke void @_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_(ptr sret(%"struct.std::pair") align 8 %tmp, ptr %19, i64 %21, ptr %23, i64 %25, ptr noundef nonnull align 8 dereferenceable(136) %this1)
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp9, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp9, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  invoke void @_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_(ptr sret(%"struct.std::pair") align 8 %tmp, ptr %20, i64 %22, ptr %24, i64 %26, ptr noundef nonnull align 8 dereferenceable(136) %this1)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont6
@@ -1340,15 +1341,15 @@ invoke.cont11:                                    ; preds = %invoke.cont6
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp12, ptr align 8 %startDs13, i64 16, i1 false)
   %startDs15 = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp14, ptr align 8 %startDs15, i64 16, i1 false)
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 1
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8
-  invoke void @_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_(ptr sret(%"struct.std::pair") align 8 %tmp16, ptr %27, i64 %29, ptr %31, i64 %33, ptr noundef nonnull align 8 dereferenceable(136) %this1)
+  %27 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp14, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  invoke void @_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_(ptr sret(%"struct.std::pair") align 8 %tmp16, ptr %28, i64 %30, ptr %32, i64 %34, ptr noundef nonnull align 8 dereferenceable(136) %this1)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont11
@@ -1356,26 +1357,26 @@ invoke.cont17:                                    ; preds = %invoke.cont11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp18, ptr align 8 %accept19, i64 16, i1 false)
   %acceptEod21 = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 6
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp20, ptr align 8 %acceptEod21, i64 16, i1 false)
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp18, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp18, i32 0, i32 1
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  invoke void @_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_(ptr sret(%"struct.std::pair") align 8 %tmp22, ptr %35, i64 %37, ptr %39, i64 %41, ptr noundef nonnull align 8 dereferenceable(136) %this1)
+  %35 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp18, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp18, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  invoke void @_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_(ptr sret(%"struct.std::pair") align 8 %tmp22, ptr %36, i64 %38, ptr %40, i64 %42, ptr noundef nonnull align 8 dereferenceable(136) %this1)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont17
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
   %start25 = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp24, ptr align 8 %start25, i64 16, i1 false)
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp24, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp24, i32 0, i32 1
-  %45 = load i64, ptr %44, align 8
-  %call27 = invoke noundef nonnull align 8 dereferenceable(76) ptr @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEixENS_12graph_detail17vertex_descriptorIS4_EE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr, ptr %43, i64 %45)
+  %43 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp24, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp24, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %call27 = invoke noundef nonnull align 8 dereferenceable(76) ptr @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEixENS_12graph_detail17vertex_descriptorIS4_EE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr, ptr %44, i64 %46)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont23
@@ -1387,11 +1388,11 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   %add.ptr29 = getelementptr inbounds i8, ptr %this1, i64 8
   %startDs31 = getelementptr inbounds %"class.ue2::NGHolder", ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp30, ptr align 8 %startDs31, i64 16, i1 false)
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp30, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp30, i32 0, i32 1
-  %49 = load i64, ptr %48, align 8
-  %call33 = invoke noundef nonnull align 8 dereferenceable(76) ptr @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEixENS_12graph_detail17vertex_descriptorIS4_EE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr29, ptr %47, i64 %49)
+  %47 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp30, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp30, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8
+  %call33 = invoke noundef nonnull align 8 dereferenceable(76) ptr @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEixENS_12graph_detail17vertex_descriptorIS4_EE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr29, ptr %48, i64 %50)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont28
@@ -1403,14 +1404,14 @@ invoke.cont35:                                    ; preds = %invoke.cont32
   ret void
 
 lpad:                                             ; preds = %invoke.cont32, %invoke.cont28, %invoke.cont26, %invoke.cont23, %invoke.cont17, %invoke.cont11, %invoke.cont6, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %exn.slot, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %ehselector.slot, align 4
-  %53 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %53) #2
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %exn.slot, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %ehselector.slot, align 4
+  %54 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %54) #2
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -1564,7 +1565,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue28NGHolderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3ue28NGHolderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -1574,8 +1576,8 @@ do.cond:                                          ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.cond
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #2
+  %1 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #2
   ret void
 }
 

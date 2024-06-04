@@ -438,7 +438,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm17sampling_profiler7SamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosixE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isSigHandlerRegistered_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::(anonymous namespace)::SamplerPosix", ptr %this1, i32 0, i32 1
   store i8 0, ptr %isSigHandlerRegistered_, align 8
   call void @_ZNSt6atomicIPN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosixEE5storeES5_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) @_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosix9instance_E, ptr noundef %this1, i32 noundef 5) #1
@@ -877,7 +878,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler7SamplerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler7SamplerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %profilerLock_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this1, i32 0, i32 1
   call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_) #1
   %profilers_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this1, i32 0, i32 2
@@ -1951,7 +1953,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %rt.addr, align 8
   call void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(256) %this1, ptr noundef nonnull align 8 dereferenceable(9832) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %currentThread_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::(anonymous namespace)::SamplingProfilerPosix", ptr %this1, i32 0, i32 1
   %call = call i64 @pthread_self() #12
   store i64 %call, ptr %currentThread_, align 8
@@ -1980,7 +1983,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = call noundef ptr @_ZN6hermes2vm17sampling_profiler7Sampler3getEv()
   call void @_ZN6hermes2vm17sampling_profiler7Sampler17unregisterRuntimeEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %call, ptr noundef %this1)
   call void @_ZN6hermes2vm16SamplingProfilerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this1) #1
@@ -2095,7 +2099,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes2vm16SamplingProfilerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %nativeFunctions_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nativeFunctions_) #1
   %domains_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this1, i32 0, i32 8

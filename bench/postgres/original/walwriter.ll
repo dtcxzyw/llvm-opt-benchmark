@@ -42,36 +42,39 @@ define dso_local void @WalWriterMain() #0 {
   %7 = call ptr @pqsignal(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
   %8 = call ptr @pqsignal(i32 noundef 2, ptr noundef @SignalHandlerForShutdownRequest)
   %9 = call ptr @pqsignal(i32 noundef 15, ptr noundef @SignalHandlerForShutdownRequest)
-  %10 = call ptr @pqsignal(i32 noundef 14, ptr noundef inttoptr (i64 1 to ptr))
-  %11 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %12 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
-  %13 = call ptr @pqsignal(i32 noundef 12, ptr noundef inttoptr (i64 1 to ptr))
-  %14 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
-  br label %15
+  %10 = inttoptr i64 1 to ptr
+  %11 = call ptr @pqsignal(i32 noundef 14, ptr noundef %10)
+  %12 = inttoptr i64 1 to ptr
+  %13 = call ptr @pqsignal(i32 noundef 13, ptr noundef %12)
+  %14 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
+  %15 = inttoptr i64 1 to ptr
+  %16 = call ptr @pqsignal(i32 noundef 12, ptr noundef %15)
+  %17 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  br label %18
 
-15:                                               ; preds = %0
-  br label %16
+18:                                               ; preds = %0
+  br label %19
 
-16:                                               ; preds = %15
+19:                                               ; preds = %18
   store i32 1, ptr %5, align 4
-  %17 = load ptr, ptr @TopMemoryContext, align 8
-  %18 = call ptr @AllocSetContextCreateInternal(ptr noundef %17, ptr noundef @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %18, ptr %2, align 8
-  %19 = load ptr, ptr %2, align 8
-  %20 = call ptr @MemoryContextSwitchTo(ptr noundef %19)
-  %21 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %1, i64 0, i64 0
-  %22 = call i32 @__sigsetjmp(ptr noundef %21, i32 noundef 1) #5
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %35
+  %20 = load ptr, ptr @TopMemoryContext, align 8
+  %21 = call ptr @AllocSetContextCreateInternal(ptr noundef %20, ptr noundef @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %21, ptr %2, align 8
+  %22 = load ptr, ptr %2, align 8
+  %23 = call ptr @MemoryContextSwitchTo(ptr noundef %22)
+  %24 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %1, i64 0, i64 0
+  %25 = call i32 @__sigsetjmp(ptr noundef %24, i32 noundef 1) #5
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %38
 
-24:                                               ; preds = %16
+27:                                               ; preds = %19
   store ptr null, ptr @error_context_stack, align 8
-  %25 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %26 = add i32 %25, 1
-  store volatile i32 %26, ptr @InterruptHoldoffCount, align 4
+  %28 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %29 = add i32 %28, 1
+  store volatile i32 %29, ptr @InterruptHoldoffCount, align 4
   call void @EmitErrorReport()
   call void @LWLockReleaseAll()
-  %27 = call zeroext i1 @ConditionVariableCancelSleep()
+  %30 = call zeroext i1 @ConditionVariableCancelSleep()
   call void @pgstat_report_wait_end()
   call void @UnlockBuffers()
   call void @ReleaseAuxProcessResources(i1 noundef zeroext false)
@@ -79,105 +82,105 @@ define dso_local void @WalWriterMain() #0 {
   call void @AtEOXact_SMgr()
   call void @AtEOXact_Files(i1 noundef zeroext false)
   call void @AtEOXact_HashTables(i1 noundef zeroext false)
-  %28 = load ptr, ptr %2, align 8
-  %29 = call ptr @MemoryContextSwitchTo(ptr noundef %28)
+  %31 = load ptr, ptr %2, align 8
+  %32 = call ptr @MemoryContextSwitchTo(ptr noundef %31)
   call void @FlushErrorState()
-  %30 = load ptr, ptr %2, align 8
-  call void @MemoryContextReset(ptr noundef %30)
-  br label %31
-
-31:                                               ; preds = %24
-  %32 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %33 = add i32 %32, -1
-  store volatile i32 %33, ptr @InterruptHoldoffCount, align 4
+  %33 = load ptr, ptr %2, align 8
+  call void @MemoryContextReset(ptr noundef %33)
   br label %34
 
-34:                                               ; preds = %31
-  call void @pg_usleep(i64 noundef 1000000)
-  br label %35
+34:                                               ; preds = %27
+  %35 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %36 = add i32 %35, -1
+  store volatile i32 %36, ptr @InterruptHoldoffCount, align 4
+  br label %37
 
-35:                                               ; preds = %34, %16
+37:                                               ; preds = %34
+  call void @pg_usleep(i64 noundef 1000000)
+  br label %38
+
+38:                                               ; preds = %37, %19
   store ptr %1, ptr @PG_exception_stack, align 8
-  %36 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #6
+  %39 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #6
   store i32 50, ptr %3, align 4
   store i8 0, ptr %4, align 1
   call void @SetWalWriterSleeping(i1 noundef zeroext false)
-  %37 = load ptr, ptr @MyProc, align 8
-  %38 = getelementptr inbounds %struct.PGPROC, ptr %37, i32 0, i32 4
-  %39 = load ptr, ptr @ProcGlobal, align 8
-  %40 = getelementptr inbounds %struct.PROC_HDR, ptr %39, i32 0, i32 11
-  store ptr %38, ptr %40, align 8
-  br label %41
+  %40 = load ptr, ptr @MyProc, align 8
+  %41 = getelementptr inbounds %struct.PGPROC, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr @ProcGlobal, align 8
+  %43 = getelementptr inbounds %struct.PROC_HDR, ptr %42, i32 0, i32 11
+  store ptr %41, ptr %43, align 8
+  br label %44
 
-41:                                               ; preds = %76, %35
-  %42 = load i8, ptr %4, align 1
-  %43 = trunc i8 %42 to i1
-  %44 = zext i1 %43 to i32
-  %45 = load i32, ptr %3, align 4
-  %46 = icmp sle i32 %45, 1
+44:                                               ; preds = %79, %38
+  %45 = load i8, ptr %4, align 1
+  %46 = trunc i8 %45 to i1
   %47 = zext i1 %46 to i32
-  %48 = icmp ne i32 %44, %47
-  br i1 %48, label %49, label %55
+  %48 = load i32, ptr %3, align 4
+  %49 = icmp sle i32 %48, 1
+  %50 = zext i1 %49 to i32
+  %51 = icmp ne i32 %47, %50
+  br i1 %51, label %52, label %58
 
-49:                                               ; preds = %41
-  %50 = load i32, ptr %3, align 4
-  %51 = icmp sle i32 %50, 1
-  %52 = zext i1 %51 to i8
-  store i8 %52, ptr %4, align 1
-  %53 = load i8, ptr %4, align 1
-  %54 = trunc i8 %53 to i1
-  call void @SetWalWriterSleeping(i1 noundef zeroext %54)
-  br label %55
+52:                                               ; preds = %44
+  %53 = load i32, ptr %3, align 4
+  %54 = icmp sle i32 %53, 1
+  %55 = zext i1 %54 to i8
+  store i8 %55, ptr %4, align 1
+  %56 = load i8, ptr %4, align 1
+  %57 = trunc i8 %56 to i1
+  call void @SetWalWriterSleeping(i1 noundef zeroext %57)
+  br label %58
 
-55:                                               ; preds = %49, %41
-  %56 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %56)
+58:                                               ; preds = %52, %44
+  %59 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %59)
   call void @HandleMainLoopInterrupts()
-  %57 = call zeroext i1 @XLogBackgroundFlush()
-  br i1 %57, label %58, label %59
+  %60 = call zeroext i1 @XLogBackgroundFlush()
+  br i1 %60, label %61, label %62
 
-58:                                               ; preds = %55
+61:                                               ; preds = %58
   store i32 50, ptr %3, align 4
-  br label %66
+  br label %69
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr %3, align 4
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %62, label %65
-
-62:                                               ; preds = %59
+62:                                               ; preds = %58
   %63 = load i32, ptr %3, align 4
-  %64 = add i32 %63, -1
-  store i32 %64, ptr %3, align 4
-  br label %65
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %65, label %68
 
-65:                                               ; preds = %62, %59
-  br label %66
+65:                                               ; preds = %62
+  %66 = load i32, ptr %3, align 4
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %3, align 4
+  br label %68
 
-66:                                               ; preds = %65, %58
+68:                                               ; preds = %65, %62
+  br label %69
+
+69:                                               ; preds = %68, %61
   call void @pgstat_report_wal(i1 noundef zeroext false)
-  %67 = load i32, ptr %3, align 4
-  %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %69, label %72
+  %70 = load i32, ptr %3, align 4
+  %71 = icmp sgt i32 %70, 0
+  br i1 %71, label %72, label %75
 
-69:                                               ; preds = %66
-  %70 = load i32, ptr @WalWriterDelay, align 4
-  %71 = sext i32 %70 to i64
-  store i64 %71, ptr %6, align 8
-  br label %76
-
-72:                                               ; preds = %66
+72:                                               ; preds = %69
   %73 = load i32, ptr @WalWriterDelay, align 4
-  %74 = mul i32 %73, 25
-  %75 = sext i32 %74 to i64
-  store i64 %75, ptr %6, align 8
-  br label %76
+  %74 = sext i32 %73 to i64
+  store i64 %74, ptr %6, align 8
+  br label %79
 
-76:                                               ; preds = %72, %69
-  %77 = load ptr, ptr @MyLatch, align 8
-  %78 = load i64, ptr %6, align 8
-  %79 = call i32 @WaitLatch(ptr noundef %77, i32 noundef 41, i64 noundef %78, i32 noundef 83886095)
-  br label %41
+75:                                               ; preds = %69
+  %76 = load i32, ptr @WalWriterDelay, align 4
+  %77 = mul i32 %76, 25
+  %78 = sext i32 %77 to i64
+  store i64 %78, ptr %6, align 8
+  br label %79
+
+79:                                               ; preds = %75, %72
+  %80 = load ptr, ptr @MyLatch, align 8
+  %81 = load i64, ptr %6, align 8
+  %82 = call i32 @WaitLatch(ptr noundef %80, i32 noundef 41, i64 noundef %81, i32 noundef 83886095)
+  br label %44
 }
 
 declare ptr @pqsignal(i32 noundef, ptr noundef) #1

@@ -44,89 +44,93 @@ define dso_local void @transfer_all_new_tablespaces(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.UserOpts, ptr @user_opts, i32 0, i32 2), align 4
-  switch i32 %10, label %14 [
-    i32 0, label %11
-    i32 1, label %12
-    i32 2, label %13
+  %10 = getelementptr inbounds %struct.UserOpts, ptr @user_opts, i32 0, i32 2
+  %11 = load i32, ptr %10, align 4
+  switch i32 %11, label %15 [
+    i32 0, label %12
+    i32 1, label %13
+    i32 2, label %14
   ]
 
-11:                                               ; preds = %4
-  call void (ptr, ...) @prep_status_progress(ptr noundef @.str)
-  br label %14
-
 12:                                               ; preds = %4
-  call void (ptr, ...) @prep_status_progress(ptr noundef @.str.1)
-  br label %14
+  call void (ptr, ...) @prep_status_progress(ptr noundef @.str)
+  br label %15
 
 13:                                               ; preds = %4
+  call void (ptr, ...) @prep_status_progress(ptr noundef @.str.1)
+  br label %15
+
+14:                                               ; preds = %4
   call void (ptr, ...) @prep_status_progress(ptr noundef @.str.2)
-  br label %14
+  br label %15
 
-14:                                               ; preds = %13, %12, %11, %4
-  %15 = load i32, ptr getelementptr inbounds (%struct.UserOpts, ptr @user_opts, i32 0, i32 3), align 8
-  %16 = icmp sle i32 %15, 1
-  br i1 %16, label %17, label %22
+15:                                               ; preds = %14, %13, %12, %4
+  %16 = getelementptr inbounds %struct.UserOpts, ptr @user_opts, i32 0, i32 3
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp sle i32 %17, 1
+  br i1 %18, label %19, label %24
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = load ptr, ptr %8, align 8
-  call void @parallel_transfer_all_new_dbs(ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef null)
-  br label %52
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %8, align 8
+  call void @parallel_transfer_all_new_dbs(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef null)
+  br label %56
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = load ptr, ptr %8, align 8
+24:                                               ; preds = %15
+  %25 = load ptr, ptr %5, align 8
+  %26 = load ptr, ptr %6, align 8
   %27 = load ptr, ptr %7, align 8
-  call void @parallel_transfer_all_new_dbs(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27)
+  %28 = load ptr, ptr %8, align 8
+  %29 = load ptr, ptr %7, align 8
+  call void @parallel_transfer_all_new_dbs(ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29)
   store i32 0, ptr %9, align 4
-  br label %28
+  br label %30
 
-28:                                               ; preds = %42, %22
-  %29 = load i32, ptr %9, align 4
-  %30 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 4), align 8
-  %31 = icmp slt i32 %29, %30
-  br i1 %31, label %32, label %45
+30:                                               ; preds = %46, %24
+  %31 = load i32, ptr %9, align 4
+  %32 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 4
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp slt i32 %31, %33
+  br i1 %34, label %35, label %49
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %5, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = load ptr, ptr %8, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 3), align 8
-  %38 = load i32, ptr %9, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr ptr, ptr %37, i64 %39
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 3
   %41 = load ptr, ptr %40, align 8
-  call void @parallel_transfer_all_new_dbs(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %41)
-  br label %42
-
-42:                                               ; preds = %32
-  %43 = load i32, ptr %9, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %9, align 4
-  br label %28, !llvm.loop !5
-
-45:                                               ; preds = %28
+  %42 = load i32, ptr %9, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr ptr, ptr %41, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  call void @parallel_transfer_all_new_dbs(ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %45)
   br label %46
 
-46:                                               ; preds = %50, %45
-  %47 = call zeroext i1 @reap_child(i1 noundef zeroext true)
-  %48 = zext i1 %47 to i32
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %50, label %51
+46:                                               ; preds = %35
+  %47 = load i32, ptr %9, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %9, align 4
+  br label %30, !llvm.loop !5
 
-50:                                               ; preds = %46
-  br label %46, !llvm.loop !7
+49:                                               ; preds = %30
+  br label %50
 
-51:                                               ; preds = %46
-  br label %52
+50:                                               ; preds = %54, %49
+  %51 = call zeroext i1 @reap_child(i1 noundef zeroext true)
+  %52 = zext i1 %51 to i32
+  %53 = icmp eq i32 %52, 1
+  br i1 %53, label %54, label %55
 
-52:                                               ; preds = %51, %17
+54:                                               ; preds = %50
+  br label %50, !llvm.loop !7
+
+55:                                               ; preds = %50
+  br label %56
+
+56:                                               ; preds = %55, %19
   call void @end_progress_output()
   call void @check_ok()
   ret void
@@ -291,80 +295,82 @@ define internal void @transfer_single_new_db(ptr noundef %0, i32 noundef %1, ptr
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
   store i8 0, ptr %8, align 1
-  %9 = load i32, ptr getelementptr inbounds (%struct.ControlData, ptr @old_cluster, i32 0, i32 1), align 4
-  %10 = icmp ult i32 %9, 201603011
-  br i1 %10, label %11, label %15
+  %9 = getelementptr inbounds %struct.ControlData, ptr @old_cluster, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp ult i32 %10, 201603011
+  br i1 %11, label %12, label %17
 
-11:                                               ; preds = %3
-  %12 = load i32, ptr getelementptr inbounds (%struct.ControlData, ptr @new_cluster, i32 0, i32 1), align 4
-  %13 = icmp uge i32 %12, 201603011
-  br i1 %13, label %14, label %15
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds %struct.ControlData, ptr @new_cluster, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp uge i32 %14, 201603011
+  br i1 %15, label %16, label %17
 
-14:                                               ; preds = %11
+16:                                               ; preds = %12
   store i8 1, ptr %8, align 1
-  br label %15
+  br label %17
 
-15:                                               ; preds = %14, %11, %3
+17:                                               ; preds = %16, %12, %3
   store i32 0, ptr %7, align 4
-  br label %16
+  br label %18
 
-16:                                               ; preds = %53, %15
-  %17 = load i32, ptr %7, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = icmp slt i32 %17, %18
-  br i1 %19, label %20, label %56
+18:                                               ; preds = %55, %17
+  %19 = load i32, ptr %7, align 4
+  %20 = load i32, ptr %5, align 4
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %22, label %58
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %6, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %33, label %23
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %6, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %35, label %25
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i32, ptr %7, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.FileNameMap, ptr %24, i64 %26
-  %28 = getelementptr inbounds %struct.FileNameMap, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = call i32 @strcmp(ptr noundef %29, ptr noundef %30) #6
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %52
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %4, align 8
+  %27 = load i32, ptr %7, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr %struct.FileNameMap, ptr %26, i64 %28
+  %30 = getelementptr inbounds %struct.FileNameMap, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = call i32 @strcmp(ptr noundef %31, ptr noundef %32) #6
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %54
 
-33:                                               ; preds = %23, %20
-  %34 = load ptr, ptr %4, align 8
-  %35 = load i32, ptr %7, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.FileNameMap, ptr %34, i64 %36
-  %38 = load i8, ptr %8, align 1
-  %39 = trunc i8 %38 to i1
-  call void @transfer_relfile(ptr noundef %37, ptr noundef @.str.4, i1 noundef zeroext %39)
-  %40 = load ptr, ptr %4, align 8
-  %41 = load i32, ptr %7, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr %struct.FileNameMap, ptr %40, i64 %42
-  %44 = load i8, ptr %8, align 1
-  %45 = trunc i8 %44 to i1
-  call void @transfer_relfile(ptr noundef %43, ptr noundef @.str.5, i1 noundef zeroext %45)
-  %46 = load ptr, ptr %4, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr %struct.FileNameMap, ptr %46, i64 %48
-  %50 = load i8, ptr %8, align 1
-  %51 = trunc i8 %50 to i1
-  call void @transfer_relfile(ptr noundef %49, ptr noundef @.str.6, i1 noundef zeroext %51)
-  br label %52
+35:                                               ; preds = %25, %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr %struct.FileNameMap, ptr %36, i64 %38
+  %40 = load i8, ptr %8, align 1
+  %41 = trunc i8 %40 to i1
+  call void @transfer_relfile(ptr noundef %39, ptr noundef @.str.4, i1 noundef zeroext %41)
+  %42 = load ptr, ptr %4, align 8
+  %43 = load i32, ptr %7, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr %struct.FileNameMap, ptr %42, i64 %44
+  %46 = load i8, ptr %8, align 1
+  %47 = trunc i8 %46 to i1
+  call void @transfer_relfile(ptr noundef %45, ptr noundef @.str.5, i1 noundef zeroext %47)
+  %48 = load ptr, ptr %4, align 8
+  %49 = load i32, ptr %7, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr %struct.FileNameMap, ptr %48, i64 %50
+  %52 = load i8, ptr %8, align 1
+  %53 = trunc i8 %52 to i1
+  call void @transfer_relfile(ptr noundef %51, ptr noundef @.str.6, i1 noundef zeroext %53)
+  br label %54
 
-52:                                               ; preds = %33, %23
-  br label %53
+54:                                               ; preds = %35, %25
+  br label %55
 
-53:                                               ; preds = %52
-  %54 = load i32, ptr %7, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %7, align 4
-  br label %16, !llvm.loop !10
+55:                                               ; preds = %54
+  %56 = load i32, ptr %7, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %7, align 4
+  br label %18, !llvm.loop !10
 
-56:                                               ; preds = %16
+58:                                               ; preds = %18
   ret void
 }
 
@@ -387,7 +393,7 @@ define internal void @transfer_relfile(ptr noundef %0, ptr noundef %1, i1 nounde
   store i32 0, ptr %9, align 4
   br label %13
 
-13:                                               ; preds = %148, %3
+13:                                               ; preds = %149, %3
   %14 = load i32, ptr %9, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
@@ -461,7 +467,7 @@ define internal void @transfer_relfile(ptr noundef %0, ptr noundef %1, i1 nounde
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %67
-  br label %151
+  br label %152
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr %4, align 8
@@ -485,7 +491,7 @@ define internal void @transfer_relfile(ptr noundef %0, ptr noundef %1, i1 nounde
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %84
-  br label %151
+  br label %152
 
 89:                                               ; preds = %84
   br label %90
@@ -518,74 +524,75 @@ define internal void @transfer_relfile(ptr noundef %0, ptr noundef %1, i1 nounde
   %109 = getelementptr inbounds %struct.FileNameMap, ptr %108, i32 0, i32 7
   %110 = load ptr, ptr %109, align 8
   call void @rewriteVisibilityMap(ptr noundef %103, ptr noundef %104, ptr noundef %107, ptr noundef %110)
-  br label %147
-
-111:                                              ; preds = %96, %90
-  %112 = load i32, ptr getelementptr inbounds (%struct.UserOpts, ptr @user_opts, i32 0, i32 2), align 4
-  switch i32 %112, label %146 [
-    i32 0, label %113
-    i32 1, label %124
-    i32 2, label %135
-  ]
-
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
-  %115 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
-  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.12, ptr noundef %114, ptr noundef %115)
-  %116 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
-  %117 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
-  %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %struct.FileNameMap, ptr %118, i32 0, i32 6
-  %120 = load ptr, ptr %119, align 8
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds %struct.FileNameMap, ptr %121, i32 0, i32 7
-  %123 = load ptr, ptr %122, align 8
-  call void @cloneFile(ptr noundef %116, ptr noundef %117, ptr noundef %120, ptr noundef %123)
-  br label %146
-
-124:                                              ; preds = %111
-  %125 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
-  %126 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
-  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.13, ptr noundef %125, ptr noundef %126)
-  %127 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
-  %128 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
-  %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds %struct.FileNameMap, ptr %129, i32 0, i32 6
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %4, align 8
-  %133 = getelementptr inbounds %struct.FileNameMap, ptr %132, i32 0, i32 7
-  %134 = load ptr, ptr %133, align 8
-  call void @copyFile(ptr noundef %127, ptr noundef %128, ptr noundef %131, ptr noundef %134)
-  br label %146
-
-135:                                              ; preds = %111
-  %136 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
-  %137 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
-  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.14, ptr noundef %136, ptr noundef %137)
-  %138 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
-  %139 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
-  %140 = load ptr, ptr %4, align 8
-  %141 = getelementptr inbounds %struct.FileNameMap, ptr %140, i32 0, i32 6
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %4, align 8
-  %144 = getelementptr inbounds %struct.FileNameMap, ptr %143, i32 0, i32 7
-  %145 = load ptr, ptr %144, align 8
-  call void @linkFile(ptr noundef %138, ptr noundef %139, ptr noundef %142, ptr noundef %145)
-  br label %146
-
-146:                                              ; preds = %135, %124, %113, %111
-  br label %147
-
-147:                                              ; preds = %146, %100
   br label %148
 
-148:                                              ; preds = %147
-  %149 = load i32, ptr %9, align 4
-  %150 = add i32 %149, 1
-  store i32 %150, ptr %9, align 4
+111:                                              ; preds = %96, %90
+  %112 = getelementptr inbounds %struct.UserOpts, ptr @user_opts, i32 0, i32 2
+  %113 = load i32, ptr %112, align 4
+  switch i32 %113, label %147 [
+    i32 0, label %114
+    i32 1, label %125
+    i32 2, label %136
+  ]
+
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
+  %116 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
+  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.12, ptr noundef %115, ptr noundef %116)
+  %117 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
+  %118 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds %struct.FileNameMap, ptr %119, i32 0, i32 6
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %4, align 8
+  %123 = getelementptr inbounds %struct.FileNameMap, ptr %122, i32 0, i32 7
+  %124 = load ptr, ptr %123, align 8
+  call void @cloneFile(ptr noundef %117, ptr noundef %118, ptr noundef %121, ptr noundef %124)
+  br label %147
+
+125:                                              ; preds = %111
+  %126 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
+  %127 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
+  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.13, ptr noundef %126, ptr noundef %127)
+  %128 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
+  %129 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
+  %130 = load ptr, ptr %4, align 8
+  %131 = getelementptr inbounds %struct.FileNameMap, ptr %130, i32 0, i32 6
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %4, align 8
+  %134 = getelementptr inbounds %struct.FileNameMap, ptr %133, i32 0, i32 7
+  %135 = load ptr, ptr %134, align 8
+  call void @copyFile(ptr noundef %128, ptr noundef %129, ptr noundef %132, ptr noundef %135)
+  br label %147
+
+136:                                              ; preds = %111
+  %137 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
+  %138 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
+  call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef @.str.14, ptr noundef %137, ptr noundef %138)
+  %139 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
+  %140 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 0
+  %141 = load ptr, ptr %4, align 8
+  %142 = getelementptr inbounds %struct.FileNameMap, ptr %141, i32 0, i32 6
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %4, align 8
+  %145 = getelementptr inbounds %struct.FileNameMap, ptr %144, i32 0, i32 7
+  %146 = load ptr, ptr %145, align 8
+  call void @linkFile(ptr noundef %139, ptr noundef %140, ptr noundef %143, ptr noundef %146)
+  br label %147
+
+147:                                              ; preds = %136, %125, %114, %111
+  br label %148
+
+148:                                              ; preds = %147, %100
+  br label %149
+
+149:                                              ; preds = %148
+  %150 = load i32, ptr %9, align 4
+  %151 = add i32 %150, 1
+  store i32 %151, ptr %9, align 4
   br label %13
 
-151:                                              ; preds = %88, %71
+152:                                              ; preds = %88, %71
   ret void
 }
 

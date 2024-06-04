@@ -32,16 +32,18 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_os_has_overcommit() #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 3), align 8
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 3
+  %1 = load i8, ptr %0, align 8
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_os_has_virtual_reserve() #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 5), align 2
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 5
+  %1 = load i8, ptr %0, align 2
+  %tobool = trunc i8 %1 to i1
   ret i1 %tobool
 }
 
@@ -55,12 +57,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i64 @_mi_os_large_page_size() #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
-  %cmp = icmp ne i64 %0, 0
+  %0 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %cmp = icmp ne i64 %1, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %3 = load i64, ptr %2, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -68,7 +72,7 @@ cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ %call, %cond.false ]
+  %cond = phi i64 [ %3, %cond.true ], [ %call, %cond.false ]
   ret i64 %cond
 }
 
@@ -80,8 +84,9 @@ entry:
   %alignment.addr = alloca i64, align 8
   store i64 %size, ptr %size.addr, align 8
   store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
-  %cmp = icmp eq i64 %0, 0
+  %0 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -93,27 +98,29 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
-  %rem = urem i64 %1, %2
+  %2 = load i64, ptr %size.addr, align 8
+  %3 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %rem = urem i64 %2, %4
   %cmp1 = icmp eq i64 %rem, 0
   br i1 %cmp1, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end
-  %3 = load i64, ptr %alignment.addr, align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1), align 8
-  %rem2 = urem i64 %3, %4
+  %5 = load i64, ptr %alignment.addr, align 8
+  %6 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %rem2 = urem i64 %5, %7
   %cmp3 = icmp eq i64 %rem2, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end
-  %5 = phi i1 [ false, %if.end ], [ %cmp3, %land.rhs ]
-  store i1 %5, ptr %retval, align 1
+  %8 = phi i1 [ false, %if.end ], [ %cmp3, %land.rhs ]
+  store i1 %8, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %land.end, %if.then
-  %6 = load i1, ptr %retval, align 1
-  ret i1 %6
+  %9 = load i1, ptr %retval, align 1
+  ret i1 %9
 }
 
 declare zeroext i1 @mi_option_is_enabled(i32 noundef) #1
@@ -1048,19 +1055,20 @@ if.end21:                                         ; preds = %if.else
   %29 = load i64, ptr %alignment.addr, align 8
   %add = add i64 %28, %29
   store i64 %add, ptr %over_size, align 8
-  %30 = load i8, ptr getelementptr inbounds (%struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 4), align 1
-  %tobool22 = trunc i8 %30 to i1
+  %30 = getelementptr inbounds %struct.mi_os_mem_config_s, ptr @mi_os_mem_config, i32 0, i32 4
+  %31 = load i8, ptr %30, align 1
+  %tobool22 = trunc i8 %31 to i1
   br i1 %tobool22, label %if.then23, label %if.else34
 
 if.then23:                                        ; preds = %if.end21
-  %31 = load i64, ptr %over_size, align 8
-  %32 = load ptr, ptr %is_large.addr, align 8
-  %33 = load ptr, ptr %is_zero.addr, align 8
-  %34 = load ptr, ptr %stats.addr, align 8
-  %call24 = call ptr @mi_os_prim_alloc(i64 noundef %31, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %32, ptr noundef %33, ptr noundef %34) #5
+  %32 = load i64, ptr %over_size, align 8
+  %33 = load ptr, ptr %is_large.addr, align 8
+  %34 = load ptr, ptr %is_zero.addr, align 8
+  %35 = load ptr, ptr %stats.addr, align 8
+  %call24 = call ptr @mi_os_prim_alloc(i64 noundef %32, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %33, ptr noundef %34, ptr noundef %35) #5
   store ptr %call24, ptr %p, align 8
-  %35 = load ptr, ptr %p, align 8
-  %cmp25 = icmp eq ptr %35, null
+  %36 = load ptr, ptr %p, align 8
+  %cmp25 = icmp eq ptr %36, null
   br i1 %cmp25, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.then23
@@ -1068,38 +1076,38 @@ if.then27:                                        ; preds = %if.then23
   br label %return
 
 if.end28:                                         ; preds = %if.then23
-  %36 = load ptr, ptr %p, align 8
-  %37 = load ptr, ptr %base.addr, align 8
-  store ptr %36, ptr %37, align 8
-  %38 = load ptr, ptr %p, align 8
-  %39 = load i64, ptr %alignment.addr, align 8
-  %call29 = call ptr @mi_align_up_ptr(ptr noundef %38, i64 noundef %39) #5
+  %37 = load ptr, ptr %p, align 8
+  %38 = load ptr, ptr %base.addr, align 8
+  store ptr %37, ptr %38, align 8
+  %39 = load ptr, ptr %p, align 8
+  %40 = load i64, ptr %alignment.addr, align 8
+  %call29 = call ptr @mi_align_up_ptr(ptr noundef %39, i64 noundef %40) #5
   store ptr %call29, ptr %p, align 8
-  %40 = load i8, ptr %commit.addr, align 1
-  %tobool30 = trunc i8 %40 to i1
+  %41 = load i8, ptr %commit.addr, align 1
+  %tobool30 = trunc i8 %41 to i1
   br i1 %tobool30, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.end28
-  %41 = load ptr, ptr %p, align 8
-  %42 = load i64, ptr %size.addr, align 8
-  %43 = load ptr, ptr %stats.addr, align 8
-  %call32 = call zeroext i1 @_mi_os_commit(ptr noundef %41, i64 noundef %42, ptr noundef null, ptr noundef %43) #5
+  %42 = load ptr, ptr %p, align 8
+  %43 = load i64, ptr %size.addr, align 8
+  %44 = load ptr, ptr %stats.addr, align 8
+  %call32 = call zeroext i1 @_mi_os_commit(ptr noundef %42, i64 noundef %43, ptr noundef null, ptr noundef %44) #5
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then31, %if.end28
   br label %if.end56
 
 if.else34:                                        ; preds = %if.end21
-  %44 = load i64, ptr %over_size, align 8
-  %45 = load i8, ptr %commit.addr, align 1
-  %tobool35 = trunc i8 %45 to i1
-  %46 = load ptr, ptr %is_large.addr, align 8
-  %47 = load ptr, ptr %is_zero.addr, align 8
-  %48 = load ptr, ptr %stats.addr, align 8
-  %call36 = call ptr @mi_os_prim_alloc(i64 noundef %44, i64 noundef 1, i1 noundef zeroext %tobool35, i1 noundef zeroext false, ptr noundef %46, ptr noundef %47, ptr noundef %48) #5
+  %45 = load i64, ptr %over_size, align 8
+  %46 = load i8, ptr %commit.addr, align 1
+  %tobool35 = trunc i8 %46 to i1
+  %47 = load ptr, ptr %is_large.addr, align 8
+  %48 = load ptr, ptr %is_zero.addr, align 8
+  %49 = load ptr, ptr %stats.addr, align 8
+  %call36 = call ptr @mi_os_prim_alloc(i64 noundef %45, i64 noundef 1, i1 noundef zeroext %tobool35, i1 noundef zeroext false, ptr noundef %47, ptr noundef %48, ptr noundef %49) #5
   store ptr %call36, ptr %p, align 8
-  %49 = load ptr, ptr %p, align 8
-  %cmp37 = icmp eq ptr %49, null
+  %50 = load ptr, ptr %p, align 8
+  %cmp37 = icmp eq ptr %50, null
   br i1 %cmp37, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %if.else34
@@ -1107,74 +1115,74 @@ if.then39:                                        ; preds = %if.else34
   br label %return
 
 if.end40:                                         ; preds = %if.else34
-  %50 = load ptr, ptr %p, align 8
-  %51 = load i64, ptr %alignment.addr, align 8
-  %call41 = call ptr @mi_align_up_ptr(ptr noundef %50, i64 noundef %51) #5
+  %51 = load ptr, ptr %p, align 8
+  %52 = load i64, ptr %alignment.addr, align 8
+  %call41 = call ptr @mi_align_up_ptr(ptr noundef %51, i64 noundef %52) #5
   store ptr %call41, ptr %aligned_p, align 8
-  %52 = load ptr, ptr %aligned_p, align 8
-  %53 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %52 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %53 to i64
+  %53 = load ptr, ptr %aligned_p, align 8
+  %54 = load ptr, ptr %p, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %54 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %pre_size, align 8
-  %54 = load i64, ptr %size.addr, align 8
+  %55 = load i64, ptr %size.addr, align 8
   %call42 = call i64 @_mi_os_page_size() #5
-  %call43 = call i64 @_mi_align_up(i64 noundef %54, i64 noundef %call42) #5
+  %call43 = call i64 @_mi_align_up(i64 noundef %55, i64 noundef %call42) #5
   store i64 %call43, ptr %mid_size, align 8
-  %55 = load i64, ptr %over_size, align 8
-  %56 = load i64, ptr %pre_size, align 8
-  %sub44 = sub i64 %55, %56
-  %57 = load i64, ptr %mid_size, align 8
-  %sub45 = sub i64 %sub44, %57
+  %56 = load i64, ptr %over_size, align 8
+  %57 = load i64, ptr %pre_size, align 8
+  %sub44 = sub i64 %56, %57
+  %58 = load i64, ptr %mid_size, align 8
+  %sub45 = sub i64 %sub44, %58
   store i64 %sub45, ptr %post_size, align 8
-  %58 = load i64, ptr %pre_size, align 8
-  %cmp46 = icmp ugt i64 %58, 0
+  %59 = load i64, ptr %pre_size, align 8
+  %cmp46 = icmp ugt i64 %59, 0
   br i1 %cmp46, label %if.then48, label %if.end50
 
 if.then48:                                        ; preds = %if.end40
-  %59 = load ptr, ptr %p, align 8
-  %60 = load i64, ptr %pre_size, align 8
-  %61 = load i8, ptr %commit.addr, align 1
-  %tobool49 = trunc i8 %61 to i1
-  %62 = load ptr, ptr %stats.addr, align 8
-  call void @mi_os_prim_free(ptr noundef %59, i64 noundef %60, i1 noundef zeroext %tobool49, ptr noundef %62) #5
+  %60 = load ptr, ptr %p, align 8
+  %61 = load i64, ptr %pre_size, align 8
+  %62 = load i8, ptr %commit.addr, align 1
+  %tobool49 = trunc i8 %62 to i1
+  %63 = load ptr, ptr %stats.addr, align 8
+  call void @mi_os_prim_free(ptr noundef %60, i64 noundef %61, i1 noundef zeroext %tobool49, ptr noundef %63) #5
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %if.end40
-  %63 = load i64, ptr %post_size, align 8
-  %cmp51 = icmp ugt i64 %63, 0
+  %64 = load i64, ptr %post_size, align 8
+  %cmp51 = icmp ugt i64 %64, 0
   br i1 %cmp51, label %if.then53, label %if.end55
 
 if.then53:                                        ; preds = %if.end50
-  %64 = load ptr, ptr %aligned_p, align 8
-  %65 = load i64, ptr %mid_size, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %64, i64 %65
-  %66 = load i64, ptr %post_size, align 8
-  %67 = load i8, ptr %commit.addr, align 1
-  %tobool54 = trunc i8 %67 to i1
-  %68 = load ptr, ptr %stats.addr, align 8
-  call void @mi_os_prim_free(ptr noundef %add.ptr, i64 noundef %66, i1 noundef zeroext %tobool54, ptr noundef %68) #5
+  %65 = load ptr, ptr %aligned_p, align 8
+  %66 = load i64, ptr %mid_size, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %65, i64 %66
+  %67 = load i64, ptr %post_size, align 8
+  %68 = load i8, ptr %commit.addr, align 1
+  %tobool54 = trunc i8 %68 to i1
+  %69 = load ptr, ptr %stats.addr, align 8
+  call void @mi_os_prim_free(ptr noundef %add.ptr, i64 noundef %67, i1 noundef zeroext %tobool54, ptr noundef %69) #5
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then53, %if.end50
-  %69 = load ptr, ptr %aligned_p, align 8
-  store ptr %69, ptr %p, align 8
   %70 = load ptr, ptr %aligned_p, align 8
-  %71 = load ptr, ptr %base.addr, align 8
-  store ptr %70, ptr %71, align 8
+  store ptr %70, ptr %p, align 8
+  %71 = load ptr, ptr %aligned_p, align 8
+  %72 = load ptr, ptr %base.addr, align 8
+  store ptr %71, ptr %72, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end55, %if.end33
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end56, %if.then14
-  %72 = load ptr, ptr %p, align 8
-  store ptr %72, ptr %retval, align 8
+  %73 = load ptr, ptr %p, align 8
+  store ptr %73, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end57, %if.then39, %if.then27, %if.then20, %if.then11, %if.then3
-  %73 = load ptr, ptr %retval, align 8
-  ret ptr %73
+  %74 = load ptr, ptr %retval, align 8
+  ret ptr %74
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1976,37 +1984,39 @@ if.end20:                                         ; preds = %if.end14
   %24 = load i64, ptr %page, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %page, align 8
-  call void @_mi_stat_increase(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3), i64 noundef 1073741824) #5
-  call void @_mi_stat_increase(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 2), i64 noundef 1073741824) #5
-  %25 = load i64, ptr %max_msecs.addr, align 8
-  %cmp21 = icmp sgt i64 %25, 0
+  %25 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3
+  call void @_mi_stat_increase(ptr noundef %25, i64 noundef 1073741824) #5
+  %26 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 2
+  call void @_mi_stat_increase(ptr noundef %26, i64 noundef 1073741824) #5
+  %27 = load i64, ptr %max_msecs.addr, align 8
+  %cmp21 = icmp sgt i64 %27, 0
   br i1 %cmp21, label %if.then22, label %if.end36
 
 if.then22:                                        ; preds = %if.end20
-  %26 = load i64, ptr %start_t, align 8
-  %call23 = call i64 @_mi_clock_end(i64 noundef %26) #5
+  %28 = load i64, ptr %start_t, align 8
+  %call23 = call i64 @_mi_clock_end(i64 noundef %28) #5
   store i64 %call23, ptr %elapsed, align 8
-  %27 = load i64, ptr %page, align 8
-  %cmp24 = icmp uge i64 %27, 1
+  %29 = load i64, ptr %page, align 8
+  %cmp24 = icmp uge i64 %29, 1
   br i1 %cmp24, label %if.then25, label %if.end32
 
 if.then25:                                        ; preds = %if.then22
-  %28 = load i64, ptr %elapsed, align 8
-  %29 = load i64, ptr %page, align 8
-  %add = add i64 %29, 1
-  %div = udiv i64 %28, %add
-  %30 = load i64, ptr %pages.addr, align 8
-  %mul26 = mul i64 %div, %30
+  %30 = load i64, ptr %elapsed, align 8
+  %31 = load i64, ptr %page, align 8
+  %add = add i64 %31, 1
+  %div = udiv i64 %30, %add
+  %32 = load i64, ptr %pages.addr, align 8
+  %mul26 = mul i64 %div, %32
   store i64 %mul26, ptr %estimate, align 8
-  %31 = load i64, ptr %estimate, align 8
-  %32 = load i64, ptr %max_msecs.addr, align 8
-  %mul27 = mul nsw i64 2, %32
-  %cmp28 = icmp sgt i64 %31, %mul27
+  %33 = load i64, ptr %estimate, align 8
+  %34 = load i64, ptr %max_msecs.addr, align 8
+  %mul27 = mul nsw i64 2, %34
+  %cmp28 = icmp sgt i64 %33, %mul27
   br i1 %cmp28, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.then25
-  %33 = load i64, ptr %max_msecs.addr, align 8
-  %add30 = add nsw i64 %33, 1
+  %35 = load i64, ptr %max_msecs.addr, align 8
+  %add30 = add nsw i64 %35, 1
   store i64 %add30, ptr %elapsed, align 8
   br label %if.end31
 
@@ -2014,14 +2024,14 @@ if.end31:                                         ; preds = %if.then29, %if.then
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end31, %if.then22
-  %34 = load i64, ptr %elapsed, align 8
-  %35 = load i64, ptr %max_msecs.addr, align 8
-  %cmp33 = icmp sgt i64 %34, %35
+  %36 = load i64, ptr %elapsed, align 8
+  %37 = load i64, ptr %max_msecs.addr, align 8
+  %cmp33 = icmp sgt i64 %36, %37
   br i1 %cmp33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end32
-  %36 = load i64, ptr %page, align 8
-  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str.4, i64 noundef %36) #5
+  %38 = load i64, ptr %page, align 8
+  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str.4, i64 noundef %38) #5
   br label %while.end
 
 if.end35:                                         ; preds = %if.end32
@@ -2031,64 +2041,64 @@ if.end36:                                         ; preds = %if.end35, %if.end20
   br label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %if.then34, %if.end19, %if.then13, %while.cond
-  %37 = load ptr, ptr %pages_reserved.addr, align 8
-  %cmp37 = icmp ne ptr %37, null
+  %39 = load ptr, ptr %pages_reserved.addr, align 8
+  %cmp37 = icmp ne ptr %39, null
   br i1 %cmp37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %while.end
-  %38 = load i64, ptr %page, align 8
-  %39 = load ptr, ptr %pages_reserved.addr, align 8
-  store i64 %38, ptr %39, align 8
+  %40 = load i64, ptr %page, align 8
+  %41 = load ptr, ptr %pages_reserved.addr, align 8
+  store i64 %40, ptr %41, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %while.end
-  %40 = load ptr, ptr %psize.addr, align 8
-  %cmp40 = icmp ne ptr %40, null
+  %42 = load ptr, ptr %psize.addr, align 8
+  %cmp40 = icmp ne ptr %42, null
   br i1 %cmp40, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end39
-  %41 = load i64, ptr %page, align 8
-  %mul42 = mul i64 %41, 1073741824
-  %42 = load ptr, ptr %psize.addr, align 8
-  store i64 %mul42, ptr %42, align 8
+  %43 = load i64, ptr %page, align 8
+  %mul42 = mul i64 %43, 1073741824
+  %44 = load ptr, ptr %psize.addr, align 8
+  store i64 %mul42, ptr %44, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then41, %if.end39
-  %43 = load i64, ptr %page, align 8
-  %cmp44 = icmp ne i64 %43, 0
+  %45 = load i64, ptr %page, align 8
+  %cmp44 = icmp ne i64 %45, 0
   br i1 %cmp44, label %if.then45, label %if.end48
 
 if.then45:                                        ; preds = %if.end43
-  %44 = load ptr, ptr %memid.addr, align 8
-  %45 = load i8, ptr %all_zero, align 1
-  %tobool47 = trunc i8 %45 to i1
-  call void @_mi_memid_create_os(ptr sret(%struct.mi_memid_s) align 8 %tmp46, i1 noundef zeroext true, i1 noundef zeroext %tobool47, i1 noundef zeroext true) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %tmp46, i64 24, i1 false)
   %46 = load ptr, ptr %memid.addr, align 8
-  %memkind = getelementptr inbounds %struct.mi_memid_s, ptr %46, i32 0, i32 4
+  %47 = load i8, ptr %all_zero, align 1
+  %tobool47 = trunc i8 %47 to i1
+  call void @_mi_memid_create_os(ptr sret(%struct.mi_memid_s) align 8 %tmp46, i1 noundef zeroext true, i1 noundef zeroext %tobool47, i1 noundef zeroext true) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %tmp46, i64 24, i1 false)
+  %48 = load ptr, ptr %memid.addr, align 8
+  %memkind = getelementptr inbounds %struct.mi_memid_s, ptr %48, i32 0, i32 4
   store i32 4, ptr %memkind, align 4
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then45, %if.end43
-  %47 = load i64, ptr %page, align 8
-  %cmp49 = icmp eq i64 %47, 0
+  %49 = load i64, ptr %page, align 8
+  %cmp49 = icmp eq i64 %49, 0
   br i1 %cmp49, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end48
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end48
-  %48 = load ptr, ptr %start, align 8
+  %50 = load ptr, ptr %start, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %48, %cond.false ]
+  %cond = phi ptr [ null, %cond.true ], [ %50, %cond.false ]
   store ptr %cond, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then5
-  %49 = load ptr, ptr %retval, align 8
-  ret ptr %49
+  %51 = load ptr, ptr %retval, align 8
+  ret ptr %51
 }
 
 ; Function Attrs: nounwind uwtable

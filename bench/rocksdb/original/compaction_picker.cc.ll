@@ -2684,17 +2684,18 @@ entry:
   store ptr %ioptions, ptr %ioptions.addr, align 8
   store ptr %icmp, ptr %icmp.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ioptions_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ioptions.addr, align 8
-  store ptr %0, ptr %ioptions_, align 8
+  %1 = load ptr, ptr %ioptions.addr, align 8
+  store ptr %1, ptr %ioptions_, align 8
   %level0_compactions_in_progress_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 2
   call void @_ZNSt3setIPN7rocksdb10CompactionESt4lessIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %level0_compactions_in_progress_) #3
   %compactions_in_progress_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_setIPN7rocksdb10CompactionESt4hashIS2_ESt8equal_toIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %compactions_in_progress_) #3
   %icmp_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %icmp.addr, align 8
-  store ptr %1, ptr %icmp_, align 8
+  %2 = load ptr, ptr %icmp.addr, align 8
+  store ptr %2, ptr %icmp_, align 8
   ret void
 }
 
@@ -2726,7 +2727,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %compactions_in_progress_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_setIPN7rocksdb10CompactionESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %compactions_in_progress_) #3
   %level0_compactions_in_progress_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 2
@@ -11672,28 +11674,30 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #11 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #11 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

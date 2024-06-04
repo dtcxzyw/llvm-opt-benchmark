@@ -312,102 +312,107 @@ define internal i32 @dissect_rtp_events(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %28, ptr %12, align 8
   %29 = load ptr, ptr %12, align 8
   %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %35
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %4
   %32 = load ptr, ptr %12, align 8
   %33 = getelementptr inbounds %struct._rtp_packet_info, ptr %32, i32 0, i32 1
   %34 = load i32, ptr %33, align 4
-  store i32 %34, ptr getelementptr inbounds (%struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 1), align 4
-  br label %36
+  %35 = getelementptr inbounds %struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 1
+  store i32 %34, ptr %35, align 4
+  br label %38
 
-35:                                               ; preds = %4
-  store i32 0, ptr getelementptr inbounds (%struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 1), align 4
-  br label %36
+36:                                               ; preds = %4
+  %37 = getelementptr inbounds %struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 1
+  store i32 0, ptr %37, align 4
+  br label %38
 
-36:                                               ; preds = %35, %31
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i8, ptr %13, align 1
-  %41 = zext i8 %40 to i32
-  %42 = call ptr @val_to_str_ext(i32 noundef %41, ptr noundef @rtp_event_type_values_ext, ptr noundef @.str.207)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.206, ptr noundef %42)
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i32, ptr @proto_rtp_events, align 4
-  %45 = load ptr, ptr %5, align 8
-  %46 = load i32, ptr %11, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef -1, i32 noundef 0)
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load i32, ptr @ett_rtp_events, align 4
-  %50 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49)
-  store ptr %50, ptr %10, align 8
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr @hf_rtp_events_event, align 4
-  %53 = load ptr, ptr %5, align 8
-  %54 = load i32, ptr %11, align 4
-  %55 = load i8, ptr %13, align 1
-  %56 = zext i8 %55 to i32
-  %57 = call ptr @proto_tree_add_uint(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 1, i32 noundef %56)
-  %58 = load i32, ptr %11, align 4
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %11, align 4
-  %60 = load ptr, ptr %5, align 8
-  %61 = load i32, ptr %11, align 4
-  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %60, i32 noundef %61)
-  store i8 %62, ptr %14, align 1
-  %63 = load ptr, ptr %10, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i32, ptr %11, align 4
-  call void @proto_tree_add_bitmask_list(ptr noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef 1, ptr noundef @dissect_rtp_events.events, i32 noundef 0)
-  %66 = load i32, ptr %11, align 4
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %11, align 4
-  %68 = load ptr, ptr %5, align 8
-  %69 = load i32, ptr %11, align 4
-  %70 = call zeroext i16 @tvb_get_ntohs(ptr noundef %68, i32 noundef %69)
-  store i16 %70, ptr getelementptr inbounds (%struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 2), align 4
-  %71 = load ptr, ptr %10, align 8
-  %72 = load i32, ptr @hf_rtp_events_duration, align 4
-  %73 = load ptr, ptr %5, align 8
-  %74 = load i32, ptr %11, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef 2, i32 noundef 0)
-  %76 = load i8, ptr %14, align 1
-  %77 = zext i8 %76 to i32
-  %78 = and i32 %77, 128
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %81
+38:                                               ; preds = %36, %31
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i8, ptr %13, align 1
+  %43 = zext i8 %42 to i32
+  %44 = call ptr @val_to_str_ext(i32 noundef %43, ptr noundef @rtp_event_type_values_ext, ptr noundef @.str.207)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %41, i32 noundef 25, ptr noundef @.str.206, ptr noundef %44)
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr @proto_rtp_events, align 4
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i32, ptr %11, align 4
+  %49 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef %48, i32 noundef -1, i32 noundef 0)
+  store ptr %49, ptr %9, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load i32, ptr @ett_rtp_events, align 4
+  %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51)
+  store ptr %52, ptr %10, align 8
+  %53 = load ptr, ptr %10, align 8
+  %54 = load i32, ptr @hf_rtp_events_event, align 4
+  %55 = load ptr, ptr %5, align 8
+  %56 = load i32, ptr %11, align 4
+  %57 = load i8, ptr %13, align 1
+  %58 = zext i8 %57 to i32
+  %59 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef 1, i32 noundef %58)
+  %60 = load i32, ptr %11, align 4
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %11, align 4
+  %62 = load ptr, ptr %5, align 8
+  %63 = load i32, ptr %11, align 4
+  %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %62, i32 noundef %63)
+  store i8 %64, ptr %14, align 1
+  %65 = load ptr, ptr %10, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = load i32, ptr %11, align 4
+  call void @proto_tree_add_bitmask_list(ptr noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef 1, ptr noundef @dissect_rtp_events.events, i32 noundef 0)
+  %68 = load i32, ptr %11, align 4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %11, align 4
+  %70 = load ptr, ptr %5, align 8
+  %71 = load i32, ptr %11, align 4
+  %72 = call zeroext i16 @tvb_get_ntohs(ptr noundef %70, i32 noundef %71)
+  %73 = getelementptr inbounds %struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 2
+  store i16 %72, ptr %73, align 4
+  %74 = load ptr, ptr %10, align 8
+  %75 = load i32, ptr @hf_rtp_events_duration, align 4
+  %76 = load ptr, ptr %5, align 8
+  %77 = load i32, ptr %11, align 4
+  %78 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 2, i32 noundef 0)
+  %79 = load i8, ptr %14, align 1
+  %80 = zext i8 %79 to i32
+  %81 = and i32 %80, 128
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %85
 
-80:                                               ; preds = %36
-  store i32 1, ptr getelementptr inbounds (%struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 3), align 4
-  br label %82
+83:                                               ; preds = %38
+  %84 = getelementptr inbounds %struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 3
+  store i32 1, ptr %84, align 4
+  br label %87
 
-81:                                               ; preds = %36
-  store i32 0, ptr getelementptr inbounds (%struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 3), align 4
-  br label %82
+85:                                               ; preds = %38
+  %86 = getelementptr inbounds %struct._rtp_event_info, ptr @rtp_event_info, i32 0, i32 3
+  store i32 0, ptr %86, align 4
+  br label %87
 
-82:                                               ; preds = %81, %80
-  %83 = load i8, ptr %14, align 1
-  %84 = zext i8 %83 to i32
-  %85 = and i32 %84, 128
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %91
+87:                                               ; preds = %85, %83
+  %88 = load i8, ptr %14, align 1
+  %89 = zext i8 %88 to i32
+  %90 = and i32 %89, 128
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %96
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %struct._packet_info, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  call void @col_append_str(ptr noundef %90, i32 noundef 25, ptr noundef @.str.208)
-  br label %91
-
-91:                                               ; preds = %87, %82
-  %92 = load i32, ptr @rtp_event_tap, align 4
+92:                                               ; preds = %87
   %93 = load ptr, ptr %6, align 8
-  call void @tap_queue_packet(i32 noundef %92, ptr noundef %93, ptr noundef @rtp_event_info)
-  %94 = load ptr, ptr %5, align 8
-  %95 = call i32 @tvb_captured_length(ptr noundef %94)
-  ret i32 %95
+  %94 = getelementptr inbounds %struct._packet_info, ptr %93, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8
+  call void @col_append_str(ptr noundef %95, i32 noundef 25, ptr noundef @.str.208)
+  br label %96
+
+96:                                               ; preds = %92, %87
+  %97 = load i32, ptr @rtp_event_tap, align 4
+  %98 = load ptr, ptr %6, align 8
+  call void @tap_queue_packet(i32 noundef %97, ptr noundef %98, ptr noundef @rtp_event_info)
+  %99 = load ptr, ptr %5, align 8
+  %100 = call i32 @tvb_captured_length(ptr noundef %99)
+  ret i32 %100
 }
 
 declare i32 @register_tap(ptr noundef) #0

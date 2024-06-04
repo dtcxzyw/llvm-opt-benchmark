@@ -1164,10 +1164,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl17TangentPlaneCheckE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl17TangentPlaneCheckE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_data = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::TangentPlaneCheck", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %data.addr, align 8
-  store ptr %1, ptr %d_data, align 8
+  %2 = load ptr, ptr %data.addr, align 8
+  store ptr %2, ptr %d_data, align 8
   %d_tangent_val_bound = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::TangentPlaneCheck", ptr %this1, i32 0, i32 2
   %array.begin = getelementptr inbounds [4 x %"class.std::map"], ptr %d_tangent_val_bound, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.std::map", ptr %array.begin, i64 4
@@ -5146,14 +5147,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl17TangentPlaneCheckE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl17TangentPlaneCheckE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_tangent_val_bound = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::TangentPlaneCheck", ptr %this1, i32 0, i32 2
   %array.begin = getelementptr inbounds [4 x %"class.std::map"], ptr %d_tangent_val_bound, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::map", ptr %array.begin, i64 4
+  %1 = getelementptr inbounds %"class.std::map", ptr %array.begin, i64 4
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::map", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_S3_St4lessIS3_ESaISt4pairIKS3_S3_EEES5_SaIS6_IS7_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin

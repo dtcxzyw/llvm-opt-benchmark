@@ -1152,7 +1152,8 @@ entry:
   %3 = load ptr, ptr %qr.addr, align 8
   %4 = load ptr, ptr %tr.addr, align 8
   call void @_ZN4cvc58internal6theory17QuantifiersModuleC2ERNS0_3EnvERNS1_11quantifiers16QuantifiersStateERNS5_27QuantifiersInferenceManagerERNS5_19QuantifiersRegistryERNS5_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(376) %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef nonnull align 8 dereferenceable(208) %4)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11ModelEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11ModelEngineE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %d_incomplete_check = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ModelEngine", ptr %this1, i32 0, i32 1
   store i8 1, ptr %d_incomplete_check, align 8
   %d_addedLemmas = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ModelEngine", ptr %this1, i32 0, i32 2
@@ -1162,8 +1163,8 @@ entry:
   %d_totalLemmas = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ModelEngine", ptr %this1, i32 0, i32 4
   store i32 0, ptr %d_totalLemmas, align 4
   %d_builder = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ModelEngine", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %builder.addr, align 8
-  store ptr %5, ptr %d_builder, align 8
+  %6 = load ptr, ptr %builder.addr, align 8
+  store ptr %6, ptr %d_builder, align 8
   %d_incompleteQuants = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ModelEngine", ptr %this1, i32 0, i32 6
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_incompleteQuants) #3
   ret void
@@ -1188,7 +1189,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11ModelEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11ModelEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_incompleteQuants = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ModelEngine", ptr %this1, i32 0, i32 6
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_incompleteQuants) #3
   call void @_ZN4cvc58internal6theory17QuantifiersModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
@@ -7767,7 +7769,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12QRepBoundExtE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12QRepBoundExtE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_instMatch = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QRepBoundExt", ptr %this1, i32 0, i32 4
   call void @_ZN4cvc58internal6theory11quantifiers9InstMatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_instMatch) #3
   %d_bound_int = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QRepBoundExt", ptr %this1, i32 0, i32 3
@@ -10605,7 +10608,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9InstMatchE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9InstMatchE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_quant = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstMatch", ptr %this1, i32 0, i32 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_quant) #3
   %d_vals = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstMatch", ptr %this1, i32 0, i32 3

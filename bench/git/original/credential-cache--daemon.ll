@@ -137,13 +137,14 @@ if.end12:                                         ; preds = %if.end
   br i1 %tobool14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end12
-  %call16 = call ptr @signal(i32 noundef 1, ptr noundef inttoptr (i64 1 to ptr)) #10
+  %10 = inttoptr i64 1 to ptr
+  %call16 = call ptr @signal(i32 noundef 1, ptr noundef %10) #10
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end12
-  %10 = load ptr, ptr %socket_path, align 8
-  %11 = load i32, ptr %debug, align 4
-  call void @serve_cache(ptr noundef %10, i32 noundef %11)
+  %11 = load ptr, ptr %socket_path, align 8
+  %12 = load i32, ptr %debug, align 4
+  call void @serve_cache(ptr noundef %11, i32 noundef %12)
   call void @delete_tempfile(ptr noundef %socket_file)
   ret i32 0
 }
@@ -909,42 +910,46 @@ entry:
   store ptr %timeout, ptr %timeout.addr, align 8
   %0 = load ptr, ptr %fh.addr, align 8
   %call = call i32 @strbuf_getline_lf(ptr noundef @read_request.item, ptr noundef %0)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @read_request.item, i32 0, i32 2), align 8
-  %call1 = call zeroext i1 @skip_prefix(ptr noundef %1, ptr noundef @.str.29, ptr noundef %p)
+  %1 = getelementptr inbounds %struct.strbuf, ptr @read_request.item, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  %call1 = call zeroext i1 @skip_prefix(ptr noundef %2, ptr noundef @.str.29, ptr noundef %p)
   br i1 %call1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @read_request.item, i32 0, i32 2), align 8
-  %call2 = call i32 (ptr, ...) @error(ptr noundef @.str.30, ptr noundef %2)
+  %3 = getelementptr inbounds %struct.strbuf, ptr @read_request.item, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  %call2 = call i32 (ptr, ...) @error(ptr noundef @.str.30, ptr noundef %4)
   %call3 = call i32 @const_error()
   store i32 %call3, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %action.addr, align 8
-  %4 = load ptr, ptr %p, align 8
-  call void @strbuf_addstr(ptr noundef %3, ptr noundef %4)
-  %5 = load ptr, ptr %fh.addr, align 8
-  %call4 = call i32 @strbuf_getline_lf(ptr noundef @read_request.item, ptr noundef %5)
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @read_request.item, i32 0, i32 2), align 8
-  %call5 = call zeroext i1 @skip_prefix(ptr noundef %6, ptr noundef @.str.31, ptr noundef %p)
+  %5 = load ptr, ptr %action.addr, align 8
+  %6 = load ptr, ptr %p, align 8
+  call void @strbuf_addstr(ptr noundef %5, ptr noundef %6)
+  %7 = load ptr, ptr %fh.addr, align 8
+  %call4 = call i32 @strbuf_getline_lf(ptr noundef @read_request.item, ptr noundef %7)
+  %8 = getelementptr inbounds %struct.strbuf, ptr @read_request.item, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %call5 = call zeroext i1 @skip_prefix(ptr noundef %9, ptr noundef @.str.31, ptr noundef %p)
   br i1 %call5, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %7 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @read_request.item, i32 0, i32 2), align 8
-  %call7 = call i32 (ptr, ...) @error(ptr noundef @.str.32, ptr noundef %7)
+  %10 = getelementptr inbounds %struct.strbuf, ptr @read_request.item, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  %call7 = call i32 (ptr, ...) @error(ptr noundef @.str.32, ptr noundef %11)
   %call8 = call i32 @const_error()
   store i32 %call8, ptr %retval, align 4
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %8 = load ptr, ptr %p, align 8
-  %call10 = call i32 @atoi(ptr noundef %8) #12
-  %9 = load ptr, ptr %timeout.addr, align 8
-  store i32 %call10, ptr %9, align 4
-  %10 = load ptr, ptr %c.addr, align 8
-  %11 = load ptr, ptr %fh.addr, align 8
-  %call11 = call i32 @credential_read(ptr noundef %10, ptr noundef %11)
+  %12 = load ptr, ptr %p, align 8
+  %call10 = call i32 @atoi(ptr noundef %12) #12
+  %13 = load ptr, ptr %timeout.addr, align 8
+  store i32 %call10, ptr %13, align 4
+  %14 = load ptr, ptr %c.addr, align 8
+  %15 = load ptr, ptr %fh.addr, align 8
+  %call11 = call i32 @credential_read(ptr noundef %14, ptr noundef %15)
   %cmp = icmp slt i32 %call11, 0
   br i1 %cmp, label %if.then12, label %if.end13
 
@@ -957,8 +962,8 @@ if.end13:                                         ; preds = %if.end9
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then12, %if.then6, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+  %16 = load i32, ptr %retval, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

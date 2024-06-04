@@ -108,35 +108,44 @@ invoke.cont:
   %call1 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #18
   %0 = getelementptr inbounds i8, ptr %call1, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %0, i8 0, i64 16, i1 false)
-  %1 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT14RenderPipeline, i64 0, i64 1), align 8
-  %2 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT14RenderPipeline, i64 0, i64 2), align 8
-  %vbase.offset.ptr.i.i = getelementptr i8, ptr %1, i64 -40
+  %1 = getelementptr inbounds [4 x ptr], ptr @_ZTT14RenderPipeline, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds [4 x ptr], ptr @_ZTT14RenderPipeline, i64 0, i64 2
+  %4 = load ptr, ptr %3, align 8
+  %vbase.offset.ptr.i.i = getelementptr i8, ptr %2, i64 -40
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call1, i64 %vbase.offset.i.i
-  store ptr %2, ptr %add.ptr.i.i, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-40, 48) ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, i32 0, i64 5), ptr %call1, align 8, !tbaa !14
+  store ptr %4, ptr %add.ptr.i.i, align 8, !tbaa !14
+  %5 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, i32 0, i64 5
+  store ptr %5, ptr %call1, align 8, !tbaa !14
   %m_pipeline.i = getelementptr inbounds i8, ptr %call1, i64 8
   %m_input.i = getelementptr inbounds i8, ptr %call1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_pipeline.i, i8 0, i64 48, i1 false)
-  %3 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT13DynamicSource, i64 0, i64 1), align 8
-  %4 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT13DynamicSource, i64 0, i64 2), align 8
-  %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %3, i64 -40
+  %6 = getelementptr inbounds [4 x ptr], ptr @_ZTT13DynamicSource, i64 0, i64 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds [4 x ptr], ptr @_ZTT13DynamicSource, i64 0, i64 2
+  %9 = load ptr, ptr %8, align 8
+  %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %7, i64 -40
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %m_input.i, i64 %vbase.offset.i.i.i
-  store ptr %4, ptr %add.ptr.i.i.i, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-40, 40) ({ [10 x ptr] }, ptr @_ZTV13DynamicSource, i64 0, i32 0, i64 5), ptr %m_input.i, align 8, !tbaa !14
+  store ptr %9, ptr %add.ptr.i.i.i, align 8, !tbaa !14
+  %10 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13DynamicSource, i64 0, i32 0, i64 5
+  store ptr %10, ptr %m_input.i, align 8, !tbaa !14
   %upstream.i.i = getelementptr inbounds i8, ptr %call1, i64 64
   store ptr null, ptr %upstream.i.i, align 8, !tbaa !16
   %m_output.i = getelementptr inbounds i8, ptr %call1, i64 72
-  %5 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT13DynamicTarget, i64 0, i64 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT13DynamicTarget, i64 0, i64 2), align 8
-  %vbase.offset.ptr.i.i3.i = getelementptr i8, ptr %5, i64 -40
+  %11 = getelementptr inbounds [4 x ptr], ptr @_ZTT13DynamicTarget, i64 0, i64 1
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds [4 x ptr], ptr @_ZTT13DynamicTarget, i64 0, i64 2
+  %14 = load ptr, ptr %13, align 8
+  %vbase.offset.ptr.i.i3.i = getelementptr i8, ptr %12, i64 -40
   %vbase.offset.i.i4.i = load i64, ptr %vbase.offset.ptr.i.i3.i, align 8
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %m_output.i, i64 %vbase.offset.i.i4.i
-  store ptr %6, ptr %add.ptr.i.i5.i, align 8, !tbaa !14
+  store ptr %14, ptr %add.ptr.i.i5.i, align 8, !tbaa !14
   %m_clear.i.i.i = getelementptr inbounds i8, ptr %call1, i64 80
   store i8 1, ptr %m_clear.i.i.i, align 8, !tbaa !19
-  store ptr getelementptr inbounds inrange(-40, 32) ({ [9 x ptr] }, ptr @_ZTV13DynamicTarget, i64 0, i32 0, i64 5), ptr %m_output.i, align 8, !tbaa !14
+  %15 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV13DynamicTarget, i64 0, i32 0, i64 5
+  store ptr %15, ptr %m_output.i, align 8, !tbaa !14
   %upstream.i6.i = getelementptr inbounds i8, ptr %call1, i64 88
   store ptr null, ptr %upstream.i6.i, align 8, !tbaa !22
   %scale.i = getelementptr inbounds i8, ptr %call1, i64 96
@@ -156,8 +165,8 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br i1 %cmp.i, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end
-  %7 = load ptr, ptr %pipeline, align 8, !tbaa !11
-  tail call void @_Z21populatePlainPipelineP14RenderPipelineP6Client(ptr noundef %7, ptr noundef %client)
+  %16 = load ptr, ptr %pipeline, align 8, !tbaa !11
+  tail call void @_Z21populatePlainPipelineP14RenderPipelineP6Client(ptr noundef %16, ptr noundef %client)
   br label %return
 
 if.end8:                                          ; preds = %if.end
@@ -166,8 +175,8 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp.i65, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
-  %8 = load ptr, ptr %pipeline, align 8, !tbaa !11
-  tail call void @_Z24populateAnaglyphPipelineP14RenderPipelineP6Client(ptr noundef %8, ptr noundef %client)
+  %17 = load ptr, ptr %pipeline, align 8, !tbaa !11
+  tail call void @_Z24populateAnaglyphPipelineP14RenderPipelineP6Client(ptr noundef %17, ptr noundef %client)
   br label %return
 
 if.end12:                                         ; preds = %if.end8
@@ -176,8 +185,8 @@ if.end12:                                         ; preds = %if.end8
   br i1 %cmp.i67, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end12
-  %9 = load ptr, ptr %pipeline, align 8, !tbaa !11
-  tail call void @_Z26populateInterlacedPipelineP14RenderPipelineP6Client(ptr noundef %9, ptr noundef %client)
+  %18 = load ptr, ptr %pipeline, align 8, !tbaa !11
+  tail call void @_Z26populateInterlacedPipelineP14RenderPipelineP6Client(ptr noundef %18, ptr noundef %client)
   br label %return
 
 if.end16:                                         ; preds = %if.end12
@@ -186,8 +195,8 @@ if.end16:                                         ; preds = %if.end12
   br i1 %cmp.i69, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %if.end16
-  %10 = load ptr, ptr %pipeline, align 8, !tbaa !11
-  tail call void @_Z26populateSideBySidePipelineP14RenderPipelineP6ClientbbRN3irr4core8vector2dIfEE(ptr noundef %10, ptr noundef %client, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(8) %result)
+  %19 = load ptr, ptr %pipeline, align 8, !tbaa !11
+  tail call void @_Z26populateSideBySidePipelineP14RenderPipelineP6ClientbbRN3irr4core8vector2dIfEE(ptr noundef %19, ptr noundef %client, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(8) %result)
   br label %return
 
 if.end21:                                         ; preds = %if.end16
@@ -196,8 +205,8 @@ if.end21:                                         ; preds = %if.end16
   br i1 %cmp.i71, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %if.end21
-  %11 = load ptr, ptr %pipeline, align 8, !tbaa !11
-  tail call void @_Z26populateSideBySidePipelineP14RenderPipelineP6ClientbbRN3irr4core8vector2dIfEE(ptr noundef %11, ptr noundef %client, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(8) %result)
+  %20 = load ptr, ptr %pipeline, align 8, !tbaa !11
+  tail call void @_Z26populateSideBySidePipelineP14RenderPipelineP6ClientbbRN3irr4core8vector2dIfEE(ptr noundef %20, ptr noundef %client, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(8) %result)
   br label %return
 
 if.end26:                                         ; preds = %if.end21
@@ -206,29 +215,30 @@ if.end26:                                         ; preds = %if.end21
   br i1 %cmp.i73, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.end26
-  %12 = load ptr, ptr %pipeline, align 8, !tbaa !11
-  tail call void @_Z26populateSideBySidePipelineP14RenderPipelineP6ClientbbRN3irr4core8vector2dIfEE(ptr noundef %12, ptr noundef %client, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(8) %result)
+  %21 = load ptr, ptr %pipeline, align 8, !tbaa !11
+  tail call void @_Z26populateSideBySidePipelineP14RenderPipelineP6ClientbbRN3irr4core8vector2dIfEE(ptr noundef %21, ptr noundef %client, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(8) %result)
   br label %return
 
 if.end31:                                         ; preds = %if.end26
-  br i1 icmp ne (ptr @_ZTH11errorstream, ptr null), label %13, label %_ZTW11errorstream.exit
+  %22 = icmp ne ptr @_ZTH11errorstream, null
+  br i1 %22, label %23, label %_ZTW11errorstream.exit
 
-13:                                               ; preds = %if.end31
+23:                                               ; preds = %if.end31
   tail call void @_ZTH11errorstream()
   br label %_ZTW11errorstream.exit
 
-_ZTW11errorstream.exit:                           ; preds = %13, %if.end31
-  %14 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
-  %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9LogStreamlsIRA25_KcEER11StreamProxyOT_(ptr noundef nonnull align 8 dereferenceable(992) %14, ptr noundef nonnull align 1 dereferenceable(25) @.str.6)
-  %15 = load ptr, ptr %call32, align 8, !tbaa !24
-  %tobool.not.i = icmp eq ptr %15, null
+_ZTW11errorstream.exit:                           ; preds = %23, %if.end31
+  %24 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
+  %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9LogStreamlsIRA25_KcEER11StreamProxyOT_(ptr noundef nonnull align 8 dereferenceable(992) %24, ptr noundef nonnull align 1 dereferenceable(25) @.str.6)
+  %25 = load ptr, ptr %call32, align 8, !tbaa !24
+  %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %_ZN11StreamProxylsEPFRSoS0_E.exit, label %_ZN11StreamProxylsIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_OT_.exit
 
 _ZN11StreamProxylsIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_OT_.exit: ; preds = %_ZTW11errorstream.exit
-  %16 = load ptr, ptr %stereo_mode, align 8, !tbaa !26
+  %26 = load ptr, ptr %stereo_mode, align 8, !tbaa !26
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %stereo_mode, i64 8
-  %17 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !30
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16, i64 noundef %17)
+  %27 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !30
+  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26, i64 noundef %27)
   %.pr = load ptr, ptr %call32, align 8, !tbaa !24
   %tobool.not.i74 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i74, label %_ZN11StreamProxylsEPFRSoS0_E.exit, label %if.then.i75
@@ -238,8 +248,8 @@ if.then.i75:                                      ; preds = %_ZN11StreamProxylsI
   br label %_ZN11StreamProxylsEPFRSoS0_E.exit
 
 _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %if.then.i75, %_ZN11StreamProxylsIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS_OT_.exit, %_ZTW11errorstream.exit
-  %18 = load ptr, ptr %pipeline, align 8, !tbaa !11
-  tail call void @_Z21populatePlainPipelineP14RenderPipelineP6Client(ptr noundef %18, ptr noundef %client)
+  %28 = load ptr, ptr %pipeline, align 8, !tbaa !11
+  tail call void @_Z21populatePlainPipelineP14RenderPipelineP6Client(ptr noundef %28, ptr noundef %client)
   br label %return
 
 return:                                           ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit, %if.then28, %if.then23, %if.then18, %if.then14, %if.then10, %if.then6
@@ -271,44 +281,45 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !31
-  store ptr getelementptr inbounds inrange(-40, 48) ({ [11 x ptr] }, ptr @_ZTV19RenderShadowMapStep, i64 0, i32 0, i64 5), ptr %call.i, align 8, !tbaa !14, !noalias !31
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV19RenderShadowMapStep, i64 0, i32 0, i64 5
+  store ptr %0, ptr %call.i, align 8, !tbaa !14, !noalias !31
   store ptr %call.i, ptr %ref.tmp, align 8, !tbaa !34, !alias.scope !31
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI19RenderShadowMapStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %ref.tmp, align 8, !tbaa !34
-  %cmp.not.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !34
+  %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI19RenderShadowMapStepSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI19RenderShadowMapStepEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI19RenderShadowMapStepEclEPS0_.exit.i: ; preds = %invoke.cont
-  %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !14
+  %vtable.i.i = load ptr, ptr %1, align 8, !tbaa !14
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %1 = load ptr, ptr %vfn.i.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  %2 = load ptr, ptr %vfn.i.i, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
   br label %_ZNSt10unique_ptrI19RenderShadowMapStepSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI19RenderShadowMapStepSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteI19RenderShadowMapStepEclEPS0_.exit.i, %invoke.cont
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #17
   %m_pipeline.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !34
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !34
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !35
-  %cmp.not.i.i = icmp eq ptr %2, %3
+  %4 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !35
+  %cmp.not.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrI19RenderShadowMapStepSt14default_deleteIS0_EED2Ev.exit
-  store ptr %call, ptr %2, align 8, !tbaa !34
-  %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !37
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %call, ptr %3, align 8, !tbaa !34
+  %5 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !37
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !37
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
 if.else.i.i:                                      ; preds = %_ZNSt10unique_ptrI19RenderShadowMapStepSt14default_deleteIS0_EED2Ev.exit
-  %5 = load ptr, ptr %m_pipeline.i, align 8, !tbaa !34
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
+  %6 = load ptr, ptr %m_pipeline.i, align 8, !tbaa !34
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIP10RenderStepSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -322,8 +333,8 @@ _ZNKSt6vectorIP10RenderStepSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %6 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %6
+  %7 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %7
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIP10RenderStepSaIS1_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -340,17 +351,17 @@ _ZNSt12_Vector_baseIP10RenderStepSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIP10RenderStepSaIS1_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i31.i.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i31.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
 
 _ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIP10RenderStepSaIS1_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i31.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i39.i.i.i
 
 if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %5) #19
+  call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
@@ -364,22 +375,22 @@ _ZN14RenderPipeline7addStepEP10RenderStep.exit:   ; preds = %_ZNSt6vectorIP10Ren
   ret ptr %call
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %ref.tmp, align 8, !tbaa !34
-  %cmp.not.i5 = icmp eq ptr %8, null
+  %9 = load ptr, ptr %ref.tmp, align 8, !tbaa !34
+  %cmp.not.i5 = icmp eq ptr %9, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrI19RenderShadowMapStepSt14default_deleteIS0_EED2Ev.exit9, label %_ZNKSt14default_deleteI19RenderShadowMapStepEclEPS0_.exit.i6
 
 _ZNKSt14default_deleteI19RenderShadowMapStepEclEPS0_.exit.i6: ; preds = %lpad
-  %vtable.i.i7 = load ptr, ptr %8, align 8, !tbaa !14
+  %vtable.i.i7 = load ptr, ptr %9, align 8, !tbaa !14
   %vfn.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i7, i64 8
-  %9 = load ptr, ptr %vfn.i.i8, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  %10 = load ptr, ptr %vfn.i.i8, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
   br label %_ZNSt10unique_ptrI19RenderShadowMapStepSt14default_deleteIS0_EED2Ev.exit9
 
 _ZNSt10unique_ptrI19RenderShadowMapStepSt14default_deleteIS0_EED2Ev.exit9: ; preds = %_ZNKSt14default_deleteI19RenderShadowMapStepEclEPS0_.exit.i6, %lpad
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #17
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %8
 }
 
 declare void @_Z21populatePlainPipelineP14RenderPipelineP6Client(ptr noundef, ptr noundef) local_unnamed_addr #0

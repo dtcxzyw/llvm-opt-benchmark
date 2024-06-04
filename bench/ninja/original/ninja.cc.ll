@@ -2862,96 +2862,97 @@ define internal void @_ZN12_GLOBAL__N_19NinjaMainC2EPKcRK11BuildConfig(ptr nound
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN12BuildLogUserC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19NinjaMainE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 3
-  call void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %14)
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 4
-  invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %16 unwind label %25
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19NinjaMainE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 3
+  call void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %15)
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 4
+  invoke void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
-  %18 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 6
-  invoke void @_ZN8BuildLogC1Ev(ptr noundef nonnull align 8 dereferenceable(97) %18)
-          to label %19 unwind label %29
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #17
+  %19 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 6
+  invoke void @_ZN8BuildLogC1Ev(ptr noundef nonnull align 8 dereferenceable(97) %19)
+          to label %20 unwind label %30
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 7
-  invoke void @_ZN7DepsLogC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %20)
-          to label %21 unwind label %33
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 7
+  invoke void @_ZN7DepsLogC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %21)
+          to label %22 unwind label %34
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 8
-  %23 = invoke noundef i64 @_Z13GetTimeMillisv()
-          to label %24 unwind label %37
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %9, i32 0, i32 8
+  %24 = invoke noundef i64 @_Z13GetTimeMillisv()
+          to label %25 unwind label %38
 
-24:                                               ; preds = %21
-  store i64 %23, ptr %22, align 8
+25:                                               ; preds = %22
+  store i64 %24, ptr %23, align 8
   ret void
 
-25:                                               ; preds = %3
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %3
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %7, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %8, align 4
-  br label %43
-
-29:                                               ; preds = %16
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %7, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %8, align 4
-  br label %42
-
-33:                                               ; preds = %19
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %7, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %8, align 4
-  br label %41
-
-37:                                               ; preds = %21
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %7, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %8, align 4
-  call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #17
-  br label %41
-
-41:                                               ; preds = %37, %33
-  call void @_ZN8BuildLogD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %18) #17
-  br label %42
-
-42:                                               ; preds = %41, %29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
-  call void @_ZN17RealDiskInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #17
-  br label %43
-
-43:                                               ; preds = %42, %25
-  call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %14) #17
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %7, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %8, align 4
   br label %44
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %7, align 8
-  %46 = load i32, ptr %8, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+30:                                               ; preds = %17
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
+  br label %43
+
+34:                                               ; preds = %20
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %7, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %8, align 4
+  br label %42
+
+38:                                               ; preds = %22
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %7, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %8, align 4
+  call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #17
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN8BuildLogD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %19) #17
+  br label %43
+
+43:                                               ; preds = %42, %30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #17
+  call void @_ZN17RealDiskInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #17
+  br label %44
+
+44:                                               ; preds = %43, %26
+  call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %15) #17
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %8, align 4
+  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
+  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
+  resume { ptr, i32 } %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2959,17 +2960,18 @@ define internal void @_ZN12_GLOBAL__N_19NinjaMainD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19NinjaMainE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 7
-  call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #17
-  %5 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 6
-  call void @_ZN8BuildLogD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %5) #17
-  %6 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  %7 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 4
-  call void @_ZN17RealDiskInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-  %8 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 3
-  call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %8) #17
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19NinjaMainE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 7
+  call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #17
+  %6 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 6
+  call void @_ZN8BuildLogD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %6) #17
+  %7 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  %8 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 4
+  call void @_ZN17RealDiskInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  %9 = getelementptr inbounds %"struct.(anonymous namespace)::NinjaMain", ptr %3, i32 0, i32 3
+  call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %9) #17
   ret void
 }
 
@@ -14791,7 +14793,8 @@ define linkonce_odr dso_local void @_ZN24MissingDependencyPrinterC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN32MissingDependencyScannerDelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24MissingDependencyPrinter, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV24MissingDependencyPrinter, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14844,7 +14847,8 @@ define linkonce_odr dso_local void @_ZN32MissingDependencyScannerDelegateC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV32MissingDependencyScannerDelegate, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV32MissingDependencyScannerDelegate, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20728,7 +20732,8 @@ define linkonce_odr dso_local void @_ZN12BuildLogUserC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV12BuildLogUser, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV12BuildLogUser, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20953,11 +20958,12 @@ define linkonce_odr dso_local void @_ZN10BindingEnvD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
-  %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
+  %6 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #17
   call void @_ZN3EnvD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   ret void
 }

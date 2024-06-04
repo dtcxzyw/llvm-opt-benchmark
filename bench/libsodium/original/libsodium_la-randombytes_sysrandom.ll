@@ -32,13 +32,15 @@ entry:
 ; Function Attrs: nounwind ssp uwtable
 define internal void @randombytes_sysrandom_stir() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.SysRandom_, ptr @stream, i32 0, i32 1), align 4
-  %cmp = icmp eq i32 %0, 0
+  %0 = getelementptr inbounds %struct.SysRandom_, ptr @stream, i32 0, i32 1
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   call void @randombytes_sysrandom_init()
-  store i32 1, ptr getelementptr inbounds (%struct.SysRandom_, ptr @stream, i32 0, i32 1), align 4
+  %2 = getelementptr inbounds %struct.SysRandom_, ptr @stream, i32 0, i32 1
+  store i32 1, ptr %2, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -53,14 +55,15 @@ entry:
   store ptr %buf, ptr %buf.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   call void @randombytes_sysrandom_stir_if_needed()
-  %0 = load i32, ptr getelementptr inbounds (%struct.SysRandom_, ptr @stream, i32 0, i32 2), align 4
-  %cmp = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.SysRandom_, ptr @stream, i32 0, i32 2
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp ne i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %buf.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %call = call i32 @randombytes_linux_getrandom(ptr noundef %1, i64 noundef %2)
+  %2 = load ptr, ptr %buf.addr, align 8
+  %3 = load i64, ptr %size.addr, align 8
+  %call = call i32 @randombytes_linux_getrandom(ptr noundef %2, i64 noundef %3)
   %cmp1 = icmp ne i32 %call, 0
   br i1 %cmp1, label %if.then2, label %if.end
 
@@ -72,17 +75,17 @@ if.end:                                           ; preds = %if.then
   br label %if.end8
 
 if.end3:                                          ; preds = %entry
-  %3 = load i32, ptr @stream, align 4
-  %cmp4 = icmp eq i32 %3, -1
+  %4 = load i32, ptr @stream, align 4
+  %cmp4 = icmp eq i32 %4, -1
   br i1 %cmp4, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %4 = load i32, ptr @stream, align 4
-  %5 = load ptr, ptr %buf.addr, align 8
-  %6 = load i64, ptr %size.addr, align 8
-  %call5 = call i64 @safe_read(i32 noundef %4, ptr noundef %5, i64 noundef %6)
+  %5 = load i32, ptr @stream, align 4
+  %6 = load ptr, ptr %buf.addr, align 8
   %7 = load i64, ptr %size.addr, align 8
-  %cmp6 = icmp ne i64 %call5, %7
+  %call5 = call i64 @safe_read(i32 noundef %5, ptr noundef %6, i64 noundef %7)
+  %8 = load i64, ptr %size.addr, align 8
+  %cmp6 = icmp ne i64 %call5, %8
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end3
@@ -110,13 +113,15 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   store i32 -1, ptr @stream, align 4
-  store i32 0, ptr getelementptr inbounds (%struct.SysRandom_, ptr @stream, i32 0, i32 1), align 4
+  %2 = getelementptr inbounds %struct.SysRandom_, ptr @stream, i32 0, i32 1
+  store i32 0, ptr %2, align 4
   store i32 0, ptr %ret, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.SysRandom_, ptr @stream, i32 0, i32 2), align 4
-  %cmp2 = icmp ne i32 %2, 0
+  %3 = getelementptr inbounds %struct.SysRandom_, ptr @stream, i32 0, i32 2
+  %4 = load i32, ptr %3, align 4
+  %cmp2 = icmp ne i32 %4, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -124,8 +129,8 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %3 = load i32, ptr %ret, align 4
-  ret i32 %3
+  %5 = load i32, ptr %ret, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind ssp uwtable
@@ -142,14 +147,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (%struct.SysRandom_, ptr @stream, i32 0, i32 2), align 4
-  %1 = load i32, ptr %errno_save, align 4
+  %1 = getelementptr inbounds %struct.SysRandom_, ptr @stream, i32 0, i32 2
+  store i32 1, ptr %1, align 4
+  %2 = load i32, ptr %errno_save, align 4
   %call2 = call ptr @__errno_location() #6
-  store i32 %1, ptr %call2, align 4
+  store i32 %2, ptr %call2, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  store i32 0, ptr getelementptr inbounds (%struct.SysRandom_, ptr @stream, i32 0, i32 2), align 4
+  %3 = getelementptr inbounds %struct.SysRandom_, ptr @stream, i32 0, i32 2
+  store i32 0, ptr %3, align 4
   %call3 = call i32 @randombytes_sysrandom_random_dev_open()
   store i32 %call3, ptr @stream, align 4
   %cmp4 = icmp eq i32 %call3, -1
@@ -160,9 +167,9 @@ if.then5:                                         ; preds = %if.end
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  %2 = load i32, ptr %errno_save, align 4
+  %4 = load i32, ptr %errno_save, align 4
   %call7 = call ptr @__errno_location() #6
-  store i32 %2, ptr %call7, align 4
+  store i32 %4, ptr %call7, align 4
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then
@@ -478,8 +485,9 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #3
 ; Function Attrs: nounwind ssp uwtable
 define internal void @randombytes_sysrandom_stir_if_needed() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.SysRandom_, ptr @stream, i32 0, i32 1), align 4
-  %cmp = icmp eq i32 %0, 0
+  %0 = getelementptr inbounds %struct.SysRandom_, ptr @stream, i32 0, i32 1
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

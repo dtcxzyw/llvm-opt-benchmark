@@ -4003,23 +4003,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argp, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %9 = load ptr, ptr %L.addr, align 8
   %10 = load ptr, ptr %fmt.addr, align 8
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argp, i64 0, i64 0
   %call6 = call ptr @lj_strfmt_pushvf(ptr noundef %9, ptr noundef %10, ptr noundef %arraydecay5)
   store ptr %call6, ptr %ret, align 8
   %arraydecay7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argp, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay7)
+  call void @llvm.va_end.p0(ptr %arraydecay7)
   %11 = load ptr, ptr %ret, align 8
   ret ptr %11
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define void @lua_pushcclosure(ptr noundef %L, ptr noundef %f, i32 noundef %n) #0 {
@@ -8232,64 +8226,65 @@ if.else:                                          ; preds = %if.then
   store ptr %incdec.ptr21, ptr %top13, align 8
   store i64 %conv20, ptr %38, align 8
   %39 = load ptr, ptr %top13, align 8
-  store i64 ptrtoint (ptr @lj_cont_hook to i64), ptr %39, align 8
-  %40 = load ptr, ptr %top13, align 8
-  %incdec.ptr22 = getelementptr inbounds %union.TValue, ptr %40, i32 1
+  %40 = ptrtoint ptr @lj_cont_hook to i64
+  store i64 %40, ptr %39, align 8
+  %41 = load ptr, ptr %top13, align 8
+  %incdec.ptr22 = getelementptr inbounds %union.TValue, ptr %41, i32 1
   store ptr %incdec.ptr22, ptr %top13, align 8
-  %41 = load ptr, ptr %cf, align 8
-  %add.ptr23 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = load ptr, ptr %cf, align 8
+  %add.ptr23 = getelementptr inbounds i8, ptr %42, i64 24
   %ptr6424 = getelementptr inbounds %struct.MRef, ptr %add.ptr23, i32 0, i32 0
-  %42 = load i64, ptr %ptr6424, align 8
-  %43 = inttoptr i64 %42 to ptr
-  %add.ptr25 = getelementptr inbounds i32, ptr %43, i64 -1
-  %44 = ptrtoint ptr %add.ptr25 to i64
-  %45 = load ptr, ptr %top13, align 8
-  store i64 %44, ptr %45, align 8
+  %43 = load i64, ptr %ptr6424, align 8
+  %44 = inttoptr i64 %43 to ptr
+  %add.ptr25 = getelementptr inbounds i32, ptr %44, i64 -1
+  %45 = ptrtoint ptr %add.ptr25 to i64
   %46 = load ptr, ptr %top13, align 8
-  %incdec.ptr26 = getelementptr inbounds %union.TValue, ptr %46, i32 1
-  store ptr %incdec.ptr26, ptr %top13, align 8
+  store i64 %45, ptr %46, align 8
   %47 = load ptr, ptr %top13, align 8
-  %48 = load ptr, ptr %L.addr, align 8
-  store ptr %47, ptr %o.addr.i, align 8
-  store ptr %48, ptr %v.addr.i, align 8
+  %incdec.ptr26 = getelementptr inbounds %union.TValue, ptr %47, i32 1
+  store ptr %incdec.ptr26, ptr %top13, align 8
+  %48 = load ptr, ptr %top13, align 8
+  %49 = load ptr, ptr %L.addr, align 8
+  store ptr %48, ptr %o.addr.i, align 8
+  store ptr %49, ptr %v.addr.i, align 8
   store i32 -7, ptr %itype.addr.i, align 4
-  %49 = load ptr, ptr %v.addr.i, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = load i32, ptr %itype.addr.i, align 4
-  %conv.i = zext i32 %51 to i64
+  %50 = load ptr, ptr %v.addr.i, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = load i32, ptr %itype.addr.i, align 4
+  %conv.i = zext i32 %52 to i64
   %shl.i = shl i64 %conv.i, 47
-  %or.i = or i64 %50, %shl.i
-  %52 = load ptr, ptr %o.addr.i, align 8
-  store i64 %or.i, ptr %52, align 8
-  %53 = load ptr, ptr %top13, align 8
-  %incdec.ptr27 = getelementptr inbounds %union.TValue, ptr %53, i32 1
-  store ptr %incdec.ptr27, ptr %top13, align 8
+  %or.i = or i64 %51, %shl.i
+  %53 = load ptr, ptr %o.addr.i, align 8
+  store i64 %or.i, ptr %53, align 8
   %54 = load ptr, ptr %top13, align 8
-  %add.ptr28 = getelementptr inbounds %union.TValue, ptr %54, i64 1
-  %55 = load ptr, ptr %L.addr, align 8
-  %base29 = getelementptr inbounds %struct.lua_State, ptr %55, i32 0, i32 7
-  %56 = load ptr, ptr %base29, align 8
+  %incdec.ptr27 = getelementptr inbounds %union.TValue, ptr %54, i32 1
+  store ptr %incdec.ptr27, ptr %top13, align 8
+  %55 = load ptr, ptr %top13, align 8
+  %add.ptr28 = getelementptr inbounds %union.TValue, ptr %55, i64 1
+  %56 = load ptr, ptr %L.addr, align 8
+  %base29 = getelementptr inbounds %struct.lua_State, ptr %56, i32 0, i32 7
+  %57 = load ptr, ptr %base29, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr28 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %56 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %57 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add = add nsw i64 %sub.ptr.sub, 2
-  %57 = load ptr, ptr %top13, align 8
-  store i64 %add, ptr %57, align 8
   %58 = load ptr, ptr %top13, align 8
-  %add.ptr30 = getelementptr inbounds %union.TValue, ptr %58, i64 1
-  %59 = load ptr, ptr %L.addr, align 8
-  %base31 = getelementptr inbounds %struct.lua_State, ptr %59, i32 0, i32 7
-  store ptr %add.ptr30, ptr %base31, align 8
+  store i64 %add, ptr %58, align 8
+  %59 = load ptr, ptr %top13, align 8
+  %add.ptr30 = getelementptr inbounds %union.TValue, ptr %59, i64 1
   %60 = load ptr, ptr %L.addr, align 8
-  %top32 = getelementptr inbounds %struct.lua_State, ptr %60, i32 0, i32 8
-  store ptr %add.ptr30, ptr %top32, align 8
+  %base31 = getelementptr inbounds %struct.lua_State, ptr %60, i32 0, i32 7
+  store ptr %add.ptr30, ptr %base31, align 8
   %61 = load ptr, ptr %L.addr, align 8
-  call void @lj_err_throw(ptr noundef %61, i32 noundef 1) #6
+  %top32 = getelementptr inbounds %struct.lua_State, ptr %61, i32 0, i32 8
+  store ptr %add.ptr30, ptr %top32, align 8
+  %62 = load ptr, ptr %L.addr, align 8
+  call void @lj_err_throw(ptr noundef %62, i32 noundef 1) #6
   unreachable
 
 if.end33:                                         ; preds = %entry
-  %62 = load ptr, ptr %L.addr, align 8
-  call void @lj_err_msg(ptr noundef %62, i32 noundef 830) #6
+  %63 = load ptr, ptr %L.addr, align 8
+  call void @lj_err_msg(ptr noundef %63, i32 noundef 830) #6
   unreachable
 }
 
@@ -8704,14 +8699,20 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn }
 attributes #6 = { noreturn }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }

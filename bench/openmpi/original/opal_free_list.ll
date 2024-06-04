@@ -42,137 +42,140 @@ define internal void @opal_free_list_construct(ptr noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.opal_free_list_t, ptr %10, i32 0, i32 12
-  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %12, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.opal_free_list_t, ptr %13, i32 0, i32 12
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.opal_free_list_t, ptr %16, i32 0, i32 12
-  call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %18
-
-18:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.opal_free_list_t, ptr %11, i32 0, i32 12
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %13, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.opal_free_list_t, ptr %14, i32 0, i32 12
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.opal_free_list_t, ptr %17, i32 0, i32 12
+  call void @opal_obj_run_constructors(ptr noundef %18)
   br label %19
 
-19:                                               ; preds = %18
+19:                                               ; preds = %10
   br label %20
 
 20:                                               ; preds = %19
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_condition_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+  br label %22
 
-25:                                               ; preds = %21
+22:                                               ; preds = %21
+  %23 = load i32, ptr @opal_class_init_epoch, align 4
+  %24 = getelementptr inbounds %struct.opal_class_t, ptr @opal_condition_t_class, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %23, %25
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %22
   call void @opal_class_initialize(ptr noundef @opal_condition_t_class)
-  br label %26
+  br label %28
 
-26:                                               ; preds = %25, %21
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.opal_free_list_t, ptr %27, i32 0, i32 13
-  %29 = getelementptr inbounds %struct.opal_object_t, ptr %28, i32 0, i32 0
-  store ptr @opal_condition_t_class, ptr %29, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.opal_free_list_t, ptr %30, i32 0, i32 13
-  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 1
-  store volatile i32 1, ptr %32, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.opal_free_list_t, ptr %33, i32 0, i32 13
-  call void @opal_obj_run_constructors(ptr noundef %34)
-  br label %35
+28:                                               ; preds = %27, %22
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.opal_free_list_t, ptr %29, i32 0, i32 13
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr %30, i32 0, i32 0
+  store ptr @opal_condition_t_class, ptr %31, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.opal_free_list_t, ptr %32, i32 0, i32 13
+  %34 = getelementptr inbounds %struct.opal_object_t, ptr %33, i32 0, i32 1
+  store volatile i32 1, ptr %34, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds %struct.opal_free_list_t, ptr %35, i32 0, i32 13
+  call void @opal_obj_run_constructors(ptr noundef %36)
+  br label %37
 
-35:                                               ; preds = %26
-  br label %36
+37:                                               ; preds = %28
+  br label %38
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.opal_free_list_t, ptr %37, i32 0, i32 1
-  store i64 0, ptr %38, align 16
+38:                                               ; preds = %37
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.opal_free_list_t, ptr %39, i32 0, i32 2
-  store i64 0, ptr %40, align 8
+  %40 = getelementptr inbounds %struct.opal_free_list_t, ptr %39, i32 0, i32 1
+  store i64 0, ptr %40, align 16
   %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds %struct.opal_free_list_t, ptr %41, i32 0, i32 3
-  store i64 0, ptr %42, align 16
+  %42 = getelementptr inbounds %struct.opal_free_list_t, ptr %41, i32 0, i32 2
+  store i64 0, ptr %42, align 8
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.opal_free_list_t, ptr %43, i32 0, i32 4
-  store i64 0, ptr %44, align 8
+  %44 = getelementptr inbounds %struct.opal_free_list_t, ptr %43, i32 0, i32 3
+  store i64 0, ptr %44, align 16
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.opal_free_list_t, ptr %45, i32 0, i32 5
-  store i64 56, ptr %46, align 16
+  %46 = getelementptr inbounds %struct.opal_free_list_t, ptr %45, i32 0, i32 4
+  store i64 0, ptr %46, align 8
   %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.opal_free_list_t, ptr %47, i32 0, i32 6
-  store i64 0, ptr %48, align 8
+  %48 = getelementptr inbounds %struct.opal_free_list_t, ptr %47, i32 0, i32 5
+  store i64 56, ptr %48, align 16
   %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.opal_free_list_t, ptr %49, i32 0, i32 7
-  store i64 0, ptr %50, align 16
+  %50 = getelementptr inbounds %struct.opal_free_list_t, ptr %49, i32 0, i32 6
+  store i64 0, ptr %50, align 8
   %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.opal_free_list_t, ptr %51, i32 0, i32 8
-  store i64 0, ptr %52, align 8
+  %52 = getelementptr inbounds %struct.opal_free_list_t, ptr %51, i32 0, i32 7
+  store i64 0, ptr %52, align 16
   %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.opal_free_list_t, ptr %53, i32 0, i32 9
-  store ptr @opal_free_list_item_t_class, ptr %54, align 16
+  %54 = getelementptr inbounds %struct.opal_free_list_t, ptr %53, i32 0, i32 8
+  store i64 0, ptr %54, align 8
   %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.opal_free_list_t, ptr %55, i32 0, i32 10
-  store ptr null, ptr %56, align 8
+  %56 = getelementptr inbounds %struct.opal_free_list_t, ptr %55, i32 0, i32 9
+  store ptr @opal_free_list_item_t_class, ptr %56, align 16
   %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds %struct.opal_free_list_t, ptr %57, i32 0, i32 11
-  store ptr null, ptr %58, align 16
+  %58 = getelementptr inbounds %struct.opal_free_list_t, ptr %57, i32 0, i32 10
+  store ptr null, ptr %58, align 8
   %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.opal_free_list_t, ptr %59, i32 0, i32 15
-  store i32 17, ptr %60, align 16
+  %60 = getelementptr inbounds %struct.opal_free_list_t, ptr %59, i32 0, i32 11
+  store ptr null, ptr %60, align 16
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.opal_free_list_t, ptr %61, i32 0, i32 17
-  store ptr null, ptr %62, align 16
-  br label %63
+  %62 = getelementptr inbounds %struct.opal_free_list_t, ptr %61, i32 0, i32 15
+  store i32 17, ptr %62, align 16
+  %63 = load ptr, ptr %2, align 8
+  %64 = getelementptr inbounds %struct.opal_free_list_t, ptr %63, i32 0, i32 17
+  store ptr null, ptr %64, align 16
+  br label %65
 
-63:                                               ; preds = %36
-  br label %64
+65:                                               ; preds = %38
+  br label %66
 
-64:                                               ; preds = %63
-  %65 = load i32, ptr @opal_class_init_epoch, align 4
-  %66 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %67 = icmp ne i32 %65, %66
-  br i1 %67, label %68, label %69
+66:                                               ; preds = %65
+  %67 = load i32, ptr @opal_class_init_epoch, align 4
+  %68 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp ne i32 %67, %69
+  br i1 %70, label %71, label %72
 
-68:                                               ; preds = %64
+71:                                               ; preds = %66
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %69
+  br label %72
 
-69:                                               ; preds = %68, %64
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.opal_free_list_t, ptr %70, i32 0, i32 14
-  %72 = getelementptr inbounds %struct.opal_object_t, ptr %71, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %72, align 16
+72:                                               ; preds = %71, %66
   %73 = load ptr, ptr %2, align 8
   %74 = getelementptr inbounds %struct.opal_free_list_t, ptr %73, i32 0, i32 14
-  %75 = getelementptr inbounds %struct.opal_object_t, ptr %74, i32 0, i32 1
-  store volatile i32 1, ptr %75, align 8
+  %75 = getelementptr inbounds %struct.opal_object_t, ptr %74, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %75, align 16
   %76 = load ptr, ptr %2, align 8
   %77 = getelementptr inbounds %struct.opal_free_list_t, ptr %76, i32 0, i32 14
-  call void @opal_obj_run_constructors(ptr noundef %77)
-  br label %78
+  %78 = getelementptr inbounds %struct.opal_object_t, ptr %77, i32 0, i32 1
+  store volatile i32 1, ptr %78, align 8
+  %79 = load ptr, ptr %2, align 8
+  %80 = getelementptr inbounds %struct.opal_free_list_t, ptr %79, i32 0, i32 14
+  call void @opal_obj_run_constructors(ptr noundef %80)
+  br label %81
 
-78:                                               ; preds = %69
-  br label %79
+81:                                               ; preds = %72
+  br label %82
 
-79:                                               ; preds = %78
+82:                                               ; preds = %81
   ret void
 }
 
@@ -518,7 +521,7 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef %
 
 46:                                               ; preds = %43
   store i32 -3, ptr %4, align 4
-  br label %343
+  br label %344
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %5, align 8
@@ -628,7 +631,7 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef %
 
 133:                                              ; preds = %115
   store i32 -3, ptr %4, align 4
-  br label %343
+  br label %344
 
 134:                                              ; preds = %115
   %135 = load ptr, ptr %5, align 8
@@ -658,7 +661,7 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef %
   %154 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %154) #5
   store i32 -3, ptr %4, align 4
-  br label %343
+  br label %344
 
 155:                                              ; preds = %139
   %156 = load ptr, ptr %5, align 8
@@ -709,7 +712,7 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef %
   call void %190(ptr noundef %193, ptr noundef %194)
   %195 = load i32, ptr %17, align 4
   store i32 %195, ptr %4, align 4
-  br label %343
+  br label %344
 
 196:                                              ; preds = %160
   br label %197
@@ -725,235 +728,236 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef %
 
 200:                                              ; preds = %199
   %201 = load i32, ptr @opal_class_init_epoch, align 4
-  %202 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_item_t_class, i32 0, i32 4), align 8
-  %203 = icmp ne i32 %201, %202
-  br i1 %203, label %204, label %205
+  %202 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_item_t_class, i32 0, i32 4
+  %203 = load i32, ptr %202, align 8
+  %204 = icmp ne i32 %201, %203
+  br i1 %204, label %205, label %206
 
-204:                                              ; preds = %200
+205:                                              ; preds = %200
   call void @opal_class_initialize(ptr noundef @opal_free_list_item_t_class)
-  br label %205
+  br label %206
 
-205:                                              ; preds = %204, %200
-  %206 = load ptr, ptr %10, align 8
-  %207 = getelementptr inbounds %struct.opal_object_t, ptr %206, i32 0, i32 0
-  store ptr @opal_free_list_item_t_class, ptr %207, align 8
-  %208 = load ptr, ptr %10, align 8
-  %209 = getelementptr inbounds %struct.opal_object_t, ptr %208, i32 0, i32 1
-  store volatile i32 1, ptr %209, align 8
-  %210 = load ptr, ptr %10, align 8
-  call void @opal_obj_run_constructors(ptr noundef %210)
-  br label %211
-
-211:                                              ; preds = %205
+206:                                              ; preds = %205, %200
+  %207 = load ptr, ptr %10, align 8
+  %208 = getelementptr inbounds %struct.opal_object_t, ptr %207, i32 0, i32 0
+  store ptr @opal_free_list_item_t_class, ptr %208, align 8
+  %209 = load ptr, ptr %10, align 8
+  %210 = getelementptr inbounds %struct.opal_object_t, ptr %209, i32 0, i32 1
+  store volatile i32 1, ptr %210, align 8
+  %211 = load ptr, ptr %10, align 8
+  call void @opal_obj_run_constructors(ptr noundef %211)
   br label %212
 
-212:                                              ; preds = %211
-  %213 = load ptr, ptr %5, align 8
-  %214 = getelementptr inbounds %struct.opal_free_list_t, ptr %213, i32 0, i32 14
-  %215 = load ptr, ptr %10, align 8
-  call void @_opal_list_append(ptr noundef %214, ptr noundef %215)
-  %216 = load ptr, ptr %16, align 8
-  %217 = load ptr, ptr %10, align 8
-  %218 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %217, i32 0, i32 1
-  store ptr %216, ptr %218, align 8
-  %219 = load ptr, ptr %9, align 8
-  %220 = load ptr, ptr %10, align 8
-  %221 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %220, i32 0, i32 2
-  store ptr %219, ptr %221, align 8
-  %222 = load ptr, ptr %10, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 56
-  store ptr %223, ptr %8, align 8
-  %224 = load ptr, ptr %8, align 8
-  %225 = ptrtoint ptr %224 to i64
-  %226 = load ptr, ptr %5, align 8
-  %227 = getelementptr inbounds %struct.opal_free_list_t, ptr %226, i32 0, i32 6
-  %228 = load i64, ptr %227, align 8
-  %229 = sub i64 %228, 1
-  %230 = add i64 %225, %229
-  %231 = load ptr, ptr %5, align 8
-  %232 = getelementptr inbounds %struct.opal_free_list_t, ptr %231, i32 0, i32 6
-  %233 = load i64, ptr %232, align 8
-  %234 = sub i64 %233, 1
-  %235 = xor i64 %234, -1
-  %236 = and i64 %230, %235
-  %237 = inttoptr i64 %236 to ptr
-  store ptr %237, ptr %8, align 8
+212:                                              ; preds = %206
+  br label %213
+
+213:                                              ; preds = %212
+  %214 = load ptr, ptr %5, align 8
+  %215 = getelementptr inbounds %struct.opal_free_list_t, ptr %214, i32 0, i32 14
+  %216 = load ptr, ptr %10, align 8
+  call void @_opal_list_append(ptr noundef %215, ptr noundef %216)
+  %217 = load ptr, ptr %16, align 8
+  %218 = load ptr, ptr %10, align 8
+  %219 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %218, i32 0, i32 1
+  store ptr %217, ptr %219, align 8
+  %220 = load ptr, ptr %9, align 8
+  %221 = load ptr, ptr %10, align 8
+  %222 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %221, i32 0, i32 2
+  store ptr %220, ptr %222, align 8
+  %223 = load ptr, ptr %10, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 56
+  store ptr %224, ptr %8, align 8
+  %225 = load ptr, ptr %8, align 8
+  %226 = ptrtoint ptr %225 to i64
+  %227 = load ptr, ptr %5, align 8
+  %228 = getelementptr inbounds %struct.opal_free_list_t, ptr %227, i32 0, i32 6
+  %229 = load i64, ptr %228, align 8
+  %230 = sub i64 %229, 1
+  %231 = add i64 %226, %230
+  %232 = load ptr, ptr %5, align 8
+  %233 = getelementptr inbounds %struct.opal_free_list_t, ptr %232, i32 0, i32 6
+  %234 = load i64, ptr %233, align 8
+  %235 = sub i64 %234, 1
+  %236 = xor i64 %235, -1
+  %237 = and i64 %231, %236
+  %238 = inttoptr i64 %237 to ptr
+  store ptr %238, ptr %8, align 8
   store i64 0, ptr %19, align 8
-  br label %238
+  br label %239
 
-238:                                              ; preds = %321, %212
-  %239 = load i64, ptr %19, align 8
-  %240 = load i64, ptr %6, align 8
-  %241 = icmp ult i64 %239, %240
-  br i1 %241, label %242, label %324
+239:                                              ; preds = %322, %213
+  %240 = load i64, ptr %19, align 8
+  %241 = load i64, ptr %6, align 8
+  %242 = icmp ult i64 %240, %241
+  br i1 %242, label %243, label %325
 
-242:                                              ; preds = %238
-  %243 = load ptr, ptr %8, align 8
-  store ptr %243, ptr %20, align 8
-  %244 = load ptr, ptr %16, align 8
-  %245 = load ptr, ptr %20, align 8
-  %246 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %245, i32 0, i32 1
-  store ptr %244, ptr %246, align 8
-  %247 = load ptr, ptr %9, align 8
-  %248 = load ptr, ptr %20, align 8
-  %249 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %248, i32 0, i32 2
-  store ptr %247, ptr %249, align 8
-  br label %250
+243:                                              ; preds = %239
+  %244 = load ptr, ptr %8, align 8
+  store ptr %244, ptr %20, align 8
+  %245 = load ptr, ptr %16, align 8
+  %246 = load ptr, ptr %20, align 8
+  %247 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %246, i32 0, i32 1
+  store ptr %245, ptr %247, align 8
+  %248 = load ptr, ptr %9, align 8
+  %249 = load ptr, ptr %20, align 8
+  %250 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %249, i32 0, i32 2
+  store ptr %248, ptr %250, align 8
+  br label %251
 
-250:                                              ; preds = %242
-  %251 = load i32, ptr @opal_class_init_epoch, align 4
-  %252 = load ptr, ptr %5, align 8
-  %253 = getelementptr inbounds %struct.opal_free_list_t, ptr %252, i32 0, i32 9
-  %254 = load ptr, ptr %253, align 16
-  %255 = getelementptr inbounds %struct.opal_class_t, ptr %254, i32 0, i32 4
-  %256 = load i32, ptr %255, align 8
-  %257 = icmp ne i32 %251, %256
-  br i1 %257, label %258, label %262
+251:                                              ; preds = %243
+  %252 = load i32, ptr @opal_class_init_epoch, align 4
+  %253 = load ptr, ptr %5, align 8
+  %254 = getelementptr inbounds %struct.opal_free_list_t, ptr %253, i32 0, i32 9
+  %255 = load ptr, ptr %254, align 16
+  %256 = getelementptr inbounds %struct.opal_class_t, ptr %255, i32 0, i32 4
+  %257 = load i32, ptr %256, align 8
+  %258 = icmp ne i32 %252, %257
+  br i1 %258, label %259, label %263
 
-258:                                              ; preds = %250
-  %259 = load ptr, ptr %5, align 8
-  %260 = getelementptr inbounds %struct.opal_free_list_t, ptr %259, i32 0, i32 9
-  %261 = load ptr, ptr %260, align 16
-  call void @opal_class_initialize(ptr noundef %261)
-  br label %262
+259:                                              ; preds = %251
+  %260 = load ptr, ptr %5, align 8
+  %261 = getelementptr inbounds %struct.opal_free_list_t, ptr %260, i32 0, i32 9
+  %262 = load ptr, ptr %261, align 16
+  call void @opal_class_initialize(ptr noundef %262)
+  br label %263
 
-262:                                              ; preds = %258, %250
-  %263 = load ptr, ptr %5, align 8
-  %264 = getelementptr inbounds %struct.opal_free_list_t, ptr %263, i32 0, i32 9
-  %265 = load ptr, ptr %264, align 16
-  %266 = load ptr, ptr %20, align 8
-  %267 = getelementptr inbounds %struct.opal_object_t, ptr %266, i32 0, i32 0
-  store ptr %265, ptr %267, align 8
-  %268 = load ptr, ptr %20, align 8
-  %269 = getelementptr inbounds %struct.opal_object_t, ptr %268, i32 0, i32 1
-  store volatile i32 1, ptr %269, align 8
-  %270 = load ptr, ptr %20, align 8
-  call void @opal_obj_run_constructors(ptr noundef %270)
-  br label %271
+263:                                              ; preds = %259, %251
+  %264 = load ptr, ptr %5, align 8
+  %265 = getelementptr inbounds %struct.opal_free_list_t, ptr %264, i32 0, i32 9
+  %266 = load ptr, ptr %265, align 16
+  %267 = load ptr, ptr %20, align 8
+  %268 = getelementptr inbounds %struct.opal_object_t, ptr %267, i32 0, i32 0
+  store ptr %266, ptr %268, align 8
+  %269 = load ptr, ptr %20, align 8
+  %270 = getelementptr inbounds %struct.opal_object_t, ptr %269, i32 0, i32 1
+  store volatile i32 1, ptr %270, align 8
+  %271 = load ptr, ptr %20, align 8
+  call void @opal_obj_run_constructors(ptr noundef %271)
+  br label %272
 
-271:                                              ; preds = %262
-  %272 = load ptr, ptr %20, align 8
-  %273 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %272, i32 0, i32 0
-  %274 = getelementptr inbounds %struct.opal_list_item_t, ptr %273, i32 0, i32 3
-  store i32 0, ptr %274, align 8
-  %275 = load ptr, ptr %5, align 8
-  %276 = getelementptr inbounds %struct.opal_free_list_t, ptr %275, i32 0, i32 16
-  %277 = load ptr, ptr %276, align 8
-  %278 = icmp ne ptr %277, null
-  br i1 %278, label %279, label %295
+272:                                              ; preds = %263
+  %273 = load ptr, ptr %20, align 8
+  %274 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %273, i32 0, i32 0
+  %275 = getelementptr inbounds %struct.opal_list_item_t, ptr %274, i32 0, i32 3
+  store i32 0, ptr %275, align 8
+  %276 = load ptr, ptr %5, align 8
+  %277 = getelementptr inbounds %struct.opal_free_list_t, ptr %276, i32 0, i32 16
+  %278 = load ptr, ptr %277, align 8
+  %279 = icmp ne ptr %278, null
+  br i1 %279, label %280, label %296
 
-279:                                              ; preds = %271
-  %280 = load ptr, ptr %5, align 8
-  %281 = getelementptr inbounds %struct.opal_free_list_t, ptr %280, i32 0, i32 16
-  %282 = load ptr, ptr %281, align 8
-  %283 = load ptr, ptr %20, align 8
-  %284 = load ptr, ptr %5, align 8
-  %285 = getelementptr inbounds %struct.opal_free_list_t, ptr %284, i32 0, i32 17
-  %286 = load ptr, ptr %285, align 16
-  %287 = call i32 %282(ptr noundef %283, ptr noundef %286)
-  store i32 %287, ptr %17, align 4
-  %288 = icmp ne i32 0, %287
-  br i1 %288, label %289, label %294
+280:                                              ; preds = %272
+  %281 = load ptr, ptr %5, align 8
+  %282 = getelementptr inbounds %struct.opal_free_list_t, ptr %281, i32 0, i32 16
+  %283 = load ptr, ptr %282, align 8
+  %284 = load ptr, ptr %20, align 8
+  %285 = load ptr, ptr %5, align 8
+  %286 = getelementptr inbounds %struct.opal_free_list_t, ptr %285, i32 0, i32 17
+  %287 = load ptr, ptr %286, align 16
+  %288 = call i32 %283(ptr noundef %284, ptr noundef %287)
+  store i32 %288, ptr %17, align 4
+  %289 = icmp ne i32 0, %288
+  br i1 %289, label %290, label %295
 
-289:                                              ; preds = %279
-  %290 = load i64, ptr %19, align 8
-  store i64 %290, ptr %6, align 8
-  br label %291
+290:                                              ; preds = %280
+  %291 = load i64, ptr %19, align 8
+  store i64 %291, ptr %6, align 8
+  br label %292
 
-291:                                              ; preds = %289
-  %292 = load ptr, ptr %20, align 8
-  call void @opal_obj_run_destructors(ptr noundef %292)
-  br label %293
+292:                                              ; preds = %290
+  %293 = load ptr, ptr %20, align 8
+  call void @opal_obj_run_destructors(ptr noundef %293)
+  br label %294
 
-293:                                              ; preds = %291
-  br label %324
+294:                                              ; preds = %292
+  br label %325
 
-294:                                              ; preds = %279
-  br label %295
+295:                                              ; preds = %280
+  br label %296
 
-295:                                              ; preds = %294, %271
-  %296 = load ptr, ptr %7, align 8
-  %297 = icmp ne ptr %296, null
-  br i1 %297, label %298, label %304
+296:                                              ; preds = %295, %272
+  %297 = load ptr, ptr %7, align 8
+  %298 = icmp ne ptr %297, null
+  br i1 %298, label %299, label %305
 
-298:                                              ; preds = %295
-  %299 = load i64, ptr %19, align 8
-  %300 = icmp eq i64 0, %299
-  br i1 %300, label %301, label %304
+299:                                              ; preds = %296
+  %300 = load i64, ptr %19, align 8
+  %301 = icmp eq i64 0, %300
+  br i1 %301, label %302, label %305
 
-301:                                              ; preds = %298
-  %302 = load ptr, ptr %20, align 8
-  %303 = load ptr, ptr %7, align 8
-  store ptr %302, ptr %303, align 8
-  br label %310
+302:                                              ; preds = %299
+  %303 = load ptr, ptr %20, align 8
+  %304 = load ptr, ptr %7, align 8
+  store ptr %303, ptr %304, align 8
+  br label %311
 
-304:                                              ; preds = %298, %295
-  %305 = load ptr, ptr %5, align 8
-  %306 = getelementptr inbounds %struct.opal_free_list_t, ptr %305, i32 0, i32 0
-  %307 = load ptr, ptr %20, align 8
-  %308 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %307, i32 0, i32 0
-  %309 = call ptr @opal_lifo_push_atomic(ptr noundef %306, ptr noundef %308)
-  br label %310
+305:                                              ; preds = %299, %296
+  %306 = load ptr, ptr %5, align 8
+  %307 = getelementptr inbounds %struct.opal_free_list_t, ptr %306, i32 0, i32 0
+  %308 = load ptr, ptr %20, align 8
+  %309 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %308, i32 0, i32 0
+  %310 = call ptr @opal_lifo_push_atomic(ptr noundef %307, ptr noundef %309)
+  br label %311
 
-310:                                              ; preds = %304, %301
-  %311 = load i64, ptr %12, align 8
-  %312 = load ptr, ptr %8, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 %311
-  store ptr %313, ptr %8, align 8
-  %314 = load ptr, ptr %9, align 8
-  %315 = icmp ne ptr null, %314
-  br i1 %315, label %316, label %320
+311:                                              ; preds = %305, %302
+  %312 = load i64, ptr %12, align 8
+  %313 = load ptr, ptr %8, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 %312
+  store ptr %314, ptr %8, align 8
+  %315 = load ptr, ptr %9, align 8
+  %316 = icmp ne ptr null, %315
+  br i1 %316, label %317, label %321
 
-316:                                              ; preds = %310
-  %317 = load i64, ptr %13, align 8
-  %318 = load ptr, ptr %9, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 %317
-  store ptr %319, ptr %9, align 8
-  br label %320
-
-320:                                              ; preds = %316, %310
+317:                                              ; preds = %311
+  %318 = load i64, ptr %13, align 8
+  %319 = load ptr, ptr %9, align 8
+  %320 = getelementptr inbounds i8, ptr %319, i64 %318
+  store ptr %320, ptr %9, align 8
   br label %321
 
-321:                                              ; preds = %320
-  %322 = load i64, ptr %19, align 8
-  %323 = add i64 %322, 1
-  store i64 %323, ptr %19, align 8
-  br label %238, !llvm.loop !7
+321:                                              ; preds = %317, %311
+  br label %322
 
-324:                                              ; preds = %293, %238
-  %325 = load i32, ptr %17, align 4
-  %326 = icmp ne i32 0, %325
-  br i1 %326, label %327, label %337
+322:                                              ; preds = %321
+  %323 = load i64, ptr %19, align 8
+  %324 = add i64 %323, 1
+  store i64 %324, ptr %19, align 8
+  br label %239, !llvm.loop !7
 
-327:                                              ; preds = %324
-  %328 = load i64, ptr %6, align 8
-  %329 = icmp eq i64 0, %328
-  br i1 %329, label %330, label %337
+325:                                              ; preds = %294, %239
+  %326 = load i32, ptr %17, align 4
+  %327 = icmp ne i32 0, %326
+  br i1 %327, label %328, label %338
 
-330:                                              ; preds = %327
-  %331 = load ptr, ptr %5, align 8
-  %332 = getelementptr inbounds %struct.opal_free_list_t, ptr %331, i32 0, i32 14
-  %333 = load ptr, ptr %10, align 8
-  %334 = call ptr @opal_list_remove_item(ptr noundef %332, ptr noundef %333)
-  %335 = load ptr, ptr %5, align 8
-  %336 = load ptr, ptr %10, align 8
-  call void @opal_free_list_allocation_release(ptr noundef %335, ptr noundef %336)
+328:                                              ; preds = %325
+  %329 = load i64, ptr %6, align 8
+  %330 = icmp eq i64 0, %329
+  br i1 %330, label %331, label %338
+
+331:                                              ; preds = %328
+  %332 = load ptr, ptr %5, align 8
+  %333 = getelementptr inbounds %struct.opal_free_list_t, ptr %332, i32 0, i32 14
+  %334 = load ptr, ptr %10, align 8
+  %335 = call ptr @opal_list_remove_item(ptr noundef %333, ptr noundef %334)
+  %336 = load ptr, ptr %5, align 8
+  %337 = load ptr, ptr %10, align 8
+  call void @opal_free_list_allocation_release(ptr noundef %336, ptr noundef %337)
   store i32 -2, ptr %4, align 4
-  br label %343
+  br label %344
 
-337:                                              ; preds = %327, %324
-  %338 = load i64, ptr %6, align 8
-  %339 = load ptr, ptr %5, align 8
-  %340 = getelementptr inbounds %struct.opal_free_list_t, ptr %339, i32 0, i32 2
-  %341 = load i64, ptr %340, align 8
-  %342 = add i64 %341, %338
-  store i64 %342, ptr %340, align 8
+338:                                              ; preds = %328, %325
+  %339 = load i64, ptr %6, align 8
+  %340 = load ptr, ptr %5, align 8
+  %341 = getelementptr inbounds %struct.opal_free_list_t, ptr %340, i32 0, i32 2
+  %342 = load i64, ptr %341, align 8
+  %343 = add i64 %342, %339
+  store i64 %343, ptr %341, align 8
   store i32 0, ptr %4, align 4
-  br label %343
+  br label %344
 
-343:                                              ; preds = %337, %330, %184, %153, %133, %46
-  %344 = load i32, ptr %4, align 4
-  ret i32 %344
+344:                                              ; preds = %338, %331, %184, %153, %133, %46
+  %345 = load i32, ptr %4, align 4
+  ret i32 %345
 }
 
 declare i32 @opal_getpagesize() #1

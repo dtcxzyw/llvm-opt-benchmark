@@ -48,46 +48,47 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4), align 8
-  %7 = getelementptr inbounds %struct.pmix_peer_t, ptr %6, i32 0, i32 3
-  %8 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8
-  %10 = and i32 1, %9
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %15
+  %6 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.pmix_peer_t, ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8
+  %11 = and i32 1, %10
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %5, align 8
-  store i32 0, ptr %13, align 4
-  %14 = load ptr, ptr %4, align 8
-  store ptr null, ptr %14, align 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8
+  store i32 0, ptr %14, align 4
+  %15 = load ptr, ptr %4, align 8
+  store ptr null, ptr %15, align 8
   store i32 -1, ptr %3, align 4
-  br label %24
+  br label %25
 
-15:                                               ; preds = %2
-  %16 = call ptr @getenv(ptr noundef @.str) #2
-  %17 = icmp eq ptr null, %16
-  br i1 %17, label %18, label %21
+16:                                               ; preds = %2
+  %17 = call ptr @getenv(ptr noundef @.str) #2
+  %18 = icmp eq ptr null, %17
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %5, align 8
-  store i32 0, ptr %19, align 4
-  %20 = load ptr, ptr %4, align 8
-  store ptr null, ptr %20, align 8
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %5, align 8
+  store i32 0, ptr %20, align 4
+  %21 = load ptr, ptr %4, align 8
+  store ptr null, ptr %21, align 8
   store i32 -1, ptr %3, align 4
-  br label %24
+  br label %25
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %4, align 8
-  store ptr @pmix_prm_slurm_module, ptr %22, align 8
-  %23 = load ptr, ptr %5, align 8
-  store i32 50, ptr %23, align 4
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %4, align 8
+  store ptr @pmix_prm_slurm_module, ptr %23, align 8
+  %24 = load ptr, ptr %5, align 8
+  store i32 50, ptr %24, align 4
   store i32 0, ptr %3, align 4
-  br label %24
+  br label %25
 
-24:                                               ; preds = %21, %18, %12
-  %25 = load i32, ptr %3, align 4
-  ret i32 %25
+25:                                               ; preds = %22, %19, %13
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind

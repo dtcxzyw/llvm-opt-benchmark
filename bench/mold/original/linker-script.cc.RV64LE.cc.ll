@@ -3665,12 +3665,13 @@ if.then37:                                        ; preds = %if.end31
   %24 = load ptr, ptr %mf, align 8
   %data41 = getelementptr inbounds %"class.mold::MappedFile", ptr %24, i32 0, i32 1
   %25 = load ptr, ptr %data41, align 8
-  %cmp42 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
+  %26 = inttoptr i64 -1 to ptr
+  %cmp42 = icmp eq ptr %25, %26
   br i1 %cmp42, label %if.then43, label %if.end49
 
 if.then43:                                        ; preds = %if.then37
-  %26 = load ptr, ptr %ctx.addr, align 8
-  call void @_ZN4mold5FatalINS_3elf7ContextINS1_6RV64LEEEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(4576) %26)
+  %27 = load ptr, ptr %ctx.addr, align 8
+  call void @_ZN4mold5FatalINS_3elf7ContextINS1_6RV64LEEEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(4576) %27)
   %call45 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_6RV64LEEEEElsIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %path)
   %call46 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_6RV64LEEEEElsIRA16_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call45, ptr noundef nonnull align 1 dereferenceable(16) @.str.66)
   call void @_ZN4mold12errno_stringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp47)
@@ -3683,16 +3684,16 @@ if.end49:                                         ; preds = %if.then37
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end49, %if.end31
-  %27 = load i64, ptr %fd, align 8
-  %conv51 = trunc i64 %27 to i32
+  %28 = load i64, ptr %fd, align 8
+  %conv51 = trunc i64 %28 to i32
   %call52 = call i32 @close(i32 noundef %conv51)
-  %28 = load ptr, ptr %mf, align 8
-  store ptr %28, ptr %retval, align 8
+  %29 = load ptr, ptr %mf, align 8
+  store ptr %29, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end50, %if.end20
-  %29 = load ptr, ptr %retval, align 8
-  ret ptr %29
+  %30 = load ptr, ptr %retval, align 8
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind

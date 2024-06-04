@@ -32,18 +32,15 @@ define hidden void @zend_accel_error(i32 noundef %0, ptr noundef %1, ...) #0 {
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load i32, ptr %3, align 4
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @zend_accel_error_va_args(i32 noundef %7, ptr noundef %8, ptr noundef %9)
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %10)
+  call void @llvm.va_end.p0(ptr %10)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_accel_error_va_args(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -59,148 +56,150 @@ define internal void @zend_accel_error_va_args(i32 noundef %0, ptr noundef %1, p
   store ptr null, ptr %9, align 8
   %10 = load i32, ptr %4, align 4
   %11 = sext i32 %10 to i64
-  %12 = load i64, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 20), align 8
-  %13 = icmp sle i64 %11, %12
-  br i1 %13, label %14, label %77
+  %12 = getelementptr inbounds %struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 20
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp sle i64 %11, %13
+  br i1 %14, label %15, label %82
 
-14:                                               ; preds = %3
-  %15 = call i64 @time(ptr noundef null) #9
-  store i64 %15, ptr %7, align 8
-  %16 = call ptr @localtime(ptr noundef %7) #9
-  %17 = call ptr @asctime(ptr noundef %16) #9
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  store i8 0, ptr %19, align 1
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 18), align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %30
+15:                                               ; preds = %3
+  %16 = call i64 @time(ptr noundef null) #9
+  store i64 %16, ptr %7, align 8
+  %17 = call ptr @localtime(ptr noundef %7) #9
+  %18 = call ptr @asctime(ptr noundef %17) #9
+  store ptr %18, ptr %8, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 18
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %34
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 18), align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = icmp ne i8 %24, 0
-  br i1 %25, label %26, label %30
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds %struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 18
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp ne i8 %27, 0
+  br i1 %28, label %29, label %34
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 18), align 8
-  %28 = call i32 @strcmp(ptr noundef %27, ptr noundef @.str) #10
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %32
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds %struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 18
+  %31 = load ptr, ptr %30, align 8
+  %32 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str) #10
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %36
 
-30:                                               ; preds = %26, %22, %14
-  %31 = load ptr, ptr @stderr, align 8
-  store ptr %31, ptr %9, align 8
-  br label %40
+34:                                               ; preds = %29, %24, %15
+  %35 = load ptr, ptr @stderr, align 8
+  store ptr %35, ptr %9, align 8
+  br label %45
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 18), align 8
-  %34 = call noalias ptr @fopen(ptr noundef %33, ptr noundef @.str.1)
-  store ptr %34, ptr %9, align 8
-  %35 = load ptr, ptr %9, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %39, label %37
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds %struct._zend_accel_globals, ptr @accel_globals, i32 0, i32 5, i32 18
+  %38 = load ptr, ptr %37, align 8
+  %39 = call noalias ptr @fopen(ptr noundef %38, ptr noundef @.str.1)
+  store ptr %39, ptr %9, align 8
+  %40 = load ptr, ptr %9, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %44, label %42
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr @stderr, align 8
-  store ptr %38, ptr %9, align 8
-  br label %39
+42:                                               ; preds = %36
+  %43 = load ptr, ptr @stderr, align 8
+  store ptr %43, ptr %9, align 8
+  br label %44
 
-39:                                               ; preds = %37, %32
-  br label %40
+44:                                               ; preds = %42, %36
+  br label %45
 
-40:                                               ; preds = %39, %30
-  %41 = load ptr, ptr %9, align 8
-  %42 = load ptr, ptr %8, align 8
-  %43 = call i32 @getpid() #9
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.2, ptr noundef %42, i32 noundef %43) #9
-  %45 = load i32, ptr %4, align 4
-  switch i32 %45, label %61 [
-    i32 0, label %46
-    i32 1, label %49
-    i32 2, label %52
-    i32 3, label %55
-    i32 4, label %58
+45:                                               ; preds = %44, %34
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = call i32 @getpid() #9
+  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef @.str.2, ptr noundef %47, i32 noundef %48) #9
+  %50 = load i32, ptr %4, align 4
+  switch i32 %50, label %66 [
+    i32 0, label %51
+    i32 1, label %54
+    i32 2, label %57
+    i32 3, label %60
+    i32 4, label %63
   ]
 
-46:                                               ; preds = %40
-  %47 = load ptr, ptr %9, align 8
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.3) #9
-  br label %61
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %9, align 8
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef @.str.3) #9
+  br label %66
 
-49:                                               ; preds = %40
-  %50 = load ptr, ptr %9, align 8
-  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.4) #9
-  br label %61
+54:                                               ; preds = %45
+  %55 = load ptr, ptr %9, align 8
+  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str.4) #9
+  br label %66
 
-52:                                               ; preds = %40
-  %53 = load ptr, ptr %9, align 8
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.5) #9
-  br label %61
+57:                                               ; preds = %45
+  %58 = load ptr, ptr %9, align 8
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.5) #9
+  br label %66
 
-55:                                               ; preds = %40
-  %56 = load ptr, ptr %9, align 8
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.6) #9
-  br label %61
+60:                                               ; preds = %45
+  %61 = load ptr, ptr %9, align 8
+  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.6) #9
+  br label %66
 
-58:                                               ; preds = %40
-  %59 = load ptr, ptr %9, align 8
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.7) #9
-  br label %61
+63:                                               ; preds = %45
+  %64 = load ptr, ptr %9, align 8
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef @.str.7) #9
+  br label %66
 
-61:                                               ; preds = %58, %55, %52, %49, %46, %40
-  %62 = load ptr, ptr %9, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = call i32 @vfprintf(ptr noundef %62, ptr noundef %63, ptr noundef %64) #9
-  %66 = load ptr, ptr %9, align 8
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.8) #9
-  %68 = load ptr, ptr %9, align 8
-  %69 = call i32 @fflush(ptr noundef %68)
-  %70 = load ptr, ptr %9, align 8
-  %71 = load ptr, ptr @stderr, align 8
-  %72 = icmp ne ptr %70, %71
-  br i1 %72, label %73, label %76
+66:                                               ; preds = %63, %60, %57, %54, %51, %45
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = load ptr, ptr %6, align 8
+  %70 = call i32 @vfprintf(ptr noundef %67, ptr noundef %68, ptr noundef %69) #9
+  %71 = load ptr, ptr %9, align 8
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef @.str.8) #9
+  %73 = load ptr, ptr %9, align 8
+  %74 = call i32 @fflush(ptr noundef %73)
+  %75 = load ptr, ptr %9, align 8
+  %76 = load ptr, ptr @stderr, align 8
+  %77 = icmp ne ptr %75, %76
+  br i1 %77, label %78, label %81
 
-73:                                               ; preds = %61
-  %74 = load ptr, ptr %9, align 8
-  %75 = call i32 @fclose(ptr noundef %74)
-  br label %76
+78:                                               ; preds = %66
+  %79 = load ptr, ptr %9, align 8
+  %80 = call i32 @fclose(ptr noundef %79)
+  br label %81
 
-76:                                               ; preds = %73, %61
-  br label %77
+81:                                               ; preds = %78, %66
+  br label %82
 
-77:                                               ; preds = %76, %3
-  %78 = load i32, ptr %4, align 4
-  switch i32 %78, label %81 [
-    i32 1, label %79
-    i32 0, label %80
+82:                                               ; preds = %81, %3
+  %83 = load i32, ptr %4, align 4
+  switch i32 %83, label %86 [
+    i32 1, label %84
+    i32 0, label %85
   ]
 
-79:                                               ; preds = %77
+84:                                               ; preds = %82
   call void @_zend_bailout(ptr noundef @.str.9, i32 noundef 90) #11
   unreachable
 
-80:                                               ; preds = %77
+85:                                               ; preds = %82
   call void @exit(i32 noundef -2) #12
   unreachable
 
-81:                                               ; preds = %77
+86:                                               ; preds = %82
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @zend_accel_error_noreturn(i32 noundef %0, ptr noundef %1, ...) #2 {
+define hidden void @zend_accel_error_noreturn(i32 noundef %0, ptr noundef %1, ...) #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load i32, ptr %3, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %12, label %9
@@ -218,59 +217,65 @@ define hidden void @zend_accel_error_noreturn(i32 noundef %0, ptr noundef %1, ..
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @zend_accel_error_va_args(i32 noundef %14, ptr noundef %15, ptr noundef %16)
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %17)
+  call void @llvm.va_end.p0(ptr %17)
   call void @abort() #12
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #4
+declare void @abort() #3
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #5
+declare i64 @time(ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare ptr @asctime(ptr noundef) #5
+declare ptr @asctime(ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare ptr @localtime(ptr noundef) #5
+declare ptr @localtime(ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #6
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #7
-
-; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @getpid() #5
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
 ; Function Attrs: nounwind
-declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @getpid() #4
 
-declare i32 @fflush(ptr noundef) #7
+; Function Attrs: nounwind
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @fclose(ptr noundef) #7
+declare i32 @fflush(ptr noundef) #6
+
+declare i32 @fclose(ptr noundef) #6
 
 ; Function Attrs: noreturn
-declare void @_zend_bailout(ptr noundef, i32 noundef) #8
+declare void @_zend_bailout(ptr noundef, i32 noundef) #7
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #4
+declare void @exit(i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { noreturn }

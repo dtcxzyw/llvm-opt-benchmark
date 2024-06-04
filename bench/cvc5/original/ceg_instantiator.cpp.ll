@@ -6540,24 +6540,25 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_quant = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_quant, ptr noundef nonnull align 8 dereferenceable(8) %q)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %qs.addr, align 8
-  store ptr %1, ptr %d_qstate, align 8
+  %2 = load ptr, ptr %qs.addr, align 8
+  store ptr %2, ptr %d_qstate, align 8
   %d_qim = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %qim.addr, align 8
-  store ptr %2, ptr %d_qim, align 8
+  %3 = load ptr, ptr %qim.addr, align 8
+  store ptr %3, ptr %d_qim, align 8
   %d_qreg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %qr.addr, align 8
-  store ptr %3, ptr %d_qreg, align 8
+  %4 = load ptr, ptr %qr.addr, align 8
+  store ptr %4, ptr %d_qreg, align 8
   %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %tr.addr, align 8
-  store ptr %4, ptr %d_treg, align 8
+  %5 = load ptr, ptr %tr.addr, align 8
+  store ptr %5, ptr %d_treg, align 8
   %d_prog_var = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 7
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EES6_S8_SaISt4pairIKS3_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_prog_var) #3
   %d_inelig = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 8
@@ -6607,12 +6608,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -6831,15 +6832,16 @@ entry:
   %instp = alloca %"struct.std::pair.529", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_instantiator = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 29
   store ptr %d_instantiator, ptr %__range3, align 8
-  %0 = load ptr, ptr %__range3, align 8
-  %call = call ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers12InstantiatorESt4lessIS3_ESaISt4pairIKS3_S7_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #3
+  %1 = load ptr, ptr %__range3, align 8
+  %call = call ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers12InstantiatorESt4lessIS3_ESaISt4pairIKS3_S7_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #3
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %__begin3, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
-  %1 = load ptr, ptr %__range3, align 8
-  %call2 = call ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers12InstantiatorESt4lessIS3_ESaISt4pairIKS3_S7_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #3
+  %2 = load ptr, ptr %__range3, align 8
+  %call2 = call ptr @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers12InstantiatorESt4lessIS3_ESaISt4pairIKS3_S7_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #3
   %coerce.dive3 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %__end3, i32 0, i32 0
   store ptr %call2, ptr %coerce.dive3, align 8
   br label %for.cond
@@ -6855,15 +6857,15 @@ for.body:                                         ; preds = %for.cond
 
 invoke.cont:                                      ; preds = %for.body
   %second = getelementptr inbounds %"struct.std::pair", ptr %inst, i32 0, i32 1
-  %2 = load ptr, ptr %second, align 8
-  %isnull = icmp eq ptr %2, null
+  %3 = load ptr, ptr %second, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(25) %2) #3
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(25) %3) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont
@@ -6877,12 +6879,12 @@ for.inc:                                          ; preds = %delete.end
 for.end:                                          ; preds = %for.cond
   %d_tipp = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::CegInstantiator", ptr %this1, i32 0, i32 16
   store ptr %d_tipp, ptr %__range37, align 8
-  %4 = load ptr, ptr %__range37, align 8
-  %call9 = call ptr @_ZNSt3mapIN4cvc58internal6theory8TheoryIdEPNS2_11quantifiers22InstantiatorPreprocessESt4lessIS3_ESaISt4pairIKS3_S6_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %5 = load ptr, ptr %__range37, align 8
+  %call9 = call ptr @_ZNSt3mapIN4cvc58internal6theory8TheoryIdEPNS2_11quantifiers22InstantiatorPreprocessESt4lessIS3_ESaISt4pairIKS3_S6_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   %coerce.dive10 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.528", ptr %__begin38, i32 0, i32 0
   store ptr %call9, ptr %coerce.dive10, align 8
-  %5 = load ptr, ptr %__range37, align 8
-  %call12 = call ptr @_ZNSt3mapIN4cvc58internal6theory8TheoryIdEPNS2_11quantifiers22InstantiatorPreprocessESt4lessIS3_ESaISt4pairIKS3_S6_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = load ptr, ptr %__range37, align 8
+  %call12 = call ptr @_ZNSt3mapIN4cvc58internal6theory8TheoryIdEPNS2_11quantifiers22InstantiatorPreprocessESt4lessIS3_ESaISt4pairIKS3_S6_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   %coerce.dive13 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.528", ptr %__end311, i32 0, i32 0
   store ptr %call12, ptr %coerce.dive13, align 8
   br label %for.cond14
@@ -6898,15 +6900,15 @@ for.body16:                                       ; preds = %for.cond14
 
 invoke.cont18:                                    ; preds = %for.body16
   %second19 = getelementptr inbounds %"struct.std::pair.529", ptr %instp, i32 0, i32 1
-  %6 = load ptr, ptr %second19, align 8
-  %isnull20 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %second19, align 8
+  %isnull20 = icmp eq ptr %7, null
   br i1 %isnull20, label %delete.end24, label %delete.notnull21
 
 delete.notnull21:                                 ; preds = %invoke.cont18
-  %vtable22 = load ptr, ptr %6, align 8
+  %vtable22 = load ptr, ptr %7, align 8
   %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 1
-  %7 = load ptr, ptr %vfn23, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %8 = load ptr, ptr %vfn23, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
   br label %delete.end24
 
 delete.end24:                                     ; preds = %delete.notnull21, %invoke.cont18
@@ -6965,10 +6967,10 @@ for.end27:                                        ; preds = %for.cond14
   ret void
 
 terminate.lpad:                                   ; preds = %for.body16, %for.body
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #16
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 }
 
@@ -12414,16 +12416,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14DtInstantiatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14DtInstantiatorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
@@ -12459,16 +12462,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22ModelValueInstantiatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22ModelValueInstantiatorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
@@ -13239,10 +13243,11 @@ entry:
   store ptr %opts, ptr %opts.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers22InstantiatorPreprocessC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24BvInstantiatorPreprocessE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24BvInstantiatorPreprocessE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_opts = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::BvInstantiatorPreprocess", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %opts.addr, align 8
-  store ptr %0, ptr %d_opts, align 8
+  %1 = load ptr, ptr %opts.addr, align 8
+  store ptr %1, ptr %d_opts, align 8
   ret void
 }
 
@@ -18473,7 +18478,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 1
   store i32 1, ptr %d_type, align 8
   %d_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 2
@@ -20130,7 +20136,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 2
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_coeff) #3
   ret void
@@ -40175,7 +40182,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::Instantiator", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_type) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -40188,7 +40196,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22InstantiatorPreprocessE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22InstantiatorPreprocessE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -42148,15 +42157,16 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %d_type2 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %d_type2, align 8
-  store i32 %2, ptr %d_type, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %d_type2 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %d_type2, align 8
+  store i32 %3, ptr %d_type, align 8
   %d_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %d_coeff3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %d_coeff3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %4, i32 0, i32 2
   call void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_coeff, ptr noundef nonnull align 8 dereferenceable(8) %d_coeff3)
   ret void
 }
@@ -44793,7 +44803,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal13NodeConverterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal13NodeConverterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_tcache = getelementptr inbounds %"class.cvc5::internal::NodeConverter", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_mapIN4cvc58internal8TypeNodeES2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_tcache) #3
   %d_preTCache = getelementptr inbounds %"class.cvc5::internal::NodeConverter", ptr %this1, i32 0, i32 3

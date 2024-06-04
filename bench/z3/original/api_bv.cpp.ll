@@ -498,7 +498,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad1
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -682,9 +682,6 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048), ptr noundef nonnull align 8 dereferenceable(8)) #1
@@ -692,7 +689,7 @@ declare void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonn
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #10
   unreachable
@@ -701,7 +698,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comda
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #8
+declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress uwtable
 define ptr @Z3_mk_bvnot(ptr noundef %c, ptr noundef %n) #4 personality ptr @__gxx_personality_v0 {
@@ -834,7 +831,7 @@ lpad2:                                            ; preds = %if.then26, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -1082,7 +1079,7 @@ lpad2:                                            ; preds = %if.then26, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -1294,7 +1291,7 @@ lpad2:                                            ; preds = %if.then26, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -1518,7 +1515,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -1742,7 +1739,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -1966,7 +1963,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -2190,7 +2187,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -2414,7 +2411,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -2638,7 +2635,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -2862,7 +2859,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -3086,7 +3083,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -3310,7 +3307,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -3534,7 +3531,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -3758,7 +3755,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -3982,7 +3979,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -4206,7 +4203,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -4430,7 +4427,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -4654,7 +4651,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -4878,7 +4875,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -5102,7 +5099,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -5326,7 +5323,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -5550,7 +5547,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -5774,7 +5771,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -5998,7 +5995,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -6222,7 +6219,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -6446,7 +6443,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -6670,7 +6667,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -6894,7 +6891,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -7118,7 +7115,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -7342,7 +7339,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -7485,7 +7482,7 @@ lpad1:                                            ; preds = %if.then11, %do.body
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch, label %eh.resume
 
@@ -7925,7 +7922,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad1
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %24
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8172,7 +8169,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad1
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %24
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8419,7 +8416,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad1
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %24
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8666,7 +8663,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad1
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %24
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8913,7 +8910,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad1
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %24
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9160,7 +9157,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad1
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %24
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9407,7 +9404,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad1
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %24
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9918,7 +9915,7 @@ ehcleanup89:                                      ; preds = %lpad55, %ehcleanup,
 
 catch.dispatch:                                   ; preds = %ehcleanup89, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %79 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %79 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %79
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10042,7 +10039,7 @@ lpad1:                                            ; preds = %invoke.cont37, %if.
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10374,7 +10371,7 @@ lpad:                                             ; preds = %invoke.cont15, %inv
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10669,7 +10666,7 @@ lpad:                                             ; preds = %invoke.cont54, %inv
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %46 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %46
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11028,7 +11025,7 @@ lpad:                                             ; preds = %invoke.cont28, %inv
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %50 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %50
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11278,7 +11275,7 @@ lpad:                                             ; preds = %invoke.cont33, %inv
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %52 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %52
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11490,7 +11487,7 @@ lpad7:                                            ; preds = %if.then31, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad7
   %sel = load i32, ptr %ehselector.slot, align 4
-  %22 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %22
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -11563,7 +11560,7 @@ ehcleanup:                                        ; preds = %invoke.cont39, %cat
 
 catch.dispatch40:                                 ; preds = %ehcleanup, %lpad
   %sel41 = load i32, ptr %ehselector.slot, align 4
-  %30 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches42 = icmp eq i32 %sel41, %30
   br i1 %matches42, label %catch43, label %eh.resume
 
@@ -11788,7 +11785,7 @@ lpad:                                             ; preds = %if.else, %invoke.co
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %36
   br i1 %matches, label %catch, label %eh.resume
 
@@ -12023,7 +12020,7 @@ lpad7:                                            ; preds = %if.then33, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad7
   %sel = load i32, ptr %ehselector.slot, align 4
-  %23 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %23
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -12176,7 +12173,7 @@ lpad42:                                           ; preds = %if.then75, %invoke.
 
 catch.dispatch80:                                 ; preds = %lpad42
   %sel81 = load i32, ptr %ehselector.slot, align 4
-  %45 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches82 = icmp eq i32 %sel81, %45
   br i1 %matches82, label %catch83, label %ehcleanup
 
@@ -12403,7 +12400,7 @@ lpad2:                                            ; preds = %if.then28, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %20
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -12541,7 +12538,7 @@ lpad:                                             ; preds = %if.end14, %invoke.c
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -12796,7 +12793,7 @@ lpad:                                             ; preds = %invoke.cont24, %inv
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %42 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %42
   br i1 %matches, label %catch, label %eh.resume
 
@@ -13020,7 +13017,7 @@ lpad7:                                            ; preds = %if.then33, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad7
   %sel = load i32, ptr %ehselector.slot, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %24
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -13093,7 +13090,7 @@ ehcleanup:                                        ; preds = %invoke.cont41, %cat
 
 catch.dispatch42:                                 ; preds = %ehcleanup, %lpad
   %sel43 = load i32, ptr %ehselector.slot, align 4
-  %32 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches44 = icmp eq i32 %sel43, %32
   br i1 %matches44, label %catch45, label %eh.resume
 
@@ -14168,10 +14165,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -14193,7 +14191,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14220,7 +14219,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #9
+declare void @_ZdlPv(ptr noundef) #8
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
@@ -14260,16 +14259,19 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #9
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind memory(none) }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { noreturn }
 attributes #12 = { builtin nounwind }

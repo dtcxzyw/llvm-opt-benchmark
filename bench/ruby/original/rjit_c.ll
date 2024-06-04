@@ -971,8 +971,9 @@ define internal i64 @builtin_inline_class_24(ptr noundef %0, i64 noundef %1) #0 
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rjit_insn_exits to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rjit_insn_exits to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -981,8 +982,9 @@ define internal i64 @builtin_inline_class_29(ptr noundef %0, i64 noundef %1) #0 
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_rjit_counters to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_rjit_counters to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2218,8 +2220,9 @@ define internal i64 @builtin_inline_class_249(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_rjit_opts to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_rjit_opts to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3878,8 +3881,9 @@ define internal i64 @builtin_inline_class_472(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ary_clear to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ary_clear to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3888,8 +3892,9 @@ define internal i64 @builtin_inline_class_476(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ary_dup to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ary_dup to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3898,8 +3903,9 @@ define internal i64 @builtin_inline_class_480(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ary_entry_internal to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ary_entry_internal to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3908,8 +3914,9 @@ define internal i64 @builtin_inline_class_484(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ary_push to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ary_push to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3918,8 +3925,9 @@ define internal i64 @builtin_inline_class_488(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ary_resurrect to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ary_resurrect to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3928,8 +3936,9 @@ define internal i64 @builtin_inline_class_492(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ary_store to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ary_store to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3938,8 +3947,9 @@ define internal i64 @builtin_inline_class_496(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ary_tmp_new_from_values to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ary_tmp_new_from_values to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3948,8 +3958,9 @@ define internal i64 @builtin_inline_class_500(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ary_unshift_m to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ary_unshift_m to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3958,8 +3969,9 @@ define internal i64 @builtin_inline_class_504(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_backref_get to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_backref_get to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3968,8 +3980,9 @@ define internal i64 @builtin_inline_class_508(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ec_ary_new_from_values to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ec_ary_new_from_values to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3978,8 +3991,9 @@ define internal i64 @builtin_inline_class_512(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ec_str_resurrect to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ec_str_resurrect to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3988,8 +4002,9 @@ define internal i64 @builtin_inline_class_516(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ensure_iv_list_size to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ensure_iv_list_size to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3998,8 +4013,9 @@ define internal i64 @builtin_inline_class_520(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_fix_aref to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_fix_aref to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4008,8 +4024,9 @@ define internal i64 @builtin_inline_class_524(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_fix_div_fix to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_fix_div_fix to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4018,8 +4035,9 @@ define internal i64 @builtin_inline_class_528(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_fix_mod_fix to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_fix_mod_fix to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4028,8 +4046,9 @@ define internal i64 @builtin_inline_class_532(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_fix_mul_fix to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_fix_mul_fix to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4038,8 +4057,9 @@ define internal i64 @builtin_inline_class_536(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_gc_writebarrier to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_gc_writebarrier to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4048,8 +4068,9 @@ define internal i64 @builtin_inline_class_540(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_get_symbol_id to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_get_symbol_id to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4058,8 +4079,9 @@ define internal i64 @builtin_inline_class_544(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_gvar_get to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_gvar_get to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4068,8 +4090,9 @@ define internal i64 @builtin_inline_class_548(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_hash_aref to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_hash_aref to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4078,8 +4101,9 @@ define internal i64 @builtin_inline_class_552(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_hash_aset to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_hash_aset to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4088,8 +4112,9 @@ define internal i64 @builtin_inline_class_556(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_hash_bulk_insert to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_hash_bulk_insert to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4098,8 +4123,9 @@ define internal i64 @builtin_inline_class_560(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_hash_new to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_hash_new to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4108,8 +4134,9 @@ define internal i64 @builtin_inline_class_564(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_hash_new_with_size to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_hash_new_with_size to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4118,8 +4145,9 @@ define internal i64 @builtin_inline_class_568(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_hash_resurrect to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_hash_resurrect to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4128,8 +4156,9 @@ define internal i64 @builtin_inline_class_572(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ivar_defined to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ivar_defined to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4138,8 +4167,9 @@ define internal i64 @builtin_inline_class_576(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_ivar_get to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_ivar_get to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4148,8 +4178,9 @@ define internal i64 @builtin_inline_class_580(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_obj_as_string_result to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_obj_as_string_result to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4158,8 +4189,9 @@ define internal i64 @builtin_inline_class_584(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_obj_is_kind_of to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_obj_is_kind_of to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4168,8 +4200,9 @@ define internal i64 @builtin_inline_class_588(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_range_new to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_range_new to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4178,8 +4211,9 @@ define internal i64 @builtin_inline_class_592(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_reg_last_match to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_reg_last_match to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4188,8 +4222,9 @@ define internal i64 @builtin_inline_class_596(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_reg_match_last to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_reg_match_last to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4198,8 +4233,9 @@ define internal i64 @builtin_inline_class_600(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_reg_match_post to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_reg_match_post to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4208,8 +4244,9 @@ define internal i64 @builtin_inline_class_604(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_reg_match_pre to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_reg_match_pre to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4218,8 +4255,9 @@ define internal i64 @builtin_inline_class_608(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_reg_new_ary to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_reg_new_ary to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4228,8 +4266,9 @@ define internal i64 @builtin_inline_class_612(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_reg_nth_match to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_reg_nth_match to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4238,8 +4277,9 @@ define internal i64 @builtin_inline_class_616(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_rjit_branch_stub_hit to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_rjit_branch_stub_hit to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4248,8 +4288,9 @@ define internal i64 @builtin_inline_class_620(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_rjit_entry_stub_hit to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_rjit_entry_stub_hit to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4258,8 +4299,9 @@ define internal i64 @builtin_inline_class_624(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_str_buf_append to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_str_buf_append to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4268,8 +4310,9 @@ define internal i64 @builtin_inline_class_628(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_str_bytesize to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_str_bytesize to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4278,8 +4321,9 @@ define internal i64 @builtin_inline_class_632(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_str_concat_literals to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_str_concat_literals to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4288,8 +4332,9 @@ define internal i64 @builtin_inline_class_636(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_str_dup to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_str_dup to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4298,8 +4343,9 @@ define internal i64 @builtin_inline_class_640(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_str_eql_internal to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_str_eql_internal to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4308,8 +4354,9 @@ define internal i64 @builtin_inline_class_644(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_str_getbyte to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_str_getbyte to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4318,8 +4365,9 @@ define internal i64 @builtin_inline_class_648(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_str_intern to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_str_intern to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4328,8 +4376,9 @@ define internal i64 @builtin_inline_class_652(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_sym_to_proc to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_sym_to_proc to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4338,8 +4387,9 @@ define internal i64 @builtin_inline_class_656(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_bh_to_procval to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_bh_to_procval to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4348,8 +4398,9 @@ define internal i64 @builtin_inline_class_660(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_concat_array to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_concat_array to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4358,8 +4409,9 @@ define internal i64 @builtin_inline_class_664(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_defined to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_defined to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4368,8 +4420,9 @@ define internal i64 @builtin_inline_class_668(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_get_ev_const to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_get_ev_const to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4378,8 +4431,9 @@ define internal i64 @builtin_inline_class_672(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_getclassvariable to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_getclassvariable to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4388,8 +4442,9 @@ define internal i64 @builtin_inline_class_676(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_ic_hit_p to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_ic_hit_p to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4398,8 +4453,9 @@ define internal i64 @builtin_inline_class_680(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_hash to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_opt_newarray_hash to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4408,8 +4464,9 @@ define internal i64 @builtin_inline_class_684(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_max to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_opt_newarray_max to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4418,8 +4475,9 @@ define internal i64 @builtin_inline_class_688(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_opt_newarray_min to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_opt_newarray_min to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4428,8 +4486,9 @@ define internal i64 @builtin_inline_class_692(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_set_ivar_id to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_set_ivar_id to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4438,8 +4497,9 @@ define internal i64 @builtin_inline_class_696(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_setclassvariable to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_setclassvariable to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4448,8 +4508,9 @@ define internal i64 @builtin_inline_class_700(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_setinstancevariable to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_setinstancevariable to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4458,8 +4519,9 @@ define internal i64 @builtin_inline_class_704(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_splat_array to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_splat_array to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4468,8 +4530,9 @@ define internal i64 @builtin_inline_class_708(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_throw to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_throw to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4478,8 +4541,9 @@ define internal i64 @builtin_inline_class_712(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rb_vm_yield_with_cfunc to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rb_vm_yield_with_cfunc to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4488,8 +4552,9 @@ define internal i64 @builtin_inline_class_716(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rjit_build_kwhash to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rjit_build_kwhash to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4498,8 +4563,9 @@ define internal i64 @builtin_inline_class_720(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rjit_full_cfunc_return to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rjit_full_cfunc_return to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4508,8 +4574,9 @@ define internal i64 @builtin_inline_class_724(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rjit_optimized_call to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rjit_optimized_call to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4518,8 +4585,9 @@ define internal i64 @builtin_inline_class_728(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rjit_rb_ary_subseq_length to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rjit_rb_ary_subseq_length to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4528,8 +4596,9 @@ define internal i64 @builtin_inline_class_732(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rjit_record_exit_stack to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rjit_record_exit_stack to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4538,8 +4607,9 @@ define internal i64 @builtin_inline_class_736(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rjit_str_neq_internal to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rjit_str_neq_internal to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4548,8 +4618,9 @@ define internal i64 @builtin_inline_class_740(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef ptrtoint (ptr @rjit_str_simple_append to i64))
-  ret i64 %5
+  %5 = ptrtoint ptr @rjit_str_simple_append to i64
+  %6 = call i64 @rb_ull2num_inline(i64 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4598,8 +4669,14 @@ define internal i64 @builtin_inline_class_767(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.RArray, ptr null, i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RArray, ptr null, i32 0, i32 1) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RArray, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.RArray, ptr null, i32 0, i32 1
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4618,8 +4695,15 @@ define internal i64 @builtin_inline_class_772(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.20, ptr getelementptr inbounds (%struct.RArray, ptr null, i32 0, i32 1), i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RArray, ptr null, i32 0, i32 1) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RArray, ptr null, i32 0, i32 1
+  %6 = getelementptr inbounds %struct.anon.20, ptr %5, i32 0, i32 1
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.RArray, ptr null, i32 0, i32 1
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4628,8 +4712,15 @@ define internal i64 @builtin_inline_class_773(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.20, ptr getelementptr inbounds (%struct.RArray, ptr null, i32 0, i32 1), i32 0, i32 2) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RArray, ptr null, i32 0, i32 1) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RArray, ptr null, i32 0, i32 1
+  %6 = getelementptr inbounds %struct.anon.20, ptr %5, i32 0, i32 2
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.RArray, ptr null, i32 0, i32 1
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4638,8 +4729,11 @@ define internal i64 @builtin_inline_class_776(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.RArray, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RArray, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4668,8 +4762,11 @@ define internal i64 @builtin_inline_class_788(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.RBasic, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RBasic, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4718,8 +4815,14 @@ define internal i64 @builtin_inline_class_800(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.RObject, ptr null, i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RObject, ptr null, i32 0, i32 1) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RObject, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.RObject, ptr null, i32 0, i32 1
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4728,8 +4831,15 @@ define internal i64 @builtin_inline_class_801(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.26, ptr getelementptr inbounds (%struct.RObject, ptr null, i32 0, i32 1), i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RObject, ptr null, i32 0, i32 1) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RObject, ptr null, i32 0, i32 1
+  %6 = getelementptr inbounds %struct.anon.26, ptr %5, i32 0, i32 1
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.RObject, ptr null, i32 0, i32 1
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4738,8 +4848,11 @@ define internal i64 @builtin_inline_class_804(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.RObject, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RObject, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4768,8 +4881,11 @@ define internal i64 @builtin_inline_class_812(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.RString, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RString, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4798,8 +4914,14 @@ define internal i64 @builtin_inline_class_817(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.RString, ptr null, i32 0, i32 2) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RString, ptr null, i32 0, i32 2) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RString, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.RString, ptr null, i32 0, i32 2
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4818,8 +4940,15 @@ define internal i64 @builtin_inline_class_822(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.14, ptr getelementptr inbounds (%struct.RString, ptr null, i32 0, i32 2), i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RString, ptr null, i32 0, i32 2) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RString, ptr null, i32 0, i32 2
+  %6 = getelementptr inbounds %struct.anon.14, ptr %5, i32 0, i32 1
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.RString, ptr null, i32 0, i32 2
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4838,8 +4967,14 @@ define internal i64 @builtin_inline_class_826(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.RString, ptr null, i32 0, i32 2) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RString, ptr null, i32 0, i32 2) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RString, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.RString, ptr null, i32 0, i32 2
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4848,8 +4983,11 @@ define internal i64 @builtin_inline_class_828(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.RString, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RString, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4898,8 +5036,14 @@ define internal i64 @builtin_inline_class_840(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.RStruct, ptr null, i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RStruct, ptr null, i32 0, i32 1) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RStruct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.RStruct, ptr null, i32 0, i32 1
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4908,8 +5052,15 @@ define internal i64 @builtin_inline_class_841(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.28, ptr getelementptr inbounds (%struct.RStruct, ptr null, i32 0, i32 1), i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.RStruct, ptr null, i32 0, i32 1) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RStruct, ptr null, i32 0, i32 1
+  %6 = getelementptr inbounds %struct.anon.28, ptr %5, i32 0, i32 1
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.RStruct, ptr null, i32 0, i32 1
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4918,8 +5069,11 @@ define internal i64 @builtin_inline_class_844(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.RStruct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.RStruct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4948,8 +5102,11 @@ define internal i64 @builtin_inline_class_856(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.iseq_inline_constant_cache, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.iseq_inline_constant_cache, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4978,8 +5135,11 @@ define internal i64 @builtin_inline_class_864(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.iseq_inline_constant_cache_entry, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.iseq_inline_constant_cache_entry, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4988,8 +5148,11 @@ define internal i64 @builtin_inline_class_865(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.iseq_inline_constant_cache_entry, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.iseq_inline_constant_cache_entry, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4998,8 +5161,11 @@ define internal i64 @builtin_inline_class_866(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.iseq_inline_constant_cache_entry, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.iseq_inline_constant_cache_entry, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5008,8 +5174,11 @@ define internal i64 @builtin_inline_class_867(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.iseq_inline_constant_cache_entry, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.iseq_inline_constant_cache_entry, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5038,8 +5207,11 @@ define internal i64 @builtin_inline_class_875(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.iseq_inline_iv_cache_entry, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.iseq_inline_iv_cache_entry, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5078,8 +5250,11 @@ define internal i64 @builtin_inline_class_885(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.29, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.anon.29, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5118,8 +5293,11 @@ define internal i64 @builtin_inline_class_905(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_block, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_block, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5148,8 +5326,11 @@ define internal i64 @builtin_inline_class_917(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_builtin_function, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_builtin_function, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5158,8 +5339,11 @@ define internal i64 @builtin_inline_class_918(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_builtin_function, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_builtin_function, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5168,8 +5352,11 @@ define internal i64 @builtin_inline_class_919(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_builtin_function, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_builtin_function, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5198,8 +5385,11 @@ define internal i64 @builtin_inline_class_927(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_call_data, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_call_data, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5228,8 +5418,11 @@ define internal i64 @builtin_inline_class_935(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5238,8 +5431,11 @@ define internal i64 @builtin_inline_class_936(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5248,8 +5444,11 @@ define internal i64 @builtin_inline_class_937(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5258,8 +5457,11 @@ define internal i64 @builtin_inline_class_938(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5288,8 +5490,11 @@ define internal i64 @builtin_inline_class_946(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5298,8 +5503,11 @@ define internal i64 @builtin_inline_class_947(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5308,8 +5516,11 @@ define internal i64 @builtin_inline_class_948(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5318,8 +5529,11 @@ define internal i64 @builtin_inline_class_949(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callable_method_entry_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5348,8 +5562,11 @@ define internal i64 @builtin_inline_class_957(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callcache, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callcache, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5358,8 +5575,11 @@ define internal i64 @builtin_inline_class_958(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callcache, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callcache, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5368,8 +5588,11 @@ define internal i64 @builtin_inline_class_959(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callcache, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callcache, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5398,8 +5621,14 @@ define internal i64 @builtin_inline_class_964(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callcache, ptr null, i32 0, i32 4) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callcache, ptr null, i32 0, i32 4) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callcache, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_callcache, ptr null, i32 0, i32 4
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5408,8 +5637,11 @@ define internal i64 @builtin_inline_class_969(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callcache, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callcache, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5438,8 +5670,11 @@ define internal i64 @builtin_inline_class_977(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callinfo, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callinfo, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5448,8 +5683,11 @@ define internal i64 @builtin_inline_class_978(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callinfo, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callinfo, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5458,8 +5696,11 @@ define internal i64 @builtin_inline_class_979(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callinfo, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callinfo, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5468,8 +5709,11 @@ define internal i64 @builtin_inline_class_980(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callinfo, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callinfo, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5498,8 +5742,11 @@ define internal i64 @builtin_inline_class_988(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callinfo_kwarg, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callinfo_kwarg, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5508,8 +5755,11 @@ define internal i64 @builtin_inline_class_989(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_callinfo_kwarg, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_callinfo_kwarg, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5538,8 +5788,11 @@ define internal i64 @builtin_inline_class_997(ptr noundef %0, i64 noundef %1) #0
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_captured_block, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_captured_block, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5558,8 +5811,11 @@ define internal i64 @builtin_inline_class_1003(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_captured_block, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_captured_block, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5588,8 +5844,11 @@ define internal i64 @builtin_inline_class_1015(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_control_frame_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_control_frame_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5598,8 +5857,11 @@ define internal i64 @builtin_inline_class_1016(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_control_frame_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_control_frame_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5608,8 +5870,11 @@ define internal i64 @builtin_inline_class_1017(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_control_frame_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_control_frame_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5618,8 +5883,11 @@ define internal i64 @builtin_inline_class_1018(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_control_frame_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_control_frame_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5628,8 +5896,11 @@ define internal i64 @builtin_inline_class_1019(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_control_frame_struct, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_control_frame_struct, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5638,8 +5909,11 @@ define internal i64 @builtin_inline_class_1020(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_control_frame_struct, ptr null, i32 0, i32 6) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_control_frame_struct, ptr null, i32 0, i32 6
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5668,8 +5942,11 @@ define internal i64 @builtin_inline_class_1028(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_cref_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_cref_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5678,8 +5955,11 @@ define internal i64 @builtin_inline_class_1029(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_cref_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_cref_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5688,8 +5968,11 @@ define internal i64 @builtin_inline_class_1030(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_cref_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_cref_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5698,8 +5981,11 @@ define internal i64 @builtin_inline_class_1031(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_cref_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_cref_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5728,8 +6014,11 @@ define internal i64 @builtin_inline_class_1039(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5738,8 +6027,11 @@ define internal i64 @builtin_inline_class_1040(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5748,8 +6040,11 @@ define internal i64 @builtin_inline_class_1041(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5758,8 +6053,11 @@ define internal i64 @builtin_inline_class_1042(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5768,8 +6066,11 @@ define internal i64 @builtin_inline_class_1043(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5778,8 +6079,11 @@ define internal i64 @builtin_inline_class_1044(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 6) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 6
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5788,8 +6092,11 @@ define internal i64 @builtin_inline_class_1045(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 7) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 7
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5798,8 +6105,11 @@ define internal i64 @builtin_inline_class_1046(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 8) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5808,8 +6118,11 @@ define internal i64 @builtin_inline_class_1047(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 9) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 9
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5818,8 +6131,11 @@ define internal i64 @builtin_inline_class_1048(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 10) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 10
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5828,8 +6144,11 @@ define internal i64 @builtin_inline_class_1049(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 11) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 11
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5838,8 +6157,11 @@ define internal i64 @builtin_inline_class_1050(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 12) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 12
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5848,8 +6170,11 @@ define internal i64 @builtin_inline_class_1051(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 13) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 13
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5858,8 +6183,11 @@ define internal i64 @builtin_inline_class_1052(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 14) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 14
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5868,8 +6196,11 @@ define internal i64 @builtin_inline_class_1053(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 15) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 15
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5878,8 +6209,11 @@ define internal i64 @builtin_inline_class_1054(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 16) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 16
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5888,8 +6222,11 @@ define internal i64 @builtin_inline_class_1055(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 17) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 17
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5898,8 +6235,11 @@ define internal i64 @builtin_inline_class_1056(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 18) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 18
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5908,8 +6248,11 @@ define internal i64 @builtin_inline_class_1057(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 20) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 20
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5928,8 +6271,14 @@ define internal i64 @builtin_inline_class_1060(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 21) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 21) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 21
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 21
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5938,8 +6287,14 @@ define internal i64 @builtin_inline_class_1061(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 21, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 21) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 21, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 21
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5948,8 +6303,14 @@ define internal i64 @builtin_inline_class_1062(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 21, i32 2) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 21) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 21, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 21
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5958,8 +6319,11 @@ define internal i64 @builtin_inline_class_1063(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_execution_context_struct, ptr null, i32 0, i32 21) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_execution_context_struct, ptr null, i32 0, i32 21
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5988,8 +6352,11 @@ define internal i64 @builtin_inline_class_1075(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5998,8 +6365,11 @@ define internal i64 @builtin_inline_class_1076(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6028,8 +6398,14 @@ define internal i64 @builtin_inline_class_1093(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6038,8 +6414,14 @@ define internal i64 @builtin_inline_class_1094(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6048,8 +6430,14 @@ define internal i64 @builtin_inline_class_1095(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 2) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6058,8 +6446,14 @@ define internal i64 @builtin_inline_class_1096(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 3) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6068,8 +6462,14 @@ define internal i64 @builtin_inline_class_1097(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 4) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6078,8 +6478,14 @@ define internal i64 @builtin_inline_class_1098(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 5) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6088,8 +6494,14 @@ define internal i64 @builtin_inline_class_1099(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 6) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 6
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6098,8 +6510,14 @@ define internal i64 @builtin_inline_class_1100(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 7) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 7
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6108,8 +6526,14 @@ define internal i64 @builtin_inline_class_1101(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 8) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6118,8 +6542,14 @@ define internal i64 @builtin_inline_class_1102(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 9) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3, i32 9
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6128,8 +6558,11 @@ define internal i64 @builtin_inline_class_1103(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6138,8 +6571,11 @@ define internal i64 @builtin_inline_class_1104(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6148,8 +6584,11 @@ define internal i64 @builtin_inline_class_1105(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6158,8 +6597,11 @@ define internal i64 @builtin_inline_class_1106(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 6) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 6
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6168,8 +6610,11 @@ define internal i64 @builtin_inline_class_1107(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 7) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 7
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6178,8 +6623,11 @@ define internal i64 @builtin_inline_class_1108(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 8) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6188,8 +6636,11 @@ define internal i64 @builtin_inline_class_1109(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 9) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 9
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6198,8 +6649,11 @@ define internal i64 @builtin_inline_class_1110(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 10) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 10
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6208,8 +6662,11 @@ define internal i64 @builtin_inline_class_1111(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 11) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 11
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6228,8 +6685,14 @@ define internal i64 @builtin_inline_class_1114(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6238,8 +6701,14 @@ define internal i64 @builtin_inline_class_1115(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6248,8 +6717,14 @@ define internal i64 @builtin_inline_class_1116(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12, i32 2) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6258,8 +6733,14 @@ define internal i64 @builtin_inline_class_1117(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12, i32 3) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6268,8 +6749,14 @@ define internal i64 @builtin_inline_class_1118(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12, i32 4) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6278,8 +6765,11 @@ define internal i64 @builtin_inline_class_1119(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 12) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 12
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6288,8 +6778,11 @@ define internal i64 @builtin_inline_class_1120(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 13) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 13
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6298,8 +6791,11 @@ define internal i64 @builtin_inline_class_1121(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 14) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 14
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6308,8 +6804,11 @@ define internal i64 @builtin_inline_class_1122(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 15) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 15
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6318,8 +6817,11 @@ define internal i64 @builtin_inline_class_1123(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 16) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 16
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6328,8 +6830,11 @@ define internal i64 @builtin_inline_class_1124(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 17) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 17
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6338,8 +6843,11 @@ define internal i64 @builtin_inline_class_1125(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 18) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 18
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6348,8 +6856,11 @@ define internal i64 @builtin_inline_class_1126(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 19) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 19
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6358,8 +6869,11 @@ define internal i64 @builtin_inline_class_1127(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 20) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 20
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6368,8 +6882,11 @@ define internal i64 @builtin_inline_class_1128(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 21) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 21
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6388,8 +6905,11 @@ define internal i64 @builtin_inline_class_1133(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 22) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 22
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6398,8 +6918,11 @@ define internal i64 @builtin_inline_class_1134(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 23) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 23
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6408,8 +6931,11 @@ define internal i64 @builtin_inline_class_1135(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 24) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 24
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6418,8 +6944,11 @@ define internal i64 @builtin_inline_class_1136(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 25) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 25
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6428,8 +6957,11 @@ define internal i64 @builtin_inline_class_1137(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 26) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 26
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6438,8 +6970,11 @@ define internal i64 @builtin_inline_class_1138(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_constant_body, ptr null, i32 0, i32 29) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_constant_body, ptr null, i32 0, i32 29
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6468,8 +7003,11 @@ define internal i64 @builtin_inline_class_1146(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_location_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_location_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6478,8 +7016,11 @@ define internal i64 @builtin_inline_class_1147(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_location_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_location_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6488,8 +7029,11 @@ define internal i64 @builtin_inline_class_1148(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_location_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_location_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6498,8 +7042,11 @@ define internal i64 @builtin_inline_class_1149(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_location_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_location_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6508,8 +7055,11 @@ define internal i64 @builtin_inline_class_1150(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_location_struct, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_location_struct, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6538,8 +7088,11 @@ define internal i64 @builtin_inline_class_1158(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_param_keyword, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6548,8 +7101,11 @@ define internal i64 @builtin_inline_class_1159(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_param_keyword, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6558,8 +7114,11 @@ define internal i64 @builtin_inline_class_1160(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_param_keyword, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6568,8 +7127,11 @@ define internal i64 @builtin_inline_class_1161(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_param_keyword, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6578,8 +7140,11 @@ define internal i64 @builtin_inline_class_1162(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_param_keyword, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_param_keyword, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6608,8 +7173,11 @@ define internal i64 @builtin_inline_class_1170(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6618,8 +7186,11 @@ define internal i64 @builtin_inline_class_1171(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6648,8 +7219,14 @@ define internal i64 @builtin_inline_class_1177(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6658,8 +7235,15 @@ define internal i64 @builtin_inline_class_1178(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.36, ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3), i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %6 = getelementptr inbounds %struct.anon.36, ptr %5, i32 0, i32 1
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6678,8 +7262,14 @@ define internal i64 @builtin_inline_class_1182(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6688,8 +7278,15 @@ define internal i64 @builtin_inline_class_1183(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.37, ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3), i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %6 = getelementptr inbounds %struct.anon.37, ptr %5, i32 0, i32 1
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6698,8 +7295,11 @@ define internal i64 @builtin_inline_class_1185(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_iseq_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_iseq_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6728,8 +7328,11 @@ define internal i64 @builtin_inline_class_1201(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_attr_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_attr_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6758,8 +7361,11 @@ define internal i64 @builtin_inline_class_1209(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_bmethod_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_bmethod_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6768,8 +7374,11 @@ define internal i64 @builtin_inline_class_1210(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_bmethod_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_bmethod_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6798,8 +7407,11 @@ define internal i64 @builtin_inline_class_1218(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_cfunc_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_cfunc_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6808,8 +7420,11 @@ define internal i64 @builtin_inline_class_1219(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_cfunc_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_cfunc_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6838,8 +7453,11 @@ define internal i64 @builtin_inline_class_1240(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_definition_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_definition_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6848,8 +7466,11 @@ define internal i64 @builtin_inline_class_1241(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_definition_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_definition_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6858,8 +7479,11 @@ define internal i64 @builtin_inline_class_1242(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_definition_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_definition_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6888,8 +7512,11 @@ define internal i64 @builtin_inline_class_1250(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_entry_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_entry_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6898,8 +7525,11 @@ define internal i64 @builtin_inline_class_1251(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_entry_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_entry_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6908,8 +7538,11 @@ define internal i64 @builtin_inline_class_1252(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_entry_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_entry_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6918,8 +7551,11 @@ define internal i64 @builtin_inline_class_1253(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_entry_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_entry_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6948,8 +7584,11 @@ define internal i64 @builtin_inline_class_1261(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_iseq_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_iseq_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6978,8 +7617,11 @@ define internal i64 @builtin_inline_class_1269(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_method_optimized, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_method_optimized, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7028,8 +7670,11 @@ define internal i64 @builtin_inline_class_1288(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_options, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_options, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7038,8 +7683,11 @@ define internal i64 @builtin_inline_class_1289(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_options, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_options, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7048,8 +7696,11 @@ define internal i64 @builtin_inline_class_1290(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_options, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_options, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7058,8 +7709,11 @@ define internal i64 @builtin_inline_class_1291(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_options, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_options, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7068,8 +7722,11 @@ define internal i64 @builtin_inline_class_1292(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_options, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_options, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7078,8 +7735,11 @@ define internal i64 @builtin_inline_class_1293(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_options, ptr null, i32 0, i32 6) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_options, ptr null, i32 0, i32 6
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7088,8 +7748,11 @@ define internal i64 @builtin_inline_class_1294(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_options, ptr null, i32 0, i32 7) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_options, ptr null, i32 0, i32 7
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7098,8 +7761,11 @@ define internal i64 @builtin_inline_class_1295(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_options, ptr null, i32 0, i32 8) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_options, ptr null, i32 0, i32 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7128,8 +7794,11 @@ define internal i64 @builtin_inline_class_1303(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7138,8 +7807,11 @@ define internal i64 @builtin_inline_class_1304(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7148,8 +7820,11 @@ define internal i64 @builtin_inline_class_1305(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7158,8 +7833,11 @@ define internal i64 @builtin_inline_class_1306(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7168,8 +7846,11 @@ define internal i64 @builtin_inline_class_1307(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7178,8 +7859,11 @@ define internal i64 @builtin_inline_class_1308(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 6) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 6
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7188,8 +7872,11 @@ define internal i64 @builtin_inline_class_1309(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 7) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 7
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7198,8 +7885,11 @@ define internal i64 @builtin_inline_class_1310(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 8) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7208,8 +7898,11 @@ define internal i64 @builtin_inline_class_1311(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 9) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 9
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7218,8 +7911,11 @@ define internal i64 @builtin_inline_class_1312(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 10) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 10
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7228,8 +7924,11 @@ define internal i64 @builtin_inline_class_1313(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 11) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 11
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7238,8 +7937,11 @@ define internal i64 @builtin_inline_class_1314(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 12) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 12
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7248,8 +7950,11 @@ define internal i64 @builtin_inline_class_1315(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 13) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 13
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7258,8 +7963,11 @@ define internal i64 @builtin_inline_class_1316(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 14) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 14
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7268,8 +7976,11 @@ define internal i64 @builtin_inline_class_1317(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 15) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 15
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7278,8 +7989,11 @@ define internal i64 @builtin_inline_class_1318(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 16) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 16
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7288,8 +8002,11 @@ define internal i64 @builtin_inline_class_1319(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 17) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 17
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7298,8 +8015,11 @@ define internal i64 @builtin_inline_class_1320(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 18) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 18
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7308,8 +8028,11 @@ define internal i64 @builtin_inline_class_1321(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 19) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 19
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7318,8 +8041,11 @@ define internal i64 @builtin_inline_class_1322(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 20) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 20
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7328,8 +8054,11 @@ define internal i64 @builtin_inline_class_1323(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 21) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 21
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7338,8 +8067,11 @@ define internal i64 @builtin_inline_class_1324(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 22) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 22
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7348,8 +8080,11 @@ define internal i64 @builtin_inline_class_1325(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 23) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 23
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7358,8 +8093,11 @@ define internal i64 @builtin_inline_class_1326(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 24) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 24
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7368,8 +8106,11 @@ define internal i64 @builtin_inline_class_1327(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 25) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 25
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7378,8 +8119,11 @@ define internal i64 @builtin_inline_class_1328(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 26) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 26
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7388,8 +8132,11 @@ define internal i64 @builtin_inline_class_1329(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 27) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 27
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7398,8 +8145,11 @@ define internal i64 @builtin_inline_class_1330(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 28) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 28
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7408,8 +8158,11 @@ define internal i64 @builtin_inline_class_1331(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 29) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 29
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7418,8 +8171,11 @@ define internal i64 @builtin_inline_class_1332(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 30) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 30
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7428,8 +8184,11 @@ define internal i64 @builtin_inline_class_1333(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 31) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 31
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7438,8 +8197,11 @@ define internal i64 @builtin_inline_class_1334(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 32) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 32
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7448,8 +8210,11 @@ define internal i64 @builtin_inline_class_1335(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 33) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 33
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7458,8 +8223,11 @@ define internal i64 @builtin_inline_class_1336(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 34) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 34
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7468,8 +8236,11 @@ define internal i64 @builtin_inline_class_1337(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 35) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 35
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7478,8 +8249,11 @@ define internal i64 @builtin_inline_class_1338(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 36) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 36
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7488,8 +8262,11 @@ define internal i64 @builtin_inline_class_1339(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 37) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 37
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7498,8 +8275,11 @@ define internal i64 @builtin_inline_class_1340(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 38) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 38
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7508,8 +8288,11 @@ define internal i64 @builtin_inline_class_1341(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 39) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 39
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7518,8 +8301,11 @@ define internal i64 @builtin_inline_class_1342(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 40) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 40
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7528,8 +8314,11 @@ define internal i64 @builtin_inline_class_1343(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 41) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 41
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7538,8 +8327,11 @@ define internal i64 @builtin_inline_class_1344(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 42) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 42
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7548,8 +8340,11 @@ define internal i64 @builtin_inline_class_1345(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 43) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 43
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7558,8 +8353,11 @@ define internal i64 @builtin_inline_class_1346(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 44) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 44
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7568,8 +8366,11 @@ define internal i64 @builtin_inline_class_1347(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 45) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 45
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7578,8 +8379,11 @@ define internal i64 @builtin_inline_class_1348(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 46) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 46
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7588,8 +8392,11 @@ define internal i64 @builtin_inline_class_1349(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 47) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 47
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7598,8 +8405,11 @@ define internal i64 @builtin_inline_class_1350(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 48) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 48
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7608,8 +8418,11 @@ define internal i64 @builtin_inline_class_1351(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 49) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 49
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7618,8 +8431,11 @@ define internal i64 @builtin_inline_class_1352(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 50) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 50
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7628,8 +8444,11 @@ define internal i64 @builtin_inline_class_1353(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 51) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 51
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7638,8 +8457,11 @@ define internal i64 @builtin_inline_class_1354(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 52) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 52
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7648,8 +8470,11 @@ define internal i64 @builtin_inline_class_1355(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 53) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 53
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7658,8 +8483,11 @@ define internal i64 @builtin_inline_class_1356(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 54) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 54
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7668,8 +8496,11 @@ define internal i64 @builtin_inline_class_1357(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 55) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 55
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7678,8 +8509,11 @@ define internal i64 @builtin_inline_class_1358(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 56) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 56
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7688,8 +8522,11 @@ define internal i64 @builtin_inline_class_1359(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 57) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 57
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7698,8 +8535,11 @@ define internal i64 @builtin_inline_class_1360(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 58) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 58
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7708,8 +8548,11 @@ define internal i64 @builtin_inline_class_1361(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 59) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 59
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7718,8 +8561,11 @@ define internal i64 @builtin_inline_class_1362(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 60) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 60
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7728,8 +8574,11 @@ define internal i64 @builtin_inline_class_1363(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 61) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 61
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7738,8 +8587,11 @@ define internal i64 @builtin_inline_class_1364(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 62) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 62
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7748,8 +8600,11 @@ define internal i64 @builtin_inline_class_1365(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 63) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 63
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7758,8 +8613,11 @@ define internal i64 @builtin_inline_class_1366(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 64) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 64
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7768,8 +8626,11 @@ define internal i64 @builtin_inline_class_1367(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 65) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 65
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7778,8 +8639,11 @@ define internal i64 @builtin_inline_class_1368(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 66) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 66
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7788,8 +8652,11 @@ define internal i64 @builtin_inline_class_1369(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 67) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 67
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7798,8 +8665,11 @@ define internal i64 @builtin_inline_class_1370(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 68) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 68
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7808,8 +8678,11 @@ define internal i64 @builtin_inline_class_1371(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 69) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 69
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7818,8 +8691,11 @@ define internal i64 @builtin_inline_class_1372(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 70) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 70
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7828,8 +8704,11 @@ define internal i64 @builtin_inline_class_1373(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 71) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 71
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7838,8 +8717,11 @@ define internal i64 @builtin_inline_class_1374(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 72) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 72
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7848,8 +8730,11 @@ define internal i64 @builtin_inline_class_1375(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 73) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 73
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7858,8 +8743,11 @@ define internal i64 @builtin_inline_class_1376(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 74) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 74
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7868,8 +8756,11 @@ define internal i64 @builtin_inline_class_1377(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 75) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 75
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7878,8 +8769,11 @@ define internal i64 @builtin_inline_class_1378(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 76) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 76
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7888,8 +8782,11 @@ define internal i64 @builtin_inline_class_1379(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 77) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 77
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7898,8 +8795,11 @@ define internal i64 @builtin_inline_class_1380(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 78) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 78
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7908,8 +8808,11 @@ define internal i64 @builtin_inline_class_1381(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 79) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 79
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7918,8 +8821,11 @@ define internal i64 @builtin_inline_class_1382(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 80) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 80
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7928,8 +8834,11 @@ define internal i64 @builtin_inline_class_1383(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 81) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 81
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7938,8 +8847,11 @@ define internal i64 @builtin_inline_class_1384(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 82) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 82
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7948,8 +8860,11 @@ define internal i64 @builtin_inline_class_1385(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 83) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 83
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7958,8 +8873,11 @@ define internal i64 @builtin_inline_class_1386(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 84) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 84
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7968,8 +8886,11 @@ define internal i64 @builtin_inline_class_1387(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 85) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 85
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7978,8 +8899,11 @@ define internal i64 @builtin_inline_class_1388(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 86) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 86
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7988,8 +8912,11 @@ define internal i64 @builtin_inline_class_1389(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 87) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 87
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7998,8 +8925,11 @@ define internal i64 @builtin_inline_class_1390(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 88) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 88
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8008,8 +8938,11 @@ define internal i64 @builtin_inline_class_1391(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 89) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 89
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8018,8 +8951,11 @@ define internal i64 @builtin_inline_class_1392(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 90) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 90
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8028,8 +8964,11 @@ define internal i64 @builtin_inline_class_1393(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 91) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 91
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8038,8 +8977,11 @@ define internal i64 @builtin_inline_class_1394(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 92) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 92
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8048,8 +8990,11 @@ define internal i64 @builtin_inline_class_1395(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 93) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 93
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8058,8 +9003,11 @@ define internal i64 @builtin_inline_class_1396(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 94) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 94
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8068,8 +9016,11 @@ define internal i64 @builtin_inline_class_1397(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 95) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 95
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8078,8 +9029,11 @@ define internal i64 @builtin_inline_class_1398(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 96) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 96
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8088,8 +9042,11 @@ define internal i64 @builtin_inline_class_1399(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 97) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 97
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8098,8 +9055,11 @@ define internal i64 @builtin_inline_class_1400(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 98) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 98
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8108,8 +9068,11 @@ define internal i64 @builtin_inline_class_1401(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 99) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 99
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8118,8 +9081,11 @@ define internal i64 @builtin_inline_class_1402(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 100) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 100
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8128,8 +9094,11 @@ define internal i64 @builtin_inline_class_1403(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 101) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 101
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8138,8 +9107,11 @@ define internal i64 @builtin_inline_class_1404(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 102) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 102
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8148,8 +9120,11 @@ define internal i64 @builtin_inline_class_1405(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 103) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 103
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8158,8 +9133,11 @@ define internal i64 @builtin_inline_class_1406(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 104) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 104
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8168,8 +9146,11 @@ define internal i64 @builtin_inline_class_1407(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 105) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 105
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8178,8 +9159,11 @@ define internal i64 @builtin_inline_class_1408(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 106) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 106
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8188,8 +9172,11 @@ define internal i64 @builtin_inline_class_1409(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 107) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 107
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8198,8 +9185,11 @@ define internal i64 @builtin_inline_class_1410(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 108) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 108
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8208,8 +9198,11 @@ define internal i64 @builtin_inline_class_1411(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 109) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 109
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8218,8 +9211,11 @@ define internal i64 @builtin_inline_class_1412(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 110) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 110
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8228,8 +9224,11 @@ define internal i64 @builtin_inline_class_1413(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 111) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 111
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8238,8 +9237,11 @@ define internal i64 @builtin_inline_class_1414(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 112) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 112
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8248,8 +9250,11 @@ define internal i64 @builtin_inline_class_1415(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 113) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 113
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8258,8 +9263,11 @@ define internal i64 @builtin_inline_class_1416(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 114) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 114
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8268,8 +9276,11 @@ define internal i64 @builtin_inline_class_1417(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 115) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 115
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8278,8 +9289,11 @@ define internal i64 @builtin_inline_class_1418(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 116) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 116
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8288,8 +9302,11 @@ define internal i64 @builtin_inline_class_1419(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 117) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 117
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8298,8 +9315,11 @@ define internal i64 @builtin_inline_class_1420(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 118) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 118
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8308,8 +9328,11 @@ define internal i64 @builtin_inline_class_1421(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 119) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 119
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8318,8 +9341,11 @@ define internal i64 @builtin_inline_class_1422(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 120) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 120
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8328,8 +9354,11 @@ define internal i64 @builtin_inline_class_1423(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 121) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 121
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8338,8 +9367,11 @@ define internal i64 @builtin_inline_class_1424(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 122) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_rjit_runtime_counters, ptr null, i32 0, i32 122
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8368,8 +9400,11 @@ define internal i64 @builtin_inline_class_1436(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_shape, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_shape, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8378,8 +9413,11 @@ define internal i64 @builtin_inline_class_1437(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_shape, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_shape, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8388,8 +9426,11 @@ define internal i64 @builtin_inline_class_1438(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_shape, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_shape, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8398,8 +9439,11 @@ define internal i64 @builtin_inline_class_1439(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_shape, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_shape, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8408,8 +9452,11 @@ define internal i64 @builtin_inline_class_1440(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_shape, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_shape, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8418,8 +9465,11 @@ define internal i64 @builtin_inline_class_1441(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_shape, ptr null, i32 0, i32 6) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_shape, ptr null, i32 0, i32 6
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8428,8 +9478,11 @@ define internal i64 @builtin_inline_class_1442(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_shape, ptr null, i32 0, i32 7) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_shape, ptr null, i32 0, i32 7
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8458,8 +9511,11 @@ define internal i64 @builtin_inline_class_1454(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 1) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 1
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8468,8 +9524,11 @@ define internal i64 @builtin_inline_class_1455(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 2) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 2
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8478,8 +9537,11 @@ define internal i64 @builtin_inline_class_1456(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 3) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 3
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8488,8 +9550,11 @@ define internal i64 @builtin_inline_class_1457(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 4) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8498,8 +9563,11 @@ define internal i64 @builtin_inline_class_1458(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 5) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 5
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8508,8 +9576,11 @@ define internal i64 @builtin_inline_class_1459(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 6) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 6
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8518,8 +9589,11 @@ define internal i64 @builtin_inline_class_1460(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 7) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 7
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8528,8 +9602,11 @@ define internal i64 @builtin_inline_class_1461(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 8) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8538,8 +9615,11 @@ define internal i64 @builtin_inline_class_1462(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 9) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 9
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8548,8 +9628,11 @@ define internal i64 @builtin_inline_class_1463(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 10) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 10
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8558,8 +9641,11 @@ define internal i64 @builtin_inline_class_1464(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 11) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 11
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8568,8 +9654,11 @@ define internal i64 @builtin_inline_class_1465(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 12) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 12
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8578,8 +9667,11 @@ define internal i64 @builtin_inline_class_1466(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 14) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 14
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8588,8 +9680,11 @@ define internal i64 @builtin_inline_class_1467(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 15) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 15
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8598,8 +9693,11 @@ define internal i64 @builtin_inline_class_1468(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 16) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 16
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8608,8 +9706,11 @@ define internal i64 @builtin_inline_class_1469(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 17) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 17
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8618,8 +9719,11 @@ define internal i64 @builtin_inline_class_1470(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 18) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 18
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8628,8 +9732,11 @@ define internal i64 @builtin_inline_class_1471(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 19) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 19
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8638,8 +9745,11 @@ define internal i64 @builtin_inline_class_1472(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 20) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 20
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8648,8 +9758,11 @@ define internal i64 @builtin_inline_class_1473(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 21) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 21
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8658,8 +9771,11 @@ define internal i64 @builtin_inline_class_1474(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 22) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 22
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8668,8 +9784,11 @@ define internal i64 @builtin_inline_class_1475(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 23) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 23
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8678,8 +9797,11 @@ define internal i64 @builtin_inline_class_1476(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 24) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 24
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8688,8 +9810,11 @@ define internal i64 @builtin_inline_class_1477(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 25) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 25
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8718,8 +9843,14 @@ define internal i64 @builtin_inline_class_1482(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8728,8 +9859,15 @@ define internal i64 @builtin_inline_class_1483(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.11, ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26), i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %6 = getelementptr inbounds %struct.anon.11, ptr %5, i32 0, i32 1
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8738,8 +9876,15 @@ define internal i64 @builtin_inline_class_1484(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.11, ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26), i32 0, i32 2) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %6 = getelementptr inbounds %struct.anon.11, ptr %5, i32 0, i32 2
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8758,8 +9903,14 @@ define internal i64 @builtin_inline_class_1488(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = mul i64 %9, 8
+  %11 = call i64 @rb_ull2num_inline(i64 noundef %10)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8768,8 +9919,15 @@ define internal i64 @builtin_inline_class_1489(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 sub (i64 ptrtoint (ptr getelementptr inbounds (%struct.anon.12, ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26), i32 0, i32 1) to i64), i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26) to i64)), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %6 = getelementptr inbounds %struct.anon.12, ptr %5, i32 0, i32 1
+  %7 = ptrtoint ptr %6 to i64
+  %8 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %9 = ptrtoint ptr %8 to i64
+  %10 = sub i64 %7, %9
+  %11 = mul i64 %10, 8
+  %12 = call i64 @rb_ull2num_inline(i64 noundef %11)
+  ret i64 %12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8778,8 +9936,11 @@ define internal i64 @builtin_inline_class_1491(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 26) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 26
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8788,8 +9949,11 @@ define internal i64 @builtin_inline_class_1492(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 27) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 27
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8798,8 +9962,11 @@ define internal i64 @builtin_inline_class_1493(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 28) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 28
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8808,8 +9975,11 @@ define internal i64 @builtin_inline_class_1494(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 29) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 29
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8818,8 +9988,11 @@ define internal i64 @builtin_inline_class_1495(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 30) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 30
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8828,8 +10001,11 @@ define internal i64 @builtin_inline_class_1496(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 31) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 31
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8838,8 +10014,11 @@ define internal i64 @builtin_inline_class_1497(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 32) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 32
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8848,8 +10027,11 @@ define internal i64 @builtin_inline_class_1498(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 33) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 33
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8858,8 +10040,11 @@ define internal i64 @builtin_inline_class_1499(ptr noundef %0, i64 noundef %1) #
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call i64 @rb_ull2num_inline(i64 noundef mul (i64 ptrtoint (ptr getelementptr inbounds (%struct.rb_thread_struct, ptr null, i32 0, i32 34) to i64), i64 8))
-  ret i64 %5
+  %5 = getelementptr inbounds %struct.rb_thread_struct, ptr null, i32 0, i32 34
+  %6 = ptrtoint ptr %5 to i64
+  %7 = mul i64 %6, 8
+  %8 = call i64 @rb_ull2num_inline(i64 noundef %7)
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8941,71 +10126,76 @@ define internal ptr @rjit_reserve_addr_space(i32 noundef %0) #0 {
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %4, align 4
   store ptr @rjit_reserve_addr_space, ptr %5, align 8
-  store ptr getelementptr (i8, ptr @rjit_reserve_addr_space, i64 2147483647), ptr %6, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = call ptr @align_ptr(ptr noundef @rjit_reserve_addr_space, i32 noundef %10)
-  store ptr %11, ptr %7, align 8
-  br label %12
+  %10 = getelementptr i8, ptr @rjit_reserve_addr_space, i64 2147483647
+  store ptr %10, ptr %6, align 8
+  %11 = load i32, ptr %4, align 4
+  %12 = call ptr @align_ptr(ptr noundef @rjit_reserve_addr_space, i32 noundef %11)
+  store ptr %12, ptr %7, align 8
+  br label %13
 
-12:                                               ; preds = %23, %1
-  %13 = load ptr, ptr %7, align 8
-  %14 = load i32, ptr %2, align 4
-  %15 = zext i32 %14 to i64
-  %16 = call ptr @mmap(ptr noundef %13, i64 noundef %15, i32 noundef 0, i32 noundef 1048610, i32 noundef -1, i64 noundef 0) #15
-  store ptr %16, ptr %3, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = icmp ne ptr %17, inttoptr (i64 -1 to ptr)
-  br i1 %18, label %19, label %20
+13:                                               ; preds = %25, %1
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %2, align 4
+  %16 = zext i32 %15 to i64
+  %17 = call ptr @mmap(ptr noundef %14, i64 noundef %16, i32 noundef 0, i32 noundef 1048610, i32 noundef -1, i64 noundef 0) #15
+  store ptr %17, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = inttoptr i64 -1 to ptr
+  %20 = icmp ne ptr %18, %19
+  br i1 %20, label %21, label %22
 
-19:                                               ; preds = %12
-  br label %26
+21:                                               ; preds = %13
+  br label %29
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr i8, ptr %21, i64 4194304
-  store ptr %22, ptr %7, align 8
-  br label %23
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr i8, ptr %23, i64 4194304
+  store ptr %24, ptr %7, align 8
+  br label %25
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %7, align 8
-  %25 = icmp ult ptr %24, getelementptr (i8, ptr @rjit_reserve_addr_space, i64 2147483647)
-  br i1 %25, label %12, label %26, !llvm.loop !7
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr i8, ptr @rjit_reserve_addr_space, i64 2147483647
+  %28 = icmp ult ptr %26, %27
+  br i1 %28, label %13, label %29, !llvm.loop !7
 
-26:                                               ; preds = %23, %19
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp eq ptr %27, inttoptr (i64 -1 to ptr)
-  br i1 %28, label %29, label %33
+29:                                               ; preds = %25, %21
+  %30 = load ptr, ptr %3, align 8
+  %31 = inttoptr i64 -1 to ptr
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %33, label %37
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %2, align 4
-  %31 = zext i32 %30 to i64
-  %32 = call ptr @mmap(ptr noundef null, i64 noundef %31, i32 noundef 0, i32 noundef 34, i32 noundef -1, i64 noundef 0) #15
-  store ptr %32, ptr %3, align 8
-  br label %33
+33:                                               ; preds = %29
+  %34 = load i32, ptr %2, align 4
+  %35 = zext i32 %34 to i64
+  %36 = call ptr @mmap(ptr noundef null, i64 noundef %35, i32 noundef 0, i32 noundef 34, i32 noundef -1, i64 noundef 0) #15
+  store ptr %36, ptr %3, align 8
+  br label %37
 
-33:                                               ; preds = %29, %26
-  %34 = load ptr, ptr %3, align 8
-  %35 = icmp eq ptr %34, inttoptr (i64 -1 to ptr)
-  br i1 %35, label %36, label %42
+37:                                               ; preds = %33, %29
+  %38 = load ptr, ptr %3, align 8
+  %39 = inttoptr i64 -1 to ptr
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %41, label %47
 
-36:                                               ; preds = %33
+41:                                               ; preds = %37
   call void @perror(ptr noundef @.str.688)
-  %37 = call ptr @rb_errno_ptr()
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, 12
-  br i1 %39, label %40, label %41
+  %42 = call ptr @rb_errno_ptr()
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %43, 12
+  br i1 %44, label %45, label %46
 
-40:                                               ; preds = %36
+45:                                               ; preds = %41
   call void @exit(i32 noundef 1) #19
   unreachable
 
-41:                                               ; preds = %36
+46:                                               ; preds = %41
   call void (ptr, ...) @rb_bug(ptr noundef @.str.689) #16
   unreachable
 
-42:                                               ; preds = %33
-  %43 = load ptr, ptr %3, align 8
-  ret ptr %43
+47:                                               ; preds = %37
+  %48 = load ptr, ptr %3, align 8
+  ret ptr %48
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

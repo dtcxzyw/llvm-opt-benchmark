@@ -1809,10 +1809,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %compression_level, ptr %compression_level.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util12CodecOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow4util12CodecOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %compression_level2 = getelementptr inbounds %"class.arrow::util::CodecOptions", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %compression_level.addr, align 4
-  store i32 %0, ptr %compression_level2, align 8
+  %1 = load i32, ptr %compression_level.addr, align 4
+  store i32 %1, ptr %compression_level2, align 8
   ret void
 }
 

@@ -37,7 +37,7 @@ define void @up_schedule_sigaction(ptr noundef %0, ptr noundef %1) #0 {
   %11 = getelementptr inbounds %struct.xcptcontext, ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 16
   %13 = icmp ne ptr %12, null
-  br i1 %13, label %95, label %14
+  br i1 %13, label %97, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %4, align 8
@@ -48,7 +48,7 @@ define void @up_schedule_sigaction(ptr noundef %0, ptr noundef %1) #0 {
   %19 = load ptr, ptr %3, align 8
   %20 = load ptr, ptr @g_readytorun, align 8
   %21 = icmp eq ptr %19, %20
-  br i1 %21, label %22, label %61
+  br i1 %21, label %22, label %62
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr @g_current_regs, align 8
@@ -63,7 +63,7 @@ define void @up_schedule_sigaction(ptr noundef %0, ptr noundef %1) #0 {
   %29 = getelementptr inbounds %struct.tcb_s, ptr %28, i32 0, i32 26
   %30 = getelementptr inbounds %struct.xcptcontext, ptr %29, i32 0, i32 0
   store ptr null, ptr %30, align 16
-  br label %60
+  br label %61
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr @g_current_regs, align 8
@@ -91,64 +91,66 @@ define void @up_schedule_sigaction(ptr noundef %0, ptr noundef %1) #0 {
   store i64 %48, ptr %51, align 16
   %52 = load ptr, ptr @g_current_regs, align 8
   %53 = getelementptr inbounds i64, ptr %52, i64 85
-  store volatile i64 ptrtoint (ptr @x86_64_sigdeliver to i64), ptr %53, align 8
-  %54 = load ptr, ptr @g_current_regs, align 8
-  %55 = getelementptr inbounds i64, ptr %54, i64 87
-  store volatile i64 0, ptr %55, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.tcb_s, ptr %56, i32 0, i32 26
-  %58 = getelementptr inbounds %struct.xcptcontext, ptr %57, i32 0, i32 4
-  %59 = getelementptr inbounds [90 x i64], ptr %58, i64 0, i64 0
-  call void @x86_64_savestate(ptr noundef %59)
-  br label %60
+  %54 = ptrtoint ptr @x86_64_sigdeliver to i64
+  store volatile i64 %54, ptr %53, align 8
+  %55 = load ptr, ptr @g_current_regs, align 8
+  %56 = getelementptr inbounds i64, ptr %55, i64 87
+  store volatile i64 0, ptr %56, align 8
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds %struct.tcb_s, ptr %57, i32 0, i32 26
+  %59 = getelementptr inbounds %struct.xcptcontext, ptr %58, i32 0, i32 4
+  %60 = getelementptr inbounds [90 x i64], ptr %59, i64 0, i64 0
+  call void @x86_64_savestate(ptr noundef %60)
+  br label %61
 
-60:                                               ; preds = %31, %25
-  br label %94
+61:                                               ; preds = %31, %25
+  br label %96
 
-61:                                               ; preds = %14
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.tcb_s, ptr %62, i32 0, i32 26
-  %64 = getelementptr inbounds %struct.xcptcontext, ptr %63, i32 0, i32 4
-  %65 = getelementptr inbounds [90 x i64], ptr %64, i64 0, i64 85
-  %66 = load i64, ptr %65, align 8
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.tcb_s, ptr %67, i32 0, i32 26
-  %69 = getelementptr inbounds %struct.xcptcontext, ptr %68, i32 0, i32 1
-  store i64 %66, ptr %69, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.tcb_s, ptr %70, i32 0, i32 26
-  %72 = getelementptr inbounds %struct.xcptcontext, ptr %71, i32 0, i32 4
-  %73 = getelementptr inbounds [90 x i64], ptr %72, i64 0, i64 88
-  %74 = load i64, ptr %73, align 16
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.tcb_s, ptr %75, i32 0, i32 26
-  %77 = getelementptr inbounds %struct.xcptcontext, ptr %76, i32 0, i32 3
-  store i64 %74, ptr %77, align 8
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.tcb_s, ptr %78, i32 0, i32 26
-  %80 = getelementptr inbounds %struct.xcptcontext, ptr %79, i32 0, i32 4
-  %81 = getelementptr inbounds [90 x i64], ptr %80, i64 0, i64 87
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.tcb_s, ptr %83, i32 0, i32 26
-  %85 = getelementptr inbounds %struct.xcptcontext, ptr %84, i32 0, i32 2
-  store i64 %82, ptr %85, align 16
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.tcb_s, ptr %86, i32 0, i32 26
-  %88 = getelementptr inbounds %struct.xcptcontext, ptr %87, i32 0, i32 4
-  %89 = getelementptr inbounds [90 x i64], ptr %88, i64 0, i64 85
-  store i64 ptrtoint (ptr @x86_64_sigdeliver to i64), ptr %89, align 8
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.tcb_s, ptr %90, i32 0, i32 26
-  %92 = getelementptr inbounds %struct.xcptcontext, ptr %91, i32 0, i32 4
-  %93 = getelementptr inbounds [90 x i64], ptr %92, i64 0, i64 87
-  store i64 0, ptr %93, align 8
-  br label %94
+62:                                               ; preds = %14
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds %struct.tcb_s, ptr %63, i32 0, i32 26
+  %65 = getelementptr inbounds %struct.xcptcontext, ptr %64, i32 0, i32 4
+  %66 = getelementptr inbounds [90 x i64], ptr %65, i64 0, i64 85
+  %67 = load i64, ptr %66, align 8
+  %68 = load ptr, ptr %3, align 8
+  %69 = getelementptr inbounds %struct.tcb_s, ptr %68, i32 0, i32 26
+  %70 = getelementptr inbounds %struct.xcptcontext, ptr %69, i32 0, i32 1
+  store i64 %67, ptr %70, align 8
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds %struct.tcb_s, ptr %71, i32 0, i32 26
+  %73 = getelementptr inbounds %struct.xcptcontext, ptr %72, i32 0, i32 4
+  %74 = getelementptr inbounds [90 x i64], ptr %73, i64 0, i64 88
+  %75 = load i64, ptr %74, align 16
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds %struct.tcb_s, ptr %76, i32 0, i32 26
+  %78 = getelementptr inbounds %struct.xcptcontext, ptr %77, i32 0, i32 3
+  store i64 %75, ptr %78, align 8
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds %struct.tcb_s, ptr %79, i32 0, i32 26
+  %81 = getelementptr inbounds %struct.xcptcontext, ptr %80, i32 0, i32 4
+  %82 = getelementptr inbounds [90 x i64], ptr %81, i64 0, i64 87
+  %83 = load i64, ptr %82, align 8
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds %struct.tcb_s, ptr %84, i32 0, i32 26
+  %86 = getelementptr inbounds %struct.xcptcontext, ptr %85, i32 0, i32 2
+  store i64 %83, ptr %86, align 16
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct.tcb_s, ptr %87, i32 0, i32 26
+  %89 = getelementptr inbounds %struct.xcptcontext, ptr %88, i32 0, i32 4
+  %90 = getelementptr inbounds [90 x i64], ptr %89, i64 0, i64 85
+  %91 = ptrtoint ptr @x86_64_sigdeliver to i64
+  store i64 %91, ptr %90, align 8
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds %struct.tcb_s, ptr %92, i32 0, i32 26
+  %94 = getelementptr inbounds %struct.xcptcontext, ptr %93, i32 0, i32 4
+  %95 = getelementptr inbounds [90 x i64], ptr %94, i64 0, i64 87
+  store i64 0, ptr %95, align 8
+  br label %96
 
-94:                                               ; preds = %61, %60
-  br label %95
+96:                                               ; preds = %62, %61
+  br label %97
 
-95:                                               ; preds = %94, %8
+97:                                               ; preds = %96, %8
   ret void
 }
 

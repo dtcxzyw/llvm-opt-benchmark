@@ -1466,53 +1466,59 @@ define dso_local void @BackgroundWorkerMain() #5 {
   %36 = call ptr @pqsignal(i32 noundef 2, ptr noundef @StatementCancelHandler)
   %37 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
   %38 = call ptr @pqsignal(i32 noundef 8, ptr noundef @FloatExceptionHandler)
-  br label %43
+  br label %46
 
 39:                                               ; preds = %29
-  %40 = call ptr @pqsignal(i32 noundef 2, ptr noundef inttoptr (i64 1 to ptr))
-  %41 = call ptr @pqsignal(i32 noundef 10, ptr noundef inttoptr (i64 1 to ptr))
-  %42 = call ptr @pqsignal(i32 noundef 8, ptr noundef inttoptr (i64 1 to ptr))
-  br label %43
+  %40 = inttoptr i64 1 to ptr
+  %41 = call ptr @pqsignal(i32 noundef 2, ptr noundef %40)
+  %42 = inttoptr i64 1 to ptr
+  %43 = call ptr @pqsignal(i32 noundef 10, ptr noundef %42)
+  %44 = inttoptr i64 1 to ptr
+  %45 = call ptr @pqsignal(i32 noundef 8, ptr noundef %44)
+  br label %46
 
-43:                                               ; preds = %39, %35
-  %44 = call ptr @pqsignal(i32 noundef 15, ptr noundef @bgworker_die)
-  %45 = call ptr @pqsignal(i32 noundef 1, ptr noundef inttoptr (i64 1 to ptr))
+46:                                               ; preds = %39, %35
+  %47 = call ptr @pqsignal(i32 noundef 15, ptr noundef @bgworker_die)
+  %48 = inttoptr i64 1 to ptr
+  %49 = call ptr @pqsignal(i32 noundef 1, ptr noundef %48)
   call void @InitializeTimeouts()
-  %46 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %47 = call ptr @pqsignal(i32 noundef 12, ptr noundef inttoptr (i64 1 to ptr))
-  %48 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
-  %49 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %1, i64 0, i64 0
-  %50 = call i32 @__sigsetjmp(ptr noundef %49, i32 noundef 1) #12
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %55
+  %50 = inttoptr i64 1 to ptr
+  %51 = call ptr @pqsignal(i32 noundef 13, ptr noundef %50)
+  %52 = inttoptr i64 1 to ptr
+  %53 = call ptr @pqsignal(i32 noundef 12, ptr noundef %52)
+  %54 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  %55 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %1, i64 0, i64 0
+  %56 = call i32 @__sigsetjmp(ptr noundef %55, i32 noundef 1) #12
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %61
 
-52:                                               ; preds = %43
+58:                                               ; preds = %46
   store ptr null, ptr @error_context_stack, align 8
-  %53 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %54 = add i32 %53, 1
-  store volatile i32 %54, ptr @InterruptHoldoffCount, align 4
+  %59 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %60 = add i32 %59, 1
+  store volatile i32 %60, ptr @InterruptHoldoffCount, align 4
   call void @BackgroundWorkerUnblockSignals()
   call void @EmitErrorReport()
   call void @proc_exit(i32 noundef 1) #13
   unreachable
 
-55:                                               ; preds = %43
+61:                                               ; preds = %46
   store ptr %1, ptr @PG_exception_stack, align 8
   call void @InitProcess()
   call void @BaseInit()
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.BackgroundWorker, ptr %56, i32 0, i32 5
-  %58 = getelementptr inbounds [1024 x i8], ptr %57, i64 0, i64 0
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.BackgroundWorker, ptr %59, i32 0, i32 6
-  %61 = getelementptr inbounds [96 x i8], ptr %60, i64 0, i64 0
-  %62 = call ptr @LookupBackgroundWorkerFunction(ptr noundef %58, ptr noundef %61)
-  store ptr %62, ptr %3, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds %struct.BackgroundWorker, ptr %64, i32 0, i32 7
-  %66 = load i64, ptr %65, align 8
-  call void %63(i64 noundef %66)
+  %62 = load ptr, ptr %2, align 8
+  %63 = getelementptr inbounds %struct.BackgroundWorker, ptr %62, i32 0, i32 5
+  %64 = getelementptr inbounds [1024 x i8], ptr %63, i64 0, i64 0
+  %65 = load ptr, ptr %2, align 8
+  %66 = getelementptr inbounds %struct.BackgroundWorker, ptr %65, i32 0, i32 6
+  %67 = getelementptr inbounds [96 x i8], ptr %66, i64 0, i64 0
+  %68 = call ptr @LookupBackgroundWorkerFunction(ptr noundef %64, ptr noundef %67)
+  store ptr %68, ptr %3, align 8
+  %69 = load ptr, ptr %3, align 8
+  %70 = load ptr, ptr %2, align 8
+  %71 = getelementptr inbounds %struct.BackgroundWorker, ptr %70, i32 0, i32 7
+  %72 = load i64, ptr %71, align 8
+  call void %69(i64 noundef %72)
   call void @proc_exit(i32 noundef 0) #13
   unreachable
 }

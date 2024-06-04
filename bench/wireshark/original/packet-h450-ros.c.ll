@@ -1711,9 +1711,10 @@ define internal i32 @dissect_h450_ros_GeneralProblem(ptr noundef %0, i32 noundef
   %17 = load i32, ptr @problem_val, align 4
   %18 = call ptr @val_to_str_const(i32 noundef %17, ptr noundef @h450_ros_GeneralProblem_vals, ptr noundef @.str.52)
   %19 = call i64 @g_strlcpy(ptr noundef @problem_str, ptr noundef %18, i64 noundef 64)
-  store i8 0, ptr getelementptr inbounds ([64 x i8], ptr @problem_str, i64 0, i64 63), align 1
-  %20 = load i32, ptr %7, align 4
-  ret i32 %20
+  %20 = getelementptr inbounds [64 x i8], ptr @problem_str, i64 0, i64 63
+  store i8 0, ptr %20, align 1
+  %21 = load i32, ptr %7, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1738,9 +1739,10 @@ define internal i32 @dissect_h450_ros_InvokeProblem(ptr noundef %0, i32 noundef 
   %17 = load i32, ptr @problem_val, align 4
   %18 = call ptr @val_to_str_const(i32 noundef %17, ptr noundef @h450_ros_InvokeProblem_vals, ptr noundef @.str.52)
   %19 = call i64 @g_strlcpy(ptr noundef @problem_str, ptr noundef %18, i64 noundef 64)
-  store i8 0, ptr getelementptr inbounds ([64 x i8], ptr @problem_str, i64 0, i64 63), align 1
-  %20 = load i32, ptr %7, align 4
-  ret i32 %20
+  %20 = getelementptr inbounds [64 x i8], ptr @problem_str, i64 0, i64 63
+  store i8 0, ptr %20, align 1
+  %21 = load i32, ptr %7, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1765,9 +1767,10 @@ define internal i32 @dissect_h450_ros_ReturnResultProblem(ptr noundef %0, i32 no
   %17 = load i32, ptr @problem_val, align 4
   %18 = call ptr @val_to_str_const(i32 noundef %17, ptr noundef @h450_ros_ReturnResultProblem_vals, ptr noundef @.str.52)
   %19 = call i64 @g_strlcpy(ptr noundef @problem_str, ptr noundef %18, i64 noundef 64)
-  store i8 0, ptr getelementptr inbounds ([64 x i8], ptr @problem_str, i64 0, i64 63), align 1
-  %20 = load i32, ptr %7, align 4
-  ret i32 %20
+  %20 = getelementptr inbounds [64 x i8], ptr @problem_str, i64 0, i64 63
+  store i8 0, ptr %20, align 1
+  %21 = load i32, ptr %7, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1792,9 +1795,10 @@ define internal i32 @dissect_h450_ros_ReturnErrorProblem(ptr noundef %0, i32 nou
   %17 = load i32, ptr @problem_val, align 4
   %18 = call ptr @val_to_str_const(i32 noundef %17, ptr noundef @h450_ros_ReturnErrorProblem_vals, ptr noundef @.str.52)
   %19 = call i64 @g_strlcpy(ptr noundef @problem_str, ptr noundef %18, i64 noundef 64)
-  store i8 0, ptr getelementptr inbounds ([64 x i8], ptr @problem_str, i64 0, i64 63), align 1
-  %20 = load i32, ptr %7, align 4
-  ret i32 %20
+  %20 = getelementptr inbounds [64 x i8], ptr @problem_str, i64 0, i64 63
+  store i8 0, ptr %20, align 1
+  %21 = load i32, ptr %7, align 4
+  ret i32 %21
 }
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) #2

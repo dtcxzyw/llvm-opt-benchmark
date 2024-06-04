@@ -21,7 +21,7 @@ define dso_local noundef i32 @acpi_ev_init_global_lock_handler() local_unnamed_a
   %1 = alloca i64, align 8
   %2 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %20
+  br i1 %3, label %4, label %21
 
 4:                                                ; preds = %0
   %5 = tail call i32 @acpi_install_fixed_event_handler(i32 noundef 1, ptr noundef nonnull @acpi_ev_global_lock_handler, ptr noundef null) #5
@@ -31,7 +31,7 @@ define dso_local noundef i32 @acpi_ev_init_global_lock_handler() local_unnamed_a
 
 7:                                                ; preds = %4
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 59, ptr noundef nonnull @.str) #5
-  br label %20
+  br label %21
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
@@ -42,28 +42,29 @@ define dso_local noundef i32 @acpi_ev_init_global_lock_handler() local_unnamed_a
   %10 = and i64 %9, 512
   %11 = icmp eq i64 %10, 0
   %12 = select i1 %11, i32 2080, i32 3264
-  %13 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %14 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %13, i32 noundef %12, i64 noundef 4) #6
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %17, label %16
+  %13 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noalias noundef align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %12, i64 noundef 4) #6
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %8
-  store ptr %14, ptr @acpi_gbl_global_lock_pending_lock, align 8
-  store i32 0, ptr %14, align 8
-  br label %17
+17:                                               ; preds = %8
+  store ptr %15, ptr @acpi_gbl_global_lock_pending_lock, align 8
+  store i32 0, ptr %15, align 8
+  br label %18
 
-17:                                               ; preds = %16, %8
-  %18 = phi i32 [ 0, %16 ], [ 4, %8 ]
-  br i1 %15, label %20, label %19
+18:                                               ; preds = %17, %8
+  %19 = phi i32 [ 0, %17 ], [ 4, %8 ]
+  br i1 %16, label %21, label %20
 
-19:                                               ; preds = %17
+20:                                               ; preds = %18
   store i8 0, ptr @acpi_gbl_global_lock_pending, align 1
   store i8 1, ptr @acpi_gbl_global_lock_present, align 1
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %17, %7, %0
-  %21 = phi i32 [ 0, %7 ], [ 0, %19 ], [ 0, %0 ], [ %18, %17 ]
-  ret i32 %21
+21:                                               ; preds = %20, %18, %7, %0
+  %22 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %0 ], [ %19, %18 ]
+  ret i32 %22
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

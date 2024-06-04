@@ -64,19 +64,20 @@ entry:
   store ptr %parseErr, ptr %parseErr.addr, align 8
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fRules = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %rules.addr, align 8
-  store ptr %0, ptr %fRules, align 8
-  %fStrippedRules = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 5
   %1 = load ptr, ptr %rules.addr, align 8
-  call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fStrippedRules, ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %2 = load ptr, ptr %status.addr, align 8
+  store ptr %1, ptr %fRules, align 8
+  %fStrippedRules = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 5
+  %2 = load ptr, ptr %rules.addr, align 8
+  call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fStrippedRules, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %3 = load ptr, ptr %status.addr, align 8
   %fStatus = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 2
-  store ptr %2, ptr %fStatus, align 8
-  %3 = load ptr, ptr %parseErr.addr, align 8
+  store ptr %3, ptr %fStatus, align 8
+  %4 = load ptr, ptr %parseErr.addr, align 8
   %fParseError = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 3
-  store ptr %3, ptr %fParseError, align 8
+  store ptr %4, ptr %fParseError, align 8
   %fDebugEnv = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fDebugEnv, align 8
   %fForwardTree = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 7
@@ -106,19 +107,19 @@ entry:
   store ptr null, ptr %fScanner, align 8
   %fSetBuilder = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 14
   store ptr null, ptr %fSetBuilder, align 8
-  %4 = load ptr, ptr %parseErr.addr, align 8
-  %tobool = icmp ne ptr %4, null
+  %5 = load ptr, ptr %parseErr.addr, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %parseErr.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 72, i1 false)
+  %6 = load ptr, ptr %parseErr.addr, align 8
+  call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 72, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %status.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %7)
+  %7 = load ptr, ptr %status.addr, align 8
+  %8 = load i32, ptr %7, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -129,12 +130,12 @@ if.then5:                                         ; preds = %invoke.cont
   br label %if.end62
 
 lpad:                                             ; preds = %new.cont45, %if.end
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end6:                                          ; preds = %invoke.cont
@@ -146,17 +147,17 @@ if.end6:                                          ; preds = %invoke.cont
 new.notnull:                                      ; preds = %if.end6
   store ptr %call7, ptr %saved-rvalue, align 8
   store i1 true, ptr %cleanup.cond, align 1
-  %11 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call7, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %12 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call7, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont9, %if.end6
-  %12 = phi ptr [ %call7, %invoke.cont9 ], [ null, %if.end6 ]
+  %13 = phi ptr [ %call7, %invoke.cont9 ], [ null, %if.end6 ]
   %fUSetNodes10 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 15
-  store ptr %12, ptr %fUSetNodes10, align 8
+  store ptr %13, ptr %fUSetNodes10, align 8
   %call11 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #8
   %new.isnull12 = icmp eq ptr %call11, null
   store i1 false, ptr %cleanup.cond15, align 1
@@ -165,17 +166,17 @@ new.cont:                                         ; preds = %invoke.cont9, %if.e
 new.notnull13:                                    ; preds = %new.cont
   store ptr %call11, ptr %saved-rvalue14, align 8
   store i1 true, ptr %cleanup.cond15, align 1
-  %13 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call11, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %14 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call11, ptr noundef nonnull align 4 dereferenceable(4) %14)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %new.notnull13
   br label %new.cont21
 
 new.cont21:                                       ; preds = %invoke.cont17, %new.cont
-  %14 = phi ptr [ %call11, %invoke.cont17 ], [ null, %new.cont ]
+  %15 = phi ptr [ %call11, %invoke.cont17 ], [ null, %new.cont ]
   %fRuleStatusVals22 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 17
-  store ptr %14, ptr %fRuleStatusVals22, align 8
+  store ptr %15, ptr %fRuleStatusVals22, align 8
   %call23 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 3192) #8
   %new.isnull24 = icmp eq ptr %call23, null
   store i1 false, ptr %cleanup.cond27, align 1
@@ -191,9 +192,9 @@ invoke.cont29:                                    ; preds = %new.notnull25
   br label %new.cont33
 
 new.cont33:                                       ; preds = %invoke.cont29, %new.cont21
-  %15 = phi ptr [ %call23, %invoke.cont29 ], [ null, %new.cont21 ]
+  %16 = phi ptr [ %call23, %invoke.cont29 ], [ null, %new.cont21 ]
   %fScanner34 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 6
-  store ptr %15, ptr %fScanner34, align 8
+  store ptr %16, ptr %fScanner34, align 8
   %call35 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 56) #8
   %new.isnull36 = icmp eq ptr %call35, null
   store i1 false, ptr %cleanup.cond39, align 1
@@ -209,12 +210,12 @@ invoke.cont41:                                    ; preds = %new.notnull37
   br label %new.cont45
 
 new.cont45:                                       ; preds = %invoke.cont41, %new.cont33
-  %16 = phi ptr [ %call35, %invoke.cont41 ], [ null, %new.cont33 ]
+  %17 = phi ptr [ %call35, %invoke.cont41 ], [ null, %new.cont33 ]
   %fSetBuilder46 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 14
-  store ptr %16, ptr %fSetBuilder46, align 8
-  %17 = load ptr, ptr %status.addr, align 8
-  %18 = load i32, ptr %17, align 4
-  %call48 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %18)
+  store ptr %17, ptr %fSetBuilder46, align 8
+  %18 = load ptr, ptr %status.addr, align 8
+  %19 = load i32, ptr %18, align 4
+  %call48 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %19)
           to label %invoke.cont47 unwind label %lpad
 
 invoke.cont47:                                    ; preds = %new.cont45
@@ -225,72 +226,72 @@ if.then50:                                        ; preds = %invoke.cont47
   br label %if.end62
 
 lpad8:                                            ; preds = %new.notnull
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad8
-  %22 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %22) #8
+  %23 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %23) #8
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad8
   br label %ehcleanup
 
 lpad16:                                           ; preds = %new.notnull13
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   %cleanup.is_active18 = load i1, ptr %cleanup.cond15, align 1
   br i1 %cleanup.is_active18, label %cleanup.action19, label %cleanup.done20
 
 cleanup.action19:                                 ; preds = %lpad16
-  %26 = load ptr, ptr %saved-rvalue14, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %26) #8
+  %27 = load ptr, ptr %saved-rvalue14, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %27) #8
   br label %cleanup.done20
 
 cleanup.done20:                                   ; preds = %cleanup.action19, %lpad16
   br label %ehcleanup
 
 lpad28:                                           ; preds = %new.notnull25
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   %cleanup.is_active30 = load i1, ptr %cleanup.cond27, align 1
   br i1 %cleanup.is_active30, label %cleanup.action31, label %cleanup.done32
 
 cleanup.action31:                                 ; preds = %lpad28
-  %30 = load ptr, ptr %saved-rvalue26, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %30) #8
+  %31 = load ptr, ptr %saved-rvalue26, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %31) #8
   br label %cleanup.done32
 
 cleanup.done32:                                   ; preds = %cleanup.action31, %lpad28
   br label %ehcleanup
 
 lpad40:                                           ; preds = %new.notnull37
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   %cleanup.is_active42 = load i1, ptr %cleanup.cond39, align 1
   br i1 %cleanup.is_active42, label %cleanup.action43, label %cleanup.done44
 
 cleanup.action43:                                 ; preds = %lpad40
-  %34 = load ptr, ptr %saved-rvalue38, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %34) #8
+  %35 = load ptr, ptr %saved-rvalue38, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %35) #8
   br label %cleanup.done44
 
 cleanup.done44:                                   ; preds = %cleanup.action43, %lpad40
@@ -298,31 +299,31 @@ cleanup.done44:                                   ; preds = %cleanup.action43, %
 
 if.end51:                                         ; preds = %invoke.cont47
   %fSetBuilder52 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 14
-  %35 = load ptr, ptr %fSetBuilder52, align 8
-  %cmp = icmp eq ptr %35, null
+  %36 = load ptr, ptr %fSetBuilder52, align 8
+  %cmp = icmp eq ptr %36, null
   br i1 %cmp, label %if.then61, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end51
   %fScanner53 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 6
-  %36 = load ptr, ptr %fScanner53, align 8
-  %cmp54 = icmp eq ptr %36, null
+  %37 = load ptr, ptr %fScanner53, align 8
+  %cmp54 = icmp eq ptr %37, null
   br i1 %cmp54, label %if.then61, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false
   %fUSetNodes56 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 15
-  %37 = load ptr, ptr %fUSetNodes56, align 8
-  %cmp57 = icmp eq ptr %37, null
+  %38 = load ptr, ptr %fUSetNodes56, align 8
+  %cmp57 = icmp eq ptr %38, null
   br i1 %cmp57, label %if.then61, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
   %fRuleStatusVals59 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 17
-  %38 = load ptr, ptr %fRuleStatusVals59, align 8
-  %cmp60 = icmp eq ptr %38, null
+  %39 = load ptr, ptr %fRuleStatusVals59, align 8
+  %cmp60 = icmp eq ptr %39, null
   br i1 %cmp60, label %if.then61, label %if.end62
 
 if.then61:                                        ; preds = %lor.lhs.false58, %lor.lhs.false55, %lor.lhs.false, %if.end51
-  %39 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %39, align 4
+  %40 = load ptr, ptr %status.addr, align 8
+  store i32 7, ptr %40, align 4
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then61, %lor.lhs.false58, %if.then50, %if.then5
@@ -381,148 +382,149 @@ entry:
   %n = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
   %fUSetNodes = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 15
-  %0 = load ptr, ptr %fUSetNodes, align 8
-  %1 = load i32, ptr %i, align 4
-  %call = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
+  %1 = load ptr, ptr %fUSetNodes, align 8
+  %2 = load i32, ptr %i, align 4
+  %call = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.cond
   store ptr %call, ptr %n, align 8
-  %2 = load ptr, ptr %n, align 8
-  %cmp = icmp eq ptr %2, null
+  %3 = load ptr, ptr %n, align 8
+  %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
   br label %for.end
 
 if.end:                                           ; preds = %invoke.cont
-  %3 = load ptr, ptr %n, align 8
-  %isnull = icmp eq ptr %3, null
+  %4 = load ptr, ptr %n, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end
-  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %3) #8
+  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %4) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
+  %5 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %if.then
   %fUSetNodes2 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 15
-  %5 = load ptr, ptr %fUSetNodes2, align 8
-  %isnull3 = icmp eq ptr %5, null
+  %6 = load ptr, ptr %fUSetNodes2, align 8
+  %isnull3 = icmp eq ptr %6, null
   br i1 %isnull3, label %delete.end5, label %delete.notnull4
 
 delete.notnull4:                                  ; preds = %for.end
-  %vtable = load ptr, ptr %5, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %6 = load ptr, ptr %vfn, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(40) %5) #8
+  %7 = load ptr, ptr %vfn, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(40) %6) #8
   br label %delete.end5
 
 delete.end5:                                      ; preds = %delete.notnull4, %for.end
   %fSetBuilder = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 14
-  %7 = load ptr, ptr %fSetBuilder, align 8
-  %isnull6 = icmp eq ptr %7, null
+  %8 = load ptr, ptr %fSetBuilder, align 8
+  %isnull6 = icmp eq ptr %8, null
   br i1 %isnull6, label %delete.end8, label %delete.notnull7
 
 delete.notnull7:                                  ; preds = %delete.end5
-  call void @_ZN6icu_7514RBBISetBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(53) %7) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %7) #8
+  call void @_ZN6icu_7514RBBISetBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(53) %8) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %8) #8
   br label %delete.end8
 
 delete.end8:                                      ; preds = %delete.notnull7, %delete.end5
   %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 16
-  %8 = load ptr, ptr %fForwardTable, align 8
-  %isnull9 = icmp eq ptr %8, null
+  %9 = load ptr, ptr %fForwardTable, align 8
+  %isnull9 = icmp eq ptr %9, null
   br i1 %isnull9, label %delete.end11, label %delete.notnull10
 
 delete.notnull10:                                 ; preds = %delete.end8
-  call void @_ZN6icu_7516RBBITableBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %8) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %8) #8
+  call void @_ZN6icu_7516RBBITableBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %9) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %9) #8
   br label %delete.end11
 
 delete.end11:                                     ; preds = %delete.notnull10, %delete.end8
   %fForwardTree = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 7
-  %9 = load ptr, ptr %fForwardTree, align 8
-  %isnull12 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %fForwardTree, align 8
+  %isnull12 = icmp eq ptr %10, null
   br i1 %isnull12, label %delete.end14, label %delete.notnull13
 
 delete.notnull13:                                 ; preds = %delete.end11
-  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %9) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %9) #8
+  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %10) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %10) #8
   br label %delete.end14
 
 delete.end14:                                     ; preds = %delete.notnull13, %delete.end11
   %fReverseTree = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 8
-  %10 = load ptr, ptr %fReverseTree, align 8
-  %isnull15 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %fReverseTree, align 8
+  %isnull15 = icmp eq ptr %11, null
   br i1 %isnull15, label %delete.end17, label %delete.notnull16
 
 delete.notnull16:                                 ; preds = %delete.end14
-  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %10) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %10) #8
+  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %11) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %11) #8
   br label %delete.end17
 
 delete.end17:                                     ; preds = %delete.notnull16, %delete.end14
   %fSafeFwdTree = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 9
-  %11 = load ptr, ptr %fSafeFwdTree, align 8
-  %isnull18 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %fSafeFwdTree, align 8
+  %isnull18 = icmp eq ptr %12, null
   br i1 %isnull18, label %delete.end20, label %delete.notnull19
 
 delete.notnull19:                                 ; preds = %delete.end17
-  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %11) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %11) #8
+  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %12) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %12) #8
   br label %delete.end20
 
 delete.end20:                                     ; preds = %delete.notnull19, %delete.end17
   %fSafeRevTree = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 10
-  %12 = load ptr, ptr %fSafeRevTree, align 8
-  %isnull21 = icmp eq ptr %12, null
+  %13 = load ptr, ptr %fSafeRevTree, align 8
+  %isnull21 = icmp eq ptr %13, null
   br i1 %isnull21, label %delete.end23, label %delete.notnull22
 
 delete.notnull22:                                 ; preds = %delete.end20
-  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %12) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %12) #8
+  call void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %13) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %13) #8
   br label %delete.end23
 
 delete.end23:                                     ; preds = %delete.notnull22, %delete.end20
   %fScanner = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 6
-  %13 = load ptr, ptr %fScanner, align 8
-  %isnull24 = icmp eq ptr %13, null
+  %14 = load ptr, ptr %fScanner, align 8
+  %isnull24 = icmp eq ptr %14, null
   br i1 %isnull24, label %delete.end28, label %delete.notnull25
 
 delete.notnull25:                                 ; preds = %delete.end23
-  %vtable26 = load ptr, ptr %13, align 8
+  %vtable26 = load ptr, ptr %14, align 8
   %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 1
-  %14 = load ptr, ptr %vfn27, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(3192) %13) #8
+  %15 = load ptr, ptr %vfn27, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(3192) %14) #8
   br label %delete.end28
 
 delete.end28:                                     ; preds = %delete.notnull25, %delete.end23
   %fRuleStatusVals = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 17
-  %15 = load ptr, ptr %fRuleStatusVals, align 8
-  %isnull29 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %fRuleStatusVals, align 8
+  %isnull29 = icmp eq ptr %16, null
   br i1 %isnull29, label %delete.end33, label %delete.notnull30
 
 delete.notnull30:                                 ; preds = %delete.end28
-  %vtable31 = load ptr, ptr %15, align 8
+  %vtable31 = load ptr, ptr %16, align 8
   %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 1
-  %16 = load ptr, ptr %vfn32, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %15) #8
+  %17 = load ptr, ptr %vfn32, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %16) #8
   br label %delete.end33
 
 delete.end33:                                     ; preds = %delete.notnull30, %delete.end28
@@ -531,10 +533,10 @@ delete.end33:                                     ; preds = %delete.notnull30, %
   ret void
 
 terminate.lpad:                                   ; preds = %for.cond
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #9
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #9
   unreachable
 }
 
@@ -687,179 +689,182 @@ if.end32:                                         ; preds = %if.end
   %fFormatVersion = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %22, i32 0, i32 1
   %arrayidx = getelementptr inbounds [4 x i8], ptr %fFormatVersion, i64 0, i64 0
   store i8 %21, ptr %arrayidx, align 4
-  %23 = load i8, ptr getelementptr inbounds ([4 x i8], ptr @_ZN6icu_75L24RBBI_DATA_FORMAT_VERSIONE, i64 0, i64 1), align 1
-  %24 = load ptr, ptr %data, align 8
-  %fFormatVersion34 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %24, i32 0, i32 1
+  %23 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_75L24RBBI_DATA_FORMAT_VERSIONE, i64 0, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = load ptr, ptr %data, align 8
+  %fFormatVersion34 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %25, i32 0, i32 1
   %arrayidx35 = getelementptr inbounds [4 x i8], ptr %fFormatVersion34, i64 0, i64 1
-  store i8 %23, ptr %arrayidx35, align 1
-  %25 = load i8, ptr getelementptr inbounds ([4 x i8], ptr @_ZN6icu_75L24RBBI_DATA_FORMAT_VERSIONE, i64 0, i64 2), align 1
-  %26 = load ptr, ptr %data, align 8
-  %fFormatVersion36 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %26, i32 0, i32 1
-  %arrayidx37 = getelementptr inbounds [4 x i8], ptr %fFormatVersion36, i64 0, i64 2
-  store i8 %25, ptr %arrayidx37, align 2
-  %27 = load i8, ptr getelementptr inbounds ([4 x i8], ptr @_ZN6icu_75L24RBBI_DATA_FORMAT_VERSIONE, i64 0, i64 3), align 1
+  store i8 %24, ptr %arrayidx35, align 1
+  %26 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_75L24RBBI_DATA_FORMAT_VERSIONE, i64 0, i64 2
+  %27 = load i8, ptr %26, align 1
   %28 = load ptr, ptr %data, align 8
-  %fFormatVersion38 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %28, i32 0, i32 1
+  %fFormatVersion36 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %28, i32 0, i32 1
+  %arrayidx37 = getelementptr inbounds [4 x i8], ptr %fFormatVersion36, i64 0, i64 2
+  store i8 %27, ptr %arrayidx37, align 2
+  %29 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_75L24RBBI_DATA_FORMAT_VERSIONE, i64 0, i64 3
+  %30 = load i8, ptr %29, align 1
+  %31 = load ptr, ptr %data, align 8
+  %fFormatVersion38 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %31, i32 0, i32 1
   %arrayidx39 = getelementptr inbounds [4 x i8], ptr %fFormatVersion38, i64 0, i64 3
-  store i8 %27, ptr %arrayidx39, align 1
-  %29 = load i32, ptr %totalSize, align 4
-  %30 = load ptr, ptr %data, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %30, i32 0, i32 2
-  store i32 %29, ptr %fLength, align 4
+  store i8 %30, ptr %arrayidx39, align 1
+  %32 = load i32, ptr %totalSize, align 4
+  %33 = load ptr, ptr %data, align 8
+  %fLength = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %33, i32 0, i32 2
+  store i32 %32, ptr %fLength, align 4
   %fSetBuilder40 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 14
-  %31 = load ptr, ptr %fSetBuilder40, align 8
-  %call41 = call noundef i32 @_ZNK6icu_7514RBBISetBuilder20getNumCharCategoriesEv(ptr noundef nonnull align 8 dereferenceable(53) %31)
-  %32 = load ptr, ptr %data, align 8
-  %fCatCount = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %32, i32 0, i32 3
+  %34 = load ptr, ptr %fSetBuilder40, align 8
+  %call41 = call noundef i32 @_ZNK6icu_7514RBBISetBuilder20getNumCharCategoriesEv(ptr noundef nonnull align 8 dereferenceable(53) %34)
+  %35 = load ptr, ptr %data, align 8
+  %fCatCount = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %35, i32 0, i32 3
   store i32 %call41, ptr %fCatCount, align 4
-  %33 = load i32, ptr %headerSize, align 4
-  %34 = load ptr, ptr %data, align 8
-  %fFTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %34, i32 0, i32 4
-  store i32 %33, ptr %fFTable, align 4
-  %35 = load i32, ptr %forwardTableSize, align 4
-  %36 = load ptr, ptr %data, align 8
-  %fFTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %36, i32 0, i32 5
-  store i32 %35, ptr %fFTableLen, align 4
+  %36 = load i32, ptr %headerSize, align 4
   %37 = load ptr, ptr %data, align 8
-  %fFTable42 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %37, i32 0, i32 4
-  %38 = load i32, ptr %fFTable42, align 4
+  %fFTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %37, i32 0, i32 4
+  store i32 %36, ptr %fFTable, align 4
+  %38 = load i32, ptr %forwardTableSize, align 4
   %39 = load ptr, ptr %data, align 8
-  %fFTableLen43 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %39, i32 0, i32 5
-  %40 = load i32, ptr %fFTableLen43, align 4
-  %add44 = add i32 %38, %40
-  %41 = load ptr, ptr %data, align 8
-  %fRTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %41, i32 0, i32 6
-  store i32 %add44, ptr %fRTable, align 4
-  %42 = load i32, ptr %reverseTableSize, align 4
-  %43 = load ptr, ptr %data, align 8
-  %fRTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %43, i32 0, i32 7
-  store i32 %42, ptr %fRTableLen, align 4
+  %fFTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %39, i32 0, i32 5
+  store i32 %38, ptr %fFTableLen, align 4
+  %40 = load ptr, ptr %data, align 8
+  %fFTable42 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %40, i32 0, i32 4
+  %41 = load i32, ptr %fFTable42, align 4
+  %42 = load ptr, ptr %data, align 8
+  %fFTableLen43 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %42, i32 0, i32 5
+  %43 = load i32, ptr %fFTableLen43, align 4
+  %add44 = add i32 %41, %43
   %44 = load ptr, ptr %data, align 8
-  %fRTable45 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %44, i32 0, i32 6
-  %45 = load i32, ptr %fRTable45, align 4
+  %fRTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %44, i32 0, i32 6
+  store i32 %add44, ptr %fRTable, align 4
+  %45 = load i32, ptr %reverseTableSize, align 4
   %46 = load ptr, ptr %data, align 8
-  %fRTableLen46 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %46, i32 0, i32 7
-  %47 = load i32, ptr %fRTableLen46, align 4
-  %add47 = add i32 %45, %47
-  %48 = load ptr, ptr %data, align 8
-  %fTrie = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %48, i32 0, i32 8
-  store i32 %add47, ptr %fTrie, align 4
-  %49 = load i32, ptr %trieSize, align 4
-  %50 = load ptr, ptr %data, align 8
-  %fTrieLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %50, i32 0, i32 9
-  store i32 %49, ptr %fTrieLen, align 4
+  %fRTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %46, i32 0, i32 7
+  store i32 %45, ptr %fRTableLen, align 4
+  %47 = load ptr, ptr %data, align 8
+  %fRTable45 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %47, i32 0, i32 6
+  %48 = load i32, ptr %fRTable45, align 4
+  %49 = load ptr, ptr %data, align 8
+  %fRTableLen46 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %49, i32 0, i32 7
+  %50 = load i32, ptr %fRTableLen46, align 4
+  %add47 = add i32 %48, %50
   %51 = load ptr, ptr %data, align 8
-  %fTrie48 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %51, i32 0, i32 8
-  %52 = load i32, ptr %fTrie48, align 4
+  %fTrie = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %51, i32 0, i32 8
+  store i32 %add47, ptr %fTrie, align 4
+  %52 = load i32, ptr %trieSize, align 4
   %53 = load ptr, ptr %data, align 8
-  %fTrieLen49 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %53, i32 0, i32 9
-  %54 = load i32, ptr %fTrieLen49, align 4
-  %add50 = add i32 %52, %54
-  %55 = load ptr, ptr %data, align 8
-  %fStatusTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %55, i32 0, i32 12
-  store i32 %add50, ptr %fStatusTable, align 4
-  %56 = load i32, ptr %statusTableSize, align 4
-  %57 = load ptr, ptr %data, align 8
-  %fStatusTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %57, i32 0, i32 13
-  store i32 %56, ptr %fStatusTableLen, align 4
+  %fTrieLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %53, i32 0, i32 9
+  store i32 %52, ptr %fTrieLen, align 4
+  %54 = load ptr, ptr %data, align 8
+  %fTrie48 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %54, i32 0, i32 8
+  %55 = load i32, ptr %fTrie48, align 4
+  %56 = load ptr, ptr %data, align 8
+  %fTrieLen49 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %56, i32 0, i32 9
+  %57 = load i32, ptr %fTrieLen49, align 4
+  %add50 = add i32 %55, %57
   %58 = load ptr, ptr %data, align 8
-  %fStatusTable51 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %58, i32 0, i32 12
-  %59 = load i32, ptr %fStatusTable51, align 4
-  %60 = load i32, ptr %statusTableSize, align 4
-  %add52 = add i32 %59, %60
+  %fStatusTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %58, i32 0, i32 12
+  store i32 %add50, ptr %fStatusTable, align 4
+  %59 = load i32, ptr %statusTableSize, align 4
+  %60 = load ptr, ptr %data, align 8
+  %fStatusTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %60, i32 0, i32 13
+  store i32 %59, ptr %fStatusTableLen, align 4
   %61 = load ptr, ptr %data, align 8
-  %fRuleSource = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %61, i32 0, i32 10
-  store i32 %add52, ptr %fRuleSource, align 4
-  %62 = load i32, ptr %rulesLengthInUTF8, align 4
-  %63 = load ptr, ptr %data, align 8
-  %fRuleSourceLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %63, i32 0, i32 11
-  store i32 %62, ptr %fRuleSourceLen, align 4
+  %fStatusTable51 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %61, i32 0, i32 12
+  %62 = load i32, ptr %fStatusTable51, align 4
+  %63 = load i32, ptr %statusTableSize, align 4
+  %add52 = add i32 %62, %63
   %64 = load ptr, ptr %data, align 8
-  %fReserved = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %64, i32 0, i32 14
+  %fRuleSource = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %64, i32 0, i32 10
+  store i32 %add52, ptr %fRuleSource, align 4
+  %65 = load i32, ptr %rulesLengthInUTF8, align 4
+  %66 = load ptr, ptr %data, align 8
+  %fRuleSourceLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %66, i32 0, i32 11
+  store i32 %65, ptr %fRuleSourceLen, align 4
+  %67 = load ptr, ptr %data, align 8
+  %fReserved = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %67, i32 0, i32 14
   %arraydecay = getelementptr inbounds [6 x i32], ptr %fReserved, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 4 %arraydecay, i8 0, i64 24, i1 false)
   %fForwardTable53 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 16
-  %65 = load ptr, ptr %fForwardTable53, align 8
-  %66 = load ptr, ptr %data, align 8
-  %67 = load ptr, ptr %data, align 8
-  %fFTable54 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %67, i32 0, i32 4
-  %68 = load i32, ptr %fFTable54, align 4
-  %idx.ext = zext i32 %68 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %66, i64 %idx.ext
-  call void @_ZN6icu_7516RBBITableBuilder11exportTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %65, ptr noundef %add.ptr)
-  %fForwardTable55 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 16
-  %69 = load ptr, ptr %fForwardTable55, align 8
+  %68 = load ptr, ptr %fForwardTable53, align 8
+  %69 = load ptr, ptr %data, align 8
   %70 = load ptr, ptr %data, align 8
-  %71 = load ptr, ptr %data, align 8
-  %fRTable56 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %71, i32 0, i32 6
-  %72 = load i32, ptr %fRTable56, align 4
-  %idx.ext57 = zext i32 %72 to i64
-  %add.ptr58 = getelementptr inbounds i8, ptr %70, i64 %idx.ext57
-  call void @_ZN6icu_7516RBBITableBuilder15exportSafeTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %69, ptr noundef %add.ptr58)
-  %fSetBuilder59 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 14
-  %73 = load ptr, ptr %fSetBuilder59, align 8
+  %fFTable54 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %70, i32 0, i32 4
+  %71 = load i32, ptr %fFTable54, align 4
+  %idx.ext = zext i32 %71 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %69, i64 %idx.ext
+  call void @_ZN6icu_7516RBBITableBuilder11exportTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %68, ptr noundef %add.ptr)
+  %fForwardTable55 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 16
+  %72 = load ptr, ptr %fForwardTable55, align 8
+  %73 = load ptr, ptr %data, align 8
   %74 = load ptr, ptr %data, align 8
-  %75 = load ptr, ptr %data, align 8
-  %fTrie60 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %75, i32 0, i32 8
-  %76 = load i32, ptr %fTrie60, align 4
-  %idx.ext61 = zext i32 %76 to i64
-  %add.ptr62 = getelementptr inbounds i8, ptr %74, i64 %idx.ext61
-  call void @_ZN6icu_7514RBBISetBuilder13serializeTrieEPh(ptr noundef nonnull align 8 dereferenceable(53) %73, ptr noundef %add.ptr62)
+  %fRTable56 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %74, i32 0, i32 6
+  %75 = load i32, ptr %fRTable56, align 4
+  %idx.ext57 = zext i32 %75 to i64
+  %add.ptr58 = getelementptr inbounds i8, ptr %73, i64 %idx.ext57
+  call void @_ZN6icu_7516RBBITableBuilder15exportSafeTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %72, ptr noundef %add.ptr58)
+  %fSetBuilder59 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 14
+  %76 = load ptr, ptr %fSetBuilder59, align 8
   %77 = load ptr, ptr %data, align 8
   %78 = load ptr, ptr %data, align 8
-  %fStatusTable63 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %78, i32 0, i32 12
-  %79 = load i32, ptr %fStatusTable63, align 4
-  %idx.ext64 = zext i32 %79 to i64
-  %add.ptr65 = getelementptr inbounds i8, ptr %77, i64 %idx.ext64
+  %fTrie60 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %78, i32 0, i32 8
+  %79 = load i32, ptr %fTrie60, align 4
+  %idx.ext61 = zext i32 %79 to i64
+  %add.ptr62 = getelementptr inbounds i8, ptr %77, i64 %idx.ext61
+  call void @_ZN6icu_7514RBBISetBuilder13serializeTrieEPh(ptr noundef nonnull align 8 dereferenceable(53) %76, ptr noundef %add.ptr62)
+  %80 = load ptr, ptr %data, align 8
+  %81 = load ptr, ptr %data, align 8
+  %fStatusTable63 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %81, i32 0, i32 12
+  %82 = load i32, ptr %fStatusTable63, align 4
+  %idx.ext64 = zext i32 %82 to i64
+  %add.ptr65 = getelementptr inbounds i8, ptr %80, i64 %idx.ext64
   store ptr %add.ptr65, ptr %ruleStatusTable, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end32
-  %80 = load i32, ptr %i, align 4
+  %83 = load i32, ptr %i, align 4
   %fRuleStatusVals66 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 17
-  %81 = load ptr, ptr %fRuleStatusVals66, align 8
-  %call67 = call noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %81)
-  %cmp68 = icmp slt i32 %80, %call67
+  %84 = load ptr, ptr %fRuleStatusVals66, align 8
+  %call67 = call noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %84)
+  %cmp68 = icmp slt i32 %83, %call67
   br i1 %cmp68, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %fRuleStatusVals69 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 17
-  %82 = load ptr, ptr %fRuleStatusVals69, align 8
-  %83 = load i32, ptr %i, align 4
-  %call70 = call noundef i32 @_ZNK6icu_757UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %82, i32 noundef %83)
-  %84 = load ptr, ptr %ruleStatusTable, align 8
-  %85 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %85 to i64
-  %arrayidx71 = getelementptr inbounds i32, ptr %84, i64 %idxprom
+  %85 = load ptr, ptr %fRuleStatusVals69, align 8
+  %86 = load i32, ptr %i, align 4
+  %call70 = call noundef i32 @_ZNK6icu_757UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %85, i32 noundef %86)
+  %87 = load ptr, ptr %ruleStatusTable, align 8
+  %88 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %88 to i64
+  %arrayidx71 = getelementptr inbounds i32, ptr %87, i64 %idxprom
   store i32 %call70, ptr %arrayidx71, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %86 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %86, 1
+  %89 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %89, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
-  %87 = load ptr, ptr %data, align 8
-  %88 = load ptr, ptr %data, align 8
-  %fRuleSource72 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %88, i32 0, i32 10
-  %89 = load i32, ptr %fRuleSource72, align 4
-  %idx.ext73 = zext i32 %89 to i64
-  %add.ptr74 = getelementptr inbounds i8, ptr %87, i64 %idx.ext73
-  %90 = load i32, ptr %rulesSize, align 4
+  %90 = load ptr, ptr %data, align 8
+  %91 = load ptr, ptr %data, align 8
+  %fRuleSource72 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %91, i32 0, i32 10
+  %92 = load i32, ptr %fRuleSource72, align 4
+  %idx.ext73 = zext i32 %92 to i64
+  %add.ptr74 = getelementptr inbounds i8, ptr %90, i64 %idx.ext73
+  %93 = load i32, ptr %rulesSize, align 4
   %fStrippedRules75 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 5
   %call76 = call noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %fStrippedRules75)
   %fStrippedRules77 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 5
   %call78 = call noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %fStrippedRules77)
   %fStatus79 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 2
-  %91 = load ptr, ptr %fStatus79, align 8
-  %call80 = call ptr @u_strToUTF8WithSub_75(ptr noundef %add.ptr74, i32 noundef %90, ptr noundef %rulesLengthInUTF8, ptr noundef %call76, i32 noundef %call78, i32 noundef 65533, ptr noundef null, ptr noundef %91)
+  %94 = load ptr, ptr %fStatus79, align 8
+  %call80 = call ptr @u_strToUTF8WithSub_75(ptr noundef %add.ptr74, i32 noundef %93, ptr noundef %rulesLengthInUTF8, ptr noundef %call76, i32 noundef %call78, i32 noundef 65533, ptr noundef null, ptr noundef %94)
   %fStatus81 = getelementptr inbounds %"class.icu_75::RBBIRuleBuilder", ptr %this1, i32 0, i32 2
-  %92 = load ptr, ptr %fStatus81, align 8
-  %93 = load i32, ptr %92, align 4
-  %call82 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %93)
+  %95 = load ptr, ptr %fStatus81, align 8
+  %96 = load i32, ptr %95, align 4
+  %call82 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %96)
   %tobool83 = icmp ne i8 %call82, 0
   br i1 %tobool83, label %if.then84, label %if.end85
 
@@ -868,13 +873,13 @@ if.then84:                                        ; preds = %for.end
   br label %return
 
 if.end85:                                         ; preds = %for.end
-  %94 = load ptr, ptr %data, align 8
-  store ptr %94, ptr %retval, align 8
+  %97 = load ptr, ptr %data, align 8
+  store ptr %97, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end85, %if.then84, %if.then30, %if.then
-  %95 = load ptr, ptr %retval, align 8
-  ret ptr %95
+  %98 = load ptr, ptr %retval, align 8
+  ret ptr %98
 }
 
 declare void @_ZN6icu_7515RBBIRuleScanner10stripRulesERKNS_13UnicodeStringE(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(64)) #1

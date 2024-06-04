@@ -3201,7 +3201,7 @@ define void @Cec_ManSatSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   store i32 0, ptr %18, align 4
   br label %68
 
-68:                                               ; preds = %241, %56
+68:                                               ; preds = %243, %56
   %69 = load i32, ptr %18, align 4
   %70 = load ptr, ptr %9, align 8
   %71 = getelementptr inbounds %struct.Gia_Man_t_, ptr %70, i32 0, i32 12
@@ -3220,14 +3220,14 @@ define void @Cec_ManSatSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 80:                                               ; preds = %75, %68
   %81 = phi i1 [ false, %68 ], [ %79, %75 ]
-  br i1 %81, label %82, label %244
+  br i1 %81, label %82, label %246
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %17, align 8
   %84 = call ptr @Gia_ObjFanin0(ptr noundef %83)
   %85 = call i32 @Gia_ObjIsConst0(ptr noundef %84)
   %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %132
+  br i1 %86, label %87, label %133
 
 87:                                               ; preds = %82
   %88 = load ptr, ptr %17, align 8
@@ -3262,7 +3262,7 @@ define void @Cec_ManSatSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %114 = getelementptr inbounds %struct.Cec_ParSat_t_, ptr %113, i32 0, i32 8
   %115 = load i32, ptr %114, align 4
   %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %131
+  br i1 %116, label %117, label %132
 
 117:                                              ; preds = %87
   %118 = load ptr, ptr %9, align 8
@@ -3271,217 +3271,219 @@ define void @Cec_ManSatSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %121 = load i32, ptr %18, align 4
   %122 = load i32, ptr %19, align 4
   %123 = icmp ne i32 %122, 0
-  br i1 %123, label %124, label %125
+  br i1 %123, label %124, label %126
 
 124:                                              ; preds = %117
-  br label %129
+  %125 = inttoptr i64 1 to ptr
+  br label %130
 
-125:                                              ; preds = %117
-  %126 = load ptr, ptr %16, align 8
-  %127 = load i32, ptr %18, align 4
-  %128 = call ptr @Cex_ManGenSimple(ptr noundef %126, i32 noundef %127)
-  br label %129
+126:                                              ; preds = %117
+  %127 = load ptr, ptr %16, align 8
+  %128 = load i32, ptr %18, align 4
+  %129 = call ptr @Cex_ManGenSimple(ptr noundef %127, i32 noundef %128)
+  br label %130
 
-129:                                              ; preds = %125, %124
-  %130 = phi ptr [ inttoptr (i64 1 to ptr), %124 ], [ %128, %125 ]
-  call void @Vec_PtrWriteEntry(ptr noundef %120, i32 noundef %121, ptr noundef %130)
-  br label %131
+130:                                              ; preds = %126, %124
+  %131 = phi ptr [ %125, %124 ], [ %129, %126 ]
+  call void @Vec_PtrWriteEntry(ptr noundef %120, i32 noundef %121, ptr noundef %131)
+  br label %132
 
-131:                                              ; preds = %129, %87
-  br label %241
+132:                                              ; preds = %130, %87
+  br label %243
 
-132:                                              ; preds = %82
-  %133 = load ptr, ptr %15, align 8
-  %134 = load i32, ptr %18, align 4
-  call void @Bar_ProgressUpdate(ptr noundef %133, i32 noundef %134, ptr noundef @.str)
-  %135 = call i64 @Abc_Clock()
-  store i64 %135, ptr %21, align 8
-  %136 = load ptr, ptr %16, align 8
-  %137 = load ptr, ptr %17, align 8
-  %138 = call ptr @Gia_ObjChild0(ptr noundef %137)
-  %139 = call i32 @Cec_ManSatCheckNode(ptr noundef %136, ptr noundef %138)
-  store i32 %139, ptr %19, align 4
-  %140 = load i32, ptr %19, align 4
-  %141 = icmp eq i32 %140, 0
-  %142 = zext i1 %141 to i32
-  %143 = load ptr, ptr %17, align 8
-  %144 = zext i32 %142 to i64
-  %145 = load i64, ptr %143, align 4
-  %146 = and i64 %144, 1
-  %147 = shl i64 %146, 30
-  %148 = and i64 %145, -1073741825
-  %149 = or i64 %148, %147
-  store i64 %149, ptr %143, align 4
-  %150 = load i32, ptr %19, align 4
-  %151 = icmp eq i32 %150, 1
-  %152 = zext i1 %151 to i32
-  %153 = load ptr, ptr %17, align 8
-  %154 = zext i32 %152 to i64
-  %155 = load i64, ptr %153, align 4
-  %156 = and i64 %154, 1
-  %157 = shl i64 %156, 62
-  %158 = and i64 %155, -4611686018427387905
-  %159 = or i64 %158, %157
-  store i64 %159, ptr %153, align 4
-  %160 = load i32, ptr %19, align 4
-  %161 = icmp eq i32 %160, 1
-  br i1 %161, label %162, label %184
+133:                                              ; preds = %82
+  %134 = load ptr, ptr %15, align 8
+  %135 = load i32, ptr %18, align 4
+  call void @Bar_ProgressUpdate(ptr noundef %134, i32 noundef %135, ptr noundef @.str)
+  %136 = call i64 @Abc_Clock()
+  store i64 %136, ptr %21, align 8
+  %137 = load ptr, ptr %16, align 8
+  %138 = load ptr, ptr %17, align 8
+  %139 = call ptr @Gia_ObjChild0(ptr noundef %138)
+  %140 = call i32 @Cec_ManSatCheckNode(ptr noundef %137, ptr noundef %139)
+  store i32 %140, ptr %19, align 4
+  %141 = load i32, ptr %19, align 4
+  %142 = icmp eq i32 %141, 0
+  %143 = zext i1 %142 to i32
+  %144 = load ptr, ptr %17, align 8
+  %145 = zext i32 %143 to i64
+  %146 = load i64, ptr %144, align 4
+  %147 = and i64 %145, 1
+  %148 = shl i64 %147, 30
+  %149 = and i64 %146, -1073741825
+  %150 = or i64 %149, %148
+  store i64 %150, ptr %144, align 4
+  %151 = load i32, ptr %19, align 4
+  %152 = icmp eq i32 %151, 1
+  %153 = zext i1 %152 to i32
+  %154 = load ptr, ptr %17, align 8
+  %155 = zext i32 %153 to i64
+  %156 = load i64, ptr %154, align 4
+  %157 = and i64 %155, 1
+  %158 = shl i64 %157, 62
+  %159 = and i64 %156, -4611686018427387905
+  %160 = or i64 %159, %158
+  store i64 %160, ptr %154, align 4
+  %161 = load i32, ptr %19, align 4
+  %162 = icmp eq i32 %161, 1
+  br i1 %162, label %163, label %185
 
-162:                                              ; preds = %132
-  %163 = load ptr, ptr %11, align 8
-  %164 = icmp ne ptr %163, null
-  br i1 %164, label %165, label %184
+163:                                              ; preds = %133
+  %164 = load ptr, ptr %11, align 8
+  %165 = icmp ne ptr %164, null
+  br i1 %165, label %166, label %185
 
-165:                                              ; preds = %162
-  %166 = load ptr, ptr %12, align 8
-  %167 = load i32, ptr %18, align 4
-  %168 = mul nsw i32 2, %167
-  %169 = call i32 @Vec_IntEntry(ptr noundef %166, i32 noundef %168)
-  store i32 %169, ptr %22, align 4
-  %170 = load ptr, ptr %12, align 8
-  %171 = load i32, ptr %18, align 4
-  %172 = mul nsw i32 2, %171
-  %173 = add nsw i32 %172, 1
-  %174 = call i32 @Vec_IntEntry(ptr noundef %170, i32 noundef %173)
-  store i32 %174, ptr %23, align 4
-  %175 = load ptr, ptr %11, align 8
-  %176 = load i32, ptr %22, align 4
-  %177 = call i32 @Vec_IntEntry(ptr noundef %175, i32 noundef %176)
-  store i32 %177, ptr %24, align 4
-  %178 = load ptr, ptr %11, align 8
-  %179 = load i32, ptr %23, align 4
-  %180 = call i32 @Vec_IntEntry(ptr noundef %178, i32 noundef %179)
-  store i32 %180, ptr %25, align 4
-  %181 = load ptr, ptr %13, align 8
-  %182 = load i32, ptr %24, align 4
-  %183 = load i32, ptr %25, align 4
-  call void @Vec_IntPushTwo(ptr noundef %181, i32 noundef %182, i32 noundef %183)
-  br label %184
+166:                                              ; preds = %163
+  %167 = load ptr, ptr %12, align 8
+  %168 = load i32, ptr %18, align 4
+  %169 = mul nsw i32 2, %168
+  %170 = call i32 @Vec_IntEntry(ptr noundef %167, i32 noundef %169)
+  store i32 %170, ptr %22, align 4
+  %171 = load ptr, ptr %12, align 8
+  %172 = load i32, ptr %18, align 4
+  %173 = mul nsw i32 2, %172
+  %174 = add nsw i32 %173, 1
+  %175 = call i32 @Vec_IntEntry(ptr noundef %171, i32 noundef %174)
+  store i32 %175, ptr %23, align 4
+  %176 = load ptr, ptr %11, align 8
+  %177 = load i32, ptr %22, align 4
+  %178 = call i32 @Vec_IntEntry(ptr noundef %176, i32 noundef %177)
+  store i32 %178, ptr %24, align 4
+  %179 = load ptr, ptr %11, align 8
+  %180 = load i32, ptr %23, align 4
+  %181 = call i32 @Vec_IntEntry(ptr noundef %179, i32 noundef %180)
+  store i32 %181, ptr %25, align 4
+  %182 = load ptr, ptr %13, align 8
+  %183 = load i32, ptr %24, align 4
+  %184 = load i32, ptr %25, align 4
+  call void @Vec_IntPushTwo(ptr noundef %182, i32 noundef %183, i32 noundef %184)
+  br label %185
 
-184:                                              ; preds = %165, %162, %132
-  %185 = load ptr, ptr %10, align 8
-  %186 = getelementptr inbounds %struct.Cec_ParSat_t_, ptr %185, i32 0, i32 8
-  %187 = load i32, ptr %186, align 4
-  %188 = icmp ne i32 %187, 0
-  br i1 %188, label %189, label %206
+185:                                              ; preds = %166, %163, %133
+  %186 = load ptr, ptr %10, align 8
+  %187 = getelementptr inbounds %struct.Cec_ParSat_t_, ptr %186, i32 0, i32 8
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %208
 
-189:                                              ; preds = %184
-  %190 = load i32, ptr %19, align 4
-  %191 = icmp ne i32 %190, -1
-  br i1 %191, label %192, label %206
+190:                                              ; preds = %185
+  %191 = load i32, ptr %19, align 4
+  %192 = icmp ne i32 %191, -1
+  br i1 %192, label %193, label %208
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %9, align 8
-  %194 = getelementptr inbounds %struct.Gia_Man_t_, ptr %193, i32 0, i32 52
-  %195 = load ptr, ptr %194, align 8
-  %196 = load i32, ptr %18, align 4
-  %197 = load i32, ptr %19, align 4
-  %198 = icmp ne i32 %197, 0
-  br i1 %198, label %199, label %200
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %9, align 8
+  %195 = getelementptr inbounds %struct.Gia_Man_t_, ptr %194, i32 0, i32 52
+  %196 = load ptr, ptr %195, align 8
+  %197 = load i32, ptr %18, align 4
+  %198 = load i32, ptr %19, align 4
+  %199 = icmp ne i32 %198, 0
+  br i1 %199, label %200, label %202
 
-199:                                              ; preds = %192
-  br label %204
-
-200:                                              ; preds = %192
-  %201 = load ptr, ptr %16, align 8
-  %202 = load i32, ptr %18, align 4
-  %203 = call ptr @Cex_ManGenCex(ptr noundef %201, i32 noundef %202)
-  br label %204
-
-204:                                              ; preds = %200, %199
-  %205 = phi ptr [ inttoptr (i64 1 to ptr), %199 ], [ %203, %200 ]
-  call void @Vec_PtrWriteEntry(ptr noundef %195, i32 noundef %196, ptr noundef %205)
+200:                                              ; preds = %193
+  %201 = inttoptr i64 1 to ptr
   br label %206
 
-206:                                              ; preds = %204, %189, %184
-  %207 = load i32, ptr %14, align 4
-  %208 = icmp ne i32 %207, 0
-  br i1 %208, label %209, label %215
+202:                                              ; preds = %193
+  %203 = load ptr, ptr %16, align 8
+  %204 = load i32, ptr %18, align 4
+  %205 = call ptr @Cex_ManGenCex(ptr noundef %203, i32 noundef %204)
+  br label %206
 
-209:                                              ; preds = %206
-  %210 = load i32, ptr %19, align 4
-  %211 = icmp eq i32 %210, 1
-  br i1 %211, label %212, label %215
+206:                                              ; preds = %202, %200
+  %207 = phi ptr [ %201, %200 ], [ %205, %202 ]
+  call void @Vec_PtrWriteEntry(ptr noundef %196, i32 noundef %197, ptr noundef %207)
+  br label %208
 
-212:                                              ; preds = %209
-  %213 = load ptr, ptr %9, align 8
-  %214 = load i32, ptr %18, align 4
-  call void @Gia_ManPatchCoDriver(ptr noundef %213, i32 noundef %214, i32 noundef 0)
-  br label %215
+208:                                              ; preds = %206, %190, %185
+  %209 = load i32, ptr %14, align 4
+  %210 = icmp ne i32 %209, 0
+  br i1 %210, label %211, label %217
 
-215:                                              ; preds = %212, %209, %206
-  %216 = load i32, ptr %19, align 4
-  %217 = icmp ne i32 %216, 0
-  br i1 %217, label %218, label %219
+211:                                              ; preds = %208
+  %212 = load i32, ptr %19, align 4
+  %213 = icmp eq i32 %212, 1
+  br i1 %213, label %214, label %217
 
-218:                                              ; preds = %215
-  br label %241
+214:                                              ; preds = %211
+  %215 = load ptr, ptr %9, align 8
+  %216 = load i32, ptr %18, align 4
+  call void @Gia_ManPatchCoDriver(ptr noundef %215, i32 noundef %216, i32 noundef 0)
+  br label %217
 
-219:                                              ; preds = %215
-  %220 = load ptr, ptr %8, align 8
-  %221 = icmp ne ptr %220, null
-  br i1 %221, label %222, label %234
+217:                                              ; preds = %214, %211, %208
+  %218 = load i32, ptr %19, align 4
+  %219 = icmp ne i32 %218, 0
+  br i1 %219, label %220, label %221
 
-222:                                              ; preds = %219
-  %223 = call i64 @Abc_Clock()
-  store i64 %223, ptr %26, align 8
-  %224 = load ptr, ptr %8, align 8
-  %225 = load ptr, ptr %16, align 8
-  %226 = load ptr, ptr %17, align 8
-  call void @Cec_ManPatSavePattern(ptr noundef %224, ptr noundef %225, ptr noundef %226)
-  %227 = call i64 @Abc_Clock()
-  %228 = load i64, ptr %26, align 8
-  %229 = sub nsw i64 %227, %228
-  %230 = load ptr, ptr %8, align 8
-  %231 = getelementptr inbounds %struct.Cec_ManPat_t_, ptr %230, i32 0, i32 18
-  %232 = load i64, ptr %231, align 8
-  %233 = add nsw i64 %232, %229
-  store i64 %233, ptr %231, align 8
-  br label %234
+220:                                              ; preds = %217
+  br label %243
 
-234:                                              ; preds = %222, %219
-  %235 = load ptr, ptr %10, align 8
-  %236 = getelementptr inbounds %struct.Cec_ParSat_t_, ptr %235, i32 0, i32 6
-  %237 = load i32, ptr %236, align 4
-  %238 = icmp ne i32 %237, 0
-  br i1 %238, label %239, label %240
+221:                                              ; preds = %217
+  %222 = load ptr, ptr %8, align 8
+  %223 = icmp ne ptr %222, null
+  br i1 %223, label %224, label %236
 
-239:                                              ; preds = %234
-  br label %244
+224:                                              ; preds = %221
+  %225 = call i64 @Abc_Clock()
+  store i64 %225, ptr %26, align 8
+  %226 = load ptr, ptr %8, align 8
+  %227 = load ptr, ptr %16, align 8
+  %228 = load ptr, ptr %17, align 8
+  call void @Cec_ManPatSavePattern(ptr noundef %226, ptr noundef %227, ptr noundef %228)
+  %229 = call i64 @Abc_Clock()
+  %230 = load i64, ptr %26, align 8
+  %231 = sub nsw i64 %229, %230
+  %232 = load ptr, ptr %8, align 8
+  %233 = getelementptr inbounds %struct.Cec_ManPat_t_, ptr %232, i32 0, i32 18
+  %234 = load i64, ptr %233, align 8
+  %235 = add nsw i64 %234, %231
+  store i64 %235, ptr %233, align 8
+  br label %236
 
-240:                                              ; preds = %234
-  br label %241
+236:                                              ; preds = %224, %221
+  %237 = load ptr, ptr %10, align 8
+  %238 = getelementptr inbounds %struct.Cec_ParSat_t_, ptr %237, i32 0, i32 6
+  %239 = load i32, ptr %238, align 4
+  %240 = icmp ne i32 %239, 0
+  br i1 %240, label %241, label %242
 
-241:                                              ; preds = %240, %218, %131
-  %242 = load i32, ptr %18, align 4
-  %243 = add nsw i32 %242, 1
-  store i32 %243, ptr %18, align 4
+241:                                              ; preds = %236
+  br label %246
+
+242:                                              ; preds = %236
+  br label %243
+
+243:                                              ; preds = %242, %220, %132
+  %244 = load i32, ptr %18, align 4
+  %245 = add nsw i32 %244, 1
+  store i32 %245, ptr %18, align 4
   br label %68, !llvm.loop !13
 
-244:                                              ; preds = %239, %80
-  %245 = call i64 @Abc_Clock()
-  %246 = load i64, ptr %20, align 8
-  %247 = sub nsw i64 %245, %246
-  %248 = trunc i64 %247 to i32
-  %249 = load ptr, ptr %16, align 8
-  %250 = getelementptr inbounds %struct.Cec_ManSat_t_, ptr %249, i32 0, i32 24
-  store i32 %248, ptr %250, align 4
-  %251 = load ptr, ptr %15, align 8
-  call void @Bar_ProgressStop(ptr noundef %251)
-  %252 = load ptr, ptr %10, align 8
-  %253 = getelementptr inbounds %struct.Cec_ParSat_t_, ptr %252, i32 0, i32 9
-  %254 = load i32, ptr %253, align 4
-  %255 = icmp ne i32 %254, 0
-  br i1 %255, label %256, label %258
+246:                                              ; preds = %241, %80
+  %247 = call i64 @Abc_Clock()
+  %248 = load i64, ptr %20, align 8
+  %249 = sub nsw i64 %247, %248
+  %250 = trunc i64 %249 to i32
+  %251 = load ptr, ptr %16, align 8
+  %252 = getelementptr inbounds %struct.Cec_ManSat_t_, ptr %251, i32 0, i32 24
+  store i32 %250, ptr %252, align 4
+  %253 = load ptr, ptr %15, align 8
+  call void @Bar_ProgressStop(ptr noundef %253)
+  %254 = load ptr, ptr %10, align 8
+  %255 = getelementptr inbounds %struct.Cec_ParSat_t_, ptr %254, i32 0, i32 9
+  %256 = load i32, ptr %255, align 4
+  %257 = icmp ne i32 %256, 0
+  br i1 %257, label %258, label %260
 
-256:                                              ; preds = %244
-  %257 = load ptr, ptr %16, align 8
-  call void @Cec_ManSatPrintStats(ptr noundef %257)
-  br label %258
-
-258:                                              ; preds = %256, %244
+258:                                              ; preds = %246
   %259 = load ptr, ptr %16, align 8
-  call void @Cec_ManSatStop(ptr noundef %259)
+  call void @Cec_ManSatPrintStats(ptr noundef %259)
+  br label %260
+
+260:                                              ; preds = %258, %246
+  %261 = load ptr, ptr %16, align 8
+  call void @Cec_ManSatStop(ptr noundef %261)
   ret void
 }
 

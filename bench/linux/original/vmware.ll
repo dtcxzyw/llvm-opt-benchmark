@@ -116,95 +116,96 @@ define internal noundef i32 @activate_jump_labels() #1 section ".init.text" alig
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @vmware_platform() #1 section ".init.text" align 16 {
   %1 = alloca [3 x i32], align 4
-  %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
-  %3 = and i64 %2, 2147483648
-  %4 = icmp eq i64 %3, 0
-  br i1 %4, label %26, label %5
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8
+  %3 = load volatile i64, ptr %2, align 8
+  %4 = and i64 %3, 2147483648
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %27, label %6
 
-5:                                                ; preds = %0
+6:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #11
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
-  %8 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1073741824, i32 0) #11, !srcloc !5
-  %9 = extractvalue { i32, i32, i32, i32 } %8, 1
-  %10 = extractvalue { i32, i32, i32, i32 } %8, 2
-  %11 = extractvalue { i32, i32, i32, i32 } %8, 3
-  store i32 %9, ptr %1, align 4
-  store i32 %10, ptr %6, align 4
+  %9 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1073741824, i32 0) #11, !srcloc !5
+  %10 = extractvalue { i32, i32, i32, i32 } %9, 1
+  %11 = extractvalue { i32, i32, i32, i32 } %9, 2
+  %12 = extractvalue { i32, i32, i32, i32 } %9, 3
+  store i32 %10, ptr %1, align 4
   store i32 %11, ptr %7, align 4
-  %12 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %1, ptr noundef nonnull dereferenceable(12) @.str.1, i64 12)
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %47
+  store i32 %12, ptr %8, align 4
+  %13 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %1, ptr noundef nonnull dereferenceable(12) @.str.1, i64 12)
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %48
 
-14:                                               ; preds = %5
-  %15 = extractvalue { i32, i32, i32, i32 } %8, 0
-  %16 = icmp ugt i32 %15, 1073741839
-  br i1 %16, label %17, label %22
+15:                                               ; preds = %6
+  %16 = extractvalue { i32, i32, i32, i32 } %9, 0
+  %17 = icmp ugt i32 %16, 1073741839
+  br i1 %17, label %18, label %23
 
-17:                                               ; preds = %14
-  %18 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1073741840, i32 0) #11, !srcloc !5
-  %19 = extractvalue { i32, i32, i32, i32 } %18, 2
-  %20 = trunc i32 %19 to i8
-  %21 = and i8 %20, 3
-  store i8 %21, ptr @vmware_hypercall_mode, align 1
-  br label %22
+18:                                               ; preds = %15
+  %19 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1073741840, i32 0) #11, !srcloc !5
+  %20 = extractvalue { i32, i32, i32, i32 } %19, 2
+  %21 = trunc i32 %20 to i8
+  %22 = and i8 %21, 3
+  store i8 %22, ptr @vmware_hypercall_mode, align 1
+  br label %23
 
-22:                                               ; preds = %17, %14
-  %23 = load i8, ptr @vmware_hypercall_mode, align 1
-  %24 = zext nneg i8 %23 to i32
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %24) #12
+23:                                               ; preds = %18, %15
+  %24 = load i8, ptr @vmware_hypercall_mode, align 1
+  %25 = zext nneg i8 %24 to i32
+  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %25) #12
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #11
-  br i1 %13, label %49, label %48
+  br i1 %14, label %50, label %49
 
-26:                                               ; preds = %0
-  %27 = load i32, ptr @dmi_available, align 4
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %48, label %29
+27:                                               ; preds = %0
+  %28 = load i32, ptr @dmi_available, align 4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %49, label %30
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @dmi_name_in_serial(ptr noundef nonnull @.str) #11
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %48, label %32
+30:                                               ; preds = %27
+  %31 = tail call i32 @dmi_name_in_serial(ptr noundef nonnull @.str) #11
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %49, label %33
 
-32:                                               ; preds = %29
-  %33 = load i8, ptr @vmware_hypercall_mode, align 1
-  switch i8 %33, label %38 [
-    i8 2, label %34
-    i8 1, label %36
+33:                                               ; preds = %30
+  %34 = load i8, ptr @vmware_hypercall_mode, align 1
+  switch i8 %34, label %39 [
+    i8 2, label %35
+    i8 1, label %37
   ]
 
-34:                                               ; preds = %32
-  %35 = tail call { i32, i32, i32, i32 } asm "vmcall", "={ax},={cx},={dx},={bx},{ax},{cx},{dx},{bx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 10, i32 0, i32 -1) #11, !srcloc !6
-  br label %40
+35:                                               ; preds = %33
+  %36 = tail call { i32, i32, i32, i32 } asm "vmcall", "={ax},={cx},={dx},={bx},{ax},{cx},{dx},{bx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 10, i32 0, i32 -1) #11, !srcloc !6
+  br label %41
 
-36:                                               ; preds = %32
-  %37 = tail call { i32, i32, i32, i32 } asm "vmmcall", "={ax},={cx},={dx},={bx},{ax},{cx},{dx},{bx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 10, i32 0, i32 -1) #11, !srcloc !7
-  br label %40
+37:                                               ; preds = %33
+  %38 = tail call { i32, i32, i32, i32 } asm "vmmcall", "={ax},={cx},={dx},={bx},{ax},{cx},{dx},{bx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 10, i32 0, i32 -1) #11, !srcloc !7
+  br label %41
 
-38:                                               ; preds = %32
-  %39 = tail call { i32, i32, i32, i32 } asm "inl (%dx), %eax", "={ax},={cx},={dx},={bx},{ax},{cx},{dx},{bx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 10, i32 22104, i32 -1) #11, !srcloc !8
-  br label %40
+39:                                               ; preds = %33
+  %40 = tail call { i32, i32, i32, i32 } asm "inl (%dx), %eax", "={ax},={cx},={dx},={bx},{ax},{cx},{dx},{bx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 10, i32 22104, i32 -1) #11, !srcloc !8
+  br label %41
 
-40:                                               ; preds = %38, %36, %34
-  %41 = phi { i32, i32, i32, i32 } [ %39, %38 ], [ %37, %36 ], [ %35, %34 ]
-  %42 = extractvalue { i32, i32, i32, i32 } %41, 3
-  %43 = extractvalue { i32, i32, i32, i32 } %41, 0
-  %44 = icmp eq i32 %43, -1
-  %45 = icmp ne i32 %42, 1447909480
-  %46 = select i1 %44, i1 true, i1 %45
-  br i1 %46, label %48, label %49
+41:                                               ; preds = %39, %37, %35
+  %42 = phi { i32, i32, i32, i32 } [ %40, %39 ], [ %38, %37 ], [ %36, %35 ]
+  %43 = extractvalue { i32, i32, i32, i32 } %42, 3
+  %44 = extractvalue { i32, i32, i32, i32 } %42, 0
+  %45 = icmp eq i32 %44, -1
+  %46 = icmp ne i32 %43, 1447909480
+  %47 = select i1 %45, i1 true, i1 %46
+  br i1 %47, label %49, label %50
 
-47:                                               ; preds = %5
+48:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #11
-  br label %48
-
-48:                                               ; preds = %47, %40, %29, %26, %22
   br label %49
 
-49:                                               ; preds = %48, %40, %22
-  %50 = phi i32 [ 1073741824, %22 ], [ 0, %48 ], [ 1, %40 ]
-  ret i32 %50
+49:                                               ; preds = %48, %41, %30, %27, %23
+  br label %50
+
+50:                                               ; preds = %49, %41, %23
+  %51 = phi i32 [ 1073741824, %23 ], [ 0, %49 ], [ 1, %41 ]
+  ret i32 %51
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -232,7 +233,7 @@ define internal void @vmware_platform_setup() #1 section ".init.text" align 16 {
   %10 = extractvalue { i32, i32, i32, i32 } %9, 3
   %11 = extractvalue { i32, i32, i32, i32 } %9, 1
   %12 = icmp eq i32 %10, -1
-  br i1 %12, label %32, label %13
+  br i1 %12, label %33, label %13
 
 13:                                               ; preds = %8
   %14 = extractvalue { i32, i32, i32, i32 } %9, 0
@@ -264,18 +265,19 @@ define internal void @vmware_platform_setup() #1 section ".init.text" align 16 {
 
 29:                                               ; preds = %28, %22
   store i64 %19, ptr @vmware_tsc_khz, align 8
-  store ptr @vmware_get_tsc_khz, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 1), align 8
+  %30 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 1
+  store ptr @vmware_get_tsc_khz, ptr %30, align 8
   store ptr @vmware_get_tsc_khz, ptr @x86_platform, align 8
-  %30 = udiv i32 %11, 1000
-  store i32 %30, ptr @lapic_timer_period, align 4
-  %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %11) #12
-  br label %34
+  %31 = udiv i32 %11, 1000
+  store i32 %31, ptr @lapic_timer_period, align 4
+  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %11) #12
+  br label %35
 
-32:                                               ; preds = %8
-  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #12
-  br label %34
+33:                                               ; preds = %8
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #12
+  br label %35
 
-34:                                               ; preds = %32, %29
+35:                                               ; preds = %33, %29
   tail call fastcc void @vmware_paravirt_ops_setup() #13
   store i32 1, ptr @no_timer_check, align 4
   tail call fastcc void @vmware_set_capabilities() #13
@@ -376,37 +378,57 @@ define internal fastcc void @vmware_paravirt_ops_setup() unnamed_addr #1 section
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @vmware_set_capabilities() unnamed_addr #1 section ".init.text" align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 5), i32 1, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 5)) #11, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 13), i32 1, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 13)) #11, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 6), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 6)) #11, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 14), i32 128, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 14)) #11, !srcloc !20
-  %1 = load i64, ptr @vmware_tsc_khz, align 8
-  %2 = icmp eq i64 %1, 0
-  br i1 %2, label %4, label %3
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 5
+  %2 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, i32 1, ptr nonnull elementtype(i8) %2) #11, !srcloc !20
+  %3 = getelementptr i8, ptr @cpu_caps_set, i64 13
+  %4 = getelementptr i8, ptr @cpu_caps_set, i64 13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i32 1, ptr elementtype(i8) %4) #11, !srcloc !20
+  %5 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 6
+  %6 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 6
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i32 128, ptr nonnull elementtype(i8) %6) #11, !srcloc !20
+  %7 = getelementptr i8, ptr @cpu_caps_set, i64 14
+  %8 = getelementptr i8, ptr @cpu_caps_set, i64 14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 128, ptr elementtype(i8) %8) #11, !srcloc !20
+  %9 = load i64, ptr @vmware_tsc_khz, align 8
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %16, label %11
 
-3:                                                ; preds = %0
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7)) #11, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 15), i32 128, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 15)) #11, !srcloc !20
-  br label %4
+11:                                               ; preds = %0
+  %12 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7
+  %13 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 7
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i32 128, ptr nonnull elementtype(i8) %13) #11, !srcloc !20
+  %14 = getelementptr i8, ptr @cpu_caps_set, i64 15
+  %15 = getelementptr i8, ptr @cpu_caps_set, i64 15
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 128, ptr elementtype(i8) %15) #11, !srcloc !20
+  br label %16
 
-4:                                                ; preds = %3, %0
-  %5 = load i8, ptr @vmware_hypercall_mode, align 1
-  switch i8 %5, label %8 [
-    i8 2, label %6
-    i8 1, label %7
+16:                                               ; preds = %11, %0
+  %17 = load i8, ptr @vmware_hypercall_mode, align 1
+  switch i8 %17, label %28 [
+    i8 2, label %18
+    i8 1, label %23
   ]
 
-6:                                                ; preds = %4
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26), i32 4, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26)) #11, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 34), i32 4, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 34)) #11, !srcloc !20
-  br label %8
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26
+  %20 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %19, i32 4, ptr nonnull elementtype(i8) %20) #11, !srcloc !20
+  %21 = getelementptr i8, ptr @cpu_caps_set, i64 34
+  %22 = getelementptr i8, ptr @cpu_caps_set, i64 34
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %21, i32 4, ptr elementtype(i8) %22) #11, !srcloc !20
+  br label %28
 
-7:                                                ; preds = %4
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26)) #11, !srcloc !20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 34), i32 8, ptr elementtype(i8) getelementptr (i8, ptr @cpu_caps_set, i64 34)) #11, !srcloc !20
-  br label %8
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26
+  %25 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 26
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %24, i32 8, ptr nonnull elementtype(i8) %25) #11, !srcloc !20
+  %26 = getelementptr i8, ptr @cpu_caps_set, i64 34
+  %27 = getelementptr i8, ptr @cpu_caps_set, i64 34
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %26, i32 8, ptr elementtype(i8) %27) #11, !srcloc !20
+  br label %28
 
-8:                                                ; preds = %7, %6, %4
+28:                                               ; preds = %23, %18, %16
   ret void
 }
 
@@ -422,17 +444,20 @@ define internal fastcc void @vmware_cyc2ns_setup() unnamed_addr #1 section ".ini
   %5 = or i64 %4, %2
   %6 = load i64, ptr @vmware_tsc_khz, align 8
   %7 = trunc i64 %6 to i32
-  tail call void @clocks_calc_mult_shift(ptr noundef nonnull @vmware_cyc2ns, ptr noundef nonnull getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1), i32 noundef %7, i32 noundef 1000000, i32 noundef 0) #11
-  %8 = load i32, ptr @vmware_cyc2ns, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1), align 4
-  %10 = zext i64 %5 to i128
-  %11 = zext i32 %8 to i128
-  %12 = mul nuw nsw i128 %10, %11
-  %13 = zext nneg i32 %9 to i128
-  %14 = lshr i128 %12, %13
-  %15 = trunc i128 %14 to i64
-  store i64 %15, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 2), align 8
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i64 noundef %15) #12
+  %8 = getelementptr inbounds %struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1
+  tail call void @clocks_calc_mult_shift(ptr noundef nonnull @vmware_cyc2ns, ptr noundef nonnull %8, i32 noundef %7, i32 noundef 1000000, i32 noundef 0) #11
+  %9 = load i32, ptr @vmware_cyc2ns, align 8
+  %10 = getelementptr inbounds %struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1
+  %11 = load i32, ptr %10, align 4
+  %12 = zext i64 %5 to i128
+  %13 = zext i32 %9 to i128
+  %14 = mul nuw nsw i128 %12, %13
+  %15 = zext nneg i32 %11 to i128
+  %16 = lshr i128 %14, %15
+  %17 = trunc i128 %16 to i64
+  %18 = getelementptr inbounds %struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 2
+  store i64 %17, ptr %18, align 8
+  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i64 noundef %17) #12
   ret void
 }
 
@@ -447,16 +472,18 @@ define internal i64 @vmware_sched_clock() #7 section ".noinstr.text" align 16 {
   %4 = shl i64 %3, 32
   %5 = or i64 %4, %2
   %6 = load i32, ptr @vmware_cyc2ns, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1), align 4
-  %8 = zext i64 %5 to i128
-  %9 = zext i32 %6 to i128
-  %10 = mul nuw nsw i128 %8, %9
-  %11 = zext nneg i32 %7 to i128
-  %12 = lshr i128 %10, %11
-  %13 = trunc i128 %12 to i64
-  %14 = load i64, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 2), align 8
-  %15 = sub i64 %13, %14
-  ret i64 %15
+  %7 = getelementptr inbounds %struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1
+  %8 = load i32, ptr %7, align 4
+  %9 = zext i64 %5 to i128
+  %10 = zext i32 %6 to i128
+  %11 = mul nuw nsw i128 %9, %10
+  %12 = zext nneg i32 %8 to i128
+  %13 = lshr i128 %11, %12
+  %14 = trunc i128 %13 to i64
+  %15 = getelementptr inbounds %struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 2
+  %16 = load i64, ptr %15, align 8
+  %17 = sub i64 %14, %16
+  ret i64 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
@@ -464,18 +491,20 @@ define internal i64 @vmware_steal_clock(i32 noundef %0) #8 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @vmw_steal_time to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load volatile i64, ptr %6, align 8
-  %8 = load i32, ptr @vmware_cyc2ns, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1), align 4
-  %10 = zext i64 %7 to i128
-  %11 = zext i32 %8 to i128
-  %12 = mul nuw nsw i128 %11, %10
-  %13 = zext nneg i32 %9 to i128
-  %14 = lshr i128 %12, %13
-  %15 = trunc i128 %14 to i64
-  ret i64 %15
+  %5 = ptrtoint ptr @vmw_steal_time to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load volatile i64, ptr %7, align 8
+  %9 = load i32, ptr @vmware_cyc2ns, align 8
+  %10 = getelementptr inbounds %struct.cyc2ns_data, ptr @vmware_cyc2ns, i64 0, i32 1
+  %11 = load i32, ptr %10, align 4
+  %12 = zext i64 %8 to i128
+  %13 = zext i32 %9 to i128
+  %14 = mul nuw nsw i128 %13, %12
+  %15 = zext nneg i32 %11 to i128
+  %16 = lshr i128 %14, %15
+  %17 = trunc i128 %16 to i64
+  ret i64 %17
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -490,34 +519,36 @@ declare dso_local i32 @register_reboot_notifier(ptr noundef) local_unnamed_addr 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @vmware_smp_prepare_boot_cpu() #1 section ".init.text" align 16 {
   %1 = load i1, ptr @has_steal_clock, align 1
-  br i1 %1, label %2, label %20
+  br i1 %1, label %2, label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !22
-  %4 = sext i32 %3 to i64
-  %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
-  %6 = load i64, ptr %5, align 8
-  %7 = add i64 %6, ptrtoint (ptr @vmw_steal_time to i64)
-  %8 = inttoptr i64 %7 to ptr
-  %9 = tail call i64 @slow_virt_to_phys(ptr noundef %8) #11
-  %10 = lshr i64 %9, 32
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %9 to i32
-  %13 = tail call { i32, i32 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09movw $$0x5658, %dx; inl (%dx), %eax\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+18)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 8*32+19)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmcall\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09vmmcall\0A6652:\0A.popsection\0A", "={ax},={cx},{ax},{bx},{cx},{dx},{si},{di},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 0, i32 91, i32 0, i32 %11, i32 %12) #11, !srcloc !19
-  %14 = extractvalue { i32, i32 } %13, 0
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %17, label %16
+  %3 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3) #14, !srcloc !22
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
+  %7 = load i64, ptr %6, align 8
+  %8 = ptrtoint ptr @vmw_steal_time to i64
+  %9 = add i64 %7, %8
+  %10 = inttoptr i64 %9 to ptr
+  %11 = tail call i64 @slow_virt_to_phys(ptr noundef %10) #11
+  %12 = lshr i64 %11, 32
+  %13 = trunc i64 %12 to i32
+  %14 = trunc i64 %11 to i32
+  %15 = tail call { i32, i32 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09movw $$0x5658, %dx; inl (%dx), %eax\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+18)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 8*32+19)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmcall\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09vmmcall\0A6652:\0A.popsection\0A", "={ax},={cx},{ax},{bx},{cx},{dx},{si},{di},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 0, i32 91, i32 0, i32 %13, i32 %14) #11, !srcloc !19
+  %16 = extractvalue { i32, i32 } %15, 0
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %19, label %18
 
-16:                                               ; preds = %2
+18:                                               ; preds = %2
   store i1 false, ptr @has_steal_clock, align 1
-  br label %20
+  br label %22
 
-17:                                               ; preds = %2
-  %18 = tail call i64 @slow_virt_to_phys(ptr noundef %8) #11
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i32 noundef %3, i64 noundef %18) #12
-  br label %20
+19:                                               ; preds = %2
+  %20 = tail call i64 @slow_virt_to_phys(ptr noundef %10) #11
+  %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i32 noundef %4, i64 noundef %20) #12
+  br label %22
 
-20:                                               ; preds = %17, %16, %0
+22:                                               ; preds = %19, %18, %0
   tail call void @native_smp_prepare_boot_cpu() #11
   ret void
 }
@@ -526,34 +557,36 @@ define internal void @vmware_smp_prepare_boot_cpu() #1 section ".init.text" alig
 define internal noundef i32 @vmware_cpu_online(i32 %0) #9 align 16 {
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   %2 = load i1, ptr @has_steal_clock, align 1
-  br i1 %2, label %3, label %21
+  br i1 %2, label %3, label %23
 
 3:                                                ; preds = %1
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #14, !srcloc !22
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8
-  %8 = add i64 %7, ptrtoint (ptr @vmw_steal_time to i64)
-  %9 = inttoptr i64 %8 to ptr
-  %10 = tail call i64 @slow_virt_to_phys(ptr noundef %9) #11
-  %11 = lshr i64 %10, 32
-  %12 = trunc i64 %11 to i32
-  %13 = trunc i64 %10 to i32
-  %14 = tail call { i32, i32 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09movw $$0x5658, %dx; inl (%dx), %eax\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+18)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 8*32+19)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmcall\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09vmmcall\0A6652:\0A.popsection\0A", "={ax},={cx},{ax},{bx},{cx},{dx},{si},{di},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 0, i32 91, i32 0, i32 %12, i32 %13) #11, !srcloc !19
-  %15 = extractvalue { i32, i32 } %14, 0
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %18, label %17
+  %4 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4) #14, !srcloc !22
+  %6 = sext i32 %5 to i64
+  %7 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %6
+  %8 = load i64, ptr %7, align 8
+  %9 = ptrtoint ptr @vmw_steal_time to i64
+  %10 = add i64 %8, %9
+  %11 = inttoptr i64 %10 to ptr
+  %12 = tail call i64 @slow_virt_to_phys(ptr noundef %11) #11
+  %13 = lshr i64 %12, 32
+  %14 = trunc i64 %13 to i32
+  %15 = trunc i64 %12 to i32
+  %16 = tail call { i32, i32 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09movw $$0x5658, %dx; inl (%dx), %eax\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+18)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 8*32+19)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmcall\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09vmmcall\0A6652:\0A.popsection\0A", "={ax},={cx},{ax},{bx},{cx},{dx},{si},{di},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 0, i32 91, i32 0, i32 %14, i32 %15) #11, !srcloc !19
+  %17 = extractvalue { i32, i32 } %16, 0
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %20, label %19
 
-17:                                               ; preds = %3
+19:                                               ; preds = %3
   store i1 false, ptr @has_steal_clock, align 1
-  br label %21
+  br label %23
 
-18:                                               ; preds = %3
-  %19 = tail call i64 @slow_virt_to_phys(ptr noundef %9) #11
-  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i32 noundef %4, i64 noundef %19) #12
-  br label %21
+20:                                               ; preds = %3
+  %21 = tail call i64 @slow_virt_to_phys(ptr noundef %11) #11
+  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i32 noundef %5, i64 noundef %21) #12
+  br label %23
 
-21:                                               ; preds = %18, %17, %1
+23:                                               ; preds = %20, %19, %1
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
   ret i32 0
 }

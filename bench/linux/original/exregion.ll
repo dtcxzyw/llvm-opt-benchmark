@@ -32,7 +32,7 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
 
 15:                                               ; preds = %6
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 79, ptr noundef nonnull @.str, i32 noundef %2) #8
-  br label %121
+  br label %122
 
 16:                                               ; preds = %14, %13, %12, %6
   %17 = phi i32 [ 8, %14 ], [ 4, %13 ], [ 2, %12 ], [ 1, %6 ]
@@ -51,7 +51,7 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %20
   %28 = icmp ugt i64 %24, %27
-  br i1 %28, label %29, label %90
+  br i1 %28, label %29, label %91
 
 29:                                               ; preds = %22, %19, %16
   %30 = getelementptr inbounds i8, ptr %5, i64 24
@@ -79,7 +79,7 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %40
   %46 = icmp ugt i64 %35, %45
-  br i1 %46, label %47, label %88
+  br i1 %46, label %47, label %89
 
 47:                                               ; preds = %42, %39, %36
   %48 = getelementptr inbounds i8, ptr %37, i64 24
@@ -96,139 +96,140 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   %53 = and i64 %52, 512
   %54 = icmp eq i64 %53, 0
   %55 = select i1 %54, i32 2336, i32 3520
-  %56 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %57 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %56, i32 noundef %55, i64 noundef 32) #9
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %63
+  %56 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %57 = load ptr, ptr %56, align 8
+  %58 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %57, i32 noundef %55, i64 noundef 32) #9
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %64
 
-59:                                               ; preds = %51
-  %60 = lshr i64 %1, 32
-  %61 = trunc i64 %60 to i32
-  %62 = trunc i64 %1 to i32
-  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 127, ptr noundef nonnull @.str.1, i32 noundef %61, i32 noundef %62, i32 noundef %17) #8
-  br label %121
+60:                                               ; preds = %51
+  %61 = lshr i64 %1, 32
+  %62 = trunc i64 %61 to i32
+  %63 = trunc i64 %1 to i32
+  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 127, ptr noundef nonnull @.str.1, i32 noundef %62, i32 noundef %63, i32 noundef %17) #8
+  br label %122
 
-63:                                               ; preds = %51
-  %64 = getelementptr inbounds i8, ptr %5, i64 8
-  %65 = load i64, ptr %64, align 8
-  %66 = load i32, ptr %5, align 8
-  %67 = zext i32 %66 to i64
-  %68 = sub i64 %65, %1
-  %69 = add i64 %68, %67
-  %70 = add i64 %1, 4095
-  %71 = and i64 %70, -4096
-  %72 = sub i64 %71, %1
-  %73 = icmp eq i64 %71, %1
-  %74 = select i1 %73, i64 4096, i64 %72
-  %75 = call i64 @llvm.umin.i64(i64 %69, i64 %74)
-  %76 = call ptr @acpi_os_map_memory(i64 noundef %1, i64 noundef %75) #8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %83
+64:                                               ; preds = %51
+  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  %66 = load i64, ptr %65, align 8
+  %67 = load i32, ptr %5, align 8
+  %68 = zext i32 %67 to i64
+  %69 = sub i64 %66, %1
+  %70 = add i64 %69, %68
+  %71 = add i64 %1, 4095
+  %72 = and i64 %71, -4096
+  %73 = sub i64 %72, %1
+  %74 = icmp eq i64 %72, %1
+  %75 = select i1 %74, i64 4096, i64 %73
+  %76 = call i64 @llvm.umin.i64(i64 %70, i64 %75)
+  %77 = call ptr @acpi_os_map_memory(i64 noundef %1, i64 noundef %76) #8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %84
 
-78:                                               ; preds = %63
-  %79 = lshr i64 %1, 32
-  %80 = trunc i64 %79 to i32
-  %81 = trunc i64 %1 to i32
-  %82 = trunc i64 %75 to i32
-  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 166, ptr noundef nonnull @.str.2, i32 noundef %80, i32 noundef %81, i32 noundef %82) #8
-  call void @kfree(ptr noundef nonnull %57) #8
-  br label %121
+79:                                               ; preds = %64
+  %80 = lshr i64 %1, 32
+  %81 = trunc i64 %80 to i32
+  %82 = trunc i64 %1 to i32
+  %83 = trunc i64 %76 to i32
+  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 166, ptr noundef nonnull @.str.2, i32 noundef %81, i32 noundef %82, i32 noundef %83) #8
+  call void @kfree(ptr noundef nonnull %58) #8
+  br label %122
 
-83:                                               ; preds = %63
-  %84 = getelementptr inbounds i8, ptr %57, i64 8
-  store ptr %76, ptr %84, align 8
-  store i64 %1, ptr %57, align 8
-  %85 = getelementptr inbounds i8, ptr %57, i64 16
-  store i64 %75, ptr %85, align 8
-  %86 = load ptr, ptr %30, align 8
-  %87 = getelementptr inbounds i8, ptr %57, i64 24
-  store ptr %86, ptr %87, align 8
-  store ptr %57, ptr %30, align 8
-  br label %88
+84:                                               ; preds = %64
+  %85 = getelementptr inbounds i8, ptr %58, i64 8
+  store ptr %77, ptr %85, align 8
+  store i64 %1, ptr %58, align 8
+  %86 = getelementptr inbounds i8, ptr %58, i64 16
+  store i64 %76, ptr %86, align 8
+  %87 = load ptr, ptr %30, align 8
+  %88 = getelementptr inbounds i8, ptr %58, i64 24
+  store ptr %87, ptr %88, align 8
+  store ptr %58, ptr %30, align 8
+  br label %89
 
-88:                                               ; preds = %83, %42
-  %89 = phi ptr [ %57, %83 ], [ %37, %42 ]
-  store ptr %89, ptr %8, align 8
-  br label %90
+89:                                               ; preds = %84, %42
+  %90 = phi ptr [ %58, %84 ], [ %37, %42 ]
+  store ptr %90, ptr %8, align 8
+  br label %91
 
-90:                                               ; preds = %88, %22
-  %91 = phi ptr [ %9, %22 ], [ %89, %88 ]
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = load i64, ptr %91, align 8
-  %95 = sub i64 %1, %94
-  %96 = getelementptr i8, ptr %93, i64 %95
-  switch i32 %0, label %121 [
-    i32 0, label %97
-    i32 1, label %109
-  ]
-
-97:                                               ; preds = %90
-  store i64 0, ptr %3, align 8
-  switch i32 %11, label %121 [
+91:                                               ; preds = %89, %22
+  %92 = phi ptr [ %9, %22 ], [ %90, %89 ]
+  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = load i64, ptr %92, align 8
+  %96 = sub i64 %1, %95
+  %97 = getelementptr i8, ptr %94, i64 %96
+  switch i32 %0, label %122 [
     i32 0, label %98
-    i32 1, label %101
-    i32 3, label %104
-    i32 7, label %107
+    i32 1, label %110
   ]
 
-98:                                               ; preds = %97
-  %99 = load i8, ptr %96, align 1
-  %100 = zext i8 %99 to i64
-  store i64 %100, ptr %3, align 8
-  br label %121
-
-101:                                              ; preds = %97
-  %102 = load i16, ptr %96, align 2
-  %103 = zext i16 %102 to i64
-  store i64 %103, ptr %3, align 8
-  br label %121
-
-104:                                              ; preds = %97
-  %105 = load i32, ptr %96, align 4
-  %106 = zext i32 %105 to i64
-  store i64 %106, ptr %3, align 8
-  br label %121
-
-107:                                              ; preds = %97
-  %108 = load i64, ptr %96, align 8
-  store i64 %108, ptr %3, align 8
-  br label %121
-
-109:                                              ; preds = %90
-  switch i32 %11, label %121 [
-    i32 0, label %110
-    i32 1, label %113
-    i32 3, label %116
-    i32 7, label %119
+98:                                               ; preds = %91
+  store i64 0, ptr %3, align 8
+  switch i32 %11, label %122 [
+    i32 0, label %99
+    i32 1, label %102
+    i32 3, label %105
+    i32 7, label %108
   ]
 
-110:                                              ; preds = %109
-  %111 = load i64, ptr %3, align 8
-  %112 = trunc i64 %111 to i8
-  store i8 %112, ptr %96, align 1
-  br label %121
+99:                                               ; preds = %98
+  %100 = load i8, ptr %97, align 1
+  %101 = zext i8 %100 to i64
+  store i64 %101, ptr %3, align 8
+  br label %122
 
-113:                                              ; preds = %109
-  %114 = load i64, ptr %3, align 8
-  %115 = trunc i64 %114 to i16
-  store i16 %115, ptr %96, align 2
-  br label %121
+102:                                              ; preds = %98
+  %103 = load i16, ptr %97, align 2
+  %104 = zext i16 %103 to i64
+  store i64 %104, ptr %3, align 8
+  br label %122
 
-116:                                              ; preds = %109
-  %117 = load i64, ptr %3, align 8
-  %118 = trunc i64 %117 to i32
-  store i32 %118, ptr %96, align 4
-  br label %121
+105:                                              ; preds = %98
+  %106 = load i32, ptr %97, align 4
+  %107 = zext i32 %106 to i64
+  store i64 %107, ptr %3, align 8
+  br label %122
 
-119:                                              ; preds = %109
-  %120 = load i64, ptr %3, align 8
-  store i64 %120, ptr %96, align 8
-  br label %121
+108:                                              ; preds = %98
+  %109 = load i64, ptr %97, align 8
+  store i64 %109, ptr %3, align 8
+  br label %122
 
-121:                                              ; preds = %119, %116, %113, %110, %109, %107, %104, %101, %98, %97, %90, %78, %59, %15
-  %122 = phi i32 [ 12292, %15 ], [ 4, %78 ], [ 4, %59 ], [ 0, %109 ], [ 0, %119 ], [ 0, %116 ], [ 0, %113 ], [ 0, %110 ], [ 0, %97 ], [ 0, %107 ], [ 0, %104 ], [ 0, %101 ], [ 0, %98 ], [ 4097, %90 ]
-  ret i32 %122
+110:                                              ; preds = %91
+  switch i32 %11, label %122 [
+    i32 0, label %111
+    i32 1, label %114
+    i32 3, label %117
+    i32 7, label %120
+  ]
+
+111:                                              ; preds = %110
+  %112 = load i64, ptr %3, align 8
+  %113 = trunc i64 %112 to i8
+  store i8 %113, ptr %97, align 1
+  br label %122
+
+114:                                              ; preds = %110
+  %115 = load i64, ptr %3, align 8
+  %116 = trunc i64 %115 to i16
+  store i16 %116, ptr %97, align 2
+  br label %122
+
+117:                                              ; preds = %110
+  %118 = load i64, ptr %3, align 8
+  %119 = trunc i64 %118 to i32
+  store i32 %119, ptr %97, align 4
+  br label %122
+
+120:                                              ; preds = %110
+  %121 = load i64, ptr %3, align 8
+  store i64 %121, ptr %97, align 8
+  br label %122
+
+122:                                              ; preds = %120, %117, %114, %111, %110, %108, %105, %102, %99, %98, %91, %79, %60, %15
+  %123 = phi i32 [ 12292, %15 ], [ 4, %79 ], [ 4, %60 ], [ 0, %110 ], [ 0, %120 ], [ 0, %117 ], [ 0, %114 ], [ 0, %111 ], [ 0, %98 ], [ 0, %108 ], [ 0, %105 ], [ 0, %102 ], [ 0, %99 ], [ 4097, %91 ]
+  ret i32 %123
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

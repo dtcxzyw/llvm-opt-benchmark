@@ -8255,7 +8255,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad3
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %14 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN17algebraic_numbers7manager3imp13opt_var2basic6failedE) #3
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN17algebraic_numbers7manager3imp13opt_var2basic6failedE) #3
   %matches = icmp eq i32 %sel, %14
   br i1 %matches, label %catch, label %eh.resume
 
@@ -14732,10 +14732,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -14745,7 +14746,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -15018,7 +15020,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18090,13 +18093,14 @@ entry:
   store ptr %x2v, ptr %x2v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10polynomial9var2valueI11mpq_managerILb0EE3mpqEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp9var2basicE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp9var2basicE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_imp = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::var2basic", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %i.addr, align 8
-  store ptr %0, ptr %m_imp, align 8
+  %1 = load ptr, ptr %i.addr, align 8
+  store ptr %1, ptr %m_imp, align 8
   %m_x2v = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::var2basic", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %x2v.addr, align 8
-  store ptr %1, ptr %m_x2v, align 8
+  %2 = load ptr, ptr %x2v.addr, align 8
+  store ptr %2, ptr %m_x2v, align 8
   ret void
 }
 
@@ -18538,19 +18542,20 @@ entry:
   store ptr %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10polynomial9var2valueIN17algebraic_numbers7managerENS1_4anumEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp11ext_var2numE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp11ext_var2numE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_am = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::ext_var2num", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %am.addr, align 8
-  store ptr %0, ptr %m_am, align 8
+  %1 = load ptr, ptr %am.addr, align 8
+  store ptr %1, ptr %m_am, align 8
   %m_x2v = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::ext_var2num", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %x2v.addr, align 8
-  store ptr %1, ptr %m_x2v, align 8
+  %2 = load ptr, ptr %x2v.addr, align 8
+  store ptr %2, ptr %m_x2v, align 8
   %m_x = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::ext_var2num", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %x.addr, align 4
-  store i32 %2, ptr %m_x, align 8
+  %3 = load i32, ptr %x.addr, align 4
+  store i32 %3, ptr %m_x, align 8
   %m_v = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::ext_var2num", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %v.addr, align 8
-  store ptr %3, ptr %m_v, align 8
+  %4 = load ptr, ptr %v.addr, align 8
+  store ptr %4, ptr %m_v, align 8
   ret void
 }
 
@@ -18734,7 +18739,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10polynomial9var2valueI11mpq_managerILb0EE3mpqEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN10polynomial9var2valueI11mpq_managerILb0EE3mpqEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21755,16 +21761,17 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN17algebraic_numbers19algebraic_exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN17algebraic_numbers19algebraic_exceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
   br label %eh.resume
 
@@ -21882,7 +21889,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10polynomial9var2valueIN17algebraic_numbers7managerENS1_4anumEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN10polynomial9var2valueIN17algebraic_numbers7managerENS1_4anumEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22032,16 +22040,17 @@ entry:
   store ptr %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10polynomial9var2valueIN17algebraic_numbers7managerENS1_4anumEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp12ext2_var2numE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp12ext2_var2numE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_am = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::ext2_var2num", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %am.addr, align 8
-  store ptr %0, ptr %m_am, align 8
+  %1 = load ptr, ptr %am.addr, align 8
+  store ptr %1, ptr %m_am, align 8
   %m_x2v = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::ext2_var2num", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %x2v.addr, align 8
-  store ptr %1, ptr %m_x2v, align 8
+  %2 = load ptr, ptr %x2v.addr, align 8
+  store ptr %2, ptr %m_x2v, align 8
   %m_v = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::ext2_var2num", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %v.addr, align 8
-  store ptr %2, ptr %m_v, align 8
+  %3 = load ptr, ptr %v.addr, align 8
+  store ptr %3, ptr %m_v, align 8
   ret void
 }
 
@@ -31787,13 +31796,14 @@ entry:
   store ptr %x2v, ptr %x2v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10polynomial9var2valueI11mpq_managerILb0EE3mpqEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp13opt_var2basicE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp13opt_var2basicE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_imp = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::opt_var2basic", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %i.addr, align 8
-  store ptr %0, ptr %m_imp, align 8
+  %1 = load ptr, ptr %i.addr, align 8
+  store ptr %1, ptr %m_imp, align 8
   %m_x2v = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::opt_var2basic", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %x2v.addr, align 8
-  store ptr %1, ptr %m_x2v, align 8
+  %2 = load ptr, ptr %x2v.addr, align 8
+  store ptr %2, ptr %m_x2v, align 8
   ret void
 }
 
@@ -31843,9 +31853,6 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #16
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_Z8is_constRK7obj_refIN10polynomial10polynomialENS0_7managerEE(ptr noundef nonnull align 8 dereferenceable(16) %p) #4 comdat {
 entry:
@@ -31872,13 +31879,14 @@ entry:
   store ptr %x2v, ptr %x2v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10polynomial9var2valueI13mpbqi_managerN22basic_interval_managerI12mpbq_managerLb0EE8intervalEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp12var2intervalE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN17algebraic_numbers7manager3imp12var2intervalE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_imp = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::var2interval", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %i.addr, align 8
-  store ptr %0, ptr %m_imp, align 8
+  %1 = load ptr, ptr %i.addr, align 8
+  store ptr %1, ptr %m_imp, align 8
   %m_x2v = getelementptr inbounds %"struct.algebraic_numbers::manager::imp::var2interval", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %x2v.addr, align 8
-  store ptr %1, ptr %m_x2v, align 8
+  %2 = load ptr, ptr %x2v.addr, align 8
+  store ptr %2, ptr %m_x2v, align 8
   ret void
 }
 
@@ -32098,7 +32106,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10polynomial9var2valueI13mpbqi_managerN22basic_interval_managerI12mpbq_managerLb0EE8intervalEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN10polynomial9var2valueI13mpbqi_managerN22basic_interval_managerI12mpbq_managerLb0EE8intervalEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -32899,6 +32908,9 @@ entry:
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

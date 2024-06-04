@@ -23,45 +23,47 @@ define void @prte_rtc_base_assign(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1, i32 1), align 8
-  store ptr %4, ptr %3, align 8
-  br label %5
+  %4 = getelementptr inbounds %struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1, i32 1
+  %5 = load ptr, ptr %4, align 8
+  store ptr %5, ptr %3, align 8
+  br label %6
 
-5:                                                ; preds = %23, %1
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp ne ptr %6, getelementptr inbounds (%struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1)
-  br i1 %7, label %8, label %27
+6:                                                ; preds = %25, %1
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds %struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1
+  %9 = icmp ne ptr %7, %8
+  br i1 %9, label %10, label %29
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %11, i32 0, i32 2
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %11, i32 0, i32 2
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr null, %13
-  br i1 %14, label %15, label %22
+  %14 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr null, %15
+  br i1 %16, label %17, label %24
 
-15:                                               ; preds = %8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %18, i32 0, i32 2
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %18, i32 0, i32 2
   %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %2, align 8
-  call void %20(ptr noundef %21)
-  br label %22
+  %21 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %20, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %2, align 8
+  call void %22(ptr noundef %23)
+  br label %24
 
-22:                                               ; preds = %15, %8
-  br label %23
+24:                                               ; preds = %17, %10
+  br label %25
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.pmix_list_item_t, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %3, align 8
-  br label %5, !llvm.loop !4
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds %struct.pmix_list_item_t, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %3, align 8
+  br label %6, !llvm.loop !4
 
-27:                                               ; preds = %5
+29:                                               ; preds = %6
   ret void
 }
 
@@ -72,46 +74,48 @@ define void @prte_rtc_base_set(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1, i32 1), align 8
-  store ptr %6, ptr %5, align 8
-  br label %7
+  %6 = getelementptr inbounds %struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1, i32 1
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  br label %8
 
-7:                                                ; preds = %26, %2
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp ne ptr %8, getelementptr inbounds (%struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1)
-  br i1 %9, label %10, label %30
+8:                                                ; preds = %28, %2
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds %struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1
+  %11 = icmp ne ptr %9, %10
+  br i1 %11, label %12, label %32
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %11, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %13, i32 0, i32 3
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %13, i32 0, i32 2
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr null, %15
-  br i1 %16, label %17, label %25
+  %16 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr null, %17
+  br i1 %18, label %19, label %27
 
-17:                                               ; preds = %10
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %20, i32 0, i32 3
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %20, i32 0, i32 2
   %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i32, ptr %4, align 4
-  call void %22(ptr noundef %23, i32 noundef %24)
-  br label %25
+  %23 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %22, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %3, align 8
+  %26 = load i32, ptr %4, align 4
+  call void %24(ptr noundef %25, i32 noundef %26)
+  br label %27
 
-25:                                               ; preds = %17, %10
-  br label %26
+27:                                               ; preds = %19, %12
+  br label %28
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.pmix_list_item_t, ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %5, align 8
-  br label %7, !llvm.loop !6
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.pmix_list_item_t, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %5, align 8
+  br label %8, !llvm.loop !6
 
-30:                                               ; preds = %7
+32:                                               ; preds = %8
   ret void
 }
 
@@ -120,45 +124,47 @@ define void @prte_rtc_base_get_avail_vals(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1, i32 1), align 8
-  store ptr %4, ptr %3, align 8
-  br label %5
+  %4 = getelementptr inbounds %struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1, i32 1
+  %5 = load ptr, ptr %4, align 8
+  store ptr %5, ptr %3, align 8
+  br label %6
 
-5:                                                ; preds = %23, %1
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp ne ptr %6, getelementptr inbounds (%struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1)
-  br i1 %7, label %8, label %27
+6:                                                ; preds = %25, %1
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds %struct.pmix_list_t, ptr @prte_rtc_base, i32 0, i32 1
+  %9 = icmp ne ptr %7, %8
+  br i1 %9, label %10, label %29
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %11, i32 0, i32 4
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %11, i32 0, i32 2
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr null, %13
-  br i1 %14, label %15, label %22
+  %14 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %13, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr null, %15
+  br i1 %16, label %17, label %24
 
-15:                                               ; preds = %8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %18, i32 0, i32 4
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds %struct.prte_rtc_base_selected_module_t, ptr %18, i32 0, i32 2
   %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %2, align 8
-  call void %20(ptr noundef %21)
-  br label %22
+  %21 = getelementptr inbounds %struct.prte_rtc_base_module_t, ptr %20, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %2, align 8
+  call void %22(ptr noundef %23)
+  br label %24
 
-22:                                               ; preds = %15, %8
-  br label %23
+24:                                               ; preds = %17, %10
+  br label %25
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.pmix_list_item_t, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %3, align 8
-  br label %5, !llvm.loop !7
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds %struct.pmix_list_item_t, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %3, align 8
+  br label %6, !llvm.loop !7
 
-27:                                               ; preds = %5
+29:                                               ; preds = %6
   ret void
 }
 
@@ -178,7 +184,7 @@ define i32 @prte_rtc_base_send_warn_show_help(i32 noundef %0, ptr noundef %1, pt
   %11 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %9, i32 0, i32 1
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %12)
+  call void @llvm.va_start.p0(ptr %12)
   %13 = load i32, ptr %4, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %6, align 8
@@ -186,13 +192,10 @@ define i32 @prte_rtc_base_send_warn_show_help(i32 noundef %0, ptr noundef %1, pt
   %17 = call i32 @write_help_msg(i32 noundef %13, ptr noundef %9, ptr noundef %14, ptr noundef %15, ptr noundef %16)
   store i32 %17, ptr %7, align 4
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %18)
+  call void @llvm.va_end.p0(ptr %18)
   %19 = load i32, ptr %7, align 4
   ret i32 %19
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @write_help_msg(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -372,9 +375,6 @@ define internal i32 @write_help_msg(i32 noundef %0, ptr noundef %1, ptr noundef 
   ret i32 %110
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
-
 ; Function Attrs: nounwind uwtable
 define void @prte_rtc_base_send_error_show_help(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ...) #0 {
   %5 = alloca i32, align 4
@@ -393,42 +393,48 @@ define void @prte_rtc_base_send_error_show_help(i32 noundef %0, i32 noundef %1, 
   %13 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %10, i32 0, i32 1
   store i32 %12, ptr %13, align 4
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %14)
+  call void @llvm.va_start.p0(ptr %14)
   %15 = load i32, ptr %5, align 4
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
   %19 = call i32 @write_help_msg(i32 noundef %15, ptr noundef %10, ptr noundef %16, ptr noundef %17, ptr noundef %18)
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load i32, ptr %6, align 4
   call void @exit(i32 noundef %21) #8
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #2
+declare void @exit(i32 noundef) #1
 
-declare ptr @pmix_show_help_vstring(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+declare ptr @pmix_show_help_vstring(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #3
 
-declare void @pmix_output(i32 noundef, ptr noundef, ...) #3
+declare void @pmix_output(i32 noundef, ptr noundef, ...) #2
 
-declare ptr @prte_strerror(i32 noundef) #3
+declare ptr @prte_strerror(i32 noundef) #2
 
-declare i32 @pmix_fd_write(i32 noundef, i32 noundef, ptr noundef) #3
+declare i32 @pmix_fd_write(i32 noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }

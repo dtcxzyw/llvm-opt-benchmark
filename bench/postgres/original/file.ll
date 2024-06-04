@@ -585,11 +585,11 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   store i64 %65, ptr %14, align 8
   br label %66
 
-66:                                               ; preds = %211, %63
+66:                                               ; preds = %212, %63
   %67 = load i64, ptr %13, align 8
   %68 = load i64, ptr %14, align 8
   %69 = icmp slt i64 %67, %68
-  br i1 %69, label %70, label %212
+  br i1 %69, label %70, label %213
 
 70:                                               ; preds = %66
   %71 = load i32, ptr %9, align 4
@@ -646,11 +646,11 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %105, ptr %20, align 8
   br label %106
 
-106:                                              ; preds = %204, %89
+106:                                              ; preds = %205, %89
   %107 = load ptr, ptr %20, align 8
   %108 = load ptr, ptr %21, align 8
   %109 = icmp ule ptr %107, %108
-  br i1 %109, label %110, label %211
+  br i1 %109, label %110, label %212
 
 110:                                              ; preds = %106
   store i8 1, ptr %25, align 1
@@ -758,71 +758,72 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %172
-  br label %211
+  br label %212
 
 176:                                              ; preds = %172, %169
-  %177 = load i32, ptr getelementptr inbounds (%struct.ControlData, ptr @new_cluster, i32 0, i32 21), align 8
-  %178 = icmp ne i32 %177, 0
-  br i1 %178, label %179, label %185
+  %177 = getelementptr inbounds %struct.ControlData, ptr @new_cluster, i32 0, i32 21
+  %178 = load i32, ptr %177, align 8
+  %179 = icmp ne i32 %178, 0
+  br i1 %179, label %180, label %186
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds [8192 x i8], ptr %12, i64 0, i64 0
-  %181 = load i32, ptr %16, align 4
-  %182 = call zeroext i16 @pg_checksum_page(ptr noundef %180, i32 noundef %181)
-  %183 = getelementptr inbounds [8192 x i8], ptr %12, i64 0, i64 0
-  %184 = getelementptr inbounds %struct.PageHeaderData, ptr %183, i32 0, i32 1
-  store i16 %182, ptr %184, align 8
-  br label %185
+180:                                              ; preds = %176
+  %181 = getelementptr inbounds [8192 x i8], ptr %12, i64 0, i64 0
+  %182 = load i32, ptr %16, align 4
+  %183 = call zeroext i16 @pg_checksum_page(ptr noundef %181, i32 noundef %182)
+  %184 = getelementptr inbounds [8192 x i8], ptr %12, i64 0, i64 0
+  %185 = getelementptr inbounds %struct.PageHeaderData, ptr %184, i32 0, i32 1
+  store i16 %183, ptr %185, align 8
+  br label %186
 
-185:                                              ; preds = %179, %176
-  %186 = call ptr @__errno_location() #6
-  store i32 0, ptr %186, align 4
-  %187 = load i32, ptr %10, align 4
-  %188 = getelementptr inbounds [8192 x i8], ptr %12, i64 0, i64 0
-  %189 = call i64 @write(i32 noundef %187, ptr noundef %188, i64 noundef 8192)
-  %190 = icmp ne i64 %189, 8192
-  br i1 %190, label %191, label %204
+186:                                              ; preds = %180, %176
+  %187 = call ptr @__errno_location() #6
+  store i32 0, ptr %187, align 4
+  %188 = load i32, ptr %10, align 4
+  %189 = getelementptr inbounds [8192 x i8], ptr %12, i64 0, i64 0
+  %190 = call i64 @write(i32 noundef %188, ptr noundef %189, i64 noundef 8192)
+  %191 = icmp ne i64 %190, 8192
+  br i1 %191, label %192, label %205
 
-191:                                              ; preds = %185
-  %192 = call ptr @__errno_location() #6
-  %193 = load i32, ptr %192, align 4
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %195, label %197
+192:                                              ; preds = %186
+  %193 = call ptr @__errno_location() #6
+  %194 = load i32, ptr %193, align 4
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %198
 
-195:                                              ; preds = %191
-  %196 = call ptr @__errno_location() #6
-  store i32 28, ptr %196, align 4
-  br label %197
+196:                                              ; preds = %192
+  %197 = call ptr @__errno_location() #6
+  store i32 28, ptr %197, align 4
+  br label %198
 
-197:                                              ; preds = %195, %191
-  %198 = load ptr, ptr %7, align 8
-  %199 = load ptr, ptr %8, align 8
-  %200 = load ptr, ptr %6, align 8
-  %201 = call ptr @__errno_location() #6
-  %202 = load i32, ptr %201, align 4
-  %203 = call ptr @pg_strerror(i32 noundef %202)
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.6, ptr noundef %198, ptr noundef %199, ptr noundef %200, ptr noundef %203) #7
+198:                                              ; preds = %196, %192
+  %199 = load ptr, ptr %7, align 8
+  %200 = load ptr, ptr %8, align 8
+  %201 = load ptr, ptr %6, align 8
+  %202 = call ptr @__errno_location() #6
+  %203 = load i32, ptr %202, align 4
+  %204 = call ptr @pg_strerror(i32 noundef %203)
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.6, ptr noundef %199, ptr noundef %200, ptr noundef %201, ptr noundef %204) #7
   unreachable
 
-204:                                              ; preds = %185
-  %205 = load i32, ptr %15, align 4
-  %206 = load ptr, ptr %20, align 8
-  %207 = sext i32 %205 to i64
-  %208 = getelementptr i8, ptr %206, i64 %207
-  store ptr %208, ptr %20, align 8
-  %209 = load i32, ptr %16, align 4
-  %210 = add i32 %209, 1
-  store i32 %210, ptr %16, align 4
+205:                                              ; preds = %186
+  %206 = load i32, ptr %15, align 4
+  %207 = load ptr, ptr %20, align 8
+  %208 = sext i32 %206 to i64
+  %209 = getelementptr i8, ptr %207, i64 %208
+  store ptr %209, ptr %20, align 8
+  %210 = load i32, ptr %16, align 4
+  %211 = add i32 %210, 1
+  store i32 %211, ptr %16, align 4
   br label %106, !llvm.loop !13
 
-211:                                              ; preds = %175, %106
+212:                                              ; preds = %175, %106
   br label %66, !llvm.loop !14
 
-212:                                              ; preds = %66
-  %213 = load i32, ptr %10, align 4
-  %214 = call i32 @close(i32 noundef %213)
-  %215 = load i32, ptr %9, align 4
-  %216 = call i32 @close(i32 noundef %215)
+213:                                              ; preds = %66
+  %214 = load i32, ptr %10, align 4
+  %215 = call i32 @close(i32 noundef %214)
+  %216 = load i32, ptr %9, align 4
+  %217 = call i32 @close(i32 noundef %216)
   ret void
 }
 
@@ -839,64 +840,66 @@ define dso_local void @check_file_clone() #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3), align 8
-  %7 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef @.str.10, ptr noundef %6)
-  %8 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %9 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i32 0, i32 3), align 8
-  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %8, i64 noundef 1024, ptr noundef @.str.11, ptr noundef %9)
-  %11 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %12 = call i32 @unlink(ptr noundef %11) #8
-  %13 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
-  %14 = call i32 (ptr, i32, ...) @open(ptr noundef %13, i32 noundef 0, i32 noundef 0)
-  store i32 %14, ptr %3, align 4
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %21
+  %6 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8
+  %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef @.str.10, ptr noundef %7)
+  %9 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %10 = getelementptr inbounds %struct.ClusterInfo, ptr @new_cluster, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8
+  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %9, i64 noundef 1024, ptr noundef @.str.11, ptr noundef %11)
+  %13 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %14 = call i32 @unlink(ptr noundef %13) #8
+  %15 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
+  %16 = call i32 (ptr, i32, ...) @open(ptr noundef %15, i32 noundef 0, i32 noundef 0)
+  store i32 %16, ptr %3, align 4
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %23
 
-16:                                               ; preds = %0
-  %17 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
-  %18 = call ptr @__errno_location() #6
-  %19 = load i32, ptr %18, align 4
-  %20 = call ptr @pg_strerror(i32 noundef %19)
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.12, ptr noundef %17, ptr noundef %20) #7
+18:                                               ; preds = %0
+  %19 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
+  %20 = call ptr @__errno_location() #6
+  %21 = load i32, ptr %20, align 4
+  %22 = call ptr @pg_strerror(i32 noundef %21)
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.12, ptr noundef %19, ptr noundef %22) #7
   unreachable
 
-21:                                               ; preds = %0
-  %22 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %23 = load i32, ptr @pg_file_create_mode, align 4
-  %24 = call i32 (ptr, i32, ...) @open(ptr noundef %22, i32 noundef 194, i32 noundef %23)
-  store i32 %24, ptr %4, align 4
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %31
+23:                                               ; preds = %0
+  %24 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %25 = load i32, ptr @pg_file_create_mode, align 4
+  %26 = call i32 (ptr, i32, ...) @open(ptr noundef %24, i32 noundef 194, i32 noundef %25)
+  store i32 %26, ptr %4, align 4
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %33
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %28 = call ptr @__errno_location() #6
-  %29 = load i32, ptr %28, align 4
-  %30 = call ptr @pg_strerror(i32 noundef %29)
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.13, ptr noundef %27, ptr noundef %30) #7
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %30 = call ptr @__errno_location() #6
+  %31 = load i32, ptr %30, align 4
+  %32 = call ptr @pg_strerror(i32 noundef %31)
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.13, ptr noundef %29, ptr noundef %32) #7
   unreachable
 
-31:                                               ; preds = %21
-  %32 = load i32, ptr %4, align 4
-  %33 = load i32, ptr %3, align 4
-  %34 = call i32 (i32, i64, ...) @ioctl(i32 noundef %32, i64 noundef 1074041865, i32 noundef %33) #8
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %40
+33:                                               ; preds = %23
+  %34 = load i32, ptr %4, align 4
+  %35 = load i32, ptr %3, align 4
+  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef %34, i64 noundef 1074041865, i32 noundef %35) #8
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %38, label %42
 
-36:                                               ; preds = %31
-  %37 = call ptr @__errno_location() #6
-  %38 = load i32, ptr %37, align 4
-  %39 = call ptr @pg_strerror(i32 noundef %38)
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.14, ptr noundef %39) #7
+38:                                               ; preds = %33
+  %39 = call ptr @__errno_location() #6
+  %40 = load i32, ptr %39, align 4
+  %41 = call ptr @pg_strerror(i32 noundef %40)
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.14, ptr noundef %41) #7
   unreachable
 
-40:                                               ; preds = %31
-  %41 = load i32, ptr %3, align 4
-  %42 = call i32 @close(i32 noundef %41)
-  %43 = load i32, ptr %4, align 4
+42:                                               ; preds = %33
+  %43 = load i32, ptr %3, align 4
   %44 = call i32 @close(i32 noundef %43)
-  %45 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %46 = call i32 @unlink(ptr noundef %45) #8
+  %45 = load i32, ptr %4, align 4
+  %46 = call i32 @close(i32 noundef %45)
+  %47 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %48 = call i32 @unlink(ptr noundef %47) #8
   ret void
 }
 
@@ -907,29 +910,31 @@ define dso_local void @check_hard_link() #0 {
   %1 = alloca [1024 x i8], align 16
   %2 = alloca [1024 x i8], align 16
   %3 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3), align 8
-  %5 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %3, i64 noundef 1024, ptr noundef @.str.10, ptr noundef %4)
-  %6 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i32 0, i32 3), align 8
-  %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %6, i64 noundef 1024, ptr noundef @.str.15, ptr noundef %7)
-  %9 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %10 = call i32 @unlink(ptr noundef %9) #8
-  %11 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
-  %12 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %13 = call i32 @link(ptr noundef %11, ptr noundef %12) #8
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %19
+  %4 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %3, i64 noundef 1024, ptr noundef @.str.10, ptr noundef %5)
+  %7 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %8 = getelementptr inbounds %struct.ClusterInfo, ptr @new_cluster, i32 0, i32 3
+  %9 = load ptr, ptr %8, align 8
+  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %7, i64 noundef 1024, ptr noundef @.str.15, ptr noundef %9)
+  %11 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %12 = call i32 @unlink(ptr noundef %11) #8
+  %13 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 0
+  %14 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %15 = call i32 @link(ptr noundef %13, ptr noundef %14) #8
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %21
 
-15:                                               ; preds = %0
-  %16 = call ptr @__errno_location() #6
-  %17 = load i32, ptr %16, align 4
-  %18 = call ptr @pg_strerror(i32 noundef %17)
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.16, ptr noundef %18) #7
+17:                                               ; preds = %0
+  %18 = call ptr @__errno_location() #6
+  %19 = load i32, ptr %18, align 4
+  %20 = call ptr @pg_strerror(i32 noundef %19)
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.16, ptr noundef %20) #7
   unreachable
 
-19:                                               ; preds = %0
-  %20 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
-  %21 = call i32 @unlink(ptr noundef %20) #8
+21:                                               ; preds = %0
+  %22 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 0
+  %23 = call i32 @unlink(ptr noundef %22) #8
   ret void
 }
 

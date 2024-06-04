@@ -595,45 +595,46 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto12ScryptConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node6crypto12ScryptConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mode = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %mode2 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %mode2, align 8
-  store i32 %1, ptr %mode, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %mode2 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %1, i32 0, i32 1
+  %2 = load i32, ptr %mode2, align 8
+  store i32 %2, ptr %mode, align 8
   %pass = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %other.addr, align 8
-  %pass3 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %other.addr, align 8
+  %pass3 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %3, i32 0, i32 3
   call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %pass, ptr noundef nonnull align 8 dereferenceable(24) %pass3) #3
   %salt = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %other.addr, align 8
-  %salt4 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %3, i32 0, i32 4
+  %4 = load ptr, ptr %other.addr, align 8
+  %salt4 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %4, i32 0, i32 4
   call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %salt, ptr noundef nonnull align 8 dereferenceable(24) %salt4) #3
   %N = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %other.addr, align 8
-  %N5 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %4, i32 0, i32 5
-  %5 = load i32, ptr %N5, align 8
-  store i32 %5, ptr %N, align 8
+  %5 = load ptr, ptr %other.addr, align 8
+  %N5 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %5, i32 0, i32 5
+  %6 = load i32, ptr %N5, align 8
+  store i32 %6, ptr %N, align 8
   %r = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %other.addr, align 8
-  %r6 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %6, i32 0, i32 6
-  %7 = load i32, ptr %r6, align 4
-  store i32 %7, ptr %r, align 4
+  %7 = load ptr, ptr %other.addr, align 8
+  %r6 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %7, i32 0, i32 6
+  %8 = load i32, ptr %r6, align 4
+  store i32 %8, ptr %r, align 4
   %p = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %this1, i32 0, i32 7
-  %8 = load ptr, ptr %other.addr, align 8
-  %p7 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %8, i32 0, i32 7
-  %9 = load i32, ptr %p7, align 8
-  store i32 %9, ptr %p, align 8
+  %9 = load ptr, ptr %other.addr, align 8
+  %p7 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %9, i32 0, i32 7
+  %10 = load i32, ptr %p7, align 8
+  store i32 %10, ptr %p, align 8
   %maxmem = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %this1, i32 0, i32 9
-  %10 = load ptr, ptr %other.addr, align 8
-  %maxmem8 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %10, i32 0, i32 9
-  %11 = load i64, ptr %maxmem8, align 8
-  store i64 %11, ptr %maxmem, align 8
+  %11 = load ptr, ptr %other.addr, align 8
+  %maxmem8 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %11, i32 0, i32 9
+  %12 = load i64, ptr %maxmem8, align 8
+  store i64 %12, ptr %maxmem, align 8
   %length = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %this1, i32 0, i32 10
-  %12 = load ptr, ptr %other.addr, align 8
-  %length9 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %12, i32 0, i32 10
-  %13 = load i32, ptr %length9, align 8
-  store i32 %13, ptr %length, align 8
+  %13 = load ptr, ptr %other.addr, align 8
+  %length9 = getelementptr inbounds %"struct.node::crypto::ScryptConfig", ptr %13, i32 0, i32 10
+  %14 = load i32, ptr %length9, align 8
+  store i32 %14, ptr %length, align 8
   ret void
 }
 
@@ -643,7 +644,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4200,7 +4202,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -4211,14 +4214,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -4300,7 +4303,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

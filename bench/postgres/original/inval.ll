@@ -683,7 +683,7 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr noundef %0, ptr n
   %21 = load ptr, ptr %4, align 8
   store ptr null, ptr %21, align 8
   store i32 0, ptr %3, align 4
-  br label %227
+  br label %229
 
 22:                                               ; preds = %2
   %23 = load ptr, ptr @transInvalInfo, align 8
@@ -863,92 +863,94 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr noundef %0, ptr n
   store i32 %165, ptr %13, align 4
   %166 = load i32, ptr %13, align 4
   %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %168, label %188
+  br i1 %167, label %168, label %189
 
 168:                                              ; preds = %154
-  %169 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
-  %170 = load ptr, ptr @transInvalInfo, align 8
-  %171 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %170, i32 0, i32 3
-  %172 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %171, i32 0, i32 0
-  %173 = getelementptr [2 x i32], ptr %172, i64 0, i64 1
-  %174 = load i32, ptr %173, align 4
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr %union.SharedInvalidationMessage, ptr %169, i64 %175
-  store ptr %176, ptr %14, align 8
-  %177 = load ptr, ptr %6, align 8
-  %178 = load i32, ptr %8, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr %union.SharedInvalidationMessage, ptr %177, i64 %179
-  %181 = load ptr, ptr %14, align 8
-  %182 = load i32, ptr %13, align 4
-  %183 = sext i32 %182 to i64
-  %184 = mul i64 %183, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %180, ptr align 4 %181, i64 %184, i1 false)
-  %185 = load i32, ptr %13, align 4
-  %186 = load i32, ptr %8, align 4
-  %187 = add i32 %186, %185
-  store i32 %187, ptr %8, align 4
-  br label %188
-
-188:                                              ; preds = %168, %154
+  %169 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
+  %170 = load ptr, ptr %169, align 16
+  %171 = load ptr, ptr @transInvalInfo, align 8
+  %172 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %171, i32 0, i32 3
+  %173 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %172, i32 0, i32 0
+  %174 = getelementptr [2 x i32], ptr %173, i64 0, i64 1
+  %175 = load i32, ptr %174, align 4
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr %union.SharedInvalidationMessage, ptr %170, i64 %176
+  store ptr %177, ptr %14, align 8
+  %178 = load ptr, ptr %6, align 8
+  %179 = load i32, ptr %8, align 4
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr %union.SharedInvalidationMessage, ptr %178, i64 %180
+  %182 = load ptr, ptr %14, align 8
+  %183 = load i32, ptr %13, align 4
+  %184 = sext i32 %183 to i64
+  %185 = mul i64 %184, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %181, ptr align 4 %182, i64 %185, i1 false)
+  %186 = load i32, ptr %13, align 4
+  %187 = load i32, ptr %8, align 4
+  %188 = add i32 %187, %186
+  store i32 %188, ptr %8, align 4
   br label %189
 
-189:                                              ; preds = %188
+189:                                              ; preds = %168, %154
   br label %190
 
 190:                                              ; preds = %189
-  %191 = load ptr, ptr @transInvalInfo, align 8
-  %192 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %191, i32 0, i32 2
-  %193 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %192, i32 0, i32 1
-  %194 = getelementptr [2 x i32], ptr %193, i64 0, i64 1
-  %195 = load i32, ptr %194, align 4
-  %196 = load ptr, ptr @transInvalInfo, align 8
-  %197 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %196, i32 0, i32 2
-  %198 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %197, i32 0, i32 0
-  %199 = getelementptr [2 x i32], ptr %198, i64 0, i64 1
-  %200 = load i32, ptr %199, align 4
-  %201 = sub i32 %195, %200
-  store i32 %201, ptr %15, align 4
-  %202 = load i32, ptr %15, align 4
-  %203 = icmp sgt i32 %202, 0
-  br i1 %203, label %204, label %224
+  br label %191
 
-204:                                              ; preds = %190
-  %205 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
-  %206 = load ptr, ptr @transInvalInfo, align 8
-  %207 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %206, i32 0, i32 2
-  %208 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %207, i32 0, i32 0
-  %209 = getelementptr [2 x i32], ptr %208, i64 0, i64 1
-  %210 = load i32, ptr %209, align 4
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr %union.SharedInvalidationMessage, ptr %205, i64 %211
-  store ptr %212, ptr %16, align 8
-  %213 = load ptr, ptr %6, align 8
-  %214 = load i32, ptr %8, align 4
-  %215 = sext i32 %214 to i64
-  %216 = getelementptr %union.SharedInvalidationMessage, ptr %213, i64 %215
-  %217 = load ptr, ptr %16, align 8
-  %218 = load i32, ptr %15, align 4
-  %219 = sext i32 %218 to i64
-  %220 = mul i64 %219, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %216, ptr align 4 %217, i64 %220, i1 false)
-  %221 = load i32, ptr %15, align 4
-  %222 = load i32, ptr %8, align 4
-  %223 = add i32 %222, %221
-  store i32 %223, ptr %8, align 4
-  br label %224
+191:                                              ; preds = %190
+  %192 = load ptr, ptr @transInvalInfo, align 8
+  %193 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %192, i32 0, i32 2
+  %194 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %193, i32 0, i32 1
+  %195 = getelementptr [2 x i32], ptr %194, i64 0, i64 1
+  %196 = load i32, ptr %195, align 4
+  %197 = load ptr, ptr @transInvalInfo, align 8
+  %198 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %197, i32 0, i32 2
+  %199 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %198, i32 0, i32 0
+  %200 = getelementptr [2 x i32], ptr %199, i64 0, i64 1
+  %201 = load i32, ptr %200, align 4
+  %202 = sub i32 %196, %201
+  store i32 %202, ptr %15, align 4
+  %203 = load i32, ptr %15, align 4
+  %204 = icmp sgt i32 %203, 0
+  br i1 %204, label %205, label %226
 
-224:                                              ; preds = %204, %190
-  br label %225
+205:                                              ; preds = %191
+  %206 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
+  %207 = load ptr, ptr %206, align 16
+  %208 = load ptr, ptr @transInvalInfo, align 8
+  %209 = getelementptr inbounds %struct.TransInvalidationInfo, ptr %208, i32 0, i32 2
+  %210 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %209, i32 0, i32 0
+  %211 = getelementptr [2 x i32], ptr %210, i64 0, i64 1
+  %212 = load i32, ptr %211, align 4
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr %union.SharedInvalidationMessage, ptr %207, i64 %213
+  store ptr %214, ptr %16, align 8
+  %215 = load ptr, ptr %6, align 8
+  %216 = load i32, ptr %8, align 4
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr %union.SharedInvalidationMessage, ptr %215, i64 %217
+  %219 = load ptr, ptr %16, align 8
+  %220 = load i32, ptr %15, align 4
+  %221 = sext i32 %220 to i64
+  %222 = mul i64 %221, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %218, ptr align 4 %219, i64 %222, i1 false)
+  %223 = load i32, ptr %15, align 4
+  %224 = load i32, ptr %8, align 4
+  %225 = add i32 %224, %223
+  store i32 %225, ptr %8, align 4
+  br label %226
 
-225:                                              ; preds = %224
-  %226 = load i32, ptr %8, align 4
-  store i32 %226, ptr %3, align 4
+226:                                              ; preds = %205, %191
   br label %227
 
-227:                                              ; preds = %225, %19
-  %228 = load i32, ptr %3, align 4
-  ret i32 %228
+227:                                              ; preds = %226
+  %228 = load i32, ptr %8, align 4
+  store i32 %228, ptr %3, align 4
+  br label %229
+
+229:                                              ; preds = %227, %19
+  %230 = load i32, ptr %3, align 4
+  ret i32 %230
 }
 
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) #1
@@ -1156,27 +1158,28 @@ define internal void @ProcessInvalidationMessagesMulti(ptr noundef %0, ptr nound
   store i32 %43, ptr %7, align 4
   %44 = load i32, ptr %7, align 4
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %57
+  br i1 %45, label %46, label %58
 
 46:                                               ; preds = %34
-  %47 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %48, i32 0, i32 0
-  %50 = getelementptr [2 x i32], ptr %49, i64 0, i64 1
-  %51 = load i32, ptr %50, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr %union.SharedInvalidationMessage, ptr %47, i64 %52
-  store ptr %53, ptr %8, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = load i32, ptr %7, align 4
-  call void %54(ptr noundef %55, i32 noundef %56)
-  br label %57
-
-57:                                               ; preds = %46, %34
+  %47 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
+  %48 = load ptr, ptr %47, align 16
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %49, i32 0, i32 0
+  %51 = getelementptr [2 x i32], ptr %50, i64 0, i64 1
+  %52 = load i32, ptr %51, align 4
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr %union.SharedInvalidationMessage, ptr %48, i64 %53
+  store ptr %54, ptr %8, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = load ptr, ptr %8, align 8
+  %57 = load i32, ptr %7, align 4
+  call void %55(ptr noundef %56, i32 noundef %57)
   br label %58
 
-58:                                               ; preds = %57
+58:                                               ; preds = %46, %34
+  br label %59
+
+59:                                               ; preds = %58
   ret void
 }
 
@@ -1249,33 +1252,34 @@ define internal void @ProcessInvalidationMessages(ptr noundef %0, ptr noundef %1
   store i32 %44, ptr %9, align 4
   br label %45
 
-45:                                               ; preds = %56, %36
+45:                                               ; preds = %57, %36
   %46 = load i32, ptr %8, align 4
   %47 = load i32, ptr %9, align 4
   %48 = icmp slt i32 %46, %47
-  br i1 %48, label %49, label %59
+  br i1 %48, label %49, label %60
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
-  %51 = load i32, ptr %8, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr %union.SharedInvalidationMessage, ptr %50, i64 %52
-  store ptr %53, ptr %10, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = load ptr, ptr %10, align 8
-  call void %54(ptr noundef %55)
-  br label %56
+  %50 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
+  %51 = load ptr, ptr %50, align 16
+  %52 = load i32, ptr %8, align 4
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr %union.SharedInvalidationMessage, ptr %51, i64 %53
+  store ptr %54, ptr %10, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = load ptr, ptr %10, align 8
+  call void %55(ptr noundef %56)
+  br label %57
 
-56:                                               ; preds = %49
-  %57 = load i32, ptr %8, align 4
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %8, align 4
+57:                                               ; preds = %49
+  %58 = load i32, ptr %8, align 4
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %8, align 4
   br label %45, !llvm.loop !11
 
-59:                                               ; preds = %45
-  br label %60
+60:                                               ; preds = %45
+  br label %61
 
-60:                                               ; preds = %59
+61:                                               ; preds = %60
   ret void
 }
 
@@ -1496,7 +1500,7 @@ define dso_local void @LogLogicalInvalidations() #0 {
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %0
-  br label %93
+  br label %94
 
 11:                                               ; preds = %0
   %12 = load ptr, ptr @transInvalInfo, align 8
@@ -1524,7 +1528,7 @@ define dso_local void @LogLogicalInvalidations() #0 {
   store i32 %32, ptr %3, align 4
   %33 = load i32, ptr %3, align 4
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %93
+  br i1 %34, label %35, label %94
 
 35:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 4, i1 false)
@@ -1586,33 +1590,34 @@ define dso_local void @LogLogicalInvalidations() #0 {
   store i32 %74, ptr %6, align 4
   %75 = load i32, ptr %6, align 4
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %77, label %90
+  br i1 %76, label %77, label %91
 
 77:                                               ; preds = %65
-  %78 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %79, i32 0, i32 0
-  %81 = getelementptr [2 x i32], ptr %80, i64 0, i64 1
-  %82 = load i32, ptr %81, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr %union.SharedInvalidationMessage, ptr %78, i64 %83
-  store ptr %84, ptr %7, align 8
-  %85 = load ptr, ptr %7, align 8
-  %86 = load i32, ptr %6, align 4
-  %87 = sext i32 %86 to i64
-  %88 = mul i64 %87, 16
-  %89 = trunc i64 %88 to i32
-  call void @XLogRegisterData(ptr noundef %85, i32 noundef %89)
-  br label %90
-
-90:                                               ; preds = %77, %65
+  %78 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
+  %79 = load ptr, ptr %78, align 16
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds %struct.InvalidationMsgsGroup, ptr %80, i32 0, i32 0
+  %82 = getelementptr [2 x i32], ptr %81, i64 0, i64 1
+  %83 = load i32, ptr %82, align 4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr %union.SharedInvalidationMessage, ptr %79, i64 %84
+  store ptr %85, ptr %7, align 8
+  %86 = load ptr, ptr %7, align 8
+  %87 = load i32, ptr %6, align 4
+  %88 = sext i32 %87 to i64
+  %89 = mul i64 %88, 16
+  %90 = trunc i64 %89 to i32
+  call void @XLogRegisterData(ptr noundef %86, i32 noundef %90)
   br label %91
 
-91:                                               ; preds = %90
-  %92 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 96)
-  br label %93
+91:                                               ; preds = %77, %65
+  br label %92
 
-93:                                               ; preds = %91, %11, %10
+92:                                               ; preds = %91
+  %93 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 96)
+  br label %94
+
+94:                                               ; preds = %92, %11, %10
   ret void
 }
 
@@ -1872,7 +1877,7 @@ define internal void @PrepareInvalidationState() #0 {
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  br label %125
+  br label %128
 
 11:                                               ; preds = %4, %0
   %12 = load ptr, ptr @TopTransactionContext, align 8
@@ -2039,21 +2044,24 @@ define internal void @PrepareInvalidationState() #0 {
   br label %121
 
 121:                                              ; preds = %120
-  br label %123
+  br label %126
 
 122:                                              ; preds = %11
   store ptr null, ptr @InvalMessageArrays, align 16
-  store i32 0, ptr getelementptr inbounds (%struct.InvalMessageArray, ptr @InvalMessageArrays, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
-  store i32 0, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1, i32 1), align 8
-  br label %123
+  %123 = getelementptr inbounds %struct.InvalMessageArray, ptr @InvalMessageArrays, i32 0, i32 1
+  store i32 0, ptr %123, align 8
+  %124 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
+  store ptr null, ptr %124, align 16
+  %125 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1, i32 1
+  store i32 0, ptr %125, align 8
+  br label %126
 
-123:                                              ; preds = %122, %121
-  %124 = load ptr, ptr %1, align 8
-  store ptr %124, ptr @transInvalInfo, align 8
-  br label %125
+126:                                              ; preds = %122, %121
+  %127 = load ptr, ptr %1, align 8
+  store ptr %127, ptr @transInvalInfo, align 8
+  br label %128
 
-125:                                              ; preds = %123, %10
+128:                                              ; preds = %126, %10
   ret void
 }
 
@@ -2674,68 +2682,69 @@ define internal void @AddSnapshotInvalidationMessage(ptr noundef %0, i32 noundef
   store i32 %19, ptr %9, align 4
   br label %20
 
-20:                                               ; preds = %42, %11
+20:                                               ; preds = %43, %11
   %21 = load i32, ptr %8, align 4
   %22 = load i32, ptr %9, align 4
   %23 = icmp slt i32 %21, %22
-  br i1 %23, label %24, label %45
+  br i1 %23, label %24, label %46
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
-  %26 = load i32, ptr %8, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr %union.SharedInvalidationMessage, ptr %25, i64 %27
-  store ptr %28, ptr %10, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %29, i32 0, i32 0
-  %31 = load i8, ptr %30, align 4
-  %32 = sext i8 %31 to i32
-  %33 = icmp eq i32 %32, -5
-  br i1 %33, label %34, label %41
+  %25 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
+  %26 = load ptr, ptr %25, align 16
+  %27 = load i32, ptr %8, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr %union.SharedInvalidationMessage, ptr %26, i64 %28
+  store ptr %29, ptr %10, align 8
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %30, i32 0, i32 0
+  %32 = load i8, ptr %31, align 4
+  %33 = sext i8 %32 to i32
+  %34 = icmp eq i32 %33, -5
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 4
-  %38 = load i32, ptr %6, align 4
-  %39 = icmp eq i32 %37, %38
-  br i1 %39, label %40, label %41
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 4
+  %39 = load i32, ptr %6, align 4
+  %40 = icmp eq i32 %38, %39
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %34
-  br label %55
+41:                                               ; preds = %35
+  br label %56
 
-41:                                               ; preds = %34, %24
-  br label %42
+42:                                               ; preds = %35, %24
+  br label %43
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr %8, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %8, align 4
+43:                                               ; preds = %42
+  %44 = load i32, ptr %8, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %8, align 4
   br label %20, !llvm.loop !13
 
-45:                                               ; preds = %20
-  br label %46
+46:                                               ; preds = %20
+  br label %47
 
-46:                                               ; preds = %45
-  %47 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 0
-  store i8 -5, ptr %47, align 4
-  %48 = load i32, ptr %5, align 4
-  %49 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 1
-  store i32 %48, ptr %49, align 4
-  %50 = load i32, ptr %6, align 4
-  %51 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 2
-  store i32 %50, ptr %51, align 4
-  br label %52
-
-52:                                               ; preds = %46
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 0
+  store i8 -5, ptr %48, align 4
+  %49 = load i32, ptr %5, align 4
+  %50 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 1
+  store i32 %49, ptr %50, align 4
+  %51 = load i32, ptr %6, align 4
+  %52 = getelementptr inbounds %struct.SharedInvalSnapshotMsg, ptr %7, i32 0, i32 2
+  store i32 %51, ptr %52, align 4
   br label %53
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %4, align 8
-  call void @AddInvalidationMessage(ptr noundef %54, i32 noundef 1, ptr noundef %7)
-  br label %55
+53:                                               ; preds = %47
+  br label %54
 
-55:                                               ; preds = %53, %40
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %4, align 8
+  call void @AddInvalidationMessage(ptr noundef %55, i32 noundef 1, ptr noundef %7)
+  br label %56
+
+56:                                               ; preds = %54, %41
   ret void
 }
 
@@ -2898,75 +2907,76 @@ define internal void @AddRelcacheInvalidationMessage(ptr noundef %0, i32 noundef
   store i32 %19, ptr %9, align 4
   br label %20
 
-20:                                               ; preds = %47, %11
+20:                                               ; preds = %48, %11
   %21 = load i32, ptr %8, align 4
   %22 = load i32, ptr %9, align 4
   %23 = icmp slt i32 %21, %22
-  br i1 %23, label %24, label %50
+  br i1 %23, label %24, label %51
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr getelementptr inbounds ([2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1), align 16
-  %26 = load i32, ptr %8, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr %union.SharedInvalidationMessage, ptr %25, i64 %27
-  store ptr %28, ptr %10, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %29, i32 0, i32 0
-  %31 = load i8, ptr %30, align 4
-  %32 = sext i8 %31 to i32
-  %33 = icmp eq i32 %32, -2
-  br i1 %33, label %34, label %46
+  %25 = getelementptr inbounds [2 x %struct.InvalMessageArray], ptr @InvalMessageArrays, i64 0, i64 1
+  %26 = load ptr, ptr %25, align 16
+  %27 = load i32, ptr %8, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr %union.SharedInvalidationMessage, ptr %26, i64 %28
+  store ptr %29, ptr %10, align 8
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %30, i32 0, i32 0
+  %32 = load i8, ptr %31, align 4
+  %33 = sext i8 %32 to i32
+  %34 = icmp eq i32 %33, -2
+  br i1 %34, label %35, label %47
 
-34:                                               ; preds = %24
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 4
-  %38 = load i32, ptr %6, align 4
-  %39 = icmp eq i32 %37, %38
-  br i1 %39, label %45, label %40
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 4
+  %39 = load i32, ptr %6, align 4
+  %40 = icmp eq i32 %38, %39
+  br i1 %40, label %46, label %41
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %46
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %10, align 8
+  %43 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %40, %34
-  br label %60
+46:                                               ; preds = %41, %35
+  br label %61
 
-46:                                               ; preds = %40, %24
-  br label %47
+47:                                               ; preds = %41, %24
+  br label %48
 
-47:                                               ; preds = %46
-  %48 = load i32, ptr %8, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %8, align 4
+48:                                               ; preds = %47
+  %49 = load i32, ptr %8, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %8, align 4
   br label %20, !llvm.loop !14
 
-50:                                               ; preds = %20
-  br label %51
+51:                                               ; preds = %20
+  br label %52
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 0
-  store i8 -2, ptr %52, align 4
-  %53 = load i32, ptr %5, align 4
-  %54 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 1
-  store i32 %53, ptr %54, align 4
-  %55 = load i32, ptr %6, align 4
-  %56 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 2
-  store i32 %55, ptr %56, align 4
-  br label %57
-
-57:                                               ; preds = %51
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 0
+  store i8 -2, ptr %53, align 4
+  %54 = load i32, ptr %5, align 4
+  %55 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 1
+  store i32 %54, ptr %55, align 4
+  %56 = load i32, ptr %6, align 4
+  %57 = getelementptr inbounds %struct.SharedInvalRelcacheMsg, ptr %7, i32 0, i32 2
+  store i32 %56, ptr %57, align 4
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %4, align 8
-  call void @AddInvalidationMessage(ptr noundef %59, i32 noundef 1, ptr noundef %7)
-  br label %60
+58:                                               ; preds = %52
+  br label %59
 
-60:                                               ; preds = %58, %45
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %4, align 8
+  call void @AddInvalidationMessage(ptr noundef %60, i32 noundef 1, ptr noundef %7)
+  br label %61
+
+61:                                               ; preds = %59, %46
   ret void
 }
 

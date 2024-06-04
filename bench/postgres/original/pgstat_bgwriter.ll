@@ -44,7 +44,7 @@ define dso_local void @pgstat_report_bgwriter() #0 {
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %0
-  br label %71
+  br label %73
 
 12:                                               ; preds = %0
   %13 = load ptr, ptr %1, align 8
@@ -57,92 +57,94 @@ define dso_local void @pgstat_report_bgwriter() #0 {
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %15
   store i64 %20, ptr %18, align 8
-  %21 = load i64, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 1), align 8
-  %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %22, i32 0, i32 2
-  %24 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %23, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %21
-  store i64 %26, ptr %24, align 8
-  %27 = load i64, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 2), align 8
-  %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %28, i32 0, i32 2
-  %30 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %29, i32 0, i32 2
-  %31 = load i64, ptr %30, align 8
-  %32 = add i64 %31, %27
-  store i64 %32, ptr %30, align 8
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %33, i32 0, i32 1
-  call void @pgstat_end_changecount_write(ptr noundef %34)
-  br label %35
+  %21 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = load ptr, ptr %1, align 8
+  %24 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %23, i32 0, i32 2
+  %25 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %24, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %22
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 2
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %30, i32 0, i32 2
+  %32 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %31, i32 0, i32 2
+  %33 = load i64, ptr %32, align 8
+  %34 = add i64 %33, %29
+  store i64 %34, ptr %32, align 8
+  %35 = load ptr, ptr %1, align 8
+  %36 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %35, i32 0, i32 1
+  call void @pgstat_end_changecount_write(ptr noundef %36)
+  br label %37
 
-35:                                               ; preds = %12
+37:                                               ; preds = %12
   store ptr @PendingBgWriterStats, ptr %2, align 8
   store i32 0, ptr %3, align 4
   store i64 32, ptr %4, align 8
-  %36 = load ptr, ptr %2, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = and i64 %37, 7
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %63
+  %38 = load ptr, ptr %2, align 8
+  %39 = ptrtoint ptr %38 to i64
+  %40 = and i64 %39, 7
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %65
 
-40:                                               ; preds = %35
-  %41 = load i64, ptr %4, align 8
-  %42 = and i64 %41, 7
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %63
+42:                                               ; preds = %37
+  %43 = load i64, ptr %4, align 8
+  %44 = and i64 %43, 7
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %46, label %65
 
-44:                                               ; preds = %40
-  %45 = load i32, ptr %3, align 4
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %63
+46:                                               ; preds = %42
+  %47 = load i32, ptr %3, align 4
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %65
 
-47:                                               ; preds = %44
-  %48 = load i64, ptr %4, align 8
-  %49 = icmp ule i64 %48, 1024
-  br i1 %49, label %50, label %63
+49:                                               ; preds = %46
+  %50 = load i64, ptr %4, align 8
+  %51 = icmp ule i64 %50, 1024
+  br i1 %51, label %52, label %65
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %2, align 8
-  store ptr %51, ptr %5, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i64, ptr %4, align 8
-  %54 = getelementptr i8, ptr %52, i64 %53
-  store ptr %54, ptr %6, align 8
-  br label %55
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %2, align 8
+  store ptr %53, ptr %5, align 8
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i64, ptr %4, align 8
+  %56 = getelementptr i8, ptr %54, i64 %55
+  store ptr %56, ptr %6, align 8
+  br label %57
 
-55:                                               ; preds = %59, %50
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = icmp ult ptr %56, %57
-  br i1 %58, label %59, label %62
+57:                                               ; preds = %61, %52
+  %58 = load ptr, ptr %5, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = icmp ult ptr %58, %59
+  br i1 %60, label %61, label %64
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr i64, ptr %60, i32 1
-  store ptr %61, ptr %5, align 8
-  store i64 0, ptr %60, align 8
-  br label %55, !llvm.loop !5
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr i64, ptr %62, i32 1
+  store ptr %63, ptr %5, align 8
+  store i64 0, ptr %62, align 8
+  br label %57, !llvm.loop !5
 
-62:                                               ; preds = %55
-  br label %68
+64:                                               ; preds = %57
+  br label %70
 
-63:                                               ; preds = %47, %44, %40, %35
-  %64 = load ptr, ptr %2, align 8
-  %65 = load i32, ptr %3, align 4
-  %66 = trunc i32 %65 to i8
-  %67 = load i64, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %64, i8 %66, i64 %67, i1 false)
-  br label %68
+65:                                               ; preds = %49, %46, %42, %37
+  %66 = load ptr, ptr %2, align 8
+  %67 = load i32, ptr %3, align 4
+  %68 = trunc i32 %67 to i8
+  %69 = load i64, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %66, i8 %68, i64 %69, i1 false)
+  br label %70
 
-68:                                               ; preds = %63, %62
-  br label %69
-
-69:                                               ; preds = %68
-  %70 = call zeroext i1 @pgstat_flush_io(i1 noundef zeroext false)
+70:                                               ; preds = %65, %64
   br label %71
 
-71:                                               ; preds = %69, %11
+71:                                               ; preds = %70
+  %72 = call zeroext i1 @pgstat_flush_io(i1 noundef zeroext false)
+  br label %73
+
+73:                                               ; preds = %71, %11
   ret void
 }
 
@@ -193,7 +195,8 @@ declare zeroext i1 @pgstat_flush_io(i1 noundef zeroext) #3
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pgstat_fetch_stat_bgwriter() #0 {
   call void @pgstat_snapshot_fixed(i32 noundef 7)
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4)
+  %1 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4
+  ret ptr %1
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) #3
@@ -280,30 +283,37 @@ define dso_local void @pgstat_bgwriter_snapshot_cb() #0 {
   %9 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %8, i32 0, i32 2
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %10, i32 0, i32 1
-  call void @pgstat_copy_changecounted_stats(ptr noundef getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4), ptr noundef %9, i64 noundef 32, ptr noundef %11)
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %12, i32 0, i32 0
-  %14 = call zeroext i1 @LWLockAcquire(ptr noundef %13, i32 noundef 1)
-  %15 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 32, i1 false)
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %16, i32 0, i32 0
-  call void @LWLockRelease(ptr noundef %17)
-  %18 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %3, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4), align 8
-  %21 = sub i64 %20, %19
-  store i64 %21, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4), align 8
-  %22 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %3, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  %24 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4, i32 1), align 8
-  %25 = sub i64 %24, %23
-  store i64 %25, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4, i32 1), align 8
-  %26 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %3, i32 0, i32 2
-  %27 = load i64, ptr %26, align 8
-  %28 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4, i32 2), align 8
-  %29 = sub i64 %28, %27
-  store i64 %29, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4, i32 2), align 8
+  %12 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4
+  call void @pgstat_copy_changecounted_stats(ptr noundef %12, ptr noundef %9, i64 noundef 32, ptr noundef %11)
+  %13 = load ptr, ptr %1, align 8
+  %14 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %13, i32 0, i32 0
+  %15 = call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 1)
+  %16 = load ptr, ptr %2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %16, i64 32, i1 false)
+  %17 = load ptr, ptr %1, align 8
+  %18 = getelementptr inbounds %struct.PgStatShared_BgWriter, ptr %17, i32 0, i32 0
+  call void @LWLockRelease(ptr noundef %18)
+  %19 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %3, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4
+  %22 = load i64, ptr %21, align 8
+  %23 = sub i64 %22, %20
+  %24 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4
+  store i64 %23, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %3, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4, i32 1
+  %28 = load i64, ptr %27, align 8
+  %29 = sub i64 %28, %26
+  %30 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4, i32 1
+  store i64 %29, ptr %30, align 8
+  %31 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr %3, i32 0, i32 2
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4, i32 2
+  %34 = load i64, ptr %33, align 8
+  %35 = sub i64 %34, %32
+  %36 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4, i32 2
+  store i64 %35, ptr %36, align 8
   ret void
 }
 

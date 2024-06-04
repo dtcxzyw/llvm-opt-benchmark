@@ -272,57 +272,59 @@ define void @_ZN18SaveSnapshotDialogC2EP7QWidget(ptr noundef nonnull align 8 der
   %10 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %9, i32 %11)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18SaveSnapshotDialog, i32 0, i32 0, i32 2), ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18SaveSnapshotDialog, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %8, i32 0, i32 1
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #12
-          to label %15 unwind label %21
-
-15:                                               ; preds = %2
+  %12 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV18SaveSnapshotDialog, i32 0, i32 0, i32 2
+  store ptr %12, ptr %8, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV18SaveSnapshotDialog, i32 0, i32 1, i32 2
   store ptr %14, ptr %13, align 8
-  %16 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %8, i32 0, i32 2
-  invoke void @_ZN15SnapshotSettingC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %21
+  %15 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %8, i32 0, i32 1
+  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 224) #12
+          to label %17 unwind label %23
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %8, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  invoke void @_ZN21Ui_SaveSnapShotDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(224) %19, ptr noundef %8)
-          to label %20 unwind label %25
+17:                                               ; preds = %2
+  store ptr %16, ptr %15, align 8
+  %18 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %8, i32 0, i32 2
+  invoke void @_ZN15SnapshotSettingC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18)
+          to label %19 unwind label %23
 
-20:                                               ; preds = %17
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %8, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  invoke void @_ZN21Ui_SaveSnapShotDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(224) %21, ptr noundef %8)
+          to label %22 unwind label %27
+
+22:                                               ; preds = %19
   ret void
 
-21:                                               ; preds = %15, %2
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %17, %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %6, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %7, align 4
-  br label %29
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %6, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %7, align 4
+  br label %31
 
-25:                                               ; preds = %17
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %19
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %6, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %7, align 4
-  call void @_ZN15SnapshotSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #11
-  br label %29
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %6, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %7, align 4
+  call void @_ZN15SnapshotSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #11
+  br label %31
 
-29:                                               ; preds = %25, %21
+31:                                               ; preds = %27, %23
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #11
-  br label %30
+  br label %32
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %6, align 8
-  %32 = load i32, ptr %7, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2287,19 +2289,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.0, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #11
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #11
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #11
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #11
   ret void
 }
 
@@ -2931,9 +2934,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 
@@ -3569,21 +3573,23 @@ define void @_ZN18SaveSnapshotDialogD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18SaveSnapshotDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18SaveSnapshotDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV18SaveSnapshotDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV18SaveSnapshotDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #13
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #13
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %3, i32 0, i32 2
-  call void @_ZN15SnapshotSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.SaveSnapshotDialog, ptr %3, i32 0, i32 2
+  call void @_ZN15SnapshotSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #11
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #11
   ret void
 }

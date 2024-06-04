@@ -36348,8 +36348,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
-  %cmp2 = icmp ne ptr %1, inttoptr (i64 -1 to ptr)
+  %1 = getelementptr inbounds [2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = inttoptr i64 -1 to ptr
+  %cmp2 = icmp ne ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -36358,8 +36360,8 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.146", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %mnBucketCount, align 8
-  %cmp5 = icmp eq i64 %2, 0
+  %4 = load i64, ptr %mnBucketCount, align 8
+  %cmp5 = icmp eq i64 %4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -36368,14 +36370,14 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end4
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.146", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %mpBucketArray, align 8
-  %cmp8 = icmp eq ptr %3, @_ZN5eastl18gpEmptyBucketArrayE
+  %5 = load ptr, ptr %mpBucketArray, align 8
+  %cmp8 = icmp eq ptr %5, @_ZN5eastl18gpEmptyBucketArrayE
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
   %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.146", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %mnElementCount, align 8
-  %tobool = icmp ne i64 %4, 0
+  %6 = load i64, ptr %mnElementCount, align 8
+  %tobool = icmp ne i64 %6, 0
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then9
@@ -36384,8 +36386,8 @@ if.then10:                                        ; preds = %if.then9
 
 if.end11:                                         ; preds = %if.then9
   %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.146", ptr %this1, i32 0, i32 2
-  %5 = load i64, ptr %mnBucketCount12, align 8
-  %cmp13 = icmp ne i64 %5, 1
+  %7 = load i64, ptr %mnBucketCount12, align 8
+  %cmp13 = icmp ne i64 %7, 1
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
@@ -36397,8 +36399,8 @@ if.end15:                                         ; preds = %if.end11
 
 if.else:                                          ; preds = %if.end7
   %mnBucketCount16 = getelementptr inbounds %"class.eastl::hashtable.146", ptr %this1, i32 0, i32 2
-  %6 = load i64, ptr %mnBucketCount16, align 8
-  %cmp17 = icmp ult i64 %6, 2
+  %8 = load i64, ptr %mnBucketCount16, align 8
+  %cmp17 = icmp ult i64 %8, 2
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.else
@@ -36412,20 +36414,20 @@ if.end20:                                         ; preds = %if.end19, %if.end15
   store i64 0, ptr %nElementCount, align 8
   %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #9
   %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %temp, i32 0, i32 0
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
-  %8 = extractvalue { ptr, ptr } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
-  %10 = extractvalue { ptr, ptr } %call, 1
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call, 0
   store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call, 1
+  store ptr %12, ptr %11, align 8
   %call21 = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #9
   %coerce.dive22 = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %tempEnd, i32 0, i32 0
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
-  %12 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
-  %14 = extractvalue { ptr, ptr } %call21, 1
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %call21, 0
   store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %16, ptr %15, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end20
@@ -36433,8 +36435,8 @@ for.cond:                                         ; preds = %for.inc, %if.end20
   br i1 %call23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load i64, ptr %nElementCount, align 8
-  %inc = add i64 %15, 1
+  %17 = load i64, ptr %nElementCount, align 8
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %nElementCount, align 8
   br label %for.inc
 
@@ -36443,10 +36445,10 @@ for.inc:                                          ; preds = %for.body
   br label %for.cond, !llvm.loop !105
 
 for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr %nElementCount, align 8
+  %18 = load i64, ptr %nElementCount, align 8
   %mnElementCount25 = getelementptr inbounds %"class.eastl::hashtable.146", ptr %this1, i32 0, i32 3
-  %17 = load i64, ptr %mnElementCount25, align 8
-  %cmp26 = icmp ne i64 %16, %17
+  %19 = load i64, ptr %mnElementCount25, align 8
+  %cmp26 = icmp ne i64 %18, %19
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %for.end
@@ -36458,8 +36460,8 @@ if.end28:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %if.then18, %if.then14, %if.then10, %if.then6, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -36753,8 +36755,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
-  %cmp2 = icmp ne ptr %1, inttoptr (i64 -1 to ptr)
+  %1 = getelementptr inbounds [2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = inttoptr i64 -1 to ptr
+  %cmp2 = icmp ne ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -36763,8 +36767,8 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.153", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %mnBucketCount, align 8
-  %cmp5 = icmp eq i64 %2, 0
+  %4 = load i64, ptr %mnBucketCount, align 8
+  %cmp5 = icmp eq i64 %4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -36773,14 +36777,14 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end4
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.153", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %mpBucketArray, align 8
-  %cmp8 = icmp eq ptr %3, @_ZN5eastl18gpEmptyBucketArrayE
+  %5 = load ptr, ptr %mpBucketArray, align 8
+  %cmp8 = icmp eq ptr %5, @_ZN5eastl18gpEmptyBucketArrayE
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
   %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.153", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %mnElementCount, align 8
-  %tobool = icmp ne i64 %4, 0
+  %6 = load i64, ptr %mnElementCount, align 8
+  %tobool = icmp ne i64 %6, 0
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then9
@@ -36789,8 +36793,8 @@ if.then10:                                        ; preds = %if.then9
 
 if.end11:                                         ; preds = %if.then9
   %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.153", ptr %this1, i32 0, i32 2
-  %5 = load i64, ptr %mnBucketCount12, align 8
-  %cmp13 = icmp ne i64 %5, 1
+  %7 = load i64, ptr %mnBucketCount12, align 8
+  %cmp13 = icmp ne i64 %7, 1
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
@@ -36802,8 +36806,8 @@ if.end15:                                         ; preds = %if.end11
 
 if.else:                                          ; preds = %if.end7
   %mnBucketCount16 = getelementptr inbounds %"class.eastl::hashtable.153", ptr %this1, i32 0, i32 2
-  %6 = load i64, ptr %mnBucketCount16, align 8
-  %cmp17 = icmp ult i64 %6, 2
+  %8 = load i64, ptr %mnBucketCount16, align 8
+  %cmp17 = icmp ult i64 %8, 2
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.else
@@ -36817,20 +36821,20 @@ if.end20:                                         ; preds = %if.end19, %if.end15
   store i64 0, ptr %nElementCount, align 8
   %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #9
   %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %temp, i32 0, i32 0
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
-  %8 = extractvalue { ptr, ptr } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
-  %10 = extractvalue { ptr, ptr } %call, 1
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call, 0
   store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call, 1
+  store ptr %12, ptr %11, align 8
   %call21 = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #9
   %coerce.dive22 = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %tempEnd, i32 0, i32 0
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
-  %12 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
-  %14 = extractvalue { ptr, ptr } %call21, 1
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %call21, 0
   store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %16, ptr %15, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end20
@@ -36838,8 +36842,8 @@ for.cond:                                         ; preds = %for.inc, %if.end20
   br i1 %call23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load i64, ptr %nElementCount, align 8
-  %inc = add i64 %15, 1
+  %17 = load i64, ptr %nElementCount, align 8
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %nElementCount, align 8
   br label %for.inc
 
@@ -36848,10 +36852,10 @@ for.inc:                                          ; preds = %for.body
   br label %for.cond, !llvm.loop !106
 
 for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr %nElementCount, align 8
+  %18 = load i64, ptr %nElementCount, align 8
   %mnElementCount25 = getelementptr inbounds %"class.eastl::hashtable.153", ptr %this1, i32 0, i32 3
-  %17 = load i64, ptr %mnElementCount25, align 8
-  %cmp26 = icmp ne i64 %16, %17
+  %19 = load i64, ptr %mnElementCount25, align 8
+  %cmp26 = icmp ne i64 %18, %19
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %for.end
@@ -36863,8 +36867,8 @@ if.end28:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %if.then18, %if.then14, %if.then10, %if.then6, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39022,8 +39026,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
-  %cmp2 = icmp ne ptr %1, inttoptr (i64 -1 to ptr)
+  %1 = getelementptr inbounds [2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = inttoptr i64 -1 to ptr
+  %cmp2 = icmp ne ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -39032,8 +39038,8 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.242", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %mnBucketCount, align 8
-  %cmp5 = icmp eq i64 %2, 0
+  %4 = load i64, ptr %mnBucketCount, align 8
+  %cmp5 = icmp eq i64 %4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -39042,14 +39048,14 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end4
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.242", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %mpBucketArray, align 8
-  %cmp8 = icmp eq ptr %3, @_ZN5eastl18gpEmptyBucketArrayE
+  %5 = load ptr, ptr %mpBucketArray, align 8
+  %cmp8 = icmp eq ptr %5, @_ZN5eastl18gpEmptyBucketArrayE
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
   %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.242", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %mnElementCount, align 8
-  %tobool = icmp ne i64 %4, 0
+  %6 = load i64, ptr %mnElementCount, align 8
+  %tobool = icmp ne i64 %6, 0
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then9
@@ -39058,8 +39064,8 @@ if.then10:                                        ; preds = %if.then9
 
 if.end11:                                         ; preds = %if.then9
   %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.242", ptr %this1, i32 0, i32 2
-  %5 = load i64, ptr %mnBucketCount12, align 8
-  %cmp13 = icmp ne i64 %5, 1
+  %7 = load i64, ptr %mnBucketCount12, align 8
+  %cmp13 = icmp ne i64 %7, 1
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
@@ -39071,8 +39077,8 @@ if.end15:                                         ; preds = %if.end11
 
 if.else:                                          ; preds = %if.end7
   %mnBucketCount16 = getelementptr inbounds %"class.eastl::hashtable.242", ptr %this1, i32 0, i32 2
-  %6 = load i64, ptr %mnBucketCount16, align 8
-  %cmp17 = icmp ult i64 %6, 2
+  %8 = load i64, ptr %mnBucketCount16, align 8
+  %cmp17 = icmp ult i64 %8, 2
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.else
@@ -39086,20 +39092,20 @@ if.end20:                                         ; preds = %if.end19, %if.end15
   store i64 0, ptr %nElementCount, align 8
   %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #9
   %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator", ptr %temp, i32 0, i32 0
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
-  %8 = extractvalue { ptr, ptr } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
-  %10 = extractvalue { ptr, ptr } %call, 1
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call, 0
   store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call, 1
+  store ptr %12, ptr %11, align 8
   %call21 = call { ptr, ptr } @_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #9
   %coerce.dive22 = getelementptr inbounds %"struct.eastl::hashtable_iterator", ptr %tempEnd, i32 0, i32 0
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
-  %12 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
-  %14 = extractvalue { ptr, ptr } %call21, 1
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %call21, 0
   store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %16, ptr %15, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end20
@@ -39107,8 +39113,8 @@ for.cond:                                         ; preds = %for.inc, %if.end20
   br i1 %call23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load i64, ptr %nElementCount, align 8
-  %inc = add i64 %15, 1
+  %17 = load i64, ptr %nElementCount, align 8
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %nElementCount, align 8
   br label %for.inc
 
@@ -39117,10 +39123,10 @@ for.inc:                                          ; preds = %for.body
   br label %for.cond, !llvm.loop !119
 
 for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr %nElementCount, align 8
+  %18 = load i64, ptr %nElementCount, align 8
   %mnElementCount25 = getelementptr inbounds %"class.eastl::hashtable.242", ptr %this1, i32 0, i32 3
-  %17 = load i64, ptr %mnElementCount25, align 8
-  %cmp26 = icmp ne i64 %16, %17
+  %19 = load i64, ptr %mnElementCount25, align 8
+  %cmp26 = icmp ne i64 %18, %19
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %for.end
@@ -39132,8 +39138,8 @@ if.end28:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %if.then18, %if.then14, %if.then10, %if.then6, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -39687,8 +39693,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
-  %cmp2 = icmp ne ptr %1, inttoptr (i64 -1 to ptr)
+  %1 = getelementptr inbounds [2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = inttoptr i64 -1 to ptr
+  %cmp2 = icmp ne ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -39697,8 +39705,8 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.273", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %mnBucketCount, align 8
-  %cmp5 = icmp eq i64 %2, 0
+  %4 = load i64, ptr %mnBucketCount, align 8
+  %cmp5 = icmp eq i64 %4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -39707,14 +39715,14 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end4
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.273", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %mpBucketArray, align 8
-  %cmp8 = icmp eq ptr %3, @_ZN5eastl18gpEmptyBucketArrayE
+  %5 = load ptr, ptr %mpBucketArray, align 8
+  %cmp8 = icmp eq ptr %5, @_ZN5eastl18gpEmptyBucketArrayE
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
   %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.273", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %mnElementCount, align 8
-  %tobool = icmp ne i64 %4, 0
+  %6 = load i64, ptr %mnElementCount, align 8
+  %tobool = icmp ne i64 %6, 0
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then9
@@ -39723,8 +39731,8 @@ if.then10:                                        ; preds = %if.then9
 
 if.end11:                                         ; preds = %if.then9
   %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.273", ptr %this1, i32 0, i32 2
-  %5 = load i64, ptr %mnBucketCount12, align 8
-  %cmp13 = icmp ne i64 %5, 1
+  %7 = load i64, ptr %mnBucketCount12, align 8
+  %cmp13 = icmp ne i64 %7, 1
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
@@ -39736,8 +39744,8 @@ if.end15:                                         ; preds = %if.end11
 
 if.else:                                          ; preds = %if.end7
   %mnBucketCount16 = getelementptr inbounds %"class.eastl::hashtable.273", ptr %this1, i32 0, i32 2
-  %6 = load i64, ptr %mnBucketCount16, align 8
-  %cmp17 = icmp ult i64 %6, 2
+  %8 = load i64, ptr %mnBucketCount16, align 8
+  %cmp17 = icmp ult i64 %8, 2
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.else
@@ -39751,20 +39759,20 @@ if.end20:                                         ; preds = %if.end19, %if.end15
   store i64 0, ptr %nElementCount, align 8
   %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #9
   %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator", ptr %temp, i32 0, i32 0
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
-  %8 = extractvalue { ptr, ptr } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
-  %10 = extractvalue { ptr, ptr } %call, 1
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call, 0
   store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call, 1
+  store ptr %12, ptr %11, align 8
   %call21 = call { ptr, ptr } @_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #9
   %coerce.dive22 = getelementptr inbounds %"struct.eastl::hashtable_iterator", ptr %tempEnd, i32 0, i32 0
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
-  %12 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
-  %14 = extractvalue { ptr, ptr } %call21, 1
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %call21, 0
   store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %16, ptr %15, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end20
@@ -39772,8 +39780,8 @@ for.cond:                                         ; preds = %for.inc, %if.end20
   br i1 %call23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load i64, ptr %nElementCount, align 8
-  %inc = add i64 %15, 1
+  %17 = load i64, ptr %nElementCount, align 8
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %nElementCount, align 8
   br label %for.inc
 
@@ -39782,10 +39790,10 @@ for.inc:                                          ; preds = %for.body
   br label %for.cond, !llvm.loop !120
 
 for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr %nElementCount, align 8
+  %18 = load i64, ptr %nElementCount, align 8
   %mnElementCount25 = getelementptr inbounds %"class.eastl::hashtable.273", ptr %this1, i32 0, i32 3
-  %17 = load i64, ptr %mnElementCount25, align 8
-  %cmp26 = icmp ne i64 %16, %17
+  %19 = load i64, ptr %mnElementCount25, align 8
+  %cmp26 = icmp ne i64 %18, %19
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %for.end
@@ -39797,8 +39805,8 @@ if.end28:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %if.then18, %if.then14, %if.then10, %if.then6, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -60062,8 +60070,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
-  %cmp2 = icmp ne ptr %1, inttoptr (i64 -1 to ptr)
+  %1 = getelementptr inbounds [2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = inttoptr i64 -1 to ptr
+  %cmp2 = icmp ne ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -60072,8 +60082,8 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.333", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %mnBucketCount, align 8
-  %cmp5 = icmp eq i64 %2, 0
+  %4 = load i64, ptr %mnBucketCount, align 8
+  %cmp5 = icmp eq i64 %4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -60082,14 +60092,14 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end4
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.333", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %mpBucketArray, align 8
-  %cmp8 = icmp eq ptr %3, @_ZN5eastl18gpEmptyBucketArrayE
+  %5 = load ptr, ptr %mpBucketArray, align 8
+  %cmp8 = icmp eq ptr %5, @_ZN5eastl18gpEmptyBucketArrayE
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
   %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.333", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %mnElementCount, align 8
-  %tobool = icmp ne i64 %4, 0
+  %6 = load i64, ptr %mnElementCount, align 8
+  %tobool = icmp ne i64 %6, 0
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then9
@@ -60098,8 +60108,8 @@ if.then10:                                        ; preds = %if.then9
 
 if.end11:                                         ; preds = %if.then9
   %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.333", ptr %this1, i32 0, i32 2
-  %5 = load i64, ptr %mnBucketCount12, align 8
-  %cmp13 = icmp ne i64 %5, 1
+  %7 = load i64, ptr %mnBucketCount12, align 8
+  %cmp13 = icmp ne i64 %7, 1
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
@@ -60111,8 +60121,8 @@ if.end15:                                         ; preds = %if.end11
 
 if.else:                                          ; preds = %if.end7
   %mnBucketCount16 = getelementptr inbounds %"class.eastl::hashtable.333", ptr %this1, i32 0, i32 2
-  %6 = load i64, ptr %mnBucketCount16, align 8
-  %cmp17 = icmp ult i64 %6, 2
+  %8 = load i64, ptr %mnBucketCount16, align 8
+  %cmp17 = icmp ult i64 %8, 2
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.else
@@ -60126,20 +60136,20 @@ if.end20:                                         ; preds = %if.end19, %if.end15
   store i64 0, ptr %nElementCount, align 8
   %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #9
   %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %temp, i32 0, i32 0
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
-  %8 = extractvalue { ptr, ptr } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
-  %10 = extractvalue { ptr, ptr } %call, 1
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call, 0
   store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call, 1
+  store ptr %12, ptr %11, align 8
   %call21 = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE3endEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #9
   %coerce.dive22 = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %tempEnd, i32 0, i32 0
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
-  %12 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
-  %14 = extractvalue { ptr, ptr } %call21, 1
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %call21, 0
   store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %16, ptr %15, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end20
@@ -60147,8 +60157,8 @@ for.cond:                                         ; preds = %for.inc, %if.end20
   br i1 %call23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load i64, ptr %nElementCount, align 8
-  %inc = add i64 %15, 1
+  %17 = load i64, ptr %nElementCount, align 8
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %nElementCount, align 8
   br label %for.inc
 
@@ -60157,10 +60167,10 @@ for.inc:                                          ; preds = %for.body
   br label %for.cond, !llvm.loop !124
 
 for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr %nElementCount, align 8
+  %18 = load i64, ptr %nElementCount, align 8
   %mnElementCount25 = getelementptr inbounds %"class.eastl::hashtable.333", ptr %this1, i32 0, i32 3
-  %17 = load i64, ptr %mnElementCount25, align 8
-  %cmp26 = icmp ne i64 %16, %17
+  %19 = load i64, ptr %mnElementCount25, align 8
+  %cmp26 = icmp ne i64 %18, %19
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %for.end
@@ -60172,8 +60182,8 @@ if.end28:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %if.then18, %if.then14, %if.then10, %if.then6, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -65389,9 +65399,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -67111,9 +67122,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68720,9 +68732,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -69356,9 +69369,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -70059,9 +70073,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -71318,9 +71333,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -72746,9 +72762,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73380,9 +73397,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -74108,9 +74126,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75419,9 +75438,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -76934,9 +76954,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -77570,9 +77591,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -78273,9 +78295,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -79403,9 +79426,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -80738,9 +80762,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -81372,9 +81397,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -82142,9 +82168,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -83279,9 +83306,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -84247,9 +84275,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -84883,9 +84912,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -85568,9 +85598,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -86261,9 +86292,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -87050,9 +87082,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -87684,9 +87717,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -88513,9 +88547,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -89723,9 +89758,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -91160,8 +91196,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
-  %cmp2 = icmp ne ptr %1, inttoptr (i64 -1 to ptr)
+  %1 = getelementptr inbounds [2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = inttoptr i64 -1 to ptr
+  %cmp2 = icmp ne ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -91170,8 +91208,8 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.370", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %mnBucketCount, align 8
-  %cmp5 = icmp eq i64 %2, 0
+  %4 = load i64, ptr %mnBucketCount, align 8
+  %cmp5 = icmp eq i64 %4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -91180,14 +91218,14 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end4
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.370", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %mpBucketArray, align 8
-  %cmp8 = icmp eq ptr %3, @_ZN5eastl18gpEmptyBucketArrayE
+  %5 = load ptr, ptr %mpBucketArray, align 8
+  %cmp8 = icmp eq ptr %5, @_ZN5eastl18gpEmptyBucketArrayE
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
   %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.370", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %mnElementCount, align 8
-  %tobool = icmp ne i64 %4, 0
+  %6 = load i64, ptr %mnElementCount, align 8
+  %tobool = icmp ne i64 %6, 0
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then9
@@ -91196,8 +91234,8 @@ if.then10:                                        ; preds = %if.then9
 
 if.end11:                                         ; preds = %if.then9
   %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.370", ptr %this1, i32 0, i32 2
-  %5 = load i64, ptr %mnBucketCount12, align 8
-  %cmp13 = icmp ne i64 %5, 1
+  %7 = load i64, ptr %mnBucketCount12, align 8
+  %cmp13 = icmp ne i64 %7, 1
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
@@ -91209,8 +91247,8 @@ if.end15:                                         ; preds = %if.end11
 
 if.else:                                          ; preds = %if.end7
   %mnBucketCount16 = getelementptr inbounds %"class.eastl::hashtable.370", ptr %this1, i32 0, i32 2
-  %6 = load i64, ptr %mnBucketCount16, align 8
-  %cmp17 = icmp ult i64 %6, 2
+  %8 = load i64, ptr %mnBucketCount16, align 8
+  %cmp17 = icmp ult i64 %8, 2
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.else
@@ -91224,20 +91262,20 @@ if.end20:                                         ; preds = %if.end19, %if.end15
   store i64 0, ptr %nElementCount, align 8
   %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #9
   %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %temp, i32 0, i32 0
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
-  %8 = extractvalue { ptr, ptr } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
-  %10 = extractvalue { ptr, ptr } %call, 1
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call, 0
   store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call, 1
+  store ptr %12, ptr %11, align 8
   %call21 = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE3endEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #9
   %coerce.dive22 = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %tempEnd, i32 0, i32 0
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
-  %12 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
-  %14 = extractvalue { ptr, ptr } %call21, 1
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %call21, 0
   store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %16, ptr %15, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end20
@@ -91245,8 +91283,8 @@ for.cond:                                         ; preds = %for.inc, %if.end20
   br i1 %call23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load i64, ptr %nElementCount, align 8
-  %inc = add i64 %15, 1
+  %17 = load i64, ptr %nElementCount, align 8
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %nElementCount, align 8
   br label %for.inc
 
@@ -91255,10 +91293,10 @@ for.inc:                                          ; preds = %for.body
   br label %for.cond, !llvm.loop !297
 
 for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr %nElementCount, align 8
+  %18 = load i64, ptr %nElementCount, align 8
   %mnElementCount25 = getelementptr inbounds %"class.eastl::hashtable.370", ptr %this1, i32 0, i32 3
-  %17 = load i64, ptr %mnElementCount25, align 8
-  %cmp26 = icmp ne i64 %16, %17
+  %19 = load i64, ptr %mnElementCount25, align 8
+  %cmp26 = icmp ne i64 %18, %19
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %for.end
@@ -91270,8 +91308,8 @@ if.end28:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %if.then18, %if.then14, %if.then10, %if.then6, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -91575,9 +91613,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -92201,8 +92240,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1), align 8
-  %cmp2 = icmp ne ptr %1, inttoptr (i64 -1 to ptr)
+  %1 = getelementptr inbounds [2 x ptr], ptr @_ZN5eastl18gpEmptyBucketArrayE, i64 0, i64 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = inttoptr i64 -1 to ptr
+  %cmp2 = icmp ne ptr %2, %3
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -92211,8 +92252,8 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.237", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %mnBucketCount, align 8
-  %cmp5 = icmp eq i64 %2, 0
+  %4 = load i64, ptr %mnBucketCount, align 8
+  %cmp5 = icmp eq i64 %4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
@@ -92221,14 +92262,14 @@ if.then6:                                         ; preds = %if.end4
 
 if.end7:                                          ; preds = %if.end4
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.237", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %mpBucketArray, align 8
-  %cmp8 = icmp eq ptr %3, @_ZN5eastl18gpEmptyBucketArrayE
+  %5 = load ptr, ptr %mpBucketArray, align 8
+  %cmp8 = icmp eq ptr %5, @_ZN5eastl18gpEmptyBucketArrayE
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
   %mnElementCount = getelementptr inbounds %"class.eastl::hashtable.237", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %mnElementCount, align 8
-  %tobool = icmp ne i64 %4, 0
+  %6 = load i64, ptr %mnElementCount, align 8
+  %tobool = icmp ne i64 %6, 0
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then9
@@ -92237,8 +92278,8 @@ if.then10:                                        ; preds = %if.then9
 
 if.end11:                                         ; preds = %if.then9
   %mnBucketCount12 = getelementptr inbounds %"class.eastl::hashtable.237", ptr %this1, i32 0, i32 2
-  %5 = load i64, ptr %mnBucketCount12, align 8
-  %cmp13 = icmp ne i64 %5, 1
+  %7 = load i64, ptr %mnBucketCount12, align 8
+  %cmp13 = icmp ne i64 %7, 1
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
@@ -92250,8 +92291,8 @@ if.end15:                                         ; preds = %if.end11
 
 if.else:                                          ; preds = %if.end7
   %mnBucketCount16 = getelementptr inbounds %"class.eastl::hashtable.237", ptr %this1, i32 0, i32 2
-  %6 = load i64, ptr %mnBucketCount16, align 8
-  %cmp17 = icmp ult i64 %6, 2
+  %8 = load i64, ptr %mnBucketCount16, align 8
+  %cmp17 = icmp ult i64 %8, 2
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.else
@@ -92265,20 +92306,20 @@ if.end20:                                         ; preds = %if.end19, %if.end15
   store i64 0, ptr %nElementCount, align 8
   %call = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #9
   %coerce.dive = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %temp, i32 0, i32 0
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
-  %8 = extractvalue { ptr, ptr } %call, 0
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
-  %10 = extractvalue { ptr, ptr } %call, 1
+  %9 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
+  %10 = extractvalue { ptr, ptr } %call, 0
   store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
+  %12 = extractvalue { ptr, ptr } %call, 1
+  store ptr %12, ptr %11, align 8
   %call21 = call { ptr, ptr } @_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE3endEv(ptr noundef nonnull align 8 dereferenceable(104) %this1) #9
   %coerce.dive22 = getelementptr inbounds %"struct.eastl::hashtable_iterator.4", ptr %tempEnd, i32 0, i32 0
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
-  %12 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
-  %14 = extractvalue { ptr, ptr } %call21, 1
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %call21, 0
   store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive22, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %16, ptr %15, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end20
@@ -92286,8 +92327,8 @@ for.cond:                                         ; preds = %for.inc, %if.end20
   br i1 %call23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load i64, ptr %nElementCount, align 8
-  %inc = add i64 %15, 1
+  %17 = load i64, ptr %nElementCount, align 8
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %nElementCount, align 8
   br label %for.inc
 
@@ -92296,10 +92337,10 @@ for.inc:                                          ; preds = %for.body
   br label %for.cond, !llvm.loop !303
 
 for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr %nElementCount, align 8
+  %18 = load i64, ptr %nElementCount, align 8
   %mnElementCount25 = getelementptr inbounds %"class.eastl::hashtable.237", ptr %this1, i32 0, i32 3
-  %17 = load i64, ptr %mnElementCount25, align 8
-  %cmp26 = icmp ne i64 %16, %17
+  %19 = load i64, ptr %mnElementCount25, align 8
+  %cmp26 = icmp ne i64 %18, %19
   br i1 %cmp26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %for.end
@@ -92311,8 +92352,8 @@ if.end28:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then27, %if.then18, %if.then14, %if.then10, %if.then6, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -92753,9 +92794,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -93059,9 +93101,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -93989,9 +94032,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -94193,9 +94237,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -94403,9 +94448,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -94607,9 +94653,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -96963,9 +97010,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -97991,9 +98039,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -99787,9 +99836,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -100849,9 +100899,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -101672,9 +101723,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -102216,9 +102268,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -102858,9 +102911,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -103676,9 +103730,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -104573,9 +104628,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -105536,9 +105592,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -106650,9 +106707,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -108315,9 +108373,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -111507,9 +111566,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -113318,9 +113378,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -114816,9 +114877,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -116454,9 +116516,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -118090,9 +118153,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120165,9 +120229,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121996,9 +122061,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -123117,9 +123183,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -125992,9 +126059,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -126621,9 +126689,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -127201,9 +127270,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -127819,9 +127889,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -128340,9 +128411,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -129264,9 +129336,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -130409,9 +130482,10 @@ entry:
   %3 = load ptr, ptr %pBucketArray, align 8
   %4 = load i64, ptr %n.addr, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %5 = load ptr, ptr %pBucketArray, align 8
-  ret ptr %5
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %arrayidx, align 8
+  %6 = load ptr, ptr %pBucketArray, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -78,10 +78,11 @@ define dso_local ptr @inet6_csk_route_req(ptr noundef %0, ptr noundef %1, ptr no
   %40 = getelementptr inbounds i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @ip6_dst_lookup_flow(ptr noundef %41, ptr noundef %0, ptr noundef %1, ptr noundef %22) #6
-  %43 = icmp ugt ptr %42, inttoptr (i64 -4096 to ptr)
-  %44 = select i1 %43, ptr null, ptr %42
+  %43 = inttoptr i64 -4096 to ptr
+  %44 = icmp ugt ptr %42, %43
+  %45 = select i1 %44, ptr null, ptr %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  ret ptr %44
+  ret ptr %45
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -155,56 +156,57 @@ define dso_local i32 @inet6_csk_xmit(ptr noundef %0, ptr noundef %1, ptr nocaptu
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false), !annotation !5
   %16 = call fastcc ptr @inet6_csk_route_socket(ptr noundef %0, ptr noundef nonnull %4)
-  %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
-  br i1 %17, label %18, label %24
+  %17 = inttoptr i64 -4096 to ptr
+  %18 = icmp ugt ptr %16, %17
+  br i1 %18, label %19, label %25
 
-18:                                               ; preds = %14
-  %19 = ptrtoint ptr %16 to i64
-  %20 = trunc i64 %19 to i32
-  %21 = sub i32 0, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 548
-  store volatile i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 488
-  store i64 0, ptr %23, align 8
+19:                                               ; preds = %14
+  %20 = ptrtoint ptr %16 to i64
+  %21 = trunc i64 %20 to i32
+  %22 = sub i32 0, %21
+  %23 = getelementptr inbounds i8, ptr %0, i64 548
+  store volatile i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 488
+  store i64 0, ptr %24, align 8
   call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #6
-  br label %49
+  br label %50
 
-24:                                               ; preds = %14
+25:                                               ; preds = %14
   call void @__rcu_read_lock() #6
-  %25 = icmp ne ptr %16, null
-  %26 = getelementptr inbounds i8, ptr %1, i64 129
-  %27 = load i24, ptr %26, align 1
-  %28 = and i24 %27, 1048576
-  %29 = icmp ne i24 %28, 0
-  %30 = or i1 %25, %29
-  %31 = select i1 %30, i24 1048576, i24 0
-  %32 = and i24 %27, -1048577
-  %33 = or disjoint i24 %31, %32
-  store i24 %33, ptr %26, align 1
-  %34 = ptrtoint ptr %16 to i64
-  %35 = or i64 %34, 1
-  %36 = getelementptr inbounds i8, ptr %1, i64 88
-  store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 40
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %37, ptr noundef align 8 dereferenceable(16) %38, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %0, i64 452
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %15, i64 112
-  %42 = load volatile ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %15, i64 73
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %0, i64 448
-  %47 = load volatile i32, ptr %46, align 8
-  %48 = call i32 @ip6_xmit(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef %40, ptr noundef %42, i32 noundef %45, i32 noundef %47) #6
+  %26 = icmp ne ptr %16, null
+  %27 = getelementptr inbounds i8, ptr %1, i64 129
+  %28 = load i24, ptr %27, align 1
+  %29 = and i24 %28, 1048576
+  %30 = icmp ne i24 %29, 0
+  %31 = or i1 %26, %30
+  %32 = select i1 %31, i24 1048576, i24 0
+  %33 = and i24 %28, -1048577
+  %34 = or disjoint i24 %32, %33
+  store i24 %34, ptr %27, align 1
+  %35 = ptrtoint ptr %16 to i64
+  %36 = or i64 %35, 1
+  %37 = getelementptr inbounds i8, ptr %1, i64 88
+  store i64 %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %4, i64 40
+  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %38, ptr noundef align 8 dereferenceable(16) %39, i64 16, i1 false)
+  %40 = getelementptr inbounds i8, ptr %0, i64 452
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %15, i64 112
+  %43 = load volatile ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %15, i64 73
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = getelementptr inbounds i8, ptr %0, i64 448
+  %48 = load volatile i32, ptr %47, align 8
+  %49 = call i32 @ip6_xmit(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef %41, ptr noundef %43, i32 noundef %46, i32 noundef %48) #6
   call void @__rcu_read_unlock() #6
-  br label %49
+  br label %50
 
-49:                                               ; preds = %24, %18
-  %50 = phi i32 [ %20, %18 ], [ %48, %24 ]
+50:                                               ; preds = %25, %19
+  %51 = phi i32 [ %21, %19 ], [ %49, %25 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #6
-  ret i32 %50
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -297,72 +299,73 @@ define internal fastcc ptr @inet6_csk_route_socket(ptr noundef %0, ptr noundef %
   %60 = load i32, ptr %59, align 8
   %61 = call ptr @__sk_dst_check(ptr noundef %0, i32 noundef %60) #6
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %99
+  br i1 %62, label %63, label %100
 
 63:                                               ; preds = %41
   %64 = getelementptr inbounds i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @ip6_dst_lookup_flow(ptr noundef %65, ptr noundef %0, ptr noundef %1, ptr noundef %58) #6
-  %67 = icmp ugt ptr %66, inttoptr (i64 -4096 to ptr)
-  br i1 %67, label %99, label %68
+  %67 = inttoptr i64 -4096 to ptr
+  %68 = icmp ugt ptr %66, %67
+  br i1 %68, label %100, label %69
 
-68:                                               ; preds = %63
-  %69 = load volatile i8, ptr %4, align 2
-  %70 = zext nneg i8 %69 to i32
-  %71 = shl nuw i32 1, %70
-  %72 = and i32 %71, -4161
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %77, label %74
+69:                                               ; preds = %63
+  %70 = load volatile i8, ptr %4, align 2
+  %71 = zext nneg i8 %70 to i32
+  %72 = shl nuw i32 1, %71
+  %73 = and i32 %72, -4161
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %78, label %75
 
-74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %0, i64 744
-  %76 = load ptr, ptr %75, align 8
-  br label %77
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds i8, ptr %0, i64 744
+  %77 = load ptr, ptr %76, align 8
+  br label %78
 
-77:                                               ; preds = %74, %68
-  %78 = phi ptr [ %76, %74 ], [ null, %68 ]
-  %79 = getelementptr inbounds i8, ptr %66, i64 144
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %95
+78:                                               ; preds = %75, %69
+  %79 = phi ptr [ %77, %75 ], [ null, %69 ]
+  %80 = getelementptr inbounds i8, ptr %66, i64 144
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %96
 
-82:                                               ; preds = %77
+83:                                               ; preds = %78
   call void @__rcu_read_lock() #6
-  %83 = getelementptr inbounds i8, ptr %66, i64 136
-  %84 = load volatile ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %93, label %86
+  %84 = getelementptr inbounds i8, ptr %66, i64 136
+  %85 = load volatile ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %94, label %87
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %84, i64 16
-  %88 = load volatile ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %93, label %90
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds i8, ptr %85, i64 16
+  %89 = load volatile ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %94, label %91
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %88, i64 36
-  %92 = load volatile i32, ptr %91, align 4
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds i8, ptr %89, i64 36
+  %93 = load volatile i32, ptr %92, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  br label %93
+  br label %94
 
-93:                                               ; preds = %90, %86, %82
-  %94 = phi i32 [ 0, %82 ], [ %92, %90 ], [ 0, %86 ]
+94:                                               ; preds = %91, %87, %83
+  %95 = phi i32 [ 0, %83 ], [ %93, %91 ], [ 0, %87 ]
   call void @__rcu_read_unlock() #6
-  br label %95
+  br label %96
 
-95:                                               ; preds = %93, %77
-  %96 = phi i32 [ %94, %93 ], [ %80, %77 ]
-  %97 = getelementptr inbounds i8, ptr %78, i64 80
-  store i32 %96, ptr %97, align 8
+96:                                               ; preds = %94, %78
+  %97 = phi i32 [ %95, %94 ], [ %81, %78 ]
+  %98 = getelementptr inbounds i8, ptr %79, i64 80
+  store i32 %97, ptr %98, align 8
   call void @sk_setup_caps(ptr noundef %0, ptr noundef %66) #6
-  %98 = getelementptr inbounds i8, ptr %78, i64 40
-  store ptr null, ptr %98, align 8
-  br label %99
+  %99 = getelementptr inbounds i8, ptr %79, i64 40
+  store ptr null, ptr %99, align 8
+  br label %100
 
-99:                                               ; preds = %95, %63, %41
-  %100 = phi ptr [ %61, %41 ], [ %66, %63 ], [ %66, %95 ]
+100:                                              ; preds = %96, %63, %41
+  %101 = phi ptr [ %61, %41 ], [ %66, %63 ], [ %66, %96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  ret ptr %100
+  ret ptr %101
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -374,24 +377,26 @@ define dso_local ptr @inet6_csk_update_pmtu(ptr noundef %0, i32 noundef %1) #0 a
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false), !annotation !5
   %4 = call fastcc ptr @inet6_csk_route_socket(ptr noundef %0, ptr noundef nonnull %3)
-  %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %14, label %6
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %4, %5
+  br i1 %6, label %16, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
-  %10 = load ptr, ptr %9, align 16
-  call void %10(ptr noundef %4, ptr noundef %0, ptr noundef null, i32 noundef %1, i1 noundef zeroext true) #6
-  %11 = call fastcc ptr @inet6_csk_route_socket(ptr noundef %0, ptr noundef nonnull %3)
-  %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
-  %13 = select i1 %12, ptr null, ptr %11
-  br label %14
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %11 = load ptr, ptr %10, align 16
+  call void %11(ptr noundef %4, ptr noundef %0, ptr noundef null, i32 noundef %1, i1 noundef zeroext true) #6
+  %12 = call fastcc ptr @inet6_csk_route_socket(ptr noundef %0, ptr noundef nonnull %3)
+  %13 = inttoptr i64 -4096 to ptr
+  %14 = icmp ugt ptr %12, %13
+  %15 = select i1 %14, ptr null, ptr %12
+  br label %16
 
-14:                                               ; preds = %6, %2
-  %15 = phi ptr [ %13, %6 ], [ null, %2 ]
+16:                                               ; preds = %7, %2
+  %17 = phi ptr [ %15, %7 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #6
-  ret ptr %15
+  ret ptr %17
 }
 
 ; Function Attrs: null_pointer_is_valid

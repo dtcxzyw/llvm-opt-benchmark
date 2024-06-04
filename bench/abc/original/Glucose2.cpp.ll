@@ -1034,12 +1034,13 @@ define linkonce_odr void @_ZN6Gluco210BoolOptionC2EPKcS2_S2_b(ptr noundef nonnul
   %14 = load ptr, ptr %9, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef @.str.108)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Gluco210BoolOptionE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %16 = getelementptr inbounds %"class.Gluco2::BoolOption", ptr %12, i32 0, i32 1
-  %17 = load i8, ptr %10, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %16, align 8
+  %16 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6Gluco210BoolOptionE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %12, align 8
+  %17 = getelementptr inbounds %"class.Gluco2::BoolOption", ptr %12, i32 0, i32 1
+  %18 = load i8, ptr %10, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %17, align 8
   ret void
 }
 
@@ -1116,12 +1117,13 @@ define linkonce_odr void @_ZN6Gluco212DoubleOptionC2EPKcS2_S2_dNS_11DoubleRangeE
   %14 = load ptr, ptr %10, align 8
   %15 = load ptr, ptr %8, align 8
   call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef @.str.118)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Gluco212DoubleOptionE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %16 = getelementptr inbounds %"class.Gluco2::DoubleOption", ptr %12, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %5, i64 24, i1 false)
-  %17 = getelementptr inbounds %"class.Gluco2::DoubleOption", ptr %12, i32 0, i32 2
-  %18 = load double, ptr %11, align 8
-  store double %18, ptr %17, align 8
+  %16 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6Gluco212DoubleOptionE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %12, align 8
+  %17 = getelementptr inbounds %"class.Gluco2::DoubleOption", ptr %12, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %5, i64 24, i1 false)
+  %18 = getelementptr inbounds %"class.Gluco2::DoubleOption", ptr %12, i32 0, i32 2
+  %19 = load double, ptr %11, align 8
+  store double %19, ptr %18, align 8
   ret void
 }
 
@@ -1192,12 +1194,13 @@ define linkonce_odr void @_ZN6Gluco29IntOptionC2EPKcS2_S2_iNS_8IntRangeE(ptr nou
   %15 = load ptr, ptr %11, align 8
   %16 = load ptr, ptr %9, align 8
   call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef @.str.123)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Gluco29IntOptionE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %17 = getelementptr inbounds %"class.Gluco2::IntOption", ptr %13, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 4 %7, i64 8, i1 false)
-  %18 = getelementptr inbounds %"class.Gluco2::IntOption", ptr %13, i32 0, i32 2
-  %19 = load i32, ptr %12, align 4
-  store i32 %19, ptr %18, align 8
+  %17 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6Gluco29IntOptionE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %13, align 8
+  %18 = getelementptr inbounds %"class.Gluco2::IntOption", ptr %13, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 4 %7, i64 8, i1 false)
+  %19 = getelementptr inbounds %"class.Gluco2::IntOption", ptr %13, i32 0, i32 2
+  %20 = load i32, ptr %12, align 4
+  store i32 %20, ptr %19, align 8
   ret void
 }
 
@@ -1400,10 +1403,11 @@ define linkonce_odr void @_ZN6Gluco212StringOptionC2EPKcS2_S2_S2_(ptr noundef no
   %13 = load ptr, ptr %9, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef @.str.133)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Gluco212StringOptionE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.Gluco2::StringOption", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %10, align 8
-  store ptr %16, ptr %15, align 8
+  %15 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6Gluco212StringOptionE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.Gluco2::StringOption", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %10, align 8
+  store ptr %17, ptr %16, align 8
   ret void
 }
 
@@ -1428,1085 +1432,1086 @@ define void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %9 = alloca %"class.Gluco2::vec.0", align 8
   store ptr %0, ptr %2, align 8
   %10 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Gluco26SolverE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 1
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 3
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 4
-  store i32 1000, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 5
-  store i8 0, ptr %14, align 4
-  %15 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 6
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 7
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 8
-  call void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17)
-  %18 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 9
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %19 unwind label %258
+  %11 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6Gluco26SolverE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 1
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 3
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 4
+  store i32 1000, ptr %14, align 8
+  %15 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 5
+  store i8 0, ptr %15, align 4
+  %16 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 6
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 7
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 8
+  call void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %19 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 9
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19)
+          to label %20 unwind label %259
 
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 11
-  invoke void @_ZN6Gluco23vecINS_5lboolEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %21 unwind label %262
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 11
+  invoke void @_ZN6Gluco23vecINS_5lboolEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %22 unwind label %263
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 12
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22)
-          to label %23 unwind label %266
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 12
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23)
+          to label %24 unwind label %267
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 13
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 14
-  store i32 10000, ptr %25, align 4
-  %26 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 15
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 16
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L5opt_KE)
-          to label %29 unwind label %270
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 13
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 14
+  store i32 10000, ptr %26, align 4
+  %27 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 15
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 16
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L5opt_KE)
+          to label %30 unwind label %271
 
-29:                                               ; preds = %23
-  %30 = load double, ptr %28, align 8
-  store double %30, ptr %27, align 8
-  %31 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 17
-  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L5opt_RE)
-          to label %33 unwind label %270
+30:                                               ; preds = %24
+  %31 = load double, ptr %29, align 8
+  store double %31, ptr %28, align 8
+  %32 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 17
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L5opt_RE)
+          to label %34 unwind label %271
 
-33:                                               ; preds = %29
-  %34 = load double, ptr %32, align 8
-  store double %34, ptr %31, align 8
-  %35 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 18
-  %36 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L18opt_size_lbd_queueE)
-          to label %37 unwind label %270
+34:                                               ; preds = %30
+  %35 = load double, ptr %33, align 8
+  store double %35, ptr %32, align 8
+  %36 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 18
+  %37 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L18opt_size_lbd_queueE)
+          to label %38 unwind label %271
 
-37:                                               ; preds = %33
-  %38 = load i32, ptr %36, align 4
-  %39 = sitofp i32 %38 to double
-  store double %39, ptr %35, align 8
-  %40 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 19
-  %41 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L20opt_size_trail_queueE)
-          to label %42 unwind label %270
+38:                                               ; preds = %34
+  %39 = load i32, ptr %37, align 4
+  %40 = sitofp i32 %39 to double
+  store double %40, ptr %36, align 8
+  %41 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 19
+  %42 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L20opt_size_trail_queueE)
+          to label %43 unwind label %271
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr %41, align 4
-  %44 = sitofp i32 %43 to double
-  store double %44, ptr %40, align 8
-  %45 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 20
-  %46 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L19opt_first_reduce_dbE)
-          to label %47 unwind label %270
+43:                                               ; preds = %38
+  %44 = load i32, ptr %42, align 4
+  %45 = sitofp i32 %44 to double
+  store double %45, ptr %41, align 8
+  %46 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 20
+  %47 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L19opt_first_reduce_dbE)
+          to label %48 unwind label %271
 
-47:                                               ; preds = %42
-  %48 = load i32, ptr %46, align 4
-  store i32 %48, ptr %45, align 8
-  %49 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 21
-  %50 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L17opt_inc_reduce_dbE)
-          to label %51 unwind label %270
+48:                                               ; preds = %43
+  %49 = load i32, ptr %47, align 4
+  store i32 %49, ptr %46, align 8
+  %50 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 21
+  %51 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L17opt_inc_reduce_dbE)
+          to label %52 unwind label %271
 
-51:                                               ; preds = %47
-  %52 = load i32, ptr %50, align 4
-  store i32 %52, ptr %49, align 4
-  %53 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 22
-  %54 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L22opt_spec_inc_reduce_dbE)
-          to label %55 unwind label %270
+52:                                               ; preds = %48
+  %53 = load i32, ptr %51, align 4
+  store i32 %53, ptr %50, align 4
+  %54 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 22
+  %55 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L22opt_spec_inc_reduce_dbE)
+          to label %56 unwind label %271
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %54, align 4
-  store i32 %56, ptr %53, align 8
-  %57 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 23
-  %58 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L24opt_lb_lbd_frozen_clauseE)
-          to label %59 unwind label %270
+56:                                               ; preds = %52
+  %57 = load i32, ptr %55, align 4
+  store i32 %57, ptr %54, align 8
+  %58 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 23
+  %59 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L24opt_lb_lbd_frozen_clauseE)
+          to label %60 unwind label %271
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr %58, align 4
-  store i32 %60, ptr %57, align 4
-  %61 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 24
-  %62 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L28opt_lb_size_minimzing_clauseE)
-          to label %63 unwind label %270
+60:                                               ; preds = %56
+  %61 = load i32, ptr %59, align 4
+  store i32 %61, ptr %58, align 4
+  %62 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 24
+  %63 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L28opt_lb_size_minimzing_clauseE)
+          to label %64 unwind label %271
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %62, align 4
-  store i32 %64, ptr %61, align 8
-  %65 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 25
-  %66 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L27opt_lb_lbd_minimzing_clauseE)
-          to label %67 unwind label %270
+64:                                               ; preds = %60
+  %65 = load i32, ptr %63, align 4
+  store i32 %65, ptr %62, align 8
+  %66 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 25
+  %67 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L27opt_lb_lbd_minimzing_clauseE)
+          to label %68 unwind label %271
 
-67:                                               ; preds = %63
-  %68 = load i32, ptr %66, align 4
-  store i32 %68, ptr %65, align 4
-  %69 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 26
-  %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L13opt_var_decayE)
-          to label %71 unwind label %270
+68:                                               ; preds = %64
+  %69 = load i32, ptr %67, align 4
+  store i32 %69, ptr %66, align 4
+  %70 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 26
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L13opt_var_decayE)
+          to label %72 unwind label %271
 
-71:                                               ; preds = %67
-  %72 = load double, ptr %70, align 8
-  store double %72, ptr %69, align 8
-  %73 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 27
-  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L16opt_clause_decayE)
-          to label %75 unwind label %270
+72:                                               ; preds = %68
+  %73 = load double, ptr %71, align 8
+  store double %73, ptr %70, align 8
+  %74 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 27
+  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L16opt_clause_decayE)
+          to label %76 unwind label %271
 
-75:                                               ; preds = %71
-  %76 = load double, ptr %74, align 8
-  store double %76, ptr %73, align 8
-  %77 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 28
-  %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L19opt_random_var_freqE)
-          to label %79 unwind label %270
+76:                                               ; preds = %72
+  %77 = load double, ptr %75, align 8
+  store double %77, ptr %74, align 8
+  %78 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 28
+  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L19opt_random_var_freqE)
+          to label %80 unwind label %271
 
-79:                                               ; preds = %75
-  %80 = load double, ptr %78, align 8
-  store double %80, ptr %77, align 8
-  %81 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 29
-  %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L15opt_random_seedE)
-          to label %83 unwind label %270
+80:                                               ; preds = %76
+  %81 = load double, ptr %79, align 8
+  store double %81, ptr %78, align 8
+  %82 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 29
+  %83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L15opt_random_seedE)
+          to label %84 unwind label %271
 
-83:                                               ; preds = %79
-  %84 = load double, ptr %82, align 8
-  store double %84, ptr %81, align 8
-  %85 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 30
-  %86 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L14opt_ccmin_modeE)
-          to label %87 unwind label %270
+84:                                               ; preds = %80
+  %85 = load double, ptr %83, align 8
+  store double %85, ptr %82, align 8
+  %86 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 30
+  %87 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L14opt_ccmin_modeE)
+          to label %88 unwind label %271
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr %86, align 4
-  store i32 %88, ptr %85, align 8
-  %89 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 31
-  %90 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L16opt_phase_savingE)
-          to label %91 unwind label %270
+88:                                               ; preds = %84
+  %89 = load i32, ptr %87, align 4
+  store i32 %89, ptr %86, align 8
+  %90 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 31
+  %91 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6Gluco29IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZN6Gluco2L16opt_phase_savingE)
+          to label %92 unwind label %271
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr %90, align 4
-  store i32 %92, ptr %89, align 4
-  %93 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 32
-  store i8 0, ptr %93, align 8
-  %94 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 33
-  %95 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6Gluco210BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZN6Gluco2L16opt_rnd_init_actE)
-          to label %96 unwind label %270
+92:                                               ; preds = %88
+  %93 = load i32, ptr %91, align 4
+  store i32 %93, ptr %90, align 4
+  %94 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 32
+  store i8 0, ptr %94, align 8
+  %95 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 33
+  %96 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6Gluco210BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZN6Gluco2L16opt_rnd_init_actE)
+          to label %97 unwind label %271
 
-96:                                               ; preds = %91
-  %97 = load i8, ptr %95, align 1
-  %98 = trunc i8 %97 to i1
-  %99 = zext i1 %98 to i8
-  store i8 %99, ptr %94, align 1
-  %100 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 34
-  %101 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L16opt_garbage_fracE)
-          to label %102 unwind label %270
+97:                                               ; preds = %92
+  %98 = load i8, ptr %96, align 1
+  %99 = trunc i8 %98 to i1
+  %100 = zext i1 %99 to i8
+  store i8 %100, ptr %95, align 1
+  %101 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 34
+  %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212DoubleOptioncvRdEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6Gluco2L16opt_garbage_fracE)
+          to label %103 unwind label %271
 
-102:                                              ; preds = %96
-  %103 = load double, ptr %101, align 8
-  store double %103, ptr %100, align 8
-  %104 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 35
-  store ptr null, ptr %104, align 8
-  %105 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 36
-  %106 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6Gluco210BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZN6Gluco214opt_certified_E)
-          to label %107 unwind label %270
+103:                                              ; preds = %97
+  %104 = load double, ptr %102, align 8
+  store double %104, ptr %101, align 8
+  %105 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 35
+  store ptr null, ptr %105, align 8
+  %106 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 36
+  %107 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6Gluco210BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZN6Gluco214opt_certified_E)
+          to label %108 unwind label %271
 
-107:                                              ; preds = %102
-  %108 = load i8, ptr %106, align 1
-  %109 = trunc i8 %108 to i1
-  %110 = zext i1 %109 to i8
-  store i8 %110, ptr %105, align 8
-  %111 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 37
-  store i64 0, ptr %111, align 8
-  %112 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 38
+108:                                              ; preds = %103
+  %109 = load i8, ptr %107, align 1
+  %110 = trunc i8 %109 to i1
+  %111 = zext i1 %110 to i8
+  store i8 %111, ptr %106, align 8
+  %112 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 37
   store i64 0, ptr %112, align 8
-  %113 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 39
+  %113 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 38
   store i64 0, ptr %113, align 8
-  %114 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 40
+  %114 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 39
   store i64 0, ptr %114, align 8
-  %115 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 41
+  %115 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 40
   store i64 0, ptr %115, align 8
-  %116 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 42
+  %116 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 41
   store i64 0, ptr %116, align 8
-  %117 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 43
+  %117 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 42
   store i64 0, ptr %117, align 8
-  %118 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 44
+  %118 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 43
   store i64 0, ptr %118, align 8
-  %119 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 45
+  %119 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 44
   store i64 0, ptr %119, align 8
-  %120 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 46
+  %120 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 45
   store i64 0, ptr %120, align 8
-  %121 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 47
+  %121 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 46
   store i64 0, ptr %121, align 8
-  %122 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 48
+  %122 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 47
   store i64 0, ptr %122, align 8
-  %123 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 49
+  %123 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 48
   store i64 0, ptr %123, align 8
-  %124 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 50
+  %124 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 49
   store i64 0, ptr %124, align 8
-  %125 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 51
+  %125 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 50
   store i64 0, ptr %125, align 8
-  %126 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 52
+  %126 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 51
   store i64 0, ptr %126, align 8
-  %127 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 53
+  %127 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 52
   store i64 0, ptr %127, align 8
-  %128 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 54
+  %128 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 53
   store i64 0, ptr %128, align 8
-  %129 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 55
+  %129 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 54
   store i64 0, ptr %129, align 8
-  %130 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 56
+  %130 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 55
   store i64 0, ptr %130, align 8
-  %131 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 57
+  %131 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 56
   store i64 0, ptr %131, align 8
-  %132 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 58
-  store i64 1, ptr %132, align 8
-  %133 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 60
-  store i8 1, ptr %133, align 4
-  %134 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 61
-  store double 1.000000e+00, ptr %134, align 8
-  %135 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 62
-  invoke void @_ZN6Gluco23vecIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %135)
-          to label %136 unwind label %270
+  %132 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 57
+  store i64 0, ptr %132, align 8
+  %133 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 58
+  store i64 1, ptr %133, align 8
+  %134 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 60
+  store i8 1, ptr %134, align 4
+  %135 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 61
+  store double 1.000000e+00, ptr %135, align 8
+  %136 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 62
+  invoke void @_ZN6Gluco23vecIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %136)
+          to label %137 unwind label %271
 
-136:                                              ; preds = %107
-  %137 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 63
-  store double 1.000000e+00, ptr %137, align 8
-  %138 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 64
-  %139 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
-  invoke void @_ZN6Gluco26Solver14WatcherDeletedC2ERKNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(21) %139)
-          to label %140 unwind label %274
+137:                                              ; preds = %108
+  %138 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 63
+  store double 1.000000e+00, ptr %138, align 8
+  %139 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 64
+  %140 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
+  invoke void @_ZN6Gluco26Solver14WatcherDeletedC2ERKNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(21) %140)
+          to label %141 unwind label %275
 
-140:                                              ; preds = %136
-  invoke void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(56) %138, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %141 unwind label %274
+141:                                              ; preds = %137
+  invoke void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(56) %139, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %142 unwind label %275
 
-141:                                              ; preds = %140
-  %142 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 65
-  %143 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
-  invoke void @_ZN6Gluco26Solver14WatcherDeletedC2ERKNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(21) %143)
-          to label %144 unwind label %278
+142:                                              ; preds = %141
+  %143 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 65
+  %144 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
+  invoke void @_ZN6Gluco26Solver14WatcherDeletedC2ERKNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(21) %144)
+          to label %145 unwind label %279
 
-144:                                              ; preds = %141
-  invoke void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(56) %142, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %145 unwind label %278
+145:                                              ; preds = %142
+  invoke void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %146 unwind label %279
 
-145:                                              ; preds = %144
-  %146 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 66
-  invoke void @_ZN6Gluco23vecIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146)
-          to label %147 unwind label %282
+146:                                              ; preds = %145
+  %147 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 66
+  invoke void @_ZN6Gluco23vecIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %147)
+          to label %148 unwind label %283
 
-147:                                              ; preds = %145
-  %148 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 67
-  invoke void @_ZN6Gluco23vecIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148)
-          to label %149 unwind label %286
+148:                                              ; preds = %146
+  %149 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 67
+  invoke void @_ZN6Gluco23vecIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %149)
+          to label %150 unwind label %287
 
-149:                                              ; preds = %147
-  %150 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 68
-  invoke void @_ZN6Gluco23vecINS_5lboolEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150)
-          to label %151 unwind label %290
+150:                                              ; preds = %148
+  %151 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 68
+  invoke void @_ZN6Gluco23vecINS_5lboolEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %151)
+          to label %152 unwind label %291
 
-151:                                              ; preds = %149
-  %152 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 69
-  invoke void @_ZN6Gluco23vecIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152)
-          to label %153 unwind label %294
+152:                                              ; preds = %150
+  %153 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 69
+  invoke void @_ZN6Gluco23vecIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %153)
+          to label %154 unwind label %295
 
-153:                                              ; preds = %151
-  %154 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 70
-  invoke void @_ZN6Gluco23vecIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %154)
-          to label %155 unwind label %298
+154:                                              ; preds = %152
+  %155 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 70
+  invoke void @_ZN6Gluco23vecIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %155)
+          to label %156 unwind label %299
 
-155:                                              ; preds = %153
-  %156 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 71
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %156)
-          to label %157 unwind label %302
+156:                                              ; preds = %154
+  %157 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 71
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %157)
+          to label %158 unwind label %303
 
-157:                                              ; preds = %155
-  %158 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 72
-  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %158)
-          to label %159 unwind label %306
+158:                                              ; preds = %156
+  %159 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 72
+  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %159)
+          to label %160 unwind label %307
 
-159:                                              ; preds = %157
-  %160 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 73
-  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %160)
-          to label %161 unwind label %310
+160:                                              ; preds = %158
+  %161 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 73
+  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %161)
+          to label %162 unwind label %311
 
-161:                                              ; preds = %159
-  %162 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 74
-  invoke void @_ZN6Gluco23vecINS_6Solver7VarDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %162)
-          to label %163 unwind label %314
+162:                                              ; preds = %160
+  %163 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 74
+  invoke void @_ZN6Gluco23vecINS_6Solver7VarDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %163)
+          to label %164 unwind label %315
 
-163:                                              ; preds = %161
-  %164 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 75
-  store i32 0, ptr %164, align 8
-  %165 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 76
-  store i32 -1, ptr %165, align 4
-  %166 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 77
-  store i64 0, ptr %166, align 8
-  %167 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 78
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %167)
-          to label %168 unwind label %318
+164:                                              ; preds = %162
+  %165 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 75
+  store i32 0, ptr %165, align 8
+  %166 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 76
+  store i32 -1, ptr %166, align 4
+  %167 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 77
+  store i64 0, ptr %167, align 8
+  %168 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 78
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %168)
+          to label %169 unwind label %319
 
-168:                                              ; preds = %163
-  %169 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 79
-  %170 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 62
-  invoke void @_ZN6Gluco26Solver10VarOrderLtC2ERKNS_3vecIdEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %170)
-          to label %171 unwind label %322
+169:                                              ; preds = %164
+  %170 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 79
+  %171 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 62
+  invoke void @_ZN6Gluco26Solver10VarOrderLtC2ERKNS_3vecIdEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %171)
+          to label %172 unwind label %323
 
-171:                                              ; preds = %168
-  invoke void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %169, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %172 unwind label %322
+172:                                              ; preds = %169
+  invoke void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %170, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %173 unwind label %323
 
-172:                                              ; preds = %171
-  %173 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 80
-  store double 0.000000e+00, ptr %173, align 8
-  %174 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 81
-  store i8 1, ptr %174, align 8
-  %175 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 82
-  invoke void @_ZN6Gluco23vecIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %175)
-          to label %176 unwind label %326
+173:                                              ; preds = %172
+  %174 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 80
+  store double 0.000000e+00, ptr %174, align 8
+  %175 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 81
+  store i8 1, ptr %175, align 8
+  %176 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 82
+  invoke void @_ZN6Gluco23vecIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %176)
+          to label %177 unwind label %327
 
-176:                                              ; preds = %172
-  %177 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 83
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %177)
-          to label %178 unwind label %330
+177:                                              ; preds = %173
+  %178 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 83
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %178)
+          to label %179 unwind label %331
 
-178:                                              ; preds = %176
-  %179 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
-  invoke void @_ZN6Gluco215ClauseAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %179)
-          to label %180 unwind label %334
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
+  invoke void @_ZN6Gluco215ClauseAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %180)
+          to label %181 unwind label %335
 
-180:                                              ; preds = %178
-  %181 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 86
-  invoke void @_ZN6Gluco26bqueueIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %181)
-          to label %182 unwind label %338
+181:                                              ; preds = %179
+  %182 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 86
+  invoke void @_ZN6Gluco26bqueueIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %182)
+          to label %183 unwind label %339
 
-182:                                              ; preds = %180
-  %183 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 87
-  invoke void @_ZN6Gluco26bqueueIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %183)
-          to label %184 unwind label %342
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 87
+  invoke void @_ZN6Gluco26bqueueIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %184)
+          to label %185 unwind label %343
 
-184:                                              ; preds = %182
-  %185 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 90
-  invoke void @_ZN6Gluco23vecIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %185)
-          to label %186 unwind label %346
+185:                                              ; preds = %183
+  %186 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 90
+  invoke void @_ZN6Gluco23vecIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %186)
+          to label %187 unwind label %347
 
-186:                                              ; preds = %184
-  %187 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 91
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %187)
-          to label %188 unwind label %350
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 91
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %188)
+          to label %189 unwind label %351
 
-188:                                              ; preds = %186
-  %189 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 92
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %189)
-          to label %190 unwind label %354
+189:                                              ; preds = %187
+  %190 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 92
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %190)
+          to label %191 unwind label %355
 
-190:                                              ; preds = %188
-  %191 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 93
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %191)
-          to label %192 unwind label %358
+191:                                              ; preds = %189
+  %192 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 93
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %192)
+          to label %193 unwind label %359
 
-192:                                              ; preds = %190
-  %193 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 98
-  store i64 -1, ptr %193, align 8
-  %194 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 99
+193:                                              ; preds = %191
+  %194 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 98
   store i64 -1, ptr %194, align 8
-  %195 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 100
-  store i8 0, ptr %195, align 8
-  %196 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 101
-  %197 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6Gluco210BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZN6Gluco2L15opt_incrementalE)
-          to label %198 unwind label %362
+  %195 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 99
+  store i64 -1, ptr %195, align 8
+  %196 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 100
+  store i8 0, ptr %196, align 8
+  %197 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 101
+  %198 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN6Gluco210BoolOptioncvRbEv(ptr noundef nonnull align 8 dereferenceable(41) @_ZN6Gluco2L15opt_incrementalE)
+          to label %199 unwind label %363
 
-198:                                              ; preds = %192
-  %199 = load i8, ptr %197, align 1
-  %200 = trunc i8 %199 to i1
-  %201 = zext i1 %200 to i32
-  store i32 %201, ptr %196, align 4
-  %202 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 102
-  store i32 2147483647, ptr %202, align 8
-  %203 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 107
-  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %203)
-          to label %204 unwind label %362
+199:                                              ; preds = %193
+  %200 = load i8, ptr %198, align 1
+  %201 = trunc i8 %200 to i1
+  %202 = zext i1 %201 to i32
+  store i32 %202, ptr %197, align 4
+  %203 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 102
+  store i32 2147483647, ptr %203, align 8
+  %204 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 107
+  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %204)
+          to label %205 unwind label %363
 
-204:                                              ; preds = %198
-  %205 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 108
-  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %205)
-          to label %206 unwind label %366
+205:                                              ; preds = %199
+  %206 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 108
+  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %206)
+          to label %207 unwind label %367
 
-206:                                              ; preds = %204
-  %207 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 110
-  invoke void @_ZN6Gluco23vecINS_6Solver8NodeDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %207)
-          to label %208 unwind label %370
+207:                                              ; preds = %205
+  %208 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 110
+  invoke void @_ZN6Gluco23vecINS_6Solver8NodeDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %208)
+          to label %209 unwind label %371
 
-208:                                              ; preds = %206
-  %209 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 111
-  invoke void @_ZN6Gluco23vecIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %209)
-          to label %210 unwind label %374
+209:                                              ; preds = %207
+  %210 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 111
+  invoke void @_ZN6Gluco23vecIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %210)
+          to label %211 unwind label %375
 
-210:                                              ; preds = %208
-  %211 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 112
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %211)
-          to label %212 unwind label %378
+211:                                              ; preds = %209
+  %212 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 112
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %212)
+          to label %213 unwind label %379
 
-212:                                              ; preds = %210
-  %213 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 113
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %213)
-          to label %214 unwind label %382
+213:                                              ; preds = %211
+  %214 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 113
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %214)
+          to label %215 unwind label %383
 
-214:                                              ; preds = %212
-  %215 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 118
+215:                                              ; preds = %213
+  %216 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 118
   invoke void @_ZN6Gluco26Solver12JustOrderLt2C2EPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10)
-          to label %216 unwind label %386
+          to label %217 unwind label %387
 
-216:                                              ; preds = %214
-  invoke void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %215, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %217 unwind label %386
+217:                                              ; preds = %215
+  invoke void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %216, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %218 unwind label %387
 
-217:                                              ; preds = %216
-  %218 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 119
-  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %218)
-          to label %219 unwind label %390
+218:                                              ; preds = %217
+  %219 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 119
+  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %219)
+          to label %220 unwind label %391
 
-219:                                              ; preds = %217
-  %220 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 120
-  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %220)
-          to label %221 unwind label %394
+220:                                              ; preds = %218
+  %221 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 120
+  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %221)
+          to label %222 unwind label %395
 
-221:                                              ; preds = %219
-  %222 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 122
-  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %222)
-          to label %223 unwind label %398
+222:                                              ; preds = %220
+  %223 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 122
+  invoke void @_ZN6Gluco23vecIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %223)
+          to label %224 unwind label %399
 
-223:                                              ; preds = %221
-  %224 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 123
-  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %224)
-          to label %225 unwind label %402
+224:                                              ; preds = %222
+  %225 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 123
+  invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %225)
+          to label %226 unwind label %403
 
-225:                                              ; preds = %223
-  %226 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 94
-  store i32 0, ptr %226, align 8
-  %227 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 87
-  %228 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 18
-  %229 = load double, ptr %228, align 8
-  %230 = fptosi double %229 to i32
-  invoke void @_ZN6Gluco26bqueueIjE8initSizeEi(ptr noundef nonnull align 8 dereferenceable(64) %227, i32 noundef %230)
-          to label %231 unwind label %406
+226:                                              ; preds = %224
+  %227 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 94
+  store i32 0, ptr %227, align 8
+  %228 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 87
+  %229 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 18
+  %230 = load double, ptr %229, align 8
+  %231 = fptosi double %230 to i32
+  invoke void @_ZN6Gluco26bqueueIjE8initSizeEi(ptr noundef nonnull align 8 dereferenceable(64) %228, i32 noundef %231)
+          to label %232 unwind label %407
 
-231:                                              ; preds = %225
-  %232 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 86
-  %233 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 19
-  %234 = load double, ptr %233, align 8
-  %235 = fptosi double %234 to i32
-  invoke void @_ZN6Gluco26bqueueIjE8initSizeEi(ptr noundef nonnull align 8 dereferenceable(64) %232, i32 noundef %235)
-          to label %236 unwind label %406
+232:                                              ; preds = %226
+  %233 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 86
+  %234 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 19
+  %235 = load double, ptr %234, align 8
+  %236 = fptosi double %235 to i32
+  invoke void @_ZN6Gluco26bqueueIjE8initSizeEi(ptr noundef nonnull align 8 dereferenceable(64) %233, i32 noundef %236)
+          to label %237 unwind label %407
 
-236:                                              ; preds = %231
-  %237 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 88
-  store float 0.000000e+00, ptr %237, align 8
-  %238 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 20
-  %239 = load i32, ptr %238, align 8
-  %240 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 85
-  store i32 %239, ptr %240, align 8
-  %241 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 103
-  store double 0.000000e+00, ptr %241, align 8
-  %242 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 104
+237:                                              ; preds = %232
+  %238 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 88
+  store float 0.000000e+00, ptr %238, align 8
+  %239 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 20
+  %240 = load i32, ptr %239, align 8
+  %241 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 85
+  store i32 %240, ptr %241, align 8
+  %242 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 103
   store double 0.000000e+00, ptr %242, align 8
-  %243 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 105
-  store i32 0, ptr %243, align 8
-  %244 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 106
-  store i32 0, ptr %244, align 4
-  %245 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 36
-  %246 = load i8, ptr %245, align 8
-  %247 = trunc i8 %246 to i1
-  br i1 %247, label %248, label %418
+  %243 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 104
+  store double 0.000000e+00, ptr %243, align 8
+  %244 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 105
+  store i32 0, ptr %244, align 8
+  %245 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 106
+  store i32 0, ptr %245, align 4
+  %246 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 36
+  %247 = load i8, ptr %246, align 8
+  %248 = trunc i8 %247 to i1
+  br i1 %248, label %249, label %419
 
-248:                                              ; preds = %236
-  %249 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212StringOptioncvRPKcEv(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6Gluco219opt_certified_file_E)
-          to label %250 unwind label %406
+249:                                              ; preds = %237
+  %250 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212StringOptioncvRPKcEv(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6Gluco219opt_certified_file_E)
+          to label %251 unwind label %407
 
-250:                                              ; preds = %248
-  %251 = load ptr, ptr %249, align 8
-  %252 = call i32 @strcmp(ptr noundef %251, ptr noundef @.str.62) #17
-  %253 = icmp ne i32 %252, 0
-  br i1 %253, label %410, label %254
+251:                                              ; preds = %249
+  %252 = load ptr, ptr %250, align 8
+  %253 = call i32 @strcmp(ptr noundef %252, ptr noundef @.str.62) #17
+  %254 = icmp ne i32 %253, 0
+  br i1 %254, label %411, label %255
 
-254:                                              ; preds = %250
-  %255 = invoke noalias ptr @fopen(ptr noundef @.str.63, ptr noundef @.str.64)
-          to label %256 unwind label %406
+255:                                              ; preds = %251
+  %256 = invoke noalias ptr @fopen(ptr noundef @.str.63, ptr noundef @.str.64)
+          to label %257 unwind label %407
 
-256:                                              ; preds = %254
-  %257 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 35
-  store ptr %255, ptr %257, align 8
-  br label %417
-
-258:                                              ; preds = %1
-  %259 = landingpad { ptr, i32 }
-          cleanup
-  %260 = extractvalue { ptr, i32 } %259, 0
-  store ptr %260, ptr %3, align 8
-  %261 = extractvalue { ptr, i32 } %259, 1
-  store i32 %261, ptr %4, align 4
-  br label %484
-
-262:                                              ; preds = %19
-  %263 = landingpad { ptr, i32 }
-          cleanup
-  %264 = extractvalue { ptr, i32 } %263, 0
-  store ptr %264, ptr %3, align 8
-  %265 = extractvalue { ptr, i32 } %263, 1
-  store i32 %265, ptr %4, align 4
-  br label %483
-
-266:                                              ; preds = %21
-  %267 = landingpad { ptr, i32 }
-          cleanup
-  %268 = extractvalue { ptr, i32 } %267, 0
-  store ptr %268, ptr %3, align 8
-  %269 = extractvalue { ptr, i32 } %267, 1
-  store i32 %269, ptr %4, align 4
-  br label %482
-
-270:                                              ; preds = %107, %102, %96, %91, %87, %83, %79, %75, %71, %67, %63, %59, %55, %51, %47, %42, %37, %33, %29, %23
-  %271 = landingpad { ptr, i32 }
-          cleanup
-  %272 = extractvalue { ptr, i32 } %271, 0
-  store ptr %272, ptr %3, align 8
-  %273 = extractvalue { ptr, i32 } %271, 1
-  store i32 %273, ptr %4, align 4
-  br label %481
-
-274:                                              ; preds = %140, %136
-  %275 = landingpad { ptr, i32 }
-          cleanup
-  %276 = extractvalue { ptr, i32 } %275, 0
-  store ptr %276, ptr %3, align 8
-  %277 = extractvalue { ptr, i32 } %275, 1
-  store i32 %277, ptr %4, align 4
-  br label %480
-
-278:                                              ; preds = %144, %141
-  %279 = landingpad { ptr, i32 }
-          cleanup
-  %280 = extractvalue { ptr, i32 } %279, 0
-  store ptr %280, ptr %3, align 8
-  %281 = extractvalue { ptr, i32 } %279, 1
-  store i32 %281, ptr %4, align 4
-  br label %479
-
-282:                                              ; preds = %145
-  %283 = landingpad { ptr, i32 }
-          cleanup
-  %284 = extractvalue { ptr, i32 } %283, 0
-  store ptr %284, ptr %3, align 8
-  %285 = extractvalue { ptr, i32 } %283, 1
-  store i32 %285, ptr %4, align 4
-  br label %478
-
-286:                                              ; preds = %147
-  %287 = landingpad { ptr, i32 }
-          cleanup
-  %288 = extractvalue { ptr, i32 } %287, 0
-  store ptr %288, ptr %3, align 8
-  %289 = extractvalue { ptr, i32 } %287, 1
-  store i32 %289, ptr %4, align 4
-  br label %477
-
-290:                                              ; preds = %149
-  %291 = landingpad { ptr, i32 }
-          cleanup
-  %292 = extractvalue { ptr, i32 } %291, 0
-  store ptr %292, ptr %3, align 8
-  %293 = extractvalue { ptr, i32 } %291, 1
-  store i32 %293, ptr %4, align 4
-  br label %476
-
-294:                                              ; preds = %151
-  %295 = landingpad { ptr, i32 }
-          cleanup
-  %296 = extractvalue { ptr, i32 } %295, 0
-  store ptr %296, ptr %3, align 8
-  %297 = extractvalue { ptr, i32 } %295, 1
-  store i32 %297, ptr %4, align 4
-  br label %475
-
-298:                                              ; preds = %153
-  %299 = landingpad { ptr, i32 }
-          cleanup
-  %300 = extractvalue { ptr, i32 } %299, 0
-  store ptr %300, ptr %3, align 8
-  %301 = extractvalue { ptr, i32 } %299, 1
-  store i32 %301, ptr %4, align 4
-  br label %474
-
-302:                                              ; preds = %155
-  %303 = landingpad { ptr, i32 }
-          cleanup
-  %304 = extractvalue { ptr, i32 } %303, 0
-  store ptr %304, ptr %3, align 8
-  %305 = extractvalue { ptr, i32 } %303, 1
-  store i32 %305, ptr %4, align 4
-  br label %473
-
-306:                                              ; preds = %157
-  %307 = landingpad { ptr, i32 }
-          cleanup
-  %308 = extractvalue { ptr, i32 } %307, 0
-  store ptr %308, ptr %3, align 8
-  %309 = extractvalue { ptr, i32 } %307, 1
-  store i32 %309, ptr %4, align 4
-  br label %472
-
-310:                                              ; preds = %159
-  %311 = landingpad { ptr, i32 }
-          cleanup
-  %312 = extractvalue { ptr, i32 } %311, 0
-  store ptr %312, ptr %3, align 8
-  %313 = extractvalue { ptr, i32 } %311, 1
-  store i32 %313, ptr %4, align 4
-  br label %471
-
-314:                                              ; preds = %161
-  %315 = landingpad { ptr, i32 }
-          cleanup
-  %316 = extractvalue { ptr, i32 } %315, 0
-  store ptr %316, ptr %3, align 8
-  %317 = extractvalue { ptr, i32 } %315, 1
-  store i32 %317, ptr %4, align 4
-  br label %470
-
-318:                                              ; preds = %163
-  %319 = landingpad { ptr, i32 }
-          cleanup
-  %320 = extractvalue { ptr, i32 } %319, 0
-  store ptr %320, ptr %3, align 8
-  %321 = extractvalue { ptr, i32 } %319, 1
-  store i32 %321, ptr %4, align 4
-  br label %469
-
-322:                                              ; preds = %171, %168
-  %323 = landingpad { ptr, i32 }
-          cleanup
-  %324 = extractvalue { ptr, i32 } %323, 0
-  store ptr %324, ptr %3, align 8
-  %325 = extractvalue { ptr, i32 } %323, 1
-  store i32 %325, ptr %4, align 4
-  br label %468
-
-326:                                              ; preds = %172
-  %327 = landingpad { ptr, i32 }
-          cleanup
-  %328 = extractvalue { ptr, i32 } %327, 0
-  store ptr %328, ptr %3, align 8
-  %329 = extractvalue { ptr, i32 } %327, 1
-  store i32 %329, ptr %4, align 4
-  br label %467
-
-330:                                              ; preds = %176
-  %331 = landingpad { ptr, i32 }
-          cleanup
-  %332 = extractvalue { ptr, i32 } %331, 0
-  store ptr %332, ptr %3, align 8
-  %333 = extractvalue { ptr, i32 } %331, 1
-  store i32 %333, ptr %4, align 4
-  br label %466
-
-334:                                              ; preds = %178
-  %335 = landingpad { ptr, i32 }
-          cleanup
-  %336 = extractvalue { ptr, i32 } %335, 0
-  store ptr %336, ptr %3, align 8
-  %337 = extractvalue { ptr, i32 } %335, 1
-  store i32 %337, ptr %4, align 4
-  br label %465
-
-338:                                              ; preds = %180
-  %339 = landingpad { ptr, i32 }
-          cleanup
-  %340 = extractvalue { ptr, i32 } %339, 0
-  store ptr %340, ptr %3, align 8
-  %341 = extractvalue { ptr, i32 } %339, 1
-  store i32 %341, ptr %4, align 4
-  br label %464
-
-342:                                              ; preds = %182
-  %343 = landingpad { ptr, i32 }
-          cleanup
-  %344 = extractvalue { ptr, i32 } %343, 0
-  store ptr %344, ptr %3, align 8
-  %345 = extractvalue { ptr, i32 } %343, 1
-  store i32 %345, ptr %4, align 4
-  br label %463
-
-346:                                              ; preds = %184
-  %347 = landingpad { ptr, i32 }
-          cleanup
-  %348 = extractvalue { ptr, i32 } %347, 0
-  store ptr %348, ptr %3, align 8
-  %349 = extractvalue { ptr, i32 } %347, 1
-  store i32 %349, ptr %4, align 4
-  br label %462
-
-350:                                              ; preds = %186
-  %351 = landingpad { ptr, i32 }
-          cleanup
-  %352 = extractvalue { ptr, i32 } %351, 0
-  store ptr %352, ptr %3, align 8
-  %353 = extractvalue { ptr, i32 } %351, 1
-  store i32 %353, ptr %4, align 4
-  br label %461
-
-354:                                              ; preds = %188
-  %355 = landingpad { ptr, i32 }
-          cleanup
-  %356 = extractvalue { ptr, i32 } %355, 0
-  store ptr %356, ptr %3, align 8
-  %357 = extractvalue { ptr, i32 } %355, 1
-  store i32 %357, ptr %4, align 4
-  br label %460
-
-358:                                              ; preds = %190
-  %359 = landingpad { ptr, i32 }
-          cleanup
-  %360 = extractvalue { ptr, i32 } %359, 0
-  store ptr %360, ptr %3, align 8
-  %361 = extractvalue { ptr, i32 } %359, 1
-  store i32 %361, ptr %4, align 4
-  br label %459
-
-362:                                              ; preds = %198, %192
-  %363 = landingpad { ptr, i32 }
-          cleanup
-  %364 = extractvalue { ptr, i32 } %363, 0
-  store ptr %364, ptr %3, align 8
-  %365 = extractvalue { ptr, i32 } %363, 1
-  store i32 %365, ptr %4, align 4
-  br label %458
-
-366:                                              ; preds = %204
-  %367 = landingpad { ptr, i32 }
-          cleanup
-  %368 = extractvalue { ptr, i32 } %367, 0
-  store ptr %368, ptr %3, align 8
-  %369 = extractvalue { ptr, i32 } %367, 1
-  store i32 %369, ptr %4, align 4
-  br label %457
-
-370:                                              ; preds = %206
-  %371 = landingpad { ptr, i32 }
-          cleanup
-  %372 = extractvalue { ptr, i32 } %371, 0
-  store ptr %372, ptr %3, align 8
-  %373 = extractvalue { ptr, i32 } %371, 1
-  store i32 %373, ptr %4, align 4
-  br label %456
-
-374:                                              ; preds = %208
-  %375 = landingpad { ptr, i32 }
-          cleanup
-  %376 = extractvalue { ptr, i32 } %375, 0
-  store ptr %376, ptr %3, align 8
-  %377 = extractvalue { ptr, i32 } %375, 1
-  store i32 %377, ptr %4, align 4
-  br label %455
-
-378:                                              ; preds = %210
-  %379 = landingpad { ptr, i32 }
-          cleanup
-  %380 = extractvalue { ptr, i32 } %379, 0
-  store ptr %380, ptr %3, align 8
-  %381 = extractvalue { ptr, i32 } %379, 1
-  store i32 %381, ptr %4, align 4
-  br label %454
-
-382:                                              ; preds = %212
-  %383 = landingpad { ptr, i32 }
-          cleanup
-  %384 = extractvalue { ptr, i32 } %383, 0
-  store ptr %384, ptr %3, align 8
-  %385 = extractvalue { ptr, i32 } %383, 1
-  store i32 %385, ptr %4, align 4
-  br label %453
-
-386:                                              ; preds = %216, %214
-  %387 = landingpad { ptr, i32 }
-          cleanup
-  %388 = extractvalue { ptr, i32 } %387, 0
-  store ptr %388, ptr %3, align 8
-  %389 = extractvalue { ptr, i32 } %387, 1
-  store i32 %389, ptr %4, align 4
-  br label %452
-
-390:                                              ; preds = %217
-  %391 = landingpad { ptr, i32 }
-          cleanup
-  %392 = extractvalue { ptr, i32 } %391, 0
-  store ptr %392, ptr %3, align 8
-  %393 = extractvalue { ptr, i32 } %391, 1
-  store i32 %393, ptr %4, align 4
-  br label %451
-
-394:                                              ; preds = %219
-  %395 = landingpad { ptr, i32 }
-          cleanup
-  %396 = extractvalue { ptr, i32 } %395, 0
-  store ptr %396, ptr %3, align 8
-  %397 = extractvalue { ptr, i32 } %395, 1
-  store i32 %397, ptr %4, align 4
-  br label %450
-
-398:                                              ; preds = %221
-  %399 = landingpad { ptr, i32 }
-          cleanup
-  %400 = extractvalue { ptr, i32 } %399, 0
-  store ptr %400, ptr %3, align 8
-  %401 = extractvalue { ptr, i32 } %399, 1
-  store i32 %401, ptr %4, align 4
-  br label %449
-
-402:                                              ; preds = %223
-  %403 = landingpad { ptr, i32 }
-          cleanup
-  %404 = extractvalue { ptr, i32 } %403, 0
-  store ptr %404, ptr %3, align 8
-  %405 = extractvalue { ptr, i32 } %403, 1
-  store i32 %405, ptr %4, align 4
-  br label %448
-
-406:                                              ; preds = %418, %412, %410, %254, %248, %231, %225
-  %407 = landingpad { ptr, i32 }
-          cleanup
-  %408 = extractvalue { ptr, i32 } %407, 0
-  store ptr %408, ptr %3, align 8
-  %409 = extractvalue { ptr, i32 } %407, 1
-  store i32 %409, ptr %4, align 4
-  br label %447
-
-410:                                              ; preds = %250
-  %411 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212StringOptioncvRPKcEv(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6Gluco219opt_certified_file_E)
-          to label %412 unwind label %406
-
-412:                                              ; preds = %410
-  %413 = load ptr, ptr %411, align 8
-  %414 = invoke noalias ptr @fopen(ptr noundef %413, ptr noundef @.str.64)
-          to label %415 unwind label %406
-
-415:                                              ; preds = %412
-  %416 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 35
-  store ptr %414, ptr %416, align 8
-  br label %417
-
-417:                                              ; preds = %415, %256
+257:                                              ; preds = %255
+  %258 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 35
+  store ptr %256, ptr %258, align 8
   br label %418
 
-418:                                              ; preds = %417, %236
-  %419 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 117
-  store i32 0, ptr %419, align 4
-  %420 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 10
-  store i32 0, ptr %420, align 8
-  %421 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 116
+259:                                              ; preds = %1
+  %260 = landingpad { ptr, i32 }
+          cleanup
+  %261 = extractvalue { ptr, i32 } %260, 0
+  store ptr %261, ptr %3, align 8
+  %262 = extractvalue { ptr, i32 } %260, 1
+  store i32 %262, ptr %4, align 4
+  br label %485
+
+263:                                              ; preds = %20
+  %264 = landingpad { ptr, i32 }
+          cleanup
+  %265 = extractvalue { ptr, i32 } %264, 0
+  store ptr %265, ptr %3, align 8
+  %266 = extractvalue { ptr, i32 } %264, 1
+  store i32 %266, ptr %4, align 4
+  br label %484
+
+267:                                              ; preds = %22
+  %268 = landingpad { ptr, i32 }
+          cleanup
+  %269 = extractvalue { ptr, i32 } %268, 0
+  store ptr %269, ptr %3, align 8
+  %270 = extractvalue { ptr, i32 } %268, 1
+  store i32 %270, ptr %4, align 4
+  br label %483
+
+271:                                              ; preds = %108, %103, %97, %92, %88, %84, %80, %76, %72, %68, %64, %60, %56, %52, %48, %43, %38, %34, %30, %24
+  %272 = landingpad { ptr, i32 }
+          cleanup
+  %273 = extractvalue { ptr, i32 } %272, 0
+  store ptr %273, ptr %3, align 8
+  %274 = extractvalue { ptr, i32 } %272, 1
+  store i32 %274, ptr %4, align 4
+  br label %482
+
+275:                                              ; preds = %141, %137
+  %276 = landingpad { ptr, i32 }
+          cleanup
+  %277 = extractvalue { ptr, i32 } %276, 0
+  store ptr %277, ptr %3, align 8
+  %278 = extractvalue { ptr, i32 } %276, 1
+  store i32 %278, ptr %4, align 4
+  br label %481
+
+279:                                              ; preds = %145, %142
+  %280 = landingpad { ptr, i32 }
+          cleanup
+  %281 = extractvalue { ptr, i32 } %280, 0
+  store ptr %281, ptr %3, align 8
+  %282 = extractvalue { ptr, i32 } %280, 1
+  store i32 %282, ptr %4, align 4
+  br label %480
+
+283:                                              ; preds = %146
+  %284 = landingpad { ptr, i32 }
+          cleanup
+  %285 = extractvalue { ptr, i32 } %284, 0
+  store ptr %285, ptr %3, align 8
+  %286 = extractvalue { ptr, i32 } %284, 1
+  store i32 %286, ptr %4, align 4
+  br label %479
+
+287:                                              ; preds = %148
+  %288 = landingpad { ptr, i32 }
+          cleanup
+  %289 = extractvalue { ptr, i32 } %288, 0
+  store ptr %289, ptr %3, align 8
+  %290 = extractvalue { ptr, i32 } %288, 1
+  store i32 %290, ptr %4, align 4
+  br label %478
+
+291:                                              ; preds = %150
+  %292 = landingpad { ptr, i32 }
+          cleanup
+  %293 = extractvalue { ptr, i32 } %292, 0
+  store ptr %293, ptr %3, align 8
+  %294 = extractvalue { ptr, i32 } %292, 1
+  store i32 %294, ptr %4, align 4
+  br label %477
+
+295:                                              ; preds = %152
+  %296 = landingpad { ptr, i32 }
+          cleanup
+  %297 = extractvalue { ptr, i32 } %296, 0
+  store ptr %297, ptr %3, align 8
+  %298 = extractvalue { ptr, i32 } %296, 1
+  store i32 %298, ptr %4, align 4
+  br label %476
+
+299:                                              ; preds = %154
+  %300 = landingpad { ptr, i32 }
+          cleanup
+  %301 = extractvalue { ptr, i32 } %300, 0
+  store ptr %301, ptr %3, align 8
+  %302 = extractvalue { ptr, i32 } %300, 1
+  store i32 %302, ptr %4, align 4
+  br label %475
+
+303:                                              ; preds = %156
+  %304 = landingpad { ptr, i32 }
+          cleanup
+  %305 = extractvalue { ptr, i32 } %304, 0
+  store ptr %305, ptr %3, align 8
+  %306 = extractvalue { ptr, i32 } %304, 1
+  store i32 %306, ptr %4, align 4
+  br label %474
+
+307:                                              ; preds = %158
+  %308 = landingpad { ptr, i32 }
+          cleanup
+  %309 = extractvalue { ptr, i32 } %308, 0
+  store ptr %309, ptr %3, align 8
+  %310 = extractvalue { ptr, i32 } %308, 1
+  store i32 %310, ptr %4, align 4
+  br label %473
+
+311:                                              ; preds = %160
+  %312 = landingpad { ptr, i32 }
+          cleanup
+  %313 = extractvalue { ptr, i32 } %312, 0
+  store ptr %313, ptr %3, align 8
+  %314 = extractvalue { ptr, i32 } %312, 1
+  store i32 %314, ptr %4, align 4
+  br label %472
+
+315:                                              ; preds = %162
+  %316 = landingpad { ptr, i32 }
+          cleanup
+  %317 = extractvalue { ptr, i32 } %316, 0
+  store ptr %317, ptr %3, align 8
+  %318 = extractvalue { ptr, i32 } %316, 1
+  store i32 %318, ptr %4, align 4
+  br label %471
+
+319:                                              ; preds = %164
+  %320 = landingpad { ptr, i32 }
+          cleanup
+  %321 = extractvalue { ptr, i32 } %320, 0
+  store ptr %321, ptr %3, align 8
+  %322 = extractvalue { ptr, i32 } %320, 1
+  store i32 %322, ptr %4, align 4
+  br label %470
+
+323:                                              ; preds = %172, %169
+  %324 = landingpad { ptr, i32 }
+          cleanup
+  %325 = extractvalue { ptr, i32 } %324, 0
+  store ptr %325, ptr %3, align 8
+  %326 = extractvalue { ptr, i32 } %324, 1
+  store i32 %326, ptr %4, align 4
+  br label %469
+
+327:                                              ; preds = %173
+  %328 = landingpad { ptr, i32 }
+          cleanup
+  %329 = extractvalue { ptr, i32 } %328, 0
+  store ptr %329, ptr %3, align 8
+  %330 = extractvalue { ptr, i32 } %328, 1
+  store i32 %330, ptr %4, align 4
+  br label %468
+
+331:                                              ; preds = %177
+  %332 = landingpad { ptr, i32 }
+          cleanup
+  %333 = extractvalue { ptr, i32 } %332, 0
+  store ptr %333, ptr %3, align 8
+  %334 = extractvalue { ptr, i32 } %332, 1
+  store i32 %334, ptr %4, align 4
+  br label %467
+
+335:                                              ; preds = %179
+  %336 = landingpad { ptr, i32 }
+          cleanup
+  %337 = extractvalue { ptr, i32 } %336, 0
+  store ptr %337, ptr %3, align 8
+  %338 = extractvalue { ptr, i32 } %336, 1
+  store i32 %338, ptr %4, align 4
+  br label %466
+
+339:                                              ; preds = %181
+  %340 = landingpad { ptr, i32 }
+          cleanup
+  %341 = extractvalue { ptr, i32 } %340, 0
+  store ptr %341, ptr %3, align 8
+  %342 = extractvalue { ptr, i32 } %340, 1
+  store i32 %342, ptr %4, align 4
+  br label %465
+
+343:                                              ; preds = %183
+  %344 = landingpad { ptr, i32 }
+          cleanup
+  %345 = extractvalue { ptr, i32 } %344, 0
+  store ptr %345, ptr %3, align 8
+  %346 = extractvalue { ptr, i32 } %344, 1
+  store i32 %346, ptr %4, align 4
+  br label %464
+
+347:                                              ; preds = %185
+  %348 = landingpad { ptr, i32 }
+          cleanup
+  %349 = extractvalue { ptr, i32 } %348, 0
+  store ptr %349, ptr %3, align 8
+  %350 = extractvalue { ptr, i32 } %348, 1
+  store i32 %350, ptr %4, align 4
+  br label %463
+
+351:                                              ; preds = %187
+  %352 = landingpad { ptr, i32 }
+          cleanup
+  %353 = extractvalue { ptr, i32 } %352, 0
+  store ptr %353, ptr %3, align 8
+  %354 = extractvalue { ptr, i32 } %352, 1
+  store i32 %354, ptr %4, align 4
+  br label %462
+
+355:                                              ; preds = %189
+  %356 = landingpad { ptr, i32 }
+          cleanup
+  %357 = extractvalue { ptr, i32 } %356, 0
+  store ptr %357, ptr %3, align 8
+  %358 = extractvalue { ptr, i32 } %356, 1
+  store i32 %358, ptr %4, align 4
+  br label %461
+
+359:                                              ; preds = %191
+  %360 = landingpad { ptr, i32 }
+          cleanup
+  %361 = extractvalue { ptr, i32 } %360, 0
+  store ptr %361, ptr %3, align 8
+  %362 = extractvalue { ptr, i32 } %360, 1
+  store i32 %362, ptr %4, align 4
+  br label %460
+
+363:                                              ; preds = %199, %193
+  %364 = landingpad { ptr, i32 }
+          cleanup
+  %365 = extractvalue { ptr, i32 } %364, 0
+  store ptr %365, ptr %3, align 8
+  %366 = extractvalue { ptr, i32 } %364, 1
+  store i32 %366, ptr %4, align 4
+  br label %459
+
+367:                                              ; preds = %205
+  %368 = landingpad { ptr, i32 }
+          cleanup
+  %369 = extractvalue { ptr, i32 } %368, 0
+  store ptr %369, ptr %3, align 8
+  %370 = extractvalue { ptr, i32 } %368, 1
+  store i32 %370, ptr %4, align 4
+  br label %458
+
+371:                                              ; preds = %207
+  %372 = landingpad { ptr, i32 }
+          cleanup
+  %373 = extractvalue { ptr, i32 } %372, 0
+  store ptr %373, ptr %3, align 8
+  %374 = extractvalue { ptr, i32 } %372, 1
+  store i32 %374, ptr %4, align 4
+  br label %457
+
+375:                                              ; preds = %209
+  %376 = landingpad { ptr, i32 }
+          cleanup
+  %377 = extractvalue { ptr, i32 } %376, 0
+  store ptr %377, ptr %3, align 8
+  %378 = extractvalue { ptr, i32 } %376, 1
+  store i32 %378, ptr %4, align 4
+  br label %456
+
+379:                                              ; preds = %211
+  %380 = landingpad { ptr, i32 }
+          cleanup
+  %381 = extractvalue { ptr, i32 } %380, 0
+  store ptr %381, ptr %3, align 8
+  %382 = extractvalue { ptr, i32 } %380, 1
+  store i32 %382, ptr %4, align 4
+  br label %455
+
+383:                                              ; preds = %213
+  %384 = landingpad { ptr, i32 }
+          cleanup
+  %385 = extractvalue { ptr, i32 } %384, 0
+  store ptr %385, ptr %3, align 8
+  %386 = extractvalue { ptr, i32 } %384, 1
+  store i32 %386, ptr %4, align 4
+  br label %454
+
+387:                                              ; preds = %217, %215
+  %388 = landingpad { ptr, i32 }
+          cleanup
+  %389 = extractvalue { ptr, i32 } %388, 0
+  store ptr %389, ptr %3, align 8
+  %390 = extractvalue { ptr, i32 } %388, 1
+  store i32 %390, ptr %4, align 4
+  br label %453
+
+391:                                              ; preds = %218
+  %392 = landingpad { ptr, i32 }
+          cleanup
+  %393 = extractvalue { ptr, i32 } %392, 0
+  store ptr %393, ptr %3, align 8
+  %394 = extractvalue { ptr, i32 } %392, 1
+  store i32 %394, ptr %4, align 4
+  br label %452
+
+395:                                              ; preds = %220
+  %396 = landingpad { ptr, i32 }
+          cleanup
+  %397 = extractvalue { ptr, i32 } %396, 0
+  store ptr %397, ptr %3, align 8
+  %398 = extractvalue { ptr, i32 } %396, 1
+  store i32 %398, ptr %4, align 4
+  br label %451
+
+399:                                              ; preds = %222
+  %400 = landingpad { ptr, i32 }
+          cleanup
+  %401 = extractvalue { ptr, i32 } %400, 0
+  store ptr %401, ptr %3, align 8
+  %402 = extractvalue { ptr, i32 } %400, 1
+  store i32 %402, ptr %4, align 4
+  br label %450
+
+403:                                              ; preds = %224
+  %404 = landingpad { ptr, i32 }
+          cleanup
+  %405 = extractvalue { ptr, i32 } %404, 0
+  store ptr %405, ptr %3, align 8
+  %406 = extractvalue { ptr, i32 } %404, 1
+  store i32 %406, ptr %4, align 4
+  br label %449
+
+407:                                              ; preds = %419, %413, %411, %255, %249, %232, %226
+  %408 = landingpad { ptr, i32 }
+          cleanup
+  %409 = extractvalue { ptr, i32 } %408, 0
+  store ptr %409, ptr %3, align 8
+  %410 = extractvalue { ptr, i32 } %408, 1
+  store i32 %410, ptr %4, align 4
+  br label %448
+
+411:                                              ; preds = %251
+  %412 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6Gluco212StringOptioncvRPKcEv(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6Gluco219opt_certified_file_E)
+          to label %413 unwind label %407
+
+413:                                              ; preds = %411
+  %414 = load ptr, ptr %412, align 8
+  %415 = invoke noalias ptr @fopen(ptr noundef %414, ptr noundef @.str.64)
+          to label %416 unwind label %407
+
+416:                                              ; preds = %413
+  %417 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 35
+  store ptr %415, ptr %417, align 8
+  br label %418
+
+418:                                              ; preds = %416, %257
+  br label %419
+
+419:                                              ; preds = %418, %237
+  %420 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 117
+  store i32 0, ptr %420, align 4
+  %421 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 10
   store i32 0, ptr %421, align 8
-  %422 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 115
-  store i32 0, ptr %422, align 4
+  %422 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 116
+  store i32 0, ptr %422, align 8
+  %423 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 115
+  store i32 0, ptr %423, align 4
   invoke void @_ZN6Gluco23vecINS_3LitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %423 unwind label %406
+          to label %424 unwind label %407
 
-423:                                              ; preds = %418
+424:                                              ; preds = %419
   invoke void @_ZN6Gluco23vecINS_3LitEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %424 unwind label %443
+          to label %425 unwind label %444
 
-424:                                              ; preds = %423
-  %425 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
-  %426 = invoke noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %425, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext false)
-          to label %427 unwind label %443
+425:                                              ; preds = %424
+  %426 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
+  %427 = invoke noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %426, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext false)
+          to label %428 unwind label %444
 
-427:                                              ; preds = %424
-  %428 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 114
-  store i32 %426, ptr %428, align 8
-  %429 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
-  %430 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 114
-  %431 = load i32, ptr %430, align 8
-  %432 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN6Gluco215ClauseAllocatorixEj(ptr noundef nonnull align 8 dereferenceable(21) %429, i32 noundef %431)
-          to label %433 unwind label %443
+428:                                              ; preds = %425
+  %429 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 114
+  store i32 %427, ptr %429, align 8
+  %430 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
+  %431 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 114
+  %432 = load i32, ptr %431, align 8
+  %433 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN6Gluco215ClauseAllocatorixEj(ptr noundef nonnull align 8 dereferenceable(21) %430, i32 noundef %432)
+          to label %434 unwind label %444
 
-433:                                              ; preds = %427
-  %434 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
-  %435 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 114
-  %436 = load i32, ptr %435, align 8
-  %437 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN6Gluco215ClauseAllocatorixEj(ptr noundef nonnull align 8 dereferenceable(21) %434, i32 noundef %436)
-          to label %438 unwind label %443
+434:                                              ; preds = %428
+  %435 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 84
+  %436 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 114
+  %437 = load i32, ptr %436, align 8
+  %438 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN6Gluco215ClauseAllocatorixEj(ptr noundef nonnull align 8 dereferenceable(21) %435, i32 noundef %437)
+          to label %439 unwind label %444
 
-438:                                              ; preds = %433
-  %439 = invoke noundef i32 @_ZNK6Gluco26Clause4sizeEv(ptr noundef nonnull align 4 dereferenceable(12) %437)
-          to label %440 unwind label %443
+439:                                              ; preds = %434
+  %440 = invoke noundef i32 @_ZNK6Gluco26Clause4sizeEv(ptr noundef nonnull align 4 dereferenceable(12) %438)
+          to label %441 unwind label %444
 
-440:                                              ; preds = %438
-  invoke void @_ZN6Gluco26Clause6shrinkEi(ptr noundef nonnull align 4 dereferenceable(12) %432, i32 noundef %439)
-          to label %441 unwind label %443
+441:                                              ; preds = %439
+  invoke void @_ZN6Gluco26Clause6shrinkEi(ptr noundef nonnull align 4 dereferenceable(12) %433, i32 noundef %440)
+          to label %442 unwind label %444
 
-441:                                              ; preds = %440
-  %442 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 121
-  store i32 0, ptr %442, align 8
+442:                                              ; preds = %441
+  %443 = getelementptr inbounds %"class.Gluco2::Solver", ptr %10, i32 0, i32 121
+  store i32 0, ptr %443, align 8
   call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   ret void
 
-443:                                              ; preds = %440, %438, %433, %427, %424, %423
-  %444 = landingpad { ptr, i32 }
+444:                                              ; preds = %441, %439, %434, %428, %425, %424
+  %445 = landingpad { ptr, i32 }
           cleanup
-  %445 = extractvalue { ptr, i32 } %444, 0
-  store ptr %445, ptr %3, align 8
-  %446 = extractvalue { ptr, i32 } %444, 1
-  store i32 %446, ptr %4, align 4
+  %446 = extractvalue { ptr, i32 } %445, 0
+  store ptr %446, ptr %3, align 8
+  %447 = extractvalue { ptr, i32 } %445, 1
+  store i32 %447, ptr %4, align 4
   call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %447
-
-447:                                              ; preds = %443, %406
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %224) #3
   br label %448
 
-448:                                              ; preds = %447, %402
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %222) #3
+448:                                              ; preds = %444, %407
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %225) #3
   br label %449
 
-449:                                              ; preds = %448, %398
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %220) #3
+449:                                              ; preds = %448, %403
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %223) #3
   br label %450
 
-450:                                              ; preds = %449, %394
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %218) #3
+450:                                              ; preds = %449, %399
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %221) #3
   br label %451
 
-451:                                              ; preds = %450, %390
-  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %215) #3
+451:                                              ; preds = %450, %395
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %219) #3
   br label %452
 
-452:                                              ; preds = %451, %386
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %213) #3
+452:                                              ; preds = %451, %391
+  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %216) #3
   br label %453
 
-453:                                              ; preds = %452, %382
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %211) #3
+453:                                              ; preds = %452, %387
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %214) #3
   br label %454
 
-454:                                              ; preds = %453, %378
-  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %209) #3
+454:                                              ; preds = %453, %383
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %212) #3
   br label %455
 
-455:                                              ; preds = %454, %374
-  call void @_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %207) #3
+455:                                              ; preds = %454, %379
+  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %210) #3
   br label %456
 
-456:                                              ; preds = %455, %370
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %205) #3
+456:                                              ; preds = %455, %375
+  call void @_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %208) #3
   br label %457
 
-457:                                              ; preds = %456, %366
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %203) #3
+457:                                              ; preds = %456, %371
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %206) #3
   br label %458
 
-458:                                              ; preds = %457, %362
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %191) #3
+458:                                              ; preds = %457, %367
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %204) #3
   br label %459
 
-459:                                              ; preds = %458, %358
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %189) #3
+459:                                              ; preds = %458, %363
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %192) #3
   br label %460
 
-460:                                              ; preds = %459, %354
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %187) #3
+460:                                              ; preds = %459, %359
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %190) #3
   br label %461
 
-461:                                              ; preds = %460, %350
-  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %185) #3
+461:                                              ; preds = %460, %355
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %188) #3
   br label %462
 
-462:                                              ; preds = %461, %346
-  call void @_ZN6Gluco26bqueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %183) #3
+462:                                              ; preds = %461, %351
+  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %186) #3
   br label %463
 
-463:                                              ; preds = %462, %342
-  call void @_ZN6Gluco26bqueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %181) #3
+463:                                              ; preds = %462, %347
+  call void @_ZN6Gluco26bqueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %184) #3
   br label %464
 
-464:                                              ; preds = %463, %338
-  call void @_ZN6Gluco215ClauseAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(21) %179) #3
+464:                                              ; preds = %463, %343
+  call void @_ZN6Gluco26bqueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %182) #3
   br label %465
 
-465:                                              ; preds = %464, %334
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %177) #3
+465:                                              ; preds = %464, %339
+  call void @_ZN6Gluco215ClauseAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(21) %180) #3
   br label %466
 
-466:                                              ; preds = %465, %330
-  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %175) #3
+466:                                              ; preds = %465, %335
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %178) #3
   br label %467
 
-467:                                              ; preds = %466, %326
-  call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %169) #3
+467:                                              ; preds = %466, %331
+  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %176) #3
   br label %468
 
-468:                                              ; preds = %467, %322
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %167) #3
+468:                                              ; preds = %467, %327
+  call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %170) #3
   br label %469
 
-469:                                              ; preds = %468, %318
-  call void @_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %162) #3
+469:                                              ; preds = %468, %323
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %168) #3
   br label %470
 
-470:                                              ; preds = %469, %314
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %160) #3
+470:                                              ; preds = %469, %319
+  call void @_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %163) #3
   br label %471
 
-471:                                              ; preds = %470, %310
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %158) #3
+471:                                              ; preds = %470, %315
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %161) #3
   br label %472
 
-472:                                              ; preds = %471, %306
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %156) #3
+472:                                              ; preds = %471, %311
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %159) #3
   br label %473
 
-473:                                              ; preds = %472, %302
-  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %154) #3
+473:                                              ; preds = %472, %307
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %157) #3
   br label %474
 
-474:                                              ; preds = %473, %298
-  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152) #3
+474:                                              ; preds = %473, %303
+  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %155) #3
   br label %475
 
-475:                                              ; preds = %474, %294
-  call void @_ZN6Gluco23vecINS_5lboolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150) #3
+475:                                              ; preds = %474, %299
+  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %153) #3
   br label %476
 
-476:                                              ; preds = %475, %290
-  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #3
+476:                                              ; preds = %475, %295
+  call void @_ZN6Gluco23vecINS_5lboolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %151) #3
   br label %477
 
-477:                                              ; preds = %476, %286
-  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146) #3
+477:                                              ; preds = %476, %291
+  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %149) #3
   br label %478
 
-478:                                              ; preds = %477, %282
-  call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %142) #3
+478:                                              ; preds = %477, %287
+  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %147) #3
   br label %479
 
-479:                                              ; preds = %478, %278
-  call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %138) #3
+479:                                              ; preds = %478, %283
+  call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %143) #3
   br label %480
 
-480:                                              ; preds = %479, %274
-  call void @_ZN6Gluco23vecIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %135) #3
+480:                                              ; preds = %479, %279
+  call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %139) #3
   br label %481
 
-481:                                              ; preds = %480, %270
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
+481:                                              ; preds = %480, %275
+  call void @_ZN6Gluco23vecIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %136) #3
   br label %482
 
-482:                                              ; preds = %481, %266
-  call void @_ZN6Gluco23vecINS_5lboolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #3
+482:                                              ; preds = %481, %271
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
   br label %483
 
-483:                                              ; preds = %482, %262
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
+483:                                              ; preds = %482, %267
+  call void @_ZN6Gluco23vecINS_5lboolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
   br label %484
 
-484:                                              ; preds = %483, %258
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+484:                                              ; preds = %483, %263
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #3
   br label %485
 
-485:                                              ; preds = %484
-  %486 = load ptr, ptr %3, align 8
-  %487 = load i32, ptr %4, align 4
-  %488 = insertvalue { ptr, i32 } poison, ptr %486, 0
-  %489 = insertvalue { ptr, i32 } %488, i32 %487, 1
-  resume { ptr, i32 } %489
+485:                                              ; preds = %484, %259
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
+  br label %486
+
+486:                                              ; preds = %485
+  %487 = load ptr, ptr %3, align 8
+  %488 = load i32, ptr %4, align 4
+  %489 = insertvalue { ptr, i32 } poison, ptr %487, 0
+  %490 = insertvalue { ptr, i32 } %489, i32 %488, 1
+  resume { ptr, i32 } %490
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3271,83 +3276,84 @@ define void @_ZN6Gluco26SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Gluco26SolverE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 123
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  %5 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 122
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  %6 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 120
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6Gluco26SolverE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 123
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %6 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 122
   call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  %7 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 119
+  %7 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 120
   call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  %8 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 118
-  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
-  %9 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 113
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  %10 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 112
+  %8 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 119
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  %9 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 118
+  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #3
+  %10 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 113
   call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  %11 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 111
-  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
-  %12 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 110
-  call void @_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  %13 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 108
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  %14 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 107
+  %11 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 112
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  %12 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 111
+  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  %13 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 110
+  call void @_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  %14 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 108
   call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  %15 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 93
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  %16 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 92
+  %15 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 107
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
+  %16 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 93
   call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  %17 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 91
+  %17 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 92
   call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  %18 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 90
-  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
-  %19 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 87
-  call void @_ZN6Gluco26bqueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #3
-  %20 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 86
+  %18 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 91
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
+  %19 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 90
+  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #3
+  %20 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 87
   call void @_ZN6Gluco26bqueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #3
-  %21 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 84
-  call void @_ZN6Gluco215ClauseAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(21) %21) #3
-  %22 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 83
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #3
-  %23 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 82
-  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
-  %24 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 79
-  call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #3
-  %25 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 78
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #3
-  %26 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 74
-  call void @_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
-  %27 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 73
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #3
-  %28 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 72
+  %21 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 86
+  call void @_ZN6Gluco26bqueueIjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %21) #3
+  %22 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 84
+  call void @_ZN6Gluco215ClauseAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(21) %22) #3
+  %23 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 83
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #3
+  %24 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 82
+  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #3
+  %25 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 79
+  call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #3
+  %26 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 78
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
+  %27 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 74
+  call void @_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #3
+  %28 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 73
   call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #3
-  %29 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 71
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #3
-  %30 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 70
-  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #3
-  %31 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 69
+  %29 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 72
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #3
+  %30 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 71
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #3
+  %31 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 70
   call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #3
-  %32 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 68
-  call void @_ZN6Gluco23vecINS_5lboolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #3
-  %33 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 67
-  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #3
-  %34 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 66
+  %32 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 69
+  call void @_ZN6Gluco23vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #3
+  %33 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 68
+  call void @_ZN6Gluco23vecINS_5lboolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #3
+  %34 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 67
   call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #3
-  %35 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 65
-  call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %35) #3
-  %36 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 64
+  %35 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 66
+  call void @_ZN6Gluco23vecIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #3
+  %36 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 65
   call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #3
-  %37 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 62
-  call void @_ZN6Gluco23vecIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #3
-  %38 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 12
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #3
-  %39 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 11
-  call void @_ZN6Gluco23vecINS_5lboolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #3
-  %40 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 9
-  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #3
-  %41 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 8
-  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #3
+  %37 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 64
+  call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %37) #3
+  %38 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 62
+  call void @_ZN6Gluco23vecIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #3
+  %39 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 12
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #3
+  %40 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 11
+  call void @_ZN6Gluco23vecINS_5lboolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #3
+  %41 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 9
+  call void @_ZN6Gluco23vecINS_3LitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #3
+  %42 = getelementptr inbounds %"class.Gluco2::Solver", ptr %3, i32 0, i32 8
+  call void @_ZN6Gluco23vecIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #3
   ret void
 }
 
@@ -16111,22 +16117,23 @@ define linkonce_odr void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull a
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Gluco26OptionE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.Gluco2::Option", ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.Gluco2::Option", ptr %12, i32 0, i32 2
-  %16 = load ptr, ptr %8, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.Gluco2::Option", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %9, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.Gluco2::Option", ptr %12, i32 0, i32 4
-  %20 = load ptr, ptr %10, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Gluco26Option13getOptionListEv()
+  %13 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6Gluco26OptionE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.Gluco2::Option", ptr %12, i32 0, i32 1
+  %15 = load ptr, ptr %7, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.Gluco2::Option", ptr %12, i32 0, i32 2
+  %17 = load ptr, ptr %8, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.Gluco2::Option", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %9, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.Gluco2::Option", ptr %12, i32 0, i32 4
+  %21 = load ptr, ptr %10, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Gluco26Option13getOptionListEv()
   store ptr %12, ptr %11, align 8
-  call void @_ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call void @_ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %11)
   ret void
 }
 

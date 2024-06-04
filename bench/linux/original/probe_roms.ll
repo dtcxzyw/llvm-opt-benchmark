@@ -342,142 +342,145 @@ define dso_local void @probe_roms() local_unnamed_addr #3 section ".init.text" a
   %2 = load i64, ptr @video_rom_resource, align 8
   %3 = load i64, ptr @adapter_rom_resources, align 16
   %4 = icmp ult i64 %2, %3
-  br i1 %4, label %5, label %32
+  br i1 %4, label %5, label %33
 
-5:                                                ; preds = %29, %0
-  %6 = phi i64 [ %30, %29 ], [ %2, %0 ]
+5:                                                ; preds = %30, %0
+  %6 = phi i64 [ %31, %30 ], [ %2, %0 ]
   %7 = load i64, ptr @page_offset_base, align 8
   %8 = add i64 %7, %6
   %9 = inttoptr i64 %8 to ptr
   %10 = call fastcc i32 @romsignature(ptr noundef %9) #6, !range !11
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %29, label %12
+  br i1 %11, label %30, label %12
 
 12:                                               ; preds = %5
   store i64 %6, ptr @video_rom_resource, align 8
   %13 = getelementptr i8, ptr %9, i64 2
   %14 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %1, ptr noundef %13, i64 noundef 1) #5
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %29
+  br i1 %15, label %16, label %30
 
 16:                                               ; preds = %12
   %17 = load i8, ptr %1, align 1
   %18 = zext i8 %17 to i64
   %19 = shl nuw nsw i64 %18, 9
   %20 = icmp eq i8 %17, 0
-  br i1 %20, label %27, label %21
+  br i1 %20, label %28, label %21
 
 21:                                               ; preds = %16
   %22 = call fastcc i32 @romchecksum(ptr noundef %9, i64 noundef %19) #6, !range !11
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %27, label %24
+  br i1 %23, label %28, label %24
 
 24:                                               ; preds = %21
   %25 = add i64 %6, -1
   %26 = add i64 %25, %19
-  store i64 %26, ptr getelementptr inbounds (%struct.resource, ptr @video_rom_resource, i64 0, i32 1), align 8
-  br label %27
+  %27 = getelementptr inbounds %struct.resource, ptr @video_rom_resource, i64 0, i32 1
+  store i64 %26, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %24, %21, %16
-  %28 = call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @video_rom_resource) #5
-  br label %32
+28:                                               ; preds = %24, %21, %16
+  %29 = call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @video_rom_resource) #5
+  br label %33
 
-29:                                               ; preds = %12, %5
-  %30 = add i64 %6, 2048
-  %31 = icmp ult i64 %30, %3
-  br i1 %31, label %5, label %32, !llvm.loop !12
+30:                                               ; preds = %12, %5
+  %31 = add i64 %6, 2048
+  %32 = icmp ult i64 %31, %3
+  br i1 %32, label %5, label %33, !llvm.loop !12
 
-32:                                               ; preds = %29, %27, %0
-  %33 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @video_rom_resource, i64 0, i32 1), align 8
-  %34 = and i64 %33, -2048
-  %35 = add i64 %34, 2048
-  %36 = call i64 @llvm.umax.i64(i64 %35, i64 %3)
-  %37 = call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @system_rom_resource) #5
-  %38 = load i64, ptr @system_rom_resource, align 8
-  %39 = load i64, ptr @extension_rom_resource, align 8
-  %40 = load i64, ptr @page_offset_base, align 8
-  %41 = add i64 %40, %39
-  %42 = inttoptr i64 %41 to ptr
-  %43 = call fastcc i32 @romsignature(ptr noundef %42) #6, !range !11
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %55, label %45
+33:                                               ; preds = %30, %28, %0
+  %34 = getelementptr inbounds %struct.resource, ptr @video_rom_resource, i64 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = and i64 %35, -2048
+  %37 = add i64 %36, 2048
+  %38 = call i64 @llvm.umax.i64(i64 %37, i64 %3)
+  %39 = call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @system_rom_resource) #5
+  %40 = load i64, ptr @system_rom_resource, align 8
+  %41 = load i64, ptr @extension_rom_resource, align 8
+  %42 = load i64, ptr @page_offset_base, align 8
+  %43 = add i64 %42, %41
+  %44 = inttoptr i64 %43 to ptr
+  %45 = call fastcc i32 @romsignature(ptr noundef %44) #6, !range !11
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %58, label %47
 
-45:                                               ; preds = %32
-  %46 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @extension_rom_resource, i64 0, i32 1), align 8
-  %47 = load i64, ptr @extension_rom_resource, align 8
-  %48 = add i64 %46, 1
-  %49 = sub i64 %48, %47
-  %50 = call fastcc i32 @romchecksum(ptr noundef %42, i64 noundef %49) #6, !range !11
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %55, label %52
+47:                                               ; preds = %33
+  %48 = getelementptr inbounds %struct.resource, ptr @extension_rom_resource, i64 0, i32 1
+  %49 = load i64, ptr %48, align 8
+  %50 = load i64, ptr @extension_rom_resource, align 8
+  %51 = add i64 %49, 1
+  %52 = sub i64 %51, %50
+  %53 = call fastcc i32 @romchecksum(ptr noundef %44, i64 noundef %52) #6, !range !11
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %58, label %55
 
-52:                                               ; preds = %45
-  %53 = call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @extension_rom_resource) #5
-  %54 = load i64, ptr @extension_rom_resource, align 8
-  br label %55
+55:                                               ; preds = %47
+  %56 = call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @extension_rom_resource) #5
+  %57 = load i64, ptr @extension_rom_resource, align 8
+  br label %58
 
-55:                                               ; preds = %52, %45, %32
-  %56 = phi i64 [ %54, %52 ], [ %38, %45 ], [ %38, %32 ]
-  %57 = icmp ult i64 %36, %56
-  br i1 %57, label %58, label %98
+58:                                               ; preds = %55, %47, %33
+  %59 = phi i64 [ %57, %55 ], [ %40, %47 ], [ %40, %33 ]
+  %60 = icmp ult i64 %38, %59
+  br i1 %60, label %61, label %101
 
-58:                                               ; preds = %90, %55
-  %59 = phi i64 [ %94, %90 ], [ 0, %55 ]
-  %60 = phi i64 [ %93, %90 ], [ %36, %55 ]
-  %61 = phi i32 [ %91, %90 ], [ 0, %55 ]
-  %62 = load i64, ptr @page_offset_base, align 8
-  %63 = add i64 %62, %60
-  %64 = inttoptr i64 %63 to ptr
-  %65 = call fastcc i32 @romsignature(ptr noundef %64) #6, !range !11
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %90, label %67
+61:                                               ; preds = %93, %58
+  %62 = phi i64 [ %97, %93 ], [ 0, %58 ]
+  %63 = phi i64 [ %96, %93 ], [ %38, %58 ]
+  %64 = phi i32 [ %94, %93 ], [ 0, %58 ]
+  %65 = load i64, ptr @page_offset_base, align 8
+  %66 = add i64 %65, %63
+  %67 = inttoptr i64 %66 to ptr
+  %68 = call fastcc i32 @romsignature(ptr noundef %67) #6, !range !11
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %93, label %70
 
-67:                                               ; preds = %58
-  %68 = getelementptr i8, ptr %64, i64 2
-  %69 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %1, ptr noundef %68, i64 noundef 1) #5
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %90
+70:                                               ; preds = %61
+  %71 = getelementptr i8, ptr %67, i64 2
+  %72 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %1, ptr noundef %71, i64 noundef 1) #5
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %93
 
-71:                                               ; preds = %67
-  %72 = load i8, ptr %1, align 1
-  %73 = zext i8 %72 to i64
-  %74 = shl nuw nsw i64 %73, 9
-  %75 = icmp eq i8 %72, 0
-  br i1 %75, label %90, label %76
+74:                                               ; preds = %70
+  %75 = load i8, ptr %1, align 1
+  %76 = zext i8 %75 to i64
+  %77 = shl nuw nsw i64 %76, 9
+  %78 = icmp eq i8 %75, 0
+  br i1 %78, label %93, label %79
 
-76:                                               ; preds = %71
-  %77 = add i64 %74, %60
-  %78 = icmp ugt i64 %77, %56
-  br i1 %78, label %90, label %79
-
-79:                                               ; preds = %76
-  %80 = call fastcc i32 @romchecksum(ptr noundef %64, i64 noundef %74) #6, !range !11
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %90, label %82
+79:                                               ; preds = %74
+  %80 = add i64 %77, %63
+  %81 = icmp ugt i64 %80, %59
+  br i1 %81, label %93, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr [6 x %struct.resource], ptr @adapter_rom_resources, i64 0, i64 %59
-  store i64 %60, ptr %83, align 16
-  %84 = add i64 %77, -1
-  %85 = getelementptr inbounds i8, ptr %83, i64 8
-  store i64 %84, ptr %85, align 8
-  %86 = call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef %83) #5
-  %87 = add nuw nsw i32 %61, 1
-  %88 = load i64, ptr %85, align 8
-  %89 = and i64 %88, -2048
-  br label %90
+  %83 = call fastcc i32 @romchecksum(ptr noundef %67, i64 noundef %77) #6, !range !11
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %93, label %85
 
-90:                                               ; preds = %82, %79, %76, %71, %67, %58
-  %91 = phi i32 [ %61, %67 ], [ %61, %76 ], [ %87, %82 ], [ %61, %79 ], [ %61, %71 ], [ %61, %58 ]
-  %92 = phi i64 [ %60, %67 ], [ %60, %76 ], [ %89, %82 ], [ %60, %79 ], [ %60, %71 ], [ %60, %58 ]
-  %93 = add i64 %92, 2048
-  %94 = sext i32 %91 to i64
-  %95 = icmp ult i32 %91, 6
-  %96 = icmp ult i64 %93, %56
-  %97 = select i1 %95, i1 %96, i1 false
-  br i1 %97, label %58, label %98, !llvm.loop !13
+85:                                               ; preds = %82
+  %86 = getelementptr [6 x %struct.resource], ptr @adapter_rom_resources, i64 0, i64 %62
+  store i64 %63, ptr %86, align 16
+  %87 = add i64 %80, -1
+  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  store i64 %87, ptr %88, align 8
+  %89 = call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef %86) #5
+  %90 = add nuw nsw i32 %64, 1
+  %91 = load i64, ptr %88, align 8
+  %92 = and i64 %91, -2048
+  br label %93
 
-98:                                               ; preds = %90, %55
+93:                                               ; preds = %85, %82, %79, %74, %70, %61
+  %94 = phi i32 [ %64, %70 ], [ %64, %79 ], [ %90, %85 ], [ %64, %82 ], [ %64, %74 ], [ %64, %61 ]
+  %95 = phi i64 [ %63, %70 ], [ %63, %79 ], [ %92, %85 ], [ %63, %82 ], [ %63, %74 ], [ %63, %61 ]
+  %96 = add i64 %95, 2048
+  %97 = sext i32 %94 to i64
+  %98 = icmp ult i32 %94, 6
+  %99 = icmp ult i64 %96, %59
+  %100 = select i1 %98, i1 %99, i1 false
+  br i1 %100, label %61, label %101, !llvm.loop !13
+
+101:                                              ; preds = %93, %58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #5
   ret void
 }

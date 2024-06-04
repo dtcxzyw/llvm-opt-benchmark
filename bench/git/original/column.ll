@@ -867,13 +867,17 @@ if.then17:                                        ; preds = %land.lhs.true15
 if.end20:                                         ; preds = %if.then17, %land.lhs.true15, %if.end13
   %22 = load ptr, ptr @stdout, align 8
   %call21 = call i32 @fflush(ptr noundef %22)
-  store i32 -1, ptr getelementptr inbounds (%struct.child_process, ptr @column_process, i32 0, i32 7), align 8
+  %23 = getelementptr inbounds %struct.child_process, ptr @column_process, i32 0, i32 7
+  store i32 -1, ptr %23, align 8
   %call22 = call i32 @dup(i32 noundef 1) #8
-  store i32 %call22, ptr getelementptr inbounds (%struct.child_process, ptr @column_process, i32 0, i32 8), align 4
-  %bf.load = load i16, ptr getelementptr inbounds (%struct.child_process, ptr @column_process, i32 0, i32 11), align 8
+  %24 = getelementptr inbounds %struct.child_process, ptr @column_process, i32 0, i32 8
+  store i32 %call22, ptr %24, align 4
+  %25 = getelementptr inbounds %struct.child_process, ptr @column_process, i32 0, i32 11
+  %bf.load = load i16, ptr %25, align 8
   %bf.clear = and i16 %bf.load, -9
   %bf.set = or i16 %bf.clear, 8
-  store i16 %bf.set, ptr getelementptr inbounds (%struct.child_process, ptr @column_process, i32 0, i32 11), align 8
+  %26 = getelementptr inbounds %struct.child_process, ptr @column_process, i32 0, i32 11
+  store i16 %bf.set, ptr %26, align 8
   %call23 = call i32 @start_command(ptr noundef @column_process)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.then25, label %if.end26
@@ -886,16 +890,18 @@ if.end26:                                         ; preds = %if.end20
   %call27 = call i32 @dup(i32 noundef 1) #8
   store i32 %call27, ptr @fd_out, align 4
   %call28 = call i32 @close(i32 noundef 1)
-  %23 = load i32, ptr getelementptr inbounds (%struct.child_process, ptr @column_process, i32 0, i32 7), align 8
-  %call29 = call i32 @dup2(i32 noundef %23, i32 noundef 1) #8
-  %24 = load i32, ptr getelementptr inbounds (%struct.child_process, ptr @column_process, i32 0, i32 7), align 8
-  %call30 = call i32 @close(i32 noundef %24)
+  %27 = getelementptr inbounds %struct.child_process, ptr @column_process, i32 0, i32 7
+  %28 = load i32, ptr %27, align 8
+  %call29 = call i32 @dup2(i32 noundef %28, i32 noundef 1) #8
+  %29 = getelementptr inbounds %struct.child_process, ptr @column_process, i32 0, i32 7
+  %30 = load i32, ptr %29, align 8
+  %call30 = call i32 @close(i32 noundef %30)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end26, %if.then25, %if.then
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+  %31 = load i32, ptr %retval, align 4
+  ret i32 %31
 }
 
 declare void @child_process_init(ptr noundef) #2

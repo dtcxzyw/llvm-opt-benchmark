@@ -2398,1473 +2398,1474 @@ define internal i32 @dissect_qnet6_kif(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr @qnet6_kif_msgtype_vals, ptr %18, align 8
   br label %48
 
-48:                                               ; preds = %74, %5
+48:                                               ; preds = %75, %5
   %49 = load ptr, ptr %18, align 8
-  %50 = icmp ult ptr %49, getelementptr (%struct._value_string, ptr @qnet6_kif_msgtype_vals, i64 19)
-  br i1 %50, label %51, label %77
+  %50 = getelementptr %struct._value_string, ptr @qnet6_kif_msgtype_vals, i64 19
+  %51 = icmp ult ptr %49, %50
+  br i1 %51, label %52, label %78
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %18, align 8
-  %53 = getelementptr inbounds %struct._value_string, ptr %52, i32 0, i32 0
-  %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  %58 = and i32 %57, 127
-  %59 = icmp eq i32 %54, %58
-  br i1 %59, label %60, label %73
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %18, align 8
+  %54 = getelementptr inbounds %struct._value_string, ptr %53, i32 0, i32 0
+  %55 = load i32, ptr %54, align 8
+  %56 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %57 = load i16, ptr %56, align 2
+  %58 = zext i16 %57 to i32
+  %59 = and i32 %58, 127
+  %60 = icmp eq i32 %55, %59
+  br i1 %60, label %61, label %74
 
-60:                                               ; preds = %51
-  %61 = load ptr, ptr %18, align 8
-  %62 = getelementptr inbounds %struct._value_string, ptr %61, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %72
+61:                                               ; preds = %52
+  %62 = load ptr, ptr %18, align 8
+  %63 = getelementptr inbounds %struct._value_string, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %73
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %18, align 8
-  %70 = getelementptr inbounds %struct._value_string, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  call void @col_set_str(ptr noundef %68, i32 noundef 25, ptr noundef %71)
-  br label %72
-
-72:                                               ; preds = %65, %60
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %8, align 8
+  %68 = getelementptr inbounds %struct._packet_info, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %18, align 8
+  %71 = getelementptr inbounds %struct._value_string, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  call void @col_set_str(ptr noundef %69, i32 noundef 25, ptr noundef %72)
   br label %73
 
-73:                                               ; preds = %72, %51
+73:                                               ; preds = %66, %61
   br label %74
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %18, align 8
-  %76 = getelementptr %struct._value_string, ptr %75, i32 1
-  store ptr %76, ptr %18, align 8
+74:                                               ; preds = %73, %52
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %18, align 8
+  %77 = getelementptr %struct._value_string, ptr %76, i32 1
+  store ptr %77, ptr %18, align 8
   br label %48, !llvm.loop !4
 
-77:                                               ; preds = %48
-  %78 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %79 = load i16, ptr %78, align 2
-  %80 = zext i16 %79 to i32
-  %81 = and i32 %80, 127
-  %82 = icmp ne i32 %81, 1
-  br i1 %82, label %83, label %129
+78:                                               ; preds = %48
+  %79 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %80 = load i16, ptr %79, align 2
+  %81 = zext i16 %80 to i32
+  %82 = and i32 %81, 127
+  %83 = icmp ne i32 %82, 1
+  br i1 %83, label %84, label %130
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %13, align 8
-  %85 = load i32, ptr @hf_qnet6_kif_msgtype, align 4
-  %86 = load ptr, ptr %7, align 8
-  %87 = load ptr, ptr %10, align 8
-  %88 = load i32, ptr %87, align 4
-  %89 = load i32, ptr %11, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %88, i32 noundef 2, i32 noundef %89)
-  store ptr %90, ptr %12, align 8
-  %91 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %92 = load i16, ptr %91, align 2
-  %93 = zext i16 %92 to i32
-  %94 = and i32 %93, 256
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %98
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %13, align 8
+  %86 = load i32, ptr @hf_qnet6_kif_msgtype, align 4
+  %87 = load ptr, ptr %7, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = load i32, ptr %88, align 4
+  %90 = load i32, ptr %11, align 4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %89, i32 noundef 2, i32 noundef %90)
+  store ptr %91, ptr %12, align 8
+  %92 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %93 = load i16, ptr %92, align 2
+  %94 = zext i16 %93 to i32
+  %95 = and i32 %94, 256
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %99
 
-96:                                               ; preds = %83
-  %97 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef @.str.1060)
-  br label %98
+97:                                               ; preds = %84
+  %98 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef @.str.1060)
+  br label %99
 
-98:                                               ; preds = %96, %83
-  %99 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %100 = load i16, ptr %99, align 2
-  %101 = zext i16 %100 to i32
-  %102 = and i32 %101, 32896
-  %103 = icmp eq i32 %102, 32896
-  br i1 %103, label %104, label %106
+99:                                               ; preds = %97, %84
+  %100 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %101 = load i16, ptr %100, align 2
+  %102 = zext i16 %101 to i32
+  %103 = and i32 %102, 32896
+  %104 = icmp eq i32 %103, 32896
+  br i1 %104, label %105, label %107
 
-104:                                              ; preds = %98
-  %105 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef @.str.1061)
+105:                                              ; preds = %99
+  %106 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %106, ptr noundef @.str.1061)
+  br label %116
+
+107:                                              ; preds = %99
+  %108 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %109 = load i16, ptr %108, align 2
+  %110 = zext i16 %109 to i32
+  %111 = and i32 %110, 32896
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %115
+
+113:                                              ; preds = %107
+  %114 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %114, ptr noundef @.str.1062)
   br label %115
 
-106:                                              ; preds = %98
-  %107 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %108 = load i16, ptr %107, align 2
-  %109 = zext i16 %108 to i32
-  %110 = and i32 %109, 32896
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %114
+115:                                              ; preds = %113, %107
+  br label %116
 
-112:                                              ; preds = %106
-  %113 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %113, ptr noundef @.str.1062)
-  br label %114
+116:                                              ; preds = %115, %105
+  %117 = load ptr, ptr %10, align 8
+  %118 = load i32, ptr %117, align 4
+  %119 = add i32 %118, 2
+  store i32 %119, ptr %117, align 4
+  %120 = load ptr, ptr %13, align 8
+  %121 = load i32, ptr @hf_qnet6_kif_size, align 4
+  %122 = load ptr, ptr %7, align 8
+  %123 = load ptr, ptr %10, align 8
+  %124 = load i32, ptr %123, align 4
+  %125 = load i32, ptr %11, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %124, i32 noundef 2, i32 noundef %125)
+  %127 = load ptr, ptr %10, align 8
+  %128 = load i32, ptr %127, align 4
+  %129 = add i32 %128, 2
+  store i32 %129, ptr %127, align 4
+  br label %130
 
-114:                                              ; preds = %112, %106
-  br label %115
-
-115:                                              ; preds = %114, %104
-  %116 = load ptr, ptr %10, align 8
-  %117 = load i32, ptr %116, align 4
-  %118 = add i32 %117, 2
-  store i32 %118, ptr %116, align 4
-  %119 = load ptr, ptr %13, align 8
-  %120 = load i32, ptr @hf_qnet6_kif_size, align 4
-  %121 = load ptr, ptr %7, align 8
-  %122 = load ptr, ptr %10, align 8
-  %123 = load i32, ptr %122, align 4
-  %124 = load i32, ptr %11, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %123, i32 noundef 2, i32 noundef %124)
-  %126 = load ptr, ptr %10, align 8
-  %127 = load i32, ptr %126, align 4
-  %128 = add i32 %127, 2
-  store i32 %128, ptr %126, align 4
-  br label %129
-
-129:                                              ; preds = %115, %77
-  %130 = load ptr, ptr %7, align 8
-  %131 = load ptr, ptr %10, align 8
-  %132 = load i32, ptr %131, align 4
-  %133 = call i32 @tvb_reported_length_remaining(ptr noundef %130, i32 noundef %132)
-  store i32 %133, ptr %16, align 4
-  %134 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %135 = load i16, ptr %134, align 2
-  %136 = zext i16 %135 to i32
-  %137 = and i32 %136, 127
-  switch i32 %137, label %1147 [
-    i32 0, label %138
-    i32 1, label %214
-    i32 2, label %434
-    i32 3, label %508
-    i32 15, label %544
-    i32 5, label %560
-    i32 12, label %560
-    i32 6, label %822
-    i32 8, label %868
-    i32 9, label %868
-    i32 10, label %868
-    i32 7, label %868
-    i32 16, label %868
-    i32 4, label %941
-    i32 11, label %977
-    i32 13, label %1047
-    i32 14, label %1131
+130:                                              ; preds = %116, %78
+  %131 = load ptr, ptr %7, align 8
+  %132 = load ptr, ptr %10, align 8
+  %133 = load i32, ptr %132, align 4
+  %134 = call i32 @tvb_reported_length_remaining(ptr noundef %131, i32 noundef %133)
+  store i32 %134, ptr %16, align 4
+  %135 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %136 = load i16, ptr %135, align 2
+  %137 = zext i16 %136 to i32
+  %138 = and i32 %137, 127
+  switch i32 %138, label %1148 [
+    i32 0, label %139
+    i32 1, label %215
+    i32 2, label %435
+    i32 3, label %509
+    i32 15, label %545
+    i32 5, label %561
+    i32 12, label %561
+    i32 6, label %823
+    i32 8, label %869
+    i32 9, label %869
+    i32 10, label %869
+    i32 7, label %869
+    i32 16, label %869
+    i32 4, label %942
+    i32 11, label %978
+    i32 13, label %1048
+    i32 14, label %1132
   ]
 
-138:                                              ; preds = %129
-  %139 = load ptr, ptr %13, align 8
-  %140 = load i32, ptr @hf_qnet6_kif_version, align 4
-  %141 = load ptr, ptr %7, align 8
-  %142 = load ptr, ptr %10, align 8
-  %143 = load i32, ptr %142, align 4
-  %144 = load i32, ptr %11, align 4
-  %145 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %143, i32 noundef 4, i32 noundef %144)
-  %146 = load ptr, ptr %10, align 8
-  %147 = load i32, ptr %146, align 4
-  %148 = add i32 %147, 4
-  store i32 %148, ptr %146, align 4
-  %149 = load ptr, ptr %13, align 8
-  %150 = load i32, ptr @hf_qnet6_kif_connect_server_pid, align 4
-  %151 = load ptr, ptr %7, align 8
-  %152 = load ptr, ptr %10, align 8
-  %153 = load i32, ptr %152, align 4
-  %154 = load i32, ptr %11, align 4
-  %155 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %153, i32 noundef 4, i32 noundef %154)
-  %156 = load ptr, ptr %10, align 8
-  %157 = load i32, ptr %156, align 4
-  %158 = add i32 %157, 4
-  store i32 %158, ptr %156, align 4
-  %159 = load ptr, ptr %7, align 8
-  %160 = load ptr, ptr %10, align 8
-  %161 = load i32, ptr %160, align 4
-  %162 = load i32, ptr %11, align 4
-  %163 = call i32 @tvb_get_guint32(ptr noundef %159, i32 noundef %161, i32 noundef %162)
-  store i32 %163, ptr %22, align 4
-  %164 = load ptr, ptr %13, align 8
-  %165 = load i32, ptr @hf_qnet6_kif_connect_server_chid, align 4
-  %166 = load ptr, ptr %7, align 8
-  %167 = load ptr, ptr %10, align 8
-  %168 = load i32, ptr %167, align 4
-  %169 = load i32, ptr %11, align 4
-  %170 = call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %166, i32 noundef %168, i32 noundef 4, i32 noundef %169)
-  store ptr %170, ptr %12, align 8
-  %171 = load i32, ptr %22, align 4
-  %172 = load ptr, ptr %12, align 8
-  call void @display_channel_id(i32 noundef %171, ptr noundef %172)
-  %173 = load ptr, ptr %10, align 8
-  %174 = load i32, ptr %173, align 4
-  %175 = add i32 %174, 4
-  store i32 %175, ptr %173, align 4
-  %176 = load ptr, ptr %13, align 8
-  %177 = load i32, ptr @hf_qnet6_kif_connect_client_id, align 4
-  %178 = load ptr, ptr %7, align 8
-  %179 = load ptr, ptr %10, align 8
-  %180 = load i32, ptr %179, align 4
-  %181 = load i32, ptr %11, align 4
-  %182 = call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef %180, i32 noundef 4, i32 noundef %181)
-  %183 = load ptr, ptr %10, align 8
-  %184 = load i32, ptr %183, align 4
-  %185 = add i32 %184, 4
-  store i32 %185, ptr %183, align 4
-  %186 = load ptr, ptr %13, align 8
-  %187 = load i32, ptr @hf_qnet6_kif_connect_client_pid, align 4
-  %188 = load ptr, ptr %7, align 8
-  %189 = load ptr, ptr %10, align 8
-  %190 = load i32, ptr %189, align 4
-  %191 = load i32, ptr %11, align 4
-  %192 = call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %188, i32 noundef %190, i32 noundef 4, i32 noundef %191)
-  %193 = load ptr, ptr %10, align 8
-  %194 = load i32, ptr %193, align 4
-  %195 = add i32 %194, 4
-  store i32 %195, ptr %193, align 4
-  %196 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %197 = load i16, ptr %196, align 2
-  %198 = zext i16 %197 to i32
-  %199 = and i32 %198, 256
-  %200 = icmp ne i32 %199, 0
-  br i1 %200, label %201, label %213
+139:                                              ; preds = %130
+  %140 = load ptr, ptr %13, align 8
+  %141 = load i32, ptr @hf_qnet6_kif_version, align 4
+  %142 = load ptr, ptr %7, align 8
+  %143 = load ptr, ptr %10, align 8
+  %144 = load i32, ptr %143, align 4
+  %145 = load i32, ptr %11, align 4
+  %146 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %144, i32 noundef 4, i32 noundef %145)
+  %147 = load ptr, ptr %10, align 8
+  %148 = load i32, ptr %147, align 4
+  %149 = add i32 %148, 4
+  store i32 %149, ptr %147, align 4
+  %150 = load ptr, ptr %13, align 8
+  %151 = load i32, ptr @hf_qnet6_kif_connect_server_pid, align 4
+  %152 = load ptr, ptr %7, align 8
+  %153 = load ptr, ptr %10, align 8
+  %154 = load i32, ptr %153, align 4
+  %155 = load i32, ptr %11, align 4
+  %156 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %151, ptr noundef %152, i32 noundef %154, i32 noundef 4, i32 noundef %155)
+  %157 = load ptr, ptr %10, align 8
+  %158 = load i32, ptr %157, align 4
+  %159 = add i32 %158, 4
+  store i32 %159, ptr %157, align 4
+  %160 = load ptr, ptr %7, align 8
+  %161 = load ptr, ptr %10, align 8
+  %162 = load i32, ptr %161, align 4
+  %163 = load i32, ptr %11, align 4
+  %164 = call i32 @tvb_get_guint32(ptr noundef %160, i32 noundef %162, i32 noundef %163)
+  store i32 %164, ptr %22, align 4
+  %165 = load ptr, ptr %13, align 8
+  %166 = load i32, ptr @hf_qnet6_kif_connect_server_chid, align 4
+  %167 = load ptr, ptr %7, align 8
+  %168 = load ptr, ptr %10, align 8
+  %169 = load i32, ptr %168, align 4
+  %170 = load i32, ptr %11, align 4
+  %171 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %167, i32 noundef %169, i32 noundef 4, i32 noundef %170)
+  store ptr %171, ptr %12, align 8
+  %172 = load i32, ptr %22, align 4
+  %173 = load ptr, ptr %12, align 8
+  call void @display_channel_id(i32 noundef %172, ptr noundef %173)
+  %174 = load ptr, ptr %10, align 8
+  %175 = load i32, ptr %174, align 4
+  %176 = add i32 %175, 4
+  store i32 %176, ptr %174, align 4
+  %177 = load ptr, ptr %13, align 8
+  %178 = load i32, ptr @hf_qnet6_kif_connect_client_id, align 4
+  %179 = load ptr, ptr %7, align 8
+  %180 = load ptr, ptr %10, align 8
+  %181 = load i32, ptr %180, align 4
+  %182 = load i32, ptr %11, align 4
+  %183 = call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef %181, i32 noundef 4, i32 noundef %182)
+  %184 = load ptr, ptr %10, align 8
+  %185 = load i32, ptr %184, align 4
+  %186 = add i32 %185, 4
+  store i32 %186, ptr %184, align 4
+  %187 = load ptr, ptr %13, align 8
+  %188 = load i32, ptr @hf_qnet6_kif_connect_client_pid, align 4
+  %189 = load ptr, ptr %7, align 8
+  %190 = load ptr, ptr %10, align 8
+  %191 = load i32, ptr %190, align 4
+  %192 = load i32, ptr %11, align 4
+  %193 = call ptr @proto_tree_add_item(ptr noundef %187, i32 noundef %188, ptr noundef %189, i32 noundef %191, i32 noundef 4, i32 noundef %192)
+  %194 = load ptr, ptr %10, align 8
+  %195 = load i32, ptr %194, align 4
+  %196 = add i32 %195, 4
+  store i32 %196, ptr %194, align 4
+  %197 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %198 = load i16, ptr %197, align 2
+  %199 = zext i16 %198 to i32
+  %200 = and i32 %199, 256
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %214
 
-201:                                              ; preds = %138
-  %202 = load ptr, ptr %7, align 8
-  %203 = load ptr, ptr %8, align 8
-  %204 = load ptr, ptr %13, align 8
-  %205 = load ptr, ptr %10, align 8
-  %206 = load i32, ptr %11, align 4
-  %207 = call i32 @dissect_qnet6_kif_cred(ptr noundef %202, ptr noundef %203, ptr noundef %204, ptr noundef %205, i32 noundef %206)
-  store i32 %207, ptr %19, align 4
-  %208 = load i32, ptr %19, align 4
-  %209 = icmp ne i32 %208, 0
-  br i1 %209, label %210, label %212
+202:                                              ; preds = %139
+  %203 = load ptr, ptr %7, align 8
+  %204 = load ptr, ptr %8, align 8
+  %205 = load ptr, ptr %13, align 8
+  %206 = load ptr, ptr %10, align 8
+  %207 = load i32, ptr %11, align 4
+  %208 = call i32 @dissect_qnet6_kif_cred(ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef %206, i32 noundef %207)
+  store i32 %208, ptr %19, align 4
+  %209 = load i32, ptr %19, align 4
+  %210 = icmp ne i32 %209, 0
+  br i1 %210, label %211, label %213
 
-210:                                              ; preds = %201
-  %211 = load i32, ptr %19, align 4
-  store i32 %211, ptr %6, align 4
-  br label %1150
+211:                                              ; preds = %202
+  %212 = load i32, ptr %19, align 4
+  store i32 %212, ptr %6, align 4
+  br label %1151
 
-212:                                              ; preds = %201
-  br label %213
+213:                                              ; preds = %202
+  br label %214
 
-213:                                              ; preds = %212, %138
-  br label %1148
+214:                                              ; preds = %213, %139
+  br label %1149
 
-214:                                              ; preds = %129
-  %215 = load i32, ptr %16, align 4
-  %216 = icmp slt i32 %215, 24
-  br i1 %216, label %217, label %219
+215:                                              ; preds = %130
+  %216 = load i32, ptr %16, align 4
+  %217 = icmp slt i32 %216, 24
+  br i1 %217, label %218, label %220
 
-217:                                              ; preds = %214
-  %218 = load i32, ptr %19, align 4
-  store i32 %218, ptr %6, align 4
-  br label %1150
+218:                                              ; preds = %215
+  %219 = load i32, ptr %19, align 4
+  store i32 %219, ptr %6, align 4
+  br label %1151
 
-219:                                              ; preds = %214
-  %220 = load ptr, ptr %13, align 8
-  %221 = load i32, ptr @hf_qnet6_kif_connect, align 4
-  %222 = load ptr, ptr %7, align 8
-  %223 = load ptr, ptr %10, align 8
-  %224 = load i32, ptr %223, align 4
-  %225 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %226 = load i16, ptr %225, align 2
-  %227 = zext i16 %226 to i32
-  %228 = and i32 %227, 256
-  %229 = icmp ne i32 %228, 0
-  %230 = select i1 %229, i32 44, i32 0
-  %231 = add i32 24, %230
-  %232 = call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %221, ptr noundef %222, i32 noundef %224, i32 noundef %231, ptr noundef @.str.1063)
-  store ptr %232, ptr %12, align 8
-  %233 = load ptr, ptr %12, align 8
-  %234 = load i32, ptr @ett_qnet6_kif_connect, align 4
-  %235 = call ptr @proto_item_add_subtree(ptr noundef %233, i32 noundef %234)
-  store ptr %235, ptr %14, align 8
-  %236 = load ptr, ptr %14, align 8
-  %237 = load i32, ptr @hf_qnet6_kif_msgtype, align 4
-  %238 = load ptr, ptr %7, align 8
-  %239 = load ptr, ptr %10, align 8
-  %240 = load i32, ptr %239, align 4
-  %241 = load i32, ptr %11, align 4
-  %242 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %238, i32 noundef %240, i32 noundef 2, i32 noundef %241)
-  store ptr %242, ptr %12, align 8
-  %243 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %244 = load i16, ptr %243, align 2
-  %245 = zext i16 %244 to i32
-  %246 = and i32 %245, 256
-  %247 = icmp ne i32 %246, 0
-  br i1 %247, label %248, label %250
+220:                                              ; preds = %215
+  %221 = load ptr, ptr %13, align 8
+  %222 = load i32, ptr @hf_qnet6_kif_connect, align 4
+  %223 = load ptr, ptr %7, align 8
+  %224 = load ptr, ptr %10, align 8
+  %225 = load i32, ptr %224, align 4
+  %226 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %227 = load i16, ptr %226, align 2
+  %228 = zext i16 %227 to i32
+  %229 = and i32 %228, 256
+  %230 = icmp ne i32 %229, 0
+  %231 = select i1 %230, i32 44, i32 0
+  %232 = add i32 24, %231
+  %233 = call ptr @proto_tree_add_string(ptr noundef %221, i32 noundef %222, ptr noundef %223, i32 noundef %225, i32 noundef %232, ptr noundef @.str.1063)
+  store ptr %233, ptr %12, align 8
+  %234 = load ptr, ptr %12, align 8
+  %235 = load i32, ptr @ett_qnet6_kif_connect, align 4
+  %236 = call ptr @proto_item_add_subtree(ptr noundef %234, i32 noundef %235)
+  store ptr %236, ptr %14, align 8
+  %237 = load ptr, ptr %14, align 8
+  %238 = load i32, ptr @hf_qnet6_kif_msgtype, align 4
+  %239 = load ptr, ptr %7, align 8
+  %240 = load ptr, ptr %10, align 8
+  %241 = load i32, ptr %240, align 4
+  %242 = load i32, ptr %11, align 4
+  %243 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %238, ptr noundef %239, i32 noundef %241, i32 noundef 2, i32 noundef %242)
+  store ptr %243, ptr %12, align 8
+  %244 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %245 = load i16, ptr %244, align 2
+  %246 = zext i16 %245 to i32
+  %247 = and i32 %246, 256
+  %248 = icmp ne i32 %247, 0
+  br i1 %248, label %249, label %251
 
-248:                                              ; preds = %219
-  %249 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %249, ptr noundef @.str.1060)
-  br label %250
+249:                                              ; preds = %220
+  %250 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef @.str.1060)
+  br label %251
 
-250:                                              ; preds = %248, %219
-  %251 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %252 = load i16, ptr %251, align 2
-  %253 = zext i16 %252 to i32
-  %254 = and i32 %253, 32896
-  %255 = icmp eq i32 %254, 32896
-  br i1 %255, label %256, label %258
+251:                                              ; preds = %249, %220
+  %252 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %253 = load i16, ptr %252, align 2
+  %254 = zext i16 %253 to i32
+  %255 = and i32 %254, 32896
+  %256 = icmp eq i32 %255, 32896
+  br i1 %256, label %257, label %259
 
-256:                                              ; preds = %250
-  %257 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %257, ptr noundef @.str.1061)
+257:                                              ; preds = %251
+  %258 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %258, ptr noundef @.str.1061)
+  br label %268
+
+259:                                              ; preds = %251
+  %260 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %261 = load i16, ptr %260, align 2
+  %262 = zext i16 %261 to i32
+  %263 = and i32 %262, 32896
+  %264 = icmp eq i32 %263, 0
+  br i1 %264, label %265, label %267
+
+265:                                              ; preds = %259
+  %266 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %266, ptr noundef @.str.1062)
   br label %267
 
-258:                                              ; preds = %250
-  %259 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %260 = load i16, ptr %259, align 2
-  %261 = zext i16 %260 to i32
-  %262 = and i32 %261, 32896
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %264, label %266
+267:                                              ; preds = %265, %259
+  br label %268
 
-264:                                              ; preds = %258
-  %265 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %265, ptr noundef @.str.1062)
-  br label %266
+268:                                              ; preds = %267, %257
+  %269 = load ptr, ptr %10, align 8
+  %270 = load i32, ptr %269, align 4
+  %271 = add i32 %270, 2
+  store i32 %271, ptr %269, align 4
+  %272 = load ptr, ptr %14, align 8
+  %273 = load i32, ptr @hf_qnet6_kif_size, align 4
+  %274 = load ptr, ptr %7, align 8
+  %275 = load ptr, ptr %10, align 8
+  %276 = load i32, ptr %275, align 4
+  %277 = load i32, ptr %11, align 4
+  %278 = call ptr @proto_tree_add_item(ptr noundef %272, i32 noundef %273, ptr noundef %274, i32 noundef %276, i32 noundef 2, i32 noundef %277)
+  %279 = load ptr, ptr %10, align 8
+  %280 = load i32, ptr %279, align 4
+  %281 = add i32 %280, 2
+  store i32 %281, ptr %279, align 4
+  %282 = load ptr, ptr %14, align 8
+  %283 = load i32, ptr @hf_qnet6_kif_version, align 4
+  %284 = load ptr, ptr %7, align 8
+  %285 = load ptr, ptr %10, align 8
+  %286 = load i32, ptr %285, align 4
+  %287 = load i32, ptr %11, align 4
+  %288 = call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %283, ptr noundef %284, i32 noundef %286, i32 noundef 4, i32 noundef %287)
+  %289 = load ptr, ptr %10, align 8
+  %290 = load i32, ptr %289, align 4
+  %291 = add i32 %290, 4
+  store i32 %291, ptr %289, align 4
+  %292 = load ptr, ptr %14, align 8
+  %293 = load i32, ptr @hf_qnet6_kif_connect_server_pid, align 4
+  %294 = load ptr, ptr %7, align 8
+  %295 = load ptr, ptr %10, align 8
+  %296 = load i32, ptr %295, align 4
+  %297 = load i32, ptr %11, align 4
+  %298 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %293, ptr noundef %294, i32 noundef %296, i32 noundef 4, i32 noundef %297)
+  %299 = load ptr, ptr %10, align 8
+  %300 = load i32, ptr %299, align 4
+  %301 = add i32 %300, 4
+  store i32 %301, ptr %299, align 4
+  %302 = load ptr, ptr %7, align 8
+  %303 = load ptr, ptr %10, align 8
+  %304 = load i32, ptr %303, align 4
+  %305 = load i32, ptr %11, align 4
+  %306 = call i32 @tvb_get_guint32(ptr noundef %302, i32 noundef %304, i32 noundef %305)
+  store i32 %306, ptr %22, align 4
+  %307 = load ptr, ptr %14, align 8
+  %308 = load i32, ptr @hf_qnet6_kif_connect_server_chid, align 4
+  %309 = load ptr, ptr %7, align 8
+  %310 = load ptr, ptr %10, align 8
+  %311 = load i32, ptr %310, align 4
+  %312 = load i32, ptr %11, align 4
+  %313 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %309, i32 noundef %311, i32 noundef 4, i32 noundef %312)
+  store ptr %313, ptr %12, align 8
+  %314 = load i32, ptr %22, align 4
+  %315 = load ptr, ptr %12, align 8
+  call void @display_channel_id(i32 noundef %314, ptr noundef %315)
+  %316 = load ptr, ptr %10, align 8
+  %317 = load i32, ptr %316, align 4
+  %318 = add i32 %317, 4
+  store i32 %318, ptr %316, align 4
+  %319 = load ptr, ptr %14, align 8
+  %320 = load i32, ptr @hf_qnet6_kif_connect_client_id, align 4
+  %321 = load ptr, ptr %7, align 8
+  %322 = load ptr, ptr %10, align 8
+  %323 = load i32, ptr %322, align 4
+  %324 = load i32, ptr %11, align 4
+  %325 = call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %320, ptr noundef %321, i32 noundef %323, i32 noundef 4, i32 noundef %324)
+  %326 = load ptr, ptr %10, align 8
+  %327 = load i32, ptr %326, align 4
+  %328 = add i32 %327, 4
+  store i32 %328, ptr %326, align 4
+  %329 = load ptr, ptr %14, align 8
+  %330 = load i32, ptr @hf_qnet6_kif_connect_client_pid, align 4
+  %331 = load ptr, ptr %7, align 8
+  %332 = load ptr, ptr %10, align 8
+  %333 = load i32, ptr %332, align 4
+  %334 = load i32, ptr %11, align 4
+  %335 = call ptr @proto_tree_add_item(ptr noundef %329, i32 noundef %330, ptr noundef %331, i32 noundef %333, i32 noundef 4, i32 noundef %334)
+  %336 = load ptr, ptr %10, align 8
+  %337 = load i32, ptr %336, align 4
+  %338 = add i32 %337, 4
+  store i32 %338, ptr %336, align 4
+  %339 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %340 = load i16, ptr %339, align 2
+  %341 = zext i16 %340 to i32
+  %342 = and i32 %341, 256
+  %343 = icmp ne i32 %342, 0
+  br i1 %343, label %344, label %356
 
-266:                                              ; preds = %264, %258
-  br label %267
+344:                                              ; preds = %268
+  %345 = load ptr, ptr %7, align 8
+  %346 = load ptr, ptr %8, align 8
+  %347 = load ptr, ptr %14, align 8
+  %348 = load ptr, ptr %10, align 8
+  %349 = load i32, ptr %11, align 4
+  %350 = call i32 @dissect_qnet6_kif_cred(ptr noundef %345, ptr noundef %346, ptr noundef %347, ptr noundef %348, i32 noundef %349)
+  store i32 %350, ptr %19, align 4
+  %351 = load i32, ptr %19, align 4
+  %352 = icmp ne i32 %351, 0
+  br i1 %352, label %353, label %355
 
-267:                                              ; preds = %266, %256
-  %268 = load ptr, ptr %10, align 8
-  %269 = load i32, ptr %268, align 4
-  %270 = add i32 %269, 2
-  store i32 %270, ptr %268, align 4
-  %271 = load ptr, ptr %14, align 8
-  %272 = load i32, ptr @hf_qnet6_kif_size, align 4
-  %273 = load ptr, ptr %7, align 8
-  %274 = load ptr, ptr %10, align 8
-  %275 = load i32, ptr %274, align 4
-  %276 = load i32, ptr %11, align 4
-  %277 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %272, ptr noundef %273, i32 noundef %275, i32 noundef 2, i32 noundef %276)
-  %278 = load ptr, ptr %10, align 8
-  %279 = load i32, ptr %278, align 4
-  %280 = add i32 %279, 2
-  store i32 %280, ptr %278, align 4
-  %281 = load ptr, ptr %14, align 8
-  %282 = load i32, ptr @hf_qnet6_kif_version, align 4
-  %283 = load ptr, ptr %7, align 8
-  %284 = load ptr, ptr %10, align 8
-  %285 = load i32, ptr %284, align 4
-  %286 = load i32, ptr %11, align 4
-  %287 = call ptr @proto_tree_add_item(ptr noundef %281, i32 noundef %282, ptr noundef %283, i32 noundef %285, i32 noundef 4, i32 noundef %286)
-  %288 = load ptr, ptr %10, align 8
-  %289 = load i32, ptr %288, align 4
-  %290 = add i32 %289, 4
-  store i32 %290, ptr %288, align 4
-  %291 = load ptr, ptr %14, align 8
-  %292 = load i32, ptr @hf_qnet6_kif_connect_server_pid, align 4
-  %293 = load ptr, ptr %7, align 8
-  %294 = load ptr, ptr %10, align 8
-  %295 = load i32, ptr %294, align 4
-  %296 = load i32, ptr %11, align 4
-  %297 = call ptr @proto_tree_add_item(ptr noundef %291, i32 noundef %292, ptr noundef %293, i32 noundef %295, i32 noundef 4, i32 noundef %296)
-  %298 = load ptr, ptr %10, align 8
-  %299 = load i32, ptr %298, align 4
-  %300 = add i32 %299, 4
-  store i32 %300, ptr %298, align 4
-  %301 = load ptr, ptr %7, align 8
-  %302 = load ptr, ptr %10, align 8
-  %303 = load i32, ptr %302, align 4
-  %304 = load i32, ptr %11, align 4
-  %305 = call i32 @tvb_get_guint32(ptr noundef %301, i32 noundef %303, i32 noundef %304)
-  store i32 %305, ptr %22, align 4
-  %306 = load ptr, ptr %14, align 8
-  %307 = load i32, ptr @hf_qnet6_kif_connect_server_chid, align 4
-  %308 = load ptr, ptr %7, align 8
-  %309 = load ptr, ptr %10, align 8
-  %310 = load i32, ptr %309, align 4
-  %311 = load i32, ptr %11, align 4
-  %312 = call ptr @proto_tree_add_item(ptr noundef %306, i32 noundef %307, ptr noundef %308, i32 noundef %310, i32 noundef 4, i32 noundef %311)
-  store ptr %312, ptr %12, align 8
-  %313 = load i32, ptr %22, align 4
-  %314 = load ptr, ptr %12, align 8
-  call void @display_channel_id(i32 noundef %313, ptr noundef %314)
-  %315 = load ptr, ptr %10, align 8
-  %316 = load i32, ptr %315, align 4
-  %317 = add i32 %316, 4
-  store i32 %317, ptr %315, align 4
-  %318 = load ptr, ptr %14, align 8
-  %319 = load i32, ptr @hf_qnet6_kif_connect_client_id, align 4
-  %320 = load ptr, ptr %7, align 8
-  %321 = load ptr, ptr %10, align 8
-  %322 = load i32, ptr %321, align 4
-  %323 = load i32, ptr %11, align 4
-  %324 = call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %319, ptr noundef %320, i32 noundef %322, i32 noundef 4, i32 noundef %323)
-  %325 = load ptr, ptr %10, align 8
-  %326 = load i32, ptr %325, align 4
-  %327 = add i32 %326, 4
-  store i32 %327, ptr %325, align 4
-  %328 = load ptr, ptr %14, align 8
-  %329 = load i32, ptr @hf_qnet6_kif_connect_client_pid, align 4
-  %330 = load ptr, ptr %7, align 8
-  %331 = load ptr, ptr %10, align 8
-  %332 = load i32, ptr %331, align 4
-  %333 = load i32, ptr %11, align 4
-  %334 = call ptr @proto_tree_add_item(ptr noundef %328, i32 noundef %329, ptr noundef %330, i32 noundef %332, i32 noundef 4, i32 noundef %333)
-  %335 = load ptr, ptr %10, align 8
-  %336 = load i32, ptr %335, align 4
-  %337 = add i32 %336, 4
-  store i32 %337, ptr %335, align 4
-  %338 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %339 = load i16, ptr %338, align 2
-  %340 = zext i16 %339 to i32
-  %341 = and i32 %340, 256
-  %342 = icmp ne i32 %341, 0
-  br i1 %342, label %343, label %355
+353:                                              ; preds = %344
+  %354 = load i32, ptr %19, align 4
+  store i32 %354, ptr %6, align 4
+  br label %1151
 
-343:                                              ; preds = %267
-  %344 = load ptr, ptr %7, align 8
-  %345 = load ptr, ptr %8, align 8
-  %346 = load ptr, ptr %14, align 8
-  %347 = load ptr, ptr %10, align 8
-  %348 = load i32, ptr %11, align 4
-  %349 = call i32 @dissect_qnet6_kif_cred(ptr noundef %344, ptr noundef %345, ptr noundef %346, ptr noundef %347, i32 noundef %348)
-  store i32 %349, ptr %19, align 4
-  %350 = load i32, ptr %19, align 4
-  %351 = icmp ne i32 %350, 0
-  br i1 %351, label %352, label %354
+355:                                              ; preds = %344
+  br label %356
 
-352:                                              ; preds = %343
-  %353 = load i32, ptr %19, align 4
-  store i32 %353, ptr %6, align 4
-  br label %1150
+356:                                              ; preds = %355, %268
+  %357 = load ptr, ptr %7, align 8
+  %358 = load ptr, ptr %10, align 8
+  %359 = load i32, ptr %358, align 4
+  %360 = call i32 @tvb_reported_length_remaining(ptr noundef %357, i32 noundef %359)
+  store i32 %360, ptr %16, align 4
+  %361 = load i32, ptr %16, align 4
+  %362 = icmp slt i32 %361, 4
+  br i1 %362, label %363, label %365
 
-354:                                              ; preds = %343
-  br label %355
+363:                                              ; preds = %356
+  %364 = load i32, ptr %19, align 4
+  store i32 %364, ptr %6, align 4
+  br label %1151
 
-355:                                              ; preds = %354, %267
-  %356 = load ptr, ptr %7, align 8
-  %357 = load ptr, ptr %10, align 8
-  %358 = load i32, ptr %357, align 4
-  %359 = call i32 @tvb_reported_length_remaining(ptr noundef %356, i32 noundef %358)
-  store i32 %359, ptr %16, align 4
-  %360 = load i32, ptr %16, align 4
-  %361 = icmp slt i32 %360, 4
-  br i1 %361, label %362, label %364
+365:                                              ; preds = %356
+  %366 = load ptr, ptr %13, align 8
+  %367 = load i32, ptr @hf_qnet6_kif_msgsend, align 4
+  %368 = load ptr, ptr %7, align 8
+  %369 = load ptr, ptr %10, align 8
+  %370 = load i32, ptr %369, align 4
+  %371 = call ptr @proto_tree_add_string(ptr noundef %366, i32 noundef %367, ptr noundef %368, i32 noundef %370, i32 noundef -1, ptr noundef @.str.1064)
+  store ptr %371, ptr %12, align 8
+  %372 = load ptr, ptr %12, align 8
+  %373 = load i32, ptr @ett_qnet6_kif_msgsend, align 4
+  %374 = call ptr @proto_item_add_subtree(ptr noundef %372, i32 noundef %373)
+  store ptr %374, ptr %13, align 8
+  %375 = load ptr, ptr %7, align 8
+  %376 = load ptr, ptr %10, align 8
+  %377 = load i32, ptr %376, align 4
+  %378 = load i32, ptr %11, align 4
+  %379 = call zeroext i16 @tvb_get_guint16(ptr noundef %375, i32 noundef %377, i32 noundef %378)
+  %380 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  store i16 %379, ptr %380, align 2
+  %381 = load ptr, ptr %7, align 8
+  %382 = load ptr, ptr %10, align 8
+  %383 = load i32, ptr %382, align 4
+  %384 = add i32 %383, 2
+  %385 = load i32, ptr %11, align 4
+  %386 = call zeroext i16 @tvb_get_guint16(ptr noundef %381, i32 noundef %384, i32 noundef %385)
+  %387 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 1
+  store i16 %386, ptr %387, align 2
+  %388 = load ptr, ptr %13, align 8
+  %389 = load i32, ptr @hf_qnet6_kif_msgtype, align 4
+  %390 = load ptr, ptr %7, align 8
+  %391 = load ptr, ptr %10, align 8
+  %392 = load i32, ptr %391, align 4
+  %393 = load i32, ptr %11, align 4
+  %394 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %389, ptr noundef %390, i32 noundef %392, i32 noundef 2, i32 noundef %393)
+  store ptr %394, ptr %12, align 8
+  %395 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %396 = load i16, ptr %395, align 2
+  %397 = zext i16 %396 to i32
+  %398 = and i32 %397, 256
+  %399 = icmp ne i32 %398, 0
+  br i1 %399, label %400, label %402
 
-362:                                              ; preds = %355
-  %363 = load i32, ptr %19, align 4
-  store i32 %363, ptr %6, align 4
-  br label %1150
+400:                                              ; preds = %365
+  %401 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %401, ptr noundef @.str.1060)
+  br label %402
 
-364:                                              ; preds = %355
-  %365 = load ptr, ptr %13, align 8
-  %366 = load i32, ptr @hf_qnet6_kif_msgsend, align 4
-  %367 = load ptr, ptr %7, align 8
-  %368 = load ptr, ptr %10, align 8
-  %369 = load i32, ptr %368, align 4
-  %370 = call ptr @proto_tree_add_string(ptr noundef %365, i32 noundef %366, ptr noundef %367, i32 noundef %369, i32 noundef -1, ptr noundef @.str.1064)
-  store ptr %370, ptr %12, align 8
-  %371 = load ptr, ptr %12, align 8
-  %372 = load i32, ptr @ett_qnet6_kif_msgsend, align 4
-  %373 = call ptr @proto_item_add_subtree(ptr noundef %371, i32 noundef %372)
-  store ptr %373, ptr %13, align 8
-  %374 = load ptr, ptr %7, align 8
-  %375 = load ptr, ptr %10, align 8
-  %376 = load i32, ptr %375, align 4
-  %377 = load i32, ptr %11, align 4
-  %378 = call zeroext i16 @tvb_get_guint16(ptr noundef %374, i32 noundef %376, i32 noundef %377)
-  %379 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  store i16 %378, ptr %379, align 2
-  %380 = load ptr, ptr %7, align 8
-  %381 = load ptr, ptr %10, align 8
-  %382 = load i32, ptr %381, align 4
-  %383 = add i32 %382, 2
-  %384 = load i32, ptr %11, align 4
-  %385 = call zeroext i16 @tvb_get_guint16(ptr noundef %380, i32 noundef %383, i32 noundef %384)
-  %386 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 1
-  store i16 %385, ptr %386, align 2
-  %387 = load ptr, ptr %13, align 8
-  %388 = load i32, ptr @hf_qnet6_kif_msgtype, align 4
-  %389 = load ptr, ptr %7, align 8
-  %390 = load ptr, ptr %10, align 8
-  %391 = load i32, ptr %390, align 4
-  %392 = load i32, ptr %11, align 4
-  %393 = call ptr @proto_tree_add_item(ptr noundef %387, i32 noundef %388, ptr noundef %389, i32 noundef %391, i32 noundef 2, i32 noundef %392)
-  store ptr %393, ptr %12, align 8
-  %394 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %395 = load i16, ptr %394, align 2
-  %396 = zext i16 %395 to i32
-  %397 = and i32 %396, 256
-  %398 = icmp ne i32 %397, 0
-  br i1 %398, label %399, label %401
+402:                                              ; preds = %400, %365
+  %403 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %404 = load i16, ptr %403, align 2
+  %405 = zext i16 %404 to i32
+  %406 = and i32 %405, 32896
+  %407 = icmp eq i32 %406, 32896
+  br i1 %407, label %408, label %410
 
-399:                                              ; preds = %364
-  %400 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %400, ptr noundef @.str.1060)
-  br label %401
+408:                                              ; preds = %402
+  %409 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %409, ptr noundef @.str.1061)
+  br label %419
 
-401:                                              ; preds = %399, %364
-  %402 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %403 = load i16, ptr %402, align 2
-  %404 = zext i16 %403 to i32
-  %405 = and i32 %404, 32896
-  %406 = icmp eq i32 %405, 32896
-  br i1 %406, label %407, label %409
+410:                                              ; preds = %402
+  %411 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %412 = load i16, ptr %411, align 2
+  %413 = zext i16 %412 to i32
+  %414 = and i32 %413, 32896
+  %415 = icmp eq i32 %414, 0
+  br i1 %415, label %416, label %418
 
-407:                                              ; preds = %401
-  %408 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %408, ptr noundef @.str.1061)
+416:                                              ; preds = %410
+  %417 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %417, ptr noundef @.str.1062)
   br label %418
 
-409:                                              ; preds = %401
-  %410 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %411 = load i16, ptr %410, align 2
-  %412 = zext i16 %411 to i32
-  %413 = and i32 %412, 32896
-  %414 = icmp eq i32 %413, 0
-  br i1 %414, label %415, label %417
+418:                                              ; preds = %416, %410
+  br label %419
 
-415:                                              ; preds = %409
-  %416 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %416, ptr noundef @.str.1062)
-  br label %417
+419:                                              ; preds = %418, %408
+  %420 = load ptr, ptr %10, align 8
+  %421 = load i32, ptr %420, align 4
+  %422 = add i32 %421, 2
+  store i32 %422, ptr %420, align 4
+  %423 = load ptr, ptr %13, align 8
+  %424 = load i32, ptr @hf_qnet6_kif_size, align 4
+  %425 = load ptr, ptr %7, align 8
+  %426 = load ptr, ptr %10, align 8
+  %427 = load i32, ptr %426, align 4
+  %428 = load i32, ptr %11, align 4
+  %429 = call ptr @proto_tree_add_item(ptr noundef %423, i32 noundef %424, ptr noundef %425, i32 noundef %427, i32 noundef 2, i32 noundef %428)
+  %430 = load ptr, ptr %10, align 8
+  %431 = load i32, ptr %430, align 4
+  %432 = add i32 %431, 2
+  store i32 %432, ptr %430, align 4
+  %433 = load i32, ptr %16, align 4
+  %434 = sub i32 %433, 4
+  store i32 %434, ptr %16, align 4
+  br label %562
 
-417:                                              ; preds = %415, %409
-  br label %418
+435:                                              ; preds = %130
+  %436 = load i32, ptr %16, align 4
+  %437 = icmp slt i32 %436, 20
+  br i1 %437, label %438, label %440
 
-418:                                              ; preds = %417, %407
-  %419 = load ptr, ptr %10, align 8
-  %420 = load i32, ptr %419, align 4
-  %421 = add i32 %420, 2
-  store i32 %421, ptr %419, align 4
-  %422 = load ptr, ptr %13, align 8
-  %423 = load i32, ptr @hf_qnet6_kif_size, align 4
-  %424 = load ptr, ptr %7, align 8
-  %425 = load ptr, ptr %10, align 8
-  %426 = load i32, ptr %425, align 4
-  %427 = load i32, ptr %11, align 4
-  %428 = call ptr @proto_tree_add_item(ptr noundef %422, i32 noundef %423, ptr noundef %424, i32 noundef %426, i32 noundef 2, i32 noundef %427)
-  %429 = load ptr, ptr %10, align 8
-  %430 = load i32, ptr %429, align 4
-  %431 = add i32 %430, 2
-  store i32 %431, ptr %429, align 4
-  %432 = load i32, ptr %16, align 4
-  %433 = sub i32 %432, 4
-  store i32 %433, ptr %16, align 4
-  br label %561
+438:                                              ; preds = %435
+  %439 = load i32, ptr %19, align 4
+  store i32 %439, ptr %6, align 4
+  br label %1151
 
-434:                                              ; preds = %129
-  %435 = load i32, ptr %16, align 4
-  %436 = icmp slt i32 %435, 20
-  br i1 %436, label %437, label %439
+440:                                              ; preds = %435
+  %441 = load ptr, ptr %13, align 8
+  %442 = load i32, ptr @hf_qnet6_kif_version, align 4
+  %443 = load ptr, ptr %7, align 8
+  %444 = load ptr, ptr %10, align 8
+  %445 = load i32, ptr %444, align 4
+  %446 = load i32, ptr %11, align 4
+  %447 = call ptr @proto_tree_add_item(ptr noundef %441, i32 noundef %442, ptr noundef %443, i32 noundef %445, i32 noundef 4, i32 noundef %446)
+  %448 = load ptr, ptr %10, align 8
+  %449 = load i32, ptr %448, align 4
+  %450 = add i32 %449, 4
+  store i32 %450, ptr %448, align 4
+  %451 = load ptr, ptr %13, align 8
+  %452 = load i32, ptr @hf_qnet6_kif_connects_server_id, align 4
+  %453 = load ptr, ptr %7, align 8
+  %454 = load ptr, ptr %10, align 8
+  %455 = load i32, ptr %454, align 4
+  %456 = load i32, ptr %11, align 4
+  %457 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %452, ptr noundef %453, i32 noundef %455, i32 noundef 4, i32 noundef %456)
+  %458 = load ptr, ptr %10, align 8
+  %459 = load i32, ptr %458, align 4
+  %460 = add i32 %459, 4
+  store i32 %460, ptr %458, align 4
+  %461 = load ptr, ptr %13, align 8
+  %462 = load i32, ptr @hf_qnet6_kif_connects_client_id, align 4
+  %463 = load ptr, ptr %7, align 8
+  %464 = load ptr, ptr %10, align 8
+  %465 = load i32, ptr %464, align 4
+  %466 = load i32, ptr %11, align 4
+  %467 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %462, ptr noundef %463, i32 noundef %465, i32 noundef 4, i32 noundef %466)
+  %468 = load ptr, ptr %10, align 8
+  %469 = load i32, ptr %468, align 4
+  %470 = add i32 %469, 4
+  store i32 %470, ptr %468, align 4
+  %471 = load ptr, ptr %13, align 8
+  %472 = load i32, ptr @hf_qnet6_kif_connects_scoid, align 4
+  %473 = load ptr, ptr %7, align 8
+  %474 = load ptr, ptr %10, align 8
+  %475 = load i32, ptr %474, align 4
+  %476 = load i32, ptr %11, align 4
+  %477 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %472, ptr noundef %473, i32 noundef %475, i32 noundef 4, i32 noundef %476)
+  %478 = load ptr, ptr %10, align 8
+  %479 = load i32, ptr %478, align 4
+  %480 = add i32 %479, 4
+  store i32 %480, ptr %478, align 4
+  %481 = load ptr, ptr %13, align 8
+  %482 = load i32, ptr @hf_qnet6_kif_connects_nbytes, align 4
+  %483 = load ptr, ptr %7, align 8
+  %484 = load ptr, ptr %10, align 8
+  %485 = load i32, ptr %484, align 4
+  %486 = load i32, ptr %11, align 4
+  %487 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %482, ptr noundef %483, i32 noundef %485, i32 noundef 4, i32 noundef %486)
+  %488 = load ptr, ptr %10, align 8
+  %489 = load i32, ptr %488, align 4
+  %490 = add i32 %489, 4
+  store i32 %490, ptr %488, align 4
+  %491 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %492 = load i16, ptr %491, align 2
+  %493 = zext i16 %492 to i32
+  %494 = and i32 %493, 256
+  %495 = icmp ne i32 %494, 0
+  br i1 %495, label %496, label %508
 
-437:                                              ; preds = %434
-  %438 = load i32, ptr %19, align 4
-  store i32 %438, ptr %6, align 4
-  br label %1150
+496:                                              ; preds = %440
+  %497 = load ptr, ptr %7, align 8
+  %498 = load ptr, ptr %8, align 8
+  %499 = load ptr, ptr %13, align 8
+  %500 = load ptr, ptr %10, align 8
+  %501 = load i32, ptr %11, align 4
+  %502 = call i32 @dissect_qnet6_kif_cred(ptr noundef %497, ptr noundef %498, ptr noundef %499, ptr noundef %500, i32 noundef %501)
+  store i32 %502, ptr %19, align 4
+  %503 = load i32, ptr %19, align 4
+  %504 = icmp ne i32 %503, 0
+  br i1 %504, label %505, label %507
 
-439:                                              ; preds = %434
-  %440 = load ptr, ptr %13, align 8
-  %441 = load i32, ptr @hf_qnet6_kif_version, align 4
-  %442 = load ptr, ptr %7, align 8
-  %443 = load ptr, ptr %10, align 8
-  %444 = load i32, ptr %443, align 4
-  %445 = load i32, ptr %11, align 4
-  %446 = call ptr @proto_tree_add_item(ptr noundef %440, i32 noundef %441, ptr noundef %442, i32 noundef %444, i32 noundef 4, i32 noundef %445)
-  %447 = load ptr, ptr %10, align 8
-  %448 = load i32, ptr %447, align 4
-  %449 = add i32 %448, 4
-  store i32 %449, ptr %447, align 4
-  %450 = load ptr, ptr %13, align 8
-  %451 = load i32, ptr @hf_qnet6_kif_connects_server_id, align 4
-  %452 = load ptr, ptr %7, align 8
-  %453 = load ptr, ptr %10, align 8
-  %454 = load i32, ptr %453, align 4
-  %455 = load i32, ptr %11, align 4
-  %456 = call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %451, ptr noundef %452, i32 noundef %454, i32 noundef 4, i32 noundef %455)
-  %457 = load ptr, ptr %10, align 8
-  %458 = load i32, ptr %457, align 4
-  %459 = add i32 %458, 4
-  store i32 %459, ptr %457, align 4
-  %460 = load ptr, ptr %13, align 8
-  %461 = load i32, ptr @hf_qnet6_kif_connects_client_id, align 4
-  %462 = load ptr, ptr %7, align 8
-  %463 = load ptr, ptr %10, align 8
-  %464 = load i32, ptr %463, align 4
-  %465 = load i32, ptr %11, align 4
-  %466 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %461, ptr noundef %462, i32 noundef %464, i32 noundef 4, i32 noundef %465)
-  %467 = load ptr, ptr %10, align 8
-  %468 = load i32, ptr %467, align 4
-  %469 = add i32 %468, 4
-  store i32 %469, ptr %467, align 4
-  %470 = load ptr, ptr %13, align 8
-  %471 = load i32, ptr @hf_qnet6_kif_connects_scoid, align 4
-  %472 = load ptr, ptr %7, align 8
-  %473 = load ptr, ptr %10, align 8
-  %474 = load i32, ptr %473, align 4
-  %475 = load i32, ptr %11, align 4
-  %476 = call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %471, ptr noundef %472, i32 noundef %474, i32 noundef 4, i32 noundef %475)
-  %477 = load ptr, ptr %10, align 8
-  %478 = load i32, ptr %477, align 4
-  %479 = add i32 %478, 4
-  store i32 %479, ptr %477, align 4
-  %480 = load ptr, ptr %13, align 8
-  %481 = load i32, ptr @hf_qnet6_kif_connects_nbytes, align 4
-  %482 = load ptr, ptr %7, align 8
-  %483 = load ptr, ptr %10, align 8
-  %484 = load i32, ptr %483, align 4
-  %485 = load i32, ptr %11, align 4
-  %486 = call ptr @proto_tree_add_item(ptr noundef %480, i32 noundef %481, ptr noundef %482, i32 noundef %484, i32 noundef 4, i32 noundef %485)
-  %487 = load ptr, ptr %10, align 8
-  %488 = load i32, ptr %487, align 4
-  %489 = add i32 %488, 4
-  store i32 %489, ptr %487, align 4
-  %490 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %491 = load i16, ptr %490, align 2
-  %492 = zext i16 %491 to i32
-  %493 = and i32 %492, 256
-  %494 = icmp ne i32 %493, 0
-  br i1 %494, label %495, label %507
+505:                                              ; preds = %496
+  %506 = load i32, ptr %19, align 4
+  store i32 %506, ptr %6, align 4
+  br label %1151
 
-495:                                              ; preds = %439
-  %496 = load ptr, ptr %7, align 8
-  %497 = load ptr, ptr %8, align 8
-  %498 = load ptr, ptr %13, align 8
-  %499 = load ptr, ptr %10, align 8
-  %500 = load i32, ptr %11, align 4
-  %501 = call i32 @dissect_qnet6_kif_cred(ptr noundef %496, ptr noundef %497, ptr noundef %498, ptr noundef %499, i32 noundef %500)
-  store i32 %501, ptr %19, align 4
-  %502 = load i32, ptr %19, align 4
-  %503 = icmp ne i32 %502, 0
-  br i1 %503, label %504, label %506
+507:                                              ; preds = %496
+  br label %508
 
-504:                                              ; preds = %495
-  %505 = load i32, ptr %19, align 4
-  store i32 %505, ptr %6, align 4
-  br label %1150
+508:                                              ; preds = %507, %440
+  br label %1149
 
-506:                                              ; preds = %495
-  br label %507
+509:                                              ; preds = %130
+  %510 = load i32, ptr %16, align 4
+  %511 = icmp slt i32 %510, 12
+  br i1 %511, label %512, label %514
 
-507:                                              ; preds = %506, %439
+512:                                              ; preds = %509
+  %513 = load i32, ptr %19, align 4
+  store i32 %513, ptr %6, align 4
+  br label %1151
+
+514:                                              ; preds = %509
+  %515 = load ptr, ptr %13, align 8
+  %516 = load i32, ptr @hf_qnet6_kif_version, align 4
+  %517 = load ptr, ptr %7, align 8
+  %518 = load ptr, ptr %10, align 8
+  %519 = load i32, ptr %518, align 4
+  %520 = load i32, ptr %11, align 4
+  %521 = call ptr @proto_tree_add_item(ptr noundef %515, i32 noundef %516, ptr noundef %517, i32 noundef %519, i32 noundef 4, i32 noundef %520)
+  %522 = load ptr, ptr %10, align 8
+  %523 = load i32, ptr %522, align 4
+  %524 = add i32 %523, 4
+  store i32 %524, ptr %522, align 4
+  %525 = load ptr, ptr %13, align 8
+  %526 = load i32, ptr @hf_qnet6_kif_connectf_client_id, align 4
+  %527 = load ptr, ptr %7, align 8
+  %528 = load ptr, ptr %10, align 8
+  %529 = load i32, ptr %528, align 4
+  %530 = load i32, ptr %11, align 4
+  %531 = call ptr @proto_tree_add_item(ptr noundef %525, i32 noundef %526, ptr noundef %527, i32 noundef %529, i32 noundef 4, i32 noundef %530)
+  %532 = load ptr, ptr %10, align 8
+  %533 = load i32, ptr %532, align 4
+  %534 = add i32 %533, 4
+  store i32 %534, ptr %532, align 4
+  %535 = load ptr, ptr %13, align 8
+  %536 = load i32, ptr @hf_qnet6_kif_connectf_status, align 4
+  %537 = load ptr, ptr %7, align 8
+  %538 = load ptr, ptr %10, align 8
+  %539 = load i32, ptr %538, align 4
+  %540 = load i32, ptr %11, align 4
+  %541 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %536, ptr noundef %537, i32 noundef %539, i32 noundef 4, i32 noundef %540)
+  %542 = load ptr, ptr %10, align 8
+  %543 = load i32, ptr %542, align 4
+  %544 = add i32 %543, 4
+  store i32 %544, ptr %542, align 4
+  br label %1149
+
+545:                                              ; preds = %130
+  %546 = load i32, ptr %16, align 4
+  %547 = icmp slt i32 %546, 4
+  br i1 %547, label %548, label %550
+
+548:                                              ; preds = %545
+  %549 = load i32, ptr %19, align 4
+  store i32 %549, ptr %6, align 4
+  br label %1151
+
+550:                                              ; preds = %545
+  %551 = load ptr, ptr %13, align 8
+  %552 = load i32, ptr @hf_qnet6_kif_connectd_client_id, align 4
+  %553 = load ptr, ptr %7, align 8
+  %554 = load ptr, ptr %10, align 8
+  %555 = load i32, ptr %554, align 4
+  %556 = load i32, ptr %11, align 4
+  %557 = call ptr @proto_tree_add_item(ptr noundef %551, i32 noundef %552, ptr noundef %553, i32 noundef %555, i32 noundef 4, i32 noundef %556)
+  %558 = load ptr, ptr %10, align 8
+  %559 = load i32, ptr %558, align 4
+  %560 = add i32 %559, 4
+  store i32 %560, ptr %558, align 4
+  br label %1149
+
+561:                                              ; preds = %130, %130
+  br label %562
+
+562:                                              ; preds = %561, %419
+  %563 = load i32, ptr %16, align 4
+  %564 = icmp slt i32 %563, 40
+  br i1 %564, label %565, label %567
+
+565:                                              ; preds = %562
+  %566 = load i32, ptr %19, align 4
+  store i32 %566, ptr %6, align 4
+  br label %1151
+
+567:                                              ; preds = %562
+  %568 = load ptr, ptr %13, align 8
+  %569 = load i32, ptr @hf_qnet6_kif_msgsend_server_id, align 4
+  %570 = load ptr, ptr %7, align 8
+  %571 = load ptr, ptr %10, align 8
+  %572 = load i32, ptr %571, align 4
+  %573 = load i32, ptr %11, align 4
+  %574 = call ptr @proto_tree_add_item(ptr noundef %568, i32 noundef %569, ptr noundef %570, i32 noundef %572, i32 noundef 4, i32 noundef %573)
+  %575 = load ptr, ptr %10, align 8
+  %576 = load i32, ptr %575, align 4
+  %577 = add i32 %576, 4
+  store i32 %577, ptr %575, align 4
+  %578 = load ptr, ptr %13, align 8
+  %579 = load i32, ptr @hf_qnet6_kif_msgsend_client_handle, align 4
+  %580 = load ptr, ptr %7, align 8
+  %581 = load ptr, ptr %10, align 8
+  %582 = load i32, ptr %581, align 4
+  %583 = load i32, ptr %11, align 4
+  %584 = call ptr @proto_tree_add_item(ptr noundef %578, i32 noundef %579, ptr noundef %580, i32 noundef %582, i32 noundef 4, i32 noundef %583)
+  %585 = load ptr, ptr %10, align 8
+  %586 = load i32, ptr %585, align 4
+  %587 = add i32 %586, 4
+  store i32 %587, ptr %585, align 4
+  %588 = load ptr, ptr %13, align 8
+  %589 = load i32, ptr @hf_qnet6_kif_msgsend_vinfo, align 4
+  %590 = load ptr, ptr %7, align 8
+  %591 = load ptr, ptr %10, align 8
+  %592 = load i32, ptr %591, align 4
+  %593 = call ptr @proto_tree_add_string(ptr noundef %588, i32 noundef %589, ptr noundef %590, i32 noundef %592, i32 noundef 32, ptr noundef @.str.1065)
+  store ptr %593, ptr %12, align 8
+  %594 = load ptr, ptr %12, align 8
+  %595 = load i32, ptr @ett_qnet6_kif_vinfo, align 4
+  %596 = call ptr @proto_item_add_subtree(ptr noundef %594, i32 noundef %595)
+  store ptr %596, ptr %15, align 8
+  %597 = load ptr, ptr %15, align 8
+  %598 = load i32, ptr @hf_qnet6_kif_vtid_info_tid, align 4
+  %599 = load ptr, ptr %7, align 8
+  %600 = load ptr, ptr %10, align 8
+  %601 = load i32, ptr %600, align 4
+  %602 = load i32, ptr %11, align 4
+  %603 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %598, ptr noundef %599, i32 noundef %601, i32 noundef 4, i32 noundef %602)
+  %604 = load ptr, ptr %10, align 8
+  %605 = load i32, ptr %604, align 4
+  %606 = add i32 %605, 4
+  store i32 %606, ptr %604, align 4
+  %607 = load ptr, ptr %7, align 8
+  %608 = load ptr, ptr %10, align 8
+  %609 = load i32, ptr %608, align 4
+  %610 = load i32, ptr %11, align 4
+  %611 = call i32 @tvb_get_guint32(ptr noundef %607, i32 noundef %609, i32 noundef %610)
+  store i32 %611, ptr %21, align 4
+  %612 = load ptr, ptr %15, align 8
+  %613 = load i32, ptr @hf_qnet6_kif_vtid_info_coid, align 4
+  %614 = load ptr, ptr %7, align 8
+  %615 = load ptr, ptr %10, align 8
+  %616 = load i32, ptr %615, align 4
+  %617 = load i32, ptr %11, align 4
+  %618 = call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %613, ptr noundef %614, i32 noundef %616, i32 noundef 4, i32 noundef %617)
+  store ptr %618, ptr %12, align 8
+  %619 = load i32, ptr %21, align 4
+  %620 = load ptr, ptr %12, align 8
+  call void @display_coid(i32 noundef %619, ptr noundef %620)
+  %621 = load ptr, ptr %10, align 8
+  %622 = load i32, ptr %621, align 4
+  %623 = add i32 %622, 4
+  store i32 %623, ptr %621, align 4
+  %624 = load ptr, ptr %15, align 8
+  %625 = load i32, ptr @hf_qnet6_kif_vtid_info_priority, align 4
+  %626 = load ptr, ptr %7, align 8
+  %627 = load ptr, ptr %10, align 8
+  %628 = load i32, ptr %627, align 4
+  %629 = load i32, ptr %11, align 4
+  %630 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %625, ptr noundef %626, i32 noundef %628, i32 noundef 4, i32 noundef %629)
+  %631 = load ptr, ptr %10, align 8
+  %632 = load i32, ptr %631, align 4
+  %633 = add i32 %632, 4
+  store i32 %633, ptr %631, align 4
+  %634 = load ptr, ptr %15, align 8
+  %635 = load i32, ptr @hf_qnet6_kif_vtid_info_srcmsglen, align 4
+  %636 = load ptr, ptr %7, align 8
+  %637 = load ptr, ptr %10, align 8
+  %638 = load i32, ptr %637, align 4
+  %639 = load i32, ptr %11, align 4
+  %640 = call ptr @proto_tree_add_item(ptr noundef %634, i32 noundef %635, ptr noundef %636, i32 noundef %638, i32 noundef 4, i32 noundef %639)
+  %641 = load ptr, ptr %10, align 8
+  %642 = load i32, ptr %641, align 4
+  %643 = add i32 %642, 4
+  store i32 %643, ptr %641, align 4
+  %644 = load ptr, ptr %15, align 8
+  %645 = load i32, ptr @hf_qnet6_kif_vtid_info_keydata, align 4
+  %646 = load ptr, ptr %7, align 8
+  %647 = load ptr, ptr %10, align 8
+  %648 = load i32, ptr %647, align 4
+  %649 = load i32, ptr %11, align 4
+  %650 = call ptr @proto_tree_add_item(ptr noundef %644, i32 noundef %645, ptr noundef %646, i32 noundef %648, i32 noundef 4, i32 noundef %649)
+  %651 = load ptr, ptr %10, align 8
+  %652 = load i32, ptr %651, align 4
+  %653 = add i32 %652, 4
+  store i32 %653, ptr %651, align 4
+  %654 = load ptr, ptr %15, align 8
+  %655 = load i32, ptr @hf_qnet6_kif_vtid_info_srcnd, align 4
+  %656 = load ptr, ptr %7, align 8
+  %657 = load ptr, ptr %10, align 8
+  %658 = load i32, ptr %657, align 4
+  %659 = load i32, ptr %11, align 4
+  %660 = call ptr @proto_tree_add_item(ptr noundef %654, i32 noundef %655, ptr noundef %656, i32 noundef %658, i32 noundef 4, i32 noundef %659)
+  %661 = load ptr, ptr %10, align 8
+  %662 = load i32, ptr %661, align 4
+  %663 = add i32 %662, 4
+  store i32 %663, ptr %661, align 4
+  %664 = load ptr, ptr %15, align 8
+  %665 = load i32, ptr @hf_qnet6_kif_vtid_info_dstmsglen, align 4
+  %666 = load ptr, ptr %7, align 8
+  %667 = load ptr, ptr %10, align 8
+  %668 = load i32, ptr %667, align 4
+  %669 = load i32, ptr %11, align 4
+  %670 = call ptr @proto_tree_add_item(ptr noundef %664, i32 noundef %665, ptr noundef %666, i32 noundef %668, i32 noundef 4, i32 noundef %669)
+  %671 = load ptr, ptr %10, align 8
+  %672 = load i32, ptr %671, align 4
+  %673 = add i32 %672, 4
+  store i32 %673, ptr %671, align 4
+  %674 = load ptr, ptr %15, align 8
+  %675 = load i32, ptr @hf_qnet6_kif_vtid_info_zero, align 4
+  %676 = load ptr, ptr %7, align 8
+  %677 = load ptr, ptr %10, align 8
+  %678 = load i32, ptr %677, align 4
+  %679 = load i32, ptr %11, align 4
+  %680 = call ptr @proto_tree_add_item(ptr noundef %674, i32 noundef %675, ptr noundef %676, i32 noundef %678, i32 noundef 4, i32 noundef %679)
+  %681 = load ptr, ptr %10, align 8
+  %682 = load i32, ptr %681, align 4
+  %683 = add i32 %682, 4
+  store i32 %683, ptr %681, align 4
+  %684 = load i32, ptr %16, align 4
+  %685 = sub i32 %684, 40
+  store i32 %685, ptr %16, align 4
+  %686 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %687 = load i16, ptr %686, align 2
+  %688 = zext i16 %687 to i32
+  %689 = and i32 %688, 127
+  %690 = icmp eq i32 %689, 5
+  br i1 %690, label %697, label %691
+
+691:                                              ; preds = %567
+  %692 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %693 = load i16, ptr %692, align 2
+  %694 = zext i16 %693 to i32
+  %695 = and i32 %694, 127
+  %696 = icmp eq i32 %695, 1
+  br i1 %696, label %697, label %719
+
+697:                                              ; preds = %691, %567
+  %698 = load ptr, ptr %13, align 8
+  %699 = load i32, ptr @hf_qnet6_kif_msgsend_nbytes, align 4
+  %700 = load ptr, ptr %7, align 8
+  %701 = load ptr, ptr %10, align 8
+  %702 = load i32, ptr %701, align 4
+  %703 = load i32, ptr %11, align 4
+  %704 = call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %699, ptr noundef %700, i32 noundef %702, i32 noundef 4, i32 noundef %703)
+  %705 = load ptr, ptr %10, align 8
+  %706 = load i32, ptr %705, align 4
+  %707 = add i32 %706, 4
+  store i32 %707, ptr %705, align 4
+  %708 = load ptr, ptr %7, align 8
+  %709 = load ptr, ptr %8, align 8
+  %710 = load ptr, ptr %13, align 8
+  %711 = load ptr, ptr %10, align 8
+  %712 = load i32, ptr %11, align 4
+  %713 = call i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %708, ptr noundef %709, ptr noundef %710, ptr noundef %711, i32 noundef %712)
+  store i32 %713, ptr %19, align 4
+  %714 = load i32, ptr %19, align 4
+  %715 = icmp ne i32 %714, 0
+  br i1 %715, label %716, label %718
+
+716:                                              ; preds = %697
+  %717 = load i32, ptr %19, align 4
+  store i32 %717, ptr %6, align 4
+  br label %1151
+
+718:                                              ; preds = %697
+  br label %804
+
+719:                                              ; preds = %691
+  %720 = load i32, ptr %16, align 4
+  %721 = icmp slt i32 %720, 20
+  br i1 %721, label %722, label %724
+
+722:                                              ; preds = %719
+  %723 = load i32, ptr %19, align 4
+  store i32 %723, ptr %6, align 4
+  br label %1151
+
+724:                                              ; preds = %719
+  %725 = load ptr, ptr %13, align 8
+  %726 = load i32, ptr @hf_qnet6_kif_pulse_pulse, align 4
+  %727 = load ptr, ptr %7, align 8
+  %728 = load ptr, ptr %10, align 8
+  %729 = load i32, ptr %728, align 4
+  %730 = call ptr @proto_tree_add_string(ptr noundef %725, i32 noundef %726, ptr noundef %727, i32 noundef %729, i32 noundef 16, ptr noundef @.str.1066)
+  store ptr %730, ptr %12, align 8
+  %731 = load ptr, ptr %12, align 8
+  %732 = load i32, ptr @ett_qnet6_kif_pulse, align 4
+  %733 = call ptr @proto_item_add_subtree(ptr noundef %731, i32 noundef %732)
+  store ptr %733, ptr %15, align 8
+  %734 = load ptr, ptr %15, align 8
+  %735 = load i32, ptr @hf_qnet6_kif_pulse_pulse_type, align 4
+  %736 = load ptr, ptr %7, align 8
+  %737 = load ptr, ptr %10, align 8
+  %738 = load i32, ptr %737, align 4
+  %739 = load i32, ptr %11, align 4
+  %740 = call ptr @proto_tree_add_item(ptr noundef %734, i32 noundef %735, ptr noundef %736, i32 noundef %738, i32 noundef 2, i32 noundef %739)
+  %741 = load ptr, ptr %10, align 8
+  %742 = load i32, ptr %741, align 4
+  %743 = add i32 %742, 2
+  store i32 %743, ptr %741, align 4
+  %744 = load ptr, ptr %15, align 8
+  %745 = load i32, ptr @hf_qnet6_kif_pulse_pulse_subtype, align 4
+  %746 = load ptr, ptr %7, align 8
+  %747 = load ptr, ptr %10, align 8
+  %748 = load i32, ptr %747, align 4
+  %749 = load i32, ptr %11, align 4
+  %750 = call ptr @proto_tree_add_item(ptr noundef %744, i32 noundef %745, ptr noundef %746, i32 noundef %748, i32 noundef 2, i32 noundef %749)
+  %751 = load ptr, ptr %10, align 8
+  %752 = load i32, ptr %751, align 4
+  %753 = add i32 %752, 2
+  store i32 %753, ptr %751, align 4
+  %754 = load ptr, ptr %15, align 8
+  %755 = load i32, ptr @hf_qnet6_kif_pulse_pulse_code, align 4
+  %756 = load ptr, ptr %7, align 8
+  %757 = load ptr, ptr %10, align 8
+  %758 = load i32, ptr %757, align 4
+  %759 = load i32, ptr %11, align 4
+  %760 = call ptr @proto_tree_add_item(ptr noundef %754, i32 noundef %755, ptr noundef %756, i32 noundef %758, i32 noundef 1, i32 noundef %759)
+  %761 = load ptr, ptr %10, align 8
+  %762 = load i32, ptr %761, align 4
+  %763 = add i32 %762, 1
+  store i32 %763, ptr %761, align 4
+  %764 = load ptr, ptr %15, align 8
+  %765 = load i32, ptr @hf_qnet6_kif_pulse_pulse_reserved, align 4
+  %766 = load ptr, ptr %7, align 8
+  %767 = load ptr, ptr %10, align 8
+  %768 = load i32, ptr %767, align 4
+  %769 = load i32, ptr %11, align 4
+  %770 = call ptr @proto_tree_add_item(ptr noundef %764, i32 noundef %765, ptr noundef %766, i32 noundef %768, i32 noundef 3, i32 noundef %769)
+  %771 = load ptr, ptr %10, align 8
+  %772 = load i32, ptr %771, align 4
+  %773 = add i32 %772, 3
+  store i32 %773, ptr %771, align 4
+  %774 = load ptr, ptr %15, align 8
+  %775 = load i32, ptr @hf_qnet6_kif_pulse_pulse_value, align 4
+  %776 = load ptr, ptr %7, align 8
+  %777 = load ptr, ptr %10, align 8
+  %778 = load i32, ptr %777, align 4
+  %779 = load i32, ptr %11, align 4
+  %780 = call ptr @proto_tree_add_item(ptr noundef %774, i32 noundef %775, ptr noundef %776, i32 noundef %778, i32 noundef 4, i32 noundef %779)
+  %781 = load ptr, ptr %10, align 8
+  %782 = load i32, ptr %781, align 4
+  %783 = add i32 %782, 4
+  store i32 %783, ptr %781, align 4
+  %784 = load ptr, ptr %15, align 8
+  %785 = load i32, ptr @hf_qnet6_kif_pulse_pulse_scoid, align 4
+  %786 = load ptr, ptr %7, align 8
+  %787 = load ptr, ptr %10, align 8
+  %788 = load i32, ptr %787, align 4
+  %789 = load i32, ptr %11, align 4
+  %790 = call ptr @proto_tree_add_item(ptr noundef %784, i32 noundef %785, ptr noundef %786, i32 noundef %788, i32 noundef 4, i32 noundef %789)
+  %791 = load ptr, ptr %10, align 8
+  %792 = load i32, ptr %791, align 4
+  %793 = add i32 %792, 4
+  store i32 %793, ptr %791, align 4
+  %794 = load ptr, ptr %13, align 8
+  %795 = load i32, ptr @hf_qnet6_kif_pulse_priority, align 4
+  %796 = load ptr, ptr %7, align 8
+  %797 = load ptr, ptr %10, align 8
+  %798 = load i32, ptr %797, align 4
+  %799 = load i32, ptr %11, align 4
+  %800 = call ptr @proto_tree_add_item(ptr noundef %794, i32 noundef %795, ptr noundef %796, i32 noundef %798, i32 noundef 4, i32 noundef %799)
+  %801 = load ptr, ptr %10, align 8
+  %802 = load i32, ptr %801, align 4
+  %803 = add i32 %802, 4
+  store i32 %803, ptr %801, align 4
+  br label %804
+
+804:                                              ; preds = %724, %718
+  %805 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %806 = load i16, ptr %805, align 2
+  %807 = zext i16 %806 to i32
+  %808 = and i32 %807, 256
+  %809 = icmp ne i32 %808, 0
+  br i1 %809, label %810, label %822
+
+810:                                              ; preds = %804
+  %811 = load ptr, ptr %7, align 8
+  %812 = load ptr, ptr %8, align 8
+  %813 = load ptr, ptr %13, align 8
+  %814 = load ptr, ptr %10, align 8
+  %815 = load i32, ptr %11, align 4
+  %816 = call i32 @dissect_qnet6_kif_cred(ptr noundef %811, ptr noundef %812, ptr noundef %813, ptr noundef %814, i32 noundef %815)
+  store i32 %816, ptr %19, align 4
+  %817 = load i32, ptr %19, align 4
+  %818 = icmp ne i32 %817, 0
+  br i1 %818, label %819, label %821
+
+819:                                              ; preds = %810
+  %820 = load i32, ptr %19, align 4
+  store i32 %820, ptr %6, align 4
+  br label %1151
+
+821:                                              ; preds = %810
+  br label %822
+
+822:                                              ; preds = %821, %804
+  br label %1149
+
+823:                                              ; preds = %130
+  %824 = load i32, ptr %16, align 4
+  %825 = icmp slt i32 %824, 16
+  br i1 %825, label %826, label %828
+
+826:                                              ; preds = %823
+  %827 = load i32, ptr %19, align 4
+  store i32 %827, ptr %6, align 4
+  br label %1151
+
+828:                                              ; preds = %823
+  %829 = load ptr, ptr %13, align 8
+  %830 = load i32, ptr @hf_qnet6_kif_msgread_msgread_handle, align 4
+  %831 = load ptr, ptr %7, align 8
+  %832 = load ptr, ptr %10, align 8
+  %833 = load i32, ptr %832, align 4
+  %834 = load i32, ptr %11, align 4
+  %835 = call ptr @proto_tree_add_item(ptr noundef %829, i32 noundef %830, ptr noundef %831, i32 noundef %833, i32 noundef 4, i32 noundef %834)
+  %836 = load ptr, ptr %10, align 8
+  %837 = load i32, ptr %836, align 4
+  %838 = add i32 %837, 4
+  store i32 %838, ptr %836, align 4
+  %839 = load ptr, ptr %13, align 8
+  %840 = load i32, ptr @hf_qnet6_kif_msgread_client_handle, align 4
+  %841 = load ptr, ptr %7, align 8
+  %842 = load ptr, ptr %10, align 8
+  %843 = load i32, ptr %842, align 4
+  %844 = load i32, ptr %11, align 4
+  %845 = call ptr @proto_tree_add_item(ptr noundef %839, i32 noundef %840, ptr noundef %841, i32 noundef %843, i32 noundef 4, i32 noundef %844)
+  %846 = load ptr, ptr %10, align 8
+  %847 = load i32, ptr %846, align 4
+  %848 = add i32 %847, 4
+  store i32 %848, ptr %846, align 4
+  %849 = load ptr, ptr %13, align 8
+  %850 = load i32, ptr @hf_qnet6_kif_msgread_offset, align 4
+  %851 = load ptr, ptr %7, align 8
+  %852 = load ptr, ptr %10, align 8
+  %853 = load i32, ptr %852, align 4
+  %854 = load i32, ptr %11, align 4
+  %855 = call ptr @proto_tree_add_item(ptr noundef %849, i32 noundef %850, ptr noundef %851, i32 noundef %853, i32 noundef 4, i32 noundef %854)
+  %856 = load ptr, ptr %10, align 8
+  %857 = load i32, ptr %856, align 4
+  %858 = add i32 %857, 4
+  store i32 %858, ptr %856, align 4
+  %859 = load ptr, ptr %13, align 8
+  %860 = load i32, ptr @hf_qnet6_kif_msgread_nbytes, align 4
+  %861 = load ptr, ptr %7, align 8
+  %862 = load ptr, ptr %10, align 8
+  %863 = load i32, ptr %862, align 4
+  %864 = load i32, ptr %11, align 4
+  %865 = call ptr @proto_tree_add_item(ptr noundef %859, i32 noundef %860, ptr noundef %861, i32 noundef %863, i32 noundef 4, i32 noundef %864)
+  %866 = load ptr, ptr %10, align 8
+  %867 = load i32, ptr %866, align 4
+  %868 = add i32 %867, 4
+  store i32 %868, ptr %866, align 4
+  br label %1149
+
+869:                                              ; preds = %130, %130, %130, %130, %130
+  %870 = load i32, ptr %16, align 4
+  %871 = icmp slt i32 %870, 16
+  br i1 %871, label %872, label %874
+
+872:                                              ; preds = %869
+  %873 = load i32, ptr %19, align 4
+  store i32 %873, ptr %6, align 4
+  br label %1151
+
+874:                                              ; preds = %869
+  %875 = load ptr, ptr %13, align 8
+  %876 = load i32, ptr @hf_qnet6_kif_msgwrite_status, align 4
+  %877 = load ptr, ptr %7, align 8
+  %878 = load ptr, ptr %10, align 8
+  %879 = load i32, ptr %878, align 4
+  %880 = load i32, ptr %11, align 4
+  %881 = call ptr @proto_tree_add_item(ptr noundef %875, i32 noundef %876, ptr noundef %877, i32 noundef %879, i32 noundef 4, i32 noundef %880)
+  %882 = load ptr, ptr %10, align 8
+  %883 = load i32, ptr %882, align 4
+  %884 = add i32 %883, 4
+  store i32 %884, ptr %882, align 4
+  %885 = load ptr, ptr %13, align 8
+  %886 = load i32, ptr @hf_qnet6_kif_msgwrite_handle, align 4
+  %887 = load ptr, ptr %7, align 8
+  %888 = load ptr, ptr %10, align 8
+  %889 = load i32, ptr %888, align 4
+  %890 = load i32, ptr %11, align 4
+  %891 = call ptr @proto_tree_add_item(ptr noundef %885, i32 noundef %886, ptr noundef %887, i32 noundef %889, i32 noundef 4, i32 noundef %890)
+  %892 = load ptr, ptr %10, align 8
+  %893 = load i32, ptr %892, align 4
+  %894 = add i32 %893, 4
+  store i32 %894, ptr %892, align 4
+  %895 = load ptr, ptr %13, align 8
+  %896 = load i32, ptr @hf_qnet6_kif_msgwrite_offset, align 4
+  %897 = load ptr, ptr %7, align 8
+  %898 = load ptr, ptr %10, align 8
+  %899 = load i32, ptr %898, align 4
+  %900 = load i32, ptr %11, align 4
+  %901 = call ptr @proto_tree_add_item(ptr noundef %895, i32 noundef %896, ptr noundef %897, i32 noundef %899, i32 noundef 4, i32 noundef %900)
+  %902 = load ptr, ptr %10, align 8
+  %903 = load i32, ptr %902, align 4
+  %904 = add i32 %903, 4
+  store i32 %904, ptr %902, align 4
+  %905 = load ptr, ptr %7, align 8
+  %906 = load ptr, ptr %10, align 8
+  %907 = load i32, ptr %906, align 4
+  %908 = load i32, ptr %11, align 4
+  %909 = call i32 @tvb_get_guint32(ptr noundef %905, i32 noundef %907, i32 noundef %908)
+  store i32 %909, ptr %20, align 4
+  %910 = load ptr, ptr %13, align 8
+  %911 = load i32, ptr @hf_qnet6_kif_msgwrite_nbytes, align 4
+  %912 = load ptr, ptr %7, align 8
+  %913 = load ptr, ptr %10, align 8
+  %914 = load i32, ptr %913, align 4
+  %915 = load i32, ptr %11, align 4
+  %916 = call ptr @proto_tree_add_item(ptr noundef %910, i32 noundef %911, ptr noundef %912, i32 noundef %914, i32 noundef 4, i32 noundef %915)
+  %917 = load ptr, ptr %10, align 8
+  %918 = load i32, ptr %917, align 4
+  %919 = add i32 %918, 4
+  store i32 %919, ptr %917, align 4
+  %920 = load i32, ptr %16, align 4
+  %921 = sub i32 %920, 16
+  %922 = icmp sgt i32 %921, 0
+  br i1 %922, label %923, label %941
+
+923:                                              ; preds = %874
+  %924 = load ptr, ptr %13, align 8
+  %925 = load i32, ptr @hf_qnet6_kif_msgwrite_data, align 4
+  %926 = load ptr, ptr %7, align 8
+  %927 = load ptr, ptr %10, align 8
+  %928 = load i32, ptr %927, align 4
+  %929 = load i32, ptr %20, align 4
+  %930 = load i32, ptr %16, align 4
+  %931 = sub i32 %930, 16
+  %932 = icmp ult i32 %929, %931
+  br i1 %932, label %933, label %935
+
+933:                                              ; preds = %923
+  %934 = load i32, ptr %20, align 4
+  br label %938
+
+935:                                              ; preds = %923
+  %936 = load i32, ptr %16, align 4
+  %937 = sub i32 %936, 16
+  br label %938
+
+938:                                              ; preds = %935, %933
+  %939 = phi i32 [ %934, %933 ], [ %937, %935 ]
+  %940 = call ptr @proto_tree_add_item(ptr noundef %924, i32 noundef %925, ptr noundef %926, i32 noundef %928, i32 noundef %939, i32 noundef 0)
+  br label %941
+
+941:                                              ; preds = %938, %874
+  br label %1149
+
+942:                                              ; preds = %130
+  %943 = load i32, ptr %16, align 4
+  %944 = icmp slt i32 %943, 12
+  br i1 %944, label %945, label %947
+
+945:                                              ; preds = %942
+  %946 = load i32, ptr %19, align 4
+  store i32 %946, ptr %6, align 4
+  br label %1151
+
+947:                                              ; preds = %942
+  %948 = load ptr, ptr %13, align 8
+  %949 = load i32, ptr @hf_qnet6_kif_unblock_server_id, align 4
+  %950 = load ptr, ptr %7, align 8
+  %951 = load ptr, ptr %10, align 8
+  %952 = load i32, ptr %951, align 4
+  %953 = load i32, ptr %11, align 4
+  %954 = call ptr @proto_tree_add_item(ptr noundef %948, i32 noundef %949, ptr noundef %950, i32 noundef %952, i32 noundef 4, i32 noundef %953)
+  %955 = load ptr, ptr %10, align 8
+  %956 = load i32, ptr %955, align 4
+  %957 = add i32 %956, 4
+  store i32 %957, ptr %955, align 4
+  %958 = load ptr, ptr %13, align 8
+  %959 = load i32, ptr @hf_qnet6_kif_unblock_client_handle, align 4
+  %960 = load ptr, ptr %7, align 8
+  %961 = load ptr, ptr %10, align 8
+  %962 = load i32, ptr %961, align 4
+  %963 = load i32, ptr %11, align 4
+  %964 = call ptr @proto_tree_add_item(ptr noundef %958, i32 noundef %959, ptr noundef %960, i32 noundef %962, i32 noundef 4, i32 noundef %963)
+  %965 = load ptr, ptr %10, align 8
+  %966 = load i32, ptr %965, align 4
+  %967 = add i32 %966, 4
+  store i32 %967, ptr %965, align 4
+  %968 = load ptr, ptr %13, align 8
+  %969 = load i32, ptr @hf_qnet6_kif_unblock_tid, align 4
+  %970 = load ptr, ptr %7, align 8
+  %971 = load ptr, ptr %10, align 8
+  %972 = load i32, ptr %971, align 4
+  %973 = load i32, ptr %11, align 4
+  %974 = call ptr @proto_tree_add_item(ptr noundef %968, i32 noundef %969, ptr noundef %970, i32 noundef %972, i32 noundef 4, i32 noundef %973)
+  %975 = load ptr, ptr %10, align 8
+  %976 = load i32, ptr %975, align 4
+  %977 = add i32 %976, 4
+  store i32 %977, ptr %975, align 4
+  br label %1149
+
+978:                                              ; preds = %130
+  %979 = load i32, ptr %16, align 4
+  %980 = icmp slt i32 %979, 4
+  br i1 %980, label %981, label %983
+
+981:                                              ; preds = %978
+  %982 = load i32, ptr %19, align 4
+  store i32 %982, ptr %6, align 4
+  br label %1151
+
+983:                                              ; preds = %978
+  %984 = load ptr, ptr %13, align 8
+  %985 = load i32, ptr @hf_qnet6_kif_event_client_handle, align 4
+  %986 = load ptr, ptr %7, align 8
+  %987 = load ptr, ptr %10, align 8
+  %988 = load i32, ptr %987, align 4
+  %989 = load i32, ptr %11, align 4
+  %990 = call ptr @proto_tree_add_item(ptr noundef %984, i32 noundef %985, ptr noundef %986, i32 noundef %988, i32 noundef 4, i32 noundef %989)
+  %991 = load ptr, ptr %10, align 8
+  %992 = load i32, ptr %991, align 4
+  %993 = add i32 %992, 4
+  store i32 %993, ptr %991, align 4
+  %994 = load i32, ptr %16, align 4
+  %995 = icmp slt i32 %994, 16
+  br i1 %995, label %996, label %998
+
+996:                                              ; preds = %983
+  %997 = load i32, ptr %19, align 4
+  store i32 %997, ptr %6, align 4
+  br label %1151
+
+998:                                              ; preds = %983
+  %999 = load ptr, ptr %13, align 8
+  %1000 = load i32, ptr @hf_qnet6_kif_event_event, align 4
+  %1001 = load ptr, ptr %7, align 8
+  %1002 = load ptr, ptr %10, align 8
+  %1003 = load i32, ptr %1002, align 4
+  %1004 = call ptr @proto_tree_add_item(ptr noundef %999, i32 noundef %1000, ptr noundef %1001, i32 noundef %1003, i32 noundef 16, i32 noundef 0)
+  store ptr %1004, ptr %12, align 8
+  %1005 = load ptr, ptr %12, align 8
+  %1006 = load i32, ptr @ett_qnet6_kif_event, align 4
+  %1007 = call ptr @proto_item_add_subtree(ptr noundef %1005, i32 noundef %1006)
+  store ptr %1007, ptr %15, align 8
+  %1008 = load ptr, ptr %15, align 8
+  %1009 = load i32, ptr @hf_qnet6_kif_event_notify, align 4
+  %1010 = load ptr, ptr %7, align 8
+  %1011 = load ptr, ptr %10, align 8
+  %1012 = load i32, ptr %1011, align 4
+  %1013 = load i32, ptr %11, align 4
+  %1014 = call ptr @proto_tree_add_item(ptr noundef %1008, i32 noundef %1009, ptr noundef %1010, i32 noundef %1012, i32 noundef 4, i32 noundef %1013)
+  %1015 = load ptr, ptr %10, align 8
+  %1016 = load i32, ptr %1015, align 4
+  %1017 = add i32 %1016, 4
+  store i32 %1017, ptr %1015, align 4
+  %1018 = load ptr, ptr %15, align 8
+  %1019 = load i32, ptr @hf_qnet6_kif_event_union1, align 4
+  %1020 = load ptr, ptr %7, align 8
+  %1021 = load ptr, ptr %10, align 8
+  %1022 = load i32, ptr %1021, align 4
+  %1023 = load i32, ptr %11, align 4
+  %1024 = call ptr @proto_tree_add_item(ptr noundef %1018, i32 noundef %1019, ptr noundef %1020, i32 noundef %1022, i32 noundef 4, i32 noundef %1023)
+  %1025 = load ptr, ptr %10, align 8
+  %1026 = load i32, ptr %1025, align 4
+  %1027 = add i32 %1026, 4
+  store i32 %1027, ptr %1025, align 4
+  %1028 = load ptr, ptr %15, align 8
+  %1029 = load i32, ptr @hf_qnet6_kif_event_value, align 4
+  %1030 = load ptr, ptr %7, align 8
+  %1031 = load ptr, ptr %10, align 8
+  %1032 = load i32, ptr %1031, align 4
+  %1033 = load i32, ptr %11, align 4
+  %1034 = call ptr @proto_tree_add_item(ptr noundef %1028, i32 noundef %1029, ptr noundef %1030, i32 noundef %1032, i32 noundef 4, i32 noundef %1033)
+  %1035 = load ptr, ptr %10, align 8
+  %1036 = load i32, ptr %1035, align 4
+  %1037 = add i32 %1036, 4
+  store i32 %1037, ptr %1035, align 4
+  %1038 = load ptr, ptr %15, align 8
+  %1039 = load i32, ptr @hf_qnet6_kif_event_union2, align 4
+  %1040 = load ptr, ptr %7, align 8
+  %1041 = load ptr, ptr %10, align 8
+  %1042 = load i32, ptr %1041, align 4
+  %1043 = load i32, ptr %11, align 4
+  %1044 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1039, ptr noundef %1040, i32 noundef %1042, i32 noundef 4, i32 noundef %1043)
+  %1045 = load ptr, ptr %10, align 8
+  %1046 = load i32, ptr %1045, align 4
+  %1047 = add i32 %1046, 4
+  store i32 %1047, ptr %1045, align 4
+  br label %1149
+
+1048:                                             ; preds = %130
+  %1049 = load i32, ptr %16, align 4
+  %1050 = icmp slt i32 %1049, 24
+  br i1 %1050, label %1051, label %1053
+
+1051:                                             ; preds = %1048
+  %1052 = load i32, ptr %19, align 4
+  store i32 %1052, ptr %6, align 4
+  br label %1151
+
+1053:                                             ; preds = %1048
+  %1054 = load ptr, ptr %13, align 8
+  %1055 = load i32, ptr @hf_qnet6_kif_signal_client_handle, align 4
+  %1056 = load ptr, ptr %7, align 8
+  %1057 = load ptr, ptr %10, align 8
+  %1058 = load i32, ptr %1057, align 4
+  %1059 = load i32, ptr %11, align 4
+  %1060 = call ptr @proto_tree_add_item(ptr noundef %1054, i32 noundef %1055, ptr noundef %1056, i32 noundef %1058, i32 noundef 4, i32 noundef %1059)
+  %1061 = load ptr, ptr %10, align 8
+  %1062 = load i32, ptr %1061, align 4
+  %1063 = add i32 %1062, 4
+  store i32 %1063, ptr %1061, align 4
+  %1064 = load ptr, ptr %13, align 8
+  %1065 = load i32, ptr @hf_qnet6_kif_signal_pid, align 4
+  %1066 = load ptr, ptr %7, align 8
+  %1067 = load ptr, ptr %10, align 8
+  %1068 = load i32, ptr %1067, align 4
+  %1069 = load i32, ptr %11, align 4
+  %1070 = call ptr @proto_tree_add_item(ptr noundef %1064, i32 noundef %1065, ptr noundef %1066, i32 noundef %1068, i32 noundef 4, i32 noundef %1069)
+  %1071 = load ptr, ptr %10, align 8
+  %1072 = load i32, ptr %1071, align 4
+  %1073 = add i32 %1072, 4
+  store i32 %1073, ptr %1071, align 4
+  %1074 = load ptr, ptr %13, align 8
+  %1075 = load i32, ptr @hf_qnet6_kif_signal_tid, align 4
+  %1076 = load ptr, ptr %7, align 8
+  %1077 = load ptr, ptr %10, align 8
+  %1078 = load i32, ptr %1077, align 4
+  %1079 = load i32, ptr %11, align 4
+  %1080 = call ptr @proto_tree_add_item(ptr noundef %1074, i32 noundef %1075, ptr noundef %1076, i32 noundef %1078, i32 noundef 4, i32 noundef %1079)
+  %1081 = load ptr, ptr %10, align 8
+  %1082 = load i32, ptr %1081, align 4
+  %1083 = add i32 %1082, 4
+  store i32 %1083, ptr %1081, align 4
+  %1084 = load ptr, ptr %13, align 8
+  %1085 = load i32, ptr @hf_qnet6_kif_signal_signo, align 4
+  %1086 = load ptr, ptr %7, align 8
+  %1087 = load ptr, ptr %10, align 8
+  %1088 = load i32, ptr %1087, align 4
+  %1089 = load i32, ptr %11, align 4
+  %1090 = call ptr @proto_tree_add_item(ptr noundef %1084, i32 noundef %1085, ptr noundef %1086, i32 noundef %1088, i32 noundef 4, i32 noundef %1089)
+  %1091 = load ptr, ptr %10, align 8
+  %1092 = load i32, ptr %1091, align 4
+  %1093 = add i32 %1092, 4
+  store i32 %1093, ptr %1091, align 4
+  %1094 = load ptr, ptr %13, align 8
+  %1095 = load i32, ptr @hf_qnet6_kif_signal_code, align 4
+  %1096 = load ptr, ptr %7, align 8
+  %1097 = load ptr, ptr %10, align 8
+  %1098 = load i32, ptr %1097, align 4
+  %1099 = load i32, ptr %11, align 4
+  %1100 = call ptr @proto_tree_add_item(ptr noundef %1094, i32 noundef %1095, ptr noundef %1096, i32 noundef %1098, i32 noundef 4, i32 noundef %1099)
+  %1101 = load ptr, ptr %10, align 8
+  %1102 = load i32, ptr %1101, align 4
+  %1103 = add i32 %1102, 4
+  store i32 %1103, ptr %1101, align 4
+  %1104 = load ptr, ptr %13, align 8
+  %1105 = load i32, ptr @hf_qnet6_kif_signal_value, align 4
+  %1106 = load ptr, ptr %7, align 8
+  %1107 = load ptr, ptr %10, align 8
+  %1108 = load i32, ptr %1107, align 4
+  %1109 = load i32, ptr %11, align 4
+  %1110 = call ptr @proto_tree_add_item(ptr noundef %1104, i32 noundef %1105, ptr noundef %1106, i32 noundef %1108, i32 noundef 4, i32 noundef %1109)
+  %1111 = load ptr, ptr %10, align 8
+  %1112 = load i32, ptr %1111, align 4
+  %1113 = add i32 %1112, 4
+  store i32 %1113, ptr %1111, align 4
+  %1114 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
+  %1115 = load i16, ptr %1114, align 2
+  %1116 = zext i16 %1115 to i32
+  %1117 = and i32 %1116, 256
+  %1118 = icmp ne i32 %1117, 0
+  br i1 %1118, label %1119, label %1131
+
+1119:                                             ; preds = %1053
+  %1120 = load ptr, ptr %7, align 8
+  %1121 = load ptr, ptr %8, align 8
+  %1122 = load ptr, ptr %13, align 8
+  %1123 = load ptr, ptr %10, align 8
+  %1124 = load i32, ptr %11, align 4
+  %1125 = call i32 @dissect_qnet6_kif_cred(ptr noundef %1120, ptr noundef %1121, ptr noundef %1122, ptr noundef %1123, i32 noundef %1124)
+  store i32 %1125, ptr %19, align 4
+  %1126 = load i32, ptr %19, align 4
+  %1127 = icmp ne i32 %1126, 0
+  br i1 %1127, label %1128, label %1130
+
+1128:                                             ; preds = %1119
+  %1129 = load i32, ptr %19, align 4
+  store i32 %1129, ptr %6, align 4
+  br label %1151
+
+1130:                                             ; preds = %1119
+  br label %1131
+
+1131:                                             ; preds = %1130, %1053
+  br label %1149
+
+1132:                                             ; preds = %130
+  %1133 = load i32, ptr %16, align 4
+  %1134 = icmp slt i32 %1133, 4
+  br i1 %1134, label %1135, label %1137
+
+1135:                                             ; preds = %1132
+  %1136 = load i32, ptr %19, align 4
+  store i32 %1136, ptr %6, align 4
+  br label %1151
+
+1137:                                             ; preds = %1132
+  %1138 = load ptr, ptr %13, align 8
+  %1139 = load i32, ptr @hf_qnet6_kif_disconnect_server_id, align 4
+  %1140 = load ptr, ptr %7, align 8
+  %1141 = load ptr, ptr %10, align 8
+  %1142 = load i32, ptr %1141, align 4
+  %1143 = load i32, ptr %11, align 4
+  %1144 = call ptr @proto_tree_add_item(ptr noundef %1138, i32 noundef %1139, ptr noundef %1140, i32 noundef %1142, i32 noundef 4, i32 noundef %1143)
+  %1145 = load ptr, ptr %10, align 8
+  %1146 = load i32, ptr %1145, align 4
+  %1147 = add i32 %1146, 4
+  store i32 %1147, ptr %1145, align 4
   br label %1148
 
-508:                                              ; preds = %129
-  %509 = load i32, ptr %16, align 4
-  %510 = icmp slt i32 %509, 12
-  br i1 %510, label %511, label %513
+1148:                                             ; preds = %1137, %130
+  br label %1149
 
-511:                                              ; preds = %508
-  %512 = load i32, ptr %19, align 4
-  store i32 %512, ptr %6, align 4
-  br label %1150
-
-513:                                              ; preds = %508
-  %514 = load ptr, ptr %13, align 8
-  %515 = load i32, ptr @hf_qnet6_kif_version, align 4
-  %516 = load ptr, ptr %7, align 8
-  %517 = load ptr, ptr %10, align 8
-  %518 = load i32, ptr %517, align 4
-  %519 = load i32, ptr %11, align 4
-  %520 = call ptr @proto_tree_add_item(ptr noundef %514, i32 noundef %515, ptr noundef %516, i32 noundef %518, i32 noundef 4, i32 noundef %519)
-  %521 = load ptr, ptr %10, align 8
-  %522 = load i32, ptr %521, align 4
-  %523 = add i32 %522, 4
-  store i32 %523, ptr %521, align 4
-  %524 = load ptr, ptr %13, align 8
-  %525 = load i32, ptr @hf_qnet6_kif_connectf_client_id, align 4
-  %526 = load ptr, ptr %7, align 8
-  %527 = load ptr, ptr %10, align 8
-  %528 = load i32, ptr %527, align 4
-  %529 = load i32, ptr %11, align 4
-  %530 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %525, ptr noundef %526, i32 noundef %528, i32 noundef 4, i32 noundef %529)
-  %531 = load ptr, ptr %10, align 8
-  %532 = load i32, ptr %531, align 4
-  %533 = add i32 %532, 4
-  store i32 %533, ptr %531, align 4
-  %534 = load ptr, ptr %13, align 8
-  %535 = load i32, ptr @hf_qnet6_kif_connectf_status, align 4
-  %536 = load ptr, ptr %7, align 8
-  %537 = load ptr, ptr %10, align 8
-  %538 = load i32, ptr %537, align 4
-  %539 = load i32, ptr %11, align 4
-  %540 = call ptr @proto_tree_add_item(ptr noundef %534, i32 noundef %535, ptr noundef %536, i32 noundef %538, i32 noundef 4, i32 noundef %539)
-  %541 = load ptr, ptr %10, align 8
-  %542 = load i32, ptr %541, align 4
-  %543 = add i32 %542, 4
-  store i32 %543, ptr %541, align 4
-  br label %1148
-
-544:                                              ; preds = %129
-  %545 = load i32, ptr %16, align 4
-  %546 = icmp slt i32 %545, 4
-  br i1 %546, label %547, label %549
-
-547:                                              ; preds = %544
-  %548 = load i32, ptr %19, align 4
-  store i32 %548, ptr %6, align 4
-  br label %1150
-
-549:                                              ; preds = %544
-  %550 = load ptr, ptr %13, align 8
-  %551 = load i32, ptr @hf_qnet6_kif_connectd_client_id, align 4
-  %552 = load ptr, ptr %7, align 8
-  %553 = load ptr, ptr %10, align 8
-  %554 = load i32, ptr %553, align 4
-  %555 = load i32, ptr %11, align 4
-  %556 = call ptr @proto_tree_add_item(ptr noundef %550, i32 noundef %551, ptr noundef %552, i32 noundef %554, i32 noundef 4, i32 noundef %555)
-  %557 = load ptr, ptr %10, align 8
-  %558 = load i32, ptr %557, align 4
-  %559 = add i32 %558, 4
-  store i32 %559, ptr %557, align 4
-  br label %1148
-
-560:                                              ; preds = %129, %129
-  br label %561
-
-561:                                              ; preds = %560, %418
-  %562 = load i32, ptr %16, align 4
-  %563 = icmp slt i32 %562, 40
-  br i1 %563, label %564, label %566
-
-564:                                              ; preds = %561
-  %565 = load i32, ptr %19, align 4
-  store i32 %565, ptr %6, align 4
-  br label %1150
-
-566:                                              ; preds = %561
-  %567 = load ptr, ptr %13, align 8
-  %568 = load i32, ptr @hf_qnet6_kif_msgsend_server_id, align 4
-  %569 = load ptr, ptr %7, align 8
-  %570 = load ptr, ptr %10, align 8
-  %571 = load i32, ptr %570, align 4
-  %572 = load i32, ptr %11, align 4
-  %573 = call ptr @proto_tree_add_item(ptr noundef %567, i32 noundef %568, ptr noundef %569, i32 noundef %571, i32 noundef 4, i32 noundef %572)
-  %574 = load ptr, ptr %10, align 8
-  %575 = load i32, ptr %574, align 4
-  %576 = add i32 %575, 4
-  store i32 %576, ptr %574, align 4
-  %577 = load ptr, ptr %13, align 8
-  %578 = load i32, ptr @hf_qnet6_kif_msgsend_client_handle, align 4
-  %579 = load ptr, ptr %7, align 8
-  %580 = load ptr, ptr %10, align 8
-  %581 = load i32, ptr %580, align 4
-  %582 = load i32, ptr %11, align 4
-  %583 = call ptr @proto_tree_add_item(ptr noundef %577, i32 noundef %578, ptr noundef %579, i32 noundef %581, i32 noundef 4, i32 noundef %582)
-  %584 = load ptr, ptr %10, align 8
-  %585 = load i32, ptr %584, align 4
-  %586 = add i32 %585, 4
-  store i32 %586, ptr %584, align 4
-  %587 = load ptr, ptr %13, align 8
-  %588 = load i32, ptr @hf_qnet6_kif_msgsend_vinfo, align 4
-  %589 = load ptr, ptr %7, align 8
-  %590 = load ptr, ptr %10, align 8
-  %591 = load i32, ptr %590, align 4
-  %592 = call ptr @proto_tree_add_string(ptr noundef %587, i32 noundef %588, ptr noundef %589, i32 noundef %591, i32 noundef 32, ptr noundef @.str.1065)
-  store ptr %592, ptr %12, align 8
-  %593 = load ptr, ptr %12, align 8
-  %594 = load i32, ptr @ett_qnet6_kif_vinfo, align 4
-  %595 = call ptr @proto_item_add_subtree(ptr noundef %593, i32 noundef %594)
-  store ptr %595, ptr %15, align 8
-  %596 = load ptr, ptr %15, align 8
-  %597 = load i32, ptr @hf_qnet6_kif_vtid_info_tid, align 4
-  %598 = load ptr, ptr %7, align 8
-  %599 = load ptr, ptr %10, align 8
-  %600 = load i32, ptr %599, align 4
-  %601 = load i32, ptr %11, align 4
-  %602 = call ptr @proto_tree_add_item(ptr noundef %596, i32 noundef %597, ptr noundef %598, i32 noundef %600, i32 noundef 4, i32 noundef %601)
-  %603 = load ptr, ptr %10, align 8
-  %604 = load i32, ptr %603, align 4
-  %605 = add i32 %604, 4
-  store i32 %605, ptr %603, align 4
-  %606 = load ptr, ptr %7, align 8
-  %607 = load ptr, ptr %10, align 8
-  %608 = load i32, ptr %607, align 4
-  %609 = load i32, ptr %11, align 4
-  %610 = call i32 @tvb_get_guint32(ptr noundef %606, i32 noundef %608, i32 noundef %609)
-  store i32 %610, ptr %21, align 4
-  %611 = load ptr, ptr %15, align 8
-  %612 = load i32, ptr @hf_qnet6_kif_vtid_info_coid, align 4
-  %613 = load ptr, ptr %7, align 8
-  %614 = load ptr, ptr %10, align 8
-  %615 = load i32, ptr %614, align 4
-  %616 = load i32, ptr %11, align 4
-  %617 = call ptr @proto_tree_add_item(ptr noundef %611, i32 noundef %612, ptr noundef %613, i32 noundef %615, i32 noundef 4, i32 noundef %616)
-  store ptr %617, ptr %12, align 8
-  %618 = load i32, ptr %21, align 4
-  %619 = load ptr, ptr %12, align 8
-  call void @display_coid(i32 noundef %618, ptr noundef %619)
-  %620 = load ptr, ptr %10, align 8
-  %621 = load i32, ptr %620, align 4
-  %622 = add i32 %621, 4
-  store i32 %622, ptr %620, align 4
-  %623 = load ptr, ptr %15, align 8
-  %624 = load i32, ptr @hf_qnet6_kif_vtid_info_priority, align 4
-  %625 = load ptr, ptr %7, align 8
-  %626 = load ptr, ptr %10, align 8
-  %627 = load i32, ptr %626, align 4
-  %628 = load i32, ptr %11, align 4
-  %629 = call ptr @proto_tree_add_item(ptr noundef %623, i32 noundef %624, ptr noundef %625, i32 noundef %627, i32 noundef 4, i32 noundef %628)
-  %630 = load ptr, ptr %10, align 8
-  %631 = load i32, ptr %630, align 4
-  %632 = add i32 %631, 4
-  store i32 %632, ptr %630, align 4
-  %633 = load ptr, ptr %15, align 8
-  %634 = load i32, ptr @hf_qnet6_kif_vtid_info_srcmsglen, align 4
-  %635 = load ptr, ptr %7, align 8
-  %636 = load ptr, ptr %10, align 8
-  %637 = load i32, ptr %636, align 4
-  %638 = load i32, ptr %11, align 4
-  %639 = call ptr @proto_tree_add_item(ptr noundef %633, i32 noundef %634, ptr noundef %635, i32 noundef %637, i32 noundef 4, i32 noundef %638)
-  %640 = load ptr, ptr %10, align 8
-  %641 = load i32, ptr %640, align 4
-  %642 = add i32 %641, 4
-  store i32 %642, ptr %640, align 4
-  %643 = load ptr, ptr %15, align 8
-  %644 = load i32, ptr @hf_qnet6_kif_vtid_info_keydata, align 4
-  %645 = load ptr, ptr %7, align 8
-  %646 = load ptr, ptr %10, align 8
-  %647 = load i32, ptr %646, align 4
-  %648 = load i32, ptr %11, align 4
-  %649 = call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %644, ptr noundef %645, i32 noundef %647, i32 noundef 4, i32 noundef %648)
-  %650 = load ptr, ptr %10, align 8
-  %651 = load i32, ptr %650, align 4
-  %652 = add i32 %651, 4
-  store i32 %652, ptr %650, align 4
-  %653 = load ptr, ptr %15, align 8
-  %654 = load i32, ptr @hf_qnet6_kif_vtid_info_srcnd, align 4
-  %655 = load ptr, ptr %7, align 8
-  %656 = load ptr, ptr %10, align 8
-  %657 = load i32, ptr %656, align 4
-  %658 = load i32, ptr %11, align 4
-  %659 = call ptr @proto_tree_add_item(ptr noundef %653, i32 noundef %654, ptr noundef %655, i32 noundef %657, i32 noundef 4, i32 noundef %658)
-  %660 = load ptr, ptr %10, align 8
-  %661 = load i32, ptr %660, align 4
-  %662 = add i32 %661, 4
-  store i32 %662, ptr %660, align 4
-  %663 = load ptr, ptr %15, align 8
-  %664 = load i32, ptr @hf_qnet6_kif_vtid_info_dstmsglen, align 4
-  %665 = load ptr, ptr %7, align 8
-  %666 = load ptr, ptr %10, align 8
-  %667 = load i32, ptr %666, align 4
-  %668 = load i32, ptr %11, align 4
-  %669 = call ptr @proto_tree_add_item(ptr noundef %663, i32 noundef %664, ptr noundef %665, i32 noundef %667, i32 noundef 4, i32 noundef %668)
-  %670 = load ptr, ptr %10, align 8
-  %671 = load i32, ptr %670, align 4
-  %672 = add i32 %671, 4
-  store i32 %672, ptr %670, align 4
-  %673 = load ptr, ptr %15, align 8
-  %674 = load i32, ptr @hf_qnet6_kif_vtid_info_zero, align 4
-  %675 = load ptr, ptr %7, align 8
-  %676 = load ptr, ptr %10, align 8
-  %677 = load i32, ptr %676, align 4
-  %678 = load i32, ptr %11, align 4
-  %679 = call ptr @proto_tree_add_item(ptr noundef %673, i32 noundef %674, ptr noundef %675, i32 noundef %677, i32 noundef 4, i32 noundef %678)
-  %680 = load ptr, ptr %10, align 8
-  %681 = load i32, ptr %680, align 4
-  %682 = add i32 %681, 4
-  store i32 %682, ptr %680, align 4
-  %683 = load i32, ptr %16, align 4
-  %684 = sub i32 %683, 40
-  store i32 %684, ptr %16, align 4
-  %685 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %686 = load i16, ptr %685, align 2
-  %687 = zext i16 %686 to i32
-  %688 = and i32 %687, 127
-  %689 = icmp eq i32 %688, 5
-  br i1 %689, label %696, label %690
-
-690:                                              ; preds = %566
-  %691 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %692 = load i16, ptr %691, align 2
-  %693 = zext i16 %692 to i32
-  %694 = and i32 %693, 127
-  %695 = icmp eq i32 %694, 1
-  br i1 %695, label %696, label %718
-
-696:                                              ; preds = %690, %566
-  %697 = load ptr, ptr %13, align 8
-  %698 = load i32, ptr @hf_qnet6_kif_msgsend_nbytes, align 4
-  %699 = load ptr, ptr %7, align 8
-  %700 = load ptr, ptr %10, align 8
-  %701 = load i32, ptr %700, align 4
-  %702 = load i32, ptr %11, align 4
-  %703 = call ptr @proto_tree_add_item(ptr noundef %697, i32 noundef %698, ptr noundef %699, i32 noundef %701, i32 noundef 4, i32 noundef %702)
-  %704 = load ptr, ptr %10, align 8
-  %705 = load i32, ptr %704, align 4
-  %706 = add i32 %705, 4
-  store i32 %706, ptr %704, align 4
-  %707 = load ptr, ptr %7, align 8
-  %708 = load ptr, ptr %8, align 8
-  %709 = load ptr, ptr %13, align 8
-  %710 = load ptr, ptr %10, align 8
-  %711 = load i32, ptr %11, align 4
-  %712 = call i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %707, ptr noundef %708, ptr noundef %709, ptr noundef %710, i32 noundef %711)
-  store i32 %712, ptr %19, align 4
-  %713 = load i32, ptr %19, align 4
-  %714 = icmp ne i32 %713, 0
-  br i1 %714, label %715, label %717
-
-715:                                              ; preds = %696
-  %716 = load i32, ptr %19, align 4
-  store i32 %716, ptr %6, align 4
-  br label %1150
-
-717:                                              ; preds = %696
-  br label %803
-
-718:                                              ; preds = %690
-  %719 = load i32, ptr %16, align 4
-  %720 = icmp slt i32 %719, 20
-  br i1 %720, label %721, label %723
-
-721:                                              ; preds = %718
-  %722 = load i32, ptr %19, align 4
-  store i32 %722, ptr %6, align 4
-  br label %1150
-
-723:                                              ; preds = %718
-  %724 = load ptr, ptr %13, align 8
-  %725 = load i32, ptr @hf_qnet6_kif_pulse_pulse, align 4
-  %726 = load ptr, ptr %7, align 8
-  %727 = load ptr, ptr %10, align 8
-  %728 = load i32, ptr %727, align 4
-  %729 = call ptr @proto_tree_add_string(ptr noundef %724, i32 noundef %725, ptr noundef %726, i32 noundef %728, i32 noundef 16, ptr noundef @.str.1066)
-  store ptr %729, ptr %12, align 8
-  %730 = load ptr, ptr %12, align 8
-  %731 = load i32, ptr @ett_qnet6_kif_pulse, align 4
-  %732 = call ptr @proto_item_add_subtree(ptr noundef %730, i32 noundef %731)
-  store ptr %732, ptr %15, align 8
-  %733 = load ptr, ptr %15, align 8
-  %734 = load i32, ptr @hf_qnet6_kif_pulse_pulse_type, align 4
-  %735 = load ptr, ptr %7, align 8
-  %736 = load ptr, ptr %10, align 8
-  %737 = load i32, ptr %736, align 4
-  %738 = load i32, ptr %11, align 4
-  %739 = call ptr @proto_tree_add_item(ptr noundef %733, i32 noundef %734, ptr noundef %735, i32 noundef %737, i32 noundef 2, i32 noundef %738)
-  %740 = load ptr, ptr %10, align 8
-  %741 = load i32, ptr %740, align 4
-  %742 = add i32 %741, 2
-  store i32 %742, ptr %740, align 4
-  %743 = load ptr, ptr %15, align 8
-  %744 = load i32, ptr @hf_qnet6_kif_pulse_pulse_subtype, align 4
-  %745 = load ptr, ptr %7, align 8
-  %746 = load ptr, ptr %10, align 8
-  %747 = load i32, ptr %746, align 4
-  %748 = load i32, ptr %11, align 4
-  %749 = call ptr @proto_tree_add_item(ptr noundef %743, i32 noundef %744, ptr noundef %745, i32 noundef %747, i32 noundef 2, i32 noundef %748)
-  %750 = load ptr, ptr %10, align 8
-  %751 = load i32, ptr %750, align 4
-  %752 = add i32 %751, 2
-  store i32 %752, ptr %750, align 4
-  %753 = load ptr, ptr %15, align 8
-  %754 = load i32, ptr @hf_qnet6_kif_pulse_pulse_code, align 4
-  %755 = load ptr, ptr %7, align 8
-  %756 = load ptr, ptr %10, align 8
-  %757 = load i32, ptr %756, align 4
-  %758 = load i32, ptr %11, align 4
-  %759 = call ptr @proto_tree_add_item(ptr noundef %753, i32 noundef %754, ptr noundef %755, i32 noundef %757, i32 noundef 1, i32 noundef %758)
-  %760 = load ptr, ptr %10, align 8
-  %761 = load i32, ptr %760, align 4
-  %762 = add i32 %761, 1
-  store i32 %762, ptr %760, align 4
-  %763 = load ptr, ptr %15, align 8
-  %764 = load i32, ptr @hf_qnet6_kif_pulse_pulse_reserved, align 4
-  %765 = load ptr, ptr %7, align 8
-  %766 = load ptr, ptr %10, align 8
-  %767 = load i32, ptr %766, align 4
-  %768 = load i32, ptr %11, align 4
-  %769 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %764, ptr noundef %765, i32 noundef %767, i32 noundef 3, i32 noundef %768)
-  %770 = load ptr, ptr %10, align 8
-  %771 = load i32, ptr %770, align 4
-  %772 = add i32 %771, 3
-  store i32 %772, ptr %770, align 4
-  %773 = load ptr, ptr %15, align 8
-  %774 = load i32, ptr @hf_qnet6_kif_pulse_pulse_value, align 4
-  %775 = load ptr, ptr %7, align 8
-  %776 = load ptr, ptr %10, align 8
-  %777 = load i32, ptr %776, align 4
-  %778 = load i32, ptr %11, align 4
-  %779 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %774, ptr noundef %775, i32 noundef %777, i32 noundef 4, i32 noundef %778)
-  %780 = load ptr, ptr %10, align 8
-  %781 = load i32, ptr %780, align 4
-  %782 = add i32 %781, 4
-  store i32 %782, ptr %780, align 4
-  %783 = load ptr, ptr %15, align 8
-  %784 = load i32, ptr @hf_qnet6_kif_pulse_pulse_scoid, align 4
-  %785 = load ptr, ptr %7, align 8
-  %786 = load ptr, ptr %10, align 8
-  %787 = load i32, ptr %786, align 4
-  %788 = load i32, ptr %11, align 4
-  %789 = call ptr @proto_tree_add_item(ptr noundef %783, i32 noundef %784, ptr noundef %785, i32 noundef %787, i32 noundef 4, i32 noundef %788)
-  %790 = load ptr, ptr %10, align 8
-  %791 = load i32, ptr %790, align 4
-  %792 = add i32 %791, 4
-  store i32 %792, ptr %790, align 4
-  %793 = load ptr, ptr %13, align 8
-  %794 = load i32, ptr @hf_qnet6_kif_pulse_priority, align 4
-  %795 = load ptr, ptr %7, align 8
-  %796 = load ptr, ptr %10, align 8
-  %797 = load i32, ptr %796, align 4
-  %798 = load i32, ptr %11, align 4
-  %799 = call ptr @proto_tree_add_item(ptr noundef %793, i32 noundef %794, ptr noundef %795, i32 noundef %797, i32 noundef 4, i32 noundef %798)
-  %800 = load ptr, ptr %10, align 8
-  %801 = load i32, ptr %800, align 4
-  %802 = add i32 %801, 4
-  store i32 %802, ptr %800, align 4
-  br label %803
-
-803:                                              ; preds = %723, %717
-  %804 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %805 = load i16, ptr %804, align 2
-  %806 = zext i16 %805 to i32
-  %807 = and i32 %806, 256
-  %808 = icmp ne i32 %807, 0
-  br i1 %808, label %809, label %821
-
-809:                                              ; preds = %803
-  %810 = load ptr, ptr %7, align 8
-  %811 = load ptr, ptr %8, align 8
-  %812 = load ptr, ptr %13, align 8
-  %813 = load ptr, ptr %10, align 8
-  %814 = load i32, ptr %11, align 4
-  %815 = call i32 @dissect_qnet6_kif_cred(ptr noundef %810, ptr noundef %811, ptr noundef %812, ptr noundef %813, i32 noundef %814)
-  store i32 %815, ptr %19, align 4
-  %816 = load i32, ptr %19, align 4
-  %817 = icmp ne i32 %816, 0
-  br i1 %817, label %818, label %820
-
-818:                                              ; preds = %809
-  %819 = load i32, ptr %19, align 4
-  store i32 %819, ptr %6, align 4
-  br label %1150
-
-820:                                              ; preds = %809
-  br label %821
-
-821:                                              ; preds = %820, %803
-  br label %1148
-
-822:                                              ; preds = %129
-  %823 = load i32, ptr %16, align 4
-  %824 = icmp slt i32 %823, 16
-  br i1 %824, label %825, label %827
-
-825:                                              ; preds = %822
-  %826 = load i32, ptr %19, align 4
-  store i32 %826, ptr %6, align 4
-  br label %1150
-
-827:                                              ; preds = %822
-  %828 = load ptr, ptr %13, align 8
-  %829 = load i32, ptr @hf_qnet6_kif_msgread_msgread_handle, align 4
-  %830 = load ptr, ptr %7, align 8
-  %831 = load ptr, ptr %10, align 8
-  %832 = load i32, ptr %831, align 4
-  %833 = load i32, ptr %11, align 4
-  %834 = call ptr @proto_tree_add_item(ptr noundef %828, i32 noundef %829, ptr noundef %830, i32 noundef %832, i32 noundef 4, i32 noundef %833)
-  %835 = load ptr, ptr %10, align 8
-  %836 = load i32, ptr %835, align 4
-  %837 = add i32 %836, 4
-  store i32 %837, ptr %835, align 4
-  %838 = load ptr, ptr %13, align 8
-  %839 = load i32, ptr @hf_qnet6_kif_msgread_client_handle, align 4
-  %840 = load ptr, ptr %7, align 8
-  %841 = load ptr, ptr %10, align 8
-  %842 = load i32, ptr %841, align 4
-  %843 = load i32, ptr %11, align 4
-  %844 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %839, ptr noundef %840, i32 noundef %842, i32 noundef 4, i32 noundef %843)
-  %845 = load ptr, ptr %10, align 8
-  %846 = load i32, ptr %845, align 4
-  %847 = add i32 %846, 4
-  store i32 %847, ptr %845, align 4
-  %848 = load ptr, ptr %13, align 8
-  %849 = load i32, ptr @hf_qnet6_kif_msgread_offset, align 4
-  %850 = load ptr, ptr %7, align 8
-  %851 = load ptr, ptr %10, align 8
-  %852 = load i32, ptr %851, align 4
-  %853 = load i32, ptr %11, align 4
-  %854 = call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %849, ptr noundef %850, i32 noundef %852, i32 noundef 4, i32 noundef %853)
-  %855 = load ptr, ptr %10, align 8
-  %856 = load i32, ptr %855, align 4
-  %857 = add i32 %856, 4
-  store i32 %857, ptr %855, align 4
-  %858 = load ptr, ptr %13, align 8
-  %859 = load i32, ptr @hf_qnet6_kif_msgread_nbytes, align 4
-  %860 = load ptr, ptr %7, align 8
-  %861 = load ptr, ptr %10, align 8
-  %862 = load i32, ptr %861, align 4
-  %863 = load i32, ptr %11, align 4
-  %864 = call ptr @proto_tree_add_item(ptr noundef %858, i32 noundef %859, ptr noundef %860, i32 noundef %862, i32 noundef 4, i32 noundef %863)
-  %865 = load ptr, ptr %10, align 8
-  %866 = load i32, ptr %865, align 4
-  %867 = add i32 %866, 4
-  store i32 %867, ptr %865, align 4
-  br label %1148
-
-868:                                              ; preds = %129, %129, %129, %129, %129
-  %869 = load i32, ptr %16, align 4
-  %870 = icmp slt i32 %869, 16
-  br i1 %870, label %871, label %873
-
-871:                                              ; preds = %868
-  %872 = load i32, ptr %19, align 4
-  store i32 %872, ptr %6, align 4
-  br label %1150
-
-873:                                              ; preds = %868
-  %874 = load ptr, ptr %13, align 8
-  %875 = load i32, ptr @hf_qnet6_kif_msgwrite_status, align 4
-  %876 = load ptr, ptr %7, align 8
-  %877 = load ptr, ptr %10, align 8
-  %878 = load i32, ptr %877, align 4
-  %879 = load i32, ptr %11, align 4
-  %880 = call ptr @proto_tree_add_item(ptr noundef %874, i32 noundef %875, ptr noundef %876, i32 noundef %878, i32 noundef 4, i32 noundef %879)
-  %881 = load ptr, ptr %10, align 8
-  %882 = load i32, ptr %881, align 4
-  %883 = add i32 %882, 4
-  store i32 %883, ptr %881, align 4
-  %884 = load ptr, ptr %13, align 8
-  %885 = load i32, ptr @hf_qnet6_kif_msgwrite_handle, align 4
-  %886 = load ptr, ptr %7, align 8
-  %887 = load ptr, ptr %10, align 8
-  %888 = load i32, ptr %887, align 4
-  %889 = load i32, ptr %11, align 4
-  %890 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %885, ptr noundef %886, i32 noundef %888, i32 noundef 4, i32 noundef %889)
-  %891 = load ptr, ptr %10, align 8
-  %892 = load i32, ptr %891, align 4
-  %893 = add i32 %892, 4
-  store i32 %893, ptr %891, align 4
-  %894 = load ptr, ptr %13, align 8
-  %895 = load i32, ptr @hf_qnet6_kif_msgwrite_offset, align 4
-  %896 = load ptr, ptr %7, align 8
-  %897 = load ptr, ptr %10, align 8
-  %898 = load i32, ptr %897, align 4
-  %899 = load i32, ptr %11, align 4
-  %900 = call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %895, ptr noundef %896, i32 noundef %898, i32 noundef 4, i32 noundef %899)
-  %901 = load ptr, ptr %10, align 8
-  %902 = load i32, ptr %901, align 4
-  %903 = add i32 %902, 4
-  store i32 %903, ptr %901, align 4
-  %904 = load ptr, ptr %7, align 8
-  %905 = load ptr, ptr %10, align 8
-  %906 = load i32, ptr %905, align 4
-  %907 = load i32, ptr %11, align 4
-  %908 = call i32 @tvb_get_guint32(ptr noundef %904, i32 noundef %906, i32 noundef %907)
-  store i32 %908, ptr %20, align 4
-  %909 = load ptr, ptr %13, align 8
-  %910 = load i32, ptr @hf_qnet6_kif_msgwrite_nbytes, align 4
-  %911 = load ptr, ptr %7, align 8
-  %912 = load ptr, ptr %10, align 8
-  %913 = load i32, ptr %912, align 4
-  %914 = load i32, ptr %11, align 4
-  %915 = call ptr @proto_tree_add_item(ptr noundef %909, i32 noundef %910, ptr noundef %911, i32 noundef %913, i32 noundef 4, i32 noundef %914)
-  %916 = load ptr, ptr %10, align 8
-  %917 = load i32, ptr %916, align 4
-  %918 = add i32 %917, 4
-  store i32 %918, ptr %916, align 4
-  %919 = load i32, ptr %16, align 4
-  %920 = sub i32 %919, 16
-  %921 = icmp sgt i32 %920, 0
-  br i1 %921, label %922, label %940
-
-922:                                              ; preds = %873
-  %923 = load ptr, ptr %13, align 8
-  %924 = load i32, ptr @hf_qnet6_kif_msgwrite_data, align 4
-  %925 = load ptr, ptr %7, align 8
-  %926 = load ptr, ptr %10, align 8
-  %927 = load i32, ptr %926, align 4
-  %928 = load i32, ptr %20, align 4
-  %929 = load i32, ptr %16, align 4
-  %930 = sub i32 %929, 16
-  %931 = icmp ult i32 %928, %930
-  br i1 %931, label %932, label %934
-
-932:                                              ; preds = %922
-  %933 = load i32, ptr %20, align 4
-  br label %937
-
-934:                                              ; preds = %922
-  %935 = load i32, ptr %16, align 4
-  %936 = sub i32 %935, 16
-  br label %937
-
-937:                                              ; preds = %934, %932
-  %938 = phi i32 [ %933, %932 ], [ %936, %934 ]
-  %939 = call ptr @proto_tree_add_item(ptr noundef %923, i32 noundef %924, ptr noundef %925, i32 noundef %927, i32 noundef %938, i32 noundef 0)
-  br label %940
-
-940:                                              ; preds = %937, %873
-  br label %1148
-
-941:                                              ; preds = %129
-  %942 = load i32, ptr %16, align 4
-  %943 = icmp slt i32 %942, 12
-  br i1 %943, label %944, label %946
-
-944:                                              ; preds = %941
-  %945 = load i32, ptr %19, align 4
-  store i32 %945, ptr %6, align 4
-  br label %1150
-
-946:                                              ; preds = %941
-  %947 = load ptr, ptr %13, align 8
-  %948 = load i32, ptr @hf_qnet6_kif_unblock_server_id, align 4
-  %949 = load ptr, ptr %7, align 8
-  %950 = load ptr, ptr %10, align 8
-  %951 = load i32, ptr %950, align 4
-  %952 = load i32, ptr %11, align 4
-  %953 = call ptr @proto_tree_add_item(ptr noundef %947, i32 noundef %948, ptr noundef %949, i32 noundef %951, i32 noundef 4, i32 noundef %952)
-  %954 = load ptr, ptr %10, align 8
-  %955 = load i32, ptr %954, align 4
-  %956 = add i32 %955, 4
-  store i32 %956, ptr %954, align 4
-  %957 = load ptr, ptr %13, align 8
-  %958 = load i32, ptr @hf_qnet6_kif_unblock_client_handle, align 4
-  %959 = load ptr, ptr %7, align 8
-  %960 = load ptr, ptr %10, align 8
-  %961 = load i32, ptr %960, align 4
-  %962 = load i32, ptr %11, align 4
-  %963 = call ptr @proto_tree_add_item(ptr noundef %957, i32 noundef %958, ptr noundef %959, i32 noundef %961, i32 noundef 4, i32 noundef %962)
-  %964 = load ptr, ptr %10, align 8
-  %965 = load i32, ptr %964, align 4
-  %966 = add i32 %965, 4
-  store i32 %966, ptr %964, align 4
-  %967 = load ptr, ptr %13, align 8
-  %968 = load i32, ptr @hf_qnet6_kif_unblock_tid, align 4
-  %969 = load ptr, ptr %7, align 8
-  %970 = load ptr, ptr %10, align 8
-  %971 = load i32, ptr %970, align 4
-  %972 = load i32, ptr %11, align 4
-  %973 = call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %968, ptr noundef %969, i32 noundef %971, i32 noundef 4, i32 noundef %972)
-  %974 = load ptr, ptr %10, align 8
-  %975 = load i32, ptr %974, align 4
-  %976 = add i32 %975, 4
-  store i32 %976, ptr %974, align 4
-  br label %1148
-
-977:                                              ; preds = %129
-  %978 = load i32, ptr %16, align 4
-  %979 = icmp slt i32 %978, 4
-  br i1 %979, label %980, label %982
-
-980:                                              ; preds = %977
-  %981 = load i32, ptr %19, align 4
-  store i32 %981, ptr %6, align 4
-  br label %1150
-
-982:                                              ; preds = %977
-  %983 = load ptr, ptr %13, align 8
-  %984 = load i32, ptr @hf_qnet6_kif_event_client_handle, align 4
-  %985 = load ptr, ptr %7, align 8
-  %986 = load ptr, ptr %10, align 8
-  %987 = load i32, ptr %986, align 4
-  %988 = load i32, ptr %11, align 4
-  %989 = call ptr @proto_tree_add_item(ptr noundef %983, i32 noundef %984, ptr noundef %985, i32 noundef %987, i32 noundef 4, i32 noundef %988)
-  %990 = load ptr, ptr %10, align 8
-  %991 = load i32, ptr %990, align 4
-  %992 = add i32 %991, 4
-  store i32 %992, ptr %990, align 4
-  %993 = load i32, ptr %16, align 4
-  %994 = icmp slt i32 %993, 16
-  br i1 %994, label %995, label %997
-
-995:                                              ; preds = %982
-  %996 = load i32, ptr %19, align 4
-  store i32 %996, ptr %6, align 4
-  br label %1150
-
-997:                                              ; preds = %982
-  %998 = load ptr, ptr %13, align 8
-  %999 = load i32, ptr @hf_qnet6_kif_event_event, align 4
-  %1000 = load ptr, ptr %7, align 8
-  %1001 = load ptr, ptr %10, align 8
-  %1002 = load i32, ptr %1001, align 4
-  %1003 = call ptr @proto_tree_add_item(ptr noundef %998, i32 noundef %999, ptr noundef %1000, i32 noundef %1002, i32 noundef 16, i32 noundef 0)
-  store ptr %1003, ptr %12, align 8
-  %1004 = load ptr, ptr %12, align 8
-  %1005 = load i32, ptr @ett_qnet6_kif_event, align 4
-  %1006 = call ptr @proto_item_add_subtree(ptr noundef %1004, i32 noundef %1005)
-  store ptr %1006, ptr %15, align 8
-  %1007 = load ptr, ptr %15, align 8
-  %1008 = load i32, ptr @hf_qnet6_kif_event_notify, align 4
-  %1009 = load ptr, ptr %7, align 8
-  %1010 = load ptr, ptr %10, align 8
-  %1011 = load i32, ptr %1010, align 4
-  %1012 = load i32, ptr %11, align 4
-  %1013 = call ptr @proto_tree_add_item(ptr noundef %1007, i32 noundef %1008, ptr noundef %1009, i32 noundef %1011, i32 noundef 4, i32 noundef %1012)
-  %1014 = load ptr, ptr %10, align 8
-  %1015 = load i32, ptr %1014, align 4
-  %1016 = add i32 %1015, 4
-  store i32 %1016, ptr %1014, align 4
-  %1017 = load ptr, ptr %15, align 8
-  %1018 = load i32, ptr @hf_qnet6_kif_event_union1, align 4
-  %1019 = load ptr, ptr %7, align 8
-  %1020 = load ptr, ptr %10, align 8
-  %1021 = load i32, ptr %1020, align 4
-  %1022 = load i32, ptr %11, align 4
-  %1023 = call ptr @proto_tree_add_item(ptr noundef %1017, i32 noundef %1018, ptr noundef %1019, i32 noundef %1021, i32 noundef 4, i32 noundef %1022)
-  %1024 = load ptr, ptr %10, align 8
-  %1025 = load i32, ptr %1024, align 4
-  %1026 = add i32 %1025, 4
-  store i32 %1026, ptr %1024, align 4
-  %1027 = load ptr, ptr %15, align 8
-  %1028 = load i32, ptr @hf_qnet6_kif_event_value, align 4
-  %1029 = load ptr, ptr %7, align 8
-  %1030 = load ptr, ptr %10, align 8
-  %1031 = load i32, ptr %1030, align 4
-  %1032 = load i32, ptr %11, align 4
-  %1033 = call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1028, ptr noundef %1029, i32 noundef %1031, i32 noundef 4, i32 noundef %1032)
-  %1034 = load ptr, ptr %10, align 8
-  %1035 = load i32, ptr %1034, align 4
-  %1036 = add i32 %1035, 4
-  store i32 %1036, ptr %1034, align 4
-  %1037 = load ptr, ptr %15, align 8
-  %1038 = load i32, ptr @hf_qnet6_kif_event_union2, align 4
-  %1039 = load ptr, ptr %7, align 8
-  %1040 = load ptr, ptr %10, align 8
-  %1041 = load i32, ptr %1040, align 4
-  %1042 = load i32, ptr %11, align 4
-  %1043 = call ptr @proto_tree_add_item(ptr noundef %1037, i32 noundef %1038, ptr noundef %1039, i32 noundef %1041, i32 noundef 4, i32 noundef %1042)
-  %1044 = load ptr, ptr %10, align 8
-  %1045 = load i32, ptr %1044, align 4
-  %1046 = add i32 %1045, 4
-  store i32 %1046, ptr %1044, align 4
-  br label %1148
-
-1047:                                             ; preds = %129
-  %1048 = load i32, ptr %16, align 4
-  %1049 = icmp slt i32 %1048, 24
-  br i1 %1049, label %1050, label %1052
-
-1050:                                             ; preds = %1047
-  %1051 = load i32, ptr %19, align 4
-  store i32 %1051, ptr %6, align 4
-  br label %1150
-
-1052:                                             ; preds = %1047
-  %1053 = load ptr, ptr %13, align 8
-  %1054 = load i32, ptr @hf_qnet6_kif_signal_client_handle, align 4
-  %1055 = load ptr, ptr %7, align 8
-  %1056 = load ptr, ptr %10, align 8
-  %1057 = load i32, ptr %1056, align 4
-  %1058 = load i32, ptr %11, align 4
-  %1059 = call ptr @proto_tree_add_item(ptr noundef %1053, i32 noundef %1054, ptr noundef %1055, i32 noundef %1057, i32 noundef 4, i32 noundef %1058)
-  %1060 = load ptr, ptr %10, align 8
-  %1061 = load i32, ptr %1060, align 4
-  %1062 = add i32 %1061, 4
-  store i32 %1062, ptr %1060, align 4
-  %1063 = load ptr, ptr %13, align 8
-  %1064 = load i32, ptr @hf_qnet6_kif_signal_pid, align 4
-  %1065 = load ptr, ptr %7, align 8
-  %1066 = load ptr, ptr %10, align 8
-  %1067 = load i32, ptr %1066, align 4
-  %1068 = load i32, ptr %11, align 4
-  %1069 = call ptr @proto_tree_add_item(ptr noundef %1063, i32 noundef %1064, ptr noundef %1065, i32 noundef %1067, i32 noundef 4, i32 noundef %1068)
-  %1070 = load ptr, ptr %10, align 8
-  %1071 = load i32, ptr %1070, align 4
-  %1072 = add i32 %1071, 4
-  store i32 %1072, ptr %1070, align 4
-  %1073 = load ptr, ptr %13, align 8
-  %1074 = load i32, ptr @hf_qnet6_kif_signal_tid, align 4
-  %1075 = load ptr, ptr %7, align 8
-  %1076 = load ptr, ptr %10, align 8
-  %1077 = load i32, ptr %1076, align 4
-  %1078 = load i32, ptr %11, align 4
-  %1079 = call ptr @proto_tree_add_item(ptr noundef %1073, i32 noundef %1074, ptr noundef %1075, i32 noundef %1077, i32 noundef 4, i32 noundef %1078)
-  %1080 = load ptr, ptr %10, align 8
-  %1081 = load i32, ptr %1080, align 4
-  %1082 = add i32 %1081, 4
-  store i32 %1082, ptr %1080, align 4
-  %1083 = load ptr, ptr %13, align 8
-  %1084 = load i32, ptr @hf_qnet6_kif_signal_signo, align 4
-  %1085 = load ptr, ptr %7, align 8
-  %1086 = load ptr, ptr %10, align 8
-  %1087 = load i32, ptr %1086, align 4
-  %1088 = load i32, ptr %11, align 4
-  %1089 = call ptr @proto_tree_add_item(ptr noundef %1083, i32 noundef %1084, ptr noundef %1085, i32 noundef %1087, i32 noundef 4, i32 noundef %1088)
-  %1090 = load ptr, ptr %10, align 8
-  %1091 = load i32, ptr %1090, align 4
-  %1092 = add i32 %1091, 4
-  store i32 %1092, ptr %1090, align 4
-  %1093 = load ptr, ptr %13, align 8
-  %1094 = load i32, ptr @hf_qnet6_kif_signal_code, align 4
-  %1095 = load ptr, ptr %7, align 8
-  %1096 = load ptr, ptr %10, align 8
-  %1097 = load i32, ptr %1096, align 4
-  %1098 = load i32, ptr %11, align 4
-  %1099 = call ptr @proto_tree_add_item(ptr noundef %1093, i32 noundef %1094, ptr noundef %1095, i32 noundef %1097, i32 noundef 4, i32 noundef %1098)
-  %1100 = load ptr, ptr %10, align 8
-  %1101 = load i32, ptr %1100, align 4
-  %1102 = add i32 %1101, 4
-  store i32 %1102, ptr %1100, align 4
-  %1103 = load ptr, ptr %13, align 8
-  %1104 = load i32, ptr @hf_qnet6_kif_signal_value, align 4
-  %1105 = load ptr, ptr %7, align 8
-  %1106 = load ptr, ptr %10, align 8
-  %1107 = load i32, ptr %1106, align 4
-  %1108 = load i32, ptr %11, align 4
-  %1109 = call ptr @proto_tree_add_item(ptr noundef %1103, i32 noundef %1104, ptr noundef %1105, i32 noundef %1107, i32 noundef 4, i32 noundef %1108)
-  %1110 = load ptr, ptr %10, align 8
-  %1111 = load i32, ptr %1110, align 4
-  %1112 = add i32 %1111, 4
-  store i32 %1112, ptr %1110, align 4
-  %1113 = getelementptr inbounds %struct.qnet6_kif_hdr, ptr %17, i32 0, i32 0
-  %1114 = load i16, ptr %1113, align 2
-  %1115 = zext i16 %1114 to i32
-  %1116 = and i32 %1115, 256
-  %1117 = icmp ne i32 %1116, 0
-  br i1 %1117, label %1118, label %1130
-
-1118:                                             ; preds = %1052
-  %1119 = load ptr, ptr %7, align 8
-  %1120 = load ptr, ptr %8, align 8
-  %1121 = load ptr, ptr %13, align 8
-  %1122 = load ptr, ptr %10, align 8
-  %1123 = load i32, ptr %11, align 4
-  %1124 = call i32 @dissect_qnet6_kif_cred(ptr noundef %1119, ptr noundef %1120, ptr noundef %1121, ptr noundef %1122, i32 noundef %1123)
-  store i32 %1124, ptr %19, align 4
-  %1125 = load i32, ptr %19, align 4
-  %1126 = icmp ne i32 %1125, 0
-  br i1 %1126, label %1127, label %1129
-
-1127:                                             ; preds = %1118
-  %1128 = load i32, ptr %19, align 4
-  store i32 %1128, ptr %6, align 4
-  br label %1150
-
-1129:                                             ; preds = %1118
-  br label %1130
-
-1130:                                             ; preds = %1129, %1052
-  br label %1148
-
-1131:                                             ; preds = %129
-  %1132 = load i32, ptr %16, align 4
-  %1133 = icmp slt i32 %1132, 4
-  br i1 %1133, label %1134, label %1136
-
-1134:                                             ; preds = %1131
-  %1135 = load i32, ptr %19, align 4
-  store i32 %1135, ptr %6, align 4
-  br label %1150
-
-1136:                                             ; preds = %1131
-  %1137 = load ptr, ptr %13, align 8
-  %1138 = load i32, ptr @hf_qnet6_kif_disconnect_server_id, align 4
-  %1139 = load ptr, ptr %7, align 8
-  %1140 = load ptr, ptr %10, align 8
-  %1141 = load i32, ptr %1140, align 4
-  %1142 = load i32, ptr %11, align 4
-  %1143 = call ptr @proto_tree_add_item(ptr noundef %1137, i32 noundef %1138, ptr noundef %1139, i32 noundef %1141, i32 noundef 4, i32 noundef %1142)
-  %1144 = load ptr, ptr %10, align 8
-  %1145 = load i32, ptr %1144, align 4
-  %1146 = add i32 %1145, 4
-  store i32 %1146, ptr %1144, align 4
-  br label %1147
-
-1147:                                             ; preds = %1136, %129
-  br label %1148
-
-1148:                                             ; preds = %1147, %1130, %997, %946, %940, %827, %821, %549, %513, %507, %213
+1149:                                             ; preds = %1148, %1131, %998, %947, %941, %828, %822, %550, %514, %508, %214
   store i32 0, ptr %19, align 4
-  %1149 = load i32, ptr %19, align 4
-  store i32 %1149, ptr %6, align 4
-  br label %1150
+  %1150 = load i32, ptr %19, align 4
+  store i32 %1150, ptr %6, align 4
+  br label %1151
 
-1150:                                             ; preds = %1148, %1134, %1127, %1050, %995, %980, %944, %871, %825, %818, %721, %715, %564, %547, %511, %504, %437, %362, %352, %217, %210
-  %1151 = load i32, ptr %6, align 4
-  ret i32 %1151
+1151:                                             ; preds = %1149, %1135, %1128, %1051, %996, %981, %945, %872, %826, %819, %722, %716, %565, %548, %512, %505, %438, %363, %353, %218, %211
+  %1152 = load i32, ptr %6, align 4
+  ret i32 %1152
 }
 
 ; Function Attrs: nounwind uwtable

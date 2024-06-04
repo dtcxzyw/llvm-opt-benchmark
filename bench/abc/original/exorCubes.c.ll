@@ -47,7 +47,7 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
 
 31:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %157
+  br label %159
 
 32:                                               ; preds = %3
   %33 = load i32, ptr %5, align 4
@@ -69,7 +69,7 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
 
 46:                                               ; preds = %32
   store i32 0, ptr %4, align 4
-  br label %157
+  br label %159
 
 47:                                               ; preds = %32
   %48 = load ptr, ptr %10, align 8
@@ -200,24 +200,26 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %146 = getelementptr inbounds ptr, ptr %145, i64 0
   %147 = load ptr, ptr %146, align 8
   store ptr %147, ptr @s_CubesFree, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 6), align 8
-  %148 = load i32, ptr %5, align 4
-  store i32 %148, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7), align 4
-  %149 = load ptr, ptr %10, align 8
-  store ptr %149, ptr @s_pCoverMemory, align 8
-  %150 = load i32, ptr %5, align 4
-  %151 = sext i32 %150 to i64
-  %152 = mul i64 %151, 8
-  %153 = load i32, ptr %11, align 4
-  %154 = sext i32 %153 to i64
-  %155 = add i64 %152, %154
-  %156 = trunc i64 %155 to i32
-  store i32 %156, ptr %4, align 4
-  br label %157
+  %148 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 6
+  store i32 0, ptr %148, align 8
+  %149 = load i32, ptr %5, align 4
+  %150 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7
+  store i32 %149, ptr %150, align 4
+  %151 = load ptr, ptr %10, align 8
+  store ptr %151, ptr @s_pCoverMemory, align 8
+  %152 = load i32, ptr %5, align 4
+  %153 = sext i32 %152 to i64
+  %154 = mul i64 %153, 8
+  %155 = load i32, ptr %11, align 4
+  %156 = sext i32 %155 to i64
+  %157 = add i64 %154, %156
+  %158 = trunc i64 %157 to i32
+  store i32 %158, ptr %4, align 4
+  br label %159
 
-157:                                              ; preds = %144, %46, %31
-  %158 = load i32, ptr %4, align 4
-  ret i32 %158
+159:                                              ; preds = %144, %46, %31
+  %160 = load i32, ptr %4, align 4
+  ret i32 %160
 }
 
 ; Function Attrs: nounwind allocsize(0)
@@ -281,9 +283,11 @@ define void @AddToFreeCubes(ptr noundef %0) #0 {
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds %struct.cube, ptr %7, i32 0, i32 1
   store i8 0, ptr %8, align 1
-  %9 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7), align 4
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7), align 4
+  %9 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7
+  %10 = load i32, ptr %9, align 4
+  %11 = add nsw i32 %10, 1
+  %12 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7
+  store i32 %11, ptr %12, align 4
   ret void
 }
 
@@ -299,11 +303,13 @@ define ptr @GetFreeCube() #0 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds %struct.cube, ptr %6, i32 0, i32 8
   store ptr null, ptr %7, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7), align 4
-  %9 = add nsw i32 %8, -1
-  store i32 %9, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7), align 4
-  %10 = load ptr, ptr %1, align 8
-  ret ptr %10
+  %8 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7
+  %9 = load i32, ptr %8, align 4
+  %10 = add nsw i32 %9, -1
+  %11 = getelementptr inbounds %struct.cinfo_tag, ptr @g_CoverInfo, i32 0, i32 7
+  store i32 %10, ptr %11, align 4
+  %12 = load ptr, ptr %1, align 8
+  ret ptr %12
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

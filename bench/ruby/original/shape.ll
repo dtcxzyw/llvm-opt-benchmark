@@ -1785,177 +1785,179 @@ define hidden void @Init_default_shapes() #0 {
   %20 = call ptr @rb_current_shape_tree()
   %21 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %20, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, inttoptr (i64 -1 to ptr)
-  br i1 %23, label %24, label %27
+  %23 = inttoptr i64 -1 to ptr
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %0
-  %25 = call ptr @rb_current_shape_tree()
-  %26 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %25, i32 0, i32 0
-  store ptr null, ptr %26, align 8
-  br label %27
+25:                                               ; preds = %0
+  %26 = call ptr @rb_current_shape_tree()
+  %27 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %26, i32 0, i32 0
+  store ptr null, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %24, %0
-  %28 = call ptr @rb_current_shape_tree()
-  %29 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %33, label %32
+28:                                               ; preds = %25, %0
+  %29 = call ptr @rb_current_shape_tree()
+  %30 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   call void @rb_memerror() #14
   unreachable
 
-33:                                               ; preds = %27
-  %34 = call i64 @rb_make_internal_id()
-  store i64 %34, ptr @id_frozen, align 8
+34:                                               ; preds = %28
   %35 = call i64 @rb_make_internal_id()
-  store i64 %35, ptr @id_t_object, align 8
-  %36 = load i64, ptr @rb_eRuntimeError, align 8
-  %37 = call i64 @rb_size_mul_or_raise(i64 noundef 16777216, i64 noundef 24, i64 noundef %36)
-  %38 = call ptr @mmap(ptr noundef null, i64 noundef %37, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #15
-  %39 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %40 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %39, i32 0, i32 3
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %42 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %41, i32 0, i32 4
-  store i32 0, ptr %42, align 8
-  %43 = call ptr @rb_current_shape_tree()
-  %44 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %43, i32 0, i32 3
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, inttoptr (i64 -1 to ptr)
-  br i1 %46, label %47, label %52
+  store i64 %35, ptr @id_frozen, align 8
+  %36 = call i64 @rb_make_internal_id()
+  store i64 %36, ptr @id_t_object, align 8
+  %37 = load i64, ptr @rb_eRuntimeError, align 8
+  %38 = call i64 @rb_size_mul_or_raise(i64 noundef 16777216, i64 noundef 24, i64 noundef %37)
+  %39 = call ptr @mmap(ptr noundef null, i64 noundef %38, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #15
+  %40 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  %41 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %40, i32 0, i32 3
+  store ptr %39, ptr %41, align 8
+  %42 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  %43 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %42, i32 0, i32 4
+  store i32 0, ptr %43, align 8
+  %44 = call ptr @rb_current_shape_tree()
+  %45 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %44, i32 0, i32 3
+  %46 = load ptr, ptr %45, align 8
+  %47 = inttoptr i64 -1 to ptr
+  %48 = icmp eq ptr %46, %47
+  br i1 %48, label %49, label %54
 
-47:                                               ; preds = %33
-  %48 = call ptr @rb_current_shape_tree()
-  %49 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %48, i32 0, i32 3
-  store ptr null, ptr %49, align 8
+49:                                               ; preds = %34
   %50 = call ptr @rb_current_shape_tree()
-  %51 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %50, i32 0, i32 4
-  store i32 16777216, ptr %51, align 8
-  br label %52
+  %51 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %50, i32 0, i32 3
+  store ptr null, ptr %51, align 8
+  %52 = call ptr @rb_current_shape_tree()
+  %53 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %52, i32 0, i32 4
+  store i32 16777216, ptr %53, align 8
+  br label %54
 
-52:                                               ; preds = %47, %33
+54:                                               ; preds = %49, %34
   store i32 0, ptr %2, align 4
-  br label %53
+  br label %55
 
-53:                                               ; preds = %61, %52
-  %54 = load i32, ptr %2, align 4
-  %55 = icmp slt i32 %54, 5
-  br i1 %55, label %56, label %64
+55:                                               ; preds = %63, %54
+  %56 = load i32, ptr %2, align 4
+  %57 = icmp slt i32 %56, 5
+  br i1 %57, label %58, label %66
 
-56:                                               ; preds = %53
-  %57 = call i64 @rb_make_internal_id()
-  %58 = load i32, ptr %2, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr [5 x i64], ptr @size_pool_edge_names, i64 0, i64 %59
-  store i64 %57, ptr %60, align 8
-  br label %61
+58:                                               ; preds = %55
+  %59 = call i64 @rb_make_internal_id()
+  %60 = load i32, ptr %2, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr [5 x i64], ptr @size_pool_edge_names, i64 0, i64 %61
+  store i64 %59, ptr %62, align 8
+  br label %63
 
-61:                                               ; preds = %56
-  %62 = load i32, ptr %2, align 4
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %2, align 4
-  br label %53, !llvm.loop !13
+63:                                               ; preds = %58
+  %64 = load i32, ptr %2, align 4
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %2, align 4
+  br label %55, !llvm.loop !13
 
-64:                                               ; preds = %53
-  %65 = call ptr @rb_shape_alloc_with_parent_id(i64 noundef 0, i32 noundef -1)
-  store ptr %65, ptr %3, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.rb_shape, ptr %66, i32 0, i32 3
-  store i32 0, ptr %67, align 4
+66:                                               ; preds = %55
+  %67 = call ptr @rb_shape_alloc_with_parent_id(i64 noundef 0, i32 noundef -1)
+  store ptr %67, ptr %3, align 8
   %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.rb_shape, ptr %68, i32 0, i32 4
-  store i8 0, ptr %69, align 8
+  %69 = getelementptr inbounds %struct.rb_shape, ptr %68, i32 0, i32 3
+  store i32 0, ptr %69, align 4
   %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.rb_shape, ptr %70, i32 0, i32 5
-  store i8 0, ptr %71, align 1
+  %71 = getelementptr inbounds %struct.rb_shape, ptr %70, i32 0, i32 4
+  store i8 0, ptr %71, align 8
   %72 = load ptr, ptr %3, align 8
-  %73 = call ptr @rb_current_shape_tree()
-  %74 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %73, i32 0, i32 1
-  store ptr %72, ptr %74, align 8
+  %73 = getelementptr inbounds %struct.rb_shape, ptr %72, i32 0, i32 5
+  store i8 0, ptr %73, align 1
+  %74 = load ptr, ptr %3, align 8
+  %75 = call ptr @rb_current_shape_tree()
+  %76 = getelementptr inbounds %struct.rb_shape_tree_t, ptr %75, i32 0, i32 1
+  store ptr %74, ptr %76, align 8
   store i32 1, ptr %4, align 4
-  br label %75
+  br label %77
 
-75:                                               ; preds = %88, %64
-  %76 = load i32, ptr %4, align 4
-  %77 = icmp slt i32 %76, 5
-  br i1 %77, label %78, label %91
+77:                                               ; preds = %90, %66
+  %78 = load i32, ptr %4, align 4
+  %79 = icmp slt i32 %78, 5
+  br i1 %79, label %80, label %93
 
-78:                                               ; preds = %75
-  %79 = call ptr @rb_shape_alloc_with_parent_id(i64 noundef 0, i32 noundef -1)
-  store ptr %79, ptr %5, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.rb_shape, ptr %80, i32 0, i32 4
-  store i8 0, ptr %81, align 8
-  %82 = load i32, ptr %4, align 4
-  %83 = trunc i32 %82 to i8
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct.rb_shape, ptr %84, i32 0, i32 5
-  store i8 %83, ptr %85, align 1
+80:                                               ; preds = %77
+  %81 = call ptr @rb_shape_alloc_with_parent_id(i64 noundef 0, i32 noundef -1)
+  store ptr %81, ptr %5, align 8
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds %struct.rb_shape, ptr %82, i32 0, i32 4
+  store i8 0, ptr %83, align 8
+  %84 = load i32, ptr %4, align 4
+  %85 = trunc i32 %84 to i8
   %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.rb_shape, ptr %86, i32 0, i32 7
-  store ptr null, ptr %87, align 8
-  br label %88
+  %87 = getelementptr inbounds %struct.rb_shape, ptr %86, i32 0, i32 5
+  store i8 %85, ptr %87, align 1
+  %88 = load ptr, ptr %5, align 8
+  %89 = getelementptr inbounds %struct.rb_shape, ptr %88, i32 0, i32 7
+  store ptr null, ptr %89, align 8
+  br label %90
 
-88:                                               ; preds = %78
-  %89 = load i32, ptr %4, align 4
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %4, align 4
-  br label %75, !llvm.loop !14
+90:                                               ; preds = %80
+  %91 = load i32, ptr %4, align 4
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %4, align 4
+  br label %77, !llvm.loop !14
 
-91:                                               ; preds = %75
+93:                                               ; preds = %77
   store i32 0, ptr %6, align 4
-  br label %92
+  br label %94
 
-92:                                               ; preds = %114, %91
-  %93 = load i32, ptr %6, align 4
-  %94 = icmp slt i32 %93, 5
-  br i1 %94, label %95, label %117
+94:                                               ; preds = %116, %93
+  %95 = load i32, ptr %6, align 4
+  %96 = icmp slt i32 %95, 5
+  br i1 %96, label %97, label %119
 
-95:                                               ; preds = %92
-  %96 = load i32, ptr %6, align 4
-  %97 = call ptr @rb_shape_get_shape_by_id(i32 noundef %96)
-  store ptr %97, ptr %7, align 8
-  %98 = load ptr, ptr %7, align 8
-  %99 = load i64, ptr @id_t_object, align 8
-  %100 = call ptr @get_next_shape_internal(ptr noundef %98, i64 noundef %99, i32 noundef 3, ptr noundef %8, i1 noundef zeroext true)
-  store ptr %100, ptr %9, align 8
-  %101 = load i32, ptr %6, align 4
-  %102 = trunc i32 %101 to i8
-  %103 = call i64 @rb_size_pool_slot_size(i8 noundef zeroext %102)
-  %104 = sub i64 %103, 16
-  %105 = udiv i64 %104, 8
-  %106 = trunc i64 %105 to i32
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr inbounds %struct.rb_shape, ptr %107, i32 0, i32 3
-  store i32 %106, ptr %108, align 4
-  %109 = call ptr @rb_id_table_create(i64 noundef 0)
-  %110 = load ptr, ptr %9, align 8
-  %111 = getelementptr inbounds %struct.rb_shape, ptr %110, i32 0, i32 0
-  store ptr %109, ptr %111, align 8
+97:                                               ; preds = %94
+  %98 = load i32, ptr %6, align 4
+  %99 = call ptr @rb_shape_get_shape_by_id(i32 noundef %98)
+  store ptr %99, ptr %7, align 8
+  %100 = load ptr, ptr %7, align 8
+  %101 = load i64, ptr @id_t_object, align 8
+  %102 = call ptr @get_next_shape_internal(ptr noundef %100, i64 noundef %101, i32 noundef 3, ptr noundef %8, i1 noundef zeroext true)
+  store ptr %102, ptr %9, align 8
+  %103 = load i32, ptr %6, align 4
+  %104 = trunc i32 %103 to i8
+  %105 = call i64 @rb_size_pool_slot_size(i8 noundef zeroext %104)
+  %106 = sub i64 %105, 16
+  %107 = udiv i64 %106, 8
+  %108 = trunc i64 %107 to i32
+  %109 = load ptr, ptr %9, align 8
+  %110 = getelementptr inbounds %struct.rb_shape, ptr %109, i32 0, i32 3
+  store i32 %108, ptr %110, align 4
+  %111 = call ptr @rb_id_table_create(i64 noundef 0)
   %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds %struct.rb_shape, ptr %112, i32 0, i32 7
-  store ptr null, ptr %113, align 8
-  br label %114
+  %113 = getelementptr inbounds %struct.rb_shape, ptr %112, i32 0, i32 0
+  store ptr %111, ptr %113, align 8
+  %114 = load ptr, ptr %9, align 8
+  %115 = getelementptr inbounds %struct.rb_shape, ptr %114, i32 0, i32 7
+  store ptr null, ptr %115, align 8
+  br label %116
 
-114:                                              ; preds = %95
-  %115 = load i32, ptr %6, align 4
-  %116 = add i32 %115, 1
-  store i32 %116, ptr %6, align 4
-  br label %92, !llvm.loop !15
+116:                                              ; preds = %97
+  %117 = load i32, ptr %6, align 4
+  %118 = add i32 %117, 1
+  store i32 %118, ptr %6, align 4
+  br label %94, !llvm.loop !15
 
-117:                                              ; preds = %92
-  %118 = load ptr, ptr %3, align 8
-  %119 = load i64, ptr @id_frozen, align 8
-  %120 = call ptr @get_next_shape_internal(ptr noundef %118, i64 noundef %119, i32 noundef 2, ptr noundef %10, i1 noundef zeroext true)
-  %121 = call ptr @rb_shape_alloc_with_parent_id(i64 noundef 0, i32 noundef 0)
-  store ptr %121, ptr %11, align 8
-  %122 = load ptr, ptr %11, align 8
-  %123 = getelementptr inbounds %struct.rb_shape, ptr %122, i32 0, i32 4
-  store i8 4, ptr %123, align 8
+119:                                              ; preds = %94
+  %120 = load ptr, ptr %3, align 8
+  %121 = load i64, ptr @id_frozen, align 8
+  %122 = call ptr @get_next_shape_internal(ptr noundef %120, i64 noundef %121, i32 noundef 2, ptr noundef %10, i1 noundef zeroext true)
+  %123 = call ptr @rb_shape_alloc_with_parent_id(i64 noundef 0, i32 noundef 0)
+  store ptr %123, ptr %11, align 8
   %124 = load ptr, ptr %11, align 8
-  %125 = getelementptr inbounds %struct.rb_shape, ptr %124, i32 0, i32 5
-  store i8 0, ptr %125, align 1
+  %125 = getelementptr inbounds %struct.rb_shape, ptr %124, i32 0, i32 4
+  store i8 4, ptr %125, align 8
+  %126 = load ptr, ptr %11, align 8
+  %127 = getelementptr inbounds %struct.rb_shape, ptr %126, i32 0, i32 5
+  store i8 0, ptr %127, align 1
   ret void
 }
 

@@ -929,30 +929,31 @@ entry:
   store i8 %frombool, ptr %isPre.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal13NodeConverterC2Eb(ptr noundef nonnull align 8 dereferenceable(233) %this1, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal5proof23LfscListScNodeConverterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal5proof23LfscListScNodeConverterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_conv = getelementptr inbounds %"class.cvc5::internal::proof::LfscListScNodeConverter", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %conv.addr, align 8
-  store ptr %0, ptr %d_conv, align 8
+  %1 = load ptr, ptr %conv.addr, align 8
+  store ptr %1, ptr %d_conv, align 8
   %d_listVars = getelementptr inbounds %"class.cvc5::internal::proof::LfscListScNodeConverter", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %listVars.addr, align 8
-  invoke void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(56) %d_listVars, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  %2 = load ptr, ptr %listVars.addr, align 8
+  invoke void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(56) %d_listVars, ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_isPre = getelementptr inbounds %"class.cvc5::internal::proof::LfscListScNodeConverter", ptr %this1, i32 0, i32 4
-  %2 = load i8, ptr %isPre.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %isPre.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %d_isPre, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal13NodeConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %this1) #3
   br label %eh.resume
 
@@ -989,7 +990,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal13NodeConverterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal13NodeConverterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_tcache = getelementptr inbounds %"class.cvc5::internal::NodeConverter", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_mapIN4cvc58internal8TypeNodeES2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_tcache) #3
   %d_preTCache = getelementptr inbounds %"class.cvc5::internal::NodeConverter", ptr %this1, i32 0, i32 3
@@ -3470,7 +3472,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal5proof23LfscListScNodeConverterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal5proof23LfscListScNodeConverterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_listVars = getelementptr inbounds %"class.cvc5::internal::proof::LfscListScNodeConverter", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_listVars) #3
   call void @_ZN4cvc58internal13NodeConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %this1) #3

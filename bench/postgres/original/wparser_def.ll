@@ -6889,123 +6889,124 @@ define internal i32 @p_isspecial(ptr noundef %0) #0 {
 
 20:                                               ; preds = %1
   store i32 1, ptr %2, align 4
-  br label %92
+  br label %93
 
 21:                                               ; preds = %1
   %22 = call i32 @GetDatabaseEncoding()
   %23 = icmp eq i32 %22, 6
-  br i1 %23, label %24, label %91
+  br i1 %23, label %24, label %92
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr inbounds %struct.TParser, ptr %25, i32 0, i32 4
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %91
+  br i1 %28, label %29, label %92
 
 29:                                               ; preds = %24
   store ptr @p_isspecial.strange_letter, ptr %4, align 8
-  store ptr getelementptr (i32, ptr @p_isspecial.strange_letter, i64 228), ptr %5, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.TParser, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %46
+  %30 = getelementptr i32, ptr @p_isspecial.strange_letter, i64 228
+  store ptr %30, ptr %5, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds %struct.TParser, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %47
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.TParser, ptr %35, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.TParser, ptr %38, i32 0, i32 6
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.TParserPosition, ptr %40, i32 0, i32 1
-  %42 = load i32, ptr %41, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i32, ptr %37, i64 %43
-  %45 = load i32, ptr %44, align 4
-  store i32 %45, ptr %7, align 4
-  br label %58
-
-46:                                               ; preds = %29
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.TParser, ptr %47, i32 0, i32 2
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.TParser, ptr %50, i32 0, i32 6
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.TParserPosition, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr i32, ptr %49, i64 %55
-  %57 = load i32, ptr %56, align 4
-  store i32 %57, ptr %7, align 4
-  br label %58
-
-58:                                               ; preds = %46, %34
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct.TParser, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds %struct.TParser, ptr %39, i32 0, i32 6
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.TParserPosition, ptr %41, i32 0, i32 1
+  %43 = load i32, ptr %42, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr i32, ptr %38, i64 %44
+  %46 = load i32, ptr %45, align 4
+  store i32 %46, ptr %7, align 4
   br label %59
 
-59:                                               ; preds = %89, %58
-  %60 = load ptr, ptr %4, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = icmp ult ptr %60, %61
-  br i1 %62, label %63, label %90
+47:                                               ; preds = %29
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.TParser, ptr %48, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds %struct.TParser, ptr %51, i32 0, i32 6
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds %struct.TParserPosition, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr i32, ptr %50, i64 %56
+  %58 = load i32, ptr %57, align 4
+  store i32 %58, ptr %7, align 4
+  br label %59
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %4, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = load ptr, ptr %4, align 8
-  %67 = ptrtoint ptr %65 to i64
+59:                                               ; preds = %47, %35
+  br label %60
+
+60:                                               ; preds = %90, %59
+  %61 = load ptr, ptr %4, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = icmp ult ptr %61, %62
+  br i1 %63, label %64, label %91
+
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %4, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = load ptr, ptr %4, align 8
   %68 = ptrtoint ptr %66 to i64
-  %69 = sub i64 %67, %68
-  %70 = sdiv exact i64 %69, 4
-  %71 = ashr i64 %70, 1
-  %72 = getelementptr i32, ptr %64, i64 %71
-  store ptr %72, ptr %6, align 8
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i32, ptr %73, align 4
-  %75 = load i32, ptr %7, align 4
-  %76 = icmp eq i32 %74, %75
-  br i1 %76, label %77, label %78
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = sdiv exact i64 %70, 4
+  %72 = ashr i64 %71, 1
+  %73 = getelementptr i32, ptr %65, i64 %72
+  store ptr %73, ptr %6, align 8
+  %74 = load ptr, ptr %6, align 8
+  %75 = load i32, ptr %74, align 4
+  %76 = load i32, ptr %7, align 4
+  %77 = icmp eq i32 %75, %76
+  br i1 %77, label %78, label %79
 
-77:                                               ; preds = %63
+78:                                               ; preds = %64
   store i32 1, ptr %2, align 4
-  br label %92
+  br label %93
 
-78:                                               ; preds = %63
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i32, ptr %79, align 4
-  %81 = load i32, ptr %7, align 4
-  %82 = icmp ult i32 %80, %81
-  br i1 %82, label %83, label %86
+79:                                               ; preds = %64
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = load i32, ptr %7, align 4
+  %83 = icmp ult i32 %81, %82
+  br i1 %83, label %84, label %87
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr i32, ptr %84, i64 1
-  store ptr %85, ptr %4, align 8
-  br label %88
-
-86:                                               ; preds = %78
-  %87 = load ptr, ptr %6, align 8
-  store ptr %87, ptr %5, align 8
-  br label %88
-
-88:                                               ; preds = %86, %83
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %6, align 8
+  %86 = getelementptr i32, ptr %85, i64 1
+  store ptr %86, ptr %4, align 8
   br label %89
 
-89:                                               ; preds = %88
-  br label %59, !llvm.loop !29
+87:                                               ; preds = %79
+  %88 = load ptr, ptr %6, align 8
+  store ptr %88, ptr %5, align 8
+  br label %89
 
-90:                                               ; preds = %59
-  br label %91
+89:                                               ; preds = %87, %84
+  br label %90
 
-91:                                               ; preds = %90, %24, %21
-  store i32 0, ptr %2, align 4
+90:                                               ; preds = %89
+  br label %60, !llvm.loop !29
+
+91:                                               ; preds = %60
   br label %92
 
-92:                                               ; preds = %91, %77, %20
-  %93 = load i32, ptr %2, align 4
-  ret i32 %93
+92:                                               ; preds = %91, %24, %21
+  store i32 0, ptr %2, align 4
+  br label %93
+
+93:                                               ; preds = %92, %78, %20
+  %94 = load i32, ptr %2, align 4
+  ret i32 %94
 }
 
 declare i32 @pg_dsplen(ptr noundef) #1

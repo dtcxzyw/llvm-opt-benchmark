@@ -4927,7 +4927,8 @@ define linkonce_odr void @_ZN8triggers18disabled_trigger_tC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8triggers9trigger_tC2Ev(ptr noundef nonnull align 8 dereferenceable(44) %3) #3
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8triggers18disabled_trigger_tE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN8triggers18disabled_trigger_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5570,7 +5571,8 @@ define linkonce_odr void @_ZN8triggers10mcontrol_tC2Ev(ptr noundef nonnull align
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8triggers17mcontrol_common_tC2Ev(ptr noundef nonnull align 8 dereferenceable(63) %3) #3
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8triggers10mcontrol_tE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN8triggers10mcontrol_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5580,21 +5582,22 @@ define linkonce_odr void @_ZN8triggers8icount_tC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8triggers9trigger_tC2Ev(ptr noundef nonnull align 8 dereferenceable(44) %3) #3
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8triggers8icount_tE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 2
-  store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 3
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 4
-  store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 5
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 6
-  store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 7
-  store i32 0, ptr %10, align 4
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN8triggers8icount_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 4
+  %6 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 2
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 3
+  store i32 1, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 4
+  store i32 1, ptr %8, align 4
+  %9 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 5
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 6
+  store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds %"class.triggers::icount_t", ptr %3, i32 0, i32 7
+  store i32 0, ptr %11, align 4
   ret void
 }
 
@@ -5604,7 +5607,8 @@ define linkonce_odr void @_ZN8triggers10itrigger_tC2Ev(ptr noundef nonnull align
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8triggers13trap_common_tC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN8triggers10itrigger_tE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN8triggers10itrigger_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5614,7 +5618,8 @@ define linkonce_odr void @_ZN8triggers10etrigger_tC2Ev(ptr noundef nonnull align
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8triggers13trap_common_tC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN8triggers10etrigger_tE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN8triggers10etrigger_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5624,7 +5629,8 @@ define linkonce_odr void @_ZN8triggers11mcontrol6_tC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8triggers17mcontrol_common_tC2Ev(ptr noundef nonnull align 8 dereferenceable(63) %3) #3
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8triggers11mcontrol6_tE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN8triggers11mcontrol6_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6830,7 +6836,8 @@ define linkonce_odr void @_ZNSt19bad_optional_accessC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6850,7 +6857,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8090,17 +8098,18 @@ define linkonce_odr void @_ZN8triggers9trigger_tC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8triggers9trigger_tE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 2
-  store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 3
-  store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 4
-  store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 5
-  store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 6
-  store i8 0, ptr %8, align 4
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN8triggers9trigger_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 2
+  store i8 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 3
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 4
+  store i8 0, ptr %7, align 2
+  %8 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 5
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds %"class.triggers::trigger_t", ptr %3, i32 0, i32 6
+  store i8 0, ptr %9, align 4
   ret void
 }
 
@@ -8183,27 +8192,28 @@ define linkonce_odr void @_ZN8triggers17mcontrol_common_tC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8triggers9trigger_tC2Ev(ptr noundef nonnull align 8 dereferenceable(44) %3) #3
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8triggers17mcontrol_common_tE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 3
-  store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 4
-  store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 5
-  store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 6
-  store i8 0, ptr %8, align 2
-  %9 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 7
-  store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 8
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 9
-  store i8 0, ptr %11, align 4
-  %12 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 10
-  store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 11
-  store i8 0, ptr %13, align 2
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN8triggers17mcontrol_common_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 4
+  %6 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 3
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 4
+  store i8 0, ptr %7, align 4
+  %8 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 5
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 6
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 7
+  store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 8
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 9
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 10
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds %"class.triggers::mcontrol_common_t", ptr %3, i32 0, i32 11
+  store i8 0, ptr %14, align 2
   ret void
 }
 
@@ -8213,7 +8223,8 @@ define linkonce_odr void @_ZN8triggers13trap_common_tC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8triggers9trigger_tC2Ev(ptr noundef nonnull align 8 dereferenceable(44) %3) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN8triggers13trap_common_tE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN8triggers13trap_common_tE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -292,23 +292,24 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none)
 define dso_local noundef zeroext i1 @arch_hugetlb_valid_size(i64 noundef %0) local_unnamed_addr #4 section ".init.text" align 16 {
-  switch i64 %0, label %6 [
-    i64 2097152, label %7
+  switch i64 %0, label %7 [
+    i64 2097152, label %8
     i64 1073741824, label %2
   ]
 
 2:                                                ; preds = %1
-  %3 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
-  %4 = and i64 %3, 288230376151711744
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %7
+  %3 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11
+  %4 = load volatile i64, ptr %3, align 8
+  %5 = and i64 %4, 288230376151711744
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %2, %1
-  br label %7
+7:                                                ; preds = %2, %1
+  br label %8
 
-7:                                                ; preds = %6, %2, %1
-  %8 = phi i1 [ false, %6 ], [ true, %1 ], [ true, %2 ]
-  ret i1 %8
+8:                                                ; preds = %7, %2, %1
+  %9 = phi i1 [ false, %7 ], [ true, %1 ], [ true, %2 ]
+  ret i1 %9
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

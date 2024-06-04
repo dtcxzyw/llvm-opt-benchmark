@@ -3583,283 +3583,422 @@ entry:
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
   call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, ptr noundef @.str, ptr noundef @.str.3, ptr noundef %agg.tmp, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp1, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1), ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef %agg.tmp1, i32 noundef 0)
+  %0 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 1
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef %agg.tmp1, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp2, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2), ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef %agg.tmp2, i32 noundef 0)
+  %1 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 2
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef %agg.tmp2, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp3, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3), ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef %agg.tmp3, i32 noundef 0)
+  %2 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 3
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef %agg.tmp3, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp4, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4), ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef %agg.tmp4, i32 noundef 0)
+  %3 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 4
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef %agg.tmp4, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp5, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 5), ptr noundef @.str.12, ptr noundef @.str.13, ptr noundef %agg.tmp5, i32 noundef 0)
+  %4 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 5
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef @.str.12, ptr noundef @.str.13, ptr noundef %agg.tmp5, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp6, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 6), ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef %agg.tmp6, i32 noundef 6)
+  %5 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 6
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef %agg.tmp6, i32 noundef 6)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp7, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 7), ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef %agg.tmp7, i32 noundef 0)
+  %6 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 7
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef %agg.tmp7, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp8, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 8), ptr noundef @.str.18, ptr noundef @.str.19, ptr noundef %agg.tmp8, i32 noundef 0)
+  %7 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 8
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef @.str.18, ptr noundef @.str.19, ptr noundef %agg.tmp8, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp9, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 9), ptr noundef @.str.20, ptr noundef @.str.21, ptr noundef %agg.tmp9, i32 noundef 0)
+  %8 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 9
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef @.str.20, ptr noundef @.str.21, ptr noundef %agg.tmp9, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp10, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 10), ptr noundef @.str.22, ptr noundef @.str.23, ptr noundef %agg.tmp10, i32 noundef 0)
+  %9 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 10
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef @.str.22, ptr noundef @.str.23, ptr noundef %agg.tmp10, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp11, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 11), ptr noundef @.str.24, ptr noundef @.str.25, ptr noundef %agg.tmp11, i32 noundef 0)
+  %10 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 11
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef @.str.24, ptr noundef @.str.25, ptr noundef %agg.tmp11, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp12, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 12), ptr noundef @.str.26, ptr noundef @.str.27, ptr noundef %agg.tmp12, i32 noundef 48)
+  %11 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 12
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef @.str.26, ptr noundef @.str.27, ptr noundef %agg.tmp12, i32 noundef 48)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp13, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 13), ptr noundef @.str.28, ptr noundef @.str.29, ptr noundef %agg.tmp13, i32 noundef 0)
+  %12 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 13
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef @.str.28, ptr noundef @.str.29, ptr noundef %agg.tmp13, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp14, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 14), ptr noundef @.str.30, ptr noundef @.str.30, ptr noundef %agg.tmp14, i32 noundef 0)
+  %13 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 14
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef @.str.30, ptr noundef @.str.30, ptr noundef %agg.tmp14, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp15, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 15), ptr noundef @.str.31, ptr noundef @.str.31, ptr noundef %agg.tmp15, i32 noundef 4)
+  %14 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 15
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef @.str.31, ptr noundef @.str.31, ptr noundef %agg.tmp15, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp16, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 16), ptr noundef @.str.32, ptr noundef @.str.32, ptr noundef %agg.tmp16, i32 noundef 4)
+  %15 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 16
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %15, ptr noundef @.str.32, ptr noundef @.str.32, ptr noundef %agg.tmp16, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp17, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 17), ptr noundef @.str.33, ptr noundef @.str.33, ptr noundef %agg.tmp17, i32 noundef 4)
+  %16 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 17
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %16, ptr noundef @.str.33, ptr noundef @.str.33, ptr noundef %agg.tmp17, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp18, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 18), ptr noundef @.str.34, ptr noundef @.str.34, ptr noundef %agg.tmp18, i32 noundef 4)
+  %17 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 18
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %17, ptr noundef @.str.34, ptr noundef @.str.34, ptr noundef %agg.tmp18, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp19, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 19), ptr noundef @.str.35, ptr noundef @.str.36, ptr noundef %agg.tmp19, i32 noundef 4)
+  %18 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 19
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %18, ptr noundef @.str.35, ptr noundef @.str.36, ptr noundef %agg.tmp19, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp20, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 20), ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef %agg.tmp20, i32 noundef 5)
+  %19 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 20
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %19, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef %agg.tmp20, i32 noundef 5)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp21, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 21), ptr noundef @.str.39, ptr noundef @.str.40, ptr noundef %agg.tmp21, i32 noundef 5)
+  %20 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 21
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %20, ptr noundef @.str.39, ptr noundef @.str.40, ptr noundef %agg.tmp21, i32 noundef 5)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp22, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 22), ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef %agg.tmp22, i32 noundef 4)
+  %21 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 22
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %21, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef %agg.tmp22, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp23, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 23), ptr noundef @.str.43, ptr noundef @.str.44, ptr noundef %agg.tmp23, i32 noundef 0)
+  %22 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 23
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %22, ptr noundef @.str.43, ptr noundef @.str.44, ptr noundef %agg.tmp23, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp24, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 24), ptr noundef @.str.45, ptr noundef @.str.46, ptr noundef %agg.tmp24, i32 noundef 0)
+  %23 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 24
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %23, ptr noundef @.str.45, ptr noundef @.str.46, ptr noundef %agg.tmp24, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp25, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 25), ptr noundef @.str.47, ptr noundef @.str.15, ptr noundef %agg.tmp25, i32 noundef 2)
+  %24 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 25
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %24, ptr noundef @.str.47, ptr noundef @.str.15, ptr noundef %agg.tmp25, i32 noundef 2)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp26, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 26), ptr noundef @.str.48, ptr noundef @.str.49, ptr noundef %agg.tmp26, i32 noundef 0)
+  %25 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 26
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %25, ptr noundef @.str.48, ptr noundef @.str.49, ptr noundef %agg.tmp26, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp27, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 27), ptr noundef @.str.50, ptr noundef @.str.51, ptr noundef %agg.tmp27, i32 noundef 0)
+  %26 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 27
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %26, ptr noundef @.str.50, ptr noundef @.str.51, ptr noundef %agg.tmp27, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp28, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 28), ptr noundef @.str.52, ptr noundef @.str.53, ptr noundef %agg.tmp28, i32 noundef 0)
+  %27 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 28
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %27, ptr noundef @.str.52, ptr noundef @.str.53, ptr noundef %agg.tmp28, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp29, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 29), ptr noundef @.str.54, ptr noundef @.str.55, ptr noundef %agg.tmp29, i32 noundef 4)
+  %28 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 29
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %28, ptr noundef @.str.54, ptr noundef @.str.55, ptr noundef %agg.tmp29, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp30, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 30), ptr noundef @.str.56, ptr noundef @.str.57, ptr noundef %agg.tmp30, i32 noundef 8)
+  %29 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 30
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %29, ptr noundef @.str.56, ptr noundef @.str.57, ptr noundef %agg.tmp30, i32 noundef 8)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp31, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 31), ptr noundef @.str.58, ptr noundef @.str.59, ptr noundef %agg.tmp31, i32 noundef 12)
+  %30 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 31
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %30, ptr noundef @.str.58, ptr noundef @.str.59, ptr noundef %agg.tmp31, i32 noundef 12)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp32, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 32), ptr noundef @.str.60, ptr noundef @.str.59, ptr noundef %agg.tmp32, i32 noundef 12)
+  %31 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 32
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %31, ptr noundef @.str.60, ptr noundef @.str.59, ptr noundef %agg.tmp32, i32 noundef 12)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp33, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 33), ptr noundef @.str.61, ptr noundef @.str.62, ptr noundef %agg.tmp33, i32 noundef 8)
+  %32 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 33
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %32, ptr noundef @.str.61, ptr noundef @.str.62, ptr noundef %agg.tmp33, i32 noundef 8)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp34, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 34), ptr noundef @.str.63, ptr noundef @.str.15, ptr noundef %agg.tmp34, i32 noundef 6)
+  %33 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 34
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %33, ptr noundef @.str.63, ptr noundef @.str.15, ptr noundef %agg.tmp34, i32 noundef 6)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp35, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 35), ptr noundef @.str.64, ptr noundef @.str.55, ptr noundef %agg.tmp35, i32 noundef 4)
+  %34 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 35
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %34, ptr noundef @.str.64, ptr noundef @.str.55, ptr noundef %agg.tmp35, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp36, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 36), ptr noundef @.str.65, ptr noundef @.str.66, ptr noundef %agg.tmp36, i32 noundef 0)
+  %35 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 36
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %35, ptr noundef @.str.65, ptr noundef @.str.66, ptr noundef %agg.tmp36, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp37, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 37), ptr noundef @.str.67, ptr noundef @.str.68, ptr noundef %agg.tmp37, i32 noundef 2)
+  %36 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 37
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %36, ptr noundef @.str.67, ptr noundef @.str.68, ptr noundef %agg.tmp37, i32 noundef 2)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp38, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 38), ptr noundef @.str.69, ptr noundef @.str.70, ptr noundef %agg.tmp38, i32 noundef 2)
+  %37 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 38
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %37, ptr noundef @.str.69, ptr noundef @.str.70, ptr noundef %agg.tmp38, i32 noundef 2)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp39, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 39), ptr noundef @.str.71, ptr noundef @.str.72, ptr noundef %agg.tmp39, i32 noundef 0)
+  %38 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 39
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %38, ptr noundef @.str.71, ptr noundef @.str.72, ptr noundef %agg.tmp39, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp40, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 40), ptr noundef @.str.73, ptr noundef @.str.74, ptr noundef %agg.tmp40, i32 noundef 0)
+  %39 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 40
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %39, ptr noundef @.str.73, ptr noundef @.str.74, ptr noundef %agg.tmp40, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp41, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 41), ptr noundef @.str.75, ptr noundef @.str.19, ptr noundef %agg.tmp41, i32 noundef 80)
+  %40 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 41
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %40, ptr noundef @.str.75, ptr noundef @.str.19, ptr noundef %agg.tmp41, i32 noundef 80)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp42, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 42), ptr noundef @.str.76, ptr noundef @.str.77, ptr noundef %agg.tmp42, i32 noundef 0)
+  %41 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 42
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %41, ptr noundef @.str.76, ptr noundef @.str.77, ptr noundef %agg.tmp42, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp43, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 43), ptr noundef @.str.78, ptr noundef @.str.79, ptr noundef %agg.tmp43, i32 noundef 0)
+  %42 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 43
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %42, ptr noundef @.str.78, ptr noundef @.str.79, ptr noundef %agg.tmp43, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp44, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 44), ptr noundef @.str.80, ptr noundef @.str.81, ptr noundef %agg.tmp44, i32 noundef 128)
+  %43 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 44
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %43, ptr noundef @.str.80, ptr noundef @.str.81, ptr noundef %agg.tmp44, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp45, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 45), ptr noundef @.str.82, ptr noundef @.str.83, ptr noundef %agg.tmp45, i32 noundef 0)
+  %44 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 45
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %44, ptr noundef @.str.82, ptr noundef @.str.83, ptr noundef %agg.tmp45, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp46, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 46), ptr noundef @.str.84, ptr noundef @.str.85, ptr noundef %agg.tmp46, i32 noundef 0)
+  %45 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 46
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %45, ptr noundef @.str.84, ptr noundef @.str.85, ptr noundef %agg.tmp46, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp47, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 47), ptr noundef @.str.86, ptr noundef @.str.59, ptr noundef %agg.tmp47, i32 noundef 20)
+  %46 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 47
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %46, ptr noundef @.str.86, ptr noundef @.str.59, ptr noundef %agg.tmp47, i32 noundef 20)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp48, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 48), ptr noundef @.str.87, ptr noundef @.str.49, ptr noundef %agg.tmp48, i32 noundef 4)
+  %47 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 48
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %47, ptr noundef @.str.87, ptr noundef @.str.49, ptr noundef %agg.tmp48, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp49, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 49), ptr noundef @.str.88, ptr noundef @.str.44, ptr noundef %agg.tmp49, i32 noundef 4)
+  %48 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 49
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %48, ptr noundef @.str.88, ptr noundef @.str.44, ptr noundef %agg.tmp49, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp50, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 50), ptr noundef @.str.89, ptr noundef @.str.46, ptr noundef %agg.tmp50, i32 noundef 4)
+  %49 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 50
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %49, ptr noundef @.str.89, ptr noundef @.str.46, ptr noundef %agg.tmp50, i32 noundef 4)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp51, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 51), ptr noundef @.str.90, ptr noundef @.str.91, ptr noundef %agg.tmp51, i32 noundef 0)
+  %50 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 51
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %50, ptr noundef @.str.90, ptr noundef @.str.91, ptr noundef %agg.tmp51, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp52, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 52), ptr noundef @.str.92, ptr noundef @.str.93, ptr noundef %agg.tmp52, i32 noundef 32)
+  %51 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 52
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %51, ptr noundef @.str.92, ptr noundef @.str.93, ptr noundef %agg.tmp52, i32 noundef 32)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp53, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 53), ptr noundef @.str.94, ptr noundef @.str.93, ptr noundef %agg.tmp53, i32 noundef 32)
+  %52 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 53
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef @.str.94, ptr noundef @.str.93, ptr noundef %agg.tmp53, i32 noundef 32)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp54, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 54), ptr noundef @.str.95, ptr noundef @.str.96, ptr noundef %agg.tmp54, i32 noundef 0)
+  %53 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 54
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %53, ptr noundef @.str.95, ptr noundef @.str.96, ptr noundef %agg.tmp54, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp55, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 55), ptr noundef @.str.97, ptr noundef @.str.98, ptr noundef %agg.tmp55, i32 noundef 0)
+  %54 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 55
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %54, ptr noundef @.str.97, ptr noundef @.str.98, ptr noundef %agg.tmp55, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp56, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 56), ptr noundef @.str.99, ptr noundef @.str.100, ptr noundef %agg.tmp56, i32 noundef 0)
+  %55 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 56
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %55, ptr noundef @.str.99, ptr noundef @.str.100, ptr noundef %agg.tmp56, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp57, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 57), ptr noundef @.str.101, ptr noundef @.str.102, ptr noundef %agg.tmp57, i32 noundef 0)
+  %56 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 57
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %56, ptr noundef @.str.101, ptr noundef @.str.102, ptr noundef %agg.tmp57, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp58, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 58), ptr noundef @.str.103, ptr noundef @.str.104, ptr noundef %agg.tmp58, i32 noundef 0)
+  %57 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 58
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %57, ptr noundef @.str.103, ptr noundef @.str.104, ptr noundef %agg.tmp58, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp59, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 59), ptr noundef @.str.105, ptr noundef @.str.106, ptr noundef %agg.tmp59, i32 noundef 0)
+  %58 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 59
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %58, ptr noundef @.str.105, ptr noundef @.str.106, ptr noundef %agg.tmp59, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp60, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 60), ptr noundef @.str.107, ptr noundef @.str.108, ptr noundef %agg.tmp60, i32 noundef 0)
+  %59 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 60
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %59, ptr noundef @.str.107, ptr noundef @.str.108, ptr noundef %agg.tmp60, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp61, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 61), ptr noundef @.str.109, ptr noundef @.str.110, ptr noundef %agg.tmp61, i32 noundef 0)
+  %60 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 61
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %60, ptr noundef @.str.109, ptr noundef @.str.110, ptr noundef %agg.tmp61, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp62, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 62), ptr noundef @.str.111, ptr noundef @.str.112, ptr noundef %agg.tmp62, i32 noundef 0)
+  %61 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 62
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %61, ptr noundef @.str.111, ptr noundef @.str.112, ptr noundef %agg.tmp62, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp63, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 63), ptr noundef @.str.113, ptr noundef @.str.114, ptr noundef %agg.tmp63, i32 noundef 0)
+  %62 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 63
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %62, ptr noundef @.str.113, ptr noundef @.str.114, ptr noundef %agg.tmp63, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp64, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 64), ptr noundef @.str.115, ptr noundef @.str.116, ptr noundef %agg.tmp64, i32 noundef 0)
+  %63 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 64
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %63, ptr noundef @.str.115, ptr noundef @.str.116, ptr noundef %agg.tmp64, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp65, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 65), ptr noundef @.str.117, ptr noundef @.str.118, ptr noundef %agg.tmp65, i32 noundef 0)
+  %64 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 65
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %64, ptr noundef @.str.117, ptr noundef @.str.118, ptr noundef %agg.tmp65, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp66, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 66), ptr noundef @.str.119, ptr noundef @.str.120, ptr noundef %agg.tmp66, i32 noundef 0)
+  %65 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 66
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %65, ptr noundef @.str.119, ptr noundef @.str.120, ptr noundef %agg.tmp66, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp67, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 67), ptr noundef @.str.121, ptr noundef @.str.122, ptr noundef %agg.tmp67, i32 noundef 32)
+  %66 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 67
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %66, ptr noundef @.str.121, ptr noundef @.str.122, ptr noundef %agg.tmp67, i32 noundef 32)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp68, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 68), ptr noundef @.str.123, ptr noundef @.str.124, ptr noundef %agg.tmp68, i32 noundef 32)
+  %67 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 68
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %67, ptr noundef @.str.123, ptr noundef @.str.124, ptr noundef %agg.tmp68, i32 noundef 32)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp69, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 69), ptr noundef @.str.125, ptr noundef @.str.126, ptr noundef %agg.tmp69, i32 noundef 32)
+  %68 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 69
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %68, ptr noundef @.str.125, ptr noundef @.str.126, ptr noundef %agg.tmp69, i32 noundef 32)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp70, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 70), ptr noundef @.str.127, ptr noundef @.str.127, ptr noundef %agg.tmp70, i32 noundef 0)
+  %69 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 70
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %69, ptr noundef @.str.127, ptr noundef @.str.127, ptr noundef %agg.tmp70, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp71, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 71), ptr noundef @.str.128, ptr noundef @.str.128, ptr noundef %agg.tmp71, i32 noundef 128)
+  %70 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 71
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef @.str.128, ptr noundef @.str.128, ptr noundef %agg.tmp71, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp72, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 72), ptr noundef @.str.129, ptr noundef @.str.129, ptr noundef %agg.tmp72, i32 noundef 128)
+  %71 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 72
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %71, ptr noundef @.str.129, ptr noundef @.str.129, ptr noundef %agg.tmp72, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp73, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 73), ptr noundef @.str.130, ptr noundef @.str.130, ptr noundef %agg.tmp73, i32 noundef 128)
+  %72 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 73
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %72, ptr noundef @.str.130, ptr noundef @.str.130, ptr noundef %agg.tmp73, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp74, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 74), ptr noundef @.str.131, ptr noundef @.str.131, ptr noundef %agg.tmp74, i32 noundef 128)
+  %73 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 74
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %73, ptr noundef @.str.131, ptr noundef @.str.131, ptr noundef %agg.tmp74, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp75, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 75), ptr noundef @.str.132, ptr noundef @.str.132, ptr noundef %agg.tmp75, i32 noundef 0)
+  %74 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 75
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %74, ptr noundef @.str.132, ptr noundef @.str.132, ptr noundef %agg.tmp75, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp76, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 76), ptr noundef @.str.133, ptr noundef @.str.133, ptr noundef %agg.tmp76, i32 noundef 0)
+  %75 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 76
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %75, ptr noundef @.str.133, ptr noundef @.str.133, ptr noundef %agg.tmp76, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp77, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 77), ptr noundef @.str.134, ptr noundef @.str.134, ptr noundef %agg.tmp77, i32 noundef 0)
+  %76 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 77
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %76, ptr noundef @.str.134, ptr noundef @.str.134, ptr noundef %agg.tmp77, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp78, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 78), ptr noundef @.str.135, ptr noundef @.str.135, ptr noundef %agg.tmp78, i32 noundef 0)
+  %77 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 78
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %77, ptr noundef @.str.135, ptr noundef @.str.135, ptr noundef %agg.tmp78, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp79, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 79), ptr noundef @.str.136, ptr noundef @.str.136, ptr noundef %agg.tmp79, i32 noundef 0)
+  %78 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 79
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %78, ptr noundef @.str.136, ptr noundef @.str.136, ptr noundef %agg.tmp79, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp80, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 80), ptr noundef @.str.137, ptr noundef @.str.137, ptr noundef %agg.tmp80, i32 noundef 0)
+  %79 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 80
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %79, ptr noundef @.str.137, ptr noundef @.str.137, ptr noundef %agg.tmp80, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp81, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 81), ptr noundef @.str.138, ptr noundef @.str.138, ptr noundef %agg.tmp81, i32 noundef 0)
+  %80 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 81
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %80, ptr noundef @.str.138, ptr noundef @.str.138, ptr noundef %agg.tmp81, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp82, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 82), ptr noundef @.str.139, ptr noundef @.str.139, ptr noundef %agg.tmp82, i32 noundef 0)
+  %81 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 82
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %81, ptr noundef @.str.139, ptr noundef @.str.139, ptr noundef %agg.tmp82, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp83, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 83), ptr noundef @.str.140, ptr noundef @.str.140, ptr noundef %agg.tmp83, i32 noundef 0)
+  %82 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 83
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %82, ptr noundef @.str.140, ptr noundef @.str.140, ptr noundef %agg.tmp83, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp84, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 84), ptr noundef @.str.141, ptr noundef @.str.141, ptr noundef %agg.tmp84, i32 noundef 0)
+  %83 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 84
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %83, ptr noundef @.str.141, ptr noundef @.str.141, ptr noundef %agg.tmp84, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp85, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 85), ptr noundef @.str.142, ptr noundef @.str.142, ptr noundef %agg.tmp85, i32 noundef 0)
+  %84 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 85
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %84, ptr noundef @.str.142, ptr noundef @.str.142, ptr noundef %agg.tmp85, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp86, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 86), ptr noundef @.str.143, ptr noundef @.str.143, ptr noundef %agg.tmp86, i32 noundef 0)
+  %85 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 86
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %85, ptr noundef @.str.143, ptr noundef @.str.143, ptr noundef %agg.tmp86, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp87, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 87), ptr noundef @.str.144, ptr noundef @.str.144, ptr noundef %agg.tmp87, i32 noundef 0)
+  %86 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 87
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %86, ptr noundef @.str.144, ptr noundef @.str.144, ptr noundef %agg.tmp87, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp88, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 88), ptr noundef @.str.145, ptr noundef @.str.145, ptr noundef %agg.tmp88, i32 noundef 0)
+  %87 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 88
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %87, ptr noundef @.str.145, ptr noundef @.str.145, ptr noundef %agg.tmp88, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp89, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 89), ptr noundef @.str.146, ptr noundef @.str.146, ptr noundef %agg.tmp89, i32 noundef 0)
+  %88 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 89
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %88, ptr noundef @.str.146, ptr noundef @.str.146, ptr noundef %agg.tmp89, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp90, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 90), ptr noundef @.str.147, ptr noundef @.str.147, ptr noundef %agg.tmp90, i32 noundef 0)
+  %89 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 90
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %89, ptr noundef @.str.147, ptr noundef @.str.147, ptr noundef %agg.tmp90, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp91, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 91), ptr noundef @.str.148, ptr noundef @.str.148, ptr noundef %agg.tmp91, i32 noundef 0)
+  %90 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 91
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %90, ptr noundef @.str.148, ptr noundef @.str.148, ptr noundef %agg.tmp91, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp92, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 92), ptr noundef @.str.149, ptr noundef @.str.149, ptr noundef %agg.tmp92, i32 noundef 0)
+  %91 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 92
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %91, ptr noundef @.str.149, ptr noundef @.str.149, ptr noundef %agg.tmp92, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp93, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 93), ptr noundef @.str.150, ptr noundef @.str.150, ptr noundef %agg.tmp93, i32 noundef 0)
+  %92 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 93
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %92, ptr noundef @.str.150, ptr noundef @.str.150, ptr noundef %agg.tmp93, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp94, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 94), ptr noundef @.str.151, ptr noundef @.str.151, ptr noundef %agg.tmp94, i32 noundef 128)
+  %93 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 94
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %93, ptr noundef @.str.151, ptr noundef @.str.151, ptr noundef %agg.tmp94, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp95, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 95), ptr noundef @.str.152, ptr noundef @.str.152, ptr noundef %agg.tmp95, i32 noundef 128)
+  %94 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 95
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %94, ptr noundef @.str.152, ptr noundef @.str.152, ptr noundef %agg.tmp95, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp96, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 96), ptr noundef @.str.153, ptr noundef @.str.153, ptr noundef %agg.tmp96, i32 noundef 0)
+  %95 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 96
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef @.str.153, ptr noundef @.str.153, ptr noundef %agg.tmp96, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp97, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 97), ptr noundef @.str.154, ptr noundef @.str.154, ptr noundef %agg.tmp97, i32 noundef 0)
+  %96 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 97
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %96, ptr noundef @.str.154, ptr noundef @.str.154, ptr noundef %agg.tmp97, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp98, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 98), ptr noundef @.str.155, ptr noundef @.str.155, ptr noundef %agg.tmp98, i32 noundef 0)
+  %97 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 98
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %97, ptr noundef @.str.155, ptr noundef @.str.155, ptr noundef %agg.tmp98, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp99, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 99), ptr noundef @.str.156, ptr noundef @.str.156, ptr noundef %agg.tmp99, i32 noundef 0)
+  %98 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 99
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %98, ptr noundef @.str.156, ptr noundef @.str.156, ptr noundef %agg.tmp99, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp100, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 100), ptr noundef @.str.157, ptr noundef @.str.157, ptr noundef %agg.tmp100, i32 noundef 0)
+  %99 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 100
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %99, ptr noundef @.str.157, ptr noundef @.str.157, ptr noundef %agg.tmp100, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp101, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 101), ptr noundef @.str.158, ptr noundef @.str.158, ptr noundef %agg.tmp101, i32 noundef 0)
+  %100 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 101
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %100, ptr noundef @.str.158, ptr noundef @.str.158, ptr noundef %agg.tmp101, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp102, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 102), ptr noundef @.str.159, ptr noundef @.str.159, ptr noundef %agg.tmp102, i32 noundef 0)
+  %101 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 102
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %101, ptr noundef @.str.159, ptr noundef @.str.159, ptr noundef %agg.tmp102, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp103, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 103), ptr noundef @.str.160, ptr noundef @.str.160, ptr noundef %agg.tmp103, i32 noundef 0)
+  %102 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 103
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %102, ptr noundef @.str.160, ptr noundef @.str.160, ptr noundef %agg.tmp103, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp104, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 104), ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef %agg.tmp104, i32 noundef 0)
+  %103 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 104
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %103, ptr noundef @.str.161, ptr noundef @.str.161, ptr noundef %agg.tmp104, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp105, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 105), ptr noundef @.str.162, ptr noundef @.str.162, ptr noundef %agg.tmp105, i32 noundef 0)
+  %104 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 105
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %104, ptr noundef @.str.162, ptr noundef @.str.162, ptr noundef %agg.tmp105, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp106, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 106), ptr noundef @.str.163, ptr noundef @.str.163, ptr noundef %agg.tmp106, i32 noundef 0)
+  %105 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 106
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %105, ptr noundef @.str.163, ptr noundef @.str.163, ptr noundef %agg.tmp106, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp107, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 107), ptr noundef @.str.164, ptr noundef @.str.164, ptr noundef %agg.tmp107, i32 noundef 0)
+  %106 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 107
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %106, ptr noundef @.str.164, ptr noundef @.str.164, ptr noundef %agg.tmp107, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp108, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 108), ptr noundef @.str.165, ptr noundef @.str.165, ptr noundef %agg.tmp108, i32 noundef 0)
+  %107 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 108
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %107, ptr noundef @.str.165, ptr noundef @.str.165, ptr noundef %agg.tmp108, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp109, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 109), ptr noundef @.str.166, ptr noundef @.str.166, ptr noundef %agg.tmp109, i32 noundef 0)
+  %108 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 109
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %108, ptr noundef @.str.166, ptr noundef @.str.166, ptr noundef %agg.tmp109, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp110, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 110), ptr noundef @.str.167, ptr noundef @.str.167, ptr noundef %agg.tmp110, i32 noundef 0)
+  %109 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 110
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %109, ptr noundef @.str.167, ptr noundef @.str.167, ptr noundef %agg.tmp110, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp111, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 111), ptr noundef @.str.168, ptr noundef @.str.168, ptr noundef %agg.tmp111, i32 noundef 0)
+  %110 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 111
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %110, ptr noundef @.str.168, ptr noundef @.str.168, ptr noundef %agg.tmp111, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp112, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 112), ptr noundef @.str.169, ptr noundef @.str.169, ptr noundef %agg.tmp112, i32 noundef 128)
+  %111 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 112
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %111, ptr noundef @.str.169, ptr noundef @.str.169, ptr noundef %agg.tmp112, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp113, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 113), ptr noundef @.str.170, ptr noundef @.str.170, ptr noundef %agg.tmp113, i32 noundef 0)
+  %112 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 113
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %112, ptr noundef @.str.170, ptr noundef @.str.170, ptr noundef %agg.tmp113, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp114, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 114), ptr noundef @.str.171, ptr noundef @.str.171, ptr noundef %agg.tmp114, i32 noundef 0)
+  %113 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 114
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %113, ptr noundef @.str.171, ptr noundef @.str.171, ptr noundef %agg.tmp114, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp115, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 115), ptr noundef @.str.172, ptr noundef @.str.172, ptr noundef %agg.tmp115, i32 noundef 0)
+  %114 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 115
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %114, ptr noundef @.str.172, ptr noundef @.str.172, ptr noundef %agg.tmp115, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp116, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 116), ptr noundef @.str.173, ptr noundef @.str.173, ptr noundef %agg.tmp116, i32 noundef 0)
+  %115 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 116
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %115, ptr noundef @.str.173, ptr noundef @.str.173, ptr noundef %agg.tmp116, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp117, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 117), ptr noundef @.str.174, ptr noundef @.str.174, ptr noundef %agg.tmp117, i32 noundef 0)
+  %116 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 117
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %116, ptr noundef @.str.174, ptr noundef @.str.174, ptr noundef %agg.tmp117, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp118, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 118), ptr noundef @.str.175, ptr noundef @.str.175, ptr noundef %agg.tmp118, i32 noundef 0)
+  %117 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 118
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %117, ptr noundef @.str.175, ptr noundef @.str.175, ptr noundef %agg.tmp118, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp119, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 119), ptr noundef @.str.176, ptr noundef @.str.176, ptr noundef %agg.tmp119, i32 noundef 0)
+  %118 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 119
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %118, ptr noundef @.str.176, ptr noundef @.str.176, ptr noundef %agg.tmp119, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp120, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 120), ptr noundef @.str.177, ptr noundef @.str.177, ptr noundef %agg.tmp120, i32 noundef 0)
+  %119 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 120
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %119, ptr noundef @.str.177, ptr noundef @.str.177, ptr noundef %agg.tmp120, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp121, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 121), ptr noundef @.str.178, ptr noundef @.str.178, ptr noundef %agg.tmp121, i32 noundef 0)
+  %120 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 121
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %120, ptr noundef @.str.178, ptr noundef @.str.178, ptr noundef %agg.tmp121, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp122, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 122), ptr noundef @.str.179, ptr noundef @.str.179, ptr noundef %agg.tmp122, i32 noundef 0)
+  %121 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 122
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %121, ptr noundef @.str.179, ptr noundef @.str.179, ptr noundef %agg.tmp122, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp123, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 123), ptr noundef @.str.180, ptr noundef @.str.180, ptr noundef %agg.tmp123, i32 noundef 2)
+  %122 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 123
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %122, ptr noundef @.str.180, ptr noundef @.str.180, ptr noundef %agg.tmp123, i32 noundef 2)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp124, i32 noundef 13, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 124), ptr noundef @.str.181, ptr noundef @.str.181, ptr noundef %agg.tmp124, i32 noundef 2)
+  %123 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 124
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %123, ptr noundef @.str.181, ptr noundef @.str.181, ptr noundef %agg.tmp124, i32 noundef 2)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp125, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 125), ptr noundef @.str.182, ptr noundef @.str.182, ptr noundef %agg.tmp125, i32 noundef 0)
+  %124 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 125
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %124, ptr noundef @.str.182, ptr noundef @.str.182, ptr noundef %agg.tmp125, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp126, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 126), ptr noundef @.str.183, ptr noundef @.str.183, ptr noundef %agg.tmp126, i32 noundef 128)
+  %125 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 126
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %125, ptr noundef @.str.183, ptr noundef @.str.183, ptr noundef %agg.tmp126, i32 noundef 128)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp127, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 127), ptr noundef @.str.184, ptr noundef @.str.184, ptr noundef %agg.tmp127, i32 noundef 0)
+  %126 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 127
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %126, ptr noundef @.str.184, ptr noundef @.str.184, ptr noundef %agg.tmp127, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp128, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 128), ptr noundef @.str.185, ptr noundef @.str.185, ptr noundef %agg.tmp128, i32 noundef 0)
+  %127 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 128
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %127, ptr noundef @.str.185, ptr noundef @.str.185, ptr noundef %agg.tmp128, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp129, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 129), ptr noundef @.str.186, ptr noundef @.str.186, ptr noundef %agg.tmp129, i32 noundef 0)
+  %128 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 129
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %128, ptr noundef @.str.186, ptr noundef @.str.186, ptr noundef %agg.tmp129, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp130, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 130), ptr noundef @.str.187, ptr noundef @.str.187, ptr noundef %agg.tmp130, i32 noundef 0)
+  %129 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 130
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %129, ptr noundef @.str.187, ptr noundef @.str.187, ptr noundef %agg.tmp130, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp131, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 131), ptr noundef @.str.188, ptr noundef @.str.188, ptr noundef %agg.tmp131, i32 noundef 0)
+  %130 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 131
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %130, ptr noundef @.str.188, ptr noundef @.str.188, ptr noundef %agg.tmp131, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp132, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 132), ptr noundef @.str.189, ptr noundef @.str.189, ptr noundef %agg.tmp132, i32 noundef 0)
+  %131 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 132
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %131, ptr noundef @.str.189, ptr noundef @.str.189, ptr noundef %agg.tmp132, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp133, i32 noundef 11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 133), ptr noundef @.str.190, ptr noundef @.str.190, ptr noundef %agg.tmp133, i32 noundef 0)
+  %132 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 133
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %132, ptr noundef @.str.190, ptr noundef @.str.190, ptr noundef %agg.tmp133, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp134, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 134), ptr noundef @.str.191, ptr noundef @.str.191, ptr noundef %agg.tmp134, i32 noundef 0)
+  %133 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 134
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %133, ptr noundef @.str.191, ptr noundef @.str.191, ptr noundef %agg.tmp134, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp135, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 135), ptr noundef @.str.192, ptr noundef @.str.192, ptr noundef %agg.tmp135, i32 noundef 0)
+  %134 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 135
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %134, ptr noundef @.str.192, ptr noundef @.str.192, ptr noundef %agg.tmp135, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp136, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 136), ptr noundef @.str.193, ptr noundef @.str.193, ptr noundef %agg.tmp136, i32 noundef 0)
+  %135 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 136
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %135, ptr noundef @.str.193, ptr noundef @.str.193, ptr noundef %agg.tmp136, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS0_8BASETYPEENS0_9AGGREGATEENS0_12VECSEMANTICSEi(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp137, i32 noundef 7, i32 noundef 1, i32 noundef 0, i32 noundef 0) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 137), ptr noundef @.str.194, ptr noundef @.str.194, ptr noundef %agg.tmp137, i32 noundef 0)
+  %136 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 137
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %136, ptr noundef @.str.194, ptr noundef @.str.194, ptr noundef %agg.tmp137, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp138, ptr noundef nonnull align 4 dereferenceable(8) @_ZN18OpenImageIO_v2_6_011TypeUnknownE) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 138), ptr noundef @.str.195, ptr noundef @.str.59, ptr noundef %agg.tmp138, i32 noundef 0)
+  %137 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 138
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %137, ptr noundef @.str.195, ptr noundef @.str.59, ptr noundef %agg.tmp138, i32 noundef 0)
   call void @_ZN18OpenImageIO_v2_6_08TypeDescC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %agg.tmp139, ptr noundef nonnull align 4 dereferenceable(8) @_ZN18OpenImageIO_v2_6_011TypeUnknownE) #3
-  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 139), ptr noundef null, ptr noundef null, ptr noundef %agg.tmp139, i32 noundef 0)
+  %138 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::(anonymous namespace)::XMPtag", ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16xmptagE, i64 139
+  call void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16XMPtagC2EPKcS3_NS_8TypeDescEi(ptr noundef nonnull align 8 dereferenceable(28) %138, ptr noundef null, ptr noundef null, ptr noundef %agg.tmp139, i32 noundef 0)
   ret void
 }
 
@@ -23987,7 +24126,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24000,7 +24140,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29824,10 +29965,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i8], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #3
@@ -31689,16 +31831,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -34454,7 +34597,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %message.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v812format_errorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -45176,10 +45320,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.70", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.70", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #3
@@ -45299,16 +45444,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.71", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.71", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.71", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -62448,10 +62594,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.130", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %store_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.130", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [32 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt2v86detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 32) #3
@@ -62488,16 +62635,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v86detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.131", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.131", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v8::detail::buffer.131", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -63282,21 +63430,22 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v86detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v819basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v8::basic_memory_buffer.130", ptr %this1, i32 0, i32 2
   call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_) #3
-  %0 = load ptr, ptr %other.addr, align 8
-  invoke void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %0)
+  %1 = load ptr, ptr %other.addr, align 8
+  invoke void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #19
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #19
   unreachable
 }
 

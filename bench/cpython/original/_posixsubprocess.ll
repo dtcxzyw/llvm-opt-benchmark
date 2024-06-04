@@ -3157,25 +3157,26 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi ptr [ %7, %cond.true ], [ %8, %cond.false ]
   store ptr %cond, ptr %h, align 8
   %9 = load ptr, ptr %h, align 8
-  %cmp11 = icmp eq ptr %9, inttoptr (i64 1 to ptr)
+  %10 = inttoptr i64 1 to ptr
+  %cmp11 = icmp eq ptr %9, %10
   br i1 %cmp11, label %if.then14, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %cond.end
-  %10 = load ptr, ptr %h, align 8
-  %cmp13 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %h, align 8
+  %cmp13 = icmp eq ptr %11, null
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %lor.lhs.false12, %cond.end
   br label %for.inc
 
 if.end15:                                         ; preds = %lor.lhs.false12
-  %11 = load i32, ptr %sig, align 4
-  %call16 = call i32 @sigaction(i32 noundef %11, ptr noundef %sa_dfl, ptr noundef null) #9
+  %12 = load i32, ptr %sig, align 4
+  %call16 = call i32 @sigaction(i32 noundef %12, ptr noundef %sa_dfl, ptr noundef null) #9
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end15, %if.then14, %if.then8, %if.then4, %if.then
-  %12 = load i32, ptr %sig, align 4
-  %inc = add i32 %12, 1
+  %13 = load i32, ptr %sig, align 4
+  %inc = add i32 %13, 1
   store i32 %inc, ptr %sig, align 4
   br label %for.cond, !llvm.loop !15
 

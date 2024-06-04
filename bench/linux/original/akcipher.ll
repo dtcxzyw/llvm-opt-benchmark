@@ -469,28 +469,29 @@ define dso_local i32 @crypto_init_akcipher_ops_sig(ptr nocapture noundef %0) #0 
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @crypto_mod_get(ptr noundef %4) #8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %15, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %1
   %8 = tail call ptr @crypto_create_tfm_node(ptr noundef %4, ptr noundef nonnull @crypto_akcipher_type, i32 noundef -1) #8
-  %9 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
-  br i1 %9, label %10, label %13
+  %9 = inttoptr i64 -4096 to ptr
+  %10 = icmp ugt ptr %8, %9
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %7
+11:                                               ; preds = %7
   tail call void @crypto_mod_put(ptr noundef %4) #8
-  %11 = ptrtoint ptr %8 to i64
-  %12 = trunc i64 %11 to i32
-  br label %15
+  %12 = ptrtoint ptr %8 to i64
+  %13 = trunc i64 %12 to i32
+  br label %16
 
-13:                                               ; preds = %7
+14:                                               ; preds = %7
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr @crypto_exit_akcipher_ops_sig, ptr %14, align 8
-  br label %15
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @crypto_exit_akcipher_ops_sig, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %13, %10, %1
-  %16 = phi i32 [ %12, %10 ], [ 0, %13 ], [ -11, %1 ]
-  ret i32 %16
+16:                                               ; preds = %14, %11, %1
+  %17 = phi i32 [ %13, %11 ], [ 0, %14 ], [ -11, %1 ]
+  ret i32 %17
 }
 
 ; Function Attrs: null_pointer_is_valid

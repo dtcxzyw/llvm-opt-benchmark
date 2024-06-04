@@ -155,28 +155,30 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !23
   %frombool.i = zext i1 %deleteMemory to i8
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %Format.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %format, ptr %Format.i, align 8, !tbaa !6
   %Size.i = getelementptr inbounds i8, ptr %this, i64 12
-  %1 = load i64, ptr %size, align 4, !tbaa.struct !14
-  store i64 %1, ptr %Size.i, align 4, !tbaa.struct !14
+  %3 = load i64, ptr %size, align 4, !tbaa.struct !14
+  store i64 %3, ptr %Size.i, align 4, !tbaa.struct !14
   %Data.i = getelementptr inbounds i8, ptr %this, i64 24
   %DeleteMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Data.i, i8 0, i64 16, i1 false)
   store i8 %frombool.i, ptr %DeleteMemory.i, align 8, !tbaa !16
   %DeleteMipMapsMemory.i = getelementptr inbounds i8, ptr %this, i64 49
   store i8 0, ptr %DeleteMipMapsMemory.i, align 1, !tbaa !17
-  %2 = trunc i64 %1 to i32
-  %3 = lshr i64 %1, 32
   %4 = trunc i64 %3 to i32
-  %5 = icmp ult i32 %format, 17
-  br i1 %5, label %switch.lookup, label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
+  %5 = lshr i64 %3, 32
+  %6 = trunc i64 %5 to i32
+  %7 = icmp ult i32 %format, 17
+  br i1 %7, label %switch.lookup, label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
 
 switch.lookup:                                    ; preds = %entry
-  %6 = zext nneg i32 %format to i64
-  %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %6
+  %8 = zext nneg i32 %format to i64
+  %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
 
@@ -185,10 +187,12 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit: ; 
   %Pitch.i = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %retval.0.i.i, ptr %BytesPerPixel.i, align 8, !tbaa !18
-  %mul.i = mul i32 %retval.0.i.i, %2
+  %mul.i = mul i32 %retval.0.i.i, %4
   store i32 %mul.i, ptr %Pitch.i, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %9 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %9, ptr %this, align 8, !tbaa !3
+  %10 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %10, ptr %0, align 8, !tbaa !3
   br i1 %ownForeignMemory, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
@@ -196,23 +200,23 @@ if.then:                                          ; preds = %_ZN3irr5video6IImag
   br label %if.end
 
 if.else:                                          ; preds = %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
-  %7 = icmp ult i32 %format, 17
-  br i1 %7, label %switch.lookup26, label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
+  %11 = icmp ult i32 %format, 17
+  br i1 %11, label %switch.lookup26, label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 switch.lookup26:                                  ; preds = %if.else
-  %8 = zext nneg i32 %format to i64
-  %switch.gep27 = getelementptr inbounds [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %8
+  %12 = zext nneg i32 %format to i64
+  %switch.gep27 = getelementptr inbounds [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %12
   %switch.load28 = load i32, ptr %switch.gep27, align 4
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit: ; preds = %switch.lookup26, %if.else
   %retval.0.i.i13 = phi i32 [ %switch.load28, %switch.lookup26 ], [ 0, %if.else ]
-  %mul.i14 = mul i32 %4, %2
+  %mul.i14 = mul i32 %6, %4
   %mul1.i = mul i32 %mul.i14, %retval.0.i.i13
   %add = add i32 %mul1.i, 15
   %div11 = and i32 %add, -16
-  %9 = zext i32 %div11 to i64
-  %call5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #14
+  %13 = zext i32 %div11 to i64
+  %call5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #14
   store ptr %call5, ptr %Data.i, align 8, !tbaa !20
   %conv8 = zext i32 %mul1.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5, ptr align 1 %data, i64 %conv8, i1 false)
@@ -490,18 +494,20 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !21
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !23
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %Format.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %format, ptr %Format.i, align 8, !tbaa !6
   %Size.i = getelementptr inbounds i8, ptr %this, i64 12
-  %1 = load i64, ptr %size, align 4, !tbaa.struct !14
-  store i64 %1, ptr %Size.i, align 4, !tbaa.struct !14
-  %2 = getelementptr inbounds i8, ptr %this, i64 32
-  store i64 0, ptr %2, align 8
+  %3 = load i64, ptr %size, align 4, !tbaa.struct !14
+  store i64 %3, ptr %Size.i, align 4, !tbaa.struct !14
+  %4 = getelementptr inbounds i8, ptr %this, i64 32
+  store i64 0, ptr %4, align 8
   %DeleteMipMapsMemory.i = getelementptr inbounds i8, ptr %this, i64 49
   store i8 0, ptr %DeleteMipMapsMemory.i, align 1, !tbaa !17
-  %3 = trunc i64 %1 to i32
+  %5 = trunc i64 %3 to i32
   switch i32 %format, label %sw.default.i.i [
     i32 0, label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
     i32 1, label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
@@ -526,109 +532,131 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thr
   %Pitch.i20 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i21 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 3, ptr %BytesPerPixel.i21, align 8, !tbaa !18
-  %mul.i22 = mul i32 %3, 3
+  %mul.i22 = mul i32 %5, 3
   store i32 %mul.i22, ptr %Pitch.i20, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %6 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %6, ptr %this, align 8, !tbaa !3
+  %7 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %7, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread24: ; preds = %entry
   %Pitch.i26 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i27 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 4, ptr %BytesPerPixel.i27, align 8, !tbaa !18
-  %mul.i28 = shl i32 %3, 2
+  %mul.i28 = shl i32 %5, 2
   store i32 %mul.i28, ptr %Pitch.i26, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %8 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %8, ptr %this, align 8, !tbaa !3
+  %9 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %9, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread30: ; preds = %entry
   %Pitch.i32 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i33 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 4, ptr %BytesPerPixel.i33, align 8, !tbaa !18
-  %mul.i34 = shl i32 %3, 2
+  %mul.i34 = shl i32 %5, 2
   store i32 %mul.i34, ptr %Pitch.i32, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %10 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %10, ptr %this, align 8, !tbaa !3
+  %11 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %11, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread36: ; preds = %entry
   %Pitch.i38 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i39 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 4, ptr %BytesPerPixel.i39, align 8, !tbaa !18
-  %mul.i40 = shl i32 %3, 2
+  %mul.i40 = shl i32 %5, 2
   store i32 %mul.i40, ptr %Pitch.i38, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %12 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %12, ptr %this, align 8, !tbaa !3
+  %13 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %13, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread42: ; preds = %entry
   %Pitch.i44 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i45 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 1, ptr %BytesPerPixel.i45, align 8, !tbaa !18
-  store i32 %3, ptr %Pitch.i44, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  store i32 %5, ptr %Pitch.i44, align 4, !tbaa !19
+  %14 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %14, ptr %this, align 8, !tbaa !3
+  %15 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %15, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread48: ; preds = %entry
   %Pitch.i50 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i51 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 4, ptr %BytesPerPixel.i51, align 8, !tbaa !18
-  %mul.i52 = shl i32 %3, 2
+  %mul.i52 = shl i32 %5, 2
   store i32 %mul.i52, ptr %Pitch.i50, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %16 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %16, ptr %this, align 8, !tbaa !3
+  %17 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %17, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread54: ; preds = %entry
   %Pitch.i56 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i57 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 4, ptr %BytesPerPixel.i57, align 8, !tbaa !18
-  %mul.i58 = shl i32 %3, 2
+  %mul.i58 = shl i32 %5, 2
   store i32 %mul.i58, ptr %Pitch.i56, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %18 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %18, ptr %this, align 8, !tbaa !3
+  %19 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %19, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread60: ; preds = %entry
   %Pitch.i62 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i63 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 8, ptr %BytesPerPixel.i63, align 8, !tbaa !18
-  %mul.i64 = shl i32 %3, 3
+  %mul.i64 = shl i32 %5, 3
   store i32 %mul.i64, ptr %Pitch.i62, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %20 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %20, ptr %this, align 8, !tbaa !3
+  %21 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %21, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread66: ; preds = %entry
   %Pitch.i68 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i69 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 4, ptr %BytesPerPixel.i69, align 8, !tbaa !18
-  %mul.i70 = shl i32 %3, 2
+  %mul.i70 = shl i32 %5, 2
   store i32 %mul.i70, ptr %Pitch.i68, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %22 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %22, ptr %this, align 8, !tbaa !3
+  %23 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %23, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread72: ; preds = %entry
   %Pitch.i74 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i75 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 8, ptr %BytesPerPixel.i75, align 8, !tbaa !18
-  %mul.i76 = shl i32 %3, 3
+  %mul.i76 = shl i32 %5, 3
   store i32 %mul.i76, ptr %Pitch.i74, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %24 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %24, ptr %this, align 8, !tbaa !3
+  %25 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %25, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread78: ; preds = %entry
   %Pitch.i80 = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i81 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 16, ptr %BytesPerPixel.i81, align 8, !tbaa !18
-  %mul.i82 = shl i32 %3, 4
+  %mul.i82 = shl i32 %5, 4
   store i32 %mul.i82, ptr %Pitch.i80, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %26 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %26, ptr %this, align 8, !tbaa !3
+  %27 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %27, ptr %0, align 8, !tbaa !3
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 sw.default.i.i:                                   ; preds = %entry
@@ -639,16 +667,18 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit: ; 
   %Pitch.i = getelementptr inbounds i8, ptr %this, i64 44
   %BytesPerPixel.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %retval.0.i.i, ptr %BytesPerPixel.i, align 8, !tbaa !18
-  %mul.i = mul i32 %retval.0.i.i, %3
+  %mul.i = mul i32 %retval.0.i.i, %5
   store i32 %mul.i, ptr %Pitch.i, align 4, !tbaa !19
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
-  %4 = icmp ult i32 %format, 17
-  br i1 %4, label %switch.lookup, label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
+  %28 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 0, i64 3
+  store ptr %28, ptr %this, align 8, !tbaa !3
+  %29 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video6CImageE, i64 0, i32 1, i64 3
+  store ptr %29, ptr %0, align 8, !tbaa !3
+  %30 = icmp ult i32 %format, 17
+  br i1 %30, label %switch.lookup, label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
 switch.lookup:                                    ; preds = %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
-  %5 = zext nneg i32 %format to i64
-  %switch.gep = getelementptr inbounds [17 x i64], ptr @switch.table._ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE, i64 0, i64 %5
+  %31 = zext nneg i32 %format to i64
+  %switch.gep = getelementptr inbounds [17 x i64], ptr @switch.table._ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE, i64 0, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
@@ -656,8 +686,8 @@ _ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit: ; preds
   %retval.0.i.i6 = phi i64 [ 3, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread ], [ 4, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread24 ], [ 4, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread30 ], [ 4, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread36 ], [ 1, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread42 ], [ 4, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread48 ], [ 4, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread54 ], [ 8, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread60 ], [ 4, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread66 ], [ 8, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread72 ], [ 16, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread78 ], [ %switch.load, %switch.lookup ], [ 0, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit ]
   %Data.i = getelementptr inbounds i8, ptr %this, i64 24
   %DeleteMemory.i = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = lshr i64 %1, 32
-  %mul.i7 = mul i64 %1, %6
+  %32 = lshr i64 %3, 32
+  %mul.i7 = mul i64 %3, %32
   %mul1.i = mul i64 %mul.i7, %retval.0.i.i6
   %add = add i64 %mul1.i, 15
   %div4 = and i64 %add, 4294967280
@@ -2031,38 +2061,40 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video6CImageD1Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  %0 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3
+  store ptr %0, ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3
+  store ptr %1, ptr %add.ptr.i.i, align 8, !tbaa !3
   %DeleteMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load i8, ptr %DeleteMemory.i.i, align 8, !tbaa !16, !range !70, !noundef !71
-  %tobool.not.i.i = icmp eq i8 %0, 0
+  %2 = load i8, ptr %DeleteMemory.i.i, align 8, !tbaa !16, !range !70, !noundef !71
+  %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %Data.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load ptr, ptr %Data.i.i, align 8, !tbaa !20
-  %isnull.i.i = icmp eq ptr %1, null
+  %3 = load ptr, ptr %Data.i.i, align 8, !tbaa !20
+  %isnull.i.i = icmp eq ptr %3, null
   br i1 %isnull.i.i, label %if.end.i.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i, %if.then.i.i, %entry
   %DeleteMipMapsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 49
-  %2 = load i8, ptr %DeleteMipMapsMemory.i.i, align 1, !tbaa !17, !range !70, !noundef !71
-  %tobool3.not.i.i = icmp eq i8 %2, 0
+  %4 = load i8, ptr %DeleteMipMapsMemory.i.i, align 1, !tbaa !17, !range !70, !noundef !71
+  %tobool3.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool3.not.i.i, label %_ZN3irr5video6CImageD2Ev.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %MipMapsData.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %3 = load ptr, ptr %MipMapsData.i.i, align 8, !tbaa !72
-  %isnull5.i.i = icmp eq ptr %3, null
+  %5 = load ptr, ptr %MipMapsData.i.i, align 8, !tbaa !72
+  %isnull5.i.i = icmp eq ptr %5, null
   br i1 %isnull5.i.i, label %_ZN3irr5video6CImageD2Ev.exit, label %delete.notnull6.i.i
 
 delete.notnull6.i.i:                              ; preds = %if.then4.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #17
   br label %_ZN3irr5video6CImageD2Ev.exit
 
 _ZN3irr5video6CImageD2Ev.exit:                    ; preds = %delete.notnull6.i.i, %if.then4.i.i, %if.end.i.i
@@ -2072,38 +2104,40 @@ _ZN3irr5video6CImageD2Ev.exit:                    ; preds = %delete.notnull6.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video6CImageD0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  %0 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3
+  store ptr %0, ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3
+  store ptr %1, ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %DeleteMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load i8, ptr %DeleteMemory.i.i.i, align 8, !tbaa !16, !range !70, !noundef !71
-  %tobool.not.i.i.i = icmp eq i8 %0, 0
+  %2 = load i8, ptr %DeleteMemory.i.i.i, align 8, !tbaa !16, !range !70, !noundef !71
+  %tobool.not.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %Data.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load ptr, ptr %Data.i.i.i, align 8, !tbaa !20
-  %isnull.i.i.i = icmp eq ptr %1, null
+  %3 = load ptr, ptr %Data.i.i.i, align 8, !tbaa !20
+  %isnull.i.i.i = icmp eq ptr %3, null
   br i1 %isnull.i.i.i, label %if.end.i.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i, %if.then.i.i.i, %entry
   %DeleteMipMapsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 49
-  %2 = load i8, ptr %DeleteMipMapsMemory.i.i.i, align 1, !tbaa !17, !range !70, !noundef !71
-  %tobool3.not.i.i.i = icmp eq i8 %2, 0
+  %4 = load i8, ptr %DeleteMipMapsMemory.i.i.i, align 1, !tbaa !17, !range !70, !noundef !71
+  %tobool3.not.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool3.not.i.i.i, label %_ZN3irr5video6CImageD1Ev.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %MipMapsData.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %3 = load ptr, ptr %MipMapsData.i.i.i, align 8, !tbaa !72
-  %isnull5.i.i.i = icmp eq ptr %3, null
+  %5 = load ptr, ptr %MipMapsData.i.i.i, align 8, !tbaa !72
+  %isnull5.i.i.i = icmp eq ptr %5, null
   br i1 %isnull5.i.i.i, label %_ZN3irr5video6CImageD1Ev.exit, label %delete.notnull6.i.i.i
 
 delete.notnull6.i.i.i:                            ; preds = %if.then4.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #17
   br label %_ZN3irr5video6CImageD1Ev.exit
 
 _ZN3irr5video6CImageD1Ev.exit:                    ; preds = %delete.notnull6.i.i.i, %if.then4.i.i.i, %if.end.i.i.i
@@ -2118,38 +2152,40 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3
+  store ptr %5, ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %DeleteMemory.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %DeleteMemory.i.i.i, align 8, !tbaa !16, !range !70, !noundef !71
-  %tobool.not.i.i.i = icmp eq i8 %4, 0
+  %6 = load i8, ptr %DeleteMemory.i.i.i, align 8, !tbaa !16, !range !70, !noundef !71
+  %tobool.not.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %Data.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %5 = load ptr, ptr %Data.i.i.i, align 8, !tbaa !20
-  %isnull.i.i.i = icmp eq ptr %5, null
+  %7 = load ptr, ptr %Data.i.i.i, align 8, !tbaa !20
+  %isnull.i.i.i = icmp eq ptr %7, null
   br i1 %isnull.i.i.i, label %if.end.i.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #17
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i, %if.then.i.i.i, %entry
   %DeleteMipMapsMemory.i.i.i = getelementptr inbounds i8, ptr %3, i64 49
-  %6 = load i8, ptr %DeleteMipMapsMemory.i.i.i, align 1, !tbaa !17, !range !70, !noundef !71
-  %tobool3.not.i.i.i = icmp eq i8 %6, 0
+  %8 = load i8, ptr %DeleteMipMapsMemory.i.i.i, align 1, !tbaa !17, !range !70, !noundef !71
+  %tobool3.not.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool3.not.i.i.i, label %_ZN3irr5video6CImageD1Ev.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %MipMapsData.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  %7 = load ptr, ptr %MipMapsData.i.i.i, align 8, !tbaa !72
-  %isnull5.i.i.i = icmp eq ptr %7, null
+  %9 = load ptr, ptr %MipMapsData.i.i.i, align 8, !tbaa !72
+  %isnull5.i.i.i = icmp eq ptr %9, null
   br i1 %isnull5.i.i.i, label %_ZN3irr5video6CImageD1Ev.exit, label %delete.notnull6.i.i.i
 
 delete.notnull6.i.i.i:                            ; preds = %if.then4.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #17
   br label %_ZN3irr5video6CImageD1Ev.exit
 
 _ZN3irr5video6CImageD1Ev.exit:                    ; preds = %delete.notnull6.i.i.i, %if.then4.i.i.i, %if.end.i.i.i
@@ -2163,38 +2199,40 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 0, i64 3
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video6CImageE0_NS0_6IImageE, i64 0, i32 1, i64 3
+  store ptr %5, ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %DeleteMemory.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %DeleteMemory.i.i.i.i, align 8, !tbaa !16, !range !70, !noundef !71
-  %tobool.not.i.i.i.i = icmp eq i8 %4, 0
+  %6 = load i8, ptr %DeleteMemory.i.i.i.i, align 8, !tbaa !16, !range !70, !noundef !71
+  %tobool.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %Data.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %5 = load ptr, ptr %Data.i.i.i.i, align 8, !tbaa !20
-  %isnull.i.i.i.i = icmp eq ptr %5, null
+  %7 = load ptr, ptr %Data.i.i.i.i, align 8, !tbaa !20
+  %isnull.i.i.i.i = icmp eq ptr %7, null
   br i1 %isnull.i.i.i.i, label %if.end.i.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #17
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i.i, %entry
   %DeleteMipMapsMemory.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 49
-  %6 = load i8, ptr %DeleteMipMapsMemory.i.i.i.i, align 1, !tbaa !17, !range !70, !noundef !71
-  %tobool3.not.i.i.i.i = icmp eq i8 %6, 0
+  %8 = load i8, ptr %DeleteMipMapsMemory.i.i.i.i, align 1, !tbaa !17, !range !70, !noundef !71
+  %tobool3.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool3.not.i.i.i.i, label %_ZN3irr5video6CImageD0Ev.exit, label %if.then4.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %MipMapsData.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  %7 = load ptr, ptr %MipMapsData.i.i.i.i, align 8, !tbaa !72
-  %isnull5.i.i.i.i = icmp eq ptr %7, null
+  %9 = load ptr, ptr %MipMapsData.i.i.i.i, align 8, !tbaa !72
+  %isnull5.i.i.i.i = icmp eq ptr %9, null
   br i1 %isnull5.i.i.i.i, label %_ZN3irr5video6CImageD0Ev.exit, label %delete.notnull6.i.i.i.i
 
 delete.notnull6.i.i.i.i:                          ; preds = %if.then4.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #17
   br label %_ZN3irr5video6CImageD0Ev.exit
 
 _ZN3irr5video6CImageD0Ev.exit:                    ; preds = %delete.notnull6.i.i.i.i, %if.then4.i.i.i.i, %if.end.i.i.i.i

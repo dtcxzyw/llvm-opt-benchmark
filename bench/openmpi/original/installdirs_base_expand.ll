@@ -153,18 +153,18 @@ define internal ptr @opal_install_dirs_expand_internal(ptr noundef %0, i1 nounde
 
 63:                                               ; preds = %58
   store ptr null, ptr %3, align 8
-  br label %679
+  br label %711
 
 64:                                               ; preds = %58
   %65 = load i8, ptr %8, align 1
   %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %668
+  br i1 %66, label %67, label %700
 
 67:                                               ; preds = %64
   store i8 0, ptr %12, align 1
   br label %68
 
-68:                                               ; preds = %664, %67
+68:                                               ; preds = %696, %67
   store i8 0, ptr %12, align 1
   br label %69
 
@@ -234,7 +234,7 @@ define internal ptr @opal_install_dirs_expand_internal(ptr noundef %0, i1 nounde
   %106 = call ptr @strstr(ptr noundef %105, ptr noundef @.str.4) #5
   store ptr %106, ptr %13, align 8
   %107 = icmp ne ptr null, %106
-  br i1 %107, label %108, label %120
+  br i1 %107, label %108, label %121
 
 108:                                              ; preds = %104
   %109 = load ptr, ptr %9, align 8
@@ -245,510 +245,500 @@ define internal ptr @opal_install_dirs_expand_internal(ptr noundef %0, i1 nounde
   %112 = getelementptr inbounds i8, ptr %111, i64 14
   store ptr %112, ptr %14, align 8
   %113 = load ptr, ptr %15, align 8
-  %114 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 1), align 8
-  %115 = load i64, ptr %11, align 8
-  %116 = getelementptr inbounds i8, ptr %114, i64 %115
-  %117 = load ptr, ptr %14, align 8
-  %118 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %113, ptr noundef %116, ptr noundef %117)
-  %119 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %119) #4
+  %114 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8
+  %116 = load i64, ptr %11, align 8
+  %117 = getelementptr inbounds i8, ptr %115, i64 %116
+  %118 = load ptr, ptr %14, align 8
+  %119 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %113, ptr noundef %117, ptr noundef %118)
+  %120 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %120) #4
   store i8 1, ptr %12, align 1
-  br label %137
-
-120:                                              ; preds = %104
-  %121 = load ptr, ptr %9, align 8
-  %122 = call ptr @strstr(ptr noundef %121, ptr noundef @.str.5) #5
-  store ptr %122, ptr %13, align 8
-  %123 = icmp ne ptr null, %122
-  br i1 %123, label %124, label %136
-
-124:                                              ; preds = %120
-  %125 = load ptr, ptr %9, align 8
-  store ptr %125, ptr %15, align 8
-  %126 = load ptr, ptr %13, align 8
-  store i8 0, ptr %126, align 1
-  %127 = load ptr, ptr %13, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 14
-  store ptr %128, ptr %14, align 8
-  %129 = load ptr, ptr %15, align 8
-  %130 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 1), align 8
-  %131 = load i64, ptr %11, align 8
-  %132 = getelementptr inbounds i8, ptr %130, i64 %131
-  %133 = load ptr, ptr %14, align 8
-  %134 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %129, ptr noundef %132, ptr noundef %133)
-  %135 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %135) #4
-  store i8 1, ptr %12, align 1
-  br label %136
-
-136:                                              ; preds = %124, %120
-  br label %137
-
-137:                                              ; preds = %136, %108
-  br label %138
-
-138:                                              ; preds = %137
   br label %139
 
-139:                                              ; preds = %138
-  %140 = load ptr, ptr %9, align 8
-  %141 = call ptr @strstr(ptr noundef %140, ptr noundef @.str.6) #5
-  store ptr %141, ptr %13, align 8
-  %142 = icmp ne ptr null, %141
-  br i1 %142, label %143, label %155
+121:                                              ; preds = %104
+  %122 = load ptr, ptr %9, align 8
+  %123 = call ptr @strstr(ptr noundef %122, ptr noundef @.str.5) #5
+  store ptr %123, ptr %13, align 8
+  %124 = icmp ne ptr null, %123
+  br i1 %124, label %125, label %138
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %9, align 8
-  store ptr %144, ptr %15, align 8
-  %145 = load ptr, ptr %13, align 8
-  store i8 0, ptr %145, align 1
-  %146 = load ptr, ptr %13, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 9
-  store ptr %147, ptr %14, align 8
-  %148 = load ptr, ptr %15, align 8
-  %149 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2), align 8
-  %150 = load i64, ptr %11, align 8
-  %151 = getelementptr inbounds i8, ptr %149, i64 %150
-  %152 = load ptr, ptr %14, align 8
-  %153 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %148, ptr noundef %151, ptr noundef %152)
-  %154 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %154) #4
+125:                                              ; preds = %121
+  %126 = load ptr, ptr %9, align 8
+  store ptr %126, ptr %15, align 8
+  %127 = load ptr, ptr %13, align 8
+  store i8 0, ptr %127, align 1
+  %128 = load ptr, ptr %13, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 14
+  store ptr %129, ptr %14, align 8
+  %130 = load ptr, ptr %15, align 8
+  %131 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 1
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i64, ptr %11, align 8
+  %134 = getelementptr inbounds i8, ptr %132, i64 %133
+  %135 = load ptr, ptr %14, align 8
+  %136 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %130, ptr noundef %134, ptr noundef %135)
+  %137 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %137) #4
   store i8 1, ptr %12, align 1
-  br label %172
+  br label %138
 
-155:                                              ; preds = %139
-  %156 = load ptr, ptr %9, align 8
-  %157 = call ptr @strstr(ptr noundef %156, ptr noundef @.str.7) #5
-  store ptr %157, ptr %13, align 8
-  %158 = icmp ne ptr null, %157
-  br i1 %158, label %159, label %171
+138:                                              ; preds = %125, %121
+  br label %139
 
-159:                                              ; preds = %155
-  %160 = load ptr, ptr %9, align 8
-  store ptr %160, ptr %15, align 8
-  %161 = load ptr, ptr %13, align 8
-  store i8 0, ptr %161, align 1
-  %162 = load ptr, ptr %13, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 9
-  store ptr %163, ptr %14, align 8
-  %164 = load ptr, ptr %15, align 8
-  %165 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2), align 8
-  %166 = load i64, ptr %11, align 8
-  %167 = getelementptr inbounds i8, ptr %165, i64 %166
-  %168 = load ptr, ptr %14, align 8
-  %169 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %164, ptr noundef %167, ptr noundef %168)
-  %170 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %170) #4
+139:                                              ; preds = %138, %108
+  br label %140
+
+140:                                              ; preds = %139
+  br label %141
+
+141:                                              ; preds = %140
+  %142 = load ptr, ptr %9, align 8
+  %143 = call ptr @strstr(ptr noundef %142, ptr noundef @.str.6) #5
+  store ptr %143, ptr %13, align 8
+  %144 = icmp ne ptr null, %143
+  br i1 %144, label %145, label %158
+
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %9, align 8
+  store ptr %146, ptr %15, align 8
+  %147 = load ptr, ptr %13, align 8
+  store i8 0, ptr %147, align 1
+  %148 = load ptr, ptr %13, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 9
+  store ptr %149, ptr %14, align 8
+  %150 = load ptr, ptr %15, align 8
+  %151 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2
+  %152 = load ptr, ptr %151, align 8
+  %153 = load i64, ptr %11, align 8
+  %154 = getelementptr inbounds i8, ptr %152, i64 %153
+  %155 = load ptr, ptr %14, align 8
+  %156 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %150, ptr noundef %154, ptr noundef %155)
+  %157 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %157) #4
   store i8 1, ptr %12, align 1
-  br label %171
+  br label %176
 
-171:                                              ; preds = %159, %155
-  br label %172
+158:                                              ; preds = %141
+  %159 = load ptr, ptr %9, align 8
+  %160 = call ptr @strstr(ptr noundef %159, ptr noundef @.str.7) #5
+  store ptr %160, ptr %13, align 8
+  %161 = icmp ne ptr null, %160
+  br i1 %161, label %162, label %175
 
-172:                                              ; preds = %171, %143
-  br label %173
+162:                                              ; preds = %158
+  %163 = load ptr, ptr %9, align 8
+  store ptr %163, ptr %15, align 8
+  %164 = load ptr, ptr %13, align 8
+  store i8 0, ptr %164, align 1
+  %165 = load ptr, ptr %13, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 9
+  store ptr %166, ptr %14, align 8
+  %167 = load ptr, ptr %15, align 8
+  %168 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2
+  %169 = load ptr, ptr %168, align 8
+  %170 = load i64, ptr %11, align 8
+  %171 = getelementptr inbounds i8, ptr %169, i64 %170
+  %172 = load ptr, ptr %14, align 8
+  %173 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %167, ptr noundef %171, ptr noundef %172)
+  %174 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %174) #4
+  store i8 1, ptr %12, align 1
+  br label %175
 
-173:                                              ; preds = %172
-  br label %174
+175:                                              ; preds = %162, %158
+  br label %176
 
-174:                                              ; preds = %173
-  %175 = load ptr, ptr %9, align 8
-  %176 = call ptr @strstr(ptr noundef %175, ptr noundef @.str.8) #5
-  store ptr %176, ptr %13, align 8
-  %177 = icmp ne ptr null, %176
-  br i1 %177, label %178, label %190
+176:                                              ; preds = %175, %145
+  br label %177
 
-178:                                              ; preds = %174
+177:                                              ; preds = %176
+  br label %178
+
+178:                                              ; preds = %177
   %179 = load ptr, ptr %9, align 8
-  store ptr %179, ptr %15, align 8
-  %180 = load ptr, ptr %13, align 8
-  store i8 0, ptr %180, align 1
-  %181 = load ptr, ptr %13, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 10
-  store ptr %182, ptr %14, align 8
-  %183 = load ptr, ptr %15, align 8
-  %184 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 3), align 8
-  %185 = load i64, ptr %11, align 8
-  %186 = getelementptr inbounds i8, ptr %184, i64 %185
-  %187 = load ptr, ptr %14, align 8
-  %188 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %183, ptr noundef %186, ptr noundef %187)
-  %189 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %189) #4
+  %180 = call ptr @strstr(ptr noundef %179, ptr noundef @.str.8) #5
+  store ptr %180, ptr %13, align 8
+  %181 = icmp ne ptr null, %180
+  br i1 %181, label %182, label %195
+
+182:                                              ; preds = %178
+  %183 = load ptr, ptr %9, align 8
+  store ptr %183, ptr %15, align 8
+  %184 = load ptr, ptr %13, align 8
+  store i8 0, ptr %184, align 1
+  %185 = load ptr, ptr %13, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 10
+  store ptr %186, ptr %14, align 8
+  %187 = load ptr, ptr %15, align 8
+  %188 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 3
+  %189 = load ptr, ptr %188, align 8
+  %190 = load i64, ptr %11, align 8
+  %191 = getelementptr inbounds i8, ptr %189, i64 %190
+  %192 = load ptr, ptr %14, align 8
+  %193 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %187, ptr noundef %191, ptr noundef %192)
+  %194 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %194) #4
   store i8 1, ptr %12, align 1
-  br label %207
+  br label %213
 
-190:                                              ; preds = %174
-  %191 = load ptr, ptr %9, align 8
-  %192 = call ptr @strstr(ptr noundef %191, ptr noundef @.str.9) #5
-  store ptr %192, ptr %13, align 8
-  %193 = icmp ne ptr null, %192
-  br i1 %193, label %194, label %206
+195:                                              ; preds = %178
+  %196 = load ptr, ptr %9, align 8
+  %197 = call ptr @strstr(ptr noundef %196, ptr noundef @.str.9) #5
+  store ptr %197, ptr %13, align 8
+  %198 = icmp ne ptr null, %197
+  br i1 %198, label %199, label %212
 
-194:                                              ; preds = %190
-  %195 = load ptr, ptr %9, align 8
-  store ptr %195, ptr %15, align 8
-  %196 = load ptr, ptr %13, align 8
-  store i8 0, ptr %196, align 1
-  %197 = load ptr, ptr %13, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 10
-  store ptr %198, ptr %14, align 8
-  %199 = load ptr, ptr %15, align 8
-  %200 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 3), align 8
-  %201 = load i64, ptr %11, align 8
-  %202 = getelementptr inbounds i8, ptr %200, i64 %201
-  %203 = load ptr, ptr %14, align 8
-  %204 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %199, ptr noundef %202, ptr noundef %203)
-  %205 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %205) #4
+199:                                              ; preds = %195
+  %200 = load ptr, ptr %9, align 8
+  store ptr %200, ptr %15, align 8
+  %201 = load ptr, ptr %13, align 8
+  store i8 0, ptr %201, align 1
+  %202 = load ptr, ptr %13, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 10
+  store ptr %203, ptr %14, align 8
+  %204 = load ptr, ptr %15, align 8
+  %205 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 3
+  %206 = load ptr, ptr %205, align 8
+  %207 = load i64, ptr %11, align 8
+  %208 = getelementptr inbounds i8, ptr %206, i64 %207
+  %209 = load ptr, ptr %14, align 8
+  %210 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %204, ptr noundef %208, ptr noundef %209)
+  %211 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %211) #4
   store i8 1, ptr %12, align 1
-  br label %206
+  br label %212
 
-206:                                              ; preds = %194, %190
-  br label %207
+212:                                              ; preds = %199, %195
+  br label %213
 
-207:                                              ; preds = %206, %178
-  br label %208
+213:                                              ; preds = %212, %182
+  br label %214
 
-208:                                              ; preds = %207
-  br label %209
+214:                                              ; preds = %213
+  br label %215
 
-209:                                              ; preds = %208
-  %210 = load ptr, ptr %9, align 8
-  %211 = call ptr @strstr(ptr noundef %210, ptr noundef @.str.10) #5
-  store ptr %211, ptr %13, align 8
-  %212 = icmp ne ptr null, %211
-  br i1 %212, label %213, label %225
+215:                                              ; preds = %214
+  %216 = load ptr, ptr %9, align 8
+  %217 = call ptr @strstr(ptr noundef %216, ptr noundef @.str.10) #5
+  store ptr %217, ptr %13, align 8
+  %218 = icmp ne ptr null, %217
+  br i1 %218, label %219, label %232
 
-213:                                              ; preds = %209
-  %214 = load ptr, ptr %9, align 8
-  store ptr %214, ptr %15, align 8
-  %215 = load ptr, ptr %13, align 8
-  store i8 0, ptr %215, align 1
-  %216 = load ptr, ptr %13, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 13
-  store ptr %217, ptr %14, align 8
-  %218 = load ptr, ptr %15, align 8
-  %219 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 4), align 8
-  %220 = load i64, ptr %11, align 8
-  %221 = getelementptr inbounds i8, ptr %219, i64 %220
-  %222 = load ptr, ptr %14, align 8
-  %223 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %218, ptr noundef %221, ptr noundef %222)
+219:                                              ; preds = %215
+  %220 = load ptr, ptr %9, align 8
+  store ptr %220, ptr %15, align 8
+  %221 = load ptr, ptr %13, align 8
+  store i8 0, ptr %221, align 1
+  %222 = load ptr, ptr %13, align 8
+  %223 = getelementptr inbounds i8, ptr %222, i64 13
+  store ptr %223, ptr %14, align 8
   %224 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %224) #4
+  %225 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 4
+  %226 = load ptr, ptr %225, align 8
+  %227 = load i64, ptr %11, align 8
+  %228 = getelementptr inbounds i8, ptr %226, i64 %227
+  %229 = load ptr, ptr %14, align 8
+  %230 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %224, ptr noundef %228, ptr noundef %229)
+  %231 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %231) #4
   store i8 1, ptr %12, align 1
-  br label %242
+  br label %250
 
-225:                                              ; preds = %209
-  %226 = load ptr, ptr %9, align 8
-  %227 = call ptr @strstr(ptr noundef %226, ptr noundef @.str.11) #5
-  store ptr %227, ptr %13, align 8
-  %228 = icmp ne ptr null, %227
-  br i1 %228, label %229, label %241
+232:                                              ; preds = %215
+  %233 = load ptr, ptr %9, align 8
+  %234 = call ptr @strstr(ptr noundef %233, ptr noundef @.str.11) #5
+  store ptr %234, ptr %13, align 8
+  %235 = icmp ne ptr null, %234
+  br i1 %235, label %236, label %249
 
-229:                                              ; preds = %225
-  %230 = load ptr, ptr %9, align 8
-  store ptr %230, ptr %15, align 8
-  %231 = load ptr, ptr %13, align 8
-  store i8 0, ptr %231, align 1
-  %232 = load ptr, ptr %13, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 13
-  store ptr %233, ptr %14, align 8
-  %234 = load ptr, ptr %15, align 8
-  %235 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 4), align 8
-  %236 = load i64, ptr %11, align 8
-  %237 = getelementptr inbounds i8, ptr %235, i64 %236
-  %238 = load ptr, ptr %14, align 8
-  %239 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %234, ptr noundef %237, ptr noundef %238)
-  %240 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %240) #4
+236:                                              ; preds = %232
+  %237 = load ptr, ptr %9, align 8
+  store ptr %237, ptr %15, align 8
+  %238 = load ptr, ptr %13, align 8
+  store i8 0, ptr %238, align 1
+  %239 = load ptr, ptr %13, align 8
+  %240 = getelementptr inbounds i8, ptr %239, i64 13
+  store ptr %240, ptr %14, align 8
+  %241 = load ptr, ptr %15, align 8
+  %242 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 4
+  %243 = load ptr, ptr %242, align 8
+  %244 = load i64, ptr %11, align 8
+  %245 = getelementptr inbounds i8, ptr %243, i64 %244
+  %246 = load ptr, ptr %14, align 8
+  %247 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %241, ptr noundef %245, ptr noundef %246)
+  %248 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %248) #4
   store i8 1, ptr %12, align 1
-  br label %241
+  br label %249
 
-241:                                              ; preds = %229, %225
-  br label %242
+249:                                              ; preds = %236, %232
+  br label %250
 
-242:                                              ; preds = %241, %213
-  br label %243
+250:                                              ; preds = %249, %219
+  br label %251
 
-243:                                              ; preds = %242
-  br label %244
+251:                                              ; preds = %250
+  br label %252
 
-244:                                              ; preds = %243
-  %245 = load ptr, ptr %9, align 8
-  %246 = call ptr @strstr(ptr noundef %245, ptr noundef @.str.12) #5
-  store ptr %246, ptr %13, align 8
-  %247 = icmp ne ptr null, %246
-  br i1 %247, label %248, label %260
+252:                                              ; preds = %251
+  %253 = load ptr, ptr %9, align 8
+  %254 = call ptr @strstr(ptr noundef %253, ptr noundef @.str.12) #5
+  store ptr %254, ptr %13, align 8
+  %255 = icmp ne ptr null, %254
+  br i1 %255, label %256, label %269
 
-248:                                              ; preds = %244
-  %249 = load ptr, ptr %9, align 8
-  store ptr %249, ptr %15, align 8
-  %250 = load ptr, ptr %13, align 8
-  store i8 0, ptr %250, align 1
-  %251 = load ptr, ptr %13, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 14
-  store ptr %252, ptr %14, align 8
-  %253 = load ptr, ptr %15, align 8
-  %254 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 5), align 8
-  %255 = load i64, ptr %11, align 8
-  %256 = getelementptr inbounds i8, ptr %254, i64 %255
-  %257 = load ptr, ptr %14, align 8
-  %258 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %253, ptr noundef %256, ptr noundef %257)
-  %259 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %259) #4
+256:                                              ; preds = %252
+  %257 = load ptr, ptr %9, align 8
+  store ptr %257, ptr %15, align 8
+  %258 = load ptr, ptr %13, align 8
+  store i8 0, ptr %258, align 1
+  %259 = load ptr, ptr %13, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 14
+  store ptr %260, ptr %14, align 8
+  %261 = load ptr, ptr %15, align 8
+  %262 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 5
+  %263 = load ptr, ptr %262, align 8
+  %264 = load i64, ptr %11, align 8
+  %265 = getelementptr inbounds i8, ptr %263, i64 %264
+  %266 = load ptr, ptr %14, align 8
+  %267 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %261, ptr noundef %265, ptr noundef %266)
+  %268 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %268) #4
   store i8 1, ptr %12, align 1
-  br label %277
+  br label %287
 
-260:                                              ; preds = %244
-  %261 = load ptr, ptr %9, align 8
-  %262 = call ptr @strstr(ptr noundef %261, ptr noundef @.str.13) #5
-  store ptr %262, ptr %13, align 8
-  %263 = icmp ne ptr null, %262
-  br i1 %263, label %264, label %276
+269:                                              ; preds = %252
+  %270 = load ptr, ptr %9, align 8
+  %271 = call ptr @strstr(ptr noundef %270, ptr noundef @.str.13) #5
+  store ptr %271, ptr %13, align 8
+  %272 = icmp ne ptr null, %271
+  br i1 %272, label %273, label %286
 
-264:                                              ; preds = %260
-  %265 = load ptr, ptr %9, align 8
-  store ptr %265, ptr %15, align 8
-  %266 = load ptr, ptr %13, align 8
-  store i8 0, ptr %266, align 1
-  %267 = load ptr, ptr %13, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 14
-  store ptr %268, ptr %14, align 8
-  %269 = load ptr, ptr %15, align 8
-  %270 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 5), align 8
-  %271 = load i64, ptr %11, align 8
-  %272 = getelementptr inbounds i8, ptr %270, i64 %271
-  %273 = load ptr, ptr %14, align 8
-  %274 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %269, ptr noundef %272, ptr noundef %273)
-  %275 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %275) #4
+273:                                              ; preds = %269
+  %274 = load ptr, ptr %9, align 8
+  store ptr %274, ptr %15, align 8
+  %275 = load ptr, ptr %13, align 8
+  store i8 0, ptr %275, align 1
+  %276 = load ptr, ptr %13, align 8
+  %277 = getelementptr inbounds i8, ptr %276, i64 14
+  store ptr %277, ptr %14, align 8
+  %278 = load ptr, ptr %15, align 8
+  %279 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 5
+  %280 = load ptr, ptr %279, align 8
+  %281 = load i64, ptr %11, align 8
+  %282 = getelementptr inbounds i8, ptr %280, i64 %281
+  %283 = load ptr, ptr %14, align 8
+  %284 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %278, ptr noundef %282, ptr noundef %283)
+  %285 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %285) #4
   store i8 1, ptr %12, align 1
-  br label %276
+  br label %286
 
-276:                                              ; preds = %264, %260
-  br label %277
+286:                                              ; preds = %273, %269
+  br label %287
 
-277:                                              ; preds = %276, %248
-  br label %278
+287:                                              ; preds = %286, %256
+  br label %288
 
-278:                                              ; preds = %277
-  br label %279
+288:                                              ; preds = %287
+  br label %289
 
-279:                                              ; preds = %278
-  %280 = load ptr, ptr %9, align 8
-  %281 = call ptr @strstr(ptr noundef %280, ptr noundef @.str.14) #5
-  store ptr %281, ptr %13, align 8
-  %282 = icmp ne ptr null, %281
-  br i1 %282, label %283, label %295
+289:                                              ; preds = %288
+  %290 = load ptr, ptr %9, align 8
+  %291 = call ptr @strstr(ptr noundef %290, ptr noundef @.str.14) #5
+  store ptr %291, ptr %13, align 8
+  %292 = icmp ne ptr null, %291
+  br i1 %292, label %293, label %306
 
-283:                                              ; preds = %279
-  %284 = load ptr, ptr %9, align 8
-  store ptr %284, ptr %15, align 8
-  %285 = load ptr, ptr %13, align 8
-  store i8 0, ptr %285, align 1
-  %286 = load ptr, ptr %13, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 10
-  store ptr %287, ptr %14, align 8
-  %288 = load ptr, ptr %15, align 8
-  %289 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 6), align 8
-  %290 = load i64, ptr %11, align 8
-  %291 = getelementptr inbounds i8, ptr %289, i64 %290
-  %292 = load ptr, ptr %14, align 8
-  %293 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %288, ptr noundef %291, ptr noundef %292)
-  %294 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %294) #4
+293:                                              ; preds = %289
+  %294 = load ptr, ptr %9, align 8
+  store ptr %294, ptr %15, align 8
+  %295 = load ptr, ptr %13, align 8
+  store i8 0, ptr %295, align 1
+  %296 = load ptr, ptr %13, align 8
+  %297 = getelementptr inbounds i8, ptr %296, i64 10
+  store ptr %297, ptr %14, align 8
+  %298 = load ptr, ptr %15, align 8
+  %299 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 6
+  %300 = load ptr, ptr %299, align 8
+  %301 = load i64, ptr %11, align 8
+  %302 = getelementptr inbounds i8, ptr %300, i64 %301
+  %303 = load ptr, ptr %14, align 8
+  %304 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %298, ptr noundef %302, ptr noundef %303)
+  %305 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %305) #4
   store i8 1, ptr %12, align 1
-  br label %312
+  br label %324
 
-295:                                              ; preds = %279
-  %296 = load ptr, ptr %9, align 8
-  %297 = call ptr @strstr(ptr noundef %296, ptr noundef @.str.15) #5
-  store ptr %297, ptr %13, align 8
-  %298 = icmp ne ptr null, %297
-  br i1 %298, label %299, label %311
+306:                                              ; preds = %289
+  %307 = load ptr, ptr %9, align 8
+  %308 = call ptr @strstr(ptr noundef %307, ptr noundef @.str.15) #5
+  store ptr %308, ptr %13, align 8
+  %309 = icmp ne ptr null, %308
+  br i1 %309, label %310, label %323
 
-299:                                              ; preds = %295
-  %300 = load ptr, ptr %9, align 8
-  store ptr %300, ptr %15, align 8
-  %301 = load ptr, ptr %13, align 8
-  store i8 0, ptr %301, align 1
-  %302 = load ptr, ptr %13, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 10
-  store ptr %303, ptr %14, align 8
-  %304 = load ptr, ptr %15, align 8
-  %305 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 6), align 8
-  %306 = load i64, ptr %11, align 8
-  %307 = getelementptr inbounds i8, ptr %305, i64 %306
-  %308 = load ptr, ptr %14, align 8
-  %309 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %304, ptr noundef %307, ptr noundef %308)
-  %310 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %310) #4
+310:                                              ; preds = %306
+  %311 = load ptr, ptr %9, align 8
+  store ptr %311, ptr %15, align 8
+  %312 = load ptr, ptr %13, align 8
+  store i8 0, ptr %312, align 1
+  %313 = load ptr, ptr %13, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 10
+  store ptr %314, ptr %14, align 8
+  %315 = load ptr, ptr %15, align 8
+  %316 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 6
+  %317 = load ptr, ptr %316, align 8
+  %318 = load i64, ptr %11, align 8
+  %319 = getelementptr inbounds i8, ptr %317, i64 %318
+  %320 = load ptr, ptr %14, align 8
+  %321 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %315, ptr noundef %319, ptr noundef %320)
+  %322 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %322) #4
   store i8 1, ptr %12, align 1
-  br label %311
+  br label %323
 
-311:                                              ; preds = %299, %295
-  br label %312
+323:                                              ; preds = %310, %306
+  br label %324
 
-312:                                              ; preds = %311, %283
-  br label %313
+324:                                              ; preds = %323, %293
+  br label %325
 
-313:                                              ; preds = %312
-  br label %314
+325:                                              ; preds = %324
+  br label %326
 
-314:                                              ; preds = %313
-  %315 = load ptr, ptr %9, align 8
-  %316 = call ptr @strstr(ptr noundef %315, ptr noundef @.str.16) #5
-  store ptr %316, ptr %13, align 8
-  %317 = icmp ne ptr null, %316
-  br i1 %317, label %318, label %330
+326:                                              ; preds = %325
+  %327 = load ptr, ptr %9, align 8
+  %328 = call ptr @strstr(ptr noundef %327, ptr noundef @.str.16) #5
+  store ptr %328, ptr %13, align 8
+  %329 = icmp ne ptr null, %328
+  br i1 %329, label %330, label %343
 
-318:                                              ; preds = %314
-  %319 = load ptr, ptr %9, align 8
-  store ptr %319, ptr %15, align 8
-  %320 = load ptr, ptr %13, align 8
-  store i8 0, ptr %320, align 1
-  %321 = load ptr, ptr %13, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 13
-  store ptr %322, ptr %14, align 8
-  %323 = load ptr, ptr %15, align 8
-  %324 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 7), align 8
-  %325 = load i64, ptr %11, align 8
-  %326 = getelementptr inbounds i8, ptr %324, i64 %325
-  %327 = load ptr, ptr %14, align 8
-  %328 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %323, ptr noundef %326, ptr noundef %327)
-  %329 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %329) #4
-  store i8 1, ptr %12, align 1
-  br label %347
-
-330:                                              ; preds = %314
+330:                                              ; preds = %326
   %331 = load ptr, ptr %9, align 8
-  %332 = call ptr @strstr(ptr noundef %331, ptr noundef @.str.17) #5
-  store ptr %332, ptr %13, align 8
-  %333 = icmp ne ptr null, %332
-  br i1 %333, label %334, label %346
-
-334:                                              ; preds = %330
-  %335 = load ptr, ptr %9, align 8
-  store ptr %335, ptr %15, align 8
-  %336 = load ptr, ptr %13, align 8
-  store i8 0, ptr %336, align 1
-  %337 = load ptr, ptr %13, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 13
-  store ptr %338, ptr %14, align 8
-  %339 = load ptr, ptr %15, align 8
-  %340 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 7), align 8
-  %341 = load i64, ptr %11, align 8
-  %342 = getelementptr inbounds i8, ptr %340, i64 %341
-  %343 = load ptr, ptr %14, align 8
-  %344 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %339, ptr noundef %342, ptr noundef %343)
-  %345 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %345) #4
+  store ptr %331, ptr %15, align 8
+  %332 = load ptr, ptr %13, align 8
+  store i8 0, ptr %332, align 1
+  %333 = load ptr, ptr %13, align 8
+  %334 = getelementptr inbounds i8, ptr %333, i64 13
+  store ptr %334, ptr %14, align 8
+  %335 = load ptr, ptr %15, align 8
+  %336 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 7
+  %337 = load ptr, ptr %336, align 8
+  %338 = load i64, ptr %11, align 8
+  %339 = getelementptr inbounds i8, ptr %337, i64 %338
+  %340 = load ptr, ptr %14, align 8
+  %341 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %335, ptr noundef %339, ptr noundef %340)
+  %342 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %342) #4
   store i8 1, ptr %12, align 1
-  br label %346
+  br label %361
 
-346:                                              ; preds = %334, %330
-  br label %347
+343:                                              ; preds = %326
+  %344 = load ptr, ptr %9, align 8
+  %345 = call ptr @strstr(ptr noundef %344, ptr noundef @.str.17) #5
+  store ptr %345, ptr %13, align 8
+  %346 = icmp ne ptr null, %345
+  br i1 %346, label %347, label %360
 
-347:                                              ; preds = %346, %318
-  br label %348
-
-348:                                              ; preds = %347
-  br label %349
-
-349:                                              ; preds = %348
-  %350 = load ptr, ptr %9, align 8
-  %351 = call ptr @strstr(ptr noundef %350, ptr noundef @.str.18) #5
-  store ptr %351, ptr %13, align 8
-  %352 = icmp ne ptr null, %351
-  br i1 %352, label %353, label %365
-
-353:                                              ; preds = %349
-  %354 = load ptr, ptr %9, align 8
-  store ptr %354, ptr %15, align 8
-  %355 = load ptr, ptr %13, align 8
-  store i8 0, ptr %355, align 1
-  %356 = load ptr, ptr %13, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 17
-  store ptr %357, ptr %14, align 8
-  %358 = load ptr, ptr %15, align 8
-  %359 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 8), align 8
-  %360 = load i64, ptr %11, align 8
-  %361 = getelementptr inbounds i8, ptr %359, i64 %360
-  %362 = load ptr, ptr %14, align 8
-  %363 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %358, ptr noundef %361, ptr noundef %362)
-  %364 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %364) #4
+347:                                              ; preds = %343
+  %348 = load ptr, ptr %9, align 8
+  store ptr %348, ptr %15, align 8
+  %349 = load ptr, ptr %13, align 8
+  store i8 0, ptr %349, align 1
+  %350 = load ptr, ptr %13, align 8
+  %351 = getelementptr inbounds i8, ptr %350, i64 13
+  store ptr %351, ptr %14, align 8
+  %352 = load ptr, ptr %15, align 8
+  %353 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 7
+  %354 = load ptr, ptr %353, align 8
+  %355 = load i64, ptr %11, align 8
+  %356 = getelementptr inbounds i8, ptr %354, i64 %355
+  %357 = load ptr, ptr %14, align 8
+  %358 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %352, ptr noundef %356, ptr noundef %357)
+  %359 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %359) #4
   store i8 1, ptr %12, align 1
-  br label %382
+  br label %360
 
-365:                                              ; preds = %349
-  %366 = load ptr, ptr %9, align 8
-  %367 = call ptr @strstr(ptr noundef %366, ptr noundef @.str.19) #5
-  store ptr %367, ptr %13, align 8
-  %368 = icmp ne ptr null, %367
-  br i1 %368, label %369, label %381
+360:                                              ; preds = %347, %343
+  br label %361
 
-369:                                              ; preds = %365
-  %370 = load ptr, ptr %9, align 8
-  store ptr %370, ptr %15, align 8
-  %371 = load ptr, ptr %13, align 8
-  store i8 0, ptr %371, align 1
-  %372 = load ptr, ptr %13, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 17
-  store ptr %373, ptr %14, align 8
-  %374 = load ptr, ptr %15, align 8
-  %375 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 8), align 8
-  %376 = load i64, ptr %11, align 8
-  %377 = getelementptr inbounds i8, ptr %375, i64 %376
-  %378 = load ptr, ptr %14, align 8
-  %379 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %374, ptr noundef %377, ptr noundef %378)
-  %380 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %380) #4
+361:                                              ; preds = %360, %330
+  br label %362
+
+362:                                              ; preds = %361
+  br label %363
+
+363:                                              ; preds = %362
+  %364 = load ptr, ptr %9, align 8
+  %365 = call ptr @strstr(ptr noundef %364, ptr noundef @.str.18) #5
+  store ptr %365, ptr %13, align 8
+  %366 = icmp ne ptr null, %365
+  br i1 %366, label %367, label %380
+
+367:                                              ; preds = %363
+  %368 = load ptr, ptr %9, align 8
+  store ptr %368, ptr %15, align 8
+  %369 = load ptr, ptr %13, align 8
+  store i8 0, ptr %369, align 1
+  %370 = load ptr, ptr %13, align 8
+  %371 = getelementptr inbounds i8, ptr %370, i64 17
+  store ptr %371, ptr %14, align 8
+  %372 = load ptr, ptr %15, align 8
+  %373 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 8
+  %374 = load ptr, ptr %373, align 8
+  %375 = load i64, ptr %11, align 8
+  %376 = getelementptr inbounds i8, ptr %374, i64 %375
+  %377 = load ptr, ptr %14, align 8
+  %378 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %372, ptr noundef %376, ptr noundef %377)
+  %379 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %379) #4
   store i8 1, ptr %12, align 1
-  br label %381
+  br label %398
 
-381:                                              ; preds = %369, %365
-  br label %382
+380:                                              ; preds = %363
+  %381 = load ptr, ptr %9, align 8
+  %382 = call ptr @strstr(ptr noundef %381, ptr noundef @.str.19) #5
+  store ptr %382, ptr %13, align 8
+  %383 = icmp ne ptr null, %382
+  br i1 %383, label %384, label %397
 
-382:                                              ; preds = %381, %353
-  br label %383
-
-383:                                              ; preds = %382
-  br label %384
-
-384:                                              ; preds = %383
+384:                                              ; preds = %380
   %385 = load ptr, ptr %9, align 8
-  %386 = call ptr @strstr(ptr noundef %385, ptr noundef @.str.20) #5
-  store ptr %386, ptr %13, align 8
-  %387 = icmp ne ptr null, %386
-  br i1 %387, label %388, label %400
-
-388:                                              ; preds = %384
-  %389 = load ptr, ptr %9, align 8
-  store ptr %389, ptr %15, align 8
-  %390 = load ptr, ptr %13, align 8
-  store i8 0, ptr %390, align 1
-  %391 = load ptr, ptr %13, align 8
-  %392 = getelementptr inbounds i8, ptr %391, i64 16
-  store ptr %392, ptr %14, align 8
-  %393 = load ptr, ptr %15, align 8
-  %394 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 9), align 8
-  %395 = load i64, ptr %11, align 8
-  %396 = getelementptr inbounds i8, ptr %394, i64 %395
-  %397 = load ptr, ptr %14, align 8
-  %398 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %393, ptr noundef %396, ptr noundef %397)
-  %399 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %399) #4
+  store ptr %385, ptr %15, align 8
+  %386 = load ptr, ptr %13, align 8
+  store i8 0, ptr %386, align 1
+  %387 = load ptr, ptr %13, align 8
+  %388 = getelementptr inbounds i8, ptr %387, i64 17
+  store ptr %388, ptr %14, align 8
+  %389 = load ptr, ptr %15, align 8
+  %390 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 8
+  %391 = load ptr, ptr %390, align 8
+  %392 = load i64, ptr %11, align 8
+  %393 = getelementptr inbounds i8, ptr %391, i64 %392
+  %394 = load ptr, ptr %14, align 8
+  %395 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %389, ptr noundef %393, ptr noundef %394)
+  %396 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %396) #4
   store i8 1, ptr %12, align 1
-  br label %417
+  br label %397
 
-400:                                              ; preds = %384
+397:                                              ; preds = %384, %380
+  br label %398
+
+398:                                              ; preds = %397, %367
+  br label %399
+
+399:                                              ; preds = %398
+  br label %400
+
+400:                                              ; preds = %399
   %401 = load ptr, ptr %9, align 8
-  %402 = call ptr @strstr(ptr noundef %401, ptr noundef @.str.21) #5
+  %402 = call ptr @strstr(ptr noundef %401, ptr noundef @.str.20) #5
   store ptr %402, ptr %13, align 8
   %403 = icmp ne ptr null, %402
-  br i1 %403, label %404, label %416
+  br i1 %403, label %404, label %417
 
 404:                                              ; preds = %400
   %405 = load ptr, ptr %9, align 8
@@ -759,92 +749,86 @@ define internal ptr @opal_install_dirs_expand_internal(ptr noundef %0, i1 nounde
   %408 = getelementptr inbounds i8, ptr %407, i64 16
   store ptr %408, ptr %14, align 8
   %409 = load ptr, ptr %15, align 8
-  %410 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 9), align 8
-  %411 = load i64, ptr %11, align 8
-  %412 = getelementptr inbounds i8, ptr %410, i64 %411
-  %413 = load ptr, ptr %14, align 8
-  %414 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %409, ptr noundef %412, ptr noundef %413)
-  %415 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %415) #4
+  %410 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 9
+  %411 = load ptr, ptr %410, align 8
+  %412 = load i64, ptr %11, align 8
+  %413 = getelementptr inbounds i8, ptr %411, i64 %412
+  %414 = load ptr, ptr %14, align 8
+  %415 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %409, ptr noundef %413, ptr noundef %414)
+  %416 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %416) #4
   store i8 1, ptr %12, align 1
-  br label %416
+  br label %435
 
-416:                                              ; preds = %404, %400
-  br label %417
+417:                                              ; preds = %400
+  %418 = load ptr, ptr %9, align 8
+  %419 = call ptr @strstr(ptr noundef %418, ptr noundef @.str.21) #5
+  store ptr %419, ptr %13, align 8
+  %420 = icmp ne ptr null, %419
+  br i1 %420, label %421, label %434
 
-417:                                              ; preds = %416, %388
-  br label %418
-
-418:                                              ; preds = %417
-  br label %419
-
-419:                                              ; preds = %418
-  %420 = load ptr, ptr %9, align 8
-  %421 = call ptr @strstr(ptr noundef %420, ptr noundef @.str.22) #5
-  store ptr %421, ptr %13, align 8
-  %422 = icmp ne ptr null, %421
-  br i1 %422, label %423, label %435
-
-423:                                              ; preds = %419
-  %424 = load ptr, ptr %9, align 8
-  store ptr %424, ptr %15, align 8
-  %425 = load ptr, ptr %13, align 8
-  store i8 0, ptr %425, align 1
-  %426 = load ptr, ptr %13, align 8
-  %427 = getelementptr inbounds i8, ptr %426, i64 9
-  store ptr %427, ptr %14, align 8
-  %428 = load ptr, ptr %15, align 8
-  %429 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10), align 8
-  %430 = load i64, ptr %11, align 8
-  %431 = getelementptr inbounds i8, ptr %429, i64 %430
-  %432 = load ptr, ptr %14, align 8
-  %433 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %428, ptr noundef %431, ptr noundef %432)
-  %434 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %434) #4
+421:                                              ; preds = %417
+  %422 = load ptr, ptr %9, align 8
+  store ptr %422, ptr %15, align 8
+  %423 = load ptr, ptr %13, align 8
+  store i8 0, ptr %423, align 1
+  %424 = load ptr, ptr %13, align 8
+  %425 = getelementptr inbounds i8, ptr %424, i64 16
+  store ptr %425, ptr %14, align 8
+  %426 = load ptr, ptr %15, align 8
+  %427 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 9
+  %428 = load ptr, ptr %427, align 8
+  %429 = load i64, ptr %11, align 8
+  %430 = getelementptr inbounds i8, ptr %428, i64 %429
+  %431 = load ptr, ptr %14, align 8
+  %432 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %426, ptr noundef %430, ptr noundef %431)
+  %433 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %433) #4
   store i8 1, ptr %12, align 1
-  br label %452
+  br label %434
 
-435:                                              ; preds = %419
-  %436 = load ptr, ptr %9, align 8
-  %437 = call ptr @strstr(ptr noundef %436, ptr noundef @.str.23) #5
-  store ptr %437, ptr %13, align 8
-  %438 = icmp ne ptr null, %437
-  br i1 %438, label %439, label %451
+434:                                              ; preds = %421, %417
+  br label %435
 
-439:                                              ; preds = %435
-  %440 = load ptr, ptr %9, align 8
-  store ptr %440, ptr %15, align 8
-  %441 = load ptr, ptr %13, align 8
-  store i8 0, ptr %441, align 1
-  %442 = load ptr, ptr %13, align 8
-  %443 = getelementptr inbounds i8, ptr %442, i64 9
-  store ptr %443, ptr %14, align 8
-  %444 = load ptr, ptr %15, align 8
-  %445 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10), align 8
-  %446 = load i64, ptr %11, align 8
-  %447 = getelementptr inbounds i8, ptr %445, i64 %446
-  %448 = load ptr, ptr %14, align 8
-  %449 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %444, ptr noundef %447, ptr noundef %448)
-  %450 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %450) #4
+435:                                              ; preds = %434, %404
+  br label %436
+
+436:                                              ; preds = %435
+  br label %437
+
+437:                                              ; preds = %436
+  %438 = load ptr, ptr %9, align 8
+  %439 = call ptr @strstr(ptr noundef %438, ptr noundef @.str.22) #5
+  store ptr %439, ptr %13, align 8
+  %440 = icmp ne ptr null, %439
+  br i1 %440, label %441, label %454
+
+441:                                              ; preds = %437
+  %442 = load ptr, ptr %9, align 8
+  store ptr %442, ptr %15, align 8
+  %443 = load ptr, ptr %13, align 8
+  store i8 0, ptr %443, align 1
+  %444 = load ptr, ptr %13, align 8
+  %445 = getelementptr inbounds i8, ptr %444, i64 9
+  store ptr %445, ptr %14, align 8
+  %446 = load ptr, ptr %15, align 8
+  %447 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10
+  %448 = load ptr, ptr %447, align 8
+  %449 = load i64, ptr %11, align 8
+  %450 = getelementptr inbounds i8, ptr %448, i64 %449
+  %451 = load ptr, ptr %14, align 8
+  %452 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %446, ptr noundef %450, ptr noundef %451)
+  %453 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %453) #4
   store i8 1, ptr %12, align 1
-  br label %451
+  br label %472
 
-451:                                              ; preds = %439, %435
-  br label %452
-
-452:                                              ; preds = %451, %423
-  br label %453
-
-453:                                              ; preds = %452
-  br label %454
-
-454:                                              ; preds = %453
+454:                                              ; preds = %437
   %455 = load ptr, ptr %9, align 8
-  %456 = call ptr @strstr(ptr noundef %455, ptr noundef @.str.24) #5
+  %456 = call ptr @strstr(ptr noundef %455, ptr noundef @.str.23) #5
   store ptr %456, ptr %13, align 8
   %457 = icmp ne ptr null, %456
-  br i1 %457, label %458, label %470
+  br i1 %457, label %458, label %471
 
 458:                                              ; preds = %454
   %459 = load ptr, ptr %9, align 8
@@ -852,391 +836,439 @@ define internal ptr @opal_install_dirs_expand_internal(ptr noundef %0, i1 nounde
   %460 = load ptr, ptr %13, align 8
   store i8 0, ptr %460, align 1
   %461 = load ptr, ptr %13, align 8
-  %462 = getelementptr inbounds i8, ptr %461, i64 13
+  %462 = getelementptr inbounds i8, ptr %461, i64 9
   store ptr %462, ptr %14, align 8
   %463 = load ptr, ptr %15, align 8
-  %464 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 11), align 8
-  %465 = load i64, ptr %11, align 8
-  %466 = getelementptr inbounds i8, ptr %464, i64 %465
-  %467 = load ptr, ptr %14, align 8
-  %468 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %463, ptr noundef %466, ptr noundef %467)
-  %469 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %469) #4
+  %464 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10
+  %465 = load ptr, ptr %464, align 8
+  %466 = load i64, ptr %11, align 8
+  %467 = getelementptr inbounds i8, ptr %465, i64 %466
+  %468 = load ptr, ptr %14, align 8
+  %469 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %463, ptr noundef %467, ptr noundef %468)
+  %470 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %470) #4
   store i8 1, ptr %12, align 1
-  br label %487
+  br label %471
 
-470:                                              ; preds = %454
-  %471 = load ptr, ptr %9, align 8
-  %472 = call ptr @strstr(ptr noundef %471, ptr noundef @.str.25) #5
-  store ptr %472, ptr %13, align 8
-  %473 = icmp ne ptr null, %472
-  br i1 %473, label %474, label %486
+471:                                              ; preds = %458, %454
+  br label %472
 
-474:                                              ; preds = %470
+472:                                              ; preds = %471, %441
+  br label %473
+
+473:                                              ; preds = %472
+  br label %474
+
+474:                                              ; preds = %473
   %475 = load ptr, ptr %9, align 8
-  store ptr %475, ptr %15, align 8
-  %476 = load ptr, ptr %13, align 8
-  store i8 0, ptr %476, align 1
-  %477 = load ptr, ptr %13, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 13
-  store ptr %478, ptr %14, align 8
-  %479 = load ptr, ptr %15, align 8
-  %480 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 11), align 8
-  %481 = load i64, ptr %11, align 8
-  %482 = getelementptr inbounds i8, ptr %480, i64 %481
-  %483 = load ptr, ptr %14, align 8
-  %484 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %479, ptr noundef %482, ptr noundef %483)
-  %485 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %485) #4
+  %476 = call ptr @strstr(ptr noundef %475, ptr noundef @.str.24) #5
+  store ptr %476, ptr %13, align 8
+  %477 = icmp ne ptr null, %476
+  br i1 %477, label %478, label %491
+
+478:                                              ; preds = %474
+  %479 = load ptr, ptr %9, align 8
+  store ptr %479, ptr %15, align 8
+  %480 = load ptr, ptr %13, align 8
+  store i8 0, ptr %480, align 1
+  %481 = load ptr, ptr %13, align 8
+  %482 = getelementptr inbounds i8, ptr %481, i64 13
+  store ptr %482, ptr %14, align 8
+  %483 = load ptr, ptr %15, align 8
+  %484 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 11
+  %485 = load ptr, ptr %484, align 8
+  %486 = load i64, ptr %11, align 8
+  %487 = getelementptr inbounds i8, ptr %485, i64 %486
+  %488 = load ptr, ptr %14, align 8
+  %489 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %483, ptr noundef %487, ptr noundef %488)
+  %490 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %490) #4
   store i8 1, ptr %12, align 1
-  br label %486
+  br label %509
 
-486:                                              ; preds = %474, %470
-  br label %487
+491:                                              ; preds = %474
+  %492 = load ptr, ptr %9, align 8
+  %493 = call ptr @strstr(ptr noundef %492, ptr noundef @.str.25) #5
+  store ptr %493, ptr %13, align 8
+  %494 = icmp ne ptr null, %493
+  br i1 %494, label %495, label %508
 
-487:                                              ; preds = %486, %458
-  br label %488
-
-488:                                              ; preds = %487
-  br label %489
-
-489:                                              ; preds = %488
-  %490 = load ptr, ptr %9, align 8
-  %491 = call ptr @strstr(ptr noundef %490, ptr noundef @.str.26) #5
-  store ptr %491, ptr %13, align 8
-  %492 = icmp ne ptr null, %491
-  br i1 %492, label %493, label %505
-
-493:                                              ; preds = %489
-  %494 = load ptr, ptr %9, align 8
-  store ptr %494, ptr %15, align 8
-  %495 = load ptr, ptr %13, align 8
-  store i8 0, ptr %495, align 1
-  %496 = load ptr, ptr %13, align 8
-  %497 = getelementptr inbounds i8, ptr %496, i64 10
-  store ptr %497, ptr %14, align 8
-  %498 = load ptr, ptr %15, align 8
-  %499 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 12), align 8
-  %500 = load i64, ptr %11, align 8
-  %501 = getelementptr inbounds i8, ptr %499, i64 %500
-  %502 = load ptr, ptr %14, align 8
-  %503 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %498, ptr noundef %501, ptr noundef %502)
-  %504 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %504) #4
+495:                                              ; preds = %491
+  %496 = load ptr, ptr %9, align 8
+  store ptr %496, ptr %15, align 8
+  %497 = load ptr, ptr %13, align 8
+  store i8 0, ptr %497, align 1
+  %498 = load ptr, ptr %13, align 8
+  %499 = getelementptr inbounds i8, ptr %498, i64 13
+  store ptr %499, ptr %14, align 8
+  %500 = load ptr, ptr %15, align 8
+  %501 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 11
+  %502 = load ptr, ptr %501, align 8
+  %503 = load i64, ptr %11, align 8
+  %504 = getelementptr inbounds i8, ptr %502, i64 %503
+  %505 = load ptr, ptr %14, align 8
+  %506 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %500, ptr noundef %504, ptr noundef %505)
+  %507 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %507) #4
   store i8 1, ptr %12, align 1
-  br label %522
+  br label %508
 
-505:                                              ; preds = %489
-  %506 = load ptr, ptr %9, align 8
-  %507 = call ptr @strstr(ptr noundef %506, ptr noundef @.str.27) #5
-  store ptr %507, ptr %13, align 8
-  %508 = icmp ne ptr null, %507
-  br i1 %508, label %509, label %521
+508:                                              ; preds = %495, %491
+  br label %509
 
-509:                                              ; preds = %505
-  %510 = load ptr, ptr %9, align 8
-  store ptr %510, ptr %15, align 8
-  %511 = load ptr, ptr %13, align 8
-  store i8 0, ptr %511, align 1
-  %512 = load ptr, ptr %13, align 8
-  %513 = getelementptr inbounds i8, ptr %512, i64 10
-  store ptr %513, ptr %14, align 8
-  %514 = load ptr, ptr %15, align 8
-  %515 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 12), align 8
-  %516 = load i64, ptr %11, align 8
-  %517 = getelementptr inbounds i8, ptr %515, i64 %516
-  %518 = load ptr, ptr %14, align 8
-  %519 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %514, ptr noundef %517, ptr noundef %518)
+509:                                              ; preds = %508, %478
+  br label %510
+
+510:                                              ; preds = %509
+  br label %511
+
+511:                                              ; preds = %510
+  %512 = load ptr, ptr %9, align 8
+  %513 = call ptr @strstr(ptr noundef %512, ptr noundef @.str.26) #5
+  store ptr %513, ptr %13, align 8
+  %514 = icmp ne ptr null, %513
+  br i1 %514, label %515, label %528
+
+515:                                              ; preds = %511
+  %516 = load ptr, ptr %9, align 8
+  store ptr %516, ptr %15, align 8
+  %517 = load ptr, ptr %13, align 8
+  store i8 0, ptr %517, align 1
+  %518 = load ptr, ptr %13, align 8
+  %519 = getelementptr inbounds i8, ptr %518, i64 10
+  store ptr %519, ptr %14, align 8
   %520 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %520) #4
+  %521 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 12
+  %522 = load ptr, ptr %521, align 8
+  %523 = load i64, ptr %11, align 8
+  %524 = getelementptr inbounds i8, ptr %522, i64 %523
+  %525 = load ptr, ptr %14, align 8
+  %526 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %520, ptr noundef %524, ptr noundef %525)
+  %527 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %527) #4
   store i8 1, ptr %12, align 1
-  br label %521
+  br label %546
 
-521:                                              ; preds = %509, %505
-  br label %522
-
-522:                                              ; preds = %521, %493
-  br label %523
-
-523:                                              ; preds = %522
-  br label %524
-
-524:                                              ; preds = %523
-  %525 = load ptr, ptr %9, align 8
-  %526 = call ptr @strstr(ptr noundef %525, ptr noundef @.str.28) #5
-  store ptr %526, ptr %13, align 8
-  %527 = icmp ne ptr null, %526
-  br i1 %527, label %528, label %540
-
-528:                                              ; preds = %524
+528:                                              ; preds = %511
   %529 = load ptr, ptr %9, align 8
-  store ptr %529, ptr %15, align 8
-  %530 = load ptr, ptr %13, align 8
-  store i8 0, ptr %530, align 1
-  %531 = load ptr, ptr %13, align 8
-  %532 = getelementptr inbounds i8, ptr %531, i64 9
-  store ptr %532, ptr %14, align 8
-  %533 = load ptr, ptr %15, align 8
-  %534 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 13), align 8
-  %535 = load i64, ptr %11, align 8
-  %536 = getelementptr inbounds i8, ptr %534, i64 %535
-  %537 = load ptr, ptr %14, align 8
-  %538 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %533, ptr noundef %536, ptr noundef %537)
-  %539 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %539) #4
+  %530 = call ptr @strstr(ptr noundef %529, ptr noundef @.str.27) #5
+  store ptr %530, ptr %13, align 8
+  %531 = icmp ne ptr null, %530
+  br i1 %531, label %532, label %545
+
+532:                                              ; preds = %528
+  %533 = load ptr, ptr %9, align 8
+  store ptr %533, ptr %15, align 8
+  %534 = load ptr, ptr %13, align 8
+  store i8 0, ptr %534, align 1
+  %535 = load ptr, ptr %13, align 8
+  %536 = getelementptr inbounds i8, ptr %535, i64 10
+  store ptr %536, ptr %14, align 8
+  %537 = load ptr, ptr %15, align 8
+  %538 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 12
+  %539 = load ptr, ptr %538, align 8
+  %540 = load i64, ptr %11, align 8
+  %541 = getelementptr inbounds i8, ptr %539, i64 %540
+  %542 = load ptr, ptr %14, align 8
+  %543 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %537, ptr noundef %541, ptr noundef %542)
+  %544 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %544) #4
   store i8 1, ptr %12, align 1
-  br label %557
+  br label %545
 
-540:                                              ; preds = %524
-  %541 = load ptr, ptr %9, align 8
-  %542 = call ptr @strstr(ptr noundef %541, ptr noundef @.str.29) #5
-  store ptr %542, ptr %13, align 8
-  %543 = icmp ne ptr null, %542
-  br i1 %543, label %544, label %556
+545:                                              ; preds = %532, %528
+  br label %546
 
-544:                                              ; preds = %540
-  %545 = load ptr, ptr %9, align 8
-  store ptr %545, ptr %15, align 8
-  %546 = load ptr, ptr %13, align 8
-  store i8 0, ptr %546, align 1
-  %547 = load ptr, ptr %13, align 8
-  %548 = getelementptr inbounds i8, ptr %547, i64 9
-  store ptr %548, ptr %14, align 8
-  %549 = load ptr, ptr %15, align 8
-  %550 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 13), align 8
-  %551 = load i64, ptr %11, align 8
-  %552 = getelementptr inbounds i8, ptr %550, i64 %551
-  %553 = load ptr, ptr %14, align 8
-  %554 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %549, ptr noundef %552, ptr noundef %553)
-  %555 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %555) #4
+546:                                              ; preds = %545, %515
+  br label %547
+
+547:                                              ; preds = %546
+  br label %548
+
+548:                                              ; preds = %547
+  %549 = load ptr, ptr %9, align 8
+  %550 = call ptr @strstr(ptr noundef %549, ptr noundef @.str.28) #5
+  store ptr %550, ptr %13, align 8
+  %551 = icmp ne ptr null, %550
+  br i1 %551, label %552, label %565
+
+552:                                              ; preds = %548
+  %553 = load ptr, ptr %9, align 8
+  store ptr %553, ptr %15, align 8
+  %554 = load ptr, ptr %13, align 8
+  store i8 0, ptr %554, align 1
+  %555 = load ptr, ptr %13, align 8
+  %556 = getelementptr inbounds i8, ptr %555, i64 9
+  store ptr %556, ptr %14, align 8
+  %557 = load ptr, ptr %15, align 8
+  %558 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 13
+  %559 = load ptr, ptr %558, align 8
+  %560 = load i64, ptr %11, align 8
+  %561 = getelementptr inbounds i8, ptr %559, i64 %560
+  %562 = load ptr, ptr %14, align 8
+  %563 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %557, ptr noundef %561, ptr noundef %562)
+  %564 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %564) #4
   store i8 1, ptr %12, align 1
-  br label %556
+  br label %583
 
-556:                                              ; preds = %544, %540
-  br label %557
+565:                                              ; preds = %548
+  %566 = load ptr, ptr %9, align 8
+  %567 = call ptr @strstr(ptr noundef %566, ptr noundef @.str.29) #5
+  store ptr %567, ptr %13, align 8
+  %568 = icmp ne ptr null, %567
+  br i1 %568, label %569, label %582
 
-557:                                              ; preds = %556, %528
-  br label %558
-
-558:                                              ; preds = %557
-  br label %559
-
-559:                                              ; preds = %558
-  %560 = load ptr, ptr %9, align 8
-  %561 = call ptr @strstr(ptr noundef %560, ptr noundef @.str.30) #5
-  store ptr %561, ptr %13, align 8
-  %562 = icmp ne ptr null, %561
-  br i1 %562, label %563, label %575
-
-563:                                              ; preds = %559
-  %564 = load ptr, ptr %9, align 8
-  store ptr %564, ptr %15, align 8
-  %565 = load ptr, ptr %13, align 8
-  store i8 0, ptr %565, align 1
-  %566 = load ptr, ptr %13, align 8
-  %567 = getelementptr inbounds i8, ptr %566, i64 13
-  store ptr %567, ptr %14, align 8
-  %568 = load ptr, ptr %15, align 8
-  %569 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14), align 8
-  %570 = load i64, ptr %11, align 8
-  %571 = getelementptr inbounds i8, ptr %569, i64 %570
-  %572 = load ptr, ptr %14, align 8
-  %573 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %568, ptr noundef %571, ptr noundef %572)
+569:                                              ; preds = %565
+  %570 = load ptr, ptr %9, align 8
+  store ptr %570, ptr %15, align 8
+  %571 = load ptr, ptr %13, align 8
+  store i8 0, ptr %571, align 1
+  %572 = load ptr, ptr %13, align 8
+  %573 = getelementptr inbounds i8, ptr %572, i64 9
+  store ptr %573, ptr %14, align 8
   %574 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %574) #4
+  %575 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 13
+  %576 = load ptr, ptr %575, align 8
+  %577 = load i64, ptr %11, align 8
+  %578 = getelementptr inbounds i8, ptr %576, i64 %577
+  %579 = load ptr, ptr %14, align 8
+  %580 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %574, ptr noundef %578, ptr noundef %579)
+  %581 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %581) #4
   store i8 1, ptr %12, align 1
-  br label %592
+  br label %582
 
-575:                                              ; preds = %559
-  %576 = load ptr, ptr %9, align 8
-  %577 = call ptr @strstr(ptr noundef %576, ptr noundef @.str.31) #5
-  store ptr %577, ptr %13, align 8
-  %578 = icmp ne ptr null, %577
-  br i1 %578, label %579, label %591
+582:                                              ; preds = %569, %565
+  br label %583
 
-579:                                              ; preds = %575
-  %580 = load ptr, ptr %9, align 8
-  store ptr %580, ptr %15, align 8
-  %581 = load ptr, ptr %13, align 8
-  store i8 0, ptr %581, align 1
-  %582 = load ptr, ptr %13, align 8
-  %583 = getelementptr inbounds i8, ptr %582, i64 13
-  store ptr %583, ptr %14, align 8
-  %584 = load ptr, ptr %15, align 8
-  %585 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14), align 8
-  %586 = load i64, ptr %11, align 8
-  %587 = getelementptr inbounds i8, ptr %585, i64 %586
-  %588 = load ptr, ptr %14, align 8
-  %589 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %584, ptr noundef %587, ptr noundef %588)
-  %590 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %590) #4
+583:                                              ; preds = %582, %552
+  br label %584
+
+584:                                              ; preds = %583
+  br label %585
+
+585:                                              ; preds = %584
+  %586 = load ptr, ptr %9, align 8
+  %587 = call ptr @strstr(ptr noundef %586, ptr noundef @.str.30) #5
+  store ptr %587, ptr %13, align 8
+  %588 = icmp ne ptr null, %587
+  br i1 %588, label %589, label %602
+
+589:                                              ; preds = %585
+  %590 = load ptr, ptr %9, align 8
+  store ptr %590, ptr %15, align 8
+  %591 = load ptr, ptr %13, align 8
+  store i8 0, ptr %591, align 1
+  %592 = load ptr, ptr %13, align 8
+  %593 = getelementptr inbounds i8, ptr %592, i64 13
+  store ptr %593, ptr %14, align 8
+  %594 = load ptr, ptr %15, align 8
+  %595 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14
+  %596 = load ptr, ptr %595, align 8
+  %597 = load i64, ptr %11, align 8
+  %598 = getelementptr inbounds i8, ptr %596, i64 %597
+  %599 = load ptr, ptr %14, align 8
+  %600 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %594, ptr noundef %598, ptr noundef %599)
+  %601 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %601) #4
   store i8 1, ptr %12, align 1
-  br label %591
+  br label %620
 
-591:                                              ; preds = %579, %575
-  br label %592
+602:                                              ; preds = %585
+  %603 = load ptr, ptr %9, align 8
+  %604 = call ptr @strstr(ptr noundef %603, ptr noundef @.str.31) #5
+  store ptr %604, ptr %13, align 8
+  %605 = icmp ne ptr null, %604
+  br i1 %605, label %606, label %619
 
-592:                                              ; preds = %591, %563
-  br label %593
-
-593:                                              ; preds = %592
-  br label %594
-
-594:                                              ; preds = %593
-  %595 = load ptr, ptr %9, align 8
-  %596 = call ptr @strstr(ptr noundef %595, ptr noundef @.str.32) #5
-  store ptr %596, ptr %13, align 8
-  %597 = icmp ne ptr null, %596
-  br i1 %597, label %598, label %610
-
-598:                                              ; preds = %594
-  %599 = load ptr, ptr %9, align 8
-  store ptr %599, ptr %15, align 8
-  %600 = load ptr, ptr %13, align 8
-  store i8 0, ptr %600, align 1
-  %601 = load ptr, ptr %13, align 8
-  %602 = getelementptr inbounds i8, ptr %601, i64 12
-  store ptr %602, ptr %14, align 8
-  %603 = load ptr, ptr %15, align 8
-  %604 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15), align 8
-  %605 = load i64, ptr %11, align 8
-  %606 = getelementptr inbounds i8, ptr %604, i64 %605
-  %607 = load ptr, ptr %14, align 8
-  %608 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %603, ptr noundef %606, ptr noundef %607)
-  %609 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %609) #4
+606:                                              ; preds = %602
+  %607 = load ptr, ptr %9, align 8
+  store ptr %607, ptr %15, align 8
+  %608 = load ptr, ptr %13, align 8
+  store i8 0, ptr %608, align 1
+  %609 = load ptr, ptr %13, align 8
+  %610 = getelementptr inbounds i8, ptr %609, i64 13
+  store ptr %610, ptr %14, align 8
+  %611 = load ptr, ptr %15, align 8
+  %612 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14
+  %613 = load ptr, ptr %612, align 8
+  %614 = load i64, ptr %11, align 8
+  %615 = getelementptr inbounds i8, ptr %613, i64 %614
+  %616 = load ptr, ptr %14, align 8
+  %617 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %611, ptr noundef %615, ptr noundef %616)
+  %618 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %618) #4
   store i8 1, ptr %12, align 1
-  br label %627
+  br label %619
 
-610:                                              ; preds = %594
-  %611 = load ptr, ptr %9, align 8
-  %612 = call ptr @strstr(ptr noundef %611, ptr noundef @.str.33) #5
-  store ptr %612, ptr %13, align 8
-  %613 = icmp ne ptr null, %612
-  br i1 %613, label %614, label %626
+619:                                              ; preds = %606, %602
+  br label %620
 
-614:                                              ; preds = %610
-  %615 = load ptr, ptr %9, align 8
-  store ptr %615, ptr %15, align 8
-  %616 = load ptr, ptr %13, align 8
-  store i8 0, ptr %616, align 1
-  %617 = load ptr, ptr %13, align 8
-  %618 = getelementptr inbounds i8, ptr %617, i64 12
-  store ptr %618, ptr %14, align 8
-  %619 = load ptr, ptr %15, align 8
-  %620 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15), align 8
-  %621 = load i64, ptr %11, align 8
-  %622 = getelementptr inbounds i8, ptr %620, i64 %621
-  %623 = load ptr, ptr %14, align 8
-  %624 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %619, ptr noundef %622, ptr noundef %623)
-  %625 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %625) #4
-  store i8 1, ptr %12, align 1
-  br label %626
+620:                                              ; preds = %619, %589
+  br label %621
 
-626:                                              ; preds = %614, %610
-  br label %627
+621:                                              ; preds = %620
+  br label %622
 
-627:                                              ; preds = %626, %598
-  br label %628
+622:                                              ; preds = %621
+  %623 = load ptr, ptr %9, align 8
+  %624 = call ptr @strstr(ptr noundef %623, ptr noundef @.str.32) #5
+  store ptr %624, ptr %13, align 8
+  %625 = icmp ne ptr null, %624
+  br i1 %625, label %626, label %639
 
-628:                                              ; preds = %627
-  br label %629
-
-629:                                              ; preds = %628
-  %630 = load ptr, ptr %9, align 8
-  %631 = call ptr @strstr(ptr noundef %630, ptr noundef @.str.34) #5
-  store ptr %631, ptr %13, align 8
-  %632 = icmp ne ptr null, %631
-  br i1 %632, label %633, label %645
-
-633:                                              ; preds = %629
-  %634 = load ptr, ptr %9, align 8
-  store ptr %634, ptr %15, align 8
-  %635 = load ptr, ptr %13, align 8
-  store i8 0, ptr %635, align 1
-  %636 = load ptr, ptr %13, align 8
-  %637 = getelementptr inbounds i8, ptr %636, i64 16
-  store ptr %637, ptr %14, align 8
+626:                                              ; preds = %622
+  %627 = load ptr, ptr %9, align 8
+  store ptr %627, ptr %15, align 8
+  %628 = load ptr, ptr %13, align 8
+  store i8 0, ptr %628, align 1
+  %629 = load ptr, ptr %13, align 8
+  %630 = getelementptr inbounds i8, ptr %629, i64 12
+  store ptr %630, ptr %14, align 8
+  %631 = load ptr, ptr %15, align 8
+  %632 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15
+  %633 = load ptr, ptr %632, align 8
+  %634 = load i64, ptr %11, align 8
+  %635 = getelementptr inbounds i8, ptr %633, i64 %634
+  %636 = load ptr, ptr %14, align 8
+  %637 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %631, ptr noundef %635, ptr noundef %636)
   %638 = load ptr, ptr %15, align 8
-  %639 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 16), align 8
-  %640 = load i64, ptr %11, align 8
-  %641 = getelementptr inbounds i8, ptr %639, i64 %640
-  %642 = load ptr, ptr %14, align 8
-  %643 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %638, ptr noundef %641, ptr noundef %642)
-  %644 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %644) #4
+  call void @free(ptr noundef %638) #4
   store i8 1, ptr %12, align 1
-  br label %662
+  br label %657
 
-645:                                              ; preds = %629
-  %646 = load ptr, ptr %9, align 8
-  %647 = call ptr @strstr(ptr noundef %646, ptr noundef @.str.35) #5
-  store ptr %647, ptr %13, align 8
-  %648 = icmp ne ptr null, %647
-  br i1 %648, label %649, label %661
+639:                                              ; preds = %622
+  %640 = load ptr, ptr %9, align 8
+  %641 = call ptr @strstr(ptr noundef %640, ptr noundef @.str.33) #5
+  store ptr %641, ptr %13, align 8
+  %642 = icmp ne ptr null, %641
+  br i1 %642, label %643, label %656
 
-649:                                              ; preds = %645
-  %650 = load ptr, ptr %9, align 8
-  store ptr %650, ptr %15, align 8
-  %651 = load ptr, ptr %13, align 8
-  store i8 0, ptr %651, align 1
-  %652 = load ptr, ptr %13, align 8
-  %653 = getelementptr inbounds i8, ptr %652, i64 16
-  store ptr %653, ptr %14, align 8
-  %654 = load ptr, ptr %15, align 8
-  %655 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 16), align 8
-  %656 = load i64, ptr %11, align 8
-  %657 = getelementptr inbounds i8, ptr %655, i64 %656
-  %658 = load ptr, ptr %14, align 8
-  %659 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %654, ptr noundef %657, ptr noundef %658)
-  %660 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %660) #4
+643:                                              ; preds = %639
+  %644 = load ptr, ptr %9, align 8
+  store ptr %644, ptr %15, align 8
+  %645 = load ptr, ptr %13, align 8
+  store i8 0, ptr %645, align 1
+  %646 = load ptr, ptr %13, align 8
+  %647 = getelementptr inbounds i8, ptr %646, i64 12
+  store ptr %647, ptr %14, align 8
+  %648 = load ptr, ptr %15, align 8
+  %649 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15
+  %650 = load ptr, ptr %649, align 8
+  %651 = load i64, ptr %11, align 8
+  %652 = getelementptr inbounds i8, ptr %650, i64 %651
+  %653 = load ptr, ptr %14, align 8
+  %654 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %648, ptr noundef %652, ptr noundef %653)
+  %655 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %655) #4
   store i8 1, ptr %12, align 1
-  br label %661
+  br label %656
 
-661:                                              ; preds = %649, %645
-  br label %662
+656:                                              ; preds = %643, %639
+  br label %657
 
-662:                                              ; preds = %661, %633
-  br label %663
+657:                                              ; preds = %656, %626
+  br label %658
 
-663:                                              ; preds = %662
-  br label %664
+658:                                              ; preds = %657
+  br label %659
 
-664:                                              ; preds = %663
-  %665 = load i8, ptr %12, align 1
-  %666 = trunc i8 %665 to i1
-  br i1 %666, label %68, label %667, !llvm.loop !6
+659:                                              ; preds = %658
+  %660 = load ptr, ptr %9, align 8
+  %661 = call ptr @strstr(ptr noundef %660, ptr noundef @.str.34) #5
+  store ptr %661, ptr %13, align 8
+  %662 = icmp ne ptr null, %661
+  br i1 %662, label %663, label %676
 
-667:                                              ; preds = %664
-  br label %668
+663:                                              ; preds = %659
+  %664 = load ptr, ptr %9, align 8
+  store ptr %664, ptr %15, align 8
+  %665 = load ptr, ptr %13, align 8
+  store i8 0, ptr %665, align 1
+  %666 = load ptr, ptr %13, align 8
+  %667 = getelementptr inbounds i8, ptr %666, i64 16
+  store ptr %667, ptr %14, align 8
+  %668 = load ptr, ptr %15, align 8
+  %669 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 16
+  %670 = load ptr, ptr %669, align 8
+  %671 = load i64, ptr %11, align 8
+  %672 = getelementptr inbounds i8, ptr %670, i64 %671
+  %673 = load ptr, ptr %14, align 8
+  %674 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %668, ptr noundef %672, ptr noundef %673)
+  %675 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %675) #4
+  store i8 1, ptr %12, align 1
+  br label %694
 
-668:                                              ; preds = %667, %64
-  %669 = load ptr, ptr %10, align 8
-  %670 = icmp ne ptr null, %669
-  br i1 %670, label %671, label %677
+676:                                              ; preds = %659
+  %677 = load ptr, ptr %9, align 8
+  %678 = call ptr @strstr(ptr noundef %677, ptr noundef @.str.35) #5
+  store ptr %678, ptr %13, align 8
+  %679 = icmp ne ptr null, %678
+  br i1 %679, label %680, label %693
 
-671:                                              ; preds = %668
-  %672 = load ptr, ptr %9, align 8
-  store ptr %672, ptr %16, align 8
-  %673 = load ptr, ptr %10, align 8
-  %674 = load ptr, ptr %16, align 8
-  %675 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef %673, ptr noundef %674, ptr noundef null)
-  store ptr %675, ptr %9, align 8
-  %676 = load ptr, ptr %16, align 8
-  call void @free(ptr noundef %676) #4
-  br label %677
+680:                                              ; preds = %676
+  %681 = load ptr, ptr %9, align 8
+  store ptr %681, ptr %15, align 8
+  %682 = load ptr, ptr %13, align 8
+  store i8 0, ptr %682, align 1
+  %683 = load ptr, ptr %13, align 8
+  %684 = getelementptr inbounds i8, ptr %683, i64 16
+  store ptr %684, ptr %14, align 8
+  %685 = load ptr, ptr %15, align 8
+  %686 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 16
+  %687 = load ptr, ptr %686, align 8
+  %688 = load i64, ptr %11, align 8
+  %689 = getelementptr inbounds i8, ptr %687, i64 %688
+  %690 = load ptr, ptr %14, align 8
+  %691 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %9, ptr noundef @.str.2, ptr noundef %685, ptr noundef %689, ptr noundef %690)
+  %692 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %692) #4
+  store i8 1, ptr %12, align 1
+  br label %693
 
-677:                                              ; preds = %671, %668
-  %678 = load ptr, ptr %9, align 8
-  store ptr %678, ptr %3, align 8
-  br label %679
+693:                                              ; preds = %680, %676
+  br label %694
 
-679:                                              ; preds = %677, %63
-  %680 = load ptr, ptr %3, align 8
-  ret ptr %680
+694:                                              ; preds = %693, %663
+  br label %695
+
+695:                                              ; preds = %694
+  br label %696
+
+696:                                              ; preds = %695
+  %697 = load i8, ptr %12, align 1
+  %698 = trunc i8 %697 to i1
+  br i1 %698, label %68, label %699, !llvm.loop !6
+
+699:                                              ; preds = %696
+  br label %700
+
+700:                                              ; preds = %699, %64
+  %701 = load ptr, ptr %10, align 8
+  %702 = icmp ne ptr null, %701
+  br i1 %702, label %703, label %709
+
+703:                                              ; preds = %700
+  %704 = load ptr, ptr %9, align 8
+  store ptr %704, ptr %16, align 8
+  %705 = load ptr, ptr %10, align 8
+  %706 = load ptr, ptr %16, align 8
+  %707 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef %705, ptr noundef %706, ptr noundef null)
+  store ptr %707, ptr %9, align 8
+  %708 = load ptr, ptr %16, align 8
+  call void @free(ptr noundef %708) #4
+  br label %709
+
+709:                                              ; preds = %703, %700
+  %710 = load ptr, ptr %9, align 8
+  store ptr %710, ptr %3, align 8
+  br label %711
+
+711:                                              ; preds = %709, %63
+  %712 = load ptr, ptr %3, align 8
+  ret ptr %712
 }
 
 ; Function Attrs: nounwind uwtable

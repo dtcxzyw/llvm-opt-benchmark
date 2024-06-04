@@ -698,15 +698,16 @@ define dso_local void @_ZN12CVQualifiersC2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 2
-  store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
-  %7 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
+  %6 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 2
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #3
+  %8 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
   ret void
 }
 
@@ -730,21 +731,22 @@ define dso_local void @_ZN12CVQualifiersC2Ebb(ptr noundef nonnull align 8 derefe
   %8 = zext i1 %2 to i8
   store i8 %8, ptr %6, align 1
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 1
-  %11 = load i8, ptr %5, align 1
-  %12 = trunc i8 %11 to i1
-  %13 = zext i1 %12 to i8
-  store i8 %13, ptr %10, align 8
-  %14 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 2
-  %15 = load i8, ptr %6, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = zext i1 %16 to i8
-  store i8 %17, ptr %14, align 1
-  %18 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 3
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
-  %19 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 4
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 1
+  %12 = load i8, ptr %5, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %11, align 8
+  %15 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 2
+  %16 = load i8, ptr %6, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %15, align 1
+  %19 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 3
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
+  %20 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 4
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   ret void
 }
 
@@ -759,38 +761,39 @@ define dso_local void @_ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_(ptr noundef no
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 1
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 2
-  store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 3
-  %13 = load ptr, ptr %5, align 8
-  call void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
-  %14 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 4
-  %15 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 1
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 2
+  store i8 0, ptr %12, align 1
+  %13 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 3
+  %14 = load ptr, ptr %5, align 8
+  call void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %14)
+  %15 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 4
+  %16 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %16)
+          to label %17 unwind label %18
 
 17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  br label %21
+  ret void
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -916,53 +919,54 @@ define dso_local void @_ZN12CVQualifiersC2ERKS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 1
-  %11 = load i8, ptr %10, align 8
-  %12 = trunc i8 %11 to i1
-  %13 = zext i1 %12 to i8
-  store i8 %13, ptr %8, align 8
-  %14 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %class.CVQualifiers, ptr %15, i32 0, i32 2
-  %17 = load i8, ptr %16, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %14, align 1
-  %20 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 3
-  %21 = load ptr, ptr %4, align 8
-  %22 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK12CVQualifiers10get_constsEv(ptr noundef nonnull align 8 dereferenceable(96) %21)
-  call void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %22)
-  %23 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 4
-  %24 = load ptr, ptr %4, align 8
-  %25 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK12CVQualifiers13get_volatilesEv(ptr noundef nonnull align 8 dereferenceable(96) %24)
-          to label %26 unwind label %28
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %class.CVQualifiers, ptr %10, i32 0, i32 1
+  %12 = load i8, ptr %11, align 8
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %9, align 8
+  %15 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 2
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %class.CVQualifiers, ptr %16, i32 0, i32 2
+  %18 = load i8, ptr %17, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %15, align 1
+  %21 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 3
+  %22 = load ptr, ptr %4, align 8
+  %23 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK12CVQualifiers10get_constsEv(ptr noundef nonnull align 8 dereferenceable(96) %22)
+  call void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %23)
+  %24 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 4
+  %25 = load ptr, ptr %4, align 8
+  %26 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK12CVQualifiers13get_volatilesEv(ptr noundef nonnull align 8 dereferenceable(96) %25)
+          to label %27 unwind label %29
 
-26:                                               ; preds = %2
-  invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %25)
-          to label %27 unwind label %28
+27:                                               ; preds = %2
+  invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %26)
+          to label %28 unwind label %29
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   ret void
 
-28:                                               ; preds = %26, %2
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %27, %2
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
-  br label %32
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #3
+  br label %33
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -988,11 +992,12 @@ define dso_local void @_ZN12CVQualifiersD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
-  %5 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
+  %6 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
   ret void
 }
 

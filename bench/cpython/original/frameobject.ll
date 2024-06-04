@@ -1924,27 +1924,29 @@ entry:
   store ptr %tstate, ptr %tstate.addr, align 8
   store ptr %globals, ptr %globals.addr, align 8
   %0 = load ptr, ptr %globals.addr, align 8
-  %call = call ptr @PyDict_GetItemWithError(ptr noundef %0, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 30))
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %2 = getelementptr inbounds %struct.anon.40, ptr %1, i32 0, i32 3, i32 1, i32 30
+  %call = call ptr @PyDict_GetItemWithError(ptr noundef %0, ptr noundef %2)
   store ptr %call, ptr %builtins, align 8
-  %1 = load ptr, ptr %builtins, align 8
-  %tobool = icmp ne ptr %1, null
+  %3 = load ptr, ptr %builtins, align 8
+  %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %builtins, align 8
-  %call1 = call i32 @PyObject_TypeCheck(ptr noundef %2, ptr noundef @PyModule_Type)
+  %4 = load ptr, ptr %builtins, align 8
+  %call1 = call i32 @PyObject_TypeCheck(ptr noundef %4, ptr noundef @PyModule_Type)
   %tobool2 = icmp ne i32 %call1, 0
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %3 = load ptr, ptr %builtins, align 8
-  %call4 = call ptr @_PyModule_GetDict(ptr noundef %3)
+  %5 = load ptr, ptr %builtins, align 8
+  %call4 = call ptr @_PyModule_GetDict(ptr noundef %5)
   store ptr %call4, ptr %builtins, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %4 = load ptr, ptr %builtins, align 8
-  store ptr %4, ptr %retval, align 8
+  %6 = load ptr, ptr %builtins, align 8
+  store ptr %6, ptr %retval, align 8
   br label %return
 
 if.end5:                                          ; preds = %entry
@@ -1957,14 +1959,14 @@ if.then8:                                         ; preds = %if.end5
   br label %return
 
 if.end9:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %tstate.addr, align 8
-  %call10 = call ptr @_PyEval_GetBuiltins(ptr noundef %5)
+  %7 = load ptr, ptr %tstate.addr, align 8
+  %call10 = call ptr @_PyEval_GetBuiltins(ptr noundef %7)
   store ptr %call10, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end9, %if.then8, %if.end
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+  %8 = load ptr, ptr %retval, align 8
+  ret ptr %8
 }
 
 declare ptr @_PyFunction_FromConstructor(ptr noundef) #1

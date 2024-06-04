@@ -454,8 +454,9 @@ entry:
   call void @strbuf_setlen(ptr noundef @absolute_path.sb, i64 noundef 0)
   %0 = load ptr, ptr %path.addr, align 8
   call void @strbuf_add_absolute_path(ptr noundef @absolute_path.sb, ptr noundef %0)
-  %1 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @absolute_path.sb, i32 0, i32 2), align 8
-  ret ptr %1
+  %1 = getelementptr inbounds %struct.strbuf, ptr @absolute_path.sb, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable

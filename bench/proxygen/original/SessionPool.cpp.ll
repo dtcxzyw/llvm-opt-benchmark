@@ -309,13 +309,14 @@ entry:
   store ptr %serverIdleSessionController, ptr %serverIdleSessionController.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen13SessionHolder8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %stats_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this2, i32 0, i32 1
-  %0 = load ptr, ptr %stats.addr, align 8
-  store ptr %0, ptr %stats_, align 8
+  %1 = load ptr, ptr %stats.addr, align 8
+  store ptr %1, ptr %stats_, align 8
   %maxConns_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this2, i32 0, i32 2
-  %1 = load i32, ptr %maxConns.addr, align 4
-  store i32 %1, ptr %maxConns_, align 8
+  %2 = load i32, ptr %maxConns.addr, align 4
+  store i32 %2, ptr %maxConns_, align 8
   %timeout_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this2, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %timeout_, ptr align 8 %timeout, i64 8, i1 false)
   %maxAge_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this2, i32 0, i32 4
@@ -351,11 +352,11 @@ _ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16l
 
 invoke.cont6:                                     ; preds = %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEEC2Ev.exit19
   %threadIdleSessionController_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this2, i32 0, i32 8
-  %2 = load ptr, ptr %threadIdleSessionController.addr, align 8
-  store ptr %2, ptr %threadIdleSessionController_, align 8
+  %3 = load ptr, ptr %threadIdleSessionController.addr, align 8
+  store ptr %3, ptr %threadIdleSessionController_, align 8
   %serverIdleSessionController_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this2, i32 0, i32 9
-  %3 = load ptr, ptr %serverIdleSessionController.addr, align 8
-  store ptr %3, ptr %serverIdleSessionController_, align 8
+  %4 = load ptr, ptr %serverIdleSessionController.addr, align 8
+  store ptr %4, ptr %serverIdleSessionController_, align 8
   %evb_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this2, i32 0, i32 10
   %call = invoke noundef ptr @_ZN5folly16EventBaseManager3getEv()
           to label %invoke.cont8 unwind label %lpad7
@@ -369,39 +370,39 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad3:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad5:                                            ; preds = %invoke.cont4
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont6
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %fullSessionList_) #3
   br label %ehcleanup
 
@@ -431,7 +432,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen13SessionHolder8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN8proxygen13SessionHolder8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -463,7 +465,8 @@ entry:
   %cleanup.cond = alloca i1, align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this1, i32 0, i32 5
   invoke void @_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef nonnull align 8 dereferenceable(24) %idleSessionList_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -528,10 +531,10 @@ cleanup.action:                                   ; preds = %cond.end
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #15
   unreachable
 
-0:                                                ; No predecessors!
+1:                                                ; No predecessors!
   br label %cleanup.done
 
-cleanup.done:                                     ; preds = %0, %cond.end
+cleanup.done:                                     ; preds = %1, %cond.end
   br label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
@@ -545,10 +548,10 @@ while.end:                                        ; preds = %while.cond
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont10, %invoke.cont8, %invoke.cont7, %invoke.cont5, %cond.false, %while.body, %invoke.cont2, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #15
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #15
   unreachable
 }
 

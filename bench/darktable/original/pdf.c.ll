@@ -845,178 +845,180 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   store ptr %4, ptr %5, align 8, !tbaa !63
   %6 = tail call i64 @gtk_grid_get_type() #19
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %6) #16
-  %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !64
-  %9 = getelementptr inbounds i8, ptr %8, i64 1448
-  %10 = load double, ptr %9, align 8, !tbaa !73
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e+00
-  %12 = fptoui double %11 to i32
-  tail call void @gtk_grid_set_row_spacing(ptr noundef %7, i32 noundef %12) #16
-  %13 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !64
-  %14 = getelementptr inbounds i8, ptr %13, i64 1448
-  %15 = load double, ptr %14, align 8, !tbaa !73
-  %16 = fmul reassoc nsz arcp contract afn double %15, 8.000000e+00
-  %17 = fptoui double %16 to i32
-  tail call void @gtk_grid_set_column_spacing(ptr noundef %7, i32 noundef %17) #16
-  %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #16
-  %19 = tail call ptr @gtk_label_new(ptr noundef %18) #16
-  tail call void @gtk_widget_set_halign(ptr noundef %19, i32 noundef 1) #16
-  %20 = tail call i64 @gtk_label_get_type() #19
-  %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #16
-  tail call void @gtk_label_set_xalign(ptr noundef %21, float noundef 0.000000e+00) #16
-  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #16
-  tail call void @gtk_label_set_ellipsize(ptr noundef %22, i32 noundef 3) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %19, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #16
-  %23 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #16
-  %24 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.7) #16
-  %25 = tail call ptr @dt_action_entry_new(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @title_changed_callback, ptr noundef %0, ptr noundef %23, ptr noundef %24) #16
-  %26 = tail call i64 @gtk_entry_get_type() #19
-  %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef %26) #16
-  store ptr %27, ptr %2, align 8, !tbaa !77
-  tail call void @gtk_entry_set_placeholder_text(ptr noundef %27, ptr noundef nonnull @.str.8) #16
-  %28 = load ptr, ptr %2, align 8, !tbaa !77
-  %29 = tail call i64 @gtk_widget_get_type() #19
-  %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %28, i64 noundef %29) #16
-  tail call void @gtk_widget_set_hexpand(ptr noundef %30, i32 noundef 1) #16
-  %31 = load ptr, ptr %2, align 8, !tbaa !77
-  %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %32, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1) #16
-  %33 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #16
-  %34 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %33, i32 noundef 0, ptr noundef nonnull @size_toggle_callback, ptr noundef %0, ptr noundef null) #16
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %34, ptr %35, align 8, !tbaa !79
-  tail call void @dt_bauhaus_combobox_set_editable(ptr noundef %34, i32 noundef 1) #16
-  %36 = load ptr, ptr %35, align 8, !tbaa !79
-  %37 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #16
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %36, ptr noundef %37) #16
-  %38 = load ptr, ptr %35, align 8, !tbaa !79
-  %39 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #16
+  %8 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  %10 = getelementptr inbounds i8, ptr %9, i64 1448
+  %11 = load double, ptr %10, align 8, !tbaa !73
+  %12 = fmul reassoc nsz arcp contract afn double %11, 5.000000e+00
+  %13 = fptoui double %12 to i32
+  tail call void @gtk_grid_set_row_spacing(ptr noundef %7, i32 noundef %13) #16
+  %14 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 14
+  %15 = load ptr, ptr %14, align 8, !tbaa !64
+  %16 = getelementptr inbounds i8, ptr %15, i64 1448
+  %17 = load double, ptr %16, align 8, !tbaa !73
+  %18 = fmul reassoc nsz arcp contract afn double %17, 8.000000e+00
+  %19 = fptoui double %18 to i32
+  tail call void @gtk_grid_set_column_spacing(ptr noundef %7, i32 noundef %19) #16
+  %20 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #16
+  %21 = tail call ptr @gtk_label_new(ptr noundef %20) #16
+  tail call void @gtk_widget_set_halign(ptr noundef %21, i32 noundef 1) #16
+  %22 = tail call i64 @gtk_label_get_type() #19
+  %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %22) #16
+  tail call void @gtk_label_set_xalign(ptr noundef %23, float noundef 0.000000e+00) #16
+  %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %22) #16
+  tail call void @gtk_label_set_ellipsize(ptr noundef %24, i32 noundef 3) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %21, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #16
+  %25 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #16
+  %26 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.7) #16
+  %27 = tail call ptr @dt_action_entry_new(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @title_changed_callback, ptr noundef %0, ptr noundef %25, ptr noundef %26) #16
+  %28 = tail call i64 @gtk_entry_get_type() #19
+  %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #16
+  store ptr %29, ptr %2, align 8, !tbaa !77
+  tail call void @gtk_entry_set_placeholder_text(ptr noundef %29, ptr noundef nonnull @.str.8) #16
+  %30 = load ptr, ptr %2, align 8, !tbaa !77
+  %31 = tail call i64 @gtk_widget_get_type() #19
+  %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %31) #16
+  tail call void @gtk_widget_set_hexpand(ptr noundef %32, i32 noundef 1) #16
+  %33 = load ptr, ptr %2, align 8, !tbaa !77
+  %34 = tail call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %34, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1) #16
+  %35 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #16
+  %36 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %35, i32 noundef 0, ptr noundef nonnull @size_toggle_callback, ptr noundef %0, ptr noundef null) #16
+  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %36, ptr %37, align 8, !tbaa !79
+  tail call void @dt_bauhaus_combobox_set_editable(ptr noundef %36, i32 noundef 1) #16
+  %38 = load ptr, ptr %37, align 8, !tbaa !79
+  %39 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #16
   tail call void @dt_bauhaus_combobox_add(ptr noundef %38, ptr noundef %39) #16
-  %40 = load ptr, ptr %35, align 8, !tbaa !79
-  %41 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #16
+  %40 = load ptr, ptr %37, align 8, !tbaa !79
+  %41 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #16
   tail call void @dt_bauhaus_combobox_add(ptr noundef %40, ptr noundef %41) #16
-  %42 = load ptr, ptr %35, align 8, !tbaa !79
-  %43 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #16
+  %42 = load ptr, ptr %37, align 8, !tbaa !79
+  %43 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #16
   tail call void @dt_bauhaus_combobox_add(ptr noundef %42, ptr noundef %43) #16
-  %44 = load ptr, ptr %35, align 8, !tbaa !79
-  %45 = tail call ptr @g_type_check_instance_cast(ptr noundef %44, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %45, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 1) #16
-  %46 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.11) #16
-  tail call fastcc void @_set_paper_size(ptr noundef %0, ptr noundef %46)
-  tail call void @g_free(ptr noundef %46) #16
-  %47 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #16
-  %48 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.16) #16
-  %49 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef %47, i32 noundef %48, ptr noundef nonnull @orientation_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts) #16
-  %50 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %49, ptr %50, align 8, !tbaa !80
-  %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %49, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %51, i32 noundef 0, i32 noundef 3, i32 noundef 2, i32 noundef 1) #16
-  %52 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #16
-  %53 = tail call ptr @gtk_label_new(ptr noundef %52) #16
-  tail call void @gtk_widget_set_halign(ptr noundef %53, i32 noundef 1) #16
-  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %20) #16
-  tail call void @gtk_label_set_xalign(ptr noundef %54, float noundef 0.000000e+00) #16
-  %55 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %20) #16
-  tail call void @gtk_label_set_ellipsize(ptr noundef %55, i32 noundef 3) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %53, i32 noundef 0, i32 noundef 4, i32 noundef 1, i32 noundef 1) #16
-  %56 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #16
-  %57 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.19) #16
-  %58 = tail call ptr @dt_action_entry_new(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @border_changed_callback, ptr noundef %0, ptr noundef %56, ptr noundef %57) #16
-  %59 = tail call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %26) #16
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr %59, ptr %60, align 8, !tbaa !81
-  tail call void @gtk_entry_set_max_length(ptr noundef %59, i32 noundef 63) #16
-  %61 = load ptr, ptr %60, align 8, !tbaa !81
-  tail call void @gtk_entry_set_placeholder_text(ptr noundef %61, ptr noundef nonnull @.str.20) #16
-  %62 = load ptr, ptr %60, align 8, !tbaa !81
-  %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %62, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %63, i32 noundef 1, i32 noundef 4, i32 noundef 1, i32 noundef 1) #16
-  %64 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #16
-  %65 = tail call ptr @gtk_label_new(ptr noundef %64) #16
-  tail call void @gtk_widget_set_halign(ptr noundef %65, i32 noundef 1) #16
-  %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef %20) #16
-  tail call void @gtk_label_set_xalign(ptr noundef %66, float noundef 0.000000e+00) #16
-  %67 = tail call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef %20) #16
-  tail call void @gtk_label_set_ellipsize(ptr noundef %67, i32 noundef 3) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %65, i32 noundef 0, i32 noundef 5, i32 noundef 1, i32 noundef 1) #16
-  %68 = tail call ptr @gtk_spin_button_new_with_range(double noundef 1.000000e+00, double noundef 5.000000e+03, double noundef 1.000000e+00) #16
-  %69 = tail call i64 @gtk_spin_button_get_type() #19
-  %70 = tail call ptr @g_type_check_instance_cast(ptr noundef %68, i64 noundef %69) #16
-  %71 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %70, ptr %71, align 8, !tbaa !82
-  %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %70, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %72, i32 noundef 1, i32 noundef 5, i32 noundef 1, i32 noundef 1) #16
-  %73 = load ptr, ptr %71, align 8, !tbaa !82
-  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %73, i64 noundef %29) #16
-  %75 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #16
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %74, ptr noundef %75) #16
-  %76 = load ptr, ptr %71, align 8, !tbaa !82
-  %77 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.23) #16
-  %78 = fpext float %77 to double
-  tail call void @gtk_spin_button_set_value(ptr noundef %76, double noundef %78) #16
-  %79 = load ptr, ptr %71, align 8, !tbaa !82
-  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef 80) #16
-  %81 = tail call i64 @g_signal_connect_data(ptr noundef %80, ptr noundef nonnull @.str.24, ptr noundef nonnull @dpi_changed_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %82 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #16
-  %83 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.30) #16
-  %84 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.28, ptr noundef %82, i32 noundef %83, ptr noundef nonnull @rotate_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.25) #16
-  %85 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %84, ptr %85, align 8, !tbaa !83
-  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %84, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %86, i32 noundef 0, i32 noundef 6, i32 noundef 2, i32 noundef 1) #16
-  %87 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #16
-  %88 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.37) #16
-  %89 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %87, i32 noundef %88, ptr noundef nonnull @pages_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.31) #16
-  %90 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr %89, ptr %90, align 8, !tbaa !84
-  %91 = tail call ptr @g_type_check_instance_cast(ptr noundef %89, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %91, i32 noundef 0, i32 noundef 7, i32 noundef 2, i32 noundef 1) #16
-  %92 = load ptr, ptr %90, align 8, !tbaa !84
-  tail call void @gtk_widget_set_no_show_all(ptr noundef %92, i32 noundef 1) #16
-  %93 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #16
-  %94 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.41) #16
-  %95 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %93, i32 noundef %94, ptr noundef nonnull @icc_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.38) #16
-  %96 = getelementptr inbounds i8, ptr %2, i64 56
-  store ptr %95, ptr %96, align 8, !tbaa !85
-  %97 = tail call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %97, i32 noundef 0, i32 noundef 8, i32 noundef 2, i32 noundef 1) #16
-  %98 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef %0) #16
-  %99 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr %98, ptr %99, align 8, !tbaa !86
-  %100 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %98, ptr noundef null, ptr noundef nonnull @.str.42) #16
-  %101 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.43) #16
-  %102 = load ptr, ptr %99, align 8, !tbaa !86
-  %103 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #16
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %102, ptr noundef %103) #16
-  %104 = load ptr, ptr %99, align 8, !tbaa !86
-  %105 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #16
+  %44 = load ptr, ptr %37, align 8, !tbaa !79
+  %45 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #16
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %44, ptr noundef %45) #16
+  %46 = load ptr, ptr %37, align 8, !tbaa !79
+  %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %47, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 1) #16
+  %48 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.11) #16
+  tail call fastcc void @_set_paper_size(ptr noundef %0, ptr noundef %48)
+  tail call void @g_free(ptr noundef %48) #16
+  %49 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #16
+  %50 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.16) #16
+  %51 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef %49, i32 noundef %50, ptr noundef nonnull @orientation_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts) #16
+  %52 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %51, ptr %52, align 8, !tbaa !80
+  %53 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %53, i32 noundef 0, i32 noundef 3, i32 noundef 2, i32 noundef 1) #16
+  %54 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #16
+  %55 = tail call ptr @gtk_label_new(ptr noundef %54) #16
+  tail call void @gtk_widget_set_halign(ptr noundef %55, i32 noundef 1) #16
+  %56 = tail call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %22) #16
+  tail call void @gtk_label_set_xalign(ptr noundef %56, float noundef 0.000000e+00) #16
+  %57 = tail call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %22) #16
+  tail call void @gtk_label_set_ellipsize(ptr noundef %57, i32 noundef 3) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %55, i32 noundef 0, i32 noundef 4, i32 noundef 1, i32 noundef 1) #16
+  %58 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #16
+  %59 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.19) #16
+  %60 = tail call ptr @dt_action_entry_new(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @border_changed_callback, ptr noundef %0, ptr noundef %58, ptr noundef %59) #16
+  %61 = tail call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef %28) #16
+  %62 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr %61, ptr %62, align 8, !tbaa !81
+  tail call void @gtk_entry_set_max_length(ptr noundef %61, i32 noundef 63) #16
+  %63 = load ptr, ptr %62, align 8, !tbaa !81
+  tail call void @gtk_entry_set_placeholder_text(ptr noundef %63, ptr noundef nonnull @.str.20) #16
+  %64 = load ptr, ptr %62, align 8, !tbaa !81
+  %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %64, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %65, i32 noundef 1, i32 noundef 4, i32 noundef 1, i32 noundef 1) #16
+  %66 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #16
+  %67 = tail call ptr @gtk_label_new(ptr noundef %66) #16
+  tail call void @gtk_widget_set_halign(ptr noundef %67, i32 noundef 1) #16
+  %68 = tail call ptr @g_type_check_instance_cast(ptr noundef %67, i64 noundef %22) #16
+  tail call void @gtk_label_set_xalign(ptr noundef %68, float noundef 0.000000e+00) #16
+  %69 = tail call ptr @g_type_check_instance_cast(ptr noundef %67, i64 noundef %22) #16
+  tail call void @gtk_label_set_ellipsize(ptr noundef %69, i32 noundef 3) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %67, i32 noundef 0, i32 noundef 5, i32 noundef 1, i32 noundef 1) #16
+  %70 = tail call ptr @gtk_spin_button_new_with_range(double noundef 1.000000e+00, double noundef 5.000000e+03, double noundef 1.000000e+00) #16
+  %71 = tail call i64 @gtk_spin_button_get_type() #19
+  %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %70, i64 noundef %71) #16
+  %73 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %72, ptr %73, align 8, !tbaa !82
+  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %74, i32 noundef 1, i32 noundef 5, i32 noundef 1, i32 noundef 1) #16
+  %75 = load ptr, ptr %73, align 8, !tbaa !82
+  %76 = tail call ptr @g_type_check_instance_cast(ptr noundef %75, i64 noundef %31) #16
+  %77 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #16
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %76, ptr noundef %77) #16
+  %78 = load ptr, ptr %73, align 8, !tbaa !82
+  %79 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.23) #16
+  %80 = fpext float %79 to double
+  tail call void @gtk_spin_button_set_value(ptr noundef %78, double noundef %80) #16
+  %81 = load ptr, ptr %73, align 8, !tbaa !82
+  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef 80) #16
+  %83 = tail call i64 @g_signal_connect_data(ptr noundef %82, ptr noundef nonnull @.str.24, ptr noundef nonnull @dpi_changed_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
+  %84 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #16
+  %85 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.30) #16
+  %86 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.28, ptr noundef %84, i32 noundef %85, ptr noundef nonnull @rotate_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.25) #16
+  %87 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %86, ptr %87, align 8, !tbaa !83
+  %88 = tail call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %88, i32 noundef 0, i32 noundef 6, i32 noundef 2, i32 noundef 1) #16
+  %89 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #16
+  %90 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.37) #16
+  %91 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %89, i32 noundef %90, ptr noundef nonnull @pages_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.31) #16
+  %92 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %91, ptr %92, align 8, !tbaa !84
+  %93 = tail call ptr @g_type_check_instance_cast(ptr noundef %91, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %93, i32 noundef 0, i32 noundef 7, i32 noundef 2, i32 noundef 1) #16
+  %94 = load ptr, ptr %92, align 8, !tbaa !84
+  tail call void @gtk_widget_set_no_show_all(ptr noundef %94, i32 noundef 1) #16
+  %95 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #16
+  %96 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.41) #16
+  %97 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %95, i32 noundef %96, ptr noundef nonnull @icc_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.38) #16
+  %98 = getelementptr inbounds i8, ptr %2, i64 56
+  store ptr %97, ptr %98, align 8, !tbaa !85
+  %99 = tail call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %99, i32 noundef 0, i32 noundef 8, i32 noundef 2, i32 noundef 1) #16
+  %100 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef %0) #16
+  %101 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %100, ptr %101, align 8, !tbaa !86
+  %102 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %100, ptr noundef null, ptr noundef nonnull @.str.42) #16
+  %103 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.43) #16
+  %104 = load ptr, ptr %101, align 8, !tbaa !86
+  %105 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #16
   tail call void @dt_bauhaus_combobox_add(ptr noundef %104, ptr noundef %105) #16
-  %106 = icmp eq i32 %101, 16
-  %107 = zext i1 %106 to i32
-  %108 = load ptr, ptr %99, align 8, !tbaa !86
-  %109 = tail call ptr @g_type_check_instance_cast(ptr noundef %108, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %109, i32 noundef 0, i32 noundef 9, i32 noundef 2, i32 noundef 1) #16
-  %110 = load ptr, ptr %99, align 8, !tbaa !86
-  %111 = tail call ptr @g_type_check_instance_cast(ptr noundef %110, i64 noundef 80) #16
-  %112 = tail call i64 @g_signal_connect_data(ptr noundef %111, ptr noundef nonnull @.str.24, ptr noundef nonnull @bpp_toggle_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %113 = load ptr, ptr %99, align 8, !tbaa !86
-  %114 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #16
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %113, ptr noundef %114) #16
-  %115 = load ptr, ptr %99, align 8, !tbaa !86
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %115, i32 noundef %107) #16
-  %116 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #16
-  %117 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.50) #16
-  %118 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef %116, i32 noundef %117, ptr noundef nonnull @compression_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.45) #16
-  %119 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr %118, ptr %119, align 8, !tbaa !87
-  %120 = tail call ptr @g_type_check_instance_cast(ptr noundef %118, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %120, i32 noundef 0, i32 noundef 10, i32 noundef 2, i32 noundef 1) #16
-  %121 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #16
-  %122 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.57) #16
-  %123 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef %121, i32 noundef %122, ptr noundef nonnull @mode_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.51) #16
-  %124 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr %123, ptr %124, align 8, !tbaa !88
-  %125 = tail call ptr @g_type_check_instance_cast(ptr noundef %123, i64 noundef %29) #16
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %125, i32 noundef 0, i32 noundef 11, i32 noundef 2, i32 noundef 1) #16
+  %106 = load ptr, ptr %101, align 8, !tbaa !86
+  %107 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #16
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %106, ptr noundef %107) #16
+  %108 = icmp eq i32 %103, 16
+  %109 = zext i1 %108 to i32
+  %110 = load ptr, ptr %101, align 8, !tbaa !86
+  %111 = tail call ptr @g_type_check_instance_cast(ptr noundef %110, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %111, i32 noundef 0, i32 noundef 9, i32 noundef 2, i32 noundef 1) #16
+  %112 = load ptr, ptr %101, align 8, !tbaa !86
+  %113 = tail call ptr @g_type_check_instance_cast(ptr noundef %112, i64 noundef 80) #16
+  %114 = tail call i64 @g_signal_connect_data(ptr noundef %113, ptr noundef nonnull @.str.24, ptr noundef nonnull @bpp_toggle_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
+  %115 = load ptr, ptr %101, align 8, !tbaa !86
+  %116 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #16
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %115, ptr noundef %116) #16
+  %117 = load ptr, ptr %101, align 8, !tbaa !86
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %117, i32 noundef %109) #16
+  %118 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #16
+  %119 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.50) #16
+  %120 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef %118, i32 noundef %119, ptr noundef nonnull @compression_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.45) #16
+  %121 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr %120, ptr %121, align 8, !tbaa !87
+  %122 = tail call ptr @g_type_check_instance_cast(ptr noundef %120, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %122, i32 noundef 0, i32 noundef 10, i32 noundef 2, i32 noundef 1) #16
+  %123 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #16
+  %124 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.57) #16
+  %125 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef %123, i32 noundef %124, ptr noundef nonnull @mode_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.51) #16
+  %126 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr %125, ptr %126, align 8, !tbaa !88
+  %127 = tail call ptr @g_type_check_instance_cast(ptr noundef %125, i64 noundef %31) #16
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %127, i32 noundef 0, i32 noundef 11, i32 noundef 2, i32 noundef 1) #16
   ret void
 }
 

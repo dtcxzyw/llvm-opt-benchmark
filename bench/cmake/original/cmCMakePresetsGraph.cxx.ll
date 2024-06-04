@@ -14137,9 +14137,10 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal17BaseMacroE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::BaseMacroExpander", ptr %3, i32 0, i32 2
-  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::BaseMacroExpander", ptr %3, i32 0, i32 2
+  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -14159,11 +14160,12 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal15EqualsCond
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal15EqualsConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::EqualsCondition", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::EqualsCondition", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal15EqualsConditionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::EqualsCondition", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::EqualsCondition", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZN19cmCMakePresetsGraph9ConditionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -14190,11 +14192,12 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal15InListCond
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal15InListConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::InListCondition", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::InListCondition", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal15InListConditionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::InListCondition", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::InListCondition", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZN19cmCMakePresetsGraph9ConditionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -14214,11 +14217,12 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal16MatchesCon
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal16MatchesConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::MatchesCondition", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::MatchesCondition", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal16MatchesConditionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::MatchesCondition", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::MatchesCondition", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZN19cmCMakePresetsGraph9ConditionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -14238,9 +14242,10 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal17AnyAllOfCo
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17AnyAllOfConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::AnyAllOfCondition", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17AnyAllOfConditionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::AnyAllOfCondition", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN19cmCMakePresetsGraph9ConditionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -14260,9 +14265,10 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal12NotConditi
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::NotCondition", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::NotCondition", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN19cmCMakePresetsGraph9ConditionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -14282,25 +14288,26 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetD2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 22
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 9
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 22
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 9
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 6
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 4
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 2
+  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 1
+  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  %13 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
   call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #3
   ret void
 }
@@ -14320,15 +14327,16 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph11BuildPresetD2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #3
   ret void
 }
@@ -14355,19 +14363,20 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 7
-  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #3
-  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 6
-  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5) #3
-  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 5
-  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #3
-  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 7
+  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #3
+  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 6
+  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(352) %6) #3
+  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 5
+  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #3
+  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
   call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #3
   ret void
 }
@@ -14387,25 +14396,26 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetD2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 11
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 10
+  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 9
+  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 6
+  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 5
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
-  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 3
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 5
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
+  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
   call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #3
   ret void
 }
@@ -14425,9 +14435,10 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph14WorkflowPresetD2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #3
   ret void
 }
@@ -15523,7 +15534,8 @@ define linkonce_odr dso_local void @_ZNSt19bad_optional_accessC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15543,7 +15555,8 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20934,19 +20947,20 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 9
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 7
-  call void @_ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 9
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 7
+  call void @_ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %7 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
   ret void
 }
 
@@ -34439,204 +34453,205 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetC2E
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %54
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %55
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %14, i32 0, i32 2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %16 unwind label %58
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %15, i32 0, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %17 unwind label %59
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 3
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %18, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %19, i64 8, i1 false)
-  %20 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %21, i32 0, i32 4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %23 unwind label %62
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 3
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %19, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %20, i64 8, i1 false)
+  %21 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %22, i32 0, i32 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %24 unwind label %63
 
-23:                                               ; preds = %16
-  %24 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 5
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %25, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %26, i64 8, i1 false)
-  %27 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 6
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %28, i32 0, i32 6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %29)
-          to label %30 unwind label %66
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 5
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %26, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %27, i64 8, i1 false)
+  %28 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 6
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %29, i32 0, i32 6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %30)
+          to label %31 unwind label %67
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 7
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %32, i32 0, i32 7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %33)
-          to label %34 unwind label %70
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 7
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %33, i32 0, i32 7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %34)
+          to label %35 unwind label %71
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %36, i32 0, i32 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %37)
-          to label %38 unwind label %74
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %37, i32 0, i32 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %38)
+          to label %39 unwind label %75
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 9
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %40, i32 0, i32 9
-  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2ERKSG_(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %41)
-          to label %42 unwind label %78
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 9
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %41, i32 0, i32 9
+  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2ERKSG_(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %42)
+          to label %43 unwind label %79
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 10
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %44, i32 0, i32 10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 8 %45, i64 36, i1 false)
-  %46 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 22
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %47, i32 0, i32 22
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %48)
-          to label %49 unwind label %82
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 10
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %45, i32 0, i32 10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %46, i64 36, i1 false)
+  %47 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 22
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %48, i32 0, i32 22
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %49)
+          to label %50 unwind label %83
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 23
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %51, i32 0, i32 23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %52)
-          to label %53 unwind label %86
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 23
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %52, i32 0, i32 23
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %53)
+          to label %54 unwind label %87
 
-53:                                               ; preds = %49
+54:                                               ; preds = %50
   ret void
 
-54:                                               ; preds = %2
-  %55 = landingpad { ptr, i32 }
+55:                                               ; preds = %2
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %5, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %6, align 4
-  br label %97
-
-58:                                               ; preds = %12
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %5, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %6, align 4
-  br label %96
-
-62:                                               ; preds = %16
-  %63 = landingpad { ptr, i32 }
-          cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %5, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %6, align 4
-  br label %95
-
-66:                                               ; preds = %23
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %5, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %6, align 4
-  br label %94
-
-70:                                               ; preds = %30
-  %71 = landingpad { ptr, i32 }
-          cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %5, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %6, align 4
-  br label %93
-
-74:                                               ; preds = %34
-  %75 = landingpad { ptr, i32 }
-          cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %5, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %6, align 4
-  br label %92
-
-78:                                               ; preds = %38
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %5, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %6, align 4
-  br label %91
-
-82:                                               ; preds = %42
-  %83 = landingpad { ptr, i32 }
-          cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %5, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %6, align 4
-  br label %90
-
-86:                                               ; preds = %49
-  %87 = landingpad { ptr, i32 }
-          cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %5, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %6, align 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #3
-  br label %90
-
-90:                                               ; preds = %86, %82
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #3
-  br label %91
-
-91:                                               ; preds = %90, %78
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #3
-  br label %92
-
-92:                                               ; preds = %91, %74
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #3
-  br label %93
-
-93:                                               ; preds = %92, %70
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
-  br label %94
-
-94:                                               ; preds = %93, %66
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  br label %95
-
-95:                                               ; preds = %94, %62
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  br label %96
-
-96:                                               ; preds = %95, %58
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %97
-
-97:                                               ; preds = %96, %54
-  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %5, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %6, align 4
   br label %98
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %5, align 8
-  %100 = load i32, ptr %6, align 4
-  %101 = insertvalue { ptr, i32 } poison, ptr %99, 0
-  %102 = insertvalue { ptr, i32 } %101, i32 %100, 1
-  resume { ptr, i32 } %102
+59:                                               ; preds = %13
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %5, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %6, align 4
+  br label %97
+
+63:                                               ; preds = %17
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %5, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %6, align 4
+  br label %96
+
+67:                                               ; preds = %24
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %5, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %6, align 4
+  br label %95
+
+71:                                               ; preds = %31
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %5, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %6, align 4
+  br label %94
+
+75:                                               ; preds = %35
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %5, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %6, align 4
+  br label %93
+
+79:                                               ; preds = %39
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %5, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %6, align 4
+  br label %92
+
+83:                                               ; preds = %43
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %5, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %6, align 4
+  br label %91
+
+87:                                               ; preds = %50
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %5, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %6, align 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #3
+  br label %91
+
+91:                                               ; preds = %87, %83
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmCMakePresetsGraph13CacheVariableEESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %40) #3
+  br label %92
+
+92:                                               ; preds = %91, %79
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #3
+  br label %93
+
+93:                                               ; preds = %92, %75
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #3
+  br label %94
+
+94:                                               ; preds = %93, %71
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
+  br label %95
+
+95:                                               ; preds = %94, %67
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  br label %96
+
+96:                                               ; preds = %95, %63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  br label %97
+
+97:                                               ; preds = %96, %59
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %98
+
+98:                                               ; preds = %97, %55
+  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  br label %99
+
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %5, align 8
+  %101 = load i32, ptr %6, align 4
+  %102 = insertvalue { ptr, i32 } poison, ptr %100, 0
+  %103 = insertvalue { ptr, i32 } %102, i32 %101, 1
+  resume { ptr, i32 } %103
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -34648,112 +34663,113 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %9, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %12, i32 0, i32 2
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %39
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %10, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %13, i32 0, i32 2
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %15 unwind label %40
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %16, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %17, i64 16, i1 false)
-  %18 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 5
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %19, i32 0, i32 5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %21 unwind label %43
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 3
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %17, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %18, i64 16, i1 false)
+  %19 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 5
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %20, i32 0, i32 5
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %21)
+          to label %22 unwind label %44
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 6
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %23, i32 0, i32 6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %25 unwind label %47
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 6
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %24, i32 0, i32 6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %25)
+          to label %26 unwind label %48
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 7
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %27, i32 0, i32 7
-  call void @_ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %28) #3
-  %29 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %30, i32 0, i32 8
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  %34 = zext i1 %33 to i8
-  store i8 %34, ptr %29, align 8
-  %35 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 9
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %36, i32 0, i32 9
-  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %37)
-          to label %38 unwind label %51
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 7
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %28, i32 0, i32 7
+  call void @_ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %29) #3
+  %30 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %31, i32 0, i32 8
+  %33 = load i8, ptr %32, align 8
+  %34 = trunc i8 %33 to i1
+  %35 = zext i1 %34 to i8
+  store i8 %35, ptr %30, align 8
+  %36 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 9
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %37, i32 0, i32 9
+  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull align 8 dereferenceable(48) %38)
+          to label %39 unwind label %52
 
-38:                                               ; preds = %25
+39:                                               ; preds = %26
   ret void
 
-39:                                               ; preds = %2
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %2
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %5, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %6, align 4
-  br label %57
-
-43:                                               ; preds = %14
-  %44 = landingpad { ptr, i32 }
-          cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %5, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %6, align 4
-  br label %56
-
-47:                                               ; preds = %21
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %5, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %6, align 4
-  br label %55
-
-51:                                               ; preds = %25
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %5, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
-  br label %55
-
-55:                                               ; preds = %51, %47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  br label %56
-
-56:                                               ; preds = %55, %43
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  br label %57
-
-57:                                               ; preds = %56, %39
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %5, align 8
-  %60 = load i32, ptr %6, align 4
-  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
-  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
-  resume { ptr, i32 } %62
+44:                                               ; preds = %15
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
+  br label %57
+
+48:                                               ; preds = %22
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %5, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %6, align 4
+  br label %56
+
+52:                                               ; preds = %26
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %5, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %6, align 4
+  call void @_ZNSt10shared_ptrIN19cmCMakePresetsGraph9ConditionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
+  br label %56
+
+56:                                               ; preds = %52, %48
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  br label %57
+
+57:                                               ; preds = %56, %44
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  br label %58
+
+58:                                               ; preds = %57, %40
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %5, align 8
+  %61 = load i32, ptr %6, align 4
+  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
+  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
+  resume { ptr, i32 } %63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -36835,12 +36851,13 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal17BaseMacroE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::BaseMacroExpander", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::BaseMacroExpander", ptr %5, i32 0, i32 2
-  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::BaseMacroExpander", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::BaseMacroExpander", ptr %5, i32 0, i32 2
+  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #3
   ret void
 }
 
@@ -36872,7 +36889,8 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal13MacroExpan
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal13MacroExpanderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal13MacroExpanderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -37373,13 +37391,14 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -38863,16 +38882,17 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
   ret void
 }
 
@@ -41802,104 +41822,105 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph11BuildPresetC2ERKS0
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %34
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %35
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %14, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 12, i1 false)
-  %16 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 5
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %17, i32 0, i32 5
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %19 unwind label %38
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %16, i64 12, i1 false)
+  %17 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 5
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %18, i32 0, i32 5
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %39
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 6
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %21, i32 0, i32 6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %23 unwind label %42
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 6
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %22, i32 0, i32 6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %24 unwind label %43
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 7
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %25, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %26, i64 4, i1 false)
-  %27 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 9
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %28, i32 0, i32 9
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %29)
-          to label %30 unwind label %46
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 7
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %26, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %27, i64 4, i1 false)
+  %28 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 9
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %29, i32 0, i32 9
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30)
+          to label %31 unwind label %47
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 10
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %32, i32 0, i32 10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %33, i64 8, i1 false)
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 10
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %33, i32 0, i32 10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %34, i64 8, i1 false)
   ret void
 
-34:                                               ; preds = %2
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %2
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %5, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %6, align 4
-  br label %52
-
-38:                                               ; preds = %12
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %5, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %6, align 4
-  br label %51
-
-42:                                               ; preds = %19
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %5, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %6, align 4
-  br label %50
-
-46:                                               ; preds = %23
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %5, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
-  br label %50
-
-50:                                               ; preds = %46, %42
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  br label %51
-
-51:                                               ; preds = %50, %38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %52
-
-52:                                               ; preds = %51, %34
-  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
   br label %53
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %5, align 8
-  %55 = load i32, ptr %6, align 4
-  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
-  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
-  resume { ptr, i32 } %57
+39:                                               ; preds = %13
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %5, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %6, align 4
+  br label %52
+
+43:                                               ; preds = %20
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %5, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %6, align 4
+  br label %51
+
+47:                                               ; preds = %24
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %5, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  br label %51
+
+51:                                               ; preds = %47, %43
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  br label %52
+
+52:                                               ; preds = %51, %39
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %53
+
+53:                                               ; preds = %52, %35
+  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %5, align 8
+  %56 = load i32, ptr %6, align 4
+  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
+  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
+  resume { ptr, i32 } %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -41921,13 +41942,14 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.483", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.483", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.483", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.483", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -42455,16 +42477,17 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.486", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.486", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.486", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.486", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.486", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.486", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
   ret void
 }
 
@@ -43955,136 +43978,137 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetC2ERKS0_
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %36
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %37
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %14, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 2, i1 false)
-  %16 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 3
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %17, i32 0, i32 3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %19 unwind label %40
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %16, i64 2, i1 false)
+  %17 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 3
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %18, i32 0, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %20 unwind label %41
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %21, i32 0, i32 4
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %23 unwind label %44
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %22, i32 0, i32 4
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %23)
+          to label %24 unwind label %45
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 5
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %25, i32 0, i32 5
-  invoke void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(136) %24, ptr noundef nonnull align 8 dereferenceable(136) %26)
-          to label %27 unwind label %48
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 5
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %26, i32 0, i32 5
+  invoke void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(136) %25, ptr noundef nonnull align 8 dereferenceable(136) %27)
+          to label %28 unwind label %49
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 6
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %29, i32 0, i32 6
-  invoke void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(352) %28, ptr noundef nonnull align 8 dereferenceable(352) %30)
-          to label %31 unwind label %52
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 6
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %30, i32 0, i32 6
+  invoke void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(352) %29, ptr noundef nonnull align 8 dereferenceable(352) %31)
+          to label %32 unwind label %53
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 7
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %33, i32 0, i32 7
-  invoke void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(104) %32, ptr noundef nonnull align 8 dereferenceable(104) %34)
-          to label %35 unwind label %56
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 7
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %34, i32 0, i32 7
+  invoke void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(104) %33, ptr noundef nonnull align 8 dereferenceable(104) %35)
+          to label %36 unwind label %57
 
-35:                                               ; preds = %31
+36:                                               ; preds = %32
   ret void
 
-36:                                               ; preds = %2
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %2
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %5, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %6, align 4
-  br label %64
-
-40:                                               ; preds = %12
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %5, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %6, align 4
-  br label %63
-
-44:                                               ; preds = %19
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %5, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %6, align 4
-  br label %62
-
-48:                                               ; preds = %23
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %5, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %6, align 4
-  br label %61
-
-52:                                               ; preds = %27
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %5, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %6, align 4
-  br label %60
-
-56:                                               ; preds = %31
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %5, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %6, align 4
-  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(352) %28) #3
-  br label %60
-
-60:                                               ; preds = %56, %52
-  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %24) #3
-  br label %61
-
-61:                                               ; preds = %60, %48
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  br label %62
-
-62:                                               ; preds = %61, %44
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  br label %63
-
-63:                                               ; preds = %62, %40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %64
-
-64:                                               ; preds = %63, %36
-  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
   br label %65
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr %5, align 8
-  %67 = load i32, ptr %6, align 4
-  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
-  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
-  resume { ptr, i32 } %69
+41:                                               ; preds = %13
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %5, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %6, align 4
+  br label %64
+
+45:                                               ; preds = %20
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %5, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %6, align 4
+  br label %63
+
+49:                                               ; preds = %24
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %5, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %6, align 4
+  br label %62
+
+53:                                               ; preds = %28
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %5, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %6, align 4
+  br label %61
+
+57:                                               ; preds = %32
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %5, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %6, align 4
+  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(352) %29) #3
+  br label %61
+
+61:                                               ; preds = %57, %53
+  call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %25) #3
+  br label %62
+
+62:                                               ; preds = %61, %49
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  br label %63
+
+63:                                               ; preds = %62, %45
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %64
+
+64:                                               ; preds = %63, %41
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %65
+
+65:                                               ; preds = %64, %37
+  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %5, align 8
+  %68 = load i32, ptr %6, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -44779,13 +44803,14 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.505", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.505", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.505", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.505", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -45313,16 +45338,17 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.508", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.508", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.508", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.508", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.508", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.508", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
   ret void
 }
 
@@ -46574,200 +46600,201 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetC2ERK
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %51
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %52
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %14, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 2, i1 false)
-  %16 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 3
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %17, i32 0, i32 3
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %19 unwind label %55
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %16, i64 2, i1 false)
+  %17 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 3
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %18, i32 0, i32 3
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %56
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %21, i32 0, i32 4
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %23 unwind label %59
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %22, i32 0, i32 4
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %23)
+          to label %24 unwind label %60
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 5
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %25, i32 0, i32 5
-  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %26)
-          to label %27 unwind label %63
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 5
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %26, i32 0, i32 5
+  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %27)
+          to label %28 unwind label %64
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 6
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %29, i32 0, i32 6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %30)
-          to label %31 unwind label %67
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 6
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %30, i32 0, i32 6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %31)
+          to label %32 unwind label %68
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 7
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %33, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %34, i64 4, i1 false)
-  %35 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 9
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %36, i32 0, i32 9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %37)
-          to label %38 unwind label %71
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 7
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %34, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %35, i64 4, i1 false)
+  %36 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 9
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %37, i32 0, i32 9
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %38)
+          to label %39 unwind label %72
 
-38:                                               ; preds = %31
-  %39 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 10
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %40, i32 0, i32 10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %41)
-          to label %42 unwind label %75
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 10
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %41, i32 0, i32 10
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %42)
+          to label %43 unwind label %76
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 11
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %44, i32 0, i32 11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %45)
-          to label %46 unwind label %79
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 11
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %45, i32 0, i32 11
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %46)
+          to label %47 unwind label %80
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 12
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %48, i32 0, i32 12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %49)
-          to label %50 unwind label %83
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 12
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %49, i32 0, i32 12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %50)
+          to label %51 unwind label %84
 
-50:                                               ; preds = %46
+51:                                               ; preds = %47
   ret void
 
-51:                                               ; preds = %2
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %2
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %5, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %6, align 4
-  br label %94
-
-55:                                               ; preds = %12
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %5, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %6, align 4
-  br label %93
-
-59:                                               ; preds = %19
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %5, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %6, align 4
-  br label %92
-
-63:                                               ; preds = %23
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %5, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %6, align 4
-  br label %91
-
-67:                                               ; preds = %27
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %5, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %6, align 4
-  br label %90
-
-71:                                               ; preds = %31
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %5, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %6, align 4
-  br label %89
-
-75:                                               ; preds = %38
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %5, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %6, align 4
-  br label %88
-
-79:                                               ; preds = %42
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %5, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %6, align 4
-  br label %87
-
-83:                                               ; preds = %46
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %5, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #3
-  br label %87
-
-87:                                               ; preds = %83, %79
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #3
-  br label %88
-
-88:                                               ; preds = %87, %75
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #3
-  br label %89
-
-89:                                               ; preds = %88, %71
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
-  br label %90
-
-90:                                               ; preds = %89, %67
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #3
-  br label %91
-
-91:                                               ; preds = %90, %63
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  br label %92
-
-92:                                               ; preds = %91, %59
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  br label %93
-
-93:                                               ; preds = %92, %55
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %94
-
-94:                                               ; preds = %93, %51
-  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %5, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %6, align 4
   br label %95
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %5, align 8
-  %97 = load i32, ptr %6, align 4
-  %98 = insertvalue { ptr, i32 } poison, ptr %96, 0
-  %99 = insertvalue { ptr, i32 } %98, i32 %97, 1
-  resume { ptr, i32 } %99
+56:                                               ; preds = %13
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %5, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %6, align 4
+  br label %94
+
+60:                                               ; preds = %20
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %5, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %6, align 4
+  br label %93
+
+64:                                               ; preds = %24
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %5, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %6, align 4
+  br label %92
+
+68:                                               ; preds = %28
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %5, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %6, align 4
+  br label %91
+
+72:                                               ; preds = %32
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %5, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %6, align 4
+  br label %90
+
+76:                                               ; preds = %39
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %5, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %6, align 4
+  br label %89
+
+80:                                               ; preds = %43
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %5, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %6, align 4
+  br label %88
+
+84:                                               ; preds = %47
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %5, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #3
+  br label %88
+
+88:                                               ; preds = %84, %80
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #3
+  br label %89
+
+89:                                               ; preds = %88, %76
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #3
+  br label %90
+
+90:                                               ; preds = %89, %72
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #3
+  br label %91
+
+91:                                               ; preds = %90, %68
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #3
+  br label %92
+
+92:                                               ; preds = %91, %64
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  br label %93
+
+93:                                               ; preds = %92, %60
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  br label %94
+
+94:                                               ; preds = %93, %56
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %95
+
+95:                                               ; preds = %94, %52
+  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  br label %96
+
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %5, align 8
+  %98 = load i32, ptr %6, align 4
+  %99 = insertvalue { ptr, i32 } poison, ptr %97, 0
+  %100 = insertvalue { ptr, i32 } %99, i32 %98, 1
+  resume { ptr, i32 } %100
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -47230,13 +47257,14 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.527", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.527", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.527", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.527", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -47764,16 +47792,17 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.530", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.530", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.530", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.530", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.530", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.530", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
   ret void
 }
 
@@ -49169,32 +49198,33 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph14WorkflowPresetC2ER
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -49835,13 +49865,14 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph14WorkflowPresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.551", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.551", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph14WorkflowPresetEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.551", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.551", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -50369,16 +50400,17 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph14WorkflowPresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.554", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.554", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.554", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph14WorkflowPresetEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.554", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.554", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.554", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
   ret void
 }
 

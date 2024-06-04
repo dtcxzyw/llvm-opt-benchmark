@@ -1904,13 +1904,13 @@ define internal void @ssh_debug_printf(ptr noundef %0, ...) #0 {
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr @ssh_debug_file, align 8
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   %12 = call i32 @vfprintf(ptr noundef %9, ptr noundef %10, ptr noundef %11) #13
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %13)
+  call void @llvm.va_end.p0(ptr %13)
   br label %14
 
 14:                                               ; preds = %7, %6
@@ -2552,14 +2552,8 @@ define internal void @ssh_keylog_process_line(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 ; Function Attrs: nounwind
-declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #3
 
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) #1
 
@@ -2631,10 +2625,10 @@ define internal ptr @ssh_kex_make_bignum(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #5
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #4
 
 ; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) #6
+declare ptr @g_memdup2(ptr noundef, i64 noundef) #5
 
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -2643,7 +2637,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #1
 declare ptr @wmem_file_scope() #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
 
@@ -7337,7 +7331,7 @@ define internal void @ssh_derive_symmetric_keys(ptr noundef %0, ptr noundef %1, 
 declare zeroext i1 @file_needs_reopen(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @fileno(ptr noundef) #4
+declare i32 @fileno(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @ssh_keylog_reset() #0 {
@@ -7362,14 +7356,14 @@ declare noalias ptr @fopen(ptr noundef, ptr noundef) #1
 declare ptr @fgets(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @ferror(ptr noundef) #4
+declare i32 @ferror(ptr noundef) #3
 
 declare i32 @fclose(ptr noundef) #1
 
 declare i32 @g_str_has_suffix(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #8
+declare void @proto_report_dissector_bug(ptr noundef, ...) #7
 
 declare i32 @gcry_mpi_scan(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
@@ -7384,7 +7378,7 @@ declare void @gcry_mpi_release(ptr noundef) #1
 declare i32 @crypto_scalarmult_curve25519(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 declare i32 @fputc(i32 noundef, ptr noundef) #1
 
@@ -9402,7 +9396,7 @@ define internal i32 @ssh_dissect_decrypted_packet(ptr noundef %0, ptr noundef %1
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) #1
 
@@ -12356,10 +12350,10 @@ define internal void @set_subdissector_for_channel(ptr noundef %0, i32 noundef %
 declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #10
+declare i32 @g_direct_hash(ptr noundef) #9
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #10
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #9
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -12445,7 +12439,7 @@ define internal void @desegment_ssh(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 1, ptr %24, align 4
   br label %30
 
-30:                                               ; preds = %613, %6
+30:                                               ; preds = %615, %6
   store ptr null, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i32 0, ptr %15, align 4
@@ -12466,7 +12460,7 @@ define internal void @desegment_ssh(ptr noundef %0, ptr noundef %1, i32 noundef 
   %40 = call ptr @wmem_tree_lookup32(ptr noundef %38, i32 noundef %39)
   store ptr %40, ptr %23, align 8
   %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %117
+  br i1 %41, label %42, label %118
 
 42:                                               ; preds = %30
   store i32 0, ptr %26, align 4
@@ -12523,7 +12517,7 @@ define internal void @desegment_ssh(ptr noundef %0, ptr noundef %1, i32 noundef 
 72:                                               ; preds = %71, %70
   %73 = load i32, ptr %26, align 4
   %74 = icmp ne i32 %73, 0
-  br i1 %74, label %108, label %75
+  br i1 %74, label %109, label %75
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %8, align 8
@@ -12535,14 +12529,14 @@ define internal void @desegment_ssh(ptr noundef %0, ptr noundef %1, i32 noundef 
   store ptr %81, ptr %13, align 8
   %82 = load ptr, ptr %13, align 8
   %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %107
+  br i1 %83, label %84, label %108
 
 84:                                               ; preds = %75
   %85 = load ptr, ptr %13, align 8
   %86 = getelementptr inbounds %struct._fragment_head, ptr %85, i32 0, i32 8
   %87 = load i32, ptr %86, align 8
   %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %107
+  br i1 %88, label %89, label %108
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %13, align 8
@@ -12552,762 +12546,764 @@ define internal void @desegment_ssh(ptr noundef %0, ptr noundef %1, i32 noundef 
   %94 = getelementptr inbounds %struct._packet_info, ptr %93, i32 0, i32 3
   %95 = load i32, ptr %94, align 4
   %96 = icmp ne i32 %92, %95
-  br i1 %96, label %97, label %107
+  br i1 %96, label %97, label %108
 
 97:                                               ; preds = %89
   %98 = load ptr, ptr %11, align 8
-  %99 = load ptr, ptr getelementptr inbounds (%struct._fragment_items, ptr @ssh_segment_items, i32 0, i32 10), align 8
-  %100 = load i32, ptr %99, align 4
-  %101 = load ptr, ptr %7, align 8
-  %102 = load ptr, ptr %13, align 8
-  %103 = getelementptr inbounds %struct._fragment_head, ptr %102, i32 0, i32 8
-  %104 = load i32, ptr %103, align 8
-  %105 = call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %100, ptr noundef %101, i32 noundef 0, i32 noundef 0, i32 noundef %104)
-  store ptr %105, ptr %22, align 8
-  %106 = load ptr, ptr %22, align 8
-  call void @proto_item_set_generated(ptr noundef %106)
-  br label %107
-
-107:                                              ; preds = %97, %89, %84, %75
+  %99 = getelementptr inbounds %struct._fragment_items, ptr @ssh_segment_items, i32 0, i32 10
+  %100 = load ptr, ptr %99, align 8
+  %101 = load i32, ptr %100, align 4
+  %102 = load ptr, ptr %7, align 8
+  %103 = load ptr, ptr %13, align 8
+  %104 = getelementptr inbounds %struct._fragment_head, ptr %103, i32 0, i32 8
+  %105 = load i32, ptr %104, align 8
+  %106 = call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %101, ptr noundef %102, i32 noundef 0, i32 noundef 0, i32 noundef %105)
+  store ptr %106, ptr %22, align 8
+  %107 = load ptr, ptr %22, align 8
+  call void @proto_item_set_generated(ptr noundef %107)
   br label %108
 
-108:                                              ; preds = %107, %72
-  %109 = load ptr, ptr %7, align 8
-  %110 = load i32, ptr %19, align 4
-  %111 = call i32 @tvb_reported_length_remaining(ptr noundef %109, i32 noundef %110)
-  store i32 %111, ptr %21, align 4
-  %112 = load ptr, ptr %11, align 8
-  %113 = load ptr, ptr %7, align 8
-  %114 = load i32, ptr %19, align 4
-  %115 = load i32, ptr %21, align 4
-  %116 = load ptr, ptr %25, align 8
-  call void @ssh_proto_tree_add_segment_data(ptr noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef %115, ptr noundef %116)
-  br label %628
+108:                                              ; preds = %97, %89, %84, %75
+  br label %109
 
-117:                                              ; preds = %30
-  %118 = load ptr, ptr %12, align 8
-  %119 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %118, i32 0, i32 2
-  %120 = load ptr, ptr %119, align 8
-  %121 = load i32, ptr %9, align 4
-  %122 = sub i32 %121, 1
-  %123 = call ptr @wmem_tree_lookup32_le(ptr noundef %120, i32 noundef %122)
-  store ptr %123, ptr %23, align 8
-  %124 = load ptr, ptr %23, align 8
-  %125 = icmp ne ptr %124, null
-  br i1 %125, label %126, label %258
+109:                                              ; preds = %108, %72
+  %110 = load ptr, ptr %7, align 8
+  %111 = load i32, ptr %19, align 4
+  %112 = call i32 @tvb_reported_length_remaining(ptr noundef %110, i32 noundef %111)
+  store i32 %112, ptr %21, align 4
+  %113 = load ptr, ptr %11, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = load i32, ptr %19, align 4
+  %116 = load i32, ptr %21, align 4
+  %117 = load ptr, ptr %25, align 8
+  call void @ssh_proto_tree_add_segment_data(ptr noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef %116, ptr noundef %117)
+  br label %630
 
-126:                                              ; preds = %117
-  %127 = load ptr, ptr %23, align 8
-  %128 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %127, i32 0, i32 0
-  %129 = load i32, ptr %128, align 8
-  %130 = load i32, ptr %9, align 4
-  %131 = icmp ule i32 %129, %130
-  br i1 %131, label %132, label %258
+118:                                              ; preds = %30
+  %119 = load ptr, ptr %12, align 8
+  %120 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %119, i32 0, i32 2
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i32, ptr %9, align 4
+  %123 = sub i32 %122, 1
+  %124 = call ptr @wmem_tree_lookup32_le(ptr noundef %121, i32 noundef %123)
+  store ptr %124, ptr %23, align 8
+  %125 = load ptr, ptr %23, align 8
+  %126 = icmp ne ptr %125, null
+  br i1 %126, label %127, label %259
 
-132:                                              ; preds = %126
-  %133 = load ptr, ptr %23, align 8
-  %134 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %133, i32 0, i32 1
-  %135 = load i32, ptr %134, align 4
-  %136 = load i32, ptr %9, align 4
-  %137 = icmp ugt i32 %135, %136
-  br i1 %137, label %138, label %258
+127:                                              ; preds = %118
+  %128 = load ptr, ptr %23, align 8
+  %129 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %128, i32 0, i32 0
+  %130 = load i32, ptr %129, align 8
+  %131 = load i32, ptr %9, align 4
+  %132 = icmp ule i32 %130, %131
+  br i1 %132, label %133, label %259
 
-138:                                              ; preds = %132
-  %139 = load ptr, ptr %8, align 8
-  %140 = getelementptr inbounds %struct._packet_info, ptr %139, i32 0, i32 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds %struct._frame_data, ptr %141, i32 0, i32 9
-  %143 = load i16, ptr %142, align 2
-  %144 = lshr i16 %143, 3
-  %145 = and i16 %144, 1
-  %146 = zext i16 %145 to i32
-  %147 = icmp ne i32 %146, 0
-  br i1 %147, label %158, label %148
+133:                                              ; preds = %127
+  %134 = load ptr, ptr %23, align 8
+  %135 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %134, i32 0, i32 1
+  %136 = load i32, ptr %135, align 4
+  %137 = load i32, ptr %9, align 4
+  %138 = icmp ugt i32 %136, %137
+  br i1 %138, label %139, label %259
 
-148:                                              ; preds = %138
-  %149 = load ptr, ptr %8, align 8
-  %150 = getelementptr inbounds %struct._packet_info, ptr %149, i32 0, i32 3
-  %151 = load i32, ptr %150, align 4
-  %152 = load ptr, ptr %23, align 8
-  %153 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %152, i32 0, i32 3
-  store i32 %151, ptr %153, align 4
-  %154 = load ptr, ptr %23, align 8
-  %155 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %154, i32 0, i32 4
-  %156 = load ptr, ptr %8, align 8
-  %157 = getelementptr inbounds %struct._packet_info, ptr %156, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %155, ptr align 8 %157, i64 16, i1 false)
-  br label %158
+139:                                              ; preds = %133
+  %140 = load ptr, ptr %8, align 8
+  %141 = getelementptr inbounds %struct._packet_info, ptr %140, i32 0, i32 8
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds %struct._frame_data, ptr %142, i32 0, i32 9
+  %144 = load i16, ptr %143, align 2
+  %145 = lshr i16 %144, 3
+  %146 = and i16 %145, 1
+  %147 = zext i16 %146 to i32
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %159, label %149
 
-158:                                              ; preds = %148, %138
-  %159 = load ptr, ptr %23, align 8
-  %160 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %159, i32 0, i32 6
-  %161 = load i32, ptr %160, align 4
-  %162 = and i32 %161, 1
-  %163 = icmp ne i32 %162, 0
-  br i1 %163, label %164, label %176
+149:                                              ; preds = %139
+  %150 = load ptr, ptr %8, align 8
+  %151 = getelementptr inbounds %struct._packet_info, ptr %150, i32 0, i32 3
+  %152 = load i32, ptr %151, align 4
+  %153 = load ptr, ptr %23, align 8
+  %154 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %153, i32 0, i32 3
+  store i32 %152, ptr %154, align 4
+  %155 = load ptr, ptr %23, align 8
+  %156 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %155, i32 0, i32 4
+  %157 = load ptr, ptr %8, align 8
+  %158 = getelementptr inbounds %struct._packet_info, ptr %157, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %156, ptr align 8 %158, i64 16, i1 false)
+  br label %159
 
-164:                                              ; preds = %158
-  %165 = load ptr, ptr %7, align 8
-  %166 = load i32, ptr %19, align 4
-  %167 = call i32 @tvb_reported_length_remaining(ptr noundef %165, i32 noundef %166)
-  %168 = icmp sgt i32 0, %167
-  br i1 %168, label %169, label %170
+159:                                              ; preds = %149, %139
+  %160 = load ptr, ptr %23, align 8
+  %161 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %160, i32 0, i32 6
+  %162 = load i32, ptr %161, align 4
+  %163 = and i32 %162, 1
+  %164 = icmp ne i32 %163, 0
+  br i1 %164, label %165, label %177
 
-169:                                              ; preds = %164
-  br label %174
+165:                                              ; preds = %159
+  %166 = load ptr, ptr %7, align 8
+  %167 = load i32, ptr %19, align 4
+  %168 = call i32 @tvb_reported_length_remaining(ptr noundef %166, i32 noundef %167)
+  %169 = icmp sgt i32 0, %168
+  br i1 %169, label %170, label %171
 
-170:                                              ; preds = %164
-  %171 = load ptr, ptr %7, align 8
-  %172 = load i32, ptr %19, align 4
-  %173 = call i32 @tvb_reported_length_remaining(ptr noundef %171, i32 noundef %172)
-  br label %174
+170:                                              ; preds = %165
+  br label %175
 
-174:                                              ; preds = %170, %169
-  %175 = phi i32 [ 0, %169 ], [ %173, %170 ]
-  store i32 %175, ptr %27, align 4
-  br label %192
+171:                                              ; preds = %165
+  %172 = load ptr, ptr %7, align 8
+  %173 = load i32, ptr %19, align 4
+  %174 = call i32 @tvb_reported_length_remaining(ptr noundef %172, i32 noundef %173)
+  br label %175
 
-176:                                              ; preds = %158
-  %177 = load i32, ptr %10, align 4
-  %178 = load ptr, ptr %23, align 8
-  %179 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %178, i32 0, i32 1
-  %180 = load i32, ptr %179, align 4
-  %181 = icmp ult i32 %177, %180
-  br i1 %181, label %182, label %184
+175:                                              ; preds = %171, %170
+  %176 = phi i32 [ 0, %170 ], [ %174, %171 ]
+  store i32 %176, ptr %27, align 4
+  br label %193
 
-182:                                              ; preds = %176
-  %183 = load i32, ptr %10, align 4
-  br label %188
+177:                                              ; preds = %159
+  %178 = load i32, ptr %10, align 4
+  %179 = load ptr, ptr %23, align 8
+  %180 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %179, i32 0, i32 1
+  %181 = load i32, ptr %180, align 4
+  %182 = icmp ult i32 %178, %181
+  br i1 %182, label %183, label %185
 
-184:                                              ; preds = %176
-  %185 = load ptr, ptr %23, align 8
-  %186 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %185, i32 0, i32 1
-  %187 = load i32, ptr %186, align 4
-  br label %188
+183:                                              ; preds = %177
+  %184 = load i32, ptr %10, align 4
+  br label %189
 
-188:                                              ; preds = %184, %182
-  %189 = phi i32 [ %183, %182 ], [ %187, %184 ]
-  %190 = load i32, ptr %9, align 4
-  %191 = sub i32 %189, %190
-  store i32 %191, ptr %27, align 4
-  br label %192
+185:                                              ; preds = %177
+  %186 = load ptr, ptr %23, align 8
+  %187 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %186, i32 0, i32 1
+  %188 = load i32, ptr %187, align 4
+  br label %189
 
-192:                                              ; preds = %188, %174
-  %193 = load ptr, ptr %7, align 8
-  %194 = load i32, ptr %19, align 4
-  %195 = load ptr, ptr %8, align 8
-  %196 = load ptr, ptr %23, align 8
-  %197 = call i32 @ssh_msp_fragment_id(ptr noundef %196)
-  %198 = load ptr, ptr %23, align 8
-  %199 = load i32, ptr %9, align 4
-  %200 = load ptr, ptr %23, align 8
-  %201 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %200, i32 0, i32 0
-  %202 = load i32, ptr %201, align 8
-  %203 = sub i32 %199, %202
-  %204 = load i32, ptr %27, align 4
-  %205 = load i32, ptr %10, align 4
-  %206 = load ptr, ptr %23, align 8
-  %207 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %206, i32 0, i32 1
-  %208 = load i32, ptr %207, align 4
-  %209 = sub i32 %205, %208
-  %210 = icmp slt i32 %209, 0
-  %211 = zext i1 %210 to i32
-  %212 = call ptr @fragment_add(ptr noundef @ssh_reassembly_table, ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %197, ptr noundef %198, i32 noundef %203, i32 noundef %204, i32 noundef %211)
-  store ptr %212, ptr %13, align 8
-  %213 = load ptr, ptr %8, align 8
-  %214 = getelementptr inbounds %struct._packet_info, ptr %213, i32 0, i32 8
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds %struct._frame_data, ptr %215, i32 0, i32 9
-  %217 = load i16, ptr %216, align 2
-  %218 = lshr i16 %217, 3
-  %219 = and i16 %218, 1
-  %220 = zext i16 %219 to i32
-  %221 = icmp ne i32 %220, 0
-  br i1 %221, label %236, label %222
+189:                                              ; preds = %185, %183
+  %190 = phi i32 [ %184, %183 ], [ %188, %185 ]
+  %191 = load i32, ptr %9, align 4
+  %192 = sub i32 %190, %191
+  store i32 %192, ptr %27, align 4
+  br label %193
 
-222:                                              ; preds = %192
-  %223 = load ptr, ptr %23, align 8
-  %224 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %223, i32 0, i32 6
-  %225 = load i32, ptr %224, align 4
-  %226 = and i32 %225, 1
-  %227 = icmp ne i32 %226, 0
-  br i1 %227, label %228, label %236
+193:                                              ; preds = %189, %175
+  %194 = load ptr, ptr %7, align 8
+  %195 = load i32, ptr %19, align 4
+  %196 = load ptr, ptr %8, align 8
+  %197 = load ptr, ptr %23, align 8
+  %198 = call i32 @ssh_msp_fragment_id(ptr noundef %197)
+  %199 = load ptr, ptr %23, align 8
+  %200 = load i32, ptr %9, align 4
+  %201 = load ptr, ptr %23, align 8
+  %202 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %201, i32 0, i32 0
+  %203 = load i32, ptr %202, align 8
+  %204 = sub i32 %200, %203
+  %205 = load i32, ptr %27, align 4
+  %206 = load i32, ptr %10, align 4
+  %207 = load ptr, ptr %23, align 8
+  %208 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %207, i32 0, i32 1
+  %209 = load i32, ptr %208, align 4
+  %210 = sub i32 %206, %209
+  %211 = icmp slt i32 %210, 0
+  %212 = zext i1 %211 to i32
+  %213 = call ptr @fragment_add(ptr noundef @ssh_reassembly_table, ptr noundef %194, i32 noundef %195, ptr noundef %196, i32 noundef %198, ptr noundef %199, i32 noundef %204, i32 noundef %205, i32 noundef %212)
+  store ptr %213, ptr %13, align 8
+  %214 = load ptr, ptr %8, align 8
+  %215 = getelementptr inbounds %struct._packet_info, ptr %214, i32 0, i32 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds %struct._frame_data, ptr %216, i32 0, i32 9
+  %218 = load i16, ptr %217, align 2
+  %219 = lshr i16 %218, 3
+  %220 = and i16 %219, 1
+  %221 = zext i16 %220 to i32
+  %222 = icmp ne i32 %221, 0
+  br i1 %222, label %237, label %223
 
-228:                                              ; preds = %222
-  %229 = load ptr, ptr %23, align 8
-  %230 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %229, i32 0, i32 6
-  %231 = load i32, ptr %230, align 4
-  %232 = and i32 %231, -2
-  store i32 %232, ptr %230, align 4
-  %233 = load i32, ptr %10, align 4
-  %234 = load ptr, ptr %23, align 8
-  %235 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %234, i32 0, i32 1
-  store i32 %233, ptr %235, align 4
-  br label %236
+223:                                              ; preds = %193
+  %224 = load ptr, ptr %23, align 8
+  %225 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %224, i32 0, i32 6
+  %226 = load i32, ptr %225, align 4
+  %227 = and i32 %226, 1
+  %228 = icmp ne i32 %227, 0
+  br i1 %228, label %229, label %237
 
-236:                                              ; preds = %228, %222, %192
-  %237 = load ptr, ptr %23, align 8
-  %238 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %237, i32 0, i32 1
-  %239 = load i32, ptr %238, align 4
-  %240 = load i32, ptr %10, align 4
-  %241 = icmp ult i32 %239, %240
-  br i1 %241, label %242, label %257
+229:                                              ; preds = %223
+  %230 = load ptr, ptr %23, align 8
+  %231 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %230, i32 0, i32 6
+  %232 = load i32, ptr %231, align 4
+  %233 = and i32 %232, -2
+  store i32 %233, ptr %231, align 4
+  %234 = load i32, ptr %10, align 4
+  %235 = load ptr, ptr %23, align 8
+  %236 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %235, i32 0, i32 1
+  store i32 %234, ptr %236, align 4
+  br label %237
 
-242:                                              ; preds = %236
-  %243 = load ptr, ptr %23, align 8
-  %244 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %243, i32 0, i32 1
-  %245 = load i32, ptr %244, align 4
-  %246 = load i32, ptr %9, align 4
-  %247 = icmp uge i32 %245, %246
-  br i1 %247, label %248, label %257
+237:                                              ; preds = %229, %223, %193
+  %238 = load ptr, ptr %23, align 8
+  %239 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %238, i32 0, i32 1
+  %240 = load i32, ptr %239, align 4
+  %241 = load i32, ptr %10, align 4
+  %242 = icmp ult i32 %240, %241
+  br i1 %242, label %243, label %258
 
-248:                                              ; preds = %242
-  %249 = load i32, ptr %27, align 4
-  %250 = icmp sgt i32 %249, 0
-  br i1 %250, label %251, label %257
+243:                                              ; preds = %237
+  %244 = load ptr, ptr %23, align 8
+  %245 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %244, i32 0, i32 1
+  %246 = load i32, ptr %245, align 4
+  %247 = load i32, ptr %9, align 4
+  %248 = icmp uge i32 %246, %247
+  br i1 %248, label %249, label %258
 
-251:                                              ; preds = %248
-  %252 = load ptr, ptr %23, align 8
-  %253 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %252, i32 0, i32 1
-  %254 = load i32, ptr %253, align 4
-  %255 = load i32, ptr %9, align 4
-  %256 = sub i32 %254, %255
-  store i32 %256, ptr %16, align 4
-  br label %257
+249:                                              ; preds = %243
+  %250 = load i32, ptr %27, align 4
+  %251 = icmp sgt i32 %250, 0
+  br i1 %251, label %252, label %258
 
-257:                                              ; preds = %251, %248, %242, %236
+252:                                              ; preds = %249
+  %253 = load ptr, ptr %23, align 8
+  %254 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %253, i32 0, i32 1
+  %255 = load i32, ptr %254, align 4
+  %256 = load i32, ptr %9, align 4
+  %257 = sub i32 %255, %256
+  store i32 %257, ptr %16, align 4
+  br label %258
+
+258:                                              ; preds = %252, %249, %243, %237
+  br label %287
+
+259:                                              ; preds = %133, %127, %118
+  %260 = load ptr, ptr %7, align 8
+  %261 = load i32, ptr %19, align 4
+  %262 = load ptr, ptr %8, align 8
+  %263 = load ptr, ptr %11, align 8
+  %264 = load ptr, ptr %12, align 8
+  call void @ssh_process_payload(ptr noundef %260, i32 noundef %261, ptr noundef %262, ptr noundef %263, ptr noundef %264)
+  store i32 1, ptr %15, align 4
+  %265 = load ptr, ptr %8, align 8
+  %266 = getelementptr inbounds %struct._packet_info, ptr %265, i32 0, i32 33
+  %267 = load i32, ptr %266, align 8
+  %268 = icmp ne i32 %267, 0
+  br i1 %268, label %269, label %286
+
+269:                                              ; preds = %259
+  %270 = load ptr, ptr %8, align 8
+  %271 = getelementptr inbounds %struct._packet_info, ptr %270, i32 0, i32 8
+  %272 = load ptr, ptr %271, align 8
+  %273 = getelementptr inbounds %struct._frame_data, ptr %272, i32 0, i32 9
+  %274 = load i16, ptr %273, align 2
+  %275 = lshr i16 %274, 3
+  %276 = and i16 %275, 1
+  %277 = zext i16 %276 to i32
+  %278 = icmp ne i32 %277, 0
+  br i1 %278, label %280, label %279
+
+279:                                              ; preds = %269
+  store i32 1, ptr %14, align 4
+  br label %280
+
+280:                                              ; preds = %279, %269
+  %281 = load i32, ptr %19, align 4
+  %282 = load ptr, ptr %8, align 8
+  %283 = getelementptr inbounds %struct._packet_info, ptr %282, i32 0, i32 32
+  %284 = load i32, ptr %283, align 4
+  %285 = add i32 %281, %284
+  store i32 %285, ptr %18, align 4
   br label %286
 
-258:                                              ; preds = %132, %126, %117
-  %259 = load ptr, ptr %7, align 8
-  %260 = load i32, ptr %19, align 4
-  %261 = load ptr, ptr %8, align 8
-  %262 = load ptr, ptr %11, align 8
-  %263 = load ptr, ptr %12, align 8
-  call void @ssh_process_payload(ptr noundef %259, i32 noundef %260, ptr noundef %261, ptr noundef %262, ptr noundef %263)
-  store i32 1, ptr %15, align 4
-  %264 = load ptr, ptr %8, align 8
-  %265 = getelementptr inbounds %struct._packet_info, ptr %264, i32 0, i32 33
-  %266 = load i32, ptr %265, align 8
-  %267 = icmp ne i32 %266, 0
-  br i1 %267, label %268, label %285
-
-268:                                              ; preds = %258
-  %269 = load ptr, ptr %8, align 8
-  %270 = getelementptr inbounds %struct._packet_info, ptr %269, i32 0, i32 8
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds %struct._frame_data, ptr %271, i32 0, i32 9
-  %273 = load i16, ptr %272, align 2
-  %274 = lshr i16 %273, 3
-  %275 = and i16 %274, 1
-  %276 = zext i16 %275 to i32
-  %277 = icmp ne i32 %276, 0
-  br i1 %277, label %279, label %278
-
-278:                                              ; preds = %268
-  store i32 1, ptr %14, align 4
-  br label %279
-
-279:                                              ; preds = %278, %268
-  %280 = load i32, ptr %19, align 4
-  %281 = load ptr, ptr %8, align 8
-  %282 = getelementptr inbounds %struct._packet_info, ptr %281, i32 0, i32 32
-  %283 = load i32, ptr %282, align 4
-  %284 = add i32 %280, %283
-  store i32 %284, ptr %18, align 4
-  br label %285
-
-285:                                              ; preds = %279, %258
+286:                                              ; preds = %280, %259
   store ptr null, ptr %13, align 8
-  br label %286
+  br label %287
 
-286:                                              ; preds = %285, %257
-  %287 = load ptr, ptr %13, align 8
-  %288 = icmp ne ptr %287, null
-  br i1 %288, label %289, label %441
+287:                                              ; preds = %286, %258
+  %288 = load ptr, ptr %13, align 8
+  %289 = icmp ne ptr %288, null
+  br i1 %289, label %290, label %442
 
-289:                                              ; preds = %286
-  %290 = load ptr, ptr %13, align 8
-  %291 = getelementptr inbounds %struct._fragment_head, ptr %290, i32 0, i32 8
-  %292 = load i32, ptr %291, align 8
-  %293 = load ptr, ptr %8, align 8
-  %294 = getelementptr inbounds %struct._packet_info, ptr %293, i32 0, i32 3
-  %295 = load i32, ptr %294, align 4
-  %296 = icmp eq i32 %292, %295
-  br i1 %296, label %297, label %441
+290:                                              ; preds = %287
+  %291 = load ptr, ptr %13, align 8
+  %292 = getelementptr inbounds %struct._fragment_head, ptr %291, i32 0, i32 8
+  %293 = load i32, ptr %292, align 8
+  %294 = load ptr, ptr %8, align 8
+  %295 = getelementptr inbounds %struct._packet_info, ptr %294, i32 0, i32 3
+  %296 = load i32, ptr %295, align 4
+  %297 = icmp eq i32 %293, %296
+  br i1 %297, label %298, label %442
 
-297:                                              ; preds = %289
-  %298 = load i32, ptr %10, align 4
-  %299 = load ptr, ptr %23, align 8
-  %300 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %299, i32 0, i32 1
-  %301 = load i32, ptr %300, align 4
-  %302 = icmp ult i32 %298, %301
-  br i1 %302, label %303, label %307
+298:                                              ; preds = %290
+  %299 = load i32, ptr %10, align 4
+  %300 = load ptr, ptr %23, align 8
+  %301 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %300, i32 0, i32 1
+  %302 = load i32, ptr %301, align 4
+  %303 = icmp ult i32 %299, %302
+  br i1 %303, label %304, label %308
 
-303:                                              ; preds = %297
+304:                                              ; preds = %298
   store i32 0, ptr %16, align 4
-  %304 = load ptr, ptr %8, align 8
-  %305 = getelementptr inbounds %struct._packet_info, ptr %304, i32 0, i32 1
-  %306 = load ptr, ptr %305, align 8
-  call void @col_clear(ptr noundef %306, i32 noundef 25)
+  %305 = load ptr, ptr %8, align 8
+  %306 = getelementptr inbounds %struct._packet_info, ptr %305, i32 0, i32 1
+  %307 = load ptr, ptr %306, align 8
+  call void @col_clear(ptr noundef %307, i32 noundef 25)
   store i32 1, ptr %17, align 4
-  br label %440
-
-307:                                              ; preds = %297
-  %308 = load ptr, ptr %8, align 8
-  %309 = getelementptr inbounds %struct._packet_info, ptr %308, i32 0, i32 1
-  %310 = load ptr, ptr %309, align 8
-  call void @col_clear(ptr noundef %310, i32 noundef 25)
-  %311 = load ptr, ptr %7, align 8
-  %312 = load ptr, ptr %13, align 8
-  %313 = getelementptr inbounds %struct._fragment_head, ptr %312, i32 0, i32 11
-  %314 = load ptr, ptr %313, align 8
-  %315 = call ptr @tvb_new_chain(ptr noundef %311, ptr noundef %314)
-  store ptr %315, ptr %28, align 8
-  %316 = load ptr, ptr %8, align 8
-  %317 = load ptr, ptr %28, align 8
-  call void @add_new_data_source(ptr noundef %316, ptr noundef %317, ptr noundef @.str.548)
-  %318 = load ptr, ptr %28, align 8
-  %319 = load ptr, ptr %8, align 8
-  %320 = load ptr, ptr %11, align 8
-  %321 = load ptr, ptr %12, align 8
-  call void @ssh_process_payload(ptr noundef %318, i32 noundef 0, ptr noundef %319, ptr noundef %320, ptr noundef %321)
-  store i32 1, ptr %15, align 4
-  %322 = load ptr, ptr %28, align 8
-  %323 = call i32 @tvb_reported_length(ptr noundef %322)
-  %324 = load ptr, ptr %7, align 8
-  %325 = load i32, ptr %19, align 4
-  %326 = call i32 @tvb_reported_length_remaining(ptr noundef %324, i32 noundef %325)
-  %327 = sub i32 %323, %326
-  store i32 %327, ptr %29, align 4
-  %328 = load ptr, ptr %8, align 8
-  %329 = getelementptr inbounds %struct._packet_info, ptr %328, i32 0, i32 33
-  %330 = load i32, ptr %329, align 8
-  %331 = icmp ne i32 %330, 0
-  br i1 %331, label %332, label %390
-
-332:                                              ; preds = %307
-  %333 = load ptr, ptr %8, align 8
-  %334 = getelementptr inbounds %struct._packet_info, ptr %333, i32 0, i32 32
-  %335 = load i32, ptr %334, align 4
-  %336 = load i32, ptr %29, align 4
-  %337 = icmp sle i32 %335, %336
-  br i1 %337, label %338, label %390
-
-338:                                              ; preds = %332
-  %339 = load ptr, ptr %8, align 8
-  %340 = load ptr, ptr %23, align 8
-  %341 = call i32 @ssh_msp_fragment_id(ptr noundef %340)
-  %342 = load ptr, ptr %23, align 8
-  call void @fragment_set_partial_reassembly(ptr noundef @ssh_reassembly_table, ptr noundef %339, i32 noundef %341, ptr noundef %342)
-  %343 = load ptr, ptr %8, align 8
-  %344 = getelementptr inbounds %struct._packet_info, ptr %343, i32 0, i32 33
-  %345 = load i32, ptr %344, align 8
-  %346 = icmp eq i32 %345, 268435455
-  br i1 %346, label %347, label %360
-
-347:                                              ; preds = %338
-  %348 = load i32, ptr %9, align 4
-  %349 = load ptr, ptr %7, align 8
-  %350 = load i32, ptr %19, align 4
-  %351 = call i32 @tvb_reported_length_remaining(ptr noundef %349, i32 noundef %350)
-  %352 = add i32 %348, %351
-  %353 = add i32 %352, 1
-  %354 = load ptr, ptr %23, align 8
-  %355 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %354, i32 0, i32 1
-  store i32 %353, ptr %355, align 4
-  %356 = load ptr, ptr %23, align 8
-  %357 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %356, i32 0, i32 6
-  %358 = load i32, ptr %357, align 4
-  %359 = or i32 %358, 1
-  store i32 %359, ptr %357, align 4
-  br label %389
-
-360:                                              ; preds = %338
-  %361 = load ptr, ptr %8, align 8
-  %362 = getelementptr inbounds %struct._packet_info, ptr %361, i32 0, i32 33
-  %363 = load i32, ptr %362, align 8
-  %364 = icmp eq i32 %363, 268435454
-  br i1 %364, label %365, label %376
-
-365:                                              ; preds = %360
-  %366 = load ptr, ptr %12, align 8
-  %367 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %366, i32 0, i32 1
-  %368 = load i16, ptr %367, align 4
-  %369 = zext i16 %368 to i32
-  %370 = or i32 %369, 1
-  %371 = trunc i32 %370 to i16
-  store i16 %371, ptr %367, align 4
-  %372 = load i32, ptr %10, align 4
-  %373 = add i32 %372, 1073741824
-  %374 = load ptr, ptr %23, align 8
-  %375 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %374, i32 0, i32 1
-  store i32 %373, ptr %375, align 4
-  br label %388
-
-376:                                              ; preds = %360
-  %377 = load i32, ptr %9, align 4
-  %378 = load ptr, ptr %7, align 8
-  %379 = load i32, ptr %19, align 4
-  %380 = call i32 @tvb_reported_length_remaining(ptr noundef %378, i32 noundef %379)
-  %381 = add i32 %377, %380
-  %382 = load ptr, ptr %8, align 8
-  %383 = getelementptr inbounds %struct._packet_info, ptr %382, i32 0, i32 33
-  %384 = load i32, ptr %383, align 8
-  %385 = add i32 %381, %384
-  %386 = load ptr, ptr %23, align 8
-  %387 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %386, i32 0, i32 1
-  store i32 %385, ptr %387, align 4
-  br label %388
-
-388:                                              ; preds = %376, %365
-  br label %389
-
-389:                                              ; preds = %388, %347
-  store i32 0, ptr %16, align 4
-  br label %439
-
-390:                                              ; preds = %332, %307
-  %391 = load i32, ptr %16, align 4
-  %392 = icmp sgt i32 %391, 0
-  br i1 %392, label %393, label %395
-
-393:                                              ; preds = %390
-  %394 = load i32, ptr %16, align 4
-  br label %399
-
-395:                                              ; preds = %390
-  %396 = load ptr, ptr %7, align 8
-  %397 = load i32, ptr %19, align 4
-  %398 = call i32 @tvb_reported_length_remaining(ptr noundef %396, i32 noundef %397)
-  br label %399
-
-399:                                              ; preds = %395, %393
-  %400 = phi i32 [ %394, %393 ], [ %398, %395 ]
-  store i32 %400, ptr %21, align 4
-  %401 = load ptr, ptr %11, align 8
-  %402 = load ptr, ptr %7, align 8
-  %403 = load i32, ptr %19, align 4
-  %404 = load i32, ptr %21, align 4
-  call void @ssh_proto_tree_add_segment_data(ptr noundef %401, ptr noundef %402, i32 noundef %403, i32 noundef %404, ptr noundef null)
-  %405 = load ptr, ptr %13, align 8
-  %406 = load ptr, ptr %11, align 8
-  %407 = call ptr @proto_tree_get_root(ptr noundef %406)
-  %408 = load ptr, ptr %11, align 8
-  %409 = load ptr, ptr %8, align 8
-  %410 = load ptr, ptr %28, align 8
-  call void @print_ssh_fragment_tree(ptr noundef %405, ptr noundef %407, ptr noundef %408, ptr noundef %409, ptr noundef %410)
-  %411 = load ptr, ptr %8, align 8
-  %412 = getelementptr inbounds %struct._packet_info, ptr %411, i32 0, i32 33
-  %413 = load i32, ptr %412, align 8
-  %414 = icmp ne i32 %413, 0
-  br i1 %414, label %415, label %438
-
-415:                                              ; preds = %399
-  %416 = load ptr, ptr %8, align 8
-  %417 = getelementptr inbounds %struct._packet_info, ptr %416, i32 0, i32 8
-  %418 = load ptr, ptr %417, align 8
-  %419 = getelementptr inbounds %struct._frame_data, ptr %418, i32 0, i32 9
-  %420 = load i16, ptr %419, align 2
-  %421 = lshr i16 %420, 3
-  %422 = and i16 %421, 1
-  %423 = zext i16 %422 to i32
-  %424 = icmp ne i32 %423, 0
-  br i1 %424, label %426, label %425
-
-425:                                              ; preds = %415
-  store i32 1, ptr %14, align 4
-  br label %426
-
-426:                                              ; preds = %425, %415
-  %427 = load ptr, ptr %13, align 8
-  %428 = getelementptr inbounds %struct._fragment_head, ptr %427, i32 0, i32 7
-  %429 = load i32, ptr %428, align 4
-  %430 = load ptr, ptr %8, align 8
-  %431 = getelementptr inbounds %struct._packet_info, ptr %430, i32 0, i32 32
-  %432 = load i32, ptr %431, align 4
-  %433 = sub i32 %429, %432
-  store i32 %433, ptr %18, align 4
-  %434 = load ptr, ptr %7, align 8
-  %435 = call i32 @tvb_reported_length(ptr noundef %434)
-  %436 = load i32, ptr %18, align 4
-  %437 = sub i32 %435, %436
-  store i32 %437, ptr %18, align 4
-  br label %438
-
-438:                                              ; preds = %426, %399
-  br label %439
-
-439:                                              ; preds = %438, %389
-  br label %440
-
-440:                                              ; preds = %439, %303
   br label %441
 
-441:                                              ; preds = %440, %289, %286
-  %442 = load i32, ptr %14, align 4
-  %443 = icmp ne i32 %442, 0
-  br i1 %443, label %444, label %540
+308:                                              ; preds = %298
+  %309 = load ptr, ptr %8, align 8
+  %310 = getelementptr inbounds %struct._packet_info, ptr %309, i32 0, i32 1
+  %311 = load ptr, ptr %310, align 8
+  call void @col_clear(ptr noundef %311, i32 noundef 25)
+  %312 = load ptr, ptr %7, align 8
+  %313 = load ptr, ptr %13, align 8
+  %314 = getelementptr inbounds %struct._fragment_head, ptr %313, i32 0, i32 11
+  %315 = load ptr, ptr %314, align 8
+  %316 = call ptr @tvb_new_chain(ptr noundef %312, ptr noundef %315)
+  store ptr %316, ptr %28, align 8
+  %317 = load ptr, ptr %8, align 8
+  %318 = load ptr, ptr %28, align 8
+  call void @add_new_data_source(ptr noundef %317, ptr noundef %318, ptr noundef @.str.548)
+  %319 = load ptr, ptr %28, align 8
+  %320 = load ptr, ptr %8, align 8
+  %321 = load ptr, ptr %11, align 8
+  %322 = load ptr, ptr %12, align 8
+  call void @ssh_process_payload(ptr noundef %319, i32 noundef 0, ptr noundef %320, ptr noundef %321, ptr noundef %322)
+  store i32 1, ptr %15, align 4
+  %323 = load ptr, ptr %28, align 8
+  %324 = call i32 @tvb_reported_length(ptr noundef %323)
+  %325 = load ptr, ptr %7, align 8
+  %326 = load i32, ptr %19, align 4
+  %327 = call i32 @tvb_reported_length_remaining(ptr noundef %325, i32 noundef %326)
+  %328 = sub i32 %324, %327
+  store i32 %328, ptr %29, align 4
+  %329 = load ptr, ptr %8, align 8
+  %330 = getelementptr inbounds %struct._packet_info, ptr %329, i32 0, i32 33
+  %331 = load i32, ptr %330, align 8
+  %332 = icmp ne i32 %331, 0
+  br i1 %332, label %333, label %391
 
-444:                                              ; preds = %441
-  %445 = load ptr, ptr %8, align 8
-  %446 = getelementptr inbounds %struct._packet_info, ptr %445, i32 0, i32 33
-  %447 = load i32, ptr %446, align 8
-  %448 = icmp eq i32 %447, 268435454
-  br i1 %448, label %449, label %456
+333:                                              ; preds = %308
+  %334 = load ptr, ptr %8, align 8
+  %335 = getelementptr inbounds %struct._packet_info, ptr %334, i32 0, i32 32
+  %336 = load i32, ptr %335, align 4
+  %337 = load i32, ptr %29, align 4
+  %338 = icmp sle i32 %336, %337
+  br i1 %338, label %339, label %391
 
-449:                                              ; preds = %444
-  %450 = load ptr, ptr %12, align 8
-  %451 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %450, i32 0, i32 1
-  %452 = load i16, ptr %451, align 4
-  %453 = zext i16 %452 to i32
-  %454 = or i32 %453, 1
-  %455 = trunc i32 %454 to i16
-  store i16 %455, ptr %451, align 4
-  br label %456
+339:                                              ; preds = %333
+  %340 = load ptr, ptr %8, align 8
+  %341 = load ptr, ptr %23, align 8
+  %342 = call i32 @ssh_msp_fragment_id(ptr noundef %341)
+  %343 = load ptr, ptr %23, align 8
+  call void @fragment_set_partial_reassembly(ptr noundef @ssh_reassembly_table, ptr noundef %340, i32 noundef %342, ptr noundef %343)
+  %344 = load ptr, ptr %8, align 8
+  %345 = getelementptr inbounds %struct._packet_info, ptr %344, i32 0, i32 33
+  %346 = load i32, ptr %345, align 8
+  %347 = icmp eq i32 %346, 268435455
+  br i1 %347, label %348, label %361
 
-456:                                              ; preds = %449, %444
-  %457 = load i32, ptr %9, align 4
-  %458 = load i32, ptr %18, align 4
-  %459 = load i32, ptr %19, align 4
-  %460 = sub i32 %458, %459
-  %461 = add i32 %457, %460
-  store i32 %461, ptr %20, align 4
-  %462 = load i32, ptr %10, align 4
-  %463 = load i32, ptr %20, align 4
-  %464 = sub i32 %462, %463
-  %465 = icmp ule i32 %464, 1048576
-  br i1 %465, label %466, label %539
+348:                                              ; preds = %339
+  %349 = load i32, ptr %9, align 4
+  %350 = load ptr, ptr %7, align 8
+  %351 = load i32, ptr %19, align 4
+  %352 = call i32 @tvb_reported_length_remaining(ptr noundef %350, i32 noundef %351)
+  %353 = add i32 %349, %352
+  %354 = add i32 %353, 1
+  %355 = load ptr, ptr %23, align 8
+  %356 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %355, i32 0, i32 1
+  store i32 %354, ptr %356, align 4
+  %357 = load ptr, ptr %23, align 8
+  %358 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %357, i32 0, i32 6
+  %359 = load i32, ptr %358, align 4
+  %360 = or i32 %359, 1
+  store i32 %360, ptr %358, align 4
+  br label %390
 
-466:                                              ; preds = %456
-  %467 = load ptr, ptr %8, align 8
-  %468 = getelementptr inbounds %struct._packet_info, ptr %467, i32 0, i32 8
-  %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds %struct._frame_data, ptr %469, i32 0, i32 9
-  %471 = load i16, ptr %470, align 2
-  %472 = lshr i16 %471, 3
-  %473 = and i16 %472, 1
-  %474 = zext i16 %473 to i32
-  %475 = icmp ne i32 %474, 0
-  br i1 %475, label %539, label %476
+361:                                              ; preds = %339
+  %362 = load ptr, ptr %8, align 8
+  %363 = getelementptr inbounds %struct._packet_info, ptr %362, i32 0, i32 33
+  %364 = load i32, ptr %363, align 8
+  %365 = icmp eq i32 %364, 268435454
+  br i1 %365, label %366, label %377
 
-476:                                              ; preds = %466
-  %477 = load ptr, ptr %8, align 8
-  %478 = getelementptr inbounds %struct._packet_info, ptr %477, i32 0, i32 33
-  %479 = load i32, ptr %478, align 8
-  %480 = icmp eq i32 %479, 268435455
-  br i1 %480, label %481, label %494
+366:                                              ; preds = %361
+  %367 = load ptr, ptr %12, align 8
+  %368 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %367, i32 0, i32 1
+  %369 = load i16, ptr %368, align 4
+  %370 = zext i16 %369 to i32
+  %371 = or i32 %370, 1
+  %372 = trunc i32 %371 to i16
+  store i16 %372, ptr %368, align 4
+  %373 = load i32, ptr %10, align 4
+  %374 = add i32 %373, 1073741824
+  %375 = load ptr, ptr %23, align 8
+  %376 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %375, i32 0, i32 1
+  store i32 %374, ptr %376, align 4
+  br label %389
 
-481:                                              ; preds = %476
-  %482 = load ptr, ptr %8, align 8
-  %483 = load i32, ptr %20, align 4
-  %484 = load i32, ptr %10, align 4
-  %485 = add i32 %484, 1
-  %486 = load ptr, ptr %12, align 8
-  %487 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %486, i32 0, i32 2
-  %488 = load ptr, ptr %487, align 8
-  %489 = call ptr @pdu_store_sequencenumber_of_next_pdu(ptr noundef %482, i32 noundef %483, i32 noundef %485, ptr noundef %488)
-  store ptr %489, ptr %23, align 8
-  %490 = load ptr, ptr %23, align 8
-  %491 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %490, i32 0, i32 6
-  %492 = load i32, ptr %491, align 4
-  %493 = or i32 %492, 1
-  store i32 %493, ptr %491, align 4
+377:                                              ; preds = %361
+  %378 = load i32, ptr %9, align 4
+  %379 = load ptr, ptr %7, align 8
+  %380 = load i32, ptr %19, align 4
+  %381 = call i32 @tvb_reported_length_remaining(ptr noundef %379, i32 noundef %380)
+  %382 = add i32 %378, %381
+  %383 = load ptr, ptr %8, align 8
+  %384 = getelementptr inbounds %struct._packet_info, ptr %383, i32 0, i32 33
+  %385 = load i32, ptr %384, align 8
+  %386 = add i32 %382, %385
+  %387 = load ptr, ptr %23, align 8
+  %388 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %387, i32 0, i32 1
+  store i32 %386, ptr %388, align 4
+  br label %389
+
+389:                                              ; preds = %377, %366
+  br label %390
+
+390:                                              ; preds = %389, %348
+  store i32 0, ptr %16, align 4
+  br label %440
+
+391:                                              ; preds = %333, %308
+  %392 = load i32, ptr %16, align 4
+  %393 = icmp sgt i32 %392, 0
+  br i1 %393, label %394, label %396
+
+394:                                              ; preds = %391
+  %395 = load i32, ptr %16, align 4
+  br label %400
+
+396:                                              ; preds = %391
+  %397 = load ptr, ptr %7, align 8
+  %398 = load i32, ptr %19, align 4
+  %399 = call i32 @tvb_reported_length_remaining(ptr noundef %397, i32 noundef %398)
+  br label %400
+
+400:                                              ; preds = %396, %394
+  %401 = phi i32 [ %395, %394 ], [ %399, %396 ]
+  store i32 %401, ptr %21, align 4
+  %402 = load ptr, ptr %11, align 8
+  %403 = load ptr, ptr %7, align 8
+  %404 = load i32, ptr %19, align 4
+  %405 = load i32, ptr %21, align 4
+  call void @ssh_proto_tree_add_segment_data(ptr noundef %402, ptr noundef %403, i32 noundef %404, i32 noundef %405, ptr noundef null)
+  %406 = load ptr, ptr %13, align 8
+  %407 = load ptr, ptr %11, align 8
+  %408 = call ptr @proto_tree_get_root(ptr noundef %407)
+  %409 = load ptr, ptr %11, align 8
+  %410 = load ptr, ptr %8, align 8
+  %411 = load ptr, ptr %28, align 8
+  call void @print_ssh_fragment_tree(ptr noundef %406, ptr noundef %408, ptr noundef %409, ptr noundef %410, ptr noundef %411)
+  %412 = load ptr, ptr %8, align 8
+  %413 = getelementptr inbounds %struct._packet_info, ptr %412, i32 0, i32 33
+  %414 = load i32, ptr %413, align 8
+  %415 = icmp ne i32 %414, 0
+  br i1 %415, label %416, label %439
+
+416:                                              ; preds = %400
+  %417 = load ptr, ptr %8, align 8
+  %418 = getelementptr inbounds %struct._packet_info, ptr %417, i32 0, i32 8
+  %419 = load ptr, ptr %418, align 8
+  %420 = getelementptr inbounds %struct._frame_data, ptr %419, i32 0, i32 9
+  %421 = load i16, ptr %420, align 2
+  %422 = lshr i16 %421, 3
+  %423 = and i16 %422, 1
+  %424 = zext i16 %423 to i32
+  %425 = icmp ne i32 %424, 0
+  br i1 %425, label %427, label %426
+
+426:                                              ; preds = %416
+  store i32 1, ptr %14, align 4
+  br label %427
+
+427:                                              ; preds = %426, %416
+  %428 = load ptr, ptr %13, align 8
+  %429 = getelementptr inbounds %struct._fragment_head, ptr %428, i32 0, i32 7
+  %430 = load i32, ptr %429, align 4
+  %431 = load ptr, ptr %8, align 8
+  %432 = getelementptr inbounds %struct._packet_info, ptr %431, i32 0, i32 32
+  %433 = load i32, ptr %432, align 4
+  %434 = sub i32 %430, %433
+  store i32 %434, ptr %18, align 4
+  %435 = load ptr, ptr %7, align 8
+  %436 = call i32 @tvb_reported_length(ptr noundef %435)
+  %437 = load i32, ptr %18, align 4
+  %438 = sub i32 %436, %437
+  store i32 %438, ptr %18, align 4
+  br label %439
+
+439:                                              ; preds = %427, %400
+  br label %440
+
+440:                                              ; preds = %439, %390
+  br label %441
+
+441:                                              ; preds = %440, %304
+  br label %442
+
+442:                                              ; preds = %441, %290, %287
+  %443 = load i32, ptr %14, align 4
+  %444 = icmp ne i32 %443, 0
+  br i1 %444, label %445, label %541
+
+445:                                              ; preds = %442
+  %446 = load ptr, ptr %8, align 8
+  %447 = getelementptr inbounds %struct._packet_info, ptr %446, i32 0, i32 33
+  %448 = load i32, ptr %447, align 8
+  %449 = icmp eq i32 %448, 268435454
+  br i1 %449, label %450, label %457
+
+450:                                              ; preds = %445
+  %451 = load ptr, ptr %12, align 8
+  %452 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %451, i32 0, i32 1
+  %453 = load i16, ptr %452, align 4
+  %454 = zext i16 %453 to i32
+  %455 = or i32 %454, 1
+  %456 = trunc i32 %455 to i16
+  store i16 %456, ptr %452, align 4
+  br label %457
+
+457:                                              ; preds = %450, %445
+  %458 = load i32, ptr %9, align 4
+  %459 = load i32, ptr %18, align 4
+  %460 = load i32, ptr %19, align 4
+  %461 = sub i32 %459, %460
+  %462 = add i32 %458, %461
+  store i32 %462, ptr %20, align 4
+  %463 = load i32, ptr %10, align 4
+  %464 = load i32, ptr %20, align 4
+  %465 = sub i32 %463, %464
+  %466 = icmp ule i32 %465, 1048576
+  br i1 %466, label %467, label %540
+
+467:                                              ; preds = %457
+  %468 = load ptr, ptr %8, align 8
+  %469 = getelementptr inbounds %struct._packet_info, ptr %468, i32 0, i32 8
+  %470 = load ptr, ptr %469, align 8
+  %471 = getelementptr inbounds %struct._frame_data, ptr %470, i32 0, i32 9
+  %472 = load i16, ptr %471, align 2
+  %473 = lshr i16 %472, 3
+  %474 = and i16 %473, 1
+  %475 = zext i16 %474 to i32
+  %476 = icmp ne i32 %475, 0
+  br i1 %476, label %540, label %477
+
+477:                                              ; preds = %467
+  %478 = load ptr, ptr %8, align 8
+  %479 = getelementptr inbounds %struct._packet_info, ptr %478, i32 0, i32 33
+  %480 = load i32, ptr %479, align 8
+  %481 = icmp eq i32 %480, 268435455
+  br i1 %481, label %482, label %495
+
+482:                                              ; preds = %477
+  %483 = load ptr, ptr %8, align 8
+  %484 = load i32, ptr %20, align 4
+  %485 = load i32, ptr %10, align 4
+  %486 = add i32 %485, 1
+  %487 = load ptr, ptr %12, align 8
+  %488 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %487, i32 0, i32 2
+  %489 = load ptr, ptr %488, align 8
+  %490 = call ptr @pdu_store_sequencenumber_of_next_pdu(ptr noundef %483, i32 noundef %484, i32 noundef %486, ptr noundef %489)
+  store ptr %490, ptr %23, align 8
+  %491 = load ptr, ptr %23, align 8
+  %492 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %491, i32 0, i32 6
+  %493 = load i32, ptr %492, align 4
+  %494 = or i32 %493, 1
+  store i32 %494, ptr %492, align 4
+  br label %522
+
+495:                                              ; preds = %477
+  %496 = load ptr, ptr %8, align 8
+  %497 = getelementptr inbounds %struct._packet_info, ptr %496, i32 0, i32 33
+  %498 = load i32, ptr %497, align 8
+  %499 = icmp eq i32 %498, 268435454
+  br i1 %499, label %500, label %509
+
+500:                                              ; preds = %495
+  %501 = load ptr, ptr %8, align 8
+  %502 = load i32, ptr %20, align 4
+  %503 = load i32, ptr %10, align 4
+  %504 = add i32 %503, 1073741824
+  %505 = load ptr, ptr %12, align 8
+  %506 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %505, i32 0, i32 2
+  %507 = load ptr, ptr %506, align 8
+  %508 = call ptr @pdu_store_sequencenumber_of_next_pdu(ptr noundef %501, i32 noundef %502, i32 noundef %504, ptr noundef %507)
+  store ptr %508, ptr %23, align 8
   br label %521
 
-494:                                              ; preds = %476
-  %495 = load ptr, ptr %8, align 8
-  %496 = getelementptr inbounds %struct._packet_info, ptr %495, i32 0, i32 33
-  %497 = load i32, ptr %496, align 8
-  %498 = icmp eq i32 %497, 268435454
-  br i1 %498, label %499, label %508
-
-499:                                              ; preds = %494
-  %500 = load ptr, ptr %8, align 8
-  %501 = load i32, ptr %20, align 4
-  %502 = load i32, ptr %10, align 4
-  %503 = add i32 %502, 1073741824
-  %504 = load ptr, ptr %12, align 8
-  %505 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %504, i32 0, i32 2
-  %506 = load ptr, ptr %505, align 8
-  %507 = call ptr @pdu_store_sequencenumber_of_next_pdu(ptr noundef %500, i32 noundef %501, i32 noundef %503, ptr noundef %506)
-  store ptr %507, ptr %23, align 8
-  br label %520
-
-508:                                              ; preds = %494
-  %509 = load ptr, ptr %8, align 8
-  %510 = load i32, ptr %20, align 4
-  %511 = load i32, ptr %10, align 4
-  %512 = load ptr, ptr %8, align 8
-  %513 = getelementptr inbounds %struct._packet_info, ptr %512, i32 0, i32 33
-  %514 = load i32, ptr %513, align 8
-  %515 = add i32 %511, %514
-  %516 = load ptr, ptr %12, align 8
-  %517 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %516, i32 0, i32 2
-  %518 = load ptr, ptr %517, align 8
-  %519 = call ptr @pdu_store_sequencenumber_of_next_pdu(ptr noundef %509, i32 noundef %510, i32 noundef %515, ptr noundef %518)
-  store ptr %519, ptr %23, align 8
-  br label %520
-
-520:                                              ; preds = %508, %499
+509:                                              ; preds = %495
+  %510 = load ptr, ptr %8, align 8
+  %511 = load i32, ptr %20, align 4
+  %512 = load i32, ptr %10, align 4
+  %513 = load ptr, ptr %8, align 8
+  %514 = getelementptr inbounds %struct._packet_info, ptr %513, i32 0, i32 33
+  %515 = load i32, ptr %514, align 8
+  %516 = add i32 %512, %515
+  %517 = load ptr, ptr %12, align 8
+  %518 = getelementptr inbounds %struct._ssh_channel_info_t, ptr %517, i32 0, i32 2
+  %519 = load ptr, ptr %518, align 8
+  %520 = call ptr @pdu_store_sequencenumber_of_next_pdu(ptr noundef %510, i32 noundef %511, i32 noundef %516, ptr noundef %519)
+  store ptr %520, ptr %23, align 8
   br label %521
 
-521:                                              ; preds = %520, %481
-  %522 = load ptr, ptr %7, align 8
-  %523 = load i32, ptr %18, align 4
-  %524 = load ptr, ptr %8, align 8
-  %525 = load ptr, ptr %23, align 8
-  %526 = call i32 @ssh_msp_fragment_id(ptr noundef %525)
-  %527 = load ptr, ptr %23, align 8
-  %528 = load i32, ptr %10, align 4
-  %529 = load i32, ptr %20, align 4
-  %530 = sub i32 %528, %529
-  %531 = load i32, ptr %10, align 4
-  %532 = load ptr, ptr %23, align 8
-  %533 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %532, i32 0, i32 1
-  %534 = load i32, ptr %533, align 4
-  %535 = sub i32 %531, %534
-  %536 = icmp slt i32 %535, 0
-  %537 = zext i1 %536 to i32
-  %538 = call ptr @fragment_add(ptr noundef @ssh_reassembly_table, ptr noundef %522, i32 noundef %523, ptr noundef %524, i32 noundef %526, ptr noundef %527, i32 noundef 0, i32 noundef %530, i32 noundef %537)
-  br label %539
+521:                                              ; preds = %509, %500
+  br label %522
 
-539:                                              ; preds = %521, %466, %456
+522:                                              ; preds = %521, %482
+  %523 = load ptr, ptr %7, align 8
+  %524 = load i32, ptr %18, align 4
+  %525 = load ptr, ptr %8, align 8
+  %526 = load ptr, ptr %23, align 8
+  %527 = call i32 @ssh_msp_fragment_id(ptr noundef %526)
+  %528 = load ptr, ptr %23, align 8
+  %529 = load i32, ptr %10, align 4
+  %530 = load i32, ptr %20, align 4
+  %531 = sub i32 %529, %530
+  %532 = load i32, ptr %10, align 4
+  %533 = load ptr, ptr %23, align 8
+  %534 = getelementptr inbounds %struct.tcp_multisegment_pdu, ptr %533, i32 0, i32 1
+  %535 = load i32, ptr %534, align 4
+  %536 = sub i32 %532, %535
+  %537 = icmp slt i32 %536, 0
+  %538 = zext i1 %537 to i32
+  %539 = call ptr @fragment_add(ptr noundef @ssh_reassembly_table, ptr noundef %523, i32 noundef %524, ptr noundef %525, i32 noundef %527, ptr noundef %528, i32 noundef 0, i32 noundef %531, i32 noundef %538)
   br label %540
 
-540:                                              ; preds = %539, %441
-  %541 = load i32, ptr %15, align 4
-  %542 = icmp ne i32 %541, 0
-  br i1 %542, label %543, label %548
+540:                                              ; preds = %522, %467, %457
+  br label %541
 
-543:                                              ; preds = %540
-  %544 = load ptr, ptr %8, align 8
-  %545 = getelementptr inbounds %struct._packet_info, ptr %544, i32 0, i32 33
-  %546 = load i32, ptr %545, align 8
-  %547 = icmp ne i32 %546, 0
-  br i1 %547, label %548, label %604
+541:                                              ; preds = %540, %442
+  %542 = load i32, ptr %15, align 4
+  %543 = icmp ne i32 %542, 0
+  br i1 %543, label %544, label %549
 
-548:                                              ; preds = %543, %540
-  %549 = load ptr, ptr %13, align 8
-  %550 = icmp ne ptr %549, null
-  br i1 %550, label %551, label %580
+544:                                              ; preds = %541
+  %545 = load ptr, ptr %8, align 8
+  %546 = getelementptr inbounds %struct._packet_info, ptr %545, i32 0, i32 33
+  %547 = load i32, ptr %546, align 8
+  %548 = icmp ne i32 %547, 0
+  br i1 %548, label %549, label %606
 
-551:                                              ; preds = %548
-  %552 = load ptr, ptr %13, align 8
-  %553 = getelementptr inbounds %struct._fragment_head, ptr %552, i32 0, i32 8
-  %554 = load i32, ptr %553, align 8
-  %555 = icmp ne i32 %554, 0
-  br i1 %555, label %556, label %580
+549:                                              ; preds = %544, %541
+  %550 = load ptr, ptr %13, align 8
+  %551 = icmp ne ptr %550, null
+  br i1 %551, label %552, label %582
 
-556:                                              ; preds = %551
-  %557 = load ptr, ptr %13, align 8
-  %558 = getelementptr inbounds %struct._fragment_head, ptr %557, i32 0, i32 8
-  %559 = load i32, ptr %558, align 8
-  %560 = load ptr, ptr %8, align 8
-  %561 = getelementptr inbounds %struct._packet_info, ptr %560, i32 0, i32 3
-  %562 = load i32, ptr %561, align 4
-  %563 = icmp ne i32 %559, %562
-  br i1 %563, label %564, label %580
+552:                                              ; preds = %549
+  %553 = load ptr, ptr %13, align 8
+  %554 = getelementptr inbounds %struct._fragment_head, ptr %553, i32 0, i32 8
+  %555 = load i32, ptr %554, align 8
+  %556 = icmp ne i32 %555, 0
+  br i1 %556, label %557, label %582
 
-564:                                              ; preds = %556
-  %565 = load ptr, ptr %13, align 8
-  %566 = getelementptr inbounds %struct._fragment_head, ptr %565, i32 0, i32 10
-  %567 = load i32, ptr %566, align 8
-  %568 = and i32 %567, 64
-  %569 = icmp ne i32 %568, 0
-  br i1 %569, label %580, label %570
+557:                                              ; preds = %552
+  %558 = load ptr, ptr %13, align 8
+  %559 = getelementptr inbounds %struct._fragment_head, ptr %558, i32 0, i32 8
+  %560 = load i32, ptr %559, align 8
+  %561 = load ptr, ptr %8, align 8
+  %562 = getelementptr inbounds %struct._packet_info, ptr %561, i32 0, i32 3
+  %563 = load i32, ptr %562, align 4
+  %564 = icmp ne i32 %560, %563
+  br i1 %564, label %565, label %582
 
-570:                                              ; preds = %564
-  %571 = load ptr, ptr %11, align 8
-  %572 = load ptr, ptr getelementptr inbounds (%struct._fragment_items, ptr @ssh_segment_items, i32 0, i32 10), align 8
-  %573 = load i32, ptr %572, align 4
-  %574 = load ptr, ptr %7, align 8
-  %575 = load ptr, ptr %13, align 8
-  %576 = getelementptr inbounds %struct._fragment_head, ptr %575, i32 0, i32 8
-  %577 = load i32, ptr %576, align 8
-  %578 = call ptr @proto_tree_add_uint(ptr noundef %571, i32 noundef %573, ptr noundef %574, i32 noundef 0, i32 noundef 0, i32 noundef %577)
-  store ptr %578, ptr %22, align 8
-  %579 = load ptr, ptr %22, align 8
-  call void @proto_item_set_generated(ptr noundef %579)
-  br label %580
+565:                                              ; preds = %557
+  %566 = load ptr, ptr %13, align 8
+  %567 = getelementptr inbounds %struct._fragment_head, ptr %566, i32 0, i32 10
+  %568 = load i32, ptr %567, align 8
+  %569 = and i32 %568, 64
+  %570 = icmp ne i32 %569, 0
+  br i1 %570, label %582, label %571
 
-580:                                              ; preds = %570, %564, %556, %551, %548
-  %581 = load i32, ptr %17, align 4
-  %582 = icmp ne i32 %581, 0
-  br i1 %582, label %596, label %583
+571:                                              ; preds = %565
+  %572 = load ptr, ptr %11, align 8
+  %573 = getelementptr inbounds %struct._fragment_items, ptr @ssh_segment_items, i32 0, i32 10
+  %574 = load ptr, ptr %573, align 8
+  %575 = load i32, ptr %574, align 4
+  %576 = load ptr, ptr %7, align 8
+  %577 = load ptr, ptr %13, align 8
+  %578 = getelementptr inbounds %struct._fragment_head, ptr %577, i32 0, i32 8
+  %579 = load i32, ptr %578, align 8
+  %580 = call ptr @proto_tree_add_uint(ptr noundef %572, i32 noundef %575, ptr noundef %576, i32 noundef 0, i32 noundef 0, i32 noundef %579)
+  store ptr %580, ptr %22, align 8
+  %581 = load ptr, ptr %22, align 8
+  call void @proto_item_set_generated(ptr noundef %581)
+  br label %582
 
-583:                                              ; preds = %580
-  %584 = load ptr, ptr %8, align 8
-  %585 = getelementptr inbounds %struct._packet_info, ptr %584, i32 0, i32 32
-  %586 = load i32, ptr %585, align 4
-  %587 = icmp eq i32 %586, 0
-  br i1 %587, label %588, label %596
+582:                                              ; preds = %571, %565, %557, %552, %549
+  %583 = load i32, ptr %17, align 4
+  %584 = icmp ne i32 %583, 0
+  br i1 %584, label %598, label %585
 
-588:                                              ; preds = %583
-  %589 = load i32, ptr %24, align 4
-  %590 = icmp ne i32 %589, 0
-  br i1 %590, label %591, label %595
+585:                                              ; preds = %582
+  %586 = load ptr, ptr %8, align 8
+  %587 = getelementptr inbounds %struct._packet_info, ptr %586, i32 0, i32 32
+  %588 = load i32, ptr %587, align 4
+  %589 = icmp eq i32 %588, 0
+  br i1 %589, label %590, label %598
 
-591:                                              ; preds = %588
-  %592 = load ptr, ptr %8, align 8
-  %593 = getelementptr inbounds %struct._packet_info, ptr %592, i32 0, i32 1
-  %594 = load ptr, ptr %593, align 8
-  call void @col_append_sep_str(ptr noundef %594, i32 noundef 25, ptr noundef @.str.399, ptr noundef @.str.546)
-  br label %595
+590:                                              ; preds = %585
+  %591 = load i32, ptr %24, align 4
+  %592 = icmp ne i32 %591, 0
+  br i1 %592, label %593, label %597
 
-595:                                              ; preds = %591, %588
-  br label %596
+593:                                              ; preds = %590
+  %594 = load ptr, ptr %8, align 8
+  %595 = getelementptr inbounds %struct._packet_info, ptr %594, i32 0, i32 1
+  %596 = load ptr, ptr %595, align 8
+  call void @col_append_sep_str(ptr noundef %596, i32 noundef 25, ptr noundef @.str.399, ptr noundef @.str.546)
+  br label %597
 
-596:                                              ; preds = %595, %583, %580
-  %597 = load ptr, ptr %7, align 8
-  %598 = load i32, ptr %18, align 4
-  %599 = call i32 @tvb_reported_length_remaining(ptr noundef %597, i32 noundef %598)
-  store i32 %599, ptr %21, align 4
-  %600 = load ptr, ptr %11, align 8
-  %601 = load ptr, ptr %7, align 8
-  %602 = load i32, ptr %18, align 4
-  %603 = load i32, ptr %21, align 4
-  call void @ssh_proto_tree_add_segment_data(ptr noundef %600, ptr noundef %601, i32 noundef %602, i32 noundef %603, ptr noundef null)
-  br label %604
+597:                                              ; preds = %593, %590
+  br label %598
 
-604:                                              ; preds = %596, %543
-  %605 = load ptr, ptr %8, align 8
-  %606 = getelementptr inbounds %struct._packet_info, ptr %605, i32 0, i32 30
-  store i16 0, ptr %606, align 8
+598:                                              ; preds = %597, %585, %582
+  %599 = load ptr, ptr %7, align 8
+  %600 = load i32, ptr %18, align 4
+  %601 = call i32 @tvb_reported_length_remaining(ptr noundef %599, i32 noundef %600)
+  store i32 %601, ptr %21, align 4
+  %602 = load ptr, ptr %11, align 8
+  %603 = load ptr, ptr %7, align 8
+  %604 = load i32, ptr %18, align 4
+  %605 = load i32, ptr %21, align 4
+  call void @ssh_proto_tree_add_segment_data(ptr noundef %602, ptr noundef %603, i32 noundef %604, i32 noundef %605, ptr noundef null)
+  br label %606
+
+606:                                              ; preds = %598, %544
   %607 = load ptr, ptr %8, align 8
-  %608 = getelementptr inbounds %struct._packet_info, ptr %607, i32 0, i32 32
-  store i32 0, ptr %608, align 4
+  %608 = getelementptr inbounds %struct._packet_info, ptr %607, i32 0, i32 30
+  store i16 0, ptr %608, align 8
   %609 = load ptr, ptr %8, align 8
-  %610 = getelementptr inbounds %struct._packet_info, ptr %609, i32 0, i32 33
-  store i32 0, ptr %610, align 8
-  %611 = load i32, ptr %16, align 4
-  %612 = icmp ne i32 %611, 0
-  br i1 %612, label %613, label %628
+  %610 = getelementptr inbounds %struct._packet_info, ptr %609, i32 0, i32 32
+  store i32 0, ptr %610, align 4
+  %611 = load ptr, ptr %8, align 8
+  %612 = getelementptr inbounds %struct._packet_info, ptr %611, i32 0, i32 33
+  store i32 0, ptr %612, align 8
+  %613 = load i32, ptr %16, align 4
+  %614 = icmp ne i32 %613, 0
+  br i1 %614, label %615, label %630
 
-613:                                              ; preds = %604
-  %614 = load ptr, ptr %8, align 8
-  %615 = getelementptr inbounds %struct._packet_info, ptr %614, i32 0, i32 30
-  store i16 2, ptr %615, align 8
+615:                                              ; preds = %606
   %616 = load ptr, ptr %8, align 8
-  %617 = getelementptr inbounds %struct._packet_info, ptr %616, i32 0, i32 1
-  %618 = load ptr, ptr %617, align 8
-  call void @col_set_fence(ptr noundef %618, i32 noundef 25)
-  %619 = load ptr, ptr %8, align 8
-  %620 = getelementptr inbounds %struct._packet_info, ptr %619, i32 0, i32 1
-  %621 = load ptr, ptr %620, align 8
-  call void @col_set_writable(ptr noundef %621, i32 noundef 34, i32 noundef 0)
+  %617 = getelementptr inbounds %struct._packet_info, ptr %616, i32 0, i32 30
+  store i16 2, ptr %617, align 8
+  %618 = load ptr, ptr %8, align 8
+  %619 = getelementptr inbounds %struct._packet_info, ptr %618, i32 0, i32 1
+  %620 = load ptr, ptr %619, align 8
+  call void @col_set_fence(ptr noundef %620, i32 noundef 25)
+  %621 = load ptr, ptr %8, align 8
+  %622 = getelementptr inbounds %struct._packet_info, ptr %621, i32 0, i32 1
+  %623 = load ptr, ptr %622, align 8
+  call void @col_set_writable(ptr noundef %623, i32 noundef 34, i32 noundef 0)
   store i32 0, ptr %24, align 4
-  %622 = load i32, ptr %16, align 4
-  %623 = load i32, ptr %19, align 4
-  %624 = add i32 %623, %622
-  store i32 %624, ptr %19, align 4
-  %625 = load i32, ptr %16, align 4
-  %626 = load i32, ptr %9, align 4
-  %627 = add i32 %626, %625
-  store i32 %627, ptr %9, align 4
+  %624 = load i32, ptr %16, align 4
+  %625 = load i32, ptr %19, align 4
+  %626 = add i32 %625, %624
+  store i32 %626, ptr %19, align 4
+  %627 = load i32, ptr %16, align 4
+  %628 = load i32, ptr %9, align 4
+  %629 = add i32 %628, %627
+  store i32 %629, ptr %9, align 4
   br label %30
 
-628:                                              ; preds = %604, %108
+630:                                              ; preds = %606, %109
   ret void
 }
 
@@ -16241,21 +16237,27 @@ declare i32 @fflush(ptr noundef) #1
 declare void @g_hash_table_destroy(ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @gnutls_check_version(ptr noundef) #10
+declare ptr @gnutls_check_version(ptr noundef) #9
 
 declare ptr @gcry_check_version(ptr noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { nounwind }

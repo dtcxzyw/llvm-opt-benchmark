@@ -120,14 +120,16 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call1 = call i32 @getpid() #7
-  store i32 %call1, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 5), align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 2), align 4
-  %cmp2 = icmp ne i32 %4, 0
+  %4 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 5
+  store i32 %call1, ptr %4, align 4
+  %5 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 2
+  %6 = load i32, ptr %5, align 4
+  %cmp2 = icmp ne i32 %6, 0
   br i1 %cmp2, label %if.then3, label %if.end9
 
 if.then3:                                         ; preds = %if.end
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
-  %key = getelementptr inbounds %struct.InternalRandom_, ptr %5, i32 0, i32 2
+  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
+  %key = getelementptr inbounds %struct.InternalRandom_, ptr %7, i32 0, i32 2
   %arraydecay4 = getelementptr inbounds [32 x i8], ptr %key, i64 0, i64 0
   %call5 = call i32 @randombytes_getentropy(ptr noundef %arraydecay4, i64 noundef 32)
   %cmp6 = icmp ne i32 %call5, 0
@@ -141,8 +143,8 @@ if.end8:                                          ; preds = %if.then3
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end8, %if.end
-  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
-  %initialized = getelementptr inbounds %struct.InternalRandom_, ptr %6, i32 0, i32 0
+  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
+  %initialized = getelementptr inbounds %struct.InternalRandom_, ptr %8, i32 0, i32 0
   store i32 1, ptr %initialized, align 8
   ret void
 }
@@ -223,8 +225,9 @@ define internal i32 @randombytes_internal_random_close() #0 {
 entry:
   %ret = alloca i32, align 4
   store i32 -1, ptr %ret, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 2), align 4
-  %cmp = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 2
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp ne i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -232,10 +235,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
-  call void @sodium_memzero(ptr noundef %1, i64 noundef 568)
-  %2 = load i32, ptr %ret, align 4
-  ret i32 %2
+  %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
+  call void @sodium_memzero(ptr noundef %2, i64 noundef 568)
+  %3 = load i32, ptr %ret, align 4
+  ret i32 %3
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -255,9 +258,10 @@ if.then:                                          ; preds = %entry
   br label %if.end3
 
 if.else:                                          ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 5), align 4
+  %2 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 5
+  %3 = load i32, ptr %2, align 4
   %call = call i32 @getpid() #7
-  %cmp1 = icmp ne i32 %2, %call
+  %cmp1 = icmp ne i32 %3, %call
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.else
@@ -278,8 +282,9 @@ define internal void @randombytes_internal_random_xorhwrand() #0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %r = alloca i32, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 4), align 4
-  %cmp = icmp eq i32 %0, 0
+  %0 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 4
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -287,16 +292,16 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr %r, ptr %__p.addr.i, align 8
-  %1 = load ptr, ptr %__p.addr.i, align 8
-  %2 = call { i32, i32 } @llvm.x86.rdrand.32()
-  %3 = extractvalue { i32, i32 } %2, 0
-  store i32 %3, ptr %1, align 4
-  %4 = load i32, ptr %r, align 4
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
-  %key = getelementptr inbounds %struct.InternalRandom_, ptr %5, i32 0, i32 2
+  %2 = load ptr, ptr %__p.addr.i, align 8
+  %3 = call { i32, i32 } @llvm.x86.rdrand.32()
+  %4 = extractvalue { i32, i32 } %3, 0
+  store i32 %4, ptr %2, align 4
+  %5 = load i32, ptr %r, align 4
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
+  %key = getelementptr inbounds %struct.InternalRandom_, ptr %6, i32 0, i32 2
   %arrayidx = getelementptr [32 x i8], ptr %key, i64 0, i64 28
-  %6 = load i32, ptr %arrayidx, align 4
-  %xor = xor i32 %6, %4
+  %7 = load i32, ptr %arrayidx, align 4
+  %xor = xor i32 %7, %5
   store i32 %xor, ptr %arrayidx, align 4
   br label %return
 
@@ -395,24 +400,29 @@ entry:
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %errno_save, align 4
   %call1 = call i32 @sodium_runtime_has_rdrand()
-  store i32 %call1, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 4), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 3), align 4
+  %1 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 4
+  store i32 %call1, ptr %1, align 4
+  %2 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 2
+  store i32 0, ptr %2, align 4
+  %3 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 3
+  store i32 0, ptr %3, align 4
   %arraydecay = getelementptr inbounds [16 x i8], ptr %fodder, i64 0, i64 0
   %call2 = call i32 @randombytes_getentropy(ptr noundef %arraydecay, i64 noundef 16)
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 2), align 4
-  %1 = load i32, ptr %errno_save, align 4
+  %4 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 2
+  store i32 1, ptr %4, align 4
+  %5 = load i32, ptr %errno_save, align 4
   %call3 = call ptr @__errno_location() #10
-  store i32 %1, ptr %call3, align 4
+  store i32 %5, ptr %call3, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
   %call4 = call i32 @randombytes_internal_random_random_dev_open()
-  store i32 %call4, ptr getelementptr inbounds (%struct.InternalRandomGlobal_, ptr @global, i32 0, i32 1), align 4
+  %6 = getelementptr inbounds %struct.InternalRandomGlobal_, ptr @global, i32 0, i32 1
+  store i32 %call4, ptr %6, align 4
   %cmp5 = icmp eq i32 %call4, -1
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -421,9 +431,9 @@ if.then6:                                         ; preds = %if.end
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %2 = load i32, ptr %errno_save, align 4
+  %7 = load i32, ptr %errno_save, align 4
   %call8 = call ptr @__errno_location() #10
-  store i32 %2, ptr %call8, align 4
+  store i32 %7, ptr %call8, align 4
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then

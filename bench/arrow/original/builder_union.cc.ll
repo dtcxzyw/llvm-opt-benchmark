@@ -3503,10 +3503,11 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BasicUnionBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5arrow17BasicUnionBuilderE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %child_fields_ = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %children.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #11
+  %3 = load ptr, ptr %children.addr, align 8
+  %call = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
   call void @_ZNSaISt10shared_ptrIN5arrow5FieldEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   invoke void @_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EEC2EmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %child_fields_, i64 noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -3522,21 +3523,21 @@ invoke.cont:                                      ; preds = %entry
   %dense_type_id_ = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 6
   store i8 0, ptr %dense_type_id_, align 8
   %types_builder_ = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %pool.addr, align 8
-  %4 = load i64, ptr %alignment.addr, align 8
-  invoke void @_ZN5arrow18TypedBufferBuilderIavEC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(56) %types_builder_, ptr noundef %3, i64 noundef %4)
+  %4 = load ptr, ptr %pool.addr, align 8
+  %5 = load i64, ptr %alignment.addr, align 8
+  invoke void @_ZN5arrow18TypedBufferBuilderIavEC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(56) %types_builder_, ptr noundef %4, i64 noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %5 = load ptr, ptr %type.addr, align 8
-  %call4 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  %6 = load ptr, ptr %type.addr, align 8
+  %call4 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
   %call7 = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZN5arrow8internal12checked_castIRKNS_9UnionTypeERNS_8DataTypeEEET_OT0_(ptr noundef nonnull align 8 dereferenceable(72) %call4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   store ptr %call7, ptr %union_type, align 8
-  %6 = load ptr, ptr %union_type, align 8
-  %call9 = invoke noundef i32 @_ZNK5arrow9UnionType4modeEv(ptr noundef nonnull align 8 dereferenceable(120) %6)
+  %7 = load ptr, ptr %union_type, align 8
+  %call9 = invoke noundef i32 @_ZNK5arrow9UnionType4modeEv(ptr noundef nonnull align 8 dereferenceable(120) %7)
           to label %invoke.cont8 unwind label %lpad5
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -3548,36 +3549,36 @@ while.cond:                                       ; preds = %while.body, %invoke
   br i1 false, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %7 = load ptr, ptr %children.addr, align 8
-  %call10 = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  %8 = load ptr, ptr %children.addr, align 8
+  %call10 = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
   br label %while.cond, !llvm.loop !7
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSaISt10shared_ptrIN5arrow5FieldEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   br label %ehcleanup75
 
 lpad2:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont55, %for.body, %invoke.cont34, %invoke.cont32, %invoke.cont28, %invoke.cont25, %invoke.cont23, %invoke.cont20, %while.end19, %while.body12, %invoke.cont6, %invoke.cont3
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZN5arrow18TypedBufferBuilderIavED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %types_builder_) #11
   br label %ehcleanup
 
@@ -3588,8 +3589,8 @@ while.cond11:                                     ; preds = %invoke.cont13, %whi
   br i1 false, label %while.body12, label %while.end16
 
 while.body12:                                     ; preds = %while.cond11
-  %17 = load ptr, ptr %union_type, align 8
-  %call14 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow9UnionType10type_codesEv(ptr noundef nonnull align 8 dereferenceable(120) %17)
+  %18 = load ptr, ptr %union_type, align 8
+  %call14 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow9UnionType10type_codesEv(ptr noundef nonnull align 8 dereferenceable(120) %18)
           to label %invoke.cont13 unwind label %lpad5
 
 invoke.cont13:                                    ; preds = %while.body12
@@ -3606,8 +3607,8 @@ while.body18:                                     ; preds = %while.cond17
   br label %while.cond17, !llvm.loop !9
 
 while.end19:                                      ; preds = %while.cond17
-  %18 = load ptr, ptr %union_type, align 8
-  %call21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow9UnionType10type_codesEv(ptr noundef nonnull align 8 dereferenceable(120) %18)
+  %19 = load ptr, ptr %union_type, align 8
+  %call21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow9UnionType10type_codesEv(ptr noundef nonnull align 8 dereferenceable(120) %19)
           to label %invoke.cont20 unwind label %lpad5
 
 invoke.cont20:                                    ; preds = %while.end19
@@ -3616,15 +3617,15 @@ invoke.cont20:                                    ; preds = %while.end19
           to label %invoke.cont23 unwind label %lpad5
 
 invoke.cont23:                                    ; preds = %invoke.cont20
-  %19 = load ptr, ptr %children.addr, align 8
+  %20 = load ptr, ptr %children.addr, align 8
   %children_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 7
-  %call26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %children_, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  %call26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %children_, ptr noundef nonnull align 8 dereferenceable(24) %20)
           to label %invoke.cont25 unwind label %lpad5
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   %type_id_to_child_id_27 = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 5
-  %20 = load ptr, ptr %union_type, align 8
-  %call29 = invoke noundef zeroext i8 @_ZNK5arrow9UnionType13max_type_codeEv(ptr noundef nonnull align 8 dereferenceable(120) %20)
+  %21 = load ptr, ptr %union_type, align 8
+  %call29 = invoke noundef zeroext i8 @_ZNK5arrow9UnionType13max_type_codeEv(ptr noundef nonnull align 8 dereferenceable(120) %21)
           to label %invoke.cont28 unwind label %lpad5
 
 invoke.cont28:                                    ; preds = %invoke.cont25
@@ -3637,8 +3638,8 @@ invoke.cont28:                                    ; preds = %invoke.cont25
 
 invoke.cont32:                                    ; preds = %invoke.cont28
   %type_id_to_children_33 = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 4
-  %21 = load ptr, ptr %union_type, align 8
-  %call35 = invoke noundef zeroext i8 @_ZNK5arrow9UnionType13max_type_codeEv(ptr noundef nonnull align 8 dereferenceable(120) %21)
+  %22 = load ptr, ptr %union_type, align 8
+  %call35 = invoke noundef zeroext i8 @_ZNK5arrow9UnionType13max_type_codeEv(ptr noundef nonnull align 8 dereferenceable(120) %22)
           to label %invoke.cont34 unwind label %lpad5
 
 invoke.cont34:                                    ; preds = %invoke.cont32
@@ -3683,54 +3684,54 @@ while.end52:                                      ; preds = %while.cond49
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %while.end52
-  %22 = load i64, ptr %i, align 8
-  %23 = load ptr, ptr %children.addr, align 8
-  %call53 = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #11
-  %cmp = icmp ult i64 %22, %call53
+  %23 = load i64, ptr %i, align 8
+  %24 = load ptr, ptr %children.addr, align 8
+  %call53 = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
+  %cmp = icmp ult i64 %23, %call53
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %24 = load ptr, ptr %union_type, align 8
-  %25 = load i64, ptr %i, align 8
-  %conv54 = trunc i64 %25 to i32
-  %call56 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow8DataType5fieldEi(ptr noundef nonnull align 8 dereferenceable(72) %24, i32 noundef %conv54)
+  %25 = load ptr, ptr %union_type, align 8
+  %26 = load i64, ptr %i, align 8
+  %conv54 = trunc i64 %26 to i32
+  %call56 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow8DataType5fieldEi(ptr noundef nonnull align 8 dereferenceable(72) %25, i32 noundef %conv54)
           to label %invoke.cont55 unwind label %lpad5
 
 invoke.cont55:                                    ; preds = %for.body
   %child_fields_57 = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 1
-  %26 = load i64, ptr %i, align 8
-  %call58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %child_fields_57, i64 noundef %26) #11
+  %27 = load i64, ptr %i, align 8
+  %call58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %child_fields_57, i64 noundef %27) #11
   %call59 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN5arrow5FieldEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %call58, ptr noundef nonnull align 8 dereferenceable(16) %call56) #11
-  %27 = load ptr, ptr %union_type, align 8
-  %call61 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow9UnionType10type_codesEv(ptr noundef nonnull align 8 dereferenceable(120) %27)
+  %28 = load ptr, ptr %union_type, align 8
+  %call61 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow9UnionType10type_codesEv(ptr noundef nonnull align 8 dereferenceable(120) %28)
           to label %invoke.cont60 unwind label %lpad5
 
 invoke.cont60:                                    ; preds = %invoke.cont55
-  %28 = load i64, ptr %i, align 8
-  %call62 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt6vectorIaSaIaEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %call61, i64 noundef %28) #11
-  %29 = load i8, ptr %call62, align 1
-  store i8 %29, ptr %type_id, align 1
-  %30 = load i64, ptr %i, align 8
-  %conv63 = trunc i64 %30 to i32
+  %29 = load i64, ptr %i, align 8
+  %call62 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt6vectorIaSaIaEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %call61, i64 noundef %29) #11
+  %30 = load i8, ptr %call62, align 1
+  store i8 %30, ptr %type_id, align 1
+  %31 = load i64, ptr %i, align 8
+  %conv63 = trunc i64 %31 to i32
   %type_id_to_child_id_64 = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 5
-  %31 = load i8, ptr %type_id, align 1
-  %conv65 = sext i8 %31 to i64
+  %32 = load i8, ptr %type_id, align 1
+  %conv65 = sext i8 %32 to i64
   %call66 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %type_id_to_child_id_64, i64 noundef %conv65) #11
   store i32 %conv63, ptr %call66, align 4
-  %32 = load ptr, ptr %children.addr, align 8
-  %33 = load i64, ptr %i, align 8
-  %call67 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %33) #11
+  %33 = load ptr, ptr %children.addr, align 8
+  %34 = load i64, ptr %i, align 8
+  %call67 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %34) #11
   %call68 = call noundef ptr @_ZNKSt12__shared_ptrIN5arrow12ArrayBuilderELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %call67) #11
   %type_id_to_children_69 = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 4
-  %34 = load i8, ptr %type_id, align 1
-  %conv70 = sext i8 %34 to i64
+  %35 = load i8, ptr %type_id, align 1
+  %conv70 = sext i8 %35 to i64
   %call71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN5arrow12ArrayBuilderESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %type_id_to_children_69, i64 noundef %conv70) #11
   store ptr %call68, ptr %call71, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont60
-  %35 = load i64, ptr %i, align 8
-  %inc = add i64 %35, 1
+  %36 = load i64, ptr %i, align 8
+  %inc = add i64 %36, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !13
 
@@ -3766,17 +3767,18 @@ entry:
   store ptr %pool, ptr %pool.addr, align 8
   store i64 %alignment, ptr %alignment.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pool.addr, align 8
-  store ptr %0, ptr %pool_, align 8
+  %1 = load ptr, ptr %pool.addr, align 8
+  store ptr %1, ptr %pool_, align 8
   %alignment_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %alignment.addr, align 8
-  store i64 %1, ptr %alignment_, align 8
+  %2 = load i64, ptr %alignment.addr, align 8
+  store i64 %2, ptr %alignment_, align 8
   %null_bitmap_builder_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %pool.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  call void @_ZN5arrow18TypedBufferBuilderIbvEC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(72) %null_bitmap_builder_, ptr noundef %2, i64 noundef %3)
+  %3 = load ptr, ptr %pool.addr, align 8
+  %4 = load i64, ptr %alignment.addr, align 8
+  call void @_ZN5arrow18TypedBufferBuilderIbvEC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(72) %null_bitmap_builder_, ptr noundef %3, i64 noundef %4)
   %null_count_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 4
   store i64 0, ptr %null_count_, align 8
   %length_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 5
@@ -4633,7 +4635,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %children_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 7
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #11
   %null_bitmap_builder_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 3
@@ -5764,7 +5767,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BasicUnionBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5arrow17BasicUnionBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %types_builder_ = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 7
   call void @_ZN5arrow18TypedBufferBuilderIavED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %types_builder_) #11
   %type_id_to_child_id_ = getelementptr inbounds %"class.arrow::BasicUnionBuilder", ptr %this1, i32 0, i32 5
@@ -5862,7 +5866,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17DenseUnionBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5arrow17DenseUnionBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %offsets_builder_ = getelementptr inbounds %"class.arrow::DenseUnionBuilder", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow18TypedBufferBuilderIivED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %offsets_builder_) #11
   call void @_ZN5arrow17BasicUnionBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this1) #11
@@ -9120,10 +9125,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   ret void
 }
 
@@ -9133,7 +9139,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -14346,10 +14353,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter.105", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   ret void
 }
 

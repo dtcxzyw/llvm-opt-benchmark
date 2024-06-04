@@ -445,50 +445,51 @@ if.then40:                                        ; preds = %land.lhs.true
   %52 = load ptr, ptr %hw.addr, align 8
   %buf_emul48 = getelementptr inbounds %struct.HWVoiceOut, ptr %52, i32 0, i32 8
   %53 = load ptr, ptr %buf_emul48, align 8
-  %cmp = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
+  %54 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %53, %54
   br i1 %cmp, label %if.then50, label %if.else
 
 if.then50:                                        ; preds = %if.then40
   %call51 = call ptr @__errno_location() #10
-  %54 = load i32, ptr %call51, align 4
-  %55 = load ptr, ptr %hw.addr, align 8
-  %size_emul52 = getelementptr inbounds %struct.HWVoiceOut, ptr %55, i32 0, i32 11
-  %56 = load i64, ptr %size_emul52, align 8
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %54, ptr noundef @.str.7, i64 noundef %56)
-  %57 = load ptr, ptr %hw.addr, align 8
-  %buf_emul53 = getelementptr inbounds %struct.HWVoiceOut, ptr %57, i32 0, i32 8
+  %55 = load i32, ptr %call51, align 4
+  %56 = load ptr, ptr %hw.addr, align 8
+  %size_emul52 = getelementptr inbounds %struct.HWVoiceOut, ptr %56, i32 0, i32 11
+  %57 = load i64, ptr %size_emul52, align 8
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %55, ptr noundef @.str.7, i64 noundef %57)
+  %58 = load ptr, ptr %hw.addr, align 8
+  %buf_emul53 = getelementptr inbounds %struct.HWVoiceOut, ptr %58, i32 0, i32 8
   store ptr null, ptr %buf_emul53, align 8
   br label %if.end83
 
 if.else:                                          ; preds = %if.then40
   store i32 0, ptr %trig, align 4
-  %58 = load i32, ptr %fd, align 4
-  %call54 = call i32 (i32, i64, ...) @ioctl(i32 noundef %58, i64 noundef 1074024464, ptr noundef %trig) #9
+  %59 = load i32, ptr %fd, align 4
+  %call54 = call i32 (i32, i64, ...) @ioctl(i32 noundef %59, i64 noundef 1074024464, ptr noundef %trig) #9
   %cmp55 = icmp slt i32 %call54, 0
   br i1 %cmp55, label %if.then57, label %if.else59
 
 if.then57:                                        ; preds = %if.else
   %call58 = call ptr @__errno_location() #10
-  %59 = load i32, ptr %call58, align 4
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %59, ptr noundef @.str.8)
+  %60 = load i32, ptr %call58, align 4
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %60, ptr noundef @.str.8)
   br label %if.end68
 
 if.else59:                                        ; preds = %if.else
   store i32 2, ptr %trig, align 4
-  %60 = load i32, ptr %fd, align 4
-  %call60 = call i32 (i32, i64, ...) @ioctl(i32 noundef %60, i64 noundef 1074024464, ptr noundef %trig) #9
+  %61 = load i32, ptr %fd, align 4
+  %call60 = call i32 (i32, i64, ...) @ioctl(i32 noundef %61, i64 noundef 1074024464, ptr noundef %trig) #9
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %if.then63, label %if.else65
 
 if.then63:                                        ; preds = %if.else59
   %call64 = call ptr @__errno_location() #10
-  %61 = load i32, ptr %call64, align 4
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %61, ptr noundef @.str.9)
+  %62 = load i32, ptr %call64, align 4
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %62, ptr noundef @.str.9)
   br label %if.end67
 
 if.else65:                                        ; preds = %if.else59
-  %62 = load ptr, ptr %oss, align 8
-  %mmapped66 = getelementptr inbounds %struct.OSSVoiceOut, ptr %62, i32 0, i32 4
+  %63 = load ptr, ptr %oss, align 8
+  %mmapped66 = getelementptr inbounds %struct.OSSVoiceOut, ptr %63, i32 0, i32 4
   store i32 1, ptr %mmapped66, align 4
   br label %if.end67
 
@@ -496,40 +497,40 @@ if.end67:                                         ; preds = %if.else65, %if.then
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end67, %if.then57
-  %63 = load ptr, ptr %oss, align 8
-  %mmapped69 = getelementptr inbounds %struct.OSSVoiceOut, ptr %63, i32 0, i32 4
-  %64 = load i32, ptr %mmapped69, align 4
-  %tobool70 = icmp ne i32 %64, 0
+  %64 = load ptr, ptr %oss, align 8
+  %mmapped69 = getelementptr inbounds %struct.OSSVoiceOut, ptr %64, i32 0, i32 4
+  %65 = load i32, ptr %mmapped69, align 4
+  %tobool70 = icmp ne i32 %65, 0
   br i1 %tobool70, label %if.end82, label %if.then71
 
 if.then71:                                        ; preds = %if.end68
-  %65 = load ptr, ptr %hw.addr, align 8
-  %buf_emul72 = getelementptr inbounds %struct.HWVoiceOut, ptr %65, i32 0, i32 8
-  %66 = load ptr, ptr %buf_emul72, align 8
-  %67 = load ptr, ptr %hw.addr, align 8
-  %size_emul73 = getelementptr inbounds %struct.HWVoiceOut, ptr %67, i32 0, i32 11
-  %68 = load i64, ptr %size_emul73, align 8
-  %call74 = call i32 @munmap(ptr noundef %66, i64 noundef %68) #9
+  %66 = load ptr, ptr %hw.addr, align 8
+  %buf_emul72 = getelementptr inbounds %struct.HWVoiceOut, ptr %66, i32 0, i32 8
+  %67 = load ptr, ptr %buf_emul72, align 8
+  %68 = load ptr, ptr %hw.addr, align 8
+  %size_emul73 = getelementptr inbounds %struct.HWVoiceOut, ptr %68, i32 0, i32 11
+  %69 = load i64, ptr %size_emul73, align 8
+  %call74 = call i32 @munmap(ptr noundef %67, i64 noundef %69) #9
   store i32 %call74, ptr %err, align 4
-  %69 = load i32, ptr %err, align 4
-  %tobool75 = icmp ne i32 %69, 0
+  %70 = load i32, ptr %err, align 4
+  %tobool75 = icmp ne i32 %70, 0
   br i1 %tobool75, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.then71
   %call77 = call ptr @__errno_location() #10
-  %70 = load i32, ptr %call77, align 4
-  %71 = load ptr, ptr %hw.addr, align 8
-  %buf_emul78 = getelementptr inbounds %struct.HWVoiceOut, ptr %71, i32 0, i32 8
-  %72 = load ptr, ptr %buf_emul78, align 8
-  %73 = load ptr, ptr %hw.addr, align 8
-  %size_emul79 = getelementptr inbounds %struct.HWVoiceOut, ptr %73, i32 0, i32 11
-  %74 = load i64, ptr %size_emul79, align 8
-  call void (i32, ptr, ...) @oss_logerr(i32 noundef %70, ptr noundef @.str.10, ptr noundef %72, i64 noundef %74)
+  %71 = load i32, ptr %call77, align 4
+  %72 = load ptr, ptr %hw.addr, align 8
+  %buf_emul78 = getelementptr inbounds %struct.HWVoiceOut, ptr %72, i32 0, i32 8
+  %73 = load ptr, ptr %buf_emul78, align 8
+  %74 = load ptr, ptr %hw.addr, align 8
+  %size_emul79 = getelementptr inbounds %struct.HWVoiceOut, ptr %74, i32 0, i32 11
+  %75 = load i64, ptr %size_emul79, align 8
+  call void (i32, ptr, ...) @oss_logerr(i32 noundef %71, ptr noundef @.str.10, ptr noundef %73, i64 noundef %75)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then76, %if.then71
-  %75 = load ptr, ptr %hw.addr, align 8
-  %buf_emul81 = getelementptr inbounds %struct.HWVoiceOut, ptr %75, i32 0, i32 8
+  %76 = load ptr, ptr %hw.addr, align 8
+  %buf_emul81 = getelementptr inbounds %struct.HWVoiceOut, ptr %76, i32 0, i32 8
   store ptr null, ptr %buf_emul81, align 8
   br label %if.end82
 
@@ -540,20 +541,20 @@ if.end83:                                         ; preds = %if.end82, %if.then5
   br label %if.end84
 
 if.end84:                                         ; preds = %if.end83, %land.lhs.true, %if.end30
-  %76 = load i32, ptr %fd, align 4
-  %77 = load ptr, ptr %oss, align 8
-  %fd85 = getelementptr inbounds %struct.OSSVoiceOut, ptr %77, i32 0, i32 1
-  store i32 %76, ptr %fd85, align 8
-  %78 = load ptr, ptr %dev, align 8
-  %79 = load ptr, ptr %oss, align 8
-  %dev86 = getelementptr inbounds %struct.OSSVoiceOut, ptr %79, i32 0, i32 5
-  store ptr %78, ptr %dev86, align 8
+  %77 = load i32, ptr %fd, align 4
+  %78 = load ptr, ptr %oss, align 8
+  %fd85 = getelementptr inbounds %struct.OSSVoiceOut, ptr %78, i32 0, i32 1
+  store i32 %77, ptr %fd85, align 8
+  %79 = load ptr, ptr %dev, align 8
+  %80 = load ptr, ptr %oss, align 8
+  %dev86 = getelementptr inbounds %struct.OSSVoiceOut, ptr %80, i32 0, i32 5
+  store ptr %79, ptr %dev86, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end84, %if.then10, %if.then
-  %80 = load i32, ptr %retval, align 4
-  ret i32 %80
+  %81 = load i32, ptr %retval, align 4
+  ret i32 %81
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1978,12 +1979,12 @@ entry:
   store i32 %err, ptr %err.addr, align 4
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @AUD_vlog(ptr noundef @.str, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %1 = load i32, ptr %err.addr, align 4
   %call = call ptr @strerror(i32 noundef %1) #9
   call void (ptr, ptr, ...) @AUD_log(ptr noundef @.str, ptr noundef @.str.23, ptr noundef %call)
@@ -2011,12 +2012,12 @@ entry:
   %0 = load ptr, ptr %typ.addr, align 8
   call void (ptr, ptr, ...) @AUD_log(ptr noundef @.str, ptr noundef @.str.22, ptr noundef %0)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @AUD_vlog(ptr noundef @.str, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %2 = load i32, ptr %err.addr, align 4
   %call = call ptr @strerror(i32 noundef %2) #9
   call void (ptr, ptr, ...) @AUD_log(ptr noundef @.str, ptr noundef @.str.23, ptr noundef %call)
@@ -2056,19 +2057,13 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret i32 %cond
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare void @AUD_vlog(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
 
 declare void @qemu_set_fd_handler(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -2134,7 +2129,7 @@ return:                                           ; preds = %if.end3, %if.then1
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @advance(ptr noundef %p, i32 noundef %incr) #0 {
@@ -2264,14 +2259,20 @@ entry:
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { noreturn nounwind }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(none) }

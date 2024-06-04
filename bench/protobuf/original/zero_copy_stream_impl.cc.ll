@@ -209,38 +209,39 @@ entry:
   store i32 %block_size, ptr %block_size.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io19ZeroCopyInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %copying_input_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %file_descriptor.addr, align 4
-  invoke void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_, i32 noundef %0)
+  %1 = load i32, ptr %file_descriptor.addr, align 4
+  invoke void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_, i32 noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %impl_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this1, i32 0, i32 2
   %copying_input_2 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %block_size.addr, align 4
-  invoke void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC1EPNS1_18CopyingInputStreamEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, ptr noundef %copying_input_2, i32 noundef %1)
+  %2 = load i32, ptr %block_size.addr, align 4
+  invoke void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC1EPNS1_18CopyingInputStreamEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, ptr noundef %copying_input_2, i32 noundef %2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_) #3
   br label %ehcleanup
 
@@ -262,7 +263,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io19ZeroCopyInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf2io19ZeroCopyInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -471,10 +473,11 @@ entry:
   store i32 %file_descriptor, ptr %file_descriptor.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io18CopyingInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io15FileInputStream22CopyingFileInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf2io15FileInputStream22CopyingFileInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %file_descriptor.addr, align 4
-  store i32 %0, ptr %file_, align 8
+  %1 = load i32, ptr %file_descriptor.addr, align 4
+  store i32 %1, ptr %file_, align 8
   %close_on_delete_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this1, i32 0, i32 2
   store i8 0, ptr %close_on_delete_, align 4
   %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this1, i32 0, i32 3
@@ -484,31 +487,31 @@ entry:
   %previous_seek_failed_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this1, i32 0, i32 6
   store i8 0, ptr %previous_seek_failed_, align 4
   %file_2 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %file_2, align 8
-  %call = invoke i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3)
+  %2 = load i32, ptr %file_2, align 8
+  %call = invoke i32 (i32, i32, ...) @fcntl(i32 noundef %2, i32 noundef 3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i32 %call, ptr %flags, align 4
-  %2 = load i32, ptr %flags, align 4
-  %and = and i32 %2, -2049
+  %3 = load i32, ptr %flags, align 4
+  %and = and i32 %3, -2049
   store i32 %and, ptr %flags, align 4
   %file_3 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %file_3, align 8
-  %4 = load i32, ptr %flags, align 4
-  %call5 = invoke i32 (i32, i32, ...) @fcntl(i32 noundef %3, i32 noundef 4, i32 noundef %4)
+  %4 = load i32, ptr %file_3, align 8
+  %5 = load i32, ptr %flags, align 4
+  %call5 = invoke i32 (i32, i32, ...) @fcntl(i32 noundef %4, i32 noundef 4, i32 noundef %5)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf2io18CopyingInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -526,7 +529,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io18CopyingInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf2io18CopyingInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1061,26 +1065,28 @@ entry:
   store i32 %file_descriptor, ptr %file_descriptor.addr, align 4
   store i32 %block_size, ptr %block_size.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %copying_output_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %block_size.addr, align 4
-  call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC2EPNS1_19CopyingOutputStreamEi(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %copying_output_, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = load i32, ptr %block_size.addr, align 4
+  call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC2EPNS1_19CopyingOutputStreamEi(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %copying_output_, i32 noundef %1)
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %copying_output_2 = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %file_descriptor.addr, align 4
-  invoke void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %copying_output_2, i32 noundef %1)
+  %3 = load i32, ptr %file_descriptor.addr, align 4
+  invoke void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %copying_output_2, i32 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
   br label %eh.resume
 
@@ -1238,10 +1244,11 @@ entry:
   store i32 %file_descriptor, ptr %file_descriptor.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io19CopyingOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %file_descriptor.addr, align 4
-  store i32 %0, ptr %file_, align 8
+  %1 = load i32, ptr %file_descriptor.addr, align 4
+  store i32 %1, ptr %file_, align 8
   %close_on_delete_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this1, i32 0, i32 2
   store i8 0, ptr %close_on_delete_, align 4
   %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this1, i32 0, i32 3
@@ -1257,7 +1264,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf2io19CopyingOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf2io19CopyingOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1555,38 +1563,39 @@ entry:
   store i32 %block_size, ptr %block_size.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io19ZeroCopyInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %copying_input_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %input.addr, align 8
-  invoke void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamC1EPSi(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_, ptr noundef %0)
+  %1 = load ptr, ptr %input.addr, align 8
+  invoke void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamC1EPSi(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %impl_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this1, i32 0, i32 2
   %copying_input_2 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %block_size.addr, align 4
-  invoke void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC1EPNS1_18CopyingInputStreamEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, ptr noundef %copying_input_2, i32 noundef %1)
+  %2 = load i32, ptr %block_size.addr, align 4
+  invoke void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC1EPNS1_18CopyingInputStreamEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, ptr noundef %copying_input_2, i32 noundef %2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_) #3
   br label %ehcleanup
 
@@ -1667,10 +1676,11 @@ entry:
   store ptr %input, ptr %input.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io18CopyingInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %input_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream::CopyingIstreamInputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %input.addr, align 8
-  store ptr %0, ptr %input_, align 8
+  %1 = load ptr, ptr %input.addr, align 8
+  store ptr %1, ptr %input_, align 8
   ret void
 }
 
@@ -1777,38 +1787,39 @@ entry:
   store i32 %block_size, ptr %block_size.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io19OstreamOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf2io19OstreamOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %copying_output_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %output.addr, align 8
-  invoke void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamC1EPSo(ptr noundef nonnull align 8 dereferenceable(16) %copying_output_, ptr noundef %0)
+  %1 = load ptr, ptr %output.addr, align 8
+  invoke void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamC1EPSo(ptr noundef nonnull align 8 dereferenceable(16) %copying_output_, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %impl_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this1, i32 0, i32 2
   %copying_output_2 = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %block_size.addr, align 4
-  invoke void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC1EPNS1_19CopyingOutputStreamEi(ptr noundef nonnull align 8 dereferenceable(48) %impl_, ptr noundef %copying_output_2, i32 noundef %1)
+  %2 = load i32, ptr %block_size.addr, align 4
+  invoke void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC1EPNS1_19CopyingOutputStreamEi(ptr noundef nonnull align 8 dereferenceable(48) %impl_, ptr noundef %copying_output_2, i32 noundef %2)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_output_) #3
   br label %ehcleanup
 
@@ -1830,7 +1841,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1941,10 +1953,11 @@ entry:
   store ptr %output, ptr %output.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io19CopyingOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %output_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream::CopyingOstreamOutputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %output.addr, align 8
-  store ptr %0, ptr %output_, align 8
+  %1 = load ptr, ptr %output.addr, align 8
+  store ptr %1, ptr %output_, align 8
   ret void
 }
 
@@ -2010,13 +2023,14 @@ entry:
   store i32 %count, ptr %count.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io19ZeroCopyInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io24ConcatenatingInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN6google8protobuf2io24ConcatenatingInputStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %streams_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %streams.addr, align 8
-  store ptr %0, ptr %streams_, align 8
+  %1 = load ptr, ptr %streams.addr, align 8
+  store ptr %1, ptr %streams_, align 8
   %stream_count_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %count.addr, align 4
-  store i32 %1, ptr %stream_count_, align 8
+  %2 = load i32, ptr %count.addr, align 4
+  store i32 %2, ptr %stream_count_, align 8
   %bytes_retired_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this1, i32 0, i32 3
   store i64 0, ptr %bytes_retired_, align 8
   ret void

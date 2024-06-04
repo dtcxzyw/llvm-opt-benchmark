@@ -1238,68 +1238,69 @@ define void @_ZN7IncVPSCC2EjPP8VariablejPP10Constraint(ptr noundef nonnull align
   %20 = load i32, ptr %9, align 4
   %21 = load ptr, ptr %10, align 8
   call void @_ZN4VPSCC2EjPP8VariablejPP10Constraint(ptr noundef nonnull align 8 dereferenceable(84) %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %21)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV7IncVPSC, i32 0, i32 0, i32 2), ptr %17, align 8
-  %22 = getelementptr inbounds %struct.IncVPSC, ptr %17, i32 0, i32 2
-  call void @_ZNSt6vectorIP10ConstraintSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %22 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV7IncVPSC, i32 0, i32 0, i32 2
+  store ptr %22, ptr %17, align 8
   %23 = getelementptr inbounds %struct.IncVPSC, ptr %17, i32 0, i32 2
-  %24 = load ptr, ptr %10, align 8
+  call void @_ZNSt6vectorIP10ConstraintSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %24 = getelementptr inbounds %struct.IncVPSC, ptr %17, i32 0, i32 2
   %25 = load ptr, ptr %10, align 8
-  %26 = load i32, ptr %9, align 4
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
-  invoke void @_ZNSt6vectorIP10ConstraintSaIS1_EE6assignIPS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %24, ptr noundef %28)
-          to label %29 unwind label %46
+  %26 = load ptr, ptr %10, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  invoke void @_ZNSt6vectorIP10ConstraintSaIS1_EE6assignIPS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %25, ptr noundef %29)
+          to label %30 unwind label %47
 
-29:                                               ; preds = %5
-  %30 = getelementptr inbounds %struct.IncVPSC, ptr %17, i32 0, i32 2
-  store ptr %30, ptr %13, align 8
-  %31 = load ptr, ptr %13, align 8
-  %32 = call ptr @_ZNSt6vectorIP10ConstraintSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
-  %33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
-  store ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr %13, align 8
-  %35 = call ptr @_ZNSt6vectorIP10ConstraintSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
-  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
-  store ptr %35, ptr %36, align 8
-  br label %37
+30:                                               ; preds = %5
+  %31 = getelementptr inbounds %struct.IncVPSC, ptr %17, i32 0, i32 2
+  store ptr %31, ptr %13, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = call ptr @_ZNSt6vectorIP10ConstraintSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
+  %34 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
+  store ptr %33, ptr %34, align 8
+  %35 = load ptr, ptr %13, align 8
+  %36 = call ptr @_ZNSt6vectorIP10ConstraintSaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
+  %37 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
+  store ptr %36, ptr %37, align 8
+  br label %38
 
-37:                                               ; preds = %44, %29
-  %38 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP10ConstraintSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  br i1 %38, label %39, label %50
+38:                                               ; preds = %45, %30
+  %39 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPP10ConstraintSt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br i1 %39, label %40, label %51
 
-39:                                               ; preds = %37
-  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %16, align 8
-  %42 = load ptr, ptr %16, align 8
-  %43 = getelementptr inbounds %struct.Constraint, ptr %42, i32 0, i32 5
-  store i8 0, ptr %43, align 8
-  br label %44
+40:                                               ; preds = %38
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %16, align 8
+  %43 = load ptr, ptr %16, align 8
+  %44 = getelementptr inbounds %struct.Constraint, ptr %43, i32 0, i32 5
+  store i8 0, ptr %44, align 8
+  br label %45
 
-44:                                               ; preds = %39
-  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  br label %37
+45:                                               ; preds = %40
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %38
 
-46:                                               ; preds = %5
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %5
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %11, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %12, align 4
-  call void @_ZNSt6vectorIP10ConstraintSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %11, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %12, align 4
+  call void @_ZNSt6vectorIP10ConstraintSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
   call void @_ZN4VPSCD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %17) #3
-  br label %51
+  br label %52
 
-50:                                               ; preds = %37
+51:                                               ; preds = %38
   ret void
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %11, align 8
-  %53 = load i32, ptr %12, align 4
-  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
-  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
-  resume { ptr, i32 } %55
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %11, align 8
+  %54 = load i32, ptr %12, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1315,17 +1316,18 @@ define void @_ZN4VPSCC2EjPP8VariablejPP10Constraint(ptr noundef nonnull align 8 
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV4VPSC, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %struct.VPSC, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %7, align 4
-  %14 = load ptr, ptr %8, align 8
-  call void @_ZN6BlocksC1EiPP8Variable(ptr noundef nonnull align 8 dereferenceable(60) %12, i32 noundef %13, ptr noundef %14)
-  %15 = getelementptr inbounds %struct.VPSC, ptr %11, i32 0, i32 2
-  %16 = load ptr, ptr %10, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.VPSC, ptr %11, i32 0, i32 3
-  %18 = load i32, ptr %9, align 4
-  store i32 %18, ptr %17, align 8
+  %12 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV4VPSC, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.VPSC, ptr %11, i32 0, i32 1
+  %14 = load i32, ptr %7, align 4
+  %15 = load ptr, ptr %8, align 8
+  call void @_ZN6BlocksC1EiPP8Variable(ptr noundef nonnull align 8 dereferenceable(60) %13, i32 noundef %14, ptr noundef %15)
+  %16 = getelementptr inbounds %struct.VPSC, ptr %11, i32 0, i32 2
+  %17 = load ptr, ptr %10, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.VPSC, ptr %11, i32 0, i32 3
+  %19 = load i32, ptr %9, align 4
+  store i32 %19, ptr %18, align 8
   ret void
 }
 
@@ -3965,9 +3967,10 @@ define linkonce_odr void @_ZN4VPSCD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV4VPSC, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.VPSC, ptr %3, i32 0, i32 1
-  call void @_ZN6BlocksD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV4VPSC, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.VPSC, ptr %3, i32 0, i32 1
+  call void @_ZN6BlocksD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #3
   ret void
 }
 
@@ -3986,9 +3989,10 @@ define linkonce_odr void @_ZN7IncVPSCD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV7IncVPSC, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.IncVPSC, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIP10ConstraintSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV7IncVPSC, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.IncVPSC, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIP10ConstraintSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN4VPSCD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %3) #3
   ret void
 }

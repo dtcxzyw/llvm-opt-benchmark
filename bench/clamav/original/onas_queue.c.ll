@@ -260,17 +260,19 @@ define internal i32 @onas_consume_event(ptr noundef %0) #0 {
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds %struct.onas_event_queue_node, ptr %24, i32 0, i32 1
   store ptr %21, ptr %25, align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 2), align 8
-  %27 = add i64 %26, -1
-  store i64 %27, ptr getelementptr inbounds (%struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 2), align 8
-  %28 = call i32 @pthread_mutex_unlock(ptr noundef @onas_queue_lock) #8
-  %29 = load ptr, ptr %2, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.onas_event_queue_node, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @thpool_add_work(ptr noundef %29, ptr noundef @onas_scan_worker, ptr noundef %32)
-  %34 = load ptr, ptr %3, align 8
-  call void @onas_destroy_event_queue_node(ptr noundef %34)
+  %26 = getelementptr inbounds %struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 2
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, -1
+  %29 = getelementptr inbounds %struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 2
+  store i64 %28, ptr %29, align 8
+  %30 = call i32 @pthread_mutex_unlock(ptr noundef @onas_queue_lock) #8
+  %31 = load ptr, ptr %2, align 8
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds %struct.onas_event_queue_node, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @thpool_add_work(ptr noundef %31, ptr noundef @onas_scan_worker, ptr noundef %34)
+  %36 = load ptr, ptr %3, align 8
+  call void @onas_destroy_event_queue_node(ptr noundef %36)
   ret i32 1
 }
 
@@ -289,7 +291,7 @@ define dso_local i32 @onas_queue_event(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   store i32 20, ptr %2, align 4
-  br label %33
+  br label %35
 
 8:                                                ; preds = %1
   %9 = call i32 @pthread_mutex_lock(ptr noundef @onas_queue_lock) #8
@@ -317,17 +319,19 @@ define dso_local i32 @onas_queue_event(ptr noundef %0) #0 {
   %27 = load ptr, ptr %4, align 8
   %28 = getelementptr inbounds %struct.onas_event_queue_node, ptr %27, i32 0, i32 2
   store ptr %26, ptr %28, align 8
-  %29 = load i64, ptr getelementptr inbounds (%struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 2), align 8
-  %30 = add i64 %29, 1
-  store i64 %30, ptr getelementptr inbounds (%struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 2), align 8
-  %31 = call i32 @pthread_cond_signal(ptr noundef @onas_scan_queue_empty_cond) #8
-  %32 = call i32 @pthread_mutex_unlock(ptr noundef @onas_queue_lock) #8
+  %29 = getelementptr inbounds %struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 2
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, 1
+  %32 = getelementptr inbounds %struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 2
+  store i64 %31, ptr %32, align 8
+  %33 = call i32 @pthread_cond_signal(ptr noundef @onas_scan_queue_empty_cond) #8
+  %34 = call i32 @pthread_mutex_unlock(ptr noundef @onas_queue_lock) #8
   store i32 0, ptr %2, align 4
-  br label %33
+  br label %35
 
-33:                                               ; preds = %8, %7
-  %34 = load i32, ptr %2, align 4
-  ret i32 %34
+35:                                               ; preds = %8, %7
+  %36 = load i32, ptr %2, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -441,21 +445,22 @@ define internal i32 @onas_queue_is_b_empty() #0 {
   %2 = load ptr, ptr @g_onas_event_queue, align 8
   %3 = getelementptr inbounds %struct.onas_event_queue_node, ptr %2, i32 0, i32 0
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 1), align 8
-  %6 = icmp eq ptr %4, %5
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %0
-  store i32 1, ptr %1, align 4
-  br label %9
+  %5 = getelementptr inbounds %struct.onas_event_queue, ptr @g_onas_event_queue, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %4, %6
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %9
+  store i32 1, ptr %1, align 4
+  br label %10
 
-9:                                                ; preds = %8, %7
-  %10 = load i32, ptr %1, align 4
-  ret i32 %10
+9:                                                ; preds = %0
+  store i32 0, ptr %1, align 4
+  br label %10
+
+10:                                               ; preds = %9, %8
+  %11 = load i32, ptr %1, align 4
+  ret i32 %11
 }
 
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) #3

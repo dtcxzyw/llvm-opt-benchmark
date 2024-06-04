@@ -947,7 +947,8 @@ define linkonce_odr void @_ZN5draco27PointCloudSequentialDecoderC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco17PointCloudDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco27PointCloudSequentialDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5draco27PointCloudSequentialDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1037,7 +1038,8 @@ define linkonce_odr void @_ZN5draco23PointCloudKdTreeDecoderC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco17PointCloudDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco23PointCloudKdTreeDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5draco23PointCloudKdTreeDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

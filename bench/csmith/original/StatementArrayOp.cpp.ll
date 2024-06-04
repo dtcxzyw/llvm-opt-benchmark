@@ -2382,77 +2382,78 @@ define dso_local void @_ZN16StatementArrayOpC2EP5BlockPK13ArrayVariableRKSt6vect
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %9, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 9, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2), ptr %17, align 8
-  %19 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 2
-  %22 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %23 unwind label %33
+  %19 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2
+  store ptr %19, ptr %17, align 8
+  %20 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 2
+  %23 = load ptr, ptr %11, align 8
+  invoke void @_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
+          to label %24 unwind label %34
 
-23:                                               ; preds = %7
-  %24 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 3
-  %25 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
-          to label %26 unwind label %37
+24:                                               ; preds = %7
+  %25 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 3
+  %26 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIiSaIiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %27 unwind label %38
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 4
-  %28 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
-          to label %29 unwind label %41
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 4
+  %29 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIiSaIiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29)
+          to label %30 unwind label %42
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 5
-  %31 = load ptr, ptr %14, align 8
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 6
-  store ptr null, ptr %32, align 8
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 5
+  %32 = load ptr, ptr %14, align 8
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 6
+  store ptr null, ptr %33, align 8
   ret void
 
-33:                                               ; preds = %7
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %7
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %15, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %16, align 4
-  br label %46
-
-37:                                               ; preds = %23
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %15, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %16, align 4
-  br label %45
-
-41:                                               ; preds = %26
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %15, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %16, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  br label %45
-
-45:                                               ; preds = %41, %37
-  call void @_ZNSt6vectorIPK8VariableSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  br label %46
-
-46:                                               ; preds = %45, %33
-  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %15, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %16, align 4
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %15, align 8
-  %49 = load i32, ptr %16, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+38:                                               ; preds = %24
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %15, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %16, align 4
+  br label %46
+
+42:                                               ; preds = %27
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %15, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %16, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %46
+
+46:                                               ; preds = %42, %38
+  call void @_ZNSt6vectorIPK8VariableSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  br label %47
+
+47:                                               ; preds = %46, %34
+  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %15, align 8
+  %50 = load i32, ptr %16, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 declare void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef) unnamed_addr #1
@@ -2631,77 +2632,78 @@ define dso_local void @_ZN16StatementArrayOpC2EP5BlockPK13ArrayVariableRKSt6vect
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %9, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 9, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2), ptr %17, align 8
-  %19 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 1
-  %20 = load ptr, ptr %10, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 2
-  %22 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %23 unwind label %33
+  %19 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2
+  store ptr %19, ptr %17, align 8
+  %20 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 2
+  %23 = load ptr, ptr %11, align 8
+  invoke void @_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
+          to label %24 unwind label %34
 
-23:                                               ; preds = %7
-  %24 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 3
-  %25 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
-          to label %26 unwind label %37
+24:                                               ; preds = %7
+  %25 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 3
+  %26 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIiSaIiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
+          to label %27 unwind label %38
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 4
-  %28 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt6vectorIiSaIiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
-          to label %29 unwind label %41
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 4
+  %29 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt6vectorIiSaIiEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29)
+          to label %30 unwind label %42
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 5
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 6
-  %32 = load ptr, ptr %14, align 8
-  store ptr %32, ptr %31, align 8
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 5
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 6
+  %33 = load ptr, ptr %14, align 8
+  store ptr %33, ptr %32, align 8
   ret void
 
-33:                                               ; preds = %7
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %7
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %15, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %16, align 4
-  br label %46
-
-37:                                               ; preds = %23
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %15, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %16, align 4
-  br label %45
-
-41:                                               ; preds = %26
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %15, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %16, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  br label %45
-
-45:                                               ; preds = %41, %37
-  call void @_ZNSt6vectorIPK8VariableSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  br label %46
-
-46:                                               ; preds = %45, %33
-  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %15, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %16, align 4
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %15, align 8
-  %49 = load i32, ptr %16, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+38:                                               ; preds = %24
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %15, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %16, align 4
+  br label %46
+
+42:                                               ; preds = %27
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %15, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %16, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %46
+
+46:                                               ; preds = %42, %38
+  call void @_ZNSt6vectorIPK8VariableSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  br label %47
+
+47:                                               ; preds = %46, %34
+  call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %15, align 8
+  %50 = load i32, ptr %16, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2709,39 +2711,40 @@ define dso_local void @_ZN16StatementArrayOpD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 6
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 6
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 1
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  br label %12
 
-11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 5
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %19, label %15
+12:                                               ; preds = %8, %1
+  %13 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %20, label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 1
-  %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(192) %13) #3
-  br label %19
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %14, align 8
+  %18 = getelementptr inbounds ptr, ptr %17, i64 1
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(192) %14) #3
+  br label %20
 
-19:                                               ; preds = %15, %11
-  %20 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  %21 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 3
+20:                                               ; preds = %16, %12
+  %21 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  %22 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIPK8VariableSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %22 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %23 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIPK8VariableSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
   call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   ret void
 }

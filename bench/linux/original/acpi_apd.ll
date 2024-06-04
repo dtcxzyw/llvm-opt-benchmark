@@ -29,66 +29,69 @@ define internal i32 @acpi_apd_create_device(ptr noundef %0, ptr nocapture nounde
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = icmp eq i64 %4, 0
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = tail call ptr @acpi_create_platform_device(ptr noundef %0, ptr noundef null) #4
   %9 = icmp eq ptr %8, null
-  %10 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
-  %11 = or i1 %9, %10
-  br i1 %11, label %12, label %41
+  %10 = inttoptr i64 -4096 to ptr
+  %11 = icmp ugt ptr %8, %10
+  %12 = or i1 %9, %11
+  br i1 %12, label %13, label %44
 
-12:                                               ; preds = %7
-  %13 = ptrtoint ptr %8 to i64
-  %14 = trunc i64 %13 to i32
-  br label %41
+13:                                               ; preds = %7
+  %14 = ptrtoint ptr %8 to i64
+  %15 = trunc i64 %14 to i32
+  br label %44
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %17 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 24) #5
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %41, label %19
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 24) #5
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %44, label %21
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %28, label %25
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %0, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  store ptr %5, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %30, label %27
 
-25:                                               ; preds = %19
-  %26 = tail call i32 %23(ptr noundef nonnull %17) #4
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %39
+27:                                               ; preds = %21
+  %28 = tail call i32 %25(ptr noundef nonnull %19) #4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %42
 
-28:                                               ; preds = %25, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 608
-  store ptr %17, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @acpi_create_platform_device(ptr noundef %0, ptr noundef %31) #4
-  %33 = icmp eq ptr %32, null
-  %34 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
-  %35 = or i1 %33, %34
-  br i1 %35, label %36, label %41
+30:                                               ; preds = %27, %21
+  %31 = getelementptr inbounds i8, ptr %0, i64 608
+  store ptr %19, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call ptr @acpi_create_platform_device(ptr noundef %0, ptr noundef %33) #4
+  %35 = icmp eq ptr %34, null
+  %36 = inttoptr i64 -4096 to ptr
+  %37 = icmp ugt ptr %34, %36
+  %38 = or i1 %35, %37
+  br i1 %38, label %39, label %44
 
-36:                                               ; preds = %28
-  %37 = ptrtoint ptr %32 to i64
-  %38 = trunc i64 %37 to i32
-  store ptr null, ptr %29, align 8
-  br label %39
+39:                                               ; preds = %30
+  %40 = ptrtoint ptr %34 to i64
+  %41 = trunc i64 %40 to i32
+  store ptr null, ptr %31, align 8
+  br label %42
 
-39:                                               ; preds = %36, %25
-  %40 = phi i32 [ %26, %25 ], [ %38, %36 ]
-  tail call void @kfree(ptr noundef nonnull %17) #4
-  br label %41
+42:                                               ; preds = %39, %27
+  %43 = phi i32 [ %28, %27 ], [ %41, %39 ]
+  tail call void @kfree(ptr noundef nonnull %19) #4
+  br label %44
 
-41:                                               ; preds = %39, %28, %15, %12, %7
-  %42 = phi i32 [ %40, %39 ], [ %14, %12 ], [ 1, %7 ], [ -12, %15 ], [ 1, %28 ]
-  ret i32 %42
+44:                                               ; preds = %42, %30, %16, %13, %7
+  %45 = phi i32 [ %43, %42 ], [ %15, %13 ], [ 1, %7 ], [ -12, %16 ], [ 1, %30 ]
+  ret i32 %45
 }
 
 ; Function Attrs: null_pointer_is_valid

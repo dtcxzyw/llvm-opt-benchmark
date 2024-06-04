@@ -85,33 +85,34 @@ define dso_local void @_ZN3ozz2io4FileC2EPKcS3_(ptr noundef nonnull align 8 dere
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN3ozz2io6StreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3ozz2io4FileE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.ozz::io::File", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = invoke noalias ptr @fopen(ptr noundef %11, ptr noundef %12)
-          to label %14 unwind label %15
-
-14:                                               ; preds = %3
-  store ptr %13, ptr %10, align 8
-  ret void
+  %10 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ozz2io4FileE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.ozz::io::File", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = invoke noalias ptr @fopen(ptr noundef %12, ptr noundef %13)
+          to label %15 unwind label %16
 
 15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
-  call void @_ZN3ozz2io6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
-  br label %19
+  store ptr %14, ptr %11, align 8
+  ret void
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
+  call void @_ZN3ozz2io6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119,7 +120,8 @@ define linkonce_odr dso_local void @_ZN3ozz2io6StreamC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3ozz2io6StreamE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ozz2io6StreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -133,10 +135,11 @@ define dso_local void @_ZN3ozz2io4FileC2EPv(ptr noundef nonnull align 8 derefere
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3ozz2io6StreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3ozz2io4FileE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ozz::io::File", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ozz2io4FileE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ozz::io::File", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -145,19 +148,20 @@ define dso_local void @_ZN3ozz2io4FileD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3ozz2io4FileE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ozz2io4FileE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN3ozz2io4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %4 unwind label %5
+          to label %5 unwind label %6
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @_ZN3ozz2io6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 
-5:                                                ; preds = %1
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #9
   unreachable
 }
 
@@ -366,15 +370,16 @@ define dso_local void @_ZN3ozz2io12MemoryStreamC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3ozz2io6StreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3ozz2io12MemoryStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 2
-  store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 3
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 4
-  store i32 0, ptr %7, align 4
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ozz2io12MemoryStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 2
+  store i64 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 3
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 4
+  store i32 0, ptr %8, align 4
   ret void
 }
 
@@ -383,30 +388,31 @@ define dso_local void @_ZN3ozz2io12MemoryStreamD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN3ozz2io12MemoryStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-          to label %5 unwind label %13
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3ozz2io12MemoryStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+          to label %6 unwind label %14
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 3
-  %10 = load ptr, ptr %9, align 8
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %7)
-          to label %11 unwind label %13
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 3
+  %11 = load ptr, ptr %10, align 8
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %8)
+          to label %12 unwind label %14
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 1
-  store ptr null, ptr %12, align 8
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds %"class.ozz::io::MemoryStream", ptr %3, i32 0, i32 1
+  store ptr null, ptr %13, align 8
   call void @_ZN3ozz2io6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 
-13:                                               ; preds = %5, %1
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %6, %1
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #9
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #9
   unreachable
 }
 

@@ -604,12 +604,19 @@ _ZN5folly17SocketOptionValueC2ERKS0_.exit:        ; preds = %_ZNSt8__detail9__va
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_SocketOptionMap.cpp() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !tbaa !44
-  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8, !tbaa !7
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8, !tbaa !34
-  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8, !tbaa !45
-  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8, !tbaa !46
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev, ptr nonnull @_ZN5folly20emptySocketOptionMapE, ptr nonnull @__dso_handle) #15
+  %0 = getelementptr inbounds %"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0
+  store i32 0, ptr %0, align 8, !tbaa !44
+  %1 = getelementptr inbounds %"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  store ptr null, ptr %1, align 8, !tbaa !7
+  %2 = getelementptr inbounds %"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0
+  %3 = getelementptr inbounds %"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2
+  store ptr %2, ptr %3, align 8, !tbaa !34
+  %4 = getelementptr inbounds %"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0
+  %5 = getelementptr inbounds %"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3
+  store ptr %4, ptr %5, align 8, !tbaa !45
+  %6 = getelementptr inbounds %"class.std::map", ptr @_ZN5folly20emptySocketOptionMapE, i64 0, i32 0, i32 0, i32 1, i32 1
+  store i64 0, ptr %6, align 8, !tbaa !46
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN5folly15SocketOptionKeyENS0_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev, ptr nonnull @_ZN5folly20emptySocketOptionMapE, ptr nonnull @__dso_handle) #15
   ret void
 }
 

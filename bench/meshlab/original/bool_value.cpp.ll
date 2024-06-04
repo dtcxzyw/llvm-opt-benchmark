@@ -611,12 +611,13 @@ define void @_ZN9BoolValueC2Eb(ptr noundef nonnull align 8 dereferenceable(9) %0
   store i8 %5, ptr %4, align 1
   %6 = load ptr, ptr %3, align 8
   call void @_ZN5ValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV9BoolValue, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.BoolValue, ptr %6, i32 0, i32 1
-  %8 = load i8, ptr %4, align 1
-  %9 = trunc i8 %8 to i1
-  %10 = zext i1 %9 to i8
-  store i8 %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV9BoolValue, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.BoolValue, ptr %6, i32 0, i32 1
+  %9 = load i8, ptr %4, align 1
+  %10 = trunc i8 %9 to i1
+  %11 = zext i1 %10 to i8
+  store i8 %11, ptr %8, align 8
   ret void
 }
 
@@ -625,7 +626,8 @@ define linkonce_odr void @_ZN5ValueC2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -709,14 +711,15 @@ define linkonce_odr void @_ZN9BoolValueC2ERKS_(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ValueC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV9BoolValue, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.BoolValue, ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %class.BoolValue, ptr %8, i32 0, i32 1
-  %10 = load i8, ptr %9, align 8
-  %11 = trunc i8 %10 to i1
-  %12 = zext i1 %11 to i8
-  store i8 %12, ptr %7, align 8
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV9BoolValue, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.BoolValue, ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %class.BoolValue, ptr %9, i32 0, i32 1
+  %11 = load i8, ptr %10, align 8
+  %12 = trunc i8 %11 to i1
+  %13 = zext i1 %12 to i8
+  store i8 %13, ptr %8, align 8
   ret void
 }
 
@@ -727,7 +730,8 @@ define linkonce_odr void @_ZN5ValueC2ERKS_(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 

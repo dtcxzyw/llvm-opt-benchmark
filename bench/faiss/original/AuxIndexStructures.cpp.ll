@@ -546,44 +546,45 @@ define void @_ZN5faiss17RangeSearchResultC2Emb(ptr noundef nonnull align 8 deref
   %7 = zext i1 %2 to i8
   store i8 %7, ptr %6, align 1
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss17RangeSearchResultE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 1
-  %10 = load i64, ptr %5, align 8
-  store i64 %10, ptr %9, align 8
-  %11 = load i8, ptr %6, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %27
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss17RangeSearchResultE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 1
+  %11 = load i64, ptr %5, align 8
+  store i64 %11, ptr %10, align 8
+  %12 = load i8, ptr %6, align 1
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %28
 
-13:                                               ; preds = %3
-  %14 = load i64, ptr %5, align 8
-  %15 = add i64 %14, 1
-  %16 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 8)
-  %17 = extractvalue { i64, i1 } %16, 1
-  %18 = extractvalue { i64, i1 } %16, 0
-  %19 = select i1 %17, i64 -1, i64 %18
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #15
-  %21 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 2
-  store ptr %20, ptr %21, align 8
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8
+  %16 = add i64 %15, 1
+  %17 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 8)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = extractvalue { i64, i1 } %17, 0
+  %20 = select i1 %18, i64 -1, i64 %19
+  %21 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #15
   %22 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i64, ptr %5, align 8
-  %25 = add i64 %24, 1
-  %26 = mul i64 8, %25
-  call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %26, i1 false)
-  br label %29
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i64, ptr %5, align 8
+  %26 = add i64 %25, 1
+  %27 = mul i64 8, %26
+  call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %27, i1 false)
+  br label %30
 
-27:                                               ; preds = %3
-  %28 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 2
-  store ptr null, ptr %28, align 8
-  br label %29
+28:                                               ; preds = %3
+  %29 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 2
+  store ptr null, ptr %29, align 8
+  br label %30
 
-29:                                               ; preds = %27, %13
-  %30 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 3
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 4
+30:                                               ; preds = %28, %14
+  %31 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 3
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 5
-  store i64 262144, ptr %32, align 8
+  %32 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 4
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %8, i32 0, i32 5
+  store i64 262144, ptr %33, align 8
   ret void
 }
 
@@ -622,9 +623,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret void
 }
@@ -642,37 +644,38 @@ define void @_ZN5faiss17RangeSearchResultD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss17RangeSearchResultE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss17RangeSearchResultE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %3, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #16
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #16
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %3, i32 0, i32 4
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %3, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %8
-  call void @_ZdaPv(ptr noundef %10) #16
-  br label %13
+13:                                               ; preds = %9
+  call void @_ZdaPv(ptr noundef %11) #16
+  br label %14
 
-13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %3, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %18, label %17
+14:                                               ; preds = %13, %9
+  %15 = getelementptr inbounds %"struct.faiss::RangeSearchResult", ptr %3, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %19, label %18
 
-17:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef %15) #16
-  br label %18
+18:                                               ; preds = %14
+  call void @_ZdaPv(ptr noundef %16) #16
+  br label %19
 
-18:                                               ; preds = %17, %13
+19:                                               ; preds = %18, %14
   ret void
 }
 

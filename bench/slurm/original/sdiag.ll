@@ -111,7 +111,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   br label %21
 
 21:                                               ; preds = %20, %18
-  br label %126
+  br label %132
 
 22:                                               ; preds = %2
   store i16 1, ptr @req, align 2
@@ -119,199 +119,205 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   store i32 %23, ptr %6, align 4
   %24 = load i32, ptr %6, align 4
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %124
+  br i1 %25, label %26, label %130
 
 26:                                               ; preds = %22
   call void @_sort_rpc()
-  %27 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 4), align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %120
+  %27 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 4
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %126
 
-29:                                               ; preds = %26
-  br label %30
+30:                                               ; preds = %26
+  br label %31
 
-30:                                               ; preds = %29
+31:                                               ; preds = %30
   call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 32, i1 false)
-  %31 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 3
-  %32 = load ptr, ptr @buf, align 8
-  store ptr %32, ptr %31, align 8
-  br label %33
+  %32 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 3
+  %33 = load ptr, ptr @buf, align 8
+  store ptr %33, ptr %32, align 8
+  br label %34
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 0
-  store i32 463606195, ptr %34, align 8
-  %35 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 1
-  store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 2
-  store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 3
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 0
+  store i32 463606195, ptr %35, align 8
+  %36 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 1
+  store i32 0, ptr %36, align 4
+  %37 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 2
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 4
-  %39 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 5), align 8
-  store ptr %39, ptr %38, align 8
-  store ptr %7, ptr %9, align 8
-  %40 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 0
+  %38 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 3
+  store ptr null, ptr %38, align 8
+  %39 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 4
+  %40 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 5
   %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %50, label %43
+  store ptr %41, ptr %39, align 8
+  store ptr %7, ptr %9, align 8
+  %42 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %54, label %45
 
-43:                                               ; preds = %33
-  %44 = load i32, ptr %4, align 4
-  %45 = load ptr, ptr %5, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 4), align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 5), align 8
-  %48 = call ptr @data_parser_cli_meta(i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  %49 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 0
-  store ptr %48, ptr %49, align 8
-  br label %50
+45:                                               ; preds = %34
+  %46 = load i32, ptr %4, align 4
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 4
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8
+  %52 = call ptr @data_parser_cli_meta(i32 noundef %46, ptr noundef %47, ptr noundef %49, ptr noundef %51)
+  %53 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 0
+  store ptr %52, ptr %53, align 8
+  br label %54
 
-50:                                               ; preds = %43, %33
-  %51 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %58, label %54
+54:                                               ; preds = %45, %34
+  %55 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %62, label %58
 
-54:                                               ; preds = %50
-  %55 = call ptr @list_create(ptr noundef @free_openapi_resp_error)
-  %56 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 2
-  store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 1
-  store ptr %55, ptr %57, align 8
-  br label %62
+58:                                               ; preds = %54
+  %59 = call ptr @list_create(ptr noundef @free_openapi_resp_error)
+  %60 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 2
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 1
+  store ptr %59, ptr %61, align 8
+  br label %66
 
-58:                                               ; preds = %50
-  %59 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 2
-  store ptr %60, ptr %61, align 8
-  br label %62
-
-62:                                               ; preds = %58, %54
-  %63 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 2
+62:                                               ; preds = %54
+  %63 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 1
   %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %70, label %66
+  %65 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 2
+  store ptr %64, ptr %65, align 8
+  br label %66
 
-66:                                               ; preds = %62
-  %67 = call ptr @list_create(ptr noundef @free_openapi_resp_warning)
-  %68 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 3
-  store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 2
-  store ptr %67, ptr %69, align 8
-  br label %74
+66:                                               ; preds = %62, %58
+  %67 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %74, label %70
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 2
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 3
-  store ptr %72, ptr %73, align 8
-  br label %74
+70:                                               ; preds = %66
+  %71 = call ptr @list_create(ptr noundef @free_openapi_resp_warning)
+  %72 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 3
+  store ptr %71, ptr %72, align 8
+  %73 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 2
+  store ptr %71, ptr %73, align 8
+  br label %78
 
-74:                                               ; preds = %70, %66
-  %75 = load ptr, ptr %9, align 8
-  %76 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 4), align 8
-  %77 = load ptr, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 5), align 8
-  %78 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 @data_parser_dump_cli_stdout(i32 noundef 245, ptr noundef %75, i32 noundef 32, ptr noundef null, ptr noundef %76, ptr noundef %77, ptr noundef %8, ptr noundef %79)
-  store i32 %80, ptr %6, align 4
-  br label %81
+74:                                               ; preds = %66
+  %75 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 2
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds %struct.data_parser_dump_cli_ctxt_t, ptr %8, i32 0, i32 3
+  store ptr %76, ptr %77, align 8
+  br label %78
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %9, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %116
+78:                                               ; preds = %74, %70
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 4
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 5
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %7, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8
+  %86 = call i32 @data_parser_dump_cli_stdout(i32 noundef 245, ptr noundef %79, i32 noundef 32, ptr noundef null, ptr noundef %81, ptr noundef %83, ptr noundef %8, ptr noundef %85)
+  store i32 %86, ptr %6, align 4
+  br label %87
 
-84:                                               ; preds = %81
-  br label %85
-
-85:                                               ; preds = %84
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %86, i32 0, i32 2
-  %88 = load ptr, ptr %87, align 8
+87:                                               ; preds = %78
+  %88 = load ptr, ptr %9, align 8
   %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %94
+  br i1 %89, label %90, label %122
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %91, i32 0, i32 2
-  %93 = load ptr, ptr %92, align 8
-  call void @list_destroy(ptr noundef %93)
-  br label %94
+90:                                               ; preds = %87
+  br label %91
 
-94:                                               ; preds = %90, %85
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %95, i32 0, i32 2
-  store ptr null, ptr %96, align 8
-  br label %97
+91:                                               ; preds = %90
+  %92 = load ptr, ptr %9, align 8
+  %93 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %92, i32 0, i32 2
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %100
 
-97:                                               ; preds = %94
-  br label %98
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %9, align 8
+  %98 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %97, i32 0, i32 2
+  %99 = load ptr, ptr %98, align 8
+  call void @list_destroy(ptr noundef %99)
+  br label %100
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %9, align 8
-  %100 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %99, i32 0, i32 1
-  %101 = load ptr, ptr %100, align 8
-  %102 = icmp ne ptr %101, null
-  br i1 %102, label %103, label %107
+100:                                              ; preds = %96, %91
+  %101 = load ptr, ptr %9, align 8
+  %102 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %101, i32 0, i32 2
+  store ptr null, ptr %102, align 8
+  br label %103
 
-103:                                              ; preds = %98
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %104, i32 0, i32 1
-  %106 = load ptr, ptr %105, align 8
-  call void @list_destroy(ptr noundef %106)
-  br label %107
+103:                                              ; preds = %100
+  br label %104
 
-107:                                              ; preds = %103, %98
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %108, i32 0, i32 1
-  store ptr null, ptr %109, align 8
-  br label %110
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %9, align 8
+  %106 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %109, label %113
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %9, align 8
-  %112 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %111, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  call void @free_openapi_resp_meta(ptr noundef %113)
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %9, align 8
+  %111 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %110, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  call void @list_destroy(ptr noundef %112)
+  br label %113
+
+113:                                              ; preds = %109, %104
   %114 = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %114, i32 0, i32 0
+  %115 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %114, i32 0, i32 1
   store ptr null, ptr %115, align 8
   br label %116
 
-116:                                              ; preds = %110, %81
-  br label %117
-
-117:                                              ; preds = %116
-  br label %118
-
-118:                                              ; preds = %117
-  br label %119
-
-119:                                              ; preds = %118
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %9, align 8
+  %118 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %117, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8
+  call void @free_openapi_resp_meta(ptr noundef %119)
+  %120 = load ptr, ptr %9, align 8
+  %121 = getelementptr inbounds %struct.openapi_resp_single_t, ptr %120, i32 0, i32 0
+  store ptr null, ptr %121, align 8
   br label %122
 
-120:                                              ; preds = %26
-  %121 = call i32 @_print_stats()
-  store i32 %121, ptr %6, align 4
-  br label %122
+122:                                              ; preds = %116, %87
+  br label %123
 
-122:                                              ; preds = %120, %119
-  %123 = load ptr, ptr @buf, align 8
-  call void @slurm_free_stats_response_msg(ptr noundef %123)
+123:                                              ; preds = %122
+  br label %124
+
+124:                                              ; preds = %123
+  br label %125
+
+125:                                              ; preds = %124
+  br label %128
+
+126:                                              ; preds = %26
+  %127 = call i32 @_print_stats()
+  store i32 %127, ptr %6, align 4
+  br label %128
+
+128:                                              ; preds = %126, %125
+  %129 = load ptr, ptr @buf, align 8
+  call void @slurm_free_stats_response_msg(ptr noundef %129)
   call void @slurm_xfree(ptr noundef @rpc_type_ave_time)
   call void @slurm_xfree(ptr noundef @rpc_user_ave_time)
-  br label %125
+  br label %131
 
-124:                                              ; preds = %22
+130:                                              ; preds = %22
   call void @slurm_perror(ptr noundef @.str.2)
-  br label %125
+  br label %131
 
-125:                                              ; preds = %124, %122
-  br label %126
+131:                                              ; preds = %130, %128
+  br label %132
 
-126:                                              ; preds = %125, %21
-  %127 = load i32, ptr %6, align 4
-  call void @exit(i32 noundef %127) #4
+132:                                              ; preds = %131, %21
+  %133 = load i32, ptr %6, align 4
+  call void @exit(i32 noundef %133) #4
   unreachable
 }
 
@@ -353,1647 +359,1650 @@ define internal void @_sort_rpc() #0 {
   %21 = mul i64 4, %20
   %22 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %21, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.58, i32 noundef 272, ptr noundef @__func__._sort_rpc)
   store ptr %22, ptr @rpc_user_ave_time, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 1), align 4
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %334
+  %23 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %26, label %335
 
-25:                                               ; preds = %0
+26:                                               ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %26
+  br label %27
 
-26:                                               ; preds = %177, %25
-  %27 = load i32, ptr %1, align 4
-  %28 = load ptr, ptr @buf, align 8
-  %29 = getelementptr inbounds %struct.stats_info_response_msg, ptr %28, i32 0, i32 44
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ult i32 %27, %30
-  br i1 %31, label %32, label %180
+27:                                               ; preds = %178, %26
+  %28 = load i32, ptr %1, align 4
+  %29 = load ptr, ptr @buf, align 8
+  %30 = getelementptr inbounds %struct.stats_info_response_msg, ptr %29, i32 0, i32 44
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp ult i32 %28, %31
+  br i1 %32, label %33, label %181
 
-32:                                               ; preds = %26
-  %33 = load i32, ptr %1, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %2, align 4
-  br label %35
+33:                                               ; preds = %27
+  %34 = load i32, ptr %1, align 4
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %2, align 4
+  br label %36
 
-35:                                               ; preds = %142, %32
-  %36 = load i32, ptr %2, align 4
-  %37 = load ptr, ptr @buf, align 8
-  %38 = getelementptr inbounds %struct.stats_info_response_msg, ptr %37, i32 0, i32 44
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp ult i32 %36, %39
-  br i1 %40, label %41, label %145
+36:                                               ; preds = %143, %33
+  %37 = load i32, ptr %2, align 4
+  %38 = load ptr, ptr @buf, align 8
+  %39 = getelementptr inbounds %struct.stats_info_response_msg, ptr %38, i32 0, i32 44
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp ult i32 %37, %40
+  br i1 %41, label %42, label %146
 
-41:                                               ; preds = %35
-  %42 = load ptr, ptr @buf, align 8
-  %43 = getelementptr inbounds %struct.stats_info_response_msg, ptr %42, i32 0, i32 45
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i32, ptr %1, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i16, ptr %44, i64 %46
-  %48 = load i16, ptr %47, align 2
-  %49 = zext i16 %48 to i32
-  %50 = load ptr, ptr @buf, align 8
-  %51 = getelementptr inbounds %struct.stats_info_response_msg, ptr %50, i32 0, i32 45
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %2, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i16, ptr %52, i64 %54
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  %58 = icmp sle i32 %49, %57
-  br i1 %58, label %59, label %60
+42:                                               ; preds = %36
+  %43 = load ptr, ptr @buf, align 8
+  %44 = getelementptr inbounds %struct.stats_info_response_msg, ptr %43, i32 0, i32 45
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i32, ptr %1, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i16, ptr %45, i64 %47
+  %49 = load i16, ptr %48, align 2
+  %50 = zext i16 %49 to i32
+  %51 = load ptr, ptr @buf, align 8
+  %52 = getelementptr inbounds %struct.stats_info_response_msg, ptr %51, i32 0, i32 45
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i32, ptr %2, align 4
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i16, ptr %53, i64 %55
+  %57 = load i16, ptr %56, align 2
+  %58 = zext i16 %57 to i32
+  %59 = icmp sle i32 %50, %58
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %41
-  br label %142
+60:                                               ; preds = %42
+  br label %143
 
-60:                                               ; preds = %41
-  %61 = load ptr, ptr @buf, align 8
-  %62 = getelementptr inbounds %struct.stats_info_response_msg, ptr %61, i32 0, i32 45
-  %63 = load ptr, ptr %62, align 8
-  %64 = load i32, ptr %1, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %63, i64 %65
-  %67 = load i16, ptr %66, align 2
-  store i16 %67, ptr %3, align 2
-  %68 = load ptr, ptr @buf, align 8
-  %69 = getelementptr inbounds %struct.stats_info_response_msg, ptr %68, i32 0, i32 46
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr %1, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %70, i64 %72
-  %74 = load i32, ptr %73, align 4
-  store i32 %74, ptr %5, align 4
-  %75 = load ptr, ptr @buf, align 8
-  %76 = getelementptr inbounds %struct.stats_info_response_msg, ptr %75, i32 0, i32 47
-  %77 = load ptr, ptr %76, align 8
-  %78 = load i32, ptr %1, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i64, ptr %77, i64 %79
-  %81 = load i64, ptr %80, align 8
-  store i64 %81, ptr %9, align 8
-  %82 = load ptr, ptr @buf, align 8
-  %83 = getelementptr inbounds %struct.stats_info_response_msg, ptr %82, i32 0, i32 45
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %2, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i16, ptr %84, i64 %86
-  %88 = load i16, ptr %87, align 2
-  %89 = load ptr, ptr @buf, align 8
-  %90 = getelementptr inbounds %struct.stats_info_response_msg, ptr %89, i32 0, i32 45
-  %91 = load ptr, ptr %90, align 8
-  %92 = load i32, ptr %1, align 4
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i16, ptr %91, i64 %93
-  store i16 %88, ptr %94, align 2
-  %95 = load ptr, ptr @buf, align 8
-  %96 = getelementptr inbounds %struct.stats_info_response_msg, ptr %95, i32 0, i32 46
-  %97 = load ptr, ptr %96, align 8
-  %98 = load i32, ptr %2, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %97, i64 %99
-  %101 = load i32, ptr %100, align 4
-  %102 = load ptr, ptr @buf, align 8
-  %103 = getelementptr inbounds %struct.stats_info_response_msg, ptr %102, i32 0, i32 46
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %1, align 4
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %104, i64 %106
-  store i32 %101, ptr %107, align 4
-  %108 = load ptr, ptr @buf, align 8
-  %109 = getelementptr inbounds %struct.stats_info_response_msg, ptr %108, i32 0, i32 47
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %2, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i64, ptr %110, i64 %112
-  %114 = load i64, ptr %113, align 8
-  %115 = load ptr, ptr @buf, align 8
-  %116 = getelementptr inbounds %struct.stats_info_response_msg, ptr %115, i32 0, i32 47
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %1, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i64, ptr %117, i64 %119
-  store i64 %114, ptr %120, align 8
-  %121 = load i16, ptr %3, align 2
-  %122 = load ptr, ptr @buf, align 8
-  %123 = getelementptr inbounds %struct.stats_info_response_msg, ptr %122, i32 0, i32 45
-  %124 = load ptr, ptr %123, align 8
-  %125 = load i32, ptr %2, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i16, ptr %124, i64 %126
-  store i16 %121, ptr %127, align 2
-  %128 = load i32, ptr %5, align 4
-  %129 = load ptr, ptr @buf, align 8
-  %130 = getelementptr inbounds %struct.stats_info_response_msg, ptr %129, i32 0, i32 46
-  %131 = load ptr, ptr %130, align 8
-  %132 = load i32, ptr %2, align 4
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds i32, ptr %131, i64 %133
-  store i32 %128, ptr %134, align 4
-  %135 = load i64, ptr %9, align 8
-  %136 = load ptr, ptr @buf, align 8
-  %137 = getelementptr inbounds %struct.stats_info_response_msg, ptr %136, i32 0, i32 47
-  %138 = load ptr, ptr %137, align 8
-  %139 = load i32, ptr %2, align 4
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i64, ptr %138, i64 %140
-  store i64 %135, ptr %141, align 8
-  br label %142
+61:                                               ; preds = %42
+  %62 = load ptr, ptr @buf, align 8
+  %63 = getelementptr inbounds %struct.stats_info_response_msg, ptr %62, i32 0, i32 45
+  %64 = load ptr, ptr %63, align 8
+  %65 = load i32, ptr %1, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i16, ptr %64, i64 %66
+  %68 = load i16, ptr %67, align 2
+  store i16 %68, ptr %3, align 2
+  %69 = load ptr, ptr @buf, align 8
+  %70 = getelementptr inbounds %struct.stats_info_response_msg, ptr %69, i32 0, i32 46
+  %71 = load ptr, ptr %70, align 8
+  %72 = load i32, ptr %1, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i32, ptr %71, i64 %73
+  %75 = load i32, ptr %74, align 4
+  store i32 %75, ptr %5, align 4
+  %76 = load ptr, ptr @buf, align 8
+  %77 = getelementptr inbounds %struct.stats_info_response_msg, ptr %76, i32 0, i32 47
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %1, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i64, ptr %78, i64 %80
+  %82 = load i64, ptr %81, align 8
+  store i64 %82, ptr %9, align 8
+  %83 = load ptr, ptr @buf, align 8
+  %84 = getelementptr inbounds %struct.stats_info_response_msg, ptr %83, i32 0, i32 45
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %2, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i16, ptr %85, i64 %87
+  %89 = load i16, ptr %88, align 2
+  %90 = load ptr, ptr @buf, align 8
+  %91 = getelementptr inbounds %struct.stats_info_response_msg, ptr %90, i32 0, i32 45
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %1, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i16, ptr %92, i64 %94
+  store i16 %89, ptr %95, align 2
+  %96 = load ptr, ptr @buf, align 8
+  %97 = getelementptr inbounds %struct.stats_info_response_msg, ptr %96, i32 0, i32 46
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %2, align 4
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i32, ptr %98, i64 %100
+  %102 = load i32, ptr %101, align 4
+  %103 = load ptr, ptr @buf, align 8
+  %104 = getelementptr inbounds %struct.stats_info_response_msg, ptr %103, i32 0, i32 46
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i32, ptr %1, align 4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i32, ptr %105, i64 %107
+  store i32 %102, ptr %108, align 4
+  %109 = load ptr, ptr @buf, align 8
+  %110 = getelementptr inbounds %struct.stats_info_response_msg, ptr %109, i32 0, i32 47
+  %111 = load ptr, ptr %110, align 8
+  %112 = load i32, ptr %2, align 4
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i64, ptr %111, i64 %113
+  %115 = load i64, ptr %114, align 8
+  %116 = load ptr, ptr @buf, align 8
+  %117 = getelementptr inbounds %struct.stats_info_response_msg, ptr %116, i32 0, i32 47
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i32, ptr %1, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i64, ptr %118, i64 %120
+  store i64 %115, ptr %121, align 8
+  %122 = load i16, ptr %3, align 2
+  %123 = load ptr, ptr @buf, align 8
+  %124 = getelementptr inbounds %struct.stats_info_response_msg, ptr %123, i32 0, i32 45
+  %125 = load ptr, ptr %124, align 8
+  %126 = load i32, ptr %2, align 4
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i16, ptr %125, i64 %127
+  store i16 %122, ptr %128, align 2
+  %129 = load i32, ptr %5, align 4
+  %130 = load ptr, ptr @buf, align 8
+  %131 = getelementptr inbounds %struct.stats_info_response_msg, ptr %130, i32 0, i32 46
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i32, ptr %2, align 4
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds i32, ptr %132, i64 %134
+  store i32 %129, ptr %135, align 4
+  %136 = load i64, ptr %9, align 8
+  %137 = load ptr, ptr @buf, align 8
+  %138 = getelementptr inbounds %struct.stats_info_response_msg, ptr %137, i32 0, i32 47
+  %139 = load ptr, ptr %138, align 8
+  %140 = load i32, ptr %2, align 4
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i64, ptr %139, i64 %141
+  store i64 %136, ptr %142, align 8
+  br label %143
 
-142:                                              ; preds = %60, %59
-  %143 = load i32, ptr %2, align 4
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %2, align 4
-  br label %35, !llvm.loop !7
+143:                                              ; preds = %61, %60
+  %144 = load i32, ptr %2, align 4
+  %145 = add nsw i32 %144, 1
+  store i32 %145, ptr %2, align 4
+  br label %36, !llvm.loop !7
 
-145:                                              ; preds = %35
-  %146 = load ptr, ptr @buf, align 8
-  %147 = getelementptr inbounds %struct.stats_info_response_msg, ptr %146, i32 0, i32 46
-  %148 = load ptr, ptr %147, align 8
-  %149 = load i32, ptr %1, align 4
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds i32, ptr %148, i64 %150
-  %152 = load i32, ptr %151, align 4
-  %153 = icmp ne i32 %152, 0
-  br i1 %153, label %154, label %176
+146:                                              ; preds = %36
+  %147 = load ptr, ptr @buf, align 8
+  %148 = getelementptr inbounds %struct.stats_info_response_msg, ptr %147, i32 0, i32 46
+  %149 = load ptr, ptr %148, align 8
+  %150 = load i32, ptr %1, align 4
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds i32, ptr %149, i64 %151
+  %153 = load i32, ptr %152, align 4
+  %154 = icmp ne i32 %153, 0
+  br i1 %154, label %155, label %177
 
-154:                                              ; preds = %145
-  %155 = load ptr, ptr @buf, align 8
-  %156 = getelementptr inbounds %struct.stats_info_response_msg, ptr %155, i32 0, i32 47
-  %157 = load ptr, ptr %156, align 8
-  %158 = load i32, ptr %1, align 4
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i64, ptr %157, i64 %159
-  %161 = load i64, ptr %160, align 8
-  %162 = load ptr, ptr @buf, align 8
-  %163 = getelementptr inbounds %struct.stats_info_response_msg, ptr %162, i32 0, i32 46
-  %164 = load ptr, ptr %163, align 8
-  %165 = load i32, ptr %1, align 4
-  %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds i32, ptr %164, i64 %166
-  %168 = load i32, ptr %167, align 4
-  %169 = zext i32 %168 to i64
-  %170 = udiv i64 %161, %169
-  %171 = trunc i64 %170 to i32
-  %172 = load ptr, ptr @rpc_type_ave_time, align 8
-  %173 = load i32, ptr %1, align 4
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds i32, ptr %172, i64 %174
-  store i32 %171, ptr %175, align 4
-  br label %176
-
-176:                                              ; preds = %154, %145
+155:                                              ; preds = %146
+  %156 = load ptr, ptr @buf, align 8
+  %157 = getelementptr inbounds %struct.stats_info_response_msg, ptr %156, i32 0, i32 47
+  %158 = load ptr, ptr %157, align 8
+  %159 = load i32, ptr %1, align 4
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds i64, ptr %158, i64 %160
+  %162 = load i64, ptr %161, align 8
+  %163 = load ptr, ptr @buf, align 8
+  %164 = getelementptr inbounds %struct.stats_info_response_msg, ptr %163, i32 0, i32 46
+  %165 = load ptr, ptr %164, align 8
+  %166 = load i32, ptr %1, align 4
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds i32, ptr %165, i64 %167
+  %169 = load i32, ptr %168, align 4
+  %170 = zext i32 %169 to i64
+  %171 = udiv i64 %162, %170
+  %172 = trunc i64 %171 to i32
+  %173 = load ptr, ptr @rpc_type_ave_time, align 8
+  %174 = load i32, ptr %1, align 4
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds i32, ptr %173, i64 %175
+  store i32 %172, ptr %176, align 4
   br label %177
 
-177:                                              ; preds = %176
-  %178 = load i32, ptr %1, align 4
-  %179 = add nsw i32 %178, 1
-  store i32 %179, ptr %1, align 4
-  br label %26, !llvm.loop !9
+177:                                              ; preds = %155, %146
+  br label %178
 
-180:                                              ; preds = %26
+178:                                              ; preds = %177
+  %179 = load i32, ptr %1, align 4
+  %180 = add nsw i32 %179, 1
+  store i32 %180, ptr %1, align 4
+  br label %27, !llvm.loop !9
+
+181:                                              ; preds = %27
   store i32 0, ptr %1, align 4
-  br label %181
+  br label %182
 
-181:                                              ; preds = %330, %180
-  %182 = load i32, ptr %1, align 4
-  %183 = load ptr, ptr @buf, align 8
-  %184 = getelementptr inbounds %struct.stats_info_response_msg, ptr %183, i32 0, i32 48
-  %185 = load i32, ptr %184, align 8
-  %186 = icmp ult i32 %182, %185
-  br i1 %186, label %187, label %333
+182:                                              ; preds = %331, %181
+  %183 = load i32, ptr %1, align 4
+  %184 = load ptr, ptr @buf, align 8
+  %185 = getelementptr inbounds %struct.stats_info_response_msg, ptr %184, i32 0, i32 48
+  %186 = load i32, ptr %185, align 8
+  %187 = icmp ult i32 %183, %186
+  br i1 %187, label %188, label %334
 
-187:                                              ; preds = %181
-  %188 = load i32, ptr %1, align 4
-  %189 = add nsw i32 %188, 1
-  store i32 %189, ptr %2, align 4
-  br label %190
+188:                                              ; preds = %182
+  %189 = load i32, ptr %1, align 4
+  %190 = add nsw i32 %189, 1
+  store i32 %190, ptr %2, align 4
+  br label %191
 
-190:                                              ; preds = %295, %187
-  %191 = load i32, ptr %2, align 4
-  %192 = load ptr, ptr @buf, align 8
-  %193 = getelementptr inbounds %struct.stats_info_response_msg, ptr %192, i32 0, i32 48
-  %194 = load i32, ptr %193, align 8
-  %195 = icmp ult i32 %191, %194
-  br i1 %195, label %196, label %298
+191:                                              ; preds = %296, %188
+  %192 = load i32, ptr %2, align 4
+  %193 = load ptr, ptr @buf, align 8
+  %194 = getelementptr inbounds %struct.stats_info_response_msg, ptr %193, i32 0, i32 48
+  %195 = load i32, ptr %194, align 8
+  %196 = icmp ult i32 %192, %195
+  br i1 %196, label %197, label %299
 
-196:                                              ; preds = %190
-  %197 = load ptr, ptr @buf, align 8
-  %198 = getelementptr inbounds %struct.stats_info_response_msg, ptr %197, i32 0, i32 49
-  %199 = load ptr, ptr %198, align 8
-  %200 = load i32, ptr %1, align 4
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds i32, ptr %199, i64 %201
-  %203 = load i32, ptr %202, align 4
-  %204 = load ptr, ptr @buf, align 8
-  %205 = getelementptr inbounds %struct.stats_info_response_msg, ptr %204, i32 0, i32 49
-  %206 = load ptr, ptr %205, align 8
-  %207 = load i32, ptr %2, align 4
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds i32, ptr %206, i64 %208
-  %210 = load i32, ptr %209, align 4
-  %211 = icmp ule i32 %203, %210
-  br i1 %211, label %212, label %213
+197:                                              ; preds = %191
+  %198 = load ptr, ptr @buf, align 8
+  %199 = getelementptr inbounds %struct.stats_info_response_msg, ptr %198, i32 0, i32 49
+  %200 = load ptr, ptr %199, align 8
+  %201 = load i32, ptr %1, align 4
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds i32, ptr %200, i64 %202
+  %204 = load i32, ptr %203, align 4
+  %205 = load ptr, ptr @buf, align 8
+  %206 = getelementptr inbounds %struct.stats_info_response_msg, ptr %205, i32 0, i32 49
+  %207 = load ptr, ptr %206, align 8
+  %208 = load i32, ptr %2, align 4
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds i32, ptr %207, i64 %209
+  %211 = load i32, ptr %210, align 4
+  %212 = icmp ule i32 %204, %211
+  br i1 %212, label %213, label %214
 
-212:                                              ; preds = %196
-  br label %295
+213:                                              ; preds = %197
+  br label %296
 
-213:                                              ; preds = %196
-  %214 = load ptr, ptr @buf, align 8
-  %215 = getelementptr inbounds %struct.stats_info_response_msg, ptr %214, i32 0, i32 49
-  %216 = load ptr, ptr %215, align 8
-  %217 = load i32, ptr %1, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds i32, ptr %216, i64 %218
-  %220 = load i32, ptr %219, align 4
-  store i32 %220, ptr %8, align 4
-  %221 = load ptr, ptr @buf, align 8
-  %222 = getelementptr inbounds %struct.stats_info_response_msg, ptr %221, i32 0, i32 50
-  %223 = load ptr, ptr %222, align 8
-  %224 = load i32, ptr %1, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds i32, ptr %223, i64 %225
-  %227 = load i32, ptr %226, align 4
-  store i32 %227, ptr %7, align 4
-  %228 = load ptr, ptr @buf, align 8
-  %229 = getelementptr inbounds %struct.stats_info_response_msg, ptr %228, i32 0, i32 51
-  %230 = load ptr, ptr %229, align 8
-  %231 = load i32, ptr %1, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds i64, ptr %230, i64 %232
-  %234 = load i64, ptr %233, align 8
-  store i64 %234, ptr %10, align 8
-  %235 = load ptr, ptr @buf, align 8
-  %236 = getelementptr inbounds %struct.stats_info_response_msg, ptr %235, i32 0, i32 49
-  %237 = load ptr, ptr %236, align 8
-  %238 = load i32, ptr %2, align 4
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds i32, ptr %237, i64 %239
-  %241 = load i32, ptr %240, align 4
-  %242 = load ptr, ptr @buf, align 8
-  %243 = getelementptr inbounds %struct.stats_info_response_msg, ptr %242, i32 0, i32 49
-  %244 = load ptr, ptr %243, align 8
-  %245 = load i32, ptr %1, align 4
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds i32, ptr %244, i64 %246
-  store i32 %241, ptr %247, align 4
-  %248 = load ptr, ptr @buf, align 8
-  %249 = getelementptr inbounds %struct.stats_info_response_msg, ptr %248, i32 0, i32 50
-  %250 = load ptr, ptr %249, align 8
-  %251 = load i32, ptr %2, align 4
-  %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds i32, ptr %250, i64 %252
-  %254 = load i32, ptr %253, align 4
-  %255 = load ptr, ptr @buf, align 8
-  %256 = getelementptr inbounds %struct.stats_info_response_msg, ptr %255, i32 0, i32 50
-  %257 = load ptr, ptr %256, align 8
-  %258 = load i32, ptr %1, align 4
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds i32, ptr %257, i64 %259
-  store i32 %254, ptr %260, align 4
-  %261 = load ptr, ptr @buf, align 8
-  %262 = getelementptr inbounds %struct.stats_info_response_msg, ptr %261, i32 0, i32 51
-  %263 = load ptr, ptr %262, align 8
-  %264 = load i32, ptr %2, align 4
-  %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds i64, ptr %263, i64 %265
-  %267 = load i64, ptr %266, align 8
-  %268 = load ptr, ptr @buf, align 8
-  %269 = getelementptr inbounds %struct.stats_info_response_msg, ptr %268, i32 0, i32 51
-  %270 = load ptr, ptr %269, align 8
-  %271 = load i32, ptr %1, align 4
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds i64, ptr %270, i64 %272
-  store i64 %267, ptr %273, align 8
-  %274 = load i32, ptr %8, align 4
-  %275 = load ptr, ptr @buf, align 8
-  %276 = getelementptr inbounds %struct.stats_info_response_msg, ptr %275, i32 0, i32 49
-  %277 = load ptr, ptr %276, align 8
-  %278 = load i32, ptr %2, align 4
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds i32, ptr %277, i64 %279
-  store i32 %274, ptr %280, align 4
-  %281 = load i32, ptr %7, align 4
-  %282 = load ptr, ptr @buf, align 8
-  %283 = getelementptr inbounds %struct.stats_info_response_msg, ptr %282, i32 0, i32 50
-  %284 = load ptr, ptr %283, align 8
-  %285 = load i32, ptr %2, align 4
-  %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds i32, ptr %284, i64 %286
-  store i32 %281, ptr %287, align 4
-  %288 = load i64, ptr %10, align 8
-  %289 = load ptr, ptr @buf, align 8
-  %290 = getelementptr inbounds %struct.stats_info_response_msg, ptr %289, i32 0, i32 51
-  %291 = load ptr, ptr %290, align 8
-  %292 = load i32, ptr %2, align 4
-  %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds i64, ptr %291, i64 %293
-  store i64 %288, ptr %294, align 8
-  br label %295
+214:                                              ; preds = %197
+  %215 = load ptr, ptr @buf, align 8
+  %216 = getelementptr inbounds %struct.stats_info_response_msg, ptr %215, i32 0, i32 49
+  %217 = load ptr, ptr %216, align 8
+  %218 = load i32, ptr %1, align 4
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds i32, ptr %217, i64 %219
+  %221 = load i32, ptr %220, align 4
+  store i32 %221, ptr %8, align 4
+  %222 = load ptr, ptr @buf, align 8
+  %223 = getelementptr inbounds %struct.stats_info_response_msg, ptr %222, i32 0, i32 50
+  %224 = load ptr, ptr %223, align 8
+  %225 = load i32, ptr %1, align 4
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds i32, ptr %224, i64 %226
+  %228 = load i32, ptr %227, align 4
+  store i32 %228, ptr %7, align 4
+  %229 = load ptr, ptr @buf, align 8
+  %230 = getelementptr inbounds %struct.stats_info_response_msg, ptr %229, i32 0, i32 51
+  %231 = load ptr, ptr %230, align 8
+  %232 = load i32, ptr %1, align 4
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds i64, ptr %231, i64 %233
+  %235 = load i64, ptr %234, align 8
+  store i64 %235, ptr %10, align 8
+  %236 = load ptr, ptr @buf, align 8
+  %237 = getelementptr inbounds %struct.stats_info_response_msg, ptr %236, i32 0, i32 49
+  %238 = load ptr, ptr %237, align 8
+  %239 = load i32, ptr %2, align 4
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds i32, ptr %238, i64 %240
+  %242 = load i32, ptr %241, align 4
+  %243 = load ptr, ptr @buf, align 8
+  %244 = getelementptr inbounds %struct.stats_info_response_msg, ptr %243, i32 0, i32 49
+  %245 = load ptr, ptr %244, align 8
+  %246 = load i32, ptr %1, align 4
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds i32, ptr %245, i64 %247
+  store i32 %242, ptr %248, align 4
+  %249 = load ptr, ptr @buf, align 8
+  %250 = getelementptr inbounds %struct.stats_info_response_msg, ptr %249, i32 0, i32 50
+  %251 = load ptr, ptr %250, align 8
+  %252 = load i32, ptr %2, align 4
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr inbounds i32, ptr %251, i64 %253
+  %255 = load i32, ptr %254, align 4
+  %256 = load ptr, ptr @buf, align 8
+  %257 = getelementptr inbounds %struct.stats_info_response_msg, ptr %256, i32 0, i32 50
+  %258 = load ptr, ptr %257, align 8
+  %259 = load i32, ptr %1, align 4
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds i32, ptr %258, i64 %260
+  store i32 %255, ptr %261, align 4
+  %262 = load ptr, ptr @buf, align 8
+  %263 = getelementptr inbounds %struct.stats_info_response_msg, ptr %262, i32 0, i32 51
+  %264 = load ptr, ptr %263, align 8
+  %265 = load i32, ptr %2, align 4
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds i64, ptr %264, i64 %266
+  %268 = load i64, ptr %267, align 8
+  %269 = load ptr, ptr @buf, align 8
+  %270 = getelementptr inbounds %struct.stats_info_response_msg, ptr %269, i32 0, i32 51
+  %271 = load ptr, ptr %270, align 8
+  %272 = load i32, ptr %1, align 4
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds i64, ptr %271, i64 %273
+  store i64 %268, ptr %274, align 8
+  %275 = load i32, ptr %8, align 4
+  %276 = load ptr, ptr @buf, align 8
+  %277 = getelementptr inbounds %struct.stats_info_response_msg, ptr %276, i32 0, i32 49
+  %278 = load ptr, ptr %277, align 8
+  %279 = load i32, ptr %2, align 4
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds i32, ptr %278, i64 %280
+  store i32 %275, ptr %281, align 4
+  %282 = load i32, ptr %7, align 4
+  %283 = load ptr, ptr @buf, align 8
+  %284 = getelementptr inbounds %struct.stats_info_response_msg, ptr %283, i32 0, i32 50
+  %285 = load ptr, ptr %284, align 8
+  %286 = load i32, ptr %2, align 4
+  %287 = sext i32 %286 to i64
+  %288 = getelementptr inbounds i32, ptr %285, i64 %287
+  store i32 %282, ptr %288, align 4
+  %289 = load i64, ptr %10, align 8
+  %290 = load ptr, ptr @buf, align 8
+  %291 = getelementptr inbounds %struct.stats_info_response_msg, ptr %290, i32 0, i32 51
+  %292 = load ptr, ptr %291, align 8
+  %293 = load i32, ptr %2, align 4
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds i64, ptr %292, i64 %294
+  store i64 %289, ptr %295, align 8
+  br label %296
 
-295:                                              ; preds = %213, %212
-  %296 = load i32, ptr %2, align 4
-  %297 = add nsw i32 %296, 1
-  store i32 %297, ptr %2, align 4
-  br label %190, !llvm.loop !10
+296:                                              ; preds = %214, %213
+  %297 = load i32, ptr %2, align 4
+  %298 = add nsw i32 %297, 1
+  store i32 %298, ptr %2, align 4
+  br label %191, !llvm.loop !10
 
-298:                                              ; preds = %190
-  %299 = load ptr, ptr @buf, align 8
-  %300 = getelementptr inbounds %struct.stats_info_response_msg, ptr %299, i32 0, i32 50
-  %301 = load ptr, ptr %300, align 8
-  %302 = load i32, ptr %1, align 4
-  %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds i32, ptr %301, i64 %303
-  %305 = load i32, ptr %304, align 4
-  %306 = icmp ne i32 %305, 0
-  br i1 %306, label %307, label %329
+299:                                              ; preds = %191
+  %300 = load ptr, ptr @buf, align 8
+  %301 = getelementptr inbounds %struct.stats_info_response_msg, ptr %300, i32 0, i32 50
+  %302 = load ptr, ptr %301, align 8
+  %303 = load i32, ptr %1, align 4
+  %304 = sext i32 %303 to i64
+  %305 = getelementptr inbounds i32, ptr %302, i64 %304
+  %306 = load i32, ptr %305, align 4
+  %307 = icmp ne i32 %306, 0
+  br i1 %307, label %308, label %330
 
-307:                                              ; preds = %298
-  %308 = load ptr, ptr @buf, align 8
-  %309 = getelementptr inbounds %struct.stats_info_response_msg, ptr %308, i32 0, i32 51
-  %310 = load ptr, ptr %309, align 8
-  %311 = load i32, ptr %1, align 4
-  %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds i64, ptr %310, i64 %312
-  %314 = load i64, ptr %313, align 8
-  %315 = load ptr, ptr @buf, align 8
-  %316 = getelementptr inbounds %struct.stats_info_response_msg, ptr %315, i32 0, i32 50
-  %317 = load ptr, ptr %316, align 8
-  %318 = load i32, ptr %1, align 4
-  %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds i32, ptr %317, i64 %319
-  %321 = load i32, ptr %320, align 4
-  %322 = zext i32 %321 to i64
-  %323 = udiv i64 %314, %322
-  %324 = trunc i64 %323 to i32
-  %325 = load ptr, ptr @rpc_user_ave_time, align 8
-  %326 = load i32, ptr %1, align 4
-  %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds i32, ptr %325, i64 %327
-  store i32 %324, ptr %328, align 4
-  br label %329
-
-329:                                              ; preds = %307, %298
+308:                                              ; preds = %299
+  %309 = load ptr, ptr @buf, align 8
+  %310 = getelementptr inbounds %struct.stats_info_response_msg, ptr %309, i32 0, i32 51
+  %311 = load ptr, ptr %310, align 8
+  %312 = load i32, ptr %1, align 4
+  %313 = sext i32 %312 to i64
+  %314 = getelementptr inbounds i64, ptr %311, i64 %313
+  %315 = load i64, ptr %314, align 8
+  %316 = load ptr, ptr @buf, align 8
+  %317 = getelementptr inbounds %struct.stats_info_response_msg, ptr %316, i32 0, i32 50
+  %318 = load ptr, ptr %317, align 8
+  %319 = load i32, ptr %1, align 4
+  %320 = sext i32 %319 to i64
+  %321 = getelementptr inbounds i32, ptr %318, i64 %320
+  %322 = load i32, ptr %321, align 4
+  %323 = zext i32 %322 to i64
+  %324 = udiv i64 %315, %323
+  %325 = trunc i64 %324 to i32
+  %326 = load ptr, ptr @rpc_user_ave_time, align 8
+  %327 = load i32, ptr %1, align 4
+  %328 = sext i32 %327 to i64
+  %329 = getelementptr inbounds i32, ptr %326, i64 %328
+  store i32 %325, ptr %329, align 4
   br label %330
 
-330:                                              ; preds = %329
-  %331 = load i32, ptr %1, align 4
-  %332 = add nsw i32 %331, 1
-  store i32 %332, ptr %1, align 4
-  br label %181, !llvm.loop !11
+330:                                              ; preds = %308, %299
+  br label %331
 
-333:                                              ; preds = %181
-  br label %1315
+331:                                              ; preds = %330
+  %332 = load i32, ptr %1, align 4
+  %333 = add nsw i32 %332, 1
+  store i32 %333, ptr %1, align 4
+  br label %182, !llvm.loop !11
 
-334:                                              ; preds = %0
-  %335 = load i32, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 1), align 4
-  %336 = icmp eq i32 %335, 2
-  br i1 %336, label %337, label %644
+334:                                              ; preds = %182
+  br label %1318
 
-337:                                              ; preds = %334
+335:                                              ; preds = %0
+  %336 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 1
+  %337 = load i32, ptr %336, align 4
+  %338 = icmp eq i32 %337, 2
+  br i1 %338, label %339, label %646
+
+339:                                              ; preds = %335
   store i32 0, ptr %1, align 4
-  br label %338
+  br label %340
 
-338:                                              ; preds = %487, %337
-  %339 = load i32, ptr %1, align 4
-  %340 = load ptr, ptr @buf, align 8
-  %341 = getelementptr inbounds %struct.stats_info_response_msg, ptr %340, i32 0, i32 44
-  %342 = load i32, ptr %341, align 4
-  %343 = icmp ult i32 %339, %342
-  br i1 %343, label %344, label %490
+340:                                              ; preds = %489, %339
+  %341 = load i32, ptr %1, align 4
+  %342 = load ptr, ptr @buf, align 8
+  %343 = getelementptr inbounds %struct.stats_info_response_msg, ptr %342, i32 0, i32 44
+  %344 = load i32, ptr %343, align 4
+  %345 = icmp ult i32 %341, %344
+  br i1 %345, label %346, label %492
 
-344:                                              ; preds = %338
-  %345 = load i32, ptr %1, align 4
-  %346 = add nsw i32 %345, 1
-  store i32 %346, ptr %2, align 4
-  br label %347
+346:                                              ; preds = %340
+  %347 = load i32, ptr %1, align 4
+  %348 = add nsw i32 %347, 1
+  store i32 %348, ptr %2, align 4
+  br label %349
 
-347:                                              ; preds = %452, %344
-  %348 = load i32, ptr %2, align 4
-  %349 = load ptr, ptr @buf, align 8
-  %350 = getelementptr inbounds %struct.stats_info_response_msg, ptr %349, i32 0, i32 44
-  %351 = load i32, ptr %350, align 4
-  %352 = icmp ult i32 %348, %351
-  br i1 %352, label %353, label %455
+349:                                              ; preds = %454, %346
+  %350 = load i32, ptr %2, align 4
+  %351 = load ptr, ptr @buf, align 8
+  %352 = getelementptr inbounds %struct.stats_info_response_msg, ptr %351, i32 0, i32 44
+  %353 = load i32, ptr %352, align 4
+  %354 = icmp ult i32 %350, %353
+  br i1 %354, label %355, label %457
 
-353:                                              ; preds = %347
-  %354 = load ptr, ptr @buf, align 8
-  %355 = getelementptr inbounds %struct.stats_info_response_msg, ptr %354, i32 0, i32 47
-  %356 = load ptr, ptr %355, align 8
-  %357 = load i32, ptr %1, align 4
-  %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds i64, ptr %356, i64 %358
-  %360 = load i64, ptr %359, align 8
-  %361 = load ptr, ptr @buf, align 8
-  %362 = getelementptr inbounds %struct.stats_info_response_msg, ptr %361, i32 0, i32 47
-  %363 = load ptr, ptr %362, align 8
-  %364 = load i32, ptr %2, align 4
-  %365 = sext i32 %364 to i64
-  %366 = getelementptr inbounds i64, ptr %363, i64 %365
-  %367 = load i64, ptr %366, align 8
-  %368 = icmp uge i64 %360, %367
-  br i1 %368, label %369, label %370
+355:                                              ; preds = %349
+  %356 = load ptr, ptr @buf, align 8
+  %357 = getelementptr inbounds %struct.stats_info_response_msg, ptr %356, i32 0, i32 47
+  %358 = load ptr, ptr %357, align 8
+  %359 = load i32, ptr %1, align 4
+  %360 = sext i32 %359 to i64
+  %361 = getelementptr inbounds i64, ptr %358, i64 %360
+  %362 = load i64, ptr %361, align 8
+  %363 = load ptr, ptr @buf, align 8
+  %364 = getelementptr inbounds %struct.stats_info_response_msg, ptr %363, i32 0, i32 47
+  %365 = load ptr, ptr %364, align 8
+  %366 = load i32, ptr %2, align 4
+  %367 = sext i32 %366 to i64
+  %368 = getelementptr inbounds i64, ptr %365, i64 %367
+  %369 = load i64, ptr %368, align 8
+  %370 = icmp uge i64 %362, %369
+  br i1 %370, label %371, label %372
 
-369:                                              ; preds = %353
-  br label %452
+371:                                              ; preds = %355
+  br label %454
 
-370:                                              ; preds = %353
-  %371 = load ptr, ptr @buf, align 8
-  %372 = getelementptr inbounds %struct.stats_info_response_msg, ptr %371, i32 0, i32 45
-  %373 = load ptr, ptr %372, align 8
-  %374 = load i32, ptr %1, align 4
-  %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds i16, ptr %373, i64 %375
-  %377 = load i16, ptr %376, align 2
-  store i16 %377, ptr %3, align 2
-  %378 = load ptr, ptr @buf, align 8
-  %379 = getelementptr inbounds %struct.stats_info_response_msg, ptr %378, i32 0, i32 46
-  %380 = load ptr, ptr %379, align 8
-  %381 = load i32, ptr %1, align 4
-  %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds i32, ptr %380, i64 %382
-  %384 = load i32, ptr %383, align 4
-  store i32 %384, ptr %5, align 4
-  %385 = load ptr, ptr @buf, align 8
-  %386 = getelementptr inbounds %struct.stats_info_response_msg, ptr %385, i32 0, i32 47
-  %387 = load ptr, ptr %386, align 8
-  %388 = load i32, ptr %1, align 4
-  %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds i64, ptr %387, i64 %389
-  %391 = load i64, ptr %390, align 8
-  store i64 %391, ptr %9, align 8
-  %392 = load ptr, ptr @buf, align 8
-  %393 = getelementptr inbounds %struct.stats_info_response_msg, ptr %392, i32 0, i32 45
-  %394 = load ptr, ptr %393, align 8
-  %395 = load i32, ptr %2, align 4
-  %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds i16, ptr %394, i64 %396
-  %398 = load i16, ptr %397, align 2
-  %399 = load ptr, ptr @buf, align 8
-  %400 = getelementptr inbounds %struct.stats_info_response_msg, ptr %399, i32 0, i32 45
-  %401 = load ptr, ptr %400, align 8
-  %402 = load i32, ptr %1, align 4
-  %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds i16, ptr %401, i64 %403
-  store i16 %398, ptr %404, align 2
-  %405 = load ptr, ptr @buf, align 8
-  %406 = getelementptr inbounds %struct.stats_info_response_msg, ptr %405, i32 0, i32 46
-  %407 = load ptr, ptr %406, align 8
-  %408 = load i32, ptr %2, align 4
-  %409 = sext i32 %408 to i64
-  %410 = getelementptr inbounds i32, ptr %407, i64 %409
-  %411 = load i32, ptr %410, align 4
-  %412 = load ptr, ptr @buf, align 8
-  %413 = getelementptr inbounds %struct.stats_info_response_msg, ptr %412, i32 0, i32 46
-  %414 = load ptr, ptr %413, align 8
-  %415 = load i32, ptr %1, align 4
-  %416 = sext i32 %415 to i64
-  %417 = getelementptr inbounds i32, ptr %414, i64 %416
-  store i32 %411, ptr %417, align 4
-  %418 = load ptr, ptr @buf, align 8
-  %419 = getelementptr inbounds %struct.stats_info_response_msg, ptr %418, i32 0, i32 47
-  %420 = load ptr, ptr %419, align 8
-  %421 = load i32, ptr %2, align 4
-  %422 = sext i32 %421 to i64
-  %423 = getelementptr inbounds i64, ptr %420, i64 %422
-  %424 = load i64, ptr %423, align 8
-  %425 = load ptr, ptr @buf, align 8
-  %426 = getelementptr inbounds %struct.stats_info_response_msg, ptr %425, i32 0, i32 47
-  %427 = load ptr, ptr %426, align 8
-  %428 = load i32, ptr %1, align 4
-  %429 = sext i32 %428 to i64
-  %430 = getelementptr inbounds i64, ptr %427, i64 %429
-  store i64 %424, ptr %430, align 8
-  %431 = load i16, ptr %3, align 2
-  %432 = load ptr, ptr @buf, align 8
-  %433 = getelementptr inbounds %struct.stats_info_response_msg, ptr %432, i32 0, i32 45
-  %434 = load ptr, ptr %433, align 8
-  %435 = load i32, ptr %2, align 4
-  %436 = sext i32 %435 to i64
-  %437 = getelementptr inbounds i16, ptr %434, i64 %436
-  store i16 %431, ptr %437, align 2
-  %438 = load i32, ptr %5, align 4
-  %439 = load ptr, ptr @buf, align 8
-  %440 = getelementptr inbounds %struct.stats_info_response_msg, ptr %439, i32 0, i32 46
-  %441 = load ptr, ptr %440, align 8
-  %442 = load i32, ptr %2, align 4
-  %443 = sext i32 %442 to i64
-  %444 = getelementptr inbounds i32, ptr %441, i64 %443
-  store i32 %438, ptr %444, align 4
-  %445 = load i64, ptr %9, align 8
-  %446 = load ptr, ptr @buf, align 8
-  %447 = getelementptr inbounds %struct.stats_info_response_msg, ptr %446, i32 0, i32 47
-  %448 = load ptr, ptr %447, align 8
-  %449 = load i32, ptr %2, align 4
-  %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds i64, ptr %448, i64 %450
-  store i64 %445, ptr %451, align 8
-  br label %452
+372:                                              ; preds = %355
+  %373 = load ptr, ptr @buf, align 8
+  %374 = getelementptr inbounds %struct.stats_info_response_msg, ptr %373, i32 0, i32 45
+  %375 = load ptr, ptr %374, align 8
+  %376 = load i32, ptr %1, align 4
+  %377 = sext i32 %376 to i64
+  %378 = getelementptr inbounds i16, ptr %375, i64 %377
+  %379 = load i16, ptr %378, align 2
+  store i16 %379, ptr %3, align 2
+  %380 = load ptr, ptr @buf, align 8
+  %381 = getelementptr inbounds %struct.stats_info_response_msg, ptr %380, i32 0, i32 46
+  %382 = load ptr, ptr %381, align 8
+  %383 = load i32, ptr %1, align 4
+  %384 = sext i32 %383 to i64
+  %385 = getelementptr inbounds i32, ptr %382, i64 %384
+  %386 = load i32, ptr %385, align 4
+  store i32 %386, ptr %5, align 4
+  %387 = load ptr, ptr @buf, align 8
+  %388 = getelementptr inbounds %struct.stats_info_response_msg, ptr %387, i32 0, i32 47
+  %389 = load ptr, ptr %388, align 8
+  %390 = load i32, ptr %1, align 4
+  %391 = sext i32 %390 to i64
+  %392 = getelementptr inbounds i64, ptr %389, i64 %391
+  %393 = load i64, ptr %392, align 8
+  store i64 %393, ptr %9, align 8
+  %394 = load ptr, ptr @buf, align 8
+  %395 = getelementptr inbounds %struct.stats_info_response_msg, ptr %394, i32 0, i32 45
+  %396 = load ptr, ptr %395, align 8
+  %397 = load i32, ptr %2, align 4
+  %398 = sext i32 %397 to i64
+  %399 = getelementptr inbounds i16, ptr %396, i64 %398
+  %400 = load i16, ptr %399, align 2
+  %401 = load ptr, ptr @buf, align 8
+  %402 = getelementptr inbounds %struct.stats_info_response_msg, ptr %401, i32 0, i32 45
+  %403 = load ptr, ptr %402, align 8
+  %404 = load i32, ptr %1, align 4
+  %405 = sext i32 %404 to i64
+  %406 = getelementptr inbounds i16, ptr %403, i64 %405
+  store i16 %400, ptr %406, align 2
+  %407 = load ptr, ptr @buf, align 8
+  %408 = getelementptr inbounds %struct.stats_info_response_msg, ptr %407, i32 0, i32 46
+  %409 = load ptr, ptr %408, align 8
+  %410 = load i32, ptr %2, align 4
+  %411 = sext i32 %410 to i64
+  %412 = getelementptr inbounds i32, ptr %409, i64 %411
+  %413 = load i32, ptr %412, align 4
+  %414 = load ptr, ptr @buf, align 8
+  %415 = getelementptr inbounds %struct.stats_info_response_msg, ptr %414, i32 0, i32 46
+  %416 = load ptr, ptr %415, align 8
+  %417 = load i32, ptr %1, align 4
+  %418 = sext i32 %417 to i64
+  %419 = getelementptr inbounds i32, ptr %416, i64 %418
+  store i32 %413, ptr %419, align 4
+  %420 = load ptr, ptr @buf, align 8
+  %421 = getelementptr inbounds %struct.stats_info_response_msg, ptr %420, i32 0, i32 47
+  %422 = load ptr, ptr %421, align 8
+  %423 = load i32, ptr %2, align 4
+  %424 = sext i32 %423 to i64
+  %425 = getelementptr inbounds i64, ptr %422, i64 %424
+  %426 = load i64, ptr %425, align 8
+  %427 = load ptr, ptr @buf, align 8
+  %428 = getelementptr inbounds %struct.stats_info_response_msg, ptr %427, i32 0, i32 47
+  %429 = load ptr, ptr %428, align 8
+  %430 = load i32, ptr %1, align 4
+  %431 = sext i32 %430 to i64
+  %432 = getelementptr inbounds i64, ptr %429, i64 %431
+  store i64 %426, ptr %432, align 8
+  %433 = load i16, ptr %3, align 2
+  %434 = load ptr, ptr @buf, align 8
+  %435 = getelementptr inbounds %struct.stats_info_response_msg, ptr %434, i32 0, i32 45
+  %436 = load ptr, ptr %435, align 8
+  %437 = load i32, ptr %2, align 4
+  %438 = sext i32 %437 to i64
+  %439 = getelementptr inbounds i16, ptr %436, i64 %438
+  store i16 %433, ptr %439, align 2
+  %440 = load i32, ptr %5, align 4
+  %441 = load ptr, ptr @buf, align 8
+  %442 = getelementptr inbounds %struct.stats_info_response_msg, ptr %441, i32 0, i32 46
+  %443 = load ptr, ptr %442, align 8
+  %444 = load i32, ptr %2, align 4
+  %445 = sext i32 %444 to i64
+  %446 = getelementptr inbounds i32, ptr %443, i64 %445
+  store i32 %440, ptr %446, align 4
+  %447 = load i64, ptr %9, align 8
+  %448 = load ptr, ptr @buf, align 8
+  %449 = getelementptr inbounds %struct.stats_info_response_msg, ptr %448, i32 0, i32 47
+  %450 = load ptr, ptr %449, align 8
+  %451 = load i32, ptr %2, align 4
+  %452 = sext i32 %451 to i64
+  %453 = getelementptr inbounds i64, ptr %450, i64 %452
+  store i64 %447, ptr %453, align 8
+  br label %454
 
-452:                                              ; preds = %370, %369
-  %453 = load i32, ptr %2, align 4
-  %454 = add nsw i32 %453, 1
-  store i32 %454, ptr %2, align 4
-  br label %347, !llvm.loop !12
+454:                                              ; preds = %372, %371
+  %455 = load i32, ptr %2, align 4
+  %456 = add nsw i32 %455, 1
+  store i32 %456, ptr %2, align 4
+  br label %349, !llvm.loop !12
 
-455:                                              ; preds = %347
-  %456 = load ptr, ptr @buf, align 8
-  %457 = getelementptr inbounds %struct.stats_info_response_msg, ptr %456, i32 0, i32 46
-  %458 = load ptr, ptr %457, align 8
-  %459 = load i32, ptr %1, align 4
-  %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds i32, ptr %458, i64 %460
-  %462 = load i32, ptr %461, align 4
-  %463 = icmp ne i32 %462, 0
-  br i1 %463, label %464, label %486
+457:                                              ; preds = %349
+  %458 = load ptr, ptr @buf, align 8
+  %459 = getelementptr inbounds %struct.stats_info_response_msg, ptr %458, i32 0, i32 46
+  %460 = load ptr, ptr %459, align 8
+  %461 = load i32, ptr %1, align 4
+  %462 = sext i32 %461 to i64
+  %463 = getelementptr inbounds i32, ptr %460, i64 %462
+  %464 = load i32, ptr %463, align 4
+  %465 = icmp ne i32 %464, 0
+  br i1 %465, label %466, label %488
 
-464:                                              ; preds = %455
-  %465 = load ptr, ptr @buf, align 8
-  %466 = getelementptr inbounds %struct.stats_info_response_msg, ptr %465, i32 0, i32 47
-  %467 = load ptr, ptr %466, align 8
-  %468 = load i32, ptr %1, align 4
-  %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds i64, ptr %467, i64 %469
-  %471 = load i64, ptr %470, align 8
-  %472 = load ptr, ptr @buf, align 8
-  %473 = getelementptr inbounds %struct.stats_info_response_msg, ptr %472, i32 0, i32 46
-  %474 = load ptr, ptr %473, align 8
-  %475 = load i32, ptr %1, align 4
-  %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds i32, ptr %474, i64 %476
-  %478 = load i32, ptr %477, align 4
-  %479 = zext i32 %478 to i64
-  %480 = udiv i64 %471, %479
-  %481 = trunc i64 %480 to i32
-  %482 = load ptr, ptr @rpc_type_ave_time, align 8
-  %483 = load i32, ptr %1, align 4
-  %484 = sext i32 %483 to i64
-  %485 = getelementptr inbounds i32, ptr %482, i64 %484
-  store i32 %481, ptr %485, align 4
-  br label %486
+466:                                              ; preds = %457
+  %467 = load ptr, ptr @buf, align 8
+  %468 = getelementptr inbounds %struct.stats_info_response_msg, ptr %467, i32 0, i32 47
+  %469 = load ptr, ptr %468, align 8
+  %470 = load i32, ptr %1, align 4
+  %471 = sext i32 %470 to i64
+  %472 = getelementptr inbounds i64, ptr %469, i64 %471
+  %473 = load i64, ptr %472, align 8
+  %474 = load ptr, ptr @buf, align 8
+  %475 = getelementptr inbounds %struct.stats_info_response_msg, ptr %474, i32 0, i32 46
+  %476 = load ptr, ptr %475, align 8
+  %477 = load i32, ptr %1, align 4
+  %478 = sext i32 %477 to i64
+  %479 = getelementptr inbounds i32, ptr %476, i64 %478
+  %480 = load i32, ptr %479, align 4
+  %481 = zext i32 %480 to i64
+  %482 = udiv i64 %473, %481
+  %483 = trunc i64 %482 to i32
+  %484 = load ptr, ptr @rpc_type_ave_time, align 8
+  %485 = load i32, ptr %1, align 4
+  %486 = sext i32 %485 to i64
+  %487 = getelementptr inbounds i32, ptr %484, i64 %486
+  store i32 %483, ptr %487, align 4
+  br label %488
 
-486:                                              ; preds = %464, %455
-  br label %487
+488:                                              ; preds = %466, %457
+  br label %489
 
-487:                                              ; preds = %486
-  %488 = load i32, ptr %1, align 4
-  %489 = add nsw i32 %488, 1
-  store i32 %489, ptr %1, align 4
-  br label %338, !llvm.loop !13
+489:                                              ; preds = %488
+  %490 = load i32, ptr %1, align 4
+  %491 = add nsw i32 %490, 1
+  store i32 %491, ptr %1, align 4
+  br label %340, !llvm.loop !13
 
-490:                                              ; preds = %338
+492:                                              ; preds = %340
   store i32 0, ptr %1, align 4
-  br label %491
+  br label %493
 
-491:                                              ; preds = %640, %490
-  %492 = load i32, ptr %1, align 4
-  %493 = load ptr, ptr @buf, align 8
-  %494 = getelementptr inbounds %struct.stats_info_response_msg, ptr %493, i32 0, i32 48
-  %495 = load i32, ptr %494, align 8
-  %496 = icmp ult i32 %492, %495
-  br i1 %496, label %497, label %643
+493:                                              ; preds = %642, %492
+  %494 = load i32, ptr %1, align 4
+  %495 = load ptr, ptr @buf, align 8
+  %496 = getelementptr inbounds %struct.stats_info_response_msg, ptr %495, i32 0, i32 48
+  %497 = load i32, ptr %496, align 8
+  %498 = icmp ult i32 %494, %497
+  br i1 %498, label %499, label %645
 
-497:                                              ; preds = %491
-  %498 = load i32, ptr %1, align 4
-  %499 = add nsw i32 %498, 1
-  store i32 %499, ptr %2, align 4
-  br label %500
+499:                                              ; preds = %493
+  %500 = load i32, ptr %1, align 4
+  %501 = add nsw i32 %500, 1
+  store i32 %501, ptr %2, align 4
+  br label %502
 
-500:                                              ; preds = %605, %497
-  %501 = load i32, ptr %2, align 4
-  %502 = load ptr, ptr @buf, align 8
-  %503 = getelementptr inbounds %struct.stats_info_response_msg, ptr %502, i32 0, i32 48
-  %504 = load i32, ptr %503, align 8
-  %505 = icmp ult i32 %501, %504
-  br i1 %505, label %506, label %608
+502:                                              ; preds = %607, %499
+  %503 = load i32, ptr %2, align 4
+  %504 = load ptr, ptr @buf, align 8
+  %505 = getelementptr inbounds %struct.stats_info_response_msg, ptr %504, i32 0, i32 48
+  %506 = load i32, ptr %505, align 8
+  %507 = icmp ult i32 %503, %506
+  br i1 %507, label %508, label %610
 
-506:                                              ; preds = %500
-  %507 = load ptr, ptr @buf, align 8
-  %508 = getelementptr inbounds %struct.stats_info_response_msg, ptr %507, i32 0, i32 51
-  %509 = load ptr, ptr %508, align 8
-  %510 = load i32, ptr %1, align 4
-  %511 = sext i32 %510 to i64
-  %512 = getelementptr inbounds i64, ptr %509, i64 %511
-  %513 = load i64, ptr %512, align 8
-  %514 = load ptr, ptr @buf, align 8
-  %515 = getelementptr inbounds %struct.stats_info_response_msg, ptr %514, i32 0, i32 51
-  %516 = load ptr, ptr %515, align 8
-  %517 = load i32, ptr %2, align 4
-  %518 = sext i32 %517 to i64
-  %519 = getelementptr inbounds i64, ptr %516, i64 %518
-  %520 = load i64, ptr %519, align 8
-  %521 = icmp uge i64 %513, %520
-  br i1 %521, label %522, label %523
+508:                                              ; preds = %502
+  %509 = load ptr, ptr @buf, align 8
+  %510 = getelementptr inbounds %struct.stats_info_response_msg, ptr %509, i32 0, i32 51
+  %511 = load ptr, ptr %510, align 8
+  %512 = load i32, ptr %1, align 4
+  %513 = sext i32 %512 to i64
+  %514 = getelementptr inbounds i64, ptr %511, i64 %513
+  %515 = load i64, ptr %514, align 8
+  %516 = load ptr, ptr @buf, align 8
+  %517 = getelementptr inbounds %struct.stats_info_response_msg, ptr %516, i32 0, i32 51
+  %518 = load ptr, ptr %517, align 8
+  %519 = load i32, ptr %2, align 4
+  %520 = sext i32 %519 to i64
+  %521 = getelementptr inbounds i64, ptr %518, i64 %520
+  %522 = load i64, ptr %521, align 8
+  %523 = icmp uge i64 %515, %522
+  br i1 %523, label %524, label %525
 
-522:                                              ; preds = %506
-  br label %605
+524:                                              ; preds = %508
+  br label %607
 
-523:                                              ; preds = %506
-  %524 = load ptr, ptr @buf, align 8
-  %525 = getelementptr inbounds %struct.stats_info_response_msg, ptr %524, i32 0, i32 49
-  %526 = load ptr, ptr %525, align 8
-  %527 = load i32, ptr %1, align 4
-  %528 = sext i32 %527 to i64
-  %529 = getelementptr inbounds i32, ptr %526, i64 %528
-  %530 = load i32, ptr %529, align 4
-  store i32 %530, ptr %8, align 4
-  %531 = load ptr, ptr @buf, align 8
-  %532 = getelementptr inbounds %struct.stats_info_response_msg, ptr %531, i32 0, i32 50
-  %533 = load ptr, ptr %532, align 8
-  %534 = load i32, ptr %1, align 4
-  %535 = sext i32 %534 to i64
-  %536 = getelementptr inbounds i32, ptr %533, i64 %535
-  %537 = load i32, ptr %536, align 4
-  store i32 %537, ptr %7, align 4
-  %538 = load ptr, ptr @buf, align 8
-  %539 = getelementptr inbounds %struct.stats_info_response_msg, ptr %538, i32 0, i32 51
-  %540 = load ptr, ptr %539, align 8
-  %541 = load i32, ptr %1, align 4
-  %542 = sext i32 %541 to i64
-  %543 = getelementptr inbounds i64, ptr %540, i64 %542
-  %544 = load i64, ptr %543, align 8
-  store i64 %544, ptr %10, align 8
-  %545 = load ptr, ptr @buf, align 8
-  %546 = getelementptr inbounds %struct.stats_info_response_msg, ptr %545, i32 0, i32 49
-  %547 = load ptr, ptr %546, align 8
-  %548 = load i32, ptr %2, align 4
-  %549 = sext i32 %548 to i64
-  %550 = getelementptr inbounds i32, ptr %547, i64 %549
-  %551 = load i32, ptr %550, align 4
-  %552 = load ptr, ptr @buf, align 8
-  %553 = getelementptr inbounds %struct.stats_info_response_msg, ptr %552, i32 0, i32 49
-  %554 = load ptr, ptr %553, align 8
-  %555 = load i32, ptr %1, align 4
-  %556 = sext i32 %555 to i64
-  %557 = getelementptr inbounds i32, ptr %554, i64 %556
-  store i32 %551, ptr %557, align 4
-  %558 = load ptr, ptr @buf, align 8
-  %559 = getelementptr inbounds %struct.stats_info_response_msg, ptr %558, i32 0, i32 50
-  %560 = load ptr, ptr %559, align 8
-  %561 = load i32, ptr %2, align 4
-  %562 = sext i32 %561 to i64
-  %563 = getelementptr inbounds i32, ptr %560, i64 %562
-  %564 = load i32, ptr %563, align 4
-  %565 = load ptr, ptr @buf, align 8
-  %566 = getelementptr inbounds %struct.stats_info_response_msg, ptr %565, i32 0, i32 50
-  %567 = load ptr, ptr %566, align 8
-  %568 = load i32, ptr %1, align 4
-  %569 = sext i32 %568 to i64
-  %570 = getelementptr inbounds i32, ptr %567, i64 %569
-  store i32 %564, ptr %570, align 4
-  %571 = load ptr, ptr @buf, align 8
-  %572 = getelementptr inbounds %struct.stats_info_response_msg, ptr %571, i32 0, i32 51
-  %573 = load ptr, ptr %572, align 8
-  %574 = load i32, ptr %2, align 4
-  %575 = sext i32 %574 to i64
-  %576 = getelementptr inbounds i64, ptr %573, i64 %575
-  %577 = load i64, ptr %576, align 8
-  %578 = load ptr, ptr @buf, align 8
-  %579 = getelementptr inbounds %struct.stats_info_response_msg, ptr %578, i32 0, i32 51
-  %580 = load ptr, ptr %579, align 8
-  %581 = load i32, ptr %1, align 4
-  %582 = sext i32 %581 to i64
-  %583 = getelementptr inbounds i64, ptr %580, i64 %582
-  store i64 %577, ptr %583, align 8
-  %584 = load i32, ptr %8, align 4
-  %585 = load ptr, ptr @buf, align 8
-  %586 = getelementptr inbounds %struct.stats_info_response_msg, ptr %585, i32 0, i32 49
-  %587 = load ptr, ptr %586, align 8
-  %588 = load i32, ptr %2, align 4
-  %589 = sext i32 %588 to i64
-  %590 = getelementptr inbounds i32, ptr %587, i64 %589
-  store i32 %584, ptr %590, align 4
-  %591 = load i32, ptr %7, align 4
-  %592 = load ptr, ptr @buf, align 8
-  %593 = getelementptr inbounds %struct.stats_info_response_msg, ptr %592, i32 0, i32 50
-  %594 = load ptr, ptr %593, align 8
-  %595 = load i32, ptr %2, align 4
-  %596 = sext i32 %595 to i64
-  %597 = getelementptr inbounds i32, ptr %594, i64 %596
-  store i32 %591, ptr %597, align 4
-  %598 = load i64, ptr %10, align 8
-  %599 = load ptr, ptr @buf, align 8
-  %600 = getelementptr inbounds %struct.stats_info_response_msg, ptr %599, i32 0, i32 51
-  %601 = load ptr, ptr %600, align 8
-  %602 = load i32, ptr %2, align 4
-  %603 = sext i32 %602 to i64
-  %604 = getelementptr inbounds i64, ptr %601, i64 %603
-  store i64 %598, ptr %604, align 8
-  br label %605
+525:                                              ; preds = %508
+  %526 = load ptr, ptr @buf, align 8
+  %527 = getelementptr inbounds %struct.stats_info_response_msg, ptr %526, i32 0, i32 49
+  %528 = load ptr, ptr %527, align 8
+  %529 = load i32, ptr %1, align 4
+  %530 = sext i32 %529 to i64
+  %531 = getelementptr inbounds i32, ptr %528, i64 %530
+  %532 = load i32, ptr %531, align 4
+  store i32 %532, ptr %8, align 4
+  %533 = load ptr, ptr @buf, align 8
+  %534 = getelementptr inbounds %struct.stats_info_response_msg, ptr %533, i32 0, i32 50
+  %535 = load ptr, ptr %534, align 8
+  %536 = load i32, ptr %1, align 4
+  %537 = sext i32 %536 to i64
+  %538 = getelementptr inbounds i32, ptr %535, i64 %537
+  %539 = load i32, ptr %538, align 4
+  store i32 %539, ptr %7, align 4
+  %540 = load ptr, ptr @buf, align 8
+  %541 = getelementptr inbounds %struct.stats_info_response_msg, ptr %540, i32 0, i32 51
+  %542 = load ptr, ptr %541, align 8
+  %543 = load i32, ptr %1, align 4
+  %544 = sext i32 %543 to i64
+  %545 = getelementptr inbounds i64, ptr %542, i64 %544
+  %546 = load i64, ptr %545, align 8
+  store i64 %546, ptr %10, align 8
+  %547 = load ptr, ptr @buf, align 8
+  %548 = getelementptr inbounds %struct.stats_info_response_msg, ptr %547, i32 0, i32 49
+  %549 = load ptr, ptr %548, align 8
+  %550 = load i32, ptr %2, align 4
+  %551 = sext i32 %550 to i64
+  %552 = getelementptr inbounds i32, ptr %549, i64 %551
+  %553 = load i32, ptr %552, align 4
+  %554 = load ptr, ptr @buf, align 8
+  %555 = getelementptr inbounds %struct.stats_info_response_msg, ptr %554, i32 0, i32 49
+  %556 = load ptr, ptr %555, align 8
+  %557 = load i32, ptr %1, align 4
+  %558 = sext i32 %557 to i64
+  %559 = getelementptr inbounds i32, ptr %556, i64 %558
+  store i32 %553, ptr %559, align 4
+  %560 = load ptr, ptr @buf, align 8
+  %561 = getelementptr inbounds %struct.stats_info_response_msg, ptr %560, i32 0, i32 50
+  %562 = load ptr, ptr %561, align 8
+  %563 = load i32, ptr %2, align 4
+  %564 = sext i32 %563 to i64
+  %565 = getelementptr inbounds i32, ptr %562, i64 %564
+  %566 = load i32, ptr %565, align 4
+  %567 = load ptr, ptr @buf, align 8
+  %568 = getelementptr inbounds %struct.stats_info_response_msg, ptr %567, i32 0, i32 50
+  %569 = load ptr, ptr %568, align 8
+  %570 = load i32, ptr %1, align 4
+  %571 = sext i32 %570 to i64
+  %572 = getelementptr inbounds i32, ptr %569, i64 %571
+  store i32 %566, ptr %572, align 4
+  %573 = load ptr, ptr @buf, align 8
+  %574 = getelementptr inbounds %struct.stats_info_response_msg, ptr %573, i32 0, i32 51
+  %575 = load ptr, ptr %574, align 8
+  %576 = load i32, ptr %2, align 4
+  %577 = sext i32 %576 to i64
+  %578 = getelementptr inbounds i64, ptr %575, i64 %577
+  %579 = load i64, ptr %578, align 8
+  %580 = load ptr, ptr @buf, align 8
+  %581 = getelementptr inbounds %struct.stats_info_response_msg, ptr %580, i32 0, i32 51
+  %582 = load ptr, ptr %581, align 8
+  %583 = load i32, ptr %1, align 4
+  %584 = sext i32 %583 to i64
+  %585 = getelementptr inbounds i64, ptr %582, i64 %584
+  store i64 %579, ptr %585, align 8
+  %586 = load i32, ptr %8, align 4
+  %587 = load ptr, ptr @buf, align 8
+  %588 = getelementptr inbounds %struct.stats_info_response_msg, ptr %587, i32 0, i32 49
+  %589 = load ptr, ptr %588, align 8
+  %590 = load i32, ptr %2, align 4
+  %591 = sext i32 %590 to i64
+  %592 = getelementptr inbounds i32, ptr %589, i64 %591
+  store i32 %586, ptr %592, align 4
+  %593 = load i32, ptr %7, align 4
+  %594 = load ptr, ptr @buf, align 8
+  %595 = getelementptr inbounds %struct.stats_info_response_msg, ptr %594, i32 0, i32 50
+  %596 = load ptr, ptr %595, align 8
+  %597 = load i32, ptr %2, align 4
+  %598 = sext i32 %597 to i64
+  %599 = getelementptr inbounds i32, ptr %596, i64 %598
+  store i32 %593, ptr %599, align 4
+  %600 = load i64, ptr %10, align 8
+  %601 = load ptr, ptr @buf, align 8
+  %602 = getelementptr inbounds %struct.stats_info_response_msg, ptr %601, i32 0, i32 51
+  %603 = load ptr, ptr %602, align 8
+  %604 = load i32, ptr %2, align 4
+  %605 = sext i32 %604 to i64
+  %606 = getelementptr inbounds i64, ptr %603, i64 %605
+  store i64 %600, ptr %606, align 8
+  br label %607
 
-605:                                              ; preds = %523, %522
-  %606 = load i32, ptr %2, align 4
-  %607 = add nsw i32 %606, 1
-  store i32 %607, ptr %2, align 4
-  br label %500, !llvm.loop !14
+607:                                              ; preds = %525, %524
+  %608 = load i32, ptr %2, align 4
+  %609 = add nsw i32 %608, 1
+  store i32 %609, ptr %2, align 4
+  br label %502, !llvm.loop !14
 
-608:                                              ; preds = %500
-  %609 = load ptr, ptr @buf, align 8
-  %610 = getelementptr inbounds %struct.stats_info_response_msg, ptr %609, i32 0, i32 50
-  %611 = load ptr, ptr %610, align 8
-  %612 = load i32, ptr %1, align 4
-  %613 = sext i32 %612 to i64
-  %614 = getelementptr inbounds i32, ptr %611, i64 %613
-  %615 = load i32, ptr %614, align 4
-  %616 = icmp ne i32 %615, 0
-  br i1 %616, label %617, label %639
+610:                                              ; preds = %502
+  %611 = load ptr, ptr @buf, align 8
+  %612 = getelementptr inbounds %struct.stats_info_response_msg, ptr %611, i32 0, i32 50
+  %613 = load ptr, ptr %612, align 8
+  %614 = load i32, ptr %1, align 4
+  %615 = sext i32 %614 to i64
+  %616 = getelementptr inbounds i32, ptr %613, i64 %615
+  %617 = load i32, ptr %616, align 4
+  %618 = icmp ne i32 %617, 0
+  br i1 %618, label %619, label %641
 
-617:                                              ; preds = %608
-  %618 = load ptr, ptr @buf, align 8
-  %619 = getelementptr inbounds %struct.stats_info_response_msg, ptr %618, i32 0, i32 51
-  %620 = load ptr, ptr %619, align 8
-  %621 = load i32, ptr %1, align 4
-  %622 = sext i32 %621 to i64
-  %623 = getelementptr inbounds i64, ptr %620, i64 %622
-  %624 = load i64, ptr %623, align 8
-  %625 = load ptr, ptr @buf, align 8
-  %626 = getelementptr inbounds %struct.stats_info_response_msg, ptr %625, i32 0, i32 50
-  %627 = load ptr, ptr %626, align 8
-  %628 = load i32, ptr %1, align 4
-  %629 = sext i32 %628 to i64
-  %630 = getelementptr inbounds i32, ptr %627, i64 %629
-  %631 = load i32, ptr %630, align 4
-  %632 = zext i32 %631 to i64
-  %633 = udiv i64 %624, %632
-  %634 = trunc i64 %633 to i32
-  %635 = load ptr, ptr @rpc_user_ave_time, align 8
-  %636 = load i32, ptr %1, align 4
-  %637 = sext i32 %636 to i64
-  %638 = getelementptr inbounds i32, ptr %635, i64 %637
-  store i32 %634, ptr %638, align 4
-  br label %639
+619:                                              ; preds = %610
+  %620 = load ptr, ptr @buf, align 8
+  %621 = getelementptr inbounds %struct.stats_info_response_msg, ptr %620, i32 0, i32 51
+  %622 = load ptr, ptr %621, align 8
+  %623 = load i32, ptr %1, align 4
+  %624 = sext i32 %623 to i64
+  %625 = getelementptr inbounds i64, ptr %622, i64 %624
+  %626 = load i64, ptr %625, align 8
+  %627 = load ptr, ptr @buf, align 8
+  %628 = getelementptr inbounds %struct.stats_info_response_msg, ptr %627, i32 0, i32 50
+  %629 = load ptr, ptr %628, align 8
+  %630 = load i32, ptr %1, align 4
+  %631 = sext i32 %630 to i64
+  %632 = getelementptr inbounds i32, ptr %629, i64 %631
+  %633 = load i32, ptr %632, align 4
+  %634 = zext i32 %633 to i64
+  %635 = udiv i64 %626, %634
+  %636 = trunc i64 %635 to i32
+  %637 = load ptr, ptr @rpc_user_ave_time, align 8
+  %638 = load i32, ptr %1, align 4
+  %639 = sext i32 %638 to i64
+  %640 = getelementptr inbounds i32, ptr %637, i64 %639
+  store i32 %636, ptr %640, align 4
+  br label %641
 
-639:                                              ; preds = %617, %608
-  br label %640
+641:                                              ; preds = %619, %610
+  br label %642
 
-640:                                              ; preds = %639
-  %641 = load i32, ptr %1, align 4
-  %642 = add nsw i32 %641, 1
-  store i32 %642, ptr %1, align 4
-  br label %491, !llvm.loop !15
+642:                                              ; preds = %641
+  %643 = load i32, ptr %1, align 4
+  %644 = add nsw i32 %643, 1
+  store i32 %644, ptr %1, align 4
+  br label %493, !llvm.loop !15
 
-643:                                              ; preds = %491
-  br label %1314
+645:                                              ; preds = %493
+  br label %1317
 
-644:                                              ; preds = %334
-  %645 = load i32, ptr getelementptr inbounds (%struct.sdiag_parameters, ptr @params, i32 0, i32 1), align 4
-  %646 = icmp eq i32 %645, 3
-  br i1 %646, label %647, label %1006
+646:                                              ; preds = %335
+  %647 = getelementptr inbounds %struct.sdiag_parameters, ptr @params, i32 0, i32 1
+  %648 = load i32, ptr %647, align 4
+  %649 = icmp eq i32 %648, 3
+  br i1 %649, label %650, label %1009
 
-647:                                              ; preds = %644
+650:                                              ; preds = %646
   store i32 0, ptr %1, align 4
-  br label %648
+  br label %651
 
-648:                                              ; preds = %686, %647
-  %649 = load i32, ptr %1, align 4
-  %650 = load ptr, ptr @buf, align 8
-  %651 = getelementptr inbounds %struct.stats_info_response_msg, ptr %650, i32 0, i32 44
-  %652 = load i32, ptr %651, align 4
-  %653 = icmp ult i32 %649, %652
-  br i1 %653, label %654, label %689
+651:                                              ; preds = %689, %650
+  %652 = load i32, ptr %1, align 4
+  %653 = load ptr, ptr @buf, align 8
+  %654 = getelementptr inbounds %struct.stats_info_response_msg, ptr %653, i32 0, i32 44
+  %655 = load i32, ptr %654, align 4
+  %656 = icmp ult i32 %652, %655
+  br i1 %656, label %657, label %692
 
-654:                                              ; preds = %648
-  %655 = load ptr, ptr @buf, align 8
-  %656 = getelementptr inbounds %struct.stats_info_response_msg, ptr %655, i32 0, i32 46
-  %657 = load ptr, ptr %656, align 8
-  %658 = load i32, ptr %1, align 4
-  %659 = sext i32 %658 to i64
-  %660 = getelementptr inbounds i32, ptr %657, i64 %659
-  %661 = load i32, ptr %660, align 4
-  %662 = icmp ne i32 %661, 0
-  br i1 %662, label %663, label %685
+657:                                              ; preds = %651
+  %658 = load ptr, ptr @buf, align 8
+  %659 = getelementptr inbounds %struct.stats_info_response_msg, ptr %658, i32 0, i32 46
+  %660 = load ptr, ptr %659, align 8
+  %661 = load i32, ptr %1, align 4
+  %662 = sext i32 %661 to i64
+  %663 = getelementptr inbounds i32, ptr %660, i64 %662
+  %664 = load i32, ptr %663, align 4
+  %665 = icmp ne i32 %664, 0
+  br i1 %665, label %666, label %688
 
-663:                                              ; preds = %654
-  %664 = load ptr, ptr @buf, align 8
-  %665 = getelementptr inbounds %struct.stats_info_response_msg, ptr %664, i32 0, i32 47
-  %666 = load ptr, ptr %665, align 8
-  %667 = load i32, ptr %1, align 4
-  %668 = sext i32 %667 to i64
-  %669 = getelementptr inbounds i64, ptr %666, i64 %668
-  %670 = load i64, ptr %669, align 8
-  %671 = load ptr, ptr @buf, align 8
-  %672 = getelementptr inbounds %struct.stats_info_response_msg, ptr %671, i32 0, i32 46
-  %673 = load ptr, ptr %672, align 8
-  %674 = load i32, ptr %1, align 4
-  %675 = sext i32 %674 to i64
-  %676 = getelementptr inbounds i32, ptr %673, i64 %675
-  %677 = load i32, ptr %676, align 4
-  %678 = zext i32 %677 to i64
-  %679 = udiv i64 %670, %678
-  %680 = trunc i64 %679 to i32
-  %681 = load ptr, ptr @rpc_type_ave_time, align 8
-  %682 = load i32, ptr %1, align 4
-  %683 = sext i32 %682 to i64
-  %684 = getelementptr inbounds i32, ptr %681, i64 %683
-  store i32 %680, ptr %684, align 4
-  br label %685
+666:                                              ; preds = %657
+  %667 = load ptr, ptr @buf, align 8
+  %668 = getelementptr inbounds %struct.stats_info_response_msg, ptr %667, i32 0, i32 47
+  %669 = load ptr, ptr %668, align 8
+  %670 = load i32, ptr %1, align 4
+  %671 = sext i32 %670 to i64
+  %672 = getelementptr inbounds i64, ptr %669, i64 %671
+  %673 = load i64, ptr %672, align 8
+  %674 = load ptr, ptr @buf, align 8
+  %675 = getelementptr inbounds %struct.stats_info_response_msg, ptr %674, i32 0, i32 46
+  %676 = load ptr, ptr %675, align 8
+  %677 = load i32, ptr %1, align 4
+  %678 = sext i32 %677 to i64
+  %679 = getelementptr inbounds i32, ptr %676, i64 %678
+  %680 = load i32, ptr %679, align 4
+  %681 = zext i32 %680 to i64
+  %682 = udiv i64 %673, %681
+  %683 = trunc i64 %682 to i32
+  %684 = load ptr, ptr @rpc_type_ave_time, align 8
+  %685 = load i32, ptr %1, align 4
+  %686 = sext i32 %685 to i64
+  %687 = getelementptr inbounds i32, ptr %684, i64 %686
+  store i32 %683, ptr %687, align 4
+  br label %688
 
-685:                                              ; preds = %663, %654
-  br label %686
+688:                                              ; preds = %666, %657
+  br label %689
 
-686:                                              ; preds = %685
-  %687 = load i32, ptr %1, align 4
-  %688 = add nsw i32 %687, 1
-  store i32 %688, ptr %1, align 4
-  br label %648, !llvm.loop !16
+689:                                              ; preds = %688
+  %690 = load i32, ptr %1, align 4
+  %691 = add nsw i32 %690, 1
+  store i32 %691, ptr %1, align 4
+  br label %651, !llvm.loop !16
 
-689:                                              ; preds = %648
+692:                                              ; preds = %651
   store i32 0, ptr %1, align 4
-  br label %690
+  br label %693
 
-690:                                              ; preds = %823, %689
-  %691 = load i32, ptr %1, align 4
-  %692 = load ptr, ptr @buf, align 8
-  %693 = getelementptr inbounds %struct.stats_info_response_msg, ptr %692, i32 0, i32 44
-  %694 = load i32, ptr %693, align 4
-  %695 = icmp ult i32 %691, %694
-  br i1 %695, label %696, label %826
+693:                                              ; preds = %826, %692
+  %694 = load i32, ptr %1, align 4
+  %695 = load ptr, ptr @buf, align 8
+  %696 = getelementptr inbounds %struct.stats_info_response_msg, ptr %695, i32 0, i32 44
+  %697 = load i32, ptr %696, align 4
+  %698 = icmp ult i32 %694, %697
+  br i1 %698, label %699, label %829
 
-696:                                              ; preds = %690
-  %697 = load i32, ptr %1, align 4
-  %698 = add nsw i32 %697, 1
-  store i32 %698, ptr %2, align 4
-  br label %699
+699:                                              ; preds = %693
+  %700 = load i32, ptr %1, align 4
+  %701 = add nsw i32 %700, 1
+  store i32 %701, ptr %2, align 4
+  br label %702
 
-699:                                              ; preds = %819, %696
-  %700 = load i32, ptr %2, align 4
-  %701 = load ptr, ptr @buf, align 8
-  %702 = getelementptr inbounds %struct.stats_info_response_msg, ptr %701, i32 0, i32 44
-  %703 = load i32, ptr %702, align 4
-  %704 = icmp ult i32 %700, %703
-  br i1 %704, label %705, label %822
+702:                                              ; preds = %822, %699
+  %703 = load i32, ptr %2, align 4
+  %704 = load ptr, ptr @buf, align 8
+  %705 = getelementptr inbounds %struct.stats_info_response_msg, ptr %704, i32 0, i32 44
+  %706 = load i32, ptr %705, align 4
+  %707 = icmp ult i32 %703, %706
+  br i1 %707, label %708, label %825
 
-705:                                              ; preds = %699
-  %706 = load ptr, ptr @rpc_type_ave_time, align 8
-  %707 = load i32, ptr %1, align 4
-  %708 = sext i32 %707 to i64
-  %709 = getelementptr inbounds i32, ptr %706, i64 %708
-  %710 = load i32, ptr %709, align 4
-  %711 = load ptr, ptr @rpc_type_ave_time, align 8
-  %712 = load i32, ptr %2, align 4
-  %713 = sext i32 %712 to i64
-  %714 = getelementptr inbounds i32, ptr %711, i64 %713
-  %715 = load i32, ptr %714, align 4
-  %716 = icmp uge i32 %710, %715
-  br i1 %716, label %717, label %718
+708:                                              ; preds = %702
+  %709 = load ptr, ptr @rpc_type_ave_time, align 8
+  %710 = load i32, ptr %1, align 4
+  %711 = sext i32 %710 to i64
+  %712 = getelementptr inbounds i32, ptr %709, i64 %711
+  %713 = load i32, ptr %712, align 4
+  %714 = load ptr, ptr @rpc_type_ave_time, align 8
+  %715 = load i32, ptr %2, align 4
+  %716 = sext i32 %715 to i64
+  %717 = getelementptr inbounds i32, ptr %714, i64 %716
+  %718 = load i32, ptr %717, align 4
+  %719 = icmp uge i32 %713, %718
+  br i1 %719, label %720, label %721
 
-717:                                              ; preds = %705
-  br label %819
+720:                                              ; preds = %708
+  br label %822
 
-718:                                              ; preds = %705
-  %719 = load ptr, ptr @rpc_type_ave_time, align 8
-  %720 = load i32, ptr %1, align 4
-  %721 = sext i32 %720 to i64
-  %722 = getelementptr inbounds i32, ptr %719, i64 %721
-  %723 = load i32, ptr %722, align 4
-  store i32 %723, ptr %4, align 4
-  %724 = load ptr, ptr @buf, align 8
-  %725 = getelementptr inbounds %struct.stats_info_response_msg, ptr %724, i32 0, i32 45
-  %726 = load ptr, ptr %725, align 8
-  %727 = load i32, ptr %1, align 4
-  %728 = sext i32 %727 to i64
-  %729 = getelementptr inbounds i16, ptr %726, i64 %728
-  %730 = load i16, ptr %729, align 2
-  store i16 %730, ptr %3, align 2
-  %731 = load ptr, ptr @buf, align 8
-  %732 = getelementptr inbounds %struct.stats_info_response_msg, ptr %731, i32 0, i32 46
-  %733 = load ptr, ptr %732, align 8
-  %734 = load i32, ptr %1, align 4
-  %735 = sext i32 %734 to i64
-  %736 = getelementptr inbounds i32, ptr %733, i64 %735
-  %737 = load i32, ptr %736, align 4
-  store i32 %737, ptr %5, align 4
-  %738 = load ptr, ptr @buf, align 8
-  %739 = getelementptr inbounds %struct.stats_info_response_msg, ptr %738, i32 0, i32 47
-  %740 = load ptr, ptr %739, align 8
-  %741 = load i32, ptr %1, align 4
-  %742 = sext i32 %741 to i64
-  %743 = getelementptr inbounds i64, ptr %740, i64 %742
-  %744 = load i64, ptr %743, align 8
-  store i64 %744, ptr %9, align 8
-  %745 = load ptr, ptr @rpc_type_ave_time, align 8
-  %746 = load i32, ptr %2, align 4
-  %747 = sext i32 %746 to i64
-  %748 = getelementptr inbounds i32, ptr %745, i64 %747
-  %749 = load i32, ptr %748, align 4
-  %750 = load ptr, ptr @rpc_type_ave_time, align 8
-  %751 = load i32, ptr %1, align 4
-  %752 = sext i32 %751 to i64
-  %753 = getelementptr inbounds i32, ptr %750, i64 %752
-  store i32 %749, ptr %753, align 4
-  %754 = load ptr, ptr @buf, align 8
-  %755 = getelementptr inbounds %struct.stats_info_response_msg, ptr %754, i32 0, i32 45
-  %756 = load ptr, ptr %755, align 8
-  %757 = load i32, ptr %2, align 4
-  %758 = sext i32 %757 to i64
-  %759 = getelementptr inbounds i16, ptr %756, i64 %758
-  %760 = load i16, ptr %759, align 2
-  %761 = load ptr, ptr @buf, align 8
-  %762 = getelementptr inbounds %struct.stats_info_response_msg, ptr %761, i32 0, i32 45
-  %763 = load ptr, ptr %762, align 8
-  %764 = load i32, ptr %1, align 4
-  %765 = sext i32 %764 to i64
-  %766 = getelementptr inbounds i16, ptr %763, i64 %765
-  store i16 %760, ptr %766, align 2
-  %767 = load ptr, ptr @buf, align 8
-  %768 = getelementptr inbounds %struct.stats_info_response_msg, ptr %767, i32 0, i32 46
-  %769 = load ptr, ptr %768, align 8
-  %770 = load i32, ptr %2, align 4
-  %771 = sext i32 %770 to i64
-  %772 = getelementptr inbounds i32, ptr %769, i64 %771
-  %773 = load i32, ptr %772, align 4
-  %774 = load ptr, ptr @buf, align 8
-  %775 = getelementptr inbounds %struct.stats_info_response_msg, ptr %774, i32 0, i32 46
-  %776 = load ptr, ptr %775, align 8
-  %777 = load i32, ptr %1, align 4
-  %778 = sext i32 %777 to i64
-  %779 = getelementptr inbounds i32, ptr %776, i64 %778
-  store i32 %773, ptr %779, align 4
-  %780 = load ptr, ptr @buf, align 8
-  %781 = getelementptr inbounds %struct.stats_info_response_msg, ptr %780, i32 0, i32 47
-  %782 = load ptr, ptr %781, align 8
-  %783 = load i32, ptr %2, align 4
-  %784 = sext i32 %783 to i64
-  %785 = getelementptr inbounds i64, ptr %782, i64 %784
-  %786 = load i64, ptr %785, align 8
-  %787 = load ptr, ptr @buf, align 8
-  %788 = getelementptr inbounds %struct.stats_info_response_msg, ptr %787, i32 0, i32 47
-  %789 = load ptr, ptr %788, align 8
-  %790 = load i32, ptr %1, align 4
-  %791 = sext i32 %790 to i64
-  %792 = getelementptr inbounds i64, ptr %789, i64 %791
-  store i64 %786, ptr %792, align 8
-  %793 = load i32, ptr %4, align 4
-  %794 = load ptr, ptr @rpc_type_ave_time, align 8
-  %795 = load i32, ptr %2, align 4
-  %796 = sext i32 %795 to i64
-  %797 = getelementptr inbounds i32, ptr %794, i64 %796
-  store i32 %793, ptr %797, align 4
-  %798 = load i16, ptr %3, align 2
-  %799 = load ptr, ptr @buf, align 8
-  %800 = getelementptr inbounds %struct.stats_info_response_msg, ptr %799, i32 0, i32 45
-  %801 = load ptr, ptr %800, align 8
-  %802 = load i32, ptr %2, align 4
-  %803 = sext i32 %802 to i64
-  %804 = getelementptr inbounds i16, ptr %801, i64 %803
-  store i16 %798, ptr %804, align 2
-  %805 = load i32, ptr %5, align 4
-  %806 = load ptr, ptr @buf, align 8
-  %807 = getelementptr inbounds %struct.stats_info_response_msg, ptr %806, i32 0, i32 46
-  %808 = load ptr, ptr %807, align 8
-  %809 = load i32, ptr %2, align 4
-  %810 = sext i32 %809 to i64
-  %811 = getelementptr inbounds i32, ptr %808, i64 %810
-  store i32 %805, ptr %811, align 4
-  %812 = load i64, ptr %9, align 8
-  %813 = load ptr, ptr @buf, align 8
-  %814 = getelementptr inbounds %struct.stats_info_response_msg, ptr %813, i32 0, i32 47
-  %815 = load ptr, ptr %814, align 8
-  %816 = load i32, ptr %2, align 4
-  %817 = sext i32 %816 to i64
-  %818 = getelementptr inbounds i64, ptr %815, i64 %817
-  store i64 %812, ptr %818, align 8
-  br label %819
+721:                                              ; preds = %708
+  %722 = load ptr, ptr @rpc_type_ave_time, align 8
+  %723 = load i32, ptr %1, align 4
+  %724 = sext i32 %723 to i64
+  %725 = getelementptr inbounds i32, ptr %722, i64 %724
+  %726 = load i32, ptr %725, align 4
+  store i32 %726, ptr %4, align 4
+  %727 = load ptr, ptr @buf, align 8
+  %728 = getelementptr inbounds %struct.stats_info_response_msg, ptr %727, i32 0, i32 45
+  %729 = load ptr, ptr %728, align 8
+  %730 = load i32, ptr %1, align 4
+  %731 = sext i32 %730 to i64
+  %732 = getelementptr inbounds i16, ptr %729, i64 %731
+  %733 = load i16, ptr %732, align 2
+  store i16 %733, ptr %3, align 2
+  %734 = load ptr, ptr @buf, align 8
+  %735 = getelementptr inbounds %struct.stats_info_response_msg, ptr %734, i32 0, i32 46
+  %736 = load ptr, ptr %735, align 8
+  %737 = load i32, ptr %1, align 4
+  %738 = sext i32 %737 to i64
+  %739 = getelementptr inbounds i32, ptr %736, i64 %738
+  %740 = load i32, ptr %739, align 4
+  store i32 %740, ptr %5, align 4
+  %741 = load ptr, ptr @buf, align 8
+  %742 = getelementptr inbounds %struct.stats_info_response_msg, ptr %741, i32 0, i32 47
+  %743 = load ptr, ptr %742, align 8
+  %744 = load i32, ptr %1, align 4
+  %745 = sext i32 %744 to i64
+  %746 = getelementptr inbounds i64, ptr %743, i64 %745
+  %747 = load i64, ptr %746, align 8
+  store i64 %747, ptr %9, align 8
+  %748 = load ptr, ptr @rpc_type_ave_time, align 8
+  %749 = load i32, ptr %2, align 4
+  %750 = sext i32 %749 to i64
+  %751 = getelementptr inbounds i32, ptr %748, i64 %750
+  %752 = load i32, ptr %751, align 4
+  %753 = load ptr, ptr @rpc_type_ave_time, align 8
+  %754 = load i32, ptr %1, align 4
+  %755 = sext i32 %754 to i64
+  %756 = getelementptr inbounds i32, ptr %753, i64 %755
+  store i32 %752, ptr %756, align 4
+  %757 = load ptr, ptr @buf, align 8
+  %758 = getelementptr inbounds %struct.stats_info_response_msg, ptr %757, i32 0, i32 45
+  %759 = load ptr, ptr %758, align 8
+  %760 = load i32, ptr %2, align 4
+  %761 = sext i32 %760 to i64
+  %762 = getelementptr inbounds i16, ptr %759, i64 %761
+  %763 = load i16, ptr %762, align 2
+  %764 = load ptr, ptr @buf, align 8
+  %765 = getelementptr inbounds %struct.stats_info_response_msg, ptr %764, i32 0, i32 45
+  %766 = load ptr, ptr %765, align 8
+  %767 = load i32, ptr %1, align 4
+  %768 = sext i32 %767 to i64
+  %769 = getelementptr inbounds i16, ptr %766, i64 %768
+  store i16 %763, ptr %769, align 2
+  %770 = load ptr, ptr @buf, align 8
+  %771 = getelementptr inbounds %struct.stats_info_response_msg, ptr %770, i32 0, i32 46
+  %772 = load ptr, ptr %771, align 8
+  %773 = load i32, ptr %2, align 4
+  %774 = sext i32 %773 to i64
+  %775 = getelementptr inbounds i32, ptr %772, i64 %774
+  %776 = load i32, ptr %775, align 4
+  %777 = load ptr, ptr @buf, align 8
+  %778 = getelementptr inbounds %struct.stats_info_response_msg, ptr %777, i32 0, i32 46
+  %779 = load ptr, ptr %778, align 8
+  %780 = load i32, ptr %1, align 4
+  %781 = sext i32 %780 to i64
+  %782 = getelementptr inbounds i32, ptr %779, i64 %781
+  store i32 %776, ptr %782, align 4
+  %783 = load ptr, ptr @buf, align 8
+  %784 = getelementptr inbounds %struct.stats_info_response_msg, ptr %783, i32 0, i32 47
+  %785 = load ptr, ptr %784, align 8
+  %786 = load i32, ptr %2, align 4
+  %787 = sext i32 %786 to i64
+  %788 = getelementptr inbounds i64, ptr %785, i64 %787
+  %789 = load i64, ptr %788, align 8
+  %790 = load ptr, ptr @buf, align 8
+  %791 = getelementptr inbounds %struct.stats_info_response_msg, ptr %790, i32 0, i32 47
+  %792 = load ptr, ptr %791, align 8
+  %793 = load i32, ptr %1, align 4
+  %794 = sext i32 %793 to i64
+  %795 = getelementptr inbounds i64, ptr %792, i64 %794
+  store i64 %789, ptr %795, align 8
+  %796 = load i32, ptr %4, align 4
+  %797 = load ptr, ptr @rpc_type_ave_time, align 8
+  %798 = load i32, ptr %2, align 4
+  %799 = sext i32 %798 to i64
+  %800 = getelementptr inbounds i32, ptr %797, i64 %799
+  store i32 %796, ptr %800, align 4
+  %801 = load i16, ptr %3, align 2
+  %802 = load ptr, ptr @buf, align 8
+  %803 = getelementptr inbounds %struct.stats_info_response_msg, ptr %802, i32 0, i32 45
+  %804 = load ptr, ptr %803, align 8
+  %805 = load i32, ptr %2, align 4
+  %806 = sext i32 %805 to i64
+  %807 = getelementptr inbounds i16, ptr %804, i64 %806
+  store i16 %801, ptr %807, align 2
+  %808 = load i32, ptr %5, align 4
+  %809 = load ptr, ptr @buf, align 8
+  %810 = getelementptr inbounds %struct.stats_info_response_msg, ptr %809, i32 0, i32 46
+  %811 = load ptr, ptr %810, align 8
+  %812 = load i32, ptr %2, align 4
+  %813 = sext i32 %812 to i64
+  %814 = getelementptr inbounds i32, ptr %811, i64 %813
+  store i32 %808, ptr %814, align 4
+  %815 = load i64, ptr %9, align 8
+  %816 = load ptr, ptr @buf, align 8
+  %817 = getelementptr inbounds %struct.stats_info_response_msg, ptr %816, i32 0, i32 47
+  %818 = load ptr, ptr %817, align 8
+  %819 = load i32, ptr %2, align 4
+  %820 = sext i32 %819 to i64
+  %821 = getelementptr inbounds i64, ptr %818, i64 %820
+  store i64 %815, ptr %821, align 8
+  br label %822
 
-819:                                              ; preds = %718, %717
-  %820 = load i32, ptr %2, align 4
-  %821 = add nsw i32 %820, 1
-  store i32 %821, ptr %2, align 4
-  br label %699, !llvm.loop !17
+822:                                              ; preds = %721, %720
+  %823 = load i32, ptr %2, align 4
+  %824 = add nsw i32 %823, 1
+  store i32 %824, ptr %2, align 4
+  br label %702, !llvm.loop !17
 
-822:                                              ; preds = %699
-  br label %823
+825:                                              ; preds = %702
+  br label %826
 
-823:                                              ; preds = %822
-  %824 = load i32, ptr %1, align 4
-  %825 = add nsw i32 %824, 1
-  store i32 %825, ptr %1, align 4
-  br label %690, !llvm.loop !18
+826:                                              ; preds = %825
+  %827 = load i32, ptr %1, align 4
+  %828 = add nsw i32 %827, 1
+  store i32 %828, ptr %1, align 4
+  br label %693, !llvm.loop !18
 
-826:                                              ; preds = %690
+829:                                              ; preds = %693
   store i32 0, ptr %1, align 4
-  br label %827
+  br label %830
 
-827:                                              ; preds = %865, %826
-  %828 = load i32, ptr %1, align 4
-  %829 = load ptr, ptr @buf, align 8
-  %830 = getelementptr inbounds %struct.stats_info_response_msg, ptr %829, i32 0, i32 48
-  %831 = load i32, ptr %830, align 8
-  %832 = icmp ult i32 %828, %831
-  br i1 %832, label %833, label %868
+830:                                              ; preds = %868, %829
+  %831 = load i32, ptr %1, align 4
+  %832 = load ptr, ptr @buf, align 8
+  %833 = getelementptr inbounds %struct.stats_info_response_msg, ptr %832, i32 0, i32 48
+  %834 = load i32, ptr %833, align 8
+  %835 = icmp ult i32 %831, %834
+  br i1 %835, label %836, label %871
 
-833:                                              ; preds = %827
-  %834 = load ptr, ptr @buf, align 8
-  %835 = getelementptr inbounds %struct.stats_info_response_msg, ptr %834, i32 0, i32 50
-  %836 = load ptr, ptr %835, align 8
-  %837 = load i32, ptr %1, align 4
-  %838 = sext i32 %837 to i64
-  %839 = getelementptr inbounds i32, ptr %836, i64 %838
-  %840 = load i32, ptr %839, align 4
-  %841 = icmp ne i32 %840, 0
-  br i1 %841, label %842, label %864
+836:                                              ; preds = %830
+  %837 = load ptr, ptr @buf, align 8
+  %838 = getelementptr inbounds %struct.stats_info_response_msg, ptr %837, i32 0, i32 50
+  %839 = load ptr, ptr %838, align 8
+  %840 = load i32, ptr %1, align 4
+  %841 = sext i32 %840 to i64
+  %842 = getelementptr inbounds i32, ptr %839, i64 %841
+  %843 = load i32, ptr %842, align 4
+  %844 = icmp ne i32 %843, 0
+  br i1 %844, label %845, label %867
 
-842:                                              ; preds = %833
-  %843 = load ptr, ptr @buf, align 8
-  %844 = getelementptr inbounds %struct.stats_info_response_msg, ptr %843, i32 0, i32 51
-  %845 = load ptr, ptr %844, align 8
-  %846 = load i32, ptr %1, align 4
-  %847 = sext i32 %846 to i64
-  %848 = getelementptr inbounds i64, ptr %845, i64 %847
-  %849 = load i64, ptr %848, align 8
-  %850 = load ptr, ptr @buf, align 8
-  %851 = getelementptr inbounds %struct.stats_info_response_msg, ptr %850, i32 0, i32 50
-  %852 = load ptr, ptr %851, align 8
-  %853 = load i32, ptr %1, align 4
-  %854 = sext i32 %853 to i64
-  %855 = getelementptr inbounds i32, ptr %852, i64 %854
-  %856 = load i32, ptr %855, align 4
-  %857 = zext i32 %856 to i64
-  %858 = udiv i64 %849, %857
-  %859 = trunc i64 %858 to i32
-  %860 = load ptr, ptr @rpc_user_ave_time, align 8
-  %861 = load i32, ptr %1, align 4
-  %862 = sext i32 %861 to i64
-  %863 = getelementptr inbounds i32, ptr %860, i64 %862
-  store i32 %859, ptr %863, align 4
-  br label %864
+845:                                              ; preds = %836
+  %846 = load ptr, ptr @buf, align 8
+  %847 = getelementptr inbounds %struct.stats_info_response_msg, ptr %846, i32 0, i32 51
+  %848 = load ptr, ptr %847, align 8
+  %849 = load i32, ptr %1, align 4
+  %850 = sext i32 %849 to i64
+  %851 = getelementptr inbounds i64, ptr %848, i64 %850
+  %852 = load i64, ptr %851, align 8
+  %853 = load ptr, ptr @buf, align 8
+  %854 = getelementptr inbounds %struct.stats_info_response_msg, ptr %853, i32 0, i32 50
+  %855 = load ptr, ptr %854, align 8
+  %856 = load i32, ptr %1, align 4
+  %857 = sext i32 %856 to i64
+  %858 = getelementptr inbounds i32, ptr %855, i64 %857
+  %859 = load i32, ptr %858, align 4
+  %860 = zext i32 %859 to i64
+  %861 = udiv i64 %852, %860
+  %862 = trunc i64 %861 to i32
+  %863 = load ptr, ptr @rpc_user_ave_time, align 8
+  %864 = load i32, ptr %1, align 4
+  %865 = sext i32 %864 to i64
+  %866 = getelementptr inbounds i32, ptr %863, i64 %865
+  store i32 %862, ptr %866, align 4
+  br label %867
 
-864:                                              ; preds = %842, %833
-  br label %865
+867:                                              ; preds = %845, %836
+  br label %868
 
-865:                                              ; preds = %864
-  %866 = load i32, ptr %1, align 4
-  %867 = add nsw i32 %866, 1
-  store i32 %867, ptr %1, align 4
-  br label %827, !llvm.loop !19
+868:                                              ; preds = %867
+  %869 = load i32, ptr %1, align 4
+  %870 = add nsw i32 %869, 1
+  store i32 %870, ptr %1, align 4
+  br label %830, !llvm.loop !19
 
-868:                                              ; preds = %827
+871:                                              ; preds = %830
   store i32 0, ptr %1, align 4
-  br label %869
+  br label %872
 
-869:                                              ; preds = %1002, %868
-  %870 = load i32, ptr %1, align 4
-  %871 = load ptr, ptr @buf, align 8
-  %872 = getelementptr inbounds %struct.stats_info_response_msg, ptr %871, i32 0, i32 48
-  %873 = load i32, ptr %872, align 8
-  %874 = icmp ult i32 %870, %873
-  br i1 %874, label %875, label %1005
+872:                                              ; preds = %1005, %871
+  %873 = load i32, ptr %1, align 4
+  %874 = load ptr, ptr @buf, align 8
+  %875 = getelementptr inbounds %struct.stats_info_response_msg, ptr %874, i32 0, i32 48
+  %876 = load i32, ptr %875, align 8
+  %877 = icmp ult i32 %873, %876
+  br i1 %877, label %878, label %1008
 
-875:                                              ; preds = %869
-  %876 = load i32, ptr %1, align 4
-  %877 = add nsw i32 %876, 1
-  store i32 %877, ptr %2, align 4
-  br label %878
+878:                                              ; preds = %872
+  %879 = load i32, ptr %1, align 4
+  %880 = add nsw i32 %879, 1
+  store i32 %880, ptr %2, align 4
+  br label %881
 
-878:                                              ; preds = %998, %875
-  %879 = load i32, ptr %2, align 4
-  %880 = load ptr, ptr @buf, align 8
-  %881 = getelementptr inbounds %struct.stats_info_response_msg, ptr %880, i32 0, i32 48
-  %882 = load i32, ptr %881, align 8
-  %883 = icmp ult i32 %879, %882
-  br i1 %883, label %884, label %1001
+881:                                              ; preds = %1001, %878
+  %882 = load i32, ptr %2, align 4
+  %883 = load ptr, ptr @buf, align 8
+  %884 = getelementptr inbounds %struct.stats_info_response_msg, ptr %883, i32 0, i32 48
+  %885 = load i32, ptr %884, align 8
+  %886 = icmp ult i32 %882, %885
+  br i1 %886, label %887, label %1004
 
-884:                                              ; preds = %878
-  %885 = load ptr, ptr @rpc_user_ave_time, align 8
-  %886 = load i32, ptr %1, align 4
-  %887 = sext i32 %886 to i64
-  %888 = getelementptr inbounds i32, ptr %885, i64 %887
-  %889 = load i32, ptr %888, align 4
-  %890 = load ptr, ptr @rpc_user_ave_time, align 8
-  %891 = load i32, ptr %2, align 4
-  %892 = sext i32 %891 to i64
-  %893 = getelementptr inbounds i32, ptr %890, i64 %892
-  %894 = load i32, ptr %893, align 4
-  %895 = icmp uge i32 %889, %894
-  br i1 %895, label %896, label %897
+887:                                              ; preds = %881
+  %888 = load ptr, ptr @rpc_user_ave_time, align 8
+  %889 = load i32, ptr %1, align 4
+  %890 = sext i32 %889 to i64
+  %891 = getelementptr inbounds i32, ptr %888, i64 %890
+  %892 = load i32, ptr %891, align 4
+  %893 = load ptr, ptr @rpc_user_ave_time, align 8
+  %894 = load i32, ptr %2, align 4
+  %895 = sext i32 %894 to i64
+  %896 = getelementptr inbounds i32, ptr %893, i64 %895
+  %897 = load i32, ptr %896, align 4
+  %898 = icmp uge i32 %892, %897
+  br i1 %898, label %899, label %900
 
-896:                                              ; preds = %884
-  br label %998
+899:                                              ; preds = %887
+  br label %1001
 
-897:                                              ; preds = %884
-  %898 = load ptr, ptr @rpc_user_ave_time, align 8
-  %899 = load i32, ptr %1, align 4
-  %900 = sext i32 %899 to i64
-  %901 = getelementptr inbounds i32, ptr %898, i64 %900
-  %902 = load i32, ptr %901, align 4
-  store i32 %902, ptr %6, align 4
-  %903 = load ptr, ptr @buf, align 8
-  %904 = getelementptr inbounds %struct.stats_info_response_msg, ptr %903, i32 0, i32 49
-  %905 = load ptr, ptr %904, align 8
-  %906 = load i32, ptr %1, align 4
-  %907 = sext i32 %906 to i64
-  %908 = getelementptr inbounds i32, ptr %905, i64 %907
-  %909 = load i32, ptr %908, align 4
-  store i32 %909, ptr %8, align 4
-  %910 = load ptr, ptr @buf, align 8
-  %911 = getelementptr inbounds %struct.stats_info_response_msg, ptr %910, i32 0, i32 50
-  %912 = load ptr, ptr %911, align 8
-  %913 = load i32, ptr %1, align 4
-  %914 = sext i32 %913 to i64
-  %915 = getelementptr inbounds i32, ptr %912, i64 %914
-  %916 = load i32, ptr %915, align 4
-  store i32 %916, ptr %7, align 4
-  %917 = load ptr, ptr @buf, align 8
-  %918 = getelementptr inbounds %struct.stats_info_response_msg, ptr %917, i32 0, i32 51
-  %919 = load ptr, ptr %918, align 8
-  %920 = load i32, ptr %1, align 4
-  %921 = sext i32 %920 to i64
-  %922 = getelementptr inbounds i64, ptr %919, i64 %921
-  %923 = load i64, ptr %922, align 8
-  store i64 %923, ptr %10, align 8
-  %924 = load ptr, ptr @rpc_user_ave_time, align 8
-  %925 = load i32, ptr %2, align 4
-  %926 = sext i32 %925 to i64
-  %927 = getelementptr inbounds i32, ptr %924, i64 %926
-  %928 = load i32, ptr %927, align 4
-  %929 = load ptr, ptr @rpc_user_ave_time, align 8
-  %930 = load i32, ptr %1, align 4
-  %931 = sext i32 %930 to i64
-  %932 = getelementptr inbounds i32, ptr %929, i64 %931
-  store i32 %928, ptr %932, align 4
-  %933 = load ptr, ptr @buf, align 8
-  %934 = getelementptr inbounds %struct.stats_info_response_msg, ptr %933, i32 0, i32 49
-  %935 = load ptr, ptr %934, align 8
-  %936 = load i32, ptr %2, align 4
-  %937 = sext i32 %936 to i64
-  %938 = getelementptr inbounds i32, ptr %935, i64 %937
-  %939 = load i32, ptr %938, align 4
-  %940 = load ptr, ptr @buf, align 8
-  %941 = getelementptr inbounds %struct.stats_info_response_msg, ptr %940, i32 0, i32 49
-  %942 = load ptr, ptr %941, align 8
-  %943 = load i32, ptr %1, align 4
-  %944 = sext i32 %943 to i64
-  %945 = getelementptr inbounds i32, ptr %942, i64 %944
-  store i32 %939, ptr %945, align 4
-  %946 = load ptr, ptr @buf, align 8
-  %947 = getelementptr inbounds %struct.stats_info_response_msg, ptr %946, i32 0, i32 50
-  %948 = load ptr, ptr %947, align 8
-  %949 = load i32, ptr %2, align 4
-  %950 = sext i32 %949 to i64
-  %951 = getelementptr inbounds i32, ptr %948, i64 %950
-  %952 = load i32, ptr %951, align 4
-  %953 = load ptr, ptr @buf, align 8
-  %954 = getelementptr inbounds %struct.stats_info_response_msg, ptr %953, i32 0, i32 50
-  %955 = load ptr, ptr %954, align 8
-  %956 = load i32, ptr %1, align 4
-  %957 = sext i32 %956 to i64
-  %958 = getelementptr inbounds i32, ptr %955, i64 %957
-  store i32 %952, ptr %958, align 4
-  %959 = load ptr, ptr @buf, align 8
-  %960 = getelementptr inbounds %struct.stats_info_response_msg, ptr %959, i32 0, i32 51
-  %961 = load ptr, ptr %960, align 8
-  %962 = load i32, ptr %2, align 4
-  %963 = sext i32 %962 to i64
-  %964 = getelementptr inbounds i64, ptr %961, i64 %963
-  %965 = load i64, ptr %964, align 8
-  %966 = load ptr, ptr @buf, align 8
-  %967 = getelementptr inbounds %struct.stats_info_response_msg, ptr %966, i32 0, i32 51
-  %968 = load ptr, ptr %967, align 8
-  %969 = load i32, ptr %1, align 4
-  %970 = sext i32 %969 to i64
-  %971 = getelementptr inbounds i64, ptr %968, i64 %970
-  store i64 %965, ptr %971, align 8
-  %972 = load i32, ptr %6, align 4
-  %973 = load ptr, ptr @rpc_user_ave_time, align 8
-  %974 = load i32, ptr %2, align 4
-  %975 = sext i32 %974 to i64
-  %976 = getelementptr inbounds i32, ptr %973, i64 %975
-  store i32 %972, ptr %976, align 4
-  %977 = load i32, ptr %8, align 4
-  %978 = load ptr, ptr @buf, align 8
-  %979 = getelementptr inbounds %struct.stats_info_response_msg, ptr %978, i32 0, i32 49
-  %980 = load ptr, ptr %979, align 8
-  %981 = load i32, ptr %2, align 4
-  %982 = sext i32 %981 to i64
-  %983 = getelementptr inbounds i32, ptr %980, i64 %982
-  store i32 %977, ptr %983, align 4
-  %984 = load i32, ptr %7, align 4
-  %985 = load ptr, ptr @buf, align 8
-  %986 = getelementptr inbounds %struct.stats_info_response_msg, ptr %985, i32 0, i32 50
-  %987 = load ptr, ptr %986, align 8
-  %988 = load i32, ptr %2, align 4
-  %989 = sext i32 %988 to i64
-  %990 = getelementptr inbounds i32, ptr %987, i64 %989
-  store i32 %984, ptr %990, align 4
-  %991 = load i64, ptr %10, align 8
-  %992 = load ptr, ptr @buf, align 8
-  %993 = getelementptr inbounds %struct.stats_info_response_msg, ptr %992, i32 0, i32 51
-  %994 = load ptr, ptr %993, align 8
-  %995 = load i32, ptr %2, align 4
-  %996 = sext i32 %995 to i64
-  %997 = getelementptr inbounds i64, ptr %994, i64 %996
-  store i64 %991, ptr %997, align 8
-  br label %998
+900:                                              ; preds = %887
+  %901 = load ptr, ptr @rpc_user_ave_time, align 8
+  %902 = load i32, ptr %1, align 4
+  %903 = sext i32 %902 to i64
+  %904 = getelementptr inbounds i32, ptr %901, i64 %903
+  %905 = load i32, ptr %904, align 4
+  store i32 %905, ptr %6, align 4
+  %906 = load ptr, ptr @buf, align 8
+  %907 = getelementptr inbounds %struct.stats_info_response_msg, ptr %906, i32 0, i32 49
+  %908 = load ptr, ptr %907, align 8
+  %909 = load i32, ptr %1, align 4
+  %910 = sext i32 %909 to i64
+  %911 = getelementptr inbounds i32, ptr %908, i64 %910
+  %912 = load i32, ptr %911, align 4
+  store i32 %912, ptr %8, align 4
+  %913 = load ptr, ptr @buf, align 8
+  %914 = getelementptr inbounds %struct.stats_info_response_msg, ptr %913, i32 0, i32 50
+  %915 = load ptr, ptr %914, align 8
+  %916 = load i32, ptr %1, align 4
+  %917 = sext i32 %916 to i64
+  %918 = getelementptr inbounds i32, ptr %915, i64 %917
+  %919 = load i32, ptr %918, align 4
+  store i32 %919, ptr %7, align 4
+  %920 = load ptr, ptr @buf, align 8
+  %921 = getelementptr inbounds %struct.stats_info_response_msg, ptr %920, i32 0, i32 51
+  %922 = load ptr, ptr %921, align 8
+  %923 = load i32, ptr %1, align 4
+  %924 = sext i32 %923 to i64
+  %925 = getelementptr inbounds i64, ptr %922, i64 %924
+  %926 = load i64, ptr %925, align 8
+  store i64 %926, ptr %10, align 8
+  %927 = load ptr, ptr @rpc_user_ave_time, align 8
+  %928 = load i32, ptr %2, align 4
+  %929 = sext i32 %928 to i64
+  %930 = getelementptr inbounds i32, ptr %927, i64 %929
+  %931 = load i32, ptr %930, align 4
+  %932 = load ptr, ptr @rpc_user_ave_time, align 8
+  %933 = load i32, ptr %1, align 4
+  %934 = sext i32 %933 to i64
+  %935 = getelementptr inbounds i32, ptr %932, i64 %934
+  store i32 %931, ptr %935, align 4
+  %936 = load ptr, ptr @buf, align 8
+  %937 = getelementptr inbounds %struct.stats_info_response_msg, ptr %936, i32 0, i32 49
+  %938 = load ptr, ptr %937, align 8
+  %939 = load i32, ptr %2, align 4
+  %940 = sext i32 %939 to i64
+  %941 = getelementptr inbounds i32, ptr %938, i64 %940
+  %942 = load i32, ptr %941, align 4
+  %943 = load ptr, ptr @buf, align 8
+  %944 = getelementptr inbounds %struct.stats_info_response_msg, ptr %943, i32 0, i32 49
+  %945 = load ptr, ptr %944, align 8
+  %946 = load i32, ptr %1, align 4
+  %947 = sext i32 %946 to i64
+  %948 = getelementptr inbounds i32, ptr %945, i64 %947
+  store i32 %942, ptr %948, align 4
+  %949 = load ptr, ptr @buf, align 8
+  %950 = getelementptr inbounds %struct.stats_info_response_msg, ptr %949, i32 0, i32 50
+  %951 = load ptr, ptr %950, align 8
+  %952 = load i32, ptr %2, align 4
+  %953 = sext i32 %952 to i64
+  %954 = getelementptr inbounds i32, ptr %951, i64 %953
+  %955 = load i32, ptr %954, align 4
+  %956 = load ptr, ptr @buf, align 8
+  %957 = getelementptr inbounds %struct.stats_info_response_msg, ptr %956, i32 0, i32 50
+  %958 = load ptr, ptr %957, align 8
+  %959 = load i32, ptr %1, align 4
+  %960 = sext i32 %959 to i64
+  %961 = getelementptr inbounds i32, ptr %958, i64 %960
+  store i32 %955, ptr %961, align 4
+  %962 = load ptr, ptr @buf, align 8
+  %963 = getelementptr inbounds %struct.stats_info_response_msg, ptr %962, i32 0, i32 51
+  %964 = load ptr, ptr %963, align 8
+  %965 = load i32, ptr %2, align 4
+  %966 = sext i32 %965 to i64
+  %967 = getelementptr inbounds i64, ptr %964, i64 %966
+  %968 = load i64, ptr %967, align 8
+  %969 = load ptr, ptr @buf, align 8
+  %970 = getelementptr inbounds %struct.stats_info_response_msg, ptr %969, i32 0, i32 51
+  %971 = load ptr, ptr %970, align 8
+  %972 = load i32, ptr %1, align 4
+  %973 = sext i32 %972 to i64
+  %974 = getelementptr inbounds i64, ptr %971, i64 %973
+  store i64 %968, ptr %974, align 8
+  %975 = load i32, ptr %6, align 4
+  %976 = load ptr, ptr @rpc_user_ave_time, align 8
+  %977 = load i32, ptr %2, align 4
+  %978 = sext i32 %977 to i64
+  %979 = getelementptr inbounds i32, ptr %976, i64 %978
+  store i32 %975, ptr %979, align 4
+  %980 = load i32, ptr %8, align 4
+  %981 = load ptr, ptr @buf, align 8
+  %982 = getelementptr inbounds %struct.stats_info_response_msg, ptr %981, i32 0, i32 49
+  %983 = load ptr, ptr %982, align 8
+  %984 = load i32, ptr %2, align 4
+  %985 = sext i32 %984 to i64
+  %986 = getelementptr inbounds i32, ptr %983, i64 %985
+  store i32 %980, ptr %986, align 4
+  %987 = load i32, ptr %7, align 4
+  %988 = load ptr, ptr @buf, align 8
+  %989 = getelementptr inbounds %struct.stats_info_response_msg, ptr %988, i32 0, i32 50
+  %990 = load ptr, ptr %989, align 8
+  %991 = load i32, ptr %2, align 4
+  %992 = sext i32 %991 to i64
+  %993 = getelementptr inbounds i32, ptr %990, i64 %992
+  store i32 %987, ptr %993, align 4
+  %994 = load i64, ptr %10, align 8
+  %995 = load ptr, ptr @buf, align 8
+  %996 = getelementptr inbounds %struct.stats_info_response_msg, ptr %995, i32 0, i32 51
+  %997 = load ptr, ptr %996, align 8
+  %998 = load i32, ptr %2, align 4
+  %999 = sext i32 %998 to i64
+  %1000 = getelementptr inbounds i64, ptr %997, i64 %999
+  store i64 %994, ptr %1000, align 8
+  br label %1001
 
-998:                                              ; preds = %897, %896
-  %999 = load i32, ptr %2, align 4
-  %1000 = add nsw i32 %999, 1
-  store i32 %1000, ptr %2, align 4
-  br label %878, !llvm.loop !20
+1001:                                             ; preds = %900, %899
+  %1002 = load i32, ptr %2, align 4
+  %1003 = add nsw i32 %1002, 1
+  store i32 %1003, ptr %2, align 4
+  br label %881, !llvm.loop !20
 
-1001:                                             ; preds = %878
-  br label %1002
+1004:                                             ; preds = %881
+  br label %1005
 
-1002:                                             ; preds = %1001
-  %1003 = load i32, ptr %1, align 4
-  %1004 = add nsw i32 %1003, 1
-  store i32 %1004, ptr %1, align 4
-  br label %869, !llvm.loop !21
+1005:                                             ; preds = %1004
+  %1006 = load i32, ptr %1, align 4
+  %1007 = add nsw i32 %1006, 1
+  store i32 %1007, ptr %1, align 4
+  br label %872, !llvm.loop !21
 
-1005:                                             ; preds = %869
-  br label %1313
+1008:                                             ; preds = %872
+  br label %1316
 
-1006:                                             ; preds = %644
+1009:                                             ; preds = %646
   store i32 0, ptr %1, align 4
-  br label %1007
+  br label %1010
 
-1007:                                             ; preds = %1156, %1006
-  %1008 = load i32, ptr %1, align 4
-  %1009 = load ptr, ptr @buf, align 8
-  %1010 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1009, i32 0, i32 44
-  %1011 = load i32, ptr %1010, align 4
-  %1012 = icmp ult i32 %1008, %1011
-  br i1 %1012, label %1013, label %1159
+1010:                                             ; preds = %1159, %1009
+  %1011 = load i32, ptr %1, align 4
+  %1012 = load ptr, ptr @buf, align 8
+  %1013 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1012, i32 0, i32 44
+  %1014 = load i32, ptr %1013, align 4
+  %1015 = icmp ult i32 %1011, %1014
+  br i1 %1015, label %1016, label %1162
 
-1013:                                             ; preds = %1007
-  %1014 = load i32, ptr %1, align 4
-  %1015 = add nsw i32 %1014, 1
-  store i32 %1015, ptr %2, align 4
-  br label %1016
+1016:                                             ; preds = %1010
+  %1017 = load i32, ptr %1, align 4
+  %1018 = add nsw i32 %1017, 1
+  store i32 %1018, ptr %2, align 4
+  br label %1019
 
-1016:                                             ; preds = %1121, %1013
-  %1017 = load i32, ptr %2, align 4
-  %1018 = load ptr, ptr @buf, align 8
-  %1019 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1018, i32 0, i32 44
-  %1020 = load i32, ptr %1019, align 4
-  %1021 = icmp ult i32 %1017, %1020
-  br i1 %1021, label %1022, label %1124
+1019:                                             ; preds = %1124, %1016
+  %1020 = load i32, ptr %2, align 4
+  %1021 = load ptr, ptr @buf, align 8
+  %1022 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1021, i32 0, i32 44
+  %1023 = load i32, ptr %1022, align 4
+  %1024 = icmp ult i32 %1020, %1023
+  br i1 %1024, label %1025, label %1127
 
-1022:                                             ; preds = %1016
-  %1023 = load ptr, ptr @buf, align 8
-  %1024 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1023, i32 0, i32 46
-  %1025 = load ptr, ptr %1024, align 8
-  %1026 = load i32, ptr %1, align 4
-  %1027 = sext i32 %1026 to i64
-  %1028 = getelementptr inbounds i32, ptr %1025, i64 %1027
-  %1029 = load i32, ptr %1028, align 4
-  %1030 = load ptr, ptr @buf, align 8
-  %1031 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1030, i32 0, i32 46
-  %1032 = load ptr, ptr %1031, align 8
-  %1033 = load i32, ptr %2, align 4
-  %1034 = sext i32 %1033 to i64
-  %1035 = getelementptr inbounds i32, ptr %1032, i64 %1034
-  %1036 = load i32, ptr %1035, align 4
-  %1037 = icmp uge i32 %1029, %1036
-  br i1 %1037, label %1038, label %1039
+1025:                                             ; preds = %1019
+  %1026 = load ptr, ptr @buf, align 8
+  %1027 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1026, i32 0, i32 46
+  %1028 = load ptr, ptr %1027, align 8
+  %1029 = load i32, ptr %1, align 4
+  %1030 = sext i32 %1029 to i64
+  %1031 = getelementptr inbounds i32, ptr %1028, i64 %1030
+  %1032 = load i32, ptr %1031, align 4
+  %1033 = load ptr, ptr @buf, align 8
+  %1034 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1033, i32 0, i32 46
+  %1035 = load ptr, ptr %1034, align 8
+  %1036 = load i32, ptr %2, align 4
+  %1037 = sext i32 %1036 to i64
+  %1038 = getelementptr inbounds i32, ptr %1035, i64 %1037
+  %1039 = load i32, ptr %1038, align 4
+  %1040 = icmp uge i32 %1032, %1039
+  br i1 %1040, label %1041, label %1042
 
-1038:                                             ; preds = %1022
-  br label %1121
+1041:                                             ; preds = %1025
+  br label %1124
 
-1039:                                             ; preds = %1022
-  %1040 = load ptr, ptr @buf, align 8
-  %1041 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1040, i32 0, i32 45
-  %1042 = load ptr, ptr %1041, align 8
-  %1043 = load i32, ptr %1, align 4
-  %1044 = sext i32 %1043 to i64
-  %1045 = getelementptr inbounds i16, ptr %1042, i64 %1044
-  %1046 = load i16, ptr %1045, align 2
-  store i16 %1046, ptr %3, align 2
-  %1047 = load ptr, ptr @buf, align 8
-  %1048 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1047, i32 0, i32 46
-  %1049 = load ptr, ptr %1048, align 8
-  %1050 = load i32, ptr %1, align 4
-  %1051 = sext i32 %1050 to i64
-  %1052 = getelementptr inbounds i32, ptr %1049, i64 %1051
-  %1053 = load i32, ptr %1052, align 4
-  store i32 %1053, ptr %5, align 4
-  %1054 = load ptr, ptr @buf, align 8
-  %1055 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1054, i32 0, i32 47
-  %1056 = load ptr, ptr %1055, align 8
-  %1057 = load i32, ptr %1, align 4
-  %1058 = sext i32 %1057 to i64
-  %1059 = getelementptr inbounds i64, ptr %1056, i64 %1058
-  %1060 = load i64, ptr %1059, align 8
-  store i64 %1060, ptr %9, align 8
-  %1061 = load ptr, ptr @buf, align 8
-  %1062 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1061, i32 0, i32 45
-  %1063 = load ptr, ptr %1062, align 8
-  %1064 = load i32, ptr %2, align 4
-  %1065 = sext i32 %1064 to i64
-  %1066 = getelementptr inbounds i16, ptr %1063, i64 %1065
-  %1067 = load i16, ptr %1066, align 2
-  %1068 = load ptr, ptr @buf, align 8
-  %1069 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1068, i32 0, i32 45
-  %1070 = load ptr, ptr %1069, align 8
-  %1071 = load i32, ptr %1, align 4
-  %1072 = sext i32 %1071 to i64
-  %1073 = getelementptr inbounds i16, ptr %1070, i64 %1072
-  store i16 %1067, ptr %1073, align 2
-  %1074 = load ptr, ptr @buf, align 8
-  %1075 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1074, i32 0, i32 46
-  %1076 = load ptr, ptr %1075, align 8
-  %1077 = load i32, ptr %2, align 4
-  %1078 = sext i32 %1077 to i64
-  %1079 = getelementptr inbounds i32, ptr %1076, i64 %1078
-  %1080 = load i32, ptr %1079, align 4
-  %1081 = load ptr, ptr @buf, align 8
-  %1082 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1081, i32 0, i32 46
-  %1083 = load ptr, ptr %1082, align 8
-  %1084 = load i32, ptr %1, align 4
-  %1085 = sext i32 %1084 to i64
-  %1086 = getelementptr inbounds i32, ptr %1083, i64 %1085
-  store i32 %1080, ptr %1086, align 4
-  %1087 = load ptr, ptr @buf, align 8
-  %1088 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1087, i32 0, i32 47
-  %1089 = load ptr, ptr %1088, align 8
-  %1090 = load i32, ptr %2, align 4
-  %1091 = sext i32 %1090 to i64
-  %1092 = getelementptr inbounds i64, ptr %1089, i64 %1091
-  %1093 = load i64, ptr %1092, align 8
-  %1094 = load ptr, ptr @buf, align 8
-  %1095 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1094, i32 0, i32 47
-  %1096 = load ptr, ptr %1095, align 8
-  %1097 = load i32, ptr %1, align 4
-  %1098 = sext i32 %1097 to i64
-  %1099 = getelementptr inbounds i64, ptr %1096, i64 %1098
-  store i64 %1093, ptr %1099, align 8
-  %1100 = load i16, ptr %3, align 2
-  %1101 = load ptr, ptr @buf, align 8
-  %1102 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1101, i32 0, i32 45
-  %1103 = load ptr, ptr %1102, align 8
-  %1104 = load i32, ptr %2, align 4
-  %1105 = sext i32 %1104 to i64
-  %1106 = getelementptr inbounds i16, ptr %1103, i64 %1105
-  store i16 %1100, ptr %1106, align 2
-  %1107 = load i32, ptr %5, align 4
-  %1108 = load ptr, ptr @buf, align 8
-  %1109 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1108, i32 0, i32 46
-  %1110 = load ptr, ptr %1109, align 8
-  %1111 = load i32, ptr %2, align 4
-  %1112 = sext i32 %1111 to i64
-  %1113 = getelementptr inbounds i32, ptr %1110, i64 %1112
-  store i32 %1107, ptr %1113, align 4
-  %1114 = load i64, ptr %9, align 8
-  %1115 = load ptr, ptr @buf, align 8
-  %1116 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1115, i32 0, i32 47
-  %1117 = load ptr, ptr %1116, align 8
-  %1118 = load i32, ptr %2, align 4
-  %1119 = sext i32 %1118 to i64
-  %1120 = getelementptr inbounds i64, ptr %1117, i64 %1119
-  store i64 %1114, ptr %1120, align 8
-  br label %1121
+1042:                                             ; preds = %1025
+  %1043 = load ptr, ptr @buf, align 8
+  %1044 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1043, i32 0, i32 45
+  %1045 = load ptr, ptr %1044, align 8
+  %1046 = load i32, ptr %1, align 4
+  %1047 = sext i32 %1046 to i64
+  %1048 = getelementptr inbounds i16, ptr %1045, i64 %1047
+  %1049 = load i16, ptr %1048, align 2
+  store i16 %1049, ptr %3, align 2
+  %1050 = load ptr, ptr @buf, align 8
+  %1051 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1050, i32 0, i32 46
+  %1052 = load ptr, ptr %1051, align 8
+  %1053 = load i32, ptr %1, align 4
+  %1054 = sext i32 %1053 to i64
+  %1055 = getelementptr inbounds i32, ptr %1052, i64 %1054
+  %1056 = load i32, ptr %1055, align 4
+  store i32 %1056, ptr %5, align 4
+  %1057 = load ptr, ptr @buf, align 8
+  %1058 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1057, i32 0, i32 47
+  %1059 = load ptr, ptr %1058, align 8
+  %1060 = load i32, ptr %1, align 4
+  %1061 = sext i32 %1060 to i64
+  %1062 = getelementptr inbounds i64, ptr %1059, i64 %1061
+  %1063 = load i64, ptr %1062, align 8
+  store i64 %1063, ptr %9, align 8
+  %1064 = load ptr, ptr @buf, align 8
+  %1065 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1064, i32 0, i32 45
+  %1066 = load ptr, ptr %1065, align 8
+  %1067 = load i32, ptr %2, align 4
+  %1068 = sext i32 %1067 to i64
+  %1069 = getelementptr inbounds i16, ptr %1066, i64 %1068
+  %1070 = load i16, ptr %1069, align 2
+  %1071 = load ptr, ptr @buf, align 8
+  %1072 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1071, i32 0, i32 45
+  %1073 = load ptr, ptr %1072, align 8
+  %1074 = load i32, ptr %1, align 4
+  %1075 = sext i32 %1074 to i64
+  %1076 = getelementptr inbounds i16, ptr %1073, i64 %1075
+  store i16 %1070, ptr %1076, align 2
+  %1077 = load ptr, ptr @buf, align 8
+  %1078 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1077, i32 0, i32 46
+  %1079 = load ptr, ptr %1078, align 8
+  %1080 = load i32, ptr %2, align 4
+  %1081 = sext i32 %1080 to i64
+  %1082 = getelementptr inbounds i32, ptr %1079, i64 %1081
+  %1083 = load i32, ptr %1082, align 4
+  %1084 = load ptr, ptr @buf, align 8
+  %1085 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1084, i32 0, i32 46
+  %1086 = load ptr, ptr %1085, align 8
+  %1087 = load i32, ptr %1, align 4
+  %1088 = sext i32 %1087 to i64
+  %1089 = getelementptr inbounds i32, ptr %1086, i64 %1088
+  store i32 %1083, ptr %1089, align 4
+  %1090 = load ptr, ptr @buf, align 8
+  %1091 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1090, i32 0, i32 47
+  %1092 = load ptr, ptr %1091, align 8
+  %1093 = load i32, ptr %2, align 4
+  %1094 = sext i32 %1093 to i64
+  %1095 = getelementptr inbounds i64, ptr %1092, i64 %1094
+  %1096 = load i64, ptr %1095, align 8
+  %1097 = load ptr, ptr @buf, align 8
+  %1098 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1097, i32 0, i32 47
+  %1099 = load ptr, ptr %1098, align 8
+  %1100 = load i32, ptr %1, align 4
+  %1101 = sext i32 %1100 to i64
+  %1102 = getelementptr inbounds i64, ptr %1099, i64 %1101
+  store i64 %1096, ptr %1102, align 8
+  %1103 = load i16, ptr %3, align 2
+  %1104 = load ptr, ptr @buf, align 8
+  %1105 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1104, i32 0, i32 45
+  %1106 = load ptr, ptr %1105, align 8
+  %1107 = load i32, ptr %2, align 4
+  %1108 = sext i32 %1107 to i64
+  %1109 = getelementptr inbounds i16, ptr %1106, i64 %1108
+  store i16 %1103, ptr %1109, align 2
+  %1110 = load i32, ptr %5, align 4
+  %1111 = load ptr, ptr @buf, align 8
+  %1112 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1111, i32 0, i32 46
+  %1113 = load ptr, ptr %1112, align 8
+  %1114 = load i32, ptr %2, align 4
+  %1115 = sext i32 %1114 to i64
+  %1116 = getelementptr inbounds i32, ptr %1113, i64 %1115
+  store i32 %1110, ptr %1116, align 4
+  %1117 = load i64, ptr %9, align 8
+  %1118 = load ptr, ptr @buf, align 8
+  %1119 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1118, i32 0, i32 47
+  %1120 = load ptr, ptr %1119, align 8
+  %1121 = load i32, ptr %2, align 4
+  %1122 = sext i32 %1121 to i64
+  %1123 = getelementptr inbounds i64, ptr %1120, i64 %1122
+  store i64 %1117, ptr %1123, align 8
+  br label %1124
 
-1121:                                             ; preds = %1039, %1038
-  %1122 = load i32, ptr %2, align 4
-  %1123 = add nsw i32 %1122, 1
-  store i32 %1123, ptr %2, align 4
-  br label %1016, !llvm.loop !22
+1124:                                             ; preds = %1042, %1041
+  %1125 = load i32, ptr %2, align 4
+  %1126 = add nsw i32 %1125, 1
+  store i32 %1126, ptr %2, align 4
+  br label %1019, !llvm.loop !22
 
-1124:                                             ; preds = %1016
-  %1125 = load ptr, ptr @buf, align 8
-  %1126 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1125, i32 0, i32 46
-  %1127 = load ptr, ptr %1126, align 8
-  %1128 = load i32, ptr %1, align 4
-  %1129 = sext i32 %1128 to i64
-  %1130 = getelementptr inbounds i32, ptr %1127, i64 %1129
-  %1131 = load i32, ptr %1130, align 4
-  %1132 = icmp ne i32 %1131, 0
-  br i1 %1132, label %1133, label %1155
+1127:                                             ; preds = %1019
+  %1128 = load ptr, ptr @buf, align 8
+  %1129 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1128, i32 0, i32 46
+  %1130 = load ptr, ptr %1129, align 8
+  %1131 = load i32, ptr %1, align 4
+  %1132 = sext i32 %1131 to i64
+  %1133 = getelementptr inbounds i32, ptr %1130, i64 %1132
+  %1134 = load i32, ptr %1133, align 4
+  %1135 = icmp ne i32 %1134, 0
+  br i1 %1135, label %1136, label %1158
 
-1133:                                             ; preds = %1124
-  %1134 = load ptr, ptr @buf, align 8
-  %1135 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1134, i32 0, i32 47
-  %1136 = load ptr, ptr %1135, align 8
-  %1137 = load i32, ptr %1, align 4
-  %1138 = sext i32 %1137 to i64
-  %1139 = getelementptr inbounds i64, ptr %1136, i64 %1138
-  %1140 = load i64, ptr %1139, align 8
-  %1141 = load ptr, ptr @buf, align 8
-  %1142 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1141, i32 0, i32 46
-  %1143 = load ptr, ptr %1142, align 8
-  %1144 = load i32, ptr %1, align 4
-  %1145 = sext i32 %1144 to i64
-  %1146 = getelementptr inbounds i32, ptr %1143, i64 %1145
-  %1147 = load i32, ptr %1146, align 4
-  %1148 = zext i32 %1147 to i64
-  %1149 = udiv i64 %1140, %1148
-  %1150 = trunc i64 %1149 to i32
-  %1151 = load ptr, ptr @rpc_type_ave_time, align 8
-  %1152 = load i32, ptr %1, align 4
-  %1153 = sext i32 %1152 to i64
-  %1154 = getelementptr inbounds i32, ptr %1151, i64 %1153
-  store i32 %1150, ptr %1154, align 4
-  br label %1155
+1136:                                             ; preds = %1127
+  %1137 = load ptr, ptr @buf, align 8
+  %1138 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1137, i32 0, i32 47
+  %1139 = load ptr, ptr %1138, align 8
+  %1140 = load i32, ptr %1, align 4
+  %1141 = sext i32 %1140 to i64
+  %1142 = getelementptr inbounds i64, ptr %1139, i64 %1141
+  %1143 = load i64, ptr %1142, align 8
+  %1144 = load ptr, ptr @buf, align 8
+  %1145 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1144, i32 0, i32 46
+  %1146 = load ptr, ptr %1145, align 8
+  %1147 = load i32, ptr %1, align 4
+  %1148 = sext i32 %1147 to i64
+  %1149 = getelementptr inbounds i32, ptr %1146, i64 %1148
+  %1150 = load i32, ptr %1149, align 4
+  %1151 = zext i32 %1150 to i64
+  %1152 = udiv i64 %1143, %1151
+  %1153 = trunc i64 %1152 to i32
+  %1154 = load ptr, ptr @rpc_type_ave_time, align 8
+  %1155 = load i32, ptr %1, align 4
+  %1156 = sext i32 %1155 to i64
+  %1157 = getelementptr inbounds i32, ptr %1154, i64 %1156
+  store i32 %1153, ptr %1157, align 4
+  br label %1158
 
-1155:                                             ; preds = %1133, %1124
-  br label %1156
+1158:                                             ; preds = %1136, %1127
+  br label %1159
 
-1156:                                             ; preds = %1155
-  %1157 = load i32, ptr %1, align 4
-  %1158 = add nsw i32 %1157, 1
-  store i32 %1158, ptr %1, align 4
-  br label %1007, !llvm.loop !23
+1159:                                             ; preds = %1158
+  %1160 = load i32, ptr %1, align 4
+  %1161 = add nsw i32 %1160, 1
+  store i32 %1161, ptr %1, align 4
+  br label %1010, !llvm.loop !23
 
-1159:                                             ; preds = %1007
+1162:                                             ; preds = %1010
   store i32 0, ptr %1, align 4
-  br label %1160
+  br label %1163
 
-1160:                                             ; preds = %1309, %1159
-  %1161 = load i32, ptr %1, align 4
-  %1162 = load ptr, ptr @buf, align 8
-  %1163 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1162, i32 0, i32 48
-  %1164 = load i32, ptr %1163, align 8
-  %1165 = icmp ult i32 %1161, %1164
-  br i1 %1165, label %1166, label %1312
+1163:                                             ; preds = %1312, %1162
+  %1164 = load i32, ptr %1, align 4
+  %1165 = load ptr, ptr @buf, align 8
+  %1166 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1165, i32 0, i32 48
+  %1167 = load i32, ptr %1166, align 8
+  %1168 = icmp ult i32 %1164, %1167
+  br i1 %1168, label %1169, label %1315
 
-1166:                                             ; preds = %1160
-  %1167 = load i32, ptr %1, align 4
-  %1168 = add nsw i32 %1167, 1
-  store i32 %1168, ptr %2, align 4
-  br label %1169
+1169:                                             ; preds = %1163
+  %1170 = load i32, ptr %1, align 4
+  %1171 = add nsw i32 %1170, 1
+  store i32 %1171, ptr %2, align 4
+  br label %1172
 
-1169:                                             ; preds = %1274, %1166
-  %1170 = load i32, ptr %2, align 4
-  %1171 = load ptr, ptr @buf, align 8
-  %1172 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1171, i32 0, i32 48
-  %1173 = load i32, ptr %1172, align 8
-  %1174 = icmp ult i32 %1170, %1173
-  br i1 %1174, label %1175, label %1277
+1172:                                             ; preds = %1277, %1169
+  %1173 = load i32, ptr %2, align 4
+  %1174 = load ptr, ptr @buf, align 8
+  %1175 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1174, i32 0, i32 48
+  %1176 = load i32, ptr %1175, align 8
+  %1177 = icmp ult i32 %1173, %1176
+  br i1 %1177, label %1178, label %1280
 
-1175:                                             ; preds = %1169
-  %1176 = load ptr, ptr @buf, align 8
-  %1177 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1176, i32 0, i32 50
-  %1178 = load ptr, ptr %1177, align 8
-  %1179 = load i32, ptr %1, align 4
-  %1180 = sext i32 %1179 to i64
-  %1181 = getelementptr inbounds i32, ptr %1178, i64 %1180
-  %1182 = load i32, ptr %1181, align 4
-  %1183 = load ptr, ptr @buf, align 8
-  %1184 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1183, i32 0, i32 50
-  %1185 = load ptr, ptr %1184, align 8
-  %1186 = load i32, ptr %2, align 4
-  %1187 = sext i32 %1186 to i64
-  %1188 = getelementptr inbounds i32, ptr %1185, i64 %1187
-  %1189 = load i32, ptr %1188, align 4
-  %1190 = icmp uge i32 %1182, %1189
-  br i1 %1190, label %1191, label %1192
+1178:                                             ; preds = %1172
+  %1179 = load ptr, ptr @buf, align 8
+  %1180 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1179, i32 0, i32 50
+  %1181 = load ptr, ptr %1180, align 8
+  %1182 = load i32, ptr %1, align 4
+  %1183 = sext i32 %1182 to i64
+  %1184 = getelementptr inbounds i32, ptr %1181, i64 %1183
+  %1185 = load i32, ptr %1184, align 4
+  %1186 = load ptr, ptr @buf, align 8
+  %1187 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1186, i32 0, i32 50
+  %1188 = load ptr, ptr %1187, align 8
+  %1189 = load i32, ptr %2, align 4
+  %1190 = sext i32 %1189 to i64
+  %1191 = getelementptr inbounds i32, ptr %1188, i64 %1190
+  %1192 = load i32, ptr %1191, align 4
+  %1193 = icmp uge i32 %1185, %1192
+  br i1 %1193, label %1194, label %1195
 
-1191:                                             ; preds = %1175
-  br label %1274
+1194:                                             ; preds = %1178
+  br label %1277
 
-1192:                                             ; preds = %1175
-  %1193 = load ptr, ptr @buf, align 8
-  %1194 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1193, i32 0, i32 49
-  %1195 = load ptr, ptr %1194, align 8
-  %1196 = load i32, ptr %1, align 4
-  %1197 = sext i32 %1196 to i64
-  %1198 = getelementptr inbounds i32, ptr %1195, i64 %1197
-  %1199 = load i32, ptr %1198, align 4
-  store i32 %1199, ptr %8, align 4
-  %1200 = load ptr, ptr @buf, align 8
-  %1201 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1200, i32 0, i32 50
-  %1202 = load ptr, ptr %1201, align 8
-  %1203 = load i32, ptr %1, align 4
-  %1204 = sext i32 %1203 to i64
-  %1205 = getelementptr inbounds i32, ptr %1202, i64 %1204
-  %1206 = load i32, ptr %1205, align 4
-  store i32 %1206, ptr %7, align 4
-  %1207 = load ptr, ptr @buf, align 8
-  %1208 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1207, i32 0, i32 51
-  %1209 = load ptr, ptr %1208, align 8
-  %1210 = load i32, ptr %1, align 4
-  %1211 = sext i32 %1210 to i64
-  %1212 = getelementptr inbounds i64, ptr %1209, i64 %1211
-  %1213 = load i64, ptr %1212, align 8
-  store i64 %1213, ptr %10, align 8
-  %1214 = load ptr, ptr @buf, align 8
-  %1215 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1214, i32 0, i32 49
-  %1216 = load ptr, ptr %1215, align 8
-  %1217 = load i32, ptr %2, align 4
-  %1218 = sext i32 %1217 to i64
-  %1219 = getelementptr inbounds i32, ptr %1216, i64 %1218
-  %1220 = load i32, ptr %1219, align 4
-  %1221 = load ptr, ptr @buf, align 8
-  %1222 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1221, i32 0, i32 49
-  %1223 = load ptr, ptr %1222, align 8
-  %1224 = load i32, ptr %1, align 4
-  %1225 = sext i32 %1224 to i64
-  %1226 = getelementptr inbounds i32, ptr %1223, i64 %1225
-  store i32 %1220, ptr %1226, align 4
-  %1227 = load ptr, ptr @buf, align 8
-  %1228 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1227, i32 0, i32 50
-  %1229 = load ptr, ptr %1228, align 8
-  %1230 = load i32, ptr %2, align 4
-  %1231 = sext i32 %1230 to i64
-  %1232 = getelementptr inbounds i32, ptr %1229, i64 %1231
-  %1233 = load i32, ptr %1232, align 4
-  %1234 = load ptr, ptr @buf, align 8
-  %1235 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1234, i32 0, i32 50
-  %1236 = load ptr, ptr %1235, align 8
-  %1237 = load i32, ptr %1, align 4
-  %1238 = sext i32 %1237 to i64
-  %1239 = getelementptr inbounds i32, ptr %1236, i64 %1238
-  store i32 %1233, ptr %1239, align 4
-  %1240 = load ptr, ptr @buf, align 8
-  %1241 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1240, i32 0, i32 51
-  %1242 = load ptr, ptr %1241, align 8
-  %1243 = load i32, ptr %2, align 4
-  %1244 = sext i32 %1243 to i64
-  %1245 = getelementptr inbounds i64, ptr %1242, i64 %1244
-  %1246 = load i64, ptr %1245, align 8
-  %1247 = load ptr, ptr @buf, align 8
-  %1248 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1247, i32 0, i32 51
-  %1249 = load ptr, ptr %1248, align 8
-  %1250 = load i32, ptr %1, align 4
-  %1251 = sext i32 %1250 to i64
-  %1252 = getelementptr inbounds i64, ptr %1249, i64 %1251
-  store i64 %1246, ptr %1252, align 8
-  %1253 = load i32, ptr %8, align 4
-  %1254 = load ptr, ptr @buf, align 8
-  %1255 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1254, i32 0, i32 49
-  %1256 = load ptr, ptr %1255, align 8
-  %1257 = load i32, ptr %2, align 4
-  %1258 = sext i32 %1257 to i64
-  %1259 = getelementptr inbounds i32, ptr %1256, i64 %1258
-  store i32 %1253, ptr %1259, align 4
-  %1260 = load i32, ptr %7, align 4
-  %1261 = load ptr, ptr @buf, align 8
-  %1262 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1261, i32 0, i32 50
-  %1263 = load ptr, ptr %1262, align 8
-  %1264 = load i32, ptr %2, align 4
-  %1265 = sext i32 %1264 to i64
-  %1266 = getelementptr inbounds i32, ptr %1263, i64 %1265
-  store i32 %1260, ptr %1266, align 4
-  %1267 = load i64, ptr %10, align 8
-  %1268 = load ptr, ptr @buf, align 8
-  %1269 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1268, i32 0, i32 51
-  %1270 = load ptr, ptr %1269, align 8
-  %1271 = load i32, ptr %2, align 4
-  %1272 = sext i32 %1271 to i64
-  %1273 = getelementptr inbounds i64, ptr %1270, i64 %1272
-  store i64 %1267, ptr %1273, align 8
-  br label %1274
+1195:                                             ; preds = %1178
+  %1196 = load ptr, ptr @buf, align 8
+  %1197 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1196, i32 0, i32 49
+  %1198 = load ptr, ptr %1197, align 8
+  %1199 = load i32, ptr %1, align 4
+  %1200 = sext i32 %1199 to i64
+  %1201 = getelementptr inbounds i32, ptr %1198, i64 %1200
+  %1202 = load i32, ptr %1201, align 4
+  store i32 %1202, ptr %8, align 4
+  %1203 = load ptr, ptr @buf, align 8
+  %1204 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1203, i32 0, i32 50
+  %1205 = load ptr, ptr %1204, align 8
+  %1206 = load i32, ptr %1, align 4
+  %1207 = sext i32 %1206 to i64
+  %1208 = getelementptr inbounds i32, ptr %1205, i64 %1207
+  %1209 = load i32, ptr %1208, align 4
+  store i32 %1209, ptr %7, align 4
+  %1210 = load ptr, ptr @buf, align 8
+  %1211 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1210, i32 0, i32 51
+  %1212 = load ptr, ptr %1211, align 8
+  %1213 = load i32, ptr %1, align 4
+  %1214 = sext i32 %1213 to i64
+  %1215 = getelementptr inbounds i64, ptr %1212, i64 %1214
+  %1216 = load i64, ptr %1215, align 8
+  store i64 %1216, ptr %10, align 8
+  %1217 = load ptr, ptr @buf, align 8
+  %1218 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1217, i32 0, i32 49
+  %1219 = load ptr, ptr %1218, align 8
+  %1220 = load i32, ptr %2, align 4
+  %1221 = sext i32 %1220 to i64
+  %1222 = getelementptr inbounds i32, ptr %1219, i64 %1221
+  %1223 = load i32, ptr %1222, align 4
+  %1224 = load ptr, ptr @buf, align 8
+  %1225 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1224, i32 0, i32 49
+  %1226 = load ptr, ptr %1225, align 8
+  %1227 = load i32, ptr %1, align 4
+  %1228 = sext i32 %1227 to i64
+  %1229 = getelementptr inbounds i32, ptr %1226, i64 %1228
+  store i32 %1223, ptr %1229, align 4
+  %1230 = load ptr, ptr @buf, align 8
+  %1231 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1230, i32 0, i32 50
+  %1232 = load ptr, ptr %1231, align 8
+  %1233 = load i32, ptr %2, align 4
+  %1234 = sext i32 %1233 to i64
+  %1235 = getelementptr inbounds i32, ptr %1232, i64 %1234
+  %1236 = load i32, ptr %1235, align 4
+  %1237 = load ptr, ptr @buf, align 8
+  %1238 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1237, i32 0, i32 50
+  %1239 = load ptr, ptr %1238, align 8
+  %1240 = load i32, ptr %1, align 4
+  %1241 = sext i32 %1240 to i64
+  %1242 = getelementptr inbounds i32, ptr %1239, i64 %1241
+  store i32 %1236, ptr %1242, align 4
+  %1243 = load ptr, ptr @buf, align 8
+  %1244 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1243, i32 0, i32 51
+  %1245 = load ptr, ptr %1244, align 8
+  %1246 = load i32, ptr %2, align 4
+  %1247 = sext i32 %1246 to i64
+  %1248 = getelementptr inbounds i64, ptr %1245, i64 %1247
+  %1249 = load i64, ptr %1248, align 8
+  %1250 = load ptr, ptr @buf, align 8
+  %1251 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1250, i32 0, i32 51
+  %1252 = load ptr, ptr %1251, align 8
+  %1253 = load i32, ptr %1, align 4
+  %1254 = sext i32 %1253 to i64
+  %1255 = getelementptr inbounds i64, ptr %1252, i64 %1254
+  store i64 %1249, ptr %1255, align 8
+  %1256 = load i32, ptr %8, align 4
+  %1257 = load ptr, ptr @buf, align 8
+  %1258 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1257, i32 0, i32 49
+  %1259 = load ptr, ptr %1258, align 8
+  %1260 = load i32, ptr %2, align 4
+  %1261 = sext i32 %1260 to i64
+  %1262 = getelementptr inbounds i32, ptr %1259, i64 %1261
+  store i32 %1256, ptr %1262, align 4
+  %1263 = load i32, ptr %7, align 4
+  %1264 = load ptr, ptr @buf, align 8
+  %1265 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1264, i32 0, i32 50
+  %1266 = load ptr, ptr %1265, align 8
+  %1267 = load i32, ptr %2, align 4
+  %1268 = sext i32 %1267 to i64
+  %1269 = getelementptr inbounds i32, ptr %1266, i64 %1268
+  store i32 %1263, ptr %1269, align 4
+  %1270 = load i64, ptr %10, align 8
+  %1271 = load ptr, ptr @buf, align 8
+  %1272 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1271, i32 0, i32 51
+  %1273 = load ptr, ptr %1272, align 8
+  %1274 = load i32, ptr %2, align 4
+  %1275 = sext i32 %1274 to i64
+  %1276 = getelementptr inbounds i64, ptr %1273, i64 %1275
+  store i64 %1270, ptr %1276, align 8
+  br label %1277
 
-1274:                                             ; preds = %1192, %1191
-  %1275 = load i32, ptr %2, align 4
-  %1276 = add nsw i32 %1275, 1
-  store i32 %1276, ptr %2, align 4
-  br label %1169, !llvm.loop !24
+1277:                                             ; preds = %1195, %1194
+  %1278 = load i32, ptr %2, align 4
+  %1279 = add nsw i32 %1278, 1
+  store i32 %1279, ptr %2, align 4
+  br label %1172, !llvm.loop !24
 
-1277:                                             ; preds = %1169
-  %1278 = load ptr, ptr @buf, align 8
-  %1279 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1278, i32 0, i32 50
-  %1280 = load ptr, ptr %1279, align 8
-  %1281 = load i32, ptr %1, align 4
-  %1282 = sext i32 %1281 to i64
-  %1283 = getelementptr inbounds i32, ptr %1280, i64 %1282
-  %1284 = load i32, ptr %1283, align 4
-  %1285 = icmp ne i32 %1284, 0
-  br i1 %1285, label %1286, label %1308
+1280:                                             ; preds = %1172
+  %1281 = load ptr, ptr @buf, align 8
+  %1282 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1281, i32 0, i32 50
+  %1283 = load ptr, ptr %1282, align 8
+  %1284 = load i32, ptr %1, align 4
+  %1285 = sext i32 %1284 to i64
+  %1286 = getelementptr inbounds i32, ptr %1283, i64 %1285
+  %1287 = load i32, ptr %1286, align 4
+  %1288 = icmp ne i32 %1287, 0
+  br i1 %1288, label %1289, label %1311
 
-1286:                                             ; preds = %1277
-  %1287 = load ptr, ptr @buf, align 8
-  %1288 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1287, i32 0, i32 51
-  %1289 = load ptr, ptr %1288, align 8
-  %1290 = load i32, ptr %1, align 4
-  %1291 = sext i32 %1290 to i64
-  %1292 = getelementptr inbounds i64, ptr %1289, i64 %1291
-  %1293 = load i64, ptr %1292, align 8
-  %1294 = load ptr, ptr @buf, align 8
-  %1295 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1294, i32 0, i32 50
-  %1296 = load ptr, ptr %1295, align 8
-  %1297 = load i32, ptr %1, align 4
-  %1298 = sext i32 %1297 to i64
-  %1299 = getelementptr inbounds i32, ptr %1296, i64 %1298
-  %1300 = load i32, ptr %1299, align 4
-  %1301 = zext i32 %1300 to i64
-  %1302 = udiv i64 %1293, %1301
-  %1303 = trunc i64 %1302 to i32
-  %1304 = load ptr, ptr @rpc_user_ave_time, align 8
-  %1305 = load i32, ptr %1, align 4
-  %1306 = sext i32 %1305 to i64
-  %1307 = getelementptr inbounds i32, ptr %1304, i64 %1306
-  store i32 %1303, ptr %1307, align 4
-  br label %1308
+1289:                                             ; preds = %1280
+  %1290 = load ptr, ptr @buf, align 8
+  %1291 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1290, i32 0, i32 51
+  %1292 = load ptr, ptr %1291, align 8
+  %1293 = load i32, ptr %1, align 4
+  %1294 = sext i32 %1293 to i64
+  %1295 = getelementptr inbounds i64, ptr %1292, i64 %1294
+  %1296 = load i64, ptr %1295, align 8
+  %1297 = load ptr, ptr @buf, align 8
+  %1298 = getelementptr inbounds %struct.stats_info_response_msg, ptr %1297, i32 0, i32 50
+  %1299 = load ptr, ptr %1298, align 8
+  %1300 = load i32, ptr %1, align 4
+  %1301 = sext i32 %1300 to i64
+  %1302 = getelementptr inbounds i32, ptr %1299, i64 %1301
+  %1303 = load i32, ptr %1302, align 4
+  %1304 = zext i32 %1303 to i64
+  %1305 = udiv i64 %1296, %1304
+  %1306 = trunc i64 %1305 to i32
+  %1307 = load ptr, ptr @rpc_user_ave_time, align 8
+  %1308 = load i32, ptr %1, align 4
+  %1309 = sext i32 %1308 to i64
+  %1310 = getelementptr inbounds i32, ptr %1307, i64 %1309
+  store i32 %1306, ptr %1310, align 4
+  br label %1311
 
-1308:                                             ; preds = %1286, %1277
-  br label %1309
+1311:                                             ; preds = %1289, %1280
+  br label %1312
 
-1309:                                             ; preds = %1308
-  %1310 = load i32, ptr %1, align 4
-  %1311 = add nsw i32 %1310, 1
-  store i32 %1311, ptr %1, align 4
-  br label %1160, !llvm.loop !25
+1312:                                             ; preds = %1311
+  %1313 = load i32, ptr %1, align 4
+  %1314 = add nsw i32 %1313, 1
+  store i32 %1314, ptr %1, align 4
+  br label %1163, !llvm.loop !25
 
-1312:                                             ; preds = %1160
-  br label %1313
+1315:                                             ; preds = %1163
+  br label %1316
 
-1313:                                             ; preds = %1312, %1005
-  br label %1314
+1316:                                             ; preds = %1315, %1008
+  br label %1317
 
-1314:                                             ; preds = %1313, %643
-  br label %1315
+1317:                                             ; preds = %1316, %645
+  br label %1318
 
-1315:                                             ; preds = %1314, %333
+1318:                                             ; preds = %1317, %334
   ret void
 }
 

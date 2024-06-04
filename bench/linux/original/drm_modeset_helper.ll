@@ -147,29 +147,30 @@ declare dso_local ptr @drm_get_format_info(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_crtc_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call ptr (ptr, i64, i64, i32, ptr, ptr, i32, ptr, i32, ptr, ...) @__drm_universal_plane_alloc(ptr noundef %0, i64 noundef 1320, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @primary_plane_funcs, ptr noundef nonnull @safe_modeset_formats, i32 noundef 2, ptr noundef null, i32 noundef 1, ptr noundef null) #4
-  %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %6, label %9
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %4, %5
+  br i1 %6, label %7, label %10
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %4 to i64
-  %8 = trunc i64 %7 to i32
-  br label %14
+7:                                                ; preds = %3
+  %8 = ptrtoint ptr %4 to i64
+  %9 = trunc i64 %8 to i32
+  br label %15
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 140
-  store i8 1, ptr %10, align 4
-  %11 = tail call i32 (ptr, ptr, ptr, ptr, ptr, ptr, ...) @drm_crtc_init_with_planes(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef null, ptr noundef %2, ptr noundef null) #4
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %14, label %13
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds i8, ptr %4, i64 140
+  store i8 1, ptr %11, align 4
+  %12 = tail call i32 (ptr, ptr, ptr, ptr, ptr, ptr, ...) @drm_crtc_init_with_planes(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef null, ptr noundef %2, ptr noundef null) #4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %9
+14:                                               ; preds = %10
   tail call void @drm_plane_cleanup(ptr noundef %4) #4
   tail call void @kfree(ptr noundef %4) #4
-  br label %14
+  br label %15
 
-14:                                               ; preds = %13, %9, %6
-  %15 = phi i32 [ %8, %6 ], [ %11, %13 ], [ 0, %9 ]
-  ret i32 %15
+15:                                               ; preds = %14, %10, %7
+  %16 = phi i32 [ %9, %7 ], [ %12, %14 ], [ 0, %10 ]
+  ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -187,28 +188,29 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_mode_config_helper_suspend(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %11, label %3
+  br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
   tail call void @drm_kms_helper_poll_disable(ptr noundef nonnull %0) #4
   %4 = tail call ptr @drm_atomic_helper_suspend(ptr noundef nonnull %0) #4
-  %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %6, label %9
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %4, %5
+  br i1 %6, label %7, label %10
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @drm_kms_helper_poll_enable(ptr noundef nonnull %0) #4
-  %7 = ptrtoint ptr %4 to i64
-  %8 = trunc i64 %7 to i32
-  br label %11
+  %8 = ptrtoint ptr %4 to i64
+  %9 = trunc i64 %8 to i32
+  br label %12
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 1440
-  store ptr %4, ptr %10, align 8
-  br label %11
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds i8, ptr %0, i64 1440
+  store ptr %4, ptr %11, align 8
+  br label %12
 
-11:                                               ; preds = %9, %6, %1
-  %12 = phi i32 [ %8, %6 ], [ 0, %9 ], [ 0, %1 ]
-  ret i32 %12
+12:                                               ; preds = %10, %7, %1
+  %13 = phi i32 [ %9, %7 ], [ 0, %10 ], [ 0, %1 ]
+  ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid

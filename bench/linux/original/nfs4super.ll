@@ -91,164 +91,169 @@ define internal fastcc i32 @do_nfs4_mount(ptr noundef %0, ptr noundef %1, ptr no
   store i32 -1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 36
   store i32 0, ptr %11, align 4
-  %12 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
-  br i1 %12, label %13, label %16
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %0, %12
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %4
-  %14 = ptrtoint ptr %0 to i64
-  %15 = trunc i64 %14 to i32
-  br label %94
+14:                                               ; preds = %4
+  %15 = ptrtoint ptr %0 to i64
+  %16 = trunc i64 %15 to i32
+  br label %99
 
-16:                                               ; preds = %4
-  %17 = tail call ptr @vfs_dup_fs_context(ptr noundef %1) #9
-  %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
-  br i1 %18, label %19, label %22
+17:                                               ; preds = %4
+  %18 = tail call ptr @vfs_dup_fs_context(ptr noundef %1) #9
+  %19 = inttoptr i64 -4096 to ptr
+  %20 = icmp ugt ptr %18, %19
+  br i1 %20, label %21, label %24
 
-19:                                               ; preds = %16
+21:                                               ; preds = %17
   tail call void @nfs_free_server(ptr noundef %0) #9
-  %20 = ptrtoint ptr %17 to i64
-  %21 = trunc i64 %20 to i32
-  br label %94
+  %22 = ptrtoint ptr %18 to i64
+  %23 = trunc i64 %22 to i32
+  br label %99
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %17, i64 112
-  %24 = load ptr, ptr %23, align 8
-  tail call void @kfree(ptr noundef %24) #9
-  store ptr null, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 48
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds i8, ptr %18, i64 112
   %26 = load ptr, ptr %25, align 8
-  store i8 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 488
-  store ptr %0, ptr %27, align 8
-  %28 = tail call i64 @strlen(ptr noundef %2) #9
-  %29 = add i64 %28, 5
-  %30 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %29, i32 noundef 3264) #10
-  store ptr %30, ptr %8, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %33
+  tail call void @kfree(ptr noundef %26) #9
+  store ptr null, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %18, i64 48
+  %28 = load ptr, ptr %27, align 8
+  store i8 1, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 488
+  store ptr %0, ptr %29, align 8
+  %30 = tail call i64 @strlen(ptr noundef %2) #9
+  %31 = add i64 %30, 5
+  %32 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %31, i32 noundef 3264) #10
+  store ptr %32, ptr %8, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
 
-32:                                               ; preds = %22
-  tail call void @put_fs_context(ptr noundef %17) #9
-  br label %94
+34:                                               ; preds = %24
+  tail call void @put_fs_context(ptr noundef %18) #9
+  br label %99
 
-33:                                               ; preds = %22
-  %34 = tail call ptr @strchr(ptr noundef %2, i32 noundef 58) #9
-  %35 = icmp eq ptr %34, null
-  %36 = select i1 %35, ptr @.str.3, ptr @.str.2
-  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %29, ptr noundef nonnull %36, ptr noundef %2) #9
-  %38 = sext i32 %37 to i64
-  store i64 %38, ptr %9, align 8
-  %39 = call i32 @vfs_parse_fs_param(ptr noundef %17, ptr noundef nonnull %5) #9
-  %40 = load ptr, ptr %8, align 8
-  call void @kfree(ptr noundef %40) #9
-  %41 = icmp slt i32 %39, 0
-  br i1 %41, label %42, label %43
+35:                                               ; preds = %24
+  %36 = tail call ptr @strchr(ptr noundef %2, i32 noundef 58) #9
+  %37 = icmp eq ptr %36, null
+  %38 = select i1 %37, ptr @.str.3, ptr @.str.2
+  %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %32, i64 noundef %31, ptr noundef nonnull %38, ptr noundef %2) #9
+  %40 = sext i32 %39 to i64
+  store i64 %40, ptr %9, align 8
+  %41 = call i32 @vfs_parse_fs_param(ptr noundef %18, ptr noundef nonnull %5) #9
+  %42 = load ptr, ptr %8, align 8
+  call void @kfree(ptr noundef %42) #9
+  %43 = icmp slt i32 %41, 0
+  br i1 %43, label %44, label %45
 
-42:                                               ; preds = %33
-  call void @put_fs_context(ptr noundef %17) #9
-  br label %94
+44:                                               ; preds = %35
+  call void @put_fs_context(ptr noundef %18) #9
+  br label %99
 
-43:                                               ; preds = %33
-  %44 = call ptr @fc_mount(ptr noundef %17) #9
-  call void @put_fs_context(ptr noundef %17) #9
-  %45 = icmp ugt ptr %44, inttoptr (i64 -4096 to ptr)
-  br i1 %45, label %46, label %49
+45:                                               ; preds = %35
+  %46 = call ptr @fc_mount(ptr noundef %18) #9
+  call void @put_fs_context(ptr noundef %18) #9
+  %47 = inttoptr i64 -4096 to ptr
+  %48 = icmp ugt ptr %46, %47
+  br i1 %48, label %49, label %52
 
-46:                                               ; preds = %43
-  %47 = ptrtoint ptr %44 to i64
-  %48 = trunc i64 %47 to i32
-  br label %94
+49:                                               ; preds = %45
+  %50 = ptrtoint ptr %46 to i64
+  %51 = trunc i64 %50 to i32
+  br label %99
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %51 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3264, i64 noundef 32) #11
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %82, label %53
+52:                                               ; preds = %45
+  %53 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %54 = load ptr, ptr %53, align 8
+  %55 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %54, i32 noundef 3264, i64 noundef 32) #11
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %86, label %57
 
-53:                                               ; preds = %49
-  %54 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !5
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds i8, ptr %51, i64 16
-  store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %51, i64 24
-  store i32 1, ptr %57, align 8
+57:                                               ; preds = %52
+  %58 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !5
+  %59 = inttoptr i64 %58 to ptr
+  %60 = getelementptr inbounds i8, ptr %55, i64 16
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %55, i64 24
+  store i32 1, ptr %61, align 8
   call void @_raw_spin_lock(ptr noundef nonnull @nfs_referral_count_list_lock) #9
-  br label %58
+  br label %62
 
-58:                                               ; preds = %62, %53
-  %59 = phi ptr [ @nfs_referral_count_list, %53 ], [ %60, %62 ]
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, @nfs_referral_count_list
-  br i1 %61, label %66, label %62
-
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %60, i64 16
+62:                                               ; preds = %66, %57
+  %63 = phi ptr [ @nfs_referral_count_list, %57 ], [ %64, %66 ]
   %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, %55
-  br i1 %65, label %66, label %58, !llvm.loop !6
+  %65 = icmp eq ptr %64, @nfs_referral_count_list
+  br i1 %65, label %70, label %66
 
-66:                                               ; preds = %62, %58
-  %67 = phi ptr [ %60, %62 ], [ null, %58 ]
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %75, label %69
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %64, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, %59
+  br i1 %69, label %70, label %62, !llvm.loop !6
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %67, i64 24
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp ugt i32 %71, 1
+70:                                               ; preds = %66, %62
+  %71 = phi ptr [ %64, %66 ], [ null, %62 ]
+  %72 = icmp eq ptr %71, null
   br i1 %72, label %79, label %73
 
-73:                                               ; preds = %69
-  %74 = add nuw nsw i32 %71, 1
-  store i32 %74, ptr %70, align 8
-  br label %79
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %71, i64 24
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp ugt i32 %75, 1
+  br i1 %76, label %83, label %77
 
-75:                                               ; preds = %66
-  %76 = load ptr, ptr @nfs_referral_count_list, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
-  store ptr %51, ptr %77, align 8
-  store ptr %76, ptr %51, align 8
-  %78 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr @nfs_referral_count_list, ptr %78, align 8
-  store volatile ptr %51, ptr @nfs_referral_count_list, align 8
-  br label %79
+77:                                               ; preds = %73
+  %78 = add nuw nsw i32 %75, 1
+  store i32 %78, ptr %74, align 8
+  br label %83
 
-79:                                               ; preds = %75, %73, %69
-  %80 = phi ptr [ %51, %73 ], [ null, %75 ], [ %51, %69 ]
-  %81 = phi i32 [ 0, %73 ], [ 0, %75 ], [ -40, %69 ]
+79:                                               ; preds = %70
+  %80 = load ptr, ptr @nfs_referral_count_list, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  store ptr %55, ptr %81, align 8
+  store ptr %80, ptr %55, align 8
+  %82 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr @nfs_referral_count_list, ptr %82, align 8
+  store volatile ptr %55, ptr @nfs_referral_count_list, align 8
+  br label %83
+
+83:                                               ; preds = %79, %77, %73
+  %84 = phi ptr [ %55, %77 ], [ null, %79 ], [ %55, %73 ]
+  %85 = phi i32 [ 0, %77 ], [ 0, %79 ], [ -40, %73 ]
   call void @_raw_spin_unlock(ptr noundef nonnull @nfs_referral_count_list_lock) #9
-  call void @kfree(ptr noundef %80) #9
-  br label %82
+  call void @kfree(ptr noundef %84) #9
+  br label %86
 
-82:                                               ; preds = %79, %49
-  %83 = phi i32 [ %81, %79 ], [ -12, %49 ]
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %86, label %85
-
-85:                                               ; preds = %82
-  call void @mntput(ptr noundef %44) #9
-  br label %94
-
-86:                                               ; preds = %82
-  %87 = call ptr @mount_subtree(ptr noundef %44, ptr noundef %3) #9
-  call fastcc void @nfs_referral_loop_unprotect()
-  %88 = icmp ugt ptr %87, inttoptr (i64 -4096 to ptr)
-  br i1 %88, label %89, label %92
+86:                                               ; preds = %83, %52
+  %87 = phi i32 [ %85, %83 ], [ -12, %52 ]
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %90, label %89
 
 89:                                               ; preds = %86
-  %90 = ptrtoint ptr %87 to i64
-  %91 = trunc i64 %90 to i32
-  br label %94
+  call void @mntput(ptr noundef %46) #9
+  br label %99
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %87, ptr %93, align 8
-  br label %94
+90:                                               ; preds = %86
+  %91 = call ptr @mount_subtree(ptr noundef %46, ptr noundef %3) #9
+  call fastcc void @nfs_referral_loop_unprotect()
+  %92 = inttoptr i64 -4096 to ptr
+  %93 = icmp ugt ptr %91, %92
+  br i1 %93, label %94, label %97
 
-94:                                               ; preds = %92, %89, %85, %46, %42, %32, %19, %13
-  %95 = phi i32 [ %15, %13 ], [ %21, %19 ], [ -12, %32 ], [ %39, %42 ], [ %48, %46 ], [ %83, %85 ], [ %91, %89 ], [ 0, %92 ]
+94:                                               ; preds = %90
+  %95 = ptrtoint ptr %91 to i64
+  %96 = trunc i64 %95 to i32
+  br label %99
+
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %91, ptr %98, align 8
+  br label %99
+
+99:                                               ; preds = %97, %94, %89, %49, %44, %34, %21, %14
+  %100 = phi i32 [ %16, %14 ], [ %23, %21 ], [ -12, %34 ], [ %41, %44 ], [ %51, %49 ], [ %87, %89 ], [ %96, %94 ], [ 0, %97 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
-  ret i32 %95
+  ret i32 %100
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -451,7 +456,7 @@ define internal fastcc void @nfs_referral_loop_unprotect() unnamed_addr #0 align
   %15 = add i32 %14, -1
   store i32 %15, ptr %13, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %24
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %12, i64 8
@@ -460,14 +465,16 @@ define internal fastcc void @nfs_referral_loop_unprotect() unnamed_addr #0 align
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %19, ptr %21, align 8
   store volatile ptr %20, ptr %19, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %12, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %18, align 8
-  br label %22
+  %22 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %22, ptr %12, align 8
+  %23 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %23, ptr %18, align 8
+  br label %24
 
-22:                                               ; preds = %17, %11
-  %23 = phi ptr [ %12, %17 ], [ null, %11 ]
+24:                                               ; preds = %17, %11
+  %25 = phi ptr [ %12, %17 ], [ null, %11 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nfs_referral_count_list_lock) #9
-  tail call void @kfree(ptr noundef %23) #9
+  tail call void @kfree(ptr noundef %25) #9
   ret void
 }
 

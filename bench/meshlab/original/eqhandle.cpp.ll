@@ -139,111 +139,113 @@ define void @_ZN8EqHandleC2EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEP
   %37 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 1
   %38 = load double, ptr %37, align 8
   call void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef %32, ptr noundef %22, double %36, double %38, i32 noundef %33, i32 noundef %34)
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i32 0, i32 0, i32 2), ptr %31, align 8
-  %39 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i32 0, i32 1, i32 2), ptr %39, align 8
-  %40 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
-  %41 = getelementptr inbounds [3 x %class.QPointF], ptr %40, i32 0, i32 0
-  %42 = getelementptr inbounds %class.QPointF, ptr %41, i64 3
-  br label %43
+  %39 = getelementptr inbounds { [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i32 0, i32 0, i32 2
+  store ptr %39, ptr %31, align 8
+  %40 = getelementptr inbounds i8, ptr %31, i64 16
+  %41 = getelementptr inbounds { [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i32 0, i32 1, i32 2
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
+  %43 = getelementptr inbounds [3 x %class.QPointF], ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds %class.QPointF, ptr %43, i64 3
+  br label %45
 
-43:                                               ; preds = %45, %11
-  %44 = phi ptr [ %41, %11 ], [ %46, %45 ]
-  invoke void @_ZN7QPointFC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44)
-          to label %45 unwind label %95
+45:                                               ; preds = %47, %11
+  %46 = phi ptr [ %43, %11 ], [ %48, %47 ]
+  invoke void @_ZN7QPointFC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46)
+          to label %47 unwind label %97
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds %class.QPointF, ptr %44, i64 1
-  %47 = icmp eq ptr %46, %42
-  br i1 %47, label %48, label %43
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds %class.QPointF, ptr %46, i64 1
+  %49 = icmp eq ptr %48, %44
+  br i1 %49, label %50, label %45
 
-48:                                               ; preds = %45
-  %49 = load i32, ptr %21, align 4
-  invoke void @_ZN8EqHandle7setSizeEi(ptr noundef nonnull align 8 dereferenceable(152) %31, i32 noundef %49)
-          to label %50 unwind label %95
+50:                                               ; preds = %47
+  %51 = load i32, ptr %21, align 4
+  invoke void @_ZN8EqHandle7setSizeEi(ptr noundef nonnull align 8 dereferenceable(152) %31, i32 noundef %51)
+          to label %52 unwind label %97
 
-50:                                               ; preds = %48
-  %51 = load i32, ptr %16, align 4
-  %52 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 1
-  store i32 %51, ptr %52, align 8
-  %53 = load ptr, ptr %14, align 8
-  %54 = invoke noundef float @_ZN10CHART_INFO11chartHeightEv(ptr noundef nonnull align 8 dereferenceable(32) %53)
-          to label %55 unwind label %95
+52:                                               ; preds = %50
+  %53 = load i32, ptr %16, align 4
+  %54 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 1
+  store i32 %53, ptr %54, align 8
+  %55 = load ptr, ptr %14, align 8
+  %56 = invoke noundef float @_ZN10CHART_INFO11chartHeightEv(ptr noundef nonnull align 8 dereferenceable(32) %55)
+          to label %57 unwind label %97
 
-55:                                               ; preds = %50
-  %56 = fpext float %54 to double
-  %57 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 2
-  store double %56, ptr %57, align 8
-  %58 = load ptr, ptr %17, align 8
-  %59 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 5
-  store ptr %58, ptr %59, align 8
-  %60 = load ptr, ptr %18, align 8
-  %61 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 4
+57:                                               ; preds = %52
+  %58 = fpext float %56 to double
+  %59 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 2
+  store double %58, ptr %59, align 8
+  %60 = load ptr, ptr %17, align 8
+  %61 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 5
   store ptr %60, ptr %61, align 8
-  %62 = load ptr, ptr %19, align 8
-  %63 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 6
+  %62 = load ptr, ptr %18, align 8
+  %63 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 4
   store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
-  %65 = load i32, ptr %64, align 8
-  %66 = sub nsw i32 0, %65
-  %67 = sdiv i32 %66, 2
-  %68 = sitofp i32 %67 to double
-  %69 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
-  %70 = load i32, ptr %69, align 8
-  %71 = sub nsw i32 0, %70
-  %72 = sitofp i32 %71 to double
-  invoke void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %26, double noundef %68, double noundef %72)
-          to label %73 unwind label %95
+  %64 = load ptr, ptr %19, align 8
+  %65 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 6
+  store ptr %64, ptr %65, align 8
+  %66 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
+  %67 = load i32, ptr %66, align 8
+  %68 = sub nsw i32 0, %67
+  %69 = sdiv i32 %68, 2
+  %70 = sitofp i32 %69 to double
+  %71 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
+  %72 = load i32, ptr %71, align 8
+  %73 = sub nsw i32 0, %72
+  %74 = sitofp i32 %73 to double
+  invoke void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %26, double noundef %70, double noundef %74)
+          to label %75 unwind label %97
 
-73:                                               ; preds = %55
-  %74 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
-  %75 = getelementptr inbounds [3 x %class.QPointF], ptr %74, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %26, i64 16, i1 false)
-  %76 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
-  %77 = load i32, ptr %76, align 8
-  %78 = sdiv i32 %77, 2
-  %79 = sitofp i32 %78 to double
-  %80 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
-  %81 = load i32, ptr %80, align 8
-  %82 = sub nsw i32 0, %81
-  %83 = sitofp i32 %82 to double
-  invoke void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %27, double noundef %79, double noundef %83)
-          to label %84 unwind label %95
+75:                                               ; preds = %57
+  %76 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
+  %77 = getelementptr inbounds [3 x %class.QPointF], ptr %76, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %26, i64 16, i1 false)
+  %78 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
+  %79 = load i32, ptr %78, align 8
+  %80 = sdiv i32 %79, 2
+  %81 = sitofp i32 %80 to double
+  %82 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
+  %83 = load i32, ptr %82, align 8
+  %84 = sub nsw i32 0, %83
+  %85 = sitofp i32 %84 to double
+  invoke void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %27, double noundef %81, double noundef %85)
+          to label %86 unwind label %97
 
-84:                                               ; preds = %73
-  %85 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
-  %86 = getelementptr inbounds [3 x %class.QPointF], ptr %85, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %86, ptr align 8 %27, i64 16, i1 false)
-  %87 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
-  %88 = load i32, ptr %87, align 8
-  %89 = sitofp i32 %88 to float
-  %90 = fmul float 0xBFFDEB8520000000, %89
-  %91 = fpext float %90 to double
-  invoke void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %28, double noundef 0.000000e+00, double noundef %91)
-          to label %92 unwind label %95
+86:                                               ; preds = %75
+  %87 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
+  %88 = getelementptr inbounds [3 x %class.QPointF], ptr %87, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %88, ptr align 8 %27, i64 16, i1 false)
+  %89 = getelementptr inbounds %class.Handle, ptr %31, i32 0, i32 2
+  %90 = load i32, ptr %89, align 8
+  %91 = sitofp i32 %90 to float
+  %92 = fmul float 0xBFFDEB8520000000, %91
+  %93 = fpext float %92 to double
+  invoke void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %28, double noundef 0.000000e+00, double noundef %93)
+          to label %94 unwind label %97
 
-92:                                               ; preds = %84
-  %93 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
-  %94 = getelementptr inbounds [3 x %class.QPointF], ptr %93, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %94, ptr align 8 %28, i64 16, i1 false)
+94:                                               ; preds = %86
+  %95 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
+  %96 = getelementptr inbounds [3 x %class.QPointF], ptr %95, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %96, ptr align 8 %28, i64 16, i1 false)
   ret void
 
-95:                                               ; preds = %84, %73, %55, %50, %48, %43
-  %96 = landingpad { ptr, i32 }
+97:                                               ; preds = %86, %75, %57, %52, %50, %45
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %24, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %25, align 4
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %24, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %25, align 4
   call void @_ZN6HandleD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %31) #9
-  br label %99
+  br label %101
 
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %24, align 8
-  %101 = load i32, ptr %25, align 4
-  %102 = insertvalue { ptr, i32 } poison, ptr %100, 0
-  %103 = insertvalue { ptr, i32 } %102, i32 %101, 1
-  resume { ptr, i32 } %103
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %24, align 8
+  %103 = load i32, ptr %25, align 4
+  %104 = insertvalue { ptr, i32 } poison, ptr %102, 0
+  %105 = insertvalue { ptr, i32 } %104, i32 %103, 1
+  resume { ptr, i32 } %105
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

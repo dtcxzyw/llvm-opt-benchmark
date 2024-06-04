@@ -70,10 +70,11 @@ define dso_local void @_ZN23cmNinjaLinkLineComputerC2EP17cmOutputConverterRK16cm
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN18cmLinkLineComputerC2EP17cmOutputConverterRK16cmStateDirectory(ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV23cmNinjaLinkLineComputer, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %class.cmNinjaLinkLineComputer, ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV23cmNinjaLinkLineComputer, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %class.cmNinjaLinkLineComputer, ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
   ret void
 }
 

@@ -5679,10 +5679,11 @@ entry:
   %1 = load i8, ptr %only_accel_init_in.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN3ue221accel_dfa_build_stratC2ERKNS_13ReportManagerEb(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(505) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue221mcclellan_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3ue221mcclellan_build_stratE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %rdfa = getelementptr inbounds %"class.ue2::mcclellan_build_strat", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %rdfa_in.addr, align 8
-  store ptr %2, ptr %rdfa, align 8
+  %3 = load ptr, ptr %rdfa_in.addr, align 8
+  store ptr %3, ptr %rdfa, align 8
   ret void
 }
 
@@ -8803,10 +8804,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %rm_in.addr, align 8
   call void @_ZN3ue215dfa_build_stratC2ERKNS_13ReportManagerE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(505) %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue221accel_dfa_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3ue221accel_dfa_build_stratE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %only_accel_init = getelementptr inbounds %"class.ue2::accel_dfa_build_strat", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %only_accel_init_in.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %only_accel_init_in.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %only_accel_init, align 8
   ret void
@@ -8820,10 +8822,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %rm_in, ptr %rm_in.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue215dfa_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3ue215dfa_build_stratE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rm = getelementptr inbounds %"class.ue2::dfa_build_strat", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %rm_in.addr, align 8
-  store ptr %0, ptr %rm, align 8
+  %1 = load ptr, ptr %rm_in.addr, align 8
+  store ptr %1, ptr %rm, align 8
   ret void
 }
 
@@ -24516,10 +24519,11 @@ entry:
   store ptr %d, ptr %d.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_18default_color_typeENS_21checked_array_deleterIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_18default_color_typeENS_21checked_array_deleterIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr, align 8
   ret void
 }
 
@@ -24541,7 +24545,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %use_count_ = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %use_count_, align 8
   %weak_count_ = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %this1, i32 0, i32 2
@@ -50282,7 +50287,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -50550,7 +50556,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

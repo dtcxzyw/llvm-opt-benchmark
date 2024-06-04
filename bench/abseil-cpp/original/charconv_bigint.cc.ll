@@ -731,10 +731,11 @@ if.end59:                                         ; preds = %if.then57, %lor.lhs
   br i1 %cmp62, label %if.then63, label %if.end64
 
 if.then63:                                        ; preds = %if.end59
-  %52 = load i32, ptr getelementptr inbounds ([10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 9), align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef %52)
-  %53 = load i32, ptr %queued, align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef 0, i32 noundef %53)
+  %52 = getelementptr inbounds [10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 9
+  %53 = load i32, ptr %52, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef %53)
+  %54 = load i32, ptr %queued, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef 0, i32 noundef %54)
   store i32 0, ptr %digits_queued, align 4
   store i32 0, ptr %queued, align 4
   br label %if.end64
@@ -743,58 +744,58 @@ if.end64:                                         ; preds = %if.then63, %if.end5
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end64, %if.then40
-  %54 = load ptr, ptr %begin.addr, align 8
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %54, i32 1
+  %55 = load ptr, ptr %begin.addr, align 8
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %55, i32 1
   store ptr %incdec.ptr65, ptr %begin.addr, align 8
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %land.end37
-  %55 = load i32, ptr %digits_queued, align 4
-  %tobool66 = icmp ne i32 %55, 0
+  %56 = load i32, ptr %digits_queued, align 4
+  %tobool66 = icmp ne i32 %56, 0
   br i1 %tobool66, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %for.end
-  %56 = load i32, ptr %digits_queued, align 4
-  %idxprom = sext i32 %56 to i64
+  %57 = load i32, ptr %digits_queued, align 4
+  %idxprom = sext i32 %57 to i64
   %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 %idxprom
-  %57 = load i32, ptr %arrayidx, align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef %57)
-  %58 = load i32, ptr %queued, align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef 0, i32 noundef %58)
+  %58 = load i32, ptr %arrayidx, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef %58)
+  %59 = load i32, ptr %queued, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef 0, i32 noundef %59)
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then67, %for.end
-  %59 = load ptr, ptr %begin.addr, align 8
-  %60 = load ptr, ptr %end.addr, align 8
-  %cmp69 = icmp ult ptr %59, %60
+  %60 = load ptr, ptr %begin.addr, align 8
+  %61 = load ptr, ptr %end.addr, align 8
+  %cmp69 = icmp ult ptr %60, %61
   br i1 %cmp69, label %land.lhs.true70, label %if.end78
 
 land.lhs.true70:                                  ; preds = %if.end68
-  %61 = load i8, ptr %after_decimal_point, align 1
-  %tobool71 = trunc i8 %61 to i1
+  %62 = load i8, ptr %after_decimal_point, align 1
+  %tobool71 = trunc i8 %62 to i1
   br i1 %tobool71, label %if.end78, label %if.then72
 
 if.then72:                                        ; preds = %land.lhs.true70
-  %62 = load ptr, ptr %begin.addr, align 8
-  %63 = load ptr, ptr %end.addr, align 8
+  %63 = load ptr, ptr %begin.addr, align 8
+  %64 = load ptr, ptr %end.addr, align 8
   store i8 46, ptr %ref.tmp73, align 1
-  %call74 = call noundef ptr @_ZSt4findIPKccET_S2_S2_RKT0_(ptr noundef %62, ptr noundef %63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp73)
+  %call74 = call noundef ptr @_ZSt4findIPKccET_S2_S2_RKT0_(ptr noundef %63, ptr noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp73)
   store ptr %call74, ptr %decimal_point, align 8
-  %64 = load ptr, ptr %decimal_point, align 8
-  %65 = load ptr, ptr %begin.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %64 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %65 to i64
+  %65 = load ptr, ptr %decimal_point, align 8
+  %66 = load ptr, ptr %begin.addr, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %65 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %66 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %66 = load i32, ptr %exponent_adjust, align 4
-  %conv75 = sext i32 %66 to i64
+  %67 = load i32, ptr %exponent_adjust, align 4
+  %conv75 = sext i32 %67 to i64
   %add76 = add nsw i64 %conv75, %sub.ptr.sub
   %conv77 = trunc i64 %add76 to i32
   store i32 %conv77, ptr %exponent_adjust, align 4
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then72, %land.lhs.true70, %if.end68
-  %67 = load i32, ptr %exponent_adjust, align 4
-  ret i32 %67
+  %68 = load i32, ptr %exponent_adjust, align 4
+  ret i32 %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1425,24 +1426,25 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %1 = load i32, ptr getelementptr inbounds ([14 x i32], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 0, i64 13), align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef %1)
-  %2 = load i32, ptr %n.addr, align 4
-  %sub = sub nsw i32 %2, 13
+  %1 = getelementptr inbounds [14 x i32], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 0, i64 13
+  %2 = load i32, ptr %1, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef %2)
+  %3 = load i32, ptr %n.addr, align 4
+  %sub = sub nsw i32 %3, 13
   store i32 %sub, ptr %n.addr, align 4
   br label %while.cond, !llvm.loop !13
 
 while.end:                                        ; preds = %while.cond
-  %3 = load i32, ptr %n.addr, align 4
-  %cmp2 = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %n.addr, align 4
+  %cmp2 = icmp sgt i32 %4, 0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %4 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %4 to i64
+  %5 = load i32, ptr %n.addr, align 4
+  %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds [14 x i32], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef %5)
+  %6 = load i32, ptr %arrayidx, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(20) %this1, i32 noundef %6)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.end
@@ -2615,10 +2617,11 @@ if.end59:                                         ; preds = %if.then57, %lor.lhs
   br i1 %cmp62, label %if.then63, label %if.end64
 
 if.then63:                                        ; preds = %if.end59
-  %52 = load i32, ptr getelementptr inbounds ([10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 9), align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef %52)
-  %53 = load i32, ptr %queued, align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef 0, i32 noundef %53)
+  %52 = getelementptr inbounds [10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 9
+  %53 = load i32, ptr %52, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef %53)
+  %54 = load i32, ptr %queued, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef 0, i32 noundef %54)
   store i32 0, ptr %digits_queued, align 4
   store i32 0, ptr %queued, align 4
   br label %if.end64
@@ -2627,58 +2630,58 @@ if.end64:                                         ; preds = %if.then63, %if.end5
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end64, %if.then40
-  %54 = load ptr, ptr %begin.addr, align 8
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %54, i32 1
+  %55 = load ptr, ptr %begin.addr, align 8
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %55, i32 1
   store ptr %incdec.ptr65, ptr %begin.addr, align 8
   br label %for.cond, !llvm.loop !23
 
 for.end:                                          ; preds = %land.end37
-  %55 = load i32, ptr %digits_queued, align 4
-  %tobool66 = icmp ne i32 %55, 0
+  %56 = load i32, ptr %digits_queued, align 4
+  %tobool66 = icmp ne i32 %56, 0
   br i1 %tobool66, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %for.end
-  %56 = load i32, ptr %digits_queued, align 4
-  %idxprom = sext i32 %56 to i64
+  %57 = load i32, ptr %digits_queued, align 4
+  %idxprom = sext i32 %57 to i64
   %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 0, i64 %idxprom
-  %57 = load i32, ptr %arrayidx, align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef %57)
-  %58 = load i32, ptr %queued, align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef 0, i32 noundef %58)
+  %58 = load i32, ptr %arrayidx, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef %58)
+  %59 = load i32, ptr %queued, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef 0, i32 noundef %59)
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then67, %for.end
-  %59 = load ptr, ptr %begin.addr, align 8
-  %60 = load ptr, ptr %end.addr, align 8
-  %cmp69 = icmp ult ptr %59, %60
+  %60 = load ptr, ptr %begin.addr, align 8
+  %61 = load ptr, ptr %end.addr, align 8
+  %cmp69 = icmp ult ptr %60, %61
   br i1 %cmp69, label %land.lhs.true70, label %if.end78
 
 land.lhs.true70:                                  ; preds = %if.end68
-  %61 = load i8, ptr %after_decimal_point, align 1
-  %tobool71 = trunc i8 %61 to i1
+  %62 = load i8, ptr %after_decimal_point, align 1
+  %tobool71 = trunc i8 %62 to i1
   br i1 %tobool71, label %if.end78, label %if.then72
 
 if.then72:                                        ; preds = %land.lhs.true70
-  %62 = load ptr, ptr %begin.addr, align 8
-  %63 = load ptr, ptr %end.addr, align 8
+  %63 = load ptr, ptr %begin.addr, align 8
+  %64 = load ptr, ptr %end.addr, align 8
   store i8 46, ptr %ref.tmp73, align 1
-  %call74 = call noundef ptr @_ZSt4findIPKccET_S2_S2_RKT0_(ptr noundef %62, ptr noundef %63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp73)
+  %call74 = call noundef ptr @_ZSt4findIPKccET_S2_S2_RKT0_(ptr noundef %63, ptr noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp73)
   store ptr %call74, ptr %decimal_point, align 8
-  %64 = load ptr, ptr %decimal_point, align 8
-  %65 = load ptr, ptr %begin.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %64 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %65 to i64
+  %65 = load ptr, ptr %decimal_point, align 8
+  %66 = load ptr, ptr %begin.addr, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %65 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %66 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %66 = load i32, ptr %exponent_adjust, align 4
-  %conv75 = sext i32 %66 to i64
+  %67 = load i32, ptr %exponent_adjust, align 4
+  %conv75 = sext i32 %67 to i64
   %add76 = add nsw i64 %conv75, %sub.ptr.sub
   %conv77 = trunc i64 %add76 to i32
   store i32 %conv77, ptr %exponent_adjust, align 4
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then72, %land.lhs.true70, %if.end68
-  %67 = load i32, ptr %exponent_adjust, align 4
-  ret i32 %67
+  %68 = load i32, ptr %exponent_adjust, align 4
+  ret i32 %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3221,24 +3224,25 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %1 = load i32, ptr getelementptr inbounds ([14 x i32], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 0, i64 13), align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef %1)
-  %2 = load i32, ptr %n.addr, align 4
-  %sub = sub nsw i32 %2, 13
+  %1 = getelementptr inbounds [14 x i32], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 0, i64 13
+  %2 = load i32, ptr %1, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef %2)
+  %3 = load i32, ptr %n.addr, align 4
+  %sub = sub nsw i32 %3, 13
   store i32 %sub, ptr %n.addr, align 4
   br label %while.cond, !llvm.loop !27
 
 while.end:                                        ; preds = %while.cond
-  %3 = load i32, ptr %n.addr, align 4
-  %cmp2 = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %n.addr, align 4
+  %cmp2 = icmp sgt i32 %4, 0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %4 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %4 to i64
+  %5 = load i32, ptr %n.addr, align 4
+  %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds [14 x i32], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef %5)
+  %6 = load i32, ptr %arrayidx, align 4
+  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj(ptr noundef nonnull align 4 dereferenceable(340) %this1, i32 noundef %6)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.end

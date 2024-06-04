@@ -5172,7 +5172,7 @@ define dso_local ptr @OpenPipeStream(ptr noundef %0, ptr noundef %1) #0 {
   call void @ReleaseLruFiles()
   br label %24
 
-24:                                               ; preds = %76, %23
+24:                                               ; preds = %77, %23
   %25 = call i32 @fflush(ptr noundef null)
   %26 = call ptr @pqsignal(i32 noundef 13, ptr noundef null)
   %27 = call ptr @__errno_location() #11
@@ -5184,95 +5184,96 @@ define dso_local ptr @OpenPipeStream(ptr noundef %0, ptr noundef %1) #0 {
   %31 = call ptr @__errno_location() #11
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %7, align 4
-  %33 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %34 = load i32, ptr %7, align 4
-  %35 = call ptr @__errno_location() #11
-  store i32 %34, ptr %35, align 4
-  %36 = load ptr, ptr %6, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %56
+  %33 = inttoptr i64 1 to ptr
+  %34 = call ptr @pqsignal(i32 noundef 13, ptr noundef %33)
+  %35 = load i32, ptr %7, align 4
+  %36 = call ptr @__errno_location() #11
+  store i32 %35, ptr %36, align 4
+  %37 = load ptr, ptr %6, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %57
 
-38:                                               ; preds = %24
-  %39 = load ptr, ptr @allocatedDescs, align 8
-  %40 = load i32, ptr @numAllocatedDescs, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr %struct.AllocateDesc, ptr %39, i64 %41
-  store ptr %42, ptr %8, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.AllocateDesc, ptr %43, i32 0, i32 0
-  store i32 1, ptr %44, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.AllocateDesc, ptr %46, i32 0, i32 2
-  store ptr %45, ptr %47, align 8
-  %48 = call i32 @GetCurrentSubTransactionId()
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.AllocateDesc, ptr %49, i32 0, i32 1
-  store i32 %48, ptr %50, align 4
-  %51 = load i32, ptr @numAllocatedDescs, align 4
-  %52 = add i32 %51, 1
-  store i32 %52, ptr @numAllocatedDescs, align 4
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.AllocateDesc, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %3, align 8
-  br label %81
+39:                                               ; preds = %24
+  %40 = load ptr, ptr @allocatedDescs, align 8
+  %41 = load i32, ptr @numAllocatedDescs, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr %struct.AllocateDesc, ptr %40, i64 %42
+  store ptr %43, ptr %8, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds %struct.AllocateDesc, ptr %44, i32 0, i32 0
+  store i32 1, ptr %45, align 8
+  %46 = load ptr, ptr %6, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds %struct.AllocateDesc, ptr %47, i32 0, i32 2
+  store ptr %46, ptr %48, align 8
+  %49 = call i32 @GetCurrentSubTransactionId()
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds %struct.AllocateDesc, ptr %50, i32 0, i32 1
+  store i32 %49, ptr %51, align 4
+  %52 = load i32, ptr @numAllocatedDescs, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr @numAllocatedDescs, align 4
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds %struct.AllocateDesc, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %3, align 8
+  br label %82
 
-56:                                               ; preds = %24
-  %57 = call ptr @__errno_location() #11
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp eq i32 %58, 24
-  br i1 %59, label %64, label %60
+57:                                               ; preds = %24
+  %58 = call ptr @__errno_location() #11
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp eq i32 %59, 24
+  br i1 %60, label %65, label %61
 
-60:                                               ; preds = %56
-  %61 = call ptr @__errno_location() #11
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp eq i32 %62, 23
-  br i1 %63, label %64, label %80
+61:                                               ; preds = %57
+  %62 = call ptr @__errno_location() #11
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp eq i32 %63, 23
+  br i1 %64, label %65, label %81
 
-64:                                               ; preds = %60, %56
-  br label %65
-
-65:                                               ; preds = %64
-  br i1 false, label %66, label %68
+65:                                               ; preds = %61, %57
+  br label %66
 
 66:                                               ; preds = %65
-  %67 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
-  br i1 %67, label %70, label %73
+  br i1 false, label %67, label %69
 
-68:                                               ; preds = %65
-  %69 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %69, label %70, label %73
+67:                                               ; preds = %66
+  %68 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #13
+  br i1 %68, label %71, label %74
 
-70:                                               ; preds = %68, %66
-  %71 = call i32 @errcode(i32 noundef 197)
-  %72 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.12)
+69:                                               ; preds = %66
+  %70 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %70, label %71, label %74
+
+71:                                               ; preds = %69, %67
+  %72 = call i32 @errcode(i32 noundef 197)
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.12)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 2727, ptr noundef @__func__.OpenPipeStream)
-  br label %73
-
-73:                                               ; preds = %70, %68, %66
   br label %74
 
-74:                                               ; preds = %73
-  %75 = call zeroext i1 @ReleaseLruFile()
-  br i1 %75, label %76, label %77
+74:                                               ; preds = %71, %69, %67
+  br label %75
 
-76:                                               ; preds = %74
+75:                                               ; preds = %74
+  %76 = call zeroext i1 @ReleaseLruFile()
+  br i1 %76, label %77, label %78
+
+77:                                               ; preds = %75
   br label %24
 
-77:                                               ; preds = %74
-  %78 = load i32, ptr %7, align 4
-  %79 = call ptr @__errno_location() #11
-  store i32 %78, ptr %79, align 4
-  br label %80
-
-80:                                               ; preds = %77, %60
-  store ptr null, ptr %3, align 8
+78:                                               ; preds = %75
+  %79 = load i32, ptr %7, align 4
+  %80 = call ptr @__errno_location() #11
+  store i32 %79, ptr %80, align 4
   br label %81
 
-81:                                               ; preds = %80, %38
-  %82 = load ptr, ptr %3, align 8
-  ret ptr %82
+81:                                               ; preds = %78, %61
+  store ptr null, ptr %3, align 8
+  br label %82
+
+82:                                               ; preds = %81, %39
+  %83 = load ptr, ptr %3, align 8
+  ret ptr %83
 }
 
 declare i32 @fflush(ptr noundef) #1

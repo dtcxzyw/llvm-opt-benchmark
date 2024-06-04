@@ -1648,7 +1648,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN4base20RefCountedThreadSafeINS_6Pickle10AttachmentENS_33DefaultRefCountedThreadSafeTraitsIS2_EEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base6Pickle10AttachmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4base6Pickle10AttachmentE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1703,7 +1704,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
@@ -1714,8 +1716,8 @@ entry:
   store i64 0, ptr %write_offset_, align 8
   call void @_ZN4base6Pickle6ResizeEm(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef 64)
   %header_2 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %header_2, align 8
-  %payload_size = getelementptr inbounds %"struct.base::Pickle::Header", ptr %0, i32 0, i32 0
+  %1 = load ptr, ptr %header_2, align 8
+  %payload_size = getelementptr inbounds %"struct.base::Pickle::Header", ptr %1, i32 0, i32 0
   store i32 0, ptr %payload_size, align 4
   ret void
 }
@@ -1850,12 +1852,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %header_size, ptr %header_size.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %header_size.addr, align 4
-  %conv = sext i32 %0 to i64
+  %1 = load i32, ptr %header_size.addr, align 4
+  %conv = sext i32 %1 to i64
   %call = call noundef i64 @_ZN4base4bits5AlignEmm(i64 noundef %conv, i64 noundef 4)
   store i64 %call, ptr %header_size_, align 8
   %capacity_after_header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 3
@@ -1880,12 +1883,12 @@ invoke.cont:                                      ; preds = %if.else
   br label %if.end
 
 lpad:                                             ; preds = %if.else
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp) #8
   br label %eh.resume
 
@@ -1908,20 +1911,20 @@ invoke.cont12:                                    ; preds = %if.else8
   br label %if.end14
 
 lpad11:                                           ; preds = %if.else8
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp9) #8
   br label %eh.resume
 
 if.end14:                                         ; preds = %invoke.cont12, %if.then7
   call void @_ZN4base6Pickle6ResizeEm(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef 64)
   %header_15 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %header_15, align 8
-  %payload_size = getelementptr inbounds %"struct.base::Pickle::Header", ptr %7, i32 0, i32 0
+  %8 = load ptr, ptr %header_15, align 8
+  %payload_size = getelementptr inbounds %"struct.base::Pickle::Header", ptr %8, i32 0, i32 0
   store i32 0, ptr %payload_size, align 4
   ret void
 
@@ -1943,27 +1946,28 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   store i32 %data_len, ptr %data_len.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %header_, align 8
+  %1 = load ptr, ptr %data.addr, align 8
+  store ptr %1, ptr %header_, align 8
   %header_size_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
   store i64 0, ptr %header_size_, align 8
   %capacity_after_header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 3
   store i64 -1, ptr %capacity_after_header_, align 8
   %write_offset_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 4
   store i64 0, ptr %write_offset_, align 8
-  %1 = load i32, ptr %data_len.addr, align 4
-  %cmp = icmp sge i32 %1, 4
+  %2 = load i32, ptr %data_len.addr, align 4
+  %cmp = icmp sge i32 %2, 4
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %data_len.addr, align 4
+  %3 = load i32, ptr %data_len.addr, align 4
   %header_2 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %header_2, align 8
-  %payload_size = getelementptr inbounds %"struct.base::Pickle::Header", ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %payload_size, align 4
-  %sub = sub i32 %2, %4
+  %4 = load ptr, ptr %header_2, align 8
+  %payload_size = getelementptr inbounds %"struct.base::Pickle::Header", ptr %4, i32 0, i32 0
+  %5 = load i32, ptr %payload_size, align 4
+  %sub = sub i32 %3, %5
   %conv = zext i32 %sub to i64
   %header_size_3 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
   store i64 %conv, ptr %header_size_3, align 8
@@ -1971,10 +1975,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %header_size_4 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
-  %5 = load i64, ptr %header_size_4, align 8
-  %6 = load i32, ptr %data_len.addr, align 4
-  %conv5 = zext i32 %6 to i64
-  %cmp6 = icmp ugt i64 %5, %conv5
+  %6 = load i64, ptr %header_size_4, align 8
+  %7 = load i32, ptr %data_len.addr, align 4
+  %conv5 = zext i32 %7 to i64
+  %cmp6 = icmp ugt i64 %6, %conv5
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
@@ -1984,11 +1988,11 @@ if.then7:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then7, %if.end
   %header_size_10 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
-  %7 = load i64, ptr %header_size_10, align 8
+  %8 = load i64, ptr %header_size_10, align 8
   %header_size_11 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
-  %8 = load i64, ptr %header_size_11, align 8
-  %call = call noundef i64 @_ZN4base4bits5AlignEmm(i64 noundef %8, i64 noundef 4)
-  %cmp12 = icmp ne i64 %7, %call
+  %9 = load i64, ptr %header_size_11, align 8
+  %call = call noundef i64 @_ZN4base4bits5AlignEmm(i64 noundef %9, i64 noundef 4)
+  %cmp12 = icmp ne i64 %8, %call
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end9
@@ -1998,8 +2002,8 @@ if.then13:                                        ; preds = %if.end9
 
 if.end15:                                         ; preds = %if.then13, %if.end9
   %header_size_16 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
-  %9 = load i64, ptr %header_size_16, align 8
-  %tobool = icmp ne i64 %9, 0
+  %10 = load i64, ptr %header_size_16, align 8
+  %tobool = icmp ne i64 %10, 0
   br i1 %tobool, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
@@ -2019,43 +2023,44 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %other.addr, align 8
-  %header_size_2 = getelementptr inbounds %"class.base::Pickle", ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %header_size_2, align 8
-  store i64 %1, ptr %header_size_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %header_size_2 = getelementptr inbounds %"class.base::Pickle", ptr %1, i32 0, i32 2
+  %2 = load i64, ptr %header_size_2, align 8
+  store i64 %2, ptr %header_size_, align 8
   %capacity_after_header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 3
   store i64 0, ptr %capacity_after_header_, align 8
   %write_offset_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %other.addr, align 8
-  %write_offset_3 = getelementptr inbounds %"class.base::Pickle", ptr %2, i32 0, i32 4
-  %3 = load i64, ptr %write_offset_3, align 8
-  store i64 %3, ptr %write_offset_, align 8
-  %4 = load ptr, ptr %other.addr, align 8
-  %header_4 = getelementptr inbounds %"class.base::Pickle", ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %header_4, align 8
-  %payload_size = getelementptr inbounds %"struct.base::Pickle::Header", ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %payload_size, align 4
-  %conv = zext i32 %6 to i64
+  %3 = load ptr, ptr %other.addr, align 8
+  %write_offset_3 = getelementptr inbounds %"class.base::Pickle", ptr %3, i32 0, i32 4
+  %4 = load i64, ptr %write_offset_3, align 8
+  store i64 %4, ptr %write_offset_, align 8
+  %5 = load ptr, ptr %other.addr, align 8
+  %header_4 = getelementptr inbounds %"class.base::Pickle", ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %header_4, align 8
+  %payload_size = getelementptr inbounds %"struct.base::Pickle::Header", ptr %6, i32 0, i32 0
+  %7 = load i32, ptr %payload_size, align 4
+  %conv = zext i32 %7 to i64
   call void @_ZN4base6Pickle6ResizeEm(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef %conv)
   %header_5 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %header_5, align 8
-  %8 = load ptr, ptr %other.addr, align 8
-  %header_6 = getelementptr inbounds %"class.base::Pickle", ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %header_6, align 8
+  %8 = load ptr, ptr %header_5, align 8
+  %9 = load ptr, ptr %other.addr, align 8
+  %header_6 = getelementptr inbounds %"class.base::Pickle", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %header_6, align 8
   %header_size_7 = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
-  %10 = load i64, ptr %header_size_7, align 8
-  %11 = load ptr, ptr %other.addr, align 8
-  %header_8 = getelementptr inbounds %"class.base::Pickle", ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %header_8, align 8
-  %payload_size9 = getelementptr inbounds %"struct.base::Pickle::Header", ptr %12, i32 0, i32 0
-  %13 = load i32, ptr %payload_size9, align 4
-  %conv10 = zext i32 %13 to i64
-  %add = add i64 %10, %conv10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %9, i64 %add, i1 false)
+  %11 = load i64, ptr %header_size_7, align 8
+  %12 = load ptr, ptr %other.addr, align 8
+  %header_8 = getelementptr inbounds %"class.base::Pickle", ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %header_8, align 8
+  %payload_size9 = getelementptr inbounds %"struct.base::Pickle::Header", ptr %13, i32 0, i32 0
+  %14 = load i32, ptr %payload_size9, align 4
+  %conv10 = zext i32 %14 to i64
+  %add = add i64 %11, %conv10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %10, i64 %add, i1 false)
   ret void
 }
 
@@ -2065,16 +2070,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %capacity_after_header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %capacity_after_header_, align 8
-  %cmp = icmp ne i64 %0, -1
+  %1 = load i64, ptr %capacity_after_header_, align 8
+  %cmp = icmp ne i64 %1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %header_, align 8
-  call void @free(ptr noundef %1) #8
+  %2 = load ptr, ptr %header_, align 8
+  call void @free(ptr noundef %2) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

@@ -306,50 +306,51 @@ entry:
   store ptr %old_throttle_data, ptr %old_throttle_data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedINS_8internal23ServerRetryThrottleDataENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %max_milli_tokens_ = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %max_milli_tokens.addr, align 8
-  store i64 %0, ptr %max_milli_tokens_, align 8
+  %1 = load i64, ptr %max_milli_tokens.addr, align 8
+  store i64 %1, ptr %max_milli_tokens_, align 8
   %milli_token_ratio_ = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %milli_token_ratio.addr, align 8
-  store i64 %1, ptr %milli_token_ratio_, align 8
+  %2 = load i64, ptr %milli_token_ratio.addr, align 8
+  store i64 %2, ptr %milli_token_ratio_, align 8
   %replacement_ = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %this1, i32 0, i32 4
   store i64 0, ptr %replacement_, align 8
-  %2 = load i64, ptr %max_milli_tokens.addr, align 8
-  store i64 %2, ptr %initial_milli_tokens, align 8
-  %3 = load ptr, ptr %old_throttle_data.addr, align 8
-  %cmp = icmp ne ptr %3, null
+  %3 = load i64, ptr %max_milli_tokens.addr, align 8
+  store i64 %3, ptr %initial_milli_tokens, align 8
+  %4 = load ptr, ptr %old_throttle_data.addr, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %old_throttle_data.addr, align 8
-  %milli_tokens_ = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %4, i32 0, i32 3
-  %5 = load atomic i64, ptr %milli_tokens_ acquire, align 8
-  store i64 %5, ptr %atomic-temp, align 8
-  %6 = load i64, ptr %atomic-temp, align 8
-  %conv = uitofp i64 %6 to double
-  %7 = load ptr, ptr %old_throttle_data.addr, align 8
-  %max_milli_tokens_2 = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %7, i32 0, i32 1
-  %8 = load i64, ptr %max_milli_tokens_2, align 8
-  %conv3 = uitofp i64 %8 to double
+  %5 = load ptr, ptr %old_throttle_data.addr, align 8
+  %milli_tokens_ = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %5, i32 0, i32 3
+  %6 = load atomic i64, ptr %milli_tokens_ acquire, align 8
+  store i64 %6, ptr %atomic-temp, align 8
+  %7 = load i64, ptr %atomic-temp, align 8
+  %conv = uitofp i64 %7 to double
+  %8 = load ptr, ptr %old_throttle_data.addr, align 8
+  %max_milli_tokens_2 = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %8, i32 0, i32 1
+  %9 = load i64, ptr %max_milli_tokens_2, align 8
+  %conv3 = uitofp i64 %9 to double
   %div = fdiv double %conv, %conv3
   store double %div, ptr %token_fraction, align 8
-  %9 = load double, ptr %token_fraction, align 8
-  %10 = load i64, ptr %max_milli_tokens.addr, align 8
-  %conv4 = uitofp i64 %10 to double
-  %mul = fmul double %9, %conv4
+  %10 = load double, ptr %token_fraction, align 8
+  %11 = load i64, ptr %max_milli_tokens.addr, align 8
+  %conv4 = uitofp i64 %11 to double
+  %mul = fmul double %10, %conv4
   %conv5 = fptoui double %mul to i64
   store i64 %conv5, ptr %initial_milli_tokens, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %milli_tokens_6 = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %this1, i32 0, i32 3
-  %11 = load i64, ptr %initial_milli_tokens, align 8
-  store i64 %11, ptr %.atomictmp, align 8
-  %12 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %12, ptr %milli_tokens_6 release, align 8
-  %13 = load ptr, ptr %old_throttle_data.addr, align 8
-  %cmp7 = icmp ne ptr %13, null
+  %12 = load i64, ptr %initial_milli_tokens, align 8
+  store i64 %12, ptr %.atomictmp, align 8
+  %13 = load i64, ptr %.atomictmp, align 8
+  store atomic i64 %13, ptr %milli_tokens_6 release, align 8
+  %14 = load ptr, ptr %old_throttle_data.addr, align 8
+  %cmp7 = icmp ne ptr %14, null
   br i1 %cmp7, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %if.end
@@ -362,30 +363,30 @@ invoke.cont:                                      ; preds = %if.then8
 
 invoke.cont10:                                    ; preds = %invoke.cont
   call void @_ZN9grpc_core13RefCountedPtrINS_8internal23ServerRetryThrottleDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #5
-  %14 = load ptr, ptr %old_throttle_data.addr, align 8
-  %replacement_11 = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %14, i32 0, i32 4
-  %15 = ptrtoint ptr %this1 to i64
-  store i64 %15, ptr %.atomictmp12, align 8
-  %16 = load i64, ptr %.atomictmp12, align 8
-  store atomic i64 %16, ptr %replacement_11 release, align 8
+  %15 = load ptr, ptr %old_throttle_data.addr, align 8
+  %replacement_11 = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %15, i32 0, i32 4
+  %16 = ptrtoint ptr %this1 to i64
+  store i64 %16, ptr %.atomictmp12, align 8
+  %17 = load i64, ptr %.atomictmp12, align 8
+  store atomic i64 %17, ptr %replacement_11 release, align 8
   br label %if.end13
 
 lpad:                                             ; preds = %if.then8
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_8internal23ServerRetryThrottleDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #5
   br label %ehcleanup
 
@@ -417,23 +418,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_8internal23ServerRetryThrottleDataENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_8internal23ServerRetryThrottleDataENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
   br label %eh.resume
 
@@ -512,20 +514,21 @@ entry:
   %atomic-temp = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core8internal23ServerRetryThrottleDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %replacement_ = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %this1, i32 0, i32 4
-  %0 = load atomic i64, ptr %replacement_ acquire, align 8
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load i64, ptr %atomic-temp, align 8
-  %2 = inttoptr i64 %1 to ptr
-  store ptr %2, ptr %replacement, align 8
-  %3 = load ptr, ptr %replacement, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = load atomic i64, ptr %replacement_ acquire, align 8
+  store i64 %1, ptr %atomic-temp, align 8
+  %2 = load i64, ptr %atomic-temp, align 8
+  %3 = inttoptr i64 %2 to ptr
+  store ptr %3, ptr %replacement, align 8
+  %4 = load ptr, ptr %replacement, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %replacement, align 8
-  invoke void @_ZNK9grpc_core10RefCountedINS_8internal23ServerRetryThrottleDataENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %5 = load ptr, ptr %replacement, align 8
+  invoke void @_ZNK9grpc_core10RefCountedINS_8internal23ServerRetryThrottleDataENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -536,10 +539,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #12
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
@@ -1336,7 +1339,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

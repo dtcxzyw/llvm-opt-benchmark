@@ -213,20 +213,21 @@ define i32 @up_alarm_start(ptr noundef %0) #0 {
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds %struct.timespec, ptr %12, i32 0, i32 1
   %14 = load i64, ptr %13, align 8
-  store i64 %14, ptr getelementptr inbounds (%struct.timespec, ptr @g_goal_time_ts, i32 0, i32 1), align 8
+  %15 = getelementptr inbounds %struct.timespec, ptr @g_goal_time_ts, i32 0, i32 1
+  store i64 %14, ptr %15, align 8
   call void @up_tmr_sync_down()
-  br label %15
-
-15:                                               ; preds = %1
   br label %16
 
-16:                                               ; preds = %15
+16:                                               ; preds = %1
   br label %17
 
 17:                                               ; preds = %16
   br label %18
 
 18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
   ret i32 0
 }
 

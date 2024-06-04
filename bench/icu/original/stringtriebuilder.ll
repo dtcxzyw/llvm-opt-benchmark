@@ -140,7 +140,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %nodes = getelementptr inbounds %"class.icu_75::StringTrieBuilder", ptr %this1, i32 0, i32 1
   store ptr null, ptr %nodes, align 8
   ret void
@@ -152,7 +153,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -162,7 +164,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN6icu_7517StringTrieBuilder20deleteCompactBuilderEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -171,10 +174,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #7
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #7
   unreachable
 }
 
@@ -1906,13 +1909,14 @@ entry:
   %call = call noundef i32 @_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_(ptr noundef %1)
   %add2 = add i32 %mul, %call
   call void @_ZN6icu_7517StringTrieBuilder9ValueNodeC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %add2)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder14BranchHeadNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder14BranchHeadNodeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %length = getelementptr inbounds %"class.icu_75::StringTrieBuilder::BranchHeadNode", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %len.addr, align 4
-  store i32 %2, ptr %length, align 8
+  %3 = load i32, ptr %len.addr, align 4
+  store i32 %3, ptr %length, align 8
   %next = getelementptr inbounds %"class.icu_75::StringTrieBuilder::BranchHeadNode", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %subNode.addr, align 8
-  store ptr %3, ptr %next, align 8
+  %4 = load ptr, ptr %subNode.addr, align 8
+  store ptr %4, ptr %next, align 8
   ret void
 }
 
@@ -1956,12 +1960,13 @@ entry:
   %call = call noundef i32 @_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_(ptr noundef %0)
   %add = add i32 82767594, %call
   call void @_ZN6icu_7517StringTrieBuilder9ValueNodeC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %add)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder21IntermediateValueNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder21IntermediateValueNodeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %next = getelementptr inbounds %"class.icu_75::StringTrieBuilder::IntermediateValueNode", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %nextNode.addr, align 8
-  store ptr %1, ptr %next, align 8
-  %2 = load i32, ptr %v.addr, align 4
-  call void @_ZN6icu_7517StringTrieBuilder9ValueNode8setValueEi(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %2)
+  %2 = load ptr, ptr %nextNode.addr, align 8
+  store ptr %2, ptr %next, align 8
+  %3 = load i32, ptr %v.addr, align 4
+  call void @_ZN6icu_7517StringTrieBuilder9ValueNode8setValueEi(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %3)
   ret void
 }
 
@@ -1972,7 +1977,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringTrieBuilder10BranchNodeC2Ei(ptr noundef nonnull align 8 dereferenceable(20) %this1, i32 noundef 4473924)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder14ListBranchNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder14ListBranchNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %length = getelementptr inbounds %"class.icu_75::StringTrieBuilder::ListBranchNode", ptr %this1, i32 0, i32 3
   store i32 0, ptr %length, align 8
   ret void
@@ -2099,16 +2105,17 @@ entry:
   %call4 = call noundef i32 @_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_(ptr noundef %2)
   %add5 = add i32 %mul3, %call4
   call void @_ZN6icu_7517StringTrieBuilder10BranchNodeC2Ei(ptr noundef nonnull align 8 dereferenceable(20) %this1, i32 noundef %add5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder15SplitBranchNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder15SplitBranchNodeE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %unit = getelementptr inbounds %"class.icu_75::StringTrieBuilder::SplitBranchNode", ptr %this1, i32 0, i32 1
-  %3 = load i16, ptr %middleUnit.addr, align 2
-  store i16 %3, ptr %unit, align 4
+  %4 = load i16, ptr %middleUnit.addr, align 2
+  store i16 %4, ptr %unit, align 4
   %lessThan = getelementptr inbounds %"class.icu_75::StringTrieBuilder::SplitBranchNode", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %lessThanNode.addr, align 8
-  store ptr %4, ptr %lessThan, align 8
+  %5 = load ptr, ptr %lessThanNode.addr, align 8
+  store ptr %5, ptr %lessThan, align 8
   %greaterOrEqual = getelementptr inbounds %"class.icu_75::StringTrieBuilder::SplitBranchNode", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %greaterOrEqualNode.addr, align 8
-  store ptr %5, ptr %greaterOrEqual, align 8
+  %6 = load ptr, ptr %greaterOrEqualNode.addr, align 8
+  store ptr %6, ptr %greaterOrEqual, align 8
   ret void
 }
 
@@ -2127,10 +2134,11 @@ entry:
   %0 = load i32, ptr %v.addr, align 4
   %add = add i32 41383797, %0
   call void @_ZN6icu_7517StringTrieBuilder4NodeC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %add)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder14FinalValueNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder14FinalValueNodeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %value = getelementptr inbounds %"class.icu_75::StringTrieBuilder::FinalValueNode", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %v.addr, align 4
-  store i32 %1, ptr %value, align 8
+  %2 = load i32, ptr %v.addr, align 4
+  store i32 %2, ptr %value, align 8
   ret void
 }
 
@@ -3553,7 +3561,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %initialHash.addr, align 4
   call void @_ZN6icu_7517StringTrieBuilder4NodeC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder9ValueNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder9ValueNodeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %hasValue = getelementptr inbounds %"class.icu_75::StringTrieBuilder::ValueNode", ptr %this1, i32 0, i32 1
   store i8 0, ptr %hasValue, align 8
   %value = getelementptr inbounds %"class.icu_75::StringTrieBuilder::ValueNode", ptr %this1, i32 0, i32 2
@@ -3570,10 +3579,11 @@ entry:
   store i32 %initialHash, ptr %initialHash.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %hash = getelementptr inbounds %"class.icu_75::StringTrieBuilder::Node", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %initialHash.addr, align 4
-  store i32 %0, ptr %hash, align 8
+  %1 = load i32, ptr %initialHash.addr, align 4
+  store i32 %1, ptr %hash, align 8
   %offset = getelementptr inbounds %"class.icu_75::StringTrieBuilder::Node", ptr %this1, i32 0, i32 2
   store i32 0, ptr %offset, align 4
   ret void
@@ -3589,7 +3599,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %initialHash.addr, align 4
   call void @_ZN6icu_7517StringTrieBuilder4NodeC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder10BranchNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder10BranchNodeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

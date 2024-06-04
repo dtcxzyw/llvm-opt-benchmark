@@ -58,7 +58,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517CharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %text, align 8
   ret void
@@ -106,7 +107,8 @@ cond.false6:                                      ; preds = %entry
 cond.end7:                                        ; preds = %cond.false6, %cond.end
   %cond8 = phi i32 [ %cond, %cond.end ], [ 0, %cond.false6 ]
   call void @_ZN6icu_7517CharacterIteratorC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %cond8)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   %call9 = invoke noundef ptr @_ZNK6icu_7514ConstChar16PtrcvPKDsEv(ptr noundef nonnull align 8 dereferenceable(8) %textPtr)
           to label %invoke.cont unwind label %lpad
@@ -116,12 +118,12 @@ invoke.cont:                                      ; preds = %cond.end7
   ret void
 
 lpad:                                             ; preds = %cond.end7
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517CharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #4
   br label %eh.resume
 
@@ -195,7 +197,8 @@ cond.end7:                                        ; preds = %cond.false6, %cond.
   %cond8 = phi i32 [ %cond, %cond.end ], [ 0, %cond.false6 ]
   %2 = load i32, ptr %position.addr, align 4
   call void @_ZN6icu_7517CharacterIteratorC2Eii(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %cond8, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   %call9 = invoke noundef ptr @_ZNK6icu_7514ConstChar16PtrcvPKDsEv(ptr noundef nonnull align 8 dereferenceable(8) %textPtr)
           to label %invoke.cont unwind label %lpad
@@ -205,12 +208,12 @@ invoke.cont:                                      ; preds = %cond.end7
   ret void
 
 lpad:                                             ; preds = %cond.end7
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517CharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #4
   br label %eh.resume
 
@@ -273,7 +276,8 @@ cond.end7:                                        ; preds = %cond.false6, %cond.
   %3 = load i32, ptr %textEnd.addr, align 4
   %4 = load i32, ptr %position.addr, align 4
   call void @_ZN6icu_7517CharacterIteratorC2Eiiii(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %cond8, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   %call9 = invoke noundef ptr @_ZNK6icu_7514ConstChar16PtrcvPKDsEv(ptr noundef nonnull align 8 dereferenceable(8) %textPtr)
           to label %invoke.cont unwind label %lpad
@@ -283,12 +287,12 @@ invoke.cont:                                      ; preds = %cond.end7
   ret void
 
 lpad:                                             ; preds = %cond.end7
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517CharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #4
   br label %eh.resume
 
@@ -312,12 +316,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %that.addr, align 8
   call void @_ZN6icu_7517CharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %that.addr, align 8
-  %text2 = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %text2, align 8
-  store ptr %2, ptr %text, align 8
+  %2 = load ptr, ptr %that.addr, align 8
+  %text2 = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %text2, align 8
+  store ptr %3, ptr %text, align 8
   ret void
 }
 

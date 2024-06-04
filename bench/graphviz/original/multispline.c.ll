@@ -1365,16 +1365,16 @@ define internal void @addEndpoint(ptr noundef %0, double %1, double %2, ptr noun
   %70 = load ptr, ptr %69, align 8
   store ptr %70, ptr %15, align 8
   %71 = load i32, ptr %11, align 4
-  switch i32 %71, label %345 [
+  switch i32 %71, label %369 [
     i32 4, label %72
-    i32 6, label %106
-    i32 2, label %140
-    i32 3, label %174
-    i32 1, label %208
-    i32 9, label %242
-    i32 8, label %276
-    i32 12, label %310
-    i32 0, label %344
+    i32 6, label %109
+    i32 2, label %146
+    i32 3, label %183
+    i32 1, label %220
+    i32 9, label %257
+    i32 8, label %294
+    i32 12, label %331
+    i32 0, label %368
   ]
 
 72:                                               ; preds = %6
@@ -1383,463 +1383,461 @@ define internal void @addEndpoint(ptr noundef %0, double %1, double %2, ptr noun
   %75 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
   %76 = load double, ptr %75, align 8
   %77 = load double, ptr @north, align 8
-  %78 = load double, ptr getelementptr inbounds ({ double, double }, ptr @north, i32 0, i32 1), align 8
-  %79 = call { double, double } @add_pointf(double %74, double %76, double %77, double %78)
-  %80 = getelementptr inbounds { double, double }, ptr %21, i32 0, i32 0
-  %81 = extractvalue { double, double } %79, 0
-  store double %81, ptr %80, align 8
-  %82 = getelementptr inbounds { double, double }, ptr %21, i32 0, i32 1
-  %83 = extractvalue { double, double } %79, 1
-  store double %83, ptr %82, align 8
+  %78 = getelementptr inbounds { double, double }, ptr @north, i32 0, i32 1
+  %79 = load double, ptr %78, align 8
+  %80 = call { double, double } @add_pointf(double %74, double %76, double %77, double %79)
+  %81 = getelementptr inbounds { double, double }, ptr %21, i32 0, i32 0
+  %82 = extractvalue { double, double } %80, 0
+  store double %82, ptr %81, align 8
+  %83 = getelementptr inbounds { double, double }, ptr %21, i32 0, i32 1
+  %84 = extractvalue { double, double } %80, 1
+  store double %84, ptr %83, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %21, i64 16, i1 false)
-  %84 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %85 = load double, ptr %84, align 8
-  %86 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %87 = load double, ptr %86, align 8
-  %88 = load double, ptr @northwest, align 8
-  %89 = load double, ptr getelementptr inbounds ({ double, double }, ptr @northwest, i32 0, i32 1), align 8
-  %90 = call { double, double } @add_pointf(double %85, double %87, double %88, double %89)
-  %91 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 0
-  %92 = extractvalue { double, double } %90, 0
-  store double %92, ptr %91, align 8
-  %93 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 1
-  %94 = extractvalue { double, double } %90, 1
+  %85 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %86 = load double, ptr %85, align 8
+  %87 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %88 = load double, ptr %87, align 8
+  %89 = load double, ptr @northwest, align 8
+  %90 = getelementptr inbounds { double, double }, ptr @northwest, i32 0, i32 1
+  %91 = load double, ptr %90, align 8
+  %92 = call { double, double } @add_pointf(double %86, double %88, double %89, double %91)
+  %93 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 0
+  %94 = extractvalue { double, double } %92, 0
   store double %94, ptr %93, align 8
+  %95 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 1
+  %96 = extractvalue { double, double } %92, 1
+  store double %96, ptr %95, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %22, i64 16, i1 false)
-  %95 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %96 = load double, ptr %95, align 8
-  %97 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %97 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
   %98 = load double, ptr %97, align 8
-  %99 = load double, ptr @northeast, align 8
-  %100 = load double, ptr getelementptr inbounds ({ double, double }, ptr @northeast, i32 0, i32 1), align 8
-  %101 = call { double, double } @add_pointf(double %96, double %98, double %99, double %100)
-  %102 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 0
-  %103 = extractvalue { double, double } %101, 0
-  store double %103, ptr %102, align 8
-  %104 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 1
-  %105 = extractvalue { double, double } %101, 1
-  store double %105, ptr %104, align 8
+  %99 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %100 = load double, ptr %99, align 8
+  %101 = load double, ptr @northeast, align 8
+  %102 = getelementptr inbounds { double, double }, ptr @northeast, i32 0, i32 1
+  %103 = load double, ptr %102, align 8
+  %104 = call { double, double } @add_pointf(double %98, double %100, double %101, double %103)
+  %105 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 0
+  %106 = extractvalue { double, double } %104, 0
+  store double %106, ptr %105, align 8
+  %107 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 1
+  %108 = extractvalue { double, double } %104, 1
+  store double %108, ptr %107, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %23, i64 16, i1 false)
-  br label %346
+  br label %370
 
-106:                                              ; preds = %6
-  %107 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %108 = load double, ptr %107, align 8
-  %109 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %110 = load double, ptr %109, align 8
-  %111 = load double, ptr @northeast, align 8
-  %112 = load double, ptr getelementptr inbounds ({ double, double }, ptr @northeast, i32 0, i32 1), align 8
-  %113 = call { double, double } @add_pointf(double %108, double %110, double %111, double %112)
-  %114 = getelementptr inbounds { double, double }, ptr %24, i32 0, i32 0
-  %115 = extractvalue { double, double } %113, 0
-  store double %115, ptr %114, align 8
-  %116 = getelementptr inbounds { double, double }, ptr %24, i32 0, i32 1
-  %117 = extractvalue { double, double } %113, 1
-  store double %117, ptr %116, align 8
+109:                                              ; preds = %6
+  %110 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %111 = load double, ptr %110, align 8
+  %112 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %113 = load double, ptr %112, align 8
+  %114 = load double, ptr @northeast, align 8
+  %115 = getelementptr inbounds { double, double }, ptr @northeast, i32 0, i32 1
+  %116 = load double, ptr %115, align 8
+  %117 = call { double, double } @add_pointf(double %111, double %113, double %114, double %116)
+  %118 = getelementptr inbounds { double, double }, ptr %24, i32 0, i32 0
+  %119 = extractvalue { double, double } %117, 0
+  store double %119, ptr %118, align 8
+  %120 = getelementptr inbounds { double, double }, ptr %24, i32 0, i32 1
+  %121 = extractvalue { double, double } %117, 1
+  store double %121, ptr %120, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %24, i64 16, i1 false)
-  %118 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %119 = load double, ptr %118, align 8
-  %120 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %121 = load double, ptr %120, align 8
-  %122 = load double, ptr @north, align 8
-  %123 = load double, ptr getelementptr inbounds ({ double, double }, ptr @north, i32 0, i32 1), align 8
-  %124 = call { double, double } @add_pointf(double %119, double %121, double %122, double %123)
-  %125 = getelementptr inbounds { double, double }, ptr %25, i32 0, i32 0
-  %126 = extractvalue { double, double } %124, 0
-  store double %126, ptr %125, align 8
-  %127 = getelementptr inbounds { double, double }, ptr %25, i32 0, i32 1
-  %128 = extractvalue { double, double } %124, 1
-  store double %128, ptr %127, align 8
+  %122 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %123 = load double, ptr %122, align 8
+  %124 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %125 = load double, ptr %124, align 8
+  %126 = load double, ptr @north, align 8
+  %127 = getelementptr inbounds { double, double }, ptr @north, i32 0, i32 1
+  %128 = load double, ptr %127, align 8
+  %129 = call { double, double } @add_pointf(double %123, double %125, double %126, double %128)
+  %130 = getelementptr inbounds { double, double }, ptr %25, i32 0, i32 0
+  %131 = extractvalue { double, double } %129, 0
+  store double %131, ptr %130, align 8
+  %132 = getelementptr inbounds { double, double }, ptr %25, i32 0, i32 1
+  %133 = extractvalue { double, double } %129, 1
+  store double %133, ptr %132, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %25, i64 16, i1 false)
-  %129 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %130 = load double, ptr %129, align 8
-  %131 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %132 = load double, ptr %131, align 8
-  %133 = load double, ptr @east, align 8
-  %134 = load double, ptr getelementptr inbounds ({ double, double }, ptr @east, i32 0, i32 1), align 8
-  %135 = call { double, double } @add_pointf(double %130, double %132, double %133, double %134)
-  %136 = getelementptr inbounds { double, double }, ptr %26, i32 0, i32 0
-  %137 = extractvalue { double, double } %135, 0
-  store double %137, ptr %136, align 8
-  %138 = getelementptr inbounds { double, double }, ptr %26, i32 0, i32 1
-  %139 = extractvalue { double, double } %135, 1
-  store double %139, ptr %138, align 8
+  %134 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %135 = load double, ptr %134, align 8
+  %136 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %137 = load double, ptr %136, align 8
+  %138 = load double, ptr @east, align 8
+  %139 = getelementptr inbounds { double, double }, ptr @east, i32 0, i32 1
+  %140 = load double, ptr %139, align 8
+  %141 = call { double, double } @add_pointf(double %135, double %137, double %138, double %140)
+  %142 = getelementptr inbounds { double, double }, ptr %26, i32 0, i32 0
+  %143 = extractvalue { double, double } %141, 0
+  store double %143, ptr %142, align 8
+  %144 = getelementptr inbounds { double, double }, ptr %26, i32 0, i32 1
+  %145 = extractvalue { double, double } %141, 1
+  store double %145, ptr %144, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %26, i64 16, i1 false)
-  br label %346
+  br label %370
 
-140:                                              ; preds = %6
-  %141 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %142 = load double, ptr %141, align 8
-  %143 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %144 = load double, ptr %143, align 8
-  %145 = load double, ptr @east, align 8
-  %146 = load double, ptr getelementptr inbounds ({ double, double }, ptr @east, i32 0, i32 1), align 8
-  %147 = call { double, double } @add_pointf(double %142, double %144, double %145, double %146)
-  %148 = getelementptr inbounds { double, double }, ptr %27, i32 0, i32 0
-  %149 = extractvalue { double, double } %147, 0
-  store double %149, ptr %148, align 8
-  %150 = getelementptr inbounds { double, double }, ptr %27, i32 0, i32 1
-  %151 = extractvalue { double, double } %147, 1
-  store double %151, ptr %150, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %27, i64 16, i1 false)
-  %152 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+146:                                              ; preds = %6
+  %147 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %148 = load double, ptr %147, align 8
+  %149 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %150 = load double, ptr %149, align 8
+  %151 = load double, ptr @east, align 8
+  %152 = getelementptr inbounds { double, double }, ptr @east, i32 0, i32 1
   %153 = load double, ptr %152, align 8
-  %154 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %155 = load double, ptr %154, align 8
-  %156 = load double, ptr @northeast, align 8
-  %157 = load double, ptr getelementptr inbounds ({ double, double }, ptr @northeast, i32 0, i32 1), align 8
-  %158 = call { double, double } @add_pointf(double %153, double %155, double %156, double %157)
-  %159 = getelementptr inbounds { double, double }, ptr %28, i32 0, i32 0
-  %160 = extractvalue { double, double } %158, 0
-  store double %160, ptr %159, align 8
-  %161 = getelementptr inbounds { double, double }, ptr %28, i32 0, i32 1
-  %162 = extractvalue { double, double } %158, 1
-  store double %162, ptr %161, align 8
+  %154 = call { double, double } @add_pointf(double %148, double %150, double %151, double %153)
+  %155 = getelementptr inbounds { double, double }, ptr %27, i32 0, i32 0
+  %156 = extractvalue { double, double } %154, 0
+  store double %156, ptr %155, align 8
+  %157 = getelementptr inbounds { double, double }, ptr %27, i32 0, i32 1
+  %158 = extractvalue { double, double } %154, 1
+  store double %158, ptr %157, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %27, i64 16, i1 false)
+  %159 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %160 = load double, ptr %159, align 8
+  %161 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %162 = load double, ptr %161, align 8
+  %163 = load double, ptr @northeast, align 8
+  %164 = getelementptr inbounds { double, double }, ptr @northeast, i32 0, i32 1
+  %165 = load double, ptr %164, align 8
+  %166 = call { double, double } @add_pointf(double %160, double %162, double %163, double %165)
+  %167 = getelementptr inbounds { double, double }, ptr %28, i32 0, i32 0
+  %168 = extractvalue { double, double } %166, 0
+  store double %168, ptr %167, align 8
+  %169 = getelementptr inbounds { double, double }, ptr %28, i32 0, i32 1
+  %170 = extractvalue { double, double } %166, 1
+  store double %170, ptr %169, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %28, i64 16, i1 false)
-  %163 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %164 = load double, ptr %163, align 8
-  %165 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %166 = load double, ptr %165, align 8
-  %167 = load double, ptr @southeast, align 8
-  %168 = load double, ptr getelementptr inbounds ({ double, double }, ptr @southeast, i32 0, i32 1), align 8
-  %169 = call { double, double } @add_pointf(double %164, double %166, double %167, double %168)
-  %170 = getelementptr inbounds { double, double }, ptr %29, i32 0, i32 0
-  %171 = extractvalue { double, double } %169, 0
-  store double %171, ptr %170, align 8
-  %172 = getelementptr inbounds { double, double }, ptr %29, i32 0, i32 1
-  %173 = extractvalue { double, double } %169, 1
-  store double %173, ptr %172, align 8
+  %171 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %172 = load double, ptr %171, align 8
+  %173 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %174 = load double, ptr %173, align 8
+  %175 = load double, ptr @southeast, align 8
+  %176 = getelementptr inbounds { double, double }, ptr @southeast, i32 0, i32 1
+  %177 = load double, ptr %176, align 8
+  %178 = call { double, double } @add_pointf(double %172, double %174, double %175, double %177)
+  %179 = getelementptr inbounds { double, double }, ptr %29, i32 0, i32 0
+  %180 = extractvalue { double, double } %178, 0
+  store double %180, ptr %179, align 8
+  %181 = getelementptr inbounds { double, double }, ptr %29, i32 0, i32 1
+  %182 = extractvalue { double, double } %178, 1
+  store double %182, ptr %181, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %29, i64 16, i1 false)
-  br label %346
+  br label %370
 
-174:                                              ; preds = %6
-  %175 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %176 = load double, ptr %175, align 8
-  %177 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %178 = load double, ptr %177, align 8
-  %179 = load double, ptr @southeast, align 8
-  %180 = load double, ptr getelementptr inbounds ({ double, double }, ptr @southeast, i32 0, i32 1), align 8
-  %181 = call { double, double } @add_pointf(double %176, double %178, double %179, double %180)
-  %182 = getelementptr inbounds { double, double }, ptr %30, i32 0, i32 0
-  %183 = extractvalue { double, double } %181, 0
-  store double %183, ptr %182, align 8
-  %184 = getelementptr inbounds { double, double }, ptr %30, i32 0, i32 1
-  %185 = extractvalue { double, double } %181, 1
-  store double %185, ptr %184, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %30, i64 16, i1 false)
-  %186 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+183:                                              ; preds = %6
+  %184 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %185 = load double, ptr %184, align 8
+  %186 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
   %187 = load double, ptr %186, align 8
-  %188 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %189 = load double, ptr %188, align 8
-  %190 = load double, ptr @east, align 8
-  %191 = load double, ptr getelementptr inbounds ({ double, double }, ptr @east, i32 0, i32 1), align 8
-  %192 = call { double, double } @add_pointf(double %187, double %189, double %190, double %191)
-  %193 = getelementptr inbounds { double, double }, ptr %31, i32 0, i32 0
-  %194 = extractvalue { double, double } %192, 0
-  store double %194, ptr %193, align 8
-  %195 = getelementptr inbounds { double, double }, ptr %31, i32 0, i32 1
-  %196 = extractvalue { double, double } %192, 1
-  store double %196, ptr %195, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %31, i64 16, i1 false)
-  %197 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %198 = load double, ptr %197, align 8
-  %199 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %200 = load double, ptr %199, align 8
-  %201 = load double, ptr @south, align 8
-  %202 = load double, ptr getelementptr inbounds ({ double, double }, ptr @south, i32 0, i32 1), align 8
-  %203 = call { double, double } @add_pointf(double %198, double %200, double %201, double %202)
-  %204 = getelementptr inbounds { double, double }, ptr %32, i32 0, i32 0
+  %188 = load double, ptr @southeast, align 8
+  %189 = getelementptr inbounds { double, double }, ptr @southeast, i32 0, i32 1
+  %190 = load double, ptr %189, align 8
+  %191 = call { double, double } @add_pointf(double %185, double %187, double %188, double %190)
+  %192 = getelementptr inbounds { double, double }, ptr %30, i32 0, i32 0
+  %193 = extractvalue { double, double } %191, 0
+  store double %193, ptr %192, align 8
+  %194 = getelementptr inbounds { double, double }, ptr %30, i32 0, i32 1
+  %195 = extractvalue { double, double } %191, 1
+  store double %195, ptr %194, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %30, i64 16, i1 false)
+  %196 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %197 = load double, ptr %196, align 8
+  %198 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %199 = load double, ptr %198, align 8
+  %200 = load double, ptr @east, align 8
+  %201 = getelementptr inbounds { double, double }, ptr @east, i32 0, i32 1
+  %202 = load double, ptr %201, align 8
+  %203 = call { double, double } @add_pointf(double %197, double %199, double %200, double %202)
+  %204 = getelementptr inbounds { double, double }, ptr %31, i32 0, i32 0
   %205 = extractvalue { double, double } %203, 0
   store double %205, ptr %204, align 8
-  %206 = getelementptr inbounds { double, double }, ptr %32, i32 0, i32 1
+  %206 = getelementptr inbounds { double, double }, ptr %31, i32 0, i32 1
   %207 = extractvalue { double, double } %203, 1
   store double %207, ptr %206, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %32, i64 16, i1 false)
-  br label %346
-
-208:                                              ; preds = %6
-  %209 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %210 = load double, ptr %209, align 8
-  %211 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %212 = load double, ptr %211, align 8
-  %213 = load double, ptr @south, align 8
-  %214 = load double, ptr getelementptr inbounds ({ double, double }, ptr @south, i32 0, i32 1), align 8
-  %215 = call { double, double } @add_pointf(double %210, double %212, double %213, double %214)
-  %216 = getelementptr inbounds { double, double }, ptr %33, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %31, i64 16, i1 false)
+  %208 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %209 = load double, ptr %208, align 8
+  %210 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %211 = load double, ptr %210, align 8
+  %212 = load double, ptr @south, align 8
+  %213 = getelementptr inbounds { double, double }, ptr @south, i32 0, i32 1
+  %214 = load double, ptr %213, align 8
+  %215 = call { double, double } @add_pointf(double %209, double %211, double %212, double %214)
+  %216 = getelementptr inbounds { double, double }, ptr %32, i32 0, i32 0
   %217 = extractvalue { double, double } %215, 0
   store double %217, ptr %216, align 8
-  %218 = getelementptr inbounds { double, double }, ptr %33, i32 0, i32 1
+  %218 = getelementptr inbounds { double, double }, ptr %32, i32 0, i32 1
   %219 = extractvalue { double, double } %215, 1
   store double %219, ptr %218, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %33, i64 16, i1 false)
-  %220 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %221 = load double, ptr %220, align 8
-  %222 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %223 = load double, ptr %222, align 8
-  %224 = load double, ptr @southeast, align 8
-  %225 = load double, ptr getelementptr inbounds ({ double, double }, ptr @southeast, i32 0, i32 1), align 8
-  %226 = call { double, double } @add_pointf(double %221, double %223, double %224, double %225)
-  %227 = getelementptr inbounds { double, double }, ptr %34, i32 0, i32 0
-  %228 = extractvalue { double, double } %226, 0
-  store double %228, ptr %227, align 8
-  %229 = getelementptr inbounds { double, double }, ptr %34, i32 0, i32 1
-  %230 = extractvalue { double, double } %226, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %32, i64 16, i1 false)
+  br label %370
+
+220:                                              ; preds = %6
+  %221 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %222 = load double, ptr %221, align 8
+  %223 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %224 = load double, ptr %223, align 8
+  %225 = load double, ptr @south, align 8
+  %226 = getelementptr inbounds { double, double }, ptr @south, i32 0, i32 1
+  %227 = load double, ptr %226, align 8
+  %228 = call { double, double } @add_pointf(double %222, double %224, double %225, double %227)
+  %229 = getelementptr inbounds { double, double }, ptr %33, i32 0, i32 0
+  %230 = extractvalue { double, double } %228, 0
   store double %230, ptr %229, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %34, i64 16, i1 false)
-  %231 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %232 = load double, ptr %231, align 8
-  %233 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %231 = getelementptr inbounds { double, double }, ptr %33, i32 0, i32 1
+  %232 = extractvalue { double, double } %228, 1
+  store double %232, ptr %231, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %33, i64 16, i1 false)
+  %233 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
   %234 = load double, ptr %233, align 8
-  %235 = load double, ptr @southwest, align 8
-  %236 = load double, ptr getelementptr inbounds ({ double, double }, ptr @southwest, i32 0, i32 1), align 8
-  %237 = call { double, double } @add_pointf(double %232, double %234, double %235, double %236)
-  %238 = getelementptr inbounds { double, double }, ptr %35, i32 0, i32 0
-  %239 = extractvalue { double, double } %237, 0
-  store double %239, ptr %238, align 8
-  %240 = getelementptr inbounds { double, double }, ptr %35, i32 0, i32 1
-  %241 = extractvalue { double, double } %237, 1
-  store double %241, ptr %240, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %35, i64 16, i1 false)
-  br label %346
-
-242:                                              ; preds = %6
-  %243 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %244 = load double, ptr %243, align 8
-  %245 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %235 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %236 = load double, ptr %235, align 8
+  %237 = load double, ptr @southeast, align 8
+  %238 = getelementptr inbounds { double, double }, ptr @southeast, i32 0, i32 1
+  %239 = load double, ptr %238, align 8
+  %240 = call { double, double } @add_pointf(double %234, double %236, double %237, double %239)
+  %241 = getelementptr inbounds { double, double }, ptr %34, i32 0, i32 0
+  %242 = extractvalue { double, double } %240, 0
+  store double %242, ptr %241, align 8
+  %243 = getelementptr inbounds { double, double }, ptr %34, i32 0, i32 1
+  %244 = extractvalue { double, double } %240, 1
+  store double %244, ptr %243, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %34, i64 16, i1 false)
+  %245 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
   %246 = load double, ptr %245, align 8
-  %247 = load double, ptr @southwest, align 8
-  %248 = load double, ptr getelementptr inbounds ({ double, double }, ptr @southwest, i32 0, i32 1), align 8
-  %249 = call { double, double } @add_pointf(double %244, double %246, double %247, double %248)
-  %250 = getelementptr inbounds { double, double }, ptr %36, i32 0, i32 0
-  %251 = extractvalue { double, double } %249, 0
-  store double %251, ptr %250, align 8
-  %252 = getelementptr inbounds { double, double }, ptr %36, i32 0, i32 1
-  %253 = extractvalue { double, double } %249, 1
-  store double %253, ptr %252, align 8
+  %247 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %248 = load double, ptr %247, align 8
+  %249 = load double, ptr @southwest, align 8
+  %250 = getelementptr inbounds { double, double }, ptr @southwest, i32 0, i32 1
+  %251 = load double, ptr %250, align 8
+  %252 = call { double, double } @add_pointf(double %246, double %248, double %249, double %251)
+  %253 = getelementptr inbounds { double, double }, ptr %35, i32 0, i32 0
+  %254 = extractvalue { double, double } %252, 0
+  store double %254, ptr %253, align 8
+  %255 = getelementptr inbounds { double, double }, ptr %35, i32 0, i32 1
+  %256 = extractvalue { double, double } %252, 1
+  store double %256, ptr %255, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %35, i64 16, i1 false)
+  br label %370
+
+257:                                              ; preds = %6
+  %258 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %259 = load double, ptr %258, align 8
+  %260 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %261 = load double, ptr %260, align 8
+  %262 = load double, ptr @southwest, align 8
+  %263 = getelementptr inbounds { double, double }, ptr @southwest, i32 0, i32 1
+  %264 = load double, ptr %263, align 8
+  %265 = call { double, double } @add_pointf(double %259, double %261, double %262, double %264)
+  %266 = getelementptr inbounds { double, double }, ptr %36, i32 0, i32 0
+  %267 = extractvalue { double, double } %265, 0
+  store double %267, ptr %266, align 8
+  %268 = getelementptr inbounds { double, double }, ptr %36, i32 0, i32 1
+  %269 = extractvalue { double, double } %265, 1
+  store double %269, ptr %268, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %36, i64 16, i1 false)
-  %254 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %255 = load double, ptr %254, align 8
-  %256 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %257 = load double, ptr %256, align 8
-  %258 = load double, ptr @south, align 8
-  %259 = load double, ptr getelementptr inbounds ({ double, double }, ptr @south, i32 0, i32 1), align 8
-  %260 = call { double, double } @add_pointf(double %255, double %257, double %258, double %259)
-  %261 = getelementptr inbounds { double, double }, ptr %37, i32 0, i32 0
-  %262 = extractvalue { double, double } %260, 0
-  store double %262, ptr %261, align 8
-  %263 = getelementptr inbounds { double, double }, ptr %37, i32 0, i32 1
-  %264 = extractvalue { double, double } %260, 1
-  store double %264, ptr %263, align 8
+  %270 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %271 = load double, ptr %270, align 8
+  %272 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %273 = load double, ptr %272, align 8
+  %274 = load double, ptr @south, align 8
+  %275 = getelementptr inbounds { double, double }, ptr @south, i32 0, i32 1
+  %276 = load double, ptr %275, align 8
+  %277 = call { double, double } @add_pointf(double %271, double %273, double %274, double %276)
+  %278 = getelementptr inbounds { double, double }, ptr %37, i32 0, i32 0
+  %279 = extractvalue { double, double } %277, 0
+  store double %279, ptr %278, align 8
+  %280 = getelementptr inbounds { double, double }, ptr %37, i32 0, i32 1
+  %281 = extractvalue { double, double } %277, 1
+  store double %281, ptr %280, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %37, i64 16, i1 false)
-  %265 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %266 = load double, ptr %265, align 8
-  %267 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %268 = load double, ptr %267, align 8
-  %269 = load double, ptr @west, align 8
-  %270 = load double, ptr getelementptr inbounds ({ double, double }, ptr @west, i32 0, i32 1), align 8
-  %271 = call { double, double } @add_pointf(double %266, double %268, double %269, double %270)
-  %272 = getelementptr inbounds { double, double }, ptr %38, i32 0, i32 0
-  %273 = extractvalue { double, double } %271, 0
-  store double %273, ptr %272, align 8
-  %274 = getelementptr inbounds { double, double }, ptr %38, i32 0, i32 1
-  %275 = extractvalue { double, double } %271, 1
-  store double %275, ptr %274, align 8
+  %282 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %283 = load double, ptr %282, align 8
+  %284 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %285 = load double, ptr %284, align 8
+  %286 = load double, ptr @west, align 8
+  %287 = getelementptr inbounds { double, double }, ptr @west, i32 0, i32 1
+  %288 = load double, ptr %287, align 8
+  %289 = call { double, double } @add_pointf(double %283, double %285, double %286, double %288)
+  %290 = getelementptr inbounds { double, double }, ptr %38, i32 0, i32 0
+  %291 = extractvalue { double, double } %289, 0
+  store double %291, ptr %290, align 8
+  %292 = getelementptr inbounds { double, double }, ptr %38, i32 0, i32 1
+  %293 = extractvalue { double, double } %289, 1
+  store double %293, ptr %292, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %38, i64 16, i1 false)
-  br label %346
+  br label %370
 
-276:                                              ; preds = %6
-  %277 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %278 = load double, ptr %277, align 8
-  %279 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %280 = load double, ptr %279, align 8
-  %281 = load double, ptr @west, align 8
-  %282 = load double, ptr getelementptr inbounds ({ double, double }, ptr @west, i32 0, i32 1), align 8
-  %283 = call { double, double } @add_pointf(double %278, double %280, double %281, double %282)
-  %284 = getelementptr inbounds { double, double }, ptr %39, i32 0, i32 0
-  %285 = extractvalue { double, double } %283, 0
-  store double %285, ptr %284, align 8
-  %286 = getelementptr inbounds { double, double }, ptr %39, i32 0, i32 1
-  %287 = extractvalue { double, double } %283, 1
-  store double %287, ptr %286, align 8
+294:                                              ; preds = %6
+  %295 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %296 = load double, ptr %295, align 8
+  %297 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %298 = load double, ptr %297, align 8
+  %299 = load double, ptr @west, align 8
+  %300 = getelementptr inbounds { double, double }, ptr @west, i32 0, i32 1
+  %301 = load double, ptr %300, align 8
+  %302 = call { double, double } @add_pointf(double %296, double %298, double %299, double %301)
+  %303 = getelementptr inbounds { double, double }, ptr %39, i32 0, i32 0
+  %304 = extractvalue { double, double } %302, 0
+  store double %304, ptr %303, align 8
+  %305 = getelementptr inbounds { double, double }, ptr %39, i32 0, i32 1
+  %306 = extractvalue { double, double } %302, 1
+  store double %306, ptr %305, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %39, i64 16, i1 false)
-  %288 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %289 = load double, ptr %288, align 8
-  %290 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %291 = load double, ptr %290, align 8
-  %292 = load double, ptr @southwest, align 8
-  %293 = load double, ptr getelementptr inbounds ({ double, double }, ptr @southwest, i32 0, i32 1), align 8
-  %294 = call { double, double } @add_pointf(double %289, double %291, double %292, double %293)
-  %295 = getelementptr inbounds { double, double }, ptr %40, i32 0, i32 0
-  %296 = extractvalue { double, double } %294, 0
-  store double %296, ptr %295, align 8
-  %297 = getelementptr inbounds { double, double }, ptr %40, i32 0, i32 1
-  %298 = extractvalue { double, double } %294, 1
-  store double %298, ptr %297, align 8
+  %307 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %308 = load double, ptr %307, align 8
+  %309 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %310 = load double, ptr %309, align 8
+  %311 = load double, ptr @southwest, align 8
+  %312 = getelementptr inbounds { double, double }, ptr @southwest, i32 0, i32 1
+  %313 = load double, ptr %312, align 8
+  %314 = call { double, double } @add_pointf(double %308, double %310, double %311, double %313)
+  %315 = getelementptr inbounds { double, double }, ptr %40, i32 0, i32 0
+  %316 = extractvalue { double, double } %314, 0
+  store double %316, ptr %315, align 8
+  %317 = getelementptr inbounds { double, double }, ptr %40, i32 0, i32 1
+  %318 = extractvalue { double, double } %314, 1
+  store double %318, ptr %317, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %40, i64 16, i1 false)
-  %299 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %300 = load double, ptr %299, align 8
-  %301 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %302 = load double, ptr %301, align 8
-  %303 = load double, ptr @northwest, align 8
-  %304 = load double, ptr getelementptr inbounds ({ double, double }, ptr @northwest, i32 0, i32 1), align 8
-  %305 = call { double, double } @add_pointf(double %300, double %302, double %303, double %304)
-  %306 = getelementptr inbounds { double, double }, ptr %41, i32 0, i32 0
-  %307 = extractvalue { double, double } %305, 0
-  store double %307, ptr %306, align 8
-  %308 = getelementptr inbounds { double, double }, ptr %41, i32 0, i32 1
-  %309 = extractvalue { double, double } %305, 1
-  store double %309, ptr %308, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %41, i64 16, i1 false)
-  br label %346
-
-310:                                              ; preds = %6
-  %311 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %312 = load double, ptr %311, align 8
-  %313 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %314 = load double, ptr %313, align 8
-  %315 = load double, ptr @northwest, align 8
-  %316 = load double, ptr getelementptr inbounds ({ double, double }, ptr @northwest, i32 0, i32 1), align 8
-  %317 = call { double, double } @add_pointf(double %312, double %314, double %315, double %316)
-  %318 = getelementptr inbounds { double, double }, ptr %42, i32 0, i32 0
-  %319 = extractvalue { double, double } %317, 0
-  store double %319, ptr %318, align 8
-  %320 = getelementptr inbounds { double, double }, ptr %42, i32 0, i32 1
-  %321 = extractvalue { double, double } %317, 1
-  store double %321, ptr %320, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %42, i64 16, i1 false)
-  %322 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %323 = load double, ptr %322, align 8
-  %324 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %319 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %320 = load double, ptr %319, align 8
+  %321 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %322 = load double, ptr %321, align 8
+  %323 = load double, ptr @northwest, align 8
+  %324 = getelementptr inbounds { double, double }, ptr @northwest, i32 0, i32 1
   %325 = load double, ptr %324, align 8
-  %326 = load double, ptr @west, align 8
-  %327 = load double, ptr getelementptr inbounds ({ double, double }, ptr @west, i32 0, i32 1), align 8
-  %328 = call { double, double } @add_pointf(double %323, double %325, double %326, double %327)
-  %329 = getelementptr inbounds { double, double }, ptr %43, i32 0, i32 0
-  %330 = extractvalue { double, double } %328, 0
+  %326 = call { double, double } @add_pointf(double %320, double %322, double %323, double %325)
+  %327 = getelementptr inbounds { double, double }, ptr %41, i32 0, i32 0
+  %328 = extractvalue { double, double } %326, 0
+  store double %328, ptr %327, align 8
+  %329 = getelementptr inbounds { double, double }, ptr %41, i32 0, i32 1
+  %330 = extractvalue { double, double } %326, 1
   store double %330, ptr %329, align 8
-  %331 = getelementptr inbounds { double, double }, ptr %43, i32 0, i32 1
-  %332 = extractvalue { double, double } %328, 1
-  store double %332, ptr %331, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %43, i64 16, i1 false)
-  %333 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %334 = load double, ptr %333, align 8
-  %335 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %336 = load double, ptr %335, align 8
-  %337 = load double, ptr @north, align 8
-  %338 = load double, ptr getelementptr inbounds ({ double, double }, ptr @north, i32 0, i32 1), align 8
-  %339 = call { double, double } @add_pointf(double %334, double %336, double %337, double %338)
-  %340 = getelementptr inbounds { double, double }, ptr %44, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %41, i64 16, i1 false)
+  br label %370
+
+331:                                              ; preds = %6
+  %332 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %333 = load double, ptr %332, align 8
+  %334 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %335 = load double, ptr %334, align 8
+  %336 = load double, ptr @northwest, align 8
+  %337 = getelementptr inbounds { double, double }, ptr @northwest, i32 0, i32 1
+  %338 = load double, ptr %337, align 8
+  %339 = call { double, double } @add_pointf(double %333, double %335, double %336, double %338)
+  %340 = getelementptr inbounds { double, double }, ptr %42, i32 0, i32 0
   %341 = extractvalue { double, double } %339, 0
   store double %341, ptr %340, align 8
-  %342 = getelementptr inbounds { double, double }, ptr %44, i32 0, i32 1
+  %342 = getelementptr inbounds { double, double }, ptr %42, i32 0, i32 1
   %343 = extractvalue { double, double } %339, 1
   store double %343, ptr %342, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %42, i64 16, i1 false)
+  %344 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %345 = load double, ptr %344, align 8
+  %346 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %347 = load double, ptr %346, align 8
+  %348 = load double, ptr @west, align 8
+  %349 = getelementptr inbounds { double, double }, ptr @west, i32 0, i32 1
+  %350 = load double, ptr %349, align 8
+  %351 = call { double, double } @add_pointf(double %345, double %347, double %348, double %350)
+  %352 = getelementptr inbounds { double, double }, ptr %43, i32 0, i32 0
+  %353 = extractvalue { double, double } %351, 0
+  store double %353, ptr %352, align 8
+  %354 = getelementptr inbounds { double, double }, ptr %43, i32 0, i32 1
+  %355 = extractvalue { double, double } %351, 1
+  store double %355, ptr %354, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %43, i64 16, i1 false)
+  %356 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %357 = load double, ptr %356, align 8
+  %358 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %359 = load double, ptr %358, align 8
+  %360 = load double, ptr @north, align 8
+  %361 = getelementptr inbounds { double, double }, ptr @north, i32 0, i32 1
+  %362 = load double, ptr %361, align 8
+  %363 = call { double, double } @add_pointf(double %357, double %359, double %360, double %362)
+  %364 = getelementptr inbounds { double, double }, ptr %44, i32 0, i32 0
+  %365 = extractvalue { double, double } %363, 0
+  store double %365, ptr %364, align 8
+  %366 = getelementptr inbounds { double, double }, ptr %44, i32 0, i32 1
+  %367 = extractvalue { double, double } %363, 1
+  store double %367, ptr %366, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %44, i64 16, i1 false)
-  br label %346
+  br label %370
 
-344:                                              ; preds = %6
-  br label %346
+368:                                              ; preds = %6
+  br label %370
 
-345:                                              ; preds = %6
-  br label %346
+369:                                              ; preds = %6
+  br label %370
 
-346:                                              ; preds = %345, %344, %310, %276, %242, %208, %174, %140, %106, %72
-  %347 = load ptr, ptr %8, align 8
-  %348 = getelementptr inbounds %struct.router_s, ptr %347, i32 0, i32 6
-  %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds %struct.tgraph, ptr %349, i32 0, i32 0
-  %351 = load ptr, ptr %350, align 8
-  %352 = load i32, ptr %10, align 4
-  %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds %struct.tnode, ptr %351, i64 %353
-  %355 = getelementptr inbounds %struct.tnode, ptr %354, i32 0, i32 0
-  store i64 0, ptr %355, align 8
-  %356 = load ptr, ptr %8, align 8
-  %357 = getelementptr inbounds %struct.router_s, ptr %356, i32 0, i32 6
-  %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds %struct.tgraph, ptr %358, i32 0, i32 0
-  %360 = load ptr, ptr %359, align 8
-  %361 = load i32, ptr %10, align 4
-  %362 = sext i32 %361 to i64
-  %363 = getelementptr inbounds %struct.tnode, ptr %360, i64 %362
-  %364 = getelementptr inbounds %struct.tnode, ptr %363, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %364, ptr align 8 %7, i64 16, i1 false)
-  %365 = load i32, ptr %13, align 4
-  store i32 %365, ptr %16, align 4
-  br label %366
+370:                                              ; preds = %369, %368, %331, %294, %257, %220, %183, %146, %109, %72
+  %371 = load ptr, ptr %8, align 8
+  %372 = getelementptr inbounds %struct.router_s, ptr %371, i32 0, i32 6
+  %373 = load ptr, ptr %372, align 8
+  %374 = getelementptr inbounds %struct.tgraph, ptr %373, i32 0, i32 0
+  %375 = load ptr, ptr %374, align 8
+  %376 = load i32, ptr %10, align 4
+  %377 = sext i32 %376 to i64
+  %378 = getelementptr inbounds %struct.tnode, ptr %375, i64 %377
+  %379 = getelementptr inbounds %struct.tnode, ptr %378, i32 0, i32 0
+  store i64 0, ptr %379, align 8
+  %380 = load ptr, ptr %8, align 8
+  %381 = getelementptr inbounds %struct.router_s, ptr %380, i32 0, i32 6
+  %382 = load ptr, ptr %381, align 8
+  %383 = getelementptr inbounds %struct.tgraph, ptr %382, i32 0, i32 0
+  %384 = load ptr, ptr %383, align 8
+  %385 = load i32, ptr %10, align 4
+  %386 = sext i32 %385 to i64
+  %387 = getelementptr inbounds %struct.tnode, ptr %384, i64 %386
+  %388 = getelementptr inbounds %struct.tnode, ptr %387, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %388, ptr align 8 %7, i64 16, i1 false)
+  %389 = load i32, ptr %13, align 4
+  store i32 %389, ptr %16, align 4
+  br label %390
 
-366:                                              ; preds = %480, %346
-  %367 = load i32, ptr %16, align 4
-  %368 = load i32, ptr %14, align 4
-  %369 = icmp slt i32 %367, %368
-  br i1 %369, label %370, label %483
+390:                                              ; preds = %504, %370
+  %391 = load i32, ptr %16, align 4
+  %392 = load i32, ptr %14, align 4
+  %393 = icmp slt i32 %391, %392
+  br i1 %393, label %394, label %507
 
-370:                                              ; preds = %366
-  %371 = load i32, ptr %16, align 4
-  %372 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 0
-  store i32 %371, ptr %372, align 4
-  %373 = load i32, ptr %16, align 4
-  %374 = load i32, ptr %14, align 4
-  %375 = sub nsw i32 %374, 1
-  %376 = icmp slt i32 %373, %375
-  br i1 %376, label %377, label %381
+394:                                              ; preds = %390
+  %395 = load i32, ptr %16, align 4
+  %396 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 0
+  store i32 %395, ptr %396, align 4
+  %397 = load i32, ptr %16, align 4
+  %398 = load i32, ptr %14, align 4
+  %399 = sub nsw i32 %398, 1
+  %400 = icmp slt i32 %397, %399
+  br i1 %400, label %401, label %405
 
-377:                                              ; preds = %370
-  %378 = load i32, ptr %16, align 4
-  %379 = add nsw i32 %378, 1
-  %380 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
-  store i32 %379, ptr %380, align 4
-  br label %384
+401:                                              ; preds = %394
+  %402 = load i32, ptr %16, align 4
+  %403 = add nsw i32 %402, 1
+  %404 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
+  store i32 %403, ptr %404, align 4
+  br label %408
 
-381:                                              ; preds = %370
-  %382 = load i32, ptr %13, align 4
-  %383 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
-  store i32 %382, ptr %383, align 4
-  br label %384
+405:                                              ; preds = %394
+  %406 = load i32, ptr %13, align 4
+  %407 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
+  store i32 %406, ptr %407, align 4
+  br label %408
 
-384:                                              ; preds = %381, %377
-  %385 = load ptr, ptr %8, align 8
-  %386 = getelementptr inbounds %struct.router_s, ptr %385, i32 0, i32 4
-  %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 0
-  %389 = load i32, ptr %388, align 4
-  %390 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
-  %391 = load i32, ptr %390, align 4
-  %392 = call i32 @findMap(ptr noundef %387, i32 noundef %389, i32 noundef %391)
-  store i32 %392, ptr %17, align 4
-  %393 = load i32, ptr %11, align 4
-  %394 = icmp ne i32 %393, 0
-  br i1 %394, label %395, label %473
-
-395:                                              ; preds = %384
-  %396 = load ptr, ptr %15, align 8
-  %397 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 0
-  %398 = load i32, ptr %397, align 4
-  %399 = sext i32 %398 to i64
-  %400 = getelementptr inbounds %struct.pointf_s, ptr %396, i64 %399
-  %401 = getelementptr inbounds { double, double }, ptr %19, i32 0, i32 0
-  %402 = load double, ptr %401, align 8
-  %403 = getelementptr inbounds { double, double }, ptr %19, i32 0, i32 1
-  %404 = load double, ptr %403, align 8
-  %405 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %406 = load double, ptr %405, align 8
-  %407 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %408 = load double, ptr %407, align 8
-  %409 = getelementptr inbounds { double, double }, ptr %20, i32 0, i32 0
-  %410 = load double, ptr %409, align 8
-  %411 = getelementptr inbounds { double, double }, ptr %20, i32 0, i32 1
-  %412 = load double, ptr %411, align 8
-  %413 = getelementptr inbounds { double, double }, ptr %400, i32 0, i32 0
-  %414 = load double, ptr %413, align 8
-  %415 = getelementptr inbounds { double, double }, ptr %400, i32 0, i32 1
-  %416 = load double, ptr %415, align 8
-  %417 = call i32 @inCone(double %402, double %404, double %406, double %408, double %410, double %412, double %414, double %416)
+408:                                              ; preds = %405, %401
+  %409 = load ptr, ptr %8, align 8
+  %410 = getelementptr inbounds %struct.router_s, ptr %409, i32 0, i32 4
+  %411 = load ptr, ptr %410, align 8
+  %412 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 0
+  %413 = load i32, ptr %412, align 4
+  %414 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
+  %415 = load i32, ptr %414, align 4
+  %416 = call i32 @findMap(ptr noundef %411, i32 noundef %413, i32 noundef %415)
+  store i32 %416, ptr %17, align 4
+  %417 = load i32, ptr %11, align 4
   %418 = icmp ne i32 %417, 0
-  br i1 %418, label %473, label %419
+  br i1 %418, label %419, label %497
 
-419:                                              ; preds = %395
+419:                                              ; preds = %408
   %420 = load ptr, ptr %15, align 8
-  %421 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
+  %421 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 0
   %422 = load i32, ptr %421, align 4
   %423 = sext i32 %422 to i64
   %424 = getelementptr inbounds %struct.pointf_s, ptr %420, i64 %423
@@ -1861,59 +1859,85 @@ define internal void @addEndpoint(ptr noundef %0, double %1, double %2, ptr noun
   %440 = load double, ptr %439, align 8
   %441 = call i32 @inCone(double %426, double %428, double %430, double %432, double %434, double %436, double %438, double %440)
   %442 = icmp ne i32 %441, 0
-  br i1 %442, label %473, label %443
+  br i1 %442, label %497, label %443
 
 443:                                              ; preds = %419
   %444 = load ptr, ptr %15, align 8
-  %445 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 0
+  %445 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
   %446 = load i32, ptr %445, align 4
   %447 = sext i32 %446 to i64
   %448 = getelementptr inbounds %struct.pointf_s, ptr %444, i64 %447
-  %449 = load ptr, ptr %15, align 8
-  %450 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
-  %451 = load i32, ptr %450, align 4
-  %452 = sext i32 %451 to i64
-  %453 = getelementptr inbounds %struct.pointf_s, ptr %449, i64 %452
-  %454 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  %455 = load double, ptr %454, align 8
-  %456 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  %457 = load double, ptr %456, align 8
-  %458 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 0
-  %459 = load double, ptr %458, align 8
-  %460 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 1
-  %461 = load double, ptr %460, align 8
-  %462 = getelementptr inbounds { double, double }, ptr %448, i32 0, i32 0
-  %463 = load double, ptr %462, align 8
-  %464 = getelementptr inbounds { double, double }, ptr %448, i32 0, i32 1
-  %465 = load double, ptr %464, align 8
-  %466 = getelementptr inbounds { double, double }, ptr %453, i32 0, i32 0
-  %467 = load double, ptr %466, align 8
-  %468 = getelementptr inbounds { double, double }, ptr %453, i32 0, i32 1
-  %469 = load double, ptr %468, align 8
-  %470 = call i32 @raySeg(double %455, double %457, double %459, double %461, double %463, double %465, double %467, double %469)
-  %471 = icmp ne i32 %470, 0
-  br i1 %471, label %473, label %472
+  %449 = getelementptr inbounds { double, double }, ptr %19, i32 0, i32 0
+  %450 = load double, ptr %449, align 8
+  %451 = getelementptr inbounds { double, double }, ptr %19, i32 0, i32 1
+  %452 = load double, ptr %451, align 8
+  %453 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %454 = load double, ptr %453, align 8
+  %455 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %456 = load double, ptr %455, align 8
+  %457 = getelementptr inbounds { double, double }, ptr %20, i32 0, i32 0
+  %458 = load double, ptr %457, align 8
+  %459 = getelementptr inbounds { double, double }, ptr %20, i32 0, i32 1
+  %460 = load double, ptr %459, align 8
+  %461 = getelementptr inbounds { double, double }, ptr %448, i32 0, i32 0
+  %462 = load double, ptr %461, align 8
+  %463 = getelementptr inbounds { double, double }, ptr %448, i32 0, i32 1
+  %464 = load double, ptr %463, align 8
+  %465 = call i32 @inCone(double %450, double %452, double %454, double %456, double %458, double %460, double %462, double %464)
+  %466 = icmp ne i32 %465, 0
+  br i1 %466, label %497, label %467
 
-472:                                              ; preds = %443
-  br label %480
+467:                                              ; preds = %443
+  %468 = load ptr, ptr %15, align 8
+  %469 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 0
+  %470 = load i32, ptr %469, align 4
+  %471 = sext i32 %470 to i64
+  %472 = getelementptr inbounds %struct.pointf_s, ptr %468, i64 %471
+  %473 = load ptr, ptr %15, align 8
+  %474 = getelementptr inbounds %struct.ipair, ptr %45, i32 0, i32 1
+  %475 = load i32, ptr %474, align 4
+  %476 = sext i32 %475 to i64
+  %477 = getelementptr inbounds %struct.pointf_s, ptr %473, i64 %476
+  %478 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %479 = load double, ptr %478, align 8
+  %480 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %481 = load double, ptr %480, align 8
+  %482 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 0
+  %483 = load double, ptr %482, align 8
+  %484 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 1
+  %485 = load double, ptr %484, align 8
+  %486 = getelementptr inbounds { double, double }, ptr %472, i32 0, i32 0
+  %487 = load double, ptr %486, align 8
+  %488 = getelementptr inbounds { double, double }, ptr %472, i32 0, i32 1
+  %489 = load double, ptr %488, align 8
+  %490 = getelementptr inbounds { double, double }, ptr %477, i32 0, i32 0
+  %491 = load double, ptr %490, align 8
+  %492 = getelementptr inbounds { double, double }, ptr %477, i32 0, i32 1
+  %493 = load double, ptr %492, align 8
+  %494 = call i32 @raySeg(double %479, double %481, double %483, double %485, double %487, double %489, double %491, double %493)
+  %495 = icmp ne i32 %494, 0
+  br i1 %495, label %497, label %496
 
-473:                                              ; preds = %443, %419, %395, %384
-  %474 = load ptr, ptr %8, align 8
-  %475 = getelementptr inbounds %struct.router_s, ptr %474, i32 0, i32 6
-  %476 = load ptr, ptr %475, align 8
-  %477 = load i32, ptr %10, align 4
-  %478 = load i32, ptr %17, align 4
-  %479 = load i64, ptr %45, align 4
-  call void @addTriEdge(ptr noundef %476, i32 noundef %477, i32 noundef %478, i64 %479)
-  br label %480
+496:                                              ; preds = %467
+  br label %504
 
-480:                                              ; preds = %473, %472
-  %481 = load i32, ptr %16, align 4
-  %482 = add nsw i32 %481, 1
-  store i32 %482, ptr %16, align 4
-  br label %366
+497:                                              ; preds = %467, %443, %419, %408
+  %498 = load ptr, ptr %8, align 8
+  %499 = getelementptr inbounds %struct.router_s, ptr %498, i32 0, i32 6
+  %500 = load ptr, ptr %499, align 8
+  %501 = load i32, ptr %10, align 4
+  %502 = load i32, ptr %17, align 4
+  %503 = load i64, ptr %45, align 4
+  call void @addTriEdge(ptr noundef %500, i32 noundef %501, i32 noundef %502, i64 %503)
+  br label %504
 
-483:                                              ; preds = %366
+504:                                              ; preds = %497, %496
+  %505 = load i32, ptr %16, align 4
+  %506 = add nsw i32 %505, 1
+  store i32 %506, ptr %16, align 4
+  br label %390
+
+507:                                              ; preds = %390
   ret void
 }
 

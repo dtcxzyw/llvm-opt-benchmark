@@ -18,32 +18,33 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_uc_debugfs_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %16, label %4
+  br i1 %3, label %17, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 596
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %16, label %8
+  br i1 %7, label %17, label %8
 
 8:                                                ; preds = %4
   %9 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #4
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %16, label %11
+  %10 = inttoptr i64 -4096 to ptr
+  %11 = icmp ugt ptr %9, %10
+  br i1 %11, label %17, label %12
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 592
-  %13 = getelementptr inbounds i8, ptr %0, i64 1600
-  store ptr %9, ptr %13, align 8
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %0, i64 592
+  %14 = getelementptr inbounds i8, ptr %0, i64 1600
+  store ptr %9, ptr %14, align 8
   tail call void @intel_gt_debugfs_register_files(ptr noundef %9, ptr noundef nonnull @intel_uc_debugfs_register.files, i64 noundef 1, ptr noundef %0) #4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @intel_gsc_uc_debugfs_register(ptr noundef %14, ptr noundef %9) #4
-  tail call void @intel_guc_debugfs_register(ptr noundef %12, ptr noundef %9) #4
-  %15 = getelementptr inbounds i8, ptr %0, i64 2352
-  tail call void @intel_huc_debugfs_register(ptr noundef %15, ptr noundef %9) #4
-  br label %16
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @intel_gsc_uc_debugfs_register(ptr noundef %15, ptr noundef %9) #4
+  tail call void @intel_guc_debugfs_register(ptr noundef %13, ptr noundef %9) #4
+  %16 = getelementptr inbounds i8, ptr %0, i64 2352
+  tail call void @intel_huc_debugfs_register(ptr noundef %16, ptr noundef %9) #4
+  br label %17
 
-16:                                               ; preds = %11, %8, %4, %2
+17:                                               ; preds = %12, %8, %4, %2
   ret void
 }
 

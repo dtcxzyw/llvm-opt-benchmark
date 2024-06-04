@@ -595,7 +595,7 @@ define internal i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr noundef 
 
 24:                                               ; preds = %4
   store i32 -1, ptr %5, align 4
-  br label %112
+  br label %114
 
 25:                                               ; preds = %4
   br label %26
@@ -665,7 +665,7 @@ define internal i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr noundef 
 59:                                               ; preds = %56
   %60 = load i32, ptr %16, align 4
   store i32 %60, ptr %15, align 4
-  br label %104
+  br label %106
 
 61:                                               ; preds = %56
   %62 = load i8, ptr %7, align 1
@@ -674,7 +674,7 @@ define internal i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr noundef 
 
 64:                                               ; preds = %61
   store i32 5003, ptr %15, align 4
-  br label %104
+  br label %106
 
 65:                                               ; preds = %61
   br label %66
@@ -702,71 +702,73 @@ define internal i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr noundef 
 
 74:                                               ; preds = %73, %26
   %75 = load i32, ptr %11, align 4
-  %76 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %77 = icmp ne i32 %75, %76
-  br i1 %77, label %78, label %85
+  %76 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp ne i32 %75, %77
+  br i1 %78, label %79, label %87
 
-78:                                               ; preds = %74
-  %79 = load i32, ptr %11, align 4
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %85
+79:                                               ; preds = %74
+  %80 = load i32, ptr %11, align 4
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %87
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %11, align 4
-  %83 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169), align 8
-  %84 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.16, ptr noundef @plugin_type, i32 noundef %82, i32 noundef %83)
+82:                                               ; preds = %79
+  %83 = load i32, ptr %11, align 4
+  %84 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 169
+  %85 = load i32, ptr %84, align 8
+  %86 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.16, ptr noundef @plugin_type, i32 noundef %83, i32 noundef %85)
   store i32 5002, ptr %15, align 4
-  br label %104
+  br label %106
 
-85:                                               ; preds = %78, %74
-  %86 = load ptr, ptr %9, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %98
+87:                                               ; preds = %79, %74
+  %88 = load ptr, ptr %9, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %100
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %17, align 8
-  %90 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %89, i32 noundef 4, ptr noundef %18)
+90:                                               ; preds = %87
   %91 = load ptr, ptr %17, align 8
-  %92 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %91, i32 noundef 6, ptr noundef %19)
-  %93 = load i64, ptr %19, align 8
-  %94 = load i32, ptr %18, align 4
-  %95 = sext i32 %94 to i64
-  %96 = add nsw i64 %93, %95
-  %97 = load ptr, ptr %9, align 8
-  store i64 %96, ptr %97, align 8
-  br label %98
+  %92 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %91, i32 noundef 4, ptr noundef %18)
+  %93 = load ptr, ptr %17, align 8
+  %94 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %93, i32 noundef 6, ptr noundef %19)
+  %95 = load i64, ptr %19, align 8
+  %96 = load i32, ptr %18, align 4
+  %97 = sext i32 %96 to i64
+  %98 = add nsw i64 %95, %97
+  %99 = load ptr, ptr %9, align 8
+  store i64 %98, ptr %99, align 8
+  br label %100
 
-98:                                               ; preds = %88, %85
-  %99 = load ptr, ptr %17, align 8
-  call void @munge_ctx_destroy(ptr noundef %99)
-  %100 = load ptr, ptr %13, align 8
-  %101 = load i32, ptr %14, align 4
-  %102 = call ptr @slurm_create_buf(ptr noundef %100, i32 noundef %101)
-  %103 = load ptr, ptr %8, align 8
-  store ptr %102, ptr %103, align 8
+100:                                              ; preds = %90, %87
+  %101 = load ptr, ptr %17, align 8
+  call void @munge_ctx_destroy(ptr noundef %101)
+  %102 = load ptr, ptr %13, align 8
+  %103 = load i32, ptr %14, align 4
+  %104 = call ptr @slurm_create_buf(ptr noundef %102, i32 noundef %103)
+  %105 = load ptr, ptr %8, align 8
+  store ptr %104, ptr %105, align 8
   store i32 0, ptr %5, align 4
-  br label %112
+  br label %114
 
-104:                                              ; preds = %81, %64, %59
-  %105 = load ptr, ptr %13, align 8
-  %106 = icmp ne ptr %105, null
-  br i1 %106, label %107, label %109
+106:                                              ; preds = %82, %64, %59
+  %107 = load ptr, ptr %13, align 8
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %109, label %111
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %108) #5
-  br label %109
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %13, align 8
+  call void @free(ptr noundef %110) #5
+  br label %111
 
-109:                                              ; preds = %107, %104
-  %110 = load ptr, ptr %17, align 8
-  call void @munge_ctx_destroy(ptr noundef %110)
-  %111 = load i32, ptr %15, align 4
-  store i32 %111, ptr %5, align 4
-  br label %112
+111:                                              ; preds = %109, %106
+  %112 = load ptr, ptr %17, align 8
+  call void @munge_ctx_destroy(ptr noundef %112)
+  %113 = load i32, ptr %15, align 4
+  store i32 %113, ptr %5, align 4
+  br label %114
 
-112:                                              ; preds = %109, %98, %24
-  %113 = load i32, ptr %5, align 4
-  ret i32 %113
+114:                                              ; preds = %111, %100, %24
+  %115 = load i32, ptr %5, align 4
+  ret i32 %115
 }
 
 declare i32 @slurm_unpack_node_alias_addrs(ptr noundef, ptr noundef, i16 noundef zeroext) #1
@@ -969,72 +971,73 @@ define internal ptr @_munge_ctx_create() #0 {
 12:                                               ; preds = %9
   %13 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.11, ptr noundef @__func__._munge_ctx_create)
   store ptr null, ptr %1, align 8
-  br label %48
+  br label %49
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 18), align 8
-  %16 = call ptr @slurm_auth_opts_to_socket(ptr noundef %15)
-  store ptr %16, ptr %3, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %31
+  %15 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 18
+  %16 = load ptr, ptr %15, align 8
+  %17 = call ptr @slurm_auth_opts_to_socket(ptr noundef %16)
+  store ptr %17, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %32
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %2, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %20, i32 noundef 8, ptr noundef %21)
-  store i32 %22, ptr %4, align 4
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %2, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %21, i32 noundef 8, ptr noundef %22)
+  store i32 %23, ptr %4, align 4
   call void @slurm_xfree(ptr noundef %3)
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %30
+  %24 = load i32, ptr %4, align 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %31
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %2, align 8
-  %27 = call ptr @munge_ctx_strerror(ptr noundef %26)
-  %28 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.12, ptr noundef %27)
-  %29 = load ptr, ptr %2, align 8
-  call void @munge_ctx_destroy(ptr noundef %29)
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %2, align 8
+  %28 = call ptr @munge_ctx_strerror(ptr noundef %27)
+  %29 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.12, ptr noundef %28)
+  %30 = load ptr, ptr %2, align 8
+  call void @munge_ctx_destroy(ptr noundef %30)
   store ptr null, ptr %1, align 8
-  br label %48
+  br label %49
 
-30:                                               ; preds = %19
-  br label %31
+31:                                               ; preds = %20
+  br label %32
 
-31:                                               ; preds = %30, %14
-  %32 = load i32, ptr @_munge_ctx_create.auth_ttl, align 4
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %46
+32:                                               ; preds = %31, %14
+  %33 = load i32, ptr @_munge_ctx_create.auth_ttl, align 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %47
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %2, align 8
-  %36 = load i32, ptr @_munge_ctx_create.auth_ttl, align 4
-  %37 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %35, i32 noundef 4, i32 noundef %36)
-  store i32 %37, ptr %4, align 4
-  %38 = load i32, ptr %4, align 4
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %45
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %2, align 8
+  %37 = load i32, ptr @_munge_ctx_create.auth_ttl, align 4
+  %38 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %36, i32 noundef 4, i32 noundef %37)
+  store i32 %38, ptr %4, align 4
+  %39 = load i32, ptr %4, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %46
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %2, align 8
-  %42 = call ptr @munge_ctx_strerror(ptr noundef %41)
-  %43 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.13, ptr noundef %42)
-  %44 = load ptr, ptr %2, align 8
-  call void @munge_ctx_destroy(ptr noundef %44)
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %2, align 8
+  %43 = call ptr @munge_ctx_strerror(ptr noundef %42)
+  %44 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.13, ptr noundef %43)
+  %45 = load ptr, ptr %2, align 8
+  call void @munge_ctx_destroy(ptr noundef %45)
   store ptr null, ptr %1, align 8
-  br label %48
+  br label %49
 
-45:                                               ; preds = %34
-  br label %46
+46:                                               ; preds = %35
+  br label %47
 
-46:                                               ; preds = %45, %31
-  %47 = load ptr, ptr %2, align 8
-  store ptr %47, ptr %1, align 8
-  br label %48
+47:                                               ; preds = %46, %32
+  %48 = load ptr, ptr %2, align 8
+  store ptr %48, ptr %1, align 8
+  br label %49
 
-48:                                               ; preds = %46, %40, %25, %12
-  %49 = load ptr, ptr %1, align 8
-  ret ptr %49
+49:                                               ; preds = %47, %41, %26, %12
+  %50 = load ptr, ptr %1, align 8
+  ret ptr %50
 }
 
 declare i32 @munge_encode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1

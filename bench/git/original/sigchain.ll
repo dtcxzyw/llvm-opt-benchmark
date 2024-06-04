@@ -112,7 +112,8 @@ do.end:                                           ; preds = %if.end18
   %idxprom24 = sext i32 %30 to i64
   %arrayidx25 = getelementptr inbounds ptr, ptr %28, i64 %idxprom24
   %31 = load ptr, ptr %arrayidx25, align 8
-  %cmp26 = icmp eq ptr %31, inttoptr (i64 -1 to ptr)
+  %32 = inttoptr i64 -1 to ptr
+  %cmp26 = icmp eq ptr %31, %32
   br i1 %cmp26, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %do.end
@@ -120,17 +121,17 @@ if.then28:                                        ; preds = %do.end
   br label %return
 
 if.end29:                                         ; preds = %do.end
-  %32 = load ptr, ptr %s, align 8
-  %n30 = getelementptr inbounds %struct.sigchain_signal, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %n30, align 8
-  %inc = add nsw i32 %33, 1
+  %33 = load ptr, ptr %s, align 8
+  %n30 = getelementptr inbounds %struct.sigchain_signal, ptr %33, i32 0, i32 1
+  %34 = load i32, ptr %n30, align 8
+  %inc = add nsw i32 %34, 1
   store i32 %inc, ptr %n30, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end29, %if.then28
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
+  %35 = load i32, ptr %retval, align 4
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -228,7 +229,8 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
   %call = call ptr @signal(i32 noundef %4, ptr noundef %9) #4
-  %cmp2 = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
+  %10 = inttoptr i64 -1 to ptr
+  %cmp2 = icmp eq ptr %call, %10
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -236,17 +238,17 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %10 = load ptr, ptr %s, align 8
-  %n5 = getelementptr inbounds %struct.sigchain_signal, ptr %10, i32 0, i32 1
-  %11 = load i32, ptr %n5, align 8
-  %dec = add nsw i32 %11, -1
+  %11 = load ptr, ptr %s, align 8
+  %n5 = getelementptr inbounds %struct.sigchain_signal, ptr %11, i32 0, i32 1
+  %12 = load i32, ptr %n5, align 8
+  %dec = add nsw i32 %12, -1
   store i32 %dec, ptr %n5, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+  %13 = load i32, ptr %retval, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1762,7 +1762,7 @@ define internal void @lha_crc16_init() #0 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  br label %67
+  br label %68
 
 7:                                                ; preds = %0
   store i32 1, ptr @lha_crc16_init.crc16init, align 4
@@ -1823,10 +1823,10 @@ define internal void @lha_crc16_init() #0 {
   store i32 0, ptr %1, align 4
   br label %39
 
-39:                                               ; preds = %64, %38
+39:                                               ; preds = %65, %38
   %40 = load i32, ptr %1, align 4
   %41 = icmp ult i32 %40, 256
-  br i1 %41, label %42, label %67
+  br i1 %41, label %42, label %68
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %1, align 4
@@ -1849,17 +1849,18 @@ define internal void @lha_crc16_init() #0 {
   %60 = trunc i32 %59 to i16
   %61 = load i32, ptr %1, align 4
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds [256 x i16], ptr getelementptr inbounds ([2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1), i64 0, i64 %62
-  store i16 %60, ptr %63, align 2
-  br label %64
+  %63 = getelementptr inbounds [2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1
+  %64 = getelementptr inbounds [256 x i16], ptr %63, i64 0, i64 %62
+  store i16 %60, ptr %64, align 2
+  br label %65
 
-64:                                               ; preds = %42
-  %65 = load i32, ptr %1, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %1, align 4
+65:                                               ; preds = %42
+  %66 = load i32, ptr %1, align 4
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %1, align 4
   br label %39, !llvm.loop !10
 
-67:                                               ; preds = %39, %6
+68:                                               ; preds = %39, %6
   ret void
 }
 
@@ -4252,7 +4253,7 @@ define internal zeroext i16 @lha_crc16(i16 noundef zeroext %0, ptr noundef %1, i
 14:                                               ; preds = %3
   %15 = load i16, ptr %5, align 2
   store i16 %15, ptr %4, align 2
-  br label %250
+  br label %254
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %8, align 8
@@ -4291,10 +4292,10 @@ define internal zeroext i16 @lha_crc16(i16 noundef zeroext %0, ptr noundef %1, i
   store ptr %42, ptr %9, align 8
   br label %43
 
-43:                                               ; preds = %219, %41
+43:                                               ; preds = %223, %41
   %44 = load i64, ptr %7, align 8
   %45 = icmp uge i64 %44, 8
-  br i1 %45, label %46, label %222
+  br i1 %45, label %46, label %226
 
 46:                                               ; preds = %43
   br label %47
@@ -4339,250 +4340,254 @@ define internal zeroext i16 @lha_crc16(i16 noundef zeroext %0, ptr noundef %1, i
   %74 = zext i16 %73 to i32
   %75 = and i32 %74, 255
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [256 x i16], ptr getelementptr inbounds ([2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1), i64 0, i64 %76
-  %78 = load i16, ptr %77, align 2
-  %79 = zext i16 %78 to i32
-  %80 = load i16, ptr %5, align 2
-  %81 = zext i16 %80 to i32
-  %82 = ashr i32 %81, 8
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %83
-  %85 = load i16, ptr %84, align 2
-  %86 = zext i16 %85 to i32
-  %87 = xor i32 %79, %86
-  %88 = trunc i32 %87 to i16
-  store i16 %88, ptr %5, align 2
-  br label %89
-
-89:                                               ; preds = %72
+  %77 = getelementptr inbounds [2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1
+  %78 = getelementptr inbounds [256 x i16], ptr %77, i64 0, i64 %76
+  %79 = load i16, ptr %78, align 2
+  %80 = zext i16 %79 to i32
+  %81 = load i16, ptr %5, align 2
+  %82 = zext i16 %81 to i32
+  %83 = ashr i32 %82, 8
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %84
+  %86 = load i16, ptr %85, align 2
+  %87 = zext i16 %86 to i32
+  %88 = xor i32 %80, %87
+  %89 = trunc i32 %88 to i16
+  store i16 %89, ptr %5, align 2
   br label %90
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 0
-  %92 = load i8, ptr %91, align 4
-  %93 = sext i8 %92 to i32
-  %94 = icmp eq i32 %93, 1
-  br i1 %94, label %95, label %106
+90:                                               ; preds = %72
+  br label %91
 
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %9, align 8
-  %97 = load i16, ptr %96, align 2
-  %98 = call i16 @llvm.bswap.i16(i16 %97)
-  %99 = zext i16 %98 to i32
-  %100 = load i16, ptr %5, align 2
-  %101 = zext i16 %100 to i32
-  %102 = xor i32 %101, %99
-  %103 = trunc i32 %102 to i16
-  store i16 %103, ptr %5, align 2
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds i16, ptr %104, i32 1
-  store ptr %105, ptr %9, align 8
-  br label %115
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 0
+  %93 = load i8, ptr %92, align 4
+  %94 = sext i8 %93 to i32
+  %95 = icmp eq i32 %94, 1
+  br i1 %95, label %96, label %107
 
-106:                                              ; preds = %90
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr inbounds i16, ptr %107, i32 1
-  store ptr %108, ptr %9, align 8
-  %109 = load i16, ptr %107, align 2
-  %110 = zext i16 %109 to i32
-  %111 = load i16, ptr %5, align 2
-  %112 = zext i16 %111 to i32
-  %113 = xor i32 %112, %110
-  %114 = trunc i32 %113 to i16
-  store i16 %114, ptr %5, align 2
-  br label %115
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %9, align 8
+  %98 = load i16, ptr %97, align 2
+  %99 = call i16 @llvm.bswap.i16(i16 %98)
+  %100 = zext i16 %99 to i32
+  %101 = load i16, ptr %5, align 2
+  %102 = zext i16 %101 to i32
+  %103 = xor i32 %102, %100
+  %104 = trunc i32 %103 to i16
+  store i16 %104, ptr %5, align 2
+  %105 = load ptr, ptr %9, align 8
+  %106 = getelementptr inbounds i16, ptr %105, i32 1
+  store ptr %106, ptr %9, align 8
+  br label %116
 
-115:                                              ; preds = %106, %95
-  %116 = load i16, ptr %5, align 2
-  %117 = zext i16 %116 to i32
-  %118 = and i32 %117, 255
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds [256 x i16], ptr getelementptr inbounds ([2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1), i64 0, i64 %119
-  %121 = load i16, ptr %120, align 2
-  %122 = zext i16 %121 to i32
-  %123 = load i16, ptr %5, align 2
+107:                                              ; preds = %91
+  %108 = load ptr, ptr %9, align 8
+  %109 = getelementptr inbounds i16, ptr %108, i32 1
+  store ptr %109, ptr %9, align 8
+  %110 = load i16, ptr %108, align 2
+  %111 = zext i16 %110 to i32
+  %112 = load i16, ptr %5, align 2
+  %113 = zext i16 %112 to i32
+  %114 = xor i32 %113, %111
+  %115 = trunc i32 %114 to i16
+  store i16 %115, ptr %5, align 2
+  br label %116
+
+116:                                              ; preds = %107, %96
+  %117 = load i16, ptr %5, align 2
+  %118 = zext i16 %117 to i32
+  %119 = and i32 %118, 255
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds [2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1
+  %122 = getelementptr inbounds [256 x i16], ptr %121, i64 0, i64 %120
+  %123 = load i16, ptr %122, align 2
   %124 = zext i16 %123 to i32
-  %125 = ashr i32 %124, 8
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %126
-  %128 = load i16, ptr %127, align 2
-  %129 = zext i16 %128 to i32
-  %130 = xor i32 %122, %129
-  %131 = trunc i32 %130 to i16
-  store i16 %131, ptr %5, align 2
-  br label %132
+  %125 = load i16, ptr %5, align 2
+  %126 = zext i16 %125 to i32
+  %127 = ashr i32 %126, 8
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %128
+  %130 = load i16, ptr %129, align 2
+  %131 = zext i16 %130 to i32
+  %132 = xor i32 %124, %131
+  %133 = trunc i32 %132 to i16
+  store i16 %133, ptr %5, align 2
+  br label %134
 
-132:                                              ; preds = %115
-  br label %133
+134:                                              ; preds = %116
+  br label %135
 
-133:                                              ; preds = %132
-  %134 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 0
-  %135 = load i8, ptr %134, align 4
-  %136 = sext i8 %135 to i32
-  %137 = icmp eq i32 %136, 1
-  br i1 %137, label %138, label %149
+135:                                              ; preds = %134
+  %136 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 0
+  %137 = load i8, ptr %136, align 4
+  %138 = sext i8 %137 to i32
+  %139 = icmp eq i32 %138, 1
+  br i1 %139, label %140, label %151
 
-138:                                              ; preds = %133
-  %139 = load ptr, ptr %9, align 8
-  %140 = load i16, ptr %139, align 2
-  %141 = call i16 @llvm.bswap.i16(i16 %140)
-  %142 = zext i16 %141 to i32
-  %143 = load i16, ptr %5, align 2
+140:                                              ; preds = %135
+  %141 = load ptr, ptr %9, align 8
+  %142 = load i16, ptr %141, align 2
+  %143 = call i16 @llvm.bswap.i16(i16 %142)
   %144 = zext i16 %143 to i32
-  %145 = xor i32 %144, %142
-  %146 = trunc i32 %145 to i16
-  store i16 %146, ptr %5, align 2
-  %147 = load ptr, ptr %9, align 8
-  %148 = getelementptr inbounds i16, ptr %147, i32 1
-  store ptr %148, ptr %9, align 8
-  br label %158
+  %145 = load i16, ptr %5, align 2
+  %146 = zext i16 %145 to i32
+  %147 = xor i32 %146, %144
+  %148 = trunc i32 %147 to i16
+  store i16 %148, ptr %5, align 2
+  %149 = load ptr, ptr %9, align 8
+  %150 = getelementptr inbounds i16, ptr %149, i32 1
+  store ptr %150, ptr %9, align 8
+  br label %160
 
-149:                                              ; preds = %133
-  %150 = load ptr, ptr %9, align 8
-  %151 = getelementptr inbounds i16, ptr %150, i32 1
-  store ptr %151, ptr %9, align 8
-  %152 = load i16, ptr %150, align 2
-  %153 = zext i16 %152 to i32
-  %154 = load i16, ptr %5, align 2
+151:                                              ; preds = %135
+  %152 = load ptr, ptr %9, align 8
+  %153 = getelementptr inbounds i16, ptr %152, i32 1
+  store ptr %153, ptr %9, align 8
+  %154 = load i16, ptr %152, align 2
   %155 = zext i16 %154 to i32
-  %156 = xor i32 %155, %153
-  %157 = trunc i32 %156 to i16
-  store i16 %157, ptr %5, align 2
-  br label %158
+  %156 = load i16, ptr %5, align 2
+  %157 = zext i16 %156 to i32
+  %158 = xor i32 %157, %155
+  %159 = trunc i32 %158 to i16
+  store i16 %159, ptr %5, align 2
+  br label %160
 
-158:                                              ; preds = %149, %138
-  %159 = load i16, ptr %5, align 2
-  %160 = zext i16 %159 to i32
-  %161 = and i32 %160, 255
-  %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds [256 x i16], ptr getelementptr inbounds ([2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1), i64 0, i64 %162
-  %164 = load i16, ptr %163, align 2
-  %165 = zext i16 %164 to i32
-  %166 = load i16, ptr %5, align 2
-  %167 = zext i16 %166 to i32
-  %168 = ashr i32 %167, 8
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %169
-  %171 = load i16, ptr %170, align 2
-  %172 = zext i16 %171 to i32
-  %173 = xor i32 %165, %172
-  %174 = trunc i32 %173 to i16
-  store i16 %174, ptr %5, align 2
-  br label %175
+160:                                              ; preds = %151, %140
+  %161 = load i16, ptr %5, align 2
+  %162 = zext i16 %161 to i32
+  %163 = and i32 %162, 255
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds [2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1
+  %166 = getelementptr inbounds [256 x i16], ptr %165, i64 0, i64 %164
+  %167 = load i16, ptr %166, align 2
+  %168 = zext i16 %167 to i32
+  %169 = load i16, ptr %5, align 2
+  %170 = zext i16 %169 to i32
+  %171 = ashr i32 %170, 8
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %172
+  %174 = load i16, ptr %173, align 2
+  %175 = zext i16 %174 to i32
+  %176 = xor i32 %168, %175
+  %177 = trunc i32 %176 to i16
+  store i16 %177, ptr %5, align 2
+  br label %178
 
-175:                                              ; preds = %158
-  br label %176
+178:                                              ; preds = %160
+  br label %179
 
-176:                                              ; preds = %175
-  %177 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 0
-  %178 = load i8, ptr %177, align 4
-  %179 = sext i8 %178 to i32
-  %180 = icmp eq i32 %179, 1
-  br i1 %180, label %181, label %192
+179:                                              ; preds = %178
+  %180 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 0
+  %181 = load i8, ptr %180, align 4
+  %182 = sext i8 %181 to i32
+  %183 = icmp eq i32 %182, 1
+  br i1 %183, label %184, label %195
 
-181:                                              ; preds = %176
-  %182 = load ptr, ptr %9, align 8
-  %183 = load i16, ptr %182, align 2
-  %184 = call i16 @llvm.bswap.i16(i16 %183)
-  %185 = zext i16 %184 to i32
-  %186 = load i16, ptr %5, align 2
-  %187 = zext i16 %186 to i32
-  %188 = xor i32 %187, %185
-  %189 = trunc i32 %188 to i16
-  store i16 %189, ptr %5, align 2
-  %190 = load ptr, ptr %9, align 8
-  %191 = getelementptr inbounds i16, ptr %190, i32 1
-  store ptr %191, ptr %9, align 8
-  br label %201
-
-192:                                              ; preds = %176
+184:                                              ; preds = %179
+  %185 = load ptr, ptr %9, align 8
+  %186 = load i16, ptr %185, align 2
+  %187 = call i16 @llvm.bswap.i16(i16 %186)
+  %188 = zext i16 %187 to i32
+  %189 = load i16, ptr %5, align 2
+  %190 = zext i16 %189 to i32
+  %191 = xor i32 %190, %188
+  %192 = trunc i32 %191 to i16
+  store i16 %192, ptr %5, align 2
   %193 = load ptr, ptr %9, align 8
   %194 = getelementptr inbounds i16, ptr %193, i32 1
   store ptr %194, ptr %9, align 8
-  %195 = load i16, ptr %193, align 2
-  %196 = zext i16 %195 to i32
-  %197 = load i16, ptr %5, align 2
-  %198 = zext i16 %197 to i32
-  %199 = xor i32 %198, %196
-  %200 = trunc i32 %199 to i16
-  store i16 %200, ptr %5, align 2
-  br label %201
+  br label %204
 
-201:                                              ; preds = %192, %181
-  %202 = load i16, ptr %5, align 2
-  %203 = zext i16 %202 to i32
-  %204 = and i32 %203, 255
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds [256 x i16], ptr getelementptr inbounds ([2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1), i64 0, i64 %205
-  %207 = load i16, ptr %206, align 2
-  %208 = zext i16 %207 to i32
-  %209 = load i16, ptr %5, align 2
-  %210 = zext i16 %209 to i32
-  %211 = ashr i32 %210, 8
-  %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %212
-  %214 = load i16, ptr %213, align 2
-  %215 = zext i16 %214 to i32
-  %216 = xor i32 %208, %215
-  %217 = trunc i32 %216 to i16
-  store i16 %217, ptr %5, align 2
-  br label %218
+195:                                              ; preds = %179
+  %196 = load ptr, ptr %9, align 8
+  %197 = getelementptr inbounds i16, ptr %196, i32 1
+  store ptr %197, ptr %9, align 8
+  %198 = load i16, ptr %196, align 2
+  %199 = zext i16 %198 to i32
+  %200 = load i16, ptr %5, align 2
+  %201 = zext i16 %200 to i32
+  %202 = xor i32 %201, %199
+  %203 = trunc i32 %202 to i16
+  store i16 %203, ptr %5, align 2
+  br label %204
 
-218:                                              ; preds = %201
-  br label %219
+204:                                              ; preds = %195, %184
+  %205 = load i16, ptr %5, align 2
+  %206 = zext i16 %205 to i32
+  %207 = and i32 %206, 255
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds [2 x [256 x i16]], ptr @crc16tbl, i64 0, i64 1
+  %210 = getelementptr inbounds [256 x i16], ptr %209, i64 0, i64 %208
+  %211 = load i16, ptr %210, align 2
+  %212 = zext i16 %211 to i32
+  %213 = load i16, ptr %5, align 2
+  %214 = zext i16 %213 to i32
+  %215 = ashr i32 %214, 8
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %216
+  %218 = load i16, ptr %217, align 2
+  %219 = zext i16 %218 to i32
+  %220 = xor i32 %212, %219
+  %221 = trunc i32 %220 to i16
+  store i16 %221, ptr %5, align 2
+  br label %222
 
-219:                                              ; preds = %218
-  %220 = load i64, ptr %7, align 8
-  %221 = sub i64 %220, 8
-  store i64 %221, ptr %7, align 8
+222:                                              ; preds = %204
+  br label %223
+
+223:                                              ; preds = %222
+  %224 = load i64, ptr %7, align 8
+  %225 = sub i64 %224, 8
+  store i64 %225, ptr %7, align 8
   br label %43, !llvm.loop !18
 
-222:                                              ; preds = %43
-  %223 = load ptr, ptr %9, align 8
-  store ptr %223, ptr %8, align 8
-  br label %224
+226:                                              ; preds = %43
+  %227 = load ptr, ptr %9, align 8
+  store ptr %227, ptr %8, align 8
+  br label %228
 
-224:                                              ; preds = %245, %222
-  %225 = load i64, ptr %7, align 8
-  %226 = icmp ne i64 %225, 0
-  br i1 %226, label %227, label %248
+228:                                              ; preds = %249, %226
+  %229 = load i64, ptr %7, align 8
+  %230 = icmp ne i64 %229, 0
+  br i1 %230, label %231, label %252
 
-227:                                              ; preds = %224
-  %228 = load i16, ptr %5, align 2
-  %229 = zext i16 %228 to i32
-  %230 = ashr i32 %229, 8
-  %231 = load i16, ptr %5, align 2
-  %232 = zext i16 %231 to i32
-  %233 = load ptr, ptr %8, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i32 1
-  store ptr %234, ptr %8, align 8
-  %235 = load i8, ptr %233, align 1
-  %236 = zext i8 %235 to i32
-  %237 = xor i32 %232, %236
-  %238 = and i32 %237, 255
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %239
-  %241 = load i16, ptr %240, align 2
-  %242 = zext i16 %241 to i32
-  %243 = xor i32 %230, %242
-  %244 = trunc i32 %243 to i16
-  store i16 %244, ptr %5, align 2
-  br label %245
+231:                                              ; preds = %228
+  %232 = load i16, ptr %5, align 2
+  %233 = zext i16 %232 to i32
+  %234 = ashr i32 %233, 8
+  %235 = load i16, ptr %5, align 2
+  %236 = zext i16 %235 to i32
+  %237 = load ptr, ptr %8, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i32 1
+  store ptr %238, ptr %8, align 8
+  %239 = load i8, ptr %237, align 1
+  %240 = zext i8 %239 to i32
+  %241 = xor i32 %236, %240
+  %242 = and i32 %241, 255
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %243
+  %245 = load i16, ptr %244, align 2
+  %246 = zext i16 %245 to i32
+  %247 = xor i32 %234, %246
+  %248 = trunc i32 %247 to i16
+  store i16 %248, ptr %5, align 2
+  br label %249
 
-245:                                              ; preds = %227
-  %246 = load i64, ptr %7, align 8
-  %247 = add i64 %246, -1
-  store i64 %247, ptr %7, align 8
-  br label %224, !llvm.loop !19
+249:                                              ; preds = %231
+  %250 = load i64, ptr %7, align 8
+  %251 = add i64 %250, -1
+  store i64 %251, ptr %7, align 8
+  br label %228, !llvm.loop !19
 
-248:                                              ; preds = %224
-  %249 = load i16, ptr %5, align 2
-  store i16 %249, ptr %4, align 2
-  br label %250
+252:                                              ; preds = %228
+  %253 = load i16, ptr %5, align 2
+  store i16 %253, ptr %4, align 2
+  br label %254
 
-250:                                              ; preds = %248, %14
-  %251 = load i16, ptr %4, align 2
-  ret i16 %251
+254:                                              ; preds = %252, %14
+  %255 = load i16, ptr %4, align 2
+  ret i16 %255
 }
 
 declare ptr @archive_array_append(ptr noundef, ptr noundef, i64 noundef) #1
@@ -5643,21 +5648,21 @@ define internal i32 @lzh_read_blocks(ptr noundef %0, i32 noundef %1) #0 {
   store i32 0, ptr %8, align 4
   br label %17
 
-17:                                               ; preds = %869, %2
+17:                                               ; preds = %871, %2
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr inbounds %struct.lzh_dec, ptr %18, i32 0, i32 0
   %20 = load i32, ptr %19, align 8
-  switch i32 %20, label %869 [
+  switch i32 %20, label %871 [
     i32 0, label %21
-    i32 1, label %96
-    i32 2, label %162
-    i32 3, label %286
-    i32 4, label %377
-    i32 5, label %424
-    i32 6, label %490
-    i32 7, label %587
-    i32 8, label %851
-    i32 9, label %868
+    i32 1, label %97
+    i32 2, label %163
+    i32 3, label %287
+    i32 4, label %379
+    i32 5, label %426
+    i32 6, label %492
+    i32 7, label %589
+    i32 8, label %853
+    i32 9, label %870
   ]
 
 21:                                               ; preds = %17
@@ -5681,7 +5686,7 @@ define internal i32 @lzh_read_blocks(ptr noundef %0, i32 noundef %1) #0 {
 
 34:                                               ; preds = %31
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %7, align 8
@@ -5691,7 +5696,7 @@ define internal i32 @lzh_read_blocks(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %35
-  br label %870
+  br label %872
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %6, align 8
@@ -5711,11 +5716,11 @@ define internal i32 @lzh_read_blocks(ptr noundef %0, i32 noundef %1) #0 {
   %53 = getelementptr inbounds %struct.lzh_dec, ptr %52, i32 0, i32 4
   store i32 0, ptr %53, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
 54:                                               ; preds = %41
   store i32 1, ptr %3, align 4
-  br label %873
+  br label %875
 
 55:                                               ; preds = %26, %21
   %56 = load ptr, ptr %7, align 8
@@ -5729,1107 +5734,1109 @@ define internal i32 @lzh_read_blocks(ptr noundef %0, i32 noundef %1) #0 {
   %64 = lshr i64 %58, %63
   %65 = trunc i64 %64 to i16
   %66 = zext i16 %65 to i32
-  %67 = load i16, ptr getelementptr inbounds ([20 x i16], ptr @cache_masks, i64 0, i64 16), align 16
-  %68 = zext i16 %67 to i32
-  %69 = and i32 %66, %68
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.lzh_dec, ptr %70, i32 0, i32 10
-  store i32 %69, ptr %71, align 8
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.lzh_dec, ptr %72, i32 0, i32 10
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %77
-
-76:                                               ; preds = %55
-  br label %870
+  %67 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 16
+  %68 = load i16, ptr %67, align 16
+  %69 = zext i16 %68 to i32
+  %70 = and i32 %66, %69
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds %struct.lzh_dec, ptr %71, i32 0, i32 10
+  store i32 %70, ptr %72, align 8
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds %struct.lzh_dec, ptr %73, i32 0, i32 10
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %78
 
 77:                                               ; preds = %55
-  %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds %struct.lzh_br, ptr %78, i32 0, i32 1
-  %80 = load i32, ptr %79, align 8
-  %81 = sub nsw i32 %80, 16
-  store i32 %81, ptr %79, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.lzh_dec, ptr %82, i32 0, i32 13
-  %84 = load i32, ptr %83, align 4
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.lzh_dec, ptr %85, i32 0, i32 9
-  %87 = getelementptr inbounds %struct.huffman, ptr %86, i32 0, i32 0
-  store i32 %84, ptr %87, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %struct.lzh_dec, ptr %88, i32 0, i32 14
-  %90 = load i32, ptr %89, align 8
-  %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds %struct.lzh_dec, ptr %91, i32 0, i32 9
-  %93 = getelementptr inbounds %struct.huffman, ptr %92, i32 0, i32 2
-  store i32 %90, ptr %93, align 8
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds %struct.lzh_dec, ptr %94, i32 0, i32 15
-  store i32 0, ptr %95, align 4
-  br label %96
+  br label %872
 
-96:                                               ; preds = %77, %17
-  %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds %struct.lzh_br, ptr %97, i32 0, i32 1
-  %99 = load i32, ptr %98, align 8
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct.lzh_dec, ptr %100, i32 0, i32 9
-  %102 = getelementptr inbounds %struct.huffman, ptr %101, i32 0, i32 2
-  %103 = load i32, ptr %102, align 8
-  %104 = icmp sge i32 %99, %103
-  br i1 %104, label %126, label %105
+78:                                               ; preds = %55
+  %79 = load ptr, ptr %7, align 8
+  %80 = getelementptr inbounds %struct.lzh_br, ptr %79, i32 0, i32 1
+  %81 = load i32, ptr %80, align 8
+  %82 = sub nsw i32 %81, 16
+  store i32 %82, ptr %80, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds %struct.lzh_dec, ptr %83, i32 0, i32 13
+  %85 = load i32, ptr %84, align 4
+  %86 = load ptr, ptr %6, align 8
+  %87 = getelementptr inbounds %struct.lzh_dec, ptr %86, i32 0, i32 9
+  %88 = getelementptr inbounds %struct.huffman, ptr %87, i32 0, i32 0
+  store i32 %85, ptr %88, align 8
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds %struct.lzh_dec, ptr %89, i32 0, i32 14
+  %91 = load i32, ptr %90, align 8
+  %92 = load ptr, ptr %6, align 8
+  %93 = getelementptr inbounds %struct.lzh_dec, ptr %92, i32 0, i32 9
+  %94 = getelementptr inbounds %struct.huffman, ptr %93, i32 0, i32 2
+  store i32 %91, ptr %94, align 8
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr inbounds %struct.lzh_dec, ptr %95, i32 0, i32 15
+  store i32 0, ptr %96, align 4
+  br label %97
 
-105:                                              ; preds = %96
-  %106 = load ptr, ptr %4, align 8
-  %107 = load ptr, ptr %7, align 8
-  %108 = call i32 @lzh_br_fillup(ptr noundef %106, ptr noundef %107)
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %126, label %110
+97:                                               ; preds = %78, %17
+  %98 = load ptr, ptr %7, align 8
+  %99 = getelementptr inbounds %struct.lzh_br, ptr %98, i32 0, i32 1
+  %100 = load i32, ptr %99, align 8
+  %101 = load ptr, ptr %6, align 8
+  %102 = getelementptr inbounds %struct.lzh_dec, ptr %101, i32 0, i32 9
+  %103 = getelementptr inbounds %struct.huffman, ptr %102, i32 0, i32 2
+  %104 = load i32, ptr %103, align 8
+  %105 = icmp sge i32 %100, %104
+  br i1 %105, label %127, label %106
 
-110:                                              ; preds = %105
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct.lzh_br, ptr %111, i32 0, i32 1
-  %113 = load i32, ptr %112, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct.lzh_dec, ptr %114, i32 0, i32 9
-  %116 = getelementptr inbounds %struct.huffman, ptr %115, i32 0, i32 2
-  %117 = load i32, ptr %116, align 8
-  %118 = icmp sge i32 %113, %117
-  br i1 %118, label %126, label %119
+106:                                              ; preds = %97
+  %107 = load ptr, ptr %4, align 8
+  %108 = load ptr, ptr %7, align 8
+  %109 = call i32 @lzh_br_fillup(ptr noundef %107, ptr noundef %108)
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %127, label %111
 
-119:                                              ; preds = %110
-  %120 = load i32, ptr %5, align 4
-  %121 = icmp ne i32 %120, 0
-  br i1 %121, label %122, label %123
+111:                                              ; preds = %106
+  %112 = load ptr, ptr %7, align 8
+  %113 = getelementptr inbounds %struct.lzh_br, ptr %112, i32 0, i32 1
+  %114 = load i32, ptr %113, align 8
+  %115 = load ptr, ptr %6, align 8
+  %116 = getelementptr inbounds %struct.lzh_dec, ptr %115, i32 0, i32 9
+  %117 = getelementptr inbounds %struct.huffman, ptr %116, i32 0, i32 2
+  %118 = load i32, ptr %117, align 8
+  %119 = icmp sge i32 %114, %118
+  br i1 %119, label %127, label %120
 
-122:                                              ; preds = %119
-  br label %870
+120:                                              ; preds = %111
+  %121 = load i32, ptr %5, align 4
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %124
 
-123:                                              ; preds = %119
-  %124 = load ptr, ptr %6, align 8
-  %125 = getelementptr inbounds %struct.lzh_dec, ptr %124, i32 0, i32 0
-  store i32 1, ptr %125, align 8
+123:                                              ; preds = %120
+  br label %872
+
+124:                                              ; preds = %120
+  %125 = load ptr, ptr %6, align 8
+  %126 = getelementptr inbounds %struct.lzh_dec, ptr %125, i32 0, i32 0
+  store i32 1, ptr %126, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-126:                                              ; preds = %110, %105, %96
-  %127 = load ptr, ptr %7, align 8
-  %128 = getelementptr inbounds %struct.lzh_br, ptr %127, i32 0, i32 0
-  %129 = load i64, ptr %128, align 8
-  %130 = load ptr, ptr %7, align 8
-  %131 = getelementptr inbounds %struct.lzh_br, ptr %130, i32 0, i32 1
-  %132 = load i32, ptr %131, align 8
-  %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct.lzh_dec, ptr %133, i32 0, i32 9
-  %135 = getelementptr inbounds %struct.huffman, ptr %134, i32 0, i32 2
-  %136 = load i32, ptr %135, align 8
-  %137 = sub nsw i32 %132, %136
-  %138 = zext i32 %137 to i64
-  %139 = lshr i64 %129, %138
-  %140 = trunc i64 %139 to i16
-  %141 = zext i16 %140 to i32
-  %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr inbounds %struct.lzh_dec, ptr %142, i32 0, i32 9
-  %144 = getelementptr inbounds %struct.huffman, ptr %143, i32 0, i32 2
-  %145 = load i32, ptr %144, align 8
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %146
-  %148 = load i16, ptr %147, align 2
-  %149 = zext i16 %148 to i32
-  %150 = and i32 %141, %149
-  %151 = load ptr, ptr %6, align 8
-  %152 = getelementptr inbounds %struct.lzh_dec, ptr %151, i32 0, i32 9
-  %153 = getelementptr inbounds %struct.huffman, ptr %152, i32 0, i32 1
-  store i32 %150, ptr %153, align 4
-  %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds %struct.lzh_dec, ptr %154, i32 0, i32 9
-  %156 = getelementptr inbounds %struct.huffman, ptr %155, i32 0, i32 2
-  %157 = load i32, ptr %156, align 8
-  %158 = load ptr, ptr %7, align 8
-  %159 = getelementptr inbounds %struct.lzh_br, ptr %158, i32 0, i32 1
-  %160 = load i32, ptr %159, align 8
-  %161 = sub nsw i32 %160, %157
-  store i32 %161, ptr %159, align 8
-  br label %162
+127:                                              ; preds = %111, %106, %97
+  %128 = load ptr, ptr %7, align 8
+  %129 = getelementptr inbounds %struct.lzh_br, ptr %128, i32 0, i32 0
+  %130 = load i64, ptr %129, align 8
+  %131 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds %struct.lzh_br, ptr %131, i32 0, i32 1
+  %133 = load i32, ptr %132, align 8
+  %134 = load ptr, ptr %6, align 8
+  %135 = getelementptr inbounds %struct.lzh_dec, ptr %134, i32 0, i32 9
+  %136 = getelementptr inbounds %struct.huffman, ptr %135, i32 0, i32 2
+  %137 = load i32, ptr %136, align 8
+  %138 = sub nsw i32 %133, %137
+  %139 = zext i32 %138 to i64
+  %140 = lshr i64 %130, %139
+  %141 = trunc i64 %140 to i16
+  %142 = zext i16 %141 to i32
+  %143 = load ptr, ptr %6, align 8
+  %144 = getelementptr inbounds %struct.lzh_dec, ptr %143, i32 0, i32 9
+  %145 = getelementptr inbounds %struct.huffman, ptr %144, i32 0, i32 2
+  %146 = load i32, ptr %145, align 8
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %147
+  %149 = load i16, ptr %148, align 2
+  %150 = zext i16 %149 to i32
+  %151 = and i32 %142, %150
+  %152 = load ptr, ptr %6, align 8
+  %153 = getelementptr inbounds %struct.lzh_dec, ptr %152, i32 0, i32 9
+  %154 = getelementptr inbounds %struct.huffman, ptr %153, i32 0, i32 1
+  store i32 %151, ptr %154, align 4
+  %155 = load ptr, ptr %6, align 8
+  %156 = getelementptr inbounds %struct.lzh_dec, ptr %155, i32 0, i32 9
+  %157 = getelementptr inbounds %struct.huffman, ptr %156, i32 0, i32 2
+  %158 = load i32, ptr %157, align 8
+  %159 = load ptr, ptr %7, align 8
+  %160 = getelementptr inbounds %struct.lzh_br, ptr %159, i32 0, i32 1
+  %161 = load i32, ptr %160, align 8
+  %162 = sub nsw i32 %161, %158
+  store i32 %162, ptr %160, align 8
+  br label %163
 
-162:                                              ; preds = %126, %17
-  %163 = load ptr, ptr %6, align 8
-  %164 = getelementptr inbounds %struct.lzh_dec, ptr %163, i32 0, i32 9
-  %165 = getelementptr inbounds %struct.huffman, ptr %164, i32 0, i32 1
-  %166 = load i32, ptr %165, align 4
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %249
+163:                                              ; preds = %127, %17
+  %164 = load ptr, ptr %6, align 8
+  %165 = getelementptr inbounds %struct.lzh_dec, ptr %164, i32 0, i32 9
+  %166 = getelementptr inbounds %struct.huffman, ptr %165, i32 0, i32 1
+  %167 = load i32, ptr %166, align 4
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %169, label %250
 
-168:                                              ; preds = %162
-  %169 = load ptr, ptr %7, align 8
-  %170 = getelementptr inbounds %struct.lzh_br, ptr %169, i32 0, i32 1
-  %171 = load i32, ptr %170, align 8
-  %172 = load ptr, ptr %6, align 8
-  %173 = getelementptr inbounds %struct.lzh_dec, ptr %172, i32 0, i32 9
-  %174 = getelementptr inbounds %struct.huffman, ptr %173, i32 0, i32 2
-  %175 = load i32, ptr %174, align 8
-  %176 = icmp sge i32 %171, %175
-  br i1 %176, label %198, label %177
+169:                                              ; preds = %163
+  %170 = load ptr, ptr %7, align 8
+  %171 = getelementptr inbounds %struct.lzh_br, ptr %170, i32 0, i32 1
+  %172 = load i32, ptr %171, align 8
+  %173 = load ptr, ptr %6, align 8
+  %174 = getelementptr inbounds %struct.lzh_dec, ptr %173, i32 0, i32 9
+  %175 = getelementptr inbounds %struct.huffman, ptr %174, i32 0, i32 2
+  %176 = load i32, ptr %175, align 8
+  %177 = icmp sge i32 %172, %176
+  br i1 %177, label %199, label %178
 
-177:                                              ; preds = %168
-  %178 = load ptr, ptr %4, align 8
-  %179 = load ptr, ptr %7, align 8
-  %180 = call i32 @lzh_br_fillup(ptr noundef %178, ptr noundef %179)
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %198, label %182
+178:                                              ; preds = %169
+  %179 = load ptr, ptr %4, align 8
+  %180 = load ptr, ptr %7, align 8
+  %181 = call i32 @lzh_br_fillup(ptr noundef %179, ptr noundef %180)
+  %182 = icmp ne i32 %181, 0
+  br i1 %182, label %199, label %183
 
-182:                                              ; preds = %177
-  %183 = load ptr, ptr %7, align 8
-  %184 = getelementptr inbounds %struct.lzh_br, ptr %183, i32 0, i32 1
-  %185 = load i32, ptr %184, align 8
-  %186 = load ptr, ptr %6, align 8
-  %187 = getelementptr inbounds %struct.lzh_dec, ptr %186, i32 0, i32 9
-  %188 = getelementptr inbounds %struct.huffman, ptr %187, i32 0, i32 2
-  %189 = load i32, ptr %188, align 8
-  %190 = icmp sge i32 %185, %189
-  br i1 %190, label %198, label %191
+183:                                              ; preds = %178
+  %184 = load ptr, ptr %7, align 8
+  %185 = getelementptr inbounds %struct.lzh_br, ptr %184, i32 0, i32 1
+  %186 = load i32, ptr %185, align 8
+  %187 = load ptr, ptr %6, align 8
+  %188 = getelementptr inbounds %struct.lzh_dec, ptr %187, i32 0, i32 9
+  %189 = getelementptr inbounds %struct.huffman, ptr %188, i32 0, i32 2
+  %190 = load i32, ptr %189, align 8
+  %191 = icmp sge i32 %186, %190
+  br i1 %191, label %199, label %192
 
-191:                                              ; preds = %182
-  %192 = load i32, ptr %5, align 4
-  %193 = icmp ne i32 %192, 0
-  br i1 %193, label %194, label %195
+192:                                              ; preds = %183
+  %193 = load i32, ptr %5, align 4
+  %194 = icmp ne i32 %193, 0
+  br i1 %194, label %195, label %196
 
-194:                                              ; preds = %191
-  br label %870
+195:                                              ; preds = %192
+  br label %872
 
-195:                                              ; preds = %191
-  %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds %struct.lzh_dec, ptr %196, i32 0, i32 0
-  store i32 2, ptr %197, align 8
+196:                                              ; preds = %192
+  %197 = load ptr, ptr %6, align 8
+  %198 = getelementptr inbounds %struct.lzh_dec, ptr %197, i32 0, i32 0
+  store i32 2, ptr %198, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-198:                                              ; preds = %182, %177, %168
-  %199 = load ptr, ptr %6, align 8
-  %200 = getelementptr inbounds %struct.lzh_dec, ptr %199, i32 0, i32 9
-  %201 = load ptr, ptr %7, align 8
-  %202 = getelementptr inbounds %struct.lzh_br, ptr %201, i32 0, i32 0
-  %203 = load i64, ptr %202, align 8
-  %204 = load ptr, ptr %7, align 8
-  %205 = getelementptr inbounds %struct.lzh_br, ptr %204, i32 0, i32 1
-  %206 = load i32, ptr %205, align 8
-  %207 = load ptr, ptr %6, align 8
-  %208 = getelementptr inbounds %struct.lzh_dec, ptr %207, i32 0, i32 9
-  %209 = getelementptr inbounds %struct.huffman, ptr %208, i32 0, i32 2
-  %210 = load i32, ptr %209, align 8
-  %211 = sub nsw i32 %206, %210
-  %212 = zext i32 %211 to i64
-  %213 = lshr i64 %203, %212
-  %214 = trunc i64 %213 to i16
-  %215 = zext i16 %214 to i32
-  %216 = load ptr, ptr %6, align 8
-  %217 = getelementptr inbounds %struct.lzh_dec, ptr %216, i32 0, i32 9
-  %218 = getelementptr inbounds %struct.huffman, ptr %217, i32 0, i32 2
-  %219 = load i32, ptr %218, align 8
-  %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %220
-  %222 = load i16, ptr %221, align 2
-  %223 = zext i16 %222 to i32
-  %224 = and i32 %215, %223
-  %225 = trunc i32 %224 to i16
-  %226 = call i32 @lzh_make_fake_table(ptr noundef %200, i16 noundef zeroext %225)
-  %227 = icmp ne i32 %226, 0
-  br i1 %227, label %229, label %228
+199:                                              ; preds = %183, %178, %169
+  %200 = load ptr, ptr %6, align 8
+  %201 = getelementptr inbounds %struct.lzh_dec, ptr %200, i32 0, i32 9
+  %202 = load ptr, ptr %7, align 8
+  %203 = getelementptr inbounds %struct.lzh_br, ptr %202, i32 0, i32 0
+  %204 = load i64, ptr %203, align 8
+  %205 = load ptr, ptr %7, align 8
+  %206 = getelementptr inbounds %struct.lzh_br, ptr %205, i32 0, i32 1
+  %207 = load i32, ptr %206, align 8
+  %208 = load ptr, ptr %6, align 8
+  %209 = getelementptr inbounds %struct.lzh_dec, ptr %208, i32 0, i32 9
+  %210 = getelementptr inbounds %struct.huffman, ptr %209, i32 0, i32 2
+  %211 = load i32, ptr %210, align 8
+  %212 = sub nsw i32 %207, %211
+  %213 = zext i32 %212 to i64
+  %214 = lshr i64 %204, %213
+  %215 = trunc i64 %214 to i16
+  %216 = zext i16 %215 to i32
+  %217 = load ptr, ptr %6, align 8
+  %218 = getelementptr inbounds %struct.lzh_dec, ptr %217, i32 0, i32 9
+  %219 = getelementptr inbounds %struct.huffman, ptr %218, i32 0, i32 2
+  %220 = load i32, ptr %219, align 8
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %221
+  %223 = load i16, ptr %222, align 2
+  %224 = zext i16 %223 to i32
+  %225 = and i32 %216, %224
+  %226 = trunc i32 %225 to i16
+  %227 = call i32 @lzh_make_fake_table(ptr noundef %201, i16 noundef zeroext %226)
+  %228 = icmp ne i32 %227, 0
+  br i1 %228, label %230, label %229
 
-228:                                              ; preds = %198
-  br label %870
+229:                                              ; preds = %199
+  br label %872
 
-229:                                              ; preds = %198
-  %230 = load ptr, ptr %6, align 8
-  %231 = getelementptr inbounds %struct.lzh_dec, ptr %230, i32 0, i32 9
-  %232 = getelementptr inbounds %struct.huffman, ptr %231, i32 0, i32 2
-  %233 = load i32, ptr %232, align 8
-  %234 = load ptr, ptr %7, align 8
-  %235 = getelementptr inbounds %struct.lzh_br, ptr %234, i32 0, i32 1
-  %236 = load i32, ptr %235, align 8
-  %237 = sub nsw i32 %236, %233
-  store i32 %237, ptr %235, align 8
-  %238 = load ptr, ptr %6, align 8
-  %239 = getelementptr inbounds %struct.lzh_dec, ptr %238, i32 0, i32 15
-  %240 = load i32, ptr %239, align 4
-  %241 = icmp ne i32 %240, 0
-  br i1 %241, label %242, label %245
+230:                                              ; preds = %199
+  %231 = load ptr, ptr %6, align 8
+  %232 = getelementptr inbounds %struct.lzh_dec, ptr %231, i32 0, i32 9
+  %233 = getelementptr inbounds %struct.huffman, ptr %232, i32 0, i32 2
+  %234 = load i32, ptr %233, align 8
+  %235 = load ptr, ptr %7, align 8
+  %236 = getelementptr inbounds %struct.lzh_br, ptr %235, i32 0, i32 1
+  %237 = load i32, ptr %236, align 8
+  %238 = sub nsw i32 %237, %234
+  store i32 %238, ptr %236, align 8
+  %239 = load ptr, ptr %6, align 8
+  %240 = getelementptr inbounds %struct.lzh_dec, ptr %239, i32 0, i32 15
+  %241 = load i32, ptr %240, align 4
+  %242 = icmp ne i32 %241, 0
+  br i1 %242, label %243, label %246
 
-242:                                              ; preds = %229
-  %243 = load ptr, ptr %6, align 8
-  %244 = getelementptr inbounds %struct.lzh_dec, ptr %243, i32 0, i32 0
-  store i32 9, ptr %244, align 8
-  br label %248
+243:                                              ; preds = %230
+  %244 = load ptr, ptr %6, align 8
+  %245 = getelementptr inbounds %struct.lzh_dec, ptr %244, i32 0, i32 0
+  store i32 9, ptr %245, align 8
+  br label %249
 
-245:                                              ; preds = %229
-  %246 = load ptr, ptr %6, align 8
-  %247 = getelementptr inbounds %struct.lzh_dec, ptr %246, i32 0, i32 0
-  store i32 5, ptr %247, align 8
-  br label %248
+246:                                              ; preds = %230
+  %247 = load ptr, ptr %6, align 8
+  %248 = getelementptr inbounds %struct.lzh_dec, ptr %247, i32 0, i32 0
+  store i32 5, ptr %248, align 8
+  br label %249
 
-248:                                              ; preds = %245, %242
-  br label %869
+249:                                              ; preds = %246, %243
+  br label %871
 
-249:                                              ; preds = %162
-  %250 = load ptr, ptr %6, align 8
-  %251 = getelementptr inbounds %struct.lzh_dec, ptr %250, i32 0, i32 9
-  %252 = getelementptr inbounds %struct.huffman, ptr %251, i32 0, i32 1
-  %253 = load i32, ptr %252, align 4
-  %254 = load ptr, ptr %6, align 8
-  %255 = getelementptr inbounds %struct.lzh_dec, ptr %254, i32 0, i32 9
-  %256 = getelementptr inbounds %struct.huffman, ptr %255, i32 0, i32 0
-  %257 = load i32, ptr %256, align 8
-  %258 = icmp sgt i32 %253, %257
-  br i1 %258, label %259, label %260
+250:                                              ; preds = %163
+  %251 = load ptr, ptr %6, align 8
+  %252 = getelementptr inbounds %struct.lzh_dec, ptr %251, i32 0, i32 9
+  %253 = getelementptr inbounds %struct.huffman, ptr %252, i32 0, i32 1
+  %254 = load i32, ptr %253, align 4
+  %255 = load ptr, ptr %6, align 8
+  %256 = getelementptr inbounds %struct.lzh_dec, ptr %255, i32 0, i32 9
+  %257 = getelementptr inbounds %struct.huffman, ptr %256, i32 0, i32 0
+  %258 = load i32, ptr %257, align 8
+  %259 = icmp sgt i32 %254, %258
+  br i1 %259, label %260, label %261
 
-259:                                              ; preds = %249
-  br label %870
+260:                                              ; preds = %250
+  br label %872
 
-260:                                              ; preds = %249
-  br label %261
+261:                                              ; preds = %250
+  br label %262
 
-261:                                              ; preds = %260
-  %262 = load ptr, ptr %6, align 8
-  %263 = getelementptr inbounds %struct.lzh_dec, ptr %262, i32 0, i32 16
-  store i32 0, ptr %263, align 8
-  %264 = load ptr, ptr %6, align 8
-  %265 = getelementptr inbounds %struct.lzh_dec, ptr %264, i32 0, i32 9
-  %266 = getelementptr inbounds %struct.huffman, ptr %265, i32 0, i32 3
-  %267 = getelementptr inbounds [17 x i32], ptr %266, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %267, i8 0, i64 68, i1 false)
-  %268 = load ptr, ptr %6, align 8
-  %269 = getelementptr inbounds %struct.lzh_dec, ptr %268, i32 0, i32 9
-  %270 = getelementptr inbounds %struct.huffman, ptr %269, i32 0, i32 1
-  %271 = load i32, ptr %270, align 4
-  %272 = icmp slt i32 %271, 3
-  br i1 %272, label %282, label %273
+262:                                              ; preds = %261
+  %263 = load ptr, ptr %6, align 8
+  %264 = getelementptr inbounds %struct.lzh_dec, ptr %263, i32 0, i32 16
+  store i32 0, ptr %264, align 8
+  %265 = load ptr, ptr %6, align 8
+  %266 = getelementptr inbounds %struct.lzh_dec, ptr %265, i32 0, i32 9
+  %267 = getelementptr inbounds %struct.huffman, ptr %266, i32 0, i32 3
+  %268 = getelementptr inbounds [17 x i32], ptr %267, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %268, i8 0, i64 68, i1 false)
+  %269 = load ptr, ptr %6, align 8
+  %270 = getelementptr inbounds %struct.lzh_dec, ptr %269, i32 0, i32 9
+  %271 = getelementptr inbounds %struct.huffman, ptr %270, i32 0, i32 1
+  %272 = load i32, ptr %271, align 4
+  %273 = icmp slt i32 %272, 3
+  br i1 %273, label %283, label %274
 
-273:                                              ; preds = %261
-  %274 = load ptr, ptr %6, align 8
-  %275 = getelementptr inbounds %struct.lzh_dec, ptr %274, i32 0, i32 9
-  %276 = getelementptr inbounds %struct.huffman, ptr %275, i32 0, i32 0
-  %277 = load i32, ptr %276, align 8
-  %278 = load ptr, ptr %6, align 8
-  %279 = getelementptr inbounds %struct.lzh_dec, ptr %278, i32 0, i32 11
-  %280 = load i32, ptr %279, align 4
-  %281 = icmp eq i32 %277, %280
-  br i1 %281, label %282, label %285
+274:                                              ; preds = %262
+  %275 = load ptr, ptr %6, align 8
+  %276 = getelementptr inbounds %struct.lzh_dec, ptr %275, i32 0, i32 9
+  %277 = getelementptr inbounds %struct.huffman, ptr %276, i32 0, i32 0
+  %278 = load i32, ptr %277, align 8
+  %279 = load ptr, ptr %6, align 8
+  %280 = getelementptr inbounds %struct.lzh_dec, ptr %279, i32 0, i32 11
+  %281 = load i32, ptr %280, align 4
+  %282 = icmp eq i32 %278, %281
+  br i1 %282, label %283, label %286
 
-282:                                              ; preds = %273, %261
-  %283 = load ptr, ptr %6, align 8
-  %284 = getelementptr inbounds %struct.lzh_dec, ptr %283, i32 0, i32 0
-  store i32 4, ptr %284, align 8
-  br label %869
+283:                                              ; preds = %274, %262
+  %284 = load ptr, ptr %6, align 8
+  %285 = getelementptr inbounds %struct.lzh_dec, ptr %284, i32 0, i32 0
+  store i32 4, ptr %285, align 8
+  br label %871
 
-285:                                              ; preds = %273
-  br label %286
+286:                                              ; preds = %274
+  br label %287
 
-286:                                              ; preds = %285, %17
-  %287 = load ptr, ptr %4, align 8
-  %288 = load ptr, ptr %6, align 8
-  %289 = getelementptr inbounds %struct.lzh_dec, ptr %288, i32 0, i32 16
-  %290 = load i32, ptr %289, align 8
-  %291 = call i32 @lzh_read_pt_bitlen(ptr noundef %287, i32 noundef %290, i32 noundef 3)
-  %292 = load ptr, ptr %6, align 8
-  %293 = getelementptr inbounds %struct.lzh_dec, ptr %292, i32 0, i32 16
-  store i32 %291, ptr %293, align 8
-  %294 = load ptr, ptr %6, align 8
-  %295 = getelementptr inbounds %struct.lzh_dec, ptr %294, i32 0, i32 16
-  %296 = load i32, ptr %295, align 8
-  %297 = icmp slt i32 %296, 3
-  br i1 %297, label %298, label %310
+287:                                              ; preds = %286, %17
+  %288 = load ptr, ptr %4, align 8
+  %289 = load ptr, ptr %6, align 8
+  %290 = getelementptr inbounds %struct.lzh_dec, ptr %289, i32 0, i32 16
+  %291 = load i32, ptr %290, align 8
+  %292 = call i32 @lzh_read_pt_bitlen(ptr noundef %288, i32 noundef %291, i32 noundef 3)
+  %293 = load ptr, ptr %6, align 8
+  %294 = getelementptr inbounds %struct.lzh_dec, ptr %293, i32 0, i32 16
+  store i32 %292, ptr %294, align 8
+  %295 = load ptr, ptr %6, align 8
+  %296 = getelementptr inbounds %struct.lzh_dec, ptr %295, i32 0, i32 16
+  %297 = load i32, ptr %296, align 8
+  %298 = icmp slt i32 %297, 3
+  br i1 %298, label %299, label %311
 
-298:                                              ; preds = %286
-  %299 = load ptr, ptr %6, align 8
-  %300 = getelementptr inbounds %struct.lzh_dec, ptr %299, i32 0, i32 16
-  %301 = load i32, ptr %300, align 8
-  %302 = icmp slt i32 %301, 0
-  br i1 %302, label %306, label %303
+299:                                              ; preds = %287
+  %300 = load ptr, ptr %6, align 8
+  %301 = getelementptr inbounds %struct.lzh_dec, ptr %300, i32 0, i32 16
+  %302 = load i32, ptr %301, align 8
+  %303 = icmp slt i32 %302, 0
+  br i1 %303, label %307, label %304
 
-303:                                              ; preds = %298
-  %304 = load i32, ptr %5, align 4
-  %305 = icmp ne i32 %304, 0
-  br i1 %305, label %306, label %307
+304:                                              ; preds = %299
+  %305 = load i32, ptr %5, align 4
+  %306 = icmp ne i32 %305, 0
+  br i1 %306, label %307, label %308
 
-306:                                              ; preds = %303, %298
-  br label %870
+307:                                              ; preds = %304, %299
+  br label %872
 
-307:                                              ; preds = %303
-  %308 = load ptr, ptr %6, align 8
-  %309 = getelementptr inbounds %struct.lzh_dec, ptr %308, i32 0, i32 0
-  store i32 3, ptr %309, align 8
+308:                                              ; preds = %304
+  %309 = load ptr, ptr %6, align 8
+  %310 = getelementptr inbounds %struct.lzh_dec, ptr %309, i32 0, i32 0
+  store i32 3, ptr %310, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-310:                                              ; preds = %286
-  %311 = load ptr, ptr %7, align 8
-  %312 = getelementptr inbounds %struct.lzh_br, ptr %311, i32 0, i32 1
-  %313 = load i32, ptr %312, align 8
-  %314 = icmp sge i32 %313, 2
-  br i1 %314, label %332, label %315
+311:                                              ; preds = %287
+  %312 = load ptr, ptr %7, align 8
+  %313 = getelementptr inbounds %struct.lzh_br, ptr %312, i32 0, i32 1
+  %314 = load i32, ptr %313, align 8
+  %315 = icmp sge i32 %314, 2
+  br i1 %315, label %333, label %316
 
-315:                                              ; preds = %310
-  %316 = load ptr, ptr %4, align 8
-  %317 = load ptr, ptr %7, align 8
-  %318 = call i32 @lzh_br_fillup(ptr noundef %316, ptr noundef %317)
-  %319 = icmp ne i32 %318, 0
-  br i1 %319, label %332, label %320
+316:                                              ; preds = %311
+  %317 = load ptr, ptr %4, align 8
+  %318 = load ptr, ptr %7, align 8
+  %319 = call i32 @lzh_br_fillup(ptr noundef %317, ptr noundef %318)
+  %320 = icmp ne i32 %319, 0
+  br i1 %320, label %333, label %321
 
-320:                                              ; preds = %315
-  %321 = load ptr, ptr %7, align 8
-  %322 = getelementptr inbounds %struct.lzh_br, ptr %321, i32 0, i32 1
-  %323 = load i32, ptr %322, align 8
-  %324 = icmp sge i32 %323, 2
-  br i1 %324, label %332, label %325
+321:                                              ; preds = %316
+  %322 = load ptr, ptr %7, align 8
+  %323 = getelementptr inbounds %struct.lzh_br, ptr %322, i32 0, i32 1
+  %324 = load i32, ptr %323, align 8
+  %325 = icmp sge i32 %324, 2
+  br i1 %325, label %333, label %326
 
-325:                                              ; preds = %320
-  %326 = load i32, ptr %5, align 4
-  %327 = icmp ne i32 %326, 0
-  br i1 %327, label %328, label %329
+326:                                              ; preds = %321
+  %327 = load i32, ptr %5, align 4
+  %328 = icmp ne i32 %327, 0
+  br i1 %328, label %329, label %330
 
-328:                                              ; preds = %325
-  br label %870
+329:                                              ; preds = %326
+  br label %872
 
-329:                                              ; preds = %325
-  %330 = load ptr, ptr %6, align 8
-  %331 = getelementptr inbounds %struct.lzh_dec, ptr %330, i32 0, i32 0
-  store i32 3, ptr %331, align 8
+330:                                              ; preds = %326
+  %331 = load ptr, ptr %6, align 8
+  %332 = getelementptr inbounds %struct.lzh_dec, ptr %331, i32 0, i32 0
+  store i32 3, ptr %332, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-332:                                              ; preds = %320, %315, %310
-  %333 = load ptr, ptr %7, align 8
-  %334 = getelementptr inbounds %struct.lzh_br, ptr %333, i32 0, i32 0
-  %335 = load i64, ptr %334, align 8
-  %336 = load ptr, ptr %7, align 8
-  %337 = getelementptr inbounds %struct.lzh_br, ptr %336, i32 0, i32 1
-  %338 = load i32, ptr %337, align 8
-  %339 = sub nsw i32 %338, 2
-  %340 = zext i32 %339 to i64
-  %341 = lshr i64 %335, %340
-  %342 = trunc i64 %341 to i16
-  %343 = zext i16 %342 to i32
-  %344 = load i16, ptr getelementptr inbounds ([20 x i16], ptr @cache_masks, i64 0, i64 2), align 4
-  %345 = zext i16 %344 to i32
-  %346 = and i32 %343, %345
-  store i32 %346, ptr %8, align 4
-  %347 = load ptr, ptr %7, align 8
-  %348 = getelementptr inbounds %struct.lzh_br, ptr %347, i32 0, i32 1
-  %349 = load i32, ptr %348, align 8
-  %350 = sub nsw i32 %349, 2
-  store i32 %350, ptr %348, align 8
-  %351 = load i32, ptr %8, align 4
-  %352 = load ptr, ptr %6, align 8
-  %353 = getelementptr inbounds %struct.lzh_dec, ptr %352, i32 0, i32 9
-  %354 = getelementptr inbounds %struct.huffman, ptr %353, i32 0, i32 1
-  %355 = load i32, ptr %354, align 4
-  %356 = sub nsw i32 %355, 3
-  %357 = icmp sgt i32 %351, %356
-  br i1 %357, label %358, label %359
+333:                                              ; preds = %321, %316, %311
+  %334 = load ptr, ptr %7, align 8
+  %335 = getelementptr inbounds %struct.lzh_br, ptr %334, i32 0, i32 0
+  %336 = load i64, ptr %335, align 8
+  %337 = load ptr, ptr %7, align 8
+  %338 = getelementptr inbounds %struct.lzh_br, ptr %337, i32 0, i32 1
+  %339 = load i32, ptr %338, align 8
+  %340 = sub nsw i32 %339, 2
+  %341 = zext i32 %340 to i64
+  %342 = lshr i64 %336, %341
+  %343 = trunc i64 %342 to i16
+  %344 = zext i16 %343 to i32
+  %345 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 2
+  %346 = load i16, ptr %345, align 4
+  %347 = zext i16 %346 to i32
+  %348 = and i32 %344, %347
+  store i32 %348, ptr %8, align 4
+  %349 = load ptr, ptr %7, align 8
+  %350 = getelementptr inbounds %struct.lzh_br, ptr %349, i32 0, i32 1
+  %351 = load i32, ptr %350, align 8
+  %352 = sub nsw i32 %351, 2
+  store i32 %352, ptr %350, align 8
+  %353 = load i32, ptr %8, align 4
+  %354 = load ptr, ptr %6, align 8
+  %355 = getelementptr inbounds %struct.lzh_dec, ptr %354, i32 0, i32 9
+  %356 = getelementptr inbounds %struct.huffman, ptr %355, i32 0, i32 1
+  %357 = load i32, ptr %356, align 4
+  %358 = sub nsw i32 %357, 3
+  %359 = icmp sgt i32 %353, %358
+  br i1 %359, label %360, label %361
 
-358:                                              ; preds = %332
-  br label %870
+360:                                              ; preds = %333
+  br label %872
 
-359:                                              ; preds = %332
+361:                                              ; preds = %333
   store i32 3, ptr %9, align 4
-  br label %360
+  br label %362
 
-360:                                              ; preds = %364, %359
-  %361 = load i32, ptr %8, align 4
-  %362 = add nsw i32 %361, -1
-  store i32 %362, ptr %8, align 4
-  %363 = icmp sgt i32 %361, 0
-  br i1 %363, label %364, label %373
+362:                                              ; preds = %366, %361
+  %363 = load i32, ptr %8, align 4
+  %364 = add nsw i32 %363, -1
+  store i32 %364, ptr %8, align 4
+  %365 = icmp sgt i32 %363, 0
+  br i1 %365, label %366, label %375
 
-364:                                              ; preds = %360
-  %365 = load ptr, ptr %6, align 8
-  %366 = getelementptr inbounds %struct.lzh_dec, ptr %365, i32 0, i32 9
-  %367 = getelementptr inbounds %struct.huffman, ptr %366, i32 0, i32 4
-  %368 = load ptr, ptr %367, align 8
-  %369 = load i32, ptr %9, align 4
-  %370 = add nsw i32 %369, 1
-  store i32 %370, ptr %9, align 4
-  %371 = sext i32 %369 to i64
-  %372 = getelementptr inbounds i8, ptr %368, i64 %371
-  store i8 0, ptr %372, align 1
-  br label %360, !llvm.loop !21
+366:                                              ; preds = %362
+  %367 = load ptr, ptr %6, align 8
+  %368 = getelementptr inbounds %struct.lzh_dec, ptr %367, i32 0, i32 9
+  %369 = getelementptr inbounds %struct.huffman, ptr %368, i32 0, i32 4
+  %370 = load ptr, ptr %369, align 8
+  %371 = load i32, ptr %9, align 4
+  %372 = add nsw i32 %371, 1
+  store i32 %372, ptr %9, align 4
+  %373 = sext i32 %371 to i64
+  %374 = getelementptr inbounds i8, ptr %370, i64 %373
+  store i8 0, ptr %374, align 1
+  br label %362, !llvm.loop !21
 
-373:                                              ; preds = %360
-  %374 = load i32, ptr %9, align 4
-  %375 = load ptr, ptr %6, align 8
-  %376 = getelementptr inbounds %struct.lzh_dec, ptr %375, i32 0, i32 16
-  store i32 %374, ptr %376, align 8
-  br label %377
+375:                                              ; preds = %362
+  %376 = load i32, ptr %9, align 4
+  %377 = load ptr, ptr %6, align 8
+  %378 = getelementptr inbounds %struct.lzh_dec, ptr %377, i32 0, i32 16
+  store i32 %376, ptr %378, align 8
+  br label %379
 
-377:                                              ; preds = %373, %17
-  %378 = load ptr, ptr %4, align 8
-  %379 = load ptr, ptr %6, align 8
-  %380 = getelementptr inbounds %struct.lzh_dec, ptr %379, i32 0, i32 16
-  %381 = load i32, ptr %380, align 8
-  %382 = load ptr, ptr %6, align 8
-  %383 = getelementptr inbounds %struct.lzh_dec, ptr %382, i32 0, i32 9
-  %384 = getelementptr inbounds %struct.huffman, ptr %383, i32 0, i32 1
-  %385 = load i32, ptr %384, align 4
-  %386 = call i32 @lzh_read_pt_bitlen(ptr noundef %378, i32 noundef %381, i32 noundef %385)
-  %387 = load ptr, ptr %6, align 8
-  %388 = getelementptr inbounds %struct.lzh_dec, ptr %387, i32 0, i32 16
-  store i32 %386, ptr %388, align 8
+379:                                              ; preds = %375, %17
+  %380 = load ptr, ptr %4, align 8
+  %381 = load ptr, ptr %6, align 8
+  %382 = getelementptr inbounds %struct.lzh_dec, ptr %381, i32 0, i32 16
+  %383 = load i32, ptr %382, align 8
+  %384 = load ptr, ptr %6, align 8
+  %385 = getelementptr inbounds %struct.lzh_dec, ptr %384, i32 0, i32 9
+  %386 = getelementptr inbounds %struct.huffman, ptr %385, i32 0, i32 1
+  %387 = load i32, ptr %386, align 4
+  %388 = call i32 @lzh_read_pt_bitlen(ptr noundef %380, i32 noundef %383, i32 noundef %387)
   %389 = load ptr, ptr %6, align 8
   %390 = getelementptr inbounds %struct.lzh_dec, ptr %389, i32 0, i32 16
-  %391 = load i32, ptr %390, align 8
-  %392 = load ptr, ptr %6, align 8
-  %393 = getelementptr inbounds %struct.lzh_dec, ptr %392, i32 0, i32 9
-  %394 = getelementptr inbounds %struct.huffman, ptr %393, i32 0, i32 1
-  %395 = load i32, ptr %394, align 4
-  %396 = icmp slt i32 %391, %395
-  br i1 %396, label %397, label %409
+  store i32 %388, ptr %390, align 8
+  %391 = load ptr, ptr %6, align 8
+  %392 = getelementptr inbounds %struct.lzh_dec, ptr %391, i32 0, i32 16
+  %393 = load i32, ptr %392, align 8
+  %394 = load ptr, ptr %6, align 8
+  %395 = getelementptr inbounds %struct.lzh_dec, ptr %394, i32 0, i32 9
+  %396 = getelementptr inbounds %struct.huffman, ptr %395, i32 0, i32 1
+  %397 = load i32, ptr %396, align 4
+  %398 = icmp slt i32 %393, %397
+  br i1 %398, label %399, label %411
 
-397:                                              ; preds = %377
-  %398 = load ptr, ptr %6, align 8
-  %399 = getelementptr inbounds %struct.lzh_dec, ptr %398, i32 0, i32 16
-  %400 = load i32, ptr %399, align 8
-  %401 = icmp slt i32 %400, 0
-  br i1 %401, label %405, label %402
+399:                                              ; preds = %379
+  %400 = load ptr, ptr %6, align 8
+  %401 = getelementptr inbounds %struct.lzh_dec, ptr %400, i32 0, i32 16
+  %402 = load i32, ptr %401, align 8
+  %403 = icmp slt i32 %402, 0
+  br i1 %403, label %407, label %404
 
-402:                                              ; preds = %397
-  %403 = load i32, ptr %5, align 4
-  %404 = icmp ne i32 %403, 0
-  br i1 %404, label %405, label %406
+404:                                              ; preds = %399
+  %405 = load i32, ptr %5, align 4
+  %406 = icmp ne i32 %405, 0
+  br i1 %406, label %407, label %408
 
-405:                                              ; preds = %402, %397
-  br label %870
+407:                                              ; preds = %404, %399
+  br label %872
 
-406:                                              ; preds = %402
-  %407 = load ptr, ptr %6, align 8
-  %408 = getelementptr inbounds %struct.lzh_dec, ptr %407, i32 0, i32 0
-  store i32 4, ptr %408, align 8
+408:                                              ; preds = %404
+  %409 = load ptr, ptr %6, align 8
+  %410 = getelementptr inbounds %struct.lzh_dec, ptr %409, i32 0, i32 0
+  store i32 4, ptr %410, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-409:                                              ; preds = %377
-  %410 = load ptr, ptr %6, align 8
-  %411 = getelementptr inbounds %struct.lzh_dec, ptr %410, i32 0, i32 9
-  %412 = call i32 @lzh_make_huffman_table(ptr noundef %411)
-  %413 = icmp ne i32 %412, 0
-  br i1 %413, label %415, label %414
+411:                                              ; preds = %379
+  %412 = load ptr, ptr %6, align 8
+  %413 = getelementptr inbounds %struct.lzh_dec, ptr %412, i32 0, i32 9
+  %414 = call i32 @lzh_make_huffman_table(ptr noundef %413)
+  %415 = icmp ne i32 %414, 0
+  br i1 %415, label %417, label %416
 
-414:                                              ; preds = %409
-  br label %870
+416:                                              ; preds = %411
+  br label %872
 
-415:                                              ; preds = %409
-  %416 = load ptr, ptr %6, align 8
-  %417 = getelementptr inbounds %struct.lzh_dec, ptr %416, i32 0, i32 15
-  %418 = load i32, ptr %417, align 4
-  %419 = icmp ne i32 %418, 0
-  br i1 %419, label %420, label %423
+417:                                              ; preds = %411
+  %418 = load ptr, ptr %6, align 8
+  %419 = getelementptr inbounds %struct.lzh_dec, ptr %418, i32 0, i32 15
+  %420 = load i32, ptr %419, align 4
+  %421 = icmp ne i32 %420, 0
+  br i1 %421, label %422, label %425
 
-420:                                              ; preds = %415
-  %421 = load ptr, ptr %6, align 8
-  %422 = getelementptr inbounds %struct.lzh_dec, ptr %421, i32 0, i32 0
-  store i32 9, ptr %422, align 8
-  br label %869
+422:                                              ; preds = %417
+  %423 = load ptr, ptr %6, align 8
+  %424 = getelementptr inbounds %struct.lzh_dec, ptr %423, i32 0, i32 0
+  store i32 9, ptr %424, align 8
+  br label %871
 
-423:                                              ; preds = %415
-  br label %424
+425:                                              ; preds = %417
+  br label %426
 
-424:                                              ; preds = %423, %17
-  %425 = load ptr, ptr %7, align 8
-  %426 = getelementptr inbounds %struct.lzh_br, ptr %425, i32 0, i32 1
-  %427 = load i32, ptr %426, align 8
-  %428 = load ptr, ptr %6, align 8
-  %429 = getelementptr inbounds %struct.lzh_dec, ptr %428, i32 0, i32 8
-  %430 = getelementptr inbounds %struct.huffman, ptr %429, i32 0, i32 2
-  %431 = load i32, ptr %430, align 8
-  %432 = icmp sge i32 %427, %431
-  br i1 %432, label %454, label %433
+426:                                              ; preds = %425, %17
+  %427 = load ptr, ptr %7, align 8
+  %428 = getelementptr inbounds %struct.lzh_br, ptr %427, i32 0, i32 1
+  %429 = load i32, ptr %428, align 8
+  %430 = load ptr, ptr %6, align 8
+  %431 = getelementptr inbounds %struct.lzh_dec, ptr %430, i32 0, i32 8
+  %432 = getelementptr inbounds %struct.huffman, ptr %431, i32 0, i32 2
+  %433 = load i32, ptr %432, align 8
+  %434 = icmp sge i32 %429, %433
+  br i1 %434, label %456, label %435
 
-433:                                              ; preds = %424
-  %434 = load ptr, ptr %4, align 8
-  %435 = load ptr, ptr %7, align 8
-  %436 = call i32 @lzh_br_fillup(ptr noundef %434, ptr noundef %435)
-  %437 = icmp ne i32 %436, 0
-  br i1 %437, label %454, label %438
+435:                                              ; preds = %426
+  %436 = load ptr, ptr %4, align 8
+  %437 = load ptr, ptr %7, align 8
+  %438 = call i32 @lzh_br_fillup(ptr noundef %436, ptr noundef %437)
+  %439 = icmp ne i32 %438, 0
+  br i1 %439, label %456, label %440
 
-438:                                              ; preds = %433
-  %439 = load ptr, ptr %7, align 8
-  %440 = getelementptr inbounds %struct.lzh_br, ptr %439, i32 0, i32 1
-  %441 = load i32, ptr %440, align 8
-  %442 = load ptr, ptr %6, align 8
-  %443 = getelementptr inbounds %struct.lzh_dec, ptr %442, i32 0, i32 8
-  %444 = getelementptr inbounds %struct.huffman, ptr %443, i32 0, i32 2
-  %445 = load i32, ptr %444, align 8
-  %446 = icmp sge i32 %441, %445
-  br i1 %446, label %454, label %447
+440:                                              ; preds = %435
+  %441 = load ptr, ptr %7, align 8
+  %442 = getelementptr inbounds %struct.lzh_br, ptr %441, i32 0, i32 1
+  %443 = load i32, ptr %442, align 8
+  %444 = load ptr, ptr %6, align 8
+  %445 = getelementptr inbounds %struct.lzh_dec, ptr %444, i32 0, i32 8
+  %446 = getelementptr inbounds %struct.huffman, ptr %445, i32 0, i32 2
+  %447 = load i32, ptr %446, align 8
+  %448 = icmp sge i32 %443, %447
+  br i1 %448, label %456, label %449
 
-447:                                              ; preds = %438
-  %448 = load i32, ptr %5, align 4
-  %449 = icmp ne i32 %448, 0
-  br i1 %449, label %450, label %451
+449:                                              ; preds = %440
+  %450 = load i32, ptr %5, align 4
+  %451 = icmp ne i32 %450, 0
+  br i1 %451, label %452, label %453
 
-450:                                              ; preds = %447
-  br label %870
+452:                                              ; preds = %449
+  br label %872
 
-451:                                              ; preds = %447
-  %452 = load ptr, ptr %6, align 8
-  %453 = getelementptr inbounds %struct.lzh_dec, ptr %452, i32 0, i32 0
-  store i32 5, ptr %453, align 8
+453:                                              ; preds = %449
+  %454 = load ptr, ptr %6, align 8
+  %455 = getelementptr inbounds %struct.lzh_dec, ptr %454, i32 0, i32 0
+  store i32 5, ptr %455, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-454:                                              ; preds = %438, %433, %424
-  %455 = load ptr, ptr %7, align 8
-  %456 = getelementptr inbounds %struct.lzh_br, ptr %455, i32 0, i32 0
-  %457 = load i64, ptr %456, align 8
-  %458 = load ptr, ptr %7, align 8
-  %459 = getelementptr inbounds %struct.lzh_br, ptr %458, i32 0, i32 1
-  %460 = load i32, ptr %459, align 8
-  %461 = load ptr, ptr %6, align 8
-  %462 = getelementptr inbounds %struct.lzh_dec, ptr %461, i32 0, i32 8
-  %463 = getelementptr inbounds %struct.huffman, ptr %462, i32 0, i32 2
-  %464 = load i32, ptr %463, align 8
-  %465 = sub nsw i32 %460, %464
-  %466 = zext i32 %465 to i64
-  %467 = lshr i64 %457, %466
-  %468 = trunc i64 %467 to i16
-  %469 = zext i16 %468 to i32
-  %470 = load ptr, ptr %6, align 8
-  %471 = getelementptr inbounds %struct.lzh_dec, ptr %470, i32 0, i32 8
-  %472 = getelementptr inbounds %struct.huffman, ptr %471, i32 0, i32 2
-  %473 = load i32, ptr %472, align 8
-  %474 = sext i32 %473 to i64
-  %475 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %474
-  %476 = load i16, ptr %475, align 2
-  %477 = zext i16 %476 to i32
-  %478 = and i32 %469, %477
-  %479 = load ptr, ptr %6, align 8
-  %480 = getelementptr inbounds %struct.lzh_dec, ptr %479, i32 0, i32 8
-  %481 = getelementptr inbounds %struct.huffman, ptr %480, i32 0, i32 1
-  store i32 %478, ptr %481, align 4
-  %482 = load ptr, ptr %6, align 8
-  %483 = getelementptr inbounds %struct.lzh_dec, ptr %482, i32 0, i32 8
-  %484 = getelementptr inbounds %struct.huffman, ptr %483, i32 0, i32 2
-  %485 = load i32, ptr %484, align 8
-  %486 = load ptr, ptr %7, align 8
-  %487 = getelementptr inbounds %struct.lzh_br, ptr %486, i32 0, i32 1
-  %488 = load i32, ptr %487, align 8
-  %489 = sub nsw i32 %488, %485
-  store i32 %489, ptr %487, align 8
-  br label %490
+456:                                              ; preds = %440, %435, %426
+  %457 = load ptr, ptr %7, align 8
+  %458 = getelementptr inbounds %struct.lzh_br, ptr %457, i32 0, i32 0
+  %459 = load i64, ptr %458, align 8
+  %460 = load ptr, ptr %7, align 8
+  %461 = getelementptr inbounds %struct.lzh_br, ptr %460, i32 0, i32 1
+  %462 = load i32, ptr %461, align 8
+  %463 = load ptr, ptr %6, align 8
+  %464 = getelementptr inbounds %struct.lzh_dec, ptr %463, i32 0, i32 8
+  %465 = getelementptr inbounds %struct.huffman, ptr %464, i32 0, i32 2
+  %466 = load i32, ptr %465, align 8
+  %467 = sub nsw i32 %462, %466
+  %468 = zext i32 %467 to i64
+  %469 = lshr i64 %459, %468
+  %470 = trunc i64 %469 to i16
+  %471 = zext i16 %470 to i32
+  %472 = load ptr, ptr %6, align 8
+  %473 = getelementptr inbounds %struct.lzh_dec, ptr %472, i32 0, i32 8
+  %474 = getelementptr inbounds %struct.huffman, ptr %473, i32 0, i32 2
+  %475 = load i32, ptr %474, align 8
+  %476 = sext i32 %475 to i64
+  %477 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %476
+  %478 = load i16, ptr %477, align 2
+  %479 = zext i16 %478 to i32
+  %480 = and i32 %471, %479
+  %481 = load ptr, ptr %6, align 8
+  %482 = getelementptr inbounds %struct.lzh_dec, ptr %481, i32 0, i32 8
+  %483 = getelementptr inbounds %struct.huffman, ptr %482, i32 0, i32 1
+  store i32 %480, ptr %483, align 4
+  %484 = load ptr, ptr %6, align 8
+  %485 = getelementptr inbounds %struct.lzh_dec, ptr %484, i32 0, i32 8
+  %486 = getelementptr inbounds %struct.huffman, ptr %485, i32 0, i32 2
+  %487 = load i32, ptr %486, align 8
+  %488 = load ptr, ptr %7, align 8
+  %489 = getelementptr inbounds %struct.lzh_br, ptr %488, i32 0, i32 1
+  %490 = load i32, ptr %489, align 8
+  %491 = sub nsw i32 %490, %487
+  store i32 %491, ptr %489, align 8
+  br label %492
 
-490:                                              ; preds = %454, %17
-  %491 = load ptr, ptr %6, align 8
-  %492 = getelementptr inbounds %struct.lzh_dec, ptr %491, i32 0, i32 8
-  %493 = getelementptr inbounds %struct.huffman, ptr %492, i32 0, i32 1
-  %494 = load i32, ptr %493, align 4
-  %495 = icmp eq i32 %494, 0
-  br i1 %495, label %496, label %568
+492:                                              ; preds = %456, %17
+  %493 = load ptr, ptr %6, align 8
+  %494 = getelementptr inbounds %struct.lzh_dec, ptr %493, i32 0, i32 8
+  %495 = getelementptr inbounds %struct.huffman, ptr %494, i32 0, i32 1
+  %496 = load i32, ptr %495, align 4
+  %497 = icmp eq i32 %496, 0
+  br i1 %497, label %498, label %570
 
-496:                                              ; preds = %490
-  %497 = load ptr, ptr %7, align 8
-  %498 = getelementptr inbounds %struct.lzh_br, ptr %497, i32 0, i32 1
-  %499 = load i32, ptr %498, align 8
-  %500 = load ptr, ptr %6, align 8
-  %501 = getelementptr inbounds %struct.lzh_dec, ptr %500, i32 0, i32 8
-  %502 = getelementptr inbounds %struct.huffman, ptr %501, i32 0, i32 2
-  %503 = load i32, ptr %502, align 8
-  %504 = icmp sge i32 %499, %503
-  br i1 %504, label %526, label %505
+498:                                              ; preds = %492
+  %499 = load ptr, ptr %7, align 8
+  %500 = getelementptr inbounds %struct.lzh_br, ptr %499, i32 0, i32 1
+  %501 = load i32, ptr %500, align 8
+  %502 = load ptr, ptr %6, align 8
+  %503 = getelementptr inbounds %struct.lzh_dec, ptr %502, i32 0, i32 8
+  %504 = getelementptr inbounds %struct.huffman, ptr %503, i32 0, i32 2
+  %505 = load i32, ptr %504, align 8
+  %506 = icmp sge i32 %501, %505
+  br i1 %506, label %528, label %507
 
-505:                                              ; preds = %496
-  %506 = load ptr, ptr %4, align 8
-  %507 = load ptr, ptr %7, align 8
-  %508 = call i32 @lzh_br_fillup(ptr noundef %506, ptr noundef %507)
-  %509 = icmp ne i32 %508, 0
-  br i1 %509, label %526, label %510
+507:                                              ; preds = %498
+  %508 = load ptr, ptr %4, align 8
+  %509 = load ptr, ptr %7, align 8
+  %510 = call i32 @lzh_br_fillup(ptr noundef %508, ptr noundef %509)
+  %511 = icmp ne i32 %510, 0
+  br i1 %511, label %528, label %512
 
-510:                                              ; preds = %505
-  %511 = load ptr, ptr %7, align 8
-  %512 = getelementptr inbounds %struct.lzh_br, ptr %511, i32 0, i32 1
-  %513 = load i32, ptr %512, align 8
-  %514 = load ptr, ptr %6, align 8
-  %515 = getelementptr inbounds %struct.lzh_dec, ptr %514, i32 0, i32 8
-  %516 = getelementptr inbounds %struct.huffman, ptr %515, i32 0, i32 2
-  %517 = load i32, ptr %516, align 8
-  %518 = icmp sge i32 %513, %517
-  br i1 %518, label %526, label %519
+512:                                              ; preds = %507
+  %513 = load ptr, ptr %7, align 8
+  %514 = getelementptr inbounds %struct.lzh_br, ptr %513, i32 0, i32 1
+  %515 = load i32, ptr %514, align 8
+  %516 = load ptr, ptr %6, align 8
+  %517 = getelementptr inbounds %struct.lzh_dec, ptr %516, i32 0, i32 8
+  %518 = getelementptr inbounds %struct.huffman, ptr %517, i32 0, i32 2
+  %519 = load i32, ptr %518, align 8
+  %520 = icmp sge i32 %515, %519
+  br i1 %520, label %528, label %521
 
-519:                                              ; preds = %510
-  %520 = load i32, ptr %5, align 4
-  %521 = icmp ne i32 %520, 0
-  br i1 %521, label %522, label %523
+521:                                              ; preds = %512
+  %522 = load i32, ptr %5, align 4
+  %523 = icmp ne i32 %522, 0
+  br i1 %523, label %524, label %525
 
-522:                                              ; preds = %519
-  br label %870
+524:                                              ; preds = %521
+  br label %872
 
-523:                                              ; preds = %519
-  %524 = load ptr, ptr %6, align 8
-  %525 = getelementptr inbounds %struct.lzh_dec, ptr %524, i32 0, i32 0
-  store i32 6, ptr %525, align 8
+525:                                              ; preds = %521
+  %526 = load ptr, ptr %6, align 8
+  %527 = getelementptr inbounds %struct.lzh_dec, ptr %526, i32 0, i32 0
+  store i32 6, ptr %527, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-526:                                              ; preds = %510, %505, %496
-  %527 = load ptr, ptr %6, align 8
-  %528 = getelementptr inbounds %struct.lzh_dec, ptr %527, i32 0, i32 8
-  %529 = load ptr, ptr %7, align 8
-  %530 = getelementptr inbounds %struct.lzh_br, ptr %529, i32 0, i32 0
-  %531 = load i64, ptr %530, align 8
-  %532 = load ptr, ptr %7, align 8
-  %533 = getelementptr inbounds %struct.lzh_br, ptr %532, i32 0, i32 1
-  %534 = load i32, ptr %533, align 8
-  %535 = load ptr, ptr %6, align 8
-  %536 = getelementptr inbounds %struct.lzh_dec, ptr %535, i32 0, i32 8
-  %537 = getelementptr inbounds %struct.huffman, ptr %536, i32 0, i32 2
-  %538 = load i32, ptr %537, align 8
-  %539 = sub nsw i32 %534, %538
-  %540 = zext i32 %539 to i64
-  %541 = lshr i64 %531, %540
-  %542 = trunc i64 %541 to i16
-  %543 = zext i16 %542 to i32
-  %544 = load ptr, ptr %6, align 8
-  %545 = getelementptr inbounds %struct.lzh_dec, ptr %544, i32 0, i32 8
-  %546 = getelementptr inbounds %struct.huffman, ptr %545, i32 0, i32 2
-  %547 = load i32, ptr %546, align 8
-  %548 = sext i32 %547 to i64
-  %549 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %548
-  %550 = load i16, ptr %549, align 2
-  %551 = zext i16 %550 to i32
-  %552 = and i32 %543, %551
-  %553 = trunc i32 %552 to i16
-  %554 = call i32 @lzh_make_fake_table(ptr noundef %528, i16 noundef zeroext %553)
-  %555 = icmp ne i32 %554, 0
-  br i1 %555, label %557, label %556
+528:                                              ; preds = %512, %507, %498
+  %529 = load ptr, ptr %6, align 8
+  %530 = getelementptr inbounds %struct.lzh_dec, ptr %529, i32 0, i32 8
+  %531 = load ptr, ptr %7, align 8
+  %532 = getelementptr inbounds %struct.lzh_br, ptr %531, i32 0, i32 0
+  %533 = load i64, ptr %532, align 8
+  %534 = load ptr, ptr %7, align 8
+  %535 = getelementptr inbounds %struct.lzh_br, ptr %534, i32 0, i32 1
+  %536 = load i32, ptr %535, align 8
+  %537 = load ptr, ptr %6, align 8
+  %538 = getelementptr inbounds %struct.lzh_dec, ptr %537, i32 0, i32 8
+  %539 = getelementptr inbounds %struct.huffman, ptr %538, i32 0, i32 2
+  %540 = load i32, ptr %539, align 8
+  %541 = sub nsw i32 %536, %540
+  %542 = zext i32 %541 to i64
+  %543 = lshr i64 %533, %542
+  %544 = trunc i64 %543 to i16
+  %545 = zext i16 %544 to i32
+  %546 = load ptr, ptr %6, align 8
+  %547 = getelementptr inbounds %struct.lzh_dec, ptr %546, i32 0, i32 8
+  %548 = getelementptr inbounds %struct.huffman, ptr %547, i32 0, i32 2
+  %549 = load i32, ptr %548, align 8
+  %550 = sext i32 %549 to i64
+  %551 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %550
+  %552 = load i16, ptr %551, align 2
+  %553 = zext i16 %552 to i32
+  %554 = and i32 %545, %553
+  %555 = trunc i32 %554 to i16
+  %556 = call i32 @lzh_make_fake_table(ptr noundef %530, i16 noundef zeroext %555)
+  %557 = icmp ne i32 %556, 0
+  br i1 %557, label %559, label %558
 
-556:                                              ; preds = %526
-  br label %870
+558:                                              ; preds = %528
+  br label %872
 
-557:                                              ; preds = %526
-  %558 = load ptr, ptr %6, align 8
-  %559 = getelementptr inbounds %struct.lzh_dec, ptr %558, i32 0, i32 8
-  %560 = getelementptr inbounds %struct.huffman, ptr %559, i32 0, i32 2
-  %561 = load i32, ptr %560, align 8
-  %562 = load ptr, ptr %7, align 8
-  %563 = getelementptr inbounds %struct.lzh_br, ptr %562, i32 0, i32 1
-  %564 = load i32, ptr %563, align 8
-  %565 = sub nsw i32 %564, %561
-  store i32 %565, ptr %563, align 8
-  %566 = load ptr, ptr %6, align 8
-  %567 = getelementptr inbounds %struct.lzh_dec, ptr %566, i32 0, i32 0
-  store i32 8, ptr %567, align 8
-  br label %869
+559:                                              ; preds = %528
+  %560 = load ptr, ptr %6, align 8
+  %561 = getelementptr inbounds %struct.lzh_dec, ptr %560, i32 0, i32 8
+  %562 = getelementptr inbounds %struct.huffman, ptr %561, i32 0, i32 2
+  %563 = load i32, ptr %562, align 8
+  %564 = load ptr, ptr %7, align 8
+  %565 = getelementptr inbounds %struct.lzh_br, ptr %564, i32 0, i32 1
+  %566 = load i32, ptr %565, align 8
+  %567 = sub nsw i32 %566, %563
+  store i32 %567, ptr %565, align 8
+  %568 = load ptr, ptr %6, align 8
+  %569 = getelementptr inbounds %struct.lzh_dec, ptr %568, i32 0, i32 0
+  store i32 8, ptr %569, align 8
+  br label %871
 
-568:                                              ; preds = %490
-  %569 = load ptr, ptr %6, align 8
-  %570 = getelementptr inbounds %struct.lzh_dec, ptr %569, i32 0, i32 8
-  %571 = getelementptr inbounds %struct.huffman, ptr %570, i32 0, i32 1
-  %572 = load i32, ptr %571, align 4
-  %573 = load ptr, ptr %6, align 8
-  %574 = getelementptr inbounds %struct.lzh_dec, ptr %573, i32 0, i32 8
-  %575 = getelementptr inbounds %struct.huffman, ptr %574, i32 0, i32 0
-  %576 = load i32, ptr %575, align 8
-  %577 = icmp sgt i32 %572, %576
-  br i1 %577, label %578, label %579
+570:                                              ; preds = %492
+  %571 = load ptr, ptr %6, align 8
+  %572 = getelementptr inbounds %struct.lzh_dec, ptr %571, i32 0, i32 8
+  %573 = getelementptr inbounds %struct.huffman, ptr %572, i32 0, i32 1
+  %574 = load i32, ptr %573, align 4
+  %575 = load ptr, ptr %6, align 8
+  %576 = getelementptr inbounds %struct.lzh_dec, ptr %575, i32 0, i32 8
+  %577 = getelementptr inbounds %struct.huffman, ptr %576, i32 0, i32 0
+  %578 = load i32, ptr %577, align 8
+  %579 = icmp sgt i32 %574, %578
+  br i1 %579, label %580, label %581
 
-578:                                              ; preds = %568
-  br label %870
+580:                                              ; preds = %570
+  br label %872
 
-579:                                              ; preds = %568
-  br label %580
+581:                                              ; preds = %570
+  br label %582
 
-580:                                              ; preds = %579
-  %581 = load ptr, ptr %6, align 8
-  %582 = getelementptr inbounds %struct.lzh_dec, ptr %581, i32 0, i32 16
-  store i32 0, ptr %582, align 8
+582:                                              ; preds = %581
   %583 = load ptr, ptr %6, align 8
-  %584 = getelementptr inbounds %struct.lzh_dec, ptr %583, i32 0, i32 8
-  %585 = getelementptr inbounds %struct.huffman, ptr %584, i32 0, i32 3
-  %586 = getelementptr inbounds [17 x i32], ptr %585, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %586, i8 0, i64 68, i1 false)
-  br label %587
+  %584 = getelementptr inbounds %struct.lzh_dec, ptr %583, i32 0, i32 16
+  store i32 0, ptr %584, align 8
+  %585 = load ptr, ptr %6, align 8
+  %586 = getelementptr inbounds %struct.lzh_dec, ptr %585, i32 0, i32 8
+  %587 = getelementptr inbounds %struct.huffman, ptr %586, i32 0, i32 3
+  %588 = getelementptr inbounds [17 x i32], ptr %587, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %588, i8 0, i64 68, i1 false)
+  br label %589
 
-587:                                              ; preds = %580, %17
-  %588 = load ptr, ptr %6, align 8
-  %589 = getelementptr inbounds %struct.lzh_dec, ptr %588, i32 0, i32 16
-  %590 = load i32, ptr %589, align 8
-  store i32 %590, ptr %9, align 4
-  br label %591
+589:                                              ; preds = %582, %17
+  %590 = load ptr, ptr %6, align 8
+  %591 = getelementptr inbounds %struct.lzh_dec, ptr %590, i32 0, i32 16
+  %592 = load i32, ptr %591, align 8
+  store i32 %592, ptr %9, align 4
+  br label %593
 
-591:                                              ; preds = %836, %587
-  %592 = load i32, ptr %9, align 4
-  %593 = load ptr, ptr %6, align 8
-  %594 = getelementptr inbounds %struct.lzh_dec, ptr %593, i32 0, i32 8
-  %595 = getelementptr inbounds %struct.huffman, ptr %594, i32 0, i32 1
-  %596 = load i32, ptr %595, align 4
-  %597 = icmp slt i32 %592, %596
-  br i1 %597, label %598, label %837
+593:                                              ; preds = %838, %589
+  %594 = load i32, ptr %9, align 4
+  %595 = load ptr, ptr %6, align 8
+  %596 = getelementptr inbounds %struct.lzh_dec, ptr %595, i32 0, i32 8
+  %597 = getelementptr inbounds %struct.huffman, ptr %596, i32 0, i32 1
+  %598 = load i32, ptr %597, align 4
+  %599 = icmp slt i32 %594, %598
+  br i1 %599, label %600, label %839
 
-598:                                              ; preds = %591
-  %599 = load ptr, ptr %7, align 8
-  %600 = getelementptr inbounds %struct.lzh_br, ptr %599, i32 0, i32 1
-  %601 = load i32, ptr %600, align 8
-  %602 = load ptr, ptr %6, align 8
-  %603 = getelementptr inbounds %struct.lzh_dec, ptr %602, i32 0, i32 9
-  %604 = getelementptr inbounds %struct.huffman, ptr %603, i32 0, i32 5
-  %605 = load i32, ptr %604, align 8
-  %606 = icmp sge i32 %601, %605
-  br i1 %606, label %631, label %607
+600:                                              ; preds = %593
+  %601 = load ptr, ptr %7, align 8
+  %602 = getelementptr inbounds %struct.lzh_br, ptr %601, i32 0, i32 1
+  %603 = load i32, ptr %602, align 8
+  %604 = load ptr, ptr %6, align 8
+  %605 = getelementptr inbounds %struct.lzh_dec, ptr %604, i32 0, i32 9
+  %606 = getelementptr inbounds %struct.huffman, ptr %605, i32 0, i32 5
+  %607 = load i32, ptr %606, align 8
+  %608 = icmp sge i32 %603, %607
+  br i1 %608, label %633, label %609
 
-607:                                              ; preds = %598
-  %608 = load ptr, ptr %4, align 8
-  %609 = load ptr, ptr %7, align 8
-  %610 = call i32 @lzh_br_fillup(ptr noundef %608, ptr noundef %609)
-  %611 = icmp ne i32 %610, 0
-  br i1 %611, label %631, label %612
+609:                                              ; preds = %600
+  %610 = load ptr, ptr %4, align 8
+  %611 = load ptr, ptr %7, align 8
+  %612 = call i32 @lzh_br_fillup(ptr noundef %610, ptr noundef %611)
+  %613 = icmp ne i32 %612, 0
+  br i1 %613, label %633, label %614
 
-612:                                              ; preds = %607
-  %613 = load ptr, ptr %7, align 8
-  %614 = getelementptr inbounds %struct.lzh_br, ptr %613, i32 0, i32 1
-  %615 = load i32, ptr %614, align 8
-  %616 = load ptr, ptr %6, align 8
-  %617 = getelementptr inbounds %struct.lzh_dec, ptr %616, i32 0, i32 9
-  %618 = getelementptr inbounds %struct.huffman, ptr %617, i32 0, i32 5
-  %619 = load i32, ptr %618, align 8
-  %620 = icmp sge i32 %615, %619
-  br i1 %620, label %631, label %621
+614:                                              ; preds = %609
+  %615 = load ptr, ptr %7, align 8
+  %616 = getelementptr inbounds %struct.lzh_br, ptr %615, i32 0, i32 1
+  %617 = load i32, ptr %616, align 8
+  %618 = load ptr, ptr %6, align 8
+  %619 = getelementptr inbounds %struct.lzh_dec, ptr %618, i32 0, i32 9
+  %620 = getelementptr inbounds %struct.huffman, ptr %619, i32 0, i32 5
+  %621 = load i32, ptr %620, align 8
+  %622 = icmp sge i32 %617, %621
+  br i1 %622, label %633, label %623
 
-621:                                              ; preds = %612
-  %622 = load i32, ptr %5, align 4
-  %623 = icmp ne i32 %622, 0
-  br i1 %623, label %624, label %625
+623:                                              ; preds = %614
+  %624 = load i32, ptr %5, align 4
+  %625 = icmp ne i32 %624, 0
+  br i1 %625, label %626, label %627
 
-624:                                              ; preds = %621
-  br label %870
+626:                                              ; preds = %623
+  br label %872
 
-625:                                              ; preds = %621
-  %626 = load i32, ptr %9, align 4
-  %627 = load ptr, ptr %6, align 8
-  %628 = getelementptr inbounds %struct.lzh_dec, ptr %627, i32 0, i32 16
-  store i32 %626, ptr %628, align 8
+627:                                              ; preds = %623
+  %628 = load i32, ptr %9, align 4
   %629 = load ptr, ptr %6, align 8
-  %630 = getelementptr inbounds %struct.lzh_dec, ptr %629, i32 0, i32 0
-  store i32 7, ptr %630, align 8
+  %630 = getelementptr inbounds %struct.lzh_dec, ptr %629, i32 0, i32 16
+  store i32 %628, ptr %630, align 8
+  %631 = load ptr, ptr %6, align 8
+  %632 = getelementptr inbounds %struct.lzh_dec, ptr %631, i32 0, i32 0
+  store i32 7, ptr %632, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-631:                                              ; preds = %612, %607, %598
-  %632 = load ptr, ptr %7, align 8
-  %633 = getelementptr inbounds %struct.lzh_br, ptr %632, i32 0, i32 0
-  %634 = load i64, ptr %633, align 8
-  %635 = load ptr, ptr %7, align 8
-  %636 = getelementptr inbounds %struct.lzh_br, ptr %635, i32 0, i32 1
-  %637 = load i32, ptr %636, align 8
-  %638 = load ptr, ptr %6, align 8
-  %639 = getelementptr inbounds %struct.lzh_dec, ptr %638, i32 0, i32 9
-  %640 = getelementptr inbounds %struct.huffman, ptr %639, i32 0, i32 5
-  %641 = load i32, ptr %640, align 8
-  %642 = sub nsw i32 %637, %641
-  %643 = zext i32 %642 to i64
-  %644 = lshr i64 %634, %643
-  %645 = trunc i64 %644 to i16
-  %646 = zext i16 %645 to i32
-  %647 = load ptr, ptr %6, align 8
-  %648 = getelementptr inbounds %struct.lzh_dec, ptr %647, i32 0, i32 9
-  %649 = getelementptr inbounds %struct.huffman, ptr %648, i32 0, i32 5
-  %650 = load i32, ptr %649, align 8
-  %651 = sext i32 %650 to i64
-  %652 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %651
-  %653 = load i16, ptr %652, align 2
-  %654 = zext i16 %653 to i32
-  %655 = and i32 %646, %654
-  store i32 %655, ptr %10, align 4
-  %656 = load ptr, ptr %6, align 8
-  %657 = getelementptr inbounds %struct.lzh_dec, ptr %656, i32 0, i32 9
-  %658 = load i32, ptr %10, align 4
-  %659 = call i32 @lzh_decode_huffman(ptr noundef %657, i32 noundef %658)
-  store i32 %659, ptr %8, align 4
-  %660 = load i32, ptr %8, align 4
-  %661 = icmp sgt i32 %660, 2
-  br i1 %661, label %662, label %696
+633:                                              ; preds = %614, %609, %600
+  %634 = load ptr, ptr %7, align 8
+  %635 = getelementptr inbounds %struct.lzh_br, ptr %634, i32 0, i32 0
+  %636 = load i64, ptr %635, align 8
+  %637 = load ptr, ptr %7, align 8
+  %638 = getelementptr inbounds %struct.lzh_br, ptr %637, i32 0, i32 1
+  %639 = load i32, ptr %638, align 8
+  %640 = load ptr, ptr %6, align 8
+  %641 = getelementptr inbounds %struct.lzh_dec, ptr %640, i32 0, i32 9
+  %642 = getelementptr inbounds %struct.huffman, ptr %641, i32 0, i32 5
+  %643 = load i32, ptr %642, align 8
+  %644 = sub nsw i32 %639, %643
+  %645 = zext i32 %644 to i64
+  %646 = lshr i64 %636, %645
+  %647 = trunc i64 %646 to i16
+  %648 = zext i16 %647 to i32
+  %649 = load ptr, ptr %6, align 8
+  %650 = getelementptr inbounds %struct.lzh_dec, ptr %649, i32 0, i32 9
+  %651 = getelementptr inbounds %struct.huffman, ptr %650, i32 0, i32 5
+  %652 = load i32, ptr %651, align 8
+  %653 = sext i32 %652 to i64
+  %654 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %653
+  %655 = load i16, ptr %654, align 2
+  %656 = zext i16 %655 to i32
+  %657 = and i32 %648, %656
+  store i32 %657, ptr %10, align 4
+  %658 = load ptr, ptr %6, align 8
+  %659 = getelementptr inbounds %struct.lzh_dec, ptr %658, i32 0, i32 9
+  %660 = load i32, ptr %10, align 4
+  %661 = call i32 @lzh_decode_huffman(ptr noundef %659, i32 noundef %660)
+  store i32 %661, ptr %8, align 4
+  %662 = load i32, ptr %8, align 4
+  %663 = icmp sgt i32 %662, 2
+  br i1 %663, label %664, label %698
 
-662:                                              ; preds = %631
-  %663 = load ptr, ptr %6, align 8
-  %664 = getelementptr inbounds %struct.lzh_dec, ptr %663, i32 0, i32 9
-  %665 = getelementptr inbounds %struct.huffman, ptr %664, i32 0, i32 4
-  %666 = load ptr, ptr %665, align 8
-  %667 = load i32, ptr %8, align 4
-  %668 = sext i32 %667 to i64
-  %669 = getelementptr inbounds i8, ptr %666, i64 %668
-  %670 = load i8, ptr %669, align 1
-  %671 = zext i8 %670 to i32
-  %672 = load ptr, ptr %7, align 8
-  %673 = getelementptr inbounds %struct.lzh_br, ptr %672, i32 0, i32 1
-  %674 = load i32, ptr %673, align 8
-  %675 = sub nsw i32 %674, %671
-  store i32 %675, ptr %673, align 8
-  %676 = load i32, ptr %8, align 4
-  %677 = sub nsw i32 %676, 2
-  store i32 %677, ptr %8, align 4
-  %678 = load ptr, ptr %6, align 8
-  %679 = getelementptr inbounds %struct.lzh_dec, ptr %678, i32 0, i32 8
-  %680 = getelementptr inbounds %struct.huffman, ptr %679, i32 0, i32 3
-  %681 = load i32, ptr %8, align 4
-  %682 = sext i32 %681 to i64
-  %683 = getelementptr inbounds [17 x i32], ptr %680, i64 0, i64 %682
-  %684 = load i32, ptr %683, align 4
-  %685 = add nsw i32 %684, 1
-  store i32 %685, ptr %683, align 4
-  %686 = load i32, ptr %8, align 4
-  %687 = trunc i32 %686 to i8
-  %688 = load ptr, ptr %6, align 8
-  %689 = getelementptr inbounds %struct.lzh_dec, ptr %688, i32 0, i32 8
-  %690 = getelementptr inbounds %struct.huffman, ptr %689, i32 0, i32 4
-  %691 = load ptr, ptr %690, align 8
-  %692 = load i32, ptr %9, align 4
-  %693 = add nsw i32 %692, 1
-  store i32 %693, ptr %9, align 4
-  %694 = sext i32 %692 to i64
-  %695 = getelementptr inbounds i8, ptr %691, i64 %694
-  store i8 %687, ptr %695, align 1
-  br label %836
+664:                                              ; preds = %633
+  %665 = load ptr, ptr %6, align 8
+  %666 = getelementptr inbounds %struct.lzh_dec, ptr %665, i32 0, i32 9
+  %667 = getelementptr inbounds %struct.huffman, ptr %666, i32 0, i32 4
+  %668 = load ptr, ptr %667, align 8
+  %669 = load i32, ptr %8, align 4
+  %670 = sext i32 %669 to i64
+  %671 = getelementptr inbounds i8, ptr %668, i64 %670
+  %672 = load i8, ptr %671, align 1
+  %673 = zext i8 %672 to i32
+  %674 = load ptr, ptr %7, align 8
+  %675 = getelementptr inbounds %struct.lzh_br, ptr %674, i32 0, i32 1
+  %676 = load i32, ptr %675, align 8
+  %677 = sub nsw i32 %676, %673
+  store i32 %677, ptr %675, align 8
+  %678 = load i32, ptr %8, align 4
+  %679 = sub nsw i32 %678, 2
+  store i32 %679, ptr %8, align 4
+  %680 = load ptr, ptr %6, align 8
+  %681 = getelementptr inbounds %struct.lzh_dec, ptr %680, i32 0, i32 8
+  %682 = getelementptr inbounds %struct.huffman, ptr %681, i32 0, i32 3
+  %683 = load i32, ptr %8, align 4
+  %684 = sext i32 %683 to i64
+  %685 = getelementptr inbounds [17 x i32], ptr %682, i64 0, i64 %684
+  %686 = load i32, ptr %685, align 4
+  %687 = add nsw i32 %686, 1
+  store i32 %687, ptr %685, align 4
+  %688 = load i32, ptr %8, align 4
+  %689 = trunc i32 %688 to i8
+  %690 = load ptr, ptr %6, align 8
+  %691 = getelementptr inbounds %struct.lzh_dec, ptr %690, i32 0, i32 8
+  %692 = getelementptr inbounds %struct.huffman, ptr %691, i32 0, i32 4
+  %693 = load ptr, ptr %692, align 8
+  %694 = load i32, ptr %9, align 4
+  %695 = add nsw i32 %694, 1
+  store i32 %695, ptr %9, align 4
+  %696 = sext i32 %694 to i64
+  %697 = getelementptr inbounds i8, ptr %693, i64 %696
+  store i8 %689, ptr %697, align 1
+  br label %838
 
-696:                                              ; preds = %631
-  %697 = load i32, ptr %8, align 4
-  %698 = icmp eq i32 %697, 0
-  br i1 %698, label %699, label %721
+698:                                              ; preds = %633
+  %699 = load i32, ptr %8, align 4
+  %700 = icmp eq i32 %699, 0
+  br i1 %700, label %701, label %723
 
-699:                                              ; preds = %696
-  %700 = load ptr, ptr %6, align 8
-  %701 = getelementptr inbounds %struct.lzh_dec, ptr %700, i32 0, i32 9
-  %702 = getelementptr inbounds %struct.huffman, ptr %701, i32 0, i32 4
-  %703 = load ptr, ptr %702, align 8
-  %704 = load i32, ptr %8, align 4
-  %705 = sext i32 %704 to i64
-  %706 = getelementptr inbounds i8, ptr %703, i64 %705
-  %707 = load i8, ptr %706, align 1
-  %708 = zext i8 %707 to i32
-  %709 = load ptr, ptr %7, align 8
-  %710 = getelementptr inbounds %struct.lzh_br, ptr %709, i32 0, i32 1
-  %711 = load i32, ptr %710, align 8
-  %712 = sub nsw i32 %711, %708
-  store i32 %712, ptr %710, align 8
-  %713 = load ptr, ptr %6, align 8
-  %714 = getelementptr inbounds %struct.lzh_dec, ptr %713, i32 0, i32 8
-  %715 = getelementptr inbounds %struct.huffman, ptr %714, i32 0, i32 4
-  %716 = load ptr, ptr %715, align 8
-  %717 = load i32, ptr %9, align 4
-  %718 = add nsw i32 %717, 1
-  store i32 %718, ptr %9, align 4
-  %719 = sext i32 %717 to i64
-  %720 = getelementptr inbounds i8, ptr %716, i64 %719
-  store i8 0, ptr %720, align 1
-  br label %835
+701:                                              ; preds = %698
+  %702 = load ptr, ptr %6, align 8
+  %703 = getelementptr inbounds %struct.lzh_dec, ptr %702, i32 0, i32 9
+  %704 = getelementptr inbounds %struct.huffman, ptr %703, i32 0, i32 4
+  %705 = load ptr, ptr %704, align 8
+  %706 = load i32, ptr %8, align 4
+  %707 = sext i32 %706 to i64
+  %708 = getelementptr inbounds i8, ptr %705, i64 %707
+  %709 = load i8, ptr %708, align 1
+  %710 = zext i8 %709 to i32
+  %711 = load ptr, ptr %7, align 8
+  %712 = getelementptr inbounds %struct.lzh_br, ptr %711, i32 0, i32 1
+  %713 = load i32, ptr %712, align 8
+  %714 = sub nsw i32 %713, %710
+  store i32 %714, ptr %712, align 8
+  %715 = load ptr, ptr %6, align 8
+  %716 = getelementptr inbounds %struct.lzh_dec, ptr %715, i32 0, i32 8
+  %717 = getelementptr inbounds %struct.huffman, ptr %716, i32 0, i32 4
+  %718 = load ptr, ptr %717, align 8
+  %719 = load i32, ptr %9, align 4
+  %720 = add nsw i32 %719, 1
+  store i32 %720, ptr %9, align 4
+  %721 = sext i32 %719 to i64
+  %722 = getelementptr inbounds i8, ptr %718, i64 %721
+  store i8 0, ptr %722, align 1
+  br label %837
 
-721:                                              ; preds = %696
-  %722 = load i32, ptr %8, align 4
-  %723 = icmp eq i32 %722, 1
-  %724 = select i1 %723, i32 4, i32 9
-  store i32 %724, ptr %11, align 4
-  %725 = load ptr, ptr %7, align 8
-  %726 = getelementptr inbounds %struct.lzh_br, ptr %725, i32 0, i32 1
-  %727 = load i32, ptr %726, align 8
-  %728 = load ptr, ptr %6, align 8
-  %729 = getelementptr inbounds %struct.lzh_dec, ptr %728, i32 0, i32 9
-  %730 = getelementptr inbounds %struct.huffman, ptr %729, i32 0, i32 4
-  %731 = load ptr, ptr %730, align 8
-  %732 = load i32, ptr %8, align 4
-  %733 = sext i32 %732 to i64
-  %734 = getelementptr inbounds i8, ptr %731, i64 %733
-  %735 = load i8, ptr %734, align 1
-  %736 = zext i8 %735 to i32
-  %737 = load i32, ptr %11, align 4
-  %738 = add nsw i32 %736, %737
-  %739 = icmp sge i32 %727, %738
-  br i1 %739, label %771, label %740
+723:                                              ; preds = %698
+  %724 = load i32, ptr %8, align 4
+  %725 = icmp eq i32 %724, 1
+  %726 = select i1 %725, i32 4, i32 9
+  store i32 %726, ptr %11, align 4
+  %727 = load ptr, ptr %7, align 8
+  %728 = getelementptr inbounds %struct.lzh_br, ptr %727, i32 0, i32 1
+  %729 = load i32, ptr %728, align 8
+  %730 = load ptr, ptr %6, align 8
+  %731 = getelementptr inbounds %struct.lzh_dec, ptr %730, i32 0, i32 9
+  %732 = getelementptr inbounds %struct.huffman, ptr %731, i32 0, i32 4
+  %733 = load ptr, ptr %732, align 8
+  %734 = load i32, ptr %8, align 4
+  %735 = sext i32 %734 to i64
+  %736 = getelementptr inbounds i8, ptr %733, i64 %735
+  %737 = load i8, ptr %736, align 1
+  %738 = zext i8 %737 to i32
+  %739 = load i32, ptr %11, align 4
+  %740 = add nsw i32 %738, %739
+  %741 = icmp sge i32 %729, %740
+  br i1 %741, label %773, label %742
 
-740:                                              ; preds = %721
-  %741 = load ptr, ptr %4, align 8
-  %742 = load ptr, ptr %7, align 8
-  %743 = call i32 @lzh_br_fillup(ptr noundef %741, ptr noundef %742)
-  %744 = icmp ne i32 %743, 0
-  br i1 %744, label %771, label %745
+742:                                              ; preds = %723
+  %743 = load ptr, ptr %4, align 8
+  %744 = load ptr, ptr %7, align 8
+  %745 = call i32 @lzh_br_fillup(ptr noundef %743, ptr noundef %744)
+  %746 = icmp ne i32 %745, 0
+  br i1 %746, label %773, label %747
 
-745:                                              ; preds = %740
-  %746 = load ptr, ptr %7, align 8
-  %747 = getelementptr inbounds %struct.lzh_br, ptr %746, i32 0, i32 1
-  %748 = load i32, ptr %747, align 8
-  %749 = load ptr, ptr %6, align 8
-  %750 = getelementptr inbounds %struct.lzh_dec, ptr %749, i32 0, i32 9
-  %751 = getelementptr inbounds %struct.huffman, ptr %750, i32 0, i32 4
-  %752 = load ptr, ptr %751, align 8
-  %753 = load i32, ptr %8, align 4
-  %754 = sext i32 %753 to i64
-  %755 = getelementptr inbounds i8, ptr %752, i64 %754
-  %756 = load i8, ptr %755, align 1
-  %757 = zext i8 %756 to i32
-  %758 = load i32, ptr %11, align 4
-  %759 = add nsw i32 %757, %758
-  %760 = icmp sge i32 %748, %759
-  br i1 %760, label %771, label %761
+747:                                              ; preds = %742
+  %748 = load ptr, ptr %7, align 8
+  %749 = getelementptr inbounds %struct.lzh_br, ptr %748, i32 0, i32 1
+  %750 = load i32, ptr %749, align 8
+  %751 = load ptr, ptr %6, align 8
+  %752 = getelementptr inbounds %struct.lzh_dec, ptr %751, i32 0, i32 9
+  %753 = getelementptr inbounds %struct.huffman, ptr %752, i32 0, i32 4
+  %754 = load ptr, ptr %753, align 8
+  %755 = load i32, ptr %8, align 4
+  %756 = sext i32 %755 to i64
+  %757 = getelementptr inbounds i8, ptr %754, i64 %756
+  %758 = load i8, ptr %757, align 1
+  %759 = zext i8 %758 to i32
+  %760 = load i32, ptr %11, align 4
+  %761 = add nsw i32 %759, %760
+  %762 = icmp sge i32 %750, %761
+  br i1 %762, label %773, label %763
 
-761:                                              ; preds = %745
-  %762 = load i32, ptr %5, align 4
-  %763 = icmp ne i32 %762, 0
-  br i1 %763, label %764, label %765
+763:                                              ; preds = %747
+  %764 = load i32, ptr %5, align 4
+  %765 = icmp ne i32 %764, 0
+  br i1 %765, label %766, label %767
 
-764:                                              ; preds = %761
-  br label %870
+766:                                              ; preds = %763
+  br label %872
 
-765:                                              ; preds = %761
-  %766 = load i32, ptr %9, align 4
-  %767 = load ptr, ptr %6, align 8
-  %768 = getelementptr inbounds %struct.lzh_dec, ptr %767, i32 0, i32 16
-  store i32 %766, ptr %768, align 8
+767:                                              ; preds = %763
+  %768 = load i32, ptr %9, align 4
   %769 = load ptr, ptr %6, align 8
-  %770 = getelementptr inbounds %struct.lzh_dec, ptr %769, i32 0, i32 0
-  store i32 7, ptr %770, align 8
+  %770 = getelementptr inbounds %struct.lzh_dec, ptr %769, i32 0, i32 16
+  store i32 %768, ptr %770, align 8
+  %771 = load ptr, ptr %6, align 8
+  %772 = getelementptr inbounds %struct.lzh_dec, ptr %771, i32 0, i32 0
+  store i32 7, ptr %772, align 8
   store i32 0, ptr %3, align 4
-  br label %873
+  br label %875
 
-771:                                              ; preds = %745, %740, %721
-  %772 = load ptr, ptr %6, align 8
-  %773 = getelementptr inbounds %struct.lzh_dec, ptr %772, i32 0, i32 9
-  %774 = getelementptr inbounds %struct.huffman, ptr %773, i32 0, i32 4
-  %775 = load ptr, ptr %774, align 8
-  %776 = load i32, ptr %8, align 4
-  %777 = sext i32 %776 to i64
-  %778 = getelementptr inbounds i8, ptr %775, i64 %777
-  %779 = load i8, ptr %778, align 1
-  %780 = zext i8 %779 to i32
-  %781 = load ptr, ptr %7, align 8
-  %782 = getelementptr inbounds %struct.lzh_br, ptr %781, i32 0, i32 1
-  %783 = load i32, ptr %782, align 8
-  %784 = sub nsw i32 %783, %780
-  store i32 %784, ptr %782, align 8
-  %785 = load ptr, ptr %7, align 8
-  %786 = getelementptr inbounds %struct.lzh_br, ptr %785, i32 0, i32 0
-  %787 = load i64, ptr %786, align 8
-  %788 = load ptr, ptr %7, align 8
-  %789 = getelementptr inbounds %struct.lzh_br, ptr %788, i32 0, i32 1
-  %790 = load i32, ptr %789, align 8
-  %791 = load i32, ptr %11, align 4
-  %792 = sub nsw i32 %790, %791
-  %793 = zext i32 %792 to i64
-  %794 = lshr i64 %787, %793
-  %795 = trunc i64 %794 to i16
-  %796 = zext i16 %795 to i32
-  %797 = load i32, ptr %11, align 4
-  %798 = sext i32 %797 to i64
-  %799 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %798
-  %800 = load i16, ptr %799, align 2
-  %801 = zext i16 %800 to i32
-  %802 = and i32 %796, %801
-  store i32 %802, ptr %8, align 4
-  %803 = load i32, ptr %11, align 4
-  %804 = load ptr, ptr %7, align 8
-  %805 = getelementptr inbounds %struct.lzh_br, ptr %804, i32 0, i32 1
-  %806 = load i32, ptr %805, align 8
-  %807 = sub nsw i32 %806, %803
-  store i32 %807, ptr %805, align 8
-  %808 = load i32, ptr %11, align 4
-  %809 = icmp eq i32 %808, 4
-  %810 = select i1 %809, i32 3, i32 20
-  %811 = load i32, ptr %8, align 4
-  %812 = add nsw i32 %811, %810
-  store i32 %812, ptr %8, align 4
-  %813 = load i32, ptr %9, align 4
-  %814 = load i32, ptr %8, align 4
-  %815 = add nsw i32 %813, %814
-  %816 = load ptr, ptr %6, align 8
-  %817 = getelementptr inbounds %struct.lzh_dec, ptr %816, i32 0, i32 8
-  %818 = getelementptr inbounds %struct.huffman, ptr %817, i32 0, i32 1
-  %819 = load i32, ptr %818, align 4
-  %820 = icmp sgt i32 %815, %819
-  br i1 %820, label %821, label %822
+773:                                              ; preds = %747, %742, %723
+  %774 = load ptr, ptr %6, align 8
+  %775 = getelementptr inbounds %struct.lzh_dec, ptr %774, i32 0, i32 9
+  %776 = getelementptr inbounds %struct.huffman, ptr %775, i32 0, i32 4
+  %777 = load ptr, ptr %776, align 8
+  %778 = load i32, ptr %8, align 4
+  %779 = sext i32 %778 to i64
+  %780 = getelementptr inbounds i8, ptr %777, i64 %779
+  %781 = load i8, ptr %780, align 1
+  %782 = zext i8 %781 to i32
+  %783 = load ptr, ptr %7, align 8
+  %784 = getelementptr inbounds %struct.lzh_br, ptr %783, i32 0, i32 1
+  %785 = load i32, ptr %784, align 8
+  %786 = sub nsw i32 %785, %782
+  store i32 %786, ptr %784, align 8
+  %787 = load ptr, ptr %7, align 8
+  %788 = getelementptr inbounds %struct.lzh_br, ptr %787, i32 0, i32 0
+  %789 = load i64, ptr %788, align 8
+  %790 = load ptr, ptr %7, align 8
+  %791 = getelementptr inbounds %struct.lzh_br, ptr %790, i32 0, i32 1
+  %792 = load i32, ptr %791, align 8
+  %793 = load i32, ptr %11, align 4
+  %794 = sub nsw i32 %792, %793
+  %795 = zext i32 %794 to i64
+  %796 = lshr i64 %789, %795
+  %797 = trunc i64 %796 to i16
+  %798 = zext i16 %797 to i32
+  %799 = load i32, ptr %11, align 4
+  %800 = sext i32 %799 to i64
+  %801 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 %800
+  %802 = load i16, ptr %801, align 2
+  %803 = zext i16 %802 to i32
+  %804 = and i32 %798, %803
+  store i32 %804, ptr %8, align 4
+  %805 = load i32, ptr %11, align 4
+  %806 = load ptr, ptr %7, align 8
+  %807 = getelementptr inbounds %struct.lzh_br, ptr %806, i32 0, i32 1
+  %808 = load i32, ptr %807, align 8
+  %809 = sub nsw i32 %808, %805
+  store i32 %809, ptr %807, align 8
+  %810 = load i32, ptr %11, align 4
+  %811 = icmp eq i32 %810, 4
+  %812 = select i1 %811, i32 3, i32 20
+  %813 = load i32, ptr %8, align 4
+  %814 = add nsw i32 %813, %812
+  store i32 %814, ptr %8, align 4
+  %815 = load i32, ptr %9, align 4
+  %816 = load i32, ptr %8, align 4
+  %817 = add nsw i32 %815, %816
+  %818 = load ptr, ptr %6, align 8
+  %819 = getelementptr inbounds %struct.lzh_dec, ptr %818, i32 0, i32 8
+  %820 = getelementptr inbounds %struct.huffman, ptr %819, i32 0, i32 1
+  %821 = load i32, ptr %820, align 4
+  %822 = icmp sgt i32 %817, %821
+  br i1 %822, label %823, label %824
 
-821:                                              ; preds = %771
-  br label %870
+823:                                              ; preds = %773
+  br label %872
 
-822:                                              ; preds = %771
-  %823 = load ptr, ptr %6, align 8
-  %824 = getelementptr inbounds %struct.lzh_dec, ptr %823, i32 0, i32 8
-  %825 = getelementptr inbounds %struct.huffman, ptr %824, i32 0, i32 4
-  %826 = load ptr, ptr %825, align 8
-  %827 = load i32, ptr %9, align 4
-  %828 = sext i32 %827 to i64
-  %829 = getelementptr inbounds i8, ptr %826, i64 %828
-  %830 = load i32, ptr %8, align 4
-  %831 = sext i32 %830 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %829, i8 0, i64 %831, i1 false)
+824:                                              ; preds = %773
+  %825 = load ptr, ptr %6, align 8
+  %826 = getelementptr inbounds %struct.lzh_dec, ptr %825, i32 0, i32 8
+  %827 = getelementptr inbounds %struct.huffman, ptr %826, i32 0, i32 4
+  %828 = load ptr, ptr %827, align 8
+  %829 = load i32, ptr %9, align 4
+  %830 = sext i32 %829 to i64
+  %831 = getelementptr inbounds i8, ptr %828, i64 %830
   %832 = load i32, ptr %8, align 4
-  %833 = load i32, ptr %9, align 4
-  %834 = add nsw i32 %833, %832
-  store i32 %834, ptr %9, align 4
-  br label %835
+  %833 = sext i32 %832 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %831, i8 0, i64 %833, i1 false)
+  %834 = load i32, ptr %8, align 4
+  %835 = load i32, ptr %9, align 4
+  %836 = add nsw i32 %835, %834
+  store i32 %836, ptr %9, align 4
+  br label %837
 
-835:                                              ; preds = %822, %699
-  br label %836
+837:                                              ; preds = %824, %701
+  br label %838
 
-836:                                              ; preds = %835, %662
-  br label %591, !llvm.loop !22
+838:                                              ; preds = %837, %664
+  br label %593, !llvm.loop !22
 
-837:                                              ; preds = %591
-  %838 = load i32, ptr %9, align 4
-  %839 = load ptr, ptr %6, align 8
-  %840 = getelementptr inbounds %struct.lzh_dec, ptr %839, i32 0, i32 8
-  %841 = getelementptr inbounds %struct.huffman, ptr %840, i32 0, i32 1
-  %842 = load i32, ptr %841, align 4
-  %843 = icmp sgt i32 %838, %842
-  br i1 %843, label %849, label %844
+839:                                              ; preds = %593
+  %840 = load i32, ptr %9, align 4
+  %841 = load ptr, ptr %6, align 8
+  %842 = getelementptr inbounds %struct.lzh_dec, ptr %841, i32 0, i32 8
+  %843 = getelementptr inbounds %struct.huffman, ptr %842, i32 0, i32 1
+  %844 = load i32, ptr %843, align 4
+  %845 = icmp sgt i32 %840, %844
+  br i1 %845, label %851, label %846
 
-844:                                              ; preds = %837
-  %845 = load ptr, ptr %6, align 8
-  %846 = getelementptr inbounds %struct.lzh_dec, ptr %845, i32 0, i32 8
-  %847 = call i32 @lzh_make_huffman_table(ptr noundef %846)
-  %848 = icmp ne i32 %847, 0
-  br i1 %848, label %850, label %849
+846:                                              ; preds = %839
+  %847 = load ptr, ptr %6, align 8
+  %848 = getelementptr inbounds %struct.lzh_dec, ptr %847, i32 0, i32 8
+  %849 = call i32 @lzh_make_huffman_table(ptr noundef %848)
+  %850 = icmp ne i32 %849, 0
+  br i1 %850, label %852, label %851
 
-849:                                              ; preds = %844, %837
-  br label %870
+851:                                              ; preds = %846, %839
+  br label %872
 
-850:                                              ; preds = %844
-  br label %851
+852:                                              ; preds = %846
+  br label %853
 
-851:                                              ; preds = %850, %17
-  %852 = load ptr, ptr %6, align 8
-  %853 = getelementptr inbounds %struct.lzh_dec, ptr %852, i32 0, i32 11
-  %854 = load i32, ptr %853, align 4
-  %855 = load ptr, ptr %6, align 8
-  %856 = getelementptr inbounds %struct.lzh_dec, ptr %855, i32 0, i32 9
-  %857 = getelementptr inbounds %struct.huffman, ptr %856, i32 0, i32 0
-  store i32 %854, ptr %857, align 8
-  %858 = load ptr, ptr %6, align 8
-  %859 = getelementptr inbounds %struct.lzh_dec, ptr %858, i32 0, i32 12
-  %860 = load i32, ptr %859, align 8
-  %861 = load ptr, ptr %6, align 8
-  %862 = getelementptr inbounds %struct.lzh_dec, ptr %861, i32 0, i32 9
-  %863 = getelementptr inbounds %struct.huffman, ptr %862, i32 0, i32 2
-  store i32 %860, ptr %863, align 8
-  %864 = load ptr, ptr %6, align 8
-  %865 = getelementptr inbounds %struct.lzh_dec, ptr %864, i32 0, i32 15
-  store i32 1, ptr %865, align 4
+853:                                              ; preds = %852, %17
+  %854 = load ptr, ptr %6, align 8
+  %855 = getelementptr inbounds %struct.lzh_dec, ptr %854, i32 0, i32 11
+  %856 = load i32, ptr %855, align 4
+  %857 = load ptr, ptr %6, align 8
+  %858 = getelementptr inbounds %struct.lzh_dec, ptr %857, i32 0, i32 9
+  %859 = getelementptr inbounds %struct.huffman, ptr %858, i32 0, i32 0
+  store i32 %856, ptr %859, align 8
+  %860 = load ptr, ptr %6, align 8
+  %861 = getelementptr inbounds %struct.lzh_dec, ptr %860, i32 0, i32 12
+  %862 = load i32, ptr %861, align 8
+  %863 = load ptr, ptr %6, align 8
+  %864 = getelementptr inbounds %struct.lzh_dec, ptr %863, i32 0, i32 9
+  %865 = getelementptr inbounds %struct.huffman, ptr %864, i32 0, i32 2
+  store i32 %862, ptr %865, align 8
   %866 = load ptr, ptr %6, align 8
-  %867 = getelementptr inbounds %struct.lzh_dec, ptr %866, i32 0, i32 0
-  store i32 1, ptr %867, align 8
-  br label %869
+  %867 = getelementptr inbounds %struct.lzh_dec, ptr %866, i32 0, i32 15
+  store i32 1, ptr %867, align 4
+  %868 = load ptr, ptr %6, align 8
+  %869 = getelementptr inbounds %struct.lzh_dec, ptr %868, i32 0, i32 0
+  store i32 1, ptr %869, align 8
+  br label %871
 
-868:                                              ; preds = %17
+870:                                              ; preds = %17
   store i32 100, ptr %3, align 4
-  br label %873
+  br label %875
 
-869:                                              ; preds = %851, %557, %420, %282, %248, %17
+871:                                              ; preds = %853, %559, %422, %283, %249, %17
   br label %17
 
-870:                                              ; preds = %849, %821, %764, %624, %578, %556, %522, %450, %414, %405, %358, %328, %306, %259, %228, %194, %122, %76, %40
-  %871 = load ptr, ptr %6, align 8
-  %872 = getelementptr inbounds %struct.lzh_dec, ptr %871, i32 0, i32 17
-  store i32 -25, ptr %872, align 4
+872:                                              ; preds = %851, %823, %766, %626, %580, %558, %524, %452, %416, %407, %360, %329, %307, %260, %229, %195, %123, %77, %40
+  %873 = load ptr, ptr %6, align 8
+  %874 = getelementptr inbounds %struct.lzh_dec, ptr %873, i32 0, i32 17
+  store i32 -25, ptr %874, align 4
   store i32 -25, ptr %3, align 4
-  br label %873
+  br label %875
 
-873:                                              ; preds = %870, %868, %765, %625, %523, %451, %406, %329, %307, %195, %123, %54, %46, %34
-  %874 = load i32, ptr %3, align 4
-  ret i32 %874
+875:                                              ; preds = %872, %870, %767, %627, %525, %453, %408, %330, %308, %196, %124, %54, %46, %34
+  %876 = load i32, ptr %3, align 4
+  ret i32 %876
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7997,11 +8004,11 @@ define internal i32 @lzh_read_pt_bitlen(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %17, ptr %11, align 4
   br label %18
 
-18:                                               ; preds = %108, %3
+18:                                               ; preds = %110, %3
   %19 = load i32, ptr %11, align 4
   %20 = load i32, ptr %7, align 4
   %21 = icmp slt i32 %19, %20
-  br i1 %21, label %22, label %127
+  br i1 %21, label %22, label %129
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %9, align 8
@@ -8027,7 +8034,7 @@ define internal i32 @lzh_read_pt_bitlen(ptr noundef %0, i32 noundef %1, i32 noun
 37:                                               ; preds = %32
   %38 = load i32, ptr %11, align 4
   store i32 %38, ptr %4, align 4
-  br label %129
+  br label %131
 
 39:                                               ; preds = %32, %27, %22
   %40 = load ptr, ptr %9, align 8
@@ -8041,121 +8048,123 @@ define internal i32 @lzh_read_pt_bitlen(ptr noundef %0, i32 noundef %1, i32 noun
   %48 = lshr i64 %42, %47
   %49 = trunc i64 %48 to i16
   %50 = zext i16 %49 to i32
-  %51 = load i16, ptr getelementptr inbounds ([20 x i16], ptr @cache_masks, i64 0, i64 3), align 2
-  %52 = zext i16 %51 to i32
-  %53 = and i32 %50, %52
-  store i32 %53, ptr %10, align 4
-  %54 = icmp eq i32 %53, 7
-  br i1 %54, label %55, label %103
+  %51 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 3
+  %52 = load i16, ptr %51, align 2
+  %53 = zext i16 %52 to i32
+  %54 = and i32 %50, %53
+  store i32 %54, ptr %10, align 4
+  %55 = icmp eq i32 %54, 7
+  br i1 %55, label %56, label %105
 
-55:                                               ; preds = %39
-  %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds %struct.lzh_br, ptr %56, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp sge i32 %58, 13
-  br i1 %59, label %72, label %60
+56:                                               ; preds = %39
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds %struct.lzh_br, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp sge i32 %59, 13
+  br i1 %60, label %73, label %61
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %5, align 8
-  %62 = load ptr, ptr %9, align 8
-  %63 = call i32 @lzh_br_fillup(ptr noundef %61, ptr noundef %62)
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %72, label %65
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %5, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = call i32 @lzh_br_fillup(ptr noundef %62, ptr noundef %63)
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %73, label %66
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %9, align 8
-  %67 = getelementptr inbounds %struct.lzh_br, ptr %66, i32 0, i32 1
-  %68 = load i32, ptr %67, align 8
-  %69 = icmp sge i32 %68, 13
-  br i1 %69, label %72, label %70
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %9, align 8
+  %68 = getelementptr inbounds %struct.lzh_br, ptr %67, i32 0, i32 1
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp sge i32 %69, 13
+  br i1 %70, label %73, label %71
 
-70:                                               ; preds = %65
-  %71 = load i32, ptr %11, align 4
-  store i32 %71, ptr %4, align 4
-  br label %129
+71:                                               ; preds = %66
+  %72 = load i32, ptr %11, align 4
+  store i32 %72, ptr %4, align 4
+  br label %131
 
-72:                                               ; preds = %65, %60, %55
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds %struct.lzh_br, ptr %73, i32 0, i32 0
-  %75 = load i64, ptr %74, align 8
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct.lzh_br, ptr %76, i32 0, i32 1
-  %78 = load i32, ptr %77, align 8
-  %79 = sub nsw i32 %78, 13
-  %80 = zext i32 %79 to i64
-  %81 = lshr i64 %75, %80
-  %82 = trunc i64 %81 to i16
-  %83 = zext i16 %82 to i32
-  %84 = load i16, ptr getelementptr inbounds ([20 x i16], ptr @cache_masks, i64 0, i64 13), align 2
-  %85 = zext i16 %84 to i32
-  %86 = and i32 %83, %85
-  %87 = and i32 %86, 1023
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [1024 x i8], ptr @bitlen_tbl, i64 0, i64 %88
-  %90 = load i8, ptr %89, align 1
-  %91 = sext i8 %90 to i32
-  store i32 %91, ptr %10, align 4
-  %92 = load i32, ptr %10, align 4
-  %93 = icmp ne i32 %92, 0
-  br i1 %93, label %94, label %101
+73:                                               ; preds = %66, %61, %56
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds %struct.lzh_br, ptr %74, i32 0, i32 0
+  %76 = load i64, ptr %75, align 8
+  %77 = load ptr, ptr %9, align 8
+  %78 = getelementptr inbounds %struct.lzh_br, ptr %77, i32 0, i32 1
+  %79 = load i32, ptr %78, align 8
+  %80 = sub nsw i32 %79, 13
+  %81 = zext i32 %80 to i64
+  %82 = lshr i64 %76, %81
+  %83 = trunc i64 %82 to i16
+  %84 = zext i16 %83 to i32
+  %85 = getelementptr inbounds [20 x i16], ptr @cache_masks, i64 0, i64 13
+  %86 = load i16, ptr %85, align 2
+  %87 = zext i16 %86 to i32
+  %88 = and i32 %84, %87
+  %89 = and i32 %88, 1023
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds [1024 x i8], ptr @bitlen_tbl, i64 0, i64 %90
+  %92 = load i8, ptr %91, align 1
+  %93 = sext i8 %92 to i32
+  store i32 %93, ptr %10, align 4
+  %94 = load i32, ptr %10, align 4
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %103
 
-94:                                               ; preds = %72
-  %95 = load i32, ptr %10, align 4
-  %96 = sub nsw i32 %95, 3
-  %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct.lzh_br, ptr %97, i32 0, i32 1
-  %99 = load i32, ptr %98, align 8
-  %100 = sub nsw i32 %99, %96
-  store i32 %100, ptr %98, align 8
-  br label %102
+96:                                               ; preds = %73
+  %97 = load i32, ptr %10, align 4
+  %98 = sub nsw i32 %97, 3
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds %struct.lzh_br, ptr %99, i32 0, i32 1
+  %101 = load i32, ptr %100, align 8
+  %102 = sub nsw i32 %101, %98
+  store i32 %102, ptr %100, align 8
+  br label %104
 
-101:                                              ; preds = %72
+103:                                              ; preds = %73
   store i32 -1, ptr %4, align 4
-  br label %129
+  br label %131
 
-102:                                              ; preds = %94
-  br label %108
+104:                                              ; preds = %96
+  br label %110
 
-103:                                              ; preds = %39
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %struct.lzh_br, ptr %104, i32 0, i32 1
-  %106 = load i32, ptr %105, align 8
-  %107 = sub nsw i32 %106, 3
-  store i32 %107, ptr %105, align 8
-  br label %108
+105:                                              ; preds = %39
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds %struct.lzh_br, ptr %106, i32 0, i32 1
+  %108 = load i32, ptr %107, align 8
+  %109 = sub nsw i32 %108, 3
+  store i32 %109, ptr %107, align 8
+  br label %110
 
-108:                                              ; preds = %103, %102
-  %109 = load i32, ptr %10, align 4
-  %110 = trunc i32 %109 to i8
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %struct.lzh_dec, ptr %111, i32 0, i32 9
-  %113 = getelementptr inbounds %struct.huffman, ptr %112, i32 0, i32 4
-  %114 = load ptr, ptr %113, align 8
-  %115 = load i32, ptr %11, align 4
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %11, align 4
-  %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds i8, ptr %114, i64 %117
-  store i8 %110, ptr %118, align 1
-  %119 = load ptr, ptr %8, align 8
-  %120 = getelementptr inbounds %struct.lzh_dec, ptr %119, i32 0, i32 9
-  %121 = getelementptr inbounds %struct.huffman, ptr %120, i32 0, i32 3
-  %122 = load i32, ptr %10, align 4
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [17 x i32], ptr %121, i64 0, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %124, align 4
+110:                                              ; preds = %105, %104
+  %111 = load i32, ptr %10, align 4
+  %112 = trunc i32 %111 to i8
+  %113 = load ptr, ptr %8, align 8
+  %114 = getelementptr inbounds %struct.lzh_dec, ptr %113, i32 0, i32 9
+  %115 = getelementptr inbounds %struct.huffman, ptr %114, i32 0, i32 4
+  %116 = load ptr, ptr %115, align 8
+  %117 = load i32, ptr %11, align 4
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %11, align 4
+  %119 = sext i32 %117 to i64
+  %120 = getelementptr inbounds i8, ptr %116, i64 %119
+  store i8 %112, ptr %120, align 1
+  %121 = load ptr, ptr %8, align 8
+  %122 = getelementptr inbounds %struct.lzh_dec, ptr %121, i32 0, i32 9
+  %123 = getelementptr inbounds %struct.huffman, ptr %122, i32 0, i32 3
+  %124 = load i32, ptr %10, align 4
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds [17 x i32], ptr %123, i64 0, i64 %125
+  %127 = load i32, ptr %126, align 4
+  %128 = add nsw i32 %127, 1
+  store i32 %128, ptr %126, align 4
   br label %18, !llvm.loop !24
 
-127:                                              ; preds = %18
-  %128 = load i32, ptr %11, align 4
-  store i32 %128, ptr %4, align 4
-  br label %129
+129:                                              ; preds = %18
+  %130 = load i32, ptr %11, align 4
+  store i32 %130, ptr %4, align 4
+  br label %131
 
-129:                                              ; preds = %127, %101, %70, %37
-  %130 = load i32, ptr %4, align 4
-  ret i32 %130
+131:                                              ; preds = %129, %103, %71, %37
+  %132 = load i32, ptr %4, align 4
+  ret i32 %132
 }
 
 ; Function Attrs: nounwind uwtable

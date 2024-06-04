@@ -1361,69 +1361,70 @@ define void @_ZN13ATapDataModelC2ENS_13dataModelTypeEi7QStringP7QObject(ptr noun
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %10, align 8
   call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i32 0, i32 0, i32 2), ptr %14, align 8
-  %16 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 3
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #11
-  %17 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 11
-  %18 = getelementptr inbounds %struct._conversation_hash_t, ptr %17, i32 0, i32 1
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 11
-  %20 = getelementptr inbounds %struct._conversation_hash_t, ptr %19, i32 0, i32 0
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 11
-  %22 = getelementptr inbounds %struct._conversation_hash_t, ptr %21, i32 0, i32 2
-  store ptr %14, ptr %22, align 8
-  %23 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 2
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 6
-  store i8 0, ptr %24, align 2
-  %25 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 4
-  store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 5
-  store i8 0, ptr %26, align 1
-  %27 = load i32, ptr %8, align 4
-  %28 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 10
-  store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 3
-  %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  %31 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 8
-  store double 0.000000e+00, ptr %31, align 8
-  %32 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 9
+  %16 = getelementptr inbounds { [52 x ptr] }, ptr @_ZTV13ATapDataModel, i32 0, i32 0, i32 2
+  store ptr %16, ptr %14, align 8
+  %17 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 3
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
+  %18 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 11
+  %19 = getelementptr inbounds %struct._conversation_hash_t, ptr %18, i32 0, i32 1
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 11
+  %21 = getelementptr inbounds %struct._conversation_hash_t, ptr %20, i32 0, i32 0
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 11
+  %23 = getelementptr inbounds %struct._conversation_hash_t, ptr %22, i32 0, i32 2
+  store ptr %14, ptr %23, align 8
+  %24 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 2
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 6
+  store i8 0, ptr %25, align 2
+  %26 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 4
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 5
+  store i8 0, ptr %27, align 1
+  %28 = load i32, ptr %8, align 4
+  %29 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 10
+  store i32 %28, ptr %29, align 8
+  %30 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 3
+  %31 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %32 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 8
   store double 0.000000e+00, ptr %32, align 8
-  %33 = load i32, ptr %7, align 4
-  %34 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 1
-  store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 7
-  store i8 1, ptr %35, align 1
-  %36 = load i32, ptr %8, align 4
-  %37 = invoke ptr @proto_get_protocol_filter_name(i32 noundef %36)
-          to label %38 unwind label %40
+  %33 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 9
+  store double 0.000000e+00, ptr %33, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 1
+  store i32 %34, ptr %35, align 8
+  %36 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 7
+  store i8 1, ptr %36, align 1
+  %37 = load i32, ptr %8, align 4
+  %38 = invoke ptr @proto_get_protocol_filter_name(i32 noundef %37)
+          to label %39 unwind label %41
 
-38:                                               ; preds = %5
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %37)
-          to label %39 unwind label %40
+39:                                               ; preds = %5
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %38)
+          to label %40 unwind label %41
 
-39:                                               ; preds = %38
+40:                                               ; preds = %39
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
   ret void
 
-40:                                               ; preds = %38, %5
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %39, %5
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %12, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %13, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #11
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %12, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %13, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #11
   call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #11
-  br label %44
+  br label %45
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %12, align 8
-  %46 = load i32, ptr %13, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %12, align 8
+  %47 = load i32, ptr %13, align 4
+  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
+  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
+  resume { ptr, i32 } %49
 }
 
 declare void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -1483,65 +1484,66 @@ define void @_ZN13ATapDataModelD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 7
-  %5 = load i8, ptr %4, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [52 x ptr] }, ptr @_ZTV13ATapDataModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 7
+  %6 = load i8, ptr %5, align 1
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = invoke noundef ptr @_ZN13ATapDataModel4hashEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
-          to label %9 unwind label %28
+8:                                                ; preds = %1
+  %9 = invoke noundef ptr @_ZN13ATapDataModel4hashEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
+          to label %10 unwind label %29
 
-9:                                                ; preds = %7
-  invoke void @remove_tap_listener(ptr noundef %8)
-          to label %10 unwind label %28
+10:                                               ; preds = %8
+  invoke void @remove_tap_listener(ptr noundef %9)
+          to label %11 unwind label %29
 
-10:                                               ; preds = %9
-  br label %11
+11:                                               ; preds = %10
+  br label %12
 
-11:                                               ; preds = %10, %1
-  %12 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %18
+12:                                               ; preds = %11, %1
+  %13 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 11
-  invoke void @reset_endpoint_table_data(ptr noundef %16)
-          to label %17 unwind label %28
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 11
+  invoke void @reset_endpoint_table_data(ptr noundef %17)
+          to label %18 unwind label %29
 
-17:                                               ; preds = %15
+18:                                               ; preds = %16
+  br label %27
+
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 1
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 11
+  invoke void @reset_conversation_table_data(ptr noundef %24)
+          to label %25 unwind label %29
+
+25:                                               ; preds = %23
   br label %26
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 1
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %25
+26:                                               ; preds = %25, %19
+  br label %27
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 11
-  invoke void @reset_conversation_table_data(ptr noundef %23)
-          to label %24 unwind label %28
-
-24:                                               ; preds = %22
-  br label %25
-
-25:                                               ; preds = %24, %18
-  br label %26
-
-26:                                               ; preds = %25, %17
-  %27 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #11
+27:                                               ; preds = %26, %18
+  %28 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #11
   call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   ret void
 
-28:                                               ; preds = %22, %15, %9, %7
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %23, %16, %10, %8
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #15
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #15
   unreachable
 }
 
@@ -2318,7 +2320,7 @@ define noundef zeroext i1 @_ZNK13ATapDataModel20allowsNameResolutionEv(ptr nound
 
 40:                                               ; preds = %1
   store i1 false, ptr %2, align 1
-  br label %260
+  br label %262
 
 41:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 24, i1 false)
@@ -2552,7 +2554,7 @@ define noundef zeroext i1 @_ZNK13ATapDataModel20allowsNameResolutionEv(ptr nound
 117:                                              ; preds = %114
   store i1 true, ptr %2, align 1
   store i32 1, ptr %35, align 4
-  br label %257
+  br label %259
 
 118:                                              ; preds = %41
   %119 = landingpad { ptr, i32 }
@@ -2640,7 +2642,7 @@ define noundef zeroext i1 @_ZNK13ATapDataModel20allowsNameResolutionEv(ptr nound
 
 151:                                              ; preds = %150, %118
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  br label %262
+  br label %264
 
 152:                                              ; preds = %59
   %153 = landingpad { ptr, i32 }
@@ -2793,7 +2795,7 @@ define noundef zeroext i1 @_ZNK13ATapDataModel20allowsNameResolutionEv(ptr nound
 
 210:                                              ; preds = %209, %152
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  br label %259
+  br label %261
 
 211:                                              ; preds = %92
   %212 = landingpad { ptr, i32 }
@@ -2868,7 +2870,7 @@ define noundef zeroext i1 @_ZNK13ATapDataModel20allowsNameResolutionEv(ptr nound
 
 239:                                              ; preds = %238, %211
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #11
-  br label %258
+  br label %260
 
 240:                                              ; preds = %111, %107
   %241 = landingpad { ptr, i32 }
@@ -2878,66 +2880,68 @@ define noundef zeroext i1 @_ZNK13ATapDataModel20allowsNameResolutionEv(ptr nound
   %243 = extractvalue { ptr, i32 } %241, 1
   store i32 %243, ptr %8, align 4
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #11
-  br label %258
+  br label %260
 
 244:                                              ; preds = %114, %112
   %245 = call noundef zeroext i1 @_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %34, i32 noundef 1) #11
-  br i1 %245, label %246, label %250
+  br i1 %245, label %246, label %251
 
 246:                                              ; preds = %244
-  %247 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %248 = icmp ne i32 %247, 0
-  br i1 %248, label %249, label %250
+  %247 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %248 = load i32, ptr %247, align 4
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %250, label %251
 
-249:                                              ; preds = %246
+250:                                              ; preds = %246
   store i1 true, ptr %2, align 1
   store i32 1, ptr %35, align 4
-  br label %257
+  br label %259
 
-250:                                              ; preds = %246, %244
-  %251 = call noundef zeroext i1 @_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 8 dereferenceable(24) %34, i32 noundef 1) #11
-  br i1 %251, label %252, label %256
+251:                                              ; preds = %246, %244
+  %252 = call noundef zeroext i1 @_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 8 dereferenceable(24) %34, i32 noundef 1) #11
+  br i1 %252, label %253, label %258
 
-252:                                              ; preds = %250
-  %253 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2), align 4
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %255, label %256
+253:                                              ; preds = %251
+  %254 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 2
+  %255 = load i32, ptr %254, align 4
+  %256 = icmp ne i32 %255, 0
+  br i1 %256, label %257, label %258
 
-255:                                              ; preds = %252
+257:                                              ; preds = %253
   store i1 true, ptr %2, align 1
   store i32 1, ptr %35, align 4
-  br label %257
+  br label %259
 
-256:                                              ; preds = %252, %250
+258:                                              ; preds = %253, %251
   store i1 false, ptr %2, align 1
   store i32 1, ptr %35, align 4
-  br label %257
+  br label %259
 
-257:                                              ; preds = %256, %255, %249, %117
+259:                                              ; preds = %258, %257, %250, %117
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #11
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #11
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  br label %260
-
-258:                                              ; preds = %240, %239
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
-  br label %259
-
-259:                                              ; preds = %258, %210
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   br label %262
 
-260:                                              ; preds = %257, %40
-  %261 = load i1, ptr %2, align 1
-  ret i1 %261
+260:                                              ; preds = %240, %239
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
+  br label %261
 
-262:                                              ; preds = %259, %151
-  %263 = load ptr, ptr %7, align 8
-  %264 = load i32, ptr %8, align 4
-  %265 = insertvalue { ptr, i32 } poison, ptr %263, 0
-  %266 = insertvalue { ptr, i32 } %265, i32 %264, 1
-  resume { ptr, i32 } %266
+261:                                              ; preds = %260, %210
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  br label %264
+
+262:                                              ; preds = %259, %40
+  %263 = load i1, ptr %2, align 1
+  ret i1 %263
+
+264:                                              ; preds = %261, %151
+  %265 = load ptr, ptr %7, align 8
+  %266 = load i32, ptr %8, align 4
+  %267 = insertvalue { ptr, i32 } poison, ptr %265, 0
+  %268 = insertvalue { ptr, i32 } %267, i32 %266, 1
+  resume { ptr, i32 } %268
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3307,29 +3311,30 @@ define void @_ZN17EndpointDataModelC2Ei7QStringP7QObject(ptr noundef nonnull ali
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2) #11
   %14 = load ptr, ptr %8, align 8
   invoke void @_ZN13ATapDataModelC2ENS_13dataModelTypeEi7QStringP7QObject(ptr noundef nonnull align 8 dereferenceable(120) %12, i32 noundef 0, i32 noundef %13, ptr noundef %9, ptr noundef %14)
-          to label %15 unwind label %16
+          to label %15 unwind label %17
 
 15:                                               ; preds = %4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV17EndpointDataModel, i32 0, i32 0, i32 2), ptr %12, align 8
+  %16 = getelementptr inbounds { [52 x ptr] }, ptr @_ZTV17EndpointDataModel, i32 0, i32 0, i32 2
+  store ptr %16, ptr %12, align 8
   ret void
 
-16:                                               ; preds = %4
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %4
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %10, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %11, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %10, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %10, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5775,29 +5780,30 @@ define void @_ZN21ConversationDataModelC2Ei7QStringP7QObject(ptr noundef nonnull
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2) #11
   %14 = load ptr, ptr %8, align 8
   invoke void @_ZN13ATapDataModelC2ENS_13dataModelTypeEi7QStringP7QObject(ptr noundef nonnull align 8 dereferenceable(120) %12, i32 noundef 1, i32 noundef %13, ptr noundef %9, ptr noundef %14)
-          to label %15 unwind label %16
+          to label %15 unwind label %17
 
 15:                                               ; preds = %4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV21ConversationDataModel, i32 0, i32 0, i32 2), ptr %12, align 8
+  %16 = getelementptr inbounds { [52 x ptr] }, ptr @_ZTV21ConversationDataModel, i32 0, i32 0, i32 2
+  store ptr %16, ptr %12, align 8
   ret void
 
-16:                                               ; preds = %4
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %4
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %10, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %11, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %10, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %11, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %10, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -142,10 +142,12 @@ define hidden void @rb_free_global_enc_table() #0 {
   br label %2, !llvm.loop !7
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i32 0, i32 2), align 8
-  %15 = call i32 @rb_st_foreach(ptr noundef %14, ptr noundef @enc_names_free_i, i64 noundef 0)
-  %16 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i32 0, i32 2), align 8
-  call void @rb_st_free_table(ptr noundef %16)
+  %14 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = call i32 @rb_st_foreach(ptr noundef %15, ptr noundef @enc_names_free_i, i64 noundef 0)
+  %17 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  call void @rb_st_free_table(ptr noundef %18)
   ret void
 }
 
@@ -4661,36 +4663,40 @@ define dso_local ptr @rb_filesystem_encoding() #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @rb_default_external_encoding() #0 {
   %1 = alloca ptr, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.default_encoding, ptr @default_external, i32 0, i32 1), align 8
-  %3 = icmp ne ptr %2, null
-  br i1 %3, label %4, label %6
+  %2 = getelementptr inbounds %struct.default_encoding, ptr @default_external, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %8
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.default_encoding, ptr @default_external, i32 0, i32 1), align 8
-  store ptr %5, ptr %1, align 8
-  br label %15
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds %struct.default_encoding, ptr @default_external, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %1, align 8
+  br label %19
 
-6:                                                ; preds = %0
-  %7 = load i32, ptr @default_external, align 8
-  %8 = icmp sge i32 %7, 0
-  br i1 %8, label %9, label %13
+8:                                                ; preds = %0
+  %9 = load i32, ptr @default_external, align 8
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %17
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr @default_external, align 8
-  %11 = call ptr @rb_enc_from_index(i32 noundef %10)
-  store ptr %11, ptr getelementptr inbounds (%struct.default_encoding, ptr @default_external, i32 0, i32 1), align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.default_encoding, ptr @default_external, i32 0, i32 1), align 8
-  store ptr %12, ptr %1, align 8
-  br label %15
+11:                                               ; preds = %8
+  %12 = load i32, ptr @default_external, align 8
+  %13 = call ptr @rb_enc_from_index(i32 noundef %12)
+  %14 = getelementptr inbounds %struct.default_encoding, ptr @default_external, i32 0, i32 1
+  store ptr %13, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.default_encoding, ptr @default_external, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %1, align 8
+  br label %19
 
-13:                                               ; preds = %6
-  %14 = call ptr @rb_locale_encoding()
-  store ptr %14, ptr %1, align 8
-  br label %15
+17:                                               ; preds = %8
+  %18 = call ptr @rb_locale_encoding()
+  store ptr %18, ptr %1, align 8
+  br label %19
 
-15:                                               ; preds = %13, %9, %4
-  %16 = load ptr, ptr %1, align 8
-  ret ptr %16
+19:                                               ; preds = %17, %11, %5
+  %20 = load ptr, ptr %1, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4822,24 +4828,27 @@ define internal i32 @enc_set_default_encoding(ptr noundef %0, i64 noundef %1, pt
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @rb_default_internal_encoding() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.default_encoding, ptr @default_internal, i32 0, i32 1), align 8
-  %2 = icmp ne ptr %1, null
-  br i1 %2, label %9, label %3
+  %1 = getelementptr inbounds %struct.default_encoding, ptr @default_internal, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr %2, null
+  br i1 %3, label %11, label %4
 
-3:                                                ; preds = %0
-  %4 = load i32, ptr @default_internal, align 8
-  %5 = icmp sge i32 %4, 0
-  br i1 %5, label %6, label %9
+4:                                                ; preds = %0
+  %5 = load i32, ptr @default_internal, align 8
+  %6 = icmp sge i32 %5, 0
+  br i1 %6, label %7, label %11
 
-6:                                                ; preds = %3
-  %7 = load i32, ptr @default_internal, align 8
-  %8 = call ptr @rb_enc_from_index(i32 noundef %7)
-  store ptr %8, ptr getelementptr inbounds (%struct.default_encoding, ptr @default_internal, i32 0, i32 1), align 8
-  br label %9
+7:                                                ; preds = %4
+  %8 = load i32, ptr @default_internal, align 8
+  %9 = call ptr @rb_enc_from_index(i32 noundef %8)
+  %10 = getelementptr inbounds %struct.default_encoding, ptr @default_internal, i32 0, i32 1
+  store ptr %9, ptr %10, align 8
+  br label %11
 
-9:                                                ; preds = %6, %3, %0
-  %10 = load ptr, ptr getelementptr inbounds (%struct.default_encoding, ptr @default_internal, i32 0, i32 1), align 8
-  ret ptr %10
+11:                                               ; preds = %7, %4, %0
+  %12 = getelementptr inbounds %struct.default_encoding, ptr @default_internal, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5158,13 +5167,14 @@ define internal i64 @enc_names(i64 noundef %0) #0 {
   %8 = call i64 @rb_ary_new_capa(i64 noundef 0)
   %9 = getelementptr [2 x i64], ptr %3, i64 0, i64 1
   store i64 %8, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i32 0, i32 2), align 8
-  %11 = getelementptr inbounds [2 x i64], ptr %3, i64 0, i64 0
-  %12 = ptrtoint ptr %11 to i64
-  %13 = call i32 @rb_st_foreach(ptr noundef %10, ptr noundef @enc_names_i, i64 noundef %12)
-  %14 = getelementptr [2 x i64], ptr %3, i64 0, i64 1
-  %15 = load i64, ptr %14, align 8
-  ret i64 %15
+  %10 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds [2 x i64], ptr %3, i64 0, i64 0
+  %13 = ptrtoint ptr %12 to i64
+  %14 = call i32 @rb_st_foreach(ptr noundef %11, ptr noundef @enc_names_i, i64 noundef %13)
+  %15 = getelementptr [2 x i64], ptr %3, i64 0, i64 1
+  %16 = load i64, ptr %15, align 8
+  ret i64 %16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5213,16 +5223,18 @@ define internal i64 @rb_enc_name_list(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i32 0, i32 2), align 8
-  %5 = getelementptr inbounds %struct.st_table, ptr %4, i32 0, i32 5
-  %6 = load i64, ptr %5, align 8
-  %7 = call i64 @rb_ary_new_capa(i64 noundef %6)
-  store i64 %7, ptr %3, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i32 0, i32 2), align 8
-  %9 = load i64, ptr %3, align 8
-  %10 = call i32 @rb_st_foreach(ptr noundef %8, ptr noundef @rb_enc_name_list_i, i64 noundef %9)
+  %4 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.st_table, ptr %5, i32 0, i32 5
+  %7 = load i64, ptr %6, align 8
+  %8 = call i64 @rb_ary_new_capa(i64 noundef %7)
+  store i64 %8, ptr %3, align 8
+  %9 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %3, align 8
-  ret i64 %11
+  %12 = call i32 @rb_st_foreach(ptr noundef %10, ptr noundef @rb_enc_name_list_i, i64 noundef %11)
+  %13 = load i64, ptr %3, align 8
+  ret i64 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5236,13 +5248,14 @@ define internal i64 @rb_enc_aliases(i64 noundef %0) #0 {
   %6 = call i64 @rb_ary_new()
   %7 = getelementptr [2 x i64], ptr %3, i64 0, i64 1
   store i64 %6, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i32 0, i32 2), align 8
-  %9 = getelementptr inbounds [2 x i64], ptr %3, i64 0, i64 0
-  %10 = ptrtoint ptr %9 to i64
-  %11 = call i32 @rb_st_foreach(ptr noundef %8, ptr noundef @rb_enc_aliases_enc_i, i64 noundef %10)
-  %12 = getelementptr [2 x i64], ptr %3, i64 0, i64 0
-  %13 = load i64, ptr %12, align 16
-  ret i64 %13
+  %8 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds [2 x i64], ptr %3, i64 0, i64 0
+  %11 = ptrtoint ptr %10 to i64
+  %12 = call i32 @rb_st_foreach(ptr noundef %9, ptr noundef @rb_enc_aliases_enc_i, i64 noundef %11)
+  %13 = getelementptr [2 x i64], ptr %3, i64 0, i64 0
+  %14 = load i64, ptr %13, align 16
+  ret i64 %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5661,10 +5674,11 @@ define hidden void @rb_enc_foreach_name(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i32 0, i32 2), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = call i32 @rb_st_foreach(ptr noundef %5, ptr noundef %6, i64 noundef %7)
+  %5 = getelementptr inbounds %struct.enc_table, ptr @global_enc_table, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load i64, ptr %4, align 8
+  %9 = call i32 @rb_st_foreach(ptr noundef %6, ptr noundef %7, i64 noundef %8)
   ret void
 }
 

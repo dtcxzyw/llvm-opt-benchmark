@@ -111,24 +111,27 @@ do.body:                                          ; preds = %entry
   %6 = load ptr, ptr %s, align 8
   %node = getelementptr inbounds %struct.QemuInputHandlerState, ptr %6, i32 0, i32 5
   store ptr null, ptr %node, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %s, align 8
-  %node3 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %8, i32 0, i32 5
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %node3, i32 0, i32 1
-  store ptr %7, ptr %tql_prev, align 8
+  %7 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %s, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %11 = load ptr, ptr %s, align 8
-  %node4 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %11, i32 0, i32 5
-  store ptr %node4, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
+  %node3 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %9, i32 0, i32 5
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %node3, i32 0, i32 1
+  store ptr %8, ptr %tql_prev, align 8
+  %10 = load ptr, ptr %s, align 8
+  %11 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %s, align 8
+  %node4 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %13, i32 0, i32 5
+  %14 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  store ptr %node4, ptr %14, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
   call void @notifier_list_notify(ptr noundef @mouse_mode_notifiers, ptr noundef null)
-  %12 = load ptr, ptr %s, align 8
-  ret ptr %12
+  %15 = load ptr, ptr %s, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: allocsize(0,1)
@@ -168,29 +171,30 @@ if.else:                                          ; preds = %do.body
   %node5 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %6, i32 0, i32 5
   %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %node5, i32 0, i32 1
   %7 = load ptr, ptr %tql_prev6, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %s.addr, align 8
-  %node7 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %node7, align 8
-  %10 = load ptr, ptr %s.addr, align 8
-  %node8 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %10, i32 0, i32 5
+  %9 = load ptr, ptr %s.addr, align 8
+  %node7 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %9, i32 0, i32 5
+  %10 = load ptr, ptr %node7, align 8
+  %11 = load ptr, ptr %s.addr, align 8
+  %node8 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %11, i32 0, i32 5
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %node8, i32 0, i32 1
-  %11 = load ptr, ptr %tql_prev9, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %12 = load ptr, ptr %s.addr, align 8
-  %node10 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %12, i32 0, i32 5
+  %12 = load ptr, ptr %tql_prev9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %s.addr, align 8
+  %node10 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %13, i32 0, i32 5
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %node10, i32 0, i32 1
   store ptr null, ptr %tql_prev11, align 8
-  %13 = load ptr, ptr %s.addr, align 8
-  %node12 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %13, i32 0, i32 5
+  %14 = load ptr, ptr %s.addr, align 8
+  %node12 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %14, i32 0, i32 5
   %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %node12, i32 0, i32 0
   store ptr null, ptr %tql_next13, align 8
-  %14 = load ptr, ptr %s.addr, align 8
-  %node14 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %14, i32 0, i32 5
+  %15 = load ptr, ptr %s.addr, align 8
+  %node14 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %15, i32 0, i32 5
   store ptr null, ptr %node14, align 8
   br label %do.end
 
@@ -198,33 +202,34 @@ do.end:                                           ; preds = %if.end
   br label %do.body15
 
 do.body15:                                        ; preds = %do.end
-  %15 = load ptr, ptr @handlers, align 8
-  %16 = load ptr, ptr %s.addr, align 8
-  %node16 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %16, i32 0, i32 5
-  store ptr %15, ptr %node16, align 8
-  %cmp17 = icmp ne ptr %15, null
+  %16 = load ptr, ptr @handlers, align 8
+  %17 = load ptr, ptr %s.addr, align 8
+  %node16 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %17, i32 0, i32 5
+  store ptr %16, ptr %node16, align 8
+  %cmp17 = icmp ne ptr %16, null
   br i1 %cmp17, label %if.then18, label %if.else22
 
 if.then18:                                        ; preds = %do.body15
-  %17 = load ptr, ptr %s.addr, align 8
-  %node19 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %17, i32 0, i32 5
-  %18 = load ptr, ptr @handlers, align 8
-  %node20 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %18, i32 0, i32 5
+  %18 = load ptr, ptr %s.addr, align 8
+  %node19 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %18, i32 0, i32 5
+  %19 = load ptr, ptr @handlers, align 8
+  %node20 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %19, i32 0, i32 5
   %tql_prev21 = getelementptr inbounds %struct.QTailQLink, ptr %node20, i32 0, i32 1
   store ptr %node19, ptr %tql_prev21, align 8
   br label %if.end24
 
 if.else22:                                        ; preds = %do.body15
-  %19 = load ptr, ptr %s.addr, align 8
-  %node23 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %19, i32 0, i32 5
-  store ptr %node23, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
+  %20 = load ptr, ptr %s.addr, align 8
+  %node23 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %20, i32 0, i32 5
+  %21 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  store ptr %node23, ptr %21, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else22, %if.then18
-  %20 = load ptr, ptr %s.addr, align 8
-  store ptr %20, ptr @handlers, align 8
-  %21 = load ptr, ptr %s.addr, align 8
-  %node25 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %21, i32 0, i32 5
+  %22 = load ptr, ptr %s.addr, align 8
+  store ptr %22, ptr @handlers, align 8
+  %23 = load ptr, ptr %s.addr, align 8
+  %node25 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %23, i32 0, i32 5
   %tql_prev26 = getelementptr inbounds %struct.QTailQLink, ptr %node25, i32 0, i32 1
   store ptr @handlers, ptr %tql_prev26, align 8
   br label %do.end27
@@ -266,29 +271,30 @@ if.else:                                          ; preds = %do.body
   %node5 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %6, i32 0, i32 5
   %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %node5, i32 0, i32 1
   %7 = load ptr, ptr %tql_prev6, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %s.addr, align 8
-  %node7 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %node7, align 8
-  %10 = load ptr, ptr %s.addr, align 8
-  %node8 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %10, i32 0, i32 5
+  %9 = load ptr, ptr %s.addr, align 8
+  %node7 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %9, i32 0, i32 5
+  %10 = load ptr, ptr %node7, align 8
+  %11 = load ptr, ptr %s.addr, align 8
+  %node8 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %11, i32 0, i32 5
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %node8, i32 0, i32 1
-  %11 = load ptr, ptr %tql_prev9, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %12 = load ptr, ptr %s.addr, align 8
-  %node10 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %12, i32 0, i32 5
+  %12 = load ptr, ptr %tql_prev9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %s.addr, align 8
+  %node10 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %13, i32 0, i32 5
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %node10, i32 0, i32 1
   store ptr null, ptr %tql_prev11, align 8
-  %13 = load ptr, ptr %s.addr, align 8
-  %node12 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %13, i32 0, i32 5
+  %14 = load ptr, ptr %s.addr, align 8
+  %node12 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %14, i32 0, i32 5
   %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %node12, i32 0, i32 0
   store ptr null, ptr %tql_next13, align 8
-  %14 = load ptr, ptr %s.addr, align 8
-  %node14 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %14, i32 0, i32 5
+  %15 = load ptr, ptr %s.addr, align 8
+  %node14 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %15, i32 0, i32 5
   store ptr null, ptr %node14, align 8
   br label %do.end
 
@@ -296,21 +302,24 @@ do.end:                                           ; preds = %if.end
   br label %do.body15
 
 do.body15:                                        ; preds = %do.end
-  %15 = load ptr, ptr %s.addr, align 8
-  %node16 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %15, i32 0, i32 5
+  %16 = load ptr, ptr %s.addr, align 8
+  %node16 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %16, i32 0, i32 5
   store ptr null, ptr %node16, align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
-  %17 = load ptr, ptr %s.addr, align 8
-  %node17 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %17, i32 0, i32 5
+  %17 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %s.addr, align 8
+  %node17 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %19, i32 0, i32 5
   %tql_prev18 = getelementptr inbounds %struct.QTailQLink, ptr %node17, i32 0, i32 1
-  store ptr %16, ptr %tql_prev18, align 8
-  %18 = load ptr, ptr %s.addr, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
-  %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %19, i32 0, i32 0
-  store ptr %18, ptr %tql_next19, align 8
+  store ptr %18, ptr %tql_prev18, align 8
   %20 = load ptr, ptr %s.addr, align 8
-  %node20 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %20, i32 0, i32 5
-  store ptr %node20, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
+  %21 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %22, i32 0, i32 0
+  store ptr %20, ptr %tql_next19, align 8
+  %23 = load ptr, ptr %s.addr, align 8
+  %node20 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %23, i32 0, i32 5
+  %24 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  store ptr %node20, ptr %24, align 8
   br label %do.end21
 
 do.end21:                                         ; preds = %do.body15
@@ -350,35 +359,36 @@ if.else:                                          ; preds = %do.body
   %node5 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %6, i32 0, i32 5
   %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %node5, i32 0, i32 1
   %7 = load ptr, ptr %tql_prev6, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.QTailQLink, ptr @handlers, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @handlers, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %s.addr, align 8
-  %node7 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %node7, align 8
-  %10 = load ptr, ptr %s.addr, align 8
-  %node8 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %10, i32 0, i32 5
+  %9 = load ptr, ptr %s.addr, align 8
+  %node7 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %9, i32 0, i32 5
+  %10 = load ptr, ptr %node7, align 8
+  %11 = load ptr, ptr %s.addr, align 8
+  %node8 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %11, i32 0, i32 5
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %node8, i32 0, i32 1
-  %11 = load ptr, ptr %tql_prev9, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %12 = load ptr, ptr %s.addr, align 8
-  %node10 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %12, i32 0, i32 5
+  %12 = load ptr, ptr %tql_prev9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %s.addr, align 8
+  %node10 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %13, i32 0, i32 5
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %node10, i32 0, i32 1
   store ptr null, ptr %tql_prev11, align 8
-  %13 = load ptr, ptr %s.addr, align 8
-  %node12 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %13, i32 0, i32 5
+  %14 = load ptr, ptr %s.addr, align 8
+  %node12 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %14, i32 0, i32 5
   %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %node12, i32 0, i32 0
   store ptr null, ptr %tql_next13, align 8
-  %14 = load ptr, ptr %s.addr, align 8
-  %node14 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %14, i32 0, i32 5
+  %15 = load ptr, ptr %s.addr, align 8
+  %node14 = getelementptr inbounds %struct.QemuInputHandlerState, ptr %15, i32 0, i32 5
   store ptr null, ptr %node14, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %15 = load ptr, ptr %s.addr, align 8
-  call void @g_free(ptr noundef %15)
+  %16 = load ptr, ptr %s.addr, align 8
+  call void @g_free(ptr noundef %16)
   call void @notifier_list_notify(ptr noundef @mouse_mode_notifiers, ptr noundef null)
   ret void
 }

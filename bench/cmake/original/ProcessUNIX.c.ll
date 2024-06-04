@@ -7383,214 +7383,216 @@ define internal void @kwsysProcessesSignalHandler(i32 noundef %0, ptr noundef %1
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %10, align 4
   %19 = load i32, ptr %4, align 4
-  switch i32 %19, label %142 [
+  switch i32 %19, label %144 [
     i32 17, label %20
-    i32 2, label %44
-    i32 15, label %44
+    i32 2, label %45
+    i32 15, label %45
   ]
 
 20:                                               ; preds = %3
   store i32 0, ptr %7, align 4
   br label %21
 
-21:                                               ; preds = %40, %20
+21:                                               ; preds = %41, %20
   %22 = load i32, ptr %7, align 4
   %23 = load i32, ptr @kwsysProcesses, align 8
   %24 = icmp slt i32 %22, %23
-  br i1 %24, label %25, label %43
+  br i1 %24, label %25, label %44
 
 25:                                               ; preds = %21
   store i8 1, ptr %11, align 1
-  %26 = load ptr, ptr getelementptr inbounds (%struct.kwsysProcessInstances_s, ptr @kwsysProcesses, i32 0, i32 2), align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %12, align 8
-  %31 = load ptr, ptr %12, align 8
-  %32 = getelementptr inbounds %struct.cmsysProcess_s, ptr %31, i32 0, i32 2
-  %33 = getelementptr inbounds [3 x i32], ptr %32, i64 0, i64 2
-  %34 = load i32, ptr %33, align 4
-  %35 = call i64 @read(i32 noundef %34, ptr noundef %11, i64 noundef 1)
-  store i64 %35, ptr %13, align 8
-  %36 = load ptr, ptr %12, align 8
-  %37 = getelementptr inbounds %struct.cmsysProcess_s, ptr %36, i32 0, i32 4
-  %38 = load i32, ptr %37, align 4
-  %39 = call i64 @write(i32 noundef %38, ptr noundef %11, i64 noundef 1)
-  store i64 %39, ptr %13, align 8
-  br label %40
+  %26 = getelementptr inbounds %struct.kwsysProcessInstances_s, ptr @kwsysProcesses, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %7, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %12, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = getelementptr inbounds %struct.cmsysProcess_s, ptr %32, i32 0, i32 2
+  %34 = getelementptr inbounds [3 x i32], ptr %33, i64 0, i64 2
+  %35 = load i32, ptr %34, align 4
+  %36 = call i64 @read(i32 noundef %35, ptr noundef %11, i64 noundef 1)
+  store i64 %36, ptr %13, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = getelementptr inbounds %struct.cmsysProcess_s, ptr %37, i32 0, i32 4
+  %39 = load i32, ptr %38, align 4
+  %40 = call i64 @write(i32 noundef %39, ptr noundef %11, i64 noundef 1)
+  store i64 %40, ptr %13, align 8
+  br label %41
 
-40:                                               ; preds = %25
-  %41 = load i32, ptr %7, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %7, align 4
+41:                                               ; preds = %25
+  %42 = load i32, ptr %7, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %7, align 4
   br label %21, !llvm.loop !58
 
-43:                                               ; preds = %21
-  br label %142
+44:                                               ; preds = %21
+  br label %144
 
-44:                                               ; preds = %3, %3
+45:                                               ; preds = %3, %3
   store i32 0, ptr %7, align 4
-  br label %45
+  br label %46
 
-45:                                               ; preds = %106, %44
-  %46 = load i32, ptr %7, align 4
-  %47 = load i32, ptr @kwsysProcesses, align 8
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %49, label %109
+46:                                               ; preds = %108, %45
+  %47 = load i32, ptr %7, align 4
+  %48 = load i32, ptr @kwsysProcesses, align 8
+  %49 = icmp slt i32 %47, %48
+  br i1 %49, label %50, label %111
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr getelementptr inbounds (%struct.kwsysProcessInstances_s, ptr @kwsysProcesses, i32 0, i32 2), align 8
-  %51 = load i32, ptr %7, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %14, align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = getelementptr inbounds %struct.cmsysProcess_s, ptr %55, i32 0, i32 14
-  %57 = load volatile i32, ptr %56, align 8
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %105
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds %struct.kwsysProcessInstances_s, ptr @kwsysProcesses, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %7, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %14, align 8
+  %57 = load ptr, ptr %14, align 8
+  %58 = getelementptr inbounds %struct.cmsysProcess_s, ptr %57, i32 0, i32 14
+  %59 = load volatile i32, ptr %58, align 8
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %107
 
-59:                                               ; preds = %49
-  %60 = load ptr, ptr %14, align 8
-  %61 = getelementptr inbounds %struct.cmsysProcess_s, ptr %60, i32 0, i32 22
-  %62 = load volatile i32, ptr %61, align 8
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %105, label %64
+61:                                               ; preds = %50
+  %62 = load ptr, ptr %14, align 8
+  %63 = getelementptr inbounds %struct.cmsysProcess_s, ptr %62, i32 0, i32 22
+  %64 = load volatile i32, ptr %63, align 8
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %107, label %66
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %14, align 8
-  %66 = getelementptr inbounds %struct.cmsysProcess_s, ptr %65, i32 0, i32 21
-  %67 = load volatile i32, ptr %66, align 4
-  %68 = icmp ne i32 %67, 1
-  br i1 %68, label %69, label %105
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %14, align 8
+  %68 = getelementptr inbounds %struct.cmsysProcess_s, ptr %67, i32 0, i32 21
+  %69 = load volatile i32, ptr %68, align 4
+  %70 = icmp ne i32 %69, 1
+  br i1 %70, label %71, label %107
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %14, align 8
-  %71 = getelementptr inbounds %struct.cmsysProcess_s, ptr %70, i32 0, i32 6
-  %72 = load volatile ptr, ptr %71, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %105
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %14, align 8
+  %73 = getelementptr inbounds %struct.cmsysProcess_s, ptr %72, i32 0, i32 6
+  %74 = load volatile ptr, ptr %73, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %107
 
-74:                                               ; preds = %69
+76:                                               ; preds = %71
   store i32 0, ptr %8, align 4
-  br label %75
+  br label %77
 
-75:                                               ; preds = %101, %74
-  %76 = load i32, ptr %8, align 4
-  %77 = load ptr, ptr %14, align 8
-  %78 = getelementptr inbounds %struct.cmsysProcess_s, ptr %77, i32 0, i32 1
-  %79 = load volatile i32, ptr %78, align 8
-  %80 = icmp slt i32 %76, %79
-  br i1 %80, label %81, label %104
+77:                                               ; preds = %103, %76
+  %78 = load i32, ptr %8, align 4
+  %79 = load ptr, ptr %14, align 8
+  %80 = getelementptr inbounds %struct.cmsysProcess_s, ptr %79, i32 0, i32 1
+  %81 = load volatile i32, ptr %80, align 8
+  %82 = icmp slt i32 %78, %81
+  br i1 %82, label %83, label %106
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %14, align 8
-  %83 = getelementptr inbounds %struct.cmsysProcess_s, ptr %82, i32 0, i32 6
-  %84 = load volatile ptr, ptr %83, align 8
-  %85 = load i32, ptr %8, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %84, i64 %86
-  %88 = load volatile i32, ptr %87, align 4
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %100
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %14, align 8
+  %85 = getelementptr inbounds %struct.cmsysProcess_s, ptr %84, i32 0, i32 6
+  %86 = load volatile ptr, ptr %85, align 8
+  %87 = load i32, ptr %8, align 4
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %86, i64 %88
+  %90 = load volatile i32, ptr %89, align 4
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %102
 
-90:                                               ; preds = %81
-  %91 = load ptr, ptr %14, align 8
-  %92 = getelementptr inbounds %struct.cmsysProcess_s, ptr %91, i32 0, i32 6
-  %93 = load volatile ptr, ptr %92, align 8
-  %94 = load i32, ptr %8, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %93, i64 %95
-  %97 = load volatile i32, ptr %96, align 4
-  %98 = sub nsw i32 0, %97
-  %99 = call i32 @kill(i32 noundef %98, i32 noundef 2) #11
-  br label %100
+92:                                               ; preds = %83
+  %93 = load ptr, ptr %14, align 8
+  %94 = getelementptr inbounds %struct.cmsysProcess_s, ptr %93, i32 0, i32 6
+  %95 = load volatile ptr, ptr %94, align 8
+  %96 = load i32, ptr %8, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i32, ptr %95, i64 %97
+  %99 = load volatile i32, ptr %98, align 4
+  %100 = sub nsw i32 0, %99
+  %101 = call i32 @kill(i32 noundef %100, i32 noundef 2) #11
+  br label %102
 
-100:                                              ; preds = %90, %81
-  br label %101
+102:                                              ; preds = %92, %83
+  br label %103
 
-101:                                              ; preds = %100
-  %102 = load i32, ptr %8, align 4
-  %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %8, align 4
-  br label %75, !llvm.loop !59
+103:                                              ; preds = %102
+  %104 = load i32, ptr %8, align 4
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %8, align 4
+  br label %77, !llvm.loop !59
 
-104:                                              ; preds = %75
-  br label %105
+106:                                              ; preds = %77
+  br label %107
 
-105:                                              ; preds = %104, %69, %64, %59, %49
-  br label %106
+107:                                              ; preds = %106, %71, %66, %61, %50
+  br label %108
 
-106:                                              ; preds = %105
-  %107 = load i32, ptr %7, align 4
-  %108 = add nsw i32 %107, 1
-  store i32 %108, ptr %7, align 4
-  br label %45, !llvm.loop !60
+108:                                              ; preds = %107
+  %109 = load i32, ptr %7, align 4
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %7, align 4
+  br label %46, !llvm.loop !60
 
-109:                                              ; preds = %45
-  br label %110
+111:                                              ; preds = %46
+  br label %112
 
-110:                                              ; preds = %119, %109
-  %111 = call i32 @wait(ptr noundef %9)
-  %112 = icmp sge i32 %111, 0
-  br i1 %112, label %117, label %113
+112:                                              ; preds = %121, %111
+  %113 = call i32 @wait(ptr noundef %9)
+  %114 = icmp sge i32 %113, 0
+  br i1 %114, label %119, label %115
 
-113:                                              ; preds = %110
-  %114 = call ptr @__errno_location() #13
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp ne i32 %115, 10
-  br label %117
+115:                                              ; preds = %112
+  %116 = call ptr @__errno_location() #13
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp ne i32 %117, 10
+  br label %119
 
-117:                                              ; preds = %113, %110
-  %118 = phi i1 [ true, %110 ], [ %116, %113 ]
-  br i1 %118, label %119, label %120
+119:                                              ; preds = %115, %112
+  %120 = phi i1 [ true, %112 ], [ %118, %115 ]
+  br i1 %120, label %121, label %122
 
-119:                                              ; preds = %117
-  br label %110, !llvm.loop !61
+121:                                              ; preds = %119
+  br label %112, !llvm.loop !61
 
-120:                                              ; preds = %117
+122:                                              ; preds = %119
   call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 152, i1 false)
-  %121 = getelementptr inbounds %struct.sigaction, ptr %15, i32 0, i32 0
-  store ptr null, ptr %121, align 8
-  %122 = getelementptr inbounds %struct.sigaction, ptr %15, i32 0, i32 1
-  %123 = call i32 @sigemptyset(ptr noundef %122) #11
-  br label %124
+  %123 = getelementptr inbounds %struct.sigaction, ptr %15, i32 0, i32 0
+  store ptr null, ptr %123, align 8
+  %124 = getelementptr inbounds %struct.sigaction, ptr %15, i32 0, i32 1
+  %125 = call i32 @sigemptyset(ptr noundef %124) #11
+  br label %126
 
-124:                                              ; preds = %134, %120
-  %125 = load i32, ptr %4, align 4
-  %126 = call i32 @sigaction(i32 noundef %125, ptr noundef %15, ptr noundef null) #11
-  %127 = icmp slt i32 %126, 0
-  br i1 %127, label %128, label %132
+126:                                              ; preds = %136, %122
+  %127 = load i32, ptr %4, align 4
+  %128 = call i32 @sigaction(i32 noundef %127, ptr noundef %15, ptr noundef null) #11
+  %129 = icmp slt i32 %128, 0
+  br i1 %129, label %130, label %134
 
-128:                                              ; preds = %124
-  %129 = call ptr @__errno_location() #13
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp eq i32 %130, 4
-  br label %132
+130:                                              ; preds = %126
+  %131 = call ptr @__errno_location() #13
+  %132 = load i32, ptr %131, align 4
+  %133 = icmp eq i32 %132, 4
+  br label %134
 
-132:                                              ; preds = %128, %124
-  %133 = phi i1 [ false, %124 ], [ %131, %128 ]
-  br i1 %133, label %134, label %135
+134:                                              ; preds = %130, %126
+  %135 = phi i1 [ false, %126 ], [ %133, %130 ]
+  br i1 %135, label %136, label %137
 
-134:                                              ; preds = %132
-  br label %124, !llvm.loop !62
+136:                                              ; preds = %134
+  br label %126, !llvm.loop !62
 
-135:                                              ; preds = %132
-  %136 = call i32 @sigemptyset(ptr noundef %16) #11
-  %137 = load i32, ptr %4, align 4
-  %138 = call i32 @sigaddset(ptr noundef %16, i32 noundef %137) #11
-  %139 = call i32 @sigprocmask(i32 noundef 1, ptr noundef %16, ptr noundef null) #11
-  %140 = load i32, ptr %4, align 4
-  %141 = call i32 @raise(i32 noundef %140) #11
+137:                                              ; preds = %134
+  %138 = call i32 @sigemptyset(ptr noundef %16) #11
+  %139 = load i32, ptr %4, align 4
+  %140 = call i32 @sigaddset(ptr noundef %16, i32 noundef %139) #11
+  %141 = call i32 @sigprocmask(i32 noundef 1, ptr noundef %16, ptr noundef null) #11
+  %142 = load i32, ptr %4, align 4
+  %143 = call i32 @raise(i32 noundef %142) #11
   call void @_exit(i32 noundef 1) #14
   unreachable
 
-142:                                              ; preds = %43, %3
-  %143 = load i32, ptr %10, align 4
-  %144 = call ptr @__errno_location() #13
-  store i32 %143, ptr %144, align 4
+144:                                              ; preds = %44, %3
+  %145 = load i32, ptr %10, align 4
+  %146 = call ptr @__errno_location() #13
+  store i32 %145, ptr %146, align 4
   ret void
 }
 

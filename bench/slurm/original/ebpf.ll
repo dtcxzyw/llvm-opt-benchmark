@@ -431,7 +431,7 @@ define i32 @load_ebpf_prog(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2
   %18 = load ptr, ptr %6, align 8
   %19 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef @__func__.load_ebpf_prog, ptr noundef %18)
   store i32 -1, ptr %4, align 4
-  br label %68
+  br label %69
 
 20:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 128, i1 false)
@@ -450,72 +450,73 @@ define i32 @load_ebpf_prog(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2
   %31 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 1
   store i32 %30, ptr %31, align 4
   %32 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 3
-  store i64 ptrtoint (ptr @.str.3 to i64), ptr %32, align 8
-  %33 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 9
-  %34 = getelementptr inbounds [16 x i8], ptr %33, i64 0, i64 0
-  %35 = call i64 @strlcpy(ptr noundef %34, ptr noundef @.str.4, i64 noundef 16)
-  %36 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 4
-  store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 6
-  store i64 0, ptr %37, align 8
-  %38 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 5
-  store i32 0, ptr %38, align 4
-  %39 = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 5, ptr noundef %11, i64 noundef 128) #5
-  %40 = trunc i64 %39 to i32
-  store i32 %40, ptr %10, align 4
-  %41 = load i32, ptr %10, align 4
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %45
+  %33 = ptrtoint ptr @.str.3 to i64
+  store i64 %33, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 9
+  %35 = getelementptr inbounds [16 x i8], ptr %34, i64 0, i64 0
+  %36 = call i64 @strlcpy(ptr noundef %35, ptr noundef @.str.4, i64 noundef 16)
+  %37 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 4
+  store i32 0, ptr %37, align 8
+  %38 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 6
+  store i64 0, ptr %38, align 8
+  %39 = getelementptr inbounds %struct.anon.2, ptr %11, i32 0, i32 5
+  store i32 0, ptr %39, align 4
+  %40 = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 5, ptr noundef %11, i64 noundef 128) #5
+  %41 = trunc i64 %40 to i32
+  store i32 %41, ptr %10, align 4
+  %42 = load i32, ptr %10, align 4
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %20
-  %44 = call i32 (ptr, ...) @error(ptr noundef @.str.5, ptr noundef @__func__.load_ebpf_prog)
+44:                                               ; preds = %20
+  %45 = call i32 (ptr, ...) @error(ptr noundef @.str.5, ptr noundef @__func__.load_ebpf_prog)
   store i32 -1, ptr %4, align 4
-  br label %68
+  br label %69
 
-45:                                               ; preds = %20
+46:                                               ; preds = %20
   call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 128, i1 false)
-  %46 = getelementptr inbounds %struct.anon.5, ptr %11, i32 0, i32 2
-  store i32 6, ptr %46, align 8
-  %47 = load i32, ptr %8, align 4
-  %48 = getelementptr inbounds %struct.anon.5, ptr %11, i32 0, i32 0
-  store i32 %47, ptr %48, align 8
-  %49 = load i32, ptr %10, align 4
-  %50 = getelementptr inbounds %struct.anon.5, ptr %11, i32 0, i32 1
-  store i32 %49, ptr %50, align 4
-  %51 = load i8, ptr %7, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %55
+  %47 = getelementptr inbounds %struct.anon.5, ptr %11, i32 0, i32 2
+  store i32 6, ptr %47, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = getelementptr inbounds %struct.anon.5, ptr %11, i32 0, i32 0
+  store i32 %48, ptr %49, align 8
+  %50 = load i32, ptr %10, align 4
+  %51 = getelementptr inbounds %struct.anon.5, ptr %11, i32 0, i32 1
+  store i32 %50, ptr %51, align 4
+  %52 = load i8, ptr %7, align 1
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds %struct.anon.5, ptr %11, i32 0, i32 3
-  store i32 1, ptr %54, align 4
-  br label %55
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds %struct.anon.5, ptr %11, i32 0, i32 3
+  store i32 1, ptr %55, align 4
+  br label %56
 
-55:                                               ; preds = %53, %45
-  %56 = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 8, ptr noundef %11, i64 noundef 128) #5
-  %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %9, align 4
-  %58 = load i32, ptr %9, align 4
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %60, label %65
+56:                                               ; preds = %54, %46
+  %57 = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 8, ptr noundef %11, i64 noundef 128) #5
+  %58 = trunc i64 %57 to i32
+  store i32 %58, ptr %9, align 4
+  %59 = load i32, ptr %9, align 4
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %66
 
-60:                                               ; preds = %55
-  %61 = load i32, ptr %9, align 4
-  %62 = call i32 (ptr, ...) @error(ptr noundef @.str.6, ptr noundef @__func__.load_ebpf_prog, i32 noundef %61)
-  %63 = load i32, ptr %8, align 4
-  %64 = call i32 @close(i32 noundef %63)
+61:                                               ; preds = %56
+  %62 = load i32, ptr %9, align 4
+  %63 = call i32 (ptr, ...) @error(ptr noundef @.str.6, ptr noundef @__func__.load_ebpf_prog, i32 noundef %62)
+  %64 = load i32, ptr %8, align 4
+  %65 = call i32 @close(i32 noundef %64)
   store i32 -1, ptr %4, align 4
-  br label %68
+  br label %69
 
-65:                                               ; preds = %55
-  %66 = load i32, ptr %8, align 4
-  %67 = call i32 @close(i32 noundef %66)
+66:                                               ; preds = %56
+  %67 = load i32, ptr %8, align 4
+  %68 = call i32 @close(i32 noundef %67)
   store i32 0, ptr %4, align 4
-  br label %68
+  br label %69
 
-68:                                               ; preds = %65, %60, %43, %17
-  %69 = load i32, ptr %4, align 4
-  ret i32 %69
+69:                                               ; preds = %66, %61, %44, %17
+  %70 = load i32, ptr %4, align 4
+  ret i32 %70
 }
 
 declare i32 @open(ptr noundef, i32 noundef, ...) #2

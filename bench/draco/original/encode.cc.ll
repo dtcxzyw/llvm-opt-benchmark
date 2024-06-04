@@ -983,7 +983,8 @@ define void @_ZN5draco7EncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco7EncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco7EncoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -992,13 +993,14 @@ define linkonce_odr void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseINS_17Ge
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 1
-  call void @_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEE20CreateDefaultOptionsEv(ptr dead_on_unwind writable sret(%"class.draco::EncoderOptionsBase") align 8 %4)
-  %5 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 2
-  store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 1
+  call void @_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEE20CreateDefaultOptionsEv(ptr dead_on_unwind writable sret(%"class.draco::EncoderOptionsBase") align 8 %5)
+  %6 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 2
   store i64 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 3
+  store i64 0, ptr %7, align 8
   ret void
 }
 
@@ -3199,9 +3201,10 @@ define linkonce_odr void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEED2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::EncoderBase.11", ptr %3, i32 0, i32 1
-  call void @_ZN5draco18EncoderOptionsBaseIiED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::EncoderBase.11", ptr %3, i32 0, i32 1
+  call void @_ZN5draco18EncoderOptionsBaseIiED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #3
   ret void
 }
 
@@ -3339,9 +3342,10 @@ define linkonce_odr void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseINS_17Ge
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 1
-  call void @_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 1
+  call void @_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #3
   ret void
 }
 
@@ -10120,7 +10124,7 @@ define linkonce_odr void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringI
   %17 = alloca i8, i64 %16, align 16
   store ptr %17, ptr %9, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_start(ptr %18)
+  call void @llvm.va_start.p0(ptr %18)
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %9, align 8
   %21 = load i64, ptr %7, align 8
@@ -10129,7 +10133,7 @@ define linkonce_odr void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringI
   %24 = call noundef i32 %19(ptr noundef %20, i64 noundef %21, ptr noundef %22, ptr noundef %23)
   store i32 %24, ptr %11, align 4
   %25 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %25)
+  call void @llvm.va_end.p0(ptr %25)
   %26 = load ptr, ptr %9, align 8
   %27 = load ptr, ptr %9, align 8
   %28 = load i32, ptr %11, align 4
@@ -10163,12 +10167,6 @@ define linkonce_odr void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringI
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11614,6 +11612,12 @@ define internal void @_GLOBAL__sub_I_encode.cc() #0 section ".text.startup" {
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

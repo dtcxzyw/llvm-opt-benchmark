@@ -2684,7 +2684,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -2712,7 +2712,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -8206,10 +8206,10 @@ define ptr @Scl_LibertyReadTemplates(ptr noundef %0) #0 {
   store ptr %18, ptr %6, align 8
   br label %19
 
-19:                                               ; preds = %196, %1
+19:                                               ; preds = %197, %1
   %20 = load ptr, ptr %6, align 8
   %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %202
+  br i1 %21, label %22, label %203
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %2, align 8
@@ -8221,7 +8221,7 @@ define ptr @Scl_LibertyReadTemplates(ptr noundef %0) #0 {
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %22
-  br label %195
+  br label %196
 
 30:                                               ; preds = %22
   store ptr null, ptr %9, align 8
@@ -8379,7 +8379,7 @@ define ptr @Scl_LibertyReadTemplates(ptr noundef %0) #0 {
 123:                                              ; preds = %122, %120
   call void @Vec_FltFreeP(ptr noundef %4)
   call void @Vec_FltFreeP(ptr noundef %5)
-  br label %196
+  br label %197
 
 124:                                              ; preds = %108
   %125 = load ptr, ptr %8, align 8
@@ -8454,7 +8454,7 @@ define ptr @Scl_LibertyReadTemplates(ptr noundef %0) #0 {
 164:                                              ; preds = %161
   call void @Vec_FltFreeP(ptr noundef %4)
   call void @Vec_FltFreeP(ptr noundef %5)
-  br label %196
+  br label %197
 
 165:                                              ; preds = %161, %158
   %166 = load ptr, ptr %3, align 8
@@ -8468,67 +8468,68 @@ define ptr @Scl_LibertyReadTemplates(ptr noundef %0) #0 {
   %173 = load ptr, ptr %3, align 8
   %174 = load i32, ptr %10, align 4
   %175 = icmp ne i32 %174, 0
-  %176 = select i1 %175, ptr null, ptr inttoptr (i64 1 to ptr)
-  call void @Vec_PtrPush(ptr noundef %173, ptr noundef %176)
-  %177 = load ptr, ptr %3, align 8
-  %178 = load i32, ptr %10, align 4
-  %179 = icmp ne i32 %178, 0
-  br i1 %179, label %180, label %182
+  %176 = inttoptr i64 1 to ptr
+  %177 = select i1 %175, ptr null, ptr %176
+  call void @Vec_PtrPush(ptr noundef %173, ptr noundef %177)
+  %178 = load ptr, ptr %3, align 8
+  %179 = load i32, ptr %10, align 4
+  %180 = icmp ne i32 %179, 0
+  br i1 %180, label %181, label %183
 
-180:                                              ; preds = %165
-  %181 = load ptr, ptr %4, align 8
-  br label %184
+181:                                              ; preds = %165
+  %182 = load ptr, ptr %4, align 8
+  br label %185
 
-182:                                              ; preds = %165
-  %183 = load ptr, ptr %5, align 8
-  br label %184
+183:                                              ; preds = %165
+  %184 = load ptr, ptr %5, align 8
+  br label %185
 
-184:                                              ; preds = %182, %180
-  %185 = phi ptr [ %181, %180 ], [ %183, %182 ]
-  call void @Vec_PtrPush(ptr noundef %177, ptr noundef %185)
-  %186 = load ptr, ptr %3, align 8
-  %187 = load i32, ptr %10, align 4
-  %188 = icmp ne i32 %187, 0
-  br i1 %188, label %189, label %191
+185:                                              ; preds = %183, %181
+  %186 = phi ptr [ %182, %181 ], [ %184, %183 ]
+  call void @Vec_PtrPush(ptr noundef %178, ptr noundef %186)
+  %187 = load ptr, ptr %3, align 8
+  %188 = load i32, ptr %10, align 4
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %192
 
-189:                                              ; preds = %184
-  %190 = load ptr, ptr %5, align 8
-  br label %193
+190:                                              ; preds = %185
+  %191 = load ptr, ptr %5, align 8
+  br label %194
 
-191:                                              ; preds = %184
-  %192 = load ptr, ptr %4, align 8
-  br label %193
+192:                                              ; preds = %185
+  %193 = load ptr, ptr %4, align 8
+  br label %194
 
-193:                                              ; preds = %191, %189
-  %194 = phi ptr [ %190, %189 ], [ %192, %191 ]
-  call void @Vec_PtrPush(ptr noundef %186, ptr noundef %194)
-  br label %195
-
-195:                                              ; preds = %193, %29
+194:                                              ; preds = %192, %190
+  %195 = phi ptr [ %191, %190 ], [ %193, %192 ]
+  call void @Vec_PtrPush(ptr noundef %187, ptr noundef %195)
   br label %196
 
-196:                                              ; preds = %195, %164, %123
-  %197 = load ptr, ptr %2, align 8
-  %198 = load ptr, ptr %6, align 8
-  %199 = getelementptr inbounds %struct.Scl_Item_t_, ptr %198, i32 0, i32 5
-  %200 = load i32, ptr %199, align 4
-  %201 = call ptr @Scl_LibertyItem(ptr noundef %197, i32 noundef %200)
-  store ptr %201, ptr %6, align 8
+196:                                              ; preds = %194, %29
+  br label %197
+
+197:                                              ; preds = %196, %164, %123
+  %198 = load ptr, ptr %2, align 8
+  %199 = load ptr, ptr %6, align 8
+  %200 = getelementptr inbounds %struct.Scl_Item_t_, ptr %199, i32 0, i32 5
+  %201 = load i32, ptr %200, align 4
+  %202 = call ptr @Scl_LibertyItem(ptr noundef %198, i32 noundef %201)
+  store ptr %202, ptr %6, align 8
   br label %19, !llvm.loop !93
 
-202:                                              ; preds = %19
-  %203 = load ptr, ptr %3, align 8
-  %204 = call i32 @Vec_PtrSize(ptr noundef %203)
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %206, label %207
+203:                                              ; preds = %19
+  %204 = load ptr, ptr %3, align 8
+  %205 = call i32 @Vec_PtrSize(ptr noundef %204)
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %207, label %208
 
-206:                                              ; preds = %202
+207:                                              ; preds = %203
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef @.str.96)
-  br label %207
+  br label %208
 
-207:                                              ; preds = %206, %202
-  %208 = load ptr, ptr %3, align 8
-  ret ptr %208
+208:                                              ; preds = %207, %203
+  %209 = load ptr, ptr %3, align 8
+  ret ptr %209
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10333,16 +10334,10 @@ declare i32 @Abc_FrameIsBridgeMode(...) #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 declare i32 @fnmatch(ptr noundef, ptr noundef, i32 noundef) #2
 
@@ -10676,13 +10671,13 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  br label %37
+  br label %39
 
 8:                                                ; preds = %1
   store i32 0, ptr %4, align 4
   br label %9
 
-9:                                                ; preds = %34, %8
+9:                                                ; preds = %36, %8
   %10 = load i32, ptr %4, align 4
   %11 = load ptr, ptr %2, align 8
   %12 = call i32 @Vec_PtrSize(ptr noundef %11)
@@ -10698,47 +10693,55 @@ define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
 
 18:                                               ; preds = %14, %9
   %19 = phi i1 [ false, %9 ], [ true, %14 ]
-  br i1 %19, label %20, label %37
+  br i1 %19, label %20, label %39
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %3, align 8
-  %22 = icmp ne ptr %21, inttoptr (i64 1 to ptr)
-  br i1 %22, label %23, label %33
+  %22 = inttoptr i64 1 to ptr
+  %23 = icmp ne ptr %21, %22
+  br i1 %23, label %24, label %35
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp ne ptr %24, inttoptr (i64 2 to ptr)
-  br i1 %25, label %26, label %33
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8
+  %26 = inttoptr i64 2 to ptr
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %35
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %33
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %30) #10
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %32) #10
   store ptr null, ptr %3, align 8
-  br label %32
-
-31:                                               ; preds = %26
-  br label %32
-
-32:                                               ; preds = %31, %29
-  br label %33
-
-33:                                               ; preds = %32, %23, %20
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load i32, ptr %4, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %4, align 4
+33:                                               ; preds = %28
+  br label %34
+
+34:                                               ; preds = %33, %31
+  br label %35
+
+35:                                               ; preds = %34, %24, %20
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i32, ptr %4, align 4
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %4, align 4
   br label %9, !llvm.loop !109
 
-37:                                               ; preds = %18, %7
+39:                                               ; preds = %18, %7
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

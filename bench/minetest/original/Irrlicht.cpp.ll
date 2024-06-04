@@ -334,62 +334,106 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_Irrlicht.cpp() #9 section ".text.startup" {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds (%"class.irr::core::CMatrix4", ptr @_ZN3irr4core14IdentityMatrixE, i64 0, i32 0, i64 1), i8 0, i64 56, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.irr::core::CMatrix4", ptr @_ZN3irr4core14IdentityMatrixE, i64 0, i32 0, i64 15), align 4, !tbaa !47
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.irr::core::CMatrix4", ptr @_ZN3irr4core14IdentityMatrixE, i64 0, i32 0, i64 10), align 4, !tbaa !47
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.irr::core::CMatrix4", ptr @_ZN3irr4core14IdentityMatrixE, i64 0, i32 0, i64 5), align 4, !tbaa !47
+  %0 = getelementptr inbounds %"class.irr::core::CMatrix4", ptr @_ZN3irr4core14IdentityMatrixE, i64 0, i32 0, i64 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  %1 = getelementptr inbounds %"class.irr::core::CMatrix4", ptr @_ZN3irr4core14IdentityMatrixE, i64 0, i32 0, i64 15
+  store float 1.000000e+00, ptr %1, align 4, !tbaa !47
+  %2 = getelementptr inbounds %"class.irr::core::CMatrix4", ptr @_ZN3irr4core14IdentityMatrixE, i64 0, i32 0, i64 10
+  store float 1.000000e+00, ptr %2, align 4, !tbaa !47
+  %3 = getelementptr inbounds %"class.irr::core::CMatrix4", ptr @_ZN3irr4core14IdentityMatrixE, i64 0, i32 0, i64 5
+  store float 1.000000e+00, ptr %3, align 4, !tbaa !47
   store float 1.000000e+00, ptr @_ZN3irr4core14IdentityMatrixE, align 4, !tbaa !47
-  %0 = tail call ptr @llvm.invariant.start.p0(i64 64, ptr nonnull @_ZN3irr4core14IdentityMatrixE)
+  %4 = tail call ptr @llvm.invariant.start.p0(i64 64, ptr nonnull @_ZN3irr4core14IdentityMatrixE)
   store ptr null, ptr @_ZN3irr5video16IdentityMaterialE, align 8, !tbaa !49
-  %bf.load.i.i.i = load i16, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 1), align 8
+  %5 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 1
+  %bf.load.i.i.i = load i16, ptr %5, align 8
   %bf.clear6.i.i.i = and i16 %bf.load.i.i.i, -4096
-  store i16 %bf.clear6.i.i.i, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 2), align 4, !tbaa !50
-  store i32 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 3), align 8, !tbaa !51
-  store i8 0, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 4), align 4, !tbaa !52
-  store i8 0, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 5), align 1, !tbaa !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 6), i8 0, i64 16, i1 false)
-  %bf.load.i.1.i.i = load i16, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 1), align 8
+  %6 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 1
+  store i16 %bf.clear6.i.i.i, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 2
+  store i32 1, ptr %7, align 4, !tbaa !50
+  %8 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 3
+  store i32 1, ptr %8, align 8, !tbaa !51
+  %9 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 4
+  store i8 0, ptr %9, align 4, !tbaa !52
+  %10 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 5
+  store i8 0, ptr %10, align 1, !tbaa !53
+  %11 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 0, i32 6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %12 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 1
+  %bf.load.i.1.i.i = load i16, ptr %12, align 8
   %bf.clear6.i.1.i.i = and i16 %bf.load.i.1.i.i, -4096
-  store i16 %bf.clear6.i.1.i.i, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 2), align 4, !tbaa !50
-  store i32 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 3), align 8, !tbaa !51
-  store i8 0, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 4), align 4, !tbaa !52
-  store i8 0, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 5), align 1, !tbaa !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 6), i8 0, i64 16, i1 false)
-  %bf.load.i.2.i.i = load i16, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 1), align 8
+  %13 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 1
+  store i16 %bf.clear6.i.1.i.i, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 2
+  store i32 1, ptr %14, align 4, !tbaa !50
+  %15 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 3
+  store i32 1, ptr %15, align 8, !tbaa !51
+  %16 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 4
+  store i8 0, ptr %16, align 4, !tbaa !52
+  %17 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 5
+  store i8 0, ptr %17, align 1, !tbaa !53
+  %18 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 1, i32 6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  %19 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 1
+  %bf.load.i.2.i.i = load i16, ptr %19, align 8
   %bf.clear6.i.2.i.i = and i16 %bf.load.i.2.i.i, -4096
-  store i16 %bf.clear6.i.2.i.i, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 2), align 4, !tbaa !50
-  store i32 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 3), align 8, !tbaa !51
-  store i8 0, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 4), align 4, !tbaa !52
-  store i8 0, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 5), align 1, !tbaa !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 6), i8 0, i64 16, i1 false)
-  %bf.load.i.3.i.i = load i16, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 1), align 8
+  %20 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 1
+  store i16 %bf.clear6.i.2.i.i, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 2
+  store i32 1, ptr %21, align 4, !tbaa !50
+  %22 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 3
+  store i32 1, ptr %22, align 8, !tbaa !51
+  %23 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 4
+  store i8 0, ptr %23, align 4, !tbaa !52
+  %24 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 5
+  store i8 0, ptr %24, align 1, !tbaa !53
+  %25 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 2, i32 6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %26 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 1
+  %bf.load.i.3.i.i = load i16, ptr %26, align 8
   %bf.clear6.i.3.i.i = and i16 %bf.load.i.3.i.i, -4096
-  store i16 %bf.clear6.i.3.i.i, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 2), align 4, !tbaa !50
-  store i32 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 3), align 8, !tbaa !51
-  store i8 0, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 4), align 4, !tbaa !52
-  store i8 0, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 5), align 1, !tbaa !53
-  store ptr null, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 6), align 8, !tbaa !43
-  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 1), align 8, !tbaa !3
-  store i32 -1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 5, i32 0), align 8, !tbaa !54
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 6), align 4, !tbaa !47
-  store float 1.000000e+00, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 8), align 4, !tbaa !56
-  store i8 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 9), align 8, !tbaa !61
-  store i8 1, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 10), align 1, !tbaa !62
-  %bf.load.i.i = load i16, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 11), align 2
+  %27 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 1
+  store i16 %bf.clear6.i.3.i.i, ptr %27, align 8
+  %28 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 2
+  store i32 1, ptr %28, align 4, !tbaa !50
+  %29 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 3
+  store i32 1, ptr %29, align 8, !tbaa !51
+  %30 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 4
+  store i8 0, ptr %30, align 4, !tbaa !52
+  %31 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 5
+  store i8 0, ptr %31, align 1, !tbaa !53
+  %32 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 0, i64 3, i32 6
+  store ptr null, ptr %32, align 8, !tbaa !43
+  %33 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 1
+  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %33, align 8, !tbaa !3
+  %34 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 5, i32 0
+  store i32 -1, ptr %34, align 8, !tbaa !54
+  %35 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 6
+  store <2 x float> zeroinitializer, ptr %35, align 4, !tbaa !47
+  %36 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 8
+  store float 1.000000e+00, ptr %36, align 4, !tbaa !56
+  %37 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 9
+  store i8 1, ptr %37, align 8, !tbaa !61
+  %38 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 10
+  store i8 1, ptr %38, align 1, !tbaa !62
+  %39 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 11
+  %bf.load.i.i = load i16, ptr %39, align 2
   %bf.set.i.i = and i16 %bf.load.i.i, -2048
   %bf.set4.i.i = or disjoint i16 %bf.set.i.i, 31
-  store i16 %bf.set4.i.i, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 11), align 2
-  store <2 x float> zeroinitializer, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 12), align 4, !tbaa !47
-  store float 0.000000e+00, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 14), align 4, !tbaa !63
-  %bf.load8.i.i = load i16, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 15), align 8
+  %40 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 11
+  store i16 %bf.set4.i.i, ptr %40, align 2
+  %41 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 12
+  store <2 x float> zeroinitializer, ptr %41, align 4, !tbaa !47
+  %42 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 14
+  store float 0.000000e+00, ptr %42, align 4, !tbaa !63
+  %43 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 15
+  %bf.load8.i.i = load i16, ptr %43, align 8
   %bf.clear15.i.i = and i16 %bf.load8.i.i, -2048
   %bf.set37.i.i = or disjoint i16 %bf.clear15.i.i, 1116
-  store i16 %bf.set37.i.i, ptr getelementptr inbounds (%"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 15), align 8
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3irr5video9SMaterialD2Ev, ptr nonnull @_ZN3irr5video16IdentityMaterialE, ptr nonnull @__dso_handle) #11
+  %44 = getelementptr inbounds %"class.irr::video::SMaterial", ptr @_ZN3irr5video16IdentityMaterialE, i64 0, i32 15
+  store i16 %bf.set37.i.i, ptr %44, align 8
+  %45 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3irr5video9SMaterialD2Ev, ptr nonnull @_ZN3irr5video16IdentityMaterialE, ptr nonnull @__dso_handle) #11
   ret void
 }
 

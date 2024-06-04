@@ -136,7 +136,7 @@ define dso_local void @ttm_bo_put(ptr noundef %0) #0 align 16 {
   br label %10
 
 10:                                               ; preds = %9, %7, %6
-  br i1 %5, label %11, label %151
+  br i1 %5, label %11, label %153
 
 11:                                               ; preds = %10
   %12 = getelementptr i8, ptr %0, i64 352
@@ -353,7 +353,7 @@ define dso_local void @ttm_bo_put(ptr noundef %0) #0 align 16 {
   %125 = getelementptr inbounds i8, ptr %13, i64 2112
   %126 = load ptr, ptr %125, align 8
   %127 = call zeroext i1 @queue_work_node(i32 noundef %124, ptr noundef %126, ptr noundef %119) #6
-  br label %151
+  br label %153
 
 128:                                              ; preds = %76
   %129 = getelementptr inbounds i8, ptr %0, i64 352
@@ -392,13 +392,15 @@ define dso_local void @ttm_bo_put(ptr noundef %0) #0 align 16 {
   br label %148
 
 148:                                              ; preds = %145, %23
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 2)) #6, !srcloc !25
-  %149 = getelementptr i8, ptr %0, i64 368
-  %150 = load ptr, ptr %149, align 8
-  tail call void %150(ptr noundef %0) #6
-  br label %151
+  %149 = getelementptr inbounds %struct.ttm_global, ptr @ttm_glob, i64 0, i32 2
+  %150 = getelementptr inbounds %struct.ttm_global, ptr @ttm_glob, i64 0, i32 2
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, ptr nonnull elementtype(i32) %150) #6, !srcloc !25
+  %151 = getelementptr i8, ptr %0, i64 368
+  %152 = load ptr, ptr %151, align 8
+  tail call void %152(ptr noundef %0) #6
+  br label %153
 
-151:                                              ; preds = %148, %116, %10
+153:                                              ; preds = %148, %116, %10
   ret void
 }
 
@@ -1633,63 +1635,65 @@ define dso_local i32 @ttm_bo_init_reserved(ptr noundef %0, ptr noundef %1, i32 n
   %20 = select i1 %18, ptr %19, ptr %7
   %21 = getelementptr inbounds i8, ptr %1, i64 248
   store ptr %20, ptr %21, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 2), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.ttm_global, ptr @ttm_glob, i64 0, i32 2)) #6, !srcloc !46
-  %22 = load i32, ptr %12, align 8
-  switch i32 %22, label %33 [
-    i32 0, label %23
-    i32 2, label %23
+  %22 = getelementptr inbounds %struct.ttm_global, ptr @ttm_glob, i64 0, i32 2
+  %23 = getelementptr inbounds %struct.ttm_global, ptr @ttm_glob, i64 0, i32 2
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %22, ptr nonnull elementtype(i32) %23) #6, !srcloc !46
+  %24 = load i32, ptr %12, align 8
+  switch i32 %24, label %35 [
+    i32 0, label %25
+    i32 2, label %25
   ]
 
-23:                                               ; preds = %9, %9
-  %24 = getelementptr inbounds i8, ptr %0, i64 208
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
-  %27 = getelementptr inbounds i8, ptr %1, i64 216
-  %28 = load i64, ptr %27, align 8
-  %29 = add i64 %28, 4095
-  %30 = lshr i64 %29, 12
-  %31 = tail call i32 @drm_vma_offset_add(ptr noundef %25, ptr noundef %26, i64 noundef %30) #6
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %47
+25:                                               ; preds = %9, %9
+  %26 = getelementptr inbounds i8, ptr %0, i64 208
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds i8, ptr %1, i64 216
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, 4095
+  %32 = lshr i64 %31, 12
+  %33 = tail call i32 @drm_vma_offset_add(ptr noundef %27, ptr noundef %28, i64 noundef %32) #6
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %49
 
-33:                                               ; preds = %23, %9
-  br i1 %18, label %34, label %40
+35:                                               ; preds = %25, %9
+  br i1 %18, label %36, label %42
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %1, i64 248
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @ww_mutex_trylock(ptr noundef %36, ptr noundef null) #6
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %40, !prof !16
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds i8, ptr %1, i64 248
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call i32 @ww_mutex_trylock(ptr noundef %38, ptr noundef null) #6
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %42, !prof !16
 
-39:                                               ; preds = %34
+41:                                               ; preds = %36
   tail call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #6, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1004, i32 2305, i64 12) #6, !srcloc !48
   tail call void asm sideeffect "425: nop\0A\09.pushsection .discard.instr_end\0A\09.long 425b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 425) #6, !srcloc !49
-  br label %40
+  br label %42
 
-40:                                               ; preds = %39, %34, %33
-  %41 = tail call i32 @ttm_bo_validate(ptr noundef %1, ptr noundef %3, ptr noundef %5)
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %49, label %43, !prof !7
+42:                                               ; preds = %41, %36, %35
+  %43 = tail call i32 @ttm_bo_validate(ptr noundef %1, ptr noundef %3, ptr noundef %5)
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %51, label %45, !prof !7
 
-43:                                               ; preds = %40
-  br i1 %18, label %44, label %47
+45:                                               ; preds = %42
+  br i1 %18, label %46, label %49
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %1, i64 248
-  %46 = load ptr, ptr %45, align 8
-  tail call void @ww_mutex_unlock(ptr noundef %46) #6
-  br label %47
-
-47:                                               ; preds = %44, %43, %23
-  %48 = phi i32 [ %31, %23 ], [ %41, %43 ], [ %41, %44 ]
-  tail call void @ttm_bo_put(ptr noundef %1)
+46:                                               ; preds = %45
+  %47 = getelementptr inbounds i8, ptr %1, i64 248
+  %48 = load ptr, ptr %47, align 8
+  tail call void @ww_mutex_unlock(ptr noundef %48) #6
   br label %49
 
-49:                                               ; preds = %47, %40
-  %50 = phi i32 [ %48, %47 ], [ 0, %40 ]
-  ret i32 %50
+49:                                               ; preds = %46, %45, %25
+  %50 = phi i32 [ %33, %25 ], [ %43, %45 ], [ %43, %46 ]
+  tail call void @ttm_bo_put(ptr noundef %1)
+  br label %51
+
+51:                                               ; preds = %49, %42
+  %52 = phi i32 [ %50, %49 ], [ 0, %42 ]
+  ret i32 %52
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -62,89 +62,91 @@ define void @ompi_dist_graph_neighbors_f(ptr noundef %0, ptr noundef %1, ptr nou
   %33 = load ptr, ptr %11, align 8
   %34 = load ptr, ptr %12, align 8
   %35 = icmp eq ptr %34, @mpi_fortran_unweighted_
-  br i1 %35, label %36, label %37
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %29
-  br label %39
+  %37 = inttoptr i64 2 to ptr
+  br label %40
 
-37:                                               ; preds = %29
-  %38 = load ptr, ptr %12, align 8
-  br label %39
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %12, align 8
+  br label %40
 
-39:                                               ; preds = %37, %36
-  %40 = phi ptr [ inttoptr (i64 2 to ptr), %36 ], [ %38, %37 ]
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i32, ptr %41, align 4
-  %43 = load ptr, ptr %14, align 8
-  %44 = load ptr, ptr %15, align 8
-  %45 = icmp eq ptr %44, @mpi_fortran_unweighted_
-  br i1 %45, label %46, label %47
+40:                                               ; preds = %38, %36
+  %41 = phi ptr [ %37, %36 ], [ %39, %38 ]
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr %42, align 4
+  %44 = load ptr, ptr %14, align 8
+  %45 = load ptr, ptr %15, align 8
+  %46 = icmp eq ptr %45, @mpi_fortran_unweighted_
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %39
-  br label %49
+47:                                               ; preds = %40
+  %48 = inttoptr i64 2 to ptr
+  br label %51
 
-47:                                               ; preds = %39
-  %48 = load ptr, ptr %15, align 8
-  br label %49
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %15, align 8
+  br label %51
 
-49:                                               ; preds = %47, %46
-  %50 = phi ptr [ inttoptr (i64 2 to ptr), %46 ], [ %48, %47 ]
-  %51 = call i32 @PMPI_Dist_graph_neighbors(ptr noundef %30, i32 noundef %32, ptr noundef %33, ptr noundef %40, i32 noundef %42, ptr noundef %43, ptr noundef %50)
-  store i32 %51, ptr %18, align 4
-  %52 = load ptr, ptr %16, align 8
-  %53 = icmp ne ptr null, %52
-  br i1 %53, label %54, label %57
+51:                                               ; preds = %49, %47
+  %52 = phi ptr [ %48, %47 ], [ %50, %49 ]
+  %53 = call i32 @PMPI_Dist_graph_neighbors(ptr noundef %30, i32 noundef %32, ptr noundef %33, ptr noundef %41, i32 noundef %43, ptr noundef %44, ptr noundef %52)
+  store i32 %53, ptr %18, align 4
+  %54 = load ptr, ptr %16, align 8
+  %55 = icmp ne ptr null, %54
+  br i1 %55, label %56, label %59
 
-54:                                               ; preds = %49
-  %55 = load i32, ptr %18, align 4
-  %56 = load ptr, ptr %16, align 8
-  store i32 %55, ptr %56, align 4
-  br label %57
+56:                                               ; preds = %51
+  %57 = load i32, ptr %18, align 4
+  %58 = load ptr, ptr %16, align 8
+  store i32 %57, ptr %58, align 4
+  br label %59
 
-57:                                               ; preds = %54, %49
-  %58 = load i32, ptr %18, align 4
-  %59 = icmp eq i32 0, %58
-  br i1 %59, label %60, label %69
+59:                                               ; preds = %56, %51
+  %60 = load i32, ptr %18, align 4
+  %61 = icmp eq i32 0, %60
+  br i1 %61, label %62, label %71
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %12, align 8
-  %62 = icmp eq ptr %61, @mpi_fortran_unweighted_
-  br i1 %62, label %64, label %63
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %12, align 8
+  %64 = icmp eq ptr %63, @mpi_fortran_unweighted_
+  br i1 %64, label %66, label %65
 
-63:                                               ; preds = %60
-  br label %64
+65:                                               ; preds = %62
+  br label %66
 
-64:                                               ; preds = %63, %60
-  %65 = load ptr, ptr %15, align 8
-  %66 = icmp eq ptr %65, @mpi_fortran_unweighted_
-  br i1 %66, label %68, label %67
+66:                                               ; preds = %65, %62
+  %67 = load ptr, ptr %15, align 8
+  %68 = icmp eq ptr %67, @mpi_fortran_unweighted_
+  br i1 %68, label %70, label %69
 
-67:                                               ; preds = %64
-  br label %68
+69:                                               ; preds = %66
+  br label %70
 
-68:                                               ; preds = %67, %64
-  br label %78
+70:                                               ; preds = %69, %66
+  br label %80
 
-69:                                               ; preds = %57
-  %70 = load ptr, ptr %12, align 8
-  %71 = icmp eq ptr %70, @mpi_fortran_unweighted_
-  br i1 %71, label %73, label %72
+71:                                               ; preds = %59
+  %72 = load ptr, ptr %12, align 8
+  %73 = icmp eq ptr %72, @mpi_fortran_unweighted_
+  br i1 %73, label %75, label %74
 
-72:                                               ; preds = %69
-  br label %73
+74:                                               ; preds = %71
+  br label %75
 
-73:                                               ; preds = %72, %69
-  %74 = load ptr, ptr %15, align 8
-  %75 = icmp eq ptr %74, @mpi_fortran_unweighted_
-  br i1 %75, label %77, label %76
+75:                                               ; preds = %74, %71
+  %76 = load ptr, ptr %15, align 8
+  %77 = icmp eq ptr %76, @mpi_fortran_unweighted_
+  br i1 %77, label %79, label %78
 
-76:                                               ; preds = %73
-  br label %77
+78:                                               ; preds = %75
+  br label %79
 
-77:                                               ; preds = %76, %73
-  br label %78
+79:                                               ; preds = %78, %75
+  br label %80
 
-78:                                               ; preds = %77, %68
+80:                                               ; preds = %79, %70
   ret void
 }
 

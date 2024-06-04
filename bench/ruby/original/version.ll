@@ -145,16 +145,17 @@ define internal void @define_ruby_description(ptr noundef %0) #0 {
   %14 = load ptr, ptr %2, align 8
   %15 = load ptr, ptr %3, align 8
   %16 = load ptr, ptr %4, align 8
-  %17 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef @define_ruby_description.desc, i64 noundef 80, ptr noundef @.str.15, i32 noundef 54, ptr noundef @ruby_description, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef getelementptr (i8, ptr @ruby_description, i64 54))
-  store i32 %17, ptr %5, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = sext i32 %18 to i64
-  %20 = call i64 @rb_usascii_str_new_static(ptr noundef @define_ruby_description.desc, i64 noundef %19)
-  %21 = call i64 @rb_obj_freeze(i64 noundef %20)
-  store i64 %21, ptr %6, align 8
+  %17 = getelementptr i8, ptr @ruby_description, i64 54
+  %18 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef @define_ruby_description.desc, i64 noundef 80, ptr noundef @.str.15, i32 noundef 54, ptr noundef @ruby_description, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store i32 %18, ptr %5, align 4
+  %19 = load i32, ptr %5, align 4
+  %20 = sext i32 %19 to i64
+  %21 = call i64 @rb_usascii_str_new_static(ptr noundef @define_ruby_description.desc, i64 noundef %20)
+  %22 = call i64 @rb_obj_freeze(i64 noundef %21)
+  store i64 %22, ptr %6, align 8
   store ptr @define_ruby_description.desc, ptr @rb_dynamic_description, align 8
-  %22 = load i64, ptr %6, align 8
-  call void @rb_define_global_const(ptr noundef @.str.12, i64 noundef %22)
+  %23 = load i64, ptr %6, align 8
+  call void @rb_define_global_const(ptr noundef @.str.12, i64 noundef %23)
   ret void
 }
 

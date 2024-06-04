@@ -749,19 +749,20 @@ define void @_ZN5draco17PointCloudEncoderC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco17PointCloudEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorISt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5draco17PointCloudEncoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorISt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 5
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 7
-  store i64 0, ptr %9, align 8
+  %8 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 5
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 7
+  store i64 0, ptr %10, align 8
   ret void
 }
 
@@ -3255,13 +3256,14 @@ define linkonce_odr void @_ZN5draco17PointCloudEncoderD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco17PointCloudEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5draco17PointCloudEncoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorISt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %6 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorISt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   ret void
 }
 

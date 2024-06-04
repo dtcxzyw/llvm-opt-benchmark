@@ -52,29 +52,30 @@ define dso_local void @__do_once_done(ptr nocapture noundef writeonly %0, ptr no
   store i8 1, ptr %0, align 1
   %5 = load i64, ptr %2, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @once_lock, i64 noundef %5) #3
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %7 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 2080, i64 noundef 48) #4
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %17, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 2080, i64 noundef 48) #4
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %18, label %10
 
-9:                                                ; preds = %4
-  store i64 68719476704, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  store volatile ptr %10, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
-  store volatile ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr @once_deferred, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %3, ptr %14, align 8
+10:                                               ; preds = %4
+  store i64 68719476704, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  store volatile ptr %11, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  store volatile ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr @once_deferred, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 40
+  store ptr %3, ptr %15, align 8
   tail call void @__module_get(ptr noundef %3) #3
-  %15 = load ptr, ptr @system_wq, align 8
-  %16 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %15, ptr noundef nonnull %7) #3
-  br label %17
+  %16 = load ptr, ptr @system_wq, align 8
+  %17 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %16, ptr noundef nonnull %8) #3
+  br label %18
 
-17:                                               ; preds = %9, %4
+18:                                               ; preds = %10, %4
   ret void
 }
 
@@ -103,29 +104,30 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 define dso_local void @__do_once_sleepable_done(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   store i8 1, ptr %0, align 1
   tail call void @mutex_unlock(ptr noundef nonnull @once_mutex) #3
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %5 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 2080, i64 noundef 48) #4
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %15, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2080, i64 noundef 48) #4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %16, label %8
 
-7:                                                ; preds = %3
-  store i64 68719476704, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store volatile ptr %8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store volatile ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @once_deferred, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %2, ptr %12, align 8
+8:                                                ; preds = %3
+  store i64 68719476704, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  store volatile ptr %9, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  store volatile ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr @once_deferred, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %2, ptr %13, align 8
   tail call void @__module_get(ptr noundef %2) #3
-  %13 = load ptr, ptr @system_wq, align 8
-  %14 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %13, ptr noundef nonnull %5) #3
-  br label %15
+  %14 = load ptr, ptr @system_wq, align 8
+  %15 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %14, ptr noundef nonnull %6) #3
+  br label %16
 
-15:                                               ; preds = %7, %3
+16:                                               ; preds = %8, %3
   ret void
 }
 

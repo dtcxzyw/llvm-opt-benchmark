@@ -1333,17 +1333,18 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this1)
-  store ptr getelementptr inbounds ({ [77 x ptr] }, ptr @_ZTVN6icu_7513DecimalFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [77 x ptr] }, ptr @_ZTVN6icu_7513DecimalFormatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fields = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fields, align 8
-  %0 = load ptr, ptr %symbolsToAdopt.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %adoptedSymbols, ptr noundef %0)
+  %1 = load ptr, ptr %symbolsToAdopt.addr, align 8
+  invoke void @_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %adoptedSymbols, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
+  %2 = load ptr, ptr %status.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1355,21 +1356,21 @@ if.then:                                          ; preds = %invoke.cont3
   br label %cleanup
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup41
 
 lpad2:                                            ; preds = %if.end33, %invoke.cont30, %if.else, %new.cont26, %if.end10, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont3
@@ -1388,33 +1389,33 @@ invoke.cont6:                                     ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont6, %if.end
-  %9 = phi ptr [ %call4, %invoke.cont6 ], [ null, %if.end ]
+  %10 = phi ptr [ %call4, %invoke.cont6 ], [ null, %if.end ]
   %fields7 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  store ptr %9, ptr %fields7, align 8
+  store ptr %10, ptr %fields7, align 8
   %fields8 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %fields8, align 8
-  %cmp = icmp eq ptr %10, null
+  %11 = load ptr, ptr %fields8, align 8
+  %cmp = icmp eq ptr %11, null
   br i1 %cmp, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %new.cont
-  %11 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %11, align 4
+  %12 = load ptr, ptr %status.addr, align 8
+  store i32 7, ptr %12, align 4
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 
 lpad5:                                            ; preds = %new.notnull
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad5
-  %15 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %15) #11
+  %16 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %16) #11
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad5
@@ -1430,8 +1431,8 @@ invoke.cont11:                                    ; preds = %if.end10
 
 if.then14:                                        ; preds = %invoke.cont11
   %fields15 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %16 = load ptr, ptr %fields15, align 8
-  %symbols = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %16, i32 0, i32 2
+  %17 = load ptr, ptr %fields15, align 8
+  %symbols = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %17, i32 0, i32 2
   %call16 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 2888) #11
   %new.isnull17 = icmp eq ptr %call16, null
   store i1 false, ptr %cleanup.cond20, align 1
@@ -1440,35 +1441,35 @@ if.then14:                                        ; preds = %invoke.cont11
 new.notnull18:                                    ; preds = %if.then14
   store ptr %call16, ptr %saved-rvalue19, align 8
   store i1 true, ptr %cleanup.cond20, align 1
-  %17 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7520DecimalFormatSymbolsC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %call16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %18 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7520DecimalFormatSymbolsC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %call16, ptr noundef nonnull align 4 dereferenceable(4) %18)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %new.notnull18
   br label %new.cont26
 
 new.cont26:                                       ; preds = %invoke.cont22, %if.then14
-  %18 = phi ptr [ %call16, %invoke.cont22 ], [ null, %if.then14 ]
-  %19 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEE29adoptInsteadAndCheckErrorCodeEPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %symbols, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  %19 = phi ptr [ %call16, %invoke.cont22 ], [ null, %if.then14 ]
+  %20 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEE29adoptInsteadAndCheckErrorCodeEPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %symbols, ptr noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
           to label %invoke.cont27 unwind label %lpad2
 
 invoke.cont27:                                    ; preds = %new.cont26
   br label %if.end33
 
 lpad21:                                           ; preds = %new.notnull18
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   %cleanup.is_active23 = load i1, ptr %cleanup.cond20, align 1
   br i1 %cleanup.is_active23, label %cleanup.action24, label %cleanup.done25
 
 cleanup.action24:                                 ; preds = %lpad21
-  %23 = load ptr, ptr %saved-rvalue19, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %23) #11
+  %24 = load ptr, ptr %saved-rvalue19, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %24) #11
   br label %cleanup.done25
 
 cleanup.done25:                                   ; preds = %cleanup.action24, %lpad21
@@ -1476,23 +1477,23 @@ cleanup.done25:                                   ; preds = %cleanup.action24, %
 
 if.else:                                          ; preds = %invoke.cont11
   %fields28 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %24 = load ptr, ptr %fields28, align 8
-  %symbols29 = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %24, i32 0, i32 2
+  %25 = load ptr, ptr %fields28, align 8
+  %symbols29 = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %25, i32 0, i32 2
   %call31 = invoke noundef ptr @_ZN6icu_7516LocalPointerBaseIKNS_20DecimalFormatSymbolsEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %adoptedSymbols)
           to label %invoke.cont30 unwind label %lpad2
 
 invoke.cont30:                                    ; preds = %if.else
-  %25 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEE29adoptInsteadAndCheckErrorCodeEPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %symbols29, ptr noundef %call31, ptr noundef nonnull align 4 dereferenceable(4) %25)
+  %26 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEE29adoptInsteadAndCheckErrorCodeEPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %symbols29, ptr noundef %call31, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %invoke.cont32 unwind label %lpad2
 
 invoke.cont32:                                    ; preds = %invoke.cont30
   br label %if.end33
 
 if.end33:                                         ; preds = %invoke.cont32, %invoke.cont27
-  %26 = load ptr, ptr %status.addr, align 8
-  %27 = load i32, ptr %26, align 4
-  %call35 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %27)
+  %27 = load ptr, ptr %status.addr, align 8
+  %28 = load i32, ptr %27, align 4
+  %call35 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %28)
           to label %invoke.cont34 unwind label %lpad2
 
 invoke.cont34:                                    ; preds = %if.end33
@@ -1501,13 +1502,13 @@ invoke.cont34:                                    ; preds = %if.end33
 
 if.then37:                                        ; preds = %invoke.cont34
   %fields38 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %28 = load ptr, ptr %fields38, align 8
-  %isnull = icmp eq ptr %28, null
+  %29 = load ptr, ptr %fields38, align 8
+  %isnull = icmp eq ptr %29, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then37
-  call void @_ZN6icu_756number4impl19DecimalFormatFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(4538) %28) #11
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %28) #11
+  call void @_ZN6icu_756number4impl19DecimalFormatFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(4538) %29) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %29) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then37
@@ -1889,10 +1890,11 @@ entry:
   %cleanup.dest.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [77 x ptr] }, ptr @_ZTVN6icu_7513DecimalFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [77 x ptr] }, ptr @_ZTVN6icu_7513DecimalFormatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fields = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fields, align 8
-  %cmp = icmp eq ptr %0, null
+  %1 = load ptr, ptr %fields, align 8
+  %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1901,8 +1903,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %fields2 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fields2, align 8
-  %atomicParser = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %1, i32 0, i32 4
+  %2 = load ptr, ptr %fields2, align 8
+  %atomicParser = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %2, i32 0, i32 4
   %call = call noundef ptr @_ZNSt6atomicIPN6icu_758numparse4impl16NumberParserImplEE8exchangeES4_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %atomicParser, ptr noundef null, i32 noundef 5) #11
   %isnull = icmp eq ptr %call, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1910,14 +1912,14 @@ if.end:                                           ; preds = %entry
 delete.notnull:                                   ; preds = %if.end
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(5216) %call) #11
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(5216) %call) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
   %fields3 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %fields3, align 8
-  %atomicCurrencyParser = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %3, i32 0, i32 5
+  %4 = load ptr, ptr %fields3, align 8
+  %atomicCurrencyParser = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %4, i32 0, i32 5
   %call4 = call noundef ptr @_ZNSt6atomicIPN6icu_758numparse4impl16NumberParserImplEE8exchangeES4_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %atomicCurrencyParser, ptr noundef null, i32 noundef 5) #11
   %isnull5 = icmp eq ptr %call4, null
   br i1 %isnull5, label %delete.end9, label %delete.notnull6
@@ -1925,19 +1927,19 @@ delete.end:                                       ; preds = %delete.notnull, %if
 delete.notnull6:                                  ; preds = %delete.end
   %vtable7 = load ptr, ptr %call4, align 8
   %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 1
-  %4 = load ptr, ptr %vfn8, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(5216) %call4) #11
+  %5 = load ptr, ptr %vfn8, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(5216) %call4) #11
   br label %delete.end9
 
 delete.end9:                                      ; preds = %delete.notnull6, %delete.end
   %fields10 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %fields10, align 8
-  %isnull11 = icmp eq ptr %5, null
+  %6 = load ptr, ptr %fields10, align 8
+  %isnull11 = icmp eq ptr %6, null
   br i1 %isnull11, label %delete.end13, label %delete.notnull12
 
 delete.notnull12:                                 ; preds = %delete.end9
-  call void @_ZN6icu_756number4impl19DecimalFormatFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(4538) %5) #11
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %5) #11
+  call void @_ZN6icu_756number4impl19DecimalFormatFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(4538) %6) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %6) #11
   br label %delete.end13
 
 delete.end13:                                     ; preds = %delete.notnull12, %delete.end9
@@ -5057,13 +5059,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_7512NumberFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(356) %this1, ptr noundef nonnull align 8 dereferenceable(356) %0)
-  store ptr getelementptr inbounds ({ [77 x ptr] }, ptr @_ZTVN6icu_7513DecimalFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [77 x ptr] }, ptr @_ZTVN6icu_7513DecimalFormatE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fields = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fields, align 8
-  %1 = load ptr, ptr %source.addr, align 8
-  %fields2 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %fields2, align 8
-  %cmp = icmp eq ptr %2, null
+  %2 = load ptr, ptr %source.addr, align 8
+  %fields2 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %fields2, align 8
+  %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5078,10 +5081,10 @@ if.end:                                           ; preds = %entry
 new.notnull:                                      ; preds = %if.end
   store ptr %call, ptr %saved-rvalue, align 8
   store i1 true, ptr %cleanup.cond, align 1
-  %3 = load ptr, ptr %source.addr, align 8
-  %fields3 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %fields3, align 8
-  %properties = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %4, i32 0, i32 1
+  %4 = load ptr, ptr %source.addr, align 8
+  %fields3 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %fields3, align 8
+  %properties = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %5, i32 0, i32 1
   invoke void @_ZN6icu_756number4impl19DecimalFormatFieldsC2ERKNS1_23DecimalFormatPropertiesE(ptr noundef nonnull align 8 dereferenceable(4538) %call, ptr noundef nonnull align 8 dereferenceable(757) %properties)
           to label %invoke.cont unwind label %lpad
 
@@ -5089,30 +5092,30 @@ invoke.cont:                                      ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont, %if.end
-  %5 = phi ptr [ %call, %invoke.cont ], [ null, %if.end ]
+  %6 = phi ptr [ %call, %invoke.cont ], [ null, %if.end ]
   %fields4 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  store ptr %5, ptr %fields4, align 8
+  store ptr %6, ptr %fields4, align 8
   %fields5 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %fields5, align 8
-  %cmp6 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %fields5, align 8
+  %cmp6 = icmp eq ptr %7, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %new.cont
   br label %invoke.cont31
 
 lpad:                                             ; preds = %new.notnull
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad
-  %10 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %10) #11
+  %11 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %11) #11
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad
@@ -5121,8 +5124,8 @@ cleanup.done:                                     ; preds = %cleanup.action, %lp
 if.end8:                                          ; preds = %new.cont
   store i32 0, ptr %status, align 4
   %fields9 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %fields9, align 8
-  %symbols = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %11, i32 0, i32 2
+  %12 = load ptr, ptr %fields9, align 8
+  %symbols = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %12, i32 0, i32 2
   %call10 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 2888) #11
   %new.isnull11 = icmp eq ptr %call10, null
   store i1 false, ptr %cleanup.cond14, align 1
@@ -5131,11 +5134,11 @@ if.end8:                                          ; preds = %new.cont
 new.notnull12:                                    ; preds = %if.end8
   store ptr %call10, ptr %saved-rvalue13, align 8
   store i1 true, ptr %cleanup.cond14, align 1
-  %12 = load ptr, ptr %source.addr, align 8
-  %vtable = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %source.addr, align 8
+  %vtable = load ptr, ptr %13, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 39
-  %13 = load ptr, ptr %vfn, align 8
-  %call17 = invoke noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(368) %12)
+  %14 = load ptr, ptr %vfn, align 8
+  %call17 = invoke noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(368) %13)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %new.notnull12
@@ -5146,13 +5149,13 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   br label %new.cont22
 
 new.cont22:                                       ; preds = %invoke.cont18, %if.end8
-  %14 = phi ptr [ %call10, %invoke.cont18 ], [ null, %if.end8 ]
-  invoke void @_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEE29adoptInsteadAndCheckErrorCodeEPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %symbols, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %15 = phi ptr [ %call10, %invoke.cont18 ], [ null, %if.end8 ]
+  invoke void @_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEE29adoptInsteadAndCheckErrorCodeEPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %symbols, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %new.cont22
-  %15 = load i32, ptr %status, align 4
-  %call26 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %15)
+  %16 = load i32, ptr %status, align 4
+  %call26 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %16)
           to label %invoke.cont25 unwind label %lpad23
 
 invoke.cont25:                                    ; preds = %invoke.cont24
@@ -5161,13 +5164,13 @@ invoke.cont25:                                    ; preds = %invoke.cont24
 
 if.then27:                                        ; preds = %invoke.cont25
   %fields28 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %16 = load ptr, ptr %fields28, align 8
-  %isnull = icmp eq ptr %16, null
+  %17 = load ptr, ptr %fields28, align 8
+  %isnull = icmp eq ptr %17, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then27
-  call void @_ZN6icu_756number4impl19DecimalFormatFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(4538) %16) #11
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %16) #11
+  call void @_ZN6icu_756number4impl19DecimalFormatFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(4538) %17) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %17) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then27
@@ -5176,30 +5179,30 @@ delete.end:                                       ; preds = %delete.notnull, %if
   br label %invoke.cont31
 
 lpad15:                                           ; preds = %invoke.cont16, %new.notnull12
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   %cleanup.is_active19 = load i1, ptr %cleanup.cond14, align 1
   br i1 %cleanup.is_active19, label %cleanup.action20, label %cleanup.done21
 
 cleanup.action20:                                 ; preds = %lpad15
-  %20 = load ptr, ptr %saved-rvalue13, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %20) #11
+  %21 = load ptr, ptr %saved-rvalue13, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %21) #11
   br label %cleanup.done21
 
 cleanup.done21:                                   ; preds = %cleanup.action20, %lpad15
   br label %ehcleanup
 
 lpad23:                                           ; preds = %if.end30, %invoke.cont24, %new.cont22
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end30:                                         ; preds = %invoke.cont25
@@ -6172,7 +6175,8 @@ entry:
   %coerce.dive = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %agg.tmp, i32 0, i32 0
   %0 = load i8, ptr %coerce.dive, align 1
   call void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %this1, i8 %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %quantity = getelementptr inbounds %"class.icu_75::number::impl::UFormattedNumberData", ptr %this1, i32 0, i32 2
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity)
           to label %invoke.cont unwind label %lpad
@@ -6188,21 +6192,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity) #11
   br label %ehcleanup
 
@@ -6333,10 +6337,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7510AppendableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %str = getelementptr inbounds %"class.icu_75::UnicodeStringAppendable", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %str, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %str, align 8
   ret void
 }
 
@@ -7847,7 +7852,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errorCode = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %errorCode, align 8
   ret void
@@ -13915,7 +13921,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756number4impl20AffixPatternProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %posPrefix = getelementptr inbounds %"class.icu_75::number::impl::PropertiesAffixPatternProvider", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix)
           to label %invoke.cont unwind label %lpad
@@ -13941,39 +13948,39 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup9
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup8
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negPrefix) #11
   br label %ehcleanup
 
@@ -14006,7 +14013,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756number4impl20AffixPatternProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %affixesByPlural = getelementptr inbounds %"class.icu_75::number::impl::CurrencyPluralInfoAffixProvider", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [8 x %"class.icu_75::number::impl::PropertiesAffixPatternProvider"], ptr %affixesByPlural, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.icu_75::number::impl::PropertiesAffixPatternProvider", ptr %array.begin, i64 8
@@ -14028,12 +14036,12 @@ arrayctor.cont:                                   ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -14062,7 +14070,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %negSuffix = getelementptr inbounds %"class.icu_75::number::impl::PropertiesAffixPatternProvider", ptr %this1, i32 0, i32 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix) #11
   %negPrefix = getelementptr inbounds %"class.icu_75::number::impl::PropertiesAffixPatternProvider", ptr %this1, i32 0, i32 3
@@ -14081,7 +14090,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl20AffixPatternProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN6icu_756number4impl20AffixPatternProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14092,7 +14102,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -14109,7 +14120,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14119,7 +14131,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14143,14 +14156,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %affixesByPlural = getelementptr inbounds %"class.icu_75::number::impl::CurrencyPluralInfoAffixProvider", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [8 x %"class.icu_75::number::impl::PropertiesAffixPatternProvider"], ptr %affixesByPlural, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.icu_75::number::impl::PropertiesAffixPatternProvider", ptr %array.begin, i64 8
+  %1 = getelementptr inbounds %"class.icu_75::number::impl::PropertiesAffixPatternProvider", ptr %array.begin, i64 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.icu_75::number::impl::PropertiesAffixPatternProvider", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN6icu_756number4impl30PropertiesAffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %arraydestroy.element) #11
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -14514,7 +14528,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7510AppendableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7510AppendableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

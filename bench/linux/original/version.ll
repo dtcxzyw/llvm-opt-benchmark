@@ -31,15 +31,16 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_init_uts_ns:
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @early_hostname(ptr noundef %0) #0 section ".init.text" align 16 {
-  %2 = tail call i64 @strscpy(ptr noundef nonnull getelementptr inbounds (%struct.uts_namespace, ptr @init_uts_ns, i64 0, i32 0, i32 1), ptr noundef %0, i64 noundef 65) #3
-  %3 = icmp slt i64 %2, 0
-  br i1 %3, label %4, label %6
+  %2 = getelementptr inbounds %struct.uts_namespace, ptr @init_uts_ns, i64 0, i32 0, i32 1
+  %3 = tail call i64 @strscpy(ptr noundef nonnull %2, ptr noundef %0, i64 noundef 65) #3
+  %4 = icmp slt i64 %3, 0
+  br i1 %4, label %5, label %7
 
-4:                                                ; preds = %1
-  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i64 noundef 64) #4
-  br label %6
+5:                                                ; preds = %1
+  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i64 noundef 64) #4
+  br label %7
 
-6:                                                ; preds = %4, %1
+7:                                                ; preds = %5, %1
   ret i32 0
 }
 

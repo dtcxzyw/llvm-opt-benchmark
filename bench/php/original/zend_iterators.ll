@@ -32,10 +32,14 @@ define void @zend_register_iterator_wrapper() #0 {
   call void @llvm.memset.p0.i64(ptr align 8 @zend_iterator_class_entry, i8 0, i64 512, i1 false)
   %1 = load ptr, ptr @zend_string_init_interned, align 8
   %2 = call ptr %1(ptr noundef @.str, i64 noundef 18, i1 noundef zeroext true)
-  store ptr %2, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_iterator_class_entry, i32 0, i32 1), align 8
-  store ptr @std_object_handlers, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_iterator_class_entry, i32 0, i32 29), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_iterator_class_entry, i32 0, i32 47), align 8
-  store ptr @iterator_object_handlers, ptr getelementptr inbounds (%struct._zend_class_entry, ptr @zend_iterator_class_entry, i32 0, i32 29), align 8
+  %3 = getelementptr inbounds %struct._zend_class_entry, ptr @zend_iterator_class_entry, i32 0, i32 1
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %struct._zend_class_entry, ptr @zend_iterator_class_entry, i32 0, i32 29
+  store ptr @std_object_handlers, ptr %4, align 8
+  %5 = getelementptr inbounds %struct._zend_class_entry, ptr @zend_iterator_class_entry, i32 0, i32 47
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %struct._zend_class_entry, ptr @zend_iterator_class_entry, i32 0, i32 29
+  store ptr @iterator_object_handlers, ptr %6, align 8
   ret void
 }
 

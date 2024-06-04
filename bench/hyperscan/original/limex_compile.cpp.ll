@@ -23576,7 +23576,7 @@ ehcleanup:                                        ; preds = %lpad66, %lpad64
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad59
   %sel = load i32, ptr %ehselector.slot, align 4
-  %71 = call i32 @llvm.eh.typeid.for(ptr @_ZTIPN3ue212_GLOBAL__N_111fas_visitorE) #2
+  %71 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIPN3ue212_GLOBAL__N_111fas_visitorE) #2
   %matches = icmp eq i32 %sel, %71
   br i1 %matches, label %catch, label %ehcleanup70
 
@@ -24832,9 +24832,6 @@ entry:
   call void @_ZNSt10shared_ptrISt6vectorIhSaIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data) #2
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3ue212remove_edgesISt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaIS9_EEEEvRKT_RS5_b(ptr noundef nonnull align 8 dereferenceable(24) %c, ptr noundef nonnull align 8 dereferenceable(136) %h, i1 noundef zeroext %renumber) #3 comdat {
@@ -30328,7 +30325,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost9container18throw_length_errorEPKc(ptr noundef %str) #16 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost9container18throw_length_errorEPKc(ptr noundef %str) #15 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %str.addr = alloca ptr, align 8
   %exn.slot = alloca ptr, align 8
@@ -40521,24 +40518,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #2
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl) #2
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %this1) #2
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructISt6vectorIhSaIhEEJRmEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructISt6vectorIhSaIhEEJRmEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #2
   br label %eh.resume
 
@@ -40716,7 +40714,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -61280,7 +61279,7 @@ for.body21:                                       ; preds = %land.end
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %val.i, align 4
   %49 = load i32, ptr %val.i, align 4
-  %50 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %49) #15, !srcloc !86
+  %50 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %49) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %50, 0
   %asmresult1.i = extractvalue { i32, i32 } %50, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -67123,7 +67122,7 @@ while.body:                                       ; preds = %while.cond
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %val.i186, align 4
   %31 = load i32, ptr %val.i186, align 4
-  %32 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %31) #15, !srcloc !86
+  %32 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %31) #18, !srcloc !86
   %asmresult.i188 = extractvalue { i32, i32 } %32, 0
   %asmresult1.i189 = extractvalue { i32, i32 } %32, 1
   store i32 %asmresult.i188, ptr %offset.i187, align 4
@@ -67251,7 +67250,7 @@ while.body71:                                     ; preds = %while.cond69
   %58 = load i32, ptr %57, align 4
   store i32 %58, ptr %val.i, align 4
   %59 = load i32, ptr %val.i, align 4
-  %60 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %59) #15, !srcloc !86
+  %60 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %59) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %60, 0
   %asmresult1.i = extractvalue { i32, i32 } %60, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -69273,7 +69272,7 @@ while.body:                                       ; preds = %while.cond
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %val.i, align 4
   %94 = load i32, ptr %val.i, align 4
-  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #15, !srcloc !86
+  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %95, 0
   %asmresult1.i = extractvalue { i32, i32 } %95, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -71109,7 +71108,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -71405,7 +71405,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -80255,7 +80256,7 @@ if.end7:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #17
+declare i1 @llvm.is.constant.i64(i64) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
@@ -87717,7 +87718,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIyLm4EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #18 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIyLm4EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #17 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -93583,7 +93584,7 @@ for.body10:                                       ; preds = %for.cond9
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %val.i270, align 4
   %19 = load i32, ptr %val.i270, align 4
-  %20 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %19) #15, !srcloc !86
+  %20 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %19) #18, !srcloc !86
   %asmresult.i272 = extractvalue { i32, i32 } %20, 0
   %asmresult1.i273 = extractvalue { i32, i32 } %20, 1
   store i32 %asmresult.i272, ptr %offset.i271, align 4
@@ -93856,7 +93857,7 @@ for.body88:                                       ; preds = %for.cond86
   %82 = load i32, ptr %81, align 4
   store i32 %82, ptr %val.i265, align 4
   %83 = load i32, ptr %val.i265, align 4
-  %84 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %83) #15, !srcloc !86
+  %84 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %83) #18, !srcloc !86
   %asmresult.i267 = extractvalue { i32, i32 } %84, 0
   %asmresult1.i268 = extractvalue { i32, i32 } %84, 1
   store i32 %asmresult.i267, ptr %offset.i266, align 4
@@ -94103,7 +94104,7 @@ for.body194:                                      ; preds = %for.cond192
   %122 = load i32, ptr %121, align 4
   store i32 %122, ptr %val.i260, align 4
   %123 = load i32, ptr %val.i260, align 4
-  %124 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %123) #15, !srcloc !86
+  %124 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %123) #18, !srcloc !86
   %asmresult.i262 = extractvalue { i32, i32 } %124, 0
   %asmresult1.i263 = extractvalue { i32, i32 } %124, 1
   store i32 %asmresult.i262, ptr %offset.i261, align 4
@@ -94160,7 +94161,7 @@ for.body214:                                      ; preds = %for.cond212
   %135 = load i32, ptr %134, align 4
   store i32 %135, ptr %val.i255, align 4
   %136 = load i32, ptr %val.i255, align 4
-  %137 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %136) #15, !srcloc !86
+  %137 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %136) #18, !srcloc !86
   %asmresult.i257 = extractvalue { i32, i32 } %137, 0
   %asmresult1.i258 = extractvalue { i32, i32 } %137, 1
   store i32 %asmresult.i257, ptr %offset.i256, align 4
@@ -94224,7 +94225,7 @@ for.body232:                                      ; preds = %for.cond230
   %152 = load i32, ptr %151, align 4
   store i32 %152, ptr %val.i, align 4
   %153 = load i32, ptr %val.i, align 4
-  %154 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %153) #15, !srcloc !86
+  %154 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %153) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %154, 0
   %asmresult1.i = extractvalue { i32, i32 } %154, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -111729,7 +111730,7 @@ lpad9:                                            ; preds = %invoke.cont
 
 catch.dispatch:                                   ; preds = %lpad9, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTIZN3ue212_GLOBAL__N_19cannotDieERKNS0_10build_infoERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessISC_ESaISC_EEE10CycleFound) #2
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIZN3ue212_GLOBAL__N_19cannotDieERKNS0_10build_infoERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessISC_ESaISC_EEE10CycleFound) #2
   %matches = icmp eq i32 %sel, %27
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -121933,7 +121934,7 @@ while.body:                                       ; preds = %while.cond
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %val.i, align 4
   %94 = load i32, ptr %val.i, align 4
-  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #15, !srcloc !86
+  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %95, 0
   %asmresult1.i = extractvalue { i32, i32 } %95, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -125247,7 +125248,7 @@ while.body:                                       ; preds = %while.cond
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %val.i, align 4
   %94 = load i32, ptr %val.i, align 4
-  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #15, !srcloc !86
+  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %95, 0
   %asmresult1.i = extractvalue { i32, i32 } %95, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -128677,7 +128678,7 @@ while.body:                                       ; preds = %while.cond
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %val.i, align 4
   %94 = load i32, ptr %val.i, align 4
-  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #15, !srcloc !86
+  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %95, 0
   %asmresult1.i = extractvalue { i32, i32 } %95, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -132083,7 +132084,7 @@ while.body:                                       ; preds = %while.cond
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %val.i, align 4
   %94 = load i32, ptr %val.i, align 4
-  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #15, !srcloc !86
+  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %95, 0
   %asmresult1.i = extractvalue { i32, i32 } %95, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -135498,7 +135499,7 @@ while.body:                                       ; preds = %while.cond
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %val.i, align 4
   %94 = load i32, ptr %val.i, align 4
-  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #15, !srcloc !86
+  %95 = call { i32, i32 } asm "bsf $1, $0\0Abtr $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i32 %94) #18, !srcloc !86
   %asmresult.i = extractvalue { i32, i32 } %95, 0
   %asmresult1.i = extractvalue { i32, i32 } %95, 1
   store i32 %asmresult.i, ptr %offset.i, align 4
@@ -136285,6 +136286,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
@@ -136300,10 +136304,10 @@ attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protec
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { nounwind memory(none) }
-attributes #16 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #18 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #17 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { noreturn }
 attributes #21 = { builtin allocsize(0) }

@@ -329,25 +329,26 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %id.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7517AnyTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN6icu_7517AnyTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %target = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 3
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %target)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %targetScript = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %theTargetScript.addr, align 4
-  store i32 %1, ptr %targetScript, align 8
-  %2 = load ptr, ptr %ec.addr, align 8
-  %call = invoke ptr @uhash_openSize_75(ptr noundef @uhash_hashLong_75, ptr noundef @uhash_compareLong_75, ptr noundef null, i32 noundef 7, ptr noundef %2)
+  %2 = load i32, ptr %theTargetScript.addr, align 4
+  store i32 %2, ptr %targetScript, align 8
+  %3 = load ptr, ptr %ec.addr, align 8
+  %call = invoke ptr @uhash_openSize_75(ptr noundef @uhash_hashLong_75, ptr noundef @uhash_compareLong_75, ptr noundef null, i32 noundef 7, ptr noundef %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %cache = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 2
   store ptr %call, ptr %cache, align 8
-  %3 = load ptr, ptr %ec.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %call5 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
+  %4 = load ptr, ptr %ec.addr, align 8
+  %5 = load i32, ptr %4, align 4
+  %call5 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -358,39 +359,39 @@ if.then:                                          ; preds = %invoke.cont4
   br label %if.end20
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont16, %if.then14, %invoke.cont10, %invoke.cont7, %if.end, %invoke.cont3, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %target) #5
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont4
   %cache6 = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %cache6, align 8
-  %call8 = invoke ptr @uhash_setValueDeleter_75(ptr noundef %11, ptr noundef @_ZL21_deleteTransliteratorPv)
+  %12 = load ptr, ptr %cache6, align 8
+  %call8 = invoke ptr @uhash_setValueDeleter_75(ptr noundef %12, ptr noundef @_ZL21_deleteTransliteratorPv)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %if.end
-  %12 = load ptr, ptr %theTarget.addr, align 8
+  %13 = load ptr, ptr %theTarget.addr, align 8
   %target9 = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 3
-  %call11 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %target9, ptr noundef nonnull align 8 dereferenceable(64) %12)
+  %call11 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %target9, ptr noundef nonnull align 8 dereferenceable(64) %13)
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  %13 = load ptr, ptr %theVariant.addr, align 8
-  %call13 = invoke noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
+  %14 = load ptr, ptr %theVariant.addr, align 8
+  %call13 = invoke noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %14)
           to label %invoke.cont12 unwind label %lpad2
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -403,8 +404,8 @@ if.then14:                                        ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %lpad2
 
 invoke.cont16:                                    ; preds = %if.then14
-  %14 = load ptr, ptr %theVariant.addr, align 8
-  %call19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %call17, ptr noundef nonnull align 8 dereferenceable(64) %14)
+  %15 = load ptr, ptr %theVariant.addr, align 8
+  %call19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %call17, ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %invoke.cont18 unwind label %lpad2
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -434,7 +435,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -548,10 +550,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7517AnyTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN6icu_7517AnyTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cache = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %cache, align 8
-  invoke void @uhash_close_75(ptr noundef %0)
+  %1 = load ptr, ptr %cache, align 8
+  invoke void @uhash_close_75(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -561,10 +564,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #6
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #6
   unreachable
 }
 
@@ -608,19 +611,20 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %o.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(84) %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7517AnyTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN6icu_7517AnyTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %target = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %o.addr, align 8
-  %target2 = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %1, i32 0, i32 3
+  %2 = load ptr, ptr %o.addr, align 8
+  %target2 = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %2, i32 0, i32 3
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %target, ptr noundef nonnull align 8 dereferenceable(64) %target2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %targetScript = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %o.addr, align 8
-  %targetScript3 = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %2, i32 0, i32 4
-  %3 = load i32, ptr %targetScript3, align 8
-  store i32 %3, ptr %targetScript, align 8
+  %3 = load ptr, ptr %o.addr, align 8
+  %targetScript3 = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %3, i32 0, i32 4
+  %4 = load i32, ptr %targetScript3, align 8
+  store i32 %4, ptr %targetScript, align 8
   store i32 0, ptr %ec, align 4
   %call = invoke ptr @uhash_openSize_75(ptr noundef @uhash_hashLong_75, ptr noundef @uhash_compareLong_75, ptr noundef null, i32 noundef 7, ptr noundef %ec)
           to label %invoke.cont5 unwind label %lpad4
@@ -628,8 +632,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont5:                                     ; preds = %invoke.cont
   %cache = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 2
   store ptr %call, ptr %cache, align 8
-  %4 = load i32, ptr %ec, align 4
-  %call7 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
+  %5 = load i32, ptr %ec, align 4
+  %call7 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %invoke.cont5
@@ -640,28 +644,28 @@ if.then:                                          ; preds = %invoke.cont6
   br label %invoke.cont9
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %if.end, %invoke.cont5, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %target) #5
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont6
   %cache8 = getelementptr inbounds %"class.icu_75::AnyTransliterator", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %cache8, align 8
-  %call10 = invoke ptr @uhash_setValueDeleter_75(ptr noundef %11, ptr noundef @_ZL21_deleteTransliteratorPv)
+  %12 = load ptr, ptr %cache8, align 8
+  %call10 = invoke ptr @uhash_setValueDeleter_75(ptr noundef %12, ptr noundef @_ZL21_deleteTransliteratorPv)
           to label %invoke.cont9 unwind label %lpad4
 
 invoke.cont9:                                     ; preds = %if.end, %if.then
@@ -1985,7 +1989,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1995,7 +2000,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

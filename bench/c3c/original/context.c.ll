@@ -108,61 +108,64 @@ define dso_local zeroext i1 @context_set_module_from_filename(ptr noundef %0) #0
   %22 = load ptr, ptr %21, align 8
   call void (ptr, ptr, ...) @sema_error(ptr noundef %19, ptr noundef @.str.1, ptr noundef %22)
   store i1 false, ptr %2, align 1
-  br label %54
+  br label %57
 
 23:                                               ; preds = %1
   store i32 64, ptr %5, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %25 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %26 = call i32 @fnv1a(ptr noundef @scratch_buffer, i32 noundef %25)
-  %27 = call ptr @symtab_add(ptr noundef @scratch_buffer, i32 noundef %24, i32 noundef %26, ptr noundef %5)
-  store ptr %27, ptr %6, align 8
-  %28 = load i32, ptr %5, align 4
-  %29 = icmp ne i32 %28, 64
-  br i1 %29, label %30, label %35
+  %24 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4
+  %28 = call i32 @fnv1a(ptr noundef @scratch_buffer, i32 noundef %27)
+  %29 = call ptr @symtab_add(ptr noundef @scratch_buffer, i32 noundef %25, i32 noundef %28, ptr noundef %5)
+  store ptr %29, ptr %6, align 8
+  %30 = load i32, ptr %5, align 4
+  %31 = icmp ne i32 %30, 64
+  br i1 %31, label %32, label %37
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %3, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.File, ptr %32, i32 0, i32 5
-  %34 = load ptr, ptr %33, align 8
-  call void (ptr, ptr, ...) @sema_error(ptr noundef %31, ptr noundef @.str.2, ptr noundef %34)
+32:                                               ; preds = %23
+  %33 = load ptr, ptr %3, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.File, ptr %34, i32 0, i32 5
+  %36 = load ptr, ptr %35, align 8
+  call void (ptr, ptr, ...) @sema_error(ptr noundef %33, ptr noundef @.str.2, ptr noundef %36)
   store i1 false, ptr %2, align 1
-  br label %54
+  br label %57
 
-35:                                               ; preds = %23
-  %36 = call ptr @calloc_arena(i64 noundef 24)
-  store ptr %36, ptr %7, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.Path_, ptr %37, i32 0, i32 0
-  %39 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 0
-  store i16 0, ptr %39, align 8
-  %40 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 1
-  store i8 0, ptr %40, align 2
-  %41 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 2
-  store i8 0, ptr %41, align 1
-  %42 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 3
-  store i32 0, ptr %42, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %8, i64 8, i1 false)
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.Path_, ptr %44, i32 0, i32 1
-  store ptr %43, ptr %45, align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1), align 4
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.Path_, ptr %47, i32 0, i32 2
-  store i32 %46, ptr %48, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.ParseContext_, ptr %49, i32 0, i32 4
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = call zeroext i1 @create_module_or_check_name(ptr noundef %51, ptr noundef %52, ptr noundef null)
-  store i1 %53, ptr %2, align 1
-  br label %54
+37:                                               ; preds = %23
+  %38 = call ptr @calloc_arena(i64 noundef 24)
+  store ptr %38, ptr %7, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds %struct.Path_, ptr %39, i32 0, i32 0
+  %41 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 0
+  store i16 0, ptr %41, align 8
+  %42 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 1
+  store i8 0, ptr %42, align 2
+  %43 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 2
+  store i8 0, ptr %43, align 1
+  %44 = getelementptr inbounds %struct.anon, ptr %8, i32 0, i32 3
+  store i32 0, ptr %44, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %8, i64 8, i1 false)
+  %45 = load ptr, ptr %6, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr inbounds %struct.Path_, ptr %46, i32 0, i32 1
+  store ptr %45, ptr %47, align 8
+  %48 = getelementptr inbounds %struct.ScratchBuf, ptr @scratch_buffer, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct.Path_, ptr %50, i32 0, i32 2
+  store i32 %49, ptr %51, align 8
+  %52 = load ptr, ptr %3, align 8
+  %53 = getelementptr inbounds %struct.ParseContext_, ptr %52, i32 0, i32 4
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = call zeroext i1 @create_module_or_check_name(ptr noundef %54, ptr noundef %55, ptr noundef null)
+  store i1 %56, ptr %2, align 1
+  br label %57
 
-54:                                               ; preds = %35, %30, %18
-  %55 = load i1, ptr %2, align 1
-  ret i1 %55
+57:                                               ; preds = %37, %32, %18
+  %58 = load i1, ptr %2, align 1
+  ret i1 %58
 }
 
 ; Function Attrs: nounwind uwtable
@@ -554,40 +557,41 @@ define dso_local void @unit_register_external_symbol(ptr noundef %0, ptr noundef
   %13 = getelementptr inbounds %struct.Decl_, ptr %12, i32 0, i32 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  br label %18
+  br label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 1), align 8
-  br label %18
+  %17 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  br label %19
 
-18:                                               ; preds = %16, %11
-  %19 = phi ptr [ %15, %11 ], [ %17, %16 ]
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.CompilationUnit_, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %19, %22
-  br i1 %23, label %29, label %24
+19:                                               ; preds = %16, %11
+  %20 = phi ptr [ %15, %11 ], [ %18, %16 ]
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %struct.CompilationUnit_, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %20, %23
+  br i1 %24, label %30, label %25
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.Decl_, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %30, label %29
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %struct.Decl_, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %31, label %30
 
-29:                                               ; preds = %24, %18
-  br label %36
+30:                                               ; preds = %25, %19
+  br label %37
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.Decl_, ptr %31, i32 0, i32 3
-  %33 = load i64, ptr %32, align 8
-  %34 = and i64 %33, -1048577
-  %35 = or i64 %34, 1048576
-  store i64 %35, ptr %32, align 8
-  br label %36
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.Decl_, ptr %32, i32 0, i32 3
+  %34 = load i64, ptr %33, align 8
+  %35 = and i64 %34, -1048577
+  %36 = or i64 %35, 1048576
+  store i64 %36, ptr %33, align 8
+  br label %37
 
-36:                                               ; preds = %30, %29
+37:                                               ; preds = %31, %30
   ret void
 }
 

@@ -5253,20 +5253,20 @@ define dso_local i32 @drm_panel_dp_aux_backlight(ptr noundef %0, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, i8 0, i64 3, i1 false), !annotation !11
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %49, label %8
+  br i1 %7, label %50, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %1, null
   %12 = and i1 %11, %10
-  br i1 %12, label %13, label %49
+  br i1 %12, label %13, label %50
 
 13:                                               ; preds = %8
   %14 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %1, i32 noundef 1792, ptr noundef nonnull %6, i64 noundef 3), !range !12
   %15 = trunc i64 %14 to i32
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %49, label %17
+  br i1 %16, label %50, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %6, i64 1
@@ -5278,12 +5278,12 @@ define dso_local i32 @drm_panel_dp_aux_backlight(ptr noundef %0, ptr noundef %1)
 
 23:                                               ; preds = %17
   call void (ptr, ptr, ptr, ...) @drm_dev_printk(ptr noundef %22, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58) #17
-  br label %49
+  br label %50
 
 24:                                               ; preds = %17
   %25 = call noalias noundef dereferenceable_or_null(24) ptr @devm_kmalloc(ptr noundef %22, i64 noundef 24, i32 noundef 3520) #21
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %49, label %27
+  br i1 %26, label %50, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %25, i64 8
@@ -5291,7 +5291,7 @@ define dso_local i32 @drm_panel_dp_aux_backlight(ptr noundef %0, ptr noundef %1)
   %29 = getelementptr inbounds i8, ptr %25, i64 16
   %30 = call i32 @drm_edp_backlight_init(ptr noundef nonnull %1, ptr noundef %29, i16 noundef zeroext 0, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !32
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %49, label %32
+  br i1 %31, label %50, label %32
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds i8, ptr %3, i64 16
@@ -5307,28 +5307,29 @@ define dso_local i32 @drm_panel_dp_aux_backlight(ptr noundef %0, ptr noundef %1)
   %40 = load ptr, ptr %0, align 8
   %41 = call ptr @devm_backlight_device_register(ptr noundef %40, ptr noundef nonnull @.str.59, ptr noundef %40, ptr noundef nonnull %25, ptr noundef nonnull @dp_aux_bl_ops, ptr noundef nonnull %3) #17
   store ptr %41, ptr %25, align 8
-  %42 = icmp ugt ptr %41, inttoptr (i64 -4096 to ptr)
-  br i1 %42, label %43, label %46
+  %42 = inttoptr i64 -4096 to ptr
+  %43 = icmp ugt ptr %41, %42
+  br i1 %43, label %44, label %47
 
-43:                                               ; preds = %32
-  %44 = ptrtoint ptr %41 to i64
-  %45 = trunc i64 %44 to i32
-  br label %49
+44:                                               ; preds = %32
+  %45 = ptrtoint ptr %41 to i64
+  %46 = trunc i64 %45 to i32
+  br label %50
 
-46:                                               ; preds = %32
+47:                                               ; preds = %32
   call fastcc void @backlight_disable(ptr noundef %41)
-  %47 = load ptr, ptr %25, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %47, ptr %48, align 8
-  br label %49
+  %48 = load ptr, ptr %25, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %48, ptr %49, align 8
+  br label %50
 
-49:                                               ; preds = %46, %43, %27, %24, %23, %13, %8, %2
-  %50 = phi i32 [ %45, %43 ], [ 0, %46 ], [ 0, %23 ], [ -22, %8 ], [ -22, %2 ], [ %15, %13 ], [ -12, %24 ], [ %30, %27 ]
+50:                                               ; preds = %47, %44, %27, %24, %23, %13, %8, %2
+  %51 = phi i32 [ %46, %44 ], [ 0, %47 ], [ 0, %23 ], [ -22, %8 ], [ -22, %2 ], [ %15, %13 ], [ -12, %24 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #17
-  ret i32 %50
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid

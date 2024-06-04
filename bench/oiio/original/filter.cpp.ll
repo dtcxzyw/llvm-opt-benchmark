@@ -1419,7 +1419,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1435,10 +1436,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle1D", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %1
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %2
   store float %div, ptr %m_rad_inv, align 4
   ret void
 }
@@ -1453,10 +1455,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian1D", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %1
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %2
   store float %div, ptr %m_rad_inv, align 4
   ret void
 }
@@ -1471,10 +1474,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian1D", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %1
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %2
   store float %div, ptr %m_rad_inv, align 4
   ret void
 }
@@ -1488,10 +1492,11 @@ entry:
   store float %width, ptr %width.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef 4.000000e+00)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom1DE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_scale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom1D", ptr %this1, i32 0, i32 1
-  %0 = load float, ptr %width.addr, align 4
-  %div = fdiv float 4.000000e+00, %0
+  %1 = load float, ptr %width.addr, align 4
+  %div = fdiv float 4.000000e+00, %1
   store float %div, ptr %m_scale, align 4
   ret void
 }
@@ -1506,10 +1511,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris1D", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %1
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %2
   store float %div, ptr %m_rad_inv, align 4
   ret void
 }
@@ -1524,10 +1530,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_rad = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc1D", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float %1, 2.000000e+00
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float %2, 2.000000e+00
   store float %div, ptr %m_rad, align 4
   ret void
 }
@@ -1542,10 +1549,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_scale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_1D", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float 6.000000e+00, %1
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float 6.000000e+00, %2
   store float %div, ptr %m_scale, align 4
   ret void
 }
@@ -1560,10 +1568,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell1D", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %1
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %2
   store float %div, ptr %m_rad_inv, align 4
   ret void
 }
@@ -1578,10 +1587,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline1D", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float 4.000000e+00, %1
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float 4.000000e+00, %2
   store float %div, ptr %m_wscale, align 4
   ret void
 }
@@ -1596,12 +1606,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter1DC2Ef(ptr noundef nonnull align 8 dereferenceable(12) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %m_a, align 4
   %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %this1, i32 0, i32 2
-  %1 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %1
+  %2 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %2
   store float %div, ptr %m_rad_inv, align 8
   ret void
 }
@@ -1616,7 +1627,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_013FilterCubic1DC2Ef(ptr noundef nonnull align 8 dereferenceable(20) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %this1, i32 0, i32 1
   store float -5.000000e-01, ptr %m_a, align 4
   ret void
@@ -1632,7 +1644,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_013FilterCubic1DC2Ef(ptr noundef nonnull align 8 dereferenceable(20) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %this1, i32 0, i32 1
   store float -7.500000e-01, ptr %m_a, align 4
   ret void
@@ -1648,7 +1661,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load float, ptr %width.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_013FilterCubic1DC2Ef(ptr noundef nonnull align 8 dereferenceable(20) %this1, float noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman1DE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %this1, i32 0, i32 1
   store float -1.000000e+00, ptr %m_a, align 4
   ret void
@@ -2249,7 +2263,8 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -2266,14 +2281,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %3
   store float %div, ptr %m_wrad_inv, align 8
   %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 2.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 2.000000e+00, %4
   store float %div2, ptr %m_hrad_inv, align 4
   ret void
 }
@@ -2291,14 +2307,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %3
   store float %div, ptr %m_wrad_inv, align 8
   %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 2.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 2.000000e+00, %4
   store float %div2, ptr %m_hrad_inv, align 4
   ret void
 }
@@ -2316,14 +2333,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %3
   store float %div, ptr %m_wrad_inv, align 8
   %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 2.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 2.000000e+00, %4
   store float %div2, ptr %m_hrad_inv, align 4
   ret void
 }
@@ -2341,14 +2359,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 4.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 4.000000e+00, %3
   store float %div, ptr %m_wscale, align 8
   %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 4.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 4.000000e+00, %4
   store float %div2, ptr %m_hscale, align 4
   ret void
 }
@@ -2366,14 +2385,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %3
   store float %div, ptr %m_wrad_inv, align 8
   %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 2.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 2.000000e+00, %4
   store float %div2, ptr %m_hrad_inv, align 4
   ret void
 }
@@ -2391,14 +2411,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wrad = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float %2, 2.000000e+00
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float %3, 2.000000e+00
   store float %div, ptr %m_wrad, align 8
   %m_hrad = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float %3, 2.000000e+00
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float %4, 2.000000e+00
   store float %div2, ptr %m_hrad, align 4
   ret void
 }
@@ -2416,14 +2437,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 6.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 6.000000e+00, %3
   store float %div, ptr %m_wscale, align 8
   %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 6.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 6.000000e+00, %4
   store float %div2, ptr %m_hscale, align 4
   ret void
 }
@@ -2441,14 +2463,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_023FilterRadialLanczos3_2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_023FilterRadialLanczos3_2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterRadialLanczos3_2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 6.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 6.000000e+00, %3
   store float %div, ptr %m_wscale, align 8
   %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterRadialLanczos3_2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 6.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 6.000000e+00, %4
   store float %div2, ptr %m_hscale, align 4
   ret void
 }
@@ -2466,14 +2489,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %3
   store float %div, ptr %m_wrad_inv, align 8
   %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 2.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 2.000000e+00, %4
   store float %div2, ptr %m_hrad_inv, align 4
   ret void
 }
@@ -2491,14 +2515,15 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline2D", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 4.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 4.000000e+00, %3
   store float %div, ptr %m_wscale, align 8
   %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline2D", ptr %this1, i32 0, i32 2
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 4.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 4.000000e+00, %4
   store float %div2, ptr %m_hscale, align 4
   ret void
 }
@@ -2516,7 +2541,8 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterDisk2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterDisk2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -2533,16 +2559,17 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_08Filter2DC2Eff(ptr noundef nonnull align 8 dereferenceable(16) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %m_a, align 8
   %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this1, i32 0, i32 2
-  %2 = load float, ptr %width.addr, align 4
-  %div = fdiv float 2.000000e+00, %2
+  %3 = load float, ptr %width.addr, align 4
+  %div = fdiv float 2.000000e+00, %3
   store float %div, ptr %m_wrad_inv, align 4
   %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this1, i32 0, i32 3
-  %3 = load float, ptr %height.addr, align 4
-  %div2 = fdiv float 2.000000e+00, %3
+  %4 = load float, ptr %height.addr, align 4
+  %div2 = fdiv float 2.000000e+00, %4
   store float %div2, ptr %m_hrad_inv, align 8
   ret void
 }
@@ -2560,7 +2587,8 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_013FilterCubic2DC2Eff(ptr noundef nonnull align 8 dereferenceable(28) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this1, i32 0, i32 1
   store float -5.000000e-01, ptr %m_a, align 8
   ret void
@@ -2579,7 +2607,8 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_013FilterCubic2DC2Eff(ptr noundef nonnull align 8 dereferenceable(28) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this1, i32 0, i32 1
   store float -7.500000e-01, ptr %m_a, align 8
   ret void
@@ -2598,7 +2627,8 @@ entry:
   %0 = load float, ptr %width.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN18OpenImageIO_v2_6_013FilterCubic2DC2Eff(ptr noundef nonnull align 8 dereferenceable(28) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman2DE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this1, i32 0, i32 1
   store float -1.000000e+00, ptr %m_a, align 8
   ret void
@@ -2810,10 +2840,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store float %width, ptr %width.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08Filter1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08Filter1DE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_w = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %this1, i32 0, i32 1
-  %0 = load float, ptr %width.addr, align 4
-  store float %0, ptr %m_w, align 8
+  %1 = load float, ptr %width.addr, align 4
+  store float %1, ptr %m_w, align 8
   ret void
 }
 
@@ -4357,13 +4388,14 @@ entry:
   store float %width, ptr %width.addr, align 4
   store float %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08Filter2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08Filter2DE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_w = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %this1, i32 0, i32 1
-  %0 = load float, ptr %width.addr, align 4
-  store float %0, ptr %m_w, align 8
+  %1 = load float, ptr %width.addr, align 4
+  store float %1, ptr %m_w, align 8
   %m_h = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %this1, i32 0, i32 2
-  %1 = load float, ptr %height.addr, align 4
-  store float %1, ptr %m_h, align 4
+  %2 = load float, ptr %height.addr, align 4
+  store float %2, ptr %m_h, align 4
   ret void
 }
 

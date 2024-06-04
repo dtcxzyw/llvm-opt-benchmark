@@ -2819,7 +2819,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
           to label %41 unwind label %36
 
 35:                                               ; preds = %48, %36
-  br label %198
+  br label %199
 
 36:                                               ; preds = %73, %63, %3
   %37 = landingpad { ptr, i32 }
@@ -2847,14 +2847,14 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %23, i64 56, i1 false)
   br label %46
 
-46:                                               ; preds = %183, %41
+46:                                               ; preds = %184, %41
   call void @llvm.lifetime.start.p0(i64 16, ptr %21)
   %47 = invoke { ptr, i64 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b6c917bf726b3a5E"(ptr noalias noundef align 8 dereferenceable(56) %22)
           to label %54 unwind label %49
 
-48:                                               ; preds = %195, %191, %49
+48:                                               ; preds = %196, %192, %49
   invoke void @"_ZN4core3ptr391drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$$RF$str$C$alloc..collections..btree..set_val..SetValZST$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$C$alloc..collections..btree..set..BTreeSet$LT$$RF$str$GT$..from_sorted_iter$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hddfd137dfc274046E"(ptr noalias noundef align 8 dereferenceable(56) %22) #9
-          to label %35 unwind label %196
+          to label %35 unwind label %197
 
 49:                                               ; preds = %46
   %50 = landingpad { ptr, i32 }
@@ -2882,7 +2882,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
     i64 1, label %64
   ]
 
-62:                                               ; preds = %161, %94, %54
+62:                                               ; preds = %162, %94, %54
   unreachable
 
 63:                                               ; preds = %54
@@ -2931,7 +2931,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   store i8 0, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr %5)
   invoke void @"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$16push_with_handle17h0502309e63d4244dE"(ptr noalias nocapture noundef sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %5, ptr noalias noundef align 8 dereferenceable(16) %26, ptr noalias noundef nonnull readonly align 1 %65, i64 noundef %67)
-          to label %188 unwind label %89
+          to label %189 unwind label %89
 
 82:                                               ; preds = %110, %76
   call void @llvm.lifetime.start.p0(i64 24, ptr %18)
@@ -2944,9 +2944,9 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
 86:                                               ; preds = %89
   %87 = load i8, ptr %8, align 1, !range !5, !noundef !4
   %88 = trunc i8 %87 to i1
-  br i1 %88, label %194, label %191
+  br i1 %88, label %195, label %192
 
-89:                                               ; preds = %188, %186, %170, %169, %165, %158, %138, %128, %124, %109, %82, %81
+89:                                               ; preds = %189, %187, %171, %170, %166, %159, %138, %128, %124, %109, %82, %81
   %90 = landingpad { ptr, i32 }
           cleanup
   %91 = extractvalue { ptr, i32 } %90, 0
@@ -3067,142 +3067,143 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   store i64 %147, ptr %148, align 8
   br label %149
 
-149:                                              ; preds = %187, %140
+149:                                              ; preds = %188, %140
   call void @llvm.lifetime.start.p0(i64 16, ptr %11)
   %150 = load i64, ptr %12, align 8, !noundef !4
   %151 = getelementptr inbounds i8, ptr %12, i64 8
   %152 = load i64, ptr %151, align 8, !noundef !4
   %153 = icmp ult i64 %150, %152
-  br i1 %153, label %158, label %154
+  br i1 %153, label %159, label %154
 
 154:                                              ; preds = %149
   %155 = load i64, ptr @anon.e2192d190c206e613b03b2b794f0dab7.18, align 8, !range !6, !noundef !4
-  %156 = load i64, ptr getelementptr inbounds (i8, ptr @anon.e2192d190c206e613b03b2b794f0dab7.18, i64 8), align 8
+  %156 = getelementptr inbounds i8, ptr @anon.e2192d190c206e613b03b2b794f0dab7.18, i64 8
+  %157 = load i64, ptr %156, align 8
   store i64 %155, ptr %11, align 8
-  %157 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %156, ptr %157, align 8
-  br label %161
+  %158 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %157, ptr %158, align 8
+  br label %162
 
-158:                                              ; preds = %149
-  %159 = load i64, ptr %12, align 8, !noundef !4
-  %160 = invoke noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h1b868f7e152f5c47E"(i64 noundef %159, i64 noundef 1)
-          to label %163 unwind label %89
+159:                                              ; preds = %149
+  %160 = load i64, ptr %12, align 8, !noundef !4
+  %161 = invoke noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h1b868f7e152f5c47E"(i64 noundef %160, i64 noundef 1)
+          to label %164 unwind label %89
 
-161:                                              ; preds = %163, %154
-  %162 = load i64, ptr %11, align 8, !range !6, !noundef !4
-  switch i64 %162, label %62 [
-    i64 0, label %165
-    i64 1, label %169
+162:                                              ; preds = %164, %154
+  %163 = load i64, ptr %11, align 8, !range !6, !noundef !4
+  switch i64 %163, label %62 [
+    i64 0, label %166
+    i64 1, label %170
   ]
 
-163:                                              ; preds = %158
-  store i64 %160, ptr %12, align 8
-  %164 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %159, ptr %164, align 8
+164:                                              ; preds = %159
+  store i64 %161, ptr %12, align 8
+  %165 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %160, ptr %165, align 8
   store i64 1, ptr %11, align 8
-  br label %161
+  br label %162
 
-165:                                              ; preds = %161
+166:                                              ; preds = %162
   call void @llvm.lifetime.end.p0(i64 16, ptr %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr %12)
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
-  %166 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %167 = getelementptr inbounds i8, ptr %14, i64 8
-  %168 = load i64, ptr %167, align 8, !noundef !4
-  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17hf01dda215a8cb30aE"(ptr noalias noundef align 8 dereferenceable(16) %20, ptr noalias noundef nonnull readonly align 1 %65, i64 noundef %67, ptr noundef nonnull %166, i64 noundef %168)
-          to label %170 unwind label %89
+  %167 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
+  %168 = getelementptr inbounds i8, ptr %14, i64 8
+  %169 = load i64, ptr %168, align 8, !noundef !4
+  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17hf01dda215a8cb30aE"(ptr noalias noundef align 8 dereferenceable(16) %20, ptr noalias noundef nonnull readonly align 1 %65, i64 noundef %67, ptr noundef nonnull %167, i64 noundef %169)
+          to label %171 unwind label %89
 
-169:                                              ; preds = %161
+170:                                              ; preds = %162
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h22d2799e39f72e7cE.llvm.3445034086816132918"(ptr noalias noundef nonnull readonly align 1 %27)
-          to label %186 unwind label %89
+          to label %187 unwind label %89
 
-170:                                              ; preds = %165
+171:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(i64 24, ptr %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr %9)
-  %171 = getelementptr inbounds i8, ptr %20, i64 8
-  %172 = load i64, ptr %171, align 8, !noundef !4
-  %173 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %174 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %172, ptr %174, align 8
-  store ptr %173, ptr %9, align 8
-  %175 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %176 = getelementptr inbounds i8, ptr %9, i64 8
-  %177 = load i64, ptr %176, align 8, !noundef !4
-  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h3c9c94d7d25c8f5aE"(ptr noalias nocapture noundef sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %10, ptr noundef nonnull %175, i64 noundef %177)
-          to label %178 unwind label %89
+  %172 = getelementptr inbounds i8, ptr %20, i64 8
+  %173 = load i64, ptr %172, align 8, !noundef !4
+  %174 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
+  %175 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %173, ptr %175, align 8
+  store ptr %174, ptr %9, align 8
+  %176 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+  %177 = getelementptr inbounds i8, ptr %9, i64 8
+  %178 = load i64, ptr %177, align 8, !noundef !4
+  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h3c9c94d7d25c8f5aE"(ptr noalias nocapture noundef sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %10, ptr noundef nonnull %176, i64 noundef %178)
+          to label %179 unwind label %89
 
-178:                                              ; preds = %170
+179:                                              ; preds = %171
   call void @llvm.lifetime.end.p0(i64 16, ptr %9)
-  %179 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %180 = getelementptr inbounds i8, ptr %10, i64 8
-  %181 = load i64, ptr %180, align 8, !noundef !4
+  %180 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  %181 = getelementptr inbounds i8, ptr %10, i64 8
+  %182 = load i64, ptr %181, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr %10)
-  store ptr %179, ptr %26, align 8
-  %182 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %181, ptr %182, align 8
+  store ptr %180, ptr %26, align 8
+  %183 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %182, ptr %183, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr %20)
-  br label %183
+  br label %184
 
-183:                                              ; preds = %190, %178
-  %184 = load i64, ptr %2, align 8, !noundef !4
-  %185 = add i64 %184, 1
-  store i64 %185, ptr %2, align 8
+184:                                              ; preds = %191, %179
+  %185 = load i64, ptr %2, align 8, !noundef !4
+  %186 = add i64 %185, 1
+  store i64 %186, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr %21)
   br label %46
 
-186:                                              ; preds = %169
+187:                                              ; preds = %170
   invoke void @_ZN5alloc11collections5btree3mem7replace17h66a910f1d87a8d44E(ptr noalias noundef align 8 dereferenceable(16) %14)
-          to label %187 unwind label %89
+          to label %188 unwind label %89
 
-187:                                              ; preds = %186
+188:                                              ; preds = %187
   call void @llvm.lifetime.end.p0(i64 16, ptr %11)
   br label %149
 
-188:                                              ; preds = %81
-  %189 = invoke noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17hca2a25a10d9fa2b1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
-          to label %190 unwind label %89
+189:                                              ; preds = %81
+  %190 = invoke noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17hca2a25a10d9fa2b1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
+          to label %191 unwind label %89
 
-190:                                              ; preds = %188
+191:                                              ; preds = %189
   call void @llvm.lifetime.end.p0(i64 24, ptr %5)
-  br label %183
+  br label %184
 
-191:                                              ; preds = %194, %86
-  %192 = load i8, ptr %7, align 1, !range !5, !noundef !4
-  %193 = trunc i8 %192 to i1
-  br i1 %193, label %195, label %48
+192:                                              ; preds = %195, %86
+  %193 = load i8, ptr %7, align 1, !range !5, !noundef !4
+  %194 = trunc i8 %193 to i1
+  br i1 %194, label %196, label %48
 
-194:                                              ; preds = %86
-  br label %191
+195:                                              ; preds = %86
+  br label %192
 
-195:                                              ; preds = %191
+196:                                              ; preds = %192
   br label %48
 
-196:                                              ; preds = %207, %48
-  %197 = landingpad { ptr, i32 }
+197:                                              ; preds = %208, %48
+  %198 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #10
   unreachable
 
-198:                                              ; preds = %35
-  %199 = load i8, ptr %6, align 1, !range !5, !noundef !4
-  %200 = trunc i8 %199 to i1
-  br i1 %200, label %207, label %201
+199:                                              ; preds = %35
+  %200 = load i8, ptr %6, align 1, !range !5, !noundef !4
+  %201 = trunc i8 %200 to i1
+  br i1 %201, label %208, label %202
 
-201:                                              ; preds = %207, %198
-  %202 = load ptr, ptr %4, align 8, !noundef !4
-  %203 = getelementptr inbounds i8, ptr %4, i64 8
-  %204 = load i32, ptr %203, align 8, !noundef !4
+202:                                              ; preds = %208, %199
+  %203 = load ptr, ptr %4, align 8, !noundef !4
+  %204 = getelementptr inbounds i8, ptr %4, i64 8
+  %205 = load i32, ptr %204, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr %4)
-  %205 = insertvalue { ptr, i32 } poison, ptr %202, 0
-  %206 = insertvalue { ptr, i32 } %205, i32 %204, 1
-  resume { ptr, i32 } %206
+  %206 = insertvalue { ptr, i32 } poison, ptr %203, 0
+  %207 = insertvalue { ptr, i32 } %206, i32 %205, 1
+  resume { ptr, i32 } %207
 
-207:                                              ; preds = %198
+208:                                              ; preds = %199
   invoke void @"_ZN4core3ptr391drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$$RF$str$C$alloc..collections..btree..set_val..SetValZST$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$C$alloc..collections..btree..set..BTreeSet$LT$$RF$str$GT$..from_sorted_iter$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hddfd137dfc274046E"(ptr noalias noundef align 8 dereferenceable(56) %1) #9
-          to label %201 unwind label %196
+          to label %202 unwind label %197
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

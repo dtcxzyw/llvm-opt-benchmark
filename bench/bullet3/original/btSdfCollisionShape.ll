@@ -259,7 +259,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV19btSdfCollisionShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV19btSdfCollisionShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 29, ptr %m_shapeType, align 8
   %call = invoke noundef ptr @_ZN31btSdfCollisionShapeInternalDatanwEm(i64 noundef 224)
@@ -275,21 +276,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN31btSdfCollisionShapeInternalDatadlEPv(ptr noundef %call) #9
   br label %ehcleanup
 
@@ -369,15 +370,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV19btSdfCollisionShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV19btSdfCollisionShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_data = getelementptr inbounds %class.btSdfCollisionShape, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_data, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_data, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN31btSdfCollisionShapeInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #9
-  call void @_ZN31btSdfCollisionShapeInternalDatadlEPv(ptr noundef %0) #9
+  call void @_ZN31btSdfCollisionShapeInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %1) #9
+  call void @_ZN31btSdfCollisionShapeInternalDatadlEPv(ptr noundef %1) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry

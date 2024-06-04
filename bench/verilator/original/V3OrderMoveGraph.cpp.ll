@@ -1722,124 +1722,125 @@ define dso_local void @_ZN15OrderMoveVertexC2ER14OrderMoveGraphP16OrderLogicVert
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef %13)
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV15OrderMoveVertex, i32 0, i32 0, i32 2), ptr %12, align 8
-  %14 = getelementptr inbounds %class.OrderMoveVertex, ptr %12, i32 0, i32 1
-  %15 = load ptr, ptr %7, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %class.OrderMoveVertex, ptr %12, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %24
+  %14 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV15OrderMoveVertex, i32 0, i32 0, i32 2
+  store ptr %14, ptr %12, align 8
+  %15 = getelementptr inbounds %class.OrderMoveVertex, ptr %12, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %class.OrderMoveVertex, ptr %12, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %4
-  %21 = load ptr, ptr %7, align 8
-  %22 = invoke noundef ptr @_ZNK16OrderLogicVertex6scopepEv(ptr noundef nonnull align 8 dereferenceable(112) %21)
-          to label %23 unwind label %56
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %7, align 8
+  %23 = invoke noundef ptr @_ZNK16OrderLogicVertex6scopepEv(ptr noundef nonnull align 8 dereferenceable(112) %22)
+          to label %24 unwind label %57
 
-23:                                               ; preds = %20
-  br label %25
+24:                                               ; preds = %21
+  br label %26
 
-24:                                               ; preds = %4
-  br label %25
+25:                                               ; preds = %4
+  br label %26
 
-25:                                               ; preds = %24, %23
-  %26 = phi ptr [ %22, %23 ], [ null, %24 ]
-  %27 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN17OrderMoveDomScope11getOrCreateEPK10AstSenTreePK8AstScope(ptr noundef %17, ptr noundef %26)
-          to label %28 unwind label %56
+26:                                               ; preds = %25, %24
+  %27 = phi ptr [ %23, %24 ], [ null, %25 ]
+  %28 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN17OrderMoveDomScope11getOrCreateEPK10AstSenTreePK8AstScope(ptr noundef %18, ptr noundef %27)
+          to label %29 unwind label %57
 
-28:                                               ; preds = %25
-  store ptr %27, ptr %16, align 8
-  %29 = getelementptr inbounds %class.OrderMoveVertex, ptr %12, i32 0, i32 3
-  call void @_ZN11V3ListLinksI15OrderMoveVertexEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #3
-  br label %30
+29:                                               ; preds = %26
+  store ptr %28, ptr %17, align 8
+  %30 = getelementptr inbounds %class.OrderMoveVertex, ptr %12, i32 0, i32 3
+  call void @_ZN11V3ListLinksI15OrderMoveVertexEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #3
+  br label %31
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %7, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %39
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %7, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %40
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %7, align 8
-  %35 = invoke noundef ptr @_ZNK17OrderEitherVertex7domainpEv(ptr noundef nonnull align 8 dereferenceable(88) %34)
-          to label %36 unwind label %60
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %7, align 8
+  %36 = invoke noundef ptr @_ZNK17OrderEitherVertex7domainpEv(ptr noundef nonnull align 8 dereferenceable(88) %35)
+          to label %37 unwind label %61
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %8, align 8
-  %38 = icmp eq ptr %35, %37
-  br label %39
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %8, align 8
+  %39 = icmp eq ptr %36, %38
+  br label %40
 
-39:                                               ; preds = %36, %30
-  %40 = phi i1 [ true, %30 ], [ %38, %36 ]
-  %41 = xor i1 %40, true
+40:                                               ; preds = %37, %31
+  %41 = phi i1 [ true, %31 ], [ %39, %37 ]
   %42 = xor i1 %41, true
   %43 = xor i1 %42, true
-  br i1 %43, label %44, label %64
+  %44 = xor i1 %43, true
+  br i1 %44, label %45, label %65
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %7, align 8
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %7, align 8
   invoke void @_ZN11V3ErrorCodeC2ENS_2enE(ptr noundef nonnull align 1 dereferenceable(1) %11, i8 noundef zeroext 4)
-          to label %46 unwind label %60
+          to label %47 unwind label %61
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds %class.V3ErrorCode, ptr %11, i32 0, i32 0
-  %48 = load i8, ptr %47, align 1
-  %49 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 %48, ptr noundef @.str, i32 noundef 42, i1 noundef zeroext true)
-          to label %50 unwind label %60
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds %class.V3ErrorCode, ptr %11, i32 0, i32 0
+  %49 = load i8, ptr %48, align 1
+  %50 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 %49, ptr noundef @.str, i32 noundef 42, i1 noundef zeroext true)
+          to label %51 unwind label %61
 
-50:                                               ; preds = %46
-  %51 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %52 unwind label %60
+51:                                               ; preds = %47
+  %52 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+          to label %53 unwind label %61
 
-52:                                               ; preds = %50
-  %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef @.str.2)
-          to label %54 unwind label %60
+53:                                               ; preds = %51
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef @.str.2)
+          to label %55 unwind label %61
 
-54:                                               ; preds = %52
-  invoke void @_ZNK13V3GraphVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %45, ptr noundef nonnull align 8 dereferenceable(112) %53)
-          to label %55 unwind label %60
+55:                                               ; preds = %53
+  invoke void @_ZNK13V3GraphVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %46, ptr noundef nonnull align 8 dereferenceable(112) %54)
+          to label %56 unwind label %61
 
-55:                                               ; preds = %54
-  br label %64
-
-56:                                               ; preds = %25, %20
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %9, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %10, align 4
-  br label %67
-
-60:                                               ; preds = %54, %52, %50, %46, %44, %33
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %9, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %10, align 4
-  call void @_ZN11V3ListLinksI15OrderMoveVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #3
-  br label %67
-
-64:                                               ; preds = %55, %39
+56:                                               ; preds = %55
   br label %65
 
-65:                                               ; preds = %64
+57:                                               ; preds = %26, %21
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %9, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %10, align 4
+  br label %68
+
+61:                                               ; preds = %55, %53, %51, %47, %45, %34
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %9, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %10, align 4
+  call void @_ZN11V3ListLinksI15OrderMoveVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #3
+  br label %68
+
+65:                                               ; preds = %56, %40
   br label %66
 
 66:                                               ; preds = %65
+  br label %67
+
+67:                                               ; preds = %66
   ret void
 
-67:                                               ; preds = %60, %56
+68:                                               ; preds = %61, %57
   call void @_ZN13V3GraphVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #3
-  br label %68
+  br label %69
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr %9, align 8
-  %70 = load i32, ptr %10, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %9, align 8
+  %71 = load i32, ptr %10, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 declare void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) unnamed_addr #1
@@ -5246,13 +5247,14 @@ define linkonce_odr dso_local void @_ZN13V3GraphVertexD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV13V3GraphVertex, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 3
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  %5 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 2
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  %6 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 1
-  call void @_ZN11V3ListLinksI13V3GraphVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV13V3GraphVertex, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 3
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %6 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 2
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %7 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 1
+  call void @_ZN11V3ListLinksI13V3GraphVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
   ret void
 }
 
@@ -5338,7 +5340,8 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex8dotColorB5cxx11Ev(ptr de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN13V3GraphVertex11rttiClassIdEv() #4 comdat align 2 {
-  ret i64 ptrtoint (ptr @_ZZN13V3GraphVertex11rttiClassIdEvE15aStaticVariable to i64)
+  %1 = ptrtoint ptr @_ZZN13V3GraphVertex11rttiClassIdEvE15aStaticVariable to i64
+  ret i64 %1
 }
 
 ; Function Attrs: nounwind
@@ -5655,375 +5658,376 @@ define linkonce_odr dso_local void @_ZN21OrderMoveGraphBuilderC2ER10OrderGraphRK
   store ptr %1, ptr %25, align 8
   store ptr %2, ptr %26, align 8
   %39 = load ptr, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV21OrderMoveGraphBuilder, i32 0, i32 0, i32 2), ptr %39, align 8
-  %40 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 1
-  call void @_ZN12VNUser1InUseC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %40)
-  %41 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 2
-  %42 = load ptr, ptr %25, align 8
-  store ptr %42, ptr %41, align 8
-  %43 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 3
-  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #15
-          to label %45 unwind label %106
+  %40 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV21OrderMoveGraphBuilder, i32 0, i32 0, i32 2
+  store ptr %40, ptr %39, align 8
+  %41 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 1
+  call void @_ZN12VNUser1InUseC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %41)
+  %42 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 2
+  %43 = load ptr, ptr %25, align 8
+  store ptr %43, ptr %42, align 8
+  %44 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 3
+  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #15
+          to label %46 unwind label %107
 
-45:                                               ; preds = %3
-  invoke void @_ZN14OrderMoveGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44)
-          to label %46 unwind label %110
+46:                                               ; preds = %3
+  invoke void @_ZN14OrderMoveGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45)
+          to label %47 unwind label %111
 
-46:                                               ; preds = %45
-  call void @_ZNSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %44) #3
-  %47 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 4
-  %48 = load ptr, ptr %26, align 8
-  store ptr %48, ptr %47, align 8
-  %49 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 5
-  invoke void @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %49)
-          to label %50 unwind label %114
+47:                                               ; preds = %46
+  call void @_ZNSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %45) #3
+  %48 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 4
+  %49 = load ptr, ptr %26, align 8
+  store ptr %49, ptr %48, align 8
+  %50 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 5
+  invoke void @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %50)
+          to label %51 unwind label %115
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 2
-  %52 = load ptr, ptr %51, align 8
-  %53 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7V3Graph8verticesEv(ptr noundef nonnull align 8 dereferenceable(24) %52)
-          to label %54 unwind label %118
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8
+  %54 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7V3Graph8verticesEv(ptr noundef nonnull align 8 dereferenceable(24) %53)
+          to label %55 unwind label %119
 
-54:                                               ; preds = %50
-  store ptr %53, ptr %29, align 8
-  %55 = load ptr, ptr %29, align 8
-  %56 = invoke ptr @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %55)
-          to label %57 unwind label %118
+55:                                               ; preds = %51
+  store ptr %54, ptr %29, align 8
+  %56 = load ptr, ptr %29, align 8
+  %57 = invoke ptr @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %56)
+          to label %58 unwind label %119
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds %"class.V3List<V3GraphVertex, &V3GraphVertex::links>::SimpleItertatorImpl", ptr %30, i32 0, i32 0
-  store ptr %56, ptr %58, align 8
-  %59 = load ptr, ptr %29, align 8
-  %60 = invoke ptr @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E3endEv(ptr noundef nonnull align 8 dereferenceable(16) %59)
-          to label %61 unwind label %118
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds %"class.V3List<V3GraphVertex, &V3GraphVertex::links>::SimpleItertatorImpl", ptr %30, i32 0, i32 0
+  store ptr %57, ptr %59, align 8
+  %60 = load ptr, ptr %29, align 8
+  %61 = invoke ptr @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E3endEv(ptr noundef nonnull align 8 dereferenceable(16) %60)
+          to label %62 unwind label %119
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds %"class.V3List<V3GraphVertex, &V3GraphVertex::links>::SimpleItertatorImpl", ptr %31, i32 0, i32 0
-  store ptr %60, ptr %62, align 8
-  br label %63
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds %"class.V3List<V3GraphVertex, &V3GraphVertex::links>::SimpleItertatorImpl", ptr %31, i32 0, i32 0
+  store ptr %61, ptr %63, align 8
+  br label %64
 
-63:                                               ; preds = %144, %61
+64:                                               ; preds = %145, %62
   store ptr %30, ptr %20, align 8
   store ptr %31, ptr %21, align 8
-  %64 = load ptr, ptr %20, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %21, align 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp ne ptr %65, %67
-  br label %69
+  %65 = load ptr, ptr %20, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %21, align 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp ne ptr %66, %68
+  br label %70
 
-69:                                               ; preds = %63
-  br i1 %68, label %70, label %145
+70:                                               ; preds = %64
+  br i1 %69, label %71, label %146
 
-70:                                               ; preds = %69
+71:                                               ; preds = %70
   store ptr %30, ptr %18, align 8
-  %71 = load ptr, ptr %18, align 8
-  %72 = load ptr, ptr %71, align 8
-  store ptr %72, ptr %9, align 8
-  %73 = load ptr, ptr %9, align 8
-  store ptr %73, ptr %6, align 8
-  %74 = load ptr, ptr %6, align 8
-  %75 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13V3GraphVertex5linksEv(ptr noundef nonnull align 8 dereferenceable(80) %74)
-  br label %76
+  %72 = load ptr, ptr %18, align 8
+  %73 = load ptr, ptr %72, align 8
+  store ptr %73, ptr %9, align 8
+  %74 = load ptr, ptr %9, align 8
+  store ptr %74, ptr %6, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13V3GraphVertex5linksEv(ptr noundef nonnull align 8 dereferenceable(80) %75)
+  br label %77
 
-76:                                               ; preds = %70
-  %77 = load ptr, ptr %75, align 8
-  br label %78
+77:                                               ; preds = %71
+  %78 = load ptr, ptr %76, align 8
+  br label %79
 
-78:                                               ; preds = %76
-  %79 = load ptr, ptr %71, align 8
-  store ptr %77, ptr %14, align 8
-  store ptr %79, ptr %15, align 8
-  %80 = load ptr, ptr %14, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %84
+79:                                               ; preds = %77
+  %80 = load ptr, ptr %72, align 8
+  store ptr %78, ptr %14, align 8
+  store ptr %80, ptr %15, align 8
+  %81 = load ptr, ptr %14, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %85
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %14, align 8
-  br label %86
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %14, align 8
+  br label %87
 
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %15, align 8
-  br label %86
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %15, align 8
+  br label %87
 
-86:                                               ; preds = %84, %82
-  %87 = phi ptr [ %83, %82 ], [ %85, %84 ]
-  call void @llvm.prefetch.p0(ptr %87, i32 1, i32 3, i32 1)
-  %88 = load ptr, ptr %71, align 8
-  br label %89
+87:                                               ; preds = %85, %83
+  %88 = phi ptr [ %84, %83 ], [ %86, %85 ]
+  call void @llvm.prefetch.p0(ptr %88, i32 1, i32 3, i32 1)
+  %89 = load ptr, ptr %72, align 8
+  br label %90
 
-89:                                               ; preds = %86
-  store ptr %88, ptr %32, align 8
-  %90 = load ptr, ptr %32, align 8
-  %91 = invoke noundef ptr @_ZN13V3GraphVertex4castI16OrderLogicVertexEEPT_v(ptr noundef nonnull align 8 dereferenceable(80) %90)
-          to label %92 unwind label %118
+90:                                               ; preds = %87
+  store ptr %89, ptr %32, align 8
+  %91 = load ptr, ptr %32, align 8
+  %92 = invoke noundef ptr @_ZN13V3GraphVertex4castI16OrderLogicVertexEEPT_v(ptr noundef nonnull align 8 dereferenceable(80) %91)
+          to label %93 unwind label %119
 
-92:                                               ; preds = %89
-  store ptr %91, ptr %33, align 8
-  %93 = load ptr, ptr %33, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %95, label %126
+93:                                               ; preds = %90
+  store ptr %92, ptr %33, align 8
+  %94 = load ptr, ptr %33, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %127
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %33, align 8
-  %97 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #15
-          to label %98 unwind label %118
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %33, align 8
+  %98 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #15
+          to label %99 unwind label %119
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 3
-  %100 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %99) #3
-  %101 = load ptr, ptr %33, align 8
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 3
+  %101 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNKSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %100) #3
   %102 = load ptr, ptr %33, align 8
-  %103 = call noundef ptr @_ZNK17OrderEitherVertex7domainpEv(ptr noundef nonnull align 8 dereferenceable(88) %102)
-  invoke void @_ZN15OrderMoveVertexC1ER14OrderMoveGraphP16OrderLogicVertexPK10AstSenTree(ptr noundef nonnull align 8 dereferenceable(112) %97, ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef %101, ptr noundef %103)
-          to label %104 unwind label %122
+  %103 = load ptr, ptr %33, align 8
+  %104 = call noundef ptr @_ZNK17OrderEitherVertex7domainpEv(ptr noundef nonnull align 8 dereferenceable(88) %103)
+  invoke void @_ZN15OrderMoveVertexC1ER14OrderMoveGraphP16OrderLogicVertexPK10AstSenTree(ptr noundef nonnull align 8 dereferenceable(112) %98, ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef %102, ptr noundef %104)
+          to label %105 unwind label %123
 
-104:                                              ; preds = %98
-  invoke void @_ZN13V3GraphVertex5userpEPv(ptr noundef nonnull align 8 dereferenceable(80) %96, ptr noundef %97)
-          to label %105 unwind label %118
+105:                                              ; preds = %99
+  invoke void @_ZN13V3GraphVertex5userpEPv(ptr noundef nonnull align 8 dereferenceable(80) %97, ptr noundef %98)
+          to label %106 unwind label %119
 
-105:                                              ; preds = %104
-  br label %134
-
-106:                                              ; preds = %3
-  %107 = landingpad { ptr, i32 }
-          cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %27, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %28, align 4
-  br label %213
-
-110:                                              ; preds = %45
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %27, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %28, align 4
-  call void @_ZdlPv(ptr noundef %44) #16
-  br label %213
-
-114:                                              ; preds = %46
-  %115 = landingpad { ptr, i32 }
-          cleanup
-  %116 = extractvalue { ptr, i32 } %115, 0
-  store ptr %116, ptr %27, align 8
-  %117 = extractvalue { ptr, i32 } %115, 1
-  store i32 %117, ptr %28, align 4
-  br label %212
-
-118:                                              ; preds = %207, %204, %190, %184, %152, %149, %145, %129, %126, %104, %95, %89, %57, %54, %50
-  %119 = landingpad { ptr, i32 }
-          cleanup
-  %120 = extractvalue { ptr, i32 } %119, 0
-  store ptr %120, ptr %27, align 8
-  %121 = extractvalue { ptr, i32 } %119, 1
-  store i32 %121, ptr %28, align 4
-  br label %211
-
-122:                                              ; preds = %98
-  %123 = landingpad { ptr, i32 }
-          cleanup
-  %124 = extractvalue { ptr, i32 } %123, 0
-  store ptr %124, ptr %27, align 8
-  %125 = extractvalue { ptr, i32 } %123, 1
-  store i32 %125, ptr %28, align 4
-  call void @_ZdlPv(ptr noundef %97) #16
-  br label %211
-
-126:                                              ; preds = %92
-  %127 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 5
-  %128 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE12emplace_backIJEEERSC_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %127)
-          to label %129 unwind label %118
-
-129:                                              ; preds = %126
-  %130 = load ptr, ptr %32, align 8
-  %131 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 5
-  %132 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %131) #3
-  invoke void @_ZN13V3GraphVertex5userpEPv(ptr noundef nonnull align 8 dereferenceable(80) %130, ptr noundef %132)
-          to label %133 unwind label %118
-
-133:                                              ; preds = %129
-  br label %134
-
-134:                                              ; preds = %133, %105
+106:                                              ; preds = %105
   br label %135
 
-135:                                              ; preds = %134
-  store ptr %30, ptr %16, align 8
-  %136 = load ptr, ptr %16, align 8
-  %137 = load ptr, ptr %136, align 8
-  store ptr %137, ptr %11, align 8
-  %138 = load ptr, ptr %11, align 8
-  store ptr %138, ptr %4, align 8
-  %139 = load ptr, ptr %4, align 8
-  %140 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13V3GraphVertex5linksEv(ptr noundef nonnull align 8 dereferenceable(80) %139)
-  br label %141
-
-141:                                              ; preds = %135
-  %142 = load ptr, ptr %140, align 8
-  br label %143
-
-143:                                              ; preds = %141
-  store ptr %142, ptr %136, align 8
-  br label %144
-
-144:                                              ; preds = %143
-  br label %63
-
-145:                                              ; preds = %69
-  %146 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 2
-  %147 = load ptr, ptr %146, align 8
-  %148 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7V3Graph8verticesEv(ptr noundef nonnull align 8 dereferenceable(24) %147)
-          to label %149 unwind label %118
-
-149:                                              ; preds = %145
-  store ptr %148, ptr %34, align 8
-  %150 = load ptr, ptr %34, align 8
-  %151 = invoke ptr @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %150)
-          to label %152 unwind label %118
-
-152:                                              ; preds = %149
-  %153 = getelementptr inbounds %"class.V3List<V3GraphVertex, &V3GraphVertex::links>::SimpleItertatorImpl", ptr %35, i32 0, i32 0
-  store ptr %151, ptr %153, align 8
-  %154 = load ptr, ptr %34, align 8
-  %155 = invoke ptr @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E3endEv(ptr noundef nonnull align 8 dereferenceable(16) %154)
-          to label %156 unwind label %118
-
-156:                                              ; preds = %152
-  %157 = getelementptr inbounds %"class.V3List<V3GraphVertex, &V3GraphVertex::links>::SimpleItertatorImpl", ptr %36, i32 0, i32 0
-  store ptr %155, ptr %157, align 8
-  br label %158
-
-158:                                              ; preds = %203, %156
-  store ptr %35, ptr %22, align 8
-  store ptr %36, ptr %23, align 8
-  %159 = load ptr, ptr %22, align 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = load ptr, ptr %23, align 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = icmp ne ptr %160, %162
-  br label %164
-
-164:                                              ; preds = %158
-  br i1 %163, label %165, label %204
-
-165:                                              ; preds = %164
-  store ptr %35, ptr %19, align 8
-  %166 = load ptr, ptr %19, align 8
-  %167 = load ptr, ptr %166, align 8
-  store ptr %167, ptr %8, align 8
-  %168 = load ptr, ptr %8, align 8
-  store ptr %168, ptr %7, align 8
-  %169 = load ptr, ptr %7, align 8
-  %170 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13V3GraphVertex5linksEv(ptr noundef nonnull align 8 dereferenceable(80) %169)
-  br label %171
-
-171:                                              ; preds = %165
-  %172 = load ptr, ptr %170, align 8
-  br label %173
-
-173:                                              ; preds = %171
-  %174 = load ptr, ptr %166, align 8
-  store ptr %172, ptr %12, align 8
-  store ptr %174, ptr %13, align 8
-  %175 = load ptr, ptr %12, align 8
-  %176 = icmp ne ptr %175, null
-  br i1 %176, label %177, label %179
-
-177:                                              ; preds = %173
-  %178 = load ptr, ptr %12, align 8
-  br label %181
-
-179:                                              ; preds = %173
-  %180 = load ptr, ptr %13, align 8
-  br label %181
-
-181:                                              ; preds = %179, %177
-  %182 = phi ptr [ %178, %177 ], [ %180, %179 ]
-  call void @llvm.prefetch.p0(ptr %182, i32 1, i32 3, i32 1)
-  %183 = load ptr, ptr %166, align 8
-  br label %184
-
-184:                                              ; preds = %181
-  store ptr %183, ptr %37, align 8
-  %185 = load ptr, ptr %37, align 8
-  %186 = invoke noundef ptr @_ZN13V3GraphVertex4castI16OrderLogicVertexEEPT_v(ptr noundef nonnull align 8 dereferenceable(80) %185)
-          to label %187 unwind label %118
-
-187:                                              ; preds = %184
-  store ptr %186, ptr %38, align 8
-  %188 = load ptr, ptr %38, align 8
-  %189 = icmp ne ptr %188, null
-  br i1 %189, label %190, label %193
-
-190:                                              ; preds = %187
-  %191 = load ptr, ptr %38, align 8
-  invoke void @_ZN21OrderMoveGraphBuilder18iterateLogicVertexEPK16OrderLogicVertex(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef %191)
-          to label %192 unwind label %118
-
-192:                                              ; preds = %190
-  br label %193
-
-193:                                              ; preds = %192, %187
-  br label %194
-
-194:                                              ; preds = %193
-  store ptr %35, ptr %17, align 8
-  %195 = load ptr, ptr %17, align 8
-  %196 = load ptr, ptr %195, align 8
-  store ptr %196, ptr %10, align 8
-  %197 = load ptr, ptr %10, align 8
-  store ptr %197, ptr %5, align 8
-  %198 = load ptr, ptr %5, align 8
-  %199 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13V3GraphVertex5linksEv(ptr noundef nonnull align 8 dereferenceable(80) %198)
-  br label %200
-
-200:                                              ; preds = %194
-  %201 = load ptr, ptr %199, align 8
-  br label %202
-
-202:                                              ; preds = %200
-  store ptr %201, ptr %195, align 8
-  br label %203
-
-203:                                              ; preds = %202
-  br label %158
-
-204:                                              ; preds = %164
-  %205 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 3
-  %206 = call noundef ptr @_ZNKSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %205) #3
-  invoke void @_ZN7V3Graph23removeRedundantEdgesSumEPFbPK11V3GraphEdgeE(ptr noundef nonnull align 8 dereferenceable(24) %206, ptr noundef @_ZN11V3GraphEdge16followAlwaysTrueEPKS_)
-          to label %207 unwind label %118
-
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 3
-  %209 = call noundef ptr @_ZNKSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %208) #3
-  invoke void @_ZN7V3Graph17userClearVerticesEv(ptr noundef nonnull align 8 dereferenceable(24) %209)
-          to label %210 unwind label %118
-
-210:                                              ; preds = %207
-  ret void
-
-211:                                              ; preds = %122, %118
-  call void @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %49) #3
-  br label %212
-
-212:                                              ; preds = %211, %114
-  call void @_ZNSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #3
-  br label %213
-
-213:                                              ; preds = %212, %110, %106
-  call void @_ZN12VNUser1InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
+107:                                              ; preds = %3
+  %108 = landingpad { ptr, i32 }
+          cleanup
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %27, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %28, align 4
   br label %214
 
-214:                                              ; preds = %213
-  %215 = load ptr, ptr %27, align 8
-  %216 = load i32, ptr %28, align 4
-  %217 = insertvalue { ptr, i32 } poison, ptr %215, 0
-  %218 = insertvalue { ptr, i32 } %217, i32 %216, 1
-  resume { ptr, i32 } %218
+111:                                              ; preds = %46
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %27, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %28, align 4
+  call void @_ZdlPv(ptr noundef %45) #16
+  br label %214
+
+115:                                              ; preds = %47
+  %116 = landingpad { ptr, i32 }
+          cleanup
+  %117 = extractvalue { ptr, i32 } %116, 0
+  store ptr %117, ptr %27, align 8
+  %118 = extractvalue { ptr, i32 } %116, 1
+  store i32 %118, ptr %28, align 4
+  br label %213
+
+119:                                              ; preds = %208, %205, %191, %185, %153, %150, %146, %130, %127, %105, %96, %90, %58, %55, %51
+  %120 = landingpad { ptr, i32 }
+          cleanup
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %27, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %28, align 4
+  br label %212
+
+123:                                              ; preds = %99
+  %124 = landingpad { ptr, i32 }
+          cleanup
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %27, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %28, align 4
+  call void @_ZdlPv(ptr noundef %98) #16
+  br label %212
+
+127:                                              ; preds = %93
+  %128 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 5
+  %129 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE12emplace_backIJEEERSC_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %128)
+          to label %130 unwind label %119
+
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %32, align 8
+  %132 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 5
+  %133 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %132) #3
+  invoke void @_ZN13V3GraphVertex5userpEPv(ptr noundef nonnull align 8 dereferenceable(80) %131, ptr noundef %133)
+          to label %134 unwind label %119
+
+134:                                              ; preds = %130
+  br label %135
+
+135:                                              ; preds = %134, %106
+  br label %136
+
+136:                                              ; preds = %135
+  store ptr %30, ptr %16, align 8
+  %137 = load ptr, ptr %16, align 8
+  %138 = load ptr, ptr %137, align 8
+  store ptr %138, ptr %11, align 8
+  %139 = load ptr, ptr %11, align 8
+  store ptr %139, ptr %4, align 8
+  %140 = load ptr, ptr %4, align 8
+  %141 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13V3GraphVertex5linksEv(ptr noundef nonnull align 8 dereferenceable(80) %140)
+  br label %142
+
+142:                                              ; preds = %136
+  %143 = load ptr, ptr %141, align 8
+  br label %144
+
+144:                                              ; preds = %142
+  store ptr %143, ptr %137, align 8
+  br label %145
+
+145:                                              ; preds = %144
+  br label %64
+
+146:                                              ; preds = %70
+  %147 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 2
+  %148 = load ptr, ptr %147, align 8
+  %149 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7V3Graph8verticesEv(ptr noundef nonnull align 8 dereferenceable(24) %148)
+          to label %150 unwind label %119
+
+150:                                              ; preds = %146
+  store ptr %149, ptr %34, align 8
+  %151 = load ptr, ptr %34, align 8
+  %152 = invoke ptr @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %151)
+          to label %153 unwind label %119
+
+153:                                              ; preds = %150
+  %154 = getelementptr inbounds %"class.V3List<V3GraphVertex, &V3GraphVertex::links>::SimpleItertatorImpl", ptr %35, i32 0, i32 0
+  store ptr %152, ptr %154, align 8
+  %155 = load ptr, ptr %34, align 8
+  %156 = invoke ptr @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E3endEv(ptr noundef nonnull align 8 dereferenceable(16) %155)
+          to label %157 unwind label %119
+
+157:                                              ; preds = %153
+  %158 = getelementptr inbounds %"class.V3List<V3GraphVertex, &V3GraphVertex::links>::SimpleItertatorImpl", ptr %36, i32 0, i32 0
+  store ptr %156, ptr %158, align 8
+  br label %159
+
+159:                                              ; preds = %204, %157
+  store ptr %35, ptr %22, align 8
+  store ptr %36, ptr %23, align 8
+  %160 = load ptr, ptr %22, align 8
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %23, align 8
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp ne ptr %161, %163
+  br label %165
+
+165:                                              ; preds = %159
+  br i1 %164, label %166, label %205
+
+166:                                              ; preds = %165
+  store ptr %35, ptr %19, align 8
+  %167 = load ptr, ptr %19, align 8
+  %168 = load ptr, ptr %167, align 8
+  store ptr %168, ptr %8, align 8
+  %169 = load ptr, ptr %8, align 8
+  store ptr %169, ptr %7, align 8
+  %170 = load ptr, ptr %7, align 8
+  %171 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13V3GraphVertex5linksEv(ptr noundef nonnull align 8 dereferenceable(80) %170)
+  br label %172
+
+172:                                              ; preds = %166
+  %173 = load ptr, ptr %171, align 8
+  br label %174
+
+174:                                              ; preds = %172
+  %175 = load ptr, ptr %167, align 8
+  store ptr %173, ptr %12, align 8
+  store ptr %175, ptr %13, align 8
+  %176 = load ptr, ptr %12, align 8
+  %177 = icmp ne ptr %176, null
+  br i1 %177, label %178, label %180
+
+178:                                              ; preds = %174
+  %179 = load ptr, ptr %12, align 8
+  br label %182
+
+180:                                              ; preds = %174
+  %181 = load ptr, ptr %13, align 8
+  br label %182
+
+182:                                              ; preds = %180, %178
+  %183 = phi ptr [ %179, %178 ], [ %181, %180 ]
+  call void @llvm.prefetch.p0(ptr %183, i32 1, i32 3, i32 1)
+  %184 = load ptr, ptr %167, align 8
+  br label %185
+
+185:                                              ; preds = %182
+  store ptr %184, ptr %37, align 8
+  %186 = load ptr, ptr %37, align 8
+  %187 = invoke noundef ptr @_ZN13V3GraphVertex4castI16OrderLogicVertexEEPT_v(ptr noundef nonnull align 8 dereferenceable(80) %186)
+          to label %188 unwind label %119
+
+188:                                              ; preds = %185
+  store ptr %187, ptr %38, align 8
+  %189 = load ptr, ptr %38, align 8
+  %190 = icmp ne ptr %189, null
+  br i1 %190, label %191, label %194
+
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %38, align 8
+  invoke void @_ZN21OrderMoveGraphBuilder18iterateLogicVertexEPK16OrderLogicVertex(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef %192)
+          to label %193 unwind label %119
+
+193:                                              ; preds = %191
+  br label %194
+
+194:                                              ; preds = %193, %188
+  br label %195
+
+195:                                              ; preds = %194
+  store ptr %35, ptr %17, align 8
+  %196 = load ptr, ptr %17, align 8
+  %197 = load ptr, ptr %196, align 8
+  store ptr %197, ptr %10, align 8
+  %198 = load ptr, ptr %10, align 8
+  store ptr %198, ptr %5, align 8
+  %199 = load ptr, ptr %5, align 8
+  %200 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13V3GraphVertex5linksEv(ptr noundef nonnull align 8 dereferenceable(80) %199)
+  br label %201
+
+201:                                              ; preds = %195
+  %202 = load ptr, ptr %200, align 8
+  br label %203
+
+203:                                              ; preds = %201
+  store ptr %202, ptr %196, align 8
+  br label %204
+
+204:                                              ; preds = %203
+  br label %159
+
+205:                                              ; preds = %165
+  %206 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 3
+  %207 = call noundef ptr @_ZNKSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %206) #3
+  invoke void @_ZN7V3Graph23removeRedundantEdgesSumEPFbPK11V3GraphEdgeE(ptr noundef nonnull align 8 dereferenceable(24) %207, ptr noundef @_ZN11V3GraphEdge16followAlwaysTrueEPKS_)
+          to label %208 unwind label %119
+
+208:                                              ; preds = %205
+  %209 = getelementptr inbounds %class.OrderMoveGraphBuilder, ptr %39, i32 0, i32 3
+  %210 = call noundef ptr @_ZNKSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %209) #3
+  invoke void @_ZN7V3Graph17userClearVerticesEv(ptr noundef nonnull align 8 dereferenceable(24) %210)
+          to label %211 unwind label %119
+
+211:                                              ; preds = %208
+  ret void
+
+212:                                              ; preds = %123, %119
+  call void @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %50) #3
+  br label %213
+
+213:                                              ; preds = %212, %115
+  call void @_ZNSt10unique_ptrI14OrderMoveGraphSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #3
+  br label %214
+
+214:                                              ; preds = %213, %111, %107
+  call void @_ZN12VNUser1InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #3
+  br label %215
+
+215:                                              ; preds = %214
+  %216 = load ptr, ptr %27, align 8
+  %217 = load i32, ptr %28, align 4
+  %218 = insertvalue { ptr, i32 } poison, ptr %216, 0
+  %219 = insertvalue { ptr, i32 } %218, i32 %217, 1
+  resume { ptr, i32 } %219
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6068,7 +6072,8 @@ define linkonce_odr dso_local void @_ZN14OrderMoveGraphC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7V3GraphC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTV14OrderMoveGraph, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV14OrderMoveGraph, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7976,7 +7981,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK13V3GraphVertex2isI16Order
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN16OrderLogicVertex11rttiClassIdEv() #4 comdat align 2 {
-  ret i64 ptrtoint (ptr @_ZZN16OrderLogicVertex11rttiClassIdEvE15aStaticVariable to i64)
+  %1 = ptrtoint ptr @_ZZN16OrderLogicVertex11rttiClassIdEvE15aStaticVariable to i64
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12197,40 +12203,41 @@ define linkonce_odr dso_local void @_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertex
   %15 = zext i1 %5 to i8
   store i8 %15, ptr %12, align 1
   %16 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTV11V3GraphEdge, i32 0, i32 0, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %class.V3GraphEdge, ptr %16, i32 0, i32 1
-  call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  %18 = getelementptr inbounds %class.V3GraphEdge, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV11V3GraphEdge, i32 0, i32 0, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %class.V3GraphEdge, ptr %16, i32 0, i32 1
   call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = load i8, ptr %12, align 1
-  %24 = trunc i8 %23 to i1
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i1 noundef zeroext %24)
-          to label %25 unwind label %26
-
-25:                                               ; preds = %6
-  ret void
+  %19 = getelementptr inbounds %class.V3GraphEdge, ptr %16, i32 0, i32 2
+  call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #3
+  %20 = load ptr, ptr %8, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = load i8, ptr %12, align 1
+  %25 = trunc i8 %24 to i1
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %23, i1 noundef zeroext %25)
+          to label %26 unwind label %27
 
 26:                                               ; preds = %6
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %13, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %14, align 4
-  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
-  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  br label %30
+  ret void
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %13, align 8
-  %32 = load i32, ptr %14, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+27:                                               ; preds = %6
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #3
+  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
+  br label %31
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %13, align 8
+  %33 = load i32, ptr %14, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12836,7 +12843,8 @@ define internal noundef zeroext i1 @_ZN14V3RttiInternalL16isClassIdOfOneOfI15Ord
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN15OrderMoveVertex11rttiClassIdEv() #4 comdat align 2 {
-  ret i64 ptrtoint (ptr @_ZZN15OrderMoveVertex11rttiClassIdEvE15aStaticVariable to i64)
+  %1 = ptrtoint ptr @_ZZN15OrderMoveVertex11rttiClassIdEvE15aStaticVariable to i64
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable

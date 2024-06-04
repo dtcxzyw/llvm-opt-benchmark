@@ -95,27 +95,28 @@ declare dso_local zeroext i1 @blk_rq_merge_ok(ptr noundef, ptr noundef) local_un
 define dso_local noundef ptr @elevator_alloc(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 488
   %4 = load i32, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(632) ptr @kmalloc_node_trace(ptr noundef %5, i32 noundef 3520, i32 noundef %4, i64 noundef 632) #14
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %14, label %8, !prof !5
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %6 = load ptr, ptr %5, align 16
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(632) ptr @kmalloc_node_trace(ptr noundef %6, i32 noundef 3520, i32 noundef %4, i64 noundef 632) #14
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %15, label %9, !prof !5
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 232
-  %10 = load ptr, ptr %9, align 8
-  tail call void @__module_get(ptr noundef %10) #13
-  store ptr %1, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @kobject_init(ptr noundef %11, ptr noundef nonnull @elv_ktype) #13
-  %12 = getelementptr inbounds i8, ptr %6, i64 80
-  tail call void @__mutex_init(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull @elevator_alloc.__key) #13
-  %13 = getelementptr inbounds i8, ptr %6, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(512) %13, i8 0, i64 512, i1 false)
-  br label %14
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %1, i64 232
+  %11 = load ptr, ptr %10, align 8
+  tail call void @__module_get(ptr noundef %11) #13
+  store ptr %1, ptr %7, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  tail call void @kobject_init(ptr noundef %12, ptr noundef nonnull @elv_ktype) #13
+  %13 = getelementptr inbounds i8, ptr %7, i64 80
+  tail call void @__mutex_init(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef nonnull @elevator_alloc.__key) #13
+  %14 = getelementptr inbounds i8, ptr %7, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(512) %14, i8 0, i64 512, i1 false)
+  br label %15
 
-14:                                               ; preds = %8, %2
-  %15 = phi ptr [ %6, %8 ], [ null, %2 ]
-  ret ptr %15
+15:                                               ; preds = %9, %2
+  %16 = phi ptr [ %7, %9 ], [ null, %2 ]
+  ret ptr %16
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -990,7 +991,7 @@ define dso_local noundef i32 @elv_register(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "764: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 764b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 764) #13, !srcloc !23
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 503, i32 2307, i64 12) #13, !srcloc !24
   tail call void asm sideeffect "765: nop\0A\09.pushsection .discard.instr_end\0A\09.long 765b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 765) #13, !srcloc !25
-  br label %74
+  br label %76
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1008,7 +1009,7 @@ define dso_local noundef i32 @elv_register(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "766: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 766b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 766) #13, !srcloc !26
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 506, i32 2307, i64 12) #13, !srcloc !27
   tail call void asm sideeffect "767: nop\0A\09.pushsection .discard.instr_end\0A\09.long 767b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 767) #13, !srcloc !28
-  br label %74
+  br label %76
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %0, i64 184
@@ -1024,7 +1025,7 @@ define dso_local noundef i32 @elv_register(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "768: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 768b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 768) #13, !srcloc !29
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 511, i32 2305, i64 12) #13, !srcloc !30
   tail call void asm sideeffect "769: nop\0A\09.pushsection .discard.instr_end\0A\09.long 769b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 769) #13, !srcloc !31
-  br label %74
+  br label %76
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %0, i64 192
@@ -1036,7 +1037,7 @@ define dso_local noundef i32 @elv_register(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "770: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 770b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 770) #13, !srcloc !32
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 512, i32 2305, i64 12) #13, !srcloc !33
   tail call void asm sideeffect "771: nop\0A\09.pushsection .discard.instr_end\0A\09.long 771b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 771) #13, !srcloc !34
-  br label %74
+  br label %76
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %0, i64 256
@@ -1050,7 +1051,7 @@ define dso_local noundef i32 @elv_register(ptr noundef %0) #0 align 16 {
   %36 = tail call ptr @kmem_cache_create(ptr noundef %28, i32 noundef %33, i32 noundef %35, i32 noundef 0, ptr noundef null) #13
   store ptr %36, ptr %0, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %74, label %38
+  br i1 %37, label %76, label %38
 
 38:                                               ; preds = %27, %15
   tail call void @_raw_spin_lock(ptr noundef nonnull @elv_list_lock) #13
@@ -1101,24 +1102,26 @@ define dso_local noundef i32 @elv_register(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_unlock(ptr noundef nonnull @elv_list_lock) #13
   %67 = load ptr, ptr %0, align 8
   tail call void @kmem_cache_destroy(ptr noundef %67) #13
-  br label %74
+  br label %76
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds i8, ptr %0, i64 280
-  %70 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @elv_list, i64 0, i32 1), align 8
-  store ptr %69, ptr getelementptr inbounds (%struct.list_head, ptr @elv_list, i64 0, i32 1), align 8
+  %70 = getelementptr inbounds %struct.list_head, ptr @elv_list, i64 0, i32 1
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds %struct.list_head, ptr @elv_list, i64 0, i32 1
+  store ptr %69, ptr %72, align 8
   store ptr @elv_list, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 288
-  store ptr %70, ptr %71, align 8
-  store volatile ptr %69, ptr %70, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 288
+  store ptr %71, ptr %73, align 8
+  store volatile ptr %69, ptr %71, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @elv_list_lock) #13
-  %72 = load ptr, ptr %39, align 8
-  %73 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %72) #15
-  br label %74
+  %74 = load ptr, ptr %39, align 8
+  %75 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %74) #15
+  br label %76
 
-74:                                               ; preds = %68, %66, %27, %26, %21, %14, %5
-  %75 = phi i32 [ -16, %66 ], [ 0, %68 ], [ -22, %5 ], [ -22, %14 ], [ -22, %26 ], [ -22, %21 ], [ -12, %27 ]
-  ret i32 %75
+76:                                               ; preds = %68, %66, %27, %26, %21, %14, %5
+  %77 = phi i32 [ -16, %66 ], [ 0, %68 ], [ -22, %5 ], [ -22, %14 ], [ -22, %26 ], [ -22, %21 ], [ -12, %27 ]
+  ret i32 %77
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

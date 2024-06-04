@@ -5779,104 +5779,130 @@ define internal void @__cxx_global_var_init.6() #2 section ".text.startup" perso
   %3 = alloca i32, align 4
   store ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr %1, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr noundef @.str.7)
-          to label %4 unwind label %19
+          to label %4 unwind label %45
 
 4:                                                ; preds = %0
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 1), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 1), ptr noundef @.str.8)
-          to label %5 unwind label %19
+  %5 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 1
+  store ptr %5, ptr %1, align 8
+  %6 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 1
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef @.str.8)
+          to label %7 unwind label %45
 
-5:                                                ; preds = %4
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 2), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 2), ptr noundef @.str.9)
-          to label %6 unwind label %19
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 2
+  store ptr %8, ptr %1, align 8
+  %9 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 2
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef @.str.9)
+          to label %10 unwind label %45
 
-6:                                                ; preds = %5
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 3), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 3), ptr noundef @.str.10)
-          to label %7 unwind label %19
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 3
+  store ptr %11, ptr %1, align 8
+  %12 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 3
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef @.str.10)
+          to label %13 unwind label %45
 
-7:                                                ; preds = %6
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 4), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 4), ptr noundef @.str.11)
-          to label %8 unwind label %19
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 4
+  store ptr %14, ptr %1, align 8
+  %15 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 4
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef @.str.11)
+          to label %16 unwind label %45
 
-8:                                                ; preds = %7
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 5), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 5), ptr noundef @.str.12)
-          to label %9 unwind label %19
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 5
+  store ptr %17, ptr %1, align 8
+  %18 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 5
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef @.str.12)
+          to label %19 unwind label %45
 
-9:                                                ; preds = %8
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 6), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 6), ptr noundef @.str.13)
-          to label %10 unwind label %19
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 6
+  store ptr %20, ptr %1, align 8
+  %21 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 6
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef @.str.13)
+          to label %22 unwind label %45
 
-10:                                               ; preds = %9
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 7), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 7), ptr noundef @.str.14)
-          to label %11 unwind label %19
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 7
+  store ptr %23, ptr %1, align 8
+  %24 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 7
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef @.str.14)
+          to label %25 unwind label %45
 
-11:                                               ; preds = %10
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), ptr noundef @.str.15)
-          to label %12 unwind label %19
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8
+  store ptr %26, ptr %1, align 8
+  %27 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef @.str.15)
+          to label %28 unwind label %45
 
-12:                                               ; preds = %11
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 9), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 9), ptr noundef @.str.16)
-          to label %13 unwind label %19
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 9
+  store ptr %29, ptr %1, align 8
+  %30 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 9
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef @.str.16)
+          to label %31 unwind label %45
 
-13:                                               ; preds = %12
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 10), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 10), ptr noundef @.str.17)
-          to label %14 unwind label %19
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 10
+  store ptr %32, ptr %1, align 8
+  %33 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 10
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef @.str.17)
+          to label %34 unwind label %45
 
-14:                                               ; preds = %13
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 11), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 11), ptr noundef @.str.18)
-          to label %15 unwind label %19
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 11
+  store ptr %35, ptr %1, align 8
+  %36 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 11
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef @.str.18)
+          to label %37 unwind label %45
 
-15:                                               ; preds = %14
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 12), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 12), ptr noundef @.str.19)
-          to label %16 unwind label %19
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 12
+  store ptr %38, ptr %1, align 8
+  %39 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 12
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef @.str.19)
+          to label %40 unwind label %45
 
-16:                                               ; preds = %15
-  store ptr getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 13), ptr %1, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 13), ptr noundef @.str.20)
-          to label %17 unwind label %19
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 13
+  store ptr %41, ptr %1, align 8
+  %42 = getelementptr inbounds %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 13
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef @.str.20)
+          to label %43 unwind label %45
 
-17:                                               ; preds = %16
-  %18 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayI7QStringLm14EED2Ev, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr @__dso_handle) #5
+43:                                               ; preds = %40
+  %44 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayI7QStringLm14EED2Ev, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr @__dso_handle) #5
   ret void
 
-19:                                               ; preds = %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %0
-  %20 = landingpad { ptr, i32 }
+45:                                               ; preds = %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %0
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %2, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %3, align 4
-  %23 = load ptr, ptr %1, align 8
-  %24 = icmp eq ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, %23
-  br i1 %24, label %29, label %25
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %2, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %3, align 4
+  %49 = load ptr, ptr %1, align 8
+  %50 = icmp eq ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, %49
+  br i1 %50, label %55, label %51
 
-25:                                               ; preds = %25, %19
-  %26 = phi ptr [ %23, %19 ], [ %27, %25 ]
-  %27 = getelementptr inbounds %class.QString, ptr %26, i64 -1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #5
-  %28 = icmp eq ptr %27, @_ZN9pymeshlabL23saveCapabilitiesStringsE
-  br i1 %28, label %29, label %25
+51:                                               ; preds = %51, %45
+  %52 = phi ptr [ %49, %45 ], [ %53, %51 ]
+  %53 = getelementptr inbounds %class.QString, ptr %52, i64 -1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #5
+  %54 = icmp eq ptr %53, @_ZN9pymeshlabL23saveCapabilitiesStringsE
+  br i1 %54, label %55, label %51
 
-29:                                               ; preds = %25, %19
-  br label %30
+55:                                               ; preds = %51, %45
+  br label %56
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %2, align 8
-  %32 = load i32, ptr %3, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %2, align 8
+  %58 = load i32, ptr %3, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7553,69 +7579,70 @@ define void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceab
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13RichParameter, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %class.RichParameter, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10) #5
-  %11 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
-          to label %14 unwind label %41
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV13RichParameter, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %class.RichParameter, ptr %10, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #5
+  %12 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
+          to label %15 unwind label %42
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 20
-  %17 = load ptr, ptr %16, align 8
-  %18 = invoke noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %19 unwind label %41
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %14, align 8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 20
+  %18 = load ptr, ptr %17, align 8
+  %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %20 unwind label %42
 
-19:                                               ; preds = %14
-  store ptr %18, ptr %11, align 8
-  %20 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 3
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %class.RichParameter, ptr %21, i32 0, i32 3
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %22) #5
-  %23 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 4
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %class.RichParameter, ptr %24, i32 0, i32 4
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %25) #5
-  %26 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 5
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %class.RichParameter, ptr %27, i32 0, i32 5
-  %29 = load i8, ptr %28, align 8
-  %30 = trunc i8 %29 to i1
-  %31 = zext i1 %30 to i8
-  store i8 %31, ptr %26, align 8
-  %32 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 6
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %class.RichParameter, ptr %33, i32 0, i32 6
-  %35 = load i8, ptr %34, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = zext i1 %36 to i8
-  store i8 %37, ptr %32, align 1
-  %38 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 7
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %class.RichParameter, ptr %39, i32 0, i32 7
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %40) #5
+20:                                               ; preds = %15
+  store ptr %19, ptr %12, align 8
+  %21 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 3
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %class.RichParameter, ptr %22, i32 0, i32 3
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %23) #5
+  %24 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 4
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %class.RichParameter, ptr %25, i32 0, i32 4
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %26) #5
+  %27 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 5
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %class.RichParameter, ptr %28, i32 0, i32 5
+  %30 = load i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %27, align 8
+  %33 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 6
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %class.RichParameter, ptr %34, i32 0, i32 6
+  %36 = load i8, ptr %35, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = zext i1 %37 to i8
+  store i8 %38, ptr %33, align 1
+  %39 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 7
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds %class.RichParameter, ptr %40, i32 0, i32 7
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %41) #5
   ret void
 
-41:                                               ; preds = %14, %2
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %15, %2
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %5, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %6, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  br label %45
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %5, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %6, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
+  br label %46
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %5, align 8
-  %47 = load i32, ptr %6, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i32, ptr %6, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7637,41 +7664,42 @@ define void @_ZN13RichParameterC2EOS_(ptr noundef nonnull align 8 dereferenceabl
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13RichParameter, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  %9 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 3
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV13RichParameter, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
-  %10 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 4
+  %10 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 3
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #5
-  %11 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 7
+  %11 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 4
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #5
-  %12 = load ptr, ptr %4, align 8
-  invoke void @_ZN13RichParameter4swapERS_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %2
-  ret void
+  %12 = getelementptr inbounds %class.RichParameter, ptr %7, i32 0, i32 7
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #5
+  %13 = load ptr, ptr %4, align 8
+  invoke void @_ZN13RichParameter4swapERS_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %2
-  %15 = landingpad { ptr, i32 }
+  ret void
+
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  br label %18
+  br label %19
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i32, ptr %6, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i32, ptr %6, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7728,54 +7756,55 @@ define void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnu
   store i8 %17, ptr %13, align 1
   store ptr %6, ptr %14, align 8
   %18 = load ptr, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13RichParameter, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %9, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20) #5
-  %21 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 2
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 20
-  %25 = load ptr, ptr %24, align 8
-  %26 = invoke noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %27 unwind label %39
+  %19 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV13RichParameter, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %9, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21) #5
+  %22 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 2
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 20
+  %26 = load ptr, ptr %25, align 8
+  %27 = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %28 unwind label %40
 
-27:                                               ; preds = %7
-  store ptr %26, ptr %21, align 8
-  %28 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 3
-  %29 = load ptr, ptr %11, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29) #5
-  %30 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 4
-  %31 = load ptr, ptr %12, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31) #5
-  %32 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 5
-  %33 = load i8, ptr %13, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = zext i1 %34 to i8
-  store i8 %35, ptr %32, align 8
-  %36 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 6
-  store i8 1, ptr %36, align 1
-  %37 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 7
-  %38 = load ptr, ptr %14, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %38) #5
+28:                                               ; preds = %7
+  store ptr %27, ptr %22, align 8
+  %29 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 3
+  %30 = load ptr, ptr %11, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %30) #5
+  %31 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 4
+  %32 = load ptr, ptr %12, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32) #5
+  %33 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 5
+  %34 = load i8, ptr %13, align 1
+  %35 = trunc i8 %34 to i1
+  %36 = zext i1 %35 to i8
+  store i8 %36, ptr %33, align 8
+  %37 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 6
+  store i8 1, ptr %37, align 1
+  %38 = getelementptr inbounds %class.RichParameter, ptr %18, i32 0, i32 7
+  %39 = load ptr, ptr %14, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %39) #5
   ret void
 
-39:                                               ; preds = %7
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %7
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %15, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %16, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #5
-  br label %43
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %15, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %16, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  br label %44
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %15, align 8
-  %45 = load i32, ptr %16, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %15, align 8
+  %46 = load i32, ptr %16, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7783,28 +7812,29 @@ define void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13RichParameter, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV13RichParameter, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 1
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %6) #5
+  br label %12
 
-11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 7
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #5
-  %13 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 4
+12:                                               ; preds = %8, %1
+  %13 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #5
-  %14 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 3
+  %14 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
-  %15 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 1
+  %15 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #5
+  %16 = getelementptr inbounds %class.RichParameter, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #5
   ret void
 }
 

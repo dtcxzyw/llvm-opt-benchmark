@@ -943,8 +943,8 @@ define dso_local void @inet_twsk_purge(ptr nocapture noundef readonly %0, i32 no
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   br label %5
 
-5:                                                ; preds = %115, %2
-  %6 = phi i32 [ 0, %2 ], [ %116, %115 ]
+5:                                                ; preds = %117, %2
+  %6 = phi i32 [ 0, %2 ], [ %118, %117 ]
   %7 = load ptr, ptr %0, align 64
   %8 = zext i32 %6 to i64
   %9 = getelementptr %struct.inet_ehash_bucket, ptr %7, i64 %8
@@ -961,10 +961,10 @@ define dso_local void @inet_twsk_purge(ptr nocapture noundef readonly %0, i32 no
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %111
+  br i1 %16, label %17, label %113
 
-17:                                               ; preds = %106, %12
-  %18 = phi ptr [ %107, %106 ], [ %13, %12 ]
+17:                                               ; preds = %108, %12
+  %18 = phi ptr [ %109, %108 ], [ %13, %12 ]
   %19 = getelementptr i8, ptr %18, i64 -104
   %20 = getelementptr i8, ptr %18, i64 -86
   %21 = load volatile i8, ptr %20, align 2
@@ -974,25 +974,25 @@ define dso_local void @inet_twsk_purge(ptr nocapture noundef readonly %0, i32 no
 23:                                               ; preds = %17
   %24 = load volatile i8, ptr %20, align 2
   %25 = icmp eq i8 %24, 12
-  br i1 %25, label %26, label %106
+  br i1 %25, label %26, label %108
 
 26:                                               ; preds = %23
   %27 = load i8, ptr %4, align 8, !range !26, !noundef !27
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %106, label %29, !prof !8
+  br i1 %28, label %108, label %29, !prof !8
 
 29:                                               ; preds = %26
   %30 = getelementptr i8, ptr %18, i64 -8
   %31 = load ptr, ptr %30, align 8
   tail call void @inet_csk_reqsk_queue_drop_and_put(ptr noundef %31, ptr noundef %19) #6
-  br label %106
+  br label %108
 
 32:                                               ; preds = %17
   %33 = getelementptr i8, ptr %18, i64 -88
   %34 = load i16, ptr %33, align 8
   %35 = zext i16 %34 to i32
   %36 = icmp eq i32 %35, %1
-  br i1 %36, label %37, label %106
+  br i1 %36, label %37, label %108
 
 37:                                               ; preds = %32
   %38 = getelementptr i8, ptr %18, i64 -56
@@ -1000,7 +1000,7 @@ define dso_local void @inet_twsk_purge(ptr nocapture noundef readonly %0, i32 no
   %40 = getelementptr inbounds i8, ptr %39, i64 140
   %41 = load volatile i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %106
+  br i1 %42, label %43, label %108
 
 43:                                               ; preds = %37
   %44 = getelementptr i8, ptr %18, i64 24
@@ -1041,7 +1041,7 @@ define dso_local void @inet_twsk_purge(ptr nocapture noundef readonly %0, i32 no
 
 66:                                               ; preds = %65, %60
   %67 = icmp eq i32 %61, 0
-  br i1 %67, label %106, label %68, !prof !6
+  br i1 %67, label %108, label %68, !prof !6
 
 68:                                               ; preds = %66
   %69 = getelementptr i8, ptr %18, i64 -88
@@ -1103,39 +1103,41 @@ define dso_local void @inet_twsk_purge(ptr nocapture noundef readonly %0, i32 no
   tail call void @module_put(ptr noundef %91) #6
   br label %103
 
-103:                                              ; preds = %111, %98, %86
+103:                                              ; preds = %113, %98, %86
   br label %12
 
 104:                                              ; preds = %73
   tail call void @__rcu_read_unlock() #6
   %105 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !32
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #6, !srcloc !33
+  %106 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %107 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %106, i32 512, ptr nonnull elementtype(i32) %107) #6, !srcloc !33
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !34
   tail call void @inet_twsk_deschedule_put(ptr noundef %19)
   tail call void @__local_bh_enable_ip(i64 noundef %105, i32 noundef 512) #6
   br label %10
 
-106:                                              ; preds = %66, %37, %32, %29, %26, %23
-  %107 = load volatile ptr, ptr %18, align 8
-  %108 = ptrtoint ptr %107 to i64
-  %109 = and i64 %108, 1
-  %110 = icmp eq i64 %109, 0
-  br i1 %110, label %17, label %111, !llvm.loop !35
+108:                                              ; preds = %66, %37, %32, %29, %26, %23
+  %109 = load volatile ptr, ptr %18, align 8
+  %110 = ptrtoint ptr %109 to i64
+  %111 = and i64 %110, 1
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %17, label %113, !llvm.loop !35
 
-111:                                              ; preds = %106, %12
-  %112 = phi i64 [ %14, %12 ], [ %108, %106 ]
-  %113 = lshr i64 %112, 1
-  %114 = icmp eq i64 %113, %8
-  br i1 %114, label %115, label %103
+113:                                              ; preds = %108, %12
+  %114 = phi i64 [ %14, %12 ], [ %110, %108 ]
+  %115 = lshr i64 %114, 1
+  %116 = icmp eq i64 %115, %8
+  br i1 %116, label %117, label %103
 
-115:                                              ; preds = %111
+117:                                              ; preds = %113
   tail call void @__rcu_read_unlock() #6
-  %116 = add i32 %6, 1
-  %117 = load i32, ptr %3, align 16
-  %118 = icmp ugt i32 %116, %117
-  br i1 %118, label %119, label %5, !llvm.loop !36
+  %118 = add i32 %6, 1
+  %119 = load i32, ptr %3, align 16
+  %120 = icmp ugt i32 %118, %119
+  br i1 %120, label %121, label %5, !llvm.loop !36
 
-119:                                              ; preds = %115
+121:                                              ; preds = %117
   ret void
 }
 

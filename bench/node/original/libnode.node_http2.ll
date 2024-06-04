@@ -6212,8 +6212,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
 entry:
   call void @_ZN4node5http212Http2Session9CallbacksC1Eb(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4node5http212Http2Session21callback_struct_savedE, i1 noundef zeroext false)
-  call void @_ZN4node5http212Http2Session9CallbacksC1Eb(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.node::http2::Http2Session::Callbacks", ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 1), i1 noundef zeroext true)
-  %0 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
+  %0 = getelementptr inbounds %"struct.node::http2::Http2Session::Callbacks", ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 1
+  call void @_ZN4node5http212Http2Session9CallbacksC1Eb(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true)
+  %1 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
   ret void
 }
 
@@ -6222,10 +6223,11 @@ define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
+  %1 = getelementptr inbounds %"struct.node::http2::Http2Session::Callbacks", ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (%"struct.node::http2::Http2Session::Callbacks", ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 2), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.node::http2::Http2Session::Callbacks", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN4node5http212Http2Session9CallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZN4node5http212Http2Session21callback_struct_savedE
@@ -7370,10 +7372,11 @@ entry:
   %coerce.dive9 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive8, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive9, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this6, ptr noundef %call, ptr %1, i32 noundef 16, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node5http213Http2SettingsE, i32 0, i32 0, i32 2), ptr %this6, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node5http213Http2SettingsE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this6, align 8
   %session_ = getelementptr inbounds %"class.node::http2::Http2Settings", ptr %this6, i32 0, i32 1
-  %2 = load ptr, ptr %session.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %session_, ptr noundef %2)
+  %3 = load ptr, ptr %session.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %session_, ptr noundef %3)
   %callback_ = getelementptr inbounds %"class.node::http2::Http2Settings", ptr %this6, i32 0, i32 2
   store ptr %callback_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -7383,8 +7386,8 @@ entry:
   %this1.i24 = load ptr, ptr %this.addr.i23, align 8
   store ptr null, ptr %this1.i24, align 8
   %startTime_ = getelementptr inbounds %"class.node::http2::Http2Settings", ptr %this6, i32 0, i32 3
-  %3 = load i64, ptr %start_time.addr, align 8
-  store i64 %3, ptr %startTime_, align 8
+  %4 = load i64, ptr %start_time.addr, align 8
+  store i64 %4, ptr %startTime_, align 8
   %count_ = getelementptr inbounds %"class.node::http2::Http2Settings", ptr %this6, i32 0, i32 4
   store i64 0, ptr %count_, align 8
   %callback_10 = getelementptr inbounds %"class.node::http2::Http2Settings", ptr %this6, i32 0, i32 2
@@ -7398,8 +7401,8 @@ entry:
   %this1.i28 = load ptr, ptr %this.addr.i27, align 8
   store ptr %this1.i28, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %4 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %if.then.i30, label %if.end.i29
 
 if.then.i30:                                      ; preds = %entry
@@ -7408,28 +7411,28 @@ if.then.i30:                                      ; preds = %entry
 if.end.i29:                                       ; preds = %entry
   store ptr %this1.i28, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %5 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %5) #3
+  %6 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %6) #3
   store ptr %this1.i28, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
   br label %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
 
 _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %if.end.i29, %if.then.i30
-  %6 = load ptr, ptr %other.addr.i, align 8
-  store ptr %6, ptr %this.addr.i19, align 8
+  %7 = load ptr, ptr %other.addr.i, align 8
+  store ptr %7, ptr %this.addr.i19, align 8
   %this1.i20 = load ptr, ptr %this.addr.i19, align 8
-  %7 = load ptr, ptr %this1.i20, align 8
-  %cmp.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %this1.i20, align 8
+  %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   br label %_ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
 
 if.end.i:                                         ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %8 = load ptr, ptr %isolate.addr.i, align 8
-  %9 = load ptr, ptr %other.addr.i, align 8
-  store ptr %9, ptr %this.addr.i35, align 8
+  %9 = load ptr, ptr %isolate.addr.i, align 8
+  %10 = load ptr, ptr %other.addr.i, align 8
+  store ptr %10, ptr %this.addr.i35, align 8
   %this1.i36 = load ptr, ptr %this.addr.i35, align 8
   store ptr %this1.i36, ptr %this.addr.i40, align 8
   %this1.i41 = load ptr, ptr %this.addr.i40, align 8
@@ -7437,16 +7440,16 @@ if.end.i:                                         ; preds = %_ZN2v814PersistentB
   %this1.i44 = load ptr, ptr %this.addr.i43, align 8
   store ptr %this1.i44, ptr %this.addr.i.i42, align 8
   %this1.i.i45 = load ptr, ptr %this.addr.i.i42, align 8
-  %10 = load ptr, ptr %this1.i.i45, align 8
-  store ptr %10, ptr %slot.addr.i, align 8
-  %11 = load ptr, ptr %slot.addr.i, align 8
-  store ptr %8, ptr %isolate.addr.i31, align 8
-  store ptr %11, ptr %that.addr.i, align 8
-  %12 = load ptr, ptr %that.addr.i, align 8
-  store ptr %12, ptr %value.addr.i, align 8
-  %13 = load ptr, ptr %value.addr.i, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %cmp.i38 = icmp eq i64 %14, 0
+  %11 = load ptr, ptr %this1.i.i45, align 8
+  store ptr %11, ptr %slot.addr.i, align 8
+  %12 = load ptr, ptr %slot.addr.i, align 8
+  store ptr %9, ptr %isolate.addr.i31, align 8
+  store ptr %12, ptr %that.addr.i, align 8
+  %13 = load ptr, ptr %that.addr.i, align 8
+  store ptr %13, ptr %value.addr.i, align 8
+  %14 = load ptr, ptr %value.addr.i, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %cmp.i38 = icmp eq i64 %15, 0
   br i1 %cmp.i38, label %if.then.i34, label %if.end.i32
 
 if.then.i34:                                      ; preds = %if.end.i
@@ -7454,25 +7457,25 @@ if.then.i34:                                      ; preds = %if.end.i
   br label %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i32:                                       ; preds = %if.end.i
-  %15 = load ptr, ptr %isolate.addr.i31, align 8
-  %16 = load ptr, ptr %that.addr.i, align 8
-  store ptr %16, ptr %value.addr.i39, align 8
-  %17 = load ptr, ptr %value.addr.i39, align 8
-  %18 = load i64, ptr %17, align 8
-  %call2.i33 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %15, i64 noundef %18) #3
+  %16 = load ptr, ptr %isolate.addr.i31, align 8
+  %17 = load ptr, ptr %that.addr.i, align 8
+  store ptr %17, ptr %value.addr.i39, align 8
+  %18 = load ptr, ptr %value.addr.i39, align 8
+  %19 = load i64, ptr %18, align 8
+  %call2.i33 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %16, i64 noundef %19) #3
   store ptr %call2.i33, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i32, %if.then.i34
-  %19 = load ptr, ptr %retval.i, align 8
+  %20 = load ptr, ptr %retval.i, align 8
   store ptr %this1.i18, ptr %this.addr.i25, align 8
   %this1.i26 = load ptr, ptr %this.addr.i25, align 8
-  store ptr %19, ptr %this1.i26, align 8
+  store ptr %20, ptr %this1.i26, align 8
   br label %_ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
 
 _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit: ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit, %if.then.i
-  %20 = load ptr, ptr %session.addr, align 8
-  %call13 = call noundef ptr @_ZNK4node5http212Http2Session11http2_stateEv(ptr noundef nonnull align 8 dereferenceable(640) %20)
+  %21 = load ptr, ptr %session.addr, align 8
+  %call13 = call noundef ptr @_ZNK4node5http212Http2Session11http2_stateEv(ptr noundef nonnull align 8 dereferenceable(640) %21)
   %entries_14 = getelementptr inbounds %"class.node::http2::Http2Settings", ptr %this6, i32 0, i32 5
   %arraydecay = getelementptr inbounds [7 x %struct.nghttp2_settings_entry], ptr %entries_14, i64 0, i64 0
   %call15 = call noundef i64 @_ZN4node5http213Http2Settings4InitEPNS0_10Http2StateEP22nghttp2_settings_entry(ptr noundef %call13, ptr noundef %arraydecay)
@@ -11830,11 +11833,14 @@ entry:
   call void @_ZN4node14StreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   %3 = getelementptr inbounds i8, ptr %this3, i64 80
   call void @_ZN4node3mem18NgLibMemoryManagerINS_5http212Http2SessionE11nghttp2_memEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %4 = getelementptr inbounds { [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %5 = getelementptr inbounds { [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 1, i32 2
+  store ptr %5, ptr %add.ptr, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this3, i64 80
-  store ptr getelementptr inbounds ({ [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 2, i32 2), ptr %add.ptr7, align 8
+  %6 = getelementptr inbounds { [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 2, i32 2
+  store ptr %6, ptr %add.ptr7, align 8
   %statistics_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 3
   %start_time = getelementptr inbounds %"struct.node::http2::Http2Session::Statistics", ptr %statistics_, i32 0, i32 0
   store i64 0, ptr %start_time, align 8
@@ -11861,13 +11867,13 @@ entry:
   %session_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 4
   call void @_ZNSt10unique_ptrI15nghttp2_sessionN4node5http214Nghttp2DeleterIS0_XadL_Z19nghttp2_session_delEEEEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
   %js_fields_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 5
-  %4 = load ptr, ptr %http2_state.addr, align 8
-  %call8 = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = load ptr, ptr %http2_state.addr, align 8
+  %call8 = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
   %call9 = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %call8)
   call void @_ZN4node13AliasedStructINS_5http215SessionJSFieldsEEC2IJEEEPN2v87IsolateEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %js_fields_, ptr noundef %call9)
   %session_type_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 6
-  %5 = load i32, ptr %type.addr, align 4
-  store i32 %5, ptr %session_type_, align 8
+  %8 = load i32, ptr %type.addr, align 4
+  store i32 %8, ptr %session_type_, align 8
   %max_header_pairs_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 7
   store i32 128, ptr %max_header_pairs_, align 4
   %max_session_memory_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 8
@@ -11886,12 +11892,12 @@ entry:
   store i32 0, ptr %chunks_sent_since_last_write_, align 8
   %stream_buf_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 15
   %call10 = call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0)
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %stream_buf_, i32 0, i32 0
-  %7 = extractvalue { ptr, i64 } %call10, 0
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %stream_buf_, i32 0, i32 1
-  %9 = extractvalue { ptr, i64 } %call10, 1
-  store i64 %9, ptr %8, align 8
+  %9 = getelementptr inbounds { ptr, i64 }, ptr %stream_buf_, i32 0, i32 0
+  %10 = extractvalue { ptr, i64 } %call10, 0
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, i64 }, ptr %stream_buf_, i32 0, i32 1
+  %12 = extractvalue { ptr, i64 } %call10, 1
+  store i64 %12, ptr %11, align 8
   %stream_buf_ab_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 16
   store ptr %stream_buf_ab_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -11927,38 +11933,38 @@ entry:
   %invalid_frame_count_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 29
   store i32 0, ptr %invalid_frame_count_, align 4
   %http2_state_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 30
-  %10 = load ptr, ptr %http2_state.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_5http210Http2StateELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %http2_state_, ptr noundef %10)
+  %13 = load ptr, ptr %http2_state.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_5http210Http2StateELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %http2_state_, ptr noundef %13)
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
-  %11 = load i32, ptr %type.addr, align 4
+  %14 = load i32, ptr %type.addr, align 4
   %statistics_11 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 3
   %session_type12 = getelementptr inbounds %"struct.node::http2::Http2Session::Statistics", ptr %statistics_11, i32 0, i32 10
-  store i32 %11, ptr %session_type12, align 8
+  store i32 %14, ptr %session_type12, align 8
   %call13 = call i64 @uv_hrtime()
   %statistics_14 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 3
   %start_time15 = getelementptr inbounds %"struct.node::http2::Http2Session::Statistics", ptr %statistics_14, i32 0, i32 0
   store i64 %call13, ptr %start_time15, align 8
-  %12 = load ptr, ptr %http2_state.addr, align 8
-  %13 = load i32, ptr %type.addr, align 4
-  call void @_ZN4node5http212Http2OptionsC1EPNS0_10Http2StateENS0_11SessionTypeE(ptr noundef nonnull align 8 dereferenceable(40) %opts, ptr noundef %12, i32 noundef %13)
+  %15 = load ptr, ptr %http2_state.addr, align 8
+  %16 = load i32, ptr %type.addr, align 4
+  call void @_ZN4node5http212Http2OptionsC1EPNS0_10Http2StateENS0_11SessionTypeE(ptr noundef nonnull align 8 dereferenceable(40) %opts, ptr noundef %15, i32 noundef %16)
   %call16 = call noundef i64 @_ZNK4node5http212Http2Options18max_session_memoryEv(ptr noundef nonnull align 8 dereferenceable(40) %opts)
   %max_session_memory_17 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 8
   store i64 %call16, ptr %max_session_memory_17, align 8
   %call18 = call noundef i32 @_ZNK4node5http212Http2Options16max_header_pairsEv(ptr noundef nonnull align 8 dereferenceable(40) %opts)
   store i32 %call18, ptr %maxHeaderPairs, align 4
-  %14 = load i32, ptr %type.addr, align 4
-  %cmp = icmp eq i32 %14, 0
+  %17 = load i32, ptr %type.addr, align 4
+  %cmp = icmp eq i32 %17, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %15 = load i32, ptr %maxHeaderPairs, align 4
-  %conv = zext i32 %15 to i64
+  %18 = load i32, ptr %maxHeaderPairs, align 4
+  %conv = zext i32 %18 to i64
   %call19 = call noundef i64 @_ZN4node23GetServerMaxHeaderPairsEm(i64 noundef %conv)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %16 = load i32, ptr %maxHeaderPairs, align 4
-  %conv20 = zext i32 %16 to i64
+  %19 = load i32, ptr %maxHeaderPairs, align 4
+  %conv20 = zext i32 %19 to i64
   %call21 = call noundef i64 @_ZN4node23GetClientMaxHeaderPairsEm(i64 noundef %conv20)
   br label %cond.end
 
@@ -11977,12 +11983,12 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %padding_strategy_29 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 13
   store i32 %call28, ptr %padding_strategy_29, align 4
   %padding_strategy_30 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 13
-  %17 = load i32, ptr %padding_strategy_30, align 4
-  %cmp31 = icmp ne i32 %17, 0
+  %20 = load i32, ptr %padding_strategy_30, align 4
+  %cmp31 = icmp ne i32 %20, 0
   %frombool = zext i1 %cmp31 to i8
   store i8 %frombool, ptr %hasGetPaddingCallback, align 1
-  %18 = load i32, ptr %type.addr, align 4
-  %cmp32 = icmp eq i32 %18, 0
+  %21 = load i32, ptr %type.addr, align 4
+  %cmp32 = icmp eq i32 %21, 0
   br i1 %cmp32, label %cond.true33, label %cond.false34
 
 cond.true33:                                      ; preds = %cond.end
@@ -11999,16 +12005,16 @@ cond.end35:                                       ; preds = %cond.false34, %cond
   br label %do.body
 
 do.body:                                          ; preds = %cond.end35
-  %19 = load ptr, ptr %fn, align 8
-  %20 = load i8, ptr %hasGetPaddingCallback, align 1
-  %tobool = trunc i8 %20 to i1
+  %22 = load ptr, ptr %fn, align 8
+  %23 = load i8, ptr %hasGetPaddingCallback, align 1
+  %tobool = trunc i8 %23 to i1
   %cond37 = select i1 %tobool, i32 1, i32 0
   %idxprom = sext i32 %cond37 to i64
   %arrayidx = getelementptr inbounds [2 x %"struct.node::http2::Http2Session::Callbacks"], ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 0, i64 %idxprom
   %callbacks = getelementptr inbounds %"struct.node::http2::Http2Session::Callbacks", ptr %arrayidx, i32 0, i32 0
   %call38 = call noundef ptr @_ZNKSt10unique_ptrI25nghttp2_session_callbacksN4node5http214Nghttp2DeleterIS0_XadL_Z29nghttp2_session_callbacks_delEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %callbacks) #3
   %call39 = call noundef ptr @_ZNK4node5http212Http2OptionsdeEv(ptr noundef nonnull align 8 dereferenceable(40) %opts)
-  %call40 = call noundef i32 %19(ptr noundef %session, ptr noundef %call38, ptr noundef %this3, ptr noundef %call39, ptr noundef %alloc_info)
+  %call40 = call noundef i32 %22(ptr noundef %session, ptr noundef %call38, ptr noundef %this3, ptr noundef %call39, ptr noundef %alloc_info)
   %cmp41 = icmp eq i32 %call40, 0
   %lnot = xor i1 %cmp41, true
   %lnot42 = xor i1 %lnot, true
@@ -12037,8 +12043,8 @@ do.cond46:                                        ; preds = %if.end
 
 do.end47:                                         ; preds = %do.cond46
   %session_48 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 4
-  %21 = load ptr, ptr %session, align 8
-  call void @_ZNSt10unique_ptrI15nghttp2_sessionN4node5http214Nghttp2DeleterIS0_XadL_Z19nghttp2_session_delEEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %session_48, ptr noundef %21) #3
+  %24 = load ptr, ptr %session, align 8
+  call void @_ZNSt10unique_ptrI15nghttp2_sessionN4node5http214Nghttp2DeleterIS0_XadL_Z19nghttp2_session_delEEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %session_48, ptr noundef %24) #3
   %outgoing_storage_49 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 25
   call void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %outgoing_storage_49, i64 noundef 1024)
   %outgoing_buffers_50 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this3, i32 0, i32 24
@@ -12052,8 +12058,8 @@ do.end47:                                         ; preds = %do.cond46
   %coerce.dive57 = getelementptr inbounds %"class.v8::Local.375", ptr %agg.tmp51, i32 0, i32 0
   %coerce.dive58 = getelementptr inbounds %"class.v8::LocalBase.376", ptr %coerce.dive57, i32 0, i32 0
   %coerce.dive59 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive58, i32 0, i32 0
-  %22 = load ptr, ptr %coerce.dive59, align 8
-  %call60 = call ptr @_ZN2v810Uint8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr %22, i64 noundef 0, i64 noundef 12)
+  %25 = load ptr, ptr %coerce.dive59, align 8
+  %call60 = call ptr @_ZN2v810Uint8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr %25, i64 noundef 0, i64 noundef 12)
   %coerce.dive61 = getelementptr inbounds %"class.v8::Local.377", ptr %uint8_arr, i32 0, i32 0
   %coerce.dive62 = getelementptr inbounds %"class.v8::LocalBase.378", ptr %coerce.dive61, i32 0, i32 0
   %coerce.dive63 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive62, i32 0, i32 0
@@ -12064,9 +12070,9 @@ do.end47:                                         ; preds = %do.cond46
   %this1.i106 = load ptr, ptr %this.addr.i105, align 8
   store ptr %this1.i106, ptr %this.addr.i.i104, align 8
   %this1.i.i107 = load ptr, ptr %this.addr.i.i104, align 8
-  %23 = load ptr, ptr %this1.i.i107, align 8
-  store ptr %23, ptr %slot.addr.i, align 8
-  %24 = load ptr, ptr %slot.addr.i, align 8
+  %26 = load ptr, ptr %this1.i.i107, align 8
+  store ptr %26, ptr %slot.addr.i, align 8
+  %27 = load ptr, ptr %slot.addr.i, align 8
   %call66 = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
   %call67 = call ptr @_ZNK4node11Environment7contextEv(ptr noundef nonnull align 8 dereferenceable(2872) %call66)
   %coerce.dive68 = getelementptr inbounds %"class.v8::Local.384", ptr %agg.tmp65, i32 0, i32 0
@@ -12082,41 +12088,41 @@ do.end47:                                         ; preds = %do.cond46
   %coerce.dive78 = getelementptr inbounds %"class.v8::Local.386", ptr %agg.tmp72, i32 0, i32 0
   %coerce.dive79 = getelementptr inbounds %"class.v8::LocalBase.387", ptr %coerce.dive78, i32 0, i32 0
   %coerce.dive80 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive79, i32 0, i32 0
-  %25 = load ptr, ptr %coerce.dive80, align 8
-  store ptr %25, ptr %that.i, align 8
+  %28 = load ptr, ptr %coerce.dive80, align 8
+  store ptr %28, ptr %that.i, align 8
   store ptr %agg.tmp71, ptr %this.addr.i98, align 8
   %this3.i = load ptr, ptr %this.addr.i98, align 8
   store ptr %this3.i, ptr %this.addr.i110, align 8
   store ptr %that.i, ptr %other.addr.i111, align 8
   %this1.i112 = load ptr, ptr %this.addr.i110, align 8
-  %26 = load ptr, ptr %other.addr.i111, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i112, ptr align 8 %26, i64 8, i1 false)
+  %29 = load ptr, ptr %other.addr.i111, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i112, ptr align 8 %29, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp82, ptr align 8 %uint8_arr, i64 8, i1 false)
   %coerce.dive83 = getelementptr inbounds %"class.v8::Local.377", ptr %agg.tmp82, i32 0, i32 0
   %coerce.dive84 = getelementptr inbounds %"class.v8::LocalBase.378", ptr %coerce.dive83, i32 0, i32 0
   %coerce.dive85 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive84, i32 0, i32 0
-  %27 = load ptr, ptr %coerce.dive85, align 8
-  store ptr %27, ptr %that.i99, align 8
+  %30 = load ptr, ptr %coerce.dive85, align 8
+  store ptr %30, ptr %that.i99, align 8
   store ptr %agg.tmp81, ptr %this.addr.i100, align 8
   %this3.i101 = load ptr, ptr %this.addr.i100, align 8
   store ptr %this3.i101, ptr %this.addr.i108, align 8
   store ptr %that.i99, ptr %other.addr.i, align 8
   %this1.i109 = load ptr, ptr %this.addr.i108, align 8
-  %28 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i109, ptr align 8 %28, i64 8, i1 false)
+  %31 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i109, ptr align 8 %31, i64 8, i1 false)
   %coerce.dive86 = getelementptr inbounds %"class.v8::Local.384", ptr %agg.tmp65, i32 0, i32 0
   %coerce.dive87 = getelementptr inbounds %"class.v8::LocalBase.385", ptr %coerce.dive86, i32 0, i32 0
   %coerce.dive88 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive87, i32 0, i32 0
-  %29 = load ptr, ptr %coerce.dive88, align 8
+  %32 = load ptr, ptr %coerce.dive88, align 8
   %coerce.dive89 = getelementptr inbounds %"class.v8::Local.371", ptr %agg.tmp71, i32 0, i32 0
   %coerce.dive90 = getelementptr inbounds %"class.v8::LocalBase.372", ptr %coerce.dive89, i32 0, i32 0
   %coerce.dive91 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive90, i32 0, i32 0
-  %30 = load ptr, ptr %coerce.dive91, align 8
+  %33 = load ptr, ptr %coerce.dive91, align 8
   %coerce.dive92 = getelementptr inbounds %"class.v8::Local.371", ptr %agg.tmp81, i32 0, i32 0
   %coerce.dive93 = getelementptr inbounds %"class.v8::LocalBase.372", ptr %coerce.dive92, i32 0, i32 0
   %coerce.dive94 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive93, i32 0, i32 0
-  %31 = load ptr, ptr %coerce.dive94, align 8
-  %call95 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr %29, ptr %30, ptr %31)
+  %34 = load ptr, ptr %coerce.dive94, align 8
+  %call95 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr %32, ptr %33, ptr %34)
   store i16 %call95, ptr %ref.tmp, align 1
   call void @_ZN4node3USEIN2v85MaybeIbEEEEvOT_(ptr noundef nonnull align 1 dereferenceable(2) %ref.tmp)
   call void @_ZN4node5http212Http2OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %opts) #3
@@ -12129,7 +12135,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 1
   store ptr null, ptr %stream_, align 8
   %previous_listener_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 2
@@ -12144,7 +12151,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node3mem22NgLibMemoryManagerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem18NgLibMemoryManagerINS_5http212Http2SessionE11nghttp2_memEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN4node3mem18NgLibMemoryManagerINS_5http212Http2SessionE11nghttp2_memEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12989,11 +12997,14 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %2 = getelementptr inbounds { [23 x ptr], [10 x ptr], [3 x ptr] }, ptr @_ZTVN4node5http212Http2SessionE, i32 0, i32 2, i32 2
+  store ptr %2, ptr %add.ptr2, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -13027,30 +13038,30 @@ do.cond7:                                         ; preds = %if.end
 do.end8:                                          ; preds = %do.cond7
   store ptr %this1, ptr %async_wrap.addr.i, align 8
   store ptr @.str.34, ptr %format.addr.i, align 8
-  %0 = load ptr, ptr %async_wrap.addr.i, align 8
-  %call.i = call noundef i32 @_ZNK4node9AsyncWrap13provider_typeEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  %3 = load ptr, ptr %async_wrap.addr.i, align 8
+  %call.i = call noundef i32 @_ZNK4node9AsyncWrap13provider_typeEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   store i32 %call.i, ptr %cat.i, align 4
-  %1 = load ptr, ptr %async_wrap.addr.i, align 8
-  %call1.i = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %4 = load ptr, ptr %async_wrap.addr.i, align 8
+  %call1.i = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
   %call2.i = call noundef ptr @_ZN4node11Environment18enabled_debug_listEv(ptr noundef nonnull align 8 dereferenceable(2872) %call1.i)
-  %2 = load i32, ptr %cat.i, align 4
+  %5 = load i32, ptr %cat.i, align 4
   store ptr %call2.i, ptr %this.addr.i33, align 8
-  store i32 %2, ptr %category.addr.i, align 4
+  store i32 %5, ptr %category.addr.i, align 4
   %this1.i34 = load ptr, ptr %this.addr.i33, align 8
-  %3 = load i32, ptr %category.addr.i, align 4
-  %idxprom.i = zext i32 %3 to i64
+  %6 = load i32, ptr %category.addr.i, align 4
+  %idxprom.i = zext i32 %6 to i64
   %arrayidx.i = getelementptr inbounds [75 x i8], ptr %this1.i34, i64 0, i64 %idxprom.i
-  %4 = load i8, ptr %arrayidx.i, align 1
-  %tobool.i = trunc i8 %4 to i1
+  %7 = load i8, ptr %arrayidx.i, align 1
+  %tobool.i = trunc i8 %7 to i1
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end8
   br label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
 
 if.end.i:                                         ; preds = %do.end8
-  %5 = load ptr, ptr %async_wrap.addr.i, align 8
-  %6 = load ptr, ptr %format.addr.i, align 8
-  call void @_ZN4node27UnconditionalAsyncWrapDebugIJEEEvPNS_9AsyncWrapEPKcDpOT_(ptr noundef %5, ptr noundef %6) #16
+  %8 = load ptr, ptr %async_wrap.addr.i, align 8
+  %9 = load ptr, ptr %format.addr.i, align 8
+  call void @_ZN4node27UnconditionalAsyncWrapDebugIJEEEvPNS_9AsyncWrapEPKcDpOT_(ptr noundef %8, ptr noundef %9) #16
   br label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
 
 _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %if.end.i, %if.then.i
@@ -13060,8 +13071,8 @@ _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %if.end.i, %if.then.
 
 do.body9:                                         ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
   %current_nghttp2_memory_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this1, i32 0, i32 10
-  %7 = load i64, ptr %current_nghttp2_memory_, align 8
-  %cmp = icmp eq i64 %7, 0
+  %10 = load i64, ptr %current_nghttp2_memory_, align 8
+  %cmp = icmp eq i64 %10, 0
   %lnot10 = xor i1 %cmp, true
   %lnot11 = xor i1 %lnot10, true
   %lnot12 = xor i1 %lnot11, true
@@ -13109,8 +13120,8 @@ do.end19:                                         ; preds = %do.cond18
   %this1.i22 = load ptr, ptr %this.addr.i21, align 8
   store ptr %this1.i22, ptr %this.addr.i27, align 8
   %this1.i28 = load ptr, ptr %this.addr.i27, align 8
-  %8 = load ptr, ptr %this1.i28, align 8
-  %cmp.i = icmp eq ptr %8, null
+  %11 = load ptr, ptr %this1.i28, align 8
+  %cmp.i = icmp eq ptr %11, null
   br i1 %cmp.i, label %if.then.i26, label %if.end.i24
 
 if.then.i26:                                      ; preds = %do.end19
@@ -13119,8 +13130,8 @@ if.then.i26:                                      ; preds = %do.end19
 if.end.i24:                                       ; preds = %do.end19
   store ptr %this1.i22, ptr %this.addr.i29, align 8
   %this1.i30 = load ptr, ptr %this.addr.i29, align 8
-  %9 = load ptr, ptr %this1.i30, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %9) #3
+  %12 = load ptr, ptr %this1.i30, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %12) #3
   store ptr %this1.i22, ptr %this.addr.i31, align 8
   %this1.i32 = load ptr, ptr %this.addr.i31, align 8
   store ptr null, ptr %this1.i32, align 8
@@ -13133,8 +13144,8 @@ _ZN2v814PersistentBaseINS_11ArrayBufferEE5ResetEv.exit: ; preds = %if.end.i24, %
   call void @_ZN4node13AliasedStructINS_5http215SessionJSFieldsEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %js_fields_) #3
   %session_20 = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrI15nghttp2_sessionN4node5http214Nghttp2DeleterIS0_XadL_Z19nghttp2_session_delEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %session_20) #3
-  %10 = getelementptr inbounds i8, ptr %this1, i64 56
-  call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %13 = getelementptr inbounds i8, ptr %this1, i64 56
+  call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   ret void
 }
@@ -24959,7 +24970,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %req_wrap = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 1
   call void @_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %req_wrap)
   %buf = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 2
@@ -24973,7 +24985,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %req_wrap = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 1
   call void @_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %req_wrap) #3
   call void @_ZN4node14MemoryRetainerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -27247,9 +27260,11 @@ entry:
   %3 = load ptr, ptr %session.addr, align 8
   %call7 = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   call void @_ZN4node10StreamBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %call7)
-  store ptr getelementptr inbounds ({ [29 x ptr], [20 x ptr] }, ptr @_ZTVN4node5http211Http2StreamE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %4 = getelementptr inbounds { [29 x ptr], [20 x ptr] }, ptr @_ZTVN4node5http211Http2StreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [29 x ptr], [20 x ptr] }, ptr @_ZTVN4node5http211Http2StreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %5 = getelementptr inbounds { [29 x ptr], [20 x ptr] }, ptr @_ZTVN4node5http211Http2StreamE, i32 0, i32 1, i32 2
+  store ptr %5, ptr %add.ptr, align 8
   %statistics_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 2
   %start_time = getelementptr inbounds %"struct.node::http2::Http2Stream::Statistics", ptr %statistics_, i32 0, i32 0
   store i64 0, ptr %start_time, align 8
@@ -27268,11 +27283,11 @@ entry:
   %id8 = getelementptr inbounds %"struct.node::http2::Http2Stream::Statistics", ptr %statistics_, i32 0, i32 7
   store i64 0, ptr %id8, align 8
   %session_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 3
-  %4 = load ptr, ptr %session.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %session_, ptr noundef %4)
+  %6 = load ptr, ptr %session.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %session_, ptr noundef %6)
   %id_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 4
-  %5 = load i32, ptr %id.addr, align 4
-  store i32 %5, ptr %id_, align 8
+  %7 = load i32, ptr %id.addr, align 4
+  store i32 %7, ptr %id_, align 8
   %code_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 5
   store i32 0, ptr %code_, align 4
   %flags_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 6
@@ -27282,8 +27297,8 @@ entry:
   %max_header_length_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 8
   store i32 65535, ptr %max_header_length_, align 8
   %current_headers_category_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 9
-  %6 = load i32, ptr %category.addr, align 4
-  store i32 %6, ptr %current_headers_category_, align 4
+  %8 = load i32, ptr %category.addr, align 4
+  store i32 %8, ptr %current_headers_category_, align 4
   %current_headers_length_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 10
   store i32 0, ptr %current_headers_length_, align 8
   %current_headers_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 11
@@ -27301,8 +27316,8 @@ entry:
   %add.ptr11 = getelementptr inbounds i8, ptr %this3, i64 56
   %vtable = load ptr, ptr %add.ptr11, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
-  %7 = load ptr, ptr %vfn, align 8
-  %call12 = call ptr %7(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr11)
+  %9 = load ptr, ptr %vfn, align 8
+  %call12 = call ptr %9(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr11)
   %coerce.dive13 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp10, i32 0, i32 0
   %coerce.dive14 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive13, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive14, i32 0, i32 0
@@ -27310,10 +27325,10 @@ entry:
   %coerce.dive16 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp10, i32 0, i32 0
   %coerce.dive17 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive16, i32 0, i32 0
   %coerce.dive18 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive17, i32 0, i32 0
-  %8 = load ptr, ptr %coerce.dive18, align 8
-  call void @_ZN4node10StreamBase14AttachToObjectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr9, ptr %8)
-  %9 = load i32, ptr %id.addr, align 4
-  %conv = sext i32 %9 to i64
+  %10 = load ptr, ptr %coerce.dive18, align 8
+  call void @_ZN4node10StreamBase14AttachToObjectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr9, ptr %10)
+  %11 = load i32, ptr %id.addr, align 4
+  %conv = sext i32 %11 to i64
   %statistics_19 = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 2
   %id20 = getelementptr inbounds %"struct.node::http2::Http2Stream::Statistics", ptr %statistics_19, i32 0, i32 7
   store i64 %conv, ptr %id20, align 8
@@ -27321,13 +27336,13 @@ entry:
   %statistics_22 = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 2
   %start_time23 = getelementptr inbounds %"struct.node::http2::Http2Stream::Statistics", ptr %statistics_22, i32 0, i32 0
   store i64 %call21, ptr %start_time23, align 8
-  %10 = load ptr, ptr %session.addr, align 8
-  %call24 = call noundef i32 @_ZNK4node5http212Http2Session16max_header_pairsEv(ptr noundef nonnull align 8 dereferenceable(640) %10)
+  %12 = load ptr, ptr %session.addr, align 8
+  %call24 = call noundef i32 @_ZNK4node5http212Http2Session16max_header_pairsEv(ptr noundef nonnull align 8 dereferenceable(640) %12)
   %max_header_pairs_25 = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 7
   store i32 %call24, ptr %max_header_pairs_25, align 4
   %max_header_pairs_26 = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 7
-  %11 = load i32, ptr %max_header_pairs_26, align 4
-  %cmp = icmp eq i32 %11, 0
+  %13 = load i32, ptr %max_header_pairs_26, align 4
+  %cmp = icmp eq i32 %13, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -27340,20 +27355,20 @@ if.end:                                           ; preds = %if.then, %entry
   %max_header_pairs_29 = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 7
   store i32 12, ptr %ref.tmp, align 4
   %call30 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %max_header_pairs_29, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  %12 = load i32, ptr %call30, align 4
-  %conv31 = zext i32 %12 to i64
+  %14 = load i32, ptr %call30, align 4
+  %conv31 = zext i32 %14 to i64
   call void @_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %current_headers_28, i64 noundef %conv31)
-  %13 = load ptr, ptr %session.addr, align 8
-  %call33 = call noundef ptr @_ZNK4node5http212Http2Session7sessionEv(ptr noundef nonnull align 8 dereferenceable(640) %13)
+  %15 = load ptr, ptr %session.addr, align 8
+  %call33 = call noundef ptr @_ZNK4node5http212Http2Session7sessionEv(ptr noundef nonnull align 8 dereferenceable(640) %15)
   %call34 = call i32 @nghttp2_session_get_local_settings(ptr noundef %call33, i32 noundef 6)
   store i32 %call34, ptr %ref.tmp32, align 4
   store i32 16777215, ptr %ref.tmp35, align 4
   %call36 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
-  %14 = load i32, ptr %call36, align 4
+  %16 = load i32, ptr %call36, align 4
   %max_header_length_37 = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 8
-  store i32 %14, ptr %max_header_length_37, align 8
-  %15 = load i32, ptr %options.addr, align 4
-  %and = and i32 %15, 2
+  store i32 %16, ptr %max_header_length_37, align 8
+  %17 = load i32, ptr %options.addr, align 4
+  %and = and i32 %17, 2
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then38, label %if.end39
 
@@ -27365,8 +27380,8 @@ if.end39:                                         ; preds = %if.then38, %if.end
   %add.ptr40 = getelementptr inbounds i8, ptr %this3, i64 56
   %stream_listener_41 = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this3, i32 0, i32 15
   call void @_ZN4node14StreamResource18PushStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr40, ptr noundef %stream_listener_41)
-  %16 = load i32, ptr %options.addr, align 4
-  %and42 = and i32 %16, 1
+  %18 = load i32, ptr %options.addr, align 4
+  %and42 = and i32 %18, 1
   %tobool43 = icmp ne i32 %and42, 0
   br i1 %tobool43, label %if.then44, label %if.end51
 
@@ -27383,13 +27398,13 @@ if.then44:                                        ; preds = %if.end39
   %coerce.dive47 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp46, i32 0, i32 0
   %coerce.dive48 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive47, i32 0, i32 0
   %coerce.dive49 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive48, i32 0, i32 0
-  %17 = load ptr, ptr %coerce.dive49, align 8
-  %call50 = call noundef i32 @_ZN4node10StreamBase8ShutdownEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr45, ptr %17)
+  %19 = load ptr, ptr %coerce.dive49, align 8
+  %call50 = call noundef i32 @_ZN4node10StreamBase8ShutdownEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr45, ptr %19)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then44, %if.end39
-  %18 = load ptr, ptr %session.addr, align 8
-  call void @_ZN4node5http212Http2Session9AddStreamEPNS0_11Http2StreamE(ptr noundef nonnull align 8 dereferenceable(640) %18, ptr noundef %this3)
+  %20 = load ptr, ptr %session.addr, align 8
+  call void @_ZN4node5http212Http2Session9AddStreamEPNS0_11Http2StreamE(ptr noundef nonnull align 8 dereferenceable(640) %20, ptr noundef %this3)
   ret void
 }
 
@@ -27402,10 +27417,11 @@ entry:
   store ptr %env, ptr %env.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14StreamResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %env.addr, align 8
-  store ptr %0, ptr %env_, align 8
+  %1 = load ptr, ptr %env.addr, align 8
+  store ptr %1, ptr %env_, align 8
   %default_listener_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 2
   call void @_ZN4node22EmitToJSStreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_) #3
   %default_listener_2 = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 2
@@ -27442,7 +27458,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14StreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node5http219Http2StreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node5http219Http2StreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27637,35 +27654,37 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [20 x ptr] }, ptr @_ZTVN4node5http211Http2StreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [29 x ptr], [20 x ptr] }, ptr @_ZTVN4node5http211Http2StreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [29 x ptr], [20 x ptr] }, ptr @_ZTVN4node5http211Http2StreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [29 x ptr], [20 x ptr] }, ptr @_ZTVN4node5http211Http2StreamE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   store ptr %this1, ptr %async_wrap.addr.i, align 8
   store ptr @.str.160, ptr %format.addr.i, align 8
-  %0 = load ptr, ptr %async_wrap.addr.i, align 8
-  %call.i = call noundef i32 @_ZNK4node9AsyncWrap13provider_typeEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  %2 = load ptr, ptr %async_wrap.addr.i, align 8
+  %call.i = call noundef i32 @_ZNK4node9AsyncWrap13provider_typeEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   store i32 %call.i, ptr %cat.i, align 4
-  %1 = load ptr, ptr %async_wrap.addr.i, align 8
-  %call1.i = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = load ptr, ptr %async_wrap.addr.i, align 8
+  %call1.i = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %call2.i = call noundef ptr @_ZN4node11Environment18enabled_debug_listEv(ptr noundef nonnull align 8 dereferenceable(2872) %call1.i)
-  %2 = load i32, ptr %cat.i, align 4
+  %4 = load i32, ptr %cat.i, align 4
   store ptr %call2.i, ptr %this.addr.i, align 8
-  store i32 %2, ptr %category.addr.i, align 4
+  store i32 %4, ptr %category.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %3 = load i32, ptr %category.addr.i, align 4
-  %idxprom.i = zext i32 %3 to i64
+  %5 = load i32, ptr %category.addr.i, align 4
+  %idxprom.i = zext i32 %5 to i64
   %arrayidx.i = getelementptr inbounds [75 x i8], ptr %this1.i, i64 0, i64 %idxprom.i
-  %4 = load i8, ptr %arrayidx.i, align 1
-  %tobool.i = trunc i8 %4 to i1
+  %6 = load i8, ptr %arrayidx.i, align 1
+  %tobool.i = trunc i8 %6 to i1
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   br label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
 
 if.end.i:                                         ; preds = %entry
-  %5 = load ptr, ptr %async_wrap.addr.i, align 8
-  %6 = load ptr, ptr %format.addr.i, align 8
-  call void @_ZN4node27UnconditionalAsyncWrapDebugIJEEEvPNS_9AsyncWrapEPKcDpOT_(ptr noundef %5, ptr noundef %6) #16
+  %7 = load ptr, ptr %async_wrap.addr.i, align 8
+  %8 = load ptr, ptr %format.addr.i, align 8
+  call void @_ZN4node27UnconditionalAsyncWrapDebugIJEEEvPNS_9AsyncWrapEPKcDpOT_(ptr noundef %7, ptr noundef %8) #16
   br label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
 
 _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %if.end.i, %if.then.i
@@ -27677,8 +27696,8 @@ _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %if.end.i, %if.then.
   call void @_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %current_headers_) #3
   %session_ = getelementptr inbounds %"class.node::http2::Http2Stream", ptr %this1, i32 0, i32 3
   call void @_ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %session_) #3
-  %7 = getelementptr inbounds i8, ptr %this1, i64 56
-  call void @_ZN4node10StreamBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
+  %9 = getelementptr inbounds i8, ptr %this1, i64 56
+  call void @_ZN4node10StreamBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   ret void
 }
@@ -27770,7 +27789,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %default_listener_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 2
   call void @_ZN4node22EmitToJSStreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_) #3
   call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -29907,7 +29927,8 @@ entry:
   store ptr %req_wrap, ptr %req_wrap.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %req_wrap2 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 1
   call void @_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %req_wrap2, ptr noundef nonnull align 8 dereferenceable(8) %req_wrap)
   %buf = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 2
@@ -30085,14 +30106,15 @@ entry:
   store ptr %stream, ptr %stream.addr, align 8
   store i32 %options, ptr %options.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %empty_ = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 2
   store i8 0, ptr %empty_, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %stream.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4node5http211Http2Stream12is_destroyedEv(ptr noundef nonnull align 8 dereferenceable(368) %0)
+  %1 = load ptr, ptr %stream.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK4node5http211Http2Stream12is_destroyedEv(ptr noundef nonnull align 8 dereferenceable(368) %1)
   %lnot = xor i1 %call, true
   %lnot2 = xor i1 %lnot, true
   %lnot3 = xor i1 %lnot2, true
@@ -30114,12 +30136,12 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end6
 
 do.end6:                                          ; preds = %if.end
-  %1 = load ptr, ptr %stream.addr, align 8
+  %2 = load ptr, ptr %stream.addr, align 8
   %provider_7 = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 1
   %source = getelementptr inbounds %struct.nghttp2_data_provider, ptr %provider_7, i32 0, i32 0
-  store ptr %1, ptr %source, align 8
-  %2 = load i32, ptr %options.addr, align 4
-  %and = and i32 %2, 1
+  store ptr %2, ptr %source, align 8
+  %3 = load i32, ptr %options.addr, align 4
+  %and = and i32 %3, 1
   %tobool = icmp ne i32 %and, 0
   %empty_8 = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 2
   %frombool = zext i1 %tobool to i8
@@ -30135,14 +30157,15 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %options, ptr %options.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %empty_ = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 2
   store i8 0, ptr %empty_, align 8
   %provider_2 = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 1
   %source = getelementptr inbounds %struct.nghttp2_data_provider, ptr %provider_2, i32 0, i32 0
   store ptr null, ptr %source, align 8
-  %0 = load i32, ptr %options.addr, align 4
-  %and = and i32 %0, 1
+  %1 = load i32, ptr %options.addr, align 4
+  %and = and i32 %1, 1
   %tobool = icmp ne i32 %and, 0
   %empty_3 = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 2
   %frombool = zext i1 %tobool to i8
@@ -30156,7 +30179,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %provider_ = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 1
   %source = getelementptr inbounds %struct.nghttp2_data_provider, ptr %provider_, i32 0, i32 0
   store ptr null, ptr %source, align 8
@@ -30184,7 +30208,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %options.addr, align 4
   call void @_ZN4node5http211Http2Stream8ProviderC2Ei(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %provider_ = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 1
   %read_callback = getelementptr inbounds %struct.nghttp2_data_provider, ptr %provider_, i32 0, i32 1
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback, align 8
@@ -30684,7 +30709,8 @@ entry:
   %0 = load ptr, ptr %stream.addr, align 8
   %1 = load i32, ptr %options.addr, align 4
   call void @_ZN4node5http211Http2Stream8ProviderC2EPS1_i(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %provider_ = getelementptr inbounds %"class.node::http2::Http2Stream::Provider", ptr %this1, i32 0, i32 1
   %read_callback = getelementptr inbounds %struct.nghttp2_data_provider, ptr %provider_, i32 0, i32 1
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback, align 8
@@ -45596,10 +45622,11 @@ entry:
   %coerce.dive9 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive8, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive9, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this6, ptr noundef %call, ptr %1, i32 noundef 15, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node5http29Http2PingE, i32 0, i32 0, i32 2), ptr %this6, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node5http29Http2PingE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this6, align 8
   %session_ = getelementptr inbounds %"class.node::http2::Http2Ping", ptr %this6, i32 0, i32 1
-  %2 = load ptr, ptr %session.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %session_, ptr noundef %2)
+  %3 = load ptr, ptr %session.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %session_, ptr noundef %3)
   %callback_ = getelementptr inbounds %"class.node::http2::Http2Ping", ptr %this6, i32 0, i32 2
   store ptr %callback_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -45622,8 +45649,8 @@ entry:
   %this1.i25 = load ptr, ptr %this.addr.i24, align 8
   store ptr %this1.i25, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %3 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %if.then.i27, label %if.end.i26
 
 if.then.i27:                                      ; preds = %entry
@@ -45632,28 +45659,28 @@ if.then.i27:                                      ; preds = %entry
 if.end.i26:                                       ; preds = %entry
   store ptr %this1.i25, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %4 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %4) #3
+  %5 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %5) #3
   store ptr %this1.i25, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
   br label %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
 
 _ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit: ; preds = %if.end.i26, %if.then.i27
-  %5 = load ptr, ptr %other.addr.i, align 8
-  store ptr %5, ptr %this.addr.i16, align 8
+  %6 = load ptr, ptr %other.addr.i, align 8
+  store ptr %6, ptr %this.addr.i16, align 8
   %this1.i17 = load ptr, ptr %this.addr.i16, align 8
-  %6 = load ptr, ptr %this1.i17, align 8
-  %cmp.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %this1.i17, align 8
+  %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
   br label %_ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
 
 if.end.i:                                         ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit
-  %7 = load ptr, ptr %isolate.addr.i, align 8
-  %8 = load ptr, ptr %other.addr.i, align 8
-  store ptr %8, ptr %this.addr.i32, align 8
+  %8 = load ptr, ptr %isolate.addr.i, align 8
+  %9 = load ptr, ptr %other.addr.i, align 8
+  store ptr %9, ptr %this.addr.i32, align 8
   %this1.i33 = load ptr, ptr %this.addr.i32, align 8
   store ptr %this1.i33, ptr %this.addr.i37, align 8
   %this1.i38 = load ptr, ptr %this.addr.i37, align 8
@@ -45661,16 +45688,16 @@ if.end.i:                                         ; preds = %_ZN2v814PersistentB
   %this1.i41 = load ptr, ptr %this.addr.i40, align 8
   store ptr %this1.i41, ptr %this.addr.i.i39, align 8
   %this1.i.i42 = load ptr, ptr %this.addr.i.i39, align 8
-  %9 = load ptr, ptr %this1.i.i42, align 8
-  store ptr %9, ptr %slot.addr.i, align 8
-  %10 = load ptr, ptr %slot.addr.i, align 8
-  store ptr %7, ptr %isolate.addr.i28, align 8
-  store ptr %10, ptr %that.addr.i, align 8
-  %11 = load ptr, ptr %that.addr.i, align 8
-  store ptr %11, ptr %value.addr.i, align 8
-  %12 = load ptr, ptr %value.addr.i, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %cmp.i35 = icmp eq i64 %13, 0
+  %10 = load ptr, ptr %this1.i.i42, align 8
+  store ptr %10, ptr %slot.addr.i, align 8
+  %11 = load ptr, ptr %slot.addr.i, align 8
+  store ptr %8, ptr %isolate.addr.i28, align 8
+  store ptr %11, ptr %that.addr.i, align 8
+  %12 = load ptr, ptr %that.addr.i, align 8
+  store ptr %12, ptr %value.addr.i, align 8
+  %13 = load ptr, ptr %value.addr.i, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %cmp.i35 = icmp eq i64 %14, 0
   br i1 %cmp.i35, label %if.then.i31, label %if.end.i29
 
 if.then.i31:                                      ; preds = %if.end.i
@@ -45678,20 +45705,20 @@ if.then.i31:                                      ; preds = %if.end.i
   br label %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i29:                                       ; preds = %if.end.i
-  %14 = load ptr, ptr %isolate.addr.i28, align 8
-  %15 = load ptr, ptr %that.addr.i, align 8
-  store ptr %15, ptr %value.addr.i36, align 8
-  %16 = load ptr, ptr %value.addr.i36, align 8
-  %17 = load i64, ptr %16, align 8
-  %call2.i30 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %14, i64 noundef %17) #3
+  %15 = load ptr, ptr %isolate.addr.i28, align 8
+  %16 = load ptr, ptr %that.addr.i, align 8
+  store ptr %16, ptr %value.addr.i36, align 8
+  %17 = load ptr, ptr %value.addr.i36, align 8
+  %18 = load i64, ptr %17, align 8
+  %call2.i30 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %15, i64 noundef %18) #3
   store ptr %call2.i30, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i29, %if.then.i31
-  %18 = load ptr, ptr %retval.i, align 8
+  %19 = load ptr, ptr %retval.i, align 8
   store ptr %this1.i15, ptr %this.addr.i22, align 8
   %this1.i23 = load ptr, ptr %this.addr.i22, align 8
-  store ptr %18, ptr %this1.i23, align 8
+  store ptr %19, ptr %this1.i23, align 8
   br label %_ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
 
 _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit: ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE3NewEPNS_7IsolateEPS1_.exit, %if.then.i
@@ -98836,7 +98863,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node5http210Http2StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node5http210Http2StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %settings_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this1, i32 0, i32 7
   call void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %settings_buffer) #3
   %options_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this1, i32 0, i32 6
@@ -99017,7 +99045,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node5http213Http2SettingsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node5http213Http2SettingsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::http2::Http2Settings", ptr %this1, i32 0, i32 2
   store ptr %callback_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -99025,8 +99054,8 @@ entry:
   %this1.i3 = load ptr, ptr %this.addr.i2, align 8
   store ptr %this1.i3, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %0 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -99035,8 +99064,8 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   store ptr %this1.i3, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %1 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %1) #3
+  %2 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
   store ptr %this1.i3, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
@@ -99278,7 +99307,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node5http29Http2PingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node5http29Http2PingE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::http2::Http2Ping", ptr %this1, i32 0, i32 2
   store ptr %callback_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -99286,8 +99316,8 @@ entry:
   %this1.i3 = load ptr, ptr %this.addr.i2, align 8
   store ptr %this1.i3, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %0 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -99296,8 +99326,8 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   store ptr %this1.i3, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %1 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %1) #3
+  %2 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
   store ptr %this1.i3, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
@@ -100294,7 +100324,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem22NgLibMemoryManagerBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN4node3mem22NgLibMemoryManagerBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -102539,7 +102570,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -102550,14 +102582,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -102639,7 +102671,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -105350,7 +105383,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -105524,7 +105558,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %listener_ = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 1
   store ptr null, ptr %listener_, align 8
   %bytes_read_ = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 2
@@ -105541,7 +105576,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node30ReportWritesToJSStreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22EmitToJSStreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node22EmitToJSStreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -105552,7 +105588,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14StreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node30ReportWritesToJSStreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node30ReportWritesToJSStreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -107383,14 +107420,15 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN4node14MemoryRetainerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %req_wrap = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %req_wrap2 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %req_wrap2 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %3, i32 0, i32 1
   call void @_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %req_wrap, ptr noundef nonnull align 8 dereferenceable(8) %req_wrap2)
   %buf = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %buf3 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %buf3 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %4, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 %buf3, i64 16, i1 false)
   ret void
 }
@@ -107403,7 +107441,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -108207,7 +108246,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp2_rcbufb(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef null, i1 noundef zeroext false)
   call void @_ZN4node14MemoryRetainerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
@@ -111942,10 +111982,11 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %retainer.addr, align 8
-  store ptr %0, ptr %retainer_, align 8
+  %1 = load ptr, ptr %retainer.addr, align 8
+  store ptr %1, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr null, ptr %wrapper_node_, align 8
   %is_root_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
@@ -111958,8 +111999,8 @@ entry:
 
 do.body:                                          ; preds = %entry
   %retainer_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %retainer_2, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %retainer_2, align 8
+  %cmp = icmp ne ptr %2, null
   %lnot = xor i1 %cmp, true
   %lnot3 = xor i1 %lnot, true
   %lnot4 = xor i1 %lnot3, true
@@ -111980,72 +112021,72 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end6
 
 do.end6:                                          ; preds = %if.end
-  %2 = load ptr, ptr %tracker.addr, align 8
-  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %3 = load ptr, ptr %tracker.addr, align 8
+  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %3)
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %call)
   %retainer_7 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %retainer_7, align 8
-  %vtable = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %retainer_7, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %4 = load ptr, ptr %vfn, align 8
-  %call8 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = load ptr, ptr %vfn, align 8
+  %call8 = call ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %coerce.dive = getelementptr inbounds %"class.v8::Local", ptr %obj, i32 0, i32 0
   %coerce.dive9 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive9, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive10, align 8
   store ptr %obj, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %5 = load ptr, ptr %this1.i, align 8
-  %cmp.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %this1.i, align 8
+  %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %if.end21, label %if.then12
 
 if.then12:                                        ; preds = %do.end6
-  %6 = load ptr, ptr %tracker.addr, align 8
-  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %6)
+  %7 = load ptr, ptr %tracker.addr, align 8
+  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %obj, i64 8, i1 false)
   %coerce.dive14 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive14, i32 0, i32 0
   %coerce.dive16 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive15, i32 0, i32 0
-  %7 = load ptr, ptr %coerce.dive16, align 8
-  store ptr %7, ptr %that.i, align 8
+  %8 = load ptr, ptr %coerce.dive16, align 8
+  store ptr %8, ptr %that.i, align 8
   store ptr %ref.tmp, ptr %this.addr.i36, align 8
   %this3.i = load ptr, ptr %this.addr.i36, align 8
   store ptr %this3.i, ptr %this.addr.i37, align 8
   store ptr %that.i, ptr %other.addr.i, align 8
   %this1.i38 = load ptr, ptr %this.addr.i37, align 8
-  %8 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %8, i64 8, i1 false)
+  %9 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %9, i64 8, i1 false)
   %vtable17 = load ptr, ptr %call13, align 8
   %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 0
-  %9 = load ptr, ptr %vfn18, align 8
-  %call19 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %10 = load ptr, ptr %vfn18, align 8
+  %call19 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %wrapper_node_20 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr %call19, ptr %wrapper_node_20, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then12, %do.end6
   %retainer_22 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %retainer_22, align 8
-  %vtable23 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %retainer_22, align 8
+  %vtable23 = load ptr, ptr %11, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 3
-  %11 = load ptr, ptr %vfn24, align 8
-  %call25 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load ptr, ptr %vfn24, align 8
+  %call25 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
   store ptr %call25, ptr %name_, align 8
   %retainer_26 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %retainer_26, align 8
-  %vtable27 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %retainer_26, align 8
+  %vtable27 = load ptr, ptr %13, align 8
   %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 4
-  %13 = load ptr, ptr %vfn28, align 8
-  %call29 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = load ptr, ptr %vfn28, align 8
+  %call29 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %size_30 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
   store i64 %call29, ptr %size_30, align 8
   %retainer_31 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %retainer_31, align 8
-  %vtable32 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %retainer_31, align 8
+  %vtable32 = load ptr, ptr %15, align 8
   %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 7
-  %15 = load ptr, ptr %vfn33, align 8
-  %call34 = call noundef zeroext i8 %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %16 = load ptr, ptr %vfn33, align 8
+  %call34 = call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   %detachedness_35 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 %call34, ptr %detachedness_35, align 8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #3
@@ -114541,7 +114582,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %js_array_ = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 5
   store ptr %js_array_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -114549,8 +114591,8 @@ entry:
   %this1.i3 = load ptr, ptr %this.addr.i2, align 8
   store ptr %this1.i3, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %0 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -114559,8 +114601,8 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   store ptr %this1.i3, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %1 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %1) #3
+  %2 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
   store ptr %this1.i3, ptr %this.addr.i4, align 8
   %this1.i5 = load ptr, ptr %this.addr.i4, align 8
   store ptr null, ptr %this1.i5, align 8
@@ -114582,7 +114624,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %js_array_ = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 5
   store ptr %js_array_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -114590,8 +114633,8 @@ entry:
   %this1.i3 = load ptr, ptr %this.addr.i2, align 8
   store ptr %this1.i3, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %0 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -114600,8 +114643,8 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   store ptr %this1.i3, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %1 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %1) #3
+  %2 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
   store ptr %this1.i3, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
@@ -114623,7 +114666,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %js_array_ = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 5
   store ptr %js_array_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -114631,8 +114675,8 @@ entry:
   %this1.i3 = load ptr, ptr %this.addr.i2, align 8
   store ptr %this1.i3, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %0 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -114641,8 +114685,8 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   store ptr %this1.i3, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %1 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %1) #3
+  %2 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %2) #3
   store ptr %this1.i3, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
@@ -116606,10 +116650,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
 }
 
@@ -116619,7 +116664,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -120269,14 +120315,15 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN4node14MemoryRetainerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %req_wrap = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %req_wrap2 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %req_wrap2 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %3, i32 0, i32 1
   call void @_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %req_wrap, ptr noundef nonnull align 8 dereferenceable(8) %req_wrap2)
   %buf = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %buf3 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %buf3 = getelementptr inbounds %"struct.node::http2::NgHttp2StreamWrite", ptr %4, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 %buf3, i64 16, i1 false)
   ret void
 }
@@ -122064,10 +122111,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @"_ZZN4node5http211Http2Stream14EmitStatisticsEvEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(8) %callback_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @"_ZZN4node5http211Http2Stream14EmitStatisticsEvEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(8) %callback_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   ret void
 }
 
@@ -122093,10 +122141,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %flags, ptr %flags.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %flags.addr, align 4
-  store i32 %0, ptr %flags_, align 8
+  %1 = load i32, ptr %flags.addr, align 4
+  store i32 %1, ptr %flags_, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -122172,7 +122221,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -123919,10 +123969,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session14EmitStatisticsEvE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session14EmitStatisticsEvE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.603", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @"_ZZN4node5http212Http2Session14EmitStatisticsEvEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(8) %callback_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @"_ZZN4node5http212Http2Session14EmitStatisticsEvEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(8) %callback_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   ret void
 }
 
@@ -125394,10 +125445,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.614", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @"_ZZN4node5http212Http2Session5CloseEjbEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(8) %callback_, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @"_ZZN4node5http212Http2Session5CloseEjbEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(8) %callback_, ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret void
 }
 
@@ -133720,13 +133772,14 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_ = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buf_, align 8
   %internalizable_ = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %this1, i32 0, i32 2
   store i8 0, ptr %internalizable_, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %call = call noundef ptr @_ZNK4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE3getEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %1 = load ptr, ptr %other.addr, align 8
+  %call = call noundef ptr @_ZNK4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE3getEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
   call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp2_rcbufb(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
   ret void
 }
@@ -135298,10 +135351,11 @@ entry:
   store ptr %ptr, ptr %ptr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String29ExternalOneByteStringResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::NgRcBufPointer<node::http2::Http2RcBufferPointerTraits>::External", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(17) %ptr_, ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %1 = load ptr, ptr %ptr.addr, align 8
+  call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(17) %ptr_, ptr noundef nonnull align 8 dereferenceable(17) %1)
   ret void
 }
 
@@ -135352,7 +135406,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v86String26ExternalStringResourceBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v86String29ExternalOneByteStringResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN2v86String29ExternalOneByteStringResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_data_ = getelementptr inbounds %"class.v8::String::ExternalOneByteStringResource", ptr %this1, i32 0, i32 1
   store ptr null, ptr %cached_data_, align 8
   ret void
@@ -135364,7 +135419,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::NgRcBufPointer<node::http2::Http2RcBufferPointerTraits>::External", ptr %this1, i32 0, i32 1
   call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %ptr_) #3
   call void @_ZN2v86String29ExternalOneByteStringResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -135454,7 +135510,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v86String26ExternalStringResourceBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN2v86String26ExternalStringResourceBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -136115,10 +136172,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.640", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -139812,38 +139870,39 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node12NgHeaderBaseINS_5http212Http2SessionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %env_2 = getelementptr inbounds %"class.node::NgHeader", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %env_2, align 8
-  store ptr %1, ptr %env_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %env_2 = getelementptr inbounds %"class.node::NgHeader", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %env_2, align 8
+  store ptr %2, ptr %env_, align 8
   %name_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %name_3 = getelementptr inbounds %"class.node::NgHeader", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %other.addr, align 8
+  %name_3 = getelementptr inbounds %"class.node::NgHeader", ptr %3, i32 0, i32 2
   call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(17) %name_, ptr noundef nonnull align 8 dereferenceable(17) %name_3)
   %value_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %other.addr, align 8
-  %value_4 = getelementptr inbounds %"class.node::NgHeader", ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %other.addr, align 8
+  %value_4 = getelementptr inbounds %"class.node::NgHeader", ptr %4, i32 0, i32 3
   call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(17) %value_, ptr noundef nonnull align 8 dereferenceable(17) %value_4)
   %token_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %other.addr, align 8
-  %token_5 = getelementptr inbounds %"class.node::NgHeader", ptr %4, i32 0, i32 4
-  %5 = load i32, ptr %token_5, align 8
-  store i32 %5, ptr %token_, align 8
+  %5 = load ptr, ptr %other.addr, align 8
+  %token_5 = getelementptr inbounds %"class.node::NgHeader", ptr %5, i32 0, i32 4
+  %6 = load i32, ptr %token_5, align 8
+  store i32 %6, ptr %token_, align 8
   %flags_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %other.addr, align 8
-  %flags_6 = getelementptr inbounds %"class.node::NgHeader", ptr %6, i32 0, i32 5
-  %7 = load i8, ptr %flags_6, align 4
-  store i8 %7, ptr %flags_, align 4
-  %8 = load ptr, ptr %other.addr, align 8
-  %token_7 = getelementptr inbounds %"class.node::NgHeader", ptr %8, i32 0, i32 4
-  store i32 -1, ptr %token_7, align 8
+  %7 = load ptr, ptr %other.addr, align 8
+  %flags_6 = getelementptr inbounds %"class.node::NgHeader", ptr %7, i32 0, i32 5
+  %8 = load i8, ptr %flags_6, align 4
+  store i8 %8, ptr %flags_, align 4
   %9 = load ptr, ptr %other.addr, align 8
-  %flags_8 = getelementptr inbounds %"class.node::NgHeader", ptr %9, i32 0, i32 5
-  store i8 0, ptr %flags_8, align 4
+  %token_7 = getelementptr inbounds %"class.node::NgHeader", ptr %9, i32 0, i32 4
+  store i32 -1, ptr %token_7, align 8
   %10 = load ptr, ptr %other.addr, align 8
-  %env_9 = getelementptr inbounds %"class.node::NgHeader", ptr %10, i32 0, i32 1
+  %flags_8 = getelementptr inbounds %"class.node::NgHeader", ptr %10, i32 0, i32 5
+  store i8 0, ptr %flags_8, align 4
+  %11 = load ptr, ptr %other.addr, align 8
+  %env_9 = getelementptr inbounds %"class.node::NgHeader", ptr %11, i32 0, i32 1
   store ptr null, ptr %env_9, align 8
   ret void
 }
@@ -139855,7 +139914,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4node12NgHeaderBaseINS_5http212Http2SessionEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN4node12NgHeaderBaseINS_5http212Http2SessionEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -139868,22 +139928,23 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_ = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buf_, align 8
   %internalizable_ = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %this1, i32 0, i32 2
   store i8 0, ptr %internalizable_, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr noundef nonnull align 8 dereferenceable(17) %this1) #3
-  %1 = load ptr, ptr %other.addr, align 8
-  %buf_2 = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %buf_2, align 8
+  %1 = load ptr, ptr %vfn, align 8
+  call void %1(ptr noundef nonnull align 8 dereferenceable(17) %this1) #3
+  %2 = load ptr, ptr %other.addr, align 8
+  %buf_2 = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %buf_2, align 8
   %buf_3 = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %this1, i32 0, i32 1
-  store ptr %2, ptr %buf_3, align 8
-  %3 = load ptr, ptr %other.addr, align 8
-  %buf_4 = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %3, i32 0, i32 1
+  store ptr %3, ptr %buf_3, align 8
+  %4 = load ptr, ptr %other.addr, align 8
+  %buf_4 = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %4, i32 0, i32 1
   store ptr null, ptr %buf_4, align 8
   ret void
 }
@@ -140929,10 +140990,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.657", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0C2EOS2_"(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -141799,30 +141861,31 @@ entry:
   store i8 %flags, ptr %flags.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node12NgHeaderBaseINS_5http212Http2SessionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %env.addr, align 8
-  store ptr %0, ptr %env_, align 8
+  %1 = load ptr, ptr %env.addr, align 8
+  store ptr %1, ptr %env_, align 8
   %name_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 2
   call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %name_) #3
   %value_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 3
   call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %value_) #3
   %token_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %token.addr, align 4
-  store i32 %1, ptr %token_, align 8
+  %2 = load i32, ptr %token.addr, align 4
+  store i32 %2, ptr %token_, align 8
   %flags_ = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 5
-  %2 = load i8, ptr %flags.addr, align 1
-  store i8 %2, ptr %flags_, align 4
-  %3 = load i32, ptr %token.addr, align 4
-  %cmp = icmp eq i32 %3, -1
+  %3 = load i8, ptr %flags.addr, align 1
+  store i8 %3, ptr %flags_, align 4
+  %4 = load i32, ptr %token.addr, align 4
+  %cmp = icmp eq i32 %4, -1
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  %4 = load ptr, ptr %name.addr, align 8
-  %cmp2 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %name.addr, align 8
+  %cmp2 = icmp ne ptr %5, null
   %lnot = xor i1 %cmp2, true
   %lnot3 = xor i1 %lnot, true
   %lnot4 = xor i1 %lnot3, true
@@ -141844,16 +141907,16 @@ if.end:                                           ; preds = %do.end, %do.body
 
 do.end7:                                          ; preds = %if.end
   %name_8 = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %name.addr, align 8
-  call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp2_rcbufb(ptr noundef nonnull align 8 dereferenceable(17) %name_8, ptr noundef %5, i1 noundef zeroext true)
+  %6 = load ptr, ptr %name.addr, align 8
+  call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp2_rcbufb(ptr noundef nonnull align 8 dereferenceable(17) %name_8, ptr noundef %6, i1 noundef zeroext true)
   br label %if.end9
 
 if.end9:                                          ; preds = %do.end7, %entry
   br label %do.body10
 
 do.body10:                                        ; preds = %if.end9
-  %6 = load ptr, ptr %value.addr, align 8
-  %cmp11 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %value.addr, align 8
+  %cmp11 = icmp ne ptr %7, null
   %lnot12 = xor i1 %cmp11, true
   %lnot13 = xor i1 %lnot12, true
   %lnot14 = xor i1 %lnot13, true
@@ -141875,11 +141938,11 @@ if.end18:                                         ; preds = %do.end17, %do.body1
 
 do.end19:                                         ; preds = %if.end18
   %name_20 = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %name.addr, align 8
-  call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp2_rcbufb(ptr noundef nonnull align 8 dereferenceable(17) %name_20, ptr noundef %7, i1 noundef zeroext true)
+  %8 = load ptr, ptr %name.addr, align 8
+  call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp2_rcbufb(ptr noundef nonnull align 8 dereferenceable(17) %name_20, ptr noundef %8, i1 noundef zeroext true)
   %value_21 = getelementptr inbounds %"class.node::NgHeader", ptr %this1, i32 0, i32 3
-  %8 = load ptr, ptr %value.addr, align 8
-  call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp2_rcbufb(ptr noundef nonnull align 8 dereferenceable(17) %value_21, ptr noundef %8, i1 noundef zeroext false)
+  %9 = load ptr, ptr %value.addr, align 8
+  call void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp2_rcbufb(ptr noundef nonnull align 8 dereferenceable(17) %value_21, ptr noundef %9, i1 noundef zeroext false)
   ret void
 }
 
@@ -141890,7 +141953,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_ = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buf_, align 8
   %internalizable_ = getelementptr inbounds %"class.node::NgRcBufPointer", ptr %this1, i32 0, i32 2
@@ -144238,39 +144302,40 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node5http210Http2StateE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN4node5http210Http2StateE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %root_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %realm.addr, align 8
-  %call = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %2)
+  %3 = load ptr, ptr %realm.addr, align 8
+  %call = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %3)
   call void @_ZN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEC2EPNS1_7IsolateEmPKm(ptr noundef nonnull align 8 dereferenceable(56) %root_buffer, ptr noundef %call, i64 noundef 320, ptr noundef null)
   %session_state_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 2
-  %3 = load ptr, ptr %realm.addr, align 8
-  %call7 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %3)
+  %4 = load ptr, ptr %realm.addr, align 8
+  %call7 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %4)
   %root_buffer8 = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 1
   call void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEEC2EPNS1_7IsolateEmmRKNS0_IhNS1_10Uint8ArrayEEEPKm(ptr noundef nonnull align 8 dereferenceable(56) %session_state_buffer, ptr noundef %call7, i64 noundef 0, i64 noundef 9, ptr noundef nonnull align 8 dereferenceable(56) %root_buffer8, ptr noundef null)
   %stream_state_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 3
-  %4 = load ptr, ptr %realm.addr, align 8
-  %call9 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %4)
+  %5 = load ptr, ptr %realm.addr, align 8
+  %call9 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %5)
   %root_buffer10 = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 1
   call void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEEC2EPNS1_7IsolateEmmRKNS0_IhNS1_10Uint8ArrayEEEPKm(ptr noundef nonnull align 8 dereferenceable(56) %stream_state_buffer, ptr noundef %call9, i64 noundef 72, i64 noundef 6, ptr noundef nonnull align 8 dereferenceable(56) %root_buffer10, ptr noundef null)
   %stream_stats_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 4
-  %5 = load ptr, ptr %realm.addr, align 8
-  %call11 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %5)
+  %6 = load ptr, ptr %realm.addr, align 8
+  %call11 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %6)
   %root_buffer12 = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 1
   call void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEEC2EPNS1_7IsolateEmmRKNS0_IhNS1_10Uint8ArrayEEEPKm(ptr noundef nonnull align 8 dereferenceable(56) %stream_stats_buffer, ptr noundef %call11, i64 noundef 120, i64 noundef 6, ptr noundef nonnull align 8 dereferenceable(56) %root_buffer12, ptr noundef null)
   %session_stats_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 5
-  %6 = load ptr, ptr %realm.addr, align 8
-  %call13 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %6)
+  %7 = load ptr, ptr %realm.addr, align 8
+  %call13 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %7)
   %root_buffer14 = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 1
   call void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEEC2EPNS1_7IsolateEmmRKNS0_IhNS1_10Uint8ArrayEEEPKm(ptr noundef nonnull align 8 dereferenceable(56) %session_stats_buffer, ptr noundef %call13, i64 noundef 168, i64 noundef 9, ptr noundef nonnull align 8 dereferenceable(56) %root_buffer14, ptr noundef null)
   %options_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 6
-  %7 = load ptr, ptr %realm.addr, align 8
-  %call15 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %7)
+  %8 = load ptr, ptr %realm.addr, align 8
+  %call15 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %8)
   %root_buffer16 = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 1
   call void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEC2EPNS1_7IsolateEmmRKNS0_IhNS1_10Uint8ArrayEEEPKm(ptr noundef nonnull align 8 dereferenceable(56) %options_buffer, ptr noundef %call15, i64 noundef 240, i64 noundef 11, ptr noundef nonnull align 8 dereferenceable(56) %root_buffer16, ptr noundef null)
   %settings_buffer = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 7
-  %8 = load ptr, ptr %realm.addr, align 8
-  %call17 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %8)
+  %9 = load ptr, ptr %realm.addr, align 8
+  %call17 = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %9)
   %root_buffer18 = getelementptr inbounds %"class.node::http2::Http2State", ptr %this3, i32 0, i32 1
   call void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEC2EPNS1_7IsolateEmmRKNS0_IhNS1_10Uint8ArrayEEEPKm(ptr noundef nonnull align 8 dereferenceable(56) %settings_buffer, ptr noundef %call17, i64 noundef 284, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(56) %root_buffer18, ptr noundef null)
   ret void
@@ -144405,13 +144470,14 @@ entry:
   store ptr %index, ptr %index.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isolate_ = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %isolate.addr, align 8
-  store ptr %0, ptr %isolate_, align 8
+  %1 = load ptr, ptr %isolate.addr, align 8
+  store ptr %1, ptr %isolate_, align 8
   %count_ = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %count.addr, align 8
-  store i64 %1, ptr %count_, align 8
+  %2 = load i64, ptr %count.addr, align 8
+  store i64 %2, ptr %count_, align 8
   %byte_offset_ = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 3
   store i64 0, ptr %byte_offset_, align 8
   %buffer_ = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 4
@@ -144425,13 +144491,13 @@ entry:
   %this1.i.i56 = load ptr, ptr %this.addr.i.i53, align 8
   store ptr null, ptr %this1.i.i56, align 8
   %index_ = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %index.addr, align 8
-  store ptr %2, ptr %index_, align 8
+  %3 = load ptr, ptr %index.addr, align 8
+  store ptr %3, ptr %index_, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %3 = load i64, ptr %count.addr, align 8
-  %cmp = icmp ugt i64 %3, 0
+  %4 = load i64, ptr %count.addr, align 8
+  %cmp = icmp ugt i64 %4, 0
   %lnot = xor i1 %cmp, true
   %lnot2 = xor i1 %lnot, true
   %lnot3 = xor i1 %lnot2, true
@@ -144452,8 +144518,8 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end5
 
 do.end5:                                          ; preds = %if.end
-  %4 = load ptr, ptr %index.addr, align 8
-  %cmp6 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %index.addr, align 8
+  %cmp6 = icmp ne ptr %5, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %do.end5
@@ -144461,15 +144527,15 @@ if.then7:                                         ; preds = %do.end5
 
 if.end8:                                          ; preds = %do.end5
   %isolate_9 = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %isolate_9, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %5)
-  %6 = load i64, ptr %count.addr, align 8
-  %call = call noundef i64 @_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_(i64 noundef 1, i64 noundef %6)
+  %6 = load ptr, ptr %isolate_9, align 8
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %6)
+  %7 = load i64, ptr %count.addr, align 8
+  %call = call noundef i64 @_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_(i64 noundef 1, i64 noundef %7)
   store i64 %call, ptr %size_in_bytes, align 8
   %isolate_10 = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %isolate_10, align 8
-  %8 = load i64, ptr %size_in_bytes, align 8
-  %call11 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef %7, i64 noundef %8)
+  %8 = load ptr, ptr %isolate_10, align 8
+  %9 = load i64, ptr %size_in_bytes, align 8
+  %call11 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef %8, i64 noundef %9)
   %coerce.dive = getelementptr inbounds %"class.v8::Local.375", ptr %ab, i32 0, i32 0
   %coerce.dive12 = getelementptr inbounds %"class.v8::LocalBase.376", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive13 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive12, i32 0, i32 0
@@ -144480,50 +144546,50 @@ if.end8:                                          ; preds = %do.end5
   %this1.i37 = load ptr, ptr %this.addr.i36, align 8
   store ptr %this1.i37, ptr %this.addr.i.i35, align 8
   %this1.i.i38 = load ptr, ptr %this.addr.i.i35, align 8
-  %9 = load ptr, ptr %this1.i.i38, align 8
-  store ptr %9, ptr %slot.addr.i, align 8
-  %10 = load ptr, ptr %slot.addr.i, align 8
-  %call15 = call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %10 = load ptr, ptr %this1.i.i38, align 8
+  store ptr %10, ptr %slot.addr.i, align 8
+  %11 = load ptr, ptr %slot.addr.i, align 8
+  %call15 = call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
   %buffer_16 = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 4
   store ptr %call15, ptr %buffer_16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %ab, i64 8, i1 false)
   %byte_offset_17 = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 3
-  %11 = load i64, ptr %byte_offset_17, align 8
-  %12 = load i64, ptr %count.addr, align 8
+  %12 = load i64, ptr %byte_offset_17, align 8
+  %13 = load i64, ptr %count.addr, align 8
   %coerce.dive18 = getelementptr inbounds %"class.v8::Local.375", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive19 = getelementptr inbounds %"class.v8::LocalBase.376", ptr %coerce.dive18, i32 0, i32 0
   %coerce.dive20 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive19, i32 0, i32 0
-  %13 = load ptr, ptr %coerce.dive20, align 8
-  %call21 = call ptr @_ZN2v810Uint8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr %13, i64 noundef %11, i64 noundef %12)
+  %14 = load ptr, ptr %coerce.dive20, align 8
+  %call21 = call ptr @_ZN2v810Uint8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr %14, i64 noundef %12, i64 noundef %13)
   %coerce.dive22 = getelementptr inbounds %"class.v8::Local.377", ptr %js_array, i32 0, i32 0
   %coerce.dive23 = getelementptr inbounds %"class.v8::LocalBase.378", ptr %coerce.dive22, i32 0, i32 0
   %coerce.dive24 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive23, i32 0, i32 0
   store ptr %call21, ptr %coerce.dive24, align 8
-  %14 = load ptr, ptr %isolate.addr, align 8
+  %15 = load ptr, ptr %isolate.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp25, ptr align 8 %js_array, i64 8, i1 false)
   %coerce.dive26 = getelementptr inbounds %"class.v8::Local.377", ptr %agg.tmp25, i32 0, i32 0
   %coerce.dive27 = getelementptr inbounds %"class.v8::LocalBase.378", ptr %coerce.dive26, i32 0, i32 0
   %coerce.dive28 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive27, i32 0, i32 0
-  %15 = load ptr, ptr %coerce.dive28, align 8
-  store ptr %15, ptr %that.i, align 8
+  %16 = load ptr, ptr %coerce.dive28, align 8
+  store ptr %16, ptr %that.i, align 8
   store ptr %ref.tmp, ptr %this.addr.i42, align 8
-  store ptr %14, ptr %isolate.addr.i, align 8
+  store ptr %15, ptr %isolate.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i42, align 8
-  %16 = load ptr, ptr %isolate.addr.i, align 8
+  %17 = load ptr, ptr %isolate.addr.i, align 8
   store ptr %that.i, ptr %this.addr.i.i41, align 8
   %this1.i.i43 = load ptr, ptr %this.addr.i.i41, align 8
   store ptr %this1.i.i43, ptr %this.addr.i.i.i, align 8
   %this1.i.i.i = load ptr, ptr %this.addr.i.i.i, align 8
-  %17 = load ptr, ptr %this1.i.i.i, align 8
-  store ptr %17, ptr %slot.addr.i.i, align 8
-  %18 = load ptr, ptr %slot.addr.i.i, align 8
-  store ptr %16, ptr %isolate.addr.i57, align 8
-  store ptr %18, ptr %that.addr.i, align 8
-  %19 = load ptr, ptr %that.addr.i, align 8
-  store ptr %19, ptr %value.addr.i.i, align 8
-  %20 = load ptr, ptr %value.addr.i.i, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %cmp.i.i58 = icmp eq i64 %21, 0
+  %18 = load ptr, ptr %this1.i.i.i, align 8
+  store ptr %18, ptr %slot.addr.i.i, align 8
+  %19 = load ptr, ptr %slot.addr.i.i, align 8
+  store ptr %17, ptr %isolate.addr.i57, align 8
+  store ptr %19, ptr %that.addr.i, align 8
+  %20 = load ptr, ptr %that.addr.i, align 8
+  store ptr %20, ptr %value.addr.i.i, align 8
+  %21 = load ptr, ptr %value.addr.i.i, align 8
+  %22 = ptrtoint ptr %21 to i64
+  %cmp.i.i58 = icmp eq i64 %22, 0
   br i1 %cmp.i.i58, label %if.then.i60, label %if.end.i59
 
 if.then.i60:                                      ; preds = %if.end8
@@ -144531,32 +144597,32 @@ if.then.i60:                                      ; preds = %if.end8
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i59:                                       ; preds = %if.end8
-  %22 = load ptr, ptr %isolate.addr.i57, align 8
-  %23 = load ptr, ptr %that.addr.i, align 8
-  store ptr %23, ptr %value.addr.i3.i, align 8
-  %24 = load ptr, ptr %value.addr.i3.i, align 8
-  %25 = load i64, ptr %24, align 8
-  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %22, i64 noundef %25) #3
+  %23 = load ptr, ptr %isolate.addr.i57, align 8
+  %24 = load ptr, ptr %that.addr.i, align 8
+  store ptr %24, ptr %value.addr.i3.i, align 8
+  %25 = load ptr, ptr %value.addr.i3.i, align 8
+  %26 = load i64, ptr %25, align 8
+  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %23, i64 noundef %26) #3
   store ptr %call2.i, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_10Uint8ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i59, %if.then.i60
-  %26 = load ptr, ptr %retval.i, align 8
+  %27 = load ptr, ptr %retval.i, align 8
   store ptr %this3.i, ptr %this.addr.i62, align 8
-  store ptr %26, ptr %location.addr.i, align 8
+  store ptr %27, ptr %location.addr.i, align 8
   %this1.i63 = load ptr, ptr %this.addr.i62, align 8
-  %27 = load ptr, ptr %location.addr.i, align 8
+  %28 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i63, ptr %this.addr.i.i61, align 8
-  store ptr %27, ptr %location.addr.i.i, align 8
+  store ptr %28, ptr %location.addr.i.i, align 8
   %this1.i.i64 = load ptr, ptr %this.addr.i.i61, align 8
-  %28 = load ptr, ptr %location.addr.i.i, align 8
-  store ptr %28, ptr %this1.i.i64, align 8
+  %29 = load ptr, ptr %location.addr.i.i, align 8
+  store ptr %29, ptr %this1.i.i64, align 8
   %js_array_29 = getelementptr inbounds %"class.node::AliasedBufferBase", ptr %this1, i32 0, i32 5
   store ptr %js_array_29, ptr %this.addr.i46, align 8
   store ptr %ref.tmp, ptr %rhs.addr.i, align 8
   %this1.i47 = load ptr, ptr %this.addr.i46, align 8
-  %29 = load ptr, ptr %rhs.addr.i, align 8
-  %cmp.i = icmp ne ptr %this1.i47, %29
+  %30 = load ptr, ptr %rhs.addr.i, align 8
+  %cmp.i = icmp ne ptr %this1.i47, %30
   br i1 %cmp.i, label %if.then.i48, label %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
 
 if.then.i48:                                      ; preds = %_ZN2v814PersistentBaseINS_10Uint8ArrayEE3NewEPNS_7IsolateEPS1_.exit
@@ -144564,8 +144630,8 @@ if.then.i48:                                      ; preds = %_ZN2v814PersistentB
   %this1.i19.i = load ptr, ptr %this.addr.i18.i, align 8
   store ptr %this1.i19.i, ptr %this.addr.i.i.i44, align 8
   %this1.i.i.i49 = load ptr, ptr %this.addr.i.i.i44, align 8
-  %30 = load ptr, ptr %this1.i.i.i49, align 8
-  %cmp.i.i.i = icmp eq ptr %30, null
+  %31 = load ptr, ptr %this1.i.i.i49, align 8
+  %cmp.i.i.i = icmp eq ptr %31, null
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i48
@@ -144574,37 +144640,37 @@ if.then.i.i:                                      ; preds = %if.then.i48
 if.end.i.i:                                       ; preds = %if.then.i48
   store ptr %this1.i19.i, ptr %this.addr.i3.i.i, align 8
   %this1.i4.i.i = load ptr, ptr %this.addr.i3.i.i, align 8
-  %31 = load ptr, ptr %this1.i4.i.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %31) #3
+  %32 = load ptr, ptr %this1.i4.i.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %32) #3
   store ptr %this1.i19.i, ptr %this.addr.i5.i.i, align 8
   %this1.i6.i.i = load ptr, ptr %this.addr.i5.i.i, align 8
   store ptr null, ptr %this1.i6.i.i, align 8
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i: ; preds = %if.end.i.i, %if.then.i.i
-  %32 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %32, ptr %this.addr.i.i45, align 8
+  %33 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %33, ptr %this.addr.i.i45, align 8
   %this1.i.i50 = load ptr, ptr %this.addr.i.i45, align 8
-  %33 = load ptr, ptr %this1.i.i50, align 8
-  %cmp.i.i51 = icmp eq ptr %33, null
+  %34 = load ptr, ptr %this1.i.i50, align 8
+  %cmp.i.i51 = icmp eq ptr %34, null
   br i1 %cmp.i.i51, label %if.end.i52, label %if.then2.i
 
 if.then2.i:                                       ; preds = %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i
-  %34 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %34, ptr %this.addr.i14.i, align 8
+  %35 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %35, ptr %this.addr.i14.i, align 8
   %this1.i15.i = load ptr, ptr %this.addr.i14.i, align 8
-  %35 = load ptr, ptr %this1.i15.i, align 8
+  %36 = load ptr, ptr %this1.i15.i, align 8
   store ptr %this1.i47, ptr %this.addr.i12.i, align 8
   %this1.i13.i = load ptr, ptr %this.addr.i12.i, align 8
-  store ptr %35, ptr %this1.i13.i, align 8
-  %36 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %36, ptr %this.addr.i10.i, align 8
+  store ptr %36, ptr %this1.i13.i, align 8
+  %37 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %37, ptr %this.addr.i10.i, align 8
   %this1.i11.i = load ptr, ptr %this.addr.i10.i, align 8
   store ptr %this1.i47, ptr %this.addr.i8.i, align 8
   %this1.i9.i = load ptr, ptr %this.addr.i8.i, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef %this1.i11.i, ptr noundef %this1.i9.i) #3
-  %37 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %37, ptr %this.addr.i16.i, align 8
+  %38 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %38, ptr %this.addr.i16.i, align 8
   %this1.i17.i = load ptr, ptr %this.addr.i16.i, align 8
   store ptr null, ptr %this1.i17.i, align 8
   br label %if.end.i52
@@ -144619,8 +144685,8 @@ _ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %if.end.i5
   %this1.i34 = load ptr, ptr %this.addr.i33, align 8
   store ptr %this1.i34, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %38 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %38, null
+  %39 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %39, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
@@ -144629,8 +144695,8 @@ if.then.i:                                        ; preds = %_ZN2v86GlobalINS_10
 if.end.i:                                         ; preds = %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
   store ptr %this1.i34, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %39 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %39) #3
+  %40 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %40) #3
   store ptr %this1.i34, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
@@ -144706,16 +144772,17 @@ entry:
   store ptr %index, ptr %index.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isolate_ = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %isolate.addr, align 8
-  store ptr %0, ptr %isolate_, align 8
+  %1 = load ptr, ptr %isolate.addr, align 8
+  store ptr %1, ptr %isolate_, align 8
   %count_ = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %count.addr, align 8
-  store i64 %1, ptr %count_, align 8
+  %2 = load i64, ptr %count.addr, align 8
+  store i64 %2, ptr %count_, align 8
   %byte_offset_ = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %byte_offset.addr, align 8
-  store i64 %2, ptr %byte_offset_, align 8
+  %3 = load i64, ptr %byte_offset.addr, align 8
+  store i64 %3, ptr %byte_offset_, align 8
   %buffer_ = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 4
   store ptr null, ptr %buffer_, align 8
   %js_array_ = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 5
@@ -144727,10 +144794,10 @@ entry:
   %this1.i.i68 = load ptr, ptr %this.addr.i.i65, align 8
   store ptr null, ptr %this1.i.i68, align 8
   %index_ = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %index.addr, align 8
-  store ptr %3, ptr %index_, align 8
   %4 = load ptr, ptr %index.addr, align 8
-  %cmp = icmp ne ptr %4, null
+  store ptr %4, ptr %index_, align 8
+  %5 = load ptr, ptr %index.addr, align 8
+  %cmp = icmp ne ptr %5, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -144738,10 +144805,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %isolate_2 = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %isolate_2, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %5)
-  %6 = load ptr, ptr %backing_buffer.addr, align 8
-  %call = call ptr @_ZNK4node17AliasedBufferBaseIhN2v810Uint8ArrayEE14GetArrayBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %6)
+  %6 = load ptr, ptr %isolate_2, align 8
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %6)
+  %7 = load ptr, ptr %backing_buffer.addr, align 8
+  %call = call ptr @_ZNK4node17AliasedBufferBaseIhN2v810Uint8ArrayEE14GetArrayBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %7)
   %coerce.dive = getelementptr inbounds %"class.v8::Local.375", ptr %ab, i32 0, i32 0
   %coerce.dive3 = getelementptr inbounds %"class.v8::LocalBase.376", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive4 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive3, i32 0, i32 0
@@ -144749,8 +144816,8 @@ if.end:                                           ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %7 = load i64, ptr %byte_offset.addr, align 8
-  %and = and i64 %7, 7
+  %8 = load i64, ptr %byte_offset.addr, align 8
+  %and = and i64 %8, 7
   %cmp5 = icmp eq i64 %and, 0
   %lnot = xor i1 %cmp5, true
   %lnot6 = xor i1 %lnot, true
@@ -144781,20 +144848,20 @@ do.end12:                                         ; preds = %do.cond11
   br label %do.body13
 
 do.body13:                                        ; preds = %do.end12
-  %8 = load i64, ptr %count.addr, align 8
-  %call14 = call noundef i64 @_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_(i64 noundef 8, i64 noundef %8)
+  %9 = load i64, ptr %count.addr, align 8
+  %call14 = call noundef i64 @_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_(i64 noundef 8, i64 noundef %9)
   store ptr %ab, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i48, align 8
   %this1.i49 = load ptr, ptr %this.addr.i48, align 8
   store ptr %this1.i49, ptr %this.addr.i.i47, align 8
   %this1.i.i50 = load ptr, ptr %this.addr.i.i47, align 8
-  %9 = load ptr, ptr %this1.i.i50, align 8
-  store ptr %9, ptr %slot.addr.i, align 8
-  %10 = load ptr, ptr %slot.addr.i, align 8
-  %call16 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
-  %11 = load i64, ptr %byte_offset.addr, align 8
-  %sub = sub i64 %call16, %11
+  %10 = load ptr, ptr %this1.i.i50, align 8
+  store ptr %10, ptr %slot.addr.i, align 8
+  %11 = load ptr, ptr %slot.addr.i, align 8
+  %call16 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %12 = load i64, ptr %byte_offset.addr, align 8
+  %sub = sub i64 %call16, %12
   %cmp17 = icmp ule i64 %call14, %sub
   %lnot18 = xor i1 %cmp17, true
   %lnot19 = xor i1 %lnot18, true
@@ -144822,49 +144889,49 @@ do.cond26:                                        ; preds = %if.end25
   br label %do.end27
 
 do.end27:                                         ; preds = %do.cond26
-  %12 = load ptr, ptr %backing_buffer.addr, align 8
-  %call28 = call noundef ptr @_ZNK4node17AliasedBufferBaseIhN2v810Uint8ArrayEE15GetNativeBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
-  %13 = load i64, ptr %byte_offset.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call28, i64 %13
+  %13 = load ptr, ptr %backing_buffer.addr, align 8
+  %call28 = call noundef ptr @_ZNK4node17AliasedBufferBaseIhN2v810Uint8ArrayEE15GetNativeBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
+  %14 = load i64, ptr %byte_offset.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call28, i64 %14
   %buffer_29 = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 4
   store ptr %add.ptr, ptr %buffer_29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %ab, i64 8, i1 false)
-  %14 = load i64, ptr %byte_offset.addr, align 8
-  %15 = load i64, ptr %count.addr, align 8
+  %15 = load i64, ptr %byte_offset.addr, align 8
+  %16 = load i64, ptr %count.addr, align 8
   %coerce.dive30 = getelementptr inbounds %"class.v8::Local.375", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive31 = getelementptr inbounds %"class.v8::LocalBase.376", ptr %coerce.dive30, i32 0, i32 0
   %coerce.dive32 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive31, i32 0, i32 0
-  %16 = load ptr, ptr %coerce.dive32, align 8
-  %call33 = call ptr @_ZN2v812Float64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr %16, i64 noundef %14, i64 noundef %15)
+  %17 = load ptr, ptr %coerce.dive32, align 8
+  %call33 = call ptr @_ZN2v812Float64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr %17, i64 noundef %15, i64 noundef %16)
   %coerce.dive34 = getelementptr inbounds %"class.v8::Local.462", ptr %js_array, i32 0, i32 0
   %coerce.dive35 = getelementptr inbounds %"class.v8::LocalBase.463", ptr %coerce.dive34, i32 0, i32 0
   %coerce.dive36 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive35, i32 0, i32 0
   store ptr %call33, ptr %coerce.dive36, align 8
-  %17 = load ptr, ptr %isolate.addr, align 8
+  %18 = load ptr, ptr %isolate.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp37, ptr align 8 %js_array, i64 8, i1 false)
   %coerce.dive38 = getelementptr inbounds %"class.v8::Local.462", ptr %agg.tmp37, i32 0, i32 0
   %coerce.dive39 = getelementptr inbounds %"class.v8::LocalBase.463", ptr %coerce.dive38, i32 0, i32 0
   %coerce.dive40 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive39, i32 0, i32 0
-  %18 = load ptr, ptr %coerce.dive40, align 8
-  store ptr %18, ptr %that.i, align 8
+  %19 = load ptr, ptr %coerce.dive40, align 8
+  store ptr %19, ptr %that.i, align 8
   store ptr %ref.tmp, ptr %this.addr.i54, align 8
-  store ptr %17, ptr %isolate.addr.i, align 8
+  store ptr %18, ptr %isolate.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i54, align 8
-  %19 = load ptr, ptr %isolate.addr.i, align 8
+  %20 = load ptr, ptr %isolate.addr.i, align 8
   store ptr %that.i, ptr %this.addr.i.i53, align 8
   %this1.i.i55 = load ptr, ptr %this.addr.i.i53, align 8
   store ptr %this1.i.i55, ptr %this.addr.i.i.i, align 8
   %this1.i.i.i = load ptr, ptr %this.addr.i.i.i, align 8
-  %20 = load ptr, ptr %this1.i.i.i, align 8
-  store ptr %20, ptr %slot.addr.i.i, align 8
-  %21 = load ptr, ptr %slot.addr.i.i, align 8
-  store ptr %19, ptr %isolate.addr.i69, align 8
-  store ptr %21, ptr %that.addr.i, align 8
-  %22 = load ptr, ptr %that.addr.i, align 8
-  store ptr %22, ptr %value.addr.i.i, align 8
-  %23 = load ptr, ptr %value.addr.i.i, align 8
-  %24 = ptrtoint ptr %23 to i64
-  %cmp.i.i70 = icmp eq i64 %24, 0
+  %21 = load ptr, ptr %this1.i.i.i, align 8
+  store ptr %21, ptr %slot.addr.i.i, align 8
+  %22 = load ptr, ptr %slot.addr.i.i, align 8
+  store ptr %20, ptr %isolate.addr.i69, align 8
+  store ptr %22, ptr %that.addr.i, align 8
+  %23 = load ptr, ptr %that.addr.i, align 8
+  store ptr %23, ptr %value.addr.i.i, align 8
+  %24 = load ptr, ptr %value.addr.i.i, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %cmp.i.i70 = icmp eq i64 %25, 0
   br i1 %cmp.i.i70, label %if.then.i72, label %if.end.i71
 
 if.then.i72:                                      ; preds = %do.end27
@@ -144872,32 +144939,32 @@ if.then.i72:                                      ; preds = %do.end27
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i71:                                       ; preds = %do.end27
-  %25 = load ptr, ptr %isolate.addr.i69, align 8
-  %26 = load ptr, ptr %that.addr.i, align 8
-  store ptr %26, ptr %value.addr.i3.i, align 8
-  %27 = load ptr, ptr %value.addr.i3.i, align 8
-  %28 = load i64, ptr %27, align 8
-  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %25, i64 noundef %28) #3
+  %26 = load ptr, ptr %isolate.addr.i69, align 8
+  %27 = load ptr, ptr %that.addr.i, align 8
+  store ptr %27, ptr %value.addr.i3.i, align 8
+  %28 = load ptr, ptr %value.addr.i3.i, align 8
+  %29 = load i64, ptr %28, align 8
+  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %26, i64 noundef %29) #3
   store ptr %call2.i, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i71, %if.then.i72
-  %29 = load ptr, ptr %retval.i, align 8
+  %30 = load ptr, ptr %retval.i, align 8
   store ptr %this3.i, ptr %this.addr.i74, align 8
-  store ptr %29, ptr %location.addr.i, align 8
+  store ptr %30, ptr %location.addr.i, align 8
   %this1.i75 = load ptr, ptr %this.addr.i74, align 8
-  %30 = load ptr, ptr %location.addr.i, align 8
+  %31 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i75, ptr %this.addr.i.i73, align 8
-  store ptr %30, ptr %location.addr.i.i, align 8
+  store ptr %31, ptr %location.addr.i.i, align 8
   %this1.i.i76 = load ptr, ptr %this.addr.i.i73, align 8
-  %31 = load ptr, ptr %location.addr.i.i, align 8
-  store ptr %31, ptr %this1.i.i76, align 8
+  %32 = load ptr, ptr %location.addr.i.i, align 8
+  store ptr %32, ptr %this1.i.i76, align 8
   %js_array_41 = getelementptr inbounds %"class.node::AliasedBufferBase.68", ptr %this1, i32 0, i32 5
   store ptr %js_array_41, ptr %this.addr.i58, align 8
   store ptr %ref.tmp, ptr %rhs.addr.i, align 8
   %this1.i59 = load ptr, ptr %this.addr.i58, align 8
-  %32 = load ptr, ptr %rhs.addr.i, align 8
-  %cmp.i = icmp ne ptr %this1.i59, %32
+  %33 = load ptr, ptr %rhs.addr.i, align 8
+  %cmp.i = icmp ne ptr %this1.i59, %33
   br i1 %cmp.i, label %if.then.i60, label %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
 
 if.then.i60:                                      ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
@@ -144905,8 +144972,8 @@ if.then.i60:                                      ; preds = %_ZN2v814PersistentB
   %this1.i19.i = load ptr, ptr %this.addr.i18.i, align 8
   store ptr %this1.i19.i, ptr %this.addr.i.i.i56, align 8
   %this1.i.i.i61 = load ptr, ptr %this.addr.i.i.i56, align 8
-  %33 = load ptr, ptr %this1.i.i.i61, align 8
-  %cmp.i.i.i = icmp eq ptr %33, null
+  %34 = load ptr, ptr %this1.i.i.i61, align 8
+  %cmp.i.i.i = icmp eq ptr %34, null
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i60
@@ -144915,37 +144982,37 @@ if.then.i.i:                                      ; preds = %if.then.i60
 if.end.i.i:                                       ; preds = %if.then.i60
   store ptr %this1.i19.i, ptr %this.addr.i3.i.i, align 8
   %this1.i4.i.i = load ptr, ptr %this.addr.i3.i.i, align 8
-  %34 = load ptr, ptr %this1.i4.i.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %34) #3
+  %35 = load ptr, ptr %this1.i4.i.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %35) #3
   store ptr %this1.i19.i, ptr %this.addr.i5.i.i, align 8
   %this1.i6.i.i = load ptr, ptr %this.addr.i5.i.i, align 8
   store ptr null, ptr %this1.i6.i.i, align 8
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i: ; preds = %if.end.i.i, %if.then.i.i
-  %35 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %35, ptr %this.addr.i.i57, align 8
+  %36 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %36, ptr %this.addr.i.i57, align 8
   %this1.i.i62 = load ptr, ptr %this.addr.i.i57, align 8
-  %36 = load ptr, ptr %this1.i.i62, align 8
-  %cmp.i.i63 = icmp eq ptr %36, null
+  %37 = load ptr, ptr %this1.i.i62, align 8
+  %cmp.i.i63 = icmp eq ptr %37, null
   br i1 %cmp.i.i63, label %if.end.i64, label %if.then2.i
 
 if.then2.i:                                       ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i
-  %37 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %37, ptr %this.addr.i14.i, align 8
+  %38 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %38, ptr %this.addr.i14.i, align 8
   %this1.i15.i = load ptr, ptr %this.addr.i14.i, align 8
-  %38 = load ptr, ptr %this1.i15.i, align 8
+  %39 = load ptr, ptr %this1.i15.i, align 8
   store ptr %this1.i59, ptr %this.addr.i12.i, align 8
   %this1.i13.i = load ptr, ptr %this.addr.i12.i, align 8
-  store ptr %38, ptr %this1.i13.i, align 8
-  %39 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %39, ptr %this.addr.i10.i, align 8
+  store ptr %39, ptr %this1.i13.i, align 8
+  %40 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %40, ptr %this.addr.i10.i, align 8
   %this1.i11.i = load ptr, ptr %this.addr.i10.i, align 8
   store ptr %this1.i59, ptr %this.addr.i8.i, align 8
   %this1.i9.i = load ptr, ptr %this.addr.i8.i, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef %this1.i11.i, ptr noundef %this1.i9.i) #3
-  %40 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %40, ptr %this.addr.i16.i, align 8
+  %41 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %41, ptr %this.addr.i16.i, align 8
   %this1.i17.i = load ptr, ptr %this.addr.i16.i, align 8
   store ptr null, ptr %this1.i17.i, align 8
   br label %if.end.i64
@@ -144960,8 +145027,8 @@ _ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %if.end.
   %this1.i46 = load ptr, ptr %this.addr.i45, align 8
   store ptr %this1.i46, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %41 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %41, null
+  %42 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %42, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
@@ -144970,8 +145037,8 @@ if.then.i:                                        ; preds = %_ZN2v86GlobalINS_12
 if.end.i:                                         ; preds = %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
   store ptr %this1.i46, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %42 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %42) #3
+  %43 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %43) #3
   store ptr %this1.i46, ptr %this.addr.i5.i, align 8
   %this1.i6.i = load ptr, ptr %this.addr.i5.i, align 8
   store ptr null, ptr %this1.i6.i, align 8
@@ -145047,16 +145114,17 @@ entry:
   store ptr %index, ptr %index.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isolate_ = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %isolate.addr, align 8
-  store ptr %0, ptr %isolate_, align 8
+  %1 = load ptr, ptr %isolate.addr, align 8
+  store ptr %1, ptr %isolate_, align 8
   %count_ = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %count.addr, align 8
-  store i64 %1, ptr %count_, align 8
+  %2 = load i64, ptr %count.addr, align 8
+  store i64 %2, ptr %count_, align 8
   %byte_offset_ = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %byte_offset.addr, align 8
-  store i64 %2, ptr %byte_offset_, align 8
+  %3 = load i64, ptr %byte_offset.addr, align 8
+  store i64 %3, ptr %byte_offset_, align 8
   %buffer_ = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 4
   store ptr null, ptr %buffer_, align 8
   %js_array_ = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 5
@@ -145068,10 +145136,10 @@ entry:
   %this1.i.i70 = load ptr, ptr %this.addr.i.i67, align 8
   store ptr null, ptr %this1.i.i70, align 8
   %index_ = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %index.addr, align 8
-  store ptr %3, ptr %index_, align 8
   %4 = load ptr, ptr %index.addr, align 8
-  %cmp = icmp ne ptr %4, null
+  store ptr %4, ptr %index_, align 8
+  %5 = load ptr, ptr %index.addr, align 8
+  %cmp = icmp ne ptr %5, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -145079,10 +145147,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %isolate_2 = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %isolate_2, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %5)
-  %6 = load ptr, ptr %backing_buffer.addr, align 8
-  %call = call ptr @_ZNK4node17AliasedBufferBaseIhN2v810Uint8ArrayEE14GetArrayBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %6)
+  %6 = load ptr, ptr %isolate_2, align 8
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %6)
+  %7 = load ptr, ptr %backing_buffer.addr, align 8
+  %call = call ptr @_ZNK4node17AliasedBufferBaseIhN2v810Uint8ArrayEE14GetArrayBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %7)
   %coerce.dive = getelementptr inbounds %"class.v8::Local.375", ptr %ab, i32 0, i32 0
   %coerce.dive3 = getelementptr inbounds %"class.v8::LocalBase.376", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive4 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive3, i32 0, i32 0
@@ -145090,8 +145158,8 @@ if.end:                                           ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %7 = load i64, ptr %byte_offset.addr, align 8
-  %and = and i64 %7, 3
+  %8 = load i64, ptr %byte_offset.addr, align 8
+  %and = and i64 %8, 3
   %cmp5 = icmp eq i64 %and, 0
   %lnot = xor i1 %cmp5, true
   %lnot6 = xor i1 %lnot, true
@@ -145122,20 +145190,20 @@ do.end12:                                         ; preds = %do.cond11
   br label %do.body13
 
 do.body13:                                        ; preds = %do.end12
-  %8 = load i64, ptr %count.addr, align 8
-  %call14 = call noundef i64 @_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_(i64 noundef 4, i64 noundef %8)
+  %9 = load i64, ptr %count.addr, align 8
+  %call14 = call noundef i64 @_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_(i64 noundef 4, i64 noundef %9)
   store ptr %ab, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this1.i, ptr %this.addr.i50, align 8
   %this1.i51 = load ptr, ptr %this.addr.i50, align 8
   store ptr %this1.i51, ptr %this.addr.i.i49, align 8
   %this1.i.i52 = load ptr, ptr %this.addr.i.i49, align 8
-  %9 = load ptr, ptr %this1.i.i52, align 8
-  store ptr %9, ptr %slot.addr.i, align 8
-  %10 = load ptr, ptr %slot.addr.i, align 8
-  %call16 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
-  %11 = load i64, ptr %byte_offset.addr, align 8
-  %sub = sub i64 %call16, %11
+  %10 = load ptr, ptr %this1.i.i52, align 8
+  store ptr %10, ptr %slot.addr.i, align 8
+  %11 = load ptr, ptr %slot.addr.i, align 8
+  %call16 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %12 = load i64, ptr %byte_offset.addr, align 8
+  %sub = sub i64 %call16, %12
   %cmp17 = icmp ule i64 %call14, %sub
   %lnot18 = xor i1 %cmp17, true
   %lnot19 = xor i1 %lnot18, true
@@ -145163,49 +145231,49 @@ do.cond26:                                        ; preds = %if.end25
   br label %do.end27
 
 do.end27:                                         ; preds = %do.cond26
-  %12 = load ptr, ptr %backing_buffer.addr, align 8
-  %call28 = call noundef ptr @_ZNK4node17AliasedBufferBaseIhN2v810Uint8ArrayEE15GetNativeBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
-  %13 = load i64, ptr %byte_offset.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call28, i64 %13
+  %13 = load ptr, ptr %backing_buffer.addr, align 8
+  %call28 = call noundef ptr @_ZNK4node17AliasedBufferBaseIhN2v810Uint8ArrayEE15GetNativeBufferEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
+  %14 = load i64, ptr %byte_offset.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call28, i64 %14
   %buffer_29 = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 4
   store ptr %add.ptr, ptr %buffer_29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %ab, i64 8, i1 false)
-  %14 = load i64, ptr %byte_offset.addr, align 8
-  %15 = load i64, ptr %count.addr, align 8
+  %15 = load i64, ptr %byte_offset.addr, align 8
+  %16 = load i64, ptr %count.addr, align 8
   %coerce.dive30 = getelementptr inbounds %"class.v8::Local.375", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive31 = getelementptr inbounds %"class.v8::LocalBase.376", ptr %coerce.dive30, i32 0, i32 0
   %coerce.dive32 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive31, i32 0, i32 0
-  %16 = load ptr, ptr %coerce.dive32, align 8
-  %call33 = call ptr @_ZN2v811Uint32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr %16, i64 noundef %14, i64 noundef %15)
+  %17 = load ptr, ptr %coerce.dive32, align 8
+  %call33 = call ptr @_ZN2v811Uint32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr %17, i64 noundef %15, i64 noundef %16)
   %coerce.dive34 = getelementptr inbounds %"class.v8::Local.464", ptr %js_array, i32 0, i32 0
   %coerce.dive35 = getelementptr inbounds %"class.v8::LocalBase.465", ptr %coerce.dive34, i32 0, i32 0
   %coerce.dive36 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive35, i32 0, i32 0
   store ptr %call33, ptr %coerce.dive36, align 8
-  %17 = load ptr, ptr %isolate.addr, align 8
+  %18 = load ptr, ptr %isolate.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp37, ptr align 8 %js_array, i64 8, i1 false)
   %coerce.dive38 = getelementptr inbounds %"class.v8::Local.464", ptr %agg.tmp37, i32 0, i32 0
   %coerce.dive39 = getelementptr inbounds %"class.v8::LocalBase.465", ptr %coerce.dive38, i32 0, i32 0
   %coerce.dive40 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive39, i32 0, i32 0
-  %18 = load ptr, ptr %coerce.dive40, align 8
-  store ptr %18, ptr %that.i, align 8
+  %19 = load ptr, ptr %coerce.dive40, align 8
+  store ptr %19, ptr %that.i, align 8
   store ptr %ref.tmp, ptr %this.addr.i56, align 8
-  store ptr %17, ptr %isolate.addr.i, align 8
+  store ptr %18, ptr %isolate.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i56, align 8
-  %19 = load ptr, ptr %isolate.addr.i, align 8
+  %20 = load ptr, ptr %isolate.addr.i, align 8
   store ptr %that.i, ptr %this.addr.i.i55, align 8
   %this1.i.i57 = load ptr, ptr %this.addr.i.i55, align 8
   store ptr %this1.i.i57, ptr %this.addr.i.i.i, align 8
   %this1.i.i.i = load ptr, ptr %this.addr.i.i.i, align 8
-  %20 = load ptr, ptr %this1.i.i.i, align 8
-  store ptr %20, ptr %slot.addr.i.i, align 8
-  %21 = load ptr, ptr %slot.addr.i.i, align 8
-  store ptr %19, ptr %isolate.addr.i71, align 8
-  store ptr %21, ptr %that.addr.i, align 8
-  %22 = load ptr, ptr %that.addr.i, align 8
-  store ptr %22, ptr %value.addr.i.i, align 8
-  %23 = load ptr, ptr %value.addr.i.i, align 8
-  %24 = ptrtoint ptr %23 to i64
-  %cmp.i.i72 = icmp eq i64 %24, 0
+  %21 = load ptr, ptr %this1.i.i.i, align 8
+  store ptr %21, ptr %slot.addr.i.i, align 8
+  %22 = load ptr, ptr %slot.addr.i.i, align 8
+  store ptr %20, ptr %isolate.addr.i71, align 8
+  store ptr %22, ptr %that.addr.i, align 8
+  %23 = load ptr, ptr %that.addr.i, align 8
+  store ptr %23, ptr %value.addr.i.i, align 8
+  %24 = load ptr, ptr %value.addr.i.i, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %cmp.i.i72 = icmp eq i64 %25, 0
   br i1 %cmp.i.i72, label %if.then.i74, label %if.end.i73
 
 if.then.i74:                                      ; preds = %do.end27
@@ -145213,32 +145281,32 @@ if.then.i74:                                      ; preds = %do.end27
   br label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
 if.end.i73:                                       ; preds = %do.end27
-  %25 = load ptr, ptr %isolate.addr.i71, align 8
-  %26 = load ptr, ptr %that.addr.i, align 8
-  store ptr %26, ptr %value.addr.i3.i, align 8
-  %27 = load ptr, ptr %value.addr.i3.i, align 8
-  %28 = load i64, ptr %27, align 8
-  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %25, i64 noundef %28) #3
+  %26 = load ptr, ptr %isolate.addr.i71, align 8
+  %27 = load ptr, ptr %that.addr.i, align 8
+  store ptr %27, ptr %value.addr.i3.i, align 8
+  %28 = load ptr, ptr %value.addr.i3.i, align 8
+  %29 = load i64, ptr %28, align 8
+  %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %26, i64 noundef %29) #3
   store ptr %call2.i, ptr %retval.i, align 8
   br label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end.i73, %if.then.i74
-  %29 = load ptr, ptr %retval.i, align 8
+  %30 = load ptr, ptr %retval.i, align 8
   store ptr %this3.i, ptr %this.addr.i76, align 8
-  store ptr %29, ptr %location.addr.i, align 8
+  store ptr %30, ptr %location.addr.i, align 8
   %this1.i77 = load ptr, ptr %this.addr.i76, align 8
-  %30 = load ptr, ptr %location.addr.i, align 8
+  %31 = load ptr, ptr %location.addr.i, align 8
   store ptr %this1.i77, ptr %this.addr.i.i75, align 8
-  store ptr %30, ptr %location.addr.i.i, align 8
+  store ptr %31, ptr %location.addr.i.i, align 8
   %this1.i.i78 = load ptr, ptr %this.addr.i.i75, align 8
-  %31 = load ptr, ptr %location.addr.i.i, align 8
-  store ptr %31, ptr %this1.i.i78, align 8
+  %32 = load ptr, ptr %location.addr.i.i, align 8
+  store ptr %32, ptr %this1.i.i78, align 8
   %js_array_41 = getelementptr inbounds %"class.node::AliasedBufferBase.71", ptr %this1, i32 0, i32 5
   store ptr %js_array_41, ptr %this.addr.i60, align 8
   store ptr %ref.tmp, ptr %rhs.addr.i, align 8
   %this1.i61 = load ptr, ptr %this.addr.i60, align 8
-  %32 = load ptr, ptr %rhs.addr.i, align 8
-  %cmp.i = icmp ne ptr %this1.i61, %32
+  %33 = load ptr, ptr %rhs.addr.i, align 8
+  %cmp.i = icmp ne ptr %this1.i61, %33
   br i1 %cmp.i, label %if.then.i62, label %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
 
 if.then.i62:                                      ; preds = %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit
@@ -145246,8 +145314,8 @@ if.then.i62:                                      ; preds = %_ZN2v814PersistentB
   %this1.i17.i = load ptr, ptr %this.addr.i16.i, align 8
   store ptr %this1.i17.i, ptr %this.addr.i.i.i58, align 8
   %this1.i.i.i63 = load ptr, ptr %this.addr.i.i.i58, align 8
-  %33 = load ptr, ptr %this1.i.i.i63, align 8
-  %cmp.i.i.i = icmp eq ptr %33, null
+  %34 = load ptr, ptr %this1.i.i.i63, align 8
+  %cmp.i.i.i = icmp eq ptr %34, null
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i62
@@ -145256,37 +145324,37 @@ if.then.i.i:                                      ; preds = %if.then.i62
 if.end.i.i:                                       ; preds = %if.then.i62
   store ptr %this1.i17.i, ptr %this.addr.i3.i.i, align 8
   %this1.i4.i.i = load ptr, ptr %this.addr.i3.i.i, align 8
-  %34 = load ptr, ptr %this1.i4.i.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %34) #3
+  %35 = load ptr, ptr %this1.i4.i.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %35) #3
   store ptr %this1.i17.i, ptr %this.addr.i18.i, align 8
   %this1.i19.i = load ptr, ptr %this.addr.i18.i, align 8
   store ptr null, ptr %this1.i19.i, align 8
   br label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i: ; preds = %if.end.i.i, %if.then.i.i
-  %35 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %35, ptr %this.addr.i.i59, align 8
+  %36 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %36, ptr %this.addr.i.i59, align 8
   %this1.i.i64 = load ptr, ptr %this.addr.i.i59, align 8
-  %36 = load ptr, ptr %this1.i.i64, align 8
-  %cmp.i.i65 = icmp eq ptr %36, null
+  %37 = load ptr, ptr %this1.i.i64, align 8
+  %cmp.i.i65 = icmp eq ptr %37, null
   br i1 %cmp.i.i65, label %if.end.i66, label %if.then2.i
 
 if.then2.i:                                       ; preds = %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i
-  %37 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %37, ptr %this.addr.i14.i, align 8
+  %38 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %38, ptr %this.addr.i14.i, align 8
   %this1.i15.i = load ptr, ptr %this.addr.i14.i, align 8
-  %38 = load ptr, ptr %this1.i15.i, align 8
+  %39 = load ptr, ptr %this1.i15.i, align 8
   store ptr %this1.i61, ptr %this.addr.i12.i, align 8
   %this1.i13.i = load ptr, ptr %this.addr.i12.i, align 8
-  store ptr %38, ptr %this1.i13.i, align 8
-  %39 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %39, ptr %this.addr.i10.i, align 8
+  store ptr %39, ptr %this1.i13.i, align 8
+  %40 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %40, ptr %this.addr.i10.i, align 8
   %this1.i11.i = load ptr, ptr %this.addr.i10.i, align 8
   store ptr %this1.i61, ptr %this.addr.i8.i, align 8
   %this1.i9.i = load ptr, ptr %this.addr.i8.i, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef %this1.i11.i, ptr noundef %this1.i9.i) #3
-  %40 = load ptr, ptr %rhs.addr.i, align 8
-  store ptr %40, ptr %this.addr.i20.i, align 8
+  %41 = load ptr, ptr %rhs.addr.i, align 8
+  store ptr %41, ptr %this.addr.i20.i, align 8
   %this1.i21.i = load ptr, ptr %this.addr.i20.i, align 8
   store ptr null, ptr %this1.i21.i, align 8
   br label %if.end.i66
@@ -145301,8 +145369,8 @@ _ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %if.end.i
   %this1.i46 = load ptr, ptr %this.addr.i45, align 8
   store ptr %this1.i46, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
-  %41 = load ptr, ptr %this1.i.i, align 8
-  %cmp.i.i = icmp eq ptr %41, null
+  %42 = load ptr, ptr %this1.i.i, align 8
+  %cmp.i.i = icmp eq ptr %42, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
@@ -145311,8 +145379,8 @@ if.then.i:                                        ; preds = %_ZN2v86GlobalINS_11
 if.end.i:                                         ; preds = %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
   store ptr %this1.i46, ptr %this.addr.i3.i, align 8
   %this1.i4.i = load ptr, ptr %this.addr.i3.i, align 8
-  %42 = load ptr, ptr %this1.i4.i, align 8
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %42) #3
+  %43 = load ptr, ptr %this1.i4.i, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef %43) #3
   store ptr %this1.i46, ptr %this.addr.i47, align 8
   %this1.i48 = load ptr, ptr %this.addr.i47, align 8
   store ptr null, ptr %this1.i48, align 8

@@ -23,21 +23,22 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal i32 @init() #0 {
   %1 = alloca i32, align 4
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i32 0, i32 17), align 8
-  %3 = icmp eq ptr null, %2
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %0
-  store i32 -64, ptr %1, align 4
-  br label %6
+  %2 = getelementptr inbounds %struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i32 0, i32 17
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr null, %3
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %6
+  store i32 -64, ptr %1, align 4
+  br label %7
 
-6:                                                ; preds = %5, %4
-  %7 = load i32, ptr %1, align 4
-  ret i32 %7
+6:                                                ; preds = %0
+  store i32 0, ptr %1, align 4
+  br label %7
+
+7:                                                ; preds = %6, %5
+  %8 = load i32, ptr %1, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -66,7 +67,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 
 20:                                               ; preds = %7
   store i32 -32, ptr %8, align 4
-  br label %45
+  br label %46
 
 21:                                               ; preds = %7
   %22 = load ptr, ptr %10, align 8
@@ -85,24 +86,25 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %32 = load ptr, ptr %16, align 8
   %33 = getelementptr inbounds %struct.local_caddy_t, ptr %32, i32 0, i32 4
   store ptr %31, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i32 0, i32 17), align 8
-  %35 = load ptr, ptr %9, align 8
-  %36 = load ptr, ptr %16, align 8
-  %37 = getelementptr inbounds %struct.local_caddy_t, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %16, align 8
-  %40 = getelementptr inbounds %struct.local_caddy_t, ptr %39, i32 0, i32 2
-  %41 = load i64, ptr %40, align 8
-  %42 = load ptr, ptr %12, align 8
-  %43 = load i64, ptr %13, align 8
-  %44 = load ptr, ptr %16, align 8
-  call void %34(ptr noundef %35, ptr noundef %38, i64 noundef %41, ptr noundef %42, i64 noundef %43, ptr noundef @localcbfn, ptr noundef %44)
+  %34 = getelementptr inbounds %struct.pmix_server_module_4_0_0_t, ptr @pmix_host_server, i32 0, i32 17
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %16, align 8
+  %38 = getelementptr inbounds %struct.local_caddy_t, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %16, align 8
+  %41 = getelementptr inbounds %struct.local_caddy_t, ptr %40, i32 0, i32 2
+  %42 = load i64, ptr %41, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i64, ptr %13, align 8
+  %45 = load ptr, ptr %16, align 8
+  call void %35(ptr noundef %36, ptr noundef %39, i64 noundef %42, ptr noundef %43, i64 noundef %44, ptr noundef @localcbfn, ptr noundef %45)
   store i32 -156, ptr %8, align 4
-  br label %45
+  br label %46
 
-45:                                               ; preds = %21, %20
-  %46 = load i32, ptr %8, align 4
-  ret i32 %46
+46:                                               ; preds = %21, %20
+  %47 = load i32, ptr %8, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable

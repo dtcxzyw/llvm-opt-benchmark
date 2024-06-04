@@ -3968,10 +3968,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNormE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNormE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %tds.addr, align 8
-  store ptr %1, ptr %d_tds, align 8
+  %2 = load ptr, ptr %tds.addr, align 8
+  store ptr %2, ptr %d_tds, align 8
   %d_sygus_vars = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm", ptr %this1, i32 0, i32 2
   invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_sygus_vars)
           to label %invoke.cont unwind label %lpad
@@ -3986,12 +3987,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -11570,7 +11571,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18SygusRedundantConsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18SygusRedundantConsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRedundantCons", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal8TypeNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_type)
           to label %invoke.cont unwind label %lpad
@@ -11585,12 +11587,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -11710,22 +11712,23 @@ entry:
   store ptr %indices, ptr %indices.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarNorm6TransfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm10TransfDropE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm10TransfDropE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_drop_indices = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm::TransfDrop", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %indices.addr, align 8
-  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %d_drop_indices, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %1 = load ptr, ptr %indices.addr, align 8
+  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %d_drop_indices, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarNorm6TransfD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -11770,7 +11773,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18SygusRedundantConsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18SygusRedundantConsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_gen_cons = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRedundantCons", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_gen_cons) #3
   %d_gen_terms = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRedundantCons", ptr %this1, i32 0, i32 3
@@ -12272,25 +12276,26 @@ entry:
   store ptr %elem_pos, ptr %elem_pos.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarNorm6TransfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm11TransfChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm11TransfChainE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_chain_op_pos = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm::TransfChain", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %chain_op_pos.addr, align 4
-  store i32 %0, ptr %d_chain_op_pos, align 8
+  %1 = load i32, ptr %chain_op_pos.addr, align 4
+  store i32 %1, ptr %d_chain_op_pos, align 8
   %d_elem_pos = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm::TransfChain", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %elem_pos.addr, align 8
-  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %d_elem_pos, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %2 = load ptr, ptr %elem_pos.addr, align 8
+  invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %d_elem_pos, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarNorm6TransfD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -13552,7 +13557,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm10TransfDropE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm10TransfDropE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_drop_indices = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm::TransfDrop", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_drop_indices) #3
   call void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarNorm6TransfD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -13576,7 +13582,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm11TransfChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm11TransfChainE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_elem_pos = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm::TransfChain", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_elem_pos) #3
   call void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarNorm6TransfD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -13697,7 +13704,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNormE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNormE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_tries = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm", ptr %this1, i32 0, i32 5
   call void @_ZNSt3mapIN4cvc58internal8TypeNodeENS1_6theory11quantifiers9OpPosTrieESt4lessIS2_ESaISt4pairIKS2_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_tries) #3
   %d_unres_t_all = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusGrammarNorm", ptr %this1, i32 0, i32 4
@@ -18326,7 +18334,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm6TransfE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusGrammarNorm6TransfE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

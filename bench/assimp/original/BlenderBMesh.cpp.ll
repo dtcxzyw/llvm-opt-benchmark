@@ -2539,137 +2539,138 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %id = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %id2 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %id2 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %3, i32 0, i32 1
   call void @_ZN6Assimp7Blender2IDC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(1042) %id, ptr noundef nonnull align 8 dereferenceable(1042) %id2) #11
   %totface = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %totface3 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %totface3 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %4, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %totface, ptr align 8 %totface3, i64 28, i1 false)
   %mface = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 11
-  %4 = load ptr, ptr %.addr, align 8
-  %mface4 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %4, i32 0, i32 11
+  %5 = load ptr, ptr %.addr, align 8
+  %mface4 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %5, i32 0, i32 11
   invoke void @_ZN6Assimp7Blender6vectorINS0_5MFaceEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mface, ptr noundef nonnull align 8 dereferenceable(24) %mface4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %mtface = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 12
-  %5 = load ptr, ptr %.addr, align 8
-  %mtface5 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %5, i32 0, i32 12
+  %6 = load ptr, ptr %.addr, align 8
+  %mtface5 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %6, i32 0, i32 12
   invoke void @_ZN6Assimp7Blender6vectorINS0_6MTFaceEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mtface, ptr noundef nonnull align 8 dereferenceable(24) %mtface5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %tface = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 13
-  %6 = load ptr, ptr %.addr, align 8
-  %tface8 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %6, i32 0, i32 13
+  %7 = load ptr, ptr %.addr, align 8
+  %tface8 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %7, i32 0, i32 13
   invoke void @_ZN6Assimp7Blender6vectorINS0_5TFaceEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %tface, ptr noundef nonnull align 8 dereferenceable(24) %tface8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   %mvert = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 14
-  %7 = load ptr, ptr %.addr, align 8
-  %mvert11 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %7, i32 0, i32 14
+  %8 = load ptr, ptr %.addr, align 8
+  %mvert11 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %8, i32 0, i32 14
   invoke void @_ZN6Assimp7Blender6vectorINS0_5MVertEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mvert, ptr noundef nonnull align 8 dereferenceable(24) %mvert11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   %medge = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 15
-  %8 = load ptr, ptr %.addr, align 8
-  %medge14 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %8, i32 0, i32 15
+  %9 = load ptr, ptr %.addr, align 8
+  %medge14 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %9, i32 0, i32 15
   invoke void @_ZN6Assimp7Blender6vectorINS0_5MEdgeEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %medge, ptr noundef nonnull align 8 dereferenceable(24) %medge14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   %mloop = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 16
-  %9 = load ptr, ptr %.addr, align 8
-  %mloop17 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %9, i32 0, i32 16
+  %10 = load ptr, ptr %.addr, align 8
+  %mloop17 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %10, i32 0, i32 16
   invoke void @_ZN6Assimp7Blender6vectorINS0_5MLoopEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mloop, ptr noundef nonnull align 8 dereferenceable(24) %mloop17)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont16
   %mloopuv = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 17
-  %10 = load ptr, ptr %.addr, align 8
-  %mloopuv20 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %10, i32 0, i32 17
+  %11 = load ptr, ptr %.addr, align 8
+  %mloopuv20 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %11, i32 0, i32 17
   invoke void @_ZN6Assimp7Blender6vectorINS0_7MLoopUVEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mloopuv, ptr noundef nonnull align 8 dereferenceable(24) %mloopuv20)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont19
   %mloopcol = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 18
-  %11 = load ptr, ptr %.addr, align 8
-  %mloopcol23 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %11, i32 0, i32 18
+  %12 = load ptr, ptr %.addr, align 8
+  %mloopcol23 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %12, i32 0, i32 18
   invoke void @_ZN6Assimp7Blender6vectorINS0_8MLoopColEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mloopcol, ptr noundef nonnull align 8 dereferenceable(24) %mloopcol23)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont22
   %mpoly = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 19
-  %12 = load ptr, ptr %.addr, align 8
-  %mpoly26 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %12, i32 0, i32 19
+  %13 = load ptr, ptr %.addr, align 8
+  %mpoly26 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %13, i32 0, i32 19
   invoke void @_ZN6Assimp7Blender6vectorINS0_5MPolyEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mpoly, ptr noundef nonnull align 8 dereferenceable(24) %mpoly26)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
   %mtpoly = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 20
-  %13 = load ptr, ptr %.addr, align 8
-  %mtpoly29 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %13, i32 0, i32 20
+  %14 = load ptr, ptr %.addr, align 8
+  %mtpoly29 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %14, i32 0, i32 20
   invoke void @_ZN6Assimp7Blender6vectorINS0_8MTexPolyEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mtpoly, ptr noundef nonnull align 8 dereferenceable(24) %mtpoly29)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
   %dvert = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 21
-  %14 = load ptr, ptr %.addr, align 8
-  %dvert32 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %14, i32 0, i32 21
+  %15 = load ptr, ptr %.addr, align 8
+  %dvert32 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %15, i32 0, i32 21
   invoke void @_ZN6Assimp7Blender6vectorINS0_11MDeformVertEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %dvert, ptr noundef nonnull align 8 dereferenceable(24) %dvert32)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont31
   %mcol = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 22
-  %15 = load ptr, ptr %.addr, align 8
-  %mcol35 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %15, i32 0, i32 22
+  %16 = load ptr, ptr %.addr, align 8
+  %mcol35 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %16, i32 0, i32 22
   invoke void @_ZN6Assimp7Blender6vectorINS0_4MColEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %mcol, ptr noundef nonnull align 8 dereferenceable(24) %mcol35)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont34
   %mat = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 23
-  %16 = load ptr, ptr %.addr, align 8
-  %mat38 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %16, i32 0, i32 23
+  %17 = load ptr, ptr %.addr, align 8
+  %mat38 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %17, i32 0, i32 23
   invoke void @_ZN6Assimp7Blender6vectorISt10shared_ptrINS0_8MaterialEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %mat, ptr noundef nonnull align 8 dereferenceable(24) %mat38)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %invoke.cont37
   %vdata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 24
-  %17 = load ptr, ptr %.addr, align 8
-  %vdata41 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %17, i32 0, i32 24
+  %18 = load ptr, ptr %.addr, align 8
+  %vdata41 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %18, i32 0, i32 24
   invoke void @_ZN6Assimp7Blender10CustomDataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(220) %vdata, ptr noundef nonnull align 8 dereferenceable(220) %vdata41)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont40
   %edata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 25
-  %18 = load ptr, ptr %.addr, align 8
-  %edata44 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %18, i32 0, i32 25
+  %19 = load ptr, ptr %.addr, align 8
+  %edata44 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %19, i32 0, i32 25
   invoke void @_ZN6Assimp7Blender10CustomDataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(220) %edata, ptr noundef nonnull align 8 dereferenceable(220) %edata44)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont43
   %fdata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 26
-  %19 = load ptr, ptr %.addr, align 8
-  %fdata47 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %19, i32 0, i32 26
+  %20 = load ptr, ptr %.addr, align 8
+  %fdata47 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %20, i32 0, i32 26
   invoke void @_ZN6Assimp7Blender10CustomDataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(220) %fdata, ptr noundef nonnull align 8 dereferenceable(220) %fdata47)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont46
   %pdata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 27
-  %20 = load ptr, ptr %.addr, align 8
-  %pdata50 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %20, i32 0, i32 27
+  %21 = load ptr, ptr %.addr, align 8
+  %pdata50 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %21, i32 0, i32 27
   invoke void @_ZN6Assimp7Blender10CustomDataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(220) %pdata, ptr noundef nonnull align 8 dereferenceable(220) %pdata50)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %invoke.cont49
   %ldata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 28
-  %21 = load ptr, ptr %.addr, align 8
-  %ldata53 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %21, i32 0, i32 28
+  %22 = load ptr, ptr %.addr, align 8
+  %ldata53 = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %22, i32 0, i32 28
   invoke void @_ZN6Assimp7Blender10CustomDataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(220) %ldata, ptr noundef nonnull align 8 dereferenceable(220) %ldata53)
           to label %invoke.cont55 unwind label %lpad54
 
@@ -2677,165 +2678,165 @@ invoke.cont55:                                    ; preds = %invoke.cont52
   ret void
 
 lpad:                                             ; preds = %entry
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup71
 
 lpad6:                                            ; preds = %invoke.cont
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   br label %ehcleanup70
 
 lpad9:                                            ; preds = %invoke.cont7
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   br label %ehcleanup69
 
 lpad12:                                           ; preds = %invoke.cont10
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup68
 
 lpad15:                                           ; preds = %invoke.cont13
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   br label %ehcleanup67
 
 lpad18:                                           ; preds = %invoke.cont16
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   br label %ehcleanup66
 
 lpad21:                                           ; preds = %invoke.cont19
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   br label %ehcleanup65
 
 lpad24:                                           ; preds = %invoke.cont22
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   br label %ehcleanup64
 
 lpad27:                                           ; preds = %invoke.cont25
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   br label %ehcleanup63
 
 lpad30:                                           ; preds = %invoke.cont28
-  %49 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
   br label %ehcleanup62
 
 lpad33:                                           ; preds = %invoke.cont31
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %exn.slot, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %ehselector.slot, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %exn.slot, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %ehselector.slot, align 4
   br label %ehcleanup61
 
 lpad36:                                           ; preds = %invoke.cont34
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
   br label %ehcleanup60
 
 lpad39:                                           ; preds = %invoke.cont37
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %exn.slot, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %ehselector.slot, align 4
   br label %ehcleanup59
 
 lpad42:                                           ; preds = %invoke.cont40
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %exn.slot, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %ehselector.slot, align 4
   br label %ehcleanup58
 
 lpad45:                                           ; preds = %invoke.cont43
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %exn.slot, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %ehselector.slot, align 4
   br label %ehcleanup57
 
 lpad48:                                           ; preds = %invoke.cont46
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %exn.slot, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %ehselector.slot, align 4
   br label %ehcleanup56
 
 lpad51:                                           ; preds = %invoke.cont49
-  %70 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %exn.slot, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %ehselector.slot, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %exn.slot, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad54:                                           ; preds = %invoke.cont52
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %exn.slot, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender10CustomDataD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %pdata) #11
   br label %ehcleanup
 
@@ -3172,7 +3173,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3258,7 +3260,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flag = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 2
   store i8 0, ptr %flag, align 8
   %mode = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 3
@@ -3363,12 +3366,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %dna_type = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %dna_type2 = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %dna_type2, align 8
-  store ptr %2, ptr %dna_type, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %dna_type2 = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %dna_type2, align 8
+  store ptr %3, ptr %dna_type, align 8
   ret void
 }
 
@@ -3382,10 +3386,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender2IDE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender2IDE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %name = getelementptr inbounds %"struct.Assimp::Blender::ID", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %name2 = getelementptr inbounds %"struct.Assimp::Blender::ID", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %name2 = getelementptr inbounds %"struct.Assimp::Blender::ID", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %name, ptr align 8 %name2, i64 1026, i1 false)
   ret void
 }
@@ -3571,27 +3576,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %layers = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %layers2 = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %layers2 = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %3, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender6vectorISt10shared_ptrINS0_15CustomDataLayerEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %layers, ptr noundef nonnull align 8 dereferenceable(24) %layers2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %typemap = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %typemap3 = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %typemap3 = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %4, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %typemap, ptr align 8 %typemap3, i64 180, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
   br label %eh.resume
 
@@ -3609,7 +3615,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender10CustomDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %layers = getelementptr inbounds %"struct.Assimp::Blender::CustomData", ptr %this1, i32 0, i32 1
   call void @_ZN6Assimp7Blender6vectorISt10shared_ptrINS0_15CustomDataLayerEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %layers) #11
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
@@ -3762,7 +3769,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MeshE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ldata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 28
   call void @_ZN6Assimp7Blender10CustomDataD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %ldata) #11
   %pdata = getelementptr inbounds %"struct.Assimp::Blender::Mesh", ptr %this1, i32 0, i32 27
@@ -4536,10 +4544,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %v1 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %v1, ptr align 8 %v12, i64 21, i1 false)
   ret void
 }
@@ -5367,10 +5376,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %uv = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %uv, ptr align 8 %uv2, i64 40, i1 false)
   ret void
 }
@@ -6198,10 +6208,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5TFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5TFaceE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %uv = getelementptr inbounds %"struct.Assimp::Blender::TFace", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::TFace", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::TFace", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %uv, ptr align 8 %uv2, i64 56, i1 false)
   ret void
 }
@@ -7039,10 +7050,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %co = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %co2 = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %co2 = getelementptr inbounds %"struct.Assimp::Blender::MVert", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %co, ptr align 8 %co2, i64 36, i1 false)
   ret void
 }
@@ -7880,10 +7892,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %v1 = getelementptr inbounds %"struct.Assimp::Blender::MEdge", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MEdge", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MEdge", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %v1, ptr align 8 %v12, i64 12, i1 false)
   ret void
 }
@@ -8702,10 +8715,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %v = getelementptr inbounds %"struct.Assimp::Blender::MLoop", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %v2 = getelementptr inbounds %"struct.Assimp::Blender::MLoop", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %v2 = getelementptr inbounds %"struct.Assimp::Blender::MLoop", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %v, ptr align 8 %v2, i64 8, i1 false)
   ret void
 }
@@ -9524,10 +9538,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %uv = getelementptr inbounds %"struct.Assimp::Blender::MLoopUV", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MLoopUV", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MLoopUV", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %uv, ptr align 8 %uv2, i64 12, i1 false)
   ret void
 }
@@ -10365,10 +10380,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %r = getelementptr inbounds %"struct.Assimp::Blender::MLoopCol", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %r2 = getelementptr inbounds %"struct.Assimp::Blender::MLoopCol", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %r2 = getelementptr inbounds %"struct.Assimp::Blender::MLoopCol", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %r, ptr align 8 %r2, i64 4, i1 false)
   ret void
 }
@@ -11187,10 +11203,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %loopstart = getelementptr inbounds %"struct.Assimp::Blender::MPoly", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %loopstart2 = getelementptr inbounds %"struct.Assimp::Blender::MPoly", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %loopstart2 = getelementptr inbounds %"struct.Assimp::Blender::MPoly", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %loopstart, ptr align 8 %loopstart2, i64 11, i1 false)
   ret void
 }
@@ -12028,10 +12045,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %tpage = getelementptr inbounds %"struct.Assimp::Blender::MTexPoly", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %tpage2 = getelementptr inbounds %"struct.Assimp::Blender::MTexPoly", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %tpage2 = getelementptr inbounds %"struct.Assimp::Blender::MTexPoly", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %tpage, ptr align 8 %tpage2, i64 16, i1 false)
   ret void
 }
@@ -12871,28 +12889,29 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %dw = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %dw2 = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %dw2 = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %3, i32 0, i32 1
   invoke void @_ZN6Assimp7Blender6vectorINS0_13MDeformWeightEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %dw, ptr noundef nonnull align 8 dereferenceable(24) %dw2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %totweight = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %totweight3 = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %totweight3, align 8
-  store i32 %4, ptr %totweight, align 8
+  %4 = load ptr, ptr %.addr, align 8
+  %totweight3 = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %totweight3, align 8
+  store i32 %5, ptr %totweight, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
   br label %eh.resume
 
@@ -12923,7 +12942,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender11MDeformVertE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dw = getelementptr inbounds %"struct.Assimp::Blender::MDeformVert", ptr %this1, i32 0, i32 1
   call void @_ZN6Assimp7Blender6vectorINS0_13MDeformWeightEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dw) #11
   call void @_ZN6Assimp7Blender8ElemBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #11
@@ -13640,10 +13660,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender13MDeformWeightE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %def_nr = getelementptr inbounds %"struct.Assimp::Blender::MDeformWeight", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %def_nr2 = getelementptr inbounds %"struct.Assimp::Blender::MDeformWeight", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %def_nr2 = getelementptr inbounds %"struct.Assimp::Blender::MDeformWeight", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %def_nr, ptr align 8 %def_nr2, i64 8, i1 false)
   ret void
 }
@@ -14647,10 +14668,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MColE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender4MColE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %r = getelementptr inbounds %"struct.Assimp::Blender::MCol", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %r2 = getelementptr inbounds %"struct.Assimp::Blender::MCol", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %r2 = getelementptr inbounds %"struct.Assimp::Blender::MCol", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %r, ptr align 8 %r2, i64 4, i1 false)
   ret void
 }
@@ -17458,7 +17480,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8ElemBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dna_type = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %dna_type, align 8
   ret void
@@ -17487,16 +17510,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #11
   br label %eh.resume
 
@@ -17793,16 +17817,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #11
   br label %eh.resume
 
@@ -17984,16 +18009,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #11
   br label %eh.resume
 
@@ -18642,10 +18668,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %v1 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %v12 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %v1, ptr align 8 %v12, i64 21, i1 false)
   ret void
 }
@@ -19129,10 +19156,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6Assimp7Blender8ElemBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %uv = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %uv2 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %uv, ptr align 8 %uv2, i64 40, i1 false)
   ret void
 }

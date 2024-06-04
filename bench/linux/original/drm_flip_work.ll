@@ -24,54 +24,56 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_flip_wor
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_flip_work_queue(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #6, !srcloc !5
-  %5 = and i32 %4, 2147483647
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %12
+  %4 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4) #6, !srcloc !5
+  %6 = and i32 %5, 2147483647
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %13
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store i64 0, ptr %3, align 8, !annotation !6
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #7, !srcloc !7
-  %8 = load i64, ptr %3, align 8
+  %9 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  %9 = and i64 %8, 512
-  %10 = icmp eq i64 %9, 0
-  %11 = select i1 %10, i32 2336, i32 3520
-  br label %12
+  %10 = and i64 %9, 512
+  %11 = icmp eq i64 %10, 0
+  %12 = select i1 %11, i32 2336, i32 3520
+  br label %13
 
-12:                                               ; preds = %7, %2
-  %13 = phi i32 [ 2336, %2 ], [ %11, %7 ]
-  %14 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %15 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %13, i64 noundef 24) #8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %25, label %17
+13:                                               ; preds = %8, %2
+  %14 = phi i32 [ 2336, %2 ], [ %12, %8 ]
+  %15 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %16, i32 noundef %14, i64 noundef 24) #8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %27, label %19
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
-  %20 = call i64 @_raw_spin_lock_irqsave(ptr noundef %19) #7
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
-  %23 = load ptr, ptr %22, align 8
-  store ptr %15, ptr %22, align 8
-  store ptr %21, ptr %15, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %23, ptr %24, align 8
-  store volatile ptr %15, ptr %23, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %19, i64 noundef %20) #7
-  br label %29
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr %1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = call i64 @_raw_spin_lock_irqsave(ptr noundef %21) #7
+  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = load ptr, ptr %24, align 8
+  store ptr %17, ptr %24, align 8
+  store ptr %23, ptr %17, align 8
+  %26 = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr %25, ptr %26, align 8
+  store volatile ptr %17, ptr %25, align 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %21, i64 noundef %22) #7
+  br label %31
 
-25:                                               ; preds = %12
-  %26 = load ptr, ptr %0, align 8
-  call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str, ptr noundef %26) #7
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef %0, ptr noundef %1) #7
-  br label %29
+27:                                               ; preds = %13
+  %28 = load ptr, ptr %0, align 8
+  call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str, ptr noundef %28) #7
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef %0, ptr noundef %1) #7
+  br label %31
 
-29:                                               ; preds = %25, %17
+31:                                               ; preds = %27, %19
   ret void
 }
 

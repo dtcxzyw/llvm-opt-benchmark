@@ -1227,11 +1227,12 @@ define void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 d
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV20AStringListListModel, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.AStringListListModel, ptr %5, i32 0, i32 1
-  call void @_ZN5QListIS_I7QStringEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
-  %8 = getelementptr inbounds %class.AStringListListModel, ptr %5, i32 0, i32 2
-  call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %7 = getelementptr inbounds { [53 x ptr] }, ptr @_ZTV20AStringListListModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.AStringListListModel, ptr %5, i32 0, i32 1
+  call void @_ZN5QListIS_I7QStringEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %9 = getelementptr inbounds %class.AStringListListModel, ptr %5, i32 0, i32 2
+  call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
   ret void
 }
 
@@ -1262,24 +1263,25 @@ define void @_ZN20AStringListListModelD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV20AStringListListModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.AStringListListModel, ptr %3, i32 0, i32 1
-  invoke void @_ZN5QListIS_I7QStringEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %5 unwind label %8
+  %4 = getelementptr inbounds { [53 x ptr] }, ptr @_ZTV20AStringListListModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.AStringListListModel, ptr %3, i32 0, i32 1
+  invoke void @_ZN5QListIS_I7QStringEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %6 unwind label %9
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %class.AStringListListModel, ptr %3, i32 0, i32 2
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  %7 = getelementptr inbounds %class.AStringListListModel, ptr %3, i32 0, i32 1
-  call void @_ZN5QListIS_I7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %class.AStringListListModel, ptr %3, i32 0, i32 2
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = getelementptr inbounds %class.AStringListListModel, ptr %3, i32 0, i32 1
+  call void @_ZN5QListIS_I7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   call void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   ret void
 
-8:                                                ; preds = %1
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 }
 
@@ -2035,51 +2037,52 @@ define void @_ZN35AStringListListSortFilterProxyModelC2EP7QObject(ptr noundef no
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV35AStringListListSortFilterProxyModel, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
-  %12 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 2
-  call void @_ZN4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
-  %13 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 3
-  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  %14 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 4
+  %11 = getelementptr inbounds { [59 x ptr] }, ptr @_ZTV35AStringListListSortFilterProxyModel, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
+  %13 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 2
+  call void @_ZN4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #14
+  %14 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 3
   call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
-  %15 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 5
+  %15 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 4
   call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %16 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 5
+  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
-  %16 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 1
-  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %17 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 1
+  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
-  %18 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 2
+  %19 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 2
   store i32 -1, ptr %6, align 4
-  %19 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %20 unwind label %21
-
-20:                                               ; preds = %2
-  store i32 0, ptr %19, align 4
-  ret void
+  %20 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %21 unwind label %22
 
 21:                                               ; preds = %2
-  %22 = landingpad { ptr, i32 }
+  store i32 0, ptr %20, align 4
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %7, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %8, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %7, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %8, align 4
+  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
   call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
-  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  call void @_ZN4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
+  call void @_ZN4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #14
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
   call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 declare void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -3606,9 +3609,10 @@ define void @_ZN28AStringListListUrlProxyModelC2EP7QObject(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV28AStringListListUrlProxyModel, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.AStringListListUrlProxyModel, ptr %5, i32 0, i32 1
-  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %7 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV28AStringListListUrlProxyModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.AStringListListUrlProxyModel, ptr %5, i32 0, i32 1
+  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   ret void
 }
 
@@ -3864,9 +3868,10 @@ define linkonce_odr void @_ZN28AStringListListUrlProxyModelD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV28AStringListListUrlProxyModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.AStringListListUrlProxyModel, ptr %3, i32 0, i32 1
-  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %4 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV28AStringListListUrlProxyModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.AStringListListUrlProxyModel, ptr %3, i32 0, i32 1
+  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   ret void
 }

@@ -86,50 +86,52 @@ define i32 @proctrack_g_init() #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  br label %28
+  br label %30
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %2, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 137), align 8
-  %20 = call ptr @plugin_context_create(ptr noundef %18, ptr noundef %19, ptr noundef @ops, ptr noundef @syms, i64 noundef 64)
-  store ptr %20, ptr @g_context, align 8
-  %21 = load ptr, ptr @g_context, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %27, label %23
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 137
+  %20 = load ptr, ptr %19, align 8
+  %21 = call ptr @plugin_context_create(ptr noundef %18, ptr noundef %20, ptr noundef @ops, ptr noundef @syms, i64 noundef 64)
+  store ptr %21, ptr @g_context, align 8
+  %22 = load ptr, ptr @g_context, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %29, label %24
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 137), align 8
-  %26 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %24, ptr noundef %25)
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 137
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %25, ptr noundef %27)
   store i32 -1, ptr %1, align 4
-  br label %28
+  br label %30
 
-27:                                               ; preds = %17
-  br label %28
+29:                                               ; preds = %17
+  br label %30
 
-28:                                               ; preds = %27, %23, %16
-  br label %29
+30:                                               ; preds = %29, %24, %16
+  br label %31
 
-29:                                               ; preds = %28
-  %30 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #7
-  store i32 %30, ptr %4, align 4
-  %31 = load i32, ptr %4, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %36
+31:                                               ; preds = %30
+  %32 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #7
+  store i32 %32, ptr %4, align 4
+  %33 = load i32, ptr %4, align 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %38
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %4, align 4
-  %35 = call ptr @__errno_location() #8
-  store i32 %34, ptr %35, align 4
+35:                                               ; preds = %31
+  %36 = load i32, ptr %4, align 4
+  %37 = call ptr @__errno_location() #8
+  store i32 %36, ptr %37, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 126, ptr noundef @__func__.proctrack_g_init) #9
   unreachable
 
-36:                                               ; preds = %29
-  br label %37
+38:                                               ; preds = %31
+  br label %39
 
-37:                                               ; preds = %36
-  %38 = load i32, ptr %1, align 4
-  ret i32 %38
+39:                                               ; preds = %38
+  %40 = load i32, ptr %1, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind
@@ -199,63 +201,64 @@ define i32 @proctrack_g_add(ptr noundef %0, i32 noundef %1) #0 {
   store i32 3, ptr %6, align 4
   br label %8
 
-8:                                                ; preds = %37, %2
-  %9 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 1), align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = load i32, ptr %4, align 4
-  %12 = call i32 %9(ptr noundef %10, i32 noundef %11)
-  store i32 %12, ptr %7, align 4
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %39
+8:                                                ; preds = %38, %2
+  %9 = getelementptr inbounds %struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %3, align 8
+  %12 = load i32, ptr %4, align 4
+  %13 = call i32 %10(ptr noundef %11, i32 noundef %12)
+  store i32 %13, ptr %7, align 4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %40
 
-14:                                               ; preds = %8
-  %15 = load i32, ptr %5, align 4
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %5, align 4
-  %17 = load i32, ptr %6, align 4
-  %18 = icmp sgt i32 %15, %17
-  br i1 %18, label %19, label %20
+15:                                               ; preds = %8
+  %16 = load i32, ptr %5, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %5, align 4
+  %18 = load i32, ptr %6, align 4
+  %19 = icmp sgt i32 %16, %18
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %14
-  br label %39
+20:                                               ; preds = %15
+  br label %40
 
-20:                                               ; preds = %14
-  br label %21
-
-21:                                               ; preds = %20
+21:                                               ; preds = %15
   br label %22
 
 22:                                               ; preds = %21
-  %23 = call i32 @get_log_level()
-  %24 = icmp sge i32 %23, 5
-  br i1 %24, label %25, label %35
+  br label %23
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %26, i32 0, i32 5
-  %28 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %30, i32 0, i32 5
-  %32 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %31, i32 0, i32 2
-  %33 = load i32, ptr %32, align 8
-  %34 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.5, ptr noundef @__func__.proctrack_g_add, i32 noundef %29, i32 noundef %33, i32 noundef %34)
-  br label %35
+23:                                               ; preds = %22
+  %24 = call i32 @get_log_level()
+  %25 = icmp sge i32 %24, 5
+  br i1 %25, label %26, label %36
 
-35:                                               ; preds = %25, %22
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %27, i32 0, i32 5
+  %29 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds %struct.stepd_step_rec_t, ptr %31, i32 0, i32 5
+  %33 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %32, i32 0, i32 2
+  %34 = load i32, ptr %33, align 8
+  %35 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.5, ptr noundef @__func__.proctrack_g_add, i32 noundef %30, i32 noundef %34, i32 noundef %35)
   br label %36
 
-36:                                               ; preds = %35
+36:                                               ; preds = %26, %23
   br label %37
 
 37:                                               ; preds = %36
-  %38 = call i32 @sleep(i32 noundef 1)
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = call i32 @sleep(i32 noundef 1)
   br label %8, !llvm.loop !6
 
-39:                                               ; preds = %19, %8
-  %40 = load i32, ptr %7, align 4
-  ret i32 %40
+40:                                               ; preds = %20, %8
+  %41 = load i32, ptr %7, align 4
+  ret i32 %41
 }
 
 declare i32 @get_log_level() #4
@@ -442,7 +445,7 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) #0 {
   %94 = load i32, ptr %5, align 4
   call void @_spawn_signal_thread(i64 noundef %93, i32 noundef %94)
   store i32 0, ptr %3, align 4
-  br label %102
+  br label %103
 
 95:                                               ; preds = %81
   br label %96
@@ -451,16 +454,17 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) #0 {
   br label %97
 
 97:                                               ; preds = %96, %2
-  %98 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 2), align 8
-  %99 = load i64, ptr %4, align 8
-  %100 = load i32, ptr %5, align 4
-  %101 = call i32 %98(i64 noundef %99, i32 noundef %100)
-  store i32 %101, ptr %3, align 4
-  br label %102
+  %98 = getelementptr inbounds %struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 2
+  %99 = load ptr, ptr %98, align 8
+  %100 = load i64, ptr %4, align 8
+  %101 = load i32, ptr %5, align 4
+  %102 = call i32 %99(i64 noundef %100, i32 noundef %101)
+  store i32 %102, ptr %3, align 4
+  br label %103
 
-102:                                              ; preds = %97, %92
-  %103 = load i32, ptr %3, align 4
-  ret i32 %103
+103:                                              ; preds = %97, %92
+  %104 = load i32, ptr %3, align 4
+  ret i32 %104
 }
 
 ; Function Attrs: nounwind uwtable
@@ -471,12 +475,13 @@ define i32 @proctrack_g_get_pids(i64 noundef %0, ptr noundef %1, ptr noundef %2)
   store i64 %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 7), align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 %7(i64 noundef %8, ptr noundef %9, ptr noundef %10)
-  ret i32 %11
+  %7 = getelementptr inbounds %struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 7
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call i32 %8(i64 noundef %9, ptr noundef %10, ptr noundef %11)
+  ret i32 %12
 }
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) #4
@@ -832,20 +837,22 @@ define internal void @_spawn_signal_thread(i64 noundef %0, i32 noundef %1) #0 {
 define i32 @proctrack_g_destroy(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 3), align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i32 %3(i64 noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i64, ptr %2, align 8
+  %6 = call i32 %4(i64 noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @proctrack_g_find(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 4), align 8
-  %4 = load i32, ptr %2, align 4
-  %5 = call i64 %3(i32 noundef %4)
-  ret i64 %5
+  %3 = getelementptr inbounds %struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %2, align 4
+  %6 = call i64 %4(i32 noundef %5)
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -854,21 +861,23 @@ define zeroext i1 @proctrack_g_has_pid(i64 noundef %0, i32 noundef %1) #0 {
   %4 = alloca i32, align 4
   store i64 %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 5), align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = load i32, ptr %4, align 4
-  %8 = call zeroext i1 %5(i64 noundef %6, i32 noundef %7)
-  ret i1 %8
+  %5 = getelementptr inbounds %struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i64, ptr %3, align 8
+  %8 = load i32, ptr %4, align 4
+  %9 = call zeroext i1 %6(i64 noundef %7, i32 noundef %8)
+  ret i1 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @proctrack_g_wait(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 6), align 8
-  %4 = load i64, ptr %2, align 8
-  %5 = call i32 %3(i64 noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 6
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i64, ptr %2, align 8
+  %6 = call i32 %4(i64 noundef %5)
+  ret i32 %6
 }
 
 declare i32 @open(ptr noundef, i32 noundef, ...) #4
@@ -1051,14 +1060,15 @@ define internal ptr @_sig_agent(ptr noundef %0) #0 {
   br label %76
 
 76:                                               ; preds = %75
-  %77 = load ptr, ptr getelementptr inbounds (%struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 2), align 8
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.agent_arg, ptr %78, i32 0, i32 0
-  %80 = load i64, ptr %79, align 8
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.agent_arg, ptr %81, i32 0, i32 1
-  %83 = load i32, ptr %82, align 8
-  %84 = call i32 %77(i64 noundef %80, i32 noundef %83)
+  %77 = getelementptr inbounds %struct.slurm_proctrack_ops, ptr @ops, i32 0, i32 2
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds %struct.agent_arg, ptr %79, i32 0, i32 0
+  %81 = load i64, ptr %80, align 8
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds %struct.agent_arg, ptr %82, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  %85 = call i32 %78(i64 noundef %81, i32 noundef %84)
   call void @slurm_xfree(ptr noundef %2)
   ret ptr null
 }

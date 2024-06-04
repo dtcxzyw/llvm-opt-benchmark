@@ -802,15 +802,16 @@ define linkonce_odr hidden void @_ZN5ceres9HuberLossC2Ed(ptr noundef nonnull ali
   store double %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres9HuberLossE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::HuberLoss", ptr %5, i32 0, i32 1
-  %7 = load double, ptr %4, align 8
-  store double %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.ceres::HuberLoss", ptr %5, i32 0, i32 2
-  %9 = load double, ptr %4, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres9HuberLossE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::HuberLoss", ptr %5, i32 0, i32 1
+  %8 = load double, ptr %4, align 8
+  store double %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.ceres::HuberLoss", ptr %5, i32 0, i32 2
   %10 = load double, ptr %4, align 8
-  %11 = fmul double %9, %10
-  store double %11, ptr %8, align 8
+  %11 = load double, ptr %4, align 8
+  %12 = fmul double %10, %11
+  store double %12, ptr %9, align 8
   ret void
 }
 
@@ -854,17 +855,18 @@ define linkonce_odr hidden void @_ZN5ceres12SoftLOneLossC2Ed(ptr noundef nonnull
   store double %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12SoftLOneLossE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::SoftLOneLoss", ptr %5, i32 0, i32 1
-  %7 = load double, ptr %4, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres12SoftLOneLossE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::SoftLOneLoss", ptr %5, i32 0, i32 1
   %8 = load double, ptr %4, align 8
-  %9 = fmul double %7, %8
-  store double %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.ceres::SoftLOneLoss", ptr %5, i32 0, i32 2
-  %11 = getelementptr inbounds %"class.ceres::SoftLOneLoss", ptr %5, i32 0, i32 1
-  %12 = load double, ptr %11, align 8
-  %13 = fdiv double 1.000000e+00, %12
-  store double %13, ptr %10, align 8
+  %9 = load double, ptr %4, align 8
+  %10 = fmul double %8, %9
+  store double %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.ceres::SoftLOneLoss", ptr %5, i32 0, i32 2
+  %12 = getelementptr inbounds %"class.ceres::SoftLOneLoss", ptr %5, i32 0, i32 1
+  %13 = load double, ptr %12, align 8
+  %14 = fdiv double 1.000000e+00, %13
+  store double %14, ptr %11, align 8
   ret void
 }
 
@@ -908,17 +910,18 @@ define linkonce_odr hidden void @_ZN5ceres10CauchyLossC2Ed(ptr noundef nonnull a
   store double %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres10CauchyLossE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::CauchyLoss", ptr %5, i32 0, i32 1
-  %7 = load double, ptr %4, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres10CauchyLossE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::CauchyLoss", ptr %5, i32 0, i32 1
   %8 = load double, ptr %4, align 8
-  %9 = fmul double %7, %8
-  store double %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.ceres::CauchyLoss", ptr %5, i32 0, i32 2
-  %11 = getelementptr inbounds %"class.ceres::CauchyLoss", ptr %5, i32 0, i32 1
-  %12 = load double, ptr %11, align 8
-  %13 = fdiv double 1.000000e+00, %12
-  store double %13, ptr %10, align 8
+  %9 = load double, ptr %4, align 8
+  %10 = fmul double %8, %9
+  store double %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.ceres::CauchyLoss", ptr %5, i32 0, i32 2
+  %12 = getelementptr inbounds %"class.ceres::CauchyLoss", ptr %5, i32 0, i32 1
+  %13 = load double, ptr %12, align 8
+  %14 = fdiv double 1.000000e+00, %13
+  store double %14, ptr %11, align 8
   ret void
 }
 
@@ -962,16 +965,17 @@ define linkonce_odr hidden void @_ZN5ceres10ArctanLossC2Ed(ptr noundef nonnull a
   store double %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres10ArctanLossE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::ArctanLoss", ptr %5, i32 0, i32 1
-  %7 = load double, ptr %4, align 8
-  store double %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.ceres::ArctanLoss", ptr %5, i32 0, i32 2
-  %9 = load double, ptr %4, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres10ArctanLossE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::ArctanLoss", ptr %5, i32 0, i32 1
+  %8 = load double, ptr %4, align 8
+  store double %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.ceres::ArctanLoss", ptr %5, i32 0, i32 2
   %10 = load double, ptr %4, align 8
-  %11 = fmul double %9, %10
-  %12 = fdiv double 1.000000e+00, %11
-  store double %12, ptr %8, align 8
+  %11 = load double, ptr %4, align 8
+  %12 = fmul double %10, %11
+  %13 = fdiv double 1.000000e+00, %12
+  store double %13, ptr %9, align 8
   ret void
 }
 
@@ -1977,7 +1981,8 @@ define linkonce_odr hidden void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12LossFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres12LossFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3943,67 +3948,68 @@ define linkonce_odr hidden void @_ZN20CallbackCostFunctionC2EPFiPvPPdS1_S2_ES0_i
   store ptr %5, ptr %12, align 8
   %16 = load ptr, ptr %7, align 8
   call void @_ZN5ceres12CostFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %16)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20CallbackCostFunction, i32 0, i32 0, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %class.CallbackCostFunction, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %8, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.CallbackCostFunction, ptr %16, i32 0, i32 2
-  %20 = load ptr, ptr %9, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = load i32, ptr %10, align 4
-  invoke void @_ZN5ceres12CostFunction17set_num_residualsEi(ptr noundef nonnull align 8 dereferenceable(36) %16, i32 noundef %21)
-          to label %22 unwind label %38
+  %17 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV20CallbackCostFunction, i32 0, i32 0, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %class.CallbackCostFunction, ptr %16, i32 0, i32 1
+  %19 = load ptr, ptr %8, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.CallbackCostFunction, ptr %16, i32 0, i32 2
+  %21 = load ptr, ptr %9, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = load i32, ptr %10, align 4
+  invoke void @_ZN5ceres12CostFunction17set_num_residualsEi(ptr noundef nonnull align 8 dereferenceable(36) %16, i32 noundef %22)
+          to label %23 unwind label %39
 
-22:                                               ; preds = %6
+23:                                               ; preds = %6
   store i32 0, ptr %15, align 4
-  br label %23
+  br label %24
 
-23:                                               ; preds = %35, %22
-  %24 = load i32, ptr %15, align 4
-  %25 = load i32, ptr %11, align 4
-  %26 = icmp slt i32 %24, %25
-  br i1 %26, label %27, label %42
+24:                                               ; preds = %36, %23
+  %25 = load i32, ptr %15, align 4
+  %26 = load i32, ptr %11, align 4
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %43
 
-27:                                               ; preds = %23
-  %28 = invoke noundef ptr @_ZN5ceres12CostFunction29mutable_parameter_block_sizesEv(ptr noundef nonnull align 8 dereferenceable(36) %16)
-          to label %29 unwind label %38
+28:                                               ; preds = %24
+  %29 = invoke noundef ptr @_ZN5ceres12CostFunction29mutable_parameter_block_sizesEv(ptr noundef nonnull align 8 dereferenceable(36) %16)
+          to label %30 unwind label %39
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i32, ptr %15, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %30, i64 %32
-  invoke void @_ZNSt6vectorIiSaIiEE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 4 dereferenceable(4) %33)
-          to label %34 unwind label %38
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr %15, align 4
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i32, ptr %31, i64 %33
+  invoke void @_ZNSt6vectorIiSaIiEE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 4 dereferenceable(4) %34)
+          to label %35 unwind label %39
 
-34:                                               ; preds = %29
-  br label %35
+35:                                               ; preds = %30
+  br label %36
 
-35:                                               ; preds = %34
-  %36 = load i32, ptr %15, align 4
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %15, align 4
-  br label %23, !llvm.loop !6
+36:                                               ; preds = %35
+  %37 = load i32, ptr %15, align 4
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %15, align 4
+  br label %24, !llvm.loop !6
 
-38:                                               ; preds = %29, %27, %6
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %30, %28, %6
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %13, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %14, align 4
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %13, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %14, align 4
   call void @_ZN5ceres12CostFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %16) #3
-  br label %43
+  br label %44
 
-42:                                               ; preds = %23
+43:                                               ; preds = %24
   ret void
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %13, align 8
-  %45 = load i32, ptr %14, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %13, align 8
+  %46 = load i32, ptr %14, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5032,13 +5038,14 @@ define linkonce_odr hidden void @_ZN20CallbackLossFunctionC2EPFvPvdPdES0_(ptr no
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20CallbackLossFunction, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.CallbackLossFunction, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.CallbackLossFunction, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV20CallbackLossFunction, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.CallbackLossFunction, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.CallbackLossFunction, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 

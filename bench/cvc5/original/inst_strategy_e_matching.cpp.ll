@@ -2649,7 +2649,8 @@ entry:
   %4 = load ptr, ptr %qr.addr, align 8
   %5 = load ptr, ptr %tr.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers12InstStrategyC2ERNS0_3EnvERNS2_4inst15TriggerDatabaseERNS2_16QuantifiersStateERNS2_27QuantifiersInferenceManagerERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(376) %3, ptr noundef nonnull align 8 dereferenceable(488) %4, ptr noundef nonnull align 1 %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggersE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggersE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %d_auto_gen_trigger = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 4
   %array.begin = getelementptr inbounds [2 x %"class.std::map"], ptr %d_auto_gen_trigger, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.std::map", ptr %array.begin, i64 2
@@ -2706,27 +2707,27 @@ arrayctor.cont15:                                 ; preds = %arrayctor.loop11
   %d_hasUserPatterns = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 14
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_hasUserPatterns) #3
   %d_quant_rel = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 15
-  %6 = load ptr, ptr %qrlv.addr, align 8
-  store ptr %6, ptr %d_quant_rel, align 8
+  %7 = load ptr, ptr %qrlv.addr, align 8
+  store ptr %7, ptr %d_quant_rel, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %arrayctor.cont15
   %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call, i32 0, i32 41
-  %7 = load ptr, ptr %quantifiers, align 8
-  %triggerSelMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %7, i32 0, i32 375
-  %8 = load i32, ptr %triggerSelMode, align 4
+  %8 = load ptr, ptr %quantifiers, align 8
+  %triggerSelMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %8, i32 0, i32 375
+  %9 = load i32, ptr %triggerSelMode, align 4
   %d_tr_strategy = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 1
-  store i32 %8, ptr %d_tr_strategy, align 8
+  store i32 %9, ptr %d_tr_strategy, align 8
   %call17 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont
   %quantifiers18 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call17, i32 0, i32 41
-  %9 = load ptr, ptr %quantifiers18, align 8
-  %incrementTriggers = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %9, i32 0, i32 130
-  %10 = load i8, ptr %incrementTriggers, align 1
-  %tobool = trunc i8 %10 to i1
+  %10 = load ptr, ptr %quantifiers18, align 8
+  %incrementTriggers = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %10, i32 0, i32 130
+  %11 = load i8, ptr %incrementTriggers, align 1
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont16
@@ -2737,16 +2738,16 @@ if.then:                                          ; preds = %invoke.cont16
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont, %arrayctor.cont15
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_hasUserPatterns) #3
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_pat_to_mpat) #3
   %array.begin21 = getelementptr inbounds [2 x %"class.std::map.25"], ptr %d_vc_partition, i32 0, i32 0
-  %14 = getelementptr inbounds %"class.std::map.25", ptr %array.begin21, i64 2
+  %15 = getelementptr inbounds %"class.std::map.25", ptr %array.begin21, i64 2
   br label %arraydestroy.body
 
 if.else:                                          ; preds = %invoke.cont16
@@ -2760,7 +2761,7 @@ if.end:                                           ; preds = %if.else, %if.then
   ret void
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad
-  %arraydestroy.elementPast = phi ptr [ %14, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %15, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::map.25", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin21
@@ -2773,11 +2774,11 @@ arraydestroy.done22:                              ; preds = %arraydestroy.body
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_madeTriggers) #3
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_bSt4lessIS3_ESaISt4pairIKS3_bEEES5_SaIS6_IS7_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_patReqPol) #3
   %array.begin23 = getelementptr inbounds [2 x %"class.std::map.5"], ptr %d_patTerms, i32 0, i32 0
-  %15 = getelementptr inbounds %"class.std::map.5", ptr %array.begin23, i64 2
+  %16 = getelementptr inbounds %"class.std::map.5", ptr %array.begin23, i64 2
   br label %arraydestroy.body24
 
 arraydestroy.body24:                              ; preds = %arraydestroy.body24, %arraydestroy.done22
-  %arraydestroy.elementPast25 = phi ptr [ %15, %arraydestroy.done22 ], [ %arraydestroy.element26, %arraydestroy.body24 ]
+  %arraydestroy.elementPast25 = phi ptr [ %16, %arraydestroy.done22 ], [ %arraydestroy.element26, %arraydestroy.body24 ]
   %arraydestroy.element26 = getelementptr inbounds %"class.std::map.5", ptr %arraydestroy.elementPast25, i64 -1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element26) #3
   %arraydestroy.done27 = icmp eq ptr %arraydestroy.element26, %array.begin23
@@ -2786,11 +2787,11 @@ arraydestroy.body24:                              ; preds = %arraydestroy.body24
 arraydestroy.done28:                              ; preds = %arraydestroy.body24
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_counter) #3
   %array.begin29 = getelementptr inbounds [2 x %"class.std::map"], ptr %d_auto_gen_trigger, i32 0, i32 0
-  %16 = getelementptr inbounds %"class.std::map", ptr %array.begin29, i64 2
+  %17 = getelementptr inbounds %"class.std::map", ptr %array.begin29, i64 2
   br label %arraydestroy.body30
 
 arraydestroy.body30:                              ; preds = %arraydestroy.body30, %arraydestroy.done28
-  %arraydestroy.elementPast31 = phi ptr [ %16, %arraydestroy.done28 ], [ %arraydestroy.element32, %arraydestroy.body30 ]
+  %arraydestroy.elementPast31 = phi ptr [ %17, %arraydestroy.done28 ], [ %arraydestroy.element32, %arraydestroy.body30 ]
   %arraydestroy.element32 = getelementptr inbounds %"class.std::map", ptr %arraydestroy.elementPast31, i64 -1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IPNS1_6theory11quantifiers4inst7TriggerEbSt4lessIS8_ESaISt4pairIKS8_bEEES9_IS3_ESaISB_IKS3_SF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element32) #3
   %arraydestroy.done33 = icmp eq ptr %arraydestroy.element32, %array.begin29
@@ -13449,18 +13450,19 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggersE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggersE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_hasUserPatterns = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 14
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_hasUserPatterns) #3
   %d_pat_to_mpat = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 13
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_pat_to_mpat) #3
   %d_vc_partition = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 12
   %array.begin = getelementptr inbounds [2 x %"class.std::map.25"], ptr %d_vc_partition, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.std::map.25", ptr %array.begin, i64 2
+  %1 = getelementptr inbounds %"class.std::map.25", ptr %array.begin, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.std::map.25", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -13479,11 +13481,11 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_bSt4lessIS3_ESaISt4pairIKS3_bEEES5_SaIS6_IS7_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_patReqPol) #3
   %d_patTerms = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 6
   %array.begin3 = getelementptr inbounds [2 x %"class.std::map.5"], ptr %d_patTerms, i32 0, i32 0
-  %1 = getelementptr inbounds %"class.std::map.5", ptr %array.begin3, i64 2
+  %2 = getelementptr inbounds %"class.std::map.5", ptr %array.begin3, i64 2
   br label %arraydestroy.body4
 
 arraydestroy.body4:                               ; preds = %arraydestroy.body4, %arraydestroy.done2
-  %arraydestroy.elementPast5 = phi ptr [ %1, %arraydestroy.done2 ], [ %arraydestroy.element6, %arraydestroy.body4 ]
+  %arraydestroy.elementPast5 = phi ptr [ %2, %arraydestroy.done2 ], [ %arraydestroy.element6, %arraydestroy.body4 ]
   %arraydestroy.element6 = getelementptr inbounds %"class.std::map.5", ptr %arraydestroy.elementPast5, i64 -1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element6) #3
   %arraydestroy.done7 = icmp eq ptr %arraydestroy.element6, %array.begin3
@@ -13494,11 +13496,11 @@ arraydestroy.done8:                               ; preds = %arraydestroy.body4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_counter) #3
   %d_auto_gen_trigger = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 4
   %array.begin9 = getelementptr inbounds [2 x %"class.std::map"], ptr %d_auto_gen_trigger, i32 0, i32 0
-  %2 = getelementptr inbounds %"class.std::map", ptr %array.begin9, i64 2
+  %3 = getelementptr inbounds %"class.std::map", ptr %array.begin9, i64 2
   br label %arraydestroy.body10
 
 arraydestroy.body10:                              ; preds = %arraydestroy.body10, %arraydestroy.done8
-  %arraydestroy.elementPast11 = phi ptr [ %2, %arraydestroy.done8 ], [ %arraydestroy.element12, %arraydestroy.body10 ]
+  %arraydestroy.elementPast11 = phi ptr [ %3, %arraydestroy.done8 ], [ %arraydestroy.element12, %arraydestroy.body10 ]
   %arraydestroy.element12 = getelementptr inbounds %"class.std::map", ptr %arraydestroy.elementPast11, i64 -1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IPNS1_6theory11quantifiers4inst7TriggerEbSt4lessIS8_ESaISt4pairIKS8_bEEES9_IS3_ESaISB_IKS3_SF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element12) #3
   %arraydestroy.done13 = icmp eq ptr %arraydestroy.element12, %array.begin9

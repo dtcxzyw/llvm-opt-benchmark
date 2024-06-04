@@ -8929,60 +8929,61 @@ if.end:                                           ; preds = %if.then, %cond.end
   %call8 = call ptr @mmap64(ptr noundef %15, i64 noundef %16, i32 noundef 0, i32 noundef 2, i32 noundef %18, i64 noundef %19) #14
   store ptr %call8, ptr %new_window, align 8
   %20 = load ptr, ptr %new_window, align 8
-  %cmp9 = icmp eq ptr %20, inttoptr (i64 -1 to ptr)
+  %21 = inttoptr i64 -1 to ptr
+  %cmp9 = icmp eq ptr %20, %21
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end
-  %21 = load ptr, ptr %errp.addr, align 8
+  %22 = load ptr, ptr %errp.addr, align 8
   %call11 = call ptr @__errno_location() #13
-  %22 = load i32, ptr %call11, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %21, ptr noundef @.str.14, i32 noundef 3279, ptr noundef @__func__.check_cache_dropped, i32 noundef %22, ptr noundef @.str.105)
+  %23 = load i32, ptr %call11, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %22, ptr noundef @.str.14, i32 noundef 3279, ptr noundef @__func__.check_cache_dropped, i32 noundef %23, ptr noundef @.str.105)
   br label %for.end32
 
 if.end12:                                         ; preds = %if.end
-  %23 = load ptr, ptr %new_window, align 8
-  store ptr %23, ptr %window, align 8
-  %24 = load i64, ptr %new_length, align 8
-  store i64 %24, ptr %length, align 8
-  %25 = load ptr, ptr %window, align 8
-  %26 = load i64, ptr %length, align 8
-  %27 = load ptr, ptr %vec, align 8
-  %call13 = call i32 @mincore(ptr noundef %25, i64 noundef %26, ptr noundef %27) #14
+  %24 = load ptr, ptr %new_window, align 8
+  store ptr %24, ptr %window, align 8
+  %25 = load i64, ptr %new_length, align 8
+  store i64 %25, ptr %length, align 8
+  %26 = load ptr, ptr %window, align 8
+  %27 = load i64, ptr %length, align 8
+  %28 = load ptr, ptr %vec, align 8
+  %call13 = call i32 @mincore(ptr noundef %26, i64 noundef %27, ptr noundef %28) #14
   store i32 %call13, ptr %ret, align 4
-  %28 = load i32, ptr %ret, align 4
-  %cmp14 = icmp slt i32 %28, 0
+  %29 = load i32, ptr %ret, align 4
+  %cmp14 = icmp slt i32 %29, 0
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end12
-  %29 = load ptr, ptr %errp.addr, align 8
+  %30 = load ptr, ptr %errp.addr, align 8
   %call16 = call ptr @__errno_location() #13
-  %30 = load i32, ptr %call16, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %29, ptr noundef @.str.14, i32 noundef 3288, ptr noundef @__func__.check_cache_dropped, i32 noundef %30, ptr noundef @.str.106)
+  %31 = load i32, ptr %call16, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %30, ptr noundef @.str.14, i32 noundef 3288, ptr noundef @__func__.check_cache_dropped, i32 noundef %31, ptr noundef @.str.106)
   br label %for.end32
 
 if.end17:                                         ; preds = %if.end12
-  %31 = load i64, ptr %length, align 8
-  %32 = load i64, ptr %page_size, align 8
-  %add18 = add i64 %31, %32
-  %sub19 = sub i64 %add18, 1
+  %32 = load i64, ptr %length, align 8
   %33 = load i64, ptr %page_size, align 8
-  %div20 = udiv i64 %sub19, %33
+  %add18 = add i64 %32, %33
+  %sub19 = sub i64 %add18, 1
+  %34 = load i64, ptr %page_size, align 8
+  %div20 = udiv i64 %sub19, %34
   store i64 %div20, ptr %vec_end, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond21
 
 for.cond21:                                       ; preds = %for.inc, %if.end17
-  %34 = load i64, ptr %i, align 8
-  %35 = load i64, ptr %vec_end, align 8
-  %cmp22 = icmp ult i64 %34, %35
+  %35 = load i64, ptr %i, align 8
+  %36 = load i64, ptr %vec_end, align 8
+  %cmp22 = icmp ult i64 %35, %36
   br i1 %cmp22, label %for.body23, label %for.end
 
 for.body23:                                       ; preds = %for.cond21
-  %36 = load ptr, ptr %vec, align 8
-  %37 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr i8, ptr %36, i64 %37
-  %38 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %38 to i32
+  %37 = load ptr, ptr %vec, align 8
+  %38 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr i8, ptr %37, i64 %38
+  %39 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %39 to i32
   %and = and i32 %conv, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then24, label %if.end25
@@ -8994,45 +8995,45 @@ if.end25:                                         ; preds = %for.body23
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end25
-  %39 = load i64, ptr %i, align 8
-  %inc = add i64 %39, 1
+  %40 = load i64, ptr %i, align 8
+  %inc = add i64 %40, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond21, !llvm.loop !27
 
 for.end:                                          ; preds = %if.then24, %for.cond21
-  %40 = load i64, ptr %i, align 8
-  %41 = load i64, ptr %vec_end, align 8
-  %cmp26 = icmp ult i64 %40, %41
+  %41 = load i64, ptr %i, align 8
+  %42 = load i64, ptr %vec_end, align 8
+  %cmp26 = icmp ult i64 %41, %42
   br i1 %cmp26, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %for.end
-  %42 = load ptr, ptr %errp.addr, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %42, ptr noundef @.str.14, i32 noundef 3299, ptr noundef @__func__.check_cache_dropped, ptr noundef @.str.107)
+  %43 = load ptr, ptr %errp.addr, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %43, ptr noundef @.str.14, i32 noundef 3299, ptr noundef @__func__.check_cache_dropped, ptr noundef @.str.107)
   br label %for.end32
 
 if.end29:                                         ; preds = %for.end
   br label %for.inc30
 
 for.inc30:                                        ; preds = %if.end29
-  %43 = load i64, ptr %offset, align 8
-  %add31 = add i64 %43, 134217728
+  %44 = load i64, ptr %offset, align 8
+  %add31 = add i64 %44, 134217728
   store i64 %add31, ptr %offset, align 8
   br label %for.cond, !llvm.loop !28
 
 for.end32:                                        ; preds = %if.then28, %if.then15, %if.then10, %for.cond
-  %44 = load ptr, ptr %window, align 8
-  %tobool33 = icmp ne ptr %44, null
+  %45 = load ptr, ptr %window, align 8
+  %tobool33 = icmp ne ptr %45, null
   br i1 %tobool33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %for.end32
-  %45 = load ptr, ptr %window, align 8
-  %46 = load i64, ptr %length, align 8
-  %call35 = call i32 @munmap(ptr noundef %45, i64 noundef %46) #14
+  %46 = load ptr, ptr %window, align 8
+  %47 = load i64, ptr %length, align 8
+  %call35 = call i32 @munmap(ptr noundef %46, i64 noundef %47) #14
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %for.end32
-  %47 = load ptr, ptr %vec, align 8
-  call void @g_free(ptr noundef %47)
+  %48 = load ptr, ptr %vec, align 8
+  call void @g_free(ptr noundef %48)
   ret void
 }
 

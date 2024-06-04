@@ -983,30 +983,31 @@ entry:
   store ptr %policy, ptr %policy.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19AuthorizationEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 1
   %name = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i32 0, i32 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name) #3
   %action_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 2
   %action = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i32 0, i32 1
-  %0 = load i32, ptr %action, align 8
-  store i32 %0, ptr %action_, align 8
+  %1 = load i32, ptr %action, align 8
+  store i32 %1, ptr %action_, align 8
   %policies_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %policies_) #3
   %audit_condition_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 4
   %audit_condition = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i32 0, i32 3
-  %1 = load i32, ptr %audit_condition, align 8
-  store i32 %1, ptr %audit_condition_, align 8
+  %2 = load i32, ptr %audit_condition, align 8
+  store i32 %2, ptr %audit_condition_, align 8
   %audit_loggers_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %audit_loggers_) #3
   %policies = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i32 0, i32 2
   store ptr %policies, ptr %__range1, align 8
-  %2 = load ptr, ptr %__range1, align 8
-  %call = call ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #3
+  %3 = load ptr, ptr %__range1, align 8
+  %call = call ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %__begin1, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
-  %3 = load ptr, ptr %__range1, align 8
-  %call2 = call ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
+  %4 = load ptr, ptr %__range1, align 8
+  %call2 = call ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %coerce.dive3 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %__end1, i32 0, i32 0
   store ptr %call2, ptr %coerce.dive3, align 8
   br label %for.cond
@@ -1019,15 +1020,15 @@ for.body:                                         ; preds = %for.cond
   %call5 = call noundef nonnull align 8 dereferenceable(560) ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin1) #3
   store ptr %call5, ptr %sub_policy, align 8
   call void @_ZN9grpc_core23GrpcAuthorizationEngine6PolicyC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %policy6) #3
-  %4 = load ptr, ptr %sub_policy, align 8
-  %first = getelementptr inbounds %"struct.std::pair", ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %sub_policy, align 8
+  %first = getelementptr inbounds %"struct.std::pair", ptr %5, i32 0, i32 0
   %name7 = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %policy6, i32 0, i32 0
   %call8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name7, ptr noundef nonnull align 8 dereferenceable(32) %first)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  %5 = load ptr, ptr %sub_policy, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %sub_policy, align 8
+  %second = getelementptr inbounds %"struct.std::pair", ptr %6, i32 0, i32 1
   invoke void @_ZSt11make_uniqueIN9grpc_core26PolicyAuthorizationMatcherEJNS0_4Rbac6PolicyEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.38") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(528) %second)
           to label %invoke.cont9 unwind label %lpad
 
@@ -1048,24 +1049,24 @@ for.inc:                                          ; preds = %invoke.cont12
   br label %for.cond
 
 lpad:                                             ; preds = %invoke.cont9, %invoke.cont, %for.body
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %policy6) #3
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %logger_configs = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i32 0, i32 4
   store ptr %logger_configs, ptr %__range114, align 8
-  %9 = load ptr, ptr %__range114, align 8
-  %call16 = call ptr @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = load ptr, ptr %__range114, align 8
+  %call16 = call ptr @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   %coerce.dive17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin115, i32 0, i32 0
   store ptr %call16, ptr %coerce.dive17, align 8
-  %10 = load ptr, ptr %__range114, align 8
-  %call19 = call ptr @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = load ptr, ptr %__range114, align 8
+  %call19 = call ptr @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   %coerce.dive20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end118, i32 0, i32 0
   store ptr %call19, ptr %coerce.dive20, align 8
   br label %for.cond21
@@ -1077,8 +1078,8 @@ for.cond21:                                       ; preds = %for.inc32, %for.end
 for.body23:                                       ; preds = %for.cond21
   %call24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin115) #3
   store ptr %call24, ptr %logger_config, align 8
-  %11 = load ptr, ptr %logger_config, align 8
-  call void @_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  %12 = load ptr, ptr %logger_config, align 8
+  call void @_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
   invoke void @_ZN9grpc_core12experimental19AuditLoggerRegistry17CreateAuditLoggerESt10unique_ptrINS0_18AuditLoggerFactory6ConfigESt14default_deleteIS4_EE(ptr sret(%"class.std::unique_ptr.54") align 8 %logger, ptr noundef %agg.tmp)
           to label %invoke.cont26 unwind label %lpad25
 
@@ -1099,22 +1100,22 @@ invoke.cont29:                                    ; preds = %if.then
   unreachable
 
 lpad25:                                           ; preds = %for.body23
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %ehcleanup
 
 lpad28:                                           ; preds = %do.end, %if.then
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %logger) #3
   br label %ehcleanup
 
@@ -1162,7 +1163,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedINS_19AuthorizationEngineENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core19AuthorizationEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core19AuthorizationEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1687,36 +1689,37 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %name_2 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %other.addr, align 8
+  %name_2 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name_2) #3
   %action_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %other.addr, align 8
-  %action_3 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %action_3, align 8
-  store i32 %2, ptr %action_, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %action_3 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %2, i32 0, i32 2
+  %3 = load i32, ptr %action_3, align 8
+  store i32 %3, ptr %action_, align 8
   %policies_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %other.addr, align 8
-  %policies_4 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %3, i32 0, i32 3
+  %4 = load ptr, ptr %other.addr, align 8
+  %policies_4 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %4, i32 0, i32 3
   call void @_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %policies_, ptr noundef nonnull align 8 dereferenceable(24) %policies_4) #3
   %audit_condition_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %other.addr, align 8
-  %audit_condition_5 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %4, i32 0, i32 4
-  %5 = load i32, ptr %audit_condition_5, align 8
-  store i32 %5, ptr %audit_condition_, align 8
+  %5 = load ptr, ptr %other.addr, align 8
+  %audit_condition_5 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %5, i32 0, i32 4
+  %6 = load i32, ptr %audit_condition_5, align 8
+  store i32 %6, ptr %audit_condition_, align 8
   %audit_loggers_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %other.addr, align 8
-  %audit_loggers_6 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %6, i32 0, i32 5
+  %7 = load ptr, ptr %other.addr, align 8
+  %audit_loggers_6 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %7, i32 0, i32 5
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %audit_loggers_, ptr noundef nonnull align 8 dereferenceable(24) %audit_loggers_6) #3
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #15
   unreachable
 }
 
@@ -2322,7 +2325,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %audit_loggers_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %audit_loggers_) #3
   %policies_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this1, i32 0, i32 3
@@ -2384,23 +2388,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_19AuthorizationEngineENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_19AuthorizationEngineENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -2439,7 +2444,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3174,7 +3180,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3184,7 +3191,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3661,7 +3669,8 @@ entry:
   store ptr %policy, ptr %policy.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20AuthorizationMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core26PolicyAuthorizationMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core26PolicyAuthorizationMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %permissions_ = getelementptr inbounds %"class.grpc_core::PolicyAuthorizationMatcher", ptr %this1, i32 0, i32 1
   %permissions = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %policy, i32 0, i32 0
   call void @_ZN9grpc_core4Rbac10PermissionC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(257) %permissions) #3
@@ -3681,22 +3690,22 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp) #3
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp2) #3
   call void @_ZNSt10unique_ptrIN9grpc_core20AuthorizationMatcherESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %permissions_) #3
   br label %ehcleanup
@@ -3756,7 +3765,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20AuthorizationMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core20AuthorizationMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

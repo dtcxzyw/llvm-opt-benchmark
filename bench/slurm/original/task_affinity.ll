@@ -155,114 +155,117 @@ define i32 @task_p_slurmd_launch_request(ptr noundef %0, i32 noundef %1, ptr nou
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %11 = and i64 %10, 8
-  %12 = icmp ne i64 %11, 0
-  %13 = zext i1 %12 to i8
-  store i8 %13, ptr %8, align 1
-  %14 = load i8, ptr %8, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %39
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %11 = load i64, ptr %10, align 8
+  %12 = and i64 %11, 8
+  %13 = icmp ne i64 %12, 0
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %8, align 1
+  %15 = load i8, ptr %8, align 1
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %41
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds [100 x i8], ptr %7, i64 0, i64 0
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.launch_tasks_request_msg, ptr %18, i32 0, i32 37
-  %20 = load i16, ptr %19, align 8
-  %21 = zext i16 %20 to i32
-  call void @slurm_sprint_cpu_bind_type(ptr noundef %17, i32 noundef %21)
-  br label %22
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds [100 x i8], ptr %7, i64 0, i64 0
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %struct.launch_tasks_request_msg, ptr %19, i32 0, i32 37
+  %21 = load i16, ptr %20, align 8
+  %22 = zext i16 %21 to i32
+  call void @slurm_sprint_cpu_bind_type(ptr noundef %18, i32 noundef %22)
+  br label %23
 
-22:                                               ; preds = %16
-  %23 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %24 = and i64 %23, 8
-  %25 = icmp ne i64 %24, 0
-  br i1 %25, label %26, label %37
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 8
+  %27 = icmp ne i64 %26, 0
+  br i1 %27, label %28, label %39
 
-26:                                               ; preds = %22
-  br label %27
+28:                                               ; preds = %23
+  br label %29
 
-27:                                               ; preds = %26
-  %28 = call i32 @slurm_get_log_level()
-  %29 = icmp sge i32 %28, 4
-  br i1 %29, label %30, label %35
+29:                                               ; preds = %28
+  %30 = call i32 @slurm_get_log_level()
+  %31 = icmp sge i32 %30, 4
+  br i1 %31, label %32, label %37
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds [100 x i8], ptr %7, i64 0, i64 0
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.launch_tasks_request_msg, ptr %32, i32 0, i32 38
-  %34 = load ptr, ptr %33, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.3, ptr noundef @plugin_type, ptr noundef @__func__.task_p_slurmd_launch_request, ptr noundef %31, ptr noundef %34)
-  br label %35
-
-35:                                               ; preds = %30, %27
-  br label %36
-
-36:                                               ; preds = %35
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds [100 x i8], ptr %7, i64 0, i64 0
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.launch_tasks_request_msg, ptr %34, i32 0, i32 38
+  %36 = load ptr, ptr %35, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.3, ptr noundef @plugin_type, ptr noundef @__func__.task_p_slurmd_launch_request, ptr noundef %33, ptr noundef %36)
   br label %37
 
-37:                                               ; preds = %36, %22
+37:                                               ; preds = %32, %29
   br label %38
 
 38:                                               ; preds = %37
   br label %39
 
-39:                                               ; preds = %38, %3
-  %40 = load ptr, ptr %4, align 8
-  %41 = load i32, ptr %5, align 4
-  %42 = load ptr, ptr %6, align 8
-  %43 = call i32 @lllp_distribution(ptr noundef %40, i32 noundef %41, ptr noundef %42)
-  store i32 %43, ptr %9, align 4
-  %44 = load i8, ptr %8, align 1
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %69
+39:                                               ; preds = %38, %23
+  br label %40
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds [100 x i8], ptr %7, i64 0, i64 0
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.launch_tasks_request_msg, ptr %48, i32 0, i32 37
-  %50 = load i16, ptr %49, align 8
-  %51 = zext i16 %50 to i32
-  call void @slurm_sprint_cpu_bind_type(ptr noundef %47, i32 noundef %51)
-  br label %52
+40:                                               ; preds = %39
+  br label %41
 
-52:                                               ; preds = %46
-  %53 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %54 = and i64 %53, 8
-  %55 = icmp ne i64 %54, 0
-  br i1 %55, label %56, label %67
+41:                                               ; preds = %40, %3
+  %42 = load ptr, ptr %4, align 8
+  %43 = load i32, ptr %5, align 4
+  %44 = load ptr, ptr %6, align 8
+  %45 = call i32 @lllp_distribution(ptr noundef %42, i32 noundef %43, ptr noundef %44)
+  store i32 %45, ptr %9, align 4
+  %46 = load i8, ptr %8, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %72
 
-56:                                               ; preds = %52
-  br label %57
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds [100 x i8], ptr %7, i64 0, i64 0
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds %struct.launch_tasks_request_msg, ptr %50, i32 0, i32 37
+  %52 = load i16, ptr %51, align 8
+  %53 = zext i16 %52 to i32
+  call void @slurm_sprint_cpu_bind_type(ptr noundef %49, i32 noundef %53)
+  br label %54
 
-57:                                               ; preds = %56
-  %58 = call i32 @slurm_get_log_level()
-  %59 = icmp sge i32 %58, 4
-  br i1 %59, label %60, label %65
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %56 = load i64, ptr %55, align 8
+  %57 = and i64 %56, 8
+  %58 = icmp ne i64 %57, 0
+  br i1 %58, label %59, label %70
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds [100 x i8], ptr %7, i64 0, i64 0
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.launch_tasks_request_msg, ptr %62, i32 0, i32 38
-  %64 = load ptr, ptr %63, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.4, ptr noundef @plugin_type, ptr noundef @__func__.task_p_slurmd_launch_request, ptr noundef %61, ptr noundef %64)
-  br label %65
+59:                                               ; preds = %54
+  br label %60
 
-65:                                               ; preds = %60, %57
-  br label %66
+60:                                               ; preds = %59
+  %61 = call i32 @slurm_get_log_level()
+  %62 = icmp sge i32 %61, 4
+  br i1 %62, label %63, label %68
 
-66:                                               ; preds = %65
-  br label %67
-
-67:                                               ; preds = %66, %52
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds [100 x i8], ptr %7, i64 0, i64 0
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds %struct.launch_tasks_request_msg, ptr %65, i32 0, i32 38
+  %67 = load ptr, ptr %66, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.4, ptr noundef @plugin_type, ptr noundef @__func__.task_p_slurmd_launch_request, ptr noundef %64, ptr noundef %67)
   br label %68
 
-68:                                               ; preds = %67
+68:                                               ; preds = %63, %60
   br label %69
 
-69:                                               ; preds = %68, %39
-  %70 = load i32, ptr %9, align 4
-  ret i32 %70
+69:                                               ; preds = %68
+  br label %70
+
+70:                                               ; preds = %69, %54
+  br label %71
+
+71:                                               ; preds = %70
+  br label %72
+
+72:                                               ; preds = %71, %41
+  %73 = load i32, ptr %9, align 4
+  ret i32 %73
 }
 
 declare void @slurm_sprint_cpu_bind_type(ptr noundef, i32 noundef) #1

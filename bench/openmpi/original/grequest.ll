@@ -316,7 +316,7 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
 22:                                               ; preds = %13, %2
   %23 = load i32, ptr %5, align 4
   %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %51
+  br i1 %24, label %25, label %52
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %4, align 1
@@ -349,18 +349,19 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
   br label %46
 
 46:                                               ; preds = %40, %33
-  br label %50
+  br label %51
 
 47:                                               ; preds = %25
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds %struct.ompi_request_t, ptr %48, i32 0, i32 3
-  store ptr inttoptr (i64 1 to ptr), ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %47, %46
+  %50 = inttoptr i64 1 to ptr
+  store ptr %50, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %50, %22
+51:                                               ; preds = %47, %46
+  br label %52
+
+52:                                               ; preds = %51, %22
   ret i32 0
 }
 
@@ -567,7 +568,7 @@ define internal i32 @ompi_grequest_free(ptr noundef %0) #0 {
 
 14:                                               ; preds = %1
   store i32 -2, ptr %4, align 4
-  br label %49
+  br label %50
 
 15:                                               ; preds = %1
   %16 = load ptr, ptr %6, align 8
@@ -577,62 +578,63 @@ define internal i32 @ompi_grequest_free(ptr noundef %0) #0 {
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds %struct.ompi_request_t, ptr %19, i32 0, i32 3
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr inttoptr (i64 1 to ptr), %21
-  br i1 %22, label %23, label %26
+  %22 = inttoptr i64 1 to ptr
+  %23 = icmp eq ptr %22, %21
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %6, align 8
-  %25 = call i32 @ompi_grequest_internal_free(ptr noundef %24)
-  store i32 %25, ptr %7, align 4
-  br label %26
+24:                                               ; preds = %15
+  %25 = load ptr, ptr %6, align 8
+  %26 = call i32 @ompi_grequest_internal_free(ptr noundef %25)
+  store i32 %26, ptr %7, align 4
+  br label %27
 
-26:                                               ; preds = %23, %15
-  %27 = load i32, ptr %7, align 4
-  %28 = icmp eq i32 0, %27
-  br i1 %28, label %29, label %47
+27:                                               ; preds = %24, %15
+  %28 = load i32, ptr %7, align 4
+  %29 = icmp eq i32 0, %28
+  br i1 %29, label %30, label %48
 
-29:                                               ; preds = %26
-  br label %30
+30:                                               ; preds = %27
+  br label %31
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %2, align 8
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr %2, align 8
   store i32 -1, ptr %3, align 4
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.opal_object_t, ptr %33, i32 0, i32 1
-  %35 = load i32, ptr %3, align 4
-  %36 = call i32 @opal_thread_add_fetch_32(ptr noundef %34, i32 noundef %35)
-  %37 = icmp eq i32 0, %36
-  br i1 %37, label %38, label %44
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.opal_object_t, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %3, align 4
+  %37 = call i32 @opal_thread_add_fetch_32(ptr noundef %35, i32 noundef %36)
+  %38 = icmp eq i32 0, %37
+  br i1 %38, label %39, label %45
 
-38:                                               ; preds = %30
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %39, align 8
-  call void @opal_obj_run_destructors(ptr noundef %40)
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %41, align 8
-  call void @free(ptr noundef %42) #6
-  %43 = load ptr, ptr %5, align 8
-  store ptr null, ptr %43, align 8
-  br label %44
-
-44:                                               ; preds = %38, %30
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %5, align 8
+  %41 = load ptr, ptr %40, align 8
+  call void @opal_obj_run_destructors(ptr noundef %41)
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %42, align 8
+  call void @free(ptr noundef %43) #6
+  %44 = load ptr, ptr %5, align 8
+  store ptr null, ptr %44, align 8
   br label %45
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %5, align 8
-  store ptr @ompi_request_null, ptr %46, align 8
-  br label %47
+45:                                               ; preds = %39, %31
+  br label %46
 
-47:                                               ; preds = %45, %26
-  %48 = load i32, ptr %7, align 4
-  store i32 %48, ptr %4, align 4
-  br label %49
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %5, align 8
+  store ptr @ompi_request_null, ptr %47, align 8
+  br label %48
 
-49:                                               ; preds = %47, %14
-  %50 = load i32, ptr %4, align 4
-  ret i32 %50
+48:                                               ; preds = %46, %27
+  %49 = load i32, ptr %7, align 4
+  store i32 %49, ptr %4, align 4
+  br label %50
+
+50:                                               ; preds = %48, %14
+  %51 = load i32, ptr %4, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -652,14 +654,14 @@ define internal i32 @ompi_grequest_cancel(ptr noundef %0, i32 noundef %1) #0 {
   %11 = getelementptr inbounds %struct.ompi_grequest_t, ptr %10, i32 0, i32 3
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %48
+  br i1 %13, label %14, label %50
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds %struct.ompi_grequest_t, ptr %15, i32 0, i32 5
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %33
+  br i1 %18, label %19, label %34
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %8, align 8
@@ -672,37 +674,39 @@ define internal i32 @ompi_grequest_cancel(ptr noundef %0, i32 noundef %1) #0 {
   %27 = getelementptr inbounds %struct.ompi_grequest_t, ptr %26, i32 0, i32 0
   %28 = getelementptr inbounds %struct.ompi_request_t, ptr %27, i32 0, i32 3
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr inttoptr (i64 1 to ptr), %29
-  %31 = zext i1 %30 to i32
-  %32 = call i32 %22(ptr noundef %25, i32 noundef %31)
-  store i32 %32, ptr %5, align 4
-  br label %47
+  %30 = inttoptr i64 1 to ptr
+  %31 = icmp eq ptr %30, %29
+  %32 = zext i1 %31 to i32
+  %33 = call i32 %22(ptr noundef %25, i32 noundef %32)
+  store i32 %33, ptr %5, align 4
+  br label %49
 
-33:                                               ; preds = %14
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.ompi_grequest_t, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.ompi_request_t, ptr %35, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr inttoptr (i64 1 to ptr), %37
-  %39 = zext i1 %38 to i32
-  store i32 %39, ptr %7, align 4
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.ompi_grequest_t, ptr %40, i32 0, i32 3
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.ompi_grequest_t, ptr %43, i32 0, i32 4
-  %45 = load ptr, ptr %44, align 8
-  call void %42(ptr noundef %45, ptr noundef %7, ptr noundef %6)
-  %46 = load i32, ptr %6, align 4
-  store i32 %46, ptr %5, align 4
-  br label %47
+34:                                               ; preds = %14
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct.ompi_grequest_t, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds %struct.ompi_request_t, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8
+  %39 = inttoptr i64 1 to ptr
+  %40 = icmp eq ptr %39, %38
+  %41 = zext i1 %40 to i32
+  store i32 %41, ptr %7, align 4
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds %struct.ompi_grequest_t, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds %struct.ompi_grequest_t, ptr %45, i32 0, i32 4
+  %47 = load ptr, ptr %46, align 8
+  call void %44(ptr noundef %47, ptr noundef %7, ptr noundef %6)
+  %48 = load i32, ptr %6, align 4
+  store i32 %48, ptr %5, align 4
+  br label %49
 
-47:                                               ; preds = %33, %19
-  br label %48
+49:                                               ; preds = %34, %19
+  br label %50
 
-48:                                               ; preds = %47, %2
-  %49 = load i32, ptr %5, align 4
-  ret i32 %49
+50:                                               ; preds = %49, %2
+  %51 = load i32, ptr %5, align 4
+  ret i32 %51
 }
 
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) #3

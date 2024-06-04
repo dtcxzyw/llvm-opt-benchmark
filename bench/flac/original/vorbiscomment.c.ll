@@ -132,54 +132,55 @@ if.end:                                           ; preds = %if.then, %entry
 if.then4:                                         ; preds = %if.end
   %5 = load ptr, ptr %s, align 8
   call void @free(ptr noundef %5) #8
-  %6 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @parse_vorbis_comment_field.violations, i64 0, i64 1), align 8
-  %7 = load ptr, ptr %violation.addr, align 8
-  store ptr %6, ptr %7, align 8
+  %6 = getelementptr inbounds [2 x ptr], ptr @parse_vorbis_comment_field.violations, i64 0, i64 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %violation.addr, align 8
+  store ptr %7, ptr %8, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %8 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %8, i32 1
+  %9 = load ptr, ptr %p, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %9, i32 1
   store ptr %incdec.ptr, ptr %p, align 8
-  store i8 0, ptr %8, align 1
-  %9 = load ptr, ptr %s, align 8
-  store ptr %9, ptr %q, align 8
+  store i8 0, ptr %9, align 1
+  %10 = load ptr, ptr %s, align 8
+  store ptr %10, ptr %q, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end5
-  %10 = load ptr, ptr %q, align 8
-  %11 = load i8, ptr %10, align 1
-  %tobool = icmp ne i8 %11, 0
+  %11 = load ptr, ptr %q, align 8
+  %12 = load i8, ptr %11, align 1
+  %tobool = icmp ne i8 %12, 0
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %q, align 8
-  %13 = load i8, ptr %12, align 1
-  %conv = sext i8 %13 to i32
+  %13 = load ptr, ptr %q, align 8
+  %14 = load i8, ptr %13, align 1
+  %conv = sext i8 %14 to i32
   %cmp6 = icmp slt i32 %conv, 32
   br i1 %cmp6, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %14 = load ptr, ptr %q, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv8 = sext i8 %15 to i32
+  %15 = load ptr, ptr %q, align 8
+  %16 = load i8, ptr %15, align 1
+  %conv8 = sext i8 %16 to i32
   %cmp9 = icmp sgt i32 %conv8, 125
   br i1 %cmp9, label %if.then15, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false
-  %16 = load ptr, ptr %q, align 8
-  %17 = load i8, ptr %16, align 1
-  %conv12 = sext i8 %17 to i32
+  %17 = load ptr, ptr %q, align 8
+  %18 = load i8, ptr %17, align 1
+  %conv12 = sext i8 %18 to i32
   %cmp13 = icmp eq i32 %conv12, 61
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %lor.lhs.false11, %lor.lhs.false, %for.body
-  %18 = load ptr, ptr %s, align 8
-  call void @free(ptr noundef %18) #8
-  %19 = load ptr, ptr @parse_vorbis_comment_field.violations, align 16
-  %20 = load ptr, ptr %violation.addr, align 8
-  store ptr %19, ptr %20, align 8
+  %19 = load ptr, ptr %s, align 8
+  call void @free(ptr noundef %19) #8
+  %20 = load ptr, ptr @parse_vorbis_comment_field.violations, align 16
+  %21 = load ptr, ptr %violation.addr, align 8
+  store ptr %20, ptr %21, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
@@ -187,33 +188,33 @@ if.end16:                                         ; preds = %lor.lhs.false11
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %21 = load ptr, ptr %q, align 8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %21, i32 1
+  %22 = load ptr, ptr %q, align 8
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %22, i32 1
   store ptr %incdec.ptr17, ptr %q, align 8
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %22 = load ptr, ptr %s, align 8
-  %call18 = call ptr @local_strdup(ptr noundef %22)
-  %23 = load ptr, ptr %name.addr, align 8
-  store ptr %call18, ptr %23, align 8
-  %24 = load ptr, ptr %p, align 8
-  %call19 = call ptr @local_strdup(ptr noundef %24)
-  %25 = load ptr, ptr %value.addr, align 8
-  store ptr %call19, ptr %25, align 8
-  %26 = load ptr, ptr %p, align 8
-  %call20 = call i64 @strlen(ptr noundef %26) #7
+  %23 = load ptr, ptr %s, align 8
+  %call18 = call ptr @local_strdup(ptr noundef %23)
+  %24 = load ptr, ptr %name.addr, align 8
+  store ptr %call18, ptr %24, align 8
+  %25 = load ptr, ptr %p, align 8
+  %call19 = call ptr @local_strdup(ptr noundef %25)
+  %26 = load ptr, ptr %value.addr, align 8
+  store ptr %call19, ptr %26, align 8
+  %27 = load ptr, ptr %p, align 8
+  %call20 = call i64 @strlen(ptr noundef %27) #7
   %conv21 = trunc i64 %call20 to i32
-  %27 = load ptr, ptr %length.addr, align 8
-  store i32 %conv21, ptr %27, align 4
-  %28 = load ptr, ptr %s, align 8
-  call void @free(ptr noundef %28) #8
+  %28 = load ptr, ptr %length.addr, align 8
+  store i32 %conv21, ptr %28, align 4
+  %29 = load ptr, ptr %s, align 8
+  call void @free(ptr noundef %29) #8
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %for.end, %if.then15, %if.then4
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+  %30 = load i32, ptr %retval, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

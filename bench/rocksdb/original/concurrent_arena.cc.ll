@@ -245,27 +245,28 @@ entry:
   store i64 %huge_page_size, ptr %huge_page_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb9AllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %shard_block_size_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %block_size.addr, align 8
-  %div = udiv i64 %0, 8
+  %1 = load i64, ptr %block_size.addr, align 8
+  %div = udiv i64 %1, 8
   store i64 %div, ptr %ref.tmp, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7rocksdb12_GLOBAL__N_118kMaxShardBlockSizeE, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load i64, ptr %call, align 8
-  store i64 %1, ptr %shard_block_size_, align 16
+  %2 = load i64, ptr %call, align 8
+  store i64 %2, ptr %shard_block_size_, align 16
   %shards_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this1, i32 0, i32 3
   invoke void @_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %shards_)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %arena_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this1, i32 0, i32 5
-  %2 = load i64, ptr %block_size.addr, align 8
-  %3 = load ptr, ptr %tracker.addr, align 8
-  %4 = load i64, ptr %huge_page_size.addr, align 8
-  invoke void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) %arena_, i64 noundef %2, ptr noundef %3, i64 noundef %4)
+  %3 = load i64, ptr %block_size.addr, align 8
+  %4 = load ptr, ptr %tracker.addr, align 8
+  %5 = load i64, ptr %huge_page_size.addr, align 8
+  invoke void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) %arena_, i64 noundef %3, ptr noundef %4, i64 noundef %5)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -281,30 +282,30 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup8
 
 lpad3:                                            ; preds = %invoke.cont2
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont4
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_) #13
   br label %ehcleanup
 
@@ -330,7 +331,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb9AllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7rocksdb9AllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -740,7 +742,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %arena_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this1, i32 0, i32 5
   call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_) #13
   %shards_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this1, i32 0, i32 3

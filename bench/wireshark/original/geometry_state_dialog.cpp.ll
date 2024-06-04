@@ -150,27 +150,29 @@ define void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2), ptr %4, align 8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
   invoke void @_ZN19GeometryStateDialog18saveWindowGeometryEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-          to label %5 unwind label %8
+          to label %7 unwind label %10
 
-5:                                                ; preds = %1
+7:                                                ; preds = %1
   invoke void @_ZN19GeometryStateDialog17saveSplitterStateEPK9QSplitter(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef null)
-          to label %6 unwind label %8
+          to label %8 unwind label %10
 
-6:                                                ; preds = %5
-  %7 = getelementptr inbounds %class.GeometryStateDialog, ptr %3, i32 0, i32 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
+8:                                                ; preds = %7
+  %9 = getelementptr inbounds %class.GeometryStateDialog, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
   ret void
 
-8:                                                ; preds = %5, %1
-  %9 = landingpad { ptr, i32 }
+10:                                               ; preds = %7, %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #9
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #9
   unreachable
 }
 

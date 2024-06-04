@@ -92619,12 +92619,13 @@ define available_externally hidden void @"_ZN11bytes_utils9segmented21SegmentedB
   %4 = getelementptr inbounds { { ptr, i64 }, i64, i64 }, ptr %2, i32 0, i32 2
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
-  store i64 0, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %2, i64 32, i1 false)
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64, i64 }, i64 }, ptr %0, i32 0, i32 1
+  %6 = inttoptr i64 8 to ptr
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds { ptr, i64 }, ptr %2, i32 0, i32 1
   store i64 0, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %2, i64 32, i1 false)
+  %8 = getelementptr inbounds { { { ptr, i64 }, i64, i64 }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr %2)
   ret void
 }

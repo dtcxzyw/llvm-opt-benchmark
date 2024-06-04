@@ -980,8 +980,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @_PyInterpreterState_Main() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 8, i32 2), align 8
-  ret ptr %0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 8, i32 2
+  %1 = load ptr, ptr %0, align 8
+  ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1986,26 +1987,27 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 22, i32 1), ptr %pending, align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 22, i32 1
+  store ptr %2, ptr %pending, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %pending, align 8
-  %mutex = getelementptr inbounds %struct._pending_calls, ptr %2, i32 0, i32 1
-  call void @PyMutex_Lock(ptr noundef %mutex)
   %3 = load ptr, ptr %pending, align 8
-  %4 = load ptr, ptr %func.addr, align 8
-  %5 = load ptr, ptr %arg.addr, align 8
-  %6 = load i32, ptr %flags.addr, align 4
-  %call = call i32 @_push_pending_call(ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
+  %mutex = getelementptr inbounds %struct._pending_calls, ptr %3, i32 0, i32 1
+  call void @PyMutex_Lock(ptr noundef %mutex)
+  %4 = load ptr, ptr %pending, align 8
+  %5 = load ptr, ptr %func.addr, align 8
+  %6 = load ptr, ptr %arg.addr, align 8
+  %7 = load i32, ptr %flags.addr, align 4
+  %call = call i32 @_push_pending_call(ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7)
   store i32 %call, ptr %result, align 4
-  %7 = load ptr, ptr %pending, align 8
-  %mutex2 = getelementptr inbounds %struct._pending_calls, ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %pending, align 8
+  %mutex2 = getelementptr inbounds %struct._pending_calls, ptr %8, i32 0, i32 1
   call void @PyMutex_Unlock(ptr noundef %mutex2)
-  %8 = load ptr, ptr %interp.addr, align 8
-  call void @SIGNAL_PENDING_CALLS(ptr noundef %8)
-  %9 = load i32, ptr %result, align 4
-  ret i32 %9
+  %9 = load ptr, ptr %interp.addr, align 8
+  call void @SIGNAL_PENDING_CALLS(ptr noundef %9)
+  %10 = load i32, ptr %result, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2194,43 +2196,44 @@ entry:
   %ceval = getelementptr inbounds %struct._is, ptr %0, i32 0, i32 0
   %pending1 = getelementptr inbounds %struct._ceval_state, ptr %ceval, i32 0, i32 5
   store ptr %pending1, ptr %pending, align 8
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 22, i32 1), ptr %pending_main, align 8
-  %1 = load ptr, ptr %pending, align 8
-  %mutex = getelementptr inbounds %struct._pending_calls, ptr %1, i32 0, i32 1
-  call void @PyMutex_Lock(ptr noundef %mutex)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 22, i32 1
+  store ptr %1, ptr %pending_main, align 8
   %2 = load ptr, ptr %pending, align 8
-  %busy = getelementptr inbounds %struct._pending_calls, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %busy, align 8
-  %tobool = icmp ne i32 %3, 0
+  %mutex = getelementptr inbounds %struct._pending_calls, ptr %2, i32 0, i32 1
+  call void @PyMutex_Lock(ptr noundef %mutex)
+  %3 = load ptr, ptr %pending, align 8
+  %busy = getelementptr inbounds %struct._pending_calls, ptr %3, i32 0, i32 0
+  %4 = load i32, ptr %busy, align 8
+  %tobool = icmp ne i32 %4, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %pending, align 8
-  %mutex2 = getelementptr inbounds %struct._pending_calls, ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %pending, align 8
+  %mutex2 = getelementptr inbounds %struct._pending_calls, ptr %5, i32 0, i32 1
   call void @PyMutex_Unlock(ptr noundef %mutex2)
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %pending, align 8
-  %busy3 = getelementptr inbounds %struct._pending_calls, ptr %5, i32 0, i32 0
-  store i32 1, ptr %busy3, align 8
   %6 = load ptr, ptr %pending, align 8
-  %mutex4 = getelementptr inbounds %struct._pending_calls, ptr %6, i32 0, i32 1
+  %busy3 = getelementptr inbounds %struct._pending_calls, ptr %6, i32 0, i32 0
+  store i32 1, ptr %busy3, align 8
+  %7 = load ptr, ptr %pending, align 8
+  %mutex4 = getelementptr inbounds %struct._pending_calls, ptr %7, i32 0, i32 1
   call void @PyMutex_Unlock(ptr noundef %mutex4)
-  %7 = load ptr, ptr %interp.addr, align 8
-  call void @UNSIGNAL_PENDING_CALLS(ptr noundef %7)
-  %8 = load ptr, ptr %pending, align 8
-  %call = call i32 @_make_pending_calls(ptr noundef %8)
+  %8 = load ptr, ptr %interp.addr, align 8
+  call void @UNSIGNAL_PENDING_CALLS(ptr noundef %8)
+  %9 = load ptr, ptr %pending, align 8
+  %call = call i32 @_make_pending_calls(ptr noundef %9)
   %cmp = icmp ne i32 %call, 0
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  %9 = load ptr, ptr %pending, align 8
-  %busy6 = getelementptr inbounds %struct._pending_calls, ptr %9, i32 0, i32 0
+  %10 = load ptr, ptr %pending, align 8
+  %busy6 = getelementptr inbounds %struct._pending_calls, ptr %10, i32 0, i32 0
   store i32 0, ptr %busy6, align 8
-  %10 = load ptr, ptr %interp.addr, align 8
-  call void @SIGNAL_PENDING_CALLS(ptr noundef %10)
+  %11 = load ptr, ptr %interp.addr, align 8
+  call void @SIGNAL_PENDING_CALLS(ptr noundef %11)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -2240,23 +2243,23 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool9, label %land.lhs.true, label %if.end18
 
 land.lhs.true:                                    ; preds = %if.end7
-  %11 = load ptr, ptr %interp.addr, align 8
-  %call10 = call i32 @_Py_IsMainInterpreter(ptr noundef %11)
+  %12 = load ptr, ptr %interp.addr, align 8
+  %call10 = call i32 @_Py_IsMainInterpreter(ptr noundef %12)
   %tobool11 = icmp ne i32 %call10, 0
   br i1 %tobool11, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %land.lhs.true
-  %12 = load ptr, ptr %pending_main, align 8
-  %call13 = call i32 @_make_pending_calls(ptr noundef %12)
+  %13 = load ptr, ptr %pending_main, align 8
+  %call13 = call i32 @_make_pending_calls(ptr noundef %13)
   %cmp14 = icmp ne i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.then12
-  %13 = load ptr, ptr %pending, align 8
-  %busy16 = getelementptr inbounds %struct._pending_calls, ptr %13, i32 0, i32 0
+  %14 = load ptr, ptr %pending, align 8
+  %busy16 = getelementptr inbounds %struct._pending_calls, ptr %14, i32 0, i32 0
   store i32 0, ptr %busy16, align 8
-  %14 = load ptr, ptr %interp.addr, align 8
-  call void @SIGNAL_PENDING_CALLS(ptr noundef %14)
+  %15 = load ptr, ptr %interp.addr, align 8
+  call void @SIGNAL_PENDING_CALLS(ptr noundef %15)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -2264,15 +2267,15 @@ if.end17:                                         ; preds = %if.then12
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end17, %land.lhs.true, %if.end7
-  %15 = load ptr, ptr %pending, align 8
-  %busy19 = getelementptr inbounds %struct._pending_calls, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %pending, align 8
+  %busy19 = getelementptr inbounds %struct._pending_calls, ptr %16, i32 0, i32 0
   store i32 0, ptr %busy19, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then15, %if.then5, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+  %17 = load i32, ptr %retval, align 4
+  ret i32 %17
 }
 
 declare ptr @_PyErr_GetRaisedException(ptr noundef) #1
@@ -2349,8 +2352,9 @@ entry:
   %call = call i64 @PyThread_get_thread_ident()
   store i64 %call, ptr %thread, align 8
   %0 = load i64, ptr %thread, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 9), align 8
-  %cmp = icmp eq i64 %0, %1
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 9
+  %2 = load i64, ptr %1, align 8
+  %cmp = icmp eq i64 %0, %2
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
@@ -2899,31 +2903,33 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %if.then1, label %if.end14
 
 if.then1:                                         ; preds = %if.end
-  %call2 = call i32 @_Py_atomic_load_int32_relaxed(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 22, i32 1, i32 2))
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 22, i32 1, i32 2
+  %call2 = call i32 @_Py_atomic_load_int32_relaxed(ptr noundef %1)
   store i32 %call2, ptr %calls_to_do, align 4
-  %1 = load i32, ptr %calls_to_do, align 4
-  %tobool3 = icmp ne i32 %1, 0
+  %2 = load i32, ptr %calls_to_do, align 4
+  %tobool3 = icmp ne i32 %2, 0
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.then1
-  %2 = load ptr, ptr %interp.addr, align 8
-  call void @_Py_set_eval_breaker_bit(ptr noundef %2, i32 noundef 2, i32 noundef 1)
+  %3 = load ptr, ptr %interp.addr, align 8
+  call void @_Py_set_eval_breaker_bit(ptr noundef %3, i32 noundef 2, i32 noundef 1)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.then1
-  %3 = load ptr, ptr %interp.addr, align 8
-  %call6 = call i32 @_Py_ThreadCanHandleSignals(ptr noundef %3)
+  %4 = load ptr, ptr %interp.addr, align 8
+  %call6 = call i32 @_Py_ThreadCanHandleSignals(ptr noundef %4)
   %tobool7 = icmp ne i32 %call6, 0
   br i1 %tobool7, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %if.end5
-  %call9 = call i32 @_Py_atomic_load_int(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 15, i32 2))
+  %5 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 15, i32 2
+  %call9 = call i32 @_Py_atomic_load_int(ptr noundef %5)
   %tobool10 = icmp ne i32 %call9, 0
   br i1 %tobool10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.then8
-  %4 = load ptr, ptr %interp.addr, align 8
-  call void @_Py_set_eval_breaker_bit(ptr noundef %4, i32 noundef 1, i32 noundef 1)
+  %6 = load ptr, ptr %interp.addr, align 8
+  call void @_Py_set_eval_breaker_bit(ptr noundef %6, i32 noundef 1, i32 noundef 1)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.then8
@@ -2933,15 +2939,15 @@ if.end13:                                         ; preds = %if.end12, %if.end5
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end13, %if.end
-  %5 = load ptr, ptr %tstate.addr, align 8
-  %async_exc = getelementptr inbounds %struct._ts, ptr %5, i32 0, i32 21
-  %6 = load ptr, ptr %async_exc, align 8
-  %cmp15 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %tstate.addr, align 8
+  %async_exc = getelementptr inbounds %struct._ts, ptr %7, i32 0, i32 21
+  %8 = load ptr, ptr %async_exc, align 8
+  %cmp15 = icmp ne ptr %8, null
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end14
-  %7 = load ptr, ptr %interp.addr, align 8
-  call void @_Py_set_eval_breaker_bit(ptr noundef %7, i32 noundef 3, i32 noundef 1)
+  %9 = load ptr, ptr %interp.addr, align 8
+  call void @_Py_set_eval_breaker_bit(ptr noundef %9, i32 noundef 3, i32 noundef 1)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.end14, %if.then

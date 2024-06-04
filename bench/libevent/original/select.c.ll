@@ -497,11 +497,12 @@ do.body18:                                        ; preds = %do.body17
   br i1 %tobool19, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %do.body18
-  %33 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %34 = load ptr, ptr %base.addr, align 8
-  %th_base_lock21 = getelementptr inbounds %struct.event_base, ptr %34, i32 0, i32 31
-  %35 = load ptr, ptr %th_base_lock21, align 8
-  %call22 = call i32 %33(i32 noundef 0, ptr noundef %35)
+  %33 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %base.addr, align 8
+  %th_base_lock21 = getelementptr inbounds %struct.event_base, ptr %35, i32 0, i32 31
+  %36 = load ptr, ptr %th_base_lock21, align 8
+  %call22 = call i32 %34(i32 noundef 0, ptr noundef %36)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then20, %do.body18
@@ -511,15 +512,15 @@ do.end24:                                         ; preds = %if.end23
   br label %do.end25
 
 do.end25:                                         ; preds = %do.end24
-  %36 = load i32, ptr %nfds, align 4
-  %37 = load ptr, ptr %sop, align 8
-  %event_readset_out26 = getelementptr inbounds %struct.selectop, ptr %37, i32 0, i32 5
-  %38 = load ptr, ptr %event_readset_out26, align 8
-  %39 = load ptr, ptr %sop, align 8
-  %event_writeset_out27 = getelementptr inbounds %struct.selectop, ptr %39, i32 0, i32 6
-  %40 = load ptr, ptr %event_writeset_out27, align 8
-  %41 = load ptr, ptr %tv.addr, align 8
-  %call28 = call i32 @select(i32 noundef %36, ptr noundef %38, ptr noundef %40, ptr noundef null, ptr noundef %41)
+  %37 = load i32, ptr %nfds, align 4
+  %38 = load ptr, ptr %sop, align 8
+  %event_readset_out26 = getelementptr inbounds %struct.selectop, ptr %38, i32 0, i32 5
+  %39 = load ptr, ptr %event_readset_out26, align 8
+  %40 = load ptr, ptr %sop, align 8
+  %event_writeset_out27 = getelementptr inbounds %struct.selectop, ptr %40, i32 0, i32 6
+  %41 = load ptr, ptr %event_writeset_out27, align 8
+  %42 = load ptr, ptr %tv.addr, align 8
+  %call28 = call i32 @select(i32 noundef %37, ptr noundef %39, ptr noundef %41, ptr noundef null, ptr noundef %42)
   store i32 %call28, ptr %res, align 4
   br label %do.body29
 
@@ -527,18 +528,19 @@ do.body29:                                        ; preds = %do.end25
   br label %do.body30
 
 do.body30:                                        ; preds = %do.body29
-  %42 = load ptr, ptr %base.addr, align 8
-  %th_base_lock31 = getelementptr inbounds %struct.event_base, ptr %42, i32 0, i32 31
-  %43 = load ptr, ptr %th_base_lock31, align 8
-  %tobool32 = icmp ne ptr %43, null
+  %43 = load ptr, ptr %base.addr, align 8
+  %th_base_lock31 = getelementptr inbounds %struct.event_base, ptr %43, i32 0, i32 31
+  %44 = load ptr, ptr %th_base_lock31, align 8
+  %tobool32 = icmp ne ptr %44, null
   br i1 %tobool32, label %if.then33, label %if.end36
 
 if.then33:                                        ; preds = %do.body30
-  %44 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %45 = load ptr, ptr %base.addr, align 8
-  %th_base_lock34 = getelementptr inbounds %struct.event_base, ptr %45, i32 0, i32 31
-  %46 = load ptr, ptr %th_base_lock34, align 8
-  %call35 = call i32 %44(i32 noundef 0, ptr noundef %46)
+  %45 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %base.addr, align 8
+  %th_base_lock34 = getelementptr inbounds %struct.event_base, ptr %47, i32 0, i32 31
+  %48 = load ptr, ptr %th_base_lock34, align 8
+  %call35 = call i32 %46(i32 noundef 0, ptr noundef %48)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then33, %do.body30
@@ -554,14 +556,14 @@ do.body39:                                        ; preds = %do.end38
   br label %do.end40
 
 do.end40:                                         ; preds = %do.body39
-  %47 = load i32, ptr %res, align 4
-  %cmp = icmp eq i32 %47, -1
+  %49 = load i32, ptr %res, align 4
+  %cmp = icmp eq i32 %49, -1
   br i1 %cmp, label %if.then42, label %if.end48
 
 if.then42:                                        ; preds = %do.end40
   %call43 = call ptr @__errno_location() #5
-  %48 = load i32, ptr %call43, align 4
-  %cmp44 = icmp ne i32 %48, 4
+  %50 = load i32, ptr %call43, align 4
+  %cmp44 = icmp ne i32 %50, 4
   br i1 %cmp44, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.then42
@@ -577,13 +579,13 @@ if.end48:                                         ; preds = %do.end40
   br label %do.body49
 
 do.body49:                                        ; preds = %if.end48
-  %49 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool50 = icmp ne i32 %49, 0
+  %51 = load i32, ptr @event_debug_logging_mask_, align 4
+  %tobool50 = icmp ne i32 %51, 0
   br i1 %tobool50, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %do.body49
-  %50 = load i32, ptr %res, align 4
-  call void (ptr, ...) @event_debugx_(ptr noundef @.str.2, ptr noundef @__func__.select_dispatch, i32 noundef %50)
+  %52 = load i32, ptr %res, align 4
+  call void (ptr, ...) @event_debugx_(ptr noundef @.str.2, ptr noundef @__func__.select_dispatch, i32 noundef %52)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then51, %do.body49
@@ -596,26 +598,26 @@ do.body54:                                        ; preds = %do.end53
   br label %do.end55
 
 do.end55:                                         ; preds = %do.body54
-  %51 = load ptr, ptr %base.addr, align 8
-  %weakrand_seed = getelementptr inbounds %struct.event_base, ptr %51, i32 0, i32 43
-  %52 = load i32, ptr %nfds, align 4
-  %call56 = call i32 @evutil_weakrand_range_(ptr noundef %weakrand_seed, i32 noundef %52)
+  %53 = load ptr, ptr %base.addr, align 8
+  %weakrand_seed = getelementptr inbounds %struct.event_base, ptr %53, i32 0, i32 43
+  %54 = load i32, ptr %nfds, align 4
+  %call56 = call i32 @evutil_weakrand_range_(ptr noundef %weakrand_seed, i32 noundef %54)
   store i32 %call56, ptr %i, align 4
   store i32 0, ptr %j, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end55
-  %53 = load i32, ptr %j, align 4
-  %54 = load i32, ptr %nfds, align 4
-  %cmp57 = icmp slt i32 %53, %54
+  %55 = load i32, ptr %j, align 4
+  %56 = load i32, ptr %nfds, align 4
+  %cmp57 = icmp slt i32 %55, %56
   br i1 %cmp57, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %55 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %55, 1
+  %57 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %57, 1
   store i32 %inc, ptr %i, align 4
-  %56 = load i32, ptr %nfds, align 4
-  %cmp59 = icmp sge i32 %inc, %56
+  %58 = load i32, ptr %nfds, align 4
+  %cmp59 = icmp sge i32 %inc, %58
   br i1 %cmp59, label %if.then61, label %if.end62
 
 if.then61:                                        ; preds = %for.body
@@ -624,72 +626,72 @@ if.then61:                                        ; preds = %for.body
 
 if.end62:                                         ; preds = %if.then61, %for.body
   store i32 0, ptr %res, align 4
-  %57 = load ptr, ptr %sop, align 8
-  %event_readset_out63 = getelementptr inbounds %struct.selectop, ptr %57, i32 0, i32 5
-  %58 = load ptr, ptr %event_readset_out63, align 8
-  %fds_bits = getelementptr inbounds %struct.fd_set, ptr %58, i32 0, i32 0
-  %59 = load i32, ptr %i, align 4
-  %div = sdiv i32 %59, 64
+  %59 = load ptr, ptr %sop, align 8
+  %event_readset_out63 = getelementptr inbounds %struct.selectop, ptr %59, i32 0, i32 5
+  %60 = load ptr, ptr %event_readset_out63, align 8
+  %fds_bits = getelementptr inbounds %struct.fd_set, ptr %60, i32 0, i32 0
+  %61 = load i32, ptr %i, align 4
+  %div = sdiv i32 %61, 64
   %idxprom = sext i32 %div to i64
   %arrayidx = getelementptr inbounds [16 x i64], ptr %fds_bits, i64 0, i64 %idxprom
-  %60 = load i64, ptr %arrayidx, align 8
-  %61 = load i32, ptr %i, align 4
-  %rem = srem i32 %61, 64
+  %62 = load i64, ptr %arrayidx, align 8
+  %63 = load i32, ptr %i, align 4
+  %rem = srem i32 %63, 64
   %sh_prom = zext i32 %rem to i64
   %shl = shl i64 1, %sh_prom
-  %and = and i64 %60, %shl
+  %and = and i64 %62, %shl
   %cmp64 = icmp ne i64 %and, 0
   br i1 %cmp64, label %if.then66, label %if.end67
 
 if.then66:                                        ; preds = %if.end62
-  %62 = load i32, ptr %res, align 4
-  %or = or i32 %62, 2
+  %64 = load i32, ptr %res, align 4
+  %or = or i32 %64, 2
   store i32 %or, ptr %res, align 4
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then66, %if.end62
-  %63 = load ptr, ptr %sop, align 8
-  %event_writeset_out68 = getelementptr inbounds %struct.selectop, ptr %63, i32 0, i32 6
-  %64 = load ptr, ptr %event_writeset_out68, align 8
-  %fds_bits69 = getelementptr inbounds %struct.fd_set, ptr %64, i32 0, i32 0
-  %65 = load i32, ptr %i, align 4
-  %div70 = sdiv i32 %65, 64
+  %65 = load ptr, ptr %sop, align 8
+  %event_writeset_out68 = getelementptr inbounds %struct.selectop, ptr %65, i32 0, i32 6
+  %66 = load ptr, ptr %event_writeset_out68, align 8
+  %fds_bits69 = getelementptr inbounds %struct.fd_set, ptr %66, i32 0, i32 0
+  %67 = load i32, ptr %i, align 4
+  %div70 = sdiv i32 %67, 64
   %idxprom71 = sext i32 %div70 to i64
   %arrayidx72 = getelementptr inbounds [16 x i64], ptr %fds_bits69, i64 0, i64 %idxprom71
-  %66 = load i64, ptr %arrayidx72, align 8
-  %67 = load i32, ptr %i, align 4
-  %rem73 = srem i32 %67, 64
+  %68 = load i64, ptr %arrayidx72, align 8
+  %69 = load i32, ptr %i, align 4
+  %rem73 = srem i32 %69, 64
   %sh_prom74 = zext i32 %rem73 to i64
   %shl75 = shl i64 1, %sh_prom74
-  %and76 = and i64 %66, %shl75
+  %and76 = and i64 %68, %shl75
   %cmp77 = icmp ne i64 %and76, 0
   br i1 %cmp77, label %if.then79, label %if.end81
 
 if.then79:                                        ; preds = %if.end67
-  %68 = load i32, ptr %res, align 4
-  %or80 = or i32 %68, 4
+  %70 = load i32, ptr %res, align 4
+  %or80 = or i32 %70, 4
   store i32 %or80, ptr %res, align 4
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then79, %if.end67
-  %69 = load i32, ptr %res, align 4
-  %cmp82 = icmp eq i32 %69, 0
+  %71 = load i32, ptr %res, align 4
+  %cmp82 = icmp eq i32 %71, 0
   br i1 %cmp82, label %if.then84, label %if.end85
 
 if.then84:                                        ; preds = %if.end81
   br label %for.inc
 
 if.end85:                                         ; preds = %if.end81
-  %70 = load ptr, ptr %base.addr, align 8
-  %71 = load i32, ptr %i, align 4
-  %72 = load i32, ptr %res, align 4
-  %conv86 = trunc i32 %72 to i16
-  call void @evmap_io_active_(ptr noundef %70, i32 noundef %71, i16 noundef signext %conv86)
+  %72 = load ptr, ptr %base.addr, align 8
+  %73 = load i32, ptr %i, align 4
+  %74 = load i32, ptr %res, align 4
+  %conv86 = trunc i32 %74 to i16
+  call void @evmap_io_active_(ptr noundef %72, i32 noundef %73, i16 noundef signext %conv86)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end85, %if.then84
-  %73 = load i32, ptr %j, align 4
-  %inc87 = add nsw i32 %73, 1
+  %75 = load i32, ptr %j, align 4
+  %inc87 = add nsw i32 %75, 1
   store i32 %inc87, ptr %j, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -704,8 +706,8 @@ do.end89:                                         ; preds = %do.body88
   br label %return
 
 return:                                           ; preds = %do.end89, %if.end47, %if.then46, %if.then6, %if.then2
-  %74 = load i32, ptr %retval, align 4
-  ret i32 %74
+  %76 = load i32, ptr %retval, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nounwind uwtable

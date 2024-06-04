@@ -549,77 +549,78 @@ if.then:                                          ; preds = %entry
 
 if.then1:                                         ; preds = %if.then
   %5 = load ptr, ptr %s, align 8
-  %6 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @qdist_blocks, i64 0, i64 7), align 4
-  %call2 = call ptr @g_string_append_unichar(ptr noundef %5, i32 noundef %6)
+  %6 = getelementptr inbounds [8 x i32], ptr @qdist_blocks, i64 0, i64 7
+  %7 = load i32, ptr %6, align 4
+  %call2 = call ptr @g_string_append_unichar(ptr noundef %5, i32 noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %7 = load ptr, ptr %s, align 8
-  %call3 = call ptr @g_string_append_c_inline(ptr noundef %7, i8 noundef signext 32)
+  %8 = load ptr, ptr %s, align 8
+  %call3 = call ptr @g_string_append_c_inline(ptr noundef %8, i8 noundef signext 32)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
   br label %out
 
 if.end4:                                          ; preds = %entry
-  %8 = load ptr, ptr %dist.addr, align 8
-  %entries5 = getelementptr inbounds %struct.qdist, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %entries5, align 8
-  %arrayidx6 = getelementptr %struct.qdist_entry, ptr %9, i64 0
+  %9 = load ptr, ptr %dist.addr, align 8
+  %entries5 = getelementptr inbounds %struct.qdist, ptr %9, i32 0, i32 0
+  %10 = load ptr, ptr %entries5, align 8
+  %arrayidx6 = getelementptr %struct.qdist_entry, ptr %10, i64 0
   %count7 = getelementptr inbounds %struct.qdist_entry, ptr %arrayidx6, i32 0, i32 1
-  %10 = load i64, ptr %count7, align 8
-  %conv = uitofp i64 %10 to double
+  %11 = load i64, ptr %count7, align 8
+  %conv = uitofp i64 %11 to double
   store double %conv, ptr %min, align 8
-  %11 = load double, ptr %min, align 8
-  store double %11, ptr %max, align 8
+  %12 = load double, ptr %min, align 8
+  store double %12, ptr %max, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end4
-  %12 = load i64, ptr %i, align 8
-  %13 = load ptr, ptr %dist.addr, align 8
-  %n8 = getelementptr inbounds %struct.qdist, ptr %13, i32 0, i32 1
-  %14 = load i64, ptr %n8, align 8
-  %cmp9 = icmp ult i64 %12, %14
+  %13 = load i64, ptr %i, align 8
+  %14 = load ptr, ptr %dist.addr, align 8
+  %n8 = getelementptr inbounds %struct.qdist, ptr %14, i32 0, i32 1
+  %15 = load i64, ptr %n8, align 8
+  %cmp9 = icmp ult i64 %13, %15
   br i1 %cmp9, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %15 = load ptr, ptr %dist.addr, align 8
-  %entries11 = getelementptr inbounds %struct.qdist, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %entries11, align 8
-  %17 = load i64, ptr %i, align 8
-  %arrayidx12 = getelementptr %struct.qdist_entry, ptr %16, i64 %17
+  %16 = load ptr, ptr %dist.addr, align 8
+  %entries11 = getelementptr inbounds %struct.qdist, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %entries11, align 8
+  %18 = load i64, ptr %i, align 8
+  %arrayidx12 = getelementptr %struct.qdist_entry, ptr %17, i64 %18
   store ptr %arrayidx12, ptr %e, align 8
-  %18 = load ptr, ptr %e, align 8
-  %count13 = getelementptr inbounds %struct.qdist_entry, ptr %18, i32 0, i32 1
-  %19 = load i64, ptr %count13, align 8
-  %conv14 = uitofp i64 %19 to double
-  %20 = load double, ptr %min, align 8
-  %cmp15 = fcmp olt double %conv14, %20
+  %19 = load ptr, ptr %e, align 8
+  %count13 = getelementptr inbounds %struct.qdist_entry, ptr %19, i32 0, i32 1
+  %20 = load i64, ptr %count13, align 8
+  %conv14 = uitofp i64 %20 to double
+  %21 = load double, ptr %min, align 8
+  %cmp15 = fcmp olt double %conv14, %21
   br i1 %cmp15, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %for.body
-  %21 = load ptr, ptr %e, align 8
-  %count18 = getelementptr inbounds %struct.qdist_entry, ptr %21, i32 0, i32 1
-  %22 = load i64, ptr %count18, align 8
-  %conv19 = uitofp i64 %22 to double
+  %22 = load ptr, ptr %e, align 8
+  %count18 = getelementptr inbounds %struct.qdist_entry, ptr %22, i32 0, i32 1
+  %23 = load i64, ptr %count18, align 8
+  %conv19 = uitofp i64 %23 to double
   store double %conv19, ptr %min, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %for.body
-  %23 = load ptr, ptr %e, align 8
-  %count21 = getelementptr inbounds %struct.qdist_entry, ptr %23, i32 0, i32 1
-  %24 = load i64, ptr %count21, align 8
-  %conv22 = uitofp i64 %24 to double
-  %25 = load double, ptr %max, align 8
-  %cmp23 = fcmp ogt double %conv22, %25
+  %24 = load ptr, ptr %e, align 8
+  %count21 = getelementptr inbounds %struct.qdist_entry, ptr %24, i32 0, i32 1
+  %25 = load i64, ptr %count21, align 8
+  %conv22 = uitofp i64 %25 to double
+  %26 = load double, ptr %max, align 8
+  %cmp23 = fcmp ogt double %conv22, %26
   br i1 %cmp23, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %if.end20
-  %26 = load ptr, ptr %e, align 8
-  %count26 = getelementptr inbounds %struct.qdist_entry, ptr %26, i32 0, i32 1
-  %27 = load i64, ptr %count26, align 8
-  %conv27 = uitofp i64 %27 to double
+  %27 = load ptr, ptr %e, align 8
+  %count26 = getelementptr inbounds %struct.qdist_entry, ptr %27, i32 0, i32 1
+  %28 = load i64, ptr %count26, align 8
+  %conv27 = uitofp i64 %28 to double
   store double %conv27, ptr %max, align 8
   br label %if.end28
 
@@ -627,8 +628,8 @@ if.end28:                                         ; preds = %if.then25, %if.end2
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end28
-  %28 = load i64, ptr %i, align 8
-  %inc = add i64 %28, 1
+  %29 = load i64, ptr %i, align 8
+  %inc = add i64 %29, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !9
 
@@ -637,59 +638,59 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond29
 
 for.cond29:                                       ; preds = %for.inc49, %for.end
-  %29 = load i64, ptr %i, align 8
-  %30 = load ptr, ptr %dist.addr, align 8
-  %n30 = getelementptr inbounds %struct.qdist, ptr %30, i32 0, i32 1
-  %31 = load i64, ptr %n30, align 8
-  %cmp31 = icmp ult i64 %29, %31
+  %30 = load i64, ptr %i, align 8
+  %31 = load ptr, ptr %dist.addr, align 8
+  %n30 = getelementptr inbounds %struct.qdist, ptr %31, i32 0, i32 1
+  %32 = load i64, ptr %n30, align 8
+  %cmp31 = icmp ult i64 %30, %32
   br i1 %cmp31, label %for.body33, label %for.end51
 
 for.body33:                                       ; preds = %for.cond29
-  %32 = load ptr, ptr %dist.addr, align 8
-  %entries35 = getelementptr inbounds %struct.qdist, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %entries35, align 8
-  %34 = load i64, ptr %i, align 8
-  %arrayidx36 = getelementptr %struct.qdist_entry, ptr %33, i64 %34
+  %33 = load ptr, ptr %dist.addr, align 8
+  %entries35 = getelementptr inbounds %struct.qdist, ptr %33, i32 0, i32 0
+  %34 = load ptr, ptr %entries35, align 8
+  %35 = load i64, ptr %i, align 8
+  %arrayidx36 = getelementptr %struct.qdist_entry, ptr %34, i64 %35
   store ptr %arrayidx36, ptr %e34, align 8
-  %35 = load ptr, ptr %e34, align 8
-  %count37 = getelementptr inbounds %struct.qdist_entry, ptr %35, i32 0, i32 1
-  %36 = load i64, ptr %count37, align 8
-  %tobool38 = icmp ne i64 %36, 0
+  %36 = load ptr, ptr %e34, align 8
+  %count37 = getelementptr inbounds %struct.qdist_entry, ptr %36, i32 0, i32 1
+  %37 = load i64, ptr %count37, align 8
+  %tobool38 = icmp ne i64 %37, 0
   br i1 %tobool38, label %if.then39, label %if.else46
 
 if.then39:                                        ; preds = %for.body33
-  %37 = load ptr, ptr %e34, align 8
-  %count40 = getelementptr inbounds %struct.qdist_entry, ptr %37, i32 0, i32 1
-  %38 = load i64, ptr %count40, align 8
-  %conv41 = uitofp i64 %38 to double
-  %39 = load double, ptr %min, align 8
-  %sub = fsub double %conv41, %39
-  %40 = load double, ptr %max, align 8
-  %41 = load double, ptr %min, align 8
-  %sub42 = fsub double %40, %41
+  %38 = load ptr, ptr %e34, align 8
+  %count40 = getelementptr inbounds %struct.qdist_entry, ptr %38, i32 0, i32 1
+  %39 = load i64, ptr %count40, align 8
+  %conv41 = uitofp i64 %39 to double
+  %40 = load double, ptr %min, align 8
+  %sub = fsub double %conv41, %40
+  %41 = load double, ptr %max, align 8
+  %42 = load double, ptr %min, align 8
+  %sub42 = fsub double %41, %42
   %div = fdiv double %sub, %sub42
   %mul = fmul double %div, 7.000000e+00
   %conv43 = fptosi double %mul to i32
   store i32 %conv43, ptr %index, align 4
-  %42 = load ptr, ptr %s, align 8
-  %43 = load i32, ptr %index, align 4
-  %idxprom = sext i32 %43 to i64
+  %43 = load ptr, ptr %s, align 8
+  %44 = load i32, ptr %index, align 4
+  %idxprom = sext i32 %44 to i64
   %arrayidx44 = getelementptr [8 x i32], ptr @qdist_blocks, i64 0, i64 %idxprom
-  %44 = load i32, ptr %arrayidx44, align 4
-  %call45 = call ptr @g_string_append_unichar(ptr noundef %42, i32 noundef %44)
+  %45 = load i32, ptr %arrayidx44, align 4
+  %call45 = call ptr @g_string_append_unichar(ptr noundef %43, i32 noundef %45)
   br label %if.end48
 
 if.else46:                                        ; preds = %for.body33
-  %45 = load ptr, ptr %s, align 8
-  %call47 = call ptr @g_string_append_c_inline(ptr noundef %45, i8 noundef signext 32)
+  %46 = load ptr, ptr %s, align 8
+  %call47 = call ptr @g_string_append_c_inline(ptr noundef %46, i8 noundef signext 32)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else46, %if.then39
   br label %for.inc49
 
 for.inc49:                                        ; preds = %if.end48
-  %46 = load i64, ptr %i, align 8
-  %inc50 = add i64 %46, 1
+  %47 = load i64, ptr %i, align 8
+  %inc50 = add i64 %47, 1
   store i64 %inc50, ptr %i, align 8
   br label %for.cond29, !llvm.loop !10
 
@@ -697,8 +698,8 @@ for.end51:                                        ; preds = %for.cond29
   br label %out
 
 out:                                              ; preds = %for.end51, %if.end
-  %47 = load ptr, ptr %s, align 8
-  %call52 = call ptr @g_string_free(ptr noundef %47, i32 noundef 0)
+  %48 = load ptr, ptr %s, align 8
+  %call52 = call ptr @g_string_free(ptr noundef %48, i32 noundef 0)
   ret ptr %call52
 }
 

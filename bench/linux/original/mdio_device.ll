@@ -60,37 +60,39 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @mdio_device_create(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(832) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 832) #7
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %18, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %4 = load ptr, ptr %3, align 16
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(832) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 832) #7
+  %6 = icmp eq ptr %5, null
+  %7 = inttoptr i64 -12 to ptr
+  br i1 %6, label %20, label %8
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 688
-  store ptr @mdio_device_release, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1200
-  %9 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 96
-  store ptr @mdio_bus_type, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 776
-  store ptr @mdio_device_free, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 784
-  store ptr @mdio_device_remove, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 728
-  store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 792
-  store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 800
-  store i32 -1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef %16, i32 noundef %1) #6
-  tail call void @device_initialize(ptr noundef nonnull %4) #6
-  br label %18
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %5, i64 688
+  store ptr @mdio_device_release, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 1200
+  %11 = getelementptr inbounds i8, ptr %5, i64 64
+  store ptr %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 96
+  store ptr @mdio_bus_type, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 776
+  store ptr @mdio_device_free, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 784
+  store ptr @mdio_device_remove, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 728
+  store ptr %0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 792
+  store i32 %1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 800
+  store i32 -1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %5, ptr noundef nonnull @.str, ptr noundef %18, i32 noundef %1) #6
+  tail call void @device_initialize(ptr noundef nonnull %5) #6
+  br label %20
 
-18:                                               ; preds = %6, %2
-  %19 = phi ptr [ %4, %6 ], [ inttoptr (i64 -12 to ptr), %2 ]
-  ret ptr %19
+20:                                               ; preds = %8, %2
+  %21 = phi ptr [ %5, %8 ], [ %7, %2 ]
+  ret ptr %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

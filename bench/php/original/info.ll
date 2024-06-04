@@ -205,105 +205,107 @@ define void @php_info_print_module(ptr noundef %0) #0 {
   %10 = getelementptr inbounds %struct._zend_module_entry, ptr %9, i32 0, i32 13
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %62
+  br i1 %12, label %13, label %63
 
 13:                                               ; preds = %8, %1
-  %14 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %42, label %16
+  %14 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %43, label %17
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct._zend_module_entry, ptr %17, i32 0, i32 6
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct._zend_module_entry, ptr %20, i32 0, i32 6
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i64 @strlen(ptr noundef %22) #9
-  %24 = call ptr @php_url_encode(ptr noundef %19, i64 noundef %23)
-  store ptr %24, ptr %3, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct._zend_string, ptr %25, i32 0, i32 3
-  %27 = getelementptr inbounds [1 x i8], ptr %26, i64 0, i64 0
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct._zend_string, ptr %28, i32 0, i32 2
-  %30 = load i64, ptr %29, align 8
-  call void @zend_str_tolower(ptr noundef %27, i64 noundef %30)
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct._zend_string, ptr %31, i32 0, i32 3
-  %33 = getelementptr inbounds [1 x i8], ptr %32, i64 0, i64 0
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct._zend_string, ptr %34, i32 0, i32 3
-  %36 = getelementptr inbounds [1 x i8], ptr %35, i64 0, i64 0
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct._zend_module_entry, ptr %37, i32 0, i32 6
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str, ptr noundef %33, ptr noundef %36, ptr noundef %39)
-  %41 = load ptr, ptr %3, align 8
-  call void @_efree(ptr noundef %41)
-  br label %46
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct._zend_module_entry, ptr %18, i32 0, i32 6
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct._zend_module_entry, ptr %21, i32 0, i32 6
+  %23 = load ptr, ptr %22, align 8
+  %24 = call i64 @strlen(ptr noundef %23) #9
+  %25 = call ptr @php_url_encode(ptr noundef %20, i64 noundef %24)
+  store ptr %25, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds %struct._zend_string, ptr %26, i32 0, i32 3
+  %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 0
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds %struct._zend_string, ptr %29, i32 0, i32 2
+  %31 = load i64, ptr %30, align 8
+  call void @zend_str_tolower(ptr noundef %28, i64 noundef %31)
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds %struct._zend_string, ptr %32, i32 0, i32 3
+  %34 = getelementptr inbounds [1 x i8], ptr %33, i64 0, i64 0
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds %struct._zend_string, ptr %35, i32 0, i32 3
+  %37 = getelementptr inbounds [1 x i8], ptr %36, i64 0, i64 0
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds %struct._zend_module_entry, ptr %38, i32 0, i32 6
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str, ptr noundef %34, ptr noundef %37, ptr noundef %40)
+  %42 = load ptr, ptr %3, align 8
+  call void @_efree(ptr noundef %42)
+  br label %47
 
-42:                                               ; preds = %13
+43:                                               ; preds = %13
   call void @php_info_print_table_start()
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct._zend_module_entry, ptr %43, i32 0, i32 6
-  %45 = load ptr, ptr %44, align 8
-  call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef %45)
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds %struct._zend_module_entry, ptr %44, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8
+  call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef %46)
   call void @php_info_print_table_end()
-  br label %46
+  br label %47
 
-46:                                               ; preds = %42, %16
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct._zend_module_entry, ptr %47, i32 0, i32 12
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %56
+47:                                               ; preds = %43, %17
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds %struct._zend_module_entry, ptr %48, i32 0, i32 12
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %57
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct._zend_module_entry, ptr %52, i32 0, i32 12
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %2, align 8
-  call void %54(ptr noundef %55)
-  br label %61
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds %struct._zend_module_entry, ptr %53, i32 0, i32 12
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %2, align 8
+  call void %55(ptr noundef %56)
+  br label %62
 
-56:                                               ; preds = %46
+57:                                               ; preds = %47
   call void @php_info_print_table_start()
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds %struct._zend_module_entry, ptr %57, i32 0, i32 13
-  %59 = load ptr, ptr %58, align 8
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.1, ptr noundef %59)
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds %struct._zend_module_entry, ptr %58, i32 0, i32 13
+  %60 = load ptr, ptr %59, align 8
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.1, ptr noundef %60)
   call void @php_info_print_table_end()
-  %60 = load ptr, ptr %2, align 8
-  call void @display_ini_entries(ptr noundef %60)
-  br label %61
+  %61 = load ptr, ptr %2, align 8
+  call void @display_ini_entries(ptr noundef %61)
+  br label %62
 
-61:                                               ; preds = %56, %51
-  br label %76
+62:                                               ; preds = %57, %52
+  br label %78
 
-62:                                               ; preds = %8
-  %63 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %70, label %65
+63:                                               ; preds = %8
+  %64 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %72, label %67
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct._zend_module_entry, ptr %66, i32 0, i32 6
-  %68 = load ptr, ptr %67, align 8
-  %69 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.2, ptr noundef %68)
-  br label %75
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds %struct._zend_module_entry, ptr %68, i32 0, i32 6
+  %70 = load ptr, ptr %69, align 8
+  %71 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.2, ptr noundef %70)
+  br label %77
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %2, align 8
-  %72 = getelementptr inbounds %struct._zend_module_entry, ptr %71, i32 0, i32 6
-  %73 = load ptr, ptr %72, align 8
-  %74 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.3, ptr noundef %73)
-  br label %75
+72:                                               ; preds = %63
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds %struct._zend_module_entry, ptr %73, i32 0, i32 6
+  %75 = load ptr, ptr %74, align 8
+  %76 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.3, ptr noundef %75)
+  br label %77
 
-75:                                               ; preds = %70, %65
-  br label %76
+77:                                               ; preds = %72, %67
+  br label %78
 
-76:                                               ; preds = %75, %61
+78:                                               ; preds = %77, %62
   ret void
 }
 
@@ -323,13 +325,13 @@ define internal i32 @php_info_printf(ptr noundef %0, ...) #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %0, ptr %2, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %10 = call i64 @zend_vspprintf(ptr noundef %3, i64 noundef 0, ptr noundef %8, ptr noundef %9)
   store i64 %10, ptr %4, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %11)
+  call void @llvm.va_end.p0(ptr %11)
   %12 = load ptr, ptr %3, align 8
   %13 = load i64, ptr %4, align 8
   %14 = call i64 @php_output_write(ptr noundef %12, i64 noundef %13)
@@ -347,27 +349,28 @@ declare void @_efree(ptr noundef) #1
 define void @php_info_print_table_start() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %4 = icmp ne i32 %3, 0
-  br i1 %4, label %10, label %5
+  %3 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %11, label %6
 
-5:                                                ; preds = %0
+6:                                                ; preds = %0
   store ptr @.str.112, ptr %1, align 8
-  %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = call i64 @strlen(ptr noundef %7) #9
-  %9 = call i64 @php_output_write(ptr noundef %6, i64 noundef %8) #10
-  br label %15
+  %8 = load ptr, ptr %1, align 8
+  %9 = call i64 @strlen(ptr noundef %8) #9
+  %10 = call i64 @php_output_write(ptr noundef %7, i64 noundef %9) #10
+  br label %16
 
-10:                                               ; preds = %0
+11:                                               ; preds = %0
   store ptr @.str.65, ptr %2, align 8
-  %11 = load ptr, ptr %2, align 8
   %12 = load ptr, ptr %2, align 8
-  %13 = call i64 @strlen(ptr noundef %12) #9
-  %14 = call i64 @php_output_write(ptr noundef %11, i64 noundef %13) #10
-  br label %15
+  %13 = load ptr, ptr %2, align 8
+  %14 = call i64 @strlen(ptr noundef %13) #9
+  %15 = call i64 @php_output_write(ptr noundef %12, i64 noundef %14) #10
+  br label %16
 
-15:                                               ; preds = %10, %5
+16:                                               ; preds = %11, %6
   ret void
 }
 
@@ -387,169 +390,173 @@ define void @php_info_print_table_header(i32 noundef %0, ...) #0 {
   %13 = alloca ptr, align 8
   store i32 %0, ptr %10, align 4
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_start(ptr %14)
-  %15 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %22, label %17
+  call void @llvm.va_start.p0(ptr %14)
+  %15 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %23, label %18
 
-17:                                               ; preds = %1
+18:                                               ; preds = %1
   store ptr @.str.122, ptr %2, align 8
-  %18 = load ptr, ptr %2, align 8
   %19 = load ptr, ptr %2, align 8
-  %20 = call i64 @strlen(ptr noundef %19) #9
-  %21 = call i64 @php_output_write(ptr noundef %18, i64 noundef %20) #10
-  br label %22
-
-22:                                               ; preds = %17, %1
-  store i32 0, ptr %11, align 4
+  %20 = load ptr, ptr %2, align 8
+  %21 = call i64 @strlen(ptr noundef %20) #9
+  %22 = call i64 @php_output_write(ptr noundef %19, i64 noundef %21) #10
   br label %23
 
-23:                                               ; preds = %90, %22
-  %24 = load i32, ptr %11, align 4
-  %25 = load i32, ptr %10, align 4
-  %26 = icmp slt i32 %24, %25
-  br i1 %26, label %27, label %93
+23:                                               ; preds = %18, %1
+  store i32 0, ptr %11, align 4
+  br label %24
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  %29 = getelementptr inbounds %struct.__va_list_tag, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %29, align 16
-  %31 = icmp ule i32 %30, 40
-  br i1 %31, label %32, label %37
+24:                                               ; preds = %92, %23
+  %25 = load i32, ptr %11, align 4
+  %26 = load i32, ptr %10, align 4
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %95
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds %struct.__va_list_tag, ptr %28, i32 0, i32 3
-  %34 = load ptr, ptr %33, align 16
-  %35 = getelementptr i8, ptr %34, i32 %30
-  %36 = add i32 %30, 8
-  store i32 %36, ptr %29, align 16
-  br label %41
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
+  %30 = getelementptr inbounds %struct.__va_list_tag, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 16
+  %32 = icmp ule i32 %31, 40
+  br i1 %32, label %33, label %38
 
-37:                                               ; preds = %27
-  %38 = getelementptr inbounds %struct.__va_list_tag, ptr %28, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr i8, ptr %39, i32 8
-  store ptr %40, ptr %38, align 8
-  br label %41
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds %struct.__va_list_tag, ptr %29, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 16
+  %36 = getelementptr i8, ptr %35, i32 %31
+  %37 = add i32 %31, 8
+  store i32 %37, ptr %30, align 16
+  br label %42
 
-41:                                               ; preds = %37, %32
-  %42 = phi ptr [ %35, %32 ], [ %39, %37 ]
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %13, align 8
-  %44 = load ptr, ptr %13, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %50
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds %struct.__va_list_tag, ptr %29, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr i8, ptr %40, i32 8
+  store ptr %41, ptr %39, align 8
+  br label %42
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %13, align 8
-  %48 = load i8, ptr %47, align 1
-  %49 = icmp ne i8 %48, 0
-  br i1 %49, label %51, label %50
+42:                                               ; preds = %38, %33
+  %43 = phi ptr [ %36, %33 ], [ %40, %38 ]
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %13, align 8
+  %45 = load ptr, ptr %13, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %51
 
-50:                                               ; preds = %46, %41
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %13, align 8
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp ne i8 %49, 0
+  br i1 %50, label %52, label %51
+
+51:                                               ; preds = %47, %42
   store ptr @.str.121, ptr %13, align 8
-  br label %51
+  br label %52
 
-51:                                               ; preds = %50, %46
-  %52 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %68, label %54
+52:                                               ; preds = %51, %47
+  %53 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %70, label %56
 
-54:                                               ; preds = %51
+56:                                               ; preds = %52
   store ptr @.str.123, ptr %3, align 8
-  %55 = load ptr, ptr %3, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = call i64 @strlen(ptr noundef %56) #9
-  %58 = call i64 @php_output_write(ptr noundef %55, i64 noundef %57) #10
-  %59 = load ptr, ptr %13, align 8
-  store ptr %59, ptr %4, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = call i64 @strlen(ptr noundef %61) #9
-  %63 = call i64 @php_output_write(ptr noundef %60, i64 noundef %62) #10
+  %57 = load ptr, ptr %3, align 8
+  %58 = load ptr, ptr %3, align 8
+  %59 = call i64 @strlen(ptr noundef %58) #9
+  %60 = call i64 @php_output_write(ptr noundef %57, i64 noundef %59) #10
+  %61 = load ptr, ptr %13, align 8
+  store ptr %61, ptr %4, align 8
+  %62 = load ptr, ptr %4, align 8
+  %63 = load ptr, ptr %4, align 8
+  %64 = call i64 @strlen(ptr noundef %63) #9
+  %65 = call i64 @php_output_write(ptr noundef %62, i64 noundef %64) #10
   store ptr @.str.124, ptr %5, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = call i64 @strlen(ptr noundef %65) #9
-  %67 = call i64 @php_output_write(ptr noundef %64, i64 noundef %66) #10
-  br label %89
+  %66 = load ptr, ptr %5, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = call i64 @strlen(ptr noundef %67) #9
+  %69 = call i64 @php_output_write(ptr noundef %66, i64 noundef %68) #10
+  br label %91
 
-68:                                               ; preds = %51
-  %69 = load ptr, ptr %13, align 8
-  store ptr %69, ptr %6, align 8
-  %70 = load ptr, ptr %6, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = call i64 @strlen(ptr noundef %71) #9
-  %73 = call i64 @php_output_write(ptr noundef %70, i64 noundef %72) #10
-  %74 = load i32, ptr %11, align 4
-  %75 = load i32, ptr %10, align 4
-  %76 = sub nsw i32 %75, 1
-  %77 = icmp slt i32 %74, %76
-  br i1 %77, label %78, label %83
+70:                                               ; preds = %52
+  %71 = load ptr, ptr %13, align 8
+  store ptr %71, ptr %6, align 8
+  %72 = load ptr, ptr %6, align 8
+  %73 = load ptr, ptr %6, align 8
+  %74 = call i64 @strlen(ptr noundef %73) #9
+  %75 = call i64 @php_output_write(ptr noundef %72, i64 noundef %74) #10
+  %76 = load i32, ptr %11, align 4
+  %77 = load i32, ptr %10, align 4
+  %78 = sub nsw i32 %77, 1
+  %79 = icmp slt i32 %76, %78
+  br i1 %79, label %80, label %85
 
-78:                                               ; preds = %68
+80:                                               ; preds = %70
   store ptr @.str.125, ptr %7, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = call i64 @strlen(ptr noundef %80) #9
-  %82 = call i64 @php_output_write(ptr noundef %79, i64 noundef %81) #10
-  br label %88
-
-83:                                               ; preds = %68
-  store ptr @.str.65, ptr %8, align 8
-  %84 = load ptr, ptr %8, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = call i64 @strlen(ptr noundef %85) #9
-  %87 = call i64 @php_output_write(ptr noundef %84, i64 noundef %86) #10
-  br label %88
-
-88:                                               ; preds = %83, %78
-  br label %89
-
-89:                                               ; preds = %88, %54
+  %81 = load ptr, ptr %7, align 8
+  %82 = load ptr, ptr %7, align 8
+  %83 = call i64 @strlen(ptr noundef %82) #9
+  %84 = call i64 @php_output_write(ptr noundef %81, i64 noundef %83) #10
   br label %90
 
-90:                                               ; preds = %89
-  %91 = load i32, ptr %11, align 4
-  %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %11, align 4
-  br label %23
+85:                                               ; preds = %70
+  store ptr @.str.65, ptr %8, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = load ptr, ptr %8, align 8
+  %88 = call i64 @strlen(ptr noundef %87) #9
+  %89 = call i64 @php_output_write(ptr noundef %86, i64 noundef %88) #10
+  br label %90
 
-93:                                               ; preds = %23
-  %94 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %101, label %96
+90:                                               ; preds = %85, %80
+  br label %91
 
-96:                                               ; preds = %93
+91:                                               ; preds = %90, %56
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load i32, ptr %11, align 4
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %11, align 4
+  br label %24
+
+95:                                               ; preds = %24
+  %96 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %104, label %99
+
+99:                                               ; preds = %95
   store ptr @.str.126, ptr %9, align 8
-  %97 = load ptr, ptr %9, align 8
-  %98 = load ptr, ptr %9, align 8
-  %99 = call i64 @strlen(ptr noundef %98) #9
-  %100 = call i64 @php_output_write(ptr noundef %97, i64 noundef %99) #10
-  br label %101
+  %100 = load ptr, ptr %9, align 8
+  %101 = load ptr, ptr %9, align 8
+  %102 = call i64 @strlen(ptr noundef %101) #9
+  %103 = call i64 @php_output_write(ptr noundef %100, i64 noundef %102) #10
+  br label %104
 
-101:                                              ; preds = %96, %93
-  %102 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_end(ptr %102)
+104:                                              ; preds = %99, %95
+  %105 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %105)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @php_info_print_table_end() #0 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %3 = icmp ne i32 %2, 0
-  br i1 %3, label %9, label %4
+  %2 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp ne i32 %3, 0
+  br i1 %4, label %10, label %5
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   store ptr @.str.113, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #9
-  %8 = call i64 @php_output_write(ptr noundef %5, i64 noundef %7) #10
-  br label %9
+  %7 = load ptr, ptr %1, align 8
+  %8 = call i64 @strlen(ptr noundef %7) #9
+  %9 = call i64 @php_output_write(ptr noundef %6, i64 noundef %8) #10
+  br label %10
 
-9:                                                ; preds = %4, %0
+10:                                               ; preds = %5, %0
   ret void
 }
 
@@ -559,12 +566,12 @@ define void @php_info_print_table_row(i32 noundef %0, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   store i32 %0, ptr %2, align 4
   %4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %4)
+  call void @llvm.va_start.p0(ptr %4)
   %5 = load i32, ptr %2, align 4
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   call void @php_info_print_table_row_internal(i32 noundef %5, ptr noundef @.str.127, ptr noundef %6)
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %7)
+  call void @llvm.va_end.p0(ptr %7)
   ret void
 }
 
@@ -1502,770 +1509,761 @@ define void @php_print_info(i32 noundef %0) #0 {
   %78 = alloca ptr, align 8
   %79 = alloca ptr, align 8
   store i32 %0, ptr %57, align 4
-  %80 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %83, label %82
-
-82:                                               ; preds = %1
-  call void @php_print_info_htmlhead()
-  br label %88
+  %80 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %84, label %83
 
 83:                                               ; preds = %1
+  call void @php_print_info_htmlhead()
+  br label %89
+
+84:                                               ; preds = %1
   store ptr @.str.16, ptr %15, align 8
-  %84 = load ptr, ptr %15, align 8
   %85 = load ptr, ptr %15, align 8
-  %86 = call i64 @strlen(ptr noundef %85) #9
-  %87 = call i64 @php_output_write(ptr noundef %84, i64 noundef %86) #10
-  br label %88
+  %86 = load ptr, ptr %15, align 8
+  %87 = call i64 @strlen(ptr noundef %86) #9
+  %88 = call i64 @php_output_write(ptr noundef %85, i64 noundef %87) #10
+  br label %89
 
-88:                                               ; preds = %83, %82
-  %89 = load i32, ptr %57, align 4
-  %90 = and i32 %89, 1
-  %91 = icmp ne i32 %90, 0
-  br i1 %91, label %92, label %256
+89:                                               ; preds = %84, %83
+  %90 = load i32, ptr %57, align 4
+  %91 = and i32 %90, 1
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %265
 
-92:                                               ; preds = %88
-  %93 = call ptr @get_zend_version()
-  store ptr %93, ptr %62, align 8
-  %94 = call ptr @php_get_uname(i8 noundef signext 97)
-  store ptr %94, ptr %61, align 8
-  %95 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %98, label %97
+93:                                               ; preds = %89
+  %94 = call ptr @get_zend_version()
+  store ptr %94, ptr %62, align 8
+  %95 = call ptr @php_get_uname(i8 noundef signext 97)
+  store ptr %95, ptr %61, align 8
+  %96 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %100, label %99
 
-97:                                               ; preds = %92
+99:                                               ; preds = %93
   call void @php_info_print_box_start(i32 noundef 1)
-  br label %98
+  br label %100
 
-98:                                               ; preds = %97, %92
-  %99 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %131, label %101
+100:                                              ; preds = %99, %93
+  %101 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %134, label %104
 
-101:                                              ; preds = %98
-  %102 = call i64 @time(ptr noundef null) #10
-  store i64 %102, ptr %64, align 8
-  %103 = call ptr @localtime_r(ptr noundef %64, ptr noundef %66) #10
-  store ptr %103, ptr %65, align 8
+104:                                              ; preds = %100
+  %105 = call i64 @time(ptr noundef null) #10
+  store i64 %105, ptr %64, align 8
+  %106 = call ptr @localtime_r(ptr noundef %64, ptr noundef %66) #10
+  store ptr %106, ptr %65, align 8
   store ptr @.str.17, ptr %16, align 8
-  %104 = load ptr, ptr %16, align 8
-  %105 = load ptr, ptr %16, align 8
-  %106 = call i64 @strlen(ptr noundef %105) #9
-  %107 = call i64 @php_output_write(ptr noundef %104, i64 noundef %106) #10
-  %108 = load ptr, ptr %65, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %125
-
-110:                                              ; preds = %101
+  %107 = load ptr, ptr %16, align 8
+  %108 = load ptr, ptr %16, align 8
+  %109 = call i64 @strlen(ptr noundef %108) #9
+  %110 = call i64 @php_output_write(ptr noundef %107, i64 noundef %109) #10
   %111 = load ptr, ptr %65, align 8
-  %112 = getelementptr inbounds %struct.tm, ptr %111, i32 0, i32 4
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp eq i32 %113, 3
-  br i1 %114, label %115, label %125
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %128
 
-115:                                              ; preds = %110
-  %116 = load ptr, ptr %65, align 8
-  %117 = getelementptr inbounds %struct.tm, ptr %116, i32 0, i32 3
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %125
+113:                                              ; preds = %104
+  %114 = load ptr, ptr %65, align 8
+  %115 = getelementptr inbounds %struct.tm, ptr %114, i32 0, i32 4
+  %116 = load i32, ptr %115, align 8
+  %117 = icmp eq i32 %116, 3
+  br i1 %117, label %118, label %128
 
-120:                                              ; preds = %115
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %65, align 8
+  %120 = getelementptr inbounds %struct.tm, ptr %119, i32 0, i32 3
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp eq i32 %121, 1
+  br i1 %122, label %123, label %128
+
+123:                                              ; preds = %118
   store ptr @.str.18, ptr %17, align 8
-  %121 = load ptr, ptr %17, align 8
-  %122 = load ptr, ptr %17, align 8
-  %123 = call i64 @strlen(ptr noundef %122) #9
-  %124 = call i64 @php_output_write(ptr noundef %121, i64 noundef %123) #10
-  br label %130
+  %124 = load ptr, ptr %17, align 8
+  %125 = load ptr, ptr %17, align 8
+  %126 = call i64 @strlen(ptr noundef %125) #9
+  %127 = call i64 @php_output_write(ptr noundef %124, i64 noundef %126) #10
+  br label %133
 
-125:                                              ; preds = %115, %110, %101
+128:                                              ; preds = %118, %113, %104
   store ptr @.str.19, ptr %18, align 8
-  %126 = load ptr, ptr %18, align 8
-  %127 = load ptr, ptr %18, align 8
-  %128 = call i64 @strlen(ptr noundef %127) #9
-  %129 = call i64 @php_output_write(ptr noundef %126, i64 noundef %128) #10
-  br label %130
+  %129 = load ptr, ptr %18, align 8
+  %130 = load ptr, ptr %18, align 8
+  %131 = call i64 @strlen(ptr noundef %130) #9
+  %132 = call i64 @php_output_write(ptr noundef %129, i64 noundef %131) #10
+  br label %133
 
-130:                                              ; preds = %125, %120
-  br label %131
+133:                                              ; preds = %128, %123
+  br label %134
 
-131:                                              ; preds = %130, %98
-  %132 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %136, label %134
+134:                                              ; preds = %133, %100
+  %135 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %136 = load i32, ptr %135, align 8
+  %137 = icmp ne i32 %136, 0
+  br i1 %137, label %140, label %138
 
-134:                                              ; preds = %131
-  %135 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.20, ptr noundef @.str.12)
-  br label %137
+138:                                              ; preds = %134
+  %139 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.20, ptr noundef @.str.12)
+  br label %141
 
-136:                                              ; preds = %131
+140:                                              ; preds = %134
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.21, ptr noundef @.str.12)
-  br label %137
+  br label %141
 
-137:                                              ; preds = %136, %134
+141:                                              ; preds = %140, %138
   call void @php_info_print_box_end()
   call void @php_info_print_table_start()
-  %138 = load ptr, ptr %61, align 8
-  %139 = getelementptr inbounds %struct._zend_string, ptr %138, i32 0, i32 3
-  %140 = getelementptr inbounds [1 x i8], ptr %139, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.22, ptr noundef %140)
+  %142 = load ptr, ptr %61, align 8
+  %143 = getelementptr inbounds %struct._zend_string, ptr %142, i32 0, i32 3
+  %144 = getelementptr inbounds [1 x i8], ptr %143, i64 0, i64 0
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.22, ptr noundef %144)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.23, ptr noundef @.str.24)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.25, ptr noundef @.str.6)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.26, ptr noundef @.str.27)
-  %141 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 1), align 8
-  %142 = icmp ne ptr %141, null
-  br i1 %142, label %143, label %145
+  %145 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 1
+  %146 = load ptr, ptr %145, align 8
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %151
 
-143:                                              ; preds = %137
-  %144 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 1), align 8
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.28, ptr noundef %144)
-  br label %145
+148:                                              ; preds = %141
+  %149 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 1
+  %150 = load ptr, ptr %149, align 8
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.28, ptr noundef %150)
+  br label %151
 
-145:                                              ; preds = %143, %137
+151:                                              ; preds = %148, %141
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.29, ptr noundef @.str.30)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.31, ptr noundef @.str.32)
-  %146 = load ptr, ptr @php_ini_opened_path, align 8
-  %147 = icmp ne ptr %146, null
-  br i1 %147, label %148, label %150
+  %152 = load ptr, ptr @php_ini_opened_path, align 8
+  %153 = icmp ne ptr %152, null
+  br i1 %153, label %154, label %156
 
-148:                                              ; preds = %145
-  %149 = load ptr, ptr @php_ini_opened_path, align 8
-  br label %151
+154:                                              ; preds = %151
+  %155 = load ptr, ptr @php_ini_opened_path, align 8
+  br label %157
 
-150:                                              ; preds = %145
-  br label %151
+156:                                              ; preds = %151
+  br label %157
 
-151:                                              ; preds = %150, %148
-  %152 = phi ptr [ %149, %148 ], [ @.str.34, %150 ]
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.33, ptr noundef %152)
-  %153 = load ptr, ptr @php_ini_scanned_path, align 8
-  %154 = icmp ne ptr %153, null
-  br i1 %154, label %155, label %157
+157:                                              ; preds = %156, %154
+  %158 = phi ptr [ %155, %154 ], [ @.str.34, %156 ]
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.33, ptr noundef %158)
+  %159 = load ptr, ptr @php_ini_scanned_path, align 8
+  %160 = icmp ne ptr %159, null
+  br i1 %160, label %161, label %163
 
-155:                                              ; preds = %151
-  %156 = load ptr, ptr @php_ini_scanned_path, align 8
-  br label %158
+161:                                              ; preds = %157
+  %162 = load ptr, ptr @php_ini_scanned_path, align 8
+  br label %164
 
-157:                                              ; preds = %151
-  br label %158
+163:                                              ; preds = %157
+  br label %164
 
-158:                                              ; preds = %157, %155
-  %159 = phi ptr [ %156, %155 ], [ @.str.34, %157 ]
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.35, ptr noundef %159)
-  %160 = load ptr, ptr @php_ini_scanned_files, align 8
-  %161 = icmp ne ptr %160, null
-  br i1 %161, label %162, label %164
+164:                                              ; preds = %163, %161
+  %165 = phi ptr [ %162, %161 ], [ @.str.34, %163 ]
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.35, ptr noundef %165)
+  %166 = load ptr, ptr @php_ini_scanned_files, align 8
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %168, label %170
 
-162:                                              ; preds = %158
-  %163 = load ptr, ptr @php_ini_scanned_files, align 8
-  br label %165
+168:                                              ; preds = %164
+  %169 = load ptr, ptr @php_ini_scanned_files, align 8
+  br label %171
 
-164:                                              ; preds = %158
-  br label %165
+170:                                              ; preds = %164
+  br label %171
 
-165:                                              ; preds = %164, %162
-  %166 = phi ptr [ %163, %162 ], [ @.str.34, %164 ]
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.36, ptr noundef %166)
-  %167 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
-  %168 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %167, i64 noundef 10, ptr noundef @.str.37, i32 noundef 20230901)
-  %169 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.38, ptr noundef %169)
-  %170 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
-  %171 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %170, i64 noundef 10, ptr noundef @.str.37, i32 noundef 20230901)
-  %172 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.39, ptr noundef %172)
+171:                                              ; preds = %170, %168
+  %172 = phi ptr [ %169, %168 ], [ @.str.34, %170 ]
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.36, ptr noundef %172)
   %173 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
-  %174 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %173, i64 noundef 10, ptr noundef @.str.37, i32 noundef 420230901)
+  %174 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %173, i64 noundef 10, ptr noundef @.str.37, i32 noundef 20230901)
   %175 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.40, ptr noundef %175)
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.38, ptr noundef %175)
+  %176 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
+  %177 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %176, i64 noundef 10, ptr noundef @.str.37, i32 noundef 20230901)
+  %178 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.39, ptr noundef %178)
+  %179 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
+  %180 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %179, i64 noundef 10, ptr noundef @.str.37, i32 noundef 420230901)
+  %181 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.40, ptr noundef %181)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.41, ptr noundef @.str.42)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.43, ptr noundef @.str.44)
-  %176 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
-  %177 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %176, i64 noundef 10, ptr noundef @.str.45, i32 noundef 64)
-  %178 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.46, ptr noundef %178)
+  %182 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
+  %183 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %182, i64 noundef 10, ptr noundef @.str.45, i32 noundef 64)
+  %184 = getelementptr inbounds [10 x i8], ptr %63, i64 0, i64 0
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.46, ptr noundef %184)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.47, ptr noundef @.str.48)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.49, ptr noundef @.str.30)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.50, ptr noundef @.str.51)
-  %179 = call zeroext i1 @is_zend_mm()
-  %180 = select i1 %179, ptr @.str.51, ptr @.str.30
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.52, ptr noundef %180)
-  %181 = call ptr @zend_multibyte_get_functions()
-  store ptr %181, ptr %67, align 8
-  %182 = load ptr, ptr %67, align 8
-  %183 = icmp ne ptr %182, null
-  br i1 %183, label %184, label %189
+  %185 = call zeroext i1 @is_zend_mm()
+  %186 = select i1 %185, ptr @.str.51, ptr @.str.30
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.52, ptr noundef %186)
+  %187 = call ptr @zend_multibyte_get_functions()
+  store ptr %187, ptr %67, align 8
+  %188 = load ptr, ptr %67, align 8
+  %189 = icmp ne ptr %188, null
+  br i1 %189, label %190, label %195
 
-184:                                              ; preds = %165
-  %185 = load ptr, ptr %67, align 8
-  %186 = getelementptr inbounds %struct._zend_multibyte_functions, ptr %185, i32 0, i32 0
-  %187 = load ptr, ptr %186, align 8
-  %188 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %68, i64 noundef 0, ptr noundef @.str.53, ptr noundef %187)
-  br label %191
+190:                                              ; preds = %171
+  %191 = load ptr, ptr %67, align 8
+  %192 = getelementptr inbounds %struct._zend_multibyte_functions, ptr %191, i32 0, i32 0
+  %193 = load ptr, ptr %192, align 8
+  %194 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %68, i64 noundef 0, ptr noundef @.str.53, ptr noundef %193)
+  br label %197
 
-189:                                              ; preds = %165
-  %190 = call noalias ptr @_estrdup(ptr noundef @.str.30)
-  store ptr %190, ptr %68, align 8
-  br label %191
+195:                                              ; preds = %171
+  %196 = call noalias ptr @_estrdup(ptr noundef @.str.30)
+  store ptr %196, ptr %68, align 8
+  br label %197
 
-191:                                              ; preds = %189, %184
-  %192 = load ptr, ptr %68, align 8
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.54, ptr noundef %192)
-  %193 = load ptr, ptr %68, align 8
-  call void @_efree(ptr noundef %193)
+197:                                              ; preds = %195, %190
+  %198 = load ptr, ptr %68, align 8
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.54, ptr noundef %198)
+  %199 = load ptr, ptr %68, align 8
+  call void @_efree(ptr noundef %199)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.55, ptr noundef @.str.30)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.56, ptr noundef @.str.51)
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.57, ptr noundef @.str.30)
-  %194 = call ptr @_php_stream_get_url_stream_wrappers_hash()
-  call void @php_info_print_stream_hash(ptr noundef @.str.58, ptr noundef %194)
-  %195 = call ptr @php_stream_xport_get_hash()
-  call void @php_info_print_stream_hash(ptr noundef @.str.59, ptr noundef %195)
-  %196 = call ptr @_php_get_stream_filters_hash()
-  call void @php_info_print_stream_hash(ptr noundef @.str.60, ptr noundef %196)
+  %200 = call ptr @_php_stream_get_url_stream_wrappers_hash()
+  call void @php_info_print_stream_hash(ptr noundef @.str.58, ptr noundef %200)
+  %201 = call ptr @php_stream_xport_get_hash()
+  call void @php_info_print_stream_hash(ptr noundef @.str.59, ptr noundef %201)
+  %202 = call ptr @_php_get_stream_filters_hash()
+  call void @php_info_print_stream_hash(ptr noundef @.str.60, ptr noundef %202)
   call void @php_info_print_table_end()
   call void @php_info_print_box_start(i32 noundef 0)
-  %197 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %198 = icmp ne i32 %197, 0
-  br i1 %198, label %208, label %199
+  %203 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %204 = load i32, ptr %203, align 8
+  %205 = icmp ne i32 %204, 0
+  br i1 %205, label %215, label %206
 
-199:                                              ; preds = %191
+206:                                              ; preds = %197
   store ptr @.str.61, ptr %19, align 8
-  %200 = load ptr, ptr %19, align 8
-  %201 = load ptr, ptr %19, align 8
-  %202 = call i64 @strlen(ptr noundef %201) #9
-  %203 = call i64 @php_output_write(ptr noundef %200, i64 noundef %202) #10
+  %207 = load ptr, ptr %19, align 8
+  %208 = load ptr, ptr %19, align 8
+  %209 = call i64 @strlen(ptr noundef %208) #9
+  %210 = call i64 @php_output_write(ptr noundef %207, i64 noundef %209) #10
   store ptr @.str.62, ptr %20, align 8
-  %204 = load ptr, ptr %20, align 8
-  %205 = load ptr, ptr %20, align 8
-  %206 = call i64 @strlen(ptr noundef %205) #9
-  %207 = call i64 @php_output_write(ptr noundef %204, i64 noundef %206) #10
-  br label %208
+  %211 = load ptr, ptr %20, align 8
+  %212 = load ptr, ptr %20, align 8
+  %213 = call i64 @strlen(ptr noundef %212) #9
+  %214 = call i64 @php_output_write(ptr noundef %211, i64 noundef %213) #10
+  br label %215
 
-208:                                              ; preds = %199, %191
+215:                                              ; preds = %206, %197
   store ptr @.str.63, ptr %21, align 8
-  %209 = load ptr, ptr %21, align 8
-  %210 = load ptr, ptr %21, align 8
-  %211 = call i64 @strlen(ptr noundef %210) #9
-  %212 = call i64 @php_output_write(ptr noundef %209, i64 noundef %211) #10
-  %213 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %214 = icmp ne i32 %213, 0
-  %215 = xor i1 %214, true
-  %216 = select i1 %215, ptr @.str.64, ptr @.str.65
-  store ptr %216, ptr %22, align 8
-  %217 = load ptr, ptr %22, align 8
-  %218 = load ptr, ptr %22, align 8
-  %219 = call i64 @strlen(ptr noundef %218) #9
-  %220 = call i64 @php_output_write(ptr noundef %217, i64 noundef %219) #10
-  %221 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
+  %216 = load ptr, ptr %21, align 8
+  %217 = load ptr, ptr %21, align 8
+  %218 = call i64 @strlen(ptr noundef %217) #9
+  %219 = call i64 @php_output_write(ptr noundef %216, i64 noundef %218) #10
+  %220 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %221 = load i32, ptr %220, align 8
   %222 = icmp ne i32 %221, 0
-  br i1 %222, label %223, label %229
-
-223:                                              ; preds = %208
-  %224 = load ptr, ptr %62, align 8
-  store ptr %224, ptr %23, align 8
-  %225 = load ptr, ptr %23, align 8
-  %226 = load ptr, ptr %23, align 8
+  %223 = xor i1 %222, true
+  %224 = select i1 %223, ptr @.str.64, ptr @.str.65
+  store ptr %224, ptr %22, align 8
+  %225 = load ptr, ptr %22, align 8
+  %226 = load ptr, ptr %22, align 8
   %227 = call i64 @strlen(ptr noundef %226) #9
   %228 = call i64 @php_output_write(ptr noundef %225, i64 noundef %227) #10
-  br label %233
+  %229 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %230 = load i32, ptr %229, align 8
+  %231 = icmp ne i32 %230, 0
+  br i1 %231, label %232, label %238
 
-229:                                              ; preds = %208
-  %230 = load ptr, ptr %62, align 8
-  %231 = load ptr, ptr %62, align 8
-  %232 = call i64 @strlen(ptr noundef %231) #9
-  call void @zend_html_puts(ptr noundef %230, i64 noundef %232)
-  br label %233
+232:                                              ; preds = %215
+  %233 = load ptr, ptr %62, align 8
+  store ptr %233, ptr %23, align 8
+  %234 = load ptr, ptr %23, align 8
+  %235 = load ptr, ptr %23, align 8
+  %236 = call i64 @strlen(ptr noundef %235) #9
+  %237 = call i64 @php_output_write(ptr noundef %234, i64 noundef %236) #10
+  br label %242
 
-233:                                              ; preds = %229, %223
+238:                                              ; preds = %215
+  %239 = load ptr, ptr %62, align 8
+  %240 = load ptr, ptr %62, align 8
+  %241 = call i64 @strlen(ptr noundef %240) #9
+  call void @zend_html_puts(ptr noundef %239, i64 noundef %241)
+  br label %242
+
+242:                                              ; preds = %238, %232
   call void @php_info_print_box_end()
-  %234 = load ptr, ptr %61, align 8
-  store ptr %234, ptr %14, align 8
-  %235 = load ptr, ptr %14, align 8
-  %236 = getelementptr inbounds %struct._zend_refcounted_h, ptr %235, i32 0, i32 1
-  %237 = load i32, ptr %236, align 4
-  store i32 %237, ptr %2, align 4
-  %238 = load i32, ptr %2, align 4
-  %239 = and i32 %238, 1008
-  %240 = and i32 %239, 64
-  %241 = icmp ne i32 %240, 0
-  br i1 %241, label %255, label %242
+  %243 = load ptr, ptr %61, align 8
+  store ptr %243, ptr %14, align 8
+  %244 = load ptr, ptr %14, align 8
+  %245 = getelementptr inbounds %struct._zend_refcounted_h, ptr %244, i32 0, i32 1
+  %246 = load i32, ptr %245, align 4
+  store i32 %246, ptr %2, align 4
+  %247 = load i32, ptr %2, align 4
+  %248 = and i32 %247, 1008
+  %249 = and i32 %248, 64
+  %250 = icmp ne i32 %249, 0
+  br i1 %250, label %264, label %251
 
-242:                                              ; preds = %233
-  %243 = load ptr, ptr %14, align 8
-  %244 = getelementptr inbounds %struct._zend_refcounted_h, ptr %243, i32 0, i32 1
-  %245 = load i32, ptr %244, align 4
-  store i32 %245, ptr %3, align 4
-  %246 = load i32, ptr %3, align 4
-  %247 = and i32 %246, 1008
-  %248 = and i32 %247, 128
-  %249 = icmp ne i32 %248, 0
-  br i1 %249, label %250, label %252
+251:                                              ; preds = %242
+  %252 = load ptr, ptr %14, align 8
+  %253 = getelementptr inbounds %struct._zend_refcounted_h, ptr %252, i32 0, i32 1
+  %254 = load i32, ptr %253, align 4
+  store i32 %254, ptr %3, align 4
+  %255 = load i32, ptr %3, align 4
+  %256 = and i32 %255, 1008
+  %257 = and i32 %256, 128
+  %258 = icmp ne i32 %257, 0
+  br i1 %258, label %259, label %261
 
-250:                                              ; preds = %242
-  %251 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %251) #10
-  br label %254
+259:                                              ; preds = %251
+  %260 = load ptr, ptr %14, align 8
+  call void @free(ptr noundef %260) #10
+  br label %263
 
-252:                                              ; preds = %242
-  %253 = load ptr, ptr %14, align 8
-  call void @_efree(ptr noundef %253) #10
-  br label %254
+261:                                              ; preds = %251
+  %262 = load ptr, ptr %14, align 8
+  call void @_efree(ptr noundef %262) #10
+  br label %263
 
-254:                                              ; preds = %252, %250
-  br label %255
+263:                                              ; preds = %261, %259
+  br label %264
 
-255:                                              ; preds = %254, %233
-  br label %256
+264:                                              ; preds = %263, %242
+  br label %265
 
-256:                                              ; preds = %255, %88
+265:                                              ; preds = %264, %89
   call void @zend_ini_sort_entries()
-  %257 = load i32, ptr %57, align 4
-  %258 = and i32 %257, 4
-  %259 = icmp ne i32 %258, 0
-  br i1 %259, label %260, label %293
+  %266 = load i32, ptr %57, align 4
+  %267 = and i32 %266, 4
+  %268 = icmp ne i32 %267, 0
+  br i1 %268, label %269, label %305
 
-260:                                              ; preds = %256
+269:                                              ; preds = %265
   call void @php_info_print_hr()
-  %261 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %262 = icmp ne i32 %261, 0
-  br i1 %262, label %268, label %263
+  %270 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %271 = load i32, ptr %270, align 8
+  %272 = icmp ne i32 %271, 0
+  br i1 %272, label %278, label %273
 
-263:                                              ; preds = %260
+273:                                              ; preds = %269
   store ptr @.str.66, ptr %24, align 8
-  %264 = load ptr, ptr %24, align 8
-  %265 = load ptr, ptr %24, align 8
-  %266 = call i64 @strlen(ptr noundef %265) #9
-  %267 = call i64 @php_output_write(ptr noundef %264, i64 noundef %266) #10
-  br label %278
+  %274 = load ptr, ptr %24, align 8
+  %275 = load ptr, ptr %24, align 8
+  %276 = call i64 @strlen(ptr noundef %275) #9
+  %277 = call i64 @php_output_write(ptr noundef %274, i64 noundef %276) #10
+  br label %289
 
-268:                                              ; preds = %260
-  %269 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %270 = icmp ne i32 %269, 0
-  br i1 %270, label %276, label %271
+278:                                              ; preds = %269
+  %279 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %280 = load i32, ptr %279, align 8
+  %281 = icmp ne i32 %280, 0
+  br i1 %281, label %287, label %282
 
-271:                                              ; preds = %268
+282:                                              ; preds = %278
   store ptr @.str.67, ptr %25, align 8
-  %272 = load ptr, ptr %25, align 8
-  %273 = load ptr, ptr %25, align 8
-  %274 = call i64 @strlen(ptr noundef %273) #9
-  %275 = call i64 @php_output_write(ptr noundef %272, i64 noundef %274) #10
-  br label %277
+  %283 = load ptr, ptr %25, align 8
+  %284 = load ptr, ptr %25, align 8
+  %285 = call i64 @strlen(ptr noundef %284) #9
+  %286 = call i64 @php_output_write(ptr noundef %283, i64 noundef %285) #10
+  br label %288
 
-276:                                              ; preds = %268
+287:                                              ; preds = %278
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.68)
   call void @php_info_print_table_end()
-  br label %277
+  br label %288
 
-277:                                              ; preds = %276, %271
-  br label %278
+288:                                              ; preds = %287, %282
+  br label %289
 
-278:                                              ; preds = %277, %263
-  %279 = load i32, ptr %57, align 4
-  %280 = and i32 %279, 8
-  %281 = icmp ne i32 %280, 0
-  br i1 %281, label %292, label %282
+289:                                              ; preds = %288, %273
+  %290 = load i32, ptr %57, align 4
+  %291 = and i32 %290, 8
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %304, label %293
 
-282:                                              ; preds = %278
-  %283 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %284 = icmp ne i32 %283, 0
-  br i1 %284, label %290, label %285
+293:                                              ; preds = %289
+  %294 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %295 = load i32, ptr %294, align 8
+  %296 = icmp ne i32 %295, 0
+  br i1 %296, label %302, label %297
 
-285:                                              ; preds = %282
+297:                                              ; preds = %293
   store ptr @.str.69, ptr %26, align 8
-  %286 = load ptr, ptr %26, align 8
-  %287 = load ptr, ptr %26, align 8
-  %288 = call i64 @strlen(ptr noundef %287) #9
-  %289 = call i64 @php_output_write(ptr noundef %286, i64 noundef %288) #10
-  br label %291
+  %298 = load ptr, ptr %26, align 8
+  %299 = load ptr, ptr %26, align 8
+  %300 = call i64 @strlen(ptr noundef %299) #9
+  %301 = call i64 @php_output_write(ptr noundef %298, i64 noundef %300) #10
+  br label %303
 
-290:                                              ; preds = %282
+302:                                              ; preds = %293
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.70)
   call void @php_info_print_table_end()
-  br label %291
+  br label %303
 
-291:                                              ; preds = %290, %285
+303:                                              ; preds = %302, %297
   call void @display_ini_entries(ptr noundef null)
-  br label %292
+  br label %304
 
-292:                                              ; preds = %291, %278
-  br label %293
+304:                                              ; preds = %303, %289
+  br label %305
 
-293:                                              ; preds = %292, %256
-  %294 = load i32, ptr %57, align 4
-  %295 = and i32 %294, 8
-  %296 = icmp ne i32 %295, 0
-  br i1 %296, label %297, label %432
+305:                                              ; preds = %304, %265
+  %306 = load i32, ptr %57, align 4
+  %307 = and i32 %306, 8
+  %308 = icmp ne i32 %307, 0
+  br i1 %308, label %309, label %445
 
-297:                                              ; preds = %293
+309:                                              ; preds = %305
   store ptr @module_registry, ptr %13, align 8
-  %298 = load ptr, ptr %13, align 8
-  %299 = getelementptr inbounds %struct._zend_array, ptr %298, i32 0, i32 5
-  %300 = load i32, ptr %299, align 4
-  call void @_zend_hash_init(ptr noundef %69, i32 noundef %300, ptr noundef null, i1 noundef zeroext true)
+  %310 = load ptr, ptr %13, align 8
+  %311 = getelementptr inbounds %struct._zend_array, ptr %310, i32 0, i32 5
+  %312 = load i32, ptr %311, align 4
+  call void @_zend_hash_init(ptr noundef %69, i32 noundef %312, ptr noundef null, i1 noundef zeroext true)
   call void @zend_hash_copy(ptr noundef %69, ptr noundef @module_registry, ptr noundef null)
   store ptr %69, ptr %10, align 8
   store ptr @module_name_cmp, ptr %11, align 8
   store i8 0, ptr %12, align 1
-  %301 = load ptr, ptr %10, align 8
-  %302 = load ptr, ptr %11, align 8
-  %303 = load i8, ptr %12, align 1
-  %304 = trunc i8 %303 to i1
-  call void @zend_hash_sort_ex(ptr noundef %301, ptr noundef @zend_sort, ptr noundef %302, i1 noundef zeroext %304) #10
-  br label %305
+  %313 = load ptr, ptr %10, align 8
+  %314 = load ptr, ptr %11, align 8
+  %315 = load i8, ptr %12, align 1
+  %316 = trunc i8 %315 to i1
+  call void @zend_hash_sort_ex(ptr noundef %313, ptr noundef @zend_sort, ptr noundef %314, i1 noundef zeroext %316) #10
+  br label %317
 
-305:                                              ; preds = %297
+317:                                              ; preds = %309
   store ptr %69, ptr %71, align 8
-  %306 = load ptr, ptr %71, align 8
-  %307 = getelementptr inbounds %struct._zend_array, ptr %306, i32 0, i32 3
-  %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr inbounds %struct._Bucket, ptr %308, i64 0
-  store ptr %309, ptr %72, align 8
-  %310 = load ptr, ptr %71, align 8
-  %311 = getelementptr inbounds %struct._zend_array, ptr %310, i32 0, i32 3
-  %312 = load ptr, ptr %311, align 8
-  %313 = load ptr, ptr %71, align 8
-  %314 = getelementptr inbounds %struct._zend_array, ptr %313, i32 0, i32 4
-  %315 = load i32, ptr %314, align 8
-  %316 = zext i32 %315 to i64
-  %317 = getelementptr inbounds %struct._Bucket, ptr %312, i64 %316
-  store ptr %317, ptr %73, align 8
   %318 = load ptr, ptr %71, align 8
-  %319 = getelementptr inbounds %struct._zend_array, ptr %318, i32 0, i32 1
-  %320 = load i32, ptr %319, align 8
-  %321 = and i32 %320, 4
-  %322 = icmp ne i32 %321, 0
-  %323 = xor i1 %322, true
-  call void @llvm.assume(i1 %323)
-  br label %324
+  %319 = getelementptr inbounds %struct._zend_array, ptr %318, i32 0, i32 3
+  %320 = load ptr, ptr %319, align 8
+  %321 = getelementptr inbounds %struct._Bucket, ptr %320, i64 0
+  store ptr %321, ptr %72, align 8
+  %322 = load ptr, ptr %71, align 8
+  %323 = getelementptr inbounds %struct._zend_array, ptr %322, i32 0, i32 3
+  %324 = load ptr, ptr %323, align 8
+  %325 = load ptr, ptr %71, align 8
+  %326 = getelementptr inbounds %struct._zend_array, ptr %325, i32 0, i32 4
+  %327 = load i32, ptr %326, align 8
+  %328 = zext i32 %327 to i64
+  %329 = getelementptr inbounds %struct._Bucket, ptr %324, i64 %328
+  store ptr %329, ptr %73, align 8
+  %330 = load ptr, ptr %71, align 8
+  %331 = getelementptr inbounds %struct._zend_array, ptr %330, i32 0, i32 1
+  %332 = load i32, ptr %331, align 8
+  %333 = and i32 %332, 4
+  %334 = icmp ne i32 %333, 0
+  %335 = xor i1 %334, true
+  call void @llvm.assume(i1 %335)
+  br label %336
 
-324:                                              ; preds = %359, %305
-  %325 = load ptr, ptr %72, align 8
-  %326 = load ptr, ptr %73, align 8
-  %327 = icmp ne ptr %325, %326
-  br i1 %327, label %328, label %362
+336:                                              ; preds = %371, %317
+  %337 = load ptr, ptr %72, align 8
+  %338 = load ptr, ptr %73, align 8
+  %339 = icmp ne ptr %337, %338
+  br i1 %339, label %340, label %374
 
-328:                                              ; preds = %324
-  %329 = load ptr, ptr %72, align 8
-  %330 = getelementptr inbounds %struct._Bucket, ptr %329, i32 0, i32 0
-  store ptr %330, ptr %74, align 8
-  %331 = load ptr, ptr %74, align 8
-  store ptr %331, ptr %4, align 8
-  %332 = load ptr, ptr %4, align 8
-  %333 = getelementptr inbounds %struct._zval_struct, ptr %332, i32 0, i32 1
-  %334 = load i8, ptr %333, align 8
-  %335 = zext i8 %334 to i32
-  %336 = icmp eq i32 %335, 0
-  %337 = xor i1 %336, true
-  %338 = xor i1 %337, true
-  %339 = zext i1 %338 to i32
-  %340 = sext i32 %339 to i64
-  %341 = icmp ne i64 %340, 0
-  br i1 %341, label %342, label %343
+340:                                              ; preds = %336
+  %341 = load ptr, ptr %72, align 8
+  %342 = getelementptr inbounds %struct._Bucket, ptr %341, i32 0, i32 0
+  store ptr %342, ptr %74, align 8
+  %343 = load ptr, ptr %74, align 8
+  store ptr %343, ptr %4, align 8
+  %344 = load ptr, ptr %4, align 8
+  %345 = getelementptr inbounds %struct._zval_struct, ptr %344, i32 0, i32 1
+  %346 = load i8, ptr %345, align 8
+  %347 = zext i8 %346 to i32
+  %348 = icmp eq i32 %347, 0
+  %349 = xor i1 %348, true
+  %350 = xor i1 %349, true
+  %351 = zext i1 %350 to i32
+  %352 = sext i32 %351 to i64
+  %353 = icmp ne i64 %352, 0
+  br i1 %353, label %354, label %355
 
-342:                                              ; preds = %328
-  br label %359
+354:                                              ; preds = %340
+  br label %371
 
-343:                                              ; preds = %328
-  %344 = load ptr, ptr %74, align 8
-  %345 = getelementptr inbounds %struct._zval_struct, ptr %344, i32 0, i32 0
-  %346 = load ptr, ptr %345, align 8
-  store ptr %346, ptr %70, align 8
-  %347 = load ptr, ptr %70, align 8
-  %348 = getelementptr inbounds %struct._zend_module_entry, ptr %347, i32 0, i32 12
-  %349 = load ptr, ptr %348, align 8
-  %350 = icmp ne ptr %349, null
-  br i1 %350, label %356, label %351
+355:                                              ; preds = %340
+  %356 = load ptr, ptr %74, align 8
+  %357 = getelementptr inbounds %struct._zval_struct, ptr %356, i32 0, i32 0
+  %358 = load ptr, ptr %357, align 8
+  store ptr %358, ptr %70, align 8
+  %359 = load ptr, ptr %70, align 8
+  %360 = getelementptr inbounds %struct._zend_module_entry, ptr %359, i32 0, i32 12
+  %361 = load ptr, ptr %360, align 8
+  %362 = icmp ne ptr %361, null
+  br i1 %362, label %368, label %363
 
-351:                                              ; preds = %343
-  %352 = load ptr, ptr %70, align 8
-  %353 = getelementptr inbounds %struct._zend_module_entry, ptr %352, i32 0, i32 13
-  %354 = load ptr, ptr %353, align 8
-  %355 = icmp ne ptr %354, null
-  br i1 %355, label %356, label %358
+363:                                              ; preds = %355
+  %364 = load ptr, ptr %70, align 8
+  %365 = getelementptr inbounds %struct._zend_module_entry, ptr %364, i32 0, i32 13
+  %366 = load ptr, ptr %365, align 8
+  %367 = icmp ne ptr %366, null
+  br i1 %367, label %368, label %370
 
-356:                                              ; preds = %351, %343
-  %357 = load ptr, ptr %70, align 8
-  call void @php_info_print_module(ptr noundef %357)
-  br label %358
+368:                                              ; preds = %363, %355
+  %369 = load ptr, ptr %70, align 8
+  call void @php_info_print_module(ptr noundef %369)
+  br label %370
 
-358:                                              ; preds = %356, %351
-  br label %359
+370:                                              ; preds = %368, %363
+  br label %371
 
-359:                                              ; preds = %358, %342
-  %360 = load ptr, ptr %72, align 8
-  %361 = getelementptr inbounds %struct._Bucket, ptr %360, i32 1
-  store ptr %361, ptr %72, align 8
-  br label %324
+371:                                              ; preds = %370, %354
+  %372 = load ptr, ptr %72, align 8
+  %373 = getelementptr inbounds %struct._Bucket, ptr %372, i32 1
+  store ptr %373, ptr %72, align 8
+  br label %336
 
-362:                                              ; preds = %324
-  br label %363
+374:                                              ; preds = %336
+  br label %375
 
-363:                                              ; preds = %362
-  %364 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %365 = icmp ne i32 %364, 0
-  br i1 %365, label %371, label %366
+375:                                              ; preds = %374
+  %376 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %377 = load i32, ptr %376, align 8
+  %378 = icmp ne i32 %377, 0
+  br i1 %378, label %384, label %379
 
-366:                                              ; preds = %363
+379:                                              ; preds = %375
   store ptr @.str.71, ptr %27, align 8
-  %367 = load ptr, ptr %27, align 8
-  %368 = load ptr, ptr %27, align 8
-  %369 = call i64 @strlen(ptr noundef %368) #9
-  %370 = call i64 @php_output_write(ptr noundef %367, i64 noundef %369) #10
-  br label %372
+  %380 = load ptr, ptr %27, align 8
+  %381 = load ptr, ptr %27, align 8
+  %382 = call i64 @strlen(ptr noundef %381) #9
+  %383 = call i64 @php_output_write(ptr noundef %380, i64 noundef %382) #10
+  br label %385
 
-371:                                              ; preds = %363
+384:                                              ; preds = %375
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.72)
   call void @php_info_print_table_end()
-  br label %372
+  br label %385
 
-372:                                              ; preds = %371, %366
+385:                                              ; preds = %384, %379
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.73)
-  br label %373
+  br label %386
 
-373:                                              ; preds = %372
+386:                                              ; preds = %385
   store ptr %69, ptr %75, align 8
-  %374 = load ptr, ptr %75, align 8
-  %375 = getelementptr inbounds %struct._zend_array, ptr %374, i32 0, i32 3
-  %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds %struct._Bucket, ptr %376, i64 0
-  store ptr %377, ptr %76, align 8
-  %378 = load ptr, ptr %75, align 8
-  %379 = getelementptr inbounds %struct._zend_array, ptr %378, i32 0, i32 3
-  %380 = load ptr, ptr %379, align 8
-  %381 = load ptr, ptr %75, align 8
-  %382 = getelementptr inbounds %struct._zend_array, ptr %381, i32 0, i32 4
-  %383 = load i32, ptr %382, align 8
-  %384 = zext i32 %383 to i64
-  %385 = getelementptr inbounds %struct._Bucket, ptr %380, i64 %384
-  store ptr %385, ptr %77, align 8
-  %386 = load ptr, ptr %75, align 8
-  %387 = getelementptr inbounds %struct._zend_array, ptr %386, i32 0, i32 1
-  %388 = load i32, ptr %387, align 8
-  %389 = and i32 %388, 4
-  %390 = icmp ne i32 %389, 0
-  %391 = xor i1 %390, true
-  call void @llvm.assume(i1 %391)
-  br label %392
+  %387 = load ptr, ptr %75, align 8
+  %388 = getelementptr inbounds %struct._zend_array, ptr %387, i32 0, i32 3
+  %389 = load ptr, ptr %388, align 8
+  %390 = getelementptr inbounds %struct._Bucket, ptr %389, i64 0
+  store ptr %390, ptr %76, align 8
+  %391 = load ptr, ptr %75, align 8
+  %392 = getelementptr inbounds %struct._zend_array, ptr %391, i32 0, i32 3
+  %393 = load ptr, ptr %392, align 8
+  %394 = load ptr, ptr %75, align 8
+  %395 = getelementptr inbounds %struct._zend_array, ptr %394, i32 0, i32 4
+  %396 = load i32, ptr %395, align 8
+  %397 = zext i32 %396 to i64
+  %398 = getelementptr inbounds %struct._Bucket, ptr %393, i64 %397
+  store ptr %398, ptr %77, align 8
+  %399 = load ptr, ptr %75, align 8
+  %400 = getelementptr inbounds %struct._zend_array, ptr %399, i32 0, i32 1
+  %401 = load i32, ptr %400, align 8
+  %402 = and i32 %401, 4
+  %403 = icmp ne i32 %402, 0
+  %404 = xor i1 %403, true
+  call void @llvm.assume(i1 %404)
+  br label %405
 
-392:                                              ; preds = %427, %373
-  %393 = load ptr, ptr %76, align 8
-  %394 = load ptr, ptr %77, align 8
-  %395 = icmp ne ptr %393, %394
-  br i1 %395, label %396, label %430
+405:                                              ; preds = %440, %386
+  %406 = load ptr, ptr %76, align 8
+  %407 = load ptr, ptr %77, align 8
+  %408 = icmp ne ptr %406, %407
+  br i1 %408, label %409, label %443
 
-396:                                              ; preds = %392
-  %397 = load ptr, ptr %76, align 8
-  %398 = getelementptr inbounds %struct._Bucket, ptr %397, i32 0, i32 0
-  store ptr %398, ptr %78, align 8
-  %399 = load ptr, ptr %78, align 8
-  store ptr %399, ptr %5, align 8
-  %400 = load ptr, ptr %5, align 8
-  %401 = getelementptr inbounds %struct._zval_struct, ptr %400, i32 0, i32 1
-  %402 = load i8, ptr %401, align 8
-  %403 = zext i8 %402 to i32
-  %404 = icmp eq i32 %403, 0
-  %405 = xor i1 %404, true
-  %406 = xor i1 %405, true
-  %407 = zext i1 %406 to i32
-  %408 = sext i32 %407 to i64
-  %409 = icmp ne i64 %408, 0
-  br i1 %409, label %410, label %411
-
-410:                                              ; preds = %396
-  br label %427
-
-411:                                              ; preds = %396
+409:                                              ; preds = %405
+  %410 = load ptr, ptr %76, align 8
+  %411 = getelementptr inbounds %struct._Bucket, ptr %410, i32 0, i32 0
+  store ptr %411, ptr %78, align 8
   %412 = load ptr, ptr %78, align 8
-  %413 = getelementptr inbounds %struct._zval_struct, ptr %412, i32 0, i32 0
-  %414 = load ptr, ptr %413, align 8
-  store ptr %414, ptr %70, align 8
-  %415 = load ptr, ptr %70, align 8
-  %416 = getelementptr inbounds %struct._zend_module_entry, ptr %415, i32 0, i32 12
-  %417 = load ptr, ptr %416, align 8
-  %418 = icmp ne ptr %417, null
-  br i1 %418, label %426, label %419
+  store ptr %412, ptr %5, align 8
+  %413 = load ptr, ptr %5, align 8
+  %414 = getelementptr inbounds %struct._zval_struct, ptr %413, i32 0, i32 1
+  %415 = load i8, ptr %414, align 8
+  %416 = zext i8 %415 to i32
+  %417 = icmp eq i32 %416, 0
+  %418 = xor i1 %417, true
+  %419 = xor i1 %418, true
+  %420 = zext i1 %419 to i32
+  %421 = sext i32 %420 to i64
+  %422 = icmp ne i64 %421, 0
+  br i1 %422, label %423, label %424
 
-419:                                              ; preds = %411
-  %420 = load ptr, ptr %70, align 8
-  %421 = getelementptr inbounds %struct._zend_module_entry, ptr %420, i32 0, i32 13
-  %422 = load ptr, ptr %421, align 8
-  %423 = icmp ne ptr %422, null
-  br i1 %423, label %426, label %424
+423:                                              ; preds = %409
+  br label %440
 
-424:                                              ; preds = %419
-  %425 = load ptr, ptr %70, align 8
-  call void @php_info_print_module(ptr noundef %425)
-  br label %426
+424:                                              ; preds = %409
+  %425 = load ptr, ptr %78, align 8
+  %426 = getelementptr inbounds %struct._zval_struct, ptr %425, i32 0, i32 0
+  %427 = load ptr, ptr %426, align 8
+  store ptr %427, ptr %70, align 8
+  %428 = load ptr, ptr %70, align 8
+  %429 = getelementptr inbounds %struct._zend_module_entry, ptr %428, i32 0, i32 12
+  %430 = load ptr, ptr %429, align 8
+  %431 = icmp ne ptr %430, null
+  br i1 %431, label %439, label %432
 
-426:                                              ; preds = %424, %419, %411
-  br label %427
+432:                                              ; preds = %424
+  %433 = load ptr, ptr %70, align 8
+  %434 = getelementptr inbounds %struct._zend_module_entry, ptr %433, i32 0, i32 13
+  %435 = load ptr, ptr %434, align 8
+  %436 = icmp ne ptr %435, null
+  br i1 %436, label %439, label %437
 
-427:                                              ; preds = %426, %410
-  %428 = load ptr, ptr %76, align 8
-  %429 = getelementptr inbounds %struct._Bucket, ptr %428, i32 1
-  store ptr %429, ptr %76, align 8
-  br label %392
+437:                                              ; preds = %432
+  %438 = load ptr, ptr %70, align 8
+  call void @php_info_print_module(ptr noundef %438)
+  br label %439
 
-430:                                              ; preds = %392
-  br label %431
+439:                                              ; preds = %437, %432, %424
+  br label %440
 
-431:                                              ; preds = %430
+440:                                              ; preds = %439, %423
+  %441 = load ptr, ptr %76, align 8
+  %442 = getelementptr inbounds %struct._Bucket, ptr %441, i32 1
+  store ptr %442, ptr %76, align 8
+  br label %405
+
+443:                                              ; preds = %405
+  br label %444
+
+444:                                              ; preds = %443
   call void @php_info_print_table_end()
   call void @zend_hash_destroy(ptr noundef %69)
-  br label %432
-
-432:                                              ; preds = %431, %293
-  %433 = load i32, ptr %57, align 4
-  %434 = and i32 %433, 16
-  %435 = icmp ne i32 %434, 0
-  br i1 %435, label %436, label %476
-
-436:                                              ; preds = %432
-  %437 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %438 = icmp ne i32 %437, 0
-  br i1 %438, label %444, label %439
-
-439:                                              ; preds = %436
-  store ptr @.str.74, ptr %28, align 8
-  %440 = load ptr, ptr %28, align 8
-  %441 = load ptr, ptr %28, align 8
-  %442 = call i64 @strlen(ptr noundef %441) #9
-  %443 = call i64 @php_output_write(ptr noundef %440, i64 noundef %442) #10
   br label %445
 
-444:                                              ; preds = %436
+445:                                              ; preds = %444, %305
+  %446 = load i32, ptr %57, align 4
+  %447 = and i32 %446, 16
+  %448 = icmp ne i32 %447, 0
+  br i1 %448, label %449, label %490
+
+449:                                              ; preds = %445
+  %450 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %451 = load i32, ptr %450, align 8
+  %452 = icmp ne i32 %451, 0
+  br i1 %452, label %458, label %453
+
+453:                                              ; preds = %449
+  store ptr @.str.74, ptr %28, align 8
+  %454 = load ptr, ptr %28, align 8
+  %455 = load ptr, ptr %28, align 8
+  %456 = call i64 @strlen(ptr noundef %455) #9
+  %457 = call i64 @php_output_write(ptr noundef %454, i64 noundef %456) #10
+  br label %459
+
+458:                                              ; preds = %449
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.75)
   call void @php_info_print_table_end()
-  br label %445
+  br label %459
 
-445:                                              ; preds = %444, %439
+459:                                              ; preds = %458, %453
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 2, ptr noundef @.str.76, ptr noundef @.str.77)
-  %446 = load ptr, ptr @environ, align 8
-  store ptr %446, ptr %58, align 8
-  br label %447
+  %460 = load ptr, ptr @environ, align 8
+  store ptr %460, ptr %58, align 8
+  br label %461
 
-447:                                              ; preds = %472, %445
-  %448 = load ptr, ptr %58, align 8
-  %449 = icmp ne ptr %448, null
-  br i1 %449, label %450, label %454
+461:                                              ; preds = %486, %459
+  %462 = load ptr, ptr %58, align 8
+  %463 = icmp ne ptr %462, null
+  br i1 %463, label %464, label %468
 
-450:                                              ; preds = %447
-  %451 = load ptr, ptr %58, align 8
-  %452 = load ptr, ptr %451, align 8
-  %453 = icmp ne ptr %452, null
-  br label %454
+464:                                              ; preds = %461
+  %465 = load ptr, ptr %58, align 8
+  %466 = load ptr, ptr %465, align 8
+  %467 = icmp ne ptr %466, null
+  br label %468
 
-454:                                              ; preds = %450, %447
-  %455 = phi i1 [ false, %447 ], [ %453, %450 ]
-  br i1 %455, label %456, label %475
+468:                                              ; preds = %464, %461
+  %469 = phi i1 [ false, %461 ], [ %467, %464 ]
+  br i1 %469, label %470, label %489
 
-456:                                              ; preds = %454
-  %457 = load ptr, ptr %58, align 8
-  %458 = load ptr, ptr %457, align 8
-  %459 = call noalias ptr @_estrdup(ptr noundef %458)
-  store ptr %459, ptr %59, align 8
-  %460 = load ptr, ptr %59, align 8
-  %461 = call ptr @strchr(ptr noundef %460, i32 noundef 61) #9
-  store ptr %461, ptr %60, align 8
-  %462 = icmp ne ptr %461, null
-  br i1 %462, label %465, label %463
+470:                                              ; preds = %468
+  %471 = load ptr, ptr %58, align 8
+  %472 = load ptr, ptr %471, align 8
+  %473 = call noalias ptr @_estrdup(ptr noundef %472)
+  store ptr %473, ptr %59, align 8
+  %474 = load ptr, ptr %59, align 8
+  %475 = call ptr @strchr(ptr noundef %474, i32 noundef 61) #9
+  store ptr %475, ptr %60, align 8
+  %476 = icmp ne ptr %475, null
+  br i1 %476, label %479, label %477
 
-463:                                              ; preds = %456
-  %464 = load ptr, ptr %59, align 8
-  call void @_efree(ptr noundef %464)
-  br label %472
+477:                                              ; preds = %470
+  %478 = load ptr, ptr %59, align 8
+  call void @_efree(ptr noundef %478)
+  br label %486
 
-465:                                              ; preds = %456
-  %466 = load ptr, ptr %60, align 8
-  store i8 0, ptr %466, align 1
-  %467 = load ptr, ptr %60, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i32 1
-  store ptr %468, ptr %60, align 8
-  %469 = load ptr, ptr %59, align 8
-  %470 = load ptr, ptr %60, align 8
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef %469, ptr noundef %470)
-  %471 = load ptr, ptr %59, align 8
-  call void @_efree(ptr noundef %471)
-  br label %472
+479:                                              ; preds = %470
+  %480 = load ptr, ptr %60, align 8
+  store i8 0, ptr %480, align 1
+  %481 = load ptr, ptr %60, align 8
+  %482 = getelementptr inbounds i8, ptr %481, i32 1
+  store ptr %482, ptr %60, align 8
+  %483 = load ptr, ptr %59, align 8
+  %484 = load ptr, ptr %60, align 8
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef %483, ptr noundef %484)
+  %485 = load ptr, ptr %59, align 8
+  call void @_efree(ptr noundef %485)
+  br label %486
 
-472:                                              ; preds = %465, %463
-  %473 = load ptr, ptr %58, align 8
-  %474 = getelementptr inbounds ptr, ptr %473, i32 1
-  store ptr %474, ptr %58, align 8
-  br label %447
+486:                                              ; preds = %479, %477
+  %487 = load ptr, ptr %58, align 8
+  %488 = getelementptr inbounds ptr, ptr %487, i32 1
+  store ptr %488, ptr %58, align 8
+  br label %461
 
-475:                                              ; preds = %454
+489:                                              ; preds = %468
   call void @php_info_print_table_end()
-  br label %476
+  br label %490
 
-476:                                              ; preds = %475, %432
-  %477 = load i32, ptr %57, align 4
-  %478 = and i32 %477, 32
-  %479 = icmp ne i32 %478, 0
-  br i1 %479, label %480, label %554
+490:                                              ; preds = %489, %445
+  %491 = load i32, ptr %57, align 4
+  %492 = and i32 %491, 32
+  %493 = icmp ne i32 %492, 0
+  br i1 %493, label %494, label %573
 
-480:                                              ; preds = %476
-  %481 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %482 = icmp ne i32 %481, 0
-  br i1 %482, label %488, label %483
+494:                                              ; preds = %490
+  %495 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %496 = load i32, ptr %495, align 8
+  %497 = icmp ne i32 %496, 0
+  br i1 %497, label %503, label %498
 
-483:                                              ; preds = %480
+498:                                              ; preds = %494
   store ptr @.str.78, ptr %29, align 8
-  %484 = load ptr, ptr %29, align 8
-  %485 = load ptr, ptr %29, align 8
-  %486 = call i64 @strlen(ptr noundef %485) #9
-  %487 = call i64 @php_output_write(ptr noundef %484, i64 noundef %486) #10
-  br label %489
+  %499 = load ptr, ptr %29, align 8
+  %500 = load ptr, ptr %29, align 8
+  %501 = call i64 @strlen(ptr noundef %500) #9
+  %502 = call i64 @php_output_write(ptr noundef %499, i64 noundef %501) #10
+  br label %504
 
-488:                                              ; preds = %480
+503:                                              ; preds = %494
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.79)
   call void @php_info_print_table_end()
-  br label %489
+  br label %504
 
-489:                                              ; preds = %488, %483
+504:                                              ; preds = %503, %498
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 2, ptr noundef @.str.76, ptr noundef @.str.77)
-  %490 = call ptr @zend_hash_str_find(ptr noundef getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5), ptr noundef @.str.80, i64 noundef 8)
-  store ptr %490, ptr %79, align 8
-  %491 = icmp ne ptr %490, null
-  br i1 %491, label %492, label %505
-
-492:                                              ; preds = %489
-  %493 = load ptr, ptr %79, align 8
-  store ptr %493, ptr %6, align 8
-  %494 = load ptr, ptr %6, align 8
-  %495 = getelementptr inbounds %struct._zval_struct, ptr %494, i32 0, i32 1
-  %496 = load i8, ptr %495, align 8
-  %497 = zext i8 %496 to i32
-  %498 = icmp eq i32 %497, 6
-  br i1 %498, label %499, label %505
-
-499:                                              ; preds = %492
-  %500 = load ptr, ptr %79, align 8
-  %501 = getelementptr inbounds %struct._zval_struct, ptr %500, i32 0, i32 0
-  %502 = load ptr, ptr %501, align 8
-  %503 = getelementptr inbounds %struct._zend_string, ptr %502, i32 0, i32 3
-  %504 = getelementptr inbounds [1 x i8], ptr %503, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.80, ptr noundef %504)
-  br label %505
-
-505:                                              ; preds = %499, %492, %489
-  %506 = call ptr @zend_hash_str_find(ptr noundef getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5), ptr noundef @.str.81, i64 noundef 13)
+  %505 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5
+  %506 = call ptr @zend_hash_str_find(ptr noundef %505, ptr noundef @.str.80, i64 noundef 8)
   store ptr %506, ptr %79, align 8
   %507 = icmp ne ptr %506, null
   br i1 %507, label %508, label %521
 
-508:                                              ; preds = %505
+508:                                              ; preds = %504
   %509 = load ptr, ptr %79, align 8
-  store ptr %509, ptr %7, align 8
-  %510 = load ptr, ptr %7, align 8
+  store ptr %509, ptr %6, align 8
+  %510 = load ptr, ptr %6, align 8
   %511 = getelementptr inbounds %struct._zval_struct, ptr %510, i32 0, i32 1
   %512 = load i8, ptr %511, align 8
   %513 = zext i8 %512 to i32
@@ -2278,60 +2276,88 @@ define void @php_print_info(i32 noundef %0) #0 {
   %518 = load ptr, ptr %517, align 8
   %519 = getelementptr inbounds %struct._zend_string, ptr %518, i32 0, i32 3
   %520 = getelementptr inbounds [1 x i8], ptr %519, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.81, ptr noundef %520)
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.80, ptr noundef %520)
   br label %521
 
-521:                                              ; preds = %515, %508, %505
-  %522 = call ptr @zend_hash_str_find(ptr noundef getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5), ptr noundef @.str.82, i64 noundef 13)
-  store ptr %522, ptr %79, align 8
-  %523 = icmp ne ptr %522, null
-  br i1 %523, label %524, label %537
+521:                                              ; preds = %515, %508, %504
+  %522 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5
+  %523 = call ptr @zend_hash_str_find(ptr noundef %522, ptr noundef @.str.81, i64 noundef 13)
+  store ptr %523, ptr %79, align 8
+  %524 = icmp ne ptr %523, null
+  br i1 %524, label %525, label %538
 
-524:                                              ; preds = %521
-  %525 = load ptr, ptr %79, align 8
-  store ptr %525, ptr %8, align 8
-  %526 = load ptr, ptr %8, align 8
-  %527 = getelementptr inbounds %struct._zval_struct, ptr %526, i32 0, i32 1
-  %528 = load i8, ptr %527, align 8
-  %529 = zext i8 %528 to i32
-  %530 = icmp eq i32 %529, 6
-  br i1 %530, label %531, label %537
+525:                                              ; preds = %521
+  %526 = load ptr, ptr %79, align 8
+  store ptr %526, ptr %7, align 8
+  %527 = load ptr, ptr %7, align 8
+  %528 = getelementptr inbounds %struct._zval_struct, ptr %527, i32 0, i32 1
+  %529 = load i8, ptr %528, align 8
+  %530 = zext i8 %529 to i32
+  %531 = icmp eq i32 %530, 6
+  br i1 %531, label %532, label %538
 
-531:                                              ; preds = %524
-  %532 = load ptr, ptr %79, align 8
-  %533 = getelementptr inbounds %struct._zval_struct, ptr %532, i32 0, i32 0
-  %534 = load ptr, ptr %533, align 8
-  %535 = getelementptr inbounds %struct._zend_string, ptr %534, i32 0, i32 3
-  %536 = getelementptr inbounds [1 x i8], ptr %535, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.82, ptr noundef %536)
-  br label %537
+532:                                              ; preds = %525
+  %533 = load ptr, ptr %79, align 8
+  %534 = getelementptr inbounds %struct._zval_struct, ptr %533, i32 0, i32 0
+  %535 = load ptr, ptr %534, align 8
+  %536 = getelementptr inbounds %struct._zend_string, ptr %535, i32 0, i32 3
+  %537 = getelementptr inbounds [1 x i8], ptr %536, i64 0, i64 0
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.81, ptr noundef %537)
+  br label %538
 
-537:                                              ; preds = %531, %524, %521
-  %538 = call ptr @zend_hash_str_find(ptr noundef getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5), ptr noundef @.str.83, i64 noundef 11)
-  store ptr %538, ptr %79, align 8
-  %539 = icmp ne ptr %538, null
-  br i1 %539, label %540, label %553
+538:                                              ; preds = %532, %525, %521
+  %539 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5
+  %540 = call ptr @zend_hash_str_find(ptr noundef %539, ptr noundef @.str.82, i64 noundef 13)
+  store ptr %540, ptr %79, align 8
+  %541 = icmp ne ptr %540, null
+  br i1 %541, label %542, label %555
 
-540:                                              ; preds = %537
-  %541 = load ptr, ptr %79, align 8
-  store ptr %541, ptr %9, align 8
-  %542 = load ptr, ptr %9, align 8
-  %543 = getelementptr inbounds %struct._zval_struct, ptr %542, i32 0, i32 1
-  %544 = load i8, ptr %543, align 8
-  %545 = zext i8 %544 to i32
-  %546 = icmp eq i32 %545, 6
-  br i1 %546, label %547, label %553
+542:                                              ; preds = %538
+  %543 = load ptr, ptr %79, align 8
+  store ptr %543, ptr %8, align 8
+  %544 = load ptr, ptr %8, align 8
+  %545 = getelementptr inbounds %struct._zval_struct, ptr %544, i32 0, i32 1
+  %546 = load i8, ptr %545, align 8
+  %547 = zext i8 %546 to i32
+  %548 = icmp eq i32 %547, 6
+  br i1 %548, label %549, label %555
 
-547:                                              ; preds = %540
-  %548 = load ptr, ptr %79, align 8
-  %549 = getelementptr inbounds %struct._zval_struct, ptr %548, i32 0, i32 0
-  %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds %struct._zend_string, ptr %550, i32 0, i32 3
-  %552 = getelementptr inbounds [1 x i8], ptr %551, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.83, ptr noundef %552)
-  br label %553
+549:                                              ; preds = %542
+  %550 = load ptr, ptr %79, align 8
+  %551 = getelementptr inbounds %struct._zval_struct, ptr %550, i32 0, i32 0
+  %552 = load ptr, ptr %551, align 8
+  %553 = getelementptr inbounds %struct._zend_string, ptr %552, i32 0, i32 3
+  %554 = getelementptr inbounds [1 x i8], ptr %553, i64 0, i64 0
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.82, ptr noundef %554)
+  br label %555
 
-553:                                              ; preds = %547, %540, %537
+555:                                              ; preds = %549, %542, %538
+  %556 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5
+  %557 = call ptr @zend_hash_str_find(ptr noundef %556, ptr noundef @.str.83, i64 noundef 11)
+  store ptr %557, ptr %79, align 8
+  %558 = icmp ne ptr %557, null
+  br i1 %558, label %559, label %572
+
+559:                                              ; preds = %555
+  %560 = load ptr, ptr %79, align 8
+  store ptr %560, ptr %9, align 8
+  %561 = load ptr, ptr %9, align 8
+  %562 = getelementptr inbounds %struct._zval_struct, ptr %561, i32 0, i32 1
+  %563 = load i8, ptr %562, align 8
+  %564 = zext i8 %563 to i32
+  %565 = icmp eq i32 %564, 6
+  br i1 %565, label %566, label %572
+
+566:                                              ; preds = %559
+  %567 = load ptr, ptr %79, align 8
+  %568 = getelementptr inbounds %struct._zval_struct, ptr %567, i32 0, i32 0
+  %569 = load ptr, ptr %568, align 8
+  %570 = getelementptr inbounds %struct._zend_string, ptr %569, i32 0, i32 3
+  %571 = getelementptr inbounds [1 x i8], ptr %570, i64 0, i64 0
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef @.str.83, ptr noundef %571)
+  br label %572
+
+572:                                              ; preds = %566, %559, %555
   call void @php_print_gpcse_array(ptr noundef @.str.84, i32 noundef 8)
   call void @php_print_gpcse_array(ptr noundef @.str.85, i32 noundef 4)
   call void @php_print_gpcse_array(ptr noundef @.str.86, i32 noundef 5)
@@ -2340,199 +2366,202 @@ define void @php_print_info(i32 noundef %0) #0 {
   call void @php_print_gpcse_array(ptr noundef @.str.89, i32 noundef 7)
   call void @php_print_gpcse_array(ptr noundef @.str.90, i32 noundef 4)
   call void @php_info_print_table_end()
-  br label %554
+  br label %573
 
-554:                                              ; preds = %553, %476
-  %555 = load i32, ptr %57, align 4
-  %556 = and i32 %555, 2
-  %557 = icmp ne i32 %556, 0
-  br i1 %557, label %558, label %559
+573:                                              ; preds = %572, %490
+  %574 = load i32, ptr %57, align 4
+  %575 = and i32 %574, 2
+  %576 = icmp ne i32 %575, 0
+  br i1 %576, label %577, label %578
 
-558:                                              ; preds = %554
+577:                                              ; preds = %573
   call void @php_info_print_hr()
   call void @php_print_credits(i32 noundef -33)
-  br label %559
+  br label %578
 
-559:                                              ; preds = %558, %554
-  %560 = load i32, ptr %57, align 4
-  %561 = and i32 %560, 64
-  %562 = icmp ne i32 %561, 0
-  br i1 %562, label %563, label %678
+578:                                              ; preds = %577, %573
+  %579 = load i32, ptr %57, align 4
+  %580 = and i32 %579, 64
+  %581 = icmp ne i32 %580, 0
+  br i1 %581, label %582, label %699
 
-563:                                              ; preds = %559
-  %564 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %565 = icmp ne i32 %564, 0
-  br i1 %565, label %632, label %566
+582:                                              ; preds = %578
+  %583 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %584 = load i32, ptr %583, align 8
+  %585 = icmp ne i32 %584, 0
+  br i1 %585, label %653, label %586
 
-566:                                              ; preds = %563
-  %567 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %568 = icmp ne i32 %567, 0
-  br i1 %568, label %574, label %569
+586:                                              ; preds = %582
+  %587 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %588 = load i32, ptr %587, align 8
+  %589 = icmp ne i32 %588, 0
+  br i1 %589, label %595, label %590
 
-569:                                              ; preds = %566
+590:                                              ; preds = %586
   store ptr @.str.91, ptr %30, align 8
-  %570 = load ptr, ptr %30, align 8
-  %571 = load ptr, ptr %30, align 8
-  %572 = call i64 @strlen(ptr noundef %571) #9
-  %573 = call i64 @php_output_write(ptr noundef %570, i64 noundef %572) #10
-  br label %575
+  %591 = load ptr, ptr %30, align 8
+  %592 = load ptr, ptr %30, align 8
+  %593 = call i64 @strlen(ptr noundef %592) #9
+  %594 = call i64 @php_output_write(ptr noundef %591, i64 noundef %593) #10
+  br label %596
 
-574:                                              ; preds = %566
+595:                                              ; preds = %586
   call void @php_info_print_table_start()
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef @.str.92)
   call void @php_info_print_table_end()
-  br label %575
+  br label %596
 
-575:                                              ; preds = %574, %569
+596:                                              ; preds = %595, %590
   call void @php_info_print_box_start(i32 noundef 0)
   store ptr @.str.93, ptr %31, align 8
-  %576 = load ptr, ptr %31, align 8
-  %577 = load ptr, ptr %31, align 8
-  %578 = call i64 @strlen(ptr noundef %577) #9
-  %579 = call i64 @php_output_write(ptr noundef %576, i64 noundef %578) #10
+  %597 = load ptr, ptr %31, align 8
+  %598 = load ptr, ptr %31, align 8
+  %599 = call i64 @strlen(ptr noundef %598) #9
+  %600 = call i64 @php_output_write(ptr noundef %597, i64 noundef %599) #10
   store ptr @.str.94, ptr %32, align 8
-  %580 = load ptr, ptr %32, align 8
-  %581 = load ptr, ptr %32, align 8
-  %582 = call i64 @strlen(ptr noundef %581) #9
-  %583 = call i64 @php_output_write(ptr noundef %580, i64 noundef %582) #10
+  %601 = load ptr, ptr %32, align 8
+  %602 = load ptr, ptr %32, align 8
+  %603 = call i64 @strlen(ptr noundef %602) #9
+  %604 = call i64 @php_output_write(ptr noundef %601, i64 noundef %603) #10
   store ptr @.str.95, ptr %33, align 8
-  %584 = load ptr, ptr %33, align 8
-  %585 = load ptr, ptr %33, align 8
-  %586 = call i64 @strlen(ptr noundef %585) #9
-  %587 = call i64 @php_output_write(ptr noundef %584, i64 noundef %586) #10
+  %605 = load ptr, ptr %33, align 8
+  %606 = load ptr, ptr %33, align 8
+  %607 = call i64 @strlen(ptr noundef %606) #9
+  %608 = call i64 @php_output_write(ptr noundef %605, i64 noundef %607) #10
   store ptr @.str.96, ptr %34, align 8
-  %588 = load ptr, ptr %34, align 8
-  %589 = load ptr, ptr %34, align 8
-  %590 = call i64 @strlen(ptr noundef %589) #9
-  %591 = call i64 @php_output_write(ptr noundef %588, i64 noundef %590) #10
+  %609 = load ptr, ptr %34, align 8
+  %610 = load ptr, ptr %34, align 8
+  %611 = call i64 @strlen(ptr noundef %610) #9
+  %612 = call i64 @php_output_write(ptr noundef %609, i64 noundef %611) #10
   store ptr @.str.97, ptr %35, align 8
-  %592 = load ptr, ptr %35, align 8
-  %593 = load ptr, ptr %35, align 8
-  %594 = call i64 @strlen(ptr noundef %593) #9
-  %595 = call i64 @php_output_write(ptr noundef %592, i64 noundef %594) #10
+  %613 = load ptr, ptr %35, align 8
+  %614 = load ptr, ptr %35, align 8
+  %615 = call i64 @strlen(ptr noundef %614) #9
+  %616 = call i64 @php_output_write(ptr noundef %613, i64 noundef %615) #10
   store ptr @.str.98, ptr %36, align 8
-  %596 = load ptr, ptr %36, align 8
-  %597 = load ptr, ptr %36, align 8
-  %598 = call i64 @strlen(ptr noundef %597) #9
-  %599 = call i64 @php_output_write(ptr noundef %596, i64 noundef %598) #10
+  %617 = load ptr, ptr %36, align 8
+  %618 = load ptr, ptr %36, align 8
+  %619 = call i64 @strlen(ptr noundef %618) #9
+  %620 = call i64 @php_output_write(ptr noundef %617, i64 noundef %619) #10
   store ptr @.str.99, ptr %37, align 8
-  %600 = load ptr, ptr %37, align 8
-  %601 = load ptr, ptr %37, align 8
-  %602 = call i64 @strlen(ptr noundef %601) #9
-  %603 = call i64 @php_output_write(ptr noundef %600, i64 noundef %602) #10
+  %621 = load ptr, ptr %37, align 8
+  %622 = load ptr, ptr %37, align 8
+  %623 = call i64 @strlen(ptr noundef %622) #9
+  %624 = call i64 @php_output_write(ptr noundef %621, i64 noundef %623) #10
   store ptr @.str.100, ptr %38, align 8
-  %604 = load ptr, ptr %38, align 8
-  %605 = load ptr, ptr %38, align 8
-  %606 = call i64 @strlen(ptr noundef %605) #9
-  %607 = call i64 @php_output_write(ptr noundef %604, i64 noundef %606) #10
+  %625 = load ptr, ptr %38, align 8
+  %626 = load ptr, ptr %38, align 8
+  %627 = call i64 @strlen(ptr noundef %626) #9
+  %628 = call i64 @php_output_write(ptr noundef %625, i64 noundef %627) #10
   store ptr @.str.101, ptr %39, align 8
-  %608 = load ptr, ptr %39, align 8
-  %609 = load ptr, ptr %39, align 8
-  %610 = call i64 @strlen(ptr noundef %609) #9
-  %611 = call i64 @php_output_write(ptr noundef %608, i64 noundef %610) #10
+  %629 = load ptr, ptr %39, align 8
+  %630 = load ptr, ptr %39, align 8
+  %631 = call i64 @strlen(ptr noundef %630) #9
+  %632 = call i64 @php_output_write(ptr noundef %629, i64 noundef %631) #10
   store ptr @.str.97, ptr %40, align 8
-  %612 = load ptr, ptr %40, align 8
-  %613 = load ptr, ptr %40, align 8
-  %614 = call i64 @strlen(ptr noundef %613) #9
-  %615 = call i64 @php_output_write(ptr noundef %612, i64 noundef %614) #10
-  store ptr @.str.98, ptr %41, align 8
-  %616 = load ptr, ptr %41, align 8
-  %617 = load ptr, ptr %41, align 8
-  %618 = call i64 @strlen(ptr noundef %617) #9
-  %619 = call i64 @php_output_write(ptr noundef %616, i64 noundef %618) #10
-  store ptr @.str.102, ptr %42, align 8
-  %620 = load ptr, ptr %42, align 8
-  %621 = load ptr, ptr %42, align 8
-  %622 = call i64 @strlen(ptr noundef %621) #9
-  %623 = call i64 @php_output_write(ptr noundef %620, i64 noundef %622) #10
-  store ptr @.str.103, ptr %43, align 8
-  %624 = load ptr, ptr %43, align 8
-  %625 = load ptr, ptr %43, align 8
-  %626 = call i64 @strlen(ptr noundef %625) #9
-  %627 = call i64 @php_output_write(ptr noundef %624, i64 noundef %626) #10
-  store ptr @.str.97, ptr %44, align 8
-  %628 = load ptr, ptr %44, align 8
-  %629 = load ptr, ptr %44, align 8
-  %630 = call i64 @strlen(ptr noundef %629) #9
-  %631 = call i64 @php_output_write(ptr noundef %628, i64 noundef %630) #10
-  call void @php_info_print_box_end()
-  br label %677
-
-632:                                              ; preds = %563
-  store ptr @.str.104, ptr %45, align 8
-  %633 = load ptr, ptr %45, align 8
-  %634 = load ptr, ptr %45, align 8
+  %633 = load ptr, ptr %40, align 8
+  %634 = load ptr, ptr %40, align 8
   %635 = call i64 @strlen(ptr noundef %634) #9
   %636 = call i64 @php_output_write(ptr noundef %633, i64 noundef %635) #10
-  store ptr @.str.105, ptr %46, align 8
-  %637 = load ptr, ptr %46, align 8
-  %638 = load ptr, ptr %46, align 8
+  store ptr @.str.98, ptr %41, align 8
+  %637 = load ptr, ptr %41, align 8
+  %638 = load ptr, ptr %41, align 8
   %639 = call i64 @strlen(ptr noundef %638) #9
   %640 = call i64 @php_output_write(ptr noundef %637, i64 noundef %639) #10
-  store ptr @.str.106, ptr %47, align 8
-  %641 = load ptr, ptr %47, align 8
-  %642 = load ptr, ptr %47, align 8
+  store ptr @.str.102, ptr %42, align 8
+  %641 = load ptr, ptr %42, align 8
+  %642 = load ptr, ptr %42, align 8
   %643 = call i64 @strlen(ptr noundef %642) #9
   %644 = call i64 @php_output_write(ptr noundef %641, i64 noundef %643) #10
-  store ptr @.str.96, ptr %48, align 8
-  %645 = load ptr, ptr %48, align 8
-  %646 = load ptr, ptr %48, align 8
+  store ptr @.str.103, ptr %43, align 8
+  %645 = load ptr, ptr %43, align 8
+  %646 = load ptr, ptr %43, align 8
   %647 = call i64 @strlen(ptr noundef %646) #9
   %648 = call i64 @php_output_write(ptr noundef %645, i64 noundef %647) #10
-  store ptr @.str.65, ptr %49, align 8
-  %649 = load ptr, ptr %49, align 8
-  %650 = load ptr, ptr %49, align 8
+  store ptr @.str.97, ptr %44, align 8
+  %649 = load ptr, ptr %44, align 8
+  %650 = load ptr, ptr %44, align 8
   %651 = call i64 @strlen(ptr noundef %650) #9
   %652 = call i64 @php_output_write(ptr noundef %649, i64 noundef %651) #10
+  call void @php_info_print_box_end()
+  br label %698
+
+653:                                              ; preds = %582
+  store ptr @.str.104, ptr %45, align 8
+  %654 = load ptr, ptr %45, align 8
+  %655 = load ptr, ptr %45, align 8
+  %656 = call i64 @strlen(ptr noundef %655) #9
+  %657 = call i64 @php_output_write(ptr noundef %654, i64 noundef %656) #10
+  store ptr @.str.105, ptr %46, align 8
+  %658 = load ptr, ptr %46, align 8
+  %659 = load ptr, ptr %46, align 8
+  %660 = call i64 @strlen(ptr noundef %659) #9
+  %661 = call i64 @php_output_write(ptr noundef %658, i64 noundef %660) #10
+  store ptr @.str.106, ptr %47, align 8
+  %662 = load ptr, ptr %47, align 8
+  %663 = load ptr, ptr %47, align 8
+  %664 = call i64 @strlen(ptr noundef %663) #9
+  %665 = call i64 @php_output_write(ptr noundef %662, i64 noundef %664) #10
+  store ptr @.str.96, ptr %48, align 8
+  %666 = load ptr, ptr %48, align 8
+  %667 = load ptr, ptr %48, align 8
+  %668 = call i64 @strlen(ptr noundef %667) #9
+  %669 = call i64 @php_output_write(ptr noundef %666, i64 noundef %668) #10
+  store ptr @.str.65, ptr %49, align 8
+  %670 = load ptr, ptr %49, align 8
+  %671 = load ptr, ptr %49, align 8
+  %672 = call i64 @strlen(ptr noundef %671) #9
+  %673 = call i64 @php_output_write(ptr noundef %670, i64 noundef %672) #10
   store ptr @.str.107, ptr %50, align 8
-  %653 = load ptr, ptr %50, align 8
-  %654 = load ptr, ptr %50, align 8
-  %655 = call i64 @strlen(ptr noundef %654) #9
-  %656 = call i64 @php_output_write(ptr noundef %653, i64 noundef %655) #10
+  %674 = load ptr, ptr %50, align 8
+  %675 = load ptr, ptr %50, align 8
+  %676 = call i64 @strlen(ptr noundef %675) #9
+  %677 = call i64 @php_output_write(ptr noundef %674, i64 noundef %676) #10
   store ptr @.str.108, ptr %51, align 8
-  %657 = load ptr, ptr %51, align 8
-  %658 = load ptr, ptr %51, align 8
-  %659 = call i64 @strlen(ptr noundef %658) #9
-  %660 = call i64 @php_output_write(ptr noundef %657, i64 noundef %659) #10
+  %678 = load ptr, ptr %51, align 8
+  %679 = load ptr, ptr %51, align 8
+  %680 = call i64 @strlen(ptr noundef %679) #9
+  %681 = call i64 @php_output_write(ptr noundef %678, i64 noundef %680) #10
   store ptr @.str.101, ptr %52, align 8
-  %661 = load ptr, ptr %52, align 8
-  %662 = load ptr, ptr %52, align 8
-  %663 = call i64 @strlen(ptr noundef %662) #9
-  %664 = call i64 @php_output_write(ptr noundef %661, i64 noundef %663) #10
-  store ptr @.str.65, ptr %53, align 8
-  %665 = load ptr, ptr %53, align 8
-  %666 = load ptr, ptr %53, align 8
-  %667 = call i64 @strlen(ptr noundef %666) #9
-  %668 = call i64 @php_output_write(ptr noundef %665, i64 noundef %667) #10
-  store ptr @.str.109, ptr %54, align 8
-  %669 = load ptr, ptr %54, align 8
-  %670 = load ptr, ptr %54, align 8
-  %671 = call i64 @strlen(ptr noundef %670) #9
-  %672 = call i64 @php_output_write(ptr noundef %669, i64 noundef %671) #10
-  store ptr @.str.110, ptr %55, align 8
-  %673 = load ptr, ptr %55, align 8
-  %674 = load ptr, ptr %55, align 8
-  %675 = call i64 @strlen(ptr noundef %674) #9
-  %676 = call i64 @php_output_write(ptr noundef %673, i64 noundef %675) #10
-  br label %677
-
-677:                                              ; preds = %632, %575
-  br label %678
-
-678:                                              ; preds = %677, %559
-  %679 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %680 = icmp ne i32 %679, 0
-  br i1 %680, label %686, label %681
-
-681:                                              ; preds = %678
-  store ptr @.str.111, ptr %56, align 8
-  %682 = load ptr, ptr %56, align 8
-  %683 = load ptr, ptr %56, align 8
+  %682 = load ptr, ptr %52, align 8
+  %683 = load ptr, ptr %52, align 8
   %684 = call i64 @strlen(ptr noundef %683) #9
   %685 = call i64 @php_output_write(ptr noundef %682, i64 noundef %684) #10
-  br label %686
+  store ptr @.str.65, ptr %53, align 8
+  %686 = load ptr, ptr %53, align 8
+  %687 = load ptr, ptr %53, align 8
+  %688 = call i64 @strlen(ptr noundef %687) #9
+  %689 = call i64 @php_output_write(ptr noundef %686, i64 noundef %688) #10
+  store ptr @.str.109, ptr %54, align 8
+  %690 = load ptr, ptr %54, align 8
+  %691 = load ptr, ptr %54, align 8
+  %692 = call i64 @strlen(ptr noundef %691) #9
+  %693 = call i64 @php_output_write(ptr noundef %690, i64 noundef %692) #10
+  store ptr @.str.110, ptr %55, align 8
+  %694 = load ptr, ptr %55, align 8
+  %695 = load ptr, ptr %55, align 8
+  %696 = call i64 @strlen(ptr noundef %695) #9
+  %697 = call i64 @php_output_write(ptr noundef %694, i64 noundef %696) #10
+  br label %698
 
-686:                                              ; preds = %681, %678
+698:                                              ; preds = %653, %596
+  br label %699
+
+699:                                              ; preds = %698, %578
+  %700 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %701 = load i32, ptr %700, align 8
+  %702 = icmp ne i32 %701, 0
+  br i1 %702, label %708, label %703
+
+703:                                              ; preds = %699
+  store ptr @.str.111, ptr %56, align 8
+  %704 = load ptr, ptr %56, align 8
+  %705 = load ptr, ptr %56, align 8
+  %706 = call i64 @strlen(ptr noundef %705) #9
+  %707 = call i64 @php_output_write(ptr noundef %704, i64 noundef %706) #10
+  br label %708
+
+708:                                              ; preds = %703, %699
   ret void
 }
 
@@ -2548,49 +2577,51 @@ define void @php_info_print_box_start(i32 noundef %0) #0 {
   call void @php_info_print_table_start()
   %6 = load i32, ptr %5, align 4
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %1
-  %9 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %16, label %11
+  %9 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %17, label %12
 
-11:                                               ; preds = %8
+12:                                               ; preds = %8
   store ptr @.str.114, ptr %2, align 8
-  %12 = load ptr, ptr %2, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = call i64 @strlen(ptr noundef %13) #9
-  %15 = call i64 @php_output_write(ptr noundef %12, i64 noundef %14) #10
-  br label %16
+  %14 = load ptr, ptr %2, align 8
+  %15 = call i64 @strlen(ptr noundef %14) #9
+  %16 = call i64 @php_output_write(ptr noundef %13, i64 noundef %15) #10
+  br label %17
 
-16:                                               ; preds = %11, %8
-  br label %31
+17:                                               ; preds = %12, %8
+  br label %33
 
-17:                                               ; preds = %1
-  %18 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %25, label %20
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %27, label %22
 
-20:                                               ; preds = %17
+22:                                               ; preds = %18
   store ptr @.str.115, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = call i64 @strlen(ptr noundef %22) #9
-  %24 = call i64 @php_output_write(ptr noundef %21, i64 noundef %23) #10
-  br label %30
+  %23 = load ptr, ptr %3, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = call i64 @strlen(ptr noundef %24) #9
+  %26 = call i64 @php_output_write(ptr noundef %23, i64 noundef %25) #10
+  br label %32
 
-25:                                               ; preds = %17
+27:                                               ; preds = %18
   store ptr @.str.65, ptr %4, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = call i64 @strlen(ptr noundef %27) #9
-  %29 = call i64 @php_output_write(ptr noundef %26, i64 noundef %28) #10
-  br label %30
+  %28 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = call i64 @strlen(ptr noundef %29) #9
+  %31 = call i64 @php_output_write(ptr noundef %28, i64 noundef %30) #10
+  br label %32
 
-30:                                               ; preds = %25, %20
-  br label %31
+32:                                               ; preds = %27, %22
+  br label %33
 
-31:                                               ; preds = %30, %16
+33:                                               ; preds = %32, %17
   ret void
 }
 
@@ -2603,19 +2634,20 @@ declare ptr @localtime_r(ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind uwtable
 define void @php_info_print_box_end() #0 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %3 = icmp ne i32 %2, 0
-  br i1 %3, label %9, label %4
+  %2 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp ne i32 %3, 0
+  br i1 %4, label %10, label %5
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   store ptr @.str.116, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #9
-  %8 = call i64 @php_output_write(ptr noundef %5, i64 noundef %7) #10
-  br label %9
+  %7 = load ptr, ptr %1, align 8
+  %8 = call i64 @strlen(ptr noundef %7) #9
+  %9 = call i64 @php_output_write(ptr noundef %6, i64 noundef %8) #10
+  br label %10
 
-9:                                                ; preds = %4, %0
+10:                                               ; preds = %5, %0
   call void @php_info_print_table_end()
   ret void
 }
@@ -2648,7 +2680,7 @@ define internal void @php_info_print_stream_hash(ptr noundef %0, ptr noundef %1)
   store ptr %1, ptr %9, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %136
+  br i1 %18, label %19, label %139
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %9, align 8
@@ -2657,191 +2689,194 @@ define internal void @php_info_print_stream_hash(ptr noundef %0, ptr noundef %1)
   %22 = getelementptr inbounds %struct._zend_array, ptr %21, i32 0, i32 5
   %23 = load i32, ptr %22, align 4
   %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %130
+  br i1 %24, label %25, label %133
 
 25:                                               ; preds = %19
   store i32 1, ptr %11, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %31, label %28
+  %26 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %32, label %29
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %8, align 8
-  %30 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.129, ptr noundef %29)
-  br label %34
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %8, align 8
+  %31 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.129, ptr noundef %30)
+  br label %35
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %8, align 8
-  %33 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.130, ptr noundef %32)
-  br label %34
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %8, align 8
+  %34 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.130, ptr noundef %33)
+  br label %35
 
-34:                                               ; preds = %31, %28
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct._zend_array, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 8
-  %38 = and i32 %37, 4
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %121, label %40
+35:                                               ; preds = %32, %29
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds %struct._zend_array, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8
+  %39 = and i32 %38, 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %123, label %41
 
-40:                                               ; preds = %34
-  br label %41
+41:                                               ; preds = %35
+  br label %42
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %9, align 8
-  store ptr %42, ptr %12, align 8
-  %43 = load ptr, ptr %12, align 8
-  %44 = getelementptr inbounds %struct._zend_array, ptr %43, i32 0, i32 3
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._Bucket, ptr %45, i64 0
-  store ptr %46, ptr %13, align 8
-  %47 = load ptr, ptr %12, align 8
-  %48 = getelementptr inbounds %struct._zend_array, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct._zend_array, ptr %50, i32 0, i32 4
-  %52 = load i32, ptr %51, align 8
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds %struct._Bucket, ptr %49, i64 %53
-  store ptr %54, ptr %14, align 8
-  %55 = load ptr, ptr %12, align 8
-  %56 = getelementptr inbounds %struct._zend_array, ptr %55, i32 0, i32 1
-  %57 = load i32, ptr %56, align 8
-  %58 = and i32 %57, 4
-  %59 = icmp ne i32 %58, 0
-  %60 = xor i1 %59, true
-  call void @llvm.assume(i1 %60)
-  br label %61
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %9, align 8
+  store ptr %43, ptr %12, align 8
+  %44 = load ptr, ptr %12, align 8
+  %45 = getelementptr inbounds %struct._zend_array, ptr %44, i32 0, i32 3
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._Bucket, ptr %46, i64 0
+  store ptr %47, ptr %13, align 8
+  %48 = load ptr, ptr %12, align 8
+  %49 = getelementptr inbounds %struct._zend_array, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr inbounds %struct._zend_array, ptr %51, i32 0, i32 4
+  %53 = load i32, ptr %52, align 8
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds %struct._Bucket, ptr %50, i64 %54
+  store ptr %55, ptr %14, align 8
+  %56 = load ptr, ptr %12, align 8
+  %57 = getelementptr inbounds %struct._zend_array, ptr %56, i32 0, i32 1
+  %58 = load i32, ptr %57, align 8
+  %59 = and i32 %58, 4
+  %60 = icmp ne i32 %59, 0
+  %61 = xor i1 %60, true
+  call void @llvm.assume(i1 %61)
+  br label %62
 
-61:                                               ; preds = %116, %41
-  %62 = load ptr, ptr %13, align 8
-  %63 = load ptr, ptr %14, align 8
-  %64 = icmp ne ptr %62, %63
-  br i1 %64, label %65, label %119
+62:                                               ; preds = %118, %42
+  %63 = load ptr, ptr %13, align 8
+  %64 = load ptr, ptr %14, align 8
+  %65 = icmp ne ptr %63, %64
+  br i1 %65, label %66, label %121
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %13, align 8
-  %67 = getelementptr inbounds %struct._Bucket, ptr %66, i32 0, i32 0
-  store ptr %67, ptr %15, align 8
-  %68 = load ptr, ptr %15, align 8
-  store ptr %68, ptr %3, align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct._zval_struct, ptr %69, i32 0, i32 1
-  %71 = load i8, ptr %70, align 8
-  %72 = zext i8 %71 to i32
-  %73 = icmp eq i32 %72, 0
-  %74 = xor i1 %73, true
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %13, align 8
+  %68 = getelementptr inbounds %struct._Bucket, ptr %67, i32 0, i32 0
+  store ptr %68, ptr %15, align 8
+  %69 = load ptr, ptr %15, align 8
+  store ptr %69, ptr %3, align 8
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds %struct._zval_struct, ptr %70, i32 0, i32 1
+  %72 = load i8, ptr %71, align 8
+  %73 = zext i8 %72 to i32
+  %74 = icmp eq i32 %73, 0
   %75 = xor i1 %74, true
-  %76 = zext i1 %75 to i32
-  %77 = sext i32 %76 to i64
-  %78 = icmp ne i64 %77, 0
-  br i1 %78, label %79, label %80
+  %76 = xor i1 %75, true
+  %77 = zext i1 %76 to i32
+  %78 = sext i32 %77 to i64
+  %79 = icmp ne i64 %78, 0
+  br i1 %79, label %80, label %81
 
-79:                                               ; preds = %65
-  br label %116
+80:                                               ; preds = %66
+  br label %118
 
-80:                                               ; preds = %65
-  %81 = load ptr, ptr %13, align 8
-  %82 = getelementptr inbounds %struct._Bucket, ptr %81, i32 0, i32 2
-  %83 = load ptr, ptr %82, align 8
-  store ptr %83, ptr %10, align 8
-  %84 = load ptr, ptr %10, align 8
-  %85 = icmp ne ptr %84, null
-  br i1 %85, label %86, label %115
+81:                                               ; preds = %66
+  %82 = load ptr, ptr %13, align 8
+  %83 = getelementptr inbounds %struct._Bucket, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8
+  store ptr %84, ptr %10, align 8
+  %85 = load ptr, ptr %10, align 8
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %87, label %117
 
-86:                                               ; preds = %80
-  %87 = load i32, ptr %11, align 4
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %90
+87:                                               ; preds = %81
+  %88 = load i32, ptr %11, align 4
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %86
+90:                                               ; preds = %87
   store i32 0, ptr %11, align 4
-  br label %95
+  br label %96
 
-90:                                               ; preds = %86
+91:                                               ; preds = %87
   store ptr @.str.131, ptr %5, align 8
-  %91 = load ptr, ptr %5, align 8
   %92 = load ptr, ptr %5, align 8
-  %93 = call i64 @strlen(ptr noundef %92) #9
-  %94 = call i64 @php_output_write(ptr noundef %91, i64 noundef %93) #10
-  br label %95
+  %93 = load ptr, ptr %5, align 8
+  %94 = call i64 @strlen(ptr noundef %93) #9
+  %95 = call i64 @php_output_write(ptr noundef %92, i64 noundef %94) #10
+  br label %96
 
-95:                                               ; preds = %90, %89
-  %96 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %106, label %98
+96:                                               ; preds = %91, %90
+  %97 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %98 = load i32, ptr %97, align 8
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %108, label %100
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr inbounds %struct._zend_string, ptr %99, i32 0, i32 3
-  %101 = getelementptr inbounds [1 x i8], ptr %100, i64 0, i64 0
-  %102 = load ptr, ptr %10, align 8
-  %103 = getelementptr inbounds %struct._zend_string, ptr %102, i32 0, i32 2
-  %104 = load i64, ptr %103, align 8
-  %105 = call i32 @php_info_print_html_esc(ptr noundef %101, i64 noundef %104)
-  br label %114
-
-106:                                              ; preds = %95
-  %107 = load ptr, ptr %10, align 8
-  %108 = getelementptr inbounds %struct._zend_string, ptr %107, i32 0, i32 3
-  %109 = getelementptr inbounds [1 x i8], ptr %108, i64 0, i64 0
-  store ptr %109, ptr %6, align 8
-  %110 = load ptr, ptr %6, align 8
-  %111 = load ptr, ptr %6, align 8
-  %112 = call i64 @strlen(ptr noundef %111) #9
-  %113 = call i64 @php_output_write(ptr noundef %110, i64 noundef %112) #10
-  br label %114
-
-114:                                              ; preds = %106, %98
-  br label %115
-
-115:                                              ; preds = %114, %80
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %10, align 8
+  %102 = getelementptr inbounds %struct._zend_string, ptr %101, i32 0, i32 3
+  %103 = getelementptr inbounds [1 x i8], ptr %102, i64 0, i64 0
+  %104 = load ptr, ptr %10, align 8
+  %105 = getelementptr inbounds %struct._zend_string, ptr %104, i32 0, i32 2
+  %106 = load i64, ptr %105, align 8
+  %107 = call i32 @php_info_print_html_esc(ptr noundef %103, i64 noundef %106)
   br label %116
 
-116:                                              ; preds = %115, %79
-  %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr inbounds %struct._Bucket, ptr %117, i32 1
-  store ptr %118, ptr %13, align 8
-  br label %61
+108:                                              ; preds = %96
+  %109 = load ptr, ptr %10, align 8
+  %110 = getelementptr inbounds %struct._zend_string, ptr %109, i32 0, i32 3
+  %111 = getelementptr inbounds [1 x i8], ptr %110, i64 0, i64 0
+  store ptr %111, ptr %6, align 8
+  %112 = load ptr, ptr %6, align 8
+  %113 = load ptr, ptr %6, align 8
+  %114 = call i64 @strlen(ptr noundef %113) #9
+  %115 = call i64 @php_output_write(ptr noundef %112, i64 noundef %114) #10
+  br label %116
 
-119:                                              ; preds = %61
-  br label %120
+116:                                              ; preds = %108, %100
+  br label %117
 
-120:                                              ; preds = %119
-  br label %121
+117:                                              ; preds = %116, %81
+  br label %118
 
-121:                                              ; preds = %120, %34
-  %122 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %123 = icmp ne i32 %122, 0
-  br i1 %123, label %129, label %124
+118:                                              ; preds = %117, %80
+  %119 = load ptr, ptr %13, align 8
+  %120 = getelementptr inbounds %struct._Bucket, ptr %119, i32 1
+  store ptr %120, ptr %13, align 8
+  br label %62
 
-124:                                              ; preds = %121
+121:                                              ; preds = %62
+  br label %122
+
+122:                                              ; preds = %121
+  br label %123
+
+123:                                              ; preds = %122, %35
+  %124 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %132, label %127
+
+127:                                              ; preds = %123
   store ptr @.str.116, ptr %7, align 8
-  %125 = load ptr, ptr %7, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = call i64 @strlen(ptr noundef %126) #9
-  %128 = call i64 @php_output_write(ptr noundef %125, i64 noundef %127) #10
-  br label %129
+  %128 = load ptr, ptr %7, align 8
+  %129 = load ptr, ptr %7, align 8
+  %130 = call i64 @strlen(ptr noundef %129) #9
+  %131 = call i64 @php_output_write(ptr noundef %128, i64 noundef %130) #10
+  br label %132
 
-129:                                              ; preds = %124, %121
-  br label %135
+132:                                              ; preds = %127, %123
+  br label %138
 
-130:                                              ; preds = %19
-  %131 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 0
-  %132 = load ptr, ptr %8, align 8
-  %133 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %131, i64 noundef 128, ptr noundef @.str.132, ptr noundef %132)
+133:                                              ; preds = %19
   %134 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 0
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef %134, ptr noundef @.str.133)
-  br label %135
-
-135:                                              ; preds = %130, %129
+  %135 = load ptr, ptr %8, align 8
+  %136 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %134, i64 noundef 128, ptr noundef @.str.132, ptr noundef %135)
+  %137 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 0
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef %137, ptr noundef @.str.133)
   br label %138
 
-136:                                              ; preds = %2
-  %137 = load ptr, ptr %8, align 8
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef %137, ptr noundef @.str.30)
-  br label %138
+138:                                              ; preds = %133, %132
+  br label %141
 
-138:                                              ; preds = %136, %135
+139:                                              ; preds = %2
+  %140 = load ptr, ptr %8, align 8
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef %140, ptr noundef @.str.30)
+  br label %141
+
+141:                                              ; preds = %139, %138
   ret void
 }
 
@@ -2859,27 +2894,28 @@ declare void @zend_ini_sort_entries() #1
 define void @php_info_print_hr() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %4 = icmp ne i32 %3, 0
-  br i1 %4, label %10, label %5
+  %3 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %11, label %6
 
-5:                                                ; preds = %0
+6:                                                ; preds = %0
   store ptr @.str.117, ptr %1, align 8
-  %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = call i64 @strlen(ptr noundef %7) #9
-  %9 = call i64 @php_output_write(ptr noundef %6, i64 noundef %8) #10
-  br label %15
+  %8 = load ptr, ptr %1, align 8
+  %9 = call i64 @strlen(ptr noundef %8) #9
+  %10 = call i64 @php_output_write(ptr noundef %7, i64 noundef %9) #10
+  br label %16
 
-10:                                               ; preds = %0
+11:                                               ; preds = %0
   store ptr @.str.118, ptr %2, align 8
-  %11 = load ptr, ptr %2, align 8
   %12 = load ptr, ptr %2, align 8
-  %13 = call i64 @strlen(ptr noundef %12) #9
-  %14 = call i64 @php_output_write(ptr noundef %11, i64 noundef %13) #10
-  br label %15
+  %13 = load ptr, ptr %2, align 8
+  %14 = call i64 @strlen(ptr noundef %13) #9
+  %15 = call i64 @php_output_write(ptr noundef %12, i64 noundef %14) #10
+  br label %16
 
-15:                                               ; preds = %10, %5
+16:                                               ; preds = %11, %6
   ret void
 }
 
@@ -3652,557 +3688,564 @@ define internal void @php_print_gpcse_array(ptr noundef %0, i32 noundef %1) #0 {
   %515 = load ptr, ptr %55, align 8
   %516 = call zeroext i1 @zend_is_auto_global(ptr noundef %515)
   %517 = load ptr, ptr %55, align 8
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5), ptr %18, align 8
+  %518 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 5
+  store ptr %518, ptr %18, align 8
   store ptr %517, ptr %19, align 8
-  %518 = load ptr, ptr %18, align 8
-  %519 = load ptr, ptr %19, align 8
-  %520 = call ptr @zend_hash_find(ptr noundef %518, ptr noundef %519) #10
-  store ptr %520, ptr %20, align 8
-  %521 = load ptr, ptr %20, align 8
-  %522 = icmp ne ptr %521, null
-  br i1 %522, label %523, label %535
+  %519 = load ptr, ptr %18, align 8
+  %520 = load ptr, ptr %19, align 8
+  %521 = call ptr @zend_hash_find(ptr noundef %519, ptr noundef %520) #10
+  store ptr %521, ptr %20, align 8
+  %522 = load ptr, ptr %20, align 8
+  %523 = icmp ne ptr %522, null
+  br i1 %523, label %524, label %536
 
-523:                                              ; preds = %489
-  %524 = load ptr, ptr %20, align 8
-  store ptr %524, ptr %17, align 8
-  %525 = load ptr, ptr %17, align 8
-  %526 = getelementptr inbounds %struct._zval_struct, ptr %525, i32 0, i32 1
-  %527 = load i8, ptr %526, align 8
-  %528 = zext i8 %527 to i32
-  %529 = icmp eq i32 %528, 10
-  br i1 %529, label %530, label %534
+524:                                              ; preds = %489
+  %525 = load ptr, ptr %20, align 8
+  store ptr %525, ptr %17, align 8
+  %526 = load ptr, ptr %17, align 8
+  %527 = getelementptr inbounds %struct._zval_struct, ptr %526, i32 0, i32 1
+  %528 = load i8, ptr %527, align 8
+  %529 = zext i8 %528 to i32
+  %530 = icmp eq i32 %529, 10
+  br i1 %530, label %531, label %535
 
-530:                                              ; preds = %523
-  %531 = load ptr, ptr %20, align 8
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds %struct._zend_reference, ptr %532, i32 0, i32 1
-  store ptr %533, ptr %20, align 8
-  br label %534
-
-534:                                              ; preds = %530, %523
+531:                                              ; preds = %524
+  %532 = load ptr, ptr %20, align 8
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr inbounds %struct._zend_reference, ptr %533, i32 0, i32 1
+  store ptr %534, ptr %20, align 8
   br label %535
 
-535:                                              ; preds = %534, %489
-  %536 = load ptr, ptr %20, align 8
-  store ptr %536, ptr %51, align 8
-  %537 = icmp ne ptr %536, null
-  br i1 %537, label %538, label %859
+535:                                              ; preds = %531, %524
+  br label %536
 
-538:                                              ; preds = %535
-  %539 = load ptr, ptr %51, align 8
-  store ptr %539, ptr %26, align 8
-  %540 = load ptr, ptr %26, align 8
-  %541 = getelementptr inbounds %struct._zval_struct, ptr %540, i32 0, i32 1
-  %542 = load i8, ptr %541, align 8
-  %543 = zext i8 %542 to i32
-  %544 = icmp eq i32 %543, 7
-  br i1 %544, label %545, label %859
+536:                                              ; preds = %535, %489
+  %537 = load ptr, ptr %20, align 8
+  store ptr %537, ptr %51, align 8
+  %538 = icmp ne ptr %537, null
+  br i1 %538, label %539, label %866
 
-545:                                              ; preds = %538
-  br label %546
+539:                                              ; preds = %536
+  %540 = load ptr, ptr %51, align 8
+  store ptr %540, ptr %26, align 8
+  %541 = load ptr, ptr %26, align 8
+  %542 = getelementptr inbounds %struct._zval_struct, ptr %541, i32 0, i32 1
+  %543 = load i8, ptr %542, align 8
+  %544 = zext i8 %543 to i32
+  %545 = icmp eq i32 %544, 7
+  br i1 %545, label %546, label %866
 
-546:                                              ; preds = %545
-  %547 = load ptr, ptr %51, align 8
-  %548 = getelementptr inbounds %struct._zval_struct, ptr %547, i32 0, i32 0
-  %549 = load ptr, ptr %548, align 8
-  store ptr %549, ptr %56, align 8
+546:                                              ; preds = %539
+  br label %547
+
+547:                                              ; preds = %546
+  %548 = load ptr, ptr %51, align 8
+  %549 = getelementptr inbounds %struct._zval_struct, ptr %548, i32 0, i32 0
+  %550 = load ptr, ptr %549, align 8
+  store ptr %550, ptr %56, align 8
   store ptr null, ptr %58, align 8
   store i32 0, ptr %59, align 4
-  %550 = load ptr, ptr %56, align 8
-  %551 = getelementptr inbounds %struct._zend_array, ptr %550, i32 0, i32 1
-  %552 = load i32, ptr %551, align 8
-  %553 = xor i32 %552, -1
-  %554 = and i32 %553, 4
-  %555 = zext i32 %554 to i64
-  %556 = mul i64 %555, 4
-  %557 = add i64 16, %556
-  store i64 %557, ptr %60, align 8
-  %558 = load ptr, ptr %56, align 8
-  %559 = getelementptr inbounds %struct._zend_array, ptr %558, i32 0, i32 3
-  %560 = load ptr, ptr %559, align 8
-  %561 = load i32, ptr %59, align 4
-  %562 = zext i32 %561 to i64
-  %563 = load i64, ptr %60, align 8
-  %564 = mul i64 %562, %563
-  %565 = getelementptr inbounds i8, ptr %560, i64 %564
-  store ptr %565, ptr %61, align 8
-  %566 = load ptr, ptr %56, align 8
-  %567 = getelementptr inbounds %struct._zend_array, ptr %566, i32 0, i32 4
-  %568 = load i32, ptr %567, align 8
-  %569 = load i32, ptr %59, align 4
-  %570 = sub i32 %568, %569
-  store i32 %570, ptr %62, align 4
-  br label %571
+  %551 = load ptr, ptr %56, align 8
+  %552 = getelementptr inbounds %struct._zend_array, ptr %551, i32 0, i32 1
+  %553 = load i32, ptr %552, align 8
+  %554 = xor i32 %553, -1
+  %555 = and i32 %554, 4
+  %556 = zext i32 %555 to i64
+  %557 = mul i64 %556, 4
+  %558 = add i64 16, %557
+  store i64 %558, ptr %60, align 8
+  %559 = load ptr, ptr %56, align 8
+  %560 = getelementptr inbounds %struct._zend_array, ptr %559, i32 0, i32 3
+  %561 = load ptr, ptr %560, align 8
+  %562 = load i32, ptr %59, align 4
+  %563 = zext i32 %562 to i64
+  %564 = load i64, ptr %60, align 8
+  %565 = mul i64 %563, %564
+  %566 = getelementptr inbounds i8, ptr %561, i64 %565
+  store ptr %566, ptr %61, align 8
+  %567 = load ptr, ptr %56, align 8
+  %568 = getelementptr inbounds %struct._zend_array, ptr %567, i32 0, i32 4
+  %569 = load i32, ptr %568, align 8
+  %570 = load i32, ptr %59, align 4
+  %571 = sub i32 %569, %570
+  store i32 %571, ptr %62, align 4
+  br label %572
 
-571:                                              ; preds = %854, %546
-  %572 = load i32, ptr %62, align 4
-  %573 = icmp ugt i32 %572, 0
-  br i1 %573, label %574, label %857
+572:                                              ; preds = %861, %547
+  %573 = load i32, ptr %62, align 4
+  %574 = icmp ugt i32 %573, 0
+  br i1 %574, label %575, label %864
 
-574:                                              ; preds = %571
-  %575 = load ptr, ptr %61, align 8
-  store ptr %575, ptr %63, align 8
-  %576 = load ptr, ptr %56, align 8
-  %577 = getelementptr inbounds %struct._zend_array, ptr %576, i32 0, i32 1
-  %578 = load i32, ptr %577, align 8
-  %579 = and i32 %578, 4
-  %580 = icmp ne i32 %579, 0
-  br i1 %580, label %581, label %588
+575:                                              ; preds = %572
+  %576 = load ptr, ptr %61, align 8
+  store ptr %576, ptr %63, align 8
+  %577 = load ptr, ptr %56, align 8
+  %578 = getelementptr inbounds %struct._zend_array, ptr %577, i32 0, i32 1
+  %579 = load i32, ptr %578, align 8
+  %580 = and i32 %579, 4
+  %581 = icmp ne i32 %580, 0
+  br i1 %581, label %582, label %589
 
-581:                                              ; preds = %574
-  %582 = load ptr, ptr %61, align 8
-  %583 = getelementptr inbounds %struct._zval_struct, ptr %582, i32 1
-  store ptr %583, ptr %61, align 8
-  %584 = load i32, ptr %59, align 4
-  %585 = zext i32 %584 to i64
-  store i64 %585, ptr %57, align 8
-  %586 = load i32, ptr %59, align 4
-  %587 = add i32 %586, 1
-  store i32 %587, ptr %59, align 4
-  br label %599
+582:                                              ; preds = %575
+  %583 = load ptr, ptr %61, align 8
+  %584 = getelementptr inbounds %struct._zval_struct, ptr %583, i32 1
+  store ptr %584, ptr %61, align 8
+  %585 = load i32, ptr %59, align 4
+  %586 = zext i32 %585 to i64
+  store i64 %586, ptr %57, align 8
+  %587 = load i32, ptr %59, align 4
+  %588 = add i32 %587, 1
+  store i32 %588, ptr %59, align 4
+  br label %600
 
-588:                                              ; preds = %574
-  %589 = load ptr, ptr %61, align 8
-  store ptr %589, ptr %64, align 8
-  %590 = load ptr, ptr %64, align 8
-  %591 = getelementptr inbounds %struct._Bucket, ptr %590, i64 1
-  %592 = getelementptr inbounds %struct._Bucket, ptr %591, i32 0, i32 0
-  store ptr %592, ptr %61, align 8
-  %593 = load ptr, ptr %64, align 8
-  %594 = getelementptr inbounds %struct._Bucket, ptr %593, i32 0, i32 1
-  %595 = load i64, ptr %594, align 8
-  store i64 %595, ptr %57, align 8
-  %596 = load ptr, ptr %64, align 8
-  %597 = getelementptr inbounds %struct._Bucket, ptr %596, i32 0, i32 2
-  %598 = load ptr, ptr %597, align 8
-  store ptr %598, ptr %58, align 8
-  br label %599
+589:                                              ; preds = %575
+  %590 = load ptr, ptr %61, align 8
+  store ptr %590, ptr %64, align 8
+  %591 = load ptr, ptr %64, align 8
+  %592 = getelementptr inbounds %struct._Bucket, ptr %591, i64 1
+  %593 = getelementptr inbounds %struct._Bucket, ptr %592, i32 0, i32 0
+  store ptr %593, ptr %61, align 8
+  %594 = load ptr, ptr %64, align 8
+  %595 = getelementptr inbounds %struct._Bucket, ptr %594, i32 0, i32 1
+  %596 = load i64, ptr %595, align 8
+  store i64 %596, ptr %57, align 8
+  %597 = load ptr, ptr %64, align 8
+  %598 = getelementptr inbounds %struct._Bucket, ptr %597, i32 0, i32 2
+  %599 = load ptr, ptr %598, align 8
+  store ptr %599, ptr %58, align 8
+  br label %600
 
-599:                                              ; preds = %588, %581
-  %600 = load ptr, ptr %63, align 8
-  store ptr %600, ptr %27, align 8
-  %601 = load ptr, ptr %27, align 8
-  %602 = getelementptr inbounds %struct._zval_struct, ptr %601, i32 0, i32 1
-  %603 = load i8, ptr %602, align 8
-  %604 = zext i8 %603 to i32
-  %605 = icmp eq i32 %604, 0
-  %606 = xor i1 %605, true
+600:                                              ; preds = %589, %582
+  %601 = load ptr, ptr %63, align 8
+  store ptr %601, ptr %27, align 8
+  %602 = load ptr, ptr %27, align 8
+  %603 = getelementptr inbounds %struct._zval_struct, ptr %602, i32 0, i32 1
+  %604 = load i8, ptr %603, align 8
+  %605 = zext i8 %604 to i32
+  %606 = icmp eq i32 %605, 0
   %607 = xor i1 %606, true
-  %608 = zext i1 %607 to i32
-  %609 = sext i32 %608 to i64
-  %610 = icmp ne i64 %609, 0
-  br i1 %610, label %611, label %612
+  %608 = xor i1 %607, true
+  %609 = zext i1 %608 to i32
+  %610 = sext i32 %609 to i64
+  %611 = icmp ne i64 %610, 0
+  br i1 %611, label %612, label %613
 
-611:                                              ; preds = %599
-  br label %854
+612:                                              ; preds = %600
+  br label %861
 
-612:                                              ; preds = %599
-  %613 = load i64, ptr %57, align 8
-  store i64 %613, ptr %54, align 8
-  %614 = load ptr, ptr %58, align 8
-  store ptr %614, ptr %53, align 8
-  %615 = load ptr, ptr %63, align 8
-  store ptr %615, ptr %52, align 8
-  %616 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %617 = icmp ne i32 %616, 0
-  br i1 %617, label %627, label %618
+613:                                              ; preds = %600
+  %614 = load i64, ptr %57, align 8
+  store i64 %614, ptr %54, align 8
+  %615 = load ptr, ptr %58, align 8
+  store ptr %615, ptr %53, align 8
+  %616 = load ptr, ptr %63, align 8
+  store ptr %616, ptr %52, align 8
+  %617 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %618 = load i32, ptr %617, align 8
+  %619 = icmp ne i32 %618, 0
+  br i1 %619, label %629, label %620
 
-618:                                              ; preds = %612
+620:                                              ; preds = %613
   store ptr @.str.135, ptr %30, align 8
-  %619 = load ptr, ptr %30, align 8
-  %620 = load ptr, ptr %30, align 8
-  %621 = call i64 @strlen(ptr noundef %620) #9
-  %622 = call i64 @php_output_write(ptr noundef %619, i64 noundef %621) #10
+  %621 = load ptr, ptr %30, align 8
+  %622 = load ptr, ptr %30, align 8
+  %623 = call i64 @strlen(ptr noundef %622) #9
+  %624 = call i64 @php_output_write(ptr noundef %621, i64 noundef %623) #10
   store ptr @.str.136, ptr %31, align 8
-  %623 = load ptr, ptr %31, align 8
-  %624 = load ptr, ptr %31, align 8
-  %625 = call i64 @strlen(ptr noundef %624) #9
-  %626 = call i64 @php_output_write(ptr noundef %623, i64 noundef %625) #10
-  br label %627
+  %625 = load ptr, ptr %31, align 8
+  %626 = load ptr, ptr %31, align 8
+  %627 = call i64 @strlen(ptr noundef %626) #9
+  %628 = call i64 @php_output_write(ptr noundef %625, i64 noundef %627) #10
+  br label %629
 
-627:                                              ; preds = %618, %612
+629:                                              ; preds = %620, %613
   store ptr @.str.137, ptr %32, align 8
-  %628 = load ptr, ptr %32, align 8
-  %629 = load ptr, ptr %32, align 8
-  %630 = call i64 @strlen(ptr noundef %629) #9
-  %631 = call i64 @php_output_write(ptr noundef %628, i64 noundef %630) #10
-  %632 = load ptr, ptr %49, align 8
-  store ptr %632, ptr %33, align 8
-  %633 = load ptr, ptr %33, align 8
-  %634 = load ptr, ptr %33, align 8
-  %635 = call i64 @strlen(ptr noundef %634) #9
-  %636 = call i64 @php_output_write(ptr noundef %633, i64 noundef %635) #10
+  %630 = load ptr, ptr %32, align 8
+  %631 = load ptr, ptr %32, align 8
+  %632 = call i64 @strlen(ptr noundef %631) #9
+  %633 = call i64 @php_output_write(ptr noundef %630, i64 noundef %632) #10
+  %634 = load ptr, ptr %49, align 8
+  store ptr %634, ptr %33, align 8
+  %635 = load ptr, ptr %33, align 8
+  %636 = load ptr, ptr %33, align 8
+  %637 = call i64 @strlen(ptr noundef %636) #9
+  %638 = call i64 @php_output_write(ptr noundef %635, i64 noundef %637) #10
   store ptr @.str.138, ptr %34, align 8
-  %637 = load ptr, ptr %34, align 8
-  %638 = load ptr, ptr %34, align 8
-  %639 = call i64 @strlen(ptr noundef %638) #9
-  %640 = call i64 @php_output_write(ptr noundef %637, i64 noundef %639) #10
-  %641 = load ptr, ptr %53, align 8
-  %642 = icmp ne ptr %641, null
-  br i1 %642, label %643, label %663
+  %639 = load ptr, ptr %34, align 8
+  %640 = load ptr, ptr %34, align 8
+  %641 = call i64 @strlen(ptr noundef %640) #9
+  %642 = call i64 @php_output_write(ptr noundef %639, i64 noundef %641) #10
+  %643 = load ptr, ptr %53, align 8
+  %644 = icmp ne ptr %643, null
+  br i1 %644, label %645, label %666
 
-643:                                              ; preds = %627
-  %644 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %645 = icmp ne i32 %644, 0
-  br i1 %645, label %654, label %646
+645:                                              ; preds = %629
+  %646 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %647 = load i32, ptr %646, align 8
+  %648 = icmp ne i32 %647, 0
+  br i1 %648, label %657, label %649
 
-646:                                              ; preds = %643
-  %647 = load ptr, ptr %53, align 8
-  %648 = getelementptr inbounds %struct._zend_string, ptr %647, i32 0, i32 3
-  %649 = getelementptr inbounds [1 x i8], ptr %648, i64 0, i64 0
+649:                                              ; preds = %645
   %650 = load ptr, ptr %53, align 8
-  %651 = getelementptr inbounds %struct._zend_string, ptr %650, i32 0, i32 2
-  %652 = load i64, ptr %651, align 8
-  %653 = call i32 @php_info_print_html_esc(ptr noundef %649, i64 noundef %652)
-  br label %662
+  %651 = getelementptr inbounds %struct._zend_string, ptr %650, i32 0, i32 3
+  %652 = getelementptr inbounds [1 x i8], ptr %651, i64 0, i64 0
+  %653 = load ptr, ptr %53, align 8
+  %654 = getelementptr inbounds %struct._zend_string, ptr %653, i32 0, i32 2
+  %655 = load i64, ptr %654, align 8
+  %656 = call i32 @php_info_print_html_esc(ptr noundef %652, i64 noundef %655)
+  br label %665
 
-654:                                              ; preds = %643
-  %655 = load ptr, ptr %53, align 8
-  %656 = getelementptr inbounds %struct._zend_string, ptr %655, i32 0, i32 3
-  %657 = getelementptr inbounds [1 x i8], ptr %656, i64 0, i64 0
-  store ptr %657, ptr %35, align 8
-  %658 = load ptr, ptr %35, align 8
-  %659 = load ptr, ptr %35, align 8
-  %660 = call i64 @strlen(ptr noundef %659) #9
-  %661 = call i64 @php_output_write(ptr noundef %658, i64 noundef %660) #10
-  br label %662
+657:                                              ; preds = %645
+  %658 = load ptr, ptr %53, align 8
+  %659 = getelementptr inbounds %struct._zend_string, ptr %658, i32 0, i32 3
+  %660 = getelementptr inbounds [1 x i8], ptr %659, i64 0, i64 0
+  store ptr %660, ptr %35, align 8
+  %661 = load ptr, ptr %35, align 8
+  %662 = load ptr, ptr %35, align 8
+  %663 = call i64 @strlen(ptr noundef %662) #9
+  %664 = call i64 @php_output_write(ptr noundef %661, i64 noundef %663) #10
+  br label %665
 
-662:                                              ; preds = %654, %646
-  br label %666
+665:                                              ; preds = %657, %649
+  br label %669
 
-663:                                              ; preds = %627
-  %664 = load i64, ptr %54, align 8
-  %665 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.139, i64 noundef %664)
-  br label %666
+666:                                              ; preds = %629
+  %667 = load i64, ptr %54, align 8
+  %668 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.139, i64 noundef %667)
+  br label %669
 
-666:                                              ; preds = %663, %662
+669:                                              ; preds = %666, %665
   store ptr @.str.140, ptr %36, align 8
-  %667 = load ptr, ptr %36, align 8
-  %668 = load ptr, ptr %36, align 8
-  %669 = call i64 @strlen(ptr noundef %668) #9
-  %670 = call i64 @php_output_write(ptr noundef %667, i64 noundef %669) #10
-  %671 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %672 = icmp ne i32 %671, 0
-  br i1 %672, label %678, label %673
+  %670 = load ptr, ptr %36, align 8
+  %671 = load ptr, ptr %36, align 8
+  %672 = call i64 @strlen(ptr noundef %671) #9
+  %673 = call i64 @php_output_write(ptr noundef %670, i64 noundef %672) #10
+  %674 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %675 = load i32, ptr %674, align 8
+  %676 = icmp ne i32 %675, 0
+  br i1 %676, label %682, label %677
 
-673:                                              ; preds = %666
+677:                                              ; preds = %669
   store ptr @.str.141, ptr %37, align 8
-  %674 = load ptr, ptr %37, align 8
-  %675 = load ptr, ptr %37, align 8
-  %676 = call i64 @strlen(ptr noundef %675) #9
-  %677 = call i64 @php_output_write(ptr noundef %674, i64 noundef %676) #10
-  br label %683
+  %678 = load ptr, ptr %37, align 8
+  %679 = load ptr, ptr %37, align 8
+  %680 = call i64 @strlen(ptr noundef %679) #9
+  %681 = call i64 @php_output_write(ptr noundef %678, i64 noundef %680) #10
+  br label %687
 
-678:                                              ; preds = %666
+682:                                              ; preds = %669
   store ptr @.str.125, ptr %38, align 8
-  %679 = load ptr, ptr %38, align 8
-  %680 = load ptr, ptr %38, align 8
-  %681 = call i64 @strlen(ptr noundef %680) #9
-  %682 = call i64 @php_output_write(ptr noundef %679, i64 noundef %681) #10
-  br label %683
+  %683 = load ptr, ptr %38, align 8
+  %684 = load ptr, ptr %38, align 8
+  %685 = call i64 @strlen(ptr noundef %684) #9
+  %686 = call i64 @php_output_write(ptr noundef %683, i64 noundef %685) #10
+  br label %687
 
-683:                                              ; preds = %678, %673
-  br label %684
+687:                                              ; preds = %682, %677
+  br label %688
 
-684:                                              ; preds = %683
-  %685 = load ptr, ptr %52, align 8
-  store ptr %685, ptr %28, align 8
-  %686 = load ptr, ptr %28, align 8
-  %687 = getelementptr inbounds %struct._zval_struct, ptr %686, i32 0, i32 1
-  %688 = load i8, ptr %687, align 8
-  %689 = zext i8 %688 to i32
-  %690 = icmp eq i32 %689, 10
-  %691 = xor i1 %690, true
-  %692 = xor i1 %691, true
-  %693 = zext i1 %692 to i32
-  %694 = sext i32 %693 to i64
-  %695 = icmp ne i64 %694, 0
-  br i1 %695, label %696, label %701
+688:                                              ; preds = %687
+  %689 = load ptr, ptr %52, align 8
+  store ptr %689, ptr %28, align 8
+  %690 = load ptr, ptr %28, align 8
+  %691 = getelementptr inbounds %struct._zval_struct, ptr %690, i32 0, i32 1
+  %692 = load i8, ptr %691, align 8
+  %693 = zext i8 %692 to i32
+  %694 = icmp eq i32 %693, 10
+  %695 = xor i1 %694, true
+  %696 = xor i1 %695, true
+  %697 = zext i1 %696 to i32
+  %698 = sext i32 %697 to i64
+  %699 = icmp ne i64 %698, 0
+  br i1 %699, label %700, label %705
 
-696:                                              ; preds = %684
-  %697 = load ptr, ptr %52, align 8
-  %698 = getelementptr inbounds %struct._zval_struct, ptr %697, i32 0, i32 0
-  %699 = load ptr, ptr %698, align 8
-  %700 = getelementptr inbounds %struct._zend_reference, ptr %699, i32 0, i32 1
-  store ptr %700, ptr %52, align 8
-  br label %701
+700:                                              ; preds = %688
+  %701 = load ptr, ptr %52, align 8
+  %702 = getelementptr inbounds %struct._zval_struct, ptr %701, i32 0, i32 0
+  %703 = load ptr, ptr %702, align 8
+  %704 = getelementptr inbounds %struct._zend_reference, ptr %703, i32 0, i32 1
+  store ptr %704, ptr %52, align 8
+  br label %705
 
-701:                                              ; preds = %696, %684
-  br label %702
+705:                                              ; preds = %700, %688
+  br label %706
 
-702:                                              ; preds = %701
-  %703 = load ptr, ptr %52, align 8
-  store ptr %703, ptr %29, align 8
-  %704 = load ptr, ptr %29, align 8
-  %705 = getelementptr inbounds %struct._zval_struct, ptr %704, i32 0, i32 1
-  %706 = load i8, ptr %705, align 8
-  %707 = zext i8 %706 to i32
-  %708 = icmp eq i32 %707, 7
-  br i1 %708, label %709, label %760
+706:                                              ; preds = %705
+  %707 = load ptr, ptr %52, align 8
+  store ptr %707, ptr %29, align 8
+  %708 = load ptr, ptr %29, align 8
+  %709 = getelementptr inbounds %struct._zval_struct, ptr %708, i32 0, i32 1
+  %710 = load i8, ptr %709, align 8
+  %711 = zext i8 %710 to i32
+  %712 = icmp eq i32 %711, 7
+  br i1 %712, label %713, label %765
 
-709:                                              ; preds = %702
-  %710 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %711 = icmp ne i32 %710, 0
-  br i1 %711, label %757, label %712
+713:                                              ; preds = %706
+  %714 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %715 = load i32, ptr %714, align 8
+  %716 = icmp ne i32 %715, 0
+  br i1 %716, label %762, label %717
 
-712:                                              ; preds = %709
-  %713 = load ptr, ptr %52, align 8
-  %714 = call ptr @zend_print_zval_r_to_str(ptr noundef %713, i32 noundef 0)
-  store ptr %714, ptr %65, align 8
+717:                                              ; preds = %713
+  %718 = load ptr, ptr %52, align 8
+  %719 = call ptr @zend_print_zval_r_to_str(ptr noundef %718, i32 noundef 0)
+  store ptr %719, ptr %65, align 8
   store ptr @.str.142, ptr %39, align 8
-  %715 = load ptr, ptr %39, align 8
-  %716 = load ptr, ptr %39, align 8
-  %717 = call i64 @strlen(ptr noundef %716) #9
-  %718 = call i64 @php_output_write(ptr noundef %715, i64 noundef %717) #10
-  %719 = load ptr, ptr %65, align 8
-  %720 = getelementptr inbounds %struct._zend_string, ptr %719, i32 0, i32 3
-  %721 = getelementptr inbounds [1 x i8], ptr %720, i64 0, i64 0
-  %722 = load ptr, ptr %65, align 8
-  %723 = getelementptr inbounds %struct._zend_string, ptr %722, i32 0, i32 2
-  %724 = load i64, ptr %723, align 8
-  %725 = call i32 @php_info_print_html_esc(ptr noundef %721, i64 noundef %724)
+  %720 = load ptr, ptr %39, align 8
+  %721 = load ptr, ptr %39, align 8
+  %722 = call i64 @strlen(ptr noundef %721) #9
+  %723 = call i64 @php_output_write(ptr noundef %720, i64 noundef %722) #10
+  %724 = load ptr, ptr %65, align 8
+  %725 = getelementptr inbounds %struct._zend_string, ptr %724, i32 0, i32 3
+  %726 = getelementptr inbounds [1 x i8], ptr %725, i64 0, i64 0
+  %727 = load ptr, ptr %65, align 8
+  %728 = getelementptr inbounds %struct._zend_string, ptr %727, i32 0, i32 2
+  %729 = load i64, ptr %728, align 8
+  %730 = call i32 @php_info_print_html_esc(ptr noundef %726, i64 noundef %729)
   store ptr @.str.143, ptr %40, align 8
-  %726 = load ptr, ptr %40, align 8
-  %727 = load ptr, ptr %40, align 8
-  %728 = call i64 @strlen(ptr noundef %727) #9
-  %729 = call i64 @php_output_write(ptr noundef %726, i64 noundef %728) #10
-  %730 = load ptr, ptr %65, align 8
-  store ptr %730, ptr %15, align 8
+  %731 = load ptr, ptr %40, align 8
+  %732 = load ptr, ptr %40, align 8
+  %733 = call i64 @strlen(ptr noundef %732) #9
+  %734 = call i64 @php_output_write(ptr noundef %731, i64 noundef %733) #10
+  %735 = load ptr, ptr %65, align 8
+  store ptr %735, ptr %15, align 8
   store i8 0, ptr %16, align 1
-  %731 = load ptr, ptr %15, align 8
-  %732 = getelementptr inbounds %struct._zend_refcounted_h, ptr %731, i32 0, i32 1
-  %733 = load i32, ptr %732, align 4
-  store i32 %733, ptr %14, align 4
-  %734 = load i32, ptr %14, align 4
-  %735 = and i32 %734, 1008
-  %736 = and i32 %735, 64
-  %737 = icmp ne i32 %736, 0
-  br i1 %737, label %756, label %738
+  %736 = load ptr, ptr %15, align 8
+  %737 = getelementptr inbounds %struct._zend_refcounted_h, ptr %736, i32 0, i32 1
+  %738 = load i32, ptr %737, align 4
+  store i32 %738, ptr %14, align 4
+  %739 = load i32, ptr %14, align 4
+  %740 = and i32 %739, 1008
+  %741 = and i32 %740, 64
+  %742 = icmp ne i32 %741, 0
+  br i1 %742, label %761, label %743
 
-738:                                              ; preds = %712
-  %739 = load ptr, ptr %15, align 8
-  store ptr %739, ptr %3, align 8
-  %740 = load ptr, ptr %3, align 8
-  %741 = load i32, ptr %740, align 4
-  %742 = icmp ugt i32 %741, 0
-  call void @llvm.assume(i1 %742)
-  %743 = load ptr, ptr %3, align 8
-  %744 = load i32, ptr %743, align 4
-  %745 = add i32 %744, -1
-  store i32 %745, ptr %743, align 4
-  %746 = icmp eq i32 %745, 0
-  br i1 %746, label %747, label %755
+743:                                              ; preds = %717
+  %744 = load ptr, ptr %15, align 8
+  store ptr %744, ptr %3, align 8
+  %745 = load ptr, ptr %3, align 8
+  %746 = load i32, ptr %745, align 4
+  %747 = icmp ugt i32 %746, 0
+  call void @llvm.assume(i1 %747)
+  %748 = load ptr, ptr %3, align 8
+  %749 = load i32, ptr %748, align 4
+  %750 = add i32 %749, -1
+  store i32 %750, ptr %748, align 4
+  %751 = icmp eq i32 %750, 0
+  br i1 %751, label %752, label %760
 
-747:                                              ; preds = %738
-  %748 = load i8, ptr %16, align 1
-  %749 = trunc i8 %748 to i1
-  br i1 %749, label %750, label %752
+752:                                              ; preds = %743
+  %753 = load i8, ptr %16, align 1
+  %754 = trunc i8 %753 to i1
+  br i1 %754, label %755, label %757
 
-750:                                              ; preds = %747
-  %751 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %751) #10
-  br label %754
-
-752:                                              ; preds = %747
-  %753 = load ptr, ptr %15, align 8
-  call void @_efree(ptr noundef %753) #10
-  br label %754
-
-754:                                              ; preds = %752, %750
-  br label %755
-
-755:                                              ; preds = %754, %738
-  br label %756
-
-756:                                              ; preds = %755, %712
+755:                                              ; preds = %752
+  %756 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %756) #10
   br label %759
 
-757:                                              ; preds = %709
-  %758 = load ptr, ptr %52, align 8
-  call void @zend_print_zval_r(ptr noundef %758, i32 noundef 0)
+757:                                              ; preds = %752
+  %758 = load ptr, ptr %15, align 8
+  call void @_efree(ptr noundef %758) #10
   br label %759
 
-759:                                              ; preds = %757, %756
-  br label %840
+759:                                              ; preds = %757, %755
+  br label %760
 
-760:                                              ; preds = %702
-  %761 = load ptr, ptr %52, align 8
-  store ptr %761, ptr %12, align 8
+760:                                              ; preds = %759, %743
+  br label %761
+
+761:                                              ; preds = %760, %717
+  br label %764
+
+762:                                              ; preds = %713
+  %763 = load ptr, ptr %52, align 8
+  call void @zend_print_zval_r(ptr noundef %763, i32 noundef 0)
+  br label %764
+
+764:                                              ; preds = %762, %761
+  br label %846
+
+765:                                              ; preds = %706
+  %766 = load ptr, ptr %52, align 8
+  store ptr %766, ptr %12, align 8
   store ptr %66, ptr %13, align 8
-  %762 = load ptr, ptr %12, align 8
-  store ptr %762, ptr %10, align 8
-  %763 = load ptr, ptr %10, align 8
-  %764 = getelementptr inbounds %struct._zval_struct, ptr %763, i32 0, i32 1
-  %765 = load i8, ptr %764, align 8
-  %766 = zext i8 %765 to i32
-  %767 = icmp eq i32 %766, 6
-  br i1 %767, label %768, label %772
+  %767 = load ptr, ptr %12, align 8
+  store ptr %767, ptr %10, align 8
+  %768 = load ptr, ptr %10, align 8
+  %769 = getelementptr inbounds %struct._zval_struct, ptr %768, i32 0, i32 1
+  %770 = load i8, ptr %769, align 8
+  %771 = zext i8 %770 to i32
+  %772 = icmp eq i32 %771, 6
+  br i1 %772, label %773, label %777
 
-768:                                              ; preds = %760
-  %769 = load ptr, ptr %13, align 8
-  store ptr null, ptr %769, align 8
-  %770 = load ptr, ptr %12, align 8
-  %771 = load ptr, ptr %770, align 8
-  store ptr %771, ptr %11, align 8
-  br label %776
+773:                                              ; preds = %765
+  %774 = load ptr, ptr %13, align 8
+  store ptr null, ptr %774, align 8
+  %775 = load ptr, ptr %12, align 8
+  %776 = load ptr, ptr %775, align 8
+  store ptr %776, ptr %11, align 8
+  br label %781
 
-772:                                              ; preds = %760
-  %773 = load ptr, ptr %12, align 8
-  %774 = call ptr @zval_get_string_func(ptr noundef %773) #10
-  %775 = load ptr, ptr %13, align 8
-  store ptr %774, ptr %775, align 8
-  store ptr %774, ptr %11, align 8
-  br label %776
+777:                                              ; preds = %765
+  %778 = load ptr, ptr %12, align 8
+  %779 = call ptr @zval_get_string_func(ptr noundef %778) #10
+  %780 = load ptr, ptr %13, align 8
+  store ptr %779, ptr %780, align 8
+  store ptr %779, ptr %11, align 8
+  br label %781
 
-776:                                              ; preds = %772, %768
-  %777 = load ptr, ptr %11, align 8
-  store ptr %777, ptr %67, align 8
-  %778 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %779 = icmp ne i32 %778, 0
-  br i1 %779, label %799, label %780
+781:                                              ; preds = %777, %773
+  %782 = load ptr, ptr %11, align 8
+  store ptr %782, ptr %67, align 8
+  %783 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %784 = load i32, ptr %783, align 8
+  %785 = icmp ne i32 %784, 0
+  br i1 %785, label %805, label %786
 
-780:                                              ; preds = %776
-  %781 = load ptr, ptr %67, align 8
-  %782 = getelementptr inbounds %struct._zend_string, ptr %781, i32 0, i32 2
-  %783 = load i64, ptr %782, align 8
-  %784 = icmp eq i64 %783, 0
-  br i1 %784, label %785, label %790
+786:                                              ; preds = %781
+  %787 = load ptr, ptr %67, align 8
+  %788 = getelementptr inbounds %struct._zend_string, ptr %787, i32 0, i32 2
+  %789 = load i64, ptr %788, align 8
+  %790 = icmp eq i64 %789, 0
+  br i1 %790, label %791, label %796
 
-785:                                              ; preds = %780
+791:                                              ; preds = %786
   store ptr @.str.144, ptr %41, align 8
-  %786 = load ptr, ptr %41, align 8
-  %787 = load ptr, ptr %41, align 8
-  %788 = call i64 @strlen(ptr noundef %787) #9
-  %789 = call i64 @php_output_write(ptr noundef %786, i64 noundef %788) #10
-  br label %798
+  %792 = load ptr, ptr %41, align 8
+  %793 = load ptr, ptr %41, align 8
+  %794 = call i64 @strlen(ptr noundef %793) #9
+  %795 = call i64 @php_output_write(ptr noundef %792, i64 noundef %794) #10
+  br label %804
 
-790:                                              ; preds = %780
-  %791 = load ptr, ptr %67, align 8
-  %792 = getelementptr inbounds %struct._zend_string, ptr %791, i32 0, i32 3
-  %793 = getelementptr inbounds [1 x i8], ptr %792, i64 0, i64 0
-  %794 = load ptr, ptr %67, align 8
-  %795 = getelementptr inbounds %struct._zend_string, ptr %794, i32 0, i32 2
-  %796 = load i64, ptr %795, align 8
-  %797 = call i32 @php_info_print_html_esc(ptr noundef %793, i64 noundef %796)
-  br label %798
-
-798:                                              ; preds = %790, %785
-  br label %807
-
-799:                                              ; preds = %776
+796:                                              ; preds = %786
+  %797 = load ptr, ptr %67, align 8
+  %798 = getelementptr inbounds %struct._zend_string, ptr %797, i32 0, i32 3
+  %799 = getelementptr inbounds [1 x i8], ptr %798, i64 0, i64 0
   %800 = load ptr, ptr %67, align 8
-  %801 = getelementptr inbounds %struct._zend_string, ptr %800, i32 0, i32 3
-  %802 = getelementptr inbounds [1 x i8], ptr %801, i64 0, i64 0
-  store ptr %802, ptr %42, align 8
-  %803 = load ptr, ptr %42, align 8
-  %804 = load ptr, ptr %42, align 8
-  %805 = call i64 @strlen(ptr noundef %804) #9
-  %806 = call i64 @php_output_write(ptr noundef %803, i64 noundef %805) #10
-  br label %807
+  %801 = getelementptr inbounds %struct._zend_string, ptr %800, i32 0, i32 2
+  %802 = load i64, ptr %801, align 8
+  %803 = call i32 @php_info_print_html_esc(ptr noundef %799, i64 noundef %802)
+  br label %804
 
-807:                                              ; preds = %799, %798
-  %808 = load ptr, ptr %66, align 8
-  store ptr %808, ptr %9, align 8
-  %809 = load ptr, ptr %9, align 8
-  %810 = icmp ne ptr %809, null
-  br i1 %810, label %811, label %839
+804:                                              ; preds = %796, %791
+  br label %813
 
-811:                                              ; preds = %807
-  %812 = load ptr, ptr %9, align 8
-  store ptr %812, ptr %7, align 8
+805:                                              ; preds = %781
+  %806 = load ptr, ptr %67, align 8
+  %807 = getelementptr inbounds %struct._zend_string, ptr %806, i32 0, i32 3
+  %808 = getelementptr inbounds [1 x i8], ptr %807, i64 0, i64 0
+  store ptr %808, ptr %42, align 8
+  %809 = load ptr, ptr %42, align 8
+  %810 = load ptr, ptr %42, align 8
+  %811 = call i64 @strlen(ptr noundef %810) #9
+  %812 = call i64 @php_output_write(ptr noundef %809, i64 noundef %811) #10
+  br label %813
+
+813:                                              ; preds = %805, %804
+  %814 = load ptr, ptr %66, align 8
+  store ptr %814, ptr %9, align 8
+  %815 = load ptr, ptr %9, align 8
+  %816 = icmp ne ptr %815, null
+  br i1 %816, label %817, label %845
+
+817:                                              ; preds = %813
+  %818 = load ptr, ptr %9, align 8
+  store ptr %818, ptr %7, align 8
   store i8 0, ptr %8, align 1
-  %813 = load ptr, ptr %7, align 8
-  %814 = getelementptr inbounds %struct._zend_refcounted_h, ptr %813, i32 0, i32 1
-  %815 = load i32, ptr %814, align 4
-  store i32 %815, ptr %6, align 4
-  %816 = load i32, ptr %6, align 4
-  %817 = and i32 %816, 1008
-  %818 = and i32 %817, 64
-  %819 = icmp ne i32 %818, 0
-  br i1 %819, label %838, label %820
+  %819 = load ptr, ptr %7, align 8
+  %820 = getelementptr inbounds %struct._zend_refcounted_h, ptr %819, i32 0, i32 1
+  %821 = load i32, ptr %820, align 4
+  store i32 %821, ptr %6, align 4
+  %822 = load i32, ptr %6, align 4
+  %823 = and i32 %822, 1008
+  %824 = and i32 %823, 64
+  %825 = icmp ne i32 %824, 0
+  br i1 %825, label %844, label %826
 
-820:                                              ; preds = %811
-  %821 = load ptr, ptr %7, align 8
-  store ptr %821, ptr %4, align 8
-  %822 = load ptr, ptr %4, align 8
-  %823 = load i32, ptr %822, align 4
-  %824 = icmp ugt i32 %823, 0
-  call void @llvm.assume(i1 %824)
-  %825 = load ptr, ptr %4, align 8
-  %826 = load i32, ptr %825, align 4
-  %827 = add i32 %826, -1
-  store i32 %827, ptr %825, align 4
-  %828 = icmp eq i32 %827, 0
-  br i1 %828, label %829, label %837
+826:                                              ; preds = %817
+  %827 = load ptr, ptr %7, align 8
+  store ptr %827, ptr %4, align 8
+  %828 = load ptr, ptr %4, align 8
+  %829 = load i32, ptr %828, align 4
+  %830 = icmp ugt i32 %829, 0
+  call void @llvm.assume(i1 %830)
+  %831 = load ptr, ptr %4, align 8
+  %832 = load i32, ptr %831, align 4
+  %833 = add i32 %832, -1
+  store i32 %833, ptr %831, align 4
+  %834 = icmp eq i32 %833, 0
+  br i1 %834, label %835, label %843
 
-829:                                              ; preds = %820
-  %830 = load i8, ptr %8, align 1
-  %831 = trunc i8 %830 to i1
-  br i1 %831, label %832, label %834
+835:                                              ; preds = %826
+  %836 = load i8, ptr %8, align 1
+  %837 = trunc i8 %836 to i1
+  br i1 %837, label %838, label %840
 
-832:                                              ; preds = %829
-  %833 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %833) #10
-  br label %836
+838:                                              ; preds = %835
+  %839 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %839) #10
+  br label %842
 
-834:                                              ; preds = %829
-  %835 = load ptr, ptr %7, align 8
-  call void @_efree(ptr noundef %835) #10
-  br label %836
+840:                                              ; preds = %835
+  %841 = load ptr, ptr %7, align 8
+  call void @_efree(ptr noundef %841) #10
+  br label %842
 
-836:                                              ; preds = %834, %832
-  br label %837
+842:                                              ; preds = %840, %838
+  br label %843
 
-837:                                              ; preds = %836, %820
-  br label %838
+843:                                              ; preds = %842, %826
+  br label %844
 
-838:                                              ; preds = %837, %811
-  br label %839
+844:                                              ; preds = %843, %817
+  br label %845
 
-839:                                              ; preds = %838, %807
-  br label %840
+845:                                              ; preds = %844, %813
+  br label %846
 
-840:                                              ; preds = %839, %759
-  %841 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %842 = icmp ne i32 %841, 0
-  br i1 %842, label %848, label %843
+846:                                              ; preds = %845, %764
+  %847 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %848 = load i32, ptr %847, align 8
+  %849 = icmp ne i32 %848, 0
+  br i1 %849, label %855, label %850
 
-843:                                              ; preds = %840
+850:                                              ; preds = %846
   store ptr @.str.116, ptr %43, align 8
-  %844 = load ptr, ptr %43, align 8
-  %845 = load ptr, ptr %43, align 8
-  %846 = call i64 @strlen(ptr noundef %845) #9
-  %847 = call i64 @php_output_write(ptr noundef %844, i64 noundef %846) #10
-  br label %853
+  %851 = load ptr, ptr %43, align 8
+  %852 = load ptr, ptr %43, align 8
+  %853 = call i64 @strlen(ptr noundef %852) #9
+  %854 = call i64 @php_output_write(ptr noundef %851, i64 noundef %853) #10
+  br label %860
 
-848:                                              ; preds = %840
+855:                                              ; preds = %846
   store ptr @.str.65, ptr %44, align 8
-  %849 = load ptr, ptr %44, align 8
-  %850 = load ptr, ptr %44, align 8
-  %851 = call i64 @strlen(ptr noundef %850) #9
-  %852 = call i64 @php_output_write(ptr noundef %849, i64 noundef %851) #10
-  br label %853
+  %856 = load ptr, ptr %44, align 8
+  %857 = load ptr, ptr %44, align 8
+  %858 = call i64 @strlen(ptr noundef %857) #9
+  %859 = call i64 @php_output_write(ptr noundef %856, i64 noundef %858) #10
+  br label %860
 
-853:                                              ; preds = %848, %843
-  br label %854
+860:                                              ; preds = %855, %850
+  br label %861
 
-854:                                              ; preds = %853, %611
-  %855 = load i32, ptr %62, align 4
-  %856 = add i32 %855, -1
-  store i32 %856, ptr %62, align 4
-  br label %571
+861:                                              ; preds = %860, %612
+  %862 = load i32, ptr %62, align 4
+  %863 = add i32 %862, -1
+  store i32 %863, ptr %62, align 4
+  br label %572
 
-857:                                              ; preds = %571
-  br label %858
+864:                                              ; preds = %572
+  br label %865
 
-858:                                              ; preds = %857
-  br label %859
+865:                                              ; preds = %864
+  br label %866
 
-859:                                              ; preds = %858, %538, %535
-  %860 = load ptr, ptr %55, align 8
-  store ptr %860, ptr %5, align 8
-  %861 = load ptr, ptr %5, align 8
-  call void @_efree(ptr noundef %861) #10
+866:                                              ; preds = %865, %539, %536
+  %867 = load ptr, ptr %55, align 8
+  store ptr %867, ptr %5, align 8
+  %868 = load ptr, ptr %5, align 8
+  call void @_efree(ptr noundef %868) #10
   ret void
 }
 
@@ -4215,39 +4258,34 @@ define void @php_info_print_table_colspan_header(i32 noundef %0, ptr noundef %1)
   %5 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %7 = icmp ne i32 %6, 0
-  br i1 %7, label %12, label %8
+  %6 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %2
-  %9 = load i32, ptr %3, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.119, i32 noundef %9, ptr noundef %10)
-  br label %23
+9:                                                ; preds = %2
+  %10 = load i32, ptr %3, align 4
+  %11 = load ptr, ptr %4, align 8
+  %12 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.119, i32 noundef %10, ptr noundef %11)
+  br label %24
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = call i64 @strlen(ptr noundef %13) #9
-  %15 = sub i64 74, %14
-  %16 = trunc i64 %15 to i32
-  store i32 %16, ptr %5, align 4
-  %17 = load i32, ptr %5, align 4
-  %18 = sdiv i32 %17, 2
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i32, ptr %5, align 4
-  %21 = sdiv i32 %20, 2
-  %22 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.120, i32 noundef %18, ptr noundef @.str.121, ptr noundef %19, i32 noundef %21, ptr noundef @.str.121)
-  br label %23
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = call i64 @strlen(ptr noundef %14) #9
+  %16 = sub i64 74, %15
+  %17 = trunc i64 %16 to i32
+  store i32 %17, ptr %5, align 4
+  %18 = load i32, ptr %5, align 4
+  %19 = sdiv i32 %18, 2
+  %20 = load ptr, ptr %4, align 8
+  %21 = load i32, ptr %5, align 4
+  %22 = sdiv i32 %21, 2
+  %23 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.120, i32 noundef %19, ptr noundef @.str.121, ptr noundef %20, i32 noundef %22, ptr noundef @.str.121)
+  br label %24
 
-23:                                               ; preds = %12, %8
+24:                                               ; preds = %13, %9
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -4267,203 +4305,209 @@ define internal void @php_info_print_table_row_internal(i32 noundef %0, ptr noun
   store i32 %0, ptr %12, align 4
   store ptr %1, ptr %13, align 8
   store ptr %2, ptr %14, align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %24, label %19
+  %17 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %25, label %20
 
-19:                                               ; preds = %3
+20:                                               ; preds = %3
   store ptr @.str.135, ptr %4, align 8
-  %20 = load ptr, ptr %4, align 8
   %21 = load ptr, ptr %4, align 8
-  %22 = call i64 @strlen(ptr noundef %21) #9
-  %23 = call i64 @php_output_write(ptr noundef %20, i64 noundef %22) #10
-  br label %24
+  %22 = load ptr, ptr %4, align 8
+  %23 = call i64 @strlen(ptr noundef %22) #9
+  %24 = call i64 @php_output_write(ptr noundef %21, i64 noundef %23) #10
+  br label %25
 
-24:                                               ; preds = %19, %3
+25:                                               ; preds = %20, %3
   store i32 0, ptr %15, align 4
-  br label %25
+  br label %26
 
-25:                                               ; preds = %123, %24
-  %26 = load i32, ptr %15, align 4
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp slt i32 %26, %27
-  br i1 %28, label %29, label %126
+26:                                               ; preds = %128, %25
+  %27 = load i32, ptr %15, align 4
+  %28 = load i32, ptr %12, align 4
+  %29 = icmp slt i32 %27, %28
+  br i1 %29, label %30, label %131
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %41, label %32
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %43, label %34
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %15, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %36
+34:                                               ; preds = %30
+  %35 = load i32, ptr %15, align 4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %38
 
-35:                                               ; preds = %32
-  br label %38
+37:                                               ; preds = %34
+  br label %40
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %13, align 8
-  br label %38
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %13, align 8
+  br label %40
 
-38:                                               ; preds = %36, %35
-  %39 = phi ptr [ @.str.146, %35 ], [ %37, %36 ]
-  %40 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.145, ptr noundef %39)
-  br label %41
+40:                                               ; preds = %38, %37
+  %41 = phi ptr [ @.str.146, %37 ], [ %39, %38 ]
+  %42 = call i32 (ptr, ...) @php_info_printf(ptr noundef @.str.145, ptr noundef %41)
+  br label %43
 
-41:                                               ; preds = %38, %29
-  %42 = load ptr, ptr %14, align 8
-  %43 = getelementptr inbounds %struct.__va_list_tag, ptr %42, i32 0, i32 0
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp ule i32 %44, 40
-  br i1 %45, label %46, label %51
+43:                                               ; preds = %40, %30
+  %44 = load ptr, ptr %14, align 8
+  %45 = getelementptr inbounds %struct.__va_list_tag, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp ule i32 %46, 40
+  br i1 %47, label %48, label %53
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds %struct.__va_list_tag, ptr %42, i32 0, i32 3
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr i8, ptr %48, i32 %44
-  %50 = add i32 %44, 8
-  store i32 %50, ptr %43, align 8
-  br label %55
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds %struct.__va_list_tag, ptr %44, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr i8, ptr %50, i32 %46
+  %52 = add i32 %46, 8
+  store i32 %52, ptr %45, align 8
+  br label %57
 
-51:                                               ; preds = %41
-  %52 = getelementptr inbounds %struct.__va_list_tag, ptr %42, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr i8, ptr %53, i32 8
-  store ptr %54, ptr %52, align 8
-  br label %55
+53:                                               ; preds = %43
+  %54 = getelementptr inbounds %struct.__va_list_tag, ptr %44, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr i8, ptr %55, i32 8
+  store ptr %56, ptr %54, align 8
+  br label %57
 
-55:                                               ; preds = %51, %46
-  %56 = phi ptr [ %49, %46 ], [ %53, %51 ]
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %16, align 8
-  %58 = load ptr, ptr %16, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %64
+57:                                               ; preds = %53, %48
+  %58 = phi ptr [ %51, %48 ], [ %55, %53 ]
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %16, align 8
+  %60 = load ptr, ptr %16, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %66
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %16, align 8
-  %62 = load i8, ptr %61, align 1
-  %63 = icmp ne i8 %62, 0
-  br i1 %63, label %78, label %64
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %16, align 8
+  %64 = load i8, ptr %63, align 1
+  %65 = icmp ne i8 %64, 0
+  br i1 %65, label %81, label %66
 
-64:                                               ; preds = %60, %55
-  %65 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %72, label %67
+66:                                               ; preds = %62, %57
+  %67 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %75, label %70
 
-67:                                               ; preds = %64
+70:                                               ; preds = %66
   store ptr @.str.144, ptr %5, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = load ptr, ptr %5, align 8
-  %70 = call i64 @strlen(ptr noundef %69) #9
-  %71 = call i64 @php_output_write(ptr noundef %68, i64 noundef %70) #10
-  br label %77
+  %71 = load ptr, ptr %5, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = call i64 @strlen(ptr noundef %72) #9
+  %74 = call i64 @php_output_write(ptr noundef %71, i64 noundef %73) #10
+  br label %80
 
-72:                                               ; preds = %64
+75:                                               ; preds = %66
   store ptr @.str.121, ptr %6, align 8
-  %73 = load ptr, ptr %6, align 8
-  %74 = load ptr, ptr %6, align 8
-  %75 = call i64 @strlen(ptr noundef %74) #9
-  %76 = call i64 @php_output_write(ptr noundef %73, i64 noundef %75) #10
-  br label %77
+  %76 = load ptr, ptr %6, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = call i64 @strlen(ptr noundef %77) #9
+  %79 = call i64 @php_output_write(ptr noundef %76, i64 noundef %78) #10
+  br label %80
 
-77:                                               ; preds = %72, %67
-  br label %103
+80:                                               ; preds = %75, %70
+  br label %107
 
-78:                                               ; preds = %60
-  %79 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %86, label %81
+81:                                               ; preds = %62
+  %82 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %90, label %85
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %16, align 8
-  %83 = load ptr, ptr %16, align 8
-  %84 = call i64 @strlen(ptr noundef %83) #9
-  %85 = call i32 @php_info_print_html_esc(ptr noundef %82, i64 noundef %84)
-  br label %102
-
-86:                                               ; preds = %78
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %16, align 8
   %87 = load ptr, ptr %16, align 8
-  store ptr %87, ptr %7, align 8
-  %88 = load ptr, ptr %7, align 8
-  %89 = load ptr, ptr %7, align 8
-  %90 = call i64 @strlen(ptr noundef %89) #9
-  %91 = call i64 @php_output_write(ptr noundef %88, i64 noundef %90) #10
-  %92 = load i32, ptr %15, align 4
-  %93 = load i32, ptr %12, align 4
-  %94 = sub nsw i32 %93, 1
-  %95 = icmp slt i32 %92, %94
-  br i1 %95, label %96, label %101
+  %88 = call i64 @strlen(ptr noundef %87) #9
+  %89 = call i32 @php_info_print_html_esc(ptr noundef %86, i64 noundef %88)
+  br label %106
 
-96:                                               ; preds = %86
+90:                                               ; preds = %81
+  %91 = load ptr, ptr %16, align 8
+  store ptr %91, ptr %7, align 8
+  %92 = load ptr, ptr %7, align 8
+  %93 = load ptr, ptr %7, align 8
+  %94 = call i64 @strlen(ptr noundef %93) #9
+  %95 = call i64 @php_output_write(ptr noundef %92, i64 noundef %94) #10
+  %96 = load i32, ptr %15, align 4
+  %97 = load i32, ptr %12, align 4
+  %98 = sub nsw i32 %97, 1
+  %99 = icmp slt i32 %96, %98
+  br i1 %99, label %100, label %105
+
+100:                                              ; preds = %90
   store ptr @.str.125, ptr %8, align 8
-  %97 = load ptr, ptr %8, align 8
-  %98 = load ptr, ptr %8, align 8
-  %99 = call i64 @strlen(ptr noundef %98) #9
-  %100 = call i64 @php_output_write(ptr noundef %97, i64 noundef %99) #10
-  br label %101
+  %101 = load ptr, ptr %8, align 8
+  %102 = load ptr, ptr %8, align 8
+  %103 = call i64 @strlen(ptr noundef %102) #9
+  %104 = call i64 @php_output_write(ptr noundef %101, i64 noundef %103) #10
+  br label %105
 
-101:                                              ; preds = %96, %86
-  br label %102
+105:                                              ; preds = %100, %90
+  br label %106
 
-102:                                              ; preds = %101, %81
-  br label %103
+106:                                              ; preds = %105, %85
+  br label %107
 
-103:                                              ; preds = %102, %77
-  %104 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %105 = icmp ne i32 %104, 0
-  br i1 %105, label %111, label %106
+107:                                              ; preds = %106, %80
+  %108 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %109 = load i32, ptr %108, align 8
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %116, label %111
 
-106:                                              ; preds = %103
+111:                                              ; preds = %107
   store ptr @.str.147, ptr %9, align 8
-  %107 = load ptr, ptr %9, align 8
-  %108 = load ptr, ptr %9, align 8
-  %109 = call i64 @strlen(ptr noundef %108) #9
-  %110 = call i64 @php_output_write(ptr noundef %107, i64 noundef %109) #10
-  br label %122
+  %112 = load ptr, ptr %9, align 8
+  %113 = load ptr, ptr %9, align 8
+  %114 = call i64 @strlen(ptr noundef %113) #9
+  %115 = call i64 @php_output_write(ptr noundef %112, i64 noundef %114) #10
+  br label %127
 
-111:                                              ; preds = %103
-  %112 = load i32, ptr %15, align 4
-  %113 = load i32, ptr %12, align 4
-  %114 = sub nsw i32 %113, 1
-  %115 = icmp eq i32 %112, %114
-  br i1 %115, label %116, label %121
+116:                                              ; preds = %107
+  %117 = load i32, ptr %15, align 4
+  %118 = load i32, ptr %12, align 4
+  %119 = sub nsw i32 %118, 1
+  %120 = icmp eq i32 %117, %119
+  br i1 %120, label %121, label %126
 
-116:                                              ; preds = %111
+121:                                              ; preds = %116
   store ptr @.str.65, ptr %10, align 8
-  %117 = load ptr, ptr %10, align 8
-  %118 = load ptr, ptr %10, align 8
-  %119 = call i64 @strlen(ptr noundef %118) #9
-  %120 = call i64 @php_output_write(ptr noundef %117, i64 noundef %119) #10
-  br label %121
+  %122 = load ptr, ptr %10, align 8
+  %123 = load ptr, ptr %10, align 8
+  %124 = call i64 @strlen(ptr noundef %123) #9
+  %125 = call i64 @php_output_write(ptr noundef %122, i64 noundef %124) #10
+  br label %126
 
-121:                                              ; preds = %116, %111
-  br label %122
+126:                                              ; preds = %121, %116
+  br label %127
 
-122:                                              ; preds = %121, %106
-  br label %123
+127:                                              ; preds = %126, %111
+  br label %128
 
-123:                                              ; preds = %122
-  %124 = load i32, ptr %15, align 4
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %15, align 4
-  br label %25
+128:                                              ; preds = %127
+  %129 = load i32, ptr %15, align 4
+  %130 = add nsw i32 %129, 1
+  store i32 %130, ptr %15, align 4
+  br label %26
 
-126:                                              ; preds = %25
-  %127 = load i32, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32), align 8
-  %128 = icmp ne i32 %127, 0
-  br i1 %128, label %134, label %129
+131:                                              ; preds = %26
+  %132 = getelementptr inbounds %struct._sapi_module_struct, ptr @sapi_module, i32 0, i32 32
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp ne i32 %133, 0
+  br i1 %134, label %140, label %135
 
-129:                                              ; preds = %126
+135:                                              ; preds = %131
   store ptr @.str.126, ptr %11, align 8
-  %130 = load ptr, ptr %11, align 8
-  %131 = load ptr, ptr %11, align 8
-  %132 = call i64 @strlen(ptr noundef %131) #9
-  %133 = call i64 @php_output_write(ptr noundef %130, i64 noundef %132) #10
-  br label %134
+  %136 = load ptr, ptr %11, align 8
+  %137 = load ptr, ptr %11, align 8
+  %138 = call i64 @strlen(ptr noundef %137) #9
+  %139 = call i64 @php_output_write(ptr noundef %136, i64 noundef %138) #10
+  br label %140
 
-134:                                              ; preds = %129, %126
+140:                                              ; preds = %135, %131
   ret void
 }
 
@@ -4475,13 +4519,13 @@ define void @php_info_print_table_row_ex(i32 noundef %0, ptr noundef %1, ...) #0
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load i32, ptr %3, align 4
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @php_info_print_table_row_internal(i32 noundef %7, ptr noundef %8, ptr noundef %9)
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %10)
+  call void @llvm.va_end.p0(ptr %10)
   ret void
 }
 
@@ -9609,13 +9653,13 @@ declare i64 @zend_vspprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) 
 declare i64 @php_output_write(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) #7
+declare noalias ptr @__zend_malloc(i64 noundef) #6
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #8
+declare i1 @llvm.is.constant.i64(i64) #7
 
 declare noalias ptr @_emalloc_8() #1
 
@@ -9678,13 +9722,13 @@ declare noalias ptr @_emalloc_2560() #1
 declare noalias ptr @_emalloc_3072() #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc_large(i64 noundef) #7
+declare noalias ptr @_emalloc_large(i64 noundef) #6
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc_huge(i64 noundef) #7
+declare noalias ptr @_emalloc_huge(i64 noundef) #6
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) #7
+declare noalias ptr @_emalloc(i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_info_print_html_esc(ptr noundef %0, i64 noundef %1) #0 {
@@ -9779,15 +9823,21 @@ declare zeroext i1 @zend_flf_parse_arg_str_slow(ptr noundef, ptr noundef, i32 no
 
 declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0) }

@@ -59,7 +59,7 @@ define i32 @mca_coll_sync_reduce(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %29(ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %40)
   store i32 %41, ptr %9, align 4
-  br label %132
+  br label %134
 
 42:                                               ; preds = %8
   br label %43
@@ -74,115 +74,117 @@ define i32 @mca_coll_sync_reduce(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %48 = load i32, ptr %47, align 8
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 8
-  %50 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 2), align 4
-  %51 = icmp eq i32 %49, %50
-  %52 = xor i1 %51, true
+  %50 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 2
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %49, %51
   %53 = xor i1 %52, true
-  %54 = zext i1 %53 to i32
-  %55 = sext i32 %54 to i64
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %70
+  %54 = xor i1 %53, true
+  %55 = zext i1 %54 to i32
+  %56 = sext i32 %55 to i64
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %71
 
-57:                                               ; preds = %43
-  %58 = load ptr, ptr %18, align 8
-  %59 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %58, i32 0, i32 2
-  store i32 0, ptr %59, align 8
-  %60 = load ptr, ptr %18, align 8
-  %61 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %60, i32 0, i32 1
-  %62 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %61, i32 0, i32 12
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %16, align 8
-  %65 = load ptr, ptr %18, align 8
-  %66 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %65, i32 0, i32 1
-  %67 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %66, i32 0, i32 13
-  %68 = load ptr, ptr %67, align 8
-  %69 = call i32 %63(ptr noundef %64, ptr noundef %68)
-  store i32 %69, ptr %19, align 4
-  br label %70
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %18, align 8
+  %60 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %59, i32 0, i32 2
+  store i32 0, ptr %60, align 8
+  %61 = load ptr, ptr %18, align 8
+  %62 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %61, i32 0, i32 1
+  %63 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %62, i32 0, i32 12
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %16, align 8
+  %66 = load ptr, ptr %18, align 8
+  %67 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %67, i32 0, i32 13
+  %69 = load ptr, ptr %68, align 8
+  %70 = call i32 %64(ptr noundef %65, ptr noundef %69)
+  store i32 %70, ptr %19, align 4
+  br label %71
 
-70:                                               ; preds = %57, %43
-  %71 = load i32, ptr %19, align 4
-  %72 = icmp eq i32 0, %71
-  %73 = xor i1 %72, true
+71:                                               ; preds = %58, %43
+  %72 = load i32, ptr %19, align 4
+  %73 = icmp eq i32 0, %72
   %74 = xor i1 %73, true
-  %75 = zext i1 %74 to i32
-  %76 = sext i32 %75 to i64
-  %77 = icmp ne i64 %76, 0
-  br i1 %77, label %78, label %95
+  %75 = xor i1 %74, true
+  %76 = zext i1 %75 to i32
+  %77 = sext i32 %76 to i64
+  %78 = icmp ne i64 %77, 0
+  br i1 %78, label %79, label %96
 
-78:                                               ; preds = %70
-  %79 = load ptr, ptr %18, align 8
-  %80 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %79, i32 0, i32 1
-  %81 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %80, i32 0, i32 22
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %10, align 8
-  %84 = load ptr, ptr %11, align 8
-  %85 = load i32, ptr %12, align 4
-  %86 = load ptr, ptr %13, align 8
-  %87 = load ptr, ptr %14, align 8
-  %88 = load i32, ptr %15, align 4
-  %89 = load ptr, ptr %16, align 8
-  %90 = load ptr, ptr %18, align 8
-  %91 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %90, i32 0, i32 1
-  %92 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %91, i32 0, i32 23
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 %82(ptr noundef %83, ptr noundef %84, i32 noundef %85, ptr noundef %86, ptr noundef %87, i32 noundef %88, ptr noundef %89, ptr noundef %93)
-  store i32 %94, ptr %19, align 4
-  br label %95
+79:                                               ; preds = %71
+  %80 = load ptr, ptr %18, align 8
+  %81 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %80, i32 0, i32 1
+  %82 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %81, i32 0, i32 22
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %10, align 8
+  %85 = load ptr, ptr %11, align 8
+  %86 = load i32, ptr %12, align 4
+  %87 = load ptr, ptr %13, align 8
+  %88 = load ptr, ptr %14, align 8
+  %89 = load i32, ptr %15, align 4
+  %90 = load ptr, ptr %16, align 8
+  %91 = load ptr, ptr %18, align 8
+  %92 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %91, i32 0, i32 1
+  %93 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %92, i32 0, i32 23
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i32 %83(ptr noundef %84, ptr noundef %85, i32 noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %89, ptr noundef %90, ptr noundef %94)
+  store i32 %95, ptr %19, align 4
+  br label %96
 
-95:                                               ; preds = %78, %70
-  %96 = load ptr, ptr %18, align 8
-  %97 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %96, i32 0, i32 3
-  %98 = load i32, ptr %97, align 4
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %97, align 4
-  %100 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 3), align 8
-  %101 = icmp eq i32 %99, %100
-  %102 = xor i1 %101, true
-  %103 = xor i1 %102, true
-  %104 = zext i1 %103 to i32
-  %105 = sext i32 %104 to i64
-  %106 = icmp ne i64 %105, 0
-  br i1 %106, label %107, label %128
+96:                                               ; preds = %79, %71
+  %97 = load ptr, ptr %18, align 8
+  %98 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %97, i32 0, i32 3
+  %99 = load i32, ptr %98, align 4
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %98, align 4
+  %101 = getelementptr inbounds %struct.mca_coll_sync_component_t, ptr @mca_coll_sync_component, i32 0, i32 3
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp eq i32 %100, %102
+  %104 = xor i1 %103, true
+  %105 = xor i1 %104, true
+  %106 = zext i1 %105 to i32
+  %107 = sext i32 %106 to i64
+  %108 = icmp ne i64 %107, 0
+  br i1 %108, label %109, label %130
 
-107:                                              ; preds = %95
-  %108 = load i32, ptr %19, align 4
-  %109 = icmp eq i32 0, %108
-  %110 = xor i1 %109, true
-  %111 = xor i1 %110, true
-  %112 = zext i1 %111 to i32
-  %113 = sext i32 %112 to i64
-  %114 = icmp ne i64 %113, 0
-  br i1 %114, label %115, label %128
+109:                                              ; preds = %96
+  %110 = load i32, ptr %19, align 4
+  %111 = icmp eq i32 0, %110
+  %112 = xor i1 %111, true
+  %113 = xor i1 %112, true
+  %114 = zext i1 %113 to i32
+  %115 = sext i32 %114 to i64
+  %116 = icmp ne i64 %115, 0
+  br i1 %116, label %117, label %130
 
-115:                                              ; preds = %107
-  %116 = load ptr, ptr %18, align 8
-  %117 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %116, i32 0, i32 3
-  store i32 0, ptr %117, align 4
+117:                                              ; preds = %109
   %118 = load ptr, ptr %18, align 8
-  %119 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %118, i32 0, i32 1
-  %120 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %119, i32 0, i32 12
-  %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %16, align 8
-  %123 = load ptr, ptr %18, align 8
-  %124 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %123, i32 0, i32 1
-  %125 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %124, i32 0, i32 13
-  %126 = load ptr, ptr %125, align 8
-  %127 = call i32 %121(ptr noundef %122, ptr noundef %126)
-  store i32 %127, ptr %19, align 4
-  br label %128
+  %119 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %118, i32 0, i32 3
+  store i32 0, ptr %119, align 4
+  %120 = load ptr, ptr %18, align 8
+  %121 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %120, i32 0, i32 1
+  %122 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %121, i32 0, i32 12
+  %123 = load ptr, ptr %122, align 8
+  %124 = load ptr, ptr %16, align 8
+  %125 = load ptr, ptr %18, align 8
+  %126 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %125, i32 0, i32 1
+  %127 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %126, i32 0, i32 13
+  %128 = load ptr, ptr %127, align 8
+  %129 = call i32 %123(ptr noundef %124, ptr noundef %128)
+  store i32 %129, ptr %19, align 4
+  br label %130
 
-128:                                              ; preds = %115, %107, %95
-  %129 = load ptr, ptr %18, align 8
-  %130 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %129, i32 0, i32 4
-  store i8 0, ptr %130, align 8
-  %131 = load i32, ptr %19, align 4
-  store i32 %131, ptr %9, align 4
-  br label %132
+130:                                              ; preds = %117, %109, %96
+  %131 = load ptr, ptr %18, align 8
+  %132 = getelementptr inbounds %struct.mca_coll_sync_module_t, ptr %131, i32 0, i32 4
+  store i8 0, ptr %132, align 8
+  %133 = load i32, ptr %19, align 4
+  store i32 %133, ptr %9, align 4
+  br label %134
 
-132:                                              ; preds = %128, %25
-  %133 = load i32, ptr %9, align 4
-  ret i32 %133
+134:                                              ; preds = %130, %25
+  %135 = load i32, ptr %9, align 4
+  ret i32 %135
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

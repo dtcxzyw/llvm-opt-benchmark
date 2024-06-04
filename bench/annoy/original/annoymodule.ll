@@ -6001,55 +6001,56 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomE
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 12
-  store i64 1234567890987654321, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
-  %15 = mul i64 %14, 4
-  %16 = add i64 12, %15
-  %17 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 3
-  store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 14
-  store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 18
+  %8 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 12
+  store i64 1234567890987654321, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = mul i64 %15, 4
+  %17 = add i64 12, %16
+  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 3
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 14
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 3
-  %21 = load i64, ptr %20, align 8
-  %22 = sub i64 %21, 4
-  %23 = udiv i64 %22, 4
-  %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 10
-  store i32 %24, ptr %25, align 8
+  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 18
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8
+  %23 = sub i64 %22, 4
+  %24 = udiv i64 %23, 4
+  %25 = trunc i64 %24 to i32
+  %26 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %7, i32 0, i32 10
+  store i32 %25, ptr %26, align 8
   invoke void @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(98) %7)
-          to label %26 unwind label %27
-
-26:                                               ; preds = %2
-  ret void
+          to label %27 unwind label %28
 
 27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  br label %31
+  ret void
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  br label %32
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -6065,55 +6066,56 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64Rando
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 12
-  store i64 1234567890987654321, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
-  %15 = mul i64 %14, 4
-  %16 = add i64 16, %15
-  %17 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 3
-  store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 14
-  store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 18
+  %8 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 12
+  store i64 1234567890987654321, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = mul i64 %15, 4
+  %17 = add i64 16, %16
+  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 3
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 14
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 3
-  %21 = load i64, ptr %20, align 8
-  %22 = sub i64 %21, 8
-  %23 = udiv i64 %22, 4
-  %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 10
-  store i32 %24, ptr %25, align 8
+  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 18
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8
+  %23 = sub i64 %22, 8
+  %24 = udiv i64 %23, 4
+  %25 = trunc i64 %24 to i32
+  %26 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %7, i32 0, i32 10
+  store i32 %25, ptr %26, align 8
   invoke void @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(98) %7)
-          to label %26 unwind label %27
-
-26:                                               ; preds = %2
-  ret void
+          to label %27 unwind label %28
 
 27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  br label %31
+  ret void
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  br label %32
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
@@ -6126,55 +6128,56 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64Rando
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 12
-  store i64 1234567890987654321, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
-  %15 = mul i64 %14, 4
-  %16 = add i64 16, %15
-  %17 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 3
-  store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 14
-  store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 18
+  %8 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 12
+  store i64 1234567890987654321, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = mul i64 %15, 4
+  %17 = add i64 16, %16
+  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 3
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 14
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 3
-  %21 = load i64, ptr %20, align 8
-  %22 = sub i64 %21, 8
-  %23 = udiv i64 %22, 4
-  %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 10
-  store i32 %24, ptr %25, align 8
+  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 18
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8
+  %23 = sub i64 %22, 8
+  %24 = udiv i64 %23, 4
+  %25 = trunc i64 %24 to i32
+  %26 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %7, i32 0, i32 10
+  store i32 %25, ptr %26, align 8
   invoke void @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(98) %7)
-          to label %26 unwind label %27
-
-26:                                               ; preds = %2
-  ret void
+          to label %27 unwind label %28
 
 27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  br label %31
+  ret void
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  br label %32
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
@@ -6187,41 +6190,42 @@ define linkonce_odr void @_ZN14HammingWrapperC2Ei(ptr noundef nonnull align 8 de
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTV14HammingWrapper, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.HammingWrapper, ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.HammingWrapper, ptr %7, i32 0, i32 2
-  %11 = load i32, ptr %4, align 4
-  %12 = add i32 %11, 63
-  %13 = sdiv i32 %12, 64
-  store i32 %13, ptr %10, align 4
-  %14 = getelementptr inbounds %class.HammingWrapper, ptr %7, i32 0, i32 3
-  %15 = load i32, ptr %4, align 4
-  %16 = add i32 %15, 63
-  %17 = sdiv i32 %16, 64
-  invoke void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEC2Ei(ptr noundef nonnull align 8 dereferenceable(98) %14, i32 noundef %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV14HammingWrapper, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.HammingWrapper, ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.HammingWrapper, ptr %7, i32 0, i32 2
+  %12 = load i32, ptr %4, align 4
+  %13 = add i32 %12, 63
+  %14 = sdiv i32 %13, 64
+  store i32 %14, ptr %11, align 4
+  %15 = getelementptr inbounds %class.HammingWrapper, ptr %7, i32 0, i32 3
+  %16 = load i32, ptr %4, align 4
+  %17 = add i32 %16, 63
+  %18 = sdiv i32 %17, 64
+  invoke void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEC2Ei(ptr noundef nonnull align 8 dereferenceable(98) %15, i32 noundef %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %5, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %6, align 4
-  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %2
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %5, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %6, align 4
+  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
@@ -6234,55 +6238,56 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64Ran
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 12
-  store i64 1234567890987654321, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
-  %15 = mul i64 %14, 4
-  %16 = add i64 24, %15
-  %17 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 3
-  store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 14
-  store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 18
+  %8 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 12
+  store i64 1234567890987654321, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = mul i64 %15, 4
+  %17 = add i64 24, %16
+  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 3
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 14
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 3
-  %21 = load i64, ptr %20, align 8
-  %22 = sub i64 %21, 4
-  %23 = udiv i64 %22, 4
-  %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 10
-  store i32 %24, ptr %25, align 8
+  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 18
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8
+  %23 = sub i64 %22, 4
+  %24 = udiv i64 %23, 4
+  %25 = trunc i64 %24 to i32
+  %26 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %7, i32 0, i32 10
+  store i32 %25, ptr %26, align 8
   invoke void @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(98) %7)
-          to label %26 unwind label %27
-
-26:                                               ; preds = %2
-  ret void
+          to label %27 unwind label %28
 
 27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  br label %31
+  ret void
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  br label %32
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -6290,7 +6295,8 @@ define linkonce_odr void @_ZN5Annoy19AnnoyIndexInterfaceIifmEC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy19AnnoyIndexInterfaceIifmEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy19AnnoyIndexInterfaceIifmEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6325,24 +6331,25 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 6
-  %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(98) %3)
-          to label %7 unwind label %9
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i64 6
+  %7 = load ptr, ptr %6, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(98) %3)
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #17
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 }
 
@@ -14013,35 +14020,36 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
   store ptr %5, ptr %12, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_7AngularENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS2_7AngularENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %22 unwind label %23
-
-22:                                               ; preds = %6
-  ret void
+  %16 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_7AngularENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %15, i32 0, i32 1
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS2_7AngularENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %23 unwind label %24
 
 23:                                               ; preds = %6
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %13, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %14, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  br label %27
+  ret void
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %13, align 8
-  %29 = load i32, ptr %14, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+24:                                               ; preds = %6
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %13, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %14, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %13, align 8
+  %30 = load i32, ptr %14, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -14109,7 +14117,8 @@ define linkonce_odr void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20327,24 +20336,25 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64Rando
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 6
-  %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(98) %3)
-          to label %7 unwind label %9
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i64 6
+  %7 = load ptr, ptr %6, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(98) %3)
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex.5", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #17
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 }
 
@@ -24080,35 +24090,36 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
   store ptr %5, ptr %12, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9EuclideanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.std::thread::_State_impl.54", ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS2_9EuclideanENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %22 unwind label %23
-
-22:                                               ; preds = %6
-  ret void
+  %16 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9EuclideanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.std::thread::_State_impl.54", ptr %15, i32 0, i32 1
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS2_9EuclideanENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %23 unwind label %24
 
 23:                                               ; preds = %6
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %13, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %14, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  br label %27
+  ret void
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %13, align 8
-  %29 = load i32, ptr %14, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+24:                                               ; preds = %6
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %13, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %14, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %13, align 8
+  %30 = load i32, ptr %14, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -25045,24 +25056,25 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64Rando
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 6
-  %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(98) %3)
-          to label %7 unwind label %9
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i64 6
+  %7 = load ptr, ptr %6, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(98) %3)
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex.7", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #17
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 }
 
@@ -27715,35 +27727,36 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
   store ptr %5, ptr %12, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9ManhattanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.std::thread::_State_impl.61", ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS2_9ManhattanENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %22 unwind label %23
-
-22:                                               ; preds = %6
-  ret void
+  %16 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9ManhattanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.std::thread::_State_impl.61", ptr %15, i32 0, i32 1
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS2_9ManhattanENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %23 unwind label %24
 
 23:                                               ; preds = %6
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %13, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %14, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  br label %27
+  ret void
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %13, align 8
-  %29 = load i32, ptr %14, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+24:                                               ; preds = %6
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %13, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %14, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %13, align 8
+  %30 = load i32, ptr %14, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -28610,55 +28623,56 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomE
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Annoy19AnnoyIndexInterfaceIimmEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 12
-  store i64 1234567890987654321, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
-  %15 = mul i64 %14, 8
-  %16 = add i64 16, %15
-  %17 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 3
-  store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 14
-  store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 18
+  %8 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %12 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 12
+  store i64 1234567890987654321, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = mul i64 %15, 8
+  %17 = add i64 16, %16
+  %18 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 3
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 14
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 3
-  %21 = load i64, ptr %20, align 8
-  %22 = sub i64 %21, 4
-  %23 = udiv i64 %22, 4
-  %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 10
-  store i32 %24, ptr %25, align 8
+  %20 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 18
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8
+  %23 = sub i64 %22, 4
+  %24 = udiv i64 %23, 4
+  %25 = trunc i64 %24 to i32
+  %26 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %7, i32 0, i32 10
+  store i32 %25, ptr %26, align 8
   invoke void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(98) %7)
-          to label %26 unwind label %27
-
-26:                                               ; preds = %2
-  ret void
+          to label %27 unwind label %28
 
 27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  call void @_ZN5Annoy19AnnoyIndexInterfaceIimmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  br label %31
+  ret void
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  call void @_ZN5Annoy19AnnoyIndexInterfaceIimmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  br label %32
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -28666,9 +28680,10 @@ define linkonce_odr void @_ZN14HammingWrapperD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTV14HammingWrapper, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.HammingWrapper, ptr %3, i32 0, i32 3
-  call void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEED2Ev(ptr noundef nonnull align 8 dereferenceable(98) %4) #18
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV14HammingWrapper, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.HammingWrapper, ptr %3, i32 0, i32 3
+  call void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEED2Ev(ptr noundef nonnull align 8 dereferenceable(98) %5) #18
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 }
@@ -29225,7 +29240,8 @@ define linkonce_odr void @_ZN5Annoy19AnnoyIndexInterfaceIimmEC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy19AnnoyIndexInterfaceIimmEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy19AnnoyIndexInterfaceIimmEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29260,24 +29276,25 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 6
-  %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(98) %3)
-          to label %7 unwind label %9
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i64 6
+  %7 = load ptr, ptr %6, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(98) %3)
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex.9", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @_ZN5Annoy19AnnoyIndexInterfaceIimmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #17
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 }
 
@@ -32735,35 +32752,36 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
   store ptr %5, ptr %12, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIimNS3_7HammingENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.std::thread::_State_impl.75", ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIimNS2_7HammingENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %22 unwind label %23
-
-22:                                               ; preds = %6
-  ret void
+  %16 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIimNS3_7HammingENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.std::thread::_State_impl.75", ptr %15, i32 0, i32 1
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIimNS2_7HammingENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %23 unwind label %24
 
 23:                                               ; preds = %6
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %13, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %14, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  br label %27
+  ret void
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %13, align 8
-  %29 = load i32, ptr %14, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+24:                                               ; preds = %6
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %13, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %14, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %13, align 8
+  %30 = load i32, ptr %14, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -38755,24 +38773,25 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64Ran
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) ({ [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 6
-  %6 = load ptr, ptr %5, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(98) %3)
-          to label %7 unwind label %9
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i64 6
+  %7 = load ptr, ptr %6, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(98) %3)
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.Annoy::AnnoyIndex.12", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @_ZN5Annoy19AnnoyIndexInterfaceIifmED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #17
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 }
 
@@ -42847,35 +42866,36 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
   store ptr %5, ptr %12, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_10DotProductENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.std::thread::_State_impl.111", ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS2_10DotProductENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %22 unwind label %23
-
-22:                                               ; preds = %6
-  ret void
+  %16 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_10DotProductENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.std::thread::_State_impl.111", ptr %15, i32 0, i32 1
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS2_10DotProductENS2_12Kiss64RandomENS2_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS6_EPS7_iiSt17reference_wrapperIS6_EEEEC2IJSA_RSB_RiSI_SD_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %23 unwind label %24
 
 23:                                               ; preds = %6
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %13, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %14, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
-  br label %27
+  ret void
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %13, align 8
-  %29 = load i32, ptr %14, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+24:                                               ; preds = %6
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %13, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %14, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %13, align 8
+  %30 = load i32, ptr %14, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable

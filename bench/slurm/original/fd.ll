@@ -1094,63 +1094,64 @@ define ptr @fd_resolve_peer(i32 noundef %0) #0 {
 
 12:                                               ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %38
+  br label %39
 
 13:                                               ; preds = %1
   %14 = load i32, ptr %3, align 4
   %15 = call i32 @slurm_get_peer_addr(i32 noundef %14, ptr noundef %4)
   %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %32
+  br i1 %16, label %17, label %33
 
 17:                                               ; preds = %13
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %20 = and i64 %19, 1024
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %30
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %20, 1024
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %31
 
-22:                                               ; preds = %18
-  br label %23
+23:                                               ; preds = %18
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = call i32 @get_log_level()
-  %25 = icmp sge i32 %24, 4
-  br i1 %25, label %26, label %28
+24:                                               ; preds = %23
+  %25 = call i32 @get_log_level()
+  %26 = icmp sge i32 %25, 4
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %3, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.13, ptr noundef @__func__.fd_resolve_peer, i32 noundef %27)
-  br label %28
-
-28:                                               ; preds = %26, %23
+27:                                               ; preds = %24
+  %28 = load i32, ptr %3, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.13, ptr noundef @__func__.fd_resolve_peer, i32 noundef %28)
   br label %29
 
-29:                                               ; preds = %28
+29:                                               ; preds = %27, %24
   br label %30
 
-30:                                               ; preds = %29, %18
+30:                                               ; preds = %29
   br label %31
 
-31:                                               ; preds = %30
+31:                                               ; preds = %30, %18
+  br label %32
+
+32:                                               ; preds = %31
   store ptr null, ptr %2, align 8
-  br label %38
+  br label %39
 
-32:                                               ; preds = %13
-  %33 = load i32, ptr %5, align 4
-  %34 = call ptr @sockaddr_to_string(ptr noundef %4, i32 noundef %33)
-  store ptr %34, ptr %7, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = call ptr @__errno_location() #10
-  store i32 %35, ptr %36, align 4
-  %37 = load ptr, ptr %7, align 8
-  store ptr %37, ptr %2, align 8
-  br label %38
+33:                                               ; preds = %13
+  %34 = load i32, ptr %5, align 4
+  %35 = call ptr @sockaddr_to_string(ptr noundef %4, i32 noundef %34)
+  store ptr %35, ptr %7, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = call ptr @__errno_location() #10
+  store i32 %36, ptr %37, align 4
+  %38 = load ptr, ptr %7, align 8
+  store ptr %38, ptr %2, align 8
+  br label %39
 
-38:                                               ; preds = %32, %31, %12
-  %39 = load ptr, ptr %2, align 8
-  ret ptr %39
+39:                                               ; preds = %33, %32, %12
+  %40 = load ptr, ptr %2, align 8
+  ret ptr %40
 }
 
 declare i32 @slurm_get_peer_addr(i32 noundef, ptr noundef) #1

@@ -22,8 +22,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @u16550_earlyserialinit() #0 {
-  store i8 1, ptr getelementptr inbounds (%struct.uart_dev_s, ptr @g_uart0port, i32 0, i32 2), align 2
-  %1 = call i32 @u16550_setup(ptr noundef @g_uart0port)
+  %1 = getelementptr inbounds %struct.uart_dev_s, ptr @g_uart0port, i32 0, i32 2
+  store i8 1, ptr %1, align 2
+  %2 = call i32 @u16550_setup(ptr noundef @g_uart0port)
   ret void
 }
 
@@ -176,27 +177,28 @@ define i32 @up_putc(i32 noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store i32 %0, ptr %2, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct.uart_dev_s, ptr @g_uart0port, i32 0, i32 13), align 8
-  store ptr %5, ptr %3, align 8
-  %6 = call i64 @up_irq_save()
-  store i64 %6, ptr %4, align 8
-  %7 = load i32, ptr %2, align 4
-  %8 = icmp eq i32 %7, 10
-  br i1 %8, label %9, label %11
+  %5 = getelementptr inbounds %struct.uart_dev_s, ptr @g_uart0port, i32 0, i32 13
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = call i64 @up_irq_save()
+  store i64 %7, ptr %4, align 8
+  %8 = load i32, ptr %2, align 4
+  %9 = icmp eq i32 %8, 10
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  call void @u16550_putc(ptr noundef %10, i32 noundef 13)
-  br label %11
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8
+  call void @u16550_putc(ptr noundef %11, i32 noundef 13)
+  br label %12
 
-11:                                               ; preds = %9, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = load i32, ptr %2, align 4
-  call void @u16550_putc(ptr noundef %12, i32 noundef %13)
-  %14 = load i64, ptr %4, align 8
-  call void @up_irq_restore(i64 noundef %14)
-  %15 = load i32, ptr %2, align 4
-  ret i32 %15
+12:                                               ; preds = %10, %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = load i32, ptr %2, align 4
+  call void @u16550_putc(ptr noundef %13, i32 noundef %14)
+  %15 = load i64, ptr %4, align 8
+  call void @up_irq_restore(i64 noundef %15)
+  %16 = load i32, ptr %2, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable

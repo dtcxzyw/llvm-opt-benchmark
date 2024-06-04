@@ -1649,9 +1649,10 @@ define linkonce_odr void @_ZN5faiss13IndexFastScanD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5faiss13IndexFastScanE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %3, i32 0, i32 11
-  call void @_ZN5faiss12AlignedTableIhLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  %4 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5faiss13IndexFastScanE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %3, i32 0, i32 11
+  call void @_ZN5faiss12AlignedTableIhLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #13
   ret void
 }
@@ -3344,9 +3345,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -3384,48 +3386,49 @@ define void @_ZN5faiss13IndexFastScanC2Ev(ptr noundef nonnull align 8 dereferenc
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %5, i64 noundef 0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5faiss13IndexFastScanE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 1
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 2
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 3
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 4
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 5
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 8
+  %6 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTVN5faiss13IndexFastScanE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 1
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 2
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 3
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 4
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 5
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 9
+  %12 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 8
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 10
+  %13 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 9
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 11
-  invoke void @_ZN5faiss12AlignedTableIhLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %17
+  %14 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 10
+  store i64 0, ptr %14, align 8
+  %15 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 11
+  invoke void @_ZN5faiss12AlignedTableIhLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %18
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 12
-  store ptr null, ptr %16, align 8
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds %"struct.faiss::IndexFastScan", ptr %5, i32 0, i32 12
+  store ptr null, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %1
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #13
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %3, align 8
-  %23 = load i32, ptr %4, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3437,22 +3440,23 @@ define linkonce_odr void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnul
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  %10 = trunc i64 %9 to i32
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
-  store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
-  store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
-  %15 = load i32, ptr %6, align 4
-  store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
-  store float 0.000000e+00, ptr %16, align 8
+  %8 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  %11 = trunc i64 %10 to i32
+  store i32 %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
+  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
+  store i8 1, ptr %14, align 1
+  %15 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
+  %16 = load i32, ptr %6, align 4
+  store i32 %16, ptr %15, align 4
+  %17 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
+  store float 0.000000e+00, ptr %17, align 8
   ret void
 }
 
@@ -3636,7 +3640,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3683,7 +3688,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9941,87 +9947,88 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19SingleResultHandlerIN
   %16 = load i64, ptr %7, align 8
   %17 = load i64, ptr %8, align 8
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EEC2Emm(ptr noundef nonnull align 8 dereferenceable(88) %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %18 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %15, i32 0, i32 1
-  %19 = load i64, ptr %7, align 8
+  %18 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %15, i32 0, i32 1
+  %20 = load i64, ptr %7, align 8
   call void @_ZNSaIsEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  invoke void @_ZNSt6vectorIsSaIsEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %20 unwind label %44
+  invoke void @_ZNSt6vectorIsSaIsEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %21 unwind label %45
 
-20:                                               ; preds = %5
+21:                                               ; preds = %5
   call void @_ZNSaIsED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  %21 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %15, i32 0, i32 2
-  %22 = load ptr, ptr %9, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %15, i32 0, i32 3
-  %24 = load ptr, ptr %10, align 8
-  store ptr %24, ptr %23, align 8
+  %22 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %15, i32 0, i32 2
+  %23 = load ptr, ptr %9, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %15, i32 0, i32 3
+  %25 = load ptr, ptr %10, align 8
+  store ptr %25, ptr %24, align 8
   store i32 0, ptr %14, align 4
-  br label %25
+  br label %26
 
-25:                                               ; preds = %41, %20
-  %26 = load i32, ptr %14, align 4
-  %27 = sext i32 %26 to i64
-  %28 = load i64, ptr %7, align 8
-  %29 = icmp ult i64 %27, %28
-  br i1 %29, label %30, label %52
+26:                                               ; preds = %42, %21
+  %27 = load i32, ptr %14, align 4
+  %28 = sext i32 %27 to i64
+  %29 = load i64, ptr %7, align 8
+  %30 = icmp ult i64 %28, %29
+  br i1 %30, label %31, label %53
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %10, align 8
-  %32 = load i32, ptr %14, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i64, ptr %31, i64 %33
-  store i64 -1, ptr %34, align 8
-  %35 = invoke noundef zeroext i16 @_ZN5faiss4CMaxItiE7neutralEv()
-          to label %36 unwind label %48
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %10, align 8
+  %33 = load i32, ptr %14, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i64, ptr %32, i64 %34
+  store i64 -1, ptr %35, align 8
+  %36 = invoke noundef zeroext i16 @_ZN5faiss4CMaxItiE7neutralEv()
+          to label %37 unwind label %49
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %15, i32 0, i32 1
-  %38 = load i32, ptr %14, align 4
-  %39 = sext i32 %38 to i64
-  %40 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt6vectorIsSaIsEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39) #13
-  store i16 %35, ptr %40, align 2
-  br label %41
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %15, i32 0, i32 1
+  %39 = load i32, ptr %14, align 4
+  %40 = sext i32 %39 to i64
+  %41 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt6vectorIsSaIsEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %40) #13
+  store i16 %36, ptr %41, align 2
+  br label %42
 
-41:                                               ; preds = %36
-  %42 = load i32, ptr %14, align 4
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %14, align 4
-  br label %25, !llvm.loop !32
+42:                                               ; preds = %37
+  %43 = load i32, ptr %14, align 4
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %14, align 4
+  br label %26, !llvm.loop !32
 
-44:                                               ; preds = %5
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %5
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %12, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %13, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %12, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %13, align 4
   call void @_ZNSaIsED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  br label %53
-
-48:                                               ; preds = %30
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %12, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %13, align 4
-  call void @_ZNSt6vectorIsSaIsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
-  br label %53
-
-52:                                               ; preds = %25
-  ret void
-
-53:                                               ; preds = %48, %44
-  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #13
   br label %54
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %12, align 8
-  %56 = load i32, ptr %13, align 4
-  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
-  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
-  resume { ptr, i32 } %58
+49:                                               ; preds = %31
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %12, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %13, align 4
+  call void @_ZNSt6vectorIsSaIsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+  br label %54
+
+53:                                               ; preds = %26
+  ret void
+
+54:                                               ; preds = %49, %45
+  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #13
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %12, align 8
+  %57 = load i32, ptr %13, align 4
+  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
+  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
+  resume { ptr, i32 } %59
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10046,93 +10053,94 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxI
   %18 = load i64, ptr %8, align 8
   %19 = load i64, ptr %9, align 8
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EEC2Emm(ptr noundef nonnull align 8 dereferenceable(88) %17, i64 noundef %18, i64 noundef %19)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 1
-  %21 = load i64, ptr %8, align 8
-  %22 = load i64, ptr %10, align 8
-  %23 = mul i64 %21, %22
+  %20 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 1
+  %22 = load i64, ptr %8, align 8
+  %23 = load i64, ptr %10, align 8
+  %24 = mul i64 %22, %23
   call void @_ZNSaItEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
-  invoke void @_ZNSt6vectorItSaItEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %24 unwind label %44
+  invoke void @_ZNSt6vectorItSaItEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %25 unwind label %45
 
-24:                                               ; preds = %6
+25:                                               ; preds = %6
   call void @_ZNSaItED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
-  %25 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 2
-  %26 = load i64, ptr %8, align 8
-  %27 = load i64, ptr %10, align 8
-  %28 = mul i64 %26, %27
+  %26 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 2
+  %27 = load i64, ptr %8, align 8
+  %28 = load i64, ptr %10, align 8
+  %29 = mul i64 %27, %28
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
-  invoke void @_ZNSt6vectorIiSaIiEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %29 unwind label %48
+  invoke void @_ZNSt6vectorIiSaIiEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %30 unwind label %49
 
-29:                                               ; preds = %24
+30:                                               ; preds = %25
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
-  %30 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 3
-  %31 = load ptr, ptr %11, align 8
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 4
-  %33 = load ptr, ptr %12, align 8
-  store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 5
-  %35 = load i64, ptr %10, align 8
-  store i64 %35, ptr %34, align 8
+  %31 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 3
+  %32 = load ptr, ptr %11, align 8
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 4
+  %34 = load ptr, ptr %12, align 8
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 5
   %36 = load i64, ptr %10, align 8
-  %37 = load i64, ptr %8, align 8
-  %38 = mul i64 %36, %37
-  %39 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 1
-  %40 = call noundef ptr @_ZNSt6vectorItSaItEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #13
-  %41 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 2
-  %42 = call noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
-  invoke void @_ZN5faiss12heap_heapifyINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %38, ptr noundef %40, ptr noundef %42, ptr noundef null, ptr noundef null, i64 noundef 0)
-          to label %43 unwind label %52
+  store i64 %36, ptr %35, align 8
+  %37 = load i64, ptr %10, align 8
+  %38 = load i64, ptr %8, align 8
+  %39 = mul i64 %37, %38
+  %40 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 1
+  %41 = call noundef ptr @_ZNSt6vectorItSaItEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #13
+  %42 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %17, i32 0, i32 2
+  %43 = call noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #13
+  invoke void @_ZN5faiss12heap_heapifyINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %39, ptr noundef %41, ptr noundef %43, ptr noundef null, ptr noundef null, i64 noundef 0)
+          to label %44 unwind label %53
 
-43:                                               ; preds = %29
+44:                                               ; preds = %30
   ret void
 
-44:                                               ; preds = %6
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %6
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %14, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %15, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %14, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %15, align 4
   call void @_ZNSaItED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
-  br label %57
-
-48:                                               ; preds = %24
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %14, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %15, align 4
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
-  br label %56
-
-52:                                               ; preds = %29
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %14, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %15, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
-  br label %56
-
-56:                                               ; preds = %52, %48
-  call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
-  br label %57
-
-57:                                               ; preds = %56, %44
-  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %17) #13
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %14, align 8
-  %60 = load i32, ptr %15, align 4
-  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
-  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
-  resume { ptr, i32 } %62
+49:                                               ; preds = %25
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %14, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %15, align 4
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
+  br label %57
+
+53:                                               ; preds = %30
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %14, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %15, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
+  br label %57
+
+57:                                               ; preds = %53, %49
+  call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  br label %58
+
+58:                                               ; preds = %57, %45
+  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %17) #13
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %14, align 8
+  %61 = load i32, ptr %15, align 4
+  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
+  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
+  resume { ptr, i32 } %63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10160,122 +10168,123 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4
   %21 = load i64, ptr %9, align 8
   %22 = load i64, ptr %10, align 8
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EEC2Emm(ptr noundef nonnull align 8 dereferenceable(88) %20, i64 noundef %21, i64 noundef %22)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2), ptr %20, align 8
-  %23 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
-  %24 = load i64, ptr %12, align 8
-  %25 = add i64 %24, 15
-  %26 = and i64 %25, -16
-  store i64 %26, ptr %23, align 8
-  %27 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 2
-  %28 = load ptr, ptr %13, align 8
-  store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 3
-  %30 = load ptr, ptr %14, align 8
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
-  %32 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 5
-  invoke void @_ZN5faiss12AlignedTableItLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32)
-          to label %33 unwind label %74
+  %23 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %20, align 8
+  %24 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
+  %25 = load i64, ptr %12, align 8
+  %26 = add i64 %25, 15
+  %27 = and i64 %26, -16
+  store i64 %27, ptr %24, align 8
+  %28 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 2
+  %29 = load ptr, ptr %13, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 3
+  %31 = load ptr, ptr %14, align 8
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
+  %33 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 5
+  invoke void @_ZN5faiss12AlignedTableItLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %34 unwind label %75
 
-33:                                               ; preds = %7
-  %34 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 6
-  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
-  %35 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 4
-  %36 = load i64, ptr %9, align 8
-  %37 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
-  %39 = mul i64 %36, %38
-  invoke void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %39)
-          to label %40 unwind label %78
+34:                                               ; preds = %7
+  %35 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 6
+  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
+  %36 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 4
+  %37 = load i64, ptr %9, align 8
+  %38 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8
+  %40 = mul i64 %37, %39
+  invoke void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %40)
+          to label %41 unwind label %79
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 5
-  %42 = load i64, ptr %9, align 8
-  %43 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
-  %44 = load i64, ptr %43, align 8
-  %45 = mul i64 %42, %44
-  invoke void @_ZN5faiss12AlignedTableItLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %45)
-          to label %46 unwind label %78
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 5
+  %43 = load i64, ptr %9, align 8
+  %44 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
+  %45 = load i64, ptr %44, align 8
+  %46 = mul i64 %43, %45
+  invoke void @_ZN5faiss12AlignedTableItLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %46)
+          to label %47 unwind label %79
 
-46:                                               ; preds = %40
+47:                                               ; preds = %41
   store i64 0, ptr %17, align 8
-  br label %47
+  br label %48
 
-47:                                               ; preds = %71, %46
-  %48 = load i64, ptr %17, align 8
-  %49 = load i64, ptr %9, align 8
-  %50 = icmp ult i64 %48, %49
-  br i1 %50, label %51, label %82
+48:                                               ; preds = %72, %47
+  %49 = load i64, ptr %17, align 8
+  %50 = load i64, ptr %9, align 8
+  %51 = icmp ult i64 %49, %50
+  br i1 %51, label %52, label %83
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 6
-  %53 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
-  %54 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 5
-  %55 = invoke noundef ptr @_ZN5faiss12AlignedTableItLi32EE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %54)
-          to label %56 unwind label %78
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 6
+  %54 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
+  %55 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 5
+  %56 = invoke noundef ptr @_ZN5faiss12AlignedTableItLi32EE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %55)
+          to label %57 unwind label %79
 
-56:                                               ; preds = %51
-  %57 = load i64, ptr %17, align 8
-  %58 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = mul i64 %57, %59
-  %61 = getelementptr inbounds i16, ptr %55, i64 %60
-  store ptr %61, ptr %18, align 8
-  %62 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 4
-  %63 = call noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #13
-  %64 = load i64, ptr %17, align 8
-  %65 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  %67 = mul i64 %64, %66
-  %68 = getelementptr inbounds i32, ptr %63, i64 %67
-  store ptr %68, ptr %19, align 8
-  %69 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EE12emplace_backIJRmS8_PtPiEEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %70 unwind label %78
+57:                                               ; preds = %52
+  %58 = load i64, ptr %17, align 8
+  %59 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
+  %60 = load i64, ptr %59, align 8
+  %61 = mul i64 %58, %60
+  %62 = getelementptr inbounds i16, ptr %56, i64 %61
+  store ptr %62, ptr %18, align 8
+  %63 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 4
+  %64 = call noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #13
+  %65 = load i64, ptr %17, align 8
+  %66 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %20, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8
+  %68 = mul i64 %65, %67
+  %69 = getelementptr inbounds i32, ptr %64, i64 %68
+  store ptr %69, ptr %19, align 8
+  %70 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EE12emplace_backIJRmS8_PtPiEEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %71 unwind label %79
 
-70:                                               ; preds = %56
-  br label %71
+71:                                               ; preds = %57
+  br label %72
 
-71:                                               ; preds = %70
-  %72 = load i64, ptr %17, align 8
-  %73 = add i64 %72, 1
-  store i64 %73, ptr %17, align 8
-  br label %47, !llvm.loop !33
+72:                                               ; preds = %71
+  %73 = load i64, ptr %17, align 8
+  %74 = add i64 %73, 1
+  store i64 %74, ptr %17, align 8
+  br label %48, !llvm.loop !33
 
-74:                                               ; preds = %7
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %7
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %15, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %16, align 4
-  br label %83
-
-78:                                               ; preds = %56, %51, %40, %33
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %15, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %16, align 4
-  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
-  call void @_ZN5faiss12AlignedTableItLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
-  br label %83
-
-82:                                               ; preds = %47
-  ret void
-
-83:                                               ; preds = %78, %74
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
-  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #13
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %15, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %16, align 4
   br label %84
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %15, align 8
-  %86 = load i32, ptr %16, align 4
-  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
-  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
-  resume { ptr, i32 } %88
+79:                                               ; preds = %57, %52, %41, %34
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %15, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %16, align 4
+  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
+  call void @_ZN5faiss12AlignedTableItLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
+  br label %84
+
+83:                                               ; preds = %48
+  ret void
+
+84:                                               ; preds = %79, %75
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
+  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #13
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %15, align 8
+  %87 = load i32, ptr %16, align 4
+  %88 = insertvalue { ptr, i32 } poison, ptr %86, 0
+  %89 = insertvalue { ptr, i32 } %88, i32 %87, 1
+  resume { ptr, i32 } %89
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10290,19 +10299,20 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareI
   %8 = load i64, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5faiss24SIMDResultHandlerToFloatC2Emm(ptr noundef nonnull align 8 dereferenceable(64) %7, i64 noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare", ptr %7, i32 0, i32 1
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare", ptr %7, i32 0, i32 2
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare", ptr %7, i32 0, i32 3
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare", ptr %7, i32 0, i32 1
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare", ptr %7, i32 0, i32 2
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 1
-  store i8 1, ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 2
-  store i8 4, ptr %14, align 1
-  %15 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 3
-  store i8 0, ptr %15, align 2
+  %13 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare", ptr %7, i32 0, i32 3
+  store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 1
+  store i8 1, ptr %14, align 8
+  %15 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 2
+  store i8 4, ptr %15, align 1
+  %16 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 3
+  store i8 0, ptr %16, align 2
   ret void
 }
 
@@ -10536,9 +10546,10 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19SingleResultHandlerIN
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIsSaIsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIsSaIsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   ret void
 }
@@ -10666,21 +10677,22 @@ define linkonce_odr void @_ZN5faiss24SIMDResultHandlerToFloatC2Emm(ptr noundef n
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %7) #13
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss24SIMDResultHandlerToFloatE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 3
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss24SIMDResultHandlerToFloatE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 3
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 5
+  %14 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 4
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 6
+  %15 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 5
   store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.faiss::SIMDResultHandlerToFloat", ptr %7, i32 0, i32 6
+  store ptr null, ptr %16, align 8
   ret void
 }
 
@@ -10716,13 +10728,14 @@ define linkonce_odr void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss17SIMDResultHandlerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %3, i32 0, i32 2
-  store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %3, i32 0, i32 3
-  store i8 0, ptr %6, align 2
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5faiss17SIMDResultHandlerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %3, i32 0, i32 2
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %3, i32 0, i32 3
+  store i8 0, ptr %7, align 2
   ret void
 }
 
@@ -12276,11 +12289,12 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
-  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers11HeapHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   ret void
 }
@@ -14383,13 +14397,14 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
-  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %3, i32 0, i32 5
-  call void @_ZN5faiss12AlignedTableItLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
-  %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMaxItiEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %3, i32 0, i32 5
+  call void @_ZN5faiss12AlignedTableItLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %7 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   ret void
 }
@@ -15617,24 +15632,25 @@ define linkonce_odr void @_ZN5faiss13ReservoirTopNINS_4CMaxItiEEEC2EmmPtPi(ptr n
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN5faiss13ResultHandlerINS_4CMaxItiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %11) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ReservoirTopNINS_4CMaxItiEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %9, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %10, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 3
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 4
-  %18 = load i64, ptr %7, align 8
-  store i64 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 5
-  %20 = load i64, ptr %8, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = call noundef zeroext i16 @_ZN5faiss4CMaxItiE7neutralEv()
-  %22 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %11, i32 0, i32 1
-  store i16 %21, ptr %22, align 8
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ReservoirTopNINS_4CMaxItiEEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %9, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %10, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 3
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 4
+  %19 = load i64, ptr %7, align 8
+  store i64 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %11, i32 0, i32 5
+  %21 = load i64, ptr %8, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = call noundef zeroext i16 @_ZN5faiss4CMaxItiE7neutralEv()
+  %23 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %11, i32 0, i32 1
+  store i16 %22, ptr %23, align 8
   ret void
 }
 
@@ -15643,9 +15659,10 @@ define linkonce_odr void @_ZN5faiss13ResultHandlerINS_4CMaxItiEEEC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMaxItiEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %3, i32 0, i32 1
-  store i16 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMaxItiEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %3, i32 0, i32 1
+  store i16 0, ptr %5, align 8
   ret void
 }
 
@@ -16231,11 +16248,12 @@ define linkonce_odr void @_ZN5faiss13ReservoirTopNINS_4CMaxItiEEEC2EOS3_(ptr nou
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5faiss13ResultHandlerINS_4CMaxItiEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ReservoirTopNINS_4CMaxItiEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 40, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ReservoirTopNINS_4CMaxItiEEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.faiss::ReservoirTopN", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 40, i1 false)
   ret void
 }
 
@@ -16246,12 +16264,13 @@ define linkonce_odr void @_ZN5faiss13ResultHandlerINS_4CMaxItiEEEC2ERKS3_(ptr no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMaxItiEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %7, i32 0, i32 1
-  %9 = load i16, ptr %8, align 8
-  store i16 %9, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMaxItiEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.faiss::ResultHandler", ptr %8, i32 0, i32 1
+  %10 = load i16, ptr %9, align 8
+  store i16 %10, ptr %7, align 8
   ret void
 }
 
@@ -21206,87 +21225,88 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19SingleResultHandlerIN
   %16 = load i64, ptr %7, align 8
   %17 = load i64, ptr %8, align 8
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EEC2Emm(ptr noundef nonnull align 8 dereferenceable(88) %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %18 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %15, i32 0, i32 1
-  %19 = load i64, ptr %7, align 8
+  %18 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %15, align 8
+  %19 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %15, i32 0, i32 1
+  %20 = load i64, ptr %7, align 8
   call void @_ZNSaIsEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  invoke void @_ZNSt6vectorIsSaIsEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %20 unwind label %44
+  invoke void @_ZNSt6vectorIsSaIsEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %21 unwind label %45
 
-20:                                               ; preds = %5
+21:                                               ; preds = %5
   call void @_ZNSaIsED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  %21 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %15, i32 0, i32 2
-  %22 = load ptr, ptr %9, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %15, i32 0, i32 3
-  %24 = load ptr, ptr %10, align 8
-  store ptr %24, ptr %23, align 8
+  %22 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %15, i32 0, i32 2
+  %23 = load ptr, ptr %9, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %15, i32 0, i32 3
+  %25 = load ptr, ptr %10, align 8
+  store ptr %25, ptr %24, align 8
   store i32 0, ptr %14, align 4
-  br label %25
+  br label %26
 
-25:                                               ; preds = %41, %20
-  %26 = load i32, ptr %14, align 4
-  %27 = sext i32 %26 to i64
-  %28 = load i64, ptr %7, align 8
-  %29 = icmp ult i64 %27, %28
-  br i1 %29, label %30, label %52
+26:                                               ; preds = %42, %21
+  %27 = load i32, ptr %14, align 4
+  %28 = sext i32 %27 to i64
+  %29 = load i64, ptr %7, align 8
+  %30 = icmp ult i64 %28, %29
+  br i1 %30, label %31, label %53
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %10, align 8
-  %32 = load i32, ptr %14, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i64, ptr %31, i64 %33
-  store i64 -1, ptr %34, align 8
-  %35 = invoke noundef zeroext i16 @_ZN5faiss4CMinItiE7neutralEv()
-          to label %36 unwind label %48
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %10, align 8
+  %33 = load i32, ptr %14, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i64, ptr %32, i64 %34
+  store i64 -1, ptr %35, align 8
+  %36 = invoke noundef zeroext i16 @_ZN5faiss4CMinItiE7neutralEv()
+          to label %37 unwind label %49
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %15, i32 0, i32 1
-  %38 = load i32, ptr %14, align 4
-  %39 = sext i32 %38 to i64
-  %40 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt6vectorIsSaIsEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39) #13
-  store i16 %35, ptr %40, align 2
-  br label %41
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %15, i32 0, i32 1
+  %39 = load i32, ptr %14, align 4
+  %40 = sext i32 %39 to i64
+  %41 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt6vectorIsSaIsEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %40) #13
+  store i16 %36, ptr %41, align 2
+  br label %42
 
-41:                                               ; preds = %36
-  %42 = load i32, ptr %14, align 4
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %14, align 4
-  br label %25, !llvm.loop !85
+42:                                               ; preds = %37
+  %43 = load i32, ptr %14, align 4
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %14, align 4
+  br label %26, !llvm.loop !85
 
-44:                                               ; preds = %5
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %5
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %12, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %13, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %12, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %13, align 4
   call void @_ZNSaIsED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  br label %53
-
-48:                                               ; preds = %30
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %12, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %13, align 4
-  call void @_ZNSt6vectorIsSaIsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
-  br label %53
-
-52:                                               ; preds = %25
-  ret void
-
-53:                                               ; preds = %48, %44
-  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #13
   br label %54
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %12, align 8
-  %56 = load i32, ptr %13, align 4
-  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
-  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
-  resume { ptr, i32 } %58
+49:                                               ; preds = %31
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %12, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %13, align 4
+  call void @_ZNSt6vectorIsSaIsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+  br label %54
+
+53:                                               ; preds = %26
+  ret void
+
+54:                                               ; preds = %49, %45
+  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #13
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %12, align 8
+  %57 = load i32, ptr %13, align 4
+  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
+  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
+  resume { ptr, i32 } %59
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21311,93 +21331,94 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinI
   %18 = load i64, ptr %8, align 8
   %19 = load i64, ptr %9, align 8
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EEC2Emm(ptr noundef nonnull align 8 dereferenceable(88) %17, i64 noundef %18, i64 noundef %19)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 1
-  %21 = load i64, ptr %8, align 8
-  %22 = load i64, ptr %10, align 8
-  %23 = mul i64 %21, %22
+  %20 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 1
+  %22 = load i64, ptr %8, align 8
+  %23 = load i64, ptr %10, align 8
+  %24 = mul i64 %22, %23
   call void @_ZNSaItEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
-  invoke void @_ZNSt6vectorItSaItEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %24 unwind label %44
+  invoke void @_ZNSt6vectorItSaItEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %25 unwind label %45
 
-24:                                               ; preds = %6
+25:                                               ; preds = %6
   call void @_ZNSaItED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
-  %25 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 2
-  %26 = load i64, ptr %8, align 8
-  %27 = load i64, ptr %10, align 8
-  %28 = mul i64 %26, %27
+  %26 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 2
+  %27 = load i64, ptr %8, align 8
+  %28 = load i64, ptr %10, align 8
+  %29 = mul i64 %27, %28
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
-  invoke void @_ZNSt6vectorIiSaIiEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %16)
-          to label %29 unwind label %48
+  invoke void @_ZNSt6vectorIiSaIiEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %30 unwind label %49
 
-29:                                               ; preds = %24
+30:                                               ; preds = %25
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
-  %30 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 3
-  %31 = load ptr, ptr %11, align 8
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 4
-  %33 = load ptr, ptr %12, align 8
-  store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 5
-  %35 = load i64, ptr %10, align 8
-  store i64 %35, ptr %34, align 8
+  %31 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 3
+  %32 = load ptr, ptr %11, align 8
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 4
+  %34 = load ptr, ptr %12, align 8
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 5
   %36 = load i64, ptr %10, align 8
-  %37 = load i64, ptr %8, align 8
-  %38 = mul i64 %36, %37
-  %39 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 1
-  %40 = call noundef ptr @_ZNSt6vectorItSaItEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #13
-  %41 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 2
-  %42 = call noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #13
-  invoke void @_ZN5faiss12heap_heapifyINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %38, ptr noundef %40, ptr noundef %42, ptr noundef null, ptr noundef null, i64 noundef 0)
-          to label %43 unwind label %52
+  store i64 %36, ptr %35, align 8
+  %37 = load i64, ptr %10, align 8
+  %38 = load i64, ptr %8, align 8
+  %39 = mul i64 %37, %38
+  %40 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 1
+  %41 = call noundef ptr @_ZNSt6vectorItSaItEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #13
+  %42 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %17, i32 0, i32 2
+  %43 = call noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #13
+  invoke void @_ZN5faiss12heap_heapifyINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %39, ptr noundef %41, ptr noundef %43, ptr noundef null, ptr noundef null, i64 noundef 0)
+          to label %44 unwind label %53
 
-43:                                               ; preds = %29
+44:                                               ; preds = %30
   ret void
 
-44:                                               ; preds = %6
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %6
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %14, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %15, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %14, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %15, align 4
   call void @_ZNSaItED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
-  br label %57
-
-48:                                               ; preds = %24
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %14, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %15, align 4
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
-  br label %56
-
-52:                                               ; preds = %29
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %14, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %15, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
-  br label %56
-
-56:                                               ; preds = %52, %48
-  call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
-  br label %57
-
-57:                                               ; preds = %56, %44
-  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %17) #13
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %14, align 8
-  %60 = load i32, ptr %15, align 4
-  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
-  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
-  resume { ptr, i32 } %62
+49:                                               ; preds = %25
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %14, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %15, align 4
+  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
+  br label %57
+
+53:                                               ; preds = %30
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %14, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %15, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
+  br label %57
+
+57:                                               ; preds = %53, %49
+  call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  br label %58
+
+58:                                               ; preds = %57, %45
+  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %17) #13
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %14, align 8
+  %61 = load i32, ptr %15, align 4
+  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
+  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
+  resume { ptr, i32 } %63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21425,122 +21446,123 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4
   %21 = load i64, ptr %9, align 8
   %22 = load i64, ptr %10, align 8
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EEC2Emm(ptr noundef nonnull align 8 dereferenceable(88) %20, i64 noundef %21, i64 noundef %22)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2), ptr %20, align 8
-  %23 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
-  %24 = load i64, ptr %12, align 8
-  %25 = add i64 %24, 15
-  %26 = and i64 %25, -16
-  store i64 %26, ptr %23, align 8
-  %27 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 2
-  %28 = load ptr, ptr %13, align 8
-  store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 3
-  %30 = load ptr, ptr %14, align 8
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
-  %32 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 5
-  invoke void @_ZN5faiss12AlignedTableItLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32)
-          to label %33 unwind label %74
+  %23 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %23, ptr %20, align 8
+  %24 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
+  %25 = load i64, ptr %12, align 8
+  %26 = add i64 %25, 15
+  %27 = and i64 %26, -16
+  store i64 %27, ptr %24, align 8
+  %28 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 2
+  %29 = load ptr, ptr %13, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 3
+  %31 = load ptr, ptr %14, align 8
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
+  %33 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 5
+  invoke void @_ZN5faiss12AlignedTableItLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %34 unwind label %75
 
-33:                                               ; preds = %7
-  %34 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 6
-  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
-  %35 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 4
-  %36 = load i64, ptr %9, align 8
-  %37 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
-  %39 = mul i64 %36, %38
-  invoke void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %39)
-          to label %40 unwind label %78
+34:                                               ; preds = %7
+  %35 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 6
+  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
+  %36 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 4
+  %37 = load i64, ptr %9, align 8
+  %38 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8
+  %40 = mul i64 %37, %39
+  invoke void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %40)
+          to label %41 unwind label %79
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 5
-  %42 = load i64, ptr %9, align 8
-  %43 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
-  %44 = load i64, ptr %43, align 8
-  %45 = mul i64 %42, %44
-  invoke void @_ZN5faiss12AlignedTableItLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %45)
-          to label %46 unwind label %78
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 5
+  %43 = load i64, ptr %9, align 8
+  %44 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
+  %45 = load i64, ptr %44, align 8
+  %46 = mul i64 %43, %45
+  invoke void @_ZN5faiss12AlignedTableItLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %46)
+          to label %47 unwind label %79
 
-46:                                               ; preds = %40
+47:                                               ; preds = %41
   store i64 0, ptr %17, align 8
-  br label %47
+  br label %48
 
-47:                                               ; preds = %71, %46
-  %48 = load i64, ptr %17, align 8
-  %49 = load i64, ptr %9, align 8
-  %50 = icmp ult i64 %48, %49
-  br i1 %50, label %51, label %82
+48:                                               ; preds = %72, %47
+  %49 = load i64, ptr %17, align 8
+  %50 = load i64, ptr %9, align 8
+  %51 = icmp ult i64 %49, %50
+  br i1 %51, label %52, label %83
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 6
-  %53 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
-  %54 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 5
-  %55 = invoke noundef ptr @_ZN5faiss12AlignedTableItLi32EE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %54)
-          to label %56 unwind label %78
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 6
+  %54 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
+  %55 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 5
+  %56 = invoke noundef ptr @_ZN5faiss12AlignedTableItLi32EE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %55)
+          to label %57 unwind label %79
 
-56:                                               ; preds = %51
-  %57 = load i64, ptr %17, align 8
-  %58 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = mul i64 %57, %59
-  %61 = getelementptr inbounds i16, ptr %55, i64 %60
-  store ptr %61, ptr %18, align 8
-  %62 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 4
-  %63 = call noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #13
-  %64 = load i64, ptr %17, align 8
-  %65 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  %67 = mul i64 %64, %66
-  %68 = getelementptr inbounds i32, ptr %63, i64 %67
-  store ptr %68, ptr %19, align 8
-  %69 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EE12emplace_backIJRmS8_PtPiEEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %70 unwind label %78
+57:                                               ; preds = %52
+  %58 = load i64, ptr %17, align 8
+  %59 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
+  %60 = load i64, ptr %59, align 8
+  %61 = mul i64 %58, %60
+  %62 = getelementptr inbounds i16, ptr %56, i64 %61
+  store ptr %62, ptr %18, align 8
+  %63 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 4
+  %64 = call noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #13
+  %65 = load i64, ptr %17, align 8
+  %66 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %20, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8
+  %68 = mul i64 %65, %67
+  %69 = getelementptr inbounds i32, ptr %64, i64 %68
+  store ptr %69, ptr %19, align 8
+  %70 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EE12emplace_backIJRmS8_PtPiEEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %71 unwind label %79
 
-70:                                               ; preds = %56
-  br label %71
+71:                                               ; preds = %57
+  br label %72
 
-71:                                               ; preds = %70
-  %72 = load i64, ptr %17, align 8
-  %73 = add i64 %72, 1
-  store i64 %73, ptr %17, align 8
-  br label %47, !llvm.loop !86
+72:                                               ; preds = %71
+  %73 = load i64, ptr %17, align 8
+  %74 = add i64 %73, 1
+  store i64 %74, ptr %17, align 8
+  br label %48, !llvm.loop !86
 
-74:                                               ; preds = %7
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %7
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %15, align 8
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %16, align 4
-  br label %83
-
-78:                                               ; preds = %56, %51, %40, %33
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %15, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %16, align 4
-  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
-  call void @_ZN5faiss12AlignedTableItLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
-  br label %83
-
-82:                                               ; preds = %47
-  ret void
-
-83:                                               ; preds = %78, %74
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
-  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #13
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %15, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %16, align 4
   br label %84
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %15, align 8
-  %86 = load i32, ptr %16, align 4
-  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
-  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
-  resume { ptr, i32 } %88
+79:                                               ; preds = %57, %52, %41, %34
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %15, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %16, align 4
+  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
+  call void @_ZN5faiss12AlignedTableItLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #13
+  br label %84
+
+83:                                               ; preds = %48
+  ret void
+
+84:                                               ; preds = %79, %75
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
+  call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #13
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %15, align 8
+  %87 = load i32, ptr %16, align 4
+  %88 = insertvalue { ptr, i32 } poison, ptr %86, 0
+  %89 = insertvalue { ptr, i32 } %88, i32 %87, 1
+  resume { ptr, i32 } %89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21555,19 +21577,20 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareI
   %8 = load i64, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5faiss24SIMDResultHandlerToFloatC2Emm(ptr noundef nonnull align 8 dereferenceable(64) %7, i64 noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare.53", ptr %7, i32 0, i32 1
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare.53", ptr %7, i32 0, i32 2
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare.53", ptr %7, i32 0, i32 3
+  %10 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare.53", ptr %7, i32 0, i32 1
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare.53", ptr %7, i32 0, i32 2
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 1
-  store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 2
-  store i8 4, ptr %14, align 1
-  %15 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 3
-  store i8 0, ptr %15, align 2
+  %13 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ResultHandlerCompare.53", ptr %7, i32 0, i32 3
+  store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 1
+  store i8 0, ptr %14, align 8
+  %15 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 2
+  store i8 4, ptr %15, align 1
+  %16 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %7, i32 0, i32 3
+  store i8 0, ptr %16, align 2
   ret void
 }
 
@@ -21700,9 +21723,10 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19SingleResultHandlerIN
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIsSaIsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::SingleResultHandler.54", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIsSaIsEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   ret void
 }
@@ -22355,11 +22379,12 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers11HeapHandlerINS_4CMinI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
-  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers11HeapHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::HeapHandler.55", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   ret void
 }
@@ -23137,13 +23162,14 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
-  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %3, i32 0, i32 5
-  call void @_ZN5faiss12AlignedTableItLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
-  %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN5faiss13ReservoirTopNINS0_4CMinItiEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %3, i32 0, i32 5
+  call void @_ZN5faiss12AlignedTableItLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  %7 = getelementptr inbounds %"struct.faiss::simd_result_handlers::ReservoirHandler.56", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   call void @_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #13
   ret void
 }
@@ -23768,24 +23794,25 @@ define linkonce_odr void @_ZN5faiss13ReservoirTopNINS_4CMinItiEEEC2EmmPtPi(ptr n
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN5faiss13ResultHandlerINS_4CMinItiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %11) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ReservoirTopNINS_4CMinItiEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %9, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %10, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 3
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 4
-  %18 = load i64, ptr %7, align 8
-  store i64 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 5
-  %20 = load i64, ptr %8, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = call noundef zeroext i16 @_ZN5faiss4CMinItiE7neutralEv()
-  %22 = getelementptr inbounds %"struct.faiss::ResultHandler.63", ptr %11, i32 0, i32 1
-  store i16 %21, ptr %22, align 8
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ReservoirTopNINS_4CMinItiEEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %9, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %10, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 3
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 4
+  %19 = load i64, ptr %7, align 8
+  store i64 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %11, i32 0, i32 5
+  %21 = load i64, ptr %8, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = call noundef zeroext i16 @_ZN5faiss4CMinItiE7neutralEv()
+  %23 = getelementptr inbounds %"struct.faiss::ResultHandler.63", ptr %11, i32 0, i32 1
+  store i16 %22, ptr %23, align 8
   ret void
 }
 
@@ -23794,9 +23821,10 @@ define linkonce_odr void @_ZN5faiss13ResultHandlerINS_4CMinItiEEEC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMinItiEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ResultHandler.63", ptr %3, i32 0, i32 1
-  store i16 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMinItiEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ResultHandler.63", ptr %3, i32 0, i32 1
+  store i16 0, ptr %5, align 8
   ret void
 }
 
@@ -24382,11 +24410,12 @@ define linkonce_odr void @_ZN5faiss13ReservoirTopNINS_4CMinItiEEEC2EOS3_(ptr nou
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5faiss13ResultHandlerINS_4CMinItiEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %6) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ReservoirTopNINS_4CMinItiEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 40, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ReservoirTopNINS_4CMinItiEEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.faiss::ReservoirTopN.62", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 40, i1 false)
   ret void
 }
 
@@ -24397,12 +24426,13 @@ define linkonce_odr void @_ZN5faiss13ResultHandlerINS_4CMinItiEEEC2ERKS3_(ptr no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMinItiEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::ResultHandler.63", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.faiss::ResultHandler.63", ptr %7, i32 0, i32 1
-  %9 = load i16, ptr %8, align 8
-  store i16 %9, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss13ResultHandlerINS_4CMinItiEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::ResultHandler.63", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.faiss::ResultHandler.63", ptr %8, i32 0, i32 1
+  %10 = load i16, ptr %9, align 8
+  store i16 %10, ptr %7, align 8
   ret void
 }
 

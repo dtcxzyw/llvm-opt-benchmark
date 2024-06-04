@@ -48,7 +48,7 @@ define internal ptr @mca_topo_basic_query(ptr noundef %0, ptr noundef %1, ptr no
 
 14:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %35
+  br label %36
 
 15:                                               ; preds = %4
   br label %16
@@ -58,42 +58,43 @@ define internal ptr @mca_topo_basic_query(ptr noundef %0, ptr noundef %1, ptr no
 
 17:                                               ; preds = %16
   %18 = load i32, ptr @opal_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_topo_base_module_t_class, i32 0, i32 4), align 8
-  %20 = icmp ne i32 %18, %19
-  br i1 %20, label %21, label %22
+  %19 = getelementptr inbounds %struct.opal_class_t, ptr @mca_topo_base_module_t_class, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ne i32 %18, %20
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %17
+22:                                               ; preds = %17
   call void @opal_class_initialize(ptr noundef @mca_topo_base_module_t_class)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %17
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct.opal_object_t, ptr %23, i32 0, i32 0
-  store ptr @mca_topo_base_module_t_class, ptr %24, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds %struct.opal_object_t, ptr %25, i32 0, i32 1
-  store volatile i32 1, ptr %26, align 8
-  %27 = load ptr, ptr %10, align 8
-  call void @opal_obj_run_constructors(ptr noundef %27)
-  br label %28
-
-28:                                               ; preds = %22
+23:                                               ; preds = %22, %17
+  %24 = load ptr, ptr %10, align 8
+  %25 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 0
+  store ptr @mca_topo_base_module_t_class, ptr %25, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = getelementptr inbounds %struct.opal_object_t, ptr %26, i32 0, i32 1
+  store volatile i32 1, ptr %27, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @opal_obj_run_constructors(ptr noundef %28)
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %8, align 8
-  store i32 0, ptr %30, align 4
-  %31 = load i32, ptr %9, align 4
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds %struct.mca_topo_base_module_t, ptr %32, i32 0, i32 1
-  store i32 %31, ptr %33, align 8
-  %34 = load ptr, ptr %10, align 8
-  store ptr %34, ptr %5, align 8
-  br label %35
+29:                                               ; preds = %23
+  br label %30
 
-35:                                               ; preds = %29, %14
-  %36 = load ptr, ptr %5, align 8
-  ret ptr %36
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %8, align 8
+  store i32 0, ptr %31, align 4
+  %32 = load i32, ptr %9, align 4
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds %struct.mca_topo_base_module_t, ptr %33, i32 0, i32 1
+  store i32 %32, ptr %34, align 8
+  %35 = load ptr, ptr %10, align 8
+  store ptr %35, ptr %5, align 8
+  br label %36
+
+36:                                               ; preds = %30, %14
+  %37 = load ptr, ptr %5, align 8
+  ret ptr %37
 }
 
 ; Function Attrs: nounwind allocsize(0,1)

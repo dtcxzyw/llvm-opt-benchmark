@@ -1172,201 +1172,206 @@ define internal void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  store ptr getelementptr inbounds (%struct.lookup_t, ptr @adjustMode, i64 1), ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+  %10 = getelementptr inbounds %struct.lookup_t, ptr @adjustMode, i64 1
+  store ptr %10, ptr %7, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i8, ptr %13, align 1
-  %15 = sext i8 %14 to i32
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %23
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i8, ptr %14, align 1
+  %16 = sext i8 %15 to i32
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %25
 
-17:                                               ; preds = %12, %3
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.adjust_data, ptr %18, i32 0, i32 0
-  store i32 0, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.lookup_t, ptr @adjustMode, i32 0, i32 3), align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.adjust_data, ptr %21, i32 0, i32 1
-  store ptr %20, ptr %22, align 8
-  br label %125
+18:                                               ; preds = %13, %3
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds %struct.adjust_data, ptr %19, i32 0, i32 0
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.lookup_t, ptr @adjustMode, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %struct.adjust_data, ptr %23, i32 0, i32 1
+  store ptr %22, ptr %24, align 8
+  br label %130
 
-23:                                               ; preds = %12
-  br label %24
+25:                                               ; preds = %13
+  br label %26
 
-24:                                               ; preds = %75, %23
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.lookup_t, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %78
+26:                                               ; preds = %78, %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds %struct.lookup_t, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %81
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct.lookup_t, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.lookup_t, ptr %34, i32 0, i32 2
-  %36 = load i32, ptr %35, align 8
-  %37 = sext i32 %36 to i64
-  %38 = call i32 @strncasecmp(ptr noundef %30, ptr noundef %33, i64 noundef %37) #13
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %75, label %40
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = getelementptr inbounds %struct.lookup_t, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct.lookup_t, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 8
+  %39 = sext i32 %38 to i64
+  %40 = call i32 @strncasecmp(ptr noundef %32, ptr noundef %35, i64 noundef %39) #13
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %78, label %42
 
-40:                                               ; preds = %29
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct.lookup_t, ptr %41, i32 0, i32 3
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %50
+42:                                               ; preds = %31
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds %struct.lookup_t, ptr %43, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %53
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct.lookup_t, ptr %46, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  %49 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.14, ptr noundef %48)
-  store ptr getelementptr inbounds ([18 x %struct.lookup_t], ptr @adjustMode, i64 0, i64 1), ptr %7, align 8
-  br label %50
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds %struct.lookup_t, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.14, ptr noundef %50)
+  %52 = getelementptr inbounds [18 x %struct.lookup_t], ptr @adjustMode, i64 0, i64 1
+  store ptr %52, ptr %7, align 8
+  br label %53
 
-50:                                               ; preds = %45, %40
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct.lookup_t, ptr %51, i32 0, i32 0
-  %53 = load i32, ptr %52, align 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct.adjust_data, ptr %54, i32 0, i32 0
-  store i32 %53, ptr %55, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %struct.lookup_t, ptr %56, i32 0, i32 3
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.adjust_data, ptr %59, i32 0, i32 1
-  store ptr %58, ptr %60, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %struct.lookup_t, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp eq i32 %63, 18
-  br i1 %64, label %65, label %74
+53:                                               ; preds = %47, %42
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds %struct.lookup_t, ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8
+  %57 = load ptr, ptr %6, align 8
+  %58 = getelementptr inbounds %struct.adjust_data, ptr %57, i32 0, i32 0
+  store i32 %56, ptr %58, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds %struct.lookup_t, ptr %59, i32 0, i32 3
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds %struct.adjust_data, ptr %62, i32 0, i32 1
+  store ptr %61, ptr %63, align 8
+  %64 = load ptr, ptr %7, align 8
+  %65 = getelementptr inbounds %struct.lookup_t, ptr %64, i32 0, i32 0
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp eq i32 %66, 18
+  br i1 %67, label %68, label %77
 
-65:                                               ; preds = %50
-  %66 = load ptr, ptr %4, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.lookup_t, ptr %68, i32 0, i32 2
-  %70 = load i32, ptr %69, align 8
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %67, i64 %71
-  %73 = load ptr, ptr %6, align 8
-  call void @setPrismValues(ptr noundef %66, ptr noundef %72, ptr noundef %73)
-  br label %74
+68:                                               ; preds = %53
+  %69 = load ptr, ptr %4, align 8
+  %70 = load ptr, ptr %5, align 8
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds %struct.lookup_t, ptr %71, i32 0, i32 2
+  %73 = load i32, ptr %72, align 8
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %70, i64 %74
+  %76 = load ptr, ptr %6, align 8
+  call void @setPrismValues(ptr noundef %69, ptr noundef %75, ptr noundef %76)
+  br label %77
 
-74:                                               ; preds = %65, %50
-  br label %78
+77:                                               ; preds = %68, %53
+  br label %81
 
-75:                                               ; preds = %29
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct.lookup_t, ptr %76, i32 1
-  store ptr %77, ptr %7, align 8
-  br label %24
-
-78:                                               ; preds = %74, %24
+78:                                               ; preds = %31
   %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds %struct.lookup_t, ptr %79, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %124
+  %80 = getelementptr inbounds %struct.lookup_t, ptr %79, i32 1
+  store ptr %80, ptr %7, align 8
+  br label %26
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %5, align 8
-  %85 = call zeroext i1 @mapbool(ptr noundef %84)
-  %86 = zext i1 %85 to i8
-  store i8 %86, ptr %8, align 1
-  %87 = load i8, ptr %8, align 1
-  %88 = trunc i8 %87 to i1
-  %89 = zext i1 %88 to i32
-  %90 = load ptr, ptr %5, align 8
-  %91 = call zeroext i1 @mapBool(ptr noundef %90, i1 noundef zeroext true)
+81:                                               ; preds = %77, %26
+  %82 = load ptr, ptr %7, align 8
+  %83 = getelementptr inbounds %struct.lookup_t, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %129
+
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %5, align 8
+  %88 = call zeroext i1 @mapbool(ptr noundef %87)
+  %89 = zext i1 %88 to i8
+  store i8 %89, ptr %8, align 1
+  %90 = load i8, ptr %8, align 1
+  %91 = trunc i8 %90 to i1
   %92 = zext i1 %91 to i32
-  %93 = icmp ne i32 %89, %92
-  %94 = zext i1 %93 to i8
-  store i8 %94, ptr %9, align 1
-  %95 = load i8, ptr %9, align 1
-  %96 = trunc i8 %95 to i1
-  br i1 %96, label %97, label %100
+  %93 = load ptr, ptr %5, align 8
+  %94 = call zeroext i1 @mapBool(ptr noundef %93, i1 noundef zeroext true)
+  %95 = zext i1 %94 to i32
+  %96 = icmp ne i32 %92, %95
+  %97 = zext i1 %96 to i8
+  store i8 %97, ptr %9, align 1
+  %98 = load i8, ptr %9, align 1
+  %99 = trunc i8 %98 to i1
+  br i1 %99, label %100, label %103
 
-97:                                               ; preds = %83
-  %98 = load ptr, ptr %5, align 8
-  %99 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.15, ptr noundef %98)
+100:                                              ; preds = %86
+  %101 = load ptr, ptr %5, align 8
+  %102 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.15, ptr noundef %101)
   store i8 0, ptr %8, align 1
-  br label %100
+  br label %103
 
-100:                                              ; preds = %97, %83
-  %101 = load i8, ptr %8, align 1
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %103, label %109
+103:                                              ; preds = %100, %86
+  %104 = load i8, ptr %8, align 1
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %106, label %113
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds %struct.adjust_data, ptr %104, i32 0, i32 0
-  store i32 0, ptr %105, align 8
-  %106 = load ptr, ptr getelementptr inbounds (%struct.lookup_t, ptr @adjustMode, i32 0, i32 3), align 8
+106:                                              ; preds = %103
   %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.adjust_data, ptr %107, i32 0, i32 1
-  store ptr %106, ptr %108, align 8
-  br label %115
+  %108 = getelementptr inbounds %struct.adjust_data, ptr %107, i32 0, i32 0
+  store i32 0, ptr %108, align 8
+  %109 = getelementptr inbounds %struct.lookup_t, ptr @adjustMode, i32 0, i32 3
+  %110 = load ptr, ptr %109, align 8
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr inbounds %struct.adjust_data, ptr %111, i32 0, i32 1
+  store ptr %110, ptr %112, align 8
+  br label %120
 
-109:                                              ; preds = %100
-  %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct.adjust_data, ptr %110, i32 0, i32 0
-  store i32 1, ptr %111, align 8
-  %112 = load ptr, ptr getelementptr inbounds ([18 x %struct.lookup_t], ptr @adjustMode, i64 0, i64 1, i32 3), align 8
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds %struct.adjust_data, ptr %113, i32 0, i32 1
-  store ptr %112, ptr %114, align 8
-  br label %115
+113:                                              ; preds = %103
+  %114 = load ptr, ptr %6, align 8
+  %115 = getelementptr inbounds %struct.adjust_data, ptr %114, i32 0, i32 0
+  store i32 1, ptr %115, align 8
+  %116 = getelementptr inbounds [18 x %struct.lookup_t], ptr @adjustMode, i64 0, i64 1, i32 3
+  %117 = load ptr, ptr %116, align 8
+  %118 = load ptr, ptr %6, align 8
+  %119 = getelementptr inbounds %struct.adjust_data, ptr %118, i32 0, i32 1
+  store ptr %117, ptr %119, align 8
+  br label %120
 
-115:                                              ; preds = %109, %103
-  %116 = load ptr, ptr %6, align 8
-  %117 = getelementptr inbounds %struct.adjust_data, ptr %116, i32 0, i32 0
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp eq i32 %118, 18
-  br i1 %119, label %120, label %123
+120:                                              ; preds = %113, %106
+  %121 = load ptr, ptr %6, align 8
+  %122 = getelementptr inbounds %struct.adjust_data, ptr %121, i32 0, i32 0
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp eq i32 %123, 18
+  br i1 %124, label %125, label %128
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %4, align 8
-  %122 = load ptr, ptr %6, align 8
-  call void @setPrismValues(ptr noundef %121, ptr noundef @.str.4, ptr noundef %122)
-  br label %123
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %4, align 8
+  %127 = load ptr, ptr %6, align 8
+  call void @setPrismValues(ptr noundef %126, ptr noundef @.str.4, ptr noundef %127)
+  br label %128
 
-123:                                              ; preds = %120, %115
-  br label %124
+128:                                              ; preds = %125, %120
+  br label %129
 
-124:                                              ; preds = %123, %78
-  br label %125
+129:                                              ; preds = %128, %81
+  br label %130
 
-125:                                              ; preds = %124, %17
-  %126 = load i8, ptr @Verbose, align 1
-  %127 = icmp ne i8 %126, 0
-  br i1 %127, label %128, label %140
+130:                                              ; preds = %129, %18
+  %131 = load i8, ptr @Verbose, align 1
+  %132 = icmp ne i8 %131, 0
+  br i1 %132, label %133, label %145
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr @stderr, align 8
-  %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct.adjust_data, ptr %130, i32 0, i32 1
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct.adjust_data, ptr %133, i32 0, i32 2
-  %135 = load i32, ptr %134, align 8
-  %136 = load ptr, ptr %6, align 8
-  %137 = getelementptr inbounds %struct.adjust_data, ptr %136, i32 0, i32 3
-  %138 = load double, ptr %137, align 8
-  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef @.str.16, ptr noundef %132, i32 noundef %135, double noundef %138) #10
-  br label %140
+133:                                              ; preds = %130
+  %134 = load ptr, ptr @stderr, align 8
+  %135 = load ptr, ptr %6, align 8
+  %136 = getelementptr inbounds %struct.adjust_data, ptr %135, i32 0, i32 1
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr %6, align 8
+  %139 = getelementptr inbounds %struct.adjust_data, ptr %138, i32 0, i32 2
+  %140 = load i32, ptr %139, align 8
+  %141 = load ptr, ptr %6, align 8
+  %142 = getelementptr inbounds %struct.adjust_data, ptr %141, i32 0, i32 3
+  %143 = load double, ptr %142, align 8
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef @.str.16, ptr noundef %137, i32 noundef %140, double noundef %143) #10
+  br label %145
 
-140:                                              ; preds = %128, %125
+145:                                              ; preds = %133, %130
   ret void
 }
 
@@ -3084,11 +3089,15 @@ define internal void @setBoundBox(ptr noundef %0, ptr noundef %1) #0 {
   store double %18, ptr @se, align 8
   store double %18, ptr @ne, align 8
   %19 = load double, ptr @pymax, align 8
-  store double %19, ptr getelementptr inbounds (%struct.pointf_s, ptr @ne, i32 0, i32 1), align 8
-  store double %19, ptr getelementptr inbounds (%struct.pointf_s, ptr @nw, i32 0, i32 1), align 8
-  %20 = load double, ptr @pymin, align 8
-  store double %20, ptr getelementptr inbounds (%struct.pointf_s, ptr @se, i32 0, i32 1), align 8
-  store double %20, ptr getelementptr inbounds (%struct.pointf_s, ptr @sw, i32 0, i32 1), align 8
+  %20 = getelementptr inbounds %struct.pointf_s, ptr @ne, i32 0, i32 1
+  store double %19, ptr %20, align 8
+  %21 = getelementptr inbounds %struct.pointf_s, ptr @nw, i32 0, i32 1
+  store double %19, ptr %21, align 8
+  %22 = load double, ptr @pymin, align 8
+  %23 = getelementptr inbounds %struct.pointf_s, ptr @se, i32 0, i32 1
+  store double %22, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.pointf_s, ptr @sw, i32 0, i32 1
+  store double %22, ptr %24, align 8
   ret void
 }
 
@@ -4079,23 +4088,27 @@ define internal void @addCorners() #0 {
   %89 = load ptr, ptr %2, align 8
   %90 = getelementptr inbounds %struct.Info_t, ptr %89, i32 0, i32 1
   %91 = load double, ptr @sw, align 8
-  %92 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @sw, i32 0, i32 1), align 8
-  call void @addVertex(ptr noundef %90, double noundef %91, double noundef %92)
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct.Info_t, ptr %93, i32 0, i32 1
-  %95 = load double, ptr @se, align 8
-  %96 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @se, i32 0, i32 1), align 8
-  call void @addVertex(ptr noundef %94, double noundef %95, double noundef %96)
-  %97 = load ptr, ptr %3, align 8
-  %98 = getelementptr inbounds %struct.Info_t, ptr %97, i32 0, i32 1
-  %99 = load double, ptr @nw, align 8
-  %100 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @nw, i32 0, i32 1), align 8
-  call void @addVertex(ptr noundef %98, double noundef %99, double noundef %100)
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.Info_t, ptr %101, i32 0, i32 1
-  %103 = load double, ptr @ne, align 8
-  %104 = load double, ptr getelementptr inbounds (%struct.pointf_s, ptr @ne, i32 0, i32 1), align 8
-  call void @addVertex(ptr noundef %102, double noundef %103, double noundef %104)
+  %92 = getelementptr inbounds %struct.pointf_s, ptr @sw, i32 0, i32 1
+  %93 = load double, ptr %92, align 8
+  call void @addVertex(ptr noundef %90, double noundef %91, double noundef %93)
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds %struct.Info_t, ptr %94, i32 0, i32 1
+  %96 = load double, ptr @se, align 8
+  %97 = getelementptr inbounds %struct.pointf_s, ptr @se, i32 0, i32 1
+  %98 = load double, ptr %97, align 8
+  call void @addVertex(ptr noundef %95, double noundef %96, double noundef %98)
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds %struct.Info_t, ptr %99, i32 0, i32 1
+  %101 = load double, ptr @nw, align 8
+  %102 = getelementptr inbounds %struct.pointf_s, ptr @nw, i32 0, i32 1
+  %103 = load double, ptr %102, align 8
+  call void @addVertex(ptr noundef %100, double noundef %101, double noundef %103)
+  %104 = load ptr, ptr %5, align 8
+  %105 = getelementptr inbounds %struct.Info_t, ptr %104, i32 0, i32 1
+  %106 = load double, ptr @ne, align 8
+  %107 = getelementptr inbounds %struct.pointf_s, ptr @ne, i32 0, i32 1
+  %108 = load double, ptr %107, align 8
+  call void @addVertex(ptr noundef %105, double noundef %106, double noundef %108)
   ret void
 }
 

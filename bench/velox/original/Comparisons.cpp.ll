@@ -16198,7 +16198,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec14VectorFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16232,7 +16233,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox4exec14VectorFunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN8facebook5velox4exec14VectorFunctionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18049,12 +18051,14 @@ entry:
   store ptr %pool, ptr %pool.addr, align 8
   store i64 %capacity, ptr %capacity.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %pool.addr, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %pool.addr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 64
-  %1 = load i64, ptr %capacity.addr, align 8
-  call void @_ZN8facebook5velox6BufferC2EPNS0_6memory10MemoryPoolEPhmb(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %0, ptr noundef %add.ptr, i64 noundef %1, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = load i64, ptr %capacity.addr, align 8
+  call void @_ZN8facebook5velox6BufferC2EPNS0_6memory10MemoryPoolEPhmb(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %1, ptr noundef %add.ptr, i64 noundef %2, i1 noundef zeroext true)
+  %3 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   invoke void @_ZN8facebook5velox6Buffer11setEndGuardEv(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -18062,12 +18066,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #19
   br label %eh.resume
 
@@ -18194,23 +18198,24 @@ entry:
   %frombool = zext i1 %podType to i8
   store i8 %frombool, ptr %podType.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox6BufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN8facebook5velox6BufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pool.addr, align 8
-  store ptr %0, ptr %pool_, align 8
+  %1 = load ptr, ptr %pool.addr, align 8
+  store ptr %1, ptr %pool_, align 8
   %data_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %data.addr, align 8
-  store ptr %1, ptr %data_, align 8
+  %2 = load ptr, ptr %data.addr, align 8
+  store ptr %2, ptr %data_, align 8
   %size_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this1, i32 0, i32 3
   store i64 0, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this1, i32 0, i32 4
-  %2 = load i64, ptr %capacity.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %capacity.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   %referenceCount_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this1, i32 0, i32 5
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %referenceCount_, i32 noundef 0) #19
   %podType_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this1, i32 0, i32 6
-  %3 = load i8, ptr %podType.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %podType.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %podType_, align 4
   %padding_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this1, i32 0, i32 7
@@ -18235,7 +18240,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZNK8facebook5velox6Buffer13checkEndGuardEv(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -18244,10 +18250,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #21
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #21
   unreachable
 }
 
@@ -19288,7 +19294,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19310,7 +19317,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21207,7 +21215,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -21227,7 +21235,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -21423,9 +21431,6 @@ entry:
   call void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %18, i32 noundef %19, i1 noundef zeroext %tobool)
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #15
 
 declare void @_ZN8facebook5velox4exec7EvalCtx8setErrorEiRKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) #1
 
@@ -22084,7 +22089,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -22104,7 +22109,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -22306,7 +22311,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -22326,7 +22331,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -22464,7 +22469,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -22484,7 +22489,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -24917,7 +24922,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -25179,7 +25184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -25312,7 +25317,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -25445,7 +25450,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -25641,7 +25646,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -25661,7 +25666,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -26122,7 +26127,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -26142,7 +26147,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -26344,7 +26349,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -26364,7 +26369,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -26502,7 +26507,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -26522,7 +26527,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -26683,7 +26688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -26710,7 +26715,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIiN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #16 comdat {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIiN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #15 comdat {
 entry:
   %mask = alloca %"class.xsimd::batch_bool", align 32
   %arch.addr = alloca ptr, align 8
@@ -26733,7 +26738,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -26806,7 +26811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIiNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i32 noundef %v) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIiNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i32 noundef %v) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %v.addr = alloca i32, align 4
@@ -26844,7 +26849,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEE9broadcastIiEES4_T_(i32 noundef %val) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEE9broadcastIiEES4_T_(i32 noundef %val) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %val.addr = alloca i32, align 4
@@ -26861,7 +26866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEEC2Ei(ptr noundef nonnull align 32 dereferenceable(32) %this, i32 noundef %val) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEEC2Ei(ptr noundef nonnull align 32 dereferenceable(32) %this, i32 noundef %val) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca i32, align 4
@@ -26883,7 +26888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEivEENS_5batchIT0_T_EES6_RKNS_3avxE(i32 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEivEENS_5batchIT0_T_EES6_RKNS_3avxE(i32 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__i0.addr.i = alloca i32, align 4
   %__i1.addr.i = alloca i32, align 4
@@ -26957,7 +26962,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -26973,7 +26978,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -26986,7 +26991,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIiNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIiNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -27000,7 +27005,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIiN5xsimd4fma3INS4_4avx2EEELm4EE9toBitMaskENS4_10batch_boolIiS7_EERKNS4_3avxE(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIiN5xsimd4fma3INS4_4avx2EEELm4EE9toBitMaskENS4_10batch_boolIiS7_EERKNS4_3avxE(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #15 comdat align 2 {
 entry:
   %__a.addr.i = alloca <8 x float>, align 32
   %mask = alloca %"class.xsimd::batch_bool", align 32
@@ -27021,10 +27026,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx.movmsk.ps.256(<8 x float>) #18
+declare i32 @llvm.x86.avx.movmsk.ps.256(<8 x float>) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -27048,7 +27053,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -27074,7 +27079,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -27118,7 +27123,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIiNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIiNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -27129,7 +27134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -27199,7 +27204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -27227,7 +27232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEE14load_unalignedIiEES4_PKT_(ptr noundef %mem) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEE14load_unalignedIiEES4_PKT_(ptr noundef %mem) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %mem.addr = alloca ptr, align 8
@@ -27250,7 +27255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEivEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEivEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch", align 32
@@ -27414,7 +27419,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -27656,7 +27661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -27791,7 +27796,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -27926,7 +27931,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -28122,7 +28127,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -28142,7 +28147,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -28605,7 +28610,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -28625,7 +28630,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -28827,7 +28832,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -28847,7 +28852,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -28985,7 +28990,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -29005,7 +29010,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -29166,7 +29171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -29193,7 +29198,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIaN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #16 comdat {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIaN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #15 comdat {
 entry:
   %mask = alloca %"class.xsimd::batch_bool.259", align 32
   %arch.addr = alloca ptr, align 8
@@ -29216,7 +29221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -29261,7 +29266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIaNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i8 noundef signext %v) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIaNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i8 noundef signext %v) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %v.addr = alloca i8, align 1
@@ -29299,7 +29304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIaNS_4fma3INS_4avx2EEEE9broadcastIaEES4_T_(i8 noundef signext %val) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIaNS_4fma3INS_4avx2EEEE9broadcastIaEES4_T_(i8 noundef signext %val) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %val.addr = alloca i8, align 1
@@ -29316,7 +29321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIaNS_4fma3INS_4avx2EEEEC2Ea(ptr noundef nonnull align 32 dereferenceable(32) %this, i8 noundef signext %val) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIaNS_4fma3INS_4avx2EEEEC2Ea(ptr noundef nonnull align 32 dereferenceable(32) %this, i8 noundef signext %val) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca i8, align 1
@@ -29338,7 +29343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEavEENS_5batchIT0_T_EES6_RKNS_3avxE(i8 noundef signext %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEavEENS_5batchIT0_T_EES6_RKNS_3avxE(i8 noundef signext %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__b31.addr.i = alloca i8, align 1
   %__b30.addr.i = alloca i8, align 1
@@ -29532,7 +29537,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIaNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIaNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -29548,7 +29553,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIaNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIaNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -29561,7 +29566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIaNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIaNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -29575,7 +29580,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIaN5xsimd4fma3INS4_4avx2EEELm1EE9toBitMaskENS4_10batch_boolIaS7_EERKS6_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIaN5xsimd4fma3INS4_4avx2EEELm1EE9toBitMaskENS4_10batch_boolIaS7_EERKS6_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #15 comdat align 2 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %mask = alloca %"class.xsimd::batch_bool.259", align 32
@@ -29595,7 +29600,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIaNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIaNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -29606,10 +29611,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx2.pmovmskb(<32 x i8>) #18
+declare i32 @llvm.x86.avx2.pmovmskb(<32 x i8>) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -29633,7 +29638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -29659,7 +29664,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -29703,7 +29708,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIaNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIaNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -29718,7 +29723,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -29746,7 +29751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIaNS_4fma3INS_4avx2EEEE14load_unalignedIaEES4_PKT_(ptr noundef %mem) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIaNS_4fma3INS_4avx2EEEE14load_unalignedIaEES4_PKT_(ptr noundef %mem) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %mem.addr = alloca ptr, align 8
@@ -29769,7 +29774,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEavEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEavEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.250", align 32
@@ -29923,7 +29928,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -30166,7 +30171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -30302,7 +30307,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -30438,7 +30443,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -30635,7 +30640,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -30655,7 +30660,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -31118,7 +31123,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -31138,7 +31143,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -31340,7 +31345,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -31360,7 +31365,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -31498,7 +31503,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -31518,7 +31523,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -31679,7 +31684,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -31706,7 +31711,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIsN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #16 comdat {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIsN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #15 comdat {
 entry:
   %mask = alloca %"class.xsimd::batch_bool.284", align 32
   %arch.addr = alloca ptr, align 8
@@ -31729,7 +31734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -31774,7 +31779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIsNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i16 noundef signext %v) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIsNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i16 noundef signext %v) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %v.addr = alloca i16, align 2
@@ -31812,7 +31817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEE9broadcastIsEES4_T_(i16 noundef signext %val) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEE9broadcastIsEES4_T_(i16 noundef signext %val) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %val.addr = alloca i16, align 2
@@ -31829,7 +31834,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEEC2Es(ptr noundef nonnull align 32 dereferenceable(32) %this, i16 noundef signext %val) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEEC2Es(ptr noundef nonnull align 32 dereferenceable(32) %this, i16 noundef signext %val) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca i16, align 2
@@ -31851,7 +31856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEsvEENS_5batchIT0_T_EES6_RKNS_3avxE(i16 noundef signext %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEsvEENS_5batchIT0_T_EES6_RKNS_3avxE(i16 noundef signext %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__w15.addr.i = alloca i16, align 2
   %__w14.addr.i = alloca i16, align 2
@@ -31965,7 +31970,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -31981,7 +31986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -31994,7 +31999,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIsNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIsNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -32008,7 +32013,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIsN5xsimd4fma3INS4_4avx2EEELm2EE9toBitMaskENS4_10batch_boolIsS7_EERKS6_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIsN5xsimd4fma3INS4_4avx2EEELm2EE9toBitMaskENS4_10batch_boolIsS7_EERKS6_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #15 comdat align 2 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %mask = alloca %"class.xsimd::batch_bool.284", align 32
@@ -32048,7 +32053,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIsNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIsNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -32059,10 +32064,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.bmi.pext.32(i32, i32) #18
+declare i32 @llvm.x86.bmi.pext.32(i32, i32) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -32086,7 +32091,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -32112,7 +32117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -32156,7 +32161,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -32171,7 +32176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -32199,7 +32204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEE14load_unalignedIsEES4_PKT_(ptr noundef %mem) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEE14load_unalignedIsEES4_PKT_(ptr noundef %mem) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %mem.addr = alloca ptr, align 8
@@ -32222,7 +32227,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEsvEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEsvEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.275", align 32
@@ -32376,7 +32381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -32663,7 +32668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -32843,7 +32848,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -33023,7 +33028,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -33264,7 +33269,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -33284,7 +33289,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -33745,7 +33750,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -33765,7 +33770,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -33967,7 +33972,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -33987,7 +33992,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -34125,7 +34130,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -34145,7 +34150,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -34306,7 +34311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -34333,7 +34338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIlN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #16 comdat {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIlN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #15 comdat {
 entry:
   %mask = alloca %"class.xsimd::batch_bool.308", align 32
   %arch.addr = alloca ptr, align 8
@@ -34356,7 +34361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -34399,7 +34404,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIlNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i64 noundef %v) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIlNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i64 noundef %v) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %v.addr = alloca i64, align 8
@@ -34437,7 +34442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEE9broadcastIlEES4_T_(i64 noundef %val) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEE9broadcastIlEES4_T_(i64 noundef %val) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %val.addr = alloca i64, align 8
@@ -34454,7 +34459,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEEC2El(ptr noundef nonnull align 32 dereferenceable(32) %this, i64 noundef %val) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEEC2El(ptr noundef nonnull align 32 dereferenceable(32) %this, i64 noundef %val) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca i64, align 8
@@ -34476,7 +34481,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EES6_RKNS_3avxE(i64 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EES6_RKNS_3avxE(i64 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca i64, align 8
   %__b.addr.i = alloca i64, align 8
@@ -34529,7 +34534,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -34545,7 +34550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -34558,7 +34563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIlNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIlNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -34572,7 +34577,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIlN5xsimd4fma3INS4_4avx2EEELm8EE9toBitMaskENS4_10batch_boolIlS7_EERKNS4_3avxE(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIlN5xsimd4fma3INS4_4avx2EEELm8EE9toBitMaskENS4_10batch_boolIlS7_EERKNS4_3avxE(<4 x i64> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #15 comdat align 2 {
 entry:
   %__a.addr.i = alloca <4 x double>, align 32
   %mask = alloca %"class.xsimd::batch_bool.308", align 32
@@ -34593,10 +34598,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx.movmsk.pd.256(<4 x double>) #18
+declare i32 @llvm.x86.avx.movmsk.pd.256(<4 x double>) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -34620,7 +34625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -34646,7 +34651,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -34687,7 +34692,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIlNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIlNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -34698,7 +34703,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -34713,7 +34718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -34741,7 +34746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEE14load_unalignedIlEES4_PKT_(ptr noundef %mem) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEE14load_unalignedIlEES4_PKT_(ptr noundef %mem) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %mem.addr = alloca ptr, align 8
@@ -34764,7 +34769,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.299", align 32
@@ -34918,7 +34923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -35158,7 +35163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -35291,7 +35296,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -35424,7 +35429,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -35618,7 +35623,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -35638,7 +35643,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -36099,7 +36104,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -36119,7 +36124,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -36321,7 +36326,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -36341,7 +36346,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -36479,7 +36484,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -36499,7 +36504,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -36660,7 +36665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -36687,7 +36692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIfN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<8 x float> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #16 comdat {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIfN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<8 x float> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #15 comdat {
 entry:
   %mask = alloca %"class.xsimd::batch_bool.333", align 32
   %arch.addr = alloca ptr, align 8
@@ -36710,7 +36715,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %this.addr = alloca ptr, align 8
@@ -36753,7 +36758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd9broadcastIfNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(float noundef %v) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZN5xsimd9broadcastIfNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(float noundef %v) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %v.addr = alloca float, align 4
@@ -36791,7 +36796,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEE9broadcastIfEES4_T_(float noundef %val) #17 comdat align 2 {
+define linkonce_odr <8 x float> @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEE9broadcastIfEES4_T_(float noundef %val) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %val.addr = alloca float, align 4
@@ -36808,7 +36813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEEC2Ef(ptr noundef nonnull align 32 dereferenceable(32) %this, float noundef %val) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEEC2Ef(ptr noundef nonnull align 32 dereferenceable(32) %this, float noundef %val) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca float, align 4
@@ -36830,7 +36835,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEEENS_5batchIfT_EEfRKNS_3avxE(float noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEEENS_5batchIfT_EEfRKNS_3avxE(float noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca float, align 4
   %__b.addr.i = alloca float, align 4
@@ -36903,7 +36908,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <8 x float>, align 32
@@ -36919,7 +36924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <8 x float>, align 32
@@ -36932,7 +36937,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIfNS_4avx2EEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIfNS_4avx2EEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <8 x float>, align 32
@@ -36946,7 +36951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIfN5xsimd4fma3INS4_4avx2EEELm4EE9toBitMaskENS4_10batch_boolIfS7_EERKNS4_3avxE(<8 x float> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIfN5xsimd4fma3INS4_4avx2EEELm4EE9toBitMaskENS4_10batch_boolIfS7_EERKNS4_3avxE(<8 x float> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat align 2 {
 entry:
   %__a.addr.i = alloca <8 x float>, align 32
   %mask = alloca %"class.xsimd::batch_bool.333", align 32
@@ -36966,7 +36971,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdeqERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdeqERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -36990,7 +36995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details2eqIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details2eqIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -37016,7 +37021,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -37042,7 +37047,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <8 x float> @_ZNK5xsimd5types13simd_registerIfNS_3avxEEcvDv8_fEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr noundef <8 x float> @_ZNK5xsimd5types13simd_registerIfNS_3avxEEcvDv8_fEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -37053,7 +37058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <8 x float>, align 32
@@ -37068,7 +37073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -37096,7 +37101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEE14load_unalignedIfEES4_PKT_(ptr noundef %mem) #17 comdat align 2 {
+define linkonce_odr <8 x float> @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEE14load_unalignedIfEES4_PKT_(ptr noundef %mem) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %mem.addr = alloca ptr, align 8
@@ -37119,7 +37124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEEENS_5batchIfT_EEPKfNS0_7convertIfEERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEEENS_5batchIfT_EEPKfNS0_7convertIfEERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.328", align 32
@@ -37283,7 +37288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -37570,7 +37575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -37750,7 +37755,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -37930,7 +37935,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -38171,7 +38176,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -38191,7 +38196,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -38652,7 +38657,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -38672,7 +38677,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -38874,7 +38879,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -38894,7 +38899,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -39032,7 +39037,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -39052,7 +39057,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -39213,7 +39218,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -39240,7 +39245,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIdN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x double> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #16 comdat {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd9toBitMaskIdN5xsimd4fma3INS3_4avx2EEEEEDaNS3_10batch_boolIT_T0_EERKS9_(<4 x double> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %arch) #15 comdat {
 entry:
   %mask = alloca %"class.xsimd::batch_bool.358", align 32
   %arch.addr = alloca ptr, align 8
@@ -39263,7 +39268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNKSt8equal_toIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %this.addr = alloca ptr, align 8
@@ -39306,7 +39311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd9broadcastIdNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(double noundef %v) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZN5xsimd9broadcastIdNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(double noundef %v) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %v.addr = alloca double, align 8
@@ -39344,7 +39349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEE9broadcastIdEES4_T_(double noundef %val) #17 comdat align 2 {
+define linkonce_odr <4 x double> @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEE9broadcastIdEES4_T_(double noundef %val) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %val.addr = alloca double, align 8
@@ -39361,7 +39366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEEC2Ed(ptr noundef nonnull align 32 dereferenceable(32) %this, double noundef %val) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEEC2Ed(ptr noundef nonnull align 32 dereferenceable(32) %this, double noundef %val) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca double, align 8
@@ -39383,7 +39388,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEEENS_5batchIdT_EEdRKNS_3avxE(double noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEEENS_5batchIdT_EEdRKNS_3avxE(double noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca double, align 8
   %__b.addr.i = alloca double, align 8
@@ -39436,7 +39441,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x double>, align 32
@@ -39452,7 +39457,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x double>, align 32
@@ -39465,7 +39470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIdNS_4avx2EEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIdNS_4avx2EEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x double>, align 32
@@ -39479,7 +39484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIdN5xsimd4fma3INS4_4avx2EEELm8EE9toBitMaskENS4_10batch_boolIdS7_EERKNS4_3avxE(<4 x double> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN8facebook5velox4simd6detail7BitMaskIdN5xsimd4fma3INS4_4avx2EEELm8EE9toBitMaskENS4_10batch_boolIdS7_EERKNS4_3avxE(<4 x double> %mask.coerce, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat align 2 {
 entry:
   %__a.addr.i = alloca <4 x double>, align 32
   %mask = alloca %"class.xsimd::batch_bool.358", align 32
@@ -39499,7 +39504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdeqERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdeqERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -39523,7 +39528,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details2eqIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details2eqIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -39549,7 +39554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -39575,7 +39580,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x double> @_ZNK5xsimd5types13simd_registerIdNS_3avxEEcvDv4_dEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr noundef <4 x double> @_ZNK5xsimd5types13simd_registerIdNS_3avxEEcvDv4_dEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -39586,7 +39591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #16 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x double>, align 32
@@ -39601,7 +39606,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -39629,7 +39634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEE14load_unalignedIdEES4_PKT_(ptr noundef %mem) #17 comdat align 2 {
+define linkonce_odr <4 x double> @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEE14load_unalignedIdEES4_PKT_(ptr noundef %mem) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %mem.addr = alloca ptr, align 8
@@ -39652,7 +39657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEEENS_5batchIdT_EEPKdNS0_7convertIdEERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel14load_unalignedINS_4fma3INS_4avx2EEEEENS_5batchIdT_EEPKdNS0_7convertIdEERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.353", align 32
@@ -40262,7 +40267,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec14VectorFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -40903,7 +40909,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -40923,7 +40929,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -41382,7 +41388,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -41402,7 +41408,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -41604,7 +41610,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -41624,7 +41630,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -41762,7 +41768,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -41782,7 +41788,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -43456,7 +43462,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -43588,7 +43594,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -43721,7 +43727,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -43854,7 +43860,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -44048,7 +44054,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -44068,7 +44074,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -44511,7 +44517,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -44531,7 +44537,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -44733,7 +44739,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -44753,7 +44759,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -44891,7 +44897,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -44911,7 +44917,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -45053,7 +45059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -45080,7 +45086,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -45123,7 +45129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -45147,7 +45153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -45173,7 +45179,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -45206,7 +45212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -45232,7 +45238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -45317,7 +45323,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -45367,7 +45373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -45501,7 +45507,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -45636,7 +45642,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -45771,7 +45777,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -45967,7 +45973,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -45987,7 +45993,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -46432,7 +46438,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -46452,7 +46458,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -46654,7 +46660,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -46674,7 +46680,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -46812,7 +46818,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -46832,7 +46838,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -46974,7 +46980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -47001,7 +47007,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -47046,7 +47052,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -47070,7 +47076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -47096,7 +47102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -47129,7 +47135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIaNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIaNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -47155,7 +47161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -47237,7 +47243,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -47287,7 +47293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -47422,7 +47428,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -47558,7 +47564,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -47694,7 +47700,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -47891,7 +47897,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -47911,7 +47917,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -48356,7 +48362,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -48376,7 +48382,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -48578,7 +48584,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -48598,7 +48604,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -48736,7 +48742,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -48756,7 +48762,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -48898,7 +48904,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -48925,7 +48931,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -48970,7 +48976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -48994,7 +49000,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -49020,7 +49026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -49053,7 +49059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -49079,7 +49085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -49161,7 +49167,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -49211,7 +49217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -49390,7 +49396,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -49570,7 +49576,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -49750,7 +49756,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -49991,7 +49997,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -50011,7 +50017,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -50454,7 +50460,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -50474,7 +50480,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -50676,7 +50682,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -50696,7 +50702,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -50834,7 +50840,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -50854,7 +50860,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -50996,7 +51002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -51023,7 +51029,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -51066,7 +51072,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -51090,7 +51096,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -51116,7 +51122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -51149,7 +51155,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -51175,7 +51181,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -51257,7 +51263,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -51307,7 +51313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -51439,7 +51445,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -51572,7 +51578,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -51705,7 +51711,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -51899,7 +51905,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -51919,7 +51925,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -52362,7 +52368,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -52382,7 +52388,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -52584,7 +52590,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -52604,7 +52610,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -52742,7 +52748,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -52762,7 +52768,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -52904,7 +52910,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -52931,7 +52937,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %this.addr = alloca ptr, align 8
@@ -52974,7 +52980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdneERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdneERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -52998,7 +53004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details3neqIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details3neqIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -53024,7 +53030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -53050,7 +53056,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -53100,7 +53106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -53279,7 +53285,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -53459,7 +53465,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -53639,7 +53645,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -53880,7 +53886,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -53900,7 +53906,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -54343,7 +54349,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -54363,7 +54369,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -54565,7 +54571,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -54585,7 +54591,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -54723,7 +54729,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -54743,7 +54749,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -54885,7 +54891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -54912,7 +54918,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNKSt12not_equal_toIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTneclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %this.addr = alloca ptr, align 8
@@ -54955,7 +54961,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdneERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdneERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -54979,7 +54985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details3neqIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details3neqIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -55005,7 +55011,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -55031,7 +55037,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -55426,7 +55432,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec14VectorFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt4lessIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt4lessIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -56067,7 +56074,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -56087,7 +56094,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -56569,7 +56576,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -56589,7 +56596,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -56791,7 +56798,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -56811,7 +56818,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -56949,7 +56956,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -56969,7 +56976,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -58643,7 +58650,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -58775,7 +58782,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -58908,7 +58915,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -59041,7 +59048,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -59235,7 +59242,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -59255,7 +59262,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -59721,7 +59728,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -59741,7 +59748,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -59943,7 +59950,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -59963,7 +59970,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -60101,7 +60108,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -60121,7 +60128,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -60263,7 +60270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -60290,7 +60297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt4lessIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt4lessIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -60351,7 +60358,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %__t.addr = alloca ptr, align 8
@@ -60375,7 +60382,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdltERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdltERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -60399,7 +60406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2ltIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2ltIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -60425,7 +60432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -60484,7 +60491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -60534,7 +60541,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -60668,7 +60675,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -60803,7 +60810,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -60938,7 +60945,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -61134,7 +61141,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -61154,7 +61161,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -61622,7 +61629,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -61642,7 +61649,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -61844,7 +61851,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -61864,7 +61871,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -62002,7 +62009,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -62022,7 +62029,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -62164,7 +62171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -62191,7 +62198,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt4lessIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt4lessIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -62252,7 +62259,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %__t.addr = alloca ptr, align 8
@@ -62276,7 +62283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdltERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdltERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -62300,7 +62307,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2ltIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2ltIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -62326,7 +62333,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -62387,7 +62394,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -62437,7 +62444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -62572,7 +62579,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -62708,7 +62715,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -62844,7 +62851,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -63041,7 +63048,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -63061,7 +63068,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -63529,7 +63536,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -63549,7 +63556,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -63751,7 +63758,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -63771,7 +63778,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -63909,7 +63916,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -63929,7 +63936,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -64071,7 +64078,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -64098,7 +64105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt4lessIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt4lessIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -64159,7 +64166,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %__t.addr = alloca ptr, align 8
@@ -64183,7 +64190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdltERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdltERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -64207,7 +64214,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2ltIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2ltIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -64233,7 +64240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -64294,7 +64301,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -64344,7 +64351,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -64523,7 +64530,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -64703,7 +64710,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -64883,7 +64890,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -65124,7 +65131,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -65144,7 +65151,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -65610,7 +65617,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -65630,7 +65637,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -65832,7 +65839,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -65852,7 +65859,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -65990,7 +65997,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -66010,7 +66017,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -66152,7 +66159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -66179,7 +66186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt4lessIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt4lessIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -66240,7 +66247,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %__t.addr = alloca ptr, align 8
@@ -66264,7 +66271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdltERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdltERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -66288,7 +66295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2ltIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2ltIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -66314,7 +66321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -66370,7 +66377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -66420,7 +66427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -66552,7 +66559,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -66685,7 +66692,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -66818,7 +66825,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -67012,7 +67019,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -67032,7 +67039,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -67498,7 +67505,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -67518,7 +67525,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -67720,7 +67727,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -67740,7 +67747,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -67878,7 +67885,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -67898,7 +67905,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -68040,7 +68047,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -68067,7 +68074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNKSt4lessIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZNKSt4lessIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %this.addr = alloca ptr, align 8
@@ -68128,7 +68135,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %__t.addr = alloca ptr, align 8
@@ -68152,7 +68159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdltERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdltERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -68176,7 +68183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details2ltIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details2ltIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -68202,7 +68209,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -68243,7 +68250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -68293,7 +68300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -68472,7 +68479,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -68652,7 +68659,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -68832,7 +68839,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -69073,7 +69080,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -69093,7 +69100,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -69559,7 +69566,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -69579,7 +69586,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -69781,7 +69788,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -69801,7 +69808,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -69939,7 +69946,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -69959,7 +69966,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -70101,7 +70108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -70128,7 +70135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNKSt4lessIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZNKSt4lessIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %this.addr = alloca ptr, align 8
@@ -70189,7 +70196,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNSt4lessIvE6_S_cmpIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %__t.addr = alloca ptr, align 8
@@ -70213,7 +70220,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdltERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdltERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -70237,7 +70244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details2ltIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details2ltIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -70263,7 +70270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -70304,7 +70311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -70699,7 +70706,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec14VectorFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -71340,7 +71348,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -71360,7 +71368,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -71842,7 +71850,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -71862,7 +71870,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -72064,7 +72072,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -72084,7 +72092,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -72222,7 +72230,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -72242,7 +72250,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -73916,7 +73924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -74048,7 +74056,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -74181,7 +74189,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -74314,7 +74322,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -74508,7 +74516,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -74528,7 +74536,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -74994,7 +75002,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -75014,7 +75022,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -75216,7 +75224,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -75236,7 +75244,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -75374,7 +75382,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -75394,7 +75402,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -75536,7 +75544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -75563,7 +75571,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt7greaterIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt7greaterIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -75624,7 +75632,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %__t.addr = alloca ptr, align 8
@@ -75648,7 +75656,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdgtERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdgtERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -75672,7 +75680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2gtIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2gtIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -75698,7 +75706,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEiEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEiEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -75739,7 +75747,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -75789,7 +75797,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -75923,7 +75931,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -76058,7 +76066,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -76193,7 +76201,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -76389,7 +76397,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -76409,7 +76417,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -76877,7 +76885,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -76897,7 +76905,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -77099,7 +77107,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -77119,7 +77127,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -77257,7 +77265,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -77277,7 +77285,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -77419,7 +77427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -77446,7 +77454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt7greaterIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt7greaterIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -77507,7 +77515,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %__t.addr = alloca ptr, align 8
@@ -77531,7 +77539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdgtERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdgtERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -77555,7 +77563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2gtIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2gtIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -77581,7 +77589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEaEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEaEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -77624,7 +77632,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -77674,7 +77682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -77809,7 +77817,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -77945,7 +77953,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -78081,7 +78089,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -78278,7 +78286,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -78298,7 +78306,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -78766,7 +78774,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -78786,7 +78794,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -78988,7 +78996,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -79008,7 +79016,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -79146,7 +79154,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -79166,7 +79174,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -79308,7 +79316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -79335,7 +79343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt7greaterIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt7greaterIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -79396,7 +79404,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %__t.addr = alloca ptr, align 8
@@ -79420,7 +79428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdgtERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdgtERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -79444,7 +79452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2gtIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2gtIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -79470,7 +79478,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEsEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEsEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -79513,7 +79521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -79563,7 +79571,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -79742,7 +79750,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -79922,7 +79930,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -80102,7 +80110,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -80343,7 +80351,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -80363,7 +80371,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -80829,7 +80837,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -80849,7 +80857,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -81051,7 +81059,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -81071,7 +81079,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -81209,7 +81217,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -81229,7 +81237,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -81371,7 +81379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -81398,7 +81406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt7greaterIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt7greaterIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -81459,7 +81467,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %__t.addr = alloca ptr, align 8
@@ -81483,7 +81491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdgtERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdgtERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -81507,7 +81515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2gtIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2gtIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -81533,7 +81541,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEElEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEElEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -81574,7 +81582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -81624,7 +81632,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -81756,7 +81764,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -81889,7 +81897,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -82022,7 +82030,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -82216,7 +82224,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -82236,7 +82244,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -82702,7 +82710,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -82722,7 +82730,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -82924,7 +82932,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -82944,7 +82952,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -83082,7 +83090,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -83102,7 +83110,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -83244,7 +83252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -83271,7 +83279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNKSt7greaterIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZNKSt7greaterIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %this.addr = alloca ptr, align 8
@@ -83332,7 +83340,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %__t.addr = alloca ptr, align 8
@@ -83356,7 +83364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdgtERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdgtERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -83380,7 +83388,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details2gtIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details2gtIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -83406,7 +83414,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEfEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEfEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -83447,7 +83455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -83497,7 +83505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -83676,7 +83684,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -83856,7 +83864,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -84036,7 +84044,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -84277,7 +84285,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -84297,7 +84305,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -84763,7 +84771,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -84783,7 +84791,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -84985,7 +84993,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -85005,7 +85013,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -85143,7 +85151,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -85163,7 +85171,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -85305,7 +85313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -85332,7 +85340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNKSt7greaterIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZNKSt7greaterIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTgtclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %this.addr = alloca ptr, align 8
@@ -85393,7 +85401,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNSt7greaterIvE6_S_cmpIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %__t.addr = alloca ptr, align 8
@@ -85417,7 +85425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdgtERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdgtERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -85441,7 +85449,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details2gtIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details2gtIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -85467,7 +85475,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEdEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel2gtINS_4fma3INS_4avx2EEEdEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -85508,7 +85516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -85903,7 +85911,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec14VectorFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -86544,7 +86553,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -86564,7 +86573,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -87046,7 +87055,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -87066,7 +87075,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -87268,7 +87277,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -87288,7 +87297,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -87426,7 +87435,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -87446,7 +87455,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -89120,7 +89129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -89252,7 +89261,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -89385,7 +89394,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -89518,7 +89527,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -89712,7 +89721,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -89732,7 +89741,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -90198,7 +90207,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -90218,7 +90227,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -90420,7 +90429,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -90440,7 +90449,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -90578,7 +90587,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -90598,7 +90607,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -90740,7 +90749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -90767,7 +90776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -90828,7 +90837,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %__t.addr = alloca ptr, align 8
@@ -90852,7 +90861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdleERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdleERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -90876,7 +90885,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2leIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2leIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -90902,7 +90911,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -90944,7 +90953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEooERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEooERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -90968,7 +90977,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEorERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEorERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -90997,7 +91006,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel10bitwise_orINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKS8_SA_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel10bitwise_orINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKS8_SA_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -91052,7 +91061,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -91102,7 +91111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -91236,7 +91245,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -91371,7 +91380,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -91506,7 +91515,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -91702,7 +91711,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -91722,7 +91731,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -92190,7 +92199,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -92210,7 +92219,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -92412,7 +92421,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -92432,7 +92441,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -92570,7 +92579,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -92590,7 +92599,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -92732,7 +92741,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -92759,7 +92768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -92820,7 +92829,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %__t.addr = alloca ptr, align 8
@@ -92844,7 +92853,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdleERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdleERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -92868,7 +92877,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2leIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2leIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -92894,7 +92903,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -92936,7 +92945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIaNS_4fma3INS_4avx2EEEEooERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIaNS_4fma3INS_4avx2EEEEooERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -92960,7 +92969,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIaNS_4fma3INS_4avx2EEEEorERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIaNS_4fma3INS_4avx2EEEEorERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -92989,7 +92998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel10bitwise_orINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKS8_SA_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel10bitwise_orINS_4fma3INS_4avx2EEEavEENS_10batch_boolIT0_T_EERKS8_SA_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -93036,7 +93045,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -93086,7 +93095,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -93221,7 +93230,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -93357,7 +93366,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -93493,7 +93502,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -93690,7 +93699,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -93710,7 +93719,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -94178,7 +94187,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -94198,7 +94207,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -94400,7 +94409,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -94420,7 +94429,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -94558,7 +94567,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -94578,7 +94587,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -94720,7 +94729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -94747,7 +94756,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -94808,7 +94817,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %__t.addr = alloca ptr, align 8
@@ -94832,7 +94841,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdleERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdleERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -94856,7 +94865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2leIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2leIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -94882,7 +94891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -94924,7 +94933,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEooERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEooERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -94948,7 +94957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEorERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEorERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -94977,7 +94986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel10bitwise_orINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKS8_SA_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel10bitwise_orINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKS8_SA_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -95024,7 +95033,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -95074,7 +95083,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -95253,7 +95262,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -95433,7 +95442,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -95613,7 +95622,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -95854,7 +95863,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -95874,7 +95883,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -96340,7 +96349,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -96360,7 +96369,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -96562,7 +96571,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -96582,7 +96591,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -96720,7 +96729,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -96740,7 +96749,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -96882,7 +96891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -96909,7 +96918,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -96970,7 +96979,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %__t.addr = alloca ptr, align 8
@@ -96994,7 +97003,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdleERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdleERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -97018,7 +97027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2leIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2leIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -97044,7 +97053,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -97086,7 +97095,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEooERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEooERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -97110,7 +97119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEorERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEorERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -97139,7 +97148,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel10bitwise_orINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKS8_SA_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel10bitwise_orINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKS8_SA_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -97184,7 +97193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -97234,7 +97243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -97366,7 +97375,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -97499,7 +97508,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -97632,7 +97641,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -97826,7 +97835,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -97846,7 +97855,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -98312,7 +98321,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -98332,7 +98341,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -98534,7 +98543,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -98554,7 +98563,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -98692,7 +98701,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -98712,7 +98721,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -98854,7 +98863,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -98881,7 +98890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %this.addr = alloca ptr, align 8
@@ -98942,7 +98951,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %__t.addr = alloca ptr, align 8
@@ -98966,7 +98975,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdleERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdleERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -98990,7 +98999,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details2leIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details2leIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -99016,7 +99025,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -99057,7 +99066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -99107,7 +99116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -99286,7 +99295,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -99466,7 +99475,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -99646,7 +99655,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -99887,7 +99896,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -99907,7 +99916,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -100373,7 +100382,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -100393,7 +100402,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -100595,7 +100604,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -100615,7 +100624,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -100753,7 +100762,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -100773,7 +100782,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -100915,7 +100924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -100942,7 +100951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZNKSt10less_equalIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTleclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %this.addr = alloca ptr, align 8
@@ -101003,7 +101012,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNSt10less_equalIvE6_S_cmpIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %__t.addr = alloca ptr, align 8
@@ -101027,7 +101036,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdleERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdleERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -101051,7 +101060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details2leIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details2leIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -101077,7 +101086,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -101118,7 +101127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -101513,7 +101522,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec14VectorFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -102154,7 +102164,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -102174,7 +102184,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -102656,7 +102666,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -102676,7 +102686,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -102878,7 +102888,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -102898,7 +102908,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -103036,7 +103046,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -103056,7 +103066,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -104730,7 +104740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -104862,7 +104872,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -104995,7 +105005,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -105128,7 +105138,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIiLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -105322,7 +105332,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -105342,7 +105352,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -105808,7 +105818,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -105828,7 +105838,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -106030,7 +106040,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -106050,7 +106060,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -106188,7 +106198,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -106208,7 +106218,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -106350,7 +106360,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -106377,7 +106387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -106438,7 +106448,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIiNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %__t.addr = alloca ptr, align 8
@@ -106462,7 +106472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdgeERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdgeERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -106486,7 +106496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2geIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2geIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -106512,7 +106522,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEiEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEiEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -106553,7 +106563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIiLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %this.addr = alloca ptr, align 8
@@ -106603,7 +106613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -106737,7 +106747,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -106872,7 +106882,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -107007,7 +107017,7 @@ for.end37:                                        ; preds = %for.cond28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIaLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -107203,7 +107213,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -107223,7 +107233,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -107691,7 +107701,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -107711,7 +107721,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -107913,7 +107923,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -107933,7 +107943,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -108071,7 +108081,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -108091,7 +108101,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -108233,7 +108243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -108260,7 +108270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %this.addr = alloca ptr, align 8
@@ -108321,7 +108331,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIaNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %__t.addr = alloca ptr, align 8
@@ -108345,7 +108355,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdgeERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdgeERKNS_5batchIaNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -108369,7 +108379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2geIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2geIaNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -108395,7 +108405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEaEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEaEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.259", align 32
   %self.addr = alloca ptr, align 8
@@ -108438,7 +108448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIaLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.250", align 32
   %this.addr = alloca ptr, align 8
@@ -108488,7 +108498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -108623,7 +108633,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -108759,7 +108769,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -108895,7 +108905,7 @@ for.end38:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIsLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -109092,7 +109102,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -109112,7 +109122,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -109580,7 +109590,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -109600,7 +109610,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -109802,7 +109812,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -109822,7 +109832,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -109960,7 +109970,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -109980,7 +109990,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -110122,7 +110132,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -110149,7 +110159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %this.addr = alloca ptr, align 8
@@ -110210,7 +110220,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIsNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %__t.addr = alloca ptr, align 8
@@ -110234,7 +110244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdgeERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdgeERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -110258,7 +110268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2geIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2geIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -110284,7 +110294,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEsEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEsEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.284", align 32
   %self.addr = alloca ptr, align 8
@@ -110327,7 +110337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIsLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.275", align 32
   %this.addr = alloca ptr, align 8
@@ -110377,7 +110387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -110556,7 +110566,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -110736,7 +110746,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -110916,7 +110926,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIlLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -111157,7 +111167,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -111177,7 +111187,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -111643,7 +111653,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -111663,7 +111673,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -111865,7 +111875,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -111885,7 +111895,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -112023,7 +112033,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -112043,7 +112053,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -112185,7 +112195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -112212,7 +112222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %this.addr = alloca ptr, align 8
@@ -112273,7 +112283,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIlNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %__t.addr = alloca ptr, align 8
@@ -112297,7 +112307,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdgeERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdgeERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -112321,7 +112331,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2geIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2geIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -112347,7 +112357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEElEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEElEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.308", align 32
   %self.addr = alloca ptr, align 8
@@ -112388,7 +112398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x i64> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIlLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.299", align 32
   %this.addr = alloca ptr, align 8
@@ -112438,7 +112448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -112570,7 +112580,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -112703,7 +112713,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -112836,7 +112846,7 @@ for.end39:                                        ; preds = %for.cond29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIfLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -113030,7 +113040,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -113050,7 +113060,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -113516,7 +113526,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -113536,7 +113546,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -113738,7 +113748,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -113758,7 +113768,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -113896,7 +113906,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -113916,7 +113926,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -114058,7 +114068,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -114085,7 +114095,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %this.addr = alloca ptr, align 8
@@ -114146,7 +114156,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIfNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %__t.addr = alloca ptr, align 8
@@ -114170,7 +114180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdgeERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdgeERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -114194,7 +114204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details2geIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details2geIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -114220,7 +114230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEfEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEfEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.333", align 32
   %self.addr = alloca ptr, align 8
@@ -114261,7 +114271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <8 x float> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIfLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.328", align 32
   %this.addr = alloca ptr, align 8
@@ -114311,7 +114321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -114490,7 +114500,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb1ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -114670,7 +114680,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb1EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -114850,7 +114860,7 @@ for.end55:                                        ; preds = %for.cond45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #16 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE19applySimdComparisonIdLb0ELb0EEEviiPKT_SE_Ph(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %begin, i32 noundef %end, ptr noundef %rawLhs, ptr noundef %rawRhs, ptr noundef %rawResult) #15 align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %begin.addr = alloca i32, align 4
@@ -115091,7 +115101,7 @@ lpad.i:                                           ; preds = %for.body
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %13
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -115111,7 +115121,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %16
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -115577,7 +115587,7 @@ lpad.i:                                           ; preds = %while.body
   %23 = extractvalue { ptr, i32 } %21, 1
   store i32 %23, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -115597,7 +115607,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %27
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -115799,7 +115809,7 @@ lpad.i18:                                         ; preds = %for.body
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %ehselector.slot.i13, align 4
   %sel.i19 = load i32, ptr %ehselector.slot.i13, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i20 = icmp eq i32 %sel.i19, %25
   br i1 %matches.i20, label %catch6.i31, label %catch.fallthrough.i21
 
@@ -115819,7 +115829,7 @@ if.then.i37:                                      ; preds = %invoke.cont10.i36
           to label %unreachable.i38 unwind label %lpad9.i34
 
 catch.fallthrough.i21:                            ; preds = %lpad.i18
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i22 = icmp eq i32 %sel.i19, %28
   br i1 %matches2.i22, label %catch.i25, label %eh.resume.i23
 
@@ -115957,7 +115967,7 @@ lpad.i:                                           ; preds = %while.body
   %55 = extractvalue { ptr, i32 } %53, 1
   store i32 %55, ptr %ehselector.slot.i, align 4
   %sel.i = load i32, ptr %ehselector.slot.i, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxExceptionE) #19
   %matches.i = icmp eq i32 %sel.i, %56
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -115977,7 +115987,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %matches2.i = icmp eq i32 %sel.i, %59
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -116119,7 +116129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb1EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -116146,7 +116156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZNKSt13greater_equalIvEclIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDTgeclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS9_OSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %this.addr = alloca ptr, align 8
@@ -116207,7 +116217,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #17 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNSt13greater_equalIvE6_S_cmpIRN5xsimd5batchIdNS2_4fma3INS2_4avx2EEEEES8_EEDcOT_OT0_St17integral_constantIbLb0EE(ptr noundef nonnull align 32 dereferenceable(32) %__t, ptr noundef nonnull align 32 dereferenceable(32) %__u) #16 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %__t.addr = alloca ptr, align 8
@@ -116231,7 +116241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdgeERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdgeERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -116255,7 +116265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details2geIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details2geIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -116281,7 +116291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEdEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #17 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel2geINS_4fma3INS_4avx2EEEdEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_7genericE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #16 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.358", align 32
   %self.addr = alloca ptr, align 8
@@ -116322,7 +116332,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #17 align 2 {
+define internal <4 x double> @_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE12loadSimdDataIdLb0EEEDaPKT_i(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %rawData, i32 noundef %offset) #16 align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.353", align 32
   %this.addr = alloca ptr, align 8
@@ -116710,6 +116720,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -116725,10 +116738,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #15 = { nounwind memory(none) }
-attributes #16 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { nounwind }
 attributes #20 = { builtin allocsize(0) }
 attributes #21 = { noreturn nounwind }

@@ -35,25 +35,27 @@ define dso_local void @pci_remove_bus(ptr noundef %0) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
+  %7 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %7, ptr %0, align 8
+  %8 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %8, ptr %3, align 8
   tail call void @pci_bus_release_busn_res(ptr noundef %0) #2
   tail call void @up_write(ptr noundef nonnull @pci_bus_sem) #2
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %13, label %12
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %15, label %14
 
-12:                                               ; preds = %1
-  tail call void %10(ptr noundef %0) #2
-  br label %13
+14:                                               ; preds = %1
+  tail call void %12(ptr noundef %0) #2
+  br label %15
 
-13:                                               ; preds = %12, %1
+15:                                               ; preds = %14, %1
   tail call void @pcibios_remove_bus(ptr noundef %0) #2
-  %14 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @device_unregister(ptr noundef %14) #2
+  %16 = getelementptr inbounds i8, ptr %0, i64 280
+  tail call void @device_unregister(ptr noundef %16) #2
   ret void
 }
 
@@ -153,7 +155,7 @@ define internal fastcc void @pci_remove_bus_device(ptr noundef %0) unnamed_addr 
   %15 = getelementptr inbounds i8, ptr %0, i64 208
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %39, label %18
+  br i1 %17, label %41, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 184
@@ -165,40 +167,42 @@ define internal fastcc void @pci_remove_bus_device(ptr noundef %0) unnamed_addr 
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   store volatile ptr %22, ptr %21, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %20, align 8
+  %24 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %24, ptr %0, align 8
+  %25 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %25, ptr %20, align 8
   tail call void @up_write(ptr noundef nonnull @pci_bus_sem) #2
   tail call void @pcie_aspm_exit_link_state(ptr noundef %0) #2
   tail call void @pci_bridge_d3_update(ptr noundef %0) #2
-  %24 = getelementptr inbounds i8, ptr %0, i64 920
-  br label %25
+  %26 = getelementptr inbounds i8, ptr %0, i64 920
+  br label %27
 
-25:                                               ; preds = %35, %18
-  %26 = phi i64 [ 0, %18 ], [ %36, %35 ]
-  %27 = getelementptr [11 x %struct.resource], ptr %24, i64 0, i64 %26
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %38, label %29
+27:                                               ; preds = %37, %18
+  %28 = phi i64 [ 0, %18 ], [ %38, %37 ]
+  %29 = getelementptr [11 x %struct.resource], ptr %26, i64 0, i64 %28
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %40, label %31
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %27, i64 40
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %35, label %33
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %29, i64 40
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %37, label %35
 
-33:                                               ; preds = %29
-  %34 = tail call i32 @release_resource(ptr noundef nonnull %27) #2
-  br label %35
+35:                                               ; preds = %31
+  %36 = tail call i32 @release_resource(ptr noundef nonnull %29) #2
+  br label %37
 
-35:                                               ; preds = %33, %29
-  %36 = add nuw nsw i64 %26, 1
-  %37 = icmp eq i64 %36, 11
-  br i1 %37, label %38, label %25, !llvm.loop !10
+37:                                               ; preds = %35, %31
+  %38 = add nuw nsw i64 %28, 1
+  %39 = icmp eq i64 %38, 11
+  br i1 %39, label %40, label %27, !llvm.loop !10
 
-38:                                               ; preds = %35, %25
+40:                                               ; preds = %37, %27
   tail call void @put_device(ptr noundef %19) #2
-  br label %39
+  br label %41
 
-39:                                               ; preds = %38, %14
+41:                                               ; preds = %40, %14
   ret void
 }
 

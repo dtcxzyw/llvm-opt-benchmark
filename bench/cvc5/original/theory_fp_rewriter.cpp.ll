@@ -13557,10 +13557,11 @@ entry:
   store ptr %u, ptr %u.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory14TheoryRewriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory2fp16TheoryFpRewriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory2fp16TheoryFpRewriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_fpExpDef = getelementptr inbounds %"class.cvc5::internal::theory::fp::TheoryFpRewriter", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %u.addr, align 8
-  invoke void @_ZN4cvc58internal6theory2fp12FpExpandDefsC1EPNS_7context11UserContextE(ptr noundef nonnull align 8 dereferenceable(560) %d_fpExpDef, ptr noundef %0)
+  %1 = load ptr, ptr %u.addr, align 8
+  invoke void @_ZN4cvc58internal6theory2fp12FpExpandDefsC1EPNS_7context11UserContextE(ptr noundef nonnull align 8 dereferenceable(560) %d_fpExpDef, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -13568,31 +13569,31 @@ invoke.cont:                                      ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont
-  %1 = load i32, ptr %i, align 4
-  %cmp = icmp ult i32 %1, 365
+  %2 = load i32, ptr %i, align 4
+  %cmp = icmp ult i32 %2, 365
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %d_preRewriteTable = getelementptr inbounds %"class.cvc5::internal::theory::fp::TheoryFpRewriter", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %2 to i64
+  %3 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr inbounds [365 x ptr], ptr %d_preRewriteTable, i64 0, i64 %idxprom
   store ptr @_ZN4cvc58internal6theory2fp7rewrite5notFPENS0_12NodeTemplateILb0EEEb, ptr %arrayidx, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add i32 %3, 1
+  %4 = load i32, ptr %i, align 4
+  %inc = add i32 %4, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !7
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory14TheoryRewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -13760,21 +13761,21 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond109
 
 for.cond109:                                      ; preds = %for.inc114, %for.end
-  %7 = load i32, ptr %i108, align 4
-  %cmp110 = icmp ult i32 %7, 365
+  %8 = load i32, ptr %i108, align 4
+  %cmp110 = icmp ult i32 %8, 365
   br i1 %cmp110, label %for.body111, label %for.end116
 
 for.body111:                                      ; preds = %for.cond109
   %d_postRewriteTable = getelementptr inbounds %"class.cvc5::internal::theory::fp::TheoryFpRewriter", ptr %this1, i32 0, i32 2
-  %8 = load i32, ptr %i108, align 4
-  %idxprom112 = zext i32 %8 to i64
+  %9 = load i32, ptr %i108, align 4
+  %idxprom112 = zext i32 %9 to i64
   %arrayidx113 = getelementptr inbounds [365 x ptr], ptr %d_postRewriteTable, i64 0, i64 %idxprom112
   store ptr @_ZN4cvc58internal6theory2fp7rewrite5notFPENS0_12NodeTemplateILb0EEEb, ptr %arrayidx113, align 8
   br label %for.inc114
 
 for.inc114:                                       ; preds = %for.body111
-  %9 = load i32, ptr %i108, align 4
-  %inc115 = add i32 %9, 1
+  %10 = load i32, ptr %i108, align 4
+  %inc115 = add i32 %10, 1
   store i32 %inc115, ptr %i108, align 4
   br label %for.cond109, !llvm.loop !8
 
@@ -13942,21 +13943,21 @@ for.end116:                                       ; preds = %for.cond109
   br label %for.cond224
 
 for.cond224:                                      ; preds = %for.inc229, %for.end116
-  %10 = load i32, ptr %i223, align 4
-  %cmp225 = icmp ult i32 %10, 365
+  %11 = load i32, ptr %i223, align 4
+  %cmp225 = icmp ult i32 %11, 365
   br i1 %cmp225, label %for.body226, label %for.end231
 
 for.body226:                                      ; preds = %for.cond224
   %d_constantFoldTable = getelementptr inbounds %"class.cvc5::internal::theory::fp::TheoryFpRewriter", ptr %this1, i32 0, i32 3
-  %11 = load i32, ptr %i223, align 4
-  %idxprom227 = zext i32 %11 to i64
+  %12 = load i32, ptr %i223, align 4
+  %idxprom227 = zext i32 %12 to i64
   %arrayidx228 = getelementptr inbounds [365 x ptr], ptr %d_constantFoldTable, i64 0, i64 %idxprom227
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx228, align 8
   br label %for.inc229
 
 for.inc229:                                       ; preds = %for.body226
-  %12 = load i32, ptr %i223, align 4
-  %inc230 = add i32 %12, 1
+  %13 = load i32, ptr %i223, align 4
+  %inc230 = add i32 %13, 1
   store i32 %inc230, ptr %i223, align 4
   br label %for.cond224, !llvm.loop !9
 
@@ -14118,7 +14119,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory14TheoryRewriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory14TheoryRewriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17772,7 +17774,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory2fp16TheoryFpRewriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory2fp16TheoryFpRewriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_fpExpDef = getelementptr inbounds %"class.cvc5::internal::theory::fp::TheoryFpRewriter", ptr %this1, i32 0, i32 4
   call void @_ZN4cvc58internal6theory2fp12FpExpandDefsD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %d_fpExpDef) #3
   call void @_ZN4cvc58internal6theory14TheoryRewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -18298,7 +18301,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal8TypeNodeENS2_12NodeTemplateILb1EEESt4hashIS3_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal8TypeNodeENS2_12NodeTemplateILb1EEESt4hashIS3_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -18313,10 +18317,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -18326,7 +18330,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapISt4pairINS_8internal8TypeNodeES4_ENS3_12NodeTemplateILb1EEENS3_16PairHashFunctionIS4_S4_St4hashIS4_ESA_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context9CDHashMapISt4pairINS_8internal8TypeNodeES4_ENS3_12NodeTemplateILb1EEENS3_16PairHashFunctionIS4_S4_St4hashIS4_ESA_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -18341,10 +18346,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 

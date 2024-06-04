@@ -16,15 +16,16 @@ define noundef nonnull ptr @"_ZN12grep_matcher100_$LT$impl$u20$core..convert..Fr
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 1, ptr %2, align 8
   %3 = load ptr, ptr @anon.34af1673c5b8e709e49cbbae0cb27e1a.3, align 8, !align !4, !noundef !5
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @anon.34af1673c5b8e709e49cbbae0cb27e1a.3, i64 8), align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %1, i32 0, i32 2
-  store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %4, ptr %6, align 8
-  %7 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %1, i32 0, i32 1
-  store ptr @anon.34af1673c5b8e709e49cbbae0cb27e1a.2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 0, ptr %8, align 8
+  %4 = getelementptr inbounds i8, ptr @anon.34af1673c5b8e709e49cbbae0cb27e1a.3, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %1, i32 0, i32 2
+  store ptr %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %5, ptr %7, align 8
+  %8 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %1, i32 0, i32 1
+  store ptr @anon.34af1673c5b8e709e49cbbae0cb27e1a.2, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %9, align 8
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34af1673c5b8e709e49cbbae0cb27e1a.5) #3
   unreachable
 }

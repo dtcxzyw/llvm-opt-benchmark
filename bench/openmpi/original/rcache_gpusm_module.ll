@@ -48,47 +48,49 @@ define internal void @mca_rcache_gpusm_registration_constructor(ptr noundef %0) 
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 2), align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.mca_rcache_gpusm_registration_t, ptr %5, i32 0, i32 3
-  %7 = call i32 %4(i32 noundef -1, ptr noundef %6, i1 noundef zeroext true)
-  store i32 %7, ptr %3, align 4
-  %8 = load i32, ptr %3, align 4
-  %9 = icmp ne i32 0, %8
-  %10 = xor i1 %9, true
+  %4 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds %struct.mca_rcache_gpusm_registration_t, ptr %6, i32 0, i32 3
+  %8 = call i32 %5(i32 noundef -1, ptr noundef %7, i1 noundef zeroext true)
+  store i32 %8, ptr %3, align 4
+  %9 = load i32, ptr %3, align 4
+  %10 = icmp ne i32 0, %9
   %11 = xor i1 %10, true
-  %12 = zext i1 %11 to i32
-  %13 = sext i32 %12 to i64
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %16
+  %12 = xor i1 %11, true
+  %13 = zext i1 %12 to i32
+  %14 = sext i32 %13 to i64
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %17
 
-15:                                               ; preds = %1
+16:                                               ; preds = %1
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.1)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %1
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 17), align 8
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.mca_rcache_gpusm_registration_t, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.mca_rcache_gpusm_registration_t, ptr %21, i32 0, i32 2
-  %23 = call i32 %17(ptr noundef %20, ptr noundef %22)
-  store i32 %23, ptr %3, align 4
-  %24 = load i32, ptr %3, align 4
-  %25 = icmp ne i32 0, %24
-  %26 = xor i1 %25, true
-  %27 = xor i1 %26, true
-  %28 = zext i1 %27 to i32
-  %29 = sext i32 %28 to i64
-  %30 = icmp ne i64 %29, 0
-  br i1 %30, label %31, label %32
+17:                                               ; preds = %16, %1
+  %18 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 17
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.mca_rcache_gpusm_registration_t, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.mca_rcache_gpusm_registration_t, ptr %23, i32 0, i32 2
+  %25 = call i32 %19(ptr noundef %22, ptr noundef %24)
+  store i32 %25, ptr %3, align 4
+  %26 = load i32, ptr %3, align 4
+  %27 = icmp ne i32 0, %26
+  %28 = xor i1 %27, true
+  %29 = xor i1 %28, true
+  %30 = zext i1 %29 to i32
+  %31 = sext i32 %30 to i64
+  %32 = icmp ne i64 %31, 0
+  br i1 %32, label %33, label %34
 
-31:                                               ; preds = %16
+33:                                               ; preds = %17
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.2)
-  br label %32
+  br label %34
 
-32:                                               ; preds = %31, %16
+34:                                               ; preds = %33, %17
   ret void
 }
 
@@ -168,39 +170,40 @@ define void @mca_rcache_gpusm_module_init(ptr noundef %0) #0 {
 
 21:                                               ; preds = %20
   %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+  %23 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp ne i32 %22, %24
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %21
+26:                                               ; preds = %21
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %21
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.mca_rcache_gpusm_module_t, ptr %27, i32 0, i32 1
-  %29 = getelementptr inbounds %struct.opal_object_t, ptr %28, i32 0, i32 0
-  store ptr @opal_free_list_t_class, ptr %29, align 16
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.mca_rcache_gpusm_module_t, ptr %30, i32 0, i32 1
-  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 1
-  store volatile i32 1, ptr %32, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.mca_rcache_gpusm_module_t, ptr %33, i32 0, i32 1
-  call void @opal_obj_run_constructors(ptr noundef %34)
-  br label %35
-
-35:                                               ; preds = %26
+27:                                               ; preds = %26, %21
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds %struct.mca_rcache_gpusm_module_t, ptr %28, i32 0, i32 1
+  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 0
+  store ptr @opal_free_list_t_class, ptr %30, align 16
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.mca_rcache_gpusm_module_t, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds %struct.opal_object_t, ptr %32, i32 0, i32 1
+  store volatile i32 1, ptr %33, align 8
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.mca_rcache_gpusm_module_t, ptr %34, i32 0, i32 1
+  call void @opal_obj_run_constructors(ptr noundef %35)
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.mca_rcache_gpusm_module_t, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr @opal_cache_line_size, align 4
-  %40 = sext i32 %39 to i64
-  %41 = load i32, ptr @opal_cache_line_size, align 4
-  %42 = sext i32 %41 to i64
-  %43 = call i32 @opal_free_list_init(ptr noundef %38, i64 noundef 392, i64 noundef %40, ptr noundef @mca_rcache_gpusm_registration_t_class, i64 noundef 0, i64 noundef %42, i32 noundef 0, i32 noundef -1, i32 noundef 64, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+36:                                               ; preds = %27
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds %struct.mca_rcache_gpusm_module_t, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr @opal_cache_line_size, align 4
+  %41 = sext i32 %40 to i64
+  %42 = load i32, ptr @opal_cache_line_size, align 4
+  %43 = sext i32 %42 to i64
+  %44 = call i32 @opal_free_list_init(ptr noundef %39, i64 noundef 392, i64 noundef %41, ptr noundef @mca_rcache_gpusm_registration_t_class, i64 noundef 0, i64 noundef %43, i32 noundef 0, i32 noundef -1, i32 noundef 64, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 
@@ -479,131 +482,135 @@ define internal i32 @mca_rcache_gpusm_get_mem_handle(ptr noundef %0, i64 noundef
 
 21:                                               ; preds = %3
   store i32 -1, ptr %4, align 4
-  br label %105
+  br label %109
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 13), align 8
-  %24 = load i32, ptr %11, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %26, i32 0, i32 1
-  %28 = getelementptr inbounds %struct.mca_opal_gpu_reg_data_t, ptr %27, i32 0, i32 0
-  %29 = call i32 %23(i32 noundef %24, ptr noundef %25, ptr noundef %28)
-  store i32 %29, ptr %12, align 4
-  %30 = load i32, ptr %12, align 4
-  %31 = icmp ne i32 0, %30
-  %32 = xor i1 %31, true
+  %23 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 13
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %11, align 4
+  %26 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds %struct.mca_opal_gpu_reg_data_t, ptr %28, i32 0, i32 0
+  %30 = call i32 %24(i32 noundef %25, ptr noundef %26, ptr noundef %29)
+  store i32 %30, ptr %12, align 4
+  %31 = load i32, ptr %12, align 4
+  %32 = icmp ne i32 0, %31
   %33 = xor i1 %32, true
-  %34 = zext i1 %33 to i32
-  %35 = sext i32 %34 to i64
-  %36 = icmp ne i64 %35, 0
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %22
-  store i32 -1, ptr %4, align 4
-  br label %105
+  %34 = xor i1 %33, true
+  %35 = zext i1 %34 to i32
+  %36 = sext i32 %35 to i64
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %22
-  %39 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 11), align 8
-  %40 = load i32, ptr %11, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = call i32 %39(i32 noundef %40, ptr noundef %41, ptr noundef %13, ptr noundef %14)
-  store i32 %42, ptr %12, align 4
-  %43 = load i32, ptr %12, align 4
-  %44 = icmp ne i32 0, %43
-  %45 = xor i1 %44, true
-  %46 = xor i1 %45, true
-  %47 = zext i1 %46 to i32
-  %48 = sext i32 %47 to i64
-  %49 = icmp ne i64 %48, 0
-  br i1 %49, label %50, label %51
-
-50:                                               ; preds = %38
   store i32 -1, ptr %4, align 4
-  br label %105
+  br label %109
 
-51:                                               ; preds = %38
-  %52 = load ptr, ptr %13, align 8
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %53, i32 0, i32 0
-  %55 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %54, i32 0, i32 2
-  store ptr %52, ptr %55, align 8
-  %56 = load ptr, ptr %13, align 8
-  %57 = load i64, ptr %14, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 -1
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %61, i32 0, i32 3
-  store ptr %59, ptr %62, align 8
-  %63 = load ptr, ptr %13, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %64, i32 0, i32 1
-  %66 = getelementptr inbounds %struct.mca_opal_gpu_reg_data_t, ptr %65, i32 0, i32 3
-  store ptr %63, ptr %66, align 8
-  %67 = load i64, ptr %14, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %68, i32 0, i32 1
-  %70 = getelementptr inbounds %struct.mca_opal_gpu_reg_data_t, ptr %69, i32 0, i32 4
-  store i64 %67, ptr %70, align 8
-  %71 = load i8, ptr @opal_accelerator_use_sync_memops, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %87
+39:                                               ; preds = %22
+  %40 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 11
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = load ptr, ptr %5, align 8
+  %44 = call i32 %41(i32 noundef %42, ptr noundef %43, ptr noundef %13, ptr noundef %14)
+  store i32 %44, ptr %12, align 4
+  %45 = load i32, ptr %12, align 4
+  %46 = icmp ne i32 0, %45
+  %47 = xor i1 %46, true
+  %48 = xor i1 %47, true
+  %49 = zext i1 %48 to i32
+  %50 = sext i32 %49 to i64
+  %51 = icmp ne i64 %50, 0
+  br i1 %51, label %52, label %53
 
-73:                                               ; preds = %51
-  %74 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 25), align 8
-  %75 = load i32, ptr %11, align 4
-  %76 = load ptr, ptr %5, align 8
-  %77 = call i32 %74(i32 noundef %75, ptr noundef %76, ptr noundef %9)
-  store i32 %77, ptr %12, align 4
-  %78 = load i32, ptr %12, align 4
-  %79 = icmp ne i32 0, %78
-  %80 = xor i1 %79, true
-  %81 = xor i1 %80, true
-  %82 = zext i1 %81 to i32
-  %83 = sext i32 %82 to i64
-  %84 = icmp ne i64 %83, 0
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %73
+52:                                               ; preds = %39
   store i32 -1, ptr %4, align 4
-  br label %105
+  br label %109
 
-86:                                               ; preds = %73
-  br label %104
+53:                                               ; preds = %39
+  %54 = load ptr, ptr %13, align 8
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %56, i32 0, i32 2
+  store ptr %54, ptr %57, align 8
+  %58 = load ptr, ptr %13, align 8
+  %59 = load i64, ptr %14, align 8
+  %60 = getelementptr inbounds i8, ptr %58, i64 %59
+  %61 = getelementptr inbounds i8, ptr %60, i64 -1
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds %struct.mca_rcache_base_registration_t, ptr %63, i32 0, i32 3
+  store ptr %61, ptr %64, align 8
+  %65 = load ptr, ptr %13, align 8
+  %66 = load ptr, ptr %8, align 8
+  %67 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds %struct.mca_opal_gpu_reg_data_t, ptr %67, i32 0, i32 3
+  store ptr %65, ptr %68, align 8
+  %69 = load i64, ptr %14, align 8
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %70, i32 0, i32 1
+  %72 = getelementptr inbounds %struct.mca_opal_gpu_reg_data_t, ptr %71, i32 0, i32 4
+  store i64 %69, ptr %72, align 8
+  %73 = load i8, ptr @opal_accelerator_use_sync_memops, align 1
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %90
 
-87:                                               ; preds = %51
-  %88 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 3), align 8
-  %89 = load i32, ptr %11, align 4
-  %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %90, i32 0, i32 1
-  %92 = getelementptr inbounds %struct.mca_opal_gpu_reg_data_t, ptr %91, i32 0, i32 2
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 %88(i32 noundef %89, ptr noundef %93, ptr noundef null)
-  store i32 %94, ptr %12, align 4
-  %95 = load i32, ptr %12, align 4
-  %96 = icmp ne i32 0, %95
-  %97 = xor i1 %96, true
-  %98 = xor i1 %97, true
-  %99 = zext i1 %98 to i32
-  %100 = sext i32 %99 to i64
-  %101 = icmp ne i64 %100, 0
-  br i1 %101, label %102, label %103
+75:                                               ; preds = %53
+  %76 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 25
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %11, align 4
+  %79 = load ptr, ptr %5, align 8
+  %80 = call i32 %77(i32 noundef %78, ptr noundef %79, ptr noundef %9)
+  store i32 %80, ptr %12, align 4
+  %81 = load i32, ptr %12, align 4
+  %82 = icmp ne i32 0, %81
+  %83 = xor i1 %82, true
+  %84 = xor i1 %83, true
+  %85 = zext i1 %84 to i32
+  %86 = sext i32 %85 to i64
+  %87 = icmp ne i64 %86, 0
+  br i1 %87, label %88, label %89
 
-102:                                              ; preds = %87
+88:                                               ; preds = %75
   store i32 -1, ptr %4, align 4
-  br label %105
+  br label %109
 
-103:                                              ; preds = %87
-  br label %104
+89:                                               ; preds = %75
+  br label %108
 
-104:                                              ; preds = %103, %86
+90:                                               ; preds = %53
+  %91 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 3
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %11, align 4
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds %struct.mca_opal_gpu_reg_t, ptr %94, i32 0, i32 1
+  %96 = getelementptr inbounds %struct.mca_opal_gpu_reg_data_t, ptr %95, i32 0, i32 2
+  %97 = load ptr, ptr %96, align 8
+  %98 = call i32 %92(i32 noundef %93, ptr noundef %97, ptr noundef null)
+  store i32 %98, ptr %12, align 4
+  %99 = load i32, ptr %12, align 4
+  %100 = icmp ne i32 0, %99
+  %101 = xor i1 %100, true
+  %102 = xor i1 %101, true
+  %103 = zext i1 %102 to i32
+  %104 = sext i32 %103 to i64
+  %105 = icmp ne i64 %104, 0
+  br i1 %105, label %106, label %107
+
+106:                                              ; preds = %90
+  store i32 -1, ptr %4, align 4
+  br label %109
+
+107:                                              ; preds = %90
+  br label %108
+
+108:                                              ; preds = %107, %89
   store i32 0, ptr %4, align 4
-  br label %105
+  br label %109
 
-105:                                              ; preds = %104, %102, %85, %50, %37, %21
-  %106 = load i32, ptr %4, align 4
-  ret i32 %106
+109:                                              ; preds = %108, %106, %88, %52, %38, %21
+  %110 = load i32, ptr %4, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable

@@ -226,63 +226,66 @@ define internal fastcc void @construct_default_ISA_mptable(i32 noundef %0) unnam
   %10 = load i8, ptr @boot_cpu_data, align 8
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 8
-  %13 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw nsw i32 %14, 4
-  %16 = or i32 %15, %12
-  %17 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3), align 1
-  %18 = zext i8 %17 to i32
-  %19 = or i32 %16, %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 %19, ptr %20, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2
+  %14 = load i8, ptr %13, align 2
+  %15 = zext i8 %14 to i32
+  %16 = shl nuw nsw i32 %15, 4
+  %17 = or i32 %16, %12
+  %18 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 3
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %21 = or i32 %17, %20
+  %22 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 1
-  br label %26
+  %23 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %24, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %2, i64 1
+  br label %29
 
-26:                                               ; preds = %26, %1
-  %27 = phi i32 [ 0, %1 ], [ %29, %26 ]
-  %28 = trunc i32 %27 to i8
-  store i8 %28, ptr %25, align 1
+29:                                               ; preds = %29, %1
+  %30 = phi i32 [ 0, %1 ], [ %32, %29 ]
+  %31 = trunc i32 %30 to i8
+  store i8 %31, ptr %28, align 1
   call fastcc void @MP_processor_info(ptr noundef nonnull %2) #12
-  %29 = add nuw nsw i32 %27, 1
-  %30 = icmp eq i32 %27, 0
-  br i1 %30, label %26, label %31, !llvm.loop !9
+  %32 = add nuw nsw i32 %30, 1
+  %33 = icmp eq i32 %30, 0
+  br i1 %33, label %29, label %34, !llvm.loop !9
 
-31:                                               ; preds = %26
+34:                                               ; preds = %29
   tail call fastcc void @construct_ioapic_table(i32 noundef %0) #12
   store i8 4, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 0, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %3, i64 4
-  store i8 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %3, i64 5
-  store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %3, i64 6
-  store i8 -1, ptr %35, align 2
-  %36 = getelementptr inbounds i8, ptr %3, i64 1
-  %37 = getelementptr inbounds i8, ptr %3, i64 7
-  br label %38
+  %35 = getelementptr inbounds i8, ptr %3, i64 2
+  store i16 0, ptr %35, align 2
+  %36 = getelementptr inbounds i8, ptr %3, i64 4
+  store i8 0, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %3, i64 5
+  store i8 0, ptr %37, align 1
+  %38 = getelementptr inbounds i8, ptr %3, i64 6
+  store i8 -1, ptr %38, align 2
+  %39 = getelementptr inbounds i8, ptr %3, i64 1
+  %40 = getelementptr inbounds i8, ptr %3, i64 7
+  br label %41
 
-38:                                               ; preds = %38, %31
-  %39 = phi i64 [ 0, %31 ], [ %44, %38 ]
-  %40 = getelementptr [2 x i32], ptr %4, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = trunc i32 %41 to i8
-  store i8 %42, ptr %36, align 1
-  %43 = trunc i64 %39 to i8
-  store i8 %43, ptr %37, align 1
+41:                                               ; preds = %41, %34
+  %42 = phi i64 [ 0, %34 ], [ %47, %41 ]
+  %43 = getelementptr [2 x i32], ptr %4, i64 0, i64 %42
+  %44 = load i32, ptr %43, align 4
+  %45 = trunc i32 %44 to i8
+  store i8 %45, ptr %39, align 1
+  %46 = trunc i64 %42 to i8
+  store i8 %46, ptr %40, align 1
   call fastcc void @MP_lintsrc_info(ptr noundef nonnull %3) #12
-  %44 = add nuw nsw i64 %39, 1
-  %45 = icmp eq i64 %39, 0
-  br i1 %45, label %38, label %46, !llvm.loop !12
+  %47 = add nuw nsw i64 %42, 1
+  %48 = icmp eq i64 %42, 0
+  br i1 %48, label %41, label %49, !llvm.loop !12
 
-46:                                               ; preds = %38
+49:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10

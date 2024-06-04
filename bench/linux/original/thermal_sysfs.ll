@@ -64,252 +64,253 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @thermal_zone_create_device_groups(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %4 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 32) #13
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %159, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 32) #13
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %160, label %7
 
-6:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) @thermal_zone_attribute_groups, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 872
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %157, label %10
+7:                                                ; preds = %2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @thermal_zone_attribute_groups, i64 16, i1 false)
+  %8 = getelementptr inbounds i8, ptr %0, i64 872
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %158, label %11
 
-10:                                               ; preds = %6
-  %11 = icmp slt i32 %8, 1
-  br i1 %11, label %150, label %12
+11:                                               ; preds = %7
+  %12 = icmp slt i32 %9, 1
+  br i1 %12, label %151, label %13
 
-12:                                               ; preds = %10
-  %13 = zext nneg i32 %8 to i64
-  %14 = mul nuw nsw i64 %13, 56
-  %15 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %14, i32 noundef 3520) #14
-  %16 = getelementptr inbounds i8, ptr %0, i64 832
-  store ptr %15, ptr %16, align 8
-  %17 = icmp eq ptr %15, null
-  br i1 %17, label %150, label %18
+13:                                               ; preds = %11
+  %14 = zext nneg i32 %9 to i64
+  %15 = mul nuw nsw i64 %14, 56
+  %16 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %15, i32 noundef 3520) #14
+  %17 = getelementptr inbounds i8, ptr %0, i64 832
+  store ptr %16, ptr %17, align 8
+  %18 = icmp eq ptr %16, null
+  br i1 %18, label %151, label %19
 
-18:                                               ; preds = %12
-  %19 = load i32, ptr %7, align 8
-  %20 = sext i32 %19 to i64
-  %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 56)
-  %22 = extractvalue { i64, i1 } %21, 1
-  br i1 %22, label %26, label %23, !prof !5
+19:                                               ; preds = %13
+  %20 = load i32, ptr %8, align 8
+  %21 = sext i32 %20 to i64
+  %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 56)
+  %23 = extractvalue { i64, i1 } %22, 1
+  br i1 %23, label %27, label %24, !prof !5
 
-23:                                               ; preds = %18
-  %24 = extractvalue { i64, i1 } %21, 0
-  %25 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %24, i32 noundef 3520) #14
-  br label %26
+24:                                               ; preds = %19
+  %25 = extractvalue { i64, i1 } %22, 0
+  %26 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %25, i32 noundef 3520) #14
+  br label %27
 
-26:                                               ; preds = %23, %18
-  %27 = phi ptr [ %25, %23 ], [ null, %18 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 824
-  store ptr %27, ptr %28, align 8
-  %29 = icmp eq ptr %27, null
-  br i1 %29, label %30, label %32
+27:                                               ; preds = %24, %19
+  %28 = phi ptr [ %26, %24 ], [ null, %19 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 824
+  store ptr %28, ptr %29, align 8
+  %30 = icmp eq ptr %28, null
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %31) #15
-  br label %150
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %17, align 8
+  tail call void @kfree(ptr noundef %32) #15
+  br label %151
 
-32:                                               ; preds = %26
-  %33 = load i32, ptr %7, align 8
-  %34 = sext i32 %33 to i64
-  %35 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %34, i64 56)
-  %36 = extractvalue { i64, i1 } %35, 1
-  br i1 %36, label %40, label %37, !prof !5
+33:                                               ; preds = %27
+  %34 = load i32, ptr %8, align 8
+  %35 = sext i32 %34 to i64
+  %36 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 56)
+  %37 = extractvalue { i64, i1 } %36, 1
+  br i1 %37, label %41, label %38, !prof !5
 
-37:                                               ; preds = %32
-  %38 = extractvalue { i64, i1 } %35, 0
-  %39 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %38, i32 noundef 3520) #14
-  br label %40
+38:                                               ; preds = %33
+  %39 = extractvalue { i64, i1 } %36, 0
+  %40 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %39, i32 noundef 3520) #14
+  br label %41
 
-40:                                               ; preds = %37, %32
-  %41 = phi ptr [ %39, %37 ], [ null, %32 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 840
-  store ptr %41, ptr %42, align 8
-  %43 = icmp eq ptr %41, null
-  br i1 %43, label %44, label %47
+41:                                               ; preds = %38, %33
+  %42 = phi ptr [ %40, %38 ], [ null, %33 ]
+  %43 = getelementptr inbounds i8, ptr %0, i64 840
+  store ptr %42, ptr %43, align 8
+  %44 = icmp eq ptr %42, null
+  br i1 %44, label %45, label %48
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %45) #15
-  %46 = load ptr, ptr %28, align 8
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %17, align 8
   tail call void @kfree(ptr noundef %46) #15
-  br label %150
+  %47 = load ptr, ptr %29, align 8
+  tail call void @kfree(ptr noundef %47) #15
+  br label %151
 
-47:                                               ; preds = %40
-  %48 = load i32, ptr %7, align 8
-  %49 = mul i32 %48, 3
-  %50 = add i32 %49, 1
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %56, label %52, !prof !5
+48:                                               ; preds = %41
+  %49 = load i32, ptr %8, align 8
+  %50 = mul i32 %49, 3
+  %51 = add i32 %50, 1
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %57, label %53, !prof !5
 
-52:                                               ; preds = %47
-  %53 = zext nneg i32 %50 to i64
-  %54 = shl nuw nsw i64 %53, 3
-  %55 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %54, i32 noundef 3520) #14
-  br label %56
+53:                                               ; preds = %48
+  %54 = zext nneg i32 %51 to i64
+  %55 = shl nuw nsw i64 %54, 3
+  %56 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %55, i32 noundef 3520) #14
+  br label %57
 
-56:                                               ; preds = %52, %47
-  %57 = phi ptr [ %55, %52 ], [ null, %47 ]
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %64, label %59
+57:                                               ; preds = %53, %48
+  %58 = phi ptr [ %56, %53 ], [ null, %48 ]
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %65, label %60
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %7, align 8
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %62, label %144
+60:                                               ; preds = %57
+  %61 = load i32, ptr %8, align 8
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %63, label %145
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 928
-  br label %68
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %0, i64 928
+  br label %69
 
-64:                                               ; preds = %56
-  %65 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %65) #15
-  %66 = load ptr, ptr %28, align 8
+65:                                               ; preds = %57
+  %66 = load ptr, ptr %17, align 8
   tail call void @kfree(ptr noundef %66) #15
-  %67 = load ptr, ptr %42, align 8
+  %67 = load ptr, ptr %29, align 8
   tail call void @kfree(ptr noundef %67) #15
-  br label %150
+  %68 = load ptr, ptr %43, align 8
+  tail call void @kfree(ptr noundef %68) #15
+  br label %151
 
-68:                                               ; preds = %132, %62
-  %69 = phi i64 [ 0, %62 ], [ %140, %132 ]
-  %70 = load ptr, ptr %16, align 8
-  %71 = getelementptr %struct.thermal_attr, ptr %70, i64 %69, i32 1
-  %72 = trunc i64 %69 to i32
-  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %71, i64 noundef 20, ptr noundef nonnull @.str.20, i32 noundef %72) #15
-  %74 = load ptr, ptr %16, align 8
-  %75 = getelementptr %struct.thermal_attr, ptr %74, i64 %69
-  %76 = getelementptr inbounds i8, ptr %75, i64 32
-  store ptr %76, ptr %75, align 8
-  %77 = load ptr, ptr %16, align 8
-  %78 = getelementptr %struct.thermal_attr, ptr %77, i64 %69, i32 0, i32 0, i32 1
-  store i16 292, ptr %78, align 8
-  %79 = load ptr, ptr %16, align 8
-  %80 = getelementptr %struct.thermal_attr, ptr %79, i64 %69, i32 0, i32 1
-  store ptr @trip_point_type_show, ptr %80, align 8
-  %81 = load ptr, ptr %16, align 8
-  %82 = getelementptr %struct.thermal_attr, ptr %81, i64 %69
-  %83 = getelementptr ptr, ptr %57, i64 %69
-  store ptr %82, ptr %83, align 8
-  %84 = load ptr, ptr %28, align 8
-  %85 = getelementptr %struct.thermal_attr, ptr %84, i64 %69, i32 1
-  %86 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %85, i64 noundef 20, ptr noundef nonnull @.str.21, i32 noundef %72) #15
-  %87 = load ptr, ptr %28, align 8
-  %88 = getelementptr %struct.thermal_attr, ptr %87, i64 %69
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
-  store ptr %89, ptr %88, align 8
-  %90 = load ptr, ptr %28, align 8
-  %91 = getelementptr %struct.thermal_attr, ptr %90, i64 %69, i32 0, i32 0, i32 1
-  store i16 292, ptr %91, align 8
-  %92 = load ptr, ptr %28, align 8
-  %93 = getelementptr %struct.thermal_attr, ptr %92, i64 %69, i32 0, i32 1
-  store ptr @trip_point_temp_show, ptr %93, align 8
-  %94 = shl nuw i32 1, %72
-  %95 = and i32 %94, %1
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %104, label %97
+69:                                               ; preds = %133, %63
+  %70 = phi i64 [ 0, %63 ], [ %141, %133 ]
+  %71 = load ptr, ptr %17, align 8
+  %72 = getelementptr %struct.thermal_attr, ptr %71, i64 %70, i32 1
+  %73 = trunc i64 %70 to i32
+  %74 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %72, i64 noundef 20, ptr noundef nonnull @.str.20, i32 noundef %73) #15
+  %75 = load ptr, ptr %17, align 8
+  %76 = getelementptr %struct.thermal_attr, ptr %75, i64 %70
+  %77 = getelementptr inbounds i8, ptr %76, i64 32
+  store ptr %77, ptr %76, align 8
+  %78 = load ptr, ptr %17, align 8
+  %79 = getelementptr %struct.thermal_attr, ptr %78, i64 %70, i32 0, i32 0, i32 1
+  store i16 292, ptr %79, align 8
+  %80 = load ptr, ptr %17, align 8
+  %81 = getelementptr %struct.thermal_attr, ptr %80, i64 %70, i32 0, i32 1
+  store ptr @trip_point_type_show, ptr %81, align 8
+  %82 = load ptr, ptr %17, align 8
+  %83 = getelementptr %struct.thermal_attr, ptr %82, i64 %70
+  %84 = getelementptr ptr, ptr %58, i64 %70
+  store ptr %83, ptr %84, align 8
+  %85 = load ptr, ptr %29, align 8
+  %86 = getelementptr %struct.thermal_attr, ptr %85, i64 %70, i32 1
+  %87 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %86, i64 noundef 20, ptr noundef nonnull @.str.21, i32 noundef %73) #15
+  %88 = load ptr, ptr %29, align 8
+  %89 = getelementptr %struct.thermal_attr, ptr %88, i64 %70
+  %90 = getelementptr inbounds i8, ptr %89, i64 32
+  store ptr %90, ptr %89, align 8
+  %91 = load ptr, ptr %29, align 8
+  %92 = getelementptr %struct.thermal_attr, ptr %91, i64 %70, i32 0, i32 0, i32 1
+  store i16 292, ptr %92, align 8
+  %93 = load ptr, ptr %29, align 8
+  %94 = getelementptr %struct.thermal_attr, ptr %93, i64 %70, i32 0, i32 1
+  store ptr @trip_point_temp_show, ptr %94, align 8
+  %95 = shl nuw i32 1, %73
+  %96 = and i32 %95, %1
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %105, label %98
 
-97:                                               ; preds = %68
-  %98 = load ptr, ptr %28, align 8
-  %99 = getelementptr %struct.thermal_attr, ptr %98, i64 %69, i32 0, i32 0, i32 1
-  %100 = load i16, ptr %99, align 8
-  %101 = or i16 %100, 128
-  store i16 %101, ptr %99, align 8
-  %102 = load ptr, ptr %28, align 8
-  %103 = getelementptr %struct.thermal_attr, ptr %102, i64 %69, i32 0, i32 2
-  store ptr @trip_point_temp_store, ptr %103, align 8
-  br label %104
+98:                                               ; preds = %69
+  %99 = load ptr, ptr %29, align 8
+  %100 = getelementptr %struct.thermal_attr, ptr %99, i64 %70, i32 0, i32 0, i32 1
+  %101 = load i16, ptr %100, align 8
+  %102 = or i16 %101, 128
+  store i16 %102, ptr %100, align 8
+  %103 = load ptr, ptr %29, align 8
+  %104 = getelementptr %struct.thermal_attr, ptr %103, i64 %70, i32 0, i32 2
+  store ptr @trip_point_temp_store, ptr %104, align 8
+  br label %105
 
-104:                                              ; preds = %97, %68
-  %105 = load ptr, ptr %28, align 8
-  %106 = getelementptr %struct.thermal_attr, ptr %105, i64 %69
-  %107 = load i32, ptr %7, align 8
-  %108 = add i32 %107, %72
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr ptr, ptr %57, i64 %109
-  store ptr %106, ptr %110, align 8
-  %111 = load ptr, ptr %42, align 8
-  %112 = getelementptr %struct.thermal_attr, ptr %111, i64 %69, i32 1
-  %113 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %112, i64 noundef 20, ptr noundef nonnull @.str.22, i32 noundef %72) #15
-  %114 = load ptr, ptr %42, align 8
-  %115 = getelementptr %struct.thermal_attr, ptr %114, i64 %69
-  %116 = getelementptr inbounds i8, ptr %115, i64 32
-  store ptr %116, ptr %115, align 8
-  %117 = load ptr, ptr %42, align 8
-  %118 = getelementptr %struct.thermal_attr, ptr %117, i64 %69, i32 0, i32 0, i32 1
-  store i16 292, ptr %118, align 8
-  %119 = load ptr, ptr %42, align 8
-  %120 = getelementptr %struct.thermal_attr, ptr %119, i64 %69, i32 0, i32 1
-  store ptr @trip_point_hyst_show, ptr %120, align 8
-  %121 = load ptr, ptr %63, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 48
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %132, label %125
+105:                                              ; preds = %98, %69
+  %106 = load ptr, ptr %29, align 8
+  %107 = getelementptr %struct.thermal_attr, ptr %106, i64 %70
+  %108 = load i32, ptr %8, align 8
+  %109 = add i32 %108, %73
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr ptr, ptr %58, i64 %110
+  store ptr %107, ptr %111, align 8
+  %112 = load ptr, ptr %43, align 8
+  %113 = getelementptr %struct.thermal_attr, ptr %112, i64 %70, i32 1
+  %114 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %113, i64 noundef 20, ptr noundef nonnull @.str.22, i32 noundef %73) #15
+  %115 = load ptr, ptr %43, align 8
+  %116 = getelementptr %struct.thermal_attr, ptr %115, i64 %70
+  %117 = getelementptr inbounds i8, ptr %116, i64 32
+  store ptr %117, ptr %116, align 8
+  %118 = load ptr, ptr %43, align 8
+  %119 = getelementptr %struct.thermal_attr, ptr %118, i64 %70, i32 0, i32 0, i32 1
+  store i16 292, ptr %119, align 8
+  %120 = load ptr, ptr %43, align 8
+  %121 = getelementptr %struct.thermal_attr, ptr %120, i64 %70, i32 0, i32 1
+  store ptr @trip_point_hyst_show, ptr %121, align 8
+  %122 = load ptr, ptr %64, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 48
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %133, label %126
 
-125:                                              ; preds = %104
-  %126 = load ptr, ptr %42, align 8
-  %127 = getelementptr %struct.thermal_attr, ptr %126, i64 %69, i32 0, i32 0, i32 1
-  %128 = load i16, ptr %127, align 8
-  %129 = or i16 %128, 128
-  store i16 %129, ptr %127, align 8
-  %130 = load ptr, ptr %42, align 8
-  %131 = getelementptr %struct.thermal_attr, ptr %130, i64 %69, i32 0, i32 2
-  store ptr @trip_point_hyst_store, ptr %131, align 8
-  br label %132
+126:                                              ; preds = %105
+  %127 = load ptr, ptr %43, align 8
+  %128 = getelementptr %struct.thermal_attr, ptr %127, i64 %70, i32 0, i32 0, i32 1
+  %129 = load i16, ptr %128, align 8
+  %130 = or i16 %129, 128
+  store i16 %130, ptr %128, align 8
+  %131 = load ptr, ptr %43, align 8
+  %132 = getelementptr %struct.thermal_attr, ptr %131, i64 %70, i32 0, i32 2
+  store ptr @trip_point_hyst_store, ptr %132, align 8
+  br label %133
 
-132:                                              ; preds = %125, %104
-  %133 = load ptr, ptr %42, align 8
-  %134 = getelementptr %struct.thermal_attr, ptr %133, i64 %69
-  %135 = load i32, ptr %7, align 8
-  %136 = shl i32 %135, 1
-  %137 = add i32 %136, %72
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr ptr, ptr %57, i64 %138
-  store ptr %134, ptr %139, align 8
-  %140 = add nuw nsw i64 %69, 1
-  %141 = load i32, ptr %7, align 8
-  %142 = sext i32 %141 to i64
-  %143 = icmp slt i64 %140, %142
-  br i1 %143, label %68, label %144, !llvm.loop !6
+133:                                              ; preds = %126, %105
+  %134 = load ptr, ptr %43, align 8
+  %135 = getelementptr %struct.thermal_attr, ptr %134, i64 %70
+  %136 = load i32, ptr %8, align 8
+  %137 = shl i32 %136, 1
+  %138 = add i32 %137, %73
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr ptr, ptr %58, i64 %139
+  store ptr %135, ptr %140, align 8
+  %141 = add nuw nsw i64 %70, 1
+  %142 = load i32, ptr %8, align 8
+  %143 = sext i32 %142 to i64
+  %144 = icmp slt i64 %141, %143
+  br i1 %144, label %69, label %145, !llvm.loop !6
 
-144:                                              ; preds = %132, %59
-  %145 = phi i32 [ %60, %59 ], [ %141, %132 ]
-  %146 = mul i32 %145, 3
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr ptr, ptr %57, i64 %147
-  store ptr null, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %0, i64 808
-  store ptr %57, ptr %149, align 8
-  br label %150
+145:                                              ; preds = %133, %60
+  %146 = phi i32 [ %61, %60 ], [ %142, %133 ]
+  %147 = mul i32 %146, 3
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr ptr, ptr %58, i64 %148
+  store ptr null, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %0, i64 808
+  store ptr %58, ptr %150, align 8
+  br label %151
 
-150:                                              ; preds = %144, %64, %44, %30, %12, %10
-  %151 = phi i1 [ true, %144 ], [ false, %64 ], [ false, %44 ], [ false, %30 ], [ false, %10 ], [ false, %12 ]
-  %152 = phi i32 [ 0, %144 ], [ -12, %64 ], [ -12, %44 ], [ -12, %30 ], [ -22, %10 ], [ -12, %12 ]
-  br i1 %151, label %154, label %153
+151:                                              ; preds = %145, %65, %45, %31, %13, %11
+  %152 = phi i1 [ true, %145 ], [ false, %65 ], [ false, %45 ], [ false, %31 ], [ false, %11 ], [ false, %13 ]
+  %153 = phi i32 [ 0, %145 ], [ -12, %65 ], [ -12, %45 ], [ -12, %31 ], [ -22, %11 ], [ -12, %13 ]
+  br i1 %152, label %155, label %154
 
-153:                                              ; preds = %150
-  tail call void @kfree(ptr noundef nonnull %4) #15
-  br label %159
+154:                                              ; preds = %151
+  tail call void @kfree(ptr noundef nonnull %5) #15
+  br label %160
 
-154:                                              ; preds = %150
-  %155 = getelementptr inbounds i8, ptr %0, i64 784
-  %156 = getelementptr i8, ptr %4, i64 16
-  store ptr %155, ptr %156, align 8
-  br label %157
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds i8, ptr %0, i64 784
+  %157 = getelementptr i8, ptr %5, i64 16
+  store ptr %156, ptr %157, align 8
+  br label %158
 
-157:                                              ; preds = %154, %6
-  %158 = getelementptr inbounds i8, ptr %0, i64 704
-  store ptr %4, ptr %158, align 8
-  br label %159
+158:                                              ; preds = %155, %7
+  %159 = getelementptr inbounds i8, ptr %0, i64 704
+  store ptr %5, ptr %159, align 8
+  br label %160
 
-159:                                              ; preds = %157, %153, %2
-  %160 = phi i32 [ %152, %153 ], [ 0, %157 ], [ -12, %2 ]
-  ret i32 %160
+160:                                              ; preds = %158, %154, %2
+  %161 = phi i32 [ %153, %154 ], [ 0, %158 ], [ -12, %2 ]
+  ret i32 %161
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

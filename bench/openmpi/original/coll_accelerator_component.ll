@@ -16,8 +16,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @accelerator_register() #0 {
-  %1 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_accelerator_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i32 0, i32 1))
-  %2 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_accelerator_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i32 0, i32 2))
+  %1 = getelementptr inbounds %struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i32 0, i32 1
+  %2 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_accelerator_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 5, i32 noundef 1, ptr noundef %1)
+  %3 = getelementptr inbounds %struct.mca_coll_accelerator_component_t, ptr @mca_coll_accelerator_component, i32 0, i32 2
+  %4 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_accelerator_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef %3)
   ret i32 0
 }
 

@@ -130,7 +130,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %24 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
   %25 = load double, ptr %24, align 8
   %26 = fcmp oge double %25, 1.000000e+00
-  br i1 %26, label %27, label %46
+  br i1 %26, label %27, label %47
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
@@ -141,7 +141,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %6, align 8
   %33 = call i32 @proj_errno_set(ptr noundef %32, i32 noundef 2050)
-  br label %232
+  br label %233
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
@@ -150,277 +150,278 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %38 = select i1 %37, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
   %39 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
   store double %38, ptr %39, align 8
-  %40 = load float, ptr getelementptr inbounds ([19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 18), align 16
-  %41 = fpext float %40 to double
-  %42 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 0
-  %43 = load double, ptr %42, align 8
-  %44 = fdiv double %43, %41
-  store double %44, ptr %42, align 8
-  br label %45
+  %40 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 18
+  %41 = load float, ptr %40, align 16
+  %42 = fpext float %41 to double
+  %43 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 0
+  %44 = load double, ptr %43, align 8
+  %45 = fdiv double %44, %42
+  store double %45, ptr %43, align 8
+  br label %46
 
-45:                                               ; preds = %34
-  br label %231
-
-46:                                               ; preds = %3
-  %47 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %48 = load double, ptr %47, align 8
-  %49 = call noundef zeroext i1 @_ZSt5isnand(double noundef %48)
-  br i1 %49, label %50, label %51
-
-50:                                               ; preds = %46
-  br label %57
-
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %53 = load double, ptr %52, align 8
-  %54 = fmul double %53, 1.800000e+01
-  %55 = call double @llvm.floor.f64(double %54)
-  %56 = call i64 @lround(double noundef %55) #7
-  br label %57
-
-57:                                               ; preds = %51, %50
-  %58 = phi i64 [ -1, %50 ], [ %56, %51 ]
-  store i64 %58, ptr %10, align 8
-  %59 = load i64, ptr %10, align 8
-  %60 = icmp slt i64 %59, 0
-  br i1 %60, label %64, label %61
-
-61:                                               ; preds = %57
-  %62 = load i64, ptr %10, align 8
-  %63 = icmp sge i64 %62, 18
-  br i1 %63, label %64, label %67
-
-64:                                               ; preds = %61, %57
-  %65 = load ptr, ptr %6, align 8
-  %66 = call i32 @proj_errno_set(ptr noundef %65, i32 noundef 2050)
+46:                                               ; preds = %34
   br label %232
 
-67:                                               ; preds = %61
-  br label %68
+47:                                               ; preds = %3
+  %48 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %49 = load double, ptr %48, align 8
+  %50 = call noundef zeroext i1 @_ZSt5isnand(double noundef %49)
+  br i1 %50, label %51, label %52
 
-68:                                               ; preds = %95, %67
-  %69 = load i64, ptr %10, align 8
-  %70 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %69
-  %71 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %70, i32 0, i32 0
-  %72 = load float, ptr %71, align 16
-  %73 = fpext float %72 to double
-  %74 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %75 = load double, ptr %74, align 8
-  %76 = fcmp ogt double %73, %75
-  br i1 %76, label %77, label %80
+51:                                               ; preds = %47
+  br label %58
 
-77:                                               ; preds = %68
-  %78 = load i64, ptr %10, align 8
-  %79 = add nsw i64 %78, -1
-  store i64 %79, ptr %10, align 8
-  br label %95
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %54 = load double, ptr %53, align 8
+  %55 = fmul double %54, 1.800000e+01
+  %56 = call double @llvm.floor.f64(double %55)
+  %57 = call i64 @lround(double noundef %56) #7
+  br label %58
 
-80:                                               ; preds = %68
-  %81 = load i64, ptr %10, align 8
-  %82 = add nsw i64 %81, 1
-  %83 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %82
-  %84 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %83, i32 0, i32 0
-  %85 = load float, ptr %84, align 16
-  %86 = fpext float %85 to double
-  %87 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %88 = load double, ptr %87, align 8
-  %89 = fcmp ole double %86, %88
-  br i1 %89, label %90, label %93
+58:                                               ; preds = %52, %51
+  %59 = phi i64 [ -1, %51 ], [ %57, %52 ]
+  store i64 %59, ptr %10, align 8
+  %60 = load i64, ptr %10, align 8
+  %61 = icmp slt i64 %60, 0
+  br i1 %61, label %65, label %62
 
-90:                                               ; preds = %80
-  %91 = load i64, ptr %10, align 8
-  %92 = add nsw i64 %91, 1
-  store i64 %92, ptr %10, align 8
-  br label %94
+62:                                               ; preds = %58
+  %63 = load i64, ptr %10, align 8
+  %64 = icmp sge i64 %63, 18
+  br i1 %64, label %65, label %68
 
-93:                                               ; preds = %80
+65:                                               ; preds = %62, %58
+  %66 = load ptr, ptr %6, align 8
+  %67 = call i32 @proj_errno_set(ptr noundef %66, i32 noundef 2050)
+  br label %233
+
+68:                                               ; preds = %62
+  br label %69
+
+69:                                               ; preds = %96, %68
+  %70 = load i64, ptr %10, align 8
+  %71 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %70
+  %72 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %71, i32 0, i32 0
+  %73 = load float, ptr %72, align 16
+  %74 = fpext float %73 to double
+  %75 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %76 = load double, ptr %75, align 8
+  %77 = fcmp ogt double %74, %76
+  br i1 %77, label %78, label %81
+
+78:                                               ; preds = %69
+  %79 = load i64, ptr %10, align 8
+  %80 = add nsw i64 %79, -1
+  store i64 %80, ptr %10, align 8
   br label %96
 
-94:                                               ; preds = %90
+81:                                               ; preds = %69
+  %82 = load i64, ptr %10, align 8
+  %83 = add nsw i64 %82, 1
+  %84 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %83
+  %85 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %84, i32 0, i32 0
+  %86 = load float, ptr %85, align 16
+  %87 = fpext float %86 to double
+  %88 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %89 = load double, ptr %88, align 8
+  %90 = fcmp ole double %87, %89
+  br i1 %90, label %91, label %94
+
+91:                                               ; preds = %81
+  %92 = load i64, ptr %10, align 8
+  %93 = add nsw i64 %92, 1
+  store i64 %93, ptr %10, align 8
   br label %95
 
-95:                                               ; preds = %94, %77
-  br label %68, !llvm.loop !4
+94:                                               ; preds = %81
+  br label %97
 
-96:                                               ; preds = %93
-  %97 = load i64, ptr %10, align 8
-  %98 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 16 %98, i64 16, i1 false)
-  %99 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %100 = load double, ptr %99, align 8
-  %101 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 0
-  %102 = load float, ptr %101, align 4
-  %103 = fpext float %102 to double
-  %104 = fsub double %100, %103
-  %105 = fmul double 5.000000e+00, %104
-  %106 = load i64, ptr %10, align 8
-  %107 = add nsw i64 %106, 1
-  %108 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %107
-  %109 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %108, i32 0, i32 0
-  %110 = load float, ptr %109, align 16
-  %111 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 0
-  %112 = load float, ptr %111, align 4
-  %113 = fsub float %110, %112
-  %114 = fpext float %113 to double
-  %115 = fdiv double %105, %114
-  store double %115, ptr %7, align 8
+95:                                               ; preds = %91
+  br label %96
+
+96:                                               ; preds = %95, %78
+  br label %69, !llvm.loop !4
+
+97:                                               ; preds = %94
+  %98 = load i64, ptr %10, align 8
+  %99 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %98
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 16 %99, i64 16, i1 false)
+  %100 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %101 = load double, ptr %100, align 8
+  %102 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 0
+  %103 = load float, ptr %102, align 4
+  %104 = fpext float %103 to double
+  %105 = fsub double %101, %104
+  %106 = fmul double 5.000000e+00, %105
+  %107 = load i64, ptr %10, align 8
+  %108 = add nsw i64 %107, 1
+  %109 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1Y, i64 0, i64 %108
+  %110 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %109, i32 0, i32 0
+  %111 = load float, ptr %110, align 16
+  %112 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 0
+  %113 = load float, ptr %112, align 4
+  %114 = fsub float %111, %113
+  %115 = fpext float %114 to double
+  %116 = fdiv double %106, %115
+  store double %116, ptr %7, align 8
   store i32 100, ptr %9, align 4
-  br label %116
+  br label %117
 
-116:                                              ; preds = %167, %96
-  %117 = load i32, ptr %9, align 4
-  %118 = icmp ne i32 %117, 0
-  br i1 %118, label %119, label %170
+117:                                              ; preds = %168, %97
+  %118 = load i32, ptr %9, align 4
+  %119 = icmp ne i32 %118, 0
+  br i1 %119, label %120, label %171
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 0
-  %121 = load float, ptr %120, align 4
-  %122 = fpext float %121 to double
-  %123 = load double, ptr %7, align 8
-  %124 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 1
-  %125 = load float, ptr %124, align 4
-  %126 = fpext float %125 to double
-  %127 = load double, ptr %7, align 8
-  %128 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 2
-  %129 = load float, ptr %128, align 4
-  %130 = fpext float %129 to double
-  %131 = load double, ptr %7, align 8
-  %132 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 3
-  %133 = load float, ptr %132, align 4
-  %134 = fpext float %133 to double
-  %135 = call double @llvm.fmuladd.f64(double %131, double %134, double %130)
-  %136 = call double @llvm.fmuladd.f64(double %127, double %135, double %126)
-  %137 = call double @llvm.fmuladd.f64(double %123, double %136, double %122)
-  %138 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %139 = load double, ptr %138, align 8
-  %140 = fsub double %137, %139
-  %141 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 1
-  %142 = load float, ptr %141, align 4
-  %143 = fpext float %142 to double
-  %144 = load double, ptr %7, align 8
-  %145 = fmul double 2.000000e+00, %144
-  %146 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 2
-  %147 = load float, ptr %146, align 4
-  %148 = fpext float %147 to double
-  %149 = call double @llvm.fmuladd.f64(double %145, double %148, double %143)
-  %150 = load double, ptr %7, align 8
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 0
+  %122 = load float, ptr %121, align 4
+  %123 = fpext float %122 to double
+  %124 = load double, ptr %7, align 8
+  %125 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 1
+  %126 = load float, ptr %125, align 4
+  %127 = fpext float %126 to double
+  %128 = load double, ptr %7, align 8
+  %129 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 2
+  %130 = load float, ptr %129, align 4
+  %131 = fpext float %130 to double
+  %132 = load double, ptr %7, align 8
+  %133 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 3
+  %134 = load float, ptr %133, align 4
+  %135 = fpext float %134 to double
+  %136 = call double @llvm.fmuladd.f64(double %132, double %135, double %131)
+  %137 = call double @llvm.fmuladd.f64(double %128, double %136, double %127)
+  %138 = call double @llvm.fmuladd.f64(double %124, double %137, double %123)
+  %139 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %140 = load double, ptr %139, align 8
+  %141 = fsub double %138, %140
+  %142 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 1
+  %143 = load float, ptr %142, align 4
+  %144 = fpext float %143 to double
+  %145 = load double, ptr %7, align 8
+  %146 = fmul double 2.000000e+00, %145
+  %147 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 2
+  %148 = load float, ptr %147, align 4
+  %149 = fpext float %148 to double
+  %150 = call double @llvm.fmuladd.f64(double %146, double %149, double %144)
   %151 = load double, ptr %7, align 8
-  %152 = fmul double %150, %151
-  %153 = fmul double %152, 3.000000e+00
-  %154 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 3
-  %155 = load float, ptr %154, align 4
-  %156 = fpext float %155 to double
-  %157 = call double @llvm.fmuladd.f64(double %153, double %156, double %149)
-  %158 = fdiv double %140, %157
-  store double %158, ptr %11, align 8
-  %159 = load double, ptr %11, align 8
-  %160 = load double, ptr %7, align 8
-  %161 = fsub double %160, %159
-  store double %161, ptr %7, align 8
-  %162 = load double, ptr %11, align 8
-  %163 = call double @llvm.fabs.f64(double %162)
-  %164 = fcmp olt double %163, 1.000000e-10
-  br i1 %164, label %165, label %166
+  %152 = load double, ptr %7, align 8
+  %153 = fmul double %151, %152
+  %154 = fmul double %153, 3.000000e+00
+  %155 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %8, i32 0, i32 3
+  %156 = load float, ptr %155, align 4
+  %157 = fpext float %156 to double
+  %158 = call double @llvm.fmuladd.f64(double %154, double %157, double %150)
+  %159 = fdiv double %141, %158
+  store double %159, ptr %11, align 8
+  %160 = load double, ptr %11, align 8
+  %161 = load double, ptr %7, align 8
+  %162 = fsub double %161, %160
+  store double %162, ptr %7, align 8
+  %163 = load double, ptr %11, align 8
+  %164 = call double @llvm.fabs.f64(double %163)
+  %165 = fcmp olt double %164, 1.000000e-10
+  br i1 %165, label %166, label %167
 
-165:                                              ; preds = %119
-  br label %170
+166:                                              ; preds = %120
+  br label %171
 
-166:                                              ; preds = %119
-  br label %167
+167:                                              ; preds = %120
+  br label %168
 
-167:                                              ; preds = %166
-  %168 = load i32, ptr %9, align 4
-  %169 = add nsw i32 %168, -1
-  store i32 %169, ptr %9, align 4
-  br label %116, !llvm.loop !6
+168:                                              ; preds = %167
+  %169 = load i32, ptr %9, align 4
+  %170 = add nsw i32 %169, -1
+  store i32 %170, ptr %9, align 4
+  br label %117, !llvm.loop !6
 
-170:                                              ; preds = %165, %116
-  %171 = load i32, ptr %9, align 4
-  %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %177
+171:                                              ; preds = %166, %117
+  %172 = load i32, ptr %9, align 4
+  %173 = icmp eq i32 %172, 0
+  br i1 %173, label %174, label %178
 
-173:                                              ; preds = %170
-  %174 = load ptr, ptr %6, align 8
-  %175 = getelementptr inbounds %struct.PJconsts, ptr %174, i32 0, i32 0
-  %176 = load ptr, ptr %175, align 8
-  call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %176, i32 noundef 2050)
-  br label %177
+174:                                              ; preds = %171
+  %175 = load ptr, ptr %6, align 8
+  %176 = getelementptr inbounds %struct.PJconsts, ptr %175, i32 0, i32 0
+  %177 = load ptr, ptr %176, align 8
+  call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %177, i32 noundef 2050)
+  br label %178
 
-177:                                              ; preds = %173, %170
-  %178 = load i64, ptr %10, align 8
-  %179 = mul nsw i64 5, %178
-  %180 = sitofp i64 %179 to double
-  %181 = load double, ptr %7, align 8
-  %182 = fadd double %180, %181
-  %183 = fmul double %182, 0x3F91DF46A2529D39
-  %184 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %183, ptr %184, align 8
-  %185 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
-  %186 = load double, ptr %185, align 8
-  %187 = fcmp olt double %186, 0.000000e+00
-  br i1 %187, label %188, label %193
+178:                                              ; preds = %174, %171
+  %179 = load i64, ptr %10, align 8
+  %180 = mul nsw i64 5, %179
+  %181 = sitofp i64 %180 to double
+  %182 = load double, ptr %7, align 8
+  %183 = fadd double %181, %182
+  %184 = fmul double %183, 0x3F91DF46A2529D39
+  %185 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %184, ptr %185, align 8
+  %186 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
+  %187 = load double, ptr %186, align 8
+  %188 = fcmp olt double %187, 0.000000e+00
+  br i1 %188, label %189, label %194
 
-188:                                              ; preds = %177
-  %189 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %190 = load double, ptr %189, align 8
-  %191 = fneg double %190
-  %192 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %191, ptr %192, align 8
-  br label %193
+189:                                              ; preds = %178
+  %190 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %191 = load double, ptr %190, align 8
+  %192 = fneg double %191
+  %193 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %192, ptr %193, align 8
+  br label %194
 
-193:                                              ; preds = %188, %177
-  %194 = load i64, ptr %10, align 8
-  %195 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %194
-  %196 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %195, i32 0, i32 0
-  %197 = load float, ptr %196, align 16
-  %198 = fpext float %197 to double
-  %199 = load double, ptr %7, align 8
-  %200 = load i64, ptr %10, align 8
-  %201 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %200
-  %202 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %201, i32 0, i32 1
-  %203 = load float, ptr %202, align 4
-  %204 = fpext float %203 to double
-  %205 = load double, ptr %7, align 8
-  %206 = load i64, ptr %10, align 8
-  %207 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %206
-  %208 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %207, i32 0, i32 2
-  %209 = load float, ptr %208, align 8
-  %210 = fpext float %209 to double
-  %211 = load double, ptr %7, align 8
-  %212 = load i64, ptr %10, align 8
-  %213 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %212
-  %214 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %213, i32 0, i32 3
-  %215 = load float, ptr %214, align 4
-  %216 = fpext float %215 to double
-  %217 = call double @llvm.fmuladd.f64(double %211, double %216, double %210)
-  %218 = call double @llvm.fmuladd.f64(double %205, double %217, double %204)
-  %219 = call double @llvm.fmuladd.f64(double %199, double %218, double %198)
-  %220 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 0
-  %221 = load double, ptr %220, align 8
-  %222 = fdiv double %221, %219
-  store double %222, ptr %220, align 8
-  %223 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 0
-  %224 = load double, ptr %223, align 8
-  %225 = call double @llvm.fabs.f64(double %224)
-  %226 = fcmp ogt double %225, 0x400921FB54442D18
-  br i1 %226, label %227, label %230
+194:                                              ; preds = %189, %178
+  %195 = load i64, ptr %10, align 8
+  %196 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %195
+  %197 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %196, i32 0, i32 0
+  %198 = load float, ptr %197, align 16
+  %199 = fpext float %198 to double
+  %200 = load double, ptr %7, align 8
+  %201 = load i64, ptr %10, align 8
+  %202 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %201
+  %203 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %202, i32 0, i32 1
+  %204 = load float, ptr %203, align 4
+  %205 = fpext float %204 to double
+  %206 = load double, ptr %7, align 8
+  %207 = load i64, ptr %10, align 8
+  %208 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %207
+  %209 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %208, i32 0, i32 2
+  %210 = load float, ptr %209, align 8
+  %211 = fpext float %210 to double
+  %212 = load double, ptr %7, align 8
+  %213 = load i64, ptr %10, align 8
+  %214 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %213
+  %215 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr %214, i32 0, i32 3
+  %216 = load float, ptr %215, align 4
+  %217 = fpext float %216 to double
+  %218 = call double @llvm.fmuladd.f64(double %212, double %217, double %211)
+  %219 = call double @llvm.fmuladd.f64(double %206, double %218, double %205)
+  %220 = call double @llvm.fmuladd.f64(double %200, double %219, double %199)
+  %221 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 0
+  %222 = load double, ptr %221, align 8
+  %223 = fdiv double %222, %220
+  store double %223, ptr %221, align 8
+  %224 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 0
+  %225 = load double, ptr %224, align 8
+  %226 = call double @llvm.fabs.f64(double %225)
+  %227 = fcmp ogt double %226, 0x400921FB54442D18
+  br i1 %227, label %228, label %231
 
-227:                                              ; preds = %193
-  %228 = load ptr, ptr %6, align 8
-  %229 = call i32 @proj_errno_set(ptr noundef %228, i32 noundef 2050)
+228:                                              ; preds = %194
+  %229 = load ptr, ptr %6, align 8
+  %230 = call i32 @proj_errno_set(ptr noundef %229, i32 noundef 2050)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8 %12)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %12, i64 16, i1 false)
-  br label %230
-
-230:                                              ; preds = %227, %193
   br label %231
 
-231:                                              ; preds = %230, %45
+231:                                              ; preds = %228, %194
   br label %232
 
-232:                                              ; preds = %231, %64, %31
-  %233 = load { double, double }, ptr %4, align 8
-  ret { double, double } %233
+232:                                              ; preds = %231, %46
+  br label %233
+
+233:                                              ; preds = %232, %65, %31
+  %234 = load { double, double }, ptr %4, align 8
+  ret { double, double } %234
 }
 
 ; Function Attrs: mustprogress uwtable

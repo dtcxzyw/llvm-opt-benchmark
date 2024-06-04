@@ -1202,7 +1202,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers77PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithNoDataFile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers77PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithNoDataFile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2023,7 +2024,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers80PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithMissingPrefix_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers80PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithMissingPrefix_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2283,7 +2285,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumber_en_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumber_en_US_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2803,7 +2806,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberOfflineGeocoderTest_TestGetDescriptionForKoreanNumber_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberOfflineGeocoderTest_TestGetDescriptionForKoreanNumber_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3428,7 +3432,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers65PhoneNumberOfflineGeocoderTest_TestGetDescriptionForFallBack_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers65PhoneNumberOfflineGeocoderTest_TestGetDescriptionForFallBack_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3942,7 +3947,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers77PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithUserRegion_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers77PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithUserRegion_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4747,7 +4753,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers70PhoneNumberOfflineGeocoderTest_TestGetDescriptionForInvalidNumber_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers70PhoneNumberOfflineGeocoderTest_TestGetDescriptionForInvalidNumber_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5059,7 +5066,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers97PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNonGeographicalNumberWithGeocodingPrefix_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers97PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNonGeographicalNumberWithGeocodingPrefix_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5389,7 +5397,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5469,7 +5478,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers77PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers77PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithNoDataFile_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers77PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithNoDataFile_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5481,267 +5491,268 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 1
-  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers26PhoneNumberOfflineGeocoderEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null) #3
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 2
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %7, i32 noundef 82, i64 noundef 22123456)
-          to label %8 unwind label %35
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 1
+  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers26PhoneNumberOfflineGeocoderEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef null) #3
+  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 2
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %8, i32 noundef 82, i64 noundef 22123456)
+          to label %9 unwind label %36
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 3
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %9, i32 noundef 82, i64 noundef 322123456)
-          to label %10 unwind label %39
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 3
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %10, i32 noundef 82, i64 noundef 322123456)
+          to label %11 unwind label %40
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 4
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %11, i32 noundef 82, i64 noundef 6421234567)
-          to label %12 unwind label %43
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 4
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %12, i32 noundef 82, i64 noundef 6421234567)
+          to label %13 unwind label %44
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 5
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %13, i32 noundef 82, i64 noundef 1234)
-          to label %14 unwind label %47
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 5
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %14, i32 noundef 82, i64 noundef 1234)
+          to label %15 unwind label %48
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 6
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %15, i32 noundef 82, i64 noundef 101234567)
-          to label %16 unwind label %51
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 6
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %16, i32 noundef 82, i64 noundef 101234567)
+          to label %17 unwind label %52
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 7
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %17, i32 noundef 1, i64 noundef 6502530000)
-          to label %18 unwind label %55
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 7
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %18, i32 noundef 1, i64 noundef 6502530000)
+          to label %19 unwind label %56
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 8
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %19, i32 noundef 1, i64 noundef 6509600000)
-          to label %20 unwind label %59
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 8
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %20, i32 noundef 1, i64 noundef 6509600000)
+          to label %21 unwind label %60
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 9
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %21, i32 noundef 1, i64 noundef 2128120000)
-          to label %22 unwind label %63
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 9
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %22, i32 noundef 1, i64 noundef 2128120000)
+          to label %23 unwind label %64
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 10
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %23, i32 noundef 1, i64 noundef 6174240000)
-          to label %24 unwind label %67
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 10
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %24, i32 noundef 1, i64 noundef 6174240000)
+          to label %25 unwind label %68
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 11
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %25, i32 noundef 1, i64 noundef 123456789)
-          to label %26 unwind label %71
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 11
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %26, i32 noundef 1, i64 noundef 123456789)
+          to label %27 unwind label %72
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 12
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %27, i32 noundef 1, i64 noundef 2423651234)
-          to label %28 unwind label %75
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 12
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %28, i32 noundef 1, i64 noundef 2423651234)
+          to label %29 unwind label %76
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 13
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %29, i32 noundef 61, i64 noundef 236618300)
-          to label %30 unwind label %79
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 13
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %30, i32 noundef 61, i64 noundef 236618300)
+          to label %31 unwind label %80
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 14
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %31, i32 noundef 999, i64 noundef 2423651234)
-          to label %32 unwind label %83
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 14
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %32, i32 noundef 999, i64 noundef 2423651234)
+          to label %33 unwind label %84
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 15
-  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %33, i32 noundef 800, i64 noundef 12345678)
-          to label %34 unwind label %87
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %5, i32 0, i32 15
+  invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_110MakeNumberEim(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::PhoneNumber") align 8 %34, i32 noundef 800, i64 noundef 12345678)
+          to label %35 unwind label %88
 
-34:                                               ; preds = %32
+35:                                               ; preds = %33
   ret void
 
-35:                                               ; preds = %1
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %1
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %3, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %4, align 4
-  br label %103
-
-39:                                               ; preds = %8
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %3, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %4, align 4
-  br label %102
-
-43:                                               ; preds = %10
-  %44 = landingpad { ptr, i32 }
-          cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %3, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %4, align 4
-  br label %101
-
-47:                                               ; preds = %12
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %3, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %4, align 4
-  br label %100
-
-51:                                               ; preds = %14
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %3, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %4, align 4
-  br label %99
-
-55:                                               ; preds = %16
-  %56 = landingpad { ptr, i32 }
-          cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %3, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %4, align 4
-  br label %98
-
-59:                                               ; preds = %18
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %3, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %4, align 4
-  br label %97
-
-63:                                               ; preds = %20
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %3, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %4, align 4
-  br label %96
-
-67:                                               ; preds = %22
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %3, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %4, align 4
-  br label %95
-
-71:                                               ; preds = %24
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %3, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %4, align 4
-  br label %94
-
-75:                                               ; preds = %26
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %3, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %4, align 4
-  br label %93
-
-79:                                               ; preds = %28
-  %80 = landingpad { ptr, i32 }
-          cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %3, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %4, align 4
-  br label %92
-
-83:                                               ; preds = %30
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %3, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %4, align 4
-  br label %91
-
-87:                                               ; preds = %32
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %3, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %4, align 4
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %31) #3
-  br label %91
-
-91:                                               ; preds = %87, %83
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %29) #3
-  br label %92
-
-92:                                               ; preds = %91, %79
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %27) #3
-  br label %93
-
-93:                                               ; preds = %92, %75
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %25) #3
-  br label %94
-
-94:                                               ; preds = %93, %71
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %23) #3
-  br label %95
-
-95:                                               ; preds = %94, %67
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %21) #3
-  br label %96
-
-96:                                               ; preds = %95, %63
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #3
-  br label %97
-
-97:                                               ; preds = %96, %59
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %17) #3
-  br label %98
-
-98:                                               ; preds = %97, %55
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #3
-  br label %99
-
-99:                                               ; preds = %98, %51
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #3
-  br label %100
-
-100:                                              ; preds = %99, %47
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
-  br label %101
-
-101:                                              ; preds = %100, %43
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #3
-  br label %102
-
-102:                                              ; preds = %101, %39
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #3
-  br label %103
-
-103:                                              ; preds = %102, %35
-  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers26PhoneNumberOfflineGeocoderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %3, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %4, align 4
   br label %104
 
-104:                                              ; preds = %103
-  %105 = load ptr, ptr %3, align 8
-  %106 = load i32, ptr %4, align 4
-  %107 = insertvalue { ptr, i32 } poison, ptr %105, 0
-  %108 = insertvalue { ptr, i32 } %107, i32 %106, 1
-  resume { ptr, i32 } %108
+40:                                               ; preds = %9
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %3, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %4, align 4
+  br label %103
+
+44:                                               ; preds = %11
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %3, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %4, align 4
+  br label %102
+
+48:                                               ; preds = %13
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %3, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %4, align 4
+  br label %101
+
+52:                                               ; preds = %15
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %3, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %4, align 4
+  br label %100
+
+56:                                               ; preds = %17
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %3, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %4, align 4
+  br label %99
+
+60:                                               ; preds = %19
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %3, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %4, align 4
+  br label %98
+
+64:                                               ; preds = %21
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %3, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %4, align 4
+  br label %97
+
+68:                                               ; preds = %23
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %3, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %4, align 4
+  br label %96
+
+72:                                               ; preds = %25
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %3, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %4, align 4
+  br label %95
+
+76:                                               ; preds = %27
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %3, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %4, align 4
+  br label %94
+
+80:                                               ; preds = %29
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %3, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %4, align 4
+  br label %93
+
+84:                                               ; preds = %31
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %3, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %4, align 4
+  br label %92
+
+88:                                               ; preds = %33
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %3, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %4, align 4
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %32) #3
+  br label %92
+
+92:                                               ; preds = %88, %84
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %30) #3
+  br label %93
+
+93:                                               ; preds = %92, %80
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %28) #3
+  br label %94
+
+94:                                               ; preds = %93, %76
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %26) #3
+  br label %95
+
+95:                                               ; preds = %94, %72
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %24) #3
+  br label %96
+
+96:                                               ; preds = %95, %68
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %22) #3
+  br label %97
+
+97:                                               ; preds = %96, %64
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %20) #3
+  br label %98
+
+98:                                               ; preds = %97, %60
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %18) #3
+  br label %99
+
+99:                                               ; preds = %98, %56
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #3
+  br label %100
+
+100:                                              ; preds = %99, %52
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %14) #3
+  br label %101
+
+101:                                              ; preds = %100, %48
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #3
+  br label %102
+
+102:                                              ; preds = %101, %44
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #3
+  br label %103
+
+103:                                              ; preds = %102, %40
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #3
+  br label %104
+
+104:                                              ; preds = %103, %36
+  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers26PhoneNumberOfflineGeocoderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  br label %105
+
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %3, align 8
+  %107 = load i32, ptr %4, align 4
+  %108 = insertvalue { ptr, i32 } poison, ptr %106, 0
+  %109 = insertvalue { ptr, i32 } %108, i32 %107, 1
+  resume { ptr, i32 } %109
 }
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -5833,37 +5844,38 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 15
-  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #3
-  %5 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 14
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 15
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #3
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 13
+  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 14
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #3
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 12
+  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 13
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #3
-  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 11
+  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 12
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #3
-  %9 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 10
+  %9 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 11
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #3
-  %10 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 9
+  %10 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 10
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #3
-  %11 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 8
+  %11 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 9
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
-  %12 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 7
+  %12 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 8
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #3
-  %13 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 6
+  %13 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 7
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #3
-  %14 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 5
+  %14 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 6
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %14) #3
-  %15 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 4
+  %15 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 5
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #3
-  %16 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 3
+  %16 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 4
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #3
-  %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 2
+  %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 3
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %17) #3
-  %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 1
-  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers26PhoneNumberOfflineGeocoderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 2
+  call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %18) #3
+  %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoderTest", ptr %3, i32 0, i32 1
+  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers26PhoneNumberOfflineGeocoderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
   call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
@@ -6456,7 +6468,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers80PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers80PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithMissingPrefix_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers80PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithMissingPrefix_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6516,7 +6529,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers69PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumber_en_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumber_en_US_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6576,7 +6590,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers69PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberOfflineGeocoderTest_TestGetDescriptionForKoreanNumber_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberOfflineGeocoderTest_TestGetDescriptionForKoreanNumber_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6636,7 +6651,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers65PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers65PhoneNumberOfflineGeocoderTest_TestGetDescriptionForFallBack_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers65PhoneNumberOfflineGeocoderTest_TestGetDescriptionForFallBack_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6696,7 +6712,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers77PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers77PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithUserRegion_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers77PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNumberWithUserRegion_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6756,7 +6773,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers70PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers70PhoneNumberOfflineGeocoderTest_TestGetDescriptionForInvalidNumber_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers70PhoneNumberOfflineGeocoderTest_TestGetDescriptionForInvalidNumber_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6816,7 +6834,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers97PhoneNumberOfflineGe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers30PhoneNumberOfflineGeocoderTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers97PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNonGeographicalNumberWithGeocodingPrefix_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers97PhoneNumberOfflineGeocoderTest_TestGetDescriptionForNonGeographicalNumberWithGeocodingPrefix_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

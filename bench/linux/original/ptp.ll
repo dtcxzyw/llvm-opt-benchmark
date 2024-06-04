@@ -22,7 +22,7 @@ define dso_local void @e1000e_ptp_init(ptr noundef %0) local_unnamed_addr #0 ali
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16384
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %70, label %7
+  br i1 %6, label %72, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 12264
@@ -103,56 +103,58 @@ define dso_local void @e1000e_ptp_init(ptr noundef %0) local_unnamed_addr #0 ali
 42:                                               ; preds = %40, %39, %38, %28, %27, %26, %16, %7
   %43 = load i32, ptr %14, align 4
   %44 = icmp ugt i32 %43, 11
-  br i1 %44, label %45, label %51
+  br i1 %44, label %45, label %52
 
 45:                                               ; preds = %42
-  %46 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0), align 8
-  %47 = and i64 %46, 4398046511104
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %51, label %49
+  %46 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0
+  %47 = load volatile i64, ptr %46, align 8
+  %48 = and i64 %47, 4398046511104
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %52, label %50
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 12384
-  store ptr @e1000e_phc_getcrosststamp, ptr %50, align 8
-  br label %51
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds i8, ptr %0, i64 12384
+  store ptr @e1000e_phc_getcrosststamp, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %49, %45, %42
-  %52 = getelementptr inbounds i8, ptr %0, i64 12048
-  store i64 68719476704, ptr %52, align 16
-  %53 = getelementptr inbounds i8, ptr %0, i64 12056
-  store volatile ptr %53, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 12064
-  store volatile ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 12072
-  store ptr @e1000e_systim_overflow_work, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 12080
-  tail call void @init_timer_key(ptr noundef %56, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #8
-  %57 = load ptr, ptr @system_wq, align 8
-  %58 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %57, ptr noundef %52, i64 noundef 14400000) #8
-  %59 = getelementptr inbounds i8, ptr %0, i64 1456
-  %60 = load ptr, ptr %59, align 16
-  %61 = getelementptr inbounds i8, ptr %60, i64 184
-  %62 = tail call ptr @ptp_clock_register(ptr noundef %8, ptr noundef %61) #8
-  store ptr %62, ptr %2, align 32
-  %63 = icmp ugt ptr %62, inttoptr (i64 -4096 to ptr)
-  br i1 %63, label %64, label %66
+52:                                               ; preds = %50, %45, %42
+  %53 = getelementptr inbounds i8, ptr %0, i64 12048
+  store i64 68719476704, ptr %53, align 16
+  %54 = getelementptr inbounds i8, ptr %0, i64 12056
+  store volatile ptr %54, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 12064
+  store volatile ptr %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 12072
+  store ptr @e1000e_systim_overflow_work, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 12080
+  tail call void @init_timer_key(ptr noundef %57, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #8
+  %58 = load ptr, ptr @system_wq, align 8
+  %59 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %58, ptr noundef %53, i64 noundef 14400000) #8
+  %60 = getelementptr inbounds i8, ptr %0, i64 1456
+  %61 = load ptr, ptr %60, align 16
+  %62 = getelementptr inbounds i8, ptr %61, i64 184
+  %63 = tail call ptr @ptp_clock_register(ptr noundef %8, ptr noundef %62) #8
+  store ptr %63, ptr %2, align 32
+  %64 = inttoptr i64 -4096 to ptr
+  %65 = icmp ugt ptr %63, %64
+  br i1 %65, label %66, label %68
 
-64:                                               ; preds = %51
+66:                                               ; preds = %52
   store ptr null, ptr %2, align 32
-  %65 = load ptr, ptr %10, align 8
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %65, ptr noundef nonnull @.str.1) #9
-  br label %70
+  %67 = load ptr, ptr %10, align 8
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %67, ptr noundef nonnull @.str.1) #9
+  br label %72
 
-66:                                               ; preds = %51
-  %67 = icmp eq ptr %62, null
-  br i1 %67, label %70, label %68
+68:                                               ; preds = %52
+  %69 = icmp eq ptr %63, null
+  br i1 %69, label %72, label %70
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr %10, align 8
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %69, ptr noundef nonnull @.str.2) #9
-  br label %70
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %10, align 8
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %71, ptr noundef nonnull @.str.2) #9
+  br label %72
 
-70:                                               ; preds = %68, %66, %64, %1
+72:                                               ; preds = %70, %68, %66, %1
   ret void
 }
 

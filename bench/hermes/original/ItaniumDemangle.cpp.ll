@@ -6622,12 +6622,13 @@ entry:
   store ptr %Child_, ptr %Child_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 20, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Special = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialName", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Special, ptr align 8 %Special_, i64 16, i1 false)
   %Child = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialName", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %Child_.addr, align 8
-  store ptr %2, ptr %Child, align 8
+  %3 = load ptr, ptr %Child_.addr, align 8
+  store ptr %3, ptr %Child, align 8
   ret void
 }
 
@@ -6717,19 +6718,20 @@ entry:
   store i8 %ArrayCache_, ptr %ArrayCache_.addr, align 1
   store i8 %FunctionCache_, ptr %FunctionCache_.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %K = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %K_.addr, align 1
-  store i8 %0, ptr %K, align 8
+  %1 = load i8, ptr %K_.addr, align 1
+  store i8 %1, ptr %K, align 8
   %RHSComponentCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %RHSComponentCache_.addr, align 1
-  store i8 %1, ptr %RHSComponentCache, align 1
+  %2 = load i8, ptr %RHSComponentCache_.addr, align 1
+  store i8 %2, ptr %RHSComponentCache, align 1
   %ArrayCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this1, i32 0, i32 3
-  %2 = load i8, ptr %ArrayCache_.addr, align 1
-  store i8 %2, ptr %ArrayCache, align 2
+  %3 = load i8, ptr %ArrayCache_.addr, align 1
+  store i8 %3, ptr %ArrayCache, align 2
   %FunctionCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this1, i32 0, i32 4
-  %3 = load i8, ptr %FunctionCache_.addr, align 1
-  store i8 %3, ptr %FunctionCache, align 1
+  %4 = load i8, ptr %FunctionCache_.addr, align 1
+  store i8 %4, ptr %FunctionCache, align 1
   ret void
 }
 
@@ -7010,13 +7012,14 @@ entry:
   store ptr %SecondType_, ptr %SecondType_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 21, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle21CtorVtableSpecialNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle21CtorVtableSpecialNameE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %FirstType = getelementptr inbounds %"class.llvh::itanium_demangle::CtorVtableSpecialName", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %FirstType_.addr, align 8
-  store ptr %0, ptr %FirstType, align 8
+  %1 = load ptr, ptr %FirstType_.addr, align 8
+  store ptr %1, ptr %FirstType, align 8
   %SecondType = getelementptr inbounds %"class.llvh::itanium_demangle::CtorVtableSpecialName", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %SecondType_.addr, align 8
-  store ptr %1, ptr %SecondType, align 8
+  %2 = load ptr, ptr %SecondType_.addr, align 8
+  store ptr %2, ptr %SecondType, align 8
   ret void
 }
 
@@ -8901,7 +8904,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 7, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Name = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Name, ptr align 8 %Name_, i64 16, i1 false)
   ret void
@@ -9009,13 +9013,14 @@ entry:
   store ptr %Name_, ptr %Name_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 23, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Qual = getelementptr inbounds %"struct.llvh::itanium_demangle::NestedName", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Qual_.addr, align 8
-  store ptr %0, ptr %Qual, align 8
+  %1 = load ptr, ptr %Qual_.addr, align 8
+  store ptr %1, ptr %Qual, align 8
   %Name = getelementptr inbounds %"struct.llvh::itanium_demangle::NestedName", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %Name_.addr, align 8
-  store ptr %1, ptr %Name, align 8
+  %2 = load ptr, ptr %Name_.addr, align 8
+  store ptr %2, ptr %Name, align 8
   ret void
 }
 
@@ -9326,10 +9331,11 @@ entry:
   store i64 %Index_, ptr %Index_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 31, i8 noundef zeroext 2, i8 noundef zeroext 2, i8 noundef zeroext 2)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle24ForwardTemplateReferenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle24ForwardTemplateReferenceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Index = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %Index_.addr, align 8
-  store i64 %0, ptr %Index, align 8
+  %1 = load i64, ptr %Index_.addr, align 8
+  store i64 %1, ptr %Index, align 8
   %Ref = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this1, i32 0, i32 3
   store ptr null, ptr %Ref, align 8
   %Printing = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this1, i32 0, i32 4
@@ -14690,7 +14696,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 61, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle14IntegerLiteralE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle14IntegerLiteralE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %Type = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerLiteral", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Type, ptr align 8 %Type_, i64 16, i1 false)
   %Value = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerLiteral", ptr %this1, i32 0, i32 2
@@ -14900,10 +14907,11 @@ entry:
   store i8 %frombool, ptr %Value_.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 59, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8BoolExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8BoolExprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Value = getelementptr inbounds %"class.llvh::itanium_demangle::BoolExpr", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %Value_.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %Value_.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %Value, align 4
   ret void
@@ -15012,7 +15020,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 62, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIfEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Contents = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Contents, ptr align 8 %Contents_, i64 16, i1 false)
   ret void
@@ -15342,7 +15351,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 63, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIdEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Contents = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl.3", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Contents, ptr align 8 %Contents_, i64 16, i1 false)
   ret void
@@ -15566,7 +15576,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 64, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIeEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIeEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Contents = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl.5", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Contents, ptr align 8 %Contents_, i64 16, i1 false)
   ret void
@@ -15782,10 +15793,11 @@ entry:
   store ptr %Ty_, ptr %Ty_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 60, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15IntegerCastExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15IntegerCastExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerCastExpr", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Ty_.addr, align 8
-  store ptr %2, ptr %Ty, align 8
+  %3 = load ptr, ptr %Ty_.addr, align 8
+  store ptr %3, ptr %Ty, align 8
   %Integer = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerCastExpr", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Integer, ptr align 8 %Integer_, i64 16, i1 false)
   ret void
@@ -15899,7 +15911,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 54, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13FunctionParamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13FunctionParamE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Number = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionParam", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Number, ptr align 8 %Number_, i64 16, i1 false)
   ret void
@@ -16051,18 +16064,19 @@ entry:
   store ptr %Init_, ptr %Init_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 57, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8FoldExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8FoldExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Pack = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %Pack_.addr, align 8
-  store ptr %2, ptr %Pack, align 8
+  %3 = load ptr, ptr %Pack_.addr, align 8
+  store ptr %3, ptr %Pack, align 8
   %Init = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %Init_.addr, align 8
-  store ptr %3, ptr %Init, align 8
+  %4 = load ptr, ptr %Init_.addr, align 8
+  store ptr %4, ptr %Init, align 8
   %OperatorName = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %OperatorName, ptr align 8 %OperatorName_, i64 16, i1 false)
   %IsLeftFold = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this1, i32 0, i32 5
-  %4 = load i8, ptr %IsLeftFold_.addr, align 1
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %IsLeftFold_.addr, align 1
+  %tobool = trunc i8 %5 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %IsLeftFold, align 8
   ret void
@@ -16248,10 +16262,11 @@ entry:
   store ptr %Child_, ptr %Child_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 29, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Child = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPackExpansion", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Child_.addr, align 8
-  store ptr %0, ptr %Child, align 8
+  %1 = load ptr, ptr %Child_.addr, align 8
+  store ptr %1, ptr %Child, align 8
   ret void
 }
 
@@ -16511,15 +16526,16 @@ entry:
   store ptr %RHS_, ptr %RHS_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 42, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BinaryExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BinaryExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %LHS = getelementptr inbounds %"class.llvh::itanium_demangle::BinaryExpr", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %LHS_.addr, align 8
-  store ptr %2, ptr %LHS, align 8
+  %3 = load ptr, ptr %LHS_.addr, align 8
+  store ptr %3, ptr %LHS, align 8
   %InfixOperator = getelementptr inbounds %"class.llvh::itanium_demangle::BinaryExpr", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %InfixOperator, ptr align 8 %InfixOperator_, i64 16, i1 false)
   %RHS = getelementptr inbounds %"class.llvh::itanium_demangle::BinaryExpr", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %RHS_.addr, align 8
-  store ptr %3, ptr %RHS, align 8
+  %4 = load ptr, ptr %RHS_.addr, align 8
+  store ptr %4, ptr %RHS, align 8
   ret void
 }
 
@@ -16725,12 +16741,13 @@ entry:
   store ptr %Child_, ptr %Child_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 53, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10PrefixExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10PrefixExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Prefix = getelementptr inbounds %"class.llvh::itanium_demangle::PrefixExpr", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Prefix, ptr align 8 %Prefix_, i64 16, i1 false)
   %Child = getelementptr inbounds %"class.llvh::itanium_demangle::PrefixExpr", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %Child_.addr, align 8
-  store ptr %2, ptr %Child, align 8
+  %3 = load ptr, ptr %Child_.addr, align 8
+  store ptr %3, ptr %Child, align 8
   ret void
 }
 
@@ -16841,15 +16858,16 @@ entry:
   store ptr %From_, ptr %From_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 48, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %CastKind = getelementptr inbounds %"class.llvh::itanium_demangle::CastExpr", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %CastKind, ptr align 8 %CastKind_, i64 16, i1 false)
   %To = getelementptr inbounds %"class.llvh::itanium_demangle::CastExpr", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %To_.addr, align 8
-  store ptr %2, ptr %To, align 8
+  %3 = load ptr, ptr %To_.addr, align 8
+  store ptr %3, ptr %To, align 8
   %From = getelementptr inbounds %"class.llvh::itanium_demangle::CastExpr", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %From_.addr, align 8
-  store ptr %3, ptr %From, align 8
+  %4 = load ptr, ptr %From_.addr, align 8
+  store ptr %4, ptr %From, align 8
   ret void
 }
 
@@ -16971,10 +16989,11 @@ entry:
   store ptr %Callee_, ptr %Callee_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 50, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CallExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CallExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Callee = getelementptr inbounds %"class.llvh::itanium_demangle::CallExpr", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Callee_.addr, align 8
-  store ptr %2, ptr %Callee, align 8
+  %3 = load ptr, ptr %Callee_.addr, align 8
+  store ptr %3, ptr %Callee, align 8
   %Args = getelementptr inbounds %"class.llvh::itanium_demangle::CallExpr", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Args, ptr align 8 %Args_, i64 16, i1 false)
   ret void
@@ -17146,10 +17165,11 @@ entry:
   store ptr %Type_, ptr %Type_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 55, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle14ConversionExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle14ConversionExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Type = getelementptr inbounds %"class.llvh::itanium_demangle::ConversionExpr", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Type_.addr, align 8
-  store ptr %2, ptr %Type, align 8
+  %3 = load ptr, ptr %Type_.addr, align 8
+  store ptr %3, ptr %Type, align 8
   %Expressions = getelementptr inbounds %"class.llvh::itanium_demangle::ConversionExpr", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Expressions, ptr align 8 %Expressions_, i64 16, i1 false)
   ret void
@@ -17456,18 +17476,19 @@ entry:
   store i8 %frombool1, ptr %IsArray_.addr, align 1
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this2, i8 noundef zeroext 52, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10DeleteExprE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10DeleteExprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %Op = getelementptr inbounds %"class.llvh::itanium_demangle::DeleteExpr", ptr %this2, i32 0, i32 2
-  %0 = load ptr, ptr %Op_.addr, align 8
-  store ptr %0, ptr %Op, align 8
+  %1 = load ptr, ptr %Op_.addr, align 8
+  store ptr %1, ptr %Op, align 8
   %IsGlobal = getelementptr inbounds %"class.llvh::itanium_demangle::DeleteExpr", ptr %this2, i32 0, i32 3
-  %1 = load i8, ptr %IsGlobal_.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %IsGlobal_.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %IsGlobal, align 8
   %IsArray = getelementptr inbounds %"class.llvh::itanium_demangle::DeleteExpr", ptr %this2, i32 0, i32 4
-  %2 = load i8, ptr %IsArray_.addr, align 1
-  %tobool4 = trunc i8 %2 to i1
+  %3 = load i8, ptr %IsArray_.addr, align 1
+  %tobool4 = trunc i8 %3 to i1
   %frombool5 = zext i1 %tobool4 to i8
   store i8 %frombool5, ptr %IsArray, align 1
   ret void
@@ -17987,13 +18008,14 @@ entry:
   store ptr %Name_, ptr %Name_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 22, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Qualifier = getelementptr inbounds %"class.llvh::itanium_demangle::QualifiedName", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Qualifier_.addr, align 8
-  store ptr %0, ptr %Qualifier, align 8
+  %1 = load ptr, ptr %Qualifier_.addr, align 8
+  store ptr %1, ptr %Qualifier, align 8
   %Name = getelementptr inbounds %"class.llvh::itanium_demangle::QualifiedName", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %Name_.addr, align 8
-  store ptr %1, ptr %Name, align 8
+  %2 = load ptr, ptr %Name_.addr, align 8
+  store ptr %2, ptr %Name, align 8
   ret void
 }
 
@@ -18911,10 +18933,11 @@ entry:
   store ptr %Base_, ptr %Base_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 38, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8DtorNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8DtorNameE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Base = getelementptr inbounds %"class.llvh::itanium_demangle::DtorName", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Base_.addr, align 8
-  store ptr %0, ptr %Base, align 8
+  %1 = load ptr, ptr %Base_.addr, align 8
+  store ptr %1, ptr %Base, align 8
   ret void
 }
 
@@ -19160,10 +19183,11 @@ entry:
   store ptr %Ty_, ptr %Ty_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 4, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ConversionOperatorTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ConversionOperatorTypeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::ConversionOperatorType", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Ty_.addr, align 8
-  store ptr %0, ptr %Ty, align 8
+  %1 = load ptr, ptr %Ty_.addr, align 8
+  store ptr %1, ptr %Ty, align 8
   ret void
 }
 
@@ -19280,10 +19304,11 @@ entry:
   store ptr %OpName_, ptr %OpName_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 19, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15LiteralOperatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15LiteralOperatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %OpName = getelementptr inbounds %"class.llvh::itanium_demangle::LiteralOperator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %OpName_.addr, align 8
-  store ptr %0, ptr %OpName, align 8
+  %1 = load ptr, ptr %OpName_.addr, align 8
+  store ptr %1, ptr %OpName, align 8
   ret void
 }
 
@@ -19422,10 +19447,11 @@ entry:
   store ptr %Child_, ptr %Child_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 33, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19GlobalQualifiedNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19GlobalQualifiedNameE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Child = getelementptr inbounds %"class.llvh::itanium_demangle::GlobalQualifiedName", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Child_.addr, align 8
-  store ptr %0, ptr %Child, align 8
+  %1 = load ptr, ptr %Child_.addr, align 8
+  store ptr %1, ptr %Child, align 8
   ret void
 }
 
@@ -19542,15 +19568,16 @@ entry:
   store ptr %RHS_, ptr %RHS_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 46, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10MemberExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10MemberExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %LHS = getelementptr inbounds %"class.llvh::itanium_demangle::MemberExpr", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %LHS_.addr, align 8
-  store ptr %2, ptr %LHS, align 8
+  %3 = load ptr, ptr %LHS_.addr, align 8
+  store ptr %3, ptr %LHS, align 8
   %Kind = getelementptr inbounds %"class.llvh::itanium_demangle::MemberExpr", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Kind, ptr align 8 %Kind_, i64 16, i1 false)
   %RHS = getelementptr inbounds %"class.llvh::itanium_demangle::MemberExpr", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %RHS_.addr, align 8
-  store ptr %3, ptr %RHS, align 8
+  %4 = load ptr, ptr %RHS_.addr, align 8
+  store ptr %4, ptr %RHS, align 8
   ret void
 }
 
@@ -19664,13 +19691,14 @@ entry:
   store ptr %Op2_, ptr %Op2_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 43, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle18ArraySubscriptExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle18ArraySubscriptExprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Op1 = getelementptr inbounds %"class.llvh::itanium_demangle::ArraySubscriptExpr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Op1_.addr, align 8
-  store ptr %0, ptr %Op1, align 8
+  %1 = load ptr, ptr %Op1_.addr, align 8
+  store ptr %1, ptr %Op1, align 8
   %Op2 = getelementptr inbounds %"class.llvh::itanium_demangle::ArraySubscriptExpr", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %Op2_.addr, align 8
-  store ptr %1, ptr %Op2, align 8
+  %2 = load ptr, ptr %Op2_.addr, align 8
+  store ptr %2, ptr %Op2, align 8
   ret void
 }
 
@@ -19817,16 +19845,17 @@ entry:
   store i8 %frombool, ptr %IsArray_.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 65, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BracedExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BracedExprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Elem = getelementptr inbounds %"class.llvh::itanium_demangle::BracedExpr", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %Elem_.addr, align 8
-  store ptr %0, ptr %Elem, align 8
+  %1 = load ptr, ptr %Elem_.addr, align 8
+  store ptr %1, ptr %Elem, align 8
   %Init = getelementptr inbounds %"class.llvh::itanium_demangle::BracedExpr", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %Init_.addr, align 8
-  store ptr %1, ptr %Init, align 8
+  %2 = load ptr, ptr %Init_.addr, align 8
+  store ptr %2, ptr %Init, align 8
   %IsArray = getelementptr inbounds %"class.llvh::itanium_demangle::BracedExpr", ptr %this1, i32 0, i32 4
-  %2 = load i8, ptr %IsArray_.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %IsArray_.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %IsArray, align 8
   ret void
@@ -19958,16 +19987,17 @@ entry:
   store ptr %Init_, ptr %Init_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 66, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15BracedRangeExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15BracedRangeExprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %First = getelementptr inbounds %"class.llvh::itanium_demangle::BracedRangeExpr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %First_.addr, align 8
-  store ptr %0, ptr %First, align 8
+  %1 = load ptr, ptr %First_.addr, align 8
+  store ptr %1, ptr %First, align 8
   %Last = getelementptr inbounds %"class.llvh::itanium_demangle::BracedRangeExpr", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %Last_.addr, align 8
-  store ptr %1, ptr %Last, align 8
+  %2 = load ptr, ptr %Last_.addr, align 8
+  store ptr %2, ptr %Last, align 8
   %Init = getelementptr inbounds %"class.llvh::itanium_demangle::BracedRangeExpr", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %Init_.addr, align 8
-  store ptr %2, ptr %Init, align 8
+  %3 = load ptr, ptr %Init_.addr, align 8
+  store ptr %3, ptr %Init, align 8
   ret void
 }
 
@@ -20091,10 +20121,11 @@ entry:
   store ptr %Ty_, ptr %Ty_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 56, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12InitListExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12InitListExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::InitListExpr", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Ty_.addr, align 8
-  store ptr %2, ptr %Ty, align 8
+  %3 = load ptr, ptr %Ty_.addr, align 8
+  store ptr %3, ptr %Ty, align 8
   %Inits = getelementptr inbounds %"class.llvh::itanium_demangle::InitListExpr", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Inits, ptr align 8 %Inits_, i64 16, i1 false)
   ret void
@@ -20192,10 +20223,11 @@ entry:
   store ptr %Child_, ptr %Child_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 44, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11PostfixExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11PostfixExprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Child = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixExpr", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Child_.addr, align 8
-  store ptr %2, ptr %Child, align 8
+  %3 = load ptr, ptr %Child_.addr, align 8
+  store ptr %3, ptr %Child, align 8
   %Operator = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixExpr", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Operator, ptr align 8 %Operator_, i64 16, i1 false)
   ret void
@@ -20383,22 +20415,23 @@ entry:
   store i8 %frombool1, ptr %IsArray_.addr, align 1
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this2, i8 noundef zeroext 51, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle7NewExprE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle7NewExprE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this2, align 8
   %ExprList = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this2, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ExprList, ptr align 8 %ExprList_, i64 16, i1 false)
   %Type = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this2, i32 0, i32 3
-  %4 = load ptr, ptr %Type_.addr, align 8
-  store ptr %4, ptr %Type, align 8
+  %5 = load ptr, ptr %Type_.addr, align 8
+  store ptr %5, ptr %Type, align 8
   %InitList = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this2, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %InitList, ptr align 8 %InitList_, i64 16, i1 false)
   %IsGlobal = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this2, i32 0, i32 5
-  %5 = load i8, ptr %IsGlobal_.addr, align 1
-  %tobool = trunc i8 %5 to i1
+  %6 = load i8, ptr %IsGlobal_.addr, align 1
+  %tobool = trunc i8 %6 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %IsGlobal, align 8
   %IsArray = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this2, i32 0, i32 6
-  %6 = load i8, ptr %IsArray_.addr, align 1
-  %tobool4 = trunc i8 %6 to i1
+  %7 = load i8, ptr %IsArray_.addr, align 1
+  %tobool4 = trunc i8 %7 to i1
   %frombool5 = zext i1 %tobool4 to i8
   store i8 %frombool5, ptr %IsArray, align 1
   ret void
@@ -20649,12 +20682,13 @@ entry:
   store ptr %Infix_, ptr %Infix_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 47, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %Prefix = getelementptr inbounds %"class.llvh::itanium_demangle::EnclosingExpr", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Prefix, ptr align 8 %Prefix_, i64 16, i1 false)
   %Infix = getelementptr inbounds %"class.llvh::itanium_demangle::EnclosingExpr", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %Infix_.addr, align 8
-  store ptr %4, ptr %Infix, align 8
+  %5 = load ptr, ptr %Infix_.addr, align 8
+  store ptr %5, ptr %Infix, align 8
   %Postfix = getelementptr inbounds %"class.llvh::itanium_demangle::EnclosingExpr", ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Postfix, ptr align 8 %Postfix_, i64 16, i1 false)
   ret void
@@ -20751,16 +20785,17 @@ entry:
   store ptr %Else_, ptr %Else_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 45, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15ConditionalExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15ConditionalExprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Cond = getelementptr inbounds %"class.llvh::itanium_demangle::ConditionalExpr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Cond_.addr, align 8
-  store ptr %0, ptr %Cond, align 8
+  %1 = load ptr, ptr %Cond_.addr, align 8
+  store ptr %1, ptr %Cond, align 8
   %Then = getelementptr inbounds %"class.llvh::itanium_demangle::ConditionalExpr", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %Then_.addr, align 8
-  store ptr %1, ptr %Then, align 8
+  %2 = load ptr, ptr %Then_.addr, align 8
+  store ptr %2, ptr %Then, align 8
   %Else = getelementptr inbounds %"class.llvh::itanium_demangle::ConditionalExpr", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %Else_.addr, align 8
-  store ptr %2, ptr %Else, align 8
+  %3 = load ptr, ptr %Else_.addr, align 8
+  store ptr %3, ptr %Else, align 8
   ret void
 }
 
@@ -20977,10 +21012,11 @@ entry:
   store ptr %Pack_, ptr %Pack_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 49, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19SizeofParamPackExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19SizeofParamPackExprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Pack = getelementptr inbounds %"class.llvh::itanium_demangle::SizeofParamPackExpr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Pack_.addr, align 8
-  store ptr %0, ptr %Pack, align 8
+  %1 = load ptr, ptr %Pack_.addr, align 8
+  store ptr %1, ptr %Pack, align 8
   ret void
 }
 
@@ -21108,7 +21144,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 0, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13NodeArrayNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13NodeArrayNodeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Array = getelementptr inbounds %"struct.llvh::itanium_demangle::NodeArrayNode", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Array, ptr align 8 %Array_, i64 16, i1 false)
   ret void
@@ -21221,10 +21258,11 @@ entry:
   store ptr %Op_, ptr %Op_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 58, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9ThrowExprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9ThrowExprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Op = getelementptr inbounds %"class.llvh::itanium_demangle::ThrowExpr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Op_.addr, align 8
-  store ptr %0, ptr %Op, align 8
+  %1 = load ptr, ptr %Op_.addr, align 8
+  store ptr %1, ptr %Op, align 8
   ret void
 }
 
@@ -21367,10 +21405,11 @@ entry:
   store i32 %SSK_, ptr %SSK_.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 35, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle27ExpandedSpecialSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle27ExpandedSpecialSubstitutionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %SSK = getelementptr inbounds %"class.llvh::itanium_demangle::ExpandedSpecialSubstitution", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %SSK_.addr, align 4
-  store i32 %0, ptr %SSK, align 4
+  %1 = load i32, ptr %SSK_.addr, align 4
+  store i32 %1, ptr %SSK, align 4
   ret void
 }
 
@@ -21573,18 +21612,19 @@ entry:
   store i32 %Variant_, ptr %Variant_.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 37, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12CtorDtorNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12CtorDtorNameE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Basename = getelementptr inbounds %"class.llvh::itanium_demangle::CtorDtorName", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Basename_.addr, align 8
-  store ptr %0, ptr %Basename, align 8
+  %1 = load ptr, ptr %Basename_.addr, align 8
+  store ptr %1, ptr %Basename, align 8
   %IsDtor = getelementptr inbounds %"class.llvh::itanium_demangle::CtorDtorName", ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %IsDtor_.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %IsDtor_.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %IsDtor, align 8
   %Variant = getelementptr inbounds %"class.llvh::itanium_demangle::CtorDtorName", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %Variant_.addr, align 4
-  store i32 %2, ptr %Variant, align 4
+  %3 = load i32, ptr %Variant_.addr, align 4
+  store i32 %3, ptr %Variant, align 4
   ret void
 }
 
@@ -21763,10 +21803,11 @@ entry:
   %FunctionCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %6, i32 0, i32 4
   %7 = load i8, ptr %FunctionCache, align 1
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 8, i8 noundef zeroext %3, i8 noundef zeroext %5, i8 noundef zeroext %7)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10AbiTagAttrE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %8 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10AbiTagAttrE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this1, align 8
   %Base = getelementptr inbounds %"struct.llvh::itanium_demangle::AbiTagAttr", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %Base_.addr, align 8
-  store ptr %8, ptr %Base, align 8
+  %9 = load ptr, ptr %Base_.addr, align 8
+  store ptr %9, ptr %Base, align 8
   %Tag = getelementptr inbounds %"struct.llvh::itanium_demangle::AbiTagAttr", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Tag, ptr align 8 %Tag_, i64 16, i1 false)
   ret void
@@ -22058,7 +22099,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 39, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15UnnamedTypeNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15UnnamedTypeNameE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Count = getelementptr inbounds %"class.llvh::itanium_demangle::UnnamedTypeName", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Count, ptr align 8 %Count_, i64 16, i1 false)
   ret void
@@ -22168,7 +22210,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 40, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15ClosureTypeNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15ClosureTypeNameE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %Params = getelementptr inbounds %"class.llvh::itanium_demangle::ClosureTypeName", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Params, ptr align 8 %Params_, i64 16, i1 false)
   %Count = getelementptr inbounds %"class.llvh::itanium_demangle::ClosureTypeName", ptr %this1, i32 0, i32 2
@@ -22277,7 +22320,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 41, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle21StructuredBindingNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle21StructuredBindingNameE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Bindings = getelementptr inbounds %"class.llvh::itanium_demangle::StructuredBindingName", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Bindings, ptr align 8 %Bindings_, i64 16, i1 false)
   ret void
@@ -22370,13 +22414,14 @@ entry:
   store ptr %Entity_, ptr %Entity_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 24, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9LocalNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9LocalNameE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Encoding = getelementptr inbounds %"struct.llvh::itanium_demangle::LocalName", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Encoding_.addr, align 8
-  store ptr %0, ptr %Encoding, align 8
+  %1 = load ptr, ptr %Encoding_.addr, align 8
+  store ptr %1, ptr %Encoding, align 8
   %Entity = getelementptr inbounds %"struct.llvh::itanium_demangle::LocalName", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %Entity_.addr, align 8
-  store ptr %1, ptr %Entity, align 8
+  %2 = load ptr, ptr %Entity_.addr, align 8
+  store ptr %2, ptr %Entity, align 8
   ret void
 }
 
@@ -22484,10 +22529,11 @@ entry:
   store i32 %SSK_, ptr %SSK_.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 36, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19SpecialSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19SpecialSubstitutionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %SSK = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialSubstitution", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %SSK_.addr, align 4
-  store i32 %0, ptr %SSK, align 4
+  %1 = load i32, ptr %SSK_.addr, align 4
+  store i32 %1, ptr %SSK, align 4
   ret void
 }
 
@@ -22983,7 +23029,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 27, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ParameterPackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ParameterPackE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Data = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Data, ptr align 8 %Data_, i64 16, i1 false)
   %RHSComponentCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this1, i32 0, i32 2
@@ -24285,7 +24332,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 30, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12TemplateArgsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12TemplateArgsE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Params = getelementptr inbounds %"class.llvh::itanium_demangle::TemplateArgs", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Params, ptr align 8 %Params_, i64 16, i1 false)
   ret void
@@ -24420,13 +24468,14 @@ entry:
   store ptr %TemplateArgs_, ptr %TemplateArgs_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 32, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Name = getelementptr inbounds %"struct.llvh::itanium_demangle::NameWithTemplateArgs", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Name_.addr, align 8
-  store ptr %0, ptr %Name, align 8
+  %1 = load ptr, ptr %Name_.addr, align 8
+  store ptr %1, ptr %Name, align 8
   %TemplateArgs = getelementptr inbounds %"struct.llvh::itanium_demangle::NameWithTemplateArgs", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %TemplateArgs_.addr, align 8
-  store ptr %1, ptr %TemplateArgs, align 8
+  %2 = load ptr, ptr %TemplateArgs_.addr, align 8
+  store ptr %2, ptr %TemplateArgs, align 8
   ret void
 }
 
@@ -24532,10 +24581,11 @@ entry:
   store ptr %Child_, ptr %Child_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 34, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16StdQualifiedNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16StdQualifiedNameE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Child = getelementptr inbounds %"struct.llvh::itanium_demangle::StdQualifiedName", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %Child_.addr, align 8
-  store ptr %0, ptr %Child, align 8
+  %1 = load ptr, ptr %Child_.addr, align 8
+  store ptr %1, ptr %Child, align 8
   ret void
 }
 
@@ -24695,7 +24745,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 28, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20TemplateArgumentPackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20TemplateArgumentPackE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Elements = getelementptr inbounds %"class.llvh::itanium_demangle::TemplateArgumentPack", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Elements, ptr align 8 %Elements_, i64 16, i1 false)
   ret void
@@ -24845,7 +24896,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 9, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12EnableIfAttrE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12EnableIfAttrE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Conditions = getelementptr inbounds %"class.llvh::itanium_demangle::EnableIfAttr", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Conditions, ptr align 8 %Conditions_, i64 16, i1 false)
   ret void
@@ -24987,24 +25039,25 @@ entry:
   store i8 %RefQual_, ptr %RefQual_.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 18, i8 noundef zeroext 0, i8 noundef zeroext 1, i8 noundef zeroext 0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FunctionEncodingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FunctionEncodingE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Ret = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %Ret_.addr, align 8
-  store ptr %2, ptr %Ret, align 8
+  %3 = load ptr, ptr %Ret_.addr, align 8
+  store ptr %3, ptr %Ret, align 8
   %Name = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %Name_.addr, align 8
-  store ptr %3, ptr %Name, align 8
+  %4 = load ptr, ptr %Name_.addr, align 8
+  store ptr %4, ptr %Name, align 8
   %Params = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Params, ptr align 8 %Params_, i64 16, i1 false)
   %Attrs = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %Attrs_.addr, align 8
-  store ptr %4, ptr %Attrs, align 8
+  %5 = load ptr, ptr %Attrs_.addr, align 8
+  store ptr %5, ptr %Attrs, align 8
   %CVQuals = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this1, i32 0, i32 6
-  %5 = load i32, ptr %CVQuals_.addr, align 4
-  store i32 %5, ptr %CVQuals, align 8
+  %6 = load i32, ptr %CVQuals_.addr, align 4
+  store i32 %6, ptr %CVQuals, align 8
   %RefQual = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this1, i32 0, i32 7
-  %6 = load i8, ptr %RefQual_.addr, align 1
-  store i8 %6, ptr %RefQual, align 4
+  %7 = load i8, ptr %RefQual_.addr, align 1
+  store i8 %7, ptr %RefQual, align 4
   ret void
 }
 
@@ -25289,10 +25342,11 @@ entry:
   store ptr %Prefix_, ptr %Prefix_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9DotSuffixE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9DotSuffixE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Prefix = getelementptr inbounds %"class.llvh::itanium_demangle::DotSuffix", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Prefix_.addr, align 8
-  store ptr %2, ptr %Prefix, align 8
+  %3 = load ptr, ptr %Prefix_.addr, align 8
+  store ptr %3, ptr %Prefix, align 8
   %Suffix = getelementptr inbounds %"class.llvh::itanium_demangle::DotSuffix", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Suffix, ptr align 8 %Suffix_, i64 16, i1 false)
   ret void
@@ -26384,10 +26438,11 @@ entry:
   store ptr %E_, ptr %E_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 16, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12NoexceptSpecE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12NoexceptSpecE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %E = getelementptr inbounds %"class.llvh::itanium_demangle::NoexceptSpec", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %E_.addr, align 8
-  store ptr %0, ptr %E, align 8
+  %1 = load ptr, ptr %E_.addr, align 8
+  store ptr %1, ptr %E, align 8
   ret void
 }
 
@@ -26476,7 +26531,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 17, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20DynamicExceptionSpecE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20DynamicExceptionSpecE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Types = getelementptr inbounds %"class.llvh::itanium_demangle::DynamicExceptionSpec", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Types, ptr align 8 %Types_, i64 16, i1 false)
   ret void
@@ -26584,21 +26640,22 @@ entry:
   store ptr %ExceptionSpec_, ptr %ExceptionSpec_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 15, i8 noundef zeroext 0, i8 noundef zeroext 1, i8 noundef zeroext 0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12FunctionTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12FunctionTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Ret = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Ret_.addr, align 8
-  store ptr %2, ptr %Ret, align 8
+  %3 = load ptr, ptr %Ret_.addr, align 8
+  store ptr %3, ptr %Ret, align 8
   %Params = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Params, ptr align 8 %Params_, i64 16, i1 false)
   %CVQuals = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %CVQuals_.addr, align 4
-  store i32 %3, ptr %CVQuals, align 8
+  %4 = load i32, ptr %CVQuals_.addr, align 4
+  store i32 %4, ptr %CVQuals, align 8
   %RefQual = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this1, i32 0, i32 4
-  %4 = load i8, ptr %RefQual_.addr, align 1
-  store i8 %4, ptr %RefQual, align 4
+  %5 = load i8, ptr %RefQual_.addr, align 1
+  store i8 %5, ptr %RefQual, align 4
   %ExceptionSpec = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %ExceptionSpec_.addr, align 8
-  store ptr %5, ptr %ExceptionSpec, align 8
+  %6 = load ptr, ptr %ExceptionSpec_.addr, align 8
+  store ptr %6, ptr %ExceptionSpec, align 8
   ret void
 }
 
@@ -26954,10 +27011,11 @@ entry:
   store ptr %Ty_, ptr %Ty_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 10, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ObjCProtoNameE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ObjCProtoNameE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Ty_.addr, align 8
-  store ptr %2, ptr %Ty, align 8
+  %3 = load ptr, ptr %Ty_.addr, align 8
+  store ptr %3, ptr %Ty, align 8
   %Protocol = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Protocol, ptr align 8 %Protocol_, i64 16, i1 false)
   ret void
@@ -27063,10 +27121,11 @@ entry:
   store ptr %Ty_, ptr %Ty_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 2, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle17VendorExtQualTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle17VendorExtQualTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::VendorExtQualType", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Ty_.addr, align 8
-  store ptr %2, ptr %Ty, align 8
+  %3 = load ptr, ptr %Ty_.addr, align 8
+  store ptr %3, ptr %Ty, align 8
   %Ext = getelementptr inbounds %"class.llvh::itanium_demangle::VendorExtQualType", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Ext, ptr align 8 %Ext_, i64 16, i1 false)
   ret void
@@ -27165,13 +27224,14 @@ entry:
   %FunctionCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %4, i32 0, i32 4
   %5 = load i8, ptr %FunctionCache, align 1
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 3, i8 noundef zeroext %1, i8 noundef zeroext %3, i8 noundef zeroext %5)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8QualTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8QualTypeE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %Quals = getelementptr inbounds %"class.llvh::itanium_demangle::QualType", ptr %this1, i32 0, i32 1
-  %6 = load i32, ptr %Quals_.addr, align 4
-  store i32 %6, ptr %Quals, align 4
+  %7 = load i32, ptr %Quals_.addr, align 4
+  store i32 %7, ptr %Quals, align 4
   %Child = getelementptr inbounds %"class.llvh::itanium_demangle::QualType", ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %Child_.addr, align 8
-  store ptr %7, ptr %Child, align 8
+  %8 = load ptr, ptr %Child_.addr, align 8
+  store ptr %8, ptr %Child, align 8
   ret void
 }
 
@@ -27598,7 +27658,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 26, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15PixelVectorTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15PixelVectorTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Dimension = getelementptr inbounds %"class.llvh::itanium_demangle::PixelVectorType", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Dimension, ptr align 8 %Dimension_, i64 16, i1 false)
   ret void
@@ -27728,10 +27789,11 @@ entry:
   store ptr %BaseType_, ptr %BaseType_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 25, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %BaseType = getelementptr inbounds %"class.llvh::itanium_demangle::VectorType", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %BaseType_.addr, align 8
-  store ptr %2, ptr %BaseType, align 8
+  %3 = load ptr, ptr %BaseType_.addr, align 8
+  store ptr %3, ptr %BaseType, align 8
   %Dimension = getelementptr inbounds %"class.llvh::itanium_demangle::VectorType", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Dimension, ptr align 8 %Dimension_, i64 16, i1 false)
   ret void
@@ -28025,10 +28087,11 @@ entry:
   store ptr %Base_, ptr %Base_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 14, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9ArrayTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9ArrayTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Base = getelementptr inbounds %"class.llvh::itanium_demangle::ArrayType", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Base_.addr, align 8
-  store ptr %2, ptr %Base, align 8
+  %3 = load ptr, ptr %Base_.addr, align 8
+  store ptr %3, ptr %Base, align 8
   %Dimension = getelementptr inbounds %"class.llvh::itanium_demangle::ArrayType", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Dimension, ptr align 8 %Dimension_, i64 16, i1 false)
   ret void
@@ -28234,13 +28297,14 @@ entry:
   %RHSComponentCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i32 0, i32 2
   %1 = load i8, ptr %RHSComponentCache, align 1
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 13, i8 noundef zeroext %1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19PointerToMemberTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19PointerToMemberTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %ClassType = getelementptr inbounds %"class.llvh::itanium_demangle::PointerToMemberType", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %ClassType_.addr, align 8
-  store ptr %2, ptr %ClassType, align 8
+  %3 = load ptr, ptr %ClassType_.addr, align 8
+  store ptr %3, ptr %ClassType, align 8
   %MemberType = getelementptr inbounds %"class.llvh::itanium_demangle::PointerToMemberType", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %MemberType_.addr, align 8
-  store ptr %3, ptr %MemberType, align 8
+  %4 = load ptr, ptr %MemberType_.addr, align 8
+  store ptr %4, ptr %MemberType, align 8
   ret void
 }
 
@@ -28445,12 +28509,13 @@ entry:
   store ptr %Child_, ptr %Child_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 6, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ElaboratedTypeSpefTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ElaboratedTypeSpefTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Kind = getelementptr inbounds %"class.llvh::itanium_demangle::ElaboratedTypeSpefType", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Kind, ptr align 8 %Kind_, i64 16, i1 false)
   %Child = getelementptr inbounds %"class.llvh::itanium_demangle::ElaboratedTypeSpefType", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %Child_.addr, align 8
-  store ptr %2, ptr %Child, align 8
+  %3 = load ptr, ptr %Child_.addr, align 8
+  store ptr %3, ptr %Child, align 8
   ret void
 }
 
@@ -28529,10 +28594,11 @@ entry:
   %RHSComponentCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i32 0, i32 2
   %1 = load i8, ptr %RHSComponentCache, align 1
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 11, i8 noundef zeroext %1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11PointerTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11PointerTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Pointee = getelementptr inbounds %"class.llvh::itanium_demangle::PointerType", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Pointee_.addr, align 8
-  store ptr %2, ptr %Pointee, align 8
+  %3 = load ptr, ptr %Pointee_.addr, align 8
+  store ptr %3, ptr %Pointee, align 8
   ret void
 }
 
@@ -28832,13 +28898,14 @@ entry:
   %RHSComponentCache = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i32 0, i32 2
   %1 = load i8, ptr %RHSComponentCache, align 1
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 12, i8 noundef zeroext %1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ReferenceTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ReferenceTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Pointee = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %Pointee_.addr, align 8
-  store ptr %2, ptr %Pointee, align 8
+  %3 = load ptr, ptr %Pointee_.addr, align 8
+  store ptr %3, ptr %Pointee, align 8
   %RK = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %RK_.addr, align 4
-  store i32 %3, ptr %RK, align 8
+  %4 = load i32, ptr %RK_.addr, align 4
+  store i32 %4, ptr %RK, align 8
   %Printing = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this1, i32 0, i32 4
   store i8 0, ptr %Printing, align 4
   ret void
@@ -29214,10 +29281,11 @@ entry:
   store ptr %Ty_, ptr %Ty_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh16itanium_demangle4NodeC2ENS1_4KindENS1_5CacheES3_S3_(ptr noundef nonnull align 8 dereferenceable(12) %this1, i8 noundef zeroext 5, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixQualifiedType", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %Ty_.addr, align 8
-  store ptr %2, ptr %Ty, align 8
+  %3 = load ptr, ptr %Ty_.addr, align 8
+  store ptr %3, ptr %Ty, align 8
   %Postfix = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixQualifiedType", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %Postfix, ptr align 8 %Postfix_, i64 16, i1 false)
   ret void

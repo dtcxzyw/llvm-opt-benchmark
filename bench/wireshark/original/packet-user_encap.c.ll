@@ -93,28 +93,29 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @proto_reg_handoff_user_encap() #0 {
   %1 = alloca i32, align 4
   %2 = call ptr @find_dissector(ptr noundef @.str)
-  store ptr %2, ptr getelementptr inbounds (%struct._user_encap_t, ptr @user2_encap, i32 0, i32 2), align 8
+  %3 = getelementptr inbounds %struct._user_encap_t, ptr @user2_encap, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
   store i32 45, ptr %1, align 4
-  br label %3
+  br label %4
 
-3:                                                ; preds = %9, %0
-  %4 = load i32, ptr %1, align 4
-  %5 = icmp ule i32 %4, 60
-  br i1 %5, label %6, label %12
+4:                                                ; preds = %10, %0
+  %5 = load i32, ptr %1, align 4
+  %6 = icmp ule i32 %5, 60
+  br i1 %6, label %7, label %13
 
-6:                                                ; preds = %3
-  %7 = load i32, ptr %1, align 4
-  %8 = load ptr, ptr @user_encap_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.1, i32 noundef %7, ptr noundef %8)
-  br label %9
+7:                                                ; preds = %4
+  %8 = load i32, ptr %1, align 4
+  %9 = load ptr, ptr @user_encap_handle, align 8
+  call void @dissector_add_uint(ptr noundef @.str.1, i32 noundef %8, ptr noundef %9)
+  br label %10
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr %1, align 4
-  %11 = add i32 %10, 1
-  store i32 %11, ptr %1, align 4
-  br label %3, !llvm.loop !4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %1, align 4
+  %12 = add i32 %11, 1
+  store i32 %12, ptr %1, align 4
+  br label %4, !llvm.loop !4
 
-12:                                               ; preds = %3
+13:                                               ; preds = %4
   ret void
 }
 

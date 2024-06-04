@@ -1863,41 +1863,42 @@ define dso_local void @_ZN15StatementFilterC2ERK9CGContext(ptr noundef nonnull a
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.StatementFilter, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = load i8, ptr @_ZN15StatementFilter19label_attr_generateE, align 1
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %18, label %12
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15StatementFilter, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.StatementFilter, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = load i8, ptr @_ZN15StatementFilter19label_attr_generateE, align 1
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %19, label %13
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   invoke void @_Z25InitializeLabelAttributesv()
-          to label %13 unwind label %14
+          to label %14 unwind label %15
 
-13:                                               ; preds = %12
+14:                                               ; preds = %13
   store i8 1, ptr @_ZN15StatementFilter19label_attr_generateE, align 1
-  br label %18
-
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
   br label %19
 
-18:                                               ; preds = %13, %2
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %20
+
+19:                                               ; preds = %14, %2
   ret void
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 declare void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -3617,36 +3618,37 @@ define dso_local void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnu
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV9Statement, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %5, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 3
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %17
+  %8 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV9Statement, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %5, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 3
+  %12 = load ptr, ptr %6, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %18
 
-13:                                               ; preds = %3
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %class.Statement, ptr %14, i32 0, i32 3
-  %16 = load ptr, ptr %15, align 8
-  br label %18
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds %class.Statement, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8
+  br label %19
 
-17:                                               ; preds = %3
-  br label %18
+18:                                               ; preds = %3
+  br label %19
 
-18:                                               ; preds = %17, %13
-  %19 = phi ptr [ %16, %13 ], [ null, %17 ]
-  store ptr %19, ptr %10, align 8
-  %20 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 4
-  %21 = load ptr, ptr %6, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = load i32, ptr @_ZN9Statement3sidE, align 4
-  %23 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 2
-  store i32 %22, ptr %23, align 4
-  %24 = load i32, ptr @_ZN9Statement3sidE, align 4
-  %25 = add nsw i32 %24, 1
-  store i32 %25, ptr @_ZN9Statement3sidE, align 4
+19:                                               ; preds = %18, %14
+  %20 = phi ptr [ %17, %14 ], [ null, %18 ]
+  store ptr %20, ptr %11, align 8
+  %21 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 4
+  %22 = load ptr, ptr %6, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = load i32, ptr @_ZN9Statement3sidE, align 4
+  %24 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 2
+  store i32 %23, ptr %24, align 4
+  %25 = load i32, ptr @_ZN9Statement3sidE, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr @_ZN9Statement3sidE, align 4
   ret void
 }
 

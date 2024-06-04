@@ -67,35 +67,36 @@ define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_a
 define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 21), align 8, !tbaa !13
-  %5 = tail call i32 @dt_collection_get_count_no_group(ptr noundef %4) #7
-  %6 = tail call i32 @dt_collection_get_selected_count() #7
-  %7 = load ptr, ptr %3, align 8, !tbaa !23
-  %8 = tail call i64 @gtk_widget_get_type() #8
-  %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #7
-  %10 = icmp ult i32 %6, %5
-  %11 = zext i1 %10 to i32
-  tail call void @gtk_widget_set_sensitive(ptr noundef %9, i32 noundef %11) #7
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %8) #7
-  %15 = icmp ne i32 %6, 0
-  %16 = zext i1 %15 to i32
-  tail call void @gtk_widget_set_sensitive(ptr noundef %14, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !26
-  %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %8) #7
-  %20 = icmp ne i32 %5, 0
-  %21 = zext i1 %20 to i32
-  tail call void @gtk_widget_set_sensitive(ptr noundef %19, i32 noundef %21) #7
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !27
-  %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %8) #7
-  tail call void @gtk_widget_set_sensitive(ptr noundef %24, i32 noundef %21) #7
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
-  %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef %8) #7
-  tail call void @gtk_widget_set_sensitive(ptr noundef %27, i32 noundef %16) #7
+  %4 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 21
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %6 = tail call i32 @dt_collection_get_count_no_group(ptr noundef %5) #7
+  %7 = tail call i32 @dt_collection_get_selected_count() #7
+  %8 = load ptr, ptr %3, align 8, !tbaa !23
+  %9 = tail call i64 @gtk_widget_get_type() #8
+  %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %9) #7
+  %11 = icmp ult i32 %7, %6
+  %12 = zext i1 %11 to i32
+  tail call void @gtk_widget_set_sensitive(ptr noundef %10, i32 noundef %12) #7
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %9) #7
+  %16 = icmp ne i32 %7, 0
+  %17 = zext i1 %16 to i32
+  tail call void @gtk_widget_set_sensitive(ptr noundef %15, i32 noundef %17) #7
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %9) #7
+  %21 = icmp ne i32 %6, 0
+  %22 = zext i1 %21 to i32
+  tail call void @gtk_widget_set_sensitive(ptr noundef %20, i32 noundef %22) #7
+  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
+  %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %9) #7
+  tail call void @gtk_widget_set_sensitive(ptr noundef %25, i32 noundef %22) #7
+  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %9) #7
+  tail call void @gtk_widget_set_sensitive(ptr noundef %28, i32 noundef %17) #7
   ret void
 }
 
@@ -131,84 +132,96 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   store ptr %9, ptr %2, align 8, !tbaa !23
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %9, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1) #7
   %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #7
-  %11 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @button_clicked, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %10, i32 noundef 97, i32 noundef 5) #7
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !25
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %11, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1) #7
-  %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #7
-  %14 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @button_clicked, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef %13, i32 noundef 105, i32 noundef 4) #7
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %14, ptr %15, align 8, !tbaa !26
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %14, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #7
-  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #7
-  %17 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @button_clicked, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef %16, i32 noundef 0, i32 noundef 0) #7
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr %17, ptr %18, align 8, !tbaa !28
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %17, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1) #7
-  %19 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #7
-  %20 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @button_clicked, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef %19, i32 noundef 0, i32 noundef 0) #7
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %20, ptr %21, align 8, !tbaa !27
-  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %20, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 1) #7
-  %22 = load ptr, ptr %2, align 8, !tbaa !23
-  %23 = tail call i64 @gtk_bin_get_type() #8
-  %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %23) #7
-  %25 = tail call ptr @gtk_bin_get_child(ptr noundef %24) #7
-  %26 = tail call i64 @gtk_label_get_type() #8
-  %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef %26) #7
-  tail call void @gtk_label_set_ellipsize(ptr noundef %27, i32 noundef 1) #7
-  %28 = load ptr, ptr %12, align 8, !tbaa !25
-  %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %28, i64 noundef %23) #7
-  %30 = tail call ptr @gtk_bin_get_child(ptr noundef %29) #7
-  %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %26) #7
+  %11 = inttoptr i64 1 to ptr
+  %12 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @button_clicked, ptr noundef nonnull %11, ptr noundef %10, i32 noundef 97, i32 noundef 5) #7
+  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %12, ptr %13, align 8, !tbaa !25
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %12, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1) #7
+  %14 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #7
+  %15 = inttoptr i64 2 to ptr
+  %16 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @button_clicked, ptr noundef nonnull %15, ptr noundef %14, i32 noundef 105, i32 noundef 4) #7
+  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %16, ptr %17, align 8, !tbaa !26
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %16, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #7
+  %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #7
+  %19 = inttoptr i64 3 to ptr
+  %20 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @button_clicked, ptr noundef nonnull %19, ptr noundef %18, i32 noundef 0, i32 noundef 0) #7
+  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr %20, ptr %21, align 8, !tbaa !28
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %20, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1) #7
+  %22 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #7
+  %23 = inttoptr i64 4 to ptr
+  %24 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @button_clicked, ptr noundef nonnull %23, ptr noundef %22, i32 noundef 0, i32 noundef 0) #7
+  %25 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %24, ptr %25, align 8, !tbaa !27
+  tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %24, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 1) #7
+  %26 = load ptr, ptr %2, align 8, !tbaa !23
+  %27 = tail call i64 @gtk_bin_get_type() #8
+  %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef %27) #7
+  %29 = tail call ptr @gtk_bin_get_child(ptr noundef %28) #7
+  %30 = tail call i64 @gtk_label_get_type() #8
+  %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %30) #7
   tail call void @gtk_label_set_ellipsize(ptr noundef %31, i32 noundef 1) #7
-  %32 = load ptr, ptr %18, align 8, !tbaa !28
-  %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %32, i64 noundef %23) #7
+  %32 = load ptr, ptr %13, align 8, !tbaa !25
+  %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %32, i64 noundef %27) #7
   %34 = tail call ptr @gtk_bin_get_child(ptr noundef %33) #7
-  %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %26) #7
+  %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %30) #7
   tail call void @gtk_label_set_ellipsize(ptr noundef %35, i32 noundef 1) #7
-  %36 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !30
-  %37 = and i32 %36, 2
-  %38 = icmp ne i32 %37, 0
-  %39 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 8), align 4
-  %40 = icmp ne i32 %39, 0
-  %41 = select i1 %38, i1 %40, i1 false
-  br i1 %41, label %42, label %47
+  %36 = load ptr, ptr %21, align 8, !tbaa !28
+  %37 = tail call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %27) #7
+  %38 = tail call ptr @gtk_bin_get_child(ptr noundef %37) #7
+  %39 = tail call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %30) #7
+  tail call void @gtk_label_set_ellipsize(ptr noundef %39, i32 noundef 1) #7
+  %40 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %41 = load i32, ptr %40, align 8, !tbaa !30
+  %42 = and i32 %41, 2
+  %43 = icmp ne i32 %42, 0
+  %44 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 8
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp ne i32 %45, 0
+  %47 = select i1 %43, i1 %46, i1 false
+  br i1 %47, label %48, label %54
 
-42:                                               ; preds = %1
-  %43 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !31
-  %44 = and i32 %43, 1048576
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %47, label %46
+48:                                               ; preds = %1
+  %49 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %50 = load i32, ptr %49, align 8, !tbaa !31
+  %51 = and i32 %50, 1048576
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %54, label %53
 
-46:                                               ; preds = %42
+53:                                               ; preds = %48
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 161, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #7
-  br label %47
+  br label %54
 
-47:                                               ; preds = %46, %42, %1
-  %48 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !32
-  tail call void @dt_control_signal_connect(ptr noundef %48, i32 noundef 8, ptr noundef nonnull @_image_selection_changed_callback, ptr noundef nonnull %0) #7
-  %49 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !30
-  %50 = and i32 %49, 2
-  %51 = icmp ne i32 %50, 0
-  %52 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 7), align 8
-  %53 = icmp ne i32 %52, 0
-  %54 = select i1 %51, i1 %53, i1 false
-  br i1 %54, label %55, label %60
+54:                                               ; preds = %53, %48, %1
+  %55 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %56 = load ptr, ptr %55, align 8, !tbaa !32
+  tail call void @dt_control_signal_connect(ptr noundef %56, i32 noundef 8, ptr noundef nonnull @_image_selection_changed_callback, ptr noundef nonnull %0) #7
+  %57 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %58 = load i32, ptr %57, align 8, !tbaa !30
+  %59 = and i32 %58, 2
+  %60 = icmp ne i32 %59, 0
+  %61 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 53, i64 7
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp ne i32 %62, 0
+  %64 = select i1 %60, i1 %63, i1 false
+  br i1 %64, label %65, label %71
 
-55:                                               ; preds = %47
-  %56 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !31
-  %57 = and i32 %56, 1048576
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %60, label %59
+65:                                               ; preds = %54
+  %66 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %67 = load i32, ptr %66, align 8, !tbaa !31
+  %68 = and i32 %67, 1048576
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %71, label %70
 
-59:                                               ; preds = %55
+70:                                               ; preds = %65
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 163, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #7
-  br label %60
+  br label %71
 
-60:                                               ; preds = %59, %55, %47
-  %61 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !32
-  tail call void @dt_control_signal_connect(ptr noundef %61, i32 noundef 7, ptr noundef nonnull @_collection_updated_callback, ptr noundef nonnull %0) #7
+71:                                               ; preds = %70, %65, %54
+  %72 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %73 = load ptr, ptr %72, align 8, !tbaa !32
+  tail call void @dt_control_signal_connect(ptr noundef %73, i32 noundef 7, ptr noundef nonnull @_collection_updated_callback, ptr noundef nonnull %0) #7
   ret void
 }
 
@@ -228,35 +241,36 @@ declare ptr @dt_action_button_new(ptr noundef, ptr noundef, ptr noundef, ptr nou
 define internal void @button_clicked(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
-  %5 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 22), align 8, !tbaa !33
-  switch i32 %4, label %10 [
-    i32 0, label %6
-    i32 1, label %7
-    i32 2, label %8
-    i32 4, label %9
+  %5 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 22
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  switch i32 %4, label %11 [
+    i32 0, label %7
+    i32 1, label %8
+    i32 2, label %9
+    i32 4, label %10
   ]
 
-6:                                                ; preds = %2
-  tail call void @dt_selection_select_all(ptr noundef %5) #7
-  br label %11
-
 7:                                                ; preds = %2
-  tail call void @dt_selection_clear(ptr noundef %5) #7
-  br label %11
+  tail call void @dt_selection_select_all(ptr noundef %6) #7
+  br label %12
 
 8:                                                ; preds = %2
-  tail call void @dt_selection_invert(ptr noundef %5) #7
-  br label %11
+  tail call void @dt_selection_clear(ptr noundef %6) #7
+  br label %12
 
 9:                                                ; preds = %2
-  tail call void @dt_selection_select_unaltered(ptr noundef %5) #7
-  br label %11
+  tail call void @dt_selection_invert(ptr noundef %6) #7
+  br label %12
 
 10:                                               ; preds = %2
-  tail call void @dt_selection_select_filmroll(ptr noundef %5) #7
-  br label %11
+  tail call void @dt_selection_select_unaltered(ptr noundef %6) #7
+  br label %12
 
-11:                                               ; preds = %10, %9, %8, %7, %6
+11:                                               ; preds = %2
+  tail call void @dt_selection_select_filmroll(ptr noundef %6) #7
+  br label %12
+
+12:                                               ; preds = %11, %10, %9, %8, %7
   tail call void (...) @dt_control_queue_redraw_center() #7
   ret void
 }
@@ -291,46 +305,52 @@ define internal void @_collection_updated_callback(ptr nocapture readnone %0, i3
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !30
-  %3 = and i32 %2, 4
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %10, label %5
+  %2 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %3 = load i32, ptr %2, align 8, !tbaa !30
+  %4 = and i32 %3, 4
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !31
-  %7 = and i32 %6, 1048576
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %10, label %9
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %8 = load i32, ptr %7, align 8, !tbaa !31
+  %9 = and i32 %8, 1048576
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %12, label %11
 
-9:                                                ; preds = %5
+11:                                               ; preds = %6
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.12, i32 noundef 168, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.13) #7
-  br label %10
+  br label %12
 
-10:                                               ; preds = %9, %5, %1
-  %11 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !32
-  tail call void @dt_control_signal_disconnect(ptr noundef %11, ptr noundef nonnull @_image_selection_changed_callback, ptr noundef %0) #7
-  %12 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 52), align 8, !tbaa !30
-  %13 = and i32 %12, 4
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %20, label %15
-
-15:                                               ; preds = %10
-  %16 = load i32, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 2), align 8, !tbaa !31
-  %17 = and i32 %16, 1048576
+12:                                               ; preds = %11, %6, %1
+  %13 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %14 = load ptr, ptr %13, align 8, !tbaa !32
+  tail call void @dt_control_signal_disconnect(ptr noundef %14, ptr noundef nonnull @_image_selection_changed_callback, ptr noundef %0) #7
+  %15 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 52
+  %16 = load i32, ptr %15, align 8, !tbaa !30
+  %17 = and i32 %16, 4
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %20, label %19
+  br i1 %18, label %25, label %19
 
-19:                                               ; preds = %15
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 2
+  %21 = load i32, ptr %20, align 8, !tbaa !31
+  %22 = and i32 %21, 1048576
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %19
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.12, i32 noundef 169, ptr noundef nonnull @__FUNCTION__.gui_cleanup, ptr noundef nonnull @.str.15) #7
-  br label %20
+  br label %25
 
-20:                                               ; preds = %19, %15, %10
-  %21 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 13), align 8, !tbaa !32
-  tail call void @dt_control_signal_disconnect(ptr noundef %21, ptr noundef nonnull @_collection_updated_callback, ptr noundef %0) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 280
-  %23 = load ptr, ptr %22, align 8, !tbaa !6
-  tail call void @free(ptr noundef %23) #7
-  store ptr null, ptr %22, align 8, !tbaa !6
+25:                                               ; preds = %24, %19, %12
+  %26 = getelementptr inbounds %struct.darktable_t, ptr @darktable, i64 0, i32 13
+  %27 = load ptr, ptr %26, align 8, !tbaa !32
+  tail call void @dt_control_signal_disconnect(ptr noundef %27, ptr noundef nonnull @_collection_updated_callback, ptr noundef %0) #7
+  %28 = getelementptr inbounds i8, ptr %0, i64 280
+  %29 = load ptr, ptr %28, align 8, !tbaa !6
+  tail call void @free(ptr noundef %29) #7
+  store ptr null, ptr %28, align 8, !tbaa !6
   ret void
 }
 

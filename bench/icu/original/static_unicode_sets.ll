@@ -272,7 +272,8 @@ invoke.cont10:                                    ; preds = %invoke.cont7
 
 new.cont11:                                       ; preds = %invoke.cont10, %new.cont
   %1 = phi ptr [ %call2, %invoke.cont10 ], [ null, %new.cont ]
-  store ptr %1, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 1), align 8
+  %2 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 1
+  store ptr %1, ptr %2, align 8
   %cleanup.is_active12 = load i1, ptr %cleanup.cond8, align 1
   br i1 %cleanup.is_active12, label %cleanup.action13, label %cleanup.done14
 
@@ -295,8 +296,8 @@ new.notnull23:                                    ; preds = %cleanup.done14
 
 invoke.cont28:                                    ; preds = %new.notnull23
   store i1 true, ptr %cleanup.cond29, align 1
-  %2 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %call21, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %3 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %call21, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont28
@@ -304,8 +305,9 @@ invoke.cont31:                                    ; preds = %invoke.cont28
   br label %new.cont32
 
 new.cont32:                                       ; preds = %invoke.cont31, %cleanup.done14
-  %3 = phi ptr [ %call21, %invoke.cont31 ], [ null, %cleanup.done14 ]
-  store ptr %3, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 2), align 16
+  %4 = phi ptr [ %call21, %invoke.cont31 ], [ null, %cleanup.done14 ]
+  %5 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 2
+  store ptr %4, ptr %5, align 16
   %cleanup.is_active33 = load i1, ptr %cleanup.cond29, align 1
   br i1 %cleanup.is_active33, label %cleanup.action34, label %cleanup.done35
 
@@ -314,12 +316,12 @@ cleanup.action34:                                 ; preds = %new.cont32
   br label %cleanup.done35
 
 cleanup.done35:                                   ; preds = %cleanup.action34, %new.cont32
-  %4 = load ptr, ptr %status.addr, align 8
-  %call44 = call ptr @ures_open_75(ptr noundef null, ptr noundef @.str.3, ptr noundef %4)
+  %6 = load ptr, ptr %status.addr, align 8
+  %call44 = call ptr @ures_open_75(ptr noundef null, ptr noundef @.str.3, ptr noundef %6)
   call void @_ZN6icu_7527LocalUResourceBundlePointerC2EP15UResourceBundle(ptr noundef nonnull align 8 dereferenceable(8) %rb, ptr noundef %call44)
-  %5 = load ptr, ptr %status.addr, align 8
-  %6 = load i32, ptr %5, align 4
-  %call47 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %6)
+  %7 = load ptr, ptr %status.addr, align 8
+  %8 = load i32, ptr %7, align 4
+  %call47 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %8)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %cleanup.done35
@@ -331,12 +333,12 @@ if.then:                                          ; preds = %invoke.cont46
   br label %cleanup166
 
 lpad:                                             ; preds = %new.notnull
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
@@ -348,21 +350,21 @@ cleanup.done:                                     ; preds = %cleanup.action, %lp
   br label %eh.resume
 
 lpad6:                                            ; preds = %new.notnull4
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont7
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   %cleanup.is_active15 = load i1, ptr %cleanup.cond8, align 1
   br i1 %cleanup.is_active15, label %cleanup.action16, label %cleanup.done17
 
@@ -378,29 +380,29 @@ ehcleanup:                                        ; preds = %cleanup.done17, %lp
   br i1 %cleanup.is_active18, label %cleanup.action19, label %cleanup.done20
 
 cleanup.action19:                                 ; preds = %ehcleanup
-  %16 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %16) #6
+  %18 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %18) #6
   br label %cleanup.done20
 
 cleanup.done20:                                   ; preds = %cleanup.action19, %ehcleanup
   br label %eh.resume
 
 lpad27:                                           ; preds = %new.notnull23
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup40
 
 lpad30:                                           ; preds = %invoke.cont28
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   %cleanup.is_active37 = load i1, ptr %cleanup.cond29, align 1
   br i1 %cleanup.is_active37, label %cleanup.action38, label %cleanup.done39
 
@@ -416,20 +418,20 @@ ehcleanup40:                                      ; preds = %cleanup.done39, %lp
   br i1 %cleanup.is_active41, label %cleanup.action42, label %cleanup.done43
 
 cleanup.action42:                                 ; preds = %ehcleanup40
-  %23 = load ptr, ptr %saved-rvalue24, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %23) #6
+  %25 = load ptr, ptr %saved-rvalue24, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %25) #6
   br label %cleanup.done43
 
 cleanup.done43:                                   ; preds = %cleanup.action42, %ehcleanup40
   br label %eh.resume
 
 lpad45:                                           ; preds = %if.end, %cleanup.done35
-  %24 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   br label %ehcleanup167
 
 if.end:                                           ; preds = %invoke.cont46
@@ -441,14 +443,14 @@ invoke.cont48:                                    ; preds = %if.end
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont48
-  %27 = load ptr, ptr %status.addr, align 8
-  invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call51, ptr noundef @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %27)
+  %29 = load ptr, ptr %status.addr, align 8
+  invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call51, ptr noundef @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %29)
           to label %invoke.cont52 unwind label %lpad49
 
 invoke.cont52:                                    ; preds = %invoke.cont50
-  %28 = load ptr, ptr %status.addr, align 8
-  %29 = load i32, ptr %28, align 4
-  %call54 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %29)
+  %30 = load ptr, ptr %status.addr, align 8
+  %31 = load i32, ptr %30, align 4
+  %call54 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %31)
           to label %invoke.cont53 unwind label %lpad49
 
 invoke.cont53:                                    ; preds = %invoke.cont52
@@ -460,12 +462,12 @@ if.then56:                                        ; preds = %invoke.cont53
   br label %cleanup164
 
 lpad49:                                           ; preds = %invoke.cont52, %invoke.cont50, %invoke.cont48
-  %30 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup165
 
 if.end57:                                         ; preds = %invoke.cont53
@@ -483,8 +485,8 @@ new.notnull60:                                    ; preds = %if.end57
 
 invoke.cont65:                                    ; preds = %new.notnull60
   store i1 true, ptr %cleanup.cond66, align 1
-  %33 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %call58, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp63, ptr noundef nonnull align 4 dereferenceable(4) %33)
+  %35 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %call58, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp63, ptr noundef nonnull align 4 dereferenceable(4) %35)
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont65
@@ -492,9 +494,9 @@ invoke.cont68:                                    ; preds = %invoke.cont65
   br label %new.cont69
 
 new.cont69:                                       ; preds = %invoke.cont68, %if.end57
-  %34 = phi ptr [ %call58, %invoke.cont68 ], [ null, %if.end57 ]
-  %35 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %otherGrouping, ptr noundef %34, ptr noundef nonnull align 4 dereferenceable(4) %35)
+  %36 = phi ptr [ %call58, %invoke.cont68 ], [ null, %if.end57 ]
+  %37 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %otherGrouping, ptr noundef %36, ptr noundef nonnull align 4 dereferenceable(4) %37)
           to label %invoke.cont70 unwind label %lpad67
 
 invoke.cont70:                                    ; preds = %new.cont69
@@ -506,9 +508,9 @@ cleanup.action72:                                 ; preds = %invoke.cont70
   br label %cleanup.done73
 
 cleanup.done73:                                   ; preds = %cleanup.action72, %invoke.cont70
-  %36 = load ptr, ptr %status.addr, align 8
-  %37 = load i32, ptr %36, align 4
-  %call84 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %37)
+  %38 = load ptr, ptr %status.addr, align 8
+  %39 = load i32, ptr %38, align 4
+  %call84 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %39)
           to label %invoke.cont83 unwind label %lpad82
 
 invoke.cont83:                                    ; preds = %cleanup.done73
@@ -520,21 +522,21 @@ if.then86:                                        ; preds = %invoke.cont83
   br label %cleanup
 
 lpad64:                                           ; preds = %new.notnull60
-  %38 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %exn.slot, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %ehselector.slot, align 4
   br label %ehcleanup78
 
 lpad67:                                           ; preds = %new.cont69, %invoke.cont65
-  %41 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %exn.slot, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %ehselector.slot, align 4
   %cleanup.is_active75 = load i1, ptr %cleanup.cond66, align 1
   br i1 %cleanup.is_active75, label %cleanup.action76, label %cleanup.done77
 
@@ -550,20 +552,20 @@ ehcleanup78:                                      ; preds = %cleanup.done77, %lp
   br i1 %cleanup.is_active79, label %cleanup.action80, label %cleanup.done81
 
 cleanup.action80:                                 ; preds = %ehcleanup78
-  %44 = load ptr, ptr %saved-rvalue61, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %44) #6
+  %46 = load ptr, ptr %saved-rvalue61, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %46) #6
   br label %cleanup.done81
 
 cleanup.done81:                                   ; preds = %cleanup.action80, %ehcleanup78
   br label %ehcleanup165
 
 lpad82:                                           ; preds = %if.then159, %invoke.cont154, %if.end153, %cleanup.done140, %cleanup.done112, %invoke.cont94, %invoke.cont92, %invoke.cont90, %invoke.cont88, %if.end87, %cleanup.done73
-  %45 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %exn.slot, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   br label %ehcleanup163
 
 if.end87:                                         ; preds = %invoke.cont83
@@ -571,8 +573,9 @@ if.end87:                                         ; preds = %invoke.cont83
           to label %invoke.cont88 unwind label %lpad82
 
 invoke.cont88:                                    ; preds = %if.end87
-  %48 = load ptr, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 7), align 8
-  %call91 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call89, ptr noundef nonnull align 8 dereferenceable(200) %48)
+  %50 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 7
+  %51 = load ptr, ptr %50, align 8
+  %call91 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call89, ptr noundef nonnull align 8 dereferenceable(200) %51)
           to label %invoke.cont90 unwind label %lpad82
 
 invoke.cont90:                                    ; preds = %invoke.cont88
@@ -580,17 +583,20 @@ invoke.cont90:                                    ; preds = %invoke.cont88
           to label %invoke.cont92 unwind label %lpad82
 
 invoke.cont92:                                    ; preds = %invoke.cont90
-  store ptr %call93, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 8), align 16
+  %52 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 8
+  store ptr %call93, ptr %52, align 16
   %call95 = invoke noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef 3, i32 noundef 4, i32 noundef 8)
           to label %invoke.cont94 unwind label %lpad82
 
 invoke.cont94:                                    ; preds = %invoke.cont92
-  store ptr %call95, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 9), align 8
+  %53 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 9
+  store ptr %call95, ptr %53, align 8
   %call97 = invoke noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef 5, i32 noundef 6, i32 noundef 8)
           to label %invoke.cont96 unwind label %lpad82
 
 invoke.cont96:                                    ; preds = %invoke.cont94
-  store ptr %call97, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 10), align 16
+  %54 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 10
+  store ptr %call97, ptr %54, align 16
   %call98 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #6
   %new.isnull99 = icmp eq ptr %call98, null
   store i1 false, ptr %cleanup.cond102, align 1
@@ -605,8 +611,8 @@ new.notnull100:                                   ; preds = %invoke.cont96
 
 invoke.cont105:                                   ; preds = %new.notnull100
   store i1 true, ptr %cleanup.cond106, align 1
-  %49 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %call98, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp103, ptr noundef nonnull align 4 dereferenceable(4) %49)
+  %55 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %call98, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp103, ptr noundef nonnull align 4 dereferenceable(4) %55)
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %invoke.cont105
@@ -614,8 +620,9 @@ invoke.cont108:                                   ; preds = %invoke.cont105
   br label %new.cont109
 
 new.cont109:                                      ; preds = %invoke.cont108, %invoke.cont96
-  %50 = phi ptr [ %call98, %invoke.cont108 ], [ null, %invoke.cont96 ]
-  store ptr %50, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 15), align 8
+  %56 = phi ptr [ %call98, %invoke.cont108 ], [ null, %invoke.cont96 ]
+  %57 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 15
+  store ptr %56, ptr %57, align 8
   %cleanup.is_active110 = load i1, ptr %cleanup.cond106, align 1
   br i1 %cleanup.is_active110, label %cleanup.action111, label %cleanup.done112
 
@@ -624,9 +631,9 @@ cleanup.action111:                                ; preds = %new.cont109
   br label %cleanup.done112
 
 cleanup.done112:                                  ; preds = %cleanup.action111, %new.cont109
-  %51 = load ptr, ptr %status.addr, align 8
-  %52 = load i32, ptr %51, align 4
-  %call122 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %52)
+  %58 = load ptr, ptr %status.addr, align 8
+  %59 = load i32, ptr %58, align 4
+  %call122 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %59)
           to label %invoke.cont121 unwind label %lpad82
 
 invoke.cont121:                                   ; preds = %cleanup.done112
@@ -638,21 +645,21 @@ if.then124:                                       ; preds = %invoke.cont121
   br label %cleanup
 
 lpad104:                                          ; preds = %new.notnull100
-  %53 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   br label %ehcleanup117
 
 lpad107:                                          ; preds = %invoke.cont105
-  %56 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %exn.slot, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %ehselector.slot, align 4
   %cleanup.is_active114 = load i1, ptr %cleanup.cond106, align 1
   br i1 %cleanup.is_active114, label %cleanup.action115, label %cleanup.done116
 
@@ -668,8 +675,8 @@ ehcleanup117:                                     ; preds = %cleanup.done116, %l
   br i1 %cleanup.is_active118, label %cleanup.action119, label %cleanup.done120
 
 cleanup.action119:                                ; preds = %ehcleanup117
-  %59 = load ptr, ptr %saved-rvalue101, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %59) #6
+  %66 = load ptr, ptr %saved-rvalue101, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %66) #6
   br label %cleanup.done120
 
 cleanup.done120:                                  ; preds = %cleanup.action119, %ehcleanup117
@@ -690,8 +697,8 @@ new.notnull128:                                   ; preds = %if.end125
 
 invoke.cont133:                                   ; preds = %new.notnull128
   store i1 true, ptr %cleanup.cond134, align 1
-  %60 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %call126, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp131, ptr noundef nonnull align 4 dereferenceable(4) %60)
+  %67 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %call126, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp131, ptr noundef nonnull align 4 dereferenceable(4) %67)
           to label %invoke.cont136 unwind label %lpad135
 
 invoke.cont136:                                   ; preds = %invoke.cont133
@@ -699,8 +706,9 @@ invoke.cont136:                                   ; preds = %invoke.cont133
   br label %new.cont137
 
 new.cont137:                                      ; preds = %invoke.cont136, %if.end125
-  %61 = phi ptr [ %call126, %invoke.cont136 ], [ null, %if.end125 ]
-  store ptr %61, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 21), align 8
+  %68 = phi ptr [ %call126, %invoke.cont136 ], [ null, %if.end125 ]
+  %69 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 21
+  store ptr %68, ptr %69, align 8
   %cleanup.is_active138 = load i1, ptr %cleanup.cond134, align 1
   br i1 %cleanup.is_active138, label %cleanup.action139, label %cleanup.done140
 
@@ -709,9 +717,9 @@ cleanup.action139:                                ; preds = %new.cont137
   br label %cleanup.done140
 
 cleanup.done140:                                  ; preds = %cleanup.action139, %new.cont137
-  %62 = load ptr, ptr %status.addr, align 8
-  %63 = load i32, ptr %62, align 4
-  %call150 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %63)
+  %70 = load ptr, ptr %status.addr, align 8
+  %71 = load i32, ptr %70, align 4
+  %call150 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %71)
           to label %invoke.cont149 unwind label %lpad82
 
 invoke.cont149:                                   ; preds = %cleanup.done140
@@ -723,21 +731,21 @@ if.then152:                                       ; preds = %invoke.cont149
   br label %cleanup
 
 lpad132:                                          ; preds = %new.notnull128
-  %64 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %exn.slot, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %ehselector.slot, align 4
   br label %ehcleanup145
 
 lpad135:                                          ; preds = %invoke.cont133
-  %67 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %exn.slot, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %ehselector.slot, align 4
   %cleanup.is_active142 = load i1, ptr %cleanup.cond134, align 1
   br i1 %cleanup.is_active142, label %cleanup.action143, label %cleanup.done144
 
@@ -753,8 +761,8 @@ ehcleanup145:                                     ; preds = %cleanup.done144, %l
   br i1 %cleanup.is_active146, label %cleanup.action147, label %cleanup.done148
 
 cleanup.action147:                                ; preds = %ehcleanup145
-  %70 = load ptr, ptr %saved-rvalue129, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %70) #6
+  %78 = load ptr, ptr %saved-rvalue129, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %78) #6
   br label %cleanup.done148
 
 cleanup.done148:                                  ; preds = %cleanup.action147, %ehcleanup145
@@ -765,34 +773,37 @@ if.end153:                                        ; preds = %invoke.cont149
           to label %invoke.cont154 unwind label %lpad82
 
 invoke.cont154:                                   ; preds = %if.end153
-  store ptr %call155, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 22), align 16
+  %79 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 22
+  store ptr %call155, ptr %79, align 16
   %call157 = invoke noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_(i32 noundef 21, i32 noundef 10)
           to label %invoke.cont156 unwind label %lpad82
 
 invoke.cont156:                                   ; preds = %invoke.cont154
-  store ptr %call157, ptr getelementptr inbounds ([24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 23), align 8
+  %80 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 23
+  store ptr %call157, ptr %80, align 8
   store ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, ptr %__range1, align 8
   store ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 24), ptr %__end1, align 8
+  %81 = getelementptr inbounds ptr, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 24
+  store ptr %81, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont156
-  %71 = load ptr, ptr %__begin1, align 8
-  %72 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %71, %72
+  %82 = load ptr, ptr %__begin1, align 8
+  %83 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %82, %83
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %73 = load ptr, ptr %__begin1, align 8
-  %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr %uniset, align 8
-  %75 = load ptr, ptr %uniset, align 8
-  %cmp158 = icmp ne ptr %75, null
+  %84 = load ptr, ptr %__begin1, align 8
+  %85 = load ptr, ptr %84, align 8
+  store ptr %85, ptr %uniset, align 8
+  %86 = load ptr, ptr %uniset, align 8
+  %cmp158 = icmp ne ptr %86, null
   br i1 %cmp158, label %if.then159, label %if.end162
 
 if.then159:                                       ; preds = %for.body
-  %76 = load ptr, ptr %uniset, align 8
-  %call161 = invoke noundef ptr @_ZN6icu_7510UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %76)
+  %87 = load ptr, ptr %uniset, align 8
+  %call161 = invoke noundef ptr @_ZN6icu_7510UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %87)
           to label %invoke.cont160 unwind label %lpad82
 
 invoke.cont160:                                   ; preds = %if.then159
@@ -802,8 +813,8 @@ if.end162:                                        ; preds = %invoke.cont160, %fo
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end162
-  %77 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %77, i32 1
+  %88 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %88, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -1195,7 +1206,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113ParseDataSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113ParseDataSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1608,7 +1620,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2082,7 +2095,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

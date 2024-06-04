@@ -1215,13 +1215,15 @@ define linkonce_odr void @_ZN5faiss10IndexIVFPQD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %3, i32 0, i32 7
-  call void @_ZN5faiss12AlignedTableIfLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
-  %6 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %3, i32 0, i32 1
-  call void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #13
+  %4 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %3, i32 0, i32 7
+  call void @_ZN5faiss12AlignedTableIfLi32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %8 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %3, i32 0, i32 1
+  call void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %8) #13
   call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3) #13
   ret void
 }
@@ -1788,78 +1790,80 @@ define void @_ZN5faiss10IndexIVFPQC2EPNS_5IndexEmmmmNS_10MetricTypeE(ptr noundef
   %20 = load i64, ptr %11, align 8
   %21 = load i32, ptr %14, align 4
   call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %17, ptr noundef %18, i64 noundef %19, i64 noundef %20, i64 noundef 0, i32 noundef %21)
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 1, i32 2), ptr %22, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 1
-  %24 = load i64, ptr %10, align 8
-  %25 = load i64, ptr %12, align 8
-  %26 = load i64, ptr %13, align 8
-  invoke void @_ZN5faiss16ProductQuantizerC1Emmm(ptr noundef nonnull align 8 dereferenceable(208) %23, i64 noundef %24, i64 noundef %25, i64 noundef %26)
-          to label %27 unwind label %46
+  %22 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %17, align 8
+  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %24 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 1, i32 2
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 1
+  %26 = load i64, ptr %10, align 8
+  %27 = load i64, ptr %12, align 8
+  %28 = load i64, ptr %13, align 8
+  invoke void @_ZN5faiss16ProductQuantizerC1Emmm(ptr noundef nonnull align 8 dereferenceable(208) %25, i64 noundef %26, i64 noundef %27, i64 noundef %28)
+          to label %29 unwind label %48
 
-27:                                               ; preds = %7
-  %28 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 7
-  invoke void @_ZN5faiss12AlignedTableIfLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28)
-          to label %29 unwind label %50
+29:                                               ; preds = %7
+  %30 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 7
+  invoke void @_ZN5faiss12AlignedTableIfLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30)
+          to label %31 unwind label %52
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 1
-  %31 = getelementptr inbounds %"struct.faiss::Quantizer", ptr %30, i32 0, i32 2
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 6
-  store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 6
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %"struct.faiss::InvertedLists", ptr %37, i32 0, i32 2
-  store i64 %35, ptr %38, align 8
-  %39 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 5
-  store i8 0, ptr %39, align 1
-  %40 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 10
-  store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 6
-  store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 4
-  store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 3
-  store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 2
-  store i8 0, ptr %44, align 8
-  %45 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 5
-  store i32 0, ptr %45, align 8
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 1
+  %33 = getelementptr inbounds %"struct.faiss::Quantizer", ptr %32, i32 0, i32 2
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 6
+  store i64 %34, ptr %35, align 8
+  %36 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 6
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %"struct.faiss::InvertedLists", ptr %39, i32 0, i32 2
+  store i64 %37, ptr %40, align 8
+  %41 = getelementptr inbounds %"struct.faiss::Index", ptr %17, i32 0, i32 5
+  store i8 0, ptr %41, align 1
+  %42 = getelementptr inbounds %"struct.faiss::IndexIVF", ptr %17, i32 0, i32 10
+  store i8 1, ptr %42, align 8
+  %43 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 6
+  store i32 0, ptr %43, align 4
+  %44 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 4
+  store i64 0, ptr %44, align 8
+  %45 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 3
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 2
+  store i8 0, ptr %46, align 8
+  %47 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %17, i32 0, i32 5
+  store i32 0, ptr %47, align 8
   ret void
 
-46:                                               ; preds = %7
-  %47 = landingpad { ptr, i32 }
+48:                                               ; preds = %7
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %15, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %16, align 4
-  br label %54
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %15, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %16, align 4
+  br label %56
 
-50:                                               ; preds = %27
-  %51 = landingpad { ptr, i32 }
+52:                                               ; preds = %29
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %15, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %16, align 4
-  call void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %23) #13
-  br label %54
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %15, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %16, align 4
+  call void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %25) #13
+  br label %56
 
-54:                                               ; preds = %50, %46
+56:                                               ; preds = %52, %48
   call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %17) #13
-  br label %55
+  br label %57
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %15, align 8
-  %57 = load i32, ptr %16, align 4
-  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
-  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
-  resume { ptr, i32 } %59
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %15, align 8
+  %59 = load i32, ptr %16, align 4
+  %60 = insertvalue { ptr, i32 } poison, ptr %58, 0
+  %61 = insertvalue { ptr, i32 } %60, i32 %59, 1
+  resume { ptr, i32 } %61
 }
 
 declare void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257), ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) unnamed_addr #1
@@ -1885,15 +1889,16 @@ define linkonce_odr void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
-  %5 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 11
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 12
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
-  %6 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 10
+  %6 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 11
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  %7 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 9
+  %7 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %8 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
   call void @_ZN5faiss9QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
@@ -4389,9 +4394,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -6508,7 +6514,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6523,7 +6530,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7027,60 +7035,61 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   %16 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %15, ptr noundef nonnull align 8 dereferenceable(528) %16, ptr noundef null)
   invoke void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %14, i1 noundef zeroext false, ptr noundef null)
-          to label %17 unwind label %30
+          to label %17 unwind label %31
 
 17:                                               ; preds = %5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner", ptr %14, i32 0, i32 2
-  %19 = load i32, ptr %9, align 4
-  store i32 %19, ptr %18, align 4
-  %20 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner", ptr %14, i32 0, i32 3
-  %21 = load ptr, ptr %10, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = load i8, ptr %8, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %14, i32 0, i32 3
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 1
-  %26 = invoke noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
-          to label %27 unwind label %34
+  %18 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %14, align 8
+  %19 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner", ptr %14, i32 0, i32 2
+  %20 = load i32, ptr %9, align 4
+  store i32 %20, ptr %19, align 4
+  %21 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner", ptr %14, i32 0, i32 3
+  %22 = load ptr, ptr %10, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = load i8, ptr %8, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %14, i32 0, i32 3
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 1
+  %27 = invoke noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
+          to label %28 unwind label %35
 
-27:                                               ; preds = %17
-  %28 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %14, i32 0, i32 2
-  %29 = zext i1 %26 to i8
-  store i8 %29, ptr %28, align 8
+28:                                               ; preds = %17
+  %29 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %14, i32 0, i32 2
+  %30 = zext i1 %27 to i8
+  store i8 %30, ptr %29, align 8
   ret void
 
-30:                                               ; preds = %5
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %5
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %11, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %12, align 4
-  br label %38
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %11, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %12, align 4
+  br label %39
 
-34:                                               ; preds = %17
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %17
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %11, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %12, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %11, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %12, align 4
   call void @_ZN5faiss19InvertedListScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #13
-  br label %38
+  br label %39
 
-38:                                               ; preds = %34, %30
-  %39 = getelementptr inbounds i8, ptr %14, i64 40
-  call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EED2Ev(ptr noundef nonnull align 8 dereferenceable(212) %39) #13
-  br label %40
+39:                                               ; preds = %35, %31
+  %40 = getelementptr inbounds i8, ptr %14, i64 40
+  call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EED2Ev(ptr noundef nonnull align 8 dereferenceable(212) %40) #13
+  br label %41
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7101,22 +7110,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.55", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.55", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.55", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.55", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -7145,21 +7155,22 @@ define linkonce_odr void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(p
   store i8 %7, ptr %5, align 1
   store ptr %2, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss19InvertedListScannerE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 1
-  store i64 -1, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 2
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 3
-  %12 = load i8, ptr %5, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr %11, align 1
-  %15 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 4
-  %16 = load ptr, ptr %6, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 5
-  store i64 0, ptr %17, align 8
+  %9 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss19InvertedListScannerE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 1
+  store i64 -1, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 2
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 3
+  %13 = load i8, ptr %5, align 1
+  %14 = trunc i8 %13 to i1
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %12, align 1
+  %16 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 4
+  %17 = load ptr, ptr %6, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %8, i32 0, i32 5
+  store i64 0, ptr %18, align 8
   ret void
 }
 
@@ -13390,9 +13401,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -14451,9 +14464,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -15015,9 +15030,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -15600,9 +15617,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -16200,9 +16219,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -16811,9 +16832,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -17474,9 +17497,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -19249,9 +19274,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -19841,9 +19868,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -20358,9 +20387,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -20875,9 +20906,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -21392,9 +21425,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -21909,9 +21944,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -22426,9 +22463,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -24255,9 +24294,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -25062,9 +25103,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -25579,9 +25622,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -26096,9 +26141,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -26613,9 +26660,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -27130,9 +27179,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -27647,9 +27698,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -28962,9 +29015,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -29552,9 +29607,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -30069,9 +30126,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -30586,9 +30645,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -31103,9 +31164,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -31620,9 +31683,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -32137,9 +32202,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -32171,22 +32238,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.62", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.62", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.62", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.62", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -32208,22 +32276,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.65", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.65", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.65", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.65", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -34167,9 +34236,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -34843,9 +34914,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -35360,9 +35433,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -35877,9 +35952,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -36394,9 +36471,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -36911,9 +36990,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -37428,9 +37509,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -38751,9 +38834,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -39268,9 +39353,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -39785,9 +39872,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -40302,9 +40391,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -40819,9 +40910,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -41336,9 +41429,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -41853,9 +41948,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -43691,9 +43788,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -44208,9 +44307,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -44725,9 +44826,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -45242,9 +45345,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -45759,9 +45864,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -46276,9 +46383,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -46793,9 +46902,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -48106,9 +48217,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -48623,9 +48736,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -49140,9 +49255,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -49657,9 +49774,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -50174,9 +50293,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -50691,9 +50812,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -51208,9 +51331,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -51242,22 +51367,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.70", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.70", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.70", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.70", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -51279,22 +51405,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.73", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.73", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.73", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.73", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -53387,9 +53514,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -54063,9 +54192,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -54580,9 +54711,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -55097,9 +55230,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -55614,9 +55749,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -56131,9 +56268,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -56648,9 +56787,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -57971,9 +58112,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -58488,9 +58631,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -59005,9 +59150,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -59522,9 +59669,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -60039,9 +60188,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -60556,9 +60707,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -61073,9 +61226,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -62911,9 +63066,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -63428,9 +63585,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -63945,9 +64104,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -64462,9 +64623,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -64979,9 +65142,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -65496,9 +65661,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -66013,9 +66180,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -67326,9 +67495,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -67843,9 +68014,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -68360,9 +68533,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -68877,9 +69052,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -69394,9 +69571,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -69911,9 +70090,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -70428,9 +70609,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -70732,22 +70915,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.78", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.78", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.78", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.78", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -70769,22 +70953,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.79", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.79", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.79", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.79", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -72560,9 +72745,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -73147,9 +73334,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -73664,9 +73853,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -74181,9 +74372,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -74698,9 +74891,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -75215,9 +75410,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -75732,9 +75929,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -77055,9 +77254,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -77632,9 +77833,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -78149,9 +78352,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -78666,9 +78871,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -79183,9 +79390,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -79700,9 +79909,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -80217,9 +80428,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -81986,9 +82199,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -82573,9 +82788,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -83090,9 +83307,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -83607,9 +83826,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -84124,9 +84345,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -84641,9 +84864,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -85158,9 +85383,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -86471,9 +86698,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -87048,9 +87277,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -87565,9 +87796,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -88082,9 +88315,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -88599,9 +88834,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -89116,9 +89353,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -89633,9 +89872,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -89658,22 +89899,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.88", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.88", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.88", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.88", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -89695,22 +89937,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.89", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.89", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.89", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.89", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -91486,9 +91729,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -92003,9 +92248,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -92520,9 +92767,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -93037,9 +93286,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -93554,9 +93805,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -94071,9 +94324,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -94588,9 +94843,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -95911,9 +96168,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -96428,9 +96687,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -96945,9 +97206,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -97462,9 +97725,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -97979,9 +98244,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -98496,9 +98763,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -99013,9 +99282,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -100782,9 +101053,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -101299,9 +101572,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -101816,9 +102091,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -102333,9 +102610,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -102850,9 +103129,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -103367,9 +103648,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -103884,9 +104167,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -105197,9 +105482,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -105714,9 +106001,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -106231,9 +106520,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -106748,9 +107039,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -107265,9 +107558,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -107782,9 +108077,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -108299,9 +108596,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -108324,22 +108623,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.94", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.94", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.94", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.94", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 0)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -108361,22 +108661,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEEC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %13, ptr noundef nonnull align 8 dereferenceable(528) %14, ptr noundef null)
   call void @_ZN5faiss19InvertedListScannerC2EbPKNS_10IDSelectorE(ptr noundef nonnull align 8 dereferenceable(40) %12, i1 noundef zeroext false, ptr noundef null)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.95", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %9, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.95", ptr %12, i32 0, i32 3
-  %18 = load ptr, ptr %10, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load i8, ptr %8, align 1
-  %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 1
-  %23 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
-  %24 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
-  %25 = zext i1 %23 to i8
-  store i8 %25, ptr %24, align 8
+  %15 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.95", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::IVFPQScanner.95", ptr %12, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 3
+  %23 = zext i1 %21 to i8
+  store i8 %23, ptr %22, align 1
+  %24 = call noundef zeroext i1 @_ZN5faiss20is_similarity_metricENS_10MetricTypeE(i32 noundef 1)
+  %25 = getelementptr inbounds %"struct.faiss::InvertedListScanner", ptr %12, i32 0, i32 2
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 8
   ret void
 }
 
@@ -110152,9 +110453,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -110669,9 +110972,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -111186,9 +111491,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -111703,9 +112010,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -112220,9 +112529,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -112737,9 +113048,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -113254,9 +113567,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -114577,9 +114892,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -115094,9 +115411,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -115611,9 +115930,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -116128,9 +116449,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -116645,9 +116968,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -117162,9 +117487,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -117679,9 +118006,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -119448,9 +119777,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -119965,9 +120296,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -120482,9 +120815,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -120999,9 +121334,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -121516,9 +121853,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -122033,9 +122372,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -122550,9 +122891,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -123863,9 +124206,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -124380,9 +124725,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -124897,9 +125244,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -125414,9 +125763,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -125931,9 +126282,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -126448,9 +126801,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -126965,9 +127320,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE
 375:                                              ; preds = %324
   call void @__kmpc_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   %376 = load i64, ptr %10, align 8
-  %377 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
-  %378 = add i64 %377, %376
-  store i64 %378, ptr getelementptr inbounds (%"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1), align 8
+  %377 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = add i64 %378, %376
+  %380 = getelementptr inbounds %"struct.faiss::IndexIVFPQStats", ptr @_ZN5faiss16indexIVFPQ_statsE, i32 0, i32 1
+  store i64 %379, ptr %380, align 8
   call void @__kmpc_end_critical(ptr @3, i32 %31, ptr @.gomp_critical_user_.var)
   ret void
 }
@@ -127004,60 +127361,62 @@ define void @_ZN5faiss10IndexIVFPQC2Ev(ptr noundef nonnull align 8 dereferenceab
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %5)
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 1, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 1
-  invoke void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7)
-          to label %8 unwind label %16
+  %6 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds { [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss10IndexIVFPQE, i32 0, i32 1, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 1
+  invoke void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %9)
+          to label %10 unwind label %18
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 7
-  invoke void @_ZN5faiss12AlignedTableIfLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %10 unwind label %20
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 7
+  invoke void @_ZN5faiss12AlignedTableIfLi32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %12 unwind label %22
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 6
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 4
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 2
-  store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 5
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 3
-  store ptr null, ptr %15, align 8
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 6
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 4
+  store i64 0, ptr %14, align 8
+  %15 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 2
+  store i8 0, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 5
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds %"struct.faiss::IndexIVFPQ", ptr %5, i32 0, i32 3
+  store ptr null, ptr %17, align 8
   ret void
 
-16:                                               ; preds = %1
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  br label %24
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %26
 
-20:                                               ; preds = %8
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %10
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %3, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %4, align 4
-  call void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #13
-  br label %24
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  call void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %9) #13
+  br label %26
 
-24:                                               ; preds = %20, %16
+26:                                               ; preds = %22, %18
   call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %5) #13
-  br label %25
+  br label %27
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %3, align 8
-  %27 = load i32, ptr %4, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %3, align 8
+  %29 = load i32, ptr %4, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 declare void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257)) unnamed_addr #1

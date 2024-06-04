@@ -87,35 +87,37 @@ define internal i32 @proc_do_uts_string(ptr nocapture noundef readonly %0, i32 n
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %10 to i64
-  %18 = sub i64 %17, ptrtoint (ptr @init_uts_ns to i64)
-  %19 = getelementptr i8, ptr %16, i64 %18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %7, ptr noundef align 1 dereferenceable(65) %19, i64 65, i1 false)
+  %18 = ptrtoint ptr @init_uts_ns to i64
+  %19 = sub i64 %17, %18
+  %20 = getelementptr i8, ptr %16, i64 %19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %7, ptr noundef align 1 dereferenceable(65) %20, i64 65, i1 false)
   call void @up_read(ptr noundef nonnull @uts_sem) #6
-  %20 = call i32 @proc_dostring(ptr noundef nonnull %6, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #6
-  %21 = icmp eq i32 %1, 0
-  br i1 %21, label %32, label %22
+  %21 = call i32 @proc_dostring(ptr noundef nonnull %6, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #6
+  %22 = icmp eq i32 %1, 0
+  br i1 %22, label %34, label %23
 
-22:                                               ; preds = %5
+23:                                               ; preds = %5
   call void @add_device_randomness(ptr noundef nonnull %7, i64 noundef 65) #6
   call void @down_write(ptr noundef nonnull @uts_sem) #6
-  %23 = load ptr, ptr %9, align 8
-  %24 = load ptr, ptr %13, align 16
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = ptrtoint ptr %23 to i64
-  %28 = sub i64 %27, ptrtoint (ptr @init_uts_ns to i64)
-  %29 = getelementptr i8, ptr %26, i64 %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(65) %29, ptr noundef nonnull align 16 dereferenceable(65) %7, i64 65, i1 false)
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %13, align 16
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = ptrtoint ptr %24 to i64
+  %29 = ptrtoint ptr @init_uts_ns to i64
+  %30 = sub i64 %28, %29
+  %31 = getelementptr i8, ptr %27, i64 %30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(65) %31, ptr noundef nonnull align 16 dereferenceable(65) %7, i64 65, i1 false)
   call void @up_write(ptr noundef nonnull @uts_sem) #6
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
-  %31 = load ptr, ptr %30, align 8
-  call void @proc_sys_poll_notify(ptr noundef %31) #6
-  br label %32
+  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = load ptr, ptr %32, align 8
+  call void @proc_sys_poll_notify(ptr noundef %33) #6
+  br label %34
 
-32:                                               ; preds = %22, %5
+34:                                               ; preds = %23, %5
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  ret i32 %20
+  ret i32 %21
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

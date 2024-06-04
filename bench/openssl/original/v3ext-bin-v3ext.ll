@@ -1027,11 +1027,12 @@ if.then:                                          ; preds = %entry
   br label %end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ip_ranges_st, ptr @ranges, i32 0, i32 1), align 8
-  %call2 = call ptr @a2i_IPADDRESS(ptr noundef %1)
+  %1 = getelementptr inbounds %struct.ip_ranges_st, ptr @ranges, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %call2 = call ptr @a2i_IPADDRESS(ptr noundef %2)
   store ptr %call2, ptr %ip1, align 8
-  %2 = load ptr, ptr %ip1, align 8
-  %call3 = call i32 @test_ptr(ptr noundef @.str.14, i32 noundef 244, ptr noundef @.str.58, ptr noundef %2)
+  %3 = load ptr, ptr %ip1, align 8
+  %call3 = call i32 @test_ptr(ptr noundef @.str.14, i32 noundef 244, ptr noundef @.str.58, ptr noundef %3)
   %tobool4 = icmp ne i32 %call3, 0
   br i1 %tobool4, label %if.end6, label %if.then5
 
@@ -1039,11 +1040,12 @@ if.then5:                                         ; preds = %if.end
   br label %end
 
 if.end6:                                          ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ip_ranges_st, ptr @ranges, i32 0, i32 2), align 16
-  %call7 = call ptr @a2i_IPADDRESS(ptr noundef %3)
+  %4 = getelementptr inbounds %struct.ip_ranges_st, ptr @ranges, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 16
+  %call7 = call ptr @a2i_IPADDRESS(ptr noundef %5)
   store ptr %call7, ptr %ip2, align 8
-  %4 = load ptr, ptr %ip2, align 8
-  %call8 = call i32 @test_ptr(ptr noundef @.str.14, i32 noundef 247, ptr noundef @.str.60, ptr noundef %4)
+  %6 = load ptr, ptr %ip2, align 8
+  %call8 = call i32 @test_ptr(ptr noundef @.str.14, i32 noundef 247, ptr noundef @.str.60, ptr noundef %6)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %if.end11, label %if.then10
 
@@ -1051,15 +1053,15 @@ if.then10:                                        ; preds = %if.end6
   br label %end
 
 if.end11:                                         ; preds = %if.end6
-  %5 = load ptr, ptr %addr, align 8
-  %6 = load i32, ptr @ranges, align 16
-  %7 = load ptr, ptr %ip1, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %data, align 8
-  %9 = load ptr, ptr %ip2, align 8
-  %data12 = getelementptr inbounds %struct.asn1_string_st, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %data12, align 8
-  %call13 = call i32 @X509v3_addr_add_range(ptr noundef %5, i32 noundef %6, ptr noundef null, ptr noundef %8, ptr noundef %10)
+  %7 = load ptr, ptr %addr, align 8
+  %8 = load i32, ptr @ranges, align 16
+  %9 = load ptr, ptr %ip1, align 8
+  %data = getelementptr inbounds %struct.asn1_string_st, ptr %9, i32 0, i32 2
+  %10 = load ptr, ptr %data, align 8
+  %11 = load ptr, ptr %ip2, align 8
+  %data12 = getelementptr inbounds %struct.asn1_string_st, ptr %11, i32 0, i32 2
+  %12 = load ptr, ptr %data12, align 8
+  %call13 = call i32 @X509v3_addr_add_range(ptr noundef %7, i32 noundef %8, ptr noundef null, ptr noundef %10, ptr noundef %12)
   %cmp = icmp ne i32 %call13, 0
   %conv = zext i1 %cmp to i32
   %call14 = call i32 @test_true(ptr noundef @.str.14, i32 noundef 249, ptr noundef @.str.125, i32 noundef %conv)
@@ -1070,8 +1072,8 @@ if.then16:                                        ; preds = %if.end11
   br label %end
 
 if.end17:                                         ; preds = %if.end11
-  %11 = load ptr, ptr %addr, align 8
-  %call18 = call i32 @X509v3_addr_is_canonical(ptr noundef %11)
+  %13 = load ptr, ptr %addr, align 8
+  %call18 = call i32 @X509v3_addr_is_canonical(ptr noundef %13)
   %cmp19 = icmp ne i32 %call18, 0
   %conv20 = zext i1 %cmp19 to i32
   %call21 = call i32 @test_true(ptr noundef @.str.14, i32 noundef 251, ptr noundef @.str.65, i32 noundef %conv20)
@@ -1082,14 +1084,14 @@ if.then23:                                        ; preds = %if.end17
   br label %end
 
 if.end24:                                         ; preds = %if.end17
-  %12 = load i32, ptr %afi, align 4
-  %shr = lshr i32 %12, 8
+  %14 = load i32, ptr %afi, align 4
+  %shr = lshr i32 %14, 8
   %and = and i32 %shr, 255
   %conv25 = trunc i32 %and to i8
   %arrayidx = getelementptr inbounds [6 x i8], ptr %key, i64 0, i64 0
   store i8 %conv25, ptr %arrayidx, align 1
-  %13 = load i32, ptr %afi, align 4
-  %and26 = and i32 %13, 255
+  %15 = load i32, ptr %afi, align 4
+  %and26 = and i32 %15, 255
   %conv27 = trunc i32 %and26 to i8
   %arrayidx28 = getelementptr inbounds [6 x i8], ptr %key, i64 0, i64 1
   store i8 %conv27, ptr %arrayidx28, align 1
@@ -1111,16 +1113,16 @@ if.then36:                                        ; preds = %if.end24
   br label %end
 
 if.end37:                                         ; preds = %if.end24
-  %14 = load ptr, ptr %f1, align 8
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %ipAddressChoice, align 8
-  %cmp38 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %f1, align 8
+  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %16, i32 0, i32 1
+  %17 = load ptr, ptr %ipAddressChoice, align 8
+  %cmp38 = icmp eq ptr %17, null
   br i1 %cmp38, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %if.end37
   %call40 = call ptr @IPAddressChoice_new()
-  %16 = load ptr, ptr %f1, align 8
-  %ipAddressChoice41 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %f1, align 8
+  %ipAddressChoice41 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %18, i32 0, i32 1
   store ptr %call40, ptr %ipAddressChoice41, align 8
   %cmp42 = icmp eq ptr %call40, null
   br i1 %cmp42, label %if.then44, label %if.end45
@@ -1129,16 +1131,16 @@ if.then44:                                        ; preds = %land.lhs.true
   br label %end
 
 if.end45:                                         ; preds = %land.lhs.true, %if.end37
-  %17 = load ptr, ptr %f1, align 8
-  %addressFamily = getelementptr inbounds %struct.IPAddressFamily_st, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %addressFamily, align 8
-  %cmp46 = icmp eq ptr %18, null
+  %19 = load ptr, ptr %f1, align 8
+  %addressFamily = getelementptr inbounds %struct.IPAddressFamily_st, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %addressFamily, align 8
+  %cmp46 = icmp eq ptr %20, null
   br i1 %cmp46, label %land.lhs.true48, label %if.end54
 
 land.lhs.true48:                                  ; preds = %if.end45
   %call49 = call ptr @ASN1_OCTET_STRING_new()
-  %19 = load ptr, ptr %f1, align 8
-  %addressFamily50 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %f1, align 8
+  %addressFamily50 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %21, i32 0, i32 0
   store ptr %call49, ptr %addressFamily50, align 8
   %cmp51 = icmp eq ptr %call49, null
   br i1 %cmp51, label %if.then53, label %if.end54
@@ -1147,12 +1149,12 @@ if.then53:                                        ; preds = %land.lhs.true48
   br label %end
 
 if.end54:                                         ; preds = %land.lhs.true48, %if.end45
-  %20 = load ptr, ptr %f1, align 8
-  %addressFamily55 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %addressFamily55, align 8
+  %22 = load ptr, ptr %f1, align 8
+  %addressFamily55 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %addressFamily55, align 8
   %arraydecay = getelementptr inbounds [6 x i8], ptr %key, i64 0, i64 0
-  %22 = load i32, ptr %keylen, align 4
-  %call56 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %21, ptr noundef %arraydecay, i32 noundef %22)
+  %24 = load i32, ptr %keylen, align 4
+  %call56 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %23, ptr noundef %arraydecay, i32 noundef %24)
   %tobool57 = icmp ne i32 %call56, 0
   br i1 %tobool57, label %if.end59, label %if.then58
 
@@ -1160,10 +1162,10 @@ if.then58:                                        ; preds = %if.end54
   br label %end
 
 if.end59:                                         ; preds = %if.end54
-  %23 = load ptr, ptr %addr, align 8
-  %call60 = call ptr @ossl_check_IPAddressFamily_sk_type(ptr noundef %23)
-  %24 = load ptr, ptr %f1, align 8
-  %call61 = call ptr @ossl_check_IPAddressFamily_type(ptr noundef %24)
+  %25 = load ptr, ptr %addr, align 8
+  %call60 = call ptr @ossl_check_IPAddressFamily_sk_type(ptr noundef %25)
+  %26 = load ptr, ptr %f1, align 8
+  %call61 = call ptr @ossl_check_IPAddressFamily_type(ptr noundef %26)
   %call62 = call i32 @OPENSSL_sk_push(ptr noundef %call60, ptr noundef %call61)
   %tobool63 = icmp ne i32 %call62, 0
   br i1 %tobool63, label %if.end65, label %if.then64
@@ -1172,8 +1174,8 @@ if.then64:                                        ; preds = %if.end59
   br label %end
 
 if.end65:                                         ; preds = %if.end59
-  %25 = load ptr, ptr %addr, align 8
-  %call66 = call i32 @X509v3_addr_canonize(ptr noundef %25)
+  %27 = load ptr, ptr %addr, align 8
+  %call66 = call i32 @X509v3_addr_canonize(ptr noundef %27)
   %cmp67 = icmp ne i32 %call66, 0
   %conv68 = zext i1 %cmp67 to i32
   %call69 = call i32 @test_false(ptr noundef @.str.14, i32 noundef 276, ptr noundef @.str.57, i32 noundef %conv68)
@@ -1184,20 +1186,20 @@ if.then71:                                        ; preds = %if.end65
   br label %end
 
 if.end72:                                         ; preds = %if.end65
-  %26 = load ptr, ptr %addr, align 8
-  %call73 = call ptr @ossl_check_IPAddressFamily_sk_type(ptr noundef %26)
+  %28 = load ptr, ptr %addr, align 8
+  %call73 = call ptr @ossl_check_IPAddressFamily_sk_type(ptr noundef %28)
   %call74 = call ptr @OPENSSL_sk_pop(ptr noundef %call73)
   store ptr %call74, ptr %f1, align 8
-  %27 = load ptr, ptr %f1, align 8
-  call void @IPAddressFamily_free(ptr noundef %27)
-  %28 = load i32, ptr %afi, align 4
-  %shr75 = lshr i32 %28, 8
+  %29 = load ptr, ptr %f1, align 8
+  call void @IPAddressFamily_free(ptr noundef %29)
+  %30 = load i32, ptr %afi, align 4
+  %shr75 = lshr i32 %30, 8
   %and76 = and i32 %shr75, 255
   %conv77 = trunc i32 %and76 to i8
   %arrayidx78 = getelementptr inbounds [6 x i8], ptr %key, i64 0, i64 0
   store i8 %conv77, ptr %arrayidx78, align 1
-  %29 = load i32, ptr %afi, align 4
-  %and79 = and i32 %29, 255
+  %31 = load i32, ptr %afi, align 4
+  %and79 = and i32 %31, 255
   %conv80 = trunc i32 %and79 to i8
   %arrayidx81 = getelementptr inbounds [6 x i8], ptr %key, i64 0, i64 1
   store i8 %conv80, ptr %arrayidx81, align 1
@@ -1213,16 +1215,16 @@ if.then86:                                        ; preds = %if.end72
   br label %end
 
 if.end87:                                         ; preds = %if.end72
-  %30 = load ptr, ptr %f1, align 8
-  %ipAddressChoice88 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %30, i32 0, i32 1
-  %31 = load ptr, ptr %ipAddressChoice88, align 8
-  %cmp89 = icmp eq ptr %31, null
+  %32 = load ptr, ptr %f1, align 8
+  %ipAddressChoice88 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %32, i32 0, i32 1
+  %33 = load ptr, ptr %ipAddressChoice88, align 8
+  %cmp89 = icmp eq ptr %33, null
   br i1 %cmp89, label %land.lhs.true91, label %if.end97
 
 land.lhs.true91:                                  ; preds = %if.end87
   %call92 = call ptr @IPAddressChoice_new()
-  %32 = load ptr, ptr %f1, align 8
-  %ipAddressChoice93 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %f1, align 8
+  %ipAddressChoice93 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %34, i32 0, i32 1
   store ptr %call92, ptr %ipAddressChoice93, align 8
   %cmp94 = icmp eq ptr %call92, null
   br i1 %cmp94, label %if.then96, label %if.end97
@@ -1231,16 +1233,16 @@ if.then96:                                        ; preds = %land.lhs.true91
   br label %end
 
 if.end97:                                         ; preds = %land.lhs.true91, %if.end87
-  %33 = load ptr, ptr %f1, align 8
-  %addressFamily98 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %addressFamily98, align 8
-  %cmp99 = icmp eq ptr %34, null
+  %35 = load ptr, ptr %f1, align 8
+  %addressFamily98 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %35, i32 0, i32 0
+  %36 = load ptr, ptr %addressFamily98, align 8
+  %cmp99 = icmp eq ptr %36, null
   br i1 %cmp99, label %land.lhs.true101, label %if.end107
 
 land.lhs.true101:                                 ; preds = %if.end97
   %call102 = call ptr @ASN1_OCTET_STRING_new()
-  %35 = load ptr, ptr %f1, align 8
-  %addressFamily103 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %f1, align 8
+  %addressFamily103 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %37, i32 0, i32 0
   store ptr %call102, ptr %addressFamily103, align 8
   %cmp104 = icmp eq ptr %call102, null
   br i1 %cmp104, label %if.then106, label %if.end107
@@ -1249,12 +1251,12 @@ if.then106:                                       ; preds = %land.lhs.true101
   br label %end
 
 if.end107:                                        ; preds = %land.lhs.true101, %if.end97
-  %36 = load ptr, ptr %f1, align 8
-  %addressFamily108 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %addressFamily108, align 8
+  %38 = load ptr, ptr %f1, align 8
+  %addressFamily108 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %38, i32 0, i32 0
+  %39 = load ptr, ptr %addressFamily108, align 8
   %arraydecay109 = getelementptr inbounds [6 x i8], ptr %key, i64 0, i64 0
-  %38 = load i32, ptr %keylen, align 4
-  %call110 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %37, ptr noundef %arraydecay109, i32 noundef %38)
+  %40 = load i32, ptr %keylen, align 4
+  %call110 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %39, ptr noundef %arraydecay109, i32 noundef %40)
   %tobool111 = icmp ne i32 %call110, 0
   br i1 %tobool111, label %if.end113, label %if.then112
 
@@ -1262,15 +1264,15 @@ if.then112:                                       ; preds = %if.end107
   br label %end
 
 if.end113:                                        ; preds = %if.end107
-  %39 = load ptr, ptr %f1, align 8
-  %ipAddressChoice114 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %ipAddressChoice114, align 8
-  %type = getelementptr inbounds %struct.IPAddressChoice_st, ptr %40, i32 0, i32 0
+  %41 = load ptr, ptr %f1, align 8
+  %ipAddressChoice114 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %41, i32 0, i32 1
+  %42 = load ptr, ptr %ipAddressChoice114, align 8
+  %type = getelementptr inbounds %struct.IPAddressChoice_st, ptr %42, i32 0, i32 0
   store i32 0, ptr %type, align 8
-  %41 = load ptr, ptr %addr, align 8
-  %call115 = call ptr @ossl_check_IPAddressFamily_sk_type(ptr noundef %41)
-  %42 = load ptr, ptr %f1, align 8
-  %call116 = call ptr @ossl_check_IPAddressFamily_type(ptr noundef %42)
+  %43 = load ptr, ptr %addr, align 8
+  %call115 = call ptr @ossl_check_IPAddressFamily_sk_type(ptr noundef %43)
+  %44 = load ptr, ptr %f1, align 8
+  %call116 = call ptr @ossl_check_IPAddressFamily_type(ptr noundef %44)
   %call117 = call i32 @OPENSSL_sk_push(ptr noundef %call115, ptr noundef %call116)
   %tobool118 = icmp ne i32 %call117, 0
   br i1 %tobool118, label %if.end120, label %if.then119
@@ -1279,8 +1281,8 @@ if.then119:                                       ; preds = %if.end113
   br label %end
 
 if.end120:                                        ; preds = %if.end113
-  %43 = load ptr, ptr %addr, align 8
-  %call121 = call i32 @X509v3_addr_canonize(ptr noundef %43)
+  %45 = load ptr, ptr %addr, align 8
+  %call121 = call i32 @X509v3_addr_canonize(ptr noundef %45)
   %cmp122 = icmp ne i32 %call121, 0
   %conv123 = zext i1 %cmp122 to i32
   %call124 = call i32 @test_true(ptr noundef @.str.14, i32 noundef 304, ptr noundef @.str.57, i32 noundef %conv123)
@@ -1295,16 +1297,16 @@ if.end127:                                        ; preds = %if.end120
   br label %end
 
 end:                                              ; preds = %if.end127, %if.then126, %if.then119, %if.then112, %if.then106, %if.then96, %if.then86, %if.then71, %if.then64, %if.then58, %if.then53, %if.then44, %if.then36, %if.then23, %if.then16, %if.then10, %if.then5, %if.then
-  %44 = load ptr, ptr %addr, align 8
-  %call128 = call ptr @ossl_check_IPAddressFamily_sk_type(ptr noundef %44)
+  %46 = load ptr, ptr %addr, align 8
+  %call128 = call ptr @ossl_check_IPAddressFamily_sk_type(ptr noundef %46)
   %call129 = call ptr @ossl_check_IPAddressFamily_freefunc_type(ptr noundef @IPAddressFamily_free)
   call void @OPENSSL_sk_pop_free(ptr noundef %call128, ptr noundef %call129)
-  %45 = load ptr, ptr %ip1, align 8
-  call void @ASN1_OCTET_STRING_free(ptr noundef %45)
-  %46 = load ptr, ptr %ip2, align 8
-  call void @ASN1_OCTET_STRING_free(ptr noundef %46)
-  %47 = load i32, ptr %testresult, align 4
-  ret i32 %47
+  %47 = load ptr, ptr %ip1, align 8
+  call void @ASN1_OCTET_STRING_free(ptr noundef %47)
+  %48 = load ptr, ptr %ip2, align 8
+  call void @ASN1_OCTET_STRING_free(ptr noundef %48)
+  %49 = load i32, ptr %testresult, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable

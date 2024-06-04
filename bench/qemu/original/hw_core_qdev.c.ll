@@ -459,22 +459,26 @@ do.end20:                                         ; preds = %do.end17
   %25 = load ptr, ptr %bus.addr, align 8
   %arraydecay21 = getelementptr inbounds [32 x i8], ptr %name, i64 0, i64 0
   call void @object_property_del(ptr noundef %25, ptr noundef %arraydecay21)
-  store i8 trunc (i64 sub (i64 ptrtoint (ptr @bus_free_bus_child to i64), i64 ptrtoint (ptr @bus_free_bus_child to i64)) to i8), ptr %func_type_invalid, align 1
-  %26 = load ptr, ptr %kid, align 8
-  %rcu = getelementptr inbounds %struct.BusChild, ptr %26, i32 0, i32 0
+  %26 = ptrtoint ptr @bus_free_bus_child to i64
+  %27 = ptrtoint ptr @bus_free_bus_child to i64
+  %28 = sub i64 %26, %27
+  %29 = trunc i64 %28 to i8
+  store i8 %29, ptr %func_type_invalid, align 1
+  %30 = load ptr, ptr %kid, align 8
+  %rcu = getelementptr inbounds %struct.BusChild, ptr %30, i32 0, i32 0
   store ptr %rcu, ptr %tmp, align 8
-  %27 = load ptr, ptr %tmp, align 8
-  call void @call_rcu1(ptr noundef %27, ptr noundef @bus_free_bus_child)
+  %31 = load ptr, ptr %tmp, align 8
+  call void @call_rcu1(ptr noundef %31, ptr noundef @bus_free_bus_child)
   br label %for.end
 
 if.end22:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end22
-  %28 = load ptr, ptr %kid, align 8
-  %sibling23 = getelementptr inbounds %struct.BusChild, ptr %28, i32 0, i32 3
-  %29 = load ptr, ptr %sibling23, align 8
-  store ptr %29, ptr %kid, align 8
+  %32 = load ptr, ptr %kid, align 8
+  %sibling23 = getelementptr inbounds %struct.BusChild, ptr %32, i32 0, i32 3
+  %33 = load ptr, ptr %sibling23, align 8
+  store ptr %33, ptr %kid, align 8
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %do.end20, %for.cond
@@ -691,18 +695,21 @@ do.body:                                          ; preds = %entry
   %0 = load ptr, ptr %listener.addr, align 8
   %link = getelementptr inbounds %struct.DeviceListener, ptr %0, i32 0, i32 3
   store ptr null, ptr %link, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_listeners, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %listener.addr, align 8
-  %link1 = getelementptr inbounds %struct.DeviceListener, ptr %2, i32 0, i32 3
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %link1, i32 0, i32 1
-  store ptr %1, ptr %tql_prev, align 8
+  %1 = getelementptr inbounds %struct.QTailQLink, ptr @device_listeners, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %listener.addr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_listeners, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %4, i32 0, i32 0
-  store ptr %3, ptr %tql_next, align 8
-  %5 = load ptr, ptr %listener.addr, align 8
-  %link2 = getelementptr inbounds %struct.DeviceListener, ptr %5, i32 0, i32 3
-  store ptr %link2, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_listeners, i32 0, i32 1), align 8
+  %link1 = getelementptr inbounds %struct.DeviceListener, ptr %3, i32 0, i32 3
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %link1, i32 0, i32 1
+  store ptr %2, ptr %tql_prev, align 8
+  %4 = load ptr, ptr %listener.addr, align 8
+  %5 = getelementptr inbounds %struct.QTailQLink, ptr @device_listeners, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %6, i32 0, i32 0
+  store ptr %4, ptr %tql_next, align 8
+  %7 = load ptr, ptr %listener.addr, align 8
+  %link2 = getelementptr inbounds %struct.DeviceListener, ptr %7, i32 0, i32 3
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @device_listeners, i32 0, i32 1
+  store ptr %link2, ptr %8, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -800,29 +807,30 @@ if.else:                                          ; preds = %do.body
   %link5 = getelementptr inbounds %struct.DeviceListener, ptr %6, i32 0, i32 3
   %tql_prev6 = getelementptr inbounds %struct.QTailQLink, ptr %link5, i32 0, i32 1
   %7 = load ptr, ptr %tql_prev6, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_listeners, i32 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @device_listeners, i32 0, i32 1
+  store ptr %7, ptr %8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %listener.addr, align 8
-  %link7 = getelementptr inbounds %struct.DeviceListener, ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %link7, align 8
-  %10 = load ptr, ptr %listener.addr, align 8
-  %link8 = getelementptr inbounds %struct.DeviceListener, ptr %10, i32 0, i32 3
+  %9 = load ptr, ptr %listener.addr, align 8
+  %link7 = getelementptr inbounds %struct.DeviceListener, ptr %9, i32 0, i32 3
+  %10 = load ptr, ptr %link7, align 8
+  %11 = load ptr, ptr %listener.addr, align 8
+  %link8 = getelementptr inbounds %struct.DeviceListener, ptr %11, i32 0, i32 3
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %link8, i32 0, i32 1
-  %11 = load ptr, ptr %tql_prev9, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %12 = load ptr, ptr %listener.addr, align 8
-  %link10 = getelementptr inbounds %struct.DeviceListener, ptr %12, i32 0, i32 3
+  %12 = load ptr, ptr %tql_prev9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %listener.addr, align 8
+  %link10 = getelementptr inbounds %struct.DeviceListener, ptr %13, i32 0, i32 3
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %link10, i32 0, i32 1
   store ptr null, ptr %tql_prev11, align 8
-  %13 = load ptr, ptr %listener.addr, align 8
-  %link12 = getelementptr inbounds %struct.DeviceListener, ptr %13, i32 0, i32 3
+  %14 = load ptr, ptr %listener.addr, align 8
+  %link12 = getelementptr inbounds %struct.DeviceListener, ptr %14, i32 0, i32 3
   %tql_next13 = getelementptr inbounds %struct.QTailQLink, ptr %link12, i32 0, i32 0
   store ptr null, ptr %tql_next13, align 8
-  %14 = load ptr, ptr %listener.addr, align 8
-  %link14 = getelementptr inbounds %struct.DeviceListener, ptr %14, i32 0, i32 3
+  %15 = load ptr, ptr %listener.addr, align 8
+  %link14 = getelementptr inbounds %struct.DeviceListener, ptr %15, i32 0, i32 3
   store ptr null, ptr %link14, align 8
   br label %do.end
 
@@ -1619,7 +1627,8 @@ unreachable:                                      ; preds = %cleanup
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3463,48 +3472,49 @@ if.end119:                                        ; preds = %if.then117, %if.end
   br label %do.body121
 
 do.body121:                                       ; preds = %if.end119
-  %106 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @device_listeners, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %106, i32 0, i32 1
-  %107 = load ptr, ptr %tql_prev, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %107, i32 0, i32 0
-  %108 = load ptr, ptr %tql_next, align 8
-  store ptr %108, ptr %_listener122, align 8
+  %106 = getelementptr inbounds %struct.QTailQLink, ptr @device_listeners, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %107, i32 0, i32 1
+  %108 = load ptr, ptr %tql_prev, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %108, i32 0, i32 0
+  %109 = load ptr, ptr %tql_next, align 8
+  store ptr %109, ptr %_listener122, align 8
   br label %for.cond123
 
 for.cond123:                                      ; preds = %for.inc131, %do.body121
-  %109 = load ptr, ptr %_listener122, align 8
-  %tobool124 = icmp ne ptr %109, null
+  %110 = load ptr, ptr %_listener122, align 8
+  %tobool124 = icmp ne ptr %110, null
   br i1 %tobool124, label %for.body125, label %for.end136
 
 for.body125:                                      ; preds = %for.cond123
-  %110 = load ptr, ptr %_listener122, align 8
-  %unrealize126 = getelementptr inbounds %struct.DeviceListener, ptr %110, i32 0, i32 1
-  %111 = load ptr, ptr %unrealize126, align 8
-  %tobool127 = icmp ne ptr %111, null
+  %111 = load ptr, ptr %_listener122, align 8
+  %unrealize126 = getelementptr inbounds %struct.DeviceListener, ptr %111, i32 0, i32 1
+  %112 = load ptr, ptr %unrealize126, align 8
+  %tobool127 = icmp ne ptr %112, null
   br i1 %tobool127, label %if.then128, label %if.end130
 
 if.then128:                                       ; preds = %for.body125
-  %112 = load ptr, ptr %_listener122, align 8
-  %unrealize129 = getelementptr inbounds %struct.DeviceListener, ptr %112, i32 0, i32 1
-  %113 = load ptr, ptr %unrealize129, align 8
-  %114 = load ptr, ptr %_listener122, align 8
-  %115 = load ptr, ptr %dev, align 8
-  call void %113(ptr noundef %114, ptr noundef %115)
+  %113 = load ptr, ptr %_listener122, align 8
+  %unrealize129 = getelementptr inbounds %struct.DeviceListener, ptr %113, i32 0, i32 1
+  %114 = load ptr, ptr %unrealize129, align 8
+  %115 = load ptr, ptr %_listener122, align 8
+  %116 = load ptr, ptr %dev, align 8
+  call void %114(ptr noundef %115, ptr noundef %116)
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then128, %for.body125
   br label %for.inc131
 
 for.inc131:                                       ; preds = %if.end130
-  %116 = load ptr, ptr %_listener122, align 8
-  %link132 = getelementptr inbounds %struct.DeviceListener, ptr %116, i32 0, i32 3
+  %117 = load ptr, ptr %_listener122, align 8
+  %link132 = getelementptr inbounds %struct.DeviceListener, ptr %117, i32 0, i32 3
   %tql_prev133 = getelementptr inbounds %struct.QTailQLink, ptr %link132, i32 0, i32 1
-  %117 = load ptr, ptr %tql_prev133, align 8
-  %tql_prev134 = getelementptr inbounds %struct.QTailQLink, ptr %117, i32 0, i32 1
-  %118 = load ptr, ptr %tql_prev134, align 8
-  %tql_next135 = getelementptr inbounds %struct.QTailQLink, ptr %118, i32 0, i32 0
-  %119 = load ptr, ptr %tql_next135, align 8
-  store ptr %119, ptr %_listener122, align 8
+  %118 = load ptr, ptr %tql_prev133, align 8
+  %tql_prev134 = getelementptr inbounds %struct.QTailQLink, ptr %118, i32 0, i32 1
+  %119 = load ptr, ptr %tql_prev134, align 8
+  %tql_next135 = getelementptr inbounds %struct.QTailQLink, ptr %119, i32 0, i32 0
+  %120 = load ptr, ptr %tql_next135, align 8
+  store ptr %120, ptr %_listener122, align 8
   br label %for.cond123, !llvm.loop !26
 
 for.end136:                                       ; preds = %for.cond123
@@ -3517,8 +3527,8 @@ if.end138:                                        ; preds = %do.end137, %land.lh
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end138, %do.end83
-  %120 = load ptr, ptr %local_err, align 8
-  %cmp140 = icmp eq ptr %120, null
+  %121 = load ptr, ptr %local_err, align 8
+  %cmp140 = icmp eq ptr %121, null
   br i1 %cmp140, label %if.then141, label %if.else142
 
 if.then141:                                       ; preds = %if.end139
@@ -3532,87 +3542,87 @@ if.end143:                                        ; preds = %if.then141
   br label %if.end168
 
 child_realize_fail:                               ; preds = %if.then74, %if.then62
-  %121 = load ptr, ptr %dev, align 8
-  %child_bus144 = getelementptr inbounds %struct.DeviceState, ptr %121, i32 0, i32 12
+  %122 = load ptr, ptr %dev, align 8
+  %child_bus144 = getelementptr inbounds %struct.DeviceState, ptr %122, i32 0, i32 12
   %lh_first145 = getelementptr inbounds %struct.BusStateHead, ptr %child_bus144, i32 0, i32 0
-  %122 = load ptr, ptr %lh_first145, align 8
-  store ptr %122, ptr %bus, align 8
+  %123 = load ptr, ptr %lh_first145, align 8
+  store ptr %123, ptr %bus, align 8
   br label %for.cond146
 
 for.cond146:                                      ; preds = %for.inc149, %child_realize_fail
-  %123 = load ptr, ptr %bus, align 8
-  %tobool147 = icmp ne ptr %123, null
+  %124 = load ptr, ptr %bus, align 8
+  %tobool147 = icmp ne ptr %124, null
   br i1 %tobool147, label %for.body148, label %for.end152
 
 for.body148:                                      ; preds = %for.cond146
-  %124 = load ptr, ptr %bus, align 8
-  call void @qbus_unrealize(ptr noundef %124)
+  %125 = load ptr, ptr %bus, align 8
+  call void @qbus_unrealize(ptr noundef %125)
   br label %for.inc149
 
 for.inc149:                                       ; preds = %for.body148
-  %125 = load ptr, ptr %bus, align 8
-  %sibling150 = getelementptr inbounds %struct.BusState, ptr %125, i32 0, i32 9
+  %126 = load ptr, ptr %bus, align 8
+  %sibling150 = getelementptr inbounds %struct.BusState, ptr %126, i32 0, i32 9
   %le_next151 = getelementptr inbounds %struct.BusStateEntry, ptr %sibling150, i32 0, i32 0
-  %126 = load ptr, ptr %le_next151, align 8
-  store ptr %126, ptr %bus, align 8
+  %127 = load ptr, ptr %le_next151, align 8
+  store ptr %127, ptr %bus, align 8
   br label %for.cond146, !llvm.loop !27
 
 for.end152:                                       ; preds = %for.cond146
-  %127 = load ptr, ptr %dev, align 8
-  %call153 = call ptr @qdev_get_vmsd(ptr noundef %127)
+  %128 = load ptr, ptr %dev, align 8
+  %call153 = call ptr @qdev_get_vmsd(ptr noundef %128)
   %tobool154 = icmp ne ptr %call153, null
   br i1 %tobool154, label %if.then155, label %if.end158
 
 if.then155:                                       ; preds = %for.end152
-  %128 = load ptr, ptr %dev, align 8
-  %call156 = call ptr @object_dynamic_cast_assert(ptr noundef %128, ptr noundef @.str.20, ptr noundef @.str.1, i32 noundef 614, ptr noundef @__func__.device_set_realized)
   %129 = load ptr, ptr %dev, align 8
-  %call157 = call ptr @qdev_get_vmsd(ptr noundef %129)
+  %call156 = call ptr @object_dynamic_cast_assert(ptr noundef %129, ptr noundef @.str.20, ptr noundef @.str.1, i32 noundef 614, ptr noundef @__func__.device_set_realized)
   %130 = load ptr, ptr %dev, align 8
-  call void @vmstate_unregister(ptr noundef %call156, ptr noundef %call157, ptr noundef %130)
+  %call157 = call ptr @qdev_get_vmsd(ptr noundef %130)
+  %131 = load ptr, ptr %dev, align 8
+  call void @vmstate_unregister(ptr noundef %call156, ptr noundef %call157, ptr noundef %131)
   br label %if.end158
 
 if.end158:                                        ; preds = %if.then155, %for.end152
   br label %post_realize_fail
 
 post_realize_fail:                                ; preds = %if.end158, %if.then54
-  %131 = load ptr, ptr %dev, align 8
-  %canonical_path159 = getelementptr inbounds %struct.DeviceState, ptr %131, i32 0, i32 2
-  %132 = load ptr, ptr %canonical_path159, align 8
-  call void @g_free(ptr noundef %132)
-  %133 = load ptr, ptr %dev, align 8
-  %canonical_path160 = getelementptr inbounds %struct.DeviceState, ptr %133, i32 0, i32 2
+  %132 = load ptr, ptr %dev, align 8
+  %canonical_path159 = getelementptr inbounds %struct.DeviceState, ptr %132, i32 0, i32 2
+  %133 = load ptr, ptr %canonical_path159, align 8
+  call void @g_free(ptr noundef %133)
+  %134 = load ptr, ptr %dev, align 8
+  %canonical_path160 = getelementptr inbounds %struct.DeviceState, ptr %134, i32 0, i32 2
   store ptr null, ptr %canonical_path160, align 8
-  %134 = load ptr, ptr %dc, align 8
-  %unrealize161 = getelementptr inbounds %struct.DeviceClass, ptr %134, i32 0, i32 9
-  %135 = load ptr, ptr %unrealize161, align 8
-  %tobool162 = icmp ne ptr %135, null
+  %135 = load ptr, ptr %dc, align 8
+  %unrealize161 = getelementptr inbounds %struct.DeviceClass, ptr %135, i32 0, i32 9
+  %136 = load ptr, ptr %unrealize161, align 8
+  %tobool162 = icmp ne ptr %136, null
   br i1 %tobool162, label %if.then163, label %if.end165
 
 if.then163:                                       ; preds = %post_realize_fail
-  %136 = load ptr, ptr %dc, align 8
-  %unrealize164 = getelementptr inbounds %struct.DeviceClass, ptr %136, i32 0, i32 9
-  %137 = load ptr, ptr %unrealize164, align 8
-  %138 = load ptr, ptr %dev, align 8
-  call void %137(ptr noundef %138)
+  %137 = load ptr, ptr %dc, align 8
+  %unrealize164 = getelementptr inbounds %struct.DeviceClass, ptr %137, i32 0, i32 9
+  %138 = load ptr, ptr %unrealize164, align 8
+  %139 = load ptr, ptr %dev, align 8
+  call void %138(ptr noundef %139)
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then163, %post_realize_fail
   br label %fail
 
 fail:                                             ; preds = %if.end165, %if.then28, %if.then21, %if.then9
-  %139 = load ptr, ptr %errp.addr, align 8
-  %140 = load ptr, ptr %local_err, align 8
-  call void @error_propagate(ptr noundef %139, ptr noundef %140)
-  %141 = load i8, ptr %unattached_parent, align 1
-  %tobool166 = trunc i8 %141 to i1
+  %140 = load ptr, ptr %errp.addr, align 8
+  %141 = load ptr, ptr %local_err, align 8
+  call void @error_propagate(ptr noundef %140, ptr noundef %141)
+  %142 = load i8, ptr %unattached_parent, align 1
+  %tobool166 = trunc i8 %142 to i1
   br i1 %tobool166, label %if.then167, label %if.end168
 
 if.then167:                                       ; preds = %fail
-  %142 = load ptr, ptr %dev, align 8
-  call void @object_unparent(ptr noundef %142)
-  %143 = load i32, ptr @device_set_realized.unattached_count, align 4
-  %dec = add i32 %143, -1
+  %143 = load ptr, ptr %dev, align 8
+  call void @object_unparent(ptr noundef %143)
+  %144 = load i32, ptr @device_set_realized.unattached_count, align 4
+  %dec = add i32 %144, -1
   store i32 %dec, ptr @device_set_realized.unattached_count, align 4
   br label %if.end168
 

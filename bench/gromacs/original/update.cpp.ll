@@ -11024,7 +11024,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11038,7 +11039,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15328,7 +15330,7 @@ define internal void @_ZN3gmx6Update4Impl21update_sd_second_halfERK10t_inputrecl
 
 166:                                              ; preds = %162
   %167 = load i32, ptr %42, align 4
-  %168 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #13
+  %168 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #13
   %169 = icmp eq i32 %167, %168
   br i1 %169, label %170, label %188
 
@@ -15749,9 +15751,6 @@ define linkonce_odr noundef ptr @_ZNSt6vectorIiSaIiEE4dataEv(ptr noundef nonnull
   ret ptr %7
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
-
 ; Function Attrs: noreturn
 declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8)) #8
 
@@ -15983,7 +15982,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx16Enu
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayIfLm9EE4dataEv(ptr noundef nonnull align 4 dereferenceable(36) %0) #15 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayIfLm9EE4dataEv(ptr noundef nonnull align 4 dereferenceable(36) %0) #14 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -16827,7 +16826,8 @@ define linkonce_odr void @_ZN3gmx13InternalErrorC2ERKNS_20ExceptionInitializerE(
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -16862,10 +16862,11 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 24, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
   ret void
 }
 
@@ -17520,7 +17521,8 @@ define linkonce_odr void @_ZN3gmx13InternalErrorC2EOS0_(ptr noundef nonnull alig
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx13InternalErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -17533,11 +17535,12 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -17623,7 +17626,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -17850,11 +17854,12 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::GromacsException", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #13
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::GromacsException", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   ret void
 }
 
@@ -17865,7 +17870,8 @@ define linkonce_odr void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -18277,7 +18283,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18286,9 +18293,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -21128,7 +21136,7 @@ define internal void @_ZN3gmx6Update4Impl13update_coordsERK10t_inputreclibNS_8Ar
 
 452:                                              ; preds = %448, %165
   %453 = load i32, ptr %54, align 4
-  %454 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #13
+  %454 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #13
   %455 = icmp eq i32 %453, %454
   br i1 %455, label %456, label %475
 
@@ -23065,7 +23073,7 @@ define linkonce_odr void @_ZN3gmx8ArrayRefIK12t_grp_tcstatEC2IRS3_vEEOT_(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26updateMDLeapfrogSimpleSimdIL22StoreUpdatedVelocities0EL18NumTempScaleValues1EA3_fENSt9enable_ifIXoosr3std7is_sameIT1_S2_EE5valuesr3std7is_sameIS4_A3_KfEE5valueEvE4typeEiifN3gmx8ArrayRefIS5_EENSA_IK12t_grp_tcstatEEPS6_PS2_PS4_SF_(i32 noundef %0, i32 noundef %1, float noundef %2, ptr %3, ptr %4, ptr %5, ptr %6, ptr noalias noundef %7, ptr noalias noundef %8, ptr noalias noundef %9, ptr noalias noundef %10) #16 {
+define internal void @_ZL26updateMDLeapfrogSimpleSimdIL22StoreUpdatedVelocities0EL18NumTempScaleValues1EA3_fENSt9enable_ifIXoosr3std7is_sameIT1_S2_EE5valuesr3std7is_sameIS4_A3_KfEE5valueEvE4typeEiifN3gmx8ArrayRefIS5_EENSA_IK12t_grp_tcstatEEPS6_PS2_PS4_SF_(i32 noundef %0, i32 noundef %1, float noundef %2, ptr %3, ptr %4, ptr %5, ptr %6, ptr noalias noundef %7, ptr noalias noundef %8, ptr noalias noundef %9, ptr noalias noundef %10) #15 {
   %12 = alloca %"class.gmx::ArrayRef.100", align 8
   %13 = alloca %"class.gmx::ArrayRef.292", align 8
   %14 = alloca i32, align 4
@@ -23356,7 +23364,7 @@ define internal void @_ZL26updateMDLeapfrogSimpleSimdIL22StoreUpdatedVelocities0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26updateMDLeapfrogSimpleSimdIL22StoreUpdatedVelocities0EL18NumTempScaleValues0EA3_fENSt9enable_ifIXoosr3std7is_sameIT1_S2_EE5valuesr3std7is_sameIS4_A3_KfEE5valueEvE4typeEiifN3gmx8ArrayRefIS5_EENSA_IK12t_grp_tcstatEEPS6_PS2_PS4_SF_(i32 noundef %0, i32 noundef %1, float noundef %2, ptr %3, ptr %4, ptr %5, ptr %6, ptr noalias noundef %7, ptr noalias noundef %8, ptr noalias noundef %9, ptr noalias noundef %10) #16 {
+define internal void @_ZL26updateMDLeapfrogSimpleSimdIL22StoreUpdatedVelocities0EL18NumTempScaleValues0EA3_fENSt9enable_ifIXoosr3std7is_sameIT1_S2_EE5valuesr3std7is_sameIS4_A3_KfEE5valueEvE4typeEiifN3gmx8ArrayRefIS5_EENSA_IK12t_grp_tcstatEEPS6_PS2_PS4_SF_(i32 noundef %0, i32 noundef %1, float noundef %2, ptr %3, ptr %4, ptr %5, ptr %6, ptr noalias noundef %7, ptr noalias noundef %8, ptr noalias noundef %9, ptr noalias noundef %10) #15 {
   %12 = alloca %"class.gmx::ArrayRef.100", align 8
   %13 = alloca %"class.gmx::ArrayRef.292", align 8
   %14 = alloca i32, align 4
@@ -23972,7 +23980,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23updateMDLeapfrogGeneralIL16AccelerationType3EEviibffN3gmx8ArrayRefIKtEES4_PA3_KfS7_NS2_IKNS1_11BasicVectorIfEEEEPK14gmx_ekindata_tS7_S7_PA3_fSG_S7_PKdiRKNS1_13MultiDimArrayISt5arrayIfLm9EENS1_7extentsIJLl3ELl3EEEENS1_12layout_rightEEE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, ptr %5, ptr %6, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %7, ptr noalias noundef %8, ptr noundef %9, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noalias noundef %13, ptr noalias noundef %14, ptr noalias noundef %15, ptr noalias noundef %16, ptr noalias noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #17 {
+define internal void @_ZL23updateMDLeapfrogGeneralIL16AccelerationType3EEviibffN3gmx8ArrayRefIKtEES4_PA3_KfS7_NS2_IKNS1_11BasicVectorIfEEEEPK14gmx_ekindata_tS7_S7_PA3_fSG_S7_PKdiRKNS1_13MultiDimArrayISt5arrayIfLm9EENS1_7extentsIJLl3ELl3EEEENS1_12layout_rightEEE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, ptr %5, ptr %6, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %7, ptr noalias noundef %8, ptr noundef %9, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noalias noundef %13, ptr noalias noundef %14, ptr noalias noundef %15, ptr noalias noundef %16, ptr noalias noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #16 {
   %21 = alloca %"class.gmx::ArrayRef", align 8
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
@@ -24657,7 +24665,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23updateMDLeapfrogGeneralIL16AccelerationType2EEviibffN3gmx8ArrayRefIKtEES4_PA3_KfS7_NS2_IKNS1_11BasicVectorIfEEEEPK14gmx_ekindata_tS7_S7_PA3_fSG_S7_PKdiRKNS1_13MultiDimArrayISt5arrayIfLm9EENS1_7extentsIJLl3ELl3EEEENS1_12layout_rightEEE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, ptr %5, ptr %6, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %7, ptr noalias noundef %8, ptr noundef %9, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noalias noundef %13, ptr noalias noundef %14, ptr noalias noundef %15, ptr noalias noundef %16, ptr noalias noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #17 {
+define internal void @_ZL23updateMDLeapfrogGeneralIL16AccelerationType2EEviibffN3gmx8ArrayRefIKtEES4_PA3_KfS7_NS2_IKNS1_11BasicVectorIfEEEEPK14gmx_ekindata_tS7_S7_PA3_fSG_S7_PKdiRKNS1_13MultiDimArrayISt5arrayIfLm9EENS1_7extentsIJLl3ELl3EEEENS1_12layout_rightEEE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, ptr %5, ptr %6, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %7, ptr noalias noundef %8, ptr noundef %9, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noalias noundef %13, ptr noalias noundef %14, ptr noalias noundef %15, ptr noalias noundef %16, ptr noalias noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #16 {
   %21 = alloca %"class.gmx::ArrayRef", align 8
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
@@ -25162,7 +25170,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23updateMDLeapfrogGeneralIL16AccelerationType1EEviibffN3gmx8ArrayRefIKtEES4_PA3_KfS7_NS2_IKNS1_11BasicVectorIfEEEEPK14gmx_ekindata_tS7_S7_PA3_fSG_S7_PKdiRKNS1_13MultiDimArrayISt5arrayIfLm9EENS1_7extentsIJLl3ELl3EEEENS1_12layout_rightEEE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, ptr %5, ptr %6, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %7, ptr noalias noundef %8, ptr noundef %9, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noalias noundef %13, ptr noalias noundef %14, ptr noalias noundef %15, ptr noalias noundef %16, ptr noalias noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #17 {
+define internal void @_ZL23updateMDLeapfrogGeneralIL16AccelerationType1EEviibffN3gmx8ArrayRefIKtEES4_PA3_KfS7_NS2_IKNS1_11BasicVectorIfEEEEPK14gmx_ekindata_tS7_S7_PA3_fSG_S7_PKdiRKNS1_13MultiDimArrayISt5arrayIfLm9EENS1_7extentsIJLl3ELl3EEEENS1_12layout_rightEEE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, ptr %5, ptr %6, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %7, ptr noalias noundef %8, ptr noundef %9, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noalias noundef %13, ptr noalias noundef %14, ptr noalias noundef %15, ptr noalias noundef %16, ptr noalias noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #16 {
   %21 = alloca %"class.gmx::ArrayRef", align 8
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
@@ -25593,7 +25601,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23updateMDLeapfrogGeneralIL16AccelerationType0EEviibffN3gmx8ArrayRefIKtEES4_PA3_KfS7_NS2_IKNS1_11BasicVectorIfEEEEPK14gmx_ekindata_tS7_S7_PA3_fSG_S7_PKdiRKNS1_13MultiDimArrayISt5arrayIfLm9EENS1_7extentsIJLl3ELl3EEEENS1_12layout_rightEEE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, ptr %5, ptr %6, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %7, ptr noalias noundef %8, ptr noundef %9, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noalias noundef %13, ptr noalias noundef %14, ptr noalias noundef %15, ptr noalias noundef %16, ptr noalias noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #17 {
+define internal void @_ZL23updateMDLeapfrogGeneralIL16AccelerationType0EEviibffN3gmx8ArrayRefIKtEES4_PA3_KfS7_NS2_IKNS1_11BasicVectorIfEEEEPK14gmx_ekindata_tS7_S7_PA3_fSG_S7_PKdiRKNS1_13MultiDimArrayISt5arrayIfLm9EENS1_7extentsIJLl3ELl3EEEENS1_12layout_rightEEE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, ptr %5, ptr %6, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %7, ptr noalias noundef %8, ptr noundef %9, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noalias noundef %13, ptr noalias noundef %14, ptr noalias noundef %15, ptr noalias noundef %16, ptr noalias noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(56) %19) #16 {
   %21 = alloca %"class.gmx::ArrayRef", align 8
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
@@ -26338,7 +26346,7 @@ define internal void @"_ZN3gmx6compatL13mp_with_indexILm2EZZNS_25dispatchTemplat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_2EESW_I31ParrinelloRahmanVelocityScalingLSZ_2EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_2EESW_I31ParrinelloRahmanVelocityScalingLSZ_2EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -26389,7 +26397,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues2EL31ParrinelloRahmanVelocityScaling2EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues2EL31ParrinelloRahmanVelocityScaling2EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -26699,7 +26707,7 @@ define internal void @"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_1EESW_I31ParrinelloRahmanVelocityScalingLSZ_2EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_1EESW_I31ParrinelloRahmanVelocityScalingLSZ_2EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -26750,7 +26758,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues1EL31ParrinelloRahmanVelocityScaling2EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues1EL31ParrinelloRahmanVelocityScaling2EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -26900,7 +26908,7 @@ define internal void @"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiifl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_0EESW_I31ParrinelloRahmanVelocityScalingLSZ_2EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_0EESW_I31ParrinelloRahmanVelocityScalingLSZ_2EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -26951,7 +26959,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues0EL31ParrinelloRahmanVelocityScaling2EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues0EL31ParrinelloRahmanVelocityScaling2EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -27336,7 +27344,7 @@ define internal void @"_ZN3gmx6compatL13mp_with_indexILm2EZZNS_25dispatchTemplat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_2EESW_I31ParrinelloRahmanVelocityScalingLSZ_1EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_2EESW_I31ParrinelloRahmanVelocityScalingLSZ_1EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -27387,7 +27395,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues2EL31ParrinelloRahmanVelocityScaling1EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues2EL31ParrinelloRahmanVelocityScaling1EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -27713,7 +27721,7 @@ define internal void @"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_1EESW_I31ParrinelloRahmanVelocityScalingLSZ_1EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_1EESW_I31ParrinelloRahmanVelocityScalingLSZ_1EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -27764,7 +27772,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues1EL31ParrinelloRahmanVelocityScaling1EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues1EL31ParrinelloRahmanVelocityScaling1EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -27930,7 +27938,7 @@ define internal void @"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiifl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_0EESW_I31ParrinelloRahmanVelocityScalingLSZ_1EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_0EESW_I31ParrinelloRahmanVelocityScalingLSZ_1EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -27981,7 +27989,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues0EL31ParrinelloRahmanVelocityScaling1EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues0EL31ParrinelloRahmanVelocityScaling1EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -28227,7 +28235,7 @@ define internal void @"_ZN3gmx6compatL13mp_with_indexILm2EZZNS_25dispatchTemplat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_2EESW_I31ParrinelloRahmanVelocityScalingLSZ_0EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_2EESW_I31ParrinelloRahmanVelocityScalingLSZ_0EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -28278,7 +28286,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues2EL31ParrinelloRahmanVelocityScaling0EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues2EL31ParrinelloRahmanVelocityScaling0EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -28588,7 +28596,7 @@ define internal void @"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_1EESW_I31ParrinelloRahmanVelocityScalingLSZ_0EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_1EESW_I31ParrinelloRahmanVelocityScalingLSZ_0EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -28639,7 +28647,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues1EL31ParrinelloRahmanVelocityScaling0EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues1EL31ParrinelloRahmanVelocityScaling0EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -28789,7 +28797,7 @@ define internal void @"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiifl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_0EESW_I31ParrinelloRahmanVelocityScalingLSZ_0EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_1clISt17integral_constantI18NumTempScaleValuesLSX_0EESW_I31ParrinelloRahmanVelocityScalingLSZ_0EEEEDaT_T0_"(ptr noundef nonnull align 8 dereferenceable(112) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -28840,7 +28848,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues0EL31ParrinelloRahmanVelocityScaling0EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities0EL18NumTempScaleValues0EL31ParrinelloRahmanVelocityScaling0EA3_fENSt9enable_ifIXoosr3std7is_sameIT2_S3_EE5valuesr3std7is_sameIS5_A3_KfEE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS7_PS3_PS5_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -29031,7 +29039,7 @@ define linkonce_odr noundef i64 @_ZNK3gmx12ArrayRefIterIK12t_grp_tcstatEmiES3_(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx9SimdFloatC2Ef(ptr noundef nonnull align 32 dereferenceable(32) %0, float noundef %1) unnamed_addr #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx9SimdFloatC2Ef(ptr noundef nonnull align 32 dereferenceable(32) %0, float noundef %1) unnamed_addr #15 comdat align 2 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   %5 = alloca float, align 4
@@ -29096,7 +29104,7 @@ define linkonce_odr void @_ZN3gmx9SimdFloatC2Ev(ptr noundef nonnull align 32 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal x86_vectorcallcc void @_ZN3gmxL23expandScalarsToTripletsENS_9SimdFloatEPS0_S1_S1_(<8 x float> %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #19 {
+define internal x86_vectorcallcc void @_ZN3gmxL23expandScalarsToTripletsENS_9SimdFloatEPS0_S1_S1_(<8 x float> %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #18 {
   %5 = alloca %"class.gmx::SimdFloat", align 32
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -29149,7 +29157,7 @@ define internal x86_vectorcallcc void @_ZN3gmxL23expandScalarsToTripletsENS_9Sim
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal <8 x float> @_ZN3gmxL4loadINS_9SimdFloatEEENSt12remove_constIT_E4typeEPKNS_8internal10SimdTraitsIS3_E4typeE(ptr noundef %0) #16 {
+define internal <8 x float> @_ZN3gmxL4loadINS_9SimdFloatEEENSt12remove_constIT_E4typeEPKNS_8internal10SimdTraitsIS3_E4typeE(ptr noundef %0) #15 {
   %2 = alloca %"class.gmx::SimdFloat", align 32
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -29163,7 +29171,7 @@ define internal <8 x float> @_ZN3gmxL4loadINS_9SimdFloatEEENSt12remove_constIT_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13simdLoadRvecsPA3_KfiPN3gmx9SimdFloatES4_S4_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #16 {
+define internal void @_ZL13simdLoadRvecsPA3_KfiPN3gmx9SimdFloatES4_S4_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #15 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -29209,7 +29217,7 @@ define internal void @_ZL13simdLoadRvecsPA3_KfiPN3gmx9SimdFloatES4_S4_(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxL3fmaENS_9SimdFloatES0_S0_(<8 x float> %0, <8 x float> %1, <8 x float> %2) #16 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxL3fmaENS_9SimdFloatES0_S0_(<8 x float> %0, <8 x float> %1, <8 x float> %2) #15 {
   %4 = alloca <8 x float>, align 32
   %5 = alloca <8 x float>, align 32
   %6 = alloca <8 x float>, align 32
@@ -29243,7 +29251,7 @@ define internal x86_vectorcallcc <8 x float> @_ZN3gmxL3fmaENS_9SimdFloatES0_S0_(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxmlENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #16 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxmlENS_9SimdFloatES0_(<8 x float> %0, <8 x float> %1) #15 {
   %3 = alloca <8 x float>, align 32
   %4 = alloca <8 x float>, align 32
   %5 = alloca %"class.gmx::SimdFloat", align 32
@@ -29269,7 +29277,7 @@ define internal x86_vectorcallcc <8 x float> @_ZN3gmxmlENS_9SimdFloatES0_(<8 x f
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL14simdStoreRvecsPA3_fiN3gmx9SimdFloatES2_S2_(ptr noundef %0, i32 noundef %1, <8 x float> %2, <8 x float> %3, <8 x float> %4) #16 {
+define internal void @_ZL14simdStoreRvecsPA3_fiN3gmx9SimdFloatES2_S2_(ptr noundef %0, i32 noundef %1, <8 x float> %2, <8 x float> %3, <8 x float> %4) #15 {
   %6 = alloca %"class.gmx::SimdFloat", align 32
   %7 = alloca %"class.gmx::SimdFloat", align 32
   %8 = alloca %"class.gmx::SimdFloat", align 32
@@ -29315,7 +29323,7 @@ define internal void @_ZL14simdStoreRvecsPA3_fiN3gmx9SimdFloatES2_S2_(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <8 x float> @_ZN3gmxL8simdLoadEPKfNS_12SimdFloatTagE(ptr noundef %0) #16 {
+define internal x86_vectorcallcc <8 x float> @_ZN3gmxL8simdLoadEPKfNS_12SimdFloatTagE(ptr noundef %0) #15 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::SimdFloat", align 32
   %4 = alloca ptr, align 8
@@ -29331,7 +29339,7 @@ define internal x86_vectorcallcc <8 x float> @_ZN3gmxL8simdLoadEPKfNS_12SimdFloa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx9SimdFloatC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %0, <8 x float> noundef %1) unnamed_addr #19 comdat align 2 {
+define linkonce_odr void @_ZN3gmx9SimdFloatC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %0, <8 x float> noundef %1) unnamed_addr #18 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca <8 x float>, align 32
   store ptr %0, ptr %3, align 8
@@ -29347,7 +29355,7 @@ define linkonce_odr void @_ZN3gmx9SimdFloatC2EDv8_f(ptr noundef nonnull align 32
 declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc void @_ZN3gmxL5storeEPfNS_9SimdFloatE(ptr noundef %0, <8 x float> %1) #16 {
+define internal x86_vectorcallcc void @_ZN3gmxL5storeEPfNS_9SimdFloatE(ptr noundef %0, <8 x float> %1) #15 {
   %3 = alloca ptr, align 8
   %4 = alloca <8 x float>, align 32
   %5 = alloca %"class.gmx::SimdFloat", align 32
@@ -29455,7 +29463,7 @@ define internal void @"_ZN3gmx6compatL13mp_with_indexILm2EZZNS_25dispatchTemplat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_2clISt17integral_constantI18NumTempScaleValuesLSX_2EEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(96) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_2clISt17integral_constantI18NumTempScaleValuesLSX_2EEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(96) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -29671,7 +29679,7 @@ define internal void @"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_2clISt17integral_constantI18NumTempScaleValuesLSX_1EEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(96) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_2clISt17integral_constantI18NumTempScaleValuesLSX_1EEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(96) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -29732,7 +29740,7 @@ define internal void @"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiifl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_2clISt17integral_constantI18NumTempScaleValuesLSX_0EEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(96) %0) #17 align 2 {
+define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEbENK3$_2clISt17integral_constantI18NumTempScaleValuesLSX_0EEEEDaT_"(ptr noundef nonnull align 8 dereferenceable(96) %0) #16 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.gmx::ArrayRef.103", align 8
   %4 = alloca %"class.gmx::ArrayRef.292", align 8
@@ -29782,7 +29790,7 @@ define internal void @"_ZZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17doSDUpdateGeneralIL8SDUpdate0EEvRK12gmx_stochd_tiifN3gmx8ArrayRefIA3_KiEENS5_IKfEENS5_IK12ParticleTypeEENS5_IKtEESF_SF_PA3_S9_SH_PA3_fSJ_SH_liPS6_fRKNS4_13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr %4, ptr %5, ptr noundef byval(%"class.gmx::ArrayRef.100") align 8 %6, ptr noundef byval(%"class.gmx::ArrayRef.97") align 8 %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %9, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %18, float noundef %19, ptr noundef nonnull align 8 dereferenceable(56) %20) #17 {
+define internal void @_ZL17doSDUpdateGeneralIL8SDUpdate0EEvRK12gmx_stochd_tiifN3gmx8ArrayRefIA3_KiEENS5_IKfEENS5_IK12ParticleTypeEENS5_IKtEESF_SF_PA3_S9_SH_PA3_fSJ_SH_liPS6_fRKNS4_13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr %4, ptr %5, ptr noundef byval(%"class.gmx::ArrayRef.100") align 8 %6, ptr noundef byval(%"class.gmx::ArrayRef.97") align 8 %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %9, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %18, float noundef %19, ptr noundef nonnull align 8 dereferenceable(56) %20) #16 {
   %22 = alloca %"class.gmx::ArrayRef.132", align 8
   %23 = alloca ptr, align 8
   %24 = alloca i32, align 4
@@ -30115,7 +30123,7 @@ define linkonce_odr void @_ZN3gmx8ArrayRefIA3_KiEC2IRS3_vEEOT_(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17doSDUpdateGeneralIL8SDUpdate2EEvRK12gmx_stochd_tiifN3gmx8ArrayRefIA3_KiEENS5_IKfEENS5_IK12ParticleTypeEENS5_IKtEESF_SF_PA3_S9_SH_PA3_fSJ_SH_liPS6_fRKNS4_13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr %4, ptr %5, ptr noundef byval(%"class.gmx::ArrayRef.100") align 8 %6, ptr noundef byval(%"class.gmx::ArrayRef.97") align 8 %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %9, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %18, float noundef %19, ptr noundef nonnull align 8 dereferenceable(56) %20) #17 {
+define internal void @_ZL17doSDUpdateGeneralIL8SDUpdate2EEvRK12gmx_stochd_tiifN3gmx8ArrayRefIA3_KiEENS5_IKfEENS5_IK12ParticleTypeEENS5_IKtEESF_SF_PA3_S9_SH_PA3_fSJ_SH_liPS6_fRKNS4_13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr %4, ptr %5, ptr noundef byval(%"class.gmx::ArrayRef.100") align 8 %6, ptr noundef byval(%"class.gmx::ArrayRef.97") align 8 %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %9, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %18, float noundef %19, ptr noundef nonnull align 8 dereferenceable(56) %20) #16 {
   %22 = alloca %"class.gmx::ArrayRef.132", align 8
   %23 = alloca ptr, align 8
   %24 = alloca i32, align 4
@@ -30758,7 +30766,7 @@ define internal void @_ZN3gmx6Update4Impl28update_for_constraint_virialERK10t_in
 
 130:                                              ; preds = %126
   %131 = load i32, ptr %40, align 4
-  %132 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #13
+  %132 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #13
   %133 = icmp eq i32 %131, %132
   br i1 %133, label %134, label %152
 
@@ -30821,7 +30829,7 @@ define linkonce_odr noundef ptr @_ZNK3gmx12PaddedVectorINS_11BasicVectorIfEENS_9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL31doUpdateMDDoNotUpdateVelocitiesiifPA3_KfPA3_fS1_S1_bN3gmx8ArrayRefIS_EENS5_IKNS4_11BasicVectorIfEEEERK14gmx_ekindata_t(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, i1 noundef zeroext %7, ptr noundef byval(%"class.gmx::ArrayRef.100") align 8 %8, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %9, ptr noundef nonnull align 8 dereferenceable(212) %10) #17 {
+define internal void @_ZL31doUpdateMDDoNotUpdateVelocitiesiifPA3_KfPA3_fS1_S1_bN3gmx8ArrayRefIS_EENS5_IKNS4_11BasicVectorIfEEEERK14gmx_ekindata_t(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, i1 noundef zeroext %7, ptr noundef byval(%"class.gmx::ArrayRef.100") align 8 %8, ptr noundef byval(%"class.gmx::ArrayRef.103") align 8 %9, ptr noundef nonnull align 8 dereferenceable(212) %10) #16 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca float, align 4
@@ -30934,7 +30942,7 @@ define linkonce_odr noundef ptr @_ZNKSt6vectorIN3gmx11BasicVectorIfEENS0_9Alloca
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26updateMDLeapfrogSimpleSimdIL22StoreUpdatedVelocities1EL18NumTempScaleValues1EA3_KfENSt9enable_ifIXoosr3std7is_sameIT1_A3_fEE5valuesr3std7is_sameIS5_S3_EE5valueEvE4typeEiifN3gmx8ArrayRefIS2_EENSA_IK12t_grp_tcstatEEPS3_PS6_PS5_SF_(i32 noundef %0, i32 noundef %1, float noundef %2, ptr %3, ptr %4, ptr %5, ptr %6, ptr noalias noundef %7, ptr noalias noundef %8, ptr noalias noundef %9, ptr noalias noundef %10) #16 {
+define internal void @_ZL26updateMDLeapfrogSimpleSimdIL22StoreUpdatedVelocities1EL18NumTempScaleValues1EA3_KfENSt9enable_ifIXoosr3std7is_sameIT1_A3_fEE5valuesr3std7is_sameIS5_S3_EE5valueEvE4typeEiifN3gmx8ArrayRefIS2_EENSA_IK12t_grp_tcstatEEPS3_PS6_PS5_SF_(i32 noundef %0, i32 noundef %1, float noundef %2, ptr %3, ptr %4, ptr %5, ptr %6, ptr noalias noundef %7, ptr noalias noundef %8, ptr noalias noundef %9, ptr noalias noundef %10) #15 {
   %12 = alloca %"class.gmx::ArrayRef.100", align 8
   %13 = alloca %"class.gmx::ArrayRef.292", align 8
   %14 = alloca i32, align 4
@@ -31210,7 +31218,7 @@ define internal void @_ZL26updateMDLeapfrogSimpleSimdIL22StoreUpdatedVelocities1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities1EL18NumTempScaleValues1EL31ParrinelloRahmanVelocityScaling0EA3_KfENSt9enable_ifIXoosr3std7is_sameIT2_A3_fEE5valuesr3std7is_sameIS6_S4_EE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS4_PS7_PS6_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #18 {
+define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities1EL18NumTempScaleValues1EL31ParrinelloRahmanVelocityScaling0EA3_KfENSt9enable_ifIXoosr3std7is_sameIT2_A3_fEE5valuesr3std7is_sameIS6_S4_EE5valueEvE4typeEiiffN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEENSB_IK12t_grp_tcstatEENSB_IKtEESD_PS4_PS7_PS6_SL_(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr %6, ptr %7, ptr noundef byval(%"class.gmx::ArrayRef") align 8 %8, <2 x float> %9, float %10, ptr noalias noundef %11, ptr noalias noundef %12, ptr noalias noundef %13, ptr noalias noundef %14) #17 {
   %16 = alloca %"class.gmx::ArrayRef.103", align 8
   %17 = alloca %"class.gmx::ArrayRef.292", align 8
   %18 = alloca %"class.gmx::BasicVector", align 4
@@ -31339,6 +31347,9 @@ define internal void @_ZL22updateMDLeapfrogSimpleIL22StoreUpdatedVelocities1EL18
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -31353,12 +31364,12 @@ attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { nounwind }
-attributes #14 = { nounwind memory(none) }
-attributes #15 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { nounwind memory(none) }
 attributes #20 = { builtin allocsize(0) }
 attributes #21 = { builtin nounwind }
 attributes #22 = { noreturn nounwind }

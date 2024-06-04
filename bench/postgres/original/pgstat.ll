@@ -178,7 +178,7 @@ define internal void @pgstat_read_statsfile() #0 {
 
 43:                                               ; preds = %42, %27
   call void @pgstat_reset_after_failure()
-  br label %229
+  br label %232
 
 44:                                               ; preds = %23
   %45 = load ptr, ptr %1, align 8
@@ -191,7 +191,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %47, %44
-  br label %218
+  br label %221
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %1, align 8
@@ -202,7 +202,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %51
-  br label %218
+  br label %221
 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %1, align 8
@@ -213,7 +213,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %58
-  br label %218
+  br label %221
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %1, align 8
@@ -224,7 +224,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %65
-  br label %218
+  br label %221
 
 72:                                               ; preds = %65
   %73 = load ptr, ptr %1, align 8
@@ -235,7 +235,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %77, label %79, label %78
 
 78:                                               ; preds = %72
-  br label %218
+  br label %221
 
 79:                                               ; preds = %72
   %80 = load ptr, ptr %1, align 8
@@ -246,7 +246,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %84, label %86, label %85
 
 85:                                               ; preds = %79
-  br label %218
+  br label %221
 
 86:                                               ; preds = %79
   %87 = load ptr, ptr %1, align 8
@@ -257,20 +257,20 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %91, label %93, label %92
 
 92:                                               ; preds = %86
-  br label %218
+  br label %221
 
 93:                                               ; preds = %86
   br label %94
 
-94:                                               ; preds = %202, %152, %93
+94:                                               ; preds = %205, %152, %93
   %95 = load ptr, ptr %1, align 8
   %96 = call i32 @fgetc(ptr noundef %95)
   store i32 %96, ptr %6, align 4
   %97 = load i32, ptr %6, align 4
-  switch i32 %97, label %201 [
+  switch i32 %97, label %204 [
     i32 83, label %98
     i32 78, label %98
-    i32 69, label %195
+    i32 69, label %198
   ]
 
 98:                                               ; preds = %94, %94
@@ -302,7 +302,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %112, label %114, label %113
 
 113:                                              ; preds = %110
-  br label %218
+  br label %221
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
@@ -311,7 +311,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %117, label %119, label %118
 
 118:                                              ; preds = %114
-  br label %218
+  br label %221
 
 119:                                              ; preds = %114
   br label %154
@@ -323,7 +323,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %122, label %124, label %123
 
 123:                                              ; preds = %120
-  br label %218
+  br label %221
 
 124:                                              ; preds = %120
   %125 = load ptr, ptr %1, align 8
@@ -331,7 +331,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %126, label %128, label %127
 
 127:                                              ; preds = %124
-  br label %218
+  br label %221
 
 128:                                              ; preds = %124
   %129 = load i32, ptr %11, align 4
@@ -339,7 +339,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %130, label %132, label %131
 
 131:                                              ; preds = %128
-  br label %218
+  br label %221
 
 132:                                              ; preds = %128
   %133 = load i32, ptr %11, align 4
@@ -352,7 +352,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %138, label %140, label %139
 
 139:                                              ; preds = %132
-  br label %218
+  br label %221
 
 140:                                              ; preds = %132
   %141 = load ptr, ptr %10, align 8
@@ -370,7 +370,7 @@ define internal void @pgstat_read_statsfile() #0 {
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %145
-  br label %218
+  br label %221
 
 152:                                              ; preds = %145
   br label %94
@@ -379,149 +379,152 @@ define internal void @pgstat_read_statsfile() #0 {
   br label %154
 
 154:                                              ; preds = %153, %119
-  %155 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2), align 8
-  %156 = call ptr @dshash_find_or_insert(ptr noundef %155, ptr noundef %7, ptr noundef %3)
-  store ptr %156, ptr %8, align 8
-  %157 = load i8, ptr %3, align 1
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %159, label %177
+  %155 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2
+  %156 = load ptr, ptr %155, align 8
+  %157 = call ptr @dshash_find_or_insert(ptr noundef %156, ptr noundef %7, ptr noundef %3)
+  store ptr %157, ptr %8, align 8
+  %158 = load i8, ptr %3, align 1
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %160, label %179
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2), align 8
-  %161 = load ptr, ptr %8, align 8
-  call void @dshash_release_lock(ptr noundef %160, ptr noundef %161)
-  br label %162
+160:                                              ; preds = %154
+  %161 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2
+  %162 = load ptr, ptr %161, align 8
+  %163 = load ptr, ptr %8, align 8
+  call void @dshash_release_lock(ptr noundef %162, ptr noundef %163)
+  br label %164
 
-162:                                              ; preds = %159
-  br i1 false, label %163, label %165
+164:                                              ; preds = %160
+  br i1 false, label %165, label %167
 
-163:                                              ; preds = %162
-  %164 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #9
-  br i1 %164, label %167, label %175
+165:                                              ; preds = %164
+  %166 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #9
+  br i1 %166, label %169, label %177
 
-165:                                              ; preds = %162
-  %166 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %166, label %167, label %175
+167:                                              ; preds = %164
+  %168 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %168, label %169, label %177
 
-167:                                              ; preds = %165, %163
-  %168 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
-  %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 1
+169:                                              ; preds = %167, %165
+  %170 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
   %171 = load i32, ptr %170, align 4
-  %172 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 2
+  %172 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 1
   %173 = load i32, ptr %172, align 4
-  %174 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.32, i32 noundef %169, i32 noundef %171, i32 noundef %173)
+  %174 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 2
+  %175 = load i32, ptr %174, align 4
+  %176 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.32, i32 noundef %171, i32 noundef %173, i32 noundef %175)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1639, ptr noundef @__func__.pgstat_read_statsfile)
-  br label %175
+  br label %177
 
-175:                                              ; preds = %167, %165, %163
-  br label %176
+177:                                              ; preds = %169, %167, %165
+  br label %178
 
-176:                                              ; preds = %175
-  br label %218
+178:                                              ; preds = %177
+  br label %221
 
-177:                                              ; preds = %154
-  %178 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
-  %179 = load i32, ptr %178, align 4
-  %180 = load ptr, ptr %8, align 8
-  %181 = call ptr @pgstat_init_entry(i32 noundef %179, ptr noundef %180)
-  store ptr %181, ptr %9, align 8
-  %182 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2), align 8
-  %183 = load ptr, ptr %8, align 8
-  call void @dshash_release_lock(ptr noundef %182, ptr noundef %183)
-  %184 = load ptr, ptr %1, align 8
-  %185 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
-  %186 = load i32, ptr %185, align 4
-  %187 = load ptr, ptr %9, align 8
-  %188 = call ptr @pgstat_get_entry_data(i32 noundef %186, ptr noundef %187)
-  %189 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
-  %190 = load i32, ptr %189, align 4
-  %191 = call i64 @pgstat_get_entry_len(i32 noundef %190)
-  %192 = call zeroext i1 @read_chunk(ptr noundef %184, ptr noundef %188, i64 noundef %191)
-  br i1 %192, label %194, label %193
+179:                                              ; preds = %154
+  %180 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
+  %181 = load i32, ptr %180, align 4
+  %182 = load ptr, ptr %8, align 8
+  %183 = call ptr @pgstat_init_entry(i32 noundef %181, ptr noundef %182)
+  store ptr %183, ptr %9, align 8
+  %184 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2
+  %185 = load ptr, ptr %184, align 8
+  %186 = load ptr, ptr %8, align 8
+  call void @dshash_release_lock(ptr noundef %185, ptr noundef %186)
+  %187 = load ptr, ptr %1, align 8
+  %188 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
+  %189 = load i32, ptr %188, align 4
+  %190 = load ptr, ptr %9, align 8
+  %191 = call ptr @pgstat_get_entry_data(i32 noundef %189, ptr noundef %190)
+  %192 = getelementptr inbounds %struct.PgStat_HashKey, ptr %7, i32 0, i32 0
+  %193 = load i32, ptr %192, align 4
+  %194 = call i64 @pgstat_get_entry_len(i32 noundef %193)
+  %195 = call zeroext i1 @read_chunk(ptr noundef %187, ptr noundef %191, i64 noundef %194)
+  br i1 %195, label %197, label %196
 
-193:                                              ; preds = %177
-  br label %218
+196:                                              ; preds = %179
+  br label %221
 
-194:                                              ; preds = %177
-  br label %202
+197:                                              ; preds = %179
+  br label %205
 
-195:                                              ; preds = %94
-  %196 = load ptr, ptr %1, align 8
-  %197 = call i32 @fgetc(ptr noundef %196)
-  %198 = icmp ne i32 %197, -1
-  br i1 %198, label %199, label %200
+198:                                              ; preds = %94
+  %199 = load ptr, ptr %1, align 8
+  %200 = call i32 @fgetc(ptr noundef %199)
+  %201 = icmp ne i32 %200, -1
+  br i1 %201, label %202, label %203
 
-199:                                              ; preds = %195
-  br label %218
+202:                                              ; preds = %198
+  br label %221
 
-200:                                              ; preds = %195
-  br label %203
-
-201:                                              ; preds = %94
-  br label %218
-
-202:                                              ; preds = %194
-  br label %94
-
-203:                                              ; preds = %228, %200
-  %204 = load ptr, ptr %1, align 8
-  %205 = call i32 @FreeFile(ptr noundef %204)
+203:                                              ; preds = %198
   br label %206
 
-206:                                              ; preds = %203
-  br i1 false, label %207, label %209
+204:                                              ; preds = %94
+  br label %221
 
-207:                                              ; preds = %206
-  %208 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
-  br i1 %208, label %211, label %214
+205:                                              ; preds = %197
+  br label %94
+
+206:                                              ; preds = %231, %203
+  %207 = load ptr, ptr %1, align 8
+  %208 = call i32 @FreeFile(ptr noundef %207)
+  br label %209
 
 209:                                              ; preds = %206
-  %210 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
-  br i1 %210, label %211, label %214
+  br i1 false, label %210, label %212
 
-211:                                              ; preds = %209, %207
-  %212 = load ptr, ptr %4, align 8
-  %213 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.33, ptr noundef %212)
+210:                                              ; preds = %209
+  %211 = call zeroext i1 @errstart_cold(i32 noundef 13, ptr noundef null) #9
+  br i1 %211, label %214, label %217
+
+212:                                              ; preds = %209
+  %213 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null)
+  br i1 %213, label %214, label %217
+
+214:                                              ; preds = %212, %210
+  %215 = load ptr, ptr %4, align 8
+  %216 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.33, ptr noundef %215)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1668, ptr noundef @__func__.pgstat_read_statsfile)
-  br label %214
+  br label %217
 
-214:                                              ; preds = %211, %209, %207
-  br label %215
+217:                                              ; preds = %214, %212, %210
+  br label %218
 
-215:                                              ; preds = %214
-  %216 = load ptr, ptr %4, align 8
-  %217 = call i32 @unlink(ptr noundef %216) #11
-  br label %229
+218:                                              ; preds = %217
+  %219 = load ptr, ptr %4, align 8
+  %220 = call i32 @unlink(ptr noundef %219) #11
+  br label %232
 
-218:                                              ; preds = %201, %199, %193, %176, %151, %139, %131, %127, %123, %118, %113, %92, %85, %78, %71, %64, %57, %50
-  br label %219
+221:                                              ; preds = %204, %202, %196, %178, %151, %139, %131, %127, %123, %118, %113, %92, %85, %78, %71, %64, %57, %50
+  br label %222
 
-219:                                              ; preds = %218
-  br i1 false, label %220, label %222
+222:                                              ; preds = %221
+  br i1 false, label %223, label %225
 
-220:                                              ; preds = %219
-  %221 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
-  br i1 %221, label %224, label %227
+223:                                              ; preds = %222
+  %224 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
+  br i1 %224, label %227, label %230
 
-222:                                              ; preds = %219
-  %223 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %223, label %224, label %227
+225:                                              ; preds = %222
+  %226 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %226, label %227, label %230
 
-224:                                              ; preds = %222, %220
-  %225 = load ptr, ptr %4, align 8
-  %226 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.34, ptr noundef %225)
+227:                                              ; preds = %225, %223
+  %228 = load ptr, ptr %4, align 8
+  %229 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.34, ptr noundef %228)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1675, ptr noundef @__func__.pgstat_read_statsfile)
-  br label %227
+  br label %230
 
-227:                                              ; preds = %224, %222, %220
-  br label %228
+230:                                              ; preds = %227, %225, %223
+  br label %231
 
-228:                                              ; preds = %227
+231:                                              ; preds = %230
   call void @pgstat_reset_after_failure()
-  br label %203
+  br label %206
 
-229:                                              ; preds = %215, %43
+232:                                              ; preds = %218, %43
   ret void
 }
 
@@ -963,7 +966,7 @@ define internal void @pgstat_write_statsfile() #0 {
   br label %35
 
 35:                                               ; preds = %34
-  br label %173
+  br label %181
 
 36:                                               ; preds = %19
   store i32 27638956, ptr %2, align 4
@@ -971,243 +974,251 @@ define internal void @pgstat_write_statsfile() #0 {
   call void @write_chunk(ptr noundef %37, ptr noundef %2, i64 noundef 4)
   call void @pgstat_build_snapshot_fixed(i32 noundef 6)
   %38 = load ptr, ptr %1, align 8
-  call void @write_chunk(ptr noundef %38, ptr noundef getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 3), i64 noundef 136)
+  %39 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 3
+  call void @write_chunk(ptr noundef %38, ptr noundef %39, i64 noundef 136)
   call void @pgstat_build_snapshot_fixed(i32 noundef 7)
-  %39 = load ptr, ptr %1, align 8
-  call void @write_chunk(ptr noundef %39, ptr noundef getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4), i64 noundef 32)
-  call void @pgstat_build_snapshot_fixed(i32 noundef 8)
   %40 = load ptr, ptr %1, align 8
-  call void @write_chunk(ptr noundef %40, ptr noundef getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5), i64 noundef 72)
-  call void @pgstat_build_snapshot_fixed(i32 noundef 9)
-  %41 = load ptr, ptr %1, align 8
-  call void @write_chunk(ptr noundef %41, ptr noundef getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 6), i64 noundef 16392)
-  call void @pgstat_build_snapshot_fixed(i32 noundef 10)
+  %41 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 4
+  call void @write_chunk(ptr noundef %40, ptr noundef %41, i64 noundef 32)
+  call void @pgstat_build_snapshot_fixed(i32 noundef 8)
   %42 = load ptr, ptr %1, align 8
-  call void @write_chunk(ptr noundef %42, ptr noundef getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 7), i64 noundef 512)
+  %43 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5
+  call void @write_chunk(ptr noundef %42, ptr noundef %43, i64 noundef 72)
+  call void @pgstat_build_snapshot_fixed(i32 noundef 9)
+  %44 = load ptr, ptr %1, align 8
+  %45 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 6
+  call void @write_chunk(ptr noundef %44, ptr noundef %45, i64 noundef 16392)
+  call void @pgstat_build_snapshot_fixed(i32 noundef 10)
+  %46 = load ptr, ptr %1, align 8
+  %47 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 7
+  call void @write_chunk(ptr noundef %46, ptr noundef %47, i64 noundef 512)
   call void @pgstat_build_snapshot_fixed(i32 noundef 11)
-  %43 = load ptr, ptr %1, align 8
-  call void @write_chunk(ptr noundef %43, ptr noundef getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 8), i64 noundef 72)
-  %44 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2), align 8
-  call void @dshash_seq_init(ptr noundef %5, ptr noundef %44, i1 noundef zeroext false)
-  br label %45
+  %48 = load ptr, ptr %1, align 8
+  %49 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 8
+  call void @write_chunk(ptr noundef %48, ptr noundef %49, i64 noundef 72)
+  %50 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  call void @dshash_seq_init(ptr noundef %5, ptr noundef %51, i1 noundef zeroext false)
+  br label %52
 
-45:                                               ; preds = %98, %62, %36
-  %46 = call ptr @dshash_seq_next(ptr noundef %5)
-  store ptr %46, ptr %6, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %111
+52:                                               ; preds = %106, %69, %36
+  %53 = call ptr @dshash_seq_next(ptr noundef %5)
+  store ptr %53, ptr %6, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %119
 
-48:                                               ; preds = %45
+55:                                               ; preds = %52
   store ptr null, ptr %8, align 8
-  br label %49
-
-49:                                               ; preds = %48
-  %50 = load volatile i32, ptr @InterruptPending, align 4
-  %51 = icmp ne i32 %50, 0
-  %52 = zext i1 %51 to i32
-  %53 = sext i32 %52 to i64
-  %54 = icmp ne i64 %53, 0
-  br i1 %54, label %55, label %56
-
-55:                                               ; preds = %49
-  call void @ProcessInterrupts()
   br label %56
 
-56:                                               ; preds = %55, %49
-  br label %57
-
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %58, i32 0, i32 1
-  %60 = load i8, ptr %59, align 4
-  %61 = trunc i8 %60 to i1
+56:                                               ; preds = %55
+  %57 = load volatile i32, ptr @InterruptPending, align 4
+  %58 = icmp ne i32 %57, 0
+  %59 = zext i1 %58 to i32
+  %60 = sext i32 %59 to i64
+  %61 = icmp ne i64 %60, 0
   br i1 %61, label %62, label %63
 
-62:                                               ; preds = %57
-  br label %45, !llvm.loop !7
+62:                                               ; preds = %56
+  call void @ProcessInterrupts()
+  br label %63
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 1), align 8
+63:                                               ; preds = %62, %56
+  br label %64
+
+64:                                               ; preds = %63
   %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %65, i32 0, i32 3
-  %67 = load i64, ptr %66, align 8
-  %68 = call ptr @dsa_get_address(ptr noundef %64, i64 noundef %67)
-  store ptr %68, ptr %7, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %69, i32 0, i32 0
-  %71 = getelementptr inbounds %struct.PgStat_HashKey, ptr %70, i32 0, i32 0
-  %72 = load i32, ptr %71, align 8
-  %73 = call ptr @pgstat_get_kind_info(i32 noundef %72)
-  store ptr %73, ptr %8, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %74, i32 0, i32 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %84, label %78
+  %66 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %65, i32 0, i32 1
+  %67 = load i8, ptr %66, align 4
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %70
 
-78:                                               ; preds = %63
-  %79 = load ptr, ptr %1, align 8
-  %80 = call i32 @fputc(i32 noundef 83, ptr noundef %79)
-  %81 = load ptr, ptr %1, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %82, i32 0, i32 0
-  call void @write_chunk(ptr noundef %81, ptr noundef %83, i64 noundef 12)
-  br label %98
+69:                                               ; preds = %64
+  br label %52, !llvm.loop !7
 
-84:                                               ; preds = %63
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %85, i32 0, i32 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %7, align 8
-  call void %87(ptr noundef %89, ptr noundef %90, ptr noundef %9)
-  %91 = load ptr, ptr %1, align 8
-  %92 = call i32 @fputc(i32 noundef 78, ptr noundef %91)
-  %93 = load ptr, ptr %1, align 8
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %94, i32 0, i32 0
-  %96 = getelementptr inbounds %struct.PgStat_HashKey, ptr %95, i32 0, i32 0
-  call void @write_chunk(ptr noundef %93, ptr noundef %96, i64 noundef 4)
-  %97 = load ptr, ptr %1, align 8
-  call void @write_chunk(ptr noundef %97, ptr noundef %9, i64 noundef 64)
-  br label %98
+70:                                               ; preds = %64
+  %71 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %73, i32 0, i32 3
+  %75 = load i64, ptr %74, align 8
+  %76 = call ptr @dsa_get_address(ptr noundef %72, i64 noundef %75)
+  store ptr %76, ptr %7, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds %struct.PgStat_HashKey, ptr %78, i32 0, i32 0
+  %80 = load i32, ptr %79, align 8
+  %81 = call ptr @pgstat_get_kind_info(i32 noundef %80)
+  store ptr %81, ptr %8, align 8
+  %82 = load ptr, ptr %8, align 8
+  %83 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %82, i32 0, i32 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %92, label %86
 
-98:                                               ; preds = %84, %78
+86:                                               ; preds = %70
+  %87 = load ptr, ptr %1, align 8
+  %88 = call i32 @fputc(i32 noundef 83, ptr noundef %87)
+  %89 = load ptr, ptr %1, align 8
+  %90 = load ptr, ptr %6, align 8
+  %91 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %90, i32 0, i32 0
+  call void @write_chunk(ptr noundef %89, ptr noundef %91, i64 noundef 12)
+  br label %106
+
+92:                                               ; preds = %70
+  %93 = load ptr, ptr %8, align 8
+  %94 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %93, i32 0, i32 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %96, i32 0, i32 0
+  %98 = load ptr, ptr %7, align 8
+  call void %95(ptr noundef %97, ptr noundef %98, ptr noundef %9)
   %99 = load ptr, ptr %1, align 8
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %100, i32 0, i32 0
-  %102 = getelementptr inbounds %struct.PgStat_HashKey, ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 8
-  %104 = load ptr, ptr %7, align 8
-  %105 = call ptr @pgstat_get_entry_data(i32 noundef %103, ptr noundef %104)
-  %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %106, i32 0, i32 0
-  %108 = getelementptr inbounds %struct.PgStat_HashKey, ptr %107, i32 0, i32 0
-  %109 = load i32, ptr %108, align 8
-  %110 = call i64 @pgstat_get_entry_len(i32 noundef %109)
-  call void @write_chunk(ptr noundef %99, ptr noundef %105, i64 noundef %110)
-  br label %45, !llvm.loop !7
+  %100 = call i32 @fputc(i32 noundef 78, ptr noundef %99)
+  %101 = load ptr, ptr %1, align 8
+  %102 = load ptr, ptr %6, align 8
+  %103 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %102, i32 0, i32 0
+  %104 = getelementptr inbounds %struct.PgStat_HashKey, ptr %103, i32 0, i32 0
+  call void @write_chunk(ptr noundef %101, ptr noundef %104, i64 noundef 4)
+  %105 = load ptr, ptr %1, align 8
+  call void @write_chunk(ptr noundef %105, ptr noundef %9, i64 noundef 64)
+  br label %106
 
-111:                                              ; preds = %45
+106:                                              ; preds = %92, %86
+  %107 = load ptr, ptr %1, align 8
+  %108 = load ptr, ptr %6, align 8
+  %109 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %108, i32 0, i32 0
+  %110 = getelementptr inbounds %struct.PgStat_HashKey, ptr %109, i32 0, i32 0
+  %111 = load i32, ptr %110, align 8
+  %112 = load ptr, ptr %7, align 8
+  %113 = call ptr @pgstat_get_entry_data(i32 noundef %111, ptr noundef %112)
+  %114 = load ptr, ptr %6, align 8
+  %115 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %114, i32 0, i32 0
+  %116 = getelementptr inbounds %struct.PgStat_HashKey, ptr %115, i32 0, i32 0
+  %117 = load i32, ptr %116, align 8
+  %118 = call i64 @pgstat_get_entry_len(i32 noundef %117)
+  call void @write_chunk(ptr noundef %107, ptr noundef %113, i64 noundef %118)
+  br label %52, !llvm.loop !7
+
+119:                                              ; preds = %52
   call void @dshash_seq_term(ptr noundef %5)
-  %112 = load ptr, ptr %1, align 8
-  %113 = call i32 @fputc(i32 noundef 69, ptr noundef %112)
-  %114 = load ptr, ptr %1, align 8
-  %115 = call i32 @ferror(ptr noundef %114) #11
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %133
+  %120 = load ptr, ptr %1, align 8
+  %121 = call i32 @fputc(i32 noundef 69, ptr noundef %120)
+  %122 = load ptr, ptr %1, align 8
+  %123 = call i32 @ferror(ptr noundef %122) #11
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %125, label %141
 
-117:                                              ; preds = %111
-  br label %118
+125:                                              ; preds = %119
+  br label %126
 
-118:                                              ; preds = %117
-  br i1 false, label %119, label %121
+126:                                              ; preds = %125
+  br i1 false, label %127, label %129
 
-119:                                              ; preds = %118
-  %120 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
-  br i1 %120, label %123, label %127
+127:                                              ; preds = %126
+  %128 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
+  br i1 %128, label %131, label %135
 
-121:                                              ; preds = %118
-  %122 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %122, label %123, label %127
+129:                                              ; preds = %126
+  %130 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %130, label %131, label %135
 
-123:                                              ; preds = %121, %119
-  %124 = call i32 @errcode_for_file_access()
-  %125 = load ptr, ptr %3, align 8
-  %126 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.26, ptr noundef %125)
+131:                                              ; preds = %129, %127
+  %132 = call i32 @errcode_for_file_access()
+  %133 = load ptr, ptr %3, align 8
+  %134 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.26, ptr noundef %133)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1448, ptr noundef @__func__.pgstat_write_statsfile)
-  br label %127
+  br label %135
 
-127:                                              ; preds = %123, %121, %119
-  br label %128
+135:                                              ; preds = %131, %129, %127
+  br label %136
 
-128:                                              ; preds = %127
-  %129 = load ptr, ptr %1, align 8
-  %130 = call i32 @FreeFile(ptr noundef %129)
-  %131 = load ptr, ptr %3, align 8
-  %132 = call i32 @unlink(ptr noundef %131) #11
-  br label %173
+136:                                              ; preds = %135
+  %137 = load ptr, ptr %1, align 8
+  %138 = call i32 @FreeFile(ptr noundef %137)
+  %139 = load ptr, ptr %3, align 8
+  %140 = call i32 @unlink(ptr noundef %139) #11
+  br label %181
 
-133:                                              ; preds = %111
-  %134 = load ptr, ptr %1, align 8
-  %135 = call i32 @FreeFile(ptr noundef %134)
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %137, label %151
+141:                                              ; preds = %119
+  %142 = load ptr, ptr %1, align 8
+  %143 = call i32 @FreeFile(ptr noundef %142)
+  %144 = icmp slt i32 %143, 0
+  br i1 %144, label %145, label %159
 
-137:                                              ; preds = %133
-  br label %138
+145:                                              ; preds = %141
+  br label %146
 
-138:                                              ; preds = %137
-  br i1 false, label %139, label %141
+146:                                              ; preds = %145
+  br i1 false, label %147, label %149
 
-139:                                              ; preds = %138
-  %140 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
-  br i1 %140, label %143, label %147
+147:                                              ; preds = %146
+  %148 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
+  br i1 %148, label %151, label %155
 
-141:                                              ; preds = %138
-  %142 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %142, label %143, label %147
+149:                                              ; preds = %146
+  %150 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %150, label %151, label %155
 
-143:                                              ; preds = %141, %139
-  %144 = call i32 @errcode_for_file_access()
-  %145 = load ptr, ptr %3, align 8
-  %146 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.27, ptr noundef %145)
+151:                                              ; preds = %149, %147
+  %152 = call i32 @errcode_for_file_access()
+  %153 = load ptr, ptr %3, align 8
+  %154 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.27, ptr noundef %153)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1457, ptr noundef @__func__.pgstat_write_statsfile)
-  br label %147
+  br label %155
 
-147:                                              ; preds = %143, %141, %139
-  br label %148
+155:                                              ; preds = %151, %149, %147
+  br label %156
 
-148:                                              ; preds = %147
-  %149 = load ptr, ptr %3, align 8
-  %150 = call i32 @unlink(ptr noundef %149) #11
-  br label %172
+156:                                              ; preds = %155
+  %157 = load ptr, ptr %3, align 8
+  %158 = call i32 @unlink(ptr noundef %157) #11
+  br label %180
 
-151:                                              ; preds = %133
-  %152 = load ptr, ptr %3, align 8
-  %153 = load ptr, ptr %4, align 8
-  %154 = call i32 @rename(ptr noundef %152, ptr noundef %153) #11
-  %155 = icmp slt i32 %154, 0
-  br i1 %155, label %156, label %171
+159:                                              ; preds = %141
+  %160 = load ptr, ptr %3, align 8
+  %161 = load ptr, ptr %4, align 8
+  %162 = call i32 @rename(ptr noundef %160, ptr noundef %161) #11
+  %163 = icmp slt i32 %162, 0
+  br i1 %163, label %164, label %179
 
-156:                                              ; preds = %151
-  br label %157
+164:                                              ; preds = %159
+  br label %165
 
-157:                                              ; preds = %156
-  br i1 false, label %158, label %160
+165:                                              ; preds = %164
+  br i1 false, label %166, label %168
 
-158:                                              ; preds = %157
-  %159 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
-  br i1 %159, label %162, label %167
+166:                                              ; preds = %165
+  %167 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #9
+  br i1 %167, label %170, label %175
 
-160:                                              ; preds = %157
-  %161 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %161, label %162, label %167
+168:                                              ; preds = %165
+  %169 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %169, label %170, label %175
 
-162:                                              ; preds = %160, %158
-  %163 = call i32 @errcode_for_file_access()
-  %164 = load ptr, ptr %3, align 8
-  %165 = load ptr, ptr %4, align 8
-  %166 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.28, ptr noundef %164, ptr noundef %165)
+170:                                              ; preds = %168, %166
+  %171 = call i32 @errcode_for_file_access()
+  %172 = load ptr, ptr %3, align 8
+  %173 = load ptr, ptr %4, align 8
+  %174 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.28, ptr noundef %172, ptr noundef %173)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1465, ptr noundef @__func__.pgstat_write_statsfile)
-  br label %167
+  br label %175
 
-167:                                              ; preds = %162, %160, %158
-  br label %168
+175:                                              ; preds = %170, %168, %166
+  br label %176
 
-168:                                              ; preds = %167
-  %169 = load ptr, ptr %3, align 8
-  %170 = call i32 @unlink(ptr noundef %169) #11
-  br label %171
+176:                                              ; preds = %175
+  %177 = load ptr, ptr %3, align 8
+  %178 = call i32 @unlink(ptr noundef %177) #11
+  br label %179
 
-171:                                              ; preds = %168, %151
-  br label %172
+179:                                              ; preds = %176, %159
+  br label %180
 
-172:                                              ; preds = %171, %148
-  br label %173
+180:                                              ; preds = %179, %156
+  br label %181
 
-173:                                              ; preds = %172, %128, %35
+181:                                              ; preds = %180, %136, %35
   ret void
 }
 
@@ -1535,20 +1546,26 @@ declare void @pgstat_reset_entries_of_kind(i32 noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_clear_snapshot() #0 {
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 2), i8 0, i64 12, i1 false)
-  store ptr null, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9), align 8
-  %2 = icmp ne ptr %1, null
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 12, i1 false)
+  %2 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3
+  store i32 0, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9), align 8
-  call void @MemoryContextDelete(ptr noundef %4)
-  store ptr null, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9), align 8
-  br label %5
+7:                                                ; preds = %0
+  %8 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9
+  %9 = load ptr, ptr %8, align 8
+  call void @MemoryContextDelete(ptr noundef %9)
+  %10 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9
+  store ptr null, ptr %10, align 8
+  br label %11
 
-5:                                                ; preds = %3, %0
+11:                                               ; preds = %7, %0
   call void @pgstat_clear_backend_activity_snapshot()
   store i8 0, ptr @force_stats_snapshot_clear, align 1
   ret void
@@ -1606,154 +1623,159 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i32 nou
 31:                                               ; preds = %30, %3
   %32 = load i32, ptr @pgstat_fetch_consistency, align 4
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %52
+  br i1 %33, label %34, label %53
 
 34:                                               ; preds = %31
   store ptr null, ptr %12, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10), align 8
+  %35 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10
+  %36 = load ptr, ptr %35, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %8, i64 12, i1 false)
-  %36 = getelementptr inbounds { i64, i32 }, ptr %13, i32 0, i32 0
-  %37 = load i64, ptr %36, align 4
-  %38 = getelementptr inbounds { i64, i32 }, ptr %13, i32 0, i32 1
-  %39 = load i32, ptr %38, align 4
-  %40 = call ptr @pgstat_snapshot_lookup(ptr noundef %35, i64 %37, i32 %39)
-  store ptr %40, ptr %12, align 8
-  %41 = load ptr, ptr %12, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %47
+  %37 = getelementptr inbounds { i64, i32 }, ptr %13, i32 0, i32 0
+  %38 = load i64, ptr %37, align 4
+  %39 = getelementptr inbounds { i64, i32 }, ptr %13, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4
+  %41 = call ptr @pgstat_snapshot_lookup(ptr noundef %36, i64 %38, i32 %40)
+  store ptr %41, ptr %12, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %4, align 8
-  br label %124
+44:                                               ; preds = %34
+  %45 = load ptr, ptr %12, align 8
+  %46 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %4, align 8
+  br label %129
 
-47:                                               ; preds = %34
-  %48 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %49 = icmp eq i32 %48, 2
-  br i1 %49, label %50, label %51
+48:                                               ; preds = %34
+  %49 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %50 = icmp eq i32 %49, 2
+  br i1 %50, label %51, label %52
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   store ptr null, ptr %4, align 8
-  br label %124
+  br label %129
 
-51:                                               ; preds = %47
-  br label %52
+52:                                               ; preds = %48
+  br label %53
 
-52:                                               ; preds = %51, %31
-  %53 = load i32, ptr @pgstat_fetch_consistency, align 4
-  store i32 %53, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3), align 8
-  %54 = load i32, ptr %5, align 4
-  %55 = load i32, ptr %6, align 4
-  %56 = load i32, ptr %7, align 4
-  %57 = call ptr @pgstat_get_entry_ref(i32 noundef %54, i32 noundef %55, i32 noundef %56, i1 noundef zeroext false, ptr noundef null)
-  store ptr %57, ptr %9, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %67, label %60
+53:                                               ; preds = %52, %31
+  %54 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %55 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3
+  store i32 %54, ptr %55, align 8
+  %56 = load i32, ptr %5, align 4
+  %57 = load i32, ptr %6, align 4
+  %58 = load i32, ptr %7, align 4
+  %59 = call ptr @pgstat_get_entry_ref(i32 noundef %56, i32 noundef %57, i32 noundef %58, i1 noundef zeroext false, ptr noundef null)
+  store ptr %59, ptr %9, align 8
+  %60 = load ptr, ptr %9, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %69, label %62
 
-60:                                               ; preds = %52
-  %61 = load ptr, ptr %9, align 8
-  %62 = getelementptr inbounds %struct.PgStat_EntryRef, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %63, i32 0, i32 1
-  %65 = load i8, ptr %64, align 4
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %80
+62:                                               ; preds = %53
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds %struct.PgStat_EntryRef, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %65, i32 0, i32 1
+  %67 = load i8, ptr %66, align 4
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %83
 
-67:                                               ; preds = %60, %52
-  %68 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %69 = icmp eq i32 %68, 1
-  br i1 %69, label %70, label %79
+69:                                               ; preds = %62, %53
+  %70 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %72, label %82
 
-70:                                               ; preds = %67
+72:                                               ; preds = %69
   store ptr null, ptr %14, align 8
-  %71 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10), align 8
+  %73 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10
+  %74 = load ptr, ptr %73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %8, i64 12, i1 false)
-  %72 = getelementptr inbounds { i64, i32 }, ptr %16, i32 0, i32 0
-  %73 = load i64, ptr %72, align 4
-  %74 = getelementptr inbounds { i64, i32 }, ptr %16, i32 0, i32 1
-  %75 = load i32, ptr %74, align 4
-  %76 = call ptr @pgstat_snapshot_insert(ptr noundef %71, i64 %73, i32 %75, ptr noundef %15)
-  store ptr %76, ptr %14, align 8
-  %77 = load ptr, ptr %14, align 8
-  %78 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %77, i32 0, i32 2
-  store ptr null, ptr %78, align 8
-  br label %79
+  %75 = getelementptr inbounds { i64, i32 }, ptr %16, i32 0, i32 0
+  %76 = load i64, ptr %75, align 4
+  %77 = getelementptr inbounds { i64, i32 }, ptr %16, i32 0, i32 1
+  %78 = load i32, ptr %77, align 4
+  %79 = call ptr @pgstat_snapshot_insert(ptr noundef %74, i64 %76, i32 %78, ptr noundef %15)
+  store ptr %79, ptr %14, align 8
+  %80 = load ptr, ptr %14, align 8
+  %81 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %80, i32 0, i32 2
+  store ptr null, ptr %81, align 8
+  br label %82
 
-79:                                               ; preds = %70, %67
+82:                                               ; preds = %72, %69
   store ptr null, ptr %4, align 8
-  br label %124
+  br label %129
 
-80:                                               ; preds = %60
-  %81 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %89
+83:                                               ; preds = %62
+  %84 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %92
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %11, align 8
-  %85 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %84, i32 0, i32 3
-  %86 = load i32, ptr %85, align 4
-  %87 = zext i32 %86 to i64
-  %88 = call ptr @palloc(i64 noundef %87)
-  store ptr %88, ptr %10, align 8
-  br label %96
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %11, align 8
+  %88 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %87, i32 0, i32 3
+  %89 = load i32, ptr %88, align 4
+  %90 = zext i32 %89 to i64
+  %91 = call ptr @palloc(i64 noundef %90)
+  store ptr %91, ptr %10, align 8
+  br label %100
 
-89:                                               ; preds = %80
-  %90 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9), align 8
-  %91 = load ptr, ptr %11, align 8
-  %92 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %91, i32 0, i32 3
-  %93 = load i32, ptr %92, align 4
-  %94 = zext i32 %93 to i64
-  %95 = call ptr @MemoryContextAlloc(ptr noundef %90, i64 noundef %94)
-  store ptr %95, ptr %10, align 8
-  br label %96
+92:                                               ; preds = %83
+  %93 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %11, align 8
+  %96 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %95, i32 0, i32 3
+  %97 = load i32, ptr %96, align 4
+  %98 = zext i32 %97 to i64
+  %99 = call ptr @MemoryContextAlloc(ptr noundef %94, i64 noundef %98)
+  store ptr %99, ptr %10, align 8
+  br label %100
 
-96:                                               ; preds = %89, %83
-  %97 = load ptr, ptr %9, align 8
-  %98 = call zeroext i1 @pgstat_lock_entry_shared(ptr noundef %97, i1 noundef zeroext false)
-  %99 = load ptr, ptr %10, align 8
-  %100 = load i32, ptr %5, align 4
+100:                                              ; preds = %92, %86
   %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds %struct.PgStat_EntryRef, ptr %101, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  %104 = call ptr @pgstat_get_entry_data(i32 noundef %100, ptr noundef %103)
-  %105 = load ptr, ptr %11, align 8
-  %106 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %105, i32 0, i32 3
-  %107 = load i32, ptr %106, align 4
-  %108 = zext i32 %107 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %104, i64 %108, i1 false)
-  %109 = load ptr, ptr %9, align 8
-  call void @pgstat_unlock_entry(ptr noundef %109)
-  %110 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %112, label %122
+  %102 = call zeroext i1 @pgstat_lock_entry_shared(ptr noundef %101, i1 noundef zeroext false)
+  %103 = load ptr, ptr %10, align 8
+  %104 = load i32, ptr %5, align 4
+  %105 = load ptr, ptr %9, align 8
+  %106 = getelementptr inbounds %struct.PgStat_EntryRef, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8
+  %108 = call ptr @pgstat_get_entry_data(i32 noundef %104, ptr noundef %107)
+  %109 = load ptr, ptr %11, align 8
+  %110 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %109, i32 0, i32 3
+  %111 = load i32, ptr %110, align 4
+  %112 = zext i32 %111 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %108, i64 %112, i1 false)
+  %113 = load ptr, ptr %9, align 8
+  call void @pgstat_unlock_entry(ptr noundef %113)
+  %114 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %116, label %127
 
-112:                                              ; preds = %96
+116:                                              ; preds = %100
   store ptr null, ptr %17, align 8
-  %113 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10), align 8
+  %117 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10
+  %118 = load ptr, ptr %117, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %8, i64 12, i1 false)
-  %114 = getelementptr inbounds { i64, i32 }, ptr %19, i32 0, i32 0
-  %115 = load i64, ptr %114, align 4
-  %116 = getelementptr inbounds { i64, i32 }, ptr %19, i32 0, i32 1
-  %117 = load i32, ptr %116, align 4
-  %118 = call ptr @pgstat_snapshot_insert(ptr noundef %113, i64 %115, i32 %117, ptr noundef %18)
-  store ptr %118, ptr %17, align 8
-  %119 = load ptr, ptr %10, align 8
-  %120 = load ptr, ptr %17, align 8
-  %121 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %120, i32 0, i32 2
-  store ptr %119, ptr %121, align 8
-  br label %122
+  %119 = getelementptr inbounds { i64, i32 }, ptr %19, i32 0, i32 0
+  %120 = load i64, ptr %119, align 4
+  %121 = getelementptr inbounds { i64, i32 }, ptr %19, i32 0, i32 1
+  %122 = load i32, ptr %121, align 4
+  %123 = call ptr @pgstat_snapshot_insert(ptr noundef %118, i64 %120, i32 %122, ptr noundef %18)
+  store ptr %123, ptr %17, align 8
+  %124 = load ptr, ptr %10, align 8
+  %125 = load ptr, ptr %17, align 8
+  %126 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %125, i32 0, i32 2
+  store ptr %124, ptr %126, align 8
+  br label %127
 
-122:                                              ; preds = %112, %96
-  %123 = load ptr, ptr %10, align 8
-  store ptr %123, ptr %4, align 8
-  br label %124
+127:                                              ; preds = %116, %100
+  %128 = load ptr, ptr %10, align 8
+  store ptr %128, ptr %4, align 8
+  br label %129
 
-124:                                              ; preds = %122, %79, %50, %43
-  %125 = load ptr, ptr %4, align 8
-  ret ptr %125
+129:                                              ; preds = %127, %82, %51, %44
+  %130 = load ptr, ptr %4, align 8
+  ret ptr %130
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1770,41 +1792,46 @@ define internal void @pgstat_prep_snapshot() #0 {
 5:                                                ; preds = %4, %0
   %6 = load i32, ptr @pgstat_fetch_consistency, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %11, label %8
+  br i1 %7, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10), align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %12
+  %9 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %13
 
-11:                                               ; preds = %8, %5
-  br label %23
+12:                                               ; preds = %8, %5
+  br label %28
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9), align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %20, label %15
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %23, label %17
 
-15:                                               ; preds = %12
-  br label %16
+17:                                               ; preds = %13
+  br label %18
 
-16:                                               ; preds = %15
-  br label %17
+18:                                               ; preds = %17
+  br label %19
 
-17:                                               ; preds = %16
+19:                                               ; preds = %18
   store i32 1, ptr %1, align 4
-  %18 = load ptr, ptr @TopMemoryContext, align 8
-  %19 = call ptr @AllocSetContextCreateInternal(ptr noundef %18, ptr noundef @.str.10, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
-  store ptr %19, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9), align 8
-  br label %20
-
-20:                                               ; preds = %17, %12
-  %21 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9), align 8
-  %22 = call ptr @pgstat_snapshot_create(ptr noundef %21, i32 noundef 512, ptr noundef null)
-  store ptr %22, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10), align 8
+  %20 = load ptr, ptr @TopMemoryContext, align 8
+  %21 = call ptr @AllocSetContextCreateInternal(ptr noundef %20, ptr noundef @.str.10, i64 noundef 0, i64 noundef 1024, i64 noundef 8192)
+  %22 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9
+  store ptr %21, ptr %22, align 8
   br label %23
 
-23:                                               ; preds = %20, %11
+23:                                               ; preds = %19, %13
+  %24 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @pgstat_snapshot_create(ptr noundef %25, i32 noundef 512, ptr noundef null)
+  %27 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10
+  store ptr %26, ptr %27, align 8
+  br label %28
+
+28:                                               ; preds = %23, %12
   ret void
 }
 
@@ -1820,157 +1847,164 @@ define internal void @pgstat_build_snapshot() #0 {
   %8 = alloca { i64, i32 }, align 8
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3), align 8
-  %12 = icmp eq i32 %11, 2
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %0
-  br label %107
+  %11 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, 2
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %0
+  br label %114
+
+15:                                               ; preds = %0
   call void @pgstat_prep_snapshot()
-  %15 = call i64 @GetCurrentTimestamp()
-  store i64 %15, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 1), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2), align 8
-  call void @dshash_seq_init(ptr noundef %1, ptr noundef %16, i1 noundef zeroext false)
-  br label %17
+  %16 = call i64 @GetCurrentTimestamp()
+  %17 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 1
+  store i64 %16, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8
+  call void @dshash_seq_init(ptr noundef %1, ptr noundef %19, i1 noundef zeroext false)
+  br label %20
 
-17:                                               ; preds = %52, %51, %45, %14
-  %18 = call ptr @dshash_seq_next(ptr noundef %1)
-  store ptr %18, ptr %2, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %89
+20:                                               ; preds = %55, %54, %48, %15
+  %21 = call ptr @dshash_seq_next(ptr noundef %1)
+  store ptr %21, ptr %2, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %95
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %21, i32 0, i32 0
-  %23 = getelementptr inbounds %struct.PgStat_HashKey, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
-  store i32 %24, ptr %3, align 4
-  %25 = load i32, ptr %3, align 4
-  %26 = call ptr @pgstat_get_kind_info(i32 noundef %25)
-  store ptr %26, ptr %4, align 8
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %27, i32 0, i32 0
-  %29 = getelementptr inbounds %struct.PgStat_HashKey, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 4
-  %31 = load i32, ptr @MyDatabaseId, align 4
-  %32 = icmp ne i32 %30, %31
-  br i1 %32, label %33, label %46
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds %struct.PgStat_HashKey, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8
+  store i32 %27, ptr %3, align 4
+  %28 = load i32, ptr %3, align 4
+  %29 = call ptr @pgstat_get_kind_info(i32 noundef %28)
+  store ptr %29, ptr %4, align 8
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds %struct.PgStat_HashKey, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4
+  %34 = load i32, ptr @MyDatabaseId, align 4
+  %35 = icmp ne i32 %33, %34
+  br i1 %35, label %36, label %49
 
-33:                                               ; preds = %20
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.PgStat_HashKey, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %46
+36:                                               ; preds = %23
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds %struct.PgStat_HashKey, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %49
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %4, align 8
-  %41 = load i8, ptr %40, align 8
-  %42 = lshr i8 %41, 1
-  %43 = and i8 %42, 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %46, label %45
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %4, align 8
+  %44 = load i8, ptr %43, align 8
+  %45 = lshr i8 %44, 1
+  %46 = and i8 %45, 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %49, label %48
 
-45:                                               ; preds = %39
-  br label %17, !llvm.loop !9
+48:                                               ; preds = %42
+  br label %20, !llvm.loop !9
 
-46:                                               ; preds = %39, %33, %20
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %47, i32 0, i32 1
-  %49 = load i8, ptr %48, align 4
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %52
+49:                                               ; preds = %42, %36, %23
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %50, i32 0, i32 1
+  %52 = load i8, ptr %51, align 4
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %55
 
-51:                                               ; preds = %46
-  br label %17, !llvm.loop !9
+54:                                               ; preds = %49
+  br label %20, !llvm.loop !9
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 1), align 8
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %54, i32 0, i32 3
-  %56 = load i64, ptr %55, align 8
-  %57 = call ptr @dsa_get_address(ptr noundef %53, i64 noundef %56)
-  store ptr %57, ptr %7, align 8
-  %58 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10), align 8
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %59, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %60, i64 12, i1 false)
-  %61 = getelementptr inbounds { i64, i32 }, ptr %8, i32 0, i32 0
-  %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds { i64, i32 }, ptr %8, i32 0, i32 1
-  %64 = load i32, ptr %63, align 8
-  %65 = call ptr @pgstat_snapshot_insert(ptr noundef %58, i64 %62, i32 %64, ptr noundef %5)
-  store ptr %65, ptr %6, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9), align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 4
-  %70 = zext i32 %69 to i64
-  %71 = call ptr @MemoryContextAlloc(ptr noundef %66, i64 noundef %70)
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %72, i32 0, i32 2
-  store ptr %71, ptr %73, align 8
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %struct.PgStatShared_Common, ptr %74, i32 0, i32 1
-  %76 = call zeroext i1 @LWLockAcquire(ptr noundef %75, i32 noundef 1)
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %77, i32 0, i32 2
-  %79 = load ptr, ptr %78, align 8
-  %80 = load i32, ptr %3, align 4
-  %81 = load ptr, ptr %7, align 8
-  %82 = call ptr @pgstat_get_entry_data(i32 noundef %80, ptr noundef %81)
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %83, i32 0, i32 1
-  %85 = load i32, ptr %84, align 4
-  %86 = zext i32 %85 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 1 %82, i64 %86, i1 false)
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %58, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8
+  %61 = call ptr @dsa_get_address(ptr noundef %57, i64 noundef %60)
+  store ptr %61, ptr %7, align 8
+  %62 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 10
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds %struct.PgStatShared_HashEntry, ptr %64, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %65, i64 12, i1 false)
+  %66 = getelementptr inbounds { i64, i32 }, ptr %8, i32 0, i32 0
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds { i64, i32 }, ptr %8, i32 0, i32 1
+  %69 = load i32, ptr %68, align 8
+  %70 = call ptr @pgstat_snapshot_insert(ptr noundef %63, i64 %67, i32 %69, ptr noundef %5)
+  store ptr %70, ptr %6, align 8
+  %71 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 9
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %4, align 8
+  %74 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 4
+  %76 = zext i32 %75 to i64
+  %77 = call ptr @MemoryContextAlloc(ptr noundef %72, i64 noundef %76)
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %78, i32 0, i32 2
+  store ptr %77, ptr %79, align 8
+  %80 = load ptr, ptr %7, align 8
+  %81 = getelementptr inbounds %struct.PgStatShared_Common, ptr %80, i32 0, i32 1
+  %82 = call zeroext i1 @LWLockAcquire(ptr noundef %81, i32 noundef 1)
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds %struct.PgStat_SnapshotEntry, ptr %83, i32 0, i32 2
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %3, align 4
   %87 = load ptr, ptr %7, align 8
-  %88 = getelementptr inbounds %struct.PgStatShared_Common, ptr %87, i32 0, i32 1
-  call void @LWLockRelease(ptr noundef %88)
-  br label %17, !llvm.loop !9
+  %88 = call ptr @pgstat_get_entry_data(i32 noundef %86, ptr noundef %87)
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %90, align 4
+  %92 = zext i32 %91 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr align 1 %88, i64 %92, i1 false)
+  %93 = load ptr, ptr %7, align 8
+  %94 = getelementptr inbounds %struct.PgStatShared_Common, ptr %93, i32 0, i32 1
+  call void @LWLockRelease(ptr noundef %94)
+  br label %20, !llvm.loop !9
 
-89:                                               ; preds = %17
+95:                                               ; preds = %20
   call void @dshash_seq_term(ptr noundef %1)
   store i32 1, ptr %9, align 4
-  br label %90
+  br label %96
 
-90:                                               ; preds = %103, %89
-  %91 = load i32, ptr %9, align 4
-  %92 = icmp sle i32 %91, 11
-  br i1 %92, label %93, label %106
+96:                                               ; preds = %109, %95
+  %97 = load i32, ptr %9, align 4
+  %98 = icmp sle i32 %97, 11
+  br i1 %98, label %99, label %112
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr %9, align 4
-  %95 = call ptr @pgstat_get_kind_info(i32 noundef %94)
-  store ptr %95, ptr %10, align 8
-  %96 = load ptr, ptr %10, align 8
-  %97 = load i8, ptr %96, align 8
-  %98 = and i8 %97, 1
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %101, label %100
+99:                                               ; preds = %96
+  %100 = load i32, ptr %9, align 4
+  %101 = call ptr @pgstat_get_kind_info(i32 noundef %100)
+  store ptr %101, ptr %10, align 8
+  %102 = load ptr, ptr %10, align 8
+  %103 = load i8, ptr %102, align 8
+  %104 = and i8 %103, 1
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %107, label %106
 
-100:                                              ; preds = %93
-  br label %103
+106:                                              ; preds = %99
+  br label %109
 
-101:                                              ; preds = %93
-  %102 = load i32, ptr %9, align 4
-  call void @pgstat_build_snapshot_fixed(i32 noundef %102)
-  br label %103
+107:                                              ; preds = %99
+  %108 = load i32, ptr %9, align 4
+  call void @pgstat_build_snapshot_fixed(i32 noundef %108)
+  br label %109
 
-103:                                              ; preds = %101, %100
-  %104 = load i32, ptr %9, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %9, align 4
-  br label %90, !llvm.loop !10
+109:                                              ; preds = %107, %106
+  %110 = load i32, ptr %9, align 4
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %9, align 4
+  br label %96, !llvm.loop !10
 
-106:                                              ; preds = %90
-  store i32 2, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3), align 8
-  br label %107
+112:                                              ; preds = %96
+  %113 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3
+  store i32 2, ptr %113, align 8
+  br label %114
 
-107:                                              ; preds = %106, %13
+114:                                              ; preds = %112, %14
   ret void
 }
 
@@ -2075,26 +2109,28 @@ define dso_local i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef %0) #0 {
   br label %7
 
 7:                                                ; preds = %6, %1
-  %8 = load i32, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3), align 8
-  %9 = icmp eq i32 %8, 2
-  br i1 %9, label %10, label %13
+  %8 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 2
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %3, align 8
-  store i8 1, ptr %11, align 1
-  %12 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 1), align 8
-  store i64 %12, ptr %2, align 8
-  br label %15
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  store i8 1, ptr %12, align 1
+  %13 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 1
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %2, align 8
+  br label %17
 
-13:                                               ; preds = %7
-  %14 = load ptr, ptr %3, align 8
-  store i8 0, ptr %14, align 1
+15:                                               ; preds = %7
+  %16 = load ptr, ptr %3, align 8
+  store i8 0, ptr %16, align 1
   store i64 0, ptr %2, align 8
-  br label %15
+  br label %17
 
-15:                                               ; preds = %13, %10
-  %16 = load i64, ptr %2, align 8
-  ret i64 %16
+17:                                               ; preds = %15, %11
+  %18 = load i64, ptr %2, align 8
+  ret i64 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2171,41 +2207,44 @@ define internal void @pgstat_build_snapshot_fixed(i32 noundef %0) #0 {
   store ptr %5, ptr %3, align 8
   %6 = load i32, ptr @pgstat_fetch_consistency, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %1
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr [12 x i8], ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 2), i64 0, i64 %10
-  store i8 0, ptr %11, align 1
-  br label %20
+  %11 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 2
+  %12 = getelementptr [12 x i8], ptr %11, i64 0, i64 %10
+  store i8 0, ptr %12, align 1
+  br label %22
 
-12:                                               ; preds = %1
-  %13 = load i32, ptr %2, align 4
-  %14 = zext i32 %13 to i64
-  %15 = getelementptr [12 x i8], ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 2), i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %19
+13:                                               ; preds = %1
+  %14 = load i32, ptr %2, align 4
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 2
+  %17 = getelementptr [12 x i8], ptr %16, i64 0, i64 %15
+  %18 = load i8, ptr %17, align 1
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %21
 
-18:                                               ; preds = %12
-  br label %27
+20:                                               ; preds = %13
+  br label %30
 
-19:                                               ; preds = %12
-  br label %20
+21:                                               ; preds = %13
+  br label %22
 
-20:                                               ; preds = %19, %8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %21, i32 0, i32 11
-  %23 = load ptr, ptr %22, align 8
-  call void %23()
-  %24 = load i32, ptr %2, align 4
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr [12 x i8], ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 2), i64 0, i64 %25
-  store i8 1, ptr %26, align 1
-  br label %27
+22:                                               ; preds = %21, %8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds %struct.PgStat_KindInfo, ptr %23, i32 0, i32 11
+  %25 = load ptr, ptr %24, align 8
+  call void %25()
+  %26 = load i32, ptr %2, align 4
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 2
+  %29 = getelementptr [12 x i8], ptr %28, i64 0, i64 %27
+  store i8 1, ptr %29, align 1
+  br label %30
 
-27:                                               ; preds = %20, %18
+30:                                               ; preds = %22, %20
   ret void
 }
 

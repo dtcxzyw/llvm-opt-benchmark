@@ -3277,218 +3277,219 @@ define internal void @fetch_remote_table_info(ptr noundef %0, ptr noundef %1, pt
   %425 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
   %426 = call i32 %424(ptr noundef %425)
   %427 = icmp sge i32 %426, 150000
-  br i1 %427, label %428, label %552
+  br i1 %427, label %428, label %553
 
 428:                                              ; preds = %416
   call void @initStringInfo(ptr noundef %30)
   store ptr null, ptr %31, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %32, align 8
-  br label %429
+  %429 = inttoptr i64 1 to ptr
+  store ptr %429, ptr %32, align 8
+  br label %430
 
-429:                                              ; preds = %478, %428
-  %430 = load ptr, ptr %32, align 8
-  %431 = icmp ne ptr %430, null
-  br i1 %431, label %432, label %479
+430:                                              ; preds = %479, %428
+  %431 = load ptr, ptr %32, align 8
+  %432 = icmp ne ptr %431, null
+  br i1 %432, label %433, label %480
 
-432:                                              ; preds = %429
-  %433 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 0
-  %434 = load ptr, ptr @MySubscription, align 8
-  %435 = getelementptr inbounds %struct.Subscription, ptr %434, i32 0, i32 17
-  %436 = load ptr, ptr %435, align 8
-  store ptr %436, ptr %433, align 8
-  %437 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
-  store i32 0, ptr %437, align 8
-  br label %438
+433:                                              ; preds = %430
+  %434 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 0
+  %435 = load ptr, ptr @MySubscription, align 8
+  %436 = getelementptr inbounds %struct.Subscription, ptr %435, i32 0, i32 17
+  %437 = load ptr, ptr %436, align 8
+  store ptr %437, ptr %434, align 8
+  %438 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
+  store i32 0, ptr %438, align 8
+  br label %439
 
-438:                                              ; preds = %473, %432
-  %439 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 0
-  %440 = load ptr, ptr %439, align 8
-  %441 = icmp ne ptr %440, null
-  br i1 %441, label %442, label %460
+439:                                              ; preds = %474, %433
+  %440 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 0
+  %441 = load ptr, ptr %440, align 8
+  %442 = icmp ne ptr %441, null
+  br i1 %442, label %443, label %461
 
-442:                                              ; preds = %438
-  %443 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
-  %444 = load i32, ptr %443, align 8
-  %445 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 0
-  %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds %struct.List, ptr %446, i32 0, i32 1
-  %448 = load i32, ptr %447, align 4
-  %449 = icmp slt i32 %444, %448
-  br i1 %449, label %450, label %460
+443:                                              ; preds = %439
+  %444 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
+  %445 = load i32, ptr %444, align 8
+  %446 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 0
+  %447 = load ptr, ptr %446, align 8
+  %448 = getelementptr inbounds %struct.List, ptr %447, i32 0, i32 1
+  %449 = load i32, ptr %448, align 4
+  %450 = icmp slt i32 %445, %449
+  br i1 %450, label %451, label %461
 
-450:                                              ; preds = %442
-  %451 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 0
-  %452 = load ptr, ptr %451, align 8
-  %453 = getelementptr inbounds %struct.List, ptr %452, i32 0, i32 3
-  %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
-  %456 = load i32, ptr %455, align 8
-  %457 = sext i32 %456 to i64
-  %458 = getelementptr %union.ListCell, ptr %454, i64 %457
-  %459 = load ptr, ptr %458, align 8
-  store ptr %459, ptr %31, align 8
-  br label %460
+451:                                              ; preds = %443
+  %452 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 0
+  %453 = load ptr, ptr %452, align 8
+  %454 = getelementptr inbounds %struct.List, ptr %453, i32 0, i32 3
+  %455 = load ptr, ptr %454, align 8
+  %456 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
+  %457 = load i32, ptr %456, align 8
+  %458 = sext i32 %457 to i64
+  %459 = getelementptr %union.ListCell, ptr %455, i64 %458
+  %460 = load ptr, ptr %459, align 8
+  store ptr %460, ptr %31, align 8
+  br label %461
 
-460:                                              ; preds = %450, %442, %438
-  %461 = phi i1 [ false, %442 ], [ false, %438 ], [ true, %450 ]
-  br i1 %461, label %462, label %477
+461:                                              ; preds = %451, %443, %439
+  %462 = phi i1 [ false, %443 ], [ false, %439 ], [ true, %451 ]
+  br i1 %462, label %463, label %478
 
-462:                                              ; preds = %460
-  %463 = load ptr, ptr %31, align 8
-  %464 = getelementptr inbounds %struct.String, ptr %463, i32 0, i32 1
-  %465 = load ptr, ptr %464, align 8
-  store ptr %465, ptr %34, align 8
-  %466 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
-  %467 = load i32, ptr %466, align 8
-  %468 = icmp sgt i32 %467, 0
-  br i1 %468, label %469, label %470
+463:                                              ; preds = %461
+  %464 = load ptr, ptr %31, align 8
+  %465 = getelementptr inbounds %struct.String, ptr %464, i32 0, i32 1
+  %466 = load ptr, ptr %465, align 8
+  store ptr %466, ptr %34, align 8
+  %467 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
+  %468 = load i32, ptr %467, align 8
+  %469 = icmp sgt i32 %468, 0
+  br i1 %469, label %470, label %471
 
-469:                                              ; preds = %462
+470:                                              ; preds = %463
   call void @appendStringInfoString(ptr noundef %30, ptr noundef @.str.16)
-  br label %470
+  br label %471
 
-470:                                              ; preds = %469, %462
-  %471 = load ptr, ptr %34, align 8
-  %472 = call ptr @quote_literal_cstr(ptr noundef %471)
-  call void @appendStringInfoString(ptr noundef %30, ptr noundef %472)
-  br label %473
+471:                                              ; preds = %470, %463
+  %472 = load ptr, ptr %34, align 8
+  %473 = call ptr @quote_literal_cstr(ptr noundef %472)
+  call void @appendStringInfoString(ptr noundef %30, ptr noundef %473)
+  br label %474
 
-473:                                              ; preds = %470
-  %474 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
-  %475 = load i32, ptr %474, align 8
-  %476 = add i32 %475, 1
-  store i32 %476, ptr %474, align 8
-  br label %438, !llvm.loop !21
+474:                                              ; preds = %471
+  %475 = getelementptr inbounds %struct.ForEachState, ptr %33, i32 0, i32 1
+  %476 = load i32, ptr %475, align 8
+  %477 = add i32 %476, 1
+  store i32 %477, ptr %475, align 8
+  br label %439, !llvm.loop !21
 
-477:                                              ; preds = %460
-  br label %478
+478:                                              ; preds = %461
+  br label %479
 
-478:                                              ; preds = %477
+479:                                              ; preds = %478
   store ptr null, ptr %32, align 8
-  br label %429, !llvm.loop !22
+  br label %430, !llvm.loop !22
 
-479:                                              ; preds = %429
+480:                                              ; preds = %430
   call void @resetStringInfo(ptr noundef %10)
-  %480 = load ptr, ptr %7, align 8
-  %481 = getelementptr inbounds %struct.LogicalRepRelation, ptr %480, i32 0, i32 0
-  %482 = load i32, ptr %481, align 8
-  %483 = getelementptr inbounds %struct.StringInfoData, ptr %30, i32 0, i32 0
-  %484 = load ptr, ptr %483, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %10, ptr noundef @.str.39, i32 noundef %482, ptr noundef %484)
-  %485 = load ptr, ptr @WalReceiverFunctions, align 8
-  %486 = getelementptr inbounds %struct.WalReceiverFunctionsType, ptr %485, i32 0, i32 15
-  %487 = load ptr, ptr %486, align 8
-  %488 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %489 = getelementptr inbounds %struct.StringInfoData, ptr %10, i32 0, i32 0
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds [1 x i32], ptr %14, i64 0, i64 0
-  %492 = call ptr %487(ptr noundef %488, ptr noundef %490, i32 noundef 1, ptr noundef %491)
-  store ptr %492, ptr %9, align 8
-  %493 = load ptr, ptr %9, align 8
-  %494 = getelementptr inbounds %struct.WalRcvExecResult, ptr %493, i32 0, i32 0
-  %495 = load i32, ptr %494, align 8
-  %496 = icmp ne i32 %495, 2
-  br i1 %496, label %497, label %512
+  %481 = load ptr, ptr %7, align 8
+  %482 = getelementptr inbounds %struct.LogicalRepRelation, ptr %481, i32 0, i32 0
+  %483 = load i32, ptr %482, align 8
+  %484 = getelementptr inbounds %struct.StringInfoData, ptr %30, i32 0, i32 0
+  %485 = load ptr, ptr %484, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %10, ptr noundef @.str.39, i32 noundef %483, ptr noundef %485)
+  %486 = load ptr, ptr @WalReceiverFunctions, align 8
+  %487 = getelementptr inbounds %struct.WalReceiverFunctionsType, ptr %486, i32 0, i32 15
+  %488 = load ptr, ptr %487, align 8
+  %489 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
+  %490 = getelementptr inbounds %struct.StringInfoData, ptr %10, i32 0, i32 0
+  %491 = load ptr, ptr %490, align 8
+  %492 = getelementptr inbounds [1 x i32], ptr %14, i64 0, i64 0
+  %493 = call ptr %488(ptr noundef %489, ptr noundef %491, i32 noundef 1, ptr noundef %492)
+  store ptr %493, ptr %9, align 8
+  %494 = load ptr, ptr %9, align 8
+  %495 = getelementptr inbounds %struct.WalRcvExecResult, ptr %494, i32 0, i32 0
+  %496 = load i32, ptr %495, align 8
+  %497 = icmp ne i32 %496, 2
+  br i1 %497, label %498, label %513
 
-497:                                              ; preds = %479
-  br label %498
-
-498:                                              ; preds = %497
-  br i1 true, label %499, label %501
+498:                                              ; preds = %480
+  br label %499
 
 499:                                              ; preds = %498
-  %500 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  br i1 %500, label %503, label %510
+  br i1 true, label %500, label %502
 
-501:                                              ; preds = %498
-  %502 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %502, label %503, label %510
+500:                                              ; preds = %499
+  %501 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  br i1 %501, label %504, label %511
 
-503:                                              ; preds = %501, %499
-  %504 = load ptr, ptr %5, align 8
-  %505 = load ptr, ptr %6, align 8
-  %506 = load ptr, ptr %9, align 8
-  %507 = getelementptr inbounds %struct.WalRcvExecResult, ptr %506, i32 0, i32 2
-  %508 = load ptr, ptr %507, align 8
-  %509 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.40, ptr noundef %504, ptr noundef %505, ptr noundef %508)
+502:                                              ; preds = %499
+  %503 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %503, label %504, label %511
+
+504:                                              ; preds = %502, %500
+  %505 = load ptr, ptr %5, align 8
+  %506 = load ptr, ptr %6, align 8
+  %507 = load ptr, ptr %9, align 8
+  %508 = getelementptr inbounds %struct.WalRcvExecResult, ptr %507, i32 0, i32 2
+  %509 = load ptr, ptr %508, align 8
+  %510 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.40, ptr noundef %505, ptr noundef %506, ptr noundef %509)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1065, ptr noundef @__func__.fetch_remote_table_info)
-  br label %510
+  br label %511
 
-510:                                              ; preds = %503, %501, %499
+511:                                              ; preds = %504, %502, %500
   unreachable
 
-511:                                              ; No predecessors!
-  br label %512
+512:                                              ; No predecessors!
+  br label %513
 
-512:                                              ; preds = %511, %479
-  %513 = load ptr, ptr %9, align 8
-  %514 = getelementptr inbounds %struct.WalRcvExecResult, ptr %513, i32 0, i32 4
-  %515 = load ptr, ptr %514, align 8
-  %516 = call ptr @MakeSingleTupleTableSlot(ptr noundef %515, ptr noundef @TTSOpsMinimalTuple)
-  store ptr %516, ptr %11, align 8
-  br label %517
+513:                                              ; preds = %512, %480
+  %514 = load ptr, ptr %9, align 8
+  %515 = getelementptr inbounds %struct.WalRcvExecResult, ptr %514, i32 0, i32 4
+  %516 = load ptr, ptr %515, align 8
+  %517 = call ptr @MakeSingleTupleTableSlot(ptr noundef %516, ptr noundef @TTSOpsMinimalTuple)
+  store ptr %517, ptr %11, align 8
+  br label %518
 
-517:                                              ; preds = %546, %512
-  %518 = load ptr, ptr %9, align 8
-  %519 = getelementptr inbounds %struct.WalRcvExecResult, ptr %518, i32 0, i32 3
-  %520 = load ptr, ptr %519, align 8
-  %521 = load ptr, ptr %11, align 8
-  %522 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %520, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %521)
-  br i1 %522, label %523, label %549
+518:                                              ; preds = %547, %513
+  %519 = load ptr, ptr %9, align 8
+  %520 = getelementptr inbounds %struct.WalRcvExecResult, ptr %519, i32 0, i32 3
+  %521 = load ptr, ptr %520, align 8
+  %522 = load ptr, ptr %11, align 8
+  %523 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %521, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %522)
+  br i1 %523, label %524, label %550
 
-523:                                              ; preds = %517
-  %524 = load ptr, ptr %11, align 8
-  %525 = call i64 @slot_getattr(ptr noundef %524, i32 noundef 1, ptr noundef %15)
-  store i64 %525, ptr %35, align 8
-  %526 = load i8, ptr %15, align 1
-  %527 = trunc i8 %526 to i1
-  br i1 %527, label %537, label %528
+524:                                              ; preds = %518
+  %525 = load ptr, ptr %11, align 8
+  %526 = call i64 @slot_getattr(ptr noundef %525, i32 noundef 1, ptr noundef %15)
+  store i64 %526, ptr %35, align 8
+  %527 = load i8, ptr %15, align 1
+  %528 = trunc i8 %527 to i1
+  br i1 %528, label %538, label %529
 
-528:                                              ; preds = %523
-  %529 = load ptr, ptr %8, align 8
-  %530 = load ptr, ptr %529, align 8
-  %531 = load i64, ptr %35, align 8
-  %532 = call ptr @DatumGetPointer(i64 noundef %531)
-  %533 = call ptr @text_to_cstring(ptr noundef %532)
-  %534 = call ptr @makeString(ptr noundef %533)
-  %535 = call ptr @lappend(ptr noundef %530, ptr noundef %534)
-  %536 = load ptr, ptr %8, align 8
-  store ptr %535, ptr %536, align 8
+529:                                              ; preds = %524
+  %530 = load ptr, ptr %8, align 8
+  %531 = load ptr, ptr %530, align 8
+  %532 = load i64, ptr %35, align 8
+  %533 = call ptr @DatumGetPointer(i64 noundef %532)
+  %534 = call ptr @text_to_cstring(ptr noundef %533)
+  %535 = call ptr @makeString(ptr noundef %534)
+  %536 = call ptr @lappend(ptr noundef %531, ptr noundef %535)
+  %537 = load ptr, ptr %8, align 8
+  store ptr %536, ptr %537, align 8
+  br label %547
+
+538:                                              ; preds = %524
+  %539 = load ptr, ptr %8, align 8
+  %540 = load ptr, ptr %539, align 8
+  %541 = icmp ne ptr %540, null
+  br i1 %541, label %542, label %546
+
+542:                                              ; preds = %538
+  %543 = load ptr, ptr %8, align 8
+  %544 = load ptr, ptr %543, align 8
+  call void @list_free_deep(ptr noundef %544)
+  %545 = load ptr, ptr %8, align 8
+  store ptr null, ptr %545, align 8
   br label %546
 
-537:                                              ; preds = %523
-  %538 = load ptr, ptr %8, align 8
-  %539 = load ptr, ptr %538, align 8
-  %540 = icmp ne ptr %539, null
-  br i1 %540, label %541, label %545
+546:                                              ; preds = %542, %538
+  br label %550
 
-541:                                              ; preds = %537
-  %542 = load ptr, ptr %8, align 8
-  %543 = load ptr, ptr %542, align 8
-  call void @list_free_deep(ptr noundef %543)
-  %544 = load ptr, ptr %8, align 8
-  store ptr null, ptr %544, align 8
-  br label %545
+547:                                              ; preds = %529
+  %548 = load ptr, ptr %11, align 8
+  %549 = call ptr @ExecClearTuple(ptr noundef %548)
+  br label %518, !llvm.loop !23
 
-545:                                              ; preds = %541, %537
-  br label %549
+550:                                              ; preds = %546, %518
+  %551 = load ptr, ptr %11, align 8
+  call void @ExecDropSingleTupleTableSlot(ptr noundef %551)
+  %552 = load ptr, ptr %9, align 8
+  call void @walrcv_clear_result(ptr noundef %552)
+  br label %553
 
-546:                                              ; preds = %528
-  %547 = load ptr, ptr %11, align 8
-  %548 = call ptr @ExecClearTuple(ptr noundef %547)
-  br label %517, !llvm.loop !23
-
-549:                                              ; preds = %545, %517
-  %550 = load ptr, ptr %11, align 8
-  call void @ExecDropSingleTupleTableSlot(ptr noundef %550)
-  %551 = load ptr, ptr %9, align 8
-  call void @walrcv_clear_result(ptr noundef %551)
-  br label %552
-
-552:                                              ; preds = %549, %416
-  %553 = getelementptr inbounds %struct.StringInfoData, ptr %10, i32 0, i32 0
-  %554 = load ptr, ptr %553, align 8
-  call void @pfree(ptr noundef %554)
+553:                                              ; preds = %550, %416
+  %554 = getelementptr inbounds %struct.StringInfoData, ptr %10, i32 0, i32 0
+  %555 = load ptr, ptr %554, align 8
+  call void @pfree(ptr noundef %555)
   ret void
 }
 

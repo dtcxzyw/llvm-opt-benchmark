@@ -23,25 +23,26 @@ define dso_local noundef i32 @static_init(ptr nocapture noundef writeonly %0) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @pcmcia_make_resource(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 64) #4
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %14, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %6 = load ptr, ptr %5, align 16
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 64) #4
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %15, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %3, ptr %9, align 8
-  store i64 %0, ptr %6, align 8
-  %10 = add i64 %0, -1
-  %11 = add i64 %10, %1
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 %2, ptr %13, align 8
-  br label %14
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %3, ptr %10, align 8
+  store i64 %0, ptr %7, align 8
+  %11 = add i64 %0, -1
+  %12 = add i64 %11, %1
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 %2, ptr %14, align 8
+  br label %15
 
-14:                                               ; preds = %8, %4
-  ret ptr %6
+15:                                               ; preds = %9, %4
+  ret ptr %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

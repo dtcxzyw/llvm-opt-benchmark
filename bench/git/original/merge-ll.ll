@@ -312,12 +312,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ([3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 1), ptr %retval, align 8
+  %1 = getelementptr inbounds [3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 1
+  store ptr %1, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %1 = load ptr, ptr %merge_attr.addr, align 8
-  %cmp1 = icmp eq ptr %1, @git_attr__false
+  %2 = load ptr, ptr %merge_attr.addr, align 8
+  %cmp1 = icmp eq ptr %2, @git_attr__false
   br i1 %cmp1, label %if.then2, label %if.else3
 
 if.then2:                                         ; preds = %if.else
@@ -325,30 +326,31 @@ if.then2:                                         ; preds = %if.else
   br label %return
 
 if.else3:                                         ; preds = %if.else
-  %2 = load ptr, ptr %merge_attr.addr, align 8
-  %cmp4 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %merge_attr.addr, align 8
+  %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %if.then5, label %if.else8
 
 if.then5:                                         ; preds = %if.else3
-  %3 = load ptr, ptr @default_ll_merge, align 8
-  %tobool = icmp ne ptr %3, null
+  %4 = load ptr, ptr @default_ll_merge, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %if.then5
-  store ptr getelementptr inbounds ([3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 1), ptr %retval, align 8
+  %5 = getelementptr inbounds [3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 1
+  store ptr %5, ptr %retval, align 8
   br label %return
 
 if.else7:                                         ; preds = %if.then5
-  %4 = load ptr, ptr @default_ll_merge, align 8
-  store ptr %4, ptr %name, align 8
+  %6 = load ptr, ptr @default_ll_merge, align 8
+  store ptr %6, ptr %name, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else7
   br label %if.end9
 
 if.else8:                                         ; preds = %if.else3
-  %5 = load ptr, ptr %merge_attr.addr, align 8
-  store ptr %5, ptr %name, align 8
+  %7 = load ptr, ptr %merge_attr.addr, align 8
+  store ptr %7, ptr %name, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else8, %if.end
@@ -358,37 +360,37 @@ if.end10:                                         ; preds = %if.end9
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end10
-  %6 = load ptr, ptr @ll_user_merge, align 8
-  store ptr %6, ptr %fn, align 8
+  %8 = load ptr, ptr @ll_user_merge, align 8
+  store ptr %8, ptr %fn, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end11
-  %7 = load ptr, ptr %fn, align 8
-  %tobool12 = icmp ne ptr %7, null
+  %9 = load ptr, ptr %fn, align 8
+  %tobool12 = icmp ne ptr %9, null
   br i1 %tobool12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr %fn, align 8
-  %name13 = getelementptr inbounds %struct.ll_merge_driver, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %name13, align 8
-  %10 = load ptr, ptr %name, align 8
-  %call = call i32 @strcmp(ptr noundef %9, ptr noundef %10) #7
+  %10 = load ptr, ptr %fn, align 8
+  %name13 = getelementptr inbounds %struct.ll_merge_driver, ptr %10, i32 0, i32 0
+  %11 = load ptr, ptr %name13, align 8
+  %12 = load ptr, ptr %name, align 8
+  %call = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #7
   %tobool14 = icmp ne i32 %call, 0
   br i1 %tobool14, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %for.body
-  %11 = load ptr, ptr %fn, align 8
-  store ptr %11, ptr %retval, align 8
+  %13 = load ptr, ptr %fn, align 8
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 if.end16:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %12 = load ptr, ptr %fn, align 8
-  %next = getelementptr inbounds %struct.ll_merge_driver, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %next, align 8
-  store ptr %13, ptr %fn, align 8
+  %14 = load ptr, ptr %fn, align 8
+  %next = getelementptr inbounds %struct.ll_merge_driver, ptr %14, i32 0, i32 4
+  %15 = load ptr, ptr %next, align 8
+  store ptr %15, ptr %fn, align 8
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
@@ -396,25 +398,25 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond17
 
 for.cond17:                                       ; preds = %for.inc28, %for.end
-  %14 = load i32, ptr %i, align 4
-  %conv = sext i32 %14 to i64
+  %16 = load i32, ptr %i, align 4
+  %conv = sext i32 %16 to i64
   %cmp18 = icmp ult i64 %conv, 3
   br i1 %cmp18, label %for.body20, label %for.end29
 
 for.body20:                                       ; preds = %for.cond17
-  %15 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %15 to i64
+  %17 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %17 to i64
   %arrayidx = getelementptr inbounds [3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 %idxprom
   %name21 = getelementptr inbounds %struct.ll_merge_driver, ptr %arrayidx, i32 0, i32 0
-  %16 = load ptr, ptr %name21, align 16
-  %17 = load ptr, ptr %name, align 8
-  %call22 = call i32 @strcmp(ptr noundef %16, ptr noundef %17) #7
+  %18 = load ptr, ptr %name21, align 16
+  %19 = load ptr, ptr %name, align 8
+  %call22 = call i32 @strcmp(ptr noundef %18, ptr noundef %19) #7
   %tobool23 = icmp ne i32 %call22, 0
   br i1 %tobool23, label %if.end27, label %if.then24
 
 if.then24:                                        ; preds = %for.body20
-  %18 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %18 to i64
+  %20 = load i32, ptr %i, align 4
+  %idxprom25 = sext i32 %20 to i64
   %arrayidx26 = getelementptr inbounds [3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 %idxprom25
   store ptr %arrayidx26, ptr %retval, align 8
   br label %return
@@ -423,18 +425,19 @@ if.end27:                                         ; preds = %for.body20
   br label %for.inc28
 
 for.inc28:                                        ; preds = %if.end27
-  %19 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %19, 1
+  %21 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %21, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond17, !llvm.loop !7
 
 for.end29:                                        ; preds = %for.cond17
-  store ptr getelementptr inbounds ([3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 1), ptr %retval, align 8
+  %22 = getelementptr inbounds [3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 1
+  store ptr %22, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %for.end29, %if.then24, %if.then15, %if.then6, %if.then2, %if.then
-  %20 = load ptr, ptr %retval, align 8
-  ret ptr %20
+  %23 = load ptr, ptr %retval, align 8
+  ret ptr %23
 }
 
 ; Function Attrs: nounwind uwtable

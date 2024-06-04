@@ -162,18 +162,19 @@ define void @_ZN27NumericValueChooserDelegateC2EiiP7QObject(ptr noundef nonnull 
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %8, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27NumericValueChooserDelegate, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %9, i32 0, i32 4
-  call void @_ZN8QVariantC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
-  %12 = load i32, ptr %6, align 4
-  %13 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %9, i32 0, i32 1
-  store i32 %12, ptr %13, align 8
-  %14 = load i32, ptr %7, align 4
-  %15 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %9, i32 0, i32 2
-  store i32 %14, ptr %15, align 4
-  %16 = load i32, ptr %6, align 4
-  %17 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %9, i32 0, i32 3
-  store i32 %16, ptr %17, align 8
+  %11 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTV27NumericValueChooserDelegate, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %9, i32 0, i32 4
+  call void @_ZN8QVariantC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #7
+  %13 = load i32, ptr %6, align 4
+  %14 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %9, i32 0, i32 1
+  store i32 %13, ptr %14, align 8
+  %15 = load i32, ptr %7, align 4
+  %16 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %9, i32 0, i32 2
+  store i32 %15, ptr %16, align 4
+  %17 = load i32, ptr %6, align 4
+  %18 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %9, i32 0, i32 3
+  store i32 %17, ptr %18, align 8
   ret void
 }
 
@@ -194,9 +195,10 @@ define void @_ZN27NumericValueChooserDelegateD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27NumericValueChooserDelegate, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %3, i32 0, i32 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTV27NumericValueChooserDelegate, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.NumericValueChooserDelegate, ptr %3, i32 0, i32 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   call void @_ZN19QStyledItemDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   ret void
 }

@@ -1660,72 +1660,112 @@ define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i32 0, i32 1), align 8
-  %4 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.3, i64 noundef 11)
-  %5 = extractvalue { i64, ptr } %4, 0
-  store i64 %5, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 1), align 8
-  %6 = extractvalue { i64, ptr } %4, 1
-  store ptr %6, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 1), i32 0, i32 1), align 8
-  %7 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.4, i64 noundef 5)
-  %8 = extractvalue { i64, ptr } %7, 0
-  store i64 %8, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 2), align 8
-  %9 = extractvalue { i64, ptr } %7, 1
-  store ptr %9, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 2), i32 0, i32 1), align 8
-  %10 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.5, i64 noundef 8)
-  %11 = extractvalue { i64, ptr } %10, 0
-  store i64 %11, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 3), align 8
-  %12 = extractvalue { i64, ptr } %10, 1
-  store ptr %12, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 3), i32 0, i32 1), align 8
-  %13 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.6, i64 noundef 2)
-  %14 = extractvalue { i64, ptr } %13, 0
-  store i64 %14, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 4), align 8
-  %15 = extractvalue { i64, ptr } %13, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 4), i32 0, i32 1), align 8
-  %16 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.7, i64 noundef 6)
-  %17 = extractvalue { i64, ptr } %16, 0
-  store i64 %17, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 5), align 8
-  %18 = extractvalue { i64, ptr } %16, 1
-  store ptr %18, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 5), i32 0, i32 1), align 8
-  %19 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.8, i64 noundef 4)
-  %20 = extractvalue { i64, ptr } %19, 0
-  store i64 %20, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 6), align 8
-  %21 = extractvalue { i64, ptr } %19, 1
-  store ptr %21, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 6), i32 0, i32 1), align 8
-  %22 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.9, i64 noundef 5)
-  %23 = extractvalue { i64, ptr } %22, 0
-  store i64 %23, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 7), align 8
-  %24 = extractvalue { i64, ptr } %22, 1
-  store ptr %24, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 7), i32 0, i32 1), align 8
-  %25 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.10, i64 noundef 5)
-  %26 = extractvalue { i64, ptr } %25, 0
-  store i64 %26, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 8), align 8
-  %27 = extractvalue { i64, ptr } %25, 1
-  store ptr %27, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 8), i32 0, i32 1), align 8
-  %28 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.11, i64 noundef 8)
-  %29 = extractvalue { i64, ptr } %28, 0
-  store i64 %29, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 9), align 8
-  %30 = extractvalue { i64, ptr } %28, 1
-  store ptr %30, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 9), i32 0, i32 1), align 8
-  %31 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.12, i64 noundef 7)
-  %32 = extractvalue { i64, ptr } %31, 0
-  store i64 %32, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 10), align 8
-  %33 = extractvalue { i64, ptr } %31, 1
-  store ptr %33, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 10), i32 0, i32 1), align 8
-  %34 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.13, i64 noundef 10)
-  %35 = extractvalue { i64, ptr } %34, 0
-  store i64 %35, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 11), align 8
-  %36 = extractvalue { i64, ptr } %34, 1
-  store ptr %36, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 11), i32 0, i32 1), align 8
-  %37 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.14, i64 noundef 5)
-  %38 = extractvalue { i64, ptr } %37, 0
-  store i64 %38, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 12), align 8
-  %39 = extractvalue { i64, ptr } %37, 1
-  store ptr %39, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 12), i32 0, i32 1), align 8
-  %40 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.15, i64 noundef 8)
-  %41 = extractvalue { i64, ptr } %40, 0
-  store i64 %41, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 13), align 8
-  %42 = extractvalue { i64, ptr } %40, 1
-  store ptr %42, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 13), i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
+  %5 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.3, i64 noundef 11)
+  %6 = extractvalue { i64, ptr } %5, 0
+  %7 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 1
+  store i64 %6, ptr %7, align 8
+  %8 = extractvalue { i64, ptr } %5, 1
+  %9 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 1
+  %10 = getelementptr inbounds { i64, ptr }, ptr %9, i32 0, i32 1
+  store ptr %8, ptr %10, align 8
+  %11 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.4, i64 noundef 5)
+  %12 = extractvalue { i64, ptr } %11, 0
+  %13 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 2
+  store i64 %12, ptr %13, align 8
+  %14 = extractvalue { i64, ptr } %11, 1
+  %15 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 2
+  %16 = getelementptr inbounds { i64, ptr }, ptr %15, i32 0, i32 1
+  store ptr %14, ptr %16, align 8
+  %17 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.5, i64 noundef 8)
+  %18 = extractvalue { i64, ptr } %17, 0
+  %19 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 3
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %17, 1
+  %21 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 3
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.6, i64 noundef 2)
+  %24 = extractvalue { i64, ptr } %23, 0
+  %25 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 4
+  store i64 %24, ptr %25, align 8
+  %26 = extractvalue { i64, ptr } %23, 1
+  %27 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 4
+  %28 = getelementptr inbounds { i64, ptr }, ptr %27, i32 0, i32 1
+  store ptr %26, ptr %28, align 8
+  %29 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.7, i64 noundef 6)
+  %30 = extractvalue { i64, ptr } %29, 0
+  %31 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 5
+  store i64 %30, ptr %31, align 8
+  %32 = extractvalue { i64, ptr } %29, 1
+  %33 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 5
+  %34 = getelementptr inbounds { i64, ptr }, ptr %33, i32 0, i32 1
+  store ptr %32, ptr %34, align 8
+  %35 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.8, i64 noundef 4)
+  %36 = extractvalue { i64, ptr } %35, 0
+  %37 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 6
+  store i64 %36, ptr %37, align 8
+  %38 = extractvalue { i64, ptr } %35, 1
+  %39 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 6
+  %40 = getelementptr inbounds { i64, ptr }, ptr %39, i32 0, i32 1
+  store ptr %38, ptr %40, align 8
+  %41 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.9, i64 noundef 5)
+  %42 = extractvalue { i64, ptr } %41, 0
+  %43 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 7
+  store i64 %42, ptr %43, align 8
+  %44 = extractvalue { i64, ptr } %41, 1
+  %45 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 7
+  %46 = getelementptr inbounds { i64, ptr }, ptr %45, i32 0, i32 1
+  store ptr %44, ptr %46, align 8
+  %47 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.10, i64 noundef 5)
+  %48 = extractvalue { i64, ptr } %47, 0
+  %49 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 8
+  store i64 %48, ptr %49, align 8
+  %50 = extractvalue { i64, ptr } %47, 1
+  %51 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 8
+  %52 = getelementptr inbounds { i64, ptr }, ptr %51, i32 0, i32 1
+  store ptr %50, ptr %52, align 8
+  %53 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.11, i64 noundef 8)
+  %54 = extractvalue { i64, ptr } %53, 0
+  %55 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 9
+  store i64 %54, ptr %55, align 8
+  %56 = extractvalue { i64, ptr } %53, 1
+  %57 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 9
+  %58 = getelementptr inbounds { i64, ptr }, ptr %57, i32 0, i32 1
+  store ptr %56, ptr %58, align 8
+  %59 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.12, i64 noundef 7)
+  %60 = extractvalue { i64, ptr } %59, 0
+  %61 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 10
+  store i64 %60, ptr %61, align 8
+  %62 = extractvalue { i64, ptr } %59, 1
+  %63 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 10
+  %64 = getelementptr inbounds { i64, ptr }, ptr %63, i32 0, i32 1
+  store ptr %62, ptr %64, align 8
+  %65 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.13, i64 noundef 10)
+  %66 = extractvalue { i64, ptr } %65, 0
+  %67 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 11
+  store i64 %66, ptr %67, align 8
+  %68 = extractvalue { i64, ptr } %65, 1
+  %69 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 11
+  %70 = getelementptr inbounds { i64, ptr }, ptr %69, i32 0, i32 1
+  store ptr %68, ptr %70, align 8
+  %71 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.14, i64 noundef 5)
+  %72 = extractvalue { i64, ptr } %71, 0
+  %73 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 12
+  store i64 %72, ptr %73, align 8
+  %74 = extractvalue { i64, ptr } %71, 1
+  %75 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 12
+  %76 = getelementptr inbounds { i64, ptr }, ptr %75, i32 0, i32 1
+  store ptr %74, ptr %76, align 8
+  %77 = call { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.15, i64 noundef 8)
+  %78 = extractvalue { i64, ptr } %77, 0
+  %79 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 13
+  store i64 %78, ptr %79, align 8
+  %80 = extractvalue { i64, ptr } %77, 1
+  %81 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZN12_GLOBAL__N_115InvalidCommandsE, i64 13
+  %82 = getelementptr inbounds { i64, ptr }, ptr %81, i32 0, i32 1
+  store ptr %80, ptr %82, align 8
   ret void
 }
 
@@ -1756,7 +1796,8 @@ define internal void @__cxx_global_var_init.16() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_120InvalidDeferCommandsE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_120InvalidDeferCommandsE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_120InvalidDeferCommandsE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -17509,36 +17550,37 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN18cmListFile
   store ptr %4, ptr %11, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %14, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(104) %15) #3
-  %16 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %14) #3
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN18cmListFileFunction14ImplementationEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSB_St6vectorI18cmListFileArgumentSaISD_EEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
-          to label %21 unwind label %22
-
-21:                                               ; preds = %5
-  ret void
+  %15 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %14, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(104) %16) #3
+  %17 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14ImplementationESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %14) #3
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN18cmListFileFunction14ImplementationEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSB_St6vectorI18cmListFileArgumentSaISD_EEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+          to label %22 unwind label %23
 
 22:                                               ; preds = %5
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %12, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %13, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %26
+  ret void
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %12, align 8
-  %28 = load i32, ptr %13, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %12, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %13, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  br label %27
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %12, align 8
+  %29 = load i32, ptr %13, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17696,11 +17738,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

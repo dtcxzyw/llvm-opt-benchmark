@@ -1106,7 +1106,8 @@ entry:
   store ptr %errorCode, ptr %errorCode.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringTrieBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %strings = getelementptr inbounds %"class.icu_75::BytesTrieBuilder", ptr %this1, i32 0, i32 1
   store ptr null, ptr %strings, align 8
   %elements = getelementptr inbounds %"class.icu_75::BytesTrieBuilder", ptr %this1, i32 0, i32 2
@@ -1121,9 +1122,9 @@ entry:
   store i32 0, ptr %bytesCapacity, align 8
   %bytesLength = getelementptr inbounds %"class.icu_75::BytesTrieBuilder", ptr %this1, i32 0, i32 7
   store i32 0, ptr %bytesLength, align 4
-  %0 = load ptr, ptr %errorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
+  %1 = load ptr, ptr %errorCode.addr, align 8
+  %2 = load i32, ptr %1, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1134,12 +1135,12 @@ if.then:                                          ; preds = %invoke.cont
   br label %if.end8
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -1158,32 +1159,32 @@ invoke.cont4:                                     ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont4, %if.end
-  %5 = phi ptr [ %call2, %invoke.cont4 ], [ null, %if.end ]
+  %6 = phi ptr [ %call2, %invoke.cont4 ], [ null, %if.end ]
   %strings5 = getelementptr inbounds %"class.icu_75::BytesTrieBuilder", ptr %this1, i32 0, i32 1
-  store ptr %5, ptr %strings5, align 8
+  store ptr %6, ptr %strings5, align 8
   %strings6 = getelementptr inbounds %"class.icu_75::BytesTrieBuilder", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %strings6, align 8
-  %cmp = icmp eq ptr %6, null
+  %7 = load ptr, ptr %strings6, align 8
+  %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %new.cont
-  %7 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %7, align 4
+  %8 = load ptr, ptr %errorCode.addr, align 8
+  store i32 7, ptr %8, align 4
   br label %if.end8
 
 lpad3:                                            ; preds = %new.notnull
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad3
-  %11 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %11) #9
+  %12 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %12) #9
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad3
@@ -1237,31 +1238,32 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %strings = getelementptr inbounds %"class.icu_75::BytesTrieBuilder", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %strings, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %strings, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN6icu_7510CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #9
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %0) #9
+  call void @_ZN6icu_7510CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %1) #9
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %1) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %elements = getelementptr inbounds %"class.icu_75::BytesTrieBuilder", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %elements, align 8
-  %isnull2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %elements, align 8
+  %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  call void @_ZN6icu_757UMemorydaEPv(ptr noundef %1) #9
+  call void @_ZN6icu_757UMemorydaEPv(ptr noundef %2) #9
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
   %bytes = getelementptr inbounds %"class.icu_75::BytesTrieBuilder", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %bytes, align 8
-  invoke void @uprv_free_75(ptr noundef %2)
+  %3 = load ptr, ptr %bytes, align 8
+  invoke void @uprv_free_75(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %delete.end4
@@ -1269,10 +1271,10 @@ invoke.cont:                                      ; preds = %delete.end4
   ret void
 
 terminate.lpad:                                   ; preds = %delete.end4
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #11
   unreachable
 }
 
@@ -2371,16 +2373,17 @@ entry:
   %0 = load i32, ptr %len.addr, align 4
   %1 = load ptr, ptr %nextNode.addr, align 8
   call void @_ZN6icu_7517StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilder17BTLinearMatchNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7516BytesTrieBuilder17BTLinearMatchNodeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %s = getelementptr inbounds %"class.icu_75::BytesTrieBuilder::BTLinearMatchNode", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %bytes.addr, align 8
-  store ptr %2, ptr %s, align 8
+  %3 = load ptr, ptr %bytes.addr, align 8
+  store ptr %3, ptr %s, align 8
   %hash = getelementptr inbounds %"class.icu_75::StringTrieBuilder::Node", ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %hash, align 8
-  %mul = mul i32 %3, 37
-  %4 = load ptr, ptr %bytes.addr, align 8
-  %5 = load i32, ptr %len.addr, align 4
-  %call = invoke i32 @ustr_hashCharsN_75(ptr noundef %4, i32 noundef %5)
+  %4 = load i32, ptr %hash, align 8
+  %mul = mul i32 %4, 37
+  %5 = load ptr, ptr %bytes.addr, align 8
+  %6 = load i32, ptr %len.addr, align 4
+  %call = invoke i32 @ustr_hashCharsN_75(ptr noundef %5, i32 noundef %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2390,12 +2393,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7517StringTrieBuilder15LinearMatchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #9
   br label %eh.resume
 
@@ -2424,13 +2427,14 @@ entry:
   %call = call noundef i32 @_ZN6icu_7517StringTrieBuilder4Node8hashCodeEPKS1_(ptr noundef %1)
   %add2 = add i32 %mul, %call
   call void @_ZN6icu_7517StringTrieBuilder9ValueNodeC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %add2)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder15LinearMatchNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder15LinearMatchNodeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %length = getelementptr inbounds %"class.icu_75::StringTrieBuilder::LinearMatchNode", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %len.addr, align 4
-  store i32 %2, ptr %length, align 8
+  %3 = load i32, ptr %len.addr, align 4
+  store i32 %3, ptr %length, align 8
   %next = getelementptr inbounds %"class.icu_75::StringTrieBuilder::LinearMatchNode", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %nextNode.addr, align 8
-  store ptr %3, ptr %next, align 8
+  %4 = load ptr, ptr %nextNode.addr, align 8
+  store ptr %4, ptr %next, align 8
   ret void
 }
 
@@ -3400,7 +3404,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %initialHash.addr, align 4
   call void @_ZN6icu_7517StringTrieBuilder4NodeC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder9ValueNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder9ValueNodeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %hasValue = getelementptr inbounds %"class.icu_75::StringTrieBuilder::ValueNode", ptr %this1, i32 0, i32 1
   store i8 0, ptr %hasValue, align 8
   %value = getelementptr inbounds %"class.icu_75::StringTrieBuilder::ValueNode", ptr %this1, i32 0, i32 2
@@ -3428,10 +3433,11 @@ entry:
   store i32 %initialHash, ptr %initialHash.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7517StringTrieBuilder4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %hash = getelementptr inbounds %"class.icu_75::StringTrieBuilder::Node", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %initialHash.addr, align 4
-  store i32 %0, ptr %hash, align 8
+  %1 = load i32, ptr %initialHash.addr, align 4
+  store i32 %1, ptr %hash, align 8
   %offset = getelementptr inbounds %"class.icu_75::StringTrieBuilder::Node", ptr %this1, i32 0, i32 2
   store i32 0, ptr %offset, align 4
   ret void
@@ -3443,7 +3449,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

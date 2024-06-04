@@ -26,67 +26,71 @@ define i32 @pmix_compress_base_select() #0 {
   store i32 0, ptr %2, align 4
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 1), align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %34
+  %5 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 1
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %0
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 1), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11), align 4
-  %10 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %9, ptr noundef getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 12), ptr noundef %4, ptr noundef %3, ptr noundef null)
-  %11 = icmp ne i32 0, %10
-  br i1 %11, label %12, label %13
+  store i32 0, ptr %1, align 4
+  br label %38
 
-12:                                               ; preds = %8
-  br label %32
+9:                                                ; preds = %0
+  %10 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 1
+  store i8 1, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 11
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pcompress_base_framework, i32 0, i32 12
+  %14 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %12, ptr noundef %13, ptr noundef %4, ptr noundef %3, ptr noundef null)
+  %15 = icmp ne i32 0, %14
+  br i1 %15, label %16, label %17
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr %4, align 8
-  %15 = icmp ne ptr null, %14
-  br i1 %15, label %16, label %31
+16:                                               ; preds = %9
+  br label %36
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp ne ptr null, %19
-  br i1 %20, label %21, label %29
+17:                                               ; preds = %9
+  %18 = load ptr, ptr %4, align 8
+  %19 = icmp ne ptr null, %18
+  br i1 %19, label %20, label %35
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 %24()
-  store i32 %25, ptr %2, align 4
-  %26 = icmp ne i32 0, %25
-  br i1 %26, label %27, label %28
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr null, %23
+  br i1 %24, label %25, label %33
 
-27:                                               ; preds = %21
-  br label %32
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = call i32 %28()
+  store i32 %29, ptr %2, align 4
+  %30 = icmp ne i32 0, %29
+  br i1 %30, label %31, label %32
 
-28:                                               ; preds = %21
-  br label %29
+31:                                               ; preds = %25
+  br label %36
 
-29:                                               ; preds = %28, %16
-  %30 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @pmix_compress, ptr align 8 %30, i64 64, i1 false)
-  br label %31
+32:                                               ; preds = %25
+  br label %33
 
-31:                                               ; preds = %29, %13
-  br label %32
+33:                                               ; preds = %32, %20
+  %34 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @pmix_compress, ptr align 8 %34, i64 64, i1 false)
+  br label %35
 
-32:                                               ; preds = %31, %27, %12
-  %33 = load i32, ptr %2, align 4
-  store i32 %33, ptr %1, align 4
-  br label %34
+35:                                               ; preds = %33, %17
+  br label %36
 
-34:                                               ; preds = %32, %7
-  %35 = load i32, ptr %1, align 4
-  ret i32 %35
+36:                                               ; preds = %35, %31, %16
+  %37 = load i32, ptr %2, align 4
+  store i32 %37, ptr %1, align 4
+  br label %38
+
+38:                                               ; preds = %36, %8
+  %39 = load i32, ptr %1, align 4
+  ret i32 %39
 }
 
 declare i32 @pmix_mca_base_select(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

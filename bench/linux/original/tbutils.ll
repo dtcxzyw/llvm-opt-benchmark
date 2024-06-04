@@ -36,44 +36,47 @@ define dso_local noundef i32 @acpi_tb_initialize_facs() local_unnamed_addr #0 al
   store ptr null, ptr %1, align 8, !annotation !5
   %2 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %24
+  br i1 %3, label %4, label %27
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 43), align 1
-  %6 = icmp eq i64 %5, 0
-  br i1 %6, label %17, label %7
+  %5 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 43
+  %6 = load i64, ptr %5, align 1
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %19, label %8
 
-7:                                                ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 1), align 1
-  %9 = icmp ne i32 %8, 0
-  %10 = load i8, ptr @acpi_gbl_use32_bit_facs_addresses, align 1
-  %11 = icmp ne i8 %10, 0
-  %12 = select i1 %9, i1 %11, i1 false
-  br i1 %12, label %17, label %13
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 1
+  %10 = load i32, ptr %9, align 1
+  %11 = icmp ne i32 %10, 0
+  %12 = load i8, ptr @acpi_gbl_use32_bit_facs_addresses, align 1
+  %13 = icmp ne i8 %12, 0
+  %14 = select i1 %11, i1 %13, i1 false
+  br i1 %14, label %19, label %15
 
-13:                                               ; preds = %7
-  %14 = load i32, ptr @acpi_gbl_xfacs_index, align 4
-  %15 = call i32 @acpi_get_table_by_index(i32 noundef %14, ptr noundef nonnull %1) #6
-  %16 = load ptr, ptr %1, align 8
-  br label %24
+15:                                               ; preds = %8
+  %16 = load i32, ptr @acpi_gbl_xfacs_index, align 4
+  %17 = call i32 @acpi_get_table_by_index(i32 noundef %16, ptr noundef nonnull %1) #6
+  %18 = load ptr, ptr %1, align 8
+  br label %27
 
-17:                                               ; preds = %7, %4
-  %18 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 1), align 1
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %26, label %20
+19:                                               ; preds = %8, %4
+  %20 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 1
+  %21 = load i32, ptr %20, align 1
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %29, label %23
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr @acpi_gbl_facs_index, align 4
-  %22 = call i32 @acpi_get_table_by_index(i32 noundef %21, ptr noundef nonnull %1) #6
-  %23 = load ptr, ptr %1, align 8
-  br label %24
+23:                                               ; preds = %19
+  %24 = load i32, ptr @acpi_gbl_facs_index, align 4
+  %25 = call i32 @acpi_get_table_by_index(i32 noundef %24, ptr noundef nonnull %1) #6
+  %26 = load ptr, ptr %1, align 8
+  br label %27
 
-24:                                               ; preds = %20, %13, %0
-  %25 = phi ptr [ %23, %20 ], [ %16, %13 ], [ null, %0 ]
-  store ptr %25, ptr @acpi_gbl_FACS, align 8
-  br label %26
+27:                                               ; preds = %23, %15, %0
+  %28 = phi ptr [ %26, %23 ], [ %18, %15 ], [ null, %0 ]
+  store ptr %28, ptr @acpi_gbl_FACS, align 8
+  br label %29
 
-26:                                               ; preds = %24, %17
+29:                                               ; preds = %27, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
   ret i32 0
 }
@@ -89,36 +92,40 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_tb_check_dsdt_header() local_unnamed_addr #0 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.acpi_table_header, ptr @acpi_gbl_original_dsdt_header, i64 0, i32 1), align 1
-  %2 = load ptr, ptr @acpi_gbl_DSDT, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
-  %4 = load i32, ptr %3, align 1
-  %5 = icmp eq i32 %1, %4
-  br i1 %5, label %6, label %11
+  %1 = getelementptr inbounds %struct.acpi_table_header, ptr @acpi_gbl_original_dsdt_header, i64 0, i32 1
+  %2 = load i32, ptr %1, align 1
+  %3 = load ptr, ptr @acpi_gbl_DSDT, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = load i32, ptr %4, align 1
+  %6 = icmp eq i32 %2, %5
+  br i1 %6, label %7, label %13
 
-6:                                                ; preds = %0
-  %7 = load i8, ptr getelementptr inbounds (%struct.acpi_table_header, ptr @acpi_gbl_original_dsdt_header, i64 0, i32 3), align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 9
+7:                                                ; preds = %0
+  %8 = getelementptr inbounds %struct.acpi_table_header, ptr @acpi_gbl_original_dsdt_header, i64 0, i32 3
   %9 = load i8, ptr %8, align 1
-  %10 = icmp eq i8 %7, %9
-  br i1 %10, label %18, label %11
+  %10 = getelementptr inbounds i8, ptr %3, i64 9
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %9, %11
+  br i1 %12, label %22, label %13
 
-11:                                               ; preds = %6, %0
+13:                                               ; preds = %7, %0
   tail call void (ptr, i32, ptr, ...) @acpi_bios_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 87, ptr noundef nonnull @.str) #6
   tail call void @acpi_tb_print_table_header(i64 noundef 0, ptr noundef nonnull @acpi_gbl_original_dsdt_header) #6
-  %12 = load ptr, ptr @acpi_gbl_DSDT, align 8
-  tail call void @acpi_tb_print_table_header(i64 noundef 0, ptr noundef %12) #6
+  %14 = load ptr, ptr @acpi_gbl_DSDT, align 8
+  tail call void @acpi_tb_print_table_header(i64 noundef 0, ptr noundef %14) #6
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 94, ptr noundef nonnull @.str.1) #6
-  %13 = load ptr, ptr @acpi_gbl_DSDT, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
-  %15 = load i32, ptr %14, align 1
-  store i32 %15, ptr getelementptr inbounds (%struct.acpi_table_header, ptr @acpi_gbl_original_dsdt_header, i64 0, i32 1), align 1
-  %16 = getelementptr inbounds i8, ptr %13, i64 9
-  %17 = load i8, ptr %16, align 1
-  store i8 %17, ptr getelementptr inbounds (%struct.acpi_table_header, ptr @acpi_gbl_original_dsdt_header, i64 0, i32 3), align 1
-  br label %18
+  %15 = load ptr, ptr @acpi_gbl_DSDT, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 1
+  %18 = getelementptr inbounds %struct.acpi_table_header, ptr @acpi_gbl_original_dsdt_header, i64 0, i32 1
+  store i32 %17, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %15, i64 9
+  %20 = load i8, ptr %19, align 1
+  %21 = getelementptr inbounds %struct.acpi_table_header, ptr @acpi_gbl_original_dsdt_header, i64 0, i32 3
+  store i8 %20, ptr %21, align 1
+  br label %22
 
-18:                                               ; preds = %11, %6
+22:                                               ; preds = %13, %7
   ret void
 }
 

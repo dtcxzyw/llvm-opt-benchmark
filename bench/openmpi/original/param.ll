@@ -210,184 +210,186 @@ define dso_local void @prte_info_do_params(i1 noundef zeroext %0, i1 noundef zer
 38:                                               ; preds = %37, %19
   %39 = load i8, ptr %12, align 1
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %60
+  br i1 %40, label %41, label %61
 
 41:                                               ; preds = %38
   store i32 0, ptr %10, align 4
   br label %42
 
-42:                                               ; preds = %56, %41
+42:                                               ; preds = %57, %41
   %43 = load i32, ptr %10, align 4
-  %44 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i32 0, i32 3), align 8
-  %45 = icmp slt i32 %43, %44
-  br i1 %45, label %46, label %59
+  %44 = getelementptr inbounds %struct.pmix_pointer_array_t, ptr @mca_types, i32 0, i32 3
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp slt i32 %43, %45
+  br i1 %46, label %47, label %60
 
-46:                                               ; preds = %42
-  %47 = load i32, ptr %10, align 4
-  %48 = call ptr @pmix_pointer_array_get_item(ptr noundef @mca_types, i32 noundef %47)
-  store ptr %48, ptr %5, align 8
-  %49 = icmp eq ptr null, %48
-  br i1 %49, label %50, label %51
+47:                                               ; preds = %42
+  %48 = load i32, ptr %10, align 4
+  %49 = call ptr @pmix_pointer_array_get_item(ptr noundef @mca_types, i32 noundef %48)
+  store ptr %49, ptr %5, align 8
+  %50 = icmp eq ptr null, %49
+  br i1 %50, label %51, label %52
 
-50:                                               ; preds = %46
-  br label %56
+51:                                               ; preds = %47
+  br label %57
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %5, align 8
-  %53 = load ptr, ptr @prte_info_component_all, align 8
-  %54 = load i8, ptr %4, align 1
-  %55 = trunc i8 %54 to i1
-  call void @prte_info_show_mca_params(ptr noundef %52, ptr noundef %53, i1 noundef zeroext %55)
-  br label %56
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %5, align 8
+  %54 = load ptr, ptr @prte_info_component_all, align 8
+  %55 = load i8, ptr %4, align 1
+  %56 = trunc i8 %55 to i1
+  call void @prte_info_show_mca_params(ptr noundef %53, ptr noundef %54, i1 noundef zeroext %56)
+  br label %57
 
-56:                                               ; preds = %51, %50
-  %57 = load i32, ptr %10, align 4
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %10, align 4
+57:                                               ; preds = %52, %51
+  %58 = load i32, ptr %10, align 4
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %10, align 4
   br label %42, !llvm.loop !5
 
-59:                                               ; preds = %42
-  br label %133
+60:                                               ; preds = %42
+  br label %135
 
-60:                                               ; preds = %38
-  %61 = load ptr, ptr %13, align 8
-  %62 = icmp ne ptr null, %61
-  br i1 %62, label %63, label %132
+61:                                               ; preds = %38
+  %62 = load ptr, ptr %13, align 8
+  %63 = icmp ne ptr null, %62
+  br i1 %63, label %64, label %134
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %7, align 8
-  %65 = icmp ne ptr null, %64
-  br i1 %65, label %66, label %132
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %7, align 8
+  %66 = icmp ne ptr null, %65
+  br i1 %66, label %67, label %134
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 0
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %5, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 1
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp ne ptr null, %72
-  br i1 %73, label %74, label %127
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds ptr, ptr %68, i64 0
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %5, align 8
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds ptr, ptr %71, i64 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp ne ptr null, %73
+  br i1 %74, label %75, label %129
 
-74:                                               ; preds = %66
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds ptr, ptr %75, i64 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = call ptr @PMIx_Argv_split(ptr noundef %77, i32 noundef 44)
-  store ptr %78, ptr %8, align 8
+75:                                               ; preds = %67
+  %76 = load ptr, ptr %7, align 8
+  %77 = getelementptr inbounds ptr, ptr %76, i64 1
+  %78 = load ptr, ptr %77, align 8
+  %79 = call ptr @PMIx_Argv_split(ptr noundef %78, i32 noundef 44)
+  store ptr %79, ptr %8, align 8
   store i32 0, ptr %11, align 4
-  br label %79
+  br label %80
 
-79:                                               ; preds = %122, %74
-  %80 = load ptr, ptr %8, align 8
-  %81 = load i32, ptr %11, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp ne ptr null, %84
-  br i1 %85, label %86, label %125
+80:                                               ; preds = %124, %75
+  %81 = load ptr, ptr %8, align 8
+  %82 = load i32, ptr %11, align 4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds ptr, ptr %81, i64 %83
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp ne ptr null, %85
+  br i1 %86, label %87, label %127
 
-86:                                               ; preds = %79
+87:                                               ; preds = %80
   store i8 0, ptr %9, align 1
   store i32 0, ptr %10, align 4
-  br label %87
+  br label %88
 
-87:                                               ; preds = %104, %86
-  %88 = load i32, ptr %10, align 4
-  %89 = load i32, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @mca_types, i32 0, i32 3), align 8
-  %90 = icmp slt i32 %88, %89
-  br i1 %90, label %91, label %107
+88:                                               ; preds = %106, %87
+  %89 = load i32, ptr %10, align 4
+  %90 = getelementptr inbounds %struct.pmix_pointer_array_t, ptr @mca_types, i32 0, i32 3
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp slt i32 %89, %91
+  br i1 %92, label %93, label %109
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr %10, align 4
-  %93 = call ptr @pmix_pointer_array_get_item(ptr noundef @mca_types, i32 noundef %92)
-  store ptr %93, ptr %6, align 8
-  %94 = load ptr, ptr %6, align 8
-  %95 = icmp eq ptr null, %94
-  br i1 %95, label %96, label %97
+93:                                               ; preds = %88
+  %94 = load i32, ptr %10, align 4
+  %95 = call ptr @pmix_pointer_array_get_item(ptr noundef @mca_types, i32 noundef %94)
+  store ptr %95, ptr %6, align 8
+  %96 = load ptr, ptr %6, align 8
+  %97 = icmp eq ptr null, %96
+  br i1 %97, label %98, label %99
 
-96:                                               ; preds = %91
-  br label %104
+98:                                               ; preds = %93
+  br label %106
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %6, align 8
-  %99 = load ptr, ptr %5, align 8
-  %100 = call i32 @strcmp(ptr noundef %98, ptr noundef %99) #5
-  %101 = icmp eq i32 0, %100
-  br i1 %101, label %102, label %103
+99:                                               ; preds = %93
+  %100 = load ptr, ptr %6, align 8
+  %101 = load ptr, ptr %5, align 8
+  %102 = call i32 @strcmp(ptr noundef %100, ptr noundef %101) #5
+  %103 = icmp eq i32 0, %102
+  br i1 %103, label %104, label %105
 
-102:                                              ; preds = %97
+104:                                              ; preds = %99
   store i8 1, ptr %9, align 1
-  br label %107
+  br label %109
 
-103:                                              ; preds = %97
-  br label %104
+105:                                              ; preds = %99
+  br label %106
 
-104:                                              ; preds = %103, %96
-  %105 = load i32, ptr %10, align 4
-  %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %10, align 4
-  br label %87, !llvm.loop !7
+106:                                              ; preds = %105, %98
+  %107 = load i32, ptr %10, align 4
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %10, align 4
+  br label %88, !llvm.loop !7
 
-107:                                              ; preds = %102, %87
-  %108 = load i8, ptr %9, align 1
-  %109 = trunc i8 %108 to i1
-  br i1 %109, label %113, label %110
+109:                                              ; preds = %104, %88
+  %110 = load i8, ptr %9, align 1
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %115, label %112
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %5, align 8
-  %112 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef 1, ptr noundef %111)
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %5, align 8
+  %114 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef 1, ptr noundef %113)
   call void @exit(i32 noundef 1) #6
   unreachable
 
-113:                                              ; preds = %107
-  %114 = load ptr, ptr %5, align 8
-  %115 = load ptr, ptr %8, align 8
-  %116 = load i32, ptr %11, align 4
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds ptr, ptr %115, i64 %117
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i8, ptr %4, align 1
-  %121 = trunc i8 %120 to i1
-  call void @prte_info_show_mca_params(ptr noundef %114, ptr noundef %119, i1 noundef zeroext %121)
-  br label %122
+115:                                              ; preds = %109
+  %116 = load ptr, ptr %5, align 8
+  %117 = load ptr, ptr %8, align 8
+  %118 = load i32, ptr %11, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds ptr, ptr %117, i64 %119
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i8, ptr %4, align 1
+  %123 = trunc i8 %122 to i1
+  call void @prte_info_show_mca_params(ptr noundef %116, ptr noundef %121, i1 noundef zeroext %123)
+  br label %124
 
-122:                                              ; preds = %113
-  %123 = load i32, ptr %11, align 4
-  %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %11, align 4
-  br label %79, !llvm.loop !8
+124:                                              ; preds = %115
+  %125 = load i32, ptr %11, align 4
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %11, align 4
+  br label %80, !llvm.loop !8
 
-125:                                              ; preds = %79
-  %126 = load ptr, ptr %8, align 8
-  call void @PMIx_Argv_free(ptr noundef %126)
-  br label %131
-
-127:                                              ; preds = %66
-  %128 = load ptr, ptr %5, align 8
-  %129 = load i8, ptr %4, align 1
-  %130 = trunc i8 %129 to i1
-  call void @prte_info_show_mca_params(ptr noundef %128, ptr noundef @.str.21, i1 noundef zeroext %130)
-  br label %131
-
-131:                                              ; preds = %127, %125
-  br label %132
-
-132:                                              ; preds = %131, %63, %60
+127:                                              ; preds = %80
+  %128 = load ptr, ptr %8, align 8
+  call void @PMIx_Argv_free(ptr noundef %128)
   br label %133
 
-133:                                              ; preds = %132, %59
-  %134 = load ptr, ptr %7, align 8
-  %135 = icmp ne ptr null, %134
-  br i1 %135, label %136, label %138
+129:                                              ; preds = %67
+  %130 = load ptr, ptr %5, align 8
+  %131 = load i8, ptr %4, align 1
+  %132 = trunc i8 %131 to i1
+  call void @prte_info_show_mca_params(ptr noundef %130, ptr noundef @.str.21, i1 noundef zeroext %132)
+  br label %133
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %7, align 8
-  call void @PMIx_Argv_free(ptr noundef %137)
-  br label %138
+133:                                              ; preds = %129, %127
+  br label %134
 
-138:                                              ; preds = %136, %133
+134:                                              ; preds = %133, %64, %61
+  br label %135
+
+135:                                              ; preds = %134, %60
+  %136 = load ptr, ptr %7, align 8
+  %137 = icmp ne ptr null, %136
+  br i1 %137, label %138, label %140
+
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %7, align 8
+  call void @PMIx_Argv_free(ptr noundef %139)
+  br label %140
+
+140:                                              ; preds = %138, %135
   ret void
 }
 
@@ -836,383 +838,416 @@ define dso_local void @prte_info_do_path(i1 noundef zeroext %0) #0 {
 37:                                               ; preds = %36, %1
   %38 = load i8, ptr %2, align 1
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %77
+  br i1 %39, label %40, label %94
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr @prte_info_path_prefix, align 8
   %42 = load ptr, ptr @prte_install_dirs, align 8
   call void @prte_info_show_path(ptr noundef %41, ptr noundef %42)
   %43 = load ptr, ptr @prte_info_path_exec_prefix, align 8
-  %44 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 1), align 8
-  call void @prte_info_show_path(ptr noundef %43, ptr noundef %44)
-  %45 = load ptr, ptr @prte_info_path_bindir, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 2), align 8
-  call void @prte_info_show_path(ptr noundef %45, ptr noundef %46)
-  %47 = load ptr, ptr @prte_info_path_sbindir, align 8
-  %48 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 3), align 8
-  call void @prte_info_show_path(ptr noundef %47, ptr noundef %48)
-  %49 = load ptr, ptr @prte_info_path_libdir, align 8
-  %50 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 10), align 8
-  call void @prte_info_show_path(ptr noundef %49, ptr noundef %50)
-  %51 = load ptr, ptr @prte_info_path_incdir, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 11), align 8
-  call void @prte_info_show_path(ptr noundef %51, ptr noundef %52)
-  %53 = load ptr, ptr @prte_info_path_mandir, align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 13), align 8
-  call void @prte_info_show_path(ptr noundef %53, ptr noundef %54)
-  %55 = load ptr, ptr @prte_info_path_pkglibdir, align 8
-  %56 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 15), align 8
-  call void @prte_info_show_path(ptr noundef %55, ptr noundef %56)
-  %57 = load ptr, ptr @prte_info_path_libexecdir, align 8
-  %58 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 4), align 8
-  call void @prte_info_show_path(ptr noundef %57, ptr noundef %58)
-  %59 = load ptr, ptr @prte_info_path_datarootdir, align 8
-  %60 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 5), align 8
-  call void @prte_info_show_path(ptr noundef %59, ptr noundef %60)
-  %61 = load ptr, ptr @prte_info_path_datadir, align 8
-  %62 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 6), align 8
-  call void @prte_info_show_path(ptr noundef %61, ptr noundef %62)
-  %63 = load ptr, ptr @prte_info_path_sysconfdir, align 8
-  %64 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 7), align 8
-  call void @prte_info_show_path(ptr noundef %63, ptr noundef %64)
-  %65 = load ptr, ptr @prte_info_path_sharedstatedir, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 8), align 8
-  call void @prte_info_show_path(ptr noundef %65, ptr noundef %66)
-  %67 = load ptr, ptr @prte_info_path_localstatedir, align 8
-  %68 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 9), align 8
-  call void @prte_info_show_path(ptr noundef %67, ptr noundef %68)
-  %69 = load ptr, ptr @prte_info_path_infodir, align 8
-  %70 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 12), align 8
-  call void @prte_info_show_path(ptr noundef %69, ptr noundef %70)
-  %71 = load ptr, ptr @prte_info_path_pkgdatadir, align 8
-  %72 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 14), align 8
-  call void @prte_info_show_path(ptr noundef %71, ptr noundef %72)
-  %73 = load ptr, ptr @prte_info_path_pkglibdir, align 8
-  %74 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 15), align 8
-  call void @prte_info_show_path(ptr noundef %73, ptr noundef %74)
-  %75 = load ptr, ptr @prte_info_path_pkgincludedir, align 8
-  %76 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 16), align 8
-  call void @prte_info_show_path(ptr noundef %75, ptr noundef %76)
-  br label %257
-
-77:                                               ; preds = %37
-  %78 = load ptr, ptr %5, align 8
-  %79 = icmp ne ptr null, %78
-  br i1 %79, label %80, label %256
-
-80:                                               ; preds = %77
-  store i32 0, ptr %3, align 4
-  br label %81
-
-81:                                               ; preds = %252, %80
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.pmix_cli_item_t, ptr %82, i32 0, i32 2
+  %44 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  call void @prte_info_show_path(ptr noundef %43, ptr noundef %45)
+  %46 = load ptr, ptr @prte_info_path_bindir, align 8
+  %47 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8
+  call void @prte_info_show_path(ptr noundef %46, ptr noundef %48)
+  %49 = load ptr, ptr @prte_info_path_sbindir, align 8
+  %50 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 3
+  %51 = load ptr, ptr %50, align 8
+  call void @prte_info_show_path(ptr noundef %49, ptr noundef %51)
+  %52 = load ptr, ptr @prte_info_path_libdir, align 8
+  %53 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 10
+  %54 = load ptr, ptr %53, align 8
+  call void @prte_info_show_path(ptr noundef %52, ptr noundef %54)
+  %55 = load ptr, ptr @prte_info_path_incdir, align 8
+  %56 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 11
+  %57 = load ptr, ptr %56, align 8
+  call void @prte_info_show_path(ptr noundef %55, ptr noundef %57)
+  %58 = load ptr, ptr @prte_info_path_mandir, align 8
+  %59 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 13
+  %60 = load ptr, ptr %59, align 8
+  call void @prte_info_show_path(ptr noundef %58, ptr noundef %60)
+  %61 = load ptr, ptr @prte_info_path_pkglibdir, align 8
+  %62 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 15
+  %63 = load ptr, ptr %62, align 8
+  call void @prte_info_show_path(ptr noundef %61, ptr noundef %63)
+  %64 = load ptr, ptr @prte_info_path_libexecdir, align 8
+  %65 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 4
+  %66 = load ptr, ptr %65, align 8
+  call void @prte_info_show_path(ptr noundef %64, ptr noundef %66)
+  %67 = load ptr, ptr @prte_info_path_datarootdir, align 8
+  %68 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 5
+  %69 = load ptr, ptr %68, align 8
+  call void @prte_info_show_path(ptr noundef %67, ptr noundef %69)
+  %70 = load ptr, ptr @prte_info_path_datadir, align 8
+  %71 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 6
+  %72 = load ptr, ptr %71, align 8
+  call void @prte_info_show_path(ptr noundef %70, ptr noundef %72)
+  %73 = load ptr, ptr @prte_info_path_sysconfdir, align 8
+  %74 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 7
+  %75 = load ptr, ptr %74, align 8
+  call void @prte_info_show_path(ptr noundef %73, ptr noundef %75)
+  %76 = load ptr, ptr @prte_info_path_sharedstatedir, align 8
+  %77 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 8
+  %78 = load ptr, ptr %77, align 8
+  call void @prte_info_show_path(ptr noundef %76, ptr noundef %78)
+  %79 = load ptr, ptr @prte_info_path_localstatedir, align 8
+  %80 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 9
+  %81 = load ptr, ptr %80, align 8
+  call void @prte_info_show_path(ptr noundef %79, ptr noundef %81)
+  %82 = load ptr, ptr @prte_info_path_infodir, align 8
+  %83 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 12
   %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %3, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp ne ptr null, %88
-  br i1 %89, label %90, label %255
-
-90:                                               ; preds = %81
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.pmix_cli_item_t, ptr %91, i32 0, i32 2
+  call void @prte_info_show_path(ptr noundef %82, ptr noundef %84)
+  %85 = load ptr, ptr @prte_info_path_pkgdatadir, align 8
+  %86 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 14
+  %87 = load ptr, ptr %86, align 8
+  call void @prte_info_show_path(ptr noundef %85, ptr noundef %87)
+  %88 = load ptr, ptr @prte_info_path_pkglibdir, align 8
+  %89 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 15
+  %90 = load ptr, ptr %89, align 8
+  call void @prte_info_show_path(ptr noundef %88, ptr noundef %90)
+  %91 = load ptr, ptr @prte_info_path_pkgincludedir, align 8
+  %92 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 16
   %93 = load ptr, ptr %92, align 8
-  %94 = load i32, ptr %3, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %93, i64 %95
-  %97 = load ptr, ptr %96, align 8
-  store ptr %97, ptr %4, align 8
-  %98 = load ptr, ptr @prte_info_path_prefix, align 8
-  %99 = load ptr, ptr %4, align 8
-  %100 = call i32 @strcmp(ptr noundef %98, ptr noundef %99) #5
-  %101 = icmp eq i32 0, %100
-  br i1 %101, label %102, label %105
+  call void @prte_info_show_path(ptr noundef %91, ptr noundef %93)
+  br label %290
 
-102:                                              ; preds = %90
-  %103 = load ptr, ptr @prte_info_path_prefix, align 8
-  %104 = load ptr, ptr @prte_install_dirs, align 8
-  call void @prte_info_show_path(ptr noundef %103, ptr noundef %104)
-  br label %251
+94:                                               ; preds = %37
+  %95 = load ptr, ptr %5, align 8
+  %96 = icmp ne ptr null, %95
+  br i1 %96, label %97, label %289
 
-105:                                              ; preds = %90
-  %106 = load ptr, ptr @prte_info_path_bindir, align 8
-  %107 = load ptr, ptr %4, align 8
-  %108 = call i32 @strcmp(ptr noundef %106, ptr noundef %107) #5
-  %109 = icmp eq i32 0, %108
-  br i1 %109, label %110, label %113
+97:                                               ; preds = %94
+  store i32 0, ptr %3, align 4
+  br label %98
 
-110:                                              ; preds = %105
-  %111 = load ptr, ptr @prte_info_path_bindir, align 8
-  %112 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 2), align 8
-  call void @prte_info_show_path(ptr noundef %111, ptr noundef %112)
-  br label %250
+98:                                               ; preds = %285, %97
+  %99 = load ptr, ptr %5, align 8
+  %100 = getelementptr inbounds %struct.pmix_cli_item_t, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8
+  %102 = load i32, ptr %3, align 4
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds ptr, ptr %101, i64 %103
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp ne ptr null, %105
+  br i1 %106, label %107, label %288
 
-113:                                              ; preds = %105
-  %114 = load ptr, ptr @prte_info_path_libdir, align 8
-  %115 = load ptr, ptr %4, align 8
-  %116 = call i32 @strcmp(ptr noundef %114, ptr noundef %115) #5
-  %117 = icmp eq i32 0, %116
-  br i1 %117, label %118, label %121
+107:                                              ; preds = %98
+  %108 = load ptr, ptr %5, align 8
+  %109 = getelementptr inbounds %struct.pmix_cli_item_t, ptr %108, i32 0, i32 2
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i32, ptr %3, align 4
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds ptr, ptr %110, i64 %112
+  %114 = load ptr, ptr %113, align 8
+  store ptr %114, ptr %4, align 8
+  %115 = load ptr, ptr @prte_info_path_prefix, align 8
+  %116 = load ptr, ptr %4, align 8
+  %117 = call i32 @strcmp(ptr noundef %115, ptr noundef %116) #5
+  %118 = icmp eq i32 0, %117
+  br i1 %118, label %119, label %122
 
-118:                                              ; preds = %113
-  %119 = load ptr, ptr @prte_info_path_libdir, align 8
-  %120 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 10), align 8
-  call void @prte_info_show_path(ptr noundef %119, ptr noundef %120)
-  br label %249
+119:                                              ; preds = %107
+  %120 = load ptr, ptr @prte_info_path_prefix, align 8
+  %121 = load ptr, ptr @prte_install_dirs, align 8
+  call void @prte_info_show_path(ptr noundef %120, ptr noundef %121)
+  br label %284
 
-121:                                              ; preds = %113
-  %122 = load ptr, ptr @prte_info_path_incdir, align 8
-  %123 = load ptr, ptr %4, align 8
-  %124 = call i32 @strcmp(ptr noundef %122, ptr noundef %123) #5
-  %125 = icmp eq i32 0, %124
-  br i1 %125, label %126, label %129
+122:                                              ; preds = %107
+  %123 = load ptr, ptr @prte_info_path_bindir, align 8
+  %124 = load ptr, ptr %4, align 8
+  %125 = call i32 @strcmp(ptr noundef %123, ptr noundef %124) #5
+  %126 = icmp eq i32 0, %125
+  br i1 %126, label %127, label %131
 
-126:                                              ; preds = %121
-  %127 = load ptr, ptr @prte_info_path_incdir, align 8
-  %128 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 11), align 8
-  call void @prte_info_show_path(ptr noundef %127, ptr noundef %128)
-  br label %248
+127:                                              ; preds = %122
+  %128 = load ptr, ptr @prte_info_path_bindir, align 8
+  %129 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 2
+  %130 = load ptr, ptr %129, align 8
+  call void @prte_info_show_path(ptr noundef %128, ptr noundef %130)
+  br label %283
 
-129:                                              ; preds = %121
-  %130 = load ptr, ptr @prte_info_path_mandir, align 8
-  %131 = load ptr, ptr %4, align 8
-  %132 = call i32 @strcmp(ptr noundef %130, ptr noundef %131) #5
-  %133 = icmp eq i32 0, %132
-  br i1 %133, label %134, label %137
+131:                                              ; preds = %122
+  %132 = load ptr, ptr @prte_info_path_libdir, align 8
+  %133 = load ptr, ptr %4, align 8
+  %134 = call i32 @strcmp(ptr noundef %132, ptr noundef %133) #5
+  %135 = icmp eq i32 0, %134
+  br i1 %135, label %136, label %140
 
-134:                                              ; preds = %129
-  %135 = load ptr, ptr @prte_info_path_mandir, align 8
-  %136 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 13), align 8
-  call void @prte_info_show_path(ptr noundef %135, ptr noundef %136)
-  br label %247
+136:                                              ; preds = %131
+  %137 = load ptr, ptr @prte_info_path_libdir, align 8
+  %138 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 10
+  %139 = load ptr, ptr %138, align 8
+  call void @prte_info_show_path(ptr noundef %137, ptr noundef %139)
+  br label %282
 
-137:                                              ; preds = %129
-  %138 = load ptr, ptr @prte_info_path_pkglibdir, align 8
-  %139 = load ptr, ptr %4, align 8
-  %140 = call i32 @strcmp(ptr noundef %138, ptr noundef %139) #5
-  %141 = icmp eq i32 0, %140
-  br i1 %141, label %142, label %145
+140:                                              ; preds = %131
+  %141 = load ptr, ptr @prte_info_path_incdir, align 8
+  %142 = load ptr, ptr %4, align 8
+  %143 = call i32 @strcmp(ptr noundef %141, ptr noundef %142) #5
+  %144 = icmp eq i32 0, %143
+  br i1 %144, label %145, label %149
 
-142:                                              ; preds = %137
-  %143 = load ptr, ptr @prte_info_path_pkglibdir, align 8
-  %144 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 15), align 8
-  call void @prte_info_show_path(ptr noundef %143, ptr noundef %144)
-  br label %246
+145:                                              ; preds = %140
+  %146 = load ptr, ptr @prte_info_path_incdir, align 8
+  %147 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 11
+  %148 = load ptr, ptr %147, align 8
+  call void @prte_info_show_path(ptr noundef %146, ptr noundef %148)
+  br label %281
 
-145:                                              ; preds = %137
-  %146 = load ptr, ptr @prte_info_path_sysconfdir, align 8
-  %147 = load ptr, ptr %4, align 8
-  %148 = call i32 @strcmp(ptr noundef %146, ptr noundef %147) #5
-  %149 = icmp eq i32 0, %148
-  br i1 %149, label %150, label %153
+149:                                              ; preds = %140
+  %150 = load ptr, ptr @prte_info_path_mandir, align 8
+  %151 = load ptr, ptr %4, align 8
+  %152 = call i32 @strcmp(ptr noundef %150, ptr noundef %151) #5
+  %153 = icmp eq i32 0, %152
+  br i1 %153, label %154, label %158
 
-150:                                              ; preds = %145
-  %151 = load ptr, ptr @prte_info_path_sysconfdir, align 8
-  %152 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 7), align 8
-  call void @prte_info_show_path(ptr noundef %151, ptr noundef %152)
-  br label %245
+154:                                              ; preds = %149
+  %155 = load ptr, ptr @prte_info_path_mandir, align 8
+  %156 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 13
+  %157 = load ptr, ptr %156, align 8
+  call void @prte_info_show_path(ptr noundef %155, ptr noundef %157)
+  br label %280
 
-153:                                              ; preds = %145
-  %154 = load ptr, ptr @prte_info_path_exec_prefix, align 8
-  %155 = load ptr, ptr %4, align 8
-  %156 = call i32 @strcmp(ptr noundef %154, ptr noundef %155) #5
-  %157 = icmp eq i32 0, %156
-  br i1 %157, label %158, label %161
+158:                                              ; preds = %149
+  %159 = load ptr, ptr @prte_info_path_pkglibdir, align 8
+  %160 = load ptr, ptr %4, align 8
+  %161 = call i32 @strcmp(ptr noundef %159, ptr noundef %160) #5
+  %162 = icmp eq i32 0, %161
+  br i1 %162, label %163, label %167
 
-158:                                              ; preds = %153
-  %159 = load ptr, ptr @prte_info_path_exec_prefix, align 8
-  %160 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 1), align 8
-  call void @prte_info_show_path(ptr noundef %159, ptr noundef %160)
-  br label %244
+163:                                              ; preds = %158
+  %164 = load ptr, ptr @prte_info_path_pkglibdir, align 8
+  %165 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 15
+  %166 = load ptr, ptr %165, align 8
+  call void @prte_info_show_path(ptr noundef %164, ptr noundef %166)
+  br label %279
 
-161:                                              ; preds = %153
-  %162 = load ptr, ptr @prte_info_path_sbindir, align 8
-  %163 = load ptr, ptr %4, align 8
-  %164 = call i32 @strcmp(ptr noundef %162, ptr noundef %163) #5
-  %165 = icmp eq i32 0, %164
-  br i1 %165, label %166, label %169
+167:                                              ; preds = %158
+  %168 = load ptr, ptr @prte_info_path_sysconfdir, align 8
+  %169 = load ptr, ptr %4, align 8
+  %170 = call i32 @strcmp(ptr noundef %168, ptr noundef %169) #5
+  %171 = icmp eq i32 0, %170
+  br i1 %171, label %172, label %176
 
-166:                                              ; preds = %161
-  %167 = load ptr, ptr @prte_info_path_sbindir, align 8
-  %168 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 3), align 8
-  call void @prte_info_show_path(ptr noundef %167, ptr noundef %168)
-  br label %243
+172:                                              ; preds = %167
+  %173 = load ptr, ptr @prte_info_path_sysconfdir, align 8
+  %174 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 7
+  %175 = load ptr, ptr %174, align 8
+  call void @prte_info_show_path(ptr noundef %173, ptr noundef %175)
+  br label %278
 
-169:                                              ; preds = %161
-  %170 = load ptr, ptr @prte_info_path_libexecdir, align 8
-  %171 = load ptr, ptr %4, align 8
-  %172 = call i32 @strcmp(ptr noundef %170, ptr noundef %171) #5
-  %173 = icmp eq i32 0, %172
-  br i1 %173, label %174, label %177
+176:                                              ; preds = %167
+  %177 = load ptr, ptr @prte_info_path_exec_prefix, align 8
+  %178 = load ptr, ptr %4, align 8
+  %179 = call i32 @strcmp(ptr noundef %177, ptr noundef %178) #5
+  %180 = icmp eq i32 0, %179
+  br i1 %180, label %181, label %185
 
-174:                                              ; preds = %169
-  %175 = load ptr, ptr @prte_info_path_libexecdir, align 8
-  %176 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 4), align 8
-  call void @prte_info_show_path(ptr noundef %175, ptr noundef %176)
-  br label %242
+181:                                              ; preds = %176
+  %182 = load ptr, ptr @prte_info_path_exec_prefix, align 8
+  %183 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 1
+  %184 = load ptr, ptr %183, align 8
+  call void @prte_info_show_path(ptr noundef %182, ptr noundef %184)
+  br label %277
 
-177:                                              ; preds = %169
-  %178 = load ptr, ptr @prte_info_path_datarootdir, align 8
-  %179 = load ptr, ptr %4, align 8
-  %180 = call i32 @strcmp(ptr noundef %178, ptr noundef %179) #5
-  %181 = icmp eq i32 0, %180
-  br i1 %181, label %182, label %185
-
-182:                                              ; preds = %177
-  %183 = load ptr, ptr @prte_info_path_datarootdir, align 8
-  %184 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 5), align 8
-  call void @prte_info_show_path(ptr noundef %183, ptr noundef %184)
-  br label %241
-
-185:                                              ; preds = %177
-  %186 = load ptr, ptr @prte_info_path_datadir, align 8
+185:                                              ; preds = %176
+  %186 = load ptr, ptr @prte_info_path_sbindir, align 8
   %187 = load ptr, ptr %4, align 8
   %188 = call i32 @strcmp(ptr noundef %186, ptr noundef %187) #5
   %189 = icmp eq i32 0, %188
-  br i1 %189, label %190, label %193
+  br i1 %189, label %190, label %194
 
 190:                                              ; preds = %185
-  %191 = load ptr, ptr @prte_info_path_datadir, align 8
-  %192 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 6), align 8
-  call void @prte_info_show_path(ptr noundef %191, ptr noundef %192)
-  br label %240
+  %191 = load ptr, ptr @prte_info_path_sbindir, align 8
+  %192 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 3
+  %193 = load ptr, ptr %192, align 8
+  call void @prte_info_show_path(ptr noundef %191, ptr noundef %193)
+  br label %276
 
-193:                                              ; preds = %185
-  %194 = load ptr, ptr @prte_info_path_sharedstatedir, align 8
-  %195 = load ptr, ptr %4, align 8
-  %196 = call i32 @strcmp(ptr noundef %194, ptr noundef %195) #5
-  %197 = icmp eq i32 0, %196
-  br i1 %197, label %198, label %201
+194:                                              ; preds = %185
+  %195 = load ptr, ptr @prte_info_path_libexecdir, align 8
+  %196 = load ptr, ptr %4, align 8
+  %197 = call i32 @strcmp(ptr noundef %195, ptr noundef %196) #5
+  %198 = icmp eq i32 0, %197
+  br i1 %198, label %199, label %203
 
-198:                                              ; preds = %193
-  %199 = load ptr, ptr @prte_info_path_sharedstatedir, align 8
-  %200 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 8), align 8
-  call void @prte_info_show_path(ptr noundef %199, ptr noundef %200)
-  br label %239
+199:                                              ; preds = %194
+  %200 = load ptr, ptr @prte_info_path_libexecdir, align 8
+  %201 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 4
+  %202 = load ptr, ptr %201, align 8
+  call void @prte_info_show_path(ptr noundef %200, ptr noundef %202)
+  br label %275
 
-201:                                              ; preds = %193
-  %202 = load ptr, ptr @prte_info_path_localstatedir, align 8
-  %203 = load ptr, ptr %4, align 8
-  %204 = call i32 @strcmp(ptr noundef %202, ptr noundef %203) #5
-  %205 = icmp eq i32 0, %204
-  br i1 %205, label %206, label %209
+203:                                              ; preds = %194
+  %204 = load ptr, ptr @prte_info_path_datarootdir, align 8
+  %205 = load ptr, ptr %4, align 8
+  %206 = call i32 @strcmp(ptr noundef %204, ptr noundef %205) #5
+  %207 = icmp eq i32 0, %206
+  br i1 %207, label %208, label %212
 
-206:                                              ; preds = %201
-  %207 = load ptr, ptr @prte_info_path_localstatedir, align 8
-  %208 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 9), align 8
-  call void @prte_info_show_path(ptr noundef %207, ptr noundef %208)
-  br label %238
+208:                                              ; preds = %203
+  %209 = load ptr, ptr @prte_info_path_datarootdir, align 8
+  %210 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 5
+  %211 = load ptr, ptr %210, align 8
+  call void @prte_info_show_path(ptr noundef %209, ptr noundef %211)
+  br label %274
 
-209:                                              ; preds = %201
-  %210 = load ptr, ptr @prte_info_path_infodir, align 8
-  %211 = load ptr, ptr %4, align 8
-  %212 = call i32 @strcmp(ptr noundef %210, ptr noundef %211) #5
-  %213 = icmp eq i32 0, %212
-  br i1 %213, label %214, label %217
+212:                                              ; preds = %203
+  %213 = load ptr, ptr @prte_info_path_datadir, align 8
+  %214 = load ptr, ptr %4, align 8
+  %215 = call i32 @strcmp(ptr noundef %213, ptr noundef %214) #5
+  %216 = icmp eq i32 0, %215
+  br i1 %216, label %217, label %221
 
-214:                                              ; preds = %209
-  %215 = load ptr, ptr @prte_info_path_infodir, align 8
-  %216 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 12), align 8
-  call void @prte_info_show_path(ptr noundef %215, ptr noundef %216)
-  br label %237
+217:                                              ; preds = %212
+  %218 = load ptr, ptr @prte_info_path_datadir, align 8
+  %219 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 6
+  %220 = load ptr, ptr %219, align 8
+  call void @prte_info_show_path(ptr noundef %218, ptr noundef %220)
+  br label %273
 
-217:                                              ; preds = %209
-  %218 = load ptr, ptr @prte_info_path_pkgdatadir, align 8
-  %219 = load ptr, ptr %4, align 8
-  %220 = call i32 @strcmp(ptr noundef %218, ptr noundef %219) #5
-  %221 = icmp eq i32 0, %220
-  br i1 %221, label %222, label %225
+221:                                              ; preds = %212
+  %222 = load ptr, ptr @prte_info_path_sharedstatedir, align 8
+  %223 = load ptr, ptr %4, align 8
+  %224 = call i32 @strcmp(ptr noundef %222, ptr noundef %223) #5
+  %225 = icmp eq i32 0, %224
+  br i1 %225, label %226, label %230
 
-222:                                              ; preds = %217
-  %223 = load ptr, ptr @prte_info_path_pkgdatadir, align 8
-  %224 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 14), align 8
-  call void @prte_info_show_path(ptr noundef %223, ptr noundef %224)
-  br label %236
+226:                                              ; preds = %221
+  %227 = load ptr, ptr @prte_info_path_sharedstatedir, align 8
+  %228 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 8
+  %229 = load ptr, ptr %228, align 8
+  call void @prte_info_show_path(ptr noundef %227, ptr noundef %229)
+  br label %272
 
-225:                                              ; preds = %217
-  %226 = load ptr, ptr @prte_info_path_pkgincludedir, align 8
-  %227 = load ptr, ptr %4, align 8
-  %228 = call i32 @strcmp(ptr noundef %226, ptr noundef %227) #5
-  %229 = icmp eq i32 0, %228
-  br i1 %229, label %230, label %233
+230:                                              ; preds = %221
+  %231 = load ptr, ptr @prte_info_path_localstatedir, align 8
+  %232 = load ptr, ptr %4, align 8
+  %233 = call i32 @strcmp(ptr noundef %231, ptr noundef %232) #5
+  %234 = icmp eq i32 0, %233
+  br i1 %234, label %235, label %239
 
-230:                                              ; preds = %225
-  %231 = load ptr, ptr @prte_info_path_pkgincludedir, align 8
-  %232 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 16), align 8
-  call void @prte_info_show_path(ptr noundef %231, ptr noundef %232)
-  br label %235
+235:                                              ; preds = %230
+  %236 = load ptr, ptr @prte_info_path_localstatedir, align 8
+  %237 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 9
+  %238 = load ptr, ptr %237, align 8
+  call void @prte_info_show_path(ptr noundef %236, ptr noundef %238)
+  br label %271
 
-233:                                              ; preds = %225
-  %234 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.19, ptr noundef @.str.23, i32 noundef 1, ptr noundef @.str.24)
+239:                                              ; preds = %230
+  %240 = load ptr, ptr @prte_info_path_infodir, align 8
+  %241 = load ptr, ptr %4, align 8
+  %242 = call i32 @strcmp(ptr noundef %240, ptr noundef %241) #5
+  %243 = icmp eq i32 0, %242
+  br i1 %243, label %244, label %248
+
+244:                                              ; preds = %239
+  %245 = load ptr, ptr @prte_info_path_infodir, align 8
+  %246 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 12
+  %247 = load ptr, ptr %246, align 8
+  call void @prte_info_show_path(ptr noundef %245, ptr noundef %247)
+  br label %270
+
+248:                                              ; preds = %239
+  %249 = load ptr, ptr @prte_info_path_pkgdatadir, align 8
+  %250 = load ptr, ptr %4, align 8
+  %251 = call i32 @strcmp(ptr noundef %249, ptr noundef %250) #5
+  %252 = icmp eq i32 0, %251
+  br i1 %252, label %253, label %257
+
+253:                                              ; preds = %248
+  %254 = load ptr, ptr @prte_info_path_pkgdatadir, align 8
+  %255 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 14
+  %256 = load ptr, ptr %255, align 8
+  call void @prte_info_show_path(ptr noundef %254, ptr noundef %256)
+  br label %269
+
+257:                                              ; preds = %248
+  %258 = load ptr, ptr @prte_info_path_pkgincludedir, align 8
+  %259 = load ptr, ptr %4, align 8
+  %260 = call i32 @strcmp(ptr noundef %258, ptr noundef %259) #5
+  %261 = icmp eq i32 0, %260
+  br i1 %261, label %262, label %266
+
+262:                                              ; preds = %257
+  %263 = load ptr, ptr @prte_info_path_pkgincludedir, align 8
+  %264 = getelementptr inbounds %struct.prte_install_dirs_t, ptr @prte_install_dirs, i32 0, i32 16
+  %265 = load ptr, ptr %264, align 8
+  call void @prte_info_show_path(ptr noundef %263, ptr noundef %265)
+  br label %268
+
+266:                                              ; preds = %257
+  %267 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.19, ptr noundef @.str.23, i32 noundef 1, ptr noundef @.str.24)
   call void @exit(i32 noundef 1) #6
   unreachable
 
-235:                                              ; preds = %230
-  br label %236
+268:                                              ; preds = %262
+  br label %269
 
-236:                                              ; preds = %235, %222
-  br label %237
+269:                                              ; preds = %268, %253
+  br label %270
 
-237:                                              ; preds = %236, %214
-  br label %238
+270:                                              ; preds = %269, %244
+  br label %271
 
-238:                                              ; preds = %237, %206
-  br label %239
+271:                                              ; preds = %270, %235
+  br label %272
 
-239:                                              ; preds = %238, %198
-  br label %240
+272:                                              ; preds = %271, %226
+  br label %273
 
-240:                                              ; preds = %239, %190
-  br label %241
+273:                                              ; preds = %272, %217
+  br label %274
 
-241:                                              ; preds = %240, %182
-  br label %242
+274:                                              ; preds = %273, %208
+  br label %275
 
-242:                                              ; preds = %241, %174
-  br label %243
+275:                                              ; preds = %274, %199
+  br label %276
 
-243:                                              ; preds = %242, %166
-  br label %244
+276:                                              ; preds = %275, %190
+  br label %277
 
-244:                                              ; preds = %243, %158
-  br label %245
+277:                                              ; preds = %276, %181
+  br label %278
 
-245:                                              ; preds = %244, %150
-  br label %246
+278:                                              ; preds = %277, %172
+  br label %279
 
-246:                                              ; preds = %245, %142
-  br label %247
+279:                                              ; preds = %278, %163
+  br label %280
 
-247:                                              ; preds = %246, %134
-  br label %248
+280:                                              ; preds = %279, %154
+  br label %281
 
-248:                                              ; preds = %247, %126
-  br label %249
+281:                                              ; preds = %280, %145
+  br label %282
 
-249:                                              ; preds = %248, %118
-  br label %250
+282:                                              ; preds = %281, %136
+  br label %283
 
-250:                                              ; preds = %249, %110
-  br label %251
+283:                                              ; preds = %282, %127
+  br label %284
 
-251:                                              ; preds = %250, %102
-  br label %252
+284:                                              ; preds = %283, %119
+  br label %285
 
-252:                                              ; preds = %251
-  %253 = load i32, ptr %3, align 4
-  %254 = add nsw i32 %253, 1
-  store i32 %254, ptr %3, align 4
-  br label %81, !llvm.loop !14
+285:                                              ; preds = %284
+  %286 = load i32, ptr %3, align 4
+  %287 = add nsw i32 %286, 1
+  store i32 %287, ptr %3, align 4
+  br label %98, !llvm.loop !14
 
-255:                                              ; preds = %81
-  br label %256
+288:                                              ; preds = %98
+  br label %289
 
-256:                                              ; preds = %255, %77
-  br label %257
+289:                                              ; preds = %288, %94
+  br label %290
 
-257:                                              ; preds = %256, %40
+290:                                              ; preds = %289, %40
   ret void
 }
 

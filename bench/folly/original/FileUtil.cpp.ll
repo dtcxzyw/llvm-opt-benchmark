@@ -1651,29 +1651,30 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 _ZN5folly22WriteFileAtomicOptionsD2Ev.exit:       ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp) #21
   %conv = sext i32 %call4 to i64
-  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr nonnull @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr nonnull getelementptr inbounds ([16 x i8], ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 0, i64 15), ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv)
+  %3 = getelementptr inbounds [16 x i8], ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 0, i64 15
+  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr nonnull @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr nonnull %3, ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv)
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %temporaryDirectory, align 8, !tbaa !52
-  %cmp.i.i.i.i9 = icmp eq ptr %4, %0
+  %5 = load ptr, ptr %temporaryDirectory, align 8, !tbaa !52
+  %cmp.i.i.i.i9 = icmp eq ptr %5, %0
   br i1 %cmp.i.i.i.i9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i11, label %if.then.i.i.i10
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i11: ; preds = %lpad
-  %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !53
-  %cmp3.i.i.i.i13 = icmp ult i64 %5, 16
+  %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !53
+  %cmp3.i.i.i.i13 = icmp ult i64 %6, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i13)
   br label %_ZN5folly22WriteFileAtomicOptionsD2Ev.exit14
 
 if.then.i.i.i10:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %4) #23
+  call void @_ZdlPv(ptr noundef %5) #23
   br label %_ZN5folly22WriteFileAtomicOptionsD2Ev.exit14
 
 _ZN5folly22WriteFileAtomicOptionsD2Ev.exit14:     ; preds = %if.then.i.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp) #21
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2361,7 +2362,8 @@ if.then.i.i36:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %if.then.i.i36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !81
+  %42 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2
+  store ptr %42, ptr %this, align 8, !tbaa !81
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__v, ptr %_M_code, align 8, !tbaa !89
   %_M_cat.i41 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2369,66 +2371,66 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %if.
   ret void
 
 lpad:                                             ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
-  %42 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup9
 
 lpad5:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i, %if.then.i.i.i.i, %if.then5.i
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont6
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %ref.tmp, align 8, !tbaa !52
-  %46 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i42 = icmp eq ptr %45, %46
+  %46 = load ptr, ptr %ref.tmp, align 8, !tbaa !52
+  %47 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i42 = icmp eq ptr %46, %47
   br i1 %cmp.i.i.i42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i44, label %if.then.i.i43
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i44: ; preds = %lpad7
   %_M_string_length.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %47 = load i64, ptr %_M_string_length.i.i.i45, align 8, !tbaa !53
-  %cmp3.i.i.i46 = icmp ult i64 %47, 16
+  %48 = load i64, ptr %_M_string_length.i.i.i45, align 8, !tbaa !53
+  %cmp3.i.i.i46 = icmp ult i64 %48, 16
   call void @llvm.assume(i1 %cmp3.i.i.i46)
   br label %ehcleanup
 
 if.then.i.i43:                                    ; preds = %lpad7
-  call void @_ZdlPv(ptr noundef %45) #23
+  call void @_ZdlPv(ptr noundef %46) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i44, %lpad5
-  %.pn = phi { ptr, i32 } [ %43, %lpad5 ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i44 ], [ %44, %if.then.i.i43 ]
-  %48 = load ptr, ptr %ref.tmp3, align 8, !tbaa !52
-  %49 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
-  %cmp.i.i.i48 = icmp eq ptr %48, %49
+  %.pn = phi { ptr, i32 } [ %44, %lpad5 ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i44 ], [ %45, %if.then.i.i43 ]
+  %49 = load ptr, ptr %ref.tmp3, align 8, !tbaa !52
+  %50 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
+  %cmp.i.i.i48 = icmp eq ptr %49, %50
   br i1 %cmp.i.i.i48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50, label %if.then.i.i49
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50: ; preds = %ehcleanup
-  %50 = load i64, ptr %_M_string_length.i17.i, align 8, !tbaa !53
-  %cmp3.i.i.i52 = icmp ult i64 %50, 16
+  %51 = load i64, ptr %_M_string_length.i17.i, align 8, !tbaa !53
+  %cmp3.i.i.i52 = icmp ult i64 %51, 16
   call void @llvm.assume(i1 %cmp3.i.i.i52)
   br label %ehcleanup9
 
 if.then.i.i49:                                    ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef %48) #23
+  call void @_ZdlPv(ptr noundef %49) #23
   br label %ehcleanup9
 
 ehcleanup9:                                       ; preds = %if.then.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %42, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50 ], [ %.pn, %if.then.i.i49 ]
+  %.pn.pn = phi { ptr, i32 } [ %43, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50 ], [ %.pn, %if.then.i.i49 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #21
-  %51 = load ptr, ptr %ref.tmp2, align 8, !tbaa !52
-  %cmp.i.i.i54 = icmp eq ptr %51, %0
+  %52 = load ptr, ptr %ref.tmp2, align 8, !tbaa !52
+  %cmp.i.i.i54 = icmp eq ptr %52, %0
   br i1 %cmp.i.i.i54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56, label %if.then.i.i55
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56: ; preds = %ehcleanup9
-  %52 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !53
-  %cmp3.i.i.i58 = icmp ult i64 %52, 16
+  %53 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !53
+  %cmp3.i.i.i58 = icmp ult i64 %53, 16
   call void @llvm.assume(i1 %cmp3.i.i.i58)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59
 
 if.then.i.i55:                                    ; preds = %ehcleanup9
-  call void @_ZdlPv(ptr noundef %51) #23
+  call void @_ZdlPv(ptr noundef %52) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %if.then.i.i55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56
@@ -2520,7 +2522,8 @@ _ZN5folly22WriteFileAtomicOptionsD2Ev.exit14.i:   ; preds = %if.then.i.i.i10.i, 
 _ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i) #21
   %conv.i = sext i32 %call4.i to i64
-  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr nonnull @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr nonnull getelementptr inbounds ([16 x i8], ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 0, i64 15), ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv.i)
+  %7 = getelementptr inbounds [16 x i8], ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 0, i64 15
+  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr nonnull @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr nonnull %7, ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov) #21
   ret void
 }
@@ -2589,7 +2592,8 @@ _ZN5folly22WriteFileAtomicOptionsD2Ev.exit14.i.i: ; preds = %if.then.i.i.i10.i.i
 _ZN5folly15writeFileAtomicENS_5RangeIPKcEENS0_IPKhEEjNS_8SyncTypeE.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i.i) #21
   %conv.i.i = sext i32 %call4.i.i to i64
-  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr nonnull @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr nonnull getelementptr inbounds ([16 x i8], ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 0, i64 15), ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv.i.i)
+  %7 = getelementptr inbounds [16 x i8], ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 0, i64 15
+  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr nonnull @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr nonnull %7, ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i) #21
   ret void
 }
@@ -2607,7 +2611,8 @@ entry:
   store i64 %sub.ptr.sub.i.i, ptr %0, align 8
   %call2 = call fastcc noundef i32 @_ZN5folly12_GLOBAL__N_126writeFileAtomicNoThrowImplENS_5RangeIPKcEEP5ioveciRKNS_22WriteFileAtomicOptionsE(ptr %filename.coerce0, ptr %filename.coerce1, ptr noundef nonnull %iov, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(40) %options)
   %conv = sext i32 %call2 to i64
-  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr nonnull @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr nonnull getelementptr inbounds ([16 x i8], ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 0, i64 15), ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv)
+  %1 = getelementptr inbounds [16 x i8], ptr @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, i64 0, i64 15
+  call fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr nonnull @__func__._ZN5folly15writeFileAtomicENS_5RangeIPKcEEP5iovecijNS_8SyncTypeE, ptr nonnull %1, ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %conv)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov) #21
   ret void
 }

@@ -192,83 +192,84 @@ define void @_ZN10GLibPollerC2EP13_GMainContext(ptr noundef nonnull align 8 dere
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7QThreadC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV10GLibPoller, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 8, i1 false)
-  invoke void @_ZN6QMutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %9 unwind label %24
+  %8 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV10GLibPoller, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 8, i1 false)
+  invoke void @_ZN6QMutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %10 unwind label %25
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 2
-  invoke void @_ZN14QWaitConditionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %11 unwind label %28
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 2
+  invoke void @_ZN14QWaitConditionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %12 unwind label %29
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 3
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 4
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 5
-  %16 = invoke noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #11
-          to label %17 unwind label %32
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 3
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 4
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 5
+  %17 = invoke noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #11
+          to label %18 unwind label %33
 
-17:                                               ; preds = %11
-  store ptr %16, ptr %15, align 8
-  %18 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 6
-  store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 7
-  store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  %22 = invoke ptr @g_main_context_ref(ptr noundef %21)
-          to label %23 unwind label %32
+18:                                               ; preds = %12
+  store ptr %17, ptr %16, align 8
+  %19 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 6
+  store i32 1, ptr %19, align 8
+  %20 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 7
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = invoke ptr @g_main_context_ref(ptr noundef %22)
+          to label %24 unwind label %33
 
-23:                                               ; preds = %17
+24:                                               ; preds = %18
   ret void
 
-24:                                               ; preds = %2
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %2
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %5, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %6, align 4
-  br label %37
-
-28:                                               ; preds = %9
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  br label %36
-
-32:                                               ; preds = %17, %11
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %5, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %6, align 4
-  call void @_ZN14QWaitConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  br label %36
-
-36:                                               ; preds = %32, %28
-  call void @_ZN6QMutexD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  br label %37
-
-37:                                               ; preds = %36, %24
-  call void @_ZN7QThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %5, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %6, align 4
   br label %38
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %5, align 8
-  %40 = load i32, ptr %6, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  br label %37
+
+33:                                               ; preds = %18, %12
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  call void @_ZN14QWaitConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br label %37
+
+37:                                               ; preds = %33, %29
+  call void @_ZN6QMutexD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  br label %38
+
+38:                                               ; preds = %37, %25
+  call void @_ZN7QThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %5, align 8
+  %41 = load i32, ptr %6, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 declare void @_ZN7QThreadC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -337,31 +338,32 @@ define void @_ZN10GLibPollerD2Ev(ptr noundef nonnull align 8 dereferenceable(64)
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV10GLibPoller, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
-  invoke void @g_main_context_unref(ptr noundef %5)
-          to label %6 unwind label %12
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV10GLibPoller, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  invoke void @g_main_context_unref(ptr noundef %6)
+          to label %7 unwind label %13
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 5
-  %8 = load ptr, ptr %7, align 8
-  invoke void @g_free(ptr noundef %8)
-          to label %9 unwind label %12
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8
+  invoke void @g_free(ptr noundef %9)
+          to label %10 unwind label %13
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 2
-  call void @_ZN14QWaitConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  %11 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 1
-  call void @_ZN6QMutexD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 2
+  call void @_ZN14QWaitConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  %12 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 1
+  call void @_ZN6QMutexD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
   call void @_ZN7QThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   ret void
 
-12:                                               ; preds = %6, %1
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %7, %1
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #13
   unreachable
 }
 
@@ -573,87 +575,88 @@ define void @_ZN24GLibMainloopOnQEventLoopC2EP7QObject(ptr noundef nonnull align
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV24GLibMainloopOnQEventLoop, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
-  %14 = invoke ptr @g_main_context_default()
-          to label %15 unwind label %28
+  %13 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV24GLibMainloopOnQEventLoop, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
+  %15 = invoke ptr @g_main_context_default()
+          to label %16 unwind label %29
 
-15:                                               ; preds = %2
-  invoke void @_ZN10GLibPollerC1EP13_GMainContext(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef %14)
-          to label %16 unwind label %28
+16:                                               ; preds = %2
+  invoke void @_ZN10GLibPollerC1EP13_GMainContext(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef %15)
+          to label %17 unwind label %29
 
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN10GLibPoller6polledEv to i64), i64 0 }, ptr %8, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
+  %19 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN24GLibMainloopOnQEventLoop16checkAndDispatchEv to i64), i64 0 }, ptr %9, align 8
-  invoke void @_ZN7QObject7connectIM10GLibPollerFvvEM24GLibMainloopOnQEventLoopFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %17, i64 %19, i64 %21, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %9, i32 noundef 0)
-          to label %22 unwind label %32
+  invoke void @_ZN7QObject7connectIM10GLibPollerFvvEM24GLibMainloopOnQEventLoopFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %18, i64 %20, i64 %22, ptr noundef %11, ptr noundef byval({ i64, i64 }) align 8 %9, i32 noundef 0)
+          to label %23 unwind label %33
 
-22:                                               ; preds = %16
+23:                                               ; preds = %17
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  %23 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
+  %24 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef @.str)
-          to label %24 unwind label %32
+          to label %25 unwind label %33
 
-24:                                               ; preds = %22
-  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %25 unwind label %36
+25:                                               ; preds = %23
+  invoke void @_ZN7QObject13setObjectNameERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %26 unwind label %37
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  %26 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
-  invoke void @_ZN7QThread5startENS_8PriorityE(ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef 7)
-          to label %27 unwind label %32
+  %27 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
+  invoke void @_ZN7QThread5startENS_8PriorityE(ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 7)
+          to label %28 unwind label %33
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   ret void
 
-28:                                               ; preds = %15, %2
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %16, %2
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  br label %41
-
-32:                                               ; preds = %25, %22, %16
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %5, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %6, align 4
-  br label %40
-
-36:                                               ; preds = %24
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %5, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %6, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  br label %40
-
-40:                                               ; preds = %36, %32
-  call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #12
-  br label %41
-
-41:                                               ; preds = %40, %28
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %5, align 8
-  %44 = load i32, ptr %6, align 4
-  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
-  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
-  resume { ptr, i32 } %46
+33:                                               ; preds = %26, %23, %17
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  br label %41
+
+37:                                               ; preds = %25
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+  br label %41
+
+41:                                               ; preds = %37, %33
+  call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #12
+  br label %42
+
+42:                                               ; preds = %41, %29
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %5, align 8
+  %45 = load i32, ptr %6, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -854,51 +857,52 @@ define void @_ZN24GLibMainloopOnQEventLoopD2Ev(ptr noundef nonnull align 8 deref
   %3 = alloca %class.QDeadlineTimer, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV24GLibMainloopOnQEventLoop, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
-  invoke void @_ZN7QThread19requestInterruptionEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %6 unwind label %26
+  %5 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV24GLibMainloopOnQEventLoop, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
+  invoke void @_ZN7QThread19requestInterruptionEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %7 unwind label %27
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
-  %8 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 3
-  %9 = load ptr, ptr %8, align 8
-  invoke void @g_main_context_wakeup(ptr noundef %9)
-          to label %10 unwind label %26
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
+  %9 = getelementptr inbounds %class.GLibPoller, ptr %8, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8
+  invoke void @g_main_context_wakeup(ptr noundef %10)
+          to label %11 unwind label %27
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
-  %12 = getelementptr inbounds %class.GLibPoller, ptr %11, i32 0, i32 1
-  call void @_ZN11QBasicMutex4lockEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
-  %13 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
-  %14 = getelementptr inbounds %class.GLibPoller, ptr %13, i32 0, i32 2
-  invoke void @_ZN14QWaitCondition7wakeOneEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %26
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
+  %13 = getelementptr inbounds %class.GLibPoller, ptr %12, i32 0, i32 1
+  call void @_ZN11QBasicMutex4lockEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
+  %14 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
+  %15 = getelementptr inbounds %class.GLibPoller, ptr %14, i32 0, i32 2
+  invoke void @_ZN14QWaitCondition7wakeOneEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %27
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
-  %17 = getelementptr inbounds %class.GLibPoller, ptr %16, i32 0, i32 1
-  call void @_ZN11QBasicMutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #12
-  %18 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
+  %18 = getelementptr inbounds %class.GLibPoller, ptr %17, i32 0, i32 1
+  call void @_ZN11QBasicMutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #12
+  %19 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
   call void @_ZN14QDeadlineTimerC2ENS_15ForeverConstantEN2Qt9TimerTypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0, i32 noundef 1) #12
-  %19 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 1
-  %22 = load i64, ptr %21, align 8
-  %23 = invoke noundef zeroext i1 @_ZN7QThread4waitE14QDeadlineTimer(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 %20, i64 %22)
-          to label %24 unwind label %26
+  %20 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8
+  %24 = invoke noundef zeroext i1 @_ZN7QThread4waitE14QDeadlineTimer(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 %21, i64 %23)
+          to label %25 unwind label %27
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
-  call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %25) #12
+25:                                               ; preds = %16
+  %26 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
+  call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %26) #12
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   ret void
 
-26:                                               ; preds = %15, %10, %6, %1
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %16, %11, %7, %1
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #13
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 }
 
@@ -1160,7 +1164,8 @@ define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicPointerI13QMutexPrivate
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN11QBasicMutex11dummyLockedEv() #5 comdat align 2 {
-  ret ptr inttoptr (i64 1 to ptr)
+  %1 = inttoptr i64 1 to ptr
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

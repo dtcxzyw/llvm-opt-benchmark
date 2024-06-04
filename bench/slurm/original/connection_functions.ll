@@ -10,9 +10,10 @@ define ptr @slurmdb_connection_get(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %5 = call ptr @acct_storage_g_get_connection(i32 noundef 0, ptr noundef %3, i1 noundef zeroext true, ptr noundef %4)
-  ret ptr %5
+  %4 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %5 = load ptr, ptr %4, align 8
+  %6 = call ptr @acct_storage_g_get_connection(i32 noundef 0, ptr noundef %3, i1 noundef zeroext true, ptr noundef %5)
+  ret ptr %6
 }
 
 declare ptr @acct_storage_g_get_connection(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef) #1

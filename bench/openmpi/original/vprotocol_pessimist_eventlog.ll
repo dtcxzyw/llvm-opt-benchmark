@@ -122,7 +122,7 @@ define i32 @ompi_vprotocol_pessimist_event_logger_connect(i32 noundef %0, ptr no
 33:                                               ; preds = %28, %22, %2
   call void @PMIx_Pdata_destruct(ptr noundef %12)
   store i32 -13, ptr %3, align 4
-  br label %95
+  br label %105
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds %struct.pmix_pdata, ptr %12, i32 0, i32 2
@@ -150,67 +150,77 @@ define i32 @ompi_vprotocol_pessimist_event_logger_connect(i32 noundef %0, ptr no
 48:                                               ; preds = %45, %34
   %49 = call i32 @ompi_comm_rank(ptr noundef @ompi_mpi_comm_world)
   store i32 %49, ptr %10, align 4
-  %50 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 12), align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %52 = call i32 %50(ptr noundef %10, i64 noundef 1, ptr noundef @ompi_mpi_integer, i32 noundef 0, i32 noundef 3, i32 noundef 4, ptr noundef %51)
-  store i32 %52, ptr %6, align 4
-  %53 = load i32, ptr %6, align 4
-  %54 = icmp ne i32 0, %53
-  %55 = xor i1 %54, true
-  %56 = xor i1 %55, true
-  %57 = zext i1 %56 to i32
-  %58 = sext i32 %57 to i64
-  %59 = icmp ne i64 %58, 0
-  br i1 %59, label %60, label %71
+  %50 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 12
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %53 = load ptr, ptr %52, align 8
+  %54 = call i32 %51(ptr noundef %10, i64 noundef 1, ptr noundef @ompi_mpi_integer, i32 noundef 0, i32 noundef 3, i32 noundef 4, ptr noundef %53)
+  store i32 %54, ptr %6, align 4
+  %55 = load i32, ptr %6, align 4
+  %56 = icmp ne i32 0, %55
+  %57 = xor i1 %56, true
+  %58 = xor i1 %57, true
+  %59 = zext i1 %58 to i32
+  %60 = sext i32 %59 to i64
+  %61 = icmp ne i64 %60, 0
+  br i1 %61, label %62, label %76
 
-60:                                               ; preds = %48
-  %61 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %62 = getelementptr inbounds %struct.ompi_communicator_t, ptr %61, i32 0, i32 19
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %65 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %66 = getelementptr inbounds %struct.ompi_communicator_t, ptr %65, i32 0, i32 20
-  %67 = load i32, ptr %66, align 8
-  %68 = load i32, ptr %6, align 4
-  %69 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %68)
-  %70 = call i32 @ompi_errhandler_invoke(ptr noundef %63, ptr noundef %64, i32 noundef %67, i32 noundef %69, ptr noundef @.str.4)
-  br label %71
+62:                                               ; preds = %48
+  %63 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds %struct.ompi_communicator_t, ptr %64, i32 0, i32 19
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds %struct.ompi_communicator_t, ptr %70, i32 0, i32 20
+  %72 = load i32, ptr %71, align 8
+  %73 = load i32, ptr %6, align 4
+  %74 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %73)
+  %75 = call i32 @ompi_errhandler_invoke(ptr noundef %66, ptr noundef %68, i32 noundef %72, i32 noundef %74, ptr noundef @.str.4)
+  br label %76
 
-71:                                               ; preds = %60, %48
-  %72 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 9), align 8
-  %73 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %74 = call i32 %72(ptr noundef %11, i64 noundef 2, ptr noundef @ompi_mpi_unsigned_long_long, i32 noundef 0, i32 noundef 3, ptr noundef %73, ptr noundef null)
-  store i32 %74, ptr %6, align 4
-  %75 = load i32, ptr %6, align 4
-  %76 = icmp ne i32 0, %75
-  %77 = xor i1 %76, true
-  %78 = xor i1 %77, true
-  %79 = zext i1 %78 to i32
-  %80 = sext i32 %79 to i64
-  %81 = icmp ne i64 %80, 0
-  br i1 %81, label %82, label %93
+76:                                               ; preds = %62, %48
+  %77 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 4, i32 9
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i32 %78(ptr noundef %11, i64 noundef 2, ptr noundef @ompi_mpi_unsigned_long_long, i32 noundef 0, i32 noundef 3, ptr noundef %80, ptr noundef null)
+  store i32 %81, ptr %6, align 4
+  %82 = load i32, ptr %6, align 4
+  %83 = icmp ne i32 0, %82
+  %84 = xor i1 %83, true
+  %85 = xor i1 %84, true
+  %86 = zext i1 %85 to i32
+  %87 = sext i32 %86 to i64
+  %88 = icmp ne i64 %87, 0
+  br i1 %88, label %89, label %103
 
-82:                                               ; preds = %71
-  %83 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %84 = getelementptr inbounds %struct.ompi_communicator_t, ptr %83, i32 0, i32 19
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %87 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3), align 8
-  %88 = getelementptr inbounds %struct.ompi_communicator_t, ptr %87, i32 0, i32 20
-  %89 = load i32, ptr %88, align 8
-  %90 = load i32, ptr %6, align 4
-  %91 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %90)
-  %92 = call i32 @ompi_errhandler_invoke(ptr noundef %85, ptr noundef %86, i32 noundef %89, i32 noundef %91, ptr noundef @.str.5)
-  br label %93
+89:                                               ; preds = %76
+  %90 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds %struct.ompi_communicator_t, ptr %91, i32 0, i32 19
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 3
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.ompi_communicator_t, ptr %97, i32 0, i32 20
+  %99 = load i32, ptr %98, align 8
+  %100 = load i32, ptr %6, align 4
+  %101 = call i32 @ompi_errcode_get_mpi_code(i32 noundef %100)
+  %102 = call i32 @ompi_errhandler_invoke(ptr noundef %93, ptr noundef %95, i32 noundef %99, i32 noundef %101, ptr noundef @.str.5)
+  br label %103
 
-93:                                               ; preds = %82, %71
-  %94 = load i32, ptr %6, align 4
-  store i32 %94, ptr %3, align 4
-  br label %95
+103:                                              ; preds = %89, %76
+  %104 = load i32, ptr %6, align 4
+  store i32 %104, ptr %3, align 4
+  br label %105
 
-95:                                               ; preds = %93, %33
-  %96 = load i32, ptr %3, align 4
-  ret i32 %96
+105:                                              ; preds = %103, %33
+  %106 = load i32, ptr %3, align 4
+  ret i32 %106
 }
 
 declare void @PMIx_Pdata_construct(ptr noundef) #1
@@ -338,79 +348,84 @@ define void @ompi_vprotocol_pessimist_matching_replay(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %5 = call ptr @opal_list_get_first(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10))
-  store ptr %5, ptr %3, align 8
-  br label %6
+  %5 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  %6 = call ptr @opal_list_get_first(ptr noundef %5)
+  store ptr %6, ptr %3, align 8
+  br label %7
 
-6:                                                ; preds = %47, %1
-  %7 = load ptr, ptr %3, align 8
-  %8 = call ptr @opal_list_get_end(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10))
-  %9 = icmp ne ptr %7, %8
-  br i1 %9, label %10, label %49
+7:                                                ; preds = %52, %1
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  %10 = call ptr @opal_list_get_end(ptr noundef %9)
+  %11 = icmp ne ptr %8, %10
+  br i1 %11, label %12, label %54
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.mca_vprotocol_pessimist_event_t, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp ne i32 0, %13
-  br i1 %14, label %15, label %16
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds %struct.mca_vprotocol_pessimist_event_t, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp ne i32 0, %15
+  br i1 %16, label %17, label %18
 
-15:                                               ; preds = %10
-  br label %39
+17:                                               ; preds = %12
+  br label %44
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.mca_vprotocol_pessimist_event_t, ptr %17, i32 0, i32 3
-  store ptr %18, ptr %4, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.vprotocol_pessimist_matching_event_t, ptr %19, i32 0, i32 0
-  %21 = load i64, ptr %20, align 8
-  %22 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  %23 = icmp eq i64 %21, %22
-  br i1 %23, label %24, label %38
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds %struct.mca_vprotocol_pessimist_event_t, ptr %19, i32 0, i32 3
+  store ptr %20, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %struct.vprotocol_pessimist_matching_event_t, ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %25 = load i64, ptr %24, align 16
+  %26 = icmp eq i64 %23, %25
+  br i1 %26, label %27, label %43
 
-24:                                               ; preds = %16
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.vprotocol_pessimist_matching_event_t, ptr %25, i32 0, i32 0
-  %27 = load i64, ptr %26, align 8
+27:                                               ; preds = %18
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.vprotocol_pessimist_matching_event_t, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 8
-  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 70, ptr noundef @.str.6, i64 noundef %27, i32 noundef %30)
+  %29 = getelementptr inbounds %struct.vprotocol_pessimist_matching_event_t, ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %4, align 8
   %32 = getelementptr inbounds %struct.vprotocol_pessimist_matching_event_t, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 8
-  %34 = load ptr, ptr %2, align 8
-  store i32 %33, ptr %34, align 4
-  %35 = load ptr, ptr %3, align 8
-  %36 = call ptr @opal_list_remove_item(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10), ptr noundef %35)
-  %37 = load ptr, ptr %3, align 8
-  call void @opal_free_list_return(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7), ptr noundef %37)
-  br label %38
+  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 70, ptr noundef @.str.6, i64 noundef %30, i32 noundef %33)
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct.vprotocol_pessimist_matching_event_t, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8
+  %37 = load ptr, ptr %2, align 8
+  store i32 %36, ptr %37, align 4
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  %40 = call ptr @opal_list_remove_item(ptr noundef %39, ptr noundef %38)
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7
+  call void @opal_free_list_return(ptr noundef %42, ptr noundef %41)
+  br label %43
 
-38:                                               ; preds = %24, %16
-  br label %39
+43:                                               ; preds = %27, %18
+  br label %44
 
-39:                                               ; preds = %38, %15
-  %40 = load ptr, ptr %3, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %46
+44:                                               ; preds = %43, %17
+  %45 = load ptr, ptr %3, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %51
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.opal_list_item_t, ptr %43, i32 0, i32 1
-  %45 = load volatile ptr, ptr %44, align 8
-  br label %47
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.opal_list_item_t, ptr %48, i32 0, i32 1
+  %50 = load volatile ptr, ptr %49, align 8
+  br label %52
 
-46:                                               ; preds = %39
-  br label %47
+51:                                               ; preds = %44
+  br label %52
 
-47:                                               ; preds = %46, %42
-  %48 = phi ptr [ %45, %42 ], [ null, %46 ]
-  store ptr %48, ptr %3, align 8
-  br label %6, !llvm.loop !6
+52:                                               ; preds = %51, %47
+  %53 = phi ptr [ %50, %47 ], [ null, %51 ]
+  store ptr %53, ptr %3, align 8
+  br label %7, !llvm.loop !6
 
-49:                                               ; preds = %6
+54:                                               ; preds = %7
   ret void
 }
 
@@ -511,197 +526,217 @@ define void @ompi_vprotocol_pessimist_delivery_replay(i64 noundef %0, ptr nounde
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
-  %14 = call ptr @opal_list_get_first(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10))
-  store ptr %14, ptr %11, align 8
-  br label %15
+  %14 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  %15 = call ptr @opal_list_get_first(ptr noundef %14)
+  store ptr %15, ptr %11, align 8
+  br label %16
 
-15:                                               ; preds = %132, %5
-  %16 = load ptr, ptr %11, align 8
-  %17 = call ptr @opal_list_get_end(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10))
-  %18 = icmp ne ptr %16, %17
-  br i1 %18, label %19, label %134
+16:                                               ; preds = %151, %5
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  %19 = call ptr @opal_list_get_end(ptr noundef %18)
+  %20 = icmp ne ptr %17, %19
+  br i1 %20, label %21, label %153
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds %struct.mca_vprotocol_pessimist_event_t, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp ne i32 1, %22
-  br i1 %23, label %24, label %25
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %11, align 8
+  %23 = getelementptr inbounds %struct.mca_vprotocol_pessimist_event_t, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp ne i32 1, %24
+  br i1 %25, label %26, label %27
 
-24:                                               ; preds = %19
-  br label %124
+26:                                               ; preds = %21
+  br label %143
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds %struct.mca_vprotocol_pessimist_event_t, ptr %26, i32 0, i32 3
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %28, i32 0, i32 0
-  %30 = load i64, ptr %29, align 8
-  %31 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  %32 = icmp ult i64 %30, %31
-  br i1 %32, label %33, label %39
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %11, align 8
+  %29 = getelementptr inbounds %struct.mca_vprotocol_pessimist_event_t, ptr %28, i32 0, i32 3
+  store ptr %29, ptr %12, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %30, i32 0, i32 0
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %34 = load i64, ptr %33, align 16
+  %35 = icmp ult i64 %32, %34
+  br i1 %35, label %36, label %45
 
-33:                                               ; preds = %25
-  %34 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 70, ptr noundef @.str.7, i64 noundef %34)
-  %35 = load ptr, ptr %9, align 8
-  store i32 -32766, ptr %35, align 4
-  %36 = load ptr, ptr %8, align 8
-  store i32 0, ptr %36, align 4
-  %37 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  %38 = add i64 %37, 1
-  store i64 %38, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  br label %136
+36:                                               ; preds = %27
+  %37 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %38 = load i64, ptr %37, align 16
+  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 70, ptr noundef @.str.7, i64 noundef %38)
+  %39 = load ptr, ptr %9, align 8
+  store i32 -32766, ptr %39, align 4
+  %40 = load ptr, ptr %8, align 8
+  store i32 0, ptr %40, align 4
+  %41 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %42 = load i64, ptr %41, align 16
+  %43 = add i64 %42, 1
+  %44 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  store i64 %43, ptr %44, align 16
+  br label %156
 
-39:                                               ; preds = %25
-  %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %40, i32 0, i32 0
-  %42 = load i64, ptr %41, align 8
-  %43 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %122
+45:                                               ; preds = %27
+  %46 = load ptr, ptr %12, align 8
+  %47 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %46, i32 0, i32 0
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %50 = load i64, ptr %49, align 16
+  %51 = icmp eq i64 %48, %50
+  br i1 %51, label %52, label %141
 
-45:                                               ; preds = %39
+52:                                               ; preds = %45
   store i32 0, ptr %13, align 4
-  br label %46
+  br label %53
 
-46:                                               ; preds = %110, %45
-  %47 = load i32, ptr %13, align 4
-  %48 = load i64, ptr %6, align 8
-  %49 = trunc i64 %48 to i32
-  %50 = icmp slt i32 %47, %49
-  br i1 %50, label %51, label %113
+53:                                               ; preds = %124, %52
+  %54 = load i32, ptr %13, align 4
+  %55 = load i64, ptr %6, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = icmp slt i32 %54, %56
+  br i1 %57, label %58, label %127
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %7, align 8
-  %53 = load i32, ptr %13, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.mca_pml_base_request_t, ptr %56, i32 0, i32 3
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp eq i32 1, %58
-  br i1 %59, label %60, label %69
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %13, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds ptr, ptr %59, i64 %61
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds %struct.mca_pml_base_request_t, ptr %63, i32 0, i32 3
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp eq i32 1, %65
+  br i1 %66, label %67, label %77
 
-60:                                               ; preds = %51
-  %61 = load ptr, ptr %7, align 8
-  %62 = load i32, ptr %13, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  %66 = ptrtoint ptr %65 to i64
-  %67 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 2), align 8
-  %68 = add i64 %66, %67
-  br label %78
+67:                                               ; preds = %58
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %13, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %72 = load ptr, ptr %71, align 8
+  %73 = ptrtoint ptr %72 to i64
+  %74 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 2
+  %75 = load i64, ptr %74, align 8
+  %76 = add i64 %73, %75
+  br label %87
 
-69:                                               ; preds = %51
-  %70 = load ptr, ptr %7, align 8
-  %71 = load i32, ptr %13, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 1), align 8
-  %77 = add i64 %75, %76
-  br label %78
-
-78:                                               ; preds = %69, %60
-  %79 = phi i64 [ %68, %60 ], [ %77, %69 ]
-  %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds %struct.mca_vprotocol_pessimist_request_t, ptr %80, i32 0, i32 2
-  %82 = load i64, ptr %81, align 8
-  %83 = load ptr, ptr %12, align 8
-  %84 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %83, i32 0, i32 1
+77:                                               ; preds = %58
+  %78 = load ptr, ptr %7, align 8
+  %79 = load i32, ptr %13, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  %83 = ptrtoint ptr %82 to i64
+  %84 = getelementptr inbounds %struct.mca_pml_v_t, ptr @mca_pml_v, i32 0, i32 1
   %85 = load i64, ptr %84, align 8
-  %86 = icmp eq i64 %82, %85
-  br i1 %86, label %87, label %109
+  %86 = add i64 %83, %85
+  br label %87
 
-87:                                               ; preds = %78
-  %88 = load ptr, ptr %12, align 8
-  %89 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %88, i32 0, i32 0
-  %90 = load i64, ptr %89, align 8
-  %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %91, i32 0, i32 1
-  %93 = load i64, ptr %92, align 8
-  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 70, ptr noundef @.str.8, i64 noundef %90, i64 noundef %93)
-  %94 = load ptr, ptr %11, align 8
-  %95 = call ptr @opal_list_remove_item(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10), ptr noundef %94)
-  %96 = load ptr, ptr %11, align 8
-  call void @opal_free_list_return(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7), ptr noundef %96)
-  %97 = load i32, ptr %13, align 4
-  %98 = load ptr, ptr %9, align 8
-  store i32 %97, ptr %98, align 4
-  %99 = load ptr, ptr %8, align 8
-  store i32 1, ptr %99, align 4
-  %100 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  %101 = add i64 %100, 1
-  store i64 %101, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  %102 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4), align 8
-  %103 = load ptr, ptr %7, align 8
-  %104 = load i32, ptr %13, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds ptr, ptr %103, i64 %105
-  %107 = load ptr, ptr %10, align 8
-  %108 = call i32 %102(ptr noundef %106, ptr noundef %107)
-  br label %136
+87:                                               ; preds = %77, %67
+  %88 = phi i64 [ %76, %67 ], [ %86, %77 ]
+  %89 = inttoptr i64 %88 to ptr
+  %90 = getelementptr inbounds %struct.mca_vprotocol_pessimist_request_t, ptr %89, i32 0, i32 2
+  %91 = load i64, ptr %90, align 8
+  %92 = load ptr, ptr %12, align 8
+  %93 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %92, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  %95 = icmp eq i64 %91, %94
+  br i1 %95, label %96, label %123
 
-109:                                              ; preds = %78
-  br label %110
+96:                                               ; preds = %87
+  %97 = load ptr, ptr %12, align 8
+  %98 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %97, i32 0, i32 0
+  %99 = load i64, ptr %98, align 8
+  %100 = load ptr, ptr %12, align 8
+  %101 = getelementptr inbounds %struct.vprotocol_pessimist_delivery_event_t, ptr %100, i32 0, i32 1
+  %102 = load i64, ptr %101, align 8
+  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 70, ptr noundef @.str.8, i64 noundef %99, i64 noundef %102)
+  %103 = load ptr, ptr %11, align 8
+  %104 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  %105 = call ptr @opal_list_remove_item(ptr noundef %104, ptr noundef %103)
+  %106 = load ptr, ptr %11, align 8
+  %107 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7
+  call void @opal_free_list_return(ptr noundef %107, ptr noundef %106)
+  %108 = load i32, ptr %13, align 4
+  %109 = load ptr, ptr %9, align 8
+  store i32 %108, ptr %109, align 4
+  %110 = load ptr, ptr %8, align 8
+  store i32 1, ptr %110, align 4
+  %111 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %112 = load i64, ptr %111, align 16
+  %113 = add i64 %112, 1
+  %114 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  store i64 %113, ptr %114, align 16
+  %115 = getelementptr inbounds %struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %7, align 8
+  %118 = load i32, ptr %13, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds ptr, ptr %117, i64 %119
+  %121 = load ptr, ptr %10, align 8
+  %122 = call i32 %116(ptr noundef %120, ptr noundef %121)
+  br label %156
 
-110:                                              ; preds = %109
-  %111 = load i32, ptr %13, align 4
-  %112 = add nsw i32 %111, 1
-  store i32 %112, ptr %13, align 4
-  br label %46, !llvm.loop !7
-
-113:                                              ; preds = %46
-  %114 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 70, ptr noundef @.str.7, i64 noundef %114)
-  %115 = load ptr, ptr %9, align 8
-  store i32 -32766, ptr %115, align 4
-  %116 = load ptr, ptr %8, align 8
-  store i32 0, ptr %116, align 4
-  %117 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  %118 = add i64 %117, 1
-  store i64 %118, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  %119 = load ptr, ptr %11, align 8
-  %120 = call ptr @opal_list_remove_item(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10), ptr noundef %119)
-  %121 = load ptr, ptr %11, align 8
-  call void @opal_free_list_return(ptr noundef getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7), ptr noundef %121)
-  br label %136
-
-122:                                              ; preds = %39
-  br label %123
-
-123:                                              ; preds = %122
+123:                                              ; preds = %87
   br label %124
 
-124:                                              ; preds = %123, %24
-  %125 = load ptr, ptr %11, align 8
-  %126 = icmp ne ptr %125, null
-  br i1 %126, label %127, label %131
+124:                                              ; preds = %123
+  %125 = load i32, ptr %13, align 4
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %13, align 4
+  br label %53, !llvm.loop !7
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %11, align 8
-  %129 = getelementptr inbounds %struct.opal_list_item_t, ptr %128, i32 0, i32 1
-  %130 = load volatile ptr, ptr %129, align 8
-  br label %132
+127:                                              ; preds = %53
+  %128 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %129 = load i64, ptr %128, align 16
+  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 70, ptr noundef @.str.7, i64 noundef %129)
+  %130 = load ptr, ptr %9, align 8
+  store i32 -32766, ptr %130, align 4
+  %131 = load ptr, ptr %8, align 8
+  store i32 0, ptr %131, align 4
+  %132 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %133 = load i64, ptr %132, align 16
+  %134 = add i64 %133, 1
+  %135 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  store i64 %134, ptr %135, align 16
+  %136 = load ptr, ptr %11, align 8
+  %137 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 10
+  %138 = call ptr @opal_list_remove_item(ptr noundef %137, ptr noundef %136)
+  %139 = load ptr, ptr %11, align 8
+  %140 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 7
+  call void @opal_free_list_return(ptr noundef %140, ptr noundef %139)
+  br label %156
 
-131:                                              ; preds = %124
-  br label %132
+141:                                              ; preds = %45
+  br label %142
 
-132:                                              ; preds = %131, %127
-  %133 = phi ptr [ %130, %127 ], [ null, %131 ]
-  store ptr %133, ptr %11, align 8
-  br label %15, !llvm.loop !8
+142:                                              ; preds = %141
+  br label %143
 
-134:                                              ; preds = %15
-  %135 = load i64, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1), align 16
-  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 50, ptr noundef @.str.9, i64 noundef %135)
-  br label %136
+143:                                              ; preds = %142, %26
+  %144 = load ptr, ptr %11, align 8
+  %145 = icmp ne ptr %144, null
+  br i1 %145, label %146, label %150
 
-136:                                              ; preds = %134, %113, %87, %33
+146:                                              ; preds = %143
+  %147 = load ptr, ptr %11, align 8
+  %148 = getelementptr inbounds %struct.opal_list_item_t, ptr %147, i32 0, i32 1
+  %149 = load volatile ptr, ptr %148, align 8
+  br label %151
+
+150:                                              ; preds = %143
+  br label %151
+
+151:                                              ; preds = %150, %146
+  %152 = phi ptr [ %149, %146 ], [ null, %150 ]
+  store ptr %152, ptr %11, align 8
+  br label %16, !llvm.loop !8
+
+153:                                              ; preds = %16
+  %154 = getelementptr inbounds %struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i32 0, i32 1
+  %155 = load i64, ptr %154, align 16
+  call void (i32, ptr, ...) @V_OUTPUT_VERBOSE(i32 noundef 50, ptr noundef @.str.9, i64 noundef %155)
+  br label %156
+
+156:                                              ; preds = %153, %127, %96, %36
   ret void
 }
 

@@ -44,22 +44,23 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 11))
+  %2 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 11
+  %call4 = call i64 @stat64_get(ptr noundef %2)
   store i64 %call4, ptr %rate_limit_start, align 8
   %call5 = call i64 @migration_transferred_bytes()
   store i64 %call5, ptr %rate_limit_current, align 8
-  %2 = load i64, ptr %rate_limit_current, align 8
-  %3 = load i64, ptr %rate_limit_start, align 8
-  %sub = sub i64 %2, %3
+  %3 = load i64, ptr %rate_limit_current, align 8
+  %4 = load i64, ptr %rate_limit_start, align 8
+  %sub = sub i64 %3, %4
   store i64 %sub, ptr %rate_limit_used, align 8
-  %4 = load i64, ptr %rate_limit_max, align 8
-  %cmp6 = icmp ugt i64 %4, 0
+  %5 = load i64, ptr %rate_limit_max, align 8
+  %cmp6 = icmp ugt i64 %5, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %if.end3
-  %5 = load i64, ptr %rate_limit_used, align 8
-  %6 = load i64, ptr %rate_limit_max, align 8
-  %cmp7 = icmp ugt i64 %5, %6
+  %6 = load i64, ptr %rate_limit_used, align 8
+  %7 = load i64, ptr %rate_limit_max, align 8
+  %cmp7 = icmp ugt i64 %6, %7
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %land.lhs.true
@@ -71,8 +72,8 @@ if.end9:                                          ; preds = %land.lhs.true, %if.
   br label %return
 
 return:                                           ; preds = %if.end9, %if.then8, %if.then2, %if.then
-  %7 = load i1, ptr %retval, align 1
-  ret i1 %7
+  %8 = load i1, ptr %retval, align 1
+  ret i1 %8
 }
 
 declare i32 @qemu_file_get_error(ptr noundef) #1
@@ -80,7 +81,8 @@ declare i32 @qemu_file_get_error(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @migration_rate_get() #0 {
 entry:
-  %call = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 12))
+  %0 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 12
+  %call = call i64 @stat64_get(ptr noundef %0)
   ret i64 %call
 }
 
@@ -104,21 +106,24 @@ entry:
   %multifd = alloca i64, align 8
   %rdma = alloca i64, align 8
   %qemu_file = alloca i64, align 8
-  %call = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 5))
+  %0 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 5
+  %call = call i64 @stat64_get(ptr noundef %0)
   store i64 %call, ptr %multifd, align 8
-  %call1 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 13))
+  %1 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 13
+  %call1 = call i64 @stat64_get(ptr noundef %1)
   store i64 %call1, ptr %rdma, align 8
-  %call2 = call i64 @stat64_get(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 10))
+  %2 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 10
+  %call2 = call i64 @stat64_get(ptr noundef %2)
   store i64 %call2, ptr %qemu_file, align 8
-  %0 = load i64, ptr %qemu_file, align 8
-  %1 = load i64, ptr %multifd, align 8
-  %2 = load i64, ptr %rdma, align 8
-  call void @trace_migration_transferred_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2)
   %3 = load i64, ptr %qemu_file, align 8
   %4 = load i64, ptr %multifd, align 8
-  %add = add i64 %3, %4
   %5 = load i64, ptr %rdma, align 8
-  %add3 = add i64 %add, %5
+  call void @trace_migration_transferred_bytes(i64 noundef %3, i64 noundef %4, i64 noundef %5)
+  %6 = load i64, ptr %qemu_file, align 8
+  %7 = load i64, ptr %multifd, align 8
+  %add = add i64 %6, %7
+  %8 = load i64, ptr %rdma, align 8
+  %add3 = add i64 %add, %8
   ret i64 %add3
 }
 
@@ -129,7 +134,8 @@ entry:
   store i64 %limit, ptr %limit.addr, align 8
   %0 = load i64, ptr %limit.addr, align 8
   %div = udiv i64 %0, 10
-  call void @stat64_set(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 12), i64 noundef %div)
+  %1 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 12
+  call void @stat64_set(ptr noundef %1, i64 noundef %div)
   ret void
 }
 
@@ -154,7 +160,8 @@ entry:
 define dso_local void @migration_rate_reset() #0 {
 entry:
   %call = call i64 @migration_transferred_bytes()
-  call void @stat64_set(ptr noundef getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 11), i64 noundef %call)
+  %0 = getelementptr inbounds %struct.MigrationAtomicStats, ptr @mig_stats, i32 0, i32 11
+  call void @stat64_set(ptr noundef %0, i64 noundef %call)
   ret void
 }
 

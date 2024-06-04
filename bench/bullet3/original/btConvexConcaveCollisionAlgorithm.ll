@@ -475,33 +475,34 @@ entry:
   %1 = load ptr, ptr %body0Wrap.addr, align 8
   %2 = load ptr, ptr %body1Wrap.addr, align 8
   call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV33btConvexConcaveCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV33btConvexConcaveCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %m_btConvexTriangleCallback = getelementptr inbounds %class.btConvexConcaveCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %ci.addr, align 8
-  %m_dispatcher1 = getelementptr inbounds %struct.btCollisionAlgorithmConstructionInfo, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %m_dispatcher1, align 8
-  %5 = load ptr, ptr %body0Wrap.addr, align 8
-  %6 = load ptr, ptr %body1Wrap.addr, align 8
-  %7 = load i8, ptr %isSwapped.addr, align 1
-  %tobool = trunc i8 %7 to i1
-  invoke void @_ZN24btConvexTriangleCallbackC1EP12btDispatcherPK24btCollisionObjectWrapperS4_b(ptr noundef nonnull align 8 dereferenceable(96) %m_btConvexTriangleCallback, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %tobool)
+  %4 = load ptr, ptr %ci.addr, align 8
+  %m_dispatcher1 = getelementptr inbounds %struct.btCollisionAlgorithmConstructionInfo, ptr %4, i32 0, i32 0
+  %5 = load ptr, ptr %m_dispatcher1, align 8
+  %6 = load ptr, ptr %body0Wrap.addr, align 8
+  %7 = load ptr, ptr %body1Wrap.addr, align 8
+  %8 = load i8, ptr %isSwapped.addr, align 1
+  %tobool = trunc i8 %8 to i1
+  invoke void @_ZN24btConvexTriangleCallbackC1EP12btDispatcherPK24btCollisionObjectWrapperS4_b(ptr noundef nonnull align 8 dereferenceable(96) %m_btConvexTriangleCallback, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %tobool)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_isSwapped = getelementptr inbounds %class.btConvexConcaveCollisionAlgorithm, ptr %this1, i32 0, i32 2
-  %8 = load i8, ptr %isSwapped.addr, align 1
-  %tobool2 = trunc i8 %8 to i1
+  %9 = load i8, ptr %isSwapped.addr, align 1
+  %tobool2 = trunc i8 %9 to i1
   %frombool3 = zext i1 %tobool2 to i8
   store i8 %frombool3, ptr %m_isSwapped, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #10
   br label %eh.resume
 
@@ -526,7 +527,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV33btConvexConcaveCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV33btConvexConcaveCollisionAlgorithm, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_btConvexTriangleCallback = getelementptr inbounds %class.btConvexConcaveCollisionAlgorithm, ptr %this1, i32 0, i32 1
   call void @_ZN24btConvexTriangleCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %m_btConvexTriangleCallback) #10
   call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #10
@@ -646,7 +648,8 @@ entry:
   store i8 %frombool, ptr %isSwapped.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btTriangleCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btConvexTriangleCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV24btConvexTriangleCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_aabbMin = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin)
           to label %invoke.cont unwind label %lpad
@@ -658,60 +661,60 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_dispatcher = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %dispatcher.addr, align 8
-  store ptr %0, ptr %m_dispatcher, align 8
+  %1 = load ptr, ptr %dispatcher.addr, align 8
+  store ptr %1, ptr %m_dispatcher, align 8
   %m_dispatchInfoPtr = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 7
   store ptr null, ptr %m_dispatchInfoPtr, align 8
-  %1 = load i8, ptr %isSwapped.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %isSwapped.addr, align 1
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont2
-  %2 = load ptr, ptr %body1Wrap.addr, align 8
+  %3 = load ptr, ptr %body1Wrap.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont2
-  %3 = load ptr, ptr %body0Wrap.addr, align 8
+  %4 = load ptr, ptr %body0Wrap.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %2, %cond.true ], [ %3, %cond.false ]
+  %cond = phi ptr [ %3, %cond.true ], [ %4, %cond.false ]
   %m_convexBodyWrap = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 3
   store ptr %cond, ptr %m_convexBodyWrap, align 8
-  %4 = load i8, ptr %isSwapped.addr, align 1
-  %tobool3 = trunc i8 %4 to i1
+  %5 = load i8, ptr %isSwapped.addr, align 1
+  %tobool3 = trunc i8 %5 to i1
   br i1 %tobool3, label %cond.true4, label %cond.false5
 
 cond.true4:                                       ; preds = %cond.end
-  %5 = load ptr, ptr %body0Wrap.addr, align 8
+  %6 = load ptr, ptr %body0Wrap.addr, align 8
   br label %cond.end6
 
 cond.false5:                                      ; preds = %cond.end
-  %6 = load ptr, ptr %body1Wrap.addr, align 8
+  %7 = load ptr, ptr %body1Wrap.addr, align 8
   br label %cond.end6
 
 cond.end6:                                        ; preds = %cond.false5, %cond.true4
-  %cond7 = phi ptr [ %5, %cond.true4 ], [ %6, %cond.false5 ]
+  %cond7 = phi ptr [ %6, %cond.true4 ], [ %7, %cond.false5 ]
   %m_triBodyWrap = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 4
   store ptr %cond7, ptr %m_triBodyWrap, align 8
   %m_dispatcher8 = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 6
-  %7 = load ptr, ptr %m_dispatcher8, align 8
+  %8 = load ptr, ptr %m_dispatcher8, align 8
   %m_convexBodyWrap9 = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 3
-  %8 = load ptr, ptr %m_convexBodyWrap9, align 8
-  %call = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %9 = load ptr, ptr %m_convexBodyWrap9, align 8
+  %call = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %cond.end6
   %m_triBodyWrap11 = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 4
-  %9 = load ptr, ptr %m_triBodyWrap11, align 8
-  %call13 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %10 = load ptr, ptr %m_triBodyWrap11, align 8
+  %call13 = invoke noundef ptr @_ZNK24btCollisionObjectWrapper18getCollisionObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %vtable = load ptr, ptr %7, align 8
+  %vtable = load ptr, ptr %8, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %10 = load ptr, ptr %vfn, align 8
-  %call15 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %call, ptr noundef %call13)
+  %11 = load ptr, ptr %vfn, align 8
+  %call15 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %call, ptr noundef %call13)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -724,12 +727,12 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   ret void
 
 lpad:                                             ; preds = %invoke.cont14, %invoke.cont12, %invoke.cont10, %cond.end6, %invoke.cont, %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 
@@ -747,7 +750,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btTriangleCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18btTriangleCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -796,19 +800,20 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btConvexTriangleCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV24btConvexTriangleCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN24btConvexTriangleCallback10clearCacheEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_dispatcher = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %m_dispatcher, align 8
+  %1 = load ptr, ptr %m_dispatcher, align 8
   %m_manifoldPtr = getelementptr inbounds %class.btConvexTriangleCallback, ptr %this1, i32 0, i32 10
-  %1 = load ptr, ptr %m_manifoldPtr, align 8
-  %vtable = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %m_manifoldPtr, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %2 = load ptr, ptr %vfn, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
+  %3 = load ptr, ptr %vfn, align 8
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -816,10 +821,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #11
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #11
   unreachable
 }
 
@@ -1432,7 +1437,8 @@ entry:
   store ptr %p2, ptr %p2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV15btTriangleShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTV15btTriangleShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_vertices1 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices1, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 3
@@ -1451,27 +1457,27 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 1, ptr %m_shapeType, align 8
-  %0 = load ptr, ptr %p0.addr, align 8
+  %1 = load ptr, ptr %p0.addr, align 8
   %m_vertices12 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
   %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices12, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx, ptr align 4 %0, i64 16, i1 false)
-  %1 = load ptr, ptr %p1.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx, ptr align 4 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %p1.addr, align 8
   %m_vertices13 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
   %arrayidx4 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices13, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx4, ptr align 4 %1, i64 16, i1 false)
-  %2 = load ptr, ptr %p2.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx4, ptr align 4 %2, i64 16, i1 false)
+  %3 = load ptr, ptr %p2.addr, align 8
   %m_vertices15 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
   %arrayidx6 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices15, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx6, ptr align 4 %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx6, ptr align 4 %3, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #10
   br label %eh.resume
 
@@ -3398,16 +3404,17 @@ entry:
   store float %hitFraction, ptr %hitFraction.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btTriangleCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN33btConvexConcaveCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResultE31LocalTriangleSphereCastCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN33btConvexConcaveCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResultE31LocalTriangleSphereCastCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ccdSphereFromTrans = getelementptr inbounds %struct.LocalTriangleSphereCastCallback, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_ccdSphereFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %0)
+  %1 = load ptr, ptr %from.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_ccdSphereFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_ccdSphereToTrans = getelementptr inbounds %struct.LocalTriangleSphereCastCallback, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %to.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_ccdSphereToTrans, ptr noundef nonnull align 4 dereferenceable(64) %1)
+  %2 = load ptr, ptr %to.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_ccdSphereToTrans, ptr noundef nonnull align 4 dereferenceable(64) %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -3417,20 +3424,20 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %m_ccdSphereRadius = getelementptr inbounds %struct.LocalTriangleSphereCastCallback, ptr %this1, i32 0, i32 4
-  %2 = load float, ptr %ccdSphereRadius.addr, align 4
-  store float %2, ptr %m_ccdSphereRadius, align 8
+  %3 = load float, ptr %ccdSphereRadius.addr, align 4
+  store float %3, ptr %m_ccdSphereRadius, align 8
   %m_hitFraction = getelementptr inbounds %struct.LocalTriangleSphereCastCallback, ptr %this1, i32 0, i32 5
-  %3 = load float, ptr %hitFraction.addr, align 4
-  store float %3, ptr %m_hitFraction, align 4
+  %4 = load float, ptr %hitFraction.addr, align 4
+  store float %4, ptr %m_hitFraction, align 4
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 
@@ -5454,7 +5461,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12btConvexCast10CastResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12btConvexCast10CastResultE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_hitTransformA = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %this1, i32 0, i32 1
   call void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_hitTransformA)
   %m_hitTransformB = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %this1, i32 0, i32 2
@@ -5490,7 +5498,8 @@ entry:
   store float %radius, ptr %radius.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btSphereShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV13btSphereShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 8, ptr %m_shapeType, align 8
   %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 1
@@ -5504,25 +5513,25 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %m_implicitShapeDimensions4 = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 2
-  %0 = load float, ptr %radius.addr, align 4
-  invoke void @_ZN9btVector34setXEf(ptr noundef nonnull align 4 dereferenceable(16) %m_implicitShapeDimensions4, float noundef %0)
+  %1 = load float, ptr %radius.addr, align 4
+  invoke void @_ZN9btVector34setXEf(ptr noundef nonnull align 4 dereferenceable(16) %m_implicitShapeDimensions4, float noundef %1)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %1 = load float, ptr %radius.addr, align 4
+  %2 = load float, ptr %radius.addr, align 4
   %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 3
-  store float %1, ptr %m_collisionMargin, align 8
+  store float %2, ptr %m_collisionMargin, align 8
   %m_padding = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 4
   store float 0.000000e+00, ptr %m_padding, align 4
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN21btConvexInternalShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #10
   br label %eh.resume
 

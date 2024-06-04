@@ -166,13 +166,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15b2FrictionJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %localAnchorA = getelementptr inbounds %struct.b2FrictionJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV15b2FrictionJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %localAnchorA = getelementptr inbounds %struct.b2FrictionJointDef, ptr %2, i32 0, i32 1
   %m_localAnchorA2 = getelementptr inbounds %class.b2FrictionJoint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorA2, ptr align 4 %localAnchorA, i64 8, i1 false)
-  %2 = load ptr, ptr %def.addr, align 8
-  %localAnchorB = getelementptr inbounds %struct.b2FrictionJointDef, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %def.addr, align 8
+  %localAnchorB = getelementptr inbounds %struct.b2FrictionJointDef, ptr %3, i32 0, i32 2
   %m_localAnchorB3 = getelementptr inbounds %class.b2FrictionJoint, ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB3, ptr align 4 %localAnchorB, i64 8, i1 false)
   %m_linearImpulse4 = getelementptr inbounds %class.b2FrictionJoint, ptr %this1, i32 0, i32 3
@@ -182,25 +183,25 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_angularImpulse = getelementptr inbounds %class.b2FrictionJoint, ptr %this1, i32 0, i32 4
   store float 0.000000e+00, ptr %m_angularImpulse, align 8
-  %3 = load ptr, ptr %def.addr, align 8
-  %maxForce = getelementptr inbounds %struct.b2FrictionJointDef, ptr %3, i32 0, i32 3
-  %4 = load float, ptr %maxForce, align 4
+  %4 = load ptr, ptr %def.addr, align 8
+  %maxForce = getelementptr inbounds %struct.b2FrictionJointDef, ptr %4, i32 0, i32 3
+  %5 = load float, ptr %maxForce, align 4
   %m_maxForce = getelementptr inbounds %class.b2FrictionJoint, ptr %this1, i32 0, i32 5
-  store float %4, ptr %m_maxForce, align 4
-  %5 = load ptr, ptr %def.addr, align 8
-  %maxTorque = getelementptr inbounds %struct.b2FrictionJointDef, ptr %5, i32 0, i32 4
-  %6 = load float, ptr %maxTorque, align 8
+  store float %5, ptr %m_maxForce, align 4
+  %6 = load ptr, ptr %def.addr, align 8
+  %maxTorque = getelementptr inbounds %struct.b2FrictionJointDef, ptr %6, i32 0, i32 4
+  %7 = load float, ptr %maxTorque, align 8
   %m_maxTorque = getelementptr inbounds %class.b2FrictionJoint, ptr %this1, i32 0, i32 6
-  store float %6, ptr %m_maxTorque, align 8
+  store float %7, ptr %m_maxTorque, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #8
   br label %eh.resume
 

@@ -146,14 +146,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_shade_configuration() #0 {
   store ptr @ett_zbee_zcl_shade_configuration, ptr @proto_register_zbee_zcl_shade_configuration.ett, align 16
-  store ptr @ett_zbee_zcl_shade_configuration_status, ptr getelementptr inbounds ([2 x ptr], ptr @proto_register_zbee_zcl_shade_configuration.ett, i64 0, i64 1), align 8
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef @.str.16)
-  store i32 %1, ptr @proto_zbee_zcl_shade_configuration, align 4
-  %2 = load i32, ptr @proto_zbee_zcl_shade_configuration, align 4
-  call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_zbee_zcl_shade_configuration.hf, i32 noundef 7)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_zcl_shade_configuration.ett, i32 noundef 2)
+  %1 = getelementptr inbounds [2 x ptr], ptr @proto_register_zbee_zcl_shade_configuration.ett, i64 0, i64 1
+  store ptr @ett_zbee_zcl_shade_configuration_status, ptr %1, align 8
+  %2 = call i32 @proto_register_protocol(ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef @.str.16)
+  store i32 %2, ptr @proto_zbee_zcl_shade_configuration, align 4
   %3 = load i32, ptr @proto_zbee_zcl_shade_configuration, align 4
-  %4 = call ptr @register_dissector(ptr noundef @.str.16, ptr noundef @dissect_zbee_zcl_shade_configuration, i32 noundef %3)
+  call void @proto_register_field_array(i32 noundef %3, ptr noundef @proto_register_zbee_zcl_shade_configuration.hf, i32 noundef 7)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_zcl_shade_configuration.ett, i32 noundef 2)
+  %4 = load i32, ptr @proto_zbee_zcl_shade_configuration, align 4
+  %5 = call ptr @register_dissector(ptr noundef @.str.16, ptr noundef @dissect_zbee_zcl_shade_configuration, i32 noundef %4)
   ret void
 }
 

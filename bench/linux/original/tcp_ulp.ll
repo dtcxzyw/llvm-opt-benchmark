@@ -44,22 +44,24 @@ define dso_local noundef i32 @tcp_register_ulp(ptr noundef %0) #0 align 16 {
 11:                                               ; preds = %7, %3
   %12 = phi ptr [ %5, %7 ], [ null, %3 ]
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %17
+  br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @tcp_ulp_list, i64 0, i32 1), align 8
+  %15 = getelementptr inbounds %struct.list_head, ptr @tcp_ulp_list, i64 0, i32 1
+  %16 = load ptr, ptr %15, align 8
   store ptr @tcp_ulp_list, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %16, ptr %17, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
-  store volatile ptr %0, ptr %15, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @tcp_ulp_list, i64 0, i32 1), align 8
-  br label %17
+  store volatile ptr %0, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.list_head, ptr @tcp_ulp_list, i64 0, i32 1
+  store ptr %0, ptr %18, align 8
+  br label %19
 
-17:                                               ; preds = %14, %11
-  %18 = phi i32 [ 0, %14 ], [ -17, %11 ]
+19:                                               ; preds = %14, %11
+  %20 = phi i32 [ 0, %14 ], [ -17, %11 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @tcp_ulp_list_lock) #4
-  ret i32 %18
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -71,7 +73,8 @@ define dso_local void @tcp_unregister_ulp(ptr nocapture noundef %0) #0 align 16 
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
+  %6 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %6, ptr %2, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @tcp_ulp_list_lock) #4
   tail call void @synchronize_rcu() #4
   ret void

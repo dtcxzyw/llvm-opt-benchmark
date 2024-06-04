@@ -6657,10 +6657,11 @@ entry:
   store ptr %ctx, ptr %ctx.addr, align 8
   store ptr %mf, ptr %mf.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf9InputFileINS0_5PPC32EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4mold3elf9InputFileINS0_5PPC32EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mf2 = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %mf.addr, align 8
-  store ptr %0, ptr %mf2, align 8
+  %1 = load ptr, ptr %mf.addr, align 8
+  store ptr %1, ptr %mf2, align 8
   %elf_sections = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 2
   call void @_ZNSt4spanIN4mold3elf7ElfShdrINS1_5PPC32EEELm18446744073709551615EEC2EvQleplT0_Lj1ELj1E(ptr noundef nonnull align 8 dereferenceable(16) %elf_sections) #3
   %elf_syms = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 3
@@ -6670,8 +6671,8 @@ entry:
   %first_global = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 5
   store i64 0, ptr %first_global, align 8
   %filename = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 6
-  %1 = load ptr, ptr %mf.addr, align 8
-  %name = getelementptr inbounds %"class.mold::MappedFile", ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %mf.addr, align 8
+  %name = getelementptr inbounds %"class.mold::MappedFile", ptr %2, i32 0, i32 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %is_dso = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 7
   store i8 0, ptr %is_dso, align 8
@@ -6699,74 +6700,74 @@ entry:
   call void @_ZNSt6vectorIN4mold3elf6SymbolINS1_5PPC32EEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %local_syms) #3
   %frag_syms = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 20
   call void @_ZNSt6vectorIN4mold3elf6SymbolINS1_5PPC32EEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %frag_syms) #3
-  %2 = load ptr, ptr %mf.addr, align 8
-  %size = getelementptr inbounds %"class.mold::MappedFile", ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %size, align 8
-  %cmp = icmp ult i64 %3, 52
+  %3 = load ptr, ptr %mf.addr, align 8
+  %size = getelementptr inbounds %"class.mold::MappedFile", ptr %3, i32 0, i32 2
+  %4 = load i64, ptr %size, align 8
+  %cmp = icmp ult i64 %4, 52
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %ctx.addr, align 8
-  call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4576) %4)
+  %5 = load ptr, ptr %ctx.addr, align 8
+  call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4576) %5)
   %call = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRNS1_9InputFileIS3_EEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(280) %this1)
   %call3 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRA17_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call, ptr noundef nonnull align 1 dereferenceable(17) @.str)
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp) #23
   unreachable
 
 if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %mf.addr, align 8
-  %data = getelementptr inbounds %"class.mold::MappedFile", ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %data, align 8
-  %call4 = call i32 @memcmp(ptr noundef %6, ptr noundef @.str.4, i64 noundef 4) #24
+  %6 = load ptr, ptr %mf.addr, align 8
+  %data = getelementptr inbounds %"class.mold::MappedFile", ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %data, align 8
+  %call4 = call i32 @memcmp(ptr noundef %7, ptr noundef @.str.4, i64 noundef 4) #24
   %tobool = icmp ne i32 %call4, 0
   br i1 %tobool, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end
-  %7 = load ptr, ptr %ctx.addr, align 8
-  call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(4576) %7)
+  %8 = load ptr, ptr %ctx.addr, align 8
+  call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(4576) %8)
   %call7 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRNS1_9InputFileIS3_EEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(280) %this1)
   %call8 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRA18_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call7, ptr noundef nonnull align 1 dereferenceable(18) @.str.5)
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp6) #23
   unreachable
 
 if.end9:                                          ; preds = %if.end
-  %8 = load ptr, ptr %mf.addr, align 8
-  %data10 = getelementptr inbounds %"class.mold::MappedFile", ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %data10, align 8
-  store ptr %9, ptr %ehdr, align 8
-  %10 = load ptr, ptr %ehdr, align 8
-  %e_type = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %10, i32 0, i32 1
+  %9 = load ptr, ptr %mf.addr, align 8
+  %data10 = getelementptr inbounds %"class.mold::MappedFile", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %data10, align 8
+  store ptr %10, ptr %ehdr, align 8
+  %11 = load ptr, ptr %ehdr, align 8
+  %e_type = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %11, i32 0, i32 1
   %call11 = call noundef zeroext i16 @_ZNK4mold9BigEndianItLi2EEcvtEv(ptr noundef nonnull align 1 dereferenceable(2) %e_type)
   %conv = zext i16 %call11 to i32
   %cmp12 = icmp eq i32 %conv, 3
   %is_dso13 = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 7
   %frombool = zext i1 %cmp12 to i8
   store i8 %frombool, ptr %is_dso13, align 8
-  %11 = load ptr, ptr %mf.addr, align 8
-  %data14 = getelementptr inbounds %"class.mold::MappedFile", ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %data14, align 8
-  %13 = load ptr, ptr %ehdr, align 8
-  %e_shoff = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %13, i32 0, i32 6
+  %12 = load ptr, ptr %mf.addr, align 8
+  %data14 = getelementptr inbounds %"class.mold::MappedFile", ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %data14, align 8
+  %14 = load ptr, ptr %ehdr, align 8
+  %e_shoff = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %14, i32 0, i32 6
   %call15 = call noundef i32 @_ZNK4mold9BigEndianIjLi4EEcvjEv(ptr noundef nonnull align 1 dereferenceable(4) %e_shoff)
   %idx.ext = zext i32 %call15 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %12, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %13, i64 %idx.ext
   store ptr %add.ptr, ptr %sh_begin, align 8
-  %14 = load ptr, ptr %ehdr, align 8
-  %e_shnum = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %14, i32 0, i32 12
+  %15 = load ptr, ptr %ehdr, align 8
+  %e_shnum = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %15, i32 0, i32 12
   %call16 = call noundef zeroext i16 @_ZNK4mold9BigEndianItLi2EEcvtEv(ptr noundef nonnull align 1 dereferenceable(2) %e_shnum)
   %conv17 = zext i16 %call16 to i32
   %cmp18 = icmp eq i32 %conv17, 0
   br i1 %cmp18, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end9
-  %15 = load ptr, ptr %sh_begin, align 8
-  %sh_size = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %15, i32 0, i32 5
+  %16 = load ptr, ptr %sh_begin, align 8
+  %sh_size = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %16, i32 0, i32 5
   %call19 = call noundef i32 @_ZNK4mold9BigEndianIjLi4EEcvjEv(ptr noundef nonnull align 1 dereferenceable(4) %sh_size)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end9
-  %16 = load ptr, ptr %ehdr, align 8
-  %e_shnum20 = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %16, i32 0, i32 12
+  %17 = load ptr, ptr %ehdr, align 8
+  %e_shnum20 = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %17, i32 0, i32 12
   %call21 = call noundef zeroext i16 @_ZNK4mold9BigEndianItLi2EEcvtEv(ptr noundef nonnull align 1 dereferenceable(2) %e_shnum20)
   %conv22 = zext i16 %call21 to i32
   br label %cond.end
@@ -6775,28 +6776,28 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i32 [ %call19, %cond.true ], [ %conv22, %cond.false ]
   %conv23 = zext i32 %cond to i64
   store i64 %conv23, ptr %num_sections, align 8
-  %17 = load ptr, ptr %mf.addr, align 8
-  %data24 = getelementptr inbounds %"class.mold::MappedFile", ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %data24, align 8
-  %19 = load ptr, ptr %mf.addr, align 8
-  %size25 = getelementptr inbounds %"class.mold::MappedFile", ptr %19, i32 0, i32 2
-  %20 = load i64, ptr %size25, align 8
-  %add.ptr26 = getelementptr inbounds i8, ptr %18, i64 %20
-  %21 = load ptr, ptr %sh_begin, align 8
-  %22 = load i64, ptr %num_sections, align 8
-  %add.ptr27 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %21, i64 %22
+  %18 = load ptr, ptr %mf.addr, align 8
+  %data24 = getelementptr inbounds %"class.mold::MappedFile", ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %data24, align 8
+  %20 = load ptr, ptr %mf.addr, align 8
+  %size25 = getelementptr inbounds %"class.mold::MappedFile", ptr %20, i32 0, i32 2
+  %21 = load i64, ptr %size25, align 8
+  %add.ptr26 = getelementptr inbounds i8, ptr %19, i64 %21
+  %22 = load ptr, ptr %sh_begin, align 8
+  %23 = load i64, ptr %num_sections, align 8
+  %add.ptr27 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %22, i64 %23
   %cmp28 = icmp ult ptr %add.ptr26, %add.ptr27
   br i1 %cmp28, label %if.then29, label %if.end38
 
 if.then29:                                        ; preds = %cond.end
-  %23 = load ptr, ptr %ctx.addr, align 8
-  call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(4576) %23)
-  %24 = load ptr, ptr %mf.addr, align 8
-  %name31 = getelementptr inbounds %"class.mold::MappedFile", ptr %24, i32 0, i32 0
+  %24 = load ptr, ptr %ctx.addr, align 8
+  call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(4576) %24)
+  %25 = load ptr, ptr %mf.addr, align 8
+  %name31 = getelementptr inbounds %"class.mold::MappedFile", ptr %25, i32 0, i32 0
   %call32 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(32) %name31)
   %call33 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRA33_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call32, ptr noundef nonnull align 1 dereferenceable(33) @.str.6)
-  %25 = load ptr, ptr %mf.addr, align 8
-  %size34 = getelementptr inbounds %"class.mold::MappedFile", ptr %25, i32 0, i32 2
+  %26 = load ptr, ptr %mf.addr, align 8
+  %size34 = getelementptr inbounds %"class.mold::MappedFile", ptr %26, i32 0, i32 2
   %call35 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRlEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call33, ptr noundef nonnull align 8 dereferenceable(8) %size34)
   %call36 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRA2_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call35, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
   %call37 = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRlEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call36, ptr noundef nonnull align 8 dereferenceable(8) %num_sections)
@@ -6804,29 +6805,29 @@ if.then29:                                        ; preds = %cond.end
   unreachable
 
 if.end38:                                         ; preds = %cond.end
-  %26 = load ptr, ptr %sh_begin, align 8
   %27 = load ptr, ptr %sh_begin, align 8
-  %28 = load i64, ptr %num_sections, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %27, i64 %28
-  call void @_ZNSt4spanIN4mold3elf7ElfShdrINS1_5PPC32EEELm18446744073709551615EEC2ITkSt19contiguous_iteratorPS4_TkSt18sized_sentinel_forITL0__ES7_Qaasr19__is_compatible_refIDTdeclsr3stdE7declvalIRS9_EEEEE5valuent16is_convertible_vITL0_0_mEEET_T0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, ptr noundef %26, ptr noundef %add.ptr40) #3
+  %28 = load ptr, ptr %sh_begin, align 8
+  %29 = load i64, ptr %num_sections, align 8
+  %add.ptr40 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %28, i64 %29
+  call void @_ZNSt4spanIN4mold3elf7ElfShdrINS1_5PPC32EEELm18446744073709551615EEC2ITkSt19contiguous_iteratorPS4_TkSt18sized_sentinel_forITL0__ES7_Qaasr19__is_compatible_refIDTdeclsr3stdE7declvalIRS9_EEEEE5valuent16is_convertible_vITL0_0_mEEET_T0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, ptr noundef %27, ptr noundef %add.ptr40) #3
   %elf_sections41 = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elf_sections41, ptr align 8 %ref.tmp39, i64 16, i1 false)
-  %29 = load ptr, ptr %ehdr, align 8
-  %e_shstrndx = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %29, i32 0, i32 13
+  %30 = load ptr, ptr %ehdr, align 8
+  %e_shstrndx = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %30, i32 0, i32 13
   %call42 = call noundef zeroext i16 @_ZNK4mold9BigEndianItLi2EEcvtEv(ptr noundef nonnull align 1 dereferenceable(2) %e_shstrndx)
   %conv43 = zext i16 %call42 to i32
   %cmp44 = icmp eq i32 %conv43, 65535
   br i1 %cmp44, label %cond.true45, label %cond.false47
 
 cond.true45:                                      ; preds = %if.end38
-  %30 = load ptr, ptr %sh_begin, align 8
-  %sh_link = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %30, i32 0, i32 6
+  %31 = load ptr, ptr %sh_begin, align 8
+  %sh_link = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %31, i32 0, i32 6
   %call46 = call noundef i32 @_ZNK4mold9BigEndianIjLi4EEcvjEv(ptr noundef nonnull align 1 dereferenceable(4) %sh_link)
   br label %cond.end51
 
 cond.false47:                                     ; preds = %if.end38
-  %31 = load ptr, ptr %ehdr, align 8
-  %e_shstrndx48 = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %31, i32 0, i32 13
+  %32 = load ptr, ptr %ehdr, align 8
+  %e_shstrndx48 = getelementptr inbounds %"struct.mold::elf::ElfEhdr", ptr %32, i32 0, i32 13
   %call49 = call noundef zeroext i16 @_ZNK4mold9BigEndianItLi2EEcvtEv(ptr noundef nonnull align 1 dereferenceable(2) %e_shstrndx48)
   %conv50 = zext i16 %call49 to i32
   br label %cond.end51
@@ -6835,15 +6836,15 @@ cond.end51:                                       ; preds = %cond.false47, %cond
   %cond52 = phi i32 [ %call46, %cond.true45 ], [ %conv50, %cond.false47 ]
   %conv53 = zext i32 %cond52 to i64
   store i64 %conv53, ptr %shstrtab_idx, align 8
-  %32 = load ptr, ptr %ctx.addr, align 8
-  %33 = load i64, ptr %shstrtab_idx, align 8
-  %call55 = call { i64, ptr } @_ZN4mold3elf9InputFileINS0_5PPC32EE10get_stringERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(280) %this1, ptr noundef nonnull align 8 dereferenceable(4576) %32, i64 noundef %33)
-  %34 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp54, i32 0, i32 0
-  %35 = extractvalue { i64, ptr } %call55, 0
-  store i64 %35, ptr %34, align 8
-  %36 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp54, i32 0, i32 1
-  %37 = extractvalue { i64, ptr } %call55, 1
-  store ptr %37, ptr %36, align 8
+  %33 = load ptr, ptr %ctx.addr, align 8
+  %34 = load i64, ptr %shstrtab_idx, align 8
+  %call55 = call { i64, ptr } @_ZN4mold3elf9InputFileINS0_5PPC32EE10get_stringERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(280) %this1, ptr noundef nonnull align 8 dereferenceable(4576) %33, i64 noundef %34)
+  %35 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp54, i32 0, i32 0
+  %36 = extractvalue { i64, ptr } %call55, 0
+  store i64 %36, ptr %35, align 8
+  %37 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp54, i32 0, i32 1
+  %38 = extractvalue { i64, ptr } %call55, 1
+  store ptr %38, ptr %37, align 8
   %shstrtab56 = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 10
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %shstrtab56, ptr align 8 %ref.tmp54, i64 16, i1 false)
   ret void
@@ -7212,7 +7213,8 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf9InputFileINS0_5PPC32EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4mold3elf9InputFileINS0_5PPC32EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mf = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 1
   store ptr null, ptr %mf, align 8
   %elf_sections = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 2
@@ -15698,7 +15700,8 @@ entry:
   %0 = load ptr, ptr %ctx.addr, align 8
   %1 = load ptr, ptr %mf.addr, align 8
   call void @_ZN4mold3elf9InputFileINS0_5PPC32EEC2ERNS0_7ContextIS2_EEPNS_10MappedFileIS5_EE(ptr noundef nonnull align 8 dereferenceable(280) %this1, ptr noundef nonnull align 8 dereferenceable(4576) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf10ObjectFileINS0_5PPC32EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4mold3elf10ObjectFileINS0_5PPC32EEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %archive_name2 = getelementptr inbounds %"class.mold::elf::ObjectFile", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %archive_name2, ptr noundef nonnull align 8 dereferenceable(32) %archive_name)
   %sections = getelementptr inbounds %"class.mold::elf::ObjectFile", ptr %this1, i32 0, i32 2
@@ -15706,8 +15709,8 @@ entry:
   %mergeable_sections = getelementptr inbounds %"class.mold::elf::ObjectFile", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorISt10unique_ptrIN4mold3elf16MergeableSectionINS2_5PPC32EEESt14default_deleteIS5_EESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mergeable_sections) #3
   %is_in_lib3 = getelementptr inbounds %"class.mold::elf::ObjectFile", ptr %this1, i32 0, i32 4
-  %2 = load i8, ptr %is_in_lib.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %is_in_lib.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_in_lib3, align 8
   %elf_sections2 = getelementptr inbounds %"class.mold::elf::ObjectFile", ptr %this1, i32 0, i32 5
@@ -15758,8 +15761,8 @@ entry:
   store i8 0, ptr %has_common_symbol, align 8
   %symtab_shndx_sec = getelementptr inbounds %"class.mold::elf::ObjectFile", ptr %this1, i32 0, i32 29
   call void @_ZNSt4spanIN4mold9BigEndianIjLi4EEELm18446744073709551615EEC2EvQleplT0_Lj1ELj1E(ptr noundef nonnull align 8 dereferenceable(16) %symtab_shndx_sec) #3
-  %3 = load i8, ptr %is_in_lib.addr, align 1
-  %tobool5 = trunc i8 %3 to i1
+  %4 = load i8, ptr %is_in_lib.addr, align 1
+  %tobool5 = trunc i8 %4 to i1
   %lnot = xor i1 %tobool5, true
   %is_alive = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 9
   call void @_ZN4mold6AtomicIbEaSEb(ptr noundef nonnull align 1 dereferenceable(1) %is_alive, i1 noundef zeroext %lnot)
@@ -19552,7 +19555,8 @@ entry:
   %0 = load ptr, ptr %ctx.addr, align 8
   %1 = load ptr, ptr %mf.addr, align 8
   call void @_ZN4mold3elf9InputFileINS0_5PPC32EEC2ERNS0_7ContextIS2_EEPNS_10MappedFileIS5_EE(ptr noundef nonnull align 8 dereferenceable(280) %this1, ptr noundef nonnull align 8 dereferenceable(4576) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf10SharedFileINS0_5PPC32EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4mold3elf10SharedFileINS0_5PPC32EEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %soname = getelementptr inbounds %"class.mold::elf::SharedFile", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %soname) #3
   %version_strings = getelementptr inbounds %"class.mold::elf::SharedFile", ptr %this1, i32 0, i32 2
@@ -19565,10 +19569,10 @@ entry:
   call void @_ZNSt9once_flagC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %init_aliases) #3
   %aliases = getelementptr inbounds %"class.mold::elf::SharedFile", ptr %this1, i32 0, i32 7
   call void @_ZNSt6vectorIPN4mold3elf6SymbolINS1_5PPC32EEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %aliases) #3
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %as_needed = getelementptr inbounds %"struct.mold::elf::Context", ptr %2, i32 0, i32 6
-  %3 = load i8, ptr %as_needed, align 8
-  %tobool = trunc i8 %3 to i1
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %as_needed = getelementptr inbounds %"struct.mold::elf::Context", ptr %3, i32 0, i32 6
+  %4 = load i8, ptr %as_needed, align 8
+  %tobool = trunc i8 %4 to i1
   %lnot = xor i1 %tobool, true
   %is_alive = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 9
   call void @_ZN4mold6AtomicIbEaSEb(ptr noundef nonnull align 1 dereferenceable(1) %is_alive, i1 noundef zeroext %lnot)
@@ -20465,7 +20469,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf9InputFileINS0_5PPC32EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4mold3elf9InputFileINS0_5PPC32EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %frag_syms = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 20
   call void @_ZNSt6vectorIN4mold3elf6SymbolINS1_5PPC32EEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %frag_syms) #3
   %local_syms = getelementptr inbounds %"class.mold::elf::InputFile", ptr %this1, i32 0, i32 19
@@ -20496,7 +20501,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf10ObjectFileINS0_5PPC32EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4mold3elf10ObjectFileINS0_5PPC32EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lto_elf_syms = getelementptr inbounds %"class.mold::elf::ObjectFile", ptr %this1, i32 0, i32 25
   call void @_ZNSt6vectorIN4mold3elf6ElfSymINS1_5PPC32EEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %lto_elf_syms) #3
   %llvm_addrsig = getelementptr inbounds %"class.mold::elf::ObjectFile", ptr %this1, i32 0, i32 21
@@ -20542,7 +20548,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf10SharedFileINS0_5PPC32EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4mold3elf10SharedFileINS0_5PPC32EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %aliases = getelementptr inbounds %"class.mold::elf::SharedFile", ptr %this1, i32 0, i32 7
   call void @_ZNSt6vectorIPN4mold3elf6SymbolINS1_5PPC32EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %aliases) #3
   %versyms = getelementptr inbounds %"class.mold::elf::SharedFile", ptr %this1, i32 0, i32 4
@@ -22933,10 +22940,11 @@ entry:
   store ptr %exemplar, ptr %exemplar.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %my_construct_callback = getelementptr inbounds %"class.tbb::detail::d1::enumerable_thread_specific", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %exemplar.addr, align 8
-  %call = call noundef ptr @_ZN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEE4makeIJRKlEEEPNS1_13callback_baseEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %exemplar.addr, align 8
+  %call = call noundef ptr @_ZN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEE4makeIJRKlEEEPNS1_13callback_baseEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %1)
   store ptr %call, ptr %my_construct_callback, align 8
   %my_locals = getelementptr inbounds %"class.tbb::detail::d1::enumerable_thread_specific", ptr %this1, i32 0, i32 2
   call void @_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(65) %my_locals)
@@ -22991,7 +22999,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %my_root = getelementptr inbounds %"class.tbb::detail::d1::ets_base", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEEC2ES7_(ptr noundef nonnull align 8 dereferenceable(8) %my_root, ptr noundef null) #3
   %my_count = getelementptr inbounds %"class.tbb::detail::d1::ets_base", ptr %this1, i32 0, i32 2
@@ -23097,19 +23106,20 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %my_construct_callback = getelementptr inbounds %"class.tbb::detail::d1::enumerable_thread_specific", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %my_construct_callback, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %my_construct_callback, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %my_construct_callback2 = getelementptr inbounds %"class.tbb::detail::d1::enumerable_thread_specific", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %my_construct_callback2, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %2 = load ptr, ptr %my_construct_callback2, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -23164,7 +23174,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23233,7 +23244,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   %1 = load ptr, ptr %params.addr, align 8
   call void @_ZN3tbb6detail2d121construct_by_exemplarIlEC2ERKl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -23245,7 +23257,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23367,7 +23380,8 @@ entry:
   %3 = load ptr, ptr %.addr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %add.ptr, i64 8, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   ret void
 }
 
@@ -23379,7 +23393,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23500,10 +23515,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.306", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.306", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPNS0_2d06paddedINS1_11ets_elementIlEELm128EEEEEC2IS8_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPNS0_2d06paddedINS1_11ets_elementIlEELm128EEEEEC2IS8_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.306", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPN3tbb6detail2d06paddedINS1_2d111ets_elementIlEELm128EEEEEC2ESA_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.306", ptr %this1, i32 0, i32 4
@@ -62109,12 +62125,13 @@ land.lhs.true:                                    ; preds = %if.then
   %my_table4 = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base.114", ptr %this1, i32 0, i32 4
   %6 = load i64, ptr %new_seg, align 8
   %arrayidx5 = getelementptr inbounds [64 x %"struct.std::atomic.117"], ptr %my_table4, i64 0, i64 %6
-  %call6 = call noundef zeroext i1 @_ZNSt6atomicIPN3tbb6detail2d213hash_map_baseINS1_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupEEEENS4_13spin_rw_mutexEE6bucketEE23compare_exchange_strongERSK_SK_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(8) %disabled, ptr noundef inttoptr (i64 2 to ptr), i32 noundef 5) #3
+  %7 = inttoptr i64 2 to ptr
+  %call6 = call noundef zeroext i1 @_ZNSt6atomicIPN3tbb6detail2d213hash_map_baseINS1_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupEEEENS4_13spin_rw_mutexEE6bucketEE23compare_exchange_strongERSK_SK_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(8) %disabled, ptr noundef %7, i32 noundef 5) #3
   br i1 %call6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %land.lhs.true
-  %7 = load i64, ptr %new_seg, align 8
-  store i64 %7, ptr %retval, align 8
+  %8 = load i64, ptr %new_seg, align 8
+  store i64 %8, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %if.then
@@ -62125,8 +62142,8 @@ if.end8:                                          ; preds = %if.end, %entry
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7
-  %8 = load i64, ptr %retval, align 8
-  ret i64 %8
+  %9 = load i64, ptr %retval, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind
@@ -62521,7 +62538,8 @@ entry:
   %node_ptr.addr = alloca ptr, align 8
   store ptr %node_ptr, ptr %node_ptr.addr, align 8
   %0 = load ptr, ptr %node_ptr.addr, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 3 to ptr)
+  %1 = inttoptr i64 3 to ptr
+  %cmp = icmp eq ptr %0, %1
   ret i1 %cmp
 }
 
@@ -65108,7 +65126,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %ptr.addr, align 8
   %4 = load i64, ptr %sz.addr, align 8
-  store ptr inttoptr (i64 3 to ptr), ptr %ref.tmp, align 8
+  %5 = inttoptr i64 3 to ptr
+  store ptr %5, ptr %ref.tmp, align 8
   call void @_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupEEEENS3_13spin_rw_mutexEE17init_buckets_implIJPNS1_18hash_map_node_baseISG_EEEEEvPNSH_6bucketEmDpRKT_(ptr noundef nonnull align 8 dereferenceable(568) %this1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   br label %if.end
 
@@ -77553,18 +77572,19 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d14taskC2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SK_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SK_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %my_range = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %range.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_range, ptr align 8 %0, i64 24, i1 false)
+  %1 = load ptr, ptr %range.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_range, ptr align 8 %1, i64 24, i1 false)
   %my_parent = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 3
   store ptr null, ptr %my_parent, align 32
   %my_partition = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %partitioner.addr, align 8
-  call void @_ZN3tbb6detail2d119auto_partition_typeC2ERKNS1_16auto_partitionerE(ptr noundef nonnull align 8 dereferenceable(13) %my_partition, ptr noundef nonnull align 1 dereferenceable(1) %1)
+  %2 = load ptr, ptr %partitioner.addr, align 8
+  call void @_ZN3tbb6detail2d119auto_partition_typeC2ERKNS1_16auto_partitionerE(ptr noundef nonnull align 8 dereferenceable(13) %my_partition, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %my_allocator = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %alloc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_allocator, ptr align 8 %2, i64 8, i1 false)
+  %3 = load ptr, ptr %alloc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_allocator, ptr align 8 %3, i64 8, i1 false)
   ret void
 }
 
@@ -77576,7 +77596,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN3tbb6detail2d111task_traitsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d14taskE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d14taskE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 64
   %m_reserved = getelementptr inbounds %"class.tbb::detail::d1::task", ptr %this1, i32 0, i32 2
   %arrayinit.begin = getelementptr inbounds [6 x i64], ptr %m_reserved, i64 0, i64 0
   %arrayinit.end = getelementptr inbounds i64, ptr %arrayinit.begin, i64 6
@@ -78381,22 +78402,23 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d14taskC2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SK_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SK_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %my_range = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %parent_.addr, align 8
-  %my_range2 = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %split_obj.addr, align 8
-  call void @_ZN3tbb6detail2d022get_range_split_objectINS0_2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS8_5PPC32EEESt6vectorISC_SaISC_EEEEZZNS8_10SharedFileISA_E12find_aliasesESC_ENKUlvE_clEvEUlSC_SC_E_EENS1_5splitEEEDTclsr27range_split_object_providerIT_EE3getfp_EERT0_(ptr noundef nonnull align 1 dereferenceable(1) %1)
+  %1 = load ptr, ptr %parent_.addr, align 8
+  %my_range2 = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %split_obj.addr, align 8
+  call void @_ZN3tbb6detail2d022get_range_split_objectINS0_2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS8_5PPC32EEESt6vectorISC_SaISC_EEEEZZNS8_10SharedFileISA_E12find_aliasesESC_ENKUlvE_clEvEUlSC_SC_E_EENS1_5splitEEEDTclsr27range_split_object_providerIT_EE3getfp_EERT0_(ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @_ZN3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5PPC32EEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_EC2ERSK_NS0_2d05splitE(ptr noundef nonnull align 8 dereferenceable(24) %my_range, ptr noundef nonnull align 8 dereferenceable(24) %my_range2)
   %my_parent = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 3
   store ptr null, ptr %my_parent, align 32
   %my_partition = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %parent_.addr, align 8
-  %my_partition4 = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %2, i32 0, i32 4
+  %3 = load ptr, ptr %parent_.addr, align 8
+  %my_partition4 = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %3, i32 0, i32 4
   call void @_ZN3tbb6detail2d119auto_partition_typeC2ERS2_NS0_2d05splitE(ptr noundef nonnull align 8 dereferenceable(13) %my_partition, ptr noundef nonnull align 8 dereferenceable(13) %my_partition4)
   %my_allocator = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %alloc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_allocator, ptr align 8 %3, i64 8, i1 false)
+  %4 = load ptr, ptr %alloc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_allocator, ptr align 8 %4, i64 8, i1 false)
   ret void
 }
 
@@ -79537,22 +79559,23 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d14taskC2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SK_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EENS1_15quick_sort_bodyISG_SK_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %my_range = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %r.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_range, ptr align 8 %0, i64 24, i1 false)
+  %1 = load ptr, ptr %r.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_range, ptr align 8 %1, i64 24, i1 false)
   %my_parent = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 3
   store ptr null, ptr %my_parent, align 32
   %my_partition = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %parent_.addr, align 8
-  %my_partition3 = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %1, i32 0, i32 4
+  %2 = load ptr, ptr %parent_.addr, align 8
+  %my_partition3 = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %2, i32 0, i32 4
   call void @_ZN3tbb6detail2d119auto_partition_typeC2ERS2_NS0_2d05splitE(ptr noundef nonnull align 8 dereferenceable(13) %my_partition, ptr noundef nonnull align 8 dereferenceable(13) %my_partition3)
   %my_allocator = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %alloc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_allocator, ptr align 8 %2, i64 8, i1 false)
+  %3 = load ptr, ptr %alloc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_allocator, ptr align 8 %3, i64 8, i1 false)
   %my_partition4 = getelementptr inbounds %"struct.tbb::detail::d1::start_for", ptr %this1, i32 0, i32 4
-  %3 = load i8, ptr %d.addr, align 1
-  call void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE11align_depthEh(ptr noundef nonnull align 8 dereferenceable(13) %my_partition4, i8 noundef zeroext %3)
+  %4 = load i8, ptr %d.addr, align 1
+  call void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE11align_depthEh(ptr noundef nonnull align 8 dereferenceable(13) %my_partition4, i8 noundef zeroext %4)
   ret void
 }
 
@@ -79987,21 +80010,22 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d14taskC2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %my_range = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %range.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_range, ptr align 8 %0, i64 24, i1 false)
+  %1 = load ptr, ptr %range.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_range, ptr align 8 %1, i64 24, i1 false)
   %my_body = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %body.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_body, ptr align 8 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %body.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_body, ptr align 8 %2, i64 16, i1 false)
   %my_parent = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 3
   store ptr null, ptr %my_parent, align 8
   %my_partition = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %partitioner.addr, align 8
-  call void @_ZN3tbb6detail2d119auto_partition_typeC2ERKNS1_16auto_partitionerE(ptr noundef nonnull align 8 dereferenceable(13) %my_partition, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %3 = load ptr, ptr %partitioner.addr, align 8
+  call void @_ZN3tbb6detail2d119auto_partition_typeC2ERKNS1_16auto_partitionerE(ptr noundef nonnull align 8 dereferenceable(13) %my_partition, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %my_allocator = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %alloc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_allocator, ptr align 8 %3, i64 8, i1 false)
+  %4 = load ptr, ptr %alloc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_allocator, ptr align 8 %4, i64 8, i1 false)
   ret void
 }
 
@@ -80493,26 +80517,27 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d14taskC2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %my_range = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %parent_.addr, align 8
-  %my_range2 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %split_obj.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN3tbb6detail2d022get_range_split_objectINS0_2d113blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS8_5PPC32EEESt6vectorISC_SaISC_EEEEEENS1_5splitEEEDTclsr27range_split_object_providerIT_EE3getfp_EERT0_(ptr noundef nonnull align 1 dereferenceable(1) %1)
+  %1 = load ptr, ptr %parent_.addr, align 8
+  %my_range2 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %split_obj.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN3tbb6detail2d022get_range_split_objectINS0_2d113blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS8_5PPC32EEESt6vectorISC_SaISC_EEEEEENS1_5splitEEEDTclsr27range_split_object_providerIT_EE3getfp_EERT0_(ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @_ZN3tbb6detail2d113blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5PPC32EEESt6vectorISA_SaISA_EEEEEC2ERSG_NS0_2d05splitE(ptr noundef nonnull align 8 dereferenceable(24) %my_range, ptr noundef nonnull align 8 dereferenceable(24) %my_range2)
   %my_body = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %parent_.addr, align 8
-  %my_body3 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %parent_.addr, align 8
+  %my_body3 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_body, ptr align 8 %my_body3, i64 16, i1 false)
   %my_parent = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 3
   store ptr null, ptr %my_parent, align 8
   %my_partition = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %parent_.addr, align 8
-  %my_partition4 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %3, i32 0, i32 4
+  %4 = load ptr, ptr %parent_.addr, align 8
+  %my_partition4 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %4, i32 0, i32 4
   call void @_ZN3tbb6detail2d119auto_partition_typeC2ERS2_NS0_2d05splitE(ptr noundef nonnull align 8 dereferenceable(13) %my_partition, ptr noundef nonnull align 8 dereferenceable(13) %my_partition4)
   %my_allocator = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %alloc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_allocator, ptr align 8 %4, i64 8, i1 false)
+  %5 = load ptr, ptr %alloc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_allocator, ptr align 8 %5, i64 8, i1 false)
   ret void
 }
 
@@ -81300,26 +81325,27 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tbb6detail2d14taskC2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2), ptr %this1, align 64
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS7_5PPC32EEESt6vectorISB_SaISB_EEEEEENS1_23quick_sort_pretest_bodyISG_ZZNS7_10SharedFileIS9_E12find_aliasesESB_ENKUlvE_clEvEUlSB_SB_E_EEKNS1_16auto_partitionerEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 64
   %my_range = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %r.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_range, ptr align 8 %0, i64 24, i1 false)
+  %1 = load ptr, ptr %r.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_range, ptr align 8 %1, i64 24, i1 false)
   %my_body = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %parent_.addr, align 8
-  %my_body2 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %parent_.addr, align 8
+  %my_body2 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %2, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %my_body, ptr align 8 %my_body2, i64 16, i1 false)
   %my_parent = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 3
   store ptr null, ptr %my_parent, align 8
   %my_partition = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %parent_.addr, align 8
-  %my_partition3 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %2, i32 0, i32 4
+  %3 = load ptr, ptr %parent_.addr, align 8
+  %my_partition3 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %3, i32 0, i32 4
   call void @_ZN3tbb6detail2d119auto_partition_typeC2ERS2_NS0_2d05splitE(ptr noundef nonnull align 8 dereferenceable(13) %my_partition, ptr noundef nonnull align 8 dereferenceable(13) %my_partition3)
   %my_allocator = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %alloc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_allocator, ptr align 8 %3, i64 8, i1 false)
+  %4 = load ptr, ptr %alloc.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %my_allocator, ptr align 8 %4, i64 8, i1 false)
   %my_partition4 = getelementptr inbounds %"struct.tbb::detail::d1::start_for.602", ptr %this1, i32 0, i32 4
-  %4 = load i8, ptr %d.addr, align 1
-  call void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE11align_depthEh(ptr noundef nonnull align 8 dereferenceable(13) %my_partition4, i8 noundef zeroext %4)
+  %5 = load i8, ptr %d.addr, align 1
+  call void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE11align_depthEh(ptr noundef nonnull align 8 dereferenceable(13) %my_partition4, i8 noundef zeroext %5)
   ret void
 }
 
@@ -82120,12 +82146,13 @@ land.lhs.true:                                    ; preds = %if.then
   %my_table4 = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this1, i32 0, i32 4
   %6 = load i64, ptr %new_seg, align 8
   %arrayidx5 = getelementptr inbounds [64 x %"struct.std::atomic.111"], ptr %my_table4, i64 0, i64 %6
-  %call6 = call noundef zeroext i1 @_ZNSt6atomicIPN3tbb6detail2d213hash_map_baseINS1_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSD_5PPC32EEEEEENS4_13spin_rw_mutexEE6bucketEE23compare_exchange_strongERSM_SM_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(8) %disabled, ptr noundef inttoptr (i64 2 to ptr), i32 noundef 5) #3
+  %7 = inttoptr i64 2 to ptr
+  %call6 = call noundef zeroext i1 @_ZNSt6atomicIPN3tbb6detail2d213hash_map_baseINS1_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSD_5PPC32EEEEEENS4_13spin_rw_mutexEE6bucketEE23compare_exchange_strongERSM_SM_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(8) %disabled, ptr noundef %7, i32 noundef 5) #3
   br i1 %call6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %land.lhs.true
-  %7 = load i64, ptr %new_seg, align 8
-  store i64 %7, ptr %retval, align 8
+  %8 = load i64, ptr %new_seg, align 8
+  store i64 %8, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %if.then
@@ -82136,8 +82163,8 @@ if.end8:                                          ; preds = %if.end, %entry
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7
-  %8 = load i64, ptr %retval, align 8
-  ret i64 %8
+  %9 = load i64, ptr %retval, align 8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind
@@ -83175,7 +83202,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %ptr.addr, align 8
   %4 = load i64, ptr %sz.addr, align 8
-  store ptr inttoptr (i64 3 to ptr), ptr %ref.tmp, align 8
+  %5 = inttoptr i64 3 to ptr
+  store ptr %5, ptr %ref.tmp, align 8
   call void @_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSC_5PPC32EEEEEENS3_13spin_rw_mutexEE17init_buckets_implIJPNS1_18hash_map_node_baseISI_EEEEEvPNSJ_6bucketEmDpRKT_(ptr noundef nonnull align 8 dereferenceable(568) %this1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   br label %if.end
 

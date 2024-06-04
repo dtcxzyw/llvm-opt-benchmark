@@ -8484,13 +8484,14 @@ define linkonce_odr dso_local void @_ZN5vcpkg21PathsPortFileProviderD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
-  %5 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5vcpkg30IFullVersionedPortfileProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  %6 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5vcpkg17IBaselineProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  %6 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5vcpkg30IFullVersionedPortfileProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  %7 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5vcpkg17IBaselineProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
   call void @_ZN5vcpkg16PortFileProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -19088,526 +19089,527 @@ define dso_local void @_ZN5vcpkg12PreBuildInfoC2ERKNS_10VcpkgPathsENS_7TripletER
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #8
   store ptr @_ZZN5vcpkg12PreBuildInfoC1ERKNS_10VcpkgPathsENS_7TripletERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEEE13VCPKG_OPTIONS, ptr %10, align 8
   store ptr @_ZZN5vcpkg12PreBuildInfoC1ERKNS_10VcpkgPathsENS_7TripletERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEEE13VCPKG_OPTIONS, ptr %11, align 8
-  store ptr getelementptr inbounds (%"struct.std::pair.388", ptr @_ZZN5vcpkg12PreBuildInfoC1ERKNS_10VcpkgPathsENS_7TripletERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEEE13VCPKG_OPTIONS, i64 15), ptr %12, align 8
-  br label %67
+  %67 = getelementptr inbounds %"struct.std::pair.388", ptr @_ZZN5vcpkg12PreBuildInfoC1ERKNS_10VcpkgPathsENS_7TripletERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEEE13VCPKG_OPTIONS, i64 15
+  store ptr %67, ptr %12, align 8
+  br label %68
 
-67:                                               ; preds = %318, %4
-  %68 = load ptr, ptr %11, align 8
-  %69 = load ptr, ptr %12, align 8
-  %70 = icmp ne ptr %68, %69
-  br i1 %70, label %71, label %321
+68:                                               ; preds = %319, %4
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = icmp ne ptr %69, %70
+  br i1 %71, label %72, label %322
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %11, align 8
-  store ptr %72, ptr %13, align 8
-  %73 = load ptr, ptr %8, align 8
-  %74 = load ptr, ptr %13, align 8
-  %75 = getelementptr inbounds %"struct.std::pair.388", ptr %74, i32 0, i32 0
-  invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %75)
-          to label %76 unwind label %82
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %11, align 8
+  store ptr %73, ptr %13, align 8
+  %74 = load ptr, ptr %8, align 8
+  %75 = load ptr, ptr %13, align 8
+  %76 = getelementptr inbounds %"struct.std::pair.388", ptr %75, i32 0, i32 0
+  invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %76)
+          to label %77 unwind label %83
 
-76:                                               ; preds = %71
-  %77 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg4Util16value_or_defaultISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEES8_EERKNT_11mapped_typeERKSI_OT0_SL_(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %78 unwind label %86
+77:                                               ; preds = %72
+  %78 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg4Util16value_or_defaultISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEES8_EERKNT_11mapped_typeERKSI_OT0_SL_(ptr noundef nonnull align 8 dereferenceable(56) %74, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %79 unwind label %87
 
-78:                                               ; preds = %76
+79:                                               ; preds = %77
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
-  store ptr %77, ptr %14, align 8
-  %79 = load ptr, ptr %13, align 8
-  %80 = getelementptr inbounds %"struct.std::pair.388", ptr %79, i32 0, i32 1
-  %81 = load i32, ptr %80, align 8
-  switch i32 %81, label %317 [
-    i32 0, label %90
-    i32 1, label %95
-    i32 2, label %100
-    i32 3, label %105
-    i32 4, label %115
-    i32 5, label %125
-    i32 6, label %135
-    i32 7, label %145
-    i32 8, label %201
-    i32 9, label %213
-    i32 10, label %226
-    i32 11, label %236
-    i32 12, label %271
-    i32 13, label %302
-    i32 14, label %308
+  store ptr %78, ptr %14, align 8
+  %80 = load ptr, ptr %13, align 8
+  %81 = getelementptr inbounds %"struct.std::pair.388", ptr %80, i32 0, i32 1
+  %82 = load i32, ptr %81, align 8
+  switch i32 %82, label %318 [
+    i32 0, label %91
+    i32 1, label %96
+    i32 2, label %101
+    i32 3, label %106
+    i32 4, label %116
+    i32 5, label %126
+    i32 6, label %136
+    i32 7, label %146
+    i32 8, label %202
+    i32 9, label %214
+    i32 10, label %227
+    i32 11, label %237
+    i32 12, label %272
+    i32 13, label %303
+    i32 14, label %309
   ]
 
-82:                                               ; preds = %311, %276, %245, %230, %213, %207, %201, %181, %166, %151, %139, %129, %119, %109, %100, %95, %90, %71
-  %83 = landingpad { ptr, i32 }
+83:                                               ; preds = %312, %277, %246, %231, %214, %208, %202, %182, %167, %152, %140, %130, %120, %110, %101, %96, %91, %72
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %16, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %17, align 4
-  br label %322
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %16, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %17, align 4
+  br label %323
 
-86:                                               ; preds = %76
-  %87 = landingpad { ptr, i32 }
+87:                                               ; preds = %77
+  %88 = landingpad { ptr, i32 }
           cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %16, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %17, align 4
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %16, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %17, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
-  br label %322
-
-90:                                               ; preds = %78
-  %91 = load ptr, ptr %14, align 8
-  %92 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 4
-  %93 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %91)
-          to label %94 unwind label %82
-
-94:                                               ; preds = %90
-  br label %317
-
-95:                                               ; preds = %78
-  %96 = load ptr, ptr %14, align 8
-  %97 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 5
-  %98 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %96)
-          to label %99 unwind label %82
-
-99:                                               ; preds = %95
-  br label %317
-
-100:                                              ; preds = %78
-  %101 = load ptr, ptr %14, align 8
-  %102 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 6
-  %103 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %101)
-          to label %104 unwind label %82
-
-104:                                              ; preds = %100
-  br label %317
-
-105:                                              ; preds = %78
-  %106 = load ptr, ptr %14, align 8
-  %107 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %106) #8
-  br i1 %107, label %108, label %109
-
-108:                                              ; preds = %105
-  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %18) #8
-  br label %112
-
-109:                                              ; preds = %105
-  %110 = load ptr, ptr %14, align 8
-  invoke void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES7_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS6_Lb1EEESD_EEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(32) %110)
-          to label %111 unwind label %82
-
-111:                                              ; preds = %109
-  br label %112
-
-112:                                              ; preds = %111, %108
-  %113 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 7
-  %114 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(40) %113, ptr noundef nonnull align 8 dereferenceable(40) %18) #8
-  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #8
-  br label %317
-
-115:                                              ; preds = %78
-  %116 = load ptr, ptr %14, align 8
-  %117 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %116) #8
-  br i1 %117, label %118, label %119
-
-118:                                              ; preds = %115
-  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %19) #8
-  br label %122
-
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %14, align 8
-  invoke void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES7_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS6_Lb1EEESD_EEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(32) %120)
-          to label %121 unwind label %82
-
-121:                                              ; preds = %119
-  br label %122
-
-122:                                              ; preds = %121, %118
-  %123 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 8
-  %124 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef nonnull align 8 dereferenceable(40) %19) #8
-  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #8
-  br label %317
-
-125:                                              ; preds = %78
-  %126 = load ptr, ptr %14, align 8
-  %127 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %126) #8
-  br i1 %127, label %128, label %129
-
-128:                                              ; preds = %125
-  call void @_ZN5vcpkg8OptionalINS_4PathEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %20) #8
-  br label %132
-
-129:                                              ; preds = %125
-  %130 = load ptr, ptr %14, align 8
-  invoke void @_ZN5vcpkg8OptionalINS_4PathEEC2IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESE_EEiE4typeELi0EEEOSE_(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(32) %130)
-          to label %131 unwind label %82
-
-131:                                              ; preds = %129
-  br label %132
-
-132:                                              ; preds = %131, %128
-  %133 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 9
-  %134 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINS_4PathEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull align 8 dereferenceable(40) %20) #8
-  call void @_ZN5vcpkg8OptionalINS_4PathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #8
-  br label %317
-
-135:                                              ; preds = %78
-  %136 = load ptr, ptr %14, align 8
-  %137 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %136) #8
-  br i1 %137, label %138, label %139
-
-138:                                              ; preds = %135
-  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %21) #8
-  br label %142
-
-139:                                              ; preds = %135
-  %140 = load ptr, ptr %14, align 8
-  invoke void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES7_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS6_Lb1EEESD_EEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(32) %140)
-          to label %141 unwind label %82
-
-141:                                              ; preds = %139
-  br label %142
-
-142:                                              ; preds = %141, %138
-  %143 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 10
-  %144 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(40) %143, ptr noundef nonnull align 8 dereferenceable(40) %21) #8
-  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #8
-  br label %317
-
-145:                                              ; preds = %78
-  %146 = load ptr, ptr %14, align 8
-  %147 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %146) #8
-  br i1 %147, label %148, label %151
-
-148:                                              ; preds = %145
-  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEC2ENS_7NullOptE(ptr noundef nonnull align 4 dereferenceable(8) %22) #8
-  %149 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 11
-  %150 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEaSEOS2_(ptr noundef nonnull align 4 dereferenceable(8) %149, ptr noundef nonnull align 4 dereferenceable(8) %22) #8
-  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %22) #8
-  br label %200
-
-151:                                              ; preds = %145
-  %152 = load ptr, ptr %14, align 8
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %152) #8
-  call void @_ZN5vcpkg10StringViewC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef @.str.74) #8
-  %153 = getelementptr inbounds { ptr, i64 }, ptr %23, i32 0, i32 0
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds { ptr, i64 }, ptr %23, i32 0, i32 1
-  %156 = load i64, ptr %155, align 8
-  %157 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 0
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
-  %160 = load i64, ptr %159, align 8
-  %161 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %154, i64 %156, ptr %158, i64 %160)
-          to label %162 unwind label %82
-
-162:                                              ; preds = %151
-  br i1 %161, label %163, label %166
-
-163:                                              ; preds = %162
-  store i32 0, ptr %26, align 4
-  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEC2IS1_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEES6_EEiE4typeELi0EEEOS6_(ptr noundef nonnull align 4 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(4) %26) #8
-  %164 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 11
-  %165 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEaSEOS2_(ptr noundef nonnull align 4 dereferenceable(8) %164, ptr noundef nonnull align 4 dereferenceable(8) %25) #8
-  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %25) #8
-  br label %199
-
-166:                                              ; preds = %162
-  %167 = load ptr, ptr %14, align 8
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(32) %167) #8
-  call void @_ZN5vcpkg10StringViewC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef @.str.75) #8
-  %168 = getelementptr inbounds { ptr, i64 }, ptr %27, i32 0, i32 0
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds { ptr, i64 }, ptr %27, i32 0, i32 1
-  %171 = load i64, ptr %170, align 8
-  %172 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 0
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 1
-  %175 = load i64, ptr %174, align 8
-  %176 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %169, i64 %171, ptr %173, i64 %175)
-          to label %177 unwind label %82
-
-177:                                              ; preds = %166
-  br i1 %176, label %178, label %181
-
-178:                                              ; preds = %177
-  store i32 1, ptr %30, align 4
-  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEC2IS1_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEES6_EEiE4typeELi0EEEOS6_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(4) %30) #8
-  %179 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 11
-  %180 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEaSEOS2_(ptr noundef nonnull align 4 dereferenceable(8) %179, ptr noundef nonnull align 4 dereferenceable(8) %29) #8
-  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %29) #8
-  br label %198
-
-181:                                              ; preds = %177
-  %182 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %31, i32 0, i32 0
-  store i32 1827, ptr %182, align 8
-  %183 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %31, i32 0, i32 1
-  store ptr @.str, ptr %183, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 @_ZN5vcpkg29msgUnknownSettingForBuildTypeE, i64 8, i1 false)
-  %184 = load ptr, ptr %14, align 8
-  %185 = call { ptr, i64 } @_ZNK5vcpkg3msg8option_taSINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleINS_10StringViewET_EE5valueESB_SC_E4typeEEERKSC_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL6optionE, ptr noundef nonnull align 8 dereferenceable(32) %184) #8
-  %186 = getelementptr inbounds %"struct.vcpkg::msg::TagArg.391", ptr %33, i32 0, i32 0
-  %187 = getelementptr inbounds { ptr, i64 }, ptr %186, i32 0, i32 0
-  %188 = extractvalue { ptr, i64 } %185, 0
-  store ptr %188, ptr %187, align 8
-  %189 = getelementptr inbounds { ptr, i64 }, ptr %186, i32 0, i32 1
-  %190 = extractvalue { ptr, i64 } %185, 1
-  store i64 %190, ptr %189, align 8
-  %191 = getelementptr inbounds %"struct.vcpkg::msg::MessageT.390", ptr %32, i32 0, i32 0
-  %192 = load i64, ptr %191, align 8
-  %193 = getelementptr inbounds { ptr, i64 }, ptr %33, i32 0, i32 0
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds { ptr, i64 }, ptr %33, i32 0, i32 1
-  %196 = load i64, ptr %195, align 8
-  invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageIJNS_3msg8option_tEEJNS_10StringViewEEEEvRKNS_8LineInfoENS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityIS9_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(16) %31, i64 %192, ptr %194, i64 %196) #20
-          to label %197 unwind label %82
-
-197:                                              ; preds = %181
-  unreachable
-
-198:                                              ; preds = %178
-  br label %199
-
-199:                                              ; preds = %198, %163
-  br label %200
-
-200:                                              ; preds = %199, %148
-  br label %317
-
-201:                                              ; preds = %78
-  %202 = load ptr, ptr %14, align 8
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %202) #8
-  %203 = getelementptr inbounds { ptr, i64 }, ptr %35, i32 0, i32 0
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds { ptr, i64 }, ptr %35, i32 0, i32 1
-  %206 = load i64, ptr %205, align 8
-  invoke void @_ZN5vcpkg7Strings5splitB5cxx11ENS_10StringViewEc(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %34, ptr %204, i64 %206, i8 noundef signext 59)
-          to label %207 unwind label %82
-
-207:                                              ; preds = %201
-  %208 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 14
-  %209 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %208, ptr noundef nonnull align 8 dereferenceable(24) %34) #8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #8
-  %210 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 13
-  %211 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 14
-  invoke void @_ZN5vcpkg4Util7Vectors6appendIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_EEvPS3_IT0_SaISD_EEOT_(ptr noundef %210, ptr noundef nonnull align 8 dereferenceable(24) %211)
-          to label %212 unwind label %82
-
-212:                                              ; preds = %207
-  br label %317
-
-213:                                              ; preds = %78
-  %214 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 13
-  %215 = load ptr, ptr %14, align 8
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(32) %215) #8
-  %216 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 0
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 1
-  %219 = load i64, ptr %218, align 8
-  invoke void @_ZN5vcpkg7Strings5splitB5cxx11ENS_10StringViewEc(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %36, ptr %217, i64 %219, i8 noundef signext 59)
-          to label %220 unwind label %82
-
-220:                                              ; preds = %213
-  invoke void @_ZN5vcpkg4Util7Vectors6appendISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_EEvPS3_IT0_SaISC_EEOT_(ptr noundef %214, ptr noundef nonnull align 8 dereferenceable(24) %36)
-          to label %221 unwind label %222
-
-221:                                              ; preds = %220
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #8
-  br label %317
-
-222:                                              ; preds = %220
-  %223 = landingpad { ptr, i32 }
-          cleanup
-  %224 = extractvalue { ptr, i32 } %223, 0
-  store ptr %224, ptr %16, align 8
-  %225 = extractvalue { ptr, i32 } %223, 1
-  store i32 %225, ptr %17, align 4
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #8
-  br label %322
-
-226:                                              ; preds = %78
-  %227 = load ptr, ptr %14, align 8
-  %228 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %227) #8
-  br i1 %228, label %229, label %230
-
-229:                                              ; preds = %226
-  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %38) #8
-  br label %233
-
-230:                                              ; preds = %226
-  %231 = load ptr, ptr %14, align 8
-  invoke void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES7_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS6_Lb1EEESD_EEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(32) %231)
-          to label %232 unwind label %82
-
-232:                                              ; preds = %230
-  br label %233
-
-233:                                              ; preds = %232, %229
-  %234 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 12
-  %235 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(40) %234, ptr noundef nonnull align 8 dereferenceable(40) %38) #8
-  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #8
-  br label %317
-
-236:                                              ; preds = %78
-  %237 = load ptr, ptr %14, align 8
-  %238 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %237) #8
-  br i1 %238, label %239, label %245
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 10
-  %241 = call noundef zeroext i1 @_ZNK5vcpkg7details15OptionalStorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EE9has_valueEv(ptr noundef nonnull align 8 dereferenceable(40) %240) #8
-  %242 = xor i1 %241, true
-  %243 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 1
-  %244 = zext i1 %242 to i8
-  store i8 %244, ptr %243, align 8
-  br label %270
-
-245:                                              ; preds = %236
-  %246 = load ptr, ptr %14, align 8
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(32) %246) #8
-  %247 = load ptr, ptr %13, align 8
-  %248 = getelementptr inbounds %"struct.std::pair.388", ptr %247, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %248, i64 16, i1 false)
-  %249 = getelementptr inbounds { ptr, i64 }, ptr %40, i32 0, i32 0
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds { ptr, i64 }, ptr %40, i32 0, i32 1
-  %252 = load i64, ptr %251, align 8
-  %253 = getelementptr inbounds { ptr, i64 }, ptr %41, i32 0, i32 0
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds { ptr, i64 }, ptr %41, i32 0, i32 1
-  %256 = load i64, ptr %255, align 8
-  invoke void @_ZN5vcpkgL15from_cmake_boolENS_10StringViewES0_(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT.392") align 8 %39, ptr %250, i64 %252, ptr %254, i64 %256)
-          to label %257 unwind label %82
-
-257:                                              ; preds = %245
-  %258 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %42, i32 0, i32 0
-  store i32 1846, ptr %258, align 8
-  %259 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %42, i32 0, i32 1
-  store ptr @.str, ptr %259, align 8
-  %260 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5vcpkg9ExpectedTIbNS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(33) %39, ptr noundef nonnull align 8 dereferenceable(16) %42)
-          to label %261 unwind label %266
-
-261:                                              ; preds = %257
-  %262 = load i8, ptr %260, align 1
-  %263 = trunc i8 %262 to i1
-  %264 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 1
-  %265 = zext i1 %263 to i8
-  store i8 %265, ptr %264, align 8
-  call void @_ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %39) #8
-  br label %270
-
-266:                                              ; preds = %257
-  %267 = landingpad { ptr, i32 }
-          cleanup
-  %268 = extractvalue { ptr, i32 } %267, 0
-  store ptr %268, ptr %16, align 8
-  %269 = extractvalue { ptr, i32 } %267, 1
-  store i32 %269, ptr %17, align 4
-  call void @_ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %39) #8
-  br label %322
-
-270:                                              ; preds = %261, %239
-  br label %317
-
-271:                                              ; preds = %78
-  %272 = load ptr, ptr %14, align 8
-  %273 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %272) #8
-  br i1 %273, label %274, label %276
-
-274:                                              ; preds = %271
-  %275 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 2
-  store i8 0, ptr %275, align 1
-  br label %301
-
-276:                                              ; preds = %271
-  %277 = load ptr, ptr %14, align 8
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(32) %277) #8
-  %278 = load ptr, ptr %13, align 8
-  %279 = getelementptr inbounds %"struct.std::pair.388", ptr %278, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr align 8 %279, i64 16, i1 false)
-  %280 = getelementptr inbounds { ptr, i64 }, ptr %44, i32 0, i32 0
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds { ptr, i64 }, ptr %44, i32 0, i32 1
-  %283 = load i64, ptr %282, align 8
-  %284 = getelementptr inbounds { ptr, i64 }, ptr %45, i32 0, i32 0
-  %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds { ptr, i64 }, ptr %45, i32 0, i32 1
-  %287 = load i64, ptr %286, align 8
-  invoke void @_ZN5vcpkgL15from_cmake_boolENS_10StringViewES0_(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT.392") align 8 %43, ptr %281, i64 %283, ptr %285, i64 %287)
-          to label %288 unwind label %82
-
-288:                                              ; preds = %276
-  %289 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %46, i32 0, i32 0
-  store i32 1857, ptr %289, align 8
-  %290 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %46, i32 0, i32 1
-  store ptr @.str, ptr %290, align 8
-  %291 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5vcpkg9ExpectedTIbNS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(33) %43, ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %292 unwind label %297
-
-292:                                              ; preds = %288
-  %293 = load i8, ptr %291, align 1
-  %294 = trunc i8 %293 to i1
-  %295 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 2
-  %296 = zext i1 %294 to i8
-  store i8 %296, ptr %295, align 1
-  call void @_ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %43) #8
-  br label %301
-
-297:                                              ; preds = %288
-  %298 = landingpad { ptr, i32 }
-          cleanup
-  %299 = extractvalue { ptr, i32 } %298, 0
-  store ptr %299, ptr %16, align 8
-  %300 = extractvalue { ptr, i32 } %298, 1
-  store i32 %300, ptr %17, align 4
-  call void @_ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %43) #8
-  br label %322
-
-301:                                              ; preds = %292, %274
-  br label %317
-
-302:                                              ; preds = %78
-  %303 = load ptr, ptr %14, align 8
-  %304 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %303) #8
-  br i1 %304, label %307, label %305
-
-305:                                              ; preds = %302
-  %306 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 3
-  store i8 1, ptr %306, align 2
-  br label %307
-
-307:                                              ; preds = %305, %302
-  br label %317
-
-308:                                              ; preds = %78
-  %309 = load ptr, ptr %14, align 8
-  %310 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %309) #8
-  br i1 %310, label %316, label %311
-
-311:                                              ; preds = %308
-  %312 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 15
-  %313 = load ptr, ptr %14, align 8
-  %314 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7details15OptionalStorageINS_4PathELb1EE7emplaceIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(40) %312, ptr noundef nonnull align 8 dereferenceable(32) %313)
-          to label %315 unwind label %82
-
-315:                                              ; preds = %311
-  br label %316
-
-316:                                              ; preds = %315, %308
-  br label %317
-
-317:                                              ; preds = %316, %307, %301, %270, %233, %221, %212, %200, %142, %132, %122, %112, %104, %99, %94, %78
+  br label %323
+
+91:                                               ; preds = %79
+  %92 = load ptr, ptr %14, align 8
+  %93 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 4
+  %94 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %92)
+          to label %95 unwind label %83
+
+95:                                               ; preds = %91
   br label %318
 
-318:                                              ; preds = %317
-  %319 = load ptr, ptr %11, align 8
-  %320 = getelementptr inbounds %"struct.std::pair.388", ptr %319, i32 1
-  store ptr %320, ptr %11, align 8
-  br label %67
+96:                                               ; preds = %79
+  %97 = load ptr, ptr %14, align 8
+  %98 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 5
+  %99 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %97)
+          to label %100 unwind label %83
 
-321:                                              ; preds = %67
+100:                                              ; preds = %96
+  br label %318
+
+101:                                              ; preds = %79
+  %102 = load ptr, ptr %14, align 8
+  %103 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 6
+  %104 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %102)
+          to label %105 unwind label %83
+
+105:                                              ; preds = %101
+  br label %318
+
+106:                                              ; preds = %79
+  %107 = load ptr, ptr %14, align 8
+  %108 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %107) #8
+  br i1 %108, label %109, label %110
+
+109:                                              ; preds = %106
+  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %18) #8
+  br label %113
+
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %14, align 8
+  invoke void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES7_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS6_Lb1EEESD_EEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(32) %111)
+          to label %112 unwind label %83
+
+112:                                              ; preds = %110
+  br label %113
+
+113:                                              ; preds = %112, %109
+  %114 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 7
+  %115 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(40) %114, ptr noundef nonnull align 8 dereferenceable(40) %18) #8
+  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #8
+  br label %318
+
+116:                                              ; preds = %79
+  %117 = load ptr, ptr %14, align 8
+  %118 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #8
+  br i1 %118, label %119, label %120
+
+119:                                              ; preds = %116
+  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %19) #8
+  br label %123
+
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %14, align 8
+  invoke void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES7_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS6_Lb1EEESD_EEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(32) %121)
+          to label %122 unwind label %83
+
+122:                                              ; preds = %120
+  br label %123
+
+123:                                              ; preds = %122, %119
+  %124 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 8
+  %125 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(40) %124, ptr noundef nonnull align 8 dereferenceable(40) %19) #8
+  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #8
+  br label %318
+
+126:                                              ; preds = %79
+  %127 = load ptr, ptr %14, align 8
+  %128 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %127) #8
+  br i1 %128, label %129, label %130
+
+129:                                              ; preds = %126
+  call void @_ZN5vcpkg8OptionalINS_4PathEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %20) #8
+  br label %133
+
+130:                                              ; preds = %126
+  %131 = load ptr, ptr %14, align 8
+  invoke void @_ZN5vcpkg8OptionalINS_4PathEEC2IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESE_EEiE4typeELi0EEEOSE_(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(32) %131)
+          to label %132 unwind label %83
+
+132:                                              ; preds = %130
+  br label %133
+
+133:                                              ; preds = %132, %129
+  %134 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 9
+  %135 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINS_4PathEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(40) %134, ptr noundef nonnull align 8 dereferenceable(40) %20) #8
+  call void @_ZN5vcpkg8OptionalINS_4PathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #8
+  br label %318
+
+136:                                              ; preds = %79
+  %137 = load ptr, ptr %14, align 8
+  %138 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %137) #8
+  br i1 %138, label %139, label %140
+
+139:                                              ; preds = %136
+  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %21) #8
+  br label %143
+
+140:                                              ; preds = %136
+  %141 = load ptr, ptr %14, align 8
+  invoke void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES7_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS6_Lb1EEESD_EEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(32) %141)
+          to label %142 unwind label %83
+
+142:                                              ; preds = %140
+  br label %143
+
+143:                                              ; preds = %142, %139
+  %144 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 10
+  %145 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(40) %144, ptr noundef nonnull align 8 dereferenceable(40) %21) #8
+  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #8
+  br label %318
+
+146:                                              ; preds = %79
+  %147 = load ptr, ptr %14, align 8
+  %148 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %147) #8
+  br i1 %148, label %149, label %152
+
+149:                                              ; preds = %146
+  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEC2ENS_7NullOptE(ptr noundef nonnull align 4 dereferenceable(8) %22) #8
+  %150 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 11
+  %151 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEaSEOS2_(ptr noundef nonnull align 4 dereferenceable(8) %150, ptr noundef nonnull align 4 dereferenceable(8) %22) #8
+  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %22) #8
+  br label %201
+
+152:                                              ; preds = %146
+  %153 = load ptr, ptr %14, align 8
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %153) #8
+  call void @_ZN5vcpkg10StringViewC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef @.str.74) #8
+  %154 = getelementptr inbounds { ptr, i64 }, ptr %23, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds { ptr, i64 }, ptr %23, i32 0, i32 1
+  %157 = load i64, ptr %156, align 8
+  %158 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 0
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds { ptr, i64 }, ptr %24, i32 0, i32 1
+  %161 = load i64, ptr %160, align 8
+  %162 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %155, i64 %157, ptr %159, i64 %161)
+          to label %163 unwind label %83
+
+163:                                              ; preds = %152
+  br i1 %162, label %164, label %167
+
+164:                                              ; preds = %163
+  store i32 0, ptr %26, align 4
+  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEC2IS1_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEES6_EEiE4typeELi0EEEOS6_(ptr noundef nonnull align 4 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(4) %26) #8
+  %165 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 11
+  %166 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEaSEOS2_(ptr noundef nonnull align 4 dereferenceable(8) %165, ptr noundef nonnull align 4 dereferenceable(8) %25) #8
+  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %25) #8
+  br label %200
+
+167:                                              ; preds = %163
+  %168 = load ptr, ptr %14, align 8
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(32) %168) #8
+  call void @_ZN5vcpkg10StringViewC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef @.str.75) #8
+  %169 = getelementptr inbounds { ptr, i64 }, ptr %27, i32 0, i32 0
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds { ptr, i64 }, ptr %27, i32 0, i32 1
+  %172 = load i64, ptr %171, align 8
+  %173 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 0
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds { ptr, i64 }, ptr %28, i32 0, i32 1
+  %176 = load i64, ptr %175, align 8
+  %177 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %170, i64 %172, ptr %174, i64 %176)
+          to label %178 unwind label %83
+
+178:                                              ; preds = %167
+  br i1 %177, label %179, label %182
+
+179:                                              ; preds = %178
+  store i32 1, ptr %30, align 4
+  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEC2IS1_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEES6_EEiE4typeELi0EEEOS6_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(4) %30) #8
+  %180 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 11
+  %181 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEEaSEOS2_(ptr noundef nonnull align 4 dereferenceable(8) %180, ptr noundef nonnull align 4 dereferenceable(8) %29) #8
+  call void @_ZN5vcpkg8OptionalINS_17ConfigurationTypeEED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %29) #8
+  br label %199
+
+182:                                              ; preds = %178
+  %183 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %31, i32 0, i32 0
+  store i32 1827, ptr %183, align 8
+  %184 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %31, i32 0, i32 1
+  store ptr @.str, ptr %184, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 @_ZN5vcpkg29msgUnknownSettingForBuildTypeE, i64 8, i1 false)
+  %185 = load ptr, ptr %14, align 8
+  %186 = call { ptr, i64 } @_ZNK5vcpkg3msg8option_taSINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleINS_10StringViewET_EE5valueESB_SC_E4typeEEERKSC_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5vcpkg3msgL6optionE, ptr noundef nonnull align 8 dereferenceable(32) %185) #8
+  %187 = getelementptr inbounds %"struct.vcpkg::msg::TagArg.391", ptr %33, i32 0, i32 0
+  %188 = getelementptr inbounds { ptr, i64 }, ptr %187, i32 0, i32 0
+  %189 = extractvalue { ptr, i64 } %186, 0
+  store ptr %189, ptr %188, align 8
+  %190 = getelementptr inbounds { ptr, i64 }, ptr %187, i32 0, i32 1
+  %191 = extractvalue { ptr, i64 } %186, 1
+  store i64 %191, ptr %190, align 8
+  %192 = getelementptr inbounds %"struct.vcpkg::msg::MessageT.390", ptr %32, i32 0, i32 0
+  %193 = load i64, ptr %192, align 8
+  %194 = getelementptr inbounds { ptr, i64 }, ptr %33, i32 0, i32 0
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds { ptr, i64 }, ptr %33, i32 0, i32 1
+  %197 = load i64, ptr %196, align 8
+  invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageIJNS_3msg8option_tEEJNS_10StringViewEEEEvRKNS_8LineInfoENS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityIS9_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(16) %31, i64 %193, ptr %195, i64 %197) #20
+          to label %198 unwind label %83
+
+198:                                              ; preds = %182
+  unreachable
+
+199:                                              ; preds = %179
+  br label %200
+
+200:                                              ; preds = %199, %164
+  br label %201
+
+201:                                              ; preds = %200, %149
+  br label %318
+
+202:                                              ; preds = %79
+  %203 = load ptr, ptr %14, align 8
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %203) #8
+  %204 = getelementptr inbounds { ptr, i64 }, ptr %35, i32 0, i32 0
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds { ptr, i64 }, ptr %35, i32 0, i32 1
+  %207 = load i64, ptr %206, align 8
+  invoke void @_ZN5vcpkg7Strings5splitB5cxx11ENS_10StringViewEc(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %34, ptr %205, i64 %207, i8 noundef signext 59)
+          to label %208 unwind label %83
+
+208:                                              ; preds = %202
+  %209 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 14
+  %210 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %209, ptr noundef nonnull align 8 dereferenceable(24) %34) #8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #8
+  %211 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 13
+  %212 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 14
+  invoke void @_ZN5vcpkg4Util7Vectors6appendIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_EEvPS3_IT0_SaISD_EEOT_(ptr noundef %211, ptr noundef nonnull align 8 dereferenceable(24) %212)
+          to label %213 unwind label %83
+
+213:                                              ; preds = %208
+  br label %318
+
+214:                                              ; preds = %79
+  %215 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 13
+  %216 = load ptr, ptr %14, align 8
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(32) %216) #8
+  %217 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 0
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds { ptr, i64 }, ptr %37, i32 0, i32 1
+  %220 = load i64, ptr %219, align 8
+  invoke void @_ZN5vcpkg7Strings5splitB5cxx11ENS_10StringViewEc(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %36, ptr %218, i64 %220, i8 noundef signext 59)
+          to label %221 unwind label %83
+
+221:                                              ; preds = %214
+  invoke void @_ZN5vcpkg4Util7Vectors6appendISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_EEvPS3_IT0_SaISC_EEOT_(ptr noundef %215, ptr noundef nonnull align 8 dereferenceable(24) %36)
+          to label %222 unwind label %223
+
+222:                                              ; preds = %221
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #8
+  br label %318
+
+223:                                              ; preds = %221
+  %224 = landingpad { ptr, i32 }
+          cleanup
+  %225 = extractvalue { ptr, i32 } %224, 0
+  store ptr %225, ptr %16, align 8
+  %226 = extractvalue { ptr, i32 } %224, 1
+  store i32 %226, ptr %17, align 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #8
+  br label %323
+
+227:                                              ; preds = %79
+  %228 = load ptr, ptr %14, align 8
+  %229 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %228) #8
+  br i1 %229, label %230, label %231
+
+230:                                              ; preds = %227
+  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ENS_7NullOptE(ptr noundef nonnull align 8 dereferenceable(40) %38) #8
+  br label %234
+
+231:                                              ; preds = %227
+  %232 = load ptr, ptr %14, align 8
+  invoke void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES7_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS6_Lb1EEESD_EEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(32) %232)
+          to label %233 unwind label %83
+
+233:                                              ; preds = %231
+  br label %234
+
+234:                                              ; preds = %233, %230
+  %235 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 12
+  %236 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(40) %235, ptr noundef nonnull align 8 dereferenceable(40) %38) #8
+  call void @_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #8
+  br label %318
+
+237:                                              ; preds = %79
+  %238 = load ptr, ptr %14, align 8
+  %239 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %238) #8
+  br i1 %239, label %240, label %246
+
+240:                                              ; preds = %237
+  %241 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 10
+  %242 = call noundef zeroext i1 @_ZNK5vcpkg7details15OptionalStorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EE9has_valueEv(ptr noundef nonnull align 8 dereferenceable(40) %241) #8
+  %243 = xor i1 %242, true
+  %244 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 1
+  %245 = zext i1 %243 to i8
+  store i8 %245, ptr %244, align 8
+  br label %271
+
+246:                                              ; preds = %237
+  %247 = load ptr, ptr %14, align 8
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(32) %247) #8
+  %248 = load ptr, ptr %13, align 8
+  %249 = getelementptr inbounds %"struct.std::pair.388", ptr %248, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %249, i64 16, i1 false)
+  %250 = getelementptr inbounds { ptr, i64 }, ptr %40, i32 0, i32 0
+  %251 = load ptr, ptr %250, align 8
+  %252 = getelementptr inbounds { ptr, i64 }, ptr %40, i32 0, i32 1
+  %253 = load i64, ptr %252, align 8
+  %254 = getelementptr inbounds { ptr, i64 }, ptr %41, i32 0, i32 0
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds { ptr, i64 }, ptr %41, i32 0, i32 1
+  %257 = load i64, ptr %256, align 8
+  invoke void @_ZN5vcpkgL15from_cmake_boolENS_10StringViewES0_(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT.392") align 8 %39, ptr %251, i64 %253, ptr %255, i64 %257)
+          to label %258 unwind label %83
+
+258:                                              ; preds = %246
+  %259 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %42, i32 0, i32 0
+  store i32 1846, ptr %259, align 8
+  %260 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %42, i32 0, i32 1
+  store ptr @.str, ptr %260, align 8
+  %261 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5vcpkg9ExpectedTIbNS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(33) %39, ptr noundef nonnull align 8 dereferenceable(16) %42)
+          to label %262 unwind label %267
+
+262:                                              ; preds = %258
+  %263 = load i8, ptr %261, align 1
+  %264 = trunc i8 %263 to i1
+  %265 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 1
+  %266 = zext i1 %264 to i8
+  store i8 %266, ptr %265, align 8
+  call void @_ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %39) #8
+  br label %271
+
+267:                                              ; preds = %258
+  %268 = landingpad { ptr, i32 }
+          cleanup
+  %269 = extractvalue { ptr, i32 } %268, 0
+  store ptr %269, ptr %16, align 8
+  %270 = extractvalue { ptr, i32 } %268, 1
+  store i32 %270, ptr %17, align 4
+  call void @_ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %39) #8
+  br label %323
+
+271:                                              ; preds = %262, %240
+  br label %318
+
+272:                                              ; preds = %79
+  %273 = load ptr, ptr %14, align 8
+  %274 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %273) #8
+  br i1 %274, label %275, label %277
+
+275:                                              ; preds = %272
+  %276 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 2
+  store i8 0, ptr %276, align 1
+  br label %302
+
+277:                                              ; preds = %272
+  %278 = load ptr, ptr %14, align 8
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(32) %278) #8
+  %279 = load ptr, ptr %13, align 8
+  %280 = getelementptr inbounds %"struct.std::pair.388", ptr %279, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr align 8 %280, i64 16, i1 false)
+  %281 = getelementptr inbounds { ptr, i64 }, ptr %44, i32 0, i32 0
+  %282 = load ptr, ptr %281, align 8
+  %283 = getelementptr inbounds { ptr, i64 }, ptr %44, i32 0, i32 1
+  %284 = load i64, ptr %283, align 8
+  %285 = getelementptr inbounds { ptr, i64 }, ptr %45, i32 0, i32 0
+  %286 = load ptr, ptr %285, align 8
+  %287 = getelementptr inbounds { ptr, i64 }, ptr %45, i32 0, i32 1
+  %288 = load i64, ptr %287, align 8
+  invoke void @_ZN5vcpkgL15from_cmake_boolENS_10StringViewES0_(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT.392") align 8 %43, ptr %282, i64 %284, ptr %286, i64 %288)
+          to label %289 unwind label %83
+
+289:                                              ; preds = %277
+  %290 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %46, i32 0, i32 0
+  store i32 1857, ptr %290, align 8
+  %291 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %46, i32 0, i32 1
+  store ptr @.str, ptr %291, align 8
+  %292 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5vcpkg9ExpectedTIbNS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(33) %43, ptr noundef nonnull align 8 dereferenceable(16) %46)
+          to label %293 unwind label %298
+
+293:                                              ; preds = %289
+  %294 = load i8, ptr %292, align 1
+  %295 = trunc i8 %294 to i1
+  %296 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 2
+  %297 = zext i1 %295 to i8
+  store i8 %297, ptr %296, align 1
+  call void @_ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %43) #8
+  br label %302
+
+298:                                              ; preds = %289
+  %299 = landingpad { ptr, i32 }
+          cleanup
+  %300 = extractvalue { ptr, i32 } %299, 0
+  store ptr %300, ptr %16, align 8
+  %301 = extractvalue { ptr, i32 } %299, 1
+  store i32 %301, ptr %17, align 4
+  call void @_ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %43) #8
+  br label %323
+
+302:                                              ; preds = %293, %275
+  br label %318
+
+303:                                              ; preds = %79
+  %304 = load ptr, ptr %14, align 8
+  %305 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %304) #8
+  br i1 %305, label %308, label %306
+
+306:                                              ; preds = %303
+  %307 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 3
+  store i8 1, ptr %307, align 2
+  br label %308
+
+308:                                              ; preds = %306, %303
+  br label %318
+
+309:                                              ; preds = %79
+  %310 = load ptr, ptr %14, align 8
+  %311 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %310) #8
+  br i1 %311, label %317, label %312
+
+312:                                              ; preds = %309
+  %313 = getelementptr inbounds %"struct.vcpkg::PreBuildInfo", ptr %48, i32 0, i32 15
+  %314 = load ptr, ptr %14, align 8
+  %315 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7details15OptionalStorageINS_4PathELb1EE7emplaceIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(40) %313, ptr noundef nonnull align 8 dereferenceable(32) %314)
+          to label %316 unwind label %83
+
+316:                                              ; preds = %312
+  br label %317
+
+317:                                              ; preds = %316, %309
+  br label %318
+
+318:                                              ; preds = %317, %308, %302, %271, %234, %222, %213, %201, %143, %133, %123, %113, %105, %100, %95, %79
+  br label %319
+
+319:                                              ; preds = %318
+  %320 = load ptr, ptr %11, align 8
+  %321 = getelementptr inbounds %"struct.std::pair.388", ptr %320, i32 1
+  store ptr %321, ptr %11, align 8
+  br label %68
+
+322:                                              ; preds = %68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #8
   ret void
 
-322:                                              ; preds = %297, %266, %222, %86, %82
+323:                                              ; preds = %298, %267, %223, %87, %83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #8
   call void @_ZN5vcpkg8OptionalINS_4PathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %64) #8
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #8
@@ -19621,14 +19623,14 @@ define dso_local void @_ZN5vcpkg12PreBuildInfoC2ERKNS_10VcpkgPathsENS_7TripletER
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #8
-  br label %323
+  br label %324
 
-323:                                              ; preds = %322
-  %324 = load ptr, ptr %16, align 8
-  %325 = load i32, ptr %17, align 4
-  %326 = insertvalue { ptr, i32 } poison, ptr %324, 0
-  %327 = insertvalue { ptr, i32 } %326, i32 %325, 1
-  resume { ptr, i32 } %327
+324:                                              ; preds = %323
+  %325 = load ptr, ptr %16, align 8
+  %326 = load i32, ptr %17, align 4
+  %327 = insertvalue { ptr, i32 } poison, ptr %325, 0
+  %328 = insertvalue { ptr, i32 } %327, i32 %326, 1
+  resume { ptr, i32 } %328
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -54877,48 +54879,49 @@ define linkonce_odr dso_local void @_ZN5vcpkg8FileSinkC2ERKNS_10FilesystemENS_10
   store i32 %4, ptr %9, align 4
   %16 = load ptr, ptr %7, align 8
   call void @_ZN5vcpkg11MessageSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %16, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 16, i1 false)
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  call void @_ZN5vcpkg4PathC1ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr %19, i64 %21)
-  %22 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %16, i32 0, i32 2
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %16, i32 0, i32 1
-  %25 = load i32, ptr %9, align 4
-  %26 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %11, i32 0, i32 0
-  store i32 14, ptr %26, align 8
-  %27 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %11, i32 0, i32 1
-  store ptr @.str.265, ptr %27, align 8
-  %28 = getelementptr inbounds { i32, ptr }, ptr %11, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds { i32, ptr }, ptr %11, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
-  invoke void @_ZNK5vcpkg10Filesystem14open_for_writeERKNS_4PathENS_6AppendENS_8LineInfoE(ptr dead_on_unwind writable sret(%"struct.vcpkg::WriteFilePointer") align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %25, i32 %29, ptr %31)
-          to label %32 unwind label %33
-
-32:                                               ; preds = %5
-  ret void
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  call void @_ZN5vcpkg4PathC1ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr %20, i64 %22)
+  %23 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %16, i32 0, i32 2
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %16, i32 0, i32 1
+  %26 = load i32, ptr %9, align 4
+  %27 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %11, i32 0, i32 0
+  store i32 14, ptr %27, align 8
+  %28 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %11, i32 0, i32 1
+  store ptr @.str.265, ptr %28, align 8
+  %29 = getelementptr inbounds { i32, ptr }, ptr %11, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds { i32, ptr }, ptr %11, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  invoke void @_ZNK5vcpkg10Filesystem14open_for_writeERKNS_4PathENS_6AppendENS_8LineInfoE(ptr dead_on_unwind writable sret(%"struct.vcpkg::WriteFilePointer") align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef %26, i32 %30, ptr %32)
+          to label %33 unwind label %34
 
 33:                                               ; preds = %5
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %12, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %13, align 4
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
-  br label %37
+  ret void
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %12, align 8
-  %39 = load i32, ptr %13, align 4
-  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
-  resume { ptr, i32 } %41
+34:                                               ; preds = %5
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %12, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %13, align 4
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
+  br label %38
+
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr %13, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -54931,13 +54934,14 @@ define linkonce_odr dso_local void @_ZN5vcpkg13CombiningSinkC2ERNS_11MessageSink
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg11MessageSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg13CombiningSinkE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.vcpkg::CombiningSink", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.vcpkg::CombiningSink", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN5vcpkg13CombiningSinkE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.vcpkg::CombiningSink", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.vcpkg::CombiningSink", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -54948,11 +54952,12 @@ define linkonce_odr dso_local void @_ZN5vcpkg8FileSinkD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %3, i32 0, i32 2
-  call void @_ZN5vcpkg16WriteFilePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #8
-  %5 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %3, i32 0, i32 2
+  call void @_ZN5vcpkg16WriteFilePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #8
+  %6 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
   ret void
 }
 
@@ -63139,7 +63144,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg11MessageSinkC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg11MessageSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN5vcpkg11MessageSinkE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -86525,10 +86531,11 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail15iterator_bufferISt20back
   %6 = load ptr, ptr %4, align 8
   %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
   call void @_ZN3fmt3v106detail6bufferIcEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %7) #8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %8 = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
+  %8 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
@@ -86551,13 +86558,14 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail6bufferIcEC2Em(ptr noundef
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 2
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 3
-  %9 = load i64, ptr %4, align 8
-  store i64 %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 2
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 3
+  %10 = load i64, ptr %4, align 8
+  store i64 %10, ptr %9, align 8
   ret void
 }
 

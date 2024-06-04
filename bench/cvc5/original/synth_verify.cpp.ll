@@ -1134,10 +1134,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthVerifyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthVerifyE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SynthVerify", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %tds.addr, align 8
-  store ptr %1, ptr %d_tds, align 8
+  %2 = load ptr, ptr %tds.addr, align 8
+  store ptr %2, ptr %d_tds, align 8
   %d_subOptions = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SynthVerify", ptr %this1, i32 0, i32 2
   invoke void @_ZN4cvc58internal7OptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(392) %d_subOptions)
           to label %invoke.cont unwind label %lpad
@@ -1160,16 +1161,16 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 invoke.cont7:                                     ; preds = %invoke.cont5
   %d_subOptions8 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SynthVerify", ptr %this1, i32 0, i32 2
   %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %d_subOptions8, i32 0, i32 41
-  %2 = load ptr, ptr %quantifiers, align 8
-  %sygusVerifyInstMaxRounds = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %2, i32 0, i32 361
-  %3 = load i64, ptr %sygusVerifyInstMaxRounds, align 8
+  %3 = load ptr, ptr %quantifiers, align 8
+  %sygusVerifyInstMaxRounds = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %3, i32 0, i32 361
+  %4 = load i64, ptr %sygusVerifyInstMaxRounds, align 8
   %d_subOptions9 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SynthVerify", ptr %this1, i32 0, i32 2
   %call11 = invoke noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %d_subOptions9)
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   %instMaxRounds = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call11, i32 0, i32 136
-  store i64 %3, ptr %instMaxRounds, align 8
+  store i64 %4, ptr %instMaxRounds, align 8
   %d_subOptions12 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SynthVerify", ptr %this1, i32 0, i32 2
   %call14 = invoke noundef nonnull align 8 dereferenceable(353) ptr @_ZN4cvc58internal7Options9writeBaseEv(ptr noundef nonnull align 8 dereferenceable(392) %d_subOptions12)
           to label %invoke.cont13 unwind label %lpad2
@@ -1186,10 +1187,10 @@ invoke.cont16:                                    ; preds = %invoke.cont13
   store i8 0, ptr %sygus, align 1
   %d_subOptions18 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SynthVerify", ptr %this1, i32 0, i32 2
   %arith = getelementptr inbounds %"class.cvc5::internal::Options", ptr %d_subOptions18, i32 0, i32 24
-  %4 = load ptr, ptr %arith, align 8
-  %nlExtTangentPlanesWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %4, i32 0, i32 89
-  %5 = load i8, ptr %nlExtTangentPlanesWasSetByUser, align 4
-  %tobool = trunc i8 %5 to i1
+  %5 = load ptr, ptr %arith, align 8
+  %nlExtTangentPlanesWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %5, i32 0, i32 89
+  %6 = load i8, ptr %nlExtTangentPlanesWasSetByUser, align 4
+  %tobool = trunc i8 %6 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont16
@@ -1203,21 +1204,21 @@ invoke.cont20:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont30, %invoke.cont26, %invoke.cont22, %if.end, %if.then, %invoke.cont13, %invoke.cont10, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal7OptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %d_subOptions) #3
   br label %ehcleanup
 
@@ -1227,10 +1228,10 @@ if.end:                                           ; preds = %invoke.cont20, %inv
 
 invoke.cont22:                                    ; preds = %if.end
   %datatypes = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call23, i32 0, i32 30
-  %12 = load ptr, ptr %datatypes, align 8
-  %dtSharedSelectors = getelementptr inbounds %"struct.cvc5::internal::options::HolderDATATYPES", ptr %12, i32 0, i32 14
-  %13 = load i8, ptr %dtSharedSelectors, align 2
-  %tobool24 = trunc i8 %13 to i1
+  %13 = load ptr, ptr %datatypes, align 8
+  %dtSharedSelectors = getelementptr inbounds %"struct.cvc5::internal::options::HolderDATATYPES", ptr %13, i32 0, i32 14
+  %14 = load i8, ptr %dtSharedSelectors, align 2
+  %tobool24 = trunc i8 %14 to i1
   %d_subOptions25 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SynthVerify", ptr %this1, i32 0, i32 2
   %call27 = invoke noundef nonnull align 8 dereferenceable(55) ptr @_ZN4cvc58internal7Options14writeDatatypesEv(ptr noundef nonnull align 8 dereferenceable(392) %d_subOptions25)
           to label %invoke.cont26 unwind label %lpad2
@@ -1304,7 +1305,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthVerifyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthVerifyE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_subOptions = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SynthVerify", ptr %this1, i32 0, i32 2
   call void @_ZN4cvc58internal7OptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %d_subOptions) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3

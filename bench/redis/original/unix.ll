@@ -85,31 +85,34 @@ while.cond:                                       ; preds = %do.end12, %entry
 
 while.body:                                       ; preds = %while.cond
   %1 = load i32, ptr %fd.addr, align 4
-  %call = call i32 @anetUnixAccept(ptr noundef getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 70), i32 noundef %1)
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 70
+  %call = call i32 @anetUnixAccept(ptr noundef %2, i32 noundef %1)
   store i32 %call, ptr %cfd, align 4
-  %2 = load i32, ptr %cfd, align 4
-  %cmp = icmp eq i32 %2, -1
+  %3 = load i32, ptr %cfd, align 4
+  %cmp = icmp eq i32 %3, -1
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %while.body
   %call1 = call ptr @__errno_location() #6
-  %3 = load i32, ptr %call1, align 4
-  %cmp2 = icmp ne i32 %3, 11
+  %4 = load i32, ptr %call1, align 4
+  %cmp2 = icmp ne i32 %4, 11
   br i1 %cmp2, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.then
   br label %do.body
 
 do.body:                                          ; preds = %if.then3
-  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp4 = icmp slt i32 3, %4
+  %5 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %6 = load i32, ptr %5, align 8
+  %cmp4 = icmp slt i32 3, %6
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %do.body
   br label %do.end
 
 if.end:                                           ; preds = %do.body
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.1, ptr noundef getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 70))
+  %7 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 70
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.1, ptr noundef %7)
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then5
@@ -122,21 +125,23 @@ if.end7:                                          ; preds = %while.body
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end7
-  %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp9 = icmp slt i32 1, %5
+  %8 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %9 = load i32, ptr %8, align 8
+  %cmp9 = icmp slt i32 1, %9
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %do.body8
   br label %do.end12
 
 if.end11:                                         ; preds = %do.body8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 50), align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.2, ptr noundef %6)
+  %10 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 50
+  %11 = load ptr, ptr %10, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.2, ptr noundef %11)
   br label %do.end12
 
 do.end12:                                         ; preds = %if.end11, %if.then10
-  %7 = load i32, ptr %cfd, align 4
-  %call13 = call ptr @connCreateAcceptedUnix(i32 noundef %7, ptr noundef null)
+  %12 = load i32, ptr %cfd, align 4
+  %call13 = call ptr @connCreateAcceptedUnix(i32 noundef %12, ptr noundef null)
   call void @acceptCommonHandler(ptr noundef %call13, i32 noundef 2048, ptr noundef null)
   br label %while.cond, !llvm.loop !5
 
@@ -227,26 +232,30 @@ for.body:                                         ; preds = %for.cond
   %12 = load ptr, ptr %addr, align 8
   %13 = load ptr, ptr %perm, align 8
   %14 = load i32, ptr %13, align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 46), align 8
-  %call3 = call i32 @anetUnixServer(ptr noundef getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 70), ptr noundef %12, i32 noundef %14, i32 noundef %15)
+  %15 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 46
+  %16 = load i32, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 70
+  %call3 = call i32 @anetUnixServer(ptr noundef %17, ptr noundef %12, i32 noundef %14, i32 noundef %16)
   store i32 %call3, ptr %fd, align 4
-  %16 = load i32, ptr %fd, align 4
-  %cmp4 = icmp eq i32 %16, -1
+  %18 = load i32, ptr %fd, align 4
+  %cmp4 = icmp eq i32 %18, -1
   br i1 %cmp4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %for.body
   br label %do.body
 
 do.body:                                          ; preds = %if.then5
-  %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp6 = icmp slt i32 3, %17
+  %19 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %20 = load i32, ptr %19, align 8
+  %cmp6 = icmp slt i32 3, %20
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %do.body
   br label %do.end
 
 if.end8:                                          ; preds = %do.body
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.3, ptr noundef getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 70))
+  %21 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 70
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.3, ptr noundef %21)
   br label %do.end
 
 do.end:                                           ; preds = %if.end8, %if.then7
@@ -254,26 +263,26 @@ do.end:                                           ; preds = %if.end8, %if.then7
   unreachable
 
 if.end9:                                          ; preds = %for.body
-  %18 = load i32, ptr %fd, align 4
-  %call10 = call i32 @anetNonBlock(ptr noundef null, i32 noundef %18)
-  %19 = load i32, ptr %fd, align 4
-  %call11 = call i32 @anetCloexec(i32 noundef %19)
-  %20 = load i32, ptr %fd, align 4
-  %21 = load ptr, ptr %listener.addr, align 8
-  %fd12 = getelementptr inbounds %struct.connListener, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %listener.addr, align 8
-  %count = getelementptr inbounds %struct.connListener, ptr %22, i32 0, i32 1
-  %23 = load i32, ptr %count, align 8
-  %inc = add nsw i32 %23, 1
+  %22 = load i32, ptr %fd, align 4
+  %call10 = call i32 @anetNonBlock(ptr noundef null, i32 noundef %22)
+  %23 = load i32, ptr %fd, align 4
+  %call11 = call i32 @anetCloexec(i32 noundef %23)
+  %24 = load i32, ptr %fd, align 4
+  %25 = load ptr, ptr %listener.addr, align 8
+  %fd12 = getelementptr inbounds %struct.connListener, ptr %25, i32 0, i32 0
+  %26 = load ptr, ptr %listener.addr, align 8
+  %count = getelementptr inbounds %struct.connListener, ptr %26, i32 0, i32 1
+  %27 = load i32, ptr %count, align 8
+  %inc = add nsw i32 %27, 1
   store i32 %inc, ptr %count, align 8
-  %idxprom13 = sext i32 %23 to i64
+  %idxprom13 = sext i32 %27 to i64
   %arrayidx14 = getelementptr inbounds [16 x i32], ptr %fd12, i64 0, i64 %idxprom13
-  store i32 %20, ptr %arrayidx14, align 4
+  store i32 %24, ptr %arrayidx14, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end9
-  %24 = load i32, ptr %j, align 4
-  %inc15 = add nsw i32 %24, 1
+  %28 = load i32, ptr %j, align 4
+  %inc15 = add nsw i32 %28, 1
   store i32 %inc15, ptr %j, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -282,8 +291,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+  %29 = load i32, ptr %retval, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable

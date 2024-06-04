@@ -1385,7 +1385,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %3 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %3
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -1409,7 +1409,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %lpad58
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches3 = icmp eq i32 %sel, %6
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -1433,7 +1433,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %lpad41
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches5 = icmp eq i32 %sel, %9
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -1457,7 +1457,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %lpad24
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches7 = icmp eq i32 %sel, %12
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -1656,9 +1656,6 @@ entry:
 
 declare noundef zeroext i1 @_ZNK4cvc56parser10SymManager10isLogicSetEv(ptr noundef nonnull align 8 dereferenceable(56)) #1
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare ptr @__cxa_allocate_exception(i64)
@@ -1740,22 +1737,23 @@ entry:
   store ptr %str, ptr %str.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_msg = getelementptr inbounds %"class.cvc5::CVC5ApiException", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %str.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %str.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -1773,7 +1771,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_msg = getelementptr inbounds %"class.cvc5::CVC5ApiException", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -1793,7 +1792,7 @@ declare void @__cxa_free_exception(ptr)
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #18
   unreachable
@@ -1824,7 +1823,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %str.addr, align 8
   call void @_ZN4cvc516CVC5ApiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc527CVC5ApiRecoverableExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc527CVC5ApiRecoverableExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1848,7 +1848,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %str.addr, align 8
   call void @_ZN4cvc527CVC5ApiRecoverableExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc522CVC5ApiOptionExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc522CVC5ApiOptionExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1863,7 +1864,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #10
+declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser13SymbolManager8getLogicB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -1983,7 +1984,7 @@ cleanup.done16:                                   ; preds = %invoke.cont15, %lpa
 
 catch.dispatch:                                   ; preds = %cleanup.done16, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -2007,7 +2008,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %lpad80
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches21 = icmp eq i32 %sel, %9
   br i1 %matches21, label %catch56, label %catch.fallthrough22
 
@@ -2031,7 +2032,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %lpad63
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches23 = icmp eq i32 %sel, %12
   br i1 %matches23, label %catch39, label %catch.fallthrough24
 
@@ -2055,7 +2056,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %lpad46
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough22
-  %15 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches25 = icmp eq i32 %sel, %15
   br i1 %matches25, label %catch, label %eh.resume
 
@@ -2584,7 +2585,7 @@ cleanup.done14:                                   ; preds = %invoke.cont13, %lpa
 
 catch.dispatch:                                   ; preds = %cleanup.done14, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %10
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -2608,7 +2609,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %lpad80
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches19 = icmp eq i32 %sel, %13
   br i1 %matches19, label %catch56, label %catch.fallthrough20
 
@@ -2632,7 +2633,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %lpad63
 
 catch.fallthrough20:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches21 = icmp eq i32 %sel, %16
   br i1 %matches21, label %catch39, label %catch.fallthrough22
 
@@ -2656,7 +2657,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %lpad46
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough20
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches23 = icmp eq i32 %sel, %19
   br i1 %matches23, label %catch, label %eh.resume
 
@@ -2938,7 +2939,7 @@ lpad4:                                            ; preds = %if.end
 
 catch.dispatch:                                   ; preds = %lpad4, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch55, label %catch.fallthrough
 
@@ -2962,7 +2963,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %lpad62
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches6 = icmp eq i32 %sel, %9
   br i1 %matches6, label %catch38, label %catch.fallthrough7
 
@@ -2986,7 +2987,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %lpad45
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches8 = icmp eq i32 %sel, %12
   br i1 %matches8, label %catch21, label %catch.fallthrough9
 
@@ -3010,7 +3011,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %unreachable unwind label %lpad28
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %15 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches10 = icmp eq i32 %sel, %15
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -3321,7 +3322,7 @@ cleanup.done14:                                   ; preds = %invoke.cont13, %lpa
 
 catch.dispatch:                                   ; preds = %cleanup.done14, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %7 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %7
   br i1 %matches, label %catch72, label %catch.fallthrough
 
@@ -3345,7 +3346,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %lpad79
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches18 = icmp eq i32 %sel, %10
   br i1 %matches18, label %catch55, label %catch.fallthrough19
 
@@ -3369,7 +3370,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %lpad62
 
 catch.fallthrough19:                              ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches20 = icmp eq i32 %sel, %13
   br i1 %matches20, label %catch38, label %catch.fallthrough21
 
@@ -3393,7 +3394,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %lpad45
 
 catch.fallthrough21:                              ; preds = %catch.fallthrough19
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches22 = icmp eq i32 %sel, %16
   br i1 %matches22, label %catch, label %eh.resume
 
@@ -4854,7 +4855,7 @@ if.end6:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 declare void @_ZN4cvc56parser6Parser11nextCommandEv(ptr sret(%"class.std::unique_ptr.97") align 8, ptr noundef nonnull align 8 dereferenceable(41)) #1
 
@@ -5234,7 +5235,7 @@ lpad20:                                           ; preds = %invoke.cont19
 
 catch.dispatch:                                   ; preds = %lpad20, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %11
   br i1 %matches, label %catch76, label %catch.fallthrough
 
@@ -5258,7 +5259,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %lpad83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches27 = icmp eq i32 %sel, %14
   br i1 %matches27, label %catch59, label %catch.fallthrough28
 
@@ -5282,7 +5283,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %lpad66
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches29 = icmp eq i32 %sel, %17
   br i1 %matches29, label %catch42, label %catch.fallthrough30
 
@@ -5306,7 +5307,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %lpad49
 
 catch.fallthrough30:                              ; preds = %catch.fallthrough28
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches31 = icmp eq i32 %sel, %20
   br i1 %matches31, label %catch, label %eh.resume
 
@@ -5971,7 +5972,7 @@ lpad20:                                           ; preds = %invoke.cont19
 
 catch.dispatch:                                   ; preds = %lpad20, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch76, label %catch.fallthrough
 
@@ -5995,7 +5996,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %lpad83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %15 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches27 = icmp eq i32 %sel, %15
   br i1 %matches27, label %catch59, label %catch.fallthrough28
 
@@ -6019,7 +6020,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %lpad66
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches29 = icmp eq i32 %sel, %18
   br i1 %matches29, label %catch42, label %catch.fallthrough30
 
@@ -6043,7 +6044,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %lpad49
 
 catch.fallthrough30:                              ; preds = %catch.fallthrough28
-  %21 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches31 = icmp eq i32 %sel, %21
   br i1 %matches31, label %catch, label %eh.resume
 
@@ -6512,7 +6513,7 @@ lpad20:                                           ; preds = %invoke.cont19
 
 catch.dispatch:                                   ; preds = %lpad20, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch76, label %catch.fallthrough
 
@@ -6536,7 +6537,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %lpad83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %15 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches27 = icmp eq i32 %sel, %15
   br i1 %matches27, label %catch59, label %catch.fallthrough28
 
@@ -6560,7 +6561,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %lpad66
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough
-  %18 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches29 = icmp eq i32 %sel, %18
   br i1 %matches29, label %catch42, label %catch.fallthrough30
 
@@ -6584,7 +6585,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %lpad49
 
 catch.fallthrough30:                              ; preds = %catch.fallthrough28
-  %21 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches31 = icmp eq i32 %sel, %21
   br i1 %matches31, label %catch, label %eh.resume
 
@@ -6954,7 +6955,7 @@ ehcleanup:                                        ; preds = %lpad28, %lpad26
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad20, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %17 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %17
   br i1 %matches, label %catch85, label %catch.fallthrough
 
@@ -6978,7 +6979,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
           to label %unreachable unwind label %lpad92
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches34 = icmp eq i32 %sel, %20
   br i1 %matches34, label %catch68, label %catch.fallthrough35
 
@@ -7002,7 +7003,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
           to label %unreachable unwind label %lpad75
 
 catch.fallthrough35:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches36 = icmp eq i32 %sel, %23
   br i1 %matches36, label %catch51, label %catch.fallthrough37
 
@@ -7026,7 +7027,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %lpad58
 
 catch.fallthrough37:                              ; preds = %catch.fallthrough35
-  %26 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches38 = icmp eq i32 %sel, %26
   br i1 %matches38, label %catch, label %eh.resume
 
@@ -7509,7 +7510,7 @@ cleanup.done36:                                   ; preds = %invoke.cont35, %lpa
 
 catch.dispatch:                                   ; preds = %cleanup.done36, %cleanup.done14, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %11
   br i1 %matches, label %catch104, label %catch.fallthrough
 
@@ -7533,7 +7534,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
           to label %unreachable unwind label %lpad111
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches52 = icmp eq i32 %sel, %14
   br i1 %matches52, label %catch87, label %catch.fallthrough53
 
@@ -7557,7 +7558,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %unreachable unwind label %lpad94
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches54 = icmp eq i32 %sel, %17
   br i1 %matches54, label %catch70, label %catch.fallthrough55
 
@@ -7581,7 +7582,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %unreachable unwind label %lpad77
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches56 = icmp eq i32 %sel, %20
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -7891,7 +7892,7 @@ lpad:                                             ; preds = %lor.rhs
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %4 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal15OptionExceptionE) #3
   %matches = icmp eq i32 %sel, %4
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -7915,7 +7916,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %lpad60
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE) #3
   %matches5 = icmp eq i32 %sel, %7
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -7939,7 +7940,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %lpad43
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN4cvc58internal9ExceptionE) #3
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN4cvc58internal9ExceptionE) #3
   %matches7 = icmp eq i32 %sel, %10
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -7963,7 +7964,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %lpad26
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %13 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #3
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #3
   %matches9 = icmp eq i32 %sel, %13
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -8186,91 +8187,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %d_filename = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_filename) #3
-  %d_line = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %d_line, align 8
-  %d_column = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 3
-  store i64 0, ptr %d_column, align 8
-  ret void
-
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad3:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad3, %lpad
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc56parser15ParserExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg, ptr %msg.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZN4cvc516CVC5ApiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %d_filename = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_filename) #3
-  %d_line = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %d_line, align 8
-  %d_column = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 3
-  store i64 0, ptr %d_column, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc56parser15ParserExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %msg) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg, ptr %msg.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN4cvc516CVC5ApiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-          to label %invoke.cont4 unwind label %lpad3
-
-invoke.cont4:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_filename = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_filename) #3
   %d_line = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 2
@@ -8311,6 +8229,92 @@ eh.resume:                                        ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
+define void @_ZN4cvc56parser15ParserExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #4 align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %msg.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %msg, ptr %msg.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %msg.addr, align 8
+  call void @_ZN4cvc516CVC5ApiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %d_filename = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_filename) #3
+  %d_line = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 2
+  store i64 0, ptr %d_line, align 8
+  %d_column = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 3
+  store i64 0, ptr %d_column, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4cvc56parser15ParserExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %msg) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %msg.addr = alloca ptr, align 8
+  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp2 = alloca %"class.std::allocator", align 1
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %msg, ptr %msg.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  invoke void @_ZN4cvc516CVC5ApiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+          to label %invoke.cont4 unwind label %lpad3
+
+invoke.cont4:                                     ; preds = %invoke.cont
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %d_filename = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_filename) #3
+  %d_line = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 2
+  store i64 0, ptr %d_line, align 8
+  %d_column = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 3
+  store i64 0, ptr %d_column, align 8
+  ret void
+
+lpad:                                             ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          cleanup
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad3:                                            ; preds = %invoke.cont
+  %5 = landingpad { ptr, i32 }
+          cleanup
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad3, %lpad
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val5
+}
+
+; Function Attrs: mustprogress uwtable
 define void @_ZN4cvc56parser15ParserExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_mm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(32) %filename, i64 noundef %line, i64 noundef %column) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.addr = alloca ptr, align 8
@@ -8328,28 +8332,29 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN4cvc516CVC5ApiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_filename = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %filename.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_filename, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %filename.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_filename, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %d_line = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %line.addr, align 8
-  store i64 %2, ptr %d_line, align 8
+  %3 = load i64, ptr %line.addr, align 8
+  store i64 %3, ptr %d_line, align 8
   %d_column = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 3
-  %3 = load i64, ptr %column.addr, align 8
-  store i64 %3, ptr %d_column, align 8
+  %4 = load i64, ptr %column.addr, align 8
+  store i64 %4, ptr %d_column, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN4cvc516CVC5ApiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -8457,7 +8462,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser15ParserExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8471,7 +8477,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN4cvc56parser15ParserExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8485,7 +8492,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN4cvc56parser15ParserExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8508,7 +8516,8 @@ entry:
   %2 = load i64, ptr %line.addr, align 8
   %3 = load i64, ptr %column.addr, align 8
   call void @_ZN4cvc56parser15ParserExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_mm(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser24ParserEndOfFileExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   ret void
 }
 
@@ -8518,7 +8527,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc56parser15ParserExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_filename = getelementptr inbounds %"class.cvc5::parser::ParserException", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_filename) #3
   call void @_ZN4cvc516CVC5ApiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
@@ -8862,7 +8872,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef i32 @_ZSt19uncaught_exceptionsv() #12
+declare noundef i32 @_ZSt19uncaught_exceptionsv() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN4cvc56parser3CmdELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
@@ -8986,7 +8996,7 @@ _ZN9__gnu_cxx21__atomic_add_dispatchEPii.exit:    ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN4cvc56parser13SymbolManagerESt14default_deleteIS2_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 {
@@ -12176,7 +12186,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12202,7 +12213,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #5 comdat align 2 {
@@ -12610,10 +12621,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4cvc56parser10SymManagerELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4cvc56parser10SymManagerELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -12628,7 +12640,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -13667,10 +13680,10 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #14
+declare void @_ZSt28__throw_bad_array_new_lengthv() #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #14
+declare void @_ZSt17__throw_bad_allocv() #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorISt19_Sp_counted_deleterIPN4cvc56parser3CmdESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEE9constructISA_JS4_S6_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1) #5 comdat align 2 {
@@ -13700,10 +13713,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN4cvc56parser3CmdESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN4cvc56parser3CmdESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN4cvc56parser3CmdESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN4cvc56parser3CmdESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
 }
 
@@ -14619,10 +14633,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN4cvc56parser6ParserESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN4cvc56parser6ParserESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter.143", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN4cvc56parser6ParserESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN4cvc56parser6ParserESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
 }
 
@@ -14930,6 +14945,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14938,13 +14956,13 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind memory(none) }
 attributes #15 = { builtin allocsize(0) }
 attributes #16 = { builtin nounwind }
 attributes #17 = { noreturn }

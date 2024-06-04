@@ -109,15 +109,17 @@ entry:
   %4 = load i8, ptr %delayed_start_.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN3zmq23stream_connecter_base_tC2EPNS_11io_thread_tEPNS_14session_base_tERKNS_9options_tEPNS_9address_tEb(ptr noundef nonnull align 8 dereferenceable(1544) %this1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1336) %2, ptr noundef %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq15ipc_connecter_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq15ipc_connecter_tE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq15ipc_connecter_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq15ipc_connecter_tE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %_addr = getelementptr inbounds %"class.zmq::stream_connecter_base_t", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %_addr, align 8
-  %protocol = getelementptr inbounds %"struct.zmq::address_t", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %_addr, align 8
+  %protocol = getelementptr inbounds %"struct.zmq::address_t", ptr %7, i32 0, i32 0
   %call = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %protocol, ptr noundef @_ZN3zmq13protocol_nameL3ipcE)
           to label %invoke.cont unwind label %lpad
 
@@ -126,13 +128,13 @@ invoke.cont:                                      ; preds = %do.body
   br i1 %lnot, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  %6 = load ptr, ptr @stderr, align 8
-  %call3 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 36)
+  %8 = load ptr, ptr @stderr, align 8
+  %call3 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 36)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.then
-  %7 = load ptr, ptr @stderr, align 8
-  %call5 = invoke i32 @fflush(ptr noundef %7)
+  %9 = load ptr, ptr @stderr, align 8
+  %call5 = invoke i32 @fflush(ptr noundef %9)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -143,12 +145,12 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %if.then, %do.body
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN3zmq23stream_connecter_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1544) %this1) #8
   br label %eh.resume
 

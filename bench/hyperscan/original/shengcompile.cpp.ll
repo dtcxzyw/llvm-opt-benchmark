@@ -3814,10 +3814,11 @@ entry:
   %1 = load i8, ptr %only_accel_init_in.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN3ue221accel_dfa_build_stratC2ERKNS_13ReportManagerEb(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(505) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue217sheng_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3ue217sheng_build_stratE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %rdfa = getelementptr inbounds %"class.ue2::sheng_build_strat", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %rdfa_in.addr, align 8
-  store ptr %2, ptr %rdfa, align 8
+  %3 = load ptr, ptr %rdfa_in.addr, align 8
+  store ptr %3, ptr %rdfa, align 8
   ret void
 }
 
@@ -12091,10 +12092,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %rm_in.addr, align 8
   call void @_ZN3ue215dfa_build_stratC2ERKNS_13ReportManagerE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(505) %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3ue221accel_dfa_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN3ue221accel_dfa_build_stratE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %only_accel_init = getelementptr inbounds %"class.ue2::accel_dfa_build_strat", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %only_accel_init_in.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %only_accel_init_in.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %only_accel_init, align 8
   ret void
@@ -12108,10 +12110,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %rm_in, ptr %rm_in.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue215dfa_build_stratE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3ue215dfa_build_stratE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rm = getelementptr inbounds %"class.ue2::dfa_build_strat", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %rm_in.addr, align 8
-  store ptr %0, ptr %rm, align 8
+  %1 = load ptr, ptr %rm_in.addr, align 8
+  store ptr %1, ptr %rm, align 8
   ret void
 }
 
@@ -13533,7 +13536,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue215raw_report_infoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rl = getelementptr inbounds %"struct.ue2::(anonymous namespace)::raw_report_info_impl", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN3ue212_GLOBAL__N_115raw_report_listESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rl) #1
   ret void
@@ -13569,7 +13573,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue215raw_report_infoE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue215raw_report_infoE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13589,7 +13594,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_120raw_report_info_implE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rl = getelementptr inbounds %"struct.ue2::(anonymous namespace)::raw_report_info_impl", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN3ue212_GLOBAL__N_115raw_report_listESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rl) #1
   call void @_ZN3ue215raw_report_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #1
@@ -20125,7 +20131,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20240,7 +20247,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

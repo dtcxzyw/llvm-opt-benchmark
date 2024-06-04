@@ -252,18 +252,18 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   %80 = alloca %"struct.std::array", align 4
   %81 = load atomic i8, ptr @_ZGVZN5ZXing6QRCode7Version6Model2EiE11allVersions acquire, align 8
   %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %147, !prof !3
+  br i1 %82, label %83, label %186, !prof !3
 
 83:                                               ; preds = %1
   %84 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6QRCode7Version6Model2EiE11allVersions) #13
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %147, label %86
+  br i1 %85, label %186, label %86
 
 86:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %2, ptr noundef nonnull align 4 dereferenceable(80) @constinit.98, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i32 noundef 1, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %2) #14
-          to label %87 unwind label %154
+          to label %87 unwind label %193
 
 87:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
@@ -272,350 +272,389 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 18, ptr %88, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.1, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 1), i32 noundef 2, ptr nonnull %3, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %4) #14
-          to label %89 unwind label %156
+  %89 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 1
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %89, i32 noundef 2, ptr nonnull %3, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %4) #14
+          to label %90 unwind label %195
 
-89:                                               ; preds = %87
+90:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   store i32 6, ptr %5, align 4, !tbaa !8
-  %90 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 22, ptr %90, align 4, !tbaa !8
+  %91 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 22, ptr %91, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(80) @constinit.2, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 2), i32 noundef 3, ptr nonnull %5, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %6) #14
-          to label %91 unwind label %158
+  %92 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 2
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %92, i32 noundef 3, ptr nonnull %5, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %6) #14
+          to label %93 unwind label %198
 
-91:                                               ; preds = %89
+93:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
   store i32 6, ptr %7, align 4, !tbaa !8
-  %92 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 26, ptr %92, align 4, !tbaa !8
+  %94 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 26, ptr %94, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, ptr noundef nonnull align 4 dereferenceable(80) @constinit.3, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 3), i32 noundef 4, ptr nonnull %7, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %8) #14
-          to label %93 unwind label %160
+  %95 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 3
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %95, i32 noundef 4, ptr nonnull %7, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %8) #14
+          to label %96 unwind label %201
 
-93:                                               ; preds = %91
+96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
   store i32 6, ptr %9, align 4, !tbaa !8
-  %94 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 30, ptr %94, align 4, !tbaa !8
+  %97 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 30, ptr %97, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 4 dereferenceable(80) @constinit.4, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 4), i32 noundef 5, ptr nonnull %9, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %10) #14
-          to label %95 unwind label %162
+  %98 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 4
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %98, i32 noundef 5, ptr nonnull %9, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %10) #14
+          to label %99 unwind label %204
 
-95:                                               ; preds = %93
+99:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
   store i32 6, ptr %11, align 4, !tbaa !8
-  %96 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 34, ptr %96, align 4, !tbaa !8
+  %100 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 34, ptr %100, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %12, ptr noundef nonnull align 4 dereferenceable(80) @constinit.5, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 5), i32 noundef 6, ptr nonnull %11, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %12) #14
-          to label %97 unwind label %164
+  %101 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 5
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %101, i32 noundef 6, ptr nonnull %11, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %12) #14
+          to label %102 unwind label %207
 
-97:                                               ; preds = %95
+102:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #13
   store i32 6, ptr %13, align 4, !tbaa !8
-  %98 = getelementptr inbounds i8, ptr %13, i64 4
-  store i32 22, ptr %98, align 4, !tbaa !8
-  %99 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 38, ptr %99, align 4, !tbaa !8
+  %103 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 22, ptr %103, align 4, !tbaa !8
+  %104 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 38, ptr %104, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %14, ptr noundef nonnull align 4 dereferenceable(80) @constinit.6, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 6), i32 noundef 7, ptr nonnull %13, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %14) #14
-          to label %100 unwind label %166
+  %105 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 6
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %105, i32 noundef 7, ptr nonnull %13, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %14) #14
+          to label %106 unwind label %210
 
-100:                                              ; preds = %97
+106:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #13
   store i32 6, ptr %15, align 4, !tbaa !8
-  %101 = getelementptr inbounds i8, ptr %15, i64 4
-  store i32 24, ptr %101, align 4, !tbaa !8
-  %102 = getelementptr inbounds i8, ptr %15, i64 8
-  store i32 42, ptr %102, align 4, !tbaa !8
+  %107 = getelementptr inbounds i8, ptr %15, i64 4
+  store i32 24, ptr %107, align 4, !tbaa !8
+  %108 = getelementptr inbounds i8, ptr %15, i64 8
+  store i32 42, ptr %108, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %16, ptr noundef nonnull align 4 dereferenceable(80) @constinit.7, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 7), i32 noundef 8, ptr nonnull %15, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %16) #14
-          to label %103 unwind label %168
+  %109 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 7
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %109, i32 noundef 8, ptr nonnull %15, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %16) #14
+          to label %110 unwind label %213
 
-103:                                              ; preds = %100
+110:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #13
   store i32 6, ptr %17, align 4, !tbaa !8
-  %104 = getelementptr inbounds i8, ptr %17, i64 4
-  store i32 26, ptr %104, align 4, !tbaa !8
-  %105 = getelementptr inbounds i8, ptr %17, i64 8
-  store i32 46, ptr %105, align 4, !tbaa !8
+  %111 = getelementptr inbounds i8, ptr %17, i64 4
+  store i32 26, ptr %111, align 4, !tbaa !8
+  %112 = getelementptr inbounds i8, ptr %17, i64 8
+  store i32 46, ptr %112, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %18, ptr noundef nonnull align 4 dereferenceable(80) @constinit.8, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 8), i32 noundef 9, ptr nonnull %17, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %18) #14
-          to label %106 unwind label %170
+  %113 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 8
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %113, i32 noundef 9, ptr nonnull %17, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %18) #14
+          to label %114 unwind label %216
 
-106:                                              ; preds = %103
+114:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #13
   store i32 6, ptr %19, align 4, !tbaa !8
-  %107 = getelementptr inbounds i8, ptr %19, i64 4
-  store i32 28, ptr %107, align 4, !tbaa !8
-  %108 = getelementptr inbounds i8, ptr %19, i64 8
-  store i32 50, ptr %108, align 4, !tbaa !8
+  %115 = getelementptr inbounds i8, ptr %19, i64 4
+  store i32 28, ptr %115, align 4, !tbaa !8
+  %116 = getelementptr inbounds i8, ptr %19, i64 8
+  store i32 50, ptr %116, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %20) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %20, ptr noundef nonnull align 4 dereferenceable(80) @constinit.9, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 9), i32 noundef 10, ptr nonnull %19, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %20) #14
-          to label %109 unwind label %172
+  %117 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 9
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %117, i32 noundef 10, ptr nonnull %19, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %20) #14
+          to label %118 unwind label %219
 
-109:                                              ; preds = %106
+118:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #13
   store i32 6, ptr %21, align 4, !tbaa !8
-  %110 = getelementptr inbounds i8, ptr %21, i64 4
-  store i32 30, ptr %110, align 4, !tbaa !8
-  %111 = getelementptr inbounds i8, ptr %21, i64 8
-  store i32 54, ptr %111, align 4, !tbaa !8
+  %119 = getelementptr inbounds i8, ptr %21, i64 4
+  store i32 30, ptr %119, align 4, !tbaa !8
+  %120 = getelementptr inbounds i8, ptr %21, i64 8
+  store i32 54, ptr %120, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %22, ptr noundef nonnull align 4 dereferenceable(80) @constinit.10, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 10), i32 noundef 11, ptr nonnull %21, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %22) #14
-          to label %112 unwind label %174
+  %121 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 10
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %121, i32 noundef 11, ptr nonnull %21, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %22) #14
+          to label %122 unwind label %222
 
-112:                                              ; preds = %109
+122:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #13
   store i32 6, ptr %23, align 4, !tbaa !8
-  %113 = getelementptr inbounds i8, ptr %23, i64 4
-  store i32 32, ptr %113, align 4, !tbaa !8
-  %114 = getelementptr inbounds i8, ptr %23, i64 8
-  store i32 58, ptr %114, align 4, !tbaa !8
+  %123 = getelementptr inbounds i8, ptr %23, i64 4
+  store i32 32, ptr %123, align 4, !tbaa !8
+  %124 = getelementptr inbounds i8, ptr %23, i64 8
+  store i32 58, ptr %124, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %24, ptr noundef nonnull align 4 dereferenceable(80) @constinit.11, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 11), i32 noundef 12, ptr nonnull %23, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %24) #14
-          to label %115 unwind label %176
+  %125 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 11
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %125, i32 noundef 12, ptr nonnull %23, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %24) #14
+          to label %126 unwind label %225
 
-115:                                              ; preds = %112
+126:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25) #13
   store i32 6, ptr %25, align 4, !tbaa !8
-  %116 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 34, ptr %116, align 4, !tbaa !8
-  %117 = getelementptr inbounds i8, ptr %25, i64 8
-  store i32 62, ptr %117, align 4, !tbaa !8
+  %127 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 34, ptr %127, align 4, !tbaa !8
+  %128 = getelementptr inbounds i8, ptr %25, i64 8
+  store i32 62, ptr %128, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %26, ptr noundef nonnull align 4 dereferenceable(80) @constinit.12, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 12), i32 noundef 13, ptr nonnull %25, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %26) #14
-          to label %118 unwind label %178
+  %129 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 12
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %129, i32 noundef 13, ptr nonnull %25, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %26) #14
+          to label %130 unwind label %228
 
-118:                                              ; preds = %115
+130:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #13
   store <4 x i32> <i32 6, i32 26, i32 46, i32 66>, ptr %27, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %28, ptr noundef nonnull align 4 dereferenceable(80) @constinit.13, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 13), i32 noundef 14, ptr nonnull %27, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %28) #14
-          to label %119 unwind label %180
+  %131 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 13
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %131, i32 noundef 14, ptr nonnull %27, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %28) #14
+          to label %132 unwind label %231
 
-119:                                              ; preds = %118
+132:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #13
   store <4 x i32> <i32 6, i32 26, i32 48, i32 70>, ptr %29, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %30) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %30, ptr noundef nonnull align 4 dereferenceable(80) @constinit.14, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 14), i32 noundef 15, ptr nonnull %29, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %30) #14
-          to label %120 unwind label %182
+  %133 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 14
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %133, i32 noundef 15, ptr nonnull %29, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %30) #14
+          to label %134 unwind label %234
 
-120:                                              ; preds = %119
+134:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #13
   store <4 x i32> <i32 6, i32 26, i32 50, i32 74>, ptr %31, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %32, ptr noundef nonnull align 4 dereferenceable(80) @constinit.15, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 15), i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #14
-          to label %121 unwind label %184
+  %135 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %135, i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #14
+          to label %136 unwind label %237
 
-121:                                              ; preds = %120
+136:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #13
   store <4 x i32> <i32 6, i32 30, i32 54, i32 78>, ptr %33, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %34) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %34, ptr noundef nonnull align 4 dereferenceable(80) @constinit.16, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 16), i32 noundef 17, ptr nonnull %33, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %34) #14
-          to label %122 unwind label %186
+  %137 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 16
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %137, i32 noundef 17, ptr nonnull %33, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %34) #14
+          to label %138 unwind label %240
 
-122:                                              ; preds = %121
+138:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #13
   store <4 x i32> <i32 6, i32 30, i32 56, i32 82>, ptr %35, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %36) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %36, ptr noundef nonnull align 4 dereferenceable(80) @constinit.17, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 17), i32 noundef 18, ptr nonnull %35, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %36) #14
-          to label %123 unwind label %188
+  %139 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 17
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %139, i32 noundef 18, ptr nonnull %35, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %36) #14
+          to label %140 unwind label %243
 
-123:                                              ; preds = %122
+140:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #13
   store <4 x i32> <i32 6, i32 30, i32 58, i32 86>, ptr %37, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %38) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %38, ptr noundef nonnull align 4 dereferenceable(80) @constinit.18, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 18), i32 noundef 19, ptr nonnull %37, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %38) #14
-          to label %124 unwind label %190
+  %141 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 18
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %141, i32 noundef 19, ptr nonnull %37, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %38) #14
+          to label %142 unwind label %246
 
-124:                                              ; preds = %123
+142:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #13
   store <4 x i32> <i32 6, i32 34, i32 62, i32 90>, ptr %39, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %40) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %40, ptr noundef nonnull align 4 dereferenceable(80) @constinit.19, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 19), i32 noundef 20, ptr nonnull %39, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %40) #14
-          to label %125 unwind label %192
+  %143 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 19
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %143, i32 noundef 20, ptr nonnull %39, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %40) #14
+          to label %144 unwind label %249
 
-125:                                              ; preds = %124
+144:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %41) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, ptr noundef nonnull align 4 dereferenceable(20) @constinit.20, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %42) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %42, ptr noundef nonnull align 4 dereferenceable(80) @constinit.21, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 20), i32 noundef 21, ptr nonnull %41, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %42) #14
-          to label %126 unwind label %194
+  %145 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 20
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %145, i32 noundef 21, ptr nonnull %41, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %42) #14
+          to label %146 unwind label %252
 
-126:                                              ; preds = %125
+146:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %43) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %43, ptr noundef nonnull align 4 dereferenceable(20) @constinit.22, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %44) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %44, ptr noundef nonnull align 4 dereferenceable(80) @constinit.23, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 21), i32 noundef 22, ptr nonnull %43, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %44) #14
-          to label %127 unwind label %196
+  %147 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 21
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %147, i32 noundef 22, ptr nonnull %43, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %44) #14
+          to label %148 unwind label %255
 
-127:                                              ; preds = %126
+148:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %45) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %45, ptr noundef nonnull align 4 dereferenceable(20) @constinit.24, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %46) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %46, ptr noundef nonnull align 4 dereferenceable(80) @constinit.25, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 22), i32 noundef 23, ptr nonnull %45, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %46) #14
-          to label %128 unwind label %198
+  %149 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 22
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %149, i32 noundef 23, ptr nonnull %45, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %46) #14
+          to label %150 unwind label %258
 
-128:                                              ; preds = %127
+150:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %47) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %47, ptr noundef nonnull align 4 dereferenceable(20) @constinit.26, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %48) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %48, ptr noundef nonnull align 4 dereferenceable(80) @constinit.27, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 23), i32 noundef 24, ptr nonnull %47, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %48) #14
-          to label %129 unwind label %200
+  %151 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 23
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %151, i32 noundef 24, ptr nonnull %47, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %48) #14
+          to label %152 unwind label %261
 
-129:                                              ; preds = %128
+152:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %49) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %49, ptr noundef nonnull align 4 dereferenceable(20) @constinit.28, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %50) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %50, ptr noundef nonnull align 4 dereferenceable(80) @constinit.29, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 24), i32 noundef 25, ptr nonnull %49, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %50) #14
-          to label %130 unwind label %202
+  %153 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 24
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %153, i32 noundef 25, ptr nonnull %49, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %50) #14
+          to label %154 unwind label %264
 
-130:                                              ; preds = %129
+154:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %51) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %51, ptr noundef nonnull align 4 dereferenceable(20) @constinit.30, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %52) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %52, ptr noundef nonnull align 4 dereferenceable(80) @constinit.31, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 25), i32 noundef 26, ptr nonnull %51, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %52) #14
-          to label %131 unwind label %204
+  %155 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 25
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %155, i32 noundef 26, ptr nonnull %51, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %52) #14
+          to label %156 unwind label %267
 
-131:                                              ; preds = %130
+156:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %53) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %53, ptr noundef nonnull align 4 dereferenceable(20) @constinit.32, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %54) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %54, ptr noundef nonnull align 4 dereferenceable(80) @constinit.33, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 26), i32 noundef 27, ptr nonnull %53, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %54) #14
-          to label %132 unwind label %206
+  %157 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 26
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %157, i32 noundef 27, ptr nonnull %53, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %54) #14
+          to label %158 unwind label %270
 
-132:                                              ; preds = %131
+158:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %55, ptr noundef nonnull align 4 dereferenceable(24) @constinit.34, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %56) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %56, ptr noundef nonnull align 4 dereferenceable(80) @constinit.35, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 27), i32 noundef 28, ptr nonnull %55, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %56) #14
-          to label %133 unwind label %208
+  %159 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 27
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %159, i32 noundef 28, ptr nonnull %55, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %56) #14
+          to label %160 unwind label %273
 
-133:                                              ; preds = %132
+160:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %57, ptr noundef nonnull align 4 dereferenceable(24) @constinit.36, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %58) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %58, ptr noundef nonnull align 4 dereferenceable(80) @constinit.37, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 28), i32 noundef 29, ptr nonnull %57, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %58) #14
-          to label %134 unwind label %210
+  %161 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 28
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %161, i32 noundef 29, ptr nonnull %57, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %58) #14
+          to label %162 unwind label %276
 
-134:                                              ; preds = %133
+162:                                              ; preds = %160
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %59, ptr noundef nonnull align 4 dereferenceable(24) @constinit.38, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %60) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %60, ptr noundef nonnull align 4 dereferenceable(80) @constinit.39, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 29), i32 noundef 30, ptr nonnull %59, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %60) #14
-          to label %135 unwind label %212
+  %163 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 29
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %163, i32 noundef 30, ptr nonnull %59, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %60) #14
+          to label %164 unwind label %279
 
-135:                                              ; preds = %134
+164:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %61, ptr noundef nonnull align 4 dereferenceable(24) @constinit.40, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %62) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %62, ptr noundef nonnull align 4 dereferenceable(80) @constinit.41, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 30), i32 noundef 31, ptr nonnull %61, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %62) #14
-          to label %136 unwind label %214
+  %165 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 30
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %165, i32 noundef 31, ptr nonnull %61, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %62) #14
+          to label %166 unwind label %282
 
-136:                                              ; preds = %135
+166:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %63, ptr noundef nonnull align 4 dereferenceable(24) @constinit.42, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %64) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %64, ptr noundef nonnull align 4 dereferenceable(80) @constinit.43, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 31), i32 noundef 32, ptr nonnull %63, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %64) #14
-          to label %137 unwind label %216
+  %167 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 31
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %167, i32 noundef 32, ptr nonnull %63, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %64) #14
+          to label %168 unwind label %285
 
-137:                                              ; preds = %136
+168:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %65, ptr noundef nonnull align 4 dereferenceable(24) @constinit.44, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %66) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %66, ptr noundef nonnull align 4 dereferenceable(80) @constinit.45, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 32), i32 noundef 33, ptr nonnull %65, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %66) #14
-          to label %138 unwind label %218
+  %169 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 32
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %169, i32 noundef 33, ptr nonnull %65, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %66) #14
+          to label %170 unwind label %288
 
-138:                                              ; preds = %137
+170:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %67, ptr noundef nonnull align 4 dereferenceable(24) @constinit.46, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %68) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %68, ptr noundef nonnull align 4 dereferenceable(80) @constinit.47, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 33), i32 noundef 34, ptr nonnull %67, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %68) #14
-          to label %139 unwind label %220
+  %171 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 33
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %171, i32 noundef 34, ptr nonnull %67, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %68) #14
+          to label %172 unwind label %291
 
-139:                                              ; preds = %138
+172:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %69) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %69, ptr noundef nonnull align 4 dereferenceable(28) @constinit.48, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %70) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %70, ptr noundef nonnull align 4 dereferenceable(80) @constinit.49, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 34), i32 noundef 35, ptr nonnull %69, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %70) #14
-          to label %140 unwind label %222
+  %173 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 34
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %173, i32 noundef 35, ptr nonnull %69, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %70) #14
+          to label %174 unwind label %294
 
-140:                                              ; preds = %139
+174:                                              ; preds = %172
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %71) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %71, ptr noundef nonnull align 4 dereferenceable(28) @constinit.50, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %72) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %72, ptr noundef nonnull align 4 dereferenceable(80) @constinit.51, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 35), i32 noundef 36, ptr nonnull %71, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %72) #14
-          to label %141 unwind label %224
+  %175 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 35
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %175, i32 noundef 36, ptr nonnull %71, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %72) #14
+          to label %176 unwind label %297
 
-141:                                              ; preds = %140
+176:                                              ; preds = %174
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %73) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %73, ptr noundef nonnull align 4 dereferenceable(28) @constinit.52, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %74) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %74, ptr noundef nonnull align 4 dereferenceable(80) @constinit.53, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 36), i32 noundef 37, ptr nonnull %73, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %74) #14
-          to label %142 unwind label %226
+  %177 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 36
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %177, i32 noundef 37, ptr nonnull %73, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %74) #14
+          to label %178 unwind label %300
 
-142:                                              ; preds = %141
+178:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %75) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %75, ptr noundef nonnull align 4 dereferenceable(28) @constinit.54, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %76) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %76, ptr noundef nonnull align 4 dereferenceable(80) @constinit.55, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 37), i32 noundef 38, ptr nonnull %75, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %76) #14
-          to label %143 unwind label %228
+  %179 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 37
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %179, i32 noundef 38, ptr nonnull %75, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %76) #14
+          to label %180 unwind label %303
 
-143:                                              ; preds = %142
+180:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %77) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %77, ptr noundef nonnull align 4 dereferenceable(28) @constinit.56, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %78) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %78, ptr noundef nonnull align 4 dereferenceable(80) @constinit.57, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 38), i32 noundef 39, ptr nonnull %77, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %78) #14
-          to label %144 unwind label %230
+  %181 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 38
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %181, i32 noundef 39, ptr nonnull %77, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %78) #14
+          to label %182 unwind label %306
 
-144:                                              ; preds = %143
+182:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %79) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %79, ptr noundef nonnull align 4 dereferenceable(28) @constinit.58, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %80) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %80, ptr noundef nonnull align 4 dereferenceable(80) @constinit.59, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 39), i32 noundef 40, ptr nonnull %79, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %80) #14
-          to label %145 unwind label %232
+  %183 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 39
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %183, i32 noundef 40, ptr nonnull %79, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %80) #14
+          to label %184 unwind label %309
 
-145:                                              ; preds = %144
+184:                                              ; preds = %182
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %80) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %79) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %78) #13
@@ -695,616 +734,637 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  %146 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #13
+  %185 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #13
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5ZXing6QRCode7Version6Model2EiE11allVersions) #13
-  br label %147
+  br label %186
 
-147:                                              ; preds = %145, %83, %1
-  %148 = add i32 %0, -41
-  %149 = icmp ult i32 %148, -40
-  %150 = zext nneg i32 %0 to i64
-  %151 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 %150
-  %152 = getelementptr inbounds i8, ptr %151, i64 -120
-  %153 = select i1 %149, ptr null, ptr %152
-  ret ptr %153
+186:                                              ; preds = %184, %83, %1
+  %187 = add i32 %0, -41
+  %188 = icmp ult i32 %187, -40
+  %189 = zext nneg i32 %0 to i64
+  %190 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 %189
+  %191 = getelementptr inbounds i8, ptr %190, i64 -120
+  %192 = select i1 %188, ptr null, ptr %191
+  ret ptr %192
 
-154:                                              ; preds = %86
-  %155 = landingpad { ptr, i32 }
+193:                                              ; preds = %86
+  %194 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %258
+  br label %336
 
-156:                                              ; preds = %87
-  %157 = landingpad { ptr, i32 }
+195:                                              ; preds = %87
+  %196 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %197 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 1
+  br label %324
 
-158:                                              ; preds = %89
-  %159 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-160:                                              ; preds = %91
-  %161 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-162:                                              ; preds = %93
-  %163 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-164:                                              ; preds = %95
-  %165 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-166:                                              ; preds = %97
-  %167 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-168:                                              ; preds = %100
-  %169 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-170:                                              ; preds = %103
-  %171 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-172:                                              ; preds = %106
-  %173 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-174:                                              ; preds = %109
-  %175 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-176:                                              ; preds = %112
-  %177 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-178:                                              ; preds = %115
-  %179 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-180:                                              ; preds = %118
-  %181 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-182:                                              ; preds = %119
-  %183 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-184:                                              ; preds = %120
-  %185 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-186:                                              ; preds = %121
-  %187 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-188:                                              ; preds = %122
-  %189 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-190:                                              ; preds = %123
-  %191 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-192:                                              ; preds = %124
-  %193 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %40) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-194:                                              ; preds = %125
-  %195 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %42) #13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %41) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %40) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-196:                                              ; preds = %126
-  %197 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %44) #13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %43) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %42) #13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %41) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %40) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
-
-198:                                              ; preds = %127
+198:                                              ; preds = %90
   %199 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %200 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 2
+  br label %324
+
+201:                                              ; preds = %93
+  %202 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %203 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 3
+  br label %324
+
+204:                                              ; preds = %96
+  %205 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %206 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 4
+  br label %324
+
+207:                                              ; preds = %99
+  %208 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %209 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 5
+  br label %324
+
+210:                                              ; preds = %102
+  %211 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %212 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 6
+  br label %324
+
+213:                                              ; preds = %106
+  %214 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %215 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 7
+  br label %324
+
+216:                                              ; preds = %110
+  %217 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %218 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 8
+  br label %324
+
+219:                                              ; preds = %114
+  %220 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %221 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 9
+  br label %324
+
+222:                                              ; preds = %118
+  %223 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %224 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 10
+  br label %324
+
+225:                                              ; preds = %122
+  %226 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %227 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 11
+  br label %324
+
+228:                                              ; preds = %126
+  %229 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %230 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 12
+  br label %324
+
+231:                                              ; preds = %130
+  %232 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %233 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 13
+  br label %324
+
+234:                                              ; preds = %132
+  %235 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %236 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 14
+  br label %324
+
+237:                                              ; preds = %134
+  %238 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %239 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 15
+  br label %324
+
+240:                                              ; preds = %136
+  %241 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %242 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 16
+  br label %324
+
+243:                                              ; preds = %138
+  %244 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %245 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 17
+  br label %324
+
+246:                                              ; preds = %140
+  %247 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %248 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 18
+  br label %324
+
+249:                                              ; preds = %142
+  %250 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %40) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %251 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 19
+  br label %324
+
+252:                                              ; preds = %144
+  %253 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %42) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %41) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %40) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %254 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 20
+  br label %324
+
+255:                                              ; preds = %146
+  %256 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %44) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %43) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %42) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %41) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %40) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %257 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 21
+  br label %324
+
+258:                                              ; preds = %148
+  %259 = landingpad { ptr, i32 }
+          cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %46) #13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %45) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %44) #13
@@ -1350,10 +1410,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %260 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 22
+  br label %324
 
-200:                                              ; preds = %128
-  %201 = landingpad { ptr, i32 }
+261:                                              ; preds = %150
+  %262 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %48) #13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %47) #13
@@ -1402,10 +1463,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %263 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 23
+  br label %324
 
-202:                                              ; preds = %129
-  %203 = landingpad { ptr, i32 }
+264:                                              ; preds = %152
+  %265 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %50) #13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %49) #13
@@ -1456,10 +1518,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %266 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 24
+  br label %324
 
-204:                                              ; preds = %130
-  %205 = landingpad { ptr, i32 }
+267:                                              ; preds = %154
+  %268 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %52) #13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %51) #13
@@ -1512,10 +1575,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %269 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 25
+  br label %324
 
-206:                                              ; preds = %131
-  %207 = landingpad { ptr, i32 }
+270:                                              ; preds = %156
+  %271 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %54) #13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %53) #13
@@ -1570,10 +1634,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %272 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 26
+  br label %324
 
-208:                                              ; preds = %132
-  %209 = landingpad { ptr, i32 }
+273:                                              ; preds = %158
+  %274 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %56) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55) #13
@@ -1630,10 +1695,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %275 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 27
+  br label %324
 
-210:                                              ; preds = %133
-  %211 = landingpad { ptr, i32 }
+276:                                              ; preds = %160
+  %277 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %58) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57) #13
@@ -1692,10 +1758,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %278 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 28
+  br label %324
 
-212:                                              ; preds = %134
-  %213 = landingpad { ptr, i32 }
+279:                                              ; preds = %162
+  %280 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %60) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59) #13
@@ -1756,10 +1823,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %281 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 29
+  br label %324
 
-214:                                              ; preds = %135
-  %215 = landingpad { ptr, i32 }
+282:                                              ; preds = %164
+  %283 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %62) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61) #13
@@ -1822,10 +1890,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %284 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 30
+  br label %324
 
-216:                                              ; preds = %136
-  %217 = landingpad { ptr, i32 }
+285:                                              ; preds = %166
+  %286 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %64) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %63) #13
@@ -1890,10 +1959,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %287 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 31
+  br label %324
 
-218:                                              ; preds = %137
-  %219 = landingpad { ptr, i32 }
+288:                                              ; preds = %168
+  %289 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %66) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65) #13
@@ -1960,10 +2030,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %290 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 32
+  br label %324
 
-220:                                              ; preds = %138
-  %221 = landingpad { ptr, i32 }
+291:                                              ; preds = %170
+  %292 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %68) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67) #13
@@ -2032,10 +2103,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %293 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 33
+  br label %324
 
-222:                                              ; preds = %139
-  %223 = landingpad { ptr, i32 }
+294:                                              ; preds = %172
+  %295 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %70) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %69) #13
@@ -2106,59 +2178,65 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  %296 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 34
+  br label %324
 
-224:                                              ; preds = %140
-  %225 = landingpad { ptr, i32 }
+297:                                              ; preds = %174
+  %298 = landingpad { ptr, i32 }
           cleanup
-  br label %243
+  %299 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 35
+  br label %321
 
-226:                                              ; preds = %141
-  %227 = landingpad { ptr, i32 }
+300:                                              ; preds = %176
+  %301 = landingpad { ptr, i32 }
           cleanup
-  br label %240
+  %302 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 36
+  br label %318
 
-228:                                              ; preds = %142
-  %229 = landingpad { ptr, i32 }
+303:                                              ; preds = %178
+  %304 = landingpad { ptr, i32 }
           cleanup
-  br label %237
+  %305 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 37
+  br label %315
 
-230:                                              ; preds = %143
-  %231 = landingpad { ptr, i32 }
+306:                                              ; preds = %180
+  %307 = landingpad { ptr, i32 }
           cleanup
-  br label %234
+  %308 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 38
+  br label %312
 
-232:                                              ; preds = %144
-  %233 = landingpad { ptr, i32 }
+309:                                              ; preds = %182
+  %310 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %80) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %79) #13
-  br label %234
+  %311 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 39
+  br label %312
 
-234:                                              ; preds = %232, %230
-  %235 = phi { ptr, i32 } [ %233, %232 ], [ %231, %230 ]
-  %236 = phi ptr [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 39), %232 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 38), %230 ]
+312:                                              ; preds = %309, %306
+  %313 = phi { ptr, i32 } [ %310, %309 ], [ %307, %306 ]
+  %314 = phi ptr [ %311, %309 ], [ %308, %306 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %78) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %77) #13
-  br label %237
+  br label %315
 
-237:                                              ; preds = %234, %228
-  %238 = phi { ptr, i32 } [ %235, %234 ], [ %229, %228 ]
-  %239 = phi ptr [ %236, %234 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 37), %228 ]
+315:                                              ; preds = %312, %303
+  %316 = phi { ptr, i32 } [ %313, %312 ], [ %304, %303 ]
+  %317 = phi ptr [ %314, %312 ], [ %305, %303 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %76) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %75) #13
-  br label %240
+  br label %318
 
-240:                                              ; preds = %237, %226
-  %241 = phi { ptr, i32 } [ %238, %237 ], [ %227, %226 ]
-  %242 = phi ptr [ %239, %237 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 36), %226 ]
+318:                                              ; preds = %315, %300
+  %319 = phi { ptr, i32 } [ %316, %315 ], [ %301, %300 ]
+  %320 = phi ptr [ %317, %315 ], [ %302, %300 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %74) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %73) #13
-  br label %243
+  br label %321
 
-243:                                              ; preds = %240, %224
-  %244 = phi { ptr, i32 } [ %241, %240 ], [ %225, %224 ]
-  %245 = phi ptr [ %242, %240 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 35), %224 ]
+321:                                              ; preds = %318, %297
+  %322 = phi { ptr, i32 } [ %319, %318 ], [ %298, %297 ]
+  %323 = phi ptr [ %320, %318 ], [ %299, %297 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %72) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %71) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %70) #13
@@ -2230,33 +2308,33 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %246
+  br label %324
 
-246:                                              ; preds = %243, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156
-  %247 = phi ptr [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 1), %156 ], [ %245, %243 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 2), %158 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 3), %160 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 4), %162 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 5), %164 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 6), %166 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 7), %168 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 8), %170 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 9), %172 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 10), %174 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 11), %176 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 12), %178 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 13), %180 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 14), %182 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 15), %184 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 16), %186 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 17), %188 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 18), %190 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 19), %192 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 20), %194 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 21), %196 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 22), %198 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 23), %200 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 24), %202 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 25), %204 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 26), %206 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 27), %208 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 28), %210 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 29), %212 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 30), %214 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 31), %216 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 32), %218 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 33), %220 ], [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 0, i64 34), %222 ]
-  %248 = phi { ptr, i32 } [ %157, %156 ], [ %244, %243 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ], [ %221, %220 ], [ %223, %222 ]
-  br label %249
+324:                                              ; preds = %321, %294, %291, %288, %285, %282, %279, %276, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %216, %213, %210, %207, %204, %201, %198, %195
+  %325 = phi ptr [ %197, %195 ], [ %323, %321 ], [ %200, %198 ], [ %203, %201 ], [ %206, %204 ], [ %209, %207 ], [ %212, %210 ], [ %215, %213 ], [ %218, %216 ], [ %221, %219 ], [ %224, %222 ], [ %227, %225 ], [ %230, %228 ], [ %233, %231 ], [ %236, %234 ], [ %239, %237 ], [ %242, %240 ], [ %245, %243 ], [ %248, %246 ], [ %251, %249 ], [ %254, %252 ], [ %257, %255 ], [ %260, %258 ], [ %263, %261 ], [ %266, %264 ], [ %269, %267 ], [ %272, %270 ], [ %275, %273 ], [ %278, %276 ], [ %281, %279 ], [ %284, %282 ], [ %287, %285 ], [ %290, %288 ], [ %293, %291 ], [ %296, %294 ]
+  %326 = phi { ptr, i32 } [ %196, %195 ], [ %322, %321 ], [ %199, %198 ], [ %202, %201 ], [ %205, %204 ], [ %208, %207 ], [ %211, %210 ], [ %214, %213 ], [ %217, %216 ], [ %220, %219 ], [ %223, %222 ], [ %226, %225 ], [ %229, %228 ], [ %232, %231 ], [ %235, %234 ], [ %238, %237 ], [ %241, %240 ], [ %244, %243 ], [ %247, %246 ], [ %250, %249 ], [ %253, %252 ], [ %256, %255 ], [ %259, %258 ], [ %262, %261 ], [ %265, %264 ], [ %268, %267 ], [ %271, %270 ], [ %274, %273 ], [ %277, %276 ], [ %280, %279 ], [ %283, %282 ], [ %286, %285 ], [ %289, %288 ], [ %292, %291 ], [ %295, %294 ]
+  br label %327
 
-249:                                              ; preds = %256, %246
-  %250 = phi ptr [ %251, %256 ], [ %247, %246 ]
-  %251 = getelementptr inbounds i8, ptr %250, i64 -120
-  %252 = getelementptr inbounds i8, ptr %250, i64 -112
-  %253 = load ptr, ptr %252, align 8, !tbaa !13
-  %254 = icmp eq ptr %253, null
-  br i1 %254, label %256, label %255
+327:                                              ; preds = %334, %324
+  %328 = phi ptr [ %329, %334 ], [ %325, %324 ]
+  %329 = getelementptr inbounds i8, ptr %328, i64 -120
+  %330 = getelementptr inbounds i8, ptr %328, i64 -112
+  %331 = load ptr, ptr %330, align 8, !tbaa !13
+  %332 = icmp eq ptr %331, null
+  br i1 %332, label %334, label %333
 
-255:                                              ; preds = %249
-  call void @_ZdlPv(ptr noundef nonnull %253) #15
-  br label %256
+333:                                              ; preds = %327
+  call void @_ZdlPv(ptr noundef nonnull %331) #15
+  br label %334
 
-256:                                              ; preds = %255, %249
-  %257 = icmp eq ptr %251, @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions
-  br i1 %257, label %258, label %249
+334:                                              ; preds = %333, %327
+  %335 = icmp eq ptr %329, @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions
+  br i1 %335, label %336, label %327
 
-258:                                              ; preds = %256, %154
-  %259 = phi { ptr, i32 } [ %155, %154 ], [ %248, %256 ]
+336:                                              ; preds = %334, %193
+  %337 = phi { ptr, i32 } [ %194, %193 ], [ %326, %334 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6QRCode7Version6Model2EiE11allVersions) #13
-  resume { ptr, i32 } %259
+  resume { ptr, i32 } %337
 }
 
 ; Function Attrs: nofree nounwind
@@ -2275,25 +2353,26 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nounwind optsize uwtable
 define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  br label %2
+  %2 = getelementptr inbounds [40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1, i64 0
+  br label %3
 
-2:                                                ; preds = %9, %1
-  %3 = phi ptr [ getelementptr inbounds ([40 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1, i64 0), %1 ], [ %4, %9 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 -120
-  %5 = getelementptr inbounds i8, ptr %3, i64 -112
-  %6 = load ptr, ptr %5, align 8, !tbaa !13
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+3:                                                ; preds = %10, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %10 ]
+  %5 = getelementptr inbounds i8, ptr %4, i64 -120
+  %6 = getelementptr inbounds i8, ptr %4, i64 -112
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-8:                                                ; preds = %2
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  br label %9
+9:                                                ; preds = %3
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #15
+  br label %10
 
-9:                                                ; preds = %8, %2
-  %10 = icmp eq ptr %4, @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions
-  br i1 %10, label %11, label %2
+10:                                               ; preds = %9, %3
+  %11 = icmp eq ptr %5, @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions
+  br i1 %11, label %12, label %3
 
-11:                                               ; preds = %9
+12:                                               ; preds = %10
   ret void
 }
 
@@ -2314,110 +2393,116 @@ define noundef ptr @_ZN5ZXing6QRCode7Version5MicroEi(i32 noundef %0) local_unnam
   %5 = alloca %"struct.std::array", align 4
   %6 = load atomic i8, ptr @_ZGVZN5ZXing6QRCode7Version5MicroEiE11allVersions acquire, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %17, !prof !3
+  br i1 %7, label %8, label %20, !prof !3
 
 8:                                                ; preds = %1
   %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6QRCode7Version5MicroEiE11allVersions) #13
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %17, label %11
+  br i1 %10, label %20, label %11
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %2, ptr noundef nonnull align 4 dereferenceable(80) @constinit.60, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(80) %2) #14
-          to label %12 unwind label %24
+          to label %12 unwind label %27
 
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %3, ptr noundef nonnull align 4 dereferenceable(80) @constinit.61, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 1), i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #14
-          to label %13 unwind label %26
+  %13 = getelementptr inbounds [4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 1
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %13, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #14
+          to label %14 unwind label %29
 
-13:                                               ; preds = %12
+14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.62, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 2), i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #14
-          to label %14 unwind label %28
+  %15 = getelementptr inbounds [4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 2
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %15, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #14
+          to label %16 unwind label %32
 
-14:                                               ; preds = %13
+16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.63, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 3), i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #14
-          to label %15 unwind label %30
+  %17 = getelementptr inbounds [4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 3
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %17, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #14
+          to label %18 unwind label %35
 
-15:                                               ; preds = %14
+18:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  %16 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.64, ptr null, ptr nonnull @__dso_handle) #13
+  %19 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.64, ptr null, ptr nonnull @__dso_handle) #13
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5ZXing6QRCode7Version5MicroEiE11allVersions) #13
-  br label %17
+  br label %20
 
-17:                                               ; preds = %15, %8, %1
-  %18 = add i32 %0, -5
-  %19 = icmp ult i32 %18, -4
-  %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 -120
-  %23 = select i1 %19, ptr null, ptr %22
-  ret ptr %23
+20:                                               ; preds = %18, %8, %1
+  %21 = add i32 %0, -5
+  %22 = icmp ult i32 %21, -4
+  %23 = zext nneg i32 %0 to i64
+  %24 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 %23
+  %25 = getelementptr inbounds i8, ptr %24, i64 -120
+  %26 = select i1 %22, ptr null, ptr %25
+  ret ptr %26
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+27:                                               ; preds = %11
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %47
+  br label %53
 
-26:                                               ; preds = %12
-  %27 = landingpad { ptr, i32 }
+29:                                               ; preds = %12
+  %30 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  %31 = getelementptr inbounds [4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 1
+  br label %41
 
-28:                                               ; preds = %13
-  %29 = landingpad { ptr, i32 }
+32:                                               ; preds = %14
+  %33 = landingpad { ptr, i32 }
           cleanup
-  br label %32
-
-30:                                               ; preds = %14
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  br label %32
-
-32:                                               ; preds = %30, %28
-  %33 = phi ptr [ getelementptr inbounds ([4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 3), %30 ], [ getelementptr inbounds ([4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 2), %28 ]
-  %34 = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  br label %35
-
-35:                                               ; preds = %32, %26
-  %36 = phi ptr [ %33, %32 ], [ getelementptr inbounds ([4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 1), %26 ]
-  %37 = phi { ptr, i32 } [ %34, %32 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %34 = getelementptr inbounds [4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 2
   br label %38
 
-38:                                               ; preds = %45, %35
-  %39 = phi ptr [ %40, %45 ], [ %36, %35 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 -120
-  %41 = getelementptr inbounds i8, ptr %39, i64 -112
-  %42 = load ptr, ptr %41, align 8, !tbaa !13
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %45, label %44
+35:                                               ; preds = %16
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  %37 = getelementptr inbounds [4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 0, i64 3
+  br label %38
 
-44:                                               ; preds = %38
-  call void @_ZdlPv(ptr noundef nonnull %42) #15
-  br label %45
+38:                                               ; preds = %35, %32
+  %39 = phi ptr [ %37, %35 ], [ %34, %32 ]
+  %40 = phi { ptr, i32 } [ %36, %35 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  br label %41
 
-45:                                               ; preds = %44, %38
-  %46 = icmp eq ptr %40, @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions
-  br i1 %46, label %47, label %38
+41:                                               ; preds = %38, %29
+  %42 = phi ptr [ %39, %38 ], [ %31, %29 ]
+  %43 = phi { ptr, i32 } [ %40, %38 ], [ %30, %29 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  br label %44
 
-47:                                               ; preds = %45, %24
-  %48 = phi { ptr, i32 } [ %25, %24 ], [ %37, %45 ]
+44:                                               ; preds = %51, %41
+  %45 = phi ptr [ %46, %51 ], [ %42, %41 ]
+  %46 = getelementptr inbounds i8, ptr %45, i64 -120
+  %47 = getelementptr inbounds i8, ptr %45, i64 -112
+  %48 = load ptr, ptr %47, align 8, !tbaa !13
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %51, label %50
+
+50:                                               ; preds = %44
+  call void @_ZdlPv(ptr noundef nonnull %48) #15
+  br label %51
+
+51:                                               ; preds = %50, %44
+  %52 = icmp eq ptr %46, @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions
+  br i1 %52, label %53, label %44
+
+53:                                               ; preds = %51, %27
+  %54 = phi { ptr, i32 } [ %28, %27 ], [ %43, %51 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6QRCode7Version5MicroEiE11allVersions) #13
-  resume { ptr, i32 } %48
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2425,25 +2510,26 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind optsize uwtable
 define internal void @__cxx_global_array_dtor.64(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  br label %2
+  %2 = getelementptr inbounds [4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 1, i64 0
+  br label %3
 
-2:                                                ; preds = %9, %1
-  %3 = phi ptr [ getelementptr inbounds ([4 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 1, i64 0), %1 ], [ %4, %9 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 -120
-  %5 = getelementptr inbounds i8, ptr %3, i64 -112
-  %6 = load ptr, ptr %5, align 8, !tbaa !13
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+3:                                                ; preds = %10, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %10 ]
+  %5 = getelementptr inbounds i8, ptr %4, i64 -120
+  %6 = getelementptr inbounds i8, ptr %4, i64 -112
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-8:                                                ; preds = %2
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  br label %9
+9:                                                ; preds = %3
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #15
+  br label %10
 
-9:                                                ; preds = %8, %2
-  %10 = icmp eq ptr %4, @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions
-  br i1 %10, label %11, label %2
+10:                                               ; preds = %9, %3
+  %11 = icmp eq ptr %5, @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions
+  br i1 %11, label %12, label %3
 
-11:                                               ; preds = %9
+12:                                               ; preds = %10
   ret void
 }
 
@@ -2513,12 +2599,12 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   %63 = alloca %"struct.std::array", align 4
   %64 = load atomic i8, ptr @_ZGVZN5ZXing6QRCode7Version4rMQREiE11allVersions acquire, align 8
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %127, !prof !3
+  br i1 %65, label %66, label %158, !prof !3
 
 66:                                               ; preds = %1
   %67 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6QRCode7Version4rMQREiE11allVersions) #13
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %127, label %69
+  br i1 %68, label %158, label %69
 
 69:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
@@ -2526,7 +2612,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %3, ptr noundef nonnull align 4 dereferenceable(80) @constinit.65, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i32 noundef 1, ptr nonnull %2, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %3) #14
-          to label %70 unwind label %134
+          to label %70 unwind label %165
 
 70:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
@@ -2535,292 +2621,323 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 39, ptr %71, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 1), i32 noundef 2, ptr nonnull %4, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %5) #14
-          to label %72 unwind label %136
+  %72 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 1
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %72, i32 noundef 2, ptr nonnull %4, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %5) #14
+          to label %73 unwind label %167
 
-72:                                               ; preds = %70
+73:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   store i32 25, ptr %6, align 4, !tbaa !8
-  %73 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 51, ptr %73, align 4, !tbaa !8
+  %74 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 51, ptr %74, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %7, ptr noundef nonnull align 4 dereferenceable(80) @constinit.67, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 2), i32 noundef 3, ptr nonnull %6, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %7) #14
-          to label %74 unwind label %138
+  %75 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 2
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %75, i32 noundef 3, ptr nonnull %6, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %7) #14
+          to label %76 unwind label %170
 
-74:                                               ; preds = %72
+76:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #13
   store i32 23, ptr %8, align 4, !tbaa !8
-  %75 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 49, ptr %75, align 4, !tbaa !8
-  %76 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 75, ptr %76, align 4, !tbaa !8
+  %77 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 49, ptr %77, align 4, !tbaa !8
+  %78 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 75, ptr %78, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %9, ptr noundef nonnull align 4 dereferenceable(80) @constinit.68, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 3), i32 noundef 4, ptr nonnull %8, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %9) #14
-          to label %77 unwind label %140
+  %79 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 3
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %79, i32 noundef 4, ptr nonnull %8, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %9) #14
+          to label %80 unwind label %173
 
-77:                                               ; preds = %74
+80:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %10, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %11, ptr noundef nonnull align 4 dereferenceable(80) @constinit.69, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 4), i32 noundef 5, ptr nonnull %10, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %11) #14
-          to label %78 unwind label %142
+  %81 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 4
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %81, i32 noundef 5, ptr nonnull %10, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %11) #14
+          to label %82 unwind label %176
 
-78:                                               ; preds = %77
+82:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
   store i32 21, ptr %12, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %13, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 5), i32 noundef 6, ptr nonnull %12, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %13) #14
-          to label %79 unwind label %144
+  %83 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 5
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %83, i32 noundef 6, ptr nonnull %12, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %13) #14
+          to label %84 unwind label %179
 
-79:                                               ; preds = %78
+84:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
   store i32 19, ptr %14, align 4, !tbaa !8
-  %80 = getelementptr inbounds i8, ptr %14, i64 4
-  store i32 39, ptr %80, align 4, !tbaa !8
+  %85 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 39, ptr %85, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %15, ptr noundef nonnull align 4 dereferenceable(80) @constinit.71, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 6), i32 noundef 7, ptr nonnull %14, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %15) #14
-          to label %81 unwind label %146
+  %86 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 6
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %86, i32 noundef 7, ptr nonnull %14, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %15) #14
+          to label %87 unwind label %182
 
-81:                                               ; preds = %79
+87:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
   store i32 25, ptr %16, align 4, !tbaa !8
-  %82 = getelementptr inbounds i8, ptr %16, i64 4
-  store i32 51, ptr %82, align 4, !tbaa !8
+  %88 = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 51, ptr %88, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %17, ptr noundef nonnull align 4 dereferenceable(80) @constinit.72, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 7), i32 noundef 8, ptr nonnull %16, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %17) #14
-          to label %83 unwind label %148
+  %89 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 7
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %89, i32 noundef 8, ptr nonnull %16, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %17) #14
+          to label %90 unwind label %185
 
-83:                                               ; preds = %81
+90:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #13
   store i32 23, ptr %18, align 4, !tbaa !8
-  %84 = getelementptr inbounds i8, ptr %18, i64 4
-  store i32 49, ptr %84, align 4, !tbaa !8
-  %85 = getelementptr inbounds i8, ptr %18, i64 8
-  store i32 75, ptr %85, align 4, !tbaa !8
+  %91 = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 49, ptr %91, align 4, !tbaa !8
+  %92 = getelementptr inbounds i8, ptr %18, i64 8
+  store i32 75, ptr %92, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %19, ptr noundef nonnull align 4 dereferenceable(80) @constinit.73, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 8), i32 noundef 9, ptr nonnull %18, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %19) #14
-          to label %86 unwind label %150
+  %93 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 8
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %93, i32 noundef 9, ptr nonnull %18, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %19) #14
+          to label %94 unwind label %188
 
-86:                                               ; preds = %83
+94:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #13
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %20, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %21) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %21, ptr noundef nonnull align 4 dereferenceable(80) @constinit.74, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 9), i32 noundef 10, ptr nonnull %20, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %21) #14
-          to label %87 unwind label %152
+  %95 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 9
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %95, i32 noundef 10, ptr nonnull %20, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %21) #14
+          to label %96 unwind label %191
 
-87:                                               ; preds = %86
+96:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %22, ptr noundef nonnull align 4 dereferenceable(80) @constinit.75, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 10), i32 noundef 11, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %22) #14
-          to label %88 unwind label %154
+  %97 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 10
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %97, i32 noundef 11, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %22) #14
+          to label %98 unwind label %194
 
-88:                                               ; preds = %87
+98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #13
   store i32 21, ptr %23, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %24, ptr noundef nonnull align 4 dereferenceable(80) @constinit.76, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 11), i32 noundef 12, ptr nonnull %23, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %24) #14
-          to label %89 unwind label %156
+  %99 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 11
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %99, i32 noundef 12, ptr nonnull %23, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %24) #14
+          to label %100 unwind label %197
 
-89:                                               ; preds = %88
+100:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #13
   store i32 19, ptr %25, align 4, !tbaa !8
-  %90 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 39, ptr %90, align 4, !tbaa !8
+  %101 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 39, ptr %101, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %26, ptr noundef nonnull align 4 dereferenceable(80) @constinit.77, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 12), i32 noundef 13, ptr nonnull %25, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %26) #14
-          to label %91 unwind label %158
+  %102 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 12
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %102, i32 noundef 13, ptr nonnull %25, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %26) #14
+          to label %103 unwind label %200
 
-91:                                               ; preds = %89
+103:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #13
   store i32 25, ptr %27, align 4, !tbaa !8
-  %92 = getelementptr inbounds i8, ptr %27, i64 4
-  store i32 51, ptr %92, align 4, !tbaa !8
+  %104 = getelementptr inbounds i8, ptr %27, i64 4
+  store i32 51, ptr %104, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %28, ptr noundef nonnull align 4 dereferenceable(80) @constinit.78, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 13), i32 noundef 14, ptr nonnull %27, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %28) #14
-          to label %93 unwind label %160
+  %105 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 13
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %105, i32 noundef 14, ptr nonnull %27, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %28) #14
+          to label %106 unwind label %203
 
-93:                                               ; preds = %91
+106:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29) #13
   store i32 23, ptr %29, align 4, !tbaa !8
-  %94 = getelementptr inbounds i8, ptr %29, i64 4
-  store i32 49, ptr %94, align 4, !tbaa !8
-  %95 = getelementptr inbounds i8, ptr %29, i64 8
-  store i32 75, ptr %95, align 4, !tbaa !8
+  %107 = getelementptr inbounds i8, ptr %29, i64 4
+  store i32 49, ptr %107, align 4, !tbaa !8
+  %108 = getelementptr inbounds i8, ptr %29, i64 8
+  store i32 75, ptr %108, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %30) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %30, ptr noundef nonnull align 4 dereferenceable(80) @constinit.79, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 14), i32 noundef 15, ptr nonnull %29, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %30) #14
-          to label %96 unwind label %162
+  %109 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 14
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %109, i32 noundef 15, ptr nonnull %29, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %30) #14
+          to label %110 unwind label %206
 
-96:                                               ; preds = %93
+110:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #13
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %31, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %32, ptr noundef nonnull align 4 dereferenceable(80) @constinit.80, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 15), i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #14
-          to label %97 unwind label %164
+  %111 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %111, i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #14
+          to label %112 unwind label %209
 
-97:                                               ; preds = %96
+112:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %33) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %33, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 16), i32 noundef 17, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %33) #14
-          to label %98 unwind label %166
+  %113 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 16
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %113, i32 noundef 17, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %33) #14
+          to label %114 unwind label %212
 
-98:                                               ; preds = %97
+114:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #13
   store i32 21, ptr %34, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %35) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %35, ptr noundef nonnull align 4 dereferenceable(80) @constinit.82, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 17), i32 noundef 18, ptr nonnull %34, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %35) #14
-          to label %99 unwind label %168
+  %115 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 17
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %115, i32 noundef 18, ptr nonnull %34, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %35) #14
+          to label %116 unwind label %215
 
-99:                                               ; preds = %98
+116:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #13
   store i32 19, ptr %36, align 4, !tbaa !8
-  %100 = getelementptr inbounds i8, ptr %36, i64 4
-  store i32 39, ptr %100, align 4, !tbaa !8
+  %117 = getelementptr inbounds i8, ptr %36, i64 4
+  store i32 39, ptr %117, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %37) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %37, ptr noundef nonnull align 4 dereferenceable(80) @constinit.83, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 18), i32 noundef 19, ptr nonnull %36, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %37) #14
-          to label %101 unwind label %170
+  %118 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 18
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %118, i32 noundef 19, ptr nonnull %36, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %37) #14
+          to label %119 unwind label %218
 
-101:                                              ; preds = %99
+119:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #13
   store i32 25, ptr %38, align 4, !tbaa !8
-  %102 = getelementptr inbounds i8, ptr %38, i64 4
-  store i32 51, ptr %102, align 4, !tbaa !8
+  %120 = getelementptr inbounds i8, ptr %38, i64 4
+  store i32 51, ptr %120, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %39) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %39, ptr noundef nonnull align 4 dereferenceable(80) @constinit.84, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 19), i32 noundef 20, ptr nonnull %38, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %39) #14
-          to label %103 unwind label %172
+  %121 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 19
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %121, i32 noundef 20, ptr nonnull %38, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %39) #14
+          to label %122 unwind label %221
 
-103:                                              ; preds = %101
+122:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %40) #13
   store i32 23, ptr %40, align 4, !tbaa !8
-  %104 = getelementptr inbounds i8, ptr %40, i64 4
-  store i32 49, ptr %104, align 4, !tbaa !8
-  %105 = getelementptr inbounds i8, ptr %40, i64 8
-  store i32 75, ptr %105, align 4, !tbaa !8
+  %123 = getelementptr inbounds i8, ptr %40, i64 4
+  store i32 49, ptr %123, align 4, !tbaa !8
+  %124 = getelementptr inbounds i8, ptr %40, i64 8
+  store i32 75, ptr %124, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %41) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %41, ptr noundef nonnull align 4 dereferenceable(80) @constinit.85, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 20), i32 noundef 21, ptr nonnull %40, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %41) #14
-          to label %106 unwind label %174
+  %125 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 20
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %125, i32 noundef 21, ptr nonnull %40, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %41) #14
+          to label %126 unwind label %224
 
-106:                                              ; preds = %103
+126:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #13
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %42, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %43) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %43, ptr noundef nonnull align 4 dereferenceable(80) @constinit.86, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 21), i32 noundef 22, ptr nonnull %42, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %43) #14
-          to label %107 unwind label %176
+  %127 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 21
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %127, i32 noundef 22, ptr nonnull %42, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %43) #14
+          to label %128 unwind label %227
 
-107:                                              ; preds = %106
+128:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #13
   store i32 21, ptr %44, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %45) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %45, ptr noundef nonnull align 4 dereferenceable(80) @constinit.87, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 22), i32 noundef 23, ptr nonnull %44, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %45) #14
-          to label %108 unwind label %178
+  %129 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 22
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %129, i32 noundef 23, ptr nonnull %44, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %45) #14
+          to label %130 unwind label %230
 
-108:                                              ; preds = %107
+130:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #13
   store i32 19, ptr %46, align 4, !tbaa !8
-  %109 = getelementptr inbounds i8, ptr %46, i64 4
-  store i32 39, ptr %109, align 4, !tbaa !8
+  %131 = getelementptr inbounds i8, ptr %46, i64 4
+  store i32 39, ptr %131, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %47) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %47, ptr noundef nonnull align 4 dereferenceable(80) @constinit.88, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 23), i32 noundef 24, ptr nonnull %46, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %47) #14
-          to label %110 unwind label %180
+  %132 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 23
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %132, i32 noundef 24, ptr nonnull %46, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %47) #14
+          to label %133 unwind label %233
 
-110:                                              ; preds = %108
+133:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #13
   store i32 25, ptr %48, align 4, !tbaa !8
-  %111 = getelementptr inbounds i8, ptr %48, i64 4
-  store i32 51, ptr %111, align 4, !tbaa !8
+  %134 = getelementptr inbounds i8, ptr %48, i64 4
+  store i32 51, ptr %134, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %49) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %49, ptr noundef nonnull align 4 dereferenceable(80) @constinit.89, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 24), i32 noundef 25, ptr nonnull %48, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %49) #14
-          to label %112 unwind label %182
+  %135 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 24
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %135, i32 noundef 25, ptr nonnull %48, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %49) #14
+          to label %136 unwind label %236
 
-112:                                              ; preds = %110
+136:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %50) #13
   store i32 23, ptr %50, align 4, !tbaa !8
-  %113 = getelementptr inbounds i8, ptr %50, i64 4
-  store i32 49, ptr %113, align 4, !tbaa !8
-  %114 = getelementptr inbounds i8, ptr %50, i64 8
-  store i32 75, ptr %114, align 4, !tbaa !8
+  %137 = getelementptr inbounds i8, ptr %50, i64 4
+  store i32 49, ptr %137, align 4, !tbaa !8
+  %138 = getelementptr inbounds i8, ptr %50, i64 8
+  store i32 75, ptr %138, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %51) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %51, ptr noundef nonnull align 4 dereferenceable(80) @constinit.90, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 25), i32 noundef 26, ptr nonnull %50, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %51) #14
-          to label %115 unwind label %184
+  %139 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 25
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %139, i32 noundef 26, ptr nonnull %50, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %51) #14
+          to label %140 unwind label %239
 
-115:                                              ; preds = %112
+140:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #13
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %52, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %53) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %53, ptr noundef nonnull align 4 dereferenceable(80) @constinit.91, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 26), i32 noundef 27, ptr nonnull %52, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %53) #14
-          to label %116 unwind label %186
+  %141 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 26
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %141, i32 noundef 27, ptr nonnull %52, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %53) #14
+          to label %142 unwind label %242
 
-116:                                              ; preds = %115
+142:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #13
   store i32 21, ptr %54, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %55) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %55, ptr noundef nonnull align 4 dereferenceable(80) @constinit.92, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 27), i32 noundef 28, ptr nonnull %54, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %55) #14
-          to label %117 unwind label %188
+  %143 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 27
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %143, i32 noundef 28, ptr nonnull %54, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %55) #14
+          to label %144 unwind label %245
 
-117:                                              ; preds = %116
+144:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #13
   store i32 19, ptr %56, align 4, !tbaa !8
-  %118 = getelementptr inbounds i8, ptr %56, i64 4
-  store i32 39, ptr %118, align 4, !tbaa !8
+  %145 = getelementptr inbounds i8, ptr %56, i64 4
+  store i32 39, ptr %145, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %57) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %57, ptr noundef nonnull align 4 dereferenceable(80) @constinit.93, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 28), i32 noundef 29, ptr nonnull %56, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %57) #14
-          to label %119 unwind label %190
+  %146 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 28
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %146, i32 noundef 29, ptr nonnull %56, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %57) #14
+          to label %147 unwind label %248
 
-119:                                              ; preds = %117
+147:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #13
   store i32 25, ptr %58, align 4, !tbaa !8
-  %120 = getelementptr inbounds i8, ptr %58, i64 4
-  store i32 51, ptr %120, align 4, !tbaa !8
+  %148 = getelementptr inbounds i8, ptr %58, i64 4
+  store i32 51, ptr %148, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %59) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %59, ptr noundef nonnull align 4 dereferenceable(80) @constinit.94, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 29), i32 noundef 30, ptr nonnull %58, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %59) #14
-          to label %121 unwind label %192
+  %149 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 29
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %149, i32 noundef 30, ptr nonnull %58, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %59) #14
+          to label %150 unwind label %251
 
-121:                                              ; preds = %119
+150:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %60) #13
   store i32 23, ptr %60, align 4, !tbaa !8
-  %122 = getelementptr inbounds i8, ptr %60, i64 4
-  store i32 49, ptr %122, align 4, !tbaa !8
-  %123 = getelementptr inbounds i8, ptr %60, i64 8
-  store i32 75, ptr %123, align 4, !tbaa !8
+  %151 = getelementptr inbounds i8, ptr %60, i64 4
+  store i32 49, ptr %151, align 4, !tbaa !8
+  %152 = getelementptr inbounds i8, ptr %60, i64 8
+  store i32 75, ptr %152, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %61) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %61, ptr noundef nonnull align 4 dereferenceable(80) @constinit.95, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 30), i32 noundef 31, ptr nonnull %60, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %61) #14
-          to label %124 unwind label %194
+  %153 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 30
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %153, i32 noundef 31, ptr nonnull %60, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %61) #14
+          to label %154 unwind label %254
 
-124:                                              ; preds = %121
+154:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #13
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %62, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %63) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %63, ptr noundef nonnull align 4 dereferenceable(80) @constinit.96, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 31), i32 noundef 32, ptr nonnull %62, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %63) #14
-          to label %125 unwind label %196
+  %155 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 31
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %155, i32 noundef 32, ptr nonnull %62, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %63) #14
+          to label %156 unwind label %257
 
-125:                                              ; preds = %124
+156:                                              ; preds = %154
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %63) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %61) #13
@@ -2883,444 +3000,461 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  %126 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.97, ptr null, ptr nonnull @__dso_handle) #13
+  %157 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.97, ptr null, ptr nonnull @__dso_handle) #13
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5ZXing6QRCode7Version4rMQREiE11allVersions) #13
-  br label %127
+  br label %158
 
-127:                                              ; preds = %125, %66, %1
-  %128 = add i32 %0, -33
-  %129 = icmp ult i32 %128, -32
-  %130 = zext nneg i32 %0 to i64
-  %131 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 %130
-  %132 = getelementptr inbounds i8, ptr %131, i64 -120
-  %133 = select i1 %129, ptr null, ptr %132
-  ret ptr %133
+158:                                              ; preds = %156, %66, %1
+  %159 = add i32 %0, -33
+  %160 = icmp ult i32 %159, -32
+  %161 = zext nneg i32 %0 to i64
+  %162 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 %161
+  %163 = getelementptr inbounds i8, ptr %162, i64 -120
+  %164 = select i1 %160, ptr null, ptr %163
+  ret ptr %164
 
-134:                                              ; preds = %69
-  %135 = landingpad { ptr, i32 }
+165:                                              ; preds = %69
+  %166 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %222
+  br label %284
 
-136:                                              ; preds = %70
-  %137 = landingpad { ptr, i32 }
+167:                                              ; preds = %70
+  %168 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %169 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 1
+  br label %272
 
-138:                                              ; preds = %72
-  %139 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-140:                                              ; preds = %74
-  %141 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-142:                                              ; preds = %77
-  %143 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-144:                                              ; preds = %78
-  %145 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-146:                                              ; preds = %79
-  %147 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-148:                                              ; preds = %81
-  %149 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-150:                                              ; preds = %83
-  %151 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-152:                                              ; preds = %86
-  %153 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-154:                                              ; preds = %87
-  %155 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-156:                                              ; preds = %88
-  %157 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-158:                                              ; preds = %89
-  %159 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-160:                                              ; preds = %91
-  %161 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-162:                                              ; preds = %93
-  %163 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-164:                                              ; preds = %96
-  %165 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-166:                                              ; preds = %97
-  %167 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-168:                                              ; preds = %98
-  %169 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %35) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
-
-170:                                              ; preds = %99
+170:                                              ; preds = %73
   %171 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %172 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 2
+  br label %272
+
+173:                                              ; preds = %76
+  %174 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %175 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 3
+  br label %272
+
+176:                                              ; preds = %80
+  %177 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %178 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 4
+  br label %272
+
+179:                                              ; preds = %82
+  %180 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %181 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 5
+  br label %272
+
+182:                                              ; preds = %84
+  %183 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %184 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 6
+  br label %272
+
+185:                                              ; preds = %87
+  %186 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %187 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 7
+  br label %272
+
+188:                                              ; preds = %90
+  %189 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %190 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 8
+  br label %272
+
+191:                                              ; preds = %94
+  %192 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %193 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 9
+  br label %272
+
+194:                                              ; preds = %96
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %196 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 10
+  br label %272
+
+197:                                              ; preds = %98
+  %198 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %199 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 11
+  br label %272
+
+200:                                              ; preds = %100
+  %201 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %202 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 12
+  br label %272
+
+203:                                              ; preds = %103
+  %204 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %205 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 13
+  br label %272
+
+206:                                              ; preds = %106
+  %207 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %208 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 14
+  br label %272
+
+209:                                              ; preds = %110
+  %210 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %211 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 15
+  br label %272
+
+212:                                              ; preds = %112
+  %213 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %214 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 16
+  br label %272
+
+215:                                              ; preds = %114
+  %216 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %35) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %29) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  %217 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 17
+  br label %272
+
+218:                                              ; preds = %116
+  %219 = landingpad { ptr, i32 }
+          cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %37) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %35) #13
@@ -3357,10 +3491,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %220 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 18
+  br label %272
 
-172:                                              ; preds = %101
-  %173 = landingpad { ptr, i32 }
+221:                                              ; preds = %119
+  %222 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %39) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #13
@@ -3400,10 +3535,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %223 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 19
+  br label %272
 
-174:                                              ; preds = %103
-  %175 = landingpad { ptr, i32 }
+224:                                              ; preds = %122
+  %225 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %41) #13
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %40) #13
@@ -3445,10 +3581,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %226 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 20
+  br label %272
 
-176:                                              ; preds = %106
-  %177 = landingpad { ptr, i32 }
+227:                                              ; preds = %126
+  %228 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %43) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #13
@@ -3492,10 +3629,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %229 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 21
+  br label %272
 
-178:                                              ; preds = %107
-  %179 = landingpad { ptr, i32 }
+230:                                              ; preds = %128
+  %231 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %45) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #13
@@ -3541,10 +3679,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %232 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 22
+  br label %272
 
-180:                                              ; preds = %108
-  %181 = landingpad { ptr, i32 }
+233:                                              ; preds = %130
+  %234 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %47) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #13
@@ -3592,10 +3731,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %235 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 23
+  br label %272
 
-182:                                              ; preds = %110
-  %183 = landingpad { ptr, i32 }
+236:                                              ; preds = %133
+  %237 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %49) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #13
@@ -3645,10 +3785,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %238 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 24
+  br label %272
 
-184:                                              ; preds = %112
-  %185 = landingpad { ptr, i32 }
+239:                                              ; preds = %136
+  %240 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %51) #13
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %50) #13
@@ -3700,10 +3841,11 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %241 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 25
+  br label %272
 
-186:                                              ; preds = %115
-  %187 = landingpad { ptr, i32 }
+242:                                              ; preds = %140
+  %243 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %53) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #13
@@ -3757,59 +3899,65 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  %244 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 26
+  br label %272
 
-188:                                              ; preds = %116
-  %189 = landingpad { ptr, i32 }
+245:                                              ; preds = %142
+  %246 = landingpad { ptr, i32 }
           cleanup
-  br label %207
+  %247 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 27
+  br label %269
 
-190:                                              ; preds = %117
-  %191 = landingpad { ptr, i32 }
+248:                                              ; preds = %144
+  %249 = landingpad { ptr, i32 }
           cleanup
-  br label %204
+  %250 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 28
+  br label %266
 
-192:                                              ; preds = %119
-  %193 = landingpad { ptr, i32 }
+251:                                              ; preds = %147
+  %252 = landingpad { ptr, i32 }
           cleanup
-  br label %201
+  %253 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 29
+  br label %263
 
-194:                                              ; preds = %121
-  %195 = landingpad { ptr, i32 }
+254:                                              ; preds = %150
+  %255 = landingpad { ptr, i32 }
           cleanup
-  br label %198
+  %256 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 30
+  br label %260
 
-196:                                              ; preds = %124
-  %197 = landingpad { ptr, i32 }
+257:                                              ; preds = %154
+  %258 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %63) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #13
-  br label %198
+  %259 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 31
+  br label %260
 
-198:                                              ; preds = %196, %194
-  %199 = phi { ptr, i32 } [ %197, %196 ], [ %195, %194 ]
-  %200 = phi ptr [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 31), %196 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 30), %194 ]
+260:                                              ; preds = %257, %254
+  %261 = phi { ptr, i32 } [ %258, %257 ], [ %255, %254 ]
+  %262 = phi ptr [ %259, %257 ], [ %256, %254 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %61) #13
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %60) #13
-  br label %201
+  br label %263
 
-201:                                              ; preds = %198, %192
-  %202 = phi { ptr, i32 } [ %199, %198 ], [ %193, %192 ]
-  %203 = phi ptr [ %200, %198 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 29), %192 ]
+263:                                              ; preds = %260, %251
+  %264 = phi { ptr, i32 } [ %261, %260 ], [ %252, %251 ]
+  %265 = phi ptr [ %262, %260 ], [ %253, %251 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %59) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #13
-  br label %204
+  br label %266
 
-204:                                              ; preds = %201, %190
-  %205 = phi { ptr, i32 } [ %202, %201 ], [ %191, %190 ]
-  %206 = phi ptr [ %203, %201 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 28), %190 ]
+266:                                              ; preds = %263, %248
+  %267 = phi { ptr, i32 } [ %264, %263 ], [ %249, %248 ]
+  %268 = phi ptr [ %265, %263 ], [ %250, %248 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %57) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #13
-  br label %207
+  br label %269
 
-207:                                              ; preds = %204, %188
-  %208 = phi { ptr, i32 } [ %205, %204 ], [ %189, %188 ]
-  %209 = phi ptr [ %206, %204 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 27), %188 ]
+269:                                              ; preds = %266, %245
+  %270 = phi { ptr, i32 } [ %267, %266 ], [ %246, %245 ]
+  %271 = phi ptr [ %268, %266 ], [ %247, %245 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %55) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %53) #13
@@ -3864,56 +4012,57 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
-  br label %210
+  br label %272
 
-210:                                              ; preds = %207, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136
-  %211 = phi ptr [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 1), %136 ], [ %209, %207 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 2), %138 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 3), %140 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 4), %142 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 5), %144 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 6), %146 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 7), %148 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 8), %150 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 9), %152 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 10), %154 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 11), %156 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 12), %158 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 13), %160 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 14), %162 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 15), %164 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 16), %166 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 17), %168 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 18), %170 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 19), %172 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 20), %174 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 21), %176 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 22), %178 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 23), %180 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 24), %182 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 25), %184 ], [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 0, i64 26), %186 ]
-  %212 = phi { ptr, i32 } [ %137, %136 ], [ %208, %207 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ]
-  br label %213
+272:                                              ; preds = %269, %242, %239, %236, %233, %230, %227, %224, %221, %218, %215, %212, %209, %206, %203, %200, %197, %194, %191, %188, %185, %182, %179, %176, %173, %170, %167
+  %273 = phi ptr [ %169, %167 ], [ %271, %269 ], [ %172, %170 ], [ %175, %173 ], [ %178, %176 ], [ %181, %179 ], [ %184, %182 ], [ %187, %185 ], [ %190, %188 ], [ %193, %191 ], [ %196, %194 ], [ %199, %197 ], [ %202, %200 ], [ %205, %203 ], [ %208, %206 ], [ %211, %209 ], [ %214, %212 ], [ %217, %215 ], [ %220, %218 ], [ %223, %221 ], [ %226, %224 ], [ %229, %227 ], [ %232, %230 ], [ %235, %233 ], [ %238, %236 ], [ %241, %239 ], [ %244, %242 ]
+  %274 = phi { ptr, i32 } [ %168, %167 ], [ %270, %269 ], [ %171, %170 ], [ %174, %173 ], [ %177, %176 ], [ %180, %179 ], [ %183, %182 ], [ %186, %185 ], [ %189, %188 ], [ %192, %191 ], [ %195, %194 ], [ %198, %197 ], [ %201, %200 ], [ %204, %203 ], [ %207, %206 ], [ %210, %209 ], [ %213, %212 ], [ %216, %215 ], [ %219, %218 ], [ %222, %221 ], [ %225, %224 ], [ %228, %227 ], [ %231, %230 ], [ %234, %233 ], [ %237, %236 ], [ %240, %239 ], [ %243, %242 ]
+  br label %275
 
-213:                                              ; preds = %220, %210
-  %214 = phi ptr [ %215, %220 ], [ %211, %210 ]
-  %215 = getelementptr inbounds i8, ptr %214, i64 -120
-  %216 = getelementptr inbounds i8, ptr %214, i64 -112
-  %217 = load ptr, ptr %216, align 8, !tbaa !13
-  %218 = icmp eq ptr %217, null
-  br i1 %218, label %220, label %219
+275:                                              ; preds = %282, %272
+  %276 = phi ptr [ %277, %282 ], [ %273, %272 ]
+  %277 = getelementptr inbounds i8, ptr %276, i64 -120
+  %278 = getelementptr inbounds i8, ptr %276, i64 -112
+  %279 = load ptr, ptr %278, align 8, !tbaa !13
+  %280 = icmp eq ptr %279, null
+  br i1 %280, label %282, label %281
 
-219:                                              ; preds = %213
-  call void @_ZdlPv(ptr noundef nonnull %217) #15
-  br label %220
+281:                                              ; preds = %275
+  call void @_ZdlPv(ptr noundef nonnull %279) #15
+  br label %282
 
-220:                                              ; preds = %219, %213
-  %221 = icmp eq ptr %215, @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions
-  br i1 %221, label %222, label %213
+282:                                              ; preds = %281, %275
+  %283 = icmp eq ptr %277, @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions
+  br i1 %283, label %284, label %275
 
-222:                                              ; preds = %220, %134
-  %223 = phi { ptr, i32 } [ %135, %134 ], [ %212, %220 ]
+284:                                              ; preds = %282, %165
+  %285 = phi { ptr, i32 } [ %166, %165 ], [ %274, %282 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6QRCode7Version4rMQREiE11allVersions) #13
-  resume { ptr, i32 } %223
+  resume { ptr, i32 } %285
 }
 
 ; Function Attrs: nounwind optsize uwtable
 define internal void @__cxx_global_array_dtor.97(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  br label %2
+  %2 = getelementptr inbounds [32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1, i64 0
+  br label %3
 
-2:                                                ; preds = %9, %1
-  %3 = phi ptr [ getelementptr inbounds ([32 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1, i64 0), %1 ], [ %4, %9 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 -120
-  %5 = getelementptr inbounds i8, ptr %3, i64 -112
-  %6 = load ptr, ptr %5, align 8, !tbaa !13
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+3:                                                ; preds = %10, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %10 ]
+  %5 = getelementptr inbounds i8, ptr %4, i64 -120
+  %6 = getelementptr inbounds i8, ptr %4, i64 -112
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-8:                                                ; preds = %2
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  br label %9
+9:                                                ; preds = %3
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #15
+  br label %10
 
-9:                                                ; preds = %8, %2
-  %10 = icmp eq ptr %4, @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions
-  br i1 %10, label %11, label %2
+10:                                               ; preds = %9, %3
+  %11 = icmp eq ptr %5, @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions
+  br i1 %11, label %12, label %3
 
-11:                                               ; preds = %9
+12:                                               ; preds = %10
   ret void
 }
 
@@ -3935,98 +4084,111 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   %15 = alloca %"struct.std::array", align 4
   %16 = load atomic i8, ptr @_ZGVZN5ZXing6QRCode7Version6Model1EiE11allVersions acquire, align 8
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %37, !prof !3
+  br i1 %17, label %18, label %50, !prof !3
 
 18:                                               ; preds = %1
   %19 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6QRCode7Version6Model1EiE11allVersions) #13
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %37, label %21
+  br i1 %20, label %50, label %21
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %2, ptr noundef nonnull align 4 dereferenceable(80) @constinit.98, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(80) %2) #14
-          to label %22 unwind label %44
+          to label %22 unwind label %57
 
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %3, ptr noundef nonnull align 4 dereferenceable(80) @constinit.99, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 1), i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #14
-          to label %23 unwind label %46
+  %23 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 1
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %23, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #14
+          to label %24 unwind label %59
 
-23:                                               ; preds = %22
+24:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.100, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 2), i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #14
-          to label %24 unwind label %48
+  %25 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 2
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %25, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #14
+          to label %26 unwind label %62
 
-24:                                               ; preds = %23
+26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.101, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 3), i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #14
-          to label %25 unwind label %50
+  %27 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 3
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %27, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #14
+          to label %28 unwind label %65
 
-25:                                               ; preds = %24
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(80) @constinit.102, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 4), i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(80) %6) #14
-          to label %26 unwind label %52
+  %29 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 4
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %29, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(80) %6) #14
+          to label %30 unwind label %68
 
-26:                                               ; preds = %25
+30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %7, ptr noundef nonnull align 4 dereferenceable(80) @constinit.103, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 5), i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(80) %7) #14
-          to label %27 unwind label %54
+  %31 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 5
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %31, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(80) %7) #14
+          to label %32 unwind label %71
 
-27:                                               ; preds = %26
+32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, ptr noundef nonnull align 4 dereferenceable(80) @constinit.104, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 6), i32 noundef 7, ptr noundef nonnull align 4 dereferenceable(80) %8) #14
-          to label %28 unwind label %56
+  %33 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 6
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %33, i32 noundef 7, ptr noundef nonnull align 4 dereferenceable(80) %8) #14
+          to label %34 unwind label %74
 
-28:                                               ; preds = %27
+34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %9, ptr noundef nonnull align 4 dereferenceable(80) @constinit.105, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 7), i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(80) %9) #14
-          to label %29 unwind label %58
+  %35 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 7
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %35, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(80) %9) #14
+          to label %36 unwind label %77
 
-29:                                               ; preds = %28
+36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 4 dereferenceable(80) @constinit.106, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 8), i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(80) %10) #14
-          to label %30 unwind label %60
+  %37 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 8
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %37, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(80) %10) #14
+          to label %38 unwind label %80
 
-30:                                               ; preds = %29
+38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %11, ptr noundef nonnull align 4 dereferenceable(80) @constinit.107, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 9), i32 noundef 10, ptr noundef nonnull align 4 dereferenceable(80) %11) #14
-          to label %31 unwind label %62
+  %39 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 9
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %39, i32 noundef 10, ptr noundef nonnull align 4 dereferenceable(80) %11) #14
+          to label %40 unwind label %83
 
-31:                                               ; preds = %30
+40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %12, ptr noundef nonnull align 4 dereferenceable(80) @constinit.108, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 10), i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(80) %12) #14
-          to label %32 unwind label %64
+  %41 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 10
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %41, i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(80) %12) #14
+          to label %42 unwind label %86
 
-32:                                               ; preds = %31
+42:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %13, ptr noundef nonnull align 4 dereferenceable(80) @constinit.109, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 11), i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(80) %13) #14
-          to label %33 unwind label %66
+  %43 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 11
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %43, i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(80) %13) #14
+          to label %44 unwind label %89
 
-33:                                               ; preds = %32
+44:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %14, ptr noundef nonnull align 4 dereferenceable(80) @constinit.110, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 12), i32 noundef 13, ptr noundef nonnull align 4 dereferenceable(80) %14) #14
-          to label %34 unwind label %68
+  %45 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 12
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %45, i32 noundef 13, ptr noundef nonnull align 4 dereferenceable(80) %14) #14
+          to label %46 unwind label %92
 
-34:                                               ; preds = %33
+46:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %15, ptr noundef nonnull align 4 dereferenceable(80) @constinit.111, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 13), i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(80) %15) #14
-          to label %35 unwind label %70
+  %47 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 13
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) %47, i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(80) %15) #14
+          to label %48 unwind label %95
 
-35:                                               ; preds = %34
+48:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
@@ -4041,156 +4203,169 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  %36 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.112, ptr null, ptr nonnull @__dso_handle) #13
+  %49 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.112, ptr null, ptr nonnull @__dso_handle) #13
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5ZXing6QRCode7Version6Model1EiE11allVersions) #13
-  br label %37
+  br label %50
 
-37:                                               ; preds = %35, %18, %1
-  %38 = add i32 %0, -15
-  %39 = icmp ult i32 %38, -14
-  %40 = zext nneg i32 %0 to i64
-  %41 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 -120
-  %43 = select i1 %39, ptr null, ptr %42
-  ret ptr %43
+50:                                               ; preds = %48, %18, %1
+  %51 = add i32 %0, -15
+  %52 = icmp ult i32 %51, -14
+  %53 = zext nneg i32 %0 to i64
+  %54 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 %53
+  %55 = getelementptr inbounds i8, ptr %54, i64 -120
+  %56 = select i1 %52, ptr null, ptr %55
+  ret ptr %56
 
-44:                                               ; preds = %21
-  %45 = landingpad { ptr, i32 }
+57:                                               ; preds = %21
+  %58 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %96
+  br label %122
 
-46:                                               ; preds = %22
-  %47 = landingpad { ptr, i32 }
+59:                                               ; preds = %22
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
+  %61 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 1
+  br label %110
 
-48:                                               ; preds = %23
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
-
-50:                                               ; preds = %24
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
-
-52:                                               ; preds = %25
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
-
-54:                                               ; preds = %26
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
-
-56:                                               ; preds = %27
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
-
-58:                                               ; preds = %28
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
-
-60:                                               ; preds = %29
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
-
-62:                                               ; preds = %30
+62:                                               ; preds = %24
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %64 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 2
+  br label %110
 
-64:                                               ; preds = %31
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %26
+  %66 = landingpad { ptr, i32 }
           cleanup
-  br label %78
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %67 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 3
+  br label %110
 
-66:                                               ; preds = %32
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  br label %75
-
-68:                                               ; preds = %33
+68:                                               ; preds = %28
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %70 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 4
+  br label %110
 
-70:                                               ; preds = %34
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %30
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %73 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 5
+  br label %110
+
+74:                                               ; preds = %32
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %76 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 6
+  br label %110
+
+77:                                               ; preds = %34
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %79 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 7
+  br label %110
+
+80:                                               ; preds = %36
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
+  %82 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 8
+  br label %110
+
+83:                                               ; preds = %38
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 9
+  br label %107
+
+86:                                               ; preds = %40
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 10
+  br label %104
+
+89:                                               ; preds = %42
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  %91 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 11
+  br label %101
+
+92:                                               ; preds = %44
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 12
+  br label %98
+
+95:                                               ; preds = %46
+  %96 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  br label %72
+  %97 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 13
+  br label %98
 
-72:                                               ; preds = %70, %68
-  %73 = phi ptr [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 13), %70 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 12), %68 ]
-  %74 = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ]
+98:                                               ; preds = %95, %92
+  %99 = phi ptr [ %97, %95 ], [ %94, %92 ]
+  %100 = phi { ptr, i32 } [ %96, %95 ], [ %93, %92 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
-  br label %75
+  br label %101
 
-75:                                               ; preds = %72, %66
-  %76 = phi ptr [ %73, %72 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 11), %66 ]
-  %77 = phi { ptr, i32 } [ %74, %72 ], [ %67, %66 ]
+101:                                              ; preds = %98, %89
+  %102 = phi ptr [ %99, %98 ], [ %91, %89 ]
+  %103 = phi { ptr, i32 } [ %100, %98 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
-  br label %78
+  br label %104
 
-78:                                               ; preds = %75, %64
-  %79 = phi ptr [ %76, %75 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 10), %64 ]
-  %80 = phi { ptr, i32 } [ %77, %75 ], [ %65, %64 ]
+104:                                              ; preds = %101, %86
+  %105 = phi ptr [ %102, %101 ], [ %88, %86 ]
+  %106 = phi { ptr, i32 } [ %103, %101 ], [ %87, %86 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #13
-  br label %81
+  br label %107
 
-81:                                               ; preds = %78, %62
-  %82 = phi ptr [ %79, %78 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 9), %62 ]
-  %83 = phi { ptr, i32 } [ %80, %78 ], [ %63, %62 ]
+107:                                              ; preds = %104, %83
+  %108 = phi ptr [ %105, %104 ], [ %85, %83 ]
+  %109 = phi { ptr, i32 } [ %106, %104 ], [ %84, %83 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
@@ -4201,56 +4376,57 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
-  br label %84
+  br label %110
 
-84:                                               ; preds = %81, %60, %58, %56, %54, %52, %50, %48, %46
-  %85 = phi { ptr, i32 } [ %47, %46 ], [ %83, %81 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ]
-  %86 = phi ptr [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 1), %46 ], [ %82, %81 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 2), %48 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 3), %50 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 4), %52 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 5), %54 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 6), %56 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 7), %58 ], [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 0, i64 8), %60 ]
-  br label %87
+110:                                              ; preds = %107, %80, %77, %74, %71, %68, %65, %62, %59
+  %111 = phi { ptr, i32 } [ %60, %59 ], [ %109, %107 ], [ %63, %62 ], [ %66, %65 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ], [ %78, %77 ], [ %81, %80 ]
+  %112 = phi ptr [ %61, %59 ], [ %108, %107 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ], [ %82, %80 ]
+  br label %113
 
-87:                                               ; preds = %94, %84
-  %88 = phi ptr [ %89, %94 ], [ %86, %84 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 -120
-  %90 = getelementptr inbounds i8, ptr %88, i64 -112
-  %91 = load ptr, ptr %90, align 8, !tbaa !13
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %94, label %93
+113:                                              ; preds = %120, %110
+  %114 = phi ptr [ %115, %120 ], [ %112, %110 ]
+  %115 = getelementptr inbounds i8, ptr %114, i64 -120
+  %116 = getelementptr inbounds i8, ptr %114, i64 -112
+  %117 = load ptr, ptr %116, align 8, !tbaa !13
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %120, label %119
 
-93:                                               ; preds = %87
-  call void @_ZdlPv(ptr noundef nonnull %91) #15
-  br label %94
+119:                                              ; preds = %113
+  call void @_ZdlPv(ptr noundef nonnull %117) #15
+  br label %120
 
-94:                                               ; preds = %93, %87
-  %95 = icmp eq ptr %89, @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions
-  br i1 %95, label %96, label %87
+120:                                              ; preds = %119, %113
+  %121 = icmp eq ptr %115, @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions
+  br i1 %121, label %122, label %113
 
-96:                                               ; preds = %94, %44
-  %97 = phi { ptr, i32 } [ %45, %44 ], [ %85, %94 ]
+122:                                              ; preds = %120, %57
+  %123 = phi { ptr, i32 } [ %58, %57 ], [ %111, %120 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6QRCode7Version6Model1EiE11allVersions) #13
-  resume { ptr, i32 } %97
+  resume { ptr, i32 } %123
 }
 
 ; Function Attrs: nounwind optsize uwtable
 define internal void @__cxx_global_array_dtor.112(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  br label %2
+  %2 = getelementptr inbounds [14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1, i64 0
+  br label %3
 
-2:                                                ; preds = %9, %1
-  %3 = phi ptr [ getelementptr inbounds ([14 x %"class.ZXing::QRCode::Version"], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1, i64 0), %1 ], [ %4, %9 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 -120
-  %5 = getelementptr inbounds i8, ptr %3, i64 -112
-  %6 = load ptr, ptr %5, align 8, !tbaa !13
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+3:                                                ; preds = %10, %1
+  %4 = phi ptr [ %2, %1 ], [ %5, %10 ]
+  %5 = getelementptr inbounds i8, ptr %4, i64 -120
+  %6 = getelementptr inbounds i8, ptr %4, i64 -112
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-8:                                                ; preds = %2
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  br label %9
+9:                                                ; preds = %3
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #15
+  br label %10
 
-9:                                                ; preds = %8, %2
-  %10 = icmp eq ptr %4, @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions
-  br i1 %10, label %11, label %2
+10:                                               ; preds = %9, %3
+  %11 = icmp eq ptr %5, @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions
+  br i1 %11, label %12, label %3
 
-11:                                               ; preds = %9
+12:                                               ; preds = %10
   ret void
 }
 
@@ -4360,7 +4536,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   %4 = trunc i64 %0 to i32
   %5 = lshr i64 %0, 32
   %6 = trunc nuw i64 %5 to i32
-  switch i32 %1, label %53 [
+  switch i32 %1, label %56 [
     i32 0, label %7
     i32 1, label %15
     i32 2, label %23
@@ -4372,43 +4548,43 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   %9 = add i32 %4, -21
   %10 = icmp ult i32 %9, 125
   %11 = and i1 %8, %10
-  br i1 %11, label %12, label %53
+  br i1 %11, label %12, label %56
 
 12:                                               ; preds = %7
   %13 = and i32 %4, 3
   %14 = icmp eq i32 %13, 1
-  br label %53
+  br label %56
 
 15:                                               ; preds = %2
   %16 = icmp eq i32 %4, %6
   %17 = add i32 %4, -21
   %18 = icmp ult i32 %17, 157
   %19 = and i1 %16, %18
-  br i1 %19, label %20, label %53
+  br i1 %19, label %20, label %56
 
 20:                                               ; preds = %15
   %21 = and i32 %4, 3
   %22 = icmp eq i32 %21, 1
-  br label %53
+  br label %56
 
 23:                                               ; preds = %2
   %24 = icmp eq i32 %4, %6
   %25 = add i32 %4, -11
   %26 = icmp ult i32 %25, 7
   %27 = and i1 %24, %26
-  br i1 %27, label %28, label %53
+  br i1 %27, label %28, label %56
 
 28:                                               ; preds = %23
   %29 = and i32 %4, 1
   %30 = icmp ne i32 %29, 0
-  br label %53
+  br label %56
 
 31:                                               ; preds = %2
   %32 = icmp eq i32 %4, %6
   %33 = and i32 %4, 1
   %34 = icmp eq i32 %33, 0
   %35 = or i1 %32, %34
-  br i1 %35, label %53, label %36
+  br i1 %35, label %56, label %36
 
 36:                                               ; preds = %31
   %37 = and i32 %6, 1
@@ -4419,21 +4595,24 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   %42 = add i32 %6, -7
   %43 = icmp ult i32 %42, 11
   %44 = and i1 %43, %41
-  br i1 %44, label %45, label %53
+  br i1 %44, label %45, label %56
 
 45:                                               ; preds = %36
-  %46 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull getelementptr inbounds (%"struct.std::array.6", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 1, i32 0, i64 0, i32 0), ptr nonnull %3) #14
-  %47 = icmp ne ptr %46, getelementptr inbounds (%"struct.std::array.6", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 1, i32 0, i64 0, i32 0)
-  %48 = ptrtoint ptr %46 to i64
-  %49 = sub i64 %48, ptrtoint (ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64)
-  %50 = and i64 %49, 34359738360
-  %51 = icmp ne i64 %50, 34359738360
-  %52 = and i1 %47, %51
-  br label %53
+  %46 = getelementptr inbounds %"struct.std::array.6", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 1, i32 0, i64 0, i32 0
+  %47 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull %46, ptr nonnull %3) #14
+  %48 = getelementptr inbounds %"struct.std::array.6", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 1, i32 0, i64 0, i32 0
+  %49 = icmp ne ptr %47, %48
+  %50 = ptrtoint ptr %47 to i64
+  %51 = ptrtoint ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64
+  %52 = sub i64 %50, %51
+  %53 = and i64 %52, 34359738360
+  %54 = icmp ne i64 %53, 34359738360
+  %55 = and i1 %49, %54
+  br label %56
 
-53:                                               ; preds = %45, %36, %31, %28, %23, %20, %15, %12, %7, %2
-  %54 = phi i1 [ false, %7 ], [ %14, %12 ], [ false, %15 ], [ %22, %20 ], [ false, %23 ], [ %30, %28 ], [ false, %36 ], [ false, %31 ], [ %52, %45 ], [ false, %2 ]
-  ret i1 %54
+56:                                               ; preds = %45, %36, %31, %28, %23, %20, %15, %12, %7, %2
+  %57 = phi i1 [ false, %7 ], [ %14, %12 ], [ false, %15 ], [ %22, %20 ], [ false, %23 ], [ %30, %28 ], [ false, %36 ], [ false, %31 ], [ %55, %45 ], [ false, %2 ]
+  ret i1 %57
 }
 
 ; Function Attrs: mustprogress optsize uwtable
@@ -4451,50 +4630,53 @@ define linkonce_odr noundef i32 @_ZN5ZXing6QRCode7Version6NumberENS_6PointTIiEE(
   %4 = lshr i64 %0, 32
   %5 = trunc nuw i64 %4 to i32
   %6 = icmp eq i32 %3, %5
-  br i1 %6, label %16, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %1
-  %8 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull getelementptr inbounds (%"struct.std::array.6", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 1, i32 0, i64 0, i32 0), ptr nonnull %2) #14
-  %9 = icmp eq ptr %8, getelementptr inbounds (%"struct.std::array.6", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 1, i32 0, i64 0, i32 0)
-  %10 = ptrtoint ptr %8 to i64
-  %11 = sub i64 %10, ptrtoint (ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64)
-  %12 = lshr exact i64 %11, 3
-  %13 = trunc i64 %12 to i32
-  %14 = add nsw i32 %13, 1
-  %15 = select i1 %9, i32 0, i32 %14
-  br label %34
+  %8 = getelementptr inbounds %"struct.std::array.6", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 1, i32 0, i64 0, i32 0
+  %9 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull %8, ptr nonnull %2) #14
+  %10 = getelementptr inbounds %"struct.std::array.6", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 1, i32 0, i64 0, i32 0
+  %11 = icmp eq ptr %9, %10
+  %12 = ptrtoint ptr %9 to i64
+  %13 = ptrtoint ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64
+  %14 = sub i64 %12, %13
+  %15 = lshr exact i64 %14, 3
+  %16 = trunc i64 %15 to i32
+  %17 = add nsw i32 %16, 1
+  %18 = select i1 %11, i32 0, i32 %17
+  br label %37
 
-16:                                               ; preds = %1
-  %17 = add i32 %3, -21
-  %18 = icmp ult i32 %17, 157
-  br i1 %18, label %19, label %25
-
-19:                                               ; preds = %16
-  %20 = and i32 %3, 3
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %34
+19:                                               ; preds = %1
+  %20 = add i32 %3, -21
+  %21 = icmp ult i32 %20, 157
+  br i1 %21, label %22, label %28
 
 22:                                               ; preds = %19
-  %23 = add nsw i32 %3, -17
-  %24 = lshr exact i32 %23, 2
-  br label %34
+  %23 = and i32 %3, 3
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %25, label %37
 
-25:                                               ; preds = %16
-  %26 = add i32 %3, -11
-  %27 = icmp ult i32 %26, 7
-  %28 = and i32 %3, 1
-  %29 = icmp ne i32 %28, 0
-  %30 = and i1 %27, %29
-  br i1 %30, label %31, label %34
+25:                                               ; preds = %22
+  %26 = add nsw i32 %3, -17
+  %27 = lshr exact i32 %26, 2
+  br label %37
 
-31:                                               ; preds = %25
-  %32 = add nsw i32 %3, -9
-  %33 = lshr exact i32 %32, 1
-  br label %34
+28:                                               ; preds = %19
+  %29 = add i32 %3, -11
+  %30 = icmp ult i32 %29, 7
+  %31 = and i32 %3, 1
+  %32 = icmp ne i32 %31, 0
+  %33 = and i1 %30, %32
+  br i1 %33, label %34, label %37
 
-34:                                               ; preds = %31, %25, %22, %19, %7
-  %35 = phi i32 [ %15, %7 ], [ %24, %22 ], [ %33, %31 ], [ 0, %25 ], [ 0, %19 ]
-  ret i32 %35
+34:                                               ; preds = %28
+  %35 = add nsw i32 %3, -9
+  %36 = lshr exact i32 %35, 1
+  br label %37
+
+37:                                               ; preds = %34, %28, %25, %22, %7
+  %38 = phi i32 [ %18, %7 ], [ %27, %25 ], [ %36, %34 ], [ 0, %28 ], [ 0, %22 ]
+  ret i32 %38
 }
 
 ; Function Attrs: mustprogress optsize uwtable

@@ -11880,12 +11880,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i8 %c, ptr %c.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mc = getelementptr inbounds %"struct.SmartPtrTest::A", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %c.addr, align 1
-  store i8 %0, ptr %mc, align 8
-  %1 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
-  %inc = add nsw i32 %1, 1
+  %1 = load i8, ptr %c.addr, align 1
+  store i8 %1, ptr %mc, align 8
+  %2 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %inc = add nsw i32 %2, 1
   store i32 %inc, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   ret void
 }
@@ -11946,7 +11947,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12SmartPtrTest1AC2Ec(ptr noundef nonnull align 8 dereferenceable(9) %this1, i8 noundef signext 0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1BE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1BE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12781,9 +12783,10 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
-  %dec = add nsw i32 %0, -1
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN12SmartPtrTest1AE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %dec = add nsw i32 %1, -1
   store i32 %dec, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   ret void
 }
@@ -18225,7 +18228,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12SmartPtrTest10ChildClassC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12SmartPtrTest15GrandChildClassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12SmartPtrTest15GrandChildClassE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18707,7 +18711,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12SmartPtrTest11ParentClassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12SmartPtrTest11ParentClassE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19765,10 +19770,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPiNS_9allocatorENS_14default_deleteIiEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIiEEEEONS_16remove_referenceIT_E4typeEOS5_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -19779,12 +19785,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -19816,13 +19822,14 @@ entry:
   store i32 %refCount, ptr %refCount.addr, align 4
   store i32 %weakRefCount, ptr %weakRefCount.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl12ref_count_spE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl12ref_count_spE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mRefCount = getelementptr inbounds %"struct.eastl::ref_count_sp", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %refCount.addr, align 4
-  call void @_ZN5eastl6atomicIivEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %mRefCount, i32 noundef %0) #15
+  %1 = load i32, ptr %refCount.addr, align 4
+  call void @_ZN5eastl6atomicIivEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %mRefCount, i32 noundef %1) #15
   %mWeakRefCount = getelementptr inbounds %"struct.eastl::ref_count_sp", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %weakRefCount.addr, align 4
-  call void @_ZN5eastl6atomicIivEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %mWeakRefCount, i32 noundef %1) #15
+  %2 = load i32, ptr %weakRefCount.addr, align 4
+  call void @_ZN5eastl6atomicIivEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %mWeakRefCount, i32 noundef %2) #15
   ret void
 }
 
@@ -20367,10 +20374,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1AENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.84", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest1AEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.84", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -20381,12 +20389,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -20714,10 +20722,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1BENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1BENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.86", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest1BEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.86", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -20728,12 +20737,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -20993,7 +21002,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12SmartPtrTest11ParentClassC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest10ChildClassE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12SmartPtrTest10ChildClassE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21152,10 +21162,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest15GrandChildClassENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest15GrandChildClassENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.90", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest15GrandChildClassEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.90", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -21166,12 +21177,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -21430,10 +21441,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1YENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest1YENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.94", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest1YEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.94", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -21444,12 +21456,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -22012,10 +22024,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest4BCLSENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest4BCLSENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.99", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest4BCLSEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.99", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -22026,12 +22039,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -22507,10 +22520,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.103", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest11ParentClassEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.103", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -22521,12 +22535,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -22794,10 +22808,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest11ParentClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.105", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_17smart_ptr_deleterIN12SmartPtrTest11ParentClassEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.105", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -22808,12 +22823,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -23148,7 +23163,8 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5eastl14ref_count_sp_tIDnNS_9allocatorEZL15Test_shared_ptrvE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVN5eastl14ref_count_sp_tIDnNS_9allocatorEZL15Test_shared_ptrvE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.107", ptr %this1, i32 0, i32 1
   store ptr null, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5eastl4moveIRZL15Test_shared_ptrvE3$_0EEONS_16remove_referenceIT_E4typeEOS4_"(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
@@ -23161,12 +23177,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -23353,10 +23369,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest2A1ENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest2A1ENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.111", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest2A1EEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.111", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -23367,12 +23384,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -23649,10 +23666,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest2B1ENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest2B1ENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.115", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest2B1EEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.115", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -23663,12 +23681,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -23914,10 +23932,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.117", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest10NamedClassEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.117", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -23928,12 +23947,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -24102,10 +24121,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest10NamedClassENS_9allocatorENS_17smart_ptr_deleterIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.119", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_17smart_ptr_deleterIN12SmartPtrTest10NamedClassEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.119", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -24116,12 +24136,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -25470,10 +25490,11 @@ entry:
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5eastl12ref_count_spC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 1, i32 noundef 1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest3fooENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5eastl14ref_count_sp_tIPN12SmartPtrTest3fooENS_9allocatorENS_14default_deleteIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mValue = getelementptr inbounds %"class.eastl::ref_count_sp_t.130", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %mValue, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %mValue, align 8
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_14default_deleteIN12SmartPtrTest3fooEEEEEONS_16remove_referenceIT_E4typeEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %deleter) #15
   %mAllocator = getelementptr inbounds %"class.eastl::ref_count_sp_t.130", ptr %this1, i32 0, i32 3
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4moveIRNS_9allocatorEEEONS_16remove_referenceIT_E4typeEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %allocator) #15
@@ -25484,12 +25505,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN5eastl12ref_count_spD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -28316,11 +28337,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mRefCount = getelementptr inbounds %"struct.SmartPtrTest::RefCountTest", ptr %this1, i32 0, i32 1
   store i32 0, ptr %mRefCount, align 8
-  %0 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
-  %inc = add nsw i32 %0, 1
+  %1 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
+  %inc = add nsw i32 %1, 1
   store i32 %inc, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   ret void
 }
@@ -28863,12 +28885,13 @@ entry:
   store ptr %pBool, ptr %pBool.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12SmartPtrTest12RefCountTestC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest4TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12SmartPtrTest4TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mpBool = getelementptr inbounds %"struct.SmartPtrTest::Test", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pBool.addr, align 8
-  store ptr %0, ptr %mpBool, align 8
   %1 = load ptr, ptr %pBool.addr, align 8
-  store i8 1, ptr %1, align 1
+  store ptr %1, ptr %mpBool, align 8
+  %2 = load ptr, ptr %pBool.addr, align 8
+  store i8 1, ptr %2, align 1
   ret void
 }
 
@@ -28961,7 +28984,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12SmartPtrTest12RefCountTestC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest15IntrusiveCustomE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12SmartPtrTest15IntrusiveCustomE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29065,7 +29089,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12SmartPtrTest15IntrusiveParentC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest14IntrusiveChildE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12SmartPtrTest14IntrusiveChildE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29212,9 +29237,10 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
-  %dec = add nsw i32 %0, -1
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12SmartPtrTest12RefCountTestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load i32, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
+  %dec = add nsw i32 %1, -1
   store i32 %dec, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   ret void
 }
@@ -29334,10 +29360,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest4TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12SmartPtrTest4TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mpBool = getelementptr inbounds %"struct.SmartPtrTest::Test", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %mpBool, align 8
-  store i8 0, ptr %0, align 1
+  %1 = load ptr, ptr %mpBool, align 8
+  store i8 0, ptr %1, align 1
   call void @_ZN12SmartPtrTest12RefCountTestD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #15
   ret void
 }
@@ -29407,7 +29434,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12SmartPtrTest12RefCountTestC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12SmartPtrTest15IntrusiveParentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN12SmartPtrTest15IntrusiveParentE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

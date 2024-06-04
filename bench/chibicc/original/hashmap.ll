@@ -300,53 +300,54 @@ if.end13:                                         ; preds = %for.body
   %24 = load ptr, ptr %ent, align 8
   %key14 = getelementptr inbounds %struct.HashEntry, ptr %24, i32 0, i32 0
   %25 = load ptr, ptr %key14, align 8
-  %cmp15 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
+  %26 = inttoptr i64 -1 to ptr
+  %cmp15 = icmp eq ptr %25, %26
   br i1 %cmp15, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.end13
-  %26 = load ptr, ptr %key.addr, align 8
-  %27 = load ptr, ptr %ent, align 8
-  %key18 = getelementptr inbounds %struct.HashEntry, ptr %27, i32 0, i32 0
-  store ptr %26, ptr %key18, align 8
-  %28 = load i32, ptr %keylen.addr, align 4
-  %29 = load ptr, ptr %ent, align 8
-  %keylen19 = getelementptr inbounds %struct.HashEntry, ptr %29, i32 0, i32 1
-  store i32 %28, ptr %keylen19, align 8
+  %27 = load ptr, ptr %key.addr, align 8
+  %28 = load ptr, ptr %ent, align 8
+  %key18 = getelementptr inbounds %struct.HashEntry, ptr %28, i32 0, i32 0
+  store ptr %27, ptr %key18, align 8
+  %29 = load i32, ptr %keylen.addr, align 4
   %30 = load ptr, ptr %ent, align 8
-  store ptr %30, ptr %retval, align 8
+  %keylen19 = getelementptr inbounds %struct.HashEntry, ptr %30, i32 0, i32 1
+  store i32 %29, ptr %keylen19, align 8
+  %31 = load ptr, ptr %ent, align 8
+  store ptr %31, ptr %retval, align 8
   br label %return
 
 if.end20:                                         ; preds = %if.end13
-  %31 = load ptr, ptr %ent, align 8
-  %key21 = getelementptr inbounds %struct.HashEntry, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %key21, align 8
-  %cmp22 = icmp eq ptr %32, null
+  %32 = load ptr, ptr %ent, align 8
+  %key21 = getelementptr inbounds %struct.HashEntry, ptr %32, i32 0, i32 0
+  %33 = load ptr, ptr %key21, align 8
+  %cmp22 = icmp eq ptr %33, null
   br i1 %cmp22, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end20
-  %33 = load ptr, ptr %key.addr, align 8
-  %34 = load ptr, ptr %ent, align 8
-  %key25 = getelementptr inbounds %struct.HashEntry, ptr %34, i32 0, i32 0
-  store ptr %33, ptr %key25, align 8
-  %35 = load i32, ptr %keylen.addr, align 4
-  %36 = load ptr, ptr %ent, align 8
-  %keylen26 = getelementptr inbounds %struct.HashEntry, ptr %36, i32 0, i32 1
-  store i32 %35, ptr %keylen26, align 8
-  %37 = load ptr, ptr %map.addr, align 8
-  %used27 = getelementptr inbounds %struct.HashMap, ptr %37, i32 0, i32 2
-  %38 = load i32, ptr %used27, align 4
-  %inc = add nsw i32 %38, 1
+  %34 = load ptr, ptr %key.addr, align 8
+  %35 = load ptr, ptr %ent, align 8
+  %key25 = getelementptr inbounds %struct.HashEntry, ptr %35, i32 0, i32 0
+  store ptr %34, ptr %key25, align 8
+  %36 = load i32, ptr %keylen.addr, align 4
+  %37 = load ptr, ptr %ent, align 8
+  %keylen26 = getelementptr inbounds %struct.HashEntry, ptr %37, i32 0, i32 1
+  store i32 %36, ptr %keylen26, align 8
+  %38 = load ptr, ptr %map.addr, align 8
+  %used27 = getelementptr inbounds %struct.HashMap, ptr %38, i32 0, i32 2
+  %39 = load i32, ptr %used27, align 4
+  %inc = add nsw i32 %39, 1
   store i32 %inc, ptr %used27, align 4
-  %39 = load ptr, ptr %ent, align 8
-  store ptr %39, ptr %retval, align 8
+  %40 = load ptr, ptr %ent, align 8
+  store ptr %40, ptr %retval, align 8
   br label %return
 
 if.end28:                                         ; preds = %if.end20
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end28
-  %40 = load i32, ptr %i, align 4
-  %inc29 = add nsw i32 %40, 1
+  %41 = load i32, ptr %i, align 4
+  %inc29 = add nsw i32 %41, 1
   store i32 %inc29, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 
@@ -355,8 +356,8 @@ for.end:                                          ; preds = %for.cond
   unreachable
 
 return:                                           ; preds = %if.then24, %if.then17, %if.then12
-  %41 = load ptr, ptr %retval, align 8
-  ret ptr %41
+  %42 = load ptr, ptr %retval, align 8
+  ret ptr %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -397,7 +398,8 @@ entry:
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %ent, align 8
   %key1 = getelementptr inbounds %struct.HashEntry, ptr %4, i32 0, i32 0
-  store ptr inttoptr (i64 -1 to ptr), ptr %key1, align 8
+  %5 = inttoptr i64 -1 to ptr
+  store ptr %5, ptr %key1, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -856,31 +858,32 @@ land.lhs.true:                                    ; preds = %entry
   %2 = load ptr, ptr %ent.addr, align 8
   %key2 = getelementptr inbounds %struct.HashEntry, ptr %2, i32 0, i32 0
   %3 = load ptr, ptr %key2, align 8
-  %cmp = icmp ne ptr %3, inttoptr (i64 -1 to ptr)
+  %4 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %land.lhs.true3, label %land.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %4 = load ptr, ptr %ent.addr, align 8
-  %keylen4 = getelementptr inbounds %struct.HashEntry, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %keylen4, align 8
-  %6 = load i32, ptr %keylen.addr, align 4
-  %cmp5 = icmp eq i32 %5, %6
+  %5 = load ptr, ptr %ent.addr, align 8
+  %keylen4 = getelementptr inbounds %struct.HashEntry, ptr %5, i32 0, i32 1
+  %6 = load i32, ptr %keylen4, align 8
+  %7 = load i32, ptr %keylen.addr, align 4
+  %cmp5 = icmp eq i32 %6, %7
   br i1 %cmp5, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true3
-  %7 = load ptr, ptr %ent.addr, align 8
-  %key6 = getelementptr inbounds %struct.HashEntry, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %key6, align 8
-  %9 = load ptr, ptr %key.addr, align 8
-  %10 = load i32, ptr %keylen.addr, align 4
-  %conv = sext i32 %10 to i64
-  %call = call i32 @memcmp(ptr noundef %8, ptr noundef %9, i64 noundef %conv) #8
+  %8 = load ptr, ptr %ent.addr, align 8
+  %key6 = getelementptr inbounds %struct.HashEntry, ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %key6, align 8
+  %10 = load ptr, ptr %key.addr, align 8
+  %11 = load i32, ptr %keylen.addr, align 4
+  %conv = sext i32 %11 to i64
+  %call = call i32 @memcmp(ptr noundef %9, ptr noundef %10, i64 noundef %conv) #8
   %cmp7 = icmp eq i32 %call, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true3, %land.lhs.true, %entry
-  %11 = phi i1 [ false, %land.lhs.true3 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp7, %land.rhs ]
-  ret i1 %11
+  %12 = phi i1 [ false, %land.lhs.true3 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp7, %land.rhs ]
+  ret i1 %12
 }
 
 ; Function Attrs: noreturn
@@ -933,12 +936,13 @@ land.lhs.true:                                    ; preds = %for.body
   %arrayidx3 = getelementptr inbounds %struct.HashEntry, ptr %8, i64 %idxprom2
   %key4 = getelementptr inbounds %struct.HashEntry, ptr %arrayidx3, i32 0, i32 0
   %10 = load ptr, ptr %key4, align 8
-  %cmp5 = icmp ne ptr %10, inttoptr (i64 -1 to ptr)
+  %11 = inttoptr i64 -1 to ptr
+  %cmp5 = icmp ne ptr %10, %11
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %11 = load i32, ptr %nkeys, align 4
-  %inc = add nsw i32 %11, 1
+  %12 = load i32, ptr %nkeys, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %nkeys, align 4
   br label %if.end
 
@@ -946,35 +950,35 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %12 = load i32, ptr %i, align 4
-  %inc6 = add nsw i32 %12, 1
+  %13 = load i32, ptr %i, align 4
+  %inc6 = add nsw i32 %13, 1
   store i32 %inc6, ptr %i, align 4
   br label %for.cond, !llvm.loop !22
 
 for.end:                                          ; preds = %for.cond
-  %13 = load ptr, ptr %map.addr, align 8
-  %capacity7 = getelementptr inbounds %struct.HashMap, ptr %13, i32 0, i32 1
-  %14 = load i32, ptr %capacity7, align 8
-  store i32 %14, ptr %cap, align 4
+  %14 = load ptr, ptr %map.addr, align 8
+  %capacity7 = getelementptr inbounds %struct.HashMap, ptr %14, i32 0, i32 1
+  %15 = load i32, ptr %capacity7, align 8
+  store i32 %15, ptr %cap, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.end
-  %15 = load i32, ptr %nkeys, align 4
-  %mul = mul nsw i32 %15, 100
-  %16 = load i32, ptr %cap, align 4
-  %div = sdiv i32 %mul, %16
+  %16 = load i32, ptr %nkeys, align 4
+  %mul = mul nsw i32 %16, 100
+  %17 = load i32, ptr %cap, align 4
+  %div = sdiv i32 %mul, %17
   %cmp8 = icmp sge i32 %div, 50
   br i1 %cmp8, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %17 = load i32, ptr %cap, align 4
-  %mul9 = mul nsw i32 %17, 2
+  %18 = load i32, ptr %cap, align 4
+  %mul9 = mul nsw i32 %18, 2
   store i32 %mul9, ptr %cap, align 4
   br label %while.cond, !llvm.loop !23
 
 while.end:                                        ; preds = %while.cond
-  %18 = load i32, ptr %cap, align 4
-  %cmp10 = icmp sgt i32 %18, 0
+  %19 = load i32, ptr %cap, align 4
+  %cmp10 = icmp sgt i32 %19, 0
   br i1 %cmp10, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %while.end
@@ -984,78 +988,79 @@ cond.false:                                       ; preds = %while.end
   call void @__assert_fail(ptr noundef @.str.7, ptr noundef @.str.2, i32 noundef 38, ptr noundef @__PRETTY_FUNCTION__.rehash) #11
   unreachable
 
-19:                                               ; No predecessors!
+20:                                               ; No predecessors!
   br label %cond.end
 
-cond.end:                                         ; preds = %19, %cond.true
+cond.end:                                         ; preds = %20, %cond.true
   call void @llvm.memset.p0.i64(ptr align 8 %map2, i8 0, i64 16, i1 false)
-  %20 = load i32, ptr %cap, align 4
-  %conv = sext i32 %20 to i64
+  %21 = load i32, ptr %cap, align 4
+  %conv = sext i32 %21 to i64
   %call = call noalias ptr @calloc(i64 noundef %conv, i64 noundef 24) #10
   %buckets11 = getelementptr inbounds %struct.HashMap, ptr %map2, i32 0, i32 0
   store ptr %call, ptr %buckets11, align 8
-  %21 = load i32, ptr %cap, align 4
+  %22 = load i32, ptr %cap, align 4
   %capacity12 = getelementptr inbounds %struct.HashMap, ptr %map2, i32 0, i32 1
-  store i32 %21, ptr %capacity12, align 8
+  store i32 %22, ptr %capacity12, align 8
   store i32 0, ptr %i13, align 4
   br label %for.cond14
 
 for.cond14:                                       ; preds = %for.inc31, %cond.end
-  %22 = load i32, ptr %i13, align 4
-  %23 = load ptr, ptr %map.addr, align 8
-  %capacity15 = getelementptr inbounds %struct.HashMap, ptr %23, i32 0, i32 1
-  %24 = load i32, ptr %capacity15, align 8
-  %cmp16 = icmp slt i32 %22, %24
+  %23 = load i32, ptr %i13, align 4
+  %24 = load ptr, ptr %map.addr, align 8
+  %capacity15 = getelementptr inbounds %struct.HashMap, ptr %24, i32 0, i32 1
+  %25 = load i32, ptr %capacity15, align 8
+  %cmp16 = icmp slt i32 %23, %25
   br i1 %cmp16, label %for.body18, label %for.end33
 
 for.body18:                                       ; preds = %for.cond14
-  %25 = load ptr, ptr %map.addr, align 8
-  %buckets19 = getelementptr inbounds %struct.HashMap, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %buckets19, align 8
-  %27 = load i32, ptr %i13, align 4
-  %idxprom20 = sext i32 %27 to i64
-  %arrayidx21 = getelementptr inbounds %struct.HashEntry, ptr %26, i64 %idxprom20
+  %26 = load ptr, ptr %map.addr, align 8
+  %buckets19 = getelementptr inbounds %struct.HashMap, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %buckets19, align 8
+  %28 = load i32, ptr %i13, align 4
+  %idxprom20 = sext i32 %28 to i64
+  %arrayidx21 = getelementptr inbounds %struct.HashEntry, ptr %27, i64 %idxprom20
   store ptr %arrayidx21, ptr %ent, align 8
-  %28 = load ptr, ptr %ent, align 8
-  %key22 = getelementptr inbounds %struct.HashEntry, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %key22, align 8
-  %tobool23 = icmp ne ptr %29, null
+  %29 = load ptr, ptr %ent, align 8
+  %key22 = getelementptr inbounds %struct.HashEntry, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %key22, align 8
+  %tobool23 = icmp ne ptr %30, null
   br i1 %tobool23, label %land.lhs.true24, label %if.end30
 
 land.lhs.true24:                                  ; preds = %for.body18
-  %30 = load ptr, ptr %ent, align 8
-  %key25 = getelementptr inbounds %struct.HashEntry, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %key25, align 8
-  %cmp26 = icmp ne ptr %31, inttoptr (i64 -1 to ptr)
+  %31 = load ptr, ptr %ent, align 8
+  %key25 = getelementptr inbounds %struct.HashEntry, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %key25, align 8
+  %33 = inttoptr i64 -1 to ptr
+  %cmp26 = icmp ne ptr %32, %33
   br i1 %cmp26, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %land.lhs.true24
-  %32 = load ptr, ptr %ent, align 8
-  %key29 = getelementptr inbounds %struct.HashEntry, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %key29, align 8
   %34 = load ptr, ptr %ent, align 8
-  %keylen = getelementptr inbounds %struct.HashEntry, ptr %34, i32 0, i32 1
-  %35 = load i32, ptr %keylen, align 8
+  %key29 = getelementptr inbounds %struct.HashEntry, ptr %34, i32 0, i32 0
+  %35 = load ptr, ptr %key29, align 8
   %36 = load ptr, ptr %ent, align 8
-  %val = getelementptr inbounds %struct.HashEntry, ptr %36, i32 0, i32 2
-  %37 = load ptr, ptr %val, align 8
-  call void @hashmap_put2(ptr noundef %map2, ptr noundef %33, i32 noundef %35, ptr noundef %37)
+  %keylen = getelementptr inbounds %struct.HashEntry, ptr %36, i32 0, i32 1
+  %37 = load i32, ptr %keylen, align 8
+  %38 = load ptr, ptr %ent, align 8
+  %val = getelementptr inbounds %struct.HashEntry, ptr %38, i32 0, i32 2
+  %39 = load ptr, ptr %val, align 8
+  call void @hashmap_put2(ptr noundef %map2, ptr noundef %35, i32 noundef %37, ptr noundef %39)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then28, %land.lhs.true24, %for.body18
   br label %for.inc31
 
 for.inc31:                                        ; preds = %if.end30
-  %38 = load i32, ptr %i13, align 4
-  %inc32 = add nsw i32 %38, 1
+  %40 = load i32, ptr %i13, align 4
+  %inc32 = add nsw i32 %40, 1
   store i32 %inc32, ptr %i13, align 4
   br label %for.cond14, !llvm.loop !24
 
 for.end33:                                        ; preds = %for.cond14
   %used = getelementptr inbounds %struct.HashMap, ptr %map2, i32 0, i32 2
-  %39 = load i32, ptr %used, align 4
-  %40 = load i32, ptr %nkeys, align 4
-  %cmp34 = icmp eq i32 %39, %40
+  %41 = load i32, ptr %used, align 4
+  %42 = load i32, ptr %nkeys, align 4
+  %cmp34 = icmp eq i32 %41, %42
   br i1 %cmp34, label %cond.true36, label %cond.false37
 
 cond.true36:                                      ; preds = %for.end33
@@ -1065,12 +1070,12 @@ cond.false37:                                     ; preds = %for.end33
   call void @__assert_fail(ptr noundef @.str.8, ptr noundef @.str.2, i32 noundef 51, ptr noundef @__PRETTY_FUNCTION__.rehash) #11
   unreachable
 
-41:                                               ; No predecessors!
+43:                                               ; No predecessors!
   br label %cond.end38
 
-cond.end38:                                       ; preds = %41, %cond.true36
-  %42 = load ptr, ptr %map.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %map2, i64 16, i1 false)
+cond.end38:                                       ; preds = %43, %cond.true36
+  %44 = load ptr, ptr %map.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %map2, i64 16, i1 false)
   ret void
 }
 

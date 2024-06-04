@@ -830,420 +830,426 @@ define internal void @dissect_sua_message(ptr noundef %0, ptr noundef %1, ptr no
   store i32 0, ptr @drn, align 4
   store i32 0, ptr @srn, align 4
   store ptr null, ptr @assoc, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 3), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 4), align 4
-  store i8 -1, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 5), align 4
-  store i8 -1, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 6), align 1
-  store i32 0, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 7), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 8), align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 50
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noalias ptr @wmem_alloc0(ptr noundef %21, i64 noundef 12)
-  store ptr %22, ptr @sua_opc, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 50
-  %25 = load ptr, ptr %24, align 8
-  %26 = call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 12)
-  store ptr %26, ptr @sua_dpc, align 8
+  %19 = getelementptr inbounds %struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 3
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds %struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 4
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds %struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 5
+  store i8 -1, ptr %21, align 4
+  %22 = getelementptr inbounds %struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 6
+  store i8 -1, ptr %22, align 1
+  %23 = getelementptr inbounds %struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 7
+  store i32 0, ptr %23, align 4
+  %24 = getelementptr inbounds %struct._sua_assoc_info_t, ptr @no_sua_assoc, i32 0, i32 8
+  store i32 0, ptr %24, align 4
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 50
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noalias ptr @wmem_alloc0(ptr noundef %27, i64 noundef 12)
+  store ptr %28, ptr @sua_opc, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 50
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noalias ptr @wmem_alloc0(ptr noundef %31, i64 noundef 12)
+  store ptr %32, ptr @sua_dpc, align 8
   store ptr null, ptr @sua_source_gt, align 8
   store ptr null, ptr @sua_destination_gt, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = call ptr @tvb_new_subset_length(ptr noundef %27, i32 noundef 0, i32 noundef 8)
-  store ptr %28, ptr %9, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = load ptr, ptr %7, align 8
-  call void @dissect_common_header(ptr noundef %29, ptr noundef %30, ptr noundef %31)
-  %32 = load ptr, ptr %5, align 8
-  %33 = call ptr @tvb_new_subset_remaining(ptr noundef %32, i32 noundef 8)
-  store ptr %33, ptr %10, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %7, align 8
-  call void @dissect_parameters(ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %11, ptr noundef %13, ptr noundef %14)
-  %37 = load i32, ptr @message_class, align 4
-  %38 = icmp eq i32 %37, 8
-  br i1 %38, label %39, label %190
+  %33 = load ptr, ptr %5, align 8
+  %34 = call ptr @tvb_new_subset_length(ptr noundef %33, i32 noundef 0, i32 noundef 8)
+  store ptr %34, ptr %9, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %7, align 8
+  call void @dissect_common_header(ptr noundef %35, ptr noundef %36, ptr noundef %37)
+  %38 = load ptr, ptr %5, align 8
+  %39 = call ptr @tvb_new_subset_remaining(ptr noundef %38, i32 noundef 8)
+  store ptr %39, ptr %10, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %6, align 8
+  %42 = load ptr, ptr %7, align 8
+  call void @dissect_parameters(ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %11, ptr noundef %13, ptr noundef %14)
+  %43 = load i32, ptr @message_class, align 4
+  %44 = icmp eq i32 %43, 8
+  br i1 %44, label %45, label %196
 
-39:                                               ; preds = %4
-  %40 = load i32, ptr @message_type, align 4
-  switch i32 %40, label %95 [
-    i32 1, label %41
-    i32 2, label %64
+45:                                               ; preds = %4
+  %46 = load i32, ptr @message_type, align 4
+  switch i32 %46, label %101 [
+    i32 1, label %47
+    i32 2, label %70
   ]
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %6, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 16
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 17
-  %47 = load i32, ptr @srn, align 4
-  %48 = load i32, ptr @drn, align 4
-  %49 = call ptr @sua_assoc(ptr noundef %42, ptr noundef %44, ptr noundef %46, i32 noundef %47, i32 noundef %48)
-  store ptr %49, ptr @assoc, align 8
-  %50 = load ptr, ptr @assoc, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %63
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %6, align 8
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 16
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds %struct._packet_info, ptr %51, i32 0, i32 17
+  %53 = load i32, ptr @srn, align 4
+  %54 = load i32, ptr @drn, align 4
+  %55 = call ptr @sua_assoc(ptr noundef %48, ptr noundef %50, ptr noundef %52, i32 noundef %53, i32 noundef %54)
+  store ptr %55, ptr @assoc, align 8
+  %56 = load ptr, ptr @assoc, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %69
 
-52:                                               ; preds = %41
-  %53 = load i16, ptr @sua_ri, align 2
-  %54 = zext i16 %53 to i32
-  %55 = load ptr, ptr @assoc, align 8
-  %56 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %55, i32 0, i32 1
-  store i32 %54, ptr %56, align 4
-  %57 = load i8, ptr %13, align 1
-  %58 = load ptr, ptr @assoc, align 8
-  %59 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %58, i32 0, i32 5
-  store i8 %57, ptr %59, align 4
-  %60 = load i8, ptr %14, align 1
+58:                                               ; preds = %47
+  %59 = load i16, ptr @sua_ri, align 2
+  %60 = zext i16 %59 to i32
   %61 = load ptr, ptr @assoc, align 8
-  %62 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %61, i32 0, i32 6
-  store i8 %60, ptr %62, align 1
-  br label %63
+  %62 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %61, i32 0, i32 1
+  store i32 %60, ptr %62, align 4
+  %63 = load i8, ptr %13, align 1
+  %64 = load ptr, ptr @assoc, align 8
+  %65 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %64, i32 0, i32 5
+  store i8 %63, ptr %65, align 4
+  %66 = load i8, ptr %14, align 1
+  %67 = load ptr, ptr @assoc, align 8
+  %68 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %67, i32 0, i32 6
+  store i8 %66, ptr %68, align 1
+  br label %69
 
-63:                                               ; preds = %52, %41
-  br label %104
+69:                                               ; preds = %58, %47
+  br label %110
 
-64:                                               ; preds = %39
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 16
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct._packet_info, ptr %68, i32 0, i32 17
-  %70 = load i32, ptr @srn, align 4
-  %71 = load i32, ptr @drn, align 4
-  %72 = call ptr @sua_assoc(ptr noundef %65, ptr noundef %67, ptr noundef %69, i32 noundef %70, i32 noundef %71)
-  store ptr %72, ptr @assoc, align 8
-  %73 = load ptr, ptr @assoc, align 8
-  %74 = icmp ne ptr %73, null
-  br i1 %74, label %75, label %94
+70:                                               ; preds = %45
+  %71 = load ptr, ptr %6, align 8
+  %72 = load ptr, ptr %6, align 8
+  %73 = getelementptr inbounds %struct._packet_info, ptr %72, i32 0, i32 16
+  %74 = load ptr, ptr %6, align 8
+  %75 = getelementptr inbounds %struct._packet_info, ptr %74, i32 0, i32 17
+  %76 = load i32, ptr @srn, align 4
+  %77 = load i32, ptr @drn, align 4
+  %78 = call ptr @sua_assoc(ptr noundef %71, ptr noundef %73, ptr noundef %75, i32 noundef %76, i32 noundef %77)
+  store ptr %78, ptr @assoc, align 8
+  %79 = load ptr, ptr @assoc, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %100
 
-75:                                               ; preds = %64
-  %76 = load i16, ptr @sua_ri, align 2
-  %77 = zext i16 %76 to i32
-  %78 = load ptr, ptr @assoc, align 8
-  %79 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %78, i32 0, i32 2
-  store i32 %77, ptr %79, align 4
-  %80 = load ptr, ptr @assoc, align 8
-  %81 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %80, i32 0, i32 6
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = icmp ne i32 %83, 255
-  br i1 %84, label %85, label %93
+81:                                               ; preds = %70
+  %82 = load i16, ptr @sua_ri, align 2
+  %83 = zext i16 %82 to i32
+  %84 = load ptr, ptr @assoc, align 8
+  %85 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %84, i32 0, i32 2
+  store i32 %83, ptr %85, align 4
+  %86 = load ptr, ptr @assoc, align 8
+  %87 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %86, i32 0, i32 6
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = icmp ne i32 %89, 255
+  br i1 %90, label %91, label %99
 
-85:                                               ; preds = %75
-  %86 = load i8, ptr %14, align 1
-  %87 = zext i8 %86 to i32
-  %88 = icmp ne i32 %87, 255
-  br i1 %88, label %89, label %93
+91:                                               ; preds = %81
+  %92 = load i8, ptr %14, align 1
+  %93 = zext i8 %92 to i32
+  %94 = icmp ne i32 %93, 255
+  br i1 %94, label %95, label %99
 
-89:                                               ; preds = %85
-  %90 = load i8, ptr %14, align 1
-  %91 = load ptr, ptr @assoc, align 8
-  %92 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %91, i32 0, i32 6
-  store i8 %90, ptr %92, align 1
-  br label %93
+95:                                               ; preds = %91
+  %96 = load i8, ptr %14, align 1
+  %97 = load ptr, ptr @assoc, align 8
+  %98 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %97, i32 0, i32 6
+  store i8 %96, ptr %98, align 1
+  br label %99
 
-93:                                               ; preds = %89, %85, %75
-  br label %94
+99:                                               ; preds = %95, %91, %81
+  br label %100
 
-94:                                               ; preds = %93, %64
-  br label %104
+100:                                              ; preds = %99, %70
+  br label %110
 
-95:                                               ; preds = %39
-  %96 = load ptr, ptr %6, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct._packet_info, ptr %97, i32 0, i32 16
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct._packet_info, ptr %99, i32 0, i32 17
-  %101 = load i32, ptr @srn, align 4
-  %102 = load i32, ptr @drn, align 4
-  %103 = call ptr @sua_assoc(ptr noundef %96, ptr noundef %98, ptr noundef %100, i32 noundef %101, i32 noundef %102)
-  store ptr %103, ptr @assoc, align 8
-  br label %104
+101:                                              ; preds = %45
+  %102 = load ptr, ptr %6, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds %struct._packet_info, ptr %103, i32 0, i32 16
+  %105 = load ptr, ptr %6, align 8
+  %106 = getelementptr inbounds %struct._packet_info, ptr %105, i32 0, i32 17
+  %107 = load i32, ptr @srn, align 4
+  %108 = load i32, ptr @drn, align 4
+  %109 = call ptr @sua_assoc(ptr noundef %102, ptr noundef %104, ptr noundef %106, i32 noundef %107, i32 noundef %108)
+  store ptr %109, ptr @assoc, align 8
+  br label %110
 
-104:                                              ; preds = %95, %94, %63
-  %105 = load i32, ptr @message_type, align 4
-  switch i32 %105, label %107 [
-    i32 1, label %106
-    i32 2, label %106
+110:                                              ; preds = %101, %100, %69
+  %111 = load i32, ptr @message_type, align 4
+  switch i32 %111, label %113 [
+    i32 1, label %112
+    i32 2, label %112
   ]
 
-106:                                              ; preds = %104, %104
-  br label %142
+112:                                              ; preds = %110, %110
+  br label %148
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr @assoc, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %124
+113:                                              ; preds = %110
+  %114 = load ptr, ptr @assoc, align 8
+  %115 = icmp ne ptr %114, null
+  br i1 %115, label %116, label %130
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr @assoc, align 8
-  %112 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %111, i32 0, i32 6
-  %113 = load i8, ptr %112, align 1
-  %114 = zext i8 %113 to i32
-  %115 = icmp ne i32 %114, 255
-  br i1 %115, label %116, label %124
+116:                                              ; preds = %113
+  %117 = load ptr, ptr @assoc, align 8
+  %118 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %117, i32 0, i32 6
+  %119 = load i8, ptr %118, align 1
+  %120 = zext i8 %119 to i32
+  %121 = icmp ne i32 %120, 255
+  br i1 %121, label %122, label %130
 
-116:                                              ; preds = %110
-  %117 = load i8, ptr %14, align 1
-  %118 = zext i8 %117 to i32
-  %119 = icmp ne i32 %118, 255
-  br i1 %119, label %120, label %124
+122:                                              ; preds = %116
+  %123 = load i8, ptr %14, align 1
+  %124 = zext i8 %123 to i32
+  %125 = icmp ne i32 %124, 255
+  br i1 %125, label %126, label %130
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr @assoc, align 8
-  %122 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %121, i32 0, i32 6
-  %123 = load i8, ptr %122, align 1
-  store i8 %123, ptr %14, align 1
-  br label %124
+126:                                              ; preds = %122
+  %127 = load ptr, ptr @assoc, align 8
+  %128 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %127, i32 0, i32 6
+  %129 = load i8, ptr %128, align 1
+  store i8 %129, ptr %14, align 1
+  br label %130
 
-124:                                              ; preds = %120, %116, %110, %107
-  %125 = load ptr, ptr @assoc, align 8
-  %126 = icmp ne ptr %125, null
-  br i1 %126, label %127, label %141
+130:                                              ; preds = %126, %122, %116, %113
+  %131 = load ptr, ptr @assoc, align 8
+  %132 = icmp ne ptr %131, null
+  br i1 %132, label %133, label %147
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr @assoc, align 8
-  %129 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %128, i32 0, i32 5
-  %130 = load i8, ptr %129, align 4
-  %131 = zext i8 %130 to i32
-  %132 = icmp ne i32 %131, 255
-  br i1 %132, label %133, label %141
+133:                                              ; preds = %130
+  %134 = load ptr, ptr @assoc, align 8
+  %135 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %134, i32 0, i32 5
+  %136 = load i8, ptr %135, align 4
+  %137 = zext i8 %136 to i32
+  %138 = icmp ne i32 %137, 255
+  br i1 %138, label %139, label %147
 
-133:                                              ; preds = %127
-  %134 = load i8, ptr %13, align 1
-  %135 = zext i8 %134 to i32
-  %136 = icmp ne i32 %135, 255
-  br i1 %136, label %137, label %141
+139:                                              ; preds = %133
+  %140 = load i8, ptr %13, align 1
+  %141 = zext i8 %140 to i32
+  %142 = icmp ne i32 %141, 255
+  br i1 %142, label %143, label %147
 
-137:                                              ; preds = %133
-  %138 = load ptr, ptr @assoc, align 8
-  %139 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %138, i32 0, i32 5
-  %140 = load i8, ptr %139, align 4
-  store i8 %140, ptr %13, align 1
-  br label %141
+143:                                              ; preds = %139
+  %144 = load ptr, ptr @assoc, align 8
+  %145 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %144, i32 0, i32 5
+  %146 = load i8, ptr %145, align 4
+  store i8 %146, ptr %13, align 1
+  br label %147
 
-141:                                              ; preds = %137, %133, %127, %124
-  br label %142
+147:                                              ; preds = %143, %139, %133, %130
+  br label %148
 
-142:                                              ; preds = %141, %106
-  %143 = load ptr, ptr @assoc, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %159
+148:                                              ; preds = %147, %112
+  %149 = load ptr, ptr @assoc, align 8
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %151, label %165
 
-145:                                              ; preds = %142
-  %146 = load ptr, ptr @assoc, align 8
-  %147 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %146, i32 0, i32 0
-  %148 = load i32, ptr %147, align 4
-  %149 = icmp ne i32 %148, 0
-  br i1 %149, label %150, label %159
+151:                                              ; preds = %148
+  %152 = load ptr, ptr @assoc, align 8
+  %153 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %152, i32 0, i32 0
+  %154 = load i32, ptr %153, align 4
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %156, label %165
 
-150:                                              ; preds = %145
-  %151 = load ptr, ptr %8, align 8
-  %152 = load i32, ptr @hf_sua_assoc_id, align 4
-  %153 = load ptr, ptr %5, align 8
-  %154 = load ptr, ptr @assoc, align 8
-  %155 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %154, i32 0, i32 0
-  %156 = load i32, ptr %155, align 4
-  %157 = call ptr @proto_tree_add_uint(ptr noundef %151, i32 noundef %152, ptr noundef %153, i32 noundef 0, i32 noundef 0, i32 noundef %156)
-  store ptr %157, ptr %15, align 8
-  %158 = load ptr, ptr %15, align 8
-  call void @proto_item_set_generated(ptr noundef %158)
-  br label %159
+156:                                              ; preds = %151
+  %157 = load ptr, ptr %8, align 8
+  %158 = load i32, ptr @hf_sua_assoc_id, align 4
+  %159 = load ptr, ptr %5, align 8
+  %160 = load ptr, ptr @assoc, align 8
+  %161 = getelementptr inbounds %struct._sua_assoc_info_t, ptr %160, i32 0, i32 0
+  %162 = load i32, ptr %161, align 4
+  %163 = call ptr @proto_tree_add_uint(ptr noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef 0, i32 noundef 0, i32 noundef %162)
+  store ptr %163, ptr %15, align 8
+  %164 = load ptr, ptr %15, align 8
+  call void @proto_item_set_generated(ptr noundef %164)
+  br label %165
 
-159:                                              ; preds = %150, %145, %142
-  %160 = load i32, ptr @message_type, align 4
-  %161 = trunc i32 %160 to i8
-  %162 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 0
-  store i8 %161, ptr %162, align 8
-  %163 = load i32, ptr @drn, align 4
-  %164 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 1
-  store i32 %163, ptr %164, align 4
-  %165 = load i32, ptr @srn, align 4
-  %166 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 2
-  store i32 %165, ptr %166, align 8
-  %167 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 3
-  store ptr null, ptr %167, align 8
-  %168 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 4
-  store ptr null, ptr %168, align 8
-  %169 = load ptr, ptr %6, align 8
-  %170 = load ptr, ptr %5, align 8
-  %171 = call i32 @tvb_offset_from_real_beginning(ptr noundef %170)
-  %172 = call ptr @get_sccp_assoc(ptr noundef %169, i32 noundef %171, ptr noundef %18)
-  store ptr %172, ptr %17, align 8
-  %173 = load ptr, ptr %17, align 8
-  %174 = icmp ne ptr %173, null
-  br i1 %174, label %175, label %189
+165:                                              ; preds = %156, %151, %148
+  %166 = load i32, ptr @message_type, align 4
+  %167 = trunc i32 %166 to i8
+  %168 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 0
+  store i8 %167, ptr %168, align 8
+  %169 = load i32, ptr @drn, align 4
+  %170 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 1
+  store i32 %169, ptr %170, align 4
+  %171 = load i32, ptr @srn, align 4
+  %172 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 2
+  store i32 %171, ptr %172, align 8
+  %173 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 3
+  store ptr null, ptr %173, align 8
+  %174 = getelementptr inbounds %struct._sccp_decode_context_t, ptr %18, i32 0, i32 4
+  store ptr null, ptr %174, align 8
+  %175 = load ptr, ptr %6, align 8
+  %176 = load ptr, ptr %5, align 8
+  %177 = call i32 @tvb_offset_from_real_beginning(ptr noundef %176)
+  %178 = call ptr @get_sccp_assoc(ptr noundef %175, i32 noundef %177, ptr noundef %18)
+  store ptr %178, ptr %17, align 8
+  %179 = load ptr, ptr %17, align 8
+  %180 = icmp ne ptr %179, null
+  br i1 %180, label %181, label %195
 
-175:                                              ; preds = %159
-  %176 = load ptr, ptr %17, align 8
-  %177 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr %176, i32 0, i32 8
-  %178 = load ptr, ptr %177, align 8
-  %179 = icmp ne ptr %178, null
-  br i1 %179, label %180, label %189
+181:                                              ; preds = %165
+  %182 = load ptr, ptr %17, align 8
+  %183 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr %182, i32 0, i32 8
+  %184 = load ptr, ptr %183, align 8
+  %185 = icmp ne ptr %184, null
+  br i1 %185, label %186, label %195
 
-180:                                              ; preds = %175
-  %181 = load ptr, ptr %17, align 8
-  %182 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr %181, i32 0, i32 8
-  %183 = load ptr, ptr %182, align 8
-  store ptr %183, ptr %16, align 8
-  %184 = load i32, ptr @sua_tap, align 4
-  %185 = load ptr, ptr %6, align 8
-  %186 = load ptr, ptr %17, align 8
-  %187 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr %186, i32 0, i32 8
-  %188 = load ptr, ptr %187, align 8
-  call void @tap_queue_packet(i32 noundef %184, ptr noundef %185, ptr noundef %188)
-  br label %189
+186:                                              ; preds = %181
+  %187 = load ptr, ptr %17, align 8
+  %188 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr %187, i32 0, i32 8
+  %189 = load ptr, ptr %188, align 8
+  store ptr %189, ptr %16, align 8
+  %190 = load i32, ptr @sua_tap, align 4
+  %191 = load ptr, ptr %6, align 8
+  %192 = load ptr, ptr %17, align 8
+  %193 = getelementptr inbounds %struct._sccp_assoc_info_t, ptr %192, i32 0, i32 8
+  %194 = load ptr, ptr %193, align 8
+  call void @tap_queue_packet(i32 noundef %190, ptr noundef %191, ptr noundef %194)
+  br label %195
 
-189:                                              ; preds = %180, %175, %159
-  br label %190
+195:                                              ; preds = %186, %181, %165
+  br label %196
 
-190:                                              ; preds = %189, %4
-  %191 = load i32, ptr @set_addresses, align 4
-  %192 = icmp ne i32 %191, 0
-  br i1 %192, label %193, label %244
+196:                                              ; preds = %195, %4
+  %197 = load i32, ptr @set_addresses, align 4
+  %198 = icmp ne i32 %197, 0
+  br i1 %198, label %199, label %250
 
-193:                                              ; preds = %190
-  %194 = load ptr, ptr @sua_opc, align 8
-  %195 = getelementptr inbounds %struct._mtp3_addr_pc_t, ptr %194, i32 0, i32 0
-  %196 = load i32, ptr %195, align 4
-  %197 = icmp ne i32 %196, 0
-  br i1 %197, label %198, label %203
+199:                                              ; preds = %196
+  %200 = load ptr, ptr @sua_opc, align 8
+  %201 = getelementptr inbounds %struct._mtp3_addr_pc_t, ptr %200, i32 0, i32 0
+  %202 = load i32, ptr %201, align 4
+  %203 = icmp ne i32 %202, 0
+  br i1 %203, label %204, label %209
 
-198:                                              ; preds = %193
-  %199 = load ptr, ptr %6, align 8
-  %200 = getelementptr inbounds %struct._packet_info, ptr %199, i32 0, i32 16
-  %201 = load i32, ptr @ss7pc_address_type, align 4
-  %202 = load ptr, ptr @sua_opc, align 8
-  call void @set_address(ptr noundef %200, i32 noundef %201, i32 noundef 12, ptr noundef %202)
-  br label %203
+204:                                              ; preds = %199
+  %205 = load ptr, ptr %6, align 8
+  %206 = getelementptr inbounds %struct._packet_info, ptr %205, i32 0, i32 16
+  %207 = load i32, ptr @ss7pc_address_type, align 4
+  %208 = load ptr, ptr @sua_opc, align 8
+  call void @set_address(ptr noundef %206, i32 noundef %207, i32 noundef 12, ptr noundef %208)
+  br label %209
 
-203:                                              ; preds = %198, %193
-  %204 = load ptr, ptr @sua_dpc, align 8
-  %205 = getelementptr inbounds %struct._mtp3_addr_pc_t, ptr %204, i32 0, i32 0
-  %206 = load i32, ptr %205, align 4
-  %207 = icmp ne i32 %206, 0
-  br i1 %207, label %208, label %213
+209:                                              ; preds = %204, %199
+  %210 = load ptr, ptr @sua_dpc, align 8
+  %211 = getelementptr inbounds %struct._mtp3_addr_pc_t, ptr %210, i32 0, i32 0
+  %212 = load i32, ptr %211, align 4
+  %213 = icmp ne i32 %212, 0
+  br i1 %213, label %214, label %219
 
-208:                                              ; preds = %203
-  %209 = load ptr, ptr %6, align 8
-  %210 = getelementptr inbounds %struct._packet_info, ptr %209, i32 0, i32 17
-  %211 = load i32, ptr @ss7pc_address_type, align 4
-  %212 = load ptr, ptr @sua_dpc, align 8
-  call void @set_address(ptr noundef %210, i32 noundef %211, i32 noundef 12, ptr noundef %212)
-  br label %213
+214:                                              ; preds = %209
+  %215 = load ptr, ptr %6, align 8
+  %216 = getelementptr inbounds %struct._packet_info, ptr %215, i32 0, i32 17
+  %217 = load i32, ptr @ss7pc_address_type, align 4
+  %218 = load ptr, ptr @sua_dpc, align 8
+  call void @set_address(ptr noundef %216, i32 noundef %217, i32 noundef 12, ptr noundef %218)
+  br label %219
 
-213:                                              ; preds = %208, %203
-  %214 = load ptr, ptr @sua_source_gt, align 8
-  %215 = icmp ne ptr %214, null
-  br i1 %215, label %216, label %228
+219:                                              ; preds = %214, %209
+  %220 = load ptr, ptr @sua_source_gt, align 8
+  %221 = icmp ne ptr %220, null
+  br i1 %221, label %222, label %234
 
-216:                                              ; preds = %213
-  %217 = load ptr, ptr %6, align 8
-  %218 = getelementptr inbounds %struct._packet_info, ptr %217, i32 0, i32 16
-  %219 = load ptr, ptr @sua_source_gt, align 8
-  %220 = call i64 @strlen(ptr noundef %219) #3
-  %221 = trunc i64 %220 to i32
-  %222 = add i32 1, %221
+222:                                              ; preds = %219
   %223 = load ptr, ptr %6, align 8
-  %224 = getelementptr inbounds %struct._packet_info, ptr %223, i32 0, i32 50
-  %225 = load ptr, ptr %224, align 8
-  %226 = load ptr, ptr @sua_source_gt, align 8
-  %227 = call noalias ptr @wmem_strdup(ptr noundef %225, ptr noundef %226)
-  call void @set_address(ptr noundef %218, i32 noundef 7, i32 noundef %222, ptr noundef %227)
-  br label %228
+  %224 = getelementptr inbounds %struct._packet_info, ptr %223, i32 0, i32 16
+  %225 = load ptr, ptr @sua_source_gt, align 8
+  %226 = call i64 @strlen(ptr noundef %225) #3
+  %227 = trunc i64 %226 to i32
+  %228 = add i32 1, %227
+  %229 = load ptr, ptr %6, align 8
+  %230 = getelementptr inbounds %struct._packet_info, ptr %229, i32 0, i32 50
+  %231 = load ptr, ptr %230, align 8
+  %232 = load ptr, ptr @sua_source_gt, align 8
+  %233 = call noalias ptr @wmem_strdup(ptr noundef %231, ptr noundef %232)
+  call void @set_address(ptr noundef %224, i32 noundef 7, i32 noundef %228, ptr noundef %233)
+  br label %234
 
-228:                                              ; preds = %216, %213
-  %229 = load ptr, ptr @sua_destination_gt, align 8
-  %230 = icmp ne ptr %229, null
-  br i1 %230, label %231, label %243
+234:                                              ; preds = %222, %219
+  %235 = load ptr, ptr @sua_destination_gt, align 8
+  %236 = icmp ne ptr %235, null
+  br i1 %236, label %237, label %249
 
-231:                                              ; preds = %228
-  %232 = load ptr, ptr %6, align 8
-  %233 = getelementptr inbounds %struct._packet_info, ptr %232, i32 0, i32 17
-  %234 = load ptr, ptr @sua_destination_gt, align 8
-  %235 = call i64 @strlen(ptr noundef %234) #3
-  %236 = trunc i64 %235 to i32
-  %237 = add i32 1, %236
+237:                                              ; preds = %234
   %238 = load ptr, ptr %6, align 8
-  %239 = getelementptr inbounds %struct._packet_info, ptr %238, i32 0, i32 50
-  %240 = load ptr, ptr %239, align 8
-  %241 = load ptr, ptr @sua_destination_gt, align 8
-  %242 = call noalias ptr @wmem_strdup(ptr noundef %240, ptr noundef %241)
-  call void @set_address(ptr noundef %233, i32 noundef 7, i32 noundef %237, ptr noundef %242)
-  br label %243
+  %239 = getelementptr inbounds %struct._packet_info, ptr %238, i32 0, i32 17
+  %240 = load ptr, ptr @sua_destination_gt, align 8
+  %241 = call i64 @strlen(ptr noundef %240) #3
+  %242 = trunc i64 %241 to i32
+  %243 = add i32 1, %242
+  %244 = load ptr, ptr %6, align 8
+  %245 = getelementptr inbounds %struct._packet_info, ptr %244, i32 0, i32 50
+  %246 = load ptr, ptr %245, align 8
+  %247 = load ptr, ptr @sua_destination_gt, align 8
+  %248 = call noalias ptr @wmem_strdup(ptr noundef %246, ptr noundef %247)
+  call void @set_address(ptr noundef %239, i32 noundef 7, i32 noundef %243, ptr noundef %248)
+  br label %249
 
-243:                                              ; preds = %231, %228
-  br label %244
+249:                                              ; preds = %237, %234
+  br label %250
 
-244:                                              ; preds = %243, %190
-  %245 = load ptr, ptr %11, align 8
-  %246 = icmp ne ptr %245, null
-  br i1 %246, label %247, label %290
+250:                                              ; preds = %249, %196
+  %251 = load ptr, ptr %11, align 8
+  %252 = icmp ne ptr %251, null
+  br i1 %252, label %253, label %296
 
-247:                                              ; preds = %244
-  %248 = load i8, ptr %14, align 1
-  %249 = zext i8 %248 to i32
-  %250 = icmp eq i32 %249, 255
-  br i1 %250, label %261, label %251
+253:                                              ; preds = %250
+  %254 = load i8, ptr %14, align 1
+  %255 = zext i8 %254 to i32
+  %256 = icmp eq i32 %255, 255
+  br i1 %256, label %267, label %257
 
-251:                                              ; preds = %247
-  %252 = load ptr, ptr @sccp_ssn_dissector_table, align 8
-  %253 = load i8, ptr %14, align 1
-  %254 = zext i8 %253 to i32
-  %255 = load ptr, ptr %11, align 8
-  %256 = load ptr, ptr %6, align 8
-  %257 = load ptr, ptr %8, align 8
-  %258 = load ptr, ptr %16, align 8
-  %259 = call i32 @dissector_try_uint_new(ptr noundef %252, i32 noundef %254, ptr noundef %255, ptr noundef %256, ptr noundef %257, i32 noundef 1, ptr noundef %258)
-  %260 = icmp ne i32 %259, 0
-  br i1 %260, label %289, label %261
+257:                                              ; preds = %253
+  %258 = load ptr, ptr @sccp_ssn_dissector_table, align 8
+  %259 = load i8, ptr %14, align 1
+  %260 = zext i8 %259 to i32
+  %261 = load ptr, ptr %11, align 8
+  %262 = load ptr, ptr %6, align 8
+  %263 = load ptr, ptr %8, align 8
+  %264 = load ptr, ptr %16, align 8
+  %265 = call i32 @dissector_try_uint_new(ptr noundef %258, i32 noundef %260, ptr noundef %261, ptr noundef %262, ptr noundef %263, i32 noundef 1, ptr noundef %264)
+  %266 = icmp ne i32 %265, 0
+  br i1 %266, label %295, label %267
 
-261:                                              ; preds = %251, %247
-  %262 = load i8, ptr %13, align 1
-  %263 = zext i8 %262 to i32
-  %264 = icmp eq i32 %263, 255
-  br i1 %264, label %275, label %265
+267:                                              ; preds = %257, %253
+  %268 = load i8, ptr %13, align 1
+  %269 = zext i8 %268 to i32
+  %270 = icmp eq i32 %269, 255
+  br i1 %270, label %281, label %271
 
-265:                                              ; preds = %261
-  %266 = load ptr, ptr @sccp_ssn_dissector_table, align 8
-  %267 = load i8, ptr %13, align 1
-  %268 = zext i8 %267 to i32
-  %269 = load ptr, ptr %11, align 8
-  %270 = load ptr, ptr %6, align 8
-  %271 = load ptr, ptr %8, align 8
-  %272 = load ptr, ptr %16, align 8
-  %273 = call i32 @dissector_try_uint_new(ptr noundef %266, i32 noundef %268, ptr noundef %269, ptr noundef %270, ptr noundef %271, i32 noundef 1, ptr noundef %272)
-  %274 = icmp ne i32 %273, 0
-  br i1 %274, label %289, label %275
+271:                                              ; preds = %267
+  %272 = load ptr, ptr @sccp_ssn_dissector_table, align 8
+  %273 = load i8, ptr %13, align 1
+  %274 = zext i8 %273 to i32
+  %275 = load ptr, ptr %11, align 8
+  %276 = load ptr, ptr %6, align 8
+  %277 = load ptr, ptr %8, align 8
+  %278 = load ptr, ptr %16, align 8
+  %279 = call i32 @dissector_try_uint_new(ptr noundef %272, i32 noundef %274, ptr noundef %275, ptr noundef %276, ptr noundef %277, i32 noundef 1, ptr noundef %278)
+  %280 = icmp ne i32 %279, 0
+  br i1 %280, label %295, label %281
 
-275:                                              ; preds = %265, %261
-  %276 = load ptr, ptr @heur_subdissector_list, align 8
-  %277 = load ptr, ptr %11, align 8
-  %278 = load ptr, ptr %6, align 8
-  %279 = load ptr, ptr %8, align 8
-  %280 = load ptr, ptr %16, align 8
-  %281 = call i32 @dissector_try_heuristic(ptr noundef %276, ptr noundef %277, ptr noundef %278, ptr noundef %279, ptr noundef %12, ptr noundef %280)
-  %282 = icmp ne i32 %281, 0
-  br i1 %282, label %283, label %284
+281:                                              ; preds = %271, %267
+  %282 = load ptr, ptr @heur_subdissector_list, align 8
+  %283 = load ptr, ptr %11, align 8
+  %284 = load ptr, ptr %6, align 8
+  %285 = load ptr, ptr %8, align 8
+  %286 = load ptr, ptr %16, align 8
+  %287 = call i32 @dissector_try_heuristic(ptr noundef %282, ptr noundef %283, ptr noundef %284, ptr noundef %285, ptr noundef %12, ptr noundef %286)
+  %288 = icmp ne i32 %287, 0
+  br i1 %288, label %289, label %290
 
-283:                                              ; preds = %275
-  br label %290
+289:                                              ; preds = %281
+  br label %296
 
-284:                                              ; preds = %275
-  %285 = load ptr, ptr %11, align 8
-  %286 = load ptr, ptr %6, align 8
-  %287 = load ptr, ptr %8, align 8
-  %288 = call i32 @call_data_dissector(ptr noundef %285, ptr noundef %286, ptr noundef %287)
-  br label %289
+290:                                              ; preds = %281
+  %291 = load ptr, ptr %11, align 8
+  %292 = load ptr, ptr %6, align 8
+  %293 = load ptr, ptr %8, align 8
+  %294 = call i32 @call_data_dissector(ptr noundef %291, ptr noundef %292, ptr noundef %293)
+  br label %295
 
-289:                                              ; preds = %284, %265, %251
-  br label %290
+295:                                              ; preds = %290, %271, %257
+  br label %296
 
-290:                                              ; preds = %289, %283, %244
+296:                                              ; preds = %295, %289, %250
   ret void
 }
 

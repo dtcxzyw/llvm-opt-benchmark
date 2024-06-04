@@ -240,31 +240,32 @@ define void @_ZN5Ipopt21TripletToCSRConverterC2EiNS0_8ETriFullE(ptr noundef nonn
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt21TripletToCSRConverterE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %5, align 4
-  store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 2
-  %11 = load i32, ptr %6, align 4
-  store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 3
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt21TripletToCSRConverterE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %5, align 4
+  store i32 %10, ptr %9, align 4
+  %11 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 2
+  %12 = load i32, ptr %6, align 4
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 3
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 5
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 6
-  store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 7
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 9
-  store i8 0, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 10
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 11
+  %14 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 4
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 5
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 6
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 7
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 9
+  store i8 0, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 10
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 12
+  %20 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 11
   store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %7, i32 0, i32 12
+  store ptr null, ptr %21, align 8
   ret void
 }
 
@@ -273,9 +274,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -284,57 +286,58 @@ define void @_ZN5Ipopt21TripletToCSRConverterD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt21TripletToCSRConverterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt21TripletToCSRConverterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #9
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #9
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 4
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %8
-  call void @_ZdaPv(ptr noundef %10) #9
-  br label %13
+13:                                               ; preds = %9
+  call void @_ZdaPv(ptr noundef %11) #9
+  br label %14
 
-13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 10
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %18, label %17
+14:                                               ; preds = %13, %9
+  %15 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 10
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %19, label %18
 
-17:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef %15) #9
-  br label %18
+18:                                               ; preds = %14
+  call void @_ZdaPv(ptr noundef %16) #9
+  br label %19
 
-18:                                               ; preds = %17, %13
-  %19 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 11
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %23, label %22
+19:                                               ; preds = %18, %14
+  %20 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 11
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %18
-  call void @_ZdaPv(ptr noundef %20) #9
-  br label %23
+23:                                               ; preds = %19
+  call void @_ZdaPv(ptr noundef %21) #9
+  br label %24
 
-23:                                               ; preds = %22, %18
-  %24 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 12
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %28, label %27
+24:                                               ; preds = %23, %19
+  %25 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter", ptr %3, i32 0, i32 12
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %29, label %28
 
-27:                                               ; preds = %23
-  call void @_ZdaPv(ptr noundef %25) #9
-  br label %28
+28:                                               ; preds = %24
+  call void @_ZdaPv(ptr noundef %26) #9
+  br label %29
 
-28:                                               ; preds = %27, %23
+29:                                               ; preds = %28, %24
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #10
   ret void
 }
@@ -2093,7 +2096,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

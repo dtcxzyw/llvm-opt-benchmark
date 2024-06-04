@@ -55,7 +55,7 @@ define internal i32 @mca_mpool_base_open(i32 noundef %0) #0 {
 
 7:                                                ; preds = %1
   store i32 -1, ptr %2, align 4
-  br label %25
+  br label %27
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @mca_mpool_base_default_hints, align 8
@@ -76,31 +76,33 @@ define internal i32 @mca_mpool_base_open(i32 noundef %0) #0 {
 
 16:                                               ; preds = %15
   %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %19 = icmp ne i32 %17, %18
-  br i1 %19, label %20, label %21
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %17, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %16
+21:                                               ; preds = %16
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %21
-
-21:                                               ; preds = %20, %16
-  store ptr @opal_list_t_class, ptr @mca_mpool_base_modules, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_mpool_base_modules, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_mpool_base_modules)
   br label %22
 
-22:                                               ; preds = %21
-  br label %23
+22:                                               ; preds = %21, %16
+  store ptr @opal_list_t_class, ptr @mca_mpool_base_modules, align 8
+  %23 = getelementptr inbounds %struct.opal_object_t, ptr @mca_mpool_base_modules, i32 0, i32 1
+  store volatile i32 1, ptr %23, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_mpool_base_modules)
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = call i32 @mca_mpool_base_tree_init()
-  store i32 0, ptr %2, align 4
+24:                                               ; preds = %22
   br label %25
 
-25:                                               ; preds = %23, %7
-  %26 = load i32, ptr %2, align 4
-  ret i32 %26
+25:                                               ; preds = %24
+  %26 = call i32 @mca_mpool_base_tree_init()
+  store i32 0, ptr %2, align 4
+  br label %27
+
+27:                                               ; preds = %25, %7
+  %28 = load i32, ptr %2, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable

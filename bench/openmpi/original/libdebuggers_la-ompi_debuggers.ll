@@ -42,62 +42,63 @@ define void @ompi_debugger_setup_dlls() #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15), align 8
-  store ptr %5, ptr @ompi_debugger_dll_path, align 8
-  %6 = call i32 @mca_base_var_register(ptr noundef @.str, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @ompi_debugger_dll_path)
-  %7 = load ptr, ptr @ompi_debugger_dll_path, align 8
-  %8 = icmp ne ptr null, %7
-  br i1 %8, label %9, label %37
+  %5 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr @ompi_debugger_dll_path, align 8
+  %7 = call i32 @mca_base_var_register(ptr noundef @.str, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @ompi_debugger_dll_path)
+  %8 = load ptr, ptr @ompi_debugger_dll_path, align 8
+  %9 = icmp ne ptr null, %8
+  br i1 %9, label %10, label %38
 
-9:                                                ; preds = %0
-  %10 = load ptr, ptr @ompi_debugger_dll_path, align 8
-  %11 = call noalias ptr @opal_argv_split(ptr noundef %10, i32 noundef 58)
-  store ptr %11, ptr %2, align 8
+10:                                               ; preds = %0
+  %11 = load ptr, ptr @ompi_debugger_dll_path, align 8
+  %12 = call noalias ptr @opal_argv_split(ptr noundef %11, i32 noundef 58)
+  store ptr %12, ptr %2, align 8
   store i32 0, ptr %1, align 4
-  br label %12
+  br label %13
 
-12:                                               ; preds = %32, %9
-  %13 = load ptr, ptr %2, align 8
-  %14 = load i32, ptr %1, align 4
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %35
+13:                                               ; preds = %33, %10
+  %14 = load ptr, ptr %2, align 8
+  %15 = load i32, ptr %1, align 4
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %36
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %2, align 8
-  %21 = load i32, ptr %1, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %3, align 8
-  call void @check(ptr noundef %24, ptr noundef @.str.4, ptr noundef %25)
-  %26 = load ptr, ptr %2, align 8
-  %27 = load i32, ptr %1, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %4, align 8
-  call void @check(ptr noundef %30, ptr noundef @.str.5, ptr noundef %31)
-  br label %32
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %2, align 8
+  %22 = load i32, ptr %1, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %3, align 8
+  call void @check(ptr noundef %25, ptr noundef @.str.4, ptr noundef %26)
+  %27 = load ptr, ptr %2, align 8
+  %28 = load i32, ptr %1, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  call void @check(ptr noundef %31, ptr noundef @.str.5, ptr noundef %32)
+  br label %33
 
-32:                                               ; preds = %19
-  %33 = load i32, ptr %1, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %1, align 4
-  br label %12, !llvm.loop !6
+33:                                               ; preds = %20
+  %34 = load i32, ptr %1, align 4
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %1, align 4
+  br label %13, !llvm.loop !6
 
-35:                                               ; preds = %12
-  %36 = load ptr, ptr %2, align 8
-  call void @opal_argv_free(ptr noundef %36)
-  br label %37
+36:                                               ; preds = %13
+  %37 = load ptr, ptr %2, align 8
+  call void @opal_argv_free(ptr noundef %37)
+  br label %38
 
-37:                                               ; preds = %35, %0
-  %38 = load ptr, ptr %3, align 8
-  store ptr %38, ptr @mpimsgq_dll_locations, align 8
-  %39 = load ptr, ptr %4, align 8
-  store ptr %39, ptr @mpidbg_dll_locations, align 8
+38:                                               ; preds = %36, %0
+  %39 = load ptr, ptr %3, align 8
+  store ptr %39, ptr @mpimsgq_dll_locations, align 8
+  %40 = load ptr, ptr %4, align 8
+  store ptr %40, ptr @mpidbg_dll_locations, align 8
   ret void
 }
 

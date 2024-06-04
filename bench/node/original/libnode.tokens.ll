@@ -212,7 +212,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic11TokenSecretE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic11TokenSecretE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_ = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %buf_, i8 0, i64 16, i1 false)
   call void @_ZN4node4quic11TokenSecret5ResetEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
@@ -225,7 +226,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -280,11 +282,12 @@ entry:
   store ptr %secret, ptr %secret.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic11TokenSecretE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic11TokenSecretE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_ = getelementptr inbounds %"class.node::quic::TokenSecret", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %buf_, i8 0, i64 16, i1 false)
-  %0 = load ptr, ptr %secret.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node4quic11TokenSecretaSEPKh(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
+  %1 = load ptr, ptr %secret.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node4quic11TokenSecretaSEPKh(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %1)
   ret void
 }
 
@@ -368,7 +371,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 1
   store ptr null, ptr %ptr_, align 8
   %buf_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 2
@@ -385,10 +389,11 @@ entry:
   store ptr %token, ptr %token.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %token.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %token.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   ret void
 }
 
@@ -403,7 +408,8 @@ entry:
   store ptr %cid, ptr %cid.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 1
   %buf_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 2
   %arraydecay = getelementptr inbounds [16 x i8], ptr %buf_, i64 0, i64 0
@@ -413,10 +419,10 @@ entry:
 do.body:                                          ; preds = %entry
   %buf_2 = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 2
   %arraydecay3 = getelementptr inbounds [16 x i8], ptr %buf_2, i64 0, i64 0
-  %0 = load ptr, ptr %secret.addr, align 8
-  %call = call noundef ptr @_ZNK4node4quic11TokenSecretcvPKhEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %1 = load ptr, ptr %cid.addr, align 8
-  %call4 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %1 = load ptr, ptr %secret.addr, align 8
+  %call = call noundef ptr @_ZNK4node4quic11TokenSecretcvPKhEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %2 = load ptr, ptr %cid.addr, align 8
+  %call4 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %call5 = call i32 @ngtcp2_crypto_generate_stateless_reset_token(ptr noundef %arraydecay3, ptr noundef %call, i64 noundef 16, ptr noundef %call4)
   %cmp = icmp eq i32 %call5, 0
   %lnot = xor i1 %cmp, true
@@ -459,19 +465,20 @@ entry:
   store ptr %cid, ptr %cid.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %token.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %token.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %token.addr, align 8
-  %2 = load ptr, ptr %secret.addr, align 8
-  %call = call noundef ptr @_ZNK4node4quic11TokenSecretcvPKhEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %3 = load ptr, ptr %cid.addr, align 8
-  %call2 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-  %call3 = call i32 @ngtcp2_crypto_generate_stateless_reset_token(ptr noundef %1, ptr noundef %call, i64 noundef 16, ptr noundef %call2)
+  %2 = load ptr, ptr %token.addr, align 8
+  %3 = load ptr, ptr %secret.addr, align 8
+  %call = call noundef ptr @_ZNK4node4quic11TokenSecretcvPKhEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %4 = load ptr, ptr %cid.addr, align 8
+  %call2 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %call3 = call i32 @ngtcp2_crypto_generate_stateless_reset_token(ptr noundef %2, ptr noundef %call, i64 noundef 16, ptr noundef %call2)
   %cmp = icmp eq i32 %call3, 0
   %lnot = xor i1 %cmp, true
   %lnot4 = xor i1 %lnot, true
@@ -505,22 +512,23 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 1
   %buf_ = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 2
   %arraydecay = getelementptr inbounds [16 x i8], ptr %buf_, i64 0, i64 0
   store ptr %arraydecay, ptr %ptr_, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4node4quic19StatelessResetTokencvbEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %other.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK4node4quic19StatelessResetTokencvbEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %buf_2 = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %this1, i32 0, i32 2
   %arraydecay3 = getelementptr inbounds [16 x i8], ptr %buf_2, i64 0, i64 0
-  %1 = load ptr, ptr %other.addr, align 8
-  %ptr_4 = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %ptr_4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay3, ptr align 1 %2, i64 16, i1 false)
+  %2 = load ptr, ptr %other.addr, align 8
+  %ptr_4 = getelementptr inbounds %"class.node::quic::StatelessResetToken", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %ptr_4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay3, ptr align 1 %3, i64 16, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -853,24 +861,25 @@ entry:
   store ptr %token_secret, ptr %token_secret.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic10RetryTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic10RetryTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %buf_, i8 0, i64 78, i1 false)
   %ptr_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this1, i32 0, i32 2
   %buf_2 = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [78 x i8], ptr %buf_2, i64 0, i64 0
-  %0 = load i32, ptr %version.addr, align 4
-  %1 = load ptr, ptr %address.addr, align 8
-  %2 = load ptr, ptr %retry_cid.addr, align 8
-  %3 = load ptr, ptr %odcid.addr, align 8
-  %4 = load ptr, ptr %token_secret.addr, align 8
-  %call = call { ptr, i64 } @_ZN4node4quic12_GLOBAL__N_118GenerateRetryTokenEPhjRKNS_13SocketAddressERKNS0_3CIDES8_RKNS0_11TokenSecretE(ptr noundef %arraydecay, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %ptr_, i32 0, i32 0
-  %6 = extractvalue { ptr, i64 } %call, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %ptr_, i32 0, i32 1
-  %8 = extractvalue { ptr, i64 } %call, 1
-  store i64 %8, ptr %7, align 8
+  %1 = load i32, ptr %version.addr, align 4
+  %2 = load ptr, ptr %address.addr, align 8
+  %3 = load ptr, ptr %retry_cid.addr, align 8
+  %4 = load ptr, ptr %odcid.addr, align 8
+  %5 = load ptr, ptr %token_secret.addr, align 8
+  %call = call { ptr, i64 } @_ZN4node4quic12_GLOBAL__N_118GenerateRetryTokenEPhjRKNS_13SocketAddressERKNS0_3CIDES8_RKNS0_11TokenSecretE(ptr noundef %arraydecay, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %ptr_, i32 0, i32 0
+  %7 = extractvalue { ptr, i64 } %call, 0
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %ptr_, i32 0, i32 1
+  %9 = extractvalue { ptr, i64 } %call, 1
+  store i64 %9, ptr %8, align 8
   ret void
 }
 
@@ -943,14 +952,15 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic10RetryTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic10RetryTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::RetryToken", ptr %this1, i32 0, i32 2
   %base = getelementptr inbounds %struct.ngtcp2_vec, ptr %ptr_, i32 0, i32 0
-  %0 = load ptr, ptr %token.addr, align 8
-  store ptr %0, ptr %base, align 8
+  %1 = load ptr, ptr %token.addr, align 8
+  store ptr %1, ptr %base, align 8
   %len = getelementptr inbounds %struct.ngtcp2_vec, ptr %ptr_, i32 0, i32 1
-  %1 = load i64, ptr %size.addr, align 8
-  store i64 %1, ptr %len, align 8
+  %2 = load i64, ptr %size.addr, align 8
+  store i64 %2, ptr %len, align 8
   ret void
 }
 
@@ -1134,7 +1144,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %buf_, i8 0, i64 57, i1 false)
   %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this1, i32 0, i32 2
@@ -1158,22 +1169,23 @@ entry:
   store ptr %token_secret, ptr %token_secret.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buf_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %buf_, i8 0, i64 57, i1 false)
   %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this1, i32 0, i32 2
   %buf_2 = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [57 x i8], ptr %buf_2, i64 0, i64 0
-  %0 = load i32, ptr %version.addr, align 4
-  %1 = load ptr, ptr %address.addr, align 8
-  %2 = load ptr, ptr %token_secret.addr, align 8
-  %call = call { ptr, i64 } @_ZN4node4quic12_GLOBAL__N_120GenerateRegularTokenEPhjRKNS_13SocketAddressERKNS0_11TokenSecretE(ptr noundef %arraydecay, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %ptr_, i32 0, i32 0
-  %4 = extractvalue { ptr, i64 } %call, 0
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %ptr_, i32 0, i32 1
-  %6 = extractvalue { ptr, i64 } %call, 1
-  store i64 %6, ptr %5, align 8
+  %1 = load i32, ptr %version.addr, align 4
+  %2 = load ptr, ptr %address.addr, align 8
+  %3 = load ptr, ptr %token_secret.addr, align 8
+  %call = call { ptr, i64 } @_ZN4node4quic12_GLOBAL__N_120GenerateRegularTokenEPhjRKNS_13SocketAddressERKNS0_11TokenSecretE(ptr noundef %arraydecay, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %ptr_, i32 0, i32 0
+  %5 = extractvalue { ptr, i64 } %call, 0
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %ptr_, i32 0, i32 1
+  %7 = extractvalue { ptr, i64 } %call, 1
+  store i64 %7, ptr %6, align 8
   ret void
 }
 
@@ -1237,14 +1249,15 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node4quic12RegularTokenE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.node::quic::RegularToken", ptr %this1, i32 0, i32 2
   %base = getelementptr inbounds %struct.ngtcp2_vec, ptr %ptr_, i32 0, i32 0
-  %0 = load ptr, ptr %token.addr, align 8
-  store ptr %0, ptr %base, align 8
+  %1 = load ptr, ptr %token.addr, align 8
+  store ptr %1, ptr %base, align 8
   %len = getelementptr inbounds %struct.ngtcp2_vec, ptr %ptr_, i32 0, i32 1
-  %1 = load i64, ptr %size.addr, align 8
-  store i64 %1, ptr %len, align 8
+  %2 = load i64, ptr %size.addr, align 8
+  store i64 %2, ptr %len, align 8
   ret void
 }
 

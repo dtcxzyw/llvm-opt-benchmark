@@ -734,96 +734,97 @@ define void @_ZN4LIEF3DEX6MethodC2ERKS1_(ptr noundef nonnull align 8 dereference
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3DEX6MethodE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %28
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3DEX6MethodE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %29
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %14, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 40, i1 false)
-  %16 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %17, i32 0, i32 8
-  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %19 unwind label %32
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %16, i64 40, i1 false)
+  %17 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %18, i32 0, i32 8
+  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %33
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 9
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %21, i32 0, i32 9
-  invoke void @_ZN4LIEF3DEX8CodeInfoC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(14) %20, ptr noundef nonnull align 8 dereferenceable(14) %22)
-          to label %23 unwind label %36
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 9
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %22, i32 0, i32 9
+  invoke void @_ZN4LIEF3DEX8CodeInfoC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(14) %21, ptr noundef nonnull align 8 dereferenceable(14) %23)
+          to label %24 unwind label %37
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 10
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %25, i32 0, i32 10
-  invoke void @_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %26)
-          to label %27 unwind label %40
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %7, i32 0, i32 10
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %26, i32 0, i32 10
+  invoke void @_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %27)
+          to label %28 unwind label %41
 
-27:                                               ; preds = %23
+28:                                               ; preds = %24
   ret void
 
-28:                                               ; preds = %2
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %2
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %5, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %6, align 4
-  br label %46
-
-32:                                               ; preds = %12
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %5, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %6, align 4
-  br label %45
-
-36:                                               ; preds = %19
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %5, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %6, align 4
-  br label %44
-
-40:                                               ; preds = %23
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %5, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %6, align 4
-  call void @_ZN4LIEF3DEX8CodeInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(14) %20) #13
-  br label %44
-
-44:                                               ; preds = %40, %36
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
-  br label %45
-
-45:                                               ; preds = %44, %32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
-  br label %46
-
-46:                                               ; preds = %45, %28
-  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %5, align 8
-  %49 = load i32, ptr %6, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+33:                                               ; preds = %13
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  br label %46
+
+37:                                               ; preds = %20
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
+  br label %45
+
+41:                                               ; preds = %24
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %5, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %6, align 4
+  call void @_ZN4LIEF3DEX8CodeInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(14) %21) #13
+  br label %45
+
+45:                                               ; preds = %41, %37
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
+  br label %46
+
+46:                                               ; preds = %45, %33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
+  br label %47
+
+47:                                               ; preds = %46, %29
+  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %5, align 8
+  %50 = load i32, ptr %6, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 declare void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -1190,50 +1191,51 @@ define void @_ZN4LIEF3DEX6MethodC2Ev(ptr noundef nonnull align 8 dereferenceable
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3DEX6MethodE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
-  %7 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 2
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3DEX6MethodE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  %8 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 2
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 4
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 5
-  store i32 -1, ptr %10, align 4
-  %11 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 6
-  store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 7
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 8
-  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  %14 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 9
-  invoke void @_ZN4LIEF3DEX8CodeInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(14) %14)
-          to label %15 unwind label %17
+  %9 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 3
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 4
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 5
+  store i32 -1, ptr %11, align 4
+  %12 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 6
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 7
+  store i64 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 8
+  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  %15 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 9
+  invoke void @_ZN4LIEF3DEX8CodeInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(14) %15)
+          to label %16 unwind label %18
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 10
-  call void @_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #13
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %5, i32 0, i32 10
+  call void @_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #13
   ret void
 
-17:                                               ; preds = %1
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %3, align 8
-  %23 = load i32, ptr %4, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -1274,51 +1276,52 @@ define void @_ZN4LIEF3DEX6MethodC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3DEX6MethodE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
-  %11 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 2
-  %12 = load ptr, ptr %6, align 8
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 3
-  store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 4
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 5
-  store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 6
-  store i8 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 7
-  store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 8
-  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
-  %19 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 9
-  invoke void @_ZN4LIEF3DEX8CodeInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(14) %19)
-          to label %20 unwind label %22
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3DEX6MethodE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
+  %12 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 2
+  %13 = load ptr, ptr %6, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 3
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 4
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 5
+  store i32 -1, ptr %16, align 4
+  %17 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 6
+  store i8 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 7
+  store i64 0, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 8
+  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+  %20 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 9
+  invoke void @_ZN4LIEF3DEX8CodeInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(14) %20)
+          to label %21 unwind label %23
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 10
-  call void @_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #13
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %9, i32 0, i32 10
+  call void @_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #13
   ret void
 
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %7, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %8, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %7, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %8, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %7, align 8
-  %28 = load i32, ptr %8, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: nounwind
@@ -2237,15 +2240,16 @@ define void @_ZN4LIEF3DEX6MethodD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3DEX6MethodE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %3, i32 0, i32 10
-  call void @_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
-  %5 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %3, i32 0, i32 9
-  call void @_ZN4LIEF3DEX8CodeInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(14) %5) #13
-  %6 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  %7 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3DEX6MethodE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %3, i32 0, i32 10
+  call void @_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
+  %6 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %3, i32 0, i32 9
+  call void @_ZN4LIEF3DEX8CodeInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(14) %6) #13
+  %7 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %8 = getelementptr inbounds %"class.LIEF::DEX::Method", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }

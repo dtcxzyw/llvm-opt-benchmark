@@ -599,14 +599,16 @@ declare i32 @proto_get_id_by_filter_name(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define hidden void @expert_init() #0 {
   store i32 0, ptr @gpa_expertinfo, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1), align 4
-  store ptr null, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %1 = call ptr @g_hash_table_new_full(ptr noundef @g_str_hash, ptr noundef @g_str_equal, ptr noundef null, ptr noundef null)
-  store ptr %1, ptr @gpa_name_map, align 8
-  %2 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
-  store ptr %2, ptr @uat_saved_fields, align 8
-  %3 = call ptr @g_ptr_array_new()
-  store ptr %3, ptr @deregistered_expertinfos, align 8
+  %1 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1
+  store i32 0, ptr %1, align 4
+  %2 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  store ptr null, ptr %2, align 8
+  %3 = call ptr @g_hash_table_new_full(ptr noundef @g_str_hash, ptr noundef @g_str_equal, ptr noundef null, ptr noundef null)
+  store ptr %3, ptr @gpa_name_map, align 8
+  %4 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
+  store ptr %4, ptr @uat_saved_fields, align 8
+  %5 = call ptr @g_ptr_array_new()
+  store ptr %5, ptr @deregistered_expertinfos, align 8
   ret void
 }
 
@@ -627,52 +629,56 @@ define hidden void @expert_packet_cleanup() #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @expert_cleanup() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1), align 4
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1
+  %2 = load i32, ptr %1, align 4
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %9
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   store i32 0, ptr @gpa_expertinfo, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1), align 4
-  %4 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  call void @g_free(ptr noundef %4)
-  store ptr null, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  br label %5
+  %5 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %7)
+  %8 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  br label %9
 
-5:                                                ; preds = %3, %0
-  %6 = load ptr, ptr @gpa_name_map, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %10
+9:                                                ; preds = %4, %0
+  %10 = load ptr, ptr @gpa_name_map, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %14
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr @gpa_name_map, align 8
-  call void @g_hash_table_destroy(ptr noundef %9)
+12:                                               ; preds = %9
+  %13 = load ptr, ptr @gpa_name_map, align 8
+  call void @g_hash_table_destroy(ptr noundef %13)
   store ptr null, ptr @gpa_name_map, align 8
-  br label %10
+  br label %14
 
-10:                                               ; preds = %8, %5
-  %11 = load ptr, ptr @uat_saved_fields, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %16
+14:                                               ; preds = %12, %9
+  %15 = load ptr, ptr @uat_saved_fields, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %20
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr @uat_saved_fields, align 8
-  %15 = call ptr @g_array_free(ptr noundef %14, i32 noundef 1)
+17:                                               ; preds = %14
+  %18 = load ptr, ptr @uat_saved_fields, align 8
+  %19 = call ptr @g_array_free(ptr noundef %18, i32 noundef 1)
   store ptr null, ptr @uat_saved_fields, align 8
-  br label %16
+  br label %20
 
-16:                                               ; preds = %13, %10
-  %17 = load ptr, ptr @deregistered_expertinfos, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %22
+20:                                               ; preds = %17, %14
+  %21 = load ptr, ptr @deregistered_expertinfos, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %26
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr @deregistered_expertinfos, align 8
-  %21 = call ptr @g_ptr_array_free(ptr noundef %20, i32 noundef 1)
+23:                                               ; preds = %20
+  %24 = load ptr, ptr @deregistered_expertinfos, align 8
+  %25 = call ptr @g_ptr_array_free(ptr noundef %24, i32 noundef 1)
   store ptr null, ptr @deregistered_expertinfos, align 8
-  br label %22
+  br label %26
 
-22:                                               ; preds = %19, %16
+26:                                               ; preds = %23, %20
   ret void
 }
 
@@ -755,24 +761,25 @@ define hidden void @expert_deregister_expertinfo(ptr noundef %0) #0 {
   store ptr %6, ptr %3, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %21
+  br i1 %8, label %9, label %22
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @deregistered_expertinfos, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.expert_field_info, ptr %12, i32 0, i32 4
-  %14 = load i32, ptr %13, align 8
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr ptr, ptr %11, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  call void @g_ptr_array_add(ptr noundef %10, ptr noundef %17)
-  %18 = load ptr, ptr @gpa_name_map, align 8
-  %19 = load ptr, ptr %2, align 8
-  %20 = call i32 @g_hash_table_steal(ptr noundef %18, ptr noundef %19)
-  br label %21
+  %11 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds %struct.expert_field_info, ptr %13, i32 0, i32 4
+  %15 = load i32, ptr %14, align 8
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr ptr, ptr %12, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  call void @g_ptr_array_add(ptr noundef %10, ptr noundef %18)
+  %19 = load ptr, ptr @gpa_name_map, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = call i32 @g_hash_table_steal(ptr noundef %19, ptr noundef %20)
+  br label %22
 
-21:                                               ; preds = %9, %1
+22:                                               ; preds = %9, %1
   ret void
 }
 
@@ -816,13 +823,14 @@ define internal void @free_deregistered_expertinfo(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.expert_field_info, ptr %8, i32 0, i32 4
-  %10 = load i32, ptr %9, align 8
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %7, i64 %11
-  store ptr null, ptr %12, align 8
+  %7 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds %struct.expert_field_info, ptr %9, i32 0, i32 4
+  %11 = load i32, ptr %10, align 8
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr ptr, ptr %8, i64 %12
+  store ptr null, ptr %13, align 8
   ret void
 }
 
@@ -1016,67 +1024,77 @@ define internal i32 @expert_register_field_init(ptr noundef %0, ptr noundef %1) 
   %33 = getelementptr inbounds %struct.expert_field_info, ptr %32, i32 0, i32 5
   store ptr %31, ptr %33, align 8
   %34 = load i32, ptr @gpa_expertinfo, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1), align 4
-  %36 = icmp uge i32 %34, %35
-  br i1 %36, label %37, label %51
+  %35 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp uge i32 %34, %36
+  br i1 %37, label %38, label %60
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %39 = icmp ne ptr %38, null
-  br i1 %39, label %42, label %40
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %46, label %42
 
-40:                                               ; preds = %37
-  store i32 5000, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1), align 4
-  %41 = call noalias ptr @g_malloc(i64 noundef 40000) #10
-  store ptr %41, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  br label %50
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1
+  store i32 5000, ptr %43, align 4
+  %44 = call noalias ptr @g_malloc(i64 noundef 40000) #10
+  %45 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  store ptr %44, ptr %45, align 8
+  br label %59
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1), align 4
-  %44 = add i32 %43, 1000
-  store i32 %44, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1), align 4
-  %45 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1), align 4
-  %47 = zext i32 %46 to i64
-  %48 = mul i64 8, %47
-  %49 = call ptr @g_realloc(ptr noundef %45, i64 noundef %48)
-  store ptr %49, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  br label %50
-
-50:                                               ; preds = %42, %40
-  br label %51
-
-51:                                               ; preds = %50, %28
-  %52 = load ptr, ptr %3, align 8
-  %53 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %54 = load i32, ptr @gpa_expertinfo, align 8
+46:                                               ; preds = %38
+  %47 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1
+  %48 = load i32, ptr %47, align 4
+  %49 = add i32 %48, 1000
+  %50 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 1
+  %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
-  %56 = getelementptr ptr, ptr %53, i64 %55
-  store ptr %52, ptr %56, align 8
-  %57 = load i32, ptr @gpa_expertinfo, align 8
-  %58 = add i32 %57, 1
-  store i32 %58, ptr @gpa_expertinfo, align 8
-  %59 = load i32, ptr @gpa_expertinfo, align 8
-  %60 = sub i32 %59, 1
+  %56 = mul i64 8, %55
+  %57 = call ptr @g_realloc(ptr noundef %52, i64 noundef %56)
+  %58 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  store ptr %57, ptr %58, align 8
+  br label %59
+
+59:                                               ; preds = %46, %42
+  br label %60
+
+60:                                               ; preds = %59, %28
   %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.expert_field_info, ptr %61, i32 0, i32 4
-  store i32 %60, ptr %62, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.expert_field_info, ptr %63, i32 0, i32 2
-  %65 = load i32, ptr %64, align 4
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.expert_field_info, ptr %66, i32 0, i32 6
-  store i32 %65, ptr %67, align 8
-  %68 = load ptr, ptr @gpa_name_map, align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.expert_field_info, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = call i32 @g_hash_table_insert(ptr noundef %68, ptr noundef %71, ptr noundef %72)
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.expert_field_info, ptr %74, i32 0, i32 4
-  %76 = load i32, ptr %75, align 8
-  ret i32 %76
+  %62 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8
+  %64 = load i32, ptr @gpa_expertinfo, align 8
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr ptr, ptr %63, i64 %65
+  store ptr %61, ptr %66, align 8
+  %67 = load i32, ptr @gpa_expertinfo, align 8
+  %68 = add i32 %67, 1
+  store i32 %68, ptr @gpa_expertinfo, align 8
+  %69 = load i32, ptr @gpa_expertinfo, align 8
+  %70 = sub i32 %69, 1
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds %struct.expert_field_info, ptr %71, i32 0, i32 4
+  store i32 %70, ptr %72, align 8
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds %struct.expert_field_info, ptr %73, i32 0, i32 2
+  %75 = load i32, ptr %74, align 4
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds %struct.expert_field_info, ptr %76, i32 0, i32 6
+  store i32 %75, ptr %77, align 8
+  %78 = load ptr, ptr @gpa_name_map, align 8
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds %struct.expert_field_info, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %3, align 8
+  %83 = call i32 @g_hash_table_insert(ptr noundef %78, ptr noundef %81, ptr noundef %82)
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds %struct.expert_field_info, ptr %84, i32 0, i32 4
+  %86 = load i32, ptr %85, align 8
+  ret i32 %86
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1122,39 +1140,41 @@ define ptr @expert_get_summary(ptr noundef %0) #0 {
   br label %25
 
 25:                                               ; preds = %24, %22
-  %26 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.expert_field, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr ptr, ptr %26, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %35
-
-34:                                               ; preds = %25
-  br label %37
+  %26 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds %struct.expert_field, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 4
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr ptr, ptr %27, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %36
 
 35:                                               ; preds = %25
+  br label %38
+
+36:                                               ; preds = %25
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.53, ptr noundef @.str.51, i32 noundef 489, ptr noundef @.str.56, ptr noundef @.str.55) #9
   unreachable
 
-36:                                               ; No predecessors!
-  br label %37
+37:                                               ; No predecessors!
+  br label %38
 
-37:                                               ; preds = %36, %34
-  %38 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.expert_field, ptr %39, i32 0, i32 0
-  %41 = load i32, ptr %40, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr ptr, ptr %38, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %3, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.expert_field_info, ptr %45, i32 0, i32 3
-  %47 = load ptr, ptr %46, align 8
-  ret ptr %47
+38:                                               ; preds = %37, %35
+  %39 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds %struct.expert_field, ptr %41, i32 0, i32 0
+  %43 = load i32, ptr %42, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr ptr, ptr %40, i64 %44
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %3, align 8
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds %struct.expert_field_info, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8
+  ret ptr %49
 }
 
 ; Function Attrs: noreturn
@@ -1230,60 +1250,62 @@ define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, pt
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.expert_field, ptr %33, i32 0, i32 0
-  %35 = load i32, ptr %34, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr ptr, ptr %32, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp ne ptr %38, null
-  br i1 %39, label %40, label %41
-
-40:                                               ; preds = %31
-  br label %43
+  %32 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds %struct.expert_field, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr ptr, ptr %33, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %42
 
 41:                                               ; preds = %31
+  br label %44
+
+42:                                               ; preds = %31
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.53, ptr noundef @.str.51, i32 noundef 644, ptr noundef @.str.58, ptr noundef @.str.55) #9
   unreachable
 
-42:                                               ; No predecessors!
-  br label %43
+43:                                               ; No predecessors!
+  br label %44
 
-43:                                               ; preds = %42, %40
-  %44 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.expert_field, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr ptr, ptr %44, i64 %48
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %8, align 8
-  %51 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %51)
-  %52 = load ptr, ptr %4, align 8
-  %53 = load ptr, ptr %5, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.expert_field_info, ptr %54, i32 0, i32 1
-  %56 = load i32, ptr %55, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.expert_field_info, ptr %57, i32 0, i32 2
-  %59 = load i32, ptr %58, align 4
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.expert_field_info, ptr %60, i32 0, i32 7
-  %62 = getelementptr inbounds %struct.hf_register_info, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %8, align 8
-  %66 = getelementptr inbounds %struct.expert_field_info, ptr %65, i32 0, i32 3
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  %69 = call ptr @expert_set_info_vformat(ptr noundef %52, ptr noundef %53, i32 noundef %56, i32 noundef %59, i32 noundef %64, i32 noundef 0, ptr noundef %67, ptr noundef %68)
-  store ptr %69, ptr %9, align 8
+44:                                               ; preds = %43, %41
+  %45 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct.expert_field, ptr %47, i32 0, i32 0
+  %49 = load i32, ptr %48, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr ptr, ptr %46, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %8, align 8
+  %53 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %53)
+  %54 = load ptr, ptr %4, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds %struct.expert_field_info, ptr %56, i32 0, i32 1
+  %58 = load i32, ptr %57, align 8
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds %struct.expert_field_info, ptr %59, i32 0, i32 2
+  %61 = load i32, ptr %60, align 4
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds %struct.expert_field_info, ptr %62, i32 0, i32 7
+  %64 = getelementptr inbounds %struct.hf_register_info, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i32, ptr %65, align 4
+  %67 = load ptr, ptr %8, align 8
+  %68 = getelementptr inbounds %struct.expert_field_info, ptr %67, i32 0, i32 3
+  %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %70)
-  %71 = load ptr, ptr %9, align 8
-  ret ptr %71
+  %71 = call ptr @expert_set_info_vformat(ptr noundef %54, ptr noundef %55, i32 noundef %58, i32 noundef %61, i32 noundef %66, i32 noundef 0, ptr noundef %69, ptr noundef %70)
+  store ptr %71, ptr %9, align 8
+  %72 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %72)
+  %73 = load ptr, ptr %9, align 8
+  ret ptr %73
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1337,62 +1359,61 @@ define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %33
 
 33:                                               ; preds = %32, %30
-  %34 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.expert_field, ptr %35, i32 0, i32 0
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr ptr, ptr %34, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %33
-  br label %45
+  %34 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds %struct.expert_field, ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr ptr, ptr %35, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %44
 
 43:                                               ; preds = %33
+  br label %46
+
+44:                                               ; preds = %33
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.53, ptr noundef @.str.51, i32 noundef 668, ptr noundef @.str.58, ptr noundef @.str.55) #9
   unreachable
 
-44:                                               ; No predecessors!
-  br label %45
+45:                                               ; No predecessors!
+  br label %46
 
-45:                                               ; preds = %44, %42
-  %46 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.expert_field, ptr %47, i32 0, i32 0
-  %49 = load i32, ptr %48, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr ptr, ptr %46, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %10, align 8
-  %53 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %53)
-  %54 = load ptr, ptr %5, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.expert_field_info, ptr %56, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds %struct.expert_field_info, ptr %59, i32 0, i32 2
-  %61 = load i32, ptr %60, align 4
-  %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds %struct.expert_field_info, ptr %62, i32 0, i32 7
-  %64 = getelementptr inbounds %struct.hf_register_info, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = load i32, ptr %65, align 4
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  %69 = call ptr @expert_set_info_vformat(ptr noundef %54, ptr noundef %55, i32 noundef %58, i32 noundef %61, i32 noundef %66, i32 noundef 1, ptr noundef %67, ptr noundef %68)
-  store ptr %69, ptr %11, align 8
+46:                                               ; preds = %45, %43
+  %47 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds %struct.expert_field, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr ptr, ptr %48, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %10, align 8
+  %55 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %55)
+  %56 = load ptr, ptr %5, align 8
+  %57 = load ptr, ptr %6, align 8
+  %58 = load ptr, ptr %10, align 8
+  %59 = getelementptr inbounds %struct.expert_field_info, ptr %58, i32 0, i32 1
+  %60 = load i32, ptr %59, align 8
+  %61 = load ptr, ptr %10, align 8
+  %62 = getelementptr inbounds %struct.expert_field_info, ptr %61, i32 0, i32 2
+  %63 = load i32, ptr %62, align 4
+  %64 = load ptr, ptr %10, align 8
+  %65 = getelementptr inbounds %struct.expert_field_info, ptr %64, i32 0, i32 7
+  %66 = getelementptr inbounds %struct.hf_register_info, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i32, ptr %67, align 4
+  %69 = load ptr, ptr %8, align 8
   %70 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %70)
-  %71 = load ptr, ptr %11, align 8
-  ret ptr %71
+  %71 = call ptr @expert_set_info_vformat(ptr noundef %56, ptr noundef %57, i32 noundef %60, i32 noundef %63, i32 noundef %68, i32 noundef 1, ptr noundef %69, ptr noundef %70)
+  store ptr %71, ptr %11, align 8
+  %72 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %72)
+  %73 = load ptr, ptr %11, align 8
+  ret ptr %73
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #0 {
@@ -1712,9 +1733,6 @@ define internal ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32
   ret ptr %214
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
-
 ; Function Attrs: nounwind uwtable
 define ptr @proto_tree_add_expert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
@@ -1796,109 +1814,111 @@ define internal ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %38, %36
-  %40 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds %struct.expert_field, ptr %41, i32 0, i32 0
-  %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr ptr, ptr %40, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %49
-
-48:                                               ; preds = %39
-  br label %51
+  %40 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds %struct.expert_field, ptr %42, i32 0, i32 0
+  %44 = load i32, ptr %43, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr ptr, ptr %41, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %50
 
 49:                                               ; preds = %39
+  br label %52
+
+50:                                               ; preds = %39
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.53, ptr noundef @.str.51, i32 noundef 687, ptr noundef @.str.58, ptr noundef @.str.55) #9
   unreachable
 
-50:                                               ; No predecessors!
-  br label %51
+51:                                               ; No predecessors!
+  br label %52
 
-51:                                               ; preds = %50, %48
-  %52 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct.expert_field, ptr %53, i32 0, i32 0
-  %55 = load i32, ptr %54, align 4
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr ptr, ptr %52, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %13, align 8
-  %59 = load i32, ptr %12, align 4
-  store i32 %59, ptr %15, align 4
-  %60 = load ptr, ptr %10, align 8
-  %61 = load i32, ptr %11, align 4
-  %62 = call i32 @tvb_captured_length_remaining(ptr noundef %60, i32 noundef %61)
-  store i32 %62, ptr %16, align 4
-  %63 = load i32, ptr %16, align 4
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %66
+52:                                               ; preds = %51, %49
+  %53 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %9, align 8
+  %56 = getelementptr inbounds %struct.expert_field, ptr %55, i32 0, i32 0
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr ptr, ptr %54, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %13, align 8
+  %61 = load i32, ptr %12, align 4
+  store i32 %61, ptr %15, align 4
+  %62 = load ptr, ptr %10, align 8
+  %63 = load i32, ptr %11, align 4
+  %64 = call i32 @tvb_captured_length_remaining(ptr noundef %62, i32 noundef %63)
+  store i32 %64, ptr %16, align 4
+  %65 = load i32, ptr %16, align 4
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %68
 
-65:                                               ; preds = %51
+67:                                               ; preds = %52
   store i32 0, ptr %15, align 4
-  br label %73
+  br label %75
 
-66:                                               ; preds = %51
-  %67 = load i32, ptr %16, align 4
-  %68 = load i32, ptr %15, align 4
-  %69 = icmp slt i32 %67, %68
-  br i1 %69, label %70, label %72
+68:                                               ; preds = %52
+  %69 = load i32, ptr %16, align 4
+  %70 = load i32, ptr %15, align 4
+  %71 = icmp slt i32 %69, %70
+  br i1 %71, label %72, label %74
 
-70:                                               ; preds = %66
-  %71 = load i32, ptr %16, align 4
-  store i32 %71, ptr %15, align 4
-  br label %72
+72:                                               ; preds = %68
+  %73 = load i32, ptr %16, align 4
+  store i32 %73, ptr %15, align 4
+  br label %74
 
-72:                                               ; preds = %70, %66
-  br label %73
+74:                                               ; preds = %72, %68
+  br label %75
 
-73:                                               ; preds = %72, %65
-  %74 = load ptr, ptr %7, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = load i32, ptr %11, align 4
-  %77 = load i32, ptr %15, align 4
-  %78 = load ptr, ptr %13, align 8
-  %79 = getelementptr inbounds %struct.expert_field_info, ptr %78, i32 0, i32 3
-  %80 = load ptr, ptr %79, align 8
-  %81 = call ptr (ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_text_internal(ptr noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef %77, ptr noundef @.str.64, ptr noundef %80)
-  store ptr %81, ptr %14, align 8
-  %82 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %17, i64 0, i64 0
-  call void @llvm.va_start(ptr %82)
-  %83 = load ptr, ptr %8, align 8
-  %84 = load ptr, ptr %14, align 8
-  %85 = load ptr, ptr %13, align 8
-  %86 = getelementptr inbounds %struct.expert_field_info, ptr %85, i32 0, i32 1
-  %87 = load i32, ptr %86, align 8
-  %88 = load ptr, ptr %13, align 8
-  %89 = getelementptr inbounds %struct.expert_field_info, ptr %88, i32 0, i32 2
-  %90 = load i32, ptr %89, align 4
-  %91 = load ptr, ptr %13, align 8
-  %92 = getelementptr inbounds %struct.expert_field_info, ptr %91, i32 0, i32 7
-  %93 = getelementptr inbounds %struct.hf_register_info, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8
-  %95 = load i32, ptr %94, align 4
-  %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds %struct.expert_field_info, ptr %96, i32 0, i32 3
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %17, i64 0, i64 0
-  %100 = call ptr @expert_set_info_vformat(ptr noundef %83, ptr noundef %84, i32 noundef %87, i32 noundef %90, i32 noundef %95, i32 noundef 0, ptr noundef %98, ptr noundef %99)
+75:                                               ; preds = %74, %67
+  %76 = load ptr, ptr %7, align 8
+  %77 = load ptr, ptr %10, align 8
+  %78 = load i32, ptr %11, align 4
+  %79 = load i32, ptr %15, align 4
+  %80 = load ptr, ptr %13, align 8
+  %81 = getelementptr inbounds %struct.expert_field_info, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8
+  %83 = call ptr (ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_text_internal(ptr noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef %79, ptr noundef @.str.64, ptr noundef %82)
+  store ptr %83, ptr %14, align 8
+  %84 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %17, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %84)
+  %85 = load ptr, ptr %8, align 8
+  %86 = load ptr, ptr %14, align 8
+  %87 = load ptr, ptr %13, align 8
+  %88 = getelementptr inbounds %struct.expert_field_info, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %88, align 8
+  %90 = load ptr, ptr %13, align 8
+  %91 = getelementptr inbounds %struct.expert_field_info, ptr %90, i32 0, i32 2
+  %92 = load i32, ptr %91, align 4
+  %93 = load ptr, ptr %13, align 8
+  %94 = getelementptr inbounds %struct.expert_field_info, ptr %93, i32 0, i32 7
+  %95 = getelementptr inbounds %struct.hf_register_info, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8
+  %97 = load i32, ptr %96, align 4
+  %98 = load ptr, ptr %13, align 8
+  %99 = getelementptr inbounds %struct.expert_field_info, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %17, i64 0, i64 0
-  call void @llvm.va_end(ptr %101)
-  %102 = load i32, ptr %12, align 4
-  %103 = icmp ne i32 %102, -1
-  br i1 %103, label %104, label %108
+  %102 = call ptr @expert_set_info_vformat(ptr noundef %85, ptr noundef %86, i32 noundef %89, i32 noundef %92, i32 noundef %97, i32 noundef 0, ptr noundef %100, ptr noundef %101)
+  %103 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %17, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %103)
+  %104 = load i32, ptr %12, align 4
+  %105 = icmp ne i32 %104, -1
+  br i1 %105, label %106, label %110
 
-104:                                              ; preds = %73
-  %105 = load ptr, ptr %10, align 8
-  %106 = load i32, ptr %11, align 4
-  %107 = load i32, ptr %12, align 4
-  call void @tvb_ensure_bytes_exist(ptr noundef %105, i32 noundef %106, i32 noundef %107)
-  br label %108
+106:                                              ; preds = %75
+  %107 = load ptr, ptr %10, align 8
+  %108 = load i32, ptr %11, align 4
+  %109 = load i32, ptr %12, align 4
+  call void @tvb_ensure_bytes_exist(ptr noundef %107, i32 noundef %108, i32 noundef %109)
+  br label %110
 
-108:                                              ; preds = %104, %73
-  %109 = load ptr, ptr %14, align 8
-  ret ptr %109
+110:                                              ; preds = %106, %75
+  %111 = load ptr, ptr %14, align 8
+  ret ptr %111
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1960,110 +1980,112 @@ define ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr nou
   br label %41
 
 41:                                               ; preds = %40, %38
-  %42 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.expert_field, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr ptr, ptr %42, i64 %46
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %50, label %51
-
-50:                                               ; preds = %41
-  br label %53
+  %42 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %10, align 8
+  %45 = getelementptr inbounds %struct.expert_field, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr ptr, ptr %43, i64 %47
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %52
 
 51:                                               ; preds = %41
+  br label %54
+
+52:                                               ; preds = %41
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.53, ptr noundef @.str.51, i32 noundef 725, ptr noundef @.str.58, ptr noundef @.str.55) #9
   unreachable
 
-52:                                               ; No predecessors!
-  br label %53
+53:                                               ; No predecessors!
+  br label %54
 
-53:                                               ; preds = %52, %50
-  %54 = load ptr, ptr getelementptr inbounds (%struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2), align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.expert_field, ptr %55, i32 0, i32 0
-  %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr ptr, ptr %54, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %16, align 8
-  %61 = load i32, ptr %13, align 4
-  store i32 %61, ptr %17, align 4
-  %62 = load ptr, ptr %11, align 8
-  %63 = load i32, ptr %12, align 4
-  %64 = call i32 @tvb_captured_length_remaining(ptr noundef %62, i32 noundef %63)
-  store i32 %64, ptr %18, align 4
-  %65 = load i32, ptr %18, align 4
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %68
+54:                                               ; preds = %53, %51
+  %55 = getelementptr inbounds %struct._gpa_expertinfo_t, ptr @gpa_expertinfo, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds %struct.expert_field, ptr %57, i32 0, i32 0
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr ptr, ptr %56, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %16, align 8
+  %63 = load i32, ptr %13, align 4
+  store i32 %63, ptr %17, align 4
+  %64 = load ptr, ptr %11, align 8
+  %65 = load i32, ptr %12, align 4
+  %66 = call i32 @tvb_captured_length_remaining(ptr noundef %64, i32 noundef %65)
+  store i32 %66, ptr %18, align 4
+  %67 = load i32, ptr %18, align 4
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %69, label %70
 
-67:                                               ; preds = %53
+69:                                               ; preds = %54
   store i32 0, ptr %17, align 4
-  br label %75
+  br label %77
 
-68:                                               ; preds = %53
-  %69 = load i32, ptr %18, align 4
-  %70 = load i32, ptr %17, align 4
-  %71 = icmp slt i32 %69, %70
-  br i1 %71, label %72, label %74
+70:                                               ; preds = %54
+  %71 = load i32, ptr %18, align 4
+  %72 = load i32, ptr %17, align 4
+  %73 = icmp slt i32 %71, %72
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %18, align 4
-  store i32 %73, ptr %17, align 4
-  br label %74
+74:                                               ; preds = %70
+  %75 = load i32, ptr %18, align 4
+  store i32 %75, ptr %17, align 4
+  br label %76
 
-74:                                               ; preds = %72, %68
-  br label %75
+76:                                               ; preds = %74, %70
+  br label %77
 
-75:                                               ; preds = %74, %67
-  %76 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
-  call void @llvm.va_start(ptr %76)
-  %77 = load ptr, ptr %8, align 8
-  %78 = load ptr, ptr %11, align 8
-  %79 = load i32, ptr %12, align 4
-  %80 = load i32, ptr %17, align 4
-  %81 = load ptr, ptr %14, align 8
-  %82 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
-  %83 = call ptr @proto_tree_add_text_valist_internal(ptr noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef %80, ptr noundef %81, ptr noundef %82)
-  store ptr %83, ptr %19, align 8
+77:                                               ; preds = %76, %69
+  %78 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %78)
+  %79 = load ptr, ptr %8, align 8
+  %80 = load ptr, ptr %11, align 8
+  %81 = load i32, ptr %12, align 4
+  %82 = load i32, ptr %17, align 4
+  %83 = load ptr, ptr %14, align 8
   %84 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
-  call void @llvm.va_end(ptr %84)
-  %85 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
-  call void @llvm.va_start(ptr %85)
-  %86 = load ptr, ptr %9, align 8
-  %87 = load ptr, ptr %19, align 8
-  %88 = load ptr, ptr %16, align 8
-  %89 = getelementptr inbounds %struct.expert_field_info, ptr %88, i32 0, i32 1
-  %90 = load i32, ptr %89, align 8
-  %91 = load ptr, ptr %16, align 8
-  %92 = getelementptr inbounds %struct.expert_field_info, ptr %91, i32 0, i32 2
-  %93 = load i32, ptr %92, align 4
-  %94 = load ptr, ptr %16, align 8
-  %95 = getelementptr inbounds %struct.expert_field_info, ptr %94, i32 0, i32 7
-  %96 = getelementptr inbounds %struct.hf_register_info, ptr %95, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = load i32, ptr %97, align 4
-  %99 = load ptr, ptr %14, align 8
-  %100 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
-  %101 = call ptr @expert_set_info_vformat(ptr noundef %86, ptr noundef %87, i32 noundef %90, i32 noundef %93, i32 noundef %98, i32 noundef 1, ptr noundef %99, ptr noundef %100)
+  %85 = call ptr @proto_tree_add_text_valist_internal(ptr noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef %82, ptr noundef %83, ptr noundef %84)
+  store ptr %85, ptr %19, align 8
+  %86 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %86)
+  %87 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %87)
+  %88 = load ptr, ptr %9, align 8
+  %89 = load ptr, ptr %19, align 8
+  %90 = load ptr, ptr %16, align 8
+  %91 = getelementptr inbounds %struct.expert_field_info, ptr %90, i32 0, i32 1
+  %92 = load i32, ptr %91, align 8
+  %93 = load ptr, ptr %16, align 8
+  %94 = getelementptr inbounds %struct.expert_field_info, ptr %93, i32 0, i32 2
+  %95 = load i32, ptr %94, align 4
+  %96 = load ptr, ptr %16, align 8
+  %97 = getelementptr inbounds %struct.expert_field_info, ptr %96, i32 0, i32 7
+  %98 = getelementptr inbounds %struct.hf_register_info, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  %100 = load i32, ptr %99, align 4
+  %101 = load ptr, ptr %14, align 8
   %102 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
-  call void @llvm.va_end(ptr %102)
-  %103 = load i32, ptr %13, align 4
-  %104 = icmp ne i32 %103, -1
-  br i1 %104, label %105, label %109
+  %103 = call ptr @expert_set_info_vformat(ptr noundef %88, ptr noundef %89, i32 noundef %92, i32 noundef %95, i32 noundef %100, i32 noundef 1, ptr noundef %101, ptr noundef %102)
+  %104 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %15, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %104)
+  %105 = load i32, ptr %13, align 4
+  %106 = icmp ne i32 %105, -1
+  br i1 %106, label %107, label %111
 
-105:                                              ; preds = %75
-  %106 = load ptr, ptr %11, align 8
-  %107 = load i32, ptr %12, align 4
-  %108 = load i32, ptr %13, align 4
-  call void @tvb_ensure_bytes_exist(ptr noundef %106, i32 noundef %107, i32 noundef %108)
-  br label %109
+107:                                              ; preds = %77
+  %108 = load ptr, ptr %11, align 8
+  %109 = load i32, ptr %12, align 4
+  %110 = load i32, ptr %13, align 4
+  call void @tvb_ensure_bytes_exist(ptr noundef %108, i32 noundef %109, i32 noundef %110)
+  br label %111
 
-109:                                              ; preds = %105, %75
-  %110 = load ptr, ptr %19, align 8
-  ret ptr %110
+111:                                              ; preds = %107, %77
+  %112 = load ptr, ptr %19, align 8
+  ret ptr %112
 }
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
@@ -2077,7 +2099,7 @@ declare noalias ptr @g_strndup(ptr noundef, i64 noundef) #1
 declare noalias ptr @g_strdup(ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @expert_registrar_get_byname(ptr noundef %0) #0 {
@@ -2114,7 +2136,7 @@ declare ptr @g_array_set_size(ptr noundef, i32 noundef) #1
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #6
+declare noalias ptr @g_malloc(i64 noundef) #5
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) #1
 
@@ -2391,13 +2413,19 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 declare ptr @proto_tree_add_text_internal(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn }

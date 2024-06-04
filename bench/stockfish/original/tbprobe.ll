@@ -1506,7 +1506,7 @@ define dso_local void @_ZN9Stockfish10Tablebases4initERKNSt7__cxx1112basic_strin
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %86, %1
-  br label %658
+  br label %659
 
 90:                                               ; preds = %86
   store i32 0, ptr %3, align 4
@@ -1639,19 +1639,19 @@ define dso_local void @_ZN9Stockfish10Tablebases4initERKNSt7__cxx1112basic_strin
   store i32 0, ptr %12, align 4
   br label %158
 
-158:                                              ; preds = %231, %157
+158:                                              ; preds = %232, %157
   %159 = load i32, ptr %12, align 4
   %160 = icmp slt i32 %159, 10
-  br i1 %160, label %161, label %234
+  br i1 %160, label %161, label %235
 
 161:                                              ; preds = %158
   store i32 0, ptr %13, align 4
   br label %162
 
-162:                                              ; preds = %228, %161
+162:                                              ; preds = %229, %161
   %163 = load i32, ptr %13, align 4
   %164 = icmp sle i32 %163, 27
-  br i1 %164, label %165, label %230
+  br i1 %164, label %165, label %231
 
 165:                                              ; preds = %162
   %166 = load i32, ptr %13, align 4
@@ -1660,7 +1660,7 @@ define dso_local void @_ZN9Stockfish10Tablebases4initERKNSt7__cxx1112basic_strin
   %169 = load i32, ptr %168, align 4
   %170 = load i32, ptr %12, align 4
   %171 = icmp eq i32 %169, %170
-  br i1 %171, label %172, label %227
+  br i1 %171, label %172, label %228
 
 172:                                              ; preds = %165
   %173 = load i32, ptr %12, align 4
@@ -1670,873 +1670,874 @@ define dso_local void @_ZN9Stockfish10Tablebases4initERKNSt7__cxx1112basic_strin
 175:                                              ; preds = %172
   %176 = load i32, ptr %13, align 4
   %177 = icmp eq i32 %176, 1
-  br i1 %177, label %178, label %227
+  br i1 %177, label %178, label %228
 
 178:                                              ; preds = %175, %172
   store i32 0, ptr %14, align 4
   br label %179
 
-179:                                              ; preds = %224, %178
+179:                                              ; preds = %225, %178
   %180 = load i32, ptr %14, align 4
   %181 = icmp sle i32 %180, 63
-  br i1 %181, label %182, label %226
+  br i1 %181, label %182, label %227
 
 182:                                              ; preds = %179
   %183 = load i32, ptr %13, align 4
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds ([8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6), i64 0, i64 %184
-  %186 = load i64, ptr %185, align 8
-  %187 = load i32, ptr %13, align 4
-  %188 = call noundef i64 @_ZN9StockfishorEmNS_6SquareE(i64 noundef %186, i32 noundef %187)
-  %189 = load i32, ptr %14, align 4
-  %190 = call noundef i64 @_ZN9StockfishanEmNS_6SquareE(i64 noundef %188, i32 noundef %189)
-  %191 = icmp ne i64 %190, 0
-  br i1 %191, label %192, label %193
-
-192:                                              ; preds = %182
-  br label %224
+  %185 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6
+  %186 = getelementptr inbounds [64 x i64], ptr %185, i64 0, i64 %184
+  %187 = load i64, ptr %186, align 8
+  %188 = load i32, ptr %13, align 4
+  %189 = call noundef i64 @_ZN9StockfishorEmNS_6SquareE(i64 noundef %187, i32 noundef %188)
+  %190 = load i32, ptr %14, align 4
+  %191 = call noundef i64 @_ZN9StockfishanEmNS_6SquareE(i64 noundef %189, i32 noundef %190)
+  %192 = icmp ne i64 %191, 0
+  br i1 %192, label %193, label %194
 
 193:                                              ; preds = %182
-  %194 = load i32, ptr %13, align 4
-  %195 = call noundef i32 @_ZN9Stockfish12_GLOBAL__N_18off_A1H8ENS_6SquareE(i32 noundef %194)
-  %196 = icmp ne i32 %195, 0
-  br i1 %196, label %202, label %197
+  br label %225
 
-197:                                              ; preds = %193
-  %198 = load i32, ptr %14, align 4
-  %199 = call noundef i32 @_ZN9Stockfish12_GLOBAL__N_18off_A1H8ENS_6SquareE(i32 noundef %198)
-  %200 = icmp sgt i32 %199, 0
-  br i1 %200, label %201, label %202
+194:                                              ; preds = %182
+  %195 = load i32, ptr %13, align 4
+  %196 = call noundef i32 @_ZN9Stockfish12_GLOBAL__N_18off_A1H8ENS_6SquareE(i32 noundef %195)
+  %197 = icmp ne i32 %196, 0
+  br i1 %197, label %203, label %198
 
-201:                                              ; preds = %197
-  br label %224
+198:                                              ; preds = %194
+  %199 = load i32, ptr %14, align 4
+  %200 = call noundef i32 @_ZN9Stockfish12_GLOBAL__N_18off_A1H8ENS_6SquareE(i32 noundef %199)
+  %201 = icmp sgt i32 %200, 0
+  br i1 %201, label %202, label %203
 
-202:                                              ; preds = %197, %193
-  %203 = load i32, ptr %13, align 4
-  %204 = call noundef i32 @_ZN9Stockfish12_GLOBAL__N_18off_A1H8ENS_6SquareE(i32 noundef %203)
-  %205 = icmp ne i32 %204, 0
-  br i1 %205, label %212, label %206
+202:                                              ; preds = %198
+  br label %225
 
-206:                                              ; preds = %202
-  %207 = load i32, ptr %14, align 4
-  %208 = call noundef i32 @_ZN9Stockfish12_GLOBAL__N_18off_A1H8ENS_6SquareE(i32 noundef %207)
-  %209 = icmp ne i32 %208, 0
-  br i1 %209, label %212, label %210
+203:                                              ; preds = %198, %194
+  %204 = load i32, ptr %13, align 4
+  %205 = call noundef i32 @_ZN9Stockfish12_GLOBAL__N_18off_A1H8ENS_6SquareE(i32 noundef %204)
+  %206 = icmp ne i32 %205, 0
+  br i1 %206, label %213, label %207
 
-210:                                              ; preds = %206
-  %211 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE12emplace_backIJRiRS2_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  br label %221
+207:                                              ; preds = %203
+  %208 = load i32, ptr %14, align 4
+  %209 = call noundef i32 @_ZN9Stockfish12_GLOBAL__N_18off_A1H8ENS_6SquareE(i32 noundef %208)
+  %210 = icmp ne i32 %209, 0
+  br i1 %210, label %213, label %211
 
-212:                                              ; preds = %206, %202
-  %213 = load i32, ptr %3, align 4
-  %214 = add nsw i32 %213, 1
-  store i32 %214, ptr %3, align 4
-  %215 = load i32, ptr %12, align 4
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds [10 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_15MapKKE, i64 0, i64 %216
-  %218 = load i32, ptr %14, align 4
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds [64 x i32], ptr %217, i64 0, i64 %219
-  store i32 %213, ptr %220, align 4
-  br label %221
-
-221:                                              ; preds = %212, %210
+211:                                              ; preds = %207
+  %212 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE12emplace_backIJRiRS2_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %14)
   br label %222
 
-222:                                              ; preds = %221
+213:                                              ; preds = %207, %203
+  %214 = load i32, ptr %3, align 4
+  %215 = add nsw i32 %214, 1
+  store i32 %215, ptr %3, align 4
+  %216 = load i32, ptr %12, align 4
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds [10 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_15MapKKE, i64 0, i64 %217
+  %219 = load i32, ptr %14, align 4
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds [64 x i32], ptr %218, i64 0, i64 %220
+  store i32 %214, ptr %221, align 4
+  br label %222
+
+222:                                              ; preds = %213, %211
   br label %223
 
 223:                                              ; preds = %222
   br label %224
 
-224:                                              ; preds = %223, %201, %192
-  %225 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_6SquareE(ptr noundef nonnull align 4 dereferenceable(4) %14)
+224:                                              ; preds = %223
+  br label %225
+
+225:                                              ; preds = %224, %202, %193
+  %226 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_6SquareE(ptr noundef nonnull align 4 dereferenceable(4) %14)
   br label %179, !llvm.loop !8
 
-226:                                              ; preds = %179
-  br label %227
-
-227:                                              ; preds = %226, %175, %165
+227:                                              ; preds = %179
   br label %228
 
-228:                                              ; preds = %227
-  %229 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_6SquareE(ptr noundef nonnull align 4 dereferenceable(4) %13)
+228:                                              ; preds = %227, %175, %165
+  br label %229
+
+229:                                              ; preds = %228
+  %230 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_6SquareE(ptr noundef nonnull align 4 dereferenceable(4) %13)
   br label %162, !llvm.loop !9
 
-230:                                              ; preds = %162
-  br label %231
+231:                                              ; preds = %162
+  br label %232
 
-231:                                              ; preds = %230
-  %232 = load i32, ptr %12, align 4
-  %233 = add nsw i32 %232, 1
-  store i32 %233, ptr %12, align 4
+232:                                              ; preds = %231
+  %233 = load i32, ptr %12, align 4
+  %234 = add nsw i32 %233, 1
+  store i32 %234, ptr %12, align 4
   br label %158, !llvm.loop !10
 
-234:                                              ; preds = %158
+235:                                              ; preds = %158
   store ptr %11, ptr %15, align 8
-  %235 = load ptr, ptr %15, align 8
-  %236 = call ptr @_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %235) #3
-  %237 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %16, i32 0, i32 0
-  store ptr %236, ptr %237, align 8
-  %238 = load ptr, ptr %15, align 8
-  %239 = call ptr @_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %238) #3
-  %240 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %17, i32 0, i32 0
-  store ptr %239, ptr %240, align 8
-  br label %241
+  %236 = load ptr, ptr %15, align 8
+  %237 = call ptr @_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %236) #3
+  %238 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %16, i32 0, i32 0
+  store ptr %237, ptr %238, align 8
+  %239 = load ptr, ptr %15, align 8
+  %240 = call ptr @_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %239) #3
+  %241 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %17, i32 0, i32 0
+  store ptr %240, ptr %241, align 8
+  br label %242
 
-241:                                              ; preds = %255, %234
-  %242 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt4pairIiN9Stockfish6SquareEESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17) #3
-  br i1 %242, label %243, label %257
+242:                                              ; preds = %256, %235
+  %243 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt4pairIiN9Stockfish6SquareEESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  br i1 %243, label %244, label %258
 
-243:                                              ; preds = %241
-  %244 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIiN9Stockfish6SquareEESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %244, i64 8, i1 false)
-  %245 = load i32, ptr %3, align 4
-  %246 = add nsw i32 %245, 1
-  store i32 %246, ptr %3, align 4
-  %247 = getelementptr inbounds %"struct.std::pair", ptr %18, i32 0, i32 0
-  %248 = load i32, ptr %247, align 4
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds [10 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_15MapKKE, i64 0, i64 %249
-  %251 = getelementptr inbounds %"struct.std::pair", ptr %18, i32 0, i32 1
-  %252 = load i32, ptr %251, align 4
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds [64 x i32], ptr %250, i64 0, i64 %253
-  store i32 %245, ptr %254, align 4
-  br label %255
+244:                                              ; preds = %242
+  %245 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIiN9Stockfish6SquareEESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %245, i64 8, i1 false)
+  %246 = load i32, ptr %3, align 4
+  %247 = add nsw i32 %246, 1
+  store i32 %247, ptr %3, align 4
+  %248 = getelementptr inbounds %"struct.std::pair", ptr %18, i32 0, i32 0
+  %249 = load i32, ptr %248, align 4
+  %250 = sext i32 %249 to i64
+  %251 = getelementptr inbounds [10 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_15MapKKE, i64 0, i64 %250
+  %252 = getelementptr inbounds %"struct.std::pair", ptr %18, i32 0, i32 1
+  %253 = load i32, ptr %252, align 4
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr inbounds [64 x i32], ptr %251, i64 0, i64 %254
+  store i32 %246, ptr %255, align 4
+  br label %256
 
-255:                                              ; preds = %243
-  %256 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIiN9Stockfish6SquareEESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  br label %241
+256:                                              ; preds = %244
+  %257 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIiN9Stockfish6SquareEESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  br label %242
 
-257:                                              ; preds = %241
+258:                                              ; preds = %242
   store i32 1, ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, align 16
   store i32 1, ptr %19, align 4
-  br label %258
+  br label %259
 
-258:                                              ; preds = %313, %257
-  %259 = load i32, ptr %19, align 4
-  %260 = icmp slt i32 %259, 64
-  br i1 %260, label %261, label %316
+259:                                              ; preds = %314, %258
+  %260 = load i32, ptr %19, align 4
+  %261 = icmp slt i32 %260, 64
+  br i1 %261, label %262, label %317
 
-261:                                              ; preds = %258
+262:                                              ; preds = %259
   store i32 0, ptr %20, align 4
-  br label %262
+  br label %263
 
-262:                                              ; preds = %309, %261
-  %263 = load i32, ptr %20, align 4
-  %264 = icmp slt i32 %263, 6
-  br i1 %264, label %265, label %269
+263:                                              ; preds = %310, %262
+  %264 = load i32, ptr %20, align 4
+  %265 = icmp slt i32 %264, 6
+  br i1 %265, label %266, label %270
 
-265:                                              ; preds = %262
-  %266 = load i32, ptr %20, align 4
-  %267 = load i32, ptr %19, align 4
-  %268 = icmp sle i32 %266, %267
-  br label %269
+266:                                              ; preds = %263
+  %267 = load i32, ptr %20, align 4
+  %268 = load i32, ptr %19, align 4
+  %269 = icmp sle i32 %267, %268
+  br label %270
 
-269:                                              ; preds = %265, %262
-  %270 = phi i1 [ false, %262 ], [ %268, %265 ]
-  br i1 %270, label %271, label %312
+270:                                              ; preds = %266, %263
+  %271 = phi i1 [ false, %263 ], [ %269, %266 ]
+  br i1 %271, label %272, label %313
 
-271:                                              ; preds = %269
-  %272 = load i32, ptr %20, align 4
-  %273 = icmp sgt i32 %272, 0
-  br i1 %273, label %274, label %284
+272:                                              ; preds = %270
+  %273 = load i32, ptr %20, align 4
+  %274 = icmp sgt i32 %273, 0
+  br i1 %274, label %275, label %285
 
-274:                                              ; preds = %271
-  %275 = load i32, ptr %20, align 4
-  %276 = sub nsw i32 %275, 1
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, i64 0, i64 %277
-  %279 = load i32, ptr %19, align 4
-  %280 = sub nsw i32 %279, 1
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds [64 x i32], ptr %278, i64 0, i64 %281
-  %283 = load i32, ptr %282, align 4
-  br label %285
+275:                                              ; preds = %272
+  %276 = load i32, ptr %20, align 4
+  %277 = sub nsw i32 %276, 1
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, i64 0, i64 %278
+  %280 = load i32, ptr %19, align 4
+  %281 = sub nsw i32 %280, 1
+  %282 = sext i32 %281 to i64
+  %283 = getelementptr inbounds [64 x i32], ptr %279, i64 0, i64 %282
+  %284 = load i32, ptr %283, align 4
+  br label %286
 
-284:                                              ; preds = %271
-  br label %285
+285:                                              ; preds = %272
+  br label %286
 
-285:                                              ; preds = %284, %274
-  %286 = phi i32 [ %283, %274 ], [ 0, %284 ]
-  %287 = load i32, ptr %20, align 4
-  %288 = load i32, ptr %19, align 4
-  %289 = icmp slt i32 %287, %288
-  br i1 %289, label %290, label %299
+286:                                              ; preds = %285, %275
+  %287 = phi i32 [ %284, %275 ], [ 0, %285 ]
+  %288 = load i32, ptr %20, align 4
+  %289 = load i32, ptr %19, align 4
+  %290 = icmp slt i32 %288, %289
+  br i1 %290, label %291, label %300
 
-290:                                              ; preds = %285
-  %291 = load i32, ptr %20, align 4
-  %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, i64 0, i64 %292
-  %294 = load i32, ptr %19, align 4
-  %295 = sub nsw i32 %294, 1
-  %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds [64 x i32], ptr %293, i64 0, i64 %296
-  %298 = load i32, ptr %297, align 4
-  br label %300
+291:                                              ; preds = %286
+  %292 = load i32, ptr %20, align 4
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, i64 0, i64 %293
+  %295 = load i32, ptr %19, align 4
+  %296 = sub nsw i32 %295, 1
+  %297 = sext i32 %296 to i64
+  %298 = getelementptr inbounds [64 x i32], ptr %294, i64 0, i64 %297
+  %299 = load i32, ptr %298, align 4
+  br label %301
 
-299:                                              ; preds = %285
-  br label %300
+300:                                              ; preds = %286
+  br label %301
 
-300:                                              ; preds = %299, %290
-  %301 = phi i32 [ %298, %290 ], [ 0, %299 ]
-  %302 = add nsw i32 %286, %301
-  %303 = load i32, ptr %20, align 4
-  %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, i64 0, i64 %304
-  %306 = load i32, ptr %19, align 4
-  %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds [64 x i32], ptr %305, i64 0, i64 %307
-  store i32 %302, ptr %308, align 4
-  br label %309
+301:                                              ; preds = %300, %291
+  %302 = phi i32 [ %299, %291 ], [ 0, %300 ]
+  %303 = add nsw i32 %287, %302
+  %304 = load i32, ptr %20, align 4
+  %305 = sext i32 %304 to i64
+  %306 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, i64 0, i64 %305
+  %307 = load i32, ptr %19, align 4
+  %308 = sext i32 %307 to i64
+  %309 = getelementptr inbounds [64 x i32], ptr %306, i64 0, i64 %308
+  store i32 %303, ptr %309, align 4
+  br label %310
 
-309:                                              ; preds = %300
-  %310 = load i32, ptr %20, align 4
-  %311 = add nsw i32 %310, 1
-  store i32 %311, ptr %20, align 4
-  br label %262, !llvm.loop !11
+310:                                              ; preds = %301
+  %311 = load i32, ptr %20, align 4
+  %312 = add nsw i32 %311, 1
+  store i32 %312, ptr %20, align 4
+  br label %263, !llvm.loop !11
 
-312:                                              ; preds = %269
-  br label %313
+313:                                              ; preds = %270
+  br label %314
 
-313:                                              ; preds = %312
-  %314 = load i32, ptr %19, align 4
-  %315 = add nsw i32 %314, 1
-  store i32 %315, ptr %19, align 4
-  br label %258, !llvm.loop !12
+314:                                              ; preds = %313
+  %315 = load i32, ptr %19, align 4
+  %316 = add nsw i32 %315, 1
+  store i32 %316, ptr %19, align 4
+  br label %259, !llvm.loop !12
 
-316:                                              ; preds = %258
+317:                                              ; preds = %259
   store i32 47, ptr %21, align 4
   store i32 1, ptr %22, align 4
-  br label %317
+  br label %318
 
-317:                                              ; preds = %380, %316
-  %318 = load i32, ptr %22, align 4
-  %319 = icmp sle i32 %318, 5
-  br i1 %319, label %320, label %383
+318:                                              ; preds = %381, %317
+  %319 = load i32, ptr %22, align 4
+  %320 = icmp sle i32 %319, 5
+  br i1 %320, label %321, label %384
 
-320:                                              ; preds = %317
+321:                                              ; preds = %318
   store i32 0, ptr %23, align 4
-  br label %321
+  br label %322
 
-321:                                              ; preds = %377, %320
-  %322 = load i32, ptr %23, align 4
-  %323 = icmp sle i32 %322, 3
-  br i1 %323, label %324, label %379
+322:                                              ; preds = %378, %321
+  %323 = load i32, ptr %23, align 4
+  %324 = icmp sle i32 %323, 3
+  br i1 %324, label %325, label %380
 
-324:                                              ; preds = %321
+325:                                              ; preds = %322
   store i32 0, ptr %24, align 4
   store i32 1, ptr %25, align 4
-  br label %325
+  br label %326
 
-325:                                              ; preds = %367, %324
-  %326 = load i32, ptr %25, align 4
-  %327 = icmp sle i32 %326, 6
-  br i1 %327, label %328, label %369
+326:                                              ; preds = %368, %325
+  %327 = load i32, ptr %25, align 4
+  %328 = icmp sle i32 %327, 6
+  br i1 %328, label %329, label %370
 
-328:                                              ; preds = %325
-  %329 = load i32, ptr %23, align 4
-  %330 = load i32, ptr %25, align 4
-  %331 = call noundef i32 @_ZN9Stockfish11make_squareENS_4FileENS_4RankE(i32 noundef %329, i32 noundef %330)
-  store i32 %331, ptr %26, align 4
-  %332 = load i32, ptr %22, align 4
-  %333 = icmp eq i32 %332, 1
-  br i1 %333, label %334, label %346
+329:                                              ; preds = %326
+  %330 = load i32, ptr %23, align 4
+  %331 = load i32, ptr %25, align 4
+  %332 = call noundef i32 @_ZN9Stockfish11make_squareENS_4FileENS_4RankE(i32 noundef %330, i32 noundef %331)
+  store i32 %332, ptr %26, align 4
+  %333 = load i32, ptr %22, align 4
+  %334 = icmp eq i32 %333, 1
+  br i1 %334, label %335, label %347
 
-334:                                              ; preds = %328
-  %335 = load i32, ptr %21, align 4
-  %336 = add nsw i32 %335, -1
-  store i32 %336, ptr %21, align 4
-  %337 = load i32, ptr %26, align 4
-  %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds [64 x i32], ptr @_ZN9Stockfish12_GLOBAL__N_18MapPawnsE, i64 0, i64 %338
-  store i32 %335, ptr %339, align 4
-  %340 = load i32, ptr %21, align 4
-  %341 = add nsw i32 %340, -1
-  store i32 %341, ptr %21, align 4
-  %342 = load i32, ptr %26, align 4
-  %343 = call noundef i32 @_ZN9Stockfish9flip_fileENS_6SquareE(i32 noundef %342)
-  %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds [64 x i32], ptr @_ZN9Stockfish12_GLOBAL__N_18MapPawnsE, i64 0, i64 %344
-  store i32 %340, ptr %345, align 4
-  br label %346
+335:                                              ; preds = %329
+  %336 = load i32, ptr %21, align 4
+  %337 = add nsw i32 %336, -1
+  store i32 %337, ptr %21, align 4
+  %338 = load i32, ptr %26, align 4
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr inbounds [64 x i32], ptr @_ZN9Stockfish12_GLOBAL__N_18MapPawnsE, i64 0, i64 %339
+  store i32 %336, ptr %340, align 4
+  %341 = load i32, ptr %21, align 4
+  %342 = add nsw i32 %341, -1
+  store i32 %342, ptr %21, align 4
+  %343 = load i32, ptr %26, align 4
+  %344 = call noundef i32 @_ZN9Stockfish9flip_fileENS_6SquareE(i32 noundef %343)
+  %345 = sext i32 %344 to i64
+  %346 = getelementptr inbounds [64 x i32], ptr @_ZN9Stockfish12_GLOBAL__N_18MapPawnsE, i64 0, i64 %345
+  store i32 %341, ptr %346, align 4
+  br label %347
 
-346:                                              ; preds = %334, %328
-  %347 = load i32, ptr %24, align 4
-  %348 = load i32, ptr %22, align 4
-  %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_111LeadPawnIdxE, i64 0, i64 %349
-  %351 = load i32, ptr %26, align 4
-  %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds [64 x i32], ptr %350, i64 0, i64 %352
-  store i32 %347, ptr %353, align 4
-  %354 = load i32, ptr %22, align 4
-  %355 = sub nsw i32 %354, 1
-  %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, i64 0, i64 %356
-  %358 = load i32, ptr %26, align 4
-  %359 = sext i32 %358 to i64
-  %360 = getelementptr inbounds [64 x i32], ptr @_ZN9Stockfish12_GLOBAL__N_18MapPawnsE, i64 0, i64 %359
-  %361 = load i32, ptr %360, align 4
-  %362 = sext i32 %361 to i64
-  %363 = getelementptr inbounds [64 x i32], ptr %357, i64 0, i64 %362
-  %364 = load i32, ptr %363, align 4
-  %365 = load i32, ptr %24, align 4
-  %366 = add nsw i32 %365, %364
-  store i32 %366, ptr %24, align 4
-  br label %367
+347:                                              ; preds = %335, %329
+  %348 = load i32, ptr %24, align 4
+  %349 = load i32, ptr %22, align 4
+  %350 = sext i32 %349 to i64
+  %351 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_111LeadPawnIdxE, i64 0, i64 %350
+  %352 = load i32, ptr %26, align 4
+  %353 = sext i32 %352 to i64
+  %354 = getelementptr inbounds [64 x i32], ptr %351, i64 0, i64 %353
+  store i32 %348, ptr %354, align 4
+  %355 = load i32, ptr %22, align 4
+  %356 = sub nsw i32 %355, 1
+  %357 = sext i32 %356 to i64
+  %358 = getelementptr inbounds [6 x [64 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_18BinomialE, i64 0, i64 %357
+  %359 = load i32, ptr %26, align 4
+  %360 = sext i32 %359 to i64
+  %361 = getelementptr inbounds [64 x i32], ptr @_ZN9Stockfish12_GLOBAL__N_18MapPawnsE, i64 0, i64 %360
+  %362 = load i32, ptr %361, align 4
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr inbounds [64 x i32], ptr %358, i64 0, i64 %363
+  %365 = load i32, ptr %364, align 4
+  %366 = load i32, ptr %24, align 4
+  %367 = add nsw i32 %366, %365
+  store i32 %367, ptr %24, align 4
+  br label %368
 
-367:                                              ; preds = %346
-  %368 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_4RankE(ptr noundef nonnull align 4 dereferenceable(4) %25)
-  br label %325, !llvm.loop !13
+368:                                              ; preds = %347
+  %369 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_4RankE(ptr noundef nonnull align 4 dereferenceable(4) %25)
+  br label %326, !llvm.loop !13
 
-369:                                              ; preds = %325
-  %370 = load i32, ptr %24, align 4
-  %371 = load i32, ptr %22, align 4
-  %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds [6 x [4 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_113LeadPawnsSizeE, i64 0, i64 %372
-  %374 = load i32, ptr %23, align 4
-  %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds [4 x i32], ptr %373, i64 0, i64 %375
-  store i32 %370, ptr %376, align 4
-  br label %377
+370:                                              ; preds = %326
+  %371 = load i32, ptr %24, align 4
+  %372 = load i32, ptr %22, align 4
+  %373 = sext i32 %372 to i64
+  %374 = getelementptr inbounds [6 x [4 x i32]], ptr @_ZN9Stockfish12_GLOBAL__N_113LeadPawnsSizeE, i64 0, i64 %373
+  %375 = load i32, ptr %23, align 4
+  %376 = sext i32 %375 to i64
+  %377 = getelementptr inbounds [4 x i32], ptr %374, i64 0, i64 %376
+  store i32 %371, ptr %377, align 4
+  br label %378
 
-377:                                              ; preds = %369
-  %378 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_4FileE(ptr noundef nonnull align 4 dereferenceable(4) %23)
-  br label %321, !llvm.loop !14
+378:                                              ; preds = %370
+  %379 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_4FileE(ptr noundef nonnull align 4 dereferenceable(4) %23)
+  br label %322, !llvm.loop !14
 
-379:                                              ; preds = %321
-  br label %380
+380:                                              ; preds = %322
+  br label %381
 
-380:                                              ; preds = %379
-  %381 = load i32, ptr %22, align 4
-  %382 = add nsw i32 %381, 1
-  store i32 %382, ptr %22, align 4
-  br label %317, !llvm.loop !15
+381:                                              ; preds = %380
+  %382 = load i32, ptr %22, align 4
+  %383 = add nsw i32 %382, 1
+  store i32 %383, ptr %22, align 4
+  br label %318, !llvm.loop !15
 
-383:                                              ; preds = %317
+384:                                              ; preds = %318
   store i32 1, ptr %27, align 4
-  br label %384
+  br label %385
 
-384:                                              ; preds = %648, %383
-  %385 = load i32, ptr %27, align 4
-  %386 = icmp slt i32 %385, 6
-  br i1 %386, label %387, label %650
+385:                                              ; preds = %649, %384
+  %386 = load i32, ptr %27, align 4
+  %387 = icmp slt i32 %386, 6
+  br i1 %387, label %388, label %651
 
-387:                                              ; preds = %384
-  %388 = getelementptr inbounds [3 x i32], ptr %30, i64 0, i64 0
-  store i32 6, ptr %388, align 4
-  %389 = getelementptr inbounds i32, ptr %388, i64 1
-  %390 = load i32, ptr %27, align 4
-  store i32 %390, ptr %389, align 4
-  %391 = getelementptr inbounds i32, ptr %389, i64 1
-  store i32 6, ptr %391, align 4
-  %392 = getelementptr inbounds %"class.std::initializer_list", ptr %29, i32 0, i32 0
-  %393 = getelementptr inbounds [3 x i32], ptr %30, i64 0, i64 0
-  store ptr %393, ptr %392, align 8
-  %394 = getelementptr inbounds %"class.std::initializer_list", ptr %29, i32 0, i32 1
-  store i64 3, ptr %394, align 8
+388:                                              ; preds = %385
+  %389 = getelementptr inbounds [3 x i32], ptr %30, i64 0, i64 0
+  store i32 6, ptr %389, align 4
+  %390 = getelementptr inbounds i32, ptr %389, i64 1
+  %391 = load i32, ptr %27, align 4
+  store i32 %391, ptr %390, align 4
+  %392 = getelementptr inbounds i32, ptr %390, i64 1
+  store i32 6, ptr %392, align 4
+  %393 = getelementptr inbounds %"class.std::initializer_list", ptr %29, i32 0, i32 0
+  %394 = getelementptr inbounds [3 x i32], ptr %30, i64 0, i64 0
+  store ptr %394, ptr %393, align 8
+  %395 = getelementptr inbounds %"class.std::initializer_list", ptr %29, i32 0, i32 1
+  store i64 3, ptr %395, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
-  %395 = getelementptr inbounds { ptr, i64 }, ptr %29, i32 0, i32 0
-  %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr inbounds { ptr, i64 }, ptr %29, i32 0, i32 1
-  %398 = load i64, ptr %397, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr %396, i64 %398, ptr noundef nonnull align 1 dereferenceable(1) %31)
+  %396 = getelementptr inbounds { ptr, i64 }, ptr %29, i32 0, i32 0
+  %397 = load ptr, ptr %396, align 8
+  %398 = getelementptr inbounds { ptr, i64 }, ptr %29, i32 0, i32 1
+  %399 = load i64, ptr %398, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr %397, i64 %399, ptr noundef nonnull align 1 dereferenceable(1) %31)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %28)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
   store i32 1, ptr %32, align 4
-  br label %399
+  br label %400
 
-399:                                              ; preds = %645, %387
-  %400 = load i32, ptr %32, align 4
-  %401 = load i32, ptr %27, align 4
-  %402 = icmp sle i32 %400, %401
-  br i1 %402, label %403, label %647
+400:                                              ; preds = %646, %388
+  %401 = load i32, ptr %32, align 4
+  %402 = load i32, ptr %27, align 4
+  %403 = icmp sle i32 %401, %402
+  br i1 %403, label %404, label %648
 
-403:                                              ; preds = %399
-  %404 = getelementptr inbounds [4 x i32], ptr %35, i64 0, i64 0
-  store i32 6, ptr %404, align 4
-  %405 = getelementptr inbounds i32, ptr %404, i64 1
-  %406 = load i32, ptr %27, align 4
-  store i32 %406, ptr %405, align 4
-  %407 = getelementptr inbounds i32, ptr %405, i64 1
-  %408 = load i32, ptr %32, align 4
-  store i32 %408, ptr %407, align 4
-  %409 = getelementptr inbounds i32, ptr %407, i64 1
-  store i32 6, ptr %409, align 4
-  %410 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 0
-  %411 = getelementptr inbounds [4 x i32], ptr %35, i64 0, i64 0
-  store ptr %411, ptr %410, align 8
-  %412 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 1
-  store i64 4, ptr %412, align 8
+404:                                              ; preds = %400
+  %405 = getelementptr inbounds [4 x i32], ptr %35, i64 0, i64 0
+  store i32 6, ptr %405, align 4
+  %406 = getelementptr inbounds i32, ptr %405, i64 1
+  %407 = load i32, ptr %27, align 4
+  store i32 %407, ptr %406, align 4
+  %408 = getelementptr inbounds i32, ptr %406, i64 1
+  %409 = load i32, ptr %32, align 4
+  store i32 %409, ptr %408, align 4
+  %410 = getelementptr inbounds i32, ptr %408, i64 1
+  store i32 6, ptr %410, align 4
+  %411 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 0
+  %412 = getelementptr inbounds [4 x i32], ptr %35, i64 0, i64 0
+  store ptr %412, ptr %411, align 8
+  %413 = getelementptr inbounds %"class.std::initializer_list", ptr %34, i32 0, i32 1
+  store i64 4, ptr %413, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
-  %413 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
-  %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
-  %416 = load i64, ptr %415, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %414, i64 %416, ptr noundef nonnull align 1 dereferenceable(1) %36)
+  %414 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 0
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds { ptr, i64 }, ptr %34, i32 0, i32 1
+  %417 = load i64, ptr %416, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %415, i64 %417, ptr noundef nonnull align 1 dereferenceable(1) %36)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %33)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #3
-  %417 = getelementptr inbounds [4 x i32], ptr %39, i64 0, i64 0
-  store i32 6, ptr %417, align 4
-  %418 = getelementptr inbounds i32, ptr %417, i64 1
-  %419 = load i32, ptr %27, align 4
-  store i32 %419, ptr %418, align 4
-  %420 = getelementptr inbounds i32, ptr %418, i64 1
-  store i32 6, ptr %420, align 4
-  %421 = getelementptr inbounds i32, ptr %420, i64 1
-  %422 = load i32, ptr %32, align 4
-  store i32 %422, ptr %421, align 4
-  %423 = getelementptr inbounds %"class.std::initializer_list", ptr %38, i32 0, i32 0
-  %424 = getelementptr inbounds [4 x i32], ptr %39, i64 0, i64 0
-  store ptr %424, ptr %423, align 8
-  %425 = getelementptr inbounds %"class.std::initializer_list", ptr %38, i32 0, i32 1
-  store i64 4, ptr %425, align 8
+  %418 = getelementptr inbounds [4 x i32], ptr %39, i64 0, i64 0
+  store i32 6, ptr %418, align 4
+  %419 = getelementptr inbounds i32, ptr %418, i64 1
+  %420 = load i32, ptr %27, align 4
+  store i32 %420, ptr %419, align 4
+  %421 = getelementptr inbounds i32, ptr %419, i64 1
+  store i32 6, ptr %421, align 4
+  %422 = getelementptr inbounds i32, ptr %421, i64 1
+  %423 = load i32, ptr %32, align 4
+  store i32 %423, ptr %422, align 4
+  %424 = getelementptr inbounds %"class.std::initializer_list", ptr %38, i32 0, i32 0
+  %425 = getelementptr inbounds [4 x i32], ptr %39, i64 0, i64 0
+  store ptr %425, ptr %424, align 8
+  %426 = getelementptr inbounds %"class.std::initializer_list", ptr %38, i32 0, i32 1
+  store i64 4, ptr %426, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
-  %426 = getelementptr inbounds { ptr, i64 }, ptr %38, i32 0, i32 0
-  %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds { ptr, i64 }, ptr %38, i32 0, i32 1
-  %429 = load i64, ptr %428, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %427, i64 %429, ptr noundef nonnull align 1 dereferenceable(1) %40)
+  %427 = getelementptr inbounds { ptr, i64 }, ptr %38, i32 0, i32 0
+  %428 = load ptr, ptr %427, align 8
+  %429 = getelementptr inbounds { ptr, i64 }, ptr %38, i32 0, i32 1
+  %430 = load i64, ptr %429, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %428, i64 %430, ptr noundef nonnull align 1 dereferenceable(1) %40)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %37)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #3
   store i32 1, ptr %41, align 4
-  br label %430
+  br label %431
 
-430:                                              ; preds = %449, %403
-  %431 = load i32, ptr %41, align 4
-  %432 = icmp slt i32 %431, 6
-  br i1 %432, label %433, label %451
+431:                                              ; preds = %450, %404
+  %432 = load i32, ptr %41, align 4
+  %433 = icmp slt i32 %432, 6
+  br i1 %433, label %434, label %452
 
-433:                                              ; preds = %430
-  %434 = getelementptr inbounds [5 x i32], ptr %44, i64 0, i64 0
-  store i32 6, ptr %434, align 4
-  %435 = getelementptr inbounds i32, ptr %434, i64 1
-  %436 = load i32, ptr %27, align 4
-  store i32 %436, ptr %435, align 4
-  %437 = getelementptr inbounds i32, ptr %435, i64 1
-  %438 = load i32, ptr %32, align 4
-  store i32 %438, ptr %437, align 4
-  %439 = getelementptr inbounds i32, ptr %437, i64 1
-  store i32 6, ptr %439, align 4
-  %440 = getelementptr inbounds i32, ptr %439, i64 1
-  %441 = load i32, ptr %41, align 4
-  store i32 %441, ptr %440, align 4
-  %442 = getelementptr inbounds %"class.std::initializer_list", ptr %43, i32 0, i32 0
-  %443 = getelementptr inbounds [5 x i32], ptr %44, i64 0, i64 0
-  store ptr %443, ptr %442, align 8
-  %444 = getelementptr inbounds %"class.std::initializer_list", ptr %43, i32 0, i32 1
-  store i64 5, ptr %444, align 8
+434:                                              ; preds = %431
+  %435 = getelementptr inbounds [5 x i32], ptr %44, i64 0, i64 0
+  store i32 6, ptr %435, align 4
+  %436 = getelementptr inbounds i32, ptr %435, i64 1
+  %437 = load i32, ptr %27, align 4
+  store i32 %437, ptr %436, align 4
+  %438 = getelementptr inbounds i32, ptr %436, i64 1
+  %439 = load i32, ptr %32, align 4
+  store i32 %439, ptr %438, align 4
+  %440 = getelementptr inbounds i32, ptr %438, i64 1
+  store i32 6, ptr %440, align 4
+  %441 = getelementptr inbounds i32, ptr %440, i64 1
+  %442 = load i32, ptr %41, align 4
+  store i32 %442, ptr %441, align 4
+  %443 = getelementptr inbounds %"class.std::initializer_list", ptr %43, i32 0, i32 0
+  %444 = getelementptr inbounds [5 x i32], ptr %44, i64 0, i64 0
+  store ptr %444, ptr %443, align 8
+  %445 = getelementptr inbounds %"class.std::initializer_list", ptr %43, i32 0, i32 1
+  store i64 5, ptr %445, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #3
-  %445 = getelementptr inbounds { ptr, i64 }, ptr %43, i32 0, i32 0
-  %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds { ptr, i64 }, ptr %43, i32 0, i32 1
-  %448 = load i64, ptr %447, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr %446, i64 %448, ptr noundef nonnull align 1 dereferenceable(1) %45)
+  %446 = getelementptr inbounds { ptr, i64 }, ptr %43, i32 0, i32 0
+  %447 = load ptr, ptr %446, align 8
+  %448 = getelementptr inbounds { ptr, i64 }, ptr %43, i32 0, i32 1
+  %449 = load i64, ptr %448, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr %447, i64 %449, ptr noundef nonnull align 1 dereferenceable(1) %45)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %42)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #3
-  br label %449
+  br label %450
 
-449:                                              ; preds = %433
-  %450 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %41)
-  br label %430, !llvm.loop !16
+450:                                              ; preds = %434
+  %451 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %41)
+  br label %431, !llvm.loop !16
 
-451:                                              ; preds = %430
+452:                                              ; preds = %431
   store i32 1, ptr %46, align 4
-  br label %452
+  br label %453
 
-452:                                              ; preds = %601, %451
-  %453 = load i32, ptr %46, align 4
-  %454 = load i32, ptr %32, align 4
-  %455 = icmp sle i32 %453, %454
-  br i1 %455, label %456, label %603
+453:                                              ; preds = %602, %452
+  %454 = load i32, ptr %46, align 4
+  %455 = load i32, ptr %32, align 4
+  %456 = icmp sle i32 %454, %455
+  br i1 %456, label %457, label %604
 
-456:                                              ; preds = %452
-  %457 = getelementptr inbounds [5 x i32], ptr %49, i64 0, i64 0
-  store i32 6, ptr %457, align 4
-  %458 = getelementptr inbounds i32, ptr %457, i64 1
-  %459 = load i32, ptr %27, align 4
-  store i32 %459, ptr %458, align 4
-  %460 = getelementptr inbounds i32, ptr %458, i64 1
-  %461 = load i32, ptr %32, align 4
-  store i32 %461, ptr %460, align 4
-  %462 = getelementptr inbounds i32, ptr %460, i64 1
-  %463 = load i32, ptr %46, align 4
-  store i32 %463, ptr %462, align 4
-  %464 = getelementptr inbounds i32, ptr %462, i64 1
-  store i32 6, ptr %464, align 4
-  %465 = getelementptr inbounds %"class.std::initializer_list", ptr %48, i32 0, i32 0
-  %466 = getelementptr inbounds [5 x i32], ptr %49, i64 0, i64 0
-  store ptr %466, ptr %465, align 8
-  %467 = getelementptr inbounds %"class.std::initializer_list", ptr %48, i32 0, i32 1
-  store i64 5, ptr %467, align 8
+457:                                              ; preds = %453
+  %458 = getelementptr inbounds [5 x i32], ptr %49, i64 0, i64 0
+  store i32 6, ptr %458, align 4
+  %459 = getelementptr inbounds i32, ptr %458, i64 1
+  %460 = load i32, ptr %27, align 4
+  store i32 %460, ptr %459, align 4
+  %461 = getelementptr inbounds i32, ptr %459, i64 1
+  %462 = load i32, ptr %32, align 4
+  store i32 %462, ptr %461, align 4
+  %463 = getelementptr inbounds i32, ptr %461, i64 1
+  %464 = load i32, ptr %46, align 4
+  store i32 %464, ptr %463, align 4
+  %465 = getelementptr inbounds i32, ptr %463, i64 1
+  store i32 6, ptr %465, align 4
+  %466 = getelementptr inbounds %"class.std::initializer_list", ptr %48, i32 0, i32 0
+  %467 = getelementptr inbounds [5 x i32], ptr %49, i64 0, i64 0
+  store ptr %467, ptr %466, align 8
+  %468 = getelementptr inbounds %"class.std::initializer_list", ptr %48, i32 0, i32 1
+  store i64 5, ptr %468, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #3
-  %468 = getelementptr inbounds { ptr, i64 }, ptr %48, i32 0, i32 0
-  %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds { ptr, i64 }, ptr %48, i32 0, i32 1
-  %471 = load i64, ptr %470, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr %469, i64 %471, ptr noundef nonnull align 1 dereferenceable(1) %50)
+  %469 = getelementptr inbounds { ptr, i64 }, ptr %48, i32 0, i32 0
+  %470 = load ptr, ptr %469, align 8
+  %471 = getelementptr inbounds { ptr, i64 }, ptr %48, i32 0, i32 1
+  %472 = load i64, ptr %471, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr %470, i64 %472, ptr noundef nonnull align 1 dereferenceable(1) %50)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %47)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #3
   store i32 1, ptr %51, align 4
-  br label %472
+  br label %473
 
-472:                                              ; preds = %547, %456
-  %473 = load i32, ptr %51, align 4
-  %474 = load i32, ptr %46, align 4
-  %475 = icmp sle i32 %473, %474
-  br i1 %475, label %476, label %549
+473:                                              ; preds = %548, %457
+  %474 = load i32, ptr %51, align 4
+  %475 = load i32, ptr %46, align 4
+  %476 = icmp sle i32 %474, %475
+  br i1 %476, label %477, label %550
 
-476:                                              ; preds = %472
-  %477 = getelementptr inbounds [6 x i32], ptr %54, i64 0, i64 0
-  store i32 6, ptr %477, align 4
-  %478 = getelementptr inbounds i32, ptr %477, i64 1
-  %479 = load i32, ptr %27, align 4
-  store i32 %479, ptr %478, align 4
-  %480 = getelementptr inbounds i32, ptr %478, i64 1
-  %481 = load i32, ptr %32, align 4
-  store i32 %481, ptr %480, align 4
-  %482 = getelementptr inbounds i32, ptr %480, i64 1
-  %483 = load i32, ptr %46, align 4
-  store i32 %483, ptr %482, align 4
-  %484 = getelementptr inbounds i32, ptr %482, i64 1
-  %485 = load i32, ptr %51, align 4
-  store i32 %485, ptr %484, align 4
-  %486 = getelementptr inbounds i32, ptr %484, i64 1
-  store i32 6, ptr %486, align 4
-  %487 = getelementptr inbounds %"class.std::initializer_list", ptr %53, i32 0, i32 0
-  %488 = getelementptr inbounds [6 x i32], ptr %54, i64 0, i64 0
-  store ptr %488, ptr %487, align 8
-  %489 = getelementptr inbounds %"class.std::initializer_list", ptr %53, i32 0, i32 1
-  store i64 6, ptr %489, align 8
+477:                                              ; preds = %473
+  %478 = getelementptr inbounds [6 x i32], ptr %54, i64 0, i64 0
+  store i32 6, ptr %478, align 4
+  %479 = getelementptr inbounds i32, ptr %478, i64 1
+  %480 = load i32, ptr %27, align 4
+  store i32 %480, ptr %479, align 4
+  %481 = getelementptr inbounds i32, ptr %479, i64 1
+  %482 = load i32, ptr %32, align 4
+  store i32 %482, ptr %481, align 4
+  %483 = getelementptr inbounds i32, ptr %481, i64 1
+  %484 = load i32, ptr %46, align 4
+  store i32 %484, ptr %483, align 4
+  %485 = getelementptr inbounds i32, ptr %483, i64 1
+  %486 = load i32, ptr %51, align 4
+  store i32 %486, ptr %485, align 4
+  %487 = getelementptr inbounds i32, ptr %485, i64 1
+  store i32 6, ptr %487, align 4
+  %488 = getelementptr inbounds %"class.std::initializer_list", ptr %53, i32 0, i32 0
+  %489 = getelementptr inbounds [6 x i32], ptr %54, i64 0, i64 0
+  store ptr %489, ptr %488, align 8
+  %490 = getelementptr inbounds %"class.std::initializer_list", ptr %53, i32 0, i32 1
+  store i64 6, ptr %490, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #3
-  %490 = getelementptr inbounds { ptr, i64 }, ptr %53, i32 0, i32 0
-  %491 = load ptr, ptr %490, align 8
-  %492 = getelementptr inbounds { ptr, i64 }, ptr %53, i32 0, i32 1
-  %493 = load i64, ptr %492, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr %491, i64 %493, ptr noundef nonnull align 1 dereferenceable(1) %55)
+  %491 = getelementptr inbounds { ptr, i64 }, ptr %53, i32 0, i32 0
+  %492 = load ptr, ptr %491, align 8
+  %493 = getelementptr inbounds { ptr, i64 }, ptr %53, i32 0, i32 1
+  %494 = load i64, ptr %493, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr %492, i64 %494, ptr noundef nonnull align 1 dereferenceable(1) %55)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %52)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #3
   store i32 1, ptr %56, align 4
-  br label %494
+  br label %495
 
-494:                                              ; preds = %518, %476
-  %495 = load i32, ptr %56, align 4
-  %496 = load i32, ptr %51, align 4
-  %497 = icmp sle i32 %495, %496
-  br i1 %497, label %498, label %520
+495:                                              ; preds = %519, %477
+  %496 = load i32, ptr %56, align 4
+  %497 = load i32, ptr %51, align 4
+  %498 = icmp sle i32 %496, %497
+  br i1 %498, label %499, label %521
 
-498:                                              ; preds = %494
-  %499 = getelementptr inbounds [7 x i32], ptr %59, i64 0, i64 0
-  store i32 6, ptr %499, align 4
-  %500 = getelementptr inbounds i32, ptr %499, i64 1
-  %501 = load i32, ptr %27, align 4
-  store i32 %501, ptr %500, align 4
-  %502 = getelementptr inbounds i32, ptr %500, i64 1
-  %503 = load i32, ptr %32, align 4
-  store i32 %503, ptr %502, align 4
-  %504 = getelementptr inbounds i32, ptr %502, i64 1
-  %505 = load i32, ptr %46, align 4
-  store i32 %505, ptr %504, align 4
-  %506 = getelementptr inbounds i32, ptr %504, i64 1
-  %507 = load i32, ptr %51, align 4
-  store i32 %507, ptr %506, align 4
-  %508 = getelementptr inbounds i32, ptr %506, i64 1
-  %509 = load i32, ptr %56, align 4
-  store i32 %509, ptr %508, align 4
-  %510 = getelementptr inbounds i32, ptr %508, i64 1
-  store i32 6, ptr %510, align 4
-  %511 = getelementptr inbounds %"class.std::initializer_list", ptr %58, i32 0, i32 0
-  %512 = getelementptr inbounds [7 x i32], ptr %59, i64 0, i64 0
-  store ptr %512, ptr %511, align 8
-  %513 = getelementptr inbounds %"class.std::initializer_list", ptr %58, i32 0, i32 1
-  store i64 7, ptr %513, align 8
+499:                                              ; preds = %495
+  %500 = getelementptr inbounds [7 x i32], ptr %59, i64 0, i64 0
+  store i32 6, ptr %500, align 4
+  %501 = getelementptr inbounds i32, ptr %500, i64 1
+  %502 = load i32, ptr %27, align 4
+  store i32 %502, ptr %501, align 4
+  %503 = getelementptr inbounds i32, ptr %501, i64 1
+  %504 = load i32, ptr %32, align 4
+  store i32 %504, ptr %503, align 4
+  %505 = getelementptr inbounds i32, ptr %503, i64 1
+  %506 = load i32, ptr %46, align 4
+  store i32 %506, ptr %505, align 4
+  %507 = getelementptr inbounds i32, ptr %505, i64 1
+  %508 = load i32, ptr %51, align 4
+  store i32 %508, ptr %507, align 4
+  %509 = getelementptr inbounds i32, ptr %507, i64 1
+  %510 = load i32, ptr %56, align 4
+  store i32 %510, ptr %509, align 4
+  %511 = getelementptr inbounds i32, ptr %509, i64 1
+  store i32 6, ptr %511, align 4
+  %512 = getelementptr inbounds %"class.std::initializer_list", ptr %58, i32 0, i32 0
+  %513 = getelementptr inbounds [7 x i32], ptr %59, i64 0, i64 0
+  store ptr %513, ptr %512, align 8
+  %514 = getelementptr inbounds %"class.std::initializer_list", ptr %58, i32 0, i32 1
+  store i64 7, ptr %514, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #3
-  %514 = getelementptr inbounds { ptr, i64 }, ptr %58, i32 0, i32 0
-  %515 = load ptr, ptr %514, align 8
-  %516 = getelementptr inbounds { ptr, i64 }, ptr %58, i32 0, i32 1
-  %517 = load i64, ptr %516, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr %515, i64 %517, ptr noundef nonnull align 1 dereferenceable(1) %60)
+  %515 = getelementptr inbounds { ptr, i64 }, ptr %58, i32 0, i32 0
+  %516 = load ptr, ptr %515, align 8
+  %517 = getelementptr inbounds { ptr, i64 }, ptr %58, i32 0, i32 1
+  %518 = load i64, ptr %517, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr %516, i64 %518, ptr noundef nonnull align 1 dereferenceable(1) %60)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %57)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #3
-  br label %518
+  br label %519
 
-518:                                              ; preds = %498
-  %519 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %56)
-  br label %494, !llvm.loop !17
+519:                                              ; preds = %499
+  %520 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %56)
+  br label %495, !llvm.loop !17
 
-520:                                              ; preds = %494
+521:                                              ; preds = %495
   store i32 1, ptr %61, align 4
-  br label %521
+  br label %522
 
-521:                                              ; preds = %544, %520
-  %522 = load i32, ptr %61, align 4
-  %523 = icmp slt i32 %522, 6
-  br i1 %523, label %524, label %546
+522:                                              ; preds = %545, %521
+  %523 = load i32, ptr %61, align 4
+  %524 = icmp slt i32 %523, 6
+  br i1 %524, label %525, label %547
 
-524:                                              ; preds = %521
-  %525 = getelementptr inbounds [7 x i32], ptr %64, i64 0, i64 0
-  store i32 6, ptr %525, align 4
-  %526 = getelementptr inbounds i32, ptr %525, i64 1
-  %527 = load i32, ptr %27, align 4
-  store i32 %527, ptr %526, align 4
-  %528 = getelementptr inbounds i32, ptr %526, i64 1
-  %529 = load i32, ptr %32, align 4
-  store i32 %529, ptr %528, align 4
-  %530 = getelementptr inbounds i32, ptr %528, i64 1
-  %531 = load i32, ptr %46, align 4
-  store i32 %531, ptr %530, align 4
-  %532 = getelementptr inbounds i32, ptr %530, i64 1
-  %533 = load i32, ptr %51, align 4
-  store i32 %533, ptr %532, align 4
-  %534 = getelementptr inbounds i32, ptr %532, i64 1
-  store i32 6, ptr %534, align 4
-  %535 = getelementptr inbounds i32, ptr %534, i64 1
-  %536 = load i32, ptr %61, align 4
-  store i32 %536, ptr %535, align 4
-  %537 = getelementptr inbounds %"class.std::initializer_list", ptr %63, i32 0, i32 0
-  %538 = getelementptr inbounds [7 x i32], ptr %64, i64 0, i64 0
-  store ptr %538, ptr %537, align 8
-  %539 = getelementptr inbounds %"class.std::initializer_list", ptr %63, i32 0, i32 1
-  store i64 7, ptr %539, align 8
+525:                                              ; preds = %522
+  %526 = getelementptr inbounds [7 x i32], ptr %64, i64 0, i64 0
+  store i32 6, ptr %526, align 4
+  %527 = getelementptr inbounds i32, ptr %526, i64 1
+  %528 = load i32, ptr %27, align 4
+  store i32 %528, ptr %527, align 4
+  %529 = getelementptr inbounds i32, ptr %527, i64 1
+  %530 = load i32, ptr %32, align 4
+  store i32 %530, ptr %529, align 4
+  %531 = getelementptr inbounds i32, ptr %529, i64 1
+  %532 = load i32, ptr %46, align 4
+  store i32 %532, ptr %531, align 4
+  %533 = getelementptr inbounds i32, ptr %531, i64 1
+  %534 = load i32, ptr %51, align 4
+  store i32 %534, ptr %533, align 4
+  %535 = getelementptr inbounds i32, ptr %533, i64 1
+  store i32 6, ptr %535, align 4
+  %536 = getelementptr inbounds i32, ptr %535, i64 1
+  %537 = load i32, ptr %61, align 4
+  store i32 %537, ptr %536, align 4
+  %538 = getelementptr inbounds %"class.std::initializer_list", ptr %63, i32 0, i32 0
+  %539 = getelementptr inbounds [7 x i32], ptr %64, i64 0, i64 0
+  store ptr %539, ptr %538, align 8
+  %540 = getelementptr inbounds %"class.std::initializer_list", ptr %63, i32 0, i32 1
+  store i64 7, ptr %540, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #3
-  %540 = getelementptr inbounds { ptr, i64 }, ptr %63, i32 0, i32 0
-  %541 = load ptr, ptr %540, align 8
-  %542 = getelementptr inbounds { ptr, i64 }, ptr %63, i32 0, i32 1
-  %543 = load i64, ptr %542, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr %541, i64 %543, ptr noundef nonnull align 1 dereferenceable(1) %65)
+  %541 = getelementptr inbounds { ptr, i64 }, ptr %63, i32 0, i32 0
+  %542 = load ptr, ptr %541, align 8
+  %543 = getelementptr inbounds { ptr, i64 }, ptr %63, i32 0, i32 1
+  %544 = load i64, ptr %543, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr %542, i64 %544, ptr noundef nonnull align 1 dereferenceable(1) %65)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %62)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #3
-  br label %544
+  br label %545
 
-544:                                              ; preds = %524
-  %545 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %61)
-  br label %521, !llvm.loop !18
+545:                                              ; preds = %525
+  %546 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %61)
+  br label %522, !llvm.loop !18
 
-546:                                              ; preds = %521
-  br label %547
+547:                                              ; preds = %522
+  br label %548
 
-547:                                              ; preds = %546
-  %548 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %51)
-  br label %472, !llvm.loop !19
+548:                                              ; preds = %547
+  %549 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %51)
+  br label %473, !llvm.loop !19
 
-549:                                              ; preds = %472
+550:                                              ; preds = %473
   store i32 1, ptr %66, align 4
-  br label %550
+  br label %551
 
-550:                                              ; preds = %598, %549
-  %551 = load i32, ptr %66, align 4
-  %552 = icmp slt i32 %551, 6
-  br i1 %552, label %553, label %600
+551:                                              ; preds = %599, %550
+  %552 = load i32, ptr %66, align 4
+  %553 = icmp slt i32 %552, 6
+  br i1 %553, label %554, label %601
 
-553:                                              ; preds = %550
-  %554 = getelementptr inbounds [6 x i32], ptr %69, i64 0, i64 0
-  store i32 6, ptr %554, align 4
-  %555 = getelementptr inbounds i32, ptr %554, i64 1
-  %556 = load i32, ptr %27, align 4
-  store i32 %556, ptr %555, align 4
-  %557 = getelementptr inbounds i32, ptr %555, i64 1
-  %558 = load i32, ptr %32, align 4
-  store i32 %558, ptr %557, align 4
-  %559 = getelementptr inbounds i32, ptr %557, i64 1
-  %560 = load i32, ptr %46, align 4
-  store i32 %560, ptr %559, align 4
-  %561 = getelementptr inbounds i32, ptr %559, i64 1
-  store i32 6, ptr %561, align 4
-  %562 = getelementptr inbounds i32, ptr %561, i64 1
-  %563 = load i32, ptr %66, align 4
-  store i32 %563, ptr %562, align 4
-  %564 = getelementptr inbounds %"class.std::initializer_list", ptr %68, i32 0, i32 0
-  %565 = getelementptr inbounds [6 x i32], ptr %69, i64 0, i64 0
-  store ptr %565, ptr %564, align 8
-  %566 = getelementptr inbounds %"class.std::initializer_list", ptr %68, i32 0, i32 1
-  store i64 6, ptr %566, align 8
+554:                                              ; preds = %551
+  %555 = getelementptr inbounds [6 x i32], ptr %69, i64 0, i64 0
+  store i32 6, ptr %555, align 4
+  %556 = getelementptr inbounds i32, ptr %555, i64 1
+  %557 = load i32, ptr %27, align 4
+  store i32 %557, ptr %556, align 4
+  %558 = getelementptr inbounds i32, ptr %556, i64 1
+  %559 = load i32, ptr %32, align 4
+  store i32 %559, ptr %558, align 4
+  %560 = getelementptr inbounds i32, ptr %558, i64 1
+  %561 = load i32, ptr %46, align 4
+  store i32 %561, ptr %560, align 4
+  %562 = getelementptr inbounds i32, ptr %560, i64 1
+  store i32 6, ptr %562, align 4
+  %563 = getelementptr inbounds i32, ptr %562, i64 1
+  %564 = load i32, ptr %66, align 4
+  store i32 %564, ptr %563, align 4
+  %565 = getelementptr inbounds %"class.std::initializer_list", ptr %68, i32 0, i32 0
+  %566 = getelementptr inbounds [6 x i32], ptr %69, i64 0, i64 0
+  store ptr %566, ptr %565, align 8
+  %567 = getelementptr inbounds %"class.std::initializer_list", ptr %68, i32 0, i32 1
+  store i64 6, ptr %567, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #3
-  %567 = getelementptr inbounds { ptr, i64 }, ptr %68, i32 0, i32 0
-  %568 = load ptr, ptr %567, align 8
-  %569 = getelementptr inbounds { ptr, i64 }, ptr %68, i32 0, i32 1
-  %570 = load i64, ptr %569, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr %568, i64 %570, ptr noundef nonnull align 1 dereferenceable(1) %70)
+  %568 = getelementptr inbounds { ptr, i64 }, ptr %68, i32 0, i32 0
+  %569 = load ptr, ptr %568, align 8
+  %570 = getelementptr inbounds { ptr, i64 }, ptr %68, i32 0, i32 1
+  %571 = load i64, ptr %570, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr %569, i64 %571, ptr noundef nonnull align 1 dereferenceable(1) %70)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %67)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #3
   store i32 1, ptr %71, align 4
-  br label %571
+  br label %572
 
-571:                                              ; preds = %595, %553
-  %572 = load i32, ptr %71, align 4
-  %573 = load i32, ptr %66, align 4
-  %574 = icmp sle i32 %572, %573
-  br i1 %574, label %575, label %597
+572:                                              ; preds = %596, %554
+  %573 = load i32, ptr %71, align 4
+  %574 = load i32, ptr %66, align 4
+  %575 = icmp sle i32 %573, %574
+  br i1 %575, label %576, label %598
 
-575:                                              ; preds = %571
-  %576 = getelementptr inbounds [7 x i32], ptr %74, i64 0, i64 0
-  store i32 6, ptr %576, align 4
-  %577 = getelementptr inbounds i32, ptr %576, i64 1
-  %578 = load i32, ptr %27, align 4
-  store i32 %578, ptr %577, align 4
-  %579 = getelementptr inbounds i32, ptr %577, i64 1
-  %580 = load i32, ptr %32, align 4
-  store i32 %580, ptr %579, align 4
-  %581 = getelementptr inbounds i32, ptr %579, i64 1
-  %582 = load i32, ptr %46, align 4
-  store i32 %582, ptr %581, align 4
-  %583 = getelementptr inbounds i32, ptr %581, i64 1
-  store i32 6, ptr %583, align 4
-  %584 = getelementptr inbounds i32, ptr %583, i64 1
-  %585 = load i32, ptr %66, align 4
-  store i32 %585, ptr %584, align 4
-  %586 = getelementptr inbounds i32, ptr %584, i64 1
-  %587 = load i32, ptr %71, align 4
-  store i32 %587, ptr %586, align 4
-  %588 = getelementptr inbounds %"class.std::initializer_list", ptr %73, i32 0, i32 0
-  %589 = getelementptr inbounds [7 x i32], ptr %74, i64 0, i64 0
-  store ptr %589, ptr %588, align 8
-  %590 = getelementptr inbounds %"class.std::initializer_list", ptr %73, i32 0, i32 1
-  store i64 7, ptr %590, align 8
+576:                                              ; preds = %572
+  %577 = getelementptr inbounds [7 x i32], ptr %74, i64 0, i64 0
+  store i32 6, ptr %577, align 4
+  %578 = getelementptr inbounds i32, ptr %577, i64 1
+  %579 = load i32, ptr %27, align 4
+  store i32 %579, ptr %578, align 4
+  %580 = getelementptr inbounds i32, ptr %578, i64 1
+  %581 = load i32, ptr %32, align 4
+  store i32 %581, ptr %580, align 4
+  %582 = getelementptr inbounds i32, ptr %580, i64 1
+  %583 = load i32, ptr %46, align 4
+  store i32 %583, ptr %582, align 4
+  %584 = getelementptr inbounds i32, ptr %582, i64 1
+  store i32 6, ptr %584, align 4
+  %585 = getelementptr inbounds i32, ptr %584, i64 1
+  %586 = load i32, ptr %66, align 4
+  store i32 %586, ptr %585, align 4
+  %587 = getelementptr inbounds i32, ptr %585, i64 1
+  %588 = load i32, ptr %71, align 4
+  store i32 %588, ptr %587, align 4
+  %589 = getelementptr inbounds %"class.std::initializer_list", ptr %73, i32 0, i32 0
+  %590 = getelementptr inbounds [7 x i32], ptr %74, i64 0, i64 0
+  store ptr %590, ptr %589, align 8
+  %591 = getelementptr inbounds %"class.std::initializer_list", ptr %73, i32 0, i32 1
+  store i64 7, ptr %591, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #3
-  %591 = getelementptr inbounds { ptr, i64 }, ptr %73, i32 0, i32 0
-  %592 = load ptr, ptr %591, align 8
-  %593 = getelementptr inbounds { ptr, i64 }, ptr %73, i32 0, i32 1
-  %594 = load i64, ptr %593, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr %592, i64 %594, ptr noundef nonnull align 1 dereferenceable(1) %75)
+  %592 = getelementptr inbounds { ptr, i64 }, ptr %73, i32 0, i32 0
+  %593 = load ptr, ptr %592, align 8
+  %594 = getelementptr inbounds { ptr, i64 }, ptr %73, i32 0, i32 1
+  %595 = load i64, ptr %594, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr %593, i64 %595, ptr noundef nonnull align 1 dereferenceable(1) %75)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %72)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #3
-  br label %595
+  br label %596
 
-595:                                              ; preds = %575
-  %596 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %71)
-  br label %571, !llvm.loop !20
+596:                                              ; preds = %576
+  %597 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %71)
+  br label %572, !llvm.loop !20
 
-597:                                              ; preds = %571
-  br label %598
+598:                                              ; preds = %572
+  br label %599
 
-598:                                              ; preds = %597
-  %599 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %66)
-  br label %550, !llvm.loop !21
+599:                                              ; preds = %598
+  %600 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %66)
+  br label %551, !llvm.loop !21
 
-600:                                              ; preds = %550
-  br label %601
+601:                                              ; preds = %551
+  br label %602
 
-601:                                              ; preds = %600
-  %602 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %46)
-  br label %452, !llvm.loop !22
+602:                                              ; preds = %601
+  %603 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %46)
+  br label %453, !llvm.loop !22
 
-603:                                              ; preds = %452
+604:                                              ; preds = %453
   store i32 1, ptr %76, align 4
-  br label %604
+  br label %605
 
-604:                                              ; preds = %642, %603
-  %605 = load i32, ptr %76, align 4
-  %606 = load i32, ptr %27, align 4
-  %607 = icmp sle i32 %605, %606
-  br i1 %607, label %608, label %644
+605:                                              ; preds = %643, %604
+  %606 = load i32, ptr %76, align 4
+  %607 = load i32, ptr %27, align 4
+  %608 = icmp sle i32 %606, %607
+  br i1 %608, label %609, label %645
 
-608:                                              ; preds = %604
+609:                                              ; preds = %605
   store i32 1, ptr %77, align 4
-  br label %609
+  br label %610
 
-609:                                              ; preds = %639, %608
-  %610 = load i32, ptr %77, align 4
-  %611 = load i32, ptr %27, align 4
-  %612 = load i32, ptr %76, align 4
-  %613 = icmp eq i32 %611, %612
-  br i1 %613, label %614, label %616
+610:                                              ; preds = %640, %609
+  %611 = load i32, ptr %77, align 4
+  %612 = load i32, ptr %27, align 4
+  %613 = load i32, ptr %76, align 4
+  %614 = icmp eq i32 %612, %613
+  br i1 %614, label %615, label %617
 
-614:                                              ; preds = %609
-  %615 = load i32, ptr %32, align 4
-  br label %618
+615:                                              ; preds = %610
+  %616 = load i32, ptr %32, align 4
+  br label %619
 
-616:                                              ; preds = %609
-  %617 = load i32, ptr %76, align 4
-  br label %618
+617:                                              ; preds = %610
+  %618 = load i32, ptr %76, align 4
+  br label %619
 
-618:                                              ; preds = %616, %614
-  %619 = phi i32 [ %615, %614 ], [ %617, %616 ]
-  %620 = icmp sle i32 %610, %619
-  br i1 %620, label %621, label %641
+619:                                              ; preds = %617, %615
+  %620 = phi i32 [ %616, %615 ], [ %618, %617 ]
+  %621 = icmp sle i32 %611, %620
+  br i1 %621, label %622, label %642
 
-621:                                              ; preds = %618
-  %622 = getelementptr inbounds [6 x i32], ptr %80, i64 0, i64 0
-  store i32 6, ptr %622, align 4
-  %623 = getelementptr inbounds i32, ptr %622, i64 1
-  %624 = load i32, ptr %27, align 4
-  store i32 %624, ptr %623, align 4
-  %625 = getelementptr inbounds i32, ptr %623, i64 1
-  %626 = load i32, ptr %32, align 4
-  store i32 %626, ptr %625, align 4
-  %627 = getelementptr inbounds i32, ptr %625, i64 1
-  store i32 6, ptr %627, align 4
-  %628 = getelementptr inbounds i32, ptr %627, i64 1
-  %629 = load i32, ptr %76, align 4
-  store i32 %629, ptr %628, align 4
-  %630 = getelementptr inbounds i32, ptr %628, i64 1
-  %631 = load i32, ptr %77, align 4
-  store i32 %631, ptr %630, align 4
-  %632 = getelementptr inbounds %"class.std::initializer_list", ptr %79, i32 0, i32 0
-  %633 = getelementptr inbounds [6 x i32], ptr %80, i64 0, i64 0
-  store ptr %633, ptr %632, align 8
-  %634 = getelementptr inbounds %"class.std::initializer_list", ptr %79, i32 0, i32 1
-  store i64 6, ptr %634, align 8
+622:                                              ; preds = %619
+  %623 = getelementptr inbounds [6 x i32], ptr %80, i64 0, i64 0
+  store i32 6, ptr %623, align 4
+  %624 = getelementptr inbounds i32, ptr %623, i64 1
+  %625 = load i32, ptr %27, align 4
+  store i32 %625, ptr %624, align 4
+  %626 = getelementptr inbounds i32, ptr %624, i64 1
+  %627 = load i32, ptr %32, align 4
+  store i32 %627, ptr %626, align 4
+  %628 = getelementptr inbounds i32, ptr %626, i64 1
+  store i32 6, ptr %628, align 4
+  %629 = getelementptr inbounds i32, ptr %628, i64 1
+  %630 = load i32, ptr %76, align 4
+  store i32 %630, ptr %629, align 4
+  %631 = getelementptr inbounds i32, ptr %629, i64 1
+  %632 = load i32, ptr %77, align 4
+  store i32 %632, ptr %631, align 4
+  %633 = getelementptr inbounds %"class.std::initializer_list", ptr %79, i32 0, i32 0
+  %634 = getelementptr inbounds [6 x i32], ptr %80, i64 0, i64 0
+  store ptr %634, ptr %633, align 8
+  %635 = getelementptr inbounds %"class.std::initializer_list", ptr %79, i32 0, i32 1
+  store i64 6, ptr %635, align 8
   call void @_ZNSaIN9Stockfish9PieceTypeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #3
-  %635 = getelementptr inbounds { ptr, i64 }, ptr %79, i32 0, i32 0
-  %636 = load ptr, ptr %635, align 8
-  %637 = getelementptr inbounds { ptr, i64 }, ptr %79, i32 0, i32 1
-  %638 = load i64, ptr %637, align 8
-  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr %636, i64 %638, ptr noundef nonnull align 1 dereferenceable(1) %81)
+  %636 = getelementptr inbounds { ptr, i64 }, ptr %79, i32 0, i32 0
+  %637 = load ptr, ptr %636, align 8
+  %638 = getelementptr inbounds { ptr, i64 }, ptr %79, i32 0, i32 1
+  %639 = load i64, ptr %638, align 8
+  call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr %637, i64 %639, ptr noundef nonnull align 1 dereferenceable(1) %81)
   call void @_ZN9Stockfish12_GLOBAL__N_18TBTables3addERKSt6vectorINS_9PieceTypeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE, ptr noundef nonnull align 8 dereferenceable(24) %78)
   call void @_ZNSt6vectorIN9Stockfish9PieceTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #3
   call void @_ZNSaIN9Stockfish9PieceTypeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #3
-  br label %639
+  br label %640
 
-639:                                              ; preds = %621
-  %640 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %77)
-  br label %609, !llvm.loop !23
+640:                                              ; preds = %622
+  %641 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %77)
+  br label %610, !llvm.loop !23
 
-641:                                              ; preds = %618
-  br label %642
+642:                                              ; preds = %619
+  br label %643
 
-642:                                              ; preds = %641
-  %643 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %76)
-  br label %604, !llvm.loop !24
+643:                                              ; preds = %642
+  %644 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %76)
+  br label %605, !llvm.loop !24
 
-644:                                              ; preds = %604
-  br label %645
+645:                                              ; preds = %605
+  br label %646
 
-645:                                              ; preds = %644
-  %646 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %32)
-  br label %399, !llvm.loop !25
+646:                                              ; preds = %645
+  %647 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %32)
+  br label %400, !llvm.loop !25
 
-647:                                              ; preds = %399
-  br label %648
+648:                                              ; preds = %400
+  br label %649
 
-648:                                              ; preds = %647
-  %649 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %27)
-  br label %384, !llvm.loop !26
+649:                                              ; preds = %648
+  %650 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN9StockfishppERNS_9PieceTypeE(ptr noundef nonnull align 4 dereferenceable(4) %27)
+  br label %385, !llvm.loop !26
 
-650:                                              ; preds = %384
-  %651 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef 0)
-  %652 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %651, ptr noundef @.str.3)
-  %653 = call noundef i64 @_ZNK9Stockfish12_GLOBAL__N_18TBTables4sizeEv(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE)
-  %654 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %652, i64 noundef %653)
-  %655 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %654, ptr noundef @.str.4)
-  %656 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %655, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %657 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull align 8 dereferenceable(8) %656, i32 noundef 1)
+651:                                              ; preds = %385
+  %652 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef 0)
+  %653 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %652, ptr noundef @.str.3)
+  %654 = call noundef i64 @_ZNK9Stockfish12_GLOBAL__N_18TBTables4sizeEv(ptr noundef nonnull align 8 dereferenceable(98488) @_ZN9Stockfish12_GLOBAL__N_18TBTablesE)
+  %655 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %653, i64 noundef %654)
+  %656 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %655, ptr noundef @.str.4)
+  %657 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %656, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %658 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull align 8 dereferenceable(8) %657, i32 noundef 1)
   call void @_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   call void @_ZNSt6vectorIN9Stockfish6SquareESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  br label %658
+  br label %659
 
-658:                                              ; preds = %650, %89
+659:                                              ; preds = %651, %89
   ret void
 }
 
@@ -7654,64 +7655,67 @@ define internal void @_ZN9Stockfish12_GLOBAL__N_16TBFileC1ERKNSt7__cxx1112basic_
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 288
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %12)
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %11, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1))
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i32 0, i32 0, i32 3), ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 288
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i32 0, i32 1, i32 3), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %11, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %13 = getelementptr inbounds [6 x ptr], ptr @_ZTTN9Stockfish12_GLOBAL__N_16TBFileE, i64 0, i64 1
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %11, ptr noundef %13)
+  %14 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i32 0, i32 0, i32 3
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 288
+  %16 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_16TBFileE, i32 0, i32 1, i32 3
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %11, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
   store i8 58, ptr %5, align 1
-  %15 = call noundef i32 @_ZStorSt13_Ios_OpenmodeS_(i32 noundef 16, i32 noundef 8)
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9Stockfish12_GLOBAL__N_16TBFile5PathsB5cxx11E, i32 noundef %15)
+  %18 = call noundef i32 @_ZStorSt13_Ios_OpenmodeS_(i32 noundef 16, i32 noundef 8)
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9Stockfish12_GLOBAL__N_16TBFile5PathsB5cxx11E, i32 noundef %18)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  br label %16
+  br label %19
 
-16:                                               ; preds = %30, %2
-  %17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EES4_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext 58)
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr i8, ptr %18, i64 -24
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  %22 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
-  br i1 %22, label %23, label %31
+19:                                               ; preds = %33, %2
+  %20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EES4_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext 58)
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr i8, ptr %21, i64 -24
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %20, i64 %23
+  %25 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %24)
+  br i1 %25, label %26, label %34
 
-23:                                               ; preds = %16
+26:                                               ; preds = %19
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.11)
-  %24 = load ptr, ptr %4, align 8
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %24)
-  %25 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %11, i32 0, i32 1
-  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %27 = load ptr, ptr %4, align 8
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  %28 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %11, i32 0, i32 1
+  %29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %27 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %11, i32 0, i32 1
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %11, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 8)
-  %28 = call noundef zeroext i1 @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %11)
-  br i1 %28, label %29, label %30
+  %30 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %11, i32 0, i32 1
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %11, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 8)
+  %31 = call noundef zeroext i1 @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %11)
+  br i1 %31, label %32, label %33
 
-29:                                               ; preds = %23
+32:                                               ; preds = %26
   store i32 1, ptr %10, align 4
-  br label %32
+  br label %35
 
-30:                                               ; preds = %23
-  br label %16, !llvm.loop !35
+33:                                               ; preds = %26
+  br label %19, !llvm.loop !35
 
-31:                                               ; preds = %16
+34:                                               ; preds = %19
   store i32 0, ptr %10, align 4
-  br label %32
+  br label %35
 
-32:                                               ; preds = %31, %29
+35:                                               ; preds = %34, %32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #3
-  %33 = load i32, ptr %10, align 4
-  switch i32 %33, label %35 [
-    i32 0, label %34
-    i32 1, label %34
+  %36 = load i32, ptr %10, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+    i32 1, label %37
   ]
 
-34:                                               ; preds = %32, %32
+37:                                               ; preds = %35, %35
   ret void
 
-35:                                               ; preds = %32
+38:                                               ; preds = %35
   unreachable
 }
 
@@ -13453,7 +13457,7 @@ define internal noundef ptr @_ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPmNS0_6TB
   %24 = load ptr, ptr %7, align 8
   store ptr null, ptr %24, align 8
   store ptr null, ptr %5, align 8
-  br label %85
+  br label %86
 
 25:                                               ; preds = %17
   %26 = load i32, ptr %11, align 4
@@ -13492,56 +13496,57 @@ define internal noundef ptr @_ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPmNS0_6TB
   %52 = call i32 @close(i32 noundef %51)
   %53 = load ptr, ptr %7, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, inttoptr (i64 -1 to ptr)
-  br i1 %55, label %56, label %61
+  %55 = inttoptr i64 -1 to ptr
+  %56 = icmp eq ptr %54, %55
+  br i1 %56, label %57, label %62
 
-56:                                               ; preds = %37
-  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str.17)
-  %58 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %14, i32 0, i32 1
-  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(32) %58)
-  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+57:                                               ; preds = %37
+  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str.17)
+  %59 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %14, i32 0, i32 1
+  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(32) %59)
+  %61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   call void @exit(i32 noundef 1) #18
   unreachable
 
-61:                                               ; preds = %37
-  %62 = load ptr, ptr %7, align 8
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %12, align 8
+62:                                               ; preds = %37
+  %63 = load ptr, ptr %7, align 8
+  %64 = load ptr, ptr %63, align 8
+  store ptr %64, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 @__const._ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPmNS0_6TBTypeE.Magics, i64 8, i1 false)
-  %64 = load ptr, ptr %12, align 8
-  %65 = load i32, ptr %9, align 4
-  %66 = icmp eq i32 %65, 0
-  %67 = zext i1 %66 to i64
-  %68 = getelementptr inbounds [2 x [4 x i8]], ptr %13, i64 0, i64 %67
-  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 0, i64 0
-  %70 = call i32 @memcmp(ptr noundef %64, ptr noundef %69, i64 noundef 4) #19
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %82
+  %65 = load ptr, ptr %12, align 8
+  %66 = load i32, ptr %9, align 4
+  %67 = icmp eq i32 %66, 0
+  %68 = zext i1 %67 to i64
+  %69 = getelementptr inbounds [2 x [4 x i8]], ptr %13, i64 0, i64 %68
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 0, i64 0
+  %71 = call i32 @memcmp(ptr noundef %65, ptr noundef %70, i64 noundef 4) #19
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %83
 
-72:                                               ; preds = %61
-  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str.18)
-  %74 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %14, i32 0, i32 1
-  %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(32) %74)
-  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %77 = load ptr, ptr %7, align 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = load i64, ptr %79, align 8
-  call void @_ZN9Stockfish12_GLOBAL__N_16TBFile5unmapEPvm(ptr noundef %78, i64 noundef %80)
-  %81 = load ptr, ptr %7, align 8
-  store ptr null, ptr %81, align 8
+73:                                               ; preds = %62
+  %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef @.str.18)
+  %75 = getelementptr inbounds %"class.Stockfish::(anonymous namespace)::TBFile", ptr %14, i32 0, i32 1
+  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(32) %75)
+  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %78 = load ptr, ptr %7, align 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %8, align 8
+  %81 = load i64, ptr %80, align 8
+  call void @_ZN9Stockfish12_GLOBAL__N_16TBFile5unmapEPvm(ptr noundef %79, i64 noundef %81)
+  %82 = load ptr, ptr %7, align 8
+  store ptr null, ptr %82, align 8
   store ptr null, ptr %5, align 8
-  br label %85
+  br label %86
 
-82:                                               ; preds = %61
-  %83 = load ptr, ptr %12, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
-  store ptr %84, ptr %5, align 8
-  br label %85
+83:                                               ; preds = %62
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  store ptr %85, ptr %5, align 8
+  br label %86
 
-85:                                               ; preds = %82, %72, %23
-  %86 = load ptr, ptr %5, align 8
-  ret ptr %86
+86:                                               ; preds = %83, %73, %23
+  %87 = load ptr, ptr %5, align 8
+  ret ptr %87
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

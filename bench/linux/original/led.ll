@@ -468,48 +468,49 @@ define dso_local noundef ptr @__ieee80211_create_tpt_led_trigger(ptr noundef %0,
   tail call void asm sideeffect "801: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 801b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 801) #5, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 297, i32 2305, i64 12) #5, !srcloc !9
   tail call void asm sideeffect "802: nop\0A\09.pushsection .discard.instr_end\0A\09.long 802b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 802) #5, !srcloc !10
-  br label %31
+  br label %32
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %11 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 136) #6
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %31, label %13
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %11 = load ptr, ptr %10, align 16
+  %12 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 136) #6
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %32, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 456
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %22
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 456
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %23
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 376
-  %21 = load ptr, ptr %20, align 8
-  br label %22
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %16, i64 376
+  %22 = load ptr, ptr %21, align 8
+  br label %23
 
-22:                                               ; preds = %19, %13
-  %23 = phi ptr [ %21, %19 ], [ %17, %13 ]
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %23) #5
-  %25 = getelementptr inbounds i8, ptr %0, i64 5232
-  store ptr %11, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr %2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 40
-  store i32 %3, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 124
-  store i32 %1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %11, i64 88
-  store ptr %0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %11, i64 48
-  tail call void @init_timer_key(ptr noundef %30, ptr noundef nonnull @tpt_trig_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #5
-  store ptr %11, ptr %5, align 8
-  br label %31
+23:                                               ; preds = %20, %14
+  %24 = phi ptr [ %22, %20 ], [ %18, %14 ]
+  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %24) #5
+  %26 = getelementptr inbounds i8, ptr %0, i64 5232
+  store ptr %12, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %12, i64 32
+  store ptr %2, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %12, i64 40
+  store i32 %3, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %12, i64 124
+  store i32 %1, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %12, i64 88
+  store ptr %0, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %12, i64 48
+  tail call void @init_timer_key(ptr noundef %31, ptr noundef nonnull @tpt_trig_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #5
+  store ptr %12, ptr %5, align 8
+  br label %32
 
-31:                                               ; preds = %22, %9, %8
-  %32 = phi ptr [ %11, %22 ], [ null, %8 ], [ null, %9 ]
-  ret ptr %32
+32:                                               ; preds = %23, %9, %8
+  %33 = phi ptr [ %12, %23 ], [ null, %8 ], [ null, %9 ]
+  ret ptr %33
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

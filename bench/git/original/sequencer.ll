@@ -2762,17 +2762,18 @@ if.end4:                                          ; preds = %if.end
   %5 = load ptr, ptr %newoid.addr, align 8
   %call6 = call ptr @oid_to_hex(ptr noundef %5)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef @.str.126, ptr noundef %call5, ptr noundef %call6)
-  %call7 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
+  %6 = inttoptr i64 1 to ptr
+  %call7 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %6)
   %in8 = getelementptr inbounds %struct.child_process, ptr %proc, i32 0, i32 7
-  %6 = load i32, ptr %in8, align 8
+  %7 = load i32, ptr %in8, align 8
   %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 2
-  %7 = load ptr, ptr %buf, align 8
+  %8 = load ptr, ptr %buf, align 8
   %len = getelementptr inbounds %struct.strbuf, ptr %sb, i32 0, i32 1
-  %8 = load i64, ptr %len, align 8
-  %call9 = call i64 @write_in_full(i32 noundef %6, ptr noundef %7, i64 noundef %8)
+  %9 = load i64, ptr %len, align 8
+  %call9 = call i64 @write_in_full(i32 noundef %7, ptr noundef %8, i64 noundef %9)
   %in10 = getelementptr inbounds %struct.child_process, ptr %proc, i32 0, i32 7
-  %9 = load i32, ptr %in10, align 8
-  %call11 = call i32 @close(i32 noundef %9)
+  %10 = load i32, ptr %in10, align 8
+  %call11 = call i32 @close(i32 noundef %10)
   call void @strbuf_release(ptr noundef %sb)
   %call12 = call i32 @sigchain_pop(i32 noundef 13)
   %call13 = call i32 @finish_command(ptr noundef %proc)
@@ -2780,8 +2781,8 @@ if.end4:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %11 = load i32, ptr %retval, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7419,7 +7420,7 @@ entry:
   store ptr %sub_action, ptr %sub_action.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   call void @strbuf_setlen(ptr noundef @reflog_message.buf, i64 noundef 0)
   %0 = load ptr, ptr %opts.addr, align 8
   %call = call ptr @sequencer_reflog_action(ptr noundef %0)
@@ -7447,9 +7448,10 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then2, %if.end
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @reflog_message.buf, i32 0, i32 2), align 8
-  ret ptr %5
+  call void @llvm.va_end.p0(ptr %arraydecay5)
+  %5 = getelementptr inbounds %struct.strbuf, ptr @reflog_message.buf, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14642,7 +14644,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv
@@ -15409,9 +15412,6 @@ declare i32 @open64(ptr noundef, i32 noundef, ...) #1
 
 declare i64 @strbuf_read(ptr noundef, i32 noundef, i64 noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 ; Function Attrs: nounwind uwtable
 define internal ptr @sequencer_reflog_action(ptr noundef %opts) #0 {
 entry:
@@ -15462,9 +15462,6 @@ if.end:                                           ; preds = %cond.end, %entry
 
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
 ; Function Attrs: nounwind
 declare ptr @getenv(ptr noundef) #2
 
@@ -15505,8 +15502,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i32 0, i32 2), align 8
-  ret ptr %4
+  %4 = getelementptr inbounds %struct.strbuf, ptr @gpg_sign_opt_quoted.buf, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23415,12 +23413,12 @@ if.then5:                                         ; preds = %land.lhs.true
 if.end9:                                          ; preds = %land.lhs.true, %if.end
   call void @strbuf_complete(ptr noundef %buf, i8 noundef signext 10)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %5 = load ptr, ptr %fmt.addr, align 8
   %arraydecay10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %buf, ptr noundef %5, ptr noundef %arraydecay10)
   %arraydecay11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay11)
+  call void @llvm.va_end.p0(ptr %arraydecay11)
   %6 = load i32, ptr %fd, align 4
   %buf12 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
   %7 = load ptr, ptr %buf12, align 8
@@ -24947,6 +24945,12 @@ return:                                           ; preds = %if.end, %if.then
   %6 = load i32, ptr %retval, align 4
   ret i32 %6
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

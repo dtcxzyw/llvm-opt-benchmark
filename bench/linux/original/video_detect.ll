@@ -45,7 +45,7 @@ define dso_local i32 @__acpi_video_get_backlight_type(i1 noundef zeroext %0, ptr
   %4 = alloca %struct.acpi_buffer, align 8
   tail call void @mutex_lock(ptr noundef nonnull @__acpi_video_get_backlight_type.init_mutex) #6
   %5 = load i1, ptr @__acpi_video_get_backlight_type.init_done, align 1
-  br i1 %5, label %41, label %6
+  br i1 %5, label %42, label %6
 
 6:                                                ; preds = %2
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str, ptr noundef nonnull dereferenceable(1) @acpi_video_backlight_string) #6
@@ -103,91 +103,92 @@ define dso_local i32 @__acpi_video_get_backlight_type(i1 noundef zeroext %0, ptr
 
 30:                                               ; preds = %29, %26
   %31 = tail call i32 @dmi_check_system(ptr noundef nonnull @video_detect_dmi_table) #6
-  %32 = tail call i32 @acpi_walk_namespace(i32 noundef 6, ptr noundef nonnull inttoptr (i64 -1 to ptr), i32 noundef -1, ptr noundef nonnull @find_video, ptr noundef null, ptr noundef nonnull @__acpi_video_get_backlight_type.video_caps, ptr noundef null) #6
+  %32 = inttoptr i64 -1 to ptr
+  %33 = tail call i32 @acpi_walk_namespace(i32 noundef 6, ptr noundef nonnull %32, i32 noundef -1, ptr noundef nonnull @find_video, ptr noundef null, ptr noundef nonnull @__acpi_video_get_backlight_type.video_caps, ptr noundef null) #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !5
   store i64 24, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %3, ptr %33, align 8
-  %34 = call i32 @wmi_evaluate_method(ptr noundef nonnull @.str.6, i8 noundef zeroext 0, i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %4) #6
-  %35 = icmp eq i32 %34, 0
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 2
-  %39 = select i1 %35, i1 %38, i1 false
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %3, ptr %34, align 8
+  %35 = call i32 @wmi_evaluate_method(ptr noundef nonnull @.str.6, i8 noundef zeroext 0, i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %4) #6
+  %36 = icmp eq i32 %35, 0
+  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp eq i32 %38, 2
+  %40 = select i1 %36, i1 %39, i1 false
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
-  %40 = zext i1 %39 to i8
-  store i8 %40, ptr @__acpi_video_get_backlight_type.nvidia_wmi_ec_present, align 1
+  %41 = zext i1 %40 to i8
+  store i8 %41, ptr @__acpi_video_get_backlight_type.nvidia_wmi_ec_present, align 1
   store i1 true, ptr @__acpi_video_get_backlight_type.init_done, align 1
-  br label %41
+  br label %42
 
-41:                                               ; preds = %30, %2
-  br i1 %0, label %42, label %43
+42:                                               ; preds = %30, %2
+  br i1 %0, label %43, label %44
 
-42:                                               ; preds = %41
+43:                                               ; preds = %42
   store i1 true, ptr @__acpi_video_get_backlight_type.native_available, align 1
-  br label %43
+  br label %44
 
-43:                                               ; preds = %42, %41
+44:                                               ; preds = %43, %42
   call void @mutex_unlock(ptr noundef nonnull @__acpi_video_get_backlight_type.init_mutex) #6
-  %44 = icmp eq ptr %1, null
-  br i1 %44, label %46, label %45
+  %45 = icmp eq ptr %1, null
+  br i1 %45, label %47, label %46
 
-45:                                               ; preds = %43
+46:                                               ; preds = %44
   store i8 0, ptr %1, align 1
-  br label %46
+  br label %47
 
-46:                                               ; preds = %45, %43
-  %47 = load i32, ptr @acpi_backlight_cmdline, align 4
-  %48 = icmp eq i32 %47, -1
-  br i1 %48, label %49, label %70
+47:                                               ; preds = %46, %44
+  %48 = load i32, ptr @acpi_backlight_cmdline, align 4
+  %49 = icmp eq i32 %48, -1
+  br i1 %49, label %50, label %71
 
-49:                                               ; preds = %46
-  %50 = load i32, ptr @acpi_backlight_dmi, align 4
-  %51 = icmp eq i32 %50, -1
-  br i1 %51, label %52, label %70
+50:                                               ; preds = %47
+  %51 = load i32, ptr @acpi_backlight_dmi, align 4
+  %52 = icmp eq i32 %51, -1
+  br i1 %52, label %53, label %71
 
-52:                                               ; preds = %49
-  br i1 %44, label %54, label %53
+53:                                               ; preds = %50
+  br i1 %45, label %55, label %54
 
-53:                                               ; preds = %52
+54:                                               ; preds = %53
   store i8 1, ptr %1, align 1
-  br label %54
+  br label %55
 
-54:                                               ; preds = %53, %52
-  %55 = load i8, ptr @__acpi_video_get_backlight_type.nvidia_wmi_ec_present, align 1, !range !6, !noundef !7
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %57, label %70
+55:                                               ; preds = %54, %53
+  %56 = load i8, ptr @__acpi_video_get_backlight_type.nvidia_wmi_ec_present, align 1, !range !6, !noundef !7
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %58, label %71
 
-57:                                               ; preds = %54
-  %58 = load i64, ptr @__acpi_video_get_backlight_type.video_caps, align 8
-  %59 = and i64 %58, 8
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %65, label %61
+58:                                               ; preds = %55
+  %59 = load i64, ptr @__acpi_video_get_backlight_type.video_caps, align 8
+  %60 = and i64 %59, 8
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %66, label %62
 
-61:                                               ; preds = %57
-  %62 = load i1, ptr @__acpi_video_get_backlight_type.native_available, align 1
-  br i1 %62, label %63, label %70
+62:                                               ; preds = %58
+  %63 = load i1, ptr @__acpi_video_get_backlight_type.native_available, align 1
+  br i1 %63, label %64, label %71
 
-63:                                               ; preds = %61
-  %64 = call fastcc zeroext i1 @prefer_native_over_acpi_video()
-  br i1 %64, label %65, label %70
+64:                                               ; preds = %62
+  %65 = call fastcc zeroext i1 @prefer_native_over_acpi_video()
+  br i1 %65, label %66, label %71
 
-65:                                               ; preds = %63, %57
-  %66 = load i1, ptr @__acpi_video_get_backlight_type.native_available, align 1
-  br i1 %66, label %70, label %67
+66:                                               ; preds = %64, %58
+  %67 = load i1, ptr @__acpi_video_get_backlight_type.native_available, align 1
+  br i1 %67, label %71, label %68
 
-67:                                               ; preds = %65
-  %68 = call zeroext i1 @acpi_osi_is_win8() #6
-  %69 = select i1 %68, i32 0, i32 2
-  br label %70
+68:                                               ; preds = %66
+  %69 = call zeroext i1 @acpi_osi_is_win8() #6
+  %70 = select i1 %69, i32 0, i32 2
+  br label %71
 
-70:                                               ; preds = %67, %65, %63, %61, %54, %49, %46
-  %71 = phi i32 [ %47, %46 ], [ %50, %49 ], [ 4, %54 ], [ 1, %63 ], [ 1, %61 ], [ 3, %65 ], [ %69, %67 ]
-  ret i32 %71
+71:                                               ; preds = %68, %66, %64, %62, %55, %50, %47
+  %72 = phi i32 [ %48, %47 ], [ %51, %50 ], [ 4, %55 ], [ 1, %64 ], [ 1, %62 ], [ 3, %66 ], [ %70, %68 ]
+  ret i32 %72
 }
 
 ; Function Attrs: null_pointer_is_valid

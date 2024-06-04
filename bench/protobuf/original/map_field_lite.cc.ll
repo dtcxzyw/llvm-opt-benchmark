@@ -2318,57 +2318,58 @@ entry:
   store ptr %context, ptr %context.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf8compiler4java27ImmutableFieldLiteGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java30ImmutableMapFieldLiteGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java30ImmutableMapFieldLiteGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %descriptor_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableMapFieldLiteGenerator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %descriptor.addr, align 8
-  store ptr %0, ptr %descriptor_, align 8
+  %1 = load ptr, ptr %descriptor.addr, align 8
+  store ptr %1, ptr %descriptor_, align 8
   %variables_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableMapFieldLiteGenerator", ptr %this1, i32 0, i32 2
   invoke void @_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %variables_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %context_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableMapFieldLiteGenerator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %context.addr, align 8
-  store ptr %1, ptr %context_, align 8
-  %name_resolver_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableMapFieldLiteGenerator", ptr %this1, i32 0, i32 4
   %2 = load ptr, ptr %context.addr, align 8
-  %call = invoke noundef ptr @_ZNK6google8protobuf8compiler4java7Context15GetNameResolverEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  store ptr %2, ptr %context_, align 8
+  %name_resolver_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableMapFieldLiteGenerator", ptr %this1, i32 0, i32 4
+  %3 = load ptr, ptr %context.addr, align 8
+  %call = invoke noundef ptr @_ZNK6google8protobuf8compiler4java7Context15GetNameResolverEv(ptr noundef nonnull align 8 dereferenceable(152) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call, ptr %name_resolver_, align 8
-  %3 = load ptr, ptr %descriptor.addr, align 8
-  %4 = load i32, ptr %messageBitIndex.addr, align 4
-  %5 = load ptr, ptr %context.addr, align 8
-  %6 = load ptr, ptr %descriptor.addr, align 8
-  %call5 = invoke noundef ptr @_ZNK6google8protobuf8compiler4java7Context21GetFieldGeneratorInfoEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef %6)
+  %4 = load ptr, ptr %descriptor.addr, align 8
+  %5 = load i32, ptr %messageBitIndex.addr, align 4
+  %6 = load ptr, ptr %context.addr, align 8
+  %7 = load ptr, ptr %descriptor.addr, align 8
+  %call5 = invoke noundef ptr @_ZNK6google8protobuf8compiler4java7Context21GetFieldGeneratorInfoEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %7)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %7 = load ptr, ptr %context.addr, align 8
+  %8 = load ptr, ptr %context.addr, align 8
   %variables_6 = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableMapFieldLiteGenerator", ptr %this1, i32 0, i32 2
-  invoke void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_119SetMessageVariablesEPKNS0_15FieldDescriptorEiiPKNS2_18FieldGeneratorInfoEPNS2_7ContextEPN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSH_SaIcEEENSD_18container_internal10StringHashENSN_8StringEqESaISt4pairIKSI_SM_EEEE(ptr noundef %3, i32 noundef %4, i32 noundef 0, ptr noundef %call5, ptr noundef %7, ptr noundef %variables_6)
+  invoke void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_119SetMessageVariablesEPKNS0_15FieldDescriptorEiiPKNS2_18FieldGeneratorInfoEPNS2_7ContextEPN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSH_SaIcEEENSD_18container_internal10StringHashENSN_8StringEqESaISt4pairIKSI_SM_EEEE(ptr noundef %4, i32 noundef %5, i32 noundef 0, ptr noundef %call5, ptr noundef %8, ptr noundef %variables_6)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %variables_) #3
   br label %ehcleanup
 
@@ -2390,7 +2391,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java27ImmutableFieldLiteGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java27ImmutableFieldLiteGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3587,7 +3589,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java30ImmutableMapFieldLiteGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java30ImmutableMapFieldLiteGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %variables_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableMapFieldLiteGenerator", ptr %this1, i32 0, i32 2
   call void @_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %variables_) #3
   call void @_ZN6google8protobuf8compiler4java27ImmutableFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -8874,7 +8877,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -22044,7 +22048,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable

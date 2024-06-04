@@ -3474,21 +3474,22 @@ define hidden void @proto_register_rtps() #0 {
   %36 = call ptr @wmem_epan_scope()
   %37 = call ptr @wmem_file_scope()
   %38 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %36, ptr noundef %37, ptr noundef @coherent_set_key_hash_by_key, ptr noundef @compare_by_coherent_set_key)
-  store ptr %38, ptr getelementptr inbounds (%struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1), align 8
-  %39 = call ptr @wmem_epan_scope()
+  %39 = getelementptr inbounds %struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1
+  store ptr %38, ptr %39, align 8
   %40 = call ptr @wmem_epan_scope()
-  %41 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %39, ptr noundef %40, ptr noundef @g_int64_hash, ptr noundef @g_int64_equal)
-  store ptr %41, ptr @builtin_dissection_infos, align 8
-  %42 = call ptr @wmem_epan_scope()
-  %43 = call ptr @wmem_file_scope()
-  %44 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %42, ptr noundef %43, ptr noundef @hash_by_guid, ptr noundef @compare_by_guid)
-  store ptr %44, ptr @coherent_set_tracking, align 8
-  %45 = call ptr @wmem_epan_scope()
-  %46 = call ptr @wmem_file_scope()
-  %47 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %45, ptr noundef %46, ptr noundef @hash_by_participant_guid, ptr noundef @compare_by_participant_guid)
-  store ptr %47, ptr @discovered_participants_domain_ids, align 8
-  %48 = load i32, ptr @proto_rtps, align 4
-  %49 = call ptr @register_dissector(ptr noundef @.str.988, ptr noundef @dissect_simple_rtps, i32 noundef %48)
+  %41 = call ptr @wmem_epan_scope()
+  %42 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %40, ptr noundef %41, ptr noundef @g_int64_hash, ptr noundef @g_int64_equal)
+  store ptr %42, ptr @builtin_dissection_infos, align 8
+  %43 = call ptr @wmem_epan_scope()
+  %44 = call ptr @wmem_file_scope()
+  %45 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %43, ptr noundef %44, ptr noundef @hash_by_guid, ptr noundef @compare_by_guid)
+  store ptr %45, ptr @coherent_set_tracking, align 8
+  %46 = call ptr @wmem_epan_scope()
+  %47 = call ptr @wmem_file_scope()
+  %48 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %46, ptr noundef %47, ptr noundef @hash_by_participant_guid, ptr noundef @compare_by_participant_guid)
+  store ptr %48, ptr @discovered_participants_domain_ids, align 8
+  %49 = load i32, ptr @proto_rtps, align 4
+  %50 = call ptr @register_dissector(ptr noundef @.str.988, ptr noundef @dissect_simple_rtps, i32 noundef %49)
   call void @initialize_instance_state_data_response_dissection_info(ptr noundef @builtin_types_dissection_data)
   call void @reassembly_table_register(ptr noundef @rtps_reassembly_table, ptr noundef @addresses_reassembly_table_functions)
   ret void
@@ -9452,7 +9453,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   store ptr %12, ptr %27, align 8
   %56 = load i16, ptr %23, align 2
   %57 = zext i16 %56 to i32
-  switch i32 %57, label %504 [
+  switch i32 %57, label %505 [
     i32 113, label %58
     i32 87, label %91
     i32 112, label %115
@@ -9467,8 +9468,8 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
     i32 99, label %388
     i32 32803, label %410
     i32 32802, label %432
-    i32 32804, label %479
-    i32 72, label %490
+    i32 32804, label %480
+    i32 72, label %491
   ]
 
 58:                                               ; preds = %13
@@ -9481,7 +9482,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %62 = load ptr, ptr %16, align 8
   %63 = load ptr, ptr %19, align 8
   %64 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %62, ptr noundef %63, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 4)
-  br label %505
+  br label %506
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %15, align 8
@@ -9520,7 +9521,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   br label %90
 
 90:                                               ; preds = %88, %79
-  br label %505
+  br label %506
 
 91:                                               ; preds = %13
   %92 = load i32, ptr %22, align 4
@@ -9531,7 +9532,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %95 = load ptr, ptr %16, align 8
   %96 = load ptr, ptr %19, align 8
   %97 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %95, ptr noundef %96, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 16)
-  br label %505
+  br label %506
 
 98:                                               ; preds = %91
   %99 = load ptr, ptr %15, align 8
@@ -9551,7 +9552,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %112 = load i32, ptr @hf_rtps_sm_entity_id_kind, align 4
   %113 = load i32, ptr @ett_rtps_entity, align 4
   %114 = call i32 @rtps_util_add_entity_id(ptr noundef %106, ptr noundef %107, i32 noundef %109, i32 noundef %110, i32 noundef %111, i32 noundef %112, i32 noundef %113, ptr noundef @.str.1176, ptr noundef null)
-  br label %505
+  br label %506
 
 115:                                              ; preds = %13
   %116 = load ptr, ptr %15, align 8
@@ -9609,7 +9610,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   br label %122, !llvm.loop !11
 
 150:                                              ; preds = %122
-  br label %505
+  br label %506
 
 151:                                              ; preds = %13
   %152 = load i32, ptr %22, align 4
@@ -9620,7 +9621,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %155 = load ptr, ptr %16, align 8
   %156 = load ptr, ptr %19, align 8
   %157 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %155, ptr noundef %156, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 4)
-  br label %505
+  br label %506
 
 158:                                              ; preds = %151
   %159 = load ptr, ptr %15, align 8
@@ -9629,7 +9630,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %162 = load i32, ptr %20, align 4
   %163 = load i32, ptr %21, align 4
   %164 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef 4, i32 noundef %163)
-  br label %505
+  br label %506
 
 165:                                              ; preds = %13
   %166 = load i32, ptr %22, align 4
@@ -9640,7 +9641,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %169 = load ptr, ptr %16, align 8
   %170 = load ptr, ptr %19, align 8
   %171 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %169, ptr noundef %170, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 8)
-  br label %505
+  br label %506
 
 172:                                              ; preds = %165
   %173 = load ptr, ptr %15, align 8
@@ -9726,7 +9727,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   br label %186, !llvm.loop !12
 
 236:                                              ; preds = %186
-  br label %505
+  br label %506
 
 237:                                              ; preds = %13
   %238 = load i32, ptr %22, align 4
@@ -9737,7 +9738,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %241 = load ptr, ptr %16, align 8
   %242 = load ptr, ptr %19, align 8
   %243 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %241, ptr noundef %242, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 4)
-  br label %505
+  br label %506
 
 244:                                              ; preds = %237
   %245 = load ptr, ptr %17, align 8
@@ -9753,7 +9754,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %254 = load i32, ptr %36, align 4
   %255 = zext i32 %254 to i64
   %256 = call ptr @proto_tree_add_bitmask_value(ptr noundef %249, ptr noundef %250, i32 noundef %251, i32 noundef %252, i32 noundef %253, ptr noundef @BUILTIN_ENDPOINT_FLAGS, i64 noundef %255)
-  br label %505
+  br label %506
 
 257:                                              ; preds = %13
   %258 = load i32, ptr %22, align 4
@@ -9764,7 +9765,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %261 = load ptr, ptr %16, align 8
   %262 = load ptr, ptr %19, align 8
   %263 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %261, ptr noundef %262, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 4)
-  br label %505
+  br label %506
 
 264:                                              ; preds = %257
   %265 = load ptr, ptr %15, align 8
@@ -9773,7 +9774,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %268 = load i32, ptr %20, align 4
   %269 = load i32, ptr %21, align 4
   %270 = call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %266, ptr noundef %267, i32 noundef %268, i32 noundef 4, i32 noundef %269)
-  br label %505
+  br label %506
 
 271:                                              ; preds = %13
   %272 = load i32, ptr %22, align 4
@@ -9784,7 +9785,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %275 = load ptr, ptr %16, align 8
   %276 = load ptr, ptr %19, align 8
   %277 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %275, ptr noundef %276, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 16)
-  br label %505
+  br label %506
 
 278:                                              ; preds = %271
   %279 = load ptr, ptr %15, align 8
@@ -9810,7 +9811,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %298 = add i32 %297, 16
   %299 = load i32, ptr %21, align 4
   %300 = call i64 @rtps_util_add_seq_number(ptr noundef %295, ptr noundef %296, i32 noundef %298, i32 noundef %299, ptr noundef @.str.1180)
-  br label %505
+  br label %506
 
 301:                                              ; preds = %13
   %302 = load ptr, ptr %15, align 8
@@ -9819,7 +9820,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %305 = load i32, ptr @hf_rtps_param_entity_name, align 4
   %306 = load i32, ptr %21, align 4
   %307 = call i32 @rtps_util_add_string(ptr noundef %302, ptr noundef %303, i32 noundef %304, i32 noundef %305, i32 noundef %306)
-  br label %505
+  br label %506
 
 308:                                              ; preds = %13
   %309 = load i32, ptr %22, align 4
@@ -9830,7 +9831,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %312 = load ptr, ptr %16, align 8
   %313 = load ptr, ptr %19, align 8
   %314 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %312, ptr noundef %313, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 16)
-  br label %505
+  br label %506
 
 315:                                              ; preds = %308
   %316 = load ptr, ptr %16, align 8
@@ -9849,7 +9850,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %328 = load i32, ptr @hf_rtps_param_entity_key, align 4
   %329 = load i32, ptr @hf_rtps_param_entity_kind, align 4
   call void @rtps_util_add_generic_guid_v2(ptr noundef %320, ptr noundef %321, i32 noundef %322, i32 noundef %323, i32 noundef %324, i32 noundef %325, i32 noundef %326, i32 noundef %327, i32 noundef %328, i32 noundef %329, ptr noundef null)
-  br label %505
+  br label %506
 
 330:                                              ; preds = %13
   store i32 0, ptr %42, align 4
@@ -9932,7 +9933,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   br label %387
 
 387:                                              ; preds = %379, %370
-  br label %505
+  br label %506
 
 388:                                              ; preds = %13
   %389 = load ptr, ptr %17, align 8
@@ -9959,7 +9960,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %407 = load i32, ptr %20, align 4
   %408 = load i64, ptr %47, align 8
   %409 = call ptr @proto_tree_add_uint64(ptr noundef %404, i32 noundef %405, ptr noundef %406, i32 noundef %407, i32 noundef 8, i64 noundef %408)
-  br label %505
+  br label %506
 
 410:                                              ; preds = %13
   %411 = load ptr, ptr %17, align 8
@@ -9986,7 +9987,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %429 = load i32, ptr %20, align 4
   %430 = load i64, ptr %50, align 8
   %431 = call ptr @proto_tree_add_uint64(ptr noundef %426, i32 noundef %427, ptr noundef %428, i32 noundef %429, i32 noundef 8, i64 noundef %430)
-  br label %505
+  br label %506
 
 432:                                              ; preds = %13
   store i64 0, ptr %52, align 8
@@ -10007,7 +10008,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   call void @proto_item_set_generated(ptr noundef %443)
   %444 = load ptr, ptr %27, align 8
   %445 = icmp ne ptr %444, null
-  br i1 %445, label %446, label %478
+  br i1 %445, label %446, label %479
 
 446:                                              ; preds = %432
   %447 = load ptr, ptr @coherent_set_tracking, align 8
@@ -10017,7 +10018,7 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   store ptr %450, ptr %53, align 8
   %451 = load ptr, ptr %53, align 8
   %452 = icmp ne ptr %451, null
-  br i1 %452, label %453, label %477
+  br i1 %452, label %453, label %478
 
 453:                                              ; preds = %446
   %454 = load i64, ptr %52, align 8
@@ -10034,79 +10035,80 @@ define internal i32 @dissect_parameter_sequence_v2(ptr noundef %0, ptr noundef %
   %462 = load i64, ptr %461, align 8
   %463 = getelementptr inbounds %struct._coherent_set_key, ptr %51, i32 0, i32 1
   store i64 %462, ptr %463, align 8
-  %464 = load ptr, ptr getelementptr inbounds (%struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1), align 8
-  %465 = call ptr @wmem_map_lookup(ptr noundef %464, ptr noundef %51)
-  store ptr %465, ptr %54, align 8
-  %466 = load ptr, ptr %54, align 8
-  %467 = icmp ne ptr %466, null
-  br i1 %467, label %468, label %476
+  %464 = getelementptr inbounds %struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1
+  %465 = load ptr, ptr %464, align 8
+  %466 = call ptr @wmem_map_lookup(ptr noundef %465, ptr noundef %51)
+  store ptr %466, ptr %54, align 8
+  %467 = load ptr, ptr %54, align 8
+  %468 = icmp ne ptr %467, null
+  br i1 %468, label %469, label %477
 
-468:                                              ; preds = %453
-  %469 = load ptr, ptr %54, align 8
-  %470 = getelementptr inbounds %struct._coherent_set_info, ptr %469, i32 0, i32 2
-  store i32 1, ptr %470, align 8
-  %471 = load ptr, ptr %27, align 8
-  %472 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %471, i32 0, i32 1
-  %473 = load i64, ptr %472, align 8
-  %474 = load ptr, ptr %54, align 8
-  %475 = getelementptr inbounds %struct._coherent_set_info, ptr %474, i32 0, i32 1
-  store i64 %473, ptr %475, align 8
-  br label %476
-
-476:                                              ; preds = %468, %453
+469:                                              ; preds = %453
+  %470 = load ptr, ptr %54, align 8
+  %471 = getelementptr inbounds %struct._coherent_set_info, ptr %470, i32 0, i32 2
+  store i32 1, ptr %471, align 8
+  %472 = load ptr, ptr %27, align 8
+  %473 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %472, i32 0, i32 1
+  %474 = load i64, ptr %473, align 8
+  %475 = load ptr, ptr %54, align 8
+  %476 = getelementptr inbounds %struct._coherent_set_info, ptr %475, i32 0, i32 1
+  store i64 %474, ptr %476, align 8
   br label %477
 
-477:                                              ; preds = %476, %446
+477:                                              ; preds = %469, %453
   br label %478
 
-478:                                              ; preds = %477, %432
-  br label %505
+478:                                              ; preds = %477, %446
+  br label %479
 
-479:                                              ; preds = %13
-  %480 = load ptr, ptr %17, align 8
-  %481 = load i32, ptr %20, align 4
-  %482 = load i32, ptr %21, align 4
-  %483 = call i32 @tvb_get_guint32(ptr noundef %480, i32 noundef %481, i32 noundef %482)
-  store i32 %483, ptr %55, align 4
-  %484 = load ptr, ptr %15, align 8
-  %485 = load i32, ptr @hf_rtps_param_mig_end_coherent_set_sample_count, align 4
-  %486 = load ptr, ptr %17, align 8
-  %487 = load i32, ptr %20, align 4
-  %488 = load i32, ptr %55, align 4
-  %489 = call ptr @proto_tree_add_uint(ptr noundef %484, i32 noundef %485, ptr noundef %486, i32 noundef %487, i32 noundef 4, i32 noundef %488)
-  br label %505
+479:                                              ; preds = %478, %432
+  br label %506
 
-490:                                              ; preds = %13
-  %491 = load i32, ptr %22, align 4
-  %492 = icmp slt i32 %491, 24
-  br i1 %492, label %493, label %497
+480:                                              ; preds = %13
+  %481 = load ptr, ptr %17, align 8
+  %482 = load i32, ptr %20, align 4
+  %483 = load i32, ptr %21, align 4
+  %484 = call i32 @tvb_get_guint32(ptr noundef %481, i32 noundef %482, i32 noundef %483)
+  store i32 %484, ptr %55, align 4
+  %485 = load ptr, ptr %15, align 8
+  %486 = load i32, ptr @hf_rtps_param_mig_end_coherent_set_sample_count, align 4
+  %487 = load ptr, ptr %17, align 8
+  %488 = load i32, ptr %20, align 4
+  %489 = load i32, ptr %55, align 4
+  %490 = call ptr @proto_tree_add_uint(ptr noundef %485, i32 noundef %486, ptr noundef %487, i32 noundef %488, i32 noundef 4, i32 noundef %489)
+  br label %506
 
-493:                                              ; preds = %490
-  %494 = load ptr, ptr %16, align 8
-  %495 = load ptr, ptr %19, align 8
-  %496 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %494, ptr noundef %495, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 24)
-  br label %505
+491:                                              ; preds = %13
+  %492 = load i32, ptr %22, align 4
+  %493 = icmp slt i32 %492, 24
+  br i1 %493, label %494, label %498
 
-497:                                              ; preds = %490
-  %498 = load ptr, ptr %15, align 8
-  %499 = load ptr, ptr %16, align 8
-  %500 = load ptr, ptr %17, align 8
-  %501 = load i32, ptr %20, align 4
-  %502 = load i32, ptr %21, align 4
-  %503 = call i32 @rtps_util_add_locator_t(ptr noundef %498, ptr noundef %499, ptr noundef %500, i32 noundef %501, i32 noundef %502, ptr noundef @.str.1086)
-  br label %505
+494:                                              ; preds = %491
+  %495 = load ptr, ptr %16, align 8
+  %496 = load ptr, ptr %19, align 8
+  %497 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %495, ptr noundef %496, ptr noundef @ei_rtps_parameter_value_invalid, ptr noundef @.str.1085, i32 noundef 24)
+  br label %506
 
-504:                                              ; preds = %13
+498:                                              ; preds = %491
+  %499 = load ptr, ptr %15, align 8
+  %500 = load ptr, ptr %16, align 8
+  %501 = load ptr, ptr %17, align 8
+  %502 = load i32, ptr %20, align 4
+  %503 = load i32, ptr %21, align 4
+  %504 = call i32 @rtps_util_add_locator_t(ptr noundef %499, ptr noundef %500, ptr noundef %501, i32 noundef %502, i32 noundef %503, ptr noundef @.str.1086)
+  br label %506
+
+505:                                              ; preds = %13
   store i32 0, ptr %14, align 4
-  br label %506
+  br label %507
 
-505:                                              ; preds = %497, %493, %479, %478, %410, %388, %387, %315, %311, %301, %278, %274, %264, %260, %244, %240, %236, %168, %158, %154, %150, %98, %94, %90, %61
+506:                                              ; preds = %498, %494, %480, %479, %410, %388, %387, %315, %311, %301, %278, %274, %264, %260, %244, %240, %236, %168, %158, %154, %150, %98, %94, %90, %61
   store i32 1, ptr %14, align 4
-  br label %506
+  br label %507
 
-506:                                              ; preds = %505, %504
-  %507 = load i32, ptr %14, align 4
-  ret i32 %507
+507:                                              ; preds = %506, %505
+  %508 = load i32, ptr %14, align 4
+  ret i32 %508
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13070,214 +13072,217 @@ define internal void @rtps_util_add_coherent_set_general_cases_case(ptr noundef 
   %37 = load i64, ptr %7, align 8
   %38 = getelementptr inbounds %struct._coherent_set_key, ptr %12, i32 0, i32 1
   store i64 %37, ptr %38, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1), align 8
-  %40 = call ptr @wmem_map_lookup(ptr noundef %39, ptr noundef %12)
-  store ptr %40, ptr %11, align 8
-  %41 = load ptr, ptr %11, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %58, label %43
+  %39 = getelementptr inbounds %struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = call ptr @wmem_map_lookup(ptr noundef %40, ptr noundef %12)
+  store ptr %41, ptr %11, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %60, label %44
 
-43:                                               ; preds = %33
-  %44 = call ptr @wmem_file_scope()
-  %45 = call noalias ptr @wmem_alloc0(ptr noundef %44, i64 noundef 24)
-  store ptr %45, ptr %11, align 8
-  %46 = call ptr @wmem_file_scope()
-  %47 = call noalias ptr @wmem_memdup(ptr noundef %46, ptr noundef %12, i64 noundef 32)
-  %48 = load ptr, ptr %11, align 8
-  %49 = getelementptr inbounds %struct._coherent_set_info, ptr %48, i32 0, i32 0
-  store ptr %47, ptr %49, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds %struct._coherent_set_info, ptr %50, i32 0, i32 2
-  store i32 0, ptr %51, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1), align 8
-  %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr inbounds %struct._coherent_set_info, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = call ptr @wmem_map_insert(ptr noundef %52, ptr noundef %55, ptr noundef %56)
-  br label %58
+44:                                               ; preds = %33
+  %45 = call ptr @wmem_file_scope()
+  %46 = call noalias ptr @wmem_alloc0(ptr noundef %45, i64 noundef 24)
+  store ptr %46, ptr %11, align 8
+  %47 = call ptr @wmem_file_scope()
+  %48 = call noalias ptr @wmem_memdup(ptr noundef %47, ptr noundef %12, i64 noundef 32)
+  %49 = load ptr, ptr %11, align 8
+  %50 = getelementptr inbounds %struct._coherent_set_info, ptr %49, i32 0, i32 0
+  store ptr %48, ptr %50, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr inbounds %struct._coherent_set_info, ptr %51, i32 0, i32 2
+  store i32 0, ptr %52, align 8
+  %53 = getelementptr inbounds %struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %11, align 8
+  %56 = getelementptr inbounds %struct._coherent_set_info, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = call ptr @wmem_map_insert(ptr noundef %54, ptr noundef %57, ptr noundef %58)
+  br label %60
 
-58:                                               ; preds = %43, %33
-  %59 = load ptr, ptr %11, align 8
-  %60 = getelementptr inbounds %struct._coherent_set_info, ptr %59, i32 0, i32 1
-  %61 = load i64, ptr %60, align 8
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %62, i32 0, i32 1
-  %64 = load i64, ptr %63, align 8
-  %65 = icmp ult i64 %61, %64
-  br i1 %65, label %66, label %72
+60:                                               ; preds = %44, %33
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds %struct._coherent_set_info, ptr %61, i32 0, i32 1
+  %63 = load i64, ptr %62, align 8
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %64, i32 0, i32 1
+  %66 = load i64, ptr %65, align 8
+  %67 = icmp ult i64 %63, %66
+  br i1 %67, label %68, label %74
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %67, i32 0, i32 1
-  %69 = load i64, ptr %68, align 8
-  %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds %struct._coherent_set_info, ptr %70, i32 0, i32 1
-  store i64 %69, ptr %71, align 8
-  br label %72
+68:                                               ; preds = %60
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %69, i32 0, i32 1
+  %71 = load i64, ptr %70, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = getelementptr inbounds %struct._coherent_set_info, ptr %72, i32 0, i32 1
+  store i64 %71, ptr %73, align 8
+  br label %74
 
-72:                                               ; preds = %66, %58
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %73, i32 0, i32 2
-  %75 = load i64, ptr %74, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %76, i32 0, i32 1
-  %78 = load i64, ptr %77, align 8
-  %79 = icmp eq i64 %75, %78
-  br i1 %79, label %80, label %128
+74:                                               ; preds = %68, %60
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %75, i32 0, i32 2
+  %77 = load i64, ptr %76, align 8
+  %78 = load ptr, ptr %8, align 8
+  %79 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %78, i32 0, i32 1
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp eq i64 %77, %80
+  br i1 %81, label %82, label %131
 
-80:                                               ; preds = %72
-  %81 = load ptr, ptr %5, align 8
-  %82 = load i32, ptr @hf_rtps_coherent_set_start, align 4
-  %83 = load ptr, ptr %6, align 8
-  %84 = load i64, ptr %7, align 8
-  %85 = call ptr @proto_tree_add_uint64(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef 0, i32 noundef 0, i64 noundef %84)
-  store ptr %85, ptr %10, align 8
-  %86 = load ptr, ptr %10, align 8
-  call void @proto_item_set_generated(ptr noundef %86)
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %87, i32 0, i32 2
-  %89 = load i64, ptr %88, align 8
-  %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %90, i32 0, i32 2
-  %92 = load i64, ptr %91, align 8
-  %93 = icmp ugt i64 %89, %92
-  br i1 %93, label %94, label %127
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %5, align 8
+  %84 = load i32, ptr @hf_rtps_coherent_set_start, align 4
+  %85 = load ptr, ptr %6, align 8
+  %86 = load i64, ptr %7, align 8
+  %87 = call ptr @proto_tree_add_uint64(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef 0, i32 noundef 0, i64 noundef %86)
+  store ptr %87, ptr %10, align 8
+  %88 = load ptr, ptr %10, align 8
+  call void @proto_item_set_generated(ptr noundef %88)
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %89, i32 0, i32 2
+  %91 = load i64, ptr %90, align 8
+  %92 = load ptr, ptr %9, align 8
+  %93 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %92, i32 0, i32 2
+  %94 = load i64, ptr %93, align 8
+  %95 = icmp ugt i64 %91, %94
+  br i1 %95, label %96, label %130
 
-94:                                               ; preds = %80
-  %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %95, i32 0, i32 1
-  %97 = load i64, ptr %96, align 8
-  %98 = sub i64 %97, 1
-  %99 = load ptr, ptr %9, align 8
-  %100 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %99, i32 0, i32 1
-  %101 = load i64, ptr %100, align 8
-  %102 = icmp eq i64 %98, %101
-  br i1 %102, label %103, label %127
+96:                                               ; preds = %82
+  %97 = load ptr, ptr %8, align 8
+  %98 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %97, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %100 = sub i64 %99, 1
+  %101 = load ptr, ptr %9, align 8
+  %102 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %101, i32 0, i32 1
+  %103 = load i64, ptr %102, align 8
+  %104 = icmp eq i64 %100, %103
+  br i1 %104, label %105, label %130
 
-103:                                              ; preds = %94
-  %104 = load ptr, ptr %5, align 8
-  %105 = load i32, ptr @hf_rtps_coherent_set_end, align 4
-  %106 = load ptr, ptr %6, align 8
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %107, i32 0, i32 2
-  %109 = load i64, ptr %108, align 8
-  %110 = call ptr @proto_tree_add_uint64(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef 0, i32 noundef 0, i64 noundef %109)
-  store ptr %110, ptr %10, align 8
-  %111 = load ptr, ptr %10, align 8
-  call void @proto_item_set_generated(ptr noundef %111)
-  %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %112, i32 0, i32 1
-  %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds %struct._coherent_set_key, ptr %12, i32 0, i32 1
-  store i64 %114, ptr %115, align 8
-  %116 = getelementptr inbounds %struct._coherent_set_key, ptr %12, i32 0, i32 0
-  %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %117, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %116, ptr align 8 %118, i64 20, i1 false)
-  %119 = load ptr, ptr getelementptr inbounds (%struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1), align 8
-  %120 = call ptr @wmem_map_lookup(ptr noundef %119, ptr noundef %12)
-  store ptr %120, ptr %13, align 8
-  %121 = load ptr, ptr %13, align 8
-  %122 = icmp ne ptr %121, null
-  br i1 %122, label %123, label %126
-
-123:                                              ; preds = %103
+105:                                              ; preds = %96
+  %106 = load ptr, ptr %5, align 8
+  %107 = load i32, ptr @hf_rtps_coherent_set_end, align 4
+  %108 = load ptr, ptr %6, align 8
+  %109 = load ptr, ptr %9, align 8
+  %110 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %109, i32 0, i32 2
+  %111 = load i64, ptr %110, align 8
+  %112 = call ptr @proto_tree_add_uint64(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef 0, i32 noundef 0, i64 noundef %111)
+  store ptr %112, ptr %10, align 8
+  %113 = load ptr, ptr %10, align 8
+  call void @proto_item_set_generated(ptr noundef %113)
+  %114 = load ptr, ptr %9, align 8
+  %115 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %114, i32 0, i32 1
+  %116 = load i64, ptr %115, align 8
+  %117 = getelementptr inbounds %struct._coherent_set_key, ptr %12, i32 0, i32 1
+  store i64 %116, ptr %117, align 8
+  %118 = getelementptr inbounds %struct._coherent_set_key, ptr %12, i32 0, i32 0
+  %119 = load ptr, ptr %9, align 8
+  %120 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %119, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %118, ptr align 8 %120, i64 20, i1 false)
+  %121 = getelementptr inbounds %struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8
+  %123 = call ptr @wmem_map_lookup(ptr noundef %122, ptr noundef %12)
+  store ptr %123, ptr %13, align 8
   %124 = load ptr, ptr %13, align 8
-  %125 = getelementptr inbounds %struct._coherent_set_info, ptr %124, i32 0, i32 2
-  store i32 1, ptr %125, align 8
-  br label %126
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %126, label %129
 
-126:                                              ; preds = %123, %103
-  br label %127
+126:                                              ; preds = %105
+  %127 = load ptr, ptr %13, align 8
+  %128 = getelementptr inbounds %struct._coherent_set_info, ptr %127, i32 0, i32 2
+  store i32 1, ptr %128, align 8
+  br label %129
 
-127:                                              ; preds = %126, %94, %80
-  br label %128
+129:                                              ; preds = %126, %105
+  br label %130
 
-128:                                              ; preds = %127, %72
-  %129 = load ptr, ptr %11, align 8
-  %130 = getelementptr inbounds %struct._coherent_set_info, ptr %129, i32 0, i32 2
-  %131 = load i32, ptr %130, align 8
-  %132 = icmp ne i32 %131, 0
-  br i1 %132, label %160, label %133
+130:                                              ; preds = %129, %96, %82
+  br label %131
 
-133:                                              ; preds = %128
-  %134 = load i64, ptr %7, align 8
-  %135 = sub i64 %134, 1
-  %136 = getelementptr inbounds %struct._coherent_set_key, ptr %12, i32 0, i32 1
-  store i64 %135, ptr %136, align 8
-  %137 = load ptr, ptr %8, align 8
-  %138 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %137, i32 0, i32 2
-  %139 = load i64, ptr %138, align 8
-  %140 = icmp eq i64 %139, -4294967296
-  br i1 %140, label %141, label %159
+131:                                              ; preds = %130, %74
+  %132 = load ptr, ptr %11, align 8
+  %133 = getelementptr inbounds %struct._coherent_set_info, ptr %132, i32 0, i32 2
+  %134 = load i32, ptr %133, align 8
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %163, label %136
 
-141:                                              ; preds = %133
-  %142 = load ptr, ptr %8, align 8
-  %143 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %142, i32 0, i32 2
-  %144 = load i64, ptr %143, align 8
-  %145 = load ptr, ptr %9, align 8
+136:                                              ; preds = %131
+  %137 = load i64, ptr %7, align 8
+  %138 = sub i64 %137, 1
+  %139 = getelementptr inbounds %struct._coherent_set_key, ptr %12, i32 0, i32 1
+  store i64 %138, ptr %139, align 8
+  %140 = load ptr, ptr %8, align 8
+  %141 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %140, i32 0, i32 2
+  %142 = load i64, ptr %141, align 8
+  %143 = icmp eq i64 %142, -4294967296
+  br i1 %143, label %144, label %162
+
+144:                                              ; preds = %136
+  %145 = load ptr, ptr %8, align 8
   %146 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %145, i32 0, i32 2
-  store i64 %144, ptr %146, align 8
-  %147 = load ptr, ptr %5, align 8
-  %148 = load i32, ptr @hf_rtps_coherent_set_end, align 4
-  %149 = load ptr, ptr %6, align 8
-  %150 = load ptr, ptr %11, align 8
-  %151 = getelementptr inbounds %struct._coherent_set_info, ptr %150, i32 0, i32 0
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %struct._coherent_set_key, ptr %152, i32 0, i32 1
-  %154 = load i64, ptr %153, align 8
-  %155 = call ptr @proto_tree_add_uint64(ptr noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef 0, i32 noundef 0, i64 noundef %154)
-  store ptr %155, ptr %10, align 8
-  %156 = load ptr, ptr %10, align 8
-  call void @proto_item_set_generated(ptr noundef %156)
-  %157 = load ptr, ptr %11, align 8
-  %158 = getelementptr inbounds %struct._coherent_set_info, ptr %157, i32 0, i32 2
-  store i32 1, ptr %158, align 8
-  br label %159
+  %147 = load i64, ptr %146, align 8
+  %148 = load ptr, ptr %9, align 8
+  %149 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %148, i32 0, i32 2
+  store i64 %147, ptr %149, align 8
+  %150 = load ptr, ptr %5, align 8
+  %151 = load i32, ptr @hf_rtps_coherent_set_end, align 4
+  %152 = load ptr, ptr %6, align 8
+  %153 = load ptr, ptr %11, align 8
+  %154 = getelementptr inbounds %struct._coherent_set_info, ptr %153, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds %struct._coherent_set_key, ptr %155, i32 0, i32 1
+  %157 = load i64, ptr %156, align 8
+  %158 = call ptr @proto_tree_add_uint64(ptr noundef %150, i32 noundef %151, ptr noundef %152, i32 noundef 0, i32 noundef 0, i64 noundef %157)
+  store ptr %158, ptr %10, align 8
+  %159 = load ptr, ptr %10, align 8
+  call void @proto_item_set_generated(ptr noundef %159)
+  %160 = load ptr, ptr %11, align 8
+  %161 = getelementptr inbounds %struct._coherent_set_info, ptr %160, i32 0, i32 2
+  store i32 1, ptr %161, align 8
+  br label %162
 
-159:                                              ; preds = %141, %133
-  br label %180
+162:                                              ; preds = %144, %136
+  br label %183
 
-160:                                              ; preds = %128
-  %161 = load ptr, ptr %11, align 8
-  %162 = getelementptr inbounds %struct._coherent_set_info, ptr %161, i32 0, i32 1
-  %163 = load i64, ptr %162, align 8
-  %164 = load ptr, ptr %8, align 8
-  %165 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %164, i32 0, i32 1
+163:                                              ; preds = %131
+  %164 = load ptr, ptr %11, align 8
+  %165 = getelementptr inbounds %struct._coherent_set_info, ptr %164, i32 0, i32 1
   %166 = load i64, ptr %165, align 8
-  %167 = icmp eq i64 %163, %166
-  br i1 %167, label %168, label %179
+  %167 = load ptr, ptr %8, align 8
+  %168 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %167, i32 0, i32 1
+  %169 = load i64, ptr %168, align 8
+  %170 = icmp eq i64 %166, %169
+  br i1 %170, label %171, label %182
 
-168:                                              ; preds = %160
-  %169 = load ptr, ptr %5, align 8
-  %170 = load i32, ptr @hf_rtps_coherent_set_end, align 4
-  %171 = load ptr, ptr %6, align 8
-  %172 = load ptr, ptr %11, align 8
-  %173 = getelementptr inbounds %struct._coherent_set_info, ptr %172, i32 0, i32 0
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds %struct._coherent_set_key, ptr %174, i32 0, i32 1
-  %176 = load i64, ptr %175, align 8
-  %177 = call ptr @proto_tree_add_uint64(ptr noundef %169, i32 noundef %170, ptr noundef %171, i32 noundef 0, i32 noundef 0, i64 noundef %176)
-  store ptr %177, ptr %14, align 8
-  %178 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %178)
-  br label %179
+171:                                              ; preds = %163
+  %172 = load ptr, ptr %5, align 8
+  %173 = load i32, ptr @hf_rtps_coherent_set_end, align 4
+  %174 = load ptr, ptr %6, align 8
+  %175 = load ptr, ptr %11, align 8
+  %176 = getelementptr inbounds %struct._coherent_set_info, ptr %175, i32 0, i32 0
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds %struct._coherent_set_key, ptr %177, i32 0, i32 1
+  %179 = load i64, ptr %178, align 8
+  %180 = call ptr @proto_tree_add_uint64(ptr noundef %172, i32 noundef %173, ptr noundef %174, i32 noundef 0, i32 noundef 0, i64 noundef %179)
+  store ptr %180, ptr %14, align 8
+  %181 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %181)
+  br label %182
 
-179:                                              ; preds = %168, %160
-  br label %180
+182:                                              ; preds = %171, %163
+  br label %183
 
-180:                                              ; preds = %179, %159
-  %181 = load ptr, ptr %8, align 8
-  %182 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %181, i32 0, i32 1
-  %183 = load i64, ptr %182, align 8
-  %184 = add i64 %183, 1
-  %185 = load ptr, ptr %8, align 8
-  %186 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %185, i32 0, i32 3
-  store i64 %184, ptr %186, align 8
-  %187 = load ptr, ptr %9, align 8
+183:                                              ; preds = %182, %162
+  %184 = load ptr, ptr %8, align 8
+  %185 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %184, i32 0, i32 1
+  %186 = load i64, ptr %185, align 8
+  %187 = add i64 %186, 1
   %188 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %187, ptr align 8 %188, i64 48, i1 false)
+  %189 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %188, i32 0, i32 3
+  store i64 %187, ptr %189, align 8
+  %190 = load ptr, ptr %9, align 8
+  %191 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %190, ptr align 8 %191, i64 48, i1 false)
   ret void
 }
 
@@ -27691,7 +27696,7 @@ define internal void @rtps_util_detect_coherent_set_end_empty_data_case(ptr noun
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr %3, align 8
   %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %47
+  br i1 %11, label %12, label %48
 
 12:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 32, i1 false)
@@ -27704,47 +27709,48 @@ define internal void @rtps_util_detect_coherent_set_end_empty_data_case(ptr noun
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds %struct._coherent_set_key, ptr %5, i32 0, i32 1
   store i64 %18, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1), align 8
-  %21 = call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef %5)
-  store ptr %21, ptr %4, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %46
+  %20 = getelementptr inbounds %struct._coherent_set_track, ptr @coherent_set_tracking, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @wmem_map_lookup(ptr noundef %21, ptr noundef %5)
+  store ptr %22, ptr %4, align 8
+  %23 = load ptr, ptr %4, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %47
 
-24:                                               ; preds = %12
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %25, i32 0, i32 3
-  %27 = load i64, ptr %26, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %28, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp eq i64 %27, %30
-  br i1 %31, label %32, label %46
+25:                                               ; preds = %12
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %26, i32 0, i32 3
+  %28 = load i64, ptr %27, align 8
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %29, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp eq i64 %28, %31
+  br i1 %32, label %33, label %47
 
-32:                                               ; preds = %24
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct._coherent_set_info, ptr %33, i32 0, i32 2
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %46, label %37
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct._coherent_set_info, ptr %34, i32 0, i32 2
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %47, label %38
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct._coherent_set_info, ptr %38, i32 0, i32 2
-  store i32 1, ptr %39, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %40, i32 0, i32 3
-  %42 = load i64, ptr %41, align 8
-  %43 = sub i64 %42, 1
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct._coherent_set_info, ptr %44, i32 0, i32 1
-  store i64 %43, ptr %45, align 8
-  br label %46
-
-46:                                               ; preds = %37, %32, %24, %12
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %struct._coherent_set_info, ptr %39, i32 0, i32 2
+  store i32 1, ptr %40, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds %struct._coherent_set_entity_info, ptr %41, i32 0, i32 3
+  %43 = load i64, ptr %42, align 8
+  %44 = sub i64 %43, 1
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct._coherent_set_info, ptr %45, i32 0, i32 1
+  store i64 %44, ptr %46, align 8
   br label %47
 
-47:                                               ; preds = %46, %1
+47:                                               ; preds = %38, %33, %25, %12
+  br label %48
+
+48:                                               ; preds = %47, %1
   ret void
 }
 

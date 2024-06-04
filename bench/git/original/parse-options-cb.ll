@@ -1237,14 +1237,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %opt_value, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @parse_opt_passthru_argv.sb, i32 0, i32 2), align 8
-  %call1 = call ptr @strvec_push(ptr noundef %5, ptr noundef %6)
+  %6 = getelementptr inbounds %struct.strbuf, ptr @parse_opt_passthru_argv.sb, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %call1 = call ptr @strvec_push(ptr noundef %5, ptr noundef %7)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+  %8 = load i32, ptr %retval, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable

@@ -16,24 +16,25 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___memcpy_flu
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @arch_wb_cache_pmem(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24), align 2
-  %4 = zext i16 %3 to i64
-  %5 = getelementptr i8, ptr %0, i64 %1
-  %6 = ptrtoint ptr %0 to i64
-  %7 = sub nsw i64 0, %4
-  %8 = and i64 %7, %6
-  %9 = inttoptr i64 %8 to ptr
-  %10 = icmp ugt ptr %5, %9
-  br i1 %10, label %11, label %15
+  %3 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24
+  %4 = load i16, ptr %3, align 2
+  %5 = zext i16 %4 to i64
+  %6 = getelementptr i8, ptr %0, i64 %1
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nsw i64 0, %5
+  %9 = and i64 %8, %7
+  %10 = inttoptr i64 %9 to ptr
+  %11 = icmp ugt ptr %6, %10
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %11, %2
-  %12 = phi ptr [ %13, %11 ], [ %9, %2 ]
-  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %12, ptr %12, ptr elementtype(%struct.anon) %12) #4, !srcloc !5
-  %13 = getelementptr i8, ptr %12, i64 %4
-  %14 = icmp ult ptr %13, %5
-  br i1 %14, label %11, label %15, !llvm.loop !6
+12:                                               ; preds = %12, %2
+  %13 = phi ptr [ %14, %12 ], [ %10, %2 ]
+  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %13, ptr %13, ptr elementtype(%struct.anon) %13) #4, !srcloc !5
+  %14 = getelementptr i8, ptr %13, i64 %5
+  %15 = icmp ult ptr %14, %6
+  br i1 %15, label %12, label %16, !llvm.loop !6
 
-15:                                               ; preds = %11, %2
+16:                                               ; preds = %12, %2
   ret void
 }
 
@@ -44,91 +45,94 @@ define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32
   %5 = tail call i64 @__copy_user_nocache(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   %6 = icmp ult i32 %2, 8
-  br i1 %6, label %7, label %25
+  br i1 %6, label %7, label %26
 
 7:                                                ; preds = %3
   %8 = and i64 %4, 3
   %9 = icmp ne i64 %8, 0
   %10 = icmp ne i32 %2, 4
   %11 = or i1 %9, %10
-  br i1 %11, label %12, label %66
+  br i1 %11, label %12, label %69
 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %2 to i64
-  %14 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24), align 2
-  %15 = zext i16 %14 to i64
-  %16 = getelementptr i8, ptr %0, i64 %13
-  %17 = sub nsw i64 0, %15
-  %18 = and i64 %17, %4
-  %19 = inttoptr i64 %18 to ptr
-  %20 = icmp ugt ptr %16, %19
-  br i1 %20, label %21, label %66
+  %14 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24
+  %15 = load i16, ptr %14, align 2
+  %16 = zext i16 %15 to i64
+  %17 = getelementptr i8, ptr %0, i64 %13
+  %18 = sub nsw i64 0, %16
+  %19 = and i64 %18, %4
+  %20 = inttoptr i64 %19 to ptr
+  %21 = icmp ugt ptr %17, %20
+  br i1 %21, label %22, label %69
 
-21:                                               ; preds = %21, %12
-  %22 = phi ptr [ %23, %21 ], [ %19, %12 ]
-  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %22, ptr %22, ptr elementtype(%struct.anon) %22) #4, !srcloc !5
-  %23 = getelementptr i8, ptr %22, i64 %15
-  %24 = icmp ult ptr %23, %16
-  br i1 %24, label %21, label %66, !llvm.loop !6
+22:                                               ; preds = %22, %12
+  %23 = phi ptr [ %24, %22 ], [ %20, %12 ]
+  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %23, ptr %23, ptr elementtype(%struct.anon) %23) #4, !srcloc !5
+  %24 = getelementptr i8, ptr %23, i64 %16
+  %25 = icmp ult ptr %24, %17
+  br i1 %25, label %22, label %69, !llvm.loop !6
 
-25:                                               ; preds = %3
-  %26 = and i64 %4, 7
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %43, label %28
+26:                                               ; preds = %3
+  %27 = and i64 %4, 7
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %45, label %29
 
-28:                                               ; preds = %25
-  %29 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24), align 2
-  %30 = zext i16 %29 to i64
-  %31 = add i64 %4, -1
-  %32 = add i64 %31, %30
-  %33 = sub nsw i64 0, %30
-  %34 = and i64 %32, %33
-  %35 = getelementptr i8, ptr %0, i64 1
-  %36 = and i64 %33, %4
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp ugt ptr %35, %37
-  br i1 %38, label %39, label %43
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24
+  %31 = load i16, ptr %30, align 2
+  %32 = zext i16 %31 to i64
+  %33 = add i64 %4, -1
+  %34 = add i64 %33, %32
+  %35 = sub nsw i64 0, %32
+  %36 = and i64 %34, %35
+  %37 = getelementptr i8, ptr %0, i64 1
+  %38 = and i64 %35, %4
+  %39 = inttoptr i64 %38 to ptr
+  %40 = icmp ugt ptr %37, %39
+  br i1 %40, label %41, label %45
 
-39:                                               ; preds = %39, %28
-  %40 = phi ptr [ %41, %39 ], [ %37, %28 ]
-  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %40, ptr %40, ptr elementtype(%struct.anon) %40) #4, !srcloc !5
-  %41 = getelementptr i8, ptr %40, i64 %30
-  %42 = icmp ult ptr %41, %35
-  br i1 %42, label %39, label %43, !llvm.loop !6
+41:                                               ; preds = %41, %29
+  %42 = phi ptr [ %43, %41 ], [ %39, %29 ]
+  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %42, ptr %42, ptr elementtype(%struct.anon) %42) #4, !srcloc !5
+  %43 = getelementptr i8, ptr %42, i64 %32
+  %44 = icmp ult ptr %43, %37
+  br i1 %44, label %41, label %45, !llvm.loop !6
 
-43:                                               ; preds = %39, %28, %25
-  %44 = phi i64 [ %4, %25 ], [ %34, %28 ], [ %34, %39 ]
-  %45 = sub i64 %44, %4
-  %46 = zext i32 %2 to i64
-  %47 = icmp ult i64 %45, %46
-  br i1 %47, label %48, label %66
+45:                                               ; preds = %41, %29, %26
+  %46 = phi i64 [ %4, %26 ], [ %36, %29 ], [ %36, %41 ]
+  %47 = sub i64 %46, %4
+  %48 = zext i32 %2 to i64
+  %49 = icmp ult i64 %47, %48
+  br i1 %49, label %50, label %69
 
-48:                                               ; preds = %43
-  %49 = sub nsw i64 %46, %45
-  %50 = and i64 %49, 7
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %66, label %52
+50:                                               ; preds = %45
+  %51 = sub nsw i64 %48, %47
+  %52 = and i64 %51, 7
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %69, label %54
 
-52:                                               ; preds = %48
-  %53 = getelementptr i8, ptr %0, i64 %46
-  %54 = getelementptr i8, ptr %53, i64 -1
-  %55 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24), align 2
-  %56 = zext i16 %55 to i64
-  %57 = ptrtoint ptr %54 to i64
-  %58 = sub nsw i64 0, %56
-  %59 = and i64 %58, %57
-  %60 = inttoptr i64 %59 to ptr
-  %61 = icmp ugt ptr %53, %60
-  br i1 %61, label %62, label %66
+54:                                               ; preds = %50
+  %55 = getelementptr i8, ptr %0, i64 %48
+  %56 = getelementptr i8, ptr %55, i64 -1
+  %57 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24
+  %58 = load i16, ptr %57, align 2
+  %59 = zext i16 %58 to i64
+  %60 = ptrtoint ptr %56 to i64
+  %61 = sub nsw i64 0, %59
+  %62 = and i64 %61, %60
+  %63 = inttoptr i64 %62 to ptr
+  %64 = icmp ugt ptr %55, %63
+  br i1 %64, label %65, label %69
 
-62:                                               ; preds = %62, %52
-  %63 = phi ptr [ %64, %62 ], [ %60, %52 ]
-  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %63, ptr %63, ptr elementtype(%struct.anon) %63) #4, !srcloc !5
-  %64 = getelementptr i8, ptr %63, i64 %56
-  %65 = icmp ult ptr %64, %53
-  br i1 %65, label %62, label %66, !llvm.loop !6
+65:                                               ; preds = %65, %54
+  %66 = phi ptr [ %67, %65 ], [ %63, %54 ]
+  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %66, ptr %66, ptr elementtype(%struct.anon) %66) #4, !srcloc !5
+  %67 = getelementptr i8, ptr %66, i64 %59
+  %68 = icmp ult ptr %67, %55
+  br i1 %68, label %65, label %69, !llvm.loop !6
 
-66:                                               ; preds = %62, %52, %48, %43, %21, %12, %7
+69:                                               ; preds = %65, %54, %50, %45, %22, %12, %7
   ret i64 %5
 }
 
@@ -141,7 +145,7 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %4, 7
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %29, label %8
+  br i1 %7, label %30, label %8
 
 8:                                                ; preds = %3
   %9 = add i64 %4, 7
@@ -149,111 +153,113 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   %11 = sub i64 %10, %4
   %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %12, i1 false)
-  %13 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24), align 2
-  %14 = zext i16 %13 to i64
-  %15 = getelementptr i8, ptr %0, i64 %12
-  %16 = sub nsw i64 0, %14
-  %17 = and i64 %16, %4
-  %18 = inttoptr i64 %17 to ptr
-  %19 = icmp ugt ptr %15, %18
-  br i1 %19, label %20, label %24
+  %13 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24
+  %14 = load i16, ptr %13, align 2
+  %15 = zext i16 %14 to i64
+  %16 = getelementptr i8, ptr %0, i64 %12
+  %17 = sub nsw i64 0, %15
+  %18 = and i64 %17, %4
+  %19 = inttoptr i64 %18 to ptr
+  %20 = icmp ugt ptr %16, %19
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %20, %8
-  %21 = phi ptr [ %22, %20 ], [ %18, %8 ]
-  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %21, ptr %21, ptr elementtype(%struct.anon) %21) #4, !srcloc !5
-  %22 = getelementptr i8, ptr %21, i64 %14
-  %23 = icmp ult ptr %22, %15
-  br i1 %23, label %20, label %24, !llvm.loop !6
+21:                                               ; preds = %21, %8
+  %22 = phi ptr [ %23, %21 ], [ %19, %8 ]
+  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %22, ptr %22, ptr elementtype(%struct.anon) %22) #4, !srcloc !5
+  %23 = getelementptr i8, ptr %22, i64 %15
+  %24 = icmp ult ptr %23, %16
+  br i1 %24, label %21, label %25, !llvm.loop !6
 
-24:                                               ; preds = %20, %8
-  %25 = add i64 %12, %4
-  %26 = add i64 %12, %5
-  %27 = sub i64 %2, %12
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %87, label %29
+25:                                               ; preds = %21, %8
+  %26 = add i64 %12, %4
+  %27 = add i64 %12, %5
+  %28 = sub i64 %2, %12
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %89, label %30
 
-29:                                               ; preds = %24, %3
-  %30 = phi i64 [ %5, %3 ], [ %26, %24 ]
-  %31 = phi i64 [ %4, %3 ], [ %25, %24 ]
-  %32 = phi i64 [ %2, %3 ], [ %27, %24 ]
-  %33 = icmp ugt i64 %32, 31
-  br i1 %33, label %39, label %34
+30:                                               ; preds = %25, %3
+  %31 = phi i64 [ %5, %3 ], [ %27, %25 ]
+  %32 = phi i64 [ %4, %3 ], [ %26, %25 ]
+  %33 = phi i64 [ %2, %3 ], [ %28, %25 ]
+  %34 = icmp ugt i64 %33, 31
+  br i1 %34, label %40, label %35
 
-34:                                               ; preds = %39, %29
-  %35 = phi i64 [ %30, %29 ], [ %44, %39 ]
-  %36 = phi i64 [ %31, %29 ], [ %43, %39 ]
-  %37 = phi i64 [ %32, %29 ], [ %45, %39 ]
-  %38 = icmp ugt i64 %37, 7
-  br i1 %38, label %52, label %47
+35:                                               ; preds = %40, %30
+  %36 = phi i64 [ %31, %30 ], [ %45, %40 ]
+  %37 = phi i64 [ %32, %30 ], [ %44, %40 ]
+  %38 = phi i64 [ %33, %30 ], [ %46, %40 ]
+  %39 = icmp ugt i64 %38, 7
+  br i1 %39, label %53, label %48
 
-39:                                               ; preds = %39, %29
-  %40 = phi i64 [ %45, %39 ], [ %32, %29 ]
-  %41 = phi i64 [ %43, %39 ], [ %31, %29 ]
-  %42 = phi i64 [ %44, %39 ], [ %30, %29 ]
-  tail call void asm sideeffect "movq    ($0), %r8\0Amovq   8($0), %r9\0Amovq  16($0), %r10\0Amovq  24($0), %r11\0Amovnti  %r8,   ($1)\0Amovnti  %r9,  8($1)\0Amovnti %r10, 16($1)\0Amovnti %r11, 24($1)\0A", "r,r,~{memory},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(i64 %42, i64 %41) #4, !srcloc !11
-  %43 = add i64 %41, 32
+40:                                               ; preds = %40, %30
+  %41 = phi i64 [ %46, %40 ], [ %33, %30 ]
+  %42 = phi i64 [ %44, %40 ], [ %32, %30 ]
+  %43 = phi i64 [ %45, %40 ], [ %31, %30 ]
+  tail call void asm sideeffect "movq    ($0), %r8\0Amovq   8($0), %r9\0Amovq  16($0), %r10\0Amovq  24($0), %r11\0Amovnti  %r8,   ($1)\0Amovnti  %r9,  8($1)\0Amovnti %r10, 16($1)\0Amovnti %r11, 24($1)\0A", "r,r,~{memory},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(i64 %43, i64 %42) #4, !srcloc !11
   %44 = add i64 %42, 32
-  %45 = add i64 %40, -32
-  %46 = icmp ugt i64 %45, 31
-  br i1 %46, label %39, label %34, !llvm.loop !12
+  %45 = add i64 %43, 32
+  %46 = add i64 %41, -32
+  %47 = icmp ugt i64 %46, 31
+  br i1 %47, label %40, label %35, !llvm.loop !12
 
-47:                                               ; preds = %52, %34
-  %48 = phi i64 [ %35, %34 ], [ %57, %52 ]
-  %49 = phi i64 [ %36, %34 ], [ %56, %52 ]
-  %50 = phi i64 [ %37, %34 ], [ %58, %52 ]
-  %51 = icmp ugt i64 %50, 3
-  br i1 %51, label %60, label %68
+48:                                               ; preds = %53, %35
+  %49 = phi i64 [ %36, %35 ], [ %58, %53 ]
+  %50 = phi i64 [ %37, %35 ], [ %57, %53 ]
+  %51 = phi i64 [ %38, %35 ], [ %59, %53 ]
+  %52 = icmp ugt i64 %51, 3
+  br i1 %52, label %61, label %69
 
-52:                                               ; preds = %52, %34
-  %53 = phi i64 [ %58, %52 ], [ %37, %34 ]
-  %54 = phi i64 [ %56, %52 ], [ %36, %34 ]
-  %55 = phi i64 [ %57, %52 ], [ %35, %34 ]
-  tail call void asm sideeffect "movq    ($0), %r8\0Amovnti  %r8,   ($1)\0A", "r,r,~{memory},~{r8},~{dirflag},~{fpsr},~{flags}"(i64 %55, i64 %54) #4, !srcloc !13
-  %56 = add i64 %54, 8
+53:                                               ; preds = %53, %35
+  %54 = phi i64 [ %59, %53 ], [ %38, %35 ]
+  %55 = phi i64 [ %57, %53 ], [ %37, %35 ]
+  %56 = phi i64 [ %58, %53 ], [ %36, %35 ]
+  tail call void asm sideeffect "movq    ($0), %r8\0Amovnti  %r8,   ($1)\0A", "r,r,~{memory},~{r8},~{dirflag},~{fpsr},~{flags}"(i64 %56, i64 %55) #4, !srcloc !13
   %57 = add i64 %55, 8
-  %58 = add nsw i64 %53, -8
-  %59 = icmp ugt i64 %58, 7
-  br i1 %59, label %52, label %47, !llvm.loop !14
+  %58 = add i64 %56, 8
+  %59 = add nsw i64 %54, -8
+  %60 = icmp ugt i64 %59, 7
+  br i1 %60, label %53, label %48, !llvm.loop !14
 
-60:                                               ; preds = %60, %47
-  %61 = phi i64 [ %66, %60 ], [ %50, %47 ]
-  %62 = phi i64 [ %64, %60 ], [ %49, %47 ]
-  %63 = phi i64 [ %65, %60 ], [ %48, %47 ]
-  tail call void asm sideeffect "movl    ($0), %r8d\0Amovnti  %r8d,   ($1)\0A", "r,r,~{memory},~{r8},~{dirflag},~{fpsr},~{flags}"(i64 %63, i64 %62) #4, !srcloc !15
-  %64 = add i64 %62, 4
+61:                                               ; preds = %61, %48
+  %62 = phi i64 [ %67, %61 ], [ %51, %48 ]
+  %63 = phi i64 [ %65, %61 ], [ %50, %48 ]
+  %64 = phi i64 [ %66, %61 ], [ %49, %48 ]
+  tail call void asm sideeffect "movl    ($0), %r8d\0Amovnti  %r8d,   ($1)\0A", "r,r,~{memory},~{r8},~{dirflag},~{fpsr},~{flags}"(i64 %64, i64 %63) #4, !srcloc !15
   %65 = add i64 %63, 4
-  %66 = add nsw i64 %61, -4
-  %67 = icmp ugt i64 %66, 3
-  br i1 %67, label %60, label %68, !llvm.loop !16
+  %66 = add i64 %64, 4
+  %67 = add nsw i64 %62, -4
+  %68 = icmp ugt i64 %67, 3
+  br i1 %68, label %61, label %69, !llvm.loop !16
 
-68:                                               ; preds = %60, %47
-  %69 = phi i64 [ %48, %47 ], [ %65, %60 ]
-  %70 = phi i64 [ %49, %47 ], [ %64, %60 ]
-  %71 = phi i64 [ %50, %47 ], [ %66, %60 ]
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %87, label %73
+69:                                               ; preds = %61, %48
+  %70 = phi i64 [ %49, %48 ], [ %66, %61 ]
+  %71 = phi i64 [ %50, %48 ], [ %65, %61 ]
+  %72 = phi i64 [ %51, %48 ], [ %67, %61 ]
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %89, label %74
 
-73:                                               ; preds = %68
-  %74 = inttoptr i64 %70 to ptr
-  %75 = inttoptr i64 %69 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %75, i64 %71, i1 false)
-  %76 = load i16, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24), align 2
-  %77 = zext i16 %76 to i64
-  %78 = getelementptr i8, ptr %74, i64 %71
-  %79 = sub nsw i64 0, %77
-  %80 = and i64 %70, %79
-  %81 = inttoptr i64 %80 to ptr
-  %82 = icmp ugt ptr %78, %81
-  br i1 %82, label %83, label %87
+74:                                               ; preds = %69
+  %75 = inttoptr i64 %71 to ptr
+  %76 = inttoptr i64 %70 to ptr
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %76, i64 %72, i1 false)
+  %77 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 24
+  %78 = load i16, ptr %77, align 2
+  %79 = zext i16 %78 to i64
+  %80 = getelementptr i8, ptr %75, i64 %72
+  %81 = sub nsw i64 0, %79
+  %82 = and i64 %71, %81
+  %83 = inttoptr i64 %82 to ptr
+  %84 = icmp ugt ptr %80, %83
+  br i1 %84, label %85, label %89
 
-83:                                               ; preds = %83, %73
-  %84 = phi ptr [ %85, %83 ], [ %81, %73 ]
-  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %84, ptr %84, ptr elementtype(%struct.anon) %84) #4, !srcloc !5
-  %85 = getelementptr i8, ptr %84, i64 %77
-  %86 = icmp ult ptr %85, %78
-  br i1 %86, label %83, label %87, !llvm.loop !6
+85:                                               ; preds = %85, %74
+  %86 = phi ptr [ %87, %85 ], [ %83, %74 ]
+  tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %86, ptr %86, ptr elementtype(%struct.anon) %86) #4, !srcloc !5
+  %87 = getelementptr i8, ptr %86, i64 %79
+  %88 = icmp ult ptr %87, %80
+  br i1 %88, label %85, label %89, !llvm.loop !6
 
-87:                                               ; preds = %83, %73, %68, %24
+89:                                               ; preds = %85, %74, %69, %25
   ret void
 }
 

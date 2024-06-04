@@ -465,10 +465,10 @@ define dso_local i32 @acpi_map_cpuid(i32 noundef %0, i32 noundef %1) local_unnam
   %9 = icmp eq i32 %1, 0
   %10 = and i1 %9, %8
   %11 = select i1 %10, i32 0, i32 -22
-  br label %35
+  br label %36
 
 12:                                               ; preds = %26, %4
-  %13 = phi i64 [ %34, %26 ], [ 0, %4 ]
+  %13 = phi i64 [ %35, %26 ], [ 0, %4 ]
   %14 = and i64 %13, 4294967295
   %15 = icmp ugt i64 %14, 63
   br i1 %15, label %22, label %16, !prof !5
@@ -487,22 +487,23 @@ define dso_local i32 @acpi_map_cpuid(i32 noundef %0, i32 noundef %1) local_unnam
   %23 = phi i64 [ 64, %12 ], [ %21, %20 ], [ 64, %16 ]
   %24 = trunc i64 %23 to i32
   %25 = icmp ult i32 %24, 64
-  br i1 %25, label %26, label %35
+  br i1 %25, label %26, label %36
 
 26:                                               ; preds = %22
   %27 = and i64 %23, 4294967295
   %28 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
-  %30 = add i64 %29, ptrtoint (ptr @x86_cpu_to_apicid to i64)
-  %31 = inttoptr i64 %30 to ptr
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, %0
-  %34 = add i64 %23, 1
-  br i1 %33, label %35, label %12, !llvm.loop !7
+  %30 = ptrtoint ptr @x86_cpu_to_apicid to i64
+  %31 = add i64 %29, %30
+  %32 = inttoptr i64 %31 to ptr
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, %0
+  %35 = add i64 %23, 1
+  br i1 %34, label %36, label %12, !llvm.loop !7
 
-35:                                               ; preds = %26, %22, %6
-  %36 = phi i32 [ %11, %6 ], [ %24, %26 ], [ -19, %22 ]
-  ret i32 %36
+36:                                               ; preds = %26, %22, %6
+  %37 = phi i32 [ %11, %6 ], [ %24, %26 ], [ -19, %22 ]
+  ret i32 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -521,10 +522,10 @@ define dso_local i32 @acpi_get_cpuid(ptr noundef %0, i32 noundef %1, i32 noundef
   %11 = icmp eq i32 %2, 0
   %12 = and i1 %11, %10
   %13 = select i1 %12, i32 0, i32 -22
-  br label %37
+  br label %38
 
 14:                                               ; preds = %28, %6
-  %15 = phi i64 [ %36, %28 ], [ 0, %6 ]
+  %15 = phi i64 [ %37, %28 ], [ 0, %6 ]
   %16 = and i64 %15, 4294967295
   %17 = icmp ugt i64 %16, 63
   br i1 %17, label %24, label %18, !prof !5
@@ -543,22 +544,23 @@ define dso_local i32 @acpi_get_cpuid(ptr noundef %0, i32 noundef %1, i32 noundef
   %25 = phi i64 [ 64, %14 ], [ %23, %22 ], [ 64, %18 ]
   %26 = trunc i64 %25 to i32
   %27 = icmp ult i32 %26, 64
-  br i1 %27, label %28, label %37
+  br i1 %27, label %28, label %38
 
 28:                                               ; preds = %24
   %29 = and i64 %25, 4294967295
   %30 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %29
   %31 = load i64, ptr %30, align 8
-  %32 = add i64 %31, ptrtoint (ptr @x86_cpu_to_apicid to i64)
-  %33 = inttoptr i64 %32 to ptr
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, %4
-  %36 = add i64 %25, 1
-  br i1 %35, label %37, label %14, !llvm.loop !7
+  %32 = ptrtoint ptr @x86_cpu_to_apicid to i64
+  %33 = add i64 %31, %32
+  %34 = inttoptr i64 %33 to ptr
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, %4
+  %37 = add i64 %25, 1
+  br i1 %36, label %38, label %14, !llvm.loop !7
 
-37:                                               ; preds = %28, %24, %8
-  %38 = phi i32 [ %13, %8 ], [ %26, %28 ], [ -19, %24 ]
-  ret i32 %38
+38:                                               ; preds = %28, %24, %8
+  %39 = phi i32 [ %13, %8 ], [ %26, %28 ], [ -19, %24 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

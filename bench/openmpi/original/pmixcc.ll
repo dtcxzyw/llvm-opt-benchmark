@@ -1651,40 +1651,41 @@ define internal i32 @data_init() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i32 0, i32 14), align 8
-  %5 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %3, ptr noundef @.str.70, ptr noundef %4, ptr noundef @.str.71)
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr null, %6
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %0
-  store i32 -29, ptr %1, align 4
-  br label %21
+  %4 = getelementptr inbounds %struct.pmix_pinstall_dirs_t, ptr @pmix_pinstall_dirs, i32 0, i32 14
+  %5 = load ptr, ptr %4, align 8
+  %6 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %3, ptr noundef @.str.70, ptr noundef %5, ptr noundef @.str.71)
+  %7 = load ptr, ptr %3, align 8
+  %8 = icmp eq ptr null, %7
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %0
-  %10 = load ptr, ptr %3, align 8
-  %11 = call i32 @pmix_util_keyval_parse(ptr noundef %10, ptr noundef @data_callback)
-  store i32 %11, ptr %2, align 4
-  %12 = load i32, ptr %2, align 4
-  %13 = icmp ne i32 0, %12
-  br i1 %13, label %14, label %18
+  store i32 -29, ptr %1, align 4
+  br label %22
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr @stderr, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.72, ptr noundef %16) #8
-  br label %18
+10:                                               ; preds = %0
+  %11 = load ptr, ptr %3, align 8
+  %12 = call i32 @pmix_util_keyval_parse(ptr noundef %11, ptr noundef @data_callback)
+  store i32 %12, ptr %2, align 4
+  %13 = load i32, ptr %2, align 4
+  %14 = icmp ne i32 0, %13
+  br i1 %14, label %15, label %19
 
-18:                                               ; preds = %14, %9
-  %19 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %19) #8
-  %20 = load i32, ptr %2, align 4
-  store i32 %20, ptr %1, align 4
-  br label %21
+15:                                               ; preds = %10
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = load ptr, ptr %3, align 8
+  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.72, ptr noundef %17) #8
+  br label %19
 
-21:                                               ; preds = %18, %8
-  %22 = load i32, ptr %1, align 4
-  ret i32 %22
+19:                                               ; preds = %15, %10
+  %20 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %20) #8
+  %21 = load i32, ptr %2, align 4
+  store i32 %21, ptr %1, align 4
+  br label %22
+
+22:                                               ; preds = %19, %9
+  %23 = load i32, ptr %1, align 4
+  ret i32 %23
 }
 
 declare ptr @PMIx_Error_string(i32 noundef) #1

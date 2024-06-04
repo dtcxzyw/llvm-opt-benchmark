@@ -240,22 +240,26 @@ define internal i32 @dissect_ipa_udp(ptr noundef %0, ptr noundef %1, ptr noundef
 define hidden void @proto_reg_handoff_gsm_ipa() #0 {
   %1 = load i32, ptr @proto_ipa, align 4
   %2 = call ptr @find_dissector_add_dependency(ptr noundef @.str.40, i32 noundef %1)
-  store ptr %2, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 1), align 8
-  %3 = load i32, ptr @proto_ipa, align 4
-  %4 = call ptr @find_dissector_add_dependency(ptr noundef @.str.41, i32 noundef %3)
-  store ptr %4, ptr @sub_handles, align 16
-  %5 = load i32, ptr @proto_ipa, align 4
-  %6 = call ptr @find_dissector_add_dependency(ptr noundef @.str.42, i32 noundef %5)
-  store ptr %6, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 2), align 16
-  %7 = load i32, ptr @proto_ipa, align 4
-  %8 = call ptr @find_dissector_add_dependency(ptr noundef @.str.43, i32 noundef %7)
-  store ptr %8, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 3), align 8
-  %9 = call ptr @find_dissector(ptr noundef @.str.44)
-  store ptr %9, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 4), align 16
-  %10 = load ptr, ptr @ipa_tcp_handle, align 8
-  call void @dissector_add_uint_range_with_preference(ptr noundef @.str.45, ptr noundef @.str.46, ptr noundef %10)
-  %11 = load ptr, ptr @ipa_udp_handle, align 8
-  call void @dissector_add_uint_range_with_preference(ptr noundef @.str.47, ptr noundef @.str.48, ptr noundef %11)
+  %3 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 1
+  store ptr %2, ptr %3, align 8
+  %4 = load i32, ptr @proto_ipa, align 4
+  %5 = call ptr @find_dissector_add_dependency(ptr noundef @.str.41, i32 noundef %4)
+  store ptr %5, ptr @sub_handles, align 16
+  %6 = load i32, ptr @proto_ipa, align 4
+  %7 = call ptr @find_dissector_add_dependency(ptr noundef @.str.42, i32 noundef %6)
+  %8 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 2
+  store ptr %7, ptr %8, align 16
+  %9 = load i32, ptr @proto_ipa, align 4
+  %10 = call ptr @find_dissector_add_dependency(ptr noundef @.str.43, i32 noundef %9)
+  %11 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 3
+  store ptr %10, ptr %11, align 8
+  %12 = call ptr @find_dissector(ptr noundef @.str.44)
+  %13 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 4
+  store ptr %12, ptr %13, align 16
+  %14 = load ptr, ptr @ipa_tcp_handle, align 8
+  call void @dissector_add_uint_range_with_preference(ptr noundef @.str.45, ptr noundef @.str.46, ptr noundef %14)
+  %15 = load ptr, ptr @ipa_udp_handle, align 8
+  call void @dissector_add_uint_range_with_preference(ptr noundef @.str.47, ptr noundef @.str.48, ptr noundef %15)
   ret void
 }
 
@@ -293,7 +297,7 @@ define internal i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 21:                                               ; preds = %4
   store i32 0, ptr %5, align 4
-  br label %191
+  br label %194
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %6, align 8
@@ -314,7 +318,7 @@ define internal i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 34:                                               ; preds = %30
   store i32 0, ptr %5, align 4
-  br label %191
+  br label %194
 
 35:                                               ; preds = %30, %22
   %36 = load ptr, ptr %7, align 8
@@ -327,13 +331,13 @@ define internal i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @col_clear(ptr noundef %41, i32 noundef 25)
   br label %42
 
-42:                                               ; preds = %183, %35
+42:                                               ; preds = %186, %35
   %43 = load ptr, ptr %6, align 8
   %44 = load i32, ptr %12, align 4
   %45 = call i32 @tvb_reported_length_remaining(ptr noundef %43, i32 noundef %44)
   store i32 %45, ptr %10, align 4
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %190
+  br i1 %46, label %47, label %193
 
 47:                                               ; preds = %42
   store ptr null, ptr %16, align 8
@@ -411,13 +415,13 @@ define internal i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %106, ptr %17, align 8
   %107 = load i16, ptr %14, align 2
   %108 = zext i16 %107 to i32
-  switch i32 %108, label %172 [
+  switch i32 %108, label %174 [
     i32 255, label %109
     i32 254, label %119
     i32 253, label %124
-    i32 252, label %130
-    i32 238, label %136
-    i32 221, label %143
+    i32 252, label %131
+    i32 238, label %138
+    i32 221, label %145
   ]
 
 109:                                              ; preds = %73
@@ -434,114 +438,117 @@ define internal i32 @dissect_ipa(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %118
 
 118:                                              ; preds = %112, %109
-  br label %183
+  br label %186
 
 119:                                              ; preds = %73
   %120 = load ptr, ptr %17, align 8
   %121 = load ptr, ptr %7, align 8
   %122 = load ptr, ptr %8, align 8
   %123 = call i32 @dissect_ipaccess(ptr noundef %120, ptr noundef %121, ptr noundef %122)
-  br label %183
+  br label %186
 
 124:                                              ; preds = %73
-  %125 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 2), align 16
-  %126 = load ptr, ptr %17, align 8
-  %127 = load ptr, ptr %7, align 8
-  %128 = load ptr, ptr %8, align 8
-  %129 = call i32 @call_dissector(ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128)
-  br label %183
+  %125 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 2
+  %126 = load ptr, ptr %125, align 16
+  %127 = load ptr, ptr %17, align 8
+  %128 = load ptr, ptr %7, align 8
+  %129 = load ptr, ptr %8, align 8
+  %130 = call i32 @call_dissector(ptr noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129)
+  br label %186
 
-130:                                              ; preds = %73
-  %131 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 3), align 8
-  %132 = load ptr, ptr %17, align 8
-  %133 = load ptr, ptr %7, align 8
-  %134 = load ptr, ptr %8, align 8
-  %135 = call i32 @call_dissector(ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef %134)
-  br label %183
+131:                                              ; preds = %73
+  %132 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 3
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %17, align 8
+  %135 = load ptr, ptr %7, align 8
+  %136 = load ptr, ptr %8, align 8
+  %137 = call i32 @call_dissector(ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136)
+  br label %186
 
-136:                                              ; preds = %73
-  %137 = load ptr, ptr %17, align 8
-  %138 = load ptr, ptr %7, align 8
-  %139 = load ptr, ptr %16, align 8
-  %140 = load ptr, ptr %8, align 8
-  %141 = load ptr, ptr %15, align 8
-  %142 = call i32 @dissect_osmo(ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %140, ptr noundef %141)
-  br label %183
+138:                                              ; preds = %73
+  %139 = load ptr, ptr %17, align 8
+  %140 = load ptr, ptr %7, align 8
+  %141 = load ptr, ptr %16, align 8
+  %142 = load ptr, ptr %8, align 8
+  %143 = load ptr, ptr %15, align 8
+  %144 = call i32 @dissect_osmo(ptr noundef %139, ptr noundef %140, ptr noundef %141, ptr noundef %142, ptr noundef %143)
+  br label %186
 
-143:                                              ; preds = %73
-  %144 = load ptr, ptr %16, align 8
-  %145 = load i32, ptr @hf_ipa_hsl_debug, align 4
-  %146 = load ptr, ptr %17, align 8
-  %147 = load i16, ptr %13, align 2
-  %148 = zext i16 %147 to i32
-  %149 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %145, ptr noundef %146, i32 noundef 0, i32 noundef %148, i32 noundef 0)
-  %150 = load i32, ptr @global_ipa_in_root, align 4
-  %151 = icmp eq i32 %150, 1
-  br i1 %151, label %152, label %159
+145:                                              ; preds = %73
+  %146 = load ptr, ptr %16, align 8
+  %147 = load i32, ptr @hf_ipa_hsl_debug, align 4
+  %148 = load ptr, ptr %17, align 8
+  %149 = load i16, ptr %13, align 2
+  %150 = zext i16 %149 to i32
+  %151 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef 0, i32 noundef %150, i32 noundef 0)
+  %152 = load i32, ptr @global_ipa_in_root, align 4
+  %153 = icmp eq i32 %152, 1
+  br i1 %153, label %154, label %161
 
-152:                                              ; preds = %143
-  %153 = load ptr, ptr %8, align 8
-  %154 = load i32, ptr @hf_ipa_hsl_debug, align 4
-  %155 = load ptr, ptr %17, align 8
-  %156 = load i16, ptr %13, align 2
-  %157 = zext i16 %156 to i32
-  %158 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %155, i32 noundef 0, i32 noundef %157, i32 noundef 0)
-  br label %159
+154:                                              ; preds = %145
+  %155 = load ptr, ptr %8, align 8
+  %156 = load i32, ptr @hf_ipa_hsl_debug, align 4
+  %157 = load ptr, ptr %17, align 8
+  %158 = load i16, ptr %13, align 2
+  %159 = zext i16 %158 to i32
+  %160 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef 0, i32 noundef %159, i32 noundef 0)
+  br label %161
 
-159:                                              ; preds = %152, %143
-  %160 = load i32, ptr @global_ipa_in_info, align 4
-  %161 = icmp eq i32 %160, 1
-  br i1 %161, label %162, label %171
+161:                                              ; preds = %154, %145
+  %162 = load i32, ptr @global_ipa_in_info, align 4
+  %163 = icmp eq i32 %162, 1
+  br i1 %163, label %164, label %173
 
-162:                                              ; preds = %159
-  %163 = load ptr, ptr %7, align 8
-  %164 = getelementptr inbounds %struct._packet_info, ptr %163, i32 0, i32 1
-  %165 = load ptr, ptr %164, align 8
-  %166 = load ptr, ptr %7, align 8
-  %167 = getelementptr inbounds %struct._packet_info, ptr %166, i32 0, i32 50
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %17, align 8
-  %170 = call ptr @tvb_get_stringz_enc(ptr noundef %168, ptr noundef %169, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %165, i32 noundef 25, ptr noundef @.str.85, ptr noundef %170)
-  br label %171
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %7, align 8
+  %166 = getelementptr inbounds %struct._packet_info, ptr %165, i32 0, i32 1
+  %167 = load ptr, ptr %166, align 8
+  %168 = load ptr, ptr %7, align 8
+  %169 = getelementptr inbounds %struct._packet_info, ptr %168, i32 0, i32 50
+  %170 = load ptr, ptr %169, align 8
+  %171 = load ptr, ptr %17, align 8
+  %172 = call ptr @tvb_get_stringz_enc(ptr noundef %170, ptr noundef %171, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %167, i32 noundef 25, ptr noundef @.str.85, ptr noundef %172)
+  br label %173
 
-171:                                              ; preds = %162, %159
-  br label %183
+173:                                              ; preds = %164, %161
+  br label %186
 
-172:                                              ; preds = %73
-  %173 = load i16, ptr %14, align 2
-  %174 = zext i16 %173 to i32
-  %175 = icmp slt i32 %174, 32
-  br i1 %175, label %176, label %182
+174:                                              ; preds = %73
+  %175 = load i16, ptr %14, align 2
+  %176 = zext i16 %175 to i32
+  %177 = icmp slt i32 %176, 32
+  br i1 %177, label %178, label %185
 
-176:                                              ; preds = %172
-  %177 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 1), align 8
-  %178 = load ptr, ptr %17, align 8
-  %179 = load ptr, ptr %7, align 8
-  %180 = load ptr, ptr %8, align 8
-  %181 = call i32 @call_dissector(ptr noundef %177, ptr noundef %178, ptr noundef %179, ptr noundef %180)
-  br label %182
+178:                                              ; preds = %174
+  %179 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 1
+  %180 = load ptr, ptr %179, align 8
+  %181 = load ptr, ptr %17, align 8
+  %182 = load ptr, ptr %7, align 8
+  %183 = load ptr, ptr %8, align 8
+  %184 = call i32 @call_dissector(ptr noundef %180, ptr noundef %181, ptr noundef %182, ptr noundef %183)
+  br label %185
 
-182:                                              ; preds = %176, %172
-  br label %183
+185:                                              ; preds = %178, %174
+  br label %186
 
-183:                                              ; preds = %182, %171, %136, %130, %124, %119, %118
-  %184 = load i16, ptr %13, align 2
-  %185 = zext i16 %184 to i32
-  %186 = load i32, ptr %11, align 4
-  %187 = add i32 %185, %186
-  %188 = load i32, ptr %12, align 4
-  %189 = add i32 %188, %187
-  store i32 %189, ptr %12, align 4
+186:                                              ; preds = %185, %173, %138, %131, %124, %119, %118
+  %187 = load i16, ptr %13, align 2
+  %188 = zext i16 %187 to i32
+  %189 = load i32, ptr %11, align 4
+  %190 = add i32 %188, %189
+  %191 = load i32, ptr %12, align 4
+  %192 = add i32 %191, %190
+  store i32 %192, ptr %12, align 4
   br label %42, !llvm.loop !4
 
-190:                                              ; preds = %42
+193:                                              ; preds = %42
   store i32 1, ptr %5, align 4
-  br label %191
+  br label %194
 
-191:                                              ; preds = %190, %34, %21
-  %192 = load i32, ptr %5, align 4
-  ret i32 %192
+194:                                              ; preds = %193, %34, %21
+  %195 = load i32, ptr %5, align 4
+  ret i32 %195
 }
 
 declare i32 @tvb_captured_length(ptr noundef) #1
@@ -683,52 +690,54 @@ define internal i32 @dissect_osmo(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 44:                                               ; preds = %33
   store i32 1, ptr %6, align 4
-  br label %71
+  br label %73
 
 45:                                               ; preds = %33
   %46 = load i8, ptr %13, align 1
   %47 = zext i8 %46 to i32
   %48 = icmp eq i32 %47, 1
-  br i1 %48, label %49, label %55
+  br i1 %48, label %49, label %56
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 3), align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %10, align 8
-  %54 = call i32 @call_dissector(ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %50 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 3
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = load ptr, ptr %8, align 8
+  %54 = load ptr, ptr %10, align 8
+  %55 = call i32 @call_dissector(ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54)
   store i32 1, ptr %6, align 4
-  br label %71
+  br label %73
 
-55:                                               ; preds = %45
-  %56 = load i8, ptr %13, align 1
-  %57 = zext i8 %56 to i32
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %64
+56:                                               ; preds = %45
+  %57 = load i8, ptr %13, align 1
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %65
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %10, align 8
-  %61 = load i32, ptr @hf_ipa_osmo_ctrl_data, align 4
-  %62 = load ptr, ptr %12, align 8
-  %63 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %10, align 8
+  %62 = load i32, ptr @hf_ipa_osmo_ctrl_data, align 4
+  %63 = load ptr, ptr %12, align 8
+  %64 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   store i32 1, ptr %6, align 4
-  br label %71
+  br label %73
 
-64:                                               ; preds = %55
-  br label %65
+65:                                               ; preds = %56
+  br label %66
 
-65:                                               ; preds = %64
-  %66 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 4), align 16
-  %67 = load ptr, ptr %12, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = load ptr, ptr %10, align 8
-  %70 = call i32 @call_dissector(ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69)
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 4
+  %68 = load ptr, ptr %67, align 16
+  %69 = load ptr, ptr %12, align 8
+  %70 = load ptr, ptr %8, align 8
+  %71 = load ptr, ptr %10, align 8
+  %72 = call i32 @call_dissector(ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71)
   store i32 1, ptr %6, align 4
-  br label %71
+  br label %73
 
-71:                                               ; preds = %65, %59, %49, %44
-  %72 = load i32, ptr %6, align 4
-  ret i32 %72
+73:                                               ; preds = %66, %60, %49, %44
+  %74 = load i32, ptr %6, align 4
+  ret i32 %74
 }
 
 declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1

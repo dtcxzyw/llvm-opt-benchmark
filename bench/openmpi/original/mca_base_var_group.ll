@@ -47,143 +47,147 @@ define internal void @mca_base_var_group_constructor(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load i32, ptr @opal_class_init_epoch, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_value_array_t_class, i32 0, i32 4), align 8
-  %9 = icmp ne i32 %7, %8
-  br i1 %9, label %10, label %11
+  %8 = getelementptr inbounds %struct.opal_class_t, ptr @opal_value_array_t_class, i32 0, i32 4
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp ne i32 %7, %9
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %6
+11:                                               ; preds = %6
   call void @opal_class_initialize(ptr noundef @opal_value_array_t_class)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %6
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %12, i32 0, i32 8
-  %14 = getelementptr inbounds %struct.opal_object_t, ptr %13, i32 0, i32 0
-  store ptr @opal_value_array_t_class, ptr %14, align 8
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %15, i32 0, i32 8
-  %17 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 1
-  store volatile i32 1, ptr %17, align 8
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %18, i32 0, i32 8
-  call void @opal_obj_run_constructors(ptr noundef %19)
-  br label %20
-
-20:                                               ; preds = %11
+12:                                               ; preds = %11, %6
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %13, i32 0, i32 8
+  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 0
+  store ptr @opal_value_array_t_class, ptr %15, align 8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %16, i32 0, i32 8
+  %18 = getelementptr inbounds %struct.opal_object_t, ptr %17, i32 0, i32 1
+  store volatile i32 1, ptr %18, align 8
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %19, i32 0, i32 8
+  call void @opal_obj_run_constructors(ptr noundef %20)
   br label %21
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %22, i32 0, i32 8
-  %24 = call i32 @opal_value_array_init(ptr noundef %23, i64 noundef 4)
-  br label %25
+21:                                               ; preds = %12
+  br label %22
 
-25:                                               ; preds = %21
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %23, i32 0, i32 8
+  %25 = call i32 @opal_value_array_init(ptr noundef %24, i64 noundef 4)
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load i32, ptr @opal_class_init_epoch, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_value_array_t_class, i32 0, i32 4), align 8
-  %29 = icmp ne i32 %27, %28
-  br i1 %29, label %30, label %31
+26:                                               ; preds = %22
+  br label %27
 
-30:                                               ; preds = %26
+27:                                               ; preds = %26
+  %28 = load i32, ptr @opal_class_init_epoch, align 4
+  %29 = getelementptr inbounds %struct.opal_class_t, ptr @opal_value_array_t_class, i32 0, i32 4
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp ne i32 %28, %30
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %27
   call void @opal_class_initialize(ptr noundef @opal_value_array_t_class)
-  br label %31
+  br label %33
 
-31:                                               ; preds = %30, %26
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %32, i32 0, i32 9
-  %34 = getelementptr inbounds %struct.opal_object_t, ptr %33, i32 0, i32 0
-  store ptr @opal_value_array_t_class, ptr %34, align 8
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %35, i32 0, i32 9
-  %37 = getelementptr inbounds %struct.opal_object_t, ptr %36, i32 0, i32 1
-  store volatile i32 1, ptr %37, align 8
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %38, i32 0, i32 9
-  call void @opal_obj_run_constructors(ptr noundef %39)
-  br label %40
+33:                                               ; preds = %32, %27
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %34, i32 0, i32 9
+  %36 = getelementptr inbounds %struct.opal_object_t, ptr %35, i32 0, i32 0
+  store ptr @opal_value_array_t_class, ptr %36, align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %37, i32 0, i32 9
+  %39 = getelementptr inbounds %struct.opal_object_t, ptr %38, i32 0, i32 1
+  store volatile i32 1, ptr %39, align 8
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %40, i32 0, i32 9
+  call void @opal_obj_run_constructors(ptr noundef %41)
+  br label %42
 
-40:                                               ; preds = %31
-  br label %41
+42:                                               ; preds = %33
+  br label %43
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %42, i32 0, i32 9
-  %44 = call i32 @opal_value_array_init(ptr noundef %43, i64 noundef 4)
-  br label %45
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %44, i32 0, i32 9
+  %46 = call i32 @opal_value_array_init(ptr noundef %45, i64 noundef 4)
+  br label %47
 
-45:                                               ; preds = %41
-  br label %46
+47:                                               ; preds = %43
+  br label %48
 
-46:                                               ; preds = %45
-  %47 = load i32, ptr @opal_class_init_epoch, align 4
-  %48 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_value_array_t_class, i32 0, i32 4), align 8
-  %49 = icmp ne i32 %47, %48
-  br i1 %49, label %50, label %51
+48:                                               ; preds = %47
+  %49 = load i32, ptr @opal_class_init_epoch, align 4
+  %50 = getelementptr inbounds %struct.opal_class_t, ptr @opal_value_array_t_class, i32 0, i32 4
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp ne i32 %49, %51
+  br i1 %52, label %53, label %54
 
-50:                                               ; preds = %46
+53:                                               ; preds = %48
   call void @opal_class_initialize(ptr noundef @opal_value_array_t_class)
-  br label %51
+  br label %54
 
-51:                                               ; preds = %50, %46
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %52, i32 0, i32 10
-  %54 = getelementptr inbounds %struct.opal_object_t, ptr %53, i32 0, i32 0
-  store ptr @opal_value_array_t_class, ptr %54, align 8
+54:                                               ; preds = %53, %48
   %55 = load ptr, ptr %2, align 8
   %56 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %55, i32 0, i32 10
-  %57 = getelementptr inbounds %struct.opal_object_t, ptr %56, i32 0, i32 1
-  store volatile i32 1, ptr %57, align 8
+  %57 = getelementptr inbounds %struct.opal_object_t, ptr %56, i32 0, i32 0
+  store ptr @opal_value_array_t_class, ptr %57, align 8
   %58 = load ptr, ptr %2, align 8
   %59 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %58, i32 0, i32 10
-  call void @opal_obj_run_constructors(ptr noundef %59)
-  br label %60
+  %60 = getelementptr inbounds %struct.opal_object_t, ptr %59, i32 0, i32 1
+  store volatile i32 1, ptr %60, align 8
+  %61 = load ptr, ptr %2, align 8
+  %62 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %61, i32 0, i32 10
+  call void @opal_obj_run_constructors(ptr noundef %62)
+  br label %63
 
-60:                                               ; preds = %51
-  br label %61
+63:                                               ; preds = %54
+  br label %64
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %62, i32 0, i32 10
-  %64 = call i32 @opal_value_array_init(ptr noundef %63, i64 noundef 4)
-  br label %65
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %2, align 8
+  %66 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %65, i32 0, i32 10
+  %67 = call i32 @opal_value_array_init(ptr noundef %66, i64 noundef 4)
+  br label %68
 
-65:                                               ; preds = %61
-  br label %66
+68:                                               ; preds = %64
+  br label %69
 
-66:                                               ; preds = %65
-  %67 = load i32, ptr @opal_class_init_epoch, align 4
-  %68 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_value_array_t_class, i32 0, i32 4), align 8
-  %69 = icmp ne i32 %67, %68
-  br i1 %69, label %70, label %71
+69:                                               ; preds = %68
+  %70 = load i32, ptr @opal_class_init_epoch, align 4
+  %71 = getelementptr inbounds %struct.opal_class_t, ptr @opal_value_array_t_class, i32 0, i32 4
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp ne i32 %70, %72
+  br i1 %73, label %74, label %75
 
-70:                                               ; preds = %66
+74:                                               ; preds = %69
   call void @opal_class_initialize(ptr noundef @opal_value_array_t_class)
-  br label %71
+  br label %75
 
-71:                                               ; preds = %70, %66
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %72, i32 0, i32 11
-  %74 = getelementptr inbounds %struct.opal_object_t, ptr %73, i32 0, i32 0
-  store ptr @opal_value_array_t_class, ptr %74, align 8
-  %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %75, i32 0, i32 11
-  %77 = getelementptr inbounds %struct.opal_object_t, ptr %76, i32 0, i32 1
-  store volatile i32 1, ptr %77, align 8
-  %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %78, i32 0, i32 11
-  call void @opal_obj_run_constructors(ptr noundef %79)
-  br label %80
-
-80:                                               ; preds = %71
-  br label %81
-
-81:                                               ; preds = %80
+75:                                               ; preds = %74, %69
+  %76 = load ptr, ptr %2, align 8
+  %77 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %76, i32 0, i32 11
+  %78 = getelementptr inbounds %struct.opal_object_t, ptr %77, i32 0, i32 0
+  store ptr @opal_value_array_t_class, ptr %78, align 8
+  %79 = load ptr, ptr %2, align 8
+  %80 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %79, i32 0, i32 11
+  %81 = getelementptr inbounds %struct.opal_object_t, ptr %80, i32 0, i32 1
+  store volatile i32 1, ptr %81, align 8
   %82 = load ptr, ptr %2, align 8
   %83 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %82, i32 0, i32 11
-  %84 = call i32 @opal_value_array_init(ptr noundef %83, i64 noundef 8)
+  call void @opal_obj_run_constructors(ptr noundef %83)
+  br label %84
+
+84:                                               ; preds = %75
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %2, align 8
+  %87 = getelementptr inbounds %struct.mca_base_var_group_t, ptr %86, i32 0, i32 11
+  %88 = call i32 @opal_value_array_init(ptr noundef %87, i64 noundef 8)
   ret void
 }
 
@@ -271,7 +275,7 @@ define i32 @mca_base_var_group_init() #0 {
   %2 = alloca i32, align 4
   %3 = load i8, ptr @mca_base_var_group_initialized, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %36, label %5
+  br i1 %4, label %40, label %5
 
 5:                                                ; preds = %0
   br label %6
@@ -281,84 +285,88 @@ define i32 @mca_base_var_group_init() #0 {
 
 7:                                                ; preds = %6
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i32 0, i32 4), align 8
-  %10 = icmp ne i32 %8, %9
-  br i1 %10, label %11, label %12
+  %9 = getelementptr inbounds %struct.opal_class_t, ptr @opal_pointer_array_t_class, i32 0, i32 4
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp ne i32 %8, %10
+  br i1 %11, label %12, label %13
 
-11:                                               ; preds = %7
+12:                                               ; preds = %7
   call void @opal_class_initialize(ptr noundef @opal_pointer_array_t_class)
-  br label %12
-
-12:                                               ; preds = %11, %7
-  store ptr @opal_pointer_array_t_class, ptr @mca_base_var_groups, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_base_var_groups, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_base_var_groups)
   br label %13
 
-13:                                               ; preds = %12
-  br label %14
+13:                                               ; preds = %12, %7
+  store ptr @opal_pointer_array_t_class, ptr @mca_base_var_groups, align 8
+  %14 = getelementptr inbounds %struct.opal_object_t, ptr @mca_base_var_groups, i32 0, i32 1
+  store volatile i32 1, ptr %14, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_base_var_groups)
+  br label %15
 
-14:                                               ; preds = %13
-  %15 = call i32 @opal_pointer_array_init(ptr noundef @mca_base_var_groups, i32 noundef 128, i32 noundef 16384, i32 noundef 128)
-  store i32 %15, ptr %2, align 4
-  %16 = load i32, ptr %2, align 4
-  %17 = icmp ne i32 0, %16
-  br i1 %17, label %18, label %20
+15:                                               ; preds = %13
+  br label %16
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr %2, align 4
-  store i32 %19, ptr %1, align 4
-  br label %37
+16:                                               ; preds = %15
+  %17 = call i32 @opal_pointer_array_init(ptr noundef @mca_base_var_groups, i32 noundef 128, i32 noundef 16384, i32 noundef 128)
+  store i32 %17, ptr %2, align 4
+  %18 = load i32, ptr %2, align 4
+  %19 = icmp ne i32 0, %18
+  br i1 %19, label %20, label %22
 
-20:                                               ; preds = %14
-  br label %21
+20:                                               ; preds = %16
+  %21 = load i32, ptr %2, align 4
+  store i32 %21, ptr %1, align 4
+  br label %41
 
-21:                                               ; preds = %20
-  br label %22
+22:                                               ; preds = %16
+  br label %23
 
-22:                                               ; preds = %21
-  %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4), align 8
-  %25 = icmp ne i32 %23, %24
-  br i1 %25, label %26, label %27
+23:                                               ; preds = %22
+  br label %24
 
-26:                                               ; preds = %22
+24:                                               ; preds = %23
+  %25 = load i32, ptr @opal_class_init_epoch, align 4
+  %26 = getelementptr inbounds %struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ne i32 %25, %27
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %24
   call void @opal_class_initialize(ptr noundef @opal_hash_table_t_class)
-  br label %27
+  br label %30
 
-27:                                               ; preds = %26, %22
+30:                                               ; preds = %29, %24
   store ptr @opal_hash_table_t_class, ptr @mca_base_var_group_index_hash, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_base_var_group_index_hash, i32 0, i32 1), align 8
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr @mca_base_var_group_index_hash, i32 0, i32 1
+  store volatile i32 1, ptr %31, align 8
   call void @opal_obj_run_constructors(ptr noundef @mca_base_var_group_index_hash)
-  br label %28
+  br label %32
 
-28:                                               ; preds = %27
-  br label %29
+32:                                               ; preds = %30
+  br label %33
 
-29:                                               ; preds = %28
-  %30 = call i32 @opal_hash_table_init(ptr noundef @mca_base_var_group_index_hash, i64 noundef 256)
-  store i32 %30, ptr %2, align 4
-  %31 = load i32, ptr %2, align 4
-  %32 = icmp ne i32 0, %31
-  br i1 %32, label %33, label %35
+33:                                               ; preds = %32
+  %34 = call i32 @opal_hash_table_init(ptr noundef @mca_base_var_group_index_hash, i64 noundef 256)
+  store i32 %34, ptr %2, align 4
+  %35 = load i32, ptr %2, align 4
+  %36 = icmp ne i32 0, %35
+  br i1 %36, label %37, label %39
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %2, align 4
-  store i32 %34, ptr %1, align 4
-  br label %37
+37:                                               ; preds = %33
+  %38 = load i32, ptr %2, align 4
+  store i32 %38, ptr %1, align 4
+  br label %41
 
-35:                                               ; preds = %29
+39:                                               ; preds = %33
   store i8 1, ptr @mca_base_var_group_initialized, align 1
   store i32 0, ptr @mca_base_var_group_count, align 4
-  br label %36
+  br label %40
 
-36:                                               ; preds = %35, %0
+40:                                               ; preds = %39, %0
   store i32 0, ptr %1, align 4
-  br label %37
+  br label %41
 
-37:                                               ; preds = %36, %33, %18
-  %38 = load i32, ptr %1, align 4
-  ret i32 %38
+41:                                               ; preds = %40, %37, %20
+  %42 = load i32, ptr %1, align 4
+  ret i32 %42
 }
 
 declare void @opal_class_initialize(ptr noundef) #1

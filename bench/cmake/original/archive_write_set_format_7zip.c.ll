@@ -2658,7 +2658,7 @@ define internal i32 @compression_init_encoder_ppmd(ptr noundef %0, ptr noundef %
   %26 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %26, i32 noundef 12, ptr noundef @.str.43)
   store i32 -30, ptr %5, align 4
-  br label %120
+  br label %123
 
 27:                                               ; preds = %21
   %28 = call noalias ptr @malloc(i64 noundef 32) #12
@@ -2677,7 +2677,7 @@ define internal i32 @compression_init_encoder_ppmd(ptr noundef %0, ptr noundef %
   %37 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %37, i32 noundef 12, ptr noundef @.str.43)
   store i32 -30, ptr %5, align 4
-  br label %120
+  br label %123
 
 38:                                               ; preds = %27
   %39 = load ptr, ptr %10, align 8
@@ -2709,7 +2709,7 @@ define internal i32 @compression_init_encoder_ppmd(ptr noundef %0, ptr noundef %
   %58 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %58, i32 noundef 12, ptr noundef @.str.44)
   store i32 -30, ptr %5, align 4
-  br label %120
+  br label %123
 
 59:                                               ; preds = %38
   %60 = load i32, ptr %8, align 4
@@ -2725,84 +2725,87 @@ define internal i32 @compression_init_encoder_ppmd(ptr noundef %0, ptr noundef %
   %68 = load ptr, ptr %10, align 8
   %69 = getelementptr inbounds %struct.ppmd_stream, ptr %68, i32 0, i32 1
   call void %67(ptr noundef %69)
-  %70 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 1), align 8
-  %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds %struct.ppmd_stream, ptr %71, i32 0, i32 1
-  %73 = load i32, ptr %9, align 4
-  %74 = call i32 %70(ptr noundef %72, i32 noundef %73)
-  store i32 %74, ptr %12, align 4
-  %75 = load i32, ptr %12, align 4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %84
+  %70 = getelementptr inbounds %struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 1
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = getelementptr inbounds %struct.ppmd_stream, ptr %72, i32 0, i32 1
+  %74 = load i32, ptr %9, align 4
+  %75 = call i32 %71(ptr noundef %73, i32 noundef %74)
+  store i32 %75, ptr %12, align 4
+  %76 = load i32, ptr %12, align 4
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %85
 
-77:                                               ; preds = %59
-  %78 = load ptr, ptr %10, align 8
-  %79 = getelementptr inbounds %struct.ppmd_stream, ptr %78, i32 0, i32 4
-  %80 = load ptr, ptr %79, align 8
-  call void @free(ptr noundef %80) #10
-  %81 = load ptr, ptr %10, align 8
+78:                                               ; preds = %59
+  %79 = load ptr, ptr %10, align 8
+  %80 = getelementptr inbounds %struct.ppmd_stream, ptr %79, i32 0, i32 4
+  %81 = load ptr, ptr %80, align 8
   call void @free(ptr noundef %81) #10
-  %82 = load ptr, ptr %11, align 8
+  %82 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %82) #10
-  %83 = load ptr, ptr %6, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %83, i32 noundef 12, ptr noundef @.str.44)
+  %83 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %83) #10
+  %84 = load ptr, ptr %6, align 8
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %84, i32 noundef 12, ptr noundef @.str.44)
   store i32 -30, ptr %5, align 4
-  br label %120
+  br label %123
 
-84:                                               ; preds = %59
-  %85 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 3), align 8
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds %struct.ppmd_stream, ptr %86, i32 0, i32 1
-  %88 = load i32, ptr %8, align 4
-  call void %85(ptr noundef %87, i32 noundef %88)
-  %89 = load ptr, ptr %6, align 8
-  %90 = load ptr, ptr %10, align 8
-  %91 = getelementptr inbounds %struct.ppmd_stream, ptr %90, i32 0, i32 3
-  %92 = getelementptr inbounds %struct.IByteOut, ptr %91, i32 0, i32 0
-  store ptr %89, ptr %92, align 8
-  %93 = load ptr, ptr %10, align 8
-  %94 = getelementptr inbounds %struct.ppmd_stream, ptr %93, i32 0, i32 3
-  %95 = getelementptr inbounds %struct.IByteOut, ptr %94, i32 0, i32 1
-  store ptr @ppmd_write, ptr %95, align 8
-  %96 = load ptr, ptr %10, align 8
-  %97 = getelementptr inbounds %struct.ppmd_stream, ptr %96, i32 0, i32 3
+85:                                               ; preds = %59
+  %86 = getelementptr inbounds %struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 3
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = getelementptr inbounds %struct.ppmd_stream, ptr %88, i32 0, i32 1
+  %90 = load i32, ptr %8, align 4
+  call void %87(ptr noundef %89, i32 noundef %90)
+  %91 = load ptr, ptr %6, align 8
+  %92 = load ptr, ptr %10, align 8
+  %93 = getelementptr inbounds %struct.ppmd_stream, ptr %92, i32 0, i32 3
+  %94 = getelementptr inbounds %struct.IByteOut, ptr %93, i32 0, i32 0
+  store ptr %91, ptr %94, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = getelementptr inbounds %struct.ppmd_stream, ptr %95, i32 0, i32 3
+  %97 = getelementptr inbounds %struct.IByteOut, ptr %96, i32 0, i32 1
+  store ptr @ppmd_write, ptr %97, align 8
   %98 = load ptr, ptr %10, align 8
-  %99 = getelementptr inbounds %struct.ppmd_stream, ptr %98, i32 0, i32 2
-  %100 = getelementptr inbounds %struct.CPpmd7z_RangeEnc, ptr %99, i32 0, i32 4
-  store ptr %97, ptr %100, align 8
-  %101 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 9), align 8
-  %102 = load ptr, ptr %10, align 8
-  %103 = getelementptr inbounds %struct.ppmd_stream, ptr %102, i32 0, i32 2
-  call void %101(ptr noundef %103)
-  %104 = load ptr, ptr %10, align 8
-  %105 = getelementptr inbounds %struct.ppmd_stream, ptr %104, i32 0, i32 0
-  store i32 0, ptr %105, align 8
-  %106 = load ptr, ptr %10, align 8
-  %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct.la_zstream, ptr %107, i32 0, i32 9
-  store ptr %106, ptr %108, align 8
-  %109 = load ptr, ptr %7, align 8
-  %110 = getelementptr inbounds %struct.la_zstream, ptr %109, i32 0, i32 8
-  store i32 1, ptr %110, align 8
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct.la_zstream, ptr %111, i32 0, i32 10
-  store ptr @compression_code_ppmd, ptr %112, align 8
-  %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.la_zstream, ptr %113, i32 0, i32 11
-  store ptr @compression_end_ppmd, ptr %114, align 8
-  %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds %struct.la_zstream, ptr %115, i32 0, i32 6
-  store i32 5, ptr %116, align 8
-  %117 = load ptr, ptr %11, align 8
+  %99 = getelementptr inbounds %struct.ppmd_stream, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %10, align 8
+  %101 = getelementptr inbounds %struct.ppmd_stream, ptr %100, i32 0, i32 2
+  %102 = getelementptr inbounds %struct.CPpmd7z_RangeEnc, ptr %101, i32 0, i32 4
+  store ptr %99, ptr %102, align 8
+  %103 = getelementptr inbounds %struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 9
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %10, align 8
+  %106 = getelementptr inbounds %struct.ppmd_stream, ptr %105, i32 0, i32 2
+  call void %104(ptr noundef %106)
+  %107 = load ptr, ptr %10, align 8
+  %108 = getelementptr inbounds %struct.ppmd_stream, ptr %107, i32 0, i32 0
+  store i32 0, ptr %108, align 8
+  %109 = load ptr, ptr %10, align 8
+  %110 = load ptr, ptr %7, align 8
+  %111 = getelementptr inbounds %struct.la_zstream, ptr %110, i32 0, i32 9
+  store ptr %109, ptr %111, align 8
+  %112 = load ptr, ptr %7, align 8
+  %113 = getelementptr inbounds %struct.la_zstream, ptr %112, i32 0, i32 8
+  store i32 1, ptr %113, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = getelementptr inbounds %struct.la_zstream, ptr %114, i32 0, i32 10
+  store ptr @compression_code_ppmd, ptr %115, align 8
+  %116 = load ptr, ptr %7, align 8
+  %117 = getelementptr inbounds %struct.la_zstream, ptr %116, i32 0, i32 11
+  store ptr @compression_end_ppmd, ptr %117, align 8
   %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds %struct.la_zstream, ptr %118, i32 0, i32 7
-  store ptr %117, ptr %119, align 8
+  %119 = getelementptr inbounds %struct.la_zstream, ptr %118, i32 0, i32 6
+  store i32 5, ptr %119, align 8
+  %120 = load ptr, ptr %11, align 8
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds %struct.la_zstream, ptr %121, i32 0, i32 7
+  store ptr %120, ptr %122, align 8
   store i32 0, ptr %5, align 4
-  br label %120
+  br label %123
 
-120:                                              ; preds = %84, %77, %53, %35, %25
-  %121 = load i32, ptr %5, align 4
-  ret i32 %121
+123:                                              ; preds = %85, %78, %53, %35, %25
+  %124 = load i32, ptr %5, align 4
+  ret i32 %124
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3867,7 +3870,7 @@ define internal i32 @compression_code_ppmd(ptr noundef %0, ptr noundef %1, i32 n
 
 63:                                               ; preds = %58
   store i32 0, ptr %4, align 4
-  br label %130
+  br label %132
 
 64:                                               ; preds = %58
   %65 = load ptr, ptr %8, align 8
@@ -3878,7 +3881,7 @@ define internal i32 @compression_code_ppmd(ptr noundef %0, ptr noundef %1, i32 n
 
 69:                                               ; preds = %64
   store i32 1, ptr %4, align 4
-  br label %130
+  br label %132
 
 70:                                               ; preds = %64
   %71 = load ptr, ptr %8, align 8
@@ -3908,74 +3911,76 @@ define internal i32 @compression_code_ppmd(ptr noundef %0, ptr noundef %1, i32 n
 
 87:                                               ; preds = %82, %77
   %88 = phi i1 [ false, %77 ], [ %86, %82 ]
-  br i1 %88, label %89, label %109
+  br i1 %88, label %89, label %110
 
 89:                                               ; preds = %87
-  %90 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 11), align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.ppmd_stream, ptr %91, i32 0, i32 1
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %struct.ppmd_stream, ptr %93, i32 0, i32 2
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.la_zstream, ptr %95, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i32 1
-  store ptr %98, ptr %96, align 8
-  %99 = load i8, ptr %97, align 1
-  %100 = zext i8 %99 to i32
-  call void %90(ptr noundef %92, ptr noundef %94, i32 noundef %100)
-  %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds %struct.la_zstream, ptr %101, i32 0, i32 1
-  %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -1
-  store i64 %104, ptr %102, align 8
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct.la_zstream, ptr %105, i32 0, i32 2
-  %107 = load i64, ptr %106, align 8
-  %108 = add i64 %107, 1
-  store i64 %108, ptr %106, align 8
+  %90 = getelementptr inbounds %struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 11
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %8, align 8
+  %93 = getelementptr inbounds %struct.ppmd_stream, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds %struct.ppmd_stream, ptr %94, i32 0, i32 2
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds %struct.la_zstream, ptr %96, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i32 1
+  store ptr %99, ptr %97, align 8
+  %100 = load i8, ptr %98, align 1
+  %101 = zext i8 %100 to i32
+  call void %91(ptr noundef %93, ptr noundef %95, i32 noundef %101)
+  %102 = load ptr, ptr %6, align 8
+  %103 = getelementptr inbounds %struct.la_zstream, ptr %102, i32 0, i32 1
+  %104 = load i64, ptr %103, align 8
+  %105 = add i64 %104, -1
+  store i64 %105, ptr %103, align 8
+  %106 = load ptr, ptr %6, align 8
+  %107 = getelementptr inbounds %struct.la_zstream, ptr %106, i32 0, i32 2
+  %108 = load i64, ptr %107, align 8
+  %109 = add i64 %108, 1
+  store i64 %109, ptr %107, align 8
   br label %77, !llvm.loop !9
 
-109:                                              ; preds = %87
-  %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct.la_zstream, ptr %110, i32 0, i32 1
-  %112 = load i64, ptr %111, align 8
-  %113 = icmp eq i64 %112, 0
-  br i1 %113, label %114, label %129
+110:                                              ; preds = %87
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr inbounds %struct.la_zstream, ptr %111, i32 0, i32 1
+  %113 = load i64, ptr %112, align 8
+  %114 = icmp eq i64 %113, 0
+  br i1 %114, label %115, label %131
 
-114:                                              ; preds = %109
-  %115 = load i32, ptr %7, align 4
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %129
+115:                                              ; preds = %110
+  %116 = load i32, ptr %7, align 4
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %131
 
-117:                                              ; preds = %114
-  %118 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 10), align 8
-  %119 = load ptr, ptr %8, align 8
-  %120 = getelementptr inbounds %struct.ppmd_stream, ptr %119, i32 0, i32 2
-  call void %118(ptr noundef %120)
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds %struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 10
+  %120 = load ptr, ptr %119, align 8
   %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds %struct.ppmd_stream, ptr %121, i32 0, i32 0
-  store i32 1, ptr %122, align 8
+  %122 = getelementptr inbounds %struct.ppmd_stream, ptr %121, i32 0, i32 2
+  call void %120(ptr noundef %122)
   %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr inbounds %struct.ppmd_stream, ptr %123, i32 0, i32 7
-  %125 = load i64, ptr %124, align 8
-  %126 = icmp eq i64 %125, 0
-  br i1 %126, label %127, label %128
+  %124 = getelementptr inbounds %struct.ppmd_stream, ptr %123, i32 0, i32 0
+  store i32 1, ptr %124, align 8
+  %125 = load ptr, ptr %8, align 8
+  %126 = getelementptr inbounds %struct.ppmd_stream, ptr %125, i32 0, i32 7
+  %127 = load i64, ptr %126, align 8
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %129, label %130
 
-127:                                              ; preds = %117
+129:                                              ; preds = %118
   store i32 1, ptr %4, align 4
-  br label %130
+  br label %132
 
-128:                                              ; preds = %117
-  br label %129
+130:                                              ; preds = %118
+  br label %131
 
-129:                                              ; preds = %128, %114, %109
+131:                                              ; preds = %130, %115, %110
   store i32 0, ptr %4, align 4
-  br label %130
+  br label %132
 
-130:                                              ; preds = %129, %127, %69, %63
-  %131 = load i32, ptr %4, align 4
-  ret i32 %131
+132:                                              ; preds = %131, %129, %69, %63
+  %133 = load i32, ptr %4, align 4
+  ret i32 %133
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3989,22 +3994,23 @@ define internal i32 @compression_end_ppmd(ptr noundef %0, ptr noundef %1) #0 {
   %7 = getelementptr inbounds %struct.la_zstream, ptr %6, i32 0, i32 9
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 2), align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.ppmd_stream, ptr %10, i32 0, i32 1
-  call void %9(ptr noundef %11)
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.ppmd_stream, ptr %12, i32 0, i32 4
-  %14 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %14) #10
-  %15 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds %struct.IPpmd7, ptr @__archive_ppmd7_functions, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds %struct.ppmd_stream, ptr %11, i32 0, i32 1
+  call void %10(ptr noundef %12)
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds %struct.ppmd_stream, ptr %13, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
   call void @free(ptr noundef %15) #10
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.la_zstream, ptr %16, i32 0, i32 9
-  store ptr null, ptr %17, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.la_zstream, ptr %18, i32 0, i32 8
-  store i32 0, ptr %19, align 8
+  %16 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %16) #10
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %struct.la_zstream, ptr %17, i32 0, i32 9
+  store ptr null, ptr %18, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %struct.la_zstream, ptr %19, i32 0, i32 8
+  store i32 0, ptr %20, align 8
   ret i32 0
 }
 

@@ -1089,249 +1089,250 @@ define void @_ZN9syscall_tC2EP6htif_t(ptr noundef nonnull align 8 dereferenceabl
   store ptr %1, ptr %4, align 8
   %18 = load ptr, ptr %3, align 8
   call void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %18)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9syscall_t, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %4, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 2
-  %22 = load ptr, ptr %4, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 10
-  %25 = load ptr, ptr %24, align 8
-  %26 = invoke noundef nonnull align 8 dereferenceable(16) ptr %25(ptr noundef nonnull align 8 dereferenceable(696) %22)
-          to label %27 unwind label %94
+  %19 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV9syscall_t, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 1
+  %21 = load ptr, ptr %4, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 2
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 10
+  %26 = load ptr, ptr %25, align 8
+  %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr %26(ptr noundef nonnull align 8 dereferenceable(696) %23)
+          to label %28 unwind label %95
 
-27:                                               ; preds = %2
-  store ptr %26, ptr %21, align 8
-  %28 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+28:                                               ; preds = %2
+  store ptr %27, ptr %22, align 8
+  %29 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
   call void @_ZNSaIM9syscall_tFmmmmmmmmEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  invoke void @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef 2048, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %29 unwind label %98
+  invoke void @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef 2048, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %30 unwind label %99
 
-29:                                               ; preds = %27
+30:                                               ; preds = %28
   call void @_ZNSaIM9syscall_tFmmmmmmmmEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  %30 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 4
-  call void @_ZN5fds_tC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
-  %31 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 5
-  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
-  %32 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #3
-  %33 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef 17) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t10sys_getcwdEmmmmmmm to i64), i64 0 }, ptr %34, align 8
-  %35 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %36 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 25) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_fcntlEmmmmmmm to i64), i64 0 }, ptr %36, align 8
-  %37 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %38 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef 34) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t11sys_mkdiratEmmmmmmm to i64), i64 0 }, ptr %38, align 8
-  %39 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %40 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef 35) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t12sys_unlinkatEmmmmmmm to i64), i64 0 }, ptr %40, align 8
-  %41 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef 37) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t10sys_linkatEmmmmmmm to i64), i64 0 }, ptr %42, align 8
-  %43 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %44 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef 38) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t12sys_renameatEmmmmmmm to i64), i64 0 }, ptr %44, align 8
-  %45 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef 46) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t13sys_ftruncateEmmmmmmm to i64), i64 0 }, ptr %46, align 8
-  %47 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef 48) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t13sys_faccessatEmmmmmmm to i64), i64 0 }, ptr %48, align 8
-  %49 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %50 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef 49) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_chdirEmmmmmmm to i64), i64 0 }, ptr %50, align 8
-  %51 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef 56) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t10sys_openatEmmmmmmm to i64), i64 0 }, ptr %52, align 8
-  %53 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %54 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef 57) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_closeEmmmmmmm to i64), i64 0 }, ptr %54, align 8
-  %55 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %56 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef 62) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_lseekEmmmmmmm to i64), i64 0 }, ptr %56, align 8
-  %57 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef 63) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t8sys_readEmmmmmmm to i64), i64 0 }, ptr %58, align 8
-  %59 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %60 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef 64) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_writeEmmmmmmm to i64), i64 0 }, ptr %60, align 8
-  %61 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %62 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %61, i64 noundef 67) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_preadEmmmmmmm to i64), i64 0 }, ptr %62, align 8
-  %63 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %64 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %63, i64 noundef 68) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t10sys_pwriteEmmmmmmm to i64), i64 0 }, ptr %64, align 8
-  %65 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %66 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %65, i64 noundef 79) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t11sys_fstatatEmmmmmmm to i64), i64 0 }, ptr %66, align 8
-  %67 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %68 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef 80) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_fstatEmmmmmmm to i64), i64 0 }, ptr %68, align 8
-  %69 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %70 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef 93) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t8sys_exitEmmmmmmm to i64), i64 0 }, ptr %70, align 8
-  %71 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %72 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %71, i64 noundef 291) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_statxEmmmmmmm to i64), i64 0 }, ptr %72, align 8
-  %73 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %74 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef 1039) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_lstatEmmmmmmm to i64), i64 0 }, ptr %74, align 8
-  %75 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
-  %76 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %75, i64 noundef 2011) #3
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t15sys_getmainvarsEmmmmmmm to i64), i64 0 }, ptr %76, align 8
+  %31 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 4
+  call void @_ZN5fds_tC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
+  %32 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 5
+  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
+  %33 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
+  %34 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 17) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t10sys_getcwdEmmmmmmm to i64), i64 0 }, ptr %35, align 8
+  %36 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef 25) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_fcntlEmmmmmmm to i64), i64 0 }, ptr %37, align 8
+  %38 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef 34) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t11sys_mkdiratEmmmmmmm to i64), i64 0 }, ptr %39, align 8
+  %40 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %41 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef 35) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t12sys_unlinkatEmmmmmmm to i64), i64 0 }, ptr %41, align 8
+  %42 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef 37) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t10sys_linkatEmmmmmmm to i64), i64 0 }, ptr %43, align 8
+  %44 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %45 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef 38) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t12sys_renameatEmmmmmmm to i64), i64 0 }, ptr %45, align 8
+  %46 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %47 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %46, i64 noundef 46) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t13sys_ftruncateEmmmmmmm to i64), i64 0 }, ptr %47, align 8
+  %48 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef 48) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t13sys_faccessatEmmmmmmm to i64), i64 0 }, ptr %49, align 8
+  %50 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %51 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef 49) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_chdirEmmmmmmm to i64), i64 0 }, ptr %51, align 8
+  %52 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef 56) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t10sys_openatEmmmmmmm to i64), i64 0 }, ptr %53, align 8
+  %54 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %55 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef 57) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_closeEmmmmmmm to i64), i64 0 }, ptr %55, align 8
+  %56 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %57 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef 62) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_lseekEmmmmmmm to i64), i64 0 }, ptr %57, align 8
+  %58 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %59 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef 63) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t8sys_readEmmmmmmm to i64), i64 0 }, ptr %59, align 8
+  %60 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %61 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %60, i64 noundef 64) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_writeEmmmmmmm to i64), i64 0 }, ptr %61, align 8
+  %62 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %63 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %62, i64 noundef 67) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_preadEmmmmmmm to i64), i64 0 }, ptr %63, align 8
+  %64 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %65 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %64, i64 noundef 68) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t10sys_pwriteEmmmmmmm to i64), i64 0 }, ptr %65, align 8
+  %66 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %67 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %66, i64 noundef 79) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t11sys_fstatatEmmmmmmm to i64), i64 0 }, ptr %67, align 8
+  %68 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %69 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef 80) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_fstatEmmmmmmm to i64), i64 0 }, ptr %69, align 8
+  %70 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %71 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %70, i64 noundef 93) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t8sys_exitEmmmmmmm to i64), i64 0 }, ptr %71, align 8
+  %72 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %73 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %72, i64 noundef 291) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_statxEmmmmmmm to i64), i64 0 }, ptr %73, align 8
+  %74 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %75 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef 1039) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t9sys_lstatEmmmmmmm to i64), i64 0 }, ptr %75, align 8
+  %76 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 3
+  %77 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %76, i64 noundef 2011) #3
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t15sys_getmainvarsEmmmmmmm to i64), i64 0 }, ptr %77, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN9syscall_t14handle_syscallE9command_t to i64), i64 0 }, ptr %10, align 8
   store ptr %18, ptr %11, align 8
   invoke void @_ZSt4bindIM9syscall_tFv9command_tEJPS0_RKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESA_JDpT0_EE4typeEOSA_DpOSB_(ptr dead_on_unwind writable sret(%"class.std::_Bind") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt12placeholders2_1E)
-          to label %77 unwind label %102
+          to label %78 unwind label %103
 
-77:                                               ; preds = %29
+78:                                               ; preds = %30
   invoke void @_ZNSt8functionIFv9command_tEEC2ISt5_BindIFM9syscall_tFvS0_EPS5_St12_PlaceholderILi1EEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %78 unwind label %102
-
-78:                                               ; preds = %77
-  invoke void @_ZN8device_t16register_commandEmSt8functionIFv9command_tEEPKc(ptr noundef nonnull align 8 dereferenceable(56) %18, i64 noundef 0, ptr noundef %8, ptr noundef @.str)
-          to label %79 unwind label %106
+          to label %79 unwind label %103
 
 79:                                               ; preds = %78
+  invoke void @_ZN8device_t16register_commandEmSt8functionIFv9command_tEEPKc(ptr noundef nonnull align 8 dereferenceable(56) %18, i64 noundef 0, ptr noundef %8, ptr noundef @.str)
+          to label %80 unwind label %107
+
+80:                                               ; preds = %79
   call void @_ZNSt8functionIFv9command_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %80 = call i32 @dup(i32 noundef 0) #3
-  store i32 %80, ptr %12, align 4
-  %81 = call i32 @dup(i32 noundef 1) #3
-  store i32 %81, ptr %13, align 4
+  %81 = call i32 @dup(i32 noundef 0) #3
+  store i32 %81, ptr %12, align 4
   %82 = call i32 @dup(i32 noundef 1) #3
-  store i32 %82, ptr %14, align 4
-  %83 = load i32, ptr %12, align 4
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %91, label %85
+  store i32 %82, ptr %13, align 4
+  %83 = call i32 @dup(i32 noundef 1) #3
+  store i32 %83, ptr %14, align 4
+  %84 = load i32, ptr %12, align 4
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %92, label %86
 
-85:                                               ; preds = %79
-  %86 = load i32, ptr %13, align 4
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %91, label %88
+86:                                               ; preds = %80
+  %87 = load i32, ptr %13, align 4
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %92, label %89
 
-88:                                               ; preds = %85
-  %89 = load i32, ptr %14, align 4
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %91, label %114
+89:                                               ; preds = %86
+  %90 = load i32, ptr %14, align 4
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %115
 
-91:                                               ; preds = %88, %85, %79
-  %92 = call ptr @__cxa_allocate_exception(i64 16) #3
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef @.str.1)
-          to label %93 unwind label %110
+92:                                               ; preds = %89, %86, %80
+  %93 = call ptr @__cxa_allocate_exception(i64 16) #3
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef @.str.1)
+          to label %94 unwind label %111
 
-93:                                               ; preds = %91
-  invoke void @__cxa_throw(ptr %92, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #16
-          to label %140 unwind label %102
+94:                                               ; preds = %92
+  invoke void @__cxa_throw(ptr %93, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #16
+          to label %141 unwind label %103
 
-94:                                               ; preds = %2
-  %95 = landingpad { ptr, i32 }
+95:                                               ; preds = %2
+  %96 = landingpad { ptr, i32 }
           cleanup
-  %96 = extractvalue { ptr, i32 } %95, 0
-  store ptr %96, ptr %5, align 8
-  %97 = extractvalue { ptr, i32 } %95, 1
-  store i32 %97, ptr %6, align 4
-  br label %134
-
-98:                                               ; preds = %27
-  %99 = landingpad { ptr, i32 }
-          cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %5, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %6, align 4
-  call void @_ZNSaIM9syscall_tFmmmmmmmmEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  br label %134
-
-102:                                              ; preds = %131, %126, %125, %120, %119, %114, %93, %77, %29
-  %103 = landingpad { ptr, i32 }
-          cleanup
-  %104 = extractvalue { ptr, i32 } %103, 0
-  store ptr %104, ptr %5, align 8
-  %105 = extractvalue { ptr, i32 } %103, 1
-  store i32 %105, ptr %6, align 4
-  br label %133
-
-106:                                              ; preds = %78
-  %107 = landingpad { ptr, i32 }
-          cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %5, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %6, align 4
-  call void @_ZNSt8functionIFv9command_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  br label %133
-
-110:                                              ; preds = %91
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %5, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %6, align 4
-  call void @__cxa_free_exception(ptr %92) #3
-  br label %133
-
-114:                                              ; preds = %88
-  %115 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 5
-  %116 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 4
-  %117 = load i32, ptr %12, align 4
-  %118 = invoke noundef i64 @_ZN5fds_t5allocEi(ptr noundef nonnull align 8 dereferenceable(24) %116, i32 noundef %117)
-          to label %119 unwind label %102
-
-119:                                              ; preds = %114
-  store i64 %118, ptr %15, align 8
-  invoke void @_ZNSt6vectorImSaImEE9push_backEOm(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %120 unwind label %102
-
-120:                                              ; preds = %119
-  %121 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 5
-  %122 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 4
-  %123 = load i32, ptr %13, align 4
-  %124 = invoke noundef i64 @_ZN5fds_t5allocEi(ptr noundef nonnull align 8 dereferenceable(24) %122, i32 noundef %123)
-          to label %125 unwind label %102
-
-125:                                              ; preds = %120
-  store i64 %124, ptr %16, align 8
-  invoke void @_ZNSt6vectorImSaImEE9push_backEOm(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %126 unwind label %102
-
-126:                                              ; preds = %125
-  %127 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 5
-  %128 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 4
-  %129 = load i32, ptr %14, align 4
-  %130 = invoke noundef i64 @_ZN5fds_t5allocEi(ptr noundef nonnull align 8 dereferenceable(24) %128, i32 noundef %129)
-          to label %131 unwind label %102
-
-131:                                              ; preds = %126
-  store i64 %130, ptr %17, align 8
-  invoke void @_ZNSt6vectorImSaImEE9push_backEOm(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %132 unwind label %102
-
-132:                                              ; preds = %131
-  ret void
-
-133:                                              ; preds = %110, %106, %102
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #3
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
-  call void @_ZN5fds_tD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
-  call void @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  br label %134
-
-134:                                              ; preds = %133, %98, %94
-  call void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #3
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %5, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %6, align 4
   br label %135
 
-135:                                              ; preds = %134
-  %136 = load ptr, ptr %5, align 8
-  %137 = load i32, ptr %6, align 4
-  %138 = insertvalue { ptr, i32 } poison, ptr %136, 0
-  %139 = insertvalue { ptr, i32 } %138, i32 %137, 1
-  resume { ptr, i32 } %139
+99:                                               ; preds = %28
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %5, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %6, align 4
+  call void @_ZNSaIM9syscall_tFmmmmmmmmEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %135
 
-140:                                              ; preds = %93
+103:                                              ; preds = %132, %127, %126, %121, %120, %115, %94, %78, %30
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %5, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %6, align 4
+  br label %134
+
+107:                                              ; preds = %79
+  %108 = landingpad { ptr, i32 }
+          cleanup
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %5, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %6, align 4
+  call void @_ZNSt8functionIFv9command_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  br label %134
+
+111:                                              ; preds = %92
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %5, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %6, align 4
+  call void @__cxa_free_exception(ptr %93) #3
+  br label %134
+
+115:                                              ; preds = %89
+  %116 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 5
+  %117 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 4
+  %118 = load i32, ptr %12, align 4
+  %119 = invoke noundef i64 @_ZN5fds_t5allocEi(ptr noundef nonnull align 8 dereferenceable(24) %117, i32 noundef %118)
+          to label %120 unwind label %103
+
+120:                                              ; preds = %115
+  store i64 %119, ptr %15, align 8
+  invoke void @_ZNSt6vectorImSaImEE9push_backEOm(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %121 unwind label %103
+
+121:                                              ; preds = %120
+  %122 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 5
+  %123 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 4
+  %124 = load i32, ptr %13, align 4
+  %125 = invoke noundef i64 @_ZN5fds_t5allocEi(ptr noundef nonnull align 8 dereferenceable(24) %123, i32 noundef %124)
+          to label %126 unwind label %103
+
+126:                                              ; preds = %121
+  store i64 %125, ptr %16, align 8
+  invoke void @_ZNSt6vectorImSaImEE9push_backEOm(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %127 unwind label %103
+
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 5
+  %129 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 4
+  %130 = load i32, ptr %14, align 4
+  %131 = invoke noundef i64 @_ZN5fds_t5allocEi(ptr noundef nonnull align 8 dereferenceable(24) %129, i32 noundef %130)
+          to label %132 unwind label %103
+
+132:                                              ; preds = %127
+  store i64 %131, ptr %17, align 8
+  invoke void @_ZNSt6vectorImSaImEE9push_backEOm(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %133 unwind label %103
+
+133:                                              ; preds = %132
+  ret void
+
+134:                                              ; preds = %111, %107, %103
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
+  call void @_ZN5fds_tD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
+  call void @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  br label %135
+
+135:                                              ; preds = %134, %99, %95
+  call void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #3
+  br label %136
+
+136:                                              ; preds = %135
+  %137 = load ptr, ptr %5, align 8
+  %138 = load i32, ptr %6, align 4
+  %139 = insertvalue { ptr, i32 } poison, ptr %137, 0
+  %140 = insertvalue { ptr, i32 } %139, i32 %138, 1
+  resume { ptr, i32 } %140
+
+141:                                              ; preds = %94
   unreachable
 }
 
@@ -4423,67 +4424,68 @@ define void @_ZN9syscall_tD2Ev(ptr noundef nonnull align 8 dereferenceable(176) 
   %6 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9syscall_t, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 5
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @_ZNSt6vectorImSaImEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @_ZNSt6vectorImSaImEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV9syscall_t, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 5
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @_ZNSt6vectorImSaImEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @_ZNSt6vectorImSaImEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %30, %1
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPmSt6vectorImSaImEEEEbRKNS_17__normal_iteratorIT_T0_EESA_QrqXeqcldtfp_4baseEcldtfp0_4baseERSt14convertible_toIbEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %17 = xor i1 %16, true
-  br i1 %17, label %18, label %32
+16:                                               ; preds = %31, %1
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPmSt6vectorImSaImEEEEbRKNS_17__normal_iteratorIT_T0_EESA_QrqXeqcldtfp_4baseEcldtfp0_4baseERSt14convertible_toIbEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %18 = xor i1 %17, true
+  br i1 %18, label %19, label %33
 
-18:                                               ; preds = %15
-  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %20 = load i64, ptr %19, align 8
-  store i64 %20, ptr %6, align 8
-  %21 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 4
-  %22 = load i64, ptr %6, align 8
-  %23 = invoke noundef i32 @_ZN5fds_t6lookupEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %22)
-          to label %24 unwind label %37
+19:                                               ; preds = %16
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %21 = load i64, ptr %20, align 8
+  store i64 %21, ptr %6, align 8
+  %22 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 4
+  %23 = load i64, ptr %6, align 8
+  %24 = invoke noundef i32 @_ZN5fds_t6lookupEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %23)
+          to label %25 unwind label %38
 
-24:                                               ; preds = %18
-  %25 = invoke i32 @close(i32 noundef %23)
-          to label %26 unwind label %37
+25:                                               ; preds = %19
+  %26 = invoke i32 @close(i32 noundef %24)
+          to label %27 unwind label %38
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 4
-  %28 = load i64, ptr %6, align 8
-  invoke void @_ZN5fds_t7deallocEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %28)
-          to label %29 unwind label %37
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 4
+  %29 = load i64, ptr %6, align 8
+  invoke void @_ZN5fds_t7deallocEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %29)
+          to label %30 unwind label %38
 
-29:                                               ; preds = %26
-  br label %30
+30:                                               ; preds = %27
+  br label %31
 
-30:                                               ; preds = %29
-  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  br label %15
+31:                                               ; preds = %30
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  br label %16
 
-32:                                               ; preds = %15
-  %33 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
-  %34 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 5
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
-  %35 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 4
-  call void @_ZN5fds_tD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
-  %36 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 3
-  call void @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #3
+33:                                               ; preds = %16
+  %34 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #3
+  %35 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 5
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
+  %36 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 4
+  call void @_ZN5fds_tD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #3
+  %37 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #3
   call void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #3
   ret void
 
-37:                                               ; preds = %26, %24, %18
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %27, %25, %19
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #17
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #17
   unreachable
 }
 
@@ -8621,11 +8623,12 @@ define linkonce_odr void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt8functionIFv9command_tEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV8device_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt8functionIFv9command_tEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   ret void
 }
 

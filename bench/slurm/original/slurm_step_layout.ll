@@ -4067,467 +4067,468 @@ define internal i32 @_task_layout_block(ptr noundef %0, ptr noundef %1) #0 {
   %11 = load i16, ptr @_task_layout_block.select_params, align 2
   %12 = zext i16 %11 to i32
   %13 = icmp eq i32 %12, 65534
-  br i1 %13, label %14, label %16
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 165), align 8
-  store i16 %15, ptr @_task_layout_block.select_params, align 2
-  br label %16
+  %15 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 165
+  %16 = load i16, ptr %15, align 8
+  store i16 %16, ptr @_task_layout_block.select_params, align 2
+  br label %17
 
-16:                                               ; preds = %14, %2
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.slurm_step_layout, ptr %17, i32 0, i32 11
-  %19 = load i32, ptr %18, align 4
-  %20 = and i32 %19, 8388608
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %23
+17:                                               ; preds = %14, %2
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds %struct.slurm_step_layout, ptr %18, i32 0, i32 11
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %20, 8388608
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %16
+23:                                               ; preds = %17
   store i8 1, ptr %8, align 1
+  br label %40
+
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds %struct.slurm_step_layout, ptr %25, i32 0, i32 11
+  %27 = load i32, ptr %26, align 4
+  %28 = and i32 %27, 4194304
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %24
+  store i8 0, ptr %8, align 1
   br label %39
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.slurm_step_layout, ptr %24, i32 0, i32 11
-  %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, 4194304
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %30
+31:                                               ; preds = %24
+  %32 = load i16, ptr @_task_layout_block.select_params, align 2
+  %33 = zext i16 %32 to i32
+  %34 = and i32 %33, 512
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %37
 
-29:                                               ; preds = %23
+36:                                               ; preds = %31
+  store i8 1, ptr %8, align 1
+  br label %38
+
+37:                                               ; preds = %31
   store i8 0, ptr %8, align 1
   br label %38
 
-30:                                               ; preds = %23
-  %31 = load i16, ptr @_task_layout_block.select_params, align 2
-  %32 = zext i16 %31 to i32
-  %33 = and i32 %32, 512
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %36
-
-35:                                               ; preds = %30
-  store i8 1, ptr %8, align 1
-  br label %37
-
-36:                                               ; preds = %30
-  store i8 0, ptr %8, align 1
-  br label %37
-
-37:                                               ; preds = %36, %35
-  br label %38
-
-38:                                               ; preds = %37, %29
+38:                                               ; preds = %37, %36
   br label %39
 
-39:                                               ; preds = %38, %22
-  %40 = load i8, ptr %8, align 1
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %181
+39:                                               ; preds = %38, %30
+  br label %40
 
-42:                                               ; preds = %39
+40:                                               ; preds = %39, %23
+  %41 = load i8, ptr %8, align 1
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %182
+
+43:                                               ; preds = %40
   store i32 0, ptr %5, align 4
-  br label %43
+  br label %44
 
-43:                                               ; preds = %85, %42
-  %44 = load i32, ptr %5, align 4
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.slurm_step_layout, ptr %45, i32 0, i32 5
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp ult i32 %44, %47
-  br i1 %48, label %49, label %55
+44:                                               ; preds = %86, %43
+  %45 = load i32, ptr %5, align 4
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds %struct.slurm_step_layout, ptr %46, i32 0, i32 5
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp ult i32 %45, %48
+  br i1 %49, label %50, label %56
 
-49:                                               ; preds = %43
-  %50 = load i32, ptr %7, align 4
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.slurm_step_layout, ptr %51, i32 0, i32 10
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp ult i32 %50, %53
-  br label %55
+50:                                               ; preds = %44
+  %51 = load i32, ptr %7, align 4
+  %52 = load ptr, ptr %3, align 8
+  %53 = getelementptr inbounds %struct.slurm_step_layout, ptr %52, i32 0, i32 10
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp ult i32 %51, %54
+  br label %56
 
-55:                                               ; preds = %49, %43
-  %56 = phi i1 [ false, %43 ], [ %54, %49 ]
-  br i1 %56, label %57, label %88
+56:                                               ; preds = %50, %44
+  %57 = phi i1 [ false, %44 ], [ %55, %50 ]
+  br i1 %57, label %58, label %89
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.slurm_step_layout, ptr %58, i32 0, i32 9
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i32, ptr %5, align 4
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i16, ptr %60, i64 %62
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = load ptr, ptr %4, align 8
-  %67 = load i32, ptr %5, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i16, ptr %66, i64 %68
-  %70 = load i16, ptr %69, align 2
-  %71 = zext i16 %70 to i32
-  %72 = icmp slt i32 %65, %71
-  br i1 %72, label %73, label %84
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds %struct.slurm_step_layout, ptr %59, i32 0, i32 9
+  %61 = load ptr, ptr %60, align 8
+  %62 = load i32, ptr %5, align 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i16, ptr %61, i64 %63
+  %65 = load i16, ptr %64, align 2
+  %66 = zext i16 %65 to i32
+  %67 = load ptr, ptr %4, align 8
+  %68 = load i32, ptr %5, align 4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i16, ptr %67, i64 %69
+  %71 = load i16, ptr %70, align 2
+  %72 = zext i16 %71 to i32
+  %73 = icmp slt i32 %66, %72
+  br i1 %73, label %74, label %85
 
-73:                                               ; preds = %57
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.slurm_step_layout, ptr %74, i32 0, i32 9
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %5, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i16, ptr %76, i64 %78
-  %80 = load i16, ptr %79, align 2
-  %81 = add i16 %80, 1
-  store i16 %81, ptr %79, align 2
-  %82 = load i32, ptr %7, align 4
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %7, align 4
-  br label %84
-
-84:                                               ; preds = %73, %57
+74:                                               ; preds = %58
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds %struct.slurm_step_layout, ptr %75, i32 0, i32 9
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %5, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i16, ptr %77, i64 %79
+  %81 = load i16, ptr %80, align 2
+  %82 = add i16 %81, 1
+  store i16 %82, ptr %80, align 2
+  %83 = load i32, ptr %7, align 4
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %7, align 4
   br label %85
 
-85:                                               ; preds = %84
-  %86 = load i32, ptr %5, align 4
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %5, align 4
-  br label %43, !llvm.loop !37
+85:                                               ; preds = %74, %58
+  br label %86
 
-88:                                               ; preds = %55
+86:                                               ; preds = %85
+  %87 = load i32, ptr %5, align 4
+  %88 = add nsw i32 %87, 1
+  store i32 %88, ptr %5, align 4
+  br label %44, !llvm.loop !37
+
+89:                                               ; preds = %56
   store i32 0, ptr %5, align 4
-  br label %89
+  br label %90
 
-89:                                               ; preds = %140, %88
-  %90 = load i32, ptr %5, align 4
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.slurm_step_layout, ptr %91, i32 0, i32 5
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp ult i32 %90, %93
-  br i1 %94, label %95, label %101
+90:                                               ; preds = %141, %89
+  %91 = load i32, ptr %5, align 4
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds %struct.slurm_step_layout, ptr %92, i32 0, i32 5
+  %94 = load i32, ptr %93, align 8
+  %95 = icmp ult i32 %91, %94
+  br i1 %95, label %96, label %102
 
-95:                                               ; preds = %89
-  %96 = load i32, ptr %7, align 4
-  %97 = load ptr, ptr %3, align 8
-  %98 = getelementptr inbounds %struct.slurm_step_layout, ptr %97, i32 0, i32 10
-  %99 = load i32, ptr %98, align 8
-  %100 = icmp ult i32 %96, %99
-  br label %101
+96:                                               ; preds = %90
+  %97 = load i32, ptr %7, align 4
+  %98 = load ptr, ptr %3, align 8
+  %99 = getelementptr inbounds %struct.slurm_step_layout, ptr %98, i32 0, i32 10
+  %100 = load i32, ptr %99, align 8
+  %101 = icmp ult i32 %97, %100
+  br label %102
 
-101:                                              ; preds = %95, %89
-  %102 = phi i1 [ false, %89 ], [ %100, %95 ]
-  br i1 %102, label %103, label %143
+102:                                              ; preds = %96, %90
+  %103 = phi i1 [ false, %90 ], [ %101, %96 ]
+  br i1 %103, label %104, label %144
 
-103:                                              ; preds = %101
-  br label %104
+104:                                              ; preds = %102
+  br label %105
 
-104:                                              ; preds = %128, %103
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.slurm_step_layout, ptr %105, i32 0, i32 9
-  %107 = load ptr, ptr %106, align 8
-  %108 = load i32, ptr %5, align 4
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i16, ptr %107, i64 %109
-  %111 = load i16, ptr %110, align 2
-  %112 = zext i16 %111 to i32
-  %113 = load ptr, ptr %4, align 8
-  %114 = load i32, ptr %5, align 4
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i16, ptr %113, i64 %115
-  %117 = load i16, ptr %116, align 2
-  %118 = zext i16 %117 to i32
-  %119 = icmp slt i32 %112, %118
-  br i1 %119, label %120, label %126
+105:                                              ; preds = %129, %104
+  %106 = load ptr, ptr %3, align 8
+  %107 = getelementptr inbounds %struct.slurm_step_layout, ptr %106, i32 0, i32 9
+  %108 = load ptr, ptr %107, align 8
+  %109 = load i32, ptr %5, align 4
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i16, ptr %108, i64 %110
+  %112 = load i16, ptr %111, align 2
+  %113 = zext i16 %112 to i32
+  %114 = load ptr, ptr %4, align 8
+  %115 = load i32, ptr %5, align 4
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i16, ptr %114, i64 %116
+  %118 = load i16, ptr %117, align 2
+  %119 = zext i16 %118 to i32
+  %120 = icmp slt i32 %113, %119
+  br i1 %120, label %121, label %127
 
-120:                                              ; preds = %104
-  %121 = load i32, ptr %7, align 4
-  %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds %struct.slurm_step_layout, ptr %122, i32 0, i32 10
-  %124 = load i32, ptr %123, align 8
-  %125 = icmp ult i32 %121, %124
-  br label %126
+121:                                              ; preds = %105
+  %122 = load i32, ptr %7, align 4
+  %123 = load ptr, ptr %3, align 8
+  %124 = getelementptr inbounds %struct.slurm_step_layout, ptr %123, i32 0, i32 10
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp ult i32 %122, %125
+  br label %127
 
-126:                                              ; preds = %120, %104
-  %127 = phi i1 [ false, %104 ], [ %125, %120 ]
-  br i1 %127, label %128, label %139
+127:                                              ; preds = %121, %105
+  %128 = phi i1 [ false, %105 ], [ %126, %121 ]
+  br i1 %128, label %129, label %140
 
-128:                                              ; preds = %126
-  %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds %struct.slurm_step_layout, ptr %129, i32 0, i32 9
-  %131 = load ptr, ptr %130, align 8
-  %132 = load i32, ptr %5, align 4
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds i16, ptr %131, i64 %133
-  %135 = load i16, ptr %134, align 2
-  %136 = add i16 %135, 1
-  store i16 %136, ptr %134, align 2
-  %137 = load i32, ptr %7, align 4
-  %138 = add nsw i32 %137, 1
-  store i32 %138, ptr %7, align 4
-  br label %104, !llvm.loop !38
+129:                                              ; preds = %127
+  %130 = load ptr, ptr %3, align 8
+  %131 = getelementptr inbounds %struct.slurm_step_layout, ptr %130, i32 0, i32 9
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i32, ptr %5, align 4
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds i16, ptr %132, i64 %134
+  %136 = load i16, ptr %135, align 2
+  %137 = add i16 %136, 1
+  store i16 %137, ptr %135, align 2
+  %138 = load i32, ptr %7, align 4
+  %139 = add nsw i32 %138, 1
+  store i32 %139, ptr %7, align 4
+  br label %105, !llvm.loop !38
 
-139:                                              ; preds = %126
-  br label %140
+140:                                              ; preds = %127
+  br label %141
 
-140:                                              ; preds = %139
-  %141 = load i32, ptr %5, align 4
-  %142 = add nsw i32 %141, 1
-  store i32 %142, ptr %5, align 4
-  br label %89, !llvm.loop !39
+141:                                              ; preds = %140
+  %142 = load i32, ptr %5, align 4
+  %143 = add nsw i32 %142, 1
+  store i32 %143, ptr %5, align 4
+  br label %90, !llvm.loop !39
 
-143:                                              ; preds = %101
-  br label %144
+144:                                              ; preds = %102
+  br label %145
 
-144:                                              ; preds = %179, %143
-  %145 = load i32, ptr %7, align 4
-  %146 = load ptr, ptr %3, align 8
-  %147 = getelementptr inbounds %struct.slurm_step_layout, ptr %146, i32 0, i32 10
-  %148 = load i32, ptr %147, align 8
-  %149 = icmp ult i32 %145, %148
-  br i1 %149, label %150, label %180
+145:                                              ; preds = %180, %144
+  %146 = load i32, ptr %7, align 4
+  %147 = load ptr, ptr %3, align 8
+  %148 = getelementptr inbounds %struct.slurm_step_layout, ptr %147, i32 0, i32 10
+  %149 = load i32, ptr %148, align 8
+  %150 = icmp ult i32 %146, %149
+  br i1 %150, label %151, label %181
 
-150:                                              ; preds = %144
+151:                                              ; preds = %145
   store i32 0, ptr %5, align 4
-  br label %151
+  br label %152
 
-151:                                              ; preds = %176, %150
-  %152 = load i32, ptr %5, align 4
-  %153 = load ptr, ptr %3, align 8
-  %154 = getelementptr inbounds %struct.slurm_step_layout, ptr %153, i32 0, i32 5
-  %155 = load i32, ptr %154, align 8
-  %156 = icmp ult i32 %152, %155
-  br i1 %156, label %157, label %163
+152:                                              ; preds = %177, %151
+  %153 = load i32, ptr %5, align 4
+  %154 = load ptr, ptr %3, align 8
+  %155 = getelementptr inbounds %struct.slurm_step_layout, ptr %154, i32 0, i32 5
+  %156 = load i32, ptr %155, align 8
+  %157 = icmp ult i32 %153, %156
+  br i1 %157, label %158, label %164
 
-157:                                              ; preds = %151
-  %158 = load i32, ptr %7, align 4
-  %159 = load ptr, ptr %3, align 8
-  %160 = getelementptr inbounds %struct.slurm_step_layout, ptr %159, i32 0, i32 10
-  %161 = load i32, ptr %160, align 8
-  %162 = icmp ult i32 %158, %161
-  br label %163
+158:                                              ; preds = %152
+  %159 = load i32, ptr %7, align 4
+  %160 = load ptr, ptr %3, align 8
+  %161 = getelementptr inbounds %struct.slurm_step_layout, ptr %160, i32 0, i32 10
+  %162 = load i32, ptr %161, align 8
+  %163 = icmp ult i32 %159, %162
+  br label %164
 
-163:                                              ; preds = %157, %151
-  %164 = phi i1 [ false, %151 ], [ %162, %157 ]
-  br i1 %164, label %165, label %179
+164:                                              ; preds = %158, %152
+  %165 = phi i1 [ false, %152 ], [ %163, %158 ]
+  br i1 %165, label %166, label %180
 
-165:                                              ; preds = %163
-  %166 = load ptr, ptr %3, align 8
-  %167 = getelementptr inbounds %struct.slurm_step_layout, ptr %166, i32 0, i32 9
-  %168 = load ptr, ptr %167, align 8
-  %169 = load i32, ptr %5, align 4
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i16, ptr %168, i64 %170
-  %172 = load i16, ptr %171, align 2
-  %173 = add i16 %172, 1
-  store i16 %173, ptr %171, align 2
-  %174 = load i32, ptr %7, align 4
-  %175 = add nsw i32 %174, 1
-  store i32 %175, ptr %7, align 4
-  br label %176
+166:                                              ; preds = %164
+  %167 = load ptr, ptr %3, align 8
+  %168 = getelementptr inbounds %struct.slurm_step_layout, ptr %167, i32 0, i32 9
+  %169 = load ptr, ptr %168, align 8
+  %170 = load i32, ptr %5, align 4
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds i16, ptr %169, i64 %171
+  %173 = load i16, ptr %172, align 2
+  %174 = add i16 %173, 1
+  store i16 %174, ptr %172, align 2
+  %175 = load i32, ptr %7, align 4
+  %176 = add nsw i32 %175, 1
+  store i32 %176, ptr %7, align 4
+  br label %177
 
-176:                                              ; preds = %165
-  %177 = load i32, ptr %5, align 4
-  %178 = add nsw i32 %177, 1
-  store i32 %178, ptr %5, align 4
-  br label %151, !llvm.loop !40
+177:                                              ; preds = %166
+  %178 = load i32, ptr %5, align 4
+  %179 = add nsw i32 %178, 1
+  store i32 %179, ptr %5, align 4
+  br label %152, !llvm.loop !40
 
-179:                                              ; preds = %163
-  br label %144, !llvm.loop !41
+180:                                              ; preds = %164
+  br label %145, !llvm.loop !41
 
-180:                                              ; preds = %144
-  br label %250
-
-181:                                              ; preds = %39
-  store i8 0, ptr %9, align 1
-  store i32 0, ptr %6, align 4
-  br label %182
-
-182:                                              ; preds = %246, %181
-  %183 = load i32, ptr %7, align 4
-  %184 = load ptr, ptr %3, align 8
-  %185 = getelementptr inbounds %struct.slurm_step_layout, ptr %184, i32 0, i32 10
-  %186 = load i32, ptr %185, align 8
-  %187 = icmp ult i32 %183, %186
-  br i1 %187, label %188, label %249
-
-188:                                              ; preds = %182
-  store i8 0, ptr %10, align 1
-  store i32 0, ptr %5, align 4
-  br label %189
-
-189:                                              ; preds = %238, %188
-  %190 = load i32, ptr %5, align 4
-  %191 = load ptr, ptr %3, align 8
-  %192 = getelementptr inbounds %struct.slurm_step_layout, ptr %191, i32 0, i32 5
-  %193 = load i32, ptr %192, align 8
-  %194 = icmp ult i32 %190, %193
-  br i1 %194, label %195, label %201
-
-195:                                              ; preds = %189
-  %196 = load i32, ptr %7, align 4
-  %197 = load ptr, ptr %3, align 8
-  %198 = getelementptr inbounds %struct.slurm_step_layout, ptr %197, i32 0, i32 10
-  %199 = load i32, ptr %198, align 8
-  %200 = icmp ult i32 %196, %199
-  br label %201
-
-201:                                              ; preds = %195, %189
-  %202 = phi i1 [ false, %189 ], [ %200, %195 ]
-  br i1 %202, label %203, label %241
-
-203:                                              ; preds = %201
-  %204 = load i32, ptr %6, align 4
-  %205 = load ptr, ptr %4, align 8
-  %206 = load i32, ptr %5, align 4
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i16, ptr %205, i64 %207
-  %209 = load i16, ptr %208, align 2
-  %210 = zext i16 %209 to i32
-  %211 = icmp slt i32 %204, %210
-  br i1 %211, label %215, label %212
-
-212:                                              ; preds = %203
-  %213 = load i8, ptr %9, align 1
-  %214 = trunc i8 %213 to i1
-  br i1 %214, label %215, label %237
-
-215:                                              ; preds = %212, %203
-  %216 = load ptr, ptr %3, align 8
-  %217 = getelementptr inbounds %struct.slurm_step_layout, ptr %216, i32 0, i32 9
-  %218 = load ptr, ptr %217, align 8
-  %219 = load i32, ptr %5, align 4
-  %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds i16, ptr %218, i64 %220
-  %222 = load i16, ptr %221, align 2
-  %223 = add i16 %222, 1
-  store i16 %223, ptr %221, align 2
-  %224 = load i32, ptr %7, align 4
-  %225 = add nsw i32 %224, 1
-  store i32 %225, ptr %7, align 4
-  %226 = load i32, ptr %6, align 4
-  %227 = add nsw i32 %226, 1
-  %228 = load ptr, ptr %4, align 8
-  %229 = load i32, ptr %5, align 4
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds i16, ptr %228, i64 %230
-  %232 = load i16, ptr %231, align 2
-  %233 = zext i16 %232 to i32
-  %234 = icmp slt i32 %227, %233
-  br i1 %234, label %235, label %236
-
-235:                                              ; preds = %215
-  store i8 1, ptr %10, align 1
-  br label %236
-
-236:                                              ; preds = %235, %215
-  br label %237
-
-237:                                              ; preds = %236, %212
-  br label %238
-
-238:                                              ; preds = %237
-  %239 = load i32, ptr %5, align 4
-  %240 = add nsw i32 %239, 1
-  store i32 %240, ptr %5, align 4
-  br label %189, !llvm.loop !42
-
-241:                                              ; preds = %201
-  %242 = load i8, ptr %10, align 1
-  %243 = trunc i8 %242 to i1
-  br i1 %243, label %245, label %244
-
-244:                                              ; preds = %241
-  store i8 1, ptr %9, align 1
-  br label %245
-
-245:                                              ; preds = %244, %241
-  br label %246
-
-246:                                              ; preds = %245
-  %247 = load i32, ptr %6, align 4
-  %248 = add nsw i32 %247, 1
-  store i32 %248, ptr %6, align 4
-  br label %182, !llvm.loop !43
-
-249:                                              ; preds = %182
-  br label %250
-
-250:                                              ; preds = %249, %180
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %5, align 4
+181:                                              ; preds = %145
   br label %251
 
-251:                                              ; preds = %302, %250
-  %252 = load i32, ptr %5, align 4
-  %253 = load ptr, ptr %3, align 8
-  %254 = getelementptr inbounds %struct.slurm_step_layout, ptr %253, i32 0, i32 5
-  %255 = load i32, ptr %254, align 8
-  %256 = icmp ult i32 %252, %255
-  br i1 %256, label %257, label %305
-
-257:                                              ; preds = %251
-  %258 = load ptr, ptr %3, align 8
-  %259 = getelementptr inbounds %struct.slurm_step_layout, ptr %258, i32 0, i32 9
-  %260 = load ptr, ptr %259, align 8
-  %261 = load i32, ptr %5, align 4
-  %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds i16, ptr %260, i64 %262
-  %264 = load i16, ptr %263, align 2
-  %265 = zext i16 %264 to i64
-  %266 = call ptr @slurm_xcalloc(i64 noundef %265, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 817, ptr noundef @__func__._task_layout_block)
-  %267 = load ptr, ptr %3, align 8
-  %268 = getelementptr inbounds %struct.slurm_step_layout, ptr %267, i32 0, i32 12
-  %269 = load ptr, ptr %268, align 8
-  %270 = load i32, ptr %5, align 4
-  %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds ptr, ptr %269, i64 %271
-  store ptr %266, ptr %272, align 8
+182:                                              ; preds = %40
+  store i8 0, ptr %9, align 1
   store i32 0, ptr %6, align 4
-  br label %273
+  br label %183
 
-273:                                              ; preds = %298, %257
-  %274 = load i32, ptr %6, align 4
-  %275 = load ptr, ptr %3, align 8
-  %276 = getelementptr inbounds %struct.slurm_step_layout, ptr %275, i32 0, i32 9
-  %277 = load ptr, ptr %276, align 8
-  %278 = load i32, ptr %5, align 4
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds i16, ptr %277, i64 %279
-  %281 = load i16, ptr %280, align 2
-  %282 = zext i16 %281 to i32
-  %283 = icmp slt i32 %274, %282
-  br i1 %283, label %284, label %301
+183:                                              ; preds = %247, %182
+  %184 = load i32, ptr %7, align 4
+  %185 = load ptr, ptr %3, align 8
+  %186 = getelementptr inbounds %struct.slurm_step_layout, ptr %185, i32 0, i32 10
+  %187 = load i32, ptr %186, align 8
+  %188 = icmp ult i32 %184, %187
+  br i1 %188, label %189, label %250
 
-284:                                              ; preds = %273
-  %285 = load i32, ptr %7, align 4
-  %286 = load ptr, ptr %3, align 8
-  %287 = getelementptr inbounds %struct.slurm_step_layout, ptr %286, i32 0, i32 12
-  %288 = load ptr, ptr %287, align 8
-  %289 = load i32, ptr %5, align 4
-  %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds ptr, ptr %288, i64 %290
-  %292 = load ptr, ptr %291, align 8
-  %293 = load i32, ptr %6, align 4
-  %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds i32, ptr %292, i64 %294
-  store i32 %285, ptr %295, align 4
-  %296 = load i32, ptr %7, align 4
-  %297 = add nsw i32 %296, 1
-  store i32 %297, ptr %7, align 4
-  br label %298
+189:                                              ; preds = %183
+  store i8 0, ptr %10, align 1
+  store i32 0, ptr %5, align 4
+  br label %190
 
-298:                                              ; preds = %284
-  %299 = load i32, ptr %6, align 4
-  %300 = add nsw i32 %299, 1
-  store i32 %300, ptr %6, align 4
-  br label %273, !llvm.loop !44
+190:                                              ; preds = %239, %189
+  %191 = load i32, ptr %5, align 4
+  %192 = load ptr, ptr %3, align 8
+  %193 = getelementptr inbounds %struct.slurm_step_layout, ptr %192, i32 0, i32 5
+  %194 = load i32, ptr %193, align 8
+  %195 = icmp ult i32 %191, %194
+  br i1 %195, label %196, label %202
 
-301:                                              ; preds = %273
-  br label %302
+196:                                              ; preds = %190
+  %197 = load i32, ptr %7, align 4
+  %198 = load ptr, ptr %3, align 8
+  %199 = getelementptr inbounds %struct.slurm_step_layout, ptr %198, i32 0, i32 10
+  %200 = load i32, ptr %199, align 8
+  %201 = icmp ult i32 %197, %200
+  br label %202
 
-302:                                              ; preds = %301
-  %303 = load i32, ptr %5, align 4
-  %304 = add nsw i32 %303, 1
-  store i32 %304, ptr %5, align 4
-  br label %251, !llvm.loop !45
+202:                                              ; preds = %196, %190
+  %203 = phi i1 [ false, %190 ], [ %201, %196 ]
+  br i1 %203, label %204, label %242
 
-305:                                              ; preds = %251
+204:                                              ; preds = %202
+  %205 = load i32, ptr %6, align 4
+  %206 = load ptr, ptr %4, align 8
+  %207 = load i32, ptr %5, align 4
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds i16, ptr %206, i64 %208
+  %210 = load i16, ptr %209, align 2
+  %211 = zext i16 %210 to i32
+  %212 = icmp slt i32 %205, %211
+  br i1 %212, label %216, label %213
+
+213:                                              ; preds = %204
+  %214 = load i8, ptr %9, align 1
+  %215 = trunc i8 %214 to i1
+  br i1 %215, label %216, label %238
+
+216:                                              ; preds = %213, %204
+  %217 = load ptr, ptr %3, align 8
+  %218 = getelementptr inbounds %struct.slurm_step_layout, ptr %217, i32 0, i32 9
+  %219 = load ptr, ptr %218, align 8
+  %220 = load i32, ptr %5, align 4
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds i16, ptr %219, i64 %221
+  %223 = load i16, ptr %222, align 2
+  %224 = add i16 %223, 1
+  store i16 %224, ptr %222, align 2
+  %225 = load i32, ptr %7, align 4
+  %226 = add nsw i32 %225, 1
+  store i32 %226, ptr %7, align 4
+  %227 = load i32, ptr %6, align 4
+  %228 = add nsw i32 %227, 1
+  %229 = load ptr, ptr %4, align 8
+  %230 = load i32, ptr %5, align 4
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds i16, ptr %229, i64 %231
+  %233 = load i16, ptr %232, align 2
+  %234 = zext i16 %233 to i32
+  %235 = icmp slt i32 %228, %234
+  br i1 %235, label %236, label %237
+
+236:                                              ; preds = %216
+  store i8 1, ptr %10, align 1
+  br label %237
+
+237:                                              ; preds = %236, %216
+  br label %238
+
+238:                                              ; preds = %237, %213
+  br label %239
+
+239:                                              ; preds = %238
+  %240 = load i32, ptr %5, align 4
+  %241 = add nsw i32 %240, 1
+  store i32 %241, ptr %5, align 4
+  br label %190, !llvm.loop !42
+
+242:                                              ; preds = %202
+  %243 = load i8, ptr %10, align 1
+  %244 = trunc i8 %243 to i1
+  br i1 %244, label %246, label %245
+
+245:                                              ; preds = %242
+  store i8 1, ptr %9, align 1
+  br label %246
+
+246:                                              ; preds = %245, %242
+  br label %247
+
+247:                                              ; preds = %246
+  %248 = load i32, ptr %6, align 4
+  %249 = add nsw i32 %248, 1
+  store i32 %249, ptr %6, align 4
+  br label %183, !llvm.loop !43
+
+250:                                              ; preds = %183
+  br label %251
+
+251:                                              ; preds = %250, %181
+  store i32 0, ptr %7, align 4
+  store i32 0, ptr %5, align 4
+  br label %252
+
+252:                                              ; preds = %303, %251
+  %253 = load i32, ptr %5, align 4
+  %254 = load ptr, ptr %3, align 8
+  %255 = getelementptr inbounds %struct.slurm_step_layout, ptr %254, i32 0, i32 5
+  %256 = load i32, ptr %255, align 8
+  %257 = icmp ult i32 %253, %256
+  br i1 %257, label %258, label %306
+
+258:                                              ; preds = %252
+  %259 = load ptr, ptr %3, align 8
+  %260 = getelementptr inbounds %struct.slurm_step_layout, ptr %259, i32 0, i32 9
+  %261 = load ptr, ptr %260, align 8
+  %262 = load i32, ptr %5, align 4
+  %263 = sext i32 %262 to i64
+  %264 = getelementptr inbounds i16, ptr %261, i64 %263
+  %265 = load i16, ptr %264, align 2
+  %266 = zext i16 %265 to i64
+  %267 = call ptr @slurm_xcalloc(i64 noundef %266, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str, i32 noundef 817, ptr noundef @__func__._task_layout_block)
+  %268 = load ptr, ptr %3, align 8
+  %269 = getelementptr inbounds %struct.slurm_step_layout, ptr %268, i32 0, i32 12
+  %270 = load ptr, ptr %269, align 8
+  %271 = load i32, ptr %5, align 4
+  %272 = sext i32 %271 to i64
+  %273 = getelementptr inbounds ptr, ptr %270, i64 %272
+  store ptr %267, ptr %273, align 8
+  store i32 0, ptr %6, align 4
+  br label %274
+
+274:                                              ; preds = %299, %258
+  %275 = load i32, ptr %6, align 4
+  %276 = load ptr, ptr %3, align 8
+  %277 = getelementptr inbounds %struct.slurm_step_layout, ptr %276, i32 0, i32 9
+  %278 = load ptr, ptr %277, align 8
+  %279 = load i32, ptr %5, align 4
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds i16, ptr %278, i64 %280
+  %282 = load i16, ptr %281, align 2
+  %283 = zext i16 %282 to i32
+  %284 = icmp slt i32 %275, %283
+  br i1 %284, label %285, label %302
+
+285:                                              ; preds = %274
+  %286 = load i32, ptr %7, align 4
+  %287 = load ptr, ptr %3, align 8
+  %288 = getelementptr inbounds %struct.slurm_step_layout, ptr %287, i32 0, i32 12
+  %289 = load ptr, ptr %288, align 8
+  %290 = load i32, ptr %5, align 4
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds ptr, ptr %289, i64 %291
+  %293 = load ptr, ptr %292, align 8
+  %294 = load i32, ptr %6, align 4
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr inbounds i32, ptr %293, i64 %295
+  store i32 %286, ptr %296, align 4
+  %297 = load i32, ptr %7, align 4
+  %298 = add nsw i32 %297, 1
+  store i32 %298, ptr %7, align 4
+  br label %299
+
+299:                                              ; preds = %285
+  %300 = load i32, ptr %6, align 4
+  %301 = add nsw i32 %300, 1
+  store i32 %301, ptr %6, align 4
+  br label %274, !llvm.loop !44
+
+302:                                              ; preds = %274
+  br label %303
+
+303:                                              ; preds = %302
+  %304 = load i32, ptr %5, align 4
+  %305 = add nsw i32 %304, 1
+  store i32 %305, ptr %5, align 4
+  br label %252, !llvm.loop !45
+
+306:                                              ; preds = %252
   ret i32 0
 }
 

@@ -2421,130 +2421,132 @@ entry:
   %146 = load ptr, ptr %coerce.dive250, align 8
   %coerce.dive251 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp246, i32 0, i32 0
   %147 = load i32, ptr %coerce.dive251, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %145, ptr %146, i32 %147, ptr noundef inttoptr (i64 1 to ptr), ptr noundef @_ZN6hermes2vm18stringPrototypePadEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
-  %148 = load ptr, ptr %runtime.addr, align 8
+  %148 = inttoptr i64 1 to ptr
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %145, ptr %146, i32 %147, ptr noundef %148, ptr noundef @_ZN6hermes2vm18stringPrototypePadEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %149 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp252, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call254 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 122)
   %coerce.dive255 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp253, i32 0, i32 0
   store i32 %call254, ptr %coerce.dive255, align 4
-  %149 = load ptr, ptr %ctx, align 8
+  %150 = load ptr, ptr %ctx, align 8
   %coerce.dive256 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp252, i32 0, i32 0
   %coerce.dive257 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive256, i32 0, i32 0
-  %150 = load ptr, ptr %coerce.dive257, align 8
+  %151 = load ptr, ptr %coerce.dive257, align 8
   %coerce.dive258 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp253, i32 0, i32 0
-  %151 = load i32, ptr %coerce.dive258, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %148, ptr %150, i32 %151, ptr noundef %149, ptr noundef @_ZN6hermes2vm22stringPrototypeReplaceEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2)
-  %152 = load ptr, ptr %runtime.addr, align 8
+  %152 = load i32, ptr %coerce.dive258, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %149, ptr %151, i32 %152, ptr noundef %150, ptr noundef @_ZN6hermes2vm22stringPrototypeReplaceEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2)
+  %153 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp259, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call261 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 124)
   %coerce.dive262 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp260, i32 0, i32 0
   store i32 %call261, ptr %coerce.dive262, align 4
-  %153 = load ptr, ptr %ctx, align 8
+  %154 = load ptr, ptr %ctx, align 8
   %coerce.dive263 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp259, i32 0, i32 0
   %coerce.dive264 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive263, i32 0, i32 0
-  %154 = load ptr, ptr %coerce.dive264, align 8
+  %155 = load ptr, ptr %coerce.dive264, align 8
   %coerce.dive265 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp260, i32 0, i32 0
-  %155 = load i32, ptr %coerce.dive265, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %152, ptr %154, i32 %155, ptr noundef %153, ptr noundef @_ZN6hermes2vm21stringPrototypeSearchEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
-  %156 = load ptr, ptr %runtime.addr, align 8
+  %156 = load i32, ptr %coerce.dive265, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %153, ptr %155, i32 %156, ptr noundef %154, ptr noundef @_ZN6hermes2vm21stringPrototypeSearchEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %157 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp266, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call268 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 97)
   %coerce.dive269 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp267, i32 0, i32 0
   store i32 %call268, ptr %coerce.dive269, align 4
-  %157 = load ptr, ptr %ctx, align 8
+  %158 = load ptr, ptr %ctx, align 8
   %coerce.dive270 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp266, i32 0, i32 0
   %coerce.dive271 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive270, i32 0, i32 0
-  %158 = load ptr, ptr %coerce.dive271, align 8
+  %159 = load ptr, ptr %coerce.dive271, align 8
   %coerce.dive272 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp267, i32 0, i32 0
-  %159 = load i32, ptr %coerce.dive272, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %156, ptr %158, i32 %159, ptr noundef %157, ptr noundef @_ZN6hermes2vm21stringPrototypeCharAtEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
-  %160 = load ptr, ptr %runtime.addr, align 8
+  %160 = load i32, ptr %coerce.dive272, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %157, ptr %159, i32 %160, ptr noundef %158, ptr noundef @_ZN6hermes2vm21stringPrototypeCharAtEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %161 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp273, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call275 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 101)
   %coerce.dive276 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp274, i32 0, i32 0
   store i32 %call275, ptr %coerce.dive276, align 4
-  %161 = load ptr, ptr %ctx, align 8
+  %162 = load ptr, ptr %ctx, align 8
   %coerce.dive277 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp273, i32 0, i32 0
   %coerce.dive278 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive277, i32 0, i32 0
-  %162 = load ptr, ptr %coerce.dive278, align 8
+  %163 = load ptr, ptr %coerce.dive278, align 8
   %coerce.dive279 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp274, i32 0, i32 0
-  %163 = load i32, ptr %coerce.dive279, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %160, ptr %162, i32 %163, ptr noundef %161, ptr noundef @_ZN6hermes2vm23stringPrototypeEndsWithEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
-  %164 = load ptr, ptr %runtime.addr, align 8
+  %164 = load i32, ptr %coerce.dive279, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %161, ptr %163, i32 %164, ptr noundef %162, ptr noundef @_ZN6hermes2vm23stringPrototypeEndsWithEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %165 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp280, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call282 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 102)
   %coerce.dive283 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp281, i32 0, i32 0
   store i32 %call282, ptr %coerce.dive283, align 4
-  %165 = load ptr, ptr %ctx, align 8
+  %166 = load ptr, ptr %ctx, align 8
   %coerce.dive284 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp280, i32 0, i32 0
   %coerce.dive285 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive284, i32 0, i32 0
-  %166 = load ptr, ptr %coerce.dive285, align 8
+  %167 = load ptr, ptr %coerce.dive285, align 8
   %coerce.dive286 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp281, i32 0, i32 0
-  %167 = load i32, ptr %coerce.dive286, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %164, ptr %166, i32 %167, ptr noundef %165, ptr noundef @_ZN6hermes2vm20stringPrototypeSliceEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2)
-  %168 = load ptr, ptr %runtime.addr, align 8
+  %168 = load i32, ptr %coerce.dive286, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %165, ptr %167, i32 %168, ptr noundef %166, ptr noundef @_ZN6hermes2vm20stringPrototypeSliceEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2)
+  %169 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp287, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call289 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 125)
   %coerce.dive290 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp288, i32 0, i32 0
   store i32 %call289, ptr %coerce.dive290, align 4
-  %169 = load ptr, ptr %ctx, align 8
+  %170 = load ptr, ptr %ctx, align 8
   %coerce.dive291 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp287, i32 0, i32 0
   %coerce.dive292 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive291, i32 0, i32 0
-  %170 = load ptr, ptr %coerce.dive292, align 8
+  %171 = load ptr, ptr %coerce.dive292, align 8
   %coerce.dive293 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp288, i32 0, i32 0
-  %171 = load i32, ptr %coerce.dive293, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %168, ptr %170, i32 %171, ptr noundef %169, ptr noundef @_ZN6hermes2vm20stringPrototypeSplitEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2)
-  %172 = load ptr, ptr %runtime.addr, align 8
+  %172 = load i32, ptr %coerce.dive293, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %169, ptr %171, i32 %172, ptr noundef %170, ptr noundef @_ZN6hermes2vm20stringPrototypeSplitEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2)
+  %173 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp294, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call296 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 195)
   %coerce.dive297 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp295, i32 0, i32 0
   store i32 %call296, ptr %coerce.dive297, align 4
   %coerce.dive298 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp294, i32 0, i32 0
   %coerce.dive299 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive298, i32 0, i32 0
-  %173 = load ptr, ptr %coerce.dive299, align 8
+  %174 = load ptr, ptr %coerce.dive299, align 8
   %coerce.dive300 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp295, i32 0, i32 0
-  %174 = load i32, ptr %coerce.dive300, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %172, ptr %173, i32 %174, ptr noundef null, ptr noundef @_ZN6hermes2vm35stringPrototypeIncludesOrStartsWithEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
-  %175 = load ptr, ptr %runtime.addr, align 8
+  %175 = load i32, ptr %coerce.dive300, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %173, ptr %174, i32 %175, ptr noundef null, ptr noundef @_ZN6hermes2vm35stringPrototypeIncludesOrStartsWithEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %176 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp301, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call303 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 113)
   %coerce.dive304 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp302, i32 0, i32 0
   store i32 %call303, ptr %coerce.dive304, align 4
-  %176 = load ptr, ptr %ctx, align 8
+  %177 = load ptr, ptr %ctx, align 8
   %coerce.dive305 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp301, i32 0, i32 0
   %coerce.dive306 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive305, i32 0, i32 0
-  %177 = load ptr, ptr %coerce.dive306, align 8
+  %178 = load ptr, ptr %coerce.dive306, align 8
   %coerce.dive307 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp302, i32 0, i32 0
-  %178 = load i32, ptr %coerce.dive307, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %175, ptr %177, i32 %178, ptr noundef %176, ptr noundef @_ZN6hermes2vm22stringPrototypeIndexOfEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
-  %179 = load ptr, ptr %runtime.addr, align 8
+  %179 = load i32, ptr %coerce.dive307, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %176, ptr %178, i32 %179, ptr noundef %177, ptr noundef @_ZN6hermes2vm22stringPrototypeIndexOfEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %180 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp308, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call310 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 114)
   %coerce.dive311 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp309, i32 0, i32 0
   store i32 %call310, ptr %coerce.dive311, align 4
-  %180 = load ptr, ptr %ctx, align 8
+  %181 = load ptr, ptr %ctx, align 8
   %coerce.dive312 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp308, i32 0, i32 0
   %coerce.dive313 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive312, i32 0, i32 0
-  %181 = load ptr, ptr %coerce.dive313, align 8
+  %182 = load ptr, ptr %coerce.dive313, align 8
   %coerce.dive314 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp309, i32 0, i32 0
-  %182 = load i32, ptr %coerce.dive314, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %179, ptr %181, i32 %182, ptr noundef %180, ptr noundef @_ZN6hermes2vm26stringPrototypeLastIndexOfEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
-  %183 = load ptr, ptr %runtime.addr, align 8
+  %183 = load i32, ptr %coerce.dive314, align 4
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %180, ptr %182, i32 %183, ptr noundef %181, ptr noundef @_ZN6hermes2vm26stringPrototypeLastIndexOfEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %184 = load ptr, ptr %runtime.addr, align 8
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_8JSStringEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp315, ptr noundef nonnull align 8 dereferenceable(8) %stringPrototype)
   %call317 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 103)
   %coerce.dive318 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp316, i32 0, i32 0
   store i32 %call317, ptr %coerce.dive318, align 4
   %coerce.dive319 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp315, i32 0, i32 0
   %coerce.dive320 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive319, i32 0, i32 0
-  %184 = load ptr, ptr %coerce.dive320, align 8
+  %185 = load ptr, ptr %coerce.dive320, align 8
   %coerce.dive321 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp316, i32 0, i32 0
-  %185 = load i32, ptr %coerce.dive321, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %183, ptr %184, i32 %185, ptr noundef inttoptr (i64 1 to ptr), ptr noundef @_ZN6hermes2vm35stringPrototypeIncludesOrStartsWithEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %186 = load i32, ptr %coerce.dive321, align 4
+  %187 = inttoptr i64 1 to ptr
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %184, ptr %185, i32 %186, ptr noundef %187, ptr noundef @_ZN6hermes2vm35stringPrototypeIncludesOrStartsWithEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
   call void @_ZN6hermes2vm6HandleINS0_8JSObjectEEC2INS0_17NativeConstructorEvEERKNS1_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %cons)
   %coerce.dive322 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %retval, i32 0, i32 0
   %coerce.dive323 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive322, i32 0, i32 0
-  %186 = load ptr, ptr %coerce.dive323, align 8
-  ret ptr %186
+  %188 = load ptr, ptr %coerce.dive323, align 8
+  ret ptr %188
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

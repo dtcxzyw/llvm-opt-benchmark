@@ -175,203 +175,206 @@ define dso_local void @WalSummarizerMain() #2 {
   %23 = call ptr @pqsignal(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
   %24 = call ptr @pqsignal(i32 noundef 2, ptr noundef @SignalHandlerForShutdownRequest)
   %25 = call ptr @pqsignal(i32 noundef 15, ptr noundef @SignalHandlerForShutdownRequest)
-  %26 = call ptr @pqsignal(i32 noundef 14, ptr noundef inttoptr (i64 1 to ptr))
-  %27 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %28 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
-  %29 = call ptr @pqsignal(i32 noundef 12, ptr noundef inttoptr (i64 1 to ptr))
+  %26 = inttoptr i64 1 to ptr
+  %27 = call ptr @pqsignal(i32 noundef 14, ptr noundef %26)
+  %28 = inttoptr i64 1 to ptr
+  %29 = call ptr @pqsignal(i32 noundef 13, ptr noundef %28)
+  %30 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
+  %31 = inttoptr i64 1 to ptr
+  %32 = call ptr @pqsignal(i32 noundef 12, ptr noundef %31)
   call void @on_shmem_exit(ptr noundef @WalSummarizerShutdown, i64 noundef 0)
-  %30 = load ptr, ptr @MainLWLockArray, align 8
-  %31 = getelementptr %union.LWLockPadded, ptr %30, i64 49
-  %32 = call zeroext i1 @LWLockAcquire(ptr noundef %31, i32 noundef 0)
-  %33 = load i32, ptr @MyProcNumber, align 4
-  %34 = load ptr, ptr @WalSummarizerCtl, align 8
-  %35 = getelementptr inbounds %struct.WalSummarizerData, ptr %34, i32 0, i32 4
-  store i32 %33, ptr %35, align 4
-  %36 = load ptr, ptr @MainLWLockArray, align 8
-  %37 = getelementptr %union.LWLockPadded, ptr %36, i64 49
-  call void @LWLockRelease(ptr noundef %37)
-  br label %38
+  %33 = load ptr, ptr @MainLWLockArray, align 8
+  %34 = getelementptr %union.LWLockPadded, ptr %33, i64 49
+  %35 = call zeroext i1 @LWLockAcquire(ptr noundef %34, i32 noundef 0)
+  %36 = load i32, ptr @MyProcNumber, align 4
+  %37 = load ptr, ptr @WalSummarizerCtl, align 8
+  %38 = getelementptr inbounds %struct.WalSummarizerData, ptr %37, i32 0, i32 4
+  store i32 %36, ptr %38, align 4
+  %39 = load ptr, ptr @MainLWLockArray, align 8
+  %40 = getelementptr %union.LWLockPadded, ptr %39, i64 49
+  call void @LWLockRelease(ptr noundef %40)
+  br label %41
 
-38:                                               ; preds = %22
-  br label %39
+41:                                               ; preds = %22
+  br label %42
 
-39:                                               ; preds = %38
+42:                                               ; preds = %41
   store i32 1, ptr %8, align 4
-  %40 = load ptr, ptr @TopMemoryContext, align 8
-  %41 = call ptr @AllocSetContextCreateInternal(ptr noundef %40, ptr noundef @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
-  store ptr %41, ptr %2, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = call ptr @MemoryContextSwitchTo(ptr noundef %42)
-  %44 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
-  %45 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %1, i64 0, i64 0
-  %46 = call i32 @__sigsetjmp(ptr noundef %45, i32 noundef 1) #8
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %61
+  %43 = load ptr, ptr @TopMemoryContext, align 8
+  %44 = call ptr @AllocSetContextCreateInternal(ptr noundef %43, ptr noundef @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608)
+  store ptr %44, ptr %2, align 8
+  %45 = load ptr, ptr %2, align 8
+  %46 = call ptr @MemoryContextSwitchTo(ptr noundef %45)
+  %47 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  %48 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %1, i64 0, i64 0
+  %49 = call i32 @__sigsetjmp(ptr noundef %48, i32 noundef 1) #8
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %64
 
-48:                                               ; preds = %39
+51:                                               ; preds = %42
   store ptr null, ptr @error_context_stack, align 8
-  %49 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %50 = add i32 %49, 1
-  store volatile i32 %50, ptr @InterruptHoldoffCount, align 4
+  %52 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %53 = add i32 %52, 1
+  store volatile i32 %53, ptr @InterruptHoldoffCount, align 4
   call void @EmitErrorReport()
   call void @LWLockReleaseAll()
-  %51 = call zeroext i1 @ConditionVariableCancelSleep()
+  %54 = call zeroext i1 @ConditionVariableCancelSleep()
   call void @pgstat_report_wait_end()
   call void @ReleaseAuxProcessResources(i1 noundef zeroext false)
   call void @AtEOXact_Files(i1 noundef zeroext false)
   call void @AtEOXact_HashTables(i1 noundef zeroext false)
-  %52 = load ptr, ptr %2, align 8
-  %53 = call ptr @MemoryContextSwitchTo(ptr noundef %52)
+  %55 = load ptr, ptr %2, align 8
+  %56 = call ptr @MemoryContextSwitchTo(ptr noundef %55)
   call void @FlushErrorState()
-  %54 = load ptr, ptr %2, align 8
-  call void @MemoryContextReset(ptr noundef %54)
-  br label %55
-
-55:                                               ; preds = %48
-  %56 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %57 = add i32 %56, -1
-  store volatile i32 %57, ptr @InterruptHoldoffCount, align 4
+  %57 = load ptr, ptr %2, align 8
+  call void @MemoryContextReset(ptr noundef %57)
   br label %58
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr @MyLatch, align 8
-  %60 = call i32 @WaitLatch(ptr noundef %59, i32 noundef 40, i64 noundef 10000, i32 noundef 150994953)
+58:                                               ; preds = %51
+  %59 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %60 = add i32 %59, -1
+  store volatile i32 %60, ptr @InterruptHoldoffCount, align 4
   br label %61
 
-61:                                               ; preds = %58, %39
-  store ptr %1, ptr @PG_exception_stack, align 8
-  %62 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #9
-  %63 = call i64 @GetOldestUnsummarizedLSN(ptr noundef %4, ptr noundef %5, i1 noundef zeroext true)
-  store i64 %63, ptr %3, align 8
-  %64 = load i64, ptr %3, align 8
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %67
+61:                                               ; preds = %58
+  %62 = load ptr, ptr @MyLatch, align 8
+  %63 = call i32 @WaitLatch(ptr noundef %62, i32 noundef 40, i64 noundef 10000, i32 noundef 150994953)
+  br label %64
 
-66:                                               ; preds = %61
+64:                                               ; preds = %61, %42
+  store ptr %1, ptr @PG_exception_stack, align 8
+  %65 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #9
+  %66 = call i64 @GetOldestUnsummarizedLSN(ptr noundef %4, ptr noundef %5, i1 noundef zeroext true)
+  store i64 %66, ptr %3, align 8
+  %67 = load i64, ptr %3, align 8
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %64
   call void @proc_exit(i32 noundef 0) #10
   unreachable
 
-67:                                               ; preds = %61
-  br label %68
+70:                                               ; preds = %64
+  br label %71
 
-68:                                               ; preds = %110, %108, %67
-  %69 = load ptr, ptr %2, align 8
-  call void @MemoryContextReset(ptr noundef %69)
+71:                                               ; preds = %113, %111, %70
+  %72 = load ptr, ptr %2, align 8
+  call void @MemoryContextReset(ptr noundef %72)
   call void @HandleWalSummarizerInterrupts()
   call void @MaybeRemoveOldWalSummaries()
-  %70 = call i64 @GetLatestLSN(ptr noundef %10)
-  store i64 %70, ptr %9, align 8
-  %71 = load i32, ptr %4, align 4
-  %72 = load i32, ptr %10, align 4
-  %73 = icmp ne i32 %71, %72
-  br i1 %73, label %74, label %101
+  %73 = call i64 @GetLatestLSN(ptr noundef %10)
+  store i64 %73, ptr %9, align 8
+  %74 = load i32, ptr %4, align 4
+  %75 = load i32, ptr %10, align 4
+  %76 = icmp ne i32 %74, %75
+  br i1 %76, label %77, label %104
 
-74:                                               ; preds = %68
-  %75 = load i64, ptr %6, align 8
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %77, label %101
+77:                                               ; preds = %71
+  %78 = load i64, ptr %6, align 8
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %80, label %104
 
-77:                                               ; preds = %74
-  %78 = load i32, ptr %10, align 4
-  %79 = call ptr @readTimeLineHistory(i32 noundef %78)
-  store ptr %79, ptr %12, align 8
-  %80 = load i32, ptr %4, align 4
-  %81 = load ptr, ptr %12, align 8
-  %82 = call i64 @tliSwitchPoint(i32 noundef %80, ptr noundef %81, ptr noundef %7)
-  store i64 %82, ptr %6, align 8
-  br label %83
+80:                                               ; preds = %77
+  %81 = load i32, ptr %10, align 4
+  %82 = call ptr @readTimeLineHistory(i32 noundef %81)
+  store ptr %82, ptr %12, align 8
+  %83 = load i32, ptr %4, align 4
+  %84 = load ptr, ptr %12, align 8
+  %85 = call i64 @tliSwitchPoint(i32 noundef %83, ptr noundef %84, ptr noundef %7)
+  store i64 %85, ptr %6, align 8
+  br label %86
 
-83:                                               ; preds = %77
-  br i1 false, label %84, label %86
+86:                                               ; preds = %80
+  br i1 false, label %87, label %89
 
-84:                                               ; preds = %83
-  %85 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #7
-  br i1 %85, label %88, label %99
+87:                                               ; preds = %86
+  %88 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #7
+  br i1 %88, label %91, label %102
 
-86:                                               ; preds = %83
-  %87 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
-  br i1 %87, label %88, label %99
+89:                                               ; preds = %86
+  %90 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
+  br i1 %90, label %91, label %102
 
-88:                                               ; preds = %86, %84
-  %89 = load i32, ptr %4, align 4
-  %90 = load i32, ptr %7, align 4
-  br label %91
+91:                                               ; preds = %89, %87
+  %92 = load i32, ptr %4, align 4
+  %93 = load i32, ptr %7, align 4
+  br label %94
 
-91:                                               ; preds = %88
-  br label %92
+94:                                               ; preds = %91
+  br label %95
 
-92:                                               ; preds = %91
+95:                                               ; preds = %94
   store i32 1, ptr %13, align 4
-  %93 = load i64, ptr %6, align 8
-  %94 = lshr i64 %93, 32
-  %95 = trunc i64 %94 to i32
   %96 = load i64, ptr %6, align 8
-  %97 = trunc i64 %96 to i32
-  %98 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, i32 noundef %89, i32 noundef %90, i32 noundef %95, i32 noundef %97)
+  %97 = lshr i64 %96, 32
+  %98 = trunc i64 %97 to i32
+  %99 = load i64, ptr %6, align 8
+  %100 = trunc i64 %99 to i32
+  %101 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.4, i32 noundef %92, i32 noundef %93, i32 noundef %98, i32 noundef %100)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 378, ptr noundef @__func__.WalSummarizerMain)
-  br label %99
+  br label %102
 
-99:                                               ; preds = %92, %86, %84
-  br label %100
+102:                                              ; preds = %95, %89, %87
+  br label %103
 
-100:                                              ; preds = %99
-  br label %101
+103:                                              ; preds = %102
+  br label %104
 
-101:                                              ; preds = %100, %74, %68
-  %102 = load i64, ptr %6, align 8
-  %103 = icmp eq i64 %102, 0
-  br i1 %103, label %110, label %104
+104:                                              ; preds = %103, %77, %71
+  %105 = load i64, ptr %6, align 8
+  %106 = icmp eq i64 %105, 0
+  br i1 %106, label %113, label %107
 
-104:                                              ; preds = %101
-  %105 = load i64, ptr %3, align 8
-  %106 = load i64, ptr %6, align 8
-  %107 = icmp uge i64 %105, %106
-  br i1 %107, label %108, label %110
+107:                                              ; preds = %104
+  %108 = load i64, ptr %3, align 8
+  %109 = load i64, ptr %6, align 8
+  %110 = icmp uge i64 %108, %109
+  br i1 %110, label %111, label %113
 
-108:                                              ; preds = %104
-  %109 = load i32, ptr %7, align 4
-  store i32 %109, ptr %4, align 4
+111:                                              ; preds = %107
+  %112 = load i32, ptr %7, align 4
+  store i32 %112, ptr %4, align 4
   store i64 0, ptr %6, align 8
   store i32 0, ptr %7, align 4
-  br label %68
+  br label %71
 
-110:                                              ; preds = %104, %101
-  %111 = load i32, ptr %4, align 4
-  %112 = load i64, ptr %3, align 8
-  %113 = load i8, ptr %5, align 1
-  %114 = trunc i8 %113 to i1
-  %115 = load i64, ptr %6, align 8
-  %116 = load i64, ptr %9, align 8
-  %117 = call i64 @SummarizeWAL(i32 noundef %111, i64 noundef %112, i1 noundef zeroext %114, i64 noundef %115, i64 noundef %116)
-  store i64 %117, ptr %11, align 8
-  %118 = load i64, ptr %11, align 8
-  store i64 %118, ptr %3, align 8
+113:                                              ; preds = %107, %104
+  %114 = load i32, ptr %4, align 4
+  %115 = load i64, ptr %3, align 8
+  %116 = load i8, ptr %5, align 1
+  %117 = trunc i8 %116 to i1
+  %118 = load i64, ptr %6, align 8
+  %119 = load i64, ptr %9, align 8
+  %120 = call i64 @SummarizeWAL(i32 noundef %114, i64 noundef %115, i1 noundef zeroext %117, i64 noundef %118, i64 noundef %119)
+  store i64 %120, ptr %11, align 8
+  %121 = load i64, ptr %11, align 8
+  store i64 %121, ptr %3, align 8
   store i8 1, ptr %5, align 1
-  %119 = load ptr, ptr @MainLWLockArray, align 8
-  %120 = getelementptr %union.LWLockPadded, ptr %119, i64 49
-  %121 = call zeroext i1 @LWLockAcquire(ptr noundef %120, i32 noundef 0)
-  %122 = load i64, ptr %11, align 8
-  %123 = load ptr, ptr @WalSummarizerCtl, align 8
-  %124 = getelementptr inbounds %struct.WalSummarizerData, ptr %123, i32 0, i32 2
-  store i64 %122, ptr %124, align 8
-  %125 = load i32, ptr %4, align 4
+  %122 = load ptr, ptr @MainLWLockArray, align 8
+  %123 = getelementptr %union.LWLockPadded, ptr %122, i64 49
+  %124 = call zeroext i1 @LWLockAcquire(ptr noundef %123, i32 noundef 0)
+  %125 = load i64, ptr %11, align 8
   %126 = load ptr, ptr @WalSummarizerCtl, align 8
-  %127 = getelementptr inbounds %struct.WalSummarizerData, ptr %126, i32 0, i32 1
-  store i32 %125, ptr %127, align 4
-  %128 = load ptr, ptr @WalSummarizerCtl, align 8
-  %129 = getelementptr inbounds %struct.WalSummarizerData, ptr %128, i32 0, i32 3
-  store i8 1, ptr %129, align 8
-  %130 = load i64, ptr %11, align 8
+  %127 = getelementptr inbounds %struct.WalSummarizerData, ptr %126, i32 0, i32 2
+  store i64 %125, ptr %127, align 8
+  %128 = load i32, ptr %4, align 4
+  %129 = load ptr, ptr @WalSummarizerCtl, align 8
+  %130 = getelementptr inbounds %struct.WalSummarizerData, ptr %129, i32 0, i32 1
+  store i32 %128, ptr %130, align 4
   %131 = load ptr, ptr @WalSummarizerCtl, align 8
-  %132 = getelementptr inbounds %struct.WalSummarizerData, ptr %131, i32 0, i32 5
-  store i64 %130, ptr %132, align 8
-  %133 = load ptr, ptr @MainLWLockArray, align 8
-  %134 = getelementptr %union.LWLockPadded, ptr %133, i64 49
-  call void @LWLockRelease(ptr noundef %134)
-  %135 = load ptr, ptr @WalSummarizerCtl, align 8
-  %136 = getelementptr inbounds %struct.WalSummarizerData, ptr %135, i32 0, i32 6
-  call void @ConditionVariableBroadcast(ptr noundef %136)
-  br label %68
+  %132 = getelementptr inbounds %struct.WalSummarizerData, ptr %131, i32 0, i32 3
+  store i8 1, ptr %132, align 8
+  %133 = load i64, ptr %11, align 8
+  %134 = load ptr, ptr @WalSummarizerCtl, align 8
+  %135 = getelementptr inbounds %struct.WalSummarizerData, ptr %134, i32 0, i32 5
+  store i64 %133, ptr %135, align 8
+  %136 = load ptr, ptr @MainLWLockArray, align 8
+  %137 = getelementptr %union.LWLockPadded, ptr %136, i64 49
+  call void @LWLockRelease(ptr noundef %137)
+  %138 = load ptr, ptr @WalSummarizerCtl, align 8
+  %139 = getelementptr inbounds %struct.WalSummarizerData, ptr %138, i32 0, i32 6
+  call void @ConditionVariableBroadcast(ptr noundef %139)
+  br label %71
 }
 
 ; Function Attrs: cold

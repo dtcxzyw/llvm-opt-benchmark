@@ -967,39 +967,40 @@ entry:
   store ptr %test_name, ptr %test_name.addr, align 8
   store ptr %input, ptr %input.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %request_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 1
   call void @_ZN11conformance18ConformanceRequestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %request_)
   %level_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %level.addr, align 4
-  store i32 %0, ptr %level_, align 8
+  %1 = load i32, ptr %level.addr, align 4
+  store i32 %1, ptr %level_, align 8
   %input_format_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %input_format.addr, align 4
-  store i32 %1, ptr %input_format_, align 4
+  %2 = load i32, ptr %input_format.addr, align 4
+  store i32 %2, ptr %input_format_, align 4
   %output_format_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %output_format.addr, align 4
-  store i32 %2, ptr %output_format_, align 8
+  %3 = load i32, ptr %output_format.addr, align 4
+  store i32 %3, ptr %output_format_, align 8
   %prototype_message_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %prototype_message.addr, align 8
-  store ptr %3, ptr %prototype_message_, align 8
-  %prototype_message_for_compare_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 6
   %4 = load ptr, ptr %prototype_message.addr, align 8
-  %vtable = load ptr, ptr %4, align 8
+  store ptr %4, ptr %prototype_message_, align 8
+  %prototype_message_for_compare_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 6
+  %5 = load ptr, ptr %prototype_message.addr, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %5 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %6 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %prototype_message_for_compare_, ptr noundef %call) #3
   %test_name_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %test_name.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %test_name_, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load ptr, ptr %test_name.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %test_name_, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %7 = load i32, ptr %input_format.addr, align 4
-  switch i32 %7, label %sw.default [
+  %8 = load i32, ptr %input_format.addr, align 4
+  switch i32 %8, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb7
     i32 3, label %sw.bb10
@@ -1007,45 +1008,45 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ]
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup33
 
 lpad2:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup32
 
 sw.bb:                                            ; preds = %invoke.cont3
   %request_4 = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %input.addr, align 8
-  invoke void @_ZN11conformance18ConformanceRequest20set_protobuf_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %request_4, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %15 = load ptr, ptr %input.addr, align 8
+  invoke void @_ZN11conformance18ConformanceRequest20set_protobuf_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %request_4, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %sw.bb
   br label %sw.epilog
 
 lpad5:                                            ; preds = %invoke.cont29, %invoke.cont27, %invoke.cont25, %invoke.cont23, %sw.epilog, %sw.default, %sw.bb13, %sw.bb10, %sw.bb7, %sw.bb
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 sw.bb7:                                           ; preds = %invoke.cont3
   %request_8 = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 1
-  %18 = load ptr, ptr %input.addr, align 8
-  invoke void @_ZN11conformance18ConformanceRequest16set_json_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %request_8, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %19 = load ptr, ptr %input.addr, align 8
+  invoke void @_ZN11conformance18ConformanceRequest16set_json_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %request_8, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %invoke.cont9 unwind label %lpad5
 
 invoke.cont9:                                     ; preds = %sw.bb7
@@ -1053,8 +1054,8 @@ invoke.cont9:                                     ; preds = %sw.bb7
 
 sw.bb10:                                          ; preds = %invoke.cont3
   %request_11 = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 1
-  %19 = load ptr, ptr %input.addr, align 8
-  invoke void @_ZN11conformance18ConformanceRequest16set_jspb_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %request_11, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %20 = load ptr, ptr %input.addr, align 8
+  invoke void @_ZN11conformance18ConformanceRequest16set_jspb_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %request_11, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %invoke.cont12 unwind label %lpad5
 
 invoke.cont12:                                    ; preds = %sw.bb10
@@ -1062,8 +1063,8 @@ invoke.cont12:                                    ; preds = %sw.bb10
 
 sw.bb13:                                          ; preds = %invoke.cont3
   %request_14 = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 1
-  %20 = load ptr, ptr %input.addr, align 8
-  invoke void @_ZN11conformance18ConformanceRequest16set_text_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %request_14, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  %21 = load ptr, ptr %input.addr, align 8
+  invoke void @_ZN11conformance18ConformanceRequest16set_text_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %request_14, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %invoke.cont15 unwind label %lpad5
 
 invoke.cont15:                                    ; preds = %sw.bb13
@@ -1087,14 +1088,14 @@ invoke.cont21:                                    ; preds = %invoke.cont18
 
 sw.epilog:                                        ; preds = %invoke.cont21, %invoke.cont15, %invoke.cont12, %invoke.cont9, %invoke.cont6
   %request_22 = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 1
-  %21 = load i32, ptr %test_category.addr, align 4
-  invoke void @_ZN11conformance18ConformanceRequest17set_test_categoryENS_12TestCategoryE(ptr noundef nonnull align 8 dereferenceable(64) %request_22, i32 noundef %21)
+  %22 = load i32, ptr %test_category.addr, align 4
+  invoke void @_ZN11conformance18ConformanceRequest17set_test_categoryENS_12TestCategoryE(ptr noundef nonnull align 8 dereferenceable(64) %request_22, i32 noundef %22)
           to label %invoke.cont23 unwind label %lpad5
 
 invoke.cont23:                                    ; preds = %sw.epilog
   %request_24 = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 1
-  %22 = load ptr, ptr %prototype_message.addr, align 8
-  %call26 = invoke noundef ptr @_ZNK6google8protobuf7Message13GetDescriptorEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %23 = load ptr, ptr %prototype_message.addr, align 8
+  %call26 = invoke noundef ptr @_ZNK6google8protobuf7Message13GetDescriptorEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %invoke.cont25 unwind label %lpad5
 
 invoke.cont25:                                    ; preds = %invoke.cont23
@@ -1107,20 +1108,20 @@ invoke.cont27:                                    ; preds = %invoke.cont25
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   %request_30 = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 1
-  %23 = load i32, ptr %output_format.addr, align 4
-  invoke void @_ZN11conformance18ConformanceRequest27set_requested_output_formatENS_10WireFormatE(ptr noundef nonnull align 8 dereferenceable(64) %request_30, i32 noundef %23)
+  %24 = load i32, ptr %output_format.addr, align 4
+  invoke void @_ZN11conformance18ConformanceRequest27set_requested_output_formatENS_10WireFormatE(ptr noundef nonnull align 8 dereferenceable(64) %request_30, i32 noundef %24)
           to label %invoke.cont31 unwind label %lpad5
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   ret void
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont16
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp) #3
   br label %ehcleanup
 
@@ -6107,7 +6108,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %test_name_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %test_name_) #3
   %prototype_message_for_compare_ = getelementptr inbounds %"class.google::protobuf::ConformanceTestSuite::ConformanceRequestSetting", ptr %this1, i32 0, i32 6

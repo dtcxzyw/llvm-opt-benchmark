@@ -18058,109 +18058,110 @@ if.else:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i32, ptr %4, i64 32
   store ptr %add.ptr, ptr %context_histo, align 8
   store i32 0, ptr %total, align 4
-  store ptr getelementptr inbounds ([2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 1024), ptr %utf8_lut, align 8
-  %5 = load ptr, ptr %arena.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 1792, i1 false)
+  %5 = getelementptr inbounds [2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 1024
+  store ptr %5, ptr %utf8_lut, align 8
+  %6 = load ptr, ptr %arena.addr, align 8
+  call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 1792, i1 false)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc33, %if.else
-  %6 = load i64, ptr %start_pos.addr, align 8
-  %add1 = add i64 %6, 64
-  %7 = load i64, ptr %end_pos, align 8
-  %cmp2 = icmp ule i64 %add1, %7
+  %7 = load i64, ptr %start_pos.addr, align 8
+  %add1 = add i64 %7, 64
+  %8 = load i64, ptr %end_pos, align 8
+  %cmp2 = icmp ule i64 %add1, %8
   br i1 %cmp2, label %for.body, label %for.end35
 
 for.body:                                         ; preds = %for.cond
-  %8 = load i64, ptr %start_pos.addr, align 8
-  %add3 = add i64 %8, 64
+  %9 = load i64, ptr %start_pos.addr, align 8
+  %add3 = add i64 %9, 64
   store i64 %add3, ptr %stride_end_pos, align 8
-  %9 = load ptr, ptr %input.addr, align 8
-  %10 = load i64, ptr %start_pos.addr, align 8
-  %11 = load i64, ptr %mask.addr, align 8
-  %and = and i64 %10, %11
-  %arrayidx = getelementptr inbounds i8, ptr %9, i64 %and
-  %12 = load i8, ptr %arrayidx, align 1
-  store i8 %12, ptr %prev2, align 1
-  %13 = load ptr, ptr %input.addr, align 8
-  %14 = load i64, ptr %start_pos.addr, align 8
-  %add4 = add i64 %14, 1
-  %15 = load i64, ptr %mask.addr, align 8
-  %and5 = and i64 %add4, %15
-  %arrayidx6 = getelementptr inbounds i8, ptr %13, i64 %and5
-  %16 = load i8, ptr %arrayidx6, align 1
-  store i8 %16, ptr %prev1, align 1
-  %17 = load i64, ptr %start_pos.addr, align 8
-  %add7 = add i64 %17, 2
+  %10 = load ptr, ptr %input.addr, align 8
+  %11 = load i64, ptr %start_pos.addr, align 8
+  %12 = load i64, ptr %mask.addr, align 8
+  %and = and i64 %11, %12
+  %arrayidx = getelementptr inbounds i8, ptr %10, i64 %and
+  %13 = load i8, ptr %arrayidx, align 1
+  store i8 %13, ptr %prev2, align 1
+  %14 = load ptr, ptr %input.addr, align 8
+  %15 = load i64, ptr %start_pos.addr, align 8
+  %add4 = add i64 %15, 1
+  %16 = load i64, ptr %mask.addr, align 8
+  %and5 = and i64 %add4, %16
+  %arrayidx6 = getelementptr inbounds i8, ptr %14, i64 %and5
+  %17 = load i8, ptr %arrayidx6, align 1
+  store i8 %17, ptr %prev1, align 1
+  %18 = load i64, ptr %start_pos.addr, align 8
+  %add7 = add i64 %18, 2
   store i64 %add7, ptr %pos, align 8
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.inc, %for.body
-  %18 = load i64, ptr %pos, align 8
-  %19 = load i64, ptr %stride_end_pos, align 8
-  %cmp9 = icmp ult i64 %18, %19
+  %19 = load i64, ptr %pos, align 8
+  %20 = load i64, ptr %stride_end_pos, align 8
+  %cmp9 = icmp ult i64 %19, %20
   br i1 %cmp9, label %for.body10, label %for.end
 
 for.body10:                                       ; preds = %for.cond8
-  %20 = load ptr, ptr %input.addr, align 8
-  %21 = load i64, ptr %pos, align 8
-  %22 = load i64, ptr %mask.addr, align 8
-  %and11 = and i64 %21, %22
-  %arrayidx12 = getelementptr inbounds i8, ptr %20, i64 %and11
-  %23 = load i8, ptr %arrayidx12, align 1
-  store i8 %23, ptr %literal, align 1
-  %24 = load ptr, ptr %utf8_lut, align 8
-  %25 = load i8, ptr %prev1, align 1
-  %idxprom = zext i8 %25 to i64
-  %arrayidx13 = getelementptr inbounds i8, ptr %24, i64 %idxprom
-  %26 = load i8, ptr %arrayidx13, align 1
-  %conv = zext i8 %26 to i32
-  %27 = load ptr, ptr %utf8_lut, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %27, i64 256
-  %28 = load i8, ptr %prev2, align 1
-  %idxprom15 = zext i8 %28 to i64
+  %21 = load ptr, ptr %input.addr, align 8
+  %22 = load i64, ptr %pos, align 8
+  %23 = load i64, ptr %mask.addr, align 8
+  %and11 = and i64 %22, %23
+  %arrayidx12 = getelementptr inbounds i8, ptr %21, i64 %and11
+  %24 = load i8, ptr %arrayidx12, align 1
+  store i8 %24, ptr %literal, align 1
+  %25 = load ptr, ptr %utf8_lut, align 8
+  %26 = load i8, ptr %prev1, align 1
+  %idxprom = zext i8 %26 to i64
+  %arrayidx13 = getelementptr inbounds i8, ptr %25, i64 %idxprom
+  %27 = load i8, ptr %arrayidx13, align 1
+  %conv = zext i8 %27 to i32
+  %28 = load ptr, ptr %utf8_lut, align 8
+  %add.ptr14 = getelementptr inbounds i8, ptr %28, i64 256
+  %29 = load i8, ptr %prev2, align 1
+  %idxprom15 = zext i8 %29 to i64
   %arrayidx16 = getelementptr inbounds i8, ptr %add.ptr14, i64 %idxprom15
-  %29 = load i8, ptr %arrayidx16, align 1
-  %conv17 = zext i8 %29 to i32
+  %30 = load i8, ptr %arrayidx16, align 1
+  %conv17 = zext i8 %30 to i32
   %or = or i32 %conv, %conv17
   %idxprom18 = sext i32 %or to i64
   %arrayidx19 = getelementptr inbounds [64 x i32], ptr @ShouldUseComplexStaticContextMap.kStaticContextMapComplexUTF8, i64 0, i64 %idxprom18
-  %30 = load i32, ptr %arrayidx19, align 4
-  %conv20 = trunc i32 %30 to i8
+  %31 = load i32, ptr %arrayidx19, align 4
+  %conv20 = trunc i32 %31 to i8
   store i8 %conv20, ptr %context, align 1
-  %31 = load i32, ptr %total, align 4
-  %inc = add i32 %31, 1
+  %32 = load i32, ptr %total, align 4
+  %inc = add i32 %32, 1
   store i32 %inc, ptr %total, align 4
-  %32 = load ptr, ptr %combined_histo, align 8
-  %33 = load i8, ptr %literal, align 1
-  %conv21 = zext i8 %33 to i32
+  %33 = load ptr, ptr %combined_histo, align 8
+  %34 = load i8, ptr %literal, align 1
+  %conv21 = zext i8 %34 to i32
   %shr = ashr i32 %conv21, 3
   %idxprom22 = sext i32 %shr to i64
-  %arrayidx23 = getelementptr inbounds i32, ptr %32, i64 %idxprom22
-  %34 = load i32, ptr %arrayidx23, align 4
-  %inc24 = add i32 %34, 1
+  %arrayidx23 = getelementptr inbounds i32, ptr %33, i64 %idxprom22
+  %35 = load i32, ptr %arrayidx23, align 4
+  %inc24 = add i32 %35, 1
   store i32 %inc24, ptr %arrayidx23, align 4
-  %35 = load ptr, ptr %context_histo, align 8
-  %36 = load i8, ptr %context, align 1
-  %conv25 = zext i8 %36 to i32
+  %36 = load ptr, ptr %context_histo, align 8
+  %37 = load i8, ptr %context, align 1
+  %conv25 = zext i8 %37 to i32
   %shl = shl i32 %conv25, 5
-  %37 = load i8, ptr %literal, align 1
-  %conv26 = zext i8 %37 to i32
+  %38 = load i8, ptr %literal, align 1
+  %conv26 = zext i8 %38 to i32
   %shr27 = ashr i32 %conv26, 3
   %add28 = add nsw i32 %shl, %shr27
   %idxprom29 = sext i32 %add28 to i64
-  %arrayidx30 = getelementptr inbounds i32, ptr %35, i64 %idxprom29
-  %38 = load i32, ptr %arrayidx30, align 4
-  %inc31 = add i32 %38, 1
+  %arrayidx30 = getelementptr inbounds i32, ptr %36, i64 %idxprom29
+  %39 = load i32, ptr %arrayidx30, align 4
+  %inc31 = add i32 %39, 1
   store i32 %inc31, ptr %arrayidx30, align 4
-  %39 = load i8, ptr %prev1, align 1
-  store i8 %39, ptr %prev2, align 1
-  %40 = load i8, ptr %literal, align 1
-  store i8 %40, ptr %prev1, align 1
+  %40 = load i8, ptr %prev1, align 1
+  store i8 %40, ptr %prev2, align 1
+  %41 = load i8, ptr %literal, align 1
+  store i8 %41, ptr %prev1, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body10
-  %41 = load i64, ptr %pos, align 8
-  %inc32 = add i64 %41, 1
+  %42 = load i64, ptr %pos, align 8
+  %inc32 = add i64 %42, 1
   store i64 %inc32, ptr %pos, align 8
   br label %for.cond8, !llvm.loop !459
 
@@ -18168,24 +18169,24 @@ for.end:                                          ; preds = %for.cond8
   br label %for.inc33
 
 for.inc33:                                        ; preds = %for.end
-  %42 = load i64, ptr %start_pos.addr, align 8
-  %add34 = add i64 %42, 4096
+  %43 = load i64, ptr %start_pos.addr, align 8
+  %add34 = add i64 %43, 4096
   store i64 %add34, ptr %start_pos.addr, align 8
   br label %for.cond, !llvm.loop !460
 
 for.end35:                                        ; preds = %for.cond
-  %43 = load ptr, ptr %combined_histo, align 8
-  store ptr %43, ptr %population.addr.i66, align 8
+  %44 = load ptr, ptr %combined_histo, align 8
+  store ptr %44, ptr %population.addr.i66, align 8
   store i64 32, ptr %size.addr.i67, align 8
   store ptr %sink, ptr %total.addr.i68, align 8
   store i64 0, ptr %sum.i69, align 8
   store double 0.000000e+00, ptr %retval1.i70, align 8
-  %44 = load ptr, ptr %population.addr.i66, align 8
-  %45 = load i64, ptr %size.addr.i67, align 8
-  %add.ptr.i73 = getelementptr inbounds i32, ptr %44, i64 %45
-  store ptr %add.ptr.i73, ptr %population_end.i71, align 8
+  %45 = load ptr, ptr %population.addr.i66, align 8
   %46 = load i64, ptr %size.addr.i67, align 8
-  %and.i74 = and i64 %46, 1
+  %add.ptr.i73 = getelementptr inbounds i32, ptr %45, i64 %46
+  store ptr %add.ptr.i73, ptr %population_end.i71, align 8
+  %47 = load i64, ptr %size.addr.i67, align 8
+  %and.i74 = and i64 %47, 1
   %tobool.i75 = icmp ne i64 %and.i74, 0
   br i1 %tobool.i75, label %if.then.i98, label %if.end.i76
 
@@ -18196,161 +18197,161 @@ if.end.i76:                                       ; preds = %for.end35
   br label %while.cond.i77
 
 while.cond.i77:                                   ; preds = %FastLog2.exit, %if.end.i76
-  %47 = load ptr, ptr %population.addr.i66, align 8
-  %48 = load ptr, ptr %population_end.i71, align 8
-  %cmp.i78 = icmp ult ptr %47, %48
+  %48 = load ptr, ptr %population.addr.i66, align 8
+  %49 = load ptr, ptr %population_end.i71, align 8
+  %cmp.i78 = icmp ult ptr %48, %49
   br i1 %cmp.i78, label %while.body.i84, label %while.end.i79
 
 while.body.i84:                                   ; preds = %while.cond.i77
-  %49 = load ptr, ptr %population.addr.i66, align 8
-  %incdec.ptr.i85 = getelementptr inbounds i32, ptr %49, i32 1
+  %50 = load ptr, ptr %population.addr.i66, align 8
+  %incdec.ptr.i85 = getelementptr inbounds i32, ptr %50, i32 1
   store ptr %incdec.ptr.i85, ptr %population.addr.i66, align 8
-  %50 = load i32, ptr %49, align 4
-  %conv.i86 = zext i32 %50 to i64
+  %51 = load i32, ptr %50, align 4
+  %conv.i86 = zext i32 %51 to i64
   store i64 %conv.i86, ptr %p.i72, align 8
-  %51 = load i64, ptr %p.i72, align 8
-  %52 = load i64, ptr %sum.i69, align 8
-  %add.i87 = add i64 %52, %51
+  %52 = load i64, ptr %p.i72, align 8
+  %53 = load i64, ptr %sum.i69, align 8
+  %add.i87 = add i64 %53, %52
   store i64 %add.i87, ptr %sum.i69, align 8
-  %53 = load i64, ptr %p.i72, align 8
-  %conv2.i88 = uitofp i64 %53 to double
   %54 = load i64, ptr %p.i72, align 8
-  store i64 %54, ptr %v.addr.i106, align 8
-  %55 = load i64, ptr %v.addr.i106, align 8
-  %cmp.i107 = icmp ult i64 %55, 256
+  %conv2.i88 = uitofp i64 %54 to double
+  %55 = load i64, ptr %p.i72, align 8
+  store i64 %55, ptr %v.addr.i106, align 8
+  %56 = load i64, ptr %v.addr.i106, align 8
+  %cmp.i107 = icmp ult i64 %56, 256
   br i1 %cmp.i107, label %if.then.i111, label %if.end.i108
 
 if.then.i111:                                     ; preds = %while.body.i84
-  %56 = load i64, ptr %v.addr.i106, align 8
-  %arrayidx.i112 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %56
-  %57 = load double, ptr %arrayidx.i112, align 8
-  store double %57, ptr %retval.i105, align 8
+  %57 = load i64, ptr %v.addr.i106, align 8
+  %arrayidx.i112 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %57
+  %58 = load double, ptr %arrayidx.i112, align 8
+  store double %58, ptr %retval.i105, align 8
   br label %FastLog2.exit113
 
 if.end.i108:                                      ; preds = %while.body.i84
-  %58 = load i64, ptr %v.addr.i106, align 8
-  %conv.i109 = uitofp i64 %58 to double
+  %59 = load i64, ptr %v.addr.i106, align 8
+  %conv.i109 = uitofp i64 %59 to double
   %call.i110 = call double @log2(double noundef %conv.i109) #8
   store double %call.i110, ptr %retval.i105, align 8
   br label %FastLog2.exit113
 
 FastLog2.exit113:                                 ; preds = %if.end.i108, %if.then.i111
-  %59 = load double, ptr %retval.i105, align 8
-  %60 = load double, ptr %retval1.i70, align 8
+  %60 = load double, ptr %retval.i105, align 8
+  %61 = load double, ptr %retval1.i70, align 8
   %neg.i90 = fneg double %conv2.i88
-  %61 = call double @llvm.fmuladd.f64(double %neg.i90, double %59, double %60)
-  store double %61, ptr %retval1.i70, align 8
+  %62 = call double @llvm.fmuladd.f64(double %neg.i90, double %60, double %61)
+  store double %62, ptr %retval1.i70, align 8
   br label %odd_number_of_elements_left.i91
 
 odd_number_of_elements_left.i91:                  ; preds = %FastLog2.exit113, %if.then.i98
-  %62 = load ptr, ptr %population.addr.i66, align 8
-  %incdec.ptr3.i92 = getelementptr inbounds i32, ptr %62, i32 1
+  %63 = load ptr, ptr %population.addr.i66, align 8
+  %incdec.ptr3.i92 = getelementptr inbounds i32, ptr %63, i32 1
   store ptr %incdec.ptr3.i92, ptr %population.addr.i66, align 8
-  %63 = load i32, ptr %62, align 4
-  %conv4.i93 = zext i32 %63 to i64
+  %64 = load i32, ptr %63, align 4
+  %conv4.i93 = zext i32 %64 to i64
   store i64 %conv4.i93, ptr %p.i72, align 8
-  %64 = load i64, ptr %p.i72, align 8
-  %65 = load i64, ptr %sum.i69, align 8
-  %add5.i94 = add i64 %65, %64
+  %65 = load i64, ptr %p.i72, align 8
+  %66 = load i64, ptr %sum.i69, align 8
+  %add5.i94 = add i64 %66, %65
   store i64 %add5.i94, ptr %sum.i69, align 8
-  %66 = load i64, ptr %p.i72, align 8
-  %conv6.i95 = uitofp i64 %66 to double
   %67 = load i64, ptr %p.i72, align 8
-  store i64 %67, ptr %v.addr.i, align 8
-  %68 = load i64, ptr %v.addr.i, align 8
-  %cmp.i100 = icmp ult i64 %68, 256
+  %conv6.i95 = uitofp i64 %67 to double
+  %68 = load i64, ptr %p.i72, align 8
+  store i64 %68, ptr %v.addr.i, align 8
+  %69 = load i64, ptr %v.addr.i, align 8
+  %cmp.i100 = icmp ult i64 %69, 256
   br i1 %cmp.i100, label %if.then.i104, label %if.end.i101
 
 if.then.i104:                                     ; preds = %odd_number_of_elements_left.i91
-  %69 = load i64, ptr %v.addr.i, align 8
-  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %69
-  %70 = load double, ptr %arrayidx.i, align 8
-  store double %70, ptr %retval.i, align 8
+  %70 = load i64, ptr %v.addr.i, align 8
+  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %70
+  %71 = load double, ptr %arrayidx.i, align 8
+  store double %71, ptr %retval.i, align 8
   br label %FastLog2.exit
 
 if.end.i101:                                      ; preds = %odd_number_of_elements_left.i91
-  %71 = load i64, ptr %v.addr.i, align 8
-  %conv.i102 = uitofp i64 %71 to double
+  %72 = load i64, ptr %v.addr.i, align 8
+  %conv.i102 = uitofp i64 %72 to double
   %call.i103 = call double @log2(double noundef %conv.i102) #8
   store double %call.i103, ptr %retval.i, align 8
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %if.end.i101, %if.then.i104
-  %72 = load double, ptr %retval.i, align 8
-  %73 = load double, ptr %retval1.i70, align 8
+  %73 = load double, ptr %retval.i, align 8
+  %74 = load double, ptr %retval1.i70, align 8
   %neg8.i97 = fneg double %conv6.i95
-  %74 = call double @llvm.fmuladd.f64(double %neg8.i97, double %72, double %73)
-  store double %74, ptr %retval1.i70, align 8
+  %75 = call double @llvm.fmuladd.f64(double %neg8.i97, double %73, double %74)
+  store double %75, ptr %retval1.i70, align 8
   br label %while.cond.i77, !llvm.loop !456
 
 while.end.i79:                                    ; preds = %while.cond.i77
-  %75 = load i64, ptr %sum.i69, align 8
-  %tobool9.i80 = icmp ne i64 %75, 0
+  %76 = load i64, ptr %sum.i69, align 8
+  %tobool9.i80 = icmp ne i64 %76, 0
   br i1 %tobool9.i80, label %if.then10.i81, label %ShannonEntropy.exit99
 
 if.then10.i81:                                    ; preds = %while.end.i79
-  %76 = load i64, ptr %sum.i69, align 8
-  %conv11.i82 = uitofp i64 %76 to double
   %77 = load i64, ptr %sum.i69, align 8
-  store i64 %77, ptr %v.addr.i115, align 8
-  %78 = load i64, ptr %v.addr.i115, align 8
-  %cmp.i116 = icmp ult i64 %78, 256
+  %conv11.i82 = uitofp i64 %77 to double
+  %78 = load i64, ptr %sum.i69, align 8
+  store i64 %78, ptr %v.addr.i115, align 8
+  %79 = load i64, ptr %v.addr.i115, align 8
+  %cmp.i116 = icmp ult i64 %79, 256
   br i1 %cmp.i116, label %if.then.i120, label %if.end.i117
 
 if.then.i120:                                     ; preds = %if.then10.i81
-  %79 = load i64, ptr %v.addr.i115, align 8
-  %arrayidx.i121 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %79
-  %80 = load double, ptr %arrayidx.i121, align 8
-  store double %80, ptr %retval.i114, align 8
+  %80 = load i64, ptr %v.addr.i115, align 8
+  %arrayidx.i121 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %80
+  %81 = load double, ptr %arrayidx.i121, align 8
+  store double %81, ptr %retval.i114, align 8
   br label %FastLog2.exit122
 
 if.end.i117:                                      ; preds = %if.then10.i81
-  %81 = load i64, ptr %v.addr.i115, align 8
-  %conv.i118 = uitofp i64 %81 to double
+  %82 = load i64, ptr %v.addr.i115, align 8
+  %conv.i118 = uitofp i64 %82 to double
   %call.i119 = call double @log2(double noundef %conv.i118) #8
   store double %call.i119, ptr %retval.i114, align 8
   br label %FastLog2.exit122
 
 FastLog2.exit122:                                 ; preds = %if.end.i117, %if.then.i120
-  %82 = load double, ptr %retval.i114, align 8
-  %83 = load double, ptr %retval1.i70, align 8
-  %84 = call double @llvm.fmuladd.f64(double %conv11.i82, double %82, double %83)
-  store double %84, ptr %retval1.i70, align 8
+  %83 = load double, ptr %retval.i114, align 8
+  %84 = load double, ptr %retval1.i70, align 8
+  %85 = call double @llvm.fmuladd.f64(double %conv11.i82, double %83, double %84)
+  store double %85, ptr %retval1.i70, align 8
   br label %ShannonEntropy.exit99
 
 ShannonEntropy.exit99:                            ; preds = %FastLog2.exit122, %while.end.i79
-  %85 = load i64, ptr %sum.i69, align 8
-  %86 = load ptr, ptr %total.addr.i68, align 8
-  store i64 %85, ptr %86, align 8
-  %87 = load double, ptr %retval1.i70, align 8
+  %86 = load i64, ptr %sum.i69, align 8
+  %87 = load ptr, ptr %total.addr.i68, align 8
+  store i64 %86, ptr %87, align 8
+  %88 = load double, ptr %retval1.i70, align 8
   %arrayidx36 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 1
-  store double %87, ptr %arrayidx36, align 8
+  store double %88, ptr %arrayidx36, align 8
   %arrayidx37 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 2
   store double 0.000000e+00, ptr %arrayidx37, align 16
   store i64 0, ptr %i, align 8
   br label %for.cond38
 
 for.cond38:                                       ; preds = %for.inc47, %ShannonEntropy.exit99
-  %88 = load i64, ptr %i, align 8
-  %cmp39 = icmp ult i64 %88, 13
+  %89 = load i64, ptr %i, align 8
+  %cmp39 = icmp ult i64 %89, 13
   br i1 %cmp39, label %for.body41, label %for.end49
 
 for.body41:                                       ; preds = %for.cond38
-  %89 = load ptr, ptr %context_histo, align 8
-  %90 = load i64, ptr %i, align 8
-  %shl42 = shl i64 %90, 5
-  %add.ptr43 = getelementptr inbounds i32, ptr %89, i64 %shl42
+  %90 = load ptr, ptr %context_histo, align 8
+  %91 = load i64, ptr %i, align 8
+  %shl42 = shl i64 %91, 5
+  %add.ptr43 = getelementptr inbounds i32, ptr %90, i64 %shl42
   store ptr %add.ptr43, ptr %population.addr.i, align 8
   store i64 32, ptr %size.addr.i, align 8
   store ptr %sink, ptr %total.addr.i, align 8
   store i64 0, ptr %sum.i, align 8
   store double 0.000000e+00, ptr %retval1.i, align 8
-  %91 = load ptr, ptr %population.addr.i, align 8
-  %92 = load i64, ptr %size.addr.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %91, i64 %92
-  store ptr %add.ptr.i, ptr %population_end.i, align 8
+  %92 = load ptr, ptr %population.addr.i, align 8
   %93 = load i64, ptr %size.addr.i, align 8
-  %and.i = and i64 %93, 1
+  %add.ptr.i = getelementptr inbounds i32, ptr %92, i64 %93
+  store ptr %add.ptr.i, ptr %population_end.i, align 8
+  %94 = load i64, ptr %size.addr.i, align 8
+  %and.i = and i64 %94, 1
   %tobool.i = icmp ne i64 %and.i, 0
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
@@ -18361,174 +18362,174 @@ if.end.i:                                         ; preds = %for.body41
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %FastLog2.exit131, %if.end.i
-  %94 = load ptr, ptr %population.addr.i, align 8
-  %95 = load ptr, ptr %population_end.i, align 8
-  %cmp.i = icmp ult ptr %94, %95
+  %95 = load ptr, ptr %population.addr.i, align 8
+  %96 = load ptr, ptr %population_end.i, align 8
+  %cmp.i = icmp ult ptr %95, %96
   br i1 %cmp.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %96 = load ptr, ptr %population.addr.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %96, i32 1
+  %97 = load ptr, ptr %population.addr.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i32, ptr %97, i32 1
   store ptr %incdec.ptr.i, ptr %population.addr.i, align 8
-  %97 = load i32, ptr %96, align 4
-  %conv.i = zext i32 %97 to i64
+  %98 = load i32, ptr %97, align 4
+  %conv.i = zext i32 %98 to i64
   store i64 %conv.i, ptr %p.i, align 8
-  %98 = load i64, ptr %p.i, align 8
-  %99 = load i64, ptr %sum.i, align 8
-  %add.i = add i64 %99, %98
+  %99 = load i64, ptr %p.i, align 8
+  %100 = load i64, ptr %sum.i, align 8
+  %add.i = add i64 %100, %99
   store i64 %add.i, ptr %sum.i, align 8
-  %100 = load i64, ptr %p.i, align 8
-  %conv2.i = uitofp i64 %100 to double
   %101 = load i64, ptr %p.i, align 8
-  store i64 %101, ptr %v.addr.i133, align 8
-  %102 = load i64, ptr %v.addr.i133, align 8
-  %cmp.i134 = icmp ult i64 %102, 256
+  %conv2.i = uitofp i64 %101 to double
+  %102 = load i64, ptr %p.i, align 8
+  store i64 %102, ptr %v.addr.i133, align 8
+  %103 = load i64, ptr %v.addr.i133, align 8
+  %cmp.i134 = icmp ult i64 %103, 256
   br i1 %cmp.i134, label %if.then.i138, label %if.end.i135
 
 if.then.i138:                                     ; preds = %while.body.i
-  %103 = load i64, ptr %v.addr.i133, align 8
-  %arrayidx.i139 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %103
-  %104 = load double, ptr %arrayidx.i139, align 8
-  store double %104, ptr %retval.i132, align 8
+  %104 = load i64, ptr %v.addr.i133, align 8
+  %arrayidx.i139 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %104
+  %105 = load double, ptr %arrayidx.i139, align 8
+  store double %105, ptr %retval.i132, align 8
   br label %FastLog2.exit140
 
 if.end.i135:                                      ; preds = %while.body.i
-  %105 = load i64, ptr %v.addr.i133, align 8
-  %conv.i136 = uitofp i64 %105 to double
+  %106 = load i64, ptr %v.addr.i133, align 8
+  %conv.i136 = uitofp i64 %106 to double
   %call.i137 = call double @log2(double noundef %conv.i136) #8
   store double %call.i137, ptr %retval.i132, align 8
   br label %FastLog2.exit140
 
 FastLog2.exit140:                                 ; preds = %if.end.i135, %if.then.i138
-  %106 = load double, ptr %retval.i132, align 8
-  %107 = load double, ptr %retval1.i, align 8
+  %107 = load double, ptr %retval.i132, align 8
+  %108 = load double, ptr %retval1.i, align 8
   %neg.i = fneg double %conv2.i
-  %108 = call double @llvm.fmuladd.f64(double %neg.i, double %106, double %107)
-  store double %108, ptr %retval1.i, align 8
+  %109 = call double @llvm.fmuladd.f64(double %neg.i, double %107, double %108)
+  store double %109, ptr %retval1.i, align 8
   br label %odd_number_of_elements_left.i
 
 odd_number_of_elements_left.i:                    ; preds = %FastLog2.exit140, %if.then.i
-  %109 = load ptr, ptr %population.addr.i, align 8
-  %incdec.ptr3.i = getelementptr inbounds i32, ptr %109, i32 1
+  %110 = load ptr, ptr %population.addr.i, align 8
+  %incdec.ptr3.i = getelementptr inbounds i32, ptr %110, i32 1
   store ptr %incdec.ptr3.i, ptr %population.addr.i, align 8
-  %110 = load i32, ptr %109, align 4
-  %conv4.i = zext i32 %110 to i64
+  %111 = load i32, ptr %110, align 4
+  %conv4.i = zext i32 %111 to i64
   store i64 %conv4.i, ptr %p.i, align 8
-  %111 = load i64, ptr %p.i, align 8
-  %112 = load i64, ptr %sum.i, align 8
-  %add5.i = add i64 %112, %111
+  %112 = load i64, ptr %p.i, align 8
+  %113 = load i64, ptr %sum.i, align 8
+  %add5.i = add i64 %113, %112
   store i64 %add5.i, ptr %sum.i, align 8
-  %113 = load i64, ptr %p.i, align 8
-  %conv6.i = uitofp i64 %113 to double
   %114 = load i64, ptr %p.i, align 8
-  store i64 %114, ptr %v.addr.i124, align 8
-  %115 = load i64, ptr %v.addr.i124, align 8
-  %cmp.i125 = icmp ult i64 %115, 256
+  %conv6.i = uitofp i64 %114 to double
+  %115 = load i64, ptr %p.i, align 8
+  store i64 %115, ptr %v.addr.i124, align 8
+  %116 = load i64, ptr %v.addr.i124, align 8
+  %cmp.i125 = icmp ult i64 %116, 256
   br i1 %cmp.i125, label %if.then.i129, label %if.end.i126
 
 if.then.i129:                                     ; preds = %odd_number_of_elements_left.i
-  %116 = load i64, ptr %v.addr.i124, align 8
-  %arrayidx.i130 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %116
-  %117 = load double, ptr %arrayidx.i130, align 8
-  store double %117, ptr %retval.i123, align 8
+  %117 = load i64, ptr %v.addr.i124, align 8
+  %arrayidx.i130 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %117
+  %118 = load double, ptr %arrayidx.i130, align 8
+  store double %118, ptr %retval.i123, align 8
   br label %FastLog2.exit131
 
 if.end.i126:                                      ; preds = %odd_number_of_elements_left.i
-  %118 = load i64, ptr %v.addr.i124, align 8
-  %conv.i127 = uitofp i64 %118 to double
+  %119 = load i64, ptr %v.addr.i124, align 8
+  %conv.i127 = uitofp i64 %119 to double
   %call.i128 = call double @log2(double noundef %conv.i127) #8
   store double %call.i128, ptr %retval.i123, align 8
   br label %FastLog2.exit131
 
 FastLog2.exit131:                                 ; preds = %if.end.i126, %if.then.i129
-  %119 = load double, ptr %retval.i123, align 8
-  %120 = load double, ptr %retval1.i, align 8
+  %120 = load double, ptr %retval.i123, align 8
+  %121 = load double, ptr %retval1.i, align 8
   %neg8.i = fneg double %conv6.i
-  %121 = call double @llvm.fmuladd.f64(double %neg8.i, double %119, double %120)
-  store double %121, ptr %retval1.i, align 8
+  %122 = call double @llvm.fmuladd.f64(double %neg8.i, double %120, double %121)
+  store double %122, ptr %retval1.i, align 8
   br label %while.cond.i, !llvm.loop !456
 
 while.end.i:                                      ; preds = %while.cond.i
-  %122 = load i64, ptr %sum.i, align 8
-  %tobool9.i = icmp ne i64 %122, 0
+  %123 = load i64, ptr %sum.i, align 8
+  %tobool9.i = icmp ne i64 %123, 0
   br i1 %tobool9.i, label %if.then10.i, label %ShannonEntropy.exit
 
 if.then10.i:                                      ; preds = %while.end.i
-  %123 = load i64, ptr %sum.i, align 8
-  %conv11.i = uitofp i64 %123 to double
   %124 = load i64, ptr %sum.i, align 8
-  store i64 %124, ptr %v.addr.i142, align 8
-  %125 = load i64, ptr %v.addr.i142, align 8
-  %cmp.i143 = icmp ult i64 %125, 256
+  %conv11.i = uitofp i64 %124 to double
+  %125 = load i64, ptr %sum.i, align 8
+  store i64 %125, ptr %v.addr.i142, align 8
+  %126 = load i64, ptr %v.addr.i142, align 8
+  %cmp.i143 = icmp ult i64 %126, 256
   br i1 %cmp.i143, label %if.then.i146, label %if.end.i144
 
 if.then.i146:                                     ; preds = %if.then10.i
-  %126 = load i64, ptr %v.addr.i142, align 8
-  %arrayidx.i147 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %126
-  %127 = load double, ptr %arrayidx.i147, align 8
-  store double %127, ptr %retval.i141, align 8
+  %127 = load i64, ptr %v.addr.i142, align 8
+  %arrayidx.i147 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %127
+  %128 = load double, ptr %arrayidx.i147, align 8
+  store double %128, ptr %retval.i141, align 8
   br label %FastLog2.exit148
 
 if.end.i144:                                      ; preds = %if.then10.i
-  %128 = load i64, ptr %v.addr.i142, align 8
-  %conv.i145 = uitofp i64 %128 to double
+  %129 = load i64, ptr %v.addr.i142, align 8
+  %conv.i145 = uitofp i64 %129 to double
   %call.i = call double @log2(double noundef %conv.i145) #8
   store double %call.i, ptr %retval.i141, align 8
   br label %FastLog2.exit148
 
 FastLog2.exit148:                                 ; preds = %if.end.i144, %if.then.i146
-  %129 = load double, ptr %retval.i141, align 8
-  %130 = load double, ptr %retval1.i, align 8
-  %131 = call double @llvm.fmuladd.f64(double %conv11.i, double %129, double %130)
-  store double %131, ptr %retval1.i, align 8
+  %130 = load double, ptr %retval.i141, align 8
+  %131 = load double, ptr %retval1.i, align 8
+  %132 = call double @llvm.fmuladd.f64(double %conv11.i, double %130, double %131)
+  store double %132, ptr %retval1.i, align 8
   br label %ShannonEntropy.exit
 
 ShannonEntropy.exit:                              ; preds = %FastLog2.exit148, %while.end.i
-  %132 = load i64, ptr %sum.i, align 8
-  %133 = load ptr, ptr %total.addr.i, align 8
-  store i64 %132, ptr %133, align 8
-  %134 = load double, ptr %retval1.i, align 8
+  %133 = load i64, ptr %sum.i, align 8
+  %134 = load ptr, ptr %total.addr.i, align 8
+  store i64 %133, ptr %134, align 8
+  %135 = load double, ptr %retval1.i, align 8
   %arrayidx45 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 2
-  %135 = load double, ptr %arrayidx45, align 16
-  %add46 = fadd double %135, %134
+  %136 = load double, ptr %arrayidx45, align 16
+  %add46 = fadd double %136, %135
   store double %add46, ptr %arrayidx45, align 16
   br label %for.inc47
 
 for.inc47:                                        ; preds = %ShannonEntropy.exit
-  %136 = load i64, ptr %i, align 8
-  %inc48 = add i64 %136, 1
+  %137 = load i64, ptr %i, align 8
+  %inc48 = add i64 %137, 1
   store i64 %inc48, ptr %i, align 8
   br label %for.cond38, !llvm.loop !461
 
 for.end49:                                        ; preds = %for.cond38
-  %137 = load i32, ptr %total, align 4
-  %conv50 = uitofp i32 %137 to double
+  %138 = load i32, ptr %total, align 4
+  %conv50 = uitofp i32 %138 to double
   %div = fdiv double 1.000000e+00, %conv50
   %arrayidx51 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 0
   store double %div, ptr %arrayidx51, align 16
   %arrayidx52 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 0
-  %138 = load double, ptr %arrayidx52, align 16
+  %139 = load double, ptr %arrayidx52, align 16
   %arrayidx53 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 1
-  %139 = load double, ptr %arrayidx53, align 8
-  %mul = fmul double %139, %138
+  %140 = load double, ptr %arrayidx53, align 8
+  %mul = fmul double %140, %139
   store double %mul, ptr %arrayidx53, align 8
   %arrayidx54 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 0
-  %140 = load double, ptr %arrayidx54, align 16
+  %141 = load double, ptr %arrayidx54, align 16
   %arrayidx55 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 2
-  %141 = load double, ptr %arrayidx55, align 16
-  %mul56 = fmul double %141, %140
+  %142 = load double, ptr %arrayidx55, align 16
+  %mul56 = fmul double %142, %141
   store double %mul56, ptr %arrayidx55, align 16
   %arrayidx57 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 2
-  %142 = load double, ptr %arrayidx57, align 16
-  %cmp58 = fcmp ogt double %142, 3.000000e+00
+  %143 = load double, ptr %arrayidx57, align 16
+  %cmp58 = fcmp ogt double %143, 3.000000e+00
   br i1 %cmp58, label %if.then64, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end49
   %arrayidx60 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 1
-  %143 = load double, ptr %arrayidx60, align 8
+  %144 = load double, ptr %arrayidx60, align 8
   %arrayidx61 = getelementptr inbounds [3 x double], ptr %entropy, i64 0, i64 2
-  %144 = load double, ptr %arrayidx61, align 16
-  %sub = fsub double %143, %144
+  %145 = load double, ptr %arrayidx61, align 16
+  %sub = fsub double %144, %145
   %cmp62 = fcmp olt double %sub, 2.000000e-01
   br i1 %cmp62, label %if.then64, label %if.else65
 
@@ -18537,16 +18538,16 @@ if.then64:                                        ; preds = %lor.lhs.false, %for
   br label %return
 
 if.else65:                                        ; preds = %lor.lhs.false
-  %145 = load ptr, ptr %num_literal_contexts.addr, align 8
-  store i64 13, ptr %145, align 8
-  %146 = load ptr, ptr %literal_context_map.addr, align 8
-  store ptr @ShouldUseComplexStaticContextMap.kStaticContextMapComplexUTF8, ptr %146, align 8
+  %146 = load ptr, ptr %num_literal_contexts.addr, align 8
+  store i64 13, ptr %146, align 8
+  %147 = load ptr, ptr %literal_context_map.addr, align 8
+  store ptr @ShouldUseComplexStaticContextMap.kStaticContextMapComplexUTF8, ptr %147, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else65, %if.then64, %if.then
-  %147 = load i32, ptr %retval, align 4
-  ret i32 %147
+  %148 = load i32, ptr %retval, align 4
+  ret i32 %148
 }
 
 ; Function Attrs: nounwind uwtable

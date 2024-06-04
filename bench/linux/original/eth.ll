@@ -842,61 +842,63 @@ define dso_local i32 @nvmem_get_mac_address(ptr noundef %0, ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store i64 0, ptr %3, align 8, !annotation !5
   %4 = tail call ptr @nvmem_cell_get(ptr noundef %0, ptr noundef nonnull @.str.2) #12
-  %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %6, label %9
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %4, %5
+  br i1 %6, label %7, label %10
 
-6:                                                ; preds = %2
-  %7 = ptrtoint ptr %4 to i64
-  %8 = trunc i64 %7 to i32
-  br label %33
+7:                                                ; preds = %2
+  %8 = ptrtoint ptr %4 to i64
+  %9 = trunc i64 %8 to i32
+  br label %35
 
-9:                                                ; preds = %2
-  %10 = call ptr @nvmem_cell_read(ptr noundef %4, ptr noundef nonnull %3) #12
+10:                                               ; preds = %2
+  %11 = call ptr @nvmem_cell_read(ptr noundef %4, ptr noundef nonnull %3) #12
   call void @nvmem_cell_put(ptr noundef %4) #12
-  %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
-  br i1 %11, label %12, label %15
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %11, %12
+  br i1 %13, label %14, label %17
 
-12:                                               ; preds = %9
-  %13 = ptrtoint ptr %10 to i64
-  %14 = trunc i64 %13 to i32
-  br label %33
+14:                                               ; preds = %10
+  %15 = ptrtoint ptr %11 to i64
+  %16 = trunc i64 %15 to i32
+  br label %35
 
-15:                                               ; preds = %9
-  %16 = load i64, ptr %3, align 8
-  %17 = icmp eq i64 %16, 6
-  br i1 %17, label %18, label %28
+17:                                               ; preds = %10
+  %18 = load i64, ptr %3, align 8
+  %19 = icmp eq i64 %18, 6
+  br i1 %19, label %20, label %30
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %10, align 4
-  %20 = and i32 %19, 1
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %28
+20:                                               ; preds = %17
+  %21 = load i32, ptr %11, align 4
+  %22 = and i32 %21, 1
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %30
 
-22:                                               ; preds = %18
-  %23 = getelementptr i8, ptr %10, i64 4
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  %26 = or i32 %19, %25
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %20
+  %25 = getelementptr i8, ptr %11, i64 4
+  %26 = load i16, ptr %25, align 2
+  %27 = zext i16 %26 to i32
+  %28 = or i32 %21, %27
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %31
 
-28:                                               ; preds = %22, %18, %15
-  call void @kfree(ptr noundef %10) #12
-  br label %33
+30:                                               ; preds = %24, %20, %17
+  call void @kfree(ptr noundef %11) #12
+  br label %35
 
-29:                                               ; preds = %22
-  store i32 %19, ptr %1, align 4
-  %30 = getelementptr i8, ptr %10, i64 4
-  %31 = load i16, ptr %30, align 2
-  %32 = getelementptr i8, ptr %1, i64 4
-  store i16 %31, ptr %32, align 2
-  call void @kfree(ptr noundef %10) #12
-  br label %33
+31:                                               ; preds = %24
+  store i32 %21, ptr %1, align 4
+  %32 = getelementptr i8, ptr %11, i64 4
+  %33 = load i16, ptr %32, align 2
+  %34 = getelementptr i8, ptr %1, i64 4
+  store i16 %33, ptr %34, align 2
+  call void @kfree(ptr noundef %11) #12
+  br label %35
 
-33:                                               ; preds = %29, %28, %12, %6
-  %34 = phi i32 [ %8, %6 ], [ %14, %12 ], [ -22, %28 ], [ 0, %29 ]
+35:                                               ; preds = %31, %30, %14, %7
+  %36 = phi i32 [ %9, %7 ], [ %16, %14 ], [ -22, %30 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  ret i32 %34
+  ret i32 %36
 }
 
 ; Function Attrs: null_pointer_is_valid

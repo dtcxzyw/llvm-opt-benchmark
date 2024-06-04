@@ -2341,1785 +2341,1787 @@ define hidden i32 @ieee802154_dissect_header(ptr noundef %0, ptr noundef %1, ptr
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @wmem_alloc0(ptr noundef %26, i64 noundef 152)
   store ptr %27, ptr %19, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1), align 8
-  %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr inbounds %struct.ieee802154_packet, ptr %29, i32 0, i32 31
-  store ptr %28, ptr %30, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._frame_data, ptr %33, i32 0, i32 9
-  %35 = load i16, ptr %34, align 2
-  %36 = lshr i16 %35, 3
-  %37 = and i16 %36, 1
-  %38 = zext i16 %37 to i32
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %46
+  %28 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %19, align 8
+  %31 = getelementptr inbounds %struct.ieee802154_packet, ptr %30, i32 0, i32 31
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct._frame_data, ptr %34, i32 0, i32 9
+  %36 = load i16, ptr %35, align 2
+  %37 = lshr i16 %36, 3
+  %38 = and i16 %37, 1
+  %39 = zext i16 %38 to i32
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %47
 
-40:                                               ; preds = %6
-  %41 = call ptr @wmem_file_scope()
-  %42 = load ptr, ptr %9, align 8
-  %43 = load i32, ptr @proto_ieee802154, align 4
-  %44 = call ptr @p_get_proto_data(ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 0)
-  store ptr %44, ptr %21, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %53
+41:                                               ; preds = %6
+  %42 = call ptr @wmem_file_scope()
+  %43 = load ptr, ptr %9, align 8
+  %44 = load i32, ptr @proto_ieee802154, align 4
+  %45 = call ptr @p_get_proto_data(ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 0)
+  store ptr %45, ptr %21, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %54
 
-46:                                               ; preds = %40, %6
-  %47 = call ptr @wmem_file_scope()
-  %48 = call noalias ptr @wmem_alloc0(ptr noundef %47, i64 noundef 24)
-  store ptr %48, ptr %21, align 8
-  %49 = call ptr @wmem_file_scope()
-  %50 = load ptr, ptr %9, align 8
-  %51 = load i32, ptr @proto_ieee802154, align 4
-  %52 = load ptr, ptr %21, align 8
-  call void @p_add_proto_data(ptr noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 0, ptr noundef %52)
-  br label %53
+47:                                               ; preds = %41, %6
+  %48 = call ptr @wmem_file_scope()
+  %49 = call noalias ptr @wmem_alloc0(ptr noundef %48, i64 noundef 24)
+  store ptr %49, ptr %21, align 8
+  %50 = call ptr @wmem_file_scope()
+  %51 = load ptr, ptr %9, align 8
+  %52 = load i32, ptr @proto_ieee802154, align 4
+  %53 = load ptr, ptr %21, align 8
+  call void @p_add_proto_data(ptr noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 0, ptr noundef %53)
+  br label %54
 
-53:                                               ; preds = %46, %40
-  %54 = load ptr, ptr %19, align 8
-  %55 = load ptr, ptr %21, align 8
-  %56 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %55, i32 0, i32 4
-  store ptr %54, ptr %56, align 8
-  %57 = load ptr, ptr %10, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %69
+54:                                               ; preds = %47, %41
+  %55 = load ptr, ptr %19, align 8
+  %56 = load ptr, ptr %21, align 8
+  %57 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %56, i32 0, i32 4
+  store ptr %55, ptr %57, align 8
+  %58 = load ptr, ptr %10, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %70
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %10, align 8
-  %61 = load i32, ptr @proto_ieee802154, align 4
-  %62 = load ptr, ptr %8, align 8
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %10, align 8
+  %62 = load i32, ptr @proto_ieee802154, align 4
   %63 = load ptr, ptr %8, align 8
-  %64 = call i32 @tvb_captured_length(ptr noundef %63)
-  %65 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef 0, i32 noundef %64, ptr noundef @.str.18)
-  store ptr %65, ptr %15, align 8
-  %66 = load ptr, ptr %15, align 8
-  %67 = load i32, ptr @ett_ieee802154, align 4
-  %68 = call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67)
-  store ptr %68, ptr %14, align 8
-  br label %69
+  %64 = load ptr, ptr %8, align 8
+  %65 = call i32 @tvb_captured_length(ptr noundef %64)
+  %66 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef 0, i32 noundef %65, ptr noundef @.str.18)
+  store ptr %66, ptr %15, align 8
+  %67 = load ptr, ptr %15, align 8
+  %68 = load i32, ptr @ett_ieee802154, align 4
+  %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68)
+  store ptr %69, ptr %14, align 8
+  br label %70
 
-69:                                               ; preds = %59, %53
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds %struct._packet_info, ptr %70, i32 0, i32 1
-  %72 = load ptr, ptr %71, align 8
-  call void @col_set_str(ptr noundef %72, i32 noundef 34, ptr noundef @.str.18)
-  %73 = load ptr, ptr %14, align 8
-  %74 = load ptr, ptr %12, align 8
-  store ptr %73, ptr %74, align 8
-  %75 = load ptr, ptr %19, align 8
-  %76 = load ptr, ptr %13, align 8
-  store ptr %75, ptr %76, align 8
-  %77 = load ptr, ptr %14, align 8
-  %78 = load i32, ptr @hf_ieee802154_frame_length, align 4
-  %79 = load ptr, ptr %8, align 8
-  %80 = call i32 @tvb_reported_length(ptr noundef %79)
-  %81 = call ptr @proto_tree_add_uint(ptr noundef %77, i32 noundef %78, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %80)
-  store ptr %81, ptr %16, align 8
-  %82 = load ptr, ptr %16, align 8
-  call void @proto_item_set_hidden(ptr noundef %82)
-  %83 = load ptr, ptr %8, align 8
-  %84 = load ptr, ptr %9, align 8
-  %85 = load ptr, ptr %14, align 8
-  %86 = load ptr, ptr %19, align 8
-  call void @dissect_ieee802154_fcf(ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %18)
+70:                                               ; preds = %60, %54
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds %struct._packet_info, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  call void @col_set_str(ptr noundef %73, i32 noundef 34, ptr noundef @.str.18)
+  %74 = load ptr, ptr %14, align 8
+  %75 = load ptr, ptr %12, align 8
+  store ptr %74, ptr %75, align 8
+  %76 = load ptr, ptr %19, align 8
+  %77 = load ptr, ptr %13, align 8
+  store ptr %76, ptr %77, align 8
+  %78 = load ptr, ptr %14, align 8
+  %79 = load i32, ptr @hf_ieee802154_frame_length, align 4
+  %80 = load ptr, ptr %8, align 8
+  %81 = call i32 @tvb_reported_length(ptr noundef %80)
+  %82 = call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %79, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %81)
+  store ptr %82, ptr %16, align 8
+  %83 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %83)
+  %84 = load ptr, ptr %8, align 8
+  %85 = load ptr, ptr %9, align 8
+  %86 = load ptr, ptr %14, align 8
   %87 = load ptr, ptr %19, align 8
-  %88 = getelementptr inbounds %struct.ieee802154_packet, ptr %87, i32 0, i32 8
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %106
+  call void @dissect_ieee802154_fcf(ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %18)
+  %88 = load ptr, ptr %19, align 8
+  %89 = getelementptr inbounds %struct.ieee802154_packet, ptr %88, i32 0, i32 8
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %107
 
-91:                                               ; preds = %69
-  %92 = load ptr, ptr %19, align 8
-  %93 = getelementptr inbounds %struct.ieee802154_packet, ptr %92, i32 0, i32 0
-  %94 = load i32, ptr %93, align 8
-  %95 = icmp ne i32 %94, 2
-  br i1 %95, label %96, label %105
+92:                                               ; preds = %70
+  %93 = load ptr, ptr %19, align 8
+  %94 = getelementptr inbounds %struct.ieee802154_packet, ptr %93, i32 0, i32 0
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp ne i32 %95, 2
+  br i1 %96, label %97, label %106
 
-96:                                               ; preds = %91
-  %97 = load ptr, ptr %19, align 8
-  %98 = getelementptr inbounds %struct.ieee802154_packet, ptr %97, i32 0, i32 1
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp ne i32 %99, 5
-  br i1 %100, label %101, label %105
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %19, align 8
+  %99 = getelementptr inbounds %struct.ieee802154_packet, ptr %98, i32 0, i32 1
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp ne i32 %100, 5
+  br i1 %101, label %102, label %106
 
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %9, align 8
-  %103 = load ptr, ptr %15, align 8
-  %104 = call ptr @expert_add_info(ptr noundef %102, ptr noundef %103, ptr noundef @ei_ieee802154_seqno_suppression)
-  br label %105
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %9, align 8
+  %104 = load ptr, ptr %15, align 8
+  %105 = call ptr @expert_add_info(ptr noundef %103, ptr noundef %104, ptr noundef @ei_ieee802154_seqno_suppression)
+  br label %106
 
-105:                                              ; preds = %101, %96, %91
-  br label %138
+106:                                              ; preds = %102, %97, %92
+  br label %139
 
-106:                                              ; preds = %69
-  %107 = load ptr, ptr %8, align 8
-  %108 = load i32, ptr %18, align 4
-  %109 = call zeroext i8 @tvb_get_guint8(ptr noundef %107, i32 noundef %108)
-  %110 = load ptr, ptr %19, align 8
-  %111 = getelementptr inbounds %struct.ieee802154_packet, ptr %110, i32 0, i32 12
-  store i8 %109, ptr %111, align 8
-  %112 = load ptr, ptr %10, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %135
+107:                                              ; preds = %70
+  %108 = load ptr, ptr %8, align 8
+  %109 = load i32, ptr %18, align 4
+  %110 = call zeroext i8 @tvb_get_guint8(ptr noundef %108, i32 noundef %109)
+  %111 = load ptr, ptr %19, align 8
+  %112 = getelementptr inbounds %struct.ieee802154_packet, ptr %111, i32 0, i32 12
+  store i8 %110, ptr %112, align 8
+  %113 = load ptr, ptr %10, align 8
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %136
 
-114:                                              ; preds = %106
-  %115 = load ptr, ptr %14, align 8
-  %116 = load i32, ptr @hf_ieee802154_seqno, align 4
-  %117 = load ptr, ptr %8, align 8
-  %118 = load i32, ptr %18, align 4
-  %119 = load ptr, ptr %19, align 8
-  %120 = getelementptr inbounds %struct.ieee802154_packet, ptr %119, i32 0, i32 12
-  %121 = load i8, ptr %120, align 8
-  %122 = zext i8 %121 to i32
-  %123 = call ptr @proto_tree_add_uint(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef 1, i32 noundef %122)
-  %124 = load ptr, ptr %19, align 8
-  %125 = getelementptr inbounds %struct.ieee802154_packet, ptr %124, i32 0, i32 1
-  %126 = load i32, ptr %125, align 4
-  %127 = icmp eq i32 %126, 2
-  br i1 %127, label %128, label %134
+115:                                              ; preds = %107
+  %116 = load ptr, ptr %14, align 8
+  %117 = load i32, ptr @hf_ieee802154_seqno, align 4
+  %118 = load ptr, ptr %8, align 8
+  %119 = load i32, ptr %18, align 4
+  %120 = load ptr, ptr %19, align 8
+  %121 = getelementptr inbounds %struct.ieee802154_packet, ptr %120, i32 0, i32 12
+  %122 = load i8, ptr %121, align 8
+  %123 = zext i8 %122 to i32
+  %124 = call ptr @proto_tree_add_uint(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef 1, i32 noundef %123)
+  %125 = load ptr, ptr %19, align 8
+  %126 = getelementptr inbounds %struct.ieee802154_packet, ptr %125, i32 0, i32 1
+  %127 = load i32, ptr %126, align 4
+  %128 = icmp eq i32 %127, 2
+  br i1 %128, label %129, label %135
 
-128:                                              ; preds = %114
-  %129 = load ptr, ptr %15, align 8
-  %130 = load ptr, ptr %19, align 8
-  %131 = getelementptr inbounds %struct.ieee802154_packet, ptr %130, i32 0, i32 12
-  %132 = load i8, ptr %131, align 8
-  %133 = zext i8 %132 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %129, ptr noundef @.str.19, i32 noundef %133)
-  br label %134
-
-134:                                              ; preds = %128, %114
+129:                                              ; preds = %115
+  %130 = load ptr, ptr %15, align 8
+  %131 = load ptr, ptr %19, align 8
+  %132 = getelementptr inbounds %struct.ieee802154_packet, ptr %131, i32 0, i32 12
+  %133 = load i8, ptr %132, align 8
+  %134 = zext i8 %133 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %130, ptr noundef @.str.19, i32 noundef %134)
   br label %135
 
-135:                                              ; preds = %134, %106
-  %136 = load i32, ptr %18, align 4
-  %137 = add i32 %136, 1
-  store i32 %137, ptr %18, align 4
-  br label %138
+135:                                              ; preds = %129, %115
+  br label %136
 
-138:                                              ; preds = %135, %105
-  %139 = load ptr, ptr %9, align 8
-  %140 = getelementptr inbounds %struct._packet_info, ptr %139, i32 0, i32 15
-  call void @clear_address(ptr noundef %140)
-  %141 = load ptr, ptr %9, align 8
-  %142 = getelementptr inbounds %struct._packet_info, ptr %141, i32 0, i32 13
-  call void @clear_address(ptr noundef %142)
-  %143 = load ptr, ptr %9, align 8
-  %144 = getelementptr inbounds %struct._packet_info, ptr %143, i32 0, i32 17
-  call void @clear_address(ptr noundef %144)
-  %145 = load ptr, ptr %9, align 8
-  %146 = getelementptr inbounds %struct._packet_info, ptr %145, i32 0, i32 14
-  call void @clear_address(ptr noundef %146)
-  %147 = load ptr, ptr %9, align 8
-  %148 = getelementptr inbounds %struct._packet_info, ptr %147, i32 0, i32 12
-  call void @clear_address(ptr noundef %148)
-  %149 = load ptr, ptr %9, align 8
-  %150 = getelementptr inbounds %struct._packet_info, ptr %149, i32 0, i32 16
-  call void @clear_address(ptr noundef %150)
-  %151 = load ptr, ptr %19, align 8
-  %152 = getelementptr inbounds %struct.ieee802154_packet, ptr %151, i32 0, i32 2
-  %153 = load i32, ptr %152, align 8
-  %154 = icmp eq i32 %153, 1
-  br i1 %154, label %155, label %159
+136:                                              ; preds = %135, %107
+  %137 = load i32, ptr %18, align 4
+  %138 = add i32 %137, 1
+  store i32 %138, ptr %18, align 4
+  br label %139
 
-155:                                              ; preds = %138
-  %156 = load ptr, ptr %9, align 8
-  %157 = load ptr, ptr %15, align 8
-  %158 = call ptr @expert_add_info(ptr noundef %156, ptr noundef %157, ptr noundef @ei_ieee802154_dst)
+139:                                              ; preds = %136, %106
+  %140 = load ptr, ptr %9, align 8
+  %141 = getelementptr inbounds %struct._packet_info, ptr %140, i32 0, i32 15
+  call void @clear_address(ptr noundef %141)
+  %142 = load ptr, ptr %9, align 8
+  %143 = getelementptr inbounds %struct._packet_info, ptr %142, i32 0, i32 13
+  call void @clear_address(ptr noundef %143)
+  %144 = load ptr, ptr %9, align 8
+  %145 = getelementptr inbounds %struct._packet_info, ptr %144, i32 0, i32 17
+  call void @clear_address(ptr noundef %145)
+  %146 = load ptr, ptr %9, align 8
+  %147 = getelementptr inbounds %struct._packet_info, ptr %146, i32 0, i32 14
+  call void @clear_address(ptr noundef %147)
+  %148 = load ptr, ptr %9, align 8
+  %149 = getelementptr inbounds %struct._packet_info, ptr %148, i32 0, i32 12
+  call void @clear_address(ptr noundef %149)
+  %150 = load ptr, ptr %9, align 8
+  %151 = getelementptr inbounds %struct._packet_info, ptr %150, i32 0, i32 16
+  call void @clear_address(ptr noundef %151)
+  %152 = load ptr, ptr %19, align 8
+  %153 = getelementptr inbounds %struct.ieee802154_packet, ptr %152, i32 0, i32 2
+  %154 = load i32, ptr %153, align 8
+  %155 = icmp eq i32 %154, 1
+  br i1 %155, label %156, label %160
+
+156:                                              ; preds = %139
+  %157 = load ptr, ptr %9, align 8
+  %158 = load ptr, ptr %15, align 8
+  %159 = call ptr @expert_add_info(ptr noundef %157, ptr noundef %158, ptr noundef @ei_ieee802154_dst)
   store i32 0, ptr %7, align 4
-  br label %1244
+  br label %1246
 
-159:                                              ; preds = %138
-  %160 = load ptr, ptr %19, align 8
-  %161 = getelementptr inbounds %struct.ieee802154_packet, ptr %160, i32 0, i32 3
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp eq i32 %162, 1
-  br i1 %163, label %164, label %168
+160:                                              ; preds = %139
+  %161 = load ptr, ptr %19, align 8
+  %162 = getelementptr inbounds %struct.ieee802154_packet, ptr %161, i32 0, i32 3
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp eq i32 %163, 1
+  br i1 %164, label %165, label %169
 
-164:                                              ; preds = %159
-  %165 = load ptr, ptr %9, align 8
-  %166 = load ptr, ptr %15, align 8
-  %167 = call ptr @expert_add_info(ptr noundef %165, ptr noundef %166, ptr noundef @ei_ieee802154_src)
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %9, align 8
+  %167 = load ptr, ptr %15, align 8
+  %168 = call ptr @expert_add_info(ptr noundef %166, ptr noundef %167, ptr noundef @ei_ieee802154_src)
   store i32 0, ptr %7, align 4
-  br label %1244
+  br label %1246
 
-168:                                              ; preds = %159
-  %169 = load ptr, ptr %19, align 8
-  %170 = getelementptr inbounds %struct.ieee802154_packet, ptr %169, i32 0, i32 1
-  %171 = load i32, ptr %170, align 4
-  %172 = icmp eq i32 %171, 5
-  br i1 %172, label %173, label %193
+169:                                              ; preds = %160
+  %170 = load ptr, ptr %19, align 8
+  %171 = getelementptr inbounds %struct.ieee802154_packet, ptr %170, i32 0, i32 1
+  %172 = load i32, ptr %171, align 4
+  %173 = icmp eq i32 %172, 5
+  br i1 %173, label %174, label %194
 
-173:                                              ; preds = %168
-  %174 = load ptr, ptr %19, align 8
-  %175 = getelementptr inbounds %struct.ieee802154_packet, ptr %174, i32 0, i32 0
-  %176 = load i32, ptr %175, align 8
-  %177 = icmp ne i32 %176, 0
-  br i1 %177, label %178, label %182
+174:                                              ; preds = %169
+  %175 = load ptr, ptr %19, align 8
+  %176 = getelementptr inbounds %struct.ieee802154_packet, ptr %175, i32 0, i32 0
+  %177 = load i32, ptr %176, align 8
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %179, label %183
 
-178:                                              ; preds = %173
-  %179 = load ptr, ptr %9, align 8
-  %180 = load ptr, ptr %15, align 8
-  %181 = call ptr @expert_add_info(ptr noundef %179, ptr noundef %180, ptr noundef @ei_ieee802154_frame_ver)
+179:                                              ; preds = %174
+  %180 = load ptr, ptr %9, align 8
+  %181 = load ptr, ptr %15, align 8
+  %182 = call ptr @expert_add_info(ptr noundef %180, ptr noundef %181, ptr noundef @ei_ieee802154_frame_ver)
   store i32 0, ptr %7, align 4
-  br label %1244
+  br label %1246
 
-182:                                              ; preds = %173
-  %183 = load ptr, ptr %19, align 8
-  %184 = getelementptr inbounds %struct.ieee802154_packet, ptr %183, i32 0, i32 15
-  store i32 0, ptr %184, align 4
-  %185 = load ptr, ptr %19, align 8
-  %186 = getelementptr inbounds %struct.ieee802154_packet, ptr %185, i32 0, i32 11
-  %187 = load i32, ptr %186, align 4
-  %188 = icmp ne i32 %187, 0
-  br i1 %188, label %189, label %192
+183:                                              ; preds = %174
+  %184 = load ptr, ptr %19, align 8
+  %185 = getelementptr inbounds %struct.ieee802154_packet, ptr %184, i32 0, i32 15
+  store i32 0, ptr %185, align 4
+  %186 = load ptr, ptr %19, align 8
+  %187 = getelementptr inbounds %struct.ieee802154_packet, ptr %186, i32 0, i32 11
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %193
 
-189:                                              ; preds = %182
-  %190 = load ptr, ptr %19, align 8
-  %191 = getelementptr inbounds %struct.ieee802154_packet, ptr %190, i32 0, i32 14
-  store i32 1, ptr %191, align 8
-  br label %192
+190:                                              ; preds = %183
+  %191 = load ptr, ptr %19, align 8
+  %192 = getelementptr inbounds %struct.ieee802154_packet, ptr %191, i32 0, i32 14
+  store i32 1, ptr %192, align 8
+  br label %193
 
-192:                                              ; preds = %189, %182
-  br label %646
+193:                                              ; preds = %190, %183
+  br label %647
 
-193:                                              ; preds = %168
-  %194 = load ptr, ptr %19, align 8
-  %195 = getelementptr inbounds %struct.ieee802154_packet, ptr %194, i32 0, i32 0
-  %196 = load i32, ptr %195, align 8
-  %197 = icmp eq i32 %196, 3
-  br i1 %197, label %198, label %202
+194:                                              ; preds = %169
+  %195 = load ptr, ptr %19, align 8
+  %196 = getelementptr inbounds %struct.ieee802154_packet, ptr %195, i32 0, i32 0
+  %197 = load i32, ptr %196, align 8
+  %198 = icmp eq i32 %197, 3
+  br i1 %198, label %199, label %203
 
-198:                                              ; preds = %193
-  %199 = load ptr, ptr %9, align 8
-  %200 = load ptr, ptr %15, align 8
-  %201 = call ptr @expert_add_info(ptr noundef %199, ptr noundef %200, ptr noundef @ei_ieee802154_frame_ver)
+199:                                              ; preds = %194
+  %200 = load ptr, ptr %9, align 8
+  %201 = load ptr, ptr %15, align 8
+  %202 = call ptr @expert_add_info(ptr noundef %200, ptr noundef %201, ptr noundef @ei_ieee802154_frame_ver)
   store i32 0, ptr %7, align 4
-  br label %1244
+  br label %1246
 
-202:                                              ; preds = %193
-  %203 = load ptr, ptr %19, align 8
-  %204 = getelementptr inbounds %struct.ieee802154_packet, ptr %203, i32 0, i32 0
-  %205 = load i32, ptr %204, align 8
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %212, label %207
+203:                                              ; preds = %194
+  %204 = load ptr, ptr %19, align 8
+  %205 = getelementptr inbounds %struct.ieee802154_packet, ptr %204, i32 0, i32 0
+  %206 = load i32, ptr %205, align 8
+  %207 = icmp eq i32 %206, 0
+  br i1 %207, label %213, label %208
 
-207:                                              ; preds = %202
-  %208 = load ptr, ptr %19, align 8
-  %209 = getelementptr inbounds %struct.ieee802154_packet, ptr %208, i32 0, i32 0
-  %210 = load i32, ptr %209, align 8
-  %211 = icmp eq i32 %210, 1
-  br i1 %211, label %212, label %301
+208:                                              ; preds = %203
+  %209 = load ptr, ptr %19, align 8
+  %210 = getelementptr inbounds %struct.ieee802154_packet, ptr %209, i32 0, i32 0
+  %211 = load i32, ptr %210, align 8
+  %212 = icmp eq i32 %211, 1
+  br i1 %212, label %213, label %302
 
-212:                                              ; preds = %207, %202
-  %213 = load ptr, ptr %19, align 8
-  %214 = getelementptr inbounds %struct.ieee802154_packet, ptr %213, i32 0, i32 2
-  %215 = load i32, ptr %214, align 8
-  %216 = icmp ne i32 %215, 0
-  br i1 %216, label %217, label %238
+213:                                              ; preds = %208, %203
+  %214 = load ptr, ptr %19, align 8
+  %215 = getelementptr inbounds %struct.ieee802154_packet, ptr %214, i32 0, i32 2
+  %216 = load i32, ptr %215, align 8
+  %217 = icmp ne i32 %216, 0
+  br i1 %217, label %218, label %239
 
-217:                                              ; preds = %212
-  %218 = load ptr, ptr %19, align 8
-  %219 = getelementptr inbounds %struct.ieee802154_packet, ptr %218, i32 0, i32 3
-  %220 = load i32, ptr %219, align 4
-  %221 = icmp ne i32 %220, 0
-  br i1 %221, label %222, label %238
+218:                                              ; preds = %213
+  %219 = load ptr, ptr %19, align 8
+  %220 = getelementptr inbounds %struct.ieee802154_packet, ptr %219, i32 0, i32 3
+  %221 = load i32, ptr %220, align 4
+  %222 = icmp ne i32 %221, 0
+  br i1 %222, label %223, label %239
 
-222:                                              ; preds = %217
-  %223 = load ptr, ptr %19, align 8
-  %224 = getelementptr inbounds %struct.ieee802154_packet, ptr %223, i32 0, i32 7
-  %225 = load i32, ptr %224, align 4
-  %226 = icmp eq i32 %225, 1
-  br i1 %226, label %227, label %232
+223:                                              ; preds = %218
+  %224 = load ptr, ptr %19, align 8
+  %225 = getelementptr inbounds %struct.ieee802154_packet, ptr %224, i32 0, i32 7
+  %226 = load i32, ptr %225, align 4
+  %227 = icmp eq i32 %226, 1
+  br i1 %227, label %228, label %233
 
-227:                                              ; preds = %222
-  %228 = load ptr, ptr %19, align 8
-  %229 = getelementptr inbounds %struct.ieee802154_packet, ptr %228, i32 0, i32 14
-  store i32 1, ptr %229, align 8
-  %230 = load ptr, ptr %19, align 8
-  %231 = getelementptr inbounds %struct.ieee802154_packet, ptr %230, i32 0, i32 15
-  store i32 0, ptr %231, align 4
-  br label %237
+228:                                              ; preds = %223
+  %229 = load ptr, ptr %19, align 8
+  %230 = getelementptr inbounds %struct.ieee802154_packet, ptr %229, i32 0, i32 14
+  store i32 1, ptr %230, align 8
+  %231 = load ptr, ptr %19, align 8
+  %232 = getelementptr inbounds %struct.ieee802154_packet, ptr %231, i32 0, i32 15
+  store i32 0, ptr %232, align 4
+  br label %238
 
-232:                                              ; preds = %222
-  %233 = load ptr, ptr %19, align 8
-  %234 = getelementptr inbounds %struct.ieee802154_packet, ptr %233, i32 0, i32 14
-  store i32 1, ptr %234, align 8
-  %235 = load ptr, ptr %19, align 8
-  %236 = getelementptr inbounds %struct.ieee802154_packet, ptr %235, i32 0, i32 15
-  store i32 1, ptr %236, align 4
-  br label %237
+233:                                              ; preds = %223
+  %234 = load ptr, ptr %19, align 8
+  %235 = getelementptr inbounds %struct.ieee802154_packet, ptr %234, i32 0, i32 14
+  store i32 1, ptr %235, align 8
+  %236 = load ptr, ptr %19, align 8
+  %237 = getelementptr inbounds %struct.ieee802154_packet, ptr %236, i32 0, i32 15
+  store i32 1, ptr %237, align 4
+  br label %238
 
-237:                                              ; preds = %232, %227
-  br label %300
+238:                                              ; preds = %233, %228
+  br label %301
 
-238:                                              ; preds = %217, %212
-  %239 = load ptr, ptr %19, align 8
-  %240 = getelementptr inbounds %struct.ieee802154_packet, ptr %239, i32 0, i32 7
-  %241 = load i32, ptr %240, align 4
-  %242 = icmp eq i32 %241, 1
-  br i1 %242, label %243, label %247
+239:                                              ; preds = %218, %213
+  %240 = load ptr, ptr %19, align 8
+  %241 = getelementptr inbounds %struct.ieee802154_packet, ptr %240, i32 0, i32 7
+  %242 = load i32, ptr %241, align 4
+  %243 = icmp eq i32 %242, 1
+  br i1 %243, label %244, label %248
 
-243:                                              ; preds = %238
-  %244 = load ptr, ptr %9, align 8
-  %245 = load ptr, ptr %15, align 8
-  %246 = call ptr @expert_add_info(ptr noundef %244, ptr noundef %245, ptr noundef @ei_ieee802154_invalid_panid_compression)
+244:                                              ; preds = %239
+  %245 = load ptr, ptr %9, align 8
+  %246 = load ptr, ptr %15, align 8
+  %247 = call ptr @expert_add_info(ptr noundef %245, ptr noundef %246, ptr noundef @ei_ieee802154_invalid_panid_compression)
   store i32 0, ptr %7, align 4
-  br label %1244
+  br label %1246
 
-247:                                              ; preds = %238
-  %248 = load ptr, ptr %19, align 8
-  %249 = getelementptr inbounds %struct.ieee802154_packet, ptr %248, i32 0, i32 2
-  %250 = load i32, ptr %249, align 8
-  %251 = icmp ne i32 %250, 0
-  br i1 %251, label %252, label %262
+248:                                              ; preds = %239
+  %249 = load ptr, ptr %19, align 8
+  %250 = getelementptr inbounds %struct.ieee802154_packet, ptr %249, i32 0, i32 2
+  %251 = load i32, ptr %250, align 8
+  %252 = icmp ne i32 %251, 0
+  br i1 %252, label %253, label %263
 
-252:                                              ; preds = %247
-  %253 = load ptr, ptr %19, align 8
-  %254 = getelementptr inbounds %struct.ieee802154_packet, ptr %253, i32 0, i32 3
-  %255 = load i32, ptr %254, align 4
-  %256 = icmp eq i32 %255, 0
-  br i1 %256, label %257, label %262
+253:                                              ; preds = %248
+  %254 = load ptr, ptr %19, align 8
+  %255 = getelementptr inbounds %struct.ieee802154_packet, ptr %254, i32 0, i32 3
+  %256 = load i32, ptr %255, align 4
+  %257 = icmp eq i32 %256, 0
+  br i1 %257, label %258, label %263
 
-257:                                              ; preds = %252
-  %258 = load ptr, ptr %19, align 8
-  %259 = getelementptr inbounds %struct.ieee802154_packet, ptr %258, i32 0, i32 14
-  store i32 1, ptr %259, align 8
-  %260 = load ptr, ptr %19, align 8
-  %261 = getelementptr inbounds %struct.ieee802154_packet, ptr %260, i32 0, i32 15
-  store i32 0, ptr %261, align 4
-  br label %298
-
-262:                                              ; preds = %252, %247
-  %263 = load ptr, ptr %19, align 8
-  %264 = getelementptr inbounds %struct.ieee802154_packet, ptr %263, i32 0, i32 2
-  %265 = load i32, ptr %264, align 8
-  %266 = icmp eq i32 %265, 0
-  br i1 %266, label %267, label %277
-
-267:                                              ; preds = %262
-  %268 = load ptr, ptr %19, align 8
-  %269 = getelementptr inbounds %struct.ieee802154_packet, ptr %268, i32 0, i32 3
-  %270 = load i32, ptr %269, align 4
-  %271 = icmp ne i32 %270, 0
-  br i1 %271, label %272, label %277
-
-272:                                              ; preds = %267
-  %273 = load ptr, ptr %19, align 8
-  %274 = getelementptr inbounds %struct.ieee802154_packet, ptr %273, i32 0, i32 14
-  store i32 0, ptr %274, align 8
-  %275 = load ptr, ptr %19, align 8
-  %276 = getelementptr inbounds %struct.ieee802154_packet, ptr %275, i32 0, i32 15
-  store i32 1, ptr %276, align 4
-  br label %297
-
-277:                                              ; preds = %267, %262
-  %278 = load ptr, ptr %19, align 8
-  %279 = getelementptr inbounds %struct.ieee802154_packet, ptr %278, i32 0, i32 2
-  %280 = load i32, ptr %279, align 8
-  %281 = icmp eq i32 %280, 0
-  br i1 %281, label %282, label %292
-
-282:                                              ; preds = %277
-  %283 = load ptr, ptr %19, align 8
-  %284 = getelementptr inbounds %struct.ieee802154_packet, ptr %283, i32 0, i32 3
-  %285 = load i32, ptr %284, align 4
-  %286 = icmp eq i32 %285, 0
-  br i1 %286, label %287, label %292
-
-287:                                              ; preds = %282
-  %288 = load ptr, ptr %19, align 8
-  %289 = getelementptr inbounds %struct.ieee802154_packet, ptr %288, i32 0, i32 14
-  store i32 0, ptr %289, align 8
-  %290 = load ptr, ptr %19, align 8
-  %291 = getelementptr inbounds %struct.ieee802154_packet, ptr %290, i32 0, i32 15
-  store i32 0, ptr %291, align 4
-  br label %296
-
-292:                                              ; preds = %282, %277
-  %293 = load ptr, ptr %9, align 8
-  %294 = load ptr, ptr %15, align 8
-  %295 = call ptr @expert_add_info(ptr noundef %293, ptr noundef %294, ptr noundef @ei_ieee802154_invalid_addressing)
-  store i32 0, ptr %7, align 4
-  br label %1244
-
-296:                                              ; preds = %287
-  br label %297
-
-297:                                              ; preds = %296, %272
-  br label %298
-
-298:                                              ; preds = %297, %257
+258:                                              ; preds = %253
+  %259 = load ptr, ptr %19, align 8
+  %260 = getelementptr inbounds %struct.ieee802154_packet, ptr %259, i32 0, i32 14
+  store i32 1, ptr %260, align 8
+  %261 = load ptr, ptr %19, align 8
+  %262 = getelementptr inbounds %struct.ieee802154_packet, ptr %261, i32 0, i32 15
+  store i32 0, ptr %262, align 4
   br label %299
 
-299:                                              ; preds = %298
+263:                                              ; preds = %253, %248
+  %264 = load ptr, ptr %19, align 8
+  %265 = getelementptr inbounds %struct.ieee802154_packet, ptr %264, i32 0, i32 2
+  %266 = load i32, ptr %265, align 8
+  %267 = icmp eq i32 %266, 0
+  br i1 %267, label %268, label %278
+
+268:                                              ; preds = %263
+  %269 = load ptr, ptr %19, align 8
+  %270 = getelementptr inbounds %struct.ieee802154_packet, ptr %269, i32 0, i32 3
+  %271 = load i32, ptr %270, align 4
+  %272 = icmp ne i32 %271, 0
+  br i1 %272, label %273, label %278
+
+273:                                              ; preds = %268
+  %274 = load ptr, ptr %19, align 8
+  %275 = getelementptr inbounds %struct.ieee802154_packet, ptr %274, i32 0, i32 14
+  store i32 0, ptr %275, align 8
+  %276 = load ptr, ptr %19, align 8
+  %277 = getelementptr inbounds %struct.ieee802154_packet, ptr %276, i32 0, i32 15
+  store i32 1, ptr %277, align 4
+  br label %298
+
+278:                                              ; preds = %268, %263
+  %279 = load ptr, ptr %19, align 8
+  %280 = getelementptr inbounds %struct.ieee802154_packet, ptr %279, i32 0, i32 2
+  %281 = load i32, ptr %280, align 8
+  %282 = icmp eq i32 %281, 0
+  br i1 %282, label %283, label %293
+
+283:                                              ; preds = %278
+  %284 = load ptr, ptr %19, align 8
+  %285 = getelementptr inbounds %struct.ieee802154_packet, ptr %284, i32 0, i32 3
+  %286 = load i32, ptr %285, align 4
+  %287 = icmp eq i32 %286, 0
+  br i1 %287, label %288, label %293
+
+288:                                              ; preds = %283
+  %289 = load ptr, ptr %19, align 8
+  %290 = getelementptr inbounds %struct.ieee802154_packet, ptr %289, i32 0, i32 14
+  store i32 0, ptr %290, align 8
+  %291 = load ptr, ptr %19, align 8
+  %292 = getelementptr inbounds %struct.ieee802154_packet, ptr %291, i32 0, i32 15
+  store i32 0, ptr %292, align 4
+  br label %297
+
+293:                                              ; preds = %283, %278
+  %294 = load ptr, ptr %9, align 8
+  %295 = load ptr, ptr %15, align 8
+  %296 = call ptr @expert_add_info(ptr noundef %294, ptr noundef %295, ptr noundef @ei_ieee802154_invalid_addressing)
+  store i32 0, ptr %7, align 4
+  br label %1246
+
+297:                                              ; preds = %288
+  br label %298
+
+298:                                              ; preds = %297, %273
+  br label %299
+
+299:                                              ; preds = %298, %258
   br label %300
 
-300:                                              ; preds = %299, %237
-  br label %644
+300:                                              ; preds = %299
+  br label %301
 
-301:                                              ; preds = %207
-  %302 = load ptr, ptr %19, align 8
-  %303 = getelementptr inbounds %struct.ieee802154_packet, ptr %302, i32 0, i32 0
-  %304 = load i32, ptr %303, align 8
-  %305 = icmp eq i32 %304, 2
-  br i1 %305, label %306, label %639
-
-306:                                              ; preds = %301
-  %307 = load ptr, ptr %19, align 8
-  %308 = getelementptr inbounds %struct.ieee802154_packet, ptr %307, i32 0, i32 1
-  %309 = load i32, ptr %308, align 4
-  %310 = icmp eq i32 %309, 0
-  br i1 %310, label %326, label %311
-
-311:                                              ; preds = %306
-  %312 = load ptr, ptr %19, align 8
-  %313 = getelementptr inbounds %struct.ieee802154_packet, ptr %312, i32 0, i32 1
-  %314 = load i32, ptr %313, align 4
-  %315 = icmp eq i32 %314, 1
-  br i1 %315, label %326, label %316
-
-316:                                              ; preds = %311
-  %317 = load ptr, ptr %19, align 8
-  %318 = getelementptr inbounds %struct.ieee802154_packet, ptr %317, i32 0, i32 1
-  %319 = load i32, ptr %318, align 4
-  %320 = icmp eq i32 %319, 2
-  br i1 %320, label %326, label %321
-
-321:                                              ; preds = %316
-  %322 = load ptr, ptr %19, align 8
-  %323 = getelementptr inbounds %struct.ieee802154_packet, ptr %322, i32 0, i32 1
-  %324 = load i32, ptr %323, align 4
-  %325 = icmp eq i32 %324, 3
-  br i1 %325, label %326, label %633
-
-326:                                              ; preds = %321, %316, %311, %306
-  %327 = load ptr, ptr %19, align 8
-  %328 = getelementptr inbounds %struct.ieee802154_packet, ptr %327, i32 0, i32 2
-  %329 = load i32, ptr %328, align 8
-  %330 = icmp eq i32 %329, 0
-  br i1 %330, label %331, label %346
-
-331:                                              ; preds = %326
-  %332 = load ptr, ptr %19, align 8
-  %333 = getelementptr inbounds %struct.ieee802154_packet, ptr %332, i32 0, i32 3
-  %334 = load i32, ptr %333, align 4
-  %335 = icmp eq i32 %334, 0
-  br i1 %335, label %336, label %346
-
-336:                                              ; preds = %331
-  %337 = load ptr, ptr %19, align 8
-  %338 = getelementptr inbounds %struct.ieee802154_packet, ptr %337, i32 0, i32 7
-  %339 = load i32, ptr %338, align 4
-  %340 = icmp eq i32 %339, 0
-  br i1 %340, label %341, label %346
-
-341:                                              ; preds = %336
-  %342 = load ptr, ptr %19, align 8
-  %343 = getelementptr inbounds %struct.ieee802154_packet, ptr %342, i32 0, i32 14
-  store i32 0, ptr %343, align 8
-  %344 = load ptr, ptr %19, align 8
-  %345 = getelementptr inbounds %struct.ieee802154_packet, ptr %344, i32 0, i32 15
-  store i32 0, ptr %345, align 4
-  br label %632
-
-346:                                              ; preds = %336, %331, %326
-  %347 = load ptr, ptr %19, align 8
-  %348 = getelementptr inbounds %struct.ieee802154_packet, ptr %347, i32 0, i32 2
-  %349 = load i32, ptr %348, align 8
-  %350 = icmp eq i32 %349, 0
-  br i1 %350, label %351, label %366
-
-351:                                              ; preds = %346
-  %352 = load ptr, ptr %19, align 8
-  %353 = getelementptr inbounds %struct.ieee802154_packet, ptr %352, i32 0, i32 3
-  %354 = load i32, ptr %353, align 4
-  %355 = icmp eq i32 %354, 0
-  br i1 %355, label %356, label %366
-
-356:                                              ; preds = %351
-  %357 = load ptr, ptr %19, align 8
-  %358 = getelementptr inbounds %struct.ieee802154_packet, ptr %357, i32 0, i32 7
-  %359 = load i32, ptr %358, align 4
-  %360 = icmp eq i32 %359, 1
-  br i1 %360, label %361, label %366
-
-361:                                              ; preds = %356
-  %362 = load ptr, ptr %19, align 8
-  %363 = getelementptr inbounds %struct.ieee802154_packet, ptr %362, i32 0, i32 14
-  store i32 1, ptr %363, align 8
-  %364 = load ptr, ptr %19, align 8
-  %365 = getelementptr inbounds %struct.ieee802154_packet, ptr %364, i32 0, i32 15
-  store i32 0, ptr %365, align 4
-  br label %631
-
-366:                                              ; preds = %356, %351, %346
-  %367 = load ptr, ptr %19, align 8
-  %368 = getelementptr inbounds %struct.ieee802154_packet, ptr %367, i32 0, i32 2
-  %369 = load i32, ptr %368, align 8
-  %370 = icmp ne i32 %369, 0
-  br i1 %370, label %371, label %386
-
-371:                                              ; preds = %366
-  %372 = load ptr, ptr %19, align 8
-  %373 = getelementptr inbounds %struct.ieee802154_packet, ptr %372, i32 0, i32 3
-  %374 = load i32, ptr %373, align 4
-  %375 = icmp eq i32 %374, 0
-  br i1 %375, label %376, label %386
-
-376:                                              ; preds = %371
-  %377 = load ptr, ptr %19, align 8
-  %378 = getelementptr inbounds %struct.ieee802154_packet, ptr %377, i32 0, i32 7
-  %379 = load i32, ptr %378, align 4
-  %380 = icmp eq i32 %379, 0
-  br i1 %380, label %381, label %386
-
-381:                                              ; preds = %376
-  %382 = load ptr, ptr %19, align 8
-  %383 = getelementptr inbounds %struct.ieee802154_packet, ptr %382, i32 0, i32 14
-  store i32 1, ptr %383, align 8
-  %384 = load ptr, ptr %19, align 8
-  %385 = getelementptr inbounds %struct.ieee802154_packet, ptr %384, i32 0, i32 15
-  store i32 0, ptr %385, align 4
-  br label %630
-
-386:                                              ; preds = %376, %371, %366
-  %387 = load ptr, ptr %19, align 8
-  %388 = getelementptr inbounds %struct.ieee802154_packet, ptr %387, i32 0, i32 2
-  %389 = load i32, ptr %388, align 8
-  %390 = icmp ne i32 %389, 0
-  br i1 %390, label %391, label %406
-
-391:                                              ; preds = %386
-  %392 = load ptr, ptr %19, align 8
-  %393 = getelementptr inbounds %struct.ieee802154_packet, ptr %392, i32 0, i32 3
-  %394 = load i32, ptr %393, align 4
-  %395 = icmp eq i32 %394, 0
-  br i1 %395, label %396, label %406
-
-396:                                              ; preds = %391
-  %397 = load ptr, ptr %19, align 8
-  %398 = getelementptr inbounds %struct.ieee802154_packet, ptr %397, i32 0, i32 7
-  %399 = load i32, ptr %398, align 4
-  %400 = icmp eq i32 %399, 1
-  br i1 %400, label %401, label %406
-
-401:                                              ; preds = %396
-  %402 = load ptr, ptr %19, align 8
-  %403 = getelementptr inbounds %struct.ieee802154_packet, ptr %402, i32 0, i32 14
-  store i32 0, ptr %403, align 8
-  %404 = load ptr, ptr %19, align 8
-  %405 = getelementptr inbounds %struct.ieee802154_packet, ptr %404, i32 0, i32 15
-  store i32 0, ptr %405, align 4
-  br label %629
-
-406:                                              ; preds = %396, %391, %386
-  %407 = load ptr, ptr %19, align 8
-  %408 = getelementptr inbounds %struct.ieee802154_packet, ptr %407, i32 0, i32 2
-  %409 = load i32, ptr %408, align 8
-  %410 = icmp eq i32 %409, 0
-  br i1 %410, label %411, label %426
-
-411:                                              ; preds = %406
-  %412 = load ptr, ptr %19, align 8
-  %413 = getelementptr inbounds %struct.ieee802154_packet, ptr %412, i32 0, i32 3
-  %414 = load i32, ptr %413, align 4
-  %415 = icmp ne i32 %414, 0
-  br i1 %415, label %416, label %426
-
-416:                                              ; preds = %411
-  %417 = load ptr, ptr %19, align 8
-  %418 = getelementptr inbounds %struct.ieee802154_packet, ptr %417, i32 0, i32 7
-  %419 = load i32, ptr %418, align 4
-  %420 = icmp eq i32 %419, 0
-  br i1 %420, label %421, label %426
-
-421:                                              ; preds = %416
-  %422 = load ptr, ptr %19, align 8
-  %423 = getelementptr inbounds %struct.ieee802154_packet, ptr %422, i32 0, i32 14
-  store i32 0, ptr %423, align 8
-  %424 = load ptr, ptr %19, align 8
-  %425 = getelementptr inbounds %struct.ieee802154_packet, ptr %424, i32 0, i32 15
-  store i32 1, ptr %425, align 4
-  br label %628
-
-426:                                              ; preds = %416, %411, %406
-  %427 = load ptr, ptr %19, align 8
-  %428 = getelementptr inbounds %struct.ieee802154_packet, ptr %427, i32 0, i32 2
-  %429 = load i32, ptr %428, align 8
-  %430 = icmp eq i32 %429, 0
-  br i1 %430, label %431, label %446
-
-431:                                              ; preds = %426
-  %432 = load ptr, ptr %19, align 8
-  %433 = getelementptr inbounds %struct.ieee802154_packet, ptr %432, i32 0, i32 3
-  %434 = load i32, ptr %433, align 4
-  %435 = icmp ne i32 %434, 0
-  br i1 %435, label %436, label %446
-
-436:                                              ; preds = %431
-  %437 = load ptr, ptr %19, align 8
-  %438 = getelementptr inbounds %struct.ieee802154_packet, ptr %437, i32 0, i32 7
-  %439 = load i32, ptr %438, align 4
-  %440 = icmp eq i32 %439, 1
-  br i1 %440, label %441, label %446
-
-441:                                              ; preds = %436
-  %442 = load ptr, ptr %19, align 8
-  %443 = getelementptr inbounds %struct.ieee802154_packet, ptr %442, i32 0, i32 14
-  store i32 0, ptr %443, align 8
-  %444 = load ptr, ptr %19, align 8
-  %445 = getelementptr inbounds %struct.ieee802154_packet, ptr %444, i32 0, i32 15
-  store i32 0, ptr %445, align 4
-  br label %627
-
-446:                                              ; preds = %436, %431, %426
-  %447 = load ptr, ptr %19, align 8
-  %448 = getelementptr inbounds %struct.ieee802154_packet, ptr %447, i32 0, i32 2
-  %449 = load i32, ptr %448, align 8
-  %450 = icmp eq i32 %449, 3
-  br i1 %450, label %451, label %466
-
-451:                                              ; preds = %446
-  %452 = load ptr, ptr %19, align 8
-  %453 = getelementptr inbounds %struct.ieee802154_packet, ptr %452, i32 0, i32 3
-  %454 = load i32, ptr %453, align 4
-  %455 = icmp eq i32 %454, 3
-  br i1 %455, label %456, label %466
-
-456:                                              ; preds = %451
-  %457 = load ptr, ptr %19, align 8
-  %458 = getelementptr inbounds %struct.ieee802154_packet, ptr %457, i32 0, i32 7
-  %459 = load i32, ptr %458, align 4
-  %460 = icmp eq i32 %459, 0
-  br i1 %460, label %461, label %466
-
-461:                                              ; preds = %456
-  %462 = load ptr, ptr %19, align 8
-  %463 = getelementptr inbounds %struct.ieee802154_packet, ptr %462, i32 0, i32 14
-  store i32 1, ptr %463, align 8
-  %464 = load ptr, ptr %19, align 8
-  %465 = getelementptr inbounds %struct.ieee802154_packet, ptr %464, i32 0, i32 15
-  store i32 0, ptr %465, align 4
-  br label %626
-
-466:                                              ; preds = %456, %451, %446
-  %467 = load ptr, ptr %19, align 8
-  %468 = getelementptr inbounds %struct.ieee802154_packet, ptr %467, i32 0, i32 2
-  %469 = load i32, ptr %468, align 8
-  %470 = icmp eq i32 %469, 3
-  br i1 %470, label %471, label %486
-
-471:                                              ; preds = %466
-  %472 = load ptr, ptr %19, align 8
-  %473 = getelementptr inbounds %struct.ieee802154_packet, ptr %472, i32 0, i32 3
-  %474 = load i32, ptr %473, align 4
-  %475 = icmp eq i32 %474, 3
-  br i1 %475, label %476, label %486
-
-476:                                              ; preds = %471
-  %477 = load ptr, ptr %19, align 8
-  %478 = getelementptr inbounds %struct.ieee802154_packet, ptr %477, i32 0, i32 7
-  %479 = load i32, ptr %478, align 4
-  %480 = icmp eq i32 %479, 1
-  br i1 %480, label %481, label %486
-
-481:                                              ; preds = %476
-  %482 = load ptr, ptr %19, align 8
-  %483 = getelementptr inbounds %struct.ieee802154_packet, ptr %482, i32 0, i32 14
-  store i32 0, ptr %483, align 8
-  %484 = load ptr, ptr %19, align 8
-  %485 = getelementptr inbounds %struct.ieee802154_packet, ptr %484, i32 0, i32 15
-  store i32 0, ptr %485, align 4
-  br label %625
-
-486:                                              ; preds = %476, %471, %466
-  %487 = load ptr, ptr %19, align 8
-  %488 = getelementptr inbounds %struct.ieee802154_packet, ptr %487, i32 0, i32 2
-  %489 = load i32, ptr %488, align 8
-  %490 = icmp eq i32 %489, 2
-  br i1 %490, label %491, label %509
-
-491:                                              ; preds = %486
-  %492 = load ptr, ptr %19, align 8
-  %493 = getelementptr inbounds %struct.ieee802154_packet, ptr %492, i32 0, i32 3
-  %494 = load i32, ptr %493, align 4
-  %495 = icmp eq i32 %494, 2
-  br i1 %495, label %496, label %509
-
-496:                                              ; preds = %491
-  %497 = load ptr, ptr %19, align 8
-  %498 = getelementptr inbounds %struct.ieee802154_packet, ptr %497, i32 0, i32 7
-  %499 = load i32, ptr %498, align 4
-  %500 = icmp eq i32 %499, 0
-  br i1 %500, label %501, label %509
-
-501:                                              ; preds = %496
-  %502 = load ptr, ptr %19, align 8
-  %503 = getelementptr inbounds %struct.ieee802154_packet, ptr %502, i32 0, i32 14
-  store i32 1, ptr %503, align 8
-  %504 = load i32, ptr @ieee802154e_compatibility, align 4
-  %505 = icmp ne i32 %504, 0
-  %506 = select i1 %505, i32 0, i32 1
-  %507 = load ptr, ptr %19, align 8
-  %508 = getelementptr inbounds %struct.ieee802154_packet, ptr %507, i32 0, i32 15
-  store i32 %506, ptr %508, align 4
-  br label %624
-
-509:                                              ; preds = %496, %491, %486
-  %510 = load ptr, ptr %19, align 8
-  %511 = getelementptr inbounds %struct.ieee802154_packet, ptr %510, i32 0, i32 2
-  %512 = load i32, ptr %511, align 8
-  %513 = icmp eq i32 %512, 2
-  br i1 %513, label %514, label %532
-
-514:                                              ; preds = %509
-  %515 = load ptr, ptr %19, align 8
-  %516 = getelementptr inbounds %struct.ieee802154_packet, ptr %515, i32 0, i32 3
-  %517 = load i32, ptr %516, align 4
-  %518 = icmp eq i32 %517, 3
-  br i1 %518, label %519, label %532
-
-519:                                              ; preds = %514
-  %520 = load ptr, ptr %19, align 8
-  %521 = getelementptr inbounds %struct.ieee802154_packet, ptr %520, i32 0, i32 7
-  %522 = load i32, ptr %521, align 4
-  %523 = icmp eq i32 %522, 0
-  br i1 %523, label %524, label %532
-
-524:                                              ; preds = %519
-  %525 = load ptr, ptr %19, align 8
-  %526 = getelementptr inbounds %struct.ieee802154_packet, ptr %525, i32 0, i32 14
-  store i32 1, ptr %526, align 8
-  %527 = load i32, ptr @ieee802154e_compatibility, align 4
-  %528 = icmp ne i32 %527, 0
-  %529 = select i1 %528, i32 0, i32 1
-  %530 = load ptr, ptr %19, align 8
-  %531 = getelementptr inbounds %struct.ieee802154_packet, ptr %530, i32 0, i32 15
-  store i32 %529, ptr %531, align 4
-  br label %623
-
-532:                                              ; preds = %519, %514, %509
-  %533 = load ptr, ptr %19, align 8
-  %534 = getelementptr inbounds %struct.ieee802154_packet, ptr %533, i32 0, i32 2
-  %535 = load i32, ptr %534, align 8
-  %536 = icmp eq i32 %535, 3
-  br i1 %536, label %537, label %555
-
-537:                                              ; preds = %532
-  %538 = load ptr, ptr %19, align 8
-  %539 = getelementptr inbounds %struct.ieee802154_packet, ptr %538, i32 0, i32 3
-  %540 = load i32, ptr %539, align 4
-  %541 = icmp eq i32 %540, 2
-  br i1 %541, label %542, label %555
-
-542:                                              ; preds = %537
-  %543 = load ptr, ptr %19, align 8
-  %544 = getelementptr inbounds %struct.ieee802154_packet, ptr %543, i32 0, i32 7
-  %545 = load i32, ptr %544, align 4
-  %546 = icmp eq i32 %545, 0
-  br i1 %546, label %547, label %555
-
-547:                                              ; preds = %542
-  %548 = load ptr, ptr %19, align 8
-  %549 = getelementptr inbounds %struct.ieee802154_packet, ptr %548, i32 0, i32 14
-  store i32 1, ptr %549, align 8
-  %550 = load i32, ptr @ieee802154e_compatibility, align 4
-  %551 = icmp ne i32 %550, 0
-  %552 = select i1 %551, i32 0, i32 1
-  %553 = load ptr, ptr %19, align 8
-  %554 = getelementptr inbounds %struct.ieee802154_packet, ptr %553, i32 0, i32 15
-  store i32 %552, ptr %554, align 4
-  br label %622
-
-555:                                              ; preds = %542, %537, %532
-  %556 = load ptr, ptr %19, align 8
-  %557 = getelementptr inbounds %struct.ieee802154_packet, ptr %556, i32 0, i32 2
-  %558 = load i32, ptr %557, align 8
-  %559 = icmp eq i32 %558, 2
-  br i1 %559, label %560, label %575
-
-560:                                              ; preds = %555
-  %561 = load ptr, ptr %19, align 8
-  %562 = getelementptr inbounds %struct.ieee802154_packet, ptr %561, i32 0, i32 3
-  %563 = load i32, ptr %562, align 4
-  %564 = icmp eq i32 %563, 3
-  br i1 %564, label %565, label %575
-
-565:                                              ; preds = %560
-  %566 = load ptr, ptr %19, align 8
-  %567 = getelementptr inbounds %struct.ieee802154_packet, ptr %566, i32 0, i32 7
-  %568 = load i32, ptr %567, align 4
-  %569 = icmp eq i32 %568, 1
-  br i1 %569, label %570, label %575
-
-570:                                              ; preds = %565
-  %571 = load ptr, ptr %19, align 8
-  %572 = getelementptr inbounds %struct.ieee802154_packet, ptr %571, i32 0, i32 14
-  store i32 1, ptr %572, align 8
-  %573 = load ptr, ptr %19, align 8
-  %574 = getelementptr inbounds %struct.ieee802154_packet, ptr %573, i32 0, i32 15
-  store i32 0, ptr %574, align 4
-  br label %621
-
-575:                                              ; preds = %565, %560, %555
-  %576 = load ptr, ptr %19, align 8
-  %577 = getelementptr inbounds %struct.ieee802154_packet, ptr %576, i32 0, i32 2
-  %578 = load i32, ptr %577, align 8
-  %579 = icmp eq i32 %578, 3
-  br i1 %579, label %580, label %595
-
-580:                                              ; preds = %575
-  %581 = load ptr, ptr %19, align 8
-  %582 = getelementptr inbounds %struct.ieee802154_packet, ptr %581, i32 0, i32 3
-  %583 = load i32, ptr %582, align 4
-  %584 = icmp eq i32 %583, 2
-  br i1 %584, label %585, label %595
-
-585:                                              ; preds = %580
-  %586 = load ptr, ptr %19, align 8
-  %587 = getelementptr inbounds %struct.ieee802154_packet, ptr %586, i32 0, i32 7
-  %588 = load i32, ptr %587, align 4
-  %589 = icmp eq i32 %588, 1
-  br i1 %589, label %590, label %595
-
-590:                                              ; preds = %585
-  %591 = load ptr, ptr %19, align 8
-  %592 = getelementptr inbounds %struct.ieee802154_packet, ptr %591, i32 0, i32 14
-  store i32 1, ptr %592, align 8
-  %593 = load ptr, ptr %19, align 8
-  %594 = getelementptr inbounds %struct.ieee802154_packet, ptr %593, i32 0, i32 15
-  store i32 0, ptr %594, align 4
-  br label %620
-
-595:                                              ; preds = %585, %580, %575
-  %596 = load ptr, ptr %19, align 8
-  %597 = getelementptr inbounds %struct.ieee802154_packet, ptr %596, i32 0, i32 2
-  %598 = load i32, ptr %597, align 8
-  %599 = icmp eq i32 %598, 2
-  br i1 %599, label %600, label %615
-
-600:                                              ; preds = %595
-  %601 = load ptr, ptr %19, align 8
-  %602 = getelementptr inbounds %struct.ieee802154_packet, ptr %601, i32 0, i32 3
-  %603 = load i32, ptr %602, align 4
-  %604 = icmp eq i32 %603, 2
-  br i1 %604, label %605, label %615
-
-605:                                              ; preds = %600
-  %606 = load ptr, ptr %19, align 8
-  %607 = getelementptr inbounds %struct.ieee802154_packet, ptr %606, i32 0, i32 7
-  %608 = load i32, ptr %607, align 4
-  %609 = icmp eq i32 %608, 1
-  br i1 %609, label %610, label %615
-
-610:                                              ; preds = %605
-  %611 = load ptr, ptr %19, align 8
-  %612 = getelementptr inbounds %struct.ieee802154_packet, ptr %611, i32 0, i32 14
-  store i32 1, ptr %612, align 8
-  %613 = load ptr, ptr %19, align 8
-  %614 = getelementptr inbounds %struct.ieee802154_packet, ptr %613, i32 0, i32 15
-  store i32 0, ptr %614, align 4
-  br label %619
-
-615:                                              ; preds = %605, %600, %595
-  %616 = load ptr, ptr %9, align 8
-  %617 = load ptr, ptr %15, align 8
-  %618 = call ptr @expert_add_info(ptr noundef %616, ptr noundef %617, ptr noundef @ei_ieee802154_invalid_panid_compression2)
-  store i32 0, ptr %7, align 4
-  br label %1244
-
-619:                                              ; preds = %610
-  br label %620
-
-620:                                              ; preds = %619, %590
-  br label %621
-
-621:                                              ; preds = %620, %570
-  br label %622
-
-622:                                              ; preds = %621, %547
-  br label %623
-
-623:                                              ; preds = %622, %524
-  br label %624
-
-624:                                              ; preds = %623, %501
-  br label %625
-
-625:                                              ; preds = %624, %481
-  br label %626
-
-626:                                              ; preds = %625, %461
-  br label %627
-
-627:                                              ; preds = %626, %441
-  br label %628
-
-628:                                              ; preds = %627, %421
-  br label %629
-
-629:                                              ; preds = %628, %401
-  br label %630
-
-630:                                              ; preds = %629, %381
-  br label %631
-
-631:                                              ; preds = %630, %361
-  br label %632
-
-632:                                              ; preds = %631, %341
-  br label %638
-
-633:                                              ; preds = %321
-  %634 = load ptr, ptr %19, align 8
-  %635 = getelementptr inbounds %struct.ieee802154_packet, ptr %634, i32 0, i32 14
-  store i32 0, ptr %635, align 8
-  %636 = load ptr, ptr %19, align 8
-  %637 = getelementptr inbounds %struct.ieee802154_packet, ptr %636, i32 0, i32 15
-  store i32 0, ptr %637, align 4
-  br label %638
-
-638:                                              ; preds = %633, %632
-  br label %643
-
-639:                                              ; preds = %301
-  %640 = load ptr, ptr %9, align 8
-  %641 = load ptr, ptr %15, align 8
-  %642 = call ptr @expert_add_info(ptr noundef %640, ptr noundef %641, ptr noundef @ei_ieee802154_frame_ver)
-  store i32 0, ptr %7, align 4
-  br label %1244
-
-643:                                              ; preds = %638
-  br label %644
-
-644:                                              ; preds = %643, %300
+301:                                              ; preds = %300, %238
   br label %645
 
-645:                                              ; preds = %644
+302:                                              ; preds = %208
+  %303 = load ptr, ptr %19, align 8
+  %304 = getelementptr inbounds %struct.ieee802154_packet, ptr %303, i32 0, i32 0
+  %305 = load i32, ptr %304, align 8
+  %306 = icmp eq i32 %305, 2
+  br i1 %306, label %307, label %640
+
+307:                                              ; preds = %302
+  %308 = load ptr, ptr %19, align 8
+  %309 = getelementptr inbounds %struct.ieee802154_packet, ptr %308, i32 0, i32 1
+  %310 = load i32, ptr %309, align 4
+  %311 = icmp eq i32 %310, 0
+  br i1 %311, label %327, label %312
+
+312:                                              ; preds = %307
+  %313 = load ptr, ptr %19, align 8
+  %314 = getelementptr inbounds %struct.ieee802154_packet, ptr %313, i32 0, i32 1
+  %315 = load i32, ptr %314, align 4
+  %316 = icmp eq i32 %315, 1
+  br i1 %316, label %327, label %317
+
+317:                                              ; preds = %312
+  %318 = load ptr, ptr %19, align 8
+  %319 = getelementptr inbounds %struct.ieee802154_packet, ptr %318, i32 0, i32 1
+  %320 = load i32, ptr %319, align 4
+  %321 = icmp eq i32 %320, 2
+  br i1 %321, label %327, label %322
+
+322:                                              ; preds = %317
+  %323 = load ptr, ptr %19, align 8
+  %324 = getelementptr inbounds %struct.ieee802154_packet, ptr %323, i32 0, i32 1
+  %325 = load i32, ptr %324, align 4
+  %326 = icmp eq i32 %325, 3
+  br i1 %326, label %327, label %634
+
+327:                                              ; preds = %322, %317, %312, %307
+  %328 = load ptr, ptr %19, align 8
+  %329 = getelementptr inbounds %struct.ieee802154_packet, ptr %328, i32 0, i32 2
+  %330 = load i32, ptr %329, align 8
+  %331 = icmp eq i32 %330, 0
+  br i1 %331, label %332, label %347
+
+332:                                              ; preds = %327
+  %333 = load ptr, ptr %19, align 8
+  %334 = getelementptr inbounds %struct.ieee802154_packet, ptr %333, i32 0, i32 3
+  %335 = load i32, ptr %334, align 4
+  %336 = icmp eq i32 %335, 0
+  br i1 %336, label %337, label %347
+
+337:                                              ; preds = %332
+  %338 = load ptr, ptr %19, align 8
+  %339 = getelementptr inbounds %struct.ieee802154_packet, ptr %338, i32 0, i32 7
+  %340 = load i32, ptr %339, align 4
+  %341 = icmp eq i32 %340, 0
+  br i1 %341, label %342, label %347
+
+342:                                              ; preds = %337
+  %343 = load ptr, ptr %19, align 8
+  %344 = getelementptr inbounds %struct.ieee802154_packet, ptr %343, i32 0, i32 14
+  store i32 0, ptr %344, align 8
+  %345 = load ptr, ptr %19, align 8
+  %346 = getelementptr inbounds %struct.ieee802154_packet, ptr %345, i32 0, i32 15
+  store i32 0, ptr %346, align 4
+  br label %633
+
+347:                                              ; preds = %337, %332, %327
+  %348 = load ptr, ptr %19, align 8
+  %349 = getelementptr inbounds %struct.ieee802154_packet, ptr %348, i32 0, i32 2
+  %350 = load i32, ptr %349, align 8
+  %351 = icmp eq i32 %350, 0
+  br i1 %351, label %352, label %367
+
+352:                                              ; preds = %347
+  %353 = load ptr, ptr %19, align 8
+  %354 = getelementptr inbounds %struct.ieee802154_packet, ptr %353, i32 0, i32 3
+  %355 = load i32, ptr %354, align 4
+  %356 = icmp eq i32 %355, 0
+  br i1 %356, label %357, label %367
+
+357:                                              ; preds = %352
+  %358 = load ptr, ptr %19, align 8
+  %359 = getelementptr inbounds %struct.ieee802154_packet, ptr %358, i32 0, i32 7
+  %360 = load i32, ptr %359, align 4
+  %361 = icmp eq i32 %360, 1
+  br i1 %361, label %362, label %367
+
+362:                                              ; preds = %357
+  %363 = load ptr, ptr %19, align 8
+  %364 = getelementptr inbounds %struct.ieee802154_packet, ptr %363, i32 0, i32 14
+  store i32 1, ptr %364, align 8
+  %365 = load ptr, ptr %19, align 8
+  %366 = getelementptr inbounds %struct.ieee802154_packet, ptr %365, i32 0, i32 15
+  store i32 0, ptr %366, align 4
+  br label %632
+
+367:                                              ; preds = %357, %352, %347
+  %368 = load ptr, ptr %19, align 8
+  %369 = getelementptr inbounds %struct.ieee802154_packet, ptr %368, i32 0, i32 2
+  %370 = load i32, ptr %369, align 8
+  %371 = icmp ne i32 %370, 0
+  br i1 %371, label %372, label %387
+
+372:                                              ; preds = %367
+  %373 = load ptr, ptr %19, align 8
+  %374 = getelementptr inbounds %struct.ieee802154_packet, ptr %373, i32 0, i32 3
+  %375 = load i32, ptr %374, align 4
+  %376 = icmp eq i32 %375, 0
+  br i1 %376, label %377, label %387
+
+377:                                              ; preds = %372
+  %378 = load ptr, ptr %19, align 8
+  %379 = getelementptr inbounds %struct.ieee802154_packet, ptr %378, i32 0, i32 7
+  %380 = load i32, ptr %379, align 4
+  %381 = icmp eq i32 %380, 0
+  br i1 %381, label %382, label %387
+
+382:                                              ; preds = %377
+  %383 = load ptr, ptr %19, align 8
+  %384 = getelementptr inbounds %struct.ieee802154_packet, ptr %383, i32 0, i32 14
+  store i32 1, ptr %384, align 8
+  %385 = load ptr, ptr %19, align 8
+  %386 = getelementptr inbounds %struct.ieee802154_packet, ptr %385, i32 0, i32 15
+  store i32 0, ptr %386, align 4
+  br label %631
+
+387:                                              ; preds = %377, %372, %367
+  %388 = load ptr, ptr %19, align 8
+  %389 = getelementptr inbounds %struct.ieee802154_packet, ptr %388, i32 0, i32 2
+  %390 = load i32, ptr %389, align 8
+  %391 = icmp ne i32 %390, 0
+  br i1 %391, label %392, label %407
+
+392:                                              ; preds = %387
+  %393 = load ptr, ptr %19, align 8
+  %394 = getelementptr inbounds %struct.ieee802154_packet, ptr %393, i32 0, i32 3
+  %395 = load i32, ptr %394, align 4
+  %396 = icmp eq i32 %395, 0
+  br i1 %396, label %397, label %407
+
+397:                                              ; preds = %392
+  %398 = load ptr, ptr %19, align 8
+  %399 = getelementptr inbounds %struct.ieee802154_packet, ptr %398, i32 0, i32 7
+  %400 = load i32, ptr %399, align 4
+  %401 = icmp eq i32 %400, 1
+  br i1 %401, label %402, label %407
+
+402:                                              ; preds = %397
+  %403 = load ptr, ptr %19, align 8
+  %404 = getelementptr inbounds %struct.ieee802154_packet, ptr %403, i32 0, i32 14
+  store i32 0, ptr %404, align 8
+  %405 = load ptr, ptr %19, align 8
+  %406 = getelementptr inbounds %struct.ieee802154_packet, ptr %405, i32 0, i32 15
+  store i32 0, ptr %406, align 4
+  br label %630
+
+407:                                              ; preds = %397, %392, %387
+  %408 = load ptr, ptr %19, align 8
+  %409 = getelementptr inbounds %struct.ieee802154_packet, ptr %408, i32 0, i32 2
+  %410 = load i32, ptr %409, align 8
+  %411 = icmp eq i32 %410, 0
+  br i1 %411, label %412, label %427
+
+412:                                              ; preds = %407
+  %413 = load ptr, ptr %19, align 8
+  %414 = getelementptr inbounds %struct.ieee802154_packet, ptr %413, i32 0, i32 3
+  %415 = load i32, ptr %414, align 4
+  %416 = icmp ne i32 %415, 0
+  br i1 %416, label %417, label %427
+
+417:                                              ; preds = %412
+  %418 = load ptr, ptr %19, align 8
+  %419 = getelementptr inbounds %struct.ieee802154_packet, ptr %418, i32 0, i32 7
+  %420 = load i32, ptr %419, align 4
+  %421 = icmp eq i32 %420, 0
+  br i1 %421, label %422, label %427
+
+422:                                              ; preds = %417
+  %423 = load ptr, ptr %19, align 8
+  %424 = getelementptr inbounds %struct.ieee802154_packet, ptr %423, i32 0, i32 14
+  store i32 0, ptr %424, align 8
+  %425 = load ptr, ptr %19, align 8
+  %426 = getelementptr inbounds %struct.ieee802154_packet, ptr %425, i32 0, i32 15
+  store i32 1, ptr %426, align 4
+  br label %629
+
+427:                                              ; preds = %417, %412, %407
+  %428 = load ptr, ptr %19, align 8
+  %429 = getelementptr inbounds %struct.ieee802154_packet, ptr %428, i32 0, i32 2
+  %430 = load i32, ptr %429, align 8
+  %431 = icmp eq i32 %430, 0
+  br i1 %431, label %432, label %447
+
+432:                                              ; preds = %427
+  %433 = load ptr, ptr %19, align 8
+  %434 = getelementptr inbounds %struct.ieee802154_packet, ptr %433, i32 0, i32 3
+  %435 = load i32, ptr %434, align 4
+  %436 = icmp ne i32 %435, 0
+  br i1 %436, label %437, label %447
+
+437:                                              ; preds = %432
+  %438 = load ptr, ptr %19, align 8
+  %439 = getelementptr inbounds %struct.ieee802154_packet, ptr %438, i32 0, i32 7
+  %440 = load i32, ptr %439, align 4
+  %441 = icmp eq i32 %440, 1
+  br i1 %441, label %442, label %447
+
+442:                                              ; preds = %437
+  %443 = load ptr, ptr %19, align 8
+  %444 = getelementptr inbounds %struct.ieee802154_packet, ptr %443, i32 0, i32 14
+  store i32 0, ptr %444, align 8
+  %445 = load ptr, ptr %19, align 8
+  %446 = getelementptr inbounds %struct.ieee802154_packet, ptr %445, i32 0, i32 15
+  store i32 0, ptr %446, align 4
+  br label %628
+
+447:                                              ; preds = %437, %432, %427
+  %448 = load ptr, ptr %19, align 8
+  %449 = getelementptr inbounds %struct.ieee802154_packet, ptr %448, i32 0, i32 2
+  %450 = load i32, ptr %449, align 8
+  %451 = icmp eq i32 %450, 3
+  br i1 %451, label %452, label %467
+
+452:                                              ; preds = %447
+  %453 = load ptr, ptr %19, align 8
+  %454 = getelementptr inbounds %struct.ieee802154_packet, ptr %453, i32 0, i32 3
+  %455 = load i32, ptr %454, align 4
+  %456 = icmp eq i32 %455, 3
+  br i1 %456, label %457, label %467
+
+457:                                              ; preds = %452
+  %458 = load ptr, ptr %19, align 8
+  %459 = getelementptr inbounds %struct.ieee802154_packet, ptr %458, i32 0, i32 7
+  %460 = load i32, ptr %459, align 4
+  %461 = icmp eq i32 %460, 0
+  br i1 %461, label %462, label %467
+
+462:                                              ; preds = %457
+  %463 = load ptr, ptr %19, align 8
+  %464 = getelementptr inbounds %struct.ieee802154_packet, ptr %463, i32 0, i32 14
+  store i32 1, ptr %464, align 8
+  %465 = load ptr, ptr %19, align 8
+  %466 = getelementptr inbounds %struct.ieee802154_packet, ptr %465, i32 0, i32 15
+  store i32 0, ptr %466, align 4
+  br label %627
+
+467:                                              ; preds = %457, %452, %447
+  %468 = load ptr, ptr %19, align 8
+  %469 = getelementptr inbounds %struct.ieee802154_packet, ptr %468, i32 0, i32 2
+  %470 = load i32, ptr %469, align 8
+  %471 = icmp eq i32 %470, 3
+  br i1 %471, label %472, label %487
+
+472:                                              ; preds = %467
+  %473 = load ptr, ptr %19, align 8
+  %474 = getelementptr inbounds %struct.ieee802154_packet, ptr %473, i32 0, i32 3
+  %475 = load i32, ptr %474, align 4
+  %476 = icmp eq i32 %475, 3
+  br i1 %476, label %477, label %487
+
+477:                                              ; preds = %472
+  %478 = load ptr, ptr %19, align 8
+  %479 = getelementptr inbounds %struct.ieee802154_packet, ptr %478, i32 0, i32 7
+  %480 = load i32, ptr %479, align 4
+  %481 = icmp eq i32 %480, 1
+  br i1 %481, label %482, label %487
+
+482:                                              ; preds = %477
+  %483 = load ptr, ptr %19, align 8
+  %484 = getelementptr inbounds %struct.ieee802154_packet, ptr %483, i32 0, i32 14
+  store i32 0, ptr %484, align 8
+  %485 = load ptr, ptr %19, align 8
+  %486 = getelementptr inbounds %struct.ieee802154_packet, ptr %485, i32 0, i32 15
+  store i32 0, ptr %486, align 4
+  br label %626
+
+487:                                              ; preds = %477, %472, %467
+  %488 = load ptr, ptr %19, align 8
+  %489 = getelementptr inbounds %struct.ieee802154_packet, ptr %488, i32 0, i32 2
+  %490 = load i32, ptr %489, align 8
+  %491 = icmp eq i32 %490, 2
+  br i1 %491, label %492, label %510
+
+492:                                              ; preds = %487
+  %493 = load ptr, ptr %19, align 8
+  %494 = getelementptr inbounds %struct.ieee802154_packet, ptr %493, i32 0, i32 3
+  %495 = load i32, ptr %494, align 4
+  %496 = icmp eq i32 %495, 2
+  br i1 %496, label %497, label %510
+
+497:                                              ; preds = %492
+  %498 = load ptr, ptr %19, align 8
+  %499 = getelementptr inbounds %struct.ieee802154_packet, ptr %498, i32 0, i32 7
+  %500 = load i32, ptr %499, align 4
+  %501 = icmp eq i32 %500, 0
+  br i1 %501, label %502, label %510
+
+502:                                              ; preds = %497
+  %503 = load ptr, ptr %19, align 8
+  %504 = getelementptr inbounds %struct.ieee802154_packet, ptr %503, i32 0, i32 14
+  store i32 1, ptr %504, align 8
+  %505 = load i32, ptr @ieee802154e_compatibility, align 4
+  %506 = icmp ne i32 %505, 0
+  %507 = select i1 %506, i32 0, i32 1
+  %508 = load ptr, ptr %19, align 8
+  %509 = getelementptr inbounds %struct.ieee802154_packet, ptr %508, i32 0, i32 15
+  store i32 %507, ptr %509, align 4
+  br label %625
+
+510:                                              ; preds = %497, %492, %487
+  %511 = load ptr, ptr %19, align 8
+  %512 = getelementptr inbounds %struct.ieee802154_packet, ptr %511, i32 0, i32 2
+  %513 = load i32, ptr %512, align 8
+  %514 = icmp eq i32 %513, 2
+  br i1 %514, label %515, label %533
+
+515:                                              ; preds = %510
+  %516 = load ptr, ptr %19, align 8
+  %517 = getelementptr inbounds %struct.ieee802154_packet, ptr %516, i32 0, i32 3
+  %518 = load i32, ptr %517, align 4
+  %519 = icmp eq i32 %518, 3
+  br i1 %519, label %520, label %533
+
+520:                                              ; preds = %515
+  %521 = load ptr, ptr %19, align 8
+  %522 = getelementptr inbounds %struct.ieee802154_packet, ptr %521, i32 0, i32 7
+  %523 = load i32, ptr %522, align 4
+  %524 = icmp eq i32 %523, 0
+  br i1 %524, label %525, label %533
+
+525:                                              ; preds = %520
+  %526 = load ptr, ptr %19, align 8
+  %527 = getelementptr inbounds %struct.ieee802154_packet, ptr %526, i32 0, i32 14
+  store i32 1, ptr %527, align 8
+  %528 = load i32, ptr @ieee802154e_compatibility, align 4
+  %529 = icmp ne i32 %528, 0
+  %530 = select i1 %529, i32 0, i32 1
+  %531 = load ptr, ptr %19, align 8
+  %532 = getelementptr inbounds %struct.ieee802154_packet, ptr %531, i32 0, i32 15
+  store i32 %530, ptr %532, align 4
+  br label %624
+
+533:                                              ; preds = %520, %515, %510
+  %534 = load ptr, ptr %19, align 8
+  %535 = getelementptr inbounds %struct.ieee802154_packet, ptr %534, i32 0, i32 2
+  %536 = load i32, ptr %535, align 8
+  %537 = icmp eq i32 %536, 3
+  br i1 %537, label %538, label %556
+
+538:                                              ; preds = %533
+  %539 = load ptr, ptr %19, align 8
+  %540 = getelementptr inbounds %struct.ieee802154_packet, ptr %539, i32 0, i32 3
+  %541 = load i32, ptr %540, align 4
+  %542 = icmp eq i32 %541, 2
+  br i1 %542, label %543, label %556
+
+543:                                              ; preds = %538
+  %544 = load ptr, ptr %19, align 8
+  %545 = getelementptr inbounds %struct.ieee802154_packet, ptr %544, i32 0, i32 7
+  %546 = load i32, ptr %545, align 4
+  %547 = icmp eq i32 %546, 0
+  br i1 %547, label %548, label %556
+
+548:                                              ; preds = %543
+  %549 = load ptr, ptr %19, align 8
+  %550 = getelementptr inbounds %struct.ieee802154_packet, ptr %549, i32 0, i32 14
+  store i32 1, ptr %550, align 8
+  %551 = load i32, ptr @ieee802154e_compatibility, align 4
+  %552 = icmp ne i32 %551, 0
+  %553 = select i1 %552, i32 0, i32 1
+  %554 = load ptr, ptr %19, align 8
+  %555 = getelementptr inbounds %struct.ieee802154_packet, ptr %554, i32 0, i32 15
+  store i32 %553, ptr %555, align 4
+  br label %623
+
+556:                                              ; preds = %543, %538, %533
+  %557 = load ptr, ptr %19, align 8
+  %558 = getelementptr inbounds %struct.ieee802154_packet, ptr %557, i32 0, i32 2
+  %559 = load i32, ptr %558, align 8
+  %560 = icmp eq i32 %559, 2
+  br i1 %560, label %561, label %576
+
+561:                                              ; preds = %556
+  %562 = load ptr, ptr %19, align 8
+  %563 = getelementptr inbounds %struct.ieee802154_packet, ptr %562, i32 0, i32 3
+  %564 = load i32, ptr %563, align 4
+  %565 = icmp eq i32 %564, 3
+  br i1 %565, label %566, label %576
+
+566:                                              ; preds = %561
+  %567 = load ptr, ptr %19, align 8
+  %568 = getelementptr inbounds %struct.ieee802154_packet, ptr %567, i32 0, i32 7
+  %569 = load i32, ptr %568, align 4
+  %570 = icmp eq i32 %569, 1
+  br i1 %570, label %571, label %576
+
+571:                                              ; preds = %566
+  %572 = load ptr, ptr %19, align 8
+  %573 = getelementptr inbounds %struct.ieee802154_packet, ptr %572, i32 0, i32 14
+  store i32 1, ptr %573, align 8
+  %574 = load ptr, ptr %19, align 8
+  %575 = getelementptr inbounds %struct.ieee802154_packet, ptr %574, i32 0, i32 15
+  store i32 0, ptr %575, align 4
+  br label %622
+
+576:                                              ; preds = %566, %561, %556
+  %577 = load ptr, ptr %19, align 8
+  %578 = getelementptr inbounds %struct.ieee802154_packet, ptr %577, i32 0, i32 2
+  %579 = load i32, ptr %578, align 8
+  %580 = icmp eq i32 %579, 3
+  br i1 %580, label %581, label %596
+
+581:                                              ; preds = %576
+  %582 = load ptr, ptr %19, align 8
+  %583 = getelementptr inbounds %struct.ieee802154_packet, ptr %582, i32 0, i32 3
+  %584 = load i32, ptr %583, align 4
+  %585 = icmp eq i32 %584, 2
+  br i1 %585, label %586, label %596
+
+586:                                              ; preds = %581
+  %587 = load ptr, ptr %19, align 8
+  %588 = getelementptr inbounds %struct.ieee802154_packet, ptr %587, i32 0, i32 7
+  %589 = load i32, ptr %588, align 4
+  %590 = icmp eq i32 %589, 1
+  br i1 %590, label %591, label %596
+
+591:                                              ; preds = %586
+  %592 = load ptr, ptr %19, align 8
+  %593 = getelementptr inbounds %struct.ieee802154_packet, ptr %592, i32 0, i32 14
+  store i32 1, ptr %593, align 8
+  %594 = load ptr, ptr %19, align 8
+  %595 = getelementptr inbounds %struct.ieee802154_packet, ptr %594, i32 0, i32 15
+  store i32 0, ptr %595, align 4
+  br label %621
+
+596:                                              ; preds = %586, %581, %576
+  %597 = load ptr, ptr %19, align 8
+  %598 = getelementptr inbounds %struct.ieee802154_packet, ptr %597, i32 0, i32 2
+  %599 = load i32, ptr %598, align 8
+  %600 = icmp eq i32 %599, 2
+  br i1 %600, label %601, label %616
+
+601:                                              ; preds = %596
+  %602 = load ptr, ptr %19, align 8
+  %603 = getelementptr inbounds %struct.ieee802154_packet, ptr %602, i32 0, i32 3
+  %604 = load i32, ptr %603, align 4
+  %605 = icmp eq i32 %604, 2
+  br i1 %605, label %606, label %616
+
+606:                                              ; preds = %601
+  %607 = load ptr, ptr %19, align 8
+  %608 = getelementptr inbounds %struct.ieee802154_packet, ptr %607, i32 0, i32 7
+  %609 = load i32, ptr %608, align 4
+  %610 = icmp eq i32 %609, 1
+  br i1 %610, label %611, label %616
+
+611:                                              ; preds = %606
+  %612 = load ptr, ptr %19, align 8
+  %613 = getelementptr inbounds %struct.ieee802154_packet, ptr %612, i32 0, i32 14
+  store i32 1, ptr %613, align 8
+  %614 = load ptr, ptr %19, align 8
+  %615 = getelementptr inbounds %struct.ieee802154_packet, ptr %614, i32 0, i32 15
+  store i32 0, ptr %615, align 4
+  br label %620
+
+616:                                              ; preds = %606, %601, %596
+  %617 = load ptr, ptr %9, align 8
+  %618 = load ptr, ptr %15, align 8
+  %619 = call ptr @expert_add_info(ptr noundef %617, ptr noundef %618, ptr noundef @ei_ieee802154_invalid_panid_compression2)
+  store i32 0, ptr %7, align 4
+  br label %1246
+
+620:                                              ; preds = %611
+  br label %621
+
+621:                                              ; preds = %620, %591
+  br label %622
+
+622:                                              ; preds = %621, %571
+  br label %623
+
+623:                                              ; preds = %622, %548
+  br label %624
+
+624:                                              ; preds = %623, %525
+  br label %625
+
+625:                                              ; preds = %624, %502
+  br label %626
+
+626:                                              ; preds = %625, %482
+  br label %627
+
+627:                                              ; preds = %626, %462
+  br label %628
+
+628:                                              ; preds = %627, %442
+  br label %629
+
+629:                                              ; preds = %628, %422
+  br label %630
+
+630:                                              ; preds = %629, %402
+  br label %631
+
+631:                                              ; preds = %630, %382
+  br label %632
+
+632:                                              ; preds = %631, %362
+  br label %633
+
+633:                                              ; preds = %632, %342
+  br label %639
+
+634:                                              ; preds = %322
+  %635 = load ptr, ptr %19, align 8
+  %636 = getelementptr inbounds %struct.ieee802154_packet, ptr %635, i32 0, i32 14
+  store i32 0, ptr %636, align 8
+  %637 = load ptr, ptr %19, align 8
+  %638 = getelementptr inbounds %struct.ieee802154_packet, ptr %637, i32 0, i32 15
+  store i32 0, ptr %638, align 4
+  br label %639
+
+639:                                              ; preds = %634, %633
+  br label %644
+
+640:                                              ; preds = %302
+  %641 = load ptr, ptr %9, align 8
+  %642 = load ptr, ptr %15, align 8
+  %643 = call ptr @expert_add_info(ptr noundef %641, ptr noundef %642, ptr noundef @ei_ieee802154_frame_ver)
+  store i32 0, ptr %7, align 4
+  br label %1246
+
+644:                                              ; preds = %639
+  br label %645
+
+645:                                              ; preds = %644, %301
   br label %646
 
-646:                                              ; preds = %645, %192
-  %647 = load ptr, ptr %19, align 8
-  %648 = getelementptr inbounds %struct.ieee802154_packet, ptr %647, i32 0, i32 14
-  %649 = load i32, ptr %648, align 8
-  %650 = icmp ne i32 %649, 0
-  br i1 %650, label %651, label %672
+646:                                              ; preds = %645
+  br label %647
 
-651:                                              ; preds = %646
-  %652 = load ptr, ptr %8, align 8
-  %653 = load i32, ptr %18, align 4
-  %654 = call zeroext i16 @tvb_get_letohs(ptr noundef %652, i32 noundef %653)
-  %655 = load ptr, ptr %19, align 8
-  %656 = getelementptr inbounds %struct.ieee802154_packet, ptr %655, i32 0, i32 16
-  store i16 %654, ptr %656, align 8
-  %657 = load ptr, ptr %14, align 8
-  %658 = icmp ne ptr %657, null
-  br i1 %658, label %659, label %669
+647:                                              ; preds = %646, %193
+  %648 = load ptr, ptr %19, align 8
+  %649 = getelementptr inbounds %struct.ieee802154_packet, ptr %648, i32 0, i32 14
+  %650 = load i32, ptr %649, align 8
+  %651 = icmp ne i32 %650, 0
+  br i1 %651, label %652, label %673
 
-659:                                              ; preds = %651
-  %660 = load ptr, ptr %14, align 8
-  %661 = load i32, ptr @hf_ieee802154_dst_panID, align 4
-  %662 = load ptr, ptr %8, align 8
-  %663 = load i32, ptr %18, align 4
-  %664 = load ptr, ptr %19, align 8
-  %665 = getelementptr inbounds %struct.ieee802154_packet, ptr %664, i32 0, i32 16
-  %666 = load i16, ptr %665, align 8
-  %667 = zext i16 %666 to i32
-  %668 = call ptr @proto_tree_add_uint(ptr noundef %660, i32 noundef %661, ptr noundef %662, i32 noundef %663, i32 noundef 2, i32 noundef %667)
-  br label %669
+652:                                              ; preds = %647
+  %653 = load ptr, ptr %8, align 8
+  %654 = load i32, ptr %18, align 4
+  %655 = call zeroext i16 @tvb_get_letohs(ptr noundef %653, i32 noundef %654)
+  %656 = load ptr, ptr %19, align 8
+  %657 = getelementptr inbounds %struct.ieee802154_packet, ptr %656, i32 0, i32 16
+  store i16 %655, ptr %657, align 8
+  %658 = load ptr, ptr %14, align 8
+  %659 = icmp ne ptr %658, null
+  br i1 %659, label %660, label %670
 
-669:                                              ; preds = %659, %651
-  %670 = load i32, ptr %18, align 4
-  %671 = add i32 %670, 2
-  store i32 %671, ptr %18, align 4
-  br label %672
+660:                                              ; preds = %652
+  %661 = load ptr, ptr %14, align 8
+  %662 = load i32, ptr @hf_ieee802154_dst_panID, align 4
+  %663 = load ptr, ptr %8, align 8
+  %664 = load i32, ptr %18, align 4
+  %665 = load ptr, ptr %19, align 8
+  %666 = getelementptr inbounds %struct.ieee802154_packet, ptr %665, i32 0, i32 16
+  %667 = load i16, ptr %666, align 8
+  %668 = zext i16 %667 to i32
+  %669 = call ptr @proto_tree_add_uint(ptr noundef %661, i32 noundef %662, ptr noundef %663, i32 noundef %664, i32 noundef 2, i32 noundef %668)
+  br label %670
 
-672:                                              ; preds = %669, %646
-  %673 = load ptr, ptr %19, align 8
-  %674 = getelementptr inbounds %struct.ieee802154_packet, ptr %673, i32 0, i32 2
-  %675 = load i32, ptr %674, align 8
-  %676 = icmp eq i32 %675, 2
-  br i1 %676, label %677, label %723
+670:                                              ; preds = %660, %652
+  %671 = load i32, ptr %18, align 4
+  %672 = add i32 %671, 2
+  store i32 %672, ptr %18, align 4
+  br label %673
 
-677:                                              ; preds = %672
-  %678 = load ptr, ptr %8, align 8
-  %679 = load i32, ptr %18, align 4
-  %680 = call zeroext i16 @tvb_get_letohs(ptr noundef %678, i32 noundef %679)
-  %681 = load ptr, ptr %19, align 8
-  %682 = getelementptr inbounds %struct.ieee802154_packet, ptr %681, i32 0, i32 18
-  store i16 %680, ptr %682, align 4
-  %683 = load ptr, ptr %21, align 8
-  %684 = icmp ne ptr %683, null
-  br i1 %684, label %685, label %691
+673:                                              ; preds = %670, %647
+  %674 = load ptr, ptr %19, align 8
+  %675 = getelementptr inbounds %struct.ieee802154_packet, ptr %674, i32 0, i32 2
+  %676 = load i32, ptr %675, align 8
+  %677 = icmp eq i32 %676, 2
+  br i1 %677, label %678, label %724
 
-685:                                              ; preds = %677
-  %686 = load ptr, ptr %19, align 8
-  %687 = getelementptr inbounds %struct.ieee802154_packet, ptr %686, i32 0, i32 18
-  %688 = load i16, ptr %687, align 4
-  %689 = load ptr, ptr %21, align 8
-  %690 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %689, i32 0, i32 2
-  store i16 %688, ptr %690, align 4
-  br label %691
+678:                                              ; preds = %673
+  %679 = load ptr, ptr %8, align 8
+  %680 = load i32, ptr %18, align 4
+  %681 = call zeroext i16 @tvb_get_letohs(ptr noundef %679, i32 noundef %680)
+  %682 = load ptr, ptr %19, align 8
+  %683 = getelementptr inbounds %struct.ieee802154_packet, ptr %682, i32 0, i32 18
+  store i16 %681, ptr %683, align 4
+  %684 = load ptr, ptr %21, align 8
+  %685 = icmp ne ptr %684, null
+  br i1 %685, label %686, label %692
 
-691:                                              ; preds = %685, %677
-  %692 = load ptr, ptr %9, align 8
-  %693 = getelementptr inbounds %struct._packet_info, ptr %692, i32 0, i32 13
-  %694 = load i32, ptr @ieee802_15_4_short_address_type, align 4
-  %695 = load ptr, ptr %8, align 8
-  %696 = load i32, ptr %18, align 4
-  call void @set_address_tvb(ptr noundef %693, i32 noundef %694, i32 noundef 2, ptr noundef %695, i32 noundef %696)
-  %697 = load ptr, ptr %9, align 8
-  %698 = getelementptr inbounds %struct._packet_info, ptr %697, i32 0, i32 17
-  %699 = load ptr, ptr %9, align 8
-  %700 = getelementptr inbounds %struct._packet_info, ptr %699, i32 0, i32 13
-  call void @copy_address_shallow(ptr noundef %698, ptr noundef %700)
-  %701 = load ptr, ptr %14, align 8
-  %702 = load i32, ptr @hf_ieee802154_dst16, align 4
-  %703 = load ptr, ptr %8, align 8
-  %704 = load i32, ptr %18, align 4
-  %705 = load ptr, ptr %19, align 8
-  %706 = getelementptr inbounds %struct.ieee802154_packet, ptr %705, i32 0, i32 18
-  %707 = load i16, ptr %706, align 4
-  %708 = zext i16 %707 to i32
-  %709 = call ptr @proto_tree_add_uint(ptr noundef %701, i32 noundef %702, ptr noundef %703, i32 noundef %704, i32 noundef 2, i32 noundef %708)
-  %710 = load ptr, ptr %14, align 8
-  %711 = load i32, ptr @hf_ieee802154_addr16, align 4
-  %712 = load ptr, ptr %8, align 8
-  %713 = load i32, ptr %18, align 4
-  %714 = load ptr, ptr %19, align 8
-  %715 = getelementptr inbounds %struct.ieee802154_packet, ptr %714, i32 0, i32 18
-  %716 = load i16, ptr %715, align 4
-  %717 = zext i16 %716 to i32
-  %718 = call ptr @proto_tree_add_uint(ptr noundef %710, i32 noundef %711, ptr noundef %712, i32 noundef %713, i32 noundef 2, i32 noundef %717)
-  store ptr %718, ptr %17, align 8
-  %719 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %719)
+686:                                              ; preds = %678
+  %687 = load ptr, ptr %19, align 8
+  %688 = getelementptr inbounds %struct.ieee802154_packet, ptr %687, i32 0, i32 18
+  %689 = load i16, ptr %688, align 4
+  %690 = load ptr, ptr %21, align 8
+  %691 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %690, i32 0, i32 2
+  store i16 %689, ptr %691, align 4
+  br label %692
+
+692:                                              ; preds = %686, %678
+  %693 = load ptr, ptr %9, align 8
+  %694 = getelementptr inbounds %struct._packet_info, ptr %693, i32 0, i32 13
+  %695 = load i32, ptr @ieee802_15_4_short_address_type, align 4
+  %696 = load ptr, ptr %8, align 8
+  %697 = load i32, ptr %18, align 4
+  call void @set_address_tvb(ptr noundef %694, i32 noundef %695, i32 noundef 2, ptr noundef %696, i32 noundef %697)
+  %698 = load ptr, ptr %9, align 8
+  %699 = getelementptr inbounds %struct._packet_info, ptr %698, i32 0, i32 17
+  %700 = load ptr, ptr %9, align 8
+  %701 = getelementptr inbounds %struct._packet_info, ptr %700, i32 0, i32 13
+  call void @copy_address_shallow(ptr noundef %699, ptr noundef %701)
+  %702 = load ptr, ptr %14, align 8
+  %703 = load i32, ptr @hf_ieee802154_dst16, align 4
+  %704 = load ptr, ptr %8, align 8
+  %705 = load i32, ptr %18, align 4
+  %706 = load ptr, ptr %19, align 8
+  %707 = getelementptr inbounds %struct.ieee802154_packet, ptr %706, i32 0, i32 18
+  %708 = load i16, ptr %707, align 4
+  %709 = zext i16 %708 to i32
+  %710 = call ptr @proto_tree_add_uint(ptr noundef %702, i32 noundef %703, ptr noundef %704, i32 noundef %705, i32 noundef 2, i32 noundef %709)
+  %711 = load ptr, ptr %14, align 8
+  %712 = load i32, ptr @hf_ieee802154_addr16, align 4
+  %713 = load ptr, ptr %8, align 8
+  %714 = load i32, ptr %18, align 4
+  %715 = load ptr, ptr %19, align 8
+  %716 = getelementptr inbounds %struct.ieee802154_packet, ptr %715, i32 0, i32 18
+  %717 = load i16, ptr %716, align 4
+  %718 = zext i16 %717 to i32
+  %719 = call ptr @proto_tree_add_uint(ptr noundef %711, i32 noundef %712, ptr noundef %713, i32 noundef %714, i32 noundef 2, i32 noundef %718)
+  store ptr %719, ptr %17, align 8
   %720 = load ptr, ptr %17, align 8
-  call void @proto_item_set_hidden(ptr noundef %720)
-  %721 = load i32, ptr %18, align 4
-  %722 = add i32 %721, 2
-  store i32 %722, ptr %18, align 4
-  br label %768
+  call void @proto_item_set_generated(ptr noundef %720)
+  %721 = load ptr, ptr %17, align 8
+  call void @proto_item_set_hidden(ptr noundef %721)
+  %722 = load i32, ptr %18, align 4
+  %723 = add i32 %722, 2
+  store i32 %723, ptr %18, align 4
+  br label %769
 
-723:                                              ; preds = %672
-  %724 = load ptr, ptr %19, align 8
-  %725 = getelementptr inbounds %struct.ieee802154_packet, ptr %724, i32 0, i32 2
-  %726 = load i32, ptr %725, align 8
-  %727 = icmp eq i32 %726, 3
-  br i1 %727, label %728, label %767
+724:                                              ; preds = %673
+  %725 = load ptr, ptr %19, align 8
+  %726 = getelementptr inbounds %struct.ieee802154_packet, ptr %725, i32 0, i32 2
+  %727 = load i32, ptr %726, align 8
+  %728 = icmp eq i32 %727, 3
+  br i1 %728, label %729, label %768
 
-728:                                              ; preds = %723
-  %729 = load ptr, ptr %9, align 8
-  %730 = getelementptr inbounds %struct._packet_info, ptr %729, i32 0, i32 50
-  %731 = load ptr, ptr %730, align 8
-  %732 = call noalias ptr @wmem_alloc(ptr noundef %731, i64 noundef 8)
-  store ptr %732, ptr %22, align 8
-  %733 = load ptr, ptr %8, align 8
-  %734 = load i32, ptr %18, align 4
-  %735 = call i64 @tvb_get_letoh64(ptr noundef %733, i32 noundef %734)
-  %736 = load ptr, ptr %19, align 8
-  %737 = getelementptr inbounds %struct.ieee802154_packet, ptr %736, i32 0, i32 19
-  store i64 %735, ptr %737, align 8
-  %738 = load ptr, ptr %19, align 8
-  %739 = getelementptr inbounds %struct.ieee802154_packet, ptr %738, i32 0, i32 19
-  %740 = call i64 @pntoh64(ptr noundef %739)
-  %741 = load ptr, ptr %22, align 8
-  store i64 %740, ptr %741, align 8
-  %742 = load ptr, ptr %9, align 8
-  %743 = getelementptr inbounds %struct._packet_info, ptr %742, i32 0, i32 13
-  %744 = load ptr, ptr %22, align 8
-  call void @set_address(ptr noundef %743, i32 noundef 8, i32 noundef 8, ptr noundef %744)
-  %745 = load ptr, ptr %9, align 8
-  %746 = getelementptr inbounds %struct._packet_info, ptr %745, i32 0, i32 17
-  %747 = load ptr, ptr %9, align 8
-  %748 = getelementptr inbounds %struct._packet_info, ptr %747, i32 0, i32 13
-  call void @copy_address_shallow(ptr noundef %746, ptr noundef %748)
-  %749 = load ptr, ptr %10, align 8
-  %750 = icmp ne ptr %749, null
-  br i1 %750, label %751, label %764
+729:                                              ; preds = %724
+  %730 = load ptr, ptr %9, align 8
+  %731 = getelementptr inbounds %struct._packet_info, ptr %730, i32 0, i32 50
+  %732 = load ptr, ptr %731, align 8
+  %733 = call noalias ptr @wmem_alloc(ptr noundef %732, i64 noundef 8)
+  store ptr %733, ptr %22, align 8
+  %734 = load ptr, ptr %8, align 8
+  %735 = load i32, ptr %18, align 4
+  %736 = call i64 @tvb_get_letoh64(ptr noundef %734, i32 noundef %735)
+  %737 = load ptr, ptr %19, align 8
+  %738 = getelementptr inbounds %struct.ieee802154_packet, ptr %737, i32 0, i32 19
+  store i64 %736, ptr %738, align 8
+  %739 = load ptr, ptr %19, align 8
+  %740 = getelementptr inbounds %struct.ieee802154_packet, ptr %739, i32 0, i32 19
+  %741 = call i64 @pntoh64(ptr noundef %740)
+  %742 = load ptr, ptr %22, align 8
+  store i64 %741, ptr %742, align 8
+  %743 = load ptr, ptr %9, align 8
+  %744 = getelementptr inbounds %struct._packet_info, ptr %743, i32 0, i32 13
+  %745 = load ptr, ptr %22, align 8
+  call void @set_address(ptr noundef %744, i32 noundef 8, i32 noundef 8, ptr noundef %745)
+  %746 = load ptr, ptr %9, align 8
+  %747 = getelementptr inbounds %struct._packet_info, ptr %746, i32 0, i32 17
+  %748 = load ptr, ptr %9, align 8
+  %749 = getelementptr inbounds %struct._packet_info, ptr %748, i32 0, i32 13
+  call void @copy_address_shallow(ptr noundef %747, ptr noundef %749)
+  %750 = load ptr, ptr %10, align 8
+  %751 = icmp ne ptr %750, null
+  br i1 %751, label %752, label %765
 
-751:                                              ; preds = %728
-  %752 = load ptr, ptr %14, align 8
-  %753 = load i32, ptr @hf_ieee802154_dst64, align 4
-  %754 = load ptr, ptr %8, align 8
-  %755 = load i32, ptr %18, align 4
-  %756 = call ptr @proto_tree_add_item(ptr noundef %752, i32 noundef %753, ptr noundef %754, i32 noundef %755, i32 noundef 8, i32 noundef -2147483648)
-  %757 = load ptr, ptr %14, align 8
-  %758 = load i32, ptr @hf_ieee802154_addr64, align 4
-  %759 = load ptr, ptr %8, align 8
-  %760 = load i32, ptr %18, align 4
-  %761 = call ptr @proto_tree_add_item(ptr noundef %757, i32 noundef %758, ptr noundef %759, i32 noundef %760, i32 noundef 8, i32 noundef -2147483648)
-  store ptr %761, ptr %17, align 8
-  %762 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %762)
+752:                                              ; preds = %729
+  %753 = load ptr, ptr %14, align 8
+  %754 = load i32, ptr @hf_ieee802154_dst64, align 4
+  %755 = load ptr, ptr %8, align 8
+  %756 = load i32, ptr %18, align 4
+  %757 = call ptr @proto_tree_add_item(ptr noundef %753, i32 noundef %754, ptr noundef %755, i32 noundef %756, i32 noundef 8, i32 noundef -2147483648)
+  %758 = load ptr, ptr %14, align 8
+  %759 = load i32, ptr @hf_ieee802154_addr64, align 4
+  %760 = load ptr, ptr %8, align 8
+  %761 = load i32, ptr %18, align 4
+  %762 = call ptr @proto_tree_add_item(ptr noundef %758, i32 noundef %759, ptr noundef %760, i32 noundef %761, i32 noundef 8, i32 noundef -2147483648)
+  store ptr %762, ptr %17, align 8
   %763 = load ptr, ptr %17, align 8
-  call void @proto_item_set_hidden(ptr noundef %763)
-  br label %764
+  call void @proto_item_set_generated(ptr noundef %763)
+  %764 = load ptr, ptr %17, align 8
+  call void @proto_item_set_hidden(ptr noundef %764)
+  br label %765
 
-764:                                              ; preds = %751, %728
-  %765 = load i32, ptr %18, align 4
-  %766 = add i32 %765, 8
-  store i32 %766, ptr %18, align 4
-  br label %767
-
-767:                                              ; preds = %764, %723
+765:                                              ; preds = %752, %729
+  %766 = load i32, ptr %18, align 4
+  %767 = add i32 %766, 8
+  store i32 %767, ptr %18, align 4
   br label %768
 
-768:                                              ; preds = %767, %691
-  %769 = load ptr, ptr %19, align 8
-  %770 = getelementptr inbounds %struct.ieee802154_packet, ptr %769, i32 0, i32 15
-  %771 = load i32, ptr %770, align 4
-  %772 = icmp ne i32 %771, 0
-  br i1 %772, label %773, label %790
+768:                                              ; preds = %765, %724
+  br label %769
 
-773:                                              ; preds = %768
-  %774 = load ptr, ptr %8, align 8
-  %775 = load i32, ptr %18, align 4
-  %776 = call zeroext i16 @tvb_get_letohs(ptr noundef %774, i32 noundef %775)
-  %777 = load ptr, ptr %19, align 8
-  %778 = getelementptr inbounds %struct.ieee802154_packet, ptr %777, i32 0, i32 17
-  store i16 %776, ptr %778, align 2
-  %779 = load ptr, ptr %14, align 8
-  %780 = load i32, ptr @hf_ieee802154_src_panID, align 4
-  %781 = load ptr, ptr %8, align 8
-  %782 = load i32, ptr %18, align 4
-  %783 = load ptr, ptr %19, align 8
-  %784 = getelementptr inbounds %struct.ieee802154_packet, ptr %783, i32 0, i32 17
-  %785 = load i16, ptr %784, align 2
-  %786 = zext i16 %785 to i32
-  %787 = call ptr @proto_tree_add_uint(ptr noundef %779, i32 noundef %780, ptr noundef %781, i32 noundef %782, i32 noundef 2, i32 noundef %786)
-  %788 = load i32, ptr %18, align 4
-  %789 = add i32 %788, 2
-  store i32 %789, ptr %18, align 4
+769:                                              ; preds = %768, %692
+  %770 = load ptr, ptr %19, align 8
+  %771 = getelementptr inbounds %struct.ieee802154_packet, ptr %770, i32 0, i32 15
+  %772 = load i32, ptr %771, align 4
+  %773 = icmp ne i32 %772, 0
+  br i1 %773, label %774, label %791
+
+774:                                              ; preds = %769
+  %775 = load ptr, ptr %8, align 8
+  %776 = load i32, ptr %18, align 4
+  %777 = call zeroext i16 @tvb_get_letohs(ptr noundef %775, i32 noundef %776)
+  %778 = load ptr, ptr %19, align 8
+  %779 = getelementptr inbounds %struct.ieee802154_packet, ptr %778, i32 0, i32 17
+  store i16 %777, ptr %779, align 2
+  %780 = load ptr, ptr %14, align 8
+  %781 = load i32, ptr @hf_ieee802154_src_panID, align 4
+  %782 = load ptr, ptr %8, align 8
+  %783 = load i32, ptr %18, align 4
+  %784 = load ptr, ptr %19, align 8
+  %785 = getelementptr inbounds %struct.ieee802154_packet, ptr %784, i32 0, i32 17
+  %786 = load i16, ptr %785, align 2
+  %787 = zext i16 %786 to i32
+  %788 = call ptr @proto_tree_add_uint(ptr noundef %780, i32 noundef %781, ptr noundef %782, i32 noundef %783, i32 noundef 2, i32 noundef %787)
+  %789 = load i32, ptr %18, align 4
+  %790 = add i32 %789, 2
+  store i32 %790, ptr %18, align 4
+  br label %806
+
+791:                                              ; preds = %769
+  %792 = load ptr, ptr %19, align 8
+  %793 = getelementptr inbounds %struct.ieee802154_packet, ptr %792, i32 0, i32 14
+  %794 = load i32, ptr %793, align 8
+  %795 = icmp ne i32 %794, 0
+  br i1 %795, label %796, label %802
+
+796:                                              ; preds = %791
+  %797 = load ptr, ptr %19, align 8
+  %798 = getelementptr inbounds %struct.ieee802154_packet, ptr %797, i32 0, i32 16
+  %799 = load i16, ptr %798, align 8
+  %800 = load ptr, ptr %19, align 8
+  %801 = getelementptr inbounds %struct.ieee802154_packet, ptr %800, i32 0, i32 17
+  store i16 %799, ptr %801, align 2
   br label %805
 
-790:                                              ; preds = %768
-  %791 = load ptr, ptr %19, align 8
-  %792 = getelementptr inbounds %struct.ieee802154_packet, ptr %791, i32 0, i32 14
-  %793 = load i32, ptr %792, align 8
-  %794 = icmp ne i32 %793, 0
-  br i1 %794, label %795, label %801
-
-795:                                              ; preds = %790
-  %796 = load ptr, ptr %19, align 8
-  %797 = getelementptr inbounds %struct.ieee802154_packet, ptr %796, i32 0, i32 16
-  %798 = load i16, ptr %797, align 8
-  %799 = load ptr, ptr %19, align 8
-  %800 = getelementptr inbounds %struct.ieee802154_packet, ptr %799, i32 0, i32 17
-  store i16 %798, ptr %800, align 2
-  br label %804
-
-801:                                              ; preds = %790
-  %802 = load ptr, ptr %19, align 8
-  %803 = getelementptr inbounds %struct.ieee802154_packet, ptr %802, i32 0, i32 17
-  store i16 -1, ptr %803, align 2
-  br label %804
-
-804:                                              ; preds = %801, %795
+802:                                              ; preds = %791
+  %803 = load ptr, ptr %19, align 8
+  %804 = getelementptr inbounds %struct.ieee802154_packet, ptr %803, i32 0, i32 17
+  store i16 -1, ptr %804, align 2
   br label %805
 
-805:                                              ; preds = %804, %773
-  %806 = load ptr, ptr %21, align 8
-  %807 = icmp ne ptr %806, null
-  br i1 %807, label %808, label %814
+805:                                              ; preds = %802, %796
+  br label %806
 
-808:                                              ; preds = %805
-  %809 = load ptr, ptr %19, align 8
-  %810 = getelementptr inbounds %struct.ieee802154_packet, ptr %809, i32 0, i32 17
-  %811 = load i16, ptr %810, align 2
-  %812 = load ptr, ptr %21, align 8
-  %813 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %812, i32 0, i32 0
-  store i16 %811, ptr %813, align 8
-  br label %814
+806:                                              ; preds = %805, %774
+  %807 = load ptr, ptr %21, align 8
+  %808 = icmp ne ptr %807, null
+  br i1 %808, label %809, label %815
 
-814:                                              ; preds = %808, %805
-  %815 = load ptr, ptr %19, align 8
-  %816 = getelementptr inbounds %struct.ieee802154_packet, ptr %815, i32 0, i32 3
-  %817 = load i32, ptr %816, align 4
-  %818 = icmp eq i32 %817, 2
-  br i1 %818, label %819, label %952
+809:                                              ; preds = %806
+  %810 = load ptr, ptr %19, align 8
+  %811 = getelementptr inbounds %struct.ieee802154_packet, ptr %810, i32 0, i32 17
+  %812 = load i16, ptr %811, align 2
+  %813 = load ptr, ptr %21, align 8
+  %814 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %813, i32 0, i32 0
+  store i16 %812, ptr %814, align 8
+  br label %815
 
-819:                                              ; preds = %814
-  %820 = load ptr, ptr %8, align 8
-  %821 = load i32, ptr %18, align 4
-  %822 = call zeroext i16 @tvb_get_letohs(ptr noundef %820, i32 noundef %821)
-  %823 = load ptr, ptr %19, align 8
-  %824 = getelementptr inbounds %struct.ieee802154_packet, ptr %823, i32 0, i32 20
-  store i16 %822, ptr %824, align 8
-  %825 = load ptr, ptr %9, align 8
-  %826 = getelementptr inbounds %struct._packet_info, ptr %825, i32 0, i32 8
-  %827 = load ptr, ptr %826, align 8
-  %828 = getelementptr inbounds %struct._frame_data, ptr %827, i32 0, i32 9
-  %829 = load i16, ptr %828, align 2
-  %830 = lshr i16 %829, 3
-  %831 = and i16 %830, 1
-  %832 = zext i16 %831 to i32
-  %833 = icmp ne i32 %832, 0
-  br i1 %833, label %856, label %834
+815:                                              ; preds = %809, %806
+  %816 = load ptr, ptr %19, align 8
+  %817 = getelementptr inbounds %struct.ieee802154_packet, ptr %816, i32 0, i32 3
+  %818 = load i32, ptr %817, align 4
+  %819 = icmp eq i32 %818, 2
+  br i1 %819, label %820, label %954
 
-834:                                              ; preds = %819
-  %835 = load ptr, ptr %19, align 8
-  %836 = getelementptr inbounds %struct.ieee802154_packet, ptr %835, i32 0, i32 20
-  %837 = load i16, ptr %836, align 8
-  %838 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
-  store i16 %837, ptr %838, align 2
-  %839 = load ptr, ptr %19, align 8
-  %840 = getelementptr inbounds %struct.ieee802154_packet, ptr %839, i32 0, i32 17
-  %841 = load i16, ptr %840, align 2
-  %842 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
-  store i16 %841, ptr %842, align 2
-  %843 = load ptr, ptr %21, align 8
-  %844 = icmp ne ptr %843, null
-  br i1 %844, label %845, label %855
+820:                                              ; preds = %815
+  %821 = load ptr, ptr %8, align 8
+  %822 = load i32, ptr %18, align 4
+  %823 = call zeroext i16 @tvb_get_letohs(ptr noundef %821, i32 noundef %822)
+  %824 = load ptr, ptr %19, align 8
+  %825 = getelementptr inbounds %struct.ieee802154_packet, ptr %824, i32 0, i32 20
+  store i16 %823, ptr %825, align 8
+  %826 = load ptr, ptr %9, align 8
+  %827 = getelementptr inbounds %struct._packet_info, ptr %826, i32 0, i32 8
+  %828 = load ptr, ptr %827, align 8
+  %829 = getelementptr inbounds %struct._frame_data, ptr %828, i32 0, i32 9
+  %830 = load i16, ptr %829, align 2
+  %831 = lshr i16 %830, 3
+  %832 = and i16 %831, 1
+  %833 = zext i16 %832 to i32
+  %834 = icmp ne i32 %833, 0
+  br i1 %834, label %858, label %835
 
-845:                                              ; preds = %834
-  %846 = load ptr, ptr %19, align 8
-  %847 = getelementptr inbounds %struct.ieee802154_packet, ptr %846, i32 0, i32 20
-  %848 = load i16, ptr %847, align 8
-  %849 = load ptr, ptr %21, align 8
-  %850 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %849, i32 0, i32 1
-  store i16 %848, ptr %850, align 2
-  %851 = load ptr, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1), align 8
-  %852 = call ptr @g_hash_table_lookup(ptr noundef %851, ptr noundef %20)
-  %853 = load ptr, ptr %21, align 8
-  %854 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %853, i32 0, i32 3
-  store ptr %852, ptr %854, align 8
-  br label %855
+835:                                              ; preds = %820
+  %836 = load ptr, ptr %19, align 8
+  %837 = getelementptr inbounds %struct.ieee802154_packet, ptr %836, i32 0, i32 20
+  %838 = load i16, ptr %837, align 8
+  %839 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
+  store i16 %838, ptr %839, align 2
+  %840 = load ptr, ptr %19, align 8
+  %841 = getelementptr inbounds %struct.ieee802154_packet, ptr %840, i32 0, i32 17
+  %842 = load i16, ptr %841, align 2
+  %843 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
+  store i16 %842, ptr %843, align 2
+  %844 = load ptr, ptr %21, align 8
+  %845 = icmp ne ptr %844, null
+  br i1 %845, label %846, label %857
 
-855:                                              ; preds = %845, %834
-  br label %856
+846:                                              ; preds = %835
+  %847 = load ptr, ptr %19, align 8
+  %848 = getelementptr inbounds %struct.ieee802154_packet, ptr %847, i32 0, i32 20
+  %849 = load i16, ptr %848, align 8
+  %850 = load ptr, ptr %21, align 8
+  %851 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %850, i32 0, i32 1
+  store i16 %849, ptr %851, align 2
+  %852 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1
+  %853 = load ptr, ptr %852, align 8
+  %854 = call ptr @g_hash_table_lookup(ptr noundef %853, ptr noundef %20)
+  %855 = load ptr, ptr %21, align 8
+  %856 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %855, i32 0, i32 3
+  store ptr %854, ptr %856, align 8
+  br label %857
 
-856:                                              ; preds = %855, %819
-  %857 = load ptr, ptr %9, align 8
-  %858 = getelementptr inbounds %struct._packet_info, ptr %857, i32 0, i32 12
-  %859 = load i32, ptr @ieee802_15_4_short_address_type, align 4
-  %860 = load ptr, ptr %8, align 8
-  %861 = load i32, ptr %18, align 4
-  call void @set_address_tvb(ptr noundef %858, i32 noundef %859, i32 noundef 2, ptr noundef %860, i32 noundef %861)
-  %862 = load ptr, ptr %9, align 8
-  %863 = getelementptr inbounds %struct._packet_info, ptr %862, i32 0, i32 16
+857:                                              ; preds = %846, %835
+  br label %858
+
+858:                                              ; preds = %857, %820
+  %859 = load ptr, ptr %9, align 8
+  %860 = getelementptr inbounds %struct._packet_info, ptr %859, i32 0, i32 12
+  %861 = load i32, ptr @ieee802_15_4_short_address_type, align 4
+  %862 = load ptr, ptr %8, align 8
+  %863 = load i32, ptr %18, align 4
+  call void @set_address_tvb(ptr noundef %860, i32 noundef %861, i32 noundef 2, ptr noundef %862, i32 noundef %863)
   %864 = load ptr, ptr %9, align 8
-  %865 = getelementptr inbounds %struct._packet_info, ptr %864, i32 0, i32 12
-  call void @copy_address_shallow(ptr noundef %863, ptr noundef %865)
-  %866 = load ptr, ptr %10, align 8
-  %867 = icmp ne ptr %866, null
-  br i1 %867, label %868, label %949
+  %865 = getelementptr inbounds %struct._packet_info, ptr %864, i32 0, i32 16
+  %866 = load ptr, ptr %9, align 8
+  %867 = getelementptr inbounds %struct._packet_info, ptr %866, i32 0, i32 12
+  call void @copy_address_shallow(ptr noundef %865, ptr noundef %867)
+  %868 = load ptr, ptr %10, align 8
+  %869 = icmp ne ptr %868, null
+  br i1 %869, label %870, label %951
 
-868:                                              ; preds = %856
-  %869 = load ptr, ptr %14, align 8
-  %870 = load i32, ptr @hf_ieee802154_src16, align 4
-  %871 = load ptr, ptr %8, align 8
-  %872 = load i32, ptr %18, align 4
-  %873 = load ptr, ptr %19, align 8
-  %874 = getelementptr inbounds %struct.ieee802154_packet, ptr %873, i32 0, i32 20
-  %875 = load i16, ptr %874, align 8
-  %876 = zext i16 %875 to i32
-  %877 = call ptr @proto_tree_add_uint(ptr noundef %869, i32 noundef %870, ptr noundef %871, i32 noundef %872, i32 noundef 2, i32 noundef %876)
-  %878 = load ptr, ptr %14, align 8
-  %879 = load i32, ptr @hf_ieee802154_addr16, align 4
-  %880 = load ptr, ptr %8, align 8
-  %881 = load i32, ptr %18, align 4
-  %882 = load ptr, ptr %19, align 8
-  %883 = getelementptr inbounds %struct.ieee802154_packet, ptr %882, i32 0, i32 20
-  %884 = load i16, ptr %883, align 8
-  %885 = zext i16 %884 to i32
-  %886 = call ptr @proto_tree_add_uint(ptr noundef %878, i32 noundef %879, ptr noundef %880, i32 noundef %881, i32 noundef 2, i32 noundef %885)
-  store ptr %886, ptr %17, align 8
-  %887 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %887)
-  %888 = load ptr, ptr %17, align 8
-  call void @proto_item_set_hidden(ptr noundef %888)
-  %889 = load ptr, ptr %21, align 8
-  %890 = icmp ne ptr %889, null
-  br i1 %890, label %891, label %948
+870:                                              ; preds = %858
+  %871 = load ptr, ptr %14, align 8
+  %872 = load i32, ptr @hf_ieee802154_src16, align 4
+  %873 = load ptr, ptr %8, align 8
+  %874 = load i32, ptr %18, align 4
+  %875 = load ptr, ptr %19, align 8
+  %876 = getelementptr inbounds %struct.ieee802154_packet, ptr %875, i32 0, i32 20
+  %877 = load i16, ptr %876, align 8
+  %878 = zext i16 %877 to i32
+  %879 = call ptr @proto_tree_add_uint(ptr noundef %871, i32 noundef %872, ptr noundef %873, i32 noundef %874, i32 noundef 2, i32 noundef %878)
+  %880 = load ptr, ptr %14, align 8
+  %881 = load i32, ptr @hf_ieee802154_addr16, align 4
+  %882 = load ptr, ptr %8, align 8
+  %883 = load i32, ptr %18, align 4
+  %884 = load ptr, ptr %19, align 8
+  %885 = getelementptr inbounds %struct.ieee802154_packet, ptr %884, i32 0, i32 20
+  %886 = load i16, ptr %885, align 8
+  %887 = zext i16 %886 to i32
+  %888 = call ptr @proto_tree_add_uint(ptr noundef %880, i32 noundef %881, ptr noundef %882, i32 noundef %883, i32 noundef 2, i32 noundef %887)
+  store ptr %888, ptr %17, align 8
+  %889 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %889)
+  %890 = load ptr, ptr %17, align 8
+  call void @proto_item_set_hidden(ptr noundef %890)
+  %891 = load ptr, ptr %21, align 8
+  %892 = icmp ne ptr %891, null
+  br i1 %892, label %893, label %950
 
-891:                                              ; preds = %868
-  %892 = load ptr, ptr %21, align 8
-  %893 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %892, i32 0, i32 3
-  %894 = load ptr, ptr %893, align 8
-  %895 = icmp ne ptr %894, null
-  br i1 %895, label %896, label %948
+893:                                              ; preds = %870
+  %894 = load ptr, ptr %21, align 8
+  %895 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %894, i32 0, i32 3
+  %896 = load ptr, ptr %895, align 8
+  %897 = icmp ne ptr %896, null
+  br i1 %897, label %898, label %950
 
-896:                                              ; preds = %891
-  %897 = load ptr, ptr %14, align 8
-  %898 = load i32, ptr @hf_ieee802154_src64, align 4
-  %899 = load ptr, ptr %8, align 8
-  %900 = load i32, ptr %18, align 4
-  %901 = load ptr, ptr %21, align 8
-  %902 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %901, i32 0, i32 3
-  %903 = load ptr, ptr %902, align 8
-  %904 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %903, i32 0, i32 3
-  %905 = load i64, ptr %904, align 8
-  %906 = call ptr @proto_tree_add_eui64(ptr noundef %897, i32 noundef %898, ptr noundef %899, i32 noundef %900, i32 noundef 0, i64 noundef %905)
-  store ptr %906, ptr %17, align 8
-  %907 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %907)
-  %908 = load ptr, ptr %14, align 8
-  %909 = load i32, ptr @hf_ieee802154_addr64, align 4
-  %910 = load ptr, ptr %8, align 8
-  %911 = load i32, ptr %18, align 4
-  %912 = load ptr, ptr %21, align 8
-  %913 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %912, i32 0, i32 3
-  %914 = load ptr, ptr %913, align 8
-  %915 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %914, i32 0, i32 3
-  %916 = load i64, ptr %915, align 8
-  %917 = call ptr @proto_tree_add_eui64(ptr noundef %908, i32 noundef %909, ptr noundef %910, i32 noundef %911, i32 noundef 0, i64 noundef %916)
-  store ptr %917, ptr %17, align 8
-  %918 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %918)
-  %919 = load ptr, ptr %17, align 8
-  call void @proto_item_set_hidden(ptr noundef %919)
-  %920 = load ptr, ptr %21, align 8
-  %921 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %920, i32 0, i32 3
-  %922 = load ptr, ptr %921, align 8
-  %923 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %922, i32 0, i32 1
-  %924 = load i32, ptr %923, align 8
-  %925 = icmp ne i32 %924, 0
-  br i1 %925, label %926, label %936
+898:                                              ; preds = %893
+  %899 = load ptr, ptr %14, align 8
+  %900 = load i32, ptr @hf_ieee802154_src64, align 4
+  %901 = load ptr, ptr %8, align 8
+  %902 = load i32, ptr %18, align 4
+  %903 = load ptr, ptr %21, align 8
+  %904 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %903, i32 0, i32 3
+  %905 = load ptr, ptr %904, align 8
+  %906 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %905, i32 0, i32 3
+  %907 = load i64, ptr %906, align 8
+  %908 = call ptr @proto_tree_add_eui64(ptr noundef %899, i32 noundef %900, ptr noundef %901, i32 noundef %902, i32 noundef 0, i64 noundef %907)
+  store ptr %908, ptr %17, align 8
+  %909 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %909)
+  %910 = load ptr, ptr %14, align 8
+  %911 = load i32, ptr @hf_ieee802154_addr64, align 4
+  %912 = load ptr, ptr %8, align 8
+  %913 = load i32, ptr %18, align 4
+  %914 = load ptr, ptr %21, align 8
+  %915 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %914, i32 0, i32 3
+  %916 = load ptr, ptr %915, align 8
+  %917 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %916, i32 0, i32 3
+  %918 = load i64, ptr %917, align 8
+  %919 = call ptr @proto_tree_add_eui64(ptr noundef %910, i32 noundef %911, ptr noundef %912, i32 noundef %913, i32 noundef 0, i64 noundef %918)
+  store ptr %919, ptr %17, align 8
+  %920 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %920)
+  %921 = load ptr, ptr %17, align 8
+  call void @proto_item_set_hidden(ptr noundef %921)
+  %922 = load ptr, ptr %21, align 8
+  %923 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %922, i32 0, i32 3
+  %924 = load ptr, ptr %923, align 8
+  %925 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %924, i32 0, i32 1
+  %926 = load i32, ptr %925, align 8
+  %927 = icmp ne i32 %926, 0
+  br i1 %927, label %928, label %938
 
-926:                                              ; preds = %896
-  %927 = load ptr, ptr %14, align 8
-  %928 = load i32, ptr @hf_ieee802154_src64_origin, align 4
-  %929 = load ptr, ptr %8, align 8
-  %930 = load ptr, ptr %21, align 8
-  %931 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %930, i32 0, i32 3
-  %932 = load ptr, ptr %931, align 8
-  %933 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %932, i32 0, i32 1
-  %934 = load i32, ptr %933, align 8
-  %935 = call ptr @proto_tree_add_uint(ptr noundef %927, i32 noundef %928, ptr noundef %929, i32 noundef 0, i32 noundef 0, i32 noundef %934)
-  store ptr %935, ptr %17, align 8
-  br label %946
-
-936:                                              ; preds = %896
-  %937 = load ptr, ptr %14, align 8
-  %938 = load i32, ptr @hf_ieee802154_src64_origin, align 4
-  %939 = load ptr, ptr %8, align 8
-  %940 = load ptr, ptr %21, align 8
-  %941 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %940, i32 0, i32 3
-  %942 = load ptr, ptr %941, align 8
-  %943 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %942, i32 0, i32 1
-  %944 = load i32, ptr %943, align 8
-  %945 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %937, i32 noundef %938, ptr noundef %939, i32 noundef 0, i32 noundef 0, i32 noundef %944, ptr noundef @.str.20)
-  store ptr %945, ptr %17, align 8
-  br label %946
-
-946:                                              ; preds = %936, %926
-  %947 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %947)
+928:                                              ; preds = %898
+  %929 = load ptr, ptr %14, align 8
+  %930 = load i32, ptr @hf_ieee802154_src64_origin, align 4
+  %931 = load ptr, ptr %8, align 8
+  %932 = load ptr, ptr %21, align 8
+  %933 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %932, i32 0, i32 3
+  %934 = load ptr, ptr %933, align 8
+  %935 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %934, i32 0, i32 1
+  %936 = load i32, ptr %935, align 8
+  %937 = call ptr @proto_tree_add_uint(ptr noundef %929, i32 noundef %930, ptr noundef %931, i32 noundef 0, i32 noundef 0, i32 noundef %936)
+  store ptr %937, ptr %17, align 8
   br label %948
 
-948:                                              ; preds = %946, %891, %868
-  br label %949
+938:                                              ; preds = %898
+  %939 = load ptr, ptr %14, align 8
+  %940 = load i32, ptr @hf_ieee802154_src64_origin, align 4
+  %941 = load ptr, ptr %8, align 8
+  %942 = load ptr, ptr %21, align 8
+  %943 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %942, i32 0, i32 3
+  %944 = load ptr, ptr %943, align 8
+  %945 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %944, i32 0, i32 1
+  %946 = load i32, ptr %945, align 8
+  %947 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %939, i32 noundef %940, ptr noundef %941, i32 noundef 0, i32 noundef 0, i32 noundef %946, ptr noundef @.str.20)
+  store ptr %947, ptr %17, align 8
+  br label %948
 
-949:                                              ; preds = %948, %856
-  %950 = load i32, ptr %18, align 4
-  %951 = add i32 %950, 2
-  store i32 %951, ptr %18, align 4
-  br label %997
+948:                                              ; preds = %938, %928
+  %949 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %949)
+  br label %950
 
-952:                                              ; preds = %814
-  %953 = load ptr, ptr %19, align 8
-  %954 = getelementptr inbounds %struct.ieee802154_packet, ptr %953, i32 0, i32 3
-  %955 = load i32, ptr %954, align 4
-  %956 = icmp eq i32 %955, 3
-  br i1 %956, label %957, label %996
+950:                                              ; preds = %948, %893, %870
+  br label %951
 
-957:                                              ; preds = %952
-  %958 = load ptr, ptr %9, align 8
-  %959 = getelementptr inbounds %struct._packet_info, ptr %958, i32 0, i32 50
-  %960 = load ptr, ptr %959, align 8
-  %961 = call noalias ptr @wmem_alloc(ptr noundef %960, i64 noundef 8)
-  store ptr %961, ptr %23, align 8
-  %962 = load ptr, ptr %8, align 8
-  %963 = load i32, ptr %18, align 4
-  %964 = call i64 @tvb_get_letoh64(ptr noundef %962, i32 noundef %963)
-  %965 = load ptr, ptr %19, align 8
-  %966 = getelementptr inbounds %struct.ieee802154_packet, ptr %965, i32 0, i32 21
-  store i64 %964, ptr %966, align 8
+951:                                              ; preds = %950, %858
+  %952 = load i32, ptr %18, align 4
+  %953 = add i32 %952, 2
+  store i32 %953, ptr %18, align 4
+  br label %999
+
+954:                                              ; preds = %815
+  %955 = load ptr, ptr %19, align 8
+  %956 = getelementptr inbounds %struct.ieee802154_packet, ptr %955, i32 0, i32 3
+  %957 = load i32, ptr %956, align 4
+  %958 = icmp eq i32 %957, 3
+  br i1 %958, label %959, label %998
+
+959:                                              ; preds = %954
+  %960 = load ptr, ptr %9, align 8
+  %961 = getelementptr inbounds %struct._packet_info, ptr %960, i32 0, i32 50
+  %962 = load ptr, ptr %961, align 8
+  %963 = call noalias ptr @wmem_alloc(ptr noundef %962, i64 noundef 8)
+  store ptr %963, ptr %23, align 8
+  %964 = load ptr, ptr %8, align 8
+  %965 = load i32, ptr %18, align 4
+  %966 = call i64 @tvb_get_letoh64(ptr noundef %964, i32 noundef %965)
   %967 = load ptr, ptr %19, align 8
   %968 = getelementptr inbounds %struct.ieee802154_packet, ptr %967, i32 0, i32 21
-  %969 = call i64 @pntoh64(ptr noundef %968)
-  %970 = load ptr, ptr %23, align 8
-  store i64 %969, ptr %970, align 8
-  %971 = load ptr, ptr %9, align 8
-  %972 = getelementptr inbounds %struct._packet_info, ptr %971, i32 0, i32 12
-  %973 = load ptr, ptr %23, align 8
-  call void @set_address(ptr noundef %972, i32 noundef 8, i32 noundef 8, ptr noundef %973)
-  %974 = load ptr, ptr %9, align 8
-  %975 = getelementptr inbounds %struct._packet_info, ptr %974, i32 0, i32 16
+  store i64 %966, ptr %968, align 8
+  %969 = load ptr, ptr %19, align 8
+  %970 = getelementptr inbounds %struct.ieee802154_packet, ptr %969, i32 0, i32 21
+  %971 = call i64 @pntoh64(ptr noundef %970)
+  %972 = load ptr, ptr %23, align 8
+  store i64 %971, ptr %972, align 8
+  %973 = load ptr, ptr %9, align 8
+  %974 = getelementptr inbounds %struct._packet_info, ptr %973, i32 0, i32 12
+  %975 = load ptr, ptr %23, align 8
+  call void @set_address(ptr noundef %974, i32 noundef 8, i32 noundef 8, ptr noundef %975)
   %976 = load ptr, ptr %9, align 8
-  %977 = getelementptr inbounds %struct._packet_info, ptr %976, i32 0, i32 12
-  call void @copy_address_shallow(ptr noundef %975, ptr noundef %977)
-  %978 = load ptr, ptr %10, align 8
-  %979 = icmp ne ptr %978, null
-  br i1 %979, label %980, label %993
+  %977 = getelementptr inbounds %struct._packet_info, ptr %976, i32 0, i32 16
+  %978 = load ptr, ptr %9, align 8
+  %979 = getelementptr inbounds %struct._packet_info, ptr %978, i32 0, i32 12
+  call void @copy_address_shallow(ptr noundef %977, ptr noundef %979)
+  %980 = load ptr, ptr %10, align 8
+  %981 = icmp ne ptr %980, null
+  br i1 %981, label %982, label %995
 
-980:                                              ; preds = %957
-  %981 = load ptr, ptr %14, align 8
-  %982 = load i32, ptr @hf_ieee802154_src64, align 4
-  %983 = load ptr, ptr %8, align 8
-  %984 = load i32, ptr %18, align 4
-  %985 = call ptr @proto_tree_add_item(ptr noundef %981, i32 noundef %982, ptr noundef %983, i32 noundef %984, i32 noundef 8, i32 noundef -2147483648)
-  %986 = load ptr, ptr %14, align 8
-  %987 = load i32, ptr @hf_ieee802154_addr64, align 4
-  %988 = load ptr, ptr %8, align 8
-  %989 = load i32, ptr %18, align 4
-  %990 = call ptr @proto_tree_add_item(ptr noundef %986, i32 noundef %987, ptr noundef %988, i32 noundef %989, i32 noundef 8, i32 noundef -2147483648)
-  store ptr %990, ptr %17, align 8
-  %991 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %991)
-  %992 = load ptr, ptr %17, align 8
-  call void @proto_item_set_hidden(ptr noundef %992)
-  br label %993
+982:                                              ; preds = %959
+  %983 = load ptr, ptr %14, align 8
+  %984 = load i32, ptr @hf_ieee802154_src64, align 4
+  %985 = load ptr, ptr %8, align 8
+  %986 = load i32, ptr %18, align 4
+  %987 = call ptr @proto_tree_add_item(ptr noundef %983, i32 noundef %984, ptr noundef %985, i32 noundef %986, i32 noundef 8, i32 noundef -2147483648)
+  %988 = load ptr, ptr %14, align 8
+  %989 = load i32, ptr @hf_ieee802154_addr64, align 4
+  %990 = load ptr, ptr %8, align 8
+  %991 = load i32, ptr %18, align 4
+  %992 = call ptr @proto_tree_add_item(ptr noundef %988, i32 noundef %989, ptr noundef %990, i32 noundef %991, i32 noundef 8, i32 noundef -2147483648)
+  store ptr %992, ptr %17, align 8
+  %993 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %993)
+  %994 = load ptr, ptr %17, align 8
+  call void @proto_item_set_hidden(ptr noundef %994)
+  br label %995
 
-993:                                              ; preds = %980, %957
-  %994 = load i32, ptr %18, align 4
-  %995 = add i32 %994, 8
-  store i32 %995, ptr %18, align 4
-  br label %996
+995:                                              ; preds = %982, %959
+  %996 = load i32, ptr %18, align 4
+  %997 = add i32 %996, 8
+  store i32 %997, ptr %18, align 4
+  br label %998
 
-996:                                              ; preds = %993, %952
-  br label %997
+998:                                              ; preds = %995, %954
+  br label %999
 
-997:                                              ; preds = %996, %949
-  %998 = load ptr, ptr %19, align 8
-  %999 = getelementptr inbounds %struct.ieee802154_packet, ptr %998, i32 0, i32 3
-  %1000 = load i32, ptr %999, align 4
-  %1001 = icmp eq i32 %1000, 2
-  br i1 %1001, label %1002, label %1019
+999:                                              ; preds = %998, %951
+  %1000 = load ptr, ptr %19, align 8
+  %1001 = getelementptr inbounds %struct.ieee802154_packet, ptr %1000, i32 0, i32 3
+  %1002 = load i32, ptr %1001, align 4
+  %1003 = icmp eq i32 %1002, 2
+  br i1 %1003, label %1004, label %1021
 
-1002:                                             ; preds = %997
-  %1003 = load ptr, ptr %15, align 8
-  %1004 = load ptr, ptr %9, align 8
-  %1005 = getelementptr inbounds %struct._packet_info, ptr %1004, i32 0, i32 50
-  %1006 = load ptr, ptr %1005, align 8
-  %1007 = load ptr, ptr %9, align 8
-  %1008 = getelementptr inbounds %struct._packet_info, ptr %1007, i32 0, i32 16
-  %1009 = call ptr @address_to_str(ptr noundef %1006, ptr noundef %1008)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1003, ptr noundef @.str.21, ptr noundef %1009)
-  %1010 = load ptr, ptr %9, align 8
-  %1011 = getelementptr inbounds %struct._packet_info, ptr %1010, i32 0, i32 1
-  %1012 = load ptr, ptr %1011, align 8
-  %1013 = load ptr, ptr %9, align 8
-  %1014 = getelementptr inbounds %struct._packet_info, ptr %1013, i32 0, i32 50
-  %1015 = load ptr, ptr %1014, align 8
-  %1016 = load ptr, ptr %9, align 8
-  %1017 = getelementptr inbounds %struct._packet_info, ptr %1016, i32 0, i32 16
-  %1018 = call ptr @address_to_str(ptr noundef %1015, ptr noundef %1017)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1012, i32 noundef 25, ptr noundef @.str.21, ptr noundef %1018)
-  br label %1044
+1004:                                             ; preds = %999
+  %1005 = load ptr, ptr %15, align 8
+  %1006 = load ptr, ptr %9, align 8
+  %1007 = getelementptr inbounds %struct._packet_info, ptr %1006, i32 0, i32 50
+  %1008 = load ptr, ptr %1007, align 8
+  %1009 = load ptr, ptr %9, align 8
+  %1010 = getelementptr inbounds %struct._packet_info, ptr %1009, i32 0, i32 16
+  %1011 = call ptr @address_to_str(ptr noundef %1008, ptr noundef %1010)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1005, ptr noundef @.str.21, ptr noundef %1011)
+  %1012 = load ptr, ptr %9, align 8
+  %1013 = getelementptr inbounds %struct._packet_info, ptr %1012, i32 0, i32 1
+  %1014 = load ptr, ptr %1013, align 8
+  %1015 = load ptr, ptr %9, align 8
+  %1016 = getelementptr inbounds %struct._packet_info, ptr %1015, i32 0, i32 50
+  %1017 = load ptr, ptr %1016, align 8
+  %1018 = load ptr, ptr %9, align 8
+  %1019 = getelementptr inbounds %struct._packet_info, ptr %1018, i32 0, i32 16
+  %1020 = call ptr @address_to_str(ptr noundef %1017, ptr noundef %1019)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1014, i32 noundef 25, ptr noundef @.str.21, ptr noundef %1020)
+  br label %1046
 
-1019:                                             ; preds = %997
-  %1020 = load ptr, ptr %19, align 8
-  %1021 = getelementptr inbounds %struct.ieee802154_packet, ptr %1020, i32 0, i32 3
-  %1022 = load i32, ptr %1021, align 4
-  %1023 = icmp eq i32 %1022, 3
-  br i1 %1023, label %1024, label %1043
+1021:                                             ; preds = %999
+  %1022 = load ptr, ptr %19, align 8
+  %1023 = getelementptr inbounds %struct.ieee802154_packet, ptr %1022, i32 0, i32 3
+  %1024 = load i32, ptr %1023, align 4
+  %1025 = icmp eq i32 %1024, 3
+  br i1 %1025, label %1026, label %1045
 
-1024:                                             ; preds = %1019
-  %1025 = load ptr, ptr %15, align 8
-  %1026 = load ptr, ptr %9, align 8
-  %1027 = getelementptr inbounds %struct._packet_info, ptr %1026, i32 0, i32 50
-  %1028 = load ptr, ptr %1027, align 8
-  %1029 = load ptr, ptr %19, align 8
-  %1030 = getelementptr inbounds %struct.ieee802154_packet, ptr %1029, i32 0, i32 21
-  %1031 = load i64, ptr %1030, align 8
-  %1032 = call ptr @eui64_to_display(ptr noundef %1028, i64 noundef %1031)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1025, ptr noundef @.str.21, ptr noundef %1032)
-  %1033 = load ptr, ptr %9, align 8
-  %1034 = getelementptr inbounds %struct._packet_info, ptr %1033, i32 0, i32 1
-  %1035 = load ptr, ptr %1034, align 8
-  %1036 = load ptr, ptr %9, align 8
-  %1037 = getelementptr inbounds %struct._packet_info, ptr %1036, i32 0, i32 50
-  %1038 = load ptr, ptr %1037, align 8
-  %1039 = load ptr, ptr %19, align 8
-  %1040 = getelementptr inbounds %struct.ieee802154_packet, ptr %1039, i32 0, i32 21
-  %1041 = load i64, ptr %1040, align 8
-  %1042 = call ptr @eui64_to_display(ptr noundef %1038, i64 noundef %1041)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1035, i32 noundef 25, ptr noundef @.str.21, ptr noundef %1042)
-  br label %1043
+1026:                                             ; preds = %1021
+  %1027 = load ptr, ptr %15, align 8
+  %1028 = load ptr, ptr %9, align 8
+  %1029 = getelementptr inbounds %struct._packet_info, ptr %1028, i32 0, i32 50
+  %1030 = load ptr, ptr %1029, align 8
+  %1031 = load ptr, ptr %19, align 8
+  %1032 = getelementptr inbounds %struct.ieee802154_packet, ptr %1031, i32 0, i32 21
+  %1033 = load i64, ptr %1032, align 8
+  %1034 = call ptr @eui64_to_display(ptr noundef %1030, i64 noundef %1033)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1027, ptr noundef @.str.21, ptr noundef %1034)
+  %1035 = load ptr, ptr %9, align 8
+  %1036 = getelementptr inbounds %struct._packet_info, ptr %1035, i32 0, i32 1
+  %1037 = load ptr, ptr %1036, align 8
+  %1038 = load ptr, ptr %9, align 8
+  %1039 = getelementptr inbounds %struct._packet_info, ptr %1038, i32 0, i32 50
+  %1040 = load ptr, ptr %1039, align 8
+  %1041 = load ptr, ptr %19, align 8
+  %1042 = getelementptr inbounds %struct.ieee802154_packet, ptr %1041, i32 0, i32 21
+  %1043 = load i64, ptr %1042, align 8
+  %1044 = call ptr @eui64_to_display(ptr noundef %1040, i64 noundef %1043)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1037, i32 noundef 25, ptr noundef @.str.21, ptr noundef %1044)
+  br label %1045
 
-1043:                                             ; preds = %1024, %1019
-  br label %1044
+1045:                                             ; preds = %1026, %1021
+  br label %1046
 
-1044:                                             ; preds = %1043, %1002
-  %1045 = load ptr, ptr %19, align 8
-  %1046 = getelementptr inbounds %struct.ieee802154_packet, ptr %1045, i32 0, i32 2
-  %1047 = load i32, ptr %1046, align 8
-  %1048 = icmp eq i32 %1047, 2
-  br i1 %1048, label %1049, label %1066
+1046:                                             ; preds = %1045, %1004
+  %1047 = load ptr, ptr %19, align 8
+  %1048 = getelementptr inbounds %struct.ieee802154_packet, ptr %1047, i32 0, i32 2
+  %1049 = load i32, ptr %1048, align 8
+  %1050 = icmp eq i32 %1049, 2
+  br i1 %1050, label %1051, label %1068
 
-1049:                                             ; preds = %1044
-  %1050 = load ptr, ptr %15, align 8
-  %1051 = load ptr, ptr %9, align 8
-  %1052 = getelementptr inbounds %struct._packet_info, ptr %1051, i32 0, i32 50
-  %1053 = load ptr, ptr %1052, align 8
-  %1054 = load ptr, ptr %9, align 8
-  %1055 = getelementptr inbounds %struct._packet_info, ptr %1054, i32 0, i32 17
-  %1056 = call ptr @address_to_str(ptr noundef %1053, ptr noundef %1055)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1050, ptr noundef @.str.22, ptr noundef %1056)
-  %1057 = load ptr, ptr %9, align 8
-  %1058 = getelementptr inbounds %struct._packet_info, ptr %1057, i32 0, i32 1
-  %1059 = load ptr, ptr %1058, align 8
-  %1060 = load ptr, ptr %9, align 8
-  %1061 = getelementptr inbounds %struct._packet_info, ptr %1060, i32 0, i32 50
-  %1062 = load ptr, ptr %1061, align 8
-  %1063 = load ptr, ptr %9, align 8
-  %1064 = getelementptr inbounds %struct._packet_info, ptr %1063, i32 0, i32 17
-  %1065 = call ptr @address_to_str(ptr noundef %1062, ptr noundef %1064)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1059, i32 noundef 25, ptr noundef @.str.22, ptr noundef %1065)
-  br label %1091
+1051:                                             ; preds = %1046
+  %1052 = load ptr, ptr %15, align 8
+  %1053 = load ptr, ptr %9, align 8
+  %1054 = getelementptr inbounds %struct._packet_info, ptr %1053, i32 0, i32 50
+  %1055 = load ptr, ptr %1054, align 8
+  %1056 = load ptr, ptr %9, align 8
+  %1057 = getelementptr inbounds %struct._packet_info, ptr %1056, i32 0, i32 17
+  %1058 = call ptr @address_to_str(ptr noundef %1055, ptr noundef %1057)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1052, ptr noundef @.str.22, ptr noundef %1058)
+  %1059 = load ptr, ptr %9, align 8
+  %1060 = getelementptr inbounds %struct._packet_info, ptr %1059, i32 0, i32 1
+  %1061 = load ptr, ptr %1060, align 8
+  %1062 = load ptr, ptr %9, align 8
+  %1063 = getelementptr inbounds %struct._packet_info, ptr %1062, i32 0, i32 50
+  %1064 = load ptr, ptr %1063, align 8
+  %1065 = load ptr, ptr %9, align 8
+  %1066 = getelementptr inbounds %struct._packet_info, ptr %1065, i32 0, i32 17
+  %1067 = call ptr @address_to_str(ptr noundef %1064, ptr noundef %1066)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1061, i32 noundef 25, ptr noundef @.str.22, ptr noundef %1067)
+  br label %1093
 
-1066:                                             ; preds = %1044
-  %1067 = load ptr, ptr %19, align 8
-  %1068 = getelementptr inbounds %struct.ieee802154_packet, ptr %1067, i32 0, i32 2
-  %1069 = load i32, ptr %1068, align 8
-  %1070 = icmp eq i32 %1069, 3
-  br i1 %1070, label %1071, label %1090
+1068:                                             ; preds = %1046
+  %1069 = load ptr, ptr %19, align 8
+  %1070 = getelementptr inbounds %struct.ieee802154_packet, ptr %1069, i32 0, i32 2
+  %1071 = load i32, ptr %1070, align 8
+  %1072 = icmp eq i32 %1071, 3
+  br i1 %1072, label %1073, label %1092
 
-1071:                                             ; preds = %1066
-  %1072 = load ptr, ptr %15, align 8
-  %1073 = load ptr, ptr %9, align 8
-  %1074 = getelementptr inbounds %struct._packet_info, ptr %1073, i32 0, i32 50
-  %1075 = load ptr, ptr %1074, align 8
-  %1076 = load ptr, ptr %19, align 8
-  %1077 = getelementptr inbounds %struct.ieee802154_packet, ptr %1076, i32 0, i32 19
-  %1078 = load i64, ptr %1077, align 8
-  %1079 = call ptr @eui64_to_display(ptr noundef %1075, i64 noundef %1078)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1072, ptr noundef @.str.22, ptr noundef %1079)
-  %1080 = load ptr, ptr %9, align 8
-  %1081 = getelementptr inbounds %struct._packet_info, ptr %1080, i32 0, i32 1
-  %1082 = load ptr, ptr %1081, align 8
-  %1083 = load ptr, ptr %9, align 8
-  %1084 = getelementptr inbounds %struct._packet_info, ptr %1083, i32 0, i32 50
-  %1085 = load ptr, ptr %1084, align 8
-  %1086 = load ptr, ptr %19, align 8
-  %1087 = getelementptr inbounds %struct.ieee802154_packet, ptr %1086, i32 0, i32 19
-  %1088 = load i64, ptr %1087, align 8
-  %1089 = call ptr @eui64_to_display(ptr noundef %1085, i64 noundef %1088)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1082, i32 noundef 25, ptr noundef @.str.22, ptr noundef %1089)
-  br label %1090
+1073:                                             ; preds = %1068
+  %1074 = load ptr, ptr %15, align 8
+  %1075 = load ptr, ptr %9, align 8
+  %1076 = getelementptr inbounds %struct._packet_info, ptr %1075, i32 0, i32 50
+  %1077 = load ptr, ptr %1076, align 8
+  %1078 = load ptr, ptr %19, align 8
+  %1079 = getelementptr inbounds %struct.ieee802154_packet, ptr %1078, i32 0, i32 19
+  %1080 = load i64, ptr %1079, align 8
+  %1081 = call ptr @eui64_to_display(ptr noundef %1077, i64 noundef %1080)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1074, ptr noundef @.str.22, ptr noundef %1081)
+  %1082 = load ptr, ptr %9, align 8
+  %1083 = getelementptr inbounds %struct._packet_info, ptr %1082, i32 0, i32 1
+  %1084 = load ptr, ptr %1083, align 8
+  %1085 = load ptr, ptr %9, align 8
+  %1086 = getelementptr inbounds %struct._packet_info, ptr %1085, i32 0, i32 50
+  %1087 = load ptr, ptr %1086, align 8
+  %1088 = load ptr, ptr %19, align 8
+  %1089 = getelementptr inbounds %struct.ieee802154_packet, ptr %1088, i32 0, i32 19
+  %1090 = load i64, ptr %1089, align 8
+  %1091 = call ptr @eui64_to_display(ptr noundef %1087, i64 noundef %1090)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1084, i32 noundef 25, ptr noundef @.str.22, ptr noundef %1091)
+  br label %1092
 
-1090:                                             ; preds = %1071, %1066
-  br label %1091
+1092:                                             ; preds = %1073, %1068
+  br label %1093
 
-1091:                                             ; preds = %1090, %1049
-  %1092 = load ptr, ptr %19, align 8
-  %1093 = getelementptr inbounds %struct.ieee802154_packet, ptr %1092, i32 0, i32 4
-  %1094 = load i32, ptr %1093, align 8
-  %1095 = icmp ne i32 %1094, 0
-  br i1 %1095, label %1096, label %1110
+1093:                                             ; preds = %1092, %1051
+  %1094 = load ptr, ptr %19, align 8
+  %1095 = getelementptr inbounds %struct.ieee802154_packet, ptr %1094, i32 0, i32 4
+  %1096 = load i32, ptr %1095, align 8
+  %1097 = icmp ne i32 %1096, 0
+  br i1 %1097, label %1098, label %1112
 
-1096:                                             ; preds = %1091
-  %1097 = load ptr, ptr %19, align 8
-  %1098 = getelementptr inbounds %struct.ieee802154_packet, ptr %1097, i32 0, i32 0
-  %1099 = load i32, ptr %1098, align 8
-  %1100 = icmp ne i32 %1099, 0
-  br i1 %1100, label %1101, label %1110
+1098:                                             ; preds = %1093
+  %1099 = load ptr, ptr %19, align 8
+  %1100 = getelementptr inbounds %struct.ieee802154_packet, ptr %1099, i32 0, i32 0
+  %1101 = load i32, ptr %1100, align 8
+  %1102 = icmp ne i32 %1101, 0
+  br i1 %1102, label %1103, label %1112
 
-1101:                                             ; preds = %1096
-  %1102 = load i32, ptr %11, align 4
-  %1103 = and i32 %1102, 2
-  %1104 = icmp ne i32 %1103, 0
-  br i1 %1104, label %1110, label %1105
+1103:                                             ; preds = %1098
+  %1104 = load i32, ptr %11, align 4
+  %1105 = and i32 %1104, 2
+  %1106 = icmp ne i32 %1105, 0
+  br i1 %1106, label %1112, label %1107
 
-1105:                                             ; preds = %1101
-  %1106 = load ptr, ptr %8, align 8
-  %1107 = load ptr, ptr %9, align 8
-  %1108 = load ptr, ptr %14, align 8
-  %1109 = load ptr, ptr %19, align 8
-  call void @dissect_ieee802154_aux_sec_header_and_key(ptr noundef %1106, ptr noundef %1107, ptr noundef %1108, ptr noundef %1109, ptr noundef %18)
-  br label %1110
-
-1110:                                             ; preds = %1105, %1101, %1096, %1091
+1107:                                             ; preds = %1103
+  %1108 = load ptr, ptr %8, align 8
+  %1109 = load ptr, ptr %9, align 8
+  %1110 = load ptr, ptr %14, align 8
   %1111 = load ptr, ptr %19, align 8
-  %1112 = getelementptr inbounds %struct.ieee802154_packet, ptr %1111, i32 0, i32 0
-  %1113 = load i32, ptr %1112, align 8
-  %1114 = icmp eq i32 %1113, 0
-  br i1 %1114, label %1120, label %1115
+  call void @dissect_ieee802154_aux_sec_header_and_key(ptr noundef %1108, ptr noundef %1109, ptr noundef %1110, ptr noundef %1111, ptr noundef %18)
+  br label %1112
 
-1115:                                             ; preds = %1110
-  %1116 = load ptr, ptr %19, align 8
-  %1117 = getelementptr inbounds %struct.ieee802154_packet, ptr %1116, i32 0, i32 0
-  %1118 = load i32, ptr %1117, align 8
-  %1119 = icmp eq i32 %1118, 1
-  br i1 %1119, label %1120, label %1175
+1112:                                             ; preds = %1107, %1103, %1098, %1093
+  %1113 = load ptr, ptr %19, align 8
+  %1114 = getelementptr inbounds %struct.ieee802154_packet, ptr %1113, i32 0, i32 0
+  %1115 = load i32, ptr %1114, align 8
+  %1116 = icmp eq i32 %1115, 0
+  br i1 %1116, label %1122, label %1117
 
-1120:                                             ; preds = %1115, %1110
-  %1121 = load ptr, ptr %19, align 8
-  %1122 = getelementptr inbounds %struct.ieee802154_packet, ptr %1121, i32 0, i32 1
-  %1123 = load i32, ptr %1122, align 4
-  %1124 = icmp ne i32 %1123, 5
-  br i1 %1124, label %1125, label %1175
+1117:                                             ; preds = %1112
+  %1118 = load ptr, ptr %19, align 8
+  %1119 = getelementptr inbounds %struct.ieee802154_packet, ptr %1118, i32 0, i32 0
+  %1120 = load i32, ptr %1119, align 8
+  %1121 = icmp eq i32 %1120, 1
+  br i1 %1121, label %1122, label %1177
 
-1125:                                             ; preds = %1120
-  %1126 = load ptr, ptr %19, align 8
-  %1127 = getelementptr inbounds %struct.ieee802154_packet, ptr %1126, i32 0, i32 1
-  %1128 = load i32, ptr %1127, align 4
-  %1129 = icmp eq i32 %1128, 0
-  br i1 %1129, label %1130, label %1140
+1122:                                             ; preds = %1117, %1112
+  %1123 = load ptr, ptr %19, align 8
+  %1124 = getelementptr inbounds %struct.ieee802154_packet, ptr %1123, i32 0, i32 1
+  %1125 = load i32, ptr %1124, align 4
+  %1126 = icmp ne i32 %1125, 5
+  br i1 %1126, label %1127, label %1177
 
-1130:                                             ; preds = %1125
-  %1131 = load ptr, ptr %8, align 8
-  %1132 = load ptr, ptr %9, align 8
-  %1133 = load ptr, ptr %14, align 8
-  call void @dissect_ieee802154_superframe(ptr noundef %1131, ptr noundef %1132, ptr noundef %1133, ptr noundef %18)
-  %1134 = load ptr, ptr %8, align 8
-  %1135 = load ptr, ptr %9, align 8
-  %1136 = load ptr, ptr %14, align 8
-  call void @dissect_ieee802154_gtsinfo(ptr noundef %1134, ptr noundef %1135, ptr noundef %1136, ptr noundef %18)
-  %1137 = load ptr, ptr %8, align 8
-  %1138 = load ptr, ptr %9, align 8
-  %1139 = load ptr, ptr %14, align 8
-  call void @dissect_ieee802154_pendaddr(ptr noundef %1137, ptr noundef %1138, ptr noundef %1139, ptr noundef %18)
-  br label %1140
+1127:                                             ; preds = %1122
+  %1128 = load ptr, ptr %19, align 8
+  %1129 = getelementptr inbounds %struct.ieee802154_packet, ptr %1128, i32 0, i32 1
+  %1130 = load i32, ptr %1129, align 4
+  %1131 = icmp eq i32 %1130, 0
+  br i1 %1131, label %1132, label %1142
 
-1140:                                             ; preds = %1130, %1125
-  %1141 = load ptr, ptr %19, align 8
-  %1142 = getelementptr inbounds %struct.ieee802154_packet, ptr %1141, i32 0, i32 1
-  %1143 = load i32, ptr %1142, align 4
-  %1144 = icmp eq i32 %1143, 3
-  br i1 %1144, label %1145, label %1174
+1132:                                             ; preds = %1127
+  %1133 = load ptr, ptr %8, align 8
+  %1134 = load ptr, ptr %9, align 8
+  %1135 = load ptr, ptr %14, align 8
+  call void @dissect_ieee802154_superframe(ptr noundef %1133, ptr noundef %1134, ptr noundef %1135, ptr noundef %18)
+  %1136 = load ptr, ptr %8, align 8
+  %1137 = load ptr, ptr %9, align 8
+  %1138 = load ptr, ptr %14, align 8
+  call void @dissect_ieee802154_gtsinfo(ptr noundef %1136, ptr noundef %1137, ptr noundef %1138, ptr noundef %18)
+  %1139 = load ptr, ptr %8, align 8
+  %1140 = load ptr, ptr %9, align 8
+  %1141 = load ptr, ptr %14, align 8
+  call void @dissect_ieee802154_pendaddr(ptr noundef %1139, ptr noundef %1140, ptr noundef %1141, ptr noundef %18)
+  br label %1142
 
-1145:                                             ; preds = %1140
-  %1146 = load ptr, ptr %8, align 8
-  %1147 = load i32, ptr %18, align 4
-  %1148 = call zeroext i8 @tvb_get_guint8(ptr noundef %1146, i32 noundef %1147)
-  %1149 = load ptr, ptr %19, align 8
-  %1150 = getelementptr inbounds %struct.ieee802154_packet, ptr %1149, i32 0, i32 30
-  store i8 %1148, ptr %1150, align 1
-  %1151 = load ptr, ptr %10, align 8
-  %1152 = icmp ne ptr %1151, null
-  br i1 %1152, label %1153, label %1163
+1142:                                             ; preds = %1132, %1127
+  %1143 = load ptr, ptr %19, align 8
+  %1144 = getelementptr inbounds %struct.ieee802154_packet, ptr %1143, i32 0, i32 1
+  %1145 = load i32, ptr %1144, align 4
+  %1146 = icmp eq i32 %1145, 3
+  br i1 %1146, label %1147, label %1176
 
-1153:                                             ; preds = %1145
-  %1154 = load ptr, ptr %14, align 8
-  %1155 = load i32, ptr @hf_ieee802154_cmd_id, align 4
-  %1156 = load ptr, ptr %8, align 8
-  %1157 = load i32, ptr %18, align 4
-  %1158 = load ptr, ptr %19, align 8
-  %1159 = getelementptr inbounds %struct.ieee802154_packet, ptr %1158, i32 0, i32 30
-  %1160 = load i8, ptr %1159, align 1
-  %1161 = zext i8 %1160 to i32
-  %1162 = call ptr @proto_tree_add_uint(ptr noundef %1154, i32 noundef %1155, ptr noundef %1156, i32 noundef %1157, i32 noundef 1, i32 noundef %1161)
-  br label %1163
+1147:                                             ; preds = %1142
+  %1148 = load ptr, ptr %8, align 8
+  %1149 = load i32, ptr %18, align 4
+  %1150 = call zeroext i8 @tvb_get_guint8(ptr noundef %1148, i32 noundef %1149)
+  %1151 = load ptr, ptr %19, align 8
+  %1152 = getelementptr inbounds %struct.ieee802154_packet, ptr %1151, i32 0, i32 30
+  store i8 %1150, ptr %1152, align 1
+  %1153 = load ptr, ptr %10, align 8
+  %1154 = icmp ne ptr %1153, null
+  br i1 %1154, label %1155, label %1165
 
-1163:                                             ; preds = %1153, %1145
-  %1164 = load i32, ptr %18, align 4
-  %1165 = add i32 %1164, 1
-  store i32 %1165, ptr %18, align 4
-  %1166 = load ptr, ptr %9, align 8
-  %1167 = getelementptr inbounds %struct._packet_info, ptr %1166, i32 0, i32 1
-  %1168 = load ptr, ptr %1167, align 8
-  %1169 = load ptr, ptr %19, align 8
-  %1170 = getelementptr inbounds %struct.ieee802154_packet, ptr %1169, i32 0, i32 30
-  %1171 = load i8, ptr %1170, align 1
-  %1172 = zext i8 %1171 to i32
-  %1173 = call ptr @val_to_str_const(i32 noundef %1172, ptr noundef @ieee802154_cmd_names, ptr noundef @.str.23)
-  call void @col_set_str(ptr noundef %1168, i32 noundef 25, ptr noundef %1173)
-  br label %1174
+1155:                                             ; preds = %1147
+  %1156 = load ptr, ptr %14, align 8
+  %1157 = load i32, ptr @hf_ieee802154_cmd_id, align 4
+  %1158 = load ptr, ptr %8, align 8
+  %1159 = load i32, ptr %18, align 4
+  %1160 = load ptr, ptr %19, align 8
+  %1161 = getelementptr inbounds %struct.ieee802154_packet, ptr %1160, i32 0, i32 30
+  %1162 = load i8, ptr %1161, align 1
+  %1163 = zext i8 %1162 to i32
+  %1164 = call ptr @proto_tree_add_uint(ptr noundef %1156, i32 noundef %1157, ptr noundef %1158, i32 noundef %1159, i32 noundef 1, i32 noundef %1163)
+  br label %1165
 
-1174:                                             ; preds = %1163, %1140
-  br label %1190
+1165:                                             ; preds = %1155, %1147
+  %1166 = load i32, ptr %18, align 4
+  %1167 = add i32 %1166, 1
+  store i32 %1167, ptr %18, align 4
+  %1168 = load ptr, ptr %9, align 8
+  %1169 = getelementptr inbounds %struct._packet_info, ptr %1168, i32 0, i32 1
+  %1170 = load ptr, ptr %1169, align 8
+  %1171 = load ptr, ptr %19, align 8
+  %1172 = getelementptr inbounds %struct.ieee802154_packet, ptr %1171, i32 0, i32 30
+  %1173 = load i8, ptr %1172, align 1
+  %1174 = zext i8 %1173 to i32
+  %1175 = call ptr @val_to_str_const(i32 noundef %1174, ptr noundef @ieee802154_cmd_names, ptr noundef @.str.23)
+  call void @col_set_str(ptr noundef %1170, i32 noundef 25, ptr noundef %1175)
+  br label %1176
 
-1175:                                             ; preds = %1120, %1115
-  %1176 = load ptr, ptr %19, align 8
-  %1177 = getelementptr inbounds %struct.ieee802154_packet, ptr %1176, i32 0, i32 9
-  %1178 = load i32, ptr %1177, align 4
-  %1179 = icmp ne i32 %1178, 0
-  br i1 %1179, label %1180, label %1189
+1176:                                             ; preds = %1165, %1142
+  br label %1192
 
-1180:                                             ; preds = %1175
-  %1181 = load ptr, ptr %8, align 8
-  %1182 = load ptr, ptr %9, align 8
-  %1183 = load ptr, ptr %14, align 8
-  %1184 = load i32, ptr %18, align 4
-  %1185 = load ptr, ptr %19, align 8
-  %1186 = call i32 @dissect_ieee802154_header_ie(ptr noundef %1181, ptr noundef %1182, ptr noundef %1183, i32 noundef %1184, ptr noundef %1185)
-  %1187 = load i32, ptr %18, align 4
-  %1188 = add i32 %1187, %1186
-  store i32 %1188, ptr %18, align 4
-  br label %1189
+1177:                                             ; preds = %1122, %1117
+  %1178 = load ptr, ptr %19, align 8
+  %1179 = getelementptr inbounds %struct.ieee802154_packet, ptr %1178, i32 0, i32 9
+  %1180 = load i32, ptr %1179, align 4
+  %1181 = icmp ne i32 %1180, 0
+  br i1 %1181, label %1182, label %1191
 
-1189:                                             ; preds = %1180, %1175
-  br label %1190
+1182:                                             ; preds = %1177
+  %1183 = load ptr, ptr %8, align 8
+  %1184 = load ptr, ptr %9, align 8
+  %1185 = load ptr, ptr %14, align 8
+  %1186 = load i32, ptr %18, align 4
+  %1187 = load ptr, ptr %19, align 8
+  %1188 = call i32 @dissect_ieee802154_header_ie(ptr noundef %1183, ptr noundef %1184, ptr noundef %1185, i32 noundef %1186, ptr noundef %1187)
+  %1189 = load i32, ptr %18, align 4
+  %1190 = add i32 %1189, %1188
+  store i32 %1190, ptr %18, align 4
+  br label %1191
 
-1190:                                             ; preds = %1189, %1174
-  %1191 = load ptr, ptr %19, align 8
-  %1192 = getelementptr inbounds %struct.ieee802154_packet, ptr %1191, i32 0, i32 4
-  %1193 = load i32, ptr %1192, align 8
-  %1194 = icmp ne i32 %1193, 0
-  br i1 %1194, label %1195, label %1242
+1191:                                             ; preds = %1182, %1177
+  br label %1192
 
-1195:                                             ; preds = %1190
-  %1196 = load ptr, ptr %19, align 8
-  %1197 = getelementptr inbounds %struct.ieee802154_packet, ptr %1196, i32 0, i32 0
-  %1198 = load i32, ptr %1197, align 8
-  %1199 = icmp eq i32 %1198, 0
-  br i1 %1199, label %1200, label %1242
+1192:                                             ; preds = %1191, %1176
+  %1193 = load ptr, ptr %19, align 8
+  %1194 = getelementptr inbounds %struct.ieee802154_packet, ptr %1193, i32 0, i32 4
+  %1195 = load i32, ptr %1194, align 8
+  %1196 = icmp ne i32 %1195, 0
+  br i1 %1196, label %1197, label %1244
 
-1200:                                             ; preds = %1195
-  %1201 = load i32, ptr @ieee802154_sec_suite, align 4
-  %1202 = load ptr, ptr %19, align 8
-  %1203 = getelementptr inbounds %struct.ieee802154_packet, ptr %1202, i32 0, i32 22
-  store i32 %1201, ptr %1203, align 8
+1197:                                             ; preds = %1192
+  %1198 = load ptr, ptr %19, align 8
+  %1199 = getelementptr inbounds %struct.ieee802154_packet, ptr %1198, i32 0, i32 0
+  %1200 = load i32, ptr %1199, align 8
+  %1201 = icmp eq i32 %1200, 0
+  br i1 %1201, label %1202, label %1244
+
+1202:                                             ; preds = %1197
+  %1203 = load i32, ptr @ieee802154_sec_suite, align 4
   %1204 = load ptr, ptr %19, align 8
   %1205 = getelementptr inbounds %struct.ieee802154_packet, ptr %1204, i32 0, i32 22
-  %1206 = load i32, ptr %1205, align 8
-  %1207 = and i32 %1206, 4
-  %1208 = icmp ne i32 %1207, 0
-  br i1 %1208, label %1209, label %1241
+  store i32 %1203, ptr %1205, align 8
+  %1206 = load ptr, ptr %19, align 8
+  %1207 = getelementptr inbounds %struct.ieee802154_packet, ptr %1206, i32 0, i32 22
+  %1208 = load i32, ptr %1207, align 8
+  %1209 = and i32 %1208, 4
+  %1210 = icmp ne i32 %1209, 0
+  br i1 %1210, label %1211, label %1243
 
-1209:                                             ; preds = %1200
-  %1210 = load ptr, ptr %8, align 8
-  %1211 = load i32, ptr %18, align 4
-  %1212 = call i32 @tvb_get_letohl(ptr noundef %1210, i32 noundef %1211)
-  %1213 = load ptr, ptr %19, align 8
-  %1214 = getelementptr inbounds %struct.ieee802154_packet, ptr %1213, i32 0, i32 25
-  store i32 %1212, ptr %1214, align 4
-  %1215 = load ptr, ptr %14, align 8
-  %1216 = load i32, ptr @hf_ieee802154_sec_frame_counter, align 4
-  %1217 = load ptr, ptr %8, align 8
-  %1218 = load i32, ptr %18, align 4
-  %1219 = load ptr, ptr %19, align 8
-  %1220 = getelementptr inbounds %struct.ieee802154_packet, ptr %1219, i32 0, i32 25
-  %1221 = load i32, ptr %1220, align 4
-  %1222 = call ptr @proto_tree_add_uint(ptr noundef %1215, i32 noundef %1216, ptr noundef %1217, i32 noundef %1218, i32 noundef 4, i32 noundef %1221)
-  %1223 = load i32, ptr %18, align 4
-  %1224 = add i32 %1223, 4
-  store i32 %1224, ptr %18, align 4
-  %1225 = load ptr, ptr %8, align 8
-  %1226 = load i32, ptr %18, align 4
-  %1227 = call zeroext i8 @tvb_get_guint8(ptr noundef %1225, i32 noundef %1226)
-  %1228 = load ptr, ptr %19, align 8
-  %1229 = getelementptr inbounds %struct.ieee802154_packet, ptr %1228, i32 0, i32 26
-  store i8 %1227, ptr %1229, align 8
-  %1230 = load ptr, ptr %14, align 8
-  %1231 = load i32, ptr @hf_ieee802154_sec_key_sequence_counter, align 4
-  %1232 = load ptr, ptr %8, align 8
-  %1233 = load i32, ptr %18, align 4
-  %1234 = load ptr, ptr %19, align 8
-  %1235 = getelementptr inbounds %struct.ieee802154_packet, ptr %1234, i32 0, i32 26
-  %1236 = load i8, ptr %1235, align 8
-  %1237 = zext i8 %1236 to i32
-  %1238 = call ptr @proto_tree_add_uint(ptr noundef %1230, i32 noundef %1231, ptr noundef %1232, i32 noundef %1233, i32 noundef 1, i32 noundef %1237)
-  %1239 = load i32, ptr %18, align 4
-  %1240 = add i32 %1239, 1
-  store i32 %1240, ptr %18, align 4
-  br label %1241
+1211:                                             ; preds = %1202
+  %1212 = load ptr, ptr %8, align 8
+  %1213 = load i32, ptr %18, align 4
+  %1214 = call i32 @tvb_get_letohl(ptr noundef %1212, i32 noundef %1213)
+  %1215 = load ptr, ptr %19, align 8
+  %1216 = getelementptr inbounds %struct.ieee802154_packet, ptr %1215, i32 0, i32 25
+  store i32 %1214, ptr %1216, align 4
+  %1217 = load ptr, ptr %14, align 8
+  %1218 = load i32, ptr @hf_ieee802154_sec_frame_counter, align 4
+  %1219 = load ptr, ptr %8, align 8
+  %1220 = load i32, ptr %18, align 4
+  %1221 = load ptr, ptr %19, align 8
+  %1222 = getelementptr inbounds %struct.ieee802154_packet, ptr %1221, i32 0, i32 25
+  %1223 = load i32, ptr %1222, align 4
+  %1224 = call ptr @proto_tree_add_uint(ptr noundef %1217, i32 noundef %1218, ptr noundef %1219, i32 noundef %1220, i32 noundef 4, i32 noundef %1223)
+  %1225 = load i32, ptr %18, align 4
+  %1226 = add i32 %1225, 4
+  store i32 %1226, ptr %18, align 4
+  %1227 = load ptr, ptr %8, align 8
+  %1228 = load i32, ptr %18, align 4
+  %1229 = call zeroext i8 @tvb_get_guint8(ptr noundef %1227, i32 noundef %1228)
+  %1230 = load ptr, ptr %19, align 8
+  %1231 = getelementptr inbounds %struct.ieee802154_packet, ptr %1230, i32 0, i32 26
+  store i8 %1229, ptr %1231, align 8
+  %1232 = load ptr, ptr %14, align 8
+  %1233 = load i32, ptr @hf_ieee802154_sec_key_sequence_counter, align 4
+  %1234 = load ptr, ptr %8, align 8
+  %1235 = load i32, ptr %18, align 4
+  %1236 = load ptr, ptr %19, align 8
+  %1237 = getelementptr inbounds %struct.ieee802154_packet, ptr %1236, i32 0, i32 26
+  %1238 = load i8, ptr %1237, align 8
+  %1239 = zext i8 %1238 to i32
+  %1240 = call ptr @proto_tree_add_uint(ptr noundef %1232, i32 noundef %1233, ptr noundef %1234, i32 noundef %1235, i32 noundef 1, i32 noundef %1239)
+  %1241 = load i32, ptr %18, align 4
+  %1242 = add i32 %1241, 1
+  store i32 %1242, ptr %18, align 4
+  br label %1243
 
-1241:                                             ; preds = %1209, %1200
-  br label %1242
-
-1242:                                             ; preds = %1241, %1195, %1190
-  %1243 = load i32, ptr %18, align 4
-  store i32 %1243, ptr %7, align 4
+1243:                                             ; preds = %1211, %1202
   br label %1244
 
-1244:                                             ; preds = %1242, %639, %615, %292, %243, %198, %178, %164, %155
-  %1245 = load i32, ptr %7, align 4
-  ret i32 %1245
+1244:                                             ; preds = %1243, %1197, %1192
+  %1245 = load i32, ptr %18, align 4
+  store i32 %1245, ptr %7, align 4
+  br label %1246
+
+1246:                                             ; preds = %1244, %640, %616, %293, %244, %199, %179, %165, %156
+  %1247 = load i32, ptr %7, align 4
+  ret i32 %1247
 }
 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #1
@@ -8751,28 +8753,29 @@ define hidden i32 @ieee802154_short_addr_invalidate(i16 noundef zeroext %0, i16 
   %12 = load i16, ptr %5, align 2
   %13 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %8, i32 0, i32 1
   store i16 %12, ptr %13, align 2
-  %14 = load ptr, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1), align 8
-  %15 = call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef %8)
-  store ptr %15, ptr %9, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %22
+  %14 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %8)
+  store ptr %16, ptr %9, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %23
 
-18:                                               ; preds = %3
-  %19 = load i32, ptr %7, align 4
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %20, i32 0, i32 2
-  store i32 %19, ptr %21, align 4
+19:                                               ; preds = %3
+  %20 = load i32, ptr %7, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %21, i32 0, i32 2
+  store i32 %20, ptr %22, align 4
   store i32 1, ptr %4, align 4
-  br label %23
+  br label %24
 
-22:                                               ; preds = %3
+23:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %18
-  %24 = load i32, ptr %4, align 4
-  ret i32 %24
+24:                                               ; preds = %23, %19
+  %25 = load i32, ptr %4, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9488,60 +9491,61 @@ declare void @register_init_routine(ptr noundef) #1
 define internal void @proto_init_ieee802154() #0 {
   %1 = alloca i32, align 4
   %2 = call ptr @g_hash_table_new(ptr noundef @ieee802154_short_addr_hash, ptr noundef @ieee802154_short_addr_equal)
-  store ptr %2, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1), align 8
-  %3 = call ptr @g_hash_table_new(ptr noundef @ieee802154_long_addr_hash, ptr noundef @ieee802154_long_addr_equal)
-  store ptr %3, ptr @ieee802154_map, align 8
+  %3 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1
+  store ptr %2, ptr %3, align 8
+  %4 = call ptr @g_hash_table_new(ptr noundef @ieee802154_long_addr_hash, ptr noundef @ieee802154_long_addr_equal)
+  store ptr %4, ptr @ieee802154_map, align 8
   store i32 0, ptr %1, align 4
-  br label %4
+  br label %5
 
-4:                                                ; preds = %37, %0
-  %5 = load i32, ptr %1, align 4
-  %6 = load i32, ptr @num_static_addrs, align 4
-  %7 = icmp ult i32 %5, %6
-  br i1 %7, label %8, label %11
+5:                                                ; preds = %38, %0
+  %6 = load i32, ptr %1, align 4
+  %7 = load i32, ptr @num_static_addrs, align 4
+  %8 = icmp ult i32 %6, %7
+  br i1 %8, label %9, label %12
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr @static_addrs, align 8
-  %10 = icmp ne ptr %9, null
-  br label %11
+9:                                                ; preds = %5
+  %10 = load ptr, ptr @static_addrs, align 8
+  %11 = icmp ne ptr %10, null
+  br label %12
 
-11:                                               ; preds = %8, %4
-  %12 = phi i1 [ false, %4 ], [ %10, %8 ]
-  br i1 %12, label %13, label %40
+12:                                               ; preds = %9, %5
+  %13 = phi i1 [ false, %5 ], [ %11, %9 ]
+  br i1 %13, label %14, label %41
 
-13:                                               ; preds = %11
-  %14 = load ptr, ptr @static_addrs, align 8
-  %15 = load i32, ptr %1, align 4
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr %struct.static_addr_t, ptr %14, i64 %16
-  %18 = getelementptr inbounds %struct.static_addr_t, ptr %17, i32 0, i32 2
-  %19 = load i32, ptr %18, align 4
-  %20 = trunc i32 %19 to i16
-  %21 = load ptr, ptr @static_addrs, align 8
-  %22 = load i32, ptr %1, align 4
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr %struct.static_addr_t, ptr %21, i64 %23
-  %25 = getelementptr inbounds %struct.static_addr_t, ptr %24, i32 0, i32 3
-  %26 = load i32, ptr %25, align 8
-  %27 = trunc i32 %26 to i16
-  %28 = load ptr, ptr @static_addrs, align 8
-  %29 = load i32, ptr %1, align 4
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr %struct.static_addr_t, ptr %28, i64 %30
-  %32 = getelementptr inbounds %struct.static_addr_t, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = call i64 @pntoh64(ptr noundef %33)
-  %35 = load ptr, ptr @ieee802154_user, align 8
-  %36 = call ptr @ieee802154_addr_update(ptr noundef @ieee802154_map, i16 noundef zeroext %20, i16 noundef zeroext %27, i64 noundef %34, ptr noundef %35, i32 noundef 0)
-  br label %37
+14:                                               ; preds = %12
+  %15 = load ptr, ptr @static_addrs, align 8
+  %16 = load i32, ptr %1, align 4
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr %struct.static_addr_t, ptr %15, i64 %17
+  %19 = getelementptr inbounds %struct.static_addr_t, ptr %18, i32 0, i32 2
+  %20 = load i32, ptr %19, align 4
+  %21 = trunc i32 %20 to i16
+  %22 = load ptr, ptr @static_addrs, align 8
+  %23 = load i32, ptr %1, align 4
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr %struct.static_addr_t, ptr %22, i64 %24
+  %26 = getelementptr inbounds %struct.static_addr_t, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %26, align 8
+  %28 = trunc i32 %27 to i16
+  %29 = load ptr, ptr @static_addrs, align 8
+  %30 = load i32, ptr %1, align 4
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr %struct.static_addr_t, ptr %29, i64 %31
+  %33 = getelementptr inbounds %struct.static_addr_t, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i64 @pntoh64(ptr noundef %34)
+  %36 = load ptr, ptr @ieee802154_user, align 8
+  %37 = call ptr @ieee802154_addr_update(ptr noundef @ieee802154_map, i16 noundef zeroext %21, i16 noundef zeroext %28, i64 noundef %35, ptr noundef %36, i32 noundef 0)
+  br label %38
 
-37:                                               ; preds = %13
-  %38 = load i32, ptr %1, align 4
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %1, align 4
-  br label %4, !llvm.loop !18
+38:                                               ; preds = %14
+  %39 = load i32, ptr %1, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %1, align 4
+  br label %5, !llvm.loop !18
 
-40:                                               ; preds = %11
+41:                                               ; preds = %12
   ret void
 }
 
@@ -9549,10 +9553,11 @@ declare void @register_cleanup_routine(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @proto_cleanup_ieee802154() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1), align 8
-  call void @g_hash_table_destroy(ptr noundef %1)
-  %2 = load ptr, ptr @ieee802154_map, align 8
+  %1 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @ieee802154_map, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
   call void @g_hash_table_destroy(ptr noundef %2)
+  %3 = load ptr, ptr @ieee802154_map, align 8
+  call void @g_hash_table_destroy(ptr noundef %3)
   ret void
 }
 

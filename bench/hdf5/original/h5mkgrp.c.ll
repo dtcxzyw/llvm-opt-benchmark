@@ -88,223 +88,238 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   call void @llvm.memset.p0.i64(ptr align 8 @params_g, i8 0, i64 40, i1 false)
   %10 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8
   %11 = call i64 @H5Pcreate(i64 noundef %10)
-  store i64 %11, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6), align 8
-  %12 = icmp slt i64 %11, 0
-  br i1 %12, label %13, label %14
+  %12 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6
+  store i64 %11, ptr %12, align 8
+  %13 = icmp slt i64 %11, 0
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %2
+14:                                               ; preds = %2
   call void (ptr, ...) @error_msg(ptr noundef @.str.1)
   call void @leave(i32 noundef 1)
-  br label %14
+  br label %15
 
-14:                                               ; preds = %13, %2
-  %15 = load i32, ptr %4, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = call i32 @parse_command_line(i32 noundef %15, ptr noundef %16, ptr noundef @params_g)
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %20
+15:                                               ; preds = %14, %2
+  %16 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = call i32 @parse_command_line(i32 noundef %16, ptr noundef %17, ptr noundef @params_g)
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %14
+20:                                               ; preds = %15
   call void (ptr, ...) @error_msg(ptr noundef @.str.2)
   call void @leave(i32 noundef 1)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %14
+21:                                               ; preds = %20, %15
   call void @h5tools_error_report()
-  %21 = load i8, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 1), align 8
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %35
+  %22 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 1
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %39
 
-23:                                               ; preds = %20
-  %24 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6), align 8
-  %25 = call i32 @H5Pset_libver_bounds(i64 noundef %24, i32 noundef 5, i32 noundef 5)
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %28
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6
+  %27 = load i64, ptr %26, align 8
+  %28 = call i32 @H5Pset_libver_bounds(i64 noundef %27, i32 noundef 5, i32 noundef 5)
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %31
 
-27:                                               ; preds = %23
+30:                                               ; preds = %25
   call void (ptr, ...) @error_msg(ptr noundef @.str.3)
   call void @leave(i32 noundef 1)
-  br label %28
+  br label %31
 
-28:                                               ; preds = %27, %23
-  %29 = load i8, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 2), align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %34
+31:                                               ; preds = %30, %25
+  %32 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 2
+  %33 = load i8, ptr %32, align 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %38
 
-31:                                               ; preds = %28
-  %32 = call ptr @h5tools_getprogname()
-  %33 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %32)
-  br label %34
+35:                                               ; preds = %31
+  %36 = call ptr @h5tools_getprogname()
+  %37 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %36)
+  br label %38
 
-34:                                               ; preds = %31, %28
-  br label %35
+38:                                               ; preds = %35, %31
+  br label %39
 
-35:                                               ; preds = %34, %20
-  %36 = load ptr, ptr @params_g, align 8
-  %37 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6), align 8
-  %38 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6), align 8
-  %39 = icmp ne i64 %38, 0
-  %40 = call i64 @h5tools_fopen(ptr noundef %36, i32 noundef 1, i64 noundef %37, i1 noundef zeroext %39, ptr noundef null, i64 noundef 0)
-  store i64 %40, ptr %6, align 8
-  %41 = load i64, ptr %6, align 8
-  %42 = icmp slt i64 %41, 0
-  br i1 %42, label %43, label %47
-
-43:                                               ; preds = %35
-  %44 = load ptr, ptr @params_g, align 8
-  %45 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6), align 8
-  %46 = call i64 @H5Fcreate(ptr noundef %44, i32 noundef 4, i64 noundef 0, i64 noundef %45)
+39:                                               ; preds = %38, %21
+  %40 = load ptr, ptr @params_g, align 8
+  %41 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp ne i64 %44, 0
+  %46 = call i64 @h5tools_fopen(ptr noundef %40, i32 noundef 1, i64 noundef %42, i1 noundef zeroext %45, ptr noundef null, i64 noundef 0)
   store i64 %46, ptr %6, align 8
-  br label %47
+  %47 = load i64, ptr %6, align 8
+  %48 = icmp slt i64 %47, 0
+  br i1 %48, label %49, label %54
 
-47:                                               ; preds = %43, %35
-  %48 = load i64, ptr %6, align 8
-  %49 = icmp slt i64 %48, 0
-  br i1 %49, label %50, label %52
+49:                                               ; preds = %39
+  %50 = load ptr, ptr @params_g, align 8
+  %51 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6
+  %52 = load i64, ptr %51, align 8
+  %53 = call i64 @H5Fcreate(ptr noundef %50, i32 noundef 4, i64 noundef 0, i64 noundef %52)
+  store i64 %53, ptr %6, align 8
+  br label %54
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr @params_g, align 8
-  call void (ptr, ...) @error_msg(ptr noundef @.str.5, ptr noundef %51)
+54:                                               ; preds = %49, %39
+  %55 = load i64, ptr %6, align 8
+  %56 = icmp slt i64 %55, 0
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %54
+  %58 = load ptr, ptr @params_g, align 8
+  call void (ptr, ...) @error_msg(ptr noundef @.str.5, ptr noundef %58)
   call void @leave(i32 noundef 1)
-  br label %52
+  br label %59
 
-52:                                               ; preds = %50, %47
-  %53 = load i64, ptr @H5P_CLS_LINK_CREATE_ID_g, align 8
-  %54 = call i64 @H5Pcreate(i64 noundef %53)
-  store i64 %54, ptr %7, align 8
-  %55 = icmp slt i64 %54, 0
-  br i1 %55, label %56, label %57
+59:                                               ; preds = %57, %54
+  %60 = load i64, ptr @H5P_CLS_LINK_CREATE_ID_g, align 8
+  %61 = call i64 @H5Pcreate(i64 noundef %60)
+  store i64 %61, ptr %7, align 8
+  %62 = icmp slt i64 %61, 0
+  br i1 %62, label %63, label %64
 
-56:                                               ; preds = %52
+63:                                               ; preds = %59
   call void (ptr, ...) @error_msg(ptr noundef @.str.6)
   call void @leave(i32 noundef 1)
-  br label %57
+  br label %64
 
-57:                                               ; preds = %56, %52
-  %58 = load i8, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 3), align 2
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %60, label %72
+64:                                               ; preds = %63, %59
+  %65 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 3
+  %66 = load i8, ptr %65, align 2
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %81
 
-60:                                               ; preds = %57
-  %61 = load i64, ptr %7, align 8
-  %62 = call i32 @H5Pset_create_intermediate_group(i64 noundef %61, i32 noundef 1)
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %64, label %65
+68:                                               ; preds = %64
+  %69 = load i64, ptr %7, align 8
+  %70 = call i32 @H5Pset_create_intermediate_group(i64 noundef %69, i32 noundef 1)
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %72, label %73
 
-64:                                               ; preds = %60
+72:                                               ; preds = %68
   call void (ptr, ...) @error_msg(ptr noundef @.str.7)
   call void @leave(i32 noundef 1)
-  br label %65
-
-65:                                               ; preds = %64, %60
-  %66 = load i8, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 2), align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %71
-
-68:                                               ; preds = %65
-  %69 = call ptr @h5tools_getprogname()
-  %70 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, ptr noundef %69)
-  br label %71
-
-71:                                               ; preds = %68, %65
-  br label %72
-
-72:                                               ; preds = %71, %57
-  store i64 0, ptr %8, align 8
   br label %73
 
-73:                                               ; preds = %111, %72
-  %74 = load i64, ptr %8, align 8
-  %75 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 4), align 8
-  %76 = icmp ult i64 %74, %75
-  br i1 %76, label %77, label %114
+73:                                               ; preds = %72, %68
+  %74 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 2
+  %75 = load i8, ptr %74, align 1
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %80
 
 77:                                               ; preds = %73
-  %78 = load i64, ptr %6, align 8
-  %79 = load ptr, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5), align 8
-  %80 = load i64, ptr %8, align 8
-  %81 = getelementptr inbounds ptr, ptr %79, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i64, ptr %7, align 8
-  %84 = call i64 @H5Gcreate2(i64 noundef %78, ptr noundef %82, i64 noundef %83, i64 noundef 0, i64 noundef 0)
-  store i64 %84, ptr %9, align 8
-  %85 = icmp slt i64 %84, 0
-  br i1 %85, label %86, label %91
+  %78 = call ptr @h5tools_getprogname()
+  %79 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, ptr noundef %78)
+  br label %80
 
-86:                                               ; preds = %77
-  %87 = load ptr, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5), align 8
-  %88 = load i64, ptr %8, align 8
-  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
+80:                                               ; preds = %77, %73
+  br label %81
+
+81:                                               ; preds = %80, %64
+  store i64 0, ptr %8, align 8
+  br label %82
+
+82:                                               ; preds = %126, %81
+  %83 = load i64, ptr %8, align 8
+  %84 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 4
+  %85 = load i64, ptr %84, align 8
+  %86 = icmp ult i64 %83, %85
+  br i1 %86, label %87, label %129
+
+87:                                               ; preds = %82
+  %88 = load i64, ptr %6, align 8
+  %89 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5
   %90 = load ptr, ptr %89, align 8
-  call void (ptr, ...) @error_msg(ptr noundef @.str.9, ptr noundef %90)
-  call void @leave(i32 noundef 1)
-  br label %91
+  %91 = load i64, ptr %8, align 8
+  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i64, ptr %7, align 8
+  %95 = call i64 @H5Gcreate2(i64 noundef %88, ptr noundef %93, i64 noundef %94, i64 noundef 0, i64 noundef 0)
+  store i64 %95, ptr %9, align 8
+  %96 = icmp slt i64 %95, 0
+  br i1 %96, label %97, label %103
 
-91:                                               ; preds = %86, %77
-  %92 = load i64, ptr %9, align 8
-  %93 = call i32 @H5Gclose(i64 noundef %92)
-  %94 = icmp slt i32 %93, 0
-  br i1 %94, label %95, label %100
-
-95:                                               ; preds = %91
-  %96 = load ptr, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5), align 8
-  %97 = load i64, ptr %8, align 8
-  %98 = getelementptr inbounds ptr, ptr %96, i64 %97
+97:                                               ; preds = %87
+  %98 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5
   %99 = load ptr, ptr %98, align 8
-  call void (ptr, ...) @error_msg(ptr noundef @.str.10, ptr noundef %99)
+  %100 = load i64, ptr %8, align 8
+  %101 = getelementptr inbounds ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8
+  call void (ptr, ...) @error_msg(ptr noundef @.str.9, ptr noundef %102)
   call void @leave(i32 noundef 1)
-  br label %100
+  br label %103
 
-100:                                              ; preds = %95, %91
-  %101 = load i8, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 2), align 1
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %103, label %110
+103:                                              ; preds = %97, %87
+  %104 = load i64, ptr %9, align 8
+  %105 = call i32 @H5Gclose(i64 noundef %104)
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %107, label %113
 
-103:                                              ; preds = %100
-  %104 = call ptr @h5tools_getprogname()
-  %105 = load ptr, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5), align 8
-  %106 = load i64, ptr %8, align 8
-  %107 = getelementptr inbounds ptr, ptr %105, i64 %106
-  %108 = load ptr, ptr %107, align 8
-  %109 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, ptr noundef %104, ptr noundef %108)
-  br label %110
-
-110:                                              ; preds = %103, %100
-  br label %111
-
-111:                                              ; preds = %110
-  %112 = load i64, ptr %8, align 8
-  %113 = add i64 %112, 1
-  store i64 %113, ptr %8, align 8
-  br label %73
-
-114:                                              ; preds = %73
-  %115 = load i64, ptr %7, align 8
-  %116 = call i32 @H5Pclose(i64 noundef %115)
-  %117 = icmp slt i32 %116, 0
-  br i1 %117, label %118, label %119
-
-118:                                              ; preds = %114
-  call void (ptr, ...) @error_msg(ptr noundef @.str.12)
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i64, ptr %8, align 8
+  %111 = getelementptr inbounds ptr, ptr %109, i64 %110
+  %112 = load ptr, ptr %111, align 8
+  call void (ptr, ...) @error_msg(ptr noundef @.str.10, ptr noundef %112)
   call void @leave(i32 noundef 1)
-  br label %119
+  br label %113
 
-119:                                              ; preds = %118, %114
-  %120 = load i64, ptr %6, align 8
-  %121 = call i32 @H5Fclose(i64 noundef %120)
-  %122 = icmp slt i32 %121, 0
-  br i1 %122, label %123, label %125
+113:                                              ; preds = %107, %103
+  %114 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 2
+  %115 = load i8, ptr %114, align 1
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %125
 
-123:                                              ; preds = %119
-  %124 = load ptr, ptr @params_g, align 8
-  call void (ptr, ...) @error_msg(ptr noundef @.str.13, ptr noundef %124)
-  call void @leave(i32 noundef 1)
+117:                                              ; preds = %113
+  %118 = call ptr @h5tools_getprogname()
+  %119 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i64, ptr %8, align 8
+  %122 = getelementptr inbounds ptr, ptr %120, i64 %121
+  %123 = load ptr, ptr %122, align 8
+  %124 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, ptr noundef %118, ptr noundef %123)
   br label %125
 
-125:                                              ; preds = %123, %119
+125:                                              ; preds = %117, %113
+  br label %126
+
+126:                                              ; preds = %125
+  %127 = load i64, ptr %8, align 8
+  %128 = add i64 %127, 1
+  store i64 %128, ptr %8, align 8
+  br label %82
+
+129:                                              ; preds = %82
+  %130 = load i64, ptr %7, align 8
+  %131 = call i32 @H5Pclose(i64 noundef %130)
+  %132 = icmp slt i32 %131, 0
+  br i1 %132, label %133, label %134
+
+133:                                              ; preds = %129
+  call void (ptr, ...) @error_msg(ptr noundef @.str.12)
+  call void @leave(i32 noundef 1)
+  br label %134
+
+134:                                              ; preds = %133, %129
+  %135 = load i64, ptr %6, align 8
+  %136 = call i32 @H5Fclose(i64 noundef %135)
+  %137 = icmp slt i32 %136, 0
+  br i1 %137, label %138, label %140
+
+138:                                              ; preds = %134
+  %139 = load ptr, ptr @params_g, align 8
+  call void (ptr, ...) @error_msg(ptr noundef @.str.13, ptr noundef %139)
+  call void @leave(i32 noundef 1)
+  br label %140
+
+140:                                              ; preds = %138, %134
   call void @leave(i32 noundef 0)
-  %126 = load i32, ptr %3, align 4
-  ret i32 %126
+  %141 = load i32, ptr %3, align 4
+  ret i32 %141
 }
 
 declare void @h5tools_setprogname(ptr noundef) #1
@@ -335,66 +350,73 @@ define internal void @leave(i32 noundef %0) #0 {
   br label %8
 
 8:                                                ; preds = %6, %1
-  %9 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 4), align 8
-  %10 = icmp ne i64 %9, 0
-  br i1 %10, label %11, label %26
+  %9 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 4
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %30
 
-11:                                               ; preds = %8
+12:                                               ; preds = %8
   store i64 0, ptr %3, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %21, %11
-  %13 = load i64, ptr %3, align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 4), align 8
-  %15 = icmp ult i64 %13, %14
-  br i1 %15, label %16, label %24
+13:                                               ; preds = %24, %12
+  %14 = load i64, ptr %3, align 8
+  %15 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 4
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp ult i64 %14, %16
+  br i1 %17, label %18, label %27
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5), align 8
-  %18 = load i64, ptr %3, align 8
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %20) #7
-  br label %21
+  %21 = load i64, ptr %3, align 8
+  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %23) #7
+  br label %24
 
-21:                                               ; preds = %16
-  %22 = load i64, ptr %3, align 8
-  %23 = add i64 %22, 1
-  store i64 %23, ptr %3, align 8
-  br label %12
+24:                                               ; preds = %18
+  %25 = load i64, ptr %3, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %3, align 8
+  br label %13
 
-24:                                               ; preds = %12
-  %25 = load ptr, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5), align 8
-  call void @free(ptr noundef %25) #7
-  br label %26
+27:                                               ; preds = %13
+  %28 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 5
+  %29 = load ptr, ptr %28, align 8
+  call void @free(ptr noundef %29) #7
+  br label %30
 
-26:                                               ; preds = %24, %8
-  %27 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6), align 8
-  %28 = icmp ne i64 -1, %27
-  br i1 %28, label %29, label %38
+30:                                               ; preds = %27, %8
+  %31 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp ne i64 -1, %32
+  br i1 %33, label %34, label %45
 
-29:                                               ; preds = %26
-  %30 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6), align 8
-  %31 = icmp ne i64 0, %30
-  br i1 %31, label %32, label %38
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp ne i64 0, %36
+  br i1 %37, label %38, label %45
 
-32:                                               ; preds = %29
-  %33 = load i64, ptr getelementptr inbounds (%struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6), align 8
-  %34 = call i32 @H5Pclose(i64 noundef %33)
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %37
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds %struct.mkgrp_opt_t, ptr @params_g, i32 0, i32 6
+  %40 = load i64, ptr %39, align 8
+  %41 = call i32 @H5Pclose(i64 noundef %40)
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %44
 
-36:                                               ; preds = %32
+43:                                               ; preds = %38
   call void (ptr, ...) @error_msg(ptr noundef @.str.14)
-  br label %37
+  br label %44
 
-37:                                               ; preds = %36, %32
-  br label %38
+44:                                               ; preds = %43, %38
+  br label %45
 
-38:                                               ; preds = %37, %29, %26
+45:                                               ; preds = %44, %34, %30
   call void @h5tools_close()
-  %39 = load i32, ptr %2, align 4
-  call void @exit(i32 noundef %39) #8
+  %46 = load i32, ptr %2, align 4
+  call void @exit(i32 noundef %46) #8
   unreachable
 }
 

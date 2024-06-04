@@ -773,13 +773,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory12ModelManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory12ModelManagerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_te = getelementptr inbounds %"class.cvc5::internal::theory::ModelManager", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %te.addr, align 8
-  store ptr %1, ptr %d_te, align 8
+  %2 = load ptr, ptr %te.addr, align 8
+  store ptr %2, ptr %d_te, align 8
   %d_eem = getelementptr inbounds %"class.cvc5::internal::theory::ModelManager", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %eem.addr, align 8
-  store ptr %2, ptr %d_eem, align 8
+  %3 = load ptr, ptr %eem.addr, align 8
+  store ptr %3, ptr %d_eem, align 8
   %d_modelEeContext = getelementptr inbounds %"class.cvc5::internal::theory::ModelManager", ptr %this1, i32 0, i32 3
   invoke void @_ZN4cvc57context7ContextC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext)
           to label %invoke.cont unwind label %lpad
@@ -795,7 +796,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store i1 true, ptr %cleanup.isactive, align 1
-  %3 = load ptr, ptr %env.addr, align 8
+  %4 = load ptr, ptr %env.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad4
@@ -806,11 +807,11 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %theory = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call8, i32 0, i32 46
-  %4 = load ptr, ptr %theory, align 8
-  %assignFunctionValues = getelementptr inbounds %"struct.cvc5::internal::options::HolderTHEORY", ptr %4, i32 0, i32 0
-  %5 = load i8, ptr %assignFunctionValues, align 4
-  %tobool = trunc i8 %5 to i1
-  invoke void @_ZN4cvc58internal6theory11TheoryModelC1ERNS0_3EnvENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(904) %call, ptr noundef nonnull align 8 dereferenceable(576) %3, ptr noundef %agg.tmp, i1 noundef zeroext %tobool)
+  %5 = load ptr, ptr %theory, align 8
+  %assignFunctionValues = getelementptr inbounds %"struct.cvc5::internal::options::HolderTHEORY", ptr %5, i32 0, i32 0
+  %6 = load i8, ptr %assignFunctionValues, align 4
+  %tobool = trunc i8 %6 to i1
+  invoke void @_ZN4cvc58internal6theory11TheoryModelC1ERNS0_3EnvENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(904) %call, ptr noundef nonnull align 8 dereferenceable(576) %4, ptr noundef %agg.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -829,39 +830,39 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad2:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad4:                                            ; preds = %invoke.cont3
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont5
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   br label %ehcleanup
 
@@ -1087,7 +1088,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory12ModelManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory12ModelManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_alocModelBuilder = getelementptr inbounds %"class.cvc5::internal::theory::ModelManager", ptr %this1, i32 0, i32 8
   call void @_ZNSt10unique_ptrIN4cvc58internal6theory24TheoryEngineModelBuilderESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_alocModelBuilder) #3
   %d_model = getelementptr inbounds %"class.cvc5::internal::theory::ModelManager", ptr %this1, i32 0, i32 6

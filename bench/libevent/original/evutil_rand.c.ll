@@ -70,28 +70,30 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %2 = load ptr, ptr @arc4rand_lock, align 8
-  %call = call i32 %1(i32 noundef 0, ptr noundef %2)
+  %1 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr @arc4rand_lock, align 8
+  %call = call i32 %2(i32 noundef 0, ptr noundef %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %3 = load ptr, ptr %fname.addr, align 8
-  store ptr %3, ptr @arc4random_urandom_filename, align 8
+  %4 = load ptr, ptr %fname.addr, align 8
+  store ptr %4, ptr @arc4random_urandom_filename, align 8
   br label %do.body1
 
 do.body1:                                         ; preds = %do.end
-  %4 = load ptr, ptr @arc4rand_lock, align 8
-  %tobool2 = icmp ne ptr %4, null
+  %5 = load ptr, ptr @arc4rand_lock, align 8
+  %tobool2 = icmp ne ptr %5, null
   br i1 %tobool2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %do.body1
-  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %6 = load ptr, ptr @arc4rand_lock, align 8
-  %call4 = call i32 %5(i32 noundef 0, ptr noundef %6)
+  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr @arc4rand_lock, align 8
+  %call4 = call i32 %7(i32 noundef 0, ptr noundef %8)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %do.body1
@@ -113,9 +115,10 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %2 = load ptr, ptr @arc4rand_lock, align 8
-  %call = call i32 %1(i32 noundef 0, ptr noundef %2)
+  %1 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr @arc4rand_lock, align 8
+  %call = call i32 %2(i32 noundef 0, ptr noundef %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
@@ -130,22 +133,23 @@ do.end:                                           ; preds = %if.end
   br label %do.body3
 
 do.body3:                                         ; preds = %do.end
-  %3 = load ptr, ptr @arc4rand_lock, align 8
-  %tobool4 = icmp ne ptr %3, null
+  %4 = load ptr, ptr @arc4rand_lock, align 8
+  %tobool4 = icmp ne ptr %4, null
   br i1 %tobool4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %do.body3
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %5 = load ptr, ptr @arc4rand_lock, align 8
-  %call6 = call i32 %4(i32 noundef 0, ptr noundef %5)
+  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr @arc4rand_lock, align 8
+  %call6 = call i32 %6(i32 noundef 0, ptr noundef %7)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %do.body3
   br label %do.end8
 
 do.end8:                                          ; preds = %if.end7
-  %6 = load i32, ptr %val, align 4
-  ret i32 %6
+  %8 = load i32, ptr %val, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -274,17 +278,18 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %2 = load ptr, ptr @arc4rand_lock, align 8
-  %call = call i32 %1(i32 noundef 0, ptr noundef %2)
+  %1 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr @arc4rand_lock, align 8
+  %call = call i32 %2(i32 noundef 0, ptr noundef %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %3 = load i32, ptr @rs_initialized, align 4
-  %tobool1 = icmp ne i32 %3, 0
+  %4 = load i32, ptr @rs_initialized, align 4
+  %tobool1 = icmp ne i32 %4, 0
   br i1 %tobool1, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %do.end
@@ -296,25 +301,25 @@ if.end4:                                          ; preds = %if.then2, %do.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end4
-  %4 = load i32, ptr %j, align 4
-  %5 = load i32, ptr %datlen.addr, align 4
-  %cmp = icmp slt i32 %4, %5
+  %5 = load i32, ptr %j, align 4
+  %6 = load i32, ptr %datlen.addr, align 4
+  %cmp = icmp slt i32 %5, %6
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %dat.addr, align 8
-  %7 = load i32, ptr %j, align 4
-  %idx.ext = sext i32 %7 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %6, i64 %idx.ext
-  %8 = load i32, ptr %datlen.addr, align 4
-  %9 = load i32, ptr %j, align 4
-  %sub = sub nsw i32 %8, %9
+  %7 = load ptr, ptr %dat.addr, align 8
+  %8 = load i32, ptr %j, align 4
+  %idx.ext = sext i32 %8 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %idx.ext
+  %9 = load i32, ptr %datlen.addr, align 4
+  %10 = load i32, ptr %j, align 4
+  %sub = sub nsw i32 %9, %10
   call void @arc4_addrandom(ptr noundef %add.ptr, i32 noundef %sub)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %10 = load i32, ptr %j, align 4
-  %add = add nsw i32 %10, 256
+  %11 = load i32, ptr %j, align 4
+  %add = add nsw i32 %11, 256
   store i32 %add, ptr %j, align 4
   br label %for.cond, !llvm.loop !7
 
@@ -322,14 +327,15 @@ for.end:                                          ; preds = %for.cond
   br label %do.body5
 
 do.body5:                                         ; preds = %for.end
-  %11 = load ptr, ptr @arc4rand_lock, align 8
-  %tobool6 = icmp ne ptr %11, null
+  %12 = load ptr, ptr @arc4rand_lock, align 8
+  %tobool6 = icmp ne ptr %12, null
   br i1 %tobool6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %do.body5
-  %12 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %13 = load ptr, ptr @arc4rand_lock, align 8
-  %call8 = call i32 %12(i32 noundef 0, ptr noundef %13)
+  %13 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr @arc4rand_lock, align 8
+  %call8 = call i32 %14(i32 noundef 0, ptr noundef %15)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %do.body5
@@ -365,14 +371,16 @@ do.body:                                          ; preds = %if.then
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %do.body
-  %3 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3), align 8
-  %tobool1 = icmp ne ptr %3, null
+  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %tobool1 = icmp ne ptr %4, null
   br i1 %tobool1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %land.lhs.true
-  %4 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3), align 8
-  %5 = load ptr, ptr %lock_tmp_, align 8
-  call void %4(ptr noundef %5, i32 noundef 0)
+  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %lock_tmp_, align 8
+  call void %6(ptr noundef %7, i32 noundef 0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %land.lhs.true, %do.body
@@ -403,19 +411,21 @@ for.body:                                         ; preds = %for.cond
   %conv = trunc i32 %1 to i8
   %2 = load i32, ptr %n, align 4
   %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom
+  %3 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %idxprom
   store i8 %conv, ptr %arrayidx, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %3, 1
+  %4 = load i32, ptr %n, align 4
+  %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
   store i8 0, ptr @rs, align 1
-  store i8 0, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
+  %5 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  store i8 0, ptr %5, align 1
   ret void
 }
 
@@ -474,41 +484,50 @@ entry:
   store i8 %conv1, ptr @rs, align 1
   %1 = load i8, ptr @rs, align 1
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
-  store i8 %2, ptr %si, align 1
-  %3 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %conv2 = zext i8 %3 to i32
-  %4 = load i8, ptr %si, align 1
-  %conv3 = zext i8 %4 to i32
+  %2 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 %idxprom
+  %3 = load i8, ptr %arrayidx, align 1
+  store i8 %3, ptr %si, align 1
+  %4 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %5 = load i8, ptr %4, align 1
+  %conv2 = zext i8 %5 to i32
+  %6 = load i8, ptr %si, align 1
+  %conv3 = zext i8 %6 to i32
   %add4 = add nsw i32 %conv2, %conv3
   %conv5 = trunc i32 %add4 to i8
-  store i8 %conv5, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %5 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %idxprom6 = zext i8 %5 to i64
-  %arrayidx7 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom6
-  %6 = load i8, ptr %arrayidx7, align 1
-  store i8 %6, ptr %sj, align 1
-  %7 = load i8, ptr %sj, align 1
-  %8 = load i8, ptr @rs, align 1
-  %idxprom8 = zext i8 %8 to i64
-  %arrayidx9 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom8
-  store i8 %7, ptr %arrayidx9, align 1
-  %9 = load i8, ptr %si, align 1
-  %10 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %idxprom10 = zext i8 %10 to i64
-  %arrayidx11 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom10
-  store i8 %9, ptr %arrayidx11, align 1
-  %11 = load i8, ptr %si, align 1
-  %conv12 = zext i8 %11 to i32
+  %7 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  store i8 %conv5, ptr %7, align 1
+  %8 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %9 = load i8, ptr %8, align 1
+  %idxprom6 = zext i8 %9 to i64
+  %10 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx7 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %idxprom6
+  %11 = load i8, ptr %arrayidx7, align 1
+  store i8 %11, ptr %sj, align 1
   %12 = load i8, ptr %sj, align 1
-  %conv13 = zext i8 %12 to i32
+  %13 = load i8, ptr @rs, align 1
+  %idxprom8 = zext i8 %13 to i64
+  %14 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx9 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %idxprom8
+  store i8 %12, ptr %arrayidx9, align 1
+  %15 = load i8, ptr %si, align 1
+  %16 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %17 = load i8, ptr %16, align 1
+  %idxprom10 = zext i8 %17 to i64
+  %18 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx11 = getelementptr inbounds [256 x i8], ptr %18, i64 0, i64 %idxprom10
+  store i8 %15, ptr %arrayidx11, align 1
+  %19 = load i8, ptr %si, align 1
+  %conv12 = zext i8 %19 to i32
+  %20 = load i8, ptr %sj, align 1
+  %conv13 = zext i8 %20 to i32
   %add14 = add nsw i32 %conv12, %conv13
   %and = and i32 %add14, 255
   %idxprom15 = sext i32 %and to i64
-  %arrayidx16 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom15
-  %13 = load i8, ptr %arrayidx16, align 1
-  ret i8 %13
+  %21 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx16 = getelementptr inbounds [256 x i8], ptr %21, i64 0, i64 %idxprom15
+  %22 = load i8, ptr %arrayidx16, align 1
+  ret i8 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -839,49 +858,58 @@ for.body:                                         ; preds = %for.cond
   store i8 %conv1, ptr @rs, align 1
   %3 = load i8, ptr @rs, align 1
   %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
-  store i8 %4, ptr %si, align 1
-  %5 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %conv2 = zext i8 %5 to i32
-  %6 = load i8, ptr %si, align 1
-  %conv3 = zext i8 %6 to i32
+  %4 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %idxprom
+  %5 = load i8, ptr %arrayidx, align 1
+  store i8 %5, ptr %si, align 1
+  %6 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %7 = load i8, ptr %6, align 1
+  %conv2 = zext i8 %7 to i32
+  %8 = load i8, ptr %si, align 1
+  %conv3 = zext i8 %8 to i32
   %add4 = add nsw i32 %conv2, %conv3
-  %7 = load ptr, ptr %dat.addr, align 8
-  %8 = load i32, ptr %n, align 4
-  %9 = load i32, ptr %datlen.addr, align 4
-  %rem = srem i32 %8, %9
+  %9 = load ptr, ptr %dat.addr, align 8
+  %10 = load i32, ptr %n, align 4
+  %11 = load i32, ptr %datlen.addr, align 4
+  %rem = srem i32 %10, %11
   %idxprom5 = sext i32 %rem to i64
-  %arrayidx6 = getelementptr inbounds i8, ptr %7, i64 %idxprom5
-  %10 = load i8, ptr %arrayidx6, align 1
-  %conv7 = zext i8 %10 to i32
+  %arrayidx6 = getelementptr inbounds i8, ptr %9, i64 %idxprom5
+  %12 = load i8, ptr %arrayidx6, align 1
+  %conv7 = zext i8 %12 to i32
   %add8 = add nsw i32 %add4, %conv7
   %conv9 = trunc i32 %add8 to i8
-  store i8 %conv9, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %11 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %idxprom10 = zext i8 %11 to i64
-  %arrayidx11 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom10
-  %12 = load i8, ptr %arrayidx11, align 1
-  %13 = load i8, ptr @rs, align 1
-  %idxprom12 = zext i8 %13 to i64
-  %arrayidx13 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom12
-  store i8 %12, ptr %arrayidx13, align 1
-  %14 = load i8, ptr %si, align 1
-  %15 = load i8, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
-  %idxprom14 = zext i8 %15 to i64
-  %arrayidx15 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 2), i64 0, i64 %idxprom14
-  store i8 %14, ptr %arrayidx15, align 1
+  %13 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  store i8 %conv9, ptr %13, align 1
+  %14 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %15 = load i8, ptr %14, align 1
+  %idxprom10 = zext i8 %15 to i64
+  %16 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx11 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 %idxprom10
+  %17 = load i8, ptr %arrayidx11, align 1
+  %18 = load i8, ptr @rs, align 1
+  %idxprom12 = zext i8 %18 to i64
+  %19 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx13 = getelementptr inbounds [256 x i8], ptr %19, i64 0, i64 %idxprom12
+  store i8 %17, ptr %arrayidx13, align 1
+  %20 = load i8, ptr %si, align 1
+  %21 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  %22 = load i8, ptr %21, align 1
+  %idxprom14 = zext i8 %22 to i64
+  %23 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 2
+  %arrayidx15 = getelementptr inbounds [256 x i8], ptr %23, i64 0, i64 %idxprom14
+  store i8 %20, ptr %arrayidx15, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %16 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %16, 1
+  %24 = load i32, ptr %n, align 4
+  %inc = add nsw i32 %24, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !13
 
 for.end:                                          ; preds = %for.cond
-  %17 = load i8, ptr @rs, align 1
-  store i8 %17, ptr getelementptr inbounds (%struct.arc4_stream, ptr @rs, i32 0, i32 1), align 1
+  %25 = load i8, ptr @rs, align 1
+  %26 = getelementptr inbounds %struct.arc4_stream, ptr @rs, i32 0, i32 1
+  store i8 %25, ptr %26, align 1
   ret void
 }
 
@@ -1033,9 +1061,10 @@ do.body:                                          ; preds = %entry
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %3 = load ptr, ptr @arc4rand_lock, align 8
-  %call = call i32 %2(i32 noundef 0, ptr noundef %3)
+  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr @arc4rand_lock, align 8
+  %call = call i32 %3(i32 noundef 0, ptr noundef %4)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
@@ -1046,15 +1075,15 @@ do.end:                                           ; preds = %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end5, %do.end
-  %4 = load i64, ptr %n.addr, align 8
-  %dec = add i64 %4, -1
+  %5 = load i64, ptr %n.addr, align 8
+  %dec = add i64 %5, -1
   store i64 %dec, ptr %n.addr, align 8
-  %tobool1 = icmp ne i64 %4, 0
+  %tobool1 = icmp ne i64 %5, 0
   br i1 %tobool1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %5 = load i32, ptr @arc4_count, align 4
-  %dec2 = add nsw i32 %5, -1
+  %6 = load i32, ptr @arc4_count, align 4
+  %dec2 = add nsw i32 %6, -1
   store i32 %dec2, ptr @arc4_count, align 4
   %cmp = icmp sle i32 %dec2, 0
   br i1 %cmp, label %if.then3, label %if.end5
@@ -1065,9 +1094,9 @@ if.then3:                                         ; preds = %while.body
 
 if.end5:                                          ; preds = %if.then3, %while.body
   %call6 = call zeroext i8 @arc4_getbyte()
-  %6 = load ptr, ptr %buf, align 8
-  %7 = load i64, ptr %n.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %6, i64 %7
+  %7 = load ptr, ptr %buf, align 8
+  %8 = load i64, ptr %n.addr, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 %call6, ptr %arrayidx, align 1
   br label %while.cond, !llvm.loop !15
 
@@ -1075,14 +1104,15 @@ while.end:                                        ; preds = %while.cond
   br label %do.body7
 
 do.body7:                                         ; preds = %while.end
-  %8 = load ptr, ptr @arc4rand_lock, align 8
-  %tobool8 = icmp ne ptr %8, null
+  %9 = load ptr, ptr @arc4rand_lock, align 8
+  %tobool8 = icmp ne ptr %9, null
   br i1 %tobool8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %do.body7
-  %9 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %10 = load ptr, ptr @arc4rand_lock, align 8
-  %call10 = call i32 %9(i32 noundef 0, ptr noundef %10)
+  %10 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr @arc4rand_lock, align 8
+  %call10 = call i32 %11(i32 noundef 0, ptr noundef %12)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %do.body7

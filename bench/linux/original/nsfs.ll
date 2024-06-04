@@ -222,64 +222,66 @@ define dso_local i32 @open_related_ns(ptr noundef %0, ptr nocapture noundef read
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = tail call i32 @get_unused_fd_flags(i32 noundef 524288) #12
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %32, label %6
+  br i1 %5, label %34, label %6
 
-6:                                                ; preds = %19, %2
-  %7 = phi i32 [ %17, %19 ], [ 0, %2 ]
-  %8 = phi i32 [ %18, %19 ], [ undef, %2 ]
+6:                                                ; preds = %20, %2
+  %7 = phi i32 [ %18, %20 ], [ 0, %2 ]
+  %8 = phi i32 [ %19, %20 ], [ undef, %2 ]
   %9 = tail call ptr %1(ptr noundef %0) #12
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %11, label %14
+  %10 = inttoptr i64 -4096 to ptr
+  %11 = icmp ugt ptr %9, %10
+  br i1 %11, label %12, label %15
 
-11:                                               ; preds = %6
+12:                                               ; preds = %6
   tail call void @put_unused_fd(i32 noundef %4) #12
-  %12 = ptrtoint ptr %9 to i64
-  %13 = trunc i64 %12 to i32
-  br label %16
+  %13 = ptrtoint ptr %9 to i64
+  %14 = trunc i64 %13 to i32
+  br label %17
 
-14:                                               ; preds = %6
-  %15 = call fastcc i32 @__ns_get_path(ptr noundef nonnull %3, ptr noundef %9), !range !6
-  br label %16
+15:                                               ; preds = %6
+  %16 = call fastcc i32 @__ns_get_path(ptr noundef nonnull %3, ptr noundef %9), !range !6
+  br label %17
 
-16:                                               ; preds = %14, %11
-  %17 = phi i32 [ %7, %11 ], [ %15, %14 ]
-  %18 = phi i32 [ %13, %11 ], [ %8, %14 ]
-  br i1 %10, label %32, label %19
+17:                                               ; preds = %15, %12
+  %18 = phi i32 [ %7, %12 ], [ %16, %15 ]
+  %19 = phi i32 [ %14, %12 ], [ %8, %15 ]
+  br i1 %11, label %34, label %20
 
-19:                                               ; preds = %16
-  switch i32 %17, label %20 [
+20:                                               ; preds = %17
+  switch i32 %18, label %21 [
     i32 -11, label %6
-    i32 0, label %21
+    i32 0, label %22
   ]
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   tail call void @put_unused_fd(i32 noundef %4) #12
-  br label %32
+  br label %34
 
-21:                                               ; preds = %19
-  %22 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !12
-  %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 1784
-  %25 = load ptr, ptr %24, align 8
-  %26 = call ptr @dentry_open(ptr noundef nonnull %3, i32 noundef 0, ptr noundef %25) #12
+22:                                               ; preds = %20
+  %23 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !12
+  %24 = inttoptr i64 %23 to ptr
+  %25 = getelementptr inbounds i8, ptr %24, i64 1784
+  %26 = load ptr, ptr %25, align 8
+  %27 = call ptr @dentry_open(ptr noundef nonnull %3, i32 noundef 0, ptr noundef %26) #12
   call void @path_put(ptr noundef nonnull %3) #12
-  %27 = icmp ugt ptr %26, inttoptr (i64 -4096 to ptr)
-  br i1 %27, label %28, label %31
+  %28 = inttoptr i64 -4096 to ptr
+  %29 = icmp ugt ptr %27, %28
+  br i1 %29, label %30, label %33
 
-28:                                               ; preds = %21
+30:                                               ; preds = %22
   call void @put_unused_fd(i32 noundef %4) #12
-  %29 = ptrtoint ptr %26 to i64
-  %30 = trunc i64 %29 to i32
-  br label %32
+  %31 = ptrtoint ptr %27 to i64
+  %32 = trunc i64 %31 to i32
+  br label %34
 
-31:                                               ; preds = %21
-  call void @fd_install(i32 noundef %4, ptr noundef %26) #12
-  br label %32
+33:                                               ; preds = %22
+  call void @fd_install(i32 noundef %4, ptr noundef %27) #12
+  br label %34
 
-32:                                               ; preds = %31, %28, %20, %16, %2
-  %33 = phi i32 [ %17, %20 ], [ %4, %2 ], [ %30, %28 ], [ %4, %31 ], [ %18, %16 ]
+34:                                               ; preds = %33, %30, %21, %17, %2
+  %35 = phi i32 [ %18, %21 ], [ %4, %2 ], [ %32, %30 ], [ %4, %33 ], [ %19, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
-  ret i32 %33
+  ret i32 %35
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -367,20 +369,21 @@ define dso_local zeroext i1 @ns_match(ptr nocapture noundef readonly %0, i32 nou
 define dso_local void @nsfs_init() local_unnamed_addr #8 section ".init.text" align 16 {
   %1 = tail call ptr @kern_mount(ptr noundef nonnull @nsfs) #12
   store ptr %1, ptr @nsfs_mnt, align 8
-  %2 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  br i1 %2, label %3, label %4
+  %2 = inttoptr i64 -4096 to ptr
+  %3 = icmp ugt ptr %1, %2
+  br i1 %3, label %4, label %5
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.1) #14
   unreachable
 
-4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 80
-  %8 = load i64, ptr %7, align 16
-  %9 = and i64 %8, -2147483649
-  store i64 %9, ptr %7, align 16
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %9 = load i64, ptr %8, align 16
+  %10 = and i64 %9, -2147483649
+  store i64 %10, ptr %8, align 16
   ret void
 }
 

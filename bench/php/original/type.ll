@@ -2683,7 +2683,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
   %240 = load i32, ptr %34, align 4
   %241 = load ptr, ptr %33, align 8
   call void @zend_wrong_parameter_error(i32 noundef %237, i32 noundef %238, ptr noundef %239, i32 noundef %240, ptr noundef %241)
-  br label %670
+  br label %671
 
 242:                                              ; preds = %228
   br label %243
@@ -2800,7 +2800,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 320:                                              ; preds = %301
   %321 = load ptr, ptr %26, align 8
   call void @convert_to_long(ptr noundef %321)
-  br label %658
+  br label %659
 
 322:                                              ; preds = %301, %291
   %323 = load ptr, ptr %24, align 8
@@ -2838,7 +2838,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 351:                                              ; preds = %332
   %352 = load ptr, ptr %26, align 8
   call void @convert_to_long(ptr noundef %352)
-  br label %657
+  br label %658
 
 353:                                              ; preds = %332, %322
   %354 = load ptr, ptr %24, align 8
@@ -2876,7 +2876,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 382:                                              ; preds = %363
   %383 = load ptr, ptr %26, align 8
   call void @convert_to_double(ptr noundef %383)
-  br label %656
+  br label %657
 
 384:                                              ; preds = %363, %353
   %385 = load ptr, ptr %24, align 8
@@ -2914,7 +2914,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 413:                                              ; preds = %394
   %414 = load ptr, ptr %26, align 8
   call void @convert_to_double(ptr noundef %414)
-  br label %655
+  br label %656
 
 415:                                              ; preds = %394, %384
   %416 = load ptr, ptr %24, align 8
@@ -2965,7 +2965,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
   br label %453
 
 453:                                              ; preds = %451, %444
-  br label %654
+  br label %655
 
 454:                                              ; preds = %425, %415
   %455 = load ptr, ptr %24, align 8
@@ -3003,7 +3003,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 483:                                              ; preds = %464
   %484 = load ptr, ptr %26, align 8
   call void @convert_to_array(ptr noundef %484)
-  br label %653
+  br label %654
 
 485:                                              ; preds = %464, %454
   %486 = load ptr, ptr %24, align 8
@@ -3041,7 +3041,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 514:                                              ; preds = %495
   %515 = load ptr, ptr %26, align 8
   call void @convert_to_object(ptr noundef %515)
-  br label %652
+  br label %653
 
 516:                                              ; preds = %495, %485
   %517 = load ptr, ptr %24, align 8
@@ -3079,7 +3079,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 545:                                              ; preds = %526
   %546 = load ptr, ptr %26, align 8
   call void @convert_to_boolean(ptr noundef %546)
-  br label %651
+  br label %652
 
 547:                                              ; preds = %526, %516
   %548 = load ptr, ptr %24, align 8
@@ -3117,7 +3117,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 576:                                              ; preds = %557
   %577 = load ptr, ptr %26, align 8
   call void @convert_to_boolean(ptr noundef %577)
-  br label %650
+  br label %651
 
 578:                                              ; preds = %557, %547
   %579 = load ptr, ptr %24, align 8
@@ -3155,7 +3155,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
 607:                                              ; preds = %588
   %608 = load ptr, ptr %26, align 8
   call void @convert_to_null(ptr noundef %608)
-  br label %649
+  br label %650
 
 609:                                              ; preds = %588, %578
   %610 = load ptr, ptr %26, align 8
@@ -3211,63 +3211,64 @@ define hidden void @zif_settype(ptr noundef %0, ptr noundef %1) #0 {
   br label %645
 
 645:                                              ; preds = %644
-  %646 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %647 = icmp ne ptr %646, null
-  call void @llvm.assume(i1 %647)
-  br label %670
+  %646 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %647 = load ptr, ptr %646, align 8
+  %648 = icmp ne ptr %647, null
+  call void @llvm.assume(i1 %648)
+  br label %671
 
-648:                                              ; No predecessors!
-  br label %649
-
-649:                                              ; preds = %648, %607
+649:                                              ; No predecessors!
   br label %650
 
-650:                                              ; preds = %649, %576
+650:                                              ; preds = %649, %607
   br label %651
 
-651:                                              ; preds = %650, %545
+651:                                              ; preds = %650, %576
   br label %652
 
-652:                                              ; preds = %651, %514
+652:                                              ; preds = %651, %545
   br label %653
 
-653:                                              ; preds = %652, %483
+653:                                              ; preds = %652, %514
   br label %654
 
-654:                                              ; preds = %653, %453
+654:                                              ; preds = %653, %483
   br label %655
 
-655:                                              ; preds = %654, %413
+655:                                              ; preds = %654, %453
   br label %656
 
-656:                                              ; preds = %655, %382
+656:                                              ; preds = %655, %413
   br label %657
 
-657:                                              ; preds = %656, %351
+657:                                              ; preds = %656, %382
   br label %658
 
-658:                                              ; preds = %657, %320
-  %659 = load ptr, ptr %26, align 8
-  %660 = icmp eq ptr %659, %25
-  br i1 %660, label %661, label %666
+658:                                              ; preds = %657, %351
+  br label %659
 
-661:                                              ; preds = %658
-  %662 = load ptr, ptr %23, align 8
-  %663 = getelementptr inbounds %struct._zval_struct, ptr %662, i32 0, i32 0
-  %664 = load ptr, ptr %663, align 8
-  %665 = call i32 @zend_try_assign_typed_ref(ptr noundef %664, ptr noundef %25)
-  br label %666
+659:                                              ; preds = %658, %320
+  %660 = load ptr, ptr %26, align 8
+  %661 = icmp eq ptr %660, %25
+  br i1 %661, label %662, label %667
 
-666:                                              ; preds = %661, %658
+662:                                              ; preds = %659
+  %663 = load ptr, ptr %23, align 8
+  %664 = getelementptr inbounds %struct._zval_struct, ptr %663, i32 0, i32 0
+  %665 = load ptr, ptr %664, align 8
+  %666 = call i32 @zend_try_assign_typed_ref(ptr noundef %665, ptr noundef %25)
   br label %667
 
-667:                                              ; preds = %666
-  %668 = load ptr, ptr %22, align 8
-  %669 = getelementptr inbounds %struct._zval_struct, ptr %668, i32 0, i32 1
-  store i32 3, ptr %669, align 8
-  br label %670
+667:                                              ; preds = %662, %659
+  br label %668
 
-670:                                              ; preds = %667, %645, %236
+668:                                              ; preds = %667
+  %669 = load ptr, ptr %22, align 8
+  %670 = getelementptr inbounds %struct._zval_struct, ptr %669, i32 0, i32 1
+  store i32 3, ptr %670, align 8
+  br label %671
+
+671:                                              ; preds = %668, %645, %236
   ret void
 }
 

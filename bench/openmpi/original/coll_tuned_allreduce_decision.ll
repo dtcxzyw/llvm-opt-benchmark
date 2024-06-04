@@ -72,77 +72,79 @@ define i32 @ompi_coll_tuned_allreduce_intra_check_forced_init(ptr noundef %0) #0
 
 19:                                               ; preds = %8
   %20 = load i32, ptr %7, align 4
-  store i32 %20, ptr getelementptr inbounds ([22 x i32], ptr @ompi_coll_tuned_forced_max_algorithms, i64 0, i64 2), align 8
-  %21 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef getelementptr inbounds ([22 x i32], ptr @ompi_coll_tuned_forced_max_algorithms, i64 0, i64 2))
+  %21 = getelementptr inbounds [22 x i32], ptr @ompi_coll_tuned_forced_max_algorithms, i64 0, i64 2
+  store i32 %20, ptr %21, align 8
+  %22 = getelementptr inbounds [22 x i32], ptr @ompi_coll_tuned_forced_max_algorithms, i64 0, i64 2
+  %23 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef %22)
   store i32 0, ptr @coll_tuned_allreduce_forced_algorithm, align 4
-  %22 = call i32 @mca_base_var_enum_create(ptr noundef @.str.2, ptr noundef @allreduce_algorithms, ptr noundef %6)
-  %23 = load ptr, ptr %6, align 8
-  %24 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef %23, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef @coll_tuned_allreduce_forced_algorithm)
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %25, i32 0, i32 0
-  store i32 %24, ptr %26, align 4
-  br label %27
+  %24 = call i32 @mca_base_var_enum_create(ptr noundef @.str.2, ptr noundef @allreduce_algorithms, ptr noundef %6)
+  %25 = load ptr, ptr %6, align 8
+  %26 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef %25, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef @coll_tuned_allreduce_forced_algorithm)
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %27, i32 0, i32 0
+  store i32 %26, ptr %28, align 4
+  br label %29
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %6, align 8
-  store ptr %28, ptr %2, align 8
+29:                                               ; preds = %19
+  %30 = load ptr, ptr %6, align 8
+  store ptr %30, ptr %2, align 8
   store i32 -1, ptr %3, align 4
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %3, align 4
-  %32 = call i32 @opal_thread_add_fetch_32(ptr noundef %30, i32 noundef %31)
-  %33 = icmp eq i32 0, %32
-  br i1 %33, label %34, label %37
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %3, align 4
+  %34 = call i32 @opal_thread_add_fetch_32(ptr noundef %32, i32 noundef %33)
+  %35 = icmp eq i32 0, %34
+  br i1 %35, label %36, label %39
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %6, align 8
-  call void @opal_obj_run_destructors(ptr noundef %35)
-  %36 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %36) #3
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %6, align 8
+  call void @opal_obj_run_destructors(ptr noundef %37)
+  %38 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %38) #3
   store ptr null, ptr %6, align 8
-  br label %37
+  br label %39
 
-37:                                               ; preds = %34, %27
-  br label %38
+39:                                               ; preds = %36, %29
+  br label %40
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %39, i32 0, i32 0
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %47
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %41, i32 0, i32 0
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %45, label %49
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %44, i32 0, i32 0
-  %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr %4, align 4
-  br label %59
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr %4, align 4
+  br label %61
 
-47:                                               ; preds = %38
+49:                                               ; preds = %40
   store i32 0, ptr @coll_tuned_allreduce_segment_size, align 4
-  %48 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef @coll_tuned_allreduce_segment_size)
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %49, i32 0, i32 1
-  store i32 %48, ptr %50, align 4
-  %51 = load i32, ptr @ompi_coll_tuned_init_tree_fanout, align 4
-  store i32 %51, ptr @coll_tuned_allreduce_tree_fanout, align 4
-  %52 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef @coll_tuned_allreduce_tree_fanout)
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %53, i32 0, i32 2
-  store i32 %52, ptr %54, align 4
-  %55 = load i32, ptr @ompi_coll_tuned_init_chain_fanout, align 4
-  store i32 %55, ptr @coll_tuned_allreduce_chain_fanout, align 4
-  %56 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef @coll_tuned_allreduce_chain_fanout)
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %57, i32 0, i32 3
-  store i32 %56, ptr %58, align 4
+  %50 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef @coll_tuned_allreduce_segment_size)
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %51, i32 0, i32 1
+  store i32 %50, ptr %52, align 4
+  %53 = load i32, ptr @ompi_coll_tuned_init_tree_fanout, align 4
+  store i32 %53, ptr @coll_tuned_allreduce_tree_fanout, align 4
+  %54 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef @coll_tuned_allreduce_tree_fanout)
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %55, i32 0, i32 2
+  store i32 %54, ptr %56, align 4
+  %57 = load i32, ptr @ompi_coll_tuned_init_chain_fanout, align 4
+  store i32 %57, ptr @coll_tuned_allreduce_chain_fanout, align 4
+  %58 = call i32 @mca_base_component_var_register(ptr noundef @mca_coll_tuned_component, ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef @coll_tuned_allreduce_chain_fanout)
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds %struct.coll_tuned_force_algorithm_mca_param_indices_t, ptr %59, i32 0, i32 3
+  store i32 %58, ptr %60, align 4
   store i32 0, ptr %4, align 4
-  br label %59
+  br label %61
 
-59:                                               ; preds = %47, %43
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+61:                                               ; preds = %49, %45
+  %62 = load i32, ptr %4, align 4
+  ret i32 %62
 }
 
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1

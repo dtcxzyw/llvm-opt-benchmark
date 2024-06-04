@@ -115,157 +115,159 @@ define dso_local zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr noundef %1, pt
   store ptr %0, ptr %8, align 8
   store ptr %1, ptr %9, align 8
   store ptr %2, ptr %10, align 8
-  %17 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %18 = icmp ne i32 %17, 32
-  br i1 %18, label %19, label %27
+  %17 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ne i32 %18, 32
+  br i1 %19, label %20, label %29
 
-19:                                               ; preds = %3
-  %20 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 4), align 8
-  %21 = icmp ne i32 %20, 3
-  br i1 %21, label %22, label %27
+20:                                               ; preds = %3
+  %21 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 4
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ne i32 %22, 3
+  br i1 %23, label %24, label %29
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct.Ast_, ptr %23, i32 0, i32 0
-  %25 = getelementptr inbounds %union.SourceSpan, ptr %24, i32 0, i32 0
-  %26 = load i64, ptr %25, align 8
-  call void (i64, ptr, ...) @sema_error_at(i64 %26, ptr noundef @.str)
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds %struct.Ast_, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds %union.SourceSpan, ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8
+  call void (i64, ptr, ...) @sema_error_at(i64 %28, ptr noundef @.str)
   store i1 false, ptr %7, align 1
-  br label %110
+  br label %112
 
-27:                                               ; preds = %19, %3
+29:                                               ; preds = %20, %3
   call void @init_asm()
-  %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds %struct.Ast_, ptr %28, i32 0, i32 3
-  %30 = getelementptr inbounds %struct.AstAsmStmt, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @asm_instr_by_name(ptr noundef %31)
-  store ptr %32, ptr %11, align 8
-  %33 = load ptr, ptr %11, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %40, label %35
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds %struct.Ast_, ptr %30, i32 0, i32 3
+  %32 = getelementptr inbounds %struct.AstAsmStmt, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr @asm_instr_by_name(ptr noundef %33)
+  store ptr %34, ptr %11, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %42, label %37
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.Ast_, ptr %36, i32 0, i32 0
-  %38 = getelementptr inbounds %union.SourceSpan, ptr %37, i32 0, i32 0
-  %39 = load i64, ptr %38, align 8
-  call void (i64, ptr, ...) @sema_error_at(i64 %39, ptr noundef @.str.1)
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %10, align 8
+  %39 = getelementptr inbounds %struct.Ast_, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds %union.SourceSpan, ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %40, align 8
+  call void (i64, ptr, ...) @sema_error_at(i64 %41, ptr noundef @.str.1)
   store i1 false, ptr %7, align 1
-  br label %110
+  br label %112
 
-40:                                               ; preds = %27
-  %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds %struct.Ast_, ptr %41, i32 0, i32 3
-  %43 = getelementptr inbounds %struct.AstAsmStmt, ptr %42, i32 0, i32 2
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %12, align 8
-  %45 = load ptr, ptr %11, align 8
-  %46 = getelementptr inbounds %struct.AsmInstruction, ptr %45, i32 0, i32 2
-  %47 = load i32, ptr %46, align 8
-  store i32 %47, ptr %13, align 4
-  %48 = load ptr, ptr %12, align 8
-  store ptr %48, ptr %5, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %52, label %51
+42:                                               ; preds = %29
+  %43 = load ptr, ptr %10, align 8
+  %44 = getelementptr inbounds %struct.Ast_, ptr %43, i32 0, i32 3
+  %45 = getelementptr inbounds %struct.AstAsmStmt, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %12, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = getelementptr inbounds %struct.AsmInstruction, ptr %47, i32 0, i32 2
+  %49 = load i32, ptr %48, align 8
+  store i32 %49, ptr %13, align 4
+  %50 = load ptr, ptr %12, align 8
+  store ptr %50, ptr %5, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %54, label %53
 
-51:                                               ; preds = %40
+53:                                               ; preds = %42
   store i32 0, ptr %4, align 4
-  br label %57
+  br label %59
 
-52:                                               ; preds = %40
-  %53 = load ptr, ptr %5, align 8
-  store ptr %53, ptr %6, align 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct.VHeader_, ptr %54, i64 -1
-  %56 = load i32, ptr %55, align 4
-  store i32 %56, ptr %4, align 4
-  br label %57
+54:                                               ; preds = %42
+  %55 = load ptr, ptr %5, align 8
+  store ptr %55, ptr %6, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds %struct.VHeader_, ptr %56, i64 -1
+  %58 = load i32, ptr %57, align 4
+  store i32 %58, ptr %4, align 4
+  br label %59
 
-57:                                               ; preds = %52, %51
-  %58 = load i32, ptr %4, align 4
-  store i32 %58, ptr %14, align 4
-  %59 = load i32, ptr %13, align 4
-  %60 = load i32, ptr %14, align 4
-  %61 = icmp ne i32 %59, %60
-  br i1 %61, label %62, label %75
+59:                                               ; preds = %54, %53
+  %60 = load i32, ptr %4, align 4
+  store i32 %60, ptr %14, align 4
+  %61 = load i32, ptr %13, align 4
+  %62 = load i32, ptr %14, align 4
+  %63 = icmp ne i32 %61, %62
+  br i1 %63, label %64, label %77
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct.Ast_, ptr %63, i32 0, i32 0
-  %65 = load i32, ptr %13, align 4
-  %66 = load i32, ptr %14, align 4
-  %67 = icmp ugt i32 %65, %66
-  %68 = select i1 %67, ptr @.str.3, ptr @.str.4
-  %69 = load ptr, ptr %11, align 8
-  %70 = getelementptr inbounds %struct.AsmInstruction, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i32, ptr %13, align 4
-  %73 = getelementptr inbounds %union.SourceSpan, ptr %64, i32 0, i32 0
-  %74 = load i64, ptr %73, align 8
-  call void (i64, ptr, ...) @sema_error_at(i64 %74, ptr noundef @.str.2, ptr noundef %68, ptr noundef %71, i32 noundef %72)
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %10, align 8
+  %66 = getelementptr inbounds %struct.Ast_, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %13, align 4
+  %68 = load i32, ptr %14, align 4
+  %69 = icmp ugt i32 %67, %68
+  %70 = select i1 %69, ptr @.str.3, ptr @.str.4
+  %71 = load ptr, ptr %11, align 8
+  %72 = getelementptr inbounds %struct.AsmInstruction, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  %74 = load i32, ptr %13, align 4
+  %75 = getelementptr inbounds %union.SourceSpan, ptr %66, i32 0, i32 0
+  %76 = load i64, ptr %75, align 8
+  call void (i64, ptr, ...) @sema_error_at(i64 %76, ptr noundef @.str.2, ptr noundef %70, ptr noundef %73, i32 noundef %74)
   store i1 false, ptr %7, align 1
-  br label %110
+  br label %112
 
-75:                                               ; preds = %57
-  %76 = load i32, ptr %14, align 4
-  store i32 %76, ptr %15, align 4
-  br label %77
+77:                                               ; preds = %59
+  %78 = load i32, ptr %14, align 4
+  store i32 %78, ptr %15, align 4
+  br label %79
 
-77:                                               ; preds = %103, %75
-  %78 = load i32, ptr %15, align 4
-  %79 = icmp ugt i32 %78, 0
-  br i1 %79, label %80, label %106
+79:                                               ; preds = %105, %77
+  %80 = load i32, ptr %15, align 4
+  %81 = icmp ugt i32 %80, 0
+  br i1 %81, label %82, label %108
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %8, align 8
-  %82 = load ptr, ptr %9, align 8
-  %83 = load ptr, ptr %11, align 8
-  %84 = load ptr, ptr %11, align 8
-  %85 = getelementptr inbounds %struct.AsmInstruction, ptr %84, i32 0, i32 1
-  %86 = load i32, ptr %15, align 4
-  %87 = sub i32 %86, 1
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds [6 x %struct.AsmArgType], ptr %85, i64 0, i64 %88
-  %90 = load ptr, ptr %12, align 8
-  %91 = load i32, ptr %15, align 4
-  %92 = sub i32 %91, 1
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %90, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %89, i64 12, i1 false)
-  %96 = getelementptr inbounds { i64, i32 }, ptr %16, i32 0, i32 0
-  %97 = load i64, ptr %96, align 4
-  %98 = getelementptr inbounds { i64, i32 }, ptr %16, i32 0, i32 1
-  %99 = load i32, ptr %98, align 4
-  %100 = call zeroext i1 @sema_check_asm_arg(ptr noundef %81, ptr noundef %82, ptr noundef %83, i64 %97, i32 %99, ptr noundef %95)
-  br i1 %100, label %102, label %101
+82:                                               ; preds = %79
+  %83 = load ptr, ptr %8, align 8
+  %84 = load ptr, ptr %9, align 8
+  %85 = load ptr, ptr %11, align 8
+  %86 = load ptr, ptr %11, align 8
+  %87 = getelementptr inbounds %struct.AsmInstruction, ptr %86, i32 0, i32 1
+  %88 = load i32, ptr %15, align 4
+  %89 = sub i32 %88, 1
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds [6 x %struct.AsmArgType], ptr %87, i64 0, i64 %90
+  %92 = load ptr, ptr %12, align 8
+  %93 = load i32, ptr %15, align 4
+  %94 = sub i32 %93, 1
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %97 = load ptr, ptr %96, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %91, i64 12, i1 false)
+  %98 = getelementptr inbounds { i64, i32 }, ptr %16, i32 0, i32 0
+  %99 = load i64, ptr %98, align 4
+  %100 = getelementptr inbounds { i64, i32 }, ptr %16, i32 0, i32 1
+  %101 = load i32, ptr %100, align 4
+  %102 = call zeroext i1 @sema_check_asm_arg(ptr noundef %83, ptr noundef %84, ptr noundef %85, i64 %99, i32 %101, ptr noundef %97)
+  br i1 %102, label %104, label %103
 
-101:                                              ; preds = %80
+103:                                              ; preds = %82
   store i1 false, ptr %7, align 1
-  br label %110
+  br label %112
 
-102:                                              ; preds = %80
-  br label %103
+104:                                              ; preds = %82
+  br label %105
 
-103:                                              ; preds = %102
-  %104 = load i32, ptr %15, align 4
-  %105 = add i32 %104, -1
-  store i32 %105, ptr %15, align 4
-  br label %77, !llvm.loop !7
+105:                                              ; preds = %104
+  %106 = load i32, ptr %15, align 4
+  %107 = add i32 %106, -1
+  store i32 %107, ptr %15, align 4
+  br label %79, !llvm.loop !7
 
-106:                                              ; preds = %77
-  %107 = load ptr, ptr %9, align 8
-  %108 = load ptr, ptr %11, align 8
-  %109 = getelementptr inbounds %struct.AsmInstruction, ptr %108, i32 0, i32 3
-  call void @sema_add_clobbers(ptr noundef %107, ptr noundef %109)
+108:                                              ; preds = %79
+  %109 = load ptr, ptr %9, align 8
+  %110 = load ptr, ptr %11, align 8
+  %111 = getelementptr inbounds %struct.AsmInstruction, ptr %110, i32 0, i32 3
+  call void @sema_add_clobbers(ptr noundef %109, ptr noundef %111)
   store i1 true, ptr %7, align 1
-  br label %110
+  br label %112
 
-110:                                              ; preds = %106, %101, %62, %35, %22
-  %111 = load i1, ptr %7, align 1
-  ret i1 %111
+112:                                              ; preds = %108, %103, %64, %37, %24
+  %113 = load i1, ptr %7, align 1
+  ret i1 %113
 }
 
 declare void @sema_error_at(i64, ptr noundef, ...) #1

@@ -173,58 +173,59 @@ entry:
   %S.addr = alloca ptr, align 8
   store ptr %S, ptr %S.addr, align 8
   %0 = load ptr, ptr %S.addr, align 8
-  call void @checkliteral(ptr noundef %0, ptr noundef getelementptr inbounds ([5 x i8], ptr @.str, i64 0, i64 1), ptr noundef @.str.2)
-  %1 = load ptr, ptr %S.addr, align 8
-  %call = call zeroext i8 @loadByte(ptr noundef %1)
+  %1 = getelementptr inbounds [5 x i8], ptr @.str, i64 0, i64 1
+  call void @checkliteral(ptr noundef %0, ptr noundef %1, ptr noundef @.str.2)
+  %2 = load ptr, ptr %S.addr, align 8
+  %call = call zeroext i8 @loadByte(ptr noundef %2)
   %conv = zext i8 %call to i32
   %cmp = icmp ne i32 %conv, 84
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %S.addr, align 8
-  call void @error(ptr noundef %2, ptr noundef @.str.3) #5
+  %3 = load ptr, ptr %S.addr, align 8
+  call void @error(ptr noundef %3, ptr noundef @.str.3) #5
   unreachable
 
 if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %S.addr, align 8
-  %call2 = call zeroext i8 @loadByte(ptr noundef %3)
+  %4 = load ptr, ptr %S.addr, align 8
+  %call2 = call zeroext i8 @loadByte(ptr noundef %4)
   %conv3 = zext i8 %call2 to i32
   %cmp4 = icmp ne i32 %conv3, 0
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %4 = load ptr, ptr %S.addr, align 8
-  call void @error(ptr noundef %4, ptr noundef @.str.4) #5
+  %5 = load ptr, ptr %S.addr, align 8
+  call void @error(ptr noundef %5, ptr noundef @.str.4) #5
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %5 = load ptr, ptr %S.addr, align 8
-  call void @checkliteral(ptr noundef %5, ptr noundef @.str.5, ptr noundef @.str.6)
   %6 = load ptr, ptr %S.addr, align 8
-  call void @fchecksize(ptr noundef %6, i64 noundef 4, ptr noundef @.str.7)
+  call void @checkliteral(ptr noundef %6, ptr noundef @.str.5, ptr noundef @.str.6)
   %7 = load ptr, ptr %S.addr, align 8
-  call void @fchecksize(ptr noundef %7, i64 noundef 8, ptr noundef @.str.8)
+  call void @fchecksize(ptr noundef %7, i64 noundef 4, ptr noundef @.str.7)
   %8 = load ptr, ptr %S.addr, align 8
-  call void @fchecksize(ptr noundef %8, i64 noundef 8, ptr noundef @.str.9)
+  call void @fchecksize(ptr noundef %8, i64 noundef 8, ptr noundef @.str.8)
   %9 = load ptr, ptr %S.addr, align 8
-  %call8 = call i64 @loadInteger(ptr noundef %9)
+  call void @fchecksize(ptr noundef %9, i64 noundef 8, ptr noundef @.str.9)
+  %10 = load ptr, ptr %S.addr, align 8
+  %call8 = call i64 @loadInteger(ptr noundef %10)
   %cmp9 = icmp ne i64 %call8, 22136
   br i1 %cmp9, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end7
-  %10 = load ptr, ptr %S.addr, align 8
-  call void @error(ptr noundef %10, ptr noundef @.str.10) #5
+  %11 = load ptr, ptr %S.addr, align 8
+  call void @error(ptr noundef %11, ptr noundef @.str.10) #5
   unreachable
 
 if.end12:                                         ; preds = %if.end7
-  %11 = load ptr, ptr %S.addr, align 8
-  %call13 = call double @loadNumber(ptr noundef %11)
+  %12 = load ptr, ptr %S.addr, align 8
+  %call13 = call double @loadNumber(ptr noundef %12)
   %cmp14 = fcmp une double %call13, 3.705000e+02
   br i1 %cmp14, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end12
-  %12 = load ptr, ptr %S.addr, align 8
-  call void @error(ptr noundef %12, ptr noundef @.str.11) #5
+  %13 = load ptr, ptr %S.addr, align 8
+  call void @error(ptr noundef %13, ptr noundef @.str.11) #5
   unreachable
 
 if.end17:                                         ; preds = %if.end12

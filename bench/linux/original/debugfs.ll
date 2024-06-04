@@ -128,62 +128,63 @@ define internal noundef i32 @cpu_debug_show(ptr noundef %0, ptr nocapture readno
   %5 = ptrtoint ptr %4 to i64
   %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
-  %8 = add i64 %7, ptrtoint (ptr @cpu_info to i64)
-  %9 = inttoptr i64 %8 to ptr
-  %10 = and i64 %5, 4294967295
-  %11 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %10) #7, !srcloc !11
-  %12 = icmp ult i8 %11, 2
-  tail call void @llvm.assume(i1 %12)
-  %13 = zext nneg i8 %11 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %13) #7
-  %14 = getelementptr inbounds i8, ptr %9, i64 313
-  %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %44, label %18
+  %8 = ptrtoint ptr @cpu_info to i64
+  %9 = add i64 %7, %8
+  %10 = inttoptr i64 %9 to ptr
+  %11 = and i64 %5, 4294967295
+  %12 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %11) #7, !srcloc !11
+  %13 = icmp ult i8 %12, 2
+  tail call void @llvm.assume(i1 %13)
+  %14 = zext nneg i8 %12 to i32
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %14) #7
+  %15 = getelementptr inbounds i8, ptr %10, i64 313
+  %16 = load i8, ptr %15, align 1
+  %17 = and i8 %16, 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %45, label %19
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %9, i64 216
-  %20 = getelementptr inbounds i8, ptr %9, i64 220
-  %21 = load i32, ptr %20, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %21) #7
-  %22 = load i32, ptr %19, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %22) #7
-  %23 = getelementptr inbounds i8, ptr %9, i64 224
-  %24 = load i32, ptr %23, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %24) #7
-  %25 = getelementptr inbounds i8, ptr %9, i64 228
-  %26 = load i32, ptr %25, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %26) #7
-  %27 = getelementptr inbounds i8, ptr %9, i64 232
-  %28 = load i32, ptr %27, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %28) #7
-  %29 = getelementptr inbounds i8, ptr %9, i64 236
-  %30 = load i32, ptr %29, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %30) #7
-  %31 = getelementptr inbounds i8, ptr %9, i64 240
-  %32 = load i32, ptr %31, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %32) #7
-  %33 = getelementptr inbounds i8, ptr %9, i64 244
-  %34 = load i32, ptr %33, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %34) #7
-  %35 = getelementptr inbounds i8, ptr %9, i64 248
-  %36 = load i32, ptr %35, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %36) #7
-  %37 = getelementptr inbounds i8, ptr %9, i64 252
-  %38 = load i32, ptr %37, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %38) #7
-  %39 = getelementptr inbounds i8, ptr %9, i64 296
-  %40 = load i16, ptr %39, align 8
-  %41 = zext i16 %40 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %41) #7
-  %42 = load i32, ptr @__max_die_per_package, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %42) #7
-  %43 = load i32, ptr @smp_num_siblings, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %43) #7
-  br label %44
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds i8, ptr %10, i64 216
+  %21 = getelementptr inbounds i8, ptr %10, i64 220
+  %22 = load i32, ptr %21, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %22) #7
+  %23 = load i32, ptr %20, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %23) #7
+  %24 = getelementptr inbounds i8, ptr %10, i64 224
+  %25 = load i32, ptr %24, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %25) #7
+  %26 = getelementptr inbounds i8, ptr %10, i64 228
+  %27 = load i32, ptr %26, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %27) #7
+  %28 = getelementptr inbounds i8, ptr %10, i64 232
+  %29 = load i32, ptr %28, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %29) #7
+  %30 = getelementptr inbounds i8, ptr %10, i64 236
+  %31 = load i32, ptr %30, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %31) #7
+  %32 = getelementptr inbounds i8, ptr %10, i64 240
+  %33 = load i32, ptr %32, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %33) #7
+  %34 = getelementptr inbounds i8, ptr %10, i64 244
+  %35 = load i32, ptr %34, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %35) #7
+  %36 = getelementptr inbounds i8, ptr %10, i64 248
+  %37 = load i32, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %37) #7
+  %38 = getelementptr inbounds i8, ptr %10, i64 252
+  %39 = load i32, ptr %38, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %39) #7
+  %40 = getelementptr inbounds i8, ptr %10, i64 296
+  %41 = load i16, ptr %40, align 8
+  %42 = zext i16 %41 to i32
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %42) #7
+  %43 = load i32, ptr @__max_die_per_package, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %43) #7
+  %44 = load i32, ptr @smp_num_siblings, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %44) #7
+  br label %45
 
-44:                                               ; preds = %18, %2
+45:                                               ; preds = %19, %2
   ret i32 0
 }
 

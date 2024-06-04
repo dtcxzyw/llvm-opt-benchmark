@@ -61,24 +61,25 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_ec_curve
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @mpi_point_new(i32 %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %3 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 24) #8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 24) #8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %12, label %6
 
-5:                                                ; preds = %1
-  %6 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  store ptr %6, ptr %3, align 8
+6:                                                ; preds = %1
   %7 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %7, ptr %8, align 8
-  %9 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %9, ptr %10, align 8
-  br label %11
+  store ptr %7, ptr %4, align 8
+  %8 = tail call ptr @mpi_alloc(i32 noundef 0) #9
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %8, ptr %9, align 8
+  %10 = tail call ptr @mpi_alloc(i32 noundef 0) #9
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %10, ptr %11, align 8
+  br label %12
 
-11:                                               ; preds = %5, %1
-  ret ptr %3
+12:                                               ; preds = %6, %1
+  ret ptr %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -515,10 +515,11 @@ entry:
   %call = call noundef ptr @_ZN5folly16EventBaseManager3getEv()
   %0 = load ptr, ptr %evbName.addr, align 8
   call void @_ZN8proxygen12WorkerThreadC2EPN5folly16EventBaseManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %nextRequestId_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %threadId.addr, align 1
-  %conv = zext i8 %1 to i64
+  %2 = load i8, ptr %threadId.addr, align 1
+  %conv = zext i8 %2 to i64
   %shl = shl i64 %conv, 56
   store i64 %shl, ptr %nextRequestId_, align 8
   %serviceWorkers_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this1, i32 0, i32 2
@@ -526,8 +527,8 @@ entry:
   %loadShedConfig_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIKN6wangle21LoadShedConfigurationEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %loadShedConfig_, ptr null) #20
   %callback_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %callback.addr, align 8
-  store ptr %2, ptr %callback_, align 8
+  %3 = load ptr, ptr %callback.addr, align 8
+  store ptr %3, ptr %callback_, align 8
   ret void
 }
 
@@ -563,7 +564,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN8proxygen12WorkerThread14resetEventBaseEv(ptr noundef nonnull align 8 dereferenceable(80) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -576,10 +578,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #21
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #21
   unreachable
 }
 
@@ -2945,15 +2947,16 @@ eh.resume:                                        ; preds = %cleanup.done
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN8proxygen12WorkerThread14currentWorker_E() #13 comdat {
-  br i1 icmp ne (ptr @_ZTHN8proxygen12WorkerThread14currentWorker_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN8proxygen12WorkerThread14currentWorker_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN8proxygen12WorkerThread14currentWorker_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8proxygen12WorkerThread14currentWorker_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8proxygen12WorkerThread14currentWorker_E)
+  ret ptr %4
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

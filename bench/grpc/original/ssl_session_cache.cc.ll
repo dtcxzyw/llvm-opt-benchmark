@@ -461,15 +461,16 @@ entry:
   store i64 %capacity, ptr %capacity.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lock_ = getelementptr inbounds %"class.tsi::SslSessionLRUCache", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308025MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %capacity_ = getelementptr inbounds %"class.tsi::SslSessionLRUCache", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %capacity.addr, align 8
-  store i64 %0, ptr %capacity_, align 8
+  %1 = load i64, ptr %capacity.addr, align 8
+  store i64 %1, ptr %capacity_, align 8
   %use_order_list_head_ = getelementptr inbounds %"class.tsi::SslSessionLRUCache", ptr %this1, i32 0, i32 3
   store ptr null, ptr %use_order_list_head_, align 8
   %use_order_list_tail_ = getelementptr inbounds %"class.tsi::SslSessionLRUCache", ptr %this1, i32 0, i32 4
@@ -478,8 +479,8 @@ invoke.cont:                                      ; preds = %entry
   store i64 0, ptr %use_order_list_size_, align 8
   %entry_by_key_ = getelementptr inbounds %"class.tsi::SslSessionLRUCache", ptr %this1, i32 0, i32 6
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %entry_by_key_) #11
-  %1 = load i64, ptr %capacity.addr, align 8
-  %cmp = icmp eq i64 %1, 0
+  %2 = load i64, ptr %capacity.addr, align 8
+  %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
@@ -490,21 +491,21 @@ invoke.cont3:                                     ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3tsi18SslSessionLRUCache4NodeESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %entry_by_key_) #11
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock_) #11
   br label %ehcleanup
@@ -537,23 +538,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -613,34 +615,35 @@ entry:
   %next = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %use_order_list_head_ = getelementptr inbounds %"class.tsi::SslSessionLRUCache", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %use_order_list_head_, align 8
-  store ptr %0, ptr %node, align 8
+  %1 = load ptr, ptr %use_order_list_head_, align 8
+  store ptr %1, ptr %node, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %delete.end, %entry
-  %1 = load ptr, ptr %node, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %node, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %node, align 8
-  %next_ = getelementptr inbounds %"class.tsi::SslSessionLRUCache::Node", ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %next_, align 8
-  store ptr %3, ptr %next, align 8
-  %4 = load ptr, ptr %node, align 8
-  %isnull = icmp eq ptr %4, null
+  %3 = load ptr, ptr %node, align 8
+  %next_ = getelementptr inbounds %"class.tsi::SslSessionLRUCache::Node", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %next_, align 8
+  store ptr %4, ptr %next, align 8
+  %5 = load ptr, ptr %node, align 8
+  %isnull = icmp eq ptr %5, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %while.body
-  call void @_ZN3tsi18SslSessionLRUCache4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #11
-  call void @_ZdlPv(ptr noundef %4) #12
+  call void @_ZN3tsi18SslSessionLRUCache4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #11
+  call void @_ZdlPv(ptr noundef %5) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %while.body
-  %5 = load ptr, ptr %next, align 8
-  store ptr %5, ptr %node, align 8
+  %6 = load ptr, ptr %next, align 8
+  store ptr %6, ptr %node, align 8
   br label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
@@ -2849,7 +2852,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

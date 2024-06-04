@@ -95,12 +95,14 @@ declare dso_local void @__remove_inode_hash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define internal noundef nonnull ptr @bad_inode_lookup(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #3 align 16 {
-  ret ptr inttoptr (i64 -5 to ptr)
+  %4 = inttoptr i64 -5 to ptr
+  ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define internal noundef nonnull ptr @bad_inode_get_link(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #3 align 16 {
-  ret ptr inttoptr (i64 -5 to ptr)
+  %4 = inttoptr i64 -5 to ptr
+  ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -110,7 +112,8 @@ define internal noundef i32 @bad_inode_permission(ptr nocapture readnone %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define internal noundef nonnull ptr @bad_inode_get_acl(ptr nocapture readnone %0, i32 %1, i1 zeroext %2) #3 align 16 {
-  ret ptr inttoptr (i64 -5 to ptr)
+  %4 = inttoptr i64 -5 to ptr
+  ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

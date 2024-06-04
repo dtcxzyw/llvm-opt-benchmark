@@ -15,7 +15,8 @@ entry:
   %0 = load i64, ptr %size.addr, align 8
   %call = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 32802, i32 noundef -1, i64 noundef 0) #2
   store ptr %call, ptr %base, align 8
-  %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
+  %1 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %call, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -23,34 +24,34 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = load ptr, ptr %base, align 8
-  store ptr %1, ptr %aligned, align 8
   %2 = load ptr, ptr %base, align 8
-  %3 = load ptr, ptr %region.addr, align 8
-  %base1 = getelementptr inbounds %struct.escrypt_region_t, ptr %3, i32 0, i32 0
-  store ptr %2, ptr %base1, align 8
-  %4 = load ptr, ptr %aligned, align 8
-  %5 = load ptr, ptr %region.addr, align 8
-  %aligned2 = getelementptr inbounds %struct.escrypt_region_t, ptr %5, i32 0, i32 1
-  store ptr %4, ptr %aligned2, align 8
-  %6 = load ptr, ptr %base, align 8
-  %tobool = icmp ne ptr %6, null
+  store ptr %2, ptr %aligned, align 8
+  %3 = load ptr, ptr %base, align 8
+  %4 = load ptr, ptr %region.addr, align 8
+  %base1 = getelementptr inbounds %struct.escrypt_region_t, ptr %4, i32 0, i32 0
+  store ptr %3, ptr %base1, align 8
+  %5 = load ptr, ptr %aligned, align 8
+  %6 = load ptr, ptr %region.addr, align 8
+  %aligned2 = getelementptr inbounds %struct.escrypt_region_t, ptr %6, i32 0, i32 1
+  store ptr %5, ptr %aligned2, align 8
+  %7 = load ptr, ptr %base, align 8
+  %tobool = icmp ne ptr %7, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end
-  %7 = load i64, ptr %size.addr, align 8
+  %8 = load i64, ptr %size.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %7, %cond.true ], [ 0, %cond.false ]
-  %8 = load ptr, ptr %region.addr, align 8
-  %size3 = getelementptr inbounds %struct.escrypt_region_t, ptr %8, i32 0, i32 2
+  %cond = phi i64 [ %8, %cond.true ], [ 0, %cond.false ]
+  %9 = load ptr, ptr %region.addr, align 8
+  %size3 = getelementptr inbounds %struct.escrypt_region_t, ptr %9, i32 0, i32 2
   store i64 %cond, ptr %size3, align 8
-  %9 = load ptr, ptr %aligned, align 8
-  ret ptr %9
+  %10 = load ptr, ptr %aligned, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind

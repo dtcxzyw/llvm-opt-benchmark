@@ -368,7 +368,7 @@ define internal void @storeline(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   store i8 %41, ptr %43, align 8
   %44 = load ptr, ptr %7, align 8
   %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %77
+  br i1 %45, label %46, label %78
 
 46:                                               ; preds = %4
   %47 = load ptr, ptr %7, align 8
@@ -376,7 +376,7 @@ define internal void @storeline(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %49 = load i8, ptr %48, align 1
   %50 = sext i8 %49 to i32
   %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %77
+  br i1 %51, label %52, label %78
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr %6, align 8
@@ -386,90 +386,91 @@ define internal void @storeline(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %56 = load ptr, ptr %6, align 8
   %57 = getelementptr inbounds %struct.textlabel_t, ptr %56, i32 0, i32 4
   %58 = load double, ptr %57, align 8
-  store double %58, ptr getelementptr inbounds (%struct.textfont_t, ptr @storeline.tf, i32 0, i32 3), align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.GVC_s, ptr %59, i32 0, i32 12
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct._dt_s, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.GVC_s, ptr %64, i32 0, i32 12
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr %63(ptr noundef %66, ptr noundef @storeline.tf, i32 noundef 1)
-  %68 = load ptr, ptr %10, align 8
-  %69 = getelementptr inbounds %struct.textspan_t, ptr %68, i32 0, i32 1
-  store ptr %67, ptr %69, align 8
-  %70 = load ptr, ptr %5, align 8
-  %71 = load ptr, ptr %10, align 8
-  %72 = call { double, double } @textspan_size(ptr noundef %70, ptr noundef %71)
-  %73 = getelementptr inbounds { double, double }, ptr %12, i32 0, i32 0
-  %74 = extractvalue { double, double } %72, 0
-  store double %74, ptr %73, align 8
-  %75 = getelementptr inbounds { double, double }, ptr %12, i32 0, i32 1
-  %76 = extractvalue { double, double } %72, 1
-  store double %76, ptr %75, align 8
+  %59 = getelementptr inbounds %struct.textfont_t, ptr @storeline.tf, i32 0, i32 3
+  store double %58, ptr %59, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds %struct.GVC_s, ptr %60, i32 0, i32 12
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct._dt_s, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds %struct.GVC_s, ptr %65, i32 0, i32 12
+  %67 = load ptr, ptr %66, align 8
+  %68 = call ptr %64(ptr noundef %67, ptr noundef @storeline.tf, i32 noundef 1)
+  %69 = load ptr, ptr %10, align 8
+  %70 = getelementptr inbounds %struct.textspan_t, ptr %69, i32 0, i32 1
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %5, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = call { double, double } @textspan_size(ptr noundef %71, ptr noundef %72)
+  %74 = getelementptr inbounds { double, double }, ptr %12, i32 0, i32 0
+  %75 = extractvalue { double, double } %73, 0
+  store double %75, ptr %74, align 8
+  %76 = getelementptr inbounds { double, double }, ptr %12, i32 0, i32 1
+  %77 = extractvalue { double, double } %73, 1
+  store double %77, ptr %76, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %12, i64 16, i1 false)
-  br label %89
+  br label %90
 
-77:                                               ; preds = %46, %4
-  %78 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 0
-  store double 0.000000e+00, ptr %78, align 8
-  %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct.textlabel_t, ptr %79, i32 0, i32 4
-  %81 = load double, ptr %80, align 8
-  %82 = fmul double %81, 1.200000e+00
-  %83 = fptosi double %82 to i32
-  %84 = sitofp i32 %83 to double
-  %85 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 1
-  store double %84, ptr %85, align 8
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds %struct.textspan_t, ptr %86, i32 0, i32 6
-  %88 = getelementptr inbounds %struct.pointf_s, ptr %87, i32 0, i32 1
-  store double %84, ptr %88, align 8
-  br label %89
+78:                                               ; preds = %46, %4
+  %79 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 0
+  store double 0.000000e+00, ptr %79, align 8
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds %struct.textlabel_t, ptr %80, i32 0, i32 4
+  %82 = load double, ptr %81, align 8
+  %83 = fmul double %82, 1.200000e+00
+  %84 = fptosi double %83 to i32
+  %85 = sitofp i32 %84 to double
+  %86 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 1
+  store double %85, ptr %86, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = getelementptr inbounds %struct.textspan_t, ptr %87, i32 0, i32 6
+  %89 = getelementptr inbounds %struct.pointf_s, ptr %88, i32 0, i32 1
+  store double %85, ptr %89, align 8
+  br label %90
 
-89:                                               ; preds = %77, %52
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct.textlabel_t, ptr %90, i32 0, i32 8
-  %92 = getelementptr inbounds %struct.anon, ptr %91, i32 0, i32 1
-  %93 = load i64, ptr %92, align 8
-  %94 = add i64 %93, 1
-  store i64 %94, ptr %92, align 8
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.textlabel_t, ptr %95, i32 0, i32 5
-  %97 = getelementptr inbounds %struct.pointf_s, ptr %96, i32 0, i32 0
-  %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 0
-  %100 = load double, ptr %99, align 8
-  %101 = fcmp ogt double %98, %100
-  br i1 %101, label %102, label %107
+90:                                               ; preds = %78, %52
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds %struct.textlabel_t, ptr %91, i32 0, i32 8
+  %93 = getelementptr inbounds %struct.anon, ptr %92, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  %95 = add i64 %94, 1
+  store i64 %95, ptr %93, align 8
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds %struct.textlabel_t, ptr %96, i32 0, i32 5
+  %98 = getelementptr inbounds %struct.pointf_s, ptr %97, i32 0, i32 0
+  %99 = load double, ptr %98, align 8
+  %100 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 0
+  %101 = load double, ptr %100, align 8
+  %102 = fcmp ogt double %99, %101
+  br i1 %102, label %103, label %108
 
-102:                                              ; preds = %89
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds %struct.textlabel_t, ptr %103, i32 0, i32 5
-  %105 = getelementptr inbounds %struct.pointf_s, ptr %104, i32 0, i32 0
-  %106 = load double, ptr %105, align 8
-  br label %110
+103:                                              ; preds = %90
+  %104 = load ptr, ptr %6, align 8
+  %105 = getelementptr inbounds %struct.textlabel_t, ptr %104, i32 0, i32 5
+  %106 = getelementptr inbounds %struct.pointf_s, ptr %105, i32 0, i32 0
+  %107 = load double, ptr %106, align 8
+  br label %111
 
-107:                                              ; preds = %89
-  %108 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 0
-  %109 = load double, ptr %108, align 8
-  br label %110
+108:                                              ; preds = %90
+  %109 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 0
+  %110 = load double, ptr %109, align 8
+  br label %111
 
-110:                                              ; preds = %107, %102
-  %111 = phi double [ %106, %102 ], [ %109, %107 ]
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr inbounds %struct.textlabel_t, ptr %112, i32 0, i32 5
-  %114 = getelementptr inbounds %struct.pointf_s, ptr %113, i32 0, i32 0
-  store double %111, ptr %114, align 8
-  %115 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 1
-  %116 = load double, ptr %115, align 8
-  %117 = load ptr, ptr %6, align 8
-  %118 = getelementptr inbounds %struct.textlabel_t, ptr %117, i32 0, i32 5
-  %119 = getelementptr inbounds %struct.pointf_s, ptr %118, i32 0, i32 1
-  %120 = load double, ptr %119, align 8
-  %121 = fadd double %120, %116
-  store double %121, ptr %119, align 8
+111:                                              ; preds = %108, %103
+  %112 = phi double [ %107, %103 ], [ %110, %108 ]
+  %113 = load ptr, ptr %6, align 8
+  %114 = getelementptr inbounds %struct.textlabel_t, ptr %113, i32 0, i32 5
+  %115 = getelementptr inbounds %struct.pointf_s, ptr %114, i32 0, i32 0
+  store double %112, ptr %115, align 8
+  %116 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 1
+  %117 = load double, ptr %116, align 8
+  %118 = load ptr, ptr %6, align 8
+  %119 = getelementptr inbounds %struct.textlabel_t, ptr %118, i32 0, i32 5
+  %120 = getelementptr inbounds %struct.pointf_s, ptr %119, i32 0, i32 1
+  %121 = load double, ptr %120, align 8
+  %122 = fadd double %121, %117
+  store double %122, ptr %120, align 8
   ret void
 }
 
@@ -2126,14 +2127,14 @@ define internal i32 @agxbprint(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @vagxbprint(ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store i32 %11, ptr %6, align 4
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load i32, ptr %6, align 4
   ret i32 %13
 }
@@ -2230,9 +2231,6 @@ define internal i64 @agxbput_n(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
   ret i64 %63
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 ; Function Attrs: nounwind uwtable
 define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
@@ -2251,20 +2249,20 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %2, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %16 = load ptr, ptr %7, align 8
-  call void @llvm.va_copy(ptr %15, ptr %16)
+  call void @llvm.va_copy.p0(ptr %15, ptr %16)
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %19 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %17, ptr noundef %18) #11
   store i32 %19, ptr %11, align 4
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load i32, ptr %11, align 4
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %7, align 8
-  call void @llvm.va_end(ptr %24)
+  call void @llvm.va_end.p0(ptr %24)
   %25 = load i32, ptr %11, align 4
   store i32 %25, ptr %4, align 4
   br label %79
@@ -2352,12 +2350,6 @@ define internal i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ret i32 %80
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #10
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
 
@@ -2393,6 +2385,15 @@ define internal ptr @agxbnext(ptr noundef %0) #0 {
   %21 = phi ptr [ %12, %8 ], [ %19, %13 ]
   ret ptr %21
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }

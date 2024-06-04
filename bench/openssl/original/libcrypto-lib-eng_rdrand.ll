@@ -14,16 +14,17 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @engine_load_rdrand_int() #0 {
 entry:
   %toadd = alloca ptr, align 8
-  %0 = load i32, ptr getelementptr inbounds ([0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and = and i32 %0, 1073741824
+  %0 = getelementptr inbounds [0 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, 1073741824
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
   %call = call ptr @ENGINE_rdrand()
   store ptr %call, ptr %toadd, align 8
-  %1 = load ptr, ptr %toadd, align 8
-  %tobool1 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %toadd, align 8
+  %tobool1 = icmp ne ptr %2, null
   br i1 %tobool1, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
@@ -31,10 +32,10 @@ if.then2:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %call3 = call i32 @ERR_set_mark()
-  %2 = load ptr, ptr %toadd, align 8
-  %call4 = call i32 @ENGINE_add(ptr noundef %2)
   %3 = load ptr, ptr %toadd, align 8
-  %call5 = call i32 @ENGINE_free(ptr noundef %3)
+  %call4 = call i32 @ENGINE_add(ptr noundef %3)
+  %4 = load ptr, ptr %toadd, align 8
+  %call5 = call i32 @ENGINE_free(ptr noundef %4)
   %call6 = call i32 @ERR_pop_to_mark()
   br label %if.end7
 

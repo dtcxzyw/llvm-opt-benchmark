@@ -5095,97 +5095,100 @@ do.body:                                          ; preds = %if.end
   %3 = load ptr, ptr %vd, align 8
   %next = getelementptr inbounds %struct.VncDisplay, ptr %3, i32 0, i32 22
   store ptr null, ptr %next, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vnc_displays, i32 0, i32 1), align 8
-  %5 = load ptr, ptr %vd, align 8
-  %next4 = getelementptr inbounds %struct.VncDisplay, ptr %5, i32 0, i32 22
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next4, i32 0, i32 1
-  store ptr %4, ptr %tql_prev, align 8
+  %4 = getelementptr inbounds %struct.QTailQLink, ptr @vnc_displays, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %vd, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vnc_displays, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %7, i32 0, i32 0
-  store ptr %6, ptr %tql_next, align 8
-  %8 = load ptr, ptr %vd, align 8
-  %next5 = getelementptr inbounds %struct.VncDisplay, ptr %8, i32 0, i32 22
-  store ptr %next5, ptr getelementptr inbounds (%struct.QTailQLink, ptr @vnc_displays, i32 0, i32 1), align 8
+  %next4 = getelementptr inbounds %struct.VncDisplay, ptr %6, i32 0, i32 22
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next4, i32 0, i32 1
+  store ptr %5, ptr %tql_prev, align 8
+  %7 = load ptr, ptr %vd, align 8
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @vnc_displays, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %9, i32 0, i32 0
+  store ptr %7, ptr %tql_next, align 8
+  %10 = load ptr, ptr %vd, align 8
+  %next5 = getelementptr inbounds %struct.VncDisplay, ptr %10, i32 0, i32 22
+  %11 = getelementptr inbounds %struct.QTailQLink, ptr @vnc_displays, i32 0, i32 1
+  store ptr %next5, ptr %11, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
   br label %do.body6
 
 do.body6:                                         ; preds = %do.end
-  %9 = load ptr, ptr %vd, align 8
-  %clients = getelementptr inbounds %struct.VncDisplay, ptr %9, i32 0, i32 0
+  %12 = load ptr, ptr %vd, align 8
+  %clients = getelementptr inbounds %struct.VncDisplay, ptr %12, i32 0, i32 0
   store ptr null, ptr %clients, align 8
-  %10 = load ptr, ptr %vd, align 8
-  %clients7 = getelementptr inbounds %struct.VncDisplay, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %vd, align 8
-  %clients8 = getelementptr inbounds %struct.VncDisplay, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %vd, align 8
+  %clients7 = getelementptr inbounds %struct.VncDisplay, ptr %13, i32 0, i32 0
+  %14 = load ptr, ptr %vd, align 8
+  %clients8 = getelementptr inbounds %struct.VncDisplay, ptr %14, i32 0, i32 0
   %tql_prev9 = getelementptr inbounds %struct.QTailQLink, ptr %clients8, i32 0, i32 1
   store ptr %clients7, ptr %tql_prev9, align 8
   br label %do.end10
 
 do.end10:                                         ; preds = %do.body6
-  %12 = load ptr, ptr %vd, align 8
-  %expires = getelementptr inbounds %struct.VncDisplay, ptr %12, i32 0, i32 25
+  %15 = load ptr, ptr %vd, align 8
+  %expires = getelementptr inbounds %struct.VncDisplay, ptr %15, i32 0, i32 25
   store i64 9223372036854775807, ptr %expires, align 8
-  %13 = load ptr, ptr @keyboard_layout, align 8
-  %tobool = icmp ne ptr %13, null
+  %16 = load ptr, ptr @keyboard_layout, align 8
+  %tobool = icmp ne ptr %16, null
   br i1 %tobool, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %do.end10
-  %14 = load ptr, ptr @keyboard_layout, align 8
-  call void @trace_vnc_key_map_init(ptr noundef %14)
-  %15 = load ptr, ptr @keyboard_layout, align 8
-  %16 = load ptr, ptr %errp.addr, align 8
-  %call12 = call ptr @init_keyboard_layout(ptr noundef @name2keysym, ptr noundef %15, ptr noundef %16)
-  %17 = load ptr, ptr %vd, align 8
-  %kbd_layout = getelementptr inbounds %struct.VncDisplay, ptr %17, i32 0, i32 10
+  %17 = load ptr, ptr @keyboard_layout, align 8
+  call void @trace_vnc_key_map_init(ptr noundef %17)
+  %18 = load ptr, ptr @keyboard_layout, align 8
+  %19 = load ptr, ptr %errp.addr, align 8
+  %call12 = call ptr @init_keyboard_layout(ptr noundef @name2keysym, ptr noundef %18, ptr noundef %19)
+  %20 = load ptr, ptr %vd, align 8
+  %kbd_layout = getelementptr inbounds %struct.VncDisplay, ptr %20, i32 0, i32 10
   store ptr %call12, ptr %kbd_layout, align 8
   br label %if.end15
 
 if.else:                                          ; preds = %do.end10
-  %18 = load ptr, ptr %errp.addr, align 8
-  %call13 = call ptr @init_keyboard_layout(ptr noundef @name2keysym, ptr noundef @.str.11, ptr noundef %18)
-  %19 = load ptr, ptr %vd, align 8
-  %kbd_layout14 = getelementptr inbounds %struct.VncDisplay, ptr %19, i32 0, i32 10
+  %21 = load ptr, ptr %errp.addr, align 8
+  %call13 = call ptr @init_keyboard_layout(ptr noundef @name2keysym, ptr noundef @.str.11, ptr noundef %21)
+  %22 = load ptr, ptr %vd, align 8
+  %kbd_layout14 = getelementptr inbounds %struct.VncDisplay, ptr %22, i32 0, i32 10
   store ptr %call13, ptr %kbd_layout14, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then11
-  %20 = load ptr, ptr %vd, align 8
-  %kbd_layout16 = getelementptr inbounds %struct.VncDisplay, ptr %20, i32 0, i32 10
-  %21 = load ptr, ptr %kbd_layout16, align 8
-  %tobool17 = icmp ne ptr %21, null
+  %23 = load ptr, ptr %vd, align 8
+  %kbd_layout16 = getelementptr inbounds %struct.VncDisplay, ptr %23, i32 0, i32 10
+  %24 = load ptr, ptr %kbd_layout16, align 8
+  %tobool17 = icmp ne ptr %24, null
   br i1 %tobool17, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
   br label %return
 
 if.end19:                                         ; preds = %if.end15
-  %22 = load ptr, ptr %vd, align 8
-  %share_policy = getelementptr inbounds %struct.VncDisplay, ptr %22, i32 0, i32 5
+  %25 = load ptr, ptr %vd, align 8
+  %share_policy = getelementptr inbounds %struct.VncDisplay, ptr %25, i32 0, i32 5
   store i32 2, ptr %share_policy, align 8
-  %23 = load ptr, ptr %vd, align 8
-  %connections_limit = getelementptr inbounds %struct.VncDisplay, ptr %23, i32 0, i32 4
+  %26 = load ptr, ptr %vd, align 8
+  %connections_limit = getelementptr inbounds %struct.VncDisplay, ptr %26, i32 0, i32 4
   store i32 32, ptr %connections_limit, align 4
-  %24 = load ptr, ptr %vd, align 8
-  %mutex = getelementptr inbounds %struct.VncDisplay, ptr %24, i32 0, i32 15
+  %27 = load ptr, ptr %vd, align 8
+  %mutex = getelementptr inbounds %struct.VncDisplay, ptr %27, i32 0, i32 15
   call void @qemu_mutex_init(ptr noundef %mutex)
   call void @vnc_start_worker_thread()
-  %25 = load ptr, ptr %vd, align 8
-  %dcl = getelementptr inbounds %struct.VncDisplay, ptr %25, i32 0, i32 9
+  %28 = load ptr, ptr %vd, align 8
+  %dcl = getelementptr inbounds %struct.VncDisplay, ptr %28, i32 0, i32 9
   %ops = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl, i32 0, i32 1
   store ptr @dcl_ops, ptr %ops, align 8
-  %26 = load ptr, ptr %vd, align 8
-  %dcl20 = getelementptr inbounds %struct.VncDisplay, ptr %26, i32 0, i32 9
-  call void @register_displaychangelistener(ptr noundef %dcl20)
-  %27 = load ptr, ptr %vd, align 8
-  %dcl21 = getelementptr inbounds %struct.VncDisplay, ptr %27, i32 0, i32 9
-  %con = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl21, i32 0, i32 3
-  %28 = load ptr, ptr %con, align 8
-  %call22 = call ptr @qkbd_state_init(ptr noundef %28)
   %29 = load ptr, ptr %vd, align 8
-  %kbd = getelementptr inbounds %struct.VncDisplay, ptr %29, i32 0, i32 14
+  %dcl20 = getelementptr inbounds %struct.VncDisplay, ptr %29, i32 0, i32 9
+  call void @register_displaychangelistener(ptr noundef %dcl20)
+  %30 = load ptr, ptr %vd, align 8
+  %dcl21 = getelementptr inbounds %struct.VncDisplay, ptr %30, i32 0, i32 9
+  %con = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl21, i32 0, i32 3
+  %31 = load ptr, ptr %con, align 8
+  %call22 = call ptr @qkbd_state_init(ptr noundef %31)
+  %32 = load ptr, ptr %vd, align 8
+  %kbd = getelementptr inbounds %struct.VncDisplay, ptr %32, i32 0, i32 14
   store ptr %call22, ptr %kbd, align 8
   br label %return
 

@@ -14,7 +14,7 @@ define ptr @exzero(i64 noundef %0) #0 {
   store i64 %0, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 8, i1 false)
   %4 = load i64, ptr %3, align 8
-  switch i64 %4, label %8 [
+  switch i64 %4, label %9 [
     i64 262, label %5
     i64 259, label %6
     i64 260, label %6
@@ -23,20 +23,21 @@ define ptr @exzero(i64 noundef %0) #0 {
 
 5:                                                ; preds = %1
   store double 0.000000e+00, ptr %2, align 8
-  br label %8
+  br label %9
 
 6:                                                ; preds = %1, %1
   store i64 0, ptr %2, align 8
-  br label %8
+  br label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 11), ptr %2, align 8
-  br label %8
+  %8 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 11
+  store ptr %8, ptr %2, align 8
+  br label %9
 
-8:                                                ; preds = %7, %6, %5, %1
-  %9 = getelementptr inbounds %union.EX_STYPE, ptr %2, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  ret ptr %10
+9:                                                ; preds = %7, %6, %5, %1
+  %10 = getelementptr inbounds %union.EX_STYPE, ptr %2, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

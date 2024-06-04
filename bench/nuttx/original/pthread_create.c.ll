@@ -87,7 +87,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 44:                                               ; preds = %43
   store i32 12, ptr %6, align 4
-  br label %232
+  br label %233
 
 45:                                               ; preds = %38
   %46 = load ptr, ptr %12, align 8
@@ -99,7 +99,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 50:                                               ; preds = %45
   store i32 12, ptr %16, align 4
-  br label %218
+  br label %219
 
 51:                                               ; preds = %45
   %52 = load ptr, ptr %9, align 8
@@ -155,7 +155,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 88:                                               ; preds = %85
   store i32 12, ptr %16, align 4
-  br label %218
+  br label %219
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr %12, align 8
@@ -170,7 +170,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %96 = load i32, ptr %18, align 4
   %97 = sub nsw i32 0, %96
   store i32 %97, ptr %16, align 4
-  br label %218
+  br label %219
 
 98:                                               ; preds = %89
   %99 = load ptr, ptr %9, align 8
@@ -191,7 +191,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %109 = load i32, ptr %18, align 4
   %110 = sub nsw i32 0, %109
   store i32 %110, ptr %16, align 4
-  br label %218
+  br label %219
 
 111:                                              ; preds = %104
   %112 = call i32 @nxsched_get_scheduler(i32 noundef 0)
@@ -204,7 +204,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %116 = load i32, ptr %15, align 4
   %117 = sub nsw i32 0, %116
   store i32 %117, ptr %16, align 4
-  br label %218
+  br label %219
 
 118:                                              ; preds = %111
   br label %129
@@ -236,7 +236,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 137:                                              ; preds = %129
   store i32 16, ptr %16, align 4
-  br label %218
+  br label %219
 
 138:                                              ; preds = %129
   %139 = load ptr, ptr %12, align 8
@@ -253,7 +253,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 147:                                              ; preds = %138
   store i32 12, ptr %16, align 4
-  br label %218
+  br label %219
 
 148:                                              ; preds = %138
   store i8 1, ptr %19, align 1
@@ -310,7 +310,7 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 181:                                              ; preds = %178, %174
   %182 = call i32 @sched_unlock()
-  br label %216
+  br label %217
 
 183:                                              ; preds = %166
   %184 = call i32 @sched_unlock()
@@ -346,65 +346,66 @@ define i32 @nx_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 201:                                              ; preds = %197, %195
   %202 = load ptr, ptr %23, align 8
   %203 = icmp ne ptr %202, null
-  br i1 %203, label %206, label %204
+  br i1 %203, label %207, label %204
 
 204:                                              ; preds = %201
   %205 = load ptr, ptr %22, align 8
-  store ptr %205, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_inactivetasks, i32 0, i32 1), align 8
-  br label %210
+  %206 = getelementptr inbounds %struct.dq_queue_s, ptr @g_inactivetasks, i32 0, i32 1
+  store ptr %205, ptr %206, align 8
+  br label %211
 
-206:                                              ; preds = %201
-  %207 = load ptr, ptr %22, align 8
-  %208 = load ptr, ptr %23, align 8
-  %209 = getelementptr inbounds %struct.dq_entry_s, ptr %208, i32 0, i32 1
-  store ptr %207, ptr %209, align 8
-  br label %210
+207:                                              ; preds = %201
+  %208 = load ptr, ptr %22, align 8
+  %209 = load ptr, ptr %23, align 8
+  %210 = getelementptr inbounds %struct.dq_entry_s, ptr %209, i32 0, i32 1
+  store ptr %208, ptr %210, align 8
+  br label %211
 
-210:                                              ; preds = %206, %204
-  %211 = load ptr, ptr %21, align 8
-  %212 = getelementptr inbounds %struct.dq_entry_s, ptr %211, i32 0, i32 0
-  store ptr null, ptr %212, align 8
-  %213 = load ptr, ptr %21, align 8
-  %214 = getelementptr inbounds %struct.dq_entry_s, ptr %213, i32 0, i32 1
-  store ptr null, ptr %214, align 8
-  br label %215
+211:                                              ; preds = %207, %204
+  %212 = load ptr, ptr %21, align 8
+  %213 = getelementptr inbounds %struct.dq_entry_s, ptr %212, i32 0, i32 0
+  store ptr null, ptr %213, align 8
+  %214 = load ptr, ptr %21, align 8
+  %215 = getelementptr inbounds %struct.dq_entry_s, ptr %214, i32 0, i32 1
+  store ptr null, ptr %215, align 8
+  br label %216
 
-215:                                              ; preds = %210
+216:                                              ; preds = %211
   store i32 5, ptr %16, align 4
-  br label %218
+  br label %219
 
-216:                                              ; preds = %181
-  %217 = load i32, ptr %18, align 4
-  store i32 %217, ptr %6, align 4
-  br label %232
+217:                                              ; preds = %181
+  %218 = load i32, ptr %18, align 4
+  store i32 %218, ptr %6, align 4
+  br label %233
 
-218:                                              ; preds = %215, %147, %137, %115, %108, %95, %88, %50
-  %219 = load ptr, ptr %12, align 8
-  %220 = icmp ne ptr %219, null
-  br i1 %220, label %221, label %228
+219:                                              ; preds = %216, %147, %137, %115, %108, %95, %88, %50
+  %220 = load ptr, ptr %12, align 8
+  %221 = icmp ne ptr %220, null
+  br i1 %221, label %222, label %229
 
-221:                                              ; preds = %218
-  %222 = load i8, ptr %19, align 1
-  %223 = trunc i8 %222 to i1
-  br i1 %223, label %228, label %224
+222:                                              ; preds = %219
+  %223 = load i8, ptr %19, align 1
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %229, label %225
 
-224:                                              ; preds = %221
-  %225 = load ptr, ptr %12, align 8
-  %226 = getelementptr inbounds %struct.pthread_tcb_s, ptr %225, i32 0, i32 0
-  %227 = getelementptr inbounds %struct.tcb_s, ptr %226, i32 0, i32 2
-  store ptr null, ptr %227, align 16
-  br label %228
+225:                                              ; preds = %222
+  %226 = load ptr, ptr %12, align 8
+  %227 = getelementptr inbounds %struct.pthread_tcb_s, ptr %226, i32 0, i32 0
+  %228 = getelementptr inbounds %struct.tcb_s, ptr %227, i32 0, i32 2
+  store ptr null, ptr %228, align 16
+  br label %229
 
-228:                                              ; preds = %224, %221, %218
-  %229 = load ptr, ptr %12, align 8
-  %230 = call i32 @nxsched_release_tcb(ptr noundef %229, i8 noundef zeroext 1)
-  %231 = load i32, ptr %16, align 4
-  store i32 %231, ptr %6, align 4
-  br label %232
+229:                                              ; preds = %225, %222, %219
+  %230 = load ptr, ptr %12, align 8
+  %231 = call i32 @nxsched_release_tcb(ptr noundef %230, i8 noundef zeroext 1)
+  %232 = load i32, ptr %16, align 4
+  store i32 %232, ptr %6, align 4
+  br label %233
 
-232:                                              ; preds = %228, %216, %44
-  %233 = load i32, ptr %6, align 4
-  ret i32 %233
+233:                                              ; preds = %229, %217, %44
+  %234 = load i32, ptr %6, align 4
+  ret i32 %234
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

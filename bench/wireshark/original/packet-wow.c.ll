@@ -856,137 +856,140 @@ define internal void @parse_logon_challenge_client_to_server(ptr noundef %0, ptr
   %52 = load ptr, ptr %6, align 8
   %53 = load i32, ptr %8, align 4
   %54 = call zeroext i8 @tvb_get_guint8(ptr noundef %52, i32 noundef %53)
-  store i8 %54, ptr getelementptr inbounds (%struct.game_version, ptr @client_game_version, i32 0, i32 1), align 1
-  %55 = load ptr, ptr %7, align 8
-  %56 = load i32, ptr @hf_wow_version2, align 4
-  %57 = load ptr, ptr %6, align 8
-  %58 = load i32, ptr %8, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 1, i32 noundef -2147483648)
-  %60 = load i32, ptr %8, align 4
-  %61 = add i32 %60, 1
-  store i32 %61, ptr %8, align 4
-  %62 = load ptr, ptr %6, align 8
-  %63 = load i32, ptr %8, align 4
-  %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %62, i32 noundef %63)
-  store i8 %64, ptr getelementptr inbounds (%struct.game_version, ptr @client_game_version, i32 0, i32 2), align 2
-  %65 = load ptr, ptr %7, align 8
-  %66 = load i32, ptr @hf_wow_version3, align 4
-  %67 = load ptr, ptr %6, align 8
-  %68 = load i32, ptr %8, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 1, i32 noundef -2147483648)
+  %55 = getelementptr inbounds %struct.game_version, ptr @client_game_version, i32 0, i32 1
+  store i8 %54, ptr %55, align 1
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr @hf_wow_version2, align 4
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i32, ptr %8, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 1, i32 noundef -2147483648)
+  %61 = load i32, ptr %8, align 4
+  %62 = add i32 %61, 1
+  store i32 %62, ptr %8, align 4
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i32, ptr %8, align 4
+  %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %63, i32 noundef %64)
+  %66 = getelementptr inbounds %struct.game_version, ptr @client_game_version, i32 0, i32 2
+  store i8 %65, ptr %66, align 2
+  %67 = load ptr, ptr %7, align 8
+  %68 = load i32, ptr @hf_wow_version3, align 4
+  %69 = load ptr, ptr %6, align 8
   %70 = load i32, ptr %8, align 4
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %8, align 4
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %8, align 4
-  %74 = call zeroext i16 @tvb_get_guint16(ptr noundef %72, i32 noundef %73, i32 noundef -2147483648)
-  store i16 %74, ptr getelementptr inbounds (%struct.game_version, ptr @client_game_version, i32 0, i32 3), align 2
-  %75 = load ptr, ptr %7, align 8
-  %76 = load i32, ptr @hf_wow_build, align 4
-  %77 = load ptr, ptr %6, align 8
-  %78 = load i32, ptr %8, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 2, i32 noundef -2147483648)
-  %80 = load i32, ptr %8, align 4
-  %81 = add i32 %80, 2
-  store i32 %81, ptr %8, align 4
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct._packet_info, ptr %82, i32 0, i32 50
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = load i32, ptr %8, align 4
-  %87 = call ptr @tvb_get_string_enc(ptr noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 4, i32 noundef 0)
-  store ptr %87, ptr %10, align 8
-  %88 = load ptr, ptr %10, align 8
-  %89 = call ptr @g_utf8_strreverse(ptr noundef %88, i64 noundef -1)
-  store ptr %89, ptr %10, align 8
-  %90 = load ptr, ptr %7, align 8
-  %91 = load i32, ptr @hf_wow_platform, align 4
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i32, ptr %8, align 4
-  %94 = load ptr, ptr %10, align 8
-  %95 = call ptr @proto_tree_add_string(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 4, ptr noundef %94)
-  %96 = load ptr, ptr %10, align 8
-  call void @g_free(ptr noundef %96)
-  %97 = load i32, ptr %8, align 4
-  %98 = add i32 %97, 4
-  store i32 %98, ptr %8, align 4
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds %struct._packet_info, ptr %99, i32 0, i32 50
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = load i32, ptr %8, align 4
-  %104 = call ptr @tvb_get_string_enc(ptr noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 4, i32 noundef 0)
-  store ptr %104, ptr %10, align 8
-  %105 = load ptr, ptr %10, align 8
-  %106 = call ptr @g_utf8_strreverse(ptr noundef %105, i64 noundef -1)
-  store ptr %106, ptr %10, align 8
-  %107 = load ptr, ptr %7, align 8
-  %108 = load i32, ptr @hf_wow_os, align 4
-  %109 = load ptr, ptr %6, align 8
-  %110 = load i32, ptr %8, align 4
-  %111 = load ptr, ptr %10, align 8
-  %112 = call ptr @proto_tree_add_string(ptr noundef %107, i32 noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 4, ptr noundef %111)
-  %113 = load ptr, ptr %10, align 8
-  call void @g_free(ptr noundef %113)
-  %114 = load i32, ptr %8, align 4
-  %115 = add i32 %114, 4
-  store i32 %115, ptr %8, align 4
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds %struct._packet_info, ptr %116, i32 0, i32 50
-  %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr %6, align 8
-  %120 = load i32, ptr %8, align 4
-  %121 = call ptr @tvb_get_string_enc(ptr noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef 4, i32 noundef 0)
-  store ptr %121, ptr %10, align 8
-  %122 = load ptr, ptr %10, align 8
-  %123 = call ptr @g_utf8_strreverse(ptr noundef %122, i64 noundef -1)
-  store ptr %123, ptr %10, align 8
-  %124 = load ptr, ptr %7, align 8
-  %125 = load i32, ptr @hf_wow_country, align 4
-  %126 = load ptr, ptr %6, align 8
-  %127 = load i32, ptr %8, align 4
-  %128 = load ptr, ptr %10, align 8
-  %129 = call ptr @proto_tree_add_string(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 4, ptr noundef %128)
-  %130 = load ptr, ptr %10, align 8
-  call void @g_free(ptr noundef %130)
-  %131 = load i32, ptr %8, align 4
-  %132 = add i32 %131, 4
-  store i32 %132, ptr %8, align 4
-  %133 = load ptr, ptr %7, align 8
-  %134 = load i32, ptr @hf_wow_timezone_bias, align 4
-  %135 = load ptr, ptr %6, align 8
-  %136 = load i32, ptr %8, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef 4, i32 noundef -2147483648)
-  %138 = load i32, ptr %8, align 4
-  %139 = add i32 %138, 4
-  store i32 %139, ptr %8, align 4
-  %140 = load ptr, ptr %7, align 8
-  %141 = load i32, ptr @hf_wow_ip, align 4
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i32, ptr %8, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 4, i32 noundef 0)
-  %145 = load i32, ptr %8, align 4
-  %146 = add i32 %145, 4
-  store i32 %146, ptr %8, align 4
-  %147 = load ptr, ptr %7, align 8
-  %148 = load i32, ptr @hf_wow_srp_i_len, align 4
-  %149 = load ptr, ptr %6, align 8
-  %150 = load i32, ptr %8, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef %150, i32 noundef 1, i32 noundef -2147483648)
+  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 1, i32 noundef -2147483648)
+  %72 = load i32, ptr %8, align 4
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %8, align 4
+  %74 = load ptr, ptr %6, align 8
+  %75 = load i32, ptr %8, align 4
+  %76 = call zeroext i16 @tvb_get_guint16(ptr noundef %74, i32 noundef %75, i32 noundef -2147483648)
+  %77 = getelementptr inbounds %struct.game_version, ptr @client_game_version, i32 0, i32 3
+  store i16 %76, ptr %77, align 2
+  %78 = load ptr, ptr %7, align 8
+  %79 = load i32, ptr @hf_wow_build, align 4
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i32, ptr %8, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 2, i32 noundef -2147483648)
+  %83 = load i32, ptr %8, align 4
+  %84 = add i32 %83, 2
+  store i32 %84, ptr %8, align 4
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr inbounds %struct._packet_info, ptr %85, i32 0, i32 50
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %6, align 8
+  %89 = load i32, ptr %8, align 4
+  %90 = call ptr @tvb_get_string_enc(ptr noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef 4, i32 noundef 0)
+  store ptr %90, ptr %10, align 8
+  %91 = load ptr, ptr %10, align 8
+  %92 = call ptr @g_utf8_strreverse(ptr noundef %91, i64 noundef -1)
+  store ptr %92, ptr %10, align 8
+  %93 = load ptr, ptr %7, align 8
+  %94 = load i32, ptr @hf_wow_platform, align 4
+  %95 = load ptr, ptr %6, align 8
+  %96 = load i32, ptr %8, align 4
+  %97 = load ptr, ptr %10, align 8
+  %98 = call ptr @proto_tree_add_string(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 4, ptr noundef %97)
+  %99 = load ptr, ptr %10, align 8
+  call void @g_free(ptr noundef %99)
+  %100 = load i32, ptr %8, align 4
+  %101 = add i32 %100, 4
+  store i32 %101, ptr %8, align 4
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds %struct._packet_info, ptr %102, i32 0, i32 50
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %6, align 8
+  %106 = load i32, ptr %8, align 4
+  %107 = call ptr @tvb_get_string_enc(ptr noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef 4, i32 noundef 0)
+  store ptr %107, ptr %10, align 8
+  %108 = load ptr, ptr %10, align 8
+  %109 = call ptr @g_utf8_strreverse(ptr noundef %108, i64 noundef -1)
+  store ptr %109, ptr %10, align 8
+  %110 = load ptr, ptr %7, align 8
+  %111 = load i32, ptr @hf_wow_os, align 4
+  %112 = load ptr, ptr %6, align 8
+  %113 = load i32, ptr %8, align 4
+  %114 = load ptr, ptr %10, align 8
+  %115 = call ptr @proto_tree_add_string(ptr noundef %110, i32 noundef %111, ptr noundef %112, i32 noundef %113, i32 noundef 4, ptr noundef %114)
+  %116 = load ptr, ptr %10, align 8
+  call void @g_free(ptr noundef %116)
+  %117 = load i32, ptr %8, align 4
+  %118 = add i32 %117, 4
+  store i32 %118, ptr %8, align 4
+  %119 = load ptr, ptr %5, align 8
+  %120 = getelementptr inbounds %struct._packet_info, ptr %119, i32 0, i32 50
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %6, align 8
+  %123 = load i32, ptr %8, align 4
+  %124 = call ptr @tvb_get_string_enc(ptr noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef 4, i32 noundef 0)
+  store ptr %124, ptr %10, align 8
+  %125 = load ptr, ptr %10, align 8
+  %126 = call ptr @g_utf8_strreverse(ptr noundef %125, i64 noundef -1)
+  store ptr %126, ptr %10, align 8
+  %127 = load ptr, ptr %7, align 8
+  %128 = load i32, ptr @hf_wow_country, align 4
+  %129 = load ptr, ptr %6, align 8
+  %130 = load i32, ptr %8, align 4
+  %131 = load ptr, ptr %10, align 8
+  %132 = call ptr @proto_tree_add_string(ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef 4, ptr noundef %131)
+  %133 = load ptr, ptr %10, align 8
+  call void @g_free(ptr noundef %133)
+  %134 = load i32, ptr %8, align 4
+  %135 = add i32 %134, 4
+  store i32 %135, ptr %8, align 4
+  %136 = load ptr, ptr %7, align 8
+  %137 = load i32, ptr @hf_wow_timezone_bias, align 4
+  %138 = load ptr, ptr %6, align 8
+  %139 = load i32, ptr %8, align 4
+  %140 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %138, i32 noundef %139, i32 noundef 4, i32 noundef -2147483648)
+  %141 = load i32, ptr %8, align 4
+  %142 = add i32 %141, 4
+  store i32 %142, ptr %8, align 4
+  %143 = load ptr, ptr %7, align 8
+  %144 = load i32, ptr @hf_wow_ip, align 4
+  %145 = load ptr, ptr %6, align 8
+  %146 = load i32, ptr %8, align 4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 4, i32 noundef 0)
+  %148 = load i32, ptr %8, align 4
+  %149 = add i32 %148, 4
+  store i32 %149, ptr %8, align 4
+  %150 = load ptr, ptr %7, align 8
+  %151 = load i32, ptr @hf_wow_srp_i_len, align 4
   %152 = load ptr, ptr %6, align 8
   %153 = load i32, ptr %8, align 4
-  %154 = call zeroext i8 @tvb_get_guint8(ptr noundef %152, i32 noundef %153)
-  store i8 %154, ptr %9, align 1
-  %155 = load i32, ptr %8, align 4
-  %156 = add i32 %155, 1
-  store i32 %156, ptr %8, align 4
-  %157 = load ptr, ptr %7, align 8
-  %158 = load i32, ptr @hf_wow_srp_i, align 4
-  %159 = load ptr, ptr %6, align 8
-  %160 = load i32, ptr %8, align 4
-  %161 = load i8, ptr %9, align 1
-  %162 = zext i8 %161 to i32
-  %163 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef %160, i32 noundef %162, i32 noundef 2)
+  %154 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %151, ptr noundef %152, i32 noundef %153, i32 noundef 1, i32 noundef -2147483648)
+  %155 = load ptr, ptr %6, align 8
+  %156 = load i32, ptr %8, align 4
+  %157 = call zeroext i8 @tvb_get_guint8(ptr noundef %155, i32 noundef %156)
+  store i8 %157, ptr %9, align 1
+  %158 = load i32, ptr %8, align 4
+  %159 = add i32 %158, 1
+  store i32 %159, ptr %8, align 4
+  %160 = load ptr, ptr %7, align 8
+  %161 = load i32, ptr @hf_wow_srp_i, align 4
+  %162 = load ptr, ptr %6, align 8
+  %163 = load i32, ptr %8, align 4
+  %164 = load i8, ptr %9, align 1
+  %165 = zext i8 %164 to i32
+  %166 = call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %161, ptr noundef %162, i32 noundef %163, i32 noundef %165, i32 noundef 2)
   ret void
 }
 
@@ -1596,7 +1599,7 @@ define internal i32 @version_is_at_or_above(i32 noundef %0, i32 noundef %1, i32 
 
 12:                                               ; preds = %3
   store i32 1, ptr %4, align 4
-  br label %47
+  br label %51
 
 13:                                               ; preds = %3
   %14 = load i8, ptr @client_game_version, align 2
@@ -1607,68 +1610,72 @@ define internal i32 @version_is_at_or_above(i32 noundef %0, i32 noundef %1, i32 
 
 18:                                               ; preds = %13
   store i32 0, ptr %4, align 4
-  br label %47
+  br label %51
 
 19:                                               ; preds = %13
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load i8, ptr getelementptr inbounds (%struct.game_version, ptr @client_game_version, i32 0, i32 1), align 1
-  %22 = sext i8 %21 to i32
-  %23 = load i32, ptr %6, align 4
-  %24 = icmp sgt i32 %22, %23
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %20
-  store i32 1, ptr %4, align 4
-  br label %47
+  %21 = getelementptr inbounds %struct.game_version, ptr @client_game_version, i32 0, i32 1
+  %22 = load i8, ptr %21, align 1
+  %23 = sext i8 %22 to i32
+  %24 = load i32, ptr %6, align 4
+  %25 = icmp sgt i32 %23, %24
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %20
-  %27 = load i8, ptr getelementptr inbounds (%struct.game_version, ptr @client_game_version, i32 0, i32 1), align 1
-  %28 = sext i8 %27 to i32
-  %29 = load i32, ptr %6, align 4
-  %30 = icmp slt i32 %28, %29
-  br i1 %30, label %31, label %32
-
-31:                                               ; preds = %26
-  store i32 0, ptr %4, align 4
-  br label %47
-
-32:                                               ; preds = %26
-  br label %33
-
-33:                                               ; preds = %32
-  %34 = load i8, ptr getelementptr inbounds (%struct.game_version, ptr @client_game_version, i32 0, i32 2), align 2
-  %35 = sext i8 %34 to i32
-  %36 = load i32, ptr %7, align 4
-  %37 = icmp sgt i32 %35, %36
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %33
   store i32 1, ptr %4, align 4
-  br label %47
+  br label %51
 
-39:                                               ; preds = %33
-  %40 = load i8, ptr getelementptr inbounds (%struct.game_version, ptr @client_game_version, i32 0, i32 2), align 2
-  %41 = sext i8 %40 to i32
-  %42 = load i32, ptr %7, align 4
-  %43 = icmp slt i32 %41, %42
-  br i1 %43, label %44, label %45
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds %struct.game_version, ptr @client_game_version, i32 0, i32 1
+  %29 = load i8, ptr %28, align 1
+  %30 = sext i8 %29 to i32
+  %31 = load i32, ptr %6, align 4
+  %32 = icmp slt i32 %30, %31
+  br i1 %32, label %33, label %34
 
-44:                                               ; preds = %39
+33:                                               ; preds = %27
   store i32 0, ptr %4, align 4
-  br label %47
+  br label %51
 
-45:                                               ; preds = %39
-  br label %46
+34:                                               ; preds = %27
+  br label %35
 
-46:                                               ; preds = %45
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds %struct.game_version, ptr @client_game_version, i32 0, i32 2
+  %37 = load i8, ptr %36, align 2
+  %38 = sext i8 %37 to i32
+  %39 = load i32, ptr %7, align 4
+  %40 = icmp sgt i32 %38, %39
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %35
   store i32 1, ptr %4, align 4
-  br label %47
+  br label %51
 
-47:                                               ; preds = %46, %44, %38, %31, %25, %18, %12
-  %48 = load i32, ptr %4, align 4
-  ret i32 %48
+42:                                               ; preds = %35
+  %43 = getelementptr inbounds %struct.game_version, ptr @client_game_version, i32 0, i32 2
+  %44 = load i8, ptr %43, align 2
+  %45 = sext i8 %44 to i32
+  %46 = load i32, ptr %7, align 4
+  %47 = icmp slt i32 %45, %46
+  br i1 %47, label %48, label %49
+
+48:                                               ; preds = %42
+  store i32 0, ptr %4, align 4
+  br label %51
+
+49:                                               ; preds = %42
+  br label %50
+
+50:                                               ; preds = %49
+  store i32 1, ptr %4, align 4
+  br label %51
+
+51:                                               ; preds = %50, %48, %41, %33, %26, %18, %12
+  %52 = load i32, ptr %4, align 4
+  ret i32 %52
 }
 
 declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1

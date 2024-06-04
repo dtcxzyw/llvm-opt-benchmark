@@ -2893,120 +2893,122 @@ define dso_local void @MultiXactShmemInit() #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr @MultiXactOffsetPagePrecedes, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @MultiXactOffsetCtlData, i32 0, i32 4), align 8
-  store ptr @MultiXactMemberPagePrecedes, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @MultiXactMemberCtlData, i32 0, i32 4), align 8
-  %7 = load i32, ptr @multixact_offset_buffers, align 4
-  call void @SimpleLruInit(ptr noundef @MultiXactOffsetCtlData, ptr noundef @.str.6, i32 noundef %7, i32 noundef 0, ptr noundef @.str.7, i32 noundef 56, i32 noundef 86, i32 noundef 3, i1 noundef zeroext false)
-  br label %8
+  %7 = getelementptr inbounds %struct.SlruCtlData, ptr @MultiXactOffsetCtlData, i32 0, i32 4
+  store ptr @MultiXactOffsetPagePrecedes, ptr %7, align 8
+  %8 = getelementptr inbounds %struct.SlruCtlData, ptr @MultiXactMemberCtlData, i32 0, i32 4
+  store ptr @MultiXactMemberPagePrecedes, ptr %8, align 8
+  %9 = load i32, ptr @multixact_offset_buffers, align 4
+  call void @SimpleLruInit(ptr noundef @MultiXactOffsetCtlData, ptr noundef @.str.6, i32 noundef %9, i32 noundef 0, ptr noundef @.str.7, i32 noundef 56, i32 noundef 86, i32 noundef 3, i1 noundef zeroext false)
+  br label %10
 
-8:                                                ; preds = %0
-  br label %9
+10:                                               ; preds = %0
+  br label %11
 
-9:                                                ; preds = %8
-  %10 = load i32, ptr @multixact_member_buffers, align 4
-  call void @SimpleLruInit(ptr noundef @MultiXactMemberCtlData, ptr noundef @.str.8, i32 noundef %10, i32 noundef 0, ptr noundef @.str.9, i32 noundef 57, i32 noundef 85, i32 noundef 4, i1 noundef zeroext false)
-  %11 = load i32, ptr @MaxBackends, align 4
-  %12 = load i32, ptr @max_prepared_xacts, align 4
-  %13 = add i32 %11, %12
-  %14 = sext i32 %13 to i64
-  %15 = call i64 @mul_size(i64 noundef 8, i64 noundef %14)
-  %16 = call i64 @add_size(i64 noundef 48, i64 noundef %15)
-  %17 = call ptr @ShmemInitStruct(ptr noundef @.str.10, i64 noundef %16, ptr noundef %1)
-  store ptr %17, ptr @MultiXactState, align 8
-  %18 = load i8, ptr @IsUnderPostmaster, align 1
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %63, label %20
+11:                                               ; preds = %10
+  %12 = load i32, ptr @multixact_member_buffers, align 4
+  call void @SimpleLruInit(ptr noundef @MultiXactMemberCtlData, ptr noundef @.str.8, i32 noundef %12, i32 noundef 0, ptr noundef @.str.9, i32 noundef 57, i32 noundef 85, i32 noundef 4, i1 noundef zeroext false)
+  %13 = load i32, ptr @MaxBackends, align 4
+  %14 = load i32, ptr @max_prepared_xacts, align 4
+  %15 = add i32 %13, %14
+  %16 = sext i32 %15 to i64
+  %17 = call i64 @mul_size(i64 noundef 8, i64 noundef %16)
+  %18 = call i64 @add_size(i64 noundef 48, i64 noundef %17)
+  %19 = call ptr @ShmemInitStruct(ptr noundef @.str.10, i64 noundef %18, ptr noundef %1)
+  store ptr %19, ptr @MultiXactState, align 8
+  %20 = load i8, ptr @IsUnderPostmaster, align 1
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %65, label %22
 
-20:                                               ; preds = %9
-  br label %21
+22:                                               ; preds = %11
+  br label %23
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr @MultiXactState, align 8
-  store ptr %22, ptr %2, align 8
+23:                                               ; preds = %22
+  %24 = load ptr, ptr @MultiXactState, align 8
+  store ptr %24, ptr %2, align 8
   store i32 0, ptr %3, align 4
-  %23 = load i32, ptr @MaxBackends, align 4
-  %24 = load i32, ptr @max_prepared_xacts, align 4
-  %25 = add i32 %23, %24
-  %26 = sext i32 %25 to i64
-  %27 = call i64 @mul_size(i64 noundef 8, i64 noundef %26)
-  %28 = call i64 @add_size(i64 noundef 48, i64 noundef %27)
-  store i64 %28, ptr %4, align 8
-  %29 = load ptr, ptr %2, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, 7
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %56
+  %25 = load i32, ptr @MaxBackends, align 4
+  %26 = load i32, ptr @max_prepared_xacts, align 4
+  %27 = add i32 %25, %26
+  %28 = sext i32 %27 to i64
+  %29 = call i64 @mul_size(i64 noundef 8, i64 noundef %28)
+  %30 = call i64 @add_size(i64 noundef 48, i64 noundef %29)
+  store i64 %30, ptr %4, align 8
+  %31 = load ptr, ptr %2, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = and i64 %32, 7
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %58
 
-33:                                               ; preds = %21
-  %34 = load i64, ptr %4, align 8
-  %35 = and i64 %34, 7
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %56
+35:                                               ; preds = %23
+  %36 = load i64, ptr %4, align 8
+  %37 = and i64 %36, 7
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %58
 
-37:                                               ; preds = %33
-  %38 = load i32, ptr %3, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %56
+39:                                               ; preds = %35
+  %40 = load i32, ptr %3, align 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %58
 
-40:                                               ; preds = %37
-  %41 = load i64, ptr %4, align 8
-  %42 = icmp ule i64 %41, 1024
-  br i1 %42, label %43, label %56
+42:                                               ; preds = %39
+  %43 = load i64, ptr %4, align 8
+  %44 = icmp ule i64 %43, 1024
+  br i1 %44, label %45, label %58
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %2, align 8
-  store ptr %44, ptr %5, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = load i64, ptr %4, align 8
-  %47 = getelementptr i8, ptr %45, i64 %46
-  store ptr %47, ptr %6, align 8
-  br label %48
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %2, align 8
+  store ptr %46, ptr %5, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i64, ptr %4, align 8
+  %49 = getelementptr i8, ptr %47, i64 %48
+  store ptr %49, ptr %6, align 8
+  br label %50
 
-48:                                               ; preds = %52, %43
-  %49 = load ptr, ptr %5, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = icmp ult ptr %49, %50
-  br i1 %51, label %52, label %55
+50:                                               ; preds = %54, %45
+  %51 = load ptr, ptr %5, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = icmp ult ptr %51, %52
+  br i1 %53, label %54, label %57
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr i64, ptr %53, i32 1
-  store ptr %54, ptr %5, align 8
-  store i64 0, ptr %53, align 8
-  br label %48, !llvm.loop !17
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr i64, ptr %55, i32 1
+  store ptr %56, ptr %5, align 8
+  store i64 0, ptr %55, align 8
+  br label %50, !llvm.loop !17
 
-55:                                               ; preds = %48
-  br label %61
+57:                                               ; preds = %50
+  br label %63
 
-56:                                               ; preds = %40, %37, %33, %21
-  %57 = load ptr, ptr %2, align 8
-  %58 = load i32, ptr %3, align 4
-  %59 = trunc i32 %58 to i8
-  %60 = load i64, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %57, i8 %59, i64 %60, i1 false)
-  br label %61
+58:                                               ; preds = %42, %39, %35, %23
+  %59 = load ptr, ptr %2, align 8
+  %60 = load i32, ptr %3, align 4
+  %61 = trunc i32 %60 to i8
+  %62 = load i64, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %59, i8 %61, i64 %62, i1 false)
+  br label %63
 
-61:                                               ; preds = %56, %55
-  br label %62
-
-62:                                               ; preds = %61
+63:                                               ; preds = %58, %57
   br label %64
 
-63:                                               ; preds = %9
-  br label %64
+64:                                               ; preds = %63
+  br label %66
 
-64:                                               ; preds = %63, %62
-  %65 = load ptr, ptr @MultiXactState, align 8
-  %66 = getelementptr inbounds %struct.MultiXactStateData, ptr %65, i32 0, i32 12
-  %67 = getelementptr inbounds [0 x i32], ptr %66, i64 0, i64 0
-  store ptr %67, ptr @OldestMemberMXactId, align 8
-  %68 = load ptr, ptr @OldestMemberMXactId, align 8
-  %69 = load i32, ptr @MaxBackends, align 4
-  %70 = load i32, ptr @max_prepared_xacts, align 4
-  %71 = add i32 %69, %70
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr i32, ptr %68, i64 %72
-  store ptr %73, ptr @OldestVisibleMXactId, align 8
+65:                                               ; preds = %11
+  br label %66
+
+66:                                               ; preds = %65, %64
+  %67 = load ptr, ptr @MultiXactState, align 8
+  %68 = getelementptr inbounds %struct.MultiXactStateData, ptr %67, i32 0, i32 12
+  %69 = getelementptr inbounds [0 x i32], ptr %68, i64 0, i64 0
+  store ptr %69, ptr @OldestMemberMXactId, align 8
+  %70 = load ptr, ptr @OldestMemberMXactId, align 8
+  %71 = load i32, ptr @MaxBackends, align 4
+  %72 = load i32, ptr @max_prepared_xacts, align 4
+  %73 = add i32 %71, %72
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr i32, ptr %70, i64 %74
+  store ptr %75, ptr @OldestVisibleMXactId, align 8
   ret void
 }
 

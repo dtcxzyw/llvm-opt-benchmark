@@ -1166,27 +1166,29 @@ if.end7:                                          ; preds = %if.end3
   store i32 3000, ptr %recursion_limit, align 4
   %15 = load ptr, ptr %st, align 8
   %16 = load ptr, ptr %mod.addr, align 8
-  %call9 = call i32 @symtable_enter_block(ptr noundef %15, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 657), i32 noundef 2, ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %17 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %18 = getelementptr inbounds %struct.anon.40, ptr %17, i32 0, i32 3, i32 1, i32 657
+  %call9 = call i32 @symtable_enter_block(ptr noundef %15, ptr noundef %18, i32 noundef 2, ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %tobool10 = icmp ne i32 %call9, 0
   br i1 %tobool10, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
-  %17 = load ptr, ptr %st, align 8
-  call void @_PySymtable_Free(ptr noundef %17)
+  %19 = load ptr, ptr %st, align 8
+  call void @_PySymtable_Free(ptr noundef %19)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end12:                                         ; preds = %if.end7
-  %18 = load ptr, ptr %st, align 8
-  %st_cur = getelementptr inbounds %struct.symtable, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %st_cur, align 8
   %20 = load ptr, ptr %st, align 8
-  %st_top = getelementptr inbounds %struct.symtable, ptr %20, i32 0, i32 2
-  store ptr %19, ptr %st_top, align 8
-  %21 = load ptr, ptr %mod.addr, align 8
-  %kind = getelementptr inbounds %struct._mod, ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %kind, align 8
-  switch i32 %22, label %sw.epilog [
+  %st_cur = getelementptr inbounds %struct.symtable, ptr %20, i32 0, i32 1
+  %21 = load ptr, ptr %st_cur, align 8
+  %22 = load ptr, ptr %st, align 8
+  %st_top = getelementptr inbounds %struct.symtable, ptr %22, i32 0, i32 2
+  store ptr %21, ptr %st_top, align 8
+  %23 = load ptr, ptr %mod.addr, align 8
+  %kind = getelementptr inbounds %struct._mod, ptr %23, i32 0, i32 0
+  %24 = load i32, ptr %kind, align 8
+  switch i32 %24, label %sw.epilog [
     i32 1, label %sw.bb
     i32 3, label %sw.bb21
     i32 2, label %sw.bb28
@@ -1194,44 +1196,44 @@ if.end12:                                         ; preds = %if.end7
   ]
 
 sw.bb:                                            ; preds = %if.end12
-  %23 = load ptr, ptr %mod.addr, align 8
-  %v = getelementptr inbounds %struct._mod, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %mod.addr, align 8
+  %v = getelementptr inbounds %struct._mod, ptr %25, i32 0, i32 1
   %body = getelementptr inbounds %struct.anon.770, ptr %v, i32 0, i32 0
-  %24 = load ptr, ptr %body, align 8
-  store ptr %24, ptr %seq, align 8
+  %26 = load ptr, ptr %body, align 8
+  store ptr %26, ptr %seq, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %sw.bb
-  %25 = load i32, ptr %i, align 4
-  %conv = sext i32 %25 to i64
-  %26 = load ptr, ptr %seq, align 8
-  %cmp13 = icmp eq ptr %26, null
+  %27 = load i32, ptr %i, align 4
+  %conv = sext i32 %27 to i64
+  %28 = load ptr, ptr %seq, align 8
+  %cmp13 = icmp eq ptr %28, null
   br i1 %cmp13, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.cond
   br label %cond.end
 
 cond.false:                                       ; preds = %for.cond
-  %27 = load ptr, ptr %seq, align 8
-  %size = getelementptr inbounds %struct.asdl_stmt_seq, ptr %27, i32 0, i32 0
-  %28 = load i64, ptr %size, align 8
+  %29 = load ptr, ptr %seq, align 8
+  %size = getelementptr inbounds %struct.asdl_stmt_seq, ptr %29, i32 0, i32 0
+  %30 = load i64, ptr %size, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 0, %cond.true ], [ %28, %cond.false ]
+  %cond = phi i64 [ 0, %cond.true ], [ %30, %cond.false ]
   %cmp15 = icmp slt i64 %conv, %cond
   br i1 %cmp15, label %for.body, label %for.end
 
 for.body:                                         ; preds = %cond.end
-  %29 = load ptr, ptr %st, align 8
-  %30 = load ptr, ptr %seq, align 8
-  %typed_elements = getelementptr inbounds %struct.asdl_stmt_seq, ptr %30, i32 0, i32 2
-  %31 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %31 to i64
+  %31 = load ptr, ptr %st, align 8
+  %32 = load ptr, ptr %seq, align 8
+  %typed_elements = getelementptr inbounds %struct.asdl_stmt_seq, ptr %32, i32 0, i32 2
+  %33 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %33 to i64
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %idxprom
-  %32 = load ptr, ptr %arrayidx, align 8
-  %call17 = call i32 @symtable_visit_stmt(ptr noundef %29, ptr noundef %32)
+  %34 = load ptr, ptr %arrayidx, align 8
+  %call17 = call i32 @symtable_visit_stmt(ptr noundef %31, ptr noundef %34)
   %tobool18 = icmp ne i32 %call17, 0
   br i1 %tobool18, label %if.end20, label %if.then19
 
@@ -1242,8 +1244,8 @@ if.end20:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end20
-  %33 = load i32, ptr %i, align 4
-  %inc = add i32 %33, 1
+  %35 = load i32, ptr %i, align 4
+  %inc = add i32 %35, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -1251,12 +1253,12 @@ for.end:                                          ; preds = %cond.end
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end12
-  %34 = load ptr, ptr %st, align 8
-  %35 = load ptr, ptr %mod.addr, align 8
-  %v22 = getelementptr inbounds %struct._mod, ptr %35, i32 0, i32 1
+  %36 = load ptr, ptr %st, align 8
+  %37 = load ptr, ptr %mod.addr, align 8
+  %v22 = getelementptr inbounds %struct._mod, ptr %37, i32 0, i32 1
   %body23 = getelementptr inbounds %struct.anon.772, ptr %v22, i32 0, i32 0
-  %36 = load ptr, ptr %body23, align 8
-  %call24 = call i32 @symtable_visit_expr(ptr noundef %34, ptr noundef %36)
+  %38 = load ptr, ptr %body23, align 8
+  %call24 = call i32 @symtable_visit_expr(ptr noundef %36, ptr noundef %38)
   %tobool25 = icmp ne i32 %call24, 0
   br i1 %tobool25, label %if.end27, label %if.then26
 
@@ -1267,44 +1269,44 @@ if.end27:                                         ; preds = %sw.bb21
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %if.end12
-  %37 = load ptr, ptr %mod.addr, align 8
-  %v29 = getelementptr inbounds %struct._mod, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %mod.addr, align 8
+  %v29 = getelementptr inbounds %struct._mod, ptr %39, i32 0, i32 1
   %body30 = getelementptr inbounds %struct.anon.771, ptr %v29, i32 0, i32 0
-  %38 = load ptr, ptr %body30, align 8
-  store ptr %38, ptr %seq, align 8
+  %40 = load ptr, ptr %body30, align 8
+  store ptr %40, ptr %seq, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond31
 
 for.cond31:                                       ; preds = %for.inc50, %sw.bb28
-  %39 = load i32, ptr %i, align 4
-  %conv32 = sext i32 %39 to i64
-  %40 = load ptr, ptr %seq, align 8
-  %cmp33 = icmp eq ptr %40, null
+  %41 = load i32, ptr %i, align 4
+  %conv32 = sext i32 %41 to i64
+  %42 = load ptr, ptr %seq, align 8
+  %cmp33 = icmp eq ptr %42, null
   br i1 %cmp33, label %cond.true35, label %cond.false36
 
 cond.true35:                                      ; preds = %for.cond31
   br label %cond.end38
 
 cond.false36:                                     ; preds = %for.cond31
-  %41 = load ptr, ptr %seq, align 8
-  %size37 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %41, i32 0, i32 0
-  %42 = load i64, ptr %size37, align 8
+  %43 = load ptr, ptr %seq, align 8
+  %size37 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %43, i32 0, i32 0
+  %44 = load i64, ptr %size37, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %cond.false36, %cond.true35
-  %cond39 = phi i64 [ 0, %cond.true35 ], [ %42, %cond.false36 ]
+  %cond39 = phi i64 [ 0, %cond.true35 ], [ %44, %cond.false36 ]
   %cmp40 = icmp slt i64 %conv32, %cond39
   br i1 %cmp40, label %for.body42, label %for.end52
 
 for.body42:                                       ; preds = %cond.end38
-  %43 = load ptr, ptr %st, align 8
-  %44 = load ptr, ptr %seq, align 8
-  %typed_elements43 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %44, i32 0, i32 2
-  %45 = load i32, ptr %i, align 4
-  %idxprom44 = sext i32 %45 to i64
+  %45 = load ptr, ptr %st, align 8
+  %46 = load ptr, ptr %seq, align 8
+  %typed_elements43 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %46, i32 0, i32 2
+  %47 = load i32, ptr %i, align 4
+  %idxprom44 = sext i32 %47 to i64
   %arrayidx45 = getelementptr [1 x ptr], ptr %typed_elements43, i64 0, i64 %idxprom44
-  %46 = load ptr, ptr %arrayidx45, align 8
-  %call46 = call i32 @symtable_visit_stmt(ptr noundef %43, ptr noundef %46)
+  %48 = load ptr, ptr %arrayidx45, align 8
+  %call46 = call i32 @symtable_visit_stmt(ptr noundef %45, ptr noundef %48)
   %tobool47 = icmp ne i32 %call46, 0
   br i1 %tobool47, label %if.end49, label %if.then48
 
@@ -1315,8 +1317,8 @@ if.end49:                                         ; preds = %for.body42
   br label %for.inc50
 
 for.inc50:                                        ; preds = %if.end49
-  %47 = load i32, ptr %i, align 4
-  %inc51 = add i32 %47, 1
+  %49 = load i32, ptr %i, align 4
+  %inc51 = add i32 %49, 1
   store i32 %inc51, ptr %i, align 4
   br label %for.cond31, !llvm.loop !7
 
@@ -1324,70 +1326,70 @@ for.end52:                                        ; preds = %cond.end38
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end12
-  %48 = load ptr, ptr @PyExc_RuntimeError, align 8
-  call void @PyErr_SetString(ptr noundef %48, ptr noundef @.str.1)
+  %50 = load ptr, ptr @PyExc_RuntimeError, align 8
+  call void @PyErr_SetString(ptr noundef %50, ptr noundef @.str.1)
   br label %error
 
 sw.epilog:                                        ; preds = %for.end52, %if.end27, %for.end, %if.end12
-  %49 = load ptr, ptr %st, align 8
-  %call54 = call i32 @symtable_exit_block(ptr noundef %49)
+  %51 = load ptr, ptr %st, align 8
+  %call54 = call i32 @symtable_exit_block(ptr noundef %51)
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %if.end57, label %if.then56
 
 if.then56:                                        ; preds = %sw.epilog
-  %50 = load ptr, ptr %st, align 8
-  call void @_PySymtable_Free(ptr noundef %50)
+  %52 = load ptr, ptr %st, align 8
+  call void @_PySymtable_Free(ptr noundef %52)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end57:                                         ; preds = %sw.epilog
-  %51 = load ptr, ptr %st, align 8
-  %recursion_depth58 = getelementptr inbounds %struct.symtable, ptr %51, i32 0, i32 9
-  %52 = load i32, ptr %recursion_depth58, align 8
-  %53 = load i32, ptr %starting_recursion_depth, align 4
-  %cmp59 = icmp ne i32 %52, %53
+  %53 = load ptr, ptr %st, align 8
+  %recursion_depth58 = getelementptr inbounds %struct.symtable, ptr %53, i32 0, i32 9
+  %54 = load i32, ptr %recursion_depth58, align 8
+  %55 = load i32, ptr %starting_recursion_depth, align 4
+  %cmp59 = icmp ne i32 %54, %55
   br i1 %cmp59, label %if.then61, label %if.end64
 
 if.then61:                                        ; preds = %if.end57
-  %54 = load ptr, ptr @PyExc_SystemError, align 8
-  %55 = load i32, ptr %starting_recursion_depth, align 4
-  %56 = load ptr, ptr %st, align 8
-  %recursion_depth62 = getelementptr inbounds %struct.symtable, ptr %56, i32 0, i32 9
-  %57 = load i32, ptr %recursion_depth62, align 8
-  %call63 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %54, ptr noundef @.str.2, i32 noundef %55, i32 noundef %57)
+  %56 = load ptr, ptr @PyExc_SystemError, align 8
+  %57 = load i32, ptr %starting_recursion_depth, align 4
   %58 = load ptr, ptr %st, align 8
-  call void @_PySymtable_Free(ptr noundef %58)
+  %recursion_depth62 = getelementptr inbounds %struct.symtable, ptr %58, i32 0, i32 9
+  %59 = load i32, ptr %recursion_depth62, align 8
+  %call63 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %56, ptr noundef @.str.2, i32 noundef %57, i32 noundef %59)
+  %60 = load ptr, ptr %st, align 8
+  call void @_PySymtable_Free(ptr noundef %60)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end64:                                         ; preds = %if.end57
-  %59 = load ptr, ptr %st, align 8
-  %call65 = call i32 @symtable_analyze(ptr noundef %59)
+  %61 = load ptr, ptr %st, align 8
+  %call65 = call i32 @symtable_analyze(ptr noundef %61)
   %tobool66 = icmp ne i32 %call65, 0
   br i1 %tobool66, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %if.end64
-  %60 = load ptr, ptr %st, align 8
-  store ptr %60, ptr %retval, align 8
+  %62 = load ptr, ptr %st, align 8
+  store ptr %62, ptr %retval, align 8
   br label %return
 
 if.end68:                                         ; preds = %if.end64
-  %61 = load ptr, ptr %st, align 8
-  call void @_PySymtable_Free(ptr noundef %61)
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-error:                                            ; preds = %sw.bb53, %if.then48, %if.then26, %if.then19
-  %62 = load ptr, ptr %st, align 8
-  %call69 = call i32 @symtable_exit_block(ptr noundef %62)
   %63 = load ptr, ptr %st, align 8
   call void @_PySymtable_Free(ptr noundef %63)
   store ptr null, ptr %retval, align 8
   br label %return
 
+error:                                            ; preds = %sw.bb53, %if.then48, %if.then26, %if.then19
+  %64 = load ptr, ptr %st, align 8
+  %call69 = call i32 @symtable_exit_block(ptr noundef %64)
+  %65 = load ptr, ptr %st, align 8
+  call void @_PySymtable_Free(ptr noundef %65)
+  store ptr null, ptr %retval, align 8
+  br label %return
+
 return:                                           ; preds = %error, %if.end68, %if.then67, %if.then61, %if.then56, %if.then11, %if.then6, %if.then2, %if.then
-  %64 = load ptr, ptr %retval, align 8
-  ret ptr %64
+  %66 = load ptr, ptr %retval, align 8
+  ret ptr %66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2969,42 +2971,47 @@ if.then438:                                       ; preds = %cond.end434
   %296 = load ptr, ptr %s.addr, align 8
   %end_col_offset442 = getelementptr inbounds %struct._stmt, ptr %296, i32 0, i32 5
   %297 = load i32, ptr %end_col_offset442, align 4
-  %call443 = call i32 @symtable_add_def(ptr noundef %289, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 162), i32 noundef 2, i32 noundef %291, i32 noundef %293, i32 noundef %295, i32 noundef %297)
+  %298 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %299 = getelementptr inbounds %struct.anon.40, ptr %298, i32 0, i32 3, i32 1, i32 162
+  %call443 = call i32 @symtable_add_def(ptr noundef %289, ptr noundef %299, i32 noundef 2, i32 noundef %291, i32 noundef %293, i32 noundef %295, i32 noundef %297)
   %tobool444 = icmp ne i32 %call443, 0
   br i1 %tobool444, label %if.end448, label %if.then445
 
 if.then445:                                       ; preds = %if.then438
-  %298 = load ptr, ptr %st.addr, align 8
-  %recursion_depth446 = getelementptr inbounds %struct.symtable, ptr %298, i32 0, i32 9
-  %299 = load i32, ptr %recursion_depth446, align 8
-  %dec447 = add i32 %299, -1
+  %300 = load ptr, ptr %st.addr, align 8
+  %recursion_depth446 = getelementptr inbounds %struct.symtable, ptr %300, i32 0, i32 9
+  %301 = load i32, ptr %recursion_depth446, align 8
+  %dec447 = add i32 %301, -1
   store i32 %dec447, ptr %recursion_depth446, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end448:                                        ; preds = %if.then438
-  %300 = load ptr, ptr %st.addr, align 8
-  %301 = load ptr, ptr %s.addr, align 8
-  %lineno449 = getelementptr inbounds %struct._stmt, ptr %301, i32 0, i32 2
-  %302 = load i32, ptr %lineno449, align 8
+  %302 = load ptr, ptr %st.addr, align 8
   %303 = load ptr, ptr %s.addr, align 8
-  %col_offset450 = getelementptr inbounds %struct._stmt, ptr %303, i32 0, i32 3
-  %304 = load i32, ptr %col_offset450, align 4
+  %lineno449 = getelementptr inbounds %struct._stmt, ptr %303, i32 0, i32 2
+  %304 = load i32, ptr %lineno449, align 8
   %305 = load ptr, ptr %s.addr, align 8
-  %end_lineno451 = getelementptr inbounds %struct._stmt, ptr %305, i32 0, i32 4
-  %306 = load i32, ptr %end_lineno451, align 8
+  %col_offset450 = getelementptr inbounds %struct._stmt, ptr %305, i32 0, i32 3
+  %306 = load i32, ptr %col_offset450, align 4
   %307 = load ptr, ptr %s.addr, align 8
-  %end_col_offset452 = getelementptr inbounds %struct._stmt, ptr %307, i32 0, i32 5
-  %308 = load i32, ptr %end_col_offset452, align 4
-  %call453 = call i32 @symtable_add_def(ptr noundef %300, ptr noundef getelementptr inbounds (%struct.anon.42, ptr getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 24), i32 noundef 16, i32 noundef %302, i32 noundef %304, i32 noundef %306, i32 noundef %308)
+  %end_lineno451 = getelementptr inbounds %struct._stmt, ptr %307, i32 0, i32 4
+  %308 = load i32, ptr %end_lineno451, align 8
+  %309 = load ptr, ptr %s.addr, align 8
+  %end_col_offset452 = getelementptr inbounds %struct._stmt, ptr %309, i32 0, i32 5
+  %310 = load i32, ptr %end_col_offset452, align 4
+  %311 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %312 = getelementptr inbounds %struct.anon.40, ptr %311, i32 0, i32 3
+  %313 = getelementptr inbounds %struct.anon.42, ptr %312, i32 0, i32 24
+  %call453 = call i32 @symtable_add_def(ptr noundef %302, ptr noundef %313, i32 noundef 16, i32 noundef %304, i32 noundef %306, i32 noundef %308, i32 noundef %310)
   %tobool454 = icmp ne i32 %call453, 0
   br i1 %tobool454, label %if.end458, label %if.then455
 
 if.then455:                                       ; preds = %if.end448
-  %309 = load ptr, ptr %st.addr, align 8
-  %recursion_depth456 = getelementptr inbounds %struct.symtable, ptr %309, i32 0, i32 9
-  %310 = load i32, ptr %recursion_depth456, align 8
-  %dec457 = add i32 %310, -1
+  %314 = load ptr, ptr %st.addr, align 8
+  %recursion_depth456 = getelementptr inbounds %struct.symtable, ptr %314, i32 0, i32 9
+  %315 = load i32, ptr %recursion_depth456, align 8
+  %dec457 = add i32 %315, -1
   store i32 %dec457, ptr %recursion_depth456, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3013,54 +3020,54 @@ if.end458:                                        ; preds = %if.end448
   br label %if.end459
 
 if.end459:                                        ; preds = %if.end458, %cond.end434
-  %311 = load ptr, ptr %s.addr, align 8
-  %v462 = getelementptr inbounds %struct._stmt, ptr %311, i32 0, i32 1
+  %316 = load ptr, ptr %s.addr, align 8
+  %v462 = getelementptr inbounds %struct._stmt, ptr %316, i32 0, i32 1
   %body463 = getelementptr inbounds %struct.anon.777, ptr %v462, i32 0, i32 3
-  %312 = load ptr, ptr %body463, align 8
-  store ptr %312, ptr %seq461, align 8
+  %317 = load ptr, ptr %body463, align 8
+  store ptr %317, ptr %seq461, align 8
   store i32 0, ptr %i460, align 4
   br label %for.cond464
 
 for.cond464:                                      ; preds = %for.inc486, %if.end459
-  %313 = load i32, ptr %i460, align 4
-  %conv465 = sext i32 %313 to i64
-  %314 = load ptr, ptr %seq461, align 8
-  %cmp466 = icmp eq ptr %314, null
+  %318 = load i32, ptr %i460, align 4
+  %conv465 = sext i32 %318 to i64
+  %319 = load ptr, ptr %seq461, align 8
+  %cmp466 = icmp eq ptr %319, null
   br i1 %cmp466, label %cond.true468, label %cond.false469
 
 cond.true468:                                     ; preds = %for.cond464
   br label %cond.end471
 
 cond.false469:                                    ; preds = %for.cond464
-  %315 = load ptr, ptr %seq461, align 8
-  %size470 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %315, i32 0, i32 0
-  %316 = load i64, ptr %size470, align 8
+  %320 = load ptr, ptr %seq461, align 8
+  %size470 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %320, i32 0, i32 0
+  %321 = load i64, ptr %size470, align 8
   br label %cond.end471
 
 cond.end471:                                      ; preds = %cond.false469, %cond.true468
-  %cond472 = phi i64 [ 0, %cond.true468 ], [ %316, %cond.false469 ]
+  %cond472 = phi i64 [ 0, %cond.true468 ], [ %321, %cond.false469 ]
   %cmp473 = icmp slt i64 %conv465, %cond472
   br i1 %cmp473, label %for.body475, label %for.end488
 
 for.body475:                                      ; preds = %cond.end471
-  %317 = load ptr, ptr %seq461, align 8
-  %typed_elements477 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %317, i32 0, i32 2
-  %318 = load i32, ptr %i460, align 4
-  %idxprom478 = sext i32 %318 to i64
+  %322 = load ptr, ptr %seq461, align 8
+  %typed_elements477 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %322, i32 0, i32 2
+  %323 = load i32, ptr %i460, align 4
+  %idxprom478 = sext i32 %323 to i64
   %arrayidx479 = getelementptr [1 x ptr], ptr %typed_elements477, i64 0, i64 %idxprom478
-  %319 = load ptr, ptr %arrayidx479, align 8
-  store ptr %319, ptr %elt476, align 8
-  %320 = load ptr, ptr %st.addr, align 8
-  %321 = load ptr, ptr %elt476, align 8
-  %call480 = call i32 @symtable_visit_stmt(ptr noundef %320, ptr noundef %321)
+  %324 = load ptr, ptr %arrayidx479, align 8
+  store ptr %324, ptr %elt476, align 8
+  %325 = load ptr, ptr %st.addr, align 8
+  %326 = load ptr, ptr %elt476, align 8
+  %call480 = call i32 @symtable_visit_stmt(ptr noundef %325, ptr noundef %326)
   %tobool481 = icmp ne i32 %call480, 0
   br i1 %tobool481, label %if.end485, label %if.then482
 
 if.then482:                                       ; preds = %for.body475
-  %322 = load ptr, ptr %st.addr, align 8
-  %recursion_depth483 = getelementptr inbounds %struct.symtable, ptr %322, i32 0, i32 9
-  %323 = load i32, ptr %recursion_depth483, align 8
-  %dec484 = add i32 %323, -1
+  %327 = load ptr, ptr %st.addr, align 8
+  %recursion_depth483 = getelementptr inbounds %struct.symtable, ptr %327, i32 0, i32 9
+  %328 = load i32, ptr %recursion_depth483, align 8
+  %dec484 = add i32 %328, -1
   store i32 %dec484, ptr %recursion_depth483, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3069,66 +3076,66 @@ if.end485:                                        ; preds = %for.body475
   br label %for.inc486
 
 for.inc486:                                       ; preds = %if.end485
-  %324 = load i32, ptr %i460, align 4
-  %inc487 = add i32 %324, 1
+  %329 = load i32, ptr %i460, align 4
+  %inc487 = add i32 %329, 1
   store i32 %inc487, ptr %i460, align 4
   br label %for.cond464, !llvm.loop !17
 
 for.end488:                                       ; preds = %cond.end471
-  %325 = load ptr, ptr %tmp, align 8
-  %326 = load ptr, ptr %st.addr, align 8
-  %st_private489 = getelementptr inbounds %struct.symtable, ptr %326, i32 0, i32 7
-  store ptr %325, ptr %st_private489, align 8
-  %327 = load ptr, ptr %st.addr, align 8
-  %call490 = call i32 @symtable_exit_block(ptr noundef %327)
+  %330 = load ptr, ptr %tmp, align 8
+  %331 = load ptr, ptr %st.addr, align 8
+  %st_private489 = getelementptr inbounds %struct.symtable, ptr %331, i32 0, i32 7
+  store ptr %330, ptr %st_private489, align 8
+  %332 = load ptr, ptr %st.addr, align 8
+  %call490 = call i32 @symtable_exit_block(ptr noundef %332)
   %tobool491 = icmp ne i32 %call490, 0
   br i1 %tobool491, label %if.end495, label %if.then492
 
 if.then492:                                       ; preds = %for.end488
-  %328 = load ptr, ptr %st.addr, align 8
-  %recursion_depth493 = getelementptr inbounds %struct.symtable, ptr %328, i32 0, i32 9
-  %329 = load i32, ptr %recursion_depth493, align 8
-  %dec494 = add i32 %329, -1
+  %333 = load ptr, ptr %st.addr, align 8
+  %recursion_depth493 = getelementptr inbounds %struct.symtable, ptr %333, i32 0, i32 9
+  %334 = load i32, ptr %recursion_depth493, align 8
+  %dec494 = add i32 %334, -1
   store i32 %dec494, ptr %recursion_depth493, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end495:                                        ; preds = %for.end488
-  %330 = load ptr, ptr %s.addr, align 8
-  %v496 = getelementptr inbounds %struct._stmt, ptr %330, i32 0, i32 1
+  %335 = load ptr, ptr %s.addr, align 8
+  %v496 = getelementptr inbounds %struct._stmt, ptr %335, i32 0, i32 1
   %type_params497 = getelementptr inbounds %struct.anon.777, ptr %v496, i32 0, i32 5
-  %331 = load ptr, ptr %type_params497, align 8
-  %cmp498 = icmp eq ptr %331, null
+  %336 = load ptr, ptr %type_params497, align 8
+  %cmp498 = icmp eq ptr %336, null
   br i1 %cmp498, label %cond.true500, label %cond.false501
 
 cond.true500:                                     ; preds = %if.end495
   br label %cond.end505
 
 cond.false501:                                    ; preds = %if.end495
-  %332 = load ptr, ptr %s.addr, align 8
-  %v502 = getelementptr inbounds %struct._stmt, ptr %332, i32 0, i32 1
+  %337 = load ptr, ptr %s.addr, align 8
+  %v502 = getelementptr inbounds %struct._stmt, ptr %337, i32 0, i32 1
   %type_params503 = getelementptr inbounds %struct.anon.777, ptr %v502, i32 0, i32 5
-  %333 = load ptr, ptr %type_params503, align 8
-  %size504 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %333, i32 0, i32 0
-  %334 = load i64, ptr %size504, align 8
+  %338 = load ptr, ptr %type_params503, align 8
+  %size504 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %338, i32 0, i32 0
+  %339 = load i64, ptr %size504, align 8
   br label %cond.end505
 
 cond.end505:                                      ; preds = %cond.false501, %cond.true500
-  %cond506 = phi i64 [ 0, %cond.true500 ], [ %334, %cond.false501 ]
+  %cond506 = phi i64 [ 0, %cond.true500 ], [ %339, %cond.false501 ]
   %cmp507 = icmp sgt i64 %cond506, 0
   br i1 %cmp507, label %if.then509, label %if.end516
 
 if.then509:                                       ; preds = %cond.end505
-  %335 = load ptr, ptr %st.addr, align 8
-  %call510 = call i32 @symtable_exit_block(ptr noundef %335)
+  %340 = load ptr, ptr %st.addr, align 8
+  %call510 = call i32 @symtable_exit_block(ptr noundef %340)
   %tobool511 = icmp ne i32 %call510, 0
   br i1 %tobool511, label %if.end515, label %if.then512
 
 if.then512:                                       ; preds = %if.then509
-  %336 = load ptr, ptr %st.addr, align 8
-  %recursion_depth513 = getelementptr inbounds %struct.symtable, ptr %336, i32 0, i32 9
-  %337 = load i32, ptr %recursion_depth513, align 8
-  %dec514 = add i32 %337, -1
+  %341 = load ptr, ptr %st.addr, align 8
+  %recursion_depth513 = getelementptr inbounds %struct.symtable, ptr %341, i32 0, i32 9
+  %342 = load i32, ptr %recursion_depth513, align 8
+  %dec514 = add i32 %342, -1
   store i32 %dec514, ptr %recursion_depth513, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3140,153 +3147,153 @@ if.end516:                                        ; preds = %if.end515, %cond.en
   br label %sw.epilog
 
 sw.bb517:                                         ; preds = %if.end
-  %338 = load ptr, ptr %st.addr, align 8
-  %339 = load ptr, ptr %s.addr, align 8
-  %v518 = getelementptr inbounds %struct._stmt, ptr %339, i32 0, i32 1
+  %343 = load ptr, ptr %st.addr, align 8
+  %344 = load ptr, ptr %s.addr, align 8
+  %v518 = getelementptr inbounds %struct._stmt, ptr %344, i32 0, i32 1
   %name519 = getelementptr inbounds %struct.anon.781, ptr %v518, i32 0, i32 0
-  %340 = load ptr, ptr %name519, align 8
-  %call520 = call i32 @symtable_visit_expr(ptr noundef %338, ptr noundef %340)
+  %345 = load ptr, ptr %name519, align 8
+  %call520 = call i32 @symtable_visit_expr(ptr noundef %343, ptr noundef %345)
   %tobool521 = icmp ne i32 %call520, 0
   br i1 %tobool521, label %if.end525, label %if.then522
 
 if.then522:                                       ; preds = %sw.bb517
-  %341 = load ptr, ptr %st.addr, align 8
-  %recursion_depth523 = getelementptr inbounds %struct.symtable, ptr %341, i32 0, i32 9
-  %342 = load i32, ptr %recursion_depth523, align 8
-  %dec524 = add i32 %342, -1
+  %346 = load ptr, ptr %st.addr, align 8
+  %recursion_depth523 = getelementptr inbounds %struct.symtable, ptr %346, i32 0, i32 9
+  %347 = load i32, ptr %recursion_depth523, align 8
+  %dec524 = add i32 %347, -1
   store i32 %dec524, ptr %recursion_depth523, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end525:                                        ; preds = %sw.bb517
-  %343 = load ptr, ptr %s.addr, align 8
-  %v527 = getelementptr inbounds %struct._stmt, ptr %343, i32 0, i32 1
+  %348 = load ptr, ptr %s.addr, align 8
+  %v527 = getelementptr inbounds %struct._stmt, ptr %348, i32 0, i32 1
   %name528 = getelementptr inbounds %struct.anon.781, ptr %v527, i32 0, i32 0
-  %344 = load ptr, ptr %name528, align 8
-  %v529 = getelementptr inbounds %struct._expr, ptr %344, i32 0, i32 1
+  %349 = load ptr, ptr %name528, align 8
+  %v529 = getelementptr inbounds %struct._expr, ptr %349, i32 0, i32 1
   %id = getelementptr inbounds %struct.anon.30, ptr %v529, i32 0, i32 0
-  %345 = load ptr, ptr %id, align 8
-  store ptr %345, ptr %name526, align 8
-  %346 = load ptr, ptr %st.addr, align 8
-  %st_cur = getelementptr inbounds %struct.symtable, ptr %346, i32 0, i32 1
-  %347 = load ptr, ptr %st_cur, align 8
-  %ste_type = getelementptr inbounds %struct._symtable_entry, ptr %347, i32 0, i32 7
-  %348 = load i32, ptr %ste_type, align 8
-  %cmp530 = icmp eq i32 %348, 1
+  %350 = load ptr, ptr %id, align 8
+  store ptr %350, ptr %name526, align 8
+  %351 = load ptr, ptr %st.addr, align 8
+  %st_cur = getelementptr inbounds %struct.symtable, ptr %351, i32 0, i32 1
+  %352 = load ptr, ptr %st_cur, align 8
+  %ste_type = getelementptr inbounds %struct._symtable_entry, ptr %352, i32 0, i32 7
+  %353 = load i32, ptr %ste_type, align 8
+  %cmp530 = icmp eq i32 %353, 1
   %conv531 = zext i1 %cmp530 to i32
   store i32 %conv531, ptr %is_in_class, align 4
-  %349 = load ptr, ptr %s.addr, align 8
-  %v532 = getelementptr inbounds %struct._stmt, ptr %349, i32 0, i32 1
+  %354 = load ptr, ptr %s.addr, align 8
+  %v532 = getelementptr inbounds %struct._stmt, ptr %354, i32 0, i32 1
   %type_params533 = getelementptr inbounds %struct.anon.781, ptr %v532, i32 0, i32 1
-  %350 = load ptr, ptr %type_params533, align 8
-  %cmp534 = icmp eq ptr %350, null
+  %355 = load ptr, ptr %type_params533, align 8
+  %cmp534 = icmp eq ptr %355, null
   br i1 %cmp534, label %cond.true536, label %cond.false537
 
 cond.true536:                                     ; preds = %if.end525
   br label %cond.end541
 
 cond.false537:                                    ; preds = %if.end525
-  %351 = load ptr, ptr %s.addr, align 8
-  %v538 = getelementptr inbounds %struct._stmt, ptr %351, i32 0, i32 1
+  %356 = load ptr, ptr %s.addr, align 8
+  %v538 = getelementptr inbounds %struct._stmt, ptr %356, i32 0, i32 1
   %type_params539 = getelementptr inbounds %struct.anon.781, ptr %v538, i32 0, i32 1
-  %352 = load ptr, ptr %type_params539, align 8
-  %size540 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %352, i32 0, i32 0
-  %353 = load i64, ptr %size540, align 8
+  %357 = load ptr, ptr %type_params539, align 8
+  %size540 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %357, i32 0, i32 0
+  %358 = load i64, ptr %size540, align 8
   br label %cond.end541
 
 cond.end541:                                      ; preds = %cond.false537, %cond.true536
-  %cond542 = phi i64 [ 0, %cond.true536 ], [ %353, %cond.false537 ]
+  %cond542 = phi i64 [ 0, %cond.true536 ], [ %358, %cond.false537 ]
   %cmp543 = icmp sgt i64 %cond542, 0
   %conv544 = zext i1 %cmp543 to i32
   store i32 %conv544, ptr %is_generic, align 4
-  %354 = load i32, ptr %is_generic, align 4
-  %tobool545 = icmp ne i32 %354, 0
+  %359 = load i32, ptr %is_generic, align 4
+  %tobool545 = icmp ne i32 %359, 0
   br i1 %tobool545, label %if.then546, label %if.end589
 
 if.then546:                                       ; preds = %cond.end541
-  %355 = load ptr, ptr %st.addr, align 8
-  %356 = load ptr, ptr %name526, align 8
-  %357 = load ptr, ptr %s.addr, align 8
-  %v547 = getelementptr inbounds %struct._stmt, ptr %357, i32 0, i32 1
+  %360 = load ptr, ptr %st.addr, align 8
+  %361 = load ptr, ptr %name526, align 8
+  %362 = load ptr, ptr %s.addr, align 8
+  %v547 = getelementptr inbounds %struct._stmt, ptr %362, i32 0, i32 1
   %type_params548 = getelementptr inbounds %struct.anon.781, ptr %v547, i32 0, i32 1
-  %358 = load ptr, ptr %type_params548, align 8
-  %359 = load ptr, ptr %s.addr, align 8
-  %kind549 = getelementptr inbounds %struct._stmt, ptr %359, i32 0, i32 0
-  %360 = load i32, ptr %kind549, align 8
-  %361 = load ptr, ptr %s.addr, align 8
-  %lineno550 = getelementptr inbounds %struct._stmt, ptr %361, i32 0, i32 2
-  %362 = load i32, ptr %lineno550, align 8
-  %363 = load ptr, ptr %s.addr, align 8
-  %col_offset551 = getelementptr inbounds %struct._stmt, ptr %363, i32 0, i32 3
-  %364 = load i32, ptr %col_offset551, align 4
-  %365 = load ptr, ptr %s.addr, align 8
-  %end_lineno552 = getelementptr inbounds %struct._stmt, ptr %365, i32 0, i32 4
-  %366 = load i32, ptr %end_lineno552, align 8
-  %367 = load ptr, ptr %s.addr, align 8
-  %end_col_offset553 = getelementptr inbounds %struct._stmt, ptr %367, i32 0, i32 5
-  %368 = load i32, ptr %end_col_offset553, align 4
-  %call554 = call i32 @symtable_enter_type_param_block(ptr noundef %355, ptr noundef %356, ptr noundef %358, i32 noundef 0, i32 noundef 0, i32 noundef %360, i32 noundef %362, i32 noundef %364, i32 noundef %366, i32 noundef %368)
+  %363 = load ptr, ptr %type_params548, align 8
+  %364 = load ptr, ptr %s.addr, align 8
+  %kind549 = getelementptr inbounds %struct._stmt, ptr %364, i32 0, i32 0
+  %365 = load i32, ptr %kind549, align 8
+  %366 = load ptr, ptr %s.addr, align 8
+  %lineno550 = getelementptr inbounds %struct._stmt, ptr %366, i32 0, i32 2
+  %367 = load i32, ptr %lineno550, align 8
+  %368 = load ptr, ptr %s.addr, align 8
+  %col_offset551 = getelementptr inbounds %struct._stmt, ptr %368, i32 0, i32 3
+  %369 = load i32, ptr %col_offset551, align 4
+  %370 = load ptr, ptr %s.addr, align 8
+  %end_lineno552 = getelementptr inbounds %struct._stmt, ptr %370, i32 0, i32 4
+  %371 = load i32, ptr %end_lineno552, align 8
+  %372 = load ptr, ptr %s.addr, align 8
+  %end_col_offset553 = getelementptr inbounds %struct._stmt, ptr %372, i32 0, i32 5
+  %373 = load i32, ptr %end_col_offset553, align 4
+  %call554 = call i32 @symtable_enter_type_param_block(ptr noundef %360, ptr noundef %361, ptr noundef %363, i32 noundef 0, i32 noundef 0, i32 noundef %365, i32 noundef %367, i32 noundef %369, i32 noundef %371, i32 noundef %373)
   %tobool555 = icmp ne i32 %call554, 0
   br i1 %tobool555, label %if.end559, label %if.then556
 
 if.then556:                                       ; preds = %if.then546
-  %369 = load ptr, ptr %st.addr, align 8
-  %recursion_depth557 = getelementptr inbounds %struct.symtable, ptr %369, i32 0, i32 9
-  %370 = load i32, ptr %recursion_depth557, align 8
-  %dec558 = add i32 %370, -1
+  %374 = load ptr, ptr %st.addr, align 8
+  %recursion_depth557 = getelementptr inbounds %struct.symtable, ptr %374, i32 0, i32 9
+  %375 = load i32, ptr %recursion_depth557, align 8
+  %dec558 = add i32 %375, -1
   store i32 %dec558, ptr %recursion_depth557, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end559:                                        ; preds = %if.then546
-  %371 = load ptr, ptr %s.addr, align 8
-  %v562 = getelementptr inbounds %struct._stmt, ptr %371, i32 0, i32 1
+  %376 = load ptr, ptr %s.addr, align 8
+  %v562 = getelementptr inbounds %struct._stmt, ptr %376, i32 0, i32 1
   %type_params563 = getelementptr inbounds %struct.anon.781, ptr %v562, i32 0, i32 1
-  %372 = load ptr, ptr %type_params563, align 8
-  store ptr %372, ptr %seq561, align 8
+  %377 = load ptr, ptr %type_params563, align 8
+  store ptr %377, ptr %seq561, align 8
   store i32 0, ptr %i560, align 4
   br label %for.cond564
 
 for.cond564:                                      ; preds = %for.inc586, %if.end559
-  %373 = load i32, ptr %i560, align 4
-  %conv565 = sext i32 %373 to i64
-  %374 = load ptr, ptr %seq561, align 8
-  %cmp566 = icmp eq ptr %374, null
+  %378 = load i32, ptr %i560, align 4
+  %conv565 = sext i32 %378 to i64
+  %379 = load ptr, ptr %seq561, align 8
+  %cmp566 = icmp eq ptr %379, null
   br i1 %cmp566, label %cond.true568, label %cond.false569
 
 cond.true568:                                     ; preds = %for.cond564
   br label %cond.end571
 
 cond.false569:                                    ; preds = %for.cond564
-  %375 = load ptr, ptr %seq561, align 8
-  %size570 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %375, i32 0, i32 0
-  %376 = load i64, ptr %size570, align 8
+  %380 = load ptr, ptr %seq561, align 8
+  %size570 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %380, i32 0, i32 0
+  %381 = load i64, ptr %size570, align 8
   br label %cond.end571
 
 cond.end571:                                      ; preds = %cond.false569, %cond.true568
-  %cond572 = phi i64 [ 0, %cond.true568 ], [ %376, %cond.false569 ]
+  %cond572 = phi i64 [ 0, %cond.true568 ], [ %381, %cond.false569 ]
   %cmp573 = icmp slt i64 %conv565, %cond572
   br i1 %cmp573, label %for.body575, label %for.end588
 
 for.body575:                                      ; preds = %cond.end571
-  %377 = load ptr, ptr %seq561, align 8
-  %typed_elements577 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %377, i32 0, i32 2
-  %378 = load i32, ptr %i560, align 4
-  %idxprom578 = sext i32 %378 to i64
+  %382 = load ptr, ptr %seq561, align 8
+  %typed_elements577 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %382, i32 0, i32 2
+  %383 = load i32, ptr %i560, align 4
+  %idxprom578 = sext i32 %383 to i64
   %arrayidx579 = getelementptr [1 x ptr], ptr %typed_elements577, i64 0, i64 %idxprom578
-  %379 = load ptr, ptr %arrayidx579, align 8
-  store ptr %379, ptr %elt576, align 8
-  %380 = load ptr, ptr %st.addr, align 8
-  %381 = load ptr, ptr %elt576, align 8
-  %call580 = call i32 @symtable_visit_type_param(ptr noundef %380, ptr noundef %381)
+  %384 = load ptr, ptr %arrayidx579, align 8
+  store ptr %384, ptr %elt576, align 8
+  %385 = load ptr, ptr %st.addr, align 8
+  %386 = load ptr, ptr %elt576, align 8
+  %call580 = call i32 @symtable_visit_type_param(ptr noundef %385, ptr noundef %386)
   %tobool581 = icmp ne i32 %call580, 0
   br i1 %tobool581, label %if.end585, label %if.then582
 
 if.then582:                                       ; preds = %for.body575
-  %382 = load ptr, ptr %st.addr, align 8
-  %recursion_depth583 = getelementptr inbounds %struct.symtable, ptr %382, i32 0, i32 9
-  %383 = load i32, ptr %recursion_depth583, align 8
-  %dec584 = add i32 %383, -1
+  %387 = load ptr, ptr %st.addr, align 8
+  %recursion_depth583 = getelementptr inbounds %struct.symtable, ptr %387, i32 0, i32 9
+  %388 = load i32, ptr %recursion_depth583, align 8
+  %dec584 = add i32 %388, -1
   store i32 %dec584, ptr %recursion_depth583, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3295,8 +3302,8 @@ if.end585:                                        ; preds = %for.body575
   br label %for.inc586
 
 for.inc586:                                       ; preds = %if.end585
-  %384 = load i32, ptr %i560, align 4
-  %inc587 = add i32 %384, 1
+  %389 = load i32, ptr %i560, align 4
+  %inc587 = add i32 %389, 1
   store i32 %inc587, ptr %i560, align 4
   br label %for.cond564, !llvm.loop !18
 
@@ -3304,140 +3311,142 @@ for.end588:                                       ; preds = %cond.end571
   br label %if.end589
 
 if.end589:                                        ; preds = %for.end588, %cond.end541
-  %385 = load ptr, ptr %st.addr, align 8
-  %386 = load ptr, ptr %name526, align 8
-  %387 = load ptr, ptr %s.addr, align 8
-  %388 = load ptr, ptr %s.addr, align 8
-  %lineno590 = getelementptr inbounds %struct._stmt, ptr %388, i32 0, i32 2
-  %389 = load i32, ptr %lineno590, align 8
-  %390 = load ptr, ptr %s.addr, align 8
-  %col_offset591 = getelementptr inbounds %struct._stmt, ptr %390, i32 0, i32 3
-  %391 = load i32, ptr %col_offset591, align 4
+  %390 = load ptr, ptr %st.addr, align 8
+  %391 = load ptr, ptr %name526, align 8
   %392 = load ptr, ptr %s.addr, align 8
-  %end_lineno592 = getelementptr inbounds %struct._stmt, ptr %392, i32 0, i32 4
-  %393 = load i32, ptr %end_lineno592, align 8
-  %394 = load ptr, ptr %s.addr, align 8
-  %end_col_offset593 = getelementptr inbounds %struct._stmt, ptr %394, i32 0, i32 5
-  %395 = load i32, ptr %end_col_offset593, align 4
-  %call594 = call i32 @symtable_enter_block(ptr noundef %385, ptr noundef %386, i32 noundef 5, ptr noundef %387, i32 noundef %389, i32 noundef %391, i32 noundef %393, i32 noundef %395)
+  %393 = load ptr, ptr %s.addr, align 8
+  %lineno590 = getelementptr inbounds %struct._stmt, ptr %393, i32 0, i32 2
+  %394 = load i32, ptr %lineno590, align 8
+  %395 = load ptr, ptr %s.addr, align 8
+  %col_offset591 = getelementptr inbounds %struct._stmt, ptr %395, i32 0, i32 3
+  %396 = load i32, ptr %col_offset591, align 4
+  %397 = load ptr, ptr %s.addr, align 8
+  %end_lineno592 = getelementptr inbounds %struct._stmt, ptr %397, i32 0, i32 4
+  %398 = load i32, ptr %end_lineno592, align 8
+  %399 = load ptr, ptr %s.addr, align 8
+  %end_col_offset593 = getelementptr inbounds %struct._stmt, ptr %399, i32 0, i32 5
+  %400 = load i32, ptr %end_col_offset593, align 4
+  %call594 = call i32 @symtable_enter_block(ptr noundef %390, ptr noundef %391, i32 noundef 5, ptr noundef %392, i32 noundef %394, i32 noundef %396, i32 noundef %398, i32 noundef %400)
   %tobool595 = icmp ne i32 %call594, 0
   br i1 %tobool595, label %if.end599, label %if.then596
 
 if.then596:                                       ; preds = %if.end589
-  %396 = load ptr, ptr %st.addr, align 8
-  %recursion_depth597 = getelementptr inbounds %struct.symtable, ptr %396, i32 0, i32 9
-  %397 = load i32, ptr %recursion_depth597, align 8
-  %dec598 = add i32 %397, -1
+  %401 = load ptr, ptr %st.addr, align 8
+  %recursion_depth597 = getelementptr inbounds %struct.symtable, ptr %401, i32 0, i32 9
+  %402 = load i32, ptr %recursion_depth597, align 8
+  %dec598 = add i32 %402, -1
   store i32 %dec598, ptr %recursion_depth597, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end599:                                        ; preds = %if.end589
-  %398 = load i32, ptr %is_in_class, align 4
-  %399 = load ptr, ptr %st.addr, align 8
-  %st_cur600 = getelementptr inbounds %struct.symtable, ptr %399, i32 0, i32 1
-  %400 = load ptr, ptr %st_cur600, align 8
-  %ste_can_see_class_scope = getelementptr inbounds %struct._symtable_entry, ptr %400, i32 0, i32 11
-  %401 = trunc i32 %398 to i8
+  %403 = load i32, ptr %is_in_class, align 4
+  %404 = load ptr, ptr %st.addr, align 8
+  %st_cur600 = getelementptr inbounds %struct.symtable, ptr %404, i32 0, i32 1
+  %405 = load ptr, ptr %st_cur600, align 8
+  %ste_can_see_class_scope = getelementptr inbounds %struct._symtable_entry, ptr %405, i32 0, i32 11
+  %406 = trunc i32 %403 to i8
   %bf.load = load i8, ptr %ste_can_see_class_scope, align 8
-  %bf.value = and i8 %401, 1
+  %bf.value = and i8 %406, 1
   %bf.shl = shl i8 %bf.value, 7
   %bf.clear = and i8 %bf.load, 127
   %bf.set = or i8 %bf.clear, %bf.shl
   store i8 %bf.set, ptr %ste_can_see_class_scope, align 8
-  %402 = load i32, ptr %is_in_class, align 4
-  %tobool601 = icmp ne i32 %402, 0
+  %407 = load i32, ptr %is_in_class, align 4
+  %tobool601 = icmp ne i32 %407, 0
   br i1 %tobool601, label %land.lhs.true, label %if.end618
 
 land.lhs.true:                                    ; preds = %if.end599
-  %403 = load ptr, ptr %st.addr, align 8
-  %404 = load ptr, ptr %s.addr, align 8
-  %v602 = getelementptr inbounds %struct._stmt, ptr %404, i32 0, i32 1
+  %408 = load ptr, ptr %st.addr, align 8
+  %409 = load ptr, ptr %s.addr, align 8
+  %v602 = getelementptr inbounds %struct._stmt, ptr %409, i32 0, i32 1
   %value = getelementptr inbounds %struct.anon.781, ptr %v602, i32 0, i32 2
-  %405 = load ptr, ptr %value, align 8
-  %lineno603 = getelementptr inbounds %struct._expr, ptr %405, i32 0, i32 2
-  %406 = load i32, ptr %lineno603, align 8
-  %407 = load ptr, ptr %s.addr, align 8
-  %v604 = getelementptr inbounds %struct._stmt, ptr %407, i32 0, i32 1
+  %410 = load ptr, ptr %value, align 8
+  %lineno603 = getelementptr inbounds %struct._expr, ptr %410, i32 0, i32 2
+  %411 = load i32, ptr %lineno603, align 8
+  %412 = load ptr, ptr %s.addr, align 8
+  %v604 = getelementptr inbounds %struct._stmt, ptr %412, i32 0, i32 1
   %value605 = getelementptr inbounds %struct.anon.781, ptr %v604, i32 0, i32 2
-  %408 = load ptr, ptr %value605, align 8
-  %col_offset606 = getelementptr inbounds %struct._expr, ptr %408, i32 0, i32 3
-  %409 = load i32, ptr %col_offset606, align 4
-  %410 = load ptr, ptr %s.addr, align 8
-  %v607 = getelementptr inbounds %struct._stmt, ptr %410, i32 0, i32 1
+  %413 = load ptr, ptr %value605, align 8
+  %col_offset606 = getelementptr inbounds %struct._expr, ptr %413, i32 0, i32 3
+  %414 = load i32, ptr %col_offset606, align 4
+  %415 = load ptr, ptr %s.addr, align 8
+  %v607 = getelementptr inbounds %struct._stmt, ptr %415, i32 0, i32 1
   %value608 = getelementptr inbounds %struct.anon.781, ptr %v607, i32 0, i32 2
-  %411 = load ptr, ptr %value608, align 8
-  %end_lineno609 = getelementptr inbounds %struct._expr, ptr %411, i32 0, i32 4
-  %412 = load i32, ptr %end_lineno609, align 8
-  %413 = load ptr, ptr %s.addr, align 8
-  %v610 = getelementptr inbounds %struct._stmt, ptr %413, i32 0, i32 1
+  %416 = load ptr, ptr %value608, align 8
+  %end_lineno609 = getelementptr inbounds %struct._expr, ptr %416, i32 0, i32 4
+  %417 = load i32, ptr %end_lineno609, align 8
+  %418 = load ptr, ptr %s.addr, align 8
+  %v610 = getelementptr inbounds %struct._stmt, ptr %418, i32 0, i32 1
   %value611 = getelementptr inbounds %struct.anon.781, ptr %v610, i32 0, i32 2
-  %414 = load ptr, ptr %value611, align 8
-  %end_col_offset612 = getelementptr inbounds %struct._expr, ptr %414, i32 0, i32 5
-  %415 = load i32, ptr %end_col_offset612, align 4
-  %call613 = call i32 @symtable_add_def(ptr noundef %403, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 37), i32 noundef 16, i32 noundef %406, i32 noundef %409, i32 noundef %412, i32 noundef %415)
+  %419 = load ptr, ptr %value611, align 8
+  %end_col_offset612 = getelementptr inbounds %struct._expr, ptr %419, i32 0, i32 5
+  %420 = load i32, ptr %end_col_offset612, align 4
+  %421 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %422 = getelementptr inbounds %struct.anon.40, ptr %421, i32 0, i32 3, i32 1, i32 37
+  %call613 = call i32 @symtable_add_def(ptr noundef %408, ptr noundef %422, i32 noundef 16, i32 noundef %411, i32 noundef %414, i32 noundef %417, i32 noundef %420)
   %tobool614 = icmp ne i32 %call613, 0
   br i1 %tobool614, label %if.end618, label %if.then615
 
 if.then615:                                       ; preds = %land.lhs.true
-  %416 = load ptr, ptr %st.addr, align 8
-  %recursion_depth616 = getelementptr inbounds %struct.symtable, ptr %416, i32 0, i32 9
-  %417 = load i32, ptr %recursion_depth616, align 8
-  %dec617 = add i32 %417, -1
+  %423 = load ptr, ptr %st.addr, align 8
+  %recursion_depth616 = getelementptr inbounds %struct.symtable, ptr %423, i32 0, i32 9
+  %424 = load i32, ptr %recursion_depth616, align 8
+  %dec617 = add i32 %424, -1
   store i32 %dec617, ptr %recursion_depth616, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end618:                                        ; preds = %land.lhs.true, %if.end599
-  %418 = load ptr, ptr %st.addr, align 8
-  %419 = load ptr, ptr %s.addr, align 8
-  %v619 = getelementptr inbounds %struct._stmt, ptr %419, i32 0, i32 1
+  %425 = load ptr, ptr %st.addr, align 8
+  %426 = load ptr, ptr %s.addr, align 8
+  %v619 = getelementptr inbounds %struct._stmt, ptr %426, i32 0, i32 1
   %value620 = getelementptr inbounds %struct.anon.781, ptr %v619, i32 0, i32 2
-  %420 = load ptr, ptr %value620, align 8
-  %call621 = call i32 @symtable_visit_expr(ptr noundef %418, ptr noundef %420)
+  %427 = load ptr, ptr %value620, align 8
+  %call621 = call i32 @symtable_visit_expr(ptr noundef %425, ptr noundef %427)
   %tobool622 = icmp ne i32 %call621, 0
   br i1 %tobool622, label %if.end626, label %if.then623
 
 if.then623:                                       ; preds = %if.end618
-  %421 = load ptr, ptr %st.addr, align 8
-  %recursion_depth624 = getelementptr inbounds %struct.symtable, ptr %421, i32 0, i32 9
-  %422 = load i32, ptr %recursion_depth624, align 8
-  %dec625 = add i32 %422, -1
+  %428 = load ptr, ptr %st.addr, align 8
+  %recursion_depth624 = getelementptr inbounds %struct.symtable, ptr %428, i32 0, i32 9
+  %429 = load i32, ptr %recursion_depth624, align 8
+  %dec625 = add i32 %429, -1
   store i32 %dec625, ptr %recursion_depth624, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end626:                                        ; preds = %if.end618
-  %423 = load ptr, ptr %st.addr, align 8
-  %call627 = call i32 @symtable_exit_block(ptr noundef %423)
+  %430 = load ptr, ptr %st.addr, align 8
+  %call627 = call i32 @symtable_exit_block(ptr noundef %430)
   %tobool628 = icmp ne i32 %call627, 0
   br i1 %tobool628, label %if.end632, label %if.then629
 
 if.then629:                                       ; preds = %if.end626
-  %424 = load ptr, ptr %st.addr, align 8
-  %recursion_depth630 = getelementptr inbounds %struct.symtable, ptr %424, i32 0, i32 9
-  %425 = load i32, ptr %recursion_depth630, align 8
-  %dec631 = add i32 %425, -1
+  %431 = load ptr, ptr %st.addr, align 8
+  %recursion_depth630 = getelementptr inbounds %struct.symtable, ptr %431, i32 0, i32 9
+  %432 = load i32, ptr %recursion_depth630, align 8
+  %dec631 = add i32 %432, -1
   store i32 %dec631, ptr %recursion_depth630, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end632:                                        ; preds = %if.end626
-  %426 = load i32, ptr %is_generic, align 4
-  %tobool633 = icmp ne i32 %426, 0
+  %433 = load i32, ptr %is_generic, align 4
+  %tobool633 = icmp ne i32 %433, 0
   br i1 %tobool633, label %if.then634, label %if.end641
 
 if.then634:                                       ; preds = %if.end632
-  %427 = load ptr, ptr %st.addr, align 8
-  %call635 = call i32 @symtable_exit_block(ptr noundef %427)
+  %434 = load ptr, ptr %st.addr, align 8
+  %call635 = call i32 @symtable_exit_block(ptr noundef %434)
   %tobool636 = icmp ne i32 %call635, 0
   br i1 %tobool636, label %if.end640, label %if.then637
 
 if.then637:                                       ; preds = %if.then634
-  %428 = load ptr, ptr %st.addr, align 8
-  %recursion_depth638 = getelementptr inbounds %struct.symtable, ptr %428, i32 0, i32 9
-  %429 = load i32, ptr %recursion_depth638, align 8
-  %dec639 = add i32 %429, -1
+  %435 = load ptr, ptr %st.addr, align 8
+  %recursion_depth638 = getelementptr inbounds %struct.symtable, ptr %435, i32 0, i32 9
+  %436 = load i32, ptr %recursion_depth638, align 8
+  %dec639 = add i32 %436, -1
   store i32 %dec639, ptr %recursion_depth638, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3449,37 +3458,37 @@ if.end641:                                        ; preds = %if.end640, %if.end6
   br label %sw.epilog
 
 sw.bb642:                                         ; preds = %if.end
-  %430 = load ptr, ptr %s.addr, align 8
-  %v643 = getelementptr inbounds %struct._stmt, ptr %430, i32 0, i32 1
+  %437 = load ptr, ptr %s.addr, align 8
+  %v643 = getelementptr inbounds %struct._stmt, ptr %437, i32 0, i32 1
   %value644 = getelementptr inbounds %struct.anon.778, ptr %v643, i32 0, i32 0
-  %431 = load ptr, ptr %value644, align 8
-  %tobool645 = icmp ne ptr %431, null
+  %438 = load ptr, ptr %value644, align 8
+  %tobool645 = icmp ne ptr %438, null
   br i1 %tobool645, label %if.then646, label %if.end659
 
 if.then646:                                       ; preds = %sw.bb642
-  %432 = load ptr, ptr %st.addr, align 8
-  %433 = load ptr, ptr %s.addr, align 8
-  %v647 = getelementptr inbounds %struct._stmt, ptr %433, i32 0, i32 1
+  %439 = load ptr, ptr %st.addr, align 8
+  %440 = load ptr, ptr %s.addr, align 8
+  %v647 = getelementptr inbounds %struct._stmt, ptr %440, i32 0, i32 1
   %value648 = getelementptr inbounds %struct.anon.778, ptr %v647, i32 0, i32 0
-  %434 = load ptr, ptr %value648, align 8
-  %call649 = call i32 @symtable_visit_expr(ptr noundef %432, ptr noundef %434)
+  %441 = load ptr, ptr %value648, align 8
+  %call649 = call i32 @symtable_visit_expr(ptr noundef %439, ptr noundef %441)
   %tobool650 = icmp ne i32 %call649, 0
   br i1 %tobool650, label %if.end654, label %if.then651
 
 if.then651:                                       ; preds = %if.then646
-  %435 = load ptr, ptr %st.addr, align 8
-  %recursion_depth652 = getelementptr inbounds %struct.symtable, ptr %435, i32 0, i32 9
-  %436 = load i32, ptr %recursion_depth652, align 8
-  %dec653 = add i32 %436, -1
+  %442 = load ptr, ptr %st.addr, align 8
+  %recursion_depth652 = getelementptr inbounds %struct.symtable, ptr %442, i32 0, i32 9
+  %443 = load i32, ptr %recursion_depth652, align 8
+  %dec653 = add i32 %443, -1
   store i32 %dec653, ptr %recursion_depth652, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end654:                                        ; preds = %if.then646
-  %437 = load ptr, ptr %st.addr, align 8
-  %st_cur655 = getelementptr inbounds %struct.symtable, ptr %437, i32 0, i32 1
-  %438 = load ptr, ptr %st_cur655, align 8
-  %ste_returns_value = getelementptr inbounds %struct._symtable_entry, ptr %438, i32 0, i32 11
+  %444 = load ptr, ptr %st.addr, align 8
+  %st_cur655 = getelementptr inbounds %struct.symtable, ptr %444, i32 0, i32 1
+  %445 = load ptr, ptr %st_cur655, align 8
+  %ste_returns_value = getelementptr inbounds %struct._symtable_entry, ptr %445, i32 0, i32 11
   %bf.load656 = load i8, ptr %ste_returns_value, align 8
   %bf.clear657 = and i8 %bf.load656, -5
   %bf.set658 = or i8 %bf.clear657, 4
@@ -3490,54 +3499,54 @@ if.end659:                                        ; preds = %if.end654, %sw.bb64
   br label %sw.epilog
 
 sw.bb660:                                         ; preds = %if.end
-  %439 = load ptr, ptr %s.addr, align 8
-  %v663 = getelementptr inbounds %struct._stmt, ptr %439, i32 0, i32 1
+  %446 = load ptr, ptr %s.addr, align 8
+  %v663 = getelementptr inbounds %struct._stmt, ptr %446, i32 0, i32 1
   %targets = getelementptr inbounds %struct.anon.779, ptr %v663, i32 0, i32 0
-  %440 = load ptr, ptr %targets, align 8
-  store ptr %440, ptr %seq662, align 8
+  %447 = load ptr, ptr %targets, align 8
+  store ptr %447, ptr %seq662, align 8
   store i32 0, ptr %i661, align 4
   br label %for.cond664
 
 for.cond664:                                      ; preds = %for.inc686, %sw.bb660
-  %441 = load i32, ptr %i661, align 4
-  %conv665 = sext i32 %441 to i64
-  %442 = load ptr, ptr %seq662, align 8
-  %cmp666 = icmp eq ptr %442, null
+  %448 = load i32, ptr %i661, align 4
+  %conv665 = sext i32 %448 to i64
+  %449 = load ptr, ptr %seq662, align 8
+  %cmp666 = icmp eq ptr %449, null
   br i1 %cmp666, label %cond.true668, label %cond.false669
 
 cond.true668:                                     ; preds = %for.cond664
   br label %cond.end671
 
 cond.false669:                                    ; preds = %for.cond664
-  %443 = load ptr, ptr %seq662, align 8
-  %size670 = getelementptr inbounds %struct.asdl_expr_seq, ptr %443, i32 0, i32 0
-  %444 = load i64, ptr %size670, align 8
+  %450 = load ptr, ptr %seq662, align 8
+  %size670 = getelementptr inbounds %struct.asdl_expr_seq, ptr %450, i32 0, i32 0
+  %451 = load i64, ptr %size670, align 8
   br label %cond.end671
 
 cond.end671:                                      ; preds = %cond.false669, %cond.true668
-  %cond672 = phi i64 [ 0, %cond.true668 ], [ %444, %cond.false669 ]
+  %cond672 = phi i64 [ 0, %cond.true668 ], [ %451, %cond.false669 ]
   %cmp673 = icmp slt i64 %conv665, %cond672
   br i1 %cmp673, label %for.body675, label %for.end688
 
 for.body675:                                      ; preds = %cond.end671
-  %445 = load ptr, ptr %seq662, align 8
-  %typed_elements677 = getelementptr inbounds %struct.asdl_expr_seq, ptr %445, i32 0, i32 2
-  %446 = load i32, ptr %i661, align 4
-  %idxprom678 = sext i32 %446 to i64
+  %452 = load ptr, ptr %seq662, align 8
+  %typed_elements677 = getelementptr inbounds %struct.asdl_expr_seq, ptr %452, i32 0, i32 2
+  %453 = load i32, ptr %i661, align 4
+  %idxprom678 = sext i32 %453 to i64
   %arrayidx679 = getelementptr [1 x ptr], ptr %typed_elements677, i64 0, i64 %idxprom678
-  %447 = load ptr, ptr %arrayidx679, align 8
-  store ptr %447, ptr %elt676, align 8
-  %448 = load ptr, ptr %st.addr, align 8
-  %449 = load ptr, ptr %elt676, align 8
-  %call680 = call i32 @symtable_visit_expr(ptr noundef %448, ptr noundef %449)
+  %454 = load ptr, ptr %arrayidx679, align 8
+  store ptr %454, ptr %elt676, align 8
+  %455 = load ptr, ptr %st.addr, align 8
+  %456 = load ptr, ptr %elt676, align 8
+  %call680 = call i32 @symtable_visit_expr(ptr noundef %455, ptr noundef %456)
   %tobool681 = icmp ne i32 %call680, 0
   br i1 %tobool681, label %if.end685, label %if.then682
 
 if.then682:                                       ; preds = %for.body675
-  %450 = load ptr, ptr %st.addr, align 8
-  %recursion_depth683 = getelementptr inbounds %struct.symtable, ptr %450, i32 0, i32 9
-  %451 = load i32, ptr %recursion_depth683, align 8
-  %dec684 = add i32 %451, -1
+  %457 = load ptr, ptr %st.addr, align 8
+  %recursion_depth683 = getelementptr inbounds %struct.symtable, ptr %457, i32 0, i32 9
+  %458 = load i32, ptr %recursion_depth683, align 8
+  %dec684 = add i32 %458, -1
   store i32 %dec684, ptr %recursion_depth683, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3546,8 +3555,8 @@ if.end685:                                        ; preds = %for.body675
   br label %for.inc686
 
 for.inc686:                                       ; preds = %if.end685
-  %452 = load i32, ptr %i661, align 4
-  %inc687 = add i32 %452, 1
+  %459 = load i32, ptr %i661, align 4
+  %inc687 = add i32 %459, 1
   store i32 %inc687, ptr %i661, align 4
   br label %for.cond664, !llvm.loop !19
 
@@ -3555,54 +3564,54 @@ for.end688:                                       ; preds = %cond.end671
   br label %sw.epilog
 
 sw.bb689:                                         ; preds = %if.end
-  %453 = load ptr, ptr %s.addr, align 8
-  %v692 = getelementptr inbounds %struct._stmt, ptr %453, i32 0, i32 1
+  %460 = load ptr, ptr %s.addr, align 8
+  %v692 = getelementptr inbounds %struct._stmt, ptr %460, i32 0, i32 1
   %targets693 = getelementptr inbounds %struct.anon.780, ptr %v692, i32 0, i32 0
-  %454 = load ptr, ptr %targets693, align 8
-  store ptr %454, ptr %seq691, align 8
+  %461 = load ptr, ptr %targets693, align 8
+  store ptr %461, ptr %seq691, align 8
   store i32 0, ptr %i690, align 4
   br label %for.cond694
 
 for.cond694:                                      ; preds = %for.inc716, %sw.bb689
-  %455 = load i32, ptr %i690, align 4
-  %conv695 = sext i32 %455 to i64
-  %456 = load ptr, ptr %seq691, align 8
-  %cmp696 = icmp eq ptr %456, null
+  %462 = load i32, ptr %i690, align 4
+  %conv695 = sext i32 %462 to i64
+  %463 = load ptr, ptr %seq691, align 8
+  %cmp696 = icmp eq ptr %463, null
   br i1 %cmp696, label %cond.true698, label %cond.false699
 
 cond.true698:                                     ; preds = %for.cond694
   br label %cond.end701
 
 cond.false699:                                    ; preds = %for.cond694
-  %457 = load ptr, ptr %seq691, align 8
-  %size700 = getelementptr inbounds %struct.asdl_expr_seq, ptr %457, i32 0, i32 0
-  %458 = load i64, ptr %size700, align 8
+  %464 = load ptr, ptr %seq691, align 8
+  %size700 = getelementptr inbounds %struct.asdl_expr_seq, ptr %464, i32 0, i32 0
+  %465 = load i64, ptr %size700, align 8
   br label %cond.end701
 
 cond.end701:                                      ; preds = %cond.false699, %cond.true698
-  %cond702 = phi i64 [ 0, %cond.true698 ], [ %458, %cond.false699 ]
+  %cond702 = phi i64 [ 0, %cond.true698 ], [ %465, %cond.false699 ]
   %cmp703 = icmp slt i64 %conv695, %cond702
   br i1 %cmp703, label %for.body705, label %for.end718
 
 for.body705:                                      ; preds = %cond.end701
-  %459 = load ptr, ptr %seq691, align 8
-  %typed_elements707 = getelementptr inbounds %struct.asdl_expr_seq, ptr %459, i32 0, i32 2
-  %460 = load i32, ptr %i690, align 4
-  %idxprom708 = sext i32 %460 to i64
+  %466 = load ptr, ptr %seq691, align 8
+  %typed_elements707 = getelementptr inbounds %struct.asdl_expr_seq, ptr %466, i32 0, i32 2
+  %467 = load i32, ptr %i690, align 4
+  %idxprom708 = sext i32 %467 to i64
   %arrayidx709 = getelementptr [1 x ptr], ptr %typed_elements707, i64 0, i64 %idxprom708
-  %461 = load ptr, ptr %arrayidx709, align 8
-  store ptr %461, ptr %elt706, align 8
-  %462 = load ptr, ptr %st.addr, align 8
-  %463 = load ptr, ptr %elt706, align 8
-  %call710 = call i32 @symtable_visit_expr(ptr noundef %462, ptr noundef %463)
+  %468 = load ptr, ptr %arrayidx709, align 8
+  store ptr %468, ptr %elt706, align 8
+  %469 = load ptr, ptr %st.addr, align 8
+  %470 = load ptr, ptr %elt706, align 8
+  %call710 = call i32 @symtable_visit_expr(ptr noundef %469, ptr noundef %470)
   %tobool711 = icmp ne i32 %call710, 0
   br i1 %tobool711, label %if.end715, label %if.then712
 
 if.then712:                                       ; preds = %for.body705
-  %464 = load ptr, ptr %st.addr, align 8
-  %recursion_depth713 = getelementptr inbounds %struct.symtable, ptr %464, i32 0, i32 9
-  %465 = load i32, ptr %recursion_depth713, align 8
-  %dec714 = add i32 %465, -1
+  %471 = load ptr, ptr %st.addr, align 8
+  %recursion_depth713 = getelementptr inbounds %struct.symtable, ptr %471, i32 0, i32 9
+  %472 = load i32, ptr %recursion_depth713, align 8
+  %dec714 = add i32 %472, -1
   store i32 %dec714, ptr %recursion_depth713, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3611,26 +3620,26 @@ if.end715:                                        ; preds = %for.body705
   br label %for.inc716
 
 for.inc716:                                       ; preds = %if.end715
-  %466 = load i32, ptr %i690, align 4
-  %inc717 = add i32 %466, 1
+  %473 = load i32, ptr %i690, align 4
+  %inc717 = add i32 %473, 1
   store i32 %inc717, ptr %i690, align 4
   br label %for.cond694, !llvm.loop !20
 
 for.end718:                                       ; preds = %cond.end701
-  %467 = load ptr, ptr %st.addr, align 8
-  %468 = load ptr, ptr %s.addr, align 8
-  %v719 = getelementptr inbounds %struct._stmt, ptr %468, i32 0, i32 1
+  %474 = load ptr, ptr %st.addr, align 8
+  %475 = load ptr, ptr %s.addr, align 8
+  %v719 = getelementptr inbounds %struct._stmt, ptr %475, i32 0, i32 1
   %value720 = getelementptr inbounds %struct.anon.780, ptr %v719, i32 0, i32 1
-  %469 = load ptr, ptr %value720, align 8
-  %call721 = call i32 @symtable_visit_expr(ptr noundef %467, ptr noundef %469)
+  %476 = load ptr, ptr %value720, align 8
+  %call721 = call i32 @symtable_visit_expr(ptr noundef %474, ptr noundef %476)
   %tobool722 = icmp ne i32 %call721, 0
   br i1 %tobool722, label %if.end726, label %if.then723
 
 if.then723:                                       ; preds = %for.end718
-  %470 = load ptr, ptr %st.addr, align 8
-  %recursion_depth724 = getelementptr inbounds %struct.symtable, ptr %470, i32 0, i32 9
-  %471 = load i32, ptr %recursion_depth724, align 8
-  %dec725 = add i32 %471, -1
+  %477 = load ptr, ptr %st.addr, align 8
+  %recursion_depth724 = getelementptr inbounds %struct.symtable, ptr %477, i32 0, i32 9
+  %478 = load i32, ptr %recursion_depth724, align 8
+  %dec725 = add i32 %478, -1
   store i32 %dec725, ptr %recursion_depth724, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3639,178 +3648,178 @@ if.end726:                                        ; preds = %for.end718
   br label %sw.epilog
 
 sw.bb727:                                         ; preds = %if.end
-  %472 = load ptr, ptr %s.addr, align 8
-  %v728 = getelementptr inbounds %struct._stmt, ptr %472, i32 0, i32 1
+  %479 = load ptr, ptr %s.addr, align 8
+  %v728 = getelementptr inbounds %struct._stmt, ptr %479, i32 0, i32 1
   %target = getelementptr inbounds %struct.anon.783, ptr %v728, i32 0, i32 0
-  %473 = load ptr, ptr %target, align 8
-  %kind729 = getelementptr inbounds %struct._expr, ptr %473, i32 0, i32 0
-  %474 = load i32, ptr %kind729, align 8
-  %cmp730 = icmp eq i32 %474, 24
+  %480 = load ptr, ptr %target, align 8
+  %kind729 = getelementptr inbounds %struct._expr, ptr %480, i32 0, i32 0
+  %481 = load i32, ptr %kind729, align 8
+  %cmp730 = icmp eq i32 %481, 24
   br i1 %cmp730, label %if.then732, label %if.else799
 
 if.then732:                                       ; preds = %sw.bb727
-  %475 = load ptr, ptr %s.addr, align 8
-  %v733 = getelementptr inbounds %struct._stmt, ptr %475, i32 0, i32 1
+  %482 = load ptr, ptr %s.addr, align 8
+  %v733 = getelementptr inbounds %struct._stmt, ptr %482, i32 0, i32 1
   %target734 = getelementptr inbounds %struct.anon.783, ptr %v733, i32 0, i32 0
-  %476 = load ptr, ptr %target734, align 8
-  store ptr %476, ptr %e_name, align 8
-  %477 = load ptr, ptr %st.addr, align 8
-  %478 = load ptr, ptr %e_name, align 8
-  %v735 = getelementptr inbounds %struct._expr, ptr %478, i32 0, i32 1
+  %483 = load ptr, ptr %target734, align 8
+  store ptr %483, ptr %e_name, align 8
+  %484 = load ptr, ptr %st.addr, align 8
+  %485 = load ptr, ptr %e_name, align 8
+  %v735 = getelementptr inbounds %struct._expr, ptr %485, i32 0, i32 1
   %id736 = getelementptr inbounds %struct.anon.30, ptr %v735, i32 0, i32 0
-  %479 = load ptr, ptr %id736, align 8
-  %call737 = call i64 @symtable_lookup(ptr noundef %477, ptr noundef %479)
+  %486 = load ptr, ptr %id736, align 8
+  %call737 = call i64 @symtable_lookup(ptr noundef %484, ptr noundef %486)
   store i64 %call737, ptr %cur, align 8
-  %480 = load i64, ptr %cur, align 8
-  %cmp738 = icmp slt i64 %480, 0
+  %487 = load i64, ptr %cur, align 8
+  %cmp738 = icmp slt i64 %487, 0
   br i1 %cmp738, label %if.then740, label %if.end743
 
 if.then740:                                       ; preds = %if.then732
-  %481 = load ptr, ptr %st.addr, align 8
-  %recursion_depth741 = getelementptr inbounds %struct.symtable, ptr %481, i32 0, i32 9
-  %482 = load i32, ptr %recursion_depth741, align 8
-  %dec742 = add i32 %482, -1
+  %488 = load ptr, ptr %st.addr, align 8
+  %recursion_depth741 = getelementptr inbounds %struct.symtable, ptr %488, i32 0, i32 9
+  %489 = load i32, ptr %recursion_depth741, align 8
+  %dec742 = add i32 %489, -1
   store i32 %dec742, ptr %recursion_depth741, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end743:                                        ; preds = %if.then732
-  %483 = load i64, ptr %cur, align 8
-  %and = and i64 %483, 9
+  %490 = load i64, ptr %cur, align 8
+  %and = and i64 %490, 9
   %tobool744 = icmp ne i64 %and, 0
   br i1 %tobool744, label %land.lhs.true745, label %if.end766
 
 land.lhs.true745:                                 ; preds = %if.end743
-  %484 = load ptr, ptr %st.addr, align 8
-  %st_cur746 = getelementptr inbounds %struct.symtable, ptr %484, i32 0, i32 1
-  %485 = load ptr, ptr %st_cur746, align 8
-  %ste_symbols = getelementptr inbounds %struct._symtable_entry, ptr %485, i32 0, i32 2
-  %486 = load ptr, ptr %ste_symbols, align 8
-  %487 = load ptr, ptr %st.addr, align 8
-  %st_global = getelementptr inbounds %struct.symtable, ptr %487, i32 0, i32 5
-  %488 = load ptr, ptr %st_global, align 8
-  %cmp747 = icmp ne ptr %486, %488
+  %491 = load ptr, ptr %st.addr, align 8
+  %st_cur746 = getelementptr inbounds %struct.symtable, ptr %491, i32 0, i32 1
+  %492 = load ptr, ptr %st_cur746, align 8
+  %ste_symbols = getelementptr inbounds %struct._symtable_entry, ptr %492, i32 0, i32 2
+  %493 = load ptr, ptr %ste_symbols, align 8
+  %494 = load ptr, ptr %st.addr, align 8
+  %st_global = getelementptr inbounds %struct.symtable, ptr %494, i32 0, i32 5
+  %495 = load ptr, ptr %st_global, align 8
+  %cmp747 = icmp ne ptr %493, %495
   br i1 %cmp747, label %land.lhs.true749, label %if.end766
 
 land.lhs.true749:                                 ; preds = %land.lhs.true745
-  %489 = load ptr, ptr %s.addr, align 8
-  %v750 = getelementptr inbounds %struct._stmt, ptr %489, i32 0, i32 1
+  %496 = load ptr, ptr %s.addr, align 8
+  %v750 = getelementptr inbounds %struct._stmt, ptr %496, i32 0, i32 1
   %simple = getelementptr inbounds %struct.anon.783, ptr %v750, i32 0, i32 3
-  %490 = load i32, ptr %simple, align 8
-  %tobool751 = icmp ne i32 %490, 0
+  %497 = load i32, ptr %simple, align 8
+  %tobool751 = icmp ne i32 %497, 0
   br i1 %tobool751, label %if.then752, label %if.end766
 
 if.then752:                                       ; preds = %land.lhs.true749
-  %491 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %492 = load i64, ptr %cur, align 8
-  %and753 = and i64 %492, 1
+  %498 = load ptr, ptr @PyExc_SyntaxError, align 8
+  %499 = load i64, ptr %cur, align 8
+  %and753 = and i64 %499, 1
   %tobool754 = icmp ne i64 %and753, 0
   %cond755 = select i1 %tobool754, ptr @.str.20, ptr @.str.21
-  %493 = load ptr, ptr %e_name, align 8
-  %v756 = getelementptr inbounds %struct._expr, ptr %493, i32 0, i32 1
+  %500 = load ptr, ptr %e_name, align 8
+  %v756 = getelementptr inbounds %struct._expr, ptr %500, i32 0, i32 1
   %id757 = getelementptr inbounds %struct.anon.30, ptr %v756, i32 0, i32 0
-  %494 = load ptr, ptr %id757, align 8
-  %call758 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %491, ptr noundef %cond755, ptr noundef %494)
-  %495 = load ptr, ptr %st.addr, align 8
-  %st_filename = getelementptr inbounds %struct.symtable, ptr %495, i32 0, i32 0
-  %496 = load ptr, ptr %st_filename, align 8
-  %497 = load ptr, ptr %s.addr, align 8
-  %lineno759 = getelementptr inbounds %struct._stmt, ptr %497, i32 0, i32 2
-  %498 = load i32, ptr %lineno759, align 8
-  %499 = load ptr, ptr %s.addr, align 8
-  %col_offset760 = getelementptr inbounds %struct._stmt, ptr %499, i32 0, i32 3
-  %500 = load i32, ptr %col_offset760, align 4
-  %add = add i32 %500, 1
-  %501 = load ptr, ptr %s.addr, align 8
-  %end_lineno761 = getelementptr inbounds %struct._stmt, ptr %501, i32 0, i32 4
-  %502 = load i32, ptr %end_lineno761, align 8
-  %503 = load ptr, ptr %s.addr, align 8
-  %end_col_offset762 = getelementptr inbounds %struct._stmt, ptr %503, i32 0, i32 5
-  %504 = load i32, ptr %end_col_offset762, align 4
-  %add763 = add i32 %504, 1
-  call void @PyErr_RangedSyntaxLocationObject(ptr noundef %496, i32 noundef %498, i32 noundef %add, i32 noundef %502, i32 noundef %add763)
-  %505 = load ptr, ptr %st.addr, align 8
-  %recursion_depth764 = getelementptr inbounds %struct.symtable, ptr %505, i32 0, i32 9
-  %506 = load i32, ptr %recursion_depth764, align 8
-  %dec765 = add i32 %506, -1
+  %501 = load ptr, ptr %id757, align 8
+  %call758 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %498, ptr noundef %cond755, ptr noundef %501)
+  %502 = load ptr, ptr %st.addr, align 8
+  %st_filename = getelementptr inbounds %struct.symtable, ptr %502, i32 0, i32 0
+  %503 = load ptr, ptr %st_filename, align 8
+  %504 = load ptr, ptr %s.addr, align 8
+  %lineno759 = getelementptr inbounds %struct._stmt, ptr %504, i32 0, i32 2
+  %505 = load i32, ptr %lineno759, align 8
+  %506 = load ptr, ptr %s.addr, align 8
+  %col_offset760 = getelementptr inbounds %struct._stmt, ptr %506, i32 0, i32 3
+  %507 = load i32, ptr %col_offset760, align 4
+  %add = add i32 %507, 1
+  %508 = load ptr, ptr %s.addr, align 8
+  %end_lineno761 = getelementptr inbounds %struct._stmt, ptr %508, i32 0, i32 4
+  %509 = load i32, ptr %end_lineno761, align 8
+  %510 = load ptr, ptr %s.addr, align 8
+  %end_col_offset762 = getelementptr inbounds %struct._stmt, ptr %510, i32 0, i32 5
+  %511 = load i32, ptr %end_col_offset762, align 4
+  %add763 = add i32 %511, 1
+  call void @PyErr_RangedSyntaxLocationObject(ptr noundef %503, i32 noundef %505, i32 noundef %add, i32 noundef %509, i32 noundef %add763)
+  %512 = load ptr, ptr %st.addr, align 8
+  %recursion_depth764 = getelementptr inbounds %struct.symtable, ptr %512, i32 0, i32 9
+  %513 = load i32, ptr %recursion_depth764, align 8
+  %dec765 = add i32 %513, -1
   store i32 %dec765, ptr %recursion_depth764, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end766:                                        ; preds = %land.lhs.true749, %land.lhs.true745, %if.end743
-  %507 = load ptr, ptr %s.addr, align 8
-  %v767 = getelementptr inbounds %struct._stmt, ptr %507, i32 0, i32 1
+  %514 = load ptr, ptr %s.addr, align 8
+  %v767 = getelementptr inbounds %struct._stmt, ptr %514, i32 0, i32 1
   %simple768 = getelementptr inbounds %struct.anon.783, ptr %v767, i32 0, i32 3
-  %508 = load i32, ptr %simple768, align 8
-  %tobool769 = icmp ne i32 %508, 0
+  %515 = load i32, ptr %simple768, align 8
+  %tobool769 = icmp ne i32 %515, 0
   br i1 %tobool769, label %land.lhs.true770, label %if.else
 
 land.lhs.true770:                                 ; preds = %if.end766
-  %509 = load ptr, ptr %st.addr, align 8
-  %510 = load ptr, ptr %e_name, align 8
-  %v771 = getelementptr inbounds %struct._expr, ptr %510, i32 0, i32 1
+  %516 = load ptr, ptr %st.addr, align 8
+  %517 = load ptr, ptr %e_name, align 8
+  %v771 = getelementptr inbounds %struct._expr, ptr %517, i32 0, i32 1
   %id772 = getelementptr inbounds %struct.anon.30, ptr %v771, i32 0, i32 0
-  %511 = load ptr, ptr %id772, align 8
-  %512 = load ptr, ptr %e_name, align 8
-  %lineno773 = getelementptr inbounds %struct._expr, ptr %512, i32 0, i32 2
-  %513 = load i32, ptr %lineno773, align 8
-  %514 = load ptr, ptr %e_name, align 8
-  %col_offset774 = getelementptr inbounds %struct._expr, ptr %514, i32 0, i32 3
-  %515 = load i32, ptr %col_offset774, align 4
-  %516 = load ptr, ptr %e_name, align 8
-  %end_lineno775 = getelementptr inbounds %struct._expr, ptr %516, i32 0, i32 4
-  %517 = load i32, ptr %end_lineno775, align 8
-  %518 = load ptr, ptr %e_name, align 8
-  %end_col_offset776 = getelementptr inbounds %struct._expr, ptr %518, i32 0, i32 5
-  %519 = load i32, ptr %end_col_offset776, align 4
-  %call777 = call i32 @symtable_add_def(ptr noundef %509, ptr noundef %511, i32 noundef 258, i32 noundef %513, i32 noundef %515, i32 noundef %517, i32 noundef %519)
+  %518 = load ptr, ptr %id772, align 8
+  %519 = load ptr, ptr %e_name, align 8
+  %lineno773 = getelementptr inbounds %struct._expr, ptr %519, i32 0, i32 2
+  %520 = load i32, ptr %lineno773, align 8
+  %521 = load ptr, ptr %e_name, align 8
+  %col_offset774 = getelementptr inbounds %struct._expr, ptr %521, i32 0, i32 3
+  %522 = load i32, ptr %col_offset774, align 4
+  %523 = load ptr, ptr %e_name, align 8
+  %end_lineno775 = getelementptr inbounds %struct._expr, ptr %523, i32 0, i32 4
+  %524 = load i32, ptr %end_lineno775, align 8
+  %525 = load ptr, ptr %e_name, align 8
+  %end_col_offset776 = getelementptr inbounds %struct._expr, ptr %525, i32 0, i32 5
+  %526 = load i32, ptr %end_col_offset776, align 4
+  %call777 = call i32 @symtable_add_def(ptr noundef %516, ptr noundef %518, i32 noundef 258, i32 noundef %520, i32 noundef %522, i32 noundef %524, i32 noundef %526)
   %tobool778 = icmp ne i32 %call777, 0
   br i1 %tobool778, label %if.else, label %if.then779
 
 if.then779:                                       ; preds = %land.lhs.true770
-  %520 = load ptr, ptr %st.addr, align 8
-  %recursion_depth780 = getelementptr inbounds %struct.symtable, ptr %520, i32 0, i32 9
-  %521 = load i32, ptr %recursion_depth780, align 8
-  %dec781 = add i32 %521, -1
+  %527 = load ptr, ptr %st.addr, align 8
+  %recursion_depth780 = getelementptr inbounds %struct.symtable, ptr %527, i32 0, i32 9
+  %528 = load i32, ptr %recursion_depth780, align 8
+  %dec781 = add i32 %528, -1
   store i32 %dec781, ptr %recursion_depth780, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true770, %if.end766
-  %522 = load ptr, ptr %s.addr, align 8
-  %v782 = getelementptr inbounds %struct._stmt, ptr %522, i32 0, i32 1
+  %529 = load ptr, ptr %s.addr, align 8
+  %v782 = getelementptr inbounds %struct._stmt, ptr %529, i32 0, i32 1
   %value783 = getelementptr inbounds %struct.anon.783, ptr %v782, i32 0, i32 2
-  %523 = load ptr, ptr %value783, align 8
-  %tobool784 = icmp ne ptr %523, null
+  %530 = load ptr, ptr %value783, align 8
+  %tobool784 = icmp ne ptr %530, null
   br i1 %tobool784, label %land.lhs.true785, label %if.end797
 
 land.lhs.true785:                                 ; preds = %if.else
-  %524 = load ptr, ptr %st.addr, align 8
-  %525 = load ptr, ptr %e_name, align 8
-  %v786 = getelementptr inbounds %struct._expr, ptr %525, i32 0, i32 1
+  %531 = load ptr, ptr %st.addr, align 8
+  %532 = load ptr, ptr %e_name, align 8
+  %v786 = getelementptr inbounds %struct._expr, ptr %532, i32 0, i32 1
   %id787 = getelementptr inbounds %struct.anon.30, ptr %v786, i32 0, i32 0
-  %526 = load ptr, ptr %id787, align 8
-  %527 = load ptr, ptr %e_name, align 8
-  %lineno788 = getelementptr inbounds %struct._expr, ptr %527, i32 0, i32 2
-  %528 = load i32, ptr %lineno788, align 8
-  %529 = load ptr, ptr %e_name, align 8
-  %col_offset789 = getelementptr inbounds %struct._expr, ptr %529, i32 0, i32 3
-  %530 = load i32, ptr %col_offset789, align 4
-  %531 = load ptr, ptr %e_name, align 8
-  %end_lineno790 = getelementptr inbounds %struct._expr, ptr %531, i32 0, i32 4
-  %532 = load i32, ptr %end_lineno790, align 8
-  %533 = load ptr, ptr %e_name, align 8
-  %end_col_offset791 = getelementptr inbounds %struct._expr, ptr %533, i32 0, i32 5
-  %534 = load i32, ptr %end_col_offset791, align 4
-  %call792 = call i32 @symtable_add_def(ptr noundef %524, ptr noundef %526, i32 noundef 2, i32 noundef %528, i32 noundef %530, i32 noundef %532, i32 noundef %534)
+  %533 = load ptr, ptr %id787, align 8
+  %534 = load ptr, ptr %e_name, align 8
+  %lineno788 = getelementptr inbounds %struct._expr, ptr %534, i32 0, i32 2
+  %535 = load i32, ptr %lineno788, align 8
+  %536 = load ptr, ptr %e_name, align 8
+  %col_offset789 = getelementptr inbounds %struct._expr, ptr %536, i32 0, i32 3
+  %537 = load i32, ptr %col_offset789, align 4
+  %538 = load ptr, ptr %e_name, align 8
+  %end_lineno790 = getelementptr inbounds %struct._expr, ptr %538, i32 0, i32 4
+  %539 = load i32, ptr %end_lineno790, align 8
+  %540 = load ptr, ptr %e_name, align 8
+  %end_col_offset791 = getelementptr inbounds %struct._expr, ptr %540, i32 0, i32 5
+  %541 = load i32, ptr %end_col_offset791, align 4
+  %call792 = call i32 @symtable_add_def(ptr noundef %531, ptr noundef %533, i32 noundef 2, i32 noundef %535, i32 noundef %537, i32 noundef %539, i32 noundef %541)
   %tobool793 = icmp ne i32 %call792, 0
   br i1 %tobool793, label %if.end797, label %if.then794
 
 if.then794:                                       ; preds = %land.lhs.true785
-  %535 = load ptr, ptr %st.addr, align 8
-  %recursion_depth795 = getelementptr inbounds %struct.symtable, ptr %535, i32 0, i32 9
-  %536 = load i32, ptr %recursion_depth795, align 8
-  %dec796 = add i32 %536, -1
+  %542 = load ptr, ptr %st.addr, align 8
+  %recursion_depth795 = getelementptr inbounds %struct.symtable, ptr %542, i32 0, i32 9
+  %543 = load i32, ptr %recursion_depth795, align 8
+  %dec796 = add i32 %543, -1
   store i32 %dec796, ptr %recursion_depth795, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3822,20 +3831,20 @@ if.end798:                                        ; preds = %if.end797
   br label %if.end808
 
 if.else799:                                       ; preds = %sw.bb727
-  %537 = load ptr, ptr %st.addr, align 8
-  %538 = load ptr, ptr %s.addr, align 8
-  %v800 = getelementptr inbounds %struct._stmt, ptr %538, i32 0, i32 1
+  %544 = load ptr, ptr %st.addr, align 8
+  %545 = load ptr, ptr %s.addr, align 8
+  %v800 = getelementptr inbounds %struct._stmt, ptr %545, i32 0, i32 1
   %target801 = getelementptr inbounds %struct.anon.783, ptr %v800, i32 0, i32 0
-  %539 = load ptr, ptr %target801, align 8
-  %call802 = call i32 @symtable_visit_expr(ptr noundef %537, ptr noundef %539)
+  %546 = load ptr, ptr %target801, align 8
+  %call802 = call i32 @symtable_visit_expr(ptr noundef %544, ptr noundef %546)
   %tobool803 = icmp ne i32 %call802, 0
   br i1 %tobool803, label %if.end807, label %if.then804
 
 if.then804:                                       ; preds = %if.else799
-  %540 = load ptr, ptr %st.addr, align 8
-  %recursion_depth805 = getelementptr inbounds %struct.symtable, ptr %540, i32 0, i32 9
-  %541 = load i32, ptr %recursion_depth805, align 8
-  %dec806 = add i32 %541, -1
+  %547 = load ptr, ptr %st.addr, align 8
+  %recursion_depth805 = getelementptr inbounds %struct.symtable, ptr %547, i32 0, i32 9
+  %548 = load i32, ptr %recursion_depth805, align 8
+  %dec806 = add i32 %548, -1
   store i32 %dec806, ptr %recursion_depth805, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3844,47 +3853,47 @@ if.end807:                                        ; preds = %if.else799
   br label %if.end808
 
 if.end808:                                        ; preds = %if.end807, %if.end798
-  %542 = load ptr, ptr %st.addr, align 8
-  %543 = load ptr, ptr %s.addr, align 8
-  %v809 = getelementptr inbounds %struct._stmt, ptr %543, i32 0, i32 1
+  %549 = load ptr, ptr %st.addr, align 8
+  %550 = load ptr, ptr %s.addr, align 8
+  %v809 = getelementptr inbounds %struct._stmt, ptr %550, i32 0, i32 1
   %annotation = getelementptr inbounds %struct.anon.783, ptr %v809, i32 0, i32 1
-  %544 = load ptr, ptr %annotation, align 8
-  %call810 = call i32 @symtable_visit_annotation(ptr noundef %542, ptr noundef %544)
+  %551 = load ptr, ptr %annotation, align 8
+  %call810 = call i32 @symtable_visit_annotation(ptr noundef %549, ptr noundef %551)
   %tobool811 = icmp ne i32 %call810, 0
   br i1 %tobool811, label %if.end815, label %if.then812
 
 if.then812:                                       ; preds = %if.end808
-  %545 = load ptr, ptr %st.addr, align 8
-  %recursion_depth813 = getelementptr inbounds %struct.symtable, ptr %545, i32 0, i32 9
-  %546 = load i32, ptr %recursion_depth813, align 8
-  %dec814 = add i32 %546, -1
+  %552 = load ptr, ptr %st.addr, align 8
+  %recursion_depth813 = getelementptr inbounds %struct.symtable, ptr %552, i32 0, i32 9
+  %553 = load i32, ptr %recursion_depth813, align 8
+  %dec814 = add i32 %553, -1
   store i32 %dec814, ptr %recursion_depth813, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end815:                                        ; preds = %if.end808
-  %547 = load ptr, ptr %s.addr, align 8
-  %v816 = getelementptr inbounds %struct._stmt, ptr %547, i32 0, i32 1
+  %554 = load ptr, ptr %s.addr, align 8
+  %v816 = getelementptr inbounds %struct._stmt, ptr %554, i32 0, i32 1
   %value817 = getelementptr inbounds %struct.anon.783, ptr %v816, i32 0, i32 2
-  %548 = load ptr, ptr %value817, align 8
-  %tobool818 = icmp ne ptr %548, null
+  %555 = load ptr, ptr %value817, align 8
+  %tobool818 = icmp ne ptr %555, null
   br i1 %tobool818, label %if.then819, label %if.end828
 
 if.then819:                                       ; preds = %if.end815
-  %549 = load ptr, ptr %st.addr, align 8
-  %550 = load ptr, ptr %s.addr, align 8
-  %v820 = getelementptr inbounds %struct._stmt, ptr %550, i32 0, i32 1
+  %556 = load ptr, ptr %st.addr, align 8
+  %557 = load ptr, ptr %s.addr, align 8
+  %v820 = getelementptr inbounds %struct._stmt, ptr %557, i32 0, i32 1
   %value821 = getelementptr inbounds %struct.anon.783, ptr %v820, i32 0, i32 2
-  %551 = load ptr, ptr %value821, align 8
-  %call822 = call i32 @symtable_visit_expr(ptr noundef %549, ptr noundef %551)
+  %558 = load ptr, ptr %value821, align 8
+  %call822 = call i32 @symtable_visit_expr(ptr noundef %556, ptr noundef %558)
   %tobool823 = icmp ne i32 %call822, 0
   br i1 %tobool823, label %if.end827, label %if.then824
 
 if.then824:                                       ; preds = %if.then819
-  %552 = load ptr, ptr %st.addr, align 8
-  %recursion_depth825 = getelementptr inbounds %struct.symtable, ptr %552, i32 0, i32 9
-  %553 = load i32, ptr %recursion_depth825, align 8
-  %dec826 = add i32 %553, -1
+  %559 = load ptr, ptr %st.addr, align 8
+  %recursion_depth825 = getelementptr inbounds %struct.symtable, ptr %559, i32 0, i32 9
+  %560 = load i32, ptr %recursion_depth825, align 8
+  %dec826 = add i32 %560, -1
   store i32 %dec826, ptr %recursion_depth825, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3896,39 +3905,39 @@ if.end828:                                        ; preds = %if.end827, %if.end8
   br label %sw.epilog
 
 sw.bb829:                                         ; preds = %if.end
-  %554 = load ptr, ptr %st.addr, align 8
-  %555 = load ptr, ptr %s.addr, align 8
-  %v830 = getelementptr inbounds %struct._stmt, ptr %555, i32 0, i32 1
+  %561 = load ptr, ptr %st.addr, align 8
+  %562 = load ptr, ptr %s.addr, align 8
+  %v830 = getelementptr inbounds %struct._stmt, ptr %562, i32 0, i32 1
   %target831 = getelementptr inbounds %struct.anon.782, ptr %v830, i32 0, i32 0
-  %556 = load ptr, ptr %target831, align 8
-  %call832 = call i32 @symtable_visit_expr(ptr noundef %554, ptr noundef %556)
+  %563 = load ptr, ptr %target831, align 8
+  %call832 = call i32 @symtable_visit_expr(ptr noundef %561, ptr noundef %563)
   %tobool833 = icmp ne i32 %call832, 0
   br i1 %tobool833, label %if.end837, label %if.then834
 
 if.then834:                                       ; preds = %sw.bb829
-  %557 = load ptr, ptr %st.addr, align 8
-  %recursion_depth835 = getelementptr inbounds %struct.symtable, ptr %557, i32 0, i32 9
-  %558 = load i32, ptr %recursion_depth835, align 8
-  %dec836 = add i32 %558, -1
+  %564 = load ptr, ptr %st.addr, align 8
+  %recursion_depth835 = getelementptr inbounds %struct.symtable, ptr %564, i32 0, i32 9
+  %565 = load i32, ptr %recursion_depth835, align 8
+  %dec836 = add i32 %565, -1
   store i32 %dec836, ptr %recursion_depth835, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end837:                                        ; preds = %sw.bb829
-  %559 = load ptr, ptr %st.addr, align 8
-  %560 = load ptr, ptr %s.addr, align 8
-  %v838 = getelementptr inbounds %struct._stmt, ptr %560, i32 0, i32 1
+  %566 = load ptr, ptr %st.addr, align 8
+  %567 = load ptr, ptr %s.addr, align 8
+  %v838 = getelementptr inbounds %struct._stmt, ptr %567, i32 0, i32 1
   %value839 = getelementptr inbounds %struct.anon.782, ptr %v838, i32 0, i32 2
-  %561 = load ptr, ptr %value839, align 8
-  %call840 = call i32 @symtable_visit_expr(ptr noundef %559, ptr noundef %561)
+  %568 = load ptr, ptr %value839, align 8
+  %call840 = call i32 @symtable_visit_expr(ptr noundef %566, ptr noundef %568)
   %tobool841 = icmp ne i32 %call840, 0
   br i1 %tobool841, label %if.end845, label %if.then842
 
 if.then842:                                       ; preds = %if.end837
-  %562 = load ptr, ptr %st.addr, align 8
-  %recursion_depth843 = getelementptr inbounds %struct.symtable, ptr %562, i32 0, i32 9
-  %563 = load i32, ptr %recursion_depth843, align 8
-  %dec844 = add i32 %563, -1
+  %569 = load ptr, ptr %st.addr, align 8
+  %recursion_depth843 = getelementptr inbounds %struct.symtable, ptr %569, i32 0, i32 9
+  %570 = load i32, ptr %recursion_depth843, align 8
+  %dec844 = add i32 %570, -1
   store i32 %dec844, ptr %recursion_depth843, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -3937,92 +3946,92 @@ if.end845:                                        ; preds = %if.end837
   br label %sw.epilog
 
 sw.bb846:                                         ; preds = %if.end
-  %564 = load ptr, ptr %st.addr, align 8
-  %565 = load ptr, ptr %s.addr, align 8
-  %v847 = getelementptr inbounds %struct._stmt, ptr %565, i32 0, i32 1
+  %571 = load ptr, ptr %st.addr, align 8
+  %572 = load ptr, ptr %s.addr, align 8
+  %v847 = getelementptr inbounds %struct._stmt, ptr %572, i32 0, i32 1
   %target848 = getelementptr inbounds %struct.anon.784, ptr %v847, i32 0, i32 0
-  %566 = load ptr, ptr %target848, align 8
-  %call849 = call i32 @symtable_visit_expr(ptr noundef %564, ptr noundef %566)
+  %573 = load ptr, ptr %target848, align 8
+  %call849 = call i32 @symtable_visit_expr(ptr noundef %571, ptr noundef %573)
   %tobool850 = icmp ne i32 %call849, 0
   br i1 %tobool850, label %if.end854, label %if.then851
 
 if.then851:                                       ; preds = %sw.bb846
-  %567 = load ptr, ptr %st.addr, align 8
-  %recursion_depth852 = getelementptr inbounds %struct.symtable, ptr %567, i32 0, i32 9
-  %568 = load i32, ptr %recursion_depth852, align 8
-  %dec853 = add i32 %568, -1
+  %574 = load ptr, ptr %st.addr, align 8
+  %recursion_depth852 = getelementptr inbounds %struct.symtable, ptr %574, i32 0, i32 9
+  %575 = load i32, ptr %recursion_depth852, align 8
+  %dec853 = add i32 %575, -1
   store i32 %dec853, ptr %recursion_depth852, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end854:                                        ; preds = %sw.bb846
-  %569 = load ptr, ptr %st.addr, align 8
-  %570 = load ptr, ptr %s.addr, align 8
-  %v855 = getelementptr inbounds %struct._stmt, ptr %570, i32 0, i32 1
+  %576 = load ptr, ptr %st.addr, align 8
+  %577 = load ptr, ptr %s.addr, align 8
+  %v855 = getelementptr inbounds %struct._stmt, ptr %577, i32 0, i32 1
   %iter = getelementptr inbounds %struct.anon.784, ptr %v855, i32 0, i32 1
-  %571 = load ptr, ptr %iter, align 8
-  %call856 = call i32 @symtable_visit_expr(ptr noundef %569, ptr noundef %571)
+  %578 = load ptr, ptr %iter, align 8
+  %call856 = call i32 @symtable_visit_expr(ptr noundef %576, ptr noundef %578)
   %tobool857 = icmp ne i32 %call856, 0
   br i1 %tobool857, label %if.end861, label %if.then858
 
 if.then858:                                       ; preds = %if.end854
-  %572 = load ptr, ptr %st.addr, align 8
-  %recursion_depth859 = getelementptr inbounds %struct.symtable, ptr %572, i32 0, i32 9
-  %573 = load i32, ptr %recursion_depth859, align 8
-  %dec860 = add i32 %573, -1
+  %579 = load ptr, ptr %st.addr, align 8
+  %recursion_depth859 = getelementptr inbounds %struct.symtable, ptr %579, i32 0, i32 9
+  %580 = load i32, ptr %recursion_depth859, align 8
+  %dec860 = add i32 %580, -1
   store i32 %dec860, ptr %recursion_depth859, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end861:                                        ; preds = %if.end854
-  %574 = load ptr, ptr %s.addr, align 8
-  %v864 = getelementptr inbounds %struct._stmt, ptr %574, i32 0, i32 1
+  %581 = load ptr, ptr %s.addr, align 8
+  %v864 = getelementptr inbounds %struct._stmt, ptr %581, i32 0, i32 1
   %body865 = getelementptr inbounds %struct.anon.784, ptr %v864, i32 0, i32 2
-  %575 = load ptr, ptr %body865, align 8
-  store ptr %575, ptr %seq863, align 8
+  %582 = load ptr, ptr %body865, align 8
+  store ptr %582, ptr %seq863, align 8
   store i32 0, ptr %i862, align 4
   br label %for.cond866
 
 for.cond866:                                      ; preds = %for.inc888, %if.end861
-  %576 = load i32, ptr %i862, align 4
-  %conv867 = sext i32 %576 to i64
-  %577 = load ptr, ptr %seq863, align 8
-  %cmp868 = icmp eq ptr %577, null
+  %583 = load i32, ptr %i862, align 4
+  %conv867 = sext i32 %583 to i64
+  %584 = load ptr, ptr %seq863, align 8
+  %cmp868 = icmp eq ptr %584, null
   br i1 %cmp868, label %cond.true870, label %cond.false871
 
 cond.true870:                                     ; preds = %for.cond866
   br label %cond.end873
 
 cond.false871:                                    ; preds = %for.cond866
-  %578 = load ptr, ptr %seq863, align 8
-  %size872 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %578, i32 0, i32 0
-  %579 = load i64, ptr %size872, align 8
+  %585 = load ptr, ptr %seq863, align 8
+  %size872 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %585, i32 0, i32 0
+  %586 = load i64, ptr %size872, align 8
   br label %cond.end873
 
 cond.end873:                                      ; preds = %cond.false871, %cond.true870
-  %cond874 = phi i64 [ 0, %cond.true870 ], [ %579, %cond.false871 ]
+  %cond874 = phi i64 [ 0, %cond.true870 ], [ %586, %cond.false871 ]
   %cmp875 = icmp slt i64 %conv867, %cond874
   br i1 %cmp875, label %for.body877, label %for.end890
 
 for.body877:                                      ; preds = %cond.end873
-  %580 = load ptr, ptr %seq863, align 8
-  %typed_elements879 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %580, i32 0, i32 2
-  %581 = load i32, ptr %i862, align 4
-  %idxprom880 = sext i32 %581 to i64
+  %587 = load ptr, ptr %seq863, align 8
+  %typed_elements879 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %587, i32 0, i32 2
+  %588 = load i32, ptr %i862, align 4
+  %idxprom880 = sext i32 %588 to i64
   %arrayidx881 = getelementptr [1 x ptr], ptr %typed_elements879, i64 0, i64 %idxprom880
-  %582 = load ptr, ptr %arrayidx881, align 8
-  store ptr %582, ptr %elt878, align 8
-  %583 = load ptr, ptr %st.addr, align 8
-  %584 = load ptr, ptr %elt878, align 8
-  %call882 = call i32 @symtable_visit_stmt(ptr noundef %583, ptr noundef %584)
+  %589 = load ptr, ptr %arrayidx881, align 8
+  store ptr %589, ptr %elt878, align 8
+  %590 = load ptr, ptr %st.addr, align 8
+  %591 = load ptr, ptr %elt878, align 8
+  %call882 = call i32 @symtable_visit_stmt(ptr noundef %590, ptr noundef %591)
   %tobool883 = icmp ne i32 %call882, 0
   br i1 %tobool883, label %if.end887, label %if.then884
 
 if.then884:                                       ; preds = %for.body877
-  %585 = load ptr, ptr %st.addr, align 8
-  %recursion_depth885 = getelementptr inbounds %struct.symtable, ptr %585, i32 0, i32 9
-  %586 = load i32, ptr %recursion_depth885, align 8
-  %dec886 = add i32 %586, -1
+  %592 = load ptr, ptr %st.addr, align 8
+  %recursion_depth885 = getelementptr inbounds %struct.symtable, ptr %592, i32 0, i32 9
+  %593 = load i32, ptr %recursion_depth885, align 8
+  %dec886 = add i32 %593, -1
   store i32 %dec886, ptr %recursion_depth885, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4031,68 +4040,68 @@ if.end887:                                        ; preds = %for.body877
   br label %for.inc888
 
 for.inc888:                                       ; preds = %if.end887
-  %587 = load i32, ptr %i862, align 4
-  %inc889 = add i32 %587, 1
+  %594 = load i32, ptr %i862, align 4
+  %inc889 = add i32 %594, 1
   store i32 %inc889, ptr %i862, align 4
   br label %for.cond866, !llvm.loop !21
 
 for.end890:                                       ; preds = %cond.end873
-  %588 = load ptr, ptr %s.addr, align 8
-  %v891 = getelementptr inbounds %struct._stmt, ptr %588, i32 0, i32 1
+  %595 = load ptr, ptr %s.addr, align 8
+  %v891 = getelementptr inbounds %struct._stmt, ptr %595, i32 0, i32 1
   %orelse = getelementptr inbounds %struct.anon.784, ptr %v891, i32 0, i32 3
-  %589 = load ptr, ptr %orelse, align 8
-  %tobool892 = icmp ne ptr %589, null
+  %596 = load ptr, ptr %orelse, align 8
+  %tobool892 = icmp ne ptr %596, null
   br i1 %tobool892, label %if.then893, label %if.end923
 
 if.then893:                                       ; preds = %for.end890
-  %590 = load ptr, ptr %s.addr, align 8
-  %v896 = getelementptr inbounds %struct._stmt, ptr %590, i32 0, i32 1
+  %597 = load ptr, ptr %s.addr, align 8
+  %v896 = getelementptr inbounds %struct._stmt, ptr %597, i32 0, i32 1
   %orelse897 = getelementptr inbounds %struct.anon.784, ptr %v896, i32 0, i32 3
-  %591 = load ptr, ptr %orelse897, align 8
-  store ptr %591, ptr %seq895, align 8
+  %598 = load ptr, ptr %orelse897, align 8
+  store ptr %598, ptr %seq895, align 8
   store i32 0, ptr %i894, align 4
   br label %for.cond898
 
 for.cond898:                                      ; preds = %for.inc920, %if.then893
-  %592 = load i32, ptr %i894, align 4
-  %conv899 = sext i32 %592 to i64
-  %593 = load ptr, ptr %seq895, align 8
-  %cmp900 = icmp eq ptr %593, null
+  %599 = load i32, ptr %i894, align 4
+  %conv899 = sext i32 %599 to i64
+  %600 = load ptr, ptr %seq895, align 8
+  %cmp900 = icmp eq ptr %600, null
   br i1 %cmp900, label %cond.true902, label %cond.false903
 
 cond.true902:                                     ; preds = %for.cond898
   br label %cond.end905
 
 cond.false903:                                    ; preds = %for.cond898
-  %594 = load ptr, ptr %seq895, align 8
-  %size904 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %594, i32 0, i32 0
-  %595 = load i64, ptr %size904, align 8
+  %601 = load ptr, ptr %seq895, align 8
+  %size904 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %601, i32 0, i32 0
+  %602 = load i64, ptr %size904, align 8
   br label %cond.end905
 
 cond.end905:                                      ; preds = %cond.false903, %cond.true902
-  %cond906 = phi i64 [ 0, %cond.true902 ], [ %595, %cond.false903 ]
+  %cond906 = phi i64 [ 0, %cond.true902 ], [ %602, %cond.false903 ]
   %cmp907 = icmp slt i64 %conv899, %cond906
   br i1 %cmp907, label %for.body909, label %for.end922
 
 for.body909:                                      ; preds = %cond.end905
-  %596 = load ptr, ptr %seq895, align 8
-  %typed_elements911 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %596, i32 0, i32 2
-  %597 = load i32, ptr %i894, align 4
-  %idxprom912 = sext i32 %597 to i64
+  %603 = load ptr, ptr %seq895, align 8
+  %typed_elements911 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %603, i32 0, i32 2
+  %604 = load i32, ptr %i894, align 4
+  %idxprom912 = sext i32 %604 to i64
   %arrayidx913 = getelementptr [1 x ptr], ptr %typed_elements911, i64 0, i64 %idxprom912
-  %598 = load ptr, ptr %arrayidx913, align 8
-  store ptr %598, ptr %elt910, align 8
-  %599 = load ptr, ptr %st.addr, align 8
-  %600 = load ptr, ptr %elt910, align 8
-  %call914 = call i32 @symtable_visit_stmt(ptr noundef %599, ptr noundef %600)
+  %605 = load ptr, ptr %arrayidx913, align 8
+  store ptr %605, ptr %elt910, align 8
+  %606 = load ptr, ptr %st.addr, align 8
+  %607 = load ptr, ptr %elt910, align 8
+  %call914 = call i32 @symtable_visit_stmt(ptr noundef %606, ptr noundef %607)
   %tobool915 = icmp ne i32 %call914, 0
   br i1 %tobool915, label %if.end919, label %if.then916
 
 if.then916:                                       ; preds = %for.body909
-  %601 = load ptr, ptr %st.addr, align 8
-  %recursion_depth917 = getelementptr inbounds %struct.symtable, ptr %601, i32 0, i32 9
-  %602 = load i32, ptr %recursion_depth917, align 8
-  %dec918 = add i32 %602, -1
+  %608 = load ptr, ptr %st.addr, align 8
+  %recursion_depth917 = getelementptr inbounds %struct.symtable, ptr %608, i32 0, i32 9
+  %609 = load i32, ptr %recursion_depth917, align 8
+  %dec918 = add i32 %609, -1
   store i32 %dec918, ptr %recursion_depth917, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4101,8 +4110,8 @@ if.end919:                                        ; preds = %for.body909
   br label %for.inc920
 
 for.inc920:                                       ; preds = %if.end919
-  %603 = load i32, ptr %i894, align 4
-  %inc921 = add i32 %603, 1
+  %610 = load i32, ptr %i894, align 4
+  %inc921 = add i32 %610, 1
   store i32 %inc921, ptr %i894, align 4
   br label %for.cond898, !llvm.loop !22
 
@@ -4113,73 +4122,73 @@ if.end923:                                        ; preds = %for.end922, %for.en
   br label %sw.epilog
 
 sw.bb924:                                         ; preds = %if.end
-  %604 = load ptr, ptr %st.addr, align 8
-  %605 = load ptr, ptr %s.addr, align 8
-  %v925 = getelementptr inbounds %struct._stmt, ptr %605, i32 0, i32 1
+  %611 = load ptr, ptr %st.addr, align 8
+  %612 = load ptr, ptr %s.addr, align 8
+  %v925 = getelementptr inbounds %struct._stmt, ptr %612, i32 0, i32 1
   %test = getelementptr inbounds %struct.anon.786, ptr %v925, i32 0, i32 0
-  %606 = load ptr, ptr %test, align 8
-  %call926 = call i32 @symtable_visit_expr(ptr noundef %604, ptr noundef %606)
+  %613 = load ptr, ptr %test, align 8
+  %call926 = call i32 @symtable_visit_expr(ptr noundef %611, ptr noundef %613)
   %tobool927 = icmp ne i32 %call926, 0
   br i1 %tobool927, label %if.end931, label %if.then928
 
 if.then928:                                       ; preds = %sw.bb924
-  %607 = load ptr, ptr %st.addr, align 8
-  %recursion_depth929 = getelementptr inbounds %struct.symtable, ptr %607, i32 0, i32 9
-  %608 = load i32, ptr %recursion_depth929, align 8
-  %dec930 = add i32 %608, -1
+  %614 = load ptr, ptr %st.addr, align 8
+  %recursion_depth929 = getelementptr inbounds %struct.symtable, ptr %614, i32 0, i32 9
+  %615 = load i32, ptr %recursion_depth929, align 8
+  %dec930 = add i32 %615, -1
   store i32 %dec930, ptr %recursion_depth929, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end931:                                        ; preds = %sw.bb924
-  %609 = load ptr, ptr %s.addr, align 8
-  %v934 = getelementptr inbounds %struct._stmt, ptr %609, i32 0, i32 1
+  %616 = load ptr, ptr %s.addr, align 8
+  %v934 = getelementptr inbounds %struct._stmt, ptr %616, i32 0, i32 1
   %body935 = getelementptr inbounds %struct.anon.786, ptr %v934, i32 0, i32 1
-  %610 = load ptr, ptr %body935, align 8
-  store ptr %610, ptr %seq933, align 8
+  %617 = load ptr, ptr %body935, align 8
+  store ptr %617, ptr %seq933, align 8
   store i32 0, ptr %i932, align 4
   br label %for.cond936
 
 for.cond936:                                      ; preds = %for.inc958, %if.end931
-  %611 = load i32, ptr %i932, align 4
-  %conv937 = sext i32 %611 to i64
-  %612 = load ptr, ptr %seq933, align 8
-  %cmp938 = icmp eq ptr %612, null
+  %618 = load i32, ptr %i932, align 4
+  %conv937 = sext i32 %618 to i64
+  %619 = load ptr, ptr %seq933, align 8
+  %cmp938 = icmp eq ptr %619, null
   br i1 %cmp938, label %cond.true940, label %cond.false941
 
 cond.true940:                                     ; preds = %for.cond936
   br label %cond.end943
 
 cond.false941:                                    ; preds = %for.cond936
-  %613 = load ptr, ptr %seq933, align 8
-  %size942 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %613, i32 0, i32 0
-  %614 = load i64, ptr %size942, align 8
+  %620 = load ptr, ptr %seq933, align 8
+  %size942 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %620, i32 0, i32 0
+  %621 = load i64, ptr %size942, align 8
   br label %cond.end943
 
 cond.end943:                                      ; preds = %cond.false941, %cond.true940
-  %cond944 = phi i64 [ 0, %cond.true940 ], [ %614, %cond.false941 ]
+  %cond944 = phi i64 [ 0, %cond.true940 ], [ %621, %cond.false941 ]
   %cmp945 = icmp slt i64 %conv937, %cond944
   br i1 %cmp945, label %for.body947, label %for.end960
 
 for.body947:                                      ; preds = %cond.end943
-  %615 = load ptr, ptr %seq933, align 8
-  %typed_elements949 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %615, i32 0, i32 2
-  %616 = load i32, ptr %i932, align 4
-  %idxprom950 = sext i32 %616 to i64
+  %622 = load ptr, ptr %seq933, align 8
+  %typed_elements949 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %622, i32 0, i32 2
+  %623 = load i32, ptr %i932, align 4
+  %idxprom950 = sext i32 %623 to i64
   %arrayidx951 = getelementptr [1 x ptr], ptr %typed_elements949, i64 0, i64 %idxprom950
-  %617 = load ptr, ptr %arrayidx951, align 8
-  store ptr %617, ptr %elt948, align 8
-  %618 = load ptr, ptr %st.addr, align 8
-  %619 = load ptr, ptr %elt948, align 8
-  %call952 = call i32 @symtable_visit_stmt(ptr noundef %618, ptr noundef %619)
+  %624 = load ptr, ptr %arrayidx951, align 8
+  store ptr %624, ptr %elt948, align 8
+  %625 = load ptr, ptr %st.addr, align 8
+  %626 = load ptr, ptr %elt948, align 8
+  %call952 = call i32 @symtable_visit_stmt(ptr noundef %625, ptr noundef %626)
   %tobool953 = icmp ne i32 %call952, 0
   br i1 %tobool953, label %if.end957, label %if.then954
 
 if.then954:                                       ; preds = %for.body947
-  %620 = load ptr, ptr %st.addr, align 8
-  %recursion_depth955 = getelementptr inbounds %struct.symtable, ptr %620, i32 0, i32 9
-  %621 = load i32, ptr %recursion_depth955, align 8
-  %dec956 = add i32 %621, -1
+  %627 = load ptr, ptr %st.addr, align 8
+  %recursion_depth955 = getelementptr inbounds %struct.symtable, ptr %627, i32 0, i32 9
+  %628 = load i32, ptr %recursion_depth955, align 8
+  %dec956 = add i32 %628, -1
   store i32 %dec956, ptr %recursion_depth955, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4188,68 +4197,68 @@ if.end957:                                        ; preds = %for.body947
   br label %for.inc958
 
 for.inc958:                                       ; preds = %if.end957
-  %622 = load i32, ptr %i932, align 4
-  %inc959 = add i32 %622, 1
+  %629 = load i32, ptr %i932, align 4
+  %inc959 = add i32 %629, 1
   store i32 %inc959, ptr %i932, align 4
   br label %for.cond936, !llvm.loop !23
 
 for.end960:                                       ; preds = %cond.end943
-  %623 = load ptr, ptr %s.addr, align 8
-  %v961 = getelementptr inbounds %struct._stmt, ptr %623, i32 0, i32 1
+  %630 = load ptr, ptr %s.addr, align 8
+  %v961 = getelementptr inbounds %struct._stmt, ptr %630, i32 0, i32 1
   %orelse962 = getelementptr inbounds %struct.anon.786, ptr %v961, i32 0, i32 2
-  %624 = load ptr, ptr %orelse962, align 8
-  %tobool963 = icmp ne ptr %624, null
+  %631 = load ptr, ptr %orelse962, align 8
+  %tobool963 = icmp ne ptr %631, null
   br i1 %tobool963, label %if.then964, label %if.end994
 
 if.then964:                                       ; preds = %for.end960
-  %625 = load ptr, ptr %s.addr, align 8
-  %v967 = getelementptr inbounds %struct._stmt, ptr %625, i32 0, i32 1
+  %632 = load ptr, ptr %s.addr, align 8
+  %v967 = getelementptr inbounds %struct._stmt, ptr %632, i32 0, i32 1
   %orelse968 = getelementptr inbounds %struct.anon.786, ptr %v967, i32 0, i32 2
-  %626 = load ptr, ptr %orelse968, align 8
-  store ptr %626, ptr %seq966, align 8
+  %633 = load ptr, ptr %orelse968, align 8
+  store ptr %633, ptr %seq966, align 8
   store i32 0, ptr %i965, align 4
   br label %for.cond969
 
 for.cond969:                                      ; preds = %for.inc991, %if.then964
-  %627 = load i32, ptr %i965, align 4
-  %conv970 = sext i32 %627 to i64
-  %628 = load ptr, ptr %seq966, align 8
-  %cmp971 = icmp eq ptr %628, null
+  %634 = load i32, ptr %i965, align 4
+  %conv970 = sext i32 %634 to i64
+  %635 = load ptr, ptr %seq966, align 8
+  %cmp971 = icmp eq ptr %635, null
   br i1 %cmp971, label %cond.true973, label %cond.false974
 
 cond.true973:                                     ; preds = %for.cond969
   br label %cond.end976
 
 cond.false974:                                    ; preds = %for.cond969
-  %629 = load ptr, ptr %seq966, align 8
-  %size975 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %629, i32 0, i32 0
-  %630 = load i64, ptr %size975, align 8
+  %636 = load ptr, ptr %seq966, align 8
+  %size975 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %636, i32 0, i32 0
+  %637 = load i64, ptr %size975, align 8
   br label %cond.end976
 
 cond.end976:                                      ; preds = %cond.false974, %cond.true973
-  %cond977 = phi i64 [ 0, %cond.true973 ], [ %630, %cond.false974 ]
+  %cond977 = phi i64 [ 0, %cond.true973 ], [ %637, %cond.false974 ]
   %cmp978 = icmp slt i64 %conv970, %cond977
   br i1 %cmp978, label %for.body980, label %for.end993
 
 for.body980:                                      ; preds = %cond.end976
-  %631 = load ptr, ptr %seq966, align 8
-  %typed_elements982 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %631, i32 0, i32 2
-  %632 = load i32, ptr %i965, align 4
-  %idxprom983 = sext i32 %632 to i64
+  %638 = load ptr, ptr %seq966, align 8
+  %typed_elements982 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %638, i32 0, i32 2
+  %639 = load i32, ptr %i965, align 4
+  %idxprom983 = sext i32 %639 to i64
   %arrayidx984 = getelementptr [1 x ptr], ptr %typed_elements982, i64 0, i64 %idxprom983
-  %633 = load ptr, ptr %arrayidx984, align 8
-  store ptr %633, ptr %elt981, align 8
-  %634 = load ptr, ptr %st.addr, align 8
-  %635 = load ptr, ptr %elt981, align 8
-  %call985 = call i32 @symtable_visit_stmt(ptr noundef %634, ptr noundef %635)
+  %640 = load ptr, ptr %arrayidx984, align 8
+  store ptr %640, ptr %elt981, align 8
+  %641 = load ptr, ptr %st.addr, align 8
+  %642 = load ptr, ptr %elt981, align 8
+  %call985 = call i32 @symtable_visit_stmt(ptr noundef %641, ptr noundef %642)
   %tobool986 = icmp ne i32 %call985, 0
   br i1 %tobool986, label %if.end990, label %if.then987
 
 if.then987:                                       ; preds = %for.body980
-  %636 = load ptr, ptr %st.addr, align 8
-  %recursion_depth988 = getelementptr inbounds %struct.symtable, ptr %636, i32 0, i32 9
-  %637 = load i32, ptr %recursion_depth988, align 8
-  %dec989 = add i32 %637, -1
+  %643 = load ptr, ptr %st.addr, align 8
+  %recursion_depth988 = getelementptr inbounds %struct.symtable, ptr %643, i32 0, i32 9
+  %644 = load i32, ptr %recursion_depth988, align 8
+  %dec989 = add i32 %644, -1
   store i32 %dec989, ptr %recursion_depth988, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4258,8 +4267,8 @@ if.end990:                                        ; preds = %for.body980
   br label %for.inc991
 
 for.inc991:                                       ; preds = %if.end990
-  %638 = load i32, ptr %i965, align 4
-  %inc992 = add i32 %638, 1
+  %645 = load i32, ptr %i965, align 4
+  %inc992 = add i32 %645, 1
   store i32 %inc992, ptr %i965, align 4
   br label %for.cond969, !llvm.loop !24
 
@@ -4270,73 +4279,73 @@ if.end994:                                        ; preds = %for.end993, %for.en
   br label %sw.epilog
 
 sw.bb995:                                         ; preds = %if.end
-  %639 = load ptr, ptr %st.addr, align 8
-  %640 = load ptr, ptr %s.addr, align 8
-  %v996 = getelementptr inbounds %struct._stmt, ptr %640, i32 0, i32 1
+  %646 = load ptr, ptr %st.addr, align 8
+  %647 = load ptr, ptr %s.addr, align 8
+  %v996 = getelementptr inbounds %struct._stmt, ptr %647, i32 0, i32 1
   %test997 = getelementptr inbounds %struct.anon.787, ptr %v996, i32 0, i32 0
-  %641 = load ptr, ptr %test997, align 8
-  %call998 = call i32 @symtable_visit_expr(ptr noundef %639, ptr noundef %641)
+  %648 = load ptr, ptr %test997, align 8
+  %call998 = call i32 @symtable_visit_expr(ptr noundef %646, ptr noundef %648)
   %tobool999 = icmp ne i32 %call998, 0
   br i1 %tobool999, label %if.end1003, label %if.then1000
 
 if.then1000:                                      ; preds = %sw.bb995
-  %642 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1001 = getelementptr inbounds %struct.symtable, ptr %642, i32 0, i32 9
-  %643 = load i32, ptr %recursion_depth1001, align 8
-  %dec1002 = add i32 %643, -1
+  %649 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1001 = getelementptr inbounds %struct.symtable, ptr %649, i32 0, i32 9
+  %650 = load i32, ptr %recursion_depth1001, align 8
+  %dec1002 = add i32 %650, -1
   store i32 %dec1002, ptr %recursion_depth1001, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1003:                                       ; preds = %sw.bb995
-  %644 = load ptr, ptr %s.addr, align 8
-  %v1006 = getelementptr inbounds %struct._stmt, ptr %644, i32 0, i32 1
+  %651 = load ptr, ptr %s.addr, align 8
+  %v1006 = getelementptr inbounds %struct._stmt, ptr %651, i32 0, i32 1
   %body1007 = getelementptr inbounds %struct.anon.787, ptr %v1006, i32 0, i32 1
-  %645 = load ptr, ptr %body1007, align 8
-  store ptr %645, ptr %seq1005, align 8
+  %652 = load ptr, ptr %body1007, align 8
+  store ptr %652, ptr %seq1005, align 8
   store i32 0, ptr %i1004, align 4
   br label %for.cond1008
 
 for.cond1008:                                     ; preds = %for.inc1030, %if.end1003
-  %646 = load i32, ptr %i1004, align 4
-  %conv1009 = sext i32 %646 to i64
-  %647 = load ptr, ptr %seq1005, align 8
-  %cmp1010 = icmp eq ptr %647, null
+  %653 = load i32, ptr %i1004, align 4
+  %conv1009 = sext i32 %653 to i64
+  %654 = load ptr, ptr %seq1005, align 8
+  %cmp1010 = icmp eq ptr %654, null
   br i1 %cmp1010, label %cond.true1012, label %cond.false1013
 
 cond.true1012:                                    ; preds = %for.cond1008
   br label %cond.end1015
 
 cond.false1013:                                   ; preds = %for.cond1008
-  %648 = load ptr, ptr %seq1005, align 8
-  %size1014 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %648, i32 0, i32 0
-  %649 = load i64, ptr %size1014, align 8
+  %655 = load ptr, ptr %seq1005, align 8
+  %size1014 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %655, i32 0, i32 0
+  %656 = load i64, ptr %size1014, align 8
   br label %cond.end1015
 
 cond.end1015:                                     ; preds = %cond.false1013, %cond.true1012
-  %cond1016 = phi i64 [ 0, %cond.true1012 ], [ %649, %cond.false1013 ]
+  %cond1016 = phi i64 [ 0, %cond.true1012 ], [ %656, %cond.false1013 ]
   %cmp1017 = icmp slt i64 %conv1009, %cond1016
   br i1 %cmp1017, label %for.body1019, label %for.end1032
 
 for.body1019:                                     ; preds = %cond.end1015
-  %650 = load ptr, ptr %seq1005, align 8
-  %typed_elements1021 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %650, i32 0, i32 2
-  %651 = load i32, ptr %i1004, align 4
-  %idxprom1022 = sext i32 %651 to i64
+  %657 = load ptr, ptr %seq1005, align 8
+  %typed_elements1021 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %657, i32 0, i32 2
+  %658 = load i32, ptr %i1004, align 4
+  %idxprom1022 = sext i32 %658 to i64
   %arrayidx1023 = getelementptr [1 x ptr], ptr %typed_elements1021, i64 0, i64 %idxprom1022
-  %652 = load ptr, ptr %arrayidx1023, align 8
-  store ptr %652, ptr %elt1020, align 8
-  %653 = load ptr, ptr %st.addr, align 8
-  %654 = load ptr, ptr %elt1020, align 8
-  %call1024 = call i32 @symtable_visit_stmt(ptr noundef %653, ptr noundef %654)
+  %659 = load ptr, ptr %arrayidx1023, align 8
+  store ptr %659, ptr %elt1020, align 8
+  %660 = load ptr, ptr %st.addr, align 8
+  %661 = load ptr, ptr %elt1020, align 8
+  %call1024 = call i32 @symtable_visit_stmt(ptr noundef %660, ptr noundef %661)
   %tobool1025 = icmp ne i32 %call1024, 0
   br i1 %tobool1025, label %if.end1029, label %if.then1026
 
 if.then1026:                                      ; preds = %for.body1019
-  %655 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1027 = getelementptr inbounds %struct.symtable, ptr %655, i32 0, i32 9
-  %656 = load i32, ptr %recursion_depth1027, align 8
-  %dec1028 = add i32 %656, -1
+  %662 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1027 = getelementptr inbounds %struct.symtable, ptr %662, i32 0, i32 9
+  %663 = load i32, ptr %recursion_depth1027, align 8
+  %dec1028 = add i32 %663, -1
   store i32 %dec1028, ptr %recursion_depth1027, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4345,68 +4354,68 @@ if.end1029:                                       ; preds = %for.body1019
   br label %for.inc1030
 
 for.inc1030:                                      ; preds = %if.end1029
-  %657 = load i32, ptr %i1004, align 4
-  %inc1031 = add i32 %657, 1
+  %664 = load i32, ptr %i1004, align 4
+  %inc1031 = add i32 %664, 1
   store i32 %inc1031, ptr %i1004, align 4
   br label %for.cond1008, !llvm.loop !25
 
 for.end1032:                                      ; preds = %cond.end1015
-  %658 = load ptr, ptr %s.addr, align 8
-  %v1033 = getelementptr inbounds %struct._stmt, ptr %658, i32 0, i32 1
+  %665 = load ptr, ptr %s.addr, align 8
+  %v1033 = getelementptr inbounds %struct._stmt, ptr %665, i32 0, i32 1
   %orelse1034 = getelementptr inbounds %struct.anon.787, ptr %v1033, i32 0, i32 2
-  %659 = load ptr, ptr %orelse1034, align 8
-  %tobool1035 = icmp ne ptr %659, null
+  %666 = load ptr, ptr %orelse1034, align 8
+  %tobool1035 = icmp ne ptr %666, null
   br i1 %tobool1035, label %if.then1036, label %if.end1066
 
 if.then1036:                                      ; preds = %for.end1032
-  %660 = load ptr, ptr %s.addr, align 8
-  %v1039 = getelementptr inbounds %struct._stmt, ptr %660, i32 0, i32 1
+  %667 = load ptr, ptr %s.addr, align 8
+  %v1039 = getelementptr inbounds %struct._stmt, ptr %667, i32 0, i32 1
   %orelse1040 = getelementptr inbounds %struct.anon.787, ptr %v1039, i32 0, i32 2
-  %661 = load ptr, ptr %orelse1040, align 8
-  store ptr %661, ptr %seq1038, align 8
+  %668 = load ptr, ptr %orelse1040, align 8
+  store ptr %668, ptr %seq1038, align 8
   store i32 0, ptr %i1037, align 4
   br label %for.cond1041
 
 for.cond1041:                                     ; preds = %for.inc1063, %if.then1036
-  %662 = load i32, ptr %i1037, align 4
-  %conv1042 = sext i32 %662 to i64
-  %663 = load ptr, ptr %seq1038, align 8
-  %cmp1043 = icmp eq ptr %663, null
+  %669 = load i32, ptr %i1037, align 4
+  %conv1042 = sext i32 %669 to i64
+  %670 = load ptr, ptr %seq1038, align 8
+  %cmp1043 = icmp eq ptr %670, null
   br i1 %cmp1043, label %cond.true1045, label %cond.false1046
 
 cond.true1045:                                    ; preds = %for.cond1041
   br label %cond.end1048
 
 cond.false1046:                                   ; preds = %for.cond1041
-  %664 = load ptr, ptr %seq1038, align 8
-  %size1047 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %664, i32 0, i32 0
-  %665 = load i64, ptr %size1047, align 8
+  %671 = load ptr, ptr %seq1038, align 8
+  %size1047 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %671, i32 0, i32 0
+  %672 = load i64, ptr %size1047, align 8
   br label %cond.end1048
 
 cond.end1048:                                     ; preds = %cond.false1046, %cond.true1045
-  %cond1049 = phi i64 [ 0, %cond.true1045 ], [ %665, %cond.false1046 ]
+  %cond1049 = phi i64 [ 0, %cond.true1045 ], [ %672, %cond.false1046 ]
   %cmp1050 = icmp slt i64 %conv1042, %cond1049
   br i1 %cmp1050, label %for.body1052, label %for.end1065
 
 for.body1052:                                     ; preds = %cond.end1048
-  %666 = load ptr, ptr %seq1038, align 8
-  %typed_elements1054 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %666, i32 0, i32 2
-  %667 = load i32, ptr %i1037, align 4
-  %idxprom1055 = sext i32 %667 to i64
+  %673 = load ptr, ptr %seq1038, align 8
+  %typed_elements1054 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %673, i32 0, i32 2
+  %674 = load i32, ptr %i1037, align 4
+  %idxprom1055 = sext i32 %674 to i64
   %arrayidx1056 = getelementptr [1 x ptr], ptr %typed_elements1054, i64 0, i64 %idxprom1055
-  %668 = load ptr, ptr %arrayidx1056, align 8
-  store ptr %668, ptr %elt1053, align 8
-  %669 = load ptr, ptr %st.addr, align 8
-  %670 = load ptr, ptr %elt1053, align 8
-  %call1057 = call i32 @symtable_visit_stmt(ptr noundef %669, ptr noundef %670)
+  %675 = load ptr, ptr %arrayidx1056, align 8
+  store ptr %675, ptr %elt1053, align 8
+  %676 = load ptr, ptr %st.addr, align 8
+  %677 = load ptr, ptr %elt1053, align 8
+  %call1057 = call i32 @symtable_visit_stmt(ptr noundef %676, ptr noundef %677)
   %tobool1058 = icmp ne i32 %call1057, 0
   br i1 %tobool1058, label %if.end1062, label %if.then1059
 
 if.then1059:                                      ; preds = %for.body1052
-  %671 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1060 = getelementptr inbounds %struct.symtable, ptr %671, i32 0, i32 9
-  %672 = load i32, ptr %recursion_depth1060, align 8
-  %dec1061 = add i32 %672, -1
+  %678 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1060 = getelementptr inbounds %struct.symtable, ptr %678, i32 0, i32 9
+  %679 = load i32, ptr %recursion_depth1060, align 8
+  %dec1061 = add i32 %679, -1
   store i32 %dec1061, ptr %recursion_depth1060, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4415,8 +4424,8 @@ if.end1062:                                       ; preds = %for.body1052
   br label %for.inc1063
 
 for.inc1063:                                      ; preds = %if.end1062
-  %673 = load i32, ptr %i1037, align 4
-  %inc1064 = add i32 %673, 1
+  %680 = load i32, ptr %i1037, align 4
+  %inc1064 = add i32 %680, 1
   store i32 %inc1064, ptr %i1037, align 4
   br label %for.cond1041, !llvm.loop !26
 
@@ -4427,73 +4436,73 @@ if.end1066:                                       ; preds = %for.end1065, %for.e
   br label %sw.epilog
 
 sw.bb1067:                                        ; preds = %if.end
-  %674 = load ptr, ptr %st.addr, align 8
-  %675 = load ptr, ptr %s.addr, align 8
-  %v1068 = getelementptr inbounds %struct._stmt, ptr %675, i32 0, i32 1
+  %681 = load ptr, ptr %st.addr, align 8
+  %682 = load ptr, ptr %s.addr, align 8
+  %v1068 = getelementptr inbounds %struct._stmt, ptr %682, i32 0, i32 1
   %subject = getelementptr inbounds %struct.anon.790, ptr %v1068, i32 0, i32 0
-  %676 = load ptr, ptr %subject, align 8
-  %call1069 = call i32 @symtable_visit_expr(ptr noundef %674, ptr noundef %676)
+  %683 = load ptr, ptr %subject, align 8
+  %call1069 = call i32 @symtable_visit_expr(ptr noundef %681, ptr noundef %683)
   %tobool1070 = icmp ne i32 %call1069, 0
   br i1 %tobool1070, label %if.end1074, label %if.then1071
 
 if.then1071:                                      ; preds = %sw.bb1067
-  %677 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1072 = getelementptr inbounds %struct.symtable, ptr %677, i32 0, i32 9
-  %678 = load i32, ptr %recursion_depth1072, align 8
-  %dec1073 = add i32 %678, -1
+  %684 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1072 = getelementptr inbounds %struct.symtable, ptr %684, i32 0, i32 9
+  %685 = load i32, ptr %recursion_depth1072, align 8
+  %dec1073 = add i32 %685, -1
   store i32 %dec1073, ptr %recursion_depth1072, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1074:                                       ; preds = %sw.bb1067
-  %679 = load ptr, ptr %s.addr, align 8
-  %v1077 = getelementptr inbounds %struct._stmt, ptr %679, i32 0, i32 1
+  %686 = load ptr, ptr %s.addr, align 8
+  %v1077 = getelementptr inbounds %struct._stmt, ptr %686, i32 0, i32 1
   %cases = getelementptr inbounds %struct.anon.790, ptr %v1077, i32 0, i32 1
-  %680 = load ptr, ptr %cases, align 8
-  store ptr %680, ptr %seq1076, align 8
+  %687 = load ptr, ptr %cases, align 8
+  store ptr %687, ptr %seq1076, align 8
   store i32 0, ptr %i1075, align 4
   br label %for.cond1078
 
 for.cond1078:                                     ; preds = %for.inc1100, %if.end1074
-  %681 = load i32, ptr %i1075, align 4
-  %conv1079 = sext i32 %681 to i64
-  %682 = load ptr, ptr %seq1076, align 8
-  %cmp1080 = icmp eq ptr %682, null
+  %688 = load i32, ptr %i1075, align 4
+  %conv1079 = sext i32 %688 to i64
+  %689 = load ptr, ptr %seq1076, align 8
+  %cmp1080 = icmp eq ptr %689, null
   br i1 %cmp1080, label %cond.true1082, label %cond.false1083
 
 cond.true1082:                                    ; preds = %for.cond1078
   br label %cond.end1085
 
 cond.false1083:                                   ; preds = %for.cond1078
-  %683 = load ptr, ptr %seq1076, align 8
-  %size1084 = getelementptr inbounds %struct.asdl_match_case_seq, ptr %683, i32 0, i32 0
-  %684 = load i64, ptr %size1084, align 8
+  %690 = load ptr, ptr %seq1076, align 8
+  %size1084 = getelementptr inbounds %struct.asdl_match_case_seq, ptr %690, i32 0, i32 0
+  %691 = load i64, ptr %size1084, align 8
   br label %cond.end1085
 
 cond.end1085:                                     ; preds = %cond.false1083, %cond.true1082
-  %cond1086 = phi i64 [ 0, %cond.true1082 ], [ %684, %cond.false1083 ]
+  %cond1086 = phi i64 [ 0, %cond.true1082 ], [ %691, %cond.false1083 ]
   %cmp1087 = icmp slt i64 %conv1079, %cond1086
   br i1 %cmp1087, label %for.body1089, label %for.end1102
 
 for.body1089:                                     ; preds = %cond.end1085
-  %685 = load ptr, ptr %seq1076, align 8
-  %typed_elements1091 = getelementptr inbounds %struct.asdl_match_case_seq, ptr %685, i32 0, i32 2
-  %686 = load i32, ptr %i1075, align 4
-  %idxprom1092 = sext i32 %686 to i64
+  %692 = load ptr, ptr %seq1076, align 8
+  %typed_elements1091 = getelementptr inbounds %struct.asdl_match_case_seq, ptr %692, i32 0, i32 2
+  %693 = load i32, ptr %i1075, align 4
+  %idxprom1092 = sext i32 %693 to i64
   %arrayidx1093 = getelementptr [1 x ptr], ptr %typed_elements1091, i64 0, i64 %idxprom1092
-  %687 = load ptr, ptr %arrayidx1093, align 8
-  store ptr %687, ptr %elt1090, align 8
-  %688 = load ptr, ptr %st.addr, align 8
-  %689 = load ptr, ptr %elt1090, align 8
-  %call1094 = call i32 @symtable_visit_match_case(ptr noundef %688, ptr noundef %689)
+  %694 = load ptr, ptr %arrayidx1093, align 8
+  store ptr %694, ptr %elt1090, align 8
+  %695 = load ptr, ptr %st.addr, align 8
+  %696 = load ptr, ptr %elt1090, align 8
+  %call1094 = call i32 @symtable_visit_match_case(ptr noundef %695, ptr noundef %696)
   %tobool1095 = icmp ne i32 %call1094, 0
   br i1 %tobool1095, label %if.end1099, label %if.then1096
 
 if.then1096:                                      ; preds = %for.body1089
-  %690 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1097 = getelementptr inbounds %struct.symtable, ptr %690, i32 0, i32 9
-  %691 = load i32, ptr %recursion_depth1097, align 8
-  %dec1098 = add i32 %691, -1
+  %697 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1097 = getelementptr inbounds %struct.symtable, ptr %697, i32 0, i32 9
+  %698 = load i32, ptr %recursion_depth1097, align 8
+  %dec1098 = add i32 %698, -1
   store i32 %dec1098, ptr %recursion_depth1097, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4502,8 +4511,8 @@ if.end1099:                                       ; preds = %for.body1089
   br label %for.inc1100
 
 for.inc1100:                                      ; preds = %if.end1099
-  %692 = load i32, ptr %i1075, align 4
-  %inc1101 = add i32 %692, 1
+  %699 = load i32, ptr %i1075, align 4
+  %inc1101 = add i32 %699, 1
   store i32 %inc1101, ptr %i1075, align 4
   br label %for.cond1078, !llvm.loop !27
 
@@ -4511,55 +4520,55 @@ for.end1102:                                      ; preds = %cond.end1085
   br label %sw.epilog
 
 sw.bb1103:                                        ; preds = %if.end
-  %693 = load ptr, ptr %s.addr, align 8
-  %v1104 = getelementptr inbounds %struct._stmt, ptr %693, i32 0, i32 1
+  %700 = load ptr, ptr %s.addr, align 8
+  %v1104 = getelementptr inbounds %struct._stmt, ptr %700, i32 0, i32 1
   %exc = getelementptr inbounds %struct.anon.791, ptr %v1104, i32 0, i32 0
-  %694 = load ptr, ptr %exc, align 8
-  %tobool1105 = icmp ne ptr %694, null
+  %701 = load ptr, ptr %exc, align 8
+  %tobool1105 = icmp ne ptr %701, null
   br i1 %tobool1105, label %if.then1106, label %if.end1127
 
 if.then1106:                                      ; preds = %sw.bb1103
-  %695 = load ptr, ptr %st.addr, align 8
-  %696 = load ptr, ptr %s.addr, align 8
-  %v1107 = getelementptr inbounds %struct._stmt, ptr %696, i32 0, i32 1
+  %702 = load ptr, ptr %st.addr, align 8
+  %703 = load ptr, ptr %s.addr, align 8
+  %v1107 = getelementptr inbounds %struct._stmt, ptr %703, i32 0, i32 1
   %exc1108 = getelementptr inbounds %struct.anon.791, ptr %v1107, i32 0, i32 0
-  %697 = load ptr, ptr %exc1108, align 8
-  %call1109 = call i32 @symtable_visit_expr(ptr noundef %695, ptr noundef %697)
+  %704 = load ptr, ptr %exc1108, align 8
+  %call1109 = call i32 @symtable_visit_expr(ptr noundef %702, ptr noundef %704)
   %tobool1110 = icmp ne i32 %call1109, 0
   br i1 %tobool1110, label %if.end1114, label %if.then1111
 
 if.then1111:                                      ; preds = %if.then1106
-  %698 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1112 = getelementptr inbounds %struct.symtable, ptr %698, i32 0, i32 9
-  %699 = load i32, ptr %recursion_depth1112, align 8
-  %dec1113 = add i32 %699, -1
+  %705 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1112 = getelementptr inbounds %struct.symtable, ptr %705, i32 0, i32 9
+  %706 = load i32, ptr %recursion_depth1112, align 8
+  %dec1113 = add i32 %706, -1
   store i32 %dec1113, ptr %recursion_depth1112, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1114:                                       ; preds = %if.then1106
-  %700 = load ptr, ptr %s.addr, align 8
-  %v1115 = getelementptr inbounds %struct._stmt, ptr %700, i32 0, i32 1
+  %707 = load ptr, ptr %s.addr, align 8
+  %v1115 = getelementptr inbounds %struct._stmt, ptr %707, i32 0, i32 1
   %cause = getelementptr inbounds %struct.anon.791, ptr %v1115, i32 0, i32 1
-  %701 = load ptr, ptr %cause, align 8
-  %tobool1116 = icmp ne ptr %701, null
+  %708 = load ptr, ptr %cause, align 8
+  %tobool1116 = icmp ne ptr %708, null
   br i1 %tobool1116, label %if.then1117, label %if.end1126
 
 if.then1117:                                      ; preds = %if.end1114
-  %702 = load ptr, ptr %st.addr, align 8
-  %703 = load ptr, ptr %s.addr, align 8
-  %v1118 = getelementptr inbounds %struct._stmt, ptr %703, i32 0, i32 1
+  %709 = load ptr, ptr %st.addr, align 8
+  %710 = load ptr, ptr %s.addr, align 8
+  %v1118 = getelementptr inbounds %struct._stmt, ptr %710, i32 0, i32 1
   %cause1119 = getelementptr inbounds %struct.anon.791, ptr %v1118, i32 0, i32 1
-  %704 = load ptr, ptr %cause1119, align 8
-  %call1120 = call i32 @symtable_visit_expr(ptr noundef %702, ptr noundef %704)
+  %711 = load ptr, ptr %cause1119, align 8
+  %call1120 = call i32 @symtable_visit_expr(ptr noundef %709, ptr noundef %711)
   %tobool1121 = icmp ne i32 %call1120, 0
   br i1 %tobool1121, label %if.end1125, label %if.then1122
 
 if.then1122:                                      ; preds = %if.then1117
-  %705 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1123 = getelementptr inbounds %struct.symtable, ptr %705, i32 0, i32 9
-  %706 = load i32, ptr %recursion_depth1123, align 8
-  %dec1124 = add i32 %706, -1
+  %712 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1123 = getelementptr inbounds %struct.symtable, ptr %712, i32 0, i32 9
+  %713 = load i32, ptr %recursion_depth1123, align 8
+  %dec1124 = add i32 %713, -1
   store i32 %dec1124, ptr %recursion_depth1123, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4574,54 +4583,54 @@ if.end1127:                                       ; preds = %if.end1126, %sw.bb1
   br label %sw.epilog
 
 sw.bb1128:                                        ; preds = %if.end
-  %707 = load ptr, ptr %s.addr, align 8
-  %v1131 = getelementptr inbounds %struct._stmt, ptr %707, i32 0, i32 1
+  %714 = load ptr, ptr %s.addr, align 8
+  %v1131 = getelementptr inbounds %struct._stmt, ptr %714, i32 0, i32 1
   %body1132 = getelementptr inbounds %struct.anon.792, ptr %v1131, i32 0, i32 0
-  %708 = load ptr, ptr %body1132, align 8
-  store ptr %708, ptr %seq1130, align 8
+  %715 = load ptr, ptr %body1132, align 8
+  store ptr %715, ptr %seq1130, align 8
   store i32 0, ptr %i1129, align 4
   br label %for.cond1133
 
 for.cond1133:                                     ; preds = %for.inc1155, %sw.bb1128
-  %709 = load i32, ptr %i1129, align 4
-  %conv1134 = sext i32 %709 to i64
-  %710 = load ptr, ptr %seq1130, align 8
-  %cmp1135 = icmp eq ptr %710, null
+  %716 = load i32, ptr %i1129, align 4
+  %conv1134 = sext i32 %716 to i64
+  %717 = load ptr, ptr %seq1130, align 8
+  %cmp1135 = icmp eq ptr %717, null
   br i1 %cmp1135, label %cond.true1137, label %cond.false1138
 
 cond.true1137:                                    ; preds = %for.cond1133
   br label %cond.end1140
 
 cond.false1138:                                   ; preds = %for.cond1133
-  %711 = load ptr, ptr %seq1130, align 8
-  %size1139 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %711, i32 0, i32 0
-  %712 = load i64, ptr %size1139, align 8
+  %718 = load ptr, ptr %seq1130, align 8
+  %size1139 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %718, i32 0, i32 0
+  %719 = load i64, ptr %size1139, align 8
   br label %cond.end1140
 
 cond.end1140:                                     ; preds = %cond.false1138, %cond.true1137
-  %cond1141 = phi i64 [ 0, %cond.true1137 ], [ %712, %cond.false1138 ]
+  %cond1141 = phi i64 [ 0, %cond.true1137 ], [ %719, %cond.false1138 ]
   %cmp1142 = icmp slt i64 %conv1134, %cond1141
   br i1 %cmp1142, label %for.body1144, label %for.end1157
 
 for.body1144:                                     ; preds = %cond.end1140
-  %713 = load ptr, ptr %seq1130, align 8
-  %typed_elements1146 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %713, i32 0, i32 2
-  %714 = load i32, ptr %i1129, align 4
-  %idxprom1147 = sext i32 %714 to i64
+  %720 = load ptr, ptr %seq1130, align 8
+  %typed_elements1146 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %720, i32 0, i32 2
+  %721 = load i32, ptr %i1129, align 4
+  %idxprom1147 = sext i32 %721 to i64
   %arrayidx1148 = getelementptr [1 x ptr], ptr %typed_elements1146, i64 0, i64 %idxprom1147
-  %715 = load ptr, ptr %arrayidx1148, align 8
-  store ptr %715, ptr %elt1145, align 8
-  %716 = load ptr, ptr %st.addr, align 8
-  %717 = load ptr, ptr %elt1145, align 8
-  %call1149 = call i32 @symtable_visit_stmt(ptr noundef %716, ptr noundef %717)
+  %722 = load ptr, ptr %arrayidx1148, align 8
+  store ptr %722, ptr %elt1145, align 8
+  %723 = load ptr, ptr %st.addr, align 8
+  %724 = load ptr, ptr %elt1145, align 8
+  %call1149 = call i32 @symtable_visit_stmt(ptr noundef %723, ptr noundef %724)
   %tobool1150 = icmp ne i32 %call1149, 0
   br i1 %tobool1150, label %if.end1154, label %if.then1151
 
 if.then1151:                                      ; preds = %for.body1144
-  %718 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1152 = getelementptr inbounds %struct.symtable, ptr %718, i32 0, i32 9
-  %719 = load i32, ptr %recursion_depth1152, align 8
-  %dec1153 = add i32 %719, -1
+  %725 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1152 = getelementptr inbounds %struct.symtable, ptr %725, i32 0, i32 9
+  %726 = load i32, ptr %recursion_depth1152, align 8
+  %dec1153 = add i32 %726, -1
   store i32 %dec1153, ptr %recursion_depth1152, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4630,60 +4639,60 @@ if.end1154:                                       ; preds = %for.body1144
   br label %for.inc1155
 
 for.inc1155:                                      ; preds = %if.end1154
-  %720 = load i32, ptr %i1129, align 4
-  %inc1156 = add i32 %720, 1
+  %727 = load i32, ptr %i1129, align 4
+  %inc1156 = add i32 %727, 1
   store i32 %inc1156, ptr %i1129, align 4
   br label %for.cond1133, !llvm.loop !28
 
 for.end1157:                                      ; preds = %cond.end1140
-  %721 = load ptr, ptr %s.addr, align 8
-  %v1160 = getelementptr inbounds %struct._stmt, ptr %721, i32 0, i32 1
+  %728 = load ptr, ptr %s.addr, align 8
+  %v1160 = getelementptr inbounds %struct._stmt, ptr %728, i32 0, i32 1
   %handlers = getelementptr inbounds %struct.anon.792, ptr %v1160, i32 0, i32 1
-  %722 = load ptr, ptr %handlers, align 8
-  store ptr %722, ptr %seq1159, align 8
+  %729 = load ptr, ptr %handlers, align 8
+  store ptr %729, ptr %seq1159, align 8
   store i32 0, ptr %i1158, align 4
   br label %for.cond1161
 
 for.cond1161:                                     ; preds = %for.inc1183, %for.end1157
-  %723 = load i32, ptr %i1158, align 4
-  %conv1162 = sext i32 %723 to i64
-  %724 = load ptr, ptr %seq1159, align 8
-  %cmp1163 = icmp eq ptr %724, null
+  %730 = load i32, ptr %i1158, align 4
+  %conv1162 = sext i32 %730 to i64
+  %731 = load ptr, ptr %seq1159, align 8
+  %cmp1163 = icmp eq ptr %731, null
   br i1 %cmp1163, label %cond.true1165, label %cond.false1166
 
 cond.true1165:                                    ; preds = %for.cond1161
   br label %cond.end1168
 
 cond.false1166:                                   ; preds = %for.cond1161
-  %725 = load ptr, ptr %seq1159, align 8
-  %size1167 = getelementptr inbounds %struct.asdl_excepthandler_seq, ptr %725, i32 0, i32 0
-  %726 = load i64, ptr %size1167, align 8
+  %732 = load ptr, ptr %seq1159, align 8
+  %size1167 = getelementptr inbounds %struct.asdl_excepthandler_seq, ptr %732, i32 0, i32 0
+  %733 = load i64, ptr %size1167, align 8
   br label %cond.end1168
 
 cond.end1168:                                     ; preds = %cond.false1166, %cond.true1165
-  %cond1169 = phi i64 [ 0, %cond.true1165 ], [ %726, %cond.false1166 ]
+  %cond1169 = phi i64 [ 0, %cond.true1165 ], [ %733, %cond.false1166 ]
   %cmp1170 = icmp slt i64 %conv1162, %cond1169
   br i1 %cmp1170, label %for.body1172, label %for.end1185
 
 for.body1172:                                     ; preds = %cond.end1168
-  %727 = load ptr, ptr %seq1159, align 8
-  %typed_elements1174 = getelementptr inbounds %struct.asdl_excepthandler_seq, ptr %727, i32 0, i32 2
-  %728 = load i32, ptr %i1158, align 4
-  %idxprom1175 = sext i32 %728 to i64
+  %734 = load ptr, ptr %seq1159, align 8
+  %typed_elements1174 = getelementptr inbounds %struct.asdl_excepthandler_seq, ptr %734, i32 0, i32 2
+  %735 = load i32, ptr %i1158, align 4
+  %idxprom1175 = sext i32 %735 to i64
   %arrayidx1176 = getelementptr [1 x ptr], ptr %typed_elements1174, i64 0, i64 %idxprom1175
-  %729 = load ptr, ptr %arrayidx1176, align 8
-  store ptr %729, ptr %elt1173, align 8
-  %730 = load ptr, ptr %st.addr, align 8
-  %731 = load ptr, ptr %elt1173, align 8
-  %call1177 = call i32 @symtable_visit_excepthandler(ptr noundef %730, ptr noundef %731)
+  %736 = load ptr, ptr %arrayidx1176, align 8
+  store ptr %736, ptr %elt1173, align 8
+  %737 = load ptr, ptr %st.addr, align 8
+  %738 = load ptr, ptr %elt1173, align 8
+  %call1177 = call i32 @symtable_visit_excepthandler(ptr noundef %737, ptr noundef %738)
   %tobool1178 = icmp ne i32 %call1177, 0
   br i1 %tobool1178, label %if.end1182, label %if.then1179
 
 if.then1179:                                      ; preds = %for.body1172
-  %732 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1180 = getelementptr inbounds %struct.symtable, ptr %732, i32 0, i32 9
-  %733 = load i32, ptr %recursion_depth1180, align 8
-  %dec1181 = add i32 %733, -1
+  %739 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1180 = getelementptr inbounds %struct.symtable, ptr %739, i32 0, i32 9
+  %740 = load i32, ptr %recursion_depth1180, align 8
+  %dec1181 = add i32 %740, -1
   store i32 %dec1181, ptr %recursion_depth1180, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4692,60 +4701,60 @@ if.end1182:                                       ; preds = %for.body1172
   br label %for.inc1183
 
 for.inc1183:                                      ; preds = %if.end1182
-  %734 = load i32, ptr %i1158, align 4
-  %inc1184 = add i32 %734, 1
+  %741 = load i32, ptr %i1158, align 4
+  %inc1184 = add i32 %741, 1
   store i32 %inc1184, ptr %i1158, align 4
   br label %for.cond1161, !llvm.loop !29
 
 for.end1185:                                      ; preds = %cond.end1168
-  %735 = load ptr, ptr %s.addr, align 8
-  %v1188 = getelementptr inbounds %struct._stmt, ptr %735, i32 0, i32 1
+  %742 = load ptr, ptr %s.addr, align 8
+  %v1188 = getelementptr inbounds %struct._stmt, ptr %742, i32 0, i32 1
   %orelse1189 = getelementptr inbounds %struct.anon.792, ptr %v1188, i32 0, i32 2
-  %736 = load ptr, ptr %orelse1189, align 8
-  store ptr %736, ptr %seq1187, align 8
+  %743 = load ptr, ptr %orelse1189, align 8
+  store ptr %743, ptr %seq1187, align 8
   store i32 0, ptr %i1186, align 4
   br label %for.cond1190
 
 for.cond1190:                                     ; preds = %for.inc1212, %for.end1185
-  %737 = load i32, ptr %i1186, align 4
-  %conv1191 = sext i32 %737 to i64
-  %738 = load ptr, ptr %seq1187, align 8
-  %cmp1192 = icmp eq ptr %738, null
+  %744 = load i32, ptr %i1186, align 4
+  %conv1191 = sext i32 %744 to i64
+  %745 = load ptr, ptr %seq1187, align 8
+  %cmp1192 = icmp eq ptr %745, null
   br i1 %cmp1192, label %cond.true1194, label %cond.false1195
 
 cond.true1194:                                    ; preds = %for.cond1190
   br label %cond.end1197
 
 cond.false1195:                                   ; preds = %for.cond1190
-  %739 = load ptr, ptr %seq1187, align 8
-  %size1196 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %739, i32 0, i32 0
-  %740 = load i64, ptr %size1196, align 8
+  %746 = load ptr, ptr %seq1187, align 8
+  %size1196 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %746, i32 0, i32 0
+  %747 = load i64, ptr %size1196, align 8
   br label %cond.end1197
 
 cond.end1197:                                     ; preds = %cond.false1195, %cond.true1194
-  %cond1198 = phi i64 [ 0, %cond.true1194 ], [ %740, %cond.false1195 ]
+  %cond1198 = phi i64 [ 0, %cond.true1194 ], [ %747, %cond.false1195 ]
   %cmp1199 = icmp slt i64 %conv1191, %cond1198
   br i1 %cmp1199, label %for.body1201, label %for.end1214
 
 for.body1201:                                     ; preds = %cond.end1197
-  %741 = load ptr, ptr %seq1187, align 8
-  %typed_elements1203 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %741, i32 0, i32 2
-  %742 = load i32, ptr %i1186, align 4
-  %idxprom1204 = sext i32 %742 to i64
+  %748 = load ptr, ptr %seq1187, align 8
+  %typed_elements1203 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %748, i32 0, i32 2
+  %749 = load i32, ptr %i1186, align 4
+  %idxprom1204 = sext i32 %749 to i64
   %arrayidx1205 = getelementptr [1 x ptr], ptr %typed_elements1203, i64 0, i64 %idxprom1204
-  %743 = load ptr, ptr %arrayidx1205, align 8
-  store ptr %743, ptr %elt1202, align 8
-  %744 = load ptr, ptr %st.addr, align 8
-  %745 = load ptr, ptr %elt1202, align 8
-  %call1206 = call i32 @symtable_visit_stmt(ptr noundef %744, ptr noundef %745)
+  %750 = load ptr, ptr %arrayidx1205, align 8
+  store ptr %750, ptr %elt1202, align 8
+  %751 = load ptr, ptr %st.addr, align 8
+  %752 = load ptr, ptr %elt1202, align 8
+  %call1206 = call i32 @symtable_visit_stmt(ptr noundef %751, ptr noundef %752)
   %tobool1207 = icmp ne i32 %call1206, 0
   br i1 %tobool1207, label %if.end1211, label %if.then1208
 
 if.then1208:                                      ; preds = %for.body1201
-  %746 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1209 = getelementptr inbounds %struct.symtable, ptr %746, i32 0, i32 9
-  %747 = load i32, ptr %recursion_depth1209, align 8
-  %dec1210 = add i32 %747, -1
+  %753 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1209 = getelementptr inbounds %struct.symtable, ptr %753, i32 0, i32 9
+  %754 = load i32, ptr %recursion_depth1209, align 8
+  %dec1210 = add i32 %754, -1
   store i32 %dec1210, ptr %recursion_depth1209, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4754,60 +4763,60 @@ if.end1211:                                       ; preds = %for.body1201
   br label %for.inc1212
 
 for.inc1212:                                      ; preds = %if.end1211
-  %748 = load i32, ptr %i1186, align 4
-  %inc1213 = add i32 %748, 1
+  %755 = load i32, ptr %i1186, align 4
+  %inc1213 = add i32 %755, 1
   store i32 %inc1213, ptr %i1186, align 4
   br label %for.cond1190, !llvm.loop !30
 
 for.end1214:                                      ; preds = %cond.end1197
-  %749 = load ptr, ptr %s.addr, align 8
-  %v1217 = getelementptr inbounds %struct._stmt, ptr %749, i32 0, i32 1
+  %756 = load ptr, ptr %s.addr, align 8
+  %v1217 = getelementptr inbounds %struct._stmt, ptr %756, i32 0, i32 1
   %finalbody = getelementptr inbounds %struct.anon.792, ptr %v1217, i32 0, i32 3
-  %750 = load ptr, ptr %finalbody, align 8
-  store ptr %750, ptr %seq1216, align 8
+  %757 = load ptr, ptr %finalbody, align 8
+  store ptr %757, ptr %seq1216, align 8
   store i32 0, ptr %i1215, align 4
   br label %for.cond1218
 
 for.cond1218:                                     ; preds = %for.inc1240, %for.end1214
-  %751 = load i32, ptr %i1215, align 4
-  %conv1219 = sext i32 %751 to i64
-  %752 = load ptr, ptr %seq1216, align 8
-  %cmp1220 = icmp eq ptr %752, null
+  %758 = load i32, ptr %i1215, align 4
+  %conv1219 = sext i32 %758 to i64
+  %759 = load ptr, ptr %seq1216, align 8
+  %cmp1220 = icmp eq ptr %759, null
   br i1 %cmp1220, label %cond.true1222, label %cond.false1223
 
 cond.true1222:                                    ; preds = %for.cond1218
   br label %cond.end1225
 
 cond.false1223:                                   ; preds = %for.cond1218
-  %753 = load ptr, ptr %seq1216, align 8
-  %size1224 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %753, i32 0, i32 0
-  %754 = load i64, ptr %size1224, align 8
+  %760 = load ptr, ptr %seq1216, align 8
+  %size1224 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %760, i32 0, i32 0
+  %761 = load i64, ptr %size1224, align 8
   br label %cond.end1225
 
 cond.end1225:                                     ; preds = %cond.false1223, %cond.true1222
-  %cond1226 = phi i64 [ 0, %cond.true1222 ], [ %754, %cond.false1223 ]
+  %cond1226 = phi i64 [ 0, %cond.true1222 ], [ %761, %cond.false1223 ]
   %cmp1227 = icmp slt i64 %conv1219, %cond1226
   br i1 %cmp1227, label %for.body1229, label %for.end1242
 
 for.body1229:                                     ; preds = %cond.end1225
-  %755 = load ptr, ptr %seq1216, align 8
-  %typed_elements1231 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %755, i32 0, i32 2
-  %756 = load i32, ptr %i1215, align 4
-  %idxprom1232 = sext i32 %756 to i64
+  %762 = load ptr, ptr %seq1216, align 8
+  %typed_elements1231 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %762, i32 0, i32 2
+  %763 = load i32, ptr %i1215, align 4
+  %idxprom1232 = sext i32 %763 to i64
   %arrayidx1233 = getelementptr [1 x ptr], ptr %typed_elements1231, i64 0, i64 %idxprom1232
-  %757 = load ptr, ptr %arrayidx1233, align 8
-  store ptr %757, ptr %elt1230, align 8
-  %758 = load ptr, ptr %st.addr, align 8
-  %759 = load ptr, ptr %elt1230, align 8
-  %call1234 = call i32 @symtable_visit_stmt(ptr noundef %758, ptr noundef %759)
+  %764 = load ptr, ptr %arrayidx1233, align 8
+  store ptr %764, ptr %elt1230, align 8
+  %765 = load ptr, ptr %st.addr, align 8
+  %766 = load ptr, ptr %elt1230, align 8
+  %call1234 = call i32 @symtable_visit_stmt(ptr noundef %765, ptr noundef %766)
   %tobool1235 = icmp ne i32 %call1234, 0
   br i1 %tobool1235, label %if.end1239, label %if.then1236
 
 if.then1236:                                      ; preds = %for.body1229
-  %760 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1237 = getelementptr inbounds %struct.symtable, ptr %760, i32 0, i32 9
-  %761 = load i32, ptr %recursion_depth1237, align 8
-  %dec1238 = add i32 %761, -1
+  %767 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1237 = getelementptr inbounds %struct.symtable, ptr %767, i32 0, i32 9
+  %768 = load i32, ptr %recursion_depth1237, align 8
+  %dec1238 = add i32 %768, -1
   store i32 %dec1238, ptr %recursion_depth1237, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4816,8 +4825,8 @@ if.end1239:                                       ; preds = %for.body1229
   br label %for.inc1240
 
 for.inc1240:                                      ; preds = %if.end1239
-  %762 = load i32, ptr %i1215, align 4
-  %inc1241 = add i32 %762, 1
+  %769 = load i32, ptr %i1215, align 4
+  %inc1241 = add i32 %769, 1
   store i32 %inc1241, ptr %i1215, align 4
   br label %for.cond1218, !llvm.loop !31
 
@@ -4825,54 +4834,54 @@ for.end1242:                                      ; preds = %cond.end1225
   br label %sw.epilog
 
 sw.bb1243:                                        ; preds = %if.end
-  %763 = load ptr, ptr %s.addr, align 8
-  %v1246 = getelementptr inbounds %struct._stmt, ptr %763, i32 0, i32 1
+  %770 = load ptr, ptr %s.addr, align 8
+  %v1246 = getelementptr inbounds %struct._stmt, ptr %770, i32 0, i32 1
   %body1247 = getelementptr inbounds %struct.anon.793, ptr %v1246, i32 0, i32 0
-  %764 = load ptr, ptr %body1247, align 8
-  store ptr %764, ptr %seq1245, align 8
+  %771 = load ptr, ptr %body1247, align 8
+  store ptr %771, ptr %seq1245, align 8
   store i32 0, ptr %i1244, align 4
   br label %for.cond1248
 
 for.cond1248:                                     ; preds = %for.inc1270, %sw.bb1243
-  %765 = load i32, ptr %i1244, align 4
-  %conv1249 = sext i32 %765 to i64
-  %766 = load ptr, ptr %seq1245, align 8
-  %cmp1250 = icmp eq ptr %766, null
+  %772 = load i32, ptr %i1244, align 4
+  %conv1249 = sext i32 %772 to i64
+  %773 = load ptr, ptr %seq1245, align 8
+  %cmp1250 = icmp eq ptr %773, null
   br i1 %cmp1250, label %cond.true1252, label %cond.false1253
 
 cond.true1252:                                    ; preds = %for.cond1248
   br label %cond.end1255
 
 cond.false1253:                                   ; preds = %for.cond1248
-  %767 = load ptr, ptr %seq1245, align 8
-  %size1254 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %767, i32 0, i32 0
-  %768 = load i64, ptr %size1254, align 8
+  %774 = load ptr, ptr %seq1245, align 8
+  %size1254 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %774, i32 0, i32 0
+  %775 = load i64, ptr %size1254, align 8
   br label %cond.end1255
 
 cond.end1255:                                     ; preds = %cond.false1253, %cond.true1252
-  %cond1256 = phi i64 [ 0, %cond.true1252 ], [ %768, %cond.false1253 ]
+  %cond1256 = phi i64 [ 0, %cond.true1252 ], [ %775, %cond.false1253 ]
   %cmp1257 = icmp slt i64 %conv1249, %cond1256
   br i1 %cmp1257, label %for.body1259, label %for.end1272
 
 for.body1259:                                     ; preds = %cond.end1255
-  %769 = load ptr, ptr %seq1245, align 8
-  %typed_elements1261 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %769, i32 0, i32 2
-  %770 = load i32, ptr %i1244, align 4
-  %idxprom1262 = sext i32 %770 to i64
+  %776 = load ptr, ptr %seq1245, align 8
+  %typed_elements1261 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %776, i32 0, i32 2
+  %777 = load i32, ptr %i1244, align 4
+  %idxprom1262 = sext i32 %777 to i64
   %arrayidx1263 = getelementptr [1 x ptr], ptr %typed_elements1261, i64 0, i64 %idxprom1262
-  %771 = load ptr, ptr %arrayidx1263, align 8
-  store ptr %771, ptr %elt1260, align 8
-  %772 = load ptr, ptr %st.addr, align 8
-  %773 = load ptr, ptr %elt1260, align 8
-  %call1264 = call i32 @symtable_visit_stmt(ptr noundef %772, ptr noundef %773)
+  %778 = load ptr, ptr %arrayidx1263, align 8
+  store ptr %778, ptr %elt1260, align 8
+  %779 = load ptr, ptr %st.addr, align 8
+  %780 = load ptr, ptr %elt1260, align 8
+  %call1264 = call i32 @symtable_visit_stmt(ptr noundef %779, ptr noundef %780)
   %tobool1265 = icmp ne i32 %call1264, 0
   br i1 %tobool1265, label %if.end1269, label %if.then1266
 
 if.then1266:                                      ; preds = %for.body1259
-  %774 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1267 = getelementptr inbounds %struct.symtable, ptr %774, i32 0, i32 9
-  %775 = load i32, ptr %recursion_depth1267, align 8
-  %dec1268 = add i32 %775, -1
+  %781 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1267 = getelementptr inbounds %struct.symtable, ptr %781, i32 0, i32 9
+  %782 = load i32, ptr %recursion_depth1267, align 8
+  %dec1268 = add i32 %782, -1
   store i32 %dec1268, ptr %recursion_depth1267, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4881,60 +4890,60 @@ if.end1269:                                       ; preds = %for.body1259
   br label %for.inc1270
 
 for.inc1270:                                      ; preds = %if.end1269
-  %776 = load i32, ptr %i1244, align 4
-  %inc1271 = add i32 %776, 1
+  %783 = load i32, ptr %i1244, align 4
+  %inc1271 = add i32 %783, 1
   store i32 %inc1271, ptr %i1244, align 4
   br label %for.cond1248, !llvm.loop !32
 
 for.end1272:                                      ; preds = %cond.end1255
-  %777 = load ptr, ptr %s.addr, align 8
-  %v1275 = getelementptr inbounds %struct._stmt, ptr %777, i32 0, i32 1
+  %784 = load ptr, ptr %s.addr, align 8
+  %v1275 = getelementptr inbounds %struct._stmt, ptr %784, i32 0, i32 1
   %handlers1276 = getelementptr inbounds %struct.anon.793, ptr %v1275, i32 0, i32 1
-  %778 = load ptr, ptr %handlers1276, align 8
-  store ptr %778, ptr %seq1274, align 8
+  %785 = load ptr, ptr %handlers1276, align 8
+  store ptr %785, ptr %seq1274, align 8
   store i32 0, ptr %i1273, align 4
   br label %for.cond1277
 
 for.cond1277:                                     ; preds = %for.inc1299, %for.end1272
-  %779 = load i32, ptr %i1273, align 4
-  %conv1278 = sext i32 %779 to i64
-  %780 = load ptr, ptr %seq1274, align 8
-  %cmp1279 = icmp eq ptr %780, null
+  %786 = load i32, ptr %i1273, align 4
+  %conv1278 = sext i32 %786 to i64
+  %787 = load ptr, ptr %seq1274, align 8
+  %cmp1279 = icmp eq ptr %787, null
   br i1 %cmp1279, label %cond.true1281, label %cond.false1282
 
 cond.true1281:                                    ; preds = %for.cond1277
   br label %cond.end1284
 
 cond.false1282:                                   ; preds = %for.cond1277
-  %781 = load ptr, ptr %seq1274, align 8
-  %size1283 = getelementptr inbounds %struct.asdl_excepthandler_seq, ptr %781, i32 0, i32 0
-  %782 = load i64, ptr %size1283, align 8
+  %788 = load ptr, ptr %seq1274, align 8
+  %size1283 = getelementptr inbounds %struct.asdl_excepthandler_seq, ptr %788, i32 0, i32 0
+  %789 = load i64, ptr %size1283, align 8
   br label %cond.end1284
 
 cond.end1284:                                     ; preds = %cond.false1282, %cond.true1281
-  %cond1285 = phi i64 [ 0, %cond.true1281 ], [ %782, %cond.false1282 ]
+  %cond1285 = phi i64 [ 0, %cond.true1281 ], [ %789, %cond.false1282 ]
   %cmp1286 = icmp slt i64 %conv1278, %cond1285
   br i1 %cmp1286, label %for.body1288, label %for.end1301
 
 for.body1288:                                     ; preds = %cond.end1284
-  %783 = load ptr, ptr %seq1274, align 8
-  %typed_elements1290 = getelementptr inbounds %struct.asdl_excepthandler_seq, ptr %783, i32 0, i32 2
-  %784 = load i32, ptr %i1273, align 4
-  %idxprom1291 = sext i32 %784 to i64
+  %790 = load ptr, ptr %seq1274, align 8
+  %typed_elements1290 = getelementptr inbounds %struct.asdl_excepthandler_seq, ptr %790, i32 0, i32 2
+  %791 = load i32, ptr %i1273, align 4
+  %idxprom1291 = sext i32 %791 to i64
   %arrayidx1292 = getelementptr [1 x ptr], ptr %typed_elements1290, i64 0, i64 %idxprom1291
-  %785 = load ptr, ptr %arrayidx1292, align 8
-  store ptr %785, ptr %elt1289, align 8
-  %786 = load ptr, ptr %st.addr, align 8
-  %787 = load ptr, ptr %elt1289, align 8
-  %call1293 = call i32 @symtable_visit_excepthandler(ptr noundef %786, ptr noundef %787)
+  %792 = load ptr, ptr %arrayidx1292, align 8
+  store ptr %792, ptr %elt1289, align 8
+  %793 = load ptr, ptr %st.addr, align 8
+  %794 = load ptr, ptr %elt1289, align 8
+  %call1293 = call i32 @symtable_visit_excepthandler(ptr noundef %793, ptr noundef %794)
   %tobool1294 = icmp ne i32 %call1293, 0
   br i1 %tobool1294, label %if.end1298, label %if.then1295
 
 if.then1295:                                      ; preds = %for.body1288
-  %788 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1296 = getelementptr inbounds %struct.symtable, ptr %788, i32 0, i32 9
-  %789 = load i32, ptr %recursion_depth1296, align 8
-  %dec1297 = add i32 %789, -1
+  %795 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1296 = getelementptr inbounds %struct.symtable, ptr %795, i32 0, i32 9
+  %796 = load i32, ptr %recursion_depth1296, align 8
+  %dec1297 = add i32 %796, -1
   store i32 %dec1297, ptr %recursion_depth1296, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -4943,60 +4952,60 @@ if.end1298:                                       ; preds = %for.body1288
   br label %for.inc1299
 
 for.inc1299:                                      ; preds = %if.end1298
-  %790 = load i32, ptr %i1273, align 4
-  %inc1300 = add i32 %790, 1
+  %797 = load i32, ptr %i1273, align 4
+  %inc1300 = add i32 %797, 1
   store i32 %inc1300, ptr %i1273, align 4
   br label %for.cond1277, !llvm.loop !33
 
 for.end1301:                                      ; preds = %cond.end1284
-  %791 = load ptr, ptr %s.addr, align 8
-  %v1304 = getelementptr inbounds %struct._stmt, ptr %791, i32 0, i32 1
+  %798 = load ptr, ptr %s.addr, align 8
+  %v1304 = getelementptr inbounds %struct._stmt, ptr %798, i32 0, i32 1
   %orelse1305 = getelementptr inbounds %struct.anon.793, ptr %v1304, i32 0, i32 2
-  %792 = load ptr, ptr %orelse1305, align 8
-  store ptr %792, ptr %seq1303, align 8
+  %799 = load ptr, ptr %orelse1305, align 8
+  store ptr %799, ptr %seq1303, align 8
   store i32 0, ptr %i1302, align 4
   br label %for.cond1306
 
 for.cond1306:                                     ; preds = %for.inc1328, %for.end1301
-  %793 = load i32, ptr %i1302, align 4
-  %conv1307 = sext i32 %793 to i64
-  %794 = load ptr, ptr %seq1303, align 8
-  %cmp1308 = icmp eq ptr %794, null
+  %800 = load i32, ptr %i1302, align 4
+  %conv1307 = sext i32 %800 to i64
+  %801 = load ptr, ptr %seq1303, align 8
+  %cmp1308 = icmp eq ptr %801, null
   br i1 %cmp1308, label %cond.true1310, label %cond.false1311
 
 cond.true1310:                                    ; preds = %for.cond1306
   br label %cond.end1313
 
 cond.false1311:                                   ; preds = %for.cond1306
-  %795 = load ptr, ptr %seq1303, align 8
-  %size1312 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %795, i32 0, i32 0
-  %796 = load i64, ptr %size1312, align 8
+  %802 = load ptr, ptr %seq1303, align 8
+  %size1312 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %802, i32 0, i32 0
+  %803 = load i64, ptr %size1312, align 8
   br label %cond.end1313
 
 cond.end1313:                                     ; preds = %cond.false1311, %cond.true1310
-  %cond1314 = phi i64 [ 0, %cond.true1310 ], [ %796, %cond.false1311 ]
+  %cond1314 = phi i64 [ 0, %cond.true1310 ], [ %803, %cond.false1311 ]
   %cmp1315 = icmp slt i64 %conv1307, %cond1314
   br i1 %cmp1315, label %for.body1317, label %for.end1330
 
 for.body1317:                                     ; preds = %cond.end1313
-  %797 = load ptr, ptr %seq1303, align 8
-  %typed_elements1319 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %797, i32 0, i32 2
-  %798 = load i32, ptr %i1302, align 4
-  %idxprom1320 = sext i32 %798 to i64
+  %804 = load ptr, ptr %seq1303, align 8
+  %typed_elements1319 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %804, i32 0, i32 2
+  %805 = load i32, ptr %i1302, align 4
+  %idxprom1320 = sext i32 %805 to i64
   %arrayidx1321 = getelementptr [1 x ptr], ptr %typed_elements1319, i64 0, i64 %idxprom1320
-  %799 = load ptr, ptr %arrayidx1321, align 8
-  store ptr %799, ptr %elt1318, align 8
-  %800 = load ptr, ptr %st.addr, align 8
-  %801 = load ptr, ptr %elt1318, align 8
-  %call1322 = call i32 @symtable_visit_stmt(ptr noundef %800, ptr noundef %801)
+  %806 = load ptr, ptr %arrayidx1321, align 8
+  store ptr %806, ptr %elt1318, align 8
+  %807 = load ptr, ptr %st.addr, align 8
+  %808 = load ptr, ptr %elt1318, align 8
+  %call1322 = call i32 @symtable_visit_stmt(ptr noundef %807, ptr noundef %808)
   %tobool1323 = icmp ne i32 %call1322, 0
   br i1 %tobool1323, label %if.end1327, label %if.then1324
 
 if.then1324:                                      ; preds = %for.body1317
-  %802 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1325 = getelementptr inbounds %struct.symtable, ptr %802, i32 0, i32 9
-  %803 = load i32, ptr %recursion_depth1325, align 8
-  %dec1326 = add i32 %803, -1
+  %809 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1325 = getelementptr inbounds %struct.symtable, ptr %809, i32 0, i32 9
+  %810 = load i32, ptr %recursion_depth1325, align 8
+  %dec1326 = add i32 %810, -1
   store i32 %dec1326, ptr %recursion_depth1325, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5005,60 +5014,60 @@ if.end1327:                                       ; preds = %for.body1317
   br label %for.inc1328
 
 for.inc1328:                                      ; preds = %if.end1327
-  %804 = load i32, ptr %i1302, align 4
-  %inc1329 = add i32 %804, 1
+  %811 = load i32, ptr %i1302, align 4
+  %inc1329 = add i32 %811, 1
   store i32 %inc1329, ptr %i1302, align 4
   br label %for.cond1306, !llvm.loop !34
 
 for.end1330:                                      ; preds = %cond.end1313
-  %805 = load ptr, ptr %s.addr, align 8
-  %v1333 = getelementptr inbounds %struct._stmt, ptr %805, i32 0, i32 1
+  %812 = load ptr, ptr %s.addr, align 8
+  %v1333 = getelementptr inbounds %struct._stmt, ptr %812, i32 0, i32 1
   %finalbody1334 = getelementptr inbounds %struct.anon.793, ptr %v1333, i32 0, i32 3
-  %806 = load ptr, ptr %finalbody1334, align 8
-  store ptr %806, ptr %seq1332, align 8
+  %813 = load ptr, ptr %finalbody1334, align 8
+  store ptr %813, ptr %seq1332, align 8
   store i32 0, ptr %i1331, align 4
   br label %for.cond1335
 
 for.cond1335:                                     ; preds = %for.inc1357, %for.end1330
-  %807 = load i32, ptr %i1331, align 4
-  %conv1336 = sext i32 %807 to i64
-  %808 = load ptr, ptr %seq1332, align 8
-  %cmp1337 = icmp eq ptr %808, null
+  %814 = load i32, ptr %i1331, align 4
+  %conv1336 = sext i32 %814 to i64
+  %815 = load ptr, ptr %seq1332, align 8
+  %cmp1337 = icmp eq ptr %815, null
   br i1 %cmp1337, label %cond.true1339, label %cond.false1340
 
 cond.true1339:                                    ; preds = %for.cond1335
   br label %cond.end1342
 
 cond.false1340:                                   ; preds = %for.cond1335
-  %809 = load ptr, ptr %seq1332, align 8
-  %size1341 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %809, i32 0, i32 0
-  %810 = load i64, ptr %size1341, align 8
+  %816 = load ptr, ptr %seq1332, align 8
+  %size1341 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %816, i32 0, i32 0
+  %817 = load i64, ptr %size1341, align 8
   br label %cond.end1342
 
 cond.end1342:                                     ; preds = %cond.false1340, %cond.true1339
-  %cond1343 = phi i64 [ 0, %cond.true1339 ], [ %810, %cond.false1340 ]
+  %cond1343 = phi i64 [ 0, %cond.true1339 ], [ %817, %cond.false1340 ]
   %cmp1344 = icmp slt i64 %conv1336, %cond1343
   br i1 %cmp1344, label %for.body1346, label %for.end1359
 
 for.body1346:                                     ; preds = %cond.end1342
-  %811 = load ptr, ptr %seq1332, align 8
-  %typed_elements1348 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %811, i32 0, i32 2
-  %812 = load i32, ptr %i1331, align 4
-  %idxprom1349 = sext i32 %812 to i64
+  %818 = load ptr, ptr %seq1332, align 8
+  %typed_elements1348 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %818, i32 0, i32 2
+  %819 = load i32, ptr %i1331, align 4
+  %idxprom1349 = sext i32 %819 to i64
   %arrayidx1350 = getelementptr [1 x ptr], ptr %typed_elements1348, i64 0, i64 %idxprom1349
-  %813 = load ptr, ptr %arrayidx1350, align 8
-  store ptr %813, ptr %elt1347, align 8
-  %814 = load ptr, ptr %st.addr, align 8
-  %815 = load ptr, ptr %elt1347, align 8
-  %call1351 = call i32 @symtable_visit_stmt(ptr noundef %814, ptr noundef %815)
+  %820 = load ptr, ptr %arrayidx1350, align 8
+  store ptr %820, ptr %elt1347, align 8
+  %821 = load ptr, ptr %st.addr, align 8
+  %822 = load ptr, ptr %elt1347, align 8
+  %call1351 = call i32 @symtable_visit_stmt(ptr noundef %821, ptr noundef %822)
   %tobool1352 = icmp ne i32 %call1351, 0
   br i1 %tobool1352, label %if.end1356, label %if.then1353
 
 if.then1353:                                      ; preds = %for.body1346
-  %816 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1354 = getelementptr inbounds %struct.symtable, ptr %816, i32 0, i32 9
-  %817 = load i32, ptr %recursion_depth1354, align 8
-  %dec1355 = add i32 %817, -1
+  %823 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1354 = getelementptr inbounds %struct.symtable, ptr %823, i32 0, i32 9
+  %824 = load i32, ptr %recursion_depth1354, align 8
+  %dec1355 = add i32 %824, -1
   store i32 %dec1355, ptr %recursion_depth1354, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5067,8 +5076,8 @@ if.end1356:                                       ; preds = %for.body1346
   br label %for.inc1357
 
 for.inc1357:                                      ; preds = %if.end1356
-  %818 = load i32, ptr %i1331, align 4
-  %inc1358 = add i32 %818, 1
+  %825 = load i32, ptr %i1331, align 4
+  %inc1358 = add i32 %825, 1
   store i32 %inc1358, ptr %i1331, align 4
   br label %for.cond1335, !llvm.loop !35
 
@@ -5076,47 +5085,47 @@ for.end1359:                                      ; preds = %cond.end1342
   br label %sw.epilog
 
 sw.bb1360:                                        ; preds = %if.end
-  %819 = load ptr, ptr %st.addr, align 8
-  %820 = load ptr, ptr %s.addr, align 8
-  %v1361 = getelementptr inbounds %struct._stmt, ptr %820, i32 0, i32 1
+  %826 = load ptr, ptr %st.addr, align 8
+  %827 = load ptr, ptr %s.addr, align 8
+  %v1361 = getelementptr inbounds %struct._stmt, ptr %827, i32 0, i32 1
   %test1362 = getelementptr inbounds %struct.anon.794, ptr %v1361, i32 0, i32 0
-  %821 = load ptr, ptr %test1362, align 8
-  %call1363 = call i32 @symtable_visit_expr(ptr noundef %819, ptr noundef %821)
+  %828 = load ptr, ptr %test1362, align 8
+  %call1363 = call i32 @symtable_visit_expr(ptr noundef %826, ptr noundef %828)
   %tobool1364 = icmp ne i32 %call1363, 0
   br i1 %tobool1364, label %if.end1368, label %if.then1365
 
 if.then1365:                                      ; preds = %sw.bb1360
-  %822 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1366 = getelementptr inbounds %struct.symtable, ptr %822, i32 0, i32 9
-  %823 = load i32, ptr %recursion_depth1366, align 8
-  %dec1367 = add i32 %823, -1
+  %829 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1366 = getelementptr inbounds %struct.symtable, ptr %829, i32 0, i32 9
+  %830 = load i32, ptr %recursion_depth1366, align 8
+  %dec1367 = add i32 %830, -1
   store i32 %dec1367, ptr %recursion_depth1366, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1368:                                       ; preds = %sw.bb1360
-  %824 = load ptr, ptr %s.addr, align 8
-  %v1369 = getelementptr inbounds %struct._stmt, ptr %824, i32 0, i32 1
+  %831 = load ptr, ptr %s.addr, align 8
+  %v1369 = getelementptr inbounds %struct._stmt, ptr %831, i32 0, i32 1
   %msg = getelementptr inbounds %struct.anon.794, ptr %v1369, i32 0, i32 1
-  %825 = load ptr, ptr %msg, align 8
-  %tobool1370 = icmp ne ptr %825, null
+  %832 = load ptr, ptr %msg, align 8
+  %tobool1370 = icmp ne ptr %832, null
   br i1 %tobool1370, label %if.then1371, label %if.end1380
 
 if.then1371:                                      ; preds = %if.end1368
-  %826 = load ptr, ptr %st.addr, align 8
-  %827 = load ptr, ptr %s.addr, align 8
-  %v1372 = getelementptr inbounds %struct._stmt, ptr %827, i32 0, i32 1
+  %833 = load ptr, ptr %st.addr, align 8
+  %834 = load ptr, ptr %s.addr, align 8
+  %v1372 = getelementptr inbounds %struct._stmt, ptr %834, i32 0, i32 1
   %msg1373 = getelementptr inbounds %struct.anon.794, ptr %v1372, i32 0, i32 1
-  %828 = load ptr, ptr %msg1373, align 8
-  %call1374 = call i32 @symtable_visit_expr(ptr noundef %826, ptr noundef %828)
+  %835 = load ptr, ptr %msg1373, align 8
+  %call1374 = call i32 @symtable_visit_expr(ptr noundef %833, ptr noundef %835)
   %tobool1375 = icmp ne i32 %call1374, 0
   br i1 %tobool1375, label %if.end1379, label %if.then1376
 
 if.then1376:                                      ; preds = %if.then1371
-  %829 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1377 = getelementptr inbounds %struct.symtable, ptr %829, i32 0, i32 9
-  %830 = load i32, ptr %recursion_depth1377, align 8
-  %dec1378 = add i32 %830, -1
+  %836 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1377 = getelementptr inbounds %struct.symtable, ptr %836, i32 0, i32 9
+  %837 = load i32, ptr %recursion_depth1377, align 8
+  %dec1378 = add i32 %837, -1
   store i32 %dec1378, ptr %recursion_depth1377, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5128,54 +5137,54 @@ if.end1380:                                       ; preds = %if.end1379, %if.end
   br label %sw.epilog
 
 sw.bb1381:                                        ; preds = %if.end
-  %831 = load ptr, ptr %s.addr, align 8
-  %v1384 = getelementptr inbounds %struct._stmt, ptr %831, i32 0, i32 1
+  %838 = load ptr, ptr %s.addr, align 8
+  %v1384 = getelementptr inbounds %struct._stmt, ptr %838, i32 0, i32 1
   %names = getelementptr inbounds %struct.anon.795, ptr %v1384, i32 0, i32 0
-  %832 = load ptr, ptr %names, align 8
-  store ptr %832, ptr %seq1383, align 8
+  %839 = load ptr, ptr %names, align 8
+  store ptr %839, ptr %seq1383, align 8
   store i32 0, ptr %i1382, align 4
   br label %for.cond1385
 
 for.cond1385:                                     ; preds = %for.inc1407, %sw.bb1381
-  %833 = load i32, ptr %i1382, align 4
-  %conv1386 = sext i32 %833 to i64
-  %834 = load ptr, ptr %seq1383, align 8
-  %cmp1387 = icmp eq ptr %834, null
+  %840 = load i32, ptr %i1382, align 4
+  %conv1386 = sext i32 %840 to i64
+  %841 = load ptr, ptr %seq1383, align 8
+  %cmp1387 = icmp eq ptr %841, null
   br i1 %cmp1387, label %cond.true1389, label %cond.false1390
 
 cond.true1389:                                    ; preds = %for.cond1385
   br label %cond.end1392
 
 cond.false1390:                                   ; preds = %for.cond1385
-  %835 = load ptr, ptr %seq1383, align 8
-  %size1391 = getelementptr inbounds %struct.asdl_alias_seq, ptr %835, i32 0, i32 0
-  %836 = load i64, ptr %size1391, align 8
+  %842 = load ptr, ptr %seq1383, align 8
+  %size1391 = getelementptr inbounds %struct.asdl_alias_seq, ptr %842, i32 0, i32 0
+  %843 = load i64, ptr %size1391, align 8
   br label %cond.end1392
 
 cond.end1392:                                     ; preds = %cond.false1390, %cond.true1389
-  %cond1393 = phi i64 [ 0, %cond.true1389 ], [ %836, %cond.false1390 ]
+  %cond1393 = phi i64 [ 0, %cond.true1389 ], [ %843, %cond.false1390 ]
   %cmp1394 = icmp slt i64 %conv1386, %cond1393
   br i1 %cmp1394, label %for.body1396, label %for.end1409
 
 for.body1396:                                     ; preds = %cond.end1392
-  %837 = load ptr, ptr %seq1383, align 8
-  %typed_elements1398 = getelementptr inbounds %struct.asdl_alias_seq, ptr %837, i32 0, i32 2
-  %838 = load i32, ptr %i1382, align 4
-  %idxprom1399 = sext i32 %838 to i64
+  %844 = load ptr, ptr %seq1383, align 8
+  %typed_elements1398 = getelementptr inbounds %struct.asdl_alias_seq, ptr %844, i32 0, i32 2
+  %845 = load i32, ptr %i1382, align 4
+  %idxprom1399 = sext i32 %845 to i64
   %arrayidx1400 = getelementptr [1 x ptr], ptr %typed_elements1398, i64 0, i64 %idxprom1399
-  %839 = load ptr, ptr %arrayidx1400, align 8
-  store ptr %839, ptr %elt1397, align 8
-  %840 = load ptr, ptr %st.addr, align 8
-  %841 = load ptr, ptr %elt1397, align 8
-  %call1401 = call i32 @symtable_visit_alias(ptr noundef %840, ptr noundef %841)
+  %846 = load ptr, ptr %arrayidx1400, align 8
+  store ptr %846, ptr %elt1397, align 8
+  %847 = load ptr, ptr %st.addr, align 8
+  %848 = load ptr, ptr %elt1397, align 8
+  %call1401 = call i32 @symtable_visit_alias(ptr noundef %847, ptr noundef %848)
   %tobool1402 = icmp ne i32 %call1401, 0
   br i1 %tobool1402, label %if.end1406, label %if.then1403
 
 if.then1403:                                      ; preds = %for.body1396
-  %842 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1404 = getelementptr inbounds %struct.symtable, ptr %842, i32 0, i32 9
-  %843 = load i32, ptr %recursion_depth1404, align 8
-  %dec1405 = add i32 %843, -1
+  %849 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1404 = getelementptr inbounds %struct.symtable, ptr %849, i32 0, i32 9
+  %850 = load i32, ptr %recursion_depth1404, align 8
+  %dec1405 = add i32 %850, -1
   store i32 %dec1405, ptr %recursion_depth1404, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5184,8 +5193,8 @@ if.end1406:                                       ; preds = %for.body1396
   br label %for.inc1407
 
 for.inc1407:                                      ; preds = %if.end1406
-  %844 = load i32, ptr %i1382, align 4
-  %inc1408 = add i32 %844, 1
+  %851 = load i32, ptr %i1382, align 4
+  %inc1408 = add i32 %851, 1
   store i32 %inc1408, ptr %i1382, align 4
   br label %for.cond1385, !llvm.loop !36
 
@@ -5193,54 +5202,54 @@ for.end1409:                                      ; preds = %cond.end1392
   br label %sw.epilog
 
 sw.bb1410:                                        ; preds = %if.end
-  %845 = load ptr, ptr %s.addr, align 8
-  %v1413 = getelementptr inbounds %struct._stmt, ptr %845, i32 0, i32 1
+  %852 = load ptr, ptr %s.addr, align 8
+  %v1413 = getelementptr inbounds %struct._stmt, ptr %852, i32 0, i32 1
   %names1414 = getelementptr inbounds %struct.anon.796, ptr %v1413, i32 0, i32 1
-  %846 = load ptr, ptr %names1414, align 8
-  store ptr %846, ptr %seq1412, align 8
+  %853 = load ptr, ptr %names1414, align 8
+  store ptr %853, ptr %seq1412, align 8
   store i32 0, ptr %i1411, align 4
   br label %for.cond1415
 
 for.cond1415:                                     ; preds = %for.inc1437, %sw.bb1410
-  %847 = load i32, ptr %i1411, align 4
-  %conv1416 = sext i32 %847 to i64
-  %848 = load ptr, ptr %seq1412, align 8
-  %cmp1417 = icmp eq ptr %848, null
+  %854 = load i32, ptr %i1411, align 4
+  %conv1416 = sext i32 %854 to i64
+  %855 = load ptr, ptr %seq1412, align 8
+  %cmp1417 = icmp eq ptr %855, null
   br i1 %cmp1417, label %cond.true1419, label %cond.false1420
 
 cond.true1419:                                    ; preds = %for.cond1415
   br label %cond.end1422
 
 cond.false1420:                                   ; preds = %for.cond1415
-  %849 = load ptr, ptr %seq1412, align 8
-  %size1421 = getelementptr inbounds %struct.asdl_alias_seq, ptr %849, i32 0, i32 0
-  %850 = load i64, ptr %size1421, align 8
+  %856 = load ptr, ptr %seq1412, align 8
+  %size1421 = getelementptr inbounds %struct.asdl_alias_seq, ptr %856, i32 0, i32 0
+  %857 = load i64, ptr %size1421, align 8
   br label %cond.end1422
 
 cond.end1422:                                     ; preds = %cond.false1420, %cond.true1419
-  %cond1423 = phi i64 [ 0, %cond.true1419 ], [ %850, %cond.false1420 ]
+  %cond1423 = phi i64 [ 0, %cond.true1419 ], [ %857, %cond.false1420 ]
   %cmp1424 = icmp slt i64 %conv1416, %cond1423
   br i1 %cmp1424, label %for.body1426, label %for.end1439
 
 for.body1426:                                     ; preds = %cond.end1422
-  %851 = load ptr, ptr %seq1412, align 8
-  %typed_elements1428 = getelementptr inbounds %struct.asdl_alias_seq, ptr %851, i32 0, i32 2
-  %852 = load i32, ptr %i1411, align 4
-  %idxprom1429 = sext i32 %852 to i64
+  %858 = load ptr, ptr %seq1412, align 8
+  %typed_elements1428 = getelementptr inbounds %struct.asdl_alias_seq, ptr %858, i32 0, i32 2
+  %859 = load i32, ptr %i1411, align 4
+  %idxprom1429 = sext i32 %859 to i64
   %arrayidx1430 = getelementptr [1 x ptr], ptr %typed_elements1428, i64 0, i64 %idxprom1429
-  %853 = load ptr, ptr %arrayidx1430, align 8
-  store ptr %853, ptr %elt1427, align 8
-  %854 = load ptr, ptr %st.addr, align 8
-  %855 = load ptr, ptr %elt1427, align 8
-  %call1431 = call i32 @symtable_visit_alias(ptr noundef %854, ptr noundef %855)
+  %860 = load ptr, ptr %arrayidx1430, align 8
+  store ptr %860, ptr %elt1427, align 8
+  %861 = load ptr, ptr %st.addr, align 8
+  %862 = load ptr, ptr %elt1427, align 8
+  %call1431 = call i32 @symtable_visit_alias(ptr noundef %861, ptr noundef %862)
   %tobool1432 = icmp ne i32 %call1431, 0
   br i1 %tobool1432, label %if.end1436, label %if.then1433
 
 if.then1433:                                      ; preds = %for.body1426
-  %856 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1434 = getelementptr inbounds %struct.symtable, ptr %856, i32 0, i32 9
-  %857 = load i32, ptr %recursion_depth1434, align 8
-  %dec1435 = add i32 %857, -1
+  %863 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1434 = getelementptr inbounds %struct.symtable, ptr %863, i32 0, i32 9
+  %864 = load i32, ptr %recursion_depth1434, align 8
+  %dec1435 = add i32 %864, -1
   store i32 %dec1435, ptr %recursion_depth1434, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5249,8 +5258,8 @@ if.end1436:                                       ; preds = %for.body1426
   br label %for.inc1437
 
 for.inc1437:                                      ; preds = %if.end1436
-  %858 = load i32, ptr %i1411, align 4
-  %inc1438 = add i32 %858, 1
+  %865 = load i32, ptr %i1411, align 4
+  %inc1438 = add i32 %865, 1
   store i32 %inc1438, ptr %i1411, align 4
   br label %for.cond1415, !llvm.loop !37
 
@@ -5258,69 +5267,69 @@ for.end1439:                                      ; preds = %cond.end1422
   br label %sw.epilog
 
 sw.bb1440:                                        ; preds = %if.end
-  %859 = load ptr, ptr %s.addr, align 8
-  %v1443 = getelementptr inbounds %struct._stmt, ptr %859, i32 0, i32 1
+  %866 = load ptr, ptr %s.addr, align 8
+  %v1443 = getelementptr inbounds %struct._stmt, ptr %866, i32 0, i32 1
   %names1444 = getelementptr inbounds %struct.anon.797, ptr %v1443, i32 0, i32 0
-  %860 = load ptr, ptr %names1444, align 8
-  store ptr %860, ptr %seq1442, align 8
+  %867 = load ptr, ptr %names1444, align 8
+  store ptr %867, ptr %seq1442, align 8
   store i32 0, ptr %i1441, align 4
   br label %for.cond1445
 
 for.cond1445:                                     ; preds = %for.inc1519, %sw.bb1440
-  %861 = load i32, ptr %i1441, align 4
-  %conv1446 = sext i32 %861 to i64
-  %862 = load ptr, ptr %seq1442, align 8
-  %cmp1447 = icmp eq ptr %862, null
+  %868 = load i32, ptr %i1441, align 4
+  %conv1446 = sext i32 %868 to i64
+  %869 = load ptr, ptr %seq1442, align 8
+  %cmp1447 = icmp eq ptr %869, null
   br i1 %cmp1447, label %cond.true1449, label %cond.false1450
 
 cond.true1449:                                    ; preds = %for.cond1445
   br label %cond.end1452
 
 cond.false1450:                                   ; preds = %for.cond1445
-  %863 = load ptr, ptr %seq1442, align 8
-  %size1451 = getelementptr inbounds %struct.asdl_identifier_seq, ptr %863, i32 0, i32 0
-  %864 = load i64, ptr %size1451, align 8
+  %870 = load ptr, ptr %seq1442, align 8
+  %size1451 = getelementptr inbounds %struct.asdl_identifier_seq, ptr %870, i32 0, i32 0
+  %871 = load i64, ptr %size1451, align 8
   br label %cond.end1452
 
 cond.end1452:                                     ; preds = %cond.false1450, %cond.true1449
-  %cond1453 = phi i64 [ 0, %cond.true1449 ], [ %864, %cond.false1450 ]
+  %cond1453 = phi i64 [ 0, %cond.true1449 ], [ %871, %cond.false1450 ]
   %cmp1454 = icmp slt i64 %conv1446, %cond1453
   br i1 %cmp1454, label %for.body1456, label %for.end1521
 
 for.body1456:                                     ; preds = %cond.end1452
-  %865 = load ptr, ptr %seq1442, align 8
-  %typed_elements1458 = getelementptr inbounds %struct.asdl_identifier_seq, ptr %865, i32 0, i32 2
-  %866 = load i32, ptr %i1441, align 4
-  %idxprom1459 = sext i32 %866 to i64
+  %872 = load ptr, ptr %seq1442, align 8
+  %typed_elements1458 = getelementptr inbounds %struct.asdl_identifier_seq, ptr %872, i32 0, i32 2
+  %873 = load i32, ptr %i1441, align 4
+  %idxprom1459 = sext i32 %873 to i64
   %arrayidx1460 = getelementptr [1 x ptr], ptr %typed_elements1458, i64 0, i64 %idxprom1459
-  %867 = load ptr, ptr %arrayidx1460, align 8
-  store ptr %867, ptr %name1457, align 8
-  %868 = load ptr, ptr %st.addr, align 8
-  %869 = load ptr, ptr %name1457, align 8
-  %call1462 = call i64 @symtable_lookup(ptr noundef %868, ptr noundef %869)
+  %874 = load ptr, ptr %arrayidx1460, align 8
+  store ptr %874, ptr %name1457, align 8
+  %875 = load ptr, ptr %st.addr, align 8
+  %876 = load ptr, ptr %name1457, align 8
+  %call1462 = call i64 @symtable_lookup(ptr noundef %875, ptr noundef %876)
   store i64 %call1462, ptr %cur1461, align 8
-  %870 = load i64, ptr %cur1461, align 8
-  %cmp1463 = icmp slt i64 %870, 0
+  %877 = load i64, ptr %cur1461, align 8
+  %cmp1463 = icmp slt i64 %877, 0
   br i1 %cmp1463, label %if.then1465, label %if.end1468
 
 if.then1465:                                      ; preds = %for.body1456
-  %871 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1466 = getelementptr inbounds %struct.symtable, ptr %871, i32 0, i32 9
-  %872 = load i32, ptr %recursion_depth1466, align 8
-  %dec1467 = add i32 %872, -1
+  %878 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1466 = getelementptr inbounds %struct.symtable, ptr %878, i32 0, i32 9
+  %879 = load i32, ptr %recursion_depth1466, align 8
+  %dec1467 = add i32 %879, -1
   store i32 %dec1467, ptr %recursion_depth1466, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1468:                                       ; preds = %for.body1456
-  %873 = load i64, ptr %cur1461, align 8
-  %and1469 = and i64 %873, 278
+  %880 = load i64, ptr %cur1461, align 8
+  %and1469 = and i64 %880, 278
   %tobool1470 = icmp ne i64 %and1469, 0
   br i1 %tobool1470, label %if.then1471, label %if.end1498
 
 if.then1471:                                      ; preds = %if.end1468
-  %874 = load i64, ptr %cur1461, align 8
-  %and1473 = and i64 %874, 4
+  %881 = load i64, ptr %cur1461, align 8
+  %and1473 = and i64 %881, 4
   %tobool1474 = icmp ne i64 %and1473, 0
   br i1 %tobool1474, label %if.then1475, label %if.else1476
 
@@ -5329,8 +5338,8 @@ if.then1475:                                      ; preds = %if.then1471
   br label %if.end1487
 
 if.else1476:                                      ; preds = %if.then1471
-  %875 = load i64, ptr %cur1461, align 8
-  %and1477 = and i64 %875, 16
+  %882 = load i64, ptr %cur1461, align 8
+  %and1477 = and i64 %882, 16
   %tobool1478 = icmp ne i64 %and1477, 0
   br i1 %tobool1478, label %if.then1479, label %if.else1480
 
@@ -5339,8 +5348,8 @@ if.then1479:                                      ; preds = %if.else1476
   br label %if.end1486
 
 if.else1480:                                      ; preds = %if.else1476
-  %876 = load i64, ptr %cur1461, align 8
-  %and1481 = and i64 %876, 256
+  %883 = load i64, ptr %cur1461, align 8
+  %and1481 = and i64 %883, 256
   %tobool1482 = icmp ne i64 %and1481, 0
   br i1 %tobool1482, label %if.then1483, label %if.else1484
 
@@ -5359,88 +5368,88 @@ if.end1486:                                       ; preds = %if.end1485, %if.the
   br label %if.end1487
 
 if.end1487:                                       ; preds = %if.end1486, %if.then1475
-  %877 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %878 = load ptr, ptr %msg1472, align 8
-  %879 = load ptr, ptr %name1457, align 8
-  %call1488 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %877, ptr noundef %878, ptr noundef %879)
-  %880 = load ptr, ptr %st.addr, align 8
-  %st_filename1489 = getelementptr inbounds %struct.symtable, ptr %880, i32 0, i32 0
-  %881 = load ptr, ptr %st_filename1489, align 8
-  %882 = load ptr, ptr %s.addr, align 8
-  %lineno1490 = getelementptr inbounds %struct._stmt, ptr %882, i32 0, i32 2
-  %883 = load i32, ptr %lineno1490, align 8
-  %884 = load ptr, ptr %s.addr, align 8
-  %col_offset1491 = getelementptr inbounds %struct._stmt, ptr %884, i32 0, i32 3
-  %885 = load i32, ptr %col_offset1491, align 4
-  %add1492 = add i32 %885, 1
-  %886 = load ptr, ptr %s.addr, align 8
-  %end_lineno1493 = getelementptr inbounds %struct._stmt, ptr %886, i32 0, i32 4
-  %887 = load i32, ptr %end_lineno1493, align 8
-  %888 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1494 = getelementptr inbounds %struct._stmt, ptr %888, i32 0, i32 5
-  %889 = load i32, ptr %end_col_offset1494, align 4
-  %add1495 = add i32 %889, 1
-  call void @PyErr_RangedSyntaxLocationObject(ptr noundef %881, i32 noundef %883, i32 noundef %add1492, i32 noundef %887, i32 noundef %add1495)
-  %890 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1496 = getelementptr inbounds %struct.symtable, ptr %890, i32 0, i32 9
-  %891 = load i32, ptr %recursion_depth1496, align 8
-  %dec1497 = add i32 %891, -1
+  %884 = load ptr, ptr @PyExc_SyntaxError, align 8
+  %885 = load ptr, ptr %msg1472, align 8
+  %886 = load ptr, ptr %name1457, align 8
+  %call1488 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %884, ptr noundef %885, ptr noundef %886)
+  %887 = load ptr, ptr %st.addr, align 8
+  %st_filename1489 = getelementptr inbounds %struct.symtable, ptr %887, i32 0, i32 0
+  %888 = load ptr, ptr %st_filename1489, align 8
+  %889 = load ptr, ptr %s.addr, align 8
+  %lineno1490 = getelementptr inbounds %struct._stmt, ptr %889, i32 0, i32 2
+  %890 = load i32, ptr %lineno1490, align 8
+  %891 = load ptr, ptr %s.addr, align 8
+  %col_offset1491 = getelementptr inbounds %struct._stmt, ptr %891, i32 0, i32 3
+  %892 = load i32, ptr %col_offset1491, align 4
+  %add1492 = add i32 %892, 1
+  %893 = load ptr, ptr %s.addr, align 8
+  %end_lineno1493 = getelementptr inbounds %struct._stmt, ptr %893, i32 0, i32 4
+  %894 = load i32, ptr %end_lineno1493, align 8
+  %895 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1494 = getelementptr inbounds %struct._stmt, ptr %895, i32 0, i32 5
+  %896 = load i32, ptr %end_col_offset1494, align 4
+  %add1495 = add i32 %896, 1
+  call void @PyErr_RangedSyntaxLocationObject(ptr noundef %888, i32 noundef %890, i32 noundef %add1492, i32 noundef %894, i32 noundef %add1495)
+  %897 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1496 = getelementptr inbounds %struct.symtable, ptr %897, i32 0, i32 9
+  %898 = load i32, ptr %recursion_depth1496, align 8
+  %dec1497 = add i32 %898, -1
   store i32 %dec1497, ptr %recursion_depth1496, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1498:                                       ; preds = %if.end1468
-  %892 = load ptr, ptr %st.addr, align 8
-  %893 = load ptr, ptr %name1457, align 8
-  %894 = load ptr, ptr %s.addr, align 8
-  %lineno1499 = getelementptr inbounds %struct._stmt, ptr %894, i32 0, i32 2
-  %895 = load i32, ptr %lineno1499, align 8
-  %896 = load ptr, ptr %s.addr, align 8
-  %col_offset1500 = getelementptr inbounds %struct._stmt, ptr %896, i32 0, i32 3
-  %897 = load i32, ptr %col_offset1500, align 4
-  %898 = load ptr, ptr %s.addr, align 8
-  %end_lineno1501 = getelementptr inbounds %struct._stmt, ptr %898, i32 0, i32 4
-  %899 = load i32, ptr %end_lineno1501, align 8
-  %900 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1502 = getelementptr inbounds %struct._stmt, ptr %900, i32 0, i32 5
-  %901 = load i32, ptr %end_col_offset1502, align 4
-  %call1503 = call i32 @symtable_add_def(ptr noundef %892, ptr noundef %893, i32 noundef 1, i32 noundef %895, i32 noundef %897, i32 noundef %899, i32 noundef %901)
+  %899 = load ptr, ptr %st.addr, align 8
+  %900 = load ptr, ptr %name1457, align 8
+  %901 = load ptr, ptr %s.addr, align 8
+  %lineno1499 = getelementptr inbounds %struct._stmt, ptr %901, i32 0, i32 2
+  %902 = load i32, ptr %lineno1499, align 8
+  %903 = load ptr, ptr %s.addr, align 8
+  %col_offset1500 = getelementptr inbounds %struct._stmt, ptr %903, i32 0, i32 3
+  %904 = load i32, ptr %col_offset1500, align 4
+  %905 = load ptr, ptr %s.addr, align 8
+  %end_lineno1501 = getelementptr inbounds %struct._stmt, ptr %905, i32 0, i32 4
+  %906 = load i32, ptr %end_lineno1501, align 8
+  %907 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1502 = getelementptr inbounds %struct._stmt, ptr %907, i32 0, i32 5
+  %908 = load i32, ptr %end_col_offset1502, align 4
+  %call1503 = call i32 @symtable_add_def(ptr noundef %899, ptr noundef %900, i32 noundef 1, i32 noundef %902, i32 noundef %904, i32 noundef %906, i32 noundef %908)
   %tobool1504 = icmp ne i32 %call1503, 0
   br i1 %tobool1504, label %if.end1508, label %if.then1505
 
 if.then1505:                                      ; preds = %if.end1498
-  %902 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1506 = getelementptr inbounds %struct.symtable, ptr %902, i32 0, i32 9
-  %903 = load i32, ptr %recursion_depth1506, align 8
-  %dec1507 = add i32 %903, -1
+  %909 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1506 = getelementptr inbounds %struct.symtable, ptr %909, i32 0, i32 9
+  %910 = load i32, ptr %recursion_depth1506, align 8
+  %dec1507 = add i32 %910, -1
   store i32 %dec1507, ptr %recursion_depth1506, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1508:                                       ; preds = %if.end1498
-  %904 = load ptr, ptr %st.addr, align 8
-  %905 = load ptr, ptr %name1457, align 8
-  %906 = load ptr, ptr %s.addr, align 8
-  %lineno1509 = getelementptr inbounds %struct._stmt, ptr %906, i32 0, i32 2
-  %907 = load i32, ptr %lineno1509, align 8
-  %908 = load ptr, ptr %s.addr, align 8
-  %col_offset1510 = getelementptr inbounds %struct._stmt, ptr %908, i32 0, i32 3
-  %909 = load i32, ptr %col_offset1510, align 4
-  %910 = load ptr, ptr %s.addr, align 8
-  %end_lineno1511 = getelementptr inbounds %struct._stmt, ptr %910, i32 0, i32 4
-  %911 = load i32, ptr %end_lineno1511, align 8
-  %912 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1512 = getelementptr inbounds %struct._stmt, ptr %912, i32 0, i32 5
-  %913 = load i32, ptr %end_col_offset1512, align 4
-  %call1513 = call i32 @symtable_record_directive(ptr noundef %904, ptr noundef %905, i32 noundef %907, i32 noundef %909, i32 noundef %911, i32 noundef %913)
+  %911 = load ptr, ptr %st.addr, align 8
+  %912 = load ptr, ptr %name1457, align 8
+  %913 = load ptr, ptr %s.addr, align 8
+  %lineno1509 = getelementptr inbounds %struct._stmt, ptr %913, i32 0, i32 2
+  %914 = load i32, ptr %lineno1509, align 8
+  %915 = load ptr, ptr %s.addr, align 8
+  %col_offset1510 = getelementptr inbounds %struct._stmt, ptr %915, i32 0, i32 3
+  %916 = load i32, ptr %col_offset1510, align 4
+  %917 = load ptr, ptr %s.addr, align 8
+  %end_lineno1511 = getelementptr inbounds %struct._stmt, ptr %917, i32 0, i32 4
+  %918 = load i32, ptr %end_lineno1511, align 8
+  %919 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1512 = getelementptr inbounds %struct._stmt, ptr %919, i32 0, i32 5
+  %920 = load i32, ptr %end_col_offset1512, align 4
+  %call1513 = call i32 @symtable_record_directive(ptr noundef %911, ptr noundef %912, i32 noundef %914, i32 noundef %916, i32 noundef %918, i32 noundef %920)
   %tobool1514 = icmp ne i32 %call1513, 0
   br i1 %tobool1514, label %if.end1518, label %if.then1515
 
 if.then1515:                                      ; preds = %if.end1508
-  %914 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1516 = getelementptr inbounds %struct.symtable, ptr %914, i32 0, i32 9
-  %915 = load i32, ptr %recursion_depth1516, align 8
-  %dec1517 = add i32 %915, -1
+  %921 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1516 = getelementptr inbounds %struct.symtable, ptr %921, i32 0, i32 9
+  %922 = load i32, ptr %recursion_depth1516, align 8
+  %dec1517 = add i32 %922, -1
   store i32 %dec1517, ptr %recursion_depth1516, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5449,8 +5458,8 @@ if.end1518:                                       ; preds = %if.end1508
   br label %for.inc1519
 
 for.inc1519:                                      ; preds = %if.end1518
-  %916 = load i32, ptr %i1441, align 4
-  %inc1520 = add i32 %916, 1
+  %923 = load i32, ptr %i1441, align 4
+  %inc1520 = add i32 %923, 1
   store i32 %inc1520, ptr %i1441, align 4
   br label %for.cond1445, !llvm.loop !38
 
@@ -5458,69 +5467,69 @@ for.end1521:                                      ; preds = %cond.end1452
   br label %sw.epilog
 
 sw.bb1522:                                        ; preds = %if.end
-  %917 = load ptr, ptr %s.addr, align 8
-  %v1525 = getelementptr inbounds %struct._stmt, ptr %917, i32 0, i32 1
+  %924 = load ptr, ptr %s.addr, align 8
+  %v1525 = getelementptr inbounds %struct._stmt, ptr %924, i32 0, i32 1
   %names1526 = getelementptr inbounds %struct.anon.798, ptr %v1525, i32 0, i32 0
-  %918 = load ptr, ptr %names1526, align 8
-  store ptr %918, ptr %seq1524, align 8
+  %925 = load ptr, ptr %names1526, align 8
+  store ptr %925, ptr %seq1524, align 8
   store i32 0, ptr %i1523, align 4
   br label %for.cond1527
 
 for.cond1527:                                     ; preds = %for.inc1601, %sw.bb1522
-  %919 = load i32, ptr %i1523, align 4
-  %conv1528 = sext i32 %919 to i64
-  %920 = load ptr, ptr %seq1524, align 8
-  %cmp1529 = icmp eq ptr %920, null
+  %926 = load i32, ptr %i1523, align 4
+  %conv1528 = sext i32 %926 to i64
+  %927 = load ptr, ptr %seq1524, align 8
+  %cmp1529 = icmp eq ptr %927, null
   br i1 %cmp1529, label %cond.true1531, label %cond.false1532
 
 cond.true1531:                                    ; preds = %for.cond1527
   br label %cond.end1534
 
 cond.false1532:                                   ; preds = %for.cond1527
-  %921 = load ptr, ptr %seq1524, align 8
-  %size1533 = getelementptr inbounds %struct.asdl_identifier_seq, ptr %921, i32 0, i32 0
-  %922 = load i64, ptr %size1533, align 8
+  %928 = load ptr, ptr %seq1524, align 8
+  %size1533 = getelementptr inbounds %struct.asdl_identifier_seq, ptr %928, i32 0, i32 0
+  %929 = load i64, ptr %size1533, align 8
   br label %cond.end1534
 
 cond.end1534:                                     ; preds = %cond.false1532, %cond.true1531
-  %cond1535 = phi i64 [ 0, %cond.true1531 ], [ %922, %cond.false1532 ]
+  %cond1535 = phi i64 [ 0, %cond.true1531 ], [ %929, %cond.false1532 ]
   %cmp1536 = icmp slt i64 %conv1528, %cond1535
   br i1 %cmp1536, label %for.body1538, label %for.end1603
 
 for.body1538:                                     ; preds = %cond.end1534
-  %923 = load ptr, ptr %seq1524, align 8
-  %typed_elements1540 = getelementptr inbounds %struct.asdl_identifier_seq, ptr %923, i32 0, i32 2
-  %924 = load i32, ptr %i1523, align 4
-  %idxprom1541 = sext i32 %924 to i64
+  %930 = load ptr, ptr %seq1524, align 8
+  %typed_elements1540 = getelementptr inbounds %struct.asdl_identifier_seq, ptr %930, i32 0, i32 2
+  %931 = load i32, ptr %i1523, align 4
+  %idxprom1541 = sext i32 %931 to i64
   %arrayidx1542 = getelementptr [1 x ptr], ptr %typed_elements1540, i64 0, i64 %idxprom1541
-  %925 = load ptr, ptr %arrayidx1542, align 8
-  store ptr %925, ptr %name1539, align 8
-  %926 = load ptr, ptr %st.addr, align 8
-  %927 = load ptr, ptr %name1539, align 8
-  %call1544 = call i64 @symtable_lookup(ptr noundef %926, ptr noundef %927)
+  %932 = load ptr, ptr %arrayidx1542, align 8
+  store ptr %932, ptr %name1539, align 8
+  %933 = load ptr, ptr %st.addr, align 8
+  %934 = load ptr, ptr %name1539, align 8
+  %call1544 = call i64 @symtable_lookup(ptr noundef %933, ptr noundef %934)
   store i64 %call1544, ptr %cur1543, align 8
-  %928 = load i64, ptr %cur1543, align 8
-  %cmp1545 = icmp slt i64 %928, 0
+  %935 = load i64, ptr %cur1543, align 8
+  %cmp1545 = icmp slt i64 %935, 0
   br i1 %cmp1545, label %if.then1547, label %if.end1550
 
 if.then1547:                                      ; preds = %for.body1538
-  %929 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1548 = getelementptr inbounds %struct.symtable, ptr %929, i32 0, i32 9
-  %930 = load i32, ptr %recursion_depth1548, align 8
-  %dec1549 = add i32 %930, -1
+  %936 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1548 = getelementptr inbounds %struct.symtable, ptr %936, i32 0, i32 9
+  %937 = load i32, ptr %recursion_depth1548, align 8
+  %dec1549 = add i32 %937, -1
   store i32 %dec1549, ptr %recursion_depth1548, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1550:                                       ; preds = %for.body1538
-  %931 = load i64, ptr %cur1543, align 8
-  %and1551 = and i64 %931, 278
+  %938 = load i64, ptr %cur1543, align 8
+  %and1551 = and i64 %938, 278
   %tobool1552 = icmp ne i64 %and1551, 0
   br i1 %tobool1552, label %if.then1553, label %if.end1580
 
 if.then1553:                                      ; preds = %if.end1550
-  %932 = load i64, ptr %cur1543, align 8
-  %and1555 = and i64 %932, 4
+  %939 = load i64, ptr %cur1543, align 8
+  %and1555 = and i64 %939, 4
   %tobool1556 = icmp ne i64 %and1555, 0
   br i1 %tobool1556, label %if.then1557, label %if.else1558
 
@@ -5529,8 +5538,8 @@ if.then1557:                                      ; preds = %if.then1553
   br label %if.end1569
 
 if.else1558:                                      ; preds = %if.then1553
-  %933 = load i64, ptr %cur1543, align 8
-  %and1559 = and i64 %933, 16
+  %940 = load i64, ptr %cur1543, align 8
+  %and1559 = and i64 %940, 16
   %tobool1560 = icmp ne i64 %and1559, 0
   br i1 %tobool1560, label %if.then1561, label %if.else1562
 
@@ -5539,8 +5548,8 @@ if.then1561:                                      ; preds = %if.else1558
   br label %if.end1568
 
 if.else1562:                                      ; preds = %if.else1558
-  %934 = load i64, ptr %cur1543, align 8
-  %and1563 = and i64 %934, 256
+  %941 = load i64, ptr %cur1543, align 8
+  %and1563 = and i64 %941, 256
   %tobool1564 = icmp ne i64 %and1563, 0
   br i1 %tobool1564, label %if.then1565, label %if.else1566
 
@@ -5559,88 +5568,88 @@ if.end1568:                                       ; preds = %if.end1567, %if.the
   br label %if.end1569
 
 if.end1569:                                       ; preds = %if.end1568, %if.then1557
-  %935 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %936 = load ptr, ptr %msg1554, align 8
-  %937 = load ptr, ptr %name1539, align 8
-  %call1570 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %935, ptr noundef %936, ptr noundef %937)
-  %938 = load ptr, ptr %st.addr, align 8
-  %st_filename1571 = getelementptr inbounds %struct.symtable, ptr %938, i32 0, i32 0
-  %939 = load ptr, ptr %st_filename1571, align 8
-  %940 = load ptr, ptr %s.addr, align 8
-  %lineno1572 = getelementptr inbounds %struct._stmt, ptr %940, i32 0, i32 2
-  %941 = load i32, ptr %lineno1572, align 8
-  %942 = load ptr, ptr %s.addr, align 8
-  %col_offset1573 = getelementptr inbounds %struct._stmt, ptr %942, i32 0, i32 3
-  %943 = load i32, ptr %col_offset1573, align 4
-  %add1574 = add i32 %943, 1
-  %944 = load ptr, ptr %s.addr, align 8
-  %end_lineno1575 = getelementptr inbounds %struct._stmt, ptr %944, i32 0, i32 4
-  %945 = load i32, ptr %end_lineno1575, align 8
-  %946 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1576 = getelementptr inbounds %struct._stmt, ptr %946, i32 0, i32 5
-  %947 = load i32, ptr %end_col_offset1576, align 4
-  %add1577 = add i32 %947, 1
-  call void @PyErr_RangedSyntaxLocationObject(ptr noundef %939, i32 noundef %941, i32 noundef %add1574, i32 noundef %945, i32 noundef %add1577)
-  %948 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1578 = getelementptr inbounds %struct.symtable, ptr %948, i32 0, i32 9
-  %949 = load i32, ptr %recursion_depth1578, align 8
-  %dec1579 = add i32 %949, -1
+  %942 = load ptr, ptr @PyExc_SyntaxError, align 8
+  %943 = load ptr, ptr %msg1554, align 8
+  %944 = load ptr, ptr %name1539, align 8
+  %call1570 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %942, ptr noundef %943, ptr noundef %944)
+  %945 = load ptr, ptr %st.addr, align 8
+  %st_filename1571 = getelementptr inbounds %struct.symtable, ptr %945, i32 0, i32 0
+  %946 = load ptr, ptr %st_filename1571, align 8
+  %947 = load ptr, ptr %s.addr, align 8
+  %lineno1572 = getelementptr inbounds %struct._stmt, ptr %947, i32 0, i32 2
+  %948 = load i32, ptr %lineno1572, align 8
+  %949 = load ptr, ptr %s.addr, align 8
+  %col_offset1573 = getelementptr inbounds %struct._stmt, ptr %949, i32 0, i32 3
+  %950 = load i32, ptr %col_offset1573, align 4
+  %add1574 = add i32 %950, 1
+  %951 = load ptr, ptr %s.addr, align 8
+  %end_lineno1575 = getelementptr inbounds %struct._stmt, ptr %951, i32 0, i32 4
+  %952 = load i32, ptr %end_lineno1575, align 8
+  %953 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1576 = getelementptr inbounds %struct._stmt, ptr %953, i32 0, i32 5
+  %954 = load i32, ptr %end_col_offset1576, align 4
+  %add1577 = add i32 %954, 1
+  call void @PyErr_RangedSyntaxLocationObject(ptr noundef %946, i32 noundef %948, i32 noundef %add1574, i32 noundef %952, i32 noundef %add1577)
+  %955 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1578 = getelementptr inbounds %struct.symtable, ptr %955, i32 0, i32 9
+  %956 = load i32, ptr %recursion_depth1578, align 8
+  %dec1579 = add i32 %956, -1
   store i32 %dec1579, ptr %recursion_depth1578, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1580:                                       ; preds = %if.end1550
-  %950 = load ptr, ptr %st.addr, align 8
-  %951 = load ptr, ptr %name1539, align 8
-  %952 = load ptr, ptr %s.addr, align 8
-  %lineno1581 = getelementptr inbounds %struct._stmt, ptr %952, i32 0, i32 2
-  %953 = load i32, ptr %lineno1581, align 8
-  %954 = load ptr, ptr %s.addr, align 8
-  %col_offset1582 = getelementptr inbounds %struct._stmt, ptr %954, i32 0, i32 3
-  %955 = load i32, ptr %col_offset1582, align 4
-  %956 = load ptr, ptr %s.addr, align 8
-  %end_lineno1583 = getelementptr inbounds %struct._stmt, ptr %956, i32 0, i32 4
-  %957 = load i32, ptr %end_lineno1583, align 8
-  %958 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1584 = getelementptr inbounds %struct._stmt, ptr %958, i32 0, i32 5
-  %959 = load i32, ptr %end_col_offset1584, align 4
-  %call1585 = call i32 @symtable_add_def(ptr noundef %950, ptr noundef %951, i32 noundef 8, i32 noundef %953, i32 noundef %955, i32 noundef %957, i32 noundef %959)
+  %957 = load ptr, ptr %st.addr, align 8
+  %958 = load ptr, ptr %name1539, align 8
+  %959 = load ptr, ptr %s.addr, align 8
+  %lineno1581 = getelementptr inbounds %struct._stmt, ptr %959, i32 0, i32 2
+  %960 = load i32, ptr %lineno1581, align 8
+  %961 = load ptr, ptr %s.addr, align 8
+  %col_offset1582 = getelementptr inbounds %struct._stmt, ptr %961, i32 0, i32 3
+  %962 = load i32, ptr %col_offset1582, align 4
+  %963 = load ptr, ptr %s.addr, align 8
+  %end_lineno1583 = getelementptr inbounds %struct._stmt, ptr %963, i32 0, i32 4
+  %964 = load i32, ptr %end_lineno1583, align 8
+  %965 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1584 = getelementptr inbounds %struct._stmt, ptr %965, i32 0, i32 5
+  %966 = load i32, ptr %end_col_offset1584, align 4
+  %call1585 = call i32 @symtable_add_def(ptr noundef %957, ptr noundef %958, i32 noundef 8, i32 noundef %960, i32 noundef %962, i32 noundef %964, i32 noundef %966)
   %tobool1586 = icmp ne i32 %call1585, 0
   br i1 %tobool1586, label %if.end1590, label %if.then1587
 
 if.then1587:                                      ; preds = %if.end1580
-  %960 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1588 = getelementptr inbounds %struct.symtable, ptr %960, i32 0, i32 9
-  %961 = load i32, ptr %recursion_depth1588, align 8
-  %dec1589 = add i32 %961, -1
+  %967 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1588 = getelementptr inbounds %struct.symtable, ptr %967, i32 0, i32 9
+  %968 = load i32, ptr %recursion_depth1588, align 8
+  %dec1589 = add i32 %968, -1
   store i32 %dec1589, ptr %recursion_depth1588, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1590:                                       ; preds = %if.end1580
-  %962 = load ptr, ptr %st.addr, align 8
-  %963 = load ptr, ptr %name1539, align 8
-  %964 = load ptr, ptr %s.addr, align 8
-  %lineno1591 = getelementptr inbounds %struct._stmt, ptr %964, i32 0, i32 2
-  %965 = load i32, ptr %lineno1591, align 8
-  %966 = load ptr, ptr %s.addr, align 8
-  %col_offset1592 = getelementptr inbounds %struct._stmt, ptr %966, i32 0, i32 3
-  %967 = load i32, ptr %col_offset1592, align 4
-  %968 = load ptr, ptr %s.addr, align 8
-  %end_lineno1593 = getelementptr inbounds %struct._stmt, ptr %968, i32 0, i32 4
-  %969 = load i32, ptr %end_lineno1593, align 8
-  %970 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1594 = getelementptr inbounds %struct._stmt, ptr %970, i32 0, i32 5
-  %971 = load i32, ptr %end_col_offset1594, align 4
-  %call1595 = call i32 @symtable_record_directive(ptr noundef %962, ptr noundef %963, i32 noundef %965, i32 noundef %967, i32 noundef %969, i32 noundef %971)
+  %969 = load ptr, ptr %st.addr, align 8
+  %970 = load ptr, ptr %name1539, align 8
+  %971 = load ptr, ptr %s.addr, align 8
+  %lineno1591 = getelementptr inbounds %struct._stmt, ptr %971, i32 0, i32 2
+  %972 = load i32, ptr %lineno1591, align 8
+  %973 = load ptr, ptr %s.addr, align 8
+  %col_offset1592 = getelementptr inbounds %struct._stmt, ptr %973, i32 0, i32 3
+  %974 = load i32, ptr %col_offset1592, align 4
+  %975 = load ptr, ptr %s.addr, align 8
+  %end_lineno1593 = getelementptr inbounds %struct._stmt, ptr %975, i32 0, i32 4
+  %976 = load i32, ptr %end_lineno1593, align 8
+  %977 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1594 = getelementptr inbounds %struct._stmt, ptr %977, i32 0, i32 5
+  %978 = load i32, ptr %end_col_offset1594, align 4
+  %call1595 = call i32 @symtable_record_directive(ptr noundef %969, ptr noundef %970, i32 noundef %972, i32 noundef %974, i32 noundef %976, i32 noundef %978)
   %tobool1596 = icmp ne i32 %call1595, 0
   br i1 %tobool1596, label %if.end1600, label %if.then1597
 
 if.then1597:                                      ; preds = %if.end1590
-  %972 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1598 = getelementptr inbounds %struct.symtable, ptr %972, i32 0, i32 9
-  %973 = load i32, ptr %recursion_depth1598, align 8
-  %dec1599 = add i32 %973, -1
+  %979 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1598 = getelementptr inbounds %struct.symtable, ptr %979, i32 0, i32 9
+  %980 = load i32, ptr %recursion_depth1598, align 8
+  %dec1599 = add i32 %980, -1
   store i32 %dec1599, ptr %recursion_depth1598, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5649,8 +5658,8 @@ if.end1600:                                       ; preds = %if.end1590
   br label %for.inc1601
 
 for.inc1601:                                      ; preds = %if.end1600
-  %974 = load i32, ptr %i1523, align 4
-  %inc1602 = add i32 %974, 1
+  %981 = load i32, ptr %i1523, align 4
+  %inc1602 = add i32 %981, 1
   store i32 %inc1602, ptr %i1523, align 4
   br label %for.cond1527, !llvm.loop !39
 
@@ -5658,20 +5667,20 @@ for.end1603:                                      ; preds = %cond.end1534
   br label %sw.epilog
 
 sw.bb1604:                                        ; preds = %if.end
-  %975 = load ptr, ptr %st.addr, align 8
-  %976 = load ptr, ptr %s.addr, align 8
-  %v1605 = getelementptr inbounds %struct._stmt, ptr %976, i32 0, i32 1
+  %982 = load ptr, ptr %st.addr, align 8
+  %983 = load ptr, ptr %s.addr, align 8
+  %v1605 = getelementptr inbounds %struct._stmt, ptr %983, i32 0, i32 1
   %value1606 = getelementptr inbounds %struct.anon.799, ptr %v1605, i32 0, i32 0
-  %977 = load ptr, ptr %value1606, align 8
-  %call1607 = call i32 @symtable_visit_expr(ptr noundef %975, ptr noundef %977)
+  %984 = load ptr, ptr %value1606, align 8
+  %call1607 = call i32 @symtable_visit_expr(ptr noundef %982, ptr noundef %984)
   %tobool1608 = icmp ne i32 %call1607, 0
   br i1 %tobool1608, label %if.end1612, label %if.then1609
 
 if.then1609:                                      ; preds = %sw.bb1604
-  %978 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1610 = getelementptr inbounds %struct.symtable, ptr %978, i32 0, i32 9
-  %979 = load i32, ptr %recursion_depth1610, align 8
-  %dec1611 = add i32 %979, -1
+  %985 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1610 = getelementptr inbounds %struct.symtable, ptr %985, i32 0, i32 9
+  %986 = load i32, ptr %recursion_depth1610, align 8
+  %dec1611 = add i32 %986, -1
   store i32 %dec1611, ptr %recursion_depth1610, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5683,54 +5692,54 @@ sw.bb1613:                                        ; preds = %if.end, %if.end, %i
   br label %sw.epilog
 
 sw.bb1614:                                        ; preds = %if.end
-  %980 = load ptr, ptr %s.addr, align 8
-  %v1617 = getelementptr inbounds %struct._stmt, ptr %980, i32 0, i32 1
+  %987 = load ptr, ptr %s.addr, align 8
+  %v1617 = getelementptr inbounds %struct._stmt, ptr %987, i32 0, i32 1
   %items = getelementptr inbounds %struct.anon.788, ptr %v1617, i32 0, i32 0
-  %981 = load ptr, ptr %items, align 8
-  store ptr %981, ptr %seq1616, align 8
+  %988 = load ptr, ptr %items, align 8
+  store ptr %988, ptr %seq1616, align 8
   store i32 0, ptr %i1615, align 4
   br label %for.cond1618
 
 for.cond1618:                                     ; preds = %for.inc1640, %sw.bb1614
-  %982 = load i32, ptr %i1615, align 4
-  %conv1619 = sext i32 %982 to i64
-  %983 = load ptr, ptr %seq1616, align 8
-  %cmp1620 = icmp eq ptr %983, null
+  %989 = load i32, ptr %i1615, align 4
+  %conv1619 = sext i32 %989 to i64
+  %990 = load ptr, ptr %seq1616, align 8
+  %cmp1620 = icmp eq ptr %990, null
   br i1 %cmp1620, label %cond.true1622, label %cond.false1623
 
 cond.true1622:                                    ; preds = %for.cond1618
   br label %cond.end1625
 
 cond.false1623:                                   ; preds = %for.cond1618
-  %984 = load ptr, ptr %seq1616, align 8
-  %size1624 = getelementptr inbounds %struct.asdl_withitem_seq, ptr %984, i32 0, i32 0
-  %985 = load i64, ptr %size1624, align 8
+  %991 = load ptr, ptr %seq1616, align 8
+  %size1624 = getelementptr inbounds %struct.asdl_withitem_seq, ptr %991, i32 0, i32 0
+  %992 = load i64, ptr %size1624, align 8
   br label %cond.end1625
 
 cond.end1625:                                     ; preds = %cond.false1623, %cond.true1622
-  %cond1626 = phi i64 [ 0, %cond.true1622 ], [ %985, %cond.false1623 ]
+  %cond1626 = phi i64 [ 0, %cond.true1622 ], [ %992, %cond.false1623 ]
   %cmp1627 = icmp slt i64 %conv1619, %cond1626
   br i1 %cmp1627, label %for.body1629, label %for.end1642
 
 for.body1629:                                     ; preds = %cond.end1625
-  %986 = load ptr, ptr %seq1616, align 8
-  %typed_elements1631 = getelementptr inbounds %struct.asdl_withitem_seq, ptr %986, i32 0, i32 2
-  %987 = load i32, ptr %i1615, align 4
-  %idxprom1632 = sext i32 %987 to i64
+  %993 = load ptr, ptr %seq1616, align 8
+  %typed_elements1631 = getelementptr inbounds %struct.asdl_withitem_seq, ptr %993, i32 0, i32 2
+  %994 = load i32, ptr %i1615, align 4
+  %idxprom1632 = sext i32 %994 to i64
   %arrayidx1633 = getelementptr [1 x ptr], ptr %typed_elements1631, i64 0, i64 %idxprom1632
-  %988 = load ptr, ptr %arrayidx1633, align 8
-  store ptr %988, ptr %elt1630, align 8
-  %989 = load ptr, ptr %st.addr, align 8
-  %990 = load ptr, ptr %elt1630, align 8
-  %call1634 = call i32 @symtable_visit_withitem(ptr noundef %989, ptr noundef %990)
+  %995 = load ptr, ptr %arrayidx1633, align 8
+  store ptr %995, ptr %elt1630, align 8
+  %996 = load ptr, ptr %st.addr, align 8
+  %997 = load ptr, ptr %elt1630, align 8
+  %call1634 = call i32 @symtable_visit_withitem(ptr noundef %996, ptr noundef %997)
   %tobool1635 = icmp ne i32 %call1634, 0
   br i1 %tobool1635, label %if.end1639, label %if.then1636
 
 if.then1636:                                      ; preds = %for.body1629
-  %991 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1637 = getelementptr inbounds %struct.symtable, ptr %991, i32 0, i32 9
-  %992 = load i32, ptr %recursion_depth1637, align 8
-  %dec1638 = add i32 %992, -1
+  %998 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1637 = getelementptr inbounds %struct.symtable, ptr %998, i32 0, i32 9
+  %999 = load i32, ptr %recursion_depth1637, align 8
+  %dec1638 = add i32 %999, -1
   store i32 %dec1638, ptr %recursion_depth1637, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5739,60 +5748,60 @@ if.end1639:                                       ; preds = %for.body1629
   br label %for.inc1640
 
 for.inc1640:                                      ; preds = %if.end1639
-  %993 = load i32, ptr %i1615, align 4
-  %inc1641 = add i32 %993, 1
+  %1000 = load i32, ptr %i1615, align 4
+  %inc1641 = add i32 %1000, 1
   store i32 %inc1641, ptr %i1615, align 4
   br label %for.cond1618, !llvm.loop !40
 
 for.end1642:                                      ; preds = %cond.end1625
-  %994 = load ptr, ptr %s.addr, align 8
-  %v1645 = getelementptr inbounds %struct._stmt, ptr %994, i32 0, i32 1
+  %1001 = load ptr, ptr %s.addr, align 8
+  %v1645 = getelementptr inbounds %struct._stmt, ptr %1001, i32 0, i32 1
   %body1646 = getelementptr inbounds %struct.anon.788, ptr %v1645, i32 0, i32 1
-  %995 = load ptr, ptr %body1646, align 8
-  store ptr %995, ptr %seq1644, align 8
+  %1002 = load ptr, ptr %body1646, align 8
+  store ptr %1002, ptr %seq1644, align 8
   store i32 0, ptr %i1643, align 4
   br label %for.cond1647
 
 for.cond1647:                                     ; preds = %for.inc1669, %for.end1642
-  %996 = load i32, ptr %i1643, align 4
-  %conv1648 = sext i32 %996 to i64
-  %997 = load ptr, ptr %seq1644, align 8
-  %cmp1649 = icmp eq ptr %997, null
+  %1003 = load i32, ptr %i1643, align 4
+  %conv1648 = sext i32 %1003 to i64
+  %1004 = load ptr, ptr %seq1644, align 8
+  %cmp1649 = icmp eq ptr %1004, null
   br i1 %cmp1649, label %cond.true1651, label %cond.false1652
 
 cond.true1651:                                    ; preds = %for.cond1647
   br label %cond.end1654
 
 cond.false1652:                                   ; preds = %for.cond1647
-  %998 = load ptr, ptr %seq1644, align 8
-  %size1653 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %998, i32 0, i32 0
-  %999 = load i64, ptr %size1653, align 8
+  %1005 = load ptr, ptr %seq1644, align 8
+  %size1653 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1005, i32 0, i32 0
+  %1006 = load i64, ptr %size1653, align 8
   br label %cond.end1654
 
 cond.end1654:                                     ; preds = %cond.false1652, %cond.true1651
-  %cond1655 = phi i64 [ 0, %cond.true1651 ], [ %999, %cond.false1652 ]
+  %cond1655 = phi i64 [ 0, %cond.true1651 ], [ %1006, %cond.false1652 ]
   %cmp1656 = icmp slt i64 %conv1648, %cond1655
   br i1 %cmp1656, label %for.body1658, label %for.end1671
 
 for.body1658:                                     ; preds = %cond.end1654
-  %1000 = load ptr, ptr %seq1644, align 8
-  %typed_elements1660 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1000, i32 0, i32 2
-  %1001 = load i32, ptr %i1643, align 4
-  %idxprom1661 = sext i32 %1001 to i64
+  %1007 = load ptr, ptr %seq1644, align 8
+  %typed_elements1660 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1007, i32 0, i32 2
+  %1008 = load i32, ptr %i1643, align 4
+  %idxprom1661 = sext i32 %1008 to i64
   %arrayidx1662 = getelementptr [1 x ptr], ptr %typed_elements1660, i64 0, i64 %idxprom1661
-  %1002 = load ptr, ptr %arrayidx1662, align 8
-  store ptr %1002, ptr %elt1659, align 8
-  %1003 = load ptr, ptr %st.addr, align 8
-  %1004 = load ptr, ptr %elt1659, align 8
-  %call1663 = call i32 @symtable_visit_stmt(ptr noundef %1003, ptr noundef %1004)
+  %1009 = load ptr, ptr %arrayidx1662, align 8
+  store ptr %1009, ptr %elt1659, align 8
+  %1010 = load ptr, ptr %st.addr, align 8
+  %1011 = load ptr, ptr %elt1659, align 8
+  %call1663 = call i32 @symtable_visit_stmt(ptr noundef %1010, ptr noundef %1011)
   %tobool1664 = icmp ne i32 %call1663, 0
   br i1 %tobool1664, label %if.end1668, label %if.then1665
 
 if.then1665:                                      ; preds = %for.body1658
-  %1005 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1666 = getelementptr inbounds %struct.symtable, ptr %1005, i32 0, i32 9
-  %1006 = load i32, ptr %recursion_depth1666, align 8
-  %dec1667 = add i32 %1006, -1
+  %1012 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1666 = getelementptr inbounds %struct.symtable, ptr %1012, i32 0, i32 9
+  %1013 = load i32, ptr %recursion_depth1666, align 8
+  %dec1667 = add i32 %1013, -1
   store i32 %dec1667, ptr %recursion_depth1666, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5801,8 +5810,8 @@ if.end1668:                                       ; preds = %for.body1658
   br label %for.inc1669
 
 for.inc1669:                                      ; preds = %if.end1668
-  %1007 = load i32, ptr %i1643, align 4
-  %inc1670 = add i32 %1007, 1
+  %1014 = load i32, ptr %i1643, align 4
+  %inc1670 = add i32 %1014, 1
   store i32 %inc1670, ptr %i1643, align 4
   br label %for.cond1647, !llvm.loop !41
 
@@ -5810,97 +5819,97 @@ for.end1671:                                      ; preds = %cond.end1654
   br label %sw.epilog
 
 sw.bb1672:                                        ; preds = %if.end
-  %1008 = load ptr, ptr %st.addr, align 8
-  %1009 = load ptr, ptr %s.addr, align 8
-  %v1673 = getelementptr inbounds %struct._stmt, ptr %1009, i32 0, i32 1
+  %1015 = load ptr, ptr %st.addr, align 8
+  %1016 = load ptr, ptr %s.addr, align 8
+  %v1673 = getelementptr inbounds %struct._stmt, ptr %1016, i32 0, i32 1
   %name1674 = getelementptr inbounds %struct.anon.776, ptr %v1673, i32 0, i32 0
-  %1010 = load ptr, ptr %name1674, align 8
-  %1011 = load ptr, ptr %s.addr, align 8
-  %lineno1675 = getelementptr inbounds %struct._stmt, ptr %1011, i32 0, i32 2
-  %1012 = load i32, ptr %lineno1675, align 8
-  %1013 = load ptr, ptr %s.addr, align 8
-  %col_offset1676 = getelementptr inbounds %struct._stmt, ptr %1013, i32 0, i32 3
-  %1014 = load i32, ptr %col_offset1676, align 4
-  %1015 = load ptr, ptr %s.addr, align 8
-  %end_lineno1677 = getelementptr inbounds %struct._stmt, ptr %1015, i32 0, i32 4
-  %1016 = load i32, ptr %end_lineno1677, align 8
-  %1017 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1678 = getelementptr inbounds %struct._stmt, ptr %1017, i32 0, i32 5
-  %1018 = load i32, ptr %end_col_offset1678, align 4
-  %call1679 = call i32 @symtable_add_def(ptr noundef %1008, ptr noundef %1010, i32 noundef 2, i32 noundef %1012, i32 noundef %1014, i32 noundef %1016, i32 noundef %1018)
+  %1017 = load ptr, ptr %name1674, align 8
+  %1018 = load ptr, ptr %s.addr, align 8
+  %lineno1675 = getelementptr inbounds %struct._stmt, ptr %1018, i32 0, i32 2
+  %1019 = load i32, ptr %lineno1675, align 8
+  %1020 = load ptr, ptr %s.addr, align 8
+  %col_offset1676 = getelementptr inbounds %struct._stmt, ptr %1020, i32 0, i32 3
+  %1021 = load i32, ptr %col_offset1676, align 4
+  %1022 = load ptr, ptr %s.addr, align 8
+  %end_lineno1677 = getelementptr inbounds %struct._stmt, ptr %1022, i32 0, i32 4
+  %1023 = load i32, ptr %end_lineno1677, align 8
+  %1024 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1678 = getelementptr inbounds %struct._stmt, ptr %1024, i32 0, i32 5
+  %1025 = load i32, ptr %end_col_offset1678, align 4
+  %call1679 = call i32 @symtable_add_def(ptr noundef %1015, ptr noundef %1017, i32 noundef 2, i32 noundef %1019, i32 noundef %1021, i32 noundef %1023, i32 noundef %1025)
   %tobool1680 = icmp ne i32 %call1679, 0
   br i1 %tobool1680, label %if.end1684, label %if.then1681
 
 if.then1681:                                      ; preds = %sw.bb1672
-  %1019 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1682 = getelementptr inbounds %struct.symtable, ptr %1019, i32 0, i32 9
-  %1020 = load i32, ptr %recursion_depth1682, align 8
-  %dec1683 = add i32 %1020, -1
+  %1026 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1682 = getelementptr inbounds %struct.symtable, ptr %1026, i32 0, i32 9
+  %1027 = load i32, ptr %recursion_depth1682, align 8
+  %dec1683 = add i32 %1027, -1
   store i32 %dec1683, ptr %recursion_depth1682, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1684:                                       ; preds = %sw.bb1672
-  %1021 = load ptr, ptr %s.addr, align 8
-  %v1685 = getelementptr inbounds %struct._stmt, ptr %1021, i32 0, i32 1
+  %1028 = load ptr, ptr %s.addr, align 8
+  %v1685 = getelementptr inbounds %struct._stmt, ptr %1028, i32 0, i32 1
   %args1686 = getelementptr inbounds %struct.anon.776, ptr %v1685, i32 0, i32 1
-  %1022 = load ptr, ptr %args1686, align 8
-  %defaults1687 = getelementptr inbounds %struct._arguments, ptr %1022, i32 0, i32 6
-  %1023 = load ptr, ptr %defaults1687, align 8
-  %tobool1688 = icmp ne ptr %1023, null
+  %1029 = load ptr, ptr %args1686, align 8
+  %defaults1687 = getelementptr inbounds %struct._arguments, ptr %1029, i32 0, i32 6
+  %1030 = load ptr, ptr %defaults1687, align 8
+  %tobool1688 = icmp ne ptr %1030, null
   br i1 %tobool1688, label %if.then1689, label %if.end1720
 
 if.then1689:                                      ; preds = %if.end1684
-  %1024 = load ptr, ptr %s.addr, align 8
-  %v1692 = getelementptr inbounds %struct._stmt, ptr %1024, i32 0, i32 1
+  %1031 = load ptr, ptr %s.addr, align 8
+  %v1692 = getelementptr inbounds %struct._stmt, ptr %1031, i32 0, i32 1
   %args1693 = getelementptr inbounds %struct.anon.776, ptr %v1692, i32 0, i32 1
-  %1025 = load ptr, ptr %args1693, align 8
-  %defaults1694 = getelementptr inbounds %struct._arguments, ptr %1025, i32 0, i32 6
-  %1026 = load ptr, ptr %defaults1694, align 8
-  store ptr %1026, ptr %seq1691, align 8
+  %1032 = load ptr, ptr %args1693, align 8
+  %defaults1694 = getelementptr inbounds %struct._arguments, ptr %1032, i32 0, i32 6
+  %1033 = load ptr, ptr %defaults1694, align 8
+  store ptr %1033, ptr %seq1691, align 8
   store i32 0, ptr %i1690, align 4
   br label %for.cond1695
 
 for.cond1695:                                     ; preds = %for.inc1717, %if.then1689
-  %1027 = load i32, ptr %i1690, align 4
-  %conv1696 = sext i32 %1027 to i64
-  %1028 = load ptr, ptr %seq1691, align 8
-  %cmp1697 = icmp eq ptr %1028, null
+  %1034 = load i32, ptr %i1690, align 4
+  %conv1696 = sext i32 %1034 to i64
+  %1035 = load ptr, ptr %seq1691, align 8
+  %cmp1697 = icmp eq ptr %1035, null
   br i1 %cmp1697, label %cond.true1699, label %cond.false1700
 
 cond.true1699:                                    ; preds = %for.cond1695
   br label %cond.end1702
 
 cond.false1700:                                   ; preds = %for.cond1695
-  %1029 = load ptr, ptr %seq1691, align 8
-  %size1701 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1029, i32 0, i32 0
-  %1030 = load i64, ptr %size1701, align 8
+  %1036 = load ptr, ptr %seq1691, align 8
+  %size1701 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1036, i32 0, i32 0
+  %1037 = load i64, ptr %size1701, align 8
   br label %cond.end1702
 
 cond.end1702:                                     ; preds = %cond.false1700, %cond.true1699
-  %cond1703 = phi i64 [ 0, %cond.true1699 ], [ %1030, %cond.false1700 ]
+  %cond1703 = phi i64 [ 0, %cond.true1699 ], [ %1037, %cond.false1700 ]
   %cmp1704 = icmp slt i64 %conv1696, %cond1703
   br i1 %cmp1704, label %for.body1706, label %for.end1719
 
 for.body1706:                                     ; preds = %cond.end1702
-  %1031 = load ptr, ptr %seq1691, align 8
-  %typed_elements1708 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1031, i32 0, i32 2
-  %1032 = load i32, ptr %i1690, align 4
-  %idxprom1709 = sext i32 %1032 to i64
+  %1038 = load ptr, ptr %seq1691, align 8
+  %typed_elements1708 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1038, i32 0, i32 2
+  %1039 = load i32, ptr %i1690, align 4
+  %idxprom1709 = sext i32 %1039 to i64
   %arrayidx1710 = getelementptr [1 x ptr], ptr %typed_elements1708, i64 0, i64 %idxprom1709
-  %1033 = load ptr, ptr %arrayidx1710, align 8
-  store ptr %1033, ptr %elt1707, align 8
-  %1034 = load ptr, ptr %st.addr, align 8
-  %1035 = load ptr, ptr %elt1707, align 8
-  %call1711 = call i32 @symtable_visit_expr(ptr noundef %1034, ptr noundef %1035)
+  %1040 = load ptr, ptr %arrayidx1710, align 8
+  store ptr %1040, ptr %elt1707, align 8
+  %1041 = load ptr, ptr %st.addr, align 8
+  %1042 = load ptr, ptr %elt1707, align 8
+  %call1711 = call i32 @symtable_visit_expr(ptr noundef %1041, ptr noundef %1042)
   %tobool1712 = icmp ne i32 %call1711, 0
   br i1 %tobool1712, label %if.end1716, label %if.then1713
 
 if.then1713:                                      ; preds = %for.body1706
-  %1036 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1714 = getelementptr inbounds %struct.symtable, ptr %1036, i32 0, i32 9
-  %1037 = load i32, ptr %recursion_depth1714, align 8
-  %dec1715 = add i32 %1037, -1
+  %1043 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1714 = getelementptr inbounds %struct.symtable, ptr %1043, i32 0, i32 9
+  %1044 = load i32, ptr %recursion_depth1714, align 8
+  %dec1715 = add i32 %1044, -1
   store i32 %dec1715, ptr %recursion_depth1714, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5909,8 +5918,8 @@ if.end1716:                                       ; preds = %for.body1706
   br label %for.inc1717
 
 for.inc1717:                                      ; preds = %if.end1716
-  %1038 = load i32, ptr %i1690, align 4
-  %inc1718 = add i32 %1038, 1
+  %1045 = load i32, ptr %i1690, align 4
+  %inc1718 = add i32 %1045, 1
   store i32 %inc1718, ptr %i1690, align 4
   br label %for.cond1695, !llvm.loop !42
 
@@ -5918,75 +5927,75 @@ for.end1719:                                      ; preds = %cond.end1702
   br label %if.end1720
 
 if.end1720:                                       ; preds = %for.end1719, %if.end1684
-  %1039 = load ptr, ptr %s.addr, align 8
-  %v1721 = getelementptr inbounds %struct._stmt, ptr %1039, i32 0, i32 1
+  %1046 = load ptr, ptr %s.addr, align 8
+  %v1721 = getelementptr inbounds %struct._stmt, ptr %1046, i32 0, i32 1
   %args1722 = getelementptr inbounds %struct.anon.776, ptr %v1721, i32 0, i32 1
-  %1040 = load ptr, ptr %args1722, align 8
-  %kw_defaults1723 = getelementptr inbounds %struct._arguments, ptr %1040, i32 0, i32 4
-  %1041 = load ptr, ptr %kw_defaults1723, align 8
-  %tobool1724 = icmp ne ptr %1041, null
+  %1047 = load ptr, ptr %args1722, align 8
+  %kw_defaults1723 = getelementptr inbounds %struct._arguments, ptr %1047, i32 0, i32 4
+  %1048 = load ptr, ptr %kw_defaults1723, align 8
+  %tobool1724 = icmp ne ptr %1048, null
   br i1 %tobool1724, label %if.then1725, label %if.end1759
 
 if.then1725:                                      ; preds = %if.end1720
   store i32 0, ptr %i1726, align 4
-  %1042 = load ptr, ptr %s.addr, align 8
-  %v1728 = getelementptr inbounds %struct._stmt, ptr %1042, i32 0, i32 1
+  %1049 = load ptr, ptr %s.addr, align 8
+  %v1728 = getelementptr inbounds %struct._stmt, ptr %1049, i32 0, i32 1
   %args1729 = getelementptr inbounds %struct.anon.776, ptr %v1728, i32 0, i32 1
-  %1043 = load ptr, ptr %args1729, align 8
-  %kw_defaults1730 = getelementptr inbounds %struct._arguments, ptr %1043, i32 0, i32 4
-  %1044 = load ptr, ptr %kw_defaults1730, align 8
-  store ptr %1044, ptr %seq1727, align 8
+  %1050 = load ptr, ptr %args1729, align 8
+  %kw_defaults1730 = getelementptr inbounds %struct._arguments, ptr %1050, i32 0, i32 4
+  %1051 = load ptr, ptr %kw_defaults1730, align 8
+  store ptr %1051, ptr %seq1727, align 8
   store i32 0, ptr %i1726, align 4
   br label %for.cond1731
 
 for.cond1731:                                     ; preds = %for.inc1756, %if.then1725
-  %1045 = load i32, ptr %i1726, align 4
-  %conv1732 = sext i32 %1045 to i64
-  %1046 = load ptr, ptr %seq1727, align 8
-  %cmp1733 = icmp eq ptr %1046, null
+  %1052 = load i32, ptr %i1726, align 4
+  %conv1732 = sext i32 %1052 to i64
+  %1053 = load ptr, ptr %seq1727, align 8
+  %cmp1733 = icmp eq ptr %1053, null
   br i1 %cmp1733, label %cond.true1735, label %cond.false1736
 
 cond.true1735:                                    ; preds = %for.cond1731
   br label %cond.end1738
 
 cond.false1736:                                   ; preds = %for.cond1731
-  %1047 = load ptr, ptr %seq1727, align 8
-  %size1737 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1047, i32 0, i32 0
-  %1048 = load i64, ptr %size1737, align 8
+  %1054 = load ptr, ptr %seq1727, align 8
+  %size1737 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1054, i32 0, i32 0
+  %1055 = load i64, ptr %size1737, align 8
   br label %cond.end1738
 
 cond.end1738:                                     ; preds = %cond.false1736, %cond.true1735
-  %cond1739 = phi i64 [ 0, %cond.true1735 ], [ %1048, %cond.false1736 ]
+  %cond1739 = phi i64 [ 0, %cond.true1735 ], [ %1055, %cond.false1736 ]
   %cmp1740 = icmp slt i64 %conv1732, %cond1739
   br i1 %cmp1740, label %for.body1742, label %for.end1758
 
 for.body1742:                                     ; preds = %cond.end1738
-  %1049 = load ptr, ptr %seq1727, align 8
-  %typed_elements1744 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1049, i32 0, i32 2
-  %1050 = load i32, ptr %i1726, align 4
-  %idxprom1745 = sext i32 %1050 to i64
+  %1056 = load ptr, ptr %seq1727, align 8
+  %typed_elements1744 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1056, i32 0, i32 2
+  %1057 = load i32, ptr %i1726, align 4
+  %idxprom1745 = sext i32 %1057 to i64
   %arrayidx1746 = getelementptr [1 x ptr], ptr %typed_elements1744, i64 0, i64 %idxprom1745
-  %1051 = load ptr, ptr %arrayidx1746, align 8
-  store ptr %1051, ptr %elt1743, align 8
-  %1052 = load ptr, ptr %elt1743, align 8
-  %tobool1747 = icmp ne ptr %1052, null
+  %1058 = load ptr, ptr %arrayidx1746, align 8
+  store ptr %1058, ptr %elt1743, align 8
+  %1059 = load ptr, ptr %elt1743, align 8
+  %tobool1747 = icmp ne ptr %1059, null
   br i1 %tobool1747, label %if.end1749, label %if.then1748
 
 if.then1748:                                      ; preds = %for.body1742
   br label %for.inc1756
 
 if.end1749:                                       ; preds = %for.body1742
-  %1053 = load ptr, ptr %st.addr, align 8
-  %1054 = load ptr, ptr %elt1743, align 8
-  %call1750 = call i32 @symtable_visit_expr(ptr noundef %1053, ptr noundef %1054)
+  %1060 = load ptr, ptr %st.addr, align 8
+  %1061 = load ptr, ptr %elt1743, align 8
+  %call1750 = call i32 @symtable_visit_expr(ptr noundef %1060, ptr noundef %1061)
   %tobool1751 = icmp ne i32 %call1750, 0
   br i1 %tobool1751, label %if.end1755, label %if.then1752
 
 if.then1752:                                      ; preds = %if.end1749
-  %1055 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1753 = getelementptr inbounds %struct.symtable, ptr %1055, i32 0, i32 9
-  %1056 = load i32, ptr %recursion_depth1753, align 8
-  %dec1754 = add i32 %1056, -1
+  %1062 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1753 = getelementptr inbounds %struct.symtable, ptr %1062, i32 0, i32 9
+  %1063 = load i32, ptr %recursion_depth1753, align 8
+  %dec1754 = add i32 %1063, -1
   store i32 %dec1754, ptr %recursion_depth1753, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -5995,8 +6004,8 @@ if.end1755:                                       ; preds = %if.end1749
   br label %for.inc1756
 
 for.inc1756:                                      ; preds = %if.end1755, %if.then1748
-  %1057 = load i32, ptr %i1726, align 4
-  %inc1757 = add i32 %1057, 1
+  %1064 = load i32, ptr %i1726, align 4
+  %inc1757 = add i32 %1064, 1
   store i32 %inc1757, ptr %i1726, align 4
   br label %for.cond1731, !llvm.loop !43
 
@@ -6004,62 +6013,62 @@ for.end1758:                                      ; preds = %cond.end1738
   br label %if.end1759
 
 if.end1759:                                       ; preds = %for.end1758, %if.end1720
-  %1058 = load ptr, ptr %s.addr, align 8
-  %v1760 = getelementptr inbounds %struct._stmt, ptr %1058, i32 0, i32 1
+  %1065 = load ptr, ptr %s.addr, align 8
+  %v1760 = getelementptr inbounds %struct._stmt, ptr %1065, i32 0, i32 1
   %decorator_list1761 = getelementptr inbounds %struct.anon.776, ptr %v1760, i32 0, i32 3
-  %1059 = load ptr, ptr %decorator_list1761, align 8
-  %tobool1762 = icmp ne ptr %1059, null
+  %1066 = load ptr, ptr %decorator_list1761, align 8
+  %tobool1762 = icmp ne ptr %1066, null
   br i1 %tobool1762, label %if.then1763, label %if.end1793
 
 if.then1763:                                      ; preds = %if.end1759
-  %1060 = load ptr, ptr %s.addr, align 8
-  %v1766 = getelementptr inbounds %struct._stmt, ptr %1060, i32 0, i32 1
+  %1067 = load ptr, ptr %s.addr, align 8
+  %v1766 = getelementptr inbounds %struct._stmt, ptr %1067, i32 0, i32 1
   %decorator_list1767 = getelementptr inbounds %struct.anon.776, ptr %v1766, i32 0, i32 3
-  %1061 = load ptr, ptr %decorator_list1767, align 8
-  store ptr %1061, ptr %seq1765, align 8
+  %1068 = load ptr, ptr %decorator_list1767, align 8
+  store ptr %1068, ptr %seq1765, align 8
   store i32 0, ptr %i1764, align 4
   br label %for.cond1768
 
 for.cond1768:                                     ; preds = %for.inc1790, %if.then1763
-  %1062 = load i32, ptr %i1764, align 4
-  %conv1769 = sext i32 %1062 to i64
-  %1063 = load ptr, ptr %seq1765, align 8
-  %cmp1770 = icmp eq ptr %1063, null
+  %1069 = load i32, ptr %i1764, align 4
+  %conv1769 = sext i32 %1069 to i64
+  %1070 = load ptr, ptr %seq1765, align 8
+  %cmp1770 = icmp eq ptr %1070, null
   br i1 %cmp1770, label %cond.true1772, label %cond.false1773
 
 cond.true1772:                                    ; preds = %for.cond1768
   br label %cond.end1775
 
 cond.false1773:                                   ; preds = %for.cond1768
-  %1064 = load ptr, ptr %seq1765, align 8
-  %size1774 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1064, i32 0, i32 0
-  %1065 = load i64, ptr %size1774, align 8
+  %1071 = load ptr, ptr %seq1765, align 8
+  %size1774 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1071, i32 0, i32 0
+  %1072 = load i64, ptr %size1774, align 8
   br label %cond.end1775
 
 cond.end1775:                                     ; preds = %cond.false1773, %cond.true1772
-  %cond1776 = phi i64 [ 0, %cond.true1772 ], [ %1065, %cond.false1773 ]
+  %cond1776 = phi i64 [ 0, %cond.true1772 ], [ %1072, %cond.false1773 ]
   %cmp1777 = icmp slt i64 %conv1769, %cond1776
   br i1 %cmp1777, label %for.body1779, label %for.end1792
 
 for.body1779:                                     ; preds = %cond.end1775
-  %1066 = load ptr, ptr %seq1765, align 8
-  %typed_elements1781 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1066, i32 0, i32 2
-  %1067 = load i32, ptr %i1764, align 4
-  %idxprom1782 = sext i32 %1067 to i64
+  %1073 = load ptr, ptr %seq1765, align 8
+  %typed_elements1781 = getelementptr inbounds %struct.asdl_expr_seq, ptr %1073, i32 0, i32 2
+  %1074 = load i32, ptr %i1764, align 4
+  %idxprom1782 = sext i32 %1074 to i64
   %arrayidx1783 = getelementptr [1 x ptr], ptr %typed_elements1781, i64 0, i64 %idxprom1782
-  %1068 = load ptr, ptr %arrayidx1783, align 8
-  store ptr %1068, ptr %elt1780, align 8
-  %1069 = load ptr, ptr %st.addr, align 8
-  %1070 = load ptr, ptr %elt1780, align 8
-  %call1784 = call i32 @symtable_visit_expr(ptr noundef %1069, ptr noundef %1070)
+  %1075 = load ptr, ptr %arrayidx1783, align 8
+  store ptr %1075, ptr %elt1780, align 8
+  %1076 = load ptr, ptr %st.addr, align 8
+  %1077 = load ptr, ptr %elt1780, align 8
+  %call1784 = call i32 @symtable_visit_expr(ptr noundef %1076, ptr noundef %1077)
   %tobool1785 = icmp ne i32 %call1784, 0
   br i1 %tobool1785, label %if.end1789, label %if.then1786
 
 if.then1786:                                      ; preds = %for.body1779
-  %1071 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1787 = getelementptr inbounds %struct.symtable, ptr %1071, i32 0, i32 9
-  %1072 = load i32, ptr %recursion_depth1787, align 8
-  %dec1788 = add i32 %1072, -1
+  %1078 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1787 = getelementptr inbounds %struct.symtable, ptr %1078, i32 0, i32 9
+  %1079 = load i32, ptr %recursion_depth1787, align 8
+  %dec1788 = add i32 %1079, -1
   store i32 %dec1788, ptr %recursion_depth1787, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -6068,8 +6077,8 @@ if.end1789:                                       ; preds = %for.body1779
   br label %for.inc1790
 
 for.inc1790:                                      ; preds = %if.end1789
-  %1073 = load i32, ptr %i1764, align 4
-  %inc1791 = add i32 %1073, 1
+  %1080 = load i32, ptr %i1764, align 4
+  %inc1791 = add i32 %1080, 1
   store i32 %inc1791, ptr %i1764, align 4
   br label %for.cond1768, !llvm.loop !44
 
@@ -6077,138 +6086,138 @@ for.end1792:                                      ; preds = %cond.end1775
   br label %if.end1793
 
 if.end1793:                                       ; preds = %for.end1792, %if.end1759
-  %1074 = load ptr, ptr %s.addr, align 8
-  %v1794 = getelementptr inbounds %struct._stmt, ptr %1074, i32 0, i32 1
+  %1081 = load ptr, ptr %s.addr, align 8
+  %v1794 = getelementptr inbounds %struct._stmt, ptr %1081, i32 0, i32 1
   %type_params1795 = getelementptr inbounds %struct.anon.776, ptr %v1794, i32 0, i32 6
-  %1075 = load ptr, ptr %type_params1795, align 8
-  %cmp1796 = icmp eq ptr %1075, null
+  %1082 = load ptr, ptr %type_params1795, align 8
+  %cmp1796 = icmp eq ptr %1082, null
   br i1 %cmp1796, label %cond.true1798, label %cond.false1799
 
 cond.true1798:                                    ; preds = %if.end1793
   br label %cond.end1803
 
 cond.false1799:                                   ; preds = %if.end1793
-  %1076 = load ptr, ptr %s.addr, align 8
-  %v1800 = getelementptr inbounds %struct._stmt, ptr %1076, i32 0, i32 1
+  %1083 = load ptr, ptr %s.addr, align 8
+  %v1800 = getelementptr inbounds %struct._stmt, ptr %1083, i32 0, i32 1
   %type_params1801 = getelementptr inbounds %struct.anon.776, ptr %v1800, i32 0, i32 6
-  %1077 = load ptr, ptr %type_params1801, align 8
-  %size1802 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %1077, i32 0, i32 0
-  %1078 = load i64, ptr %size1802, align 8
+  %1084 = load ptr, ptr %type_params1801, align 8
+  %size1802 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %1084, i32 0, i32 0
+  %1085 = load i64, ptr %size1802, align 8
   br label %cond.end1803
 
 cond.end1803:                                     ; preds = %cond.false1799, %cond.true1798
-  %cond1804 = phi i64 [ 0, %cond.true1798 ], [ %1078, %cond.false1799 ]
+  %cond1804 = phi i64 [ 0, %cond.true1798 ], [ %1085, %cond.false1799 ]
   %cmp1805 = icmp sgt i64 %cond1804, 0
   br i1 %cmp1805, label %if.then1807, label %if.end1864
 
 if.then1807:                                      ; preds = %cond.end1803
-  %1079 = load ptr, ptr %st.addr, align 8
-  %1080 = load ptr, ptr %s.addr, align 8
-  %v1808 = getelementptr inbounds %struct._stmt, ptr %1080, i32 0, i32 1
-  %name1809 = getelementptr inbounds %struct.anon.776, ptr %v1808, i32 0, i32 0
-  %1081 = load ptr, ptr %name1809, align 8
-  %1082 = load ptr, ptr %s.addr, align 8
-  %v1810 = getelementptr inbounds %struct._stmt, ptr %1082, i32 0, i32 1
-  %type_params1811 = getelementptr inbounds %struct.anon.776, ptr %v1810, i32 0, i32 6
-  %1083 = load ptr, ptr %type_params1811, align 8
-  %1084 = load ptr, ptr %s.addr, align 8
-  %v1812 = getelementptr inbounds %struct._stmt, ptr %1084, i32 0, i32 1
-  %args1813 = getelementptr inbounds %struct.anon.776, ptr %v1812, i32 0, i32 1
-  %1085 = load ptr, ptr %args1813, align 8
-  %defaults1814 = getelementptr inbounds %struct._arguments, ptr %1085, i32 0, i32 6
-  %1086 = load ptr, ptr %defaults1814, align 8
-  %cmp1815 = icmp ne ptr %1086, null
-  %conv1816 = zext i1 %cmp1815 to i32
+  %1086 = load ptr, ptr %st.addr, align 8
   %1087 = load ptr, ptr %s.addr, align 8
-  %v1817 = getelementptr inbounds %struct._stmt, ptr %1087, i32 0, i32 1
+  %v1808 = getelementptr inbounds %struct._stmt, ptr %1087, i32 0, i32 1
+  %name1809 = getelementptr inbounds %struct.anon.776, ptr %v1808, i32 0, i32 0
+  %1088 = load ptr, ptr %name1809, align 8
+  %1089 = load ptr, ptr %s.addr, align 8
+  %v1810 = getelementptr inbounds %struct._stmt, ptr %1089, i32 0, i32 1
+  %type_params1811 = getelementptr inbounds %struct.anon.776, ptr %v1810, i32 0, i32 6
+  %1090 = load ptr, ptr %type_params1811, align 8
+  %1091 = load ptr, ptr %s.addr, align 8
+  %v1812 = getelementptr inbounds %struct._stmt, ptr %1091, i32 0, i32 1
+  %args1813 = getelementptr inbounds %struct.anon.776, ptr %v1812, i32 0, i32 1
+  %1092 = load ptr, ptr %args1813, align 8
+  %defaults1814 = getelementptr inbounds %struct._arguments, ptr %1092, i32 0, i32 6
+  %1093 = load ptr, ptr %defaults1814, align 8
+  %cmp1815 = icmp ne ptr %1093, null
+  %conv1816 = zext i1 %cmp1815 to i32
+  %1094 = load ptr, ptr %s.addr, align 8
+  %v1817 = getelementptr inbounds %struct._stmt, ptr %1094, i32 0, i32 1
   %args1818 = getelementptr inbounds %struct.anon.776, ptr %v1817, i32 0, i32 1
-  %1088 = load ptr, ptr %args1818, align 8
-  %kwonlyargs1819 = getelementptr inbounds %struct._arguments, ptr %1088, i32 0, i32 3
-  %1089 = load ptr, ptr %kwonlyargs1819, align 8
-  %1090 = load ptr, ptr %s.addr, align 8
-  %v1820 = getelementptr inbounds %struct._stmt, ptr %1090, i32 0, i32 1
-  %args1821 = getelementptr inbounds %struct.anon.776, ptr %v1820, i32 0, i32 1
-  %1091 = load ptr, ptr %args1821, align 8
-  %kw_defaults1822 = getelementptr inbounds %struct._arguments, ptr %1091, i32 0, i32 4
-  %1092 = load ptr, ptr %kw_defaults1822, align 8
-  %call1823 = call i32 @has_kwonlydefaults(ptr noundef %1089, ptr noundef %1092)
-  %1093 = load ptr, ptr %s.addr, align 8
-  %kind1824 = getelementptr inbounds %struct._stmt, ptr %1093, i32 0, i32 0
-  %1094 = load i32, ptr %kind1824, align 8
-  %1095 = load ptr, ptr %s.addr, align 8
-  %lineno1825 = getelementptr inbounds %struct._stmt, ptr %1095, i32 0, i32 2
-  %1096 = load i32, ptr %lineno1825, align 8
+  %1095 = load ptr, ptr %args1818, align 8
+  %kwonlyargs1819 = getelementptr inbounds %struct._arguments, ptr %1095, i32 0, i32 3
+  %1096 = load ptr, ptr %kwonlyargs1819, align 8
   %1097 = load ptr, ptr %s.addr, align 8
-  %col_offset1826 = getelementptr inbounds %struct._stmt, ptr %1097, i32 0, i32 3
-  %1098 = load i32, ptr %col_offset1826, align 4
-  %1099 = load ptr, ptr %s.addr, align 8
-  %end_lineno1827 = getelementptr inbounds %struct._stmt, ptr %1099, i32 0, i32 4
-  %1100 = load i32, ptr %end_lineno1827, align 8
-  %1101 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1828 = getelementptr inbounds %struct._stmt, ptr %1101, i32 0, i32 5
-  %1102 = load i32, ptr %end_col_offset1828, align 4
-  %call1829 = call i32 @symtable_enter_type_param_block(ptr noundef %1079, ptr noundef %1081, ptr noundef %1083, i32 noundef %conv1816, i32 noundef %call1823, i32 noundef %1094, i32 noundef %1096, i32 noundef %1098, i32 noundef %1100, i32 noundef %1102)
+  %v1820 = getelementptr inbounds %struct._stmt, ptr %1097, i32 0, i32 1
+  %args1821 = getelementptr inbounds %struct.anon.776, ptr %v1820, i32 0, i32 1
+  %1098 = load ptr, ptr %args1821, align 8
+  %kw_defaults1822 = getelementptr inbounds %struct._arguments, ptr %1098, i32 0, i32 4
+  %1099 = load ptr, ptr %kw_defaults1822, align 8
+  %call1823 = call i32 @has_kwonlydefaults(ptr noundef %1096, ptr noundef %1099)
+  %1100 = load ptr, ptr %s.addr, align 8
+  %kind1824 = getelementptr inbounds %struct._stmt, ptr %1100, i32 0, i32 0
+  %1101 = load i32, ptr %kind1824, align 8
+  %1102 = load ptr, ptr %s.addr, align 8
+  %lineno1825 = getelementptr inbounds %struct._stmt, ptr %1102, i32 0, i32 2
+  %1103 = load i32, ptr %lineno1825, align 8
+  %1104 = load ptr, ptr %s.addr, align 8
+  %col_offset1826 = getelementptr inbounds %struct._stmt, ptr %1104, i32 0, i32 3
+  %1105 = load i32, ptr %col_offset1826, align 4
+  %1106 = load ptr, ptr %s.addr, align 8
+  %end_lineno1827 = getelementptr inbounds %struct._stmt, ptr %1106, i32 0, i32 4
+  %1107 = load i32, ptr %end_lineno1827, align 8
+  %1108 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1828 = getelementptr inbounds %struct._stmt, ptr %1108, i32 0, i32 5
+  %1109 = load i32, ptr %end_col_offset1828, align 4
+  %call1829 = call i32 @symtable_enter_type_param_block(ptr noundef %1086, ptr noundef %1088, ptr noundef %1090, i32 noundef %conv1816, i32 noundef %call1823, i32 noundef %1101, i32 noundef %1103, i32 noundef %1105, i32 noundef %1107, i32 noundef %1109)
   %tobool1830 = icmp ne i32 %call1829, 0
   br i1 %tobool1830, label %if.end1834, label %if.then1831
 
 if.then1831:                                      ; preds = %if.then1807
-  %1103 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1832 = getelementptr inbounds %struct.symtable, ptr %1103, i32 0, i32 9
-  %1104 = load i32, ptr %recursion_depth1832, align 8
-  %dec1833 = add i32 %1104, -1
+  %1110 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1832 = getelementptr inbounds %struct.symtable, ptr %1110, i32 0, i32 9
+  %1111 = load i32, ptr %recursion_depth1832, align 8
+  %dec1833 = add i32 %1111, -1
   store i32 %dec1833, ptr %recursion_depth1832, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1834:                                       ; preds = %if.then1807
-  %1105 = load ptr, ptr %s.addr, align 8
-  %v1837 = getelementptr inbounds %struct._stmt, ptr %1105, i32 0, i32 1
+  %1112 = load ptr, ptr %s.addr, align 8
+  %v1837 = getelementptr inbounds %struct._stmt, ptr %1112, i32 0, i32 1
   %type_params1838 = getelementptr inbounds %struct.anon.776, ptr %v1837, i32 0, i32 6
-  %1106 = load ptr, ptr %type_params1838, align 8
-  store ptr %1106, ptr %seq1836, align 8
+  %1113 = load ptr, ptr %type_params1838, align 8
+  store ptr %1113, ptr %seq1836, align 8
   store i32 0, ptr %i1835, align 4
   br label %for.cond1839
 
 for.cond1839:                                     ; preds = %for.inc1861, %if.end1834
-  %1107 = load i32, ptr %i1835, align 4
-  %conv1840 = sext i32 %1107 to i64
-  %1108 = load ptr, ptr %seq1836, align 8
-  %cmp1841 = icmp eq ptr %1108, null
+  %1114 = load i32, ptr %i1835, align 4
+  %conv1840 = sext i32 %1114 to i64
+  %1115 = load ptr, ptr %seq1836, align 8
+  %cmp1841 = icmp eq ptr %1115, null
   br i1 %cmp1841, label %cond.true1843, label %cond.false1844
 
 cond.true1843:                                    ; preds = %for.cond1839
   br label %cond.end1846
 
 cond.false1844:                                   ; preds = %for.cond1839
-  %1109 = load ptr, ptr %seq1836, align 8
-  %size1845 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %1109, i32 0, i32 0
-  %1110 = load i64, ptr %size1845, align 8
+  %1116 = load ptr, ptr %seq1836, align 8
+  %size1845 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %1116, i32 0, i32 0
+  %1117 = load i64, ptr %size1845, align 8
   br label %cond.end1846
 
 cond.end1846:                                     ; preds = %cond.false1844, %cond.true1843
-  %cond1847 = phi i64 [ 0, %cond.true1843 ], [ %1110, %cond.false1844 ]
+  %cond1847 = phi i64 [ 0, %cond.true1843 ], [ %1117, %cond.false1844 ]
   %cmp1848 = icmp slt i64 %conv1840, %cond1847
   br i1 %cmp1848, label %for.body1850, label %for.end1863
 
 for.body1850:                                     ; preds = %cond.end1846
-  %1111 = load ptr, ptr %seq1836, align 8
-  %typed_elements1852 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %1111, i32 0, i32 2
-  %1112 = load i32, ptr %i1835, align 4
-  %idxprom1853 = sext i32 %1112 to i64
+  %1118 = load ptr, ptr %seq1836, align 8
+  %typed_elements1852 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %1118, i32 0, i32 2
+  %1119 = load i32, ptr %i1835, align 4
+  %idxprom1853 = sext i32 %1119 to i64
   %arrayidx1854 = getelementptr [1 x ptr], ptr %typed_elements1852, i64 0, i64 %idxprom1853
-  %1113 = load ptr, ptr %arrayidx1854, align 8
-  store ptr %1113, ptr %elt1851, align 8
-  %1114 = load ptr, ptr %st.addr, align 8
-  %1115 = load ptr, ptr %elt1851, align 8
-  %call1855 = call i32 @symtable_visit_type_param(ptr noundef %1114, ptr noundef %1115)
+  %1120 = load ptr, ptr %arrayidx1854, align 8
+  store ptr %1120, ptr %elt1851, align 8
+  %1121 = load ptr, ptr %st.addr, align 8
+  %1122 = load ptr, ptr %elt1851, align 8
+  %call1855 = call i32 @symtable_visit_type_param(ptr noundef %1121, ptr noundef %1122)
   %tobool1856 = icmp ne i32 %call1855, 0
   br i1 %tobool1856, label %if.end1860, label %if.then1857
 
 if.then1857:                                      ; preds = %for.body1850
-  %1116 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1858 = getelementptr inbounds %struct.symtable, ptr %1116, i32 0, i32 9
-  %1117 = load i32, ptr %recursion_depth1858, align 8
-  %dec1859 = add i32 %1117, -1
+  %1123 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1858 = getelementptr inbounds %struct.symtable, ptr %1123, i32 0, i32 9
+  %1124 = load i32, ptr %recursion_depth1858, align 8
+  %dec1859 = add i32 %1124, -1
   store i32 %dec1859, ptr %recursion_depth1858, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -6217,8 +6226,8 @@ if.end1860:                                       ; preds = %for.body1850
   br label %for.inc1861
 
 for.inc1861:                                      ; preds = %if.end1860
-  %1118 = load i32, ptr %i1835, align 4
-  %inc1862 = add i32 %1118, 1
+  %1125 = load i32, ptr %i1835, align 4
+  %inc1862 = add i32 %1125, 1
   store i32 %inc1862, ptr %i1835, align 4
   br label %for.cond1839, !llvm.loop !45
 
@@ -6226,137 +6235,137 @@ for.end1863:                                      ; preds = %cond.end1846
   br label %if.end1864
 
 if.end1864:                                       ; preds = %for.end1863, %cond.end1803
-  %1119 = load ptr, ptr %st.addr, align 8
-  %1120 = load ptr, ptr %s.addr, align 8
-  %1121 = load ptr, ptr %s.addr, align 8
-  %v1865 = getelementptr inbounds %struct._stmt, ptr %1121, i32 0, i32 1
+  %1126 = load ptr, ptr %st.addr, align 8
+  %1127 = load ptr, ptr %s.addr, align 8
+  %1128 = load ptr, ptr %s.addr, align 8
+  %v1865 = getelementptr inbounds %struct._stmt, ptr %1128, i32 0, i32 1
   %args1866 = getelementptr inbounds %struct.anon.776, ptr %v1865, i32 0, i32 1
-  %1122 = load ptr, ptr %args1866, align 8
-  %1123 = load ptr, ptr %s.addr, align 8
-  %v1867 = getelementptr inbounds %struct._stmt, ptr %1123, i32 0, i32 1
+  %1129 = load ptr, ptr %args1866, align 8
+  %1130 = load ptr, ptr %s.addr, align 8
+  %v1867 = getelementptr inbounds %struct._stmt, ptr %1130, i32 0, i32 1
   %returns1868 = getelementptr inbounds %struct.anon.776, ptr %v1867, i32 0, i32 4
-  %1124 = load ptr, ptr %returns1868, align 8
-  %call1869 = call i32 @symtable_visit_annotations(ptr noundef %1119, ptr noundef %1120, ptr noundef %1122, ptr noundef %1124)
+  %1131 = load ptr, ptr %returns1868, align 8
+  %call1869 = call i32 @symtable_visit_annotations(ptr noundef %1126, ptr noundef %1127, ptr noundef %1129, ptr noundef %1131)
   %tobool1870 = icmp ne i32 %call1869, 0
   br i1 %tobool1870, label %if.end1874, label %if.then1871
 
 if.then1871:                                      ; preds = %if.end1864
-  %1125 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1872 = getelementptr inbounds %struct.symtable, ptr %1125, i32 0, i32 9
-  %1126 = load i32, ptr %recursion_depth1872, align 8
-  %dec1873 = add i32 %1126, -1
+  %1132 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1872 = getelementptr inbounds %struct.symtable, ptr %1132, i32 0, i32 9
+  %1133 = load i32, ptr %recursion_depth1872, align 8
+  %dec1873 = add i32 %1133, -1
   store i32 %dec1873, ptr %recursion_depth1872, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1874:                                       ; preds = %if.end1864
-  %1127 = load ptr, ptr %st.addr, align 8
-  %1128 = load ptr, ptr %s.addr, align 8
-  %v1875 = getelementptr inbounds %struct._stmt, ptr %1128, i32 0, i32 1
-  %name1876 = getelementptr inbounds %struct.anon.776, ptr %v1875, i32 0, i32 0
-  %1129 = load ptr, ptr %name1876, align 8
-  %1130 = load ptr, ptr %s.addr, align 8
-  %1131 = load ptr, ptr %s.addr, align 8
-  %lineno1877 = getelementptr inbounds %struct._stmt, ptr %1131, i32 0, i32 2
-  %1132 = load i32, ptr %lineno1877, align 8
-  %1133 = load ptr, ptr %s.addr, align 8
-  %col_offset1878 = getelementptr inbounds %struct._stmt, ptr %1133, i32 0, i32 3
-  %1134 = load i32, ptr %col_offset1878, align 4
+  %1134 = load ptr, ptr %st.addr, align 8
   %1135 = load ptr, ptr %s.addr, align 8
-  %end_lineno1879 = getelementptr inbounds %struct._stmt, ptr %1135, i32 0, i32 4
-  %1136 = load i32, ptr %end_lineno1879, align 8
+  %v1875 = getelementptr inbounds %struct._stmt, ptr %1135, i32 0, i32 1
+  %name1876 = getelementptr inbounds %struct.anon.776, ptr %v1875, i32 0, i32 0
+  %1136 = load ptr, ptr %name1876, align 8
   %1137 = load ptr, ptr %s.addr, align 8
-  %end_col_offset1880 = getelementptr inbounds %struct._stmt, ptr %1137, i32 0, i32 5
-  %1138 = load i32, ptr %end_col_offset1880, align 4
-  %call1881 = call i32 @symtable_enter_block(ptr noundef %1127, ptr noundef %1129, i32 noundef 0, ptr noundef %1130, i32 noundef %1132, i32 noundef %1134, i32 noundef %1136, i32 noundef %1138)
+  %1138 = load ptr, ptr %s.addr, align 8
+  %lineno1877 = getelementptr inbounds %struct._stmt, ptr %1138, i32 0, i32 2
+  %1139 = load i32, ptr %lineno1877, align 8
+  %1140 = load ptr, ptr %s.addr, align 8
+  %col_offset1878 = getelementptr inbounds %struct._stmt, ptr %1140, i32 0, i32 3
+  %1141 = load i32, ptr %col_offset1878, align 4
+  %1142 = load ptr, ptr %s.addr, align 8
+  %end_lineno1879 = getelementptr inbounds %struct._stmt, ptr %1142, i32 0, i32 4
+  %1143 = load i32, ptr %end_lineno1879, align 8
+  %1144 = load ptr, ptr %s.addr, align 8
+  %end_col_offset1880 = getelementptr inbounds %struct._stmt, ptr %1144, i32 0, i32 5
+  %1145 = load i32, ptr %end_col_offset1880, align 4
+  %call1881 = call i32 @symtable_enter_block(ptr noundef %1134, ptr noundef %1136, i32 noundef 0, ptr noundef %1137, i32 noundef %1139, i32 noundef %1141, i32 noundef %1143, i32 noundef %1145)
   %tobool1882 = icmp ne i32 %call1881, 0
   br i1 %tobool1882, label %if.end1886, label %if.then1883
 
 if.then1883:                                      ; preds = %if.end1874
-  %1139 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1884 = getelementptr inbounds %struct.symtable, ptr %1139, i32 0, i32 9
-  %1140 = load i32, ptr %recursion_depth1884, align 8
-  %dec1885 = add i32 %1140, -1
+  %1146 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1884 = getelementptr inbounds %struct.symtable, ptr %1146, i32 0, i32 9
+  %1147 = load i32, ptr %recursion_depth1884, align 8
+  %dec1885 = add i32 %1147, -1
   store i32 %dec1885, ptr %recursion_depth1884, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1886:                                       ; preds = %if.end1874
-  %1141 = load ptr, ptr %st.addr, align 8
-  %st_cur1887 = getelementptr inbounds %struct.symtable, ptr %1141, i32 0, i32 1
-  %1142 = load ptr, ptr %st_cur1887, align 8
-  %ste_coroutine = getelementptr inbounds %struct._symtable_entry, ptr %1142, i32 0, i32 9
+  %1148 = load ptr, ptr %st.addr, align 8
+  %st_cur1887 = getelementptr inbounds %struct.symtable, ptr %1148, i32 0, i32 1
+  %1149 = load ptr, ptr %st_cur1887, align 8
+  %ste_coroutine = getelementptr inbounds %struct._symtable_entry, ptr %1149, i32 0, i32 9
   %bf.load1888 = load i8, ptr %ste_coroutine, align 8
   %bf.clear1889 = and i8 %bf.load1888, -9
   %bf.set1890 = or i8 %bf.clear1889, 8
   store i8 %bf.set1890, ptr %ste_coroutine, align 8
-  %1143 = load ptr, ptr %st.addr, align 8
-  %1144 = load ptr, ptr %s.addr, align 8
-  %v1891 = getelementptr inbounds %struct._stmt, ptr %1144, i32 0, i32 1
+  %1150 = load ptr, ptr %st.addr, align 8
+  %1151 = load ptr, ptr %s.addr, align 8
+  %v1891 = getelementptr inbounds %struct._stmt, ptr %1151, i32 0, i32 1
   %args1892 = getelementptr inbounds %struct.anon.776, ptr %v1891, i32 0, i32 1
-  %1145 = load ptr, ptr %args1892, align 8
-  %call1893 = call i32 @symtable_visit_arguments(ptr noundef %1143, ptr noundef %1145)
+  %1152 = load ptr, ptr %args1892, align 8
+  %call1893 = call i32 @symtable_visit_arguments(ptr noundef %1150, ptr noundef %1152)
   %tobool1894 = icmp ne i32 %call1893, 0
   br i1 %tobool1894, label %if.end1898, label %if.then1895
 
 if.then1895:                                      ; preds = %if.end1886
-  %1146 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1896 = getelementptr inbounds %struct.symtable, ptr %1146, i32 0, i32 9
-  %1147 = load i32, ptr %recursion_depth1896, align 8
-  %dec1897 = add i32 %1147, -1
+  %1153 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1896 = getelementptr inbounds %struct.symtable, ptr %1153, i32 0, i32 9
+  %1154 = load i32, ptr %recursion_depth1896, align 8
+  %dec1897 = add i32 %1154, -1
   store i32 %dec1897, ptr %recursion_depth1896, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1898:                                       ; preds = %if.end1886
-  %1148 = load ptr, ptr %s.addr, align 8
-  %v1901 = getelementptr inbounds %struct._stmt, ptr %1148, i32 0, i32 1
+  %1155 = load ptr, ptr %s.addr, align 8
+  %v1901 = getelementptr inbounds %struct._stmt, ptr %1155, i32 0, i32 1
   %body1902 = getelementptr inbounds %struct.anon.776, ptr %v1901, i32 0, i32 2
-  %1149 = load ptr, ptr %body1902, align 8
-  store ptr %1149, ptr %seq1900, align 8
+  %1156 = load ptr, ptr %body1902, align 8
+  store ptr %1156, ptr %seq1900, align 8
   store i32 0, ptr %i1899, align 4
   br label %for.cond1903
 
 for.cond1903:                                     ; preds = %for.inc1925, %if.end1898
-  %1150 = load i32, ptr %i1899, align 4
-  %conv1904 = sext i32 %1150 to i64
-  %1151 = load ptr, ptr %seq1900, align 8
-  %cmp1905 = icmp eq ptr %1151, null
+  %1157 = load i32, ptr %i1899, align 4
+  %conv1904 = sext i32 %1157 to i64
+  %1158 = load ptr, ptr %seq1900, align 8
+  %cmp1905 = icmp eq ptr %1158, null
   br i1 %cmp1905, label %cond.true1907, label %cond.false1908
 
 cond.true1907:                                    ; preds = %for.cond1903
   br label %cond.end1910
 
 cond.false1908:                                   ; preds = %for.cond1903
-  %1152 = load ptr, ptr %seq1900, align 8
-  %size1909 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1152, i32 0, i32 0
-  %1153 = load i64, ptr %size1909, align 8
+  %1159 = load ptr, ptr %seq1900, align 8
+  %size1909 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1159, i32 0, i32 0
+  %1160 = load i64, ptr %size1909, align 8
   br label %cond.end1910
 
 cond.end1910:                                     ; preds = %cond.false1908, %cond.true1907
-  %cond1911 = phi i64 [ 0, %cond.true1907 ], [ %1153, %cond.false1908 ]
+  %cond1911 = phi i64 [ 0, %cond.true1907 ], [ %1160, %cond.false1908 ]
   %cmp1912 = icmp slt i64 %conv1904, %cond1911
   br i1 %cmp1912, label %for.body1914, label %for.end1927
 
 for.body1914:                                     ; preds = %cond.end1910
-  %1154 = load ptr, ptr %seq1900, align 8
-  %typed_elements1916 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1154, i32 0, i32 2
-  %1155 = load i32, ptr %i1899, align 4
-  %idxprom1917 = sext i32 %1155 to i64
+  %1161 = load ptr, ptr %seq1900, align 8
+  %typed_elements1916 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1161, i32 0, i32 2
+  %1162 = load i32, ptr %i1899, align 4
+  %idxprom1917 = sext i32 %1162 to i64
   %arrayidx1918 = getelementptr [1 x ptr], ptr %typed_elements1916, i64 0, i64 %idxprom1917
-  %1156 = load ptr, ptr %arrayidx1918, align 8
-  store ptr %1156, ptr %elt1915, align 8
-  %1157 = load ptr, ptr %st.addr, align 8
-  %1158 = load ptr, ptr %elt1915, align 8
-  %call1919 = call i32 @symtable_visit_stmt(ptr noundef %1157, ptr noundef %1158)
+  %1163 = load ptr, ptr %arrayidx1918, align 8
+  store ptr %1163, ptr %elt1915, align 8
+  %1164 = load ptr, ptr %st.addr, align 8
+  %1165 = load ptr, ptr %elt1915, align 8
+  %call1919 = call i32 @symtable_visit_stmt(ptr noundef %1164, ptr noundef %1165)
   %tobool1920 = icmp ne i32 %call1919, 0
   br i1 %tobool1920, label %if.end1924, label %if.then1921
 
 if.then1921:                                      ; preds = %for.body1914
-  %1159 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1922 = getelementptr inbounds %struct.symtable, ptr %1159, i32 0, i32 9
-  %1160 = load i32, ptr %recursion_depth1922, align 8
-  %dec1923 = add i32 %1160, -1
+  %1166 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1922 = getelementptr inbounds %struct.symtable, ptr %1166, i32 0, i32 9
+  %1167 = load i32, ptr %recursion_depth1922, align 8
+  %dec1923 = add i32 %1167, -1
   store i32 %dec1923, ptr %recursion_depth1922, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -6365,62 +6374,62 @@ if.end1924:                                       ; preds = %for.body1914
   br label %for.inc1925
 
 for.inc1925:                                      ; preds = %if.end1924
-  %1161 = load i32, ptr %i1899, align 4
-  %inc1926 = add i32 %1161, 1
+  %1168 = load i32, ptr %i1899, align 4
+  %inc1926 = add i32 %1168, 1
   store i32 %inc1926, ptr %i1899, align 4
   br label %for.cond1903, !llvm.loop !46
 
 for.end1927:                                      ; preds = %cond.end1910
-  %1162 = load ptr, ptr %st.addr, align 8
-  %call1928 = call i32 @symtable_exit_block(ptr noundef %1162)
+  %1169 = load ptr, ptr %st.addr, align 8
+  %call1928 = call i32 @symtable_exit_block(ptr noundef %1169)
   %tobool1929 = icmp ne i32 %call1928, 0
   br i1 %tobool1929, label %if.end1933, label %if.then1930
 
 if.then1930:                                      ; preds = %for.end1927
-  %1163 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1931 = getelementptr inbounds %struct.symtable, ptr %1163, i32 0, i32 9
-  %1164 = load i32, ptr %recursion_depth1931, align 8
-  %dec1932 = add i32 %1164, -1
+  %1170 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1931 = getelementptr inbounds %struct.symtable, ptr %1170, i32 0, i32 9
+  %1171 = load i32, ptr %recursion_depth1931, align 8
+  %dec1932 = add i32 %1171, -1
   store i32 %dec1932, ptr %recursion_depth1931, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end1933:                                       ; preds = %for.end1927
-  %1165 = load ptr, ptr %s.addr, align 8
-  %v1934 = getelementptr inbounds %struct._stmt, ptr %1165, i32 0, i32 1
+  %1172 = load ptr, ptr %s.addr, align 8
+  %v1934 = getelementptr inbounds %struct._stmt, ptr %1172, i32 0, i32 1
   %type_params1935 = getelementptr inbounds %struct.anon.776, ptr %v1934, i32 0, i32 6
-  %1166 = load ptr, ptr %type_params1935, align 8
-  %cmp1936 = icmp eq ptr %1166, null
+  %1173 = load ptr, ptr %type_params1935, align 8
+  %cmp1936 = icmp eq ptr %1173, null
   br i1 %cmp1936, label %cond.true1938, label %cond.false1939
 
 cond.true1938:                                    ; preds = %if.end1933
   br label %cond.end1943
 
 cond.false1939:                                   ; preds = %if.end1933
-  %1167 = load ptr, ptr %s.addr, align 8
-  %v1940 = getelementptr inbounds %struct._stmt, ptr %1167, i32 0, i32 1
+  %1174 = load ptr, ptr %s.addr, align 8
+  %v1940 = getelementptr inbounds %struct._stmt, ptr %1174, i32 0, i32 1
   %type_params1941 = getelementptr inbounds %struct.anon.776, ptr %v1940, i32 0, i32 6
-  %1168 = load ptr, ptr %type_params1941, align 8
-  %size1942 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %1168, i32 0, i32 0
-  %1169 = load i64, ptr %size1942, align 8
+  %1175 = load ptr, ptr %type_params1941, align 8
+  %size1942 = getelementptr inbounds %struct.asdl_type_param_seq, ptr %1175, i32 0, i32 0
+  %1176 = load i64, ptr %size1942, align 8
   br label %cond.end1943
 
 cond.end1943:                                     ; preds = %cond.false1939, %cond.true1938
-  %cond1944 = phi i64 [ 0, %cond.true1938 ], [ %1169, %cond.false1939 ]
+  %cond1944 = phi i64 [ 0, %cond.true1938 ], [ %1176, %cond.false1939 ]
   %cmp1945 = icmp sgt i64 %cond1944, 0
   br i1 %cmp1945, label %if.then1947, label %if.end1954
 
 if.then1947:                                      ; preds = %cond.end1943
-  %1170 = load ptr, ptr %st.addr, align 8
-  %call1948 = call i32 @symtable_exit_block(ptr noundef %1170)
+  %1177 = load ptr, ptr %st.addr, align 8
+  %call1948 = call i32 @symtable_exit_block(ptr noundef %1177)
   %tobool1949 = icmp ne i32 %call1948, 0
   br i1 %tobool1949, label %if.end1953, label %if.then1950
 
 if.then1950:                                      ; preds = %if.then1947
-  %1171 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1951 = getelementptr inbounds %struct.symtable, ptr %1171, i32 0, i32 9
-  %1172 = load i32, ptr %recursion_depth1951, align 8
-  %dec1952 = add i32 %1172, -1
+  %1178 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1951 = getelementptr inbounds %struct.symtable, ptr %1178, i32 0, i32 9
+  %1179 = load i32, ptr %recursion_depth1951, align 8
+  %dec1952 = add i32 %1179, -1
   store i32 %dec1952, ptr %recursion_depth1951, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -6432,54 +6441,54 @@ if.end1954:                                       ; preds = %if.end1953, %cond.e
   br label %sw.epilog
 
 sw.bb1955:                                        ; preds = %if.end
-  %1173 = load ptr, ptr %s.addr, align 8
-  %v1958 = getelementptr inbounds %struct._stmt, ptr %1173, i32 0, i32 1
+  %1180 = load ptr, ptr %s.addr, align 8
+  %v1958 = getelementptr inbounds %struct._stmt, ptr %1180, i32 0, i32 1
   %items1959 = getelementptr inbounds %struct.anon.789, ptr %v1958, i32 0, i32 0
-  %1174 = load ptr, ptr %items1959, align 8
-  store ptr %1174, ptr %seq1957, align 8
+  %1181 = load ptr, ptr %items1959, align 8
+  store ptr %1181, ptr %seq1957, align 8
   store i32 0, ptr %i1956, align 4
   br label %for.cond1960
 
 for.cond1960:                                     ; preds = %for.inc1982, %sw.bb1955
-  %1175 = load i32, ptr %i1956, align 4
-  %conv1961 = sext i32 %1175 to i64
-  %1176 = load ptr, ptr %seq1957, align 8
-  %cmp1962 = icmp eq ptr %1176, null
+  %1182 = load i32, ptr %i1956, align 4
+  %conv1961 = sext i32 %1182 to i64
+  %1183 = load ptr, ptr %seq1957, align 8
+  %cmp1962 = icmp eq ptr %1183, null
   br i1 %cmp1962, label %cond.true1964, label %cond.false1965
 
 cond.true1964:                                    ; preds = %for.cond1960
   br label %cond.end1967
 
 cond.false1965:                                   ; preds = %for.cond1960
-  %1177 = load ptr, ptr %seq1957, align 8
-  %size1966 = getelementptr inbounds %struct.asdl_withitem_seq, ptr %1177, i32 0, i32 0
-  %1178 = load i64, ptr %size1966, align 8
+  %1184 = load ptr, ptr %seq1957, align 8
+  %size1966 = getelementptr inbounds %struct.asdl_withitem_seq, ptr %1184, i32 0, i32 0
+  %1185 = load i64, ptr %size1966, align 8
   br label %cond.end1967
 
 cond.end1967:                                     ; preds = %cond.false1965, %cond.true1964
-  %cond1968 = phi i64 [ 0, %cond.true1964 ], [ %1178, %cond.false1965 ]
+  %cond1968 = phi i64 [ 0, %cond.true1964 ], [ %1185, %cond.false1965 ]
   %cmp1969 = icmp slt i64 %conv1961, %cond1968
   br i1 %cmp1969, label %for.body1971, label %for.end1984
 
 for.body1971:                                     ; preds = %cond.end1967
-  %1179 = load ptr, ptr %seq1957, align 8
-  %typed_elements1973 = getelementptr inbounds %struct.asdl_withitem_seq, ptr %1179, i32 0, i32 2
-  %1180 = load i32, ptr %i1956, align 4
-  %idxprom1974 = sext i32 %1180 to i64
+  %1186 = load ptr, ptr %seq1957, align 8
+  %typed_elements1973 = getelementptr inbounds %struct.asdl_withitem_seq, ptr %1186, i32 0, i32 2
+  %1187 = load i32, ptr %i1956, align 4
+  %idxprom1974 = sext i32 %1187 to i64
   %arrayidx1975 = getelementptr [1 x ptr], ptr %typed_elements1973, i64 0, i64 %idxprom1974
-  %1181 = load ptr, ptr %arrayidx1975, align 8
-  store ptr %1181, ptr %elt1972, align 8
-  %1182 = load ptr, ptr %st.addr, align 8
-  %1183 = load ptr, ptr %elt1972, align 8
-  %call1976 = call i32 @symtable_visit_withitem(ptr noundef %1182, ptr noundef %1183)
+  %1188 = load ptr, ptr %arrayidx1975, align 8
+  store ptr %1188, ptr %elt1972, align 8
+  %1189 = load ptr, ptr %st.addr, align 8
+  %1190 = load ptr, ptr %elt1972, align 8
+  %call1976 = call i32 @symtable_visit_withitem(ptr noundef %1189, ptr noundef %1190)
   %tobool1977 = icmp ne i32 %call1976, 0
   br i1 %tobool1977, label %if.end1981, label %if.then1978
 
 if.then1978:                                      ; preds = %for.body1971
-  %1184 = load ptr, ptr %st.addr, align 8
-  %recursion_depth1979 = getelementptr inbounds %struct.symtable, ptr %1184, i32 0, i32 9
-  %1185 = load i32, ptr %recursion_depth1979, align 8
-  %dec1980 = add i32 %1185, -1
+  %1191 = load ptr, ptr %st.addr, align 8
+  %recursion_depth1979 = getelementptr inbounds %struct.symtable, ptr %1191, i32 0, i32 9
+  %1192 = load i32, ptr %recursion_depth1979, align 8
+  %dec1980 = add i32 %1192, -1
   store i32 %dec1980, ptr %recursion_depth1979, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -6488,60 +6497,60 @@ if.end1981:                                       ; preds = %for.body1971
   br label %for.inc1982
 
 for.inc1982:                                      ; preds = %if.end1981
-  %1186 = load i32, ptr %i1956, align 4
-  %inc1983 = add i32 %1186, 1
+  %1193 = load i32, ptr %i1956, align 4
+  %inc1983 = add i32 %1193, 1
   store i32 %inc1983, ptr %i1956, align 4
   br label %for.cond1960, !llvm.loop !47
 
 for.end1984:                                      ; preds = %cond.end1967
-  %1187 = load ptr, ptr %s.addr, align 8
-  %v1987 = getelementptr inbounds %struct._stmt, ptr %1187, i32 0, i32 1
+  %1194 = load ptr, ptr %s.addr, align 8
+  %v1987 = getelementptr inbounds %struct._stmt, ptr %1194, i32 0, i32 1
   %body1988 = getelementptr inbounds %struct.anon.789, ptr %v1987, i32 0, i32 1
-  %1188 = load ptr, ptr %body1988, align 8
-  store ptr %1188, ptr %seq1986, align 8
+  %1195 = load ptr, ptr %body1988, align 8
+  store ptr %1195, ptr %seq1986, align 8
   store i32 0, ptr %i1985, align 4
   br label %for.cond1989
 
 for.cond1989:                                     ; preds = %for.inc2011, %for.end1984
-  %1189 = load i32, ptr %i1985, align 4
-  %conv1990 = sext i32 %1189 to i64
-  %1190 = load ptr, ptr %seq1986, align 8
-  %cmp1991 = icmp eq ptr %1190, null
+  %1196 = load i32, ptr %i1985, align 4
+  %conv1990 = sext i32 %1196 to i64
+  %1197 = load ptr, ptr %seq1986, align 8
+  %cmp1991 = icmp eq ptr %1197, null
   br i1 %cmp1991, label %cond.true1993, label %cond.false1994
 
 cond.true1993:                                    ; preds = %for.cond1989
   br label %cond.end1996
 
 cond.false1994:                                   ; preds = %for.cond1989
-  %1191 = load ptr, ptr %seq1986, align 8
-  %size1995 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1191, i32 0, i32 0
-  %1192 = load i64, ptr %size1995, align 8
+  %1198 = load ptr, ptr %seq1986, align 8
+  %size1995 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1198, i32 0, i32 0
+  %1199 = load i64, ptr %size1995, align 8
   br label %cond.end1996
 
 cond.end1996:                                     ; preds = %cond.false1994, %cond.true1993
-  %cond1997 = phi i64 [ 0, %cond.true1993 ], [ %1192, %cond.false1994 ]
+  %cond1997 = phi i64 [ 0, %cond.true1993 ], [ %1199, %cond.false1994 ]
   %cmp1998 = icmp slt i64 %conv1990, %cond1997
   br i1 %cmp1998, label %for.body2000, label %for.end2013
 
 for.body2000:                                     ; preds = %cond.end1996
-  %1193 = load ptr, ptr %seq1986, align 8
-  %typed_elements2002 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1193, i32 0, i32 2
-  %1194 = load i32, ptr %i1985, align 4
-  %idxprom2003 = sext i32 %1194 to i64
+  %1200 = load ptr, ptr %seq1986, align 8
+  %typed_elements2002 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1200, i32 0, i32 2
+  %1201 = load i32, ptr %i1985, align 4
+  %idxprom2003 = sext i32 %1201 to i64
   %arrayidx2004 = getelementptr [1 x ptr], ptr %typed_elements2002, i64 0, i64 %idxprom2003
-  %1195 = load ptr, ptr %arrayidx2004, align 8
-  store ptr %1195, ptr %elt2001, align 8
-  %1196 = load ptr, ptr %st.addr, align 8
-  %1197 = load ptr, ptr %elt2001, align 8
-  %call2005 = call i32 @symtable_visit_stmt(ptr noundef %1196, ptr noundef %1197)
+  %1202 = load ptr, ptr %arrayidx2004, align 8
+  store ptr %1202, ptr %elt2001, align 8
+  %1203 = load ptr, ptr %st.addr, align 8
+  %1204 = load ptr, ptr %elt2001, align 8
+  %call2005 = call i32 @symtable_visit_stmt(ptr noundef %1203, ptr noundef %1204)
   %tobool2006 = icmp ne i32 %call2005, 0
   br i1 %tobool2006, label %if.end2010, label %if.then2007
 
 if.then2007:                                      ; preds = %for.body2000
-  %1198 = load ptr, ptr %st.addr, align 8
-  %recursion_depth2008 = getelementptr inbounds %struct.symtable, ptr %1198, i32 0, i32 9
-  %1199 = load i32, ptr %recursion_depth2008, align 8
-  %dec2009 = add i32 %1199, -1
+  %1205 = load ptr, ptr %st.addr, align 8
+  %recursion_depth2008 = getelementptr inbounds %struct.symtable, ptr %1205, i32 0, i32 9
+  %1206 = load i32, ptr %recursion_depth2008, align 8
+  %dec2009 = add i32 %1206, -1
   store i32 %dec2009, ptr %recursion_depth2008, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -6550,8 +6559,8 @@ if.end2010:                                       ; preds = %for.body2000
   br label %for.inc2011
 
 for.inc2011:                                      ; preds = %if.end2010
-  %1200 = load i32, ptr %i1985, align 4
-  %inc2012 = add i32 %1200, 1
+  %1207 = load i32, ptr %i1985, align 4
+  %inc2012 = add i32 %1207, 1
   store i32 %inc2012, ptr %i1985, align 4
   br label %for.cond1989, !llvm.loop !48
 
@@ -6559,92 +6568,92 @@ for.end2013:                                      ; preds = %cond.end1996
   br label %sw.epilog
 
 sw.bb2014:                                        ; preds = %if.end
-  %1201 = load ptr, ptr %st.addr, align 8
-  %1202 = load ptr, ptr %s.addr, align 8
-  %v2015 = getelementptr inbounds %struct._stmt, ptr %1202, i32 0, i32 1
+  %1208 = load ptr, ptr %st.addr, align 8
+  %1209 = load ptr, ptr %s.addr, align 8
+  %v2015 = getelementptr inbounds %struct._stmt, ptr %1209, i32 0, i32 1
   %target2016 = getelementptr inbounds %struct.anon.785, ptr %v2015, i32 0, i32 0
-  %1203 = load ptr, ptr %target2016, align 8
-  %call2017 = call i32 @symtable_visit_expr(ptr noundef %1201, ptr noundef %1203)
+  %1210 = load ptr, ptr %target2016, align 8
+  %call2017 = call i32 @symtable_visit_expr(ptr noundef %1208, ptr noundef %1210)
   %tobool2018 = icmp ne i32 %call2017, 0
   br i1 %tobool2018, label %if.end2022, label %if.then2019
 
 if.then2019:                                      ; preds = %sw.bb2014
-  %1204 = load ptr, ptr %st.addr, align 8
-  %recursion_depth2020 = getelementptr inbounds %struct.symtable, ptr %1204, i32 0, i32 9
-  %1205 = load i32, ptr %recursion_depth2020, align 8
-  %dec2021 = add i32 %1205, -1
+  %1211 = load ptr, ptr %st.addr, align 8
+  %recursion_depth2020 = getelementptr inbounds %struct.symtable, ptr %1211, i32 0, i32 9
+  %1212 = load i32, ptr %recursion_depth2020, align 8
+  %dec2021 = add i32 %1212, -1
   store i32 %dec2021, ptr %recursion_depth2020, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end2022:                                       ; preds = %sw.bb2014
-  %1206 = load ptr, ptr %st.addr, align 8
-  %1207 = load ptr, ptr %s.addr, align 8
-  %v2023 = getelementptr inbounds %struct._stmt, ptr %1207, i32 0, i32 1
+  %1213 = load ptr, ptr %st.addr, align 8
+  %1214 = load ptr, ptr %s.addr, align 8
+  %v2023 = getelementptr inbounds %struct._stmt, ptr %1214, i32 0, i32 1
   %iter2024 = getelementptr inbounds %struct.anon.785, ptr %v2023, i32 0, i32 1
-  %1208 = load ptr, ptr %iter2024, align 8
-  %call2025 = call i32 @symtable_visit_expr(ptr noundef %1206, ptr noundef %1208)
+  %1215 = load ptr, ptr %iter2024, align 8
+  %call2025 = call i32 @symtable_visit_expr(ptr noundef %1213, ptr noundef %1215)
   %tobool2026 = icmp ne i32 %call2025, 0
   br i1 %tobool2026, label %if.end2030, label %if.then2027
 
 if.then2027:                                      ; preds = %if.end2022
-  %1209 = load ptr, ptr %st.addr, align 8
-  %recursion_depth2028 = getelementptr inbounds %struct.symtable, ptr %1209, i32 0, i32 9
-  %1210 = load i32, ptr %recursion_depth2028, align 8
-  %dec2029 = add i32 %1210, -1
+  %1216 = load ptr, ptr %st.addr, align 8
+  %recursion_depth2028 = getelementptr inbounds %struct.symtable, ptr %1216, i32 0, i32 9
+  %1217 = load i32, ptr %recursion_depth2028, align 8
+  %dec2029 = add i32 %1217, -1
   store i32 %dec2029, ptr %recursion_depth2028, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end2030:                                       ; preds = %if.end2022
-  %1211 = load ptr, ptr %s.addr, align 8
-  %v2033 = getelementptr inbounds %struct._stmt, ptr %1211, i32 0, i32 1
+  %1218 = load ptr, ptr %s.addr, align 8
+  %v2033 = getelementptr inbounds %struct._stmt, ptr %1218, i32 0, i32 1
   %body2034 = getelementptr inbounds %struct.anon.785, ptr %v2033, i32 0, i32 2
-  %1212 = load ptr, ptr %body2034, align 8
-  store ptr %1212, ptr %seq2032, align 8
+  %1219 = load ptr, ptr %body2034, align 8
+  store ptr %1219, ptr %seq2032, align 8
   store i32 0, ptr %i2031, align 4
   br label %for.cond2035
 
 for.cond2035:                                     ; preds = %for.inc2057, %if.end2030
-  %1213 = load i32, ptr %i2031, align 4
-  %conv2036 = sext i32 %1213 to i64
-  %1214 = load ptr, ptr %seq2032, align 8
-  %cmp2037 = icmp eq ptr %1214, null
+  %1220 = load i32, ptr %i2031, align 4
+  %conv2036 = sext i32 %1220 to i64
+  %1221 = load ptr, ptr %seq2032, align 8
+  %cmp2037 = icmp eq ptr %1221, null
   br i1 %cmp2037, label %cond.true2039, label %cond.false2040
 
 cond.true2039:                                    ; preds = %for.cond2035
   br label %cond.end2042
 
 cond.false2040:                                   ; preds = %for.cond2035
-  %1215 = load ptr, ptr %seq2032, align 8
-  %size2041 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1215, i32 0, i32 0
-  %1216 = load i64, ptr %size2041, align 8
+  %1222 = load ptr, ptr %seq2032, align 8
+  %size2041 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1222, i32 0, i32 0
+  %1223 = load i64, ptr %size2041, align 8
   br label %cond.end2042
 
 cond.end2042:                                     ; preds = %cond.false2040, %cond.true2039
-  %cond2043 = phi i64 [ 0, %cond.true2039 ], [ %1216, %cond.false2040 ]
+  %cond2043 = phi i64 [ 0, %cond.true2039 ], [ %1223, %cond.false2040 ]
   %cmp2044 = icmp slt i64 %conv2036, %cond2043
   br i1 %cmp2044, label %for.body2046, label %for.end2059
 
 for.body2046:                                     ; preds = %cond.end2042
-  %1217 = load ptr, ptr %seq2032, align 8
-  %typed_elements2048 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1217, i32 0, i32 2
-  %1218 = load i32, ptr %i2031, align 4
-  %idxprom2049 = sext i32 %1218 to i64
+  %1224 = load ptr, ptr %seq2032, align 8
+  %typed_elements2048 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1224, i32 0, i32 2
+  %1225 = load i32, ptr %i2031, align 4
+  %idxprom2049 = sext i32 %1225 to i64
   %arrayidx2050 = getelementptr [1 x ptr], ptr %typed_elements2048, i64 0, i64 %idxprom2049
-  %1219 = load ptr, ptr %arrayidx2050, align 8
-  store ptr %1219, ptr %elt2047, align 8
-  %1220 = load ptr, ptr %st.addr, align 8
-  %1221 = load ptr, ptr %elt2047, align 8
-  %call2051 = call i32 @symtable_visit_stmt(ptr noundef %1220, ptr noundef %1221)
+  %1226 = load ptr, ptr %arrayidx2050, align 8
+  store ptr %1226, ptr %elt2047, align 8
+  %1227 = load ptr, ptr %st.addr, align 8
+  %1228 = load ptr, ptr %elt2047, align 8
+  %call2051 = call i32 @symtable_visit_stmt(ptr noundef %1227, ptr noundef %1228)
   %tobool2052 = icmp ne i32 %call2051, 0
   br i1 %tobool2052, label %if.end2056, label %if.then2053
 
 if.then2053:                                      ; preds = %for.body2046
-  %1222 = load ptr, ptr %st.addr, align 8
-  %recursion_depth2054 = getelementptr inbounds %struct.symtable, ptr %1222, i32 0, i32 9
-  %1223 = load i32, ptr %recursion_depth2054, align 8
-  %dec2055 = add i32 %1223, -1
+  %1229 = load ptr, ptr %st.addr, align 8
+  %recursion_depth2054 = getelementptr inbounds %struct.symtable, ptr %1229, i32 0, i32 9
+  %1230 = load i32, ptr %recursion_depth2054, align 8
+  %dec2055 = add i32 %1230, -1
   store i32 %dec2055, ptr %recursion_depth2054, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -6653,68 +6662,68 @@ if.end2056:                                       ; preds = %for.body2046
   br label %for.inc2057
 
 for.inc2057:                                      ; preds = %if.end2056
-  %1224 = load i32, ptr %i2031, align 4
-  %inc2058 = add i32 %1224, 1
+  %1231 = load i32, ptr %i2031, align 4
+  %inc2058 = add i32 %1231, 1
   store i32 %inc2058, ptr %i2031, align 4
   br label %for.cond2035, !llvm.loop !49
 
 for.end2059:                                      ; preds = %cond.end2042
-  %1225 = load ptr, ptr %s.addr, align 8
-  %v2060 = getelementptr inbounds %struct._stmt, ptr %1225, i32 0, i32 1
+  %1232 = load ptr, ptr %s.addr, align 8
+  %v2060 = getelementptr inbounds %struct._stmt, ptr %1232, i32 0, i32 1
   %orelse2061 = getelementptr inbounds %struct.anon.785, ptr %v2060, i32 0, i32 3
-  %1226 = load ptr, ptr %orelse2061, align 8
-  %tobool2062 = icmp ne ptr %1226, null
+  %1233 = load ptr, ptr %orelse2061, align 8
+  %tobool2062 = icmp ne ptr %1233, null
   br i1 %tobool2062, label %if.then2063, label %if.end2093
 
 if.then2063:                                      ; preds = %for.end2059
-  %1227 = load ptr, ptr %s.addr, align 8
-  %v2066 = getelementptr inbounds %struct._stmt, ptr %1227, i32 0, i32 1
+  %1234 = load ptr, ptr %s.addr, align 8
+  %v2066 = getelementptr inbounds %struct._stmt, ptr %1234, i32 0, i32 1
   %orelse2067 = getelementptr inbounds %struct.anon.785, ptr %v2066, i32 0, i32 3
-  %1228 = load ptr, ptr %orelse2067, align 8
-  store ptr %1228, ptr %seq2065, align 8
+  %1235 = load ptr, ptr %orelse2067, align 8
+  store ptr %1235, ptr %seq2065, align 8
   store i32 0, ptr %i2064, align 4
   br label %for.cond2068
 
 for.cond2068:                                     ; preds = %for.inc2090, %if.then2063
-  %1229 = load i32, ptr %i2064, align 4
-  %conv2069 = sext i32 %1229 to i64
-  %1230 = load ptr, ptr %seq2065, align 8
-  %cmp2070 = icmp eq ptr %1230, null
+  %1236 = load i32, ptr %i2064, align 4
+  %conv2069 = sext i32 %1236 to i64
+  %1237 = load ptr, ptr %seq2065, align 8
+  %cmp2070 = icmp eq ptr %1237, null
   br i1 %cmp2070, label %cond.true2072, label %cond.false2073
 
 cond.true2072:                                    ; preds = %for.cond2068
   br label %cond.end2075
 
 cond.false2073:                                   ; preds = %for.cond2068
-  %1231 = load ptr, ptr %seq2065, align 8
-  %size2074 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1231, i32 0, i32 0
-  %1232 = load i64, ptr %size2074, align 8
+  %1238 = load ptr, ptr %seq2065, align 8
+  %size2074 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1238, i32 0, i32 0
+  %1239 = load i64, ptr %size2074, align 8
   br label %cond.end2075
 
 cond.end2075:                                     ; preds = %cond.false2073, %cond.true2072
-  %cond2076 = phi i64 [ 0, %cond.true2072 ], [ %1232, %cond.false2073 ]
+  %cond2076 = phi i64 [ 0, %cond.true2072 ], [ %1239, %cond.false2073 ]
   %cmp2077 = icmp slt i64 %conv2069, %cond2076
   br i1 %cmp2077, label %for.body2079, label %for.end2092
 
 for.body2079:                                     ; preds = %cond.end2075
-  %1233 = load ptr, ptr %seq2065, align 8
-  %typed_elements2081 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1233, i32 0, i32 2
-  %1234 = load i32, ptr %i2064, align 4
-  %idxprom2082 = sext i32 %1234 to i64
+  %1240 = load ptr, ptr %seq2065, align 8
+  %typed_elements2081 = getelementptr inbounds %struct.asdl_stmt_seq, ptr %1240, i32 0, i32 2
+  %1241 = load i32, ptr %i2064, align 4
+  %idxprom2082 = sext i32 %1241 to i64
   %arrayidx2083 = getelementptr [1 x ptr], ptr %typed_elements2081, i64 0, i64 %idxprom2082
-  %1235 = load ptr, ptr %arrayidx2083, align 8
-  store ptr %1235, ptr %elt2080, align 8
-  %1236 = load ptr, ptr %st.addr, align 8
-  %1237 = load ptr, ptr %elt2080, align 8
-  %call2084 = call i32 @symtable_visit_stmt(ptr noundef %1236, ptr noundef %1237)
+  %1242 = load ptr, ptr %arrayidx2083, align 8
+  store ptr %1242, ptr %elt2080, align 8
+  %1243 = load ptr, ptr %st.addr, align 8
+  %1244 = load ptr, ptr %elt2080, align 8
+  %call2084 = call i32 @symtable_visit_stmt(ptr noundef %1243, ptr noundef %1244)
   %tobool2085 = icmp ne i32 %call2084, 0
   br i1 %tobool2085, label %if.end2089, label %if.then2086
 
 if.then2086:                                      ; preds = %for.body2079
-  %1238 = load ptr, ptr %st.addr, align 8
-  %recursion_depth2087 = getelementptr inbounds %struct.symtable, ptr %1238, i32 0, i32 9
-  %1239 = load i32, ptr %recursion_depth2087, align 8
-  %dec2088 = add i32 %1239, -1
+  %1245 = load ptr, ptr %st.addr, align 8
+  %recursion_depth2087 = getelementptr inbounds %struct.symtable, ptr %1245, i32 0, i32 9
+  %1246 = load i32, ptr %recursion_depth2087, align 8
+  %dec2088 = add i32 %1246, -1
   store i32 %dec2088, ptr %recursion_depth2087, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -6723,8 +6732,8 @@ if.end2089:                                       ; preds = %for.body2079
   br label %for.inc2090
 
 for.inc2090:                                      ; preds = %if.end2089
-  %1240 = load i32, ptr %i2064, align 4
-  %inc2091 = add i32 %1240, 1
+  %1247 = load i32, ptr %i2064, align 4
+  %inc2091 = add i32 %1247, 1
   store i32 %inc2091, ptr %i2064, align 4
   br label %for.cond2068, !llvm.loop !50
 
@@ -6735,17 +6744,17 @@ if.end2093:                                       ; preds = %for.end2092, %for.e
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end2093, %for.end2013, %if.end1954, %for.end1671, %sw.bb1613, %if.end1612, %for.end1603, %for.end1521, %for.end1439, %for.end1409, %if.end1380, %for.end1359, %for.end1242, %if.end1127, %for.end1102, %if.end1066, %if.end994, %if.end923, %if.end845, %if.end828, %if.end726, %for.end688, %if.end659, %if.end641, %if.end516, %if.end247, %if.end
-  %1241 = load ptr, ptr %st.addr, align 8
-  %recursion_depth2094 = getelementptr inbounds %struct.symtable, ptr %1241, i32 0, i32 9
-  %1242 = load i32, ptr %recursion_depth2094, align 8
-  %dec2095 = add i32 %1242, -1
+  %1248 = load ptr, ptr %st.addr, align 8
+  %recursion_depth2094 = getelementptr inbounds %struct.symtable, ptr %1248, i32 0, i32 9
+  %1249 = load i32, ptr %recursion_depth2094, align 8
+  %dec2095 = add i32 %1249, -1
   store i32 %dec2095, ptr %recursion_depth2094, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then2086, %if.then2053, %if.then2027, %if.then2019, %if.then2007, %if.then1978, %if.then1950, %if.then1930, %if.then1921, %if.then1895, %if.then1883, %if.then1871, %if.then1857, %if.then1831, %if.then1786, %if.then1752, %if.then1713, %if.then1681, %if.then1665, %if.then1636, %if.then1609, %if.then1597, %if.then1587, %if.end1569, %if.then1547, %if.then1515, %if.then1505, %if.end1487, %if.then1465, %if.then1433, %if.then1403, %if.then1376, %if.then1365, %if.then1353, %if.then1324, %if.then1295, %if.then1266, %if.then1236, %if.then1208, %if.then1179, %if.then1151, %if.then1122, %if.then1111, %if.then1096, %if.then1071, %if.then1059, %if.then1026, %if.then1000, %if.then987, %if.then954, %if.then928, %if.then916, %if.then884, %if.then858, %if.then851, %if.then842, %if.then834, %if.then824, %if.then812, %if.then804, %if.then794, %if.then779, %if.then752, %if.then740, %if.then723, %if.then712, %if.then682, %if.then651, %if.then637, %if.then629, %if.then623, %if.then615, %if.then596, %if.then582, %if.then556, %if.then522, %if.then512, %if.then492, %if.then482, %if.then455, %if.then445, %if.then418, %if.then403, %if.then375, %if.then346, %if.then320, %if.then287, %if.then257, %if.then243, %if.then223, %if.then214, %if.then189, %if.then181, %if.then169, %if.then156, %if.then130, %if.then87, %if.then54, %if.then18, %if.then2, %if.then
-  %1243 = load i32, ptr %retval, align 4
-  ret i32 %1243
+  %1250 = load i32, ptr %retval, align 4
+  ret i32 %1250
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7229,68 +7238,70 @@ if.end126:                                        ; preds = %for.end125, %if.end
   %106 = load ptr, ptr %e.addr, align 8
   %end_col_offset130 = getelementptr inbounds %struct._expr, ptr %106, i32 0, i32 5
   %107 = load i32, ptr %end_col_offset130, align 4
-  %call131 = call i32 @symtable_enter_block(ptr noundef %98, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 447), i32 noundef 0, ptr noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %105, i32 noundef %107)
+  %108 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %109 = getelementptr inbounds %struct.anon.40, ptr %108, i32 0, i32 3, i32 1, i32 447
+  %call131 = call i32 @symtable_enter_block(ptr noundef %98, ptr noundef %109, i32 noundef 0, ptr noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %105, i32 noundef %107)
   %tobool132 = icmp ne i32 %call131, 0
   br i1 %tobool132, label %if.end136, label %if.then133
 
 if.then133:                                       ; preds = %if.end126
-  %108 = load ptr, ptr %st.addr, align 8
-  %recursion_depth134 = getelementptr inbounds %struct.symtable, ptr %108, i32 0, i32 9
-  %109 = load i32, ptr %recursion_depth134, align 8
-  %dec135 = add i32 %109, -1
+  %110 = load ptr, ptr %st.addr, align 8
+  %recursion_depth134 = getelementptr inbounds %struct.symtable, ptr %110, i32 0, i32 9
+  %111 = load i32, ptr %recursion_depth134, align 8
+  %dec135 = add i32 %111, -1
   store i32 %dec135, ptr %recursion_depth134, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end136:                                        ; preds = %if.end126
-  %110 = load ptr, ptr %st.addr, align 8
-  %111 = load ptr, ptr %e.addr, align 8
-  %v137 = getelementptr inbounds %struct._expr, ptr %111, i32 0, i32 1
+  %112 = load ptr, ptr %st.addr, align 8
+  %113 = load ptr, ptr %e.addr, align 8
+  %v137 = getelementptr inbounds %struct._expr, ptr %113, i32 0, i32 1
   %args138 = getelementptr inbounds %struct.anon.11, ptr %v137, i32 0, i32 0
-  %112 = load ptr, ptr %args138, align 8
-  %call139 = call i32 @symtable_visit_arguments(ptr noundef %110, ptr noundef %112)
+  %114 = load ptr, ptr %args138, align 8
+  %call139 = call i32 @symtable_visit_arguments(ptr noundef %112, ptr noundef %114)
   %tobool140 = icmp ne i32 %call139, 0
   br i1 %tobool140, label %if.end144, label %if.then141
 
 if.then141:                                       ; preds = %if.end136
-  %113 = load ptr, ptr %st.addr, align 8
-  %recursion_depth142 = getelementptr inbounds %struct.symtable, ptr %113, i32 0, i32 9
-  %114 = load i32, ptr %recursion_depth142, align 8
-  %dec143 = add i32 %114, -1
+  %115 = load ptr, ptr %st.addr, align 8
+  %recursion_depth142 = getelementptr inbounds %struct.symtable, ptr %115, i32 0, i32 9
+  %116 = load i32, ptr %recursion_depth142, align 8
+  %dec143 = add i32 %116, -1
   store i32 %dec143, ptr %recursion_depth142, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end144:                                        ; preds = %if.end136
-  %115 = load ptr, ptr %st.addr, align 8
-  %116 = load ptr, ptr %e.addr, align 8
-  %v145 = getelementptr inbounds %struct._expr, ptr %116, i32 0, i32 1
+  %117 = load ptr, ptr %st.addr, align 8
+  %118 = load ptr, ptr %e.addr, align 8
+  %v145 = getelementptr inbounds %struct._expr, ptr %118, i32 0, i32 1
   %body = getelementptr inbounds %struct.anon.11, ptr %v145, i32 0, i32 1
-  %117 = load ptr, ptr %body, align 8
-  %call146 = call i32 @symtable_visit_expr(ptr noundef %115, ptr noundef %117)
+  %119 = load ptr, ptr %body, align 8
+  %call146 = call i32 @symtable_visit_expr(ptr noundef %117, ptr noundef %119)
   %tobool147 = icmp ne i32 %call146, 0
   br i1 %tobool147, label %if.end151, label %if.then148
 
 if.then148:                                       ; preds = %if.end144
-  %118 = load ptr, ptr %st.addr, align 8
-  %recursion_depth149 = getelementptr inbounds %struct.symtable, ptr %118, i32 0, i32 9
-  %119 = load i32, ptr %recursion_depth149, align 8
-  %dec150 = add i32 %119, -1
+  %120 = load ptr, ptr %st.addr, align 8
+  %recursion_depth149 = getelementptr inbounds %struct.symtable, ptr %120, i32 0, i32 9
+  %121 = load i32, ptr %recursion_depth149, align 8
+  %dec150 = add i32 %121, -1
   store i32 %dec150, ptr %recursion_depth149, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end151:                                        ; preds = %if.end144
-  %120 = load ptr, ptr %st.addr, align 8
-  %call152 = call i32 @symtable_exit_block(ptr noundef %120)
+  %122 = load ptr, ptr %st.addr, align 8
+  %call152 = call i32 @symtable_exit_block(ptr noundef %122)
   %tobool153 = icmp ne i32 %call152, 0
   br i1 %tobool153, label %if.end157, label %if.then154
 
 if.then154:                                       ; preds = %if.end151
-  %121 = load ptr, ptr %st.addr, align 8
-  %recursion_depth155 = getelementptr inbounds %struct.symtable, ptr %121, i32 0, i32 9
-  %122 = load i32, ptr %recursion_depth155, align 8
-  %dec156 = add i32 %122, -1
+  %123 = load ptr, ptr %st.addr, align 8
+  %recursion_depth155 = getelementptr inbounds %struct.symtable, ptr %123, i32 0, i32 9
+  %124 = load i32, ptr %recursion_depth155, align 8
+  %dec156 = add i32 %124, -1
   store i32 %dec156, ptr %recursion_depth155, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7299,58 +7310,58 @@ if.end157:                                        ; preds = %if.end151
   br label %sw.epilog
 
 sw.bb158:                                         ; preds = %if.end
-  %123 = load ptr, ptr %st.addr, align 8
-  %124 = load ptr, ptr %e.addr, align 8
-  %v159 = getelementptr inbounds %struct._expr, ptr %124, i32 0, i32 1
+  %125 = load ptr, ptr %st.addr, align 8
+  %126 = load ptr, ptr %e.addr, align 8
+  %v159 = getelementptr inbounds %struct._expr, ptr %126, i32 0, i32 1
   %test = getelementptr inbounds %struct.anon.12, ptr %v159, i32 0, i32 0
-  %125 = load ptr, ptr %test, align 8
-  %call160 = call i32 @symtable_visit_expr(ptr noundef %123, ptr noundef %125)
+  %127 = load ptr, ptr %test, align 8
+  %call160 = call i32 @symtable_visit_expr(ptr noundef %125, ptr noundef %127)
   %tobool161 = icmp ne i32 %call160, 0
   br i1 %tobool161, label %if.end165, label %if.then162
 
 if.then162:                                       ; preds = %sw.bb158
-  %126 = load ptr, ptr %st.addr, align 8
-  %recursion_depth163 = getelementptr inbounds %struct.symtable, ptr %126, i32 0, i32 9
-  %127 = load i32, ptr %recursion_depth163, align 8
-  %dec164 = add i32 %127, -1
+  %128 = load ptr, ptr %st.addr, align 8
+  %recursion_depth163 = getelementptr inbounds %struct.symtable, ptr %128, i32 0, i32 9
+  %129 = load i32, ptr %recursion_depth163, align 8
+  %dec164 = add i32 %129, -1
   store i32 %dec164, ptr %recursion_depth163, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end165:                                        ; preds = %sw.bb158
-  %128 = load ptr, ptr %st.addr, align 8
-  %129 = load ptr, ptr %e.addr, align 8
-  %v166 = getelementptr inbounds %struct._expr, ptr %129, i32 0, i32 1
+  %130 = load ptr, ptr %st.addr, align 8
+  %131 = load ptr, ptr %e.addr, align 8
+  %v166 = getelementptr inbounds %struct._expr, ptr %131, i32 0, i32 1
   %body167 = getelementptr inbounds %struct.anon.12, ptr %v166, i32 0, i32 1
-  %130 = load ptr, ptr %body167, align 8
-  %call168 = call i32 @symtable_visit_expr(ptr noundef %128, ptr noundef %130)
+  %132 = load ptr, ptr %body167, align 8
+  %call168 = call i32 @symtable_visit_expr(ptr noundef %130, ptr noundef %132)
   %tobool169 = icmp ne i32 %call168, 0
   br i1 %tobool169, label %if.end173, label %if.then170
 
 if.then170:                                       ; preds = %if.end165
-  %131 = load ptr, ptr %st.addr, align 8
-  %recursion_depth171 = getelementptr inbounds %struct.symtable, ptr %131, i32 0, i32 9
-  %132 = load i32, ptr %recursion_depth171, align 8
-  %dec172 = add i32 %132, -1
+  %133 = load ptr, ptr %st.addr, align 8
+  %recursion_depth171 = getelementptr inbounds %struct.symtable, ptr %133, i32 0, i32 9
+  %134 = load i32, ptr %recursion_depth171, align 8
+  %dec172 = add i32 %134, -1
   store i32 %dec172, ptr %recursion_depth171, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end173:                                        ; preds = %if.end165
-  %133 = load ptr, ptr %st.addr, align 8
-  %134 = load ptr, ptr %e.addr, align 8
-  %v174 = getelementptr inbounds %struct._expr, ptr %134, i32 0, i32 1
+  %135 = load ptr, ptr %st.addr, align 8
+  %136 = load ptr, ptr %e.addr, align 8
+  %v174 = getelementptr inbounds %struct._expr, ptr %136, i32 0, i32 1
   %orelse = getelementptr inbounds %struct.anon.12, ptr %v174, i32 0, i32 2
-  %135 = load ptr, ptr %orelse, align 8
-  %call175 = call i32 @symtable_visit_expr(ptr noundef %133, ptr noundef %135)
+  %137 = load ptr, ptr %orelse, align 8
+  %call175 = call i32 @symtable_visit_expr(ptr noundef %135, ptr noundef %137)
   %tobool176 = icmp ne i32 %call175, 0
   br i1 %tobool176, label %if.end180, label %if.then177
 
 if.then177:                                       ; preds = %if.end173
-  %136 = load ptr, ptr %st.addr, align 8
-  %recursion_depth178 = getelementptr inbounds %struct.symtable, ptr %136, i32 0, i32 9
-  %137 = load i32, ptr %recursion_depth178, align 8
-  %dec179 = add i32 %137, -1
+  %138 = load ptr, ptr %st.addr, align 8
+  %recursion_depth178 = getelementptr inbounds %struct.symtable, ptr %138, i32 0, i32 9
+  %139 = load i32, ptr %recursion_depth178, align 8
+  %dec179 = add i32 %139, -1
   store i32 %dec179, ptr %recursion_depth178, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7360,62 +7371,62 @@ if.end180:                                        ; preds = %if.end173
 
 sw.bb181:                                         ; preds = %if.end
   store i32 0, ptr %i182, align 4
-  %138 = load ptr, ptr %e.addr, align 8
-  %v184 = getelementptr inbounds %struct._expr, ptr %138, i32 0, i32 1
+  %140 = load ptr, ptr %e.addr, align 8
+  %v184 = getelementptr inbounds %struct._expr, ptr %140, i32 0, i32 1
   %keys = getelementptr inbounds %struct.anon.13, ptr %v184, i32 0, i32 0
-  %139 = load ptr, ptr %keys, align 8
-  store ptr %139, ptr %seq183, align 8
+  %141 = load ptr, ptr %keys, align 8
+  store ptr %141, ptr %seq183, align 8
   store i32 0, ptr %i182, align 4
   br label %for.cond185
 
 for.cond185:                                      ; preds = %for.inc210, %sw.bb181
-  %140 = load i32, ptr %i182, align 4
-  %conv186 = sext i32 %140 to i64
-  %141 = load ptr, ptr %seq183, align 8
-  %cmp187 = icmp eq ptr %141, null
+  %142 = load i32, ptr %i182, align 4
+  %conv186 = sext i32 %142 to i64
+  %143 = load ptr, ptr %seq183, align 8
+  %cmp187 = icmp eq ptr %143, null
   br i1 %cmp187, label %cond.true189, label %cond.false190
 
 cond.true189:                                     ; preds = %for.cond185
   br label %cond.end192
 
 cond.false190:                                    ; preds = %for.cond185
-  %142 = load ptr, ptr %seq183, align 8
-  %size191 = getelementptr inbounds %struct.asdl_expr_seq, ptr %142, i32 0, i32 0
-  %143 = load i64, ptr %size191, align 8
+  %144 = load ptr, ptr %seq183, align 8
+  %size191 = getelementptr inbounds %struct.asdl_expr_seq, ptr %144, i32 0, i32 0
+  %145 = load i64, ptr %size191, align 8
   br label %cond.end192
 
 cond.end192:                                      ; preds = %cond.false190, %cond.true189
-  %cond193 = phi i64 [ 0, %cond.true189 ], [ %143, %cond.false190 ]
+  %cond193 = phi i64 [ 0, %cond.true189 ], [ %145, %cond.false190 ]
   %cmp194 = icmp slt i64 %conv186, %cond193
   br i1 %cmp194, label %for.body196, label %for.end212
 
 for.body196:                                      ; preds = %cond.end192
-  %144 = load ptr, ptr %seq183, align 8
-  %typed_elements198 = getelementptr inbounds %struct.asdl_expr_seq, ptr %144, i32 0, i32 2
-  %145 = load i32, ptr %i182, align 4
-  %idxprom199 = sext i32 %145 to i64
+  %146 = load ptr, ptr %seq183, align 8
+  %typed_elements198 = getelementptr inbounds %struct.asdl_expr_seq, ptr %146, i32 0, i32 2
+  %147 = load i32, ptr %i182, align 4
+  %idxprom199 = sext i32 %147 to i64
   %arrayidx200 = getelementptr [1 x ptr], ptr %typed_elements198, i64 0, i64 %idxprom199
-  %146 = load ptr, ptr %arrayidx200, align 8
-  store ptr %146, ptr %elt197, align 8
-  %147 = load ptr, ptr %elt197, align 8
-  %tobool201 = icmp ne ptr %147, null
+  %148 = load ptr, ptr %arrayidx200, align 8
+  store ptr %148, ptr %elt197, align 8
+  %149 = load ptr, ptr %elt197, align 8
+  %tobool201 = icmp ne ptr %149, null
   br i1 %tobool201, label %if.end203, label %if.then202
 
 if.then202:                                       ; preds = %for.body196
   br label %for.inc210
 
 if.end203:                                        ; preds = %for.body196
-  %148 = load ptr, ptr %st.addr, align 8
-  %149 = load ptr, ptr %elt197, align 8
-  %call204 = call i32 @symtable_visit_expr(ptr noundef %148, ptr noundef %149)
+  %150 = load ptr, ptr %st.addr, align 8
+  %151 = load ptr, ptr %elt197, align 8
+  %call204 = call i32 @symtable_visit_expr(ptr noundef %150, ptr noundef %151)
   %tobool205 = icmp ne i32 %call204, 0
   br i1 %tobool205, label %if.end209, label %if.then206
 
 if.then206:                                       ; preds = %if.end203
-  %150 = load ptr, ptr %st.addr, align 8
-  %recursion_depth207 = getelementptr inbounds %struct.symtable, ptr %150, i32 0, i32 9
-  %151 = load i32, ptr %recursion_depth207, align 8
-  %dec208 = add i32 %151, -1
+  %152 = load ptr, ptr %st.addr, align 8
+  %recursion_depth207 = getelementptr inbounds %struct.symtable, ptr %152, i32 0, i32 9
+  %153 = load i32, ptr %recursion_depth207, align 8
+  %dec208 = add i32 %153, -1
   store i32 %dec208, ptr %recursion_depth207, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7424,60 +7435,60 @@ if.end209:                                        ; preds = %if.end203
   br label %for.inc210
 
 for.inc210:                                       ; preds = %if.end209, %if.then202
-  %152 = load i32, ptr %i182, align 4
-  %inc211 = add i32 %152, 1
+  %154 = load i32, ptr %i182, align 4
+  %inc211 = add i32 %154, 1
   store i32 %inc211, ptr %i182, align 4
   br label %for.cond185, !llvm.loop !54
 
 for.end212:                                       ; preds = %cond.end192
-  %153 = load ptr, ptr %e.addr, align 8
-  %v215 = getelementptr inbounds %struct._expr, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %e.addr, align 8
+  %v215 = getelementptr inbounds %struct._expr, ptr %155, i32 0, i32 1
   %values216 = getelementptr inbounds %struct.anon.13, ptr %v215, i32 0, i32 1
-  %154 = load ptr, ptr %values216, align 8
-  store ptr %154, ptr %seq214, align 8
+  %156 = load ptr, ptr %values216, align 8
+  store ptr %156, ptr %seq214, align 8
   store i32 0, ptr %i213, align 4
   br label %for.cond217
 
 for.cond217:                                      ; preds = %for.inc239, %for.end212
-  %155 = load i32, ptr %i213, align 4
-  %conv218 = sext i32 %155 to i64
-  %156 = load ptr, ptr %seq214, align 8
-  %cmp219 = icmp eq ptr %156, null
+  %157 = load i32, ptr %i213, align 4
+  %conv218 = sext i32 %157 to i64
+  %158 = load ptr, ptr %seq214, align 8
+  %cmp219 = icmp eq ptr %158, null
   br i1 %cmp219, label %cond.true221, label %cond.false222
 
 cond.true221:                                     ; preds = %for.cond217
   br label %cond.end224
 
 cond.false222:                                    ; preds = %for.cond217
-  %157 = load ptr, ptr %seq214, align 8
-  %size223 = getelementptr inbounds %struct.asdl_expr_seq, ptr %157, i32 0, i32 0
-  %158 = load i64, ptr %size223, align 8
+  %159 = load ptr, ptr %seq214, align 8
+  %size223 = getelementptr inbounds %struct.asdl_expr_seq, ptr %159, i32 0, i32 0
+  %160 = load i64, ptr %size223, align 8
   br label %cond.end224
 
 cond.end224:                                      ; preds = %cond.false222, %cond.true221
-  %cond225 = phi i64 [ 0, %cond.true221 ], [ %158, %cond.false222 ]
+  %cond225 = phi i64 [ 0, %cond.true221 ], [ %160, %cond.false222 ]
   %cmp226 = icmp slt i64 %conv218, %cond225
   br i1 %cmp226, label %for.body228, label %for.end241
 
 for.body228:                                      ; preds = %cond.end224
-  %159 = load ptr, ptr %seq214, align 8
-  %typed_elements230 = getelementptr inbounds %struct.asdl_expr_seq, ptr %159, i32 0, i32 2
-  %160 = load i32, ptr %i213, align 4
-  %idxprom231 = sext i32 %160 to i64
+  %161 = load ptr, ptr %seq214, align 8
+  %typed_elements230 = getelementptr inbounds %struct.asdl_expr_seq, ptr %161, i32 0, i32 2
+  %162 = load i32, ptr %i213, align 4
+  %idxprom231 = sext i32 %162 to i64
   %arrayidx232 = getelementptr [1 x ptr], ptr %typed_elements230, i64 0, i64 %idxprom231
-  %161 = load ptr, ptr %arrayidx232, align 8
-  store ptr %161, ptr %elt229, align 8
-  %162 = load ptr, ptr %st.addr, align 8
-  %163 = load ptr, ptr %elt229, align 8
-  %call233 = call i32 @symtable_visit_expr(ptr noundef %162, ptr noundef %163)
+  %163 = load ptr, ptr %arrayidx232, align 8
+  store ptr %163, ptr %elt229, align 8
+  %164 = load ptr, ptr %st.addr, align 8
+  %165 = load ptr, ptr %elt229, align 8
+  %call233 = call i32 @symtable_visit_expr(ptr noundef %164, ptr noundef %165)
   %tobool234 = icmp ne i32 %call233, 0
   br i1 %tobool234, label %if.end238, label %if.then235
 
 if.then235:                                       ; preds = %for.body228
-  %164 = load ptr, ptr %st.addr, align 8
-  %recursion_depth236 = getelementptr inbounds %struct.symtable, ptr %164, i32 0, i32 9
-  %165 = load i32, ptr %recursion_depth236, align 8
-  %dec237 = add i32 %165, -1
+  %166 = load ptr, ptr %st.addr, align 8
+  %recursion_depth236 = getelementptr inbounds %struct.symtable, ptr %166, i32 0, i32 9
+  %167 = load i32, ptr %recursion_depth236, align 8
+  %dec237 = add i32 %167, -1
   store i32 %dec237, ptr %recursion_depth236, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7486,8 +7497,8 @@ if.end238:                                        ; preds = %for.body228
   br label %for.inc239
 
 for.inc239:                                       ; preds = %if.end238
-  %166 = load i32, ptr %i213, align 4
-  %inc240 = add i32 %166, 1
+  %168 = load i32, ptr %i213, align 4
+  %inc240 = add i32 %168, 1
   store i32 %inc240, ptr %i213, align 4
   br label %for.cond217, !llvm.loop !55
 
@@ -7495,54 +7506,54 @@ for.end241:                                       ; preds = %cond.end224
   br label %sw.epilog
 
 sw.bb242:                                         ; preds = %if.end
-  %167 = load ptr, ptr %e.addr, align 8
-  %v245 = getelementptr inbounds %struct._expr, ptr %167, i32 0, i32 1
+  %169 = load ptr, ptr %e.addr, align 8
+  %v245 = getelementptr inbounds %struct._expr, ptr %169, i32 0, i32 1
   %elts = getelementptr inbounds %struct.anon.14, ptr %v245, i32 0, i32 0
-  %168 = load ptr, ptr %elts, align 8
-  store ptr %168, ptr %seq244, align 8
+  %170 = load ptr, ptr %elts, align 8
+  store ptr %170, ptr %seq244, align 8
   store i32 0, ptr %i243, align 4
   br label %for.cond246
 
 for.cond246:                                      ; preds = %for.inc268, %sw.bb242
-  %169 = load i32, ptr %i243, align 4
-  %conv247 = sext i32 %169 to i64
-  %170 = load ptr, ptr %seq244, align 8
-  %cmp248 = icmp eq ptr %170, null
+  %171 = load i32, ptr %i243, align 4
+  %conv247 = sext i32 %171 to i64
+  %172 = load ptr, ptr %seq244, align 8
+  %cmp248 = icmp eq ptr %172, null
   br i1 %cmp248, label %cond.true250, label %cond.false251
 
 cond.true250:                                     ; preds = %for.cond246
   br label %cond.end253
 
 cond.false251:                                    ; preds = %for.cond246
-  %171 = load ptr, ptr %seq244, align 8
-  %size252 = getelementptr inbounds %struct.asdl_expr_seq, ptr %171, i32 0, i32 0
-  %172 = load i64, ptr %size252, align 8
+  %173 = load ptr, ptr %seq244, align 8
+  %size252 = getelementptr inbounds %struct.asdl_expr_seq, ptr %173, i32 0, i32 0
+  %174 = load i64, ptr %size252, align 8
   br label %cond.end253
 
 cond.end253:                                      ; preds = %cond.false251, %cond.true250
-  %cond254 = phi i64 [ 0, %cond.true250 ], [ %172, %cond.false251 ]
+  %cond254 = phi i64 [ 0, %cond.true250 ], [ %174, %cond.false251 ]
   %cmp255 = icmp slt i64 %conv247, %cond254
   br i1 %cmp255, label %for.body257, label %for.end270
 
 for.body257:                                      ; preds = %cond.end253
-  %173 = load ptr, ptr %seq244, align 8
-  %typed_elements259 = getelementptr inbounds %struct.asdl_expr_seq, ptr %173, i32 0, i32 2
-  %174 = load i32, ptr %i243, align 4
-  %idxprom260 = sext i32 %174 to i64
+  %175 = load ptr, ptr %seq244, align 8
+  %typed_elements259 = getelementptr inbounds %struct.asdl_expr_seq, ptr %175, i32 0, i32 2
+  %176 = load i32, ptr %i243, align 4
+  %idxprom260 = sext i32 %176 to i64
   %arrayidx261 = getelementptr [1 x ptr], ptr %typed_elements259, i64 0, i64 %idxprom260
-  %175 = load ptr, ptr %arrayidx261, align 8
-  store ptr %175, ptr %elt258, align 8
-  %176 = load ptr, ptr %st.addr, align 8
-  %177 = load ptr, ptr %elt258, align 8
-  %call262 = call i32 @symtable_visit_expr(ptr noundef %176, ptr noundef %177)
+  %177 = load ptr, ptr %arrayidx261, align 8
+  store ptr %177, ptr %elt258, align 8
+  %178 = load ptr, ptr %st.addr, align 8
+  %179 = load ptr, ptr %elt258, align 8
+  %call262 = call i32 @symtable_visit_expr(ptr noundef %178, ptr noundef %179)
   %tobool263 = icmp ne i32 %call262, 0
   br i1 %tobool263, label %if.end267, label %if.then264
 
 if.then264:                                       ; preds = %for.body257
-  %178 = load ptr, ptr %st.addr, align 8
-  %recursion_depth265 = getelementptr inbounds %struct.symtable, ptr %178, i32 0, i32 9
-  %179 = load i32, ptr %recursion_depth265, align 8
-  %dec266 = add i32 %179, -1
+  %180 = load ptr, ptr %st.addr, align 8
+  %recursion_depth265 = getelementptr inbounds %struct.symtable, ptr %180, i32 0, i32 9
+  %181 = load i32, ptr %recursion_depth265, align 8
+  %dec266 = add i32 %181, -1
   store i32 %dec266, ptr %recursion_depth265, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7551,8 +7562,8 @@ if.end267:                                        ; preds = %for.body257
   br label %for.inc268
 
 for.inc268:                                       ; preds = %if.end267
-  %180 = load i32, ptr %i243, align 4
-  %inc269 = add i32 %180, 1
+  %182 = load i32, ptr %i243, align 4
+  %inc269 = add i32 %182, 1
   store i32 %inc269, ptr %i243, align 4
   br label %for.cond246, !llvm.loop !56
 
@@ -7560,17 +7571,17 @@ for.end270:                                       ; preds = %cond.end253
   br label %sw.epilog
 
 sw.bb271:                                         ; preds = %if.end
-  %181 = load ptr, ptr %st.addr, align 8
-  %182 = load ptr, ptr %e.addr, align 8
-  %call272 = call i32 @symtable_visit_genexp(ptr noundef %181, ptr noundef %182)
+  %183 = load ptr, ptr %st.addr, align 8
+  %184 = load ptr, ptr %e.addr, align 8
+  %call272 = call i32 @symtable_visit_genexp(ptr noundef %183, ptr noundef %184)
   %tobool273 = icmp ne i32 %call272, 0
   br i1 %tobool273, label %if.end277, label %if.then274
 
 if.then274:                                       ; preds = %sw.bb271
-  %183 = load ptr, ptr %st.addr, align 8
-  %recursion_depth275 = getelementptr inbounds %struct.symtable, ptr %183, i32 0, i32 9
-  %184 = load i32, ptr %recursion_depth275, align 8
-  %dec276 = add i32 %184, -1
+  %185 = load ptr, ptr %st.addr, align 8
+  %recursion_depth275 = getelementptr inbounds %struct.symtable, ptr %185, i32 0, i32 9
+  %186 = load i32, ptr %recursion_depth275, align 8
+  %dec276 = add i32 %186, -1
   store i32 %dec276, ptr %recursion_depth275, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7579,17 +7590,17 @@ if.end277:                                        ; preds = %sw.bb271
   br label %sw.epilog
 
 sw.bb278:                                         ; preds = %if.end
-  %185 = load ptr, ptr %st.addr, align 8
-  %186 = load ptr, ptr %e.addr, align 8
-  %call279 = call i32 @symtable_visit_listcomp(ptr noundef %185, ptr noundef %186)
+  %187 = load ptr, ptr %st.addr, align 8
+  %188 = load ptr, ptr %e.addr, align 8
+  %call279 = call i32 @symtable_visit_listcomp(ptr noundef %187, ptr noundef %188)
   %tobool280 = icmp ne i32 %call279, 0
   br i1 %tobool280, label %if.end284, label %if.then281
 
 if.then281:                                       ; preds = %sw.bb278
-  %187 = load ptr, ptr %st.addr, align 8
-  %recursion_depth282 = getelementptr inbounds %struct.symtable, ptr %187, i32 0, i32 9
-  %188 = load i32, ptr %recursion_depth282, align 8
-  %dec283 = add i32 %188, -1
+  %189 = load ptr, ptr %st.addr, align 8
+  %recursion_depth282 = getelementptr inbounds %struct.symtable, ptr %189, i32 0, i32 9
+  %190 = load i32, ptr %recursion_depth282, align 8
+  %dec283 = add i32 %190, -1
   store i32 %dec283, ptr %recursion_depth282, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7598,17 +7609,17 @@ if.end284:                                        ; preds = %sw.bb278
   br label %sw.epilog
 
 sw.bb285:                                         ; preds = %if.end
-  %189 = load ptr, ptr %st.addr, align 8
-  %190 = load ptr, ptr %e.addr, align 8
-  %call286 = call i32 @symtable_visit_setcomp(ptr noundef %189, ptr noundef %190)
+  %191 = load ptr, ptr %st.addr, align 8
+  %192 = load ptr, ptr %e.addr, align 8
+  %call286 = call i32 @symtable_visit_setcomp(ptr noundef %191, ptr noundef %192)
   %tobool287 = icmp ne i32 %call286, 0
   br i1 %tobool287, label %if.end291, label %if.then288
 
 if.then288:                                       ; preds = %sw.bb285
-  %191 = load ptr, ptr %st.addr, align 8
-  %recursion_depth289 = getelementptr inbounds %struct.symtable, ptr %191, i32 0, i32 9
-  %192 = load i32, ptr %recursion_depth289, align 8
-  %dec290 = add i32 %192, -1
+  %193 = load ptr, ptr %st.addr, align 8
+  %recursion_depth289 = getelementptr inbounds %struct.symtable, ptr %193, i32 0, i32 9
+  %194 = load i32, ptr %recursion_depth289, align 8
+  %dec290 = add i32 %194, -1
   store i32 %dec290, ptr %recursion_depth289, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7617,17 +7628,17 @@ if.end291:                                        ; preds = %sw.bb285
   br label %sw.epilog
 
 sw.bb292:                                         ; preds = %if.end
-  %193 = load ptr, ptr %st.addr, align 8
-  %194 = load ptr, ptr %e.addr, align 8
-  %call293 = call i32 @symtable_visit_dictcomp(ptr noundef %193, ptr noundef %194)
+  %195 = load ptr, ptr %st.addr, align 8
+  %196 = load ptr, ptr %e.addr, align 8
+  %call293 = call i32 @symtable_visit_dictcomp(ptr noundef %195, ptr noundef %196)
   %tobool294 = icmp ne i32 %call293, 0
   br i1 %tobool294, label %if.end298, label %if.then295
 
 if.then295:                                       ; preds = %sw.bb292
-  %195 = load ptr, ptr %st.addr, align 8
-  %recursion_depth296 = getelementptr inbounds %struct.symtable, ptr %195, i32 0, i32 9
-  %196 = load i32, ptr %recursion_depth296, align 8
-  %dec297 = add i32 %196, -1
+  %197 = load ptr, ptr %st.addr, align 8
+  %recursion_depth296 = getelementptr inbounds %struct.symtable, ptr %197, i32 0, i32 9
+  %198 = load i32, ptr %recursion_depth296, align 8
+  %dec297 = add i32 %198, -1
   store i32 %dec297, ptr %recursion_depth296, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7636,44 +7647,44 @@ if.end298:                                        ; preds = %sw.bb292
   br label %sw.epilog
 
 sw.bb299:                                         ; preds = %if.end
-  %197 = load ptr, ptr %st.addr, align 8
-  %198 = load ptr, ptr %e.addr, align 8
-  %call300 = call i32 @symtable_raise_if_annotation_block(ptr noundef %197, ptr noundef @.str.36, ptr noundef %198)
+  %199 = load ptr, ptr %st.addr, align 8
+  %200 = load ptr, ptr %e.addr, align 8
+  %call300 = call i32 @symtable_raise_if_annotation_block(ptr noundef %199, ptr noundef @.str.36, ptr noundef %200)
   %tobool301 = icmp ne i32 %call300, 0
   br i1 %tobool301, label %if.end305, label %if.then302
 
 if.then302:                                       ; preds = %sw.bb299
-  %199 = load ptr, ptr %st.addr, align 8
-  %recursion_depth303 = getelementptr inbounds %struct.symtable, ptr %199, i32 0, i32 9
-  %200 = load i32, ptr %recursion_depth303, align 8
-  %dec304 = add i32 %200, -1
+  %201 = load ptr, ptr %st.addr, align 8
+  %recursion_depth303 = getelementptr inbounds %struct.symtable, ptr %201, i32 0, i32 9
+  %202 = load i32, ptr %recursion_depth303, align 8
+  %dec304 = add i32 %202, -1
   store i32 %dec304, ptr %recursion_depth303, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end305:                                        ; preds = %sw.bb299
-  %201 = load ptr, ptr %e.addr, align 8
-  %v306 = getelementptr inbounds %struct._expr, ptr %201, i32 0, i32 1
+  %203 = load ptr, ptr %e.addr, align 8
+  %v306 = getelementptr inbounds %struct._expr, ptr %203, i32 0, i32 1
   %value = getelementptr inbounds %struct.anon.20, ptr %v306, i32 0, i32 0
-  %202 = load ptr, ptr %value, align 8
-  %tobool307 = icmp ne ptr %202, null
+  %204 = load ptr, ptr %value, align 8
+  %tobool307 = icmp ne ptr %204, null
   br i1 %tobool307, label %if.then308, label %if.end317
 
 if.then308:                                       ; preds = %if.end305
-  %203 = load ptr, ptr %st.addr, align 8
-  %204 = load ptr, ptr %e.addr, align 8
-  %v309 = getelementptr inbounds %struct._expr, ptr %204, i32 0, i32 1
+  %205 = load ptr, ptr %st.addr, align 8
+  %206 = load ptr, ptr %e.addr, align 8
+  %v309 = getelementptr inbounds %struct._expr, ptr %206, i32 0, i32 1
   %value310 = getelementptr inbounds %struct.anon.20, ptr %v309, i32 0, i32 0
-  %205 = load ptr, ptr %value310, align 8
-  %call311 = call i32 @symtable_visit_expr(ptr noundef %203, ptr noundef %205)
+  %207 = load ptr, ptr %value310, align 8
+  %call311 = call i32 @symtable_visit_expr(ptr noundef %205, ptr noundef %207)
   %tobool312 = icmp ne i32 %call311, 0
   br i1 %tobool312, label %if.end316, label %if.then313
 
 if.then313:                                       ; preds = %if.then308
-  %206 = load ptr, ptr %st.addr, align 8
-  %recursion_depth314 = getelementptr inbounds %struct.symtable, ptr %206, i32 0, i32 9
-  %207 = load i32, ptr %recursion_depth314, align 8
-  %dec315 = add i32 %207, -1
+  %208 = load ptr, ptr %st.addr, align 8
+  %recursion_depth314 = getelementptr inbounds %struct.symtable, ptr %208, i32 0, i32 9
+  %209 = load i32, ptr %recursion_depth314, align 8
+  %dec315 = add i32 %209, -1
   store i32 %dec315, ptr %recursion_depth314, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7682,26 +7693,26 @@ if.end316:                                        ; preds = %if.then308
   br label %if.end317
 
 if.end317:                                        ; preds = %if.end316, %if.end305
-  %208 = load ptr, ptr %st.addr, align 8
-  %st_cur318 = getelementptr inbounds %struct.symtable, ptr %208, i32 0, i32 1
-  %209 = load ptr, ptr %st_cur318, align 8
-  %ste_generator = getelementptr inbounds %struct._symtable_entry, ptr %209, i32 0, i32 9
+  %210 = load ptr, ptr %st.addr, align 8
+  %st_cur318 = getelementptr inbounds %struct.symtable, ptr %210, i32 0, i32 1
+  %211 = load ptr, ptr %st_cur318, align 8
+  %ste_generator = getelementptr inbounds %struct._symtable_entry, ptr %211, i32 0, i32 9
   %bf.load319 = load i8, ptr %ste_generator, align 8
   %bf.clear = and i8 %bf.load319, -5
   %bf.set = or i8 %bf.clear, 4
   store i8 %bf.set, ptr %ste_generator, align 8
-  %210 = load ptr, ptr %st.addr, align 8
-  %st_cur320 = getelementptr inbounds %struct.symtable, ptr %210, i32 0, i32 1
-  %211 = load ptr, ptr %st_cur320, align 8
-  %ste_comprehension = getelementptr inbounds %struct._symtable_entry, ptr %211, i32 0, i32 10
-  %212 = load i32, ptr %ste_comprehension, align 4
-  %tobool321 = icmp ne i32 %212, 0
+  %212 = load ptr, ptr %st.addr, align 8
+  %st_cur320 = getelementptr inbounds %struct.symtable, ptr %212, i32 0, i32 1
+  %213 = load ptr, ptr %st_cur320, align 8
+  %ste_comprehension = getelementptr inbounds %struct._symtable_entry, ptr %213, i32 0, i32 10
+  %214 = load i32, ptr %ste_comprehension, align 4
+  %tobool321 = icmp ne i32 %214, 0
   br i1 %tobool321, label %if.then322, label %if.end324
 
 if.then322:                                       ; preds = %if.end317
-  %213 = load ptr, ptr %st.addr, align 8
-  %214 = load ptr, ptr %e.addr, align 8
-  %call323 = call i32 @symtable_raise_if_comprehension_block(ptr noundef %213, ptr noundef %214)
+  %215 = load ptr, ptr %st.addr, align 8
+  %216 = load ptr, ptr %e.addr, align 8
+  %call323 = call i32 @symtable_raise_if_comprehension_block(ptr noundef %215, ptr noundef %216)
   store i32 %call323, ptr %retval, align 4
   br label %return
 
@@ -7709,61 +7720,61 @@ if.end324:                                        ; preds = %if.end317
   br label %sw.epilog
 
 sw.bb325:                                         ; preds = %if.end
-  %215 = load ptr, ptr %st.addr, align 8
-  %216 = load ptr, ptr %e.addr, align 8
-  %call326 = call i32 @symtable_raise_if_annotation_block(ptr noundef %215, ptr noundef @.str.36, ptr noundef %216)
+  %217 = load ptr, ptr %st.addr, align 8
+  %218 = load ptr, ptr %e.addr, align 8
+  %call326 = call i32 @symtable_raise_if_annotation_block(ptr noundef %217, ptr noundef @.str.36, ptr noundef %218)
   %tobool327 = icmp ne i32 %call326, 0
   br i1 %tobool327, label %if.end331, label %if.then328
 
 if.then328:                                       ; preds = %sw.bb325
-  %217 = load ptr, ptr %st.addr, align 8
-  %recursion_depth329 = getelementptr inbounds %struct.symtable, ptr %217, i32 0, i32 9
-  %218 = load i32, ptr %recursion_depth329, align 8
-  %dec330 = add i32 %218, -1
+  %219 = load ptr, ptr %st.addr, align 8
+  %recursion_depth329 = getelementptr inbounds %struct.symtable, ptr %219, i32 0, i32 9
+  %220 = load i32, ptr %recursion_depth329, align 8
+  %dec330 = add i32 %220, -1
   store i32 %dec330, ptr %recursion_depth329, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end331:                                        ; preds = %sw.bb325
-  %219 = load ptr, ptr %st.addr, align 8
-  %220 = load ptr, ptr %e.addr, align 8
-  %v332 = getelementptr inbounds %struct._expr, ptr %220, i32 0, i32 1
+  %221 = load ptr, ptr %st.addr, align 8
+  %222 = load ptr, ptr %e.addr, align 8
+  %v332 = getelementptr inbounds %struct._expr, ptr %222, i32 0, i32 1
   %value333 = getelementptr inbounds %struct.anon.21, ptr %v332, i32 0, i32 0
-  %221 = load ptr, ptr %value333, align 8
-  %call334 = call i32 @symtable_visit_expr(ptr noundef %219, ptr noundef %221)
+  %223 = load ptr, ptr %value333, align 8
+  %call334 = call i32 @symtable_visit_expr(ptr noundef %221, ptr noundef %223)
   %tobool335 = icmp ne i32 %call334, 0
   br i1 %tobool335, label %if.end339, label %if.then336
 
 if.then336:                                       ; preds = %if.end331
-  %222 = load ptr, ptr %st.addr, align 8
-  %recursion_depth337 = getelementptr inbounds %struct.symtable, ptr %222, i32 0, i32 9
-  %223 = load i32, ptr %recursion_depth337, align 8
-  %dec338 = add i32 %223, -1
+  %224 = load ptr, ptr %st.addr, align 8
+  %recursion_depth337 = getelementptr inbounds %struct.symtable, ptr %224, i32 0, i32 9
+  %225 = load i32, ptr %recursion_depth337, align 8
+  %dec338 = add i32 %225, -1
   store i32 %dec338, ptr %recursion_depth337, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end339:                                        ; preds = %if.end331
-  %224 = load ptr, ptr %st.addr, align 8
-  %st_cur340 = getelementptr inbounds %struct.symtable, ptr %224, i32 0, i32 1
-  %225 = load ptr, ptr %st_cur340, align 8
-  %ste_generator341 = getelementptr inbounds %struct._symtable_entry, ptr %225, i32 0, i32 9
+  %226 = load ptr, ptr %st.addr, align 8
+  %st_cur340 = getelementptr inbounds %struct.symtable, ptr %226, i32 0, i32 1
+  %227 = load ptr, ptr %st_cur340, align 8
+  %ste_generator341 = getelementptr inbounds %struct._symtable_entry, ptr %227, i32 0, i32 9
   %bf.load342 = load i8, ptr %ste_generator341, align 8
   %bf.clear343 = and i8 %bf.load342, -5
   %bf.set344 = or i8 %bf.clear343, 4
   store i8 %bf.set344, ptr %ste_generator341, align 8
-  %226 = load ptr, ptr %st.addr, align 8
-  %st_cur345 = getelementptr inbounds %struct.symtable, ptr %226, i32 0, i32 1
-  %227 = load ptr, ptr %st_cur345, align 8
-  %ste_comprehension346 = getelementptr inbounds %struct._symtable_entry, ptr %227, i32 0, i32 10
-  %228 = load i32, ptr %ste_comprehension346, align 4
-  %tobool347 = icmp ne i32 %228, 0
+  %228 = load ptr, ptr %st.addr, align 8
+  %st_cur345 = getelementptr inbounds %struct.symtable, ptr %228, i32 0, i32 1
+  %229 = load ptr, ptr %st_cur345, align 8
+  %ste_comprehension346 = getelementptr inbounds %struct._symtable_entry, ptr %229, i32 0, i32 10
+  %230 = load i32, ptr %ste_comprehension346, align 4
+  %tobool347 = icmp ne i32 %230, 0
   br i1 %tobool347, label %if.then348, label %if.end350
 
 if.then348:                                       ; preds = %if.end339
-  %229 = load ptr, ptr %st.addr, align 8
-  %230 = load ptr, ptr %e.addr, align 8
-  %call349 = call i32 @symtable_raise_if_comprehension_block(ptr noundef %229, ptr noundef %230)
+  %231 = load ptr, ptr %st.addr, align 8
+  %232 = load ptr, ptr %e.addr, align 8
+  %call349 = call i32 @symtable_raise_if_comprehension_block(ptr noundef %231, ptr noundef %232)
   store i32 %call349, ptr %retval, align 4
   br label %return
 
@@ -7771,45 +7782,45 @@ if.end350:                                        ; preds = %if.end339
   br label %sw.epilog
 
 sw.bb351:                                         ; preds = %if.end
-  %231 = load ptr, ptr %st.addr, align 8
-  %232 = load ptr, ptr %e.addr, align 8
-  %call352 = call i32 @symtable_raise_if_annotation_block(ptr noundef %231, ptr noundef @.str.37, ptr noundef %232)
+  %233 = load ptr, ptr %st.addr, align 8
+  %234 = load ptr, ptr %e.addr, align 8
+  %call352 = call i32 @symtable_raise_if_annotation_block(ptr noundef %233, ptr noundef @.str.37, ptr noundef %234)
   %tobool353 = icmp ne i32 %call352, 0
   br i1 %tobool353, label %if.end357, label %if.then354
 
 if.then354:                                       ; preds = %sw.bb351
-  %233 = load ptr, ptr %st.addr, align 8
-  %recursion_depth355 = getelementptr inbounds %struct.symtable, ptr %233, i32 0, i32 9
-  %234 = load i32, ptr %recursion_depth355, align 8
-  %dec356 = add i32 %234, -1
+  %235 = load ptr, ptr %st.addr, align 8
+  %recursion_depth355 = getelementptr inbounds %struct.symtable, ptr %235, i32 0, i32 9
+  %236 = load i32, ptr %recursion_depth355, align 8
+  %dec356 = add i32 %236, -1
   store i32 %dec356, ptr %recursion_depth355, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end357:                                        ; preds = %sw.bb351
-  %235 = load ptr, ptr %st.addr, align 8
-  %236 = load ptr, ptr %e.addr, align 8
-  %v358 = getelementptr inbounds %struct._expr, ptr %236, i32 0, i32 1
+  %237 = load ptr, ptr %st.addr, align 8
+  %238 = load ptr, ptr %e.addr, align 8
+  %v358 = getelementptr inbounds %struct._expr, ptr %238, i32 0, i32 1
   %value359 = getelementptr inbounds %struct.anon.19, ptr %v358, i32 0, i32 0
-  %237 = load ptr, ptr %value359, align 8
-  %call360 = call i32 @symtable_visit_expr(ptr noundef %235, ptr noundef %237)
+  %239 = load ptr, ptr %value359, align 8
+  %call360 = call i32 @symtable_visit_expr(ptr noundef %237, ptr noundef %239)
   %tobool361 = icmp ne i32 %call360, 0
   br i1 %tobool361, label %if.end365, label %if.then362
 
 if.then362:                                       ; preds = %if.end357
-  %238 = load ptr, ptr %st.addr, align 8
-  %recursion_depth363 = getelementptr inbounds %struct.symtable, ptr %238, i32 0, i32 9
-  %239 = load i32, ptr %recursion_depth363, align 8
-  %dec364 = add i32 %239, -1
+  %240 = load ptr, ptr %st.addr, align 8
+  %recursion_depth363 = getelementptr inbounds %struct.symtable, ptr %240, i32 0, i32 9
+  %241 = load i32, ptr %recursion_depth363, align 8
+  %dec364 = add i32 %241, -1
   store i32 %dec364, ptr %recursion_depth363, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end365:                                        ; preds = %if.end357
-  %240 = load ptr, ptr %st.addr, align 8
-  %st_cur366 = getelementptr inbounds %struct.symtable, ptr %240, i32 0, i32 1
-  %241 = load ptr, ptr %st_cur366, align 8
-  %ste_coroutine = getelementptr inbounds %struct._symtable_entry, ptr %241, i32 0, i32 9
+  %242 = load ptr, ptr %st.addr, align 8
+  %st_cur366 = getelementptr inbounds %struct.symtable, ptr %242, i32 0, i32 1
+  %243 = load ptr, ptr %st_cur366, align 8
+  %ste_coroutine = getelementptr inbounds %struct._symtable_entry, ptr %243, i32 0, i32 9
   %bf.load367 = load i8, ptr %ste_coroutine, align 8
   %bf.clear368 = and i8 %bf.load367, -9
   %bf.set369 = or i8 %bf.clear368, 8
@@ -7817,73 +7828,73 @@ if.end365:                                        ; preds = %if.end357
   br label %sw.epilog
 
 sw.bb370:                                         ; preds = %if.end
-  %242 = load ptr, ptr %st.addr, align 8
-  %243 = load ptr, ptr %e.addr, align 8
-  %v371 = getelementptr inbounds %struct._expr, ptr %243, i32 0, i32 1
+  %244 = load ptr, ptr %st.addr, align 8
+  %245 = load ptr, ptr %e.addr, align 8
+  %v371 = getelementptr inbounds %struct._expr, ptr %245, i32 0, i32 1
   %left372 = getelementptr inbounds %struct.anon.22, ptr %v371, i32 0, i32 0
-  %244 = load ptr, ptr %left372, align 8
-  %call373 = call i32 @symtable_visit_expr(ptr noundef %242, ptr noundef %244)
+  %246 = load ptr, ptr %left372, align 8
+  %call373 = call i32 @symtable_visit_expr(ptr noundef %244, ptr noundef %246)
   %tobool374 = icmp ne i32 %call373, 0
   br i1 %tobool374, label %if.end378, label %if.then375
 
 if.then375:                                       ; preds = %sw.bb370
-  %245 = load ptr, ptr %st.addr, align 8
-  %recursion_depth376 = getelementptr inbounds %struct.symtable, ptr %245, i32 0, i32 9
-  %246 = load i32, ptr %recursion_depth376, align 8
-  %dec377 = add i32 %246, -1
+  %247 = load ptr, ptr %st.addr, align 8
+  %recursion_depth376 = getelementptr inbounds %struct.symtable, ptr %247, i32 0, i32 9
+  %248 = load i32, ptr %recursion_depth376, align 8
+  %dec377 = add i32 %248, -1
   store i32 %dec377, ptr %recursion_depth376, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end378:                                        ; preds = %sw.bb370
-  %247 = load ptr, ptr %e.addr, align 8
-  %v381 = getelementptr inbounds %struct._expr, ptr %247, i32 0, i32 1
+  %249 = load ptr, ptr %e.addr, align 8
+  %v381 = getelementptr inbounds %struct._expr, ptr %249, i32 0, i32 1
   %comparators = getelementptr inbounds %struct.anon.22, ptr %v381, i32 0, i32 2
-  %248 = load ptr, ptr %comparators, align 8
-  store ptr %248, ptr %seq380, align 8
+  %250 = load ptr, ptr %comparators, align 8
+  store ptr %250, ptr %seq380, align 8
   store i32 0, ptr %i379, align 4
   br label %for.cond382
 
 for.cond382:                                      ; preds = %for.inc404, %if.end378
-  %249 = load i32, ptr %i379, align 4
-  %conv383 = sext i32 %249 to i64
-  %250 = load ptr, ptr %seq380, align 8
-  %cmp384 = icmp eq ptr %250, null
+  %251 = load i32, ptr %i379, align 4
+  %conv383 = sext i32 %251 to i64
+  %252 = load ptr, ptr %seq380, align 8
+  %cmp384 = icmp eq ptr %252, null
   br i1 %cmp384, label %cond.true386, label %cond.false387
 
 cond.true386:                                     ; preds = %for.cond382
   br label %cond.end389
 
 cond.false387:                                    ; preds = %for.cond382
-  %251 = load ptr, ptr %seq380, align 8
-  %size388 = getelementptr inbounds %struct.asdl_expr_seq, ptr %251, i32 0, i32 0
-  %252 = load i64, ptr %size388, align 8
+  %253 = load ptr, ptr %seq380, align 8
+  %size388 = getelementptr inbounds %struct.asdl_expr_seq, ptr %253, i32 0, i32 0
+  %254 = load i64, ptr %size388, align 8
   br label %cond.end389
 
 cond.end389:                                      ; preds = %cond.false387, %cond.true386
-  %cond390 = phi i64 [ 0, %cond.true386 ], [ %252, %cond.false387 ]
+  %cond390 = phi i64 [ 0, %cond.true386 ], [ %254, %cond.false387 ]
   %cmp391 = icmp slt i64 %conv383, %cond390
   br i1 %cmp391, label %for.body393, label %for.end406
 
 for.body393:                                      ; preds = %cond.end389
-  %253 = load ptr, ptr %seq380, align 8
-  %typed_elements395 = getelementptr inbounds %struct.asdl_expr_seq, ptr %253, i32 0, i32 2
-  %254 = load i32, ptr %i379, align 4
-  %idxprom396 = sext i32 %254 to i64
+  %255 = load ptr, ptr %seq380, align 8
+  %typed_elements395 = getelementptr inbounds %struct.asdl_expr_seq, ptr %255, i32 0, i32 2
+  %256 = load i32, ptr %i379, align 4
+  %idxprom396 = sext i32 %256 to i64
   %arrayidx397 = getelementptr [1 x ptr], ptr %typed_elements395, i64 0, i64 %idxprom396
-  %255 = load ptr, ptr %arrayidx397, align 8
-  store ptr %255, ptr %elt394, align 8
-  %256 = load ptr, ptr %st.addr, align 8
-  %257 = load ptr, ptr %elt394, align 8
-  %call398 = call i32 @symtable_visit_expr(ptr noundef %256, ptr noundef %257)
+  %257 = load ptr, ptr %arrayidx397, align 8
+  store ptr %257, ptr %elt394, align 8
+  %258 = load ptr, ptr %st.addr, align 8
+  %259 = load ptr, ptr %elt394, align 8
+  %call398 = call i32 @symtable_visit_expr(ptr noundef %258, ptr noundef %259)
   %tobool399 = icmp ne i32 %call398, 0
   br i1 %tobool399, label %if.end403, label %if.then400
 
 if.then400:                                       ; preds = %for.body393
-  %258 = load ptr, ptr %st.addr, align 8
-  %recursion_depth401 = getelementptr inbounds %struct.symtable, ptr %258, i32 0, i32 9
-  %259 = load i32, ptr %recursion_depth401, align 8
-  %dec402 = add i32 %259, -1
+  %260 = load ptr, ptr %st.addr, align 8
+  %recursion_depth401 = getelementptr inbounds %struct.symtable, ptr %260, i32 0, i32 9
+  %261 = load i32, ptr %recursion_depth401, align 8
+  %dec402 = add i32 %261, -1
   store i32 %dec402, ptr %recursion_depth401, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7892,8 +7903,8 @@ if.end403:                                        ; preds = %for.body393
   br label %for.inc404
 
 for.inc404:                                       ; preds = %if.end403
-  %260 = load i32, ptr %i379, align 4
-  %inc405 = add i32 %260, 1
+  %262 = load i32, ptr %i379, align 4
+  %inc405 = add i32 %262, 1
   store i32 %inc405, ptr %i379, align 4
   br label %for.cond382, !llvm.loop !57
 
@@ -7901,73 +7912,73 @@ for.end406:                                       ; preds = %cond.end389
   br label %sw.epilog
 
 sw.bb407:                                         ; preds = %if.end
-  %261 = load ptr, ptr %st.addr, align 8
-  %262 = load ptr, ptr %e.addr, align 8
-  %v408 = getelementptr inbounds %struct._expr, ptr %262, i32 0, i32 1
+  %263 = load ptr, ptr %st.addr, align 8
+  %264 = load ptr, ptr %e.addr, align 8
+  %v408 = getelementptr inbounds %struct._expr, ptr %264, i32 0, i32 1
   %func = getelementptr inbounds %struct.anon.23, ptr %v408, i32 0, i32 0
-  %263 = load ptr, ptr %func, align 8
-  %call409 = call i32 @symtable_visit_expr(ptr noundef %261, ptr noundef %263)
+  %265 = load ptr, ptr %func, align 8
+  %call409 = call i32 @symtable_visit_expr(ptr noundef %263, ptr noundef %265)
   %tobool410 = icmp ne i32 %call409, 0
   br i1 %tobool410, label %if.end414, label %if.then411
 
 if.then411:                                       ; preds = %sw.bb407
-  %264 = load ptr, ptr %st.addr, align 8
-  %recursion_depth412 = getelementptr inbounds %struct.symtable, ptr %264, i32 0, i32 9
-  %265 = load i32, ptr %recursion_depth412, align 8
-  %dec413 = add i32 %265, -1
+  %266 = load ptr, ptr %st.addr, align 8
+  %recursion_depth412 = getelementptr inbounds %struct.symtable, ptr %266, i32 0, i32 9
+  %267 = load i32, ptr %recursion_depth412, align 8
+  %dec413 = add i32 %267, -1
   store i32 %dec413, ptr %recursion_depth412, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end414:                                        ; preds = %sw.bb407
-  %266 = load ptr, ptr %e.addr, align 8
-  %v417 = getelementptr inbounds %struct._expr, ptr %266, i32 0, i32 1
+  %268 = load ptr, ptr %e.addr, align 8
+  %v417 = getelementptr inbounds %struct._expr, ptr %268, i32 0, i32 1
   %args418 = getelementptr inbounds %struct.anon.23, ptr %v417, i32 0, i32 1
-  %267 = load ptr, ptr %args418, align 8
-  store ptr %267, ptr %seq416, align 8
+  %269 = load ptr, ptr %args418, align 8
+  store ptr %269, ptr %seq416, align 8
   store i32 0, ptr %i415, align 4
   br label %for.cond419
 
 for.cond419:                                      ; preds = %for.inc441, %if.end414
-  %268 = load i32, ptr %i415, align 4
-  %conv420 = sext i32 %268 to i64
-  %269 = load ptr, ptr %seq416, align 8
-  %cmp421 = icmp eq ptr %269, null
+  %270 = load i32, ptr %i415, align 4
+  %conv420 = sext i32 %270 to i64
+  %271 = load ptr, ptr %seq416, align 8
+  %cmp421 = icmp eq ptr %271, null
   br i1 %cmp421, label %cond.true423, label %cond.false424
 
 cond.true423:                                     ; preds = %for.cond419
   br label %cond.end426
 
 cond.false424:                                    ; preds = %for.cond419
-  %270 = load ptr, ptr %seq416, align 8
-  %size425 = getelementptr inbounds %struct.asdl_expr_seq, ptr %270, i32 0, i32 0
-  %271 = load i64, ptr %size425, align 8
+  %272 = load ptr, ptr %seq416, align 8
+  %size425 = getelementptr inbounds %struct.asdl_expr_seq, ptr %272, i32 0, i32 0
+  %273 = load i64, ptr %size425, align 8
   br label %cond.end426
 
 cond.end426:                                      ; preds = %cond.false424, %cond.true423
-  %cond427 = phi i64 [ 0, %cond.true423 ], [ %271, %cond.false424 ]
+  %cond427 = phi i64 [ 0, %cond.true423 ], [ %273, %cond.false424 ]
   %cmp428 = icmp slt i64 %conv420, %cond427
   br i1 %cmp428, label %for.body430, label %for.end443
 
 for.body430:                                      ; preds = %cond.end426
-  %272 = load ptr, ptr %seq416, align 8
-  %typed_elements432 = getelementptr inbounds %struct.asdl_expr_seq, ptr %272, i32 0, i32 2
-  %273 = load i32, ptr %i415, align 4
-  %idxprom433 = sext i32 %273 to i64
+  %274 = load ptr, ptr %seq416, align 8
+  %typed_elements432 = getelementptr inbounds %struct.asdl_expr_seq, ptr %274, i32 0, i32 2
+  %275 = load i32, ptr %i415, align 4
+  %idxprom433 = sext i32 %275 to i64
   %arrayidx434 = getelementptr [1 x ptr], ptr %typed_elements432, i64 0, i64 %idxprom433
-  %274 = load ptr, ptr %arrayidx434, align 8
-  store ptr %274, ptr %elt431, align 8
-  %275 = load ptr, ptr %st.addr, align 8
-  %276 = load ptr, ptr %elt431, align 8
-  %call435 = call i32 @symtable_visit_expr(ptr noundef %275, ptr noundef %276)
+  %276 = load ptr, ptr %arrayidx434, align 8
+  store ptr %276, ptr %elt431, align 8
+  %277 = load ptr, ptr %st.addr, align 8
+  %278 = load ptr, ptr %elt431, align 8
+  %call435 = call i32 @symtable_visit_expr(ptr noundef %277, ptr noundef %278)
   %tobool436 = icmp ne i32 %call435, 0
   br i1 %tobool436, label %if.end440, label %if.then437
 
 if.then437:                                       ; preds = %for.body430
-  %277 = load ptr, ptr %st.addr, align 8
-  %recursion_depth438 = getelementptr inbounds %struct.symtable, ptr %277, i32 0, i32 9
-  %278 = load i32, ptr %recursion_depth438, align 8
-  %dec439 = add i32 %278, -1
+  %279 = load ptr, ptr %st.addr, align 8
+  %recursion_depth438 = getelementptr inbounds %struct.symtable, ptr %279, i32 0, i32 9
+  %280 = load i32, ptr %recursion_depth438, align 8
+  %dec439 = add i32 %280, -1
   store i32 %dec439, ptr %recursion_depth438, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -7976,69 +7987,69 @@ if.end440:                                        ; preds = %for.body430
   br label %for.inc441
 
 for.inc441:                                       ; preds = %if.end440
-  %279 = load i32, ptr %i415, align 4
-  %inc442 = add i32 %279, 1
+  %281 = load i32, ptr %i415, align 4
+  %inc442 = add i32 %281, 1
   store i32 %inc442, ptr %i415, align 4
   br label %for.cond419, !llvm.loop !58
 
 for.end443:                                       ; preds = %cond.end426
   store i32 0, ptr %i444, align 4
-  %280 = load ptr, ptr %e.addr, align 8
-  %v446 = getelementptr inbounds %struct._expr, ptr %280, i32 0, i32 1
+  %282 = load ptr, ptr %e.addr, align 8
+  %v446 = getelementptr inbounds %struct._expr, ptr %282, i32 0, i32 1
   %keywords = getelementptr inbounds %struct.anon.23, ptr %v446, i32 0, i32 2
-  %281 = load ptr, ptr %keywords, align 8
-  store ptr %281, ptr %seq445, align 8
+  %283 = load ptr, ptr %keywords, align 8
+  store ptr %283, ptr %seq445, align 8
   store i32 0, ptr %i444, align 4
   br label %for.cond447
 
 for.cond447:                                      ; preds = %for.inc472, %for.end443
-  %282 = load i32, ptr %i444, align 4
-  %conv448 = sext i32 %282 to i64
-  %283 = load ptr, ptr %seq445, align 8
-  %cmp449 = icmp eq ptr %283, null
+  %284 = load i32, ptr %i444, align 4
+  %conv448 = sext i32 %284 to i64
+  %285 = load ptr, ptr %seq445, align 8
+  %cmp449 = icmp eq ptr %285, null
   br i1 %cmp449, label %cond.true451, label %cond.false452
 
 cond.true451:                                     ; preds = %for.cond447
   br label %cond.end454
 
 cond.false452:                                    ; preds = %for.cond447
-  %284 = load ptr, ptr %seq445, align 8
-  %size453 = getelementptr inbounds %struct.asdl_keyword_seq, ptr %284, i32 0, i32 0
-  %285 = load i64, ptr %size453, align 8
+  %286 = load ptr, ptr %seq445, align 8
+  %size453 = getelementptr inbounds %struct.asdl_keyword_seq, ptr %286, i32 0, i32 0
+  %287 = load i64, ptr %size453, align 8
   br label %cond.end454
 
 cond.end454:                                      ; preds = %cond.false452, %cond.true451
-  %cond455 = phi i64 [ 0, %cond.true451 ], [ %285, %cond.false452 ]
+  %cond455 = phi i64 [ 0, %cond.true451 ], [ %287, %cond.false452 ]
   %cmp456 = icmp slt i64 %conv448, %cond455
   br i1 %cmp456, label %for.body458, label %for.end474
 
 for.body458:                                      ; preds = %cond.end454
-  %286 = load ptr, ptr %seq445, align 8
-  %typed_elements460 = getelementptr inbounds %struct.asdl_keyword_seq, ptr %286, i32 0, i32 2
-  %287 = load i32, ptr %i444, align 4
-  %idxprom461 = sext i32 %287 to i64
+  %288 = load ptr, ptr %seq445, align 8
+  %typed_elements460 = getelementptr inbounds %struct.asdl_keyword_seq, ptr %288, i32 0, i32 2
+  %289 = load i32, ptr %i444, align 4
+  %idxprom461 = sext i32 %289 to i64
   %arrayidx462 = getelementptr [1 x ptr], ptr %typed_elements460, i64 0, i64 %idxprom461
-  %288 = load ptr, ptr %arrayidx462, align 8
-  store ptr %288, ptr %elt459, align 8
-  %289 = load ptr, ptr %elt459, align 8
-  %tobool463 = icmp ne ptr %289, null
+  %290 = load ptr, ptr %arrayidx462, align 8
+  store ptr %290, ptr %elt459, align 8
+  %291 = load ptr, ptr %elt459, align 8
+  %tobool463 = icmp ne ptr %291, null
   br i1 %tobool463, label %if.end465, label %if.then464
 
 if.then464:                                       ; preds = %for.body458
   br label %for.inc472
 
 if.end465:                                        ; preds = %for.body458
-  %290 = load ptr, ptr %st.addr, align 8
-  %291 = load ptr, ptr %elt459, align 8
-  %call466 = call i32 @symtable_visit_keyword(ptr noundef %290, ptr noundef %291)
+  %292 = load ptr, ptr %st.addr, align 8
+  %293 = load ptr, ptr %elt459, align 8
+  %call466 = call i32 @symtable_visit_keyword(ptr noundef %292, ptr noundef %293)
   %tobool467 = icmp ne i32 %call466, 0
   br i1 %tobool467, label %if.end471, label %if.then468
 
 if.then468:                                       ; preds = %if.end465
-  %292 = load ptr, ptr %st.addr, align 8
-  %recursion_depth469 = getelementptr inbounds %struct.symtable, ptr %292, i32 0, i32 9
-  %293 = load i32, ptr %recursion_depth469, align 8
-  %dec470 = add i32 %293, -1
+  %294 = load ptr, ptr %st.addr, align 8
+  %recursion_depth469 = getelementptr inbounds %struct.symtable, ptr %294, i32 0, i32 9
+  %295 = load i32, ptr %recursion_depth469, align 8
+  %dec470 = add i32 %295, -1
   store i32 %dec470, ptr %recursion_depth469, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8047,8 +8058,8 @@ if.end471:                                        ; preds = %if.end465
   br label %for.inc472
 
 for.inc472:                                       ; preds = %if.end471, %if.then464
-  %294 = load i32, ptr %i444, align 4
-  %inc473 = add i32 %294, 1
+  %296 = load i32, ptr %i444, align 4
+  %inc473 = add i32 %296, 1
   store i32 %inc473, ptr %i444, align 4
   br label %for.cond447, !llvm.loop !59
 
@@ -8056,47 +8067,47 @@ for.end474:                                       ; preds = %cond.end454
   br label %sw.epilog
 
 sw.bb475:                                         ; preds = %if.end
-  %295 = load ptr, ptr %st.addr, align 8
-  %296 = load ptr, ptr %e.addr, align 8
-  %v476 = getelementptr inbounds %struct._expr, ptr %296, i32 0, i32 1
+  %297 = load ptr, ptr %st.addr, align 8
+  %298 = load ptr, ptr %e.addr, align 8
+  %v476 = getelementptr inbounds %struct._expr, ptr %298, i32 0, i32 1
   %value477 = getelementptr inbounds %struct.anon.24, ptr %v476, i32 0, i32 0
-  %297 = load ptr, ptr %value477, align 8
-  %call478 = call i32 @symtable_visit_expr(ptr noundef %295, ptr noundef %297)
+  %299 = load ptr, ptr %value477, align 8
+  %call478 = call i32 @symtable_visit_expr(ptr noundef %297, ptr noundef %299)
   %tobool479 = icmp ne i32 %call478, 0
   br i1 %tobool479, label %if.end483, label %if.then480
 
 if.then480:                                       ; preds = %sw.bb475
-  %298 = load ptr, ptr %st.addr, align 8
-  %recursion_depth481 = getelementptr inbounds %struct.symtable, ptr %298, i32 0, i32 9
-  %299 = load i32, ptr %recursion_depth481, align 8
-  %dec482 = add i32 %299, -1
+  %300 = load ptr, ptr %st.addr, align 8
+  %recursion_depth481 = getelementptr inbounds %struct.symtable, ptr %300, i32 0, i32 9
+  %301 = load i32, ptr %recursion_depth481, align 8
+  %dec482 = add i32 %301, -1
   store i32 %dec482, ptr %recursion_depth481, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end483:                                        ; preds = %sw.bb475
-  %300 = load ptr, ptr %e.addr, align 8
-  %v484 = getelementptr inbounds %struct._expr, ptr %300, i32 0, i32 1
+  %302 = load ptr, ptr %e.addr, align 8
+  %v484 = getelementptr inbounds %struct._expr, ptr %302, i32 0, i32 1
   %format_spec = getelementptr inbounds %struct.anon.24, ptr %v484, i32 0, i32 2
-  %301 = load ptr, ptr %format_spec, align 8
-  %tobool485 = icmp ne ptr %301, null
+  %303 = load ptr, ptr %format_spec, align 8
+  %tobool485 = icmp ne ptr %303, null
   br i1 %tobool485, label %if.then486, label %if.end495
 
 if.then486:                                       ; preds = %if.end483
-  %302 = load ptr, ptr %st.addr, align 8
-  %303 = load ptr, ptr %e.addr, align 8
-  %v487 = getelementptr inbounds %struct._expr, ptr %303, i32 0, i32 1
+  %304 = load ptr, ptr %st.addr, align 8
+  %305 = load ptr, ptr %e.addr, align 8
+  %v487 = getelementptr inbounds %struct._expr, ptr %305, i32 0, i32 1
   %format_spec488 = getelementptr inbounds %struct.anon.24, ptr %v487, i32 0, i32 2
-  %304 = load ptr, ptr %format_spec488, align 8
-  %call489 = call i32 @symtable_visit_expr(ptr noundef %302, ptr noundef %304)
+  %306 = load ptr, ptr %format_spec488, align 8
+  %call489 = call i32 @symtable_visit_expr(ptr noundef %304, ptr noundef %306)
   %tobool490 = icmp ne i32 %call489, 0
   br i1 %tobool490, label %if.end494, label %if.then491
 
 if.then491:                                       ; preds = %if.then486
-  %305 = load ptr, ptr %st.addr, align 8
-  %recursion_depth492 = getelementptr inbounds %struct.symtable, ptr %305, i32 0, i32 9
-  %306 = load i32, ptr %recursion_depth492, align 8
-  %dec493 = add i32 %306, -1
+  %307 = load ptr, ptr %st.addr, align 8
+  %recursion_depth492 = getelementptr inbounds %struct.symtable, ptr %307, i32 0, i32 9
+  %308 = load i32, ptr %recursion_depth492, align 8
+  %dec493 = add i32 %308, -1
   store i32 %dec493, ptr %recursion_depth492, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8108,54 +8119,54 @@ if.end495:                                        ; preds = %if.end494, %if.end4
   br label %sw.epilog
 
 sw.bb496:                                         ; preds = %if.end
-  %307 = load ptr, ptr %e.addr, align 8
-  %v499 = getelementptr inbounds %struct._expr, ptr %307, i32 0, i32 1
+  %309 = load ptr, ptr %e.addr, align 8
+  %v499 = getelementptr inbounds %struct._expr, ptr %309, i32 0, i32 1
   %values500 = getelementptr inbounds %struct.anon.25, ptr %v499, i32 0, i32 0
-  %308 = load ptr, ptr %values500, align 8
-  store ptr %308, ptr %seq498, align 8
+  %310 = load ptr, ptr %values500, align 8
+  store ptr %310, ptr %seq498, align 8
   store i32 0, ptr %i497, align 4
   br label %for.cond501
 
 for.cond501:                                      ; preds = %for.inc523, %sw.bb496
-  %309 = load i32, ptr %i497, align 4
-  %conv502 = sext i32 %309 to i64
-  %310 = load ptr, ptr %seq498, align 8
-  %cmp503 = icmp eq ptr %310, null
+  %311 = load i32, ptr %i497, align 4
+  %conv502 = sext i32 %311 to i64
+  %312 = load ptr, ptr %seq498, align 8
+  %cmp503 = icmp eq ptr %312, null
   br i1 %cmp503, label %cond.true505, label %cond.false506
 
 cond.true505:                                     ; preds = %for.cond501
   br label %cond.end508
 
 cond.false506:                                    ; preds = %for.cond501
-  %311 = load ptr, ptr %seq498, align 8
-  %size507 = getelementptr inbounds %struct.asdl_expr_seq, ptr %311, i32 0, i32 0
-  %312 = load i64, ptr %size507, align 8
+  %313 = load ptr, ptr %seq498, align 8
+  %size507 = getelementptr inbounds %struct.asdl_expr_seq, ptr %313, i32 0, i32 0
+  %314 = load i64, ptr %size507, align 8
   br label %cond.end508
 
 cond.end508:                                      ; preds = %cond.false506, %cond.true505
-  %cond509 = phi i64 [ 0, %cond.true505 ], [ %312, %cond.false506 ]
+  %cond509 = phi i64 [ 0, %cond.true505 ], [ %314, %cond.false506 ]
   %cmp510 = icmp slt i64 %conv502, %cond509
   br i1 %cmp510, label %for.body512, label %for.end525
 
 for.body512:                                      ; preds = %cond.end508
-  %313 = load ptr, ptr %seq498, align 8
-  %typed_elements514 = getelementptr inbounds %struct.asdl_expr_seq, ptr %313, i32 0, i32 2
-  %314 = load i32, ptr %i497, align 4
-  %idxprom515 = sext i32 %314 to i64
+  %315 = load ptr, ptr %seq498, align 8
+  %typed_elements514 = getelementptr inbounds %struct.asdl_expr_seq, ptr %315, i32 0, i32 2
+  %316 = load i32, ptr %i497, align 4
+  %idxprom515 = sext i32 %316 to i64
   %arrayidx516 = getelementptr [1 x ptr], ptr %typed_elements514, i64 0, i64 %idxprom515
-  %315 = load ptr, ptr %arrayidx516, align 8
-  store ptr %315, ptr %elt513, align 8
-  %316 = load ptr, ptr %st.addr, align 8
-  %317 = load ptr, ptr %elt513, align 8
-  %call517 = call i32 @symtable_visit_expr(ptr noundef %316, ptr noundef %317)
+  %317 = load ptr, ptr %arrayidx516, align 8
+  store ptr %317, ptr %elt513, align 8
+  %318 = load ptr, ptr %st.addr, align 8
+  %319 = load ptr, ptr %elt513, align 8
+  %call517 = call i32 @symtable_visit_expr(ptr noundef %318, ptr noundef %319)
   %tobool518 = icmp ne i32 %call517, 0
   br i1 %tobool518, label %if.end522, label %if.then519
 
 if.then519:                                       ; preds = %for.body512
-  %318 = load ptr, ptr %st.addr, align 8
-  %recursion_depth520 = getelementptr inbounds %struct.symtable, ptr %318, i32 0, i32 9
-  %319 = load i32, ptr %recursion_depth520, align 8
-  %dec521 = add i32 %319, -1
+  %320 = load ptr, ptr %st.addr, align 8
+  %recursion_depth520 = getelementptr inbounds %struct.symtable, ptr %320, i32 0, i32 9
+  %321 = load i32, ptr %recursion_depth520, align 8
+  %dec521 = add i32 %321, -1
   store i32 %dec521, ptr %recursion_depth520, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8164,8 +8175,8 @@ if.end522:                                        ; preds = %for.body512
   br label %for.inc523
 
 for.inc523:                                       ; preds = %if.end522
-  %320 = load i32, ptr %i497, align 4
-  %inc524 = add i32 %320, 1
+  %322 = load i32, ptr %i497, align 4
+  %inc524 = add i32 %322, 1
   store i32 %inc524, ptr %i497, align 4
   br label %for.cond501, !llvm.loop !60
 
@@ -8176,20 +8187,20 @@ sw.bb526:                                         ; preds = %if.end
   br label %sw.epilog
 
 sw.bb527:                                         ; preds = %if.end
-  %321 = load ptr, ptr %st.addr, align 8
-  %322 = load ptr, ptr %e.addr, align 8
-  %v528 = getelementptr inbounds %struct._expr, ptr %322, i32 0, i32 1
+  %323 = load ptr, ptr %st.addr, align 8
+  %324 = load ptr, ptr %e.addr, align 8
+  %v528 = getelementptr inbounds %struct._expr, ptr %324, i32 0, i32 1
   %value529 = getelementptr inbounds %struct.anon.27, ptr %v528, i32 0, i32 0
-  %323 = load ptr, ptr %value529, align 8
-  %call530 = call i32 @symtable_visit_expr(ptr noundef %321, ptr noundef %323)
+  %325 = load ptr, ptr %value529, align 8
+  %call530 = call i32 @symtable_visit_expr(ptr noundef %323, ptr noundef %325)
   %tobool531 = icmp ne i32 %call530, 0
   br i1 %tobool531, label %if.end535, label %if.then532
 
 if.then532:                                       ; preds = %sw.bb527
-  %324 = load ptr, ptr %st.addr, align 8
-  %recursion_depth533 = getelementptr inbounds %struct.symtable, ptr %324, i32 0, i32 9
-  %325 = load i32, ptr %recursion_depth533, align 8
-  %dec534 = add i32 %325, -1
+  %326 = load ptr, ptr %st.addr, align 8
+  %recursion_depth533 = getelementptr inbounds %struct.symtable, ptr %326, i32 0, i32 9
+  %327 = load i32, ptr %recursion_depth533, align 8
+  %dec534 = add i32 %327, -1
   store i32 %dec534, ptr %recursion_depth533, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8198,39 +8209,39 @@ if.end535:                                        ; preds = %sw.bb527
   br label %sw.epilog
 
 sw.bb536:                                         ; preds = %if.end
-  %326 = load ptr, ptr %st.addr, align 8
-  %327 = load ptr, ptr %e.addr, align 8
-  %v537 = getelementptr inbounds %struct._expr, ptr %327, i32 0, i32 1
+  %328 = load ptr, ptr %st.addr, align 8
+  %329 = load ptr, ptr %e.addr, align 8
+  %v537 = getelementptr inbounds %struct._expr, ptr %329, i32 0, i32 1
   %value538 = getelementptr inbounds %struct.anon.28, ptr %v537, i32 0, i32 0
-  %328 = load ptr, ptr %value538, align 8
-  %call539 = call i32 @symtable_visit_expr(ptr noundef %326, ptr noundef %328)
+  %330 = load ptr, ptr %value538, align 8
+  %call539 = call i32 @symtable_visit_expr(ptr noundef %328, ptr noundef %330)
   %tobool540 = icmp ne i32 %call539, 0
   br i1 %tobool540, label %if.end544, label %if.then541
 
 if.then541:                                       ; preds = %sw.bb536
-  %329 = load ptr, ptr %st.addr, align 8
-  %recursion_depth542 = getelementptr inbounds %struct.symtable, ptr %329, i32 0, i32 9
-  %330 = load i32, ptr %recursion_depth542, align 8
-  %dec543 = add i32 %330, -1
+  %331 = load ptr, ptr %st.addr, align 8
+  %recursion_depth542 = getelementptr inbounds %struct.symtable, ptr %331, i32 0, i32 9
+  %332 = load i32, ptr %recursion_depth542, align 8
+  %dec543 = add i32 %332, -1
   store i32 %dec543, ptr %recursion_depth542, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end544:                                        ; preds = %sw.bb536
-  %331 = load ptr, ptr %st.addr, align 8
-  %332 = load ptr, ptr %e.addr, align 8
-  %v545 = getelementptr inbounds %struct._expr, ptr %332, i32 0, i32 1
+  %333 = load ptr, ptr %st.addr, align 8
+  %334 = load ptr, ptr %e.addr, align 8
+  %v545 = getelementptr inbounds %struct._expr, ptr %334, i32 0, i32 1
   %slice = getelementptr inbounds %struct.anon.28, ptr %v545, i32 0, i32 1
-  %333 = load ptr, ptr %slice, align 8
-  %call546 = call i32 @symtable_visit_expr(ptr noundef %331, ptr noundef %333)
+  %335 = load ptr, ptr %slice, align 8
+  %call546 = call i32 @symtable_visit_expr(ptr noundef %333, ptr noundef %335)
   %tobool547 = icmp ne i32 %call546, 0
   br i1 %tobool547, label %if.end551, label %if.then548
 
 if.then548:                                       ; preds = %if.end544
-  %334 = load ptr, ptr %st.addr, align 8
-  %recursion_depth549 = getelementptr inbounds %struct.symtable, ptr %334, i32 0, i32 9
-  %335 = load i32, ptr %recursion_depth549, align 8
-  %dec550 = add i32 %335, -1
+  %336 = load ptr, ptr %st.addr, align 8
+  %recursion_depth549 = getelementptr inbounds %struct.symtable, ptr %336, i32 0, i32 9
+  %337 = load i32, ptr %recursion_depth549, align 8
+  %dec550 = add i32 %337, -1
   store i32 %dec550, ptr %recursion_depth549, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8239,20 +8250,20 @@ if.end551:                                        ; preds = %if.end544
   br label %sw.epilog
 
 sw.bb552:                                         ; preds = %if.end
-  %336 = load ptr, ptr %st.addr, align 8
-  %337 = load ptr, ptr %e.addr, align 8
-  %v553 = getelementptr inbounds %struct._expr, ptr %337, i32 0, i32 1
+  %338 = load ptr, ptr %st.addr, align 8
+  %339 = load ptr, ptr %e.addr, align 8
+  %v553 = getelementptr inbounds %struct._expr, ptr %339, i32 0, i32 1
   %value554 = getelementptr inbounds %struct.anon.29, ptr %v553, i32 0, i32 0
-  %338 = load ptr, ptr %value554, align 8
-  %call555 = call i32 @symtable_visit_expr(ptr noundef %336, ptr noundef %338)
+  %340 = load ptr, ptr %value554, align 8
+  %call555 = call i32 @symtable_visit_expr(ptr noundef %338, ptr noundef %340)
   %tobool556 = icmp ne i32 %call555, 0
   br i1 %tobool556, label %if.end560, label %if.then557
 
 if.then557:                                       ; preds = %sw.bb552
-  %339 = load ptr, ptr %st.addr, align 8
-  %recursion_depth558 = getelementptr inbounds %struct.symtable, ptr %339, i32 0, i32 9
-  %340 = load i32, ptr %recursion_depth558, align 8
-  %dec559 = add i32 %340, -1
+  %341 = load ptr, ptr %st.addr, align 8
+  %recursion_depth558 = getelementptr inbounds %struct.symtable, ptr %341, i32 0, i32 9
+  %342 = load i32, ptr %recursion_depth558, align 8
+  %dec559 = add i32 %342, -1
   store i32 %dec559, ptr %recursion_depth558, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8261,28 +8272,28 @@ if.end560:                                        ; preds = %sw.bb552
   br label %sw.epilog
 
 sw.bb561:                                         ; preds = %if.end
-  %341 = load ptr, ptr %e.addr, align 8
-  %v562 = getelementptr inbounds %struct._expr, ptr %341, i32 0, i32 1
+  %343 = load ptr, ptr %e.addr, align 8
+  %v562 = getelementptr inbounds %struct._expr, ptr %343, i32 0, i32 1
   %lower = getelementptr inbounds %struct.anon.33, ptr %v562, i32 0, i32 0
-  %342 = load ptr, ptr %lower, align 8
-  %tobool563 = icmp ne ptr %342, null
+  %344 = load ptr, ptr %lower, align 8
+  %tobool563 = icmp ne ptr %344, null
   br i1 %tobool563, label %if.then564, label %if.end573
 
 if.then564:                                       ; preds = %sw.bb561
-  %343 = load ptr, ptr %st.addr, align 8
-  %344 = load ptr, ptr %e.addr, align 8
-  %v565 = getelementptr inbounds %struct._expr, ptr %344, i32 0, i32 1
+  %345 = load ptr, ptr %st.addr, align 8
+  %346 = load ptr, ptr %e.addr, align 8
+  %v565 = getelementptr inbounds %struct._expr, ptr %346, i32 0, i32 1
   %lower566 = getelementptr inbounds %struct.anon.33, ptr %v565, i32 0, i32 0
-  %345 = load ptr, ptr %lower566, align 8
-  %call567 = call i32 @symtable_visit_expr(ptr noundef %343, ptr noundef %345)
+  %347 = load ptr, ptr %lower566, align 8
+  %call567 = call i32 @symtable_visit_expr(ptr noundef %345, ptr noundef %347)
   %tobool568 = icmp ne i32 %call567, 0
   br i1 %tobool568, label %if.end572, label %if.then569
 
 if.then569:                                       ; preds = %if.then564
-  %346 = load ptr, ptr %st.addr, align 8
-  %recursion_depth570 = getelementptr inbounds %struct.symtable, ptr %346, i32 0, i32 9
-  %347 = load i32, ptr %recursion_depth570, align 8
-  %dec571 = add i32 %347, -1
+  %348 = load ptr, ptr %st.addr, align 8
+  %recursion_depth570 = getelementptr inbounds %struct.symtable, ptr %348, i32 0, i32 9
+  %349 = load i32, ptr %recursion_depth570, align 8
+  %dec571 = add i32 %349, -1
   store i32 %dec571, ptr %recursion_depth570, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8291,28 +8302,28 @@ if.end572:                                        ; preds = %if.then564
   br label %if.end573
 
 if.end573:                                        ; preds = %if.end572, %sw.bb561
-  %348 = load ptr, ptr %e.addr, align 8
-  %v574 = getelementptr inbounds %struct._expr, ptr %348, i32 0, i32 1
+  %350 = load ptr, ptr %e.addr, align 8
+  %v574 = getelementptr inbounds %struct._expr, ptr %350, i32 0, i32 1
   %upper = getelementptr inbounds %struct.anon.33, ptr %v574, i32 0, i32 1
-  %349 = load ptr, ptr %upper, align 8
-  %tobool575 = icmp ne ptr %349, null
+  %351 = load ptr, ptr %upper, align 8
+  %tobool575 = icmp ne ptr %351, null
   br i1 %tobool575, label %if.then576, label %if.end585
 
 if.then576:                                       ; preds = %if.end573
-  %350 = load ptr, ptr %st.addr, align 8
-  %351 = load ptr, ptr %e.addr, align 8
-  %v577 = getelementptr inbounds %struct._expr, ptr %351, i32 0, i32 1
+  %352 = load ptr, ptr %st.addr, align 8
+  %353 = load ptr, ptr %e.addr, align 8
+  %v577 = getelementptr inbounds %struct._expr, ptr %353, i32 0, i32 1
   %upper578 = getelementptr inbounds %struct.anon.33, ptr %v577, i32 0, i32 1
-  %352 = load ptr, ptr %upper578, align 8
-  %call579 = call i32 @symtable_visit_expr(ptr noundef %350, ptr noundef %352)
+  %354 = load ptr, ptr %upper578, align 8
+  %call579 = call i32 @symtable_visit_expr(ptr noundef %352, ptr noundef %354)
   %tobool580 = icmp ne i32 %call579, 0
   br i1 %tobool580, label %if.end584, label %if.then581
 
 if.then581:                                       ; preds = %if.then576
-  %353 = load ptr, ptr %st.addr, align 8
-  %recursion_depth582 = getelementptr inbounds %struct.symtable, ptr %353, i32 0, i32 9
-  %354 = load i32, ptr %recursion_depth582, align 8
-  %dec583 = add i32 %354, -1
+  %355 = load ptr, ptr %st.addr, align 8
+  %recursion_depth582 = getelementptr inbounds %struct.symtable, ptr %355, i32 0, i32 9
+  %356 = load i32, ptr %recursion_depth582, align 8
+  %dec583 = add i32 %356, -1
   store i32 %dec583, ptr %recursion_depth582, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8321,28 +8332,28 @@ if.end584:                                        ; preds = %if.then576
   br label %if.end585
 
 if.end585:                                        ; preds = %if.end584, %if.end573
-  %355 = load ptr, ptr %e.addr, align 8
-  %v586 = getelementptr inbounds %struct._expr, ptr %355, i32 0, i32 1
+  %357 = load ptr, ptr %e.addr, align 8
+  %v586 = getelementptr inbounds %struct._expr, ptr %357, i32 0, i32 1
   %step = getelementptr inbounds %struct.anon.33, ptr %v586, i32 0, i32 2
-  %356 = load ptr, ptr %step, align 8
-  %tobool587 = icmp ne ptr %356, null
+  %358 = load ptr, ptr %step, align 8
+  %tobool587 = icmp ne ptr %358, null
   br i1 %tobool587, label %if.then588, label %if.end597
 
 if.then588:                                       ; preds = %if.end585
-  %357 = load ptr, ptr %st.addr, align 8
-  %358 = load ptr, ptr %e.addr, align 8
-  %v589 = getelementptr inbounds %struct._expr, ptr %358, i32 0, i32 1
+  %359 = load ptr, ptr %st.addr, align 8
+  %360 = load ptr, ptr %e.addr, align 8
+  %v589 = getelementptr inbounds %struct._expr, ptr %360, i32 0, i32 1
   %step590 = getelementptr inbounds %struct.anon.33, ptr %v589, i32 0, i32 2
-  %359 = load ptr, ptr %step590, align 8
-  %call591 = call i32 @symtable_visit_expr(ptr noundef %357, ptr noundef %359)
+  %361 = load ptr, ptr %step590, align 8
+  %call591 = call i32 @symtable_visit_expr(ptr noundef %359, ptr noundef %361)
   %tobool592 = icmp ne i32 %call591, 0
   br i1 %tobool592, label %if.end596, label %if.then593
 
 if.then593:                                       ; preds = %if.then588
-  %360 = load ptr, ptr %st.addr, align 8
-  %recursion_depth594 = getelementptr inbounds %struct.symtable, ptr %360, i32 0, i32 9
-  %361 = load i32, ptr %recursion_depth594, align 8
-  %dec595 = add i32 %361, -1
+  %362 = load ptr, ptr %st.addr, align 8
+  %recursion_depth594 = getelementptr inbounds %struct.symtable, ptr %362, i32 0, i32 9
+  %363 = load i32, ptr %recursion_depth594, align 8
+  %dec595 = add i32 %363, -1
   store i32 %dec595, ptr %recursion_depth594, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8354,90 +8365,92 @@ if.end597:                                        ; preds = %if.end596, %if.end5
   br label %sw.epilog
 
 sw.bb598:                                         ; preds = %if.end
-  %362 = load ptr, ptr %st.addr, align 8
-  %363 = load ptr, ptr %e.addr, align 8
-  %v599 = getelementptr inbounds %struct._expr, ptr %363, i32 0, i32 1
-  %id = getelementptr inbounds %struct.anon.30, ptr %v599, i32 0, i32 0
-  %364 = load ptr, ptr %id, align 8
+  %364 = load ptr, ptr %st.addr, align 8
   %365 = load ptr, ptr %e.addr, align 8
-  %v600 = getelementptr inbounds %struct._expr, ptr %365, i32 0, i32 1
-  %ctx = getelementptr inbounds %struct.anon.30, ptr %v600, i32 0, i32 1
-  %366 = load i32, ptr %ctx, align 8
-  %cmp601 = icmp eq i32 %366, 1
-  %cond603 = select i1 %cmp601, i32 16, i32 2
+  %v599 = getelementptr inbounds %struct._expr, ptr %365, i32 0, i32 1
+  %id = getelementptr inbounds %struct.anon.30, ptr %v599, i32 0, i32 0
+  %366 = load ptr, ptr %id, align 8
   %367 = load ptr, ptr %e.addr, align 8
-  %lineno604 = getelementptr inbounds %struct._expr, ptr %367, i32 0, i32 2
-  %368 = load i32, ptr %lineno604, align 8
+  %v600 = getelementptr inbounds %struct._expr, ptr %367, i32 0, i32 1
+  %ctx = getelementptr inbounds %struct.anon.30, ptr %v600, i32 0, i32 1
+  %368 = load i32, ptr %ctx, align 8
+  %cmp601 = icmp eq i32 %368, 1
+  %cond603 = select i1 %cmp601, i32 16, i32 2
   %369 = load ptr, ptr %e.addr, align 8
-  %col_offset605 = getelementptr inbounds %struct._expr, ptr %369, i32 0, i32 3
-  %370 = load i32, ptr %col_offset605, align 4
+  %lineno604 = getelementptr inbounds %struct._expr, ptr %369, i32 0, i32 2
+  %370 = load i32, ptr %lineno604, align 8
   %371 = load ptr, ptr %e.addr, align 8
-  %end_lineno606 = getelementptr inbounds %struct._expr, ptr %371, i32 0, i32 4
-  %372 = load i32, ptr %end_lineno606, align 8
+  %col_offset605 = getelementptr inbounds %struct._expr, ptr %371, i32 0, i32 3
+  %372 = load i32, ptr %col_offset605, align 4
   %373 = load ptr, ptr %e.addr, align 8
-  %end_col_offset607 = getelementptr inbounds %struct._expr, ptr %373, i32 0, i32 5
-  %374 = load i32, ptr %end_col_offset607, align 4
-  %call608 = call i32 @symtable_add_def(ptr noundef %362, ptr noundef %364, i32 noundef %cond603, i32 noundef %368, i32 noundef %370, i32 noundef %372, i32 noundef %374)
+  %end_lineno606 = getelementptr inbounds %struct._expr, ptr %373, i32 0, i32 4
+  %374 = load i32, ptr %end_lineno606, align 8
+  %375 = load ptr, ptr %e.addr, align 8
+  %end_col_offset607 = getelementptr inbounds %struct._expr, ptr %375, i32 0, i32 5
+  %376 = load i32, ptr %end_col_offset607, align 4
+  %call608 = call i32 @symtable_add_def(ptr noundef %364, ptr noundef %366, i32 noundef %cond603, i32 noundef %370, i32 noundef %372, i32 noundef %374, i32 noundef %376)
   %tobool609 = icmp ne i32 %call608, 0
   br i1 %tobool609, label %if.end613, label %if.then610
 
 if.then610:                                       ; preds = %sw.bb598
-  %375 = load ptr, ptr %st.addr, align 8
-  %recursion_depth611 = getelementptr inbounds %struct.symtable, ptr %375, i32 0, i32 9
-  %376 = load i32, ptr %recursion_depth611, align 8
-  %dec612 = add i32 %376, -1
+  %377 = load ptr, ptr %st.addr, align 8
+  %recursion_depth611 = getelementptr inbounds %struct.symtable, ptr %377, i32 0, i32 9
+  %378 = load i32, ptr %recursion_depth611, align 8
+  %dec612 = add i32 %378, -1
   store i32 %dec612, ptr %recursion_depth611, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end613:                                        ; preds = %sw.bb598
-  %377 = load ptr, ptr %e.addr, align 8
-  %v614 = getelementptr inbounds %struct._expr, ptr %377, i32 0, i32 1
+  %379 = load ptr, ptr %e.addr, align 8
+  %v614 = getelementptr inbounds %struct._expr, ptr %379, i32 0, i32 1
   %ctx615 = getelementptr inbounds %struct.anon.30, ptr %v614, i32 0, i32 1
-  %378 = load i32, ptr %ctx615, align 8
-  %cmp616 = icmp eq i32 %378, 1
+  %380 = load i32, ptr %ctx615, align 8
+  %cmp616 = icmp eq i32 %380, 1
   br i1 %cmp616, label %land.lhs.true, label %if.end637
 
 land.lhs.true:                                    ; preds = %if.end613
-  %379 = load ptr, ptr %st.addr, align 8
-  %st_cur618 = getelementptr inbounds %struct.symtable, ptr %379, i32 0, i32 1
-  %380 = load ptr, ptr %st_cur618, align 8
-  %call619 = call i32 @_PyST_IsFunctionLike(ptr noundef %380)
+  %381 = load ptr, ptr %st.addr, align 8
+  %st_cur618 = getelementptr inbounds %struct.symtable, ptr %381, i32 0, i32 1
+  %382 = load ptr, ptr %st_cur618, align 8
+  %call619 = call i32 @_PyST_IsFunctionLike(ptr noundef %382)
   %tobool620 = icmp ne i32 %call619, 0
   br i1 %tobool620, label %land.lhs.true621, label %if.end637
 
 land.lhs.true621:                                 ; preds = %land.lhs.true
-  %381 = load ptr, ptr %e.addr, align 8
-  %v622 = getelementptr inbounds %struct._expr, ptr %381, i32 0, i32 1
+  %383 = load ptr, ptr %e.addr, align 8
+  %v622 = getelementptr inbounds %struct._expr, ptr %383, i32 0, i32 1
   %id623 = getelementptr inbounds %struct.anon.30, ptr %v622, i32 0, i32 0
-  %382 = load ptr, ptr %id623, align 8
-  %call624 = call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %382, ptr noundef @.str.38)
+  %384 = load ptr, ptr %id623, align 8
+  %call624 = call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %384, ptr noundef @.str.38)
   %tobool625 = icmp ne i32 %call624, 0
   br i1 %tobool625, label %if.then626, label %if.end637
 
 if.then626:                                       ; preds = %land.lhs.true621
-  %383 = load ptr, ptr %st.addr, align 8
-  %384 = load ptr, ptr %e.addr, align 8
-  %lineno627 = getelementptr inbounds %struct._expr, ptr %384, i32 0, i32 2
-  %385 = load i32, ptr %lineno627, align 8
+  %385 = load ptr, ptr %st.addr, align 8
   %386 = load ptr, ptr %e.addr, align 8
-  %col_offset628 = getelementptr inbounds %struct._expr, ptr %386, i32 0, i32 3
-  %387 = load i32, ptr %col_offset628, align 4
+  %lineno627 = getelementptr inbounds %struct._expr, ptr %386, i32 0, i32 2
+  %387 = load i32, ptr %lineno627, align 8
   %388 = load ptr, ptr %e.addr, align 8
-  %end_lineno629 = getelementptr inbounds %struct._expr, ptr %388, i32 0, i32 4
-  %389 = load i32, ptr %end_lineno629, align 8
+  %col_offset628 = getelementptr inbounds %struct._expr, ptr %388, i32 0, i32 3
+  %389 = load i32, ptr %col_offset628, align 4
   %390 = load ptr, ptr %e.addr, align 8
-  %end_col_offset630 = getelementptr inbounds %struct._expr, ptr %390, i32 0, i32 5
-  %391 = load i32, ptr %end_col_offset630, align 4
-  %call631 = call i32 @symtable_add_def(ptr noundef %383, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 34), i32 noundef 16, i32 noundef %385, i32 noundef %387, i32 noundef %389, i32 noundef %391)
+  %end_lineno629 = getelementptr inbounds %struct._expr, ptr %390, i32 0, i32 4
+  %391 = load i32, ptr %end_lineno629, align 8
+  %392 = load ptr, ptr %e.addr, align 8
+  %end_col_offset630 = getelementptr inbounds %struct._expr, ptr %392, i32 0, i32 5
+  %393 = load i32, ptr %end_col_offset630, align 4
+  %394 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %395 = getelementptr inbounds %struct.anon.40, ptr %394, i32 0, i32 3, i32 1, i32 34
+  %call631 = call i32 @symtable_add_def(ptr noundef %385, ptr noundef %395, i32 noundef 16, i32 noundef %387, i32 noundef %389, i32 noundef %391, i32 noundef %393)
   %tobool632 = icmp ne i32 %call631, 0
   br i1 %tobool632, label %if.end636, label %if.then633
 
 if.then633:                                       ; preds = %if.then626
-  %392 = load ptr, ptr %st.addr, align 8
-  %recursion_depth634 = getelementptr inbounds %struct.symtable, ptr %392, i32 0, i32 9
-  %393 = load i32, ptr %recursion_depth634, align 8
-  %dec635 = add i32 %393, -1
+  %396 = load ptr, ptr %st.addr, align 8
+  %recursion_depth634 = getelementptr inbounds %struct.symtable, ptr %396, i32 0, i32 9
+  %397 = load i32, ptr %recursion_depth634, align 8
+  %dec635 = add i32 %397, -1
   store i32 %dec635, ptr %recursion_depth634, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8449,54 +8462,54 @@ if.end637:                                        ; preds = %if.end636, %land.lh
   br label %sw.epilog
 
 sw.bb638:                                         ; preds = %if.end
-  %394 = load ptr, ptr %e.addr, align 8
-  %v641 = getelementptr inbounds %struct._expr, ptr %394, i32 0, i32 1
+  %398 = load ptr, ptr %e.addr, align 8
+  %v641 = getelementptr inbounds %struct._expr, ptr %398, i32 0, i32 1
   %elts642 = getelementptr inbounds %struct.anon.31, ptr %v641, i32 0, i32 0
-  %395 = load ptr, ptr %elts642, align 8
-  store ptr %395, ptr %seq640, align 8
+  %399 = load ptr, ptr %elts642, align 8
+  store ptr %399, ptr %seq640, align 8
   store i32 0, ptr %i639, align 4
   br label %for.cond643
 
 for.cond643:                                      ; preds = %for.inc665, %sw.bb638
-  %396 = load i32, ptr %i639, align 4
-  %conv644 = sext i32 %396 to i64
-  %397 = load ptr, ptr %seq640, align 8
-  %cmp645 = icmp eq ptr %397, null
+  %400 = load i32, ptr %i639, align 4
+  %conv644 = sext i32 %400 to i64
+  %401 = load ptr, ptr %seq640, align 8
+  %cmp645 = icmp eq ptr %401, null
   br i1 %cmp645, label %cond.true647, label %cond.false648
 
 cond.true647:                                     ; preds = %for.cond643
   br label %cond.end650
 
 cond.false648:                                    ; preds = %for.cond643
-  %398 = load ptr, ptr %seq640, align 8
-  %size649 = getelementptr inbounds %struct.asdl_expr_seq, ptr %398, i32 0, i32 0
-  %399 = load i64, ptr %size649, align 8
+  %402 = load ptr, ptr %seq640, align 8
+  %size649 = getelementptr inbounds %struct.asdl_expr_seq, ptr %402, i32 0, i32 0
+  %403 = load i64, ptr %size649, align 8
   br label %cond.end650
 
 cond.end650:                                      ; preds = %cond.false648, %cond.true647
-  %cond651 = phi i64 [ 0, %cond.true647 ], [ %399, %cond.false648 ]
+  %cond651 = phi i64 [ 0, %cond.true647 ], [ %403, %cond.false648 ]
   %cmp652 = icmp slt i64 %conv644, %cond651
   br i1 %cmp652, label %for.body654, label %for.end667
 
 for.body654:                                      ; preds = %cond.end650
-  %400 = load ptr, ptr %seq640, align 8
-  %typed_elements656 = getelementptr inbounds %struct.asdl_expr_seq, ptr %400, i32 0, i32 2
-  %401 = load i32, ptr %i639, align 4
-  %idxprom657 = sext i32 %401 to i64
+  %404 = load ptr, ptr %seq640, align 8
+  %typed_elements656 = getelementptr inbounds %struct.asdl_expr_seq, ptr %404, i32 0, i32 2
+  %405 = load i32, ptr %i639, align 4
+  %idxprom657 = sext i32 %405 to i64
   %arrayidx658 = getelementptr [1 x ptr], ptr %typed_elements656, i64 0, i64 %idxprom657
-  %402 = load ptr, ptr %arrayidx658, align 8
-  store ptr %402, ptr %elt655, align 8
-  %403 = load ptr, ptr %st.addr, align 8
-  %404 = load ptr, ptr %elt655, align 8
-  %call659 = call i32 @symtable_visit_expr(ptr noundef %403, ptr noundef %404)
+  %406 = load ptr, ptr %arrayidx658, align 8
+  store ptr %406, ptr %elt655, align 8
+  %407 = load ptr, ptr %st.addr, align 8
+  %408 = load ptr, ptr %elt655, align 8
+  %call659 = call i32 @symtable_visit_expr(ptr noundef %407, ptr noundef %408)
   %tobool660 = icmp ne i32 %call659, 0
   br i1 %tobool660, label %if.end664, label %if.then661
 
 if.then661:                                       ; preds = %for.body654
-  %405 = load ptr, ptr %st.addr, align 8
-  %recursion_depth662 = getelementptr inbounds %struct.symtable, ptr %405, i32 0, i32 9
-  %406 = load i32, ptr %recursion_depth662, align 8
-  %dec663 = add i32 %406, -1
+  %409 = load ptr, ptr %st.addr, align 8
+  %recursion_depth662 = getelementptr inbounds %struct.symtable, ptr %409, i32 0, i32 9
+  %410 = load i32, ptr %recursion_depth662, align 8
+  %dec663 = add i32 %410, -1
   store i32 %dec663, ptr %recursion_depth662, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8505,8 +8518,8 @@ if.end664:                                        ; preds = %for.body654
   br label %for.inc665
 
 for.inc665:                                       ; preds = %if.end664
-  %407 = load i32, ptr %i639, align 4
-  %inc666 = add i32 %407, 1
+  %411 = load i32, ptr %i639, align 4
+  %inc666 = add i32 %411, 1
   store i32 %inc666, ptr %i639, align 4
   br label %for.cond643, !llvm.loop !61
 
@@ -8514,54 +8527,54 @@ for.end667:                                       ; preds = %cond.end650
   br label %sw.epilog
 
 sw.bb668:                                         ; preds = %if.end
-  %408 = load ptr, ptr %e.addr, align 8
-  %v671 = getelementptr inbounds %struct._expr, ptr %408, i32 0, i32 1
+  %412 = load ptr, ptr %e.addr, align 8
+  %v671 = getelementptr inbounds %struct._expr, ptr %412, i32 0, i32 1
   %elts672 = getelementptr inbounds %struct.anon.32, ptr %v671, i32 0, i32 0
-  %409 = load ptr, ptr %elts672, align 8
-  store ptr %409, ptr %seq670, align 8
+  %413 = load ptr, ptr %elts672, align 8
+  store ptr %413, ptr %seq670, align 8
   store i32 0, ptr %i669, align 4
   br label %for.cond673
 
 for.cond673:                                      ; preds = %for.inc695, %sw.bb668
-  %410 = load i32, ptr %i669, align 4
-  %conv674 = sext i32 %410 to i64
-  %411 = load ptr, ptr %seq670, align 8
-  %cmp675 = icmp eq ptr %411, null
+  %414 = load i32, ptr %i669, align 4
+  %conv674 = sext i32 %414 to i64
+  %415 = load ptr, ptr %seq670, align 8
+  %cmp675 = icmp eq ptr %415, null
   br i1 %cmp675, label %cond.true677, label %cond.false678
 
 cond.true677:                                     ; preds = %for.cond673
   br label %cond.end680
 
 cond.false678:                                    ; preds = %for.cond673
-  %412 = load ptr, ptr %seq670, align 8
-  %size679 = getelementptr inbounds %struct.asdl_expr_seq, ptr %412, i32 0, i32 0
-  %413 = load i64, ptr %size679, align 8
+  %416 = load ptr, ptr %seq670, align 8
+  %size679 = getelementptr inbounds %struct.asdl_expr_seq, ptr %416, i32 0, i32 0
+  %417 = load i64, ptr %size679, align 8
   br label %cond.end680
 
 cond.end680:                                      ; preds = %cond.false678, %cond.true677
-  %cond681 = phi i64 [ 0, %cond.true677 ], [ %413, %cond.false678 ]
+  %cond681 = phi i64 [ 0, %cond.true677 ], [ %417, %cond.false678 ]
   %cmp682 = icmp slt i64 %conv674, %cond681
   br i1 %cmp682, label %for.body684, label %for.end697
 
 for.body684:                                      ; preds = %cond.end680
-  %414 = load ptr, ptr %seq670, align 8
-  %typed_elements686 = getelementptr inbounds %struct.asdl_expr_seq, ptr %414, i32 0, i32 2
-  %415 = load i32, ptr %i669, align 4
-  %idxprom687 = sext i32 %415 to i64
+  %418 = load ptr, ptr %seq670, align 8
+  %typed_elements686 = getelementptr inbounds %struct.asdl_expr_seq, ptr %418, i32 0, i32 2
+  %419 = load i32, ptr %i669, align 4
+  %idxprom687 = sext i32 %419 to i64
   %arrayidx688 = getelementptr [1 x ptr], ptr %typed_elements686, i64 0, i64 %idxprom687
-  %416 = load ptr, ptr %arrayidx688, align 8
-  store ptr %416, ptr %elt685, align 8
-  %417 = load ptr, ptr %st.addr, align 8
-  %418 = load ptr, ptr %elt685, align 8
-  %call689 = call i32 @symtable_visit_expr(ptr noundef %417, ptr noundef %418)
+  %420 = load ptr, ptr %arrayidx688, align 8
+  store ptr %420, ptr %elt685, align 8
+  %421 = load ptr, ptr %st.addr, align 8
+  %422 = load ptr, ptr %elt685, align 8
+  %call689 = call i32 @symtable_visit_expr(ptr noundef %421, ptr noundef %422)
   %tobool690 = icmp ne i32 %call689, 0
   br i1 %tobool690, label %if.end694, label %if.then691
 
 if.then691:                                       ; preds = %for.body684
-  %419 = load ptr, ptr %st.addr, align 8
-  %recursion_depth692 = getelementptr inbounds %struct.symtable, ptr %419, i32 0, i32 9
-  %420 = load i32, ptr %recursion_depth692, align 8
-  %dec693 = add i32 %420, -1
+  %423 = load ptr, ptr %st.addr, align 8
+  %recursion_depth692 = getelementptr inbounds %struct.symtable, ptr %423, i32 0, i32 9
+  %424 = load i32, ptr %recursion_depth692, align 8
+  %dec693 = add i32 %424, -1
   store i32 %dec693, ptr %recursion_depth692, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -8570,8 +8583,8 @@ if.end694:                                        ; preds = %for.body684
   br label %for.inc695
 
 for.inc695:                                       ; preds = %if.end694
-  %421 = load i32, ptr %i669, align 4
-  %inc696 = add i32 %421, 1
+  %425 = load i32, ptr %i669, align 4
+  %inc696 = add i32 %425, 1
   store i32 %inc696, ptr %i669, align 4
   br label %for.cond673, !llvm.loop !62
 
@@ -8579,17 +8592,17 @@ for.end697:                                       ; preds = %cond.end680
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.end697, %for.end667, %if.end637, %if.end597, %if.end560, %if.end551, %if.end535, %sw.bb526, %for.end525, %if.end495, %for.end474, %for.end406, %if.end365, %if.end350, %if.end324, %if.end298, %if.end291, %if.end284, %if.end277, %for.end270, %for.end241, %if.end180, %if.end157, %if.end46, %if.end38, %for.end, %if.end11, %if.end
-  %422 = load ptr, ptr %st.addr, align 8
-  %recursion_depth698 = getelementptr inbounds %struct.symtable, ptr %422, i32 0, i32 9
-  %423 = load i32, ptr %recursion_depth698, align 8
-  %dec699 = add i32 %423, -1
+  %426 = load ptr, ptr %st.addr, align 8
+  %recursion_depth698 = getelementptr inbounds %struct.symtable, ptr %426, i32 0, i32 9
+  %427 = load i32, ptr %recursion_depth698, align 8
+  %dec699 = add i32 %427, -1
   store i32 %dec699, ptr %recursion_depth698, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then691, %if.then661, %if.then633, %if.then610, %if.then593, %if.then581, %if.then569, %if.then557, %if.then548, %if.then541, %if.then532, %if.then519, %if.then491, %if.then480, %if.then468, %if.then437, %if.then411, %if.then400, %if.then375, %if.then362, %if.then354, %if.then348, %if.then336, %if.then328, %if.then322, %if.then313, %if.then302, %if.then295, %if.then288, %if.then281, %if.then274, %if.then264, %if.then235, %if.then206, %if.then177, %if.then170, %if.then162, %if.then154, %if.then148, %if.then141, %if.then133, %if.then119, %if.then81, %if.then49, %if.then43, %if.then35, %if.then28, %if.then19, %if.then8, %if.then2, %if.then
-  %424 = load i32, ptr %retval, align 4
-  ret i32 %424
+  %428 = load i32, ptr %retval, align 4
+  ret i32 %428
 }
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) #1
@@ -10146,7 +10159,9 @@ Py_DECREF.exit217:                                ; preds = %if.then1.i215, %if.
 
 if.else:                                          ; preds = %while.end
   %76 = load ptr, ptr %newbound, align 8
-  %call63 = call i32 @PySet_Add(ptr noundef %76, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 34))
+  %77 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %78 = getelementptr inbounds %struct.anon.40, ptr %77, i32 0, i32 3, i32 1, i32 34
+  %call63 = call i32 @PySet_Add(ptr noundef %76, ptr noundef %78)
   %cmp64 = icmp slt i32 %call63, 0
   br i1 %cmp64, label %if.then65, label %if.end66
 
@@ -10154,8 +10169,10 @@ if.then65:                                        ; preds = %if.else
   br label %error
 
 if.end66:                                         ; preds = %if.else
-  %77 = load ptr, ptr %newbound, align 8
-  %call67 = call i32 @PySet_Add(ptr noundef %77, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 37))
+  %79 = load ptr, ptr %newbound, align 8
+  %80 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %81 = getelementptr inbounds %struct.anon.40, ptr %80, i32 0, i32 3, i32 1, i32 37
+  %call67 = call i32 @PySet_Add(ptr noundef %79, ptr noundef %81)
   %cmp68 = icmp slt i32 %call67, 0
   br i1 %cmp68, label %if.then69, label %if.end70
 
@@ -10170,30 +10187,30 @@ if.end71:                                         ; preds = %if.end70, %Py_DECRE
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end71
-  %78 = load i64, ptr %i, align 8
-  %79 = load ptr, ptr %ste.addr, align 8
-  %ste_children = getelementptr inbounds %struct._symtable_entry, ptr %79, i32 0, i32 5
-  %80 = load ptr, ptr %ste_children, align 8
-  %call72 = call i64 @PyList_GET_SIZE(ptr noundef %80)
-  %cmp73 = icmp slt i64 %78, %call72
+  %82 = load i64, ptr %i, align 8
+  %83 = load ptr, ptr %ste.addr, align 8
+  %ste_children = getelementptr inbounds %struct._symtable_entry, ptr %83, i32 0, i32 5
+  %84 = load ptr, ptr %ste_children, align 8
+  %call72 = call i64 @PyList_GET_SIZE(ptr noundef %84)
+  %cmp73 = icmp slt i64 %82, %call72
   br i1 %cmp73, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   store ptr null, ptr %child_free, align 8
-  %81 = load ptr, ptr %ste.addr, align 8
-  %ste_children74 = getelementptr inbounds %struct._symtable_entry, ptr %81, i32 0, i32 5
-  %82 = load ptr, ptr %ste_children74, align 8
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %82, i32 0, i32 1
-  %83 = load ptr, ptr %ob_item, align 8
-  %84 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr ptr, ptr %83, i64 %84
-  %85 = load ptr, ptr %arrayidx, align 8
-  store ptr %85, ptr %c, align 8
-  %86 = load ptr, ptr %c, align 8
-  store ptr %86, ptr %entry75, align 8
+  %85 = load ptr, ptr %ste.addr, align 8
+  %ste_children74 = getelementptr inbounds %struct._symtable_entry, ptr %85, i32 0, i32 5
+  %86 = load ptr, ptr %ste_children74, align 8
+  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %86, i32 0, i32 1
+  %87 = load ptr, ptr %ob_item, align 8
+  %88 = load i64, ptr %i, align 8
+  %arrayidx = getelementptr ptr, ptr %87, i64 %88
+  %89 = load ptr, ptr %arrayidx, align 8
+  store ptr %89, ptr %c, align 8
+  %90 = load ptr, ptr %c, align 8
+  store ptr %90, ptr %entry75, align 8
   store ptr null, ptr %new_class_entry, align 8
-  %87 = load ptr, ptr %entry75, align 8
-  %ste_can_see_class_scope = getelementptr inbounds %struct._symtable_entry, ptr %87, i32 0, i32 11
+  %91 = load ptr, ptr %entry75, align 8
+  %ste_can_see_class_scope = getelementptr inbounds %struct._symtable_entry, ptr %91, i32 0, i32 11
   %bf.load = load i8, ptr %ste_can_see_class_scope, align 8
   %bf.lshr = lshr i8 %bf.load, 7
   %bf.cast = zext i8 %bf.lshr to i32
@@ -10201,25 +10218,25 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool76, label %if.then77, label %if.end86
 
 if.then77:                                        ; preds = %for.body
-  %88 = load ptr, ptr %ste.addr, align 8
-  %ste_type78 = getelementptr inbounds %struct._symtable_entry, ptr %88, i32 0, i32 7
-  %89 = load i32, ptr %ste_type78, align 8
-  %cmp79 = icmp eq i32 %89, 1
+  %92 = load ptr, ptr %ste.addr, align 8
+  %ste_type78 = getelementptr inbounds %struct._symtable_entry, ptr %92, i32 0, i32 7
+  %93 = load i32, ptr %ste_type78, align 8
+  %cmp79 = icmp eq i32 %93, 1
   br i1 %cmp79, label %if.then80, label %if.else81
 
 if.then80:                                        ; preds = %if.then77
-  %90 = load ptr, ptr %ste.addr, align 8
-  store ptr %90, ptr %new_class_entry, align 8
+  %94 = load ptr, ptr %ste.addr, align 8
+  store ptr %94, ptr %new_class_entry, align 8
   br label %if.end85
 
 if.else81:                                        ; preds = %if.then77
-  %91 = load ptr, ptr %class_entry.addr, align 8
-  %tobool82 = icmp ne ptr %91, null
+  %95 = load ptr, ptr %class_entry.addr, align 8
+  %tobool82 = icmp ne ptr %95, null
   br i1 %tobool82, label %if.then83, label %if.end84
 
 if.then83:                                        ; preds = %if.else81
-  %92 = load ptr, ptr %class_entry.addr, align 8
-  store ptr %92, ptr %new_class_entry, align 8
+  %96 = load ptr, ptr %class_entry.addr, align 8
+  store ptr %96, ptr %new_class_entry, align 8
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then83, %if.else81
@@ -10229,15 +10246,15 @@ if.end85:                                         ; preds = %if.end84, %if.then8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end85, %for.body
-  %93 = load ptr, ptr %entry75, align 8
-  %ste_comprehension = getelementptr inbounds %struct._symtable_entry, ptr %93, i32 0, i32 10
-  %94 = load i32, ptr %ste_comprehension, align 4
-  %tobool87 = icmp ne i32 %94, 0
+  %97 = load ptr, ptr %entry75, align 8
+  %ste_comprehension = getelementptr inbounds %struct._symtable_entry, ptr %97, i32 0, i32 10
+  %98 = load i32, ptr %ste_comprehension, align 4
+  %tobool87 = icmp ne i32 %98, 0
   br i1 %tobool87, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end86
-  %95 = load ptr, ptr %entry75, align 8
-  %ste_generator = getelementptr inbounds %struct._symtable_entry, ptr %95, i32 0, i32 9
+  %99 = load ptr, ptr %entry75, align 8
+  %ste_generator = getelementptr inbounds %struct._symtable_entry, ptr %99, i32 0, i32 9
   %bf.load88 = load i8, ptr %ste_generator, align 8
   %bf.lshr89 = lshr i8 %bf.load88, 2
   %bf.clear = and i8 %bf.lshr89, 1
@@ -10247,16 +10264,16 @@ land.rhs:                                         ; preds = %if.end86
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end86
-  %96 = phi i1 [ false, %if.end86 ], [ %lnot, %land.rhs ]
-  %land.ext = zext i1 %96 to i32
+  %100 = phi i1 [ false, %if.end86 ], [ %lnot, %land.rhs ]
+  %land.ext = zext i1 %100 to i32
   store i32 %land.ext, ptr %inline_comp, align 4
-  %97 = load ptr, ptr %entry75, align 8
-  %98 = load ptr, ptr %newbound, align 8
-  %99 = load ptr, ptr %newfree, align 8
-  %100 = load ptr, ptr %newglobal, align 8
-  %101 = load ptr, ptr %type_params.addr, align 8
-  %102 = load ptr, ptr %new_class_entry, align 8
-  %call92 = call i32 @analyze_child_block(ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %child_free)
+  %101 = load ptr, ptr %entry75, align 8
+  %102 = load ptr, ptr %newbound, align 8
+  %103 = load ptr, ptr %newfree, align 8
+  %104 = load ptr, ptr %newglobal, align 8
+  %105 = load ptr, ptr %type_params.addr, align 8
+  %106 = load ptr, ptr %new_class_entry, align 8
+  %call92 = call i32 @analyze_child_block(ptr noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %child_free)
   %tobool93 = icmp ne i32 %call92, 0
   br i1 %tobool93, label %if.end95, label %if.then94
 
@@ -10264,28 +10281,28 @@ if.then94:                                        ; preds = %land.end
   br label %error
 
 if.end95:                                         ; preds = %land.end
-  %103 = load i32, ptr %inline_comp, align 4
-  %tobool96 = icmp ne i32 %103, 0
+  %107 = load i32, ptr %inline_comp, align 4
+  %tobool96 = icmp ne i32 %107, 0
   br i1 %tobool96, label %if.then97, label %if.end104
 
 if.then97:                                        ; preds = %if.end95
-  %104 = load ptr, ptr %ste.addr, align 8
-  %105 = load ptr, ptr %entry75, align 8
-  %106 = load ptr, ptr %scopes, align 8
-  %107 = load ptr, ptr %child_free, align 8
-  %108 = load ptr, ptr %inlined_cells, align 8
-  %call98 = call i32 @inline_comprehension(ptr noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108)
+  %108 = load ptr, ptr %ste.addr, align 8
+  %109 = load ptr, ptr %entry75, align 8
+  %110 = load ptr, ptr %scopes, align 8
+  %111 = load ptr, ptr %child_free, align 8
+  %112 = load ptr, ptr %inlined_cells, align 8
+  %call98 = call i32 @inline_comprehension(ptr noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112)
   %tobool99 = icmp ne i32 %call98, 0
   br i1 %tobool99, label %if.end101, label %if.then100
 
 if.then100:                                       ; preds = %if.then97
-  %109 = load ptr, ptr %child_free, align 8
-  store ptr %109, ptr %op.addr.i200, align 8
-  %110 = load ptr, ptr %op.addr.i200, align 8
-  store ptr %110, ptr %op.addr.i272, align 8
-  %111 = load ptr, ptr %op.addr.i272, align 8
-  %112 = load i64, ptr %111, align 8
-  %conv.i273 = trunc i64 %112 to i32
+  %113 = load ptr, ptr %child_free, align 8
+  store ptr %113, ptr %op.addr.i200, align 8
+  %114 = load ptr, ptr %op.addr.i200, align 8
+  store ptr %114, ptr %op.addr.i272, align 8
+  %115 = load ptr, ptr %op.addr.i272, align 8
+  %116 = load i64, ptr %115, align 8
+  %conv.i273 = trunc i64 %116 to i32
   %cmp.i274 = icmp slt i32 %conv.i273, 0
   %conv1.i275 = zext i1 %cmp.i274 to i32
   %tobool.i202 = icmp ne i32 %conv1.i275, 0
@@ -10295,24 +10312,24 @@ if.then.i207:                                     ; preds = %if.then100
   br label %Py_DECREF.exit208
 
 if.end.i203:                                      ; preds = %if.then100
-  %113 = load ptr, ptr %op.addr.i200, align 8
-  %114 = load i64, ptr %113, align 8
-  %dec.i204 = add i64 %114, -1
-  store i64 %dec.i204, ptr %113, align 8
+  %117 = load ptr, ptr %op.addr.i200, align 8
+  %118 = load i64, ptr %117, align 8
+  %dec.i204 = add i64 %118, -1
+  store i64 %dec.i204, ptr %117, align 8
   %cmp.i205 = icmp eq i64 %dec.i204, 0
   br i1 %cmp.i205, label %if.then1.i206, label %Py_DECREF.exit208
 
 if.then1.i206:                                    ; preds = %if.end.i203
-  %115 = load ptr, ptr %op.addr.i200, align 8
-  call void @_Py_Dealloc(ptr noundef %115) #3
+  %119 = load ptr, ptr %op.addr.i200, align 8
+  call void @_Py_Dealloc(ptr noundef %119) #3
   br label %Py_DECREF.exit208
 
 Py_DECREF.exit208:                                ; preds = %if.then1.i206, %if.end.i203, %if.then.i207
   br label %error
 
 if.end101:                                        ; preds = %if.then97
-  %116 = load ptr, ptr %entry75, align 8
-  %ste_comp_inlined = getelementptr inbounds %struct._symtable_entry, ptr %116, i32 0, i32 11
+  %120 = load ptr, ptr %entry75, align 8
+  %ste_comp_inlined = getelementptr inbounds %struct._symtable_entry, ptr %120, i32 0, i32 11
   %bf.load102 = load i8, ptr %ste_comp_inlined, align 8
   %bf.clear103 = and i8 %bf.load102, -33
   %bf.set = or i8 %bf.clear103, 32
@@ -10320,17 +10337,17 @@ if.end101:                                        ; preds = %if.then97
   br label %if.end104
 
 if.end104:                                        ; preds = %if.end101, %if.end95
-  %117 = load ptr, ptr %newfree, align 8
-  %118 = load ptr, ptr %child_free, align 8
-  %call105 = call ptr @PyNumber_InPlaceOr(ptr noundef %117, ptr noundef %118)
+  %121 = load ptr, ptr %newfree, align 8
+  %122 = load ptr, ptr %child_free, align 8
+  %call105 = call ptr @PyNumber_InPlaceOr(ptr noundef %121, ptr noundef %122)
   store ptr %call105, ptr %temp, align 8
-  %119 = load ptr, ptr %child_free, align 8
-  store ptr %119, ptr %op.addr.i191, align 8
-  %120 = load ptr, ptr %op.addr.i191, align 8
-  store ptr %120, ptr %op.addr.i276, align 8
-  %121 = load ptr, ptr %op.addr.i276, align 8
-  %122 = load i64, ptr %121, align 8
-  %conv.i277 = trunc i64 %122 to i32
+  %123 = load ptr, ptr %child_free, align 8
+  store ptr %123, ptr %op.addr.i191, align 8
+  %124 = load ptr, ptr %op.addr.i191, align 8
+  store ptr %124, ptr %op.addr.i276, align 8
+  %125 = load ptr, ptr %op.addr.i276, align 8
+  %126 = load i64, ptr %125, align 8
+  %conv.i277 = trunc i64 %126 to i32
   %cmp.i278 = icmp slt i32 %conv.i277, 0
   %conv1.i279 = zext i1 %cmp.i278 to i32
   %tobool.i193 = icmp ne i32 %conv1.i279, 0
@@ -10340,34 +10357,34 @@ if.then.i198:                                     ; preds = %if.end104
   br label %Py_DECREF.exit199
 
 if.end.i194:                                      ; preds = %if.end104
-  %123 = load ptr, ptr %op.addr.i191, align 8
-  %124 = load i64, ptr %123, align 8
-  %dec.i195 = add i64 %124, -1
-  store i64 %dec.i195, ptr %123, align 8
+  %127 = load ptr, ptr %op.addr.i191, align 8
+  %128 = load i64, ptr %127, align 8
+  %dec.i195 = add i64 %128, -1
+  store i64 %dec.i195, ptr %127, align 8
   %cmp.i196 = icmp eq i64 %dec.i195, 0
   br i1 %cmp.i196, label %if.then1.i197, label %Py_DECREF.exit199
 
 if.then1.i197:                                    ; preds = %if.end.i194
-  %125 = load ptr, ptr %op.addr.i191, align 8
-  call void @_Py_Dealloc(ptr noundef %125) #3
+  %129 = load ptr, ptr %op.addr.i191, align 8
+  call void @_Py_Dealloc(ptr noundef %129) #3
   br label %Py_DECREF.exit199
 
 Py_DECREF.exit199:                                ; preds = %if.then1.i197, %if.end.i194, %if.then.i198
-  %126 = load ptr, ptr %temp, align 8
-  %tobool106 = icmp ne ptr %126, null
+  %130 = load ptr, ptr %temp, align 8
+  %tobool106 = icmp ne ptr %130, null
   br i1 %tobool106, label %if.end108, label %if.then107
 
 if.then107:                                       ; preds = %Py_DECREF.exit199
   br label %error
 
 if.end108:                                        ; preds = %Py_DECREF.exit199
-  %127 = load ptr, ptr %temp, align 8
-  store ptr %127, ptr %op.addr.i182, align 8
-  %128 = load ptr, ptr %op.addr.i182, align 8
-  store ptr %128, ptr %op.addr.i280, align 8
-  %129 = load ptr, ptr %op.addr.i280, align 8
-  %130 = load i64, ptr %129, align 8
-  %conv.i281 = trunc i64 %130 to i32
+  %131 = load ptr, ptr %temp, align 8
+  store ptr %131, ptr %op.addr.i182, align 8
+  %132 = load ptr, ptr %op.addr.i182, align 8
+  store ptr %132, ptr %op.addr.i280, align 8
+  %133 = load ptr, ptr %op.addr.i280, align 8
+  %134 = load i64, ptr %133, align 8
+  %conv.i281 = trunc i64 %134 to i32
   %cmp.i282 = icmp slt i32 %conv.i281, 0
   %conv1.i283 = zext i1 %cmp.i282 to i32
   %tobool.i184 = icmp ne i32 %conv1.i283, 0
@@ -10377,21 +10394,21 @@ if.then.i189:                                     ; preds = %if.end108
   br label %Py_DECREF.exit190
 
 if.end.i185:                                      ; preds = %if.end108
-  %131 = load ptr, ptr %op.addr.i182, align 8
-  %132 = load i64, ptr %131, align 8
-  %dec.i186 = add i64 %132, -1
-  store i64 %dec.i186, ptr %131, align 8
+  %135 = load ptr, ptr %op.addr.i182, align 8
+  %136 = load i64, ptr %135, align 8
+  %dec.i186 = add i64 %136, -1
+  store i64 %dec.i186, ptr %135, align 8
   %cmp.i187 = icmp eq i64 %dec.i186, 0
   br i1 %cmp.i187, label %if.then1.i188, label %Py_DECREF.exit190
 
 if.then1.i188:                                    ; preds = %if.end.i185
-  %133 = load ptr, ptr %op.addr.i182, align 8
-  call void @_Py_Dealloc(ptr noundef %133) #3
+  %137 = load ptr, ptr %op.addr.i182, align 8
+  call void @_Py_Dealloc(ptr noundef %137) #3
   br label %Py_DECREF.exit190
 
 Py_DECREF.exit190:                                ; preds = %if.then1.i188, %if.end.i185, %if.then.i189
-  %134 = load ptr, ptr %entry75, align 8
-  %ste_free = getelementptr inbounds %struct._symtable_entry, ptr %134, i32 0, i32 9
+  %138 = load ptr, ptr %entry75, align 8
+  %ste_free = getelementptr inbounds %struct._symtable_entry, ptr %138, i32 0, i32 9
   %bf.load109 = load i8, ptr %ste_free, align 8
   %bf.clear110 = and i8 %bf.load109, 1
   %bf.cast111 = zext i8 %bf.clear110 to i32
@@ -10399,8 +10416,8 @@ Py_DECREF.exit190:                                ; preds = %if.then1.i188, %if.
   br i1 %tobool112, label %if.then118, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %Py_DECREF.exit190
-  %135 = load ptr, ptr %entry75, align 8
-  %ste_child_free = getelementptr inbounds %struct._symtable_entry, ptr %135, i32 0, i32 9
+  %139 = load ptr, ptr %entry75, align 8
+  %ste_child_free = getelementptr inbounds %struct._symtable_entry, ptr %139, i32 0, i32 9
   %bf.load113 = load i8, ptr %ste_child_free, align 8
   %bf.lshr114 = lshr i8 %bf.load113, 1
   %bf.clear115 = and i8 %bf.lshr114, 1
@@ -10409,8 +10426,8 @@ lor.lhs.false:                                    ; preds = %Py_DECREF.exit190
   br i1 %tobool117, label %if.then118, label %if.end123
 
 if.then118:                                       ; preds = %lor.lhs.false, %Py_DECREF.exit190
-  %136 = load ptr, ptr %ste.addr, align 8
-  %ste_child_free119 = getelementptr inbounds %struct._symtable_entry, ptr %136, i32 0, i32 9
+  %140 = load ptr, ptr %ste.addr, align 8
+  %ste_child_free119 = getelementptr inbounds %struct._symtable_entry, ptr %140, i32 0, i32 9
   %bf.load120 = load i8, ptr %ste_child_free119, align 8
   %bf.clear121 = and i8 %bf.load120, -3
   %bf.set122 = or i8 %bf.clear121, 2
@@ -10421,39 +10438,39 @@ if.end123:                                        ; preds = %if.then118, %lor.lh
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end123
-  %137 = load i64, ptr %i, align 8
-  %inc = add i64 %137, 1
+  %141 = load i64, ptr %i, align 8
+  %inc = add i64 %141, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !65
 
 for.end:                                          ; preds = %for.cond
-  %138 = load ptr, ptr %ste.addr, align 8
-  %ste_children124 = getelementptr inbounds %struct._symtable_entry, ptr %138, i32 0, i32 5
-  %139 = load ptr, ptr %ste_children124, align 8
-  %call125 = call i64 @PyList_GET_SIZE(ptr noundef %139)
+  %142 = load ptr, ptr %ste.addr, align 8
+  %ste_children124 = getelementptr inbounds %struct._symtable_entry, ptr %142, i32 0, i32 5
+  %143 = load ptr, ptr %ste_children124, align 8
+  %call125 = call i64 @PyList_GET_SIZE(ptr noundef %143)
   %sub = sub i64 %call125, 1
   store i64 %sub, ptr %i, align 8
   br label %for.cond126
 
 for.cond126:                                      ; preds = %for.inc146, %for.end
-  %140 = load i64, ptr %i, align 8
-  %cmp127 = icmp sge i64 %140, 0
+  %144 = load i64, ptr %i, align 8
+  %cmp127 = icmp sge i64 %144, 0
   br i1 %cmp127, label %for.body128, label %for.end147
 
 for.body128:                                      ; preds = %for.cond126
-  %141 = load ptr, ptr %ste.addr, align 8
-  %ste_children130 = getelementptr inbounds %struct._symtable_entry, ptr %141, i32 0, i32 5
-  %142 = load ptr, ptr %ste_children130, align 8
-  %ob_item131 = getelementptr inbounds %struct.PyListObject, ptr %142, i32 0, i32 1
-  %143 = load ptr, ptr %ob_item131, align 8
-  %144 = load i64, ptr %i, align 8
-  %arrayidx132 = getelementptr ptr, ptr %143, i64 %144
-  %145 = load ptr, ptr %arrayidx132, align 8
-  store ptr %145, ptr %c129, align 8
-  %146 = load ptr, ptr %c129, align 8
-  store ptr %146, ptr %entry133, align 8
-  %147 = load ptr, ptr %entry133, align 8
-  %ste_comp_inlined134 = getelementptr inbounds %struct._symtable_entry, ptr %147, i32 0, i32 11
+  %145 = load ptr, ptr %ste.addr, align 8
+  %ste_children130 = getelementptr inbounds %struct._symtable_entry, ptr %145, i32 0, i32 5
+  %146 = load ptr, ptr %ste_children130, align 8
+  %ob_item131 = getelementptr inbounds %struct.PyListObject, ptr %146, i32 0, i32 1
+  %147 = load ptr, ptr %ob_item131, align 8
+  %148 = load i64, ptr %i, align 8
+  %arrayidx132 = getelementptr ptr, ptr %147, i64 %148
+  %149 = load ptr, ptr %arrayidx132, align 8
+  store ptr %149, ptr %c129, align 8
+  %150 = load ptr, ptr %c129, align 8
+  store ptr %150, ptr %entry133, align 8
+  %151 = load ptr, ptr %entry133, align 8
+  %ste_comp_inlined134 = getelementptr inbounds %struct._symtable_entry, ptr %151, i32 0, i32 11
   %bf.load135 = load i8, ptr %ste_comp_inlined134, align 8
   %bf.lshr136 = lshr i8 %bf.load135, 5
   %bf.clear137 = and i8 %bf.lshr136, 1
@@ -10462,16 +10479,16 @@ for.body128:                                      ; preds = %for.cond126
   br i1 %tobool139, label %land.lhs.true, label %if.end145
 
 land.lhs.true:                                    ; preds = %for.body128
-  %148 = load ptr, ptr %ste.addr, align 8
-  %ste_children140 = getelementptr inbounds %struct._symtable_entry, ptr %148, i32 0, i32 5
-  %149 = load ptr, ptr %ste_children140, align 8
-  %150 = load i64, ptr %i, align 8
-  %151 = load i64, ptr %i, align 8
-  %add = add i64 %151, 1
-  %152 = load ptr, ptr %entry133, align 8
-  %ste_children141 = getelementptr inbounds %struct._symtable_entry, ptr %152, i32 0, i32 5
-  %153 = load ptr, ptr %ste_children141, align 8
-  %call142 = call i32 @PyList_SetSlice(ptr noundef %149, i64 noundef %150, i64 noundef %add, ptr noundef %153)
+  %152 = load ptr, ptr %ste.addr, align 8
+  %ste_children140 = getelementptr inbounds %struct._symtable_entry, ptr %152, i32 0, i32 5
+  %153 = load ptr, ptr %ste_children140, align 8
+  %154 = load i64, ptr %i, align 8
+  %155 = load i64, ptr %i, align 8
+  %add = add i64 %155, 1
+  %156 = load ptr, ptr %entry133, align 8
+  %ste_children141 = getelementptr inbounds %struct._symtable_entry, ptr %156, i32 0, i32 5
+  %157 = load ptr, ptr %ste_children141, align 8
+  %call142 = call i32 @PyList_SetSlice(ptr noundef %153, i64 noundef %154, i64 noundef %add, ptr noundef %157)
   %cmp143 = icmp slt i32 %call142, 0
   br i1 %cmp143, label %if.then144, label %if.end145
 
@@ -10482,22 +10499,22 @@ if.end145:                                        ; preds = %land.lhs.true, %for
   br label %for.inc146
 
 for.inc146:                                       ; preds = %if.end145
-  %154 = load i64, ptr %i, align 8
-  %dec = add i64 %154, -1
+  %158 = load i64, ptr %i, align 8
+  %dec = add i64 %158, -1
   store i64 %dec, ptr %i, align 8
   br label %for.cond126, !llvm.loop !66
 
 for.end147:                                       ; preds = %for.cond126
-  %155 = load ptr, ptr %ste.addr, align 8
-  %call148 = call i32 @_PyST_IsFunctionLike(ptr noundef %155)
+  %159 = load ptr, ptr %ste.addr, align 8
+  %call148 = call i32 @_PyST_IsFunctionLike(ptr noundef %159)
   %tobool149 = icmp ne i32 %call148, 0
   br i1 %tobool149, label %land.lhs.true150, label %if.else154
 
 land.lhs.true150:                                 ; preds = %for.end147
-  %156 = load ptr, ptr %scopes, align 8
-  %157 = load ptr, ptr %newfree, align 8
-  %158 = load ptr, ptr %inlined_cells, align 8
-  %call151 = call i32 @analyze_cells(ptr noundef %156, ptr noundef %157, ptr noundef %158)
+  %160 = load ptr, ptr %scopes, align 8
+  %161 = load ptr, ptr %newfree, align 8
+  %162 = load ptr, ptr %inlined_cells, align 8
+  %call151 = call i32 @analyze_cells(ptr noundef %160, ptr noundef %161, ptr noundef %162)
   %tobool152 = icmp ne i32 %call151, 0
   br i1 %tobool152, label %if.else154, label %if.then153
 
@@ -10505,16 +10522,16 @@ if.then153:                                       ; preds = %land.lhs.true150
   br label %error
 
 if.else154:                                       ; preds = %land.lhs.true150, %for.end147
-  %159 = load ptr, ptr %ste.addr, align 8
-  %ste_type155 = getelementptr inbounds %struct._symtable_entry, ptr %159, i32 0, i32 7
-  %160 = load i32, ptr %ste_type155, align 8
-  %cmp156 = icmp eq i32 %160, 1
+  %163 = load ptr, ptr %ste.addr, align 8
+  %ste_type155 = getelementptr inbounds %struct._symtable_entry, ptr %163, i32 0, i32 7
+  %164 = load i32, ptr %ste_type155, align 8
+  %cmp156 = icmp eq i32 %164, 1
   br i1 %cmp156, label %land.lhs.true157, label %if.end161
 
 land.lhs.true157:                                 ; preds = %if.else154
-  %161 = load ptr, ptr %ste.addr, align 8
-  %162 = load ptr, ptr %newfree, align 8
-  %call158 = call i32 @drop_class_free(ptr noundef %161, ptr noundef %162)
+  %165 = load ptr, ptr %ste.addr, align 8
+  %166 = load ptr, ptr %newfree, align 8
+  %call158 = call i32 @drop_class_free(ptr noundef %165, ptr noundef %166)
   %tobool159 = icmp ne i32 %call158, 0
   br i1 %tobool159, label %if.end161, label %if.then160
 
@@ -10525,22 +10542,22 @@ if.end161:                                        ; preds = %land.lhs.true157, %
   br label %if.end162
 
 if.end162:                                        ; preds = %if.end161
-  %163 = load ptr, ptr %ste.addr, align 8
-  %ste_symbols163 = getelementptr inbounds %struct._symtable_entry, ptr %163, i32 0, i32 2
-  %164 = load ptr, ptr %ste_symbols163, align 8
-  %165 = load ptr, ptr %scopes, align 8
-  %166 = load ptr, ptr %bound.addr, align 8
-  %167 = load ptr, ptr %newfree, align 8
-  %168 = load ptr, ptr %inlined_cells, align 8
-  %169 = load ptr, ptr %ste.addr, align 8
-  %ste_type164 = getelementptr inbounds %struct._symtable_entry, ptr %169, i32 0, i32 7
-  %170 = load i32, ptr %ste_type164, align 8
-  %cmp165 = icmp eq i32 %170, 1
+  %167 = load ptr, ptr %ste.addr, align 8
+  %ste_symbols163 = getelementptr inbounds %struct._symtable_entry, ptr %167, i32 0, i32 2
+  %168 = load ptr, ptr %ste_symbols163, align 8
+  %169 = load ptr, ptr %scopes, align 8
+  %170 = load ptr, ptr %bound.addr, align 8
+  %171 = load ptr, ptr %newfree, align 8
+  %172 = load ptr, ptr %inlined_cells, align 8
+  %173 = load ptr, ptr %ste.addr, align 8
+  %ste_type164 = getelementptr inbounds %struct._symtable_entry, ptr %173, i32 0, i32 7
+  %174 = load i32, ptr %ste_type164, align 8
+  %cmp165 = icmp eq i32 %174, 1
   br i1 %cmp165, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end162
-  %171 = load ptr, ptr %ste.addr, align 8
-  %ste_can_see_class_scope166 = getelementptr inbounds %struct._symtable_entry, ptr %171, i32 0, i32 11
+  %175 = load ptr, ptr %ste.addr, align 8
+  %ste_can_see_class_scope166 = getelementptr inbounds %struct._symtable_entry, ptr %175, i32 0, i32 11
   %bf.load167 = load i8, ptr %ste_can_see_class_scope166, align 8
   %bf.lshr168 = lshr i8 %bf.load167, 7
   %bf.cast169 = zext i8 %bf.lshr168 to i32
@@ -10548,9 +10565,9 @@ lor.rhs:                                          ; preds = %if.end162
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end162
-  %172 = phi i1 [ true, %if.end162 ], [ %tobool170, %lor.rhs ]
-  %lor.ext = zext i1 %172 to i32
-  %call171 = call i32 @update_symbols(ptr noundef %164, ptr noundef %165, ptr noundef %166, ptr noundef %167, ptr noundef %168, i32 noundef %lor.ext)
+  %176 = phi i1 [ true, %if.end162 ], [ %tobool170, %lor.rhs ]
+  %lor.ext = zext i1 %176 to i32
+  %call171 = call i32 @update_symbols(ptr noundef %168, ptr noundef %169, ptr noundef %170, ptr noundef %171, ptr noundef %172, i32 noundef %lor.ext)
   %tobool172 = icmp ne i32 %call171, 0
   br i1 %tobool172, label %if.end174, label %if.then173
 
@@ -10558,25 +10575,25 @@ if.then173:                                       ; preds = %lor.end
   br label %error
 
 if.end174:                                        ; preds = %lor.end
-  %173 = load ptr, ptr %free.addr, align 8
-  %174 = load ptr, ptr %newfree, align 8
-  %call175 = call ptr @PyNumber_InPlaceOr(ptr noundef %173, ptr noundef %174)
+  %177 = load ptr, ptr %free.addr, align 8
+  %178 = load ptr, ptr %newfree, align 8
+  %call175 = call ptr @PyNumber_InPlaceOr(ptr noundef %177, ptr noundef %178)
   store ptr %call175, ptr %temp, align 8
-  %175 = load ptr, ptr %temp, align 8
-  %tobool176 = icmp ne ptr %175, null
+  %179 = load ptr, ptr %temp, align 8
+  %tobool176 = icmp ne ptr %179, null
   br i1 %tobool176, label %if.end178, label %if.then177
 
 if.then177:                                       ; preds = %if.end174
   br label %error
 
 if.end178:                                        ; preds = %if.end174
-  %176 = load ptr, ptr %temp, align 8
-  store ptr %176, ptr %op.addr.i, align 8
-  %177 = load ptr, ptr %op.addr.i, align 8
-  store ptr %177, ptr %op.addr.i284, align 8
-  %178 = load ptr, ptr %op.addr.i284, align 8
-  %179 = load i64, ptr %178, align 8
-  %conv.i285 = trunc i64 %179 to i32
+  %180 = load ptr, ptr %temp, align 8
+  store ptr %180, ptr %op.addr.i, align 8
+  %181 = load ptr, ptr %op.addr.i, align 8
+  store ptr %181, ptr %op.addr.i284, align 8
+  %182 = load ptr, ptr %op.addr.i284, align 8
+  %183 = load i64, ptr %182, align 8
+  %conv.i285 = trunc i64 %183 to i32
   %cmp.i286 = icmp slt i32 %conv.i285, 0
   %conv1.i287 = zext i1 %cmp.i286 to i32
   %tobool.i = icmp ne i32 %conv1.i287, 0
@@ -10586,16 +10603,16 @@ if.then.i:                                        ; preds = %if.end178
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.end178
-  %180 = load ptr, ptr %op.addr.i, align 8
-  %181 = load i64, ptr %180, align 8
-  %dec.i = add i64 %181, -1
-  store i64 %dec.i, ptr %180, align 8
+  %184 = load ptr, ptr %op.addr.i, align 8
+  %185 = load i64, ptr %184, align 8
+  %dec.i = add i64 %185, -1
+  store i64 %dec.i, ptr %184, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %182 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %182) #3
+  %186 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %186) #3
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -10603,28 +10620,28 @@ Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end
   br label %error
 
 error:                                            ; preds = %Py_DECREF.exit, %if.then177, %if.then173, %if.then160, %if.then153, %if.then144, %if.then107, %Py_DECREF.exit208, %if.then94, %if.then69, %if.then65, %if.then61, %if.then56, %if.then49, %if.then39, %if.then30, %if.then24, %if.then19, %if.then15, %if.then11, %if.then7, %if.then3, %if.then
-  %183 = load ptr, ptr %scopes, align 8
-  call void @Py_XDECREF(ptr noundef %183)
-  %184 = load ptr, ptr %local, align 8
-  call void @Py_XDECREF(ptr noundef %184)
-  %185 = load ptr, ptr %newbound, align 8
-  call void @Py_XDECREF(ptr noundef %185)
-  %186 = load ptr, ptr %newglobal, align 8
-  call void @Py_XDECREF(ptr noundef %186)
-  %187 = load ptr, ptr %newfree, align 8
+  %187 = load ptr, ptr %scopes, align 8
   call void @Py_XDECREF(ptr noundef %187)
-  %188 = load ptr, ptr %inlined_cells, align 8
+  %188 = load ptr, ptr %local, align 8
   call void @Py_XDECREF(ptr noundef %188)
-  %189 = load i32, ptr %success, align 4
-  %tobool179 = icmp ne i32 %189, 0
+  %189 = load ptr, ptr %newbound, align 8
+  call void @Py_XDECREF(ptr noundef %189)
+  %190 = load ptr, ptr %newglobal, align 8
+  call void @Py_XDECREF(ptr noundef %190)
+  %191 = load ptr, ptr %newfree, align 8
+  call void @Py_XDECREF(ptr noundef %191)
+  %192 = load ptr, ptr %inlined_cells, align 8
+  call void @Py_XDECREF(ptr noundef %192)
+  %193 = load i32, ptr %success, align 4
+  %tobool179 = icmp ne i32 %193, 0
   br i1 %tobool179, label %if.end181, label %if.then180
 
 if.then180:                                       ; preds = %error
   br label %if.end181
 
 if.end181:                                        ; preds = %if.then180, %error
-  %190 = load i32, ptr %success, align 4
-  ret i32 %190
+  %194 = load i32, ptr %success, align 4
+  ret i32 %194
 }
 
 declare ptr @PyNumber_InPlaceOr(ptr noundef, ptr noundef) #1
@@ -12385,10 +12402,12 @@ entry:
   store ptr %ste, ptr %ste.addr, align 8
   store ptr %free, ptr %free.addr, align 8
   %0 = load ptr, ptr %free.addr, align 8
-  %call = call i32 @PySet_Discard(ptr noundef %0, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 34))
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %2 = getelementptr inbounds %struct.anon.40, ptr %1, i32 0, i32 3, i32 1, i32 34
+  %call = call i32 @PySet_Discard(ptr noundef %0, ptr noundef %2)
   store i32 %call, ptr %res, align 4
-  %1 = load i32, ptr %res, align 4
-  %cmp = icmp slt i32 %1, 0
+  %3 = load i32, ptr %res, align 4
+  %cmp = icmp slt i32 %3, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -12396,13 +12415,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %res, align 4
-  %tobool = icmp ne i32 %2, 0
+  %4 = load i32, ptr %res, align 4
+  %tobool = icmp ne i32 %4, 0
   br i1 %tobool, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %3 = load ptr, ptr %ste.addr, align 8
-  %ste_needs_class_closure = getelementptr inbounds %struct._symtable_entry, ptr %3, i32 0, i32 11
+  %5 = load ptr, ptr %ste.addr, align 8
+  %ste_needs_class_closure = getelementptr inbounds %struct._symtable_entry, ptr %5, i32 0, i32 11
   %bf.load = load i8, ptr %ste_needs_class_closure, align 8
   %bf.clear = and i8 %bf.load, -9
   %bf.set = or i8 %bf.clear, 8
@@ -12410,11 +12429,13 @@ if.then1:                                         ; preds = %if.end
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
-  %4 = load ptr, ptr %free.addr, align 8
-  %call3 = call i32 @PySet_Discard(ptr noundef %4, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 37))
+  %6 = load ptr, ptr %free.addr, align 8
+  %7 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %8 = getelementptr inbounds %struct.anon.40, ptr %7, i32 0, i32 3, i32 1, i32 37
+  %call3 = call i32 @PySet_Discard(ptr noundef %6, ptr noundef %8)
   store i32 %call3, ptr %res, align 4
-  %5 = load i32, ptr %res, align 4
-  %cmp4 = icmp slt i32 %5, 0
+  %9 = load i32, ptr %res, align 4
+  %cmp4 = icmp slt i32 %9, 0
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end2
@@ -12422,13 +12443,13 @@ if.then5:                                         ; preds = %if.end2
   br label %return
 
 if.end6:                                          ; preds = %if.end2
-  %6 = load i32, ptr %res, align 4
-  %tobool7 = icmp ne i32 %6, 0
+  %10 = load i32, ptr %res, align 4
+  %tobool7 = icmp ne i32 %10, 0
   br i1 %tobool7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %7 = load ptr, ptr %ste.addr, align 8
-  %ste_needs_classdict = getelementptr inbounds %struct._symtable_entry, ptr %7, i32 0, i32 11
+  %11 = load ptr, ptr %ste.addr, align 8
+  %ste_needs_classdict = getelementptr inbounds %struct._symtable_entry, ptr %11, i32 0, i32 11
   %bf.load9 = load i8, ptr %ste_needs_classdict, align 8
   %bf.clear10 = and i8 %bf.load9, -17
   %bf.set11 = or i8 %bf.clear10, 16
@@ -12440,8 +12461,8 @@ if.end12:                                         ; preds = %if.then8, %if.end6
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then5, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13611,7 +13632,9 @@ if.then1:                                         ; preds = %if.end
   %15 = load i32, ptr %col_offset.addr, align 4
   %16 = load i32, ptr %end_lineno.addr, align 4
   %17 = load i32, ptr %end_col_offset.addr, align 4
-  %call3 = call i32 @symtable_add_def(ptr noundef %13, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 37), i32 noundef 16, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17)
+  %18 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %19 = getelementptr inbounds %struct.anon.40, ptr %18, i32 0, i32 3, i32 1, i32 37
+  %call3 = call i32 @symtable_add_def(ptr noundef %13, ptr noundef %19, i32 noundef 16, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17)
   %tobool4 = icmp ne i32 %call3, 0
   br i1 %tobool4, label %if.end6, label %if.then5
 
@@ -13623,17 +13646,20 @@ if.end6:                                          ; preds = %if.then1
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end6, %if.end
-  %18 = load i32, ptr %kind.addr, align 4
-  %cmp8 = icmp eq i32 %18, 3
+  %20 = load i32, ptr %kind.addr, align 4
+  %cmp8 = icmp eq i32 %20, 3
   br i1 %cmp8, label %if.then9, label %if.end26
 
 if.then9:                                         ; preds = %if.end7
-  %19 = load ptr, ptr %st.addr, align 8
-  %20 = load i32, ptr %lineno.addr, align 4
-  %21 = load i32, ptr %col_offset.addr, align 4
-  %22 = load i32, ptr %end_lineno.addr, align 4
-  %23 = load i32, ptr %end_col_offset.addr, align 4
-  %call10 = call i32 @symtable_add_def(ptr noundef %19, ptr noundef getelementptr inbounds (%struct.anon.42, ptr getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 24), i32 noundef 2, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %23)
+  %21 = load ptr, ptr %st.addr, align 8
+  %22 = load i32, ptr %lineno.addr, align 4
+  %23 = load i32, ptr %col_offset.addr, align 4
+  %24 = load i32, ptr %end_lineno.addr, align 4
+  %25 = load i32, ptr %end_col_offset.addr, align 4
+  %26 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %27 = getelementptr inbounds %struct.anon.40, ptr %26, i32 0, i32 3
+  %28 = getelementptr inbounds %struct.anon.42, ptr %27, i32 0, i32 24
+  %call10 = call i32 @symtable_add_def(ptr noundef %21, ptr noundef %28, i32 noundef 2, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
   %tobool11 = icmp ne i32 %call10, 0
   br i1 %tobool11, label %if.end13, label %if.then12
 
@@ -13642,12 +13668,15 @@ if.then12:                                        ; preds = %if.then9
   br label %return
 
 if.end13:                                         ; preds = %if.then9
-  %24 = load ptr, ptr %st.addr, align 8
-  %25 = load i32, ptr %lineno.addr, align 4
-  %26 = load i32, ptr %col_offset.addr, align 4
-  %27 = load i32, ptr %end_lineno.addr, align 4
-  %28 = load i32, ptr %end_col_offset.addr, align 4
-  %call14 = call i32 @symtable_add_def(ptr noundef %24, ptr noundef getelementptr inbounds (%struct.anon.42, ptr getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 24), i32 noundef 16, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28)
+  %29 = load ptr, ptr %st.addr, align 8
+  %30 = load i32, ptr %lineno.addr, align 4
+  %31 = load i32, ptr %col_offset.addr, align 4
+  %32 = load i32, ptr %end_lineno.addr, align 4
+  %33 = load i32, ptr %end_col_offset.addr, align 4
+  %34 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %35 = getelementptr inbounds %struct.anon.40, ptr %34, i32 0, i32 3
+  %36 = getelementptr inbounds %struct.anon.42, ptr %35, i32 0, i32 24
+  %call14 = call i32 @symtable_add_def(ptr noundef %29, ptr noundef %36, i32 noundef 16, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33)
   %tobool15 = icmp ne i32 %call14, 0
   br i1 %tobool15, label %if.end17, label %if.then16
 
@@ -13656,16 +13685,19 @@ if.then16:                                        ; preds = %if.end13
   br label %return
 
 if.end17:                                         ; preds = %if.end13
-  %29 = load ptr, ptr %name.addr, align 8
-  %30 = load ptr, ptr %st.addr, align 8
-  %st_private = getelementptr inbounds %struct.symtable, ptr %30, i32 0, i32 7
-  store ptr %29, ptr %st_private, align 8
-  %31 = load ptr, ptr %st.addr, align 8
-  %32 = load i32, ptr %lineno.addr, align 4
-  %33 = load i32, ptr %col_offset.addr, align 4
-  %34 = load i32, ptr %end_lineno.addr, align 4
-  %35 = load i32, ptr %end_col_offset.addr, align 4
-  %call18 = call i32 @symtable_add_def(ptr noundef %31, ptr noundef getelementptr inbounds (%struct.anon.42, ptr getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 17), i32 noundef 2, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35)
+  %37 = load ptr, ptr %name.addr, align 8
+  %38 = load ptr, ptr %st.addr, align 8
+  %st_private = getelementptr inbounds %struct.symtable, ptr %38, i32 0, i32 7
+  store ptr %37, ptr %st_private, align 8
+  %39 = load ptr, ptr %st.addr, align 8
+  %40 = load i32, ptr %lineno.addr, align 4
+  %41 = load i32, ptr %col_offset.addr, align 4
+  %42 = load i32, ptr %end_lineno.addr, align 4
+  %43 = load i32, ptr %end_col_offset.addr, align 4
+  %44 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %45 = getelementptr inbounds %struct.anon.40, ptr %44, i32 0, i32 3
+  %46 = getelementptr inbounds %struct.anon.42, ptr %45, i32 0, i32 17
+  %call18 = call i32 @symtable_add_def(ptr noundef %39, ptr noundef %46, i32 noundef 2, i32 noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43)
   %tobool19 = icmp ne i32 %call18, 0
   br i1 %tobool19, label %if.end21, label %if.then20
 
@@ -13674,12 +13706,15 @@ if.then20:                                        ; preds = %if.end17
   br label %return
 
 if.end21:                                         ; preds = %if.end17
-  %36 = load ptr, ptr %st.addr, align 8
-  %37 = load i32, ptr %lineno.addr, align 4
-  %38 = load i32, ptr %col_offset.addr, align 4
-  %39 = load i32, ptr %end_lineno.addr, align 4
-  %40 = load i32, ptr %end_col_offset.addr, align 4
-  %call22 = call i32 @symtable_add_def(ptr noundef %36, ptr noundef getelementptr inbounds (%struct.anon.42, ptr getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 17), i32 noundef 16, i32 noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %40)
+  %47 = load ptr, ptr %st.addr, align 8
+  %48 = load i32, ptr %lineno.addr, align 4
+  %49 = load i32, ptr %col_offset.addr, align 4
+  %50 = load i32, ptr %end_lineno.addr, align 4
+  %51 = load i32, ptr %end_col_offset.addr, align 4
+  %52 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %53 = getelementptr inbounds %struct.anon.40, ptr %52, i32 0, i32 3
+  %54 = getelementptr inbounds %struct.anon.42, ptr %53, i32 0, i32 17
+  %call22 = call i32 @symtable_add_def(ptr noundef %47, ptr noundef %54, i32 noundef 16, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %51)
   %tobool23 = icmp ne i32 %call22, 0
   br i1 %tobool23, label %if.end25, label %if.then24
 
@@ -13691,17 +13726,20 @@ if.end25:                                         ; preds = %if.end21
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end25, %if.end7
-  %41 = load i32, ptr %has_defaults.addr, align 4
-  %tobool27 = icmp ne i32 %41, 0
+  %55 = load i32, ptr %has_defaults.addr, align 4
+  %tobool27 = icmp ne i32 %55, 0
   br i1 %tobool27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.end26
-  %42 = load ptr, ptr %st.addr, align 8
-  %43 = load i32, ptr %lineno.addr, align 4
-  %44 = load i32, ptr %col_offset.addr, align 4
-  %45 = load i32, ptr %end_lineno.addr, align 4
-  %46 = load i32, ptr %end_col_offset.addr, align 4
-  %call29 = call i32 @symtable_add_def(ptr noundef %42, ptr noundef getelementptr inbounds (%struct.anon.42, ptr getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 13), i32 noundef 4, i32 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %46)
+  %56 = load ptr, ptr %st.addr, align 8
+  %57 = load i32, ptr %lineno.addr, align 4
+  %58 = load i32, ptr %col_offset.addr, align 4
+  %59 = load i32, ptr %end_lineno.addr, align 4
+  %60 = load i32, ptr %end_col_offset.addr, align 4
+  %61 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %62 = getelementptr inbounds %struct.anon.40, ptr %61, i32 0, i32 3
+  %63 = getelementptr inbounds %struct.anon.42, ptr %62, i32 0, i32 13
+  %call29 = call i32 @symtable_add_def(ptr noundef %56, ptr noundef %63, i32 noundef 4, i32 noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %60)
   %tobool30 = icmp ne i32 %call29, 0
   br i1 %tobool30, label %if.end32, label %if.then31
 
@@ -13713,17 +13751,20 @@ if.end32:                                         ; preds = %if.then28
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end32, %if.end26
-  %47 = load i32, ptr %has_kwdefaults.addr, align 4
-  %tobool34 = icmp ne i32 %47, 0
+  %64 = load i32, ptr %has_kwdefaults.addr, align 4
+  %tobool34 = icmp ne i32 %64, 0
   br i1 %tobool34, label %if.then35, label %if.end40
 
 if.then35:                                        ; preds = %if.end33
-  %48 = load ptr, ptr %st.addr, align 8
-  %49 = load i32, ptr %lineno.addr, align 4
-  %50 = load i32, ptr %col_offset.addr, align 4
-  %51 = load i32, ptr %end_lineno.addr, align 4
-  %52 = load i32, ptr %end_col_offset.addr, align 4
-  %call36 = call i32 @symtable_add_def(ptr noundef %48, ptr noundef getelementptr inbounds (%struct.anon.42, ptr getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 19), i32 noundef 4, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52)
+  %65 = load ptr, ptr %st.addr, align 8
+  %66 = load i32, ptr %lineno.addr, align 4
+  %67 = load i32, ptr %col_offset.addr, align 4
+  %68 = load i32, ptr %end_lineno.addr, align 4
+  %69 = load i32, ptr %end_col_offset.addr, align 4
+  %70 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %71 = getelementptr inbounds %struct.anon.40, ptr %70, i32 0, i32 3
+  %72 = getelementptr inbounds %struct.anon.42, ptr %71, i32 0, i32 19
+  %call36 = call i32 @symtable_add_def(ptr noundef %65, ptr noundef %72, i32 noundef 4, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69)
   %tobool37 = icmp ne i32 %call36, 0
   br i1 %tobool37, label %if.end39, label %if.then38
 
@@ -13739,8 +13780,8 @@ if.end40:                                         ; preds = %if.end39, %if.end33
   br label %return
 
 return:                                           ; preds = %if.end40, %if.then38, %if.then31, %if.then24, %if.then20, %if.then16, %if.then12, %if.then5, %if.then
-  %53 = load i32, ptr %retval, align 4
-  ret i32 %53
+  %73 = load i32, ptr %retval, align 4
+  ret i32 %73
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13974,49 +14015,51 @@ land.lhs.true:                                    ; preds = %if.end20
   %56 = load ptr, ptr %bound35, align 8
   %end_col_offset36 = getelementptr inbounds %struct._expr, ptr %56, i32 0, i32 5
   %57 = load i32, ptr %end_col_offset36, align 4
-  %call37 = call i32 @symtable_add_def(ptr noundef %45, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 37), i32 noundef 16, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57)
+  %58 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %59 = getelementptr inbounds %struct.anon.40, ptr %58, i32 0, i32 3, i32 1, i32 37
+  %call37 = call i32 @symtable_add_def(ptr noundef %45, ptr noundef %59, i32 noundef 16, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57)
   %tobool38 = icmp ne i32 %call37, 0
   br i1 %tobool38, label %if.end42, label %if.then39
 
 if.then39:                                        ; preds = %land.lhs.true
-  %58 = load ptr, ptr %st.addr, align 8
-  %recursion_depth40 = getelementptr inbounds %struct.symtable, ptr %58, i32 0, i32 9
-  %59 = load i32, ptr %recursion_depth40, align 8
-  %dec41 = add i32 %59, -1
+  %60 = load ptr, ptr %st.addr, align 8
+  %recursion_depth40 = getelementptr inbounds %struct.symtable, ptr %60, i32 0, i32 9
+  %61 = load i32, ptr %recursion_depth40, align 8
+  %dec41 = add i32 %61, -1
   store i32 %dec41, ptr %recursion_depth40, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end42:                                         ; preds = %land.lhs.true, %if.end20
-  %60 = load ptr, ptr %st.addr, align 8
-  %61 = load ptr, ptr %tp.addr, align 8
-  %v43 = getelementptr inbounds %struct._type_param, ptr %61, i32 0, i32 1
+  %62 = load ptr, ptr %st.addr, align 8
+  %63 = load ptr, ptr %tp.addr, align 8
+  %v43 = getelementptr inbounds %struct._type_param, ptr %63, i32 0, i32 1
   %bound44 = getelementptr inbounds %struct.anon.801, ptr %v43, i32 0, i32 1
-  %62 = load ptr, ptr %bound44, align 8
-  %call45 = call i32 @symtable_visit_expr(ptr noundef %60, ptr noundef %62)
+  %64 = load ptr, ptr %bound44, align 8
+  %call45 = call i32 @symtable_visit_expr(ptr noundef %62, ptr noundef %64)
   %tobool46 = icmp ne i32 %call45, 0
   br i1 %tobool46, label %if.end50, label %if.then47
 
 if.then47:                                        ; preds = %if.end42
-  %63 = load ptr, ptr %st.addr, align 8
-  %recursion_depth48 = getelementptr inbounds %struct.symtable, ptr %63, i32 0, i32 9
-  %64 = load i32, ptr %recursion_depth48, align 8
-  %dec49 = add i32 %64, -1
+  %65 = load ptr, ptr %st.addr, align 8
+  %recursion_depth48 = getelementptr inbounds %struct.symtable, ptr %65, i32 0, i32 9
+  %66 = load i32, ptr %recursion_depth48, align 8
+  %dec49 = add i32 %66, -1
   store i32 %dec49, ptr %recursion_depth48, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end50:                                         ; preds = %if.end42
-  %65 = load ptr, ptr %st.addr, align 8
-  %call51 = call i32 @symtable_exit_block(ptr noundef %65)
+  %67 = load ptr, ptr %st.addr, align 8
+  %call51 = call i32 @symtable_exit_block(ptr noundef %67)
   %tobool52 = icmp ne i32 %call51, 0
   br i1 %tobool52, label %if.end56, label %if.then53
 
 if.then53:                                        ; preds = %if.end50
-  %66 = load ptr, ptr %st.addr, align 8
-  %recursion_depth54 = getelementptr inbounds %struct.symtable, ptr %66, i32 0, i32 9
-  %67 = load i32, ptr %recursion_depth54, align 8
-  %dec55 = add i32 %67, -1
+  %68 = load ptr, ptr %st.addr, align 8
+  %recursion_depth54 = getelementptr inbounds %struct.symtable, ptr %68, i32 0, i32 9
+  %69 = load i32, ptr %recursion_depth54, align 8
+  %dec55 = add i32 %69, -1
   store i32 %dec55, ptr %recursion_depth54, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -14028,32 +14071,32 @@ if.end57:                                         ; preds = %if.end56, %if.end5
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %if.end
-  %68 = load ptr, ptr %st.addr, align 8
-  %69 = load ptr, ptr %tp.addr, align 8
-  %v59 = getelementptr inbounds %struct._type_param, ptr %69, i32 0, i32 1
-  %name60 = getelementptr inbounds %struct.anon.803, ptr %v59, i32 0, i32 0
-  %70 = load ptr, ptr %name60, align 8
+  %70 = load ptr, ptr %st.addr, align 8
   %71 = load ptr, ptr %tp.addr, align 8
-  %lineno61 = getelementptr inbounds %struct._type_param, ptr %71, i32 0, i32 2
-  %72 = load i32, ptr %lineno61, align 8
+  %v59 = getelementptr inbounds %struct._type_param, ptr %71, i32 0, i32 1
+  %name60 = getelementptr inbounds %struct.anon.803, ptr %v59, i32 0, i32 0
+  %72 = load ptr, ptr %name60, align 8
   %73 = load ptr, ptr %tp.addr, align 8
-  %col_offset62 = getelementptr inbounds %struct._type_param, ptr %73, i32 0, i32 3
-  %74 = load i32, ptr %col_offset62, align 4
+  %lineno61 = getelementptr inbounds %struct._type_param, ptr %73, i32 0, i32 2
+  %74 = load i32, ptr %lineno61, align 8
   %75 = load ptr, ptr %tp.addr, align 8
-  %end_lineno63 = getelementptr inbounds %struct._type_param, ptr %75, i32 0, i32 4
-  %76 = load i32, ptr %end_lineno63, align 8
+  %col_offset62 = getelementptr inbounds %struct._type_param, ptr %75, i32 0, i32 3
+  %76 = load i32, ptr %col_offset62, align 4
   %77 = load ptr, ptr %tp.addr, align 8
-  %end_col_offset64 = getelementptr inbounds %struct._type_param, ptr %77, i32 0, i32 5
-  %78 = load i32, ptr %end_col_offset64, align 4
-  %call65 = call i32 @symtable_add_def(ptr noundef %68, ptr noundef %70, i32 noundef 1026, i32 noundef %72, i32 noundef %74, i32 noundef %76, i32 noundef %78)
+  %end_lineno63 = getelementptr inbounds %struct._type_param, ptr %77, i32 0, i32 4
+  %78 = load i32, ptr %end_lineno63, align 8
+  %79 = load ptr, ptr %tp.addr, align 8
+  %end_col_offset64 = getelementptr inbounds %struct._type_param, ptr %79, i32 0, i32 5
+  %80 = load i32, ptr %end_col_offset64, align 4
+  %call65 = call i32 @symtable_add_def(ptr noundef %70, ptr noundef %72, i32 noundef 1026, i32 noundef %74, i32 noundef %76, i32 noundef %78, i32 noundef %80)
   %tobool66 = icmp ne i32 %call65, 0
   br i1 %tobool66, label %if.end70, label %if.then67
 
 if.then67:                                        ; preds = %sw.bb58
-  %79 = load ptr, ptr %st.addr, align 8
-  %recursion_depth68 = getelementptr inbounds %struct.symtable, ptr %79, i32 0, i32 9
-  %80 = load i32, ptr %recursion_depth68, align 8
-  %dec69 = add i32 %80, -1
+  %81 = load ptr, ptr %st.addr, align 8
+  %recursion_depth68 = getelementptr inbounds %struct.symtable, ptr %81, i32 0, i32 9
+  %82 = load i32, ptr %recursion_depth68, align 8
+  %dec69 = add i32 %82, -1
   store i32 %dec69, ptr %recursion_depth68, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -14062,32 +14105,32 @@ if.end70:                                         ; preds = %sw.bb58
   br label %sw.epilog
 
 sw.bb71:                                          ; preds = %if.end
-  %81 = load ptr, ptr %st.addr, align 8
-  %82 = load ptr, ptr %tp.addr, align 8
-  %v72 = getelementptr inbounds %struct._type_param, ptr %82, i32 0, i32 1
-  %name73 = getelementptr inbounds %struct.anon.802, ptr %v72, i32 0, i32 0
-  %83 = load ptr, ptr %name73, align 8
+  %83 = load ptr, ptr %st.addr, align 8
   %84 = load ptr, ptr %tp.addr, align 8
-  %lineno74 = getelementptr inbounds %struct._type_param, ptr %84, i32 0, i32 2
-  %85 = load i32, ptr %lineno74, align 8
+  %v72 = getelementptr inbounds %struct._type_param, ptr %84, i32 0, i32 1
+  %name73 = getelementptr inbounds %struct.anon.802, ptr %v72, i32 0, i32 0
+  %85 = load ptr, ptr %name73, align 8
   %86 = load ptr, ptr %tp.addr, align 8
-  %col_offset75 = getelementptr inbounds %struct._type_param, ptr %86, i32 0, i32 3
-  %87 = load i32, ptr %col_offset75, align 4
+  %lineno74 = getelementptr inbounds %struct._type_param, ptr %86, i32 0, i32 2
+  %87 = load i32, ptr %lineno74, align 8
   %88 = load ptr, ptr %tp.addr, align 8
-  %end_lineno76 = getelementptr inbounds %struct._type_param, ptr %88, i32 0, i32 4
-  %89 = load i32, ptr %end_lineno76, align 8
+  %col_offset75 = getelementptr inbounds %struct._type_param, ptr %88, i32 0, i32 3
+  %89 = load i32, ptr %col_offset75, align 4
   %90 = load ptr, ptr %tp.addr, align 8
-  %end_col_offset77 = getelementptr inbounds %struct._type_param, ptr %90, i32 0, i32 5
-  %91 = load i32, ptr %end_col_offset77, align 4
-  %call78 = call i32 @symtable_add_def(ptr noundef %81, ptr noundef %83, i32 noundef 1026, i32 noundef %85, i32 noundef %87, i32 noundef %89, i32 noundef %91)
+  %end_lineno76 = getelementptr inbounds %struct._type_param, ptr %90, i32 0, i32 4
+  %91 = load i32, ptr %end_lineno76, align 8
+  %92 = load ptr, ptr %tp.addr, align 8
+  %end_col_offset77 = getelementptr inbounds %struct._type_param, ptr %92, i32 0, i32 5
+  %93 = load i32, ptr %end_col_offset77, align 4
+  %call78 = call i32 @symtable_add_def(ptr noundef %83, ptr noundef %85, i32 noundef 1026, i32 noundef %87, i32 noundef %89, i32 noundef %91, i32 noundef %93)
   %tobool79 = icmp ne i32 %call78, 0
   br i1 %tobool79, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %sw.bb71
-  %92 = load ptr, ptr %st.addr, align 8
-  %recursion_depth81 = getelementptr inbounds %struct.symtable, ptr %92, i32 0, i32 9
-  %93 = load i32, ptr %recursion_depth81, align 8
-  %dec82 = add i32 %93, -1
+  %94 = load ptr, ptr %st.addr, align 8
+  %recursion_depth81 = getelementptr inbounds %struct.symtable, ptr %94, i32 0, i32 9
+  %95 = load i32, ptr %recursion_depth81, align 8
+  %dec82 = add i32 %95, -1
   store i32 %dec82, ptr %recursion_depth81, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -14096,17 +14139,17 @@ if.end83:                                         ; preds = %sw.bb71
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end83, %if.end70, %if.end57, %if.end
-  %94 = load ptr, ptr %st.addr, align 8
-  %recursion_depth84 = getelementptr inbounds %struct.symtable, ptr %94, i32 0, i32 9
-  %95 = load i32, ptr %recursion_depth84, align 8
-  %dec85 = add i32 %95, -1
+  %96 = load ptr, ptr %st.addr, align 8
+  %recursion_depth84 = getelementptr inbounds %struct.symtable, ptr %96, i32 0, i32 9
+  %97 = load i32, ptr %recursion_depth84, align 8
+  %dec85 = add i32 %97, -1
   store i32 %dec85, ptr %recursion_depth84, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then80, %if.then67, %if.then53, %if.then47, %if.then39, %if.then17, %if.then2, %if.then
-  %96 = load i32, ptr %retval, align 4
-  ret i32 %96
+  %98 = load i32, ptr %retval, align 4
+  ret i32 %98
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14148,32 +14191,34 @@ land.lhs.true:                                    ; preds = %entry
   %12 = load ptr, ptr %o.addr, align 8
   %end_col_offset = getelementptr inbounds %struct._stmt, ptr %12, i32 0, i32 5
   %13 = load i32, ptr %end_col_offset, align 4
-  %call = call i32 @symtable_enter_block(ptr noundef %4, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 174), i32 noundef 3, ptr noundef %5, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %13)
+  %14 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %15 = getelementptr inbounds %struct.anon.40, ptr %14, i32 0, i32 3, i32 1, i32 174
+  %call = call i32 @symtable_enter_block(ptr noundef %4, ptr noundef %15, i32 noundef 3, ptr noundef %5, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %13)
   %tobool1 = icmp ne i32 %call, 0
   br i1 %tobool1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %14 = load ptr, ptr %st.addr, align 8
-  %recursion_depth = getelementptr inbounds %struct.symtable, ptr %14, i32 0, i32 9
-  %15 = load i32, ptr %recursion_depth, align 8
-  %dec = add i32 %15, -1
+  %16 = load ptr, ptr %st.addr, align 8
+  %recursion_depth = getelementptr inbounds %struct.symtable, ptr %16, i32 0, i32 9
+  %17 = load i32, ptr %recursion_depth, align 8
+  %dec = add i32 %17, -1
   store i32 %dec, ptr %recursion_depth, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %16 = load ptr, ptr %a.addr, align 8
-  %posonlyargs = getelementptr inbounds %struct._arguments, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %posonlyargs, align 8
-  %tobool2 = icmp ne ptr %17, null
+  %18 = load ptr, ptr %a.addr, align 8
+  %posonlyargs = getelementptr inbounds %struct._arguments, ptr %18, i32 0, i32 0
+  %19 = load ptr, ptr %posonlyargs, align 8
+  %tobool2 = icmp ne ptr %19, null
   br i1 %tobool2, label %land.lhs.true3, label %if.end8
 
 land.lhs.true3:                                   ; preds = %if.end
-  %18 = load ptr, ptr %st.addr, align 8
-  %19 = load ptr, ptr %a.addr, align 8
-  %posonlyargs4 = getelementptr inbounds %struct._arguments, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %posonlyargs4, align 8
-  %call5 = call i32 @symtable_visit_argannotations(ptr noundef %18, ptr noundef %20)
+  %20 = load ptr, ptr %st.addr, align 8
+  %21 = load ptr, ptr %a.addr, align 8
+  %posonlyargs4 = getelementptr inbounds %struct._arguments, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %posonlyargs4, align 8
+  %call5 = call i32 @symtable_visit_argannotations(ptr noundef %20, ptr noundef %22)
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.end8, label %if.then7
 
@@ -14182,18 +14227,18 @@ if.then7:                                         ; preds = %land.lhs.true3
   br label %return
 
 if.end8:                                          ; preds = %land.lhs.true3, %if.end
-  %21 = load ptr, ptr %a.addr, align 8
-  %args = getelementptr inbounds %struct._arguments, ptr %21, i32 0, i32 1
-  %22 = load ptr, ptr %args, align 8
-  %tobool9 = icmp ne ptr %22, null
+  %23 = load ptr, ptr %a.addr, align 8
+  %args = getelementptr inbounds %struct._arguments, ptr %23, i32 0, i32 1
+  %24 = load ptr, ptr %args, align 8
+  %tobool9 = icmp ne ptr %24, null
   br i1 %tobool9, label %land.lhs.true10, label %if.end15
 
 land.lhs.true10:                                  ; preds = %if.end8
-  %23 = load ptr, ptr %st.addr, align 8
-  %24 = load ptr, ptr %a.addr, align 8
-  %args11 = getelementptr inbounds %struct._arguments, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %args11, align 8
-  %call12 = call i32 @symtable_visit_argannotations(ptr noundef %23, ptr noundef %25)
+  %25 = load ptr, ptr %st.addr, align 8
+  %26 = load ptr, ptr %a.addr, align 8
+  %args11 = getelementptr inbounds %struct._arguments, ptr %26, i32 0, i32 1
+  %27 = load ptr, ptr %args11, align 8
+  %call12 = call i32 @symtable_visit_argannotations(ptr noundef %25, ptr noundef %27)
   %tobool13 = icmp ne i32 %call12, 0
   br i1 %tobool13, label %if.end15, label %if.then14
 
@@ -14202,37 +14247,37 @@ if.then14:                                        ; preds = %land.lhs.true10
   br label %return
 
 if.end15:                                         ; preds = %land.lhs.true10, %if.end8
-  %26 = load ptr, ptr %a.addr, align 8
-  %vararg = getelementptr inbounds %struct._arguments, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %vararg, align 8
-  %tobool16 = icmp ne ptr %27, null
+  %28 = load ptr, ptr %a.addr, align 8
+  %vararg = getelementptr inbounds %struct._arguments, ptr %28, i32 0, i32 2
+  %29 = load ptr, ptr %vararg, align 8
+  %tobool16 = icmp ne ptr %29, null
   br i1 %tobool16, label %land.lhs.true17, label %if.end29
 
 land.lhs.true17:                                  ; preds = %if.end15
-  %28 = load ptr, ptr %a.addr, align 8
-  %vararg18 = getelementptr inbounds %struct._arguments, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %vararg18, align 8
-  %annotation = getelementptr inbounds %struct._arg, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %annotation, align 8
-  %tobool19 = icmp ne ptr %30, null
+  %30 = load ptr, ptr %a.addr, align 8
+  %vararg18 = getelementptr inbounds %struct._arguments, ptr %30, i32 0, i32 2
+  %31 = load ptr, ptr %vararg18, align 8
+  %annotation = getelementptr inbounds %struct._arg, ptr %31, i32 0, i32 1
+  %32 = load ptr, ptr %annotation, align 8
+  %tobool19 = icmp ne ptr %32, null
   br i1 %tobool19, label %if.then20, label %if.end29
 
 if.then20:                                        ; preds = %land.lhs.true17
-  %31 = load ptr, ptr %st.addr, align 8
-  %32 = load ptr, ptr %a.addr, align 8
-  %vararg21 = getelementptr inbounds %struct._arguments, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %vararg21, align 8
-  %annotation22 = getelementptr inbounds %struct._arg, ptr %33, i32 0, i32 1
-  %34 = load ptr, ptr %annotation22, align 8
-  %call23 = call i32 @symtable_visit_expr(ptr noundef %31, ptr noundef %34)
+  %33 = load ptr, ptr %st.addr, align 8
+  %34 = load ptr, ptr %a.addr, align 8
+  %vararg21 = getelementptr inbounds %struct._arguments, ptr %34, i32 0, i32 2
+  %35 = load ptr, ptr %vararg21, align 8
+  %annotation22 = getelementptr inbounds %struct._arg, ptr %35, i32 0, i32 1
+  %36 = load ptr, ptr %annotation22, align 8
+  %call23 = call i32 @symtable_visit_expr(ptr noundef %33, ptr noundef %36)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.end28, label %if.then25
 
 if.then25:                                        ; preds = %if.then20
-  %35 = load ptr, ptr %st.addr, align 8
-  %recursion_depth26 = getelementptr inbounds %struct.symtable, ptr %35, i32 0, i32 9
-  %36 = load i32, ptr %recursion_depth26, align 8
-  %dec27 = add i32 %36, -1
+  %37 = load ptr, ptr %st.addr, align 8
+  %recursion_depth26 = getelementptr inbounds %struct.symtable, ptr %37, i32 0, i32 9
+  %38 = load i32, ptr %recursion_depth26, align 8
+  %dec27 = add i32 %38, -1
   store i32 %dec27, ptr %recursion_depth26, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -14241,37 +14286,37 @@ if.end28:                                         ; preds = %if.then20
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end28, %land.lhs.true17, %if.end15
-  %37 = load ptr, ptr %a.addr, align 8
-  %kwarg = getelementptr inbounds %struct._arguments, ptr %37, i32 0, i32 5
-  %38 = load ptr, ptr %kwarg, align 8
-  %tobool30 = icmp ne ptr %38, null
+  %39 = load ptr, ptr %a.addr, align 8
+  %kwarg = getelementptr inbounds %struct._arguments, ptr %39, i32 0, i32 5
+  %40 = load ptr, ptr %kwarg, align 8
+  %tobool30 = icmp ne ptr %40, null
   br i1 %tobool30, label %land.lhs.true31, label %if.end44
 
 land.lhs.true31:                                  ; preds = %if.end29
-  %39 = load ptr, ptr %a.addr, align 8
-  %kwarg32 = getelementptr inbounds %struct._arguments, ptr %39, i32 0, i32 5
-  %40 = load ptr, ptr %kwarg32, align 8
-  %annotation33 = getelementptr inbounds %struct._arg, ptr %40, i32 0, i32 1
-  %41 = load ptr, ptr %annotation33, align 8
-  %tobool34 = icmp ne ptr %41, null
+  %41 = load ptr, ptr %a.addr, align 8
+  %kwarg32 = getelementptr inbounds %struct._arguments, ptr %41, i32 0, i32 5
+  %42 = load ptr, ptr %kwarg32, align 8
+  %annotation33 = getelementptr inbounds %struct._arg, ptr %42, i32 0, i32 1
+  %43 = load ptr, ptr %annotation33, align 8
+  %tobool34 = icmp ne ptr %43, null
   br i1 %tobool34, label %if.then35, label %if.end44
 
 if.then35:                                        ; preds = %land.lhs.true31
-  %42 = load ptr, ptr %st.addr, align 8
-  %43 = load ptr, ptr %a.addr, align 8
-  %kwarg36 = getelementptr inbounds %struct._arguments, ptr %43, i32 0, i32 5
-  %44 = load ptr, ptr %kwarg36, align 8
-  %annotation37 = getelementptr inbounds %struct._arg, ptr %44, i32 0, i32 1
-  %45 = load ptr, ptr %annotation37, align 8
-  %call38 = call i32 @symtable_visit_expr(ptr noundef %42, ptr noundef %45)
+  %44 = load ptr, ptr %st.addr, align 8
+  %45 = load ptr, ptr %a.addr, align 8
+  %kwarg36 = getelementptr inbounds %struct._arguments, ptr %45, i32 0, i32 5
+  %46 = load ptr, ptr %kwarg36, align 8
+  %annotation37 = getelementptr inbounds %struct._arg, ptr %46, i32 0, i32 1
+  %47 = load ptr, ptr %annotation37, align 8
+  %call38 = call i32 @symtable_visit_expr(ptr noundef %44, ptr noundef %47)
   %tobool39 = icmp ne i32 %call38, 0
   br i1 %tobool39, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %if.then35
-  %46 = load ptr, ptr %st.addr, align 8
-  %recursion_depth41 = getelementptr inbounds %struct.symtable, ptr %46, i32 0, i32 9
-  %47 = load i32, ptr %recursion_depth41, align 8
-  %dec42 = add i32 %47, -1
+  %48 = load ptr, ptr %st.addr, align 8
+  %recursion_depth41 = getelementptr inbounds %struct.symtable, ptr %48, i32 0, i32 9
+  %49 = load i32, ptr %recursion_depth41, align 8
+  %dec42 = add i32 %49, -1
   store i32 %dec42, ptr %recursion_depth41, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -14280,18 +14325,18 @@ if.end43:                                         ; preds = %if.then35
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end43, %land.lhs.true31, %if.end29
-  %48 = load ptr, ptr %a.addr, align 8
-  %kwonlyargs = getelementptr inbounds %struct._arguments, ptr %48, i32 0, i32 3
-  %49 = load ptr, ptr %kwonlyargs, align 8
-  %tobool45 = icmp ne ptr %49, null
+  %50 = load ptr, ptr %a.addr, align 8
+  %kwonlyargs = getelementptr inbounds %struct._arguments, ptr %50, i32 0, i32 3
+  %51 = load ptr, ptr %kwonlyargs, align 8
+  %tobool45 = icmp ne ptr %51, null
   br i1 %tobool45, label %land.lhs.true46, label %if.end51
 
 land.lhs.true46:                                  ; preds = %if.end44
-  %50 = load ptr, ptr %st.addr, align 8
-  %51 = load ptr, ptr %a.addr, align 8
-  %kwonlyargs47 = getelementptr inbounds %struct._arguments, ptr %51, i32 0, i32 3
-  %52 = load ptr, ptr %kwonlyargs47, align 8
-  %call48 = call i32 @symtable_visit_argannotations(ptr noundef %50, ptr noundef %52)
+  %52 = load ptr, ptr %st.addr, align 8
+  %53 = load ptr, ptr %a.addr, align 8
+  %kwonlyargs47 = getelementptr inbounds %struct._arguments, ptr %53, i32 0, i32 3
+  %54 = load ptr, ptr %kwonlyargs47, align 8
+  %call48 = call i32 @symtable_visit_argannotations(ptr noundef %52, ptr noundef %54)
   %tobool49 = icmp ne i32 %call48, 0
   br i1 %tobool49, label %if.end51, label %if.then50
 
@@ -14300,42 +14345,42 @@ if.then50:                                        ; preds = %land.lhs.true46
   br label %return
 
 if.end51:                                         ; preds = %land.lhs.true46, %if.end44
-  %53 = load i32, ptr %future_annotations, align 4
-  %tobool52 = icmp ne i32 %53, 0
+  %55 = load i32, ptr %future_annotations, align 4
+  %tobool52 = icmp ne i32 %55, 0
   br i1 %tobool52, label %land.lhs.true53, label %if.end59
 
 land.lhs.true53:                                  ; preds = %if.end51
-  %54 = load ptr, ptr %st.addr, align 8
-  %call54 = call i32 @symtable_exit_block(ptr noundef %54)
+  %56 = load ptr, ptr %st.addr, align 8
+  %call54 = call i32 @symtable_exit_block(ptr noundef %56)
   %tobool55 = icmp ne i32 %call54, 0
   br i1 %tobool55, label %if.end59, label %if.then56
 
 if.then56:                                        ; preds = %land.lhs.true53
-  %55 = load ptr, ptr %st.addr, align 8
-  %recursion_depth57 = getelementptr inbounds %struct.symtable, ptr %55, i32 0, i32 9
-  %56 = load i32, ptr %recursion_depth57, align 8
-  %dec58 = add i32 %56, -1
+  %57 = load ptr, ptr %st.addr, align 8
+  %recursion_depth57 = getelementptr inbounds %struct.symtable, ptr %57, i32 0, i32 9
+  %58 = load i32, ptr %recursion_depth57, align 8
+  %dec58 = add i32 %58, -1
   store i32 %dec58, ptr %recursion_depth57, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end59:                                         ; preds = %land.lhs.true53, %if.end51
-  %57 = load ptr, ptr %returns.addr, align 8
-  %tobool60 = icmp ne ptr %57, null
+  %59 = load ptr, ptr %returns.addr, align 8
+  %tobool60 = icmp ne ptr %59, null
   br i1 %tobool60, label %land.lhs.true61, label %if.end67
 
 land.lhs.true61:                                  ; preds = %if.end59
-  %58 = load ptr, ptr %st.addr, align 8
-  %59 = load ptr, ptr %returns.addr, align 8
-  %call62 = call i32 @symtable_visit_annotation(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %st.addr, align 8
+  %61 = load ptr, ptr %returns.addr, align 8
+  %call62 = call i32 @symtable_visit_annotation(ptr noundef %60, ptr noundef %61)
   %tobool63 = icmp ne i32 %call62, 0
   br i1 %tobool63, label %if.end67, label %if.then64
 
 if.then64:                                        ; preds = %land.lhs.true61
-  %60 = load ptr, ptr %st.addr, align 8
-  %recursion_depth65 = getelementptr inbounds %struct.symtable, ptr %60, i32 0, i32 9
-  %61 = load i32, ptr %recursion_depth65, align 8
-  %dec66 = add i32 %61, -1
+  %62 = load ptr, ptr %st.addr, align 8
+  %recursion_depth65 = getelementptr inbounds %struct.symtable, ptr %62, i32 0, i32 9
+  %63 = load i32, ptr %recursion_depth65, align 8
+  %dec66 = add i32 %63, -1
   store i32 %dec66, ptr %recursion_depth65, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -14345,8 +14390,8 @@ if.end67:                                         ; preds = %land.lhs.true61, %i
   br label %return
 
 return:                                           ; preds = %if.end67, %if.then64, %if.then56, %if.then50, %if.then40, %if.then25, %if.then14, %if.then7, %if.then
-  %62 = load i32, ptr %retval, align 4
-  ret i32 %62
+  %64 = load i32, ptr %retval, align 4
+  ret i32 %64
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14671,51 +14716,53 @@ land.lhs.true:                                    ; preds = %entry
   %12 = load ptr, ptr %annotation.addr, align 8
   %end_col_offset = getelementptr inbounds %struct._expr, ptr %12, i32 0, i32 5
   %13 = load i32, ptr %end_col_offset, align 4
-  %call = call i32 @symtable_enter_block(ptr noundef %4, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 174), i32 noundef 3, ptr noundef %5, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %13)
+  %14 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %15 = getelementptr inbounds %struct.anon.40, ptr %14, i32 0, i32 3, i32 1, i32 174
+  %call = call i32 @symtable_enter_block(ptr noundef %4, ptr noundef %15, i32 noundef 3, ptr noundef %5, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %13)
   %tobool1 = icmp ne i32 %call, 0
   br i1 %tobool1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %14 = load ptr, ptr %st.addr, align 8
-  %recursion_depth = getelementptr inbounds %struct.symtable, ptr %14, i32 0, i32 9
-  %15 = load i32, ptr %recursion_depth, align 8
-  %dec = add i32 %15, -1
+  %16 = load ptr, ptr %st.addr, align 8
+  %recursion_depth = getelementptr inbounds %struct.symtable, ptr %16, i32 0, i32 9
+  %17 = load i32, ptr %recursion_depth, align 8
+  %dec = add i32 %17, -1
   store i32 %dec, ptr %recursion_depth, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %16 = load ptr, ptr %st.addr, align 8
-  %17 = load ptr, ptr %annotation.addr, align 8
-  %call2 = call i32 @symtable_visit_expr(ptr noundef %16, ptr noundef %17)
+  %18 = load ptr, ptr %st.addr, align 8
+  %19 = load ptr, ptr %annotation.addr, align 8
+  %call2 = call i32 @symtable_visit_expr(ptr noundef %18, ptr noundef %19)
   %tobool3 = icmp ne i32 %call2, 0
   br i1 %tobool3, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %18 = load ptr, ptr %st.addr, align 8
-  %recursion_depth5 = getelementptr inbounds %struct.symtable, ptr %18, i32 0, i32 9
-  %19 = load i32, ptr %recursion_depth5, align 8
-  %dec6 = add i32 %19, -1
+  %20 = load ptr, ptr %st.addr, align 8
+  %recursion_depth5 = getelementptr inbounds %struct.symtable, ptr %20, i32 0, i32 9
+  %21 = load i32, ptr %recursion_depth5, align 8
+  %dec6 = add i32 %21, -1
   store i32 %dec6, ptr %recursion_depth5, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %20 = load i32, ptr %future_annotations, align 4
-  %tobool8 = icmp ne i32 %20, 0
+  %22 = load i32, ptr %future_annotations, align 4
+  %tobool8 = icmp ne i32 %22, 0
   br i1 %tobool8, label %land.lhs.true9, label %if.end15
 
 land.lhs.true9:                                   ; preds = %if.end7
-  %21 = load ptr, ptr %st.addr, align 8
-  %call10 = call i32 @symtable_exit_block(ptr noundef %21)
+  %23 = load ptr, ptr %st.addr, align 8
+  %call10 = call i32 @symtable_exit_block(ptr noundef %23)
   %tobool11 = icmp ne i32 %call10, 0
   br i1 %tobool11, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
-  %22 = load ptr, ptr %st.addr, align 8
-  %recursion_depth13 = getelementptr inbounds %struct.symtable, ptr %22, i32 0, i32 9
-  %23 = load i32, ptr %recursion_depth13, align 8
-  %dec14 = add i32 %23, -1
+  %24 = load ptr, ptr %st.addr, align 8
+  %recursion_depth13 = getelementptr inbounds %struct.symtable, ptr %24, i32 0, i32 9
+  %25 = load i32, ptr %recursion_depth13, align 8
+  %dec14 = add i32 %25, -1
   store i32 %dec14, ptr %recursion_depth13, align 8
   store i32 0, ptr %retval, align 4
   br label %return
@@ -14725,8 +14772,8 @@ if.end15:                                         ; preds = %land.lhs.true9, %if
   br label %return
 
 return:                                           ; preds = %if.end15, %if.then12, %if.then4, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %26 = load i32, ptr %retval, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16969,7 +17016,9 @@ entry:
   %v1 = getelementptr inbounds %struct._expr, ptr %4, i32 0, i32 1
   %elt = getelementptr inbounds %struct.anon.18, ptr %v1, i32 0, i32 0
   %5 = load ptr, ptr %elt, align 8
-  %call = call i32 @symtable_handle_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 383), ptr noundef %3, ptr noundef %5, ptr noundef null)
+  %6 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %7 = getelementptr inbounds %struct.anon.40, ptr %6, i32 0, i32 3, i32 1, i32 383
+  %call = call i32 @symtable_handle_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %3, ptr noundef %5, ptr noundef null)
   ret i32 %call
 }
 
@@ -16990,7 +17039,9 @@ entry:
   %v1 = getelementptr inbounds %struct._expr, ptr %4, i32 0, i32 1
   %elt = getelementptr inbounds %struct.anon.15, ptr %v1, i32 0, i32 0
   %5 = load ptr, ptr %elt, align 8
-  %call = call i32 @symtable_handle_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 463), ptr noundef %3, ptr noundef %5, ptr noundef null)
+  %6 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %7 = getelementptr inbounds %struct.anon.40, ptr %6, i32 0, i32 3, i32 1, i32 463
+  %call = call i32 @symtable_handle_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %3, ptr noundef %5, ptr noundef null)
   ret i32 %call
 }
 
@@ -17011,7 +17062,9 @@ entry:
   %v1 = getelementptr inbounds %struct._expr, ptr %4, i32 0, i32 1
   %elt = getelementptr inbounds %struct.anon.16, ptr %v1, i32 0, i32 0
   %5 = load ptr, ptr %elt, align 8
-  %call = call i32 @symtable_handle_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 603), ptr noundef %3, ptr noundef %5, ptr noundef null)
+  %6 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %7 = getelementptr inbounds %struct.anon.40, ptr %6, i32 0, i32 3, i32 1, i32 603
+  %call = call i32 @symtable_handle_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %3, ptr noundef %5, ptr noundef null)
   ret i32 %call
 }
 
@@ -17036,7 +17089,9 @@ entry:
   %v2 = getelementptr inbounds %struct._expr, ptr %6, i32 0, i32 1
   %value = getelementptr inbounds %struct.anon.17, ptr %v2, i32 0, i32 1
   %7 = load ptr, ptr %value, align 8
-  %call = call i32 @symtable_handle_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef getelementptr inbounds (%struct.anon.40, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 315), ptr noundef %3, ptr noundef %5, ptr noundef %7)
+  %8 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %9 = getelementptr inbounds %struct.anon.40, ptr %8, i32 0, i32 3, i32 1, i32 315
+  %call = call i32 @symtable_handle_comprehension(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef %3, ptr noundef %5, ptr noundef %7)
   ret i32 %call
 }
 

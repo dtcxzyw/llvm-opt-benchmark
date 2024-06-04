@@ -1938,45 +1938,57 @@ define internal void @__cxx_global_var_init() #3 section ".text.startup" persona
   store ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %12 unwind label %20
+          to label %12 unwind label %32
 
 12:                                               ; preds = %0
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 1), ptr %1, align 8
+  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 1
+  store ptr %13, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 1), ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %13 unwind label %24
+  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %15 unwind label %36
 
-13:                                               ; preds = %12
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 2), ptr %1, align 8
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 2
+  store ptr %16, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %14 unwind label %28
+  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %18 unwind label %40
 
-14:                                               ; preds = %13
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 3), ptr %1, align 8
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 3
+  store ptr %19, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 3), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %15 unwind label %32
+  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %21 unwind label %44
 
-15:                                               ; preds = %14
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 4), ptr %1, align 8
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 4
+  store ptr %22, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 4), ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %16 unwind label %36
+  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %24 unwind label %48
 
-16:                                               ; preds = %15
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 5), ptr %1, align 8
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 5
+  store ptr %25, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 5), ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %17 unwind label %40
+  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 5
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %27 unwind label %52
 
-17:                                               ; preds = %16
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 6), ptr %1, align 8
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 6
+  store ptr %28, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 6), ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %18 unwind label %44
+  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 6
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %30 unwind label %56
 
-18:                                               ; preds = %17
+30:                                               ; preds = %27
   store i1 false, ptr %11, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
@@ -1985,122 +1997,122 @@ define internal void @__cxx_global_var_init() #3 section ".text.startup" persona
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %19 = call i32 @__cxa_atexit(ptr @_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_7EED2Ev, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, ptr @__dso_handle) #5
+  %31 = call i32 @__cxa_atexit(ptr @_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_7EED2Ev, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, ptr @__dso_handle) #5
   ret void
 
-20:                                               ; preds = %0
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %3, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %4, align 4
-  br label %53
-
-24:                                               ; preds = %12
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %3, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %4, align 4
-  br label %52
-
-28:                                               ; preds = %13
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %3, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %4, align 4
-  br label %51
-
-32:                                               ; preds = %14
+32:                                               ; preds = %0
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = extractvalue { ptr, i32 } %33, 0
   store ptr %34, ptr %3, align 8
   %35 = extractvalue { ptr, i32 } %33, 1
   store i32 %35, ptr %4, align 4
-  br label %50
+  br label %65
 
-36:                                               ; preds = %15
+36:                                               ; preds = %12
   %37 = landingpad { ptr, i32 }
           cleanup
   %38 = extractvalue { ptr, i32 } %37, 0
   store ptr %38, ptr %3, align 8
   %39 = extractvalue { ptr, i32 } %37, 1
   store i32 %39, ptr %4, align 4
-  br label %49
+  br label %64
 
-40:                                               ; preds = %16
+40:                                               ; preds = %15
   %41 = landingpad { ptr, i32 }
           cleanup
   %42 = extractvalue { ptr, i32 } %41, 0
   store ptr %42, ptr %3, align 8
   %43 = extractvalue { ptr, i32 } %41, 1
   store i32 %43, ptr %4, align 4
-  br label %48
+  br label %63
 
-44:                                               ; preds = %17
+44:                                               ; preds = %18
   %45 = landingpad { ptr, i32 }
           cleanup
   %46 = extractvalue { ptr, i32 } %45, 0
   store ptr %46, ptr %3, align 8
   %47 = extractvalue { ptr, i32 } %45, 1
   store i32 %47, ptr %4, align 4
+  br label %62
+
+48:                                               ; preds = %21
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %3, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %4, align 4
+  br label %61
+
+52:                                               ; preds = %24
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %3, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %4, align 4
+  br label %60
+
+56:                                               ; preds = %27
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %3, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %4, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #5
-  br label %48
+  br label %60
 
-48:                                               ; preds = %44, %40
+60:                                               ; preds = %56, %52
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #5
-  br label %49
+  br label %61
 
-49:                                               ; preds = %48, %36
+61:                                               ; preds = %60, %48
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #5
-  br label %50
+  br label %62
 
-50:                                               ; preds = %49, %32
+62:                                               ; preds = %61, %44
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
-  br label %51
-
-51:                                               ; preds = %50, %28
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #5
-  br label %52
-
-52:                                               ; preds = %51, %24
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
-  br label %53
-
-53:                                               ; preds = %52, %20
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %54 = load i1, ptr %11, align 1
-  br i1 %54, label %55, label %63
-
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %1, align 8
-  %57 = icmp eq ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, %56
-  br i1 %57, label %62, label %58
-
-58:                                               ; preds = %58, %55
-  %59 = phi ptr [ %56, %55 ], [ %60, %58 ]
-  %60 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %59, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #5
-  %61 = icmp eq ptr %60, @_ZN3gmxL18mtsForceGroupNamesB5cxx11E
-  br i1 %61, label %62, label %58
-
-62:                                               ; preds = %58, %55
   br label %63
 
-63:                                               ; preds = %62, %53
+63:                                               ; preds = %62, %40
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #5
   br label %64
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %3, align 8
-  %66 = load i32, ptr %4, align 4
-  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
-  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
-  resume { ptr, i32 } %68
+64:                                               ; preds = %63, %36
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #5
+  br label %65
+
+65:                                               ; preds = %64, %32
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  %66 = load i1, ptr %11, align 1
+  br i1 %66, label %67, label %75
+
+67:                                               ; preds = %65
+  %68 = load ptr, ptr %1, align 8
+  %69 = icmp eq ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, %68
+  br i1 %69, label %74, label %70
+
+70:                                               ; preds = %70, %67
+  %71 = phi ptr [ %68, %67 ], [ %72, %70 ]
+  %72 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %71, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #5
+  %73 = icmp eq ptr %72, @_ZN3gmxL18mtsForceGroupNamesB5cxx11E
+  br i1 %73, label %74, label %70
+
+74:                                               ; preds = %70, %67
+  br label %75
+
+75:                                               ; preds = %74, %65
+  br label %76
+
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %3, align 8
+  %78 = load i32, ptr %4, align 4
+  %79 = insertvalue { ptr, i32 } poison, ptr %77, 0
+  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
+  resume { ptr, i32 } %80
 }
 
 ; Function Attrs: nounwind
@@ -2475,249 +2487,254 @@ define void @_ZN3gmx12ForceElementC2EPNS_19StatePropagatorDataEPNS_10EnergyDataE
   call void @_ZN3gmx22IEnergySignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #5
   %52 = getelementptr inbounds i8, ptr %48, i64 32
   call void @_ZN3gmx19IDomDecHelperClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #5
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 0, i32 2), ptr %48, align 8
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 1, i32 2), ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %48, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 2, i32 2), ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %48, i64 24
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 3, i32 2), ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 4, i32 2), ptr %56, align 8
-  %57 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 5
-  %58 = load ptr, ptr %28, align 8
-  %59 = load ptr, ptr %41, align 8
-  %60 = load ptr, ptr %40, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %66
+  %53 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 0, i32 2
+  store ptr %53, ptr %48, align 8
+  %54 = getelementptr inbounds i8, ptr %48, i64 8
+  %55 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 1, i32 2
+  store ptr %55, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %48, i64 16
+  %57 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 2, i32 2
+  store ptr %57, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %48, i64 24
+  %59 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 3, i32 2
+  store ptr %59, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %48, i64 32
+  %61 = getelementptr inbounds { [11 x ptr], [5 x ptr], [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx12ForceElementE, i32 0, i32 4, i32 2
+  store ptr %61, ptr %60, align 8
+  %62 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 5
+  %63 = load ptr, ptr %28, align 8
+  %64 = load ptr, ptr %41, align 8
+  %65 = load ptr, ptr %40, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %71
 
-62:                                               ; preds = %21
-  %63 = load ptr, ptr %40, align 8
-  %64 = invoke noundef i32 @_ZNK3gmx11Constraints22numFlexibleConstraintsEv(ptr noundef nonnull align 8 dereferenceable(8) %63)
-          to label %65 unwind label %184
+67:                                               ; preds = %21
+  %68 = load ptr, ptr %40, align 8
+  %69 = invoke noundef i32 @_ZNK3gmx11Constraints22numFlexibleConstraintsEv(ptr noundef nonnull align 8 dereferenceable(8) %68)
+          to label %70 unwind label %189
 
-65:                                               ; preds = %62
-  br label %67
+70:                                               ; preds = %67
+  br label %72
 
-66:                                               ; preds = %21
-  br label %67
+71:                                               ; preds = %21
+  br label %72
 
-67:                                               ; preds = %66, %65
-  %68 = phi i32 [ %64, %65 ], [ 0, %66 ]
-  %69 = load ptr, ptr %30, align 8
-  %70 = getelementptr inbounds %struct.t_inputrec, ptr %69, i32 0, i32 5
-  %71 = load i32, ptr %70, align 8
-  %72 = load ptr, ptr %29, align 8
-  %73 = invoke noundef zeroext i1 @_ZL18haveDDAtomOrderingRK9t_commrec(ptr noundef nonnull align 8 dereferenceable(108) %72)
-          to label %74 unwind label %184
+72:                                               ; preds = %71, %70
+  %73 = phi i32 [ %69, %70 ], [ 0, %71 ]
+  %74 = load ptr, ptr %30, align 8
+  %75 = getelementptr inbounds %struct.t_inputrec, ptr %74, i32 0, i32 5
+  %76 = load i32, ptr %75, align 8
+  %77 = load ptr, ptr %29, align 8
+  %78 = invoke noundef zeroext i1 @_ZL18haveDDAtomOrderingRK9t_commrec(ptr noundef nonnull align 8 dereferenceable(108) %77)
+          to label %79 unwind label %189
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %36, align 8
-  %76 = getelementptr inbounds %"class.gmx::MdrunScheduleWorkload", ptr %75, i32 0, i32 0
-  %77 = getelementptr inbounds %"class.gmx::SimulationWorkload", ptr %76, i32 0, i32 6
-  %78 = load i8, ptr %77, align 1
-  %79 = trunc i8 %78 to i1
-  %80 = invoke noundef ptr @_Z18init_shell_flexconP8_IO_FILERK10gmx_mtop_tiibb(ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(768) %59, i32 noundef %68, i32 noundef %71, i1 noundef zeroext %73, i1 noundef zeroext %79)
-          to label %81 unwind label %184
+79:                                               ; preds = %72
+  %80 = load ptr, ptr %36, align 8
+  %81 = getelementptr inbounds %"class.gmx::MdrunScheduleWorkload", ptr %80, i32 0, i32 0
+  %82 = getelementptr inbounds %"class.gmx::SimulationWorkload", ptr %81, i32 0, i32 6
+  %83 = load i8, ptr %82, align 1
+  %84 = trunc i8 %83 to i1
+  %85 = invoke noundef ptr @_Z18init_shell_flexconP8_IO_FILERK10gmx_mtop_tiibb(ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(768) %64, i32 noundef %73, i32 noundef %76, i1 noundef zeroext %78, i1 noundef zeroext %84)
+          to label %86 unwind label %189
 
-81:                                               ; preds = %74
-  store ptr %80, ptr %57, align 8
-  %82 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 6
-  %83 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 5
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp ne ptr %84, null
-  %86 = zext i1 %85 to i8
-  store i8 %86, ptr %82, align 8
-  %87 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 7
-  store i64 -1, ptr %87, align 8
-  %88 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 8
-  store i64 -1, ptr %88, align 8
-  %89 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 9
-  store i64 -1, ptr %89, align 8
-  %90 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 10
-  store i64 -1, ptr %90, align 8
-  %91 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 11
-  %92 = load ptr, ptr %23, align 8
-  store ptr %92, ptr %91, align 8
-  %93 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 12
-  %94 = load ptr, ptr %24, align 8
-  store ptr %94, ptr %93, align 8
-  %95 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 13
-  %96 = load ptr, ptr %25, align 8
-  store ptr %96, ptr %95, align 8
-  %97 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 14
-  store ptr null, ptr %97, align 8
-  %98 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 15
-  %99 = load i8, ptr %27, align 1
-  %100 = trunc i8 %99 to i1
-  %101 = zext i1 %100 to i8
-  store i8 %101, ptr %98, align 8
-  %102 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 16
-  %103 = load i8, ptr %26, align 1
-  %104 = trunc i8 %103 to i1
-  %105 = zext i1 %104 to i8
-  store i8 %105, ptr %102, align 1
-  %106 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 17
-  store i64 0, ptr %106, align 8
-  %107 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 18
-  %108 = load ptr, ptr %29, align 8
-  invoke void @_ZN22DDBalanceRegionHandlerC2EPK9t_commrec(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef %108)
-          to label %109 unwind label %184
+86:                                               ; preds = %79
+  store ptr %85, ptr %62, align 8
+  %87 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 6
+  %88 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 5
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp ne ptr %89, null
+  %91 = zext i1 %90 to i8
+  store i8 %91, ptr %87, align 8
+  %92 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 7
+  store i64 -1, ptr %92, align 8
+  %93 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 8
+  store i64 -1, ptr %93, align 8
+  %94 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 9
+  store i64 -1, ptr %94, align 8
+  %95 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 10
+  store i64 -1, ptr %95, align 8
+  %96 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 11
+  %97 = load ptr, ptr %23, align 8
+  store ptr %97, ptr %96, align 8
+  %98 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 12
+  %99 = load ptr, ptr %24, align 8
+  store ptr %99, ptr %98, align 8
+  %100 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 13
+  %101 = load ptr, ptr %25, align 8
+  store ptr %101, ptr %100, align 8
+  %102 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 14
+  store ptr null, ptr %102, align 8
+  %103 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 15
+  %104 = load i8, ptr %27, align 1
+  %105 = trunc i8 %104 to i1
+  %106 = zext i1 %105 to i8
+  store i8 %106, ptr %103, align 8
+  %107 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 16
+  %108 = load i8, ptr %26, align 1
+  %109 = trunc i8 %108 to i1
+  %110 = zext i1 %109 to i8
+  store i8 %110, ptr %107, align 1
+  %111 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 17
+  store i64 0, ptr %111, align 8
+  %112 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 18
+  %113 = load ptr, ptr %29, align 8
+  invoke void @_ZN22DDBalanceRegionHandlerC2EPK9t_commrec(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef %113)
+          to label %114 unwind label %189
 
-109:                                              ; preds = %81
-  %110 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 19
-  %111 = load ptr, ptr %34, align 8
-  %112 = getelementptr inbounds %struct.t_forcerec, ptr %111, i32 0, i32 38
-  %113 = load ptr, ptr %34, align 8
-  %114 = getelementptr inbounds %struct.t_forcerec, ptr %113, i32 0, i32 0
-  %115 = call noundef ptr @_ZNKSt10unique_ptrI19interaction_const_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %114) #5
-  %116 = getelementptr inbounds %struct.interaction_const_t, ptr %115, i32 0, i32 14
-  %117 = load ptr, ptr %34, align 8
-  %118 = getelementptr inbounds %struct.t_forcerec, ptr %117, i32 0, i32 0
-  %119 = call noundef ptr @_ZNKSt10unique_ptrI19interaction_const_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %118) #5
-  %120 = getelementptr inbounds %struct.interaction_const_t, ptr %119, i32 0, i32 19
-  %121 = load ptr, ptr %34, align 8
-  %122 = getelementptr inbounds %struct.t_forcerec, ptr %121, i32 0, i32 13
-  %123 = load ptr, ptr %34, align 8
-  %124 = getelementptr inbounds %struct.t_forcerec, ptr %123, i32 0, i32 0
-  %125 = call noundef ptr @_ZNKSt10unique_ptrI19interaction_const_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %124) #5
-  %126 = getelementptr inbounds %struct.interaction_const_t, ptr %125, i32 0, i32 10
-  %127 = load ptr, ptr %34, align 8
-  %128 = getelementptr inbounds %struct.t_forcerec, ptr %127, i32 0, i32 0
-  %129 = call noundef ptr @_ZNKSt10unique_ptrI19interaction_const_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %128) #5
-  %130 = getelementptr inbounds %struct.interaction_const_t, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %30, align 8
-  invoke void @_ZSt11make_uniqueI24CpuPpLongRangeNonbondedsJRiRfS2_RSt5arrayIdLm2EER22CoulombInteractionTypeR15VanDerWaalsTypeRK10t_inputrecRP6t_nrnbRP13gmx_wallcycleRP8_IO_FILEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %110, ptr noundef nonnull align 4 dereferenceable(4) %112, ptr noundef nonnull align 4 dereferenceable(4) %116, ptr noundef nonnull align 4 dereferenceable(4) %120, ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 4 dereferenceable(4) %126, ptr noundef nonnull align 4 dereferenceable(4) %130, ptr noundef nonnull align 8 dereferenceable(856) %131, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %28)
-          to label %132 unwind label %184
+114:                                              ; preds = %86
+  %115 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 19
+  %116 = load ptr, ptr %34, align 8
+  %117 = getelementptr inbounds %struct.t_forcerec, ptr %116, i32 0, i32 38
+  %118 = load ptr, ptr %34, align 8
+  %119 = getelementptr inbounds %struct.t_forcerec, ptr %118, i32 0, i32 0
+  %120 = call noundef ptr @_ZNKSt10unique_ptrI19interaction_const_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %119) #5
+  %121 = getelementptr inbounds %struct.interaction_const_t, ptr %120, i32 0, i32 14
+  %122 = load ptr, ptr %34, align 8
+  %123 = getelementptr inbounds %struct.t_forcerec, ptr %122, i32 0, i32 0
+  %124 = call noundef ptr @_ZNKSt10unique_ptrI19interaction_const_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %123) #5
+  %125 = getelementptr inbounds %struct.interaction_const_t, ptr %124, i32 0, i32 19
+  %126 = load ptr, ptr %34, align 8
+  %127 = getelementptr inbounds %struct.t_forcerec, ptr %126, i32 0, i32 13
+  %128 = load ptr, ptr %34, align 8
+  %129 = getelementptr inbounds %struct.t_forcerec, ptr %128, i32 0, i32 0
+  %130 = call noundef ptr @_ZNKSt10unique_ptrI19interaction_const_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %129) #5
+  %131 = getelementptr inbounds %struct.interaction_const_t, ptr %130, i32 0, i32 10
+  %132 = load ptr, ptr %34, align 8
+  %133 = getelementptr inbounds %struct.t_forcerec, ptr %132, i32 0, i32 0
+  %134 = call noundef ptr @_ZNKSt10unique_ptrI19interaction_const_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %133) #5
+  %135 = getelementptr inbounds %struct.interaction_const_t, ptr %134, i32 0, i32 0
+  %136 = load ptr, ptr %30, align 8
+  invoke void @_ZSt11make_uniqueI24CpuPpLongRangeNonbondedsJRiRfS2_RSt5arrayIdLm2EER22CoulombInteractionTypeR15VanDerWaalsTypeRK10t_inputrecRP6t_nrnbRP13gmx_wallcycleRP8_IO_FILEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %115, ptr noundef nonnull align 4 dereferenceable(4) %117, ptr noundef nonnull align 4 dereferenceable(4) %121, ptr noundef nonnull align 4 dereferenceable(4) %125, ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 4 dereferenceable(4) %131, ptr noundef nonnull align 4 dereferenceable(4) %135, ptr noundef nonnull align 8 dereferenceable(856) %136, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %137 unwind label %189
 
-132:                                              ; preds = %109
-  %133 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 20
-  call void @llvm.memset.p0.i64(ptr align 8 %133, i8 0, i64 28, i1 false)
-  %134 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 21
-  %135 = load ptr, ptr %28, align 8
-  store ptr %135, ptr %134, align 8
-  %136 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 22
-  %137 = load ptr, ptr %29, align 8
-  store ptr %137, ptr %136, align 8
-  %138 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 23
-  %139 = load ptr, ptr %30, align 8
-  store ptr %139, ptr %138, align 8
-  %140 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 24
-  %141 = load ptr, ptr %31, align 8
-  store ptr %141, ptr %140, align 8
-  %142 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 25
-  %143 = load ptr, ptr %32, align 8
-  store ptr %143, ptr %142, align 8
-  %144 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 26
-  %145 = load ptr, ptr %33, align 8
-  store ptr %145, ptr %144, align 8
-  %146 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 27
-  %147 = load ptr, ptr %35, align 8
-  store ptr %147, ptr %146, align 8
-  %148 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 28
-  %149 = load ptr, ptr %34, align 8
-  store ptr %149, ptr %148, align 8
-  %150 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 29
-  %151 = load ptr, ptr %37, align 8
-  store ptr %151, ptr %150, align 8
-  %152 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 30
-  %153 = load ptr, ptr %38, align 8
-  store ptr %153, ptr %152, align 8
-  %154 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 31
-  %155 = load ptr, ptr %39, align 8
-  store ptr %155, ptr %154, align 8
-  %156 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 32
-  %157 = load ptr, ptr %36, align 8
-  store ptr %157, ptr %156, align 8
-  %158 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 33
-  %159 = load ptr, ptr %40, align 8
-  store ptr %159, ptr %158, align 8
-  %160 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 34
-  %161 = load ptr, ptr %42, align 8
-  store ptr %161, ptr %160, align 8
-  %162 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 20
-  %163 = invoke noundef ptr @_ZN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS1_7EE5beginEv(ptr noundef nonnull align 4 dereferenceable(28) %162)
-          to label %164 unwind label %188
+137:                                              ; preds = %114
+  %138 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 20
+  call void @llvm.memset.p0.i64(ptr align 8 %138, i8 0, i64 28, i1 false)
+  %139 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 21
+  %140 = load ptr, ptr %28, align 8
+  store ptr %140, ptr %139, align 8
+  %141 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 22
+  %142 = load ptr, ptr %29, align 8
+  store ptr %142, ptr %141, align 8
+  %143 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 23
+  %144 = load ptr, ptr %30, align 8
+  store ptr %144, ptr %143, align 8
+  %145 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 24
+  %146 = load ptr, ptr %31, align 8
+  store ptr %146, ptr %145, align 8
+  %147 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 25
+  %148 = load ptr, ptr %32, align 8
+  store ptr %148, ptr %147, align 8
+  %149 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 26
+  %150 = load ptr, ptr %33, align 8
+  store ptr %150, ptr %149, align 8
+  %151 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 27
+  %152 = load ptr, ptr %35, align 8
+  store ptr %152, ptr %151, align 8
+  %153 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 28
+  %154 = load ptr, ptr %34, align 8
+  store ptr %154, ptr %153, align 8
+  %155 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 29
+  %156 = load ptr, ptr %37, align 8
+  store ptr %156, ptr %155, align 8
+  %157 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 30
+  %158 = load ptr, ptr %38, align 8
+  store ptr %158, ptr %157, align 8
+  %159 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 31
+  %160 = load ptr, ptr %39, align 8
+  store ptr %160, ptr %159, align 8
+  %161 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 32
+  %162 = load ptr, ptr %36, align 8
+  store ptr %162, ptr %161, align 8
+  %163 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 33
+  %164 = load ptr, ptr %40, align 8
+  store ptr %164, ptr %163, align 8
+  %165 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 34
+  %166 = load ptr, ptr %42, align 8
+  store ptr %166, ptr %165, align 8
+  %167 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 20
+  %168 = invoke noundef ptr @_ZN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS1_7EE5beginEv(ptr noundef nonnull align 4 dereferenceable(28) %167)
+          to label %169 unwind label %193
 
-164:                                              ; preds = %132
-  %165 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 20
-  %166 = invoke noundef ptr @_ZN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS1_7EE3endEv(ptr noundef nonnull align 4 dereferenceable(28) %165)
-          to label %167 unwind label %188
+169:                                              ; preds = %137
+  %170 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 20
+  %171 = invoke noundef ptr @_ZN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS1_7EE3endEv(ptr noundef nonnull align 4 dereferenceable(28) %170)
+          to label %172 unwind label %193
 
-167:                                              ; preds = %164
+172:                                              ; preds = %169
   store i32 0, ptr %45, align 4
-  invoke void @_ZSt4fillIPfiEvT_S1_RKT0_(ptr noundef %163, ptr noundef %166, ptr noundef nonnull align 4 dereferenceable(4) %45)
-          to label %168 unwind label %188
+  invoke void @_ZSt4fillIPfiEvT_S1_RKT0_(ptr noundef %168, ptr noundef %171, ptr noundef nonnull align 4 dereferenceable(4) %45)
+          to label %173 unwind label %193
 
-168:                                              ; preds = %167
-  %169 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 6
-  %170 = load i8, ptr %169, align 8
-  %171 = trunc i8 %170 to i1
-  br i1 %171, label %172, label %192
+173:                                              ; preds = %172
+  %174 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 6
+  %175 = load i8, ptr %174, align 8
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %177, label %197
 
-172:                                              ; preds = %168
-  %173 = load ptr, ptr %29, align 8
-  %174 = invoke noundef zeroext i1 @_ZL18haveDDAtomOrderingRK9t_commrec(ptr noundef nonnull align 8 dereferenceable(108) %173)
-          to label %175 unwind label %188
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %29, align 8
+  %179 = invoke noundef zeroext i1 @_ZL18haveDDAtomOrderingRK9t_commrec(ptr noundef nonnull align 8 dereferenceable(108) %178)
+          to label %180 unwind label %193
 
-175:                                              ; preds = %172
-  br i1 %174, label %192, label %176
+180:                                              ; preds = %177
+  br i1 %179, label %197, label %181
 
-176:                                              ; preds = %175
-  %177 = load ptr, ptr %29, align 8
-  %178 = load ptr, ptr %32, align 8
-  %179 = invoke noundef ptr @_ZNK3gmx7MDAtoms7mdatomsEv(ptr noundef nonnull align 8 dereferenceable(88) %178)
-          to label %180 unwind label %188
+181:                                              ; preds = %180
+  %182 = load ptr, ptr %29, align 8
+  %183 = load ptr, ptr %32, align 8
+  %184 = invoke noundef ptr @_ZNK3gmx7MDAtoms7mdatomsEv(ptr noundef nonnull align 8 dereferenceable(88) %183)
+          to label %185 unwind label %193
 
-180:                                              ; preds = %176
-  %181 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 5
-  %182 = load ptr, ptr %181, align 8
-  invoke void @_ZN3gmx17make_local_shellsEPK9t_commrecRK9t_mdatomsP13gmx_shellfc_t(ptr noundef %177, ptr noundef nonnull align 8 dereferenceable(648) %179, ptr noundef %182)
-          to label %183 unwind label %188
+185:                                              ; preds = %181
+  %186 = getelementptr inbounds %"class.gmx::ForceElement", ptr %48, i32 0, i32 5
+  %187 = load ptr, ptr %186, align 8
+  invoke void @_ZN3gmx17make_local_shellsEPK9t_commrecRK9t_mdatomsP13gmx_shellfc_t(ptr noundef %182, ptr noundef nonnull align 8 dereferenceable(648) %184, ptr noundef %187)
+          to label %188 unwind label %193
 
-183:                                              ; preds = %180
-  br label %192
+188:                                              ; preds = %185
+  br label %197
 
-184:                                              ; preds = %109, %81, %74, %67, %62
-  %185 = landingpad { ptr, i32 }
+189:                                              ; preds = %114, %86, %79, %72, %67
+  %190 = landingpad { ptr, i32 }
           cleanup
-  %186 = extractvalue { ptr, i32 } %185, 0
-  store ptr %186, ptr %43, align 8
-  %187 = extractvalue { ptr, i32 } %185, 1
-  store i32 %187, ptr %44, align 4
-  br label %193
-
-188:                                              ; preds = %180, %176, %172, %167, %164, %132
-  %189 = landingpad { ptr, i32 }
-          cleanup
-  %190 = extractvalue { ptr, i32 } %189, 0
-  store ptr %190, ptr %43, align 8
-  %191 = extractvalue { ptr, i32 } %189, 1
-  store i32 %191, ptr %44, align 4
-  call void @_ZNSt10unique_ptrI24CpuPpLongRangeNonbondedsSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %110) #5
-  br label %193
-
-192:                                              ; preds = %183, %175, %168
-  ret void
-
-193:                                              ; preds = %188, %184
-  %194 = getelementptr inbounds i8, ptr %48, i64 32
-  call void @_ZN3gmx19IDomDecHelperClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %194) #5
-  %195 = getelementptr inbounds i8, ptr %48, i64 24
-  call void @_ZN3gmx22IEnergySignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %195) #5
-  %196 = getelementptr inbounds i8, ptr %48, i64 16
-  call void @_ZN3gmx30INeighborSearchSignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %196) #5
-  %197 = getelementptr inbounds i8, ptr %48, i64 8
-  call void @_ZN3gmx21ITopologyHolderClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %197) #5
-  call void @_ZN3gmx17ISimulatorElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #5
+  %191 = extractvalue { ptr, i32 } %190, 0
+  store ptr %191, ptr %43, align 8
+  %192 = extractvalue { ptr, i32 } %190, 1
+  store i32 %192, ptr %44, align 4
   br label %198
 
-198:                                              ; preds = %193
-  %199 = load ptr, ptr %43, align 8
-  %200 = load i32, ptr %44, align 4
-  %201 = insertvalue { ptr, i32 } poison, ptr %199, 0
-  %202 = insertvalue { ptr, i32 } %201, i32 %200, 1
-  resume { ptr, i32 } %202
+193:                                              ; preds = %185, %181, %177, %172, %169, %137
+  %194 = landingpad { ptr, i32 }
+          cleanup
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %43, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %44, align 4
+  call void @_ZNSt10unique_ptrI24CpuPpLongRangeNonbondedsSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %115) #5
+  br label %198
+
+197:                                              ; preds = %188, %180, %173
+  ret void
+
+198:                                              ; preds = %193, %189
+  %199 = getelementptr inbounds i8, ptr %48, i64 32
+  call void @_ZN3gmx19IDomDecHelperClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %199) #5
+  %200 = getelementptr inbounds i8, ptr %48, i64 24
+  call void @_ZN3gmx22IEnergySignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %200) #5
+  %201 = getelementptr inbounds i8, ptr %48, i64 16
+  call void @_ZN3gmx30INeighborSearchSignallerClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %201) #5
+  %202 = getelementptr inbounds i8, ptr %48, i64 8
+  call void @_ZN3gmx21ITopologyHolderClientD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %202) #5
+  call void @_ZN3gmx17ISimulatorElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #5
+  br label %203
+
+203:                                              ; preds = %198
+  %204 = load ptr, ptr %43, align 8
+  %205 = load i32, ptr %44, align 4
+  %206 = insertvalue { ptr, i32 } poison, ptr %204, 0
+  %207 = insertvalue { ptr, i32 } %206, i32 %205, 1
+  resume { ptr, i32 } %207
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2725,7 +2742,8 @@ define linkonce_odr void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2734,7 +2752,8 @@ define linkonce_odr void @_ZN3gmx21ITopologyHolderClientC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx21ITopologyHolderClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx21ITopologyHolderClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2743,7 +2762,8 @@ define linkonce_odr void @_ZN3gmx30INeighborSearchSignallerClientC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx30INeighborSearchSignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx30INeighborSearchSignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2752,7 +2772,8 @@ define linkonce_odr void @_ZN3gmx22IEnergySignallerClientC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx22IEnergySignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx22IEnergySignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2761,7 +2782,8 @@ define linkonce_odr void @_ZN3gmx19IDomDecHelperClientC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx19IDomDecHelperClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx19IDomDecHelperClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8737,7 +8759,8 @@ define linkonce_odr void @_ZN3gmx20ElementNotFoundErrorC2ERKNS_20ExceptionInitia
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8772,10 +8795,11 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 24, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
   ret void
 }
 
@@ -8955,7 +8979,8 @@ define linkonce_odr void @_ZN3gmx20ElementNotFoundErrorC2EOS0_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -8968,11 +8993,12 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -9058,7 +9084,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -9285,7 +9312,8 @@ define linkonce_odr void @_ZN3gmx21ModularSimulatorErrorC2EOS0_(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -9313,11 +9341,12 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::GromacsException", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #5
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::GromacsException", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #5
   ret void
 }
 
@@ -9328,7 +9357,8 @@ define linkonce_odr void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -9469,7 +9499,8 @@ define linkonce_odr void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionIniti
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -9480,7 +9511,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9498,9 +9530,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #5
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -11123,7 +11156,8 @@ define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorC2ERKNS_20Except
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

@@ -448,22 +448,23 @@ define void @slurm_print_cpu_bind_help() #0 {
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @_have_task_affinity() #0 {
   %1 = alloca i1, align 1
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 206), align 8
-  %3 = call i32 @xstrcmp(ptr noundef %2, ptr noundef @.str.75)
-  %4 = icmp ne i32 %3, 0
-  br i1 %4, label %6, label %5
-
-5:                                                ; preds = %0
-  store i1 false, ptr %1, align 1
-  br label %7
+  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 206
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 @xstrcmp(ptr noundef %3, ptr noundef @.str.75)
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %0
-  store i1 true, ptr %1, align 1
-  br label %7
+  store i1 false, ptr %1, align 1
+  br label %8
 
-7:                                                ; preds = %6, %5
-  %8 = load i1, ptr %1, align 1
-  ret i1 %8
+7:                                                ; preds = %0
+  store i1 true, ptr %1, align 1
+  br label %8
+
+8:                                                ; preds = %7, %6
+  %9 = load i1, ptr %1, align 1
+  ret i1 %9
 }
 
 declare i32 @printf(ptr noundef, ...) #3

@@ -238,7 +238,8 @@ declare void @register_module_init(ptr noundef, i32 noundef) #1
 define internal void @bdrv_vvfat_init() #0 {
 entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @child_vvfat_qcow, ptr align 8 @child_of_bds, i64 128, i1 false)
-  store ptr @vvfat_qcow_options, ptr getelementptr inbounds (%struct.BdrvChildClass, ptr @child_vvfat_qcow, i32 0, i32 2), align 8
+  %0 = getelementptr inbounds %struct.BdrvChildClass, ptr @child_vvfat_qcow, i32 0, i32 2
+  store ptr @vvfat_qcow_options, ptr %0, align 8
   call void @bdrv_register(ptr noundef @bdrv_vvfat)
   ret void
 }

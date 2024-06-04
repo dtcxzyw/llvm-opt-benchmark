@@ -1038,7 +1038,7 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
   %10 = getelementptr i8, ptr %3, i64 %8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %9
-  br i1 %12, label %13, label %40
+  br i1 %12, label %13, label %42
 
 13:                                               ; preds = %1
   %14 = load volatile i32, ptr %4, align 4
@@ -1078,74 +1078,78 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
 
 35:                                               ; preds = %34, %29
   %36 = icmp eq i32 %30, 0
-  %37 = select i1 %36, ptr inttoptr (i64 -75 to ptr), ptr %4
-  %38 = icmp ugt ptr %37, inttoptr (i64 -4096 to ptr)
-  %39 = select i1 %38, ptr %37, ptr %0
-  br label %77
+  %37 = inttoptr i64 -75 to ptr
+  %38 = select i1 %36, ptr %37, ptr %4
+  %39 = inttoptr i64 -4096 to ptr
+  %40 = icmp ugt ptr %38, %39
+  %41 = select i1 %40, ptr %38, ptr %0
+  br label %81
 
-40:                                               ; preds = %1
-  %41 = tail call ptr @crypto_clone_tfm(ptr noundef nonnull @crypto_ahash_type, ptr noundef %4) #9
-  %42 = icmp ugt ptr %41, inttoptr (i64 -4096 to ptr)
-  br i1 %42, label %77, label %43
+42:                                               ; preds = %1
+  %43 = tail call ptr @crypto_clone_tfm(ptr noundef nonnull @crypto_ahash_type, ptr noundef %4) #9
+  %44 = inttoptr i64 -4096 to ptr
+  %45 = icmp ugt ptr %43, %44
+  br i1 %45, label %81, label %46
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 8
-  store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %41, i64 4
-  store i32 %48, ptr %49, align 4
-  %50 = load i8, ptr %0, align 8, !range !9, !noundef !10
-  %51 = icmp eq i8 %50, 0
-  br i1 %51, label %64, label %52, !prof !11
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %43, i64 8
+  store i32 %48, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %43, i64 4
+  store i32 %51, ptr %52, align 4
+  %53 = load i8, ptr %0, align 8, !range !9, !noundef !10
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %68, label %55, !prof !11
 
-52:                                               ; preds = %43
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @crypto_clone_shash(ptr noundef %54) #9
-  %56 = icmp ugt ptr %55, inttoptr (i64 -4096 to ptr)
-  br i1 %56, label %57, label %60
+55:                                               ; preds = %46
+  %56 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call ptr @crypto_clone_shash(ptr noundef %57) #9
+  %59 = inttoptr i64 -4096 to ptr
+  %60 = icmp ugt ptr %58, %59
+  br i1 %60, label %61, label %64
 
-57:                                               ; preds = %52
-  %58 = ptrtoint ptr %55 to i64
-  %59 = trunc i64 %58 to i32
-  br label %62
+61:                                               ; preds = %55
+  %62 = ptrtoint ptr %58 to i64
+  %63 = trunc i64 %62 to i32
+  br label %66
 
-60:                                               ; preds = %52
-  %61 = getelementptr inbounds i8, ptr %41, i64 48
-  store i8 1, ptr %41, align 8
-  store ptr %55, ptr %61, align 8
-  br label %62
+64:                                               ; preds = %55
+  %65 = getelementptr inbounds i8, ptr %43, i64 48
+  store i8 1, ptr %43, align 8
+  store ptr %58, ptr %65, align 8
+  br label %66
 
-62:                                               ; preds = %60, %57
-  %63 = phi i32 [ %59, %57 ], [ 0, %60 ]
-  br i1 %56, label %72, label %77
+66:                                               ; preds = %64, %61
+  %67 = phi i32 [ %63, %61 ], [ 0, %64 ]
+  br i1 %60, label %76, label %81
 
-64:                                               ; preds = %43
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr i8, ptr %65, i64 -16
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %72, label %69
+68:                                               ; preds = %46
+  %69 = load ptr, ptr %2, align 8
+  %70 = getelementptr i8, ptr %69, i64 -16
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %76, label %73
 
-69:                                               ; preds = %64
-  %70 = tail call i32 %67(ptr noundef %41, ptr noundef %0) #9
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %77, label %72
+73:                                               ; preds = %68
+  %74 = tail call i32 %71(ptr noundef %43, ptr noundef %0) #9
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %81, label %76
 
-72:                                               ; preds = %69, %64, %62
-  %73 = phi i32 [ %63, %62 ], [ %70, %69 ], [ -38, %64 ]
-  %74 = getelementptr inbounds i8, ptr %41, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %41, ptr noundef %74) #9
-  %75 = sext i32 %73 to i64
-  %76 = inttoptr i64 %75 to ptr
-  br label %77
+76:                                               ; preds = %73, %68, %66
+  %77 = phi i32 [ %67, %66 ], [ %74, %73 ], [ -38, %68 ]
+  %78 = getelementptr inbounds i8, ptr %43, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %43, ptr noundef %78) #9
+  %79 = sext i32 %77 to i64
+  %80 = inttoptr i64 %79 to ptr
+  br label %81
 
-77:                                               ; preds = %72, %69, %62, %40, %35
-  %78 = phi ptr [ %76, %72 ], [ %41, %62 ], [ %41, %40 ], [ %41, %69 ], [ %39, %35 ]
-  ret ptr %78
+81:                                               ; preds = %76, %73, %66, %42, %35
+  %82 = phi ptr [ %80, %76 ], [ %43, %66 ], [ %43, %42 ], [ %43, %73 ], [ %41, %35 ]
+  ret ptr %82
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -1449,87 +1453,88 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef %0) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %4, i64 312
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @crypto_shash_type
-  br i1 %10, label %11, label %32
+  br i1 %10, label %11, label %33
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = tail call ptr @crypto_mod_get(ptr noundef %4) #9
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %57, label %15
+  br i1 %14, label %58, label %15
 
 15:                                               ; preds = %11
   %16 = tail call ptr @crypto_create_tfm_node(ptr noundef %4, ptr noundef nonnull @crypto_shash_type, i32 noundef -1) #9
-  %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
-  br i1 %17, label %18, label %21
+  %17 = inttoptr i64 -4096 to ptr
+  %18 = icmp ugt ptr %16, %17
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %15
+19:                                               ; preds = %15
   tail call void @crypto_mod_put(ptr noundef %4) #9
-  %19 = ptrtoint ptr %16 to i64
-  %20 = trunc i64 %19 to i32
-  br label %57
+  %20 = ptrtoint ptr %16 to i64
+  %21 = trunc i64 %20 to i32
+  br label %58
 
-21:                                               ; preds = %15
+22:                                               ; preds = %15
   store i8 1, ptr %2, align 8
   store ptr %16, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr @crypto_exit_ahash_using_shash, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 12
-  %24 = load i32, ptr %23, align 4
-  %25 = and i32 %24, 1
-  %26 = getelementptr i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = or i32 %27, %25
-  store i32 %28, ptr %26, align 4
-  %29 = load i32, ptr %16, align 8
-  %30 = add i32 %29, 8
-  %31 = getelementptr i8, ptr %0, i64 -8
-  store i32 %30, ptr %31, align 8
-  br label %57
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @crypto_exit_ahash_using_shash, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %16, i64 12
+  %25 = load i32, ptr %24, align 4
+  %26 = and i32 %25, 1
+  %27 = getelementptr i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = or i32 %28, %26
+  store i32 %29, ptr %27, align 4
+  %30 = load i32, ptr %16, align 8
+  %31 = add i32 %30, 8
+  %32 = getelementptr i8, ptr %0, i64 -8
+  store i32 %31, ptr %32, align 8
+  br label %58
 
-32:                                               ; preds = %1
-  %33 = getelementptr i8, ptr %4, i64 -40
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, @ahash_nosetkey
-  br i1 %35, label %45, label %36
+33:                                               ; preds = %1
+  %34 = getelementptr i8, ptr %4, i64 -40
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, @ahash_nosetkey
+  br i1 %36, label %46, label %37
 
-36:                                               ; preds = %32
-  %37 = getelementptr i8, ptr %4, i64 32
-  %38 = load i32, ptr %37, align 8
-  %39 = and i32 %38, 16384
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %45
+37:                                               ; preds = %33
+  %38 = getelementptr i8, ptr %4, i64 32
+  %39 = load i32, ptr %38, align 8
+  %40 = and i32 %39, 16384
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %36
-  %42 = getelementptr i8, ptr %0, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = or i32 %43, 1
-  store i32 %44, ptr %42, align 4
-  br label %45
+42:                                               ; preds = %37
+  %43 = getelementptr i8, ptr %0, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = or i32 %44, 1
+  store i32 %45, ptr %43, align 4
+  br label %46
 
-45:                                               ; preds = %41, %36, %32
-  %46 = getelementptr i8, ptr %4, i64 -24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %51, label %49
+46:                                               ; preds = %42, %37, %33
+  %47 = getelementptr i8, ptr %4, i64 -24
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %52, label %50
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr @crypto_ahash_exit_tfm, ptr %50, align 8
-  br label %51
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @crypto_ahash_exit_tfm, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %49, %45
-  %52 = getelementptr i8, ptr %4, i64 -32
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %57, label %55
+52:                                               ; preds = %50, %46
+  %53 = getelementptr i8, ptr %4, i64 -32
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %58, label %56
 
-55:                                               ; preds = %51
-  %56 = tail call i32 %53(ptr noundef %2) #9
-  br label %57
+56:                                               ; preds = %52
+  %57 = tail call i32 %54(ptr noundef %2) #9
+  br label %58
 
-57:                                               ; preds = %55, %51, %21, %18, %11
-  %58 = phi i32 [ %56, %55 ], [ 0, %51 ], [ %20, %18 ], [ 0, %21 ], [ -11, %11 ]
-  ret i32 %58
+58:                                               ; preds = %56, %52, %22, %19, %11
+  %59 = phi i32 [ %57, %56 ], [ 0, %52 ], [ %21, %19 ], [ 0, %22 ], [ -11, %11 ]
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

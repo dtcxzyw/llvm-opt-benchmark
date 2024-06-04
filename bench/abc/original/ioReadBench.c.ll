@@ -1313,7 +1313,8 @@ define internal void @Abc_LatchSetInit0(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
-  store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
+  %5 = inttoptr i64 1 to ptr
+  store ptr %5, ptr %4, align 8
   ret void
 }
 
@@ -1323,7 +1324,8 @@ define internal void @Abc_LatchSetInit1(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
-  store ptr inttoptr (i64 2 to ptr), ptr %4, align 8
+  %5 = inttoptr i64 2 to ptr
+  store ptr %5, ptr %4, align 8
   ret void
 }
 
@@ -1333,7 +1335,8 @@ define internal void @Abc_LatchSetInitDc(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
-  store ptr inttoptr (i64 3 to ptr), ptr %4, align 8
+  %5 = inttoptr i64 3 to ptr
+  store ptr %5, ptr %4, align 8
   ret void
 }
 

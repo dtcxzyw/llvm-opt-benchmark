@@ -7,10 +7,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @"_ZN74_$LT$actix_router..de..UnitVariant$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9d14f79bd7ee7719E"() unnamed_addr #0 {
   %1 = load ptr, ptr @anon.05374bdcc06b58fe416df808fa252384.0, align 8, !align !3, !noundef !4
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @anon.05374bdcc06b58fe416df808fa252384.0, i64 8), align 8
-  %3 = insertvalue { ptr, i64 } poison, ptr %1, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %2, 1
-  ret { ptr, i64 } %4
+  %2 = getelementptr inbounds i8, ptr @anon.05374bdcc06b58fe416df808fa252384.0, i64 8
+  %3 = load i64, ptr %2, align 8
+  %4 = insertvalue { ptr, i64 } poison, ptr %1, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %3, 1
+  ret { ptr, i64 } %5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

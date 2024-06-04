@@ -904,7 +904,11 @@ entry:
   store ptr %self, ptr %self.addr, align 8
   %0 = load ptr, ptr %self.addr, align 8
   %cmp = icmp eq ptr %0, @_Py_TrueStruct
-  %cond = select i1 %cmp, ptr getelementptr inbounds (%struct.anon.39, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 7), ptr getelementptr inbounds (%struct.anon.39, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 2)
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %2 = getelementptr inbounds %struct.anon.39, ptr %1, i32 0, i32 3, i32 1, i32 7
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %4 = getelementptr inbounds %struct.anon.39, ptr %3, i32 0, i32 3, i32 1, i32 2
+  %cond = select i1 %cmp, ptr %2, ptr %4
   ret ptr %cond
 }
 
@@ -1090,17 +1094,18 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i32 0, i32 10), align 8
-  %nb_invert = getelementptr inbounds %struct.PyNumberMethods, ptr %1, i32 0, i32 10
-  %2 = load ptr, ptr %nb_invert, align 8
-  %3 = load ptr, ptr %v.addr, align 8
-  %call1 = call ptr %2(ptr noundef %3)
+  %1 = getelementptr inbounds %struct._typeobject, ptr @PyLong_Type, i32 0, i32 10
+  %2 = load ptr, ptr %1, align 8
+  %nb_invert = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i32 0, i32 10
+  %3 = load ptr, ptr %nb_invert, align 8
+  %4 = load ptr, ptr %v.addr, align 8
+  %call1 = call ptr %3(ptr noundef %4)
   store ptr %call1, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+  %5 = load ptr, ptr %retval, align 8
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1123,21 +1128,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i32 0, i32 10), align 8
-  %nb_and = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i32 0, i32 13
-  %3 = load ptr, ptr %nb_and, align 8
-  %4 = load ptr, ptr %a.addr, align 8
-  %5 = load ptr, ptr %b.addr, align 8
-  %call3 = call ptr %3(ptr noundef %4, ptr noundef %5)
+  %2 = getelementptr inbounds %struct._typeobject, ptr @PyLong_Type, i32 0, i32 10
+  %3 = load ptr, ptr %2, align 8
+  %nb_and = getelementptr inbounds %struct.PyNumberMethods, ptr %3, i32 0, i32 13
+  %4 = load ptr, ptr %nb_and, align 8
+  %5 = load ptr, ptr %a.addr, align 8
+  %6 = load ptr, ptr %b.addr, align 8
+  %call3 = call ptr %4(ptr noundef %5, ptr noundef %6)
   store ptr %call3, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %a.addr, align 8
-  %cmp = icmp eq ptr %6, @_Py_TrueStruct
+  %7 = load ptr, ptr %a.addr, align 8
+  %cmp = icmp eq ptr %7, @_Py_TrueStruct
   %conv = zext i1 %cmp to i32
-  %7 = load ptr, ptr %b.addr, align 8
-  %cmp4 = icmp eq ptr %7, @_Py_TrueStruct
+  %8 = load ptr, ptr %b.addr, align 8
+  %cmp4 = icmp eq ptr %8, @_Py_TrueStruct
   %conv5 = zext i1 %cmp4 to i32
   %and = and i32 %conv, %conv5
   %conv6 = sext i32 %and to i64
@@ -1146,8 +1152,8 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1170,21 +1176,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i32 0, i32 10), align 8
-  %nb_xor = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i32 0, i32 14
-  %3 = load ptr, ptr %nb_xor, align 8
-  %4 = load ptr, ptr %a.addr, align 8
-  %5 = load ptr, ptr %b.addr, align 8
-  %call3 = call ptr %3(ptr noundef %4, ptr noundef %5)
+  %2 = getelementptr inbounds %struct._typeobject, ptr @PyLong_Type, i32 0, i32 10
+  %3 = load ptr, ptr %2, align 8
+  %nb_xor = getelementptr inbounds %struct.PyNumberMethods, ptr %3, i32 0, i32 14
+  %4 = load ptr, ptr %nb_xor, align 8
+  %5 = load ptr, ptr %a.addr, align 8
+  %6 = load ptr, ptr %b.addr, align 8
+  %call3 = call ptr %4(ptr noundef %5, ptr noundef %6)
   store ptr %call3, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %a.addr, align 8
-  %cmp = icmp eq ptr %6, @_Py_TrueStruct
+  %7 = load ptr, ptr %a.addr, align 8
+  %cmp = icmp eq ptr %7, @_Py_TrueStruct
   %conv = zext i1 %cmp to i32
-  %7 = load ptr, ptr %b.addr, align 8
-  %cmp4 = icmp eq ptr %7, @_Py_TrueStruct
+  %8 = load ptr, ptr %b.addr, align 8
+  %cmp4 = icmp eq ptr %8, @_Py_TrueStruct
   %conv5 = zext i1 %cmp4 to i32
   %xor = xor i32 %conv, %conv5
   %conv6 = sext i32 %xor to i64
@@ -1193,8 +1200,8 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1217,21 +1224,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i32 0, i32 10), align 8
-  %nb_or = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i32 0, i32 15
-  %3 = load ptr, ptr %nb_or, align 8
-  %4 = load ptr, ptr %a.addr, align 8
-  %5 = load ptr, ptr %b.addr, align 8
-  %call3 = call ptr %3(ptr noundef %4, ptr noundef %5)
+  %2 = getelementptr inbounds %struct._typeobject, ptr @PyLong_Type, i32 0, i32 10
+  %3 = load ptr, ptr %2, align 8
+  %nb_or = getelementptr inbounds %struct.PyNumberMethods, ptr %3, i32 0, i32 15
+  %4 = load ptr, ptr %nb_or, align 8
+  %5 = load ptr, ptr %a.addr, align 8
+  %6 = load ptr, ptr %b.addr, align 8
+  %call3 = call ptr %4(ptr noundef %5, ptr noundef %6)
   store ptr %call3, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %a.addr, align 8
-  %cmp = icmp eq ptr %6, @_Py_TrueStruct
+  %7 = load ptr, ptr %a.addr, align 8
+  %cmp = icmp eq ptr %7, @_Py_TrueStruct
   %conv = zext i1 %cmp to i32
-  %7 = load ptr, ptr %b.addr, align 8
-  %cmp4 = icmp eq ptr %7, @_Py_TrueStruct
+  %8 = load ptr, ptr %b.addr, align 8
+  %cmp4 = icmp eq ptr %8, @_Py_TrueStruct
   %conv5 = zext i1 %cmp4 to i32
   %or = or i32 %conv, %conv5
   %conv6 = sext i32 %or to i64
@@ -1240,8 +1248,8 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 declare i32 @PyErr_WarnEx(ptr noundef, ptr noundef, i64 noundef) #1
